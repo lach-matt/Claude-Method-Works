@@ -36,8 +36,11 @@ computed), and the tower is `tower-2.py`; both are imported **by path** and neve
 | structural half | ℛ over the layout: 90 held, 126 admitted, E = 36 | `PINNED` |
 | channels, per ion | charge, Nₑ, ℓ, mult, p, n₀, B, δ measured, δ by equation, residual, grade, witness, bound | `READ` + `PINNED` |
 | collapse | C(Z, ℓ) | `RECOVERED` |
-| Λ₈ | the ionisation ladder as transition cells, the seven constraints, the caps each needs | `RECONSTRUCTED` |
+| Λ₈ | the element's cells as the record builds them (every transition among its occupied subshells) | `RECOVERED` |
+| ionisation ladder | the steps between the ions as transition cells, the seven constraints, the caps each needs | `RECONSTRUCTED` |
 | **series limit** | the measured ionisation limit, its uncertainty and its provenance | `READ` / `FITTED` |
+| equation domain | per channel: validated, or extrapolated and why (the record's rule over the csv's notes) | `DERIVED` |
+| ground basis | Z = 103 to 108: NIST holds the ground level alone; the ionisation energy's basis | `READ` |
 
 `--axes` prints the full inventory with a source for every row.
 
@@ -51,7 +54,12 @@ and every channel moved when it was fitted from the series instead — **987,662
 that writing it as a formula is *"the single most damaging thing that can be done to a channel."*
 
 So the axis is `READ` where a source printed the value and `FITTED` where a run recovered it, and it
-is **`None` where neither** — four stages are banked out of every stage of every element. An absent
+is **`None` where neither** — thirteen stages are banked out of every stage of every element: the
+four of the registers, and since 2026-10-17 the nine neutral limits COORDINATES-2.13 prints in the
+bound note of its 25 rows from the 2026-08-14 NIST fetch (B, Na, Al, Ga, In, Cs, Lu, Tl and Fr I),
+`READ`. The CSV prints them with no unit; they are cm⁻¹, because each equals NIST's ionisation
+energy for that spectrum in cm⁻¹ to every printed digit and the rows' defects recompute from NIST's
+levels only in that unit (`tools/seriesdefect.py`, below). An absent
 limit is not filled in: register 2469 withdrew ten Ba III channels built on an invented one, because
 *"a quantum defect is n − Z√(R/(limit − level)) and is meaningless without it."* Absent means
 levels-only.
@@ -63,6 +71,11 @@ implying a spurious `Z^6.4` — the deficits are `103.94`, `329.80`, `816.68` at
 `Z⁴` law holds. Register 3353 identifies what they are: **the Sommerfeld–Dirac relativistic term less
 the 1s Lamb shift**, at a ratio of **0.8849 ± 0.0069**, constant to under one per cent. The selftest
 pins all of it, including the wrong baseline, so the `Z^6.4` fault cannot creep back.
+
+**The deficit belongs to one-electron stages only.** `Z²R_M` is the limit of a one-electron ion, so
+`limit_deficit()` returns `None` unless the charge is Z. Before that guard (2026-10-17) the report gave
+the two banked many-electron stages, B IV and P IV, "deficits" of −651,301 and −24,274,907 cm⁻¹
+against a baseline that is not theirs, and called them the relativistic term less the Lamb shift.
 
 ## Status, carried and not flattened
 
@@ -147,19 +160,24 @@ charge 1 to 10. COORDINATES-2.13 now holds 358 measured channels, so the samples
 and the numbers are not expected to match exactly. The report says so rather than claiming the
 recorded figures.
 
-## Two findings in the spectra index
+## Two findings in the spectra index, measured to the row
 
 **1. The `B` column was built on a withdrawn configuration table.** `--check-B` computes the Pauli
-bound `B = min(p, n₀ − ℓ − 1)` (register 1141) under both tables:
+bound `B = min(p, n₀ − ℓ − 1)` (register 1141) under both tables, over the rows whose core the
+observed table holds:
 
 ```
-  B from the OBSERVED configurations (register 1306):  100459  97.66%
-  B from AUFBAU configurations:                        101559  98.72%
+  rows with an integer B and a core inside the table: 99687
+  B from the OBSERVED configurations (register 1306):   98583  98.89%
+  B from AUFBAU configurations:                         99687  100.00%
+
+  every integer row with Z <= 118: 101303; aufbau reproduces 101303
 ```
 
-Aufbau wins, and every disagreement lands on the elements where the two tables part company — La
-(244 rows), **Pd** (144), Ce, Ac, Th, Gd, **Lr** (60), Pa, U, Np, Cm. Pd and Lr are the two cases
-register 1306 names explicitly when it withdraws the aufbau table:
+Plain Madelung aufbau, with no exception patched and n₀ the first entirely unoccupied n, reproduces
+**every** integer B the column holds. Every disagreement with the observed table lands where the two
+tables part company — the cores of La (244 rows), **Pd** (144), Ce, Ac, Th, Gd, **Lr** (60), Pa, U,
+Np, Cm. Pd and Lr are the two cases register 1306 names explicitly when it withdraws the aufbau table:
 
 > Every previous version built configurations by aufbau and patched exceptions by hand; that table
 > was wrong at Pd — aufbau plus my patch gave [Kr]4d⁹5s and the truth is [Kr]4d¹⁰ with no 5s — and
@@ -167,33 +185,104 @@ register 1306 names explicitly when it withdraws the aufbau table:
 
 Register 1306 corrected the configurations. **COORDINATES-2.13 was never rebuilt on them**, and
 nothing in `DEFERRED.md` or `DOCKET.md` records that it is outstanding. `--config aufbau` reproduces
-the index as it stands; `--config observed` (the default) computes what register 1306 implies.
+the index as it stands; `--config observed` (the default) computes what register 1306 implies, and
+the site shows that B with the CSV's beside it, every disagreement (1,104 rows) marked.
 
-**2. The `B` column is overloaded.** 104,807 rows carry the integer Pauli bound; **25 measured rows**
-from the 2026-08-14 NIST fetch carry a *float* — a dispersion of the median defect, not a bound.
-Reading the column as a bound is wrong in those 25 rows, so `csv_bound()` returns `None` there and
-the report says `B column is not a bound here` rather than comparing an integer against a spread.
+**2. The `B` column is overloaded, three ways** (`csv_B_reading()`):
 
-## Λ₈, and why an element is not a cell
+| reading | rows | what the value is | status |
+| --- | ---: | --- | --- |
+| `bound` | 101,303 | the Pauli bound on the aufbau table | `READ` |
+| `range` | 25 | the **range** (max − min) of the series' quantum defects, whose median is the row's δ | `RECOVERED` |
+| `zero` | 3,504 | 0 in every row of Z = 119 and 120: the bound on neither table | `READ` |
 
-Chapter 7 makes a Λ₈ cell a **transition** — a source configuration, a target configuration and the
-electron count moved between them — so an element is not a cell and a mapping has to be chosen. The
-one chosen here is the element's own **ionisation ladder**, read off the observed configurations:
-at each step the electrons lost leave a source subshell and the subshell that differs identifies the
-target. Nothing in the store fixes this mapping, so it is `RECONSTRUCTED` and a later ruling can
-move it. 2S is left `None` where the ion's term is not carried — the envelope 2S ≤ k admits values
-no k electrons can hold (§7.1), so it may not be inferred.
+The 25 are the measured rows of the 2026-08-14 NIST fetch. Until 2026-10-17 they were described as
+"a dispersion of the median defect", which was never measured. `tools/seriesdefect.py` measures it.
+It takes each series' members from NIST's own levels (`tables/nist-levels/`, nine spectra), with the
+printed limit in cm⁻¹ and the Rydberg reduced by the standard atomic weight, and reproduces the
+printed member count, n range, δ as the median and B as the range in **25 of 25** rows, to the five
+decimals printed. With R∞ no δ reproduces, and with ¹¹B's mass in place of boron's standard weight
+the boron rows fail, so the source's conventions are fixed too. The 3,504 zeros were not noticed
+before: `--check-B` once reported them as 1,308 rows "neither table reproduces". `csv_bound()` returns
+`None` for both readings that are not bounds, so neither is ever compared with one.
+
+## The equation's domain, per channel
+
+"The equation is VALIDATED in the verified-plus-possible region and EXTRAPOLATED outside it"
+(registers 1193–1194), and since 2026-10-17 every channel says which (`channel_domain()`, `DERIVED`).
+The rule is register 1192's: a channel is outside where the element has no long-lived isotope
+(Z > 103), the ion is above charge 10, the core is open-shell at 3, 16 or 119 parents, or the series
+is unresolved above ng. The parent count is a property of the stage, read from the CSV's note on any
+row of it (a measured row carries no note of its own). An unresolved series applies only where
+nothing in the channel is measured.
+
+`domain_census()` holds the reading against the registers' own figures:
+
+| | measured here | the record |
+| --- | ---: | ---: |
+| unmeasured cells, Z > 103 | 24,312 | 24,312 (register 1192) |
+| unmeasured cells, charge > 10 | 61,748 | 61,748 |
+| unmeasured cells, series unresolved | 5,366 | 5,367 |
+| unmeasured cells, open-shell core | 5,481 | 5,476 |
+| measured rows outside: three-parent, sixteen-parent, charge > 10 | 24, 15, 12 | 24, 15, 12 (register 1193) |
+| rms residual, measured rows inside (before the 2026-08-14 fetch) | 0.1475 over 282 | 0.147 (register 1205's re-test), over 277 |
+
+The two largest exclusions and all 51 of register 1193's are exact. The last two cell counts differ
+by 1 and 5, and the in-region set has five rows more than the record's 277. The CSV is a later state
+than the survey, and the rows that moved are not identified. The 25 rows of the 2026-08-14 fetch fall
+inside the domain, with an rms of 0.377.
+
+## Λ₈, and how an element maps onto its cells
+
+Chapter 7 makes a Λ₈ cell a **transition**: a source configuration, a target configuration and the
+electron count moved between them. So an element is not a cell, and the book says which cells
+stand for it. §12.11.1.6 (main L3318): *"Λ has no Z. Every constraint is internal to one atom … Building
+cells (Z, n, ℓ, k, q, e, f, g) from real occupied subshells gives 4,325"* (register 628).
+
+`element_cells(Z)` builds them by the record's own rule, the enumeration in `close_L118.py`'s `run()`
+(the instrument behind register 529's 18,288 tests, in the restore point at
+`extracted/archives/restore-point-2-13/`):
+
+- the source is an occupied subshell (n, ℓ) with its real occupancy k;
+- the target is another subshell (e, f) the same atom holds;
+- q = 1 … k electrons are moved, and g = 1 … min(q, 4f + 2) placed.
+
+The table is read from that file by path, after its md5 is checked; its tail runs the test pass and
+exits, so only the table is executed. The cells are **`RECOVERED`**. `element_cells_census()`
+reproduces every figure the record prints of them: 118 elements, 247 subshells, 18,288 tests, 4,325
+cells, 982 composable within one element and 3,686 across the table, and register 629's
+selection-rule splits. `--element-cells-E` re-measures E = 972,862 with Z and 28,503 without it, in
+about three minutes.
+
+Λ closes because it has no Z. For Z = 1 to 108 every subshell the record's table lists carries
+`LW1-ground.py`'s occupancy. The selftest checks that, and that every cell satisfies the six
+constraints decidable without 2S. Fifteen elements have one listed subshell and so no cell. See
+`docs/CAVEATS.md`.
+
+**The ionisation ladder** (`ionisation_cells`) is a different object, kept beside the cells as a
+`RECONSTRUCTED` reading: the steps between an element's ions, read off the observed configurations.
+At each step the electrons lost leave a source subshell, and the subshell that differs identifies the
+target. It stood in the record's place until 2026-10-18; an earlier search had looked for a ruling only
+in the governance files, and missed the book's own construction. 2S is left `None` where the ion's
+term is not carried: the envelope 2S ≤ k admits values no k electrons can hold (§7.1), so it may not
+be inferred. Measured: all **5,778** ladder steps of Z = 1 to 108 satisfy the six decidable
+constraints, and **1,107** lie within §7.4's standing caps.
 
 ## `--selftest`
 
-77 fixtures. The seated members as imported (108 elements, 108 of 108 electron counts, |Λ₈| = 976
+137 fixtures. The seated members as imported (108 elements, 108 of 108 electron counts, |Λ₈| = 976
 and the whole tower 1,654 / 2,535 / 13,585 / 70,905 / 199,130); chapter 6's ninety main-table cells
 and the twenty-eight set aside; **ℛ reproducing the thirty-six by identity**, not merely by count —
 (p1,g2)…(p1,g17), (p2,g3)…(p2,g12), (p3,g3)…(p3,g12); the Janet blocks opening at Sc, La and Ac;
 the recovered ramp at all three ℓ; the hydrogenic channel returning **exactly** zero at Nₑ = 1
 (register 5193: the (Nₑ−1)/Nₑ factor vanishes identically, so no parameter can move it); the Pauli
 bound at He I and Be I; §7.1's seven constraints firing and failing where they should; and the
-equation reproducing the computed column under both configuration tables.
+equation reproducing the computed column under both configuration tables. Since 2026-10-17 also:
+n₀'s reading reproducing all 101,303 integer B values on the aufbau table, with the other reading
+held below 90 %; the B column's three readings counted (101,303 / 25 / 3,504); the nine neutral
+limits held against the CSV's notes; the deficit refused at every stage that is not one-electron;
+the ground basis of Lr to Hs; and the domain census against registers 1192 and 1193. Since
+2026-10-18, the record's element cells against registers 529, 628 and 629.
 
 Current state: `SELFTEST OK`.
 
@@ -202,14 +291,15 @@ Current state: `SELFTEST OK`.
 - **The tower above Λ₈ is not populated per element.** 2S′, v, 2J_c, 2K and 2J need the ion's term
   and coupling scheme; the ground *level* is carried in `LW1-ground.py` but parsing `4I*15/2` into a
   coupling assignment is a separate instrument.
-- **n₀'s reading is `RECONSTRUCTED`.** Register 1141 states `B = min(p, n₀ − ℓ − 1)` and names the
-  terms but does not say whether a partially filled subshell counts as allowed. Both readings were
-  measured against the column: "first n with room" matches 87.0%, "first entirely unoccupied n"
-  97.7%. He I ns settles it — the core is 1s¹, the column gives B = 1, and only the second returns 1.
-- **The equation is validated in its stated domain and extrapolated outside it.** MC section Q's
-  "validated domain" object governs; this tool does not re-state that boundary per channel.
-- **Elements above Z = 108 are not populated.** `LW1-ground.py` stops there because measurement does.
-  COORDINATES-2.13 carries rows to Z = 120, and those channels report the equation's value with no
-  configuration behind it, which is why `--check-B` shows 1,308 rows neither table reproduces —
-  nearly all of them Z = 119 and 120.
-- **The ionisation ladder is one mapping, not the mapping.** See above.
+- **Elements above Z = 108 are not populated.** `LW1-ground.py` stops at hassium because NIST's
+  neutral ground levels do (its neutral rows end at Hs I; Mt and Ds appear only as ions), not because
+  measurement does — measurement stops earlier. From Lr to Hs NIST holds the ground level of each
+  neutral spectrum and no excited level, and the ionisation energy it prints is measured only for Lr:
+  ab initio for Rf and Db, semi-empirical for Sg, Bh and Hs (`GROUND_ONLY`, read 2026-10-17). The
+  record carries those six as `ground_basis`. COORDINATES-2.13 carries rows to Z = 120; those
+  channels report no configuration, and their B column holds 0 throughout.
+
+**Closed on 2026-10-17** (see `docs/CAVEATS.md`): n₀'s reading, once `RECONSTRUCTED` at 97.7 % against
+87.0 % on the observed table, is `RECOVERED` at 101,303 of 101,303 on the column's own table; the
+equation's domain, once "not re-stated per channel", is now stated on every channel.
+- **The ionisation ladder is a reconstruction beside the record's cells.** See above.

@@ -227,12 +227,43 @@ figure. A `READ` δ is printed with the digits the csv carries (`0.09803`, not `
 residual below 10⁻³ is printed in exponent form on the plates as it is in the solver, so
 `6.0329e-7` never reads as `0.0000`.
 
-Six caveats travel with the data and are shown where they bite (`index.js` → `caveats`): the
-Z > 108 boundary; the B column built on the withdrawn aufbau table (register 1306); the 25 measured
-rows whose B is a dispersion, not a bound; the Λ₈ mapping being one reconstruction; the equation's
-validated domain; and n₀'s reading. Each is drawn from `docs/POPULATE.md`'s "Known gaps" and
-"Two findings", and a cell where B disagrees between the csv and the observed configurations
-shows **both** values with the disagreement marked — recorded, never repaired.
+Eleven caveats travel with the data and are shown where they bite (`index.js` → `caveats`). On
+2026-10-17 each was reviewed against the evidence (`docs/CAVEATS.md`), and each now carries a
+`state`, `repaired`, `measured`, `standing` or `open`, with the review date; a repaired caveat keeps
+what it said before as `was`, which the root plate and Help print under it.
+
+- **Repaired:**
+  - the Z > 108 boundary, which is where NIST's neutral ground levels stop, not "where measurement
+    does";
+  - the B column's overloads: the 25 floats are the range of each series' quantum defects
+    (`tools/seriesdefect.py`, 25 of 25), and the 3,504 rows at Z = 119–120 hold a bare 0;
+  - the equation's domain, which is now stated on every channel and plate (`domain`, `DERIVED`) and
+    reproduces registers 1192–1193;
+  - the limit kind, whose printed limits are now shown in cm⁻¹;
+  - n₀'s reading, now `RECOVERED`;
+  - the Löwdin caveats: `relativistic-not-held` is renamed `relativistic-recovered`, and
+    `record-eleven` no longer says the paper's text is uncorrected.
+- **Measured:**
+  - the B column built on the withdrawn aufbau table, with all 101,303 integer rows reproduced and
+    the 1,104 that differ on the observed table marked;
+  - the new `ground-103-108`: from Lr to Hs NIST holds only the ground level, with a calculated
+    ionisation energy from Rf on, shown on those six element plates.
+- **Standing:** the reconstructed walk.
+- **Repaired on 2026-10-18, from the book:** the Λ₈ mapping. The first review left it "open, the
+  author's decision", but the main volume's §12.11.1.6 builds an element's cells itself: every
+  transition among its own occupied subshells. Each element's plate now lists them (`lambda8_cells`,
+  `RECOVERED`), with the census in `lambda8_elements`, and every figure the record prints reproduces.
+  The ionisation ladder is kept beside them, relabelled a reconstruction.
+
+A cell where B disagrees between the csv and the observed configurations shows **both** values with
+the disagreement marked. The csv is never edited.
+
+`index.js` carries two blocks the review added:
+- `b_column`: the three readings, both tables' reproduction, and the 25 recomputed rows;
+- `equation_domain`: the rule, the census against the registers' figures, and the rms residual on
+  each side.
+
+The selftest pins every figure.
 
 ## What `index.js` carries beyond the layout
 
@@ -299,21 +330,46 @@ decades and ranks in the index's alphabet, χ² + Q̃² against 1, F by the pari
 by the pairing rule where it applies, the horizon-bound class at every dimension from the exact
 solutions, the body's cell in the index where it is a charted member, and every quantity as a
 ratio against a reference body (the field at equal distance scales as M). The angular momentum is
-the banked lowest level of a single species (READ), typed (no status) or refused — a molecule's is
-never inferred — and a mass with no isotope is refused, because no atomic-weight table is held.
-Its selftest recomputes the index's own figures from the rows: the member count, the decade
-alphabets, the forced and vanishing counts, the 914 cells and the cells per dimension, the 684
-relieved, the 294 Schwarzschild nuclides, the two bounds, a sample of members against their
-exported χ, Q̃ and cells, and the mass of ¹H₂¹⁶O against the generator's own arithmetic.
+a single species' banked ground level (READ), or for a neutral atom the ground term its element
+record holds (READ, NIST ASD: Fe I ⁵D₄, so 2J = 8), typed (no status), or refused — a molecule's is
+never inferred. **An excited level is never taken for the lowest**: 33 of the 126 banked level
+tables start above the ground, C I at 3s ³P° (60,333 cm⁻¹, 7.5 eV), and the mode reads such a
+body at the ground with the record's term, the index's own cell still reported at its banked
+level and said to be. An ion whose table starts above the ground has no ground term held, so its
+χ is refused and its mass is the ground's. **F and the bound class** are established only where
+the physics establishes them: F ≠ 0 by an odd fermion count; for an even-even nucleus the pairing
+rule sets the nuclear spin to 0, so F = J either way; otherwise the nuclear spin, banked nowhere,
+may cancel the electrons' J (¹H's ground level is F = 0), and each dimension's class is given
+only where both branches agree and left undecided, with both, where they do not. A typed 2J is
+the body's alone, never the reference's. **An element written without its isotope is its most
+abundant one** by the CIAAW compositions (`tools/atomicweights.py`, `docs/ATOMIC-WEIGHTS.md`),
+said so with its share, the mass then DERIVED; the molar mass of the natural substance is the sum
+of the CIAAW standard atomic weights (water 18.015 g/mol), and an element with none (Tc, Pm, Po
+to Ac, Np and beyond) is refused rather than given a mass. A particle is read by its common name
+too (proton, electron, muon, photon), a name that is several particles (pion, kaon, neutrino) is
+listed and never chosen, and a massless particle's χ and Q̃ are refused as undefined, not
+infinite. Before 2026-10-17 these were all refusals or worse: "Fe" and "water" had no mass, ⁵⁶Fe no
+χ, ¹²C a mass 7.5 eV too high, and ²³Na a rotating class it had not established. Its selftest
+recomputes the index's own figures from the rows: the member count, the decade alphabets, the
+forced and vanishing counts, the 914 cells and the cells per dimension, the 684 relieved, the 294
+Schwarzschild nuclides, the two bounds, a sample of members against their exported χ, Q̃ and
+cells, and the mass of ¹H₂¹⁶O against the generator's own arithmetic; and since 2026-10-17 each
+of the readings above, two runs of the mode as a reader runs it, and the particle names against
+the loaded indexes.
 
 **The twelfth mode, the builder** (`MODE_BUILDER`), reads an atom, ion or molecule with the same
-reader into its atoms, electrons, protons and nucleons, its exact mass where every isotope is
-given, each atom's record (the neutral ground configuration and level, the channels and ions the
-index holds, the banked lowest level of the species where one is held) as chips into the explorer,
+reader into its atoms, electrons, protons and nucleons, its exact mass (each element's most
+abundant isotope where none is typed, said so), the molar mass of the natural substance from the
+CIAAW standard atomic weights, each atom's record (the standard atomic weight, the neutral ground
+configuration and level, the channels and ions the index holds, the banked ground level of the
+species, or that its table starts above the ground) as chips into the explorer,
 the Λ₈ cell of a single ion from its element's ladder (RECONSTRUCTED), and the same gravitational
 quantities, with a button into the gravity mode. **It draws no bond and defines none**: the finding
 on the site is that a bond cannot be indexed, and the row that would carry a bond order carries
-that refusal instead. Everything not derivable from what is held is refused by name.
+that refusal instead. Everything not derivable from what is held is refused by name. A bare
+nucleus is read by its name (proton, deuteron, triton, helion, alpha particle: ¹H⁺ to ⁴He²⁺), and a
+particle that is not an atom (electron, muon, photon) is sent to the gravity mode rather than refused
+unread.
 
 **Names as well as formulas.** The builder, the gravity mode (body and reference), the two
 equation modes, every mode's element input and the search box read a species by name as well as
@@ -333,7 +389,8 @@ refused rather than guessed. In an equation an element name reads as the element
 substance, so "methane + oxygen → carbon dioxide + water" balances as CH₄ + 2 O₂ → CO₂ + 2 H₂O. The
 formula always wins where the text is one, so NO is nitric oxide and No is nobelium. In the search
 box a molecule or ion opens the builder and the gravity mode with its formula, a nuclide opens in
-its element's nest, and a number above Z after an element (Fe 56) is read as a mass number. The
+its element's nest, a particle by its common name (proton) offers its plate and its gravity, and a
+number above Z after an element (Fe 56) is read as a mass number. The
 builder's and the balancer's browser selftests pin the readings.
 
 ## The relativistic limit and the bounds facet
@@ -1023,7 +1080,32 @@ linked by pattern), records its md5 against the store's, copies every figure it 
 extracted tree by the ledger row of the paper's own archive (`PAPER_FIGURE_ARCHIVES`, because two
 archives hold a `fig1_shape_sphere.png` and only one is the paper's) with the ledger md5 beside the
 measured one, and writes the lot to `data/papers.js`, loaded on demand (`ensurePapers`). The reader
-carries a table of contents, the figures inline, a cite line per paper and the md5. The text is the
+carries a table of contents, the figures inline, a cite line per paper and the md5. The cite line
+ends in the paper's own address, `#paper=<slug>`, and the router opens it (`applyHash` →
+`openPaper`): the Papers dialog on that paper, the explorer staying where it was, at the root on a
+first load, and focus on the paper so the keyboard scrolls it. The address is read as a citation is
+pasted — decoded, cut at a query, trailing punctuation dropped, any case — and an address naming no
+held paper says so and offers the list. From then on the address names what the dialog shows
+(`paperAddress`, by `replaceState` as the explorer's own routes are written): reading another paper
+names that one, the list and closing the dialog give the explorer its own address back, so the same
+citation followed again reopens the paper, and leaving a paper's address (Back, a typed route)
+closes it. With the Navigation API, a paper shown over the explorer's entry gets an entry of its
+own, so Back closes it, and where the entry beside the current one already holds the address
+wanted (a citation followed inside the page pushes one) the page steps to it rather than write a
+copy, so Back and Forward never pass through an entry with nothing changing. Without the API every
+write replaces the entry, as the explorer's routes do: nothing navigates wrongly, but Back leaves a
+paper read from the list as it did before, and a citation closed inside the page leaves one entry
+that Back passes through. Back onto the entry a paper was shown over closes it without selecting
+the explorer again, so the camera, the zoom and a phone's scroll stay as the reader left them; a
+selection that lands while the address names a paper (a slow load finishing behind the dialog)
+moves the explorer only and leaves the paper's entry alone; and a load at a paper's address (a
+reload, a restored tab) puts the explorer on the node the entry behind the paper holds, where the
+Navigation API names it, so closing it returns there — and yields to the reader if they move the
+address on while that node is still loading (`opts.stale` in `select`). Every path that shows a paper puts focus on it (`focusPapers`), a rotation keeps
+the block at the top of the paper where it was, and while any dialog is open the explorer's keys
+(`h`, the arrows, `+`/`−`) do not act behind it. `tools/sitecheck.mjs` clicks through all of it in
+headless Chromium at the site's own address (`docs/SITECHECK.md`). Until 2026-10-16 the router did not read that form,
+and a citation's address opened the front page. The text is the
 author's own and is shipped as written — the public-build guard is not run over `papers.js`, and
 the three-body paper's own citations of the books stay its own. **The hierarchy law paper is the third**, and
 it comes from the research tree rather than the store (`RESEARCH_PAPERS`:
@@ -1062,10 +1144,50 @@ the image handler resolves each against the paper's own directory, copies it to
 research-tree papers had every image replaced by a placeholder, and that branch of the handler
 still does so for a paper without `own_figures`. The PDF beside each, in `papers/method/pdf/`, is the
 review render and is offered as a download with its md5. The card's note names the papers directory
-as the origin (`origin`). The selftest asserts the fourteen in order, that every one of the ten
+as the origin (`origin`). The selftest asserts the fifteen in order, that every one of the ten
 carries every figure it cites and its PDF, and that the guard measures zero book citations in each;
 the guard's name map (`PUBLIC_NAMES`) carries each paper's path so that the path the site prints
 resolves to the paper's short name and not to a file name.
+
+**Everything Is Relative is the fifteenth** (`RESEARCH_PAPERS`:
+`research/warp-drive/paper/EVERYTHING-IS-RELATIVE.md`), released by the author to the Prints & Proofs
+folder on 2026-10-16. It merged to the research tree on `main` after the commit the particle indexes
+pin with `--warp-root`, so that tree does not hold it; the spec's `from_repo` flag reads it, its PDF
+and its last commit from this checkout's own `research/warp-drive/paper/` whatever `--warp-root`
+says. `research_commit` also takes the named tree's commit only for a path under
+`research/warp-drive/`, the only paths `research_path` redirects — the ten papers of
+`papers/method/` had been stamped with the tree's commit, and now carry their own. Its title block
+is a YAML front-matter header rather than a `#` line and a bold byline: `_front_matter` reads its
+flat `key: "value"` lines (and takes nothing from a header of any other shape, which then renders
+as written), the title is the header's, the byline its author and date, and `_front_matter_html`
+renders the title, the subtitle as the bold standfirst and the byline in the shape the other papers
+write as text. The Drive copy was fetched by id and seated with `drive_sync.py --adopt`, row
+`ok-adopted`, and is byte-identical to the PDF beside the text, which `pdf.witness` records. The
+guard measures its own section marks (§) and one more hit, a journal page in its references (ApJL
+848 (2017) L13), which the line-reference pattern also catches and which is carried as its own term;
+it cites nothing from the books. The selftest pins its source, commit, title, byline, PDF and
+witness, 12 arXiv and 12 DOI identifiers, every heading, and the front-matter reader's refusals,
+and measures the routing directly: with a `--warp-root` that holds nothing, this paper is still held
+from this checkout and the tree's own papers are not.
+
+**What this paper exposed in the renderer, repaired for every paper.** It was the first to need four
+things the renderer did not do, each as GitHub reads Markdown. An escaped pipe (`\|`) in a table
+cell is a literal pipe (`_table_cells`), where the row had been split at it — the hierarchy-law and
+bracket papers' tables carried the same fault. A backslash escape outside a code span is its
+character (`π\[F\]` is π[F], `R\_{tr}` is R_{tr}), where the backslash had been printed — the
+hierarchy-law, closure-law and beyond-the-atom papers carried it, the last with a bracket pair read
+as a dead link. A list item's unindented (lazy) continuation line stays in its item, where it had become a
+stray paragraph between two lists. And identifiers: a DOI may carry a balanced parenthesised group
+(Springer's JHEP DOIs, `10.1007/JHEP02(2016)020`), where the match had stopped at the parenthesis
+and linked a DOI that does not exist, and an old-style arXiv id may carry a version suffix
+(`gr-qc/0411023v3`), where it had not been found — and is not linked inside a URL or a Markdown
+link's target, which keeps its own link. Measured over every source the site reads, the two
+identifier repairs change this paper alone and leave the References dialog's counts as they were;
+the selftest checks that no paper's render keeps a backslash escape outside code or a table cell cut
+at an escaped pipe. A Markdown link is read only where its target is an address (`http(s)://`,
+`mailto:`, `#`, a path): the index paper writes operators applied to sets as `cl[L](X)`, which the
+bare `[text](target)` rule had turned into six links to a page named X. No paper on the site uses
+a link of any other kind, and the selftest carries the case.
 
 **Figures from the data.** The *Figures* dialog draws five figures in the browser, as SVG, from
 `index.js` when it opens — no image, no typed number, each caption naming its block and status,

@@ -64,6 +64,7 @@ import importlib.util
 import json
 import math
 import os
+import re
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -95,6 +96,37 @@ import cypher  # noqa: E402  -- R, the PINNED order operator of section 32.4.1
 
 LSYM = "spdfgh"
 SYMBOL_TO_Z = {sym: z for z, (sym, _c, _l) in LW1.GROUND.items()}
+
+# Where LW1-ground.py's table ends, and what its last rows rest on. Its ground
+# levels are NIST ASD's, and the table stops at hassium because NIST's neutral
+# rows do (Mt and Ds appear only as ions), not because measurement does. From
+# lawrencium to hassium NIST holds, for each neutral spectrum, the ground level
+# and NO excited level, and the ionisation energy it prints beside it is
+# measured only for Lr: in parentheses (ab initio) for Rf and Db, in brackets
+# (semi-empirical) for Sg, Bh and Hs, whose ground levels also carry no term.
+# READ from NIST ASD's energy-levels and ionisation-energy services, 2026-10-17.
+# (spectrum, ionisation energy in eV as NIST prints it, how it was determined)
+GROUND_ONLY = {
+    103: ("Lr I", "4.96", "measured"),
+    104: ("Rf I", "(6.02)", "ab initio (NIST's parentheses)"),
+    105: ("Db I", "(6.8)", "ab initio (NIST's parentheses)"),
+    106: ("Sg I", "[7.8]", "semi-empirical (NIST's brackets)"),
+    107: ("Bh I", "[7.7]", "semi-empirical (NIST's brackets)"),
+    108: ("Hs I", "[7.6]", "semi-empirical (NIST's brackets)"),
+}
+
+
+def ground_basis(Z):
+    """What the ground level of Z rests on, where it is not an observed spectrum; else None."""
+    if Z not in GROUND_ONLY:
+        return None
+    spec, ie, how = GROUND_ONLY[Z]
+    return {"spectrum": spec, "levels_held_by_nist": 1, "ionisation_energy_eV": ie,
+            "ionisation_energy_basis": how, "status": READ,
+            "source": "NIST ASD energy levels and ionisation energies, read 2026-10-17",
+            "note": ("NIST holds the ground level of %s and no excited level; its ionisation "
+                     "energy is %s" % (spec, "measured" if how == "measured" else
+                                       "calculated, " + how))}
 
 # ---------------------------------------------------------------------------
 # The periodic table, laid out as chapter 6 lays it out
@@ -230,14 +262,18 @@ def core_p(core_Ne, l, table="observed"):
 
 
 def n0_of(core_Ne, l, table="observed"):
-    """n0, the first Pauli-allowed n.
+    """n0, the first Pauli-allowed n: the first ENTIRELY UNOCCUPIED n at this l.
 
-    RECONSTRUCTED. Register 1141 states the bound and names its two terms; it
-    does not say whether a PARTIALLY filled subshell counts as allowed. Both
-    readings were measured against COORDINATES-2.13's own B column: "first n
-    with room" matches 87.0% of 102,871 rows, "first ENTIRELY UNOCCUPIED n"
-    matches 97.7%. He I ns settles it -- the core is 1s(1), the CSV gives B = 1,
-    and only the second reading returns 1."""
+    RECOVERED. Register 1141 states the bound and names its two terms; it does
+    not say whether a PARTIALLY filled subshell counts as allowed, so the
+    reading is measured out of COORDINATES-2.13's own B column on the table the
+    column was built on (aufbau, see check_B): "first ENTIRELY UNOCCUPIED n"
+    reproduces all 101,303 integer B values with Z <= 118, "first n with room"
+    88.86% of them. (Measured on the observed table instead, the two read
+    97.7% and 87.0%, because that table is not the column's; the earlier
+    RECONSTRUCTED status rested on those figures.) He I ns shows the difference
+    in one row: the core is 1s(1), the CSV gives B = 1, and only this reading
+    returns 1."""
     cfg = config_of(core_Ne, table)
     if cfg is None:
         return None
@@ -344,6 +380,117 @@ def channel_delta(Z, charge, l, table="observed"):
 
 
 # ---------------------------------------------------------------------------
+# The equation's domain -- registers 1191-1194
+# ---------------------------------------------------------------------------
+# "The equation is VALIDATED in the verified-plus-possible region and
+# EXTRAPOLATED outside it" (registers 1193-1194). Register 1192 names what puts
+# a cell outside: no analysed Rydberg data above charge 10; the element too
+# short-lived, Z > 103; the series unresolved above ng; an open-shell core at 3,
+# 16 or 119 parents. Register 1193's refit is the test of the reading: it kept
+# 277 measured channels and excluded 51 -- 24 three-parent cores, 15
+# sixteen-parent cores and 12 ions above charge 10 -- and channel_domain below
+# excludes exactly those 51 from the CSV's measured rows (domain_census).
+# DERIVED: the rule is the registers', the parent count and an unresolved
+# series are READ from COORDINATES-2.13's bound notes.
+
+_PARENTS = re.compile(r"open-shell core, (\d+) parents")
+
+
+def channel_domain(Z, charge, l, stage_rows):
+    """{'validated': bool or None, 'reasons': [...]} for the channel (Z, charge,
+    l). stage_rows are the CSV's rows of this element at this charge, every l:
+    an open-shell core is a property of the stage, so its note on any row of
+    the stage applies to every channel of it (a measured row carries no note of
+    its own). An unresolved series applies only to a channel with no measured
+    or exact row. None where the CSV holds no row of the channel."""
+    reasons = []
+    if Z > 103:
+        reasons.append("Z > 103: no long-lived isotope")
+    if charge > 10:
+        reasons.append("charge > 10: no analysed Rydberg data")
+    parents = sorted({int(m.group(1)) for r in stage_rows
+                      for m in [_PARENTS.match(r["bound"])] if m})
+    if parents:
+        reasons.append("open-shell core at %s parents" % " and ".join(map(str, parents)))
+    own = [r for r in stage_rows if int(r["l"]) == l]
+    if (not any(r["grade"] in ("measured", "exact") for r in own)
+            and any(r["bound"].startswith("series unresolved") for r in own)):
+        reasons.append("series unresolved above ng")
+    if not own and not reasons:
+        return {"validated": None, "reasons": ["not in the spectra index"]}
+    return {"validated": not reasons, "reasons": reasons}
+
+
+def domain_census(spectra):
+    """The partition counted two ways, against the registers' own figures.
+
+    by_note: register 1192's count of the improbable cells, each unmeasured row
+    with Z <= 118 put under the first of its exclusions in the register's order
+    (Z > 103, charge > 10, its own note an unresolved series, its own note an
+    open-shell core). measured: the CSV's measured rows split by channel_domain,
+    with the rms residual of the channel equation on each side; the in-domain
+    rows that predate the 2026-08-14 fetch are register 1193's refit set."""
+    by_note = {"Z > 103": 0, "charge > 10": 0, "series unresolved": 0,
+               "open-shell core": 0, "none of the four": 0}
+    stages = {}
+    for r in spectra.rows:
+        stages.setdefault((int(r["Z"]), int(r["charge"])), []).append(r)
+    verified = 0
+    for r in spectra.rows:
+        Z, q = int(r["Z"]), int(r["charge"])
+        if Z > 118:
+            continue
+        if r["grade"] in ("measured", "exact"):
+            verified += 1
+            continue
+        if Z > 103:
+            by_note["Z > 103"] += 1
+        elif q > 10:
+            by_note["charge > 10"] += 1
+        elif r["bound"].startswith("series unresolved"):
+            by_note["series unresolved"] += 1
+        elif _PARENTS.match(r["bound"]):
+            by_note["open-shell core"] += 1
+        else:
+            by_note["none of the four"] += 1
+    sides = {"in, before the 2026-08-14 fetch": [], "in, the 2026-08-14 fetch": [], "out": []}
+    out_reasons = {}
+    for r in spectra.rows:
+        if r["grade"] != "measured":
+            continue
+        Z, q, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+        dom = channel_domain(Z, q, l, stages[(Z, q)])
+        eq = channel_delta(Z, q, l)
+        if eq is None:
+            continue
+        res = float(r["delta"]) - eq
+        if dom["validated"]:
+            key = ("in, the 2026-08-14 fetch" if csv_B_reading(r) == "range"
+                   else "in, before the 2026-08-14 fetch")
+        else:
+            key = "out"
+            for why in dom["reasons"]:
+                k = why.split(":")[0]
+                out_reasons[k] = out_reasons.get(k, 0) + 1
+        sides[key].append(res)
+
+    def rms(v):
+        return math.sqrt(sum(x * x for x in v) / len(v)) if v else None
+    return {
+        "rows": sum(1 for r in spectra.rows if int(r["Z"]) <= 118),
+        "verified": verified,
+        "by_note": by_note,
+        "register_1192": {"Z > 103": 24312, "charge > 10": 61748,
+                          "series unresolved": 5367, "open-shell core": 5476},
+        "measured": {k: {"rows": len(v), "rms": rms(v)} for k, v in sides.items()},
+        "out_reasons": out_reasons,
+        "register_1193": {"in": 277, "out": 51, "three-parent": 24,
+                          "sixteen-parent": 15, "charge > 10": 12},
+        "register_1205_in_region_error": 0.147,
+    }
+
+
+# ---------------------------------------------------------------------------
 # The spectra index
 # ---------------------------------------------------------------------------
 
@@ -372,16 +519,36 @@ class Spectra:
                                           int(r["mult"])))
 
 
-def csv_bound(r):
-    """The CSV's B column, as the Pauli bound -- or None.
+def csv_B_reading(r):
+    """What the CSV's B column holds in this row, by measurement.
 
-    The column is OVERLOADED. In 104,807 rows it carries the integer Pauli
-    bound; in 25 measured rows from the 2026-08-14 NIST fetch it carries a
-    float, a dispersion of the median defect rather than a bound. Reading it as
-    a bound in those 25 rows is wrong, so this returns None and the report says
-    so rather than comparing an integer against a spread."""
+    'bound'  the Pauli bound on the aufbau table: every integer row with
+             Z <= 118, 101,303 of 101,303 (check_B);
+    'range'  the RANGE (max - min) of the series' quantum defects: the 25
+             measured rows of the 2026-08-14 NIST fetch, recomputed from NIST's
+             levels 25 of 25 by tools/seriesdefect.py (RECOVERED);
+    'zero'   Z = 119 and 120: 0 in all 3,504 rows, which is the bound on
+             neither configuration table."""
     v = r.get("B", "")
-    return int(v) if v.lstrip("-").isdigit() else None
+    if not v.lstrip("-").isdigit():
+        return "range"
+    return "zero" if int(r["Z"]) > 118 else "bound"
+
+
+def csv_bound(r):
+    """The CSV's B column, as the Pauli bound -- or None where it is not one.
+
+    The column is OVERLOADED: it holds the bound in 101,303 rows, the range of
+    a series' defects in 25 and a bare 0 in the 3,504 rows of Z = 119 and 120
+    (csv_B_reading). Reading either of the last two as a bound is wrong, so
+    this returns None there and the report names what the value is rather than
+    comparing it with a bound."""
+    return int(r["B"]) if csv_B_reading(r) == "bound" else None
+
+
+def csv_B_range(r):
+    """The range of the series' defects, in the 25 rows that carry it; else None."""
+    return float(r["B"]) if csv_B_reading(r) == "range" else None
 
 
 # ---------------------------------------------------------------------------
@@ -425,15 +592,14 @@ def within_caps(cell, caps=CAPS):
 def ionisation_cells(Z):
     """The ionisation ladder as Lambda_8 transition cells.
 
-    RECONSTRUCTED, and the reconstruction is stated rather than assumed.
-    Chapter 7 makes a Lambda_8 cell a TRANSITION -- a source configuration, a
-    target configuration and the electron count moved between them -- so an
-    element is not a cell and a mapping has to be chosen. The one chosen here
-    is the element's own ionisation ladder, read off the observed
-    configurations: at each step, the electrons the ion loses relative to the
-    neutral atom leave a source subshell, and the subshell that differs
-    identifies the target. Nothing else in the store fixes this mapping, so it
-    is marked RECONSTRUCTED and a later ruling can move it.
+    RECONSTRUCTED, and NOT the record's mapping of an element onto Lambda's
+    cells -- that is element_cells() below, the cells built from the element's
+    own occupied subshells. This is a different object kept beside it: the
+    steps between the element's ions, read off the observed configurations.
+    At each step the electrons the ion loses relative to the neutral atom
+    leave a source subshell, and the subshell that differs identifies the
+    target. It was shown in the record's place until 2026-10-18, when the
+    record's own construction was found (docs/CAVEATS.md).
 
     2S is the ion's own ground multiplicity where the term is known, else the
     envelope 2S <= k leaves it undetermined and it is reported as None."""
@@ -465,6 +631,153 @@ def ionisation_cells(Z):
 
 
 # ---------------------------------------------------------------------------
+# An element's Lambda cells, as the record builds them
+# ---------------------------------------------------------------------------
+# Lambda has no Z: every constraint is internal to one atom (main volume
+# section 12.11.1.6), and the record maps an element onto Lambda's cells by
+# building them from the element's own real occupied subshells -- "a cell is
+# (Z, n, l, k, q, e, f, g) where the source subshell (n, l) really holds k in
+# element Z, and the target (e, f) really exists in Z", q = 1..k electrons
+# moved and g = 1..min(q, 4f+2) placed. The enumeration is close_L118.py's
+# own: the instrument behind register 529's 18,288 tests (247 subshells x 4
+# constraints + 4,325 transitions x 4) walks exactly these cells, and over its
+# 118 configurations they are the 4,325 that register 628 counts -- 982
+# composable within one element, 3,686 across the table. RECOVERED: the book
+# states the rule, the record's instrument enumerates it, the chat instrument
+# behind register 628 builds it the same way, and every count the record
+# prints reproduces (the selftest). 2S is not enumerated, as in the record.
+RECORD_CONFIGS = os.path.join(REPO, "extracted", "archives", "restore-point-2-13",
+                              "close_L118.py")
+RECORD_CONFIGS_MD5 = "c6104968a8c61847975a5d5c8c4a0724"
+# What the record prints of these cells (registers 628, 629 and section
+# 12.11.1.6), held for the selftest. E with and without Z are re-measured by
+# element_cells_E(), which takes minutes and is run on request (--element-cells-E).
+RECORD_ELEMENT_CELLS = {"elements": 118, "subshells": 247, "cells": 4325,
+                        "composable_within": 982, "composable_across": 3686,
+                        "tests": 18288, "E_with_Z": 972862, "E_without_Z": 28503}
+_EC = {}
+
+
+def record_configurations():
+    """{Z: (symbol, [(n, l, k)])} -- the 118 ground configurations the record's
+    element cells are built on, READ from close_L118.py by path (its table only:
+    the file's tail runs its own test pass and exits). The valence beyond the
+    preceding noble core as that instrument lists it; Z >= 104 predicted. For
+    Z = 1 to 108 every subshell it lists carries LW1-ground.py's occupancy."""
+    if "configs" not in _EC:
+        import hashlib
+        with open(RECORD_CONFIGS, "rb") as fh:
+            raw = fh.read()
+        got = hashlib.md5(raw).hexdigest()
+        if got != RECORD_CONFIGS_MD5:
+            raise ValueError("close_L118.py is not the record's (md5 %s)" % got)
+        src = raw.decode("utf-8")
+        head = src[:src.index("def run():")].replace("from zeno import State, step", "")
+        ns = {}
+        exec(compile(head, RECORD_CONFIGS, "exec"), ns)
+        lmap = ns["L"]
+        _EC["configs"] = {Z: (sym, [(n, lmap[s], k) for (n, s, k) in sh])
+                          for Z, (sym, sh) in sorted(ns["C"].items())}
+    return _EC["configs"]
+
+
+def _cells_of(sh):
+    occ = {(n, l): k for n, l, k in sh}
+    out = []
+    for (n, l), k in occ.items():
+        for (e, f) in occ:
+            if (n, l) == (e, f):
+                continue
+            for q in range(1, k + 1):
+                for g in range(1, min(q, 4 * f + 2) + 1):
+                    out.append((n, l, k, q, e, f, g))
+    return out
+
+
+def element_cells(Z):
+    """The element's Lambda cells as the record builds them, or None where the
+    record's table has no row (Z = 119, 120). Each cell is (n, l, k, q, e, f, g);
+    'composable' means its target (e, f, g) is the source (n, l, k) of another
+    of this element's cells, the within-one-element reading of register 628."""
+    cfg = record_configurations().get(Z)
+    if cfg is None:
+        return None
+    sym, sh = cfg
+    cells = _cells_of(sh)
+    sources = {c[:3] for c in cells}
+    caps = lambda c: (c[0] <= CAPS["n"] and c[4] <= CAPS["e"] and c[1] <= CAPS["l"]
+                      and c[5] <= CAPS["f"] and c[2] <= CAPS["k"])
+    return {
+        "symbol": sym, "status": RECOVERED, "predicted": Z >= 104,
+        "subshells": [{"n": n, "l": l, "k": k} for n, l, k in sh],
+        "coords": ["n", "l", "k", "q", "e", "f", "g"],
+        "cells": [list(c) + [int((c[4], c[5], c[6]) in sources), int(caps(c))] for c in cells],
+        "count": len(cells),
+        "composable_within": sum(1 for c in cells if (c[4], c[5], c[6]) in sources),
+        "within_caps": sum(1 for c in cells if caps(c)),
+        "source": "the record's own construction: every transition among the element's "
+                  "occupied subshells, on the record's 118 ground configurations",
+    }
+
+
+def element_cells_census():
+    """The whole population against what the record prints of it."""
+    configs = record_configurations()
+    X = {(Z,) + c for Z, (_s, sh) in configs.items() for c in _cells_of(sh)}
+    by_z = {}
+    for c in X:
+        by_z.setdefault(c[0], set()).add(c[1:4])
+    across_sources = {c[1:4] for c in X}
+    within = sum(1 for c in X if c[5:8] in by_z[c[0]])
+    across = sum(1 for c in X if c[5:8] in across_sources)
+
+    def split(pred):
+        cs = [c for c in X if pred(c)]
+        return {"cells": len(cs), "within": sum(1 for c in cs if c[5:8] in by_z[c[0]]),
+                "across": sum(1 for c in cs if c[5:8] in across_sources)}
+    subshells = sum(len(sh) for _s, sh in configs.values())
+    return {
+        "elements": len(configs), "subshells": subshells, "cells": len(X),
+        "composable_within": within, "composable_across": across,
+        "cells_without_Z": len({c[1:] for c in X}),
+        "tests": 4 * subshells + 4 * len(X),
+        "em_allowed": split(lambda c: abs(c[2] - c[6]) == 1),
+        "em_forbidden": split(lambda c: abs(c[2] - c[6]) != 1),
+        "parity_changing": split(lambda c: (c[2] - c[6]) % 2 == 1),
+        "parity_conserving": split(lambda c: (c[2] - c[6]) % 2 == 0),
+        "record": RECORD_ELEMENT_CELLS,
+    }
+
+
+def element_cells_E():
+    """E over the record's cells with Z as a coordinate and with Z stripped, by the
+    closure the record used (each coordinate bounded by the running maximum of
+    another, the binary projections of section 14). Minutes, not seconds."""
+    import itertools
+    configs = record_configurations()
+    X = {(Z,) + c for Z, (_s, sh) in configs.items() for c in _cells_of(sh)}
+
+    def clos(cells, d):
+        cells = list(cells)
+        axes = [sorted({c[i] for c in cells}) for i in range(d)]
+
+        def env(a, b):
+            m = {}
+            for c in cells:
+                m[c[b]] = max(m.get(c[b], -99), c[a])
+            z, o = -99, {}
+            for t in sorted(m):
+                z = max(z, m[t])
+                o[t] = z
+            return o
+        ph = {(a, b): env(a, b) for a in range(d) for b in range(d) if a != b}
+        return sum(1 for x in itertools.product(*axes)
+                   if all(x[a] <= ph[(a, b)][x[b]] for a in range(d) for b in range(d) if a != b))
+    Y = {c[1:] for c in X}
+    return {"E_with_Z": clos(X, 8) - len(X), "E_without_Z": clos(Y, 7) - len(Y)}
+
+
+# ---------------------------------------------------------------------------
 # The report
 # ---------------------------------------------------------------------------
 
@@ -491,6 +804,21 @@ LIMITS = {
     (15, 4): (415551.8,    350.0, "FITTED",
               "four-member 3s.ns 3S run; register 3401"),
 }
+# The nine neutral limits COORDINATES-2.13 prints in the bound note of its 25
+# rows from the 2026-08-14 NIST fetch ("limit 41449.451; one electron outside a
+# closed shell"), each the denominator of those rows' defects. READ from the
+# CSV; the unit, which the CSV does not print, is cm^-1: each equals the
+# ionisation energy NIST prints for the spectrum, to every printed digit, and
+# the rows' defects recompute from NIST's levels only in that unit
+# (tools/seriesdefect.py). The selftest holds each against the CSV's note.
+for _Z, _sym, _v in ((5, "B", 66928.04), (11, "Na", 41449.451), (13, "Al", 48278.48),
+                     (31, "Ga", 48387.634), (49, "In", 46670.107),
+                     (55, "Cs", 31406.4677325), (71, "Lu", 43762.6),
+                     (81, "Tl", 49266.66), (87, "Fr", 32848.872)):
+    LIMITS[(_Z, 1)] = (_v, None, "READ",
+                       "COORDINATES-2.13's bound note for %s I; NIST's ionisation "
+                       "energy in cm^-1 (tools/seriesdefect.py)" % _sym)
+del _Z, _sym, _v
 
 # Deficits against the REDUCED-MASS Coulomb baseline Z^2 R_M, as banked in
 # register 3357. Be IV's limit is not quoted anywhere as a limit, only as this
@@ -529,9 +857,10 @@ def dirac_term(Z):
 def series_limit(Z, charge):
     """(value, sigma, status, provenance) for this stage, or None.
 
-    None is the honest answer and the common one: four stages are banked out of
-    every stage of every element. Register 2469 withdrew ten channels built on
-    an invented limit, so nothing is invented here.
+    None is the honest answer and the common one: thirteen stages are banked out
+    of every stage of every element -- the four of the registers and the nine
+    neutral limits COORDINATES-2.13 prints. Register 2469 withdrew ten channels
+    built on an invented limit, so nothing is invented here.
     """
     if (Z, charge) in LIMITS:
         return LIMITS[(Z, charge)]
@@ -549,7 +878,15 @@ def limit_deficit(Z, charge):
     Returns (deficit, dirac, ratio) or None. This is the one place exotic matter
     is measurably present on the periodic index: the deficit is the relativistic
     term less the 1s Lamb shift, of which vacuum polarisation is a part.
+
+    Only a ONE-ELECTRON stage (charge = Z) has Z^2 R_M as its baseline, so any
+    other stage returns None. Before this guard B IV and P IV, whose limits are
+    banked, were given "deficits" of -651,301 and -24,274,907 cm^-1 against a
+    baseline that is not theirs, and the report called them the relativistic
+    term less the Lamb shift.
     """
+    if charge != Z:
+        return None
     if (Z, charge) in DEFICITS_RM:
         d = DEFICITS_RM[(Z, charge)]
     else:
@@ -579,14 +916,19 @@ AXES = [
     ("charge", READ, "spectroscopic stage; 1 is neutral"),
     ("Ne", DERIVED, "electron count of the ion, Z - charge + 1"),
     ("p", PINNED, "the core's orbital count at this l (register 1141)"),
-    ("n0", RECON, "first entirely unoccupied n at this l; see n0_of"),
+    ("n0", RECOVERED, "first entirely unoccupied n at this l; the reading the B column "
+                      "reproduces on all its integer rows (see n0_of)"),
     ("B", PINNED, "min(p, n0-l-1), the Pauli bound (register 1141)"),
     ("delta measured", READ, "COORDINATES-2.13, grade measured/exact"),
     ("delta equation", PINNED, "the channel equation, final form (register 1205)"),
     ("C(Z)", RECOVERED, "the collapse coordinate, inverted out of COORDINATES-2.13's computed column (registers 1188-1190); see collapse_C"),
     ("witness", READ, "COORDINATES-2.13"),
     ("bound", READ, "COORDINATES-2.13"),
-    ("Lambda_8 cell", RECON, "the ionisation ladder as transitions; see ionisation_cells"),
+    ("Lambda_8 cell", RECOVERED, "the element's cells as the record builds them: every "
+                                 "transition among its own occupied subshells, on the "
+                                 "record's 118 ground configurations; see element_cells. "
+                                 "The ionisation ladder beside them is RECONSTRUCTED "
+                                 "(ionisation_cells)"),
     ("caps", PINNED, "section 7.4's (n,e,l,k,f) = (3,3,1,3,1)"),
     ("series limit", READ, "the measured ionisation limit; READ or FITTED per "
                            "registers 3249/3313/3401, never computed. The "
@@ -635,6 +977,7 @@ def populate(Z, spectra, charge=None, table="observed"):
         "block_letter": (LSYM[block_of(Z)] if block_of(Z) is not None else None),
         "set_aside": set_aside(Z), "janet_cell": janet_cell(Z),
         "outer": LW1.outer(Z),
+        "ground_basis": ground_basis(Z),
     }
     stage = charge if charge is not None else 1
     lim = series_limit(Z, stage)
@@ -661,6 +1004,9 @@ def populate(Z, spectra, charge=None, table="observed"):
         for r in spectra.channels(Z, charge):
             seen_csv[(int(r["charge"]), int(r["l"]), int(r["mult"]))] = r
     ls = sorted({l for (_c, l, _m) in seen_csv} | {0, 1, 2, 3})
+    by_stage = {}
+    for (cc, _l, _m), r in seen_csv.items():
+        by_stage.setdefault(cc, []).append(r)
     for c in stages:
         Ne = Z - c + 1
         if Ne < 1:
@@ -681,6 +1027,7 @@ def populate(Z, spectra, charge=None, table="observed"):
                 "B_computed": B,
                 "C_of_Z": collapse_C(Z, l),
                 "delta_equation": eq,
+                "domain": channel_domain(Z, c, l, by_stage.get(c, [])),
                 "measured": [],
             }
             for r in sorted(rows, key=lambda r: int(r["mult"])):
@@ -690,6 +1037,8 @@ def populate(Z, spectra, charge=None, table="observed"):
                     "grade": r["grade"], "witness": r["witness"],
                     "source": r["source"], "bound_note": r["bound"],
                     "B_csv": cb,
+                    "B_csv_reading": csv_B_reading(r),
+                    "B_csv_range": csv_B_range(r),
                     "B_agrees": (None if cb is None or B is None else cb == B),
                     "B_csv_is_not_a_bound": cb is None and r.get("B", "") != "",
                     "floor_le_B": (None if B is None
@@ -700,6 +1049,7 @@ def populate(Z, spectra, charge=None, table="observed"):
             chans.append(ch)
     out["config_table"] = table
     out["channels"] = chans
+    out["lambda8_cells"] = element_cells(Z)
     out["lambda8"] = []
     for step in ionisation_cells(Z):
         cell = step["cell"]
@@ -744,7 +1094,7 @@ def report(rep, show_channels=True, max_charge=None):
     if sl is None:
         print("    NOT BANKED for this stage. Register 2469: a defect is")
         print("    meaningless without a limit, so this is levels-only, not a")
-        print("    guess. Four stages are banked in the whole table.")
+        print("    guess. %d stages are banked in the whole table." % len(LIMITS))
     else:
         print("    limit = %.3f%s cm^-1   [%s]"
               % (sl["value"],
@@ -916,6 +1266,26 @@ def equation_report(spectra, grades=("measured",), table="observed"):
     return 0
 
 
+def b_column_census(spectra):
+    """The B column's readings and how each configuration table reproduces it, as numbers."""
+    readings = {}
+    for r in spectra.rows:
+        readings[csv_B_reading(r)] = readings.get(csv_B_reading(r), 0) + 1
+    auf = n_int = obs_n = obs_same = 0
+    for r in spectra.rows:
+        b = csv_bound(r)
+        if b is None:
+            continue
+        Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+        n_int += 1
+        auf += pauli_bound(Z, c, l, config=aufbau_config(Z - c) if Z - c >= 1 else []) == b
+        if 1 <= Z - c <= 108:
+            obs_n += 1
+            obs_same += pauli_bound(Z, c, l) == b
+    return {"readings": readings, "integer_rows": n_int, "aufbau_reproduces": auf,
+            "observed_compared": obs_n, "observed_differs": obs_n - obs_same}
+
+
 def check_B(spectra):
     """The B column against both configuration tables. This is the finding."""
     if not spectra.present:
@@ -964,10 +1334,11 @@ def check_B(spectra):
     print("  B from AUFBAU configurations:                        %6d  %.2f%%"
           % (auf, 100.0 * auf / n))
     print()
-    print("  The B column was built on AUFBAU, and register 1306 withdrew that")
-    print("  table: 'Every previous version built configurations by aufbau and")
-    print("  patched exceptions by hand; that table was wrong at Pd ... and at Lr.'")
-    print("  The spectra index has not been rebuilt on the observed table.")
+    print("  The B column was built on AUFBAU -- plain Madelung order, no exception")
+    print("  patched -- and register 1306 withdrew that table: 'Every previous")
+    print("  version built configurations by aufbau and patched exceptions by hand;")
+    print("  that table was wrong at Pd ... and at Lr.' The spectra index has not")
+    print("  been rebuilt on the observed table; the rows below are where it differs.")
     print()
     print("  cores where aufbau matches the column and observation does not:")
     for core, cnt in sorted(cores.items(), key=lambda kv: -kv[1])[:14]:
@@ -977,11 +1348,25 @@ def check_B(spectra):
     print("  rows neither table reproduces: %d" % len(both_wrong))
     for x in both_wrong[:5]:
         print("    Z=%d charge=%d l=%d  observed %s  aufbau %s  column %s" % x)
-    floats = sum(1 for r in spectra.rows if csv_bound(r) is None)
+    # Over every integer row with Z <= 118 (cores the observed table does not
+    # hold included), aufbau with n0 as the first entirely unoccupied n.
+    whole = sum(1 for r in spectra.rows if csv_bound(r) is not None)
+    whole_auf = sum(1 for r in spectra.rows if csv_bound(r) is not None
+                    and csv_bound(r) == pauli_bound(int(r["Z"]), int(r["charge"]), int(r["l"]),
+                                                    config=aufbau(int(r["Z"]) - int(r["charge"]))))
     print()
-    print("  and %d rows carry a NON-INTEGER B -- a dispersion, not a bound."
-          % floats)
-    print("  The column is overloaded; those rows are not compared.")
+    print("  every integer row with Z <= 118: %d; aufbau reproduces %d" % (whole, whole_auf))
+    readings = {}
+    for r in spectra.rows:
+        k = csv_B_reading(r)
+        readings[k] = readings.get(k, 0) + 1
+    print()
+    print("  and the column is OVERLOADED; these rows are not compared:")
+    print("    %5d rows carry a NON-INTEGER B: the range of the series' quantum"
+          % readings.get("range", 0))
+    print("          defects (tools/seriesdefect.py), not a bound")
+    print("    %5d rows of Z = 119 and 120 carry B = 0, the bound on neither table"
+          % readings.get("zero", 0))
     return 0
 
 
@@ -1143,13 +1528,63 @@ def selftest(spectra):
         check(wit == 358, "witnessed rows: %d, expected 358" % wit)
         k1 = [r for r in spectra.channels(19, 1)]
         check(bool(k1), "no K I channels in the spectra index")
-        # The B column is overloaded; exactly the 2026-08-14 NIST fetch rows
-        # carry a float where a bound belongs.
-        floats = [r for r in spectra.rows if csv_bound(r) is None]
-        check(len(floats) == 25,
-              "%d rows carry a non-integer B, expected 25" % len(floats))
+        # The B column is overloaded: the bound in 101,303 rows, the range of
+        # a series' defects in the 25 rows of the 2026-08-14 NIST fetch, and a
+        # bare 0 in every row of Z = 119 and 120.
+        readings = {}
+        for r in spectra.rows:
+            readings[csv_B_reading(r)] = readings.get(csv_B_reading(r), 0) + 1
+        check(readings == {"bound": 101303, "range": 25, "zero": 3504},
+              "the B column's readings are %r" % readings)
+        floats = [r for r in spectra.rows if csv_B_reading(r) == "range"]
         check(all(r["grade"] == "measured" for r in floats),
               "a non-measured row carries a non-integer B")
+        check(all(csv_bound(r) is None for r in spectra.rows if int(r["Z"]) > 118),
+              "a Z = 119-120 row's B = 0 is read as a bound")
+        # n0's reading, RECOVERED: on the aufbau table the column was built on,
+        # "first entirely unoccupied n" reproduces every integer B with
+        # Z <= 118 and "first n with room" does not.
+        def _room(cfg, l):
+            occ = {(n, ll): o for n, ll, o in cfg}
+            pp = sum(1 for _n, ll, o in cfg if ll == l and o > 0)
+            n = l + 1
+            while occ.get((n, l), 0) >= 2 * (2 * l + 1):
+                n += 1
+            return max(0, min(pp, n - l - 1))
+        n_int = n_empty = n_room = 0
+        for r in spectra.rows:
+            b = csv_bound(r)
+            if b is None:
+                continue
+            Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+            cfg = aufbau_config(Z - c) if Z - c >= 1 else []
+            n_int += 1
+            n_empty += pauli_bound(Z, c, l, config=cfg) == b
+            n_room += (_room(cfg, l) if cfg else 0) == b
+        check((n_int, n_empty) == (101303, 101303),
+              "n0 as the first entirely unoccupied n reproduces %d of %d integer B"
+              % (n_empty, n_int))
+        check(n_room < 0.9 * n_int,
+              "the other reading of n0 reproduces %d of %d, which would not settle it"
+              % (n_room, n_int))
+        # The equation's domain, against registers 1192 and 1193.
+        dc = domain_census(spectra)
+        check(dc["by_note"]["Z > 103"] == 24312 and dc["by_note"]["charge > 10"] == 61748,
+              "register 1192's two largest exclusions reproduce exactly: %r" % dc["by_note"])
+        check(dc["measured"]["out"]["rows"] == 51 and dc["out_reasons"] == {
+            "open-shell core at 3 parents": 24, "open-shell core at 16 parents": 15,
+            "charge > 10": 12},
+              "register 1193's 51 exclusions (24, 15, 12) reproduce: %r" % dc["out_reasons"])
+        rin = dc["measured"]["in, before the 2026-08-14 fetch"]["rms"]
+        check(abs(rin - 0.147) < 0.001,
+              "the in-region rms is %.4f, register 1205's re-test says 0.147" % rin)
+        # The nine neutral limits are the CSV's own, as printed.
+        notes = {}
+        for r in floats:
+            notes[int(r["Z"])] = float(r["bound"].split(";")[0].split()[1])
+        check(all(LIMITS[(z, 1)][0] == v and LIMITS[(z, 1)][2] == "READ"
+                  for z, v in notes.items()) and len(notes) == 9,
+              "the nine neutral limits are not the CSV's notes")
     else:
         print("  note: the spectra index is not in the tree; its fixtures are "
               "skipped")
@@ -1167,6 +1602,35 @@ def selftest(spectra):
     check(series_limit(3, 3)[0] == 987662.29, "Li III's fitted limit, register 3249")
     check(series_limit(5, 5)[0] == 2744111.38, "B V's fitted limit, register 3313")
     check(series_limit(5, 4)[2] == "READ", "B IV's limit was printed, not fitted")
+    check(len(LIMITS) == 13, "thirteen stages banked: %d" % len(LIMITS))
+    # A deficit against Z^2 R_M exists only at one electron. B IV and P IV were
+    # once given -651,301 and -24,274,907 cm^-1 against a baseline not theirs.
+    check(limit_deficit(5, 4) is None and limit_deficit(15, 4) is None
+          and limit_deficit(11, 1) is None,
+          "a deficit is reported for a stage that is not one-electron")
+    check(limit_deficit(3, 3) is not None, "Li III's deficit is lost")
+    # The record's mapping of an element onto Lambda's cells, against every
+    # count the record prints of it (registers 529, 628, 629).
+    ec = element_cells_census()
+    check(all(ec[k] == RECORD_ELEMENT_CELLS[k] for k in
+              ("elements", "subshells", "cells", "composable_within", "composable_across", "tests")),
+          "the record's element cells do not reproduce: %r" % {k: ec[k] for k in RECORD_ELEMENT_CELLS if k in ec})
+    check((ec["em_allowed"], ec["em_forbidden"], ec["parity_changing"], ec["parity_conserving"]) == (
+        {"cells": 2673, "within": 309, "across": 2399}, {"cells": 1652, "within": 673, "across": 1287},
+        {"cells": 3719, "within": 749, "across": 3142}, {"cells": 606, "within": 233, "across": 544}),
+          "register 629's selection-rule table does not reproduce")
+    check(all(all(h for _r, h, _o in lambda_constraints(tuple(c[:7]) + (0,))[:6])
+              for Z in range(1, 119) for c in element_cells(Z)["cells"]),
+          "an element cell breaks one of the six decidable constraints")
+    fe = element_cells(26)
+    check((fe["count"], fe["composable_within"]) == (14, 5), "Fe's cells: %r" % ((fe["count"], fe["composable_within"]),))
+    check(all(record_configurations()[Z][1] and all(
+        dict(((n, l), o) for n, l, o in LW1.expand(Z)).get((n, l)) == k
+        for n, l, k in record_configurations()[Z][1]) for Z in range(1, 109)),
+          "a subshell of the record's table disagrees with LW1-ground.py")
+    check(sorted(GROUND_ONLY) == [103, 104, 105, 106, 107, 108]
+          and ground_basis(102) is None and ground_basis(104)["ionisation_energy_eV"] == "(6.02)",
+          "the ground-level basis of Lr to Hs")
 
     # An unbanked stage returns None rather than a guess. Register 2469
     # withdrew ten channels built on an invented limit.
@@ -1239,6 +1703,9 @@ def main(argv=None):
     ap.add_argument("--equation", action="store_true")
     ap.add_argument("--check-B", dest="check_b", action="store_true")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--element-cells-E", action="store_true",
+                    help="re-measure E over the record's element cells, with and without Z "
+                         "(registers 628: 972,862 and 28,503); minutes")
     ap.add_argument("--selftest", action="store_true")
     args = ap.parse_args(argv)
 
@@ -1249,6 +1716,13 @@ def main(argv=None):
 
     if args.selftest:
         return selftest(spectra)
+    if args.element_cells_E:
+        got = element_cells_E()
+        for k in ("E_with_Z", "E_without_Z"):
+            print("  %-12s %10s   the record prints %s   %s" % (
+                k, format(got[k], ","), format(RECORD_ELEMENT_CELLS[k], ","),
+                "reproduced" if got[k] == RECORD_ELEMENT_CELLS[k] else "DIFFERS"))
+        return 0 if all(got[k] == RECORD_ELEMENT_CELLS[k] for k in got) else 1
     if args.equation:
         return equation_report(spectra, table=args.config)
     if args.check_b:

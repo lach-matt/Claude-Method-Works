@@ -1,8 +1,8 @@
 # `tools/docfigures.py` — do the repository's own documents still state true numbers?
 
 `arith.py` checks the arithmetic the volumes state about themselves. This does the same for the
-documents that describe **the repository** — `CLAUDE.md` and `docs/` — and it exists because they
-went stale without anyone noticing.
+documents that describe **the repository** — `CLAUDE.md`, `docs/` and the two READMEs that state the
+mirror's size — and it exists because they went stale without anyone noticing.
 
 ```
 python3 tools/docfigures.py --selftest    # assert the checks' structure and the corpus's invariants
@@ -10,7 +10,7 @@ python3 tools/docfigures.py               # the drift report; exit 1 if anything
 python3 tools/docfigures.py -v            # same, every row printed
 ```
 
-**127 pinned figures, ~8 s, stdlib only.** Fast enough to run at the top of a session.
+**141 pinned figures, ~8 s, stdlib only.** Fast enough to run at the top of a session.
 
 ## Why it exists
 
@@ -41,8 +41,29 @@ ledger. The report names the document to read.
 Coverage: the member count and both bundles' recovery; `drive/`'s manifest, its bijection and its
 `PENDING`; `extracted/`'s occurrences, bodies and bytes; `recovered/`'s files, rows and truncations;
 the chat export's conversations and messages; all six `COVERAGE.tsv` statuses; the BUILD series'
-counts and ranges; the `__<driveFileId>` count; and the row counts and headline verdicts of
-`PROSE-ONLY.tsv`, `RETRACTION-AUDIT.tsv` and `REGISTER-GAPS.tsv`.
+counts and ranges; the `__<driveFileId>` count; the row counts and headline verdicts of
+`PROSE-ONLY.tsv`, `RETRACTION-AUDIT.tsv` and `REGISTER-GAPS.tsv`; and the mirror headlines of
+`README.md`, `drive/README.md` and `docs/DRIVE-SYNC.md`, read out of their own sentences.
+
+## The mirror headlines, read from the sentence
+
+Three documents open their account of the mirror with one bold sentence: so many Drive files
+mirrored, so many verified by md5, so many adopted, and so many still outstanding. No row held them,
+and they drifted. On 2026-10-16 `drive/README.md` and `docs/DRIVE-SYNC.md` said **820 of 824** and
+`README.md` said **822 of 826**, while the manifest held **833** rows, 14 of them `ok-adopted`.
+`CLAUDE.md`'s pin on the same count had moved three times since 2026-09-06, to 822, 832 and 833. At
+the first, `README.md` was corrected in the same pass; at the other two, none of the three was: the
+failure the next section warns about, one step removed.
+
+So these twelve rows do not hardcode a claimed value. Like the hosted-graph rows, they **read it from
+the document** (`_mirror_stated`): the bold sentence's three numbers and the word or number before
+"still outstanding" or "remain outstanding". A sentence reworded past the pattern reads as `None` and
+shows `STALE`, so a rewrite cannot slip through unread. The selftest pins the reader on three
+fixtures: a sentence that wraps, the "N of the M" form, and a headline split across two bold runs,
+which it must not read. With the three old sentences put back, eight rows go `STALE`: the root
+README's 822 and 3 are read as numbers, and the other two, whose bold sentence ended before the
+md5 count, read as `None`. The four rows that held were figures still true: the root README's 819,
+and the four outstanding in all three.
 
 ## The instrument totals, and why they needed a separate check
 

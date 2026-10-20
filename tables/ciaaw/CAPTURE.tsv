@@ -1,0 +1,14 @@
+key	value
+source	PyPI periodictable 2.1.0
+wheel	periodictable-2.1.0-py3-none-any.whl
+wheel_sha256	e9155d2bf5ac10050abeff2f99096d4f04312c0c8a6bb432e28744367c5064b3
+member	periodictable/mass.py
+member_md5	92117611e21383037808f8f4fa8613a7
+transcribed_from	https://www.ciaaw.org/atomic-weights.htm and isotopic-abundances.htm, 2023-07-06 (the 2021 edition)
+revised_2024	Zr, Gd, Lu: quoted from ciaaw.org as read on 2026-10-17
+not_followed	Z = 7: the text's composition for air, beside CIAAW's interval; Z = 18: the text's composition for air, beside CIAAW's interval; Z = 82: the text's composition from the 2013 table, beside CIAAW's interval
+weights_citation	T. Prohaska et al., Standard atomic weights of the elements 2021 (IUPAC Technical Report), Pure Appl. Chem. 94, 573-600 (2022); with the CIAAW's 2024 revisions of Zr, Gd and Lu
+weights_doi	10.1515/pac-2019-0603
+compositions_citation	CIAAW, Isotopic compositions of the elements 2024, ciaaw.org; the 2021 edition as transcribed with the 2024 revisions of Zr, Gd and Lu. Earlier edition: J. Meija et al., Isotopic compositions of the elements 2013 (IUPAC Technical Report), Pure Appl. Chem. 88, 293-306 (2016)
+compositions_doi	10.1515/pac-2015-0503
+status	READ; a representative value given only as an interval is its midpoint, DERIVED

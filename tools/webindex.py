@@ -34,14 +34,17 @@ own status vocabulary through untouched: READ, PINNED, DERIVED, RECOVERED and
 RECONSTRUCTED. The site never prints a value without its status, because the
 status travels with the axis in index.js.
 
-ELEMENTS ABOVE Z = 108. LW1-ground.py stops at 108 because measurement does.
+ELEMENTS ABOVE Z = 108. LW1-ground.py stops at 108 because NIST's neutral
+ground levels do (and from Lr to Hs they are the ground level alone, with a
+calculated ionisation energy from Rf on: populate.GROUND_ONLY).
 COORDINATES-2.13 carries rows to Z = 120, and those rows are exported READ from
 the CSV with no configuration, no equation and no derived value behind them --
 the file says so in its own "populated" field, and the site draws them apart.
 
 A finding is recorded, never repaired. Where populate.py reports that the
 CSV's B column disagrees with the observed configurations, or that a row's B
-is a dispersion rather than a bound, that reaches the site as it is.
+is the range of a series' defects or a bare 0 rather than a bound, that reaches
+the site as it is.
 
 Stdlib only, Python 3.9+.
 """
@@ -188,6 +191,7 @@ PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table", "SCORE.tsv": "the scorer ta
                 "papers/method/08-chemical-index/PAPER.md": "the chemical-index paper",
                 "papers/method/09-occupation-hull/PAPER.md": "the occupation-law paper",
                 "papers/method/10-beyond-the-atom/PAPER.md": "the closure-beyond-the-atom paper",
+                "EVERYTHING-IS-RELATIVE.md": "the everything-is-relative paper",
                 }
 
 
@@ -272,78 +276,132 @@ STATUS_LEGEND = {
                      "such so a later decision can move it",
 }
 
-# The site's own caveats, drawn from docs/POPULATE.md's "Known gaps" and
-# "Two findings". They are shown on every page, not buried in a footnote.
+# The site's own caveats. They are shown on every page, not buried in a footnote, and each
+# carries its state: "repaired" where the caveat named something wrong and it has been put right,
+# "measured" where it is a measured property of the data that stays true, "standing" where it is a
+# permanent qualification of what a value is, and "open" where the decision is the author's. Every
+# caveat was reviewed against the evidence on 2026-10-17 (docs/CAVEATS.md records each review, what
+# it measured and how to re-run it); "was" keeps what a repaired caveat said before, so a reader of
+# an older page can see what changed.
 CAVEATS = [
-    {"id": "above-108",
-     "text": "Elements above Z = 108 are not populated. The observed configurations "
-             "stop at 108 because measurement does. COORDINATES-2.13 carries rows to "
-             "Z = 120 and those are shown READ from the CSV with no configuration, "
-             "equation or derived value behind them."},
-    {"id": "b-aufbau",
-     "text": "The spectra index's B column was built on a withdrawn configuration "
-             "table (aufbau, patched by hand). The configurations were later corrected "
-             "and COORDINATES-2.13 was never rebuilt on them. Where the observed table "
-             "gives a different Pauli bound the site shows both and marks the "
-             "disagreement."},
-    {"id": "b-overloaded",
-     "text": "25 measured rows carry a float in the B column: a dispersion of "
-             "the median defect, not a bound. The site says 'B column is not a "
-             "bound here' on those rows rather than comparing an integer "
-             "against a spread."},
-    {"id": "lambda8-mapping",
-     "text": "A Λ₈ cell is a transition, so an element is not a cell. "
-             "The mapping shown is the element's own ionisation ladder read off "
-             "the observed configurations. Nothing fixes this mapping; it is "
-             "RECONSTRUCTED and a later decision can move it."},
-    {"id": "equation-domain",
-     "text": "The channel equation is validated in its stated domain and "
-             "extrapolated outside it. A residual on a channel outside that "
-             "domain is not a finding against the equation."},
-    {"id": "relativistic-not-held",
-     "text": "The scalar-relativistic construction (Koelling\u2013Harmon "
-             "Hartree\u2013Fock at c = 137) behind the L\u00f6wdin paper was never "
-             "banked as an archive; its code has since been RECOVERED from the "
-             "project's own conversations (every file written, edited and printed "
-             "by tool calls, rebuilt and held against every printed window) and run "
-             "here. The displaced set this site states is what that recovered "
-             "instrument returns (RECOVERED); the paper's eleven are READ from the "
-             "paper's own sentence and carried as the reading it printed, superseded."},
-    {"id": "record-eleven",
-     "text": "The paper's eleven were computed by its own final session as the "
-             "elements where the chain's entrant differs from a second table the "
-             "project had sealed as its c \u2192 \u221e walk. The project's own "
-             "fault record F59.3, written before the paper, established that the "
-             "second table ran at c = 137 in restart mode (each step from the "
-             "observed configuration), so the eleven measure the chain's memory "
-             "against a memoryless restart at one c, not the constant. Re-derived "
-             "here, both tables reproduce and the eleven reproduce from them; at "
-             "eight of the eleven the restart entrant is the observed one. Repaired by "
-             "the author's decision (2026-09-24): the displaced set this site states is "
-             "the recovered instrument's \u2014 the chain at c \u2192 \u221e differs from "
-             "the chain at c = 137 at thorium and rutherfordium among the measured "
-             "elements and at Z = 120 beyond them, and nowhere else \u2014 RECOVERED; "
-             "the paper's eleven are shown as the reading the paper printed, "
-             "superseded, and the paper's own text is shown as it stands until the "
-             "author reissues it."},
-    {"id": "walk-reconstructed",
-     "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own "
-             "rebuild of the paper's construction from its statement, run in two "
-             "fields, and is kept beside the record's recovered instrument as a "
-             "second measurement, not in its place. Where it agrees with the "
-             "record that is a measurement; where it disagrees that is a "
+    {"id": "above-108", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "Elements above Z = 108 are not populated. The ground-configuration table the site "
+             "reads stops at hassium because NIST's compilation of neutral ground levels does: its "
+             "neutral rows end at Hs I, and meitnerium and darmstadtium appear only as ions "
+             "(checked 2026-10-17). It does not stop where measurement stops; that is earlier, as "
+             "the next caveat says. COORDINATES-2.13 carries rows to Z = 120, and those are shown "
+             "READ from the CSV with no configuration, equation or derived value behind them; its B "
+             "column holds 0 in every one of them, which is not a bound.",
+     "was": "The observed configurations stop at 108 because measurement does."},
+    {"id": "ground-103-108", "state": "measured", "reviewed": "2026-10-17",
+     "text": "From lawrencium to hassium the ground levels shown are not observed spectra. For each "
+             "neutral spectrum from Lr I to Hs I, NIST holds the ground level and no excited level, "
+             "and the ionisation energy it prints is measured only for Lr: for Rf and Db it is ab "
+             "initio (NIST's parentheses), for Sg, Bh and Hs semi-empirical (NIST's brackets), and "
+             "those three ground levels carry no term. The configuration is still READ; the plate "
+             "of each of these six elements shows what it rests on (read from NIST, 2026-10-17)."},
+    {"id": "b-aufbau", "state": "measured", "reviewed": "2026-10-17",
+     "text": "The spectra index's B column was built on plain Madelung aufbau, the configuration "
+             "table the record later withdrew. On that table, with n\u2080 the first entirely "
+             "unoccupied n, it reproduces all 101,303 integer B values with Z \u2264 118. The CSV "
+             "was never rebuilt on the observed configurations, and on them the bound differs in "
+             "1,104 of the 99,687 rows whose core the observed table holds (the cores of La, Pd, "
+             "Ce, Ac, Th, Gd, Lr and others). The B this site gives is computed on the observed "
+             "configurations; the CSV's value is shown beside it, READ, and every disagreement is "
+             "marked. The CSV itself is not edited.",
+     "was": "The spectra index's B column was built on a withdrawn configuration table (aufbau, "
+            "patched by hand)."},
+    {"id": "b-overloaded", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "The B column holds something other than the Pauli bound in 3,529 rows, and the site "
+             "names each for what it is. In 25 measured rows from one NIST fetch (2026-08-14) it is "
+             "the range, max \u2212 min, of the series' quantum defects. Recomputed from NIST's "
+             "levels, with the printed limit in cm\u207b\u00b9 and the reduced-mass Rydberg, the "
+             "row's delta is the median defect and B the range in all 25 rows (RECOVERED). In all "
+             "3,504 rows of Z = 119 and 120 it is 0, the bound on neither configuration table. "
+             "Neither is compared with a bound.",
+     "was": "25 measured rows carry a float in the B column: a dispersion of the median defect, "
+            "not a bound."},
+    {"id": "lambda8-mapping", "state": "repaired", "reviewed": "2026-10-18",
+     "text": "An element maps onto \u039b's cells the way the record builds them: every transition "
+             "among the element's own occupied subshells \u2014 a source subshell holding its real "
+             "occupancy k, another subshell of the same atom as the target, q = 1 \u2026 k electrons "
+             "moved and g = 1 \u2026 min(q, 4f + 2) placed. Over the record's 118 ground "
+             "configurations that is 4,325 cells, every one satisfying \u039b's constraints, and the "
+             "site reproduces every figure the record prints of them: 4,325 cells, 982 composable "
+             "within one element and 3,686 across the table, and E = 972,862 with Z as a coordinate "
+             "against 28,503 without it \u2014 \u039b closes because it carries no Z. Each element's "
+             "plate shows its cells (RECOVERED); an element whose ground configuration lists one "
+             "subshell, such as hydrogen, has none. The ionisation ladder shown in their place before "
+             "is kept beside them as what it is, a reconstruction of the steps between the ions.",
+     "was": "A \u039b\u2088 cell is a transition, so an element is not a cell, and nothing in the "
+            "record fixes which transitions stand for an element (searched 2026-10-17, in the "
+            "governance files only). The mapping shown was the element's ionisation ladder, "
+            "RECONSTRUCTED, and choosing it was left as the author's decision."},
+    {"id": "equation-domain", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "The channel equation is validated in its stated domain and extrapolated outside it, "
+             "and every channel now says which. The domain is the record's own: a channel is "
+             "outside it where the element has no long-lived isotope (Z > 103), the ion is above "
+             "charge 10, the core is open-shell at 3, 16 or 119 parents, or the series is "
+             "unresolved above ng, each read from the CSV's own notes (DERIVED). The rule "
+             "reproduces the record's figures: 24,312 and 61,748 cells for the first two, and of "
+             "the measured rows exactly the 51 the record left out of its refit (24, 15 and 12). "
+             "The 282 measured rows inside give an rms residual of 0.147, the figure the record "
+             "states. A residual outside the domain is not a finding against the equation.",
+     "was": "The channel equation is validated in its stated domain and extrapolated outside "
+            "it. A residual on a channel outside that domain is not a finding against the "
+            "equation."},
+    {"id": "relativistic-recovered", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "The scalar-relativistic construction (Koelling\u2013Harmon Hartree\u2013Fock at "
+             "c = 137) behind the L\u00f6wdin paper was never banked as an archive; its code has "
+             "since been RECOVERED from the project's own conversations (every file written, "
+             "edited and printed by tool calls, rebuilt and held against every printed window) "
+             "and run here. The displaced set this site states is what that recovered instrument "
+             "returns (RECOVERED); the eleven the paper first printed are carried as the reading "
+             "it printed, superseded.",
+     "was": "Filed as “relativistic-not-held”: the identifier still said the construction "
+            "was not held after its code had been recovered and run, so the list, the console and "
+            "the Ask prompt contradicted the plate."},
+    {"id": "record-eleven", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "The paper's eleven were computed by its own final session as the elements where the "
+             "chain's entrant differs from a second table the project had sealed as its "
+             "c \u2192 \u221e walk. The project's own fault record F59.3, written before the "
+             "paper, established that the second table ran at c = 137 in restart mode (each step "
+             "from the observed configuration), so the eleven measure the chain's memory against "
+             "a memoryless restart at one c, not the constant. Re-derived here, both tables "
+             "reproduce and the eleven reproduce from them; at eight of the eleven the restart "
+             "entrant is the observed one. Repaired by the author's decision (2026-09-24): the "
+             "displaced set this site states is the recovered instrument's \u2014 the chain at "
+             "c \u2192 \u221e differs from the chain at c = 137 at thorium and rutherfordium "
+             "among the measured elements and at Z = 120 beyond them, and nowhere else \u2014 "
+             "RECOVERED. The paper was corrected in the store the same day, and the text this site "
+             "shows is the corrected one: it names the eleven as the disagreements it first "
+             "printed and withdraws them.",
+     "was": "... the paper's own text is shown as it stands until the author reissues it."},
+    {"id": "walk-reconstructed", "state": "standing", "reviewed": "2026-10-17",
+     "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own rebuild of the "
+             "paper's construction from its statement, run in two fields, and is kept beside the "
+             "record's recovered instrument as a second measurement, not in its place. Where it "
+             "agrees with the record that is a measurement; where it disagrees that is a "
              "measurement too. It is never the paper's number."},
-    {"id": "limit-kind",
-     "text": "A limit kind is a classification of the csv's own bound note by "
-             "the stated rule: the note is READ, the kind is DERIVED, and the "
-             "rule is shown beside it. 'no analysis located' is, as the note "
-             "itself says, not a bound on existence; a series limit is printed "
-             "as the csv prints it, with no unit added."},
-    {"id": "n0-reading",
-     "text": "n₀'s reading is RECONSTRUCTED. The definition of B = min(p, n₀ − ℓ − 1) "
-             "names its terms but not whether a partially filled subshell counts; "
-             "'first entirely unoccupied n' matches the column at 97.7 % and He I "
-             "settles it."},
+    {"id": "limit-kind", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "A limit kind is a classification of the CSV's own bound note by the stated rule: the "
+             "note is READ, the kind is DERIVED, and the rule is shown beside it. 'no analysis "
+             "located' is, as the note itself says, not a bound on existence. A series limit is "
+             "shown with its unit, cm\u207b\u00b9, which the CSV does not print: each of the nine "
+             "it prints equals NIST's ionisation energy for that neutral spectrum in "
+             "cm\u207b\u00b9 to every printed digit, and is the denominator the row's defects "
+             "recompute from (RECOVERED). The nine are carried on the series-limit axis too, READ.",
+     "was": "... a series limit is printed as the csv prints it, with no unit added."},
+    {"id": "n0-reading", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "n\u2080's reading is RECOVERED. The definition B = min(p, n\u2080 \u2212 \u2113 "
+             "\u2212 1) names its terms but not whether a partially filled subshell counts. "
+             "Measured on the configuration table the CSV's B column was built on, 'first entirely "
+             "unoccupied n' reproduces all 101,303 integer B values with Z \u2264 118, and 'first "
+             "n with room' 88.9 %. (The 97.7 % this caveat once gave was measured on the observed "
+             "table, which is not the column's.) He I shows the difference in one row: the core is "
+             "1s\u00b9, the column gives B = 1, and only the first reading returns 1.",
+     "was": "n\u2080's reading is RECONSTRUCTED ... 'first entirely unoccupied n' matches the "
+            "column at 97.7 % and He I settles it."},
 ]
 
 
@@ -354,7 +412,9 @@ CAVEATS = [
 LIMIT_KINDS = [
     ("ionisation-limit", r"^limit [0-9.]+;",
      "a series limit the csv prints for the channel (one electron outside a "
-     "closed shell); the value is shown as printed, no unit added"),
+     "closed shell): the neutral ionisation energy in cm\u207b\u00b9, the unit "
+     "RECOVERED (each of the nine equals NIST's value in cm\u207b\u00b9 to every "
+     "printed digit, and the row's defects recompute from it)"),
     ("unresolved", r"^series unresolved",
      "the series is unresolved above the stated n in any published analysis"),
     ("nuclear", r"^no (long-lived|primordial) isotope|^no nuclide synthesised",
@@ -405,6 +465,50 @@ def limits(spectra):
         "distinct_notes": len(notes),
         "unclassified": unclassified,
     }
+
+
+def b_and_domain(spectra):
+    """The B column's three readings, and the channel equation's domain, each with the measurement
+    that settles it (populate.b_column_census, populate.domain_census, tools/seriesdefect.py)."""
+    bc = populate.b_column_census(spectra)
+    sd = _tool_module("seriesdefect", os.path.join(TOOLS, "seriesdefect.py"))
+    sres = sd.recompute()
+    ssum = sd.summary(sres)
+    b_column = dict(bc, **{
+        "status": {"bound": populate.READ, "range": populate.RECOVERED, "zero": populate.READ},
+        "meaning": {
+            "bound": "the Pauli bound on the aufbau table (n\u2080 the first entirely unoccupied n)",
+            "range": "the range, max \u2212 min, of the series' quantum defects; delta is their median",
+            "zero": "0 in every row of Z = 119 and 120, the bound on neither configuration table"},
+        "range_recomputed": {
+            "rows": ssum["rows"], "delta_is_median": ssum["delta_is_median"],
+            "B_is_range": ssum["B_is_range"], "delta_with_R_inf": ssum["delta_with_R_inf"],
+            "limits_equal_nist": ssum["limits_equal_nist_ie"], "spectra": ssum["spectra"],
+            "unit": "cm\u207b\u00b9", "instrument": "tools/seriesdefect.py",
+            "levels": "NIST ASD energy levels, read 2026-10-17",
+            "rows_detail": [{"symbol": r["symbol"], "term": r["term"], "n": [r["n_min"], r["n_max"]],
+                             "members": r["members"], "delta": r["delta"], "B": r["B"],
+                             "median": round(r["median"], 7), "range": round(r["range"], 7),
+                             "limit_cm1": r["limit"], "mass_u": r["mass_u"]} for r in sres]},
+    })
+    dc = populate.domain_census(spectra)
+    equation_domain = {
+        "status": populate.DERIVED,
+        "rule": [
+            {"exclusion": "Z > 103", "meaning": "the element has no long-lived isotope"},
+            {"exclusion": "charge > 10", "meaning": "no analysed Rydberg data above charge 10"},
+            {"exclusion": "open-shell core", "meaning": "an open-shell core at 3, 16 or 119 parents, "
+                                                        "read from the CSV's note on any row of the stage"},
+            {"exclusion": "series unresolved", "meaning": "the series unresolved above ng, read from "
+                                                          "the channel's own notes where nothing is measured"}],
+        "cells": {"rows": dc["rows"], "verified": dc["verified"], "by_first_exclusion": dc["by_note"],
+                  "record": dc["register_1192"]},
+        "measured": dc["measured"],
+        "measured_out_reasons": dc["out_reasons"],
+        "record_refit": dc["register_1193"],
+        "record_in_region_error": dc["register_1205_in_region_error"],
+    }
+    return b_column, equation_domain
 
 
 def _limit_counts(rec):
@@ -997,6 +1101,17 @@ RESEARCH_PAPERS = {
         "slug": "closure-beyond", "short": "the closure-beyond-the-atom paper",
         "pdf": "papers/method/pdf/10-beyond-the-atom.pdf", "own_figures": True, "origin": "the repository's papers directory",
     },
+    # Everything Is Relative (2026-10-16): released to the Prints & Proofs folder and merged to the
+    # research tree on main after the commit --warp-root pins for the particle indexes, so it is read
+    # from the repository's own tree (from_repo) with its own last commit. Its title block is a YAML
+    # front-matter header, read by _front_matter. The guard's one hit outside its own section marks is
+    # a journal page, "ApJL 848 (2017) L13" in its references, which the line-reference pattern also
+    # catches and which cites nothing from the books
+    "research/warp-drive/paper/EVERYTHING-IS-RELATIVE.md": {
+        "slug": "everything-is-relative", "short": "the everything-is-relative paper",
+        "pdf": "research/warp-drive/paper/pdf/EVERYTHING-IS-RELATIVE.pdf", "from_repo": True,
+        "own_terms": {r"\bL\d{2,5}\b(?![.\d])"},
+    },
 }
 # the edition history the site shows: the commits that changed public/ or the
 # generator, each with a note written for the site (the commit subjects are
@@ -1062,7 +1177,9 @@ def cite_block(head):
 # --- a small Markdown renderer for the released papers -----------------------
 _MD_INLINE = [
     (re.compile(r"!\[([^\]]*)\]\(([^)]+)\)"), lambda m, ctx: ctx["img"](m.group(1), m.group(2))),
-    (re.compile(r"\[([^\]]+)\]\(([^)]+)\)"), lambda m, ctx: '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(2), m.group(1))),
+    # a link only where the target is an address: the papers write operators applied to sets as
+    # cl[L](X), which a bare [text](target) rule turned into a link to a page named X
+    (re.compile(r"\[([^\]]+)\]\(((?:https?://|mailto:|#|\.{0,2}/)[^)\s]+)\)"), lambda m, ctx: '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(2), m.group(1))),
     (re.compile(r"`([^`]+)`"), lambda m, ctx: "<code>%s</code>" % m.group(1)),
     (re.compile(r"\*\*\*(.+?)\*\*\*"), lambda m, ctx: "<b><i>%s</i></b>" % m.group(1)),
     (re.compile(r"\*\*(.+?)\*\*"), lambda m, ctx: "<b>%s</b>" % m.group(1)),
@@ -1070,15 +1187,26 @@ _MD_INLINE = [
 ]
 
 
+_MD_ESCAPE = re.compile(r"\\([!-/:-@\[-`{-~])")
+
+
 def _md_inline(text, ctx):
+    # a backslash escape outside a code span is its character, as GitHub reads it (π\[F\] is
+    # π[F], R\_{tr} is R_{tr}): held out of the inline rules as a private-use mark, restored at the end
+    held = []
+
+    def _hold(m):
+        held.append(m.group(1))
+        return "\ue000%d\ue001" % (len(held) - 1)
+    text = "".join(p if k % 2 else _MD_ESCAPE.sub(_hold, p) for k, p in enumerate(re.split(r"(`[^`]+`)", text)))
     text = html_escape(text)
     # identifiers first, so a link's own URL is not re-linked inside a tag
     text = ARXIV_NEW.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
-    text = ARXIV_OLD.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
-    text = re.sub(r"(?<![/\w])(10\.\d{4,9}/[^\s\"'<>,;)\]]+)", lambda m: '<a href="https://doi.org/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1).rstrip("."), m.group(1)), text)
+    text = _ARXIV_OLD_INLINE.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
+    text = re.sub(r"(?<![/\w])(10\.\d{4,9}/(?:[^\s\"'<>,;()\]]|\([^\s()<>\"',;\]]*\))+)", lambda m: '<a href="https://doi.org/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1).rstrip("."), m.group(1)), text)
     for rx, fn in _MD_INLINE:
         text = rx.sub(lambda m, fn=fn: fn(m, ctx), text)
-    return text
+    return re.sub("\ue000(\\d+)\ue001", lambda m: html_escape(held[int(m.group(1))]), text) if held else text
 
 
 def html_escape(t):
@@ -1089,6 +1217,17 @@ def _slugify(t):
     t = re.sub(r"<[^>]+>", "", t)
     t = re.sub(r"[^A-Za-z0-9]+", "-", t).strip("-").lower()
     return t[:60] or "s"
+
+
+def _table_cells(row):
+    """A pipe-table row's cells: split on the unescaped pipes, each escaped pipe (\\|) a literal
+    one in its cell, as GitHub's tables read it -- inside a code span too."""
+    row = row.strip()
+    if row.startswith("|"):
+        row = row[1:]
+    if row.endswith("|") and not row.endswith("\\|"):
+        row = row[:-1]
+    return [c.strip().replace("\\|", "|") for c in re.split(r"(?<!\\)\|", row)]
 
 
 def md_to_html(text, ctx):
@@ -1130,11 +1269,11 @@ def md_to_html(text, ctx):
             flush(); out.append("<hr>"); i += 1; continue
         if st.startswith("|") and i + 1 < n and re.match(r"^\|?\s*:?-{2,}", lines[i + 1].strip()):
             flush()
-            hdr = [c.strip() for c in st.strip("|").split("|")]
+            hdr = _table_cells(st)
             j = i + 2
             body = []
             while j < n and lines[j].strip().startswith("|"):
-                body.append([c.strip() for c in lines[j].strip().strip("|").split("|")]); j += 1
+                body.append(_table_cells(lines[j])); j += 1
             out.append('<div class="tbl-wrap"><table class="t"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></div>' % (
                 "".join("<th>%s</th>" % _md_inline(c, ctx) for c in hdr),
                 "".join("<tr>%s</tr>" % "".join("<td>%s</td>" % _md_inline(c, ctx) for c in r) for r in body)))
@@ -1156,7 +1295,9 @@ def md_to_html(text, ctx):
                 lm2 = re.match(r"^(\s*)([-*]|\d+[.)])\s+(.*)$", lines[i])
                 if lm2:
                     items.append(lm2.group(3)); i += 1
-                elif lines[i].strip() and lines[i].startswith("  ") and items:
+                # a continuation line, indented or lazy as GitHub reads it: any non-blank line that
+                # does not open a block of its own (a heading, fence, quote, table or rule)
+                elif lines[i].strip() and items and (lines[i].startswith("  ") or not re.match(r"^(#{1,6}\s|```|>|\||(-{3,}|\*{3,}|_{3,})$)", lines[i].strip())):
                     items[-1] += " " + lines[i].strip(); i += 1
                 else:
                     break
@@ -1197,8 +1338,11 @@ def research_path(rel, warp_root=None):
 
 def research_commit(rel, warp_root=None):
     """The last commit that touched a research-tree file: the repository's own record
-    where the file is in this checkout, else the commit the caller named for the tree."""
-    if os.path.isfile(os.path.join(REPO, rel)) and (warp_root is None or os.path.abspath(warp_root) == os.path.abspath(WARP_ROOT)):
+    where the file is read from this checkout, else the commit the caller named for the tree.
+    Only a path under research/warp-drive/ is read from --warp-root (research_path), so only
+    such a path takes the named commit; papers/method/ is always this checkout's."""
+    if os.path.isfile(os.path.join(REPO, rel)) and (not rel.startswith("research/warp-drive/") or warp_root is None
+                                                    or os.path.abspath(warp_root) == os.path.abspath(WARP_ROOT)):
         return _git_last_commit(rel)
     return WARP_COMMIT or _git_last_commit(rel)
 
@@ -1241,7 +1385,7 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
         h1 = next((h for h in headings if h["level"] == 1), None)
         h2 = next((h for h in headings if h["level"] == 2), None)
         arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
-        dois = sorted({m.group(1).rstrip(".)") for m in DOI_RX.finditer(text)})
+        dois = sorted({m.group(1).rstrip(".") for m in DOI_RX.finditer(text)})
         row = _member_row(fn)
         papers.append({
             "slug": slug, "short": short,
@@ -1260,7 +1404,9 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
                     "for the site, and its own citations are its own",
         })
     for rel, spec in RESEARCH_PAPERS.items():
-        path = research_path(rel, warp_root)
+        # a paper the tree at --warp-root predates is read from the repository's own copy
+        wr = None if spec.get("from_repo") else warp_root
+        path = research_path(rel, wr)
         if not os.path.isfile(path):
             papers.append({"slug": spec["slug"], "short": spec["short"], "title": spec["short"], "held": False, "author": SITE_AUTHOR,
                            "note": "named by the author as released; its file is not in this tree, so the site lists it and shows nothing in its place"})
@@ -1299,23 +1445,26 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
                           "md5_recorded": None, "ok": True, "note": "the paper's own figure; md5 measured at build, no ledger row"})
             alt = re.sub(r"[*_]", "", alt).strip()
             return '<img src="data/%s" alt="%s" loading="lazy">' % (rel, html_escape(alt))
-        body, headings = md_to_html(text, {"img": img_r})
+        fm, fm_body = _front_matter(text)
+        body, headings = md_to_html(fm_body, {"img": img_r})
+        if fm:
+            body = _front_matter_html(fm) + "\n" + body
         h1 = next((h for h in headings if h["level"] == 1), None)
         arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
-        dois = sorted({m.group(1).rstrip(".)") for m in DOI_RX.finditer(text)})
+        dois = sorted({m.group(1).rstrip(".") for m in DOI_RX.finditer(text)})
         pdf = None
         pdf_note = None
-        if spec.get("pdf_withheld") and os.path.isfile(research_path(spec["pdf"], warp_root)):
+        if spec.get("pdf_withheld") and os.path.isfile(research_path(spec["pdf"], wr)):
             pdf_note = "the PDF is the paper as written and carries the citations masked above, so it is not carried until the author reissues it"
-        elif spec.get("pdf") and os.path.isfile(research_path(spec["pdf"], warp_root)):
-            with open(research_path(spec["pdf"], warp_root), "rb") as fh:
+        elif spec.get("pdf") and os.path.isfile(research_path(spec["pdf"], wr)):
+            with open(research_path(spec["pdf"], wr), "rb") as fh:
                 pblob = fh.read()
             prel = "papers/%s/%s" % (slug, os.path.basename(spec["pdf"]))
             if write:
                 os.makedirs(os.path.join(out_dir, "papers", slug), exist_ok=True)
                 with open(os.path.join(out_dir, prel), "wb") as fh:
                     fh.write(pblob)
-            pdf = {"file": prel, "bytes": len(pblob), "md5": hashlib.md5(pblob).hexdigest(), "commit": research_commit(spec["pdf"], warp_root)}
+            pdf = {"file": prel, "bytes": len(pblob), "md5": hashlib.md5(pblob).hexdigest(), "commit": research_commit(spec["pdf"], wr)}
             # the copy the author released to the Drive folder that is the original-input witness, where
             # the mirror holds one under the same name (drive_sync.py --adopt): its manifest md5 against this file's
             wrow = _manifest_row("/" + os.path.basename(spec["pdf"]))
@@ -1323,13 +1472,13 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
                 pdf["witness"] = {"status": wrow["status"], "md5": wrow["md5"], "match": wrow["md5"] == pdf["md5"]}
         papers.append({
             "slug": slug, "short": spec["short"],
-            "title": (h1 or {}).get("text") or spec["short"],
-            "subtitle": _paper_byline(text),
+            "title": fm.get("title") or (h1 or {}).get("text") or spec["short"],
+            "subtitle": (" · ".join(x for x in (fm.get("author"), fm.get("date")) if x) or None) if fm else _paper_byline(text),
             "author": SITE_AUTHOR,
             "held": True,
             "bytes": len(raw), "md5": hashlib.md5(raw).hexdigest(),
             "md5_recorded": None,
-            "tree": {"path": public_path(rel), "commit": research_commit(rel, warp_root)},
+            "tree": {"path": public_path(rel), "commit": research_commit(rel, wr)},
             "words": len(text.split()),
             "headings": headings,
             "figures": figs,
@@ -1374,6 +1523,49 @@ def _git_last_commit(rel):
                               capture_output=True, text=True, check=True).stdout.strip() or None
     except Exception:  # noqa: BLE001 -- not a git checkout
         return None
+
+
+def _front_matter(text):
+    """A YAML front-matter title block (a first line of ---, flat `key: value` lines, a closing ---)
+    as a dict, and the text after it. Not a YAML parser: a value is a double-quoted string read as
+    JSON, a single-quoted one, or bare text, and a header of any other shape is not taken -- the
+    text is returned whole and renders as written."""
+    m = re.match(r"\A---\r?\n(.*?)\r?\n---\r?\n", text, re.S)
+    if not m:
+        return {}, text
+    meta = {}
+    for ln in m.group(1).splitlines():
+        km = re.match(r"^([A-Za-z_][\w-]*):[ \t]*(.*?)[ \t]*$", ln)
+        if not km:
+            return {}, text
+        v = km.group(2)
+        if v.startswith('"'):
+            try:
+                v = json.loads(v)
+            except ValueError:
+                return {}, text
+            if not isinstance(v, str):
+                return {}, text
+        elif len(v) >= 2 and v[0] == v[-1] == "'":
+            v = v[1:-1].replace("''", "'")
+        meta[km.group(1)] = v
+    return meta, text[m.end():]
+
+
+def _front_matter_html(meta):
+    """The title block a front-matter header stands for, in the shape the other papers write it
+    as text: the title, the subtitle as a bold standfirst, the author and date as a byline, a rule."""
+    out = []
+    if meta.get("title"):
+        out.append('<h1 class="paper-title">%s</h1>' % html_escape(meta["title"]))
+    if meta.get("subtitle"):
+        out.append("<p><strong>%s</strong></p>" % html_escape(meta["subtitle"]))
+    by = " · ".join(x for x in (meta.get("author"), meta.get("date")) if x)
+    if by:
+        out.append("<p>%s</p>" % html_escape(by))
+    if out:
+        out.append("<hr>")
+    return "\n".join(out)
 
 
 def _paper_byline(text):
@@ -2541,6 +2733,44 @@ def _ledger_md5(rel):
 NUCLIDES_JS = "nuclides.js"
 NUCLIDES_PREFIX = "window.__mi = window.__mi || {}; window.__mi.nuclides = "
 AME_REL = "extracted/archives/restore-point-2-13/captures/AME2020-TableI.tsv"
+CIAAW_DIR = "tables/ciaaw"
+
+
+def ciaaw_block():
+    """The CIAAW standard atomic weights and isotopic compositions, as tools/atomicweights.py
+    captured them into tables/ciaaw/: what the builder and gravity modes give when no isotope
+    is typed. Every value travels as the table prints it; the browser picks the most abundant
+    isotope from the representative compositions and sums the weights, nothing else."""
+    def rows(name):
+        path = os.path.join(REPO, CIAAW_DIR, name)
+        with open(path, "rb") as fh:
+            blob = fh.read()
+        lines = blob.decode("utf-8").splitlines()
+        head = lines[0].split("\t")
+        return [dict(zip(head, l.split("\t"))) for l in lines[1:] if l.strip()], hashlib.md5(blob).hexdigest()
+    w, w_md5 = rows("STANDARD-ATOMIC-WEIGHTS.tsv")
+    c, c_md5 = rows("ISOTOPIC-COMPOSITIONS.tsv")
+    cap, _ = rows("CAPTURE.tsv")
+    cap = {r["key"]: r["value"] for r in cap}
+    top = {}
+    for r in c:
+        z, rep = int(r["Z"]), float(r["representative"])
+        if z not in top or rep > top[z][1]:
+            top[z] = (int(r["A"]), rep)
+    water = 2 * float(next(r for r in w if r["Z"] == "1")["value"]) + float(next(r for r in w if r["Z"] == "8")["value"])
+    return {
+        "atomic_weights": {"source": {"citation": cap["weights_citation"], "doi": cap["weights_doi"], "path": CIAAW_DIR + "/STANDARD-ATOMIC-WEIGHTS.tsv",
+                                      "md5": w_md5, "route": "%s, sha256 %s; %s" % (cap["source"], cap["wheel_sha256"][:16], cap["revised_2024"]),
+                                      "status": "READ"},
+                           "columns": ["Z", "symbol", "kind", "value", "uncertainty", "low", "high", "notes", "edition"],
+                           "rows": [[int(r["Z"]), r["symbol"], r["kind"], r["value"], r["uncertainty"], r["low"], r["high"], r["notes"], r["edition"]] for r in w]},
+        "compositions": {"source": {"citation": cap["compositions_citation"], "doi": cap["compositions_doi"], "path": CIAAW_DIR + "/ISOTOPIC-COMPOSITIONS.tsv",
+                                    "md5": c_md5, "not_followed": cap["not_followed"], "status": cap["status"]},
+                         "columns": ["Z", "A", "value", "uncertainty", "low", "high", "representative", "status", "edition"],
+                         "rows": [[int(r["Z"]), int(r["A"]), r["value"], r["uncertainty"], r["low"], r["high"], float(r["representative"]), r["status"], r["edition"]] for r in c]},
+        "fixtures": {"weights": len(w), "revised_2024": sum(1 for r in w if r["edition"] == "2024"), "isotopes": len(c),
+                     "water_molar": round(water, 3), "most_abundant": {str(z): top[z][0] for z in (1, 6, 7, 8, 26, 40, 82, 92)}},
+    }
 
 
 def nuclides_block(G, grav, out_dir=OUT, write=True):
@@ -2569,7 +2799,9 @@ def nuclides_block(G, grav, out_dir=OUT, write=True):
         "species": grav["species"]["rows"],
         "species_note": grav["species"]["note"],
         "mass_formula": grav["data"]["mass_formula"],
+        **{k: v for k, v in ciaaw_block().items() if k != "fixtures"},
         "fixtures": {"nuclides": len(nuc), "carbon_12_u": grav["data"]["carbon_12"]["mass_u"], "members": grav["members"], "rows": grav["rows_charted"],
+                     "ciaaw": ciaaw_block()["fixtures"],
                      "cells": grav["cells"], "cells_at_D": {str(d["D"]): d["cells"] for d in grav["dimension"]["per_D"]},
                      "forced": am["forced"], "vanishes": am["vanishes"], "undetermined": am["undetermined"], "schwarzschild": am["schwarzschild"]["count"],
                      "relieved": grav["dimension"]["relieved"]["count"],
@@ -2585,7 +2817,10 @@ def nuclides_block(G, grav, out_dir=OUT, write=True):
         with open(os.path.join(out_dir, NUCLIDES_JS), "wb") as fh:
             fh.write(text)
     return {"file": "data/" + NUCLIDES_JS, "bytes": len(text), "md5": hashlib.md5(text).hexdigest(), "nuclides": len(nuc), "species": len(body["species"]),
-            "source": body["source"], "protocol": body["protocol"]}
+            "source": body["source"], "protocol": body["protocol"],
+            "ciaaw": {"weights": len(body["atomic_weights"]["rows"]), "isotopes": len(body["compositions"]["rows"]),
+                      "weights_md5": body["atomic_weights"]["source"]["md5"], "compositions_md5": body["compositions"]["source"]["md5"],
+                      "doi": body["atomic_weights"]["source"]["doi"]}}
 
 
 def _nuclide_u(G, Z, A, q=0):
@@ -3047,6 +3282,19 @@ def sources():
                          if os.path.exists(populate.DEFAULT_SPECTRA) else None),
         "drive_modified": row["drive_modified"] if row else None,
     })
+    # the record's own configuration table, which an element's Lambda cells are built on
+    rel = os.path.relpath(populate.RECORD_CONFIGS, REPO)
+    rec_md5 = None
+    with open(os.path.join(REPO, "extracted", "LEDGER.tsv"), encoding="utf-8") as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            if r["target_path"] == rel and r["disposition"] == "EXTRACTED":
+                rec_md5 = r["md5"]
+    out.append({
+        "file": "the record's ground configurations (118 elements)",
+        "role": "the configurations an element's \u039b cells are built on, as the record builds them",
+        "md5_recorded": rec_md5,
+        "md5_measured": _md5(populate.RECORD_CONFIGS) if os.path.exists(populate.RECORD_CONFIGS) else None,
+    })
     for s in out:
         s["ok"] = (s["md5_recorded"] is not None
                    and s["md5_recorded"] == s["md5_measured"])
@@ -3073,9 +3321,10 @@ INSTRUMENTS = [
     ("core_p", populate.core_p, "tools/populate.py", populate.PINNED,
      "p, the core's orbital count at this l, from the observed ground "
      "configuration of the core"),
-    ("n0_of", populate.n0_of, "tools/populate.py", populate.RECON,
+    ("n0_of", populate.n0_of, "tools/populate.py", populate.RECOVERED,
      "n0, the first entirely unoccupied n at this l; the source names the "
-     "term but not the reading, and He I ns settles it"),
+     "term but not the reading, and the reading reproduces every integer B "
+     "of the spectra index on the table it was built on"),
     ("lambda_constraints", populate.lambda_constraints, "tools/populate.py",
      populate.PINNED, "the seven constraints on Lambda_8, of four origins"),
     ("caps_needed", populate.caps_needed, "tools/populate.py", populate.PINNED,
@@ -3656,8 +3905,12 @@ def mucf_instruments():
 # ---------------------------------------------------------------------------
 
 ARXIV_NEW = re.compile(r"arXiv[: ]?(\d{4}\.\d{4,5})(?:v\d+)?", re.IGNORECASE)
-ARXIV_OLD = re.compile(r"\b((?:hep-th|hep-ph|hep-ex|hep-lat|math-ph|alg-geom|physics|quant-ph|cond-mat|astro-ph|nucl-th|nucl-ex|gr-qc|math|cs)(?:\.[A-Za-z]{2})?/\d{7})\b")
-DOI_RX = re.compile(r"\b(10\.\d{4,9}/[^\s\"'<>,;)\]]+)")
+ARXIV_OLD = re.compile(r"\b((?:hep-th|hep-ph|hep-ex|hep-lat|math-ph|alg-geom|physics|quant-ph|cond-mat|astro-ph|nucl-th|nucl-ex|gr-qc|math|cs)(?:\.[A-Za-z]{2})?/\d{7})(?:v\d+)?\b")
+# the inline linker's form: not after "/", so an id inside a URL or a Markdown link's target is left to that link
+_ARXIV_OLD_INLINE = re.compile(r"(?<![/\w])" + ARXIV_OLD.pattern)
+# a DOI may carry a balanced parenthesised group (Springer's JHEP DOIs, 10.1007/JHEP02(2016)020): a ")"
+# outside such a group closes the sentence and is not matched, so a matched ")" is the DOI's own
+DOI_RX = re.compile(r"\b(10\.\d{4,9}/(?:[^\s\"'<>,;()\]]|\([^\s()<>\"',;\]]*\))+)")
 URL_RX = re.compile(r"https?://[^\s)\]>\"']+")
 
 
@@ -3689,7 +3942,7 @@ def references_block():
                 for m in ARXIV_OLD.finditer(ln):
                     add(arxiv, m.group(1), rel, i, ln)
                 for m in DOI_RX.finditer(ln):
-                    add(doi, m.group(1).rstrip(".)"), rel, i, ln)
+                    add(doi, m.group(1).rstrip("."), rel, i, ln)
                 for m in URL_RX.finditer(ln):
                     u = m.group(0).rstrip(".),;")
                     if "doi.org/" in u or "arxiv.org/" in u:
@@ -3863,6 +4116,9 @@ def unwrap(text, Z=None):
 def _csv_only_element(Z, spectra):
     """Z = 109 to 120: rows READ from COORDINATES-2.13 and nothing else."""
     chans = {}
+    stage_rows = {}
+    for r in spectra.channels(Z):
+        stage_rows.setdefault(int(r["charge"]), []).append(r)
     for r in spectra.channels(Z):
         c, l, m = int(r["charge"]), int(r["l"]), int(r["mult"])
         ch = chans.setdefault((c, l), {
@@ -3870,13 +4126,16 @@ def _csv_only_element(Z, spectra):
             "subshell_letter": populate.LSYM[l] if l < len(populate.LSYM) else str(l),
             "core_Ne": Z - c, "core_symbol": None, "p": None, "n0": None,
             "B_computed": None, "C_of_Z": None, "delta_equation": None,
+            "domain": populate.channel_domain(Z, c, l, stage_rows[c]),
             "measured": [],
         })
         cb = populate.csv_bound(r)
         ch["measured"].append({
             "mult": m, "delta": float(r["delta"]), "grade": r["grade"],
             "witness": r["witness"], "source": r["source"],
-            "bound_note": r["bound"], "B_csv": cb, "B_agrees": None,
+            "bound_note": r["bound"], "B_csv": cb,
+            "B_csv_reading": populate.csv_B_reading(r), "B_csv_raw": r["B"],
+            "B_csv_range": populate.csv_B_range(r), "B_agrees": None,
             "B_csv_is_not_a_bound": cb is None and r.get("B", "") != "",
             "floor_le_B": None, "residual": None,
         })
@@ -3890,9 +4149,12 @@ def _csv_only_element(Z, spectra):
         "janet_cell": None, "outer": None, "closure": None,
         "config_table": None,
         "channels": [chans[k] for k in sorted(chans)],
+        "lambda8_cells": populate.element_cells(Z),
         "lambda8": [],
         "populated": False,
-        "note": "COORDINATES-2.13 rows only; the observed configurations stop at Z = 108",
+        "ground_basis": None,
+        "note": "COORDINATES-2.13 rows only; the ground-configuration table stops at Z = 108, "
+                "where NIST's neutral ground levels stop",
     }
 
 
@@ -3952,6 +4214,7 @@ def _counts(rec):
         "computed": sum(1 for m in meas if m["grade"] == "computed"),
         "witnessed": sum(1 for m in meas if m["witness"] == "witnessed"),
         "lambda8_steps": len(rec["lambda8"]),
+        "lambda8_cells": (rec.get("lambda8_cells") or {}).get("count", 0),
     }
 
 
@@ -3973,6 +4236,19 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     walk_z = {e["Z"] for e in (walk or {}).get("entrants", []) if e["displaced"]}
     walk_lx_z = {e["Z"] for e in ((walk or {}).get("fields", {}).get("lx", {}).get("entrants", [])) if e["displaced"]}
     lim_block = limits(spectra)
+    b_column, equation_domain = b_and_domain(spectra)
+    lambda8_elements = dict(populate.element_cells_census(), **{
+        "status": populate.RECOVERED,
+        "rule": "every transition among an element's own occupied subshells: source (n, l) holding "
+                "its real k, target (e, f) another subshell of the same atom, q = 1..k moved, "
+                "g = 1..min(q, 4f + 2) placed",
+        "E": {"with_Z": populate.RECORD_ELEMENT_CELLS["E_with_Z"],
+              "without_Z": populate.RECORD_ELEMENT_CELLS["E_without_Z"],
+              "note": "the record's figures, reproduced 2026-10-18 by tools/populate.py "
+                      "--element-cells-E (minutes, so not recomputed at build)"},
+        "configurations": "the record's 118 ground configurations (valence beyond the noble core; "
+                          "Z >= 104 predicted); for Z = 1 to 108 every listed subshell carries the "
+                          "observed table's occupancy"})
     fig = figure_source()
     figures = []
     if fig and os.path.exists(fig["path"]):
@@ -4093,7 +4369,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
                                                                             "; byte-identical to the copy the author released to the witness folder" if (p["pdf"].get("witness") or {}).get("match") else "")}
               for p in papers["papers"] if p.get("pdf")],
             {"file": pindex["file"], "bytes": pindex["bytes"], "md5": pindex["md5"], "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses, the nuclear band levels, the gravity index and the register"} if pindex else None,
-            {"file": nuclides["file"], "bytes": nuclides["bytes"], "md5": nuclides["md5"], "what": "the nuclides of AME2020 Table I with the banked levels: what the gravity and builder modes compute over"} if nuclides else None,
+            {"file": nuclides["file"], "bytes": nuclides["bytes"], "md5": nuclides["md5"], "what": "the nuclides of AME2020 Table I with the banked levels, and the CIAAW standard atomic weights and isotopic compositions: what the gravity and builder modes compute over"} if nuclides else None,
             walk_copy,
             *record_copies,
             {"file": "figures/" + FIGURE, "what": "Figure 5 of the Löwdin paper, with its ledger md5"} if figures else None,
@@ -4153,6 +4429,9 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
                 relb["statement"], relb["construction"], relb["thorium"]] if t)}),
         "relativistic": relb,
         "limits": lim_block,
+        "b_column": b_column,
+        "lambda8_elements": lambda8_elements,
+        "equation_domain": equation_domain,
         "figures": figures,
         "fixtures": fixtures(spectra),
         "figure_data": {"equation": equation_points(spectra)},
@@ -4455,14 +4734,31 @@ def selftest(warp_root=WARP_ROOT):
             check("quasiparticles: 230 space groups, 32 point groups, 73 arithmetic classes",
                   [pfull["quasiparticles"]["no_table"][k] for k in ("space_groups", "point_groups", "arithmetic_classes")], [230, 32, 73])
     pp = index["papers"]["papers"]
-    SITE_PAPERS = ["lowdin", "three-body", "languages", "indexes"] + ["closure-law", "lattice", "bracket", "polarisation-ratio", "tower", "order-recovery", "parent-term-wall", "chemical-index", "occupation-law", "closure-beyond"]
-    check("papers: the fourteen released papers, in order", [p["slug"] for p in pp], SITE_PAPERS)
-    check("papers: all fourteen are held", [p["held"] for p in pp], [True] * 14)
-    for q in pp[4:]:
+    SITE_PAPERS = ["lowdin", "three-body", "languages", "indexes"] + ["closure-law", "lattice", "bracket", "polarisation-ratio", "tower", "order-recovery", "parent-term-wall", "chemical-index", "occupation-law", "closure-beyond"] + ["everything-is-relative"]
+    check("papers: the fifteen released papers, in order", [p["slug"] for p in pp], SITE_PAPERS)
+    check("papers: all fifteen are held", [p["held"] for p in pp], [True] * 15)
+    for q in pp[4:14]:
         check("papers: %s carries every figure it cites from its own directory, and its PDF with an md5" % q["slug"],
               (q["figures"] > 0, q["figures_ok"], bool(q["pdf"] and q["pdf"]["md5"]), q["masked"]), (True, True, True, []))
     check("papers: the ten PDFs are byte-identical to the copies the author released to the witness folder, mirrored ok-adopted",
-          [((q["pdf"] or {}).get("witness") or {}).get("match") and ((q["pdf"] or {}).get("witness") or {}).get("status") for q in pp[4:]], ["ok-adopted"] * 10)
+          [((q["pdf"] or {}).get("witness") or {}).get("match") and ((q["pdf"] or {}).get("witness") or {}).get("status") for q in pp[4:14]], ["ok-adopted"] * 10)
+    eir = pp[14]
+    eir_src = "research/warp-drive/paper/EVERYTHING-IS-RELATIVE.md"
+    check("papers: Everything Is Relative is read from the repository's own research tree, not --warp-root, with that file's last commit",
+          (eir["tree"]["path"], eir["tree"]["commit"], eir["md5"]),
+          ("research/paper/EVERYTHING-IS-RELATIVE.md", _git_last_commit(eir_src), hashlib.md5(open(os.path.join(REPO, eir_src), "rb").read()).hexdigest()))
+    check("papers: its title and byline are its front matter's, and it carries no figure and nothing masked",
+          (eir["title"], eir["subtitle"], eir["figures"], eir["masked"]),
+          ("Everything Is Relative", "Matthew Lach · Independent Researcher · 16 October 2026", 0, []))
+    check("papers: its PDF is carried and is byte-identical to the copy released to the witness folder, mirrored ok-adopted",
+          (eir["pdf"]["md5"], eir["pdf"]["bytes"], eir["pdf"]["witness"]), ("b559a0c99193bef851c5f29d465f715f", 182149, {"status": "ok-adopted", "md5": "b559a0c99193bef851c5f29d465f715f", "match": True}))
+    check("papers: it links 12 arXiv and 12 DOI identifiers", (eir["arxiv"], eir["doi"]), (12, 12))
+    # the routing measured directly: with a --warp-root that holds no paper at all, the research-tree papers
+    # read from it are not held, and this one is still held from this checkout with its own commit
+    probe = {q["slug"]: q for q in papers_block(write=False, log=lambda *_a, **_k: None, warp_root=os.path.join(REPO, "no-such-warp-root"))["papers"]}
+    check("papers: Everything Is Relative is read from this checkout whatever --warp-root holds (from_repo); the tree's own papers are not",
+          (probe["everything-is-relative"]["held"], probe["everything-is-relative"]["tree"]["commit"], probe["everything-is-relative"]["md5"], probe["languages"]["held"], probe["indexes"]["held"]),
+          (True, _git_last_commit(eir_src), eir["md5"], False, False))
     check("papers: the index of first-order indexes paper comes from the research tree with its commit, four citations of unpublished material masked and its PDF withheld",
           (pp[3]["tree"]["path"], bool(pp[3]["tree"]["commit"]), pp[3]["pdf"], bool(pp[3]["pdf_note"]), sum(m["count"] for m in pp[3]["masked"]), sorted({m["kind"] for m in pp[3]["masked"]})),
           ("research/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md", True, None, True, 8, ["a citation of an unpublished record", "a member's file name", "a path into the unpublished store", "the research tree's directory"]))
@@ -4479,8 +4775,36 @@ def selftest(warp_root=WARP_ROOT):
         check("papers: after masking, the index paper cites nothing from the books, measured by the guard with its own section marks and its own terms excluded", (idx_paper["book_citations"], sorted(idx_paper["own_terms"])), ([], sorted(RESEARCH_PAPERS["research/warp-drive/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md"]["own_terms"])))
         check("papers: the mask leaves a visible mark at every site but the directory rewrite", idx_paper["html"].count("withheld on this site"), 7)
         check("papers: its render carries every heading of the source", len(idx_paper["headings"]), sum(1 for ln in open(research_path("research/warp-drive/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md", warp_root), encoding="utf-8") if ln.startswith("#")))
+    eir_full = next((p for p in full_papers if p["slug"] == "everything-is-relative"), None)
+    if eir_full:
+        eir_lines = open(os.path.join(REPO, "research/warp-drive/paper/EVERYTHING-IS-RELATIVE.md"), encoding="utf-8").read().split("\n")
+        check("papers: Everything Is Relative cites nothing from the books, measured by the guard with its own section marks and one journal page (ApJL 848 L13) excluded",
+              (eir_full["book_citations"], eir_full["own_section_marks"], eir_full["own_terms"]), ([], [r"§\s?\d"], [r"\bL\d{2,5}\b(?![.\d])"]))
+        check("papers: its render carries every heading of the source and its front matter as the title block, not as rules",
+              ([h["text"] for h in eir_full["headings"]], eir_full["html"].startswith('<h1 class="paper-title">Everything Is Relative</h1>'), "title:" in eir_full["html"], eir_full["html"].count("<hr>")),
+              ([re.sub(r"[*_`]", "", ln.lstrip("#").strip()) for ln in eir_lines if ln.startswith("#")], True, False,
+               1 + sum(1 for ln in eir_lines[6:] if re.match(r"^(-{3,}|\*{3,}|_{3,})$", ln.strip()))))
+        check("papers: its escaped pipes are literal pipes in their table cells, not cell breaks",
+              ("\\|" in eir_full["html"], "excess 16|α|m/(r⁴q²)</td>" in eir_full["html"]), (False, True))
+        check("papers: the front matter's subtitle is the title block's standfirst, as written",
+              "<p><strong>How quantum physics stands to relativity: on the postulate that whatever can exist keeps the one light cone, "
+              "the leading quantum correction to gravity's second-order law, on its string effective-action reading, is held to zero</strong></p>" in eir_full["html"], True)
+        check("papers: a DOI with a balanced parenthesised group is linked whole, and an old-style arXiv id with a version suffix is found",
+              ({"10.1007/JHEP02(2016)020", "10.1007/JHEP08(2022)157"} <= set(eir_full["doi"]), 'href="https://doi.org/10.1007/JHEP02(2016)020"' in eir_full["html"],
+               "gr-qc/0411023" in eir_full["arxiv"], 'href="https://arxiv.org/abs/gr-qc/0411023"' in eir_full["html"]), (True, True, True, True))
+        check("papers: a list item's lazy continuation line stays in its item: the premises P1 to P4 are one list, P1 whole",
+              ("anti-de Sitter radius ℓ) and no other scale.</li><li><b>P2.</b>" in eir_full["html"], "<p>anti-de Sitter radius" in eir_full["html"]), (True, False))
+    check("papers: an identifier inside a link's target is left to the link: one anchor, its URL whole",
+          [_md_inline(t, {"img": lambda a, b: ""}).count("<a ") for t in ("[Deser](https://arxiv.org/abs/gr-qc/0411023v3)", "[Deser](https://arxiv.org/abs/gr-qc/0411023)", "see gr-qc/0411023v3", "doi:10.1007/JHEP02(2016)020.", "X ⊆ cl[L](X); cl[b](X) = X")], [1, 1, 1, 1, 0])
+    check("papers: a header that is not flat key: value lines is not taken as front matter, and the text renders whole",
+          (_front_matter("---\ntitle: x\n- y\n---\nbody\n"), _front_matter("---\ntitle: \"a \\\"b\\\"\"\nauthor: 'c''d'\n---\nbody\n"), _front_matter("no header\n")),
+          (({}, "---\ntitle: x\n- y\n---\nbody\n"), ({"title": 'a "b"', "author": "c'd"}, "body\n"), ({}, "no header\n")))
+    check("papers: no backslash escape of any paper survives its render outside code, as GitHub reads them",
+          [p["slug"] for p in full_papers if p.get("held") and _MD_ESCAPE.search(re.sub(r"<(pre|code)\b[^>]*>.*?</\1>", "", p["html"], flags=re.S))], [])
+    check("papers: no table cell of any paper is cut at an escaped pipe",
+          [p["slug"] for p in full_papers if p.get("held") and re.search(r"\\(</t[dh]>|\|)", p["html"])], [])
     for q in full_papers:
-        if q.get("held") and q["slug"] in SITE_PAPERS[4:]:
+        if q.get("held") and q["slug"] in SITE_PAPERS[4:14]:
             check("papers: %s cites nothing from the books, measured by the guard with its own section marks excluded" % q["slug"],
                   (q["book_citations"], q["own_terms"]), ([], []))
     lang = next((p for p in full_papers if p["slug"] == "languages"), None)
@@ -4507,6 +4831,14 @@ def selftest(warp_root=WARP_ROOT):
     if nd:
         check("nuclides: 3,558 nuclides of AME2020 Table I, the file's md5 the ledger's own", (nd["nuclides"], nd["source"]["md5"] == nd["source"]["md5_recorded"], bool(nd["source"]["md5_recorded"])), (3558, True, True))
         check("nuclides: 126 species with their banked levels travel with the table", nd["species"], 126)
+        cw = nd.get("ciaaw") or {}
+        check("nuclides: the CIAAW tables travel with it, 84 weights over 289 isotopes, each file's md5 recorded",
+              (cw.get("weights"), cw.get("isotopes"), len(cw.get("weights_md5") or ""), len(cw.get("compositions_md5") or ""), cw.get("doi")),
+              (84, 289, 32, 32, "10.1515/pac-2019-0603"))
+        cb = ciaaw_block()["fixtures"]
+        check("nuclides: water's molar mass from the standard atomic weights, and the most abundant isotopes",
+              (cb["water_molar"], cb["revised_2024"], cb["most_abundant"]),
+              (18.015, 3, {"1": 1, "6": 12, "7": 14, "8": 16, "26": 56, "40": 90, "82": 208, "92": 238}))
     iso = (index.get("particle_index") or {}).get("isotopes")
     if iso:
         check("isotopes: the site's own index, 3,558 on 3,558 cells at (4, 295, 18), E = 0, the table the ledger's own", (iso["members"], iso["cells"], iso["cell"], iso["E"], iso["site_own"], iso["source_ok"], iso["refused"]), (3558, 3558, {"channel": 4, "height": 295, "width": 18}, 0, True, True, 7))
@@ -4585,6 +4917,35 @@ def selftest(warp_root=WARP_ROOT):
     og = element_record(118, spectra)
     check("Og: CSV-only, not populated", og["populated"], False)
     check("Og: period 7 group 18", (og["period"], og["group"]), (7, 18))
+    uue = element_record(119, spectra)
+    zrows = [m for ch in uue["channels"] for m in ch["measured"]]
+    check("Z = 119: every row's B is 0, named as a zero and not read as a bound",
+          {(m["B_csv_reading"], m["B_csv"], m["B_csv_raw"]) for m in zrows}, {("zero", None, "0")})
+    check("Z = 119: every channel is outside the equation's domain (Z > 103)",
+          all(ch["domain"]["validated"] is False for ch in uue["channels"]), True)
+    na = element_record(11, spectra)
+    na1 = [m for ch in na["channels"] if ch["charge"] == 1 for m in ch["measured"]]
+    check("Na I: six rows carry the range of their series' defects, none read as a bound",
+          sorted(m["B_csv_range"] for m in na1 if m["B_csv_reading"] == "range"),
+          [3e-05, 0.00015, 0.0005, 0.00466, 0.02475, 0.02842])
+    check("Na I: the series limit is READ, 41449.451 cm^-1", (na["series_limit"]["value"], na["series_limit"]["status"]),
+          (41449.451, populate.READ))
+    check("Na I: in the equation's domain; Fe IV outside it (open-shell core at 16 parents)",
+          ([ch["domain"]["validated"] for ch in na["channels"] if ch["charge"] == 1 and ch["l"] == 0],
+           [ch["domain"]["reasons"] for ch in element_record(26, spectra)["channels"]
+            if ch["charge"] == 4 and ch["l"] == 0]),
+          ([True], [["open-shell core at 16 parents"]]))
+    check("Fe: the record's Lambda cells, 14, of which 5 composable within iron; H has none (one subshell)",
+          (element_record(26, spectra)["lambda8_cells"]["count"], element_record(26, spectra)["lambda8_cells"]["composable_within"],
+           element_record(1, spectra)["lambda8_cells"]["count"]), (14, 5, 0))
+    check("Og carries the record's cells (predicted); Z = 119 has none in the record's table",
+          (element_record(118, spectra)["lambda8_cells"]["predicted"], element_record(119, spectra)["lambda8_cells"]),
+          (True, None))
+    rf = element_record(104, spectra)
+    check("Rf: the ground level is NIST's lone level, its ionisation energy ab initio (6.02)",
+          (rf["ground_basis"]["levels_held_by_nist"], rf["ground_basis"]["ionisation_energy_eV"]), (1, "(6.02)"))
+    check("only Lr to Hs carry a ground basis",
+          [z for z in range(1, 109) if element_record(z, spectra)["ground_basis"]], [103, 104, 105, 106, 107, 108])
     check("layout rows", len(index["layout"]), 120)
     check("manifest rows", len(index["manifest"]), 120)
 
@@ -4771,8 +5132,44 @@ def selftest(warp_root=WARP_ROOT):
           ins["op_order"]["file"], "tools/cypher.py")
     check("instruments: collapse_C is RECOVERED",
           ins["collapse_C"]["status"], populate.RECOVERED)
-    check("instruments: n0_of is RECONSTRUCTED",
-          ins["n0_of"]["status"], populate.RECON)
+    check("instruments: n0_of is RECOVERED (the reading reproduces the B column)",
+          ins["n0_of"]["status"], populate.RECOVERED)
+
+    # --- the caveats, as reviewed 2026-10-17 ----------------------------------
+    cv = {c["id"]: c for c in index["caveats"]}
+    check("caveats: eleven, each with a state and a review date",
+          (len(cv), all(c.get("state") in ("repaired", "measured", "standing", "open")
+                        and c.get("reviewed") for c in cv.values())), (11, True))
+    check("caveats: every repaired caveat keeps what it said before",
+          all(c.get("was") for c in cv.values() if c["state"] == "repaired"), True)
+    l8 = index["lambda8_elements"]
+    check("Lambda: the record's element cells reproduce every figure it prints (118, 247, 4,325, 982, 3,686, 18,288)",
+          (l8["elements"], l8["subshells"], l8["cells"], l8["composable_within"], l8["composable_across"], l8["tests"]),
+          (118, 247, 4325, 982, 3686, 18288))
+    check("Lambda: the mapping caveat is repaired and keeps what it said before",
+          (cv["lambda8-mapping"]["state"], bool(cv["lambda8-mapping"].get("was"))), ("repaired", True))
+    check("caveats: the stale claim that measurement stops at 108 is gone from the text",
+          "because measurement does" in cv["above-108"]["text"], False)
+    bc = index["b_column"]
+    check("B column: 101,303 bounds, 25 ranges, 3,504 zeros; aufbau reproduces every bound",
+          (bc["readings"], bc["aufbau_reproduces"], bc["integer_rows"]),
+          ({"bound": 101303, "range": 25, "zero": 3504}, 101303, 101303))
+    check("B column: on the observed table 1,104 of 99,687 rows differ",
+          (bc["observed_differs"], bc["observed_compared"]), (1104, 99687))
+    rr = bc["range_recomputed"]
+    check("B column: the 25 ranges recompute from NIST's levels, 25 of 25; R_inf gives none",
+          (rr["delta_is_median"], rr["B_is_range"], rr["delta_with_R_inf"], rr["limits_equal_nist"]),
+          (25, 25, 0, 9))
+    ed = index["equation_domain"]
+    check("domain: the record's first two exclusions reproduce exactly",
+          (ed["cells"]["by_first_exclusion"]["Z > 103"], ed["cells"]["by_first_exclusion"]["charge > 10"]),
+          (24312, 61748))
+    check("domain: the record's 51 measured exclusions reproduce (24, 15, 12)",
+          (ed["measured"]["out"]["rows"], ed["measured_out_reasons"]),
+          (51, {"open-shell core at 3 parents": 24, "open-shell core at 16 parents": 15,
+                "charge > 10": 12}))
+    check("domain: the in-region rms is the record's 0.147",
+          round(ed["measured"]["in, before the 2026-08-14 fetch"]["rms"], 3), 0.147)
 
     # --- the fixtures ----------------------------------------------------------
     fx = index["fixtures"]

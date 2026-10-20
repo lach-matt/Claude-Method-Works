@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-25T04:10:00+00:00",
-  "commit": "46b6c9ecb34e",
+  "built": "2026-10-18T01:08:30+00:00",
+  "commit": "023270b8eb2f",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,353 +12,458 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "46b6c9ecb34e",
-   "text": "Lach, M. (2026). The Master Index, edition 46b6c9ecb34e. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 46b6c9ecb34e}\n}"
+   "commit": "023270b8eb2f",
+   "text": "Lach, M. (2026). The Master Index, edition 023270b8eb2f. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 023270b8eb2f}\n}"
   },
   "history": [
    {
     "date": "2026-09-17",
-    "commit": "745414d",
+    "commit": "745414d3",
     "files": 1,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/745414d310e11b6eed9fd45e4c985f1be5746cab",
     "note": "first page"
    },
    {
     "date": "2026-09-18",
-    "commit": "a4cd621",
+    "commit": "a4cd621c",
     "files": 4,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a4cd621ca4da021e81541072e64cbac98c42de4e",
     "note": "interactive index, first pass"
    },
    {
     "date": "2026-09-18",
-    "commit": "ef7b325",
+    "commit": "ef7b325d",
     "files": 125,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ef7b325d5e5b995bd8f6dbe9a84a007e5fae2138",
     "note": "touch-first site; data as script files; solver suite; coefficient calculator"
    },
    {
     "date": "2026-09-18",
-    "commit": "86276a0",
+    "commit": "86276a01",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/86276a0156ea96dafa602250ec6fecc1833dd0fb",
     "note": "the relativistic limit as a seventh mode; the bounds facet"
    },
    {
     "date": "2026-09-18",
-    "commit": "d415284",
+    "commit": "d4152844",
     "files": 1,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d41528441103cb380cfa510c1cbc3472a7fd258a",
     "note": "mode 7 asserts both directions, thorium the null-difference control"
    },
    {
     "date": "2026-09-18",
-    "commit": "0360a25",
+    "commit": "0360a255",
     "files": 1,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/0360a2553588d77d7fc56c72e61cf60d32c2d50e",
     "note": "the Löwdin delivery's reply cited from the store"
    },
    {
     "date": "2026-09-18",
-    "commit": "e9b77f6",
+    "commit": "e9b77f6f",
     "files": 125,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/e9b77f6fa39028830e34cf81de03a3e1d0b2ba7d",
     "note": "the Löwdin walk reconstructed beside the paper, at both settings"
    },
    {
     "date": "2026-09-18",
-    "commit": "5755759",
+    "commit": "57557596",
     "files": 122,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/575575964f5eeeef2208e51a95d1f51a0c0ca008",
     "note": "a Hartree-Fock field with non-local exchange, in progress"
    },
    {
     "date": "2026-09-19",
-    "commit": "ab7a374",
+    "commit": "ab7a3742",
     "files": 121,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ab7a3742aaf6bfd10921f4131cfd3093a3cd07f6",
     "note": "the walk in the paper's own Hartree-Fock field, 476 rows"
    },
    {
     "date": "2026-09-19",
-    "commit": "5e55930",
+    "commit": "5e559305",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/5e5593054009768846b3a71edd0a055427a57ff0",
     "note": "the thirty-six cells carry their definitions; helium's placement offered"
    },
    {
     "date": "2026-09-19",
-    "commit": "fc8bcdb",
+    "commit": "fc8bcdb8",
     "files": 4,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/fc8bcdb8e459165ac48fea60f18e23174958c542",
     "note": "the lattice in three dimensions: every element its slab, rotatable and zoomable"
    },
    {
     "date": "2026-09-19",
-    "commit": "81bd08e",
+    "commit": "81bd08ed",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/81bd08ede450f54b59a4f9f032b28fb50877a257",
     "note": "particles and binders; references linked by construction; the muon balance as a mode"
    },
    {
     "date": "2026-09-19",
-    "commit": "3f71e96",
+    "commit": "3f71e96e",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/3f71e96eaf2d796bc3ebe7373fdef021f3e3589e",
     "note": "set like a reference work: type, palette, frame"
    },
    {
     "date": "2026-09-19",
-    "commit": "337b922",
+    "commit": "337b9226",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/337b9226e1f238708590f97941255bdbd60eda1e",
     "note": "the index's cells drawn as a table, not a grid"
    },
    {
     "date": "2026-09-19",
-    "commit": "3c1abef",
+    "commit": "3c1abef1",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/3c1abef14024112146e92434ea3601485de13998",
     "note": "the lattice drawn as a figure: fitted, grounded, labelled"
    },
    {
     "date": "2026-09-19",
-    "commit": "07f9ff7",
+    "commit": "07f9ff7e",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/07f9ff7ebe9bd4b4359ba8b325432e1c00528f81",
     "note": "the lattice's cells as nodes"
    },
    {
     "date": "2026-09-19",
-    "commit": "2d0d5e3",
+    "commit": "2d0d5e33",
     "files": 28,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2d0d5e3340fdf12de1eca5bf013895ce5342149c",
     "note": "the public build: the site cites nothing from the unpublished books"
    },
    {
     "date": "2026-09-19",
-    "commit": "7612e56",
+    "commit": "7612e562",
     "files": 16,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/7612e562bdb17f87ee6ab4063a453c9a6b394fe5",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "229a595",
+    "commit": "229a5950",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/229a5950d6d91c4159953d39f265fdd168bc1fdb",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "4832489",
+    "commit": "48324891",
     "files": 4,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/48324891e26ea5276c3adc7729196742f9c8db15",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "d8fcff5",
+    "commit": "d8fcff59",
     "files": 112,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d8fcff592773bf6bafd63d39452821373bb1bf30",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "67e98e0",
+    "commit": "67e98e09",
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/67e98e094889407af54e034caf2d5c7350c4f018",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "8a01e28",
+    "commit": "8a01e280",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/8a01e28061beec3499df05a15486420bd587dd38",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "adbbcd4",
+    "commit": "adbbcd4e",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/adbbcd4e4bd46f33e99471801e04620ad646d635",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "327f552",
+    "commit": "327f552f",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/327f552fda1d85e0225ab37a44ccf9fff5199b71",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "110e0bd",
+    "commit": "110e0bde",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/110e0bde1799191d5570aa172692863e8491f5b2",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "8215d64",
+    "commit": "8215d646",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/8215d646876ca45029e281082b191ea4ecfa4c24",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "de0b829",
+    "commit": "de0b829e",
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/de0b829ef3cb85f2478bae159328c423986c74c4",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "79e920e",
+    "commit": "79e920e0",
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/79e920e0f57a3e5acfb97709824c4ca9e7cfada2",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "2cb6bc3",
+    "commit": "2cb6bc38",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2cb6bc38c01d53ba6dc18a0c0373a64ff393f20c",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "fdf00d5",
+    "commit": "fdf00d52",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/fdf00d522c29fc61abd2389735a10780282b0022",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "d002152",
+    "commit": "d0021529",
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d0021529ab9c91b0eb353a2f921b80526196046b",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "364e85f",
+    "commit": "364e85fb",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/364e85fb1c264923f8a8675ce4e4bbf631eabfeb",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "96da041",
+    "commit": "96da0414",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/96da04147973889226a949a1c834aa33cda05b5b",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "ac7fb31",
+    "commit": "ac7fb317",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ac7fb3170664b4fcc906621c860a04a3c2e4e53c",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "a5e4978",
+    "commit": "a5e4978c",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a5e4978cf7f775291036af54383a0460245f3bb0",
     "note": null
    },
    {
     "date": "2026-09-20",
-    "commit": "0f3b774",
+    "commit": "0f3b7742",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/0f3b77423895d771d8ae7ac3b584692762f184a8",
     "note": null
    },
    {
     "date": "2026-09-20",
-    "commit": "17332cb",
+    "commit": "17332cbe",
     "files": 7,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/17332cbe46269c06b7996f52dce510e5bdba73d3",
     "note": null
    },
    {
     "date": "2026-09-20",
-    "commit": "484bc21",
+    "commit": "484bc210",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/484bc21089322407d05035cb734571cbbdc9b2f9",
     "note": null
    },
    {
     "date": "2026-09-21",
-    "commit": "ab70960",
+    "commit": "ab70960f",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ab70960f3b54e7bdd07bdb6c2f37ad1ed27badbe",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "5f7a034",
+    "commit": "5f7a034a",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/5f7a034a640eb3b707a9f0402b197e0b039bd430",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "d7cd27b",
+    "commit": "d7cd27bb",
     "files": 59,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d7cd27bbea11ae560c54fd8b4d2d519a02a8ec21",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "60ceaf5",
+    "commit": "60ceaf59",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/60ceaf592284db2c901348bfeb0b6508ade59836",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "2ab58bb",
+    "commit": "2ab58bbb",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2ab58bbbd2ce1b4559ce747d5cebc02a022a04ef",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "ff31bc1",
+    "commit": "ff31bc17",
     "files": 130,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ff31bc17c5b2e56c70da215766049e19110ff3c5",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "a8aa7bf",
+    "commit": "a8aa7bfe",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a8aa7bfe37d826830df51a279422f2adcbf0d0e6",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "6bfa080",
+    "commit": "6bfa080d",
     "files": 15,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/6bfa080d1214e6a8d3e5db796402ec58028a6623",
     "note": null
    },
    {
     "date": "2026-09-25",
-    "commit": "dded28c",
+    "commit": "dded28c6",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/dded28c64cdb33236059ac8707770bd994df88bb",
+    "note": null
+   },
+   {
+    "date": "2026-09-25",
+    "commit": "0b84e59f",
+    "files": 124,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/0b84e59f92607a77aeb4ed259a44bf13cba32e4e",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "f4a9bfd2",
+    "files": 4,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/f4a9bfd26425ed0f105f0fb1465d31af7a7575db",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "730597a4",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/730597a4b34e5595e1c2adea570878347c1408cd",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "6fe9c989",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/6fe9c9895d39290646c8a9a37752057fb2984456",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "9fd08b48",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/9fd08b48e9bf7003d393b82a5a37209bb9272d80",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "98dea573",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/98dea57365376a20df48be52e8d018978ac8f4b8",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "8b2537c4",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/8b2537c495b2a525ba375f078cae416a9ec1f6bf",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "83d55b46",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/83d55b46f5c0e1128a4e2cfa10e437a847e47820",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "433ac527",
+    "files": 3,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/433ac527a94365f1bb983b6b873151cdbe7bc881",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "98300bae",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/98300bae9f4bd3b1fdda5a179f70496332267f12",
+    "note": null
+   },
+   {
+    "date": "2026-10-17",
+    "commit": "389c96aa",
+    "files": 4,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/389c96aa45e7024be638e3ca7e88eb5775a5849d",
+    "note": null
+   },
+   {
+    "date": "2026-10-17",
+    "commit": "14f7d1e0",
+    "files": 125,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/14f7d1e0df7e7e133f60ddb1345a86347172c3cf",
+    "note": null
+   },
+   {
+    "date": "2026-10-18",
+    "commit": "ee4733e8",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ee4733e83048f4f13c77b5d47172c7b257539321",
+    "note": null
+   },
+   {
+    "date": "2026-10-18",
+    "commit": "c69bf823",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/c69bf82338ae93c888df90bdae90191a1c255fbc",
+    "note": null
+   },
+   {
+    "date": "2026-10-18",
+    "commit": "023270b8",
+    "files": 3,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/023270b8eb2fdbb362816a96fc5455e01440044c",
     "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 1239668,
-  "md5": "1d81b9e68d069aa1e1b21788a317186a",
+  "bytes": 1299845,
+  "md5": "a5821986d260ac7f51fd38b25f1f5dc8",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -486,13 +591,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/01-closure-law/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "049b3590"
     },
     "pdf": {
      "file": "papers/closure-law/01-closure-law.pdf",
      "bytes": 362493,
      "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
-     "commit": "27dd39c",
+     "commit": "049b3590",
      "witness": {
       "status": "ok-adopted",
       "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
@@ -520,13 +625,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/02-lambda/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "049b3590"
     },
     "pdf": {
      "file": "papers/lattice/02-lambda.pdf",
      "bytes": 809787,
      "md5": "75533f2246e75ef436a7e971e35c0307",
-     "commit": "27dd39c",
+     "commit": "049b3590",
      "witness": {
       "status": "ok-adopted",
       "md5": "75533f2246e75ef436a7e971e35c0307",
@@ -554,13 +659,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/03-bracket/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "2ab58bbb"
     },
     "pdf": {
      "file": "papers/bracket/03-bracket.pdf",
      "bytes": 506621,
      "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
-     "commit": "27dd39c",
+     "commit": "2ab58bbb",
      "witness": {
       "status": "ok-adopted",
       "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
@@ -588,13 +693,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/04-seaton/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "2ab58bbb"
     },
     "pdf": {
      "file": "papers/polarisation-ratio/04-seaton.pdf",
      "bytes": 365197,
      "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
-     "commit": "27dd39c",
+     "commit": "2ab58bbb",
      "witness": {
       "status": "ok-adopted",
       "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
@@ -622,13 +727,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/05-tower/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "049b3590"
     },
     "pdf": {
      "file": "papers/tower/05-tower.pdf",
      "bytes": 606017,
      "md5": "b1fca4f6be8027b4da414dba7a94fd17",
-     "commit": "27dd39c",
+     "commit": "049b3590",
      "witness": {
       "status": "ok-adopted",
       "md5": "b1fca4f6be8027b4da414dba7a94fd17",
@@ -656,13 +761,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/06-order-recovery/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "049b3590"
     },
     "pdf": {
      "file": "papers/order-recovery/06-order-recovery.pdf",
      "bytes": 527483,
      "md5": "9f65e141cab5d77b75080870d9c96156",
-     "commit": "27dd39c",
+     "commit": "049b3590",
      "witness": {
       "status": "ok-adopted",
       "md5": "9f65e141cab5d77b75080870d9c96156",
@@ -690,13 +795,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/07-wall-janet/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "2ab58bbb"
     },
     "pdf": {
      "file": "papers/parent-term-wall/07-wall-janet.pdf",
      "bytes": 540996,
      "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
-     "commit": "27dd39c",
+     "commit": "2ab58bbb",
      "witness": {
       "status": "ok-adopted",
       "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
@@ -724,13 +829,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/08-chemical-index/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "60ceaf59"
     },
     "pdf": {
      "file": "papers/chemical-index/08-chemical-index.pdf",
      "bytes": 426155,
      "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
-     "commit": "27dd39c",
+     "commit": "60ceaf59",
      "witness": {
       "status": "ok-adopted",
       "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
@@ -758,13 +863,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/09-occupation-hull/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "60ceaf59"
     },
     "pdf": {
      "file": "papers/occupation-law/09-occupation-hull.pdf",
      "bytes": 354736,
      "md5": "9d86f90ee094e01c61d6c23f1300e967",
-     "commit": "27dd39c",
+     "commit": "60ceaf59",
      "witness": {
       "status": "ok-adopted",
       "md5": "9d86f90ee094e01c61d6c23f1300e967",
@@ -792,13 +897,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/10-beyond-the-atom/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "60ceaf59"
     },
     "pdf": {
      "file": "papers/closure-beyond/10-beyond-the-atom.pdf",
      "bytes": 535900,
      "md5": "cacbcbb131c57a7f029a833f2473e6a7",
-     "commit": "27dd39c",
+     "commit": "60ceaf59",
      "witness": {
       "status": "ok-adopted",
       "md5": "cacbcbb131c57a7f029a833f2473e6a7",
@@ -812,6 +917,40 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "figures_ok": true,
     "arxiv": 0,
     "doi": 1
+   },
+   {
+    "slug": "everything-is-relative",
+    "title": "Everything Is Relative",
+    "subtitle": "Matthew Lach · Independent Researcher · 16 October 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 50757,
+    "md5": "0e25e7ffb10e9201626b573eaa760fea",
+    "md5_recorded": null,
+    "words": 8512,
+    "note": "the paper as the author wrote it, from the repository's research tree rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "research/paper/EVERYTHING-IS-RELATIVE.md",
+     "commit": "6764ffaa"
+    },
+    "pdf": {
+     "file": "papers/everything-is-relative/EVERYTHING-IS-RELATIVE.pdf",
+     "bytes": 182149,
+     "md5": "b559a0c99193bef851c5f29d465f715f",
+     "commit": "6764ffaa",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "b559a0c99193bef851c5f29d465f715f",
+      "match": true
+     }
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 26,
+    "figures": 0,
+    "figures_ok": true,
+    "arxiv": 12,
+    "doi": 12
    }
   ]
  },
@@ -826,8 +965,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 1239668,
-   "md5": "1d81b9e68d069aa1e1b21788a317186a",
+   "bytes": 1299845,
+   "md5": "a5821986d260ac7f51fd38b25f1f5dc8",
    "what": "the released papers, rendered"
   },
   {
@@ -840,61 +979,67 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "file": "data/papers/closure-law/01-closure-law.pdf",
    "bytes": 362493,
    "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
-   "what": "The Closure Law of a Finite Index, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Closure Law of a Finite Index, as a PDF; md5 measured at build, commit 049b3590; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/lattice/02-lambda.pdf",
    "bytes": 809787,
    "md5": "75533f2246e75ef436a7e971e35c0307",
-   "what": "The Lattice of Subshell Transitions, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Lattice of Subshell Transitions, as a PDF; md5 measured at build, commit 049b3590; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/bracket/03-bracket.pdf",
    "bytes": 506621,
    "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
-   "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; md5 measured at build, commit 2ab58bbb; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/polarisation-ratio/04-seaton.pdf",
    "bytes": 365197,
    "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
-   "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; md5 measured at build, commit 2ab58bbb; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/tower/05-tower.pdf",
    "bytes": 606017,
    "md5": "b1fca4f6be8027b4da414dba7a94fd17",
-   "what": "The Tower over Λ: from Eight Coordinates to Thirteen, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Tower over Λ: from Eight Coordinates to Thirteen, as a PDF; md5 measured at build, commit 049b3590; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/order-recovery/06-order-recovery.pdf",
    "bytes": 527483,
    "md5": "9f65e141cab5d77b75080870d9c96156",
-   "what": "Order Recovery and the Reorderability Law, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "Order Recovery and the Reorderability Law, as a PDF; md5 measured at build, commit 049b3590; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/parent-term-wall/07-wall-janet.pdf",
    "bytes": 540996,
    "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
-   "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; md5 measured at build, commit 2ab58bbb; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/chemical-index/08-chemical-index.pdf",
    "bytes": 426155,
    "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
-   "what": "Closing the Chemical Properties: a Classification Index for the Elements, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "Closing the Chemical Properties: a Classification Index for the Elements, as a PDF; md5 measured at build, commit 60ceaf59; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/occupation-law/09-occupation-hull.pdf",
    "bytes": 354736,
    "md5": "9d86f90ee094e01c61d6c23f1300e967",
-   "what": "An Occupation Law as a Lower Convex Hull, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "An Occupation Law as a Lower Convex Hull, as a PDF; md5 measured at build, commit 60ceaf59; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/closure-beyond/10-beyond-the-atom.pdf",
    "bytes": 535900,
    "md5": "cacbcbb131c57a7f029a833f2473e6a7",
-   "what": "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient, as a PDF; md5 measured at build, commit 60ceaf59; byte-identical to the copy the author released to the witness folder"
+  },
+  {
+   "file": "data/papers/everything-is-relative/EVERYTHING-IS-RELATIVE.pdf",
+   "bytes": 182149,
+   "md5": "b559a0c99193bef851c5f29d465f715f",
+   "what": "Everything Is Relative, as a PDF; md5 measured at build, commit 6764ffaa; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/particles.js",
@@ -904,9 +1049,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/nuclides.js",
-   "bytes": 162619,
-   "md5": "bafd443ca161653e19387d5a478fd04c",
-   "what": "the nuclides of AME2020 Table I with the banked levels: what the gravity and builder modes compute over"
+   "bytes": 187863,
+   "md5": "a5265c515bc3ff0645fbe9c65d053f7d",
+   "what": "the nuclides of AME2020 Table I with the banked levels, and the CIAAW standard atomic weights and isotopic compositions: what the gravity and builder modes compute over"
   },
   {
    "file": "data/LOWDIN-WALK.tsv",
@@ -982,6 +1127,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "md5_recorded": "906d08be19630b6f824ec0164de11773",
    "md5_measured": "906d08be19630b6f824ec0164de11773",
    "drive_modified": "2026-08-24T00:13:30.694Z",
+   "ok": true
+  },
+  {
+   "file": "the record's ground configurations (118 elements)",
+   "role": "the configurations an element's Λ cells are built on, as the record builds them",
+   "md5_recorded": "c6104968a8c61847975a5d5c8c4a0724",
+   "md5_measured": "c6104968a8c61847975a5d5c8c4a0724",
    "ok": true
   }
  ],
@@ -1075,8 +1227,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "axis": "n0",
-   "status": "RECONSTRUCTED",
-   "source": "first entirely unoccupied n at this l; see n0_of"
+   "status": "RECOVERED",
+   "source": "first entirely unoccupied n at this l; the reading the B column reproduces on all its integer rows (see n0_of)"
   },
   {
    "axis": "B",
@@ -1110,8 +1262,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "axis": "Lambda_8 cell",
-   "status": "RECONSTRUCTED",
-   "source": "the ionisation ladder as transitions; see ionisation_cells"
+   "status": "RECOVERED",
+   "source": "the element's cells as the record builds them: every transition among its own occupied subshells, on the record's 118 ground configurations; see element_cells. The ionisation ladder beside them is RECONSTRUCTED (ionisation_cells)"
   },
   {
    "axis": "caps",
@@ -10556,8 +10708,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  },
  "nuclides": {
   "file": "data/nuclides.js",
-  "bytes": 162619,
-  "md5": "bafd443ca161653e19387d5a478fd04c",
+  "bytes": 187863,
+  "md5": "a5265c515bc3ff0645fbe9c65d053f7d",
   "nuclides": 3558,
   "species": 126,
   "source": {
@@ -10578,7 +10730,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "quality_note": "M measured, otherwise estimated, from the table's own flag",
    "status": "READ"
   },
-  "protocol": "data/nuclides.js sets window.__mi.nuclides, loaded on demand by the gravity and builder modes"
+  "protocol": "data/nuclides.js sets window.__mi.nuclides, loaded on demand by the gravity and builder modes",
+  "ciaaw": {
+   "weights": 84,
+   "isotopes": 289,
+   "weights_md5": "4f4ee68526dd188d1b5a03ba12c35d3f",
+   "compositions_md5": "a845f4d265f92839987962eabfa42f42",
+   "doi": "10.1515/pac-2019-0603"
+  }
  },
  "references": {
   "note": "identifiers the index's sources cite, found at build by pattern and linked by construction; a compilation named without an identifier is cited as a string and not linked, because the target would be invented. A citing line is quoted only from a paper released to the site.",
@@ -11907,56 +12066,56 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "channel_delta": {
    "python": "def channel_delta(Z, charge, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    Ne = Z - charge + 1\n    c = charge\n    if Ne < 1 or c < 1:\n        return None\n    core = Ne - 1\n    p = core_p(core, l, table) if core >= 1 else 0\n    if p is None:\n        return None\n    charge_factor = math.log(c + 1) / c\n    if p > 0:\n        e = E0 - E1 * math.log(Ne)\n        return A_COEFF * (p ** e) * (Ne ** K_COEFF) * charge_factor\n    return (H_COEFF * collapse_C(Z, l) * ((Ne - 1) / Ne)\n            * (Ne ** K_COEFF) * charge_factor)\n",
    "file": "tools/populate.py",
-   "line": 317,
+   "line": 353,
    "status": "PINNED",
    "source": "the channel equation, final form; its p = 0 branch carries the RECOVERED collapse ramp C(Z)"
   },
   "collapse_C": {
    "python": "def collapse_C(Z, l):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    z0 = COLLAPSE_Z.get(l)\n    if z0 is None:\n        return 0.0\n    return min(1.0, max(0.0, 0.5 + (Z - z0) / COLLAPSE_WIDTH))\n",
    "file": "tools/populate.py",
-   "line": 288,
+   "line": 324,
    "status": "RECOVERED",
    "source": "C(Z, l), the collapse coordinate, inverted out of COORDINATES-2.13's computed column; no source states its form"
   },
   "pauli_bound": {
    "python": "def pauli_bound(Z, charge, l, config=None):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    core = Z - charge\n    if core < 1:\n        return 0\n    if config is not None:\n        occ = {(n, ll): o for n, ll, o in config}\n        p = sum(1 for n, ll, o in config if ll == l and o > 0)\n        n = l + 1\n        while occ.get((n, l), 0) > 0:\n            n += 1\n    else:\n        p = core_p(core, l)\n        n = n0_of(core, l)\n        if p is None or n is None:\n            return None\n    return max(0, min(p, n - l - 1))\n",
    "file": "tools/populate.py",
-   "line": 251,
+   "line": 287,
    "status": "PINNED",
    "source": "B = min(p, n0 - l - 1), the Pauli bound"
   },
   "core_p": {
    "python": "def core_p(core_Ne, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    return sum(1 for _n, ll, o in cfg if ll == l and o > 0)\n",
    "file": "tools/populate.py",
-   "line": 223,
+   "line": 255,
    "status": "PINNED",
    "source": "p, the core's orbital count at this l, from the observed ground configuration of the core"
   },
   "n0_of": {
    "python": "def n0_of(core_Ne, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    occ = {(n, ll): o for n, ll, o in cfg}\n    n = l + 1\n    while occ.get((n, l), 0) > 0:\n        n += 1\n    return n\n",
    "file": "tools/populate.py",
-   "line": 232,
-   "status": "RECONSTRUCTED",
-   "source": "n0, the first entirely unoccupied n at this l; the source names the term but not the reading, and He I ns settles it"
+   "line": 264,
+   "status": "RECOVERED",
+   "source": "n0, the first entirely unoccupied n at this l; the source names the term but not the reading, and the reading reproduces every integer B of the spectra index on the table it was built on"
   },
   "lambda_constraints": {
    "python": "def lambda_constraints(cell):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    n, l, k, q, e, f, g, S2 = cell\n    return [\n        (\"l <= n-1\", l <= n - 1, \"hydrogenic radial solution\"),\n        (\"k <= 2(2l+1)\", k <= 2 * (2 * l + 1), \"Pauli exclusion\"),\n        (\"q <= k\", q <= k, \"counting\"),\n        (\"f <= e-1\", f <= e - 1, \"hydrogenic radial solution\"),\n        (\"g <= 2(2f+1)\", g <= 2 * (2 * f + 1), \"Pauli exclusion\"),\n        (\"g <= q\", g <= q, \"counting\"),\n        (\"2S <= k\", S2 <= k, \"vector coupling (an envelope)\"),\n    ]\n",
    "file": "tools/populate.py",
-   "line": 401,
+   "line": 568,
    "status": "PINNED",
    "source": "the seven constraints on Lambda_8, of four origins"
   },
   "caps_needed": {
    "python": "def caps_needed(cell):\n    n, l, k, q, e, f, g, _S2 = cell\n    return dict(n=n, e=e, l=l, f=f, k=k)\n",
    "file": "tools/populate.py",
-   "line": 415,
+   "line": 582,
    "status": "PINNED",
    "source": "the caps a Lambda_8 cell needs, read against the standing (n, e, l, k, f) = (3, 3, 1, 3, 1); the cell it is applied to is the RECONSTRUCTED ionisation-ladder mapping and carries its own status"
   },
   "within_caps": {
    "python": "def within_caps(cell, caps=CAPS):\n    need = caps_needed(cell)\n    return {ax: need[ax] <= caps[ax] for ax in caps}\n",
    "file": "tools/populate.py",
-   "line": 420,
+   "line": 587,
    "status": "PINNED",
    "source": "the standing caps; a cell outside them is reported OUTSIDE, never truncated"
   },
@@ -19595,7 +19754,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    {
     "kind": "ionisation-limit",
     "regex": "^limit [0-9.]+;",
-    "meaning": "a series limit the csv prints for the channel (one electron outside a closed shell); the value is shown as printed, no unit added"
+    "meaning": "a series limit the csv prints for the channel (one electron outside a closed shell): the neutral ionisation energy in cm⁻¹, the unit RECOVERED (each of the nine equals NIST's value in cm⁻¹ to every printed digit, and the row's defects recompute from it)"
    },
    {
     "kind": "unresolved",
@@ -19781,6 +19940,527 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   ],
   "distinct_notes": 22,
   "unclassified": []
+ },
+ "b_column": {
+  "readings": {
+   "bound": 101303,
+   "range": 25,
+   "zero": 3504
+  },
+  "integer_rows": 101303,
+  "aufbau_reproduces": 101303,
+  "observed_compared": 99687,
+  "observed_differs": 1104,
+  "status": {
+   "bound": "READ",
+   "range": "RECOVERED",
+   "zero": "READ"
+  },
+  "meaning": {
+   "bound": "the Pauli bound on the aufbau table (n₀ the first entirely unoccupied n)",
+   "range": "the range, max − min, of the series' quantum defects; delta is their median",
+   "zero": "0 in every row of Z = 119 and 120, the bound on neither configuration table"
+  },
+  "range_recomputed": {
+   "rows": 25,
+   "delta_is_median": 25,
+   "B_is_range": 25,
+   "delta_with_R_inf": 0,
+   "limits_equal_nist": 9,
+   "spectra": 9,
+   "unit": "cm⁻¹",
+   "instrument": "tools/seriesdefect.py",
+   "levels": "NIST ASD energy levels, read 2026-10-17",
+   "rows_detail": [
+    {
+     "symbol": "B",
+     "term": "2P*",
+     "n": [
+      2,
+      9
+     ],
+     "members": 11,
+     "delta": "0.53527",
+     "B": "0.19569",
+     "median": 0.5352655,
+     "range": 0.1956947,
+     "limit_cm1": "66928.04",
+     "mass_u": 10.81
+    },
+    {
+     "symbol": "B",
+     "term": "2D",
+     "n": [
+      3,
+      39
+     ],
+     "members": 38,
+     "delta": "0.03920",
+     "B": "0.10803",
+     "median": 0.0392045,
+     "range": 0.1080261,
+     "limit_cm1": "66928.04",
+     "mass_u": 10.81
+    },
+    {
+     "symbol": "B",
+     "term": "2F*",
+     "n": [
+      4,
+      11
+     ],
+     "members": 9,
+     "delta": "0.01382",
+     "B": "0.00449",
+     "median": 0.0138244,
+     "range": 0.0044948,
+     "limit_cm1": "66928.04",
+     "mass_u": 10.81
+    },
+    {
+     "symbol": "Na",
+     "term": "2S",
+     "n": [
+      3,
+      20
+     ],
+     "members": 18,
+     "delta": "1.34857",
+     "B": "0.02475",
+     "median": 1.348566,
+     "range": 0.024754,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2P*",
+     "n": [
+      3,
+      20
+     ],
+     "members": 36,
+     "delta": "0.85615",
+     "B": "0.02842",
+     "median": 0.8561542,
+     "range": 0.028423,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2D",
+     "n": [
+      3,
+      20
+     ],
+     "members": 29,
+     "delta": "0.01488",
+     "B": "0.00466",
+     "median": 0.0148827,
+     "range": 0.0046564,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2F*",
+     "n": [
+      4,
+      20
+     ],
+     "members": 17,
+     "delta": "0.00160",
+     "B": "0.00050",
+     "median": 0.0016007,
+     "range": 0.0005004,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2G",
+     "n": [
+      5,
+      20
+     ],
+     "members": 18,
+     "delta": "0.00042",
+     "B": "0.00015",
+     "median": 0.0004163,
+     "range": 0.0001489,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2H*",
+     "n": [
+      6,
+      10
+     ],
+     "members": 6,
+     "delta": "0.00013",
+     "B": "0.00003",
+     "median": 0.0001285,
+     "range": 3.12e-05,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Al",
+     "term": "2F*",
+     "n": [
+      4,
+      10
+     ],
+     "members": 9,
+     "delta": "0.03474",
+     "B": "0.00884",
+     "median": 0.0347353,
+     "range": 0.0088432,
+     "limit_cm1": "48278.48",
+     "mass_u": 26.9815384
+    },
+    {
+     "symbol": "Al",
+     "term": "2G",
+     "n": [
+      5,
+      7
+     ],
+     "members": 3,
+     "delta": "0.00841",
+     "B": "0.00134",
+     "median": 0.0084121,
+     "range": 0.001345,
+     "limit_cm1": "48278.48",
+     "mass_u": 26.9815384
+    },
+    {
+     "symbol": "Ga",
+     "term": "2D",
+     "n": [
+      4,
+      34
+     ],
+     "members": 45,
+     "delta": "1.31599",
+     "B": "0.19230",
+     "median": 1.3159882,
+     "range": 0.1922988,
+     "limit_cm1": "48387.634",
+     "mass_u": 69.723
+    },
+    {
+     "symbol": "Ga",
+     "term": "2F*",
+     "n": [
+      4,
+      8
+     ],
+     "members": 5,
+     "delta": "0.02587",
+     "B": "0.00570",
+     "median": 0.0258722,
+     "range": 0.0056963,
+     "limit_cm1": "48387.634",
+     "mass_u": 69.723
+    },
+    {
+     "symbol": "In",
+     "term": "2F*",
+     "n": [
+      4,
+      12
+     ],
+     "members": 12,
+     "delta": "0.03940",
+     "B": "0.01038",
+     "median": 0.0394037,
+     "range": 0.0103794,
+     "limit_cm1": "46670.107",
+     "mass_u": 114.818
+    },
+    {
+     "symbol": "Cs",
+     "term": "2S",
+     "n": [
+      6,
+      25
+     ],
+     "members": 20,
+     "delta": "4.05120",
+     "B": "0.08085",
+     "median": 4.0511953,
+     "range": 0.0808476,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Cs",
+     "term": "2P*",
+     "n": [
+      6,
+      25
+     ],
+     "members": 40,
+     "delta": "3.59251",
+     "B": "0.11203",
+     "median": 3.592506,
+     "range": 0.1120297,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Cs",
+     "term": "2D",
+     "n": [
+      5,
+      25
+     ],
+     "members": 42,
+     "delta": "2.46643",
+     "B": "0.03053",
+     "median": 2.4664257,
+     "range": 0.0305292,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Cs",
+     "term": "2F*",
+     "n": [
+      4,
+      25
+     ],
+     "members": 44,
+     "delta": "0.03254",
+     "B": "0.01136",
+     "median": 0.0325389,
+     "range": 0.0113587,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Cs",
+     "term": "2G",
+     "n": [
+      5,
+      25
+     ],
+     "members": 28,
+     "delta": "0.00667",
+     "B": "0.00194",
+     "median": 0.0066688,
+     "range": 0.0019364,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Lu",
+     "term": "2F*",
+     "n": [
+      5,
+      35
+     ],
+     "members": 60,
+     "delta": "1.12064",
+     "B": "0.15290",
+     "median": 1.120637,
+     "range": 0.1528986,
+     "limit_cm1": "43762.6",
+     "mass_u": 174.96669
+    },
+    {
+     "symbol": "Tl",
+     "term": "2S",
+     "n": [
+      7,
+      20
+     ],
+     "members": 14,
+     "delta": "4.75066",
+     "B": "0.07830",
+     "median": 4.7506601,
+     "range": 0.0782963,
+     "limit_cm1": "49266.66",
+     "mass_u": 204.38
+    },
+    {
+     "symbol": "Tl",
+     "term": "2D",
+     "n": [
+      6,
+      23
+     ],
+     "members": 24,
+     "delta": "3.11838",
+     "B": "0.09181",
+     "median": 3.1183833,
+     "range": 0.0918106,
+     "limit_cm1": "49266.66",
+     "mass_u": 204.38
+    },
+    {
+     "symbol": "Tl",
+     "term": "2F*",
+     "n": [
+      5,
+      8
+     ],
+     "members": 4,
+     "delta": "1.03131",
+     "B": "0.00904",
+     "median": 1.0313086,
+     "range": 0.0090433,
+     "limit_cm1": "49266.66",
+     "mass_u": 204.38
+    },
+    {
+     "symbol": "Fr",
+     "term": "2S",
+     "n": [
+      7,
+      30
+     ],
+     "members": 24,
+     "delta": "5.07221",
+     "B": "0.10117",
+     "median": 5.0722144,
+     "range": 0.1011689,
+     "limit_cm1": "32848.872",
+     "mass_u": 223.01973421
+    },
+    {
+     "symbol": "Fr",
+     "term": "2P*",
+     "n": [
+      7,
+      30
+     ],
+     "members": 48,
+     "delta": "4.59521",
+     "B": "0.19183",
+     "median": 4.5952147,
+     "range": 0.1918349,
+     "limit_cm1": "32848.872",
+     "mass_u": 223.01973421
+    }
+   ]
+  }
+ },
+ "lambda8_elements": {
+  "elements": 118,
+  "subshells": 247,
+  "cells": 4325,
+  "composable_within": 982,
+  "composable_across": 3686,
+  "cells_without_Z": 1673,
+  "tests": 18288,
+  "em_allowed": {
+   "cells": 2673,
+   "within": 309,
+   "across": 2399
+  },
+  "em_forbidden": {
+   "cells": 1652,
+   "within": 673,
+   "across": 1287
+  },
+  "parity_changing": {
+   "cells": 3719,
+   "within": 749,
+   "across": 3142
+  },
+  "parity_conserving": {
+   "cells": 606,
+   "within": 233,
+   "across": 544
+  },
+  "record": {
+   "elements": 118,
+   "subshells": 247,
+   "cells": 4325,
+   "composable_within": 982,
+   "composable_across": 3686,
+   "tests": 18288,
+   "E_with_Z": 972862,
+   "E_without_Z": 28503
+  },
+  "status": "RECOVERED",
+  "rule": "every transition among an element's own occupied subshells: source (n, l) holding its real k, target (e, f) another subshell of the same atom, q = 1..k moved, g = 1..min(q, 4f + 2) placed",
+  "E": {
+   "with_Z": 972862,
+   "without_Z": 28503,
+   "note": "the record's figures, reproduced 2026-10-18 by tools/populate.py --element-cells-E (minutes, so not recomputed at build)"
+  },
+  "configurations": "the record's 118 ground configurations (valence beyond the noble core; Z >= 104 predicted); for Z = 1 to 108 every listed subshell carries the observed table's occupancy"
+ },
+ "equation_domain": {
+  "status": "DERIVED",
+  "rule": [
+   {
+    "exclusion": "Z > 103",
+    "meaning": "the element has no long-lived isotope"
+   },
+   {
+    "exclusion": "charge > 10",
+    "meaning": "no analysed Rydberg data above charge 10"
+   },
+   {
+    "exclusion": "open-shell core",
+    "meaning": "an open-shell core at 3, 16 or 119 parents, read from the CSV's note on any row of the stage"
+   },
+   {
+    "exclusion": "series unresolved",
+    "meaning": "the series unresolved above ng, read from the channel's own notes where nothing is measured"
+   }
+  ],
+  "cells": {
+   "rows": 101328,
+   "verified": 1287,
+   "by_first_exclusion": {
+    "Z > 103": 24312,
+    "charge > 10": 61748,
+    "series unresolved": 5366,
+    "open-shell core": 5481,
+    "none of the four": 3134
+   },
+   "record": {
+    "Z > 103": 24312,
+    "charge > 10": 61748,
+    "series unresolved": 5367,
+    "open-shell core": 5476
+   }
+  },
+  "measured": {
+   "in, before the 2026-08-14 fetch": {
+    "rows": 282,
+    "rms": 0.14746087452214585
+   },
+   "in, the 2026-08-14 fetch": {
+    "rows": 25,
+    "rms": 0.3770892334732833
+   },
+   "out": {
+    "rows": 51,
+    "rms": 0.1997355886808344
+   }
+  },
+  "measured_out_reasons": {
+   "open-shell core at 3 parents": 24,
+   "charge > 10": 12,
+   "open-shell core at 16 parents": 15
+  },
+  "record_refit": {
+   "in": 277,
+   "out": 51,
+   "three-parent": 24,
+   "sixteen-parent": 15,
+   "charge > 10": 12
+  },
+  "record_in_region_error": 0.147
  },
  "figures": [
   {
@@ -22859,43 +23539,78 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "caveats": [
   {
    "id": "above-108",
-   "text": "Elements above Z = 108 are not populated. The observed configurations stop at 108 because measurement does. COORDINATES-2.13 carries rows to Z = 120 and those are shown READ from the CSV with no configuration, equation or derived value behind them."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "Elements above Z = 108 are not populated. The ground-configuration table the site reads stops at hassium because NIST's compilation of neutral ground levels does: its neutral rows end at Hs I, and meitnerium and darmstadtium appear only as ions (checked 2026-10-17). It does not stop where measurement stops; that is earlier, as the next caveat says. COORDINATES-2.13 carries rows to Z = 120, and those are shown READ from the CSV with no configuration, equation or derived value behind them; its B column holds 0 in every one of them, which is not a bound.",
+   "was": "The observed configurations stop at 108 because measurement does."
+  },
+  {
+   "id": "ground-103-108",
+   "state": "measured",
+   "reviewed": "2026-10-17",
+   "text": "From lawrencium to hassium the ground levels shown are not observed spectra. For each neutral spectrum from Lr I to Hs I, NIST holds the ground level and no excited level, and the ionisation energy it prints is measured only for Lr: for Rf and Db it is ab initio (NIST's parentheses), for Sg, Bh and Hs semi-empirical (NIST's brackets), and those three ground levels carry no term. The configuration is still READ; the plate of each of these six elements shows what it rests on (read from NIST, 2026-10-17)."
   },
   {
    "id": "b-aufbau",
-   "text": "The spectra index's B column was built on a withdrawn configuration table (aufbau, patched by hand). The configurations were later corrected and COORDINATES-2.13 was never rebuilt on them. Where the observed table gives a different Pauli bound the site shows both and marks the disagreement."
+   "state": "measured",
+   "reviewed": "2026-10-17",
+   "text": "The spectra index's B column was built on plain Madelung aufbau, the configuration table the record later withdrew. On that table, with n₀ the first entirely unoccupied n, it reproduces all 101,303 integer B values with Z ≤ 118. The CSV was never rebuilt on the observed configurations, and on them the bound differs in 1,104 of the 99,687 rows whose core the observed table holds (the cores of La, Pd, Ce, Ac, Th, Gd, Lr and others). The B this site gives is computed on the observed configurations; the CSV's value is shown beside it, READ, and every disagreement is marked. The CSV itself is not edited.",
+   "was": "The spectra index's B column was built on a withdrawn configuration table (aufbau, patched by hand)."
   },
   {
    "id": "b-overloaded",
-   "text": "25 measured rows carry a float in the B column: a dispersion of the median defect, not a bound. The site says 'B column is not a bound here' on those rows rather than comparing an integer against a spread."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "The B column holds something other than the Pauli bound in 3,529 rows, and the site names each for what it is. In 25 measured rows from one NIST fetch (2026-08-14) it is the range, max − min, of the series' quantum defects. Recomputed from NIST's levels, with the printed limit in cm⁻¹ and the reduced-mass Rydberg, the row's delta is the median defect and B the range in all 25 rows (RECOVERED). In all 3,504 rows of Z = 119 and 120 it is 0, the bound on neither configuration table. Neither is compared with a bound.",
+   "was": "25 measured rows carry a float in the B column: a dispersion of the median defect, not a bound."
   },
   {
    "id": "lambda8-mapping",
-   "text": "A Λ₈ cell is a transition, so an element is not a cell. The mapping shown is the element's own ionisation ladder read off the observed configurations. Nothing fixes this mapping; it is RECONSTRUCTED and a later decision can move it."
+   "state": "repaired",
+   "reviewed": "2026-10-18",
+   "text": "An element maps onto Λ's cells the way the record builds them: every transition among the element's own occupied subshells — a source subshell holding its real occupancy k, another subshell of the same atom as the target, q = 1 … k electrons moved and g = 1 … min(q, 4f + 2) placed. Over the record's 118 ground configurations that is 4,325 cells, every one satisfying Λ's constraints, and the site reproduces every figure the record prints of them: 4,325 cells, 982 composable within one element and 3,686 across the table, and E = 972,862 with Z as a coordinate against 28,503 without it — Λ closes because it carries no Z. Each element's plate shows its cells (RECOVERED); an element whose ground configuration lists one subshell, such as hydrogen, has none. The ionisation ladder shown in their place before is kept beside them as what it is, a reconstruction of the steps between the ions.",
+   "was": "A Λ₈ cell is a transition, so an element is not a cell, and nothing in the record fixes which transitions stand for an element (searched 2026-10-17, in the governance files only). The mapping shown was the element's ionisation ladder, RECONSTRUCTED, and choosing it was left as the author's decision."
   },
   {
    "id": "equation-domain",
-   "text": "The channel equation is validated in its stated domain and extrapolated outside it. A residual on a channel outside that domain is not a finding against the equation."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "The channel equation is validated in its stated domain and extrapolated outside it, and every channel now says which. The domain is the record's own: a channel is outside it where the element has no long-lived isotope (Z > 103), the ion is above charge 10, the core is open-shell at 3, 16 or 119 parents, or the series is unresolved above ng, each read from the CSV's own notes (DERIVED). The rule reproduces the record's figures: 24,312 and 61,748 cells for the first two, and of the measured rows exactly the 51 the record left out of its refit (24, 15 and 12). The 282 measured rows inside give an rms residual of 0.147, the figure the record states. A residual outside the domain is not a finding against the equation.",
+   "was": "The channel equation is validated in its stated domain and extrapolated outside it. A residual on a channel outside that domain is not a finding against the equation."
   },
   {
-   "id": "relativistic-not-held",
-   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) behind the Löwdin paper was never banked as an archive; its code has since been RECOVERED from the project's own conversations (every file written, edited and printed by tool calls, rebuilt and held against every printed window) and run here. The displaced set this site states is what that recovered instrument returns (RECOVERED); the paper's eleven are READ from the paper's own sentence and carried as the reading it printed, superseded."
+   "id": "relativistic-recovered",
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) behind the Löwdin paper was never banked as an archive; its code has since been RECOVERED from the project's own conversations (every file written, edited and printed by tool calls, rebuilt and held against every printed window) and run here. The displaced set this site states is what that recovered instrument returns (RECOVERED); the eleven the paper first printed are carried as the reading it printed, superseded.",
+   "was": "Filed as “relativistic-not-held”: the identifier still said the construction was not held after its code had been recovered and run, so the list, the console and the Ask prompt contradicted the plate."
   },
   {
    "id": "record-eleven",
-   "text": "The paper's eleven were computed by its own final session as the elements where the chain's entrant differs from a second table the project had sealed as its c → ∞ walk. The project's own fault record F59.3, written before the paper, established that the second table ran at c = 137 in restart mode (each step from the observed configuration), so the eleven measure the chain's memory against a memoryless restart at one c, not the constant. Re-derived here, both tables reproduce and the eleven reproduce from them; at eight of the eleven the restart entrant is the observed one. Repaired by the author's decision (2026-09-24): the displaced set this site states is the recovered instrument's — the chain at c → ∞ differs from the chain at c = 137 at thorium and rutherfordium among the measured elements and at Z = 120 beyond them, and nowhere else — RECOVERED; the paper's eleven are shown as the reading the paper printed, superseded, and the paper's own text is shown as it stands until the author reissues it."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "The paper's eleven were computed by its own final session as the elements where the chain's entrant differs from a second table the project had sealed as its c → ∞ walk. The project's own fault record F59.3, written before the paper, established that the second table ran at c = 137 in restart mode (each step from the observed configuration), so the eleven measure the chain's memory against a memoryless restart at one c, not the constant. Re-derived here, both tables reproduce and the eleven reproduce from them; at eight of the eleven the restart entrant is the observed one. Repaired by the author's decision (2026-09-24): the displaced set this site states is the recovered instrument's — the chain at c → ∞ differs from the chain at c = 137 at thorium and rutherfordium among the measured elements and at Z = 120 beyond them, and nowhere else — RECOVERED. The paper was corrected in the store the same day, and the text this site shows is the corrected one: it names the eleven as the disagreements it first printed and withdraws them.",
+   "was": "... the paper's own text is shown as it stands until the author reissues it."
   },
   {
    "id": "walk-reconstructed",
+   "state": "standing",
+   "reviewed": "2026-10-17",
    "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own rebuild of the paper's construction from its statement, run in two fields, and is kept beside the record's recovered instrument as a second measurement, not in its place. Where it agrees with the record that is a measurement; where it disagrees that is a measurement too. It is never the paper's number."
   },
   {
    "id": "limit-kind",
-   "text": "A limit kind is a classification of the csv's own bound note by the stated rule: the note is READ, the kind is DERIVED, and the rule is shown beside it. 'no analysis located' is, as the note itself says, not a bound on existence; a series limit is printed as the csv prints it, with no unit added."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "A limit kind is a classification of the CSV's own bound note by the stated rule: the note is READ, the kind is DERIVED, and the rule is shown beside it. 'no analysis located' is, as the note itself says, not a bound on existence. A series limit is shown with its unit, cm⁻¹, which the CSV does not print: each of the nine it prints equals NIST's ionisation energy for that neutral spectrum in cm⁻¹ to every printed digit, and is the denominator the row's defects recompute from (RECOVERED). The nine are carried on the series-limit axis too, READ.",
+   "was": "... a series limit is printed as the csv prints it, with no unit added."
   },
   {
    "id": "n0-reading",
-   "text": "n₀'s reading is RECONSTRUCTED. The definition of B = min(p, n₀ − ℓ − 1) names its terms but not whether a partially filled subshell counts; 'first entirely unoccupied n' matches the column at 97.7 % and He I settles it."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "n₀'s reading is RECOVERED. The definition B = min(p, n₀ − ℓ − 1) names its terms but not whether a partially filled subshell counts. Measured on the configuration table the CSV's B column was built on, 'first entirely unoccupied n' reproduces all 101,303 integer B values with Z ≤ 118, and 'first n with room' 88.9 %. (The 97.7 % this caveat once gave was measured on the observed table, which is not the column's.) He I shows the difference in one row: the core is 1s¹, the column gives B = 1, and only the first reading returns 1.",
+   "was": "n₀'s reading is RECONSTRUCTED ... 'first entirely unoccupied n' matches the column at 97.7 % and He I settles it."
   }
  ],
  "totals": {
@@ -22932,7 +23647,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 0,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -22968,7 +23684,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 9,
     "witnessed": 7,
-    "lambda8_steps": 1
+    "lambda8_steps": 1,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23007,7 +23724,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 3,
     "computed": 12,
     "witnessed": 17,
-    "lambda8_steps": 2
+    "lambda8_steps": 2,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23047,7 +23765,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 3,
     "computed": 21,
     "witnessed": 24,
-    "lambda8_steps": 3
+    "lambda8_steps": 3,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23086,7 +23805,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 3,
     "computed": 24,
     "witnessed": 29,
-    "lambda8_steps": 4
+    "lambda8_steps": 4,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23127,7 +23847,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 36,
     "witnessed": 28,
-    "lambda8_steps": 5
+    "lambda8_steps": 5,
+    "lambda8_cells": 6
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23167,7 +23888,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 64,
     "witnessed": 16,
-    "lambda8_steps": 6
+    "lambda8_steps": 6,
+    "lambda8_cells": 8
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23208,7 +23930,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 86,
     "witnessed": 10,
-    "lambda8_steps": 7
+    "lambda8_steps": 7,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23249,7 +23972,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 108,
     "witnessed": 4,
-    "lambda8_steps": 8
+    "lambda8_steps": 8,
+    "lambda8_cells": 12
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23290,7 +24014,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 121,
     "witnessed": 7,
-    "lambda8_steps": 9
+    "lambda8_steps": 9,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23331,7 +24056,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 130,
     "witnessed": 6,
-    "lambda8_steps": 10
+    "lambda8_steps": 10,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23372,7 +24098,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 139,
     "witnessed": 13,
-    "lambda8_steps": 11
+    "lambda8_steps": 11,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23413,7 +24140,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 144,
     "witnessed": 16,
-    "lambda8_steps": 12
+    "lambda8_steps": 12,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23455,7 +24183,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 154,
     "witnessed": 22,
-    "lambda8_steps": 13
+    "lambda8_steps": 13,
+    "lambda8_cells": 6
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23496,7 +24225,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 179,
     "witnessed": 13,
-    "lambda8_steps": 14
+    "lambda8_steps": 14,
+    "lambda8_cells": 8
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23537,7 +24267,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 191,
     "witnessed": 17,
-    "lambda8_steps": 15
+    "lambda8_steps": 15,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23578,7 +24309,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 224,
     "witnessed": 0,
-    "lambda8_steps": 16
+    "lambda8_steps": 16,
+    "lambda8_cells": 12
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23618,7 +24350,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 237,
     "witnessed": 3,
-    "lambda8_steps": 17
+    "lambda8_steps": 17,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23659,7 +24392,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 242,
     "witnessed": 6,
-    "lambda8_steps": 18
+    "lambda8_steps": 18,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23700,7 +24434,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 242,
     "witnessed": 22,
-    "lambda8_steps": 19
+    "lambda8_steps": 19,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23741,7 +24476,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 266,
     "witnessed": 6,
-    "lambda8_steps": 20
+    "lambda8_steps": 20,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23782,7 +24518,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 274,
     "witnessed": 14,
-    "lambda8_steps": 21
+    "lambda8_steps": 21,
+    "lambda8_cells": 6
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23823,7 +24560,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 304,
     "witnessed": 0,
-    "lambda8_steps": 22
+    "lambda8_steps": 22,
+    "lambda8_cells": 8
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23863,7 +24601,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 320,
     "witnessed": 0,
-    "lambda8_steps": 23
+    "lambda8_steps": 23,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23903,7 +24642,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 336,
     "witnessed": 0,
-    "lambda8_steps": 24
+    "lambda8_steps": 24,
+    "lambda8_cells": 12
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -23943,7 +24683,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 341,
     "witnessed": 11,
-    "lambda8_steps": 25
+    "lambda8_steps": 25,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -23984,7 +24725,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 368,
     "witnessed": 0,
-    "lambda8_steps": 26
+    "lambda8_steps": 26,
+    "lambda8_cells": 16
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24024,7 +24766,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 384,
     "witnessed": 0,
-    "lambda8_steps": 27
+    "lambda8_steps": 27,
+    "lambda8_cells": 18
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24064,7 +24807,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 400,
     "witnessed": 0,
-    "lambda8_steps": 28
+    "lambda8_steps": 28,
+    "lambda8_cells": 20
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24104,7 +24848,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 407,
     "witnessed": 9,
-    "lambda8_steps": 29
+    "lambda8_steps": 29,
+    "lambda8_cells": 22
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -24145,7 +24890,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 414,
     "witnessed": 10,
-    "lambda8_steps": 30
+    "lambda8_steps": 30,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24187,7 +24933,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 435,
     "witnessed": 5,
-    "lambda8_steps": 31
+    "lambda8_steps": 31,
+    "lambda8_cells": 6
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24228,7 +24975,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 456,
     "witnessed": 0,
-    "lambda8_steps": 32
+    "lambda8_steps": 32,
+    "lambda8_cells": 8
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24268,7 +25016,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 472,
     "witnessed": 0,
-    "lambda8_steps": 33
+    "lambda8_steps": 33,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24308,7 +25057,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 488,
     "witnessed": 0,
-    "lambda8_steps": 34
+    "lambda8_steps": 34,
+    "lambda8_cells": 12
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24348,7 +25098,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 504,
     "witnessed": 0,
-    "lambda8_steps": 35
+    "lambda8_steps": 35,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24388,7 +25139,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 512,
     "witnessed": 0,
-    "lambda8_steps": 36
+    "lambda8_steps": 36,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24428,7 +25180,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 523,
     "witnessed": 5,
-    "lambda8_steps": 37
+    "lambda8_steps": 37,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24469,7 +25222,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 536,
     "witnessed": 0,
-    "lambda8_steps": 38
+    "lambda8_steps": 38,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24509,7 +25263,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 552,
     "witnessed": 0,
-    "lambda8_steps": 39
+    "lambda8_steps": 39,
+    "lambda8_cells": 6
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24549,7 +25304,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 568,
     "witnessed": 0,
-    "lambda8_steps": 40
+    "lambda8_steps": 40,
+    "lambda8_cells": 8
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24589,7 +25345,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 584,
     "witnessed": 0,
-    "lambda8_steps": 41
+    "lambda8_steps": 41,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24629,7 +25386,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 600,
     "witnessed": 0,
-    "lambda8_steps": 42
+    "lambda8_steps": 42,
+    "lambda8_cells": 12
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24670,7 +25428,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 616,
     "witnessed": 0,
-    "lambda8_steps": 43
+    "lambda8_steps": 43,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24710,7 +25469,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 632,
     "witnessed": 0,
-    "lambda8_steps": 44
+    "lambda8_steps": 44,
+    "lambda8_cells": 16
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24750,7 +25510,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 648,
     "witnessed": 0,
-    "lambda8_steps": 45
+    "lambda8_steps": 45,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24790,7 +25551,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 664,
     "witnessed": 0,
-    "lambda8_steps": 46
+    "lambda8_steps": 46,
+    "lambda8_cells": 20
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -24830,7 +25592,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 668,
     "witnessed": 12,
-    "lambda8_steps": 47
+    "lambda8_steps": 47,
+    "lambda8_cells": 22
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -24871,7 +25634,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 687,
     "witnessed": 1,
-    "lambda8_steps": 48
+    "lambda8_steps": 48,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24912,7 +25676,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 704,
     "witnessed": 0,
-    "lambda8_steps": 49
+    "lambda8_steps": 49,
+    "lambda8_cells": 6
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24952,7 +25717,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 720,
     "witnessed": 0,
-    "lambda8_steps": 50
+    "lambda8_steps": 50,
+    "lambda8_cells": 8
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -24992,7 +25758,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 736,
     "witnessed": 0,
-    "lambda8_steps": 51
+    "lambda8_steps": 51,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25032,7 +25799,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 752,
     "witnessed": 0,
-    "lambda8_steps": 52
+    "lambda8_steps": 52,
+    "lambda8_cells": 12
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25072,7 +25840,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 768,
     "witnessed": 0,
-    "lambda8_steps": 53
+    "lambda8_steps": 53,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25112,7 +25881,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 771,
     "witnessed": 5,
-    "lambda8_steps": 54
+    "lambda8_steps": 54,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25153,7 +25923,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 787,
     "witnessed": 5,
-    "lambda8_steps": 55
+    "lambda8_steps": 55,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25194,7 +25965,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 800,
     "witnessed": 0,
-    "lambda8_steps": 56
+    "lambda8_steps": 56,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25234,7 +26006,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 816,
     "witnessed": 0,
-    "lambda8_steps": 57
+    "lambda8_steps": 57,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25274,7 +26047,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 832,
     "witnessed": 0,
-    "lambda8_steps": 58
+    "lambda8_steps": 58,
+    "lambda8_cells": 8
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25314,7 +26088,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 848,
     "witnessed": 0,
-    "lambda8_steps": 59
+    "lambda8_steps": 59,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -25354,7 +26129,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 864,
     "witnessed": 0,
-    "lambda8_steps": 60
+    "lambda8_steps": 60,
+    "lambda8_cells": 12
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -25394,7 +26170,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 880,
     "witnessed": 0,
-    "lambda8_steps": 61
+    "lambda8_steps": 61,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -25434,7 +26211,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 896,
     "witnessed": 0,
-    "lambda8_steps": 62
+    "lambda8_steps": 62,
+    "lambda8_cells": 16
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25474,7 +26252,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 912,
     "witnessed": 0,
-    "lambda8_steps": 63
+    "lambda8_steps": 63,
+    "lambda8_cells": 49
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25514,7 +26293,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 928,
     "witnessed": 0,
-    "lambda8_steps": 64
+    "lambda8_steps": 64,
+    "lambda8_cells": 20
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25554,7 +26334,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 944,
     "witnessed": 0,
-    "lambda8_steps": 65
+    "lambda8_steps": 65,
+    "lambda8_cells": 22
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25594,7 +26375,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 960,
     "witnessed": 0,
-    "lambda8_steps": 66
+    "lambda8_steps": 66,
+    "lambda8_cells": 24
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25634,7 +26416,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 976,
     "witnessed": 0,
-    "lambda8_steps": 67
+    "lambda8_steps": 67,
+    "lambda8_cells": 26
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25674,7 +26457,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 992,
     "witnessed": 0,
-    "lambda8_steps": 68
+    "lambda8_steps": 68,
+    "lambda8_cells": 28
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25714,7 +26498,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1008,
     "witnessed": 0,
-    "lambda8_steps": 69
+    "lambda8_steps": 69,
+    "lambda8_cells": 30
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25754,7 +26539,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1015,
     "witnessed": 1,
-    "lambda8_steps": 70
+    "lambda8_steps": 70,
+    "lambda8_cells": 130
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -25795,7 +26581,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1032,
     "witnessed": 0,
-    "lambda8_steps": 71
+    "lambda8_steps": 71,
+    "lambda8_cells": 134
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25835,7 +26622,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1048,
     "witnessed": 0,
-    "lambda8_steps": 72
+    "lambda8_steps": 72,
+    "lambda8_cells": 139
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25875,7 +26663,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1064,
     "witnessed": 0,
-    "lambda8_steps": 73
+    "lambda8_steps": 73,
+    "lambda8_cells": 145
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25915,7 +26704,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1080,
     "witnessed": 0,
-    "lambda8_steps": 74
+    "lambda8_steps": 74,
+    "lambda8_cells": 152
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25955,7 +26745,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1096,
     "witnessed": 0,
-    "lambda8_steps": 75
+    "lambda8_steps": 75,
+    "lambda8_cells": 160
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -25995,7 +26786,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1112,
     "witnessed": 0,
-    "lambda8_steps": 76
+    "lambda8_steps": 76,
+    "lambda8_cells": 169
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26035,7 +26827,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1128,
     "witnessed": 0,
-    "lambda8_steps": 77
+    "lambda8_steps": 77,
+    "lambda8_cells": 186
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26075,7 +26868,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1144,
     "witnessed": 0,
-    "lambda8_steps": 78
+    "lambda8_steps": 78,
+    "lambda8_cells": 198
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26115,7 +26909,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1155,
     "witnessed": 5,
-    "lambda8_steps": 79
+    "lambda8_steps": 79,
+    "lambda8_cells": 202
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -26156,7 +26951,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1165,
     "witnessed": 3,
-    "lambda8_steps": 80
+    "lambda8_steps": 80,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26197,7 +26993,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1184,
     "witnessed": 0,
-    "lambda8_steps": 81
+    "lambda8_steps": 81,
+    "lambda8_cells": 6
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26237,7 +27034,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1196,
     "witnessed": 4,
-    "lambda8_steps": 82
+    "lambda8_steps": 82,
+    "lambda8_cells": 8
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26278,7 +27076,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1216,
     "witnessed": 0,
-    "lambda8_steps": 83
+    "lambda8_steps": 83,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26318,7 +27117,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1232,
     "witnessed": 0,
-    "lambda8_steps": 84
+    "lambda8_steps": 84,
+    "lambda8_cells": 12
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26358,7 +27158,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1248,
     "witnessed": 0,
-    "lambda8_steps": 85
+    "lambda8_steps": 85,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26398,7 +27199,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1254,
     "witnessed": 2,
-    "lambda8_steps": 86
+    "lambda8_steps": 86,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26439,7 +27241,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1272,
     "witnessed": 0,
-    "lambda8_steps": 87
+    "lambda8_steps": 87,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26479,7 +27282,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1280,
     "witnessed": 0,
-    "lambda8_steps": 88
+    "lambda8_steps": 88,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26519,7 +27323,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1296,
     "witnessed": 0,
-    "lambda8_steps": 89
+    "lambda8_steps": 89,
+    "lambda8_cells": 6
    },
    "relativistic": true,
    "paper_eleven": false,
@@ -26559,7 +27364,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1312,
     "witnessed": 0,
-    "lambda8_steps": 90
+    "lambda8_steps": 90,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26599,7 +27405,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1328,
     "witnessed": 0,
-    "lambda8_steps": 91
+    "lambda8_steps": 91,
+    "lambda8_cells": 19
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26639,7 +27446,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1344,
     "witnessed": 0,
-    "lambda8_steps": 92
+    "lambda8_steps": 92,
+    "lambda8_cells": 25
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26679,7 +27487,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1360,
     "witnessed": 0,
-    "lambda8_steps": 93
+    "lambda8_steps": 93,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26719,7 +27528,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1376,
     "witnessed": 0,
-    "lambda8_steps": 94
+    "lambda8_steps": 94,
+    "lambda8_cells": 16
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26759,7 +27569,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1392,
     "witnessed": 0,
-    "lambda8_steps": 95
+    "lambda8_steps": 95,
+    "lambda8_cells": 49
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26799,7 +27610,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1408,
     "witnessed": 0,
-    "lambda8_steps": 96
+    "lambda8_steps": 96,
+    "lambda8_cells": 20
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26839,7 +27651,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1424,
     "witnessed": 0,
-    "lambda8_steps": 97
+    "lambda8_steps": 97,
+    "lambda8_cells": 22
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26879,7 +27692,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1440,
     "witnessed": 0,
-    "lambda8_steps": 98
+    "lambda8_steps": 98,
+    "lambda8_cells": 24
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26919,7 +27733,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1456,
     "witnessed": 0,
-    "lambda8_steps": 99
+    "lambda8_steps": 99,
+    "lambda8_cells": 26
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26959,7 +27774,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1472,
     "witnessed": 0,
-    "lambda8_steps": 100
+    "lambda8_steps": 100,
+    "lambda8_cells": 28
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -26999,7 +27815,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1488,
     "witnessed": 0,
-    "lambda8_steps": 101
+    "lambda8_steps": 101,
+    "lambda8_cells": 30
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27039,7 +27856,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1496,
     "witnessed": 0,
-    "lambda8_steps": 102
+    "lambda8_steps": 102,
+    "lambda8_cells": 104
    },
    "relativistic": false,
    "paper_eleven": true,
@@ -27079,7 +27897,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1512,
     "witnessed": 0,
-    "lambda8_steps": 103
+    "lambda8_steps": 103,
+    "lambda8_cells": 134
    },
    "relativistic": true,
    "paper_eleven": true,
@@ -27116,7 +27935,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1528,
     "witnessed": 0,
-    "lambda8_steps": 104
+    "lambda8_steps": 104,
+    "lambda8_cells": 139
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27153,7 +27973,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1544,
     "witnessed": 0,
-    "lambda8_steps": 105
+    "lambda8_steps": 105,
+    "lambda8_cells": 145
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27190,7 +28011,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1560,
     "witnessed": 0,
-    "lambda8_steps": 106
+    "lambda8_steps": 106,
+    "lambda8_cells": 152
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27227,7 +28049,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1576,
     "witnessed": 0,
-    "lambda8_steps": 107
+    "lambda8_steps": 107,
+    "lambda8_cells": 160
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27261,7 +28084,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1592,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 169
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27295,7 +28119,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1608,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 179
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27329,7 +28154,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1624,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 190
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27363,7 +28189,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1640,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 202
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27397,7 +28224,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1648,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 4
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27431,7 +28259,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1664,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 6
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27465,7 +28294,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1680,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 8
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27499,7 +28329,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1696,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 10
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27533,7 +28364,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1712,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 12
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27567,7 +28399,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 8,
     "computed": 1728,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 14
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27601,7 +28434,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 0,
     "computed": 1744,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 0
    },
    "relativistic": false,
    "paper_eleven": false,
@@ -27634,7 +28468,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "exact": 0,
     "computed": 1760,
     "witnessed": 0,
-    "lambda8_steps": 0
+    "lambda8_steps": 0,
+    "lambda8_cells": 0
    },
    "relativistic": true,
    "paper_eleven": false,
@@ -27651,962 +28486,962 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 1,
    "file": "elements/1.js",
-   "bytes": 5576,
-   "md5": "3340a779b4c4334154693c8d33e8aef2",
-   "payload_bytes": 5496,
-   "payload_md5": "8f5f584e9b70d16be9878b8ed96b6e21"
+   "bytes": 6611,
+   "md5": "9baf0ea6d4196fd48c735b6ffa8bfb5d",
+   "payload_bytes": 6531,
+   "payload_md5": "ef5e5f6dede15b1566a0c5ec0ad79e84"
   },
   {
    "Z": 2,
    "file": "elements/2.js",
-   "bytes": 17607,
-   "md5": "d3cc0015ca4a24e5dbe7d93701967a89",
-   "payload_bytes": 17527,
-   "payload_md5": "23b299374ccd8ab0229725fd77495dce"
+   "bytes": 19746,
+   "md5": "d34158c76ffa58c3bbd54bc3874e7431",
+   "payload_bytes": 19666,
+   "payload_md5": "bbe660fc4bd505694fb48c6988c426bb"
   },
   {
    "Z": 3,
    "file": "elements/3.js",
-   "bytes": 21352,
-   "md5": "60d8499eb683cdac5ecdf3159a125cbf",
-   "payload_bytes": 21272,
-   "payload_md5": "483615346417849c9368ddd9137545bf"
+   "bytes": 24250,
+   "md5": "7f1a85e07159089564dbe1bd83ba9061",
+   "payload_bytes": 24170,
+   "payload_md5": "8d13342b96791757087eba164500634c"
   },
   {
    "Z": 4,
    "file": "elements/4.js",
-   "bytes": 27527,
-   "md5": "39b5d41f27df6b748f1cd5447e333431",
-   "payload_bytes": 27447,
-   "payload_md5": "76adf11ee131a4736332fde0ba4b1708"
+   "bytes": 31528,
+   "md5": "1d27dbf7d9b10532c7b16473856da3f1",
+   "payload_bytes": 31448,
+   "payload_md5": "44ab9023eda7ee0a576f886bb36bd456"
   },
   {
    "Z": 5,
    "file": "elements/5.js",
-   "bytes": 32080,
-   "md5": "b3ce3b5c2e1da65f09b682347b49b9cd",
-   "payload_bytes": 32000,
-   "payload_md5": "e21acaf19caf477c3bcf0525bfc2b8ad"
+   "bytes": 37098,
+   "md5": "dd9869557a3943a65a20c3dff1cf942e",
+   "payload_bytes": 37018,
+   "payload_md5": "353e04bc8365117165b9d0b430a6de7f"
   },
   {
    "Z": 6,
    "file": "elements/6.js",
-   "bytes": 37997,
-   "md5": "c6a333a24e1bb94ac0ab57d0ee8d052f",
-   "payload_bytes": 37917,
-   "payload_md5": "6857a69b17d90c9eb132f79d5ce0ea19"
+   "bytes": 43998,
+   "md5": "f829dc2d752f5cf817dfe04ac387368d",
+   "payload_bytes": 43918,
+   "payload_md5": "34b5bcaeaeac84b477139d49a6e55dba"
   },
   {
    "Z": 7,
    "file": "elements/7.js",
-   "bytes": 44813,
-   "md5": "c9a76fcb0dd5bdec3df8557e1ab2871e",
-   "payload_bytes": 44733,
-   "payload_md5": "70c686884b7484045fd898545164eb52"
+   "bytes": 52205,
+   "md5": "143f6b1a38533cb99e451f5ff6dc86a7",
+   "payload_bytes": 52125,
+   "payload_md5": "e39309d8a51da57f85e2321657c93cdf"
   },
   {
    "Z": 8,
    "file": "elements/8.js",
-   "bytes": 51192,
-   "md5": "a997bdb3643798b4cc2e0d2eb6387fdd",
-   "payload_bytes": 51112,
-   "payload_md5": "438004591f767d1a6a92499743c72204"
+   "bytes": 59976,
+   "md5": "4fa78c485eb39860a083c29fea992d24",
+   "payload_bytes": 59896,
+   "payload_md5": "1f5dd9fe81483190b63d47137bf283d2"
   },
   {
    "Z": 9,
    "file": "elements/9.js",
-   "bytes": 57625,
-   "md5": "fb3602deb1df12f263f6c73d002075cc",
-   "payload_bytes": 57545,
-   "payload_md5": "16d3a09f039dc0a0c4ee7414350797e8"
+   "bytes": 67800,
+   "md5": "af8a6569218d20ddd1cadf0fa7e812b0",
+   "payload_bytes": 67720,
+   "payload_md5": "d06a7d1c0505e6ccdbd5e6a895ee7508"
   },
   {
    "Z": 10,
    "file": "elements/10.js",
-   "bytes": 63876,
-   "md5": "962db19c9393a273dfbfee9bd82653ab",
-   "payload_bytes": 63795,
-   "payload_md5": "b70c3316771ecf56d3a2456cef6a32ba"
+   "bytes": 75195,
+   "md5": "603cb13be4bd50ce8b32be8db693dac4",
+   "payload_bytes": 75114,
+   "payload_md5": "d459521472d16f5a5428202c2756a645"
   },
   {
    "Z": 11,
    "file": "elements/11.js",
-   "bytes": 68884,
-   "md5": "caa9475aae0db084178ceb0903f22c62",
-   "payload_bytes": 68803,
-   "payload_md5": "aa847f61707febdc8e2da6a00690b56e"
+   "bytes": 81121,
+   "md5": "b0bafb7bba9ffd7caba23e792a3a829f",
+   "payload_bytes": 81040,
+   "payload_md5": "7df8876d0bbfaa962f8de509a0e9e6e7"
   },
   {
    "Z": 12,
    "file": "elements/12.js",
-   "bytes": 74348,
-   "md5": "94b467b9a6fc01a2e17902eedf4ea98e",
-   "payload_bytes": 74267,
-   "payload_md5": "ae29cd231b0c092bcea4e8a1f4033c09"
+   "bytes": 87869,
+   "md5": "f635a6826ab0565e4edf7cb796597f78",
+   "payload_bytes": 87788,
+   "payload_md5": "37bba79d376c002ce0b8538f97d15da4"
   },
   {
    "Z": 13,
    "file": "elements/13.js",
-   "bytes": 78424,
-   "md5": "409c356c4d95bc431a96add0b11b1bd2",
-   "payload_bytes": 78343,
-   "payload_md5": "ece6b4525847f5c2fdf4015edaf2193e"
+   "bytes": 93281,
+   "md5": "60c662a12c1005876aa1af361ebdee42",
+   "payload_bytes": 93200,
+   "payload_md5": "73831a0033cfd190dd04062e26797065"
   },
   {
    "Z": 14,
    "file": "elements/14.js",
-   "bytes": 84281,
-   "md5": "3a679d1053d2c78a693df757e14a3ecb",
-   "payload_bytes": 84200,
-   "payload_md5": "3353a97b9df2e7340df1a2d2913cd91f"
+   "bytes": 100443,
+   "md5": "a0bf7c628674b7e93cf14fedaa9d2df9",
+   "payload_bytes": 100362,
+   "payload_md5": "3031f3dacad535c19c4bd96c013a6486"
   },
   {
    "Z": 15,
    "file": "elements/15.js",
-   "bytes": 90626,
-   "md5": "a3b4b52f89fe5322e46c5b7dd9de89c6",
-   "payload_bytes": 90545,
-   "payload_md5": "fa99c515e057f33651aede51ff0c0ec9"
+   "bytes": 108498,
+   "md5": "d9ab0fcf96cdfa67d21acfca87df9492",
+   "payload_bytes": 108417,
+   "payload_md5": "2597be454e222596b7c83e30df9c2169"
   },
   {
    "Z": 16,
    "file": "elements/16.js",
-   "bytes": 96300,
-   "md5": "4b233555f8dec43c695bd44127cd0bb6",
-   "payload_bytes": 96219,
-   "payload_md5": "2516f8dd2c30bc71e55861afe67e8a70"
+   "bytes": 115884,
+   "md5": "3f80b4e09f4626d742176a07ef482afb",
+   "payload_bytes": 115803,
+   "payload_md5": "b2d0300be237d402143431810eb0bae9"
   },
   {
    "Z": 17,
    "file": "elements/17.js",
-   "bytes": 103416,
-   "md5": "e80d6b8b401fc766da1219ba086cbfbd",
-   "payload_bytes": 103335,
-   "payload_md5": "dee0c30892d8ba5e600e52083850e98e"
+   "bytes": 124712,
+   "md5": "16ff507ec67cf85fde98132f89158872",
+   "payload_bytes": 124631,
+   "payload_md5": "0c2d9e2956c781236b6d8e08ccca0b56"
   },
   {
    "Z": 18,
    "file": "elements/18.js",
-   "bytes": 110699,
-   "md5": "aae8498ddf6cd0ca6561ba7ab90ddc7e",
-   "payload_bytes": 110618,
-   "payload_md5": "0b56fb5c04053559818074022b19afc0"
+   "bytes": 133458,
+   "md5": "bbfc11627c9b38458072410da485b57b",
+   "payload_bytes": 133377,
+   "payload_md5": "5c1f44ed0aea71489bc6935c125e9022"
   },
   {
    "Z": 19,
    "file": "elements/19.js",
-   "bytes": 114925,
-   "md5": "7c8a9b26e1ad418eda4506b735f61db5",
-   "payload_bytes": 114844,
-   "payload_md5": "a4b5767dd2f34c910e22c5ee885de798"
+   "bytes": 138462,
+   "md5": "567af03b98892cd3ec3c23a8df70a4f0",
+   "payload_bytes": 138381,
+   "payload_md5": "880ac22dacb9be76dc0c53643f3af972"
   },
   {
    "Z": 20,
    "file": "elements/20.js",
-   "bytes": 120566,
-   "md5": "816717abaebcfaf9224d668fa7aeb4fb",
-   "payload_bytes": 120485,
-   "payload_md5": "1678f3a09b0cdd7869a5dfddce497d92"
+   "bytes": 145527,
+   "md5": "a6f1a60d6728c16604462fe12384412b",
+   "payload_bytes": 145446,
+   "payload_md5": "c61535db97b7a1795b4b6f3256526de6"
   },
   {
    "Z": 21,
    "file": "elements/21.js",
-   "bytes": 125147,
-   "md5": "725ada29e4a4568ba915b7cbb55dc96e",
-   "payload_bytes": 125066,
-   "payload_md5": "5561430ea5e51fdf8f40df4642e3c6d4"
+   "bytes": 151286,
+   "md5": "57dbb6135564d38285f1210102b430d5",
+   "payload_bytes": 151205,
+   "payload_md5": "7168259e41589fcbcc8ec8ee0092e787"
   },
   {
    "Z": 22,
    "file": "elements/22.js",
-   "bytes": 131250,
-   "md5": "2b0ad66cb36e82a215be9a6721512b70",
-   "payload_bytes": 131169,
-   "payload_md5": "2d25bd7dafd819299b99120577f989fb"
+   "bytes": 158852,
+   "md5": "3731b8a1423cdb417d120ac78f180f6f",
+   "payload_bytes": 158771,
+   "payload_md5": "b60901f1a32b22b90dc78f6244db8e0d"
   },
   {
    "Z": 23,
    "file": "elements/23.js",
-   "bytes": 138077,
-   "md5": "8fbd0088c4fd5fffe43b9f9a5b55738c",
-   "payload_bytes": 137996,
-   "payload_md5": "672605d2a2440d5e1b4f5fe9a450a162"
+   "bytes": 167397,
+   "md5": "93428cb63aa6d8bc075a58194dc8dfad",
+   "payload_bytes": 167316,
+   "payload_md5": "2f766e5ab65299b64e921b3edce7036f"
   },
   {
    "Z": 24,
    "file": "elements/24.js",
-   "bytes": 144291,
-   "md5": "f3081ad17059a34ef8e851ed5629c33e",
-   "payload_bytes": 144210,
-   "payload_md5": "57e65a2afa3f05d9f37274e73de26426"
+   "bytes": 175332,
+   "md5": "70a8c204f10b27ec6f9ce978dd22e043",
+   "payload_bytes": 175251,
+   "payload_md5": "0888dab0cc3d2ef482f9806e3e8419fd"
   },
   {
    "Z": 25,
    "file": "elements/25.js",
-   "bytes": 150328,
-   "md5": "a4ed702e730cf855f00fa9cd4bae3f13",
-   "payload_bytes": 150247,
-   "payload_md5": "1d869547fdb98936f0ec55b12f71431d"
+   "bytes": 183088,
+   "md5": "08c5a710812363b6760cc3e2147764e2",
+   "payload_bytes": 183007,
+   "payload_md5": "d221ca5fa47c61dd7ffe23059ff5fc41"
   },
   {
    "Z": 26,
    "file": "elements/26.js",
-   "bytes": 155912,
-   "md5": "62ace3b4172d95503e441242ad78657a",
-   "payload_bytes": 155831,
-   "payload_md5": "bfac3e74ffef0e256ad39df1272e1b2a"
+   "bytes": 190391,
+   "md5": "09c0503e9a00c8ec5c0b551aa304101c",
+   "payload_bytes": 190310,
+   "payload_md5": "0bd91dec398dbbc702cb5e0454957f85"
   },
   {
    "Z": 27,
    "file": "elements/27.js",
-   "bytes": 162423,
-   "md5": "420083d9d740f75cbc2dff090c38d143",
-   "payload_bytes": 162342,
-   "payload_md5": "c102e4971287b25f7797b31019d3dfa3"
+   "bytes": 198621,
+   "md5": "4512b144798ab6d99d58af4bed0c16f2",
+   "payload_bytes": 198540,
+   "payload_md5": "9b604d87c1f1f6c3c0329b609a747aec"
   },
   {
    "Z": 28,
    "file": "elements/28.js",
-   "bytes": 168847,
-   "md5": "66eb1be1c9fa1aedfb5bd86547d16977",
-   "payload_bytes": 168766,
-   "payload_md5": "9cd2155cc5b785cb23bec50e8f9f6216"
+   "bytes": 206764,
+   "md5": "5e95abfe8b772fd1b9e8fffc031c069e",
+   "payload_bytes": 206683,
+   "payload_md5": "9383ba089681420ffacb213cedfb17e0"
   },
   {
    "Z": 29,
    "file": "elements/29.js",
-   "bytes": 174552,
-   "md5": "2742c30cce737bd31472ab198204df13",
-   "payload_bytes": 174471,
-   "payload_md5": "33ce813a0fddaf40780d6da3b28c3c25"
+   "bytes": 214211,
+   "md5": "3dd7e8901430ff8457f398339914934b",
+   "payload_bytes": 214130,
+   "payload_md5": "bcb5e4c350310ccd40134f83fe369cc7"
   },
   {
    "Z": 30,
    "file": "elements/30.js",
-   "bytes": 180418,
-   "md5": "19328c796c78b24296701bd7b989a93a",
-   "payload_bytes": 180337,
-   "payload_md5": "2309c096f61a6922a1f93be47dc580f4"
+   "bytes": 221539,
+   "md5": "e826c5bdd919e7350b0c92011cb614f3",
+   "payload_bytes": 221458,
+   "payload_md5": "c10d12c35faa073e2ee08d4d2c7c29ff"
   },
   {
    "Z": 31,
    "file": "elements/31.js",
-   "bytes": 184368,
-   "md5": "19e250061cb6a3f346902df74209d086",
-   "payload_bytes": 184287,
-   "payload_md5": "7630c79a2b1ec908f3e4a1bb7cec8445"
+   "bytes": 226342,
+   "md5": "be107c25805fb3274839b142492f410e",
+   "payload_bytes": 226261,
+   "payload_md5": "d2915dd2d29bf8d2c42bbb24d607e935"
   },
   {
    "Z": 32,
    "file": "elements/32.js",
-   "bytes": 190531,
-   "md5": "5871e92d60dfea435b435ed3cd7a500e",
-   "payload_bytes": 190450,
-   "payload_md5": "aec568062cb29fc0c6bbf27b075482d4"
+   "bytes": 233811,
+   "md5": "2538b16515d8c0fda2dcfeaffe0df6ff",
+   "payload_bytes": 233730,
+   "payload_md5": "dd319ba59f2cd8ead262560dddfb3c2a"
   },
   {
    "Z": 33,
    "file": "elements/33.js",
-   "bytes": 197084,
-   "md5": "c079fdc21c47991bf1f2d70ce38a9b64",
-   "payload_bytes": 197003,
-   "payload_md5": "fa7e05bf39d8ac4e7934334b90b70452"
+   "bytes": 242075,
+   "md5": "c1e088f9d064c6b1a6fcafd0f8a1e9ec",
+   "payload_bytes": 241994,
+   "payload_md5": "dbb878f105b237d8d8654310fe690f47"
   },
   {
    "Z": 34,
    "file": "elements/34.js",
-   "bytes": 203140,
-   "md5": "03dd4771b18477f1dccd89774a5ea62c",
-   "payload_bytes": 203059,
-   "payload_md5": "d9ad03cb52605ba1b4088974d82ece27"
+   "bytes": 249843,
+   "md5": "3ef70936bc08e8cf3054d184a49926d7",
+   "payload_bytes": 249762,
+   "payload_md5": "cc441230240182fc42c7d9fc24a538c9"
   },
   {
    "Z": 35,
    "file": "elements/35.js",
-   "bytes": 209240,
-   "md5": "8d0d6f545543b87255c302f6f209fcf0",
-   "payload_bytes": 209159,
-   "payload_md5": "1f36191d0e256d5d72df9d5f74cd9e56"
+   "bytes": 257654,
+   "md5": "5d1828539e90487452f51ccd5b54cced",
+   "payload_bytes": 257573,
+   "payload_md5": "e20caa794021721a35050e45d0f1cd25"
   },
   {
    "Z": 36,
    "file": "elements/36.js",
-   "bytes": 215693,
-   "md5": "585c15d0bfafff4e0389dc86a0355d93",
-   "payload_bytes": 215612,
-   "payload_md5": "2fc8991f31c4c9423cb239f8b601123e"
+   "bytes": 265570,
+   "md5": "92bebb3e08d4aa22ae249f6f40d6960e",
+   "payload_bytes": 265489,
+   "payload_md5": "55dcc87310741c73b591eabbed7707d7"
   },
   {
    "Z": 37,
    "file": "elements/37.js",
-   "bytes": 219452,
-   "md5": "0c17181c974c42c2fe16a571133cec87",
-   "payload_bytes": 219371,
-   "payload_md5": "e009adc88b3de22fe167248260f0da3d"
+   "bytes": 270108,
+   "md5": "8a61508f2be95d7f4884dc40887468c7",
+   "payload_bytes": 270027,
+   "payload_md5": "d2ee58a303cdf537b1ae9d4351b24896"
   },
   {
    "Z": 38,
    "file": "elements/38.js",
-   "bytes": 225902,
-   "md5": "e45839a6f641da7dc451986cab1a1a1e",
-   "payload_bytes": 225821,
-   "payload_md5": "4063d1a08fbd64311377a1a424d04cbd"
+   "bytes": 277981,
+   "md5": "7ae65354cd4a9f2e1a6a2876c0c72111",
+   "payload_bytes": 277900,
+   "payload_md5": "3c7ec6e967232eb66813a6c0c26a612c"
   },
   {
    "Z": 39,
    "file": "elements/39.js",
-   "bytes": 229932,
-   "md5": "7f20bfa38d6ff214820c0dcbfe4bfcb6",
-   "payload_bytes": 229851,
-   "payload_md5": "a14871cd817165a5c58930b4726d3796"
+   "bytes": 283188,
+   "md5": "d5fc1be316c75f3bb88e616acc9fed4e",
+   "payload_bytes": 283107,
+   "payload_md5": "79587acbb1e7edbe1c78f2feaea78dc7"
   },
   {
    "Z": 40,
    "file": "elements/40.js",
-   "bytes": 236883,
-   "md5": "5b11c8a6fcdfb78ebf556a2af6a12fa3",
-   "payload_bytes": 236802,
-   "payload_md5": "2c31b85630a9e34e1ae485c2847759fc"
+   "bytes": 291603,
+   "md5": "c5e7196dcb8d520337db3ad8a4bee581",
+   "payload_bytes": 291522,
+   "payload_md5": "411b5fb67d1755b685c3f910adc8d296"
   },
   {
    "Z": 41,
    "file": "elements/41.js",
-   "bytes": 243072,
-   "md5": "4ed0d025b7e20b0427f43fac1303841a",
-   "payload_bytes": 242991,
-   "payload_md5": "0d3508da8d50385cf78b299f0095cc5c"
+   "bytes": 299511,
+   "md5": "e0e2de41fa3c12ccf76f907d32a2ee6b",
+   "payload_bytes": 299430,
+   "payload_md5": "c56fb25e09a7408e30e3540e39fd20c3"
   },
   {
    "Z": 42,
    "file": "elements/42.js",
-   "bytes": 249212,
-   "md5": "bb8df00724ba8d79ada83dbed0fbaffe",
-   "payload_bytes": 249131,
-   "payload_md5": "0250ade73b4b024c0deeafd0a98367af"
+   "bytes": 307371,
+   "md5": "f3f0c49dc45aef3bd3e0ceaf0728d400",
+   "payload_bytes": 307290,
+   "payload_md5": "a60b8d8636cfead931d8e88b3ec02ab4"
   },
   {
    "Z": 43,
    "file": "elements/43.js",
-   "bytes": 254989,
-   "md5": "1a48499afc81902f20988ceb5662eeba",
-   "payload_bytes": 254908,
-   "payload_md5": "1a40df6701b618fb222daed9ff6d14ab"
+   "bytes": 314867,
+   "md5": "935b29a142e9cba2d32216070a439a51",
+   "payload_bytes": 314786,
+   "payload_md5": "7ced81f8af19efafe95e524157bbd9ea"
   },
   {
    "Z": 44,
    "file": "elements/44.js",
-   "bytes": 261273,
-   "md5": "06431155a7dd462bfad4af4aa1623a1c",
-   "payload_bytes": 261192,
-   "payload_md5": "5fe9ff49afc2a8f4f55b8d1b34bf0649"
+   "bytes": 322870,
+   "md5": "a7392716d69f215fd265a5341a49efa9",
+   "payload_bytes": 322789,
+   "payload_md5": "ef6d6935d8c8fd3fbaebfe7249e77932"
   },
   {
    "Z": 45,
    "file": "elements/45.js",
-   "bytes": 267245,
-   "md5": "4de6b9f24b59c8f547701deb9a4d8ea8",
-   "payload_bytes": 267164,
-   "payload_md5": "728635b42cd0698f5024297088eb33b7"
+   "bytes": 330561,
+   "md5": "da12e30c31f3ecfe24bebbd26671034d",
+   "payload_bytes": 330480,
+   "payload_md5": "5d87f06833e1780b9df6fa8dce8edcb5"
   },
   {
    "Z": 46,
    "file": "elements/46.js",
-   "bytes": 273299,
-   "md5": "0a47482e8df321a79b9c3297420b6d31",
-   "payload_bytes": 273218,
-   "payload_md5": "d863d8c089a6660cec1e5a16dcf75e5e"
+   "bytes": 337955,
+   "md5": "91e07080c2de2550944bb94336d73cec",
+   "payload_bytes": 337874,
+   "payload_md5": "0bea5b9f63b2a89338d86831ac76a606"
   },
   {
    "Z": 47,
    "file": "elements/47.js",
-   "bytes": 279205,
-   "md5": "1f8acb77f3ff1c3842e7d7df9587cda7",
-   "payload_bytes": 279124,
-   "payload_md5": "6c9f0a0bdd9010a0982846f6c9acc6ad"
+   "bytes": 345982,
+   "md5": "b8e1a6204f3fcfbe42e76a7a421fb178",
+   "payload_bytes": 345901,
+   "payload_md5": "4377f609f647be06e8c4539505143646"
   },
   {
    "Z": 48,
    "file": "elements/48.js",
-   "bytes": 285016,
-   "md5": "cd566710947ee14bb7e089083ed163f0",
-   "payload_bytes": 284935,
-   "payload_md5": "50c75af773c0d9b57725c3de1e63fb42"
+   "bytes": 353255,
+   "md5": "3599f878a2de548886231505b3be541f",
+   "payload_bytes": 353174,
+   "payload_md5": "ed856fd454d0b971234d93db19663d4b"
   },
   {
    "Z": 49,
    "file": "elements/49.js",
-   "bytes": 289714,
-   "md5": "a63fba3f3380c5409d9b63fda4f4c202",
-   "payload_bytes": 289633,
-   "payload_md5": "8c9c25c921a004fdb2e234566640a4cf"
+   "bytes": 358805,
+   "md5": "3dce27b7b855f7d1b48f8689497da4c3",
+   "payload_bytes": 358724,
+   "payload_md5": "e65c0a1c005611060cb5db4720069de7"
   },
   {
    "Z": 50,
    "file": "elements/50.js",
-   "bytes": 296345,
-   "md5": "e01b654bf444d42917edf1b901f70587",
-   "payload_bytes": 296264,
-   "payload_md5": "14bb465acbc5f36302abc52d690c764b"
+   "bytes": 366743,
+   "md5": "138cca2208025d54b06d157c7e717d7f",
+   "payload_bytes": 366662,
+   "payload_md5": "081694ebf40efafb9b9cbde400afae43"
   },
   {
    "Z": 51,
    "file": "elements/51.js",
-   "bytes": 302077,
-   "md5": "1185969d792704fe0aef8bc3588a3075",
-   "payload_bytes": 301996,
-   "payload_md5": "c6a6caebbbb5acaf91c7925b576fcea4"
+   "bytes": 374186,
+   "md5": "a65b0dec33c917fd5e4a65c8d28f0413",
+   "payload_bytes": 374105,
+   "payload_md5": "a8d61e927031d2938042519ed71496d1"
   },
   {
    "Z": 52,
    "file": "elements/52.js",
-   "bytes": 308226,
-   "md5": "8926a1e4150fd0306a780f61796905b7",
-   "payload_bytes": 308145,
-   "payload_md5": "2258f3fb12b8c2fd560c4dc4311ee5ad"
+   "bytes": 382047,
+   "md5": "556f01a87a4377d0f102b714eda71315",
+   "payload_bytes": 381966,
+   "payload_md5": "21aee6e29d649933b5ca4ed97696d280"
   },
   {
    "Z": 53,
    "file": "elements/53.js",
-   "bytes": 314078,
-   "md5": "ee82613ca509f445cf5492cad4199ff1",
-   "payload_bytes": 313997,
-   "payload_md5": "93f1b958c5d9e279a3e3375fe002e335"
+   "bytes": 389609,
+   "md5": "6c06babb1639664817b9838123ca907f",
+   "payload_bytes": 389528,
+   "payload_md5": "f079371c3598f08b6efb7537f191540c"
   },
   {
    "Z": 54,
    "file": "elements/54.js",
-   "bytes": 323799,
-   "md5": "41ac1cb3fc4eb694505b66d721795c40",
-   "payload_bytes": 323718,
-   "payload_md5": "7ca827bfd8f252e9795c0d41ed0e59df"
+   "bytes": 400794,
+   "md5": "75e2fb19f64fdae55b52ddf4eed0abee",
+   "payload_bytes": 400713,
+   "payload_md5": "2161fb0fa16782de6d83e67cbba6f72a"
   },
   {
    "Z": 55,
    "file": "elements/55.js",
-   "bytes": 327825,
-   "md5": "34e2c2afc9626c079b15d91ff328eac0",
-   "payload_bytes": 327744,
-   "payload_md5": "378af26538aa2b25a7931803887d79ca"
+   "bytes": 405771,
+   "md5": "66ad46a77f59c6262de50aa5567a594e",
+   "payload_bytes": 405690,
+   "payload_md5": "6f36996527d932458b04825400ee6fa8"
   },
   {
    "Z": 56,
    "file": "elements/56.js",
-   "bytes": 333836,
-   "md5": "c7b17265c6d4a4fc3fe7725a0342f2eb",
-   "payload_bytes": 333755,
-   "payload_md5": "aaf7f324a00d8672f4cadcf58a256a02"
+   "bytes": 413033,
+   "md5": "34918838f6a3fc55602f5ac69561a3d0",
+   "payload_bytes": 412952,
+   "payload_md5": "9976d71a03efc692bb2b7beb542464da"
   },
   {
    "Z": 57,
    "file": "elements/57.js",
-   "bytes": 338053,
-   "md5": "8ecc0b67e51e1ec7f44adb595b23b758",
-   "payload_bytes": 337972,
-   "payload_md5": "52425b785d3258cb4bbdf16766c67614"
+   "bytes": 418428,
+   "md5": "d0c529c47c81f3162c7b4a3cbbfb4977",
+   "payload_bytes": 418347,
+   "payload_md5": "80fc7a2a03b2d7c76b14c4433196f967"
   },
   {
    "Z": 58,
    "file": "elements/58.js",
-   "bytes": 344611,
-   "md5": "2626a10332f511acd23d3ef860e1c060",
-   "payload_bytes": 344530,
-   "payload_md5": "a198ea1c58ea48e31a0e04ae7b5f6311"
+   "bytes": 426550,
+   "md5": "dfb20d974b849813606c9c1aa8f069c4",
+   "payload_bytes": 426469,
+   "payload_md5": "6e4e484e8e5ce12e8bf59662277c4c41"
   },
   {
    "Z": 59,
    "file": "elements/59.js",
-   "bytes": 350532,
-   "md5": "59f54bcb5147ec79f3ad747956c23bf8",
-   "payload_bytes": 350451,
-   "payload_md5": "cb83b6db082fc42244524bb1477e4a84"
+   "bytes": 434097,
+   "md5": "658f8be03b513c06b19d5817a352fdb7",
+   "payload_bytes": 434016,
+   "payload_md5": "cb8fdc4f58b22b96902a4efe1beedf92"
   },
   {
    "Z": 60,
    "file": "elements/60.js",
-   "bytes": 356480,
-   "md5": "c3c2ff4e38c4f470575399cd2eb5f257",
-   "payload_bytes": 356399,
-   "payload_md5": "d6981b8ccd85bac7da44a776dc15aee0"
+   "bytes": 441773,
+   "md5": "223a40a94a474eadde7bacf179c8596d",
+   "payload_bytes": 441692,
+   "payload_md5": "9f34df24b777ac19fd9f31127301057c"
   },
   {
    "Z": 61,
    "file": "elements/61.js",
-   "bytes": 362329,
-   "md5": "ae06754121d4583b69536eb69c127385",
-   "payload_bytes": 362248,
-   "payload_md5": "15674b7744aae51ce2a0f389f3648697"
+   "bytes": 449349,
+   "md5": "0f0651e7fd4f7a07f1d19d2cee33a7e0",
+   "payload_bytes": 449268,
+   "payload_md5": "ead73a984265a3fa20cd4a77310779b1"
   },
   {
    "Z": 62,
    "file": "elements/62.js",
-   "bytes": 368552,
-   "md5": "d219c2fb0d51bcf3a63b8cb6279163be",
-   "payload_bytes": 368471,
-   "payload_md5": "c00a509617e6ba429287b21f335c8942"
+   "bytes": 457299,
+   "md5": "f4534caa94ab69feb2d263356a268fad",
+   "payload_bytes": 457218,
+   "payload_md5": "b90dbc5ae2d3a4e3a8b639b79e5c0f10"
   },
   {
    "Z": 63,
    "file": "elements/63.js",
-   "bytes": 374542,
-   "md5": "3d0aeb0e6f07892c59c727d95e9efc2f",
-   "payload_bytes": 374461,
-   "payload_md5": "05c8dbb8097047868b5bfc62c4cf0e68"
+   "bytes": 465016,
+   "md5": "2af4824eede812f2ee09457fbf1b6f1b",
+   "payload_bytes": 464935,
+   "payload_md5": "390fcf3518bb57754f4dac866174e148"
   },
   {
    "Z": 64,
    "file": "elements/64.js",
-   "bytes": 380574,
-   "md5": "0f6ff6b3f8772f1a01b29fc2c480d253",
-   "payload_bytes": 380493,
-   "payload_md5": "c6586e3f98caa7bcf106d0cfe51a3a6a"
+   "bytes": 473416,
+   "md5": "e936cbad3dc70822cadce6c5a92630e9",
+   "payload_bytes": 473335,
+   "payload_md5": "fd5afc736b870e24f1a526388052daa1"
   },
   {
    "Z": 65,
    "file": "elements/65.js",
-   "bytes": 386524,
-   "md5": "964f10e026753c69f3d0ce42cc7d4436",
-   "payload_bytes": 386443,
-   "payload_md5": "fe3ab65726d80df489bc8cc76ed85215"
+   "bytes": 480452,
+   "md5": "d64be169d4b1b8315c639785e4b49f33",
+   "payload_bytes": 480371,
+   "payload_md5": "405dd168fc6b11438d9682bf0887ff5e"
   },
   {
    "Z": 66,
    "file": "elements/66.js",
-   "bytes": 392418,
-   "md5": "c3051c9b9fb2453dbdba1c3efe221220",
-   "payload_bytes": 392337,
-   "payload_md5": "9ace8e498167b8357430f8cd8618baf3"
+   "bytes": 488095,
+   "md5": "5411449b4f928f59948d6d9d0f1cf84b",
+   "payload_bytes": 488014,
+   "payload_md5": "2bc2d1e967e809b3d7d0035f3a519318"
   },
   {
    "Z": 67,
    "file": "elements/67.js",
-   "bytes": 398405,
-   "md5": "9508b2a4410015ea71672c3219195533",
-   "payload_bytes": 398324,
-   "payload_md5": "c72c98dcecf91264b732cc65452cc5f6"
+   "bytes": 495814,
+   "md5": "be48d4d5f79c6ff3861c43048f29f2aa",
+   "payload_bytes": 495733,
+   "payload_md5": "861e959944edf1a4a4b9dc3d5678a308"
   },
   {
    "Z": 68,
    "file": "elements/68.js",
-   "bytes": 404429,
-   "md5": "63f76b430a26b6c4333f096b50664622",
-   "payload_bytes": 404348,
-   "payload_md5": "db11e6321be37e64ace765b2cbe8a437"
+   "bytes": 503569,
+   "md5": "8e06ff7bacefa40dc5d3b6fbc6da51eb",
+   "payload_bytes": 503488,
+   "payload_md5": "52a6ab37fbea9f7351a33dfce537e0db"
   },
   {
    "Z": 69,
    "file": "elements/69.js",
-   "bytes": 410507,
-   "md5": "aae8d23b25296f617ff3775757603993",
-   "payload_bytes": 410426,
-   "payload_md5": "a892e978b07429db3c05283afb4ea692"
+   "bytes": 511378,
+   "md5": "0aec5b159ab5fda7504d97b3f7cf037f",
+   "payload_bytes": 511297,
+   "payload_md5": "1e46efb495187ee812210ea32a2fda70"
   },
   {
    "Z": 70,
    "file": "elements/70.js",
-   "bytes": 416692,
-   "md5": "c123a14bc381f98e0e543ee3a45f410a",
-   "payload_bytes": 416611,
-   "payload_md5": "4a245086e720d9fd31ad809fc1f6afbd"
+   "bytes": 519030,
+   "md5": "a0b13d57671d7908ff54398416ff59ca",
+   "payload_bytes": 518949,
+   "payload_md5": "d2ddcfb6a0f0f48b0fe4e5037a8529c1"
   },
   {
    "Z": 71,
    "file": "elements/71.js",
-   "bytes": 421003,
-   "md5": "e8ec707b08a03771506ae21ba4953583",
-   "payload_bytes": 420922,
-   "payload_md5": "f51c93afd7fff37d1bad0c533b7e982f"
+   "bytes": 526744,
+   "md5": "a405531df6c04644f293c659f792d4df",
+   "payload_bytes": 526663,
+   "payload_md5": "53527fafd8704821c21a74a4b4810691"
   },
   {
    "Z": 72,
    "file": "elements/72.js",
-   "bytes": 427129,
-   "md5": "cf7da0546a692df6a23e8cfe7b326f9b",
-   "payload_bytes": 427048,
-   "payload_md5": "ee6055170bffc49616e5ec0f5efed4ab"
+   "bytes": 534220,
+   "md5": "46e91b6717e8aa6e682deeda39b338aa",
+   "payload_bytes": 534139,
+   "payload_md5": "1dbd35b333148b6697c9a34f8d5da346"
   },
   {
    "Z": 73,
    "file": "elements/73.js",
-   "bytes": 433415,
-   "md5": "e9c8a225f364c4ec03b46bf1050f87f1",
-   "payload_bytes": 433334,
-   "payload_md5": "444f80d451f2e0b30f8337c61f5950bf"
+   "bytes": 542285,
+   "md5": "e749f8fd0c9bde9fdc0790aa8010c518",
+   "payload_bytes": 542204,
+   "payload_md5": "19c023bf6977f8545ead258874318792"
   },
   {
    "Z": 74,
    "file": "elements/74.js",
-   "bytes": 439476,
-   "md5": "8a9684d1d4c41defdb0a795c3acf523b",
-   "payload_bytes": 439395,
-   "payload_md5": "0ea40dd41021bb36b4d94f0a574f9da7"
+   "bytes": 550144,
+   "md5": "0cd559c1454bb0bd81998153ebe91c1d",
+   "payload_bytes": 550063,
+   "payload_md5": "cabd94020d3d941840401b7504854365"
   },
   {
    "Z": 75,
    "file": "elements/75.js",
-   "bytes": 445469,
-   "md5": "545c4a06e4f332ea181cc31330627c2b",
-   "payload_bytes": 445388,
-   "payload_md5": "03fbda1cc1e21a7313e65a2f065c10c7"
+   "bytes": 557957,
+   "md5": "51faa6cc41f0f8c90b28012a6437cb6d",
+   "payload_bytes": 557876,
+   "payload_md5": "d33cbd9178e251efd053bf3147d66925"
   },
   {
    "Z": 76,
    "file": "elements/76.js",
-   "bytes": 451670,
-   "md5": "164ee9637ffa6f826f4c3270384bbaaf",
-   "payload_bytes": 451589,
-   "payload_md5": "18cd5ab1c0b424e011a104201c63244e"
+   "bytes": 565997,
+   "md5": "85968a6362532097e44c803ff4c6fc55",
+   "payload_bytes": 565916,
+   "payload_md5": "0c7d799ff12fb3cab179b55b1d973df9"
   },
   {
    "Z": 77,
    "file": "elements/77.js",
-   "bytes": 457781,
-   "md5": "510f931c8e93f1b5093f33dd4665c8bb",
-   "payload_bytes": 457700,
-   "payload_md5": "32a9c8d43b960317cb734da4fbb9d405"
+   "bytes": 573967,
+   "md5": "4d169bfc4f08fd14ad319b90b68d1e16",
+   "payload_bytes": 573886,
+   "payload_md5": "c4fbb48f5f319ac16b9de48088d27e19"
   },
   {
    "Z": 78,
    "file": "elements/78.js",
-   "bytes": 464038,
-   "md5": "8391805fb80e5b710dab78c357c98231",
-   "payload_bytes": 463957,
-   "payload_md5": "9f9e51494c209a7966ac8766a78d4620"
+   "bytes": 582243,
+   "md5": "fd5b10d10a6f317911c4e1a479c16fb4",
+   "payload_bytes": 582162,
+   "payload_md5": "6bc2a4d094fb951906d9de7ee1118fa9"
   },
   {
    "Z": 79,
    "file": "elements/79.js",
-   "bytes": 469955,
-   "md5": "abf35f3c1f9b2fc1537489696a9d889a",
-   "payload_bytes": 469874,
-   "payload_md5": "4604b9f80812af13e04ded5153ce06ae"
+   "bytes": 590167,
+   "md5": "6d859d2e7827e8fa43ad9a0b5ac07930",
+   "payload_bytes": 590086,
+   "payload_md5": "e7ce7c4a06e9b56429aff931c79a7bcb"
   },
   {
    "Z": 80,
    "file": "elements/80.js",
-   "bytes": 476675,
-   "md5": "5c4160751cf466d791556800e1b6697a",
-   "payload_bytes": 476594,
-   "payload_md5": "57991434478f5b63ba91f309f648a30e"
+   "bytes": 598390,
+   "md5": "bc2f811947e8e61e46ce5bc7abd8c14e",
+   "payload_bytes": 598309,
+   "payload_md5": "da68d3937875e47bf3a93a7a8597d3ce"
   },
   {
    "Z": 81,
    "file": "elements/81.js",
-   "bytes": 480402,
-   "md5": "2ff52e9e29d920401f279801f374e542",
-   "payload_bytes": 480321,
-   "payload_md5": "24ba1e7bf6568cd519af5aba42a48ae6"
+   "bytes": 599097,
+   "md5": "8739f34f6e5095db2b4794622d82a210",
+   "payload_bytes": 599016,
+   "payload_md5": "8a659b156137ca29f0275811563559f5"
   },
   {
    "Z": 82,
    "file": "elements/82.js",
-   "bytes": 486862,
-   "md5": "50886507af1b58f6b85a90cf1d9294c4",
-   "payload_bytes": 486781,
-   "payload_md5": "fd011d5ac8ce04f628057dae32e9ca33"
+   "bytes": 606860,
+   "md5": "7eb88110e40f26d0620ae298d2aff144",
+   "payload_bytes": 606779,
+   "payload_md5": "1717af373d86f38496412a24ded16594"
   },
   {
    "Z": 83,
    "file": "elements/83.js",
-   "bytes": 492282,
-   "md5": "459a33b01da15567fd59df22d1d391a1",
-   "payload_bytes": 492201,
-   "payload_md5": "ab43c26d494e5e76b02b634c0a67d1c6"
+   "bytes": 613991,
+   "md5": "b8df0ec56956e4181c2598dd074b4760",
+   "payload_bytes": 613910,
+   "payload_md5": "b07ec92e83817b44a9e3010c790529d5"
   },
   {
    "Z": 84,
    "file": "elements/84.js",
-   "bytes": 498701,
-   "md5": "22356567a8acab87ee7600a755d65efe",
-   "payload_bytes": 498620,
-   "payload_md5": "2a46c7ba379514b4f187deeb65db4ca2"
+   "bytes": 622122,
+   "md5": "d45835a4a1841e8ecf7a55a53ebc3909",
+   "payload_bytes": 622041,
+   "payload_md5": "e035943f8ceb13d1f5d1a90b9d846c35"
   },
   {
    "Z": 85,
    "file": "elements/85.js",
-   "bytes": 504193,
-   "md5": "2386220bac61e432ad326631af398d54",
-   "payload_bytes": 504112,
-   "payload_md5": "3791daeec2a5aa1a2cc7054375f3e8d4"
+   "bytes": 629325,
+   "md5": "eb0ea0c461c640ffaeae24c2f99d58cf",
+   "payload_bytes": 629244,
+   "payload_md5": "b3a9772b8a6a6c6c7ecd809dc0ab96d0"
   },
   {
    "Z": 86,
    "file": "elements/86.js",
-   "bytes": 510628,
-   "md5": "003d56f24d6b0dfa37bffda6ddf1f8c0",
-   "payload_bytes": 510547,
-   "payload_md5": "04a9b523a057a3335fe55c033f597e3c"
+   "bytes": 637223,
+   "md5": "febb99a65637aea5919b13bd76c902c4",
+   "payload_bytes": 637142,
+   "payload_md5": "6d806d49ab142f14b688f23cdaaaf9c1"
   },
   {
    "Z": 87,
    "file": "elements/87.js",
-   "bytes": 514391,
-   "md5": "948b57db9f4cb6bf6812a05d0f07047e",
-   "payload_bytes": 514310,
-   "payload_md5": "87f0f63e9ffcbe519f91390f24209322"
+   "bytes": 641924,
+   "md5": "924a3dce4e0a52dfcbd2a5096a75453a",
+   "payload_bytes": 641843,
+   "payload_md5": "5cb1de77ffa5df5f9507734801518a84"
   },
   {
    "Z": 88,
    "file": "elements/88.js",
-   "bytes": 520451,
-   "md5": "4defba39d149d903a082207f8090f6f8",
-   "payload_bytes": 520370,
-   "payload_md5": "546b119f290c32d88d6dfa56f3ee9696"
+   "bytes": 649248,
+   "md5": "8fe97bbea800724f2d4523633a0b0900",
+   "payload_bytes": 649167,
+   "payload_md5": "b0ad533af368214c24d3cc24d6bea2af"
   },
   {
    "Z": 89,
    "file": "elements/89.js",
-   "bytes": 524156,
-   "md5": "2dd40bdadad5e6b6f4b17afd4d6adde9",
-   "payload_bytes": 524075,
-   "payload_md5": "9c092f87d45310243f95b36cbd06378f"
+   "bytes": 654131,
+   "md5": "ebed6fd8abfd564d908262844b1dcace",
+   "payload_bytes": 654050,
+   "payload_md5": "105603ab7f31c617bf626f134c2bf5e4"
   },
   {
    "Z": 90,
    "file": "elements/90.js",
-   "bytes": 530512,
-   "md5": "8764ab845aeeb5e63c2ca88327149c80",
-   "payload_bytes": 530431,
-   "payload_md5": "e8f8b358a8e56f342a1face70b387c1a"
+   "bytes": 661950,
+   "md5": "3f537ca2eee91a1d49a1b2c7a1c9141a",
+   "payload_bytes": 661869,
+   "payload_md5": "79c7bd8daca36cc7de002d1a5b889a77"
   },
   {
    "Z": 91,
    "file": "elements/91.js",
-   "bytes": 536492,
-   "md5": "8114d7333cdb9b610d2136cc3874a402",
-   "payload_bytes": 536411,
-   "payload_md5": "8b8f8e88d5a487ed605a004f4dedf420"
+   "bytes": 669798,
+   "md5": "ad395a43b36bd74fb9cb58f3ad63ddf4",
+   "payload_bytes": 669717,
+   "payload_md5": "1ae035916fdbab8ad18c1e36ee8c3f8d"
   },
   {
    "Z": 92,
    "file": "elements/92.js",
-   "bytes": 542116,
-   "md5": "6dcd972f94233792a82f2358b21940ba",
-   "payload_bytes": 542035,
-   "payload_md5": "eededcf6938e2ad11ef1b13a1027330f"
+   "bytes": 677208,
+   "md5": "d8b6f6fba02ad5b2958bb3feafa7a934",
+   "payload_bytes": 677127,
+   "payload_md5": "d4bb21a049e5c486cbdd1f8ea7d61f6a"
   },
   {
    "Z": 93,
    "file": "elements/93.js",
-   "bytes": 547965,
-   "md5": "9013d153e12286d7fb876ed311eb8ef9",
-   "payload_bytes": 547884,
-   "payload_md5": "cd441a6a8a09fc0fa74e43640a7e0cff"
+   "bytes": 684865,
+   "md5": "bcdbba6e781c92be8ec9be9abb746f93",
+   "payload_bytes": 684784,
+   "payload_md5": "d4be52587a3c628a05dcee375a5c10cd"
   },
   {
    "Z": 94,
    "file": "elements/94.js",
-   "bytes": 553784,
-   "md5": "6beac337fd417c8b3197e63dfeeb0a31",
-   "payload_bytes": 553703,
-   "payload_md5": "764845b57446924f7b807265faec115b"
+   "bytes": 692131,
+   "md5": "7861fdd6a0ed1c4af3442378694796d9",
+   "payload_bytes": 692050,
+   "payload_md5": "840c20eef80d6ad81f4d35cea718c5c8"
   },
   {
    "Z": 95,
    "file": "elements/95.js",
-   "bytes": 559890,
-   "md5": "e73feaade70468ca84634e7b816b69b8",
-   "payload_bytes": 559809,
-   "payload_md5": "3edf1b24294c860b224e099ee2e3e0e1"
+   "bytes": 699964,
+   "md5": "fd3c354264da025a03688e6410856aea",
+   "payload_bytes": 699883,
+   "payload_md5": "0baee46bffb7434f9c57bf7315834d14"
   },
   {
    "Z": 96,
    "file": "elements/96.js",
-   "bytes": 565118,
-   "md5": "fb5792960e5df2af740d0e2f15b1d3f4",
-   "payload_bytes": 565037,
-   "payload_md5": "8f647f04aaa64d7e82e5b338ffbb7162"
+   "bytes": 707560,
+   "md5": "124223f99c2497febf6f17b588e5f11e",
+   "payload_bytes": 707479,
+   "payload_md5": "f6c891b78da42dbe8b2e0f0a7a88e869"
   },
   {
    "Z": 97,
    "file": "elements/97.js",
-   "bytes": 571140,
-   "md5": "386958e4b66a62dfa92c33196a187e24",
-   "payload_bytes": 571059,
-   "payload_md5": "23037fa30953078195496b216981837b"
+   "bytes": 714668,
+   "md5": "bb8389d2bb630587765e89649f087f43",
+   "payload_bytes": 714587,
+   "payload_md5": "76702c81d04eef87bb1b384157b93e0a"
   },
   {
    "Z": 98,
    "file": "elements/98.js",
-   "bytes": 576796,
-   "md5": "d04d964f26d6fcca3a19eb2d2db8579d",
-   "payload_bytes": 576715,
-   "payload_md5": "0e736101923507923a296e88c59be45c"
+   "bytes": 722073,
+   "md5": "e843ed4d339cf7cccca0f2ce6d84b455",
+   "payload_bytes": 721992,
+   "payload_md5": "bf06ddb0b108531e0ac9a747ebc5ce42"
   },
   {
    "Z": 99,
    "file": "elements/99.js",
-   "bytes": 582787,
-   "md5": "e888a16aa80ab5a7a398e36d258457b0",
-   "payload_bytes": 582706,
-   "payload_md5": "b3dbfea45390d26bcaff71eaa1c76151"
+   "bytes": 729796,
+   "md5": "6ee2eb6839742a19493c35e1819a02e7",
+   "payload_bytes": 729715,
+   "payload_md5": "488c2e8963eb9d5f4460984bcc17dcb5"
   },
   {
    "Z": 100,
    "file": "elements/100.js",
-   "bytes": 588885,
-   "md5": "bc1b522556cc95b7732a8217245c3bca",
-   "payload_bytes": 588803,
-   "payload_md5": "088b58d493851bddbfff24a0412c89cb"
+   "bytes": 737625,
+   "md5": "3dc0f8c00840d79077a7210b742335c0",
+   "payload_bytes": 737543,
+   "payload_md5": "3ebc18a8b2d59838944670ce40621639"
   },
   {
    "Z": 101,
    "file": "elements/101.js",
-   "bytes": 594755,
-   "md5": "43216fd3292a4aff6980e696e3940799",
-   "payload_bytes": 594673,
-   "payload_md5": "828145a5663f14bfc5f648a1cfc80c68"
+   "bytes": 745226,
+   "md5": "f64dde220e29360ac5cb2e628dca1497",
+   "payload_bytes": 745144,
+   "payload_md5": "1e8842a65bc0e2410a41ed64de163bed"
   },
   {
    "Z": 102,
    "file": "elements/102.js",
-   "bytes": 600861,
-   "md5": "7e63d81a80bec5d5fe93fac7d41309eb",
-   "payload_bytes": 600779,
-   "payload_md5": "ee81086f739e73fe68d0831fdf1ab980"
+   "bytes": 752799,
+   "md5": "a4204293737bbbbddf8be8f9f06e1706",
+   "payload_bytes": 752717,
+   "payload_md5": "db375dd831174dd74b40471f970a97f9"
   },
   {
    "Z": 103,
    "file": "elements/103.js",
-   "bytes": 604950,
-   "md5": "4a7409fbc745cb951600356e6fb50196",
-   "payload_bytes": 604868,
-   "payload_md5": "6623caa276f800c98af7c83993506aa9"
+   "bytes": 759865,
+   "md5": "842ebf5be01de5a2a17f3a9ee92e21b1",
+   "payload_bytes": 759783,
+   "payload_md5": "3a29526aa98d07b3c5e0eb90ee741dc6"
   },
   {
    "Z": 104,
    "file": "elements/104.js",
-   "bytes": 575793,
-   "md5": "0e6714cafed2cb782dab983efa7045bb",
-   "payload_bytes": 575711,
-   "payload_md5": "6c3a20035f220d9b802600db53efe5d3"
+   "bytes": 736430,
+   "md5": "047b4c5015de059bb31aef6f99723504",
+   "payload_bytes": 736348,
+   "payload_md5": "26a84e0af94ab0909079009fc432646f"
   },
   {
    "Z": 105,
    "file": "elements/105.js",
-   "bytes": 581604,
-   "md5": "b0d4dd8471111d313b87f06065424edd",
-   "payload_bytes": 581522,
-   "payload_md5": "cd6463aa4ab4cb9a340a8ce64c67f9eb"
+   "bytes": 743940,
+   "md5": "176e7633bdf12795058bf1db7e1f1f42",
+   "payload_bytes": 743858,
+   "payload_md5": "0aff9e242036927de0081aa9abdf2070"
   },
   {
    "Z": 106,
    "file": "elements/106.js",
-   "bytes": 587380,
-   "md5": "4c3254d4fdf5a833860150676ed2ff2a",
-   "payload_bytes": 587298,
-   "payload_md5": "5ddb397e8b85bbbad5beb5549f515131"
+   "bytes": 751440,
+   "md5": "e896a68e58245bf796b3e36818533091",
+   "payload_bytes": 751358,
+   "payload_md5": "150e18d629f2fcc7e8da1c21e9652958"
   },
   {
    "Z": 107,
    "file": "elements/107.js",
-   "bytes": 593723,
-   "md5": "005187f2db0b17882906650554be12ed",
-   "payload_bytes": 593641,
-   "payload_md5": "03505a213545b5dd3412740252afc9a5"
+   "bytes": 759523,
+   "md5": "9d14a6dfe9f10a84b17c89b166996ec3",
+   "payload_bytes": 759441,
+   "payload_md5": "4b07a2f0e9e21da753782f115b9feeb4"
   },
   {
    "Z": 108,
    "file": "elements/108.js",
-   "bytes": 599312,
-   "md5": "27a199000eba07152a8e398a4e1ed041",
-   "payload_bytes": 599230,
-   "payload_md5": "f1fcdd261e864e4b76d9d0f1311b9552"
+   "bytes": 766872,
+   "md5": "bcff06795da09f8d4609a6bd47775b43",
+   "payload_bytes": 766790,
+   "payload_md5": "a2cd81aa1a435b5a995c4f3bc5e50d8e"
   },
   {
    "Z": 109,
    "file": "elements/109.js",
-   "bytes": 516245,
-   "md5": "9cc0780669581d46f2a48b75349cf3e7",
-   "payload_bytes": 516163,
-   "payload_md5": "8fb88dde48ba1e1628b771b0f3f214e0"
+   "bytes": 710871,
+   "md5": "dabb3df8a8ac4b5f522e3fe320101bfc",
+   "payload_bytes": 710789,
+   "payload_md5": "a16f28cf6746c9a4453f820e59e37b97"
   },
   {
    "Z": 110,
    "file": "elements/110.js",
-   "bytes": 521184,
-   "md5": "58c731d72fde15ad5df1490d4b6b9e54",
-   "payload_bytes": 521102,
-   "payload_md5": "ec4914a5fd8b75f7d99b354fe9f7467d"
+   "bytes": 717866,
+   "md5": "bb79c36cb6cef2f527fbda7806963220",
+   "payload_bytes": 717784,
+   "payload_md5": "b392b750f22ed86e2841a765d7c550d1"
   },
   {
    "Z": 111,
    "file": "elements/111.js",
-   "bytes": 525616,
-   "md5": "5e71bd03b9bc69dabf0cabd5a45bc74c",
-   "payload_bytes": 525534,
-   "payload_md5": "29ea8696e0e96e5a0005e70a6e957be1"
+   "bytes": 724374,
+   "md5": "0311a807200b7e5af35d1fc2e309b0c3",
+   "payload_bytes": 724292,
+   "payload_md5": "56be7da4045c2bc2d9de7c9c172ddc0c"
   },
   {
    "Z": 112,
    "file": "elements/112.js",
-   "bytes": 530328,
-   "md5": "9cb2d0fc5073af09e731a2d15a6ed544",
-   "payload_bytes": 530246,
-   "payload_md5": "46919451b861569d33e2027cffae9026"
+   "bytes": 731270,
+   "md5": "b87e9145c63cb1c1762b0b6753f03ed6",
+   "payload_bytes": 731188,
+   "payload_md5": "38e5879f1b3edce6bb6f76325fa365cc"
   },
   {
    "Z": 113,
    "file": "elements/113.js",
-   "bytes": 533310,
-   "md5": "eee71dccb332279e8788cb896dccd187",
-   "payload_bytes": 533228,
-   "payload_md5": "66708902b9eb2140b97e44a81cf08190"
+   "bytes": 731377,
+   "md5": "121ef3806a25f2657b22e0929d20bf03",
+   "payload_bytes": 731295,
+   "payload_md5": "190393980e4e58426e6e84f6e9f5a9e5"
   },
   {
    "Z": 114,
    "file": "elements/114.js",
-   "bytes": 537542,
-   "md5": "2a9920c653bc0fd8e02f9514366223d4",
-   "payload_bytes": 537460,
-   "payload_md5": "dad523f170bbf3a77e4487cbd305ebd1"
+   "bytes": 737505,
+   "md5": "1af31327e63d74887f095635cf34830c",
+   "payload_bytes": 737423,
+   "payload_md5": "15d86eb960d19b7aee4a0e4096e89bc2"
   },
   {
    "Z": 115,
    "file": "elements/115.js",
-   "bytes": 542253,
-   "md5": "acacf4fa4298f3b0dbe0cfbb15aade11",
-   "payload_bytes": 542171,
-   "payload_md5": "28b496aef9d088982553ccafa51e5e3e"
+   "bytes": 744112,
+   "md5": "6b21c77f40fcbf2bb78a5aa26dfa9ab2",
+   "payload_bytes": 744030,
+   "payload_md5": "ab74e546fce9910d6f563be0981a1373"
   },
   {
    "Z": 116,
    "file": "elements/116.js",
-   "bytes": 547012,
-   "md5": "7717ea183b349c423e6c87019af210ff",
-   "payload_bytes": 546930,
-   "payload_md5": "39753db851f4342e8e4c7ee61841ade4"
+   "bytes": 750768,
+   "md5": "545c2cd93d4e7eb0b07e0289020e51e0",
+   "payload_bytes": 750686,
+   "payload_md5": "9c5d177819c8c9903e057c031613af33"
   },
   {
    "Z": 117,
    "file": "elements/117.js",
-   "bytes": 551851,
-   "md5": "ace89b62f4473b720a491b3688d5b706",
-   "payload_bytes": 551769,
-   "payload_md5": "842e34ca30a7b76c0b08aef2fef87f4a"
+   "bytes": 757503,
+   "md5": "6293a366855541febed61397d795cd58",
+   "payload_bytes": 757421,
+   "payload_md5": "4f0b5604e365f7de12f3340863d84ff8"
   },
   {
    "Z": 118,
    "file": "elements/118.js",
-   "bytes": 556680,
-   "md5": "1471a4c48822c205ea44dc89f1274e85",
-   "payload_bytes": 556598,
-   "payload_md5": "3aa882921d2269e74a40a1d42b22d11e"
+   "bytes": 764228,
+   "md5": "bdedf5f5d497938107444a4ec3e03885",
+   "payload_bytes": 764146,
+   "payload_md5": "cc0e99afde4ff4105213b93398cd9a25"
   },
   {
    "Z": 119,
    "file": "elements/119.js",
-   "bytes": 677718,
-   "md5": "67937fe2f661f9a9db81dcbe0e2597dd",
-   "payload_bytes": 677636,
-   "payload_md5": "0e3006889f3d154c0dce94d99955bf81"
+   "bytes": 887772,
+   "md5": "3228bbfb9b22cf499daa398588157e75",
+   "payload_bytes": 887690,
+   "payload_md5": "5243afc903db20f9a606dcda02c7a640"
   },
   {
    "Z": 120,
    "file": "elements/120.js",
-   "bytes": 722578,
-   "md5": "4b9215c036c7ace867e6dd75717106f7",
-   "payload_bytes": 722496,
-   "payload_md5": "9acda13adede8c18386af9fab08f9a72"
+   "bytes": 934504,
+   "md5": "b4a6d7df32b8cb0995aeeb9e2be660c0",
+   "payload_bytes": 934422,
+   "payload_md5": "fa905abe8139bbb36f959bd769e048c7"
   }
  ],
  "protocol": {
