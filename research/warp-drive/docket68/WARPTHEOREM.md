@@ -2306,6 +2306,22 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 543** (M: "While we wait on the other session, please audit the entire warp map page and update everything,
+  that is stale, including the figures"). The map page audited section by section against the record; no status
+  moved. Brought current:
+  - the header, the statement's eyebrow and middle (GMID), and its notes since 486 and 491;
+  - the key: N1* and Theorem P proved and merged, the six proofs; the strip, its note and the pills (the chips
+    "Passes · on QB" and "Computed · theorized"; "computed" where a station holds computed · theorized rows);
+  - every note resting on 415's shared onset, marked superseded at 537;
+  - O2, O3s, WRITEs and WRITE on the balance write; position 2's face at most 2 r_h/c (491) in B4ds, CLOSEs,
+    CLOSE, FACE2s, ARRIVALs and ARRIVAL; notes since 542 on SOURCEs, SOURCE, CLOSEs, CLOSE and QB;
+  - the Source figures against the domain N ≥ 7.12e9 and the readings of ℓ (28.4 times at ℓ_H);
+  - the passage's list and table (the inner horizon and the charged corridor marked, N1* closed, 536-542 added);
+  - the scales: ℓ_H 0.611 nm and 3.637e10 GeV, its 1σ range recomputed with qb_baez's run, 0.025-9.8 nm (it read
+    0.024-9.6 nm); the threshold top mass at ℓ = 2^84 l_P recomputed, 172.51 GeV, unchanged;
+  - what comes next, in order, and the footer.
+
+  Three current-basis lines corrected here: FARs F0-F11, FAR L0-L11, B4d K0-K12. `map_audit` 14/14, mutants 12/12.
 - **Item 542** (M: "add lemmas to close these gaps. nothing gets narrowed, only expanded to complete the statement";
   "strengthen the existing lemmas, and ad more for support"; "PROVED on QB"; the SI figures' ℓ, "address and correct
   this"; the current-basis line, "yes"; the corrections, "approved"). Eight instruments built, each passing its

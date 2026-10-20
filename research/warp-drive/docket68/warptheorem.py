@@ -1992,7 +1992,7 @@ CURRENT_BASIS = {
     "B4a": "b4_global 6/6: the positions joined through the bulk with no horizons until the opening (282 (2))",
     "B4ds": "b4d_small D0-D18: regular wherever classical GR is kept; five Planck-scale places located and bounded "
             "(M-PLANCK-ENDS) -- on QB",
-    "B4d": "b4d_large K0-K11: the opening keeps the face's size, the closing by emission; the interior QB's -- on QB",
+    "B4d": "b4d_large K0-K12: the opening keeps the face's size, the closing by emission; the interior QB's -- on QB",
     "B5a": "b5a_oneway, b5a_residue A1-A6 (verified 339): the coincident sheets' summed stress meets B5'a one way; "
            "x+ = 2.625e-10 J/m^3 (322)",
     "B5cs": "e_positive E7: the README carries position 2's plane past sigma/4 within 2.0e-15 m of the face",
@@ -2046,10 +2046,10 @@ CURRENT_BASIS = {
     "M1": "m1_large M0-M10 on C3's large brane hole (Figueras and Wiseman, READ), through the bounce's map QB -- on QB",
     "M1P2xs": "c8_level V0-V10 (verified 341): position 2's side at the small end, on the one-way object",
     "M1P2x": "m1p2x_large Y1-Y9: the glued object's isometry, position 2's face's junction, its blueshift bounded",
-    "FARs": "far_small F0-F9 (347, 349; verified 355): every far surface at least as deep as it is wide strictly "
+    "FARs": "far_small F0-F11 (347-355; verified 355): every far surface at least as deep as it is wide strictly "
             "untrapped at every ell",
-    "FAR": "far_large L0-L9 (350; verified 355) with Garriga and Tanaka's far field (READ): a deep enough far surface "
-           "strictly untrapped",
+    "FAR": "far_large L0-L11 (350-355; verified 355) with Garriga and Tanaka's far field (READ): a deep enough far "
+           "surface strictly untrapped",
     "WRITEs": "write_cypher W5; passage_est Q4: the balance write, 8.63e14 clocks at the example, the face at its size "
               "in the mean",
     "WRITE": "write_large X1-X3: the large brane hole static (Figueras and Wiseman, READ); the balance write 3 N "
