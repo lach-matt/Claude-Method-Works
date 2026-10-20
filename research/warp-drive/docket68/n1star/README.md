@@ -2,9 +2,10 @@
 
 The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RESPONSE.md`). Start with
 `N1STAR-PROOF.md`: **N1* is PROVED** (D21); what is proved, how it was verified and what no verifier has read
-after the last edit are listed there.
+after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
+`../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D21).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D23).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands: Theorem E (evolution), Theorem A (the approximant) and Theorem D (the
   data, solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21); every standard theorem it

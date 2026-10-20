@@ -367,3 +367,38 @@ clause it restated is the form that verifier derived from a proof it had checked
 are the only text no verifier has read after the edit, and the proof file says so. Next, by the instructions: the formal
 response paper to Huneau and Luk's theorem, its title saying "proposed"; not begun; it waits for M, as the commission
 asks for a report and a pause, and its release is M's decision.
+
+**2026-10-20, to the report of D21 (N1* claimed as PROVED), verbatim:**
+
+> Excellent work. Yes please, continue with the paper
+
+**D22 (2026-10-20, session decision): the paper.** Begun as the instructions' section 9 asks: Markdown in the paper
+folder, with a check script that re-derives its numbers independently of the proof's instruments (`response5.py`: the
+exact reduction to 2+1 gravity with two free waves, the background's Ricci and Kretschmann scalars and the quantum
+boundary, the domain's contractions, the constraints' principal part, each with a negative control). The outside sources
+it answers were re-READ for the page numbers the paper cites (2026-10-20): Huneau and Luk, arXiv:1706.09501v1, Theorem
+4.2 (p. 10), (1.3)-(1.4) (p. 3), the elliptic gauge (3.4)-(3.5) (p. 7) and Burnett's formulation (p. 1); their review
+arXiv:2404.07659v1, Conjectures 1.1-1.2 (p. 2) and section 8.5, Problem 8.6 (p. 28); Touati, arXiv:2206.12318v4, Theorem
+2.2 (p. 12), (2.9)-(2.10) (p. 10), section 3.2.2 (p. 20); Luk and Rodnianski, arXiv:2009.08968v1, Theorems 1.9-1.10 (p.
+5). The paper claims only what the proof gives: part (i) of the counterpart on D_T with Cauchy data before the shell
+reaches the hole (the instructions' route W item 4), the C^0 rate O(lam), bounded derivatives and weak convergence; part
+(iv) and the limit are cited from the board's exact instruments; the O(lam^2) mean-mass rate and part (iii) for lam > 0
+are computed numerically at two seeds and are listed as not proved. Item 442's verbatim words name the research tree;
+the paper quotes them with that word elided and marked.
+
+**D23 (2026-10-20, session decision): the paper written.** `paper/RESPONSE-HL-5D.md`, title proposed, with
+`paper/response5.py` (R1-R6, every check passing and every control rejected, about 20 seconds). It states Huneau and
+Luk's Theorem 4.2 verbatim (arXiv:1706.09501v1, p. 10) and answers it with Theorem 1 on D_T cap {tau >= tau0}, Cauchy
+data on Sigma_tau0, as D22 set out. Found while writing, and carried into the paper rather than left in the notes:
+(1) at equality, mu0 = sqrt(72) l5^2, the boundary x = 1 is the seed's horizon for v <= v_start and is null there:
+g0^-1(dPhi, dPhi) = 1 - sqrt(mu/(sqrt(72) l5^2)) - r_q mu'/(2 mu) (R6), so it is spacelike exactly where mu >
+sqrt(72) l5^2 or mu' > 0, and for g_lam, lam small, when mu0 > sqrt(72) l5^2 (a uniform margin and the C^0 bound of
+Theorem E; deduced). hf_theorem5 F2's "inside the horizon the boundary's normal is timelike" is right; the theorem's
+"mu0 >= sqrt(72) l5^2" admits the null case. (2) R1 was first written symbolically and did not finish in seven minutes;
+it now works from exact 2-jets at three rational points (one second). (3) Two identifiers the proof cited without them,
+READ 2026-10-20: [CD03] is Chrusciel and Delay, arXiv:gr-qc/0301073v2, (2.1) on p. 4; [AG22] is F. Angeles,
+arXiv:2204.01179v3, the quoted sentence in its abstract (p. 1) and (9.6) on p. 24. (4) Touati's sections 3.2.2-3.2.3
+begin on p. 20 and his Lemma 3.1 is on p. 21. (5) In the paper the angular variable is called zeta and the curvature
+ratio x_K, since x is also the Cartesian coordinate. The comparison with Huneau and Luk, Touati, and Luk and
+Rodnianski is written point by point; the paper names, as an instance in a five-dimensional class and not as an answer
+to it, the large-data problem of Huneau and Luk's review (arXiv:2404.07659v1, Problem 8.6, p. 28).

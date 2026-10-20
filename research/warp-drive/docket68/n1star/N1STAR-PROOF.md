@@ -690,16 +690,18 @@ in r for which M_s below is finite
 
 Delta_alpha a second-order angular operator elliptic on each sphere with ellipticity constant >= delta0 > 0, alpha >=
 alpha0 > 0, and an invertible symmetrizer S with S A0 >= A00 > 0 and S A^B symmetric, with zero data at r = a. For s >=
-0 there is a unique solution, and      sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) + ||a||_{L^2 H^(s+2)} <= C
-(||F_rho||_{L^2 H^s} + ||F_J||_{L^2 H^s}),  norms on the spheres S^3, for s > 3/2 + 2, with C depending only on s, R -
-a, alpha0, delta0, A00 and an upper bound for M_s := sup_r ||(alpha, Delta_alpha, S, S A0, S A^B)||_{H^(s+1)(S^3)} +
-sup_r ||(b, c, e, c', f, f', c'')||_{H^s(S^3)} + int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other
-r-derivative of a coefficient enters. The bound is tame: at an index s'' > s, with ||U||_(s''; [a, r]) the left side at
-index s'' on [a, r] and m_(s'')(r) the norms at index s'' of the coefficients at r (those of M_(s''), without the
-supremum), ||U||_(s''; [a, r]) <= C (||F||_{L^2((a, r); H^(s''))} + int_a^r m_(s'')(r') omega_s(r') dr'), with C
-depending only on s'', M_s and the bounds above, and omega_s square-integrable on (a, R), its L^2 norm bounded by the
-solution's X_s norm: the energy inequality of the proof is d_r Z <= omega_0 Z + m_(s'') omega_s, by the Moser and
-Kato-Ponce inequalities, and Gronwall's lemma.
+0 there is a unique solution, and
+
+    sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) + ||a||_{L^2 H^(s+2)} <= C (||F_rho||_{L^2 H^s} + ||F_J||_{L^2 H^s}),
+
+norms on the spheres S^3, for s > 3/2 + 2, with C depending only on s, R - a, alpha0, delta0, A00 and an upper bound for
+M_s := sup_r ||(alpha, Delta_alpha, S, S A0, S A^B)||_{H^(s+1)(S^3)} + sup_r ||(b, c, e, c', f, f', c'')||_{H^s(S^3)} +
+int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other r-derivative of a coefficient enters. The bound is
+tame: at an index s'' > s, with ||U||_(s''; [a, r]) the left side at index s'' on [a, r] and m_(s'')(r) the norms at
+index s'' of the coefficients at r (those of M_(s''), without the supremum), ||U||_(s''; [a, r]) <= C (||F||_{L^2((a,
+r); H^(s''))} + int_a^r m_(s'')(r') omega_s(r') dr'), with C depending only on s'', M_s and the bounds above, and
+omega_s square-integrable on (a, R), its L^2 norm bounded by the solution's X_s norm: the energy inequality of the proof
+is d_r Z <= omega_0 Z + m_(s'') omega_s, by the Moser and Kato-Ponce inequalities, and Gronwall's lemma.
 
 *Proof.* Commute s angular derivatives (by the Killing fields of the round S^3) through (6.4); the commutators are
 estimated in terms of M_s by the Moser and commutator (Kato-Ponce) inequalities on S^3 ([GO13], [DS23] Remark 2.3,
@@ -833,7 +835,7 @@ v_start - tau0}. []
 | | preprint | [DS23] Rem. 2.3(i), proof of Prop. 3.1 | open | composition, commutator on T^N | |
 | T6 Kato-Majda scheme (6.5) | preprint | [AG22] arXiv:2204.01179v3 sec. 9 | open | bounded high, weak limit | 3 |
 | | preprint | [DS23] secs. 4.1-4.2; [AO14] sec. 4.1 | open | bounded high, contracting low | |
-| constraints | primary | [CD03] (2.1); [Rac16] | open | as cited in section 6 | |
+| constraints | primary | [CD03] arXiv:gr-qc/0301073v2 (2.1); [Rac16] | open | as cited in section 6 | |
 | (catalogue) | database | OpenAlex | blocked | proxy 403 | |
 
   The statements, verbatim where they carry the use:
@@ -885,8 +887,8 @@ v_start - tau0}. []
     spaces, we call it an universal extension operator", and Stein: "an extension operator E_S which is independent of
     k, such that E_S : W^(k,p)(Omega) -> W^(k,p)(R^n) is bounded for all k in N and 1 <= p <= infinity". The two papers
     share an author; Seeley's and Stein's originals were not reachable.
-  - [AG22] (arXiv:2204.01179, *The Cauchy problem for a quasilinear system of equations with coupling in the
-    linearization*): the iterates bounded in H^s, a weakly convergent subsequence (9.6); [AO14] sec. 4.1: "the
+  - [AG22] (F. Angeles, arXiv:2204.01179v3, *The Cauchy problem for a quasilinear system of equations with coupling in
+    the linearization*): the iterates bounded in H^s, a weakly convergent subsequence (9.6); [AO14] sec. 4.1: "the
     well-known strategy ... of setting up an appropriate iterative approximation scheme and showing convergence by
     establishing boundedness in a high norm followed by contraction in a low norm".
   - [LR05] (H. Lindblad and I. Rodnianski), arXiv:math/0411109v2, READ 2026-10-19: the reduced equations in wave
