@@ -1728,6 +1728,7 @@ def _load(path, key):
     try:
         spec = importlib.util.spec_from_file_location(key, path)
         mod = importlib.util.module_from_spec(spec)
+        sys.modules[key] = mod                                # inspect.getsource on its classes needs it (seed_second)
         with contextlib.redirect_stdout(io.StringIO()):
             spec.loader.exec_module(mod)
     finally:
