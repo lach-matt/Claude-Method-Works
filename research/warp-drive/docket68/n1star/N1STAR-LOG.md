@@ -244,3 +244,23 @@ order (the verifier showed the order -1 coefficients unchanged with the correcte
 mutant inverse_slip now guards it. The status of N1* is: proved modulo the READ at source of the standard theorems
 listed in section 7 of the proof (Lindblad-Rodnianski and Rendall READ for the gauge's propagation and data; the
 textbook statements not reachable here). Not claimed as PROVED, and no paper begun.
+
+**D16 (2026-10-20, session decision): the check of the repairs.** A further independent verifier (one at a time)
+checked the D15 repairs against the diff from 79a6e4c. It found no major gap. Both D15 repairs hold: D^(j) involves
+only the stages up to j (one derivative, so one phase factor at most), and after stage m the profiles R^(i), i < m,
+vanish and R^(m) has mean zero; and the iteration of Proposition 6.5, bounded in a high norm and contracting in a low
+one, is sound with the factor C lam^(N-3). It found two minor gaps introduced by the rewrite. (1) Lemma 6.4's existence
+added epsilon Delta_S to the raw second equation, whose coefficient of d_r is indefinite, so one component would be a
+backward heat equation: the regularisation now acts on the symmetrized equation, d_r (w, q) = epsilon (S A0)^-1 Delta_S
+(w, q) + ..., forward parabolic. (2) The smoothness claim of Proposition 6.5 cited a tame form of Lemma 6.4 that the
+lemma did not state: it is now stated as the standard tame inequality for the solution itself, closed by Gronwall's
+lemma in r at fixed lam. Nine notes, all applied: canonical() declared z, y positive though they stand for e^(i s),
+e^(i th), which let |cos s| - cos s pass as zero (no such form occurs in the checks; now nonzero symbols, and that case
+returns 'nonzero'); a crash in a mutant is no longer counted as a catch; the inverse-lapse series (its dl^2 coefficient
+corrected to 3/2 at D15, no effect) is now guarded by S5 too, through order lam, the order to which K is kept (a first
+guard written through lam^2 failed, correctly: dl is truncated at lam by design); X_s defined, a bound and the
+uniqueness ball corrected in Proposition 6.5; Lemma 6.4's constant depends on the ellipticity of Delta_alpha; stale
+'verification pending' lines updated; the Bianchi identity's READ recorded in section 7; d_th gh_(m+1), not gh_(m+1),
+is what Pol^+ gives; two wordings in Lemma 6.2(iii); and rho's coefficient of a oscillates too, with nonzero mean (it
+is part of B_m). The last repairs are applied as the verifier specified and are not re-checked. Status unchanged:
+proved modulo the standard theorems not READ at source; not claimed as PROVED; no paper begun.

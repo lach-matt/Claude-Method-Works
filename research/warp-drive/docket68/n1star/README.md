@@ -4,11 +4,11 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 `N1STAR-PROOF.md`: N1* is proved modulo citations and **not yet claimed as PROVED**; what is proved, what is
 verified and what is left are listed there.
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D15).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D16).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands: Theorem E (evolution), Theorem A (the approximant) and Theorem D (the
-  data, solved outward in r), each checked by one independent verifier; proved modulo the standard theorems not yet
-  READ at source (its section 7). Start here.
+  data, solved outward in r), checked by independent verifiers (D12, D15, D16); proved modulo the standard theorems
+  not yet READ at source (its section 7). Start here.
 - `ansatz5.py`: route W step 1, the geometric-optics ansatz on 5D Vaidya with the phase v (A1-A5).
   `python3 ansatz5.py --selftest` (5/5, about 3 minutes), `--mutants` (5/5).
 - `foliation5.py`: route W steps 3 and 5, the null foliation, Touati's commutator lemma as an identity, the slices and

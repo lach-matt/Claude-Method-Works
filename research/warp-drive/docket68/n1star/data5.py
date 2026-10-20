@@ -23,7 +23,8 @@ and set to zero. Labels: computed (exact, sympy).
      (hyperbolic in r); a enters dJ to first order only.
   S4 S2 holds also when the second harmonic chi dv dv is nonzero on Sigma: oscillations of the radial components
      (gamma_rr, K_rr, the shift) do not reach the coefficients (the d_r K_rr terms of div K and d tr K cancel).
-  S5 The inverse of the slice metric used above is correct through order lam^2 (an instrument check).
+  S5 The inverse of the slice metric is correct through order lam^2, and the inverse lapse through order lam, the
+     order to which K is kept (instrument checks; the second harmonic chi is on, so that the lapse depends on lam).
   S6 At the approximant's data, with or without chi on Sigma, the order-0 coefficients of the principal terms (a_rr,
      a_rt, a_r, a_tt in rho; w_r, w_t, q_r, q_t in J) equal the background's: alpha and the symmetrized A0 keep their
      signs.  (Lower-order coefficients may oscillate at O(1): that of d_th a in J_th does.)
@@ -54,6 +55,7 @@ qf = sp.Function("q")(r, th)
 C, S_ = sp.cos(th), sp.sin(th)
 
 
+LAPSE = {}                     # the last lapse series built, for check S5
 IL = sp.Symbol("il")            # 1/lam, kept as its own symbol so that it never hides in a denominator
 
 
@@ -129,6 +131,7 @@ def slice_data(with_w=True, with_chi=False):
     N20 = N2.subs(lam, 0)
     dl = trunc((N2 - N20)/(2*N20), 1)
     Ninv = (1 - dl + sp.Rational(3, 2)*dl**2)/sp.sqrt(N20)
+    LAPSE["Ninv"], LAPSE["N2"] = Ninv, N2
     if "no_lapse" in MUT:
         Ninv = 1
     G = christoffel(gam, gi)
@@ -223,8 +226,10 @@ def jet(e):
 
 def canonical(e):
     """an exact rational normal form: the jets of mu, E, H become symbols, mu = P^2 - r^2, r = R^2, and cos, sin of s
-    and th become rational functions of z and y; an expression vanishes identically iff its normal form is 0"""
-    P, R, z, y = sp.symbols("P R z y", positive=True)
+    and th become rational functions of z = e^(i s) and y = e^(i th); a normal form 0 means the expression vanishes
+    identically (forms outside this class, such as Abs or sign, are left unreduced, which errs toward 'nonzero')"""
+    P, R = sp.symbols("P R", positive=True)
+    z, y = sp.symbols("z y", nonzero=True)
     jets = {}
     for f_, x_, nm in ((mu, v, "m"), (Ef, v, "e"), (Hf, th, "h")):
         for k in (3, 2, 1):
@@ -240,8 +245,8 @@ def canonical(e):
 
 
 def is_zero(e):
-    """exact zero test: a 50-digit evaluation at two sample points rejects at once; zero is confirmed exactly by the
-    rational normal form"""
+    """exact zero test: a 50-digit evaluation at two sample points rejects at once; zero is accepted only when the
+    rational normal form is 0"""
     q_ = sp.Symbol("q_")
     fns = {mu.func: sp.Lambda(q_, 1 + q_**2/7), Ef.func: sp.Lambda(q_, 1 + q_/3), Hf.func: sp.Lambda(q_, 1 + q_**2/5)}
     for pt in ((sp.Rational(7, 3), sp.Rational(2, 5), sp.Rational(5, 7), sp.Rational(3, 11)),
@@ -262,7 +267,8 @@ def compute():
     lin_c, _ = perturbed(True, True)
     gam, gi, _ = slice_data(True, True)
     inv = [orders(x) for x in (gi*gam - sp.eye(4))]
-    return dict(lin_w=lin_w, lin_0=lin_0, base_0=base_0, lin_c=lin_c, inv=inv)
+    lapse = orders(trunc(LAPSE["Ninv"]**2, 1)*LAPSE["N2"] - 1)
+    return dict(lin_w=lin_w, lin_0=lin_0, base_0=base_0, lin_c=lin_c, inv=inv, lapse=lapse)
 
 
 def checks(o):
@@ -301,8 +307,9 @@ def checks(o):
     c["S3 parabolic-hyperbolic in r at the background (rho in a; (J_r, J_th) in (w, q))"] = par and hyp
     c["S4 S2 holds also with a second harmonic chi dv dv nonzero on Sigma (radial oscillations do not reach)"] = (
         no_inverse(o["lin_c"]))
-    c["S5 the slice data's inverse metric: gamma^-1 gamma = 1 through order lam^2"] = all(
-        is_zero(c_) for d_ in o["inv"] for k_, c_ in d_.items() if k_ <= 2)
+    c["S5 the slice data's gamma^-1 gamma = 1 through order lam^2, and N^-2 N^2 = 1 through order lam (K's order)"] = (
+        all(is_zero(c_) for d_ in o["inv"] for k_, c_ in d_.items() if k_ <= 2)
+        and all(is_zero(c_) for k_, c_ in o["lapse"].items() if k_ <= 1))
     names = (("w_r", "w_t", "q_r", "q_t"), ("w_r", "w_t", "q_r", "q_t"), ("a_rr", "a_rt", "a_r", "a_tt"))
 
     def principal(lin):                               # (J_r, J_th) principal in (w, q); rho principal in a
@@ -357,10 +364,13 @@ def mutants():
         try:
             c = checks(compute())
             failed = [k[:30] for k, v_ in c.items() if not v_]
-        except Exception as ex:                       # noqa: BLE001
-            failed = ["raised %s" % type(ex).__name__]
+        except Exception as ex:                       # noqa: BLE001  -- a crash is not a catch
+            failed, raised = [], type(ex).__name__
+        else:
+            raised = ""
         caught += bool(failed)
-        print("mutant %-13s %s  (%s)  failing: %s" % (m_, "caught" if failed else "MISSED", desc, "; ".join(failed)))
+        print("mutant %-13s %s  (%s)  failing: %s" % (m_, "caught" if failed else ("RAISED " + raised if raised
+              else "MISSED"), desc, "; ".join(failed)))
     MUT.clear()
     print("mutants: %d/%d" % (caught, len(MUTANTS)))
     return caught == len(MUTANTS)

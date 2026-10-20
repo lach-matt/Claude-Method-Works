@@ -4,7 +4,7 @@ Commissioned at item 522 (N1STAR-LOG.md D7). Labels: **computed** (an instrument
 it catches), **deduced** (an argument written out here, or a standard theorem invoked **READ** with its hypotheses
 checked), **READ** (verbatim at source), **OPEN**.
 
-**Status (2026-10-19).** N1* reduces to three theorems, all written out and each checked by one independent verifier.
+**Status (2026-10-20).** N1* reduces to three theorems, all written out and each checked by one independent verifier.
 **Theorem E** (evolution: existence on the domain and lam-uniform estimates for the remainder, given an approximant and
 data) is proved in sections 1-4 (deduced; its exact inputs computed in `ks5.py`, `foliation5.py`, `ansatz5.py`;
 verified, N1STAR-LOG.md D12). **Theorem A** (the approximant to any order in the gauge used here) is proved in section
@@ -12,9 +12,10 @@ verified, N1STAR-LOG.md D12). **Theorem A** (the approximant to any order in the
 before the shell reaches the hole, within O(lam^K) of the approximant's) is proved in section 6 (deduced; the facts
 about the approximant's slice data computed in `data5.py`), by solving the constraints outward in r as a
 parabolic-hyperbolic system [Rac16] from a sphere inside the shell, where the approximant's data are the seed's
-exactly. Sections 5 and 6 were verified (D15): no major gap; the two minor gaps and ten notes found are repaired. What
-is not done: several standard theorems the proof invokes, with their hypotheses checked, are not READ at source
-(section 7). N1* is therefore **proved modulo those citations**, and is not yet claimed as PROVED.
+exactly. Sections 5 and 6 were verified (D15), and the repairs checked by a further verifier (D16): no major gap at
+either step; every minor gap and note found is repaired. What is not done: several standard theorems the proof invokes,
+with their hypotheses checked, are not READ at source (section 7). N1* is therefore **proved modulo those citations**,
+and is not yet claimed as PROVED.
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -70,7 +71,7 @@ derivatives of order j and ||.|| the flat L^2(Sigma_tau),
 Chain rule: d_a [f] = lam^-1 (d_a v)[d_th f] + [d_a f], so |[f]|_j <= C_j sup_{i<=j} |d^i_{(X,th)} f|_{L^inf}
 (the oscillation costs nothing in scaled norms), and ||d^i [f]||_{L^inf} <= C lam^-i.
 
-### 0.4 Theorem E (evolution) -- proved in sections 1-4 (deduced), verification pending
+### 0.4 Theorem E (evolution) -- proved in sections 1-4 (deduced), verified (D12)
 
 Fix k = 6 and K >= 6. Let
 
@@ -95,14 +96,14 @@ the data are), and
 N the quantity (4.1) (energies of h, phi, box~ phi to order k, scaled). In particular ||w(tau)|| + ||d w(tau)||
 <= M lam^(K-1), |w| <= M lam^(K-3) and |d w| <= M lam^(K-4) on Omega, and |g - g0| <= C lam, |d g| <= C.
 
-### 0.5 Theorem A (the approximant) -- proved in section 5 (deduced), verification pending
+### 0.5 Theorem A (the approximant) -- proved in section 5 (deduced), verified (D15, D16)
 
 For every N and every smooth choice of stage data there are profiles g1, ..., g_N with (E1)-(E3), K = N - 1, whose
 oscillating part of g1 is the record's waves (F, G of the instructions, section 2) with a second harmonic chi dv dv
 and a phase shift, on the background g0 with mu' = (2/9) A^2 env^2. Stage data making the approximant's Cauchy data
 satisfy the constraints and D = 0 to order N - 2 exist (Lemma 6.2).
 
-### 0.6 Theorem D (the data) -- proved in section 6 (deduced), verification pending
+### 0.6 Theorem D (the data) -- proved in section 6 (deduced), verified (D15, D16)
 
 For lam small there is a vacuum Cauchy datum (gamma, kappa) on Sigma_tau0 (the constraints hold exactly), with the
 gauge condition D = 0 imposed through d_tau g, whose w satisfies (E4); it equals the seed's datum on Sigma_tau0 cap
@@ -397,7 +398,8 @@ bounds after (0.5) are Step 1. []
 
 **Status.** The construction of the approximant from given stage data is proved here (deduced), with its stage 0
 computed (`lead5.py`). The stage data that make the approximant's Cauchy data satisfy the constraints and the gauge
-condition to high order are chosen in section 6 (Lemma 6.2). Not yet independently verified.
+condition to high order are chosen in section 6 (Lemma 6.2). Verified by two independent verifiers (N1STAR-LOG.md D15,
+D16).
 
 ### 5.1 Stage 0 (computed: `lead5.py` L1-L5, `ansatz5.py` A2-A3)
 
@@ -491,10 +493,10 @@ N1* are chosen in Lemma 6.2.
 ## 6. Theorem D: the data
 
 **Status.** Proved here (deduced), with the facts it uses about the approximant's slice data computed in `data5.py`
-(S0-S3) and the form of the constraints READ in [Rac16] (I. Racz, *Constraints as evolutionary systems*, Class. Quantum
-Grav. 33 (2016) 015014, arXiv:1508.01810v3, READ 2026-10-19); not yet independently verified. No smallness of the
-background is used, so the data are posed on the slice Sigma := Sigma_tau0 of section 1, before the shell reaches the
-hole (route W item 4), and they coincide with the seed's data on Sigma cap {r < v_start - tau0}.
+(S0-S6) and the form of the constraints READ in [Rac16] (I. Racz, *Constraints as evolutionary systems*, Class. Quantum
+Grav. 33 (2016) 015014, arXiv:1508.01810v3, READ 2026-10-19); verified by two independent verifiers (D15, D16). No
+smallness of the background is used, so the data are posed on the slice Sigma := Sigma_tau0 of section 1, before the
+shell reaches the hole (route W item 4), and they coincide with the seed's data on Sigma cap {r < v_start - tau0}.
 
 ### 6.1 Two identities (deduced; standard)
 
@@ -578,30 +580,32 @@ dv tr_g0 Y, and Lambda_m algebraic: the terms of the order-m oscillating part of
 (bilinear with d_th W, such as m_m(ell, .) contracted with d_th W, <m_m, d_th W> ell and d_th W(grad phi_m, .)), in
 which d_tau phi_m = -(1/2)(m_m(ell, ell) + q_m) by Lemma 5.3(b) and the tangential derivatives of phi_m vanish. Pol is
 onto at every point: `data5.py` S1 finds rank 5 at one point, and Pol depends only on (g0, dv) at the point, every pair
-of a Lorentzian metric and a nonzero null covector being equivalent under GL(5) to every other. So gh_(m+1) :=
--Pol^+(Lambda_m(h_m) + known) on Sigma, with Pol^+ := Pol^T (Pol Pol^T)^-1 and the transposes taken in the Euclidean
-structure of the Cartesian coordinates (tau, x), which is O(4)-invariant (so Pol^+ commutes with the symmetries),
-solves it, smoothly, pointwise and linearly in h_m.
+of a Lorentzian metric and a nonzero null covector being equivalent under GL(5) to every other. So d_th gh_(m+1) :=
+-Pol^+(Lambda_m(h_m) + known) on Sigma (the right side has zero th-mean, and gh_(m+1) is its zero-mean antiderivative
+in th), with Pol^+ := Pol^T (Pol Pol^T)^-1 and the transposes taken in the Euclidean structure of the Cartesian
+coordinates (tau, x), which is O(4)-invariant (so Pol^+ commutes with the symmetries), solves it, smoothly, pointwise
+and linearly in h_m.
 
 (ii) The mean of D^(m) on Sigma is linear in d_tau (m_m)_{tau .} with the invertible coefficient of the gauge's data
 (above), plus terms in h_m, Q_m and known quantities: it fixes d_tau (m_m)_{tau .}.
 
 (iii) First, every first derivative of D^(j), j < m, vanishes on Sigma. Solve stage m with any data: D^(j), j <= m - 1,
-does not depend on the data of stage m, and R^(i) = 0 for i <= m - 1 once stage m is solved (5.4: before it, R^(m-1) =
--(1/2) e_m d_th^2 W, and stage m imposes e_m = 0). For m >= 3, Lemma 6.1 with N := m applies (its hypotheses, (F1) at
-orders 1, ..., m - 1 and (F2) at orders 1, ..., m - 2, were arranged at the earlier stages) and gives D^(j) = 0 on
-Omega for j <= m - 2 and d_th D^(m-1) = 0; then the first derivatives of D^(m-1) on Sigma vanish too: the tangential
-ones by (F1), the normal one of the mean by (F2) at order m - 1, and the oscillating part is zero. For m = 1, 2 the
-same holds directly: D^(0) = 0, and for m = 2 the order-0 transport, with d_th D^(1) = 0 on Sigma by (F1), gives d_th
-D^(1) = 0 on Omega. The tangential derivatives of D^(m) vanish by (F1), and the phase part lam^-1 (d u) d_th D^(m+1) of
-the derivatives has mean zero. So the order-m mean of 2 G(g_app)(n, .) on Sigma is d_n <D^(m)> (the order-m mean of
-(6.2)), the E-part having mean zero (after stage m, R^(i) = 0 for i < m and R^(m) = -(1/2) e_(m+1) d_th^2 W, of mean
-zero): (F2) at order m is the order-m mean of the constraint equations. That is P(h_m, Q_m) + B_m(h_m) = S_m, with P
-the linearisation of the constraint map at the data of g0 on Sigma ([CD03] (2.2)), B_m algebraic in h_m (the means of
-the products of h_m and of gh_(m+1) of (i) with the oscillating data), and S_m known. Solve it with h_m = a_m dr dr,
-Q_m = w_m Pi + q_m dr + dr q_m by Lemma 6.4 (B_m is a zeroth-order term of the kind allowed there), from zero data at r
-= a. Its sources vanish where the earlier stages' data and the waves do, so (a_m, w_m, q_m) vanish on r < v_start -
-tau0, and are smooth. []
+does not depend on the data of stage m, and R^(i) = 0 for i <= m - 1 once stage m is solved (Lemmas 5.1 and 5.3: before
+it, R^(m-1) = -(1/2) e_m d_th^2 W, and stage m imposes e_m = 0). For m >= 3, Lemma 6.1 with N := m applies (its
+hypotheses, (F1) at orders 1, ..., m - 1 and (F2) at orders 1, ..., m - 2, were arranged at the earlier stages) and
+gives D^(j) = 0 on Omega for j <= m - 2 and d_th D^(m-1) = 0; then the first derivatives of D^(m-1) on Sigma vanish
+too: the tangential ones by (F1), the normal one of the mean by (F2) at order m - 1, and the oscillating part is zero.
+For m = 1, 2 the same holds directly: D^(0) = 0, and for m = 2 the order-0 transport, with d_th D^(1) = 0 on Sigma by
+(F1), gives d_th D^(1) = 0 on Omega, and the normal derivative of <D^(1)> vanishes on Sigma by (F2) at order 1. The
+tangential derivatives of D^(m) vanish by (F1), and the phase part lam^-1 (d u) d_th D^(m+1) of the derivatives has
+mean zero. So the order-m mean of 2 G(g_app)(n, .) on Sigma is d_n <D^(m)> (the order-m mean of (6.2)), the E-part
+having mean zero (after stage m, R^(i) = 0 for i < m and R^(m) = -(1/2) e_(m+1) d_th^2 W, of mean zero): (F2) at order
+m is the order-m mean of the constraint equations. That is P(h_m, Q_m) + B_m(h_m) = S_m, with P the linearisation of
+the constraint map at the data of g0 on Sigma ([CD03] (2.2)), B_m algebraic in h_m (the means of the products of h_m
+and of gh_(m+1) of (i) with the oscillating data), and S_m known. Solve it with h_m = a_m dr dr, Q_m = w_m Pi + q_m dr
++ dr q_m by Lemma 6.4 (B_m is a zeroth-order term of the kind allowed there), from zero data at r = a. Its sources
+vanish where the earlier stages' data and the waves do, so (a_m, w_m, q_m) vanish on r < v_start - tau0, and are
+smooth. []
 
 ### 6.3 The exact correction (Lemmas 6.3, 6.4, Proposition 6.5)
 
@@ -634,21 +638,24 @@ angular derivatives (along the spheres) of every coefficient are bounded uniform
 the order-0 parts of all principal coefficients equal the background's (computed, S6; alpha = theta^3 H involves d_r
 gamma, but W has zero trace on the spheres), so alpha and S A0 keep their signs for lam small; S depends on gamma
 alone, whose first derivatives are bounded uniformly in lam, and Lemma 6.4 needs no d_r alpha. Lower-order coefficients
-may oscillate at O(1) (that of d_th a in J_th does, S6's computation); Lemma 6.4 needs only their angular regularity.
+may oscillate at O(1) (those of d_th a in J_th and of a in rho do, the latter with nonzero mean, which is part of B_m
+in Lemma 6.2(iii)); Lemma 6.4 needs only their angular regularity.
 
 **Lemma 6.4 (the linear evolution; deduced).** Consider on [a, R] x S^3 the linear system with smooth coefficients
 
     alpha d_r a - (Delta_alpha) a + b . d_S a + c a + e . (w, q) = F_rho,
     A0 d_r (w, q) + A^B d_B (w, q) + c' (w, q) + f d_r a + f' . d_S a + c'' a = F_J,                         (6.4)
 
-Delta_alpha a second-order angular operator elliptic on each sphere, alpha >= alpha0 > 0, and a smooth symmetrizer S
-with S A0 >= A00 > 0 and S A^B symmetric, with zero data at r = a. For s >= 0 there is a unique solution, and
+Delta_alpha a second-order angular operator elliptic on each sphere with ellipticity constant >= delta0 > 0, alpha >=
+alpha0 > 0, and a smooth invertible symmetrizer S with S A0 >= A00 > 0 and S A^B symmetric, with zero data at r = a.
+For s >= 0 there is a unique solution, and
 
     sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) + ||a||_{L^2 H^(s+2)} <= C (||F_rho||_{L^2 H^s} + ||F_J||_{L^2 H^s}),
 
-norms on the spheres S^3, for s > 3/2 + 2, with C depending only on s, R - a, alpha0, A00 and an upper bound for M_s :=
-sup_r ||(alpha, Delta_alpha, S, S A0, S A^B)||_{H^(s+1)(S^3)} + sup_r ||(b, c, e, c', f, f', c'')||_{H^s(S^3)} +
-int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other r-derivative of a coefficient enters.
+norms on the spheres S^3, for s > 3/2 + 2, with C depending only on s, R - a, alpha0, delta0, A00 and an upper bound
+for M_s := sup_r ||(alpha, Delta_alpha, S, S A0, S A^B)||_{H^(s+1)(S^3)} + sup_r ||(b, c, e, c', f, f',
+c'')||_{H^s(S^3)} + int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other r-derivative of a coefficient
+enters.
 
 *Proof.* Commute s angular derivatives (by the Killing fields of the round S^3) through (6.4); the commutators are
 estimated in terms of M_s by the Moser and commutator (Kato-Ponce) inequalities on S^3. Parabolic energy: d_r (1/2)
@@ -658,9 +665,11 @@ second equation: d_r <(w, q), S A0 (w, q)>_{H^s} <= C (1 + ||d_r (S A0)||_{L^inf
 q)||_{H^s} (||d_r a||_{H^s} + ||a||_{H^(s+1)} + ||F_J||_{H^s}), the S A^B terms integrating by parts on the closed
 spheres, and ||d_r a||_{H^s} <= C (||a||_{H^(s+2)} + ||(w, q)||_{H^s} + ||F_rho||_{H^s}) from the first equation.
 Young's inequality and Gronwall's lemma (which needs ||d_r (S A0)||_{L^inf} only integrable in r) give the bound.
-Existence: the a priori bound, with the same bound for the system in which epsilon Delta_S (w, q) is added to the
-second equation (a linear parabolic system on S^3, uniquely solvable), uniform in epsilon, and a weak limit epsilon ->
-0; uniqueness from the bound. []
+Existence: regularise the symmetrized second equation, S A0 d_r (w, q) + S A^B d_B (w, q) + ... = S F_J + epsilon
+Delta_S (w, q); then d_r (w, q) = epsilon (S A0)^-1 Delta_S (w, q) + ..., a linear system forward parabolic in r
+(Petrovskii; S A0 > 0), uniquely solvable on S^3, whose energy gains -epsilon ||grad (w, q)||^2, so the a priori bound
+holds uniformly in epsilon; a weak limit epsilon -> 0 solves (6.4). Uniqueness from the bound. (The raw coefficient A0
+is indefinite, Lemma 6.3(a), so the regularisation must act on the symmetrized equation.) []
 
 **Proposition 6.5 (the exact correction; deduced).** Let the stage data be those of Lemma 6.2 with N >= K + 3 and
 (gamma, K) the data of g_app on Sigma. For lam <= lam0 there is U on Sigma, U = 0 on r < v_start - tau0, with
@@ -672,20 +681,24 @@ quadratic in (U, dU, d d_S a) with coefficients involving at most two derivative
 Lemma 6.1, and angular derivatives of profiles cost nothing on Sigma), and it vanishes on r < v_start - tau0. The
 rho-component is linear in d_r a and in the angular second derivatives of a, with coefficients depending on a
 algebraically (the scalar curvature of gamma + a dr dr contains no (d_r a)^2), and the J-component is linear in d(w, q)
-with coefficients depending on a algebraically. Iterate: U_(i+1) solves, with zero data at r = a, the linear system
-(6.4) whose principal coefficients are frozen at U_i and whose sources are -Phi(gamma, K) and the remaining terms, at
-least quadratic and evaluated at U_i. Fix s0 > 3/2 + 4 and s := s0 + 2. At U = 0 the coefficients are those of Lemma
-6.3; frozen at U_i they change by at most C lam^-1 ||U_i||_X, d_r a_i entering M only through int ||d_r (S
-A0)||_{L^inf} dr <= C ||a_i||_{L^2 H^(s0+2)}; so while ||U_i||_{X_s} <= 2 C0 lam^(N-2), Lemma 6.4's hypotheses hold at
-indices s0 and s with constants independent of lam, for lam small and N >= 4. Lemma 6.4 at index s keeps the iterates
-in the ball of radius 2 C0 lam^(N-2) of X_s, and at index s0 gives ||U_(i+1) - U_i||_{X_(s0)} <= C lam^(N-3) ||U_i -
-U_(i-1)||_{X_(s0)} (the difference of the frozen coefficients multiplies U_i, estimated in the higher norm), a
-contraction: bounded in X_s and contracting in X_(s0), the iterates converge to a solution in X_s (the scheme of Kato
-and Majda for quasilinear symmetric hyperbolic systems; the parabolic component obeys the same estimates). Uniqueness
-in X_(s0) follows from the difference estimate. The r-derivatives follow from the equations, each d_r of a coefficient
-costing at most lam^-1. Smoothness (persistence of regularity): Lemma 6.4 at any index s'' > s, its constant depending
-on the highest norm of U only linearly and otherwise on the X_s norm (tame), bounds U in X_(s''), so lam0 does not
-depend on s''; Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
+with coefficients depending on a algebraically. Put ||U||_{X_s} := sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) +
+||a||_{L^2 H^(s+2)} + ||d_r a||_{L^2 H^s}, the left side of Lemma 6.4 with the d_r a the first equation gives. Iterate:
+U_(i+1) solves, with zero data at r = a, the linear system (6.4) whose principal coefficients are frozen at U_i and
+whose sources are -Phi(gamma, K) and the remaining terms, at least quadratic and evaluated at U_i. Fix s0 > 3/2 + 4 and
+s := s0 + 2. At U = 0 the coefficients are those of Lemma 6.3; frozen at U_i they change by at most C lam^-1 ||U_i||_X,
+d_r a_i entering M only through int ||d_r (S A0)||_{L^inf} dr <= C (1 + ||U_i||_{X_(s0)}); so while ||U_i||_{X_s} <= 2
+C0 lam^(N-2), Lemma 6.4's hypotheses hold at indices s0 and s with constants independent of lam, for lam small and N >=
+4. Lemma 6.4 at index s keeps the iterates in the ball of radius 2 C0 lam^(N-2) of X_s, and at index s0 gives ||U_(i+1)
+- U_i||_{X_(s0)} <= C lam^(N-3) ||U_i - U_(i-1)||_{X_(s0)} (the difference of the frozen coefficients multiplies U_i,
+estimated in the higher norm), a contraction: bounded in X_s and contracting in X_(s0), the iterates converge to a
+solution in X_s (the scheme of Kato and Majda for quasilinear symmetric hyperbolic systems; the parabolic component
+obeys the same estimates). Uniqueness holds in the ball of radius 2 C0 lam^(N-2) of X_s, by the difference estimate.
+The r-derivatives follow from the equations, each d_r of a coefficient costing at most lam^-1. Smoothness (persistence
+of regularity, standard): for the solution U itself, the energy inequality at an index s'' > s is linear in the top
+norm ||U||_{X_(s'')}, the top norms of the coefficients (functions of a) entering linearly by the Moser and Kato-Ponce
+inequalities with factors depending only on ||U||_{X_s}; Gronwall's lemma in r then bounds ||U||_{X_(s'')} at the same
+lam, its finiteness being justified on the regularised system of Lemma 6.4. So U is smooth for lam <= lam0, lam0
+independent of s''. Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
 
 ### 6.4 Proof of Theorem D
 
@@ -701,19 +714,25 @@ v_start - tau0}. []
 
 ## 7. What is left
 
-- **Verification.** Sections 0-4 were checked by one independent verifier (N1STAR-LOG.md D12): no major gap, one
-  minor gap (Step 6 at the top level, repaired) and seven notes (repaired). Sections 5-6 were checked by a second
-  (D15): no major gap, two minor gaps (Lemma 6.2(iii), Proposition 6.5, repaired) and ten notes (repaired, among them
-  an error at O(lam) in `data5.py`'s inverse metric that touched no check, now caught by S5).
+- **Verification.** Sections 0-4 were checked by one independent verifier (N1STAR-LOG.md D12): no major gap, one minor
+  gap (Step 6 at the top level, repaired) and seven notes (repaired). Sections 5-6 were checked by a second (D15): no
+  major gap, two minor gaps (Lemma 6.2(iii), Proposition 6.5, repaired) and ten notes (repaired, among them an error at
+  O(lam) in `data5.py`'s inverse metric that touched no check, now caught by S5). The repairs were checked by a third
+  (D16): the two repairs hold; it found two further minor gaps, both in the rewritten Lemma 6.4 and Proposition 6.5
+  (the regularisation must act on the symmetrized equation; the persistence of regularity must be stated as a tame
+  inequality), and nine notes, all repaired as it proposed; those last repairs have not been re-checked.
 - **READ at source, done.** Lindblad and Rodnianski, arXiv:math/0411109v2 (2026-10-19): the reduced equations in wave
   coordinates, their (1.3), "g^{alpha beta} d_alpha d_beta g_mu nu = F_mu nu(g)(dg, dg)"; the gauge's data, their
   (2.3)-(2.5); and "any solution of the system (2.1) with initial data ... compatible with (2.2) and constraint
   equations, gives rise to a solution of the full Einstein system. In addition, thus constructed tensor g_mu nu will
-  satisfy the wave coordinate condition (2.2) for all times" (stated in 3+1 for the harmonic gauge; the argument is
-  the contracted Bianchi identity (6.1), which holds in any dimension and for the gauge relative to g0). Rendall,
-  arXiv:gr-qc/0505133v1: local existence and uniqueness of the reduced equations, Cauchy stability, and that "it must be
-  checked that it is a solution of the original equations. This means checking that the constraints and gauge
-  conditions propagate." [CD03] (2.1) and [Rac16] as cited in section 6.
+  satisfy the wave coordinate condition (2.2) for all times" (stated in 3+1 for the harmonic gauge; the argument is the
+  contracted Bianchi identity (6.1), which holds in any dimension and for the gauge relative to g0). Rendall,
+  arXiv:gr-qc/0505133v1: local existence and uniqueness of the reduced equations, Cauchy stability, and that "it must
+  be checked that it is a solution of the original equations. This means checking that the constraints and gauge
+  conditions propagate." [CD03] (2.1), the constraint map, which "are the general relativistic constraint equations
+  whatever the space-dimension n", and [Rac16], as cited in section 6. The contracted Bianchi identity, READ in
+  Lindblad and Rodnianski (p. 1: "The Bianchi identities D_mu G^{mu nu} = 0"); the identities (6.1) and (6.2) are
+  deduced from it and from the constraint map by the algebra written in 6.1.
 - **READ at source, not done** (the sources are books not reachable from here; each is invoked with its hypotheses
   checked): local existence, uniqueness, continuation and finite speed of propagation for quasilinear wave systems on
   a domain with spacelike boundary pieces (Step 8; Ringstrom 2009, Choquet-Bruhat 2009); the decomposition (0.2) of
