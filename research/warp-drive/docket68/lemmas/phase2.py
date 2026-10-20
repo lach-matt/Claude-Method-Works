@@ -81,8 +81,8 @@ REMAINS = {
     "284": ("COMPUTED", ["room_work.py"], "as R6"),
     "270": ("COMPUTED", ["h_oneway.py", "i_oneway.py", "c1_oneway.py"], "the one-way object"),
     "276": ("COMPUTED", ["h_oneway.py"], "as 270"), "277": ("COMPUTED", ["i_oneway.py"], "as 270"),
-    "273": ("COMPUTED", ["bounce_qm.py", "bounce_close.py", "bounce_proof.py", "transition_aos.py", "transition5.py",
-                         "transition5q.py", "transition5r.py"],
+    "273": ("COMPUTED", ["bounce_qm.py", "bounce_close.py", "bounce_proof.py", "qb_baez.py", "transition_aos.py",
+                         "transition5.py", "transition5q.py", "transition5r.py"],
             "[483] computed from the quantum dynamics: loop quantum gravity's effective (holonomy-corrected) interior, "
             "in 4D (transition_aos) and carried to the 5D core with its scales fixed by 415 (transition5q): one "
             "transition surface, no inner horizon, the white hole's mass the black hole's, curvature bounded, probability "
@@ -94,7 +94,9 @@ REMAINS = {
             "clock, unitarity forcing the reflection into the white hole; the rows rest on it, transition5q, the "
             "candidate theory's geometry, supporting it; the equal mass on 183, 273 (a) and (c) and 386 "
             "(bounce_close C3).  [538] An input row, QB, COMPUTED-THEORIZED, with its complete proof "
-            "(BOUNCE-PROOF.md, bounce_proof P1-P6); the place x = 1 not a premise (P6)"),
+            "(BOUNCE-PROOF.md, bounce_proof P1-P6); the place x = 1 not a premise (P6).  [539] Its Planckian "
+            "curvature under varying values of Baez's constants (qb_baez): the same numbers in every universe "
+            "scanned, the size moving only through ell"),
     "390": ("COMPUTED", ["junction_own.py"], "position 2's face closes when empty"),
     "426": ("COMPUTED", ["encode_read.py"], "the least write by the size"),
     "432": ("COMPUTED", ["settle_arrival.py"], "the shell carries E at the opening (its N part unused)"),

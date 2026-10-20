@@ -140,6 +140,12 @@ bounce_proof P1-P6), and the ten rows, H2 and FACE2 rest on it.  The place x = 1
 holds at any place well inside the horizon.  SOURCE's complete proof is lemmas/SOURCE-PROOF.md.  Beyond established
 physics there remain quantum mechanics for the interior's geometry at Planckian curvature (QB) and SOURCE's named
 theorized steps (BOUNCE-RESEARCH 62).]
+[Item 539: the five-dimensional counterpart of Huneau and Luk's theorem, which 497 left not proved, is proved in the
+N1* session and is in the repository (M: 'this proof is now available in the repo'): N1* PROVED, part (iii) and the
+mean-mass rate with it; its instruments re-run here pass.  The Planckian curvature measured under varying values of
+Baez's constants, as copper was (qb_baez.py): QB's numbers are the same in every universe scanned; the 26 move the
+curvature's size only through ell, and in every universe with a metastable vacuum it lies orders above anything tested
+(BOUNCE-RESEARCH 63).  No status moves.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -1643,6 +1649,40 @@ for c, n, s_, t in LEMMAS_NOW:
         _rows_538.append(QB_ROW)
 LEMMAS_NOW = _rows_538
 RESTS_ON_NOW.update({k: (RESTS_ON_NOW[k] + " QB") if k in RESTS_ON_NOW else "QB" for k in ON_538})
+# [item 539] M: the five-dimensional counterpart of Huneau and Luk's theorem "is now available in the repo from the N1*
+# session"; and "measure the planckian curvature under varying Baez constants values, like the copper study"
+# (qb_baez.py).  No status moves.
+NOTE_539_QB = ("  [Item 539] The Planckian curvature measured under varying values of Baez's constants, as copper was "
+               "under the laws of other positions (qb_baez B0-B7; M: 'measure the planckian curvature under varying "
+               "Baez constants values, like the copper study').  No Baez constant enters QB's equations except "
+               "through ell (B1, exact: Schwarzschild-AdS5's Kretschmann is 72 mu^2/r^8 + 40/ell^4): its "
+               "dimensionless numbers are the same in every universe scanned, the bounce moving by at most 6.7e-15 "
+               "(5.9e-34 in ours) when rerun at each universe's Lambda5 l5^2 (B4).  The curvature's size moves only "
+               "through ell: under the Higgs tie K_P = (E_I/hbar c)^4, 1.15e105 m^-4 in ours, by 2.9e3 across m_t's "
+               "1 sigma and 4.2e33 across the metastable window, unfixed where the vacuum is stable; under the "
+               "dark-energy tie as Lambda^(1/3); under a fixed ell not at all; in the copper study's 2a not at all "
+               "(B2-B3, B5).  In every universe with a metastable vacuum E5 lies at least 2.79 orders above the "
+               "highest energy tested (13.6 TeV, READ), and at least 4.97 where the measured window holds (B6): the "
+               "step is untested in all of them, and the status stays COMPUTED-THEORIZED.  Found on the way: the "
+               "running quartic's zero is 3.637e10 GeV (item 382's 3.68e10, H3, is the run's first step past it), "
+               "so ell_H = 0.611 nm, not 0.588 nm")
+NOTE_539_SOURCE = ("  [Item 539] The five-dimensional counterpart of Huneau and Luk's theorem -- one exact "
+                   "mirror-symmetric vacuum sequence for the whole shell, in cohomogeneity three, which 497 left not "
+                   "proved -- is proved in the N1* session and is in the repository (M, 539): n1star/N1STAR-PROOF.md "
+                   "(N1* PROVED, D21, seven independent verifiers), with part (iii) for lam > 0 and the mean-mass rate "
+                   "(Propositions 8.1-8.2) and the paper RESPONSE-HL-5D.md, at ddfe90f4 on branch "
+                   "ccr-66909215-gi0qa5 (an earlier state merged to main by PR #58).  Its instruments' selftests, "
+                   "re-run here at that head, pass (SOURCE-PROOF C5).  Open there: late-time settling, Theorem P "
+                   "(written, not yet verified) and the physical wavelength")
+_rows_539 = []
+for c, n, s_, t in LEMMAS_NOW:
+    k = n.split()[0]
+    if k == "QB":
+        t = t + NOTE_539_QB
+    if k in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_539_SOURCE
+    _rows_539.append((c, n, s_, t))
+LEMMAS_NOW = _rows_539
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1864,7 +1904,9 @@ def lemma_selftests():
               # items 536-537: the bounce defined in quantum physics; what 536 left open, closed
               "bounce_qm.py", "bounce_close.py",
               # item 538: QB's complete proof checked -- the flat ordering, the identities, the place theorem
-              "bounce_proof.py"):
+              "bounce_proof.py",
+              # item 539: QB's Planckian curvature under varying values of Baez's constants
+              "qb_baez.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

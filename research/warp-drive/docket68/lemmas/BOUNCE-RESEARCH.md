@@ -3466,3 +3466,66 @@ and the place x_b = 1.
 
 Register: 83 rows -- 74 PROVED, 6 DEFINITION, 3 COMPUTED-THEORIZED (SOURCEs, SOURCE, QB); T2 entailed, none open;
 bounce_proof in T1. bounce_proof 6/6 (P1-P6), mutants 2/2.
+
+## 63. The counterpart of Huneau and Luk carried; QB's curvature under varying Baez constants (539; qb_baez.py)
+
+M, 539, to the line "Not proved: one exact mirror-symmetric vacuum sequence for the whole shell ... the
+five-dimensional counterpart of Huneau and Luk's theorem": "this proof is now available in the repo from the N1*
+session"; and to "Quantum mechanics at Planckian curvature: cannot be proved, so it is built": "measure the planckian
+curvature under varying Baez constants values, like the copper study". To that session M named the copper study as
+the one "built and models and measured under different constant conditions of varying universes" (N1STAR-LOG): that is
+p2_matter, copper computed under our law and under the laws of other positions.
+- **The counterpart, carried.** n1star/N1STAR-PROOF.md at ddfe90f4 on branch ccr-66909215-gi0qa5 contains:
+  - N1* PROVED (D21): Theorems E, A and D, seven independent verifiers, every standard theorem READ at source;
+  - part (iii) for lam > 0 (Proposition 8.1): one zero per column, no inner apparent horizon;
+  - the mean-mass rate (Proposition 8.2);
+  - the paper RESPONSE-HL-5D.md, "A Five-Dimensional Black Hole Grown by Null Dust Is a High-Frequency Limit of Vacuum
+    Gravity".
+
+  An earlier state reached main by PR #58. The session's instruments were re-run here at that head, and every one
+  passes (SOURCE-PROOF C5). 497's "not proved" is now proved. Open there, by its own list: late-time settling,
+  Theorem P (written, not yet verified) and the physical wavelength 10 l5. SOURCE's status does not move; its
+  complete proof now cites a proved, re-checked theorem where it cited a claim.
+- **What carries a constant (B1, exact).** QB's equations are vacuum gravity with Lambda5 = -6/ell^2. No Baez constant
+  enters them except through ell. In units of l5, everything in Theorem QB is a function of N, Lambda5 l5^2 and x_b:
+  - Kretschmann(SAdS5) = 72 mu^2/r^8 + 40/ell^4;
+  - the constant's share of xi at the least sphere is sqrt(2) Lambda5 l5^2/x_b;
+  - x_h depends on N alone. Copper's README gives 1.8e-14 at 7.6e22 bits, and at 300 bits 0.70 on its bare count but
+    0.083 on its least seed.
+- **Where the 26 enter: ell (B2-B3).** The Planckian curvature is K_P = l5^-4 with l5^3 = l_P^2 ell. ell has three
+  readings in the record:
+  - The Higgs tie: K_P = (E_I/hbar c)^4, with E_I the three-loop zero. Ours is 1.15e105 m^-4 (E_I 3.637e10 GeV;
+    l5 5.43e-27 m).
+    - Across m_t's 1 sigma K_P moves by a factor of 2.9e3. Across alpha_s's 1 sigma it moves by 7.8e3, across m_H's
+      by 39 and across m_W's by 1.6 %.
+    - Across the whole metastable window it moves by 4.2e33.
+    - At m_t <= 170.88 GeV, or at m_H = 130 GeV, the quartic has no zero. The vacuum is stable and the tie fixes
+      nothing.
+  - The dark-energy tie: K_P is proportional to Lambda^(1/3) (4.13e99 m^-4 at ours).
+  - A fixed ell: the window's top gives 1.78e99 m^-4 and moves with nothing.
+- **QB rerun in each universe (B4).** P6's state at x_b = 1 was rerun with the bulk constant switched on. Both horizons
+  and the symmetry stay. The curvature maximum moves by 1.2392 Lambda5 l5^2 (linear to 1e-11). The crossing moves by
+  -1.33 (r_h/ell)^2, the constant's share at the horizon. At each universe's own value the bounce moves by at most
+  6.7e-15, and by 5.9e-34 in ours.
+- **The copper study's universes (B5).**
+  - 2a's exception law touches no vacuum quantity, so K_P x 1.
+  - 2b and 2c: K_P x 0.63 on their own ell, x 0.40 on the window's top held in SI, x 1 on the Higgs tie.
+  - 2P: K_P x 1/4 on its own ell, which is ours in Planck units.
+- **Against what is tested (B6; READ).** The highest collision energy reached is 13.6 TeV (CERN, Run 3).
+  - Under the tie our E5 is 6.43 orders above it.
+  - The tie reaches the window's top (ell_H = 13.964 um) at m_t = 173.84 GeV. Wherever the measured window holds,
+    E5 >= 1.28e9 GeV, at least 4.97 orders above.
+  - With the window set aside, the least gap in the metastable window is 2.79 orders.
+  - E5 would equal 13.6 TeV only at m_t = 195.7 GeV or m_H = 99.3 GeV. These are extrapolated estimates, and our
+    vacuum would be unstable there.
+- **A precision finding.** The running quartic's zero is 3.637e10 GeV, unchanged at 4 and 16 times the steps. Item
+  382's 3.68e10 (ell_higgs H3) is the run's first step past the zero, 1.3 % high, so ell_H = 0.611 nm, not 0.588 nm.
+  This is recorded here and not repaired there: nothing in the theorem rests on the third digit.
+- **What the measurement says.** QB's outcome is universal. In every universe of Baez's list the scan reaches, the
+  bounce sits at that universe's own five-dimensional Planck curvature with the same numbers. The 26 move that
+  curvature's size, only through ell, and in every universe with a metastable vacuum it lies orders of energy above
+  anything tested. Quantum mechanics there stays the theorized step in all of them: QB stays COMPUTED-THEORIZED, and
+  the theorem does not depend on which universe's constants hold.
+
+BOUNCE-PROOF section 5 (L15-L19) carries the complete proof. qb_baez selftest PASS, mutants 4/4. Register unchanged:
+83 rows (74 PROVED, 6 DEFINITION, 3 COMPUTED-THEORIZED); qb_baez is in T1.

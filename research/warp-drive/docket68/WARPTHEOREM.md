@@ -99,7 +99,21 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 538 (what rests beyond established physics, worked out).** The place x = 1 is no longer a
+**Where it stands, at item 539 (the counterpart of Huneau and Luk carried; QB measured across Baez's constants).**
+The five-dimensional counterpart of Huneau and Luk's theorem -- the exact mirror-symmetric vacuum sequence for the whole
+shell, in cohomogeneity three, which 497 left not proved -- is proved in the N1* session and is in the repository, as
+M noted: N1* PROVED (seven verifiers), part (iii) for lam > 0 and the mean-mass rate with it (n1star/, at ddfe90f4;
+`paper/RESPONSE-HL-5D.md`). Its instruments re-run here pass, and SOURCE's complete proof cites it (SOURCE-PROOF C5).
+QB's Planckian curvature is measured under varying values of Baez's constants, as copper was under other positions'
+laws (`lemmas/qb_baez.py`; BOUNCE-PROOF section 5). No Baez constant enters QB's equations except through ell, and
+its numbers are the same in every universe scanned. The 26 move the curvature's size only through ell: under the
+Higgs tie K_P = (E_I/hbar c)^4, 1.15e105 m^-4 in ours, unfixed where the vacuum is stable. In every universe with a
+metastable vacuum E5 lies at least 2.79 orders above the 13.6 TeV tested, and at least 4.97 where the measured window
+holds. Quantum mechanics there stays untested in all of them, so QB stays COMPUTED-THEORIZED. Found on the way: the
+quartic's zero is 3.637e10 GeV, so ell_H = 0.611 nm, not item 382's 0.588 nm. 83 rows pass, unchanged.
+BOUNCE-RESEARCH section 63.
+
+**Where it stood at item 538 (what rests beyond established physics, worked out).** The place x = 1 is no longer a
 premise: every part the rows take from the bounce holds at any place well inside the horizon, x_b >> x_h =
 sqrt(72) l5^2/r_h^2 (1.6e-9 at the small end, 1.2e-40 at the large; `bounce_proof.py` P6). What cannot be proved --
 quantum mechanics for the interior's geometry at Planckian curvature, where no established theory has been tested --
@@ -2213,6 +2227,12 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 539** (M: the five-dimensional counterpart of Huneau and Luk "is now available in the repo from the N1*
+  session"; "measure the planckian curvature under varying Baez constants values, like the copper study"). The N1*
+  proof carried (N1* PROVED, part (iii), the mean-mass rate; its instruments re-run here pass; SOURCE-PROOF C5,
+  SOURCE-REQUIRED item 539). QB's curvature measured across Baez's constants (`lemmas/qb_baez.py`, selftest PASS,
+  mutants 4/4; BOUNCE-PROOF L15-L19): universal in form, its size moving only through ell, untested in every universe
+  with a metastable vacuum. qb_baez in T1. No status moves. BOUNCE-RESEARCH section 63.
 - **Item 538** (M: "What still rests beyond established physics - let's work these out. If we cannot prove them, we
   can at least build them and compute them as COMPUTED-THEORIZED"; "anything COMPUTED-THEORIZED should have a complete
   proof for the computations"). The place x = 1 worked out of the premises (`lemmas/bounce_proof.py` P6, 6/6, mutants

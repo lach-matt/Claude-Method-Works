@@ -1,11 +1,12 @@
-# The quantum bounce (QB): the complete proof of its computations (items 536-538)
+# The quantum bounce (QB): the complete proof of its computations (items 536-539)
 
 *First written* 2026-10-20, on M's item 538: "anything COMPUTED-THEORIZED should have a complete proof for the
 computations". QB is the bounce M chose at 273, defined in quantum physics at 536 and made the ten rows' premise at
 537. Its status is COMPUTED-THEORIZED: every computation is proved below; what is theorized is named in section 4.
 Labels: proved (a complete argument here), computed (an instrument's exact or numerical check, named), READ (a source
 read at the passage cited), M's (a ruling). Checks: `bounce_qm.py` Q1-Q9, `bounce_close.py` C1-C6, `bounce_proof.py`
-P1-P6.
+P1-P6, and `qb_baez.py` B0-B7 for section 5 (item 539: the Planckian curvature under varying values of Baez's
+constants).
 
 ## 1. The theorem
 
@@ -216,3 +217,75 @@ transition5q, the candidate theory's effective geometry, agrees at x_b = 1 (boun
 
 Every computation above is proved or exactly checked, apart from three numbers that are computed rather than derived:
 the constants 0.7424 and 0.25-0.3 and the 1e-4 grid agreement. None of these bears on 1-7 qualitatively.
+
+## 5. The Planckian curvature under varying values of Baez's constants (item 539; qb_baez B0-B7)
+
+M, 539: "measure the planckian curvature under varying Baez constants values, like the copper study". The copper study
+(p2_matter) computed copper under our law and under the laws of other positions, and the difference was the finding.
+This section proves what qb_baez computes the same way.
+
+**L15 (no Baez constant enters QB except through ell; proved).** QB's equations are L1-L5: the vacuum Einstein equations
+in five dimensions with the bulk's Lambda5 = -6/ell^2. No field of the plane enters the interior, by (H2). Measure every
+length in l5. The minisuperspace Hamiltonian of L2 then contains only mu and Lambda5 l5^2, the state only k and sigma,
+and the place only x_b. So every quantity of Theorem QB is a function of N (through mu, by H1's count), Lambda5 l5^2
+and x_b. Baez's 26 enter, if at all, only through Lambda5 l5^2 = -6 (l5/ell)^2. With l5^3 = l_P^2 ell (G5 = G ell):
+- Lambda5 l5^2 = -6 (l_P/ell)^(4/3);
+- the Planckian curvature is K_P = l5^-4 = (l_P^2 ell)^(-4/3).
+
+**L16 (the bulk constant's share at the bounce; proved, and exact).**
+- *The curvature.* For f = 1 - mu/r^2 - Lambda r^2/6 the Kretschmann scalar is 72 mu^2/r^8 + 10 Lambda^2/9 (qb_baez
+  B1, computed exactly; bounce_qm's numerical check agrees). With Lambda = -6/ell^2 the constant term is 40/ell^4. At
+  the Planckian place it adds 40 (l5/ell)^4 of K_P.
+- *The interior.* xi = -r^2 f = mu - Y + Lambda Y^2/6. At the least sphere, Y_min^2 = sqrt(72) mu l5^2/x_b by L13's
+  definition of the place, so (Lambda Y_min^2/6)/mu = sqrt(2) Lambda l5^2/x_b exactly (B1). The share is independent of
+  the mass.
+- *The horizon.* x_h = sqrt(72) (l5/r_h)^2 with 2 pi^2 r_h^3 = 4 N ln2 l5^3 (H1), so
+  x_h = sqrt(72) (pi^2/(2 N ln2))^(2/3): a function of N alone.
+
+So the dimensionless content of Theorem QB is the same in every universe, up to terms of relative size
+|Lambda5 l5^2| = 6 (l5/ell)^2 at the bounce. The crossing time (L11) carries one more term, the constant's share at
+the horizon, of order (r_h/ell)^2. That term is small wherever the small end applies (r_h < ell) and is the crossover
+to the large end otherwise.
+
+**L17 (where the 26 enter; proved from the record's readings, with computed numbers).** The record holds three readings
+of ell:
+- (H) The Higgs tie (item 382). E5 = hbar c/l5 at the running quartic's zero E_I, so K_P = (E_I/hbar c)^4. E_I is
+  computed by p2_offset's three-loop run (Buttazzo et al.'s appendix B, READ there). The run reproduces Buttazzo et al.'s
+  eq. (61) to the fourth digit, and at two loops it does not (a control). Here the zero is interpolated linearly in
+  ln mu between the run's last positive and first negative step. At 3000 steps the interpolated value is
+  3.6369243e10 GeV, at 12000 and 48000 steps 3.6369242e10 GeV, so the step error is below 1e-7. The record's 3.68e10
+  is the first step past the zero, 1.3 % above it, which puts ell_H at 0.611 nm rather than 0.588 nm. The run's inputs
+  are four of the 26: m_t, m_H, alpha_s and m_W, through Buttazzo et al.'s matching (eqs. (55), (57)-(60), linear about
+  173.34 and 125.15 GeV). The bottom and tau Yukawas are left out. The light masses, the mixings and the neutrino
+  masses do not enter at this order.
+- (D) The dark-energy tie (379 D3): ell = lam_C (hbar c/rho_L c^2)^(1/4), so K_P is proportional to rho_L^(1/3), exactly.
+- (F) A fixed ell (the window's top, a measurement; or Einstein's coupling): K_P depends on none of the 26.
+
+**L18 (QB rerun in each universe; computed, with the slope's linearity checked).** bounce_proof P6's state at x_b = 1,
+mu = 1e10 l5^2, has been rerun with Lambda5 l5^2 = 0, -1e-12, -2e-12 and -4e-12, each with |Lambda5| mu <= 0.04
+(qb_baez B4):
+- the two horizons and the time-reversal symmetry hold at every value;
+- K_max/K_cl(Y_min) moves by 1.2392 Lambda5 l5^2, the three secant slopes agreeing to 1e-11, so the dependence is
+  linear;
+- the crossing moves by -1.33 (r_h/ell)^2, the slopes agreeing to 1.2 %. This is L16's horizon term.
+
+At the values in the scan, |Lambda5 l5^2| <= 5.4e-15, so the bounce moves by at most 6.7e-15. That extreme is m_t =
+171.0 GeV, where ell_H is least. In ours it moves by 5.9e-34.
+
+**L19 (the gap to what is tested; computed, READ).** The highest collision energy reached is 13.6 TeV (CERN's Run 3
+media kit and ATLAS's press statement, READ). Under (H):
+- in ours E5 is 2.7e6 times it, 6.43 orders;
+- the tie gives ell_H = 13.964 um, the measured window's top, at m_t = 173.84 GeV. Wherever the window holds,
+  E5 >= 1.28e9 GeV, 4.97 orders above;
+- with the window set aside, the least gap in the metastable window (m_t from 171.0 to 177.68 GeV) is 2.79 orders,
+  at its edge;
+- E5 = 13.6 TeV needs m_t = 195.7 GeV or m_H = 99.3 GeV. Those are estimates, because the matching is extrapolated
+  there, and our vacuum would be unstable at either.
+
+Under (D) the gap is 5.07 orders.
+
+**What section 5 adds to section 4.** Hypothesis (H3) -- quantum mechanics at Planckian curvature -- is a statement
+about each universe's own five-dimensional Planck scale. L15-L18 show that its consequences, Theorem QB 1-7, are the
+same in every universe the scan reaches. L19 shows that in none of them with a metastable vacuum does that scale lie
+within the energies tested. So (H3) stays theorized in every universe, and nothing in QB depends on which universe's
+constants hold. Computed rather than derived here: E_I at each input (the run), and the two slopes of L18.

@@ -5,6 +5,26 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 539: the five-dimensional counterpart of Huneau and Luk, proved in the N1* session and carried here
+
+M, 539, to "Not proved: one exact mirror-symmetric vacuum sequence for the whole shell ... the five-dimensional
+counterpart of Huneau and Luk's theorem": "this proof is now available in the repo from the N1* session".
+- **What is proved there** (n1star/N1STAR-PROOF.md at ddfe90f4, branch ccr-66909215-gi0qa5; an earlier state on main
+  by PR #58):
+  - N1*, existence for every lam with lam-uniform estimates (D21: Theorems E, A and D, seven independent verifiers,
+    every standard theorem READ at source). This is THM-HF5 (i), the one part of the high-frequency limit that 497
+    and 511 left open;
+  - part (iii) for lam > 0 (Proposition 8.1: one zero per column, no inner apparent horizon);
+  - the mean-mass rate (Proposition 8.2: after the shell every sphere's mass is the limit's to O(lam^2)).
+
+  The paper is research/warp-drive/paper/RESPONSE-HL-5D.md.
+- **Checked here.** Every one of the session's instruments was re-run at that head and passes (SOURCE-PROOF C5 gives
+  the counts).
+- **Open there** (its own list): late-time settling; Theorem P, the construction from past null infinity (written
+  at D32, not yet verified; the mass law at past null infinity OPEN); the application at the physical wavelength 10 l5.
+- **Status.** Unchanged: SOURCEs and SOURCE stay COMPUTED-THEORIZED. Their complete proof now cites a theorem proved,
+  verified and re-run, where 534 cited one not needed here.
+
 ## Item 538: the complete proof of SOURCE's computations (SOURCE-PROOF.md)
 
 M, 538: "anything COMPUTED-THEORIZED should have a complete proof for the computations".
