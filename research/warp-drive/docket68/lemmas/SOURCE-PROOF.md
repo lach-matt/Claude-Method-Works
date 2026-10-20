@@ -179,7 +179,17 @@ r_h/10 in a region of r_h/3. The scales separate (arithmetic).
   - an eleventh verifier found the repair closes it.
 
   It is merged to main by PRs #59 and #60 and re-run here: past5 P1-P8, 8/8. The mass law at past null infinity, with
-  which the flux would become a statement about the mean mass there, stays OPEN in that session (its section 9.5).
+  which the flux would become a statement about the mean mass there, stayed OPEN in that session (its section 9.5)
+  until 544.
+- **Theorem M** (item 544; N1STAR-PROOF.md section 11, D37, D40, D44): the solution's Bondi mass at past null
+  infinity. g_lam has Bondi coordinates there with an expansion in r^(-1/2), the five-dimensional Bondi mass law
+  (Tanabe, Tanahashi and Shiromizu, READ there) holds for it pointwise, and its mean mass is mu(v) + O(lam) while the
+  shell passes and mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it. The record's runs give 0.4568 and 0.4569 for the
+  coefficient against the law's 0.45693 (bondi5 B4). Deduced there, with its exact inputs computed (bondi5 B1-B4). A
+  twelfth verifier found no major gap and five minor ones, all repaired (D40); a thirteenth found one major gap in a
+  repair (Lemma 11.0's energy region), repaired (D44). Those last repairs have not been read by a verifier, so it is
+  carried here as deduced and verified with repairs, not as PROVED. Merged to main by PRs #62-#64 and re-run here
+  (544).
 - **Late-time settling** (item 540; M: "for the math to determine"), determined in settle_late S0-S5:
   - if the hole settles, it settles to Tangherlini of the final mass. This is proved: Emparan and Reall's integrability
     with both reflections makes any end state static, and Gibbons, Ida and Shiromizu's uniqueness makes it Tangherlini
