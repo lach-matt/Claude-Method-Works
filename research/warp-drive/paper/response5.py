@@ -2,7 +2,7 @@
 """response5.py -- re-derives the numbers of RESPONSE-HL-5D.md (the five-dimensional counterpart of Huneau and Luk's
 high-frequency theorem), independently of the instruments the proof was built with.
 
-Each check is exact (sympy, rational arithmetic) and carries a negative control: the same computation with one
+Each check is exact (sympy) and carries negative controls, each run on its own: the same computation with one
 ingredient changed must fail, so that a check which passes is not passing vacuously.
 
   R1 The reduction.  For g5 = g3 + e^(2A) dphi1^2 + e^(2B) dphi2^2 (a generic Lorentzian 3-metric g3, generic A, B),
@@ -11,14 +11,15 @@ ingredient changed must fail, so that a check which passes is not passing vacuou
        e^(2 psi) box_h psi = -(e^-2A R11 + e^-2B R22),   e^(2 psi) box_h omega = (e^-2A R11 - e^-2B R22)/2,
      R11, R22 the phi1 phi1 and phi2 phi2 components of Ric[g5], and Ric[g5]_(a phi) = Ric[g5]_(phi1 phi2) = 0.  So
      5D vacuum in the class is 2+1 gravity on h coupled to two free waves with target metric (3/2) dpsi^2 + 2 domega^2.
-     Checked from the exact 2-jets at three rational points (50 digits) for explicit generic g3, A, B.  Control:
-     3/2 replaced by 1 fails.
+     Exact: the identities are tensorial, so at a point the coordinates are taken normal for g3 (g3 = eta, dg3 = 0), and
+     the second derivatives of g3 and the 2-jets of A and B are free symbols.  Control: 3/2 replaced by 1.
   R2 The background.  g0 = -dtau^2 + dr^2 + r^2 dOmega_3^2 + (mu(v)/r^2) dv^2, v = tau + r, is five-dimensional
      Vaidya: Ric(g0) = (3 mu'(v) / (2 r^3)) dv dv, and the (tau, r) block has determinant -1.  Control: mu/r in
      place of mu/r^2 is not of this form.
-  R3 The curvature scale.  For constant mu the Kretschmann scalar is 72 mu^2 / r^8; the record's quantum boundary
-     x = l5^2 sqrt(K) = 1 is r = r_q := (sqrt(72) mu l5^2)^(1/4), and r_q <= sqrt(mu) (the boundary lies inside the
-     apparent horizon r = sqrt(mu)) exactly when mu >= sqrt(72) l5^2.  Control: 48 in place of 72 fails.
+  R3 The curvature scale.  The Kretschmann scalar is 72 mu^2 / r^8, for constant mu and (in Eddington-Finkelstein
+     coordinates) for mu = mu(v); the quantum boundary x = l5^2 sqrt(K) = 1 is r = r_q := (sqrt(72) mu l5^2)^(1/4),
+     and r_q <= sqrt(mu) (the boundary lies inside the apparent horizon r = sqrt(mu)) exactly when mu >= sqrt(72)
+     l5^2.  Controls: 48 in place of 72, in either computation.
   R4 The domain.  ell := g0^-1 dv is null and geodesic; g0^-1(dtau, dtau) = -1 - mu/r^2,
      g0^-1(dr, dr) = 1 - mu/r^2, g0^-1(dr, dtau) = mu/r^2, g0^-1(d(v + tau), d(v + tau)) = -3 - mu/r^2.  The tau-lines
      are spacelike where r^2 < mu (g0(d_tau, d_tau) = -1 + mu/r^2), which is why the local theory is applied in other
@@ -34,7 +35,7 @@ ingredient changed must fail, so that a check which passes is not passing vacuou
      h^2 (c^4 + s^4) = 1, so the averaged dust is the same at every x; 4 (a^2 + ab + b^2) = (2a + b)^2 + 3 b^2.  For
      Phi = r - r_q(v), g0^-1(dPhi, dPhi) = 1 - mu/r^2 - 2 r_q' with r_q' = r_q mu'/(4 mu) >= 0, and at r = r_q,
      mu/r_q^2 = sqrt(mu/(sqrt(72) l5^2)); so on x = 1, g0^-1(dPhi, dPhi) <= 1 - sqrt(mu0/(sqrt(72) l5^2)), negative
-     when mu0 > sqrt(72) l5^2.  Control: h = 1 and Phi = r + r_q fail.
+     when mu0 > sqrt(72) l5^2.  Controls, each run on its own: h = 1; (2a + b)^2 + 2 b^2; Phi = r + r_q; sqrt(48).
 
 python3 response5.py [--selftest] [--full]
 --full also runs the selftests of the five proof instruments (about 20 minutes; data5.py takes about 14).
@@ -70,11 +71,11 @@ def ricci(g, X):
 
 # ---------------------------------------------------------------- R1 the reduction
 
-def jet_ricci(g, X, pt, dps=50):
-    """Ricci tensor, inverse metric and Christoffel symbols of g at the point pt, from the 2-jet of g there (exact up
-    to dps digits): R_bc = d_a G^a_bc - d_c G^a_ba + G^a_am G^m_bc - G^a_cm G^m_ba."""
+def jet_ricci(g, X, pt, dps=50, exact=False):
+    """Ricci tensor, inverse metric and Christoffel symbols of g at the point pt, from the 2-jet of g there (exact,
+    or to dps digits): R_bc = d_a G^a_bc - d_c G^a_ba + G^a_am G^m_bc - G^a_cm G^m_ba."""
     n, sub = len(X), dict(zip(X, pt))
-    ev = lambda e: sp.N(e.subs(sub), dps)
+    ev = (lambda e: e.subs(sub)) if exact else (lambda e: sp.N(e.subs(sub), dps))
     G0 = g.applyfunc(ev)
     d1 = [g.diff(X[k]).applyfunc(ev) for k in range(n)]
     d2 = [[g.diff(X[k]).diff(X[l]).applyfunc(ev) for l in range(n)] for k in range(n)]
@@ -95,13 +96,28 @@ def jet_ricci(g, X, pt, dps=50):
 
 
 def r1(control=False):
+    """exact: the identities are tensorial, so at a point take coordinates in which g3 = eta and dg3 = 0 (normal
+    coordinates of g3); the second derivatives of g3 and the 2-jets of A and B are free symbols"""
     t, x, y, p1, p2 = sp.symbols("t x y p1 p2")
     X3 = [t, x, y]
-    g3 = sp.Matrix([[-2 - x**2/5 + t*y/7, x/3 + t/11, y/13],
-                    [x/3 + t/11, 1 + y**2/4 + t/9, x*y/17],
-                    [y/13, x*y/17, 2 + x/5 + t**2/3]])
-    A = t/3 + x*y/5 + y**2/7
-    B = -x/4 + t*x/6 + y/9
+    eta = sp.diag(-1, 1, 1)
+    g3 = sp.Matrix(eta)
+    for a_ in range(3):
+        for b_ in range(a_, 3):
+            q = 0
+            for c_ in range(3):
+                for d_ in range(c_, 3):
+                    w_ = sp.Symbol(f"G{a_}{b_}_{c_}{d_}")
+                    q += w_*X3[c_]*X3[d_]*(sp.Rational(1, 2) if c_ == d_ else 1)
+            g3[a_, b_] = g3[b_, a_] = eta[a_, b_] + q
+
+    def jet(nm):
+        f = sp.Symbol(nm + "0") + sum(sp.Symbol(f"{nm}{c_}")*X3[c_] for c_ in range(3))
+        for c_ in range(3):
+            for d_ in range(c_, 3):
+                f += sp.Symbol(f"{nm}{c_}{d_}")*X3[c_]*X3[d_]*(sp.Rational(1, 2) if c_ == d_ else 1)
+        return f
+    A, B = jet("A"), jet("B")
     g5 = sp.zeros(5)
     g5[:3, :3] = g3
     g5[3, 3] = sp.exp(2*A)
@@ -109,30 +125,26 @@ def r1(control=False):
     psi, om = A + B, (B - A)/2
     h = sp.exp(2*psi)*g3
     c32 = sp.Integer(1) if control else sp.Rational(3, 2)
-    pts = [(sp.Rational(1, 7), sp.Rational(-1, 5), sp.Rational(2, 9)), (sp.Rational(-1, 3), sp.Rational(1, 4),
-           sp.Rational(1, 6)), (sp.Rational(1, 10), sp.Rational(1, 8), sp.Rational(-1, 5))]
-    for pt in pts:
-        sub = dict(zip(X3, pt))
-        ev = lambda e: sp.N(e.subs(sub), 50)
-        R5, _, _ = jet_ricci(g5, X3 + [p1, p2], tuple(pt) + (0, 0))
-        Rh, hi, Gh = jet_ricci(h, X3, pt)
-        dpsi = [ev(sp.diff(psi, z)) for z in X3]
-        dom = [ev(sp.diff(om, z)) for z in X3]
+    origin = (0, 0, 0)
+    sub = dict(zip(X3, origin))
+    ev = lambda e: e.subs(sub)
+    R5, _, _ = jet_ricci(g5, X3 + [p1, p2], origin + (0, 0), exact=True)
+    Rh, hi, Gh = jet_ricci(h, X3, origin, exact=True)
+    dpsi = [ev(sp.diff(psi, z)) for z in X3]
+    dom = [ev(sp.diff(om, z)) for z in X3]
 
-        def boxh(f):
-            df = [ev(sp.diff(f, z)) for z in X3]
-            return sum(hi[a, b]*(ev(sp.diff(f, X3[a], X3[b])) - sum(Gh[c][a][b]*df[c] for c in range(3)))
-                       for a in range(3) for b in range(3))
-        e2A, e2B = ev(sp.exp(-2*A)), ev(sp.exp(-2*B))
-        S = e2A*R5[3, 3] + e2B*R5[4, 4]
-        G3, e2psi = g3.applyfunc(ev), ev(sp.exp(2*psi))
-        vals = [Rh[a, b] - R5[a, b] - c32*dpsi[a]*dpsi[b] - 2*dom[a]*dom[b] - S*G3[a, b]
-                for a in range(3) for b in range(a, 3)]
-        vals += [e2psi*boxh(psi) + S, e2psi*boxh(om) - (e2A*R5[3, 3] - e2B*R5[4, 4])/2]
-        vals += [R5[a, b] for a in range(3) for b in (3, 4)] + [R5[3, 4]]
-        if any(abs(v) > sp.Float("1e-35") for v in vals):
-            return False
-    return True
+    def boxh(f):
+        df = [ev(sp.diff(f, z)) for z in X3]
+        return sum(hi[a_, b_]*(ev(sp.diff(f, X3[a_], X3[b_])) - sum(Gh[c_][a_][b_]*df[c_] for c_ in range(3)))
+                   for a_ in range(3) for b_ in range(3))
+    e2A, e2B = ev(sp.exp(-2*A)), ev(sp.exp(-2*B))
+    S = e2A*R5[3, 3] + e2B*R5[4, 4]
+    G3, e2psi = g3.applyfunc(ev), ev(sp.exp(2*psi))
+    vals = [Rh[a_, b_] - R5[a_, b_] - c32*dpsi[a_]*dpsi[b_] - 2*dom[a_]*dom[b_] - S*G3[a_, b_]
+            for a_ in range(3) for b_ in range(a_, 3)]
+    vals += [e2psi*boxh(psi) + S, e2psi*boxh(om) - (e2A*R5[3, 3] - e2B*R5[4, 4])/2]
+    vals += [R5[a_, b_] for a_ in range(3) for b_ in (3, 4)] + [R5[3, 4]]
+    return all(sp.simplify(sp.expand(v_)) == 0 for v_ in vals)
 
 
 # ---------------------------------------------------------------- the background
@@ -159,6 +171,41 @@ def r2(control=False):
     ok = all(sp.simplify(R[i, j] - target[i, j]) == 0 for i in range(5) for j in range(5))
     det = sp.simplify(g[0, 0]*g[1, 1] - g[0, 1]**2)
     return ok and det == -1
+
+
+def kretschmann_vaidya(c):
+    """K = c mu(v)^2/r^8 for 5D Vaidya with mu = mu(v), computed in ingoing Eddington-Finkelstein coordinates"""
+    vv = sp.Symbol("v", real=True)
+    Y = [vv, r, th, p1, p2]
+    muf = sp.Function("mu")(vv)
+    f = 1 - muf/r**2
+    g = sp.zeros(5)
+    g[0, 0], g[0, 1], g[1, 0] = -f, 1, 1
+    g[2, 2], g[3, 3], g[4, 4] = r**2, r**2*sp.cos(th)**2, r**2*sp.sin(th)**2
+    gi, G = christoffel(g, Y)
+    n = 5
+    low = {}
+    for a in range(n):
+        for b in range(n):
+            for c_ in range(n):
+                for d in range(n):
+                    e = sp.diff(G[a][b][d], Y[c_]) - sp.diff(G[a][b][c_], Y[d])
+                    e += sum(G[a][c_][m]*G[m][b][d] - G[a][d][m]*G[m][b][c_] for m in range(n))
+                    low[a, b, c_, d] = e
+    lo = {}
+    for k in low:
+        a, b, c_, d = k
+        lo[k] = sp.simplify(sum(g[a, m]*low[m, b, c_, d] for m in range(n)))
+    up = {}
+    for k, val in lo.items():
+        if val == 0:
+            continue
+        a, b, c_, d = k
+        up[k] = sum(gi[a, i]*gi[b, j]*gi[c_, kk]*gi[d, l]*lo[i, j, kk, l] for i in range(n) for j in range(n)
+                    for kk in range(n) for l in range(n) if lo[i, j, kk, l] != 0 and gi[a, i] != 0 and gi[b, j] != 0
+                    and gi[c_, kk] != 0 and gi[d, l] != 0)
+    K = sp.simplify(sum(lo[k]*up[k] for k in up))
+    return sp.simplify(K - c*muf**2/r**8) == 0
 
 
 def r3(control=False):
@@ -189,7 +236,9 @@ def r3(control=False):
                                          for i in range(n) for j in range(n) for k in range(n) for l in range(n)
                                          if low[i, j, k, l] != 0)
     K = sp.simplify(sum(low[k]*up[k] for k in low if low[k] != 0))
-    c = 48 if control else 72
+    c = 48 if control == 1 else 72
+    if not kretschmann_vaidya(48 if control == 2 else 72):
+        return False
     okK = sp.simplify(K - c*mu**2/r**8) == 0
     rq = (sp.sqrt(72)*mu*l5**2)**sp.Rational(1, 4)
     okx = sp.simplify(l5**2*sp.sqrt(c*mu**2/rq**8) - 1) == 0
@@ -302,18 +351,20 @@ def r5(control=False):
 
 # ---------------------------------------------------------------- R6 the waves' average and the boundary's margin
 
-def r6(control=False):
+def r6(control=0):
+    """control 1: h = 1; 2: a wrong form for the dust; 3: Phi = r + r_q; 4: sqrt(48) in place of sqrt(72)"""
     x, a, b = sp.symbols("x a b", real=True)
     c2, s2 = (1 + x)/2, (1 - x)/2
-    h2 = sp.Integer(1) if control else 2/(1 + x**2)
+    h2 = sp.Integer(1) if control == 1 else 2/(1 + x**2)
     ok = sp.simplify(h2*(c2**2 + s2**2) - 1) == 0                       # the dust is round: h^2 (c^4 + s^4) = 1
-    ok &= sp.expand(4*(a**2 + a*b + b**2) - (2*a + b)**2 - 3*b**2) == 0  # the dust's form is positive definite
+    rhs = (2*a + b)**2 + (2 if control == 2 else 3)*b**2
+    ok &= sp.expand(4*(a**2 + a*b + b**2) - rhs) == 0                    # the dust's form is positive definite
     muf = sp.Function("mu")
     l5 = sp.Symbol("l5", positive=True)
     rho = (sp.sqrt(72)*muf(v)*l5**2)**sp.Rational(1, 4)
     g = g0_of(muf(v))
     gi = g.inv()
-    Phi = r + rho if control else r - rho
+    Phi = r + rho if control == 3 else r - rho
     dPhi = sp.Matrix([sp.diff(Phi, z) for z in X5])
     q = sp.simplify((dPhi.T*gi*dPhi)[0, 0])
     drho = sp.diff(muf(v), tau)*sp.diff(rho, muf(v))                    # d rho / dv
@@ -321,26 +372,26 @@ def r6(control=False):
     ok &= sp.simplify(drho - rho*sp.diff(muf(v), tau)/(4*muf(v))) == 0
     mu, L = sp.symbols("mu L", positive=True)           # at r = r_q: mu/r_q^2 = sqrt(mu/(sqrt(72) l5^2))
     rq = (sp.sqrt(72)*mu*L**2)**sp.Rational(1, 4)
-    ok &= sp.simplify(mu/rq**2 - sp.sqrt(mu/(sp.sqrt(72)*L**2))) == 0
+    c72 = 48 if control == 4 else 72
+    ok &= sp.simplify(mu/rq**2 - sp.sqrt(mu/(sp.sqrt(c72)*L**2))) == 0
     return bool(ok)
 
-
-CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) dpsi^2 + 2 domega^2", r1),
-          ("R2 the background is 5D Vaidya, Ric(g0) = (3 mu'/(2 r^3)) dv dv", r2),
-          ("R3 Kretschmann 72 mu^2/r^8; x = 1 at r_q; r_q <= sqrt(mu) iff mu >= sqrt(72) l5^2", r3),
-          ("R4 ell null geodesic; the contractions of the domain; tau-lines spacelike where r^2 < mu", r4),
-          ("R5 the constraints at the background: parabolic in a, symmetric hyperbolic in (w, q)", r5),
-          ("R6 the dust is round and positive; g0^-1(dPhi, dPhi) = 1 - mu/r^2 - 2 r_q' at x = 1", r6)]
+CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) dpsi^2 + 2 domega^2", r1, 1),
+          ("R2 the background is 5D Vaidya, Ric(g0) = (3 mu'/(2 r^3)) dv dv", r2, 1),
+          ("R3 Kretschmann 72 mu^2/r^8 (mu constant, and mu(v)); x = 1 at r_q; r_q <= sqrt(mu) iff ...", r3, 2),
+          ("R4 ell null geodesic; the contractions of the domain; tau-lines spacelike where r^2 < mu", r4, 1),
+          ("R5 the constraints at the background: parabolic in a, symmetric hyperbolic in (w, q)", r5, 1),
+          ("R6 the dust is round and positive; g0^-1(dPhi, dPhi) = 1 - mu/r^2 - 2 r_q' at x = 1", r6, 4)]
 
 INSTRUMENTS = ["ks5.py", "foliation5.py", "lead5.py", "ansatz5.py", "data5.py"]
 
 
 def selftest(full=False):
     ok_all = True
-    for name, f in CHECKS:
+    for name, f, nc in CHECKS:
         t0 = time.time()
         good = f()
-        control = f(control=True)
+        control = any(f(control=k) for k in range(1, nc + 1))      # each control must be rejected on its own
         state = "PASS" if good and not control else "FAIL"
         ok_all &= state == "PASS"
         print(f"{name:<104} {state} {time.time() - t0:5.0f}s" + ("" if not control else "  (control passed: vacuous)"),

@@ -27,6 +27,25 @@ The two items it rests on, as `M-RULINGS-2026-10-03.md` records them (verbatim, 
   session"
 - 524 (2026-10-19): "Please bring forward the handoff and instructions for the N1 session"
 
+**2026-10-20, to the report that the paper is written and audited by one verifier, verbatim (the four items were
+the report's lines quoted before each answer):**
+
+> What it lists as not proved: - these need to be proved
+>
+> the title; - should be a statement that answers the question of the theorem proof, with a sub title : The Formal
+> Counterpart to Huneau and Luk.
+>
+> whether and where the paper is released; - will be published to my website (via another session that handles the
+> site build, but you are welcome to look at the site and it's materials)
+>
+> whether to open a pull request (the instructions say not to unless you ask). - yes when the work is finished.
+
+**2026-10-20, M's answers to the session's two questions (multiple choice), verbatim:** to "Which rule governs the new
+proofs?" (the commission's inline rule, or multi-agent orchestration, now switched on in the session): "Inline only".
+To how to treat late-time settling and the application at 10 l5: "Prove three, attack two (Recommended)" (prove part
+(iii) for lam > 0, the mean-mass rate and the data at past null infinity; then attempt late-time settling and a
+finite-wavelength statement, reporting exactly how far each gets and never claiming more).
+
 ## Decisions and findings
 
 **D1 (2026-10-19) Reproduction.** Every manifest md5 matches at the handoff commit (54 of 54). Selftests, run from
@@ -402,3 +421,38 @@ begin on p. 20 and his Lemma 3.1 is on p. 21. (5) In the paper the angular varia
 ratio x_K, since x is also the Cartesian coordinate. The comparison with Huneau and Luk, Touati, and Luk and
 Rodnianski is written point by point; the paper names, as an instance in a five-dimensional class and not as an answer
 to it, the large-data problem of Huneau and Luk's review (arXiv:2404.07659v1, Problem 8.6, p. 28).
+
+**D24 (2026-10-20, session decision): the work M set after the paper.** The title becomes a statement answering the
+question of the theorem, with the subtitle "The Formal Counterpart to Huneau and Luk". The paper goes to M's website
+through the site-build session; a pull request is opened when the work is finished. The four items the paper listed as
+not proved are taken in M's order of answer: (1) part (iii) for lam > 0, (2) the mean-mass rate, which is computed
+before anything is claimed, since an order-lam mean of the two-scale expansion is already on record (ansatz5 A4,
+R^(1)_v theta) and the rate may fail, (3) the data at past null infinity, (4) late-time settling and the application at
+10 l5 attacked and reported as far as they get. Inline, one verifier at a time.
+
+**D25 (2026-10-20, session decision): part (iii) for lam > 0 proved.** N1STAR-PROOF.md section 8, Proposition 8.1, with
+`horizon5.py` (H1-H3, selftest 3/3, mutants 3/3). The outgoing expansion of the spheres {v, r = const} is a smooth
+function of g, linear in dg; for g0 it is (2 r^2/(r^2 + mu)) 3 (1 - mu/r^2)/(2 r), with a simple zero at sqrt(mu). The
+reason the weakly converging dg does not spoil it: the leading wave enters at order lam^0 only through the trace of
+d_th W on the spheres, which vanishes because W(ell, .) = 0 and tr W = 0 (lead5 L5), and along a column the phase is
+constant, so the r-derivative of a profile carries no 1/lam. With the remainder's C^2 bound (Theorem E, Step 1, K >= 6),
+each column has at most one zero, exactly one within C lam of sqrt(mu) on the columns that reach across it, for
+mu0 > sqrt(72) l5^2; at equality on the columns with mu(v) >= mu0 + delta1. The per-column statement is the one the
+record's numerics check (hf_mirror5: "its zero in each column").
+
+**D26 (2026-10-20, session decision): the eighth verifier, on the paper, and its findings seated.** One independent
+read-only verifier checked the paper at 49d5898 with its own code (the reduction proved fully symbolically, Vaidya's
+Ricci and Kretschmann in Eddington-Finkelstein coordinates with mu(v), the commutator (2.4), the boundary (3.1), the
+constraints' principal part by another route, Proposition 6.5's induction) and re-READ the quotations against the saved
+sources. No major finding; two minor and 21 notes, all seated as it proposed. (m1) The constants of the approximant
+were cited to counterpart5 P1, whose scan is of a different gauge's test-field exponent: relabelled deduced (the
+profiles are lam-independent, section 5.4), P1 kept for lam < l5/10. (m2) Lemma 6.4's tame clause was stated with an
+inequality that does not give it: the inequality the proof gives, d_r Z + c0 ||a||^2_(H^(s''+2)) <= omega_0 Z + C
+||F||^2_(H^s'') + C m_(s'') omega_s Z^(1/2), now stated; the verifier checked that Proposition 6.5's use holds and that
+no frozen source term carries d_r a_i. Notes: HL's (1.3) box restored, its p. 2-3 locator, a dropped footnote marker
+declared; Touati's Fourier-multiplier sentence p. 21; [CBCM10]'s page removed (unpaginated HTML); Luk and Rodnianski's
+reverse statement is their Corollary 1.14, on a domain short in one null direction; the boundary spacelike only for mu0
+> sqrt(72) l5^2; nothing is claimed beyond Omega, not beyond x = 1; the g_lam margin -delta + C lam; Q's linear and
+constant parts; k = 6 only; uniqueness among C^2 solutions; R1 made exact (symbolic 2-jets in normal coordinates of
+g3), K for mu(v) added to R3, R6's controls run one at a time; z3-solver listed. The retitling M set (D24) is applied.
+

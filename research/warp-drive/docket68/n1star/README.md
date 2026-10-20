@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D23).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D26).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands: Theorem E (evolution), Theorem A (the approximant) and Theorem D (the
   data, solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21); every standard theorem it
@@ -19,8 +19,11 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   `--mutants` (4/4, about 8 minutes).
 - `lead5.py`: Theorem A's stage 0, the leading equation (E2) for the record's waves in the proof's gauge (L1-L5).
   `python3 lead5.py --selftest` (5/5, seconds), `--mutants` (4/4).
+- `horizon5.py`: part (iii) for lam > 0, Proposition 8.1 (H1-H3). `python3 horizon5.py --selftest` (3/3, about a
+  minute), `--mutants` (3/3).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All five are stdlib plus sympy, and import nothing from the tree. The board's shared record is not edited here.
+All six are stdlib plus sympy (foliation5.py also uses z3), and import nothing from the tree. The board's shared
+record is not edited here.

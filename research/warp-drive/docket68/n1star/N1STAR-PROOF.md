@@ -700,8 +700,10 @@ int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other r-derivative 
 tame: at an index s'' > s, with ||U||_(s''; [a, r]) the left side at index s'' on [a, r] and m_(s'')(r) the norms at
 index s'' of the coefficients at r (those of M_(s''), without the supremum), ||U||_(s''; [a, r]) <= C (||F||_{L^2((a,
 r); H^(s''))} + int_a^r m_(s'')(r') omega_s(r') dr'), with C depending only on s'', M_s and the bounds above, and
-omega_s square-integrable on (a, R), its L^2 norm bounded by the solution's X_s norm: the energy inequality of the proof
-is d_r Z <= omega_0 Z + m_(s'') omega_s, by the Moser and Kato-Ponce inequalities, and Gronwall's lemma.
+omega_s square-integrable on (a, R), its L^2 norm bounded by the solution's X_s norm. The inequality the proof gives,
+for the squared energy Z at index s'' (Moser and Kato-Ponce), is d_r Z + c0 ||a||^2_(H^(s''+2)) <= omega_0 Z + C
+||F||^2_(H^(s'')) + C m_(s'') omega_s Z^(1/2); integrating, taking the supremum over [a, r], and Young's and Gronwall's
+lemmas give the bound (D26, the eighth verifier's m2).
 
 *Proof.* Commute s angular derivatives (by the Killing fields of the round S^3) through (6.4); the commutators are
 estimated in terms of M_s by the Moser and commutator (Kato-Ponce) inequalities on S^3 ([GO13], [DS23] Remark 2.3,
@@ -905,3 +907,52 @@ v_start - tau0}. []
 - **Fragile.** The universal extension rests on two papers that share an author ([LY22], [SY21]); the per-order
   extension and the embedding have two routes each. The continuation statements READ are for n >= 3 ([AO14]) and any N
   ([DS23]); none is for a domain with boundary, which Step 8 avoids by the torus and the uniqueness from Lemma 2.3.
+
+## 8. Part (iii) for lam > 0 (D25)
+
+**Proposition 8.1 (one apparent horizon per column; deduced, with `horizon5.py` H1-H3).** Assume mu0 > sqrt(72) l5^2
+and the hypotheses of section 0.7 with K >= 6. For a column, the set of points of D_T cap {tau >= tau0} with v and the
+angles omega in S^3 fixed and r varying, let theta^+_lam(r) be the outgoing null expansion, for g_lam, of the sphere
+S_(v,r) := {tau = v - r, |x| = r} at the point (v, r, omega). There are lam1 in (0, lam0] and C, delta1 > 0
+independent of lam such that for lam <= lam1:
+- (a) on every column theta^+_lam has at most one zero, and theta^+_lam > 0 above it, < 0 below it;
+- (b) on every column with sqrt(mu(v)) <= v - tau0 - delta1 it has exactly one zero R_lam(v, omega), and
+  |R_lam(v, omega) - sqrt(mu(v))| <= C lam;
+- (c) the spheres S_(v,r) with r <= sqrt(mu(v)) - C lam (within the domain) are trapped, both future null expansions
+  being negative at every point, and those with r >= sqrt(mu(v)) + C lam are untrapped.
+In particular there is no inner apparent horizon, and the apparent horizon converges to sqrt(mu) at O(lam). If mu0 =
+sqrt(72) l5^2, (a) holds, and (b)-(c) hold on the columns with mu(v) >= mu0 + delta1.
+
+*Proof.* (i) The expansion. The normal space of S_(v,r) is spanned by dtau and dr. For a metric g near g0 let k_g be the
+null covector dr + alpha dtau whose normal n = g^-1 k_g is future directed with n(tau) = 1 (for g0, alpha = (m - 1)/(m +
+1), m = mu/r^2, and n0(tau) = 1: `horizon5.py` H1); it depends smoothly on g. In the coordinates (tau, r, th, p1, p2)
+the expansion is theta^+ = -gamma^AB Gamma[g]^c_AB (k_g)_c, A, B tangent to the sphere: a smooth function of g and
+linear in its first derivatives; being a scalar of the sphere and of g, it is estimated in the Cartesian arrays of 0.1,
+where the axes are regular points, the polar chart serving only for H1-H2. (ii) The background. For g0, theta^+ = c(r) 3
+(1 - mu/r^2)/(2 r) with c = 2 r^2/ (r^2 + mu) > 0 (H1); mu = mu(v) enters only algebraically, since the sphere lies in
+{v = const} and no v-derivative of the metric enters Gamma^c_AB contracted as above. Its one zero on (0, inf) is r =
+sqrt(mu), simple: d_r theta^+ = 3/mu there (c = 1 at r^2 = mu). The future ingoing normal is L0 = -g0^-1 dv, with
+expansion -3/r < 0 (H1). (iii) The approximant. Write g_app = g0 + lam [g1] + sum_(j>=2) lam^j [g_j] with g1 = m1 + W(X,
+th + phi1) (section 5.4). The fast derivative lam^-1 (d_a v) d_th enters theta^+ only through d_c of the tangential
+components g_AB (d_A v = 0 on the sphere), and the term of order lam^0 it produces from lam [W] is (1/2) k(g0^-1 dv)
+d_th (tr_S W) (H2's reason), which vanishes because tr_S W = tr_g0 W - 2 W(ell, n0)/g0(ell, n0) = 0 by W(ell, .) = 0 and
+tr_g0 W = 0 (lead5.py L5); m1 has no th-dependence; the terms lam^j [g_j], j >= 2, give at most lam^(j-1). H2 computes
+this for a profile W tangent and traceless on the spheres, with chi dv^2 added and k_g, gamma^-1 and g^-1 to first order
+in lam: no term of order lam^-1 or lam^0 beyond g0's, and a trace on the spheres gives one. So theta^+(g_app) =
+theta^+(g0) + lam [Th1] + lam^2 E with Th1 a profile and E bounded with its X-derivatives. Along a column v is constant
+(H3), so d_r [Th1] = [d_r Th1] along it with no 1/lam: |theta^+(g_app) - theta^+(g0)| + |d_r (theta^+(g_app) -
+theta^+(g0))| <= C lam along every column. (iv) The remainder. theta^+ is smooth in g and linear in dg, so
+|theta^+(g_lam) - theta^+(g_app)| <= C (|w| + |dw|) and its r-derivative along a column is at most C (|w| + |dw| + |d^2
+w|); by section 4, Step 1, ||d^i w||_inf <= C M lam^(K-3-i) for i <= 4, so both are at most C lam^(K-5) <= C lam (K >=
+6). (v) The zero. The columns lie in the compact Omega, r >= r_q(v) >= q0 > 0, and sqrt(mu(v)) - r_q(v) =
+mu^(1/4)(mu^(1/4) - (sqrt(72) l5^2)^(1/4)) is increasing in mu, hence >= its value at mu0, which is positive when mu0 >
+sqrt(72) l5^2. Fix delta in (0, that value) with d_r theta^+(g0) >= 3/(2 mu_max) on |r - sqrt(mu(v))| <= delta, and let
+m_delta > 0 be the minimum of |theta^+(g0)| on the rest of the columns. For C lam < min(m_delta, 3/(4 mu_max)):
+theta^+_lam has no zero where |r - sqrt(mu)| > delta, and on |r - sqrt(mu)| <= delta it is strictly increasing in r, so
+it has at most one zero, with the stated signs: (a). If the column contains [sqrt(mu) - delta, sqrt(mu) + delta] (true
+when sqrt(mu(v)) <= v - tau0 - delta1 with delta1 := delta), theta^+_lam changes sign there, so it has exactly one zero
+R_lam, and |R_lam - sqrt(mu)| <= C lam / (3/(4 mu_max)): (b). (c): theta^+_lam < 0 at every point of a sphere below the
+band and > 0 above it, and the ingoing expansion is -3/r + O(lam) < 0 everywhere. At mu0 = sqrt(72) l5^2 the same
+argument runs on the columns where sqrt(mu) - r_q >= delta, which is mu(v) >= mu0 + delta1 for some delta1 > 0; (a)
+needs only the monotonicity band and holds on every column. []
+
