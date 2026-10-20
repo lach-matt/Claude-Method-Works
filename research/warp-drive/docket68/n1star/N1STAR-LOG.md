@@ -624,3 +624,17 @@ in P8 (an exact polynomial identity on e^(a tau + b v), with two controls: the p
 out); the Z commute with the shift only up to bounded operators, which suffices; the data terms at tau_T are added to
 every line of (9.9); the rate of p in Theorem A_P's convergence step is corrected; B and C are fixed so that the
 constants close. These seated edits are the only text of section 9 no verifier has read after the edit.
+
+**D36 (2026-10-20, M's direction): routes for the three open items.** M: "Still open, and stated as open in the paper: -
+do some deep research on the web and suggest a method for closing these." The literature was read (alphaXiv; a search
+for nonlinear stability of five-dimensional Tangherlini in a class depending on more than (t, r) found none) and one
+method is proposed per item in ROUTES-OPEN.md; nothing is claimed proved. Mass at past null infinity: the five-
+dimensional Bondi mass law is published (Tanabe, Tanahashi and Shiromizu, arXiv:0909.0426, (28)); with both reflections
+it is the class's ansatz with C = 2P, and time-reversed its density is exactly P7's, (4/3)(p1_v^2 + p1_v p2_v + p2_v^2)
+(routes5.py Q2; Q1: five-dimensional Vaidya has R_vv = 3 mu'/(2 r^3)); what remains is g_lam's expansion at I^- to their
+order, by Theorem P's transport iterated, the r^-2 term of C vanishing because it is constant in v and zero on the seed.
+Ten l5: a posteriori existence, Theorem E with certified numbers (Chernyshenko-Constantin-Robinson-Titi; Morosi-
+Pizzocchero's control inequality; Reiterer-Trubowitz in general relativity), on the 2+1 system, decided first by the
+growth factor exp int K over D_T. Settling: Hintz's generalized wave map gauge route (arXiv:2606.28253, full subextremal
+Kerr, 2026) in the class, whose reflections and T^2 leave the mass as the only final parameter; first milestone, linear
+stability in wave gauge within the class.
