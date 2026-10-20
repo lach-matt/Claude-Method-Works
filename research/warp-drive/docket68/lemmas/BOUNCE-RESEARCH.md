@@ -3655,3 +3655,53 @@ figures' ell, "address and correct this"; C3 "yes"; D1-D5 "approved".
   - D1-D5 applied.
 
 93 rows: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6 COMPUTED-THEORIZED.
+
+## 67. The N1* session's ready work carried; the go/no-go at the derived point (544; derived_go.py)
+
+M, 544: "Theorem P carried, and 10 l5 left with the N1* seesion - are now ready. The nonlinear settlings are still being
+worked". Main's PRs #62-#64 merged into this branch; that session's new instruments re-run here, all passing: bondi5
+4/4, growth5 (G0 live, G1-G5 pinned), wavegauge5 5/5 (mutants 5/5), settle5 6/6 (mutants 6/6), routes5 2/2 (mutants
+2/2), response5 R1-R8.
+- **Theorem P**, carried at 540, stands (D35).
+- **Theorem M** (N1STAR-PROOF.md section 11): g_lam's Bondi mass at past null infinity. The five-dimensional mass law
+  (Tanabe, Tanahashi and Shiromizu, READ there) holds pointwise; the mean mass is mu(v) + O(lam) in the shell and
+  mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it; the record's runs give 0.4568 and 0.4569 against 0.45693 (bondi5
+  B4). Deduced; a twelfth verifier found five minor gaps, a thirteenth one major gap in a repair, all repaired; the
+  last repairs not yet read. Carried as deduced and verified with repairs.
+- **10 l5** (section 10.2; growth5): the record's own scheme on hf_core5's domain, at mu0 = 100 and 1000 l5^2,
+  fails its premise before the shell's peak (v = 2): a second zero of the round spheres' outgoing expansion persists
+  from v = 1.500 and 1.583, two and three grids agreeing; the core boundary then stops being outflow and the slice solve
+  fails at 1.69-1.75; deeper excisions fail earlier. No approximant at 10 l5 comes from the record's scheme. In its
+  gauge the interior of the seed's horizon untraps from the inside outward -- an inner marginally trapped surface
+  forming and moving outward -- a measurement on a scheme's solution, inside the trapped region; the exterior of the
+  event horizon is unaffected. Re-posed there as the characteristic problem in double-null gauge (Luk's local
+  existence, READ there), not built.
+- **The derived point** (derived_go.py D0-D4; this section's own computation). SOURCE's wavelength is the window's
+  floor lam_P = 5.949 l5 (seed_derive D1), on the least seeds (D3). The wave's metric amplitude at the core boundary,
+  lam A r_K^(-3/2): copper 1.50, the example README 1.60, r0 = 20 ell 1.16, the Earth cap 1.14, against 2.52 and 1.89
+  at 10 l5 and 0.25 in the record's regime; hf_mirror5 X9 put the end of the high-frequency regime near 1.2. The record's
+  scheme run there with growth5's code and criterion:
+
+  | anchor | L = mu0/l5^2 | lam/sqrt(mu0) | amplitude | second zero from | W >= 0 at x_K = 1 | the solve |
+  |---|---|---|---|---|---|---|
+  | copper | 102.4 | 0.588 | 1.50 | 1.398 (Ny 20), 1.403 (28) | 1.5625 | fails 1.81-1.86 |
+  | the example README | 60.9 | 0.762 | 1.60 | one step at 1.45 (transient) | 1.5125 | fails 1.725 |
+  | r0 = 20 ell | 808.5 | 0.209 | 1.16 | 1.833 (20), 1.8326 (28), to 2.02 | never | reaches 4.5 |
+
+  So at the record's own derived point the record's scheme gives no approximant either. At the small end's two anchors
+  both clauses of its premise fail before the shell's peak. At the large end's anchor the one-zero clause fails at the
+  peak while the boundary stays outflow, and the run past the break does not converge. After the break the mass aspect
+  at past null infinity, which the mass law fixes from the data (to second order 1.202), swings by about 0.1 and
+  differs between the grids (1.460 and 1.183 at v = 4.5). The measurement therefore bears on SOURCE's own wavelength.
+  527's "its first row at the derived point" is not so: hf_core5's rows lie at lam/sqrt(mu0) <= 0.1, below the floor
+  for those seeds. Recorded beside it in WARPTHEOREM.md, not repaired there. derived_go selftest 5/5, mutants 3/3.
+- **Settling** (sections 10.1, 10.3, 10.4): every metric component settles linearly in Kodama and Ishibashi's gauge
+  (Proposition 10.1); settle5 T5-T6 (no growing mode for l = 2..10 to tau = 275 r_h; the tail t^-7 at l = 2); the
+  harmonic gauge's explicit objects (Proposition 10.2, wavegauge5), its decay estimate not attempted. The nonlinear
+  settling is still being worked in the N1* session (M, 544).
+- **What it changes here.** No status moves. SOURCE-PROOF carries Theorem M, the go/no-go and the derived point, and
+  names one more theorized step: the passage at the physical wavelength through the seed's interior to x = 1. Part D's
+  delivery, outside the horizon, is not touched. SETTLE-PROOF section 4 carries the settling. One finding put to M: the
+  inner marginally trapped surface at the physical wavelength, against the ruling 519 (no inner or Cauchy horizon).
+
+93 rows, unchanged: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6 COMPUTED-THEORIZED. derived_go is in T1.

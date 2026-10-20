@@ -215,7 +215,16 @@ r_h/10 in a region of r_h/3. The scales separate (arithmetic).
   - Re-posed there as the characteristic problem in double-null gauge (Luk's local existence without smallness, READ
     there); not built.
   - SOURCE's delivery is Part D's computation, linear scattering outside the horizon, and is not touched.
-  - At the record's own derived point (lam_P = 5.949 l5 on the least seeds), derived_go's runs are in progress.
+  - Run here at the record's own derived point, lam_P = 5.949 l5 on the least seeds (derived_go D0-D4, 544), with
+    growth5's code and criterion. The wave's metric amplitude at the core boundary there is 1.50 (copper), 1.60 (the
+    example README) and 1.16 (r0 = 20 ell), against 2.52 and 1.89 at 10 l5. The scheme fails its premise there too:
+    - copper from v = 1.398 (1.403 on a finer grid), the example README from 1.5125, both clauses, before the
+      shell's peak;
+    - r0 = 20 ell at v = 1.833 (1.8326 on a finer grid), at the peak, by a second zero, the boundary staying
+      outflow. Its run past the break does not converge: the mass aspect at past null infinity differs between the
+      grids by 0.28.
+    So the measurement bears on SOURCE's own wavelength. 527's "first row at the derived point" is not so: the
+    sequence's rows lie in its own regime, lam/sqrt(mu0) <= 0.1.
   - What this leaves theorized is named in Part E: the passage at the physical wavelength through the seed's interior
     to x = 1.
 - **Linear settling with every metric component and the harmonic gauge's objects** (544; N1STAR-PROOF.md Propositions

@@ -14,9 +14,24 @@ seed_derive.py D3 gives there.  Labels: computed (exact unless marked), deduced,
   D2 (computed, numerical; pinned) The record's own scheme (hf_mirror5's, on hf_core5's domain: seed 1, A = 1, the
      record's envelope on [1/2, 7/2], the slices continued to x_K = 1) run by growth5.run at the derived point, with
      growth5's own breakdown criterion (a second zero of the round spheres' outgoing expansion persisting over 0.01 in
-     v, or W >= 0 at the core boundary).  The runs and what they give are pinned below; the selftest reads them back.
-  D3 (computed) Grids: the copper point at Ny = 20 and 28 (Nx = 16), the breakdown agreeing.
-  D4 (deduced) What it decides, read from D2-D3: see VERDICT below, printed from the pinned data.
+     v, or W >= 0 at the core boundary).  The shell peaks at v = 2.
+     - Copper (L = 102.4, lam/sqrt(mu0) = 0.588): a second zero persists from v = 1.398 (Ny = 20; 1.403 at Ny = 28) to
+       1.42; W >= 0 at the core boundary from 1.5625; the slice solve fails at 1.81-1.86.
+     - The example README (60.9, 0.762): a second zero for one step at 1.45 (a transient the criterion excludes); W >= 0
+       at the boundary from 1.5125; the solve fails at 1.725.
+     - r0 = 20 ell (808.5, 0.209): a second zero persists from v = 1.833 to 2.02 (Ny = 20; 1.8326 at Ny = 28), again
+       over 2.09-2.14; W < 0 at the boundary throughout, and the run reaches v = 4.5.  After the break its mass aspect
+       at past null infinity, which the mass law fixes from the data alone (to second order 1 + (2/9) A^2 int (env^2 +
+       lam^2 env'^2) = 1.202; the record's control run sits 0.005 from its own), swings by about 0.1 and differs
+       between the grids (1.460 and 1.183 at v = 4.5): not a converged solution past the break.
+  D3 (computed) Grids: copper at Ny = 20 and 28, the breakdown agreeing to 0.005; r0 = 20 ell at 20 and 28, to 0.0003.
+  D4 (deduced) What it decides.  At the record's own derived point the record's scheme gives no approximant on D_T
+     either: at the small end's two anchors it fails both clauses of its premise before the shell's peak; at the large
+     end's anchor it fails the one-zero clause at the peak, the boundary staying outflow, and its run past the break
+     does not converge.  So the N1* session's go/no-go at 10 l5 bears on SOURCE's own wavelength lam_P too, and the
+     passage at the physical wavelength through the seed's interior is not computed by the record's scheme at any
+     anchor.  The delivery within half a bit is computed outside the horizon (seed_escape, seed_types, seed_derive,
+     seed_second) and does not use it.
 
 What this does not claim: anything about the event horizon or the exterior (growth5's measurement is of the round
 spheres inside the seed's horizon, in the scheme's gauge); a theorem (a run of a scheme is not one); the large end's
@@ -85,7 +100,13 @@ def int_kv(rec, vb):
     return sum(0.5*(a[1] + b[1])*(b[0] - a[0]) for a, b in zip(S, S[1:]))
 
 
-PINNED = {}            # filled from the runs of 2026-10-20 (key: v_break, end, int K_v to the break)
+PINNED = {    # the runs of 2026-10-20 (data/derived_go_runs.json): breakdown, end, int K_v to the breakdown
+    "copper_20x16": dict(v_break=1.398438, end="scheme failed at v = 1.8125: LinAlgError", int_Kv=0.3972),
+    "copper_28x16": dict(v_break=1.403226, end="scheme failed at v = 1.8589: LinAlgError", int_Kv=0.4037),
+    "example_20x16": dict(v_break=1.5125, end="scheme failed at v = 1.7250: LinAlgError", int_Kv=0.588),
+    "r0=20ell_20x16": dict(v_break=1.832865, end="complete", int_Kv=1.0127),
+    "r0=20ell_28x16": dict(v_break=1.832615, end="complete", int_Kv=1.0123),
+}
 
 
 def verdict(R, G):
@@ -122,8 +143,9 @@ def checks():
         ok["D2 the pinned runs read back: breakdown, end and int K_v as recorded"] = good
         if "copper_20x16" in PINNED and "copper_28x16" in PINNED:
             a, b = PINNED["copper_20x16"]["v_break"], PINNED["copper_28x16"]["v_break"]
-            ok["D3 the copper point's breakdown agrees between Ny = 20 and 28"] = (
-                (a is None and b is None) or (a is not None and b is not None and abs(a - b) < 0.01))
+            c, e = PINNED["r0=20ell_20x16"]["v_break"], PINNED["r0=20ell_28x16"]["v_break"]
+            ok["D3 the breakdown agrees between Ny = 20 and 28: copper to 0.005, r0 = 20 ell to 0.0003"] = (
+                a is not None and b is not None and abs(a - b) < 0.01 and abs(c - e) < 0.001)
     return ok
 
 

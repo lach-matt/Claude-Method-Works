@@ -129,7 +129,34 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 542 (the gaps closed and the weak rows strengthened).** You ruled on 541: gaps are closed by
+**Where it stands, at item 544 (the N1* session's ready work carried; the go/no-go at the derived point).** M: "Theorem
+P carried, and 10 l5 left with the N1* seesion - are now ready. The nonlinear settlings are still being worked". Main's
+PRs #62-#64 are merged here and that session's new instruments re-run, all passing (bondi5, growth5, wavegauge5,
+settle5, routes5, response5).
+- **Theorem M:** the solution's Bondi mass at past null infinity follows the five-dimensional mass law, its mean
+  mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after the shell. It is deduced and verified with repairs, the last repairs
+  not yet read.
+- **10 l5:** no approximant comes from the record's own scheme at either seed. The interior of the seed's horizon
+  untraps from the inside outward in the scheme's gauge while the shell passes, before its peak. The exterior of the
+  event horizon is unaffected.
+- **The derived point:** run here at the record's own lam_P = 5.949 l5 on the least seeds (`lemmas/derived_go.py`,
+  5/5, mutants 3/3), it is the same.
+  - Copper and the example README fail both clauses of the premise before the shell's peak (from v = 1.398 and
+    1.5125).
+  - r0 = 20 ell fails the one-zero clause at the peak (v = 1.833, both grids). Its run past the break does not
+    converge.
+- **Settling:** every metric component settles linearly (Proposition 10.1), and the harmonic gauge's objects are
+  computed (Proposition 10.2). The nonlinear settling is still being worked there.
+
+So the passage at the physical wavelength through the seed's interior is not computed, and is named theorized in
+SOURCE-PROOF Part E. The delivery within half a bit is computed outside the horizon and is not touched. No status
+moves: 93 rows, 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6 COMPUTED-THEORIZED.
+
+One finding is put to M. At the physical wavelength, in the scheme's gauge, an inner marginally trapped surface forms
+inside the seed's horizon while the shell passes. Whether the ruling 519 (no inner or Cauchy horizon) bears on it is
+M's. BOUNCE-RESEARCH section 67.
+
+**Where it stood at item 542 (the gaps closed and the weak rows strengthened).** You ruled on 541: gaps are closed by
 added lemmas and nothing is narrowed; weak rows are strengthened and given more support; the rows on QB are labelled
 "PROVED on QB"; the SI figures name their ℓ; each row carries a current-basis line; and the five corrections were
 approved. Ten rows were added:
@@ -266,7 +293,8 @@ source derived from the record's own equations. The large end is computed: its s
 = 1e-37. The computed sequence counts as computed for THM-HF5's rates on D, its first row at the derived point; it is
 not the delivery of E5(N), which rests on the scattering computation. E6 is closed by the math. N1* is with another
 session (524). No inner or Cauchy horizon enters. SOURCEs and SOURCE stay OPEN for the exact second order and M's ruling
-under 441.
+under 441. *[544: "its first row at the derived point" is not so -- there the record's scheme fails its premise
+(derived_go); the sequence's rows lie in its own regime, lam/sqrt(mu0) <= 0.1.]*
 
 **Where it stood at item 525.** SOURCE continued (`seed_types.py`, 12/12, mutants 5/5): the two points 522 left open
 are computed. The record's waves split exactly into Kodama and Ishibashi's scalar type (0.639) and tensor type (0.361),
@@ -2306,6 +2334,17 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 544** (M: "Theorem P carried, and 10 l5 left with the N1* seesion - are now ready. The nonlinear settlings
+  are still being worked"). The N1* session's work merged from main (PRs #62-#64) and its instruments re-run, all
+  passing; Theorem M carried as deduced and verified with repairs; the go/no-go at 10 l5 carried; Propositions 10.1
+  and 10.2 carried. `lemmas/derived_go.py` (D0-D4, in T1) runs that go/no-go at the record's own derived point:
+  - copper and the example README fail before the shell's peak;
+  - r0 = 20 ell fails at the peak and does not converge past it.
+
+  The register's notes on SOURCEs, SOURCE and SETTLEs record this. SOURCE-PROOF names one more theorized step, the
+  passage at the physical wavelength through the seed's interior; SETTLE-PROOF section 4 carries the settling. 527's
+  "first row at the derived point" is marked not so. One finding is put to M: the inner marginally trapped surface,
+  against 519. The map is updated in full. BOUNCE-RESEARCH section 67.
 - **Item 543** (M: "While we wait on the other session, please audit the entire warp map page and update everything,
   that is stale, including the figures"). The map page audited section by section against the record; no status
   moved. Brought current:

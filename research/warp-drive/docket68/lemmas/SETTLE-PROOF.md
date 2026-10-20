@@ -101,10 +101,11 @@ instruments re-run here):
   one-form W* regular at the horizon; the gauge-fixed mass change K*, linear in t. The decay estimate for that system
   (Hung's sections 5-8 in five dimensions) is named and not attempted: linear stability in the wave-map gauge in which
   the nonlinear problem is posed is still open.
-- *The physical wavelength (growth5 G0-G5).* At 10 l5 the record's own scheme fails its premise at both seeds before
-  the shell's peak: the interior of the seed's horizon untraps from the inside outward in the scheme's gauge. No
-  approximant at that wavelength comes from it, so S3-S4's settling run, made at lam/sqrt(mu0) = 0.1, cannot be
-  repeated there with this scheme. The exterior of the event horizon is unaffected. The question is re-posed as the
+- *The physical wavelength (growth5 G0-G5; derived_go D0-D4).* At 10 l5 the record's own scheme fails its premise at
+  both seeds before the shell's peak: the interior of the seed's horizon untraps from the inside outward in the
+  scheme's gauge. At the record's own lam_P on the least seeds it fails too, before or at the peak (derived_go). No
+  approximant at the physical wavelength comes from it, so S3-S4's settling run, made at lam/sqrt(mu0) = 0.1, cannot
+  be repeated there with this scheme. The exterior of the event horizon is unaffected. The question is re-posed as the
   characteristic problem in double-null gauge, which is not built.
 - *The nonlinear settling is still being worked in the N1* session (M, 544).* It stays theorized here, named as above.
 
