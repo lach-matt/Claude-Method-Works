@@ -676,7 +676,7 @@ and the slice solve fails at v = 1.69-1.75. The time is the solution's in the sc
 metric amplitude at the core boundary there is lam A r^-3/2 = 2.5, beyond the high-frequency regime hf_mirror5 X9
 recorded as ending near 1.2; up to the break, int K_v dv = 0.52 (exp 1.7) and the amplification is 1.00. The record's
 own regime, lam = 0.1 at mu0 = 100 l5^2, serves as control: complete, int K_v dv = 1.93 (exp 6.9), amplification 1.71.
-The mu0 = 1000 l5^2 pair is running at this commit; its figures follow in D41 when they land.
+The mu0 = 1000 l5^2 pair, and what the whole measurement decides, are D41.
 
 **D39 (2026-10-20, M's direction, the third of the three): the linear milestone in the class.** ROUTES-OPEN.md section
 3's first milestone L1 asks for linear stability of five-dimensional Tangherlini within the class with decay of every
@@ -714,3 +714,18 @@ stated; R_rr's orders are s^7..s^10; "derivatives in s raise the order" is false
 holds (d_r raises the s-order by two, v- and th-derivatives preserve it, and the s^6 equation's content is read off).
 The ninth, that the solver's M = -w_y|_{y=0} was not independently checked, is covered by 11.4's own caveat. The
 repairs are not themselves verified.
+
+**D41 (2026-10-20): the go/no-go at 10 l5, the second seed and the verdict.** At mu0 = 1000 l5^2 (lam/r_h = 0.316, the
+core boundary at r = 0.30 r_h where the wave's metric amplitude is 1.9) the record's scheme fails its premise as it did
+at 100 l5^2: the round spheres' expansion acquires a second zero at v = 1.5825 (Ny = 24; the Ny = 28 and 20 runs to v =
+1.75 are in progress at this commit and are seated in the next), W at the core boundary turns positive at v = 1.680 and
+the slice solve fails at v = 1.704, before the shell's peak. To the break, int K_v dv = 0.75 (exp 2.1), int K_all dv =
+12.3 (exp 2e5, d_r of W - W_V at the deep boundary), amplification 1.00; the K referenced to Vaidya at the Isaacson mean
+mass rather than to the seed, after a first run let the shell's own mass gradient dominate (int K_all dv = 12.6 at lam =
+0.1, 8.8 of it the mass term's d_r; the control now reads 8.77 with d_v of W's oscillating part the largest). The
+verdict (section 10.2): no approximant on D_T at 10 l5 comes from the record's own scheme at either seed -- the core
+boundary x_K = 1 is not trapped throughout the passage there, so the record's premise that the exterior is fixed by its
+own data fails, and step 2 of the route must be re-posed with an inner boundary that stays outflow; and the sup-norm
+Groenwall factor is no measure of the growth (1e3 to 1e5 against an amplification of 1.0 to 1.7), so the certified
+argument would need the propagator's norm. growth5.py pins the seven runs (G1-G4) and reads them back; the run files are
+intermediate and `--merge` keeps one trimmed data file. Not read by a verifier.

@@ -1501,7 +1501,7 @@ five-dimensional results READ ([Hol08], and Dafermos and Holzegel's triaxial Bia
 five-dimensional counterpart in the T^2-mirror class would be needed, together with the decay of the metric components
 in a gauge, and the solution would first have to be continued outside D_T. None of this is attempted.
 
-### 10.2 The wavelength 10 l5, and the Navier-Stokes work (`paper/response5.py` R7)
+### 10.2 The wavelength 10 l5, and the Navier-Stokes work (`paper/response5.py` R7; `growth5.py`, D38)
 
 *What the recommended work does (READ).* The Navier-Stokes direction is read as Alpoge and Buckmaster's programme of
 September 2026 (finite-time blowup with smooth forcing for incompressible porous media, Boussinesq and 3D Euler,
@@ -1519,12 +1519,47 @@ lam = 10 l5 that ratio is lam/r = 1.00 and 0.32 at the horizon and 1.85 and 1.04
 l5^2), against lam/L = 2.91, 0.92 and 10: smaller at the larger seed, small nowhere. And the method chooses its
 wavelengths, while 10 l5 is prescribed.
 
-*What stays open.* At a prescribed wavelength with no small parameter the statement is the existence, on D_T, of the
-vacuum solution with the record's data, which local existence gives only for a short time. A route there is a computed
-solution with a certified residual and a certified linear estimate around it, closed by the argument of Theorem E with
-the explicit constants in place of powers of lam (the method of Chen and Hou's "Rigorous Numerics", arXiv:2305.05660);
-it is not attempted. What is computed at 10 l5 is the linear scattering of the shell off the seed (seed_escape.py
-E2-E4), which is where the record's question at that wavelength now rests.
+*The go/no-go, measured (computed, `growth5.py` G0-G4; D38, D41).* ROUTES-OPEN.md section 2 asks first for the growth
+factor exp int K dv of the computed solution over D_T, non-rigorously, as what decides the a posteriori route. growth5.py
+runs the record's own scheme (hf_mirror5.py's, on hf_core5's domain: seed 1, A = 1, the record's envelope on [1/2,
+7/2], the ingoing slices continued to the core boundary x_K = 1 on the seed, y = 1.361 at mu0 = 100 l5^2 and 1.815 at
+1000 l5^2) at lam = 10 l5, that is lam/sqrt(mu0) = 1.000 and 0.3162, and records at every step K_v := max |d_v P_i|,
+the radiation field's own rate, and K_all := the sup of the first derivatives (d_v, d_r, r^-1 d_th) of the five
+dimensionless departures from Vaidya at the Isaacson mean mass (P1, P2, beta, r U, W - W_V) in the Bondi chart; the
+first v at which the scheme's premise fails (hf_core5 C3: one zero of the round spheres' outgoing expansion per column
+and the core boundary trapped, so that the region outside it is fixed by the data outside it); and, from a second run
+with A -> A (1 + 10^-3) on the same fixed step, the finite-difference amplification of the data's difference into the
+slices, a lower bound for the linear propagator's norm.
+
+At mu0 = 100 l5^2 (lam/r_h = 1.00; the wave's metric amplitude lam A r^-3/2 at the core boundary is 2.5, against the
+regime boundary near 1.2 that hf_mirror5 X9 recorded) the expansion acquires a second zero at v = 1.4516 (Ny = 20) and
+1.4508 (Ny = 28), W at the core boundary turns positive at v = 1.516 and 1.512, the mean mass aspect runs ahead of
+Vaidya's (1.136 against 1.011 at v = 1.5), and the slice solve fails at v = 1.69 and 1.75: before the shell's peak at v
+= 2. At mu0 = 1000 l5^2 (lam/r_h = 0.316; amplitude 1.9 at the boundary) the same sequence: the second zero at v =
+1.5825, W positive at the boundary at 1.680, the slice solve failing at 1.704 (Ny = 24; the Ny = 28 and 20 runs to v =
+1.75 are in progress at this commit and are seated in the next). The time of the second zero agrees to 0.001 between the
+grids at mu0 = 100 l5^2, so it is the scheme's solution's and not the grid's. Up to it, int K_v dv = 0.52 and 0.75 (exp
+1.7 and 2.1), int K_all dv = 2.1 and 12.3 (exp 8 and 2 x 10^5, the latter from d_r of W - W_V at the deep core
+boundary), and the amplification is 1.00 at both. The record's own regime, lam = 0.1 at mu0 = 100 l5^2, as control:
+complete to v = 4.5 with one zero throughout, int K_v dv = 1.93 (exp 6.9), int K_all dv = 8.77 (exp 6 x 10^3, from d_v
+of the oscillating part of W), amplification 1.71.
+
+*What it decides.* (i) No approximant on D_T at lam = 10 l5 comes from the record's own scheme at either seed: its
+premise fails during the passage, the core boundary ceasing to be trapped before the shell's peak. Within the scheme's
+gauge and up to that time the computed solution stands, and what it shows is that at 10 l5 the record's core is not
+sealed from the exterior while the shell passes -- a measurement on the scheme's solution, not a theorem. Step 2 of
+ROUTES-OPEN.md's route would have to be re-posed: the 2+1 system of its step 1 with an inner boundary that stays
+outflow, or an excision deeper inside the seed's horizon, as hf_mirror5 X9 used. (ii) How small the residual must be:
+the sup-norm Groenwall factor exp int K_all is no measure of the linear growth (10^3 to 10^5 where the amplification is
+1.0 to 1.7), the radiation field's own exp int K_v is 2 to 7, and a certified argument would have to carry the
+propagator's norm, as [MP11] do with their explicit constants, not a sup-norm bound. (iii) The control's figures are
+the first measurement of these quantities in the record's own regime.
+
+*What stays open.* Existence on D_T at 10 l5 itself: a computed solution from a scheme whose premises hold there, with a
+certified residual and a certified linear estimate around it, closed by the argument of Theorem E with the explicit
+constants in place of powers of lam (the method of Chen and Hou's "Rigorous Numerics", arXiv:2305.05660); not
+attempted. What is computed at 10 l5 beyond the above is the linear scattering of the shell off the seed
+(seed_escape.py E2-E4).
 
 ### 10.3 The linear milestone in the class: every metric component, in the Regge-Wheeler-type gauge (D39)
 
