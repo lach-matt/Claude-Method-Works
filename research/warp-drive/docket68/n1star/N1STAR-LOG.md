@@ -294,3 +294,23 @@ existence explicit: the coefficients mollified (M_s does not grow), and a rescal
 principal part meets the Legendre-Hadamard condition. The citations in 0.2 (now [CBCM10] (2.7)-(2.9), which is (0.2) in
 n + 1 dimensions), 0.7 and Lemma 2.1 point to the sources READ. Status: no citation outstanding; the D16 repairs and
 these two have not been checked by an independent verifier; N1* is not yet claimed as PROVED; no paper begun.
+
+**D18 (2026-10-20, session decision): the fourth verifier's findings on the D16 and D17 repairs, and their repairs.**
+One independent verifier (one at a time) checked the D16 repairs and the D17 repairs against the diffs, with the saved
+texts of the sources READ. It found no major gap: the spacelike time lines in the coordinates of 0.1 confirmed (g0^{ij}
+has a negative eigenvalue at r^2 < mu, and Omega reaches there), Step 8's construction meeting [DS23] (A1)-(A4) and
+[AO14] (1.3), Lemma 2.3's uniqueness on Omega and D = 0 in 0.7, the rescaling in Lemma 6.4, and Proposition 6.5 after
+D16 all holding; every quote checked in section 7 is verbatim in its source. One minor gap: the linear parabolic theory
+cited for Lemma 6.4's existence does not cover it, since [MM10] Theorem 1.1 concerns a scalar equation ("smooth initial
+datum u0 : M -> R") and the [Hua15] sentence was from its introduction, its setting being Hoelder. Repaired as it
+proposed, by a Faedo-Galerkin argument in spherical harmonics (the projection commutes with the Killing fields, so the
+energy identities hold for the approximations unchanged; d_r of the hyperbolic unknowns is bounded by testing the
+projected equation in turn, S A0 > 0), with no citation, and the epsilon-regularisation and mollification are gone. Five
+notes, repaired: one universal extension operator for every order replaces the per-order one in Step 8 (iv) so that
+smooth data extend smoothly ([LY22] Theorem 26, READ, with Seeley's operator restated there), and extends g_app beyond
+Omega, where it was not defined (Stein's or Rychkov's operator on the Lipschitz domain Omega, READ as restated in
+[SY21]; Seeley's original, on ams.org, could not be fetched); Proposition 6.5's smoothness by induction on the iterates
+with a Volterra bound E_(i+1) <= A + B int E_i, needing no smallness; the paraphrase of [CBCM10] (2.7) marked. The
+SO(4)-averaging note fell with the mollification. The [LR05] and [CD03] quotes could not be checked from the saved
+texts; they were READ 2026-10-19. data5.py --mutants: 6/6. Status: no citation outstanding; the D18 repairs not yet
+re-checked; N1* not yet claimed as PROVED; no paper begun.

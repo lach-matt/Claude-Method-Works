@@ -17,8 +17,12 @@ and note found is repaired. Every standard theorem the proof invokes is now READ
 protocol, most on two independent routes (section 7, N1STAR-LOG.md D17). Holding their hypotheses against the statements
 READ found one gap, in Step 8: in the coordinates of 0.1 the time lines are spacelike inside the horizon, which the
 local theory excludes; it is repaired there by a change of the independent variables, and the linear parabolic theory's
-hypotheses are now met explicitly in Lemma 6.4. What is not done: those two repairs and the D16 repairs have not been
-checked by an independent verifier. N1* is therefore not yet claimed as PROVED; no citation is outstanding.
+hypotheses are now met explicitly in Lemma 6.4. A fourth verifier checked those two repairs and the D16 repairs (D18):
+no major gap, one minor gap (the linear parabolic theory cited for Lemma 6.4 did not cover a system) and five notes, all
+repaired as it proposed: Lemma 6.4's existence is now by Faedo-Galerkin with no citation, the extensions in Step 8 use
+one universal operator for every order, and Proposition 6.5's smoothness is an induction with a Volterra bound. What is
+not done: the D18 repairs have not been re-checked. N1* is therefore not yet claimed as PROVED; no citation is
+outstanding.
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -394,37 +398,40 @@ spacelike: [AO14] (1.3) asks A^{ij} xi_i xi_j >= |xi|^2 / gamma and A^{00} <= -k
 eigenvalue 0 meets a characteristic speed wherever g^{ij} xi_i xi_j = 0, against [DS23] (A4) ("the lambda_i's do not
 meet each other"). In the coordinates of 0.1 this fails on part of Omega: g0^{ij} xi_i xi_j = |xi|^2 - (mu/r^2)
 (xhat.xi)^2 < 0 for radial xi where r^2 < mu, and Omega reaches r = a < sqrt(mu0). So the theorems are applied in other
-coordinates, in four steps.
-(i) The coefficients. Near Omega the system for w is Ric^H(g_app + w) = 0 relative to g0. Outside a neighbourhood U of
-Omega on which g_app is defined, replace g_app and g0 by g_ext and g0_ext, obtained by interpolating lapse, shift and
-spatial metric (relative to tau) convexly to (1, 0, delta) on {r <= a/4} and on {r >= R2 + 1}, R2 := b(tau0) + 1. Every
-such combination is a Lorentzian metric with each Sigma_tau spacelike, so the system keeps its form, with coefficients
-smooth in X and equal to Minkowski's outside a compact set in x; on U nothing changes.
-(ii) The coordinates. Z := d_tau - beta_ext (beta_ext the shift of g_ext) has Z(tau) = 1, g_ext(Z, Z) = -N_ext^2 <=
--N_min^2 < 0, and Z = d_tau outside a compact set. Put X = (tau, Phi(tau, y)), Phi the flow of Z from tau0: the slices
-are unchanged and d_tau at fixed y is Z, so in (tau, y) the matrix g_ext^{ij} is the inverse spatial metric, uniformly
-positive definite, and g_ext^{00} = -N_ext^-2. Only the independent variables change: the unknowns stay the Cartesian
-arrays of 0.1, the principal part stays -(1/2) g^{ab} d_a d_b with g^{ab} transformed as a tensor, and the system stays
-quasilinear with coefficients smooth in (tau, y).
-(iii) The cut-off. Let chi be a smooth map of the components, the identity on |w| <= eps2/2 and into |w| <= eps2, with
-eps2 so small that every metric within eps2 of g_ext keeps (1.3) with fixed constants in (tau, y); put chi(w) for w in
-the coefficients and lower-order terms. The modified system agrees with the original where |w| <= eps2/2, which holds on
-Omega (|w| <= C M lam^(K-3), Step 3). Its coefficients and source equal Minkowski's outside a compact set in y, so it is
-posed on a torus T^4_L of large period. In V := (w, d_tau w, d_y w) it is symmetric hyperbolic, A^0 = diag(1, -g^{00},
-g^{ij}) > 0, and satisfies (A1)-(A4) of [DS23] on all of R^m: the distinct eigenvalues are lambda_- < 0 < lambda_+, the
-characteristic roots having product g^{ij} xi_i xi_j / g^{00} < 0, so they never meet; u_i = d_i w propagates, since
-d_tau (u_i - d_i w) = d_i (u_0 - d_tau w) = 0.
-(iv) The restarts. At tau_i extend the data from Sigma_tau_i cap Omega = A(tau_i) to the torus ([BH17] Theorem 7.21,
-A(tau) bounded and Lipschitz, with constants uniform in tau as in Lemma 2.1, and a cut-off). [DS23] Theorem 2.4 with r =
-k > 4/2 + 1 (k = 6) gives a solution on [tau_i, tau_i + delta], delta depending only on the norm of the data, which
-Steps 1 and 7 bound for each fixed lam (|w|_{k+1} <= C N <= C M lam^K); the data are smooth, and by [DS23] Theorem 2.6
-the solution lies in every H^r on the same interval, so it is smooth. On Omega cap {tau_i <= tau <= tau_i + delta} it
-solves the original system while |w| <= eps2/2, and it is the only solution there with the data on Sigma_tau_i cap
-Omega: for two such, -(1/2) g1^{ab} d_a d_b (w1 - w2) = (1/2) (g1^{ab} - g2^{ab}) d_a d_b w2 + F(X, w1, d w1) - F(X, w2,
-d w2) =: f, ||f|| <= C (||w1 - w2|| + ||d (w1 - w2)||) since d^2 w2 is bounded, and Lemma 2.3 from tau_i with Gronwall's
-lemma gives w1 = w2. This is the finite speed of propagation the proof uses, deduced from Lemma 2.3 with no citation,
-and the uniqueness 0.7 uses for the symmetry. With Step 7 the bootstrap continues, so the solution exists on all of
-Omega with (0.5). The bounds after (0.5) are Step 1. []
+coordinates, in four steps. (i) The coefficients. On Omega the system for w is Ric^H(g_app + w) = 0 relative to g0, and
+the profiles of g_app are defined on Omega x S^1 (Lemma 5.3). Extend them to R^5 x S^1 by one universal extension
+operator acting in X, the same for every order (Stein's or Rychkov's, for the bounded Lipschitz domain Omega, a convex
+polygon in (tau, r) times S^3; [SY21], section 7): g_app extends smoothly with bounded derivatives of every order, for
+all tau, and is unchanged on Omega. Outside a neighbourhood U of Omega, replace g_app and g0 by g_ext and g0_ext,
+obtained by interpolating lapse, shift and spatial metric (relative to tau) convexly to (1, 0, delta) on {r <= a/4} and
+on {r >= R2 + 1}, R2 := b(tau0) + 1. Every such combination is a Lorentzian metric with each Sigma_tau spacelike, so the
+system keeps its form, with coefficients smooth in X and equal to Minkowski's outside a compact set in x; on U nothing
+changes. (ii) The coordinates. Z := d_tau - beta_ext (beta_ext the shift of g_ext) has Z(tau) = 1, g_ext(Z, Z) =
+-N_ext^2 <= -N_min^2 < 0, and Z = d_tau outside a compact set. Put X = (tau, Phi(tau, y)), Phi the flow of Z from tau0:
+the slices are unchanged and d_tau at fixed y is Z, so in (tau, y) the matrix g_ext^{ij} is the inverse spatial metric,
+uniformly positive definite, and g_ext^{00} = -N_ext^-2. Only the independent variables change: the unknowns stay the
+Cartesian arrays of 0.1, the principal part stays -(1/2) g^{ab} d_a d_b with g^{ab} transformed as a tensor, and the
+system stays quasilinear with coefficients smooth in (tau, y). (iii) The cut-off. Let chi be a smooth map of the
+components, the identity on |w| <= eps2/2 and into |w| <= eps2, with eps2 so small that every metric within eps2 of
+g_ext keeps (1.3) with fixed constants in (tau, y); put chi(w) for w in the coefficients and lower-order terms. The
+modified system agrees with the original where |w| <= eps2/2, which holds on Omega (|w| <= C M lam^(K-3), Step 3). Its
+coefficients and source equal Minkowski's outside a compact set in y, so it is posed on a torus T^4_L of large period.
+In V := (w, d_tau w, d_y w) it is symmetric hyperbolic, A^0 = diag(1, -g^{00}, g^{ij}) > 0, and satisfies (A1)-(A4) of
+[DS23] on all of R^m: the distinct eigenvalues are lambda_- < 0 < lambda_+, the characteristic roots having product
+g^{ij} xi_i xi_j / g^{00} < 0, so they never meet; u_i = d_i w propagates, since d_tau (u_i - d_i w) = d_i (u_0 - d_tau
+w) = 0. (iv) The restarts. At tau_i extend the data from Sigma_tau_i cap Omega = A(tau_i) to the torus (the universal
+Seeley-type operator of [LY22] Theorem 26 for the smooth annulus A(tau), one operator bounded on every H^m, so smooth
+data extend to smooth data; its constants are uniform in tau, the annuli being images of a fixed one under radial
+diffeomorphisms with bounded derivatives, [LY22] Lemma 27; then a cut-off). [DS23] Theorem 2.4 with r = k > 4/2 + 1 (k =
+6) gives a solution on [tau_i, tau_i + delta], delta depending only on the norm of the data, which Steps 1 and 7 bound
+for each fixed lam (|w|_{k+1} <= C N <= C M lam^K); the data are smooth, and by [DS23] Theorem 2.6 the solution lies in
+every H^r on the same interval, so it is smooth. On Omega cap {tau_i <= tau <= tau_i + delta} it solves the original
+system while |w| <= eps2/2, and it is the only solution there with the data on Sigma_tau_i cap Omega: for two such,
+-(1/2) g1^{ab} d_a d_b (w1 - w2) = (1/2) (g1^{ab} - g2^{ab}) d_a d_b w2 + F(X, w1, d w1) - F(X, w2, d w2) =: f, ||f|| <=
+C (||w1 - w2|| + ||d (w1 - w2)||) since d^2 w2 is bounded, and Lemma 2.3 from tau_i with Gronwall's lemma gives w1 = w2.
+This is the finite speed of propagation the proof uses, deduced from Lemma 2.3 with no citation, and the uniqueness 0.7
+uses for the symmetry. With Step 7 the bootstrap continues, so the solution exists on all of Omega with (0.5). The
+bounds after (0.5) are Step 1. []
 
 ## 5. Theorem A: the approximant
 
@@ -697,17 +704,21 @@ Hyperbolic energy, after applying S to the second equation: d_r <(w, q), S A0 (w
 A0)||_{L^inf}) ||(w, q)||^2_{H^s} + C ||(w, q)||_{H^s} (||d_r a||_{H^s} + ||a||_{H^(s+1)} + ||F_J||_{H^s}), the S A^B
 terms integrating by parts on the closed spheres, and ||d_r a||_{H^s} <= C (||a||_{H^(s+2)} + ||(w, q)||_{H^s} +
 ||F_rho||_{H^s}) from the first equation. Young's inequality and Gronwall's lemma (which needs ||d_r (S A0)||_{L^inf}
-only integrable in r) give the bound. Existence: regularise the symmetrized second equation, S A0 d_r (w, q) + S A^B d_B
-(w, q) + ... = S F_J + epsilon Delta_S (w, q); then d_r (w, q) = epsilon (S A0)^-1 Delta_S (w, q) + ..., a linear system
-forward parabolic in r (Petrovskii; S A0 > 0). To meet the hypotheses of the linear theory READ ([Hua15] Theorem 2.4,
-[MM10] Theorem 1.1: smooth coefficients, strongly parabolic), mollify the coefficients in r and by averaging over SO(4)
-on S^3, which leaves M_s no larger and alpha0, delta0 and S A0 > 0 no worse (the norms are rotation invariant and the
-averages convex), and write a = a'/kappa: the second-order term in a that d_r a brings into the J-equation is then
-O(1/kappa) against the diagonal blocks, while (w, q) enter the a-equation at order zero only, so for
-kappa large the system is strongly parabolic (Legendre-Hadamard) with smooth coefficients and uniquely solvable on S^3.
-Its energy gains -epsilon ||grad (w, q)||^2, so the a priori bound holds uniformly in epsilon and in the mollification;
-a weak limit (epsilon -> 0, the mollification removed) solves (6.4). Uniqueness from the bound. (The raw coefficient A0
-is indefinite, Lemma 6.3(a), so the regularisation must act on the symmetrized equation.) []
+only integrable in r) give the bound. Existence (Faedo-Galerkin; no citation). Let P_L be the L^2(S^3)-orthogonal
+projection onto the spherical harmonics of degree <= L. The eigenspaces of Delta_S are SO(4)-invariant, so P_L commutes
+with Delta_S and with every Killing field. Solve the first equation for d_r a (dividing by alpha), and seek a_L and (w,
+q)_L in the range of P_L with d_r a_L = P_L[...] and P_L[S A0 d_r (w, q)_L] = P_L[...] (the symmetrized second equation,
+d_r a_L in it), with the data of the lemma projected by P_L: a linear system of ordinary differential equations in r for
+finitely many coefficients, whose matrix P_L S A0 P_L is positive definite on the range (S A0 > 0) and continuous in r,
+the other coefficients and the sources being integrable in r, so Picard iteration gives a unique absolutely continuous
+solution on [a, R]. The test functions of the argument above, X^{I*} X^I applied to a_L or to (w, q)_L, lie in the range
+of P_L, so the projection drops out of each tested equation (<P_L G, f> = <G, f> for f in the range) and the energy
+identities are those above, with one addition: the commutator [X^I, S A0] d_r (w, q)_L needs ||d_r (w, q)_L||_{H^(s-1)},
+which testing the projected second equation with X^{J*} X^J d_r (w, q)_L, |J| = 0, ..., s - 1 in turn, bounds by C
+(||(w, q)_L||_{H^s} + ||d_r a_L||_{H^(s-1)} + ||F_J||_{H^(s-1)}) (S A0 > 0; the commutators are of lower order in J). So
+the bound holds for (a_L, (w, q)_L) uniformly in L; a weak-* limit L -> infinity solves (6.4) and obeys it, and
+uniqueness follows from the bound. (Earlier forms of this step regularised by epsilon Delta_S and cited a linear
+parabolic theory, [Hua15] and [MM10]; neither is needed, and [MM10] concerns a scalar equation, N1STAR-LOG.md D18.) []
 
 **Proposition 6.5 (the exact correction; deduced).** Let the stage data be those of Lemma 6.2 with N >= K + 3 and
 (gamma, K) the data of g_app on Sigma. For lam <= lam0 there is U on Sigma, U = 0 on r < v_start - tau0, with
@@ -732,12 +743,13 @@ estimated in the higher norm), a contraction: bounded in X_s and contracting in 
 solution in X_s (the scheme of Kato and Majda for quasilinear symmetric hyperbolic systems, READ in [DS23] section 4 and
 [AO14] section 4.1, section 7; the parabolic component obeys the same estimates). Uniqueness holds in the ball of radius
 2 C0 lam^(N-2) of X_s, by the difference estimate. The r-derivatives follow from the equations, each d_r of a
-coefficient costing at most lam^-1. Smoothness (persistence of regularity, standard): for the solution U itself, the
-energy inequality at an index s'' > s is linear in the top norm ||U||_{X_(s'')}, the top norms of the coefficients
-(functions of a) entering linearly by the Moser and Kato-Ponce inequalities with factors depending only on ||U||_{X_s};
-Gronwall's lemma in r then bounds ||U||_{X_(s'')} at the same lam, its finiteness being justified on the regularised
-system of Lemma 6.4. So U is smooth for lam <= lam0, lam0 independent of s''. Theorem E needs only k + 1 = 7 derivatives
-of the data in any case. []
+coefficient costing at most lam^-1. Smoothness (persistence of regularity): the coefficients and sources of each step
+are smooth in the angles when the previous iterate is, so by Lemma 6.4 at every index the iterates U_i are smooth, by
+induction. At an index s'' > s the bound of Lemma 6.4 is linear in the top norms, those of the coefficients (functions
+of a) entering linearly by the Moser and Kato-Ponce inequalities with factors depending only on the X_s bound; with
+E_i(r) the X_(s'') norm of U_i on [a, r] it reads E_(i+1)(r) <= A + B int_a^r E_i, so E_i <= A e^{B (R - a)} for every
+i, with no smallness, and the limit U lies in X_(s'') for every s''. So U is smooth for lam <= lam0, lam0 independent of
+s''. Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
 
 ### 6.4 Proof of Theorem D
 
@@ -759,9 +771,12 @@ v_start - tau0}. []
   O(lam) in `data5.py`'s inverse metric that touched no check, now caught by S5). The repairs were checked by a third
   (D16): the two repairs hold; it found two further minor gaps, both in the rewritten Lemma 6.4 and Proposition 6.5
   (the regularisation must act on the symmetrized equation; the persistence of regularity must be stated as a tame
-  inequality), and nine notes, all repaired as it proposed. **Not yet checked by a verifier:** those last repairs, and
-  the two made at D17 when the hypotheses were held against the statements READ below (Step 8, the time lines; Lemma
-  6.4, the hypotheses of the linear parabolic theory).
+  inequality), and nine notes, all repaired as it proposed. A fourth (D18) checked those repairs and the two made at D17
+  (Step 8, the time lines; Lemma 6.4): no major gap; one minor gap, the linear parabolic theory cited for Lemma 6.4
+  ([MM10] is about a scalar equation, and [Hua15] was READ only in its introduction), repaired by a Faedo-Galerkin
+  existence proof with no citation; five notes, repaired (the extensions in Step 8 by one operator for every order;
+  g_app extended beyond Omega; Proposition 6.5's smoothness by induction; the (2.7) paraphrase marked). **Not yet
+  checked by a verifier:** the D18 repairs.
 - **READ at source (D17).** By the retrieval protocol of the site's Ask prompt: targets enumerated, routes by type with
   the open ones first, the sources a source names followed back and the papers citing a target followed forward, a
   blocked route left for the next and not retried, two independent routes closing a fact and one route fragile. rho
@@ -782,10 +797,13 @@ v_start - tau0}. []
 | T2b gauge propagates (0.7) | primary | [LR05] p. 1, (2.1)-(2.5) | open | Bianchi; wave coordinate condition | 3 |
 | | citing paper | [CBCL06] sec. 3 | open | n + 1 dimensions | |
 | | review | Rendall arXiv:gr-qc/0505133v1 | open | constraints and gauge propagate | |
-| T3 Sobolev (2.1, St. 8) | review | [BH17] arXiv:1704.07930 Thm 7.21, 7.26, 9.14 | open | sp > n; extension | 1-2 |
+| T3 Sobolev (2.1, St. 8) | review | [BH17] arXiv:1704.07930 Thm 7.21, 7.26, 9.14 | open | sp > n; extension | 2 |
 | | preprint | [DS23] sec. 4.1; [AO14] sec. 4.1.3 | open | the embedding, as used | |
-| T4 linear parabolic on S^3 (6.4) | preprint | [MM10] arXiv:1010.0733 Thm 1.1 | open | smooth data, closed M | 2 |
-| | preprint | [Hua15] arXiv:1506.05030 Thms 1.1, 2.4 | open | linear strongly parabolic, closed M | |
+| T3b one extension, all orders | primary | [LY22] arXiv:2211.15567v2 Thms 1, 26 | open | Seeley-type, smooth | 2 |
+| | citing paper | [SY21] arXiv:2110.14477v4 secs. 1, 2.1 | open | Rychkov, Stein: Lipschitz | |
+| | primary | Seeley 1964 (ams.org PDF) | blocked | fetch failed | |
+| T4 linear parabolic (6.4) | preprint | [MM10] arXiv:1010.0733 Thm 1.1 | open | scalar only; not used | 0 |
+| | preprint | [Hua15] arXiv:1506.05030 sec. 1 | open | introduction only; not used | |
 | T5 Moser, Kato-Ponce (6.4, 6.5) | primary | [GO13] arXiv:1303.5144 sec. 1 | open | commutator on R^n, 1 < p < inf | 2 |
 | | preprint | [DS23] Rem. 2.3(i), proof of Prop. 3.1 | open | composition, commutator on T^N | |
 | T6 Kato-Majda scheme (6.5) | preprint | [AG22] arXiv:2204.01179v3 sec. 9 | open | bounded high, weak limit | 3 |
@@ -813,11 +831,12 @@ v_start - tau0}. []
     box_g x^mu satisfy an homogeneous linear system of wave equations on (V, g), with also d_t F^mu = 0, hence F^mu =
     0 if (V, g) is globally hyperbolic" (sec. 3); "Such a solution exists if the initial data belong to H^loc_(s+1) x
     H^loc_s, s > n/2" (sec. 5.1).
-  - [CBCM10] (Y. Choquet-Bruhat, P. T. Chrusciel, J. M. Martin-Garcia): H^lambda = g^(alpha beta)(Gamma^lambda_(alpha
-    beta) - Gamma^^lambda_(alpha beta)) (2.7); "R_(alpha beta) = R^(H)_(alpha beta) + 1/2 (g_(alpha lambda) D^_beta
-    H^lambda + g_(beta lambda) D^_alpha H^lambda)" (2.8), "R^(H)_(alpha beta) = -1/2 g^(lambda mu) D^_lambda D^_mu
-    g_(alpha beta) + f^[g, D^ g]_(alpha beta)", f^ "independent of the second derivatives of g" (2.9): this is (0.2),
-    D = H, Dh = D^, in any dimension.
+  - [CBCM10] (Y. Choquet-Bruhat, P. T. Chrusciel, J. M. Martin-Garcia), paraphrasing (2.7), which writes H^lambda :=
+    g^(alpha beta) Gamma^lambda_(alpha beta) - W^lambda, W^lambda := g^(alpha beta) Gamma^^lambda_(alpha beta): H^lambda
+    = g^(alpha beta)(Gamma^lambda_(alpha beta) - Gamma^^lambda_(alpha beta)) (2.7); "R_(alpha beta) = R^(H)_(alpha beta)
+    + 1/2 (g_(alpha lambda) D^_beta H^lambda + g_(beta lambda) D^_alpha H^lambda)" (2.8), "R^(H)_(alpha beta) = -1/2
+    g^(lambda mu) D^_lambda D^_mu g_(alpha beta) + f^[g, D^ g]_(alpha beta)", f^ "independent of the second derivatives
+    of g" (2.9): this is (0.2), D = H, Dh = D^, in any dimension.
   - [BH17] (A. Behzadan and M. Holst, *Multiplication in Sobolev spaces, revisited*): Theorem 7.21, "Let Omega in R^n
     be a bounded open set with Lipschitz continuous boundary. Then for all s > 0 and for 1 <= p < infinity, there
     exists a continuous linear extension operator"; Theorem 7.26, "If sp > n, then W^(s,p)(Omega) -> L^infinity(Omega)
@@ -826,12 +845,21 @@ v_start - tau0}. []
     f||_(L^infinity) ||J^(s-1) g||_(L^p) + ||J^s f||_(L^p) ||g||_(L^infinity)] for 1 < p < infinity and s > 0".
     [DS23] Remark 2.3(i): "for any u in H^s ... ||N(u)||_s <= C_I + F_I(||u||_infinity) ||u||_s". On S^3 both follow
     from R^3 through a finite atlas and a partition of unity, the spaces of [BH17] section 9 being defined so (deduced).
-  - [MM10] (C. Mantegazza and L. Martinazzi), Theorem 1.1: "For every u0 in C^infinity(M) there exists a positive time
-    T > 0 such that problem (1.1) has a smooth solution. Moreover, the solution is unique and depends continuously on
-    u0". [Hua15] (H. Huang, *The Cauchy problem for fully nonlinear parabolic systems on manifolds*): Theorem 2.4, by
-    the method of continuity, "the existence and uniqueness of solutions to the Cauchy problem for linear, strongly
-    parabolic systems on closed manifolds", strong parabolicity being the Legendre-Hadamard condition. Lemma 6.4 meets
-    these hypotheses after mollifying its coefficients and rescaling a (D17).
+  - [MM10] (C. Mantegazza and L. Martinazzi), Theorem 1.1 concerns a scalar equation ("smooth initial datum u0 : M ->
+    R"; systems only in a remark), and the [Hua15] sentence quoted at D17 is from its introduction, not the statement of
+    its Theorem 2.4. Neither is used since D18: Lemma 6.4's existence is by Faedo-Galerkin, deduced.
+  - [LY22] (H. Lu and L. Yao, *On Seeley-type universal extension operators for the upper half space*): Theorem 1, an
+    extension operator E with "(ii) ... E : W^(k,p)(R^n_+) -> W^(k,p)(R^n) and E : C^(k,s)(R^n_+) -> C^(k,s)(R^n) are
+    defined and bounded for all k in Z, 0 < p <= infinity and 0 < s < 1. E : C^k(R^n_+) -> C^k(R^n) is bounded for all k
+    = 0, 1, 2, ..." (simultaneously); Theorem 26, "Universal Seeley's extension on smooth domains": for a bounded smooth
+    domain, "E : W^(k,p)(Omega) -> W^(k,p)_c(U) ... bounded for all k in Z, 0 < p <= infinity"; Lemma 27, composition
+    with bounded diffeomorphisms; and of Seeley's operator, "E : C^k(R^n_+) -> C^k(R^n) for all k = 0, 1, 2, ... In
+    particular Seeley's extension [preserves] C^infinity-smoothness". [SY21] (Z. Shi and L. Yao), restating Rychkov:
+    "for a Lipschitz domain Omega there exists an operator E = E_Omega that is bounded on Besov spaces E : B^s_pq(Omega)
+    -> B^s_pq(R^n) for all 0 < p, q <= infinity, s in R ... Since E is one single operator which works for all such
+    spaces, we call it an universal extension operator", and Stein: "an extension operator E_S which is independent of
+    k, such that E_S : W^(k,p)(Omega) -> W^(k,p)(R^n) is bounded for all k in N and 1 <= p <= infinity". The two papers
+    share an author; Seeley's and Stein's originals were not reachable.
   - [AG22] (arXiv:2204.01179, *The Cauchy problem for a quasilinear system of equations with coupling in the
     linearization*): the iterates bounded in H^s, a weakly convergent subsequence (9.6); [AO14] sec. 4.1: "the
     well-known strategy ... of setting up an appropriate iterative approximation scheme and showing convergence by
@@ -847,6 +875,6 @@ v_start - tau0}. []
     constraints and gauge conditions propagate." [CD03] (2.1), the constraint map, which "are the general relativistic
     constraint equations whatever the space-dimension n", and [Rac16], as cited in section 6. The identities (6.1) and
     (6.2) are deduced from the Bianchi identity and the constraint map by the algebra written in 6.1.
-- **Fragile.** The extension operator has one route at statement level ([BH17] Theorem 7.21); the embedding has two.
-  The continuation statements READ are for n >= 3 ([AO14]) and any N ([DS23]); none is for a domain with boundary,
-  which Step 8 avoids by the torus and the uniqueness from Lemma 2.3.
+- **Fragile.** The universal extension rests on two papers that share an author ([LY22], [SY21]); the per-order
+  extension and the embedding have two routes each. The continuation statements READ are for n >= 3 ([AO14]) and any N
+  ([DS23]); none is for a domain with boundary, which Step 8 avoids by the torus and the uniqueness from Lemma 2.3.
