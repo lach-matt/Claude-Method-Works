@@ -36,8 +36,10 @@ black-hole background, and its one large coefficient is removed by a phase-shift
 constructed by solving the constraints outward in r as a parabolic–hyperbolic system from a sphere inside the shell.
 Part (iii) of the counterpart follows: on each column the outgoing expansion of the spheres {v, r = const} has one zero,
 converging at O(λ). So does a mean-mass rate: after the shell, the mass of every sphere {v, r = const} is the limit's to
-O(λ²), by a quarter-turn symmetry of the two polarizations. We list what is not proved: settling at late times, the
-construction from past null infinity, and the application at physical wavelengths.
+O(λ²), by a quarter-turn symmetry of the two polarizations. The same solutions are constructed from the waves' free data
+at past null infinity, where before the shell they are the black hole exactly and their radiation field is the
+prescribed one at every λ (Theorem 2). We list what is not proved: settling at late times beyond the linear level, and
+the application at physical wavelengths.
 
 ---
 
@@ -89,7 +91,8 @@ and 7.2 but such that the limiting solution is far away from Minkowski spacetime
 We prove the counterpart of Theorem 4.2 in five dimensions, for one family of null dust, on a background that is far
 from Minkowski: a black hole growing by an ingoing shell, on a fixed domain that reaches inside the horizon to the
 surface where the limit's curvature reaches a fixed scale (Theorem 1, section 3). It is an instance of Problem 8.6 in a
-five-dimensional symmetry class, not an answer to Problem 8.6 as posed, which concerns four dimensions.
+five-dimensional symmetry class, not an answer to Problem 8.6 as posed, which concerns four dimensions. The same
+solutions are also constructed from the waves' free data at past null infinity (Theorem 2, section 3).
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
 coupled to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an
@@ -294,8 +297,8 @@ DM[m1] = DM[σ*m1] = −DM[m1] = 0. The remainder is at most C λ^(K−4) ≤ C 
 through its trace on the sphere and the trace of its phase derivative, both zero, so the difference is O(λ). ∎
 
 The numerics' "mean mass" is the angular mean of the mass aspect at past null infinity; the Hawking mass of the
-spheres of the domain is its counterpart here, and identifying the two needs the construction from past null
-infinity (section 8).
+spheres of the domain is its counterpart here. Theorem 2 below gives the waves' field at past null infinity exactly; what
+it implies for a mass there is in section 6, and what it does not, in section 8.
 
 *How Theorem 1 follows.* It is the conjunction of three theorems proved in the supplement and summarized in sections 4
 and 5: Theorem A (the approximant to any order), Theorem D (exact data within O(λ^K) of it) and Theorem E (existence on
@@ -305,6 +308,39 @@ g_λ is vacuum (deduced; the identity READ in [LR05] p. 1 and, in n + 1 dimensio
 harmonicity functions F^μ := □_g x^μ satisfy an homogeneous linear system of wave equations on (V, g), with also
 ∂_t F^μ = 0, hence F^μ = 0 if (V, g) is globally hyperbolic"). The symmetry follows from uniqueness, since Ric^H and D
 are built from g and the O(4)-invariant g0 alone and the data are invariant.
+
+**Theorem 2 (the construction from past null infinity; deduced, supplement section 9; computed:
+`docket68/n1star/past5.py` P1–P8).** Let the waves at past null infinity be the free data F, G of section 2.4, on the
+background of Theorem 1. For every K ≥ 6 there is λ_P > 0 such that for 0 < λ ≤ λ_P there is a smooth vacuum metric
+g_λ, in the wave-map gauge relative to g0, on Ω together with a past domain P: the region τ ≤ τ0, r ≥ a, below an outer
+boundary v + ½(1 + τ0 − τ)^(−1/4) = V_P that is spacelike, chosen so that P and Ω share the slice Σ_τ0. It satisfies:
+
+1. g_λ = g0 for v ≤ v_start: before the shell, the black hole exactly;
+2. its radiation field at past null infinity is the prescribed one: at every fixed v < V_P and x̂,
+   r^(3/2)(g_λ − g0 − λ[W_TT]) → 0 as r → ∞, at every λ;
+3. on P, |g_λ − g_app| ≤ C λ^(K−3) t^(−2), with t = 1 + τ0 − τ and g_app the approximant built from past null
+   infinity;
+4. on Ω, the conclusions of Theorem 1 hold, with the data on Σ_τ0 now the trace of g_λ itself;
+5. g_λ is T² × Z2 × Z2-invariant, and unique among solutions with item 1 whose difference from g_app is O(t^(−3/2))
+   with its first derivatives and whose energy on the slices tends to zero at past null infinity.
+
+So the counterpart holds with the waves' own free data at past null infinity, and the constraints need not be solved
+on this route (section 5.5 is the other route).
+
+*How Theorem 2 is proved.* Before the shell the solution is the black hole: the region v ≤ v_start is a past set for
+the black hole's cones, and the data there are the black hole's. Near past null infinity every stage of the approximant
+is solved with nothing coming in. Each stage has an explicit leading term in r and a remainder half a power of r
+better, and no source of the stages ever falls off like r^(−5/2), the rate that would produce a logarithm (P2–P5). So
+the residual decays like r^(−3), and the remainder can be estimated with the rotations as commutators, which gain
+t^(−3/2) in Sobolev's inequality. The past is split at t = λ^(−2). Before the split, the one large coefficient of
+section 5.1 integrates in time to a constant, and no decomposition is needed. After it, the decomposition of section
+5.2 runs over an interval of length λ^(−2). There the transport of its auxiliary field loses a logarithm per unit of
+log t, which weights (T/t)^β0 absorb at a cost λ^(−2β0); β0 does not depend on the order of the approximant, so a
+higher order pays it. The mollifier's commutator with the wave operator is, apart from decaying terms, an exact
+derivative along the generators (P8), and is absorbed into the auxiliary field. The limit is vacuum because the gauge
+field of the approximant decays at past null infinity, so its energy tends to zero there and the gauge field vanishes.
+A first independent verifier found the near-region estimate incomplete: that commutator was missing. A second found
+that the repair closes it (supplement log D34–D35).
 
 ---
 
@@ -479,6 +515,15 @@ null infinity, whose offset quarters at each halving of λ (hf_theorem5.py F4: 5
 fixed by the incoming flux of the free data, its second-order offset is essentially kinematic (an assessment, not
 computed).
 
+**The mean mass at past null infinity.** By Theorem 2 the waves' field at past null infinity is exactly λ[W_TT]. The
+sphere mean of its flux density, in the normalization of Proposition 2.3, is exactly
+(2/9) A² [env² + λ² env'² − ½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ)] (computed, `past5.py` P7). Its
+integral in v is μ(v) − μ0 plus terms that oscillate with amplitude (λ/18) A² env² while the shell passes. After the
+shell it exceeds μ − μ0 by exactly (2/9) λ² A² ∫ env'² + O(λ³). A mass at past null infinity that changes at the rate of
+this flux therefore has an O(λ²) offset after the shell, with this coefficient. That is consistent with the numerics'
+quartering at each halving of λ, though not compared with it. The mass law itself, in five dimensions, is not derived
+here (section 8).
+
 ---
 
 ## 7. Relation to Huneau and Luk, Touati, and Luk and Rodnianski
@@ -552,17 +597,10 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
   2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
   Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
-- **The data at past null infinity.** The theorem is posed with Cauchy data on Σ_τ0, before the shell reaches the hole.
-  The evolution from data at past null infinity down to Σ_τ0, and the equivalence of the two descriptions of the waves,
-  are not proved; the data here carry the waves of section 2.4 at leading order and are otherwise constructed. The
-  estimates of section 5 do not extend to an infinite past interval as they stand: the phase correction φ accumulates
-  along the ingoing generators, and bounding it crudely in norm turns its coupling to the remainder into a growth that
-  no power of λ beats. What it needs is a weighted form of Theorem E with the decay in r of every coefficient and of
-  every profile of the approximant. The structure is favourable: the r-derivative of φ along the cone is ½ P s exactly,
-  with no accumulation, and the coefficients that multiply the accumulating parts decay like r^(−5/2) (an assessment,
-  not computed). That is a separate theorem, and it is not proved here.
-- **The mean mass at past null infinity.** Proposition 3.4 proves the O(λ²) rate for the Hawking mass of the spheres of
-  the domain; the same rate for the mass aspect at past null infinity needs the construction from there (above).
+- **The mean mass at past null infinity.** Theorem 2 gives the waves' field at past null infinity exactly, and section 6
+  gives the flux it carries. Identifying the numerics' mass aspect with the integral of that flux needs two things that
+  are not derived here: a mass law at past null infinity in five dimensions, and an expansion of g_λ there beyond the
+  order r^(−2) that Theorem 2 controls.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -582,7 +620,10 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
 - **More families.** Several dusts, angular separation, and the passage to Vlasov matter are not attempted.
 - **The boundary at equality.** If μ0 = √72 l5² exactly, x_K = 1 is null on the seed's portion (Proposition 3.2).
 - **Review.** An eighth independent verifier read this paper and the supplement's last restatement (log D26): no major
-  finding; its two minor findings and 21 notes are seated. Propositions 3.3 and 3.4 were added after it.
+  finding; its two minor findings and 21 notes are seated. Propositions 3.3 and 3.4 were added after it, and were read
+  with the supplement by a ninth (D30). Theorem 2's proof was read by a tenth, which found the near-region estimate
+  incomplete, and, after the repair, by an eleventh, which found it closed (D34–D35). The paper's text on Theorem 2 and
+  the additions to sections 6 and 8 have not been read by a verifier.
 
 ---
 
@@ -663,7 +704,8 @@ Paths are relative to the root of the research tree.
   a dr² brings ∂_r² a into ρ.
 - R6: h²(c⁴ + s⁴) = 1; 4(a² + ab + b²) = (2a + b)² + 3b²; (3.1). Controls, each run on its own: h = 1;
   (2a + b)² + 2b²; r + r_q in place of r − r_q; √48 in place of √72.
-- R7: λ = 10 l5 against the curvature length: 10 on x_K = 1, 2.91 and 0.92 at the horizon. Control: 48 for 72.
+- R7: λ = 10 l5 against the curvature length: 10 on x_K = 1, 2.91 and 0.92 at the horizon; against r: 1.85 and
+  1.04 on x_K = 1, 1.00 and 0.32 at the horizon. Control: 48 for 72.
 
 All seven pass and every control is rejected (about 30 seconds). The proof's programs, in `docket68/n1star/`:
 
@@ -676,7 +718,13 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
 - `horizon5.py` H1–H3, H2b: the expansion of the spheres for g0, no O(1) oscillation from a wave traceless on them
   (H2b: the record's wave, phase-shifted, symbolically), the phase constant along columns. 4/4; mutants 4/4.
 - `mass5.py` M1–M4: the Hawking mass of the Vaidya spheres, the wave odd under the quarter-turn symmetry, the
-  two-scale operator's equivariance, σ an isometry of g0. 4/4; mutants 5/5.
+    two-scale operator's equivariance, σ an isometry of g0. 4/4; mutants 5/5.
+- `past5.py` P1–P8: Theorem 2's past domain, the operator and the transport near past null infinity, the leading
+  wave's components, the stage-0 source, the rotations, the flux of the radiation field, the mollifier's commutator.
+  8/8; mutants 9/9.
+- `settle5.py` T1–T4: the class's perturbation types, the potentials, the l = 2 ringdown against [CLY03b], the
+  settling times; T3 numerical. 4/4; mutants 4/4.
+
 
 Earlier programs cited, in `docket68/lemmas/`:
 
@@ -685,6 +733,7 @@ Earlier programs cited, in `docket68/lemmas/`:
 - `counterpart5.py` P1: K = 72μ²/r⁸ and the bound λ < l5/10 for the high-frequency regime. 8/8.
 - `kn_gauge.py` K1–K2: the reduction in other variables. 18/18.
 - `hf_core5.py`: the numerical sequence at two seeds (rates; one zero per column). 10/10; numerical, not exact.
+- `seed_escape.py` E1–E5: the barrier of the hole and its linear scattering at the wavelength 10 l5.
 
 ## Appendix B. The author's words
 
@@ -741,7 +790,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D22).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D35).
 
 | claim | where it is established |
 | --- | --- |
@@ -761,8 +810,12 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D2
 | section 5.5 iteration | supplement Lemma 6.4, Proposition 6.5; [AO14], [AG22], [GO13] |
 | part (iii), Proposition 3.3 | supplement Proposition 8.1; `docket68/n1star/horizon5.py` H1–H3; Theorem E Step 1 |
 | mean mass, Proposition 3.4 | supplement Lemma 8.2, Proposition 8.2; `docket68/n1star/mass5.py` M1–M4 |
+| Theorem 2 | supplement section 9 (Lemmas 9.1–9.7, 9.4b, Theorem A_P, Propositions 9.8–9.9); `past5.py` P1–P8 |
+| the flux at past null infinity | supplement section 9.5; `docket68/n1star/past5.py` P7 |
+| settling, section 8 | supplement section 10.1; `docket68/n1star/settle5.py` T1–T4; [HKW18], [CLY03b] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
-| | eighth read this paper and the supplement's last restatement (log D26) |
+| | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
+| | the tenth and eleventh Theorem 2's proof (D34–D35) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -771,27 +824,31 @@ Python 3.11 with sympy, and z3-solver for `foliation5.py` (the programs import n
 
     cd paper && python3 response5.py --selftest          # R1-R7, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
-    cd ../docket68/n1star && python3 ks5.py --selftest   # and foliation5, ansatz5, lead5, data5, horizon5, mass5
+        cd ../docket68/n1star && python3 ks5.py --selftest   # and foliation5, ansatz5, lead5, data5, horizon5, mass5,
+                                                         # past5 (about 4 minutes), settle5
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
 
 | file | md5 |
 | --- | --- |
-| `paper/response5.py` | `d3998502064b3df8fc1cb78a2866b71f` |
-| `docket68/n1star/N1STAR-PROOF.md` | `2401c6c81b7e92e3f2e92c9c0280d271` |
-| `docket68/n1star/N1STAR-LOG.md` | `d070950f2a057acdfd5ac045674a5c36` |
-| `docket68/n1star/README.md` | `66a4ad723d5881bea4f640ac104d1ce0` |
+| `paper/response5.py` | `9fba87043d3b28cf6f0c786647a820d3` |
+| `docket68/n1star/N1STAR-PROOF.md` | `9990dba339f259721ef47d0f1064b191` |
+| `docket68/n1star/N1STAR-LOG.md` | `452a9856298347e055a395746ec492cd` |
+| `docket68/n1star/README.md` | `bfeb6ef3a346dc4131d2480602d40588` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
 | `docket68/n1star/lead5.py` | `ba26d7df17f37eb6932d5b7133656d1a` |
 | `docket68/n1star/mass5.py` | `ebe2ee78219553f4b57a4200604752e5` |
 | `docket68/n1star/horizon5.py` | `962ca2fb9404bebbce8420075f080dbd` |
+| `docket68/n1star/past5.py` | `d6742977ac642377ecc3785759dd526c` |
+| `docket68/n1star/settle5.py` | `fd96c78bbebf8c57f2f6bcee2f3d52f3` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |
 | `docket68/lemmas/counterpart5.py` | `e7dcf7bf898c2147492d28c5fb888d18` |
 | `docket68/lemmas/kn_gauge.py` | `7e9e9ef8ec12e670f1717ec4fe8bd491` |
 | `docket68/lemmas/hf_core5.py` | `84b715eb461838abcb5e018cd455eb5c` |
+| `docket68/lemmas/seed_escape.py` | `1a8b2ff82872e7096f13bf891a10424c` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

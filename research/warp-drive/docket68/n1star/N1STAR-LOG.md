@@ -573,3 +573,54 @@ lam^2 env'^2) sin(2v/lam) + lam env env' cos(2v/lam)], so the integrated flux os
 passes and exceeds mu by exactly (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it. Turning that into a statement about
 a mass at past null infinity needs a five-dimensional mass law there and an expansion of g_lam beyond the r^-2 the
 estimates give; that stays OPEN (section 9.5). Theorem P is not yet read by a verifier.
+
+**D33 (2026-10-20, session decision): the two attacked items built on M's directions (N1STAR-PROOF.md section 10;
+`settle5.py` T1-T4, 4/4, mutants 4/4; `paper/response5.py` R7 extended).** Settling, on the copper study (read as
+seed_escape.py, the black-hole strand; a locator found no README for the study as a whole and no correction of D31's
+reading, so the reading stands until M corrects it): the class carries no vector-type perturbation and no linearised
+rotation (T1); the copper study's barrier is exactly the tensor-type potential of Cardoso, Lemos and Yoshida (T2);
+evolving it, and the scalar-type potential, in time reproduces their l = 2 continued-fraction frequencies to 1% (T3);
+the least-damped mode of the class, scalar-type l = 2, has e-folding time 3.905 r_h, 39-124 l5 at the study's seeds
+(T4). READ: Hung, Keller and Wang (arXiv:1809.05144v1) prove tau^-2 energy decay of the master quantities in dimension
+six and below, the l < 2 part pure gauge plus linearised Myers-Perry, and leave the metric components open; Schlue
+(arXiv:1012.5963v1) the same rate for the scalar wave. So linear settling holds in the class at the level of the
+gauge-invariant quantities; nonlinear settling stays open (its reduced problem is 2+1-dimensional, like Klainerman and
+Szeftel's polarized axisymmetric case in four dimensions). The wavelength: the Navier-Stokes direction is read at
+source as Alpoge and Buckmaster's programme of September 2026 (a locator and an extractor read their Boussinesq paper
+and the announcement): layers of exact waves with amplitudes solving ordinary differential equations on locally linear
+backgrounds; Chen and Hou's rigorous numerics is cited there and is not part of their proof. **D31's reading (3) is
+corrected accordingly.** What the method would change here is the parameter, lam/r in place of lam/L: 1.00, 0.32 at the
+horizon and 1.85, 1.04 on x_K = 1 (R7), small nowhere; and its wavelengths are chosen, while 10 l5 is prescribed. The
+finite-wavelength question stays open, with the route stated (a certified computed solution); the paper's section 8
+items carry both.
+
+**D34 (2026-10-20, session finding): a tenth verifier on Theorem P; one major gap, repaired (N1STAR-PROOF.md Lemma
+9.4b, Proposition 9.9; `past5.py` P8).** The verifier read section 9 whole and ran past5.py (7/7, mutants 7/7, P7's
+integration by parts re-derived by hand). It found the far region, the decay counting, the gauge argument, the
+radiation field, uniqueness and section 9.5 to hold, and one MAJOR gap: in Proposition 9.9 the forcing of Psi's
+transport omitted the commutator [box~, P] s, which the mollifier's shift makes of size ||d s|| with no decay in t;
+with it the near-region loop grows like exp(c t^(1/4)), which no power of lam absorbs. Its proposed repair was checked
+before use: P is the convolution followed by a radial shift, which in (tau, v, xhat) is v -> psi_tau(v) with psi
+depending on tau only through Delta(tau), so L0 (= d_tau at fixed v) commutes with it up to O(lam h'); and with box~ =
+-(1 + mu/r^2) L0^2 - 2 d_r L0 + (3/r) d_r + r^-2 Deltaring, the commutator is exactly -L0(2 (psi' - 1) C d_v g) plus
+terms with factors 1/r, mu/r^2, lam h' (P8, exact for every psi independent of tau; its control, psi depending on tau,
+fails). So Psi' := Psi - (1/2) X_s, X_s = 4 lam sigma_v C(d_r M s), is transported with a decaying forcing, and
+Proposition 9.9 is rewritten for it. The minor findings are seated: the transports are commuted with lam d_tau, lam
+d_r and Omega, which commute with L0 exactly, so their growth rates do not rise with the order (F2); beta0 depends on
+the bounds of g0, g1, g2 only, not on N (F3); the smoothness of the limit by tame linear estimates at fixed lam (F4);
+the hierarchy of constants in (9.7) and the convergence of the stage solutions with O(1) data for f (F5); Data(w) <= C
+lam^-1 N_P (F6); Lemma 9.5's bound on P+ (F7); four wording points (F8). The repair has not been read by a verifier:
+Theorem P is not claimed as PROVED, and the supplement's status lines say so. The earlier text was merged with PR #59
+as "not yet verified"; nothing there claimed it proved.
+
+**D35 (2026-10-20, session finding): an eleventh verifier on the repair; Theorem P PROVED.** The verifier read section
+9 after D34, ran past5.py (8/8, mutants 8/8) and rebuilt the commutator independently with mu = mu(v) and psi =
+psi(tau, v). Verdict: the repair closes the gap and Theorem P holds as stated; every step of D34's list and F2-F8 was
+re-derived and found sound. Two minor findings and four notes, all seated: the coefficient of the angular derivatives
+r^-1 Omega phi is E_(5/2), not E_(3/2), and D1 is taken as (d_tau phi, d_r phi, r^-1 Omega phi) with c0 = 0, 0, 1 so
+that its top order closes; Lemma 9.4b's remainder with mu(v) and psi(tau, v) has exactly the four further terms the
+verifier listed (mu(psi) - mu(v) and three with psi_t or psi_tt), each with a decaying factor, now stated and checked
+in P8 (an exact polynomial identity on e^(a tau + b v), with two controls: the psi_t terms left out, the mu term left
+out); the Z commute with the shift only up to bounded operators, which suffices; the data terms at tau_T are added to
+every line of (9.9); the rate of p in Theorem A_P's convergence step is corrected; B and C are fixed so that the
+constants close. These seated edits are the only text of section 9 no verifier has read after the edit.
