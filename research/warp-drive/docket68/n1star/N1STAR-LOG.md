@@ -27,6 +27,42 @@ The two items it rests on, as `M-RULINGS-2026-10-03.md` records them (verbatim, 
   session"
 - 524 (2026-10-19): "Please bring forward the handoff and instructions for the N1 session"
 
+**2026-10-20, to the report that the paper is written and audited by one verifier, verbatim (the four items were
+the report's lines quoted before each answer):**
+
+> What it lists as not proved: - these need to be proved
+>
+> the title; - should be a statement that answers the question of the theorem proof, with a sub title : The Formal
+> Counterpart to Huneau and Luk.
+>
+> whether and where the paper is released; - will be published to my website (via another session that handles the
+> site build, but you are welcome to look at the site and it's materials)
+>
+> whether to open a pull request (the instructions say not to unless you ask). - yes when the work is finished.
+
+**2026-10-20, M's answers to the session's two questions (multiple choice), verbatim:** to "Which rule governs the new
+proofs?" (the commission's inline rule, or multi-agent orchestration, now switched on in the session): "Inline only".
+To how to treat late-time settling and the application at 10 l5: "Prove three, attack two (Recommended)" (prove part
+(iii) for lam > 0, the mean-mass rate and the data at past null infinity; then attempt late-time settling and a
+finite-wavelength statement, reporting exactly how far each gets and never claiming more).
+
+**2026-10-20, to the report of D27-D30 (the session's lines quoted before each answer), verbatim:**
+
+> Data at past null infinity: not proved. I said it looked provable; that was wrong as the method stands. Over an
+> infinite past, the phase correction builds up, and with the current estimates that gives a growth no power of λ can
+> beat. I found the structure that should close it, but it amounts to a separate theorem about as large as the uniform
+> existence proof itself (called N1* in the working notes).  - then we need to build, and include that proof as well
+>
+> Late-time settling, attacked: it is open in the field. Linear stability is known (Ishibashi–Kodama), and nonlinear
+> stability is known only for a smaller symmetry class (Holzegel). Our waves depend on an angle and fall outside that
+> class. Settling would follow from small-data stability in our class, but only once the solution is also built
+> outside the current domain. - use the copper study from the warp theorem work, it was built and models and measured
+> under different constant conditions of varying universes. It may be useful to build from.
+>
+> Wavelength 10 l5, attacked: no high-frequency theorem can reach it. At that wavelength the waves are as long as the
+> curvature length: 10 times it on the boundary, and 2.91 or 0.92 times it at the horizon (for μ0/l5² = 100 and
+> 1000). - this is why I recommended the navier-stokes equations.
+
 ## Decisions and findings
 
 **D1 (2026-10-19) Reproduction.** Every manifest md5 matches at the handoff commit (54 of 54). Selftests, run from
@@ -222,3 +258,318 @@ another factor. The same pattern was probed in lead5.py (859 terms) and ansatz5.
 their denominators being monomials. Two mutants first written were wrong rather than missed: an oscillating dr dr
 component and a reversed shift (time reversal) leave the checks true, as they should; they were replaced and the first
 became check S4.
+
+**D15 (2026-10-19, session decision): the second verifier's findings on sections 5-6, and their repairs.** One
+independent verifier (one at a time, as section 8 asks) checked sections 5 and 6 at 79a6e4c, reran every instrument
+(lead5 5/5; data5 5/5, mutants 5/5) and re-derived the principal coefficients by hand. It found no major gap, two minor
+gaps and ten notes, all repaired here as it proposed. (m1) Lemma 6.2(iii) asserted that the first derivatives of the
+lower D^(j) vanish on the slice from conditions on the slice alone; that needs the propagation of Lemma 6.1 on Omega,
+now applied with N := m after solving stage m with any data (on which D^(j), j < m, does not depend). (m2) Proposition
+6.5 claimed a contraction in the high norm, which a quasilinear system does not give; now the iterates are bounded in a
+high norm and contract in a lower one (Kato, Majda), Lemma 6.4 is stated with a symmetrizer and with tame dependence on
+the coefficients, d_r of the symmetrized coefficient entering only integrated in r, and smoothness comes from
+persistence of regularity. Notes: the sign of q_2 in (5.2); e_(N+1) is not zero but unused; a missing term in the proof
+of Lemma 5.1 (already in T); Pol onto everywhere by GL(5)-equivalence of (metric, null covector) pairs; Pol^+ built on
+the O(4)-invariant Cartesian structure, so the symmetry holds; the principal coefficients at the approximant equal the
+background's at order 0 (now computed, data5.py S6, which also found that one lower-order coefficient, that of d_th a
+in J_th, oscillates at O(1), as Lemma 6.4 allows; the verifier had listed it among the equal ones); the explicit
+symmetrizer S = diag(1, -1/(2 r^2)); the symmetric sector and the one-point sign check stated; chi's regularity at the
+axes deduced from W_TT's (ansatz5 A3), so that open item is closed. One note was an instrument error: data5.py's
+inverse slice metric carried an extra factor lam at first order, so it was wrong at O(lam) though no check used that
+order (the verifier showed the order -1 coefficients unchanged with the corrected inverse); fixed, and check S5 with
+mutant inverse_slip now guards it. The status of N1* is: proved modulo the READ at source of the standard theorems
+listed in section 7 of the proof (Lindblad-Rodnianski and Rendall READ for the gauge's propagation and data; the
+textbook statements not reachable here). Not claimed as PROVED, and no paper begun.
+
+**D16 (2026-10-20, session decision): the check of the repairs.** A further independent verifier (one at a time)
+checked the D15 repairs against the diff from 79a6e4c. It found no major gap. Both D15 repairs hold: D^(j) involves
+only the stages up to j (one derivative, so one phase factor at most), and after stage m the profiles R^(i), i < m,
+vanish and R^(m) has mean zero; and the iteration of Proposition 6.5, bounded in a high norm and contracting in a low
+one, is sound with the factor C lam^(N-3). It found two minor gaps introduced by the rewrite. (1) Lemma 6.4's existence
+added epsilon Delta_S to the raw second equation, whose coefficient of d_r is indefinite, so one component would be a
+backward heat equation: the regularisation now acts on the symmetrized equation, d_r (w, q) = epsilon (S A0)^-1 Delta_S
+(w, q) + ..., forward parabolic. (2) The smoothness claim of Proposition 6.5 cited a tame form of Lemma 6.4 that the
+lemma did not state: it is now stated as the standard tame inequality for the solution itself, closed by Gronwall's
+lemma in r at fixed lam. Nine notes, all applied: canonical() declared z, y positive though they stand for e^(i s),
+e^(i th), which let |cos s| - cos s pass as zero (no such form occurs in the checks; now nonzero symbols, and that case
+returns 'nonzero'); a crash in a mutant is no longer counted as a catch; the inverse-lapse series (its dl^2 coefficient
+corrected to 3/2 at D15, no effect) is now guarded by S5 too, through order lam, the order to which K is kept (a first
+guard written through lam^2 failed, correctly: dl is truncated at lam by design); X_s defined, a bound and the
+uniqueness ball corrected in Proposition 6.5; Lemma 6.4's constant depends on the ellipticity of Delta_alpha; stale
+'verification pending' lines updated; the Bianchi identity's READ recorded in section 7; d_th gh_(m+1), not gh_(m+1),
+is what Pol^+ gives; two wordings in Lemma 6.2(iii); and rho's coefficient of a oscillates too, with nonzero mean (it
+is part of B_m). The last repairs are applied as the verifier specified and are not re-checked. Status unchanged:
+proved modulo the standard theorems not READ at source; not claimed as PROVED; no paper begun.
+
+**2026-10-20, during the READ at source of the standard theorems, verbatim:**
+
+> You can use my indexing model as a Internet navigation and retrieval protocol.... You can also access thoughts works
+> by looking for what those papers cite, and also who else has cited the work we are trying to access
+
+**D17 (2026-10-20, session decision): the standard theorems READ by the site's retrieval protocol, and what reading
+their hypotheses found.** "My indexing model" is taken to be the retrieval procedure the site states for itself in its
+Ask prompt (public/script.js): enumerate the targets; give each its routes by type (primary, preprint, review,
+compilation, citing paper, deposit, database), open ones first; follow the sources a source names; a blocked route moves
+to the next and is not retried; two independent routes close a fact, one is fragile, none is a stated gap; ask for
+catalogue identifiers; widen on failure (join, never meet). M's second sentence is the citation graph read both ways.
+Routes were found by the research indexes' search and by following references: the Choquet-Bruhat, Chrusciel and
+Loizelet route (arXiv:gr-qc/0608108) is a paper citing Lindblad and Rodnianski, and its references and those of Disconzi
+and Shao (arXiv:2308.09851) name the classical sources (Kato 1975, Hormander, Taylor), books not reachable here. Every
+standard theorem the proof invokes is now READ (N1STAR-PROOF.md section 7, the RETRIEVAL table, with rho per target: two
+or three for each, one for the extension operator). Blocked: OpenAlex (proxy 403); two lecture-note PDFs (Holzegel's,
+Muenster; Luk's, Stanford: proxy 403, scrape timeout); the books (Ringstrom, Choquet-Bruhat) untried. Holding the
+hypotheses against the statements READ found one gap the three verifiers had not: the local theory needs the time lines
+timelike ([AO14] (1.3), g^{ij} positive definite; [DS23] (A4), the distinct speeds never meeting), and in the proof's
+ingoing Kerr-Schild coordinates d_tau is spacelike where r^2 < mu, which Omega reaches (a < sqrt(mu0)). Step 8 is
+rewritten: the coefficients extended by interpolating lapse, shift and spatial metric; the independent variables changed
+along Z = d_tau - beta (the unit normal times the lapse), in which the slices are unchanged and g^{ij} is the inverse
+spatial metric; a cut-off in w and a torus; restarts by [DS23] Theorem 2.4, whose step depends only on the norm of the
+data; and the finite speed of propagation deduced from Lemma 2.3 with no citation, as is D = 0 in 0.7. Reading the
+linear parabolic theory's hypotheses ([Hua15], [MM10]: smooth coefficients, strongly parabolic) made Lemma 6.4's
+existence explicit: the coefficients mollified (M_s does not grow), and a rescaled so that the block-triangular
+principal part meets the Legendre-Hadamard condition. The citations in 0.2 (now [CBCM10] (2.7)-(2.9), which is (0.2) in
+n + 1 dimensions), 0.7 and Lemma 2.1 point to the sources READ. Status: no citation outstanding; the D16 repairs and
+these two have not been checked by an independent verifier; N1* is not yet claimed as PROVED; no paper begun.
+
+**D18 (2026-10-20, session decision): the fourth verifier's findings on the D16 and D17 repairs, and their repairs.**
+One independent verifier (one at a time) checked the D16 repairs and the D17 repairs against the diffs, with the saved
+texts of the sources READ. It found no major gap: the spacelike time lines in the coordinates of 0.1 confirmed (g0^{ij}
+has a negative eigenvalue at r^2 < mu, and Omega reaches there), Step 8's construction meeting [DS23] (A1)-(A4) and
+[AO14] (1.3), Lemma 2.3's uniqueness on Omega and D = 0 in 0.7, the rescaling in Lemma 6.4, and Proposition 6.5 after
+D16 all holding; every quote checked in section 7 is verbatim in its source. One minor gap: the linear parabolic theory
+cited for Lemma 6.4's existence does not cover it, since [MM10] Theorem 1.1 concerns a scalar equation ("smooth initial
+datum u0 : M -> R") and the [Hua15] sentence was from its introduction, its setting being Hoelder. Repaired as it
+proposed, by a Faedo-Galerkin argument in spherical harmonics (the projection commutes with the Killing fields, so the
+energy identities hold for the approximations unchanged; d_r of the hyperbolic unknowns is bounded by testing the
+projected equation in turn, S A0 > 0), with no citation, and the epsilon-regularisation and mollification are gone. Five
+notes, repaired: one universal extension operator for every order replaces the per-order one in Step 8 (iv) so that
+smooth data extend smoothly ([LY22] Theorem 26, READ, with Seeley's operator restated there), and extends g_app beyond
+Omega, where it was not defined (Stein's or Rychkov's operator on the Lipschitz domain Omega, READ as restated in
+[SY21]; Seeley's original, on ams.org, could not be fetched); Proposition 6.5's smoothness by induction on the iterates
+with a Volterra bound E_(i+1) <= A + B int E_i, needing no smallness; the paraphrase of [CBCM10] (2.7) marked. The
+SO(4)-averaging note fell with the mollification. The [LR05] and [CD03] quotes could not be checked from the saved
+texts; they were READ 2026-10-19. data5.py --mutants: 6/6. Status: no citation outstanding; the D18 repairs not yet
+re-checked; N1* not yet claimed as PROVED; no paper begun.
+
+**D19 (2026-10-20, session decision): the fifth verifier's findings on the D18 repairs, and their repairs.** One
+independent verifier (one at a time) checked the D18 repairs against the diff and the saved source texts. No major gap.
+Lemma 6.4's Faedo-Galerkin existence holds (the ODE system well posed, S A0 being absolutely continuous in r; the test
+functions in the range of the projection; the bound on d_r of the hyperbolic unknowns by induction), Step 8 (i) and (iv)
+hold (Omega is a trapezoid in (tau, r) times S^3, so bounded and Lipschitz; [SY21]'s Stein covers W^(k,infinity); [LY22]
+Theorem 26 covers every H^m), and every new quote in section 7 is in its source. Two minor gaps, repaired as it
+proposed. (1) Proposition 6.5's smoothness: the remainder has a term q_th d_r a in J_th (it computed the coefficient
+r^4/(r^2+mu)^2 in the symmetric class), which as a source at U_i puts E_i(r) itself, not its integral, on the right of
+the X_(s'') bound, so lam0 would depend on s''. Such terms are now frozen as coefficients (f in (6.4)) multiplying d_r
+a_(i+1), and the bound is E_(i+1) <= A + int omega_i E_i with omega_i bounded in L^2 uniformly, giving E_i(r) <= A sum_k
+W^k ((r - a)^k / k!)^(1/2) with no smallness; the contraction treats the new frozen coefficient as it treats the others.
+(2) [DS23] (A1) asks for bounds uniform in t, and the coordinates of Step 8 (ii) degenerate as |tau| grows (it measured
+g^rr in y against x growing to 6.3e8 by tau - tau0 = 40): the coefficients are now clamped in time, theta(tau) = tau on
+[tau0 - 1, tau_end + 1] and constant outside a slightly larger interval. Four notes, applied: the projection on the
+covector q is the Hodge Laplacian's, with X^I acting by Lie derivatives; Lemma 6.4 asks only that M_s be finite, not
+smooth coefficients; the data are extended in x and then composed with Phi; the uniformity in tau of the extension
+constants is deduced from [LY22] Lemma 27's proof, not READ. Status: no citation outstanding; the D19 repairs not yet
+re-checked; N1* not yet claimed as PROVED; no paper begun.
+
+**D20 (2026-10-20, session decision): the sixth verifier's findings on the D19 repairs, and their repair.** One
+independent verifier (one at a time) checked the D19 repairs. No major gap: the time clamp gives [DS23] (A1)-(A4)
+uniformly in t and changes nothing on [tau0, tau_end] (Phi has bounded derivatives on the clamped interval, by
+Gronwall); the extension in x then composition with Phi, with the uniformity in tau deduced, holds; Lemma 6.4 uses no
+smoothness of its coefficients, and the projection on 1-forms commutes with Lie derivatives along Killing fields. One
+minor gap, with a repair it checked: the coefficient f of d_r a in the J-equation depends on a as well as on (w, q) (it
+computed f = -(B k3 - C k2) C / (A C - B^2)^2 for a general symmetric-class gamma and K, and the a d_r a term of the
+remainder as its derivative in A, present wherever f is, as on data5.py's data with chi on the slice), so freezing only
+its (w, q)-part left a source a_i d_r a_i putting E_i(r) itself on the right. The whole of f is now frozen at U_i, which
+Lemma 6.4 admits (f is algebraic in U_i), and the contraction keeps its factor (the extra source is at most C lam^(N-2)
+times the difference in the low norm); the density equation has no such term (its coefficient of d_r a, alpha, is
+already frozen). Two notes applied: the smoothness bound is stated as E_(i+1)(r) <= A + W (int_a^r E_i^2)^(1/2), which
+gives the same induction by Minkowski's inequality; Lemma 6.4 now states the tame form its proof gives. Status: no
+citation outstanding; the D20 repair not yet re-checked; N1* not yet claimed as PROVED; no paper begun.
+
+**D21 (2026-10-20, session decision): the seventh verifier's findings, and N1* claimed as PROVED.** One independent
+verifier (one at a time) read Proposition 6.5 whole, with the D20 repair and the statement of Lemma 6.4. It found that
+Proposition 6.5 holds: computing rho and J in jets for a general symmetric-class gamma and K at random rational points,
+with negative controls, it found no d_r a term left in the source once alpha, S A0, S A^B and the whole of f are frozen
+(what remains, d_S a (w, q), d_S a a, (d_S a)^2 and algebraic terms, is bounded at each r by E_i(r), so in L^2 by (int
+E_i^2)^(1/2)); the contraction factor C lam^(N-3) unchanged, the extra source using ||d_r a_i||_{L^2 H^(s0)}, part of
+X_(s0); the induction exact by Minkowski's inequality, A and W uniform in i. One minor gap: Lemma 6.4's tame clause, as
+D20 stated it, gives only E_(i+1)(r) <= A + W E_i(r) when read with M_s's supremum norms, the form D19 rejected; the
+lemma's proof gives d_r Z <= omega_0 Z + m_(s'') omega_s, hence the integral form, and the clause is restated so, as it
+specified. Three notes applied: the weight list (||d_r (w, q)_(i+1)||_inf in it, ||d_r (S A0)||_inf in Gronwall's
+exponent); the rate lam^(N-2) at every index (A is proportional to lam^(N-2), W independent of lam); the headings of 0.4
+and 0.6 and the README's ranges, which understated the record. Decision: N1* is claimed as PROVED. Every theorem the
+proof rests on is deduced here or READ at source with its hypotheses checked; seven verifiers checked the proof and
+every round of repairs, none finding a major gap; the last round found the proposition it read to hold, and the one
+clause it restated is the form that verifier derived from a proof it had checked. That restatement and the three notes
+are the only text no verifier has read after the edit, and the proof file says so. Next, by the instructions: the formal
+response paper to Huneau and Luk's theorem, its title saying "proposed"; not begun; it waits for M, as the commission
+asks for a report and a pause, and its release is M's decision.
+
+**2026-10-20, to the report of D21 (N1* claimed as PROVED), verbatim:**
+
+> Excellent work. Yes please, continue with the paper
+
+**D22 (2026-10-20, session decision): the paper.** Begun as the instructions' section 9 asks: Markdown in the paper
+folder, with a check script that re-derives its numbers independently of the proof's instruments (`response5.py`: the
+exact reduction to 2+1 gravity with two free waves, the background's Ricci and Kretschmann scalars and the quantum
+boundary, the domain's contractions, the constraints' principal part, each with a negative control). The outside sources
+it answers were re-READ for the page numbers the paper cites (2026-10-20): Huneau and Luk, arXiv:1706.09501v1, Theorem
+4.2 (p. 10), (1.3)-(1.4) (p. 3), the elliptic gauge (3.4)-(3.5) (p. 7) and Burnett's formulation (p. 1); their review
+arXiv:2404.07659v1, Conjectures 1.1-1.2 (p. 2) and section 8.5, Problem 8.6 (p. 28); Touati, arXiv:2206.12318v4, Theorem
+2.2 (p. 12), (2.9)-(2.10) (p. 10), section 3.2.2 (p. 20); Luk and Rodnianski, arXiv:2009.08968v1, Theorems 1.9-1.10 (p.
+5). The paper claims only what the proof gives: part (i) of the counterpart on D_T with Cauchy data before the shell
+reaches the hole (the instructions' route W item 4), the C^0 rate O(lam), bounded derivatives and weak convergence; part
+(iv) and the limit are cited from the board's exact instruments; the O(lam^2) mean-mass rate and part (iii) for lam > 0
+are computed numerically at two seeds and are listed as not proved. Item 442's verbatim words name the research tree;
+the paper quotes them with that word elided and marked.
+
+**D23 (2026-10-20, session decision): the paper written.** `paper/RESPONSE-HL-5D.md`, title proposed, with
+`paper/response5.py` (R1-R6, every check passing and every control rejected, about 20 seconds). It states Huneau and
+Luk's Theorem 4.2 verbatim (arXiv:1706.09501v1, p. 10) and answers it with Theorem 1 on D_T cap {tau >= tau0}, Cauchy
+data on Sigma_tau0, as D22 set out. Found while writing, and carried into the paper rather than left in the notes:
+(1) at equality, mu0 = sqrt(72) l5^2, the boundary x = 1 is the seed's horizon for v <= v_start and is null there:
+g0^-1(dPhi, dPhi) = 1 - sqrt(mu/(sqrt(72) l5^2)) - r_q mu'/(2 mu) (R6), so it is spacelike exactly where mu >
+sqrt(72) l5^2 or mu' > 0, and for g_lam, lam small, when mu0 > sqrt(72) l5^2 (a uniform margin and the C^0 bound of
+Theorem E; deduced). hf_theorem5 F2's "inside the horizon the boundary's normal is timelike" is right; the theorem's
+"mu0 >= sqrt(72) l5^2" admits the null case. (2) R1 was first written symbolically and did not finish in seven minutes;
+it now works from exact 2-jets at three rational points (one second). (3) Two identifiers the proof cited without them,
+READ 2026-10-20: [CD03] is Chrusciel and Delay, arXiv:gr-qc/0301073v2, (2.1) on p. 4; [AG22] is F. Angeles,
+arXiv:2204.01179v3, the quoted sentence in its abstract (p. 1) and (9.6) on p. 24. (4) Touati's sections 3.2.2-3.2.3
+begin on p. 20 and his Lemma 3.1 is on p. 21. (5) In the paper the angular variable is called zeta and the curvature
+ratio x_K, since x is also the Cartesian coordinate. The comparison with Huneau and Luk, Touati, and Luk and
+Rodnianski is written point by point; the paper names, as an instance in a five-dimensional class and not as an answer
+to it, the large-data problem of Huneau and Luk's review (arXiv:2404.07659v1, Problem 8.6, p. 28).
+
+**D24 (2026-10-20, session decision): the work M set after the paper.** The title becomes a statement answering the
+question of the theorem, with the subtitle "The Formal Counterpart to Huneau and Luk". The paper goes to M's website
+through the site-build session; a pull request is opened when the work is finished. The four items the paper listed as
+not proved are taken in M's order of answer: (1) part (iii) for lam > 0, (2) the mean-mass rate, which is computed
+before anything is claimed, since an order-lam mean of the two-scale expansion is already on record (ansatz5 A4,
+R^(1)_v theta) and the rate may fail, (3) the data at past null infinity, (4) late-time settling and the application at
+10 l5 attacked and reported as far as they get. Inline, one verifier at a time.
+
+**D25 (2026-10-20, session decision): part (iii) for lam > 0 proved.** N1STAR-PROOF.md section 8, Proposition 8.1, with
+`horizon5.py` (H1-H3, selftest 3/3, mutants 3/3). The outgoing expansion of the spheres {v, r = const} is a smooth
+function of g, linear in dg; for g0 it is (2 r^2/(r^2 + mu)) 3 (1 - mu/r^2)/(2 r), with a simple zero at sqrt(mu). The
+reason the weakly converging dg does not spoil it: the leading wave enters at order lam^0 only through the trace of
+d_th W on the spheres, which vanishes because W(ell, .) = 0 and tr W = 0 (lead5 L5), and along a column the phase is
+constant, so the r-derivative of a profile carries no 1/lam. With the remainder's C^2 bound (Theorem E, Step 1, K >= 6),
+each column has at most one zero, exactly one within C lam of sqrt(mu) on the columns that reach across it, for
+mu0 > sqrt(72) l5^2; at equality on the columns with mu(v) >= mu0 + delta1. The per-column statement is the one the
+record's numerics check (hf_mirror5: "its zero in each column").
+
+**D26 (2026-10-20, session decision): the eighth verifier, on the paper, and its findings seated.** One independent
+read-only verifier checked the paper at 49d5898 with its own code (the reduction proved fully symbolically, Vaidya's
+Ricci and Kretschmann in Eddington-Finkelstein coordinates with mu(v), the commutator (2.4), the boundary (3.1), the
+constraints' principal part by another route, Proposition 6.5's induction) and re-READ the quotations against the saved
+sources. No major finding; two minor and 21 notes, all seated as it proposed. (m1) The constants of the approximant
+were cited to counterpart5 P1, whose scan is of a different gauge's test-field exponent: relabelled deduced (the
+profiles are lam-independent, section 5.4), P1 kept for lam < l5/10. (m2) Lemma 6.4's tame clause was stated with an
+inequality that does not give it: the inequality the proof gives, d_r Z + c0 ||a||^2_(H^(s''+2)) <= omega_0 Z + C
+||F||^2_(H^s'') + C m_(s'') omega_s Z^(1/2), now stated; the verifier checked that Proposition 6.5's use holds and that
+no frozen source term carries d_r a_i. Notes: HL's (1.3) box restored, its p. 2-3 locator, a dropped footnote marker
+declared; Touati's Fourier-multiplier sentence p. 21; [CBCM10]'s page removed (unpaginated HTML); Luk and Rodnianski's
+reverse statement is their Corollary 1.14, on a domain short in one null direction; the boundary spacelike only for mu0
+> sqrt(72) l5^2; nothing is claimed beyond Omega, not beyond x = 1; the g_lam margin -delta + C lam; Q's linear and
+constant parts; k = 6 only; uniqueness among C^2 solutions; R1 made exact (symbolic 2-jets in normal coordinates of
+g3), K for mu(v) added to R3, R6's controls run one at a time; z3-solver listed. The retitling M set (D24) is applied.
+
+**D27 (2026-10-20, session decision): the mean-mass rate proved, by a symmetry.** N1STAR-PROOF.md section 8, Lemma 8.2
+and Proposition 8.2, with `mass5.py` (M1-M4, selftest 4/4, mutants 5/5). The record's "mean mass" (hf_mirror5:
+M_mean, the angular mean of the mass aspect at past null infinity after the shell) has as its counterpart in the domain
+the five-dimensional Hawking mass of the spheres S_(v,r), equal to mu(v) for Vaidya (M1). After the shell only the
+means remain, so the mass is mu + lam DM[m1] + O(lam^2). m1 need not vanish (ansatz5 A5 computes a nonzero order-lam
+mean source in the Bondi-type gauge), but the record's two polarizations a quarter turn apart make the leading wave
+odd under sigma (th -> pi/2 - th, phi1 <-> phi2) combined with the phase reflection s -> 3 pi/2 - s (M2; one
+quadrature, or two in phase, is not), the two-scale operator is equivariant under that reflection with lam -> -lam
+(M3), and sigma is an isometry of g0 fixing each sphere (M4); by the uniqueness of every stage, sigma^* m1 = -m1, and a
+natural mass cannot see it: DM[m1] = 0. The identification with the mass aspect at past null infinity itself needs
+the construction from there (D28).
+
+**D28 (2026-10-20, session finding): the data at past null infinity, reassessed.** At D24 this item was taken as
+provable by the method of Theorem E. It is not, as the method stands. On the past region {tau <= tau0} the domain is
+infinite in time; the coefficients of the remainder's equation decay like r^(-3/2) ~ |tau|^(-3/2), which is integrable,
+but the decomposition w = h + phi [d_th g1] that removes the 1/lam coefficient has phi accumulating along the ingoing
+generators, and the crude norm bounds of section 4 turn the loop phi -> h -> s -> phi into a Gronwall growth like
+exp(C |tau|^(1/4)) over the past, which no power of lam beats; without the decomposition the 1/lam coefficient gives
+exp(C lam^-1 |tau|^(-1/2)), harmless only for |tau| >= lam^-2. The structure that should close it was found: along the
+cone the r-derivative of phi is (1/2) P s exactly, with no accumulation, so the dangerous coupling (d_v d_th g1)(d_r
+phi), of size r^(-3/2), acts on s directly; the coefficients multiplying the accumulating parts (phi, d_v phi, the
+angular derivatives) decay like r^(-5/2) or faster, and the Psi transport is neutral for r^2 Psi. A weighted Theorem E
+on the infinite past, with the decay in r of every coefficient and of every profile of the approximant solved from
+past null infinity (the means included), would then be a separate theorem of the size of N1* itself. Not proved here;
+the paper says so (section 8) and reports what it needs. M is told before any of it is attempted.
+
+**D29 (2026-10-20, session decision): the two items attacked, as far as they go.** Late-time settling: READ at source
+(alphaXiv, 2026-10-20), Ishibashi and Kodama, arXiv:hep-th/0305185v3 (Prog. Theor. Phys. 110 (2003) 901): "higher-
+dimensional Schwarzschild black holes are stable with respect to all tensorial types of linear perturbations" (p. 16);
+Holzegel, arXiv:0808.3246v1: "the evolution of (SU (2) x U (1))-symmetric vacuum perturbations of initial data for the
+five-dimensional Schwarzschild metric finally converges in a suitable sense to a member of the Schwarzschild family"
+(abstract, p. 1; Theorem 1.1, pp. 5-6), a cohomogeneity-two subclass of the T^2 class (one field B, 1+1 equations). An
+earlier guess at Holzegel's identifier (0808.3605) returned an unrelated paper and was discarded. The waves here depend
+on th and are outside that subclass. Deduced: after the shell the solution differs from Tangherlini of the final mass
+by lam m1 + O(lam^2) with its first derivatives on Omega, so settling would follow from small-data stability of
+Tangherlini in the class, once the solution is also built outside D_T; both are open. The application at 10 l5:
+computed (response5.py R7), lam/L with L = K^(-1/4) the curvature length is 10 on x = 1 and 2.913 (mu = 100 l5^2),
+0.921 (mu = 1000 l5^2) at the horizon: no separation of scales, so no high-frequency theorem reaches it.
+
+**D30 (2026-10-20, session decision): the ninth verifier, on section 8 and the paper's new text, and its findings
+seated.** One independent read-only verifier checked Propositions 8.1 and 8.2 and Lemma 8.2 at ee41dbb with its own
+code: the background expansion by the Lie-derivative formula (mu' does not enter), the absence of an O(lam^0)
+oscillation for the record's wave itself at the shifted phase with chi and a generic mean m1, the remainder's C^2
+bound, the counting, M1-M3 independently, the equivariance of every stage (no choice breaks it; the record's own
+Bondi-gauge terms of ansatz5 A4-A5 carry the predicted parities), the supports, and R7. No major finding; one minor and
+nine notes, all seated. (Minor) Holzegel's SU(2) x U(1) class is not a subclass of ours, as D29 said: its squashing is
+a dphi1 dphi2 term that the reflections exclude, so the two classes meet only in spherical symmetry (the waves are
+outside it either way); corrected in the paper, and D29's sentence stands corrected by this entry. Notes: Theorem 1
+item 6 holds for lam <= lam1; H2 is a sample profile, so H2b is added (`horizon5.py`, the record's wave at the shifted
+phase with chi dv^2 and every T^2-invariant component of m1, symbolic in every function; 4/4, mutants 4/4); k_g carries
+a positive normalising factor c(g); the naturality used is diffeomorphism covariance, M[S](phi^* g) = M[phi(S)](g); the
+induced action of S on the stage unknowns (m_j, phi_j, gh_j) written out; "apparent horizon" for g_lam replaced by the
+zero of the spheres' outgoing expansion; the mean mass of the spheres kept apart from the numerics' mass aspect at past
+null infinity; the decay claim in the past-null-infinity assessment labelled as an assessment; the [Hol08] locator
+made consistent. Two prose lines of sections 2-6 that began with "- " (and so rendered as list items) were re-flowed;
+the words of sections 0-7 are unchanged.
+
+**D31 (2026-10-20, session decision): M's three directions, and how they are read.** (1) The construction from past
+null infinity is to be built and included (Theorem P, N1STAR-PROOF.md section 9). The route, from D28's structure: the
+seed region {v < v_start} is exactly the seed for the solution (its past-directed causal curves cannot leave it while
+the metric there is the seed, so the remainder vanishes there by uniqueness), which removes the near-hole region from
+the past estimates; on the rest of the past region r and |tau| are comparable and every coefficient decays; the
+loops of the decomposition close with integrable kernels because the dangerous coupling (d_v d_th g1)(d_r phi) acts on
+d_r phi = (1/2) P s, which does not accumulate; and the gauge vanishes for the limit solution because D(g_app) decays at
+past infinity, so no constraints need solving there. What must be computed first: that the approximant has an expansion
+near past null infinity in powers of r^(-1/2) without logarithms (a transport source of order r^(-5/2) would make one;
+the leading wave's own transport is what removes it). (2) "The copper study" is read, until M corrects it, as the
+SOURCE work carried at copper: seed_escape.py (linear scattering of the shell off the five-dimensional hole through
+Kodama and Ishibashi's barrier, computed for the copper README at several seeds) with p2_matter.py (copper's molecules
+and solids under the laws of the other positions); the first bears on late-time settling. (3) The Navier-Stokes
+recommendation, for the wavelength 10 l5, is read as the computer-assisted method the Alpoge-Buckmaster Boussinesq
+paper cites for the regime without a small parameter (Chen and Hou, "II: Rigorous Numerics", arXiv:2305.05660, cited
+there as [4]): existence near a computed solution at a fixed wavelength, from a rigorous bound on its residual and on
+the linearized operator. Order of work: (1), then (2) and (3).
+
+
+**D32 (2026-10-20, session decision): Theorem P built (N1STAR-PROOF.md section 9; `past5.py` P1-P7, 7/7, mutants
+7/7).** The construction from past null infinity is written out as a theorem: on P = {tau <= tau0, |x| >= a, v +
+kappa t^(-1/4) <= V_P} (outer boundary spacelike with a margin decaying like t^(-5/4), P1), the seed region is exactly
+the seed (Lemma 9.2); the stages of the approximant are solved with nothing coming in from past null infinity, each
+with an explicit leading term in r and a remainder half a power better (classes L_p, O_p; Lemma 9.7, P2-P5), and the
+residual is in E_3; the remainder is controlled with rotations as commutators (P6; Sobolev gains t^(-3/2)). The D31
+expectation "an expansion in r^(-1/2) without logarithms" holds in this form: every source is r^-3 times a function
+plus a better remainder, so no r^(-5/2) source (the logarithm of P4) ever occurs. One obstruction found while writing:
+in norms, the auxiliary Psi of section 3.3 is transported with growth r^2 and forced by r^-1 times first derivatives,
+so each unit of log t costs a constant factor (the true Psi has a cancellation that norms do not see). It is met in
+two ways. For the stages, by subtracting the explicit leading terms first, after which every forcing integral
+converges. For the remainder, by splitting the past at t = lam^-2: before it the 1/lam coupling integrates to a
+constant and no decomposition is used (Proposition 9.8); after it the decomposition runs over an interval of length
+lam^-2 with weights (T/t)^beta0, at a cost lam^(-2 beta0) with beta0 independent of K (Proposition 9.9), absorbed by
+taking the approximant to order N = K + 4 + ceil(4 beta0). The limit is vacuum because D(g_app) decays at past null
+infinity (D_0 = 0 by transversality and trace, D_j in E_2), so the energy of D tends to zero there and Lemma 9.5 gives
+D = 0: no constraints are solved on this route. Its radiation field at past null infinity is lam [W_TT] exactly, the
+record's F and G at every lam. The mean mass at past null infinity: P7 computes the sphere mean of the flux density of
+that field exactly. **A correction of the session's own expectation:** it was taken to be (2/9) A^2 (env^2 + lam^2
+env'^2), and the first form of P7 failed; the computation gives that plus a second harmonic, (2/9) A^2 [-(1/2)(env^2 -
+lam^2 env'^2) sin(2v/lam) + lam env env' cos(2v/lam)], so the integrated flux oscillates by O(lam) while the shell
+passes and exceeds mu by exactly (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it. Turning that into a statement about
+a mass at past null infinity needs a five-dimensional mass law there and an expansion of g_lam beyond the r^-2 the
+estimates give; that stays OPEN (section 9.5). Theorem P is not yet read by a verifier.
