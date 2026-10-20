@@ -123,8 +123,9 @@ INSIDE_BOUND = {("ENCODE", 437): "the encoding is integers only, the same under 
 DEF_READING = {"R0": "R0", "R1": "R1", "R2": "R2", "R6": "R6", "RECON": "437", "B6'": "201"}
 # [item 489] R1 OPEN and twelve rows with it (the 488 verification's F1, F3, F5); [item 491] F1's and F3's premise
 # withdrawn (432 (2), 163, 418, 336/386): R1 back as M's definition (r1_exact), FACE2s, FACE2 and the eight on them
-# proved (face2_release); SOURCEs and SOURCE stay OPEN on F5
-OPEN_489 = {"SOURCEs", "SOURCE"}
+# proved (face2_release); SOURCEs and SOURCE stay OPEN on F5; [item 534] SOURCEs and SOURCE COMPUTED-THEORIZED, which
+# closes them (M: 'label them as computed')
+OPEN_489 = set()
 # item 465, OBSTACLES rank 4: rows re-derived without a REDERIVE reading (rederive.py X1-X9, its selftest the check);
 # the reading keeps its status, the row no longer rests on it
 REDERIVED = {("R4", 155): "X1 (155 (2), a definition)", ("R5", 155): "X1 (155 (3), established)",
@@ -249,7 +250,7 @@ def selftest(quiet=False):
         set(passing) and {"O1a", "O1b", "O1c", "M1", "Z3b", "Z3bs", "B4d", "B4ds"} <= set(passing) \
         and {"ARRIVAL", "RECON"} <= set(passing) and set(a) - set(passing) == OPEN_489
     ok.append(r); say("Q3 %d rows pass; the 441 three, B5b, B6', CLOSEs, E1u(s) and eight of the ten on 273 (483) among them; "
-                      "SOURCEs and SOURCE, OPEN since 489, wait on their own claims (491: FACE2s, FACE2, the eight on "
+                      "none waits (534: SOURCEs and SOURCE COMPUTED-THEORIZED; 491: FACE2s, FACE2, the eight on "
                       "them and R1 back): %s" % (len(passing), r))
     say("%d/%d" % (sum(ok), len(ok)))
     return all(ok)

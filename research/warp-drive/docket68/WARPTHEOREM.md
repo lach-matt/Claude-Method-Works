@@ -45,8 +45,8 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - Small end: **2π²r_h³ = 4N ln2 l₅³** (C2 verified).
   - Large end: 4πr₀² = N A_bit.
 - **(O) One way.**
-  - The passage is **one object**: our black-hole face, a quantum bounce, and position 2's white-hole face (270, 273,
-    282).
+  - The passage is **one object**: our black-hole face, 273's quantum bounce (its transition surface, `transition5q`),
+    and position 2's white-hole face (270, 273, 282). *[Named exactly at 534.]*
   - It is one-way **in every aspect**. Nothing from position 2 enters it, and no influence runs back (276).
   - Its faces begin at the opening. Before that, the two positions are joined through the bulk with no horizons
     (282 (2)).
@@ -98,7 +98,18 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 533 (the theorem reevaluated).** Every one of the 82 rows was read against its latest notes
+**Where it stands, at item 534 (closed on M's ruling).** SOURCEs and SOURCE are COMPUTED-THEORIZED (M: "label them as
+computed"; "COMPUTED-THEORIZED, which for our purposes closes the items in the warp theorem and map"): every one of the
+82 rows passes -- 74 PROVED, 6 DEFINITION, 2 COMPUTED-THEORIZED -- and T2 is entailed with none open. Every need SOURCE
+names is computed (reader, emitter_process, hf_limit5, hf_core5, hf_theorem5, seed_escape, seed_types, seed_derive,
+seed_second). The proof for every lambda (N1*) is completed in its own session (n1star/N1STAR-PROOF.md, branch
+ccr-66909215-gi0qa5) and, with its response paper, is not needed here; it is cited. M1's claim reads "(PROVED since
+item 478)". "The bounce" audited: it is relevant -- 273's transition surface, the passage's one route past the
+classical end at r = 0 (core_large K7) -- and is kept, named exactly in O1a and in (O); O1bs and O1cs, which leaned on
+c4_residue R6's specified metric, rest on transition5q. What PROVED rests on is as named at 533. BOUNCE-RESEARCH
+section 59.
+
+**Where it stood at item 533 (the theorem reevaluated).** Every one of the 82 rows was read against its latest notes
 and 441's standard, the claims scanned for stale or excluded wording, and the record's other open lists, the N1*
 session's branch and T1 read. 80 rows stand: 74 PROVED and 6 DEFINITION. Every "OPEN" inside a PROVED row's notes is
 history (489's F1 on position 2's face, reversed at 491 by face2_release; item 362's notes, superseded at 424-428; the
@@ -2177,6 +2188,13 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 534** (M: SOURCEs and SOURCE "label them as computed"; COMPUTED-THEORIZED "closes the items in the warp
+  theorem and map"; the every-lambda proof and the paper "not need here"; M1 "update to proved"; "the bounce" removed
+  if no longer relevant, the theorem audited for what relies on it). SOURCEs and SOURCE COMPUTED-THEORIZED: all 82 rows
+  pass. M1's claim to "(PROVED since item 478)". The bounce is relevant -- 273's transition surface -- and is named
+  exactly in O1a and (O); O1bs and O1cs re-pointed from c4_residue R6 to transition5q; b_bounce.py and bounce_scope.py
+  support no row. pass_audit, phase2 and map_audit carry the new status; pass_audit P1, failing silently since 498 on
+  hf_mirror5_derive.py, set right. SOURCE-REQUIRED "Item 534"; BOUNCE-RESEARCH section 59.
 - **Items 531-533** (531 and 532: "Yes , b please" re-sent after two container restarts during the build; 533: "Please
   reevaluate the warp theorem and let's determine what is still open"). The 82 rows re-read against 441: 80 stand
   (74 PROVED, 6 DEFINITION), every open mention in a PROVED row's notes is history; open are SOURCEs and SOURCE (put to

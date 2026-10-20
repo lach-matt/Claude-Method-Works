@@ -5,6 +5,21 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 534: SOURCEs and SOURCE COMPUTED-THEORIZED, on M's ruling
+
+M, 534: "label them as computed. SOURCE can be label computed." ... "Compute items in this ruling can be marked
+COMPUTED-THEORIZED, which for our purposes closes the items in the warp theorem and map."
+- **Status.** SOURCEs and SOURCE are COMPUTED-THEORIZED, which closes both rows in the theorem and on the map; every
+  row of the register passes (74 PROVED, 6 DEFINITION, 2 COMPUTED-THEORIZED).
+- **What the status covers** (computed, each by its instrument): the device that reads (reader.py, 492); the bulk
+  emitter's process (emitter_process.py, 496); the five-dimensional high-frequency limit (hf_limit5.py, 497) and its
+  sequence onto the seed with nothing cut out (hf_core5.py, 506) under THM-HF5 (hf_theorem5.py, 511); the seed's escape
+  (seed_escape.py, 522) on both wave types (seed_types.py, 525); the seed and the wavelength derived (seed_derive.py,
+  527); the second order on the record's own equations (seed_second.py, 530: 2.0e-18 half bits at the derived point).
+- **Not needed here** (534 (2)): the proof for every lambda (N1*), completed in its own session
+  (docket68/n1star/N1STAR-PROOF.md, branch ccr-66909215-gi0qa5), and the response paper to Huneau and Luk, being
+  written there. Cited, not copied.
+
 ## Item 530: the second order of the record's own equations at 2w, exact (route b)
 
 M, 530: "Yes , b please" -- the second-order source derived symbolically from the record's own equations, the l = 2

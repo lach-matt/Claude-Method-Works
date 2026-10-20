@@ -27,7 +27,8 @@ FACE2: face2_release).  M's definitions -- R0, R1, R2, R6, RECON, B6' -- stand a
   (H) HOLDING    its horizon holds the README: 2 pi^2 r_h^3 = 4 N ln2 l5^3 at the small end (C2 verified), 4 pi r0^2 =
                  N A_bit at the large -- exactly once written, in the mean during the write (1.3e8 bits of 2.74e15,
                  passage_est Q6);
-  (O) ONE WAY    the passage is one object -- our black-hole face, a quantum bounce, position 2's white-hole face (270,
+  (O) ONE WAY    the passage is one object -- our black-hole face, 273's quantum bounce (its transition
+                 surface, transition5q), position 2's white-hole face (270,
                  273, 282) -- one-way in every aspect: nothing from position 2 enters it and no influence runs back
                  (276); its faces begin at the opening, the positions joined before it through the bulk with no
                  horizons (282 (2)); its horizon is not extremal -- surface gravity c^2/r_h at the small end, 1/(4M)
@@ -121,6 +122,9 @@ theorem stops at SOURCE.]
 tolerance: the README arrives whole and position 2 recovers it exactly; its two witnesses, the README and the corridor,
 hold one N.  SOURCE's reading device derived from the math (reader.py): defined, started, required and executed as the
 theorem requires.  SOURCE stays OPEN on the bulk emitter's process.]
+[Item 534: SOURCEs and SOURCE COMPUTED-THEORIZED on M's ruling ('label them as computed'), which closes
+them: no row of the theorem is open.  The proof for every lambda (N1*) completed in its own session, not needed
+here.  M1's claim to proved; 'the bounce' audited and kept as 273's transition surface (BOUNCE-RESEARCH 59).]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -1501,6 +1505,50 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_530_SOURCE
     _rows_530.append((c, n, s_, t))
 LEMMAS_NOW = _rows_530
+# [item 534] M: SOURCEs and SOURCE "label them as computed" -- COMPUTED-THEORIZED, which "for our purposes closes the
+# items in the warp theorem and map" (M-COMPUTED-THEORIZED); the proof for every lambda (N1*) completed in its own
+# session and not needed here; M1's claim updated to proved; "the bounce" audited -- relevant (it is 273's transition
+# surface, computed), so kept and named exactly; the small end's rows that cited it as named, not constructed, pointed
+# to its computation (BOUNCE-RESEARCH section 59).
+NOTE_534_SOURCE = ("  [Item 534] COMPUTED-THEORIZED (M: 'label them as computed'; 'COMPUTED-THEORIZED, which for our "
+                   "purposes closes the items in the warp theorem and map'): every need named is computed -- the "
+                   "device that reads (reader A1-D5), the bulk emitter's process (emitter_process A1-D4), the "
+                   "high-frequency limit and its sequence onto the seed (hf_limit5, hf_core5, hf_theorem5), the seed "
+                   "(seed_derive), the delivery within half a bit at first order (seed_escape, seed_types) and at "
+                   "second order on the record's own equations (seed_second).  The proof for every lambda (N1*) is "
+                   "completed in its own session (research/warp-drive/docket68/n1star/N1STAR-PROOF.md, branch "
+                   "ccr-66909215-gi0qa5 at acd79676, D21) and, with its response paper, is not needed here (534)")
+NOTE_534_SMALL = ("  [Item 534] The quantum region this row's passage crosses is 273's transition surface (its quantum "
+                  "bounce: the 3-sphere's radius reaching its least value B_T > 0 inside x >= 1 and growing again into "
+                  "position 2's white hole), computed at the small end's own five-dimensional form by transition5q "
+                  "H5, H7, H9-H10 -- one transition surface, curvature bounded (l5^4 K at most 0.292 for every mass), "
+                  "every causal curve across in 2 r_h of proper time, no Cauchy horizon -- which replaces "
+                  "c4_residue R6's specified effective metric ('the bounce named, not constructed') and c1_oneway's "
+                  "naming; so this row rests on 273's computed transition as the ten rows do")
+NOTE_534_O1A = ("  [Item 534] 'The bounce' audited (M: 'if it is no longer relevant to the theory then remove it "
+                "entirely and audit the theorem for anything that relies on it'): it is relevant and kept -- it is "
+                "273's transition surface, where the 3-sphere's radius reaches its least value inside the quantum "
+                "region and grows again into position 2's white hole (transition5q H5; transition5r R1 'a quantum "
+                "bounce'); without it the classical interior ends at r = 0 (core_large K7) and the passage has no "
+                "route.  Not "
+                "classical (318), not semiclassical (C9), no inner or Cauchy horizon (transition5q H10), and only "
+                "information crosses it (386).  The claim names it exactly")
+_rows_534 = []
+for c, n, s_, t in LEMMAS_NOW:
+    k = n.split()[0]
+    if k == "M1":
+        n = n.replace("(OPEN since item 232)", "(PROVED since item 478)")
+    if k == "O1a":
+        n = n.replace("our black-hole face, the bounce, position 2's white-hole face",
+                      "our black-hole face, 273's quantum bounce (its transition surface, transition5q), position 2's "
+                      "white-hole face")
+        t = t + NOTE_534_O1A
+    if k in ("O1bs", "O1cs"):
+        t = t + NOTE_534_SMALL
+    if k in ("SOURCEs", "SOURCE"):
+        s_, t = "COMPUTED-THEORIZED", t + NOTE_534_SOURCE
+    _rows_534.append((c, n, s_, t))
+LEMMAS_NOW = _rows_534
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1784,11 +1832,11 @@ def report(d):
                 print("  (%s) %-6s %s  [%s]" % (c, status, name, where))
     a, b, c = d["t1"], d["t2"], d["t3"]
     counts = {k: sum(1 for l in LEMMAS_NOW if l[2] == k) for k in ("DERIVED", "DEFINITION", "PROVED", "READING",
-                                                                     "NATURE", "OPEN")}
+                                                                     "NATURE", "OPEN", "COMPUTED-THEORIZED")}
     print("\n%d lemmas: %d PROVED, %d DERIVED from your more basic rulings, %d PROVED under a named board READING, "
-          "%d your DEFINITIONS, %d NATURE, %d OPEN" % (len(LEMMAS_NOW), counts["PROVED"], counts["DERIVED"],
-                                                       counts["READING"], counts["DEFINITION"], counts["NATURE"],
-                                                       counts["OPEN"]))
+          "%d your DEFINITIONS, %d NATURE, %d COMPUTED-THEORIZED (534), %d OPEN" % (
+              len(LEMMAS_NOW), counts["PROVED"], counts["DERIVED"], counts["READING"], counts["DEFINITION"],
+              counts["NATURE"], counts["COMPUTED-THEORIZED"], counts["OPEN"]))
     print("   the record's register through item 247 (LEMMAS, kept): %d rows, %d OPEN; superseded since: %s"
           % (len(LEMMAS), len(d["t2_record"]["open"]), ", ".join(r[1].split()[0] for r in SUPERSEDED_NOW)))
     print("T1 proved lemmas re-run: E = %.8f J x sqrt(N); H1/G3/O1 %s; Z1 %s; Z2 %s; B1 %s; O2 (the record's, eq. "

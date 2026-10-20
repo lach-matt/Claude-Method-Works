@@ -3299,3 +3299,40 @@ M, 533: "Please reevaluate the warp theorem and let's determine what is still op
 - **The map's panel** "The passage through the bulk · computed in the conversation, not verified, not seated" (446-466):
   stages 1-2 and P3's interior rest on the charged hole's inner horizon, ruled out (471, 481; STALE-LEDGER S32); no
   row cites wh5_dictionary, stage2_inner, corridor_p1-p3 or p3_double_null (checked). Record only.
+
+## 59. The theorem closed on M's ruling; the bounce audited (534)
+
+M, 534: "They are waiting on your ruling on PROVED. - label them as computed. SOURCE can be label computed." ... "Open
+outside the register - 1 & 2 are not need here, but the proof was completed. This paper is currently being written."
+... "M1's claim ... - update to proved" ... "O1a's claim says "the bounce" ... - if it is no longer relevant to the
+theory then remove it entirely and audit the theorem for anything that relies on it" ... "Compute items in this ruling
+can be marked COMPUTED-THEORIZED, which for our purposes closes the items in the warp theorem and map."
+- **The register.** SOURCEs and SOURCE carry the new status COMPUTED-THEORIZED, which passes (pass_audit PASSING,
+  phase2, map_audit's chip "Computed · theorized"). LEMMAS_NOW: 74 PROVED, 6 DEFINITION, 2 COMPUTED-THEORIZED; T2
+  entailed, none open. Every need SOURCE's specification names is computed: reader A1-D5 (492), emitter_process A1-D4
+  (496), hf_limit5 (497), hf_core5 (506), hf_theorem5 (511), seed_escape (522), seed_types (525), seed_derive (527),
+  seed_second (530).
+- **Outside the register.** The proof for every lambda (N1*) is completed in its own session
+  (research/warp-drive/docket68/n1star/N1STAR-PROOF.md on branch ccr-66909215-gi0qa5 at acd79676, D21, seven
+  verifiers) and, with the response paper being written there, is not needed here (534 (2)). It is cited, not copied,
+  so the two branches meet without an add/add conflict.
+- **M1.** The claim's wording brought to its status: "(OPEN since item 232)" now reads "(PROVED since item 478)".
+- **The bounce, audited.** Asked whether "the bounce" is still relevant: it is. The word names 273's transition
+  surface, where the 3-sphere's radius reaches its least value B_T > 0 inside the quantum region and grows again into
+  position 2's white hole (transition5q H5; transition5r R1 calls it "a quantum bounce"). Without it the classical
+  interior ends at r = 0 (core_large K7) and the passage has no route; with it the passage crosses one transition
+  surface with curvature bounded (l5^4 K <= 0.292), in 2 r_h/c, with no inner or Cauchy horizon (H10). It is not the
+  classical bounce (318) nor the semiclassical one (collapse_bulk C9), which the record excludes. So it is kept and
+  named exactly: O1a's claim and the statement's (O) read "273's quantum bounce (its transition surface,
+  transition5q)".
+- **What relies on it.** On the transition: O1a, O1b, O1c, Z3b, Z3bs, M1, B3, B3s, B4d, B4ds (the ten), FACE2s and
+  FACE2 (transition5q), H2 (the equal mass). Two rows leaned on an older form: O1bs and O1cs cited c4_residue R6's
+  specified effective metric ("the bounce named, not constructed") and c1_oneway's naming; both are re-pointed to the
+  computed transition at the small end's own five-dimensional form (transition5q H5, H7, H9-H10). Two instruments
+  support no row: b_bounce.py (273's owed item (b), the construction named, item 273) and bounce_scope.py (443 (2)'s
+  scoping; its semiclassical inner-horizon parts B2 and B4 struck from its checks at 484, M-NO-CAUCHY). Both stay as
+  record; neither is cited by a row.
+- **An audit set right.** pass_audit P1 (every instrument a row cites is in T1) had failed silently since 498, when
+  SOURCE's notes cited hf_mirror5_derive.py -- an equation generator with no selftest, its output carried by
+  hf_mirror5 X0-X7, which T1 runs. pass_audit is not in T1, so the theorem's selftest did not see it. Set aside as an
+  equation generator; P1 passes.

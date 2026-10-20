@@ -17,7 +17,8 @@ reads the page against the record).  Worked in the conversation; not verified; n
   [456: M, "most of the warp theorem map is still stale.  Review ALL aspects of the map please."  Four more, so that
   what the review set right is held at every render.]
   A8 (computed) Every row's chip is phase2's audit (442): Passes, Re-derive with the items it waits on, Beyond 273, or
-     Deferred; its row class agrees; every register row stands on the page.
+     Deferred -- and Computed · theorized for a passing row the register marks COMPUTED-THEORIZED (534); its row class
+     agrees; every register row stands on the page.
   A9 (computed) Every station's colours are its rows': the head's dot the worse end, the strip's two tags each end's,
      the pills naming exactly the rows that do not pass at each end.
   A10 (computed) Outside the folds kept as record, every range of items opened at 441, 446 or 450 ends at the
@@ -68,6 +69,14 @@ def register_ids():
     return [row[1].split()[0] for row in mod.LEMMAS_NOW]
 
 
+def register_status():
+    """[item 534] each row's register status, so a COMPUTED-THEORIZED row is chipped as such"""
+    spec = importlib.util.spec_from_file_location("ma_wt2", THEOREM)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return {row[1].split()[0]: row[2] for row in mod.LEMMAS_NOW}
+
+
 def t1_since(first=FIRST):
     """T1's lemma files from the '# item NNN' comment numbered >= first onward"""
     src = open(THEOREM, encoding="utf-8").read()
@@ -93,7 +102,8 @@ def phase2_audit():
 
 def klass(aud, rid):
     """phase2's standing of a row: ok passes, read waits on a reading, open rests on 273 or is OPEN on its own claim
-    (item 489: FACE2s, FACE2 and the rows on them, SOURCEs and SOURCE, R1), def deferred"""
+    (item 489: FACE2s, FACE2 and the rows on them, SOURCEs and SOURCE, R1), def deferred; [534] a COMPUTED-THEORIZED
+    row passes (ok)"""
     w = aud[rid]
     if not w:
         return "ok"
@@ -110,8 +120,10 @@ def waits(aud, rid):
     return sorted(out, key=lambda n: (n != "273", int(n)))
 
 
-def chip(aud, rid):
+def chip(aud, rid, status=None):
     k = klass(aud, rid)
+    if k == "ok" and (status or {}).get(rid) == "COMPUTED-THEORIZED":     # [item 534] M: 'label them as computed'
+        return k, "Computed · theorized"
     if k == "open" and any("own claim (OPEN)" in x for x in aud[rid]):
         return k, "Open"
     return k, {"ok": "Passes", "def": "Deferred", "open": "Beyond · 273"}.get(k) or \
@@ -196,12 +208,13 @@ def audit(page, quiet=False):
     r = p.err == 0 and not p.st
     ok.append(r); say("A7 the elements nest: %s" % r)
     aud = phase2_audit()
+    rst = register_status()
     rows = re.findall(r'<li class="(lm[^"]*)"><span class="chip (\w+)">([^<]*)</span><div class="what"><b>([^<]+)</b>',
                       page)
     bad = []
     for cls, ck, txt, rid in rows:
         rid = html.unescape(rid)
-        k, want = chip(aud, rid) if rid in aud else (None, None)
+        k, want = chip(aud, rid, rst) if rid in aud else (None, None)
         if (ck, html.unescape(txt)) != (k, want) or cls not in ("lm shared", "lm" + LMCLS.get(k, "?")):
             bad.append(rid)
     on_page = {html.unescape(r[3]) for r in rows}

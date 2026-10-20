@@ -108,8 +108,8 @@ CLASS = {
     "RECON": ("X", "M's definition (437)"),
     "B6'": ("X", "M's definition (201), its consistency computed (sigma_defines T1-T4, nature_rows B1-B3)"),
 }
-PASSING = ("PROVED", "C")
-OPEN_489 = ["SOURCEs", "SOURCE"]                                   # [item 491] the rest of 489's thirteen back
+PASSING = ("PROVED", "C", "COMPUTED-THEORIZED")                   # [item 534] COMPUTED-THEORIZED closes a row
+OPEN_489 = []                                      # [item 491] 489's rest back; [534] SOURCEs, SOURCE closed
 # P5 (item 441): each row's premises among M's rulings (substantive; verifier and work-item numbers set aside)
 RULED = {
     "G1": (101, 131, 132, 133), "H2": (270,), "H2txs": (240,), "H2tx": (240, 390, 427),
@@ -187,6 +187,7 @@ def cited_not_in_t1(rows):
     stems = {os.path.basename(p)[:-3] for p in paths}
     words_too = {"bulk", "crossing", "horizon", "opening", "plane", "static", "values", "causal", "escape", "umbilic",
                  "stability", "arrival_cypher", "transition_qt5", "nucleus"}      # [489] FACE2s: "inside a nucleus"
+    words_too |= {"hf_mirror5_derive"}   # [534] hf_mirror5's equation generator (no selftest; hf_mirror5 X0-X7 in T1)
     t1 = t1_list() | {"exactE", "passage5d", "coin", "localbulk", "stability"}       # T1's own
     found = set()
     for r in rows:
@@ -202,6 +203,8 @@ def classify(rows):
         key = name.split()[0]
         if status == "PROVED":
             out[key] = ("PROVED", "")
+        elif status == "COMPUTED-THEORIZED":                        # [item 534] M: 'label them as computed'
+            out[key] = ("COMPUTED-THEORIZED", "")
         elif status == "OPEN":
             out[key] = ("OPEN", "no computed source meets the specification (489, F5)" if key.startswith("SOURCE")
                         else "")
@@ -306,7 +309,8 @@ def selftest(quiet=False):
     fail = sorted(k for k, v in cls.items() if v[0] not in PASSING)
     p2 = not unclassed and fail == sorted(["R0", "R1", "R2", "R6", "RECON", "B6'"] + OPEN_489)
     # [B5b out at 441, B7 at 442, O1b and O1c at 478, SOURCEs and SOURCE at 487 (PROVED); item 489: thirteen OPEN --
-    # FACE2s, FACE2 and the eight resting on them, SOURCEs and SOURCE again, R1]
+    # FACE2s, FACE2 and the eight resting on them, SOURCEs and SOURCE again, R1; item 534: SOURCEs and SOURCE
+    # COMPUTED-THEORIZED, which closes them]
     ok.append(p2); say("P2-P3 every row classed; not passing: %s: %s" % (", ".join(fail), p2))
     v = station_verdicts(cls)
     p4 = any(bad for ends in v.values() for bad in ends.values()) and all(
