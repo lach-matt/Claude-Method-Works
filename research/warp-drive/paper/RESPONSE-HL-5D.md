@@ -34,8 +34,10 @@ relative to the limit itself and an approximate solution of arbitrarily high ord
 beaten by a power of λ rather than by the size of the data; what must be uniform in λ is then a linear estimate on the
 black-hole background, and its one large coefficient is removed by a phase-shift identity. The Cauchy data are
 constructed by solving the constraints outward in r as a parabolic–hyperbolic system from a sphere inside the shell.
-Part (iii) of the counterpart, one apparent horizon per column converging at O(λ), follows. We list what is not proved:
-settling at late times, the data at past null infinity, the mean-mass rate, and the application at physical wavelengths.
+Part (iii) of the counterpart follows: one apparent horizon per column, converging at O(λ). So does the mean-mass
+rate: after the shell, every sphere's mass is the limit's to O(λ²), by a quarter-turn symmetry of the two
+polarizations. We list what is not proved: settling at late times, the construction from past null infinity, and
+the application at physical wavelengths.
 
 ---
 
@@ -235,6 +237,8 @@ such that for every λ ∈ (0, λ0] there is a smooth Lorentzian metric g_λ on 
   spheres {v, r = const} has at most one zero on each column (v and the angles fixed), exactly one within C λ of √μ(v)
   on the columns that reach across it, the spheres below it being trapped and those above it untrapped: no inner
   apparent horizon, and the apparent horizon converges at O(λ) (Proposition 3.3).
+7. **Mean mass.** For every sphere S_(v,r) of the domain, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ² before
+   and after the shell (v ≤ v_start or v ≥ v_end), and ≤ C λ within it (Proposition 3.4).
 
 The constants that the argument fixes explicitly: the order of the energy is k = 6, the approximant used has N = K + 3
 stages, λ ≤ λ1 := min(1, δ0)/10 where δ0 := r_q(μ0) − a, and the data are solved in H^s(S³) with s > 3/2 + 4. λ0 and C
@@ -271,6 +275,27 @@ Away from √μ the background expansion is bounded away from zero on the compac
 increasing in r; √μ(v) − r_q(v) = μ^(1/4)(μ^(1/4) − (√72 l5²)^(1/4)) ≥ its value at μ0 > 0. The intermediate value
 theorem and the monotonicity give the zero and its uniqueness. If μ0 = √72 l5², the first statement holds on every
 column, and the others on the columns with μ(v) ≥ μ0 + δ1. ∎
+
+**Proposition 3.4 (the mean mass; deduced, with `docket68/n1star/mass5.py` M1–M4; supplement Lemma 8.2 and
+Proposition 8.2).** For a 3-sphere S let M[S](g) := R²(1 + (R²/9)⟨Θ⟩), with R := (Area(S)/(2π²))^(1/3),
+Θ := 2θ⁺θ⁻/(−g(n⁺, n⁻)) built from its two future null normals and their expansions, and ⟨·⟩ the mean over S: the
+five-dimensional Hawking mass, with M[S_(v,r)](g0) = μ(v) (computed, M1). Then for K ≥ 6 and λ ≤ λ0,
+|M[S_(v,r)](g_λ) − μ(v)| ≤ C λ² wherever v ≤ v_start or v ≥ v_end, and ≤ C λ for v_start < v < v_end.
+
+*Proof.* Let σ be the isometry θ ↦ π/2 − θ, φ1 ↔ φ2 of S³; it fixes τ, r and v, is an isometry of g0 and maps each
+S_(v,r) to itself (computed, M4). The waves' two polarizations are a quarter turn apart, and that makes the leading
+wave odd under σ combined with the phase reflection θ ↦ 3π/2 − θ: W_TT(σX, 3π/2 − θ) = −W_TT(X, θ) (computed, M2;
+one quadrature alone, or two in phase, is not odd). The two-scale operator is equivariant under θ ↦ c0 − θ with
+λ ↦ −λ (computed, M3), and every stage of the approximant is the unique solution of a problem that this combined map
+carries to itself, so the profiles obey σ*g_j(·, 3π/2 − ·) = (−1)^j g_j; for the first mean correction,
+σ*m1 = −m1. Outside the shell the oscillating profiles vanish, so g_app = g0 + λ m1 + O(λ²) there, and
+M[S](g_λ) = μ(v) + λ DM[m1] + O(λ²) + O(|w| + |∂w|). M is natural, so DM[σ*m] = DM[m], and
+DM[m1] = DM[σ*m1] = −DM[m1] = 0. The remainder is at most C λ^(K−4) ≤ C λ². Inside the shell the wave enters M only
+through its trace on the sphere and the trace of its phase derivative, both zero, so the difference is O(λ). ∎
+
+The numerics' "mean mass" is the angular mean of the mass aspect at past null infinity; the Hawking mass of the
+spheres of the domain is its counterpart here, and identifying the two needs the construction from past null
+infinity (section 8).
 
 *How Theorem 1 follows.* It is the conjunction of three theorems proved in the supplement and summarized in sections 4
 and 5: Theorem A (the approximant to any order), Theorem D (exact data within O(λ^K) of it) and Theorem E (existence on
@@ -438,12 +463,18 @@ N − 2, by a hierarchy that propagates the gauge order by order (supplement Lem
 g_λ, λ ≤ λ0, when μ0 > √72 l5²; every future causal curve that meets it leaves D_T there. Exact for g0 (computed R6, and
 `docket68/lemmas/hf_theorem5.py` F2, there also machine-checked with Z3); deduced for g_λ.
 
-**(iii) The horizon.** Proposition 3.3 and item 6 of Theorem 1: for g_λ, λ ≤ λ1, each column carries at most one zero
-of the outgoing expansion, exactly one within C λ of √μ on the columns that reach across it, trapped spheres below
-and untrapped above; no inner apparent horizon (deduced). Although ∂g_λ converges only weakly, the expansion of these
+**(iii) The horizon.** Proposition 3.3 and item 6 of Theorem 1: for g_λ, λ ≤ λ1, each column carries at most one zero of
+the outgoing expansion, exactly one within C λ of √μ on the columns that reach across it, trapped spheres below and
+untrapped above; no inner apparent horizon (deduced). Although ∂g_λ converges only weakly, the expansion of these
 spheres does not see the oscillation at leading order, because the wave is traceless on them and the phase is constant
 along each column. The numerical solver agrees (`docket68/lemmas/hf_core5.py`; hf_theorem5.py F4: the horizon's
 departure halves with λ, ratios 2.47, 2.26, 2.14 and 2.46, 2.26 at μ0/l5² = 100 and 1000).
+
+**The mean mass.** Proposition 3.4 and item 7 of Theorem 1: after the shell, the mass of every sphere of the domain is
+the limit's to O(λ²) (deduced). The first-order mean correction m1 need not vanish (in the Bondi-type gauge its source,
+a tilt of the dust's direction at O(λ), is computed in `docket68/n1star/ansatz5.py` A5), but it is odd under the
+quarter-turn symmetry, and a rotation-invariant mass cannot see it. The numerical solver's mean mass quarters at each
+halving of λ (hf_theorem5.py F4: 5.17, 4.01, 4.02 and 4.65, 3.84).
 
 ---
 
@@ -495,22 +526,40 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
 
 ## 8. What is not proved
 
-- **Settling at late times.** The theorem holds on D_T for each fixed T. Settling for all later v is the nonlinear
-  stability of five-dimensional Schwarzschild–Tangherlini in the class, which is open and is not attempted. Huneau and
-  Luk's theorem, Touati's and Luk and Rodnianski's hold on a fixed interval too.
+- **Settling at late times.** The theorem holds on D_T for each fixed T; Huneau and Luk's theorem, Touati's and Luk and
+  Rodnianski's hold on a fixed interval too. Settling for all later v is the nonlinear stability of five-dimensional
+  Schwarzschild–Tangherlini within the class. What is known, READ: linear stability against every type of
+  perturbation, "higher-dimensional Schwarzschild black holes are stable with respect to all tensorial types of linear
+  perturbations" ([IK03] p. 16); and nonlinear asymptotic stability, "the evolution of (SU (2) × U (1))-symmetric vacuum
+  perturbations of initial data for the five-dimensional Schwarzschild metric finally converges in a suitable sense to
+  a member of the Schwarzschild family" ([Hol08] p. 1, Theorem 1.1 p. 6), in a subclass of ours where the Einstein
+  equations reduce to 1+1 dimensions. The waves here depend on the angle θ and lie outside that subclass. After the
+  shell only the mean corrections remain: on Ω ∩ {v ≥ v_end}, g_λ differs from Tangherlini of the final mass by
+  λ m1 + O(λ²) with its first derivatives (Theorem 1, items 3–4). Settling would therefore follow from the small-data
+  stability of Tangherlini in the T²-mirror class, once the solution is also constructed outside D_T. Both steps are
+  open here.
 - **The data at past null infinity.** The theorem is posed with Cauchy data on Σ_τ0, before the shell reaches the hole.
   The evolution from data at past null infinity down to Σ_τ0, and the equivalence of the two descriptions of the waves,
-  are not proved; the data here carry the waves of section 2.4 at leading order and are otherwise constructed.
-- **The mean-mass rate.** The mean mass converging at O(λ²) is computed numerically (section 6) and not proved.
-- **Physical wavelengths.** λ0 is not evaluated. Whether the wavelengths of an intended application lie below it is
-  not decided; the computed statement that the waves are high-frequency on all of D once λ < l5/10 is a statement
-  about the approximant, not about λ0.
+  are not proved; the data here carry the waves of section 2.4 at leading order and are otherwise constructed. The
+  estimates of section 5 do not extend to an infinite past interval as they stand: the phase correction φ accumulates
+  along the ingoing generators, and bounding it crudely in norm turns its coupling to the remainder into a growth that
+  no power of λ beats. What it needs is a weighted form of Theorem E with the decay in r of every coefficient and of
+  every profile of the approximant. The structure is favourable: the r-derivative of φ along the cone is ½ P s exactly,
+  with no accumulation, and the coefficients that multiply the accumulating parts decay like r^(−5/2). That is a
+  separate theorem, and it is not proved here.
+- **The mean mass at past null infinity.** Proposition 3.4 proves the O(λ²) rate for the Hawking mass of the spheres
+  of the domain; the same rate for the mass aspect at past null infinity needs the construction from there (above).
+- **Physical wavelengths.** λ0 is not evaluated, and no high-frequency theorem can reach a wavelength of 10 l5 here.
+  The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L = l5, and at the
+  horizon L = √μ/72^(1/4). For λ = 10 l5 the ratio is 10 on x_K = 1, and 2.91 (μ = 100 l5²) or 0.92 (μ = 1000 l5²) at
+  the horizon (computed, R7): there is no separation of scales. The statement that the waves are high-frequency on
+  all of D once λ < l5/10 is about the approximant, not about λ0.
 - **Beyond the boundary.** Nothing is claimed beyond Ω, whose inner boundary r = a lies a fixed distance inside
   x_K = 1; the statements of Theorem 1 are made on D_T.
 - **More families.** Several dusts, angular separation, and the passage to Vlasov matter are not attempted.
 - **The boundary at equality.** If μ0 = √72 l5² exactly, x_K = 1 is null on the seed's portion (Proposition 3.2).
 - **Review.** An eighth independent verifier read this paper and the supplement's last restatement (log D26): no
-  major finding; its two minor findings and 21 notes are seated. Proposition 3.3 (part (iii)) was added after it.
+  major finding; its two minor findings and 21 notes are seated. Propositions 3.3 and 3.4 were added after it.
 
 ---
 
@@ -520,7 +569,7 @@ Each was READ at source for this paper or for the proof, on the date and at the 
 from the arXiv text, with the extraction's spacing.
 
 - [HL18] C. Huneau, J. Luk, *High-frequency backreaction for the Einstein equations under polarized U(1)-symmetry*, Duke
-  Math. J. 167(18) (2018) 3315–3402, arXiv:1706.09501v1. READ 2026-10-20: p. 1 (Burnett's formulation), p. 3 ((1.3),
+  Math. J. 167(18) (2018) 3315–3402, arXiv:1706.09501v1. READ 2026-10-20: p. 1 (Burnett's formulation), pp. 2–3 ((1.3),
   (1.4), Theorem 1.1), pp. 8–10 (Definition 3.2, Theorem 3.3, Corollary 3.5, Definition 4.1, Theorem 4.2).
   arXiv:1706.09499 is the companion paper [HL18e]; the two are easily confused.
 - [HL18e] C. Huneau, J. Luk, *Einstein equations under polarized U(1) symmetry in an elliptic gauge*, Comm. Math. Phys.
@@ -541,6 +590,10 @@ from the arXiv text, with the extraction's spacing.
 - [CBCL06] Y. Choquet-Bruhat, P. T. Chruściel, J. Loizelet, arXiv:gr-qc/0608108v2. READ 2026-10-20: (3.1), sections 3
   and 5.1.
 - [LR05] H. Lindblad, I. Rodnianski, arXiv:math/0411109v2. READ 2026-10-19: p. 1, (1.3) p. 2, section 2.2 p. 8.
+- [IK03] A. Ishibashi, H. Kodama, *Stability of higher-dimensional Schwarzschild black holes*, Prog. Theor. Phys. 110
+  (2003) 901, arXiv:hep-th/0305185v3. READ 2026-10-20: abstract p. 1, sections 2.1–2.3, summary p. 16.
+- [Hol08] G. Holzegel, *Stability and decay-rates for the five-dimensional Schwarzschild metric under biaxial
+  perturbations*, arXiv:0808.3246v1. READ 2026-10-20: abstract p. 1, the model pp. 3–5, Theorem 1.1 pp. 5–6.
 - [CD03] P. T. Chruściel, E. Delay, *On mapping properties of the general relativistic constraints operator in weighted
   function spaces, with applications*, arXiv:gr-qc/0301073v2. READ 2026-10-20: (2.1)–(2.2), p. 4.
 - [Rac16] I. Rácz, *Constraints as evolutionary systems*, Class. Quantum Grav. 33 (2016) 015014, arXiv:1508.01810v3.
@@ -578,8 +631,9 @@ Paths are relative to the root of the research tree.
   a dr² brings ∂_r² a into ρ.
 - R6: h²(c⁴ + s⁴) = 1; 4(a² + ab + b²) = (2a + b)² + 3b²; (3.1). Controls, each run on its own: h = 1;
   (2a + b)² + 2b²; r + r_q in place of r − r_q; √48 in place of √72.
+- R7: λ = 10 l5 against the curvature length: 10 on x_K = 1, 2.91 and 0.92 at the horizon. Control: 48 for 72.
 
-All six pass and every control is rejected (about 30 seconds). The proof's programs, in `docket68/n1star/`:
+All seven pass and every control is rejected (about 30 seconds). The proof's programs, in `docket68/n1star/`:
 
 - `ks5.py` K1–K5: the Kerr–Schild form, its inverse, the commutator (2.4), div L0, the gauge source H0. 5/5;
   mutants 4/4.
@@ -589,6 +643,8 @@ All six pass and every control is rejected (about 30 seconds). The proof's progr
 - `data5.py` S0–S6: the slice data, the constraints' principal part, no coefficient of order λ⁻¹. 7/7; mutants 6/6.
 - `horizon5.py` H1–H3: the expansion of the spheres for g0, no O(1) oscillation from a wave traceless on them, the
   phase constant along columns. 3/3; mutants 3/3.
+- `mass5.py` M1–M4: the Hawking mass of the Vaidya spheres, the wave odd under the quarter-turn symmetry, the
+  two-scale operator's equivariance, σ an isometry of g0. 4/4; mutants 5/5.
 
 Earlier programs cited, in `docket68/lemmas/`:
 
@@ -672,6 +728,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D2
 | (5.6) | R5; `docket68/n1star/data5.py` S2–S4, S6; [Rac16]; [CD03] |
 | section 5.5 iteration | supplement Lemma 6.4, Proposition 6.5; [AO14], [AG22], [GO13] |
 | part (iii), Proposition 3.3 | supplement Proposition 8.1; `docket68/n1star/horizon5.py` H1–H3; Theorem E Step 1 |
+| mean mass, Proposition 3.4 | supplement Lemma 8.2, Proposition 8.2; `docket68/n1star/mass5.py` M1–M4 |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
@@ -680,23 +737,24 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D2
 
 Python 3.11 with sympy, and z3-solver for `foliation5.py` (the programs import nothing from the research tree):
 
-    cd paper && python3 response5.py --selftest          # R1-R6, about 20 seconds
+    cd paper && python3 response5.py --selftest          # R1-R7, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
-    cd ../docket68/n1star && python3 ks5.py --selftest   # and likewise foliation5, ansatz5, lead5, data5, horizon5
+    cd ../docket68/n1star && python3 ks5.py --selftest   # and foliation5, ansatz5, lead5, data5, horizon5, mass5
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
 
 | file | md5 |
 | --- | --- |
-| `paper/response5.py` | `c24eca8908a90898e9bb8a976d02ab19` |
-| `docket68/n1star/N1STAR-PROOF.md` | `893da48a52a1a0c6ac08fe4eef57882c` |
-| `docket68/n1star/N1STAR-LOG.md` | `c3a412b407bd84dd701dc8e7f483e87e` |
-| `docket68/n1star/README.md` | `f0326781320588a924624ab4a9d9d5c2` |
+| `paper/response5.py` | `d3998502064b3df8fc1cb78a2866b71f` |
+| `docket68/n1star/N1STAR-PROOF.md` | `cc33d4fdcc832c957dc4ebbf65e814be` |
+| `docket68/n1star/N1STAR-LOG.md` | `a61f61e01edf168098e705feaf3843d2` |
+| `docket68/n1star/README.md` | `45f594965ef911874ea7c0720c8be013` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
 | `docket68/n1star/lead5.py` | `ba26d7df17f37eb6932d5b7133656d1a` |
+| `docket68/n1star/mass5.py` | `ebe2ee78219553f4b57a4200604752e5` |
 | `docket68/n1star/horizon5.py` | `8b813350cc82668c43041caedef97c57` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |

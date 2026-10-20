@@ -456,3 +456,42 @@ reverse statement is their Corollary 1.14, on a domain short in one null directi
 constant parts; k = 6 only; uniqueness among C^2 solutions; R1 made exact (symbolic 2-jets in normal coordinates of
 g3), K for mu(v) added to R3, R6's controls run one at a time; z3-solver listed. The retitling M set (D24) is applied.
 
+**D27 (2026-10-20, session decision): the mean-mass rate proved, by a symmetry.** N1STAR-PROOF.md section 8, Lemma 8.2
+and Proposition 8.2, with `mass5.py` (M1-M4, selftest 4/4, mutants 5/5). The record's "mean mass" (hf_mirror5:
+M_mean, the angular mean of the mass aspect at past null infinity after the shell) has as its counterpart in the domain
+the five-dimensional Hawking mass of the spheres S_(v,r), equal to mu(v) for Vaidya (M1). After the shell only the
+means remain, so the mass is mu + lam DM[m1] + O(lam^2). m1 need not vanish (ansatz5 A5 computes a nonzero order-lam
+mean source in the Bondi-type gauge), but the record's two polarizations a quarter turn apart make the leading wave
+odd under sigma (th -> pi/2 - th, phi1 <-> phi2) combined with the phase reflection s -> 3 pi/2 - s (M2; one
+quadrature, or two in phase, is not), the two-scale operator is equivariant under that reflection with lam -> -lam
+(M3), and sigma is an isometry of g0 fixing each sphere (M4); by the uniqueness of every stage, sigma^* m1 = -m1, and a
+natural mass cannot see it: DM[m1] = 0. The identification with the mass aspect at past null infinity itself needs
+the construction from there (D28).
+
+**D28 (2026-10-20, session finding): the data at past null infinity, reassessed.** At D24 this item was taken as
+provable by the method of Theorem E. It is not, as the method stands. On the past region {tau <= tau0} the domain is
+infinite in time; the coefficients of the remainder's equation decay like r^(-3/2) ~ |tau|^(-3/2), which is integrable,
+but the decomposition w = h + phi [d_th g1] that removes the 1/lam coefficient has phi accumulating along the ingoing
+generators, and the crude norm bounds of section 4 turn the loop phi -> h -> s -> phi into a Gronwall growth like
+exp(C |tau|^(1/4)) over the past, which no power of lam beats; without the decomposition the 1/lam coefficient gives
+exp(C lam^-1 |tau|^(-1/2)), harmless only for |tau| >= lam^-2. The structure that should close it was found: along the
+cone the r-derivative of phi is (1/2) P s exactly, with no accumulation, so the dangerous coupling (d_v d_th g1)(d_r
+phi), of size r^(-3/2), acts on s directly; the coefficients multiplying the accumulating parts (phi, d_v phi, the
+angular derivatives) decay like r^(-5/2) or faster, and the Psi transport is neutral for r^2 Psi. A weighted Theorem E
+on the infinite past, with the decay in r of every coefficient and of every profile of the approximant solved from
+past null infinity (the means included), would then be a separate theorem of the size of N1* itself. Not proved here;
+the paper says so (section 8) and reports what it needs. M is told before any of it is attempted.
+
+**D29 (2026-10-20, session decision): the two items attacked, as far as they go.** Late-time settling: READ at source
+(alphaXiv, 2026-10-20), Ishibashi and Kodama, arXiv:hep-th/0305185v3 (Prog. Theor. Phys. 110 (2003) 901): "higher-
+dimensional Schwarzschild black holes are stable with respect to all tensorial types of linear perturbations" (p. 16);
+Holzegel, arXiv:0808.3246v1: "the evolution of (SU (2) x U (1))-symmetric vacuum perturbations of initial data for the
+five-dimensional Schwarzschild metric finally converges in a suitable sense to a member of the Schwarzschild family"
+(abstract, p. 1; Theorem 1.1, pp. 5-6), a cohomogeneity-two subclass of the T^2 class (one field B, 1+1 equations). An
+earlier guess at Holzegel's identifier (0808.3605) returned an unrelated paper and was discarded. The waves here depend
+on th and are outside that subclass. Deduced: after the shell the solution differs from Tangherlini of the final mass
+by lam m1 + O(lam^2) with its first derivatives on Omega, so settling would follow from small-data stability of
+Tangherlini in the class, once the solution is also built outside D_T; both are open. The application at 10 l5:
+computed (response5.py R7), lam/L with L = K^(-1/4) the curvature length is 10 on x = 1 and 2.913 (mu = 100 l5^2),
+0.921 (mu = 1000 l5^2) at the horizon: no separation of scales, so no high-frequency theorem reaches it.
+

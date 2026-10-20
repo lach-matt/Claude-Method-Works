@@ -956,3 +956,40 @@ band and > 0 above it, and the ingoing expansion is -3/r + O(lam) < 0 everywhere
 argument runs on the columns where sqrt(mu) - r_q >= delta, which is mu(v) >= mu0 + delta1 for some delta1 > 0; (a)
 needs only the monotonicity band and holds on every column. []
 
+**The mass of a sphere.** For a spacelike 3-sphere S in a five-dimensional Lorentzian metric g let n+, n- be its future
+null normals, theta+- their expansions, Theta := 2 theta+ theta- / (-g(n+, n-)) (independent of the normalisation of
+n+-), R := (Area(S)/(2 pi^2))^(1/3), and M[S](g) := R^2 (1 + (R^2/9) <Theta>), <.> the mean over S: the
+five-dimensional Hawking mass. For g0 and S_(v,r), M = mu(v) (`mass5.py` M1). M is natural (an isometry of g carrying
+S to itself preserves it) and is a smooth function of g and dg on S.
+
+**Lemma 8.2 (the quarter-turn symmetry; deduced, with `mass5.py` M2-M4).** Let sigma be the isometry th -> pi/2 - th,
+phi1 <-> phi2 of S^3, extended to R x R^4 fixing tau and r; it is an isometry of g0 fixing v and each S_(v,r) (M4).
+For a family of profiles put (Sg)_j(X, th) := (-1)^j sigma^* g_j(X, 3 pi/2 - th). (a) If G = g0 + sum_j lam^j g_j
+then G~ := g0 + sum_j lam^j (Sg)_j = sigma^* G(., 3 pi/2 - .; -lam), and its two-scale residual is R[G~](X, th; lam) =
+sigma^* R[G](X, 3 pi/2 - th; -lam) (M3, with sigma an isometry of g0 commuting with Ric^H, which is built from g and
+g0 alone): its coefficient of lam^m is (-1)^m sigma^* R^(m)(., 3 pi/2 - .), so S preserves (E1)-(E3) at every order.
+(b) The stage-0 wave is S-invariant: W_TT(sigma X, 3 pi/2 - s) = -W_TT(X, s) (M2, the record's two polarizations a
+quarter turn apart; one quadrature alone, or two in phase, is not), and chi, the unique solution of its transport with
+zero data, is S-invariant with it. Every later stage of section 5 and every choice of Lemma 6.2 (phi_m = 0 and
+(m_m)_(tau .) = 0 on Sigma, d_th gh_(m+1) := -Pol^+(...) with Pol^+ O(4)-equivariant, the unique solutions of Lemmas
+5.3 and 6.4) is the unique solution of a problem that S maps to itself. Hence Sg = g: sigma^* g_j(., 3 pi/2 - .) =
+(-1)^j g_j, and for the means m_j = <g_j>, sigma^* m_j = (-1)^j m_j; in particular sigma^* m1 = -m1. []
+
+**Proposition 8.2 (the mean mass; deduced, with `mass5.py`).** Under the hypotheses of section 0.7 with K >= 6, for
+every sphere S_(v,r) in D_T cap {tau >= tau0} and lam <= lam0: |M[S_(v,r)](g_lam) - mu(v)| <= C lam^2 if v <= v_start
+or v >= v_end, and <= C lam if v_start < v < v_end.
+
+*Proof.* The oscillating profiles (W, chi, gh_m and the phase terms) vanish outside v_start < v < v_end: each is the
+solution of a transport along ell, at fixed v, whose sources and data are supported there (Lemma 5.3, Lemma 6.2(i),
+the wave being proportional to env). So for v outside that interval g_app = g0 + lam m1 + lam^2 E with E bounded with
+its derivatives, and M[S](g_lam) = M[S](g0) + lam DM[m1] + O(lam^2) + O(|w| + |dw|), DM the derivative of M at g0 on
+S. DM is linear, and naturality with sigma fixing g0 and S gives DM[sigma^* m] = DM[m]; by Lemma 8.2, DM[m1] =
+DM[sigma^* m1] = -DM[m1] = 0. The remainder is at most C lam^(K-4) <= C lam^2 (section 4, Step 1). (For v < v_start
+the means vanish too: their sources and data on Sigma are supported in v >= v_start, and v does not decrease along
+future causal curves of g0.) Inside the shell the fast derivative of lam [W] enters theta+- only through
+tr_S d_th W = 0 (Proposition 8.1, (iii)), and the area through tr_S W = 0, so M[S](g_app) - mu(v) = O(lam). []
+
+The record's "mean mass" is the angular mean of the mass aspect at past null infinity; the Hawking mass of the spheres
+of the domain is its counterpart here, and the two are the same limit only through a construction from past null
+infinity, which is not part of this proposition.
+

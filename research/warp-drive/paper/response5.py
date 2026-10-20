@@ -37,6 +37,10 @@ ingredient changed must fail, so that a check which passes is not passing vacuou
      mu/r_q^2 = sqrt(mu/(sqrt(72) l5^2)); so on x = 1, g0^-1(dPhi, dPhi) <= 1 - sqrt(mu0/(sqrt(72) l5^2)), negative
      when mu0 > sqrt(72) l5^2.  Controls, each run on its own: h = 1; (2a + b)^2 + 2 b^2; Phi = r + r_q; sqrt(48).
 
+  R7 The wavelength against the curvature length L = K^(-1/4): on x = 1, L = l5; at the horizon, L = sqrt(mu)/72^(1/4).
+     For lam = 10 l5 the ratio lam/L is 10 on x = 1 and 2.913 (mu = 100 l5^2), 0.921 (mu = 1000 l5^2) at the horizon.
+     Control: 48 in place of 72.
+
 python3 response5.py [--selftest] [--full]
 --full also runs the selftests of the five proof instruments (about 20 minutes; data5.py takes about 14).
 """
@@ -376,12 +380,31 @@ def r6(control=0):
     ok &= sp.simplify(mu/rq**2 - sp.sqrt(mu/(sp.sqrt(c72)*L**2))) == 0
     return bool(ok)
 
+# ---------------------------------------------------------------- R7 the wavelength against the curvature scale
+
+def r7(control=False):
+    """L := K^(-1/4), the curvature length of 5D Vaidya.  At the horizon r = sqrt(mu), L = sqrt(mu)/72^(1/4); on the
+    boundary x = 1, L = l5.  For lam = 10 l5: lam/L = 10 on x = 1, and 72^(1/4) 10 l5/sqrt(mu) at the horizon,
+    2.913 at mu = 100 l5^2 and 0.921 at mu = 1000 l5^2: no separation of scales."""
+    mu, l5 = sp.symbols("mu l5", positive=True)
+    c = 48 if control else 72
+    L = lambda rr: (c*mu**2/rr**8)**sp.Rational(-1, 4)
+    ok = sp.simplify(L(sp.sqrt(mu)) - sp.sqrt(mu)/sp.Integer(72)**sp.Rational(1, 4)) == 0
+    rq = (sp.sqrt(72)*mu*l5**2)**sp.Rational(1, 4)
+    ok &= sp.simplify(L(rq) - l5) == 0
+    lam = 10*l5
+    h100 = sp.N((lam/L(sp.sqrt(mu))).subs(mu, 100*l5**2), 6)
+    h1000 = sp.N((lam/L(sp.sqrt(mu))).subs(mu, 1000*l5**2), 6)
+    ok &= abs(h100 - sp.Float("2.91295")) < 1e-4 and abs(h1000 - sp.Float("0.921159")) < 1e-4
+    return bool(ok)
+
 CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) dpsi^2 + 2 domega^2", r1, 1),
           ("R2 the background is 5D Vaidya, Ric(g0) = (3 mu'/(2 r^3)) dv dv", r2, 1),
           ("R3 Kretschmann 72 mu^2/r^8 (mu constant, and mu(v)); x = 1 at r_q; r_q <= sqrt(mu) iff ...", r3, 2),
           ("R4 ell null geodesic; the contractions of the domain; tau-lines spacelike where r^2 < mu", r4, 1),
           ("R5 the constraints at the background: parabolic in a, symmetric hyperbolic in (w, q)", r5, 1),
-          ("R6 the dust is round and positive; g0^-1(dPhi, dPhi) = 1 - mu/r^2 - 2 r_q' at x = 1", r6, 4)]
+          ("R6 the dust is round and positive; g0^-1(dPhi, dPhi) = 1 - mu/r^2 - 2 r_q' at x = 1", r6, 4),
+          ("R7 lam = 10 l5 against the curvature length: 10 on x = 1, 2.91 and 0.92 at the horizon", r7, 1)]
 
 INSTRUMENTS = ["ks5.py", "foliation5.py", "lead5.py", "ansatz5.py", "data5.py"]
 
