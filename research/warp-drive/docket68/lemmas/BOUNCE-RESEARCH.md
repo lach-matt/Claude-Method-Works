@@ -3380,3 +3380,43 @@ M, 536: "The bounce needs to  connect to physics. It's a quantum bounce, thus it
 - **What stays a choice.** The truncation to homogeneity before quantising (minisuperspace); the clock (Gotay-Demaret:
   a fast clock forces nothing); the extension within unitarity; the state's clock spread. None is loop quantum
   gravity's. Put to M: whether the ten rows' quantum premise moves from transition5q to this definition.
+
+## 61. The ten rows on the quantum-mechanical bounce; what 536 left open, closed (537; lemmas/bounce_close.py)
+
+M, 537: "should the ten rows on 273 rest on this quantum-mechanical definition instead of transition5q? - yes and is
+probably supported by our current candidate theory."; "what stays open: - let's finish closing everything please".
+- **The register.** O1a, O1b, O1c, Z3b, Z3bs, M1, B3, B3s, B4d, B4ds, and O1bs and O1cs on the same transition, rest on
+  bounce_qm; H2's equal mass and FACE2s/FACE2's white hole carry the same. O1a's claim and the statement's (O) read
+  "273's quantum bounce (the reflection unitarity forces at r = 0, bounce_qm; its effective geometry transition5q's
+  transition surface)". bounce_qm and bounce_close are in T1. Statuses unchanged: 74 PROVED, 6 DEFINITION,
+  2 COMPUTED-THEORIZED; T2 entailed, none open.
+- **The clock (C1).** dT/dtau = 2 sqrt(xi) Y > 0 along the interior: the bulk's clock is a monotone function of proper
+  time, finite at the singularity (T_left = (2 r_h tau - tau^2)^2/2 at Lambda = 0) and globally the five-volume, so
+  slow and not a reparametrisation of a fast clock -- the subtlety Gielen and Menendez-Pidal (2205.15387, READ) name.
+  With a fast clock nothing continues past r = 0 and the README ends there, against 491 and 418: the record requires a
+  slow clock, and the bulk supplies one.
+- **The uniform interior (C2).** Birkhoff in five dimensions with Lambda, computed: spherically symmetric vacuum is
+  Schwarzschild-AdS5, and inside the horizon the Killing field is spacelike, so the interior is exactly
+  Kantowski-Sachs. The minisuperspace is the whole spherically symmetric sector; off symmetry the approach to a generic
+  singularity is locally homogeneous (BKL, a conjecture, READ through 2409.03006).
+- **The reflection rule and the mass (C3).** The mass function m = Y(1 + xi Y Y'^2) - Lambda Y^2/6 is exactly mu on
+  every classical solution. On the quantum state it is mu before and after (equal to 1e-10), falls to 3e-6 mu at the
+  bounce and returns in full: the quantum region's negative effective energy is the whole mass, paired by an equal
+  positive one, net zero -- 273 (c)'s pairing under 183. An asymmetric state comes out with a different mass
+  (70 in, 130 out in the test state: energy made at the bounce), which 386 and 183 exclude. So the reflection is the mass-preserving
+  one, the state time-symmetric (273 (a)), beta > 0 because E(N) > 0; H2's equal mass rests on these, not on 415.
+- **Where the bounce sits (C4, C5).** Before the bounce the quantum radius departs from the classical by
+  |delta Y|/Y = 1/(16 sigma^2 T^2) = 0.2736 (x/x_b)^2 (to 0.5 % at sigma T = 10). Effective field theory (Donoghue,
+  gr-qc/9405057, READ) allows corrections of relative size l^2 R with order-one coefficients, so x_b >= 0.27 for
+  coefficient one; at x_b = 1 the deviation 0.27 x^2 lies inside it. At x_b = 1 the candidate theory agrees: the least
+  sphere is transition5q's exactly; the curvature maximum is 0.742 l5^-4 here (universal in the semiclassical limit)
+  against 0.2917 there; both give one transition surface between two horizons, equal mass and 2 r_h/c. The place
+  x_b = 1 is the candidate theory's (415's scales); effective field theory admits it and bounds it below.
+- **The small end's Lambda spread (C6).** The minisuperspace reading of the place as sigma_Lambda L_z is the fiducial
+  cell's freedom; with the place fixed by curvature, nothing the rows use depends on the cell or on Lambda's spread
+  (inside the hole the spread is negligible for any cell above 4.4e-26 m). The 1.1e4 m bound was that reading's,
+  superseded as the scale's source.
+- **What remains beyond established physics, named.** Quantum mechanics applied to general relativity's own
+  minisuperspace (the Wheeler-DeWitt equation with unitarity in the bulk's clock): quantum mechanics and general
+  relativity, not an established theory of quantum gravity. The place x_b = 1: the candidate theory's, admitted and
+  bounded below by effective field theory. bounce_close 5/5, mutants 2/2.

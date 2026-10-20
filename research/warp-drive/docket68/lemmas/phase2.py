@@ -81,14 +81,19 @@ REMAINS = {
     "284": ("COMPUTED", ["room_work.py"], "as R6"),
     "270": ("COMPUTED", ["h_oneway.py", "i_oneway.py", "c1_oneway.py"], "the one-way object"),
     "276": ("COMPUTED", ["h_oneway.py"], "as 270"), "277": ("COMPUTED", ["i_oneway.py"], "as 270"),
-    "273": ("COMPUTED", ["transition_aos.py", "transition5.py", "transition5q.py", "transition5r.py"],
+    "273": ("COMPUTED", ["bounce_qm.py", "bounce_close.py", "transition_aos.py", "transition5.py", "transition5q.py",
+                         "transition5r.py"],
             "[483] computed from the quantum dynamics: loop quantum gravity's effective (holonomy-corrected) interior, "
             "in 4D (transition_aos) and carried to the 5D core with its scales fixed by 415 (transition5q): one "
             "transition surface, no inner horizon, the white hole's mass the black hole's, curvature bounded, probability "
             "1, time 2 r_h/c; transition5 the form it realizes.  A candidate quantum theory: no established theory "
             "reaches x >= 1.  Was BEYOND (442-482); transition_qt5's route withdrawn at 480 (an inner horizon).  [485] "
             "transition5r: the dynamics is its polymer quantum theory's hbar -> 0 limit; the structure independent of "
-            "the holonomy representation and the coefficients; the equal mass rests on one onset curvature (415)"),
+            "the holonomy representation and the coefficients; the equal mass rests on one onset curvature (415).  "
+            "[536-537] Defined in quantum physics (bounce_qm): the interior's Wheeler-DeWitt equation in the bulk's "
+            "clock, unitarity forcing the reflection into the white hole; the rows rest on it, transition5q, the "
+            "candidate theory's geometry, supporting it; the equal mass on 183, 273 (a) and (c) and 386 "
+            "(bounce_close C3)"),
     "390": ("COMPUTED", ["junction_own.py"], "position 2's face closes when empty"),
     "426": ("COMPUTED", ["encode_read.py"], "the least write by the size"),
     "432": ("COMPUTED", ["settle_arrival.py"], "the shell carries E at the opening (its N part unused)"),

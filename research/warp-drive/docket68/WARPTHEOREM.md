@@ -45,8 +45,9 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - Small end: **2π²r_h³ = 4N ln2 l₅³** (C2 verified).
   - Large end: 4πr₀² = N A_bit.
 - **(O) One way.**
-  - The passage is **one object**: our black-hole face, 273's quantum bounce (its transition surface, `transition5q`),
-    and position 2's white-hole face (270, 273, 282). *[Named exactly at 534.]*
+  - The passage is **one object**: our black-hole face, 273's quantum bounce (the reflection unitarity forces at
+    r = 0, `bounce_qm`; its effective geometry `transition5q`'s transition surface), and position 2's white-hole face
+    (270, 273, 282). *[Named exactly at 534; defined in quantum physics at 536-537.]*
   - It is one-way **in every aspect**. Nothing from position 2 enters it, and no influence runs back (276).
   - Its faces begin at the opening. Before that, the two positions are joined through the bulk with no horizons
     (282 (2)).
@@ -98,7 +99,19 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 534 (closed on M's ruling).** SOURCEs and SOURCE are COMPUTED-THEORIZED (M: "label them as
+**Where it stands, at item 537 (the bounce in quantum physics; everything closed).** The ten rows on 273 rest on the
+bounce defined in quantum mechanics (`bounce_qm.py`, M's 537): the interior quantised from general relativity's own
+Hamiltonian (Wheeler-DeWitt) in the bulk's clock, conjugate to its cosmological constant; unitarity forces a
+reflection at r = 0 into the white hole of the same mass, two horizons only. transition5q, the candidate theory's
+effective geometry, supports it (least sphere identical at x = 1, curvature maximum 0.74 against 0.29 l5^-4, equal
+mass, 2 r_h/c). What 536 left open is closed (`bounce_close.py`, 5/5): the clock is slow, as 491 and 418 require;
+the interior is exactly Kantowski-Sachs (Birkhoff in five dimensions); the mass is kept by 183, 273 (a) and (c) and
+386, so H2 no longer rests on 415; the place x = 1 is bounded below by effective field theory (Donoghue) and set by
+the candidate theory; the Lambda-spread bound was the fiducial cell's, superseded. Beyond established physics the
+statement now rests on quantum mechanics applied to general relativity's minisuperspace and on the place x = 1.
+82 rows pass (74 PROVED, 6 DEFINITION, 2 COMPUTED-THEORIZED); T2 entailed, none open. BOUNCE-RESEARCH sections 60-61.
+
+**Where it stood at item 534 (closed on M's ruling).** SOURCEs and SOURCE are COMPUTED-THEORIZED (M: "label them as
 computed"; "COMPUTED-THEORIZED, which for our purposes closes the items in the warp theorem and map"): every one of the
 82 rows passes -- 74 PROVED, 6 DEFINITION, 2 COMPUTED-THEORIZED -- and T2 is entailed with none open. Every need SOURCE
 names is computed (reader, emitter_process, hf_limit5, hf_core5, hf_theorem5, seed_escape, seed_types, seed_derive,
@@ -2188,6 +2201,11 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 537** (M: the ten rows rest on the quantum-mechanical definition "instead of transition5q", "probably
+  supported by our current candidate theory"; "let's finish closing everything please"). The register re-pointed (the
+  ten rows, O1bs, O1cs; H2; FACE2s, FACE2), O1a and (O) re-worded, bounce_qm and bounce_close in T1. Closed
+  (`lemmas/bounce_close.py`, 5/5, mutants 2/2): the clock (C1), the uniform interior (C2), the reflection rule and the
+  mass (C3), the place (C4-C5), the Lambda spread (C6). BOUNCE-RESEARCH section 61.
 - **Items 535-536** (535: "what exactly was 273?"; 536: "The bounce needs to  connect to physics. It's a quantum
   bounce, thus it has to be defined in quantum physics."). 535 answered from the record: M's choice of 2026-10-12,
   "Quantum bounce to pos 2", computed at 478 and 483. 536: the bounce defined in quantum mechanics

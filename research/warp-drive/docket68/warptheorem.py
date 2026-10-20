@@ -27,8 +27,9 @@ FACE2: face2_release).  M's definitions -- R0, R1, R2, R6, RECON, B6' -- stand a
   (H) HOLDING    its horizon holds the README: 2 pi^2 r_h^3 = 4 N ln2 l5^3 at the small end (C2 verified), 4 pi r0^2 =
                  N A_bit at the large -- exactly once written, in the mean during the write (1.3e8 bits of 2.74e15,
                  passage_est Q6);
-  (O) ONE WAY    the passage is one object -- our black-hole face, 273's quantum bounce (its transition
-                 surface, transition5q), position 2's white-hole face (270,
+  (O) ONE WAY    the passage is one object -- our black-hole face, 273's quantum bounce (the reflection
+                 unitarity forces at r = 0, bounce_qm; its effective geometry transition5q's transition surface),
+                 position 2's white-hole face (270,
                  273, 282) -- one-way in every aspect: nothing from position 2 enters it and no influence runs back
                  (276); its faces begin at the opening, the positions joined before it through the bulk with no
                  horizons (282 (2)); its horizon is not extremal -- surface gravity c^2/r_h at the small end, 1/(4M)
@@ -125,6 +126,13 @@ theorem requires.  SOURCE stays OPEN on the bulk emitter's process.]
 [Item 534: SOURCEs and SOURCE COMPUTED-THEORIZED on M's ruling ('label them as computed'), which closes
 them: no row of the theorem is open.  The proof for every lambda (N1*) completed in its own session, not needed
 here.  M1's claim to proved; 'the bounce' audited and kept as 273's transition surface (BOUNCE-RESEARCH 59).]
+[Items 536-537: the bounce defined in quantum physics (M: 'it has to be defined in quantum physics') -- the
+interior quantised from general relativity's own Hamiltonian in the bulk's clock, conjugate to its cosmological
+constant; unitarity forces a reflection at r = 0 into the white hole of the same mass, with two horizons only
+(bounce_qm Q1-Q9).  The ten rows on 273 rest on it instead of transition5q (M, 537), which, the candidate theory's
+effective geometry, supports it; what 536 left open closed (bounce_close C1-C6): the clock slow, the interior exactly
+Kantowski-Sachs, the mass kept by 183, 273 (a) and (c) and 386 (H2 no longer on 415), the place x = 1 bounded below
+by effective field theory and set by the candidate theory (BOUNCE-RESEARCH 60-61).]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -1549,6 +1557,41 @@ for c, n, s_, t in LEMMAS_NOW:
         s_, t = "COMPUTED-THEORIZED", t + NOTE_534_SOURCE
     _rows_534.append((c, n, s_, t))
 LEMMAS_NOW = _rows_534
+# [item 537] M: the ten rows on 273 rest on bounce_qm's quantum-mechanical definition "instead of transition5q", which
+# "is probably supported by our current candidate theory"; and "let's finish closing everything" (bounce_close.py).
+NOTE_537_TEN = ("  [Item 537] Rests on the bounce defined in quantum physics (M, 537: instead of transition5q): the "
+                "interior quantised from general relativity's own Hamiltonian (Wheeler-DeWitt) in the bulk's clock, "
+                "conjugate to its cosmological constant; unitarity forces a reflection at r = 0 into the white hole of "
+                "the same mass, two horizons only, curvature bounded, 2 r_h/c across (bounce_qm Q1-Q9).  What 536 left "
+                "open is closed (bounce_close C1-C6): the clock is slow, as 491 and 418 require; the interior is "
+                "exactly Kantowski-Sachs (Birkhoff in five dimensions); the mass is kept (183, 273 (a) and (c), 386); "
+                "the place x = 1 is bounded below by effective field theory and set by the candidate theory, "
+                "transition5q, which supports it (least sphere identical; curvature maximum 0.74 against 0.29 "
+                "l5^-4; equal mass; 2 r_h/c).  Beyond established physics it rests on quantum mechanics applied to "
+                "general relativity's minisuperspace, and on the place x = 1 (415's scales, which effective field "
+                "theory admits)")
+NOTE_537_H2 = ("  [Item 537] The equal mass now rests on unitarity with time-reversal symmetry (273 (a)) and the "
+               "record's 183 and 386: the mass function is kept across the bounce exactly, and an asymmetric state, "
+               "which would make energy at the bounce, is excluded (bounce_qm Q6, bounce_close C3); 415's shared onset "
+               "no longer carries it")
+NOTE_537_FACE = ("  [Item 537] The white hole of our hole's mass at position 2 is bounce_qm's reflected state (Q5-Q6; "
+                 "bounce_close C3), with transition5q, the candidate theory's geometry, supporting it")
+TEN_537 = ("O1a", "O1b", "O1c", "Z3b", "Z3bs", "M1", "B3", "B3s", "B4d", "B4ds", "O1bs", "O1cs")
+_rows_537 = []
+for c, n, s_, t in LEMMAS_NOW:
+    k = n.split()[0]
+    if k == "O1a":
+        n = n.replace("273's quantum bounce (its transition surface, transition5q)",
+                      "273's quantum bounce (the reflection unitarity forces at r = 0, bounce_qm; its effective "
+                      "geometry transition5q's transition surface)")
+    if k in TEN_537:
+        t = t + NOTE_537_TEN
+    if k == "H2":
+        t = t + NOTE_537_H2
+    if k in ("FACE2s", "FACE2"):
+        t = t + NOTE_537_FACE
+    _rows_537.append((c, n, s_, t))
+LEMMAS_NOW = _rows_537
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1766,7 +1809,9 @@ def lemma_selftests():
               # item 527: the seed phase in the exact equations -- run, and not resolved by the scheme's diagnostics
               "seed_nonlinear.py",
               # item 530: the second order of the record's own equations at 2w, exact (route b)
-              "seed_second.py"):
+              "seed_second.py",
+              # items 536-537: the bounce defined in quantum physics; what 536 left open, closed
+              "bounce_qm.py", "bounce_close.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
