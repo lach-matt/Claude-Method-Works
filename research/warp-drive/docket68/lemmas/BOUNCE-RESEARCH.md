@@ -3336,3 +3336,47 @@ can be marked COMPUTED-THEORIZED, which for our purposes closes the items in the
   SOURCE's notes cited hf_mirror5_derive.py -- an equation generator with no selftest, its output carried by
   hf_mirror5 X0-X7, which T1 runs. pass_audit is not in T1, so the theorem's selftest did not see it. Set aside as an
   equation generator; P1 passes.
+
+## 60. The bounce defined in quantum physics (536; lemmas/bounce_qm.py)
+
+M, 536: "The bounce needs to  connect to physics. It's a quantum bounce, thus it has to be defined in quantum physics."
+- **Prior art first (442).** Gielen and Menendez-Pidal, PRL 134 (2025) 101501 (arXiv 2409.03006), and Gielen and Ried,
+  JHEP 06 (2025) 074 (arXiv 2502.10104), both READ in full text: the black hole's interior quantised from general
+  relativity's own Hamiltonian (Wheeler-DeWitt), its states evolving in the time conjugate to the cosmological constant
+  (Henneaux-Teitelboim's unimodular form, classically general relativity), and unitarity required. The classical
+  singularity is a finite time of that clock away, so the Hamiltonian is not self-adjoint there; unitarity forces a
+  self-adjoint extension, a reflection at r = 0, and the reflected wave is a white hole -- "of the same mass" for the
+  physically motivated extensions (Gielen-Ried); "unitarity in unimodular time always implies singularity resolution"
+  (Gielen-Menendez-Pidal). Clock dependence (Gotay-Demaret 1983): a clock that reaches the singularity in finite time
+  forces the bounce; a clock running to infinity there does not. The bulk is AdS5, so its cosmological constant and
+  that clock are the record's own.
+- **Carried to five dimensions (bounce_qm Q1-Q4, exact).** With Y the 3-sphere's radius squared and xi = -r^2 f,
+  sqrt(-g)(R - 2 Lambda) reduces to -(3/2N) xi' Y' + 6N - 2 Lambda N Y; the Wheeler-DeWitt equation is
+  i d_T psi = H_S psi, H_S = (1/3Y) d_xi d_Y - 3/Y (Laplace-Beltrami, unique: the minisuperspace metric is flat),
+  solved exactly by exp i[k xi + (3/k)(Lambda Y^2/2 - 3Y) + Lambda T]; at k = 3 the classical solution is
+  Schwarzschild-AdS5. The singularity is a finite T away. H_S has equal deficiency spaces (+i normalisable only for
+  k < 0, -i only for k > 0): its self-adjoint extensions alpha(Lambda, -k) = exp(i chi(k)) alpha(Lambda, k) each join a
+  black-hole mode to a white-hole mode at Y = 0.
+- **Computed (Q5-Q7).** A brute-force wavefunction on a grid agrees with the closed forms to 1e-4. The norm is constant
+  through the bounce; the black-hole branch alone keeps 1, 0.5 and 1e-17 of it at T = -40, 0, 40 (non-unitary). <Y>
+  has a least value above zero at the bounce and follows the classical branches on both sides. The white hole's xi0 is
+  chi'(k) minus the black hole's: a state symmetric under time reversal -- 273 (a)'s Kruskal isometry -- keeps the mass
+  exactly (in = out = 1.0000); an asymmetric one does not (0.70 in, 1.30 out). <xi> is monotone in |T| on each side
+  (Kummer), so it has exactly two zeros: the black hole's horizon and the white hole's, no inner or Cauchy horizon. The
+  effective metric's curvature is bounded, its maximum 0.59 of the classical value at the least radius.
+- **The scale (Q8).** The bounce sits where the clock time left to the classical singularity is 0.676 of the clock's
+  quantum spread. Quantum mechanics does not fix that spread: it is the state's. The record's onset at x = 1 (415;
+  transition5q H7) is the bounce with 1.456 l5 of proper time left, the same for every mass, and needs
+  sigma_Lambda L_z = 0.287 l5/mu in the hole's coordinate cell. Inside the hole Lambda's spread is then negligible for
+  any cell longer than 4.4e-26 m; for the spread to be small against Lambda5 itself the cell must exceed 1.1e4 m at
+  the small end (8.7e-28 m at r0 = 20 ell, 2.7e-29 m at the Earth cap). Whether the bulk's state carries that spread is
+  not settled here: it is the fiducial-cell question of every homogeneous quantisation.
+- **Against transition5q (Q9).** The same object: one trapped region between two horizons, the white hole of the black
+  hole's mass, bounded curvature at the bounce, and the proper time across 2 r_h (deficit about 0.25 Y_min/r_h^2: 1e-5
+  at the small end for a bounce at x = 1). What each rests on differs: transition5q rests on loop quantum gravity's
+  effective dynamics with 415's two scales, the equal mass on 415's shared onset; bounce_qm rests on quantum
+  mechanics -- the Wheeler-DeWitt equation, the clock conjugate to Lambda, unitarity -- the equal mass on time-reversal
+  symmetry (273 (a)), and the scale on the clock's spread.
+- **What stays a choice.** The truncation to homogeneity before quantising (minisuperspace); the clock (Gotay-Demaret:
+  a fast clock forces nothing); the extension within unitarity; the state's clock spread. None is loop quantum
+  gravity's. Put to M: whether the ten rows' quantum premise moves from transition5q to this definition.

@@ -2188,6 +2188,15 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Items 535-536** (535: "what exactly was 273?"; 536: "The bounce needs to  connect to physics. It's a quantum
+  bounce, thus it has to be defined in quantum physics."). 535 answered from the record: M's choice of 2026-10-12,
+  "Quantum bounce to pos 2", computed at 478 and 483. 536: the bounce defined in quantum mechanics
+  (`lemmas/bounce_qm.py`, 9/9, mutants 4/4), on Gielen and Menendez-Pidal (PRL 2025) and Gielen and Ried (JHEP 2025),
+  READ, carried to five dimensions: the interior's Wheeler-DeWitt equation in the clock conjugate to the bulk's
+  cosmological constant; unitarity forces a reflection at r = 0 into the white hole, of the same mass for states
+  symmetric under time reversal (273 (a)), with two horizons only; the bounce's place is the clock's spread, which
+  quantum mechanics leaves to the state (415's x = 1: 1.456 l5 of proper time left). Register unchanged; whether the ten
+  rows' quantum premise moves from transition5q to this definition is put to M. BOUNCE-RESEARCH section 60.
 - **Item 534** (M: SOURCEs and SOURCE "label them as computed"; COMPUTED-THEORIZED "closes the items in the warp
   theorem and map"; the every-lambda proof and the paper "not need here"; M1 "update to proved"; "the bounce" removed
   if no longer relevant, the theorem audited for what relies on it). SOURCEs and SOURCE COMPUTED-THEORIZED: all 82 rows
