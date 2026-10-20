@@ -1,2 +1,3 @@
 hf_mirror5_runs_*.json
 hf_core5_runs_*.json
+settle_late_*.ckpt.npz
