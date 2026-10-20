@@ -264,3 +264,33 @@ uniqueness ball corrected in Proposition 6.5; Lemma 6.4's constant depends on th
 is what Pol^+ gives; two wordings in Lemma 6.2(iii); and rho's coefficient of a oscillates too, with nonzero mean (it
 is part of B_m). The last repairs are applied as the verifier specified and are not re-checked. Status unchanged:
 proved modulo the standard theorems not READ at source; not claimed as PROVED; no paper begun.
+
+**2026-10-20, during the READ at source of the standard theorems, verbatim:**
+
+> You can use my indexing model as a Internet navigation and retrieval protocol.... You can also access thoughts works
+> by looking for what those papers cite, and also who else has cited the work we are trying to access
+
+**D17 (2026-10-20, session decision): the standard theorems READ by the site's retrieval protocol, and what reading
+their hypotheses found.** "My indexing model" is taken to be the retrieval procedure the site states for itself in its
+Ask prompt (public/script.js): enumerate the targets; give each its routes by type (primary, preprint, review,
+compilation, citing paper, deposit, database), open ones first; follow the sources a source names; a blocked route moves
+to the next and is not retried; two independent routes close a fact, one is fragile, none is a stated gap; ask for
+catalogue identifiers; widen on failure (join, never meet). M's second sentence is the citation graph read both ways.
+Routes were found by the research indexes' search and by following references: the Choquet-Bruhat, Chrusciel and
+Loizelet route (arXiv:gr-qc/0608108) is a paper citing Lindblad and Rodnianski, and its references and those of Disconzi
+and Shao (arXiv:2308.09851) name the classical sources (Kato 1975, Hormander, Taylor), books not reachable here. Every
+standard theorem the proof invokes is now READ (N1STAR-PROOF.md section 7, the RETRIEVAL table, with rho per target: two
+or three for each, one for the extension operator). Blocked: OpenAlex (proxy 403); two lecture-note PDFs (Holzegel's,
+Muenster; Luk's, Stanford: proxy 403, scrape timeout); the books (Ringstrom, Choquet-Bruhat) untried. Holding the
+hypotheses against the statements READ found one gap the three verifiers had not: the local theory needs the time lines
+timelike ([AO14] (1.3), g^{ij} positive definite; [DS23] (A4), the distinct speeds never meeting), and in the proof's
+ingoing Kerr-Schild coordinates d_tau is spacelike where r^2 < mu, which Omega reaches (a < sqrt(mu0)). Step 8 is
+rewritten: the coefficients extended by interpolating lapse, shift and spatial metric; the independent variables changed
+along Z = d_tau - beta (the unit normal times the lapse), in which the slices are unchanged and g^{ij} is the inverse
+spatial metric; a cut-off in w and a torus; restarts by [DS23] Theorem 2.4, whose step depends only on the norm of the
+data; and the finite speed of propagation deduced from Lemma 2.3 with no citation, as is D = 0 in 0.7. Reading the
+linear parabolic theory's hypotheses ([Hua15], [MM10]: smooth coefficients, strongly parabolic) made Lemma 6.4's
+existence explicit: the coefficients mollified (M_s does not grow), and a rescaled so that the block-triangular
+principal part meets the Legendre-Hadamard condition. The citations in 0.2 (now [CBCM10] (2.7)-(2.9), which is (0.2) in
+n + 1 dimensions), 0.7 and Lemma 2.1 point to the sources READ. Status: no citation outstanding; the D16 repairs and
+these two have not been checked by an independent verifier; N1* is not yet claimed as PROVED; no paper begun.
