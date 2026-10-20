@@ -39,7 +39,8 @@ ingredient changed must fail, so that a check which passes is not passing vacuou
 
   R7 The wavelength against the curvature length L = K^(-1/4): on x = 1, L = l5; at the horizon, L = sqrt(mu)/72^(1/4).
      For lam = 10 l5 the ratio lam/L is 10 on x = 1 and 2.913 (mu = 100 l5^2), 0.921 (mu = 1000 l5^2) at the horizon.
-     Control: 48 in place of 72.
+     Against the scale on which the curvature varies, r, the ratio is lam/sqrt(mu) = 1.000, 0.316 at the horizon and
+     lam/r_q = 1.853, 1.042 on x = 1 (mu = 100, 1000 l5^2).  Control: 48 in place of 72.
 
 python3 response5.py [--selftest] [--full]
 --full also runs the selftests of the five proof instruments (about 20 minutes; data5.py takes about 14).
@@ -396,6 +397,9 @@ def r7(control=False):
     h100 = sp.N((lam/L(sp.sqrt(mu))).subs(mu, 100*l5**2), 6)
     h1000 = sp.N((lam/L(sp.sqrt(mu))).subs(mu, 1000*l5**2), 6)
     ok &= abs(h100 - sp.Float("2.91295")) < 1e-4 and abs(h1000 - sp.Float("0.921159")) < 1e-4
+    # against the scale on which the curvature varies, r: lam/sqrt(mu) at the horizon, lam/r_q on x = 1
+    vals = [sp.N((lam/rr).subs(mu, m*l5**2), 6) for rr in (sp.sqrt(mu), rq) for m in (100, 1000)]
+    ok &= all(abs(a - b) < 1e-3 for a, b in zip(vals, [1.0, 0.316228, 1.85296, 1.04198]))
     return bool(ok)
 
 CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) dpsi^2 + 2 domega^2", r1, 1),
@@ -404,7 +408,7 @@ CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) 
           ("R4 ell null geodesic; the contractions of the domain; tau-lines spacelike where r^2 < mu", r4, 1),
           ("R5 the constraints at the background: parabolic in a, symmetric hyperbolic in (w, q)", r5, 1),
           ("R6 the dust is round and positive; g0^-1(dPhi, dPhi) = 1 - mu/r^2 - 2 r_q' at x = 1", r6, 4),
-          ("R7 lam = 10 l5 against the curvature length: 10 on x = 1, 2.91 and 0.92 at the horizon", r7, 1)]
+          ("R7 lam = 10 l5 against the curvature length (10; 2.91, 0.92) and against r (1.85, 1.04; 1.00, 0.32)", r7, 1)]
 
 INSTRUMENTS = ["ks5.py", "foliation5.py", "lead5.py", "ansatz5.py", "data5.py"]
 

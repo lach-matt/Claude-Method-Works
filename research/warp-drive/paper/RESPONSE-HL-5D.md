@@ -541,7 +541,17 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   case. After the shell only the mean corrections remain: on Ω ∩ {v ≥ v_end}, g_λ differs from Tangherlini of the final
   mass by λ m1 + O(λ²) with its first derivatives (Theorem 1, items 3–4). Settling would therefore follow from the
   small-data stability of Tangherlini in the T²-mirror class, once the solution is also constructed outside D_T. Both
-  steps are open here.
+  steps are open here. Linearly more is known, and it applies to the class: the class carries no vector-type
+  perturbation and no linearised rotation (computed, `docket68/n1star/settle5.py` T1), and for the other two types the
+  gauge-invariant master quantities on five-dimensional Tangherlini decay, "in spacetime dimension six and below, the
+  uniform decay estimate Ě^N_Ψ(Σ_τ) ≤ C(n, M) I_Ψ(Σ_0)/τ²" ([HKW18] p. 4, Theorem 2), the part with l < 2 being pure
+  gauge plus a linearised Myers–Perry solution (Theorem 1, p. 3), which in the class is a change of mass alone. The
+  decay of the metric components themselves is left open there: "We do not treat this matter in the current paper" (p.
+  4). The least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1,
+  p. 8), which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
+  `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
+  2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
+  Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
 - **The data at past null infinity.** The theorem is posed with Cauchy data on Σ_τ0, before the shell reaches the hole.
   The evolution from data at past null infinity down to Σ_τ0, and the equivalence of the two descriptions of the waves,
   are not proved; the data here carry the waves of section 2.4 at leading order and are otherwise constructed. The
@@ -558,7 +568,15 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
   = l5, and at the horizon L = √μ/72^(1/4). For λ = 10 l5 the ratio is 10 on x_K = 1, and 2.91 (μ = 100 l5²) or 0.92 (μ
   = 1000 l5²) at the horizon (computed, R7): there is no separation of scales. The statement that the waves are
-  high-frequency on all of D once λ < l5/10 is about the approximant, not about λ0.
+  high-frequency on all of D once λ < l5/10 is about the approximant, not about λ0. Against the scale on which the
+  curvature varies, r, the ratio is 1.00 and 0.32 at the horizon and 1.85 and 1.04 on x_K = 1 (computed, R7). That is
+  the parameter a construction from exact waves would see, in the manner of [AB26], whose layers are waves exact on a
+  locally linear background, with amplitudes solving ordinary differential equations ("no sinusoidal identity was used",
+  section 3.1); it is not small either, and there the wavelengths are chosen, here prescribed. At a prescribed
+  wavelength without a small parameter, existence on D_T is a large-data question; a computed solution with a certified
+  residual and a certified linear estimate could settle it (the rigorous numerics cited in [AB26] as [4]), and that is
+  not attempted. The linear scattering of the shell off the seed at 10 l5 is computed in
+  `docket68/lemmas/seed_escape.py`.
 - **Beyond the boundary.** Nothing is claimed beyond Ω, whose inner boundary r = a lies a fixed distance inside x_K = 1;
   the statements of Theorem 1 are made on D_T.
 - **More families.** Several dusts, angular separation, and the passage to Vlasov matter are not attempted.
@@ -597,6 +615,15 @@ from the arXiv text, with the extraction's spacing.
 - [LR05] H. Lindblad, I. Rodnianski, arXiv:math/0411109v2. READ 2026-10-19: p. 1, (1.3) p. 2, section 2.2 p. 8.
 - [IK03] A. Ishibashi, H. Kodama, *Stability of higher-dimensional Schwarzschild black holes*, Prog. Theor. Phys. 110
   (2003) 901, arXiv:hep-th/0305185v3. READ 2026-10-20: abstract p. 1, sections 2.1–2.3, summary p. 16.
+- [HKW18] P.-K. Hung, J. Keller, M.-T. Wang, *Linear stability of higher dimensional Schwarzschild spacetimes: decay
+  of master quantities*, arXiv:1809.05144v1. READ 2026-10-20: abstract p. 1; pp. 2–4 (Theorems 1 and 2); p. 69
+  (Theorem 22).
+- [CLY03b] V. Cardoso, J. P. S. Lemos, S. Yoshida, *Scalar-gravitational perturbations and quasinormal modes in the
+  five dimensional Schwarzschild black hole*, arXiv:hep-th/0311260v2. READ 2026-10-20: (2.1)–(2.7), pp. 3–4; Tables
+  1–3, pp. 8–9.
+- [AB26] L. Alpöge, T. Buckmaster, *Blowup for the Boussinesq equations with smooth forcing*, preprint (September
+  2026), cims.nyu.edu/~tristanb/boussinesq.pdf. READ 2026-10-20: section 1.2 (the layers and the wave), section 3.1
+  (Lemma 3.1 and its proof), the bibliography ([4], Chen and Hou, arXiv:2210.07191v4 and arXiv:2305.05660v3).
 - [Hol08] G. Holzegel, *Stability and decay-rates for the five-dimensional Schwarzschild metric under biaxial
   perturbations*, arXiv:0808.3246v1. READ 2026-10-20: abstract p. 1, the model pp. 3–5, Theorem 1.1 pp. 5–6.
 - [CD03] P. T. Chruściel, E. Delay, *On mapping properties of the general relativistic constraints operator in weighted
