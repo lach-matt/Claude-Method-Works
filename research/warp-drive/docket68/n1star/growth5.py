@@ -37,10 +37,22 @@ the measure, not a theorem.
      record's data at v = 2 over fields still zero, both measures are positive, K_all >= K_v, and the field whose
      derivative gives K_all is named.  Control: a perturbation of W alone at the boundary gives K_v = 0 with K_all > 0,
      so K_v alone is blind to it.
-  G1 (computed) L = 100, lam = 1.000, Ny = 20 and 28: v_break, nz, W at the boundary; int K dv to v_break.
-  G2 (computed) L = 1000, lam = 0.3162, Ny = 24: completes or breaks; int K_v dv, int K_all dv and their exps.
-  G3 (computed) the record's own regime as control, L = 100, lam = 0.1: int K and the amplification; amp <= exp int K.
-  G4 (computed) the amplification at L = 1000 (and at L = 100 up to v_break).
+  G1 (computed) L = 100, lam = 1.000 (the wave's metric amplitude lam A r^-3/2 at the core boundary 2.5): the premise
+     fails at v = 1.4516 (Ny = 20) and 1.4508 (Ny = 28), a second zero of the expansion; W at the boundary turns
+     positive at 1.516 and 1.512 and the slice solve fails at 1.69 and 1.75, before the shell's peak at v = 2.  To the
+     break, int K_v dv = 0.523 (exp 1.7), int K_all dv = 2.13 (exp 8.5).
+  G2 (computed) L = 1000, lam = 0.3162 (amplitude 1.9 at the boundary), Ny = 24: the same sequence, the second zero at
+     v = 1.5825, W positive at the boundary at 1.680, the slice solve failing at 1.704; to the break int K_v dv = 0.751
+     (exp 2.1), int K_all dv = 12.27 (exp 2e5, from d_r of W - W_V at the deep boundary).
+     the Ny = 28 and 20 runs to v = 1.75 are in progress at this commit and are seated in the next
+  G3 (computed) the record's own regime as control, L = 100, lam = 0.1: complete to v = 4.5 with one zero throughout,
+     int K_v dv = 1.933 (exp 6.9), int K_all dv = 8.77 (exp 6e3, from d_v of the oscillating part of W), and the
+     amplification 1.713 <= exp int K_v.
+  G4 (computed) the amplification to the break is 1.003 at L = 100 and 1.000 at L = 1000: the data's difference has not
+     grown into the slices by then.
+  So: no approximant on D_T at lam = 10 l5 comes from the record's own scheme at either seed; and the sup-norm Groenwall
+  factor is no measure of the linear growth (1e3 to 1e5 against an amplification of 1.0 to 1.7), so a certified
+  argument would need the propagator's norm, not a sup-norm bound.
 
 python3 growth5.py [--selftest | --run L lam Ny Nx [delta] | --report]
 Runs write data/growth5_runs.json (one key per run); --selftest reads it and asserts the pinned figures.
@@ -224,7 +236,15 @@ def g0(control=False):
 
 
 # ---- pinned figures ---------------------------------------------------------------------------------------------------
-PINNED = {}   # filled after the runs: key -> dict(v_break, int_Kv, int_Kall, amp)
+PINNED = {    # the runs of 2026-10-20 (data/growth5_runs.json): v_break, int K_v, int K_all to the break, amplification
+    "L100_lam1_20x16_d0": dict(v_break=1.45161, int_Kv=0.5233, int_Kall=2.1344, amp=1.003),
+    "L100_lam1_20x16_d0.001": dict(v_break=1.45161, int_Kv=0.5238, int_Kall=2.1375),
+    "L100_lam1_28x16_d0": dict(v_break=1.45082, int_Kv=0.5214, int_Kall=2.1236),
+    "L1000_lam0.3162_24x16_d0": dict(v_break=1.58251, int_Kv=0.7508, int_Kall=12.2742, amp=1.0),
+    "L1000_lam0.3162_24x16_d0.001": dict(v_break=1.58251, int_Kv=0.7519, int_Kall=12.2896),
+    "L100_lam0.1_20x16_d0": dict(v_break=None, int_Kv=1.9329, int_Kall=8.7663, amp=1.7132),
+    "L100_lam0.1_20x16_d0.001": dict(v_break=None, int_Kv=1.9348, int_Kall=8.7755),
+}
 
 
 def selftest():
@@ -241,7 +261,14 @@ def selftest():
         iv, ia, vend, _ = integrals(R[k])
         good = (abs((R[k]["v_break"] or -1) - (pin["v_break"] or -1)) < 1e-6 and abs(iv - pin["int_Kv"]) < 1e-3
                 and abs(ia - pin["int_Kall"]) < 1e-3)
-        print("[%s] %s v_break %s int K_v %.3f int K_all %.3f" % ("ok" if good else "FAIL", k, R[k]["v_break"], iv, ia))
+        line = "v_break %s int K_v %.3f int K_all %.3f" % (R[k]["v_break"], iv, ia)
+        if "amp" in pin:
+            kp = k[:k.rfind("_d")] + "_d0.001"
+            amp = amplification(R[k], R[kp])[0] if kp in R else float("nan")
+            good &= abs(amp - pin["amp"]) < 1e-3 and amp <= np.exp(iv)
+            line += " amplification %.3f (<= exp int K_v %.2f)" % (amp, np.exp(iv))
+        tag = "G1" if "lam1_" in k else ("G2" if "L1000" in k else "G3")
+        print("[%s] %s %s %s" % ("ok" if good else "FAIL", tag, k, line))
         ok &= good
     print("growth5.py: %s" % ("all checks pass" if ok else "FAILED"))
     return ok

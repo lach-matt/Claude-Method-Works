@@ -178,11 +178,15 @@ measure the late-time tail of the l = 2 master fields. That fixes the decay rate
    general (bondi5.py B1-B3), the mean mass mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after the shell. Read by the
    twelfth verifier: no major finding, five minor repaired in place (D40). Step 0 first: the solver's offset/lam^2 ->
    0.4569 against the law's 0.45693 (B4, R8).
-2. *The go/no-go at 10 l5: measured, growth5.py (D38, section 10.2).* At mu0 = 100 l5^2 the scheme's premise fails at
-   v = 1.451 on two grids: the round spheres' expansion acquires a second zero and the core boundary untraps before the
-   shell's peak, so no approximant on D_T comes from the record's own scheme there, and step 2 of the route would have
-   to be re-posed. At mu0 = 1000 l5^2 see section 10.2 for the run's end, the growth factor and the finite-difference
-   amplification; the record's regime lam = 0.1 serves as control (int K_v dv = 1.93, amplification 1.71).
+2. *The go/no-go at 10 l5: measured, growth5.py (D38, D41, section 10.2).* At both seeds the scheme's premise fails
+   before the shell's peak: the round spheres' expansion acquires a second zero at v = 1.451 (mu0 = 100 l5^2, two grids
+   agreeing to 0.001) and 1.583 (1000 l5^2), and the core boundary untraps within 0.1 after. So no approximant on D_T
+   comes from the record's own scheme at 10 l5, and step 2 above must be re-posed with an inner boundary that stays
+   outflow (the 2+1 system of step 1, or an excision deeper inside the seed's horizon). To the break the radiation
+   field's growth factor is 1.7 and 2.1 and the finite-difference amplification 1.00; in the record's own regime (lam =
+   0.1, the control, complete) they are 6.9 and 1.71, while the sup-norm Groenwall factor exp int K_all is 6e3 there and
+   2e5 at the second seed to the break: the certified argument would have to carry the propagator's norm, as [MP11] do,
+   not a sup-norm bound.
 3. *Settling: the linear milestone in the class, as far as [KI03] carries it (D39, section 10.3).* Every metric
    component in the Regge-Wheeler-type gauge f_a = 0 = H_T is a combination of [HKW18]'s master quantities and their
    derivatives to order two (Proposition 10.1, deduced), so linear settling of the components follows at their rate;

@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D40).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D41).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -37,8 +37,10 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   `../lemmas/hf_mirror5.py` run on hf_core5's domain at lam = 10 l5 for mu0 = 100 and 1000 l5^2, the growth factor
   exp int K dv of the computed solution recorded at every step (two measures, fifteen maxima), the breakdown of the
   scheme's premise (a second zero of the expansion, the core boundary untrapped) and a finite-difference linear
-  amplification (G0-G4, section 10.2). `python3 growth5.py --selftest` reads `data/growth5_runs.json`;
-  `--run L lam Ny Nx [delta]` regenerates one run (minutes to an hour), `--merge`, `--report`.
+  amplification (G0-G4, section 10.2): at both seeds the premise fails before the shell's peak (the second zero at
+  v = 1.451 and 1.583), so no approximant on D_T comes from the record's scheme at 10 l5. `python3 growth5.py
+  --selftest` reads `data/growth5_runs.json` (G0 live, G1-G4 pinned); `--run L lam Ny Nx [delta] [v_end]` regenerates
+  one run (five minutes to half an hour), `--merge` trims the run files into the data file, `--report`.
 - `routes5.py`: the two computed facts behind ROUTES-OPEN.md's route for the mass at past null infinity:
   five-dimensional Vaidya's R_vv, and Tanabe, Tanahashi and Shiromizu's Bondi mass law as the class's P7
   density (Q1-Q2). `python3 routes5.py --selftest` (2/2), `--mutants` (2/2).
