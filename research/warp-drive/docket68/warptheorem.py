@@ -27,7 +27,13 @@ FACE2: face2_release).  M's definitions -- R0, R1, R2, R6, RECON, B6' -- stand a
                  example README: 3.94781e-22 m and 3.63442e10 J at ell_H (r_h/ell = 6.5e-13); 9.07553e-21 m and
                  1.58096e9 J at the dark-energy tie's 7.43 um; 1.12008e-20 m and 1.28098e9 J at the window's top
                  (r_h/ell = 8.0e-16) (ell_si L2; corrected at 542, M-ELL-SI: it gave the window's top alone, unnamed).
-                 At the large end E = 459,404,002.42 J x sqrt(N), r0 = 2m, free of ell;
+                 At the large end E = 459,404,002.42 J x sqrt(N), r0 = 2m, free of ell.  At the small end the static
+                 corridor is unique order by order in r_h/ell, Tangherlini's static perturbations in the mirror class
+                 having no zero mode (G0s); through the middle, its radius on the plane from 0.2 to 20 ell, it is one
+                 family with one member for each N, E(N) increasing and fixed by the first law between the two ends'
+                 laws, the surface gravity positive and no zero mode (GMID); and formed at the emitter's finite
+                 wavelength it settles to that member -- proved at the large end (SETTLE), at the small computed with
+                 its proof theorized (SETTLEs) (542, M-GAPS-EXPAND);
   (H) HOLDING    its horizon holds the README: 2 pi^2 r_h^3 = 4 N ln2 l5^3 at the small end (C2 verified), 4 pi r0^2 =
                  N A_bit at the large -- exactly once written, in the mean during the write (1.3e8 bits of 2.74e15,
                  passage_est Q6);
@@ -37,7 +43,9 @@ FACE2: face2_release).  M's definitions -- R0, R1, R2, R6, RECON, B6' -- stand a
                  273, 282) -- one-way in every aspect: nothing from position 2 enters it and no influence runs back
                  (276); its faces begin at the opening, the positions joined before it through the bulk with no
                  horizons (282 (2)); its horizon is not extremal -- surface gravity c^2/r_h at the small end, 1/(4M)
-                 at the large (251, 271) -- our face damping every disturbance (stability S6); the static bulk, its
+                 at the large (251, 271) -- our face damping every disturbance (stability S6), Wall E's scalar wave
+                 and every gravitational perturbation, the metric included, at both ends (face_grav: O3gs, O3g;
+                 542); the static bulk, its
                  horizon and the passage regular and complete classically, the hole's interior singularity off the
                  passage (259; o1c_oneway, verified 337); the two faces of equal mass, the mass function kept across
                  the bounce by unitarity with time-reversal symmetry (273 (a), 183, 386; bounce_qm Q6, bounce_close
@@ -54,7 +62,11 @@ FACE2: face2_release).  M's definitions -- R0, R1, R2, R6, RECON, B6' -- stand a
                  classical segments are Ricci-flat, the README's null energy non-negative, and our face's own Hawking
                  influx, outside the quantum region, is paired on the same rays by the inflow during the write and by
                  the README's E after it (z_hawking H1-H4) -- and the bounce's negative is confined to the quantum
-                 region, 177's appearance (318; pair_math P1-P4);
+                 region, 177's appearance (318; pair_math P1-P4), on QB located exactly: zero outside the horizon,
+                 inside it a positive tail below 1.3 (x/x_b)^2, the mass's drop where QB departs at order one, x >
+                 0.37 x_b, net zero along every ray (Z3q); on the plane's cosmology it bounds every component's true
+                 w and the whole's dH/dt <= 0, which DESI DR2's preferred backgrounds keep, by components that each
+                 keep null energy (Z3d) (542);
   (B) BULK       the bulk's law is Einstein's exactly, the Gauss-Bonnet coupling zero (C9 verified, 332, under
                  M-ONE-LIGHT-CONE, 328), relativity holding for everything that can exist (324); no bulk is ever
                  empty (320); our plane and position 2's coincide everywhere (275); the energy positive where it bears
@@ -64,7 +76,12 @@ FACE2: face2_release).  M's definitions -- R0, R1, R2, R6, RECON, B6' -- stand a
   (I) INFORMATION  the passage is N bits of entanglement, and carries the N-bit README -- written in over the long
                  write by the plane's own radiation at T_H, E/2 in (passage_est Q4), held whole in the corridor with
                  whatever falls in (163, 418) and released whole at the write's end (432 (2)) through the interior's
-                 unitary map, which position 2 inverts exactly (r1_exact); only information crosses (336, 386);
+                 unitary map, which position 2 inverts exactly (r1_exact); only information crosses (336, 386); and
+                 over the hole's life after the release our universe's evolution stays unitary on the island formula
+                 (theorized, contested for a massless graviton): the face's fine-grained entropy never exceeds its
+                 area's, the information leaves in its radiation, the island lies inside our face on the classical
+                 interior, nothing crosses, and the end holds at most its own 176 bits (I3s, I3; 542,
+                 M-GAPS-EXPAND);
   (E) ENERGY     one exact energy E, the hole's own, holds our face -- in the mean through the write, the inflow passing
                  through it as its emission -- and returns to our universe as radiation over the hole's life (336);
                  position 2's face, closing, releases position 2's own energy into position 2, which the build uses
@@ -157,6 +174,16 @@ curvature's size only through ell, and in every universe with a metastable vacuu
 by the math (settle_late.py): the only end state is Tangherlini of the final mass, linear settling holds with the
 metric, and the record's nonlinear evolution settles to its resolution; the nonlinear proof is open in the field.
 The 10 l5 wavelength is the N1* session's (BOUNCE-RESEARCH 64).  No status moves.]
+[Item 542: the gaps closed and the weak rows strengthened (M: 'add lemmas to close these gaps. nothing gets narrowed,
+only expanded to complete the statement'; 'strengthen the existing lemmas, and ad more for support').  Ten rows
+added: G0s (the small end's uniqueness), GMID (the family through the middle), I3s and I3 (our universe's
+information over the life, COMPUTED-THEORIZED), O3gs and O3g (our face under every gravitational perturbation), Z3q
+(the negative's place on QB), Z3d (the measured dark energy), SETTLEs (COMPUTED-THEORIZED) and SETTLE (the formed hole
+settles); G1, G3, O3s, O3, Z3bs, Z3b and Z3c strengthened, none narrowed.  The fifteen rows resting on QB, and Z3q,
+labelled PROVED on QB (M).  The SI figures name their ell: ell_H <= ell <= 13.964 um, the figures at both ends and
+the dark-energy tie (ell_si; M: 'address and correct this').  Every row carries one current-basis line (M: 'yes').
+541's corrections D1-D5 applied (M: 'approved').  93 rows: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6
+COMPUTED-THEORIZED (BOUNCE-RESEARCH 66).]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -195,7 +222,10 @@ measurement fixes), or OPEN.  The theorem is proved exactly when no lemma is OPE
 [Item 534: COMPUTED-THEORIZED -- built and computed, what rests beyond established physics named, closing the row (M:
 'label them as computed'); since 538 with a complete proof of its computations (M-CT-PROOF).  Item 542: PROVED on QB --
 every step a computed solution consistent with established physics but QB's, the input row it rests on (M: 'PROVED on
-QB').  So the theorem is proved on QB and on SOURCE's named theorized steps.]
+QB').  So the theorem is proved on QB and on SOURCE's named theorized steps.  Item 542: the gaps' lemmas add two
+more named theorized steps, each COMPUTED-THEORIZED with its complete proof -- the island formula (I3s, I3;
+lemmas/I3-PROOF.md) and the formed hole's nonlinear settling at the small end (SETTLEs; lemmas/SETTLE-PROOF.md).  So
+the theorem is proved on QB, on SOURCE's, I3's and SETTLEs's named theorized steps.]
 
   T1  the PROVED lemmas are re-run: exactE.py's identities (z3), passage5d.py's identity and Q, localbulk.py's Gauss
       condition, stability.py's surface gravity, coin.py's passage reading.  [Item 331: stability.py's S1 re-run is
@@ -1897,6 +1927,159 @@ LEMMAS_NOW = _rows_542b
 RESTS_ON_NOW.update({"G1": RESTS_ON_NOW["G1"] + " G0s GMID", "G3": RESTS_ON_NOW["G3"] + " G0s GMID",
                      "O3s": RESTS_ON_NOW["O3s"] + " SETTLEs", "O3": RESTS_ON_NOW["O3"] + " SETTLE",
                      "SETTLEs": "ARRIVALs", "SETTLE": "ARRIVAL", "Z3q": "QB", "I3s": "CLOSEs", "I3": "CLOSE GMID"})
+# [542, M-BASIS-LINE] One current-basis line per row (M: 'yes'): what the row rests on now, with the superseded notes
+# left in the row's record.  The selftest checks every row has exactly one; the map shows it.
+CURRENT_BASIS = {
+    "G1": "E = 3 pi c^4 r_h^2/(8 G5) at the small end (rows_small G1s, C7 verified), exactE at the large; one static "
+          "corridor for each N: G0s at the small end, GMID through the middle; J = 0 by the reflections (scope C1)",
+    "G2": "exactE at the large end; ledger E3s and c7_oneway V12 at the small end, under the G5 readings",
+    "G3": "r_h from C2 R1's count (verified 258), r0 = 2m on C3 (verified 261); the family's radius between them "
+          "(GMID), unique at the small end (G0s)",
+    "H1": "the area law: hcount_cypher and area_law5 (C2 verified, 258) at the small end, exactE's identity at the "
+          "large; held in the mean during the write (passage_est Q6)",
+    "H2": "270 (a): U = 0, our black-hole face and position 2's white-hole face; their equal mass by unitarity with "
+          "time-reversal symmetry (bounce_qm Q6, bounce_close C3) -- on QB",
+    "H2tu": "rows_small H2tu-s (C7 verified); at the large end r = 2m on C3 (verified 261), the brane's areal radius "
+            "0.062 (ell/r0)^2 above 2GM/c^2",
+    "H2txs": "copy_p2 C1 (240): position 2's horizon at its own bit area; at the small end the construction's single "
+             "chart (c7_oneway V12 (Q3))",
+    "H2tx": "copy_p2 C1 at its own bit area, capacity N in every position 2 (m1p2x_large Y8), on M1P2x",
+    "O1a": "M's 270, 276, 277; c1_oneway (verified 304); the bounce QB's reflection at r = 0; position 2's face "
+           "FACE2s and FACE2 -- on QB",
+    "O1bs": "o1c_oneway (verified 337): the static bulk, horizon and faces regular; the bounce's curvature bounded "
+            "(QB) -- on QB",
+    "O1cs": "o1c_oneway Z1-Z8 (verified 337): every causal geodesic through the open interiors complete, the faces' "
+            "generators ending at the closing -- on QB",
+    "O1b": "focusing_parts F1-F6: curvature finite before the bounce along every part; the core QB's -- on QB",
+    "O1c": "focusing_parts F1-F3 on the four-dimensional stretch, the transition and the core QB's; position 2's side "
+           "by time symmetry -- on QB",
+    "O2": "kappa = c^2/r_h (rows_small O2s, C7 verified) and 1/(4M) (C3 F5, verified 261); stability S6",
+    "O3s": "o3_hold O3e: the face standing through the hole's life (334, 336), the write within it; Wall E's scalar "
+           "wave (Schlue, READ) and every gravitational perturbation (O3gs); the formed hole settling (SETTLEs)",
+    "O3": "o3_large Q1-Q4: the face standing through the large hole's life (close_large L3); every gravitational "
+          "perturbation (O3g); the formed hole settling (SETTLE)",
+    "O3gs": "face_grav W0-W4, W6: Hung, Keller and Wang's decay of every type (READ); the reconstruction regular for "
+            "every type; the vector ringdown computed",
+    "O3g": "face_grav W5: Dafermos, Holzegel and Rodnianski's linear stability of Schwarzschild (READ); the plane "
+           "reads Schwarzschild to O((ell/r0)^2)",
+    "Z1q": "f1_audit B5, B6: Gauss and Israel's Z2 junction; the bulk's law Einstein's exactly (C9, 332)",
+    "Z1ts": "rows_small Z1t-s: Ricci-flat, zero on every radial null ray; the tangential reading the bulk's Weyl term "
+            "(C1 verifier, 254)",
+    "Z1t": "rows_large Z1t: R_AB k^A k^B = 0 in the bulk (m1_large M1); the plane's reading Figueras and Wiseman's "
+           "dual stress, O((ell/r0)^2)",
+    "Z2rs": "rows_small Z2r-s: both zero at flat order, to M1-c's order (271 (4))",
+    "Z2r": "rows_large Z2r: both zero where the plane reads Schwarzschild; the plane's radial integral -0.00643 "
+           "(ell/r0)^2/r0",
+    "Z3a": "b1_matter C1-C3 (117, 120); matter keeps null energy pointwise (pointwise P1-P4, 320)",
+    "Z3bs": "pair_math P1-P4 (318, proved at 354): every classical segment keeps 183; the negative located on QB "
+            "(Z3q) -- on QB",
+    "Z3b": "z3b_large Z0-Z6 (424): R_kk = 0 in the bulk, S_kk = T_kk >= 0 on the plane; the negative located on QB "
+           "(Z3q) -- on QB",
+    "Z3q": "z3q Q0-Q6 on QB's symmetric state: Birkhoff outside the horizon, the tail below 1.3 (x/x_b)^2, the "
+           "crossing at 0.365, in and out equal -- on QB",
+    "Z3c": "nature_rows Z1-Z3 (200 (3)): w >= -1 from (Z) for every component and dH/dt <= 0 for the whole; DESI "
+           "DR2 met by Z3d",
+    "Z3d": "z3d D0-D5: dH/dt <= 0 under (Z); DESI DR2's four fits keep it, rho + p >= 0.42 rho; an exchanging vacuum "
+           "and cold dark matter reproduce them exactly (DESI DR2, Das, Corasaniti and Khoury, READ)",
+    "B1": "b1_matter B1' (SMS, READ); localbulk L1-L2; no bulk empty (320)",
+    "B2": "b1_matter B2' (Dahia and Romero, READ); localbulk L4",
+    "B2ts": "C1 H1-H2 (localized_hole, verified 254; c1_oneway, verified 304): Tangherlini, the plane totally "
+            "geodesic",
+    "B2t": "rows_large B2t: Figueras and Wiseman's bulk, Einstein and not a Ricci soliton (READ; m1_large M1-M3), "
+           "the plane umbilic with the RS kink",
+    "B3s": "b4d_small D10 (351): every cell a row computed, derived, verified or M's; the interior QB's -- on QB",
+    "B3": "B4a-B4d's global spacetime cell by cell at the large end (b4d_large); the interior QB's -- on QB",
+    "B4a": "b4_global 6/6: the positions joined through the bulk with no horizons until the opening (282 (2))",
+    "B4ds": "b4d_small D0-D18: regular wherever classical GR is kept; five Planck-scale places located and bounded "
+            "(M-PLANCK-ENDS) -- on QB",
+    "B4d": "b4d_large K0-K11: the opening keeps the face's size, the closing by emission; the interior QB's -- on QB",
+    "B5a": "b5a_oneway, b5a_residue A1-A6 (verified 339): the coincident sheets' summed stress meets B5'a one way; "
+           "x+ = 2.625e-10 J/m^3 (322)",
+    "B5cs": "e_positive E7: the README carries position 2's plane past sigma/4 within 2.0e-15 m of the face",
+    "B5c": "m1_large M8: a ray crossing position 2's plane picks up the side total sigma/2 > 0 with no matter "
+           "(tau_share T4)",
+    "B5pu": "b5p_cypher (b1_matter C3, C4); pointwise P5",
+    "B5px": "theorem_p2 TC (229); pointwise P6, under any of position 2's laws",
+    "B5b": "pointwise P1-P6: every kind of matter keeps null energy at every point; b5b_wall W0-W7, an exact smooth "
+           "wall",
+    "B6": "b6_once, b6_k: k_R = k_L/2, exact as a curvature ratio in Einstein's law (C9)",
+    "B6'": "M's definition (201): sigma_defines T1-T4, nature_rows B1-B3; standing as realizable (441 (2))",
+    "B8": "gb_cone C7, C10 under M-ONE-LIGHT-CONE (328); gb_alpha B2-B3; relativity U1-U6 (324); C9 verified (332)",
+    "B7": "b7_formation; 282 (2) H-JOIN-NO-HORIZONS, from M's rulings and one READ at both ends",
+    "I1": "axioms: 137 (1) with H1; at the small end the horizon's 3-sphere (C2)",
+    "I2": "i2_capacity: within the capacity bound (READ); no signal faster than light (relativity U5)",
+    "I3s": "i3_info I0-I8: the Page curve after the release, the extremal surface inside the horizon on the classical "
+           "interior, the end at 176 bits -- theorized, the island formula (Penington, READ; contested, Geng and "
+           "Karch, READ); I3-PROOF.md",
+    "I3": "i3_info I9 with I4-I8: E^3 linear, Page at 0.568 tau, shrinking through the middle into I3s's end -- "
+          "theorized as I3s; I3-PROOF.md",
+    "E1us": "M-ENERGY-STAYS (336): close_small K5, K9 -- our face closes by Hawking emission over the life, its energy "
+            "ours",
+    "E1u": "M-ENERGY-STAYS (336): close_large L3, L5 -- the large hole's life at least 2.417 N clocks, its energy "
+           "radiated into our universe",
+    "E2us": "110, 111 (a), 240; close_small K9; position 2's face open only for the release, at most 2 r_h/c, and "
+            "holding (face2_release)",
+    "E2u": "110, 111 (a), 240; close_large L4, L5; position 2's face holding through the release (face2_release)",
+    "E1xs": "M-ENERGY-STAYS (336), 240, 111 (b): nothing of our E crosses, the README does, emerging whole at "
+            "position 2 (face2_release)",
+    "E1x": "M-ENERGY-STAYS with close_large L3; the README's crossing M's (111 (b), 230, 240), emerging whole "
+           "(face2_release)",
+    "E2xs": "110, 111 (a), 240: position 2's own closing energy, which the build uses; close_small K9; face2_release",
+    "E2x": "110, 111 (a), 240; close_large L4, L5; face2_release",
+    "E3": "ledger E3, E3s: closes at both ends under reading (a) (M, 155); our E radiated into our universe, the build "
+          "position 2's own energy",
+    "E4rs": "rows_small E4r-s: zero in five dimensions; the plane's four-dimensional reading -5.3e14 E at the example",
+    "E4r": "rows_large E4r: no bulk stress outside the horizon; the plane's reading -0.031 (ell/r0)^2 E",
+    "R0": "M's definition (70, 101, 115 (c), 130 (2)); standing as realizable (441 (2))",
+    "R1": "M's definition, realized: r1_exact X0-X5 -- held and released whole, recovered exactly by inverting the "
+          "interior's unitary map (491, 492)",
+    "R2": "M's definition (148, 240, 285); standing as realizable (441 (2))",
+    "R3": "bulk/exactcopy and rearrange (verified): exactness at the instant over the mass window",
+    "R4": "r4_length (H-LENGTH-IN-BITS, 155): the length as the trajectory difference, given a measure",
+    "R5": "r5_build, copy_p2: what the closing energy activates (239), the copy under position 2's laws (240); "
+          "face2_release",
+    "R6": "M's definition (284 (2)-(3), 285); standing as realizable (441 (2))",
+    "RECON": "M's definition (437), bounded to the reconstructible region (443 (1)); standing as realizable",
+    "ENCODE": "encode_labels C0-C7: the last state's labels in one fixed gamma-coded encoding, canonical, exact, the "
+              "same at every lattice point (439)",
+    "M1s": "m1_small (C4 verified, 269); c4_oneway (C4 one-way verified, 310)",
+    "M1": "m1_large M0-M10 on C3's large brane hole (Figueras and Wiseman, READ), through the bounce's map QB -- on QB",
+    "M1P2xs": "c8_level V0-V10 (verified 341): position 2's side at the small end, on the one-way object",
+    "M1P2x": "m1p2x_large Y1-Y9: the glued object's isometry, position 2's face's junction, its blueshift bounded",
+    "FARs": "far_small F0-F9 (347, 349; verified 355): every far surface at least as deep as it is wide strictly "
+            "untrapped at every ell",
+    "FAR": "far_large L0-L9 (350; verified 355) with Garriga and Tanaka's far field (READ): a deep enough far surface "
+           "strictly untrapped",
+    "WRITEs": "write_cypher W5; passage_est Q4: the balance write, 8.63e14 clocks at the example, the face at its size "
+              "in the mean",
+    "WRITE": "write_large X1-X3: the large brane hole static (Figueras and Wiseman, READ); the balance write 3 N "
+             "ln2/(32 pi alpha) clocks of GM/c^3",
+    "ARRIVALs": "arrival_small V0-V14 (verified 348): E(N) forms our face as it arrives, all at once; the bits over the "
+                "write (passage_est)",
+    "ARRIVAL": "arrival_large on M's rulings (384): the README's E forms the corridor at the opening, its bits "
+               "following over the write",
+    "G0s": "g0_small Z0-Z6: positive master potentials, no static zero mode at l >= 2; below l = 2 the mass and "
+           "rotations; every order fixed (Karasik et al., READ)",
+    "GMID": "gmid G0-G7: corridor_p2's family at two resolutions, monotone, its ends matched, the first law closing to "
+            "2.2e-4; Figueras and Wiseman's no zero modes (READ)",
+    "SETTLEs": "settle_late S0-S5: the end state Tangherlini (proved), linear settling (proved), the nonlinear "
+               "evolution computed -- theorized, its proof (named); SETTLE-PROOF.md",
+    "SETTLE": "settle_large E0-E4: axisymmetric with zero Komar J on the plane (exact); Dafermos, Holzegel, "
+              "Rodnianski and Taylor's Corollary III.3.1 (READ), to O((ell/r0)^2)",
+    "CLOSEs": "M-ENERGY-STAYS (336), close_small K1-K9: our face closes by Hawking emission after 8.57e14 clocks; "
+              "position 2's face at the release (face2_release)",
+    "FACE2s": "face2_release V1-V5: open only for the release, at most 2 r_h/c, and holding (t_q 17.9 times longer; "
+              "Barcelo et al., READ); the white hole bounce_qm's reflected state -- on QB",
+    "CLOSE": "close_large L1-L5 on M-ENERGY-STAYS: closes by Hawking emission over the large hole's life, at least "
+             "2.417 N clocks",
+    "FACE2": "face2_release at the large end: open at most 4 clocks of GM/c^3 and holding through it; the white hole "
+             "bounce_qm's reflected state -- on QB",
+    "SOURCEs": "SOURCE-PROOF.md: THM-SOURCE parts A-E (the read, the emitter, the high-frequency limit, delivery within "
+               "half a bit); N1* and Theorem P proved -- theorized steps named",
+    "SOURCE": "SOURCE-PROOF.md at the large end, as SOURCEs -- theorized steps named",
+    "QB": "BOUNCE-PROOF.md L1-L14 (bounce_qm Q1-Q9, bounce_close C1-C6, bounce_proof P1-P6): unitary reflection at r "
+          "= 0, two horizons only -- theorized, quantum mechanics at Planckian curvature",
+}
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -2123,7 +2306,10 @@ def lemma_selftests():
               # item 539: QB's Planckian curvature under varying values of Baez's constants
               "qb_baez.py",
               # item 540: whether the hole settles at late times, for the math to determine
-              "settle_late.py"):
+              "settle_late.py",
+              # item 542: the gaps' lemmas and the weak rows' support; the SI figures' ell
+              "ell_si.py", "g0_small.py", "gmid.py", "i3_info.py", "z3q.py", "face_grav.py", "z3d.py",
+              "settle_large.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
@@ -2187,6 +2373,7 @@ def report(d):
         for c, name, status, where in LEMMAS_NOW:
             if c == clause:
                 print("  (%s) %-6s %s  [%s]" % (c, status, name, where))
+                print("        current basis: %s" % CURRENT_BASIS.get(name.split()[0], "(none)"))
     a, b, c = d["t1"], d["t2"], d["t3"]
     counts = {k: sum(1 for l in LEMMAS_NOW if l[2] == k) for k in ("DERIVED", "DEFINITION", "PROVED", "READING",
                                                                      "NATURE", "OPEN", "COMPUTED-THEORIZED",
@@ -2249,6 +2436,8 @@ def selftest():
                                                                     for n in [n0.split()[0]]]
                                                          for v in RESTS_ON_NOW.values() for x in v.split())
         and all(k in names for k in RESTS_ON_NOW) and {"O2", "O1c"} <= {r[1].split()[0] for r in SUPERSEDED_NOW})
+    chk("M-BASIS-LINE (item 542): every row carries exactly one current-basis line, and no line names a row that is "
+        "not there", sorted(CURRENT_BASIS) == sorted(names) and all(CURRENT_BASIS[k].strip() for k in names))
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 

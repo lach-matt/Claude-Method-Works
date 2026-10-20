@@ -32,12 +32,26 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - **Large end:** the record's four-dimensional corridor, with eq. (17) at r₀ = 2m as the plane's reading. It applies
     above that N, up to the Earth's crossover N* = 1.3651 × 10⁶⁶, the largest corridor the theorem must prove (372).
   - ℓ is set by our plane's tension (B6').
-  - At the small end r_h = (2N ln2/π²)^(1/3) l₅ and **E = 3πc⁴r_h²/(8G₅)**. At the example README these are
-    **1.12008e-20 m and 1.28098e9 J**, with r_h/ℓ = 8.0e-16.
+  - At the small end r_h = (2N ln2/π²)^(1/3) l₅ and **E = 3πc⁴r_h²/(8G₅)**, so r_h goes as ℓ^(1/3) and E as ℓ^(-1/3).
+    ℓ is not yet fixed (380). It lies between the Higgs tie's bound and the window's top, the largest observation
+    allows: ℓ_H = 0.611 nm ≤ ℓ ≤ 13.964 μm. At the example README:
+    - **3.94781e-22 m and 3.63442e10 J** at ℓ_H (r_h/ℓ = 6.5e-13);
+    - **9.07553e-21 m and 1.58096e9 J** at the dark-energy tie's 7.43 μm;
+    - **1.12008e-20 m and 1.28098e9 J** at the window's top (r_h/ℓ = 8.0e-16).
+
+    (`ell_si.py` L1-L4.) *[Corrected at 542, on your ruling: it gave the window's top alone, unnamed.]*
   - At the large end **E = 459,404,002.42 J × √N** and r₀ = 2m.
   - **Static, and unique as such.** At one N a spinning hole carries more energy: 1.021 to 4.061 E at a/R = 0.25 to 2,
     without bound. The round delivery carries no angular momentum, and the inflow's random spin gives a/r_h = 7.6e-8.
     Among static holes the hole is unique (Gibbons-Ida-Shiromizu, READ) (`scope.py` C1, item 489).
+  - **Unique on the brane, one family through the middle, and what forms settles to it** (item 542):
+    - at the small end the static corridor is unique order by order in r_h/ℓ: Tangherlini's static perturbations in
+      the mirror class have no zero mode (`g0_small.py`, G0s);
+    - through the middle, its radius on the plane from 0.2 to 20 ℓ, it is one family with one member for each N.
+      E(N) is increasing and fixed by the first law between the two ends' laws, which it joins to 2.2e-4. The surface
+      gravity is positive and there is no zero mode (`gmid.py`, GMID);
+    - formed at the emitter's finite wavelength, it settles to that member: proved at the large end (`settle_large.py`,
+      SETTLE); at the small end computed, with its proof theorized (`settle_late.py`, SETTLEs).
   - **The domain is N ≥ 7.12e9**, where the five-dimensional interior is computed; a classical horizon needs N > 1.76e5.
     A 174-bit README would give r_h = 2.90 l₅, a Planck-scale corridor, and the theorem claims nothing there (C2).
 - **(H) Holding.** The horizon holds the README: exactly once written, in the mean during the write (it fluctuates by
@@ -52,14 +66,17 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - Its faces begin at the opening. Before that, the two positions are joined through the bulk with no horizons
     (282 (2)).
   - **Its horizon is not extremal.** Surface gravity is c²/r_h at the small end and 1/(4M) at the large (251, 271).
-    Our face damps every disturbance (`bulk/stability.py` S6).
+    Our face damps every disturbance (`bulk/stability.py` S6): Wall E's scalar wave, and every gravitational
+    perturbation, the metric included, at both ends (`face_grav.py`: O3gs, O3g; item 542).
   - The static bulk, its horizon and the passage are regular and complete. The hole's interior singularity is off the
     passage (259; `o1c_oneway.py`, verified at item 337).
-  - The two faces have equal mass on one onset curvature for both sectors of the transition (415's P1–P4, P4 your
-    405; `transition5r.py` R5): a computed solution consistent with established physics, not derived as nature's.
+  - The two faces have equal mass: the mass function is kept across the bounce by unitarity with time-reversal symmetry
+    (273 (a), 183, 386; `bounce_qm` Q6, `bounce_close` C3). *[Corrected at 542 (D3): it read "on one onset curvature
+    for both sectors of the transition (415's P1–P4; `transition5r.py` R5)", superseded at 537.]*
   - **Our face is held at its size through the write by the plane's inflow, then closes by Hawking emission over the
     hole's life**, 8.57e14 clocks, and its energy stays in our universe (336).
-  - **What stands at position 2 is the white hole of our hole's mass** (`transition5q.py` H5, H6; 447). **Its face is
+  - **What stands at position 2 is the white hole of our hole's mass**: `bounce_qm`'s reflected state, with
+    `transition5q.py` supporting it (H5, H6; 447). *[Named as since 537 at 542, D3.]* **Its face is
     open while the README is within it** (390). Held whole through the write and released at its end (432 (2)), the
     README crosses once: the face is open at most 2 r_h/c, 4 clocks of GM/c³ at the large end. **It holds through that
     period** (`face2_release.py`, item 491): in position 2's vacuum t_q = 35.8 clocks (620) is 17.9 (155) times longer,
@@ -71,7 +88,13 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
     non-negative, and our face's own Hawking influx -- outside the quantum region, on the outgoing rays -- is paired on
     the same rays by the inflow during the write and by the README's E after it (`z_hawking.py` H1–H4, item 489).
   - The bounce's negative null energy is confined to the quantum region. That is 177's appearance (318;
-    `pair_math.py` P1–P4).
+    `pair_math.py` P1–P4). On QB its place is exact: zero outside the horizon; inside it a positive tail below
+    1.3 (x/x_b)²; the mass's drop where QB departs at order one, x > 0.37 x_b; net zero along every ray (`z3q.py`,
+    Z3q; item 542).
+  - On the plane's cosmology (Z) bounds every component's true w and the whole's dH/dt ≤ 0. DESI DR2's preferred
+    backgrounds keep it at every epoch, ρ + p ≥ 0.42 ρ. Components that each keep null energy, an exchanging vacuum
+    and cold dark matter, reproduce them exactly. The falsifier is stated: dH/dt > 0 at any epoch (`z3d.py`, Z3d;
+    item 542).
 - **(B) Bulk.**
   - **The bulk's law is Einstein's exactly; the Gauss–Bonnet coupling is zero.** C9 is verified (332), under
     M-ONE-LIGHT-CONE (328). Relativity holds for everything that can exist (324).
@@ -86,6 +109,13 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   falls in (163, 418), and released whole at the write's end (432 (2)) through the interior's unitary map, which
   position 2 inverts exactly (`r1_exact.py`). Only information crosses (336, 386). *[Item 491: 489's "mixed with the
   partners the core keeps, so recovered with error below any ε" withdrawn: its premise separated what 418 does not.]*
+  Over the hole's life after the release, our universe's evolution stays unitary on the island formula (theorized,
+  and contested for a massless graviton):
+  - the face's fine-grained entropy never exceeds its area's, and the information leaves in its radiation;
+  - the island lies inside our face, on the classical interior, and nothing crosses;
+  - the end holds at most its own 176 bits.
+
+  (`i3_info.py`, I3s and I3, COMPUTED-THEORIZED with `lemmas/I3-PROOF.md`; item 542.)
 - **(E) Energy.**
   - One exact energy E, the hole's own, holds our face (in the mean through the write, the inflow passing through it as
     its emission) and returns to our universe as radiation over the hole's life (336).
@@ -99,7 +129,26 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 541 (the theorem analysed for gaps and weak lemmas).** M asked for the theorem to be
+**Where it stands, at item 542 (the gaps closed and the weak rows strengthened).** You ruled on 541: gaps are closed by
+added lemmas and nothing is narrowed; weak rows are strengthened and given more support; the rows on QB are labelled
+"PROVED on QB"; the SI figures name their ℓ; each row carries a current-basis line; and the five corrections were
+approved. Ten rows were added:
+- the gaps:
+  - G0s, uniqueness at the small end: no static zero mode at any l ≥ 2;
+  - GMID, the family through the middle, computed at two resolutions, one member for each N, the first law joining
+    the ends to 2.2e-4;
+  - I3s and I3, our universe's information over the life, unitary on the island formula, COMPUTED-THEORIZED;
+- the support:
+  - O3gs and O3g, our face under every gravitational perturbation;
+  - Z3q, where the negative sits on QB;
+  - Z3d, DESI DR2 met by components that each keep null energy;
+  - SETTLEs (COMPUTED-THEORIZED) and SETTLE (PROVED, on DHRT's corollary), the formed hole settling.
+
+G1, G3, O3s, O3, Z3bs, Z3b and Z3c are strengthened, none narrowed. The complete proofs are `lemmas/I3-PROOF.md` and
+`lemmas/SETTLE-PROOF.md`. 93 rows: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6 COMPUTED-THEORIZED. The theorem is
+proved on QB, on SOURCE's, I3's and SETTLEs's named theorized steps. BOUNCE-RESEARCH section 66.
+
+**Where it stood at item 541 (the theorem analysed for gaps and weak lemmas).** M asked for the theorem to be
 analysed for gaps and weak lemmas, and for whether more lemmas are needed (`lemmas/GAP-ANALYSIS.md`). They are.
 - Three gaps, where the statement claims what no row carries:
   - the family between its ends (r_h > 0.1 ell, r0 < 10 ell);
@@ -2257,6 +2306,18 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 542** (M: "add lemmas to close these gaps. nothing gets narrowed, only expanded to complete the statement";
+  "strengthen the existing lemmas, and ad more for support"; "PROVED on QB"; the SI figures' ℓ, "address and correct
+  this"; the current-basis line, "yes"; the corrections, "approved"). Eight instruments built, each passing its
+  selftest with its mutants caught, and all in T1:
+  - `ell_si`, `g0_small`, `gmid` (data pinned at two resolutions, a live check);
+  - `i3_info`, `z3q`, `face_grav`, `z3d`, `settle_large`.
+
+  Ten rows added; seven claims strengthened. The status "PROVED on QB" is read by every audit (pass_audit,
+  map_audit, b4d_small, b4d_large, settle_arrival). Two proofs, I3-PROOF.md and SETTLE-PROOF.md. One current-basis line
+  per row, checked by the selftest. D1-D5 applied: the stale J1 citations noted; four missing dependency edges
+  added; clause (O) named as since 537; passage_est Q7 noted, Q6 given the instability's factor 1.30. The map is
+  updated in full. 93 rows. BOUNCE-RESEARCH section 66.
 - **Item 541** (M: "analysis the warp theorem to identify gaps or weak lemmas, to determine if more lemmas are
   needed to clarify, or support anything currently contained in the theorem"). Every row, note and dependency edge
   read (`lemmas/GAP-ANALYSIS.md`):

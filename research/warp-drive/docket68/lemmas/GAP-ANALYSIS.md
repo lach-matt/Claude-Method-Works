@@ -146,3 +146,31 @@ The computations that close a gap or restate a claim come first:
 
 I3 (A3) and SETTLEs (B4) wait on M's direction. SETTLEs also waits on the N1* session's 10 l5. C1-C3 and D1-D5 are M's
 to approve. D1-D3 are a few lines each.
+
+## E. Status at item 542 (M's rulings applied)
+
+M, 542: the gaps closed by added lemmas, nothing narrowed; the weak rows strengthened with more support; C1 "PROVED on
+QB"; C2 "address and correct this"; C3 "yes"; D1-D5 "approved".
+
+- **A1, the middle** (GMID, PROVED; gmid.py G0-G7): the family through R4 = 0.2-20 ell at two resolutions,
+  monotone, the first law joining the ends to 2.2e-4.
+- **A2, uniqueness at the small end** (G0s, PROVED; g0_small.py Z0-Z6): no static zero mode at l >= 2; below l = 2
+  the mass; fixed order by order.
+- **A3, information over the life** (I3s and I3, COMPUTED-THEORIZED; i3_info.py I0-I9, I3-PROOF.md): unitary on the
+  island formula, the surface inside our face, the end at 176 bits.
+- **B1, the negative on QB** (Z3q, PROVED on QB; z3q.py Q0-Q6): zero outside the horizon, a tail below 1.3
+  (x/x_b)^2, the drop above 0.37 x_b, net zero.
+- **B2, gravitational perturbations** (O3gs and O3g, PROVED; face_grav.py W0-W6): every type decays, the metric with
+  it; at the large end Dafermos, Holzegel and Rodnianski.
+- **B3, DESI DR2** (Z3d, PROVED; z3d.py D0-D5): every fit keeps the whole's null energy; an exchanging vacuum and
+  cold dark matter reproduce them.
+- **B4, settling** (SETTLEs, COMPUTED-THEORIZED, settle_late.py and SETTLE-PROOF.md; SETTLE, PROVED, settle_large.py
+  E0-E4): the small end as at 540; the large end on Dafermos, Holzegel, Rodnianski and Taylor's corollary.
+- **C1:** 16 rows labelled "PROVED on QB", every audit reading the status.
+- **C2:** the figures at ell_H, the dark-energy tie and the window's top (ell_si.py L0-L4; statement (G)).
+- **C3:** one current-basis line per row (warptheorem CURRENT_BASIS), checked by the selftest and shown on the map.
+- **D1-D5:** applied as listed in section D.
+
+Strengthened claims: G1, G3 (GMID, G0s), O3s, O3 (O3gs, O3g, SETTLEs, SETTLE), Z3bs, Z3b (Z3q), Z3c (Z3d). The
+statement's (G), (O), (Z) and (I) are expanded. 93 rows: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6
+COMPUTED-THEORIZED.

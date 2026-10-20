@@ -33,9 +33,11 @@ evolution then is.  Labels: computed (exact unless marked numerical), READ, dedu
   I4 (READ; computed) Through the write, at balance.  The plane's radiation comes in at T_H (passage_est Q4: the
      README is the plane's own radiation at T_H).  Penington (Appendix B, (135), READ): "When the infalling modes are
      at the same temperature as the black hole, the Ryu-Takayanagi surface lies exactly on the event horizon", and
-     "the black hole entanglement entropy stays constant".  Counted on the island formula: the hole's entanglement
-     with what lies outside it grows by the outflow's entropy and the inflow's (each N ln2 over the write, Q4 and the
-     balance), 2 N ln2 in all, so it reaches S0 halfway through the write and holds there, never above it.
+     "the black hole entanglement entropy stays constant".  Counted on the island formula, the hole's entanglement
+     with what lies outside it grows by the outflow's entropy, N ln2 over the write (Q4 at the balance; (1 + b) with
+     the bulk gravitons), and by the inflow's if the inflow is counted thermal, entangled with its source (N ln2
+     more): it reaches S0 halfway through the write on that count, at 1/(1 + b) = 0.994 of it if the README arrives
+     as a pure state -- on either count by the release, and never above S0.
   I5 (computed, exact) The Page curve after the release.  The hole's fine-grained entropy S_hole(t) = min(S_init +
      S_H(t), S(t)) -- the empty surface or the quantum extremal one, whichever is smaller (Penington (2): S =
      min(S_rad, A_hor/4G)).  With S_init = S0, as the write leaves it (I4), S_hole(t) = S(t) from the release on: the
@@ -192,7 +194,8 @@ def compute():
     return dict(words=words(), law=life_law(), pg=pg, qs=qs, life=life, S0=S0, off_hor=off_hor, off_app=off_app,
                 scr={c: math.log(S0 / c) for c in (1, 100)}, x2=ZQ.X_H["small"] ** 2, end_bits=end_bits,
                 S_end=S_end, excess=S0 / S_end, tp=tp, smax=float(pg["s_star"]) * S0,
-                curve0=curve0, curveS=curveS, S=S, write_half=sp.Rational(1, 2), large=large(),
+                curve0=curve0, curveS=curveS, S=S, write_half=sp.Rational(1, 2), write_pure=1 / (1 + 0.0062),
+                large=large(),
                 x2L=ZQ.X_H["large"] ** 2)
 
 
@@ -205,7 +208,7 @@ def checks(o):
             "I3": (qs["twoD"] == (1, 2) and qs["in_hor"] == sp.Rational(1, 3) and qs["in_app"] == sp.Rational(4, 3)
                    and "%.2g" % o["off_hor"] == "9.7e-17" and "%.2g" % o["off_app"] == "3.9e-16"
                    and "%.1f" % o["scr"][1] == "35.2" and "%.1f" % o["scr"][100] == "30.6" and o["x2"] < 1e-17),
-            "I4": o["write_half"] == sp.Rational(1, 2),
+            "I4": o["write_half"] == sp.Rational(1, 2) and 0.99 < o["write_pure"] < 1,
             "I5": (all(a <= y * (1 + 1e-12) for a, y in zip(o["curveS"], o["S"]))
                    and all(abs(a - y) <= 1e-9 * o["S0"] for a, y in zip(o["curveS"], o["S"]))
                    and all(a <= y * (1 + 1e-12) for a, y in zip(o["curve0"], o["S"]))),
@@ -229,7 +232,8 @@ def report(o=None):
           "%.1f (c = 100); QB there (x_h/x_b)^2 = %.2g"
           % (qs["in_hor"], qs["in_app"], qs["twoD"], o["life"], o["off_hor"], o["off_app"], o["scr"][1], o["scr"][100],
              o["x2"]))
-    print("I4 the write at T' = T: the hole's entanglement reaches S0 at %s of the write and holds" % o["write_half"])
+    print("I4 the write at T' = T: the hole's entanglement reaches S0 at %s of the write (inflow thermal), %.4f "
+          "(inflow pure), and holds" % (o["write_half"], o["write_pure"]))
     print("I5 S_hole <= S at every t; S_init = S0: S_hole = S from the release; S_init = 0: Page %.3f tau" % o["tp"])
     print("I6 the end at 2.91 l5 holds %.1f bits; the semiclassical excess it would have had to hold: %.2g"
           % (o["end_bits"], o["excess"]))

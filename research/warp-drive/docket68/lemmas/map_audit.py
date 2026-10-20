@@ -307,8 +307,9 @@ def mutants():
         "drop_instrument": page.replace("corridor_p1", "corridor_pX"),
         "unclosed": page.replace("</section>", "", 1),
         # [483: every row but SOURCE passes, so the mutants turn a passing row's marks the other way]
-        "chip_open": page.replace('<span class="chip ok">Passes</span><div class="what"><b>O1a</b>',
-                                  '<span class="chip open">Beyond · 273</span><div class="what"><b>O1a</b>', 1),
+        # [542: O1a's chip reads "Passes · on QB", so the mutant matches the chip whatever its words]
+        "chip_open": re.sub(r'<span class="chip ok">[^<]*</span><div class="what"><b>O1a</b>',
+                            '<span class="chip open">Beyond · 273</span><div class="what"><b>O1a</b>', page, count=1),
         "dot_red": re.sub(r'(<article class="station" id="crossing">\s*<div class="head"><div class="dot )green',
                           r"\1red", page, count=1),
         "stale_range": page.replace("446–%d" % n, "446–%d" % (n - 1), 1),

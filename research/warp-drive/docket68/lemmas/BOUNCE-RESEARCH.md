@@ -3610,3 +3610,48 @@ the 40 RESTS_ON_NOW edges. The determination: more lemmas are needed (lemmas/GAP
   - D5: the write's balance is unstable, e-fold time 2 lives, a factor 1.65 over the write.
 
 Nothing moves a status: 83 rows (74 PROVED, 6 DEFINITION, 3 COMPUTED-THEORIZED).
+
+## 66. The gaps closed and the weak rows strengthened (542)
+
+M, 542, on 541's analysis: the gaps, "add lemmas to close these gaps. nothing gets narrowed, only expanded to complete
+the statement"; the weak rows, "strengthen the existing lemmas, and ad more for support"; C1 "PROVED on QB"; C2, the SI
+figures' ell, "address and correct this"; C3 "yes"; D1-D5 "approved".
+- **The gaps closed.**
+  - G0s (`g0_small.py` Z0-Z6): uniqueness at the small end. Every type's static master potential is strictly positive
+    on the exterior for l >= 2, so a horizon-regular static solution grows as r^(l + 3/2) and never decays: no zero
+    mode. Below l = 2 there is only the mass and, excluded at J = 0, rotation. The matched expansion is fixed at every
+    order (Karasik et al., READ).
+  - GMID (`gmid.py` G0-G7): the family through the middle, computed with corridor_p2's solver at N = 20 and 24 over R4 =
+    0.2-20 ell:
+    - monotone, so one member for each N and no fold;
+    - its small end 0.60 r_h/ell below Tangherlini's area, its large end four-dimensional Schwarzschild;
+    - E carried from the small end's law by dE = T dS reaches the large end's to 2.2e-4;
+    - at R4 = 10 ell, N = 3.37e62 and E = 8.44e39 J at the window's top.
+  - I3s and I3 (`i3_info.py` I0-I9; COMPUTED-THEORIZED, `I3-PROOF.md`): our universe's information over the life, on
+    the island formula.
+    - The quantum extremal surface (Penington, READ) sits 9.7e-17 r_h inside the event horizon and 35 r_h back, where
+      QB departs by 2.6e-18.
+    - Through the write T' = T, and the face reaches S0 by the release, so it is past its Page time from then on.
+    - The end holds at most its own 176 bits. The large end is the same, with Page at 0.568 tau.
+    - Contested for a massless graviton (Geng and Karch, READ); unitary with no Page curve on Laddha et al.'s reading
+      (READ).
+- **The weak rows strengthened.**
+  - O3gs and O3g (`face_grav.py` W0-W6): every type decays, the metric with it. The vector type's reconstruction is
+    regular, its ringdown 1.134 - 0.328 i within 1% of the continued fraction. At the large end, Dafermos, Holzegel and
+    Rodnianski's linear stability (READ).
+  - Z3q (`z3q.py` Q0-Q6): on QB the negative is zero outside the horizon; inside it there is a positive tail below 1.3
+    (x/x_b)^2, and the drop is where QB departs at order one, x > 0.37 x_b. Net zero along every ray.
+  - Z3d (`z3d.py` D0-D5): (Z) bounds every component's true w and the whole's dH/dt. DESI DR2's four fits keep rho + p
+    >= 0.42 rho, crossing w = -1 at z = 0.35-0.50. An exchanging vacuum and cold dark matter reproduce them exactly
+    (Das, Corasaniti and Khoury, READ). The falsifier: dH/dt > 0.
+  - SETTLEs (COMPUTED-THEORIZED, `SETTLE-PROOF.md`) and SETTLE (`settle_large.py` E0-E4, PROVED): the formed hole
+    settles. At the large end its data on the plane are axisymmetric with zero Komar J, within Dafermos, Holzegel,
+    Rodnianski and Taylor's Corollary III.3.1 (READ).
+  - G1, G3, O3s, O3, Z3bs, Z3b and Z3c carry their new support in their claims; none is narrowed.
+- **M's clarifications and the corrections.**
+  - The fifteen rows on QB, and Z3q, are "PROVED on QB", and every audit reads the status.
+  - The SI figures give both ends of ell_H <= ell <= 13.964 um and the dark-energy tie (`ell_si.py`).
+  - One current-basis line per row, checked by the selftest and shown on the map.
+  - D1-D5 applied.
+
+93 rows: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6 COMPUTED-THEORIZED.
