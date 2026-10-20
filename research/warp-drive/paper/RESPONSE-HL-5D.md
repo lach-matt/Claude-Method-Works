@@ -977,8 +977,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `187d2de19d94308e5f1e0881e97b1fa6` |
-| `docket68/n1star/N1STAR-PROOF.md` | `4a0d06bb18c39c8787578a8611aae368` |
-| `docket68/n1star/N1STAR-LOG.md` | `e4a0b4abc61c5da4c22f7463f9100397` |
+| `docket68/n1star/N1STAR-PROOF.md` | `256a8c54fb2a2354eb4103436558080a` |
+| `docket68/n1star/N1STAR-LOG.md` | `9b425cfba230dd212c8f1e8819d65281` |
 | `docket68/n1star/README.md` | `e2021ca4cf393f523f34259ec7dc884e` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -990,7 +990,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/settle5.py` | `8f2c81317211e47666881113aa18e3a0` |
 | `docket68/n1star/bondi5.py` | `bbd4416da0fcf101b89e1d782e7b4955` |
 | `docket68/n1star/growth5.py` | `08250577e8cdb45b3f1623dd15268257` |
-| `docket68/n1star/wavegauge5.py` | `a0fe5c550659ec6219673a0111b4f75c` |
+| `docket68/n1star/wavegauge5.py` | `852d5809217cd4dc42cd2399f3941e23` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |
 | `docket68/lemmas/counterpart5.py` | `e7dcf7bf898c2147492d28c5fb888d18` |

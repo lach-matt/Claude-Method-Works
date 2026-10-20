@@ -855,3 +855,8 @@ reduction (2+1 gravity with a flat-target wave map, the polarized U(1) analogue 
 recommended; and the first step, W7: Hung's Proposition 4.2 in the class. The ROUTES reference line pointed [Sch10] at
 the paper, which has no such entry; [Sch13] replaces it. wavegauge5.py W6 and its control (the sign of 2 mu/r^3 and 4
 mu/r^4) pass. Nothing in the route is proved. Not read by a verifier.
+
+**D46, addendum (2026-10-20, after the push of 995929a).** The run under `--l4` finished: all seven identities at
+l = 4 pass and the control fails, 72 minutes for l = 2 and 4 with the control. The three places that said the l = 4
+run had confirmed the first four and the equation of F_tr (the wavegauge5.py docstring, Prop 10.2(vi), ROUTES-OPEN.md
+section 4.1) now state the full result. Not read by a verifier.

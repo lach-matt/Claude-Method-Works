@@ -43,7 +43,7 @@ computed on g = -f dt^2 + dr^2/f + r^2 (dth^2 + cos^2 th dphi1^2 + sin^2 th dphi
   W6 (computed, exact) The gauge-vector system is triangular.  With S := div X, F := dX, P := F_tr/S_l, Q_t := -F_{t
      th}/S_l' and Q_r := -F_{r th}/S_l' (S_l the harmonic) and box_l := -f^-1 d_t^2 + f d_r^2 + ((3r^2 - mu)/r^3) d_r -
      k^2/r^2 the scalar wave operator at mode l, seven identities hold in X, exactly (W6; at l = 2 in the selftest, at l
-     = 4 under --l4, where the derivation run confirmed the first four and the equation of F_tr): div(box X) = box_l(div
+     = 4 under --l4, where all seven pass and the control fails, in 72 minutes): div(box X) = box_l(div
      X); (box X)_t = box_l X_t + (2 mu/r^3) P; (box X)_r = d_r S - f^-1 d_t P - (k^2/r^2) Q_r; r (box X)_L = box_l(r
      X_L) - (2 k f/r) Q_r; (box X)_t = d_t S - (f/r^3) d_r(r^3 P) - (k^2/r^2) Q_t; d(box X)_tr = box_l P - ((3 r^2 - 9
      mu)/r^4) P - (2 k^2/r^3) Q_t; and, the last two combined, box_l(r P) + (4 mu/r^4) r P = r d(box X)_tr + 2 (d_t S -
@@ -368,7 +368,7 @@ def w5(control=0, verbose=False):
 def w6(control=0, verbose=False, ls=(2,)):
     """the structure of box X = J for the scalar-type one-form of W4: with S := div X, F := dX, P := F_tr/S_l,
     Q_t := -F_{t th}/S_l', Q_r := -F_{r th}/S_l' and box_l the scalar wave operator at mode l, seven identities in X;
-    l = 2 by default (about a minute), l = 2 and 4 under --l4 (the l = 4 expansions take much longer)"""
+    l = 2 by default (about half a minute), l = 2 and 4 under --l4 (about 72 minutes with the control)"""
     chk = Checklist(verbose, quiet=control != 0)
     D = sp.diff
 

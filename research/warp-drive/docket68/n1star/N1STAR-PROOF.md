@@ -1741,7 +1741,7 @@ perturbations in the class:
     (vi) *The gauge-vector system is triangular (W6).* With S := div X, F := dX, P := F_tr/S_l, Q_t := -F_{t th}/S_l'
     and Q_r := -F_{r th}/S_l' (S_l the harmonic) and box_l := -f^-1 d_t^2 + f d_r^2 + ((3r^2 - mu)/r^3) d_r - k^2/r^2
     the scalar wave operator at mode l, seven identities hold in X, exactly (W6; at l = 2 in the selftest, at l = 4
-    under --l4, where the derivation run confirmed the first four and the equation of F_tr): div(box X) = box_l(div X);
+    under --l4, where all seven pass and the control fails, in 72 minutes): div(box X) = box_l(div X);
     (box X)_t = box_l X_t + (2 mu/r^3) P; (box X)_r = d_r S - f^-1 d_t P - (k^2/r^2) Q_r; r (box X)_L = box_l(r X_L) -
     (2 k f/r) Q_r; (box X)_t = d_t S - (f/r^3) d_r(r^3 P) - (k^2/r^2) Q_t; d(box X)_tr = box_l P - ((3 r^2 - 9 mu)/r^4)
     P - (2 k^2/r^3) Q_t; and, the last two combined, box_l(r P) + (4 mu/r^4) r P = r d(box X)_tr + 2 (d_t S - (box
