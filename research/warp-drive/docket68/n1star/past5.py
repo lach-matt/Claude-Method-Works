@@ -32,6 +32,14 @@ rotations and in th are O(r^-p) (section 9.2).
      the boundary terms (2/9) A^2 ((lam/4) E^2 cos(2v/lam) + (lam^2/4) E E' sin(2v/lam)) plus the integral of
      (2/9) A^2 (lam^2/4)(E'^2 - E E'') sin(2v/lam), which is O(lam^3).  Control: the two quadratures in phase.
 
+  P8 The mollifier's commutator.  In the coordinates (tau, v, xhat) of the past slices, L0 = d_tau at fixed (v, xhat)
+     and the radial part of box~ is -(1 + mu/r^2) L0^2 - 2 d_v L0 + (3/r) d_v (d_v at fixed tau, r = v - tau), which is
+     (9.5)'s (checked on explicit functions).  The shift of Lemma 9.4, C f(tau, v) := f(tau, psi(v)) with psi independent
+     of tau, satisfies exactly
+       [box~_rad, C] f = -L0( 2 (psi' - 1) C d_v f ) + (3 psi'/r - 3/(psi - tau)) C d_v f
+                         - mu (1/r^2 - 1/(psi - tau)^2) C L0^2 f:
+     the part of the commutator without a decaying factor is an exact L0-derivative.  Control: psi depending on tau.
+
 python3 past5.py [--selftest | --mutants]
 """
 import sys
@@ -175,13 +183,35 @@ def p7(control=0):
     return bool(ok)
 
 
+def p8(control=0):
+    t_, v_, mu_, y = sp.symbols("t_ v_ mu_ y", real=True)
+    f = sp.Function("f")
+    P = sp.Function("psi")(t_, v_) if control == 1 else sp.Function("psi")(v_)
+    rr = v_ - t_
+    box_rad = lambda w: -(1 + mu_/rr**2)*sp.diff(w, t_, 2) - 2*sp.diff(w, v_, t_) + 3/rr*sp.diff(w, v_)  # noqa: E731
+    lhs = box_rad(f(t_, P))
+    fb = -(1 + mu_/(y - t_)**2)*sp.diff(f(t_, y), t_, 2) - 2*sp.diff(f(t_, y), y, t_) + 3/(y - t_)*sp.diff(f(t_, y), y)
+    Cdvf = sp.diff(f(t_, y), y).subs(y, P)
+    CL02 = sp.diff(f(t_, y), t_, 2).subs(y, P)
+    pred = (-sp.diff(2*(sp.diff(P, v_) - 1)*Cdvf, t_) + (3*sp.diff(P, v_)/rr - 3/(P - t_))*Cdvf
+            - mu_*(1/rr**2 - 1/(P - t_)**2)*CL02)
+    ok = sp.simplify(sp.expand(lhs - fb.subs(y, P) - pred)) == 0
+    V, R = sp.symbols("V R", real=True)
+    for G in (sp.exp(t_/3)*sp.sin(2*v_) + t_**3*v_**2, sp.cos(t_*v_) + v_/(1 + t_**2)):
+        W = G.subs({t_: V - R, v_: V}, simultaneous=True)
+        f95 = 2*sp.diff(W, R, V) + 3/R*(sp.diff(W, V) + sp.diff(W, R)) + (1 - mu_/R**2)*sp.diff(W, R, 2)
+        ok &= sp.simplify(f95 - box_rad(G).subs({t_: V - R, v_: V}, simultaneous=True)) == 0
+    return bool(ok)
+
+
 CHECKS = [("P1 the outer boundary of the past domain is spacelike, margin (kappa/2) t^(-5/4)", p1, 1),
           ("P2 box~ (r^-p M(v) Y): no r^(-5/2) term at p = 3/2; g0^-1 in (v, r)", p2, 1),
           ("P3 the Cartesian components of W_TT are r^(-3/2) F(v, s, xhat)", p3, 1),
           ("P4 the transport from past null infinity: r^-p source, p > 5/2, gives r^(1-p); a log at 5/2", p4, 1),
           ("P5 the stage-0 vv second harmonic is r^-3 times a function of (v, th): chi in E_2", p5, 1),
           ("P6 the rotations annihilate v and r and commute with L0 and box~", p6, 1),
-          ("P7 the sphere-mean flux of the record's radiation field, and its integral in v", p7, 1)]
+          ("P7 the sphere-mean flux of the record's radiation field, and its integral in v", p7, 1),
+          ("P8 the shift's commutator with box~ is -L0(X) plus terms with decaying factors", p8, 1)]
 
 
 def selftest():
