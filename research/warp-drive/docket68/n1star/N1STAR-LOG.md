@@ -759,7 +759,8 @@ structure; not built. K_all is now referenced to Vaidya at the Isaacson mean mas
 K_all was dominated by the seed-referenced mass gradient and mixed dimensions), and the amplification run is paired with
 its own base (growth5.partner). One rule slip is recorded: a process was once addressed by `pkill -f` with a pattern
 instead of by its PID; it killed the issuing shell and the selftest it named, nothing else, and was not repeated. Read
-in part by the thirteenth verifier (D44).
+in part by the thirteenth verifier (D44). [D45 withdraws this entry's causal reading: the stored samples do not give the
+direction of the untrapping, the zero of W moves inward, and nothing is said of the event horizon.]
 
 **D44 (2026-10-20): the thirteenth verifier -- D38-D41, the repairs of D40, sections 10.2 and 10.3.** Two major
 findings. (1) Lemma 11.0 ran Lemma 9.5's identity on the region between {v = v_start} and Sigma_tau, which is unbounded
@@ -789,3 +790,68 @@ be re-fetched by the verifier (403) and stand as READ by this session. Attacks t
 10.3's regularity at the horizon and the absence of l = 1, settle5 6/6 with mutants 6/6, growth5's fields against
 hf_mirror5's form and every figure of 10.2 from the pinned data, no line over 121 characters, no model identifier. The
 repairs of this entry, D42's section 10.4 and D43's deeper excisions have not been read by a verifier.
+
+**D45 (2026-10-20): the fourteenth verifier -- D42-D44, the repairs of D44, sections 10.2-10.4.** Verdict: the
+mathematics repaired in D44 holds. Lemma 11.0's new argument closes the thirteenth verifier's gap rather than moving it
+(the region is bounded, its boundaries Sigma_tau_n, Sigma_tau, B and {r = a} where u vanishes; the data on Sigma_tau_n
+are the explicit E_2 part of g_app - g0 - r^(-3/2) G_3 at C t_n^(-1/2) and the residual's derivatives at C t_n^(-3/2);
+the bookkeeping inequality is the right one; the pointwise bound is uniform in n and in the point, compactness
+extracting convergence only); Proposition 11.2(i)'s classes, Lipschitz constants and nullity argument are right (the
+verifier recomputed Gamma[g0]^v_{rb} = 0, Gamma^th_{r th} = 1/r, Gamma^v_{th th} = -r, Gamma^r_{rv} = -mu/r^3 and the
+three E_1 limits); e^{-2b} = 1 + d_v ů; every instrument passes and reproduces every pinned figure; the verifier's own
+sympy agrees with wavegauge5 (and a second sample tensor at five random rational points gives residual 1e-133 against 69
+for the sign mutant); the 21 md5 rows of Appendix D match HEAD. One major finding, in section 10.2's reading of the
+data: at v = 1.5 (mu0 = 100 l5^2) the samples carry r_lo = r_hi = nan with nz = 2, which by hf_mirror5.horizon means a
+column with no zero of the expansion -- no round sphere trapped there -- so the untrapped region was not enclosed by a
+trapped one at the quoted time; in the strongest column W > 0 only for r >= 0.74 r_h (W < 0 on 0.54-0.66), so "r <= 0.9
+r_h have W > 0" was false below 0.72; the zero of W moves inward with v (0.86-1.02 at v = 1.0 and 1.25, 0.66-0.74 at
+1.5, the boundary at 1.516), the opposite of "from the inside outward"; the direction of the second zero cannot be read
+from the data at all (q stored as its maximum, the zeros only when every column has one); and "the exterior of the event
+horizon is unaffected" is the conclusion the same paragraph says it cannot make. Repaired: section 10.2, D43 (a
+bracketed note), ROUTES item 2 and the paper's section 8 now state what the samples show and withdraw the direction, the
+inner MOTS and the event-horizon sentence; `--run` records every zero per column from this commit (growth5.zeros_of),
+the pinned runs predating it, the direction OPEN. Minor, all seated: "stays from 1.500" was false -- nz = 2 holds on
+[1.500, 1.540] (Ny = 20) and [1.496, 1.545] (Ny = 28), lapses on [1.548, 1.661] and [1.549, 1.717], returns from 1.669
+and 1.721; the break time stands (the W clause at 1.516) and the text says "holds and lapses"; a grid-independent nz = 2
+on [1.4758, 1.4839] (0.008 in v) is excluded by the hold 0.01 by 0.002, so the hold's sensitivity is stated (1.500 for a
+hold in (0.0082, 0.040], 1.476 below); D38, not D41, quotes 1.45; Proposition 10.1(iii) split the derivative count
+wrongly -- F_ab carries the factor m through its trace -2 r F, the bracket of (10.1) being traceless (the count is
+unchanged); Proposition 10.2(iv)'s "can settle only to c1 K* + c2 pi_{W*}" was Hung's Theorems 1.3-1.4 transposed
+without their decay estimate, now conditional; the paper's Appendix D and the README misstated which programs import
+from the tree (growth5 the solver, past5 lead5); doubled list markers from the last round's rewrap in the README, the
+paper and ROUTES; "section 9.3" for 9.4 and a circular clause in Lemma 11.1's proof. Open: the Hung attributions (arXiv
+403 for the verifier), as before. Attacks that held: the 12 pinned runs and every figure of 10.2 to the digits quoted;
+settle5 6/6 and 6/6 with the coverage arithmetic and the origin shifts (6.89, 7.23) rerun; the T5 control grows 1.5e7 ->
+3e144 on the covered window; wavegauge5 5/5 and 5/5 with W2-W5 recomputed independently (W5: Gamma[h_T]_j = 2H (div T)_j
+identically) and W4's coefficients theta-free at seven rational angles.
+
+**D46 (2026-10-20, M: "deep research this and propose a method to approach solving this and closing the nonlinear
+settlings"): the decay of the gauge-vector system, and the nonlinear settling -- the route.** The literature READ at
+source: [Hun19]'s architecture (seven components with a semi-positive potential matrix, Proposition 4.2; the gauge
+vector to the Regge-Wheeler gauge by invertible angular operators; the triangular system (4.21)-(4.25) of scalar wave
+equations with potentials, each treated by the vector field method under l_0(l_0 + 1)/r^2 + V >= 0, Appendix A; the l =
+0 ODE and red-shift argument, section 8; W* and K*, (8.1), (8.39)); [HKW18]'s tools stated for a general
+Regge-Wheeler-type potential (Definition 8, Lemma 13, Proposition 15, Theorems 16 and 18) and the reason the decay stops
+at six dimensions (the near-horizon Morawetz positivity, section 9.3.2); [Sch13]'s scalar decay on Schwarzschild of
+spatial dimension n >= 3 (Theorems 1-2, the photon sphere, the p-hierarchy on r^((n-1)/2) phi); [KI03b]'s Maxwell master
+equation (5.20); [Hin26]'s nonlinear programme -- the generalized wave map gauge with finite-dimensional gauge sources,
+the strong constraint damping (1.43) of [Hin26a], the two 1-form black boxes (section 1.4.1), the zero-energy nullspace
+of Kerr with its second-order pole from translations and boosts -- and [Hin26c]'s tame estimates, in 3 + 1 for
+concreteness (Remark 5.6) with the general-dimension indicial gap (0, n - 2) (Proposition 9.40); the 2+1 reductions
+[KS17], [Hun15], [HL17]. One computed input, W6: the gauge-vector system of W4 is triangular -- seven exact identities
+at l = 2 and 4: div(box X) = box_l(div X); (box X)_t = box_l X_t + (2 mu/r^3) F_tr; (box X)_r = d_r S - f^-1 d_t F_tr -
+(k^2/r^2) Q_r; r (box X)_L = box_l(r X_L) - (2 k f/r) Q_r; the Maxwell t-equation; the equation of F_tr; and box_l(r
+F_tr) + (4 mu/r^4) r F_tr = r d(box X)_tr + 2(d_t S - (box X)_t) -- so every rung is a scalar wave equation on
+Tangherlini with a potential obeying Hung's (A.3) (zero for S, X_t and r X_L; -4 mu/r^4 for r F_tr, positive against
+k^2/r^2 for r^2 >= 4 mu/k^2), X_r algebraic. What the class removes: translations and boosts (no vector is fixed by both
+rotations), the vector type and rotations, l = 1; the final state is the mass alone. ROUTES-OPEN.md section 4 proposes
+route A -- L1 by Hung's architecture in five dimensions, six steps, the four things that must be done rather than quoted
+named (the Morawetz currents for the rungs' potentials, the r^(3/2) weights in the r^p identity, Hung's Proposition 4.2
+in the class, the l = 0 argument) -- and route B, the nonlinear settling in a generalized wave map gauge after [Hin26]:
+mode stability of the ungauged equation already in hand in every dimension ([IK03], [HKW18]), the 1-form operators with
+W* removed perturbatively, a five-dimensional constraint damping as the first genuinely new object, a first-order pole
+at zero energy where Kerr has a second-order one (deduced from the structure, not proved), [Hin26c] in 4 + 1; the 2+1
+reduction (2+1 gravity with a flat-target wave map, the polarized U(1) analogue with two scalars) recorded and not
+recommended; and the first step, W7: Hung's Proposition 4.2 in the class. The ROUTES reference line pointed [Sch10] at
+the paper, which has no such entry; [Sch13] replaces it. wavegauge5.py W6 and its control (the sign of 2 mu/r^3 and 4
+mu/r^4) pass. Nothing in the route is proved. Not read by a verifier.
