@@ -4,29 +4,22 @@ Commissioned at item 522 (N1STAR-LOG.md D7). Labels: **computed** (an instrument
 it catches), **deduced** (an argument written out here, or a standard theorem invoked **READ** with its hypotheses
 checked), **READ** (verbatim at source), **OPEN**.
 
-**Status (2026-10-20).** N1* reduces to three theorems, all written out and each checked by one independent verifier.
-**Theorem E** (evolution: existence on the domain and lam-uniform estimates for the remainder, given an approximant and
-data) is proved in sections 1-4 (deduced; its exact inputs computed in `ks5.py`, `foliation5.py`, `ansatz5.py`;
-verified, N1STAR-LOG.md D12). **Theorem A** (the approximant to any order in the gauge used here) is proved in section 5
-(deduced; its leading order computed in `lead5.py`). **Theorem D** (the data: an exact vacuum datum on the slice before
-the shell reaches the hole, within O(lam^K) of the approximant's) is proved in section 6 (deduced; the facts about the
-approximant's slice data computed in `data5.py`), by solving the constraints outward in r as a parabolic-hyperbolic
-system [Rac16] from a sphere inside the shell, where the approximant's data are the seed's exactly. Sections 5 and 6
-were verified (D15), and the repairs checked by a further verifier (D16): no major gap at either step; every minor gap
-and note found is repaired. Every standard theorem the proof invokes is now READ at source by the site's retrieval
-protocol, most on two independent routes (section 7, N1STAR-LOG.md D17). Holding their hypotheses against the statements
-READ found one gap, in Step 8: in the coordinates of 0.1 the time lines are spacelike inside the horizon, which the
-local theory excludes; it is repaired there by a change of the independent variables, and the linear parabolic theory's
-hypotheses are now met explicitly in Lemma 6.4. A fourth verifier checked those two repairs and the D16 repairs (D18):
-no major gap, one minor gap (the linear parabolic theory cited for Lemma 6.4 did not cover a system) and five notes, all
-repaired as it proposed: Lemma 6.4's existence is now by Faedo-Galerkin with no citation, the extensions in Step 8 use
-one universal operator for every order, and Proposition 6.5's smoothness is an induction with a Volterra bound. A fifth
-verifier checked the D18 repairs (D19): no major gap, the Galerkin existence and section 7 holding; two minor gaps (a
-term of Proposition 6.5's scheme that broke the Volterra form of the smoothness bound, and (A1)'s bounds uniform in t,
-which the coordinates of Step 8 do not give for all tau) and four notes, all repaired as it proposed. A sixth verifier
-checked the D19 repairs (D20): no major gap; one minor gap, repaired as it proposed and as it checked (the whole
-coefficient of d_r a in the J-equation is frozen, since it depends on a as well), and two notes applied. What is not
-done: the D20 repairs have not been re-checked. N1* is therefore not yet claimed as PROVED; no citation is outstanding.
+**Status (2026-10-20). N1* is PROVED** (N1STAR-LOG.md D21). It reduces to three theorems, all written out. **Theorem E**
+(evolution: existence on the domain and lam-uniform estimates for the remainder, given an approximant and data) is
+proved in sections 1-4 (deduced; its exact inputs computed in `ks5.py`, `foliation5.py`, `ansatz5.py`). **Theorem A**
+(the approximant to any order in the gauge used here) is proved in section 5 (deduced; its leading order computed in
+`lead5.py`). **Theorem D** (the data: an exact vacuum datum on the slice before the shell reaches the hole, within
+O(lam^K) of the approximant's) is proved in section 6 (deduced; the facts about the approximant's slice data computed in
+`data5.py`), by solving the constraints outward in r as a parabolic-hyperbolic system [Rac16] from a sphere inside the
+shell, where the approximant's data are the seed's exactly. Every standard theorem the proof invokes is READ at source
+by the site's retrieval protocol, most on two independent routes, its hypotheses checked against the statement READ
+(section 7, D17-D18); that check found one gap the verifiers had not (Step 8: the time lines of the coordinates of 0.1
+are spacelike inside the horizon), repaired. Seven independent verifiers, one at a time, checked the proof and each
+round of repairs: sections 0-4 (D12), sections 5-6 (D15), and the repairs (D16, D18, D19, D20, D21). None found a major
+gap; every minor gap and note was repaired, most as the verifier proposed. The last round read Proposition 6.5 whole and
+found it to hold, with one clause of Lemma 6.4 stated more weakly than its proof gives; that clause is restated (D21) in
+the form the verifier specified, and it and the three notes applied with it are the only text no verifier has read after
+the edit. The instruments' selftests and mutant runs pass (README.md).
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -82,7 +75,7 @@ derivatives of order j and ||.|| the flat L^2(Sigma_tau),
 Chain rule: d_a [f] = lam^-1 (d_a v)[d_th f] + [d_a f], so |[f]|_j <= C_j sup_{i<=j} |d^i_{(X,th)} f|_{L^inf}
 (the oscillation costs nothing in scaled norms), and ||d^i [f]||_{L^inf} <= C lam^-i.
 
-### 0.4 Theorem E (evolution) -- proved in sections 1-4 (deduced), verified (D12)
+### 0.4 Theorem E (evolution) -- proved in sections 1-4 (deduced), verified (D12; Step 8, D18-D20)
 
 Fix k = 6 and K >= 6. Let
 
@@ -114,7 +107,7 @@ oscillating part of g1 is the record's waves (F, G of the instructions, section 
 and a phase shift, on the background g0 with mu' = (2/9) A^2 env^2. Stage data making the approximant's Cauchy data
 satisfy the constraints and D = 0 to order N - 2 exist (Lemma 6.2).
 
-### 0.6 Theorem D (the data) -- proved in section 6 (deduced), verified (D15, D16)
+### 0.6 Theorem D (the data) -- proved in section 6 (deduced), verified (D15, D16, D18-D21)
 
 For lam small there is a vacuum Cauchy datum (gamma, kappa) on Sigma_tau0 (the constraints hold exactly), with the
 gauge condition D = 0 imposed through d_tau g, whose w satisfies (E4); it equals the seed's datum on Sigma_tau0 cap
@@ -701,9 +694,12 @@ alpha0 > 0, and an invertible symmetrizer S with S A0 >= A00 > 0 and S A^B symme
 (||F_rho||_{L^2 H^s} + ||F_J||_{L^2 H^s}),  norms on the spheres S^3, for s > 3/2 + 2, with C depending only on s, R -
 a, alpha0, delta0, A00 and an upper bound for M_s := sup_r ||(alpha, Delta_alpha, S, S A0, S A^B)||_{H^(s+1)(S^3)} +
 sup_r ||(b, c, e, c', f, f', c'')||_{H^s(S^3)} + int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other
-r-derivative of a coefficient enters. The bound is tame: at an index s'' > s its constant depends only on s'', M_s and
-the bounds above, and the coefficients' norms at index s'' enter only multiplied by norms of the solution at index s
-(the Moser and Kato-Ponce inequalities of the proof).
+r-derivative of a coefficient enters. The bound is tame: at an index s'' > s, with ||U||_(s''; [a, r]) the left side at
+index s'' on [a, r] and m_(s'')(r) the norms at index s'' of the coefficients at r (those of M_(s''), without the
+supremum), ||U||_(s''; [a, r]) <= C (||F||_{L^2((a, r); H^(s''))} + int_a^r m_(s'')(r') omega_s(r') dr'), with C
+depending only on s'', M_s and the bounds above, and omega_s square-integrable on (a, R), its L^2 norm bounded by the
+solution's X_s norm: the energy inequality of the proof is d_r Z <= omega_0 Z + m_(s'') omega_s, by the Moser and
+Kato-Ponce inequalities, and Gronwall's lemma.
 
 *Proof.* Commute s angular derivatives (by the Killing fields of the round S^3) through (6.4); the commutators are
 estimated in terms of M_s by the Moser and commutator (Kato-Ponce) inequalities on S^3 ([GO13], [DS23] Remark 2.3,
@@ -762,11 +758,14 @@ step are smooth in the angles when the previous iterate is, so by Lemma 6.4 at e
 by induction. At an index s'' > s the bound of Lemma 6.4 is linear in the top norms, those of the coefficients
 (functions of a) entering linearly by the Moser and Kato-Ponce inequalities with factors depending only on the X_s
 bound; with E_i(r) the X_(s'') norm of U_i on [a, r] it reads E_(i+1)(r) <= A + W (int_a^r E_i^2)^(1/2), W uniform in i
-(the sources enter in L^2 H^(s''), and the weight built from ||d_r a_(i+1)||_inf and ||d_r (S A0)||_inf, bounded in
-L^2(a, R), through Cauchy-Schwarz; a source term carrying d_r a_i would put E_i(r) itself on the right, which is why the
-coefficient of d_r a is frozen); by induction and Minkowski's inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2)
-for every i, with no smallness, and the limit U lies in X_(s'') for every s''. So U is smooth for lam <= lam0, lam0
-independent of s''. Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
+(by Lemma 6.4's tame form: the sources enter in L^2 H^(s''), and the weight built from ||d_r a_(i+1)||_inf and ||d_r (w,
+q)_(i+1)||_inf, bounded in L^2(a, R), through Cauchy-Schwarz, ||d_r (S A0)||_inf entering Gronwall's exponent; a source
+term carrying d_r a_i would put E_i(r) itself on the right, which is why the coefficient of d_r a is frozen); by
+induction and Minkowski's inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for every i, with no smallness, and
+the limit U lies in X_(s'') for every s''. A is proportional to lam^(N-2) (the source Phi(gamma, K) and the low norms
+are) and W does not depend on lam, so ||U||_{X_(s'')} <= C_(s'') lam^(N-2) for every s'', which with the equations gives
+the stated rate at every s and j. So U is smooth for lam <= lam0, lam0 independent of s''. Theorem E needs only k + 1 =
+7 derivatives of the data in any case. []
 
 ### 6.4 Proof of Theorem D
 
@@ -798,8 +797,11 @@ v_start - tau0}. []
   6.4's coefficients need only M_s finite; the data extended in x before the change to y; the uniformity in tau of the
   extension constants deduced, not READ), all repaired. A sixth (D20) checked those: no major gap; one minor gap (f, the
   coefficient of d_r a in the J-equation, depends on a too, so the whole of it is frozen; it checked the repair) and two
-  notes (the bound's form, A + W (int E_i^2)^(1/2); the tame form stated in Lemma 6.4), applied. **Not yet checked by a
-  verifier:** the D20 repairs.
+  notes (the bound's form, A + W (int E_i^2)^(1/2); the tame form stated in Lemma 6.4), applied. A seventh (D21) read
+  Proposition 6.5 whole with that repair: it holds; one minor gap (Lemma 6.4's tame clause, as stated, too weak for its
+  use; restated in the integral form the proof gives, as it specified) and three notes (the weight list; the rate
+  lam^(N-2) at every index; the status lines), applied. **Not read by a verifier after the edit:** the D21 restatement
+  and notes.
 - **READ at source (D17).** By the retrieval protocol of the site's Ask prompt: targets enumerated, routes by type with
   the open ones first, the sources a source names followed back and the papers citing a target followed forward, a
   blocked route left for the next and not retried, two independent routes closing a fact and one route fragile. rho

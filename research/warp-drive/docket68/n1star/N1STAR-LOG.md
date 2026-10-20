@@ -348,3 +348,22 @@ times the difference in the low norm); the density equation has no such term (it
 already frozen). Two notes applied: the smoothness bound is stated as E_(i+1)(r) <= A + W (int_a^r E_i^2)^(1/2), which
 gives the same induction by Minkowski's inequality; Lemma 6.4 now states the tame form its proof gives. Status: no
 citation outstanding; the D20 repair not yet re-checked; N1* not yet claimed as PROVED; no paper begun.
+
+**D21 (2026-10-20, session decision): the seventh verifier's findings, and N1* claimed as PROVED.** One independent
+verifier (one at a time) read Proposition 6.5 whole, with the D20 repair and the statement of Lemma 6.4. It found that
+Proposition 6.5 holds: computing rho and J in jets for a general symmetric-class gamma and K at random rational points,
+with negative controls, it found no d_r a term left in the source once alpha, S A0, S A^B and the whole of f are frozen
+(what remains, d_S a (w, q), d_S a a, (d_S a)^2 and algebraic terms, is bounded at each r by E_i(r), so in L^2 by (int
+E_i^2)^(1/2)); the contraction factor C lam^(N-3) unchanged, the extra source using ||d_r a_i||_{L^2 H^(s0)}, part of
+X_(s0); the induction exact by Minkowski's inequality, A and W uniform in i. One minor gap: Lemma 6.4's tame clause, as
+D20 stated it, gives only E_(i+1)(r) <= A + W E_i(r) when read with M_s's supremum norms, the form D19 rejected; the
+lemma's proof gives d_r Z <= omega_0 Z + m_(s'') omega_s, hence the integral form, and the clause is restated so, as it
+specified. Three notes applied: the weight list (||d_r (w, q)_(i+1)||_inf in it, ||d_r (S A0)||_inf in Gronwall's
+exponent); the rate lam^(N-2) at every index (A is proportional to lam^(N-2), W independent of lam); the headings of 0.4
+and 0.6 and the README's ranges, which understated the record. Decision: N1* is claimed as PROVED. Every theorem the
+proof rests on is deduced here or READ at source with its hypotheses checked; seven verifiers checked the proof and
+every round of repairs, none finding a major gap; the last round found the proposition it read to hold, and the one
+clause it restated is the form that verifier derived from a proof it had checked. That restatement and the three notes
+are the only text no verifier has read after the edit, and the proof file says so. Next, by the instructions: the formal
+response paper to Huneau and Luk's theorem, its title saying "proposed"; not begun; it waits for M, as the commission
+asks for a report and a pause, and its release is M's decision.
