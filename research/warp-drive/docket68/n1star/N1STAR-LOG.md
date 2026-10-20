@@ -624,3 +624,168 @@ in P8 (an exact polynomial identity on e^(a tau + b v), with two controls: the p
 out); the Z commute with the shift only up to bounded operators, which suffices; the data terms at tau_T are added to
 every line of (9.9); the rate of p in Theorem A_P's convergence step is corrected; B and C are fixed so that the
 constants close. These seated edits are the only text of section 9 no verifier has read after the edit.
+
+**D36 (2026-10-20, M's direction): routes for the three open items.** M: "Still open, and stated as open in the paper: -
+do some deep research on the web and suggest a method for closing these." The literature was read (alphaXiv; a search
+for nonlinear stability of five-dimensional Tangherlini in a class depending on more than (t, r) found none) and one
+method is proposed per item in ROUTES-OPEN.md; nothing is claimed proved. Mass at past null infinity: the five-
+dimensional Bondi mass law is published (Tanabe, Tanahashi and Shiromizu, arXiv:0909.0426, (28)); with both reflections
+it is the class's ansatz with C = 2P, and time-reversed its density is exactly P7's, (4/3)(p1_v^2 + p1_v p2_v + p2_v^2)
+(routes5.py Q2; Q1: five-dimensional Vaidya has R_vv = 3 mu'/(2 r^3)); what remains is g_lam's expansion at I^- to their
+order, by Theorem P's transport iterated, the r^-2 term of C vanishing because it is constant in v and zero on the seed.
+Ten l5: a posteriori existence, Theorem E with certified numbers (Chernyshenko-Constantin-Robinson-Titi; Morosi-
+Pizzocchero's control inequality; Reiterer-Trubowitz in general relativity), on the 2+1 system, decided first by the
+growth factor exp int K over D_T. Settling: Hintz's generalized wave map gauge route (arXiv:2606.28253, full subextremal
+Kerr, 2026) in the class, whose reflections and T^2 leave the mass as the only final parameter; first milestone, linear
+stability in wave gauge within the class.
+
+**D37 (2026-10-20, M's direction, "all 3 please, proceed with them in order"): the mass at past null infinity, Theorem
+M.** Step 0 first: the numerical solver's mean-mass offset after the shell fits c lam^2 with c = 0.4568 and 0.4569 at
+lam = 0.0125 (mu0 = 100 and 1000 l5^2), against the law's (2/9) int env'^2 = 5 pi^2/108 = 0.45693 for its sin^4 envelope
+on [1/2, 7/2]: within 0.05 %, converging as O(lam) from 0.4589 and 0.4577 at lam = 0.05, 0.025 (bondi5.py B4,
+response5.py R8). This compares the law with the solver's own integration of it (its mass aspect's rate is fixed by E_vv
+= 0 at past null infinity), not with g_lam. Then the theorem, section 11: at fixed lam the far region of Theorem P is a
+neighbourhood of past null infinity on which g_lam - g0 has an asymptotic expansion in r^(-1/2) to any order (Lemma 11.2
+gains half an order per step by Theorem P's own energy estimate, and the remainders gain a full order under ell because
+the wave equation is a transport along the outgoing generators for them, which reach the seed in a bounded parameter
+length); Bondi coordinates are built on g_lam as in He and Lindblad's construction at future null infinity (the eikonal
+transport has an r^-2 source because the first-order wave is transverse to ell), with the leading angular coefficient
+untouched (Proposition 11.2, bondi5.py B2); and the five-dimensional Bondi hierarchy (Tanabe, Tanahashi and Shiromizu
+2009, (28)) is recomputed in the class with every coefficient general as truncated Laurent series in s = r^(-1/2) (B1,
+about a minute): b3 = b4 = b5 = 0, b6 = -(1/4)(p^2 + pq + q^2), u3 = u4 = 0, u5 and w3 = -(2/3) div u5, d_v a_i = 0, and
+R_vv at s^6 the law d_v M = (4/3)(p_v^2 + p_v q_v + q_v^2) + (2/3) div(d_v u6), pointwise once a_i = 0, which the seed
+gives. The Hawking mass of the Bondi spheres tends to the mean of M (B3). So the mean mass at past null infinity is
+mu(v) + O(lam) in the shell and mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it, for g_lam: the paper's section 8
+item closed; Theorem 3 in the paper. One correction of the session's own guess in passing: the areal radius's s^4
+coefficient carries the divergence of the angular shift, rho_4 = tr_S G_4/6 - (1/3) div ϑ_4, as B2 found when the
+guessed formula failed. Not claimed: uniformity in lam of the expansion beyond its leading term, which the law does not
+need. Not yet read by a verifier.
+
+**D38 (2026-10-20, M's direction, the second of the three): the go/no-go at 10 l5, measured.** ROUTES-OPEN.md section 2
+asks first for the growth factor exp int K dv of the computed solution over D_T, non-rigorously. growth5.py runs the
+solver of hf_mirror5.py on hf_core5's own domain (seed 1, A = 1, the record's envelope, the slice continued to the core
+boundary x_K = 1: y = 1.361 for mu0 = 100 l5^2 and 1.815 for 1000 l5^2) at lam = 10 l5, that is lam/sqrt(mu0) = 1.000
+and 0.3162, recording at every step two measures of K (the radiation field's own rate, and the sup of the first
+derivatives of the five dimensionless departures from the seed in the Bondi chart, fifteen maxima kept apart), the
+first v at which the scheme's premise fails (a second zero of the round spheres' outgoing expansion in some column, or
+the core boundary untrapped), and, from a second run with A -> A(1 + 10^-3) on the same fixed step, the
+finite-difference amplification of the data's difference into the slices. At mu0 = 100 l5^2 the premise fails at
+v = 1.4516 (Ny = 20) and 1.4508 (Ny = 28), before the shell's peak at v = 2: the expansion acquires a second zero and
+within 0.2 the boundary's W changes sign (its value +19 at v = 1.75 in a first trial), the mean mass aspect runs away
+and the slice solve fails at v = 1.69-1.75. The time is the solution's in the scheme's gauge, not the grid's. The wave's
+metric amplitude at the core boundary there is lam A r^-3/2 = 2.5, beyond the high-frequency regime hf_mirror5 X9
+recorded as ending near 1.2; up to the break, int K_v dv = 0.52 (exp 1.7) and the amplification is 1.00. The record's
+own regime, lam = 0.1 at mu0 = 100 l5^2, serves as control: complete, int K_v dv = 1.93 (exp 6.9), amplification 1.71.
+The mu0 = 1000 l5^2 pair, and what the whole measurement decides, are D41.
+
+**D39 (2026-10-20, M's direction, the third of the three): the linear milestone in the class.** ROUTES-OPEN.md section
+3's first milestone L1 asks for linear stability of five-dimensional Tangherlini within the class with decay of every
+metric component. What [HKW18] leave to "a suitable choice of linearized gauge" is, in the class, already written in
+Kodama and Ishibashi's master-equation paper (hep-th/0305147, READ): for every scalar mode l >= 2 the gauge f_a = 0 =
+H_T exists, and in it the metric components are their (3.14), the master field and its derivatives to order two with
+coefficients bounded on r >= r_h uniformly in l; the tensor type is its own master field; the class has no vector type
+and no l = 1; the l = 0 part is the mass shift. So every metric component of a perturbation in the class settles, in
+that Regge-Wheeler-type gauge, to a change of mass at [HKW18]'s rate tau^-2 in energy with the loss of two derivatives
+(Proposition 10.1, deduced from READ, section 10.3). Not L1: the gauge is not the wave-map gauge of the nonlinear
+problem, and the pure-gauge passage between them (the zero-frequency analysis) is open, as it was in four dimensions.
+The computed companion ROUTES-OPEN.md asked for: settle5.py T5, no growing mode for l = 2..10 in either type (the field
+on a fixed region falls by five to fourteen orders within 150 r_h of the launch; the sign-reversed potential grows), and
+T6, the late-time tail of the l = 2 master fields, 7.05 (tensor; 7.03 at half the step) and 7.06 (scalar) on [550, 700]
+r_h measured from the launch and approaching 7 from above, 11.5 at l = 4: Cardoso, Yoshida, Dias and Lemos's t^-(2l+D-2)
+for odd D (hep-th/0307122, READ; their D = 5 numerics 7.1 and 11.4), the flat five-dimensional Green's function's tail
+and not the hole's. A first measurement with the time origin at the run's own t = 0 read 2.65 from the same points; the
+control keeps that mistake visible. Not yet read by a verifier.
+
+**D40 (2026-10-20): the twelfth verifier, on Theorem M.** One independent verifier read section 11, bondi5.py (ran
+`--verbose`, 4/4, and `--mutants`, 5/5) and the paper's Theorem 3: "holds with the gaps listed", no major finding, five
+minor, four notes, every attack it tried recorded as held. The five, each repaired in place: (1) Lemma 11.2 claimed the
+ell-gain at every order m from a hypothesis without ell-derivatives of the source; the lemma now carries (H_m), and at
+J = 3 the gains are proved by induction on m, the case m = 1 needing nothing and supplying ell u_1 in E_3 for the next.
+(2) "u_1 in E_2 with all its derivatives" rested on Theorem P, which controls four; Lemma 11.0 gives every order at
+fixed lam by commuting on the far region, the data on the null hypersurface {v = v_start} being zero. (3) The
+contraction building v_B lost a derivative through eps(dů); v_B is now built by characteristics, the null geodesics of
+g_lam asymptotic to the background's generators (an ODE contraction, no loss), and (11.9) is then an identity it
+satisfies, from which the expansion follows as before. (4) B1's ansatz started b and U at s^3, so b_2 = 0, which the
+chart does not give (e^{-2b} = 1 - (d_v C4/2) s^2 + ...), was assumed; B1 now runs the orders below the waves' first:
+R_ss at s^-1, s^0 read -12 b_1, -24 b_2 and R_sth at s^-2, s^-1 read -(7/4) u_1, 3 b_1 u_1 - 3 u_2, so they vanish by
+the equations (Proposition 11.3(0)). (5) G_k's coefficient is 2/(k - 3), not 2/(k - 4). The notes: the J = 3 source's
+sign and argument; the areal condition's coefficient is 6 rho_k (the d_r r_B factors cancel), so it is algebraic as
+stated; R_rr's orders are s^7..s^10; "derivatives in s raise the order" is false as written and is replaced by what
+holds (d_r raises the s-order by two, v- and th-derivatives preserve it, and the s^6 equation's content is read off).
+The ninth, that the solver's M = -w_y|_{y=0} was not independently checked, is covered by 11.4's own caveat. The
+repairs are not themselves verified.
+
+**D41 (2026-10-20): the go/no-go at 10 l5, the second seed and the verdict.** At mu0 = 1000 l5^2 (lam/r_h = 0.316, the
+core boundary at r = 0.30 r_h where the wave's metric amplitude is 1.9) the record's scheme fails its premise as it did
+at 100 l5^2: the round spheres' expansion acquires a second zero at v = 1.5825 (Ny = 24; the Ny = 28 and 20 runs to v =
+1.75 agree, D43), W at the core boundary turns positive at v = 1.680 and the slice solve fails at v = 1.704, before the
+shell's peak. To the break, int K_v dv = 0.75 (exp 2.1), int K_all dv = 12.3 (exp 2e5, d_r of W - W_V at the deep
+boundary), amplification 1.00; the K referenced to Vaidya at the Isaacson mean mass rather than to the seed, after a
+first run let the shell's own mass gradient dominate (int K_all dv = 12.6 at lam = 0.1, 8.8 of it the mass term's d_r;
+the control now reads 8.77 with d_v of W's oscillating part the largest). The verdict (section 10.2): no approximant on
+D_T at 10 l5 comes from the record's own scheme at either seed -- the core boundary x_K = 1 is not trapped throughout
+the passage there, so the record's premise that the exterior is fixed by its own data fails, and step 2 of the route
+must be re-posed with an inner boundary that stays outflow; and the sup-norm Groenwall factor is no measure of the
+growth (1e3 to 1e5 against an amplification of 1.0 to 1.7), so the certified argument would need the propagator's norm.
+growth5.py pins the seven runs (G1-G4) and reads them back; the run files are intermediate and `--merge` keeps one
+trimmed data file. Not read by a verifier.
+
+**D42 (2026-10-20, M: "evaluate what is still open, execute more deep research ... then work them to completion"):
+the harmonic gauge in the class.** The literature was read again at source: Hung's four-dimensional even part in the
+harmonic gauge (arXiv:1909.06733) is the template for L1 -- the Lichnerowicz equation under the gauge, the gauge
+vector to the Regge-Wheeler gauge solving the tensorial wave equation with the Zerilli source, the l = 0 sector's
+stationary one-form W* and linearly growing gauge-fixed mass change K*, and tau^(-2+) decay for the rest -- and nothing
+of it exists in five dimensions. wavegauge5.py computes every explicit object of that structure on five-dimensional
+Tangherlini in the class (section 10.4, Proposition 10.2): the Lichnerowicz identity and Gamma[pi_X] = box X (W1); the
+tensor type is in harmonic gauge already (W5); the scalar gauge vector's three 1+1 equations per mode with the master
+field as source (W4, l = 2 and 4); W* = dt/r^2 + sqrt(mu) dr/(r^3 f), regular at the horizon (W2); and K* = K +
+pi_{W**} with A and B explicit, harmonic, linear in t (W3). What L1 still needs is the decay estimate for that system,
+Hung's sections 5-8 in five dimensions; it is named and not attempted. Not read by a verifier.
+
+
+**D43 (2026-10-20): the go/no-go at 10 l5 finished -- the grids, the deeper excisions, the criterion, the re-posing.**
+The Ny = 28 and 20 runs at mu0 = 1000 l5^2 agree with Ny = 24 (break 1.5829, 1.5825, 1.5825; D41's forward reference
+points here). The breakdown is read by a persistence criterion -- a second zero of the expansion holding over 0.01 in v,
+or W >= 0 at the boundary (growth5.breakdown): a single-step excursion of the root count at v = 1.4516 had set the first
+seed's figure, and the persistent figure is 1.500 (Ny = 20) and 1.496 (Ny = 28); both are stated in section 10.2. Deeper
+excisions do not help and fail earlier: y = 1.6 (r = 0.39 r_h) at the first seed breaks at 1.410, W >= 0 at 1.455, the
+solve fails at 1.556; y = 2.0 (r = 0.25 r_h) at 1.353, 1.362, 1.370; y = 2.2 (r = 0.21 r_h, Ny = 16) at the second seed
+at 1.524, 1.558, 1.559 against 1.583, 1.680, 1.69 (G5, three runs pinned). The untrapping is of the seed's interior in
+the scheme's gauge, from the inside outward, and the exterior of the event horizon is unaffected; D41's causal sentence
+("the exterior is no longer fixed by its data") is narrowed in 10.2 to the region between x_K = 1 and the apparent
+horizon. The question is re-posed as the characteristic initial value problem in double-null gauge, where Luk's theorem
+gives local existence without smallness ([Wu26] Theorem 2.1, READ) and [Wu26]'s Theorem 2.2 is the a posteriori
+structure; not built. K_all is now referenced to Vaidya at the Isaacson mean mass and U is carried as r U (the first
+K_all was dominated by the seed-referenced mass gradient and mixed dimensions), and the amplification run is paired with
+its own base (growth5.partner). One rule slip is recorded: a process was once addressed by `pkill -f` with a pattern
+instead of by its PID; it killed the issuing shell and the selftest it named, nothing else, and was not repeated. Read
+in part by the thirteenth verifier (D44).
+
+**D44 (2026-10-20): the thirteenth verifier -- D38-D41, the repairs of D40, sections 10.2 and 10.3.** Two major
+findings. (1) Lemma 11.0 ran Lemma 9.5's identity on the region between {v = v_start} and Sigma_tau, which is unbounded
+toward past null infinity, where the flux of d^gamma u_1 is known to vanish only at the orders Theorem P controls (k =
+6): the twelfth verifier's gap was moved, not closed. Repaired by running the identity for each approximating solution
+g_n of Proposition 9.8 on P cap {tau_n <= tau' <= tau}, the region of (9.8)'s own identity, where the data on
+Sigma_tau_n are the approximant's residual, explicit, with constants independent of n, and passing the bounds to the
+limit by Arzela-Ascoli; the sup-against-L^2 bookkeeping is written (floor((N + 2)/2) <= max(4, N - 3)). The verifier
+proposed a finite derivative budget instead; k = 6 is fixed in Theorem P, so that route would re-run section 9 at a
+higher k, and the one taken keeps every order. (2) Section 10.2's break time at the first seed, 1.4516 / 1.4508, was a
+single step of the root count on both grids, and the amplification 1.00 was sampled before the field had grown: the grid
+agreement supported a transient, not a persistent second zero -- as D43's criterion had found the same day. Nine minor
+findings and notes, all seated: Proposition 11.2(i)'s nullity argument used the transverse Jacobi field d_{v0} gamma
+with the false g0(ell, d_v) = 0 (now gamma' and d_{xhat0} gamma only, with the limits in E_1) and called -(2/r) xi' a
+Lipschitz perturbation (it is the unperturbed angular operator); Proposition 11.2(iv) had e^{-2b} = 1 + 2 d_v ů (the
+factor is 1, as B2 computes); "an order" is one power of r, two of s, in Theorem M(a) and Proposition 11.3's hypothesis;
+Proposition 10.1(iii)-(iv) hid a factor H ~ l^2 in Phi~ (the two derivatives lost are orbit-space for F_ab and angular
+for F) and left the l = 0 gauge unfixed (h_0 = c K, now stated); the even-l claim for the tensor type is not needed and
+no longer made; T5's region r* in [-20, 50] was covered by the computed slice only to tau = 175 at T = 120 (now T = 170,
+covered to 275, the checks restricted to the covered range, the figures unchanged to two digits), and its verdict is a
+finite-time observation (rates above 0.08/r_h excluded); T6's "approaching 7 from above" is origin-dependent at that
+level (the origin shifted by the launch radius gives 6.89 and 7.23; that the pair brackets 7 is now checked); 10.2's
+"ceases to be trapped" and "ceases to be outflow" are given one meaning each, and the amplification is called the lower
+bound it is. Open: the literature identifications ([KI03] (3.13)-(3.14), [HKW18] (169)-(186), [CYDL03] (14)) could not
+be re-fetched by the verifier (403) and stand as READ by this session. Attacks that held: Lemma 11.2's coefficient 2/(k
+- 3) and G_4 = 2 int S_3, the induction at J = 3, Proposition 11.3(0) with its controls, the ODE classes of 11.2(i),
+10.3's regularity at the horizon and the absence of l = 1, settle5 6/6 with mutants 6/6, growth5's fields against
+hf_mirror5's form and every figure of 10.2 from the pinned data, no line over 121 characters, no model identifier. The
+repairs of this entry, D42's section 10.4 and D43's deeper excisions have not been read by a verifier.

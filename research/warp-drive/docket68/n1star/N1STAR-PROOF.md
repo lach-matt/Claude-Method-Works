@@ -26,6 +26,13 @@ datum on Sigma_tau0 is the trace of the solution coming in and Theorem D is not 
 computed inputs in `past5.py`). It is PROVED (D35): a verifier found one major gap in the near-region estimate (D34), it
 was repaired, and a second verifier found that the repair closes it.
 
+**Theorem M (2026-10-20, D37)** gives the solution's Bondi mass at past null infinity: g_lam has Bondi coordinates there
+with an expansion in r^(-1/2), the five-dimensional Bondi mass law holds for it pointwise, and its mean mass is mu(v) +
+O(lam) while the shell passes and mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it, the rate the numerics measure
+(section 11, computed inputs in `bondi5.py`). It is deduced; a twelfth verifier found no major gap and five minor ones,
+repaired (D40), and a thirteenth found one major gap in a repair, Lemma 11.0's energy region, repaired by running the
+identity on the approximating solutions of Theorem P's construction (D44); the repairs are not yet read.
+
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
 What then has to be uniform in lam is a *linear* estimate on the large background, and it is: its only coefficient
@@ -1458,7 +1465,7 @@ part of P with r bounded, with constants that grow with r; it is not a statement
 Neither item is proved here. This section records what was built for each on M's directions of 2026-10-20 (the copper
 study for settling; the Navier-Stokes work for the wavelength) and exactly where each stops.
 
-### 10.1 Settling, built on the copper study's barrier (`settle5.py` T1-T4)
+### 10.1 Settling, built on the copper study's barrier (`settle5.py` T1-T4; T5-T6 in 10.3)
 
 After the shell, on Omega cap {v >= v_end}, g_lam is Tangherlini of the final mass plus lam m1 + O(lam^2) with its
 first derivatives (Theorem E and section 5). Settling asks that the solution, continued outside D_T to late times,
@@ -1496,7 +1503,7 @@ five-dimensional results READ ([Hol08], and Dafermos and Holzegel's triaxial Bia
 five-dimensional counterpart in the T^2-mirror class would be needed, together with the decay of the metric components
 in a gauge, and the solution would first have to be continued outside D_T. None of this is attempted.
 
-### 10.2 The wavelength 10 l5, and the Navier-Stokes work (`paper/response5.py` R7)
+### 10.2 The wavelength 10 l5, and the Navier-Stokes work (`paper/response5.py` R7; `growth5.py`, D38)
 
 *What the recommended work does (READ).* The Navier-Stokes direction is read as Alpoge and Buckmaster's programme of
 September 2026 (finite-time blowup with smooth forcing for incompressible porous media, Boussinesq and 3D Euler,
@@ -1514,9 +1521,596 @@ lam = 10 l5 that ratio is lam/r = 1.00 and 0.32 at the horizon and 1.85 and 1.04
 l5^2), against lam/L = 2.91, 0.92 and 10: smaller at the larger seed, small nowhere. And the method chooses its
 wavelengths, while 10 l5 is prescribed.
 
-*What stays open.* At a prescribed wavelength with no small parameter the statement is the existence, on D_T, of the
-vacuum solution with the record's data, which local existence gives only for a short time. A route there is a computed
-solution with a certified residual and a certified linear estimate around it, closed by the argument of Theorem E with
-the explicit constants in place of powers of lam (the method of Chen and Hou's "Rigorous Numerics", arXiv:2305.05660);
-it is not attempted. What is computed at 10 l5 is the linear scattering of the shell off the seed (seed_escape.py
-E2-E4), which is where the record's question at that wavelength now rests.
+*The go/no-go, measured (computed, `growth5.py` G0-G5; D38, D41, D43).* ROUTES-OPEN.md section 2 asks first for the
+growth factor exp int K dv of the computed solution over D_T, non-rigorously, as what decides the a posteriori route.
+growth5.py runs the record's own scheme (hf_mirror5.py's, on hf_core5's domain: seed 1, A = 1, the record's envelope
+on [1/2, 7/2], the ingoing slices continued to the core boundary x_K = 1 on the seed, y = 1.361 at mu0 = 100 l5^2 and
+1.815 at 1000 l5^2) at lam = 10 l5, that is lam/sqrt(mu0) = 1.000 and 0.3162, and records at every step K_v := max
+|d_v P_i|, the radiation field's own rate, and K_all := the sup of the first derivatives (d_v, d_r, r^-1 d_th) of the
+five dimensionless departures from Vaidya at the Isaacson mean mass (P1, P2, beta, r U, W - W_V) in the Bondi chart;
+at every step the count of zeros of the round spheres' outgoing expansion per column (hf_mirror5.horizon) and W at the
+core boundary, from which the breakdown is read off as the first v from which a second zero persists over 0.01 in v,
+or W at the boundary is >= 0 (the scheme's premise, hf_core5 C3: one zero per column and the core boundary trapped,
+so that the region outside it is fixed by the data outside it); and, from a second run with A -> A (1 + 10^-3) on the
+same fixed step, the finite-difference amplification of the data's difference into the slices, a lower bound for the
+linear propagator's norm.
+
+At mu0 = 100 l5^2 (lam/r_h = 1.00; the wave's metric amplitude lam A r^-3/2 at the core boundary is 2.5, against the
+regime boundary near 1.2 that hf_mirror5 X9 recorded) a second zero of the expansion first appears at v = 1.4516 (Ny =
+20) and 1.4508 (Ny = 28), for a single step on either grid, and stays from v = 1.500 and 1.496 -- the breakdown by the
+persistence criterion above; the single step at 1.45 is the figure an earlier text of this section and D41 quote, a
+transient the criterion excludes since a verifier read the data (D44) -- and W at the core boundary turns positive (the
+boundary ceases to be outflow, the causal premise) at v = 1.516 and 1.512, the mean mass aspect runs ahead of Vaidya's
+(1.136 against 1.011 at v = 1.5), and the slice solve fails at v = 1.69 and 1.75: before the shell's peak at v = 2. At
+mu0 = 1000 l5^2 (lam/r_h = 0.316; amplitude 1.9 at the boundary) the same sequence at Ny = 20, 24 and 28: the second
+zero from v = 1.5829, 1.5825 and 1.5825, W positive at the boundary at 1.680, the slice solve failing at 1.69-1.71. The
+breakdown time agrees between the grids at both seeds, so it is the scheme's solution's and not the grid's. Up to it,
+int K_v dv = 0.65 and 0.75 (exp 1.9 and 2.1), int K_all dv = 2.8 and 12.3 (exp 17 and 2 x 10^5, the latter from d_r of W
+- W_V at the deep core boundary), and the amplification is 1.28 and 1.00. The record's own regime, lam = 0.1 at mu0 =
+100 l5^2, as control: complete to v = 4.5 with one zero throughout, int K_v dv = 1.93 (exp 6.9), int K_all dv = 8.77
+(exp 6 x 10^3, from d_v of the oscillating part of W), amplification 1.71. A deeper excision does not help, and deeper
+is earlier: at mu0 = 100 l5^2 and y = 1.6 (r = 0.39 r_h, inside x_K = 1 as the paper's own inner boundary r = a is) the
+second zero stays from v = 1.410, W at that boundary turns positive at 1.455 and the slice solve fails at 1.556; at y =
+2.0 (r = 0.25 r_h) the three come at 1.353, 1.362 and 1.370; at mu0 = 1000 l5^2 and y = 2.2 (r = 0.21 r_h, Ny = 16) at
+1.524, 1.558 and 1.559, against 1.583, 1.680 and 1.69 at the standard excision (G5, single grids; int K_all to the break
+5.4, 29 and 46, from d_r of W - W_V at the deep boundary). The untrapping is of the interior of the seed's horizon, not
+of the boundary (at v = 1.5 the spheres with r <= 0.9 r_h in the column where the wave is strongest have W > 0), so no
+excision depth keeps the premise. Two phrases carry one meaning each here: a sphere *ceases to be trapped* when the
+expansion's second zero reaches it, and the boundary *ceases to be outflow* when W there is >= 0 -- the second is the
+premise's causal clause, the first its one-zero clause.
+
+*What it decides.* (i) No approximant on D_T at lam = 10 l5 comes from the record's own scheme, at either seed or any
+excision: the scheme evolves ingoing null slices from a timelike excision that must stay trapped (outflow), and during
+the passage the interior of the seed's horizon untraps from the inside outward. Within the scheme's gauge and up to that
+time the computed solution stands, and what it shows is that at 10 l5 the round spheres of a region inside the seed's
+horizon cease to be trapped, and then to be outflow, in the scheme's gauge while the shell passes -- an inner marginally
+trapped surface forms and moves outward, as inner MOTSs do in strong-field mergers -- a measurement on the scheme's
+solution, not a theorem, and a statement about those spheres, not about the event horizon, which is teleological and
+beyond the run. For the record's set-up, in which the core replaces vacuum inside x_K = 1, this means that the region
+between x_K = 1 and the apparent horizon is then no longer fixed by the exterior data alone; the exterior of the event
+horizon is unaffected, since the untrapped region lies inside a trapped one (trapped surfaces lie inside the black
+hole). (ii) The question is re-posed, not closed: the natural formulation at 10 l5 is the characteristic initial value
+problem in double-null gauge, with the incoming wave as data on an ingoing null hypersurface from past null infinity and
+the seed's outgoing null cone from inside x_K = 1 as the other, whose domain of dependence needs no inner boundary
+condition and no premise of trapping. There large data is no obstacle to local existence -- Luk's theorem, as [Wu26]
+states it (Theorem 2.1): "there is a future open neighborhood of H_0 cup H_0-bar and metric (g, b, Omega) on it solving
+the Einstein vacuum equations" with no smallness -- and [Wu26]'s Theorem 2.2 is the a posteriori structure the route
+needs, "the difference of metrics is controlled by the difference of curvature residues" (p. 6), realised there as a
+Picard iteration in double-null gauge with independent residual audits, in four dimensions; its five-dimensional version
+in the class is a 2+1 problem, and is not built here. (iii) How small the residual must be: the sup-norm Groenwall
+factor exp int K_all (17 and 2 x 10^5 at 10 l5, 6 x 10^3 in the control) is far above the amplification measured along
+one direction of the data (1.28, 1.00 and 1.71), which is a lower bound for the propagator's norm and no measure of it
+either; the radiation field's own exp int K_v is 2 to 7; and a certified argument would have to carry the propagator's
+norm, as [MP11] do with their explicit constants, not a sup-norm bound. (iv) The control's figures are the first
+measurement of these quantities in the record's own regime.
+
+READ (alphaXiv, 2026-10-20). [Wu26] S. Wu, "Picard Iteration for the Characteristic Initial Value Problem in Einstein
+Equations", arXiv:2609.08421v1: abstract ("an iteration algorithm for vacuum and Einstein scalar-field equations in
+double-null gauge, which transform the non-linear PDE into systems of ODE"); p. 2, the metric (1.1) g = -2 Omega^2 (du
+dv + dv du) + g_AB (dth^A - b^A du)(dth^B - b^B du); p. 6, Theorem 2.1 (Luk's local existence, quoted above) and
+Theorem 2.2 with "the difference of metrics is controlled by the difference of curvature residues"; p. 26, a trapped
+region and an apparent-horizon tube of eighteen MOTSs reconstructed on successive incoming null cones. [An12] X. An,
+"Formation of Trapped Surfaces from Past Null Infinity", arXiv:1207.5271: the short-pulse existence result for
+incoming radiation from past null infinity in four dimensions, the analytic counterpart of the large-data question
+here; not used.
+
+*What stays open.* Existence at 10 l5 on the domain of dependence of the record's data: a computed solution from the
+characteristic formulation, with a certified residual and a certified linear estimate around it, closed by the
+argument of Theorem E with the explicit constants in place of powers of lam (the method of Chen and Hou's "Rigorous
+Numerics", arXiv:2305.05660, and [Wu26]'s Theorem 2.2); not attempted. What is computed at 10 l5 beyond the above is
+the linear scattering of the shell off the seed (seed_escape.py E2-E4).
+
+### 10.3 The linear milestone in the class: every metric component, in the Regge-Wheeler-type gauge (D39)
+
+ROUTES-OPEN.md section 3 names the first milestone L1: linear stability of five-dimensional Tangherlini within the
+class, with decay of every metric component in a gauge. [HKW18] prove the decay of the gauge-invariant master
+quantities and leave the components to "a suitable choice of linearized gauge" (p. 4: "It is expected that, after
+estimating the master quantities and making a suitable choice of linearized gauge, the remaining linearized metric
+components can be controlled by the gauge-invariant master quantities ... We do not treat this matter in the current
+paper"). In the class, the gauge and the control are already written down in [KI03] (H. Kodama and A. Ishibashi,
+arXiv:hep-th/0305147v3, READ 2026-10-20), and the following is what they give. The computed companion is `settle5.py`
+T5 and T6.
+
+**Proposition 10.1 (deduced from READ).** Let h be a smooth solution of the linearised vacuum equations about
+Tangherlini of mass mu_f on the domain of outer communication, T^2-invariant and even under both reflections, with
+the data [HKW18] Theorem 2 requires on a slice Sigma_0 of their decay foliation. Then:
+
+(i) *Decomposition.* h = h_0 + h_S + h_T: h_0 is the l = 0 scalar part, a change of mass plus a pure gauge solution; h_S
+and h_T are the scalar- and tensor-type parts, h_S supported on the even harmonics l = 2, 4, ... (seed_escape.py E3) and
+h_T on l >= 2 (whether only even l occur for the invariant tensor harmonics is not needed and not shown; (iv) and T5
+cover every l >= 2); there is no vector-type part and no l = 1 part.
+
+(ii) *The gauge.* For every scalar mode l >= 2 the gauge f_a = 0, H_T = 0 exists and is reached by the gauge vector
+X_a = (r/k)(f_a + (r/k) D_a H_T), k^2 = l(l + 2), which is smooth wherever h is; in it the mode is
+    h_S = F_ab S dy^a dy^b + 2 r^2 F gamma_ij S dz^i dz^j,
+F and F_ab the gauge invariants of the mode. The tensor part needs no gauge: h_T = 2 r^2 H_T T_ij with H_T itself
+gauge-invariant.
+
+(iii) *Reconstruction.* With n = 3, m = l(l + 2) - 3 >= 5, x = mu_f/r^2, H = m + 6x, f = 1 - x and Phi~ := r^(3/2) H
+Phi, Phi the master field of the mode,
+    r F = (1/(12 r^2 H)) [ (2H - 3 r f') Phi~ + 6 r Dr . DPhi~ ],
+    r F_ab + r F g_ab = (1/H) ( D_a D_b Phi~ - (1/2) (box Phi~) g_ab ),                                      (10.1)
+D the covariant derivative of the orbit metric g_ab; and H_T = r^(-3/2) Phi for the tensor type. The coefficients 1/H <=
+1/5, (2H - 3 r f')/(12 r^2 H) and 1/(2 r H) are bounded on r >= r_h uniformly in l, but Phi~ carries H = m + 6x, of
+order l^2: in terms of Phi, (1/H) D_a D_b (r^(3/2) H Phi) = r^(3/2) D_a D_b Phi + lower-order terms with coefficients
+bounded uniformly in l (H depends on r alone), so r F_ab costs two orbit-space derivatives of Phi, while (2H - 3 r f')
+Phi~/(12 r^2 H) = (m + 3x) r^(-1/2) Phi/6 carries m = l(l + 2) - 3, two angular derivatives. (10.1) is covariant on the
+orbit space, so in any chart regular at the horizon (ingoing Eddington-Finkelstein) every component of h_S and h_T is a
+combination of the master fields and their derivatives to order two -- orbit-space derivatives for F_ab, angular (the
+factor m) for F -- with coefficients bounded on r >= r_h uniformly in l (a verifier's finding, D44).
+
+(iv) *Decay.* [HKW18] Theorem 2 gives, in spacetime dimension five, E~^N_Psi(Sigma_tau) <= C(3, M) I_Psi(Sigma_0)/tau^2
+for the master quantities of the scalar and tensor portions, the constant uniform in l (their (179)-(186): the estimates
+"are uniform in the angular mode numbers" and are summed). With (10.1), the metric components of h_S + h_T in the gauge
+of (ii), measured with two derivatives fewer -- two orbit-space derivatives for F_ab, two angular derivatives for F, the
+factor m of (iii) -- decay at the same rate; and h_0 is delta mu_f K plus a pure-gauge part pi_X ((i), [HKW18] Theorem 1
+in the class), which a separate l = 0 gauge condition removes (h_0 = c K). So in the Regge-Wheeler-type gauge of (ii)
+for l >= 2, with h_0 = c K, every metric component of h settles to a change of the mass at the rate tau^-2 in energy,
+with the loss of two derivatives counted as above.
+
+*Proof.* (i) is `settle5.py` T1 for the absence of vector-type perturbations and of the linearised rotations (the
+co-closed T^2-invariant vector fields on S^3 and the Myers-Perry rotations are odd under the reflections), together
+with the parity of the invariant harmonics: a T^2-invariant scalar harmonic on S^3 is a function of theta alone,
+hence a Gegenbauer polynomial in cos 2theta, of even degree (seed_escape.py E3); so l = 1 is absent, and [HKW18]
+Theorem 1 ("delta g_(l<2) = pi_X + c K + sum d_m K_m", p. 3) reduces in the class to delta g_(l<2) = pi_X + c K, c the
+mass shift, the d_m being the rotations. (ii) is [KI03] (2.7)-(2.8) and (2.4): with f_a = H_T = 0 the invariants are
+F = H_L and F_ab = f_ab, and the gauge exists for k^2 (k^2 - 3) != 0, that is l >= 2 (p. 5); for l = 1 the authors
+show there is no physical degree of freedom (p. 7), and l = 1 is absent here anyway. For the tensor type, [KI03] §5.1:
+"H_T is gauge-invariant by itself". (iii) is [KI03] (3.13)-(3.14) at n = 3 with F~ = r F, F~_ab = r F_ab ((2.13)),
+and (5.4), Phi = r^(3/2) H_T. The bounds: H = m + 6x with 0 < x <= 1 on r >= r_h, so 5 <= m <= H <= m + 6 and
+1/H <= 1/5; 3 r f' = 6x <= 6; r^2 >= mu_f. (iv): [HKW18]'s scalar master quantity is Phi of (169), which is [KI03]'s
+(3.1) with x = mu, carried on the tensor harmonic ((174), (179)); their energies E~^N_Psi are the N-th order red-shift
+energies on the decay foliation, regular at the horizon ((115), (131)), and the T-derivatives in (10.1) are controlled
+through the equation and the commutation with T that I_Psi already carries. []
+
+*What this is.* The content of [HKW18]'s deferred sentence, in the class: a linear stability statement for every
+metric component, in a named gauge, at their rate. It is the analogue of Johnson's and of Hung-Keller-Wang's
+four-dimensional results in the Regge-Wheeler gauge, which [HKW18] cite on p. 4, and in the class it costs nothing
+beyond (10.1), because the class has no vector part and no l = 1.
+
+*What this is not.* It is not L1. The gauge of (ii) is defined mode by mode through the harmonic decomposition, not
+by a hyperbolic condition, so it is not the wave-map gauge in which the nonlinear problem of section 2.5 is posed;
+passing between the two is a pure-gauge solution whose decay is the zero-frequency analysis of the route ROUTES-OPEN.md
+section 3 takes from [Hin26] (named there), and
+[HKW18] record (p. 4) that in four dimensions Johnson needed "an intermediate passage through the wave-coordinate
+gauge" for exactly this. It gives energy decay with a loss of two derivatives, pointwise decay only through Sobolev
+embedding on the slices with more derivatives, and no sharp rate.
+
+*The sharp rate, measured (computed, T6; READ).* The late-time tail of the l = 2 master fields of both types, measured
+from the pulse's launch, is a power law with local exponent 7.05 (tensor; 7.03 at half the step) and 7.06 (scalar) on
+tau in [550, 700] r_h, approaching 7 from above (7.41, 7.22, 7.12, 7.07 on the four earlier windows) with the origin at
+the launch; shifting the origin by the launch radius, 15 r_h either way, moves the [550, 700] exponent to 6.89 and 7.23
+and the earlier windows the other way, so the limit 7 is resolved and the direction of approach is not; the l = 4 tensor
+field gives 11.5 on [150, 250]. This is the law of [CYDL03] (V. Cardoso, S. Yoshida, O. J. C. Dias and J. P. S. Lemos,
+arXiv:hep-th/0307122v3, READ 2026-10-20) for odd dimension, Psi ~ t^-(2l+D-2) ((14), p. 4: 7 and 11 at D = 5; their own
+D = 5 numerics 7.1 and 11.4, Fig. 2), and the tail is the flat five-dimensional Green's function's rather than the
+hole's (p. 2, p. 4), so it is the rate a nonlinear iteration in the class would have to carry. No growing mode appears
+for l = 2, ..., 10 in either type to tau = 275 r_h (T5: on the region r* in [-20, 50] r_h, which the computed slices
+cover to that time, the field falls by at least five orders within 150 r_h of the launch and keeps falling to 275 -- a
+finite-time observation, excluding growth rates above ln(10^5)/150 r_h = 0.08/r_h and not slower ones; the sign-reversed
+potential, the control, grows).
+
+*What stays open.* L1 in the wave-map gauge; the zero-energy structure of the gauge problem in spatial dimension four;
+L2 and L3; and the nonlinear iteration. The solution would first have to be continued outside D_T.
+
+### 10.4 The passage to the harmonic gauge in the class (`wavegauge5.py` W1-W5; D42)
+
+L1 asks for linear stability in a generalised wave gauge, and Proposition 10.1 stopped at the Regge-Wheeler-type gauge.
+In four dimensions the passage is Hung's even-part paper [Hun19] (P.-K. Hung, arXiv:1909.06733v1, READ 2026-10-20):
+the harmonic gauge Gamma_b[h] := nabla^a (h_ab - (1/2) tr h g_ab) = 0, under which the linearised equation is the
+Lichnerowicz wave equation (his (1.4)); a gauge vector W carrying h to the Regge-Wheeler gauge, determined
+algebraically for l >= 2 ((4.11)-(4.13)) and solving the tensorial wave equation with the Zerilli quantity as source
+((4.21)-(4.23)); and, at l = 0, two non-decaying solutions, the stationary one-form W* = dt/r + 2M dr/(r^2 f) ((8.1))
+and the gauge-fixed mass change K* = K + pi_{W**} growing linearly in time ((8.38)-(8.39)), to which the spherically
+symmetric part converges (Theorems 1.3-1.4), the rest decaying at tau^(-2+) (Theorems 1.1-1.2). Nothing of this exists
+in five dimensions (the search of 2026-10-20 found [HKW18] alone, which stops at the master quantities). In the class
+every explicit object of that structure is computed here; the decay estimates are not.
+
+**Proposition 10.2 (computed, exact, `wavegauge5.py`; deduced).** On five-dimensional Tangherlini of mass mu, for
+perturbations in the class:
+(i) Under Gamma[h] = 0 the linearised vacuum equation is the Lichnerowicz equation box h_ab + 2 R_a^c_b^d h_cd = 0,
+    and for a one-form X, Gamma[pi_X] = box X; so h_RW + pi_X is in harmonic gauge exactly when box X = -Gamma[h_RW]
+    (W1).
+(ii) The tensor type is in harmonic gauge as it stands: Gamma[h_T] = 0 for h_T = 2 r^2 H_T T_ij with T traceless and
+    divergence-free (W5). For the tensor part, L1 is Proposition 10.1 itself.
+(iii) For a scalar mode with harmonic S (k^2 = l(l + 2), l = 2, 4, ... even) the gauge vector is of scalar type,
+    X = X_t S dt + X_r S dr + X_L r S_i dz^i, and box X = -Gamma[h_RW] is three 1+1 equations for (X_t, X_r, X_L) with
+    coefficients in (r, mu, k) alone, principal part -f^-1 d_t^2 + f d_r^2, first-order couplings, and sources linear
+    in F, F_ab and their first derivatives -- by (10.1), in the master field and its derivatives to order three (W4,
+    checked at l = 2 and 4): the counterpart of [Hun19] (4.21)-(4.23).
+(iv) The l = 0 sector. box W = 0 for W = W0(r) dt + W1(r) dr has W0 = a + b/r^2 and W1 = c/(r^3 f) + d r^3/(r^2 - mu),
+    and the combination regular at the horizon with finite energy is
+        W* = dt/r^2 + sqrt(mu) dr/(r^3 f) = dv/r^2 - dr/(r (r + sqrt mu))                                     (10.2)
+    (W2). The mass change K := d g/d mu has Gamma[K] = dr/(r^3 f), and K* := K + pi_{W**} with W** = t W* + A dt +
+    B dr, A = (log f + mu/r^2)/(2 sqrt mu), B = (3 mu^2 log(r^2 - mu) + 2 mu^2 + 3 mu r^2 - 2 r^4 log r + r^4
+    log(r^2 - mu))/(8 mu r (r^2 - mu)), satisfies Gamma[K*] = 0 and K* = t pi_{W*} + (stationary) (W3): the
+    counterparts of [Hun19] (8.1) and (8.39). So in harmonic gauge a perturbation in the class can settle only to
+    c1 K* + c2 pi_{W*} up to decaying terms, the mass change growing linearly in t in this gauge as in four dimensions.
+
+*Proof.* Each item is a sympy identity on the metric -f dt^2 + dr^2/f + r^2 (dth^2 + cos^2 th dphi1^2 + sin^2 th
+dphi2^2), f = 1 - mu/r^2, with the class's eight components as functions of (t, r, th): (i) is the linearised Ricci
+tensor against the Lichnerowicz operator and the symmetrised gradient of Gamma, and Gamma[pi_X] against box X; (ii)
+is Gamma of 2 r^2 H T_ij with T = diag(a, cos^2 th b, sin^2 th c), a + b + c = 0, reduced by the divergence condition
+D^i T_ij = 0 solved for a'; (iii) divides box X + Gamma[h_RW] by S (t, r components) and by r S_i (angular) and checks
+the quotients are th-free and have the stated second-order coefficients; (iv) solves the two decoupled radial ODEs,
+tests regularity in the ingoing chart, and verifies Gamma[K*] = 0 by direct computation after B is found by variation
+of parameters from the two homogeneous solutions 1/(r^3 f) and r^3/(r^2 - mu). The controls: the curvature term's sign
+reversed, dt/r^2 alone (singular at the horizon), W** without its t W* term, a vector-type angular part, and T without
+the divergence condition, each fail. []
+
+*What L1 still needs, and nothing else.* Decay for the system (iii) with (10.1)'s source and for its l = 0 part: the
+five-dimensional version of [Hun19]'s sections 5-8 (the vector field method on the three coupled equations and the
+red-shift argument for the coefficient of the singular stationary solution), which rests on the decay of the
+homogeneous vector wave equation on Tangherlini -- not in the literature. With it, every metric component in the class
+would decay in a gauge in which the nonlinear problem can be posed, and the final state would be read off (iv). The
+scalar tails of T6 (t^-7 at l = 2) bound the rate such an estimate could reach.
+
+## 11. Theorem M: the Bondi mass at past null infinity (D37)
+
+**Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth
+verifier (D40): no major finding; its five minor findings are repaired in place (Lemma 11.0; Lemma 11.2's hypothesis
+(H_m) and the induction in m at J = 3; Proposition 11.2(i) rebuilt by characteristics; B1's orders below s^3,
+Proposition 11.3(0); the coefficient of G_k) and its four notes seated (the J = 3 source, the areal coefficient 6 rho_k,
+the orders of R_rr, the wording on derivatives). Proved means proved: the deduction rests on Theorem P and the computed
+B1-B3, and a thirteenth read the repairs (D44): Lemma 11.0's identity had been run on a region unbounded toward past
+null infinity, where the flux at the orders above Theorem P's is not known to vanish -- a major gap, repaired by running
+it on the approximating solutions g_n of Proposition 9.8 and passing to the limit -- with three minor findings in
+Proposition 11.2 and Theorem M(a), repaired; the repairs of D44 have not themselves been read.** It closes the first of
+the three items section 10 and the paper's section 8 left open: a mass law at past null infinity in five dimensions, and
+its application to g_lam. The law itself is published (Tanabe, Tanahashi and Shiromizu, READ in 11.3) and is recomputed
+here in the class with every coefficient from s^1 general (B1); what is new is that g_lam has the asymptotic expansion
+at past null infinity the law needs, in Bondi coordinates built on g_lam, and what the law then gives.
+
+**Theorem M.** Let g_lam be Theorem P's solution, 0 < lam <= lam_P, on P. (a) On a far region P cap {t >= T_M},
+T_M = T_M(lam), there are Bondi coordinates (v_B, r_B, th_B, phi1, phi2): v_B is null for g_lam with v_B - v -> 0 at
+past null infinity along every generator of g0, th_B is constant along the generators of {v_B = const}, r_B is the
+areal radius of the spheres {v_B, r_B = const}, and
+
+    g_lam = -e^{2 b} W dv_B^2 + 2 e^{2 b} dv_B dr_B
+            + r_B^2 [ e^{-2 (P1 + P2)} (dth_B - U dv_B)^2 + cos^2 th_B e^{2 P1} dphi1^2 + sin^2 th_B e^{2 P2} dphi2^2 ]
+                                                                                                              (11.1)
+
+(hf_mirror5's form, the numerical solver's own), with P1, P2, b, U and W - 1 admitting expansions in s := r_B^(-1/2),
+
+    f = sum_{k=1}^{6} s^k f_k(v_B, th_B) + o(s^6),
+
+whose coefficients are smooth, bounded with all derivatives, T^2 x Z2 x Z2 invariant and zero for v_B <= v_start, and
+whose remainders have every (v_B, th_B)-derivative o(s^6) and gain an order -- one power of r_B, two of s -- under each
+r_B-derivative.
+(b) P_i = s^3 p_i + s^5 (...) + ...: the s^3 coefficients are the record's free data at phase v_B/lam,
+p_1 = (2 c^2 G - s^2 F)/3, p_2 = (2 s^2 F - c^2 G)/3, F = lam A env(v_B) h sin(v_B/lam), G = lam A env(v_B) h
+cos(v_B/lam) (c = cos th_B, s = sin th_B; the radiation field of (P-ii)), and the s^4 coefficients vanish.
+(c) W = 1 + s^3 V1 - s^4 M + ..., V1 a divergence on S^3, and the mass aspect M(v_B, th_B) satisfies, pointwise,
+
+    d_v M = (4/3) (p1_v^2 + p1_v p2_v + p2_v^2),                                                             (11.2)
+
+with M = mu0 for v_B <= v_start; so the Bondi mass mu_B(v) := <M(v, .)> (the mean over S^3) obeys mu_B' = (9.10)
+exactly:
+
+    mu_B(v) = mu(v) + (2/9) lam^2 A^2 int_{-oo}^{v} env'^2 + (2/9) A^2 ((lam/4) env^2 cos(2v/lam)
+              + (lam^2/4) env env' sin(2v/lam)) + O(lam^3),                                                  (11.3)
+
+and after the shell mu_B = mu(v_end) + (2/9) lam^2 A^2 int env'^2 + O(lam^3) (P7).
+(d) The Hawking mass M[S] of section 8 of the Bondi spheres S = {v_B, r_B = const} tends to mu_B(v_B) as r_B -> oo
+(B3).
+
+So the record's mean mass at past null infinity -- the sphere mean of the Bondi mass aspect, the quantity the
+numerical solver integrates -- is, for g_lam, mu(v) + O(lam) while the shell passes and mu + (2/9) lam^2 A^2 int env'^2
++ O(lam^3) after it, with this coefficient: the O(lam^2) rate of the paper's section 6, now proved for g_lam. The
+proof is in 11.1-11.3; 11.4 compares with the numerics.
+
+### 11.1 The expansion of g_lam at past null infinity
+
+Throughout, lam is fixed, and every constant may depend on it. On the far region P cap {t >= T}, T = lam^-2 (section
+9.4), Theorem P gives u := g_lam - g0 = lam [W_TT] + u_1 with, by (P-ii)'s proof, u_1 in E_2 pointwise with all its
+Cartesian derivatives (m1, chi, gh_j, the Taylor terms and w; d^i [f] costs lam^-i, a constant now), and lam [W_TT] =
+r^(-3/2) G_3 with G_3(v, xhat) := the r^(3/2)-normalised Cartesian components of lam W_TT at phase v/lam, smooth and
+bounded with all derivatives, vanishing for v <= v_start (P3). Theorem P controls finitely many derivatives (k = 6:
+Proposition 9.8 with Lemma 9.3 gives d^i w in E_2 for i <= 4, the higher norms bounded); the approximating solutions of
+its construction give every order at fixed lam, uniformly, Lemma 11.0, which is what the induction below consumes.
+
+**Lemma 11.0 (every order at fixed lam).** Every Cartesian derivative d_X^alpha Omega^beta u_1 is in E_2 on the far
+region, with constants depending on lam and the order.
+
+*Proof.* By Lemma 11.1 below, u_1 = u - r^(-3/2) G_3 solves -(1/2) g_lam^{ab} d_a d_b u_1 = F_1 := S(u) - (1/2)
+(g_lam^{ab} - g0^{ab}) d_a d_b u_1 + (1/2) box~ (r^(-3/2) G_3), and F_1 is in E_3 with all derivatives (S(u) by Lemma
+11.1; the second term is E_(3/2) E_2; the third is in E_(7/2) by Lemma 9.7(c) and P2), where "all derivatives" of a term
+containing u_1 means the orders already controlled. Induction on the order: for |gamma| = j + 1, U := d^gamma u_1 solves
+-(1/2) g_lam^{ab} d_a d_b U = d^gamma F_1 + sum_{0 < gamma' <= gamma} (d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b
+u_1. The terms with |gamma'| = 1 are (d g_lam) d U with d g_lam in E_(3/2), of the kind Lemma 9.5's kernel k absorbs; a
+term with |gamma'| >= 2 is a product of a derivative of g_lam of order <= j + 1 with one of u_1 of order <= j + 1, and
+is estimated in L^2(Sigma_tau) with the factor of higher order in L^2 (the energies of the lower steps, at most C
+t^(-1/2)) and the other in sup norm (E_2 by the induction hypothesis, through Lemma 9.3 for the orders it costs, and by
+Theorem P for the lowest), so the source is at most C(lam, j) t^(-3/2) in L^2. The identity is not run on the region
+between {v = v_start} and Sigma_tau: that region is unbounded toward past null infinity (Lemma 9.1(e)), and the flux of
+d^gamma u_1 through infinity there is known to vanish only at the orders Theorem P controls (a thirteenth verifier's
+finding, D44). It is run for each approximating solution g_n of Proposition 9.8 -- which equals g0 on {v <= v_start} and
+solves the same equations, so that u_1^n := g_n - g0 - r^(-3/2) G_3 has the structure above, Lemma 11.1 applying to it
+verbatim with (9.8) through Lemma 9.3 in place of Theorem P at the lowest orders, uniformly in n -- on P cap {tau_n <=
+tau' <= tau}, the region of (9.8)'s own identity. On Sigma_tau_n the data of U_n := d^gamma u_1^n are explicit: w_n =
+g_n - g_app vanishes there with its first derivatives and its higher derivatives are those of the approximant's residual
+Ric^H(g_app) through the equation, and g_app - g0 - r^(-3/2) G_3 is explicit with all derivatives (Lemma 9.7(c), P2), so
+||d U_n(tau_n)|| <= C(lam, j) t_n^(-1/2) with t_n >= t. Lemma 9.5's identity then gives ||d U_n(tau)|| <= ||d
+U_n(tau_n)|| + C int_{tau_n}^tau t'^(-3/2) dtau' <= C(lam, j) t^(-1/2) at every order, uniformly in n. The bookkeeping
+of sup against L^2 closes at every order N := |gamma|: the factor taken in sup norm has order at most floor((N + 2)/2),
+E_2 is in hand pointwise to order max(4, N - 3) (Theorem P for the lowest orders, Lemma 9.3 on the energies of the lower
+steps for the rest, at the cost of three), and floor((N + 2)/2) <= max(4, N - 3) for every N >= 1. Lemma 9.3 turns the
+energies of the next three orders into |d^gamma u_1^n| <= C(lam, j) t^(-3/2) t^(-1/2) = C(lam, j) t^-2, uniformly in n,
+and the bounds pass to the limit: g_n -> g_lam with k - 5 derivatives on compact sets (section 9.3), the higher
+derivatives of u_1^n are bounded uniformly in n on each compact set, so by Arzela-Ascoli a subsequence converges in
+every C^j, its limit is d^gamma u_1, and the bound is inherited: d^gamma u_1 is in E_2. []
+
+**Lemma 11.1 (the equation for u).** On P, -(1/2) box~ u = S(u) with
+
+    S(u) := -Ric(g0) + (1/2) (g_lam^{ab} - g0^{ab}) d_a d_b (g0 + u) - [ Q(g0 + u)(d g0 + d u, d g0 + d u)
+            - Q(g0)(d g0, d g0) ],                                                                            (11.4)
+
+and S(u) is in E_3: Ric(g0) = (3 mu'/(2 r^3)) dv dv exactly (ansatz5.py A2), g_lam^-1 - g0^-1 is in E_(3/2), d^2 g0 in
+E_2 and d^2 u in E_(3/2), and the Q-difference is quadratic in d u (E_3) plus Gamma[g0] times d u (E_2 E_(3/2)).
+
+*Proof.* Ric^H(g_lam) = 0 and Ric^H(g0) = Ric(g0) (section 0.2); subtract, using (0.2) for both. The classes are those
+of section 9.3's count, with d^i u in E_(3/2) for every i at fixed lam. []
+
+**Lemma 11.2 (one half-order).** Let q be in {3, 7/2, 4, ...}, and let u~ be a symmetric tensor on the far region,
+vanishing for v <= v_start, with every Cartesian derivative d_X^alpha Omega^beta u~ in E_(q-1), solving
+
+    -(1/2) g_lam^{ab} d_a d_b u~ = r^-q S_q + S~,       S~ in E_(q+1/2) with all derivatives,                  (11.5)
+
+S_q(v, xhat) smooth, bounded with all derivatives, vanishing for v <= v_start. Put F(v, xhat) := (2/(2q - 5))
+int_{v_start}^{v} S_q dv'. Then u~ = r^(1-q) F + u~~ with every Cartesian derivative of u~~ in E_(q-1/2). If moreover,
+for some m >= 1 and every j < m,
+
+    (H_m)   ell^j S~ is in E_(q+1/2+j) and ell^j (g_lam - g0) in E_(3/2+j), each with all derivatives,
+
+then ell^m u~~ is in E_(q-1/2+m) with all derivatives.
+
+*Proof.* By Lemma 9.7(c), -(1/2) box~ (r^(1-q) F) = -(1/2)(3 - 2(q-1)) r^-q d_v F + E_(q+1) = r^-q S_q + E_(q+1), and
+(g_lam^-1 - g0^-1) d^2 (r^(1-q) F) is in E_(3/2) E_(q-1) = E_(q+1/2). So u~~ := u~ - r^(1-q) F solves -(1/2) g_lam^{ab}
+d_a d_b u~~ = S' with S' in E_(q+1/2) with all derivatives, vanishes for v <= v_start, and has every derivative in
+E_(q-1). *Energy.* Lemma 9.5 with gt = g_lam (the margin of Lemma 9.1(f) holds on P by Theorem P; ||d g_lam||_inf <= C
+t^(-3/2) on P+, integrable) and f = S', from tau1 -> -oo: ||d u~~(tau1)|| <= C t1^(3/2 - (q-1)) -> 0 since q > 5/2,
+and ||S'(tau')|| <= C t'^(3/2 - q - 1/2) = C t'^(1-q), so ||d u~~(tau)|| <= C int_{-oo}^{tau} t'^(1-q) dtau' = C
+t^(2-q)/(q-2). Commuting with d_X and Omega preserves the form: [d_X, g_lam^{ab} d_a d_b] = (d_X g_lam^{ab}) d_a d_b
+with d_X g_lam^{ab} in E_(3/2), a term of the kind Lemma 9.5's k absorbs (k = C t^(-3/2), integrable), and [Omega,
+box~] = 0 (P6); so every commuted energy is at most C t^(2-q). *Pointwise.* Lemma 9.3(b) (u~~ = 0 on {v = v_start})
+and 9.3(a): |d_X^alpha Omega^beta u~~|_inf <= C t^(-3/2) t^(2-q) = C t^(1/2 - q): that is E_(q-1/2), since t and r are
+comparable on P+ (Lemma 9.1(d)). *The ell-gain.* Write the equation of u~~ through (9.5): with psi := ell u~~ (ell
+acting on Cartesian components),
+
+    2 d_v psi + (1 - mu/r^2) ell psi + (3/r) psi = -2 S' - (3/r) d_v u~~ - r^-2 Deltaring u~~
+                                                  - (g_lam^{ab} - g0^{ab}) d_a d_b u~~ =: f,                   (11.6)
+
+f in E_(q+1/2) (its terms: E_(q+1/2), E_(q+1/2), E_(q+3/2), E_(3/2) E_(q-1/2)). The operator n := 2 d_v + (1 - mu/r^2)
+ell is the outgoing null direction of g0 (in (v, r), n = 2 d_v + (1 - mu/r^2) d_r, and g0^-1(dv, dv) = 0, g0^-1(dv,
+dr) = 1, g0^-1(dr, dr) = 1 - mu/r^2 by Lemma 9.7(b)), so (11.6) is a transport along the outgoing generators: along
+one, dv/dsigma = 2 and dr/dsigma = 1 - mu/r^2 in (0, 1], so from a point (v, r) the generator reaches {v = v_start},
+where psi = 0, after a parameter length (v - v_start)/2 <= d1/2 (Lemma 9.1(d)), at a radius r' in [r - d1/2, r];
+integrating (n + 3/r) psi = f along it, |psi(v, r)| <= e^(3 d1/(2 r')) (d1/2) sup |f| <= C r^(-q-1/2), the supremum
+over the segment, which lies in the far region once r is large. Derivatives commute through (11.6) up to terms of the
+same kind, so ell u~~ is in E_(q+1/2) with all derivatives: the case m = 1, which needs nothing of (H_m) since f
+contains no ell-derivative of S' or of g_lam. For m >= 2, under (H_m), the equation of ell^m u~~ is (11.6) commuted
+m - 1 times with ell; its forcing is ell^(m-1) f plus the commutators [ell, n] = (2 mu/r^3) ell, [ell, 3/r] = 3/r^2 and
+[ell, (g_lam^{ab} - g0^{ab}) d_a d_b] = (ell (g_lam - g0)^{ab}) d_a d_b applied to the lower ell^j u~~. Each term of
+ell^(m-1) f is in E_(q+1/2+m-1): ell^j S' by (H_m) (S' is S~ plus (g_lam^-1 - g0^-1) d^2 (r^(1-q) F) and box~ (r^(1-q)
+F) - r^-q S_q, whose ell-derivatives gain by (H_m) and explicitly), ell^j of (3/r) d_v u~~ and r^-2 Deltaring u~~ by
+the gains already established for j < m, and (ell^j (g_lam - g0)^{ab}) d^2 ell^(m-1-j) u~~ by (H_m) with those gains:
+E_(3/2+j) E_(q-1/2+m-1-j) = E_(q+m). The commutator terms are of the same kind. So the transport gives ell^m u~~ in
+E_(q-1/2+m), and derivatives commute as before. []
+
+**Proposition 11.1 (the expansion).** For every J >= 3 there are smooth tensors G_k(v, xhat), k = 3, ..., J, bounded with
+all derivatives, vanishing for v <= v_start, T^2 x Z2 x Z2 invariant, with G_3 as above, and
+
+    u = sum_{k=3}^{J} r^(-k/2) G_k + u_J,     d_X^alpha Omega^beta ell^m u_J in E_((J+1)/2 + m)                 (11.7)
+
+on the far region. The G_k are determined inductively: G_k = (2/(k - 3)) int_{v_start}^{v} S_(k/2 + 1) dv' for k >= 4
+(G_4 = 2 int S_3), where r^-q S_q is the leading term of the source once the terms below it are known.
+
+*Proof.* Induction on J with Lemma 11.2. J = 3: u_3 := u_1 is in E_2 with all derivatives (Lemma 11.0), and by Lemma
+11.1 it solves -(1/2) g_lam^{ab} d_a d_b u_3 = S(u) - (1/2)(g_lam^{ab} - g0^{ab}) d_a d_b u_3 + (1/2) box~ (r^(-3/2)
+G_3) =: F_1: the second term is in E_(7/2) (E_(3/2) E_2), the third in E_(7/2) (Lemma 9.7(c), P2), and S(u) in E_3 with
+an r^-3 leading term determined by G_3 alone: -(3 mu'/2) dv dv (Ric(g0)) plus the terms of (11.4) quadratic in
+d(r^(-3/2) G_3) or of the form (r^(-3/2) G_3) d^2 (g0 + r^(-3/2) G_3), since every term containing u_3 is in E_(7/2)
+(E_(3/2) E_2 or Gamma[g0] E_2). So (11.5) holds at q = 3 and Lemma 11.2 gives u = r^(-3/2) G_3 + r^-2 G_4 + u_4 with
+every derivative of u_4 in E_(5/2). *The ell-gains at J = 3, by induction on m.* The case m = 1 needs no hypothesis:
+ell u_4 is in E_3, hence ell u_1 = ell (r^-2 G_4) + ell u_4 is in E_3 and ell (g_lam - g0) = ell (r^(-3/2) G_3) + ell
+u_1 in E_(5/2), with all derivatives. Suppose ell^j u_4 is in E_(5/2+j) for j < m. Then ell^j (g_lam - g0) is in
+E_(3/2+j) for j < m, and so is ell^j S~ in E_(7/2+j): S~ = F_1 - r^-3 S_3 is a polynomial in g0, g_lam^-1, u, d u, d^2
+u whose every term either is explicit (the terms in G_3 and g0, whose ell-derivatives gain an order each because r^-k
+and the profiles do) or contains u_1 or a derivative of it, on which ell^j gains j orders by the hypothesis, the other
+factors keeping their classes. So (H_m) holds and Lemma 11.2 gives ell^m u_4 in E_(5/2+m): (11.7) at J = 4. Stage J >=
+4: the remainder u_J has every ell-gain, so the source of u_J, a polynomial in (u, d u, d^2 u) with coefficients smooth
+in (X, g) whose arguments are expanded to the previous order with remainders in E_((J+1)/2), has the expansion r^-q S_q
++ S~ with q = (J+3)/2 and S~ satisfying (H_m) for every m: every product with a remainder factor is in E_(3/2 +
+(J+1)/2) = E_(q+1/2) or better and gains under ell, so the r^-q coefficient is a polynomial in the G_k, k <= J, and
+their derivatives, and Lemma 11.2 applies at every m. Invariance and the vanishing for v <= v_start are inherited by
+the integrals from v_start. []
+
+The coefficients from G_4 on depend on lam (through the phase v/lam and the powers of lam of the profiles), and the
+proposition claims nothing uniform in lam: it is an asymptotic statement at past null infinity at each fixed lam, which
+is all the mass law needs.
+
+### 11.2 Bondi coordinates at past null infinity
+
+**Lemma 11.3 (the ell-components).** G_3(ell, .) = 0 and tr G_3 = 0 (W_TT is transverse and traceless: (E1), A3);
+so u(ell, .) is in E_2 and tr_S u (the trace on the spheres S_(v,r)) in E_2, and g_lam^{vv} = -u(ell, ell) + E_3 is in
+E_2, (g_lam^-1 - g0^-1)(dv, .) = -g0^-1 u(ell, .) + E_3 in E_2.
+
+*Proof.* g^-1 = g0^-1 - g0^-1 u g0^-1 + O(u^2) and g0^-1 dv = ell. []
+
+Write the coordinate components of the G_k in the (v, r, th) basis: u_rr = sum_k s^k C_k, u_vr = sum s^k B_k, u_vv =
+sum s^k A_k, u_(r th) = r sum s^k E_k, u_(v th) = r sum s^k D_k, u_(th th) = r^2 sum s^k F_k, u_11 = r^2 cos^2 th sum
+s^k G_k, u_22 = r^2 sin^2 th sum s^k H_k (one power of r per angular index, the classes being of orthonormal
+components), with s = r^(-1/2); by Lemma 11.3, A_3 = B_3 = C_3 = D_3 = E_3 = 0 and F_3 + G_3 + H_3 = 0, with F_3 = -2
+(p1 + p2), G_3 = 2 p1, H_3 = 2 p2 (A3).
+
+**Proposition 11.2 (the Bondi chart; computed B2 to the orders stated, deduced).** There is T_M(lam) such that on the
+far region P cap {t >= T_M} the functions
+
+    v_B := v + ů,   th_B := th + ϑ,   r_B := r (1 + rho)
+
+exist with: (i) g_lam^-1(dv_B, dv_B) = 0, ů -> 0 along every generator of g0 as r -> oo; (ii) g_lam^-1(dv_B, dth_B) = 0,
+ϑ -> 0 likewise; (iii) r_B is the areal radius: r_B^6 cos^2 th_B sin^2 th_B is the determinant of the metric induced
+on {v_B, r_B = const} in the coordinates (th_B, phi1, phi2); (iv) they are T^2 x Z2 x Z2 invariant and equal (v, th,
+r) for v <= v_start. With u expanded to order J by (11.7), they have expansions in s with coefficients smooth in (v,
+th), vanishing for v <= v_start,
+
+    ů = sum_{k=2}^{J-2} s^k ů_k + E_((J-1)/2),   ϑ = sum_{k=4}^{J-2} s^k ϑ_k + E_((J-1)/2),
+    rho = sum_{k=4}^{J-2} s^k rho_k + E_((J-1)/2),                                                            (11.8)
+
+whose first coefficients are ů_2 = -C_4/2, ů_3 = -C_5/3, ů_4 = -C_6/4 + C_4 d_v C_4/8, ϑ_4 = -E_4/2 - d_th C_4/4 and
+rho_4 = (F_4 + G_4 + H_4)/6 - (1/3) div(ϑ_4) (div f := (sin th cos th)^-1 d_th (f sin th cos th)) (B2), and whose
+remainders gain an order under ell. In the chart (v_B, r_B, th_B, phi1, phi2) the metric has the form (11.1), its
+functions given by the inverse components g^{v_B r_B} = e^{-2 b}, g^{r_B r_B} = e^{-2 b} W, g^{r_B th_B} = e^{-2 b} U,
+g^{th_B th_B} = 1/(r_B^2 S), S := e^{-2(P1 + P2)}, g^{phi_i phi_i} = 1/(r_B^2 cos^2 th_B e^{2 P1}), 1/(r_B^2 sin^2 th_B
+e^{2 P2}) (B1 checks these against (11.1)), and they have expansions in s_B := r_B^(-1/2) with coefficients smooth in
+(v_B, th_B), vanishing for v_B <= v_start, to order s_B^(J-2) with remainders o(s_B^(J-2)) whose r_B-derivatives gain
+an order each. Their first coefficients are e^{2 P1} = 1 + 2 p1 s_B^3 + O(s_B^4), likewise P2, and e^{-2 b} = 1 -
+(d_v C_4/2) s_B^2 - (d_v C_5/3) s_B^3 + O(s_B^4) (B2).
+
+*Proof.* (i) Write the eikonal equation for ů with L := g_lam^-1 dv = ell + eps, eps := (g_lam^-1 - g0^-1)(dv, .) in
+E_2 (Lemma 11.3):
+
+    2 ell ů = -g_lam^{vv} - 2 eps(dů) - g_lam^-1(dů, dů) =: N[ů].                                            (11.9)
+
+v_B is built by characteristics, not by iterating (11.9) (an iteration in a norm of ů and ell ů loses a derivative at
+each step through the term eps(dů), as a verifier observed). In g0 the generators of {v = v0} are the affinely
+parametrised null geodesics gamma0(r) = (v0, r, xhat0), with ell = d_r their tangent and Gamma[g0]^a_{rr} = 0. For each
+(v0, xhat0) let gamma be the null geodesic of g_lam asymptotic to gamma0: gamma(r) = (v0 + zeta(r), r, xhat0 + xi(r)),
+parametrised by r, solving d^2 gamma^a/dr^2 + Gamma[g_lam]^a_{bc} gamma'^b gamma'^c = kappa gamma'^a with kappa fixed by
+the r-component (gamma^r = r), and zeta, zeta', xi, xi' -> 0 as r -> oo. Writing gamma' = d_r + eta, the system is eta'
+= -(Gamma[g_lam] - Gamma[g0])^a_{rr} - 2 Gamma[g_lam]^a_{rb} eta^b - Gamma^a_{bc} eta^b eta^c + kappa gamma'^a, a
+Volterra system from r = oo whose forcing (Gamma[g_lam] - Gamma[g0])^v_{rr} = (1/2) g^{vd}(2 d_r u_{dr} - d_d u_{rr}) is
+in E_3 by Lemma 11.3 and the ell-gain of u (g^{vr} = 1 + E_(3/2) multiplies d_r u_{rr} in E_3; g^{vv} in E_2 multiplies
+E_2; g^{v th} r^-1 is in E_3), whose angular forcing is in E_4 (g^{th th} = r^-2 (1 + E_(3/2)) times d_r u_{th r} = r
+d_r u(e_th, ell) + u(e_th, ell) in E_2), whose linear part -2 Gamma[g0]^a_{rb} eta^b vanishes for a = v
+(Gamma[g0]^v_{rb} = 0 in the ingoing chart) and is -(2/r) xi' for a = theta (Gamma[g0]^th_{r th} = 1/r) -- not an
+integrable perturbation but the unperturbed operator of the angular equation, xi'' + (2/r) xi' = E_4, which the
+integrating factor r^2 solves with xi' in E_3 and xi in E_2 -- and whose remaining coefficients are Lipschitz in (zeta,
+xi, zeta', xi') in the weighted norms below with constants integrable in r (d(Gamma[g_lam] - Gamma[g0]) in E_(3/2); the
+terms quadratic in eta, Gamma[g0]^v_{th th} = -r the largest coefficient, are O(r^-2) times the norm); kappa =
+Gamma^r_{bc} gamma'^b gamma'^c is in E_2 and multiplies eta. So for r >= T_M the Picard iteration converges in the
+weighted sup norms r^2 |zeta'| + r |zeta| + r^3 |xi'| + r^2 |xi| (ODE contraction: no derivative is lost), the solution
+depends smoothly on (v0, xhat0) with derivatives of the same decay (variational equations with the same structure), is
+invariant, and is gamma0 for v0 <= v_start (there g_lam = g0 along the whole generator). The map Phi: (v0, r, xhat0) ->
+gamma(r) is then a C^1-small perturbation of the identity for r >= T_M, a diffeomorphism onto a neighbourhood of past
+null infinity, and N_{v0} := Phi({v0} x [T_M, oo) x S^3) is a null hypersurface: along each gamma, d/dr g_lam(gamma',
+gamma') = 2 kappa g_lam(gamma', gamma'), so g_lam(gamma', gamma') e^{-2 int kappa} is constant and equal to its limit
+g0(ell, ell) = 0 at infinity (gamma is null); and for each Jacobi field X = d_{xhat0} gamma of the congruence, tangent
+to N_{v0} as gamma' is, d/dr g_lam(gamma', X) = kappa g_lam(gamma', X) + g_lam(gamma', nabla_X gamma') = kappa
+g_lam(gamma', X) + (1/2) X g_lam(gamma', gamma') = kappa g_lam(gamma', X), so g_lam(gamma', X) e^{-int kappa} is
+constant along gamma and equal to its limit at infinity, which is 0: g_lam(gamma', X) = d_{xhat0} zeta + r^2 xi' (1 +
+d_{xhat0} xi) + r u(ell, e_th) + smaller, with d_{xhat0} zeta, r^2 xi' and r u(ell, e_th) in E_1. (The transverse field
+d_{v0} gamma is not needed, and is not orthogonal to gamma': g0(ell, d_v) = 1.) Hence gamma' is normal to N_{v0}, which
+is null. Put v_B := v0 o Phi^-1, so that g_lam^-1(dv_B, dv_B) = 0, and ů := v_B - v = -zeta o Phi^-1: ů is in E_1 with
+ell ů in E_2 (ell ů = -zeta' up to the E_2 Jacobian corrections) and all derivatives, vanishes for v <= v_start, and is
+invariant. *Expansion.* v_B satisfies (11.9) exactly, so ů = -(1/2) int_r^oo N[ů] dr' along the generators of g0. Insert
+(11.7): -g_lam^{vv} = u(ell, ell) + u(ell, .)^2-terms = r^-2 C_4 + r^(-5/2) C_5 + r^-3 C_6 + ... + E_((J+1)/2), the
+integrals of the powers are the powers below, the nonlinear terms at order s^(k+2) involve only ů_j with j < k, and the
+remainder of ů is the integral along the generator of a remainder, with ell of it the integrand: (11.8), whose first
+coefficients B2 computes by solving (11.9) order by order (the s^(k+2) coefficient of the equation is -k ů_k plus known
+terms, k >= 1). (ii) th_B := xhat0 o Phi^-1 (the angle of the generator of g0 that gamma is asymptotic to) is constant
+along the generators of N_{v0}, whose tangent is L = g_lam^-1 dv_B up to a factor (gamma' is the null normal of N_{v0}):
+L th_B = 0, and ϑ = th_B - th = -xi o Phi^-1 is in E_2 with ell ϑ in E_3. The transport L th_B = 0 reads 2 ell ϑ = -2
+eps(dth) - 2 g_lam^-1(dů, dth) - 2 (eps + g_lam^-1 dů)(dϑ), with eps(dth) = -r^-2 u(d_th, ell) + E_4 = -r^-1 u(e_th,
+ell) + E_4 in E_3 (e_th := r^-1 d_th) and g_lam^-1(dů, dth) = r^-2 d_th ů + E_4 in E_3, and ϑ expands as in (11.8), the
+s^(k+2) coefficient of the equation being -k ϑ_k plus known terms (B2). (iii) Let J0 be the Jacobian of (v, s, th) ->
+(v_B, r_B, th_B). In a chart with g^{v_B v_B} = g^{v_B th_B} = 0 the covariant metric has g_{r_B r_B} = g_{r_B th_B} =
+0, so it has the form (11.1) once r_B is areal, and its inverse determinant is -e^{-4 b}/(r_B^6 cos^2 th_B sin^2 th_B)
+with e^{-2 b} = g^{v_B r_B}; the inverse determinant transforms with (det J0)^2. So the areal condition is the equation
+
+    r_B^6 cos^2 th_B sin^2 th_B det(g_lam^-1) (det J0)^2 + (g^{v_B r_B})^2 = 0,                             (11.10)
+
+whose s^k coefficient is 6 rho_k plus known terms: the factor d_r r_B = 1 + rho + r d_r rho of (det J0)^2 cancels
+against the same factor of (g^{v_B r_B})^2 = (g_lam^-1(dv_B, dr_B))^2 at this order, and r_B^6 contributes 6 rho_k (the
+leading determinant is 1), so the condition is algebraic in rho and solvable for every k >= 1; the coefficients with k
+<= 3 vanish identically (B2: tr_S u is in E_2, and the shifts enter at s^4), so rho starts at s^4 with rho_4 as stated,
+the trace of G_4 on the sphere plus the Jacobian of the angular shift. The remainder is algebraic in those of (i)-(ii)
+and of u. (iv) and the Bondi functions: the formulae are the inverse of (11.1)'s (v, r, th) block. Re-expression in
+(v_B, th_B, s_B): a coefficient f(v, th) = f(v_B - ů, th_B - ϑ) is expanded by Taylor's formula, ů = O(s^2) and ϑ =
+O(s^4) shifting coefficients by two and four half-orders, and s = s_B (1 + rho)^(1/2) by four; the expansion to order
+s_B^(J-2) with remainders o(s_B^(J-2)) follows, and the remainders' r_B-gains from the ell-gains of the ingredients
+(d_{r_B} is a combination of ell and E_2 multiples of d_v, d_th). The first coefficients: e^{2 P1} = 1/(r_B^2 cos^2 th_B
+g^{11}) with g^{11} = g_lam^{11} unchanged (phi1 is), r_B/r = 1 + O(s^4), th_B - th = O(s^4), and g_lam^{11} = r^-2
+cos^-2 th (1 - 2 p1 s^3 + O(s^4)): so e^{2 P1} = 1 + 2 p1 s_B^3 + O(s_B^4) (B2); e^{-2 b} = g^{v_B r_B} = g_lam^-1(dv +
+dů, dr_B) = 1 + d_v ů + O(s^4) at the orders shown, since g_lam^{vr} = 1 + E_2, g_lam^-1(dů, dr) = d_v ů + ell ů with
+ell ů = O(s^4), and dr_B = dr + O(s^2)... (B2 computes it: -(d_v C_4/2) s^2 - (d_v C_5/3) s^3 + O(s^4)). []
+
+Taking J = 8 in Proposition 11.1 gives the Bondi functions to order s_B^6 with o(s_B^6) remainders: this is what 11.3
+uses. (The hierarchy below, run from s^1 (B1's first step), gives b_1 = b_2 = b_3 = 0 for a vacuum metric, so d_v C_4
+= d_v C_5 = 0 and, by (iv), C_4 = C_5 = 0: the (ell, ell) component of g_lam - g0 is O(r^-3). This is a consequence,
+not an input: Proposition 11.3's hypothesis lets b start at s^1.)
+
+### 11.3 The hierarchy in the class, and the proof of Theorem M
+
+**READ (alphaXiv, 2026-10-20).** [TTS09] K. Tanabe, N. Tanahashi and T. Shiromizu, "On asymptotic structure at null
+infinity in five dimensions", arXiv:0909.0426v2, pp. 2-5. Bondi coordinates in five dimensions: "ds^2 = -(V e^B/r^2)
+du^2 - 2 e^B du dr + r^2 h_AB (dx^A + U^A du)(dx^B + U^B du)" (4), h_AB built from C1, C2, C3, D1, D2, D3 (5), with
+"the function r by the equation r^6 sin^2 theta cos^2 theta = det(g_AB)" (2). "When functions C corresponds to
+gravitational waves, C behaves as ~ 1/r^{3/2} near null infinity" (p. 3); from the equations "B = B1/r^3 + O(r^{-7/2})"
+(20) with "B1 = -(C11^2 + C11 C21 + C21^2 + D11^2 + D21^2 + D31^2)/8" (21), "U^A = U_{A1}/r^{5/2} + O(1/r^3)" (25), "V =
+r^2 + V1(u, x^A) r^{1/2} - M(u, x^A) + O(r^{-1/2})" (26) with V1 = -(2/3)((sin th cos th)^-1 (U_th1 sin th cos th)_,th +
+U_phi1,phi + U_psi1,psi) (27) "and M(u, x^A) is an integration constant" (p. 4), and
+
+    "dM(u, x^A)/du = -(1/3)((C11,u)^2 + C11,u C21,u + (C21,u)^2 + (D11,u)^2 + (D21,u)^2 + (D31,u)^2)"     ((28), p. 4),
+
+"Eq. (28) represents mass loss rate by gravitational waves"; the r^-2 term A of C satisfies "dA/du = 0" (35) and
+vanishes for asymptotic flatness, their (36), by its value at spatial infinity; and "there is no supertranslation
+freedom unlike in four dimensions" (p. 7).
+
+In the class, with D1 = D2 = D3 = 0 (both reflections) and th_T = pi/2 - th, their form is (11.1) with C1 = -2(P1 +
+P2), C2 = 2 P1, C3 = 2 P2, B = 2 b, V/r^2 = W (routes5.py Q2; the time reversal u -> -v leaves the squares of (28)
+unchanged and the sign of M's rate reversed: an incoming flux raises the mass). B1 recomputes the hierarchy in (11.1)
+itself, as series in s = r^(-1/2) with general coefficient functions of (v, th), each quantity a truncated Laurent
+series handled termwise (an r-derivative raises the s-order by two and v-, th-derivatives preserve it; which
+coefficients the s^6 equation contains is read off, not assumed), so that nothing below is taken from [TTS09] but the
+comparison.
+
+**Proposition 11.3 (the hierarchy at past null infinity; computed, `bondi5.py` B1).** Let a metric of the form (11.1) be
+vacuum near past null infinity, with P1, P2, b, U, W - 1 having expansions in s to order s^6 with o(s^6) remainders
+gaining two s-orders (one power of r) under each r-derivative as in Theorem M(a), P_i = O(s^3), and b, U, W - 1 = O(s).
+Write p := P1's s^3 coefficient, q := P2's, a1, a2 the s^4 coefficients, b_k, u_k, w_k the coefficients of b, U, W.
+Then, in order: (0) from R_rr at s^5, s^6 (R_ss = 4 s^-6 R_rr at s^-1, s^0: -12 b_1, -24 b_2) and R_(r th) at s^1, s^2
+(R_(s th) = -2 s^-3 R_(r th) at s^-2, s^-1: -(7/4) u_1, 3 b_1 u_1 - 3 u_2): b_1 = b_2 = 0 and u_1 = u_2 = 0; (i) from
+R_rr at s^7, ..., s^10 (R_ss at s^1, ..., s^4): b_3 = b_4 = b_5 = 0 and b_6 = -(1/4)(p^2 + p q + q^2) ([TTS09] (21) with
+C = 2P, B = 2b); (ii) from R_(r th) at s^3, ..., s^6: u_3 = u_4 = 0, u_5 = (12/5)(p + q) tan th - (8 p + 16 q)/(5 sin
+2th) - (4/5) d_th (p + q), and u_6 the same expression in (a1, a2) with 4/3 for 4/5 and 8/3, 16/3 for 8/5, 16/5; (iii)
+from R_vr at s^5, ..., s^7: w_1 = w_2 = 0 and w_3 = -(2/3) div(u_5) ([TTS09] (27)): <w_3> = 0; (iv) from the traceless
+part of R_AB at s^2: d_v a1 = d_v a2 = 0 (the three angular components give -(d_v a1 + d_v a2), cos^2 th d_v a1, sin^2
+th d_v a2; [TTS09] (35)); (v) R_vv at s^5 is then an identity (the rate of (iii)), and at s^6 it is linear in d_v w_4
+and reads
+
+    d_v M = (4/3)(p_v^2 + p_v q_v + q_v^2) + (2/3) div(d_v u_6),      M := -w_4;                            (11.2')
+
+the coefficient at s^6 involves only p, q, a1, a2 and w_4, so remainders o(s^6) do not disturb it; with (iv), d_v u_6 =
+0 and (11.2') is (11.2) pointwise. B1 runs (0) with b, U, W - 1 from s^1 and P from s^3 to s^4, and (i)-(v) with the
+ansatz carried to s^7 (so that the absence of the s^7 coefficients from the s^6 equation is seen, not assumed), in about
+three minutes; its controls, the law with coefficient 1 for 4/3 and the law without its divergence while a1, a2 are
+free, fail.
+
+**Proof of Theorem M.** (a) is Proposition 11.2 with J = 8. (b): the s^3 coefficient of P_i is p_i by Proposition
+11.2's last sentence, the record's free data at phase v_B/lam (A3; (P-ii) is this statement in the wave gauge, and the
+chart change preserves it). a_i: by Proposition 11.3(iv) d_v a_i = 0, and a_i = 0 for v_B <= v_start where the metric
+is g0 (Proposition 11.2(iv)); so a_i = 0 -- [TTS09]'s argument from spatial infinity, with the seed in its place. (c):
+Proposition 11.3(v) with a_i = 0 is (11.2); M = mu0 for v_B <= v_start since g_lam = g0 there, Vaidya with mu = mu0,
+whose W = 1 - mu0 s^4; the sphere mean of (11.2) is the mean of (4/3)(p1_v^2 + p1_v p2_v + p2_v^2), which P7 computes
+as (9.10); integrating from v_start gives (11.3) and the statement after the shell. (d) is B3: in (11.1), with n- =
+-d_r (theta- = -3/r exactly, the area form being r^3 cos th sin th) and n+ = d_v + (W/2) d_r + U d_th (null; theta+ = 3
+W/(2 r) + div U), g(n+, n-) = -e^{2b}, so M[S] = r^2 (1 - <e^{-2b} (W + (2r/3) div U)>) = -s^-1 <w_3 + (2/3) div u_5> -
+<w_4 + (2/3) div u_6> + O(s), and the divergences have zero mean: M[S] -> <-w_4> = mu_B. []
+
+### 11.4 The numerics, and what this closes
+
+The numerical solver (hf_mirror5.py, hf_core5.py) evolves the metric in the form (11.1) from the record's free data at
+y = 0 (past null infinity), and the rate of its mass aspect M = -w_y|_{y=0} is fixed by E_vv = 0, the s^6 equation
+above (aspect_rates: "By Bondi's lemma these are the conservation laws at past null infinity"). So its mean mass M_mean
+is mu_B as integrated by the solver, and its offset from mu(v) after the shell should be (2/9) lam^2 A^2 int env'^2 +
+O(lam^3) = (5 pi^2/108) lam^2 for the solver's envelope sin^4(pi (v - 1/2)/3) on [1/2, 7/2] (int env'^2 = 5 pi^2/24, A =
+1; response5.py R8): 0.45693 lam^2. The runs give offset/lam^2 = 0.4589, 0.4577, 0.4568 at lam = 0.05, 0.025, 0.0125
+(mu0 = 100 l5^2) and 0.4578, 0.4569 at lam = 0.025, 0.0125 (1000 l5^2), converging to 0.4569 as O(lam) (B4; the run at
+lam = 0.00625 on the 32 x 16 grid gives 0.4535, 0.7 % low, the grid being coarse for that wavelength; the quartering
+hf_theorem5.py F4 recorded was this rate). This compares the law's integral with the solver's own integration of the
+same law; it does not test g_lam, which Theorem M does.
+
+Closed: the item "the mean mass at past null infinity" of the paper's section 8. Not claimed: uniformity in lam of the
+expansion (11.7) beyond the leading term, which the mass law does not need; and nothing about future null infinity or
+the Bondi mass there, which the domain does not reach.

@@ -38,8 +38,10 @@ Part (iii) of the counterpart follows: on each column the outgoing expansion of 
 converging at O(λ). So does a mean-mass rate: after the shell, the mass of every sphere {v, r = const} is the limit's to
 O(λ²), by a quarter-turn symmetry of the two polarizations. The same solutions are constructed from the waves' free data
 at past null infinity, where before the shell they are the black hole exactly and their radiation field is the
-prescribed one at every λ (Theorem 2). We list what is not proved: settling at late times beyond the linear level, and
-the application at physical wavelengths.
+prescribed one at every λ (Theorem 2). At past null infinity they admit Bondi coordinates and an expansion in r^(−1/2),
+and the five-dimensional Bondi mass law holds for them (Theorem 3): their Bondi mass is μ(v) + O(λ) while the shell
+passes and μ + (2/9) λ² A² ∫ env'² + O(λ³) after it, the second-order rate the numerics measure, with its coefficient.
+We list what is not proved: settling at late times beyond the linear level, and the application at physical wavelengths.
 
 ---
 
@@ -92,7 +94,8 @@ We prove the counterpart of Theorem 4.2 in five dimensions, for one family of nu
 from Minkowski: a black hole growing by an ingoing shell, on a fixed domain that reaches inside the horizon to the
 surface where the limit's curvature reaches a fixed scale (Theorem 1, section 3). It is an instance of Problem 8.6 in a
 five-dimensional symmetry class, not an answer to Problem 8.6 as posed, which concerns four dimensions. The same
-solutions are also constructed from the waves' free data at past null infinity (Theorem 2, section 3).
+solutions are also constructed from the waves' free data at past null infinity (Theorem 2, section 3), and at past null
+infinity they obey the five-dimensional Bondi mass law with the prescribed radiation field (Theorem 3, section 3).
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
 coupled to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an
@@ -342,6 +345,56 @@ field of the approximant decays at past null infinity, so its energy tends to ze
 A first independent verifier found the near-region estimate incomplete: that commutator was missing. A second found
 that the repair closes it (supplement log D34–D35).
 
+**Theorem 3 (the Bondi mass at past null infinity; deduced, supplement section 11; computed:
+`docket68/n1star/bondi5.py` B1–B4).** Let g_λ be the metric of Theorem 2, 0 < λ ≤ λ_P. Near past null infinity it
+admits Bondi coordinates (v_B, r_B, θ_B, φ1, φ2) — v_B null with v_B − v → 0 at past null infinity, θ_B constant along
+the generators, r_B the areal radius — in which
+
+    g_λ = −e^(2β) W dv_B² + 2 e^(2β) dv_B dr_B + r_B² [e^(−2(P1+P2)) (dθ_B − U dv_B)² + cos²θ_B e^(2P1) dφ1²
+          + sin²θ_B e^(2P2) dφ2²],                                                                        (3.2)
+
+with P1, P2, β, U, W − 1 expanded in r_B^(−1/2) to order r_B^(−3) with o(r_B^(−3)) remainders, coefficients smooth in
+(v_B, θ_B) and zero for v_B ≤ v_start. In it:
+
+1. P_i = r_B^(−3/2) p_i + O(r_B^(−5/2)), p_i the free data of section 2.4 at phase v_B/λ (the radiation field of
+   Theorem 2, item 2); the r_B^(−2) coefficients vanish;
+2. W = 1 + r_B^(−3/2) V1 − r_B^(−2) M + O(r_B^(−5/2)), with V1 a divergence on S³ and the mass aspect M obeying,
+   pointwise, the five-dimensional Bondi law [TTS09] (28) time-reversed,
+
+       ∂_v M = (4/3)(∂_v p1² + ∂_v p1 ∂_v p2 + ∂_v p2²),                                                      (3.3)
+
+   with M = μ0 for v_B ≤ v_start;
+3. the Bondi mass μ_B(v) := ⟨M(v, ·)⟩ (the mean over S³) therefore obeys μ_B' = the flux of section 6, exactly: it
+   is μ(v) + O(λ) while the shell passes, with the oscillation (6.1) gives, and μ(v_end) + (2/9) λ² A² ∫ env'² + O(λ³)
+   after it;
+4. the Hawking mass M[S] of Proposition 3.4 of the Bondi spheres S = {v_B, r_B = const} tends to μ_B(v_B) as
+   r_B → ∞.
+
+This is the record's "mean mass at past null infinity" — the sphere mean of the Bondi mass aspect, the quantity the
+numerical solver integrates — now proved for g_λ.
+
+*How Theorem 3 is proved.* At fixed λ the far region of Theorem 2 is a neighbourhood of past null infinity, and
+there the remainder g_λ − g_app is a solution of a wave equation whose source decays like r^(−3): subtracting its
+leading term, which is explicit, and estimating the rest with the energy of Theorem 2's far region gains half a power
+of r at each step, so g_λ − g0 has an asymptotic expansion in r^(−1/2) to any order, with the radiation field as its
+leading term; the derivatives along the ingoing generators of the remainders gain a full order, because the wave
+equation is a transport along the outgoing generators for them, and those generators reach the seed region, where
+everything vanishes, after a bounded parameter length (supplement Proposition 11.1). The Bondi coordinates are then
+built from the null geodesics of g_λ asymptotic to the ingoing generators of the background, in the manner of [HL21]'s
+eikonal function at future null infinity: v_B is constant on the null hypersurfaces they sweep, and its eikonal
+equation, a transport along those generators with a source that decays like r^(−2) because the first-order wave is
+transverse to them, gives its expansion; the angular coordinates are the generators' asymptotic angles, the areal
+radius is algebraic; every step has an expansion, and the leading angular coefficient is untouched (supplement
+Proposition 11.2, computed B2). In the Bondi form the vacuum equations are a hierarchy in r_B^(−1/2) — the one [TTS09]
+wrote in five dimensions — which B1 recomputes in the class with every coefficient from the first order general: the
+radial equations kill every coefficient below the waves' (including the one the chart could carry at order r^(−1))
+and fix β, U and V1, the traceless angular equation at order r^(−1) makes the r_B^(−2) coefficients of P constant in
+v, which the seed sets to zero, and R_vv at order r^(−3) is (3.3) plus a divergence that vanishes with them. The
+hierarchy needs the expansions only to the order Theorem 3 states, and the remainders cannot enter below it: an
+r-derivative raises the order by two, the others preserve it, and which coefficients the equation at order r^(−3)
+contains is read off the computation. The mass law integrates from the seed; its sphere mean is section 6's flux,
+computed exactly in `past5.py` P7.
+
 ---
 
 ## 4. The approximant
@@ -517,12 +570,20 @@ computed).
 
 **The mean mass at past null infinity.** By Theorem 2 the waves' field at past null infinity is exactly λ[W_TT]. The
 sphere mean of its flux density, in the normalization of Proposition 2.3, is exactly
-(2/9) A² [env² + λ² env'² − ½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ)] (computed, `past5.py` P7). Its
-integral in v is μ(v) − μ0 plus terms that oscillate with amplitude (λ/18) A² env² while the shell passes. After the
-shell it exceeds μ − μ0 by exactly (2/9) λ² A² ∫ env'² + O(λ³). A mass at past null infinity that changes at the rate of
-this flux therefore has an O(λ²) offset after the shell, with this coefficient. That is consistent with the numerics'
-quartering at each halving of λ, though not compared with it. The mass law itself, in five dimensions, is not derived
-here (section 8).
+
+    (2/9) A² [env² + λ² env'² − ½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ)]                          (6.1)
+
+(computed, `past5.py` P7). Its integral in v is μ(v) − μ0 plus terms that oscillate with amplitude (λ/18) A² env² while
+the shell passes; after the shell it exceeds μ − μ0 by exactly (2/9) λ² A² ∫ env'² + O(λ³). By Theorem 3 this is the
+law the Bondi mass of g_λ obeys: the pointwise rate (3.3) of the mass aspect is (4/3)(∂_v p1² + ∂_v p1 ∂_v p2 +
+∂_v p2²), whose sphere mean is (6.1), so μ_B(v) − μ0 is that integral, and after the shell μ_B − μ(v_end) = (2/9) λ²
+A² ∫ env'² + O(λ³). The numerical solver evolves the metric in the Bondi form (3.2) from the same free data and fixes
+the rate of its mass aspect by the same equation, so its mean mass is μ_B as it integrates it: for its envelope
+sin⁴(π(v − ½)/3) on [½, 7/2] with A = 1 the coefficient is (2/9) ∫ env'² = 5π²/108 = 0.45693, and the solver's offset
+over λ² after the shell is 0.4589, 0.4577, 0.4568 at λ = 0.05, 0.025, 0.0125 (μ0 = 100 l5²) and 0.4578, 0.4569 at λ =
+0.025, 0.0125 (1000 l5²): within 0.05 % at the finest wavelength and converging as O(λ) (computed, `bondi5.py` B4;
+the quartering of hf_theorem5.py F4 was this rate). What the comparison tests is the law against the solver's own
+integration of it; what Theorem 3 proves is that g_λ obeys it.
 
 ---
 
@@ -574,8 +635,8 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
 
 ## 8. What is not proved
 
-- **Settling at late times.** The theorem holds on D_T for each fixed T; Huneau and Luk's theorem, Touati's and Luk and
-  Rodnianski's hold on a fixed interval too. Settling for all later v is the nonlinear stability of five-dimensional
+- - **Settling at late times.** The theorem holds on D_T for each fixed T; Huneau and Luk's theorem, Touati's and Luk
+  and Rodnianski's hold on a fixed interval too. Settling for all later v is the nonlinear stability of five-dimensional
   Schwarzschild–Tangherlini within the class. What is known, READ: linear stability against every type of perturbation,
   "higher-dimensional Schwarzschild black holes are stable with respect to all tensorial types of linear perturbations"
   ([IK03] p. 16); and nonlinear asymptotic stability, "the evolution of (SU (2) × U (1))-symmetric vacuum perturbations
@@ -592,16 +653,30 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   uniform decay estimate Ě^N_Ψ(Σ_τ) ≤ C(n, M) I_Ψ(Σ_0)/τ²" ([HKW18] p. 4, Theorem 2), the part with l < 2 being pure
   gauge plus a linearised Myers–Perry solution (Theorem 1, p. 3), which in the class is a change of mass alone. The
   decay of the metric components themselves is left open there: "We do not treat this matter in the current paper" (p.
-  4). The least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1,
-  p. 8), which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
-  `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
-  2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
-  Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
-- **The mean mass at past null infinity.** Theorem 2 gives the waves' field at past null infinity exactly, and section 6
-  gives the flux it carries. Identifying the numerics' mass aspect with the integral of that flux needs two things that
-  are not derived here: a mass law at past null infinity in five dimensions, and an expansion of g_λ there beyond the
-  order r^(−2) that Theorem 2 controls.
-- **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+  4). In the class it follows from what is written (supplement Proposition 10.1, deduced): for every scalar mode l ≥ 2
+  the gauge f_a = 0 = H_T of [KI03] exists, and in it the metric components are [KI03]'s (3.14), the master field and
+  its derivatives to order two — two orbit-space derivatives for the orbit components, two angular derivatives, a factor
+  l(l + 2) − 3, for the trace — with coefficients bounded on r ≥ r_h uniformly in l; the tensor type is its own master
+  field; and l = 1 is absent. So in that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change, every
+  metric component of a perturbation in the class settles to a change of mass at [HKW18]'s rate, with the loss of two
+  derivatives so counted. That gauge is not the wave gauge of the nonlinear problem. The passage between the two was
+  closed in four dimensions by Hung ([Hun19]: the Lichnerowicz equation under the gauge, a gauge vector solving a
+  tensorial wave equation with the master quantity as source, the l = 0 sector's stationary one-form and linearly
+  growing gauge-fixed mass change, decay for the rest), and its five-dimensional structure is computed in the class
+  (supplement Proposition 10.2, `docket68/n1star/wavegauge5.py`): the tensor type is already in harmonic gauge, the
+  scalar gauge vector solves three 1+1 wave equations per mode with the master field as source, and the l = 0 sector's
+  two non-decaying solutions are explicit and regular at the horizon; the decay estimate for that system, Hung's
+  sections 5–8 in five dimensions, does not exist and is not attempted. No growing mode appears in either type for l =
+  2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields,
+  measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the
+  step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch
+  radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which
+  is the rate a nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one
+  with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces
+  to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
+  problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of
+  four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
+- - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
   = l5, and at the horizon L = √μ/72^(1/4). For λ = 10 l5 the ratio is 10 on x_K = 1, and 2.91 (μ = 100 l5²) or 0.92 (μ
@@ -613,17 +688,41 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   section 3.1); it is not small either, and there the wavelengths are chosen, here prescribed. At a prescribed
   wavelength without a small parameter, existence on D_T is a large-data question; a computed solution with a certified
   residual and a certified linear estimate could settle it (the rigorous numerics cited in [AB26] as [4]), and that is
-  not attempted. The linear scattering of the shell off the seed at 10 l5 is computed in
-  `docket68/lemmas/seed_escape.py`.
+  not attempted. Its first step was taken: the growth factor measured on the record's own computed solution at 10 l5
+  (`docket68/n1star/growth5.py`, supplement section 10.2). At both seeds that scheme's premise — one zero of the round
+  spheres' expansion per column and the core boundary outflow, so that the exterior is fixed by its own data — fails
+  before the shell's peak: a second zero persists from v = 1.50 r_h at μ = 100 l5² (1.496 on the finer grid; a
+  single-step excursion at 1.45 is not it) and from 1.583 r_h at 1000 l5² (three grids agreeing to 0.0005), and the
+  boundary ceases to be outflow within 0.1 after; a deeper excision fails earlier, not later (r = 0.39 and 0.25 r_h at
+  the first seed, 0.21 r_h at the second). So no approximant on D_T comes from that scheme at 10 l5 at any excision
+  depth. What the computed solution shows is that the seed's interior ceases to be trapped from the inside outward in
+  the scheme's gauge while the shell passes, which leaves the exterior of the event horizon unaffected, and the step is
+  re-posed as the characteristic initial value problem in double-null gauge — the incoming wave on an ingoing null
+  hypersurface from past null infinity, the seed's outgoing cone as the other — where Luk's theorem gives local
+  existence without smallness ([Wu26] Theorem 2.1) and [Wu26]'s Theorem 2.2, "the difference of metrics is controlled by
+  the difference of curvature residues" (p. 6), is the a posteriori structure; its five-dimensional version in the class
+  is not built. Up to the failure the radiation field's growth factor exp ∫K dv is 1.9 and 2.1, and a finite-difference
+  amplification of the data along one direction, a lower bound for the propagator's norm, is 1.28 and 1.00; where the
+  scheme completes (λ = 0.1 r_h) they are 6.9 and 1.71, while the sup-norm Grönwall factor is 17, 2 × 10⁵ and 6 × 10³: a
+  certified argument would need the propagator's norm, not a sup-norm bound. The linear scattering of the shell off the
+  seed at 10 l5 is computed in `docket68/lemmas/seed_escape.py`.
 - **Beyond the boundary.** Nothing is claimed beyond Ω, whose inner boundary r = a lies a fixed distance inside x_K = 1;
   the statements of Theorem 1 are made on D_T.
 - **More families.** Several dusts, angular separation, and the passage to Vlasov matter are not attempted.
 - **The boundary at equality.** If μ0 = √72 l5² exactly, x_K = 1 is null on the seed's portion (Proposition 3.2).
-- **Review.** An eighth independent verifier read this paper and the supplement's last restatement (log D26): no major
+- - **Review.** An eighth independent verifier read this paper and the supplement's last restatement (log D26): no major
   finding; its two minor findings and 21 notes are seated. Propositions 3.3 and 3.4 were added after it, and were read
   with the supplement by a ninth (D30). Theorem 2's proof was read by a tenth, which found the near-region estimate
   incomplete, and, after the repair, by an eleventh, which found it closed (D34–D35). The paper's text on Theorem 2 and
-  the additions to sections 6 and 8 have not been read by a verifier.
+  the additions to sections 6 and 8 have not been read by a verifier. Theorem 3 and the supplement's section 11 were
+  read by a twelfth, which found no major gap and five minor ones, repaired in place with its four notes (D40); the
+  repairs, the supplement's section 10.3 with its reading in section 8 (D39) and the measurement of section 10.2 (D38,
+  D41) were read by a thirteenth (D44), which found two major gaps — Lemma 11.0's energy identity, run on a region
+  unbounded toward past null infinity, repaired by running it on the approximating solutions of Theorem 2's
+  construction; and section 10.2's break time at the first seed, a single-step transient of the root count, repaired by
+  the persistence criterion that moves it from 1.45 to 1.50 — with nine minor findings and notes, seated. Those repairs,
+  this paper's text on Theorem 3, the deeper excisions and the re-posing (D43), and the supplement's section 10.4 with
+  its reading here (D42) have not been read by a verifier.
 
 ---
 
@@ -656,12 +755,25 @@ from the arXiv text, with the extraction's spacing.
 - [LR05] H. Lindblad, I. Rodnianski, arXiv:math/0411109v2. READ 2026-10-19: p. 1, (1.3) p. 2, section 2.2 p. 8.
 - [IK03] A. Ishibashi, H. Kodama, *Stability of higher-dimensional Schwarzschild black holes*, Prog. Theor. Phys. 110
   (2003) 901, arXiv:hep-th/0305185v3. READ 2026-10-20: abstract p. 1, sections 2.1–2.3, summary p. 16.
+- [TTS09] K. Tanabe, N. Tanahashi, T. Shiromizu, *On asymptotic structure at null infinity in five dimensions*,
+  arXiv:0909.0426v2 (2010). READ: pp. 2–5, (4)–(5), (20)–(21), (26)–(28), (35)–(36).
+- [HL21] L. He, H. Lindblad, *Masses at null infinity for Einstein's equations in harmonic coordinates*,
+  arXiv:2107.01487v2 (2022). READ: section 3, Proposition 3.2, p. 11 (the eikonal function from wave coordinates).
 - [HKW18] P.-K. Hung, J. Keller, M.-T. Wang, *Linear stability of higher dimensional Schwarzschild spacetimes: decay
   of master quantities*, arXiv:1809.05144v1. READ 2026-10-20: abstract p. 1; pp. 2–4 (Theorems 1 and 2); p. 69
   (Theorem 22).
 - [CLY03b] V. Cardoso, J. P. S. Lemos, S. Yoshida, *Scalar-gravitational perturbations and quasinormal modes in the
   five dimensional Schwarzschild black hole*, arXiv:hep-th/0311260v2. READ 2026-10-20: (2.1)–(2.7), pp. 3–4; Tables
   1–3, pp. 8–9.
+- [KI03] H. Kodama, A. Ishibashi, *A master equation for gravitational perturbations of maximally symmetric black
+  holes in higher dimensions*, arXiv:hep-th/0305147v3. READ 2026-10-20: (2.4), (2.7)–(2.8), pp. 4–5; p. 7 (l = 1);
+  (3.1), (3.13)–(3.14), pp. 8–10; section 5.1, p. 13.
+- [CYDL03] V. Cardoso, S. Yoshida, O. J. C. Dias, J. P. S. Lemos, *Late-time tails of wave propagation in higher
+  dimensional spacetimes*, arXiv:hep-th/0307122v3. READ 2026-10-20: (14), p. 4; p. 2; Fig. 2 and p. 5.
+- [Hun19] P.-K. Hung, *The linear stability of the Schwarzschild spacetime in the harmonic gauge: even part*,
+  arXiv:1909.06733v1. READ 2026-10-20: (1.4); (4.21)–(4.23); (8.1), (8.39); sections 5–8 for their structure.
+- [Wu26] S. Wu, *Picard iteration for the characteristic initial value problem in Einstein equations*,
+  arXiv:2609.08421v1. READ 2026-10-20: abstract; p. 2, (1.1); Theorems 2.1–2.2, p. 6.
 - [AB26] L. Alpöge, T. Buckmaster, *Blowup for the Boussinesq equations with smooth forcing*, preprint (September
   2026), cims.nyu.edu/~tristanb/boussinesq.pdf. READ 2026-10-20: section 1.2 (the layers and the wave), section 3.1
   (Lemma 3.1 and its proof), the bibliography ([4], Chen and Hou, arXiv:2210.07191v4 and arXiv:2305.05660v3).
@@ -722,8 +834,21 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
 - `past5.py` P1–P8: Theorem 2's past domain, the operator and the transport near past null infinity, the leading
   wave's components, the stage-0 source, the rotations, the flux of the radiation field, the mollifier's commutator.
   8/8; mutants 9/9.
-- `settle5.py` T1–T4: the class's perturbation types, the potentials, the l = 2 ringdown against [CLY03b], the
-  settling times; T3 numerical. 4/4; mutants 4/4.
+- - `growth5.py` G0–G5: the go/no-go at 10 l5 on the record's own scheme — two measures of K at every step, the failure
+  of the scheme's premise on three grids and at three deeper excisions, a finite-difference amplification; G0 live,
+  G1–G5 against the twelve pinned runs (`data/growth5_runs.json`, regenerated by `--run` and `--merge`); numerical. all
+  pass.
+- `settle5.py` T1–T6: the class's perturbation types, the potentials, the l = 2 ringdown against [CLY03b], the
+  settling times, no growing mode for l = 2, …, 10, the late-time tail t^(−7) against [CYDL03]; T3, T5, T6
+  numerical. 6/6; mutants 6/6.
+- - `wavegauge5.py` W1–W5: the passage to the harmonic gauge on five-dimensional Tangherlini in the class (supplement
+  Proposition 10.2): the Lichnerowicz identity and Γ[π_X] = □X on a tensor and a one-form of the class, the l = 0
+  stationary one-form regular at the horizon, the gauge-fixed mass change growing linearly in t, the scalar gauge
+  vector's three 1+1 equations at l = 2 and 4, the tensor type already harmonic. 5/5; mutants 5/5 (about 1 minute).
+- `bondi5.py` B1–B4: Theorem 3's hierarchy in the Bondi form with general coefficients from the first order (the
+  orders below the waves' vanish; the mass law from R_vv at order r^(−3)), the chart from the wave-gauge expansion,
+  the Hawking mass of the Bondi spheres, the numerics' coefficient; B4 numerical. 4/4; mutants 5/5 (about ten minutes,
+  B2 the slow one).
 
 
 Earlier programs cited, in `docket68/lemmas/`:
@@ -790,7 +915,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D35).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D44).
 
 | claim | where it is established |
 | --- | --- |
@@ -812,10 +937,18 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D3
 | mean mass, Proposition 3.4 | supplement Lemma 8.2, Proposition 8.2; `docket68/n1star/mass5.py` M1–M4 |
 | Theorem 2 | supplement section 9 (Lemmas 9.1–9.7, 9.4b, Theorem A_P, Propositions 9.8–9.9); `past5.py` P1–P8 |
 | the flux at past null infinity | supplement section 9.5; `docket68/n1star/past5.py` P7 |
-| settling, section 8 | supplement section 10.1; `docket68/n1star/settle5.py` T1–T4; [HKW18], [CLY03b] |
+| Theorem 3, (3.2)–(3.3) | supplement section 11 (Propositions 11.1–11.3); `docket68/n1star/bondi5.py` B1–B3; |
+| | [TTS09] (28); [HL21] section 3 for the chart's construction |
+| the numerics' mean mass, section 6 | `docket68/n1star/bondi5.py` B4 over the solver's runs |
+| | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
+| the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
+| | `paper/response5.py` R7 |
+| settling, section 8 | supplement sections 10.1, 10.3 and 10.4 (Propositions 10.1–10.2); `docket68/n1star/settle5.py` |
+| | T1–T6; `docket68/n1star/wavegauge5.py` W1–W5; [HKW18], [KI03], [CLY03b], [CYDL03], [Hun19] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
-| | the tenth and eleventh Theorem 2's proof (D34–D35) |
+| | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
+| | the repairs of D40 and sections 10.2–10.3 (D44) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -825,17 +958,18 @@ Python 3.11 with sympy, and z3-solver for `foliation5.py` (the programs import n
     cd paper && python3 response5.py --selftest          # R1-R7, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
         cd ../docket68/n1star && python3 ks5.py --selftest   # and foliation5, ansatz5, lead5, data5, horizon5, mass5,
-                                                         # past5 (about 4 minutes), settle5
+                                                         # past5 (about 4 minutes), settle5, bondi5 (about ten minutes)
+                                                         # wavegauge5 (about 1 minute)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
 
 | file | md5 |
 | --- | --- |
-| `paper/response5.py` | `9fba87043d3b28cf6f0c786647a820d3` |
-| `docket68/n1star/N1STAR-PROOF.md` | `9990dba339f259721ef47d0f1064b191` |
-| `docket68/n1star/N1STAR-LOG.md` | `452a9856298347e055a395746ec492cd` |
-| `docket68/n1star/README.md` | `bfeb6ef3a346dc4131d2480602d40588` |
+| `paper/response5.py` | `187d2de19d94308e5f1e0881e97b1fa6` |
+| `docket68/n1star/N1STAR-PROOF.md` | `b19776bcaf513c210b32bc00c4b3feff` |
+| `docket68/n1star/N1STAR-LOG.md` | `58d64a4e11668ca9ba7d9b213f461653` |
+| `docket68/n1star/README.md` | `a921431a68fe0b17f8c0788f673c6cb2` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -843,7 +977,10 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/mass5.py` | `ebe2ee78219553f4b57a4200604752e5` |
 | `docket68/n1star/horizon5.py` | `962ca2fb9404bebbce8420075f080dbd` |
 | `docket68/n1star/past5.py` | `d6742977ac642377ecc3785759dd526c` |
-| `docket68/n1star/settle5.py` | `fd96c78bbebf8c57f2f6bcee2f3d52f3` |
+| `docket68/n1star/settle5.py` | `8f2c81317211e47666881113aa18e3a0` |
+| `docket68/n1star/bondi5.py` | `bbd4416da0fcf101b89e1d782e7b4955` |
+| `docket68/n1star/growth5.py` | `278bff41f163056d6be845a6b20dbc00` |
+| `docket68/n1star/wavegauge5.py` | `6a3699cea3cfb18d35ecdfc9c0e30be7` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |
 | `docket68/lemmas/counterpart5.py` | `e7dcf7bf898c2147492d28c5fb888d18` |
