@@ -46,6 +46,23 @@ To how to treat late-time settling and the application at 10 l5: "Prove three, a
 (iii) for lam > 0, the mean-mass rate and the data at past null infinity; then attempt late-time settling and a
 finite-wavelength statement, reporting exactly how far each gets and never claiming more).
 
+**2026-10-20, to the report of D27-D30 (the session's lines quoted before each answer), verbatim:**
+
+> Data at past null infinity: not proved. I said it looked provable; that was wrong as the method stands. Over an
+> infinite past, the phase correction builds up, and with the current estimates that gives a growth no power of λ can
+> beat. I found the structure that should close it, but it amounts to a separate theorem about as large as the uniform
+> existence proof itself (called N1* in the working notes).  - then we need to build, and include that proof as well
+>
+> Late-time settling, attacked: it is open in the field. Linear stability is known (Ishibashi–Kodama), and nonlinear
+> stability is known only for a smaller symmetry class (Holzegel). Our waves depend on an angle and fall outside that
+> class. Settling would follow from small-data stability in our class, but only once the solution is also built
+> outside the current domain. - use the copper study from the warp theorem work, it was built and models and measured
+> under different constant conditions of varying universes. It may be useful to build from.
+>
+> Wavelength 10 l5, attacked: no high-frequency theorem can reach it. At that wavelength the waves are as long as the
+> curvature length: 10 times it on the boundary, and 2.91 or 0.92 times it at the horizon (for μ0/l5² = 100 and
+> 1000). - this is why I recommended the navier-stokes equations.
+
 ## Decisions and findings
 
 **D1 (2026-10-19) Reproduction.** Every manifest md5 matches at the handoff commit (54 of 54). Selftests, run from
@@ -512,4 +529,22 @@ zero of the spheres' outgoing expansion; the mean mass of the spheres kept apart
 null infinity; the decay claim in the past-null-infinity assessment labelled as an assessment; the [Hol08] locator
 made consistent. Two prose lines of sections 2-6 that began with "- " (and so rendered as list items) were re-flowed;
 the words of sections 0-7 are unchanged.
+
+**D31 (2026-10-20, session decision): M's three directions, and how they are read.** (1) The construction from past
+null infinity is to be built and included (Theorem P, N1STAR-PROOF.md section 9). The route, from D28's structure: the
+seed region {v < v_start} is exactly the seed for the solution (its past-directed causal curves cannot leave it while
+the metric there is the seed, so the remainder vanishes there by uniqueness), which removes the near-hole region from
+the past estimates; on the rest of the past region r and |tau| are comparable and every coefficient decays; the
+loops of the decomposition close with integrable kernels because the dangerous coupling (d_v d_th g1)(d_r phi) acts on
+d_r phi = (1/2) P s, which does not accumulate; and the gauge vanishes for the limit solution because D(g_app) decays at
+past infinity, so no constraints need solving there. What must be computed first: that the approximant has an expansion
+near past null infinity in powers of r^(-1/2) without logarithms (a transport source of order r^(-5/2) would make one;
+the leading wave's own transport is what removes it). (2) "The copper study" is read, until M corrects it, as the
+SOURCE work carried at copper: seed_escape.py (linear scattering of the shell off the five-dimensional hole through
+Kodama and Ishibashi's barrier, computed for the copper README at several seeds) with p2_matter.py (copper's molecules
+and solids under the laws of the other positions); the first bears on late-time settling. (3) The Navier-Stokes
+recommendation, for the wavelength 10 l5, is read as the computer-assisted method the Alpoge-Buckmaster Boussinesq
+paper cites for the regime without a small parameter (Chen and Hou, "II: Rigorous Numerics", arXiv:2305.05660, cited
+there as [4]): existence near a computed solution at a fixed wavelength, from a rigorous bound on its residual and on
+the linearized operator. Order of work: (1), then (2) and (3).
 
