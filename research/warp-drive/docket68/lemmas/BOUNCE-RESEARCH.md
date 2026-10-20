@@ -3575,3 +3575,38 @@ worked in the N1* session".
 
 SOURCE-PROOF carries all three. settle_late selftest PASS, mutants 2/2. Register unchanged: 83 rows (74 PROVED,
 6 DEFINITION, 3 COMPUTED-THEORIZED); settle_late is in T1.
+
+## 65. The theorem analysed for gaps and weak lemmas (541; GAP-ANALYSIS.md)
+
+M, 541: "analysis the warp theorem to identify gaps or weak lemmas, to determine if more lemmas are needed to clarify,
+or support anything currently contained in the theorem". The statement and all 83 rows were read, with their notes and
+the 40 RESTS_ON_NOW edges. The determination: more lemmas are needed (lemmas/GAP-ANALYSIS.md).
+- **Gaps (the statement claims it, no row carries it).**
+  - GMID: the family between its ends, r_h > 0.1 ell and r0 < 10 ell. At ell = 13.964 um that is N 5.3e57-3.4e62 and
+    E 2.0e37-8.5e39 J; no row computes it.
+  - G0s: uniqueness at the small end. Gibbons, Ida and Shiromizu is for asymptotically flat vacuum, not the brane; the
+    finite-ell hole is known numerically and to first order. Settled by Tangherlini's static mirror-class operator
+    having no regular decaying zero mode.
+  - I3: our universe's information over the hole's life. The Hawking partners are kept in the core (b4d_small D15),
+    whose end holds 176 bits (D14), against the radiation's N ln2 = 1.9e15 nats. Unitarity or the remnant's capacity
+    fails unless the radiation purifies itself (the island formula); theorized, M's direction.
+- **Weak rows (supported, but narrower than the claim).**
+  - Z3q: "confined to the quantum region" was computed on transition5's sharp region. On QB the mass function departs
+    as 0.2736 (x/x_b)^2 through the interior, so the negative has a tail to be bounded on QB.
+  - O3g: O3s covers the scalar wave only. Hung, Keller and Wang's decay of every type (READ) plus the vector type's
+    reconstruction lifts it to linearised gravity.
+  - Z3d: Z3c's no-phantom against DESI DR2, which prefers evolving dark energy at 2.8-4.2 sigma with supernovae and
+    3.1 sigma without; recorded as a tension, unaddressed.
+  - SETTLEs: the static corridor after a finite-wavelength formation, determined at 540, carried by no row.
+- **M's clarifications.**
+  - C1: 15 PROVED rows rest on QB; state the theorem conditionally or label them.
+  - C2: name which ell the SI figures use (13.964 um).
+  - C3: one current-basis line per row.
+- **Register corrections, on approval.**
+  - D1: E2us and E2xs still cite c_junction J1's 33.6 clocks.
+  - D2: six missing RESTS_ON edges (E1us, E1xs, E1x, O1a onto CLOSEs, FACE2s, FACE2).
+  - D3: clause (O)'s equal mass still "on one onset curvature" (since 537 unitarity, bounce_close C3).
+  - D4: passage_est Q7's withdrawn wording.
+  - D5: the write's balance is unstable, e-fold time 2 lives, a factor 1.65 over the write.
+
+Nothing moves a status: 83 rows (74 PROVED, 6 DEFINITION, 3 COMPUTED-THEORIZED).

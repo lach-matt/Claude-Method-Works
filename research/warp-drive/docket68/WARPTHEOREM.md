@@ -99,7 +99,23 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 540 (Theorem P proved; whether the hole settles, determined).** Theorem P -- the same
+**Where it stands, at item 541 (the theorem analysed for gaps and weak lemmas).** M asked for the theorem to be
+analysed for gaps and weak lemmas, and for whether more lemmas are needed (`lemmas/GAP-ANALYSIS.md`). They are.
+- Three gaps, where the statement claims what no row carries:
+  - the family between its ends (r_h > 0.1 ell, r0 < 10 ell);
+  - uniqueness at the small end, where Gibbons, Ida and Shiromizu's theorem does not reach the brane;
+  - our universe's information over the hole's life: the partners kept in a core that ends at 176 bits.
+- Four weak rows:
+  - Z3bs/Z3b's confinement, computed on transition5 and not re-derived on QB;
+  - O3s, the scalar wave only;
+  - Z3c against DESI DR2's 2.8-4.2 sigma preference for evolving dark energy;
+  - the settling of 540, which no row carries.
+- Three clarifications for M, among them that 15 PROVED rows rest on QB.
+- Five register corrections, among them two stale citations and six missing dependency edges.
+
+No status moves. 83 rows pass, unchanged. BOUNCE-RESEARCH section 65.
+
+**Where it stood at item 540 (Theorem P proved; whether the hole settles, determined).** Theorem P -- the same
 solution built from the record's free data at past null infinity -- is proved in the N1* session (eleven verifiers),
 merged to main and from main into this branch, and re-run here (past5 8/8). Whether the hole settles at late times is
 determined by the math, as M said (`lemmas/settle_late.py`):
@@ -2241,6 +2257,15 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 541** (M: "analysis the warp theorem to identify gaps or weak lemmas, to determine if more lemmas are
+  needed to clarify, or support anything currently contained in the theorem"). Every row, note and dependency edge
+  read (`lemmas/GAP-ANALYSIS.md`):
+  - three gaps: GMID, G0s, I3;
+  - four weak rows: Z3q, O3g, Z3d, SETTLEs;
+  - three clarifications for M: C1-C3;
+  - five register corrections, on approval: D1-D5.
+
+  No status moves. BOUNCE-RESEARCH section 65.
 - **Item 540** (M: settling "for the math to determine"; Theorem P "finished and verified by the N1*, it is now
   updated and available to you"; the 10 l5 wavelength "currently being worked in the N1* session"). main merged into
   the branch (n1star at 2780e2f9; past5 8/8, settle5 4/4, response5 pass here). Settling determined
