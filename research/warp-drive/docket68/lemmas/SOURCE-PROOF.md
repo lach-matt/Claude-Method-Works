@@ -1,4 +1,4 @@
-# SOURCE: the complete proof of its computations (SOURCEs and SOURCE; items 485-538)
+# SOURCE: the complete proof of its computations (SOURCEs and SOURCE; items 485-539)
 
 *First written* 2026-10-20, on M's item 538: "anything COMPUTED-THEORIZED should have a complete proof for the
 computations". SOURCEs and SOURCE are COMPUTED-THEORIZED since 534. This file proves every computation they name, from
@@ -154,10 +154,27 @@ r_h/10 in a region of r_h/3. The scales separate (arithmetic).
   flux, derived. 4(a^2 + ab + b^2) = (2a + b)^2 + 3b^2, so the dust's energy is nonnegative (Lean 4 and Z3). The same
   is cross-checked in Wolfram 15.
 - (iii) is exact in the limit: f = 1 - mu/r^2 has one positive root. It is computed for every run (hf_core5 C3: one
-  zero per column, no inner apparent horizon).
-- (i), existence for every lam with lam-uniform estimates (N1*, which is L-UNIF'), is completed in its own session:
-  docket68/n1star/N1STAR-PROOF.md on branch ccr-66909215-gi0qa5 at acd79676 (D21: Theorems E, A and D written out, every
-  standard theorem READ at source, seven verifiers). It is cited and not copied, by M's 534.
+  zero per column, no inner apparent horizon). For lam > 0 it is proved in the N1* session (Proposition 8.1,
+  horizon5.py): on every column the outgoing expansion has one zero, within C lam of sqrt(mu), and there is no inner
+  apparent horizon.
+- (i), existence for every lam with lam-uniform estimates (N1*, which is L-UNIF'), is proved in its own session, and
+  it is in the repository (M, 539). That proof is the five-dimensional counterpart of Huneau and Luk's theorem, which
+  497 left not proved: the exact mirror-symmetric vacuum sequence for the whole shell, in cohomogeneity three. It is in
+  docket68/n1star/N1STAR-PROOF.md at ddfe90f4 on branch ccr-66909215-gi0qa5, with an earlier state merged to main by
+  PR #58:
+  - Theorems E, A and D written out; N1* PROVED at D21; seven independent verifiers; every standard theorem READ at
+    source;
+  - the paper is research/warp-drive/paper/RESPONSE-HL-5D.md, "A Five-Dimensional Black Hole Grown by Null Dust Is a
+    High-Frequency Limit of Vacuum Gravity";
+  - the mean-mass rate is proved there too (Proposition 8.2, mass5.py): after the shell, every sphere's mass is the
+    limit's to O(lam^2).
+
+  **Re-run here (539), at that head, in a separate worktree:** foliation5 4/4, lead5 5/5, horizon5 4/4, ks5 5/5,
+  mass5 4/4, ansatz5 5/5, past5 7/7, data5 7/7, and the paper's independent check response5 R1-R7, all pass. The
+  proof's text is the session's, read here and not re-verified. **Open there**, by its own list: late-time settling;
+  Theorem P, the construction from past null infinity (written at D32, not yet verified; the mass law at past null
+  infinity OPEN); the application at the physical wavelength 10 l5, which no high-frequency theorem reaches (response5
+  R7). SOURCE's delivery at 10 l5 is Part D's computation, not this theorem's.
 - The rates are computed (hf_core5 C1-C5: the C^0 departure halves with lam, the mean-mass offset quarters, the horizon
   converges at first order). The coefficients are exact (hf_anchor5: sqrt2 A, and (2/9) A^2 int env'^2 = 0.45693, the
   runs agreeing to 0.01 %).
@@ -268,8 +285,11 @@ No inner or Cauchy horizon enters anywhere (U2, C5 (iii), hf_theorem5 F1).
 - linear adiabatic scattering in the seed phase, validated by the second order (D4, D7);
 - the second order taken monochromatic at the envelope's peak on mu = 1 Tangherlini, and extrapolated by a
   conservative slope (D7);
-- A3's copper rates (standard values, not READ);
-- N1* (C5 (i)), proved in its own session and cited, not re-checked here (534).
+- A3's copper rates (standard values, not READ).
+
+**Proved elsewhere, cited and re-run:** N1* (C5 (i)), with C5 (iii) for lam > 0 and the mean-mass rate. They are proved
+in the N1* session (seven verifiers) and are in the repository; their instruments, re-run here at 539, all pass. They
+are no longer a cited claim.
 
 **Not a computation:** the gap between the read's demonstrated technology and its requirement (source_spec U7: 23
 orders). The device is defined as quantum mechanics admits it (A4), not built.
