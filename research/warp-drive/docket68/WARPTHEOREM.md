@@ -99,7 +99,19 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 537 (the bounce in quantum physics; everything closed).** The ten rows on 273 rest on the
+**Where it stands, at item 538 (what rests beyond established physics, worked out).** The place x = 1 is no longer a
+premise: every part the rows take from the bounce holds at any place well inside the horizon, x_b >> x_h =
+sqrt(72) l5^2/r_h^2 (1.6e-9 at the small end, 1.2e-40 at the large; `bounce_proof.py` P6). What cannot be proved --
+quantum mechanics for the interior's geometry at Planckian curvature, where no established theory has been tested --
+is built and computed as a new input row, **QB** (clause N, COMPUTED-THEORIZED): "the quantum bounce M chose at 273,
+realized in quantum mechanics". The ten rows, H2, FACE2s and FACE2 rest on it in RESTS_ON. Every COMPUTED-THEORIZED row
+now has a complete proof of its computations (M's 538): QB in `lemmas/BOUNCE-PROOF.md` (Theorem QB, L1-L14; checks
+bounce_qm Q1-Q9, bounce_close C1-C6, bounce_proof P1-P6), SOURCEs and SOURCE in `lemmas/SOURCE-PROOF.md` (THM-SOURCE,
+Parts A-E). What stays theorized is named in each proof: for QB, quantum mechanics at Planckian curvature, the
+minisuperspace off symmetry (BKL), the clock and extension, the place's naturalness; for SOURCE, its section 7. 83 rows
+pass (74 PROVED, 6 DEFINITION, 3 COMPUTED-THEORIZED); T2 entailed, none open. BOUNCE-RESEARCH section 62.
+
+**Where it stood at item 537 (the bounce in quantum physics; everything closed).** The ten rows on 273 rest on the
 bounce defined in quantum mechanics (`bounce_qm.py`, M's 537): the interior quantised from general relativity's own
 Hamiltonian (Wheeler-DeWitt) in the bulk's clock, conjugate to its cosmological constant; unitarity forces a
 reflection at r = 0 into the white hole of the same mass, two horizons only. transition5q, the candidate theory's
@@ -2201,6 +2213,12 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 538** (M: "What still rests beyond established physics - let's work these out. If we cannot prove them, we
+  can at least build them and compute them as COMPUTED-THEORIZED"; "anything COMPUTED-THEORIZED should have a complete
+  proof for the computations"). The place x = 1 worked out of the premises (`lemmas/bounce_proof.py` P6, 6/6, mutants
+  2/2); quantum mechanics at Planckian curvature built as the input row QB, COMPUTED-THEORIZED, the ten rows, H2,
+  FACE2s and FACE2 resting on it; complete proofs written for every COMPUTED-THEORIZED row (`lemmas/BOUNCE-PROOF.md`,
+  `lemmas/SOURCE-PROOF.md`); bounce_proof in T1. 83 rows. BOUNCE-RESEARCH section 62; SOURCE-REQUIRED item 538.
 - **Item 537** (M: the ten rows rest on the quantum-mechanical definition "instead of transition5q", "probably
   supported by our current candidate theory"; "let's finish closing everything please"). The register re-pointed (the
   ten rows, O1bs, O1cs; H2; FACE2s, FACE2), O1a and (O) re-worded, bounce_qm and bounce_close in T1. Closed

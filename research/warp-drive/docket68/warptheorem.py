@@ -133,6 +133,13 @@ constant; unitarity forces a reflection at r = 0 into the white hole of the same
 effective geometry, supports it; what 536 left open closed (bounce_close C1-C6): the clock slow, the interior exactly
 Kantowski-Sachs, the mass kept by 183, 273 (a) and (c) and 386 (H2 no longer on 415), the place x = 1 bounded below
 by effective field theory and set by the candidate theory (BOUNCE-RESEARCH 60-61).]
+[Item 538: what rests beyond established physics, worked out (M: 'If we cannot prove them, we can at least build
+them and compute them as COMPUTED-THEORIZED'; 'anything COMPUTED-THEORIZED should have a complete proof for the
+computations').  The bounce is an input row, QB, COMPUTED-THEORIZED, with its complete proof (lemmas/BOUNCE-PROOF.md;
+bounce_proof P1-P6), and the ten rows, H2 and FACE2 rest on it.  The place x = 1 is no longer a premise: every part
+holds at any place well inside the horizon.  SOURCE's complete proof is lemmas/SOURCE-PROOF.md.  Beyond established
+physics there remain quantum mechanics for the interior's geometry at Planckian curvature (QB) and SOURCE's named
+theorized steps (BOUNCE-RESEARCH 62).]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -1592,6 +1599,50 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_537_FACE
     _rows_537.append((c, n, s_, t))
 LEMMAS_NOW = _rows_537
+# [item 538] M: "What still rests beyond established physics - let's work these out.  If we cannot prove them, we can at
+# least build them and compute them as COMPUTED-THEORIZED"; "anything COMPUTED-THEORIZED should have a complete proof
+# for the computations" (M-CT-PROOF).  The bounce becomes an input row, QB, with its complete proof; the place x = 1
+# is worked out of the premises (bounce_proof P6); SOURCE's complete proof is SOURCE-PROOF.md.
+NOTE_538_QB = ("  [Item 538] Built and computed (M: 'If we cannot prove them, we can at least build them and compute "
+               "them as COMPUTED-THEORIZED').  Theorem QB, parts 1-7 under (H1)-(H5): unitary evolution reflects "
+               "every state at r = 0 from the black hole's branch into the white hole's; the same mass, no net energy "
+               "made; two horizons only, no inner or Cauchy horizon; curvature bounded; 2 r_h across; the departure "
+               "0.2736 (x/x_b)^2 before the bounce; and all of it at every place well inside the horizon, x_b >> x_h "
+               "= sqrt(72) l5^2/r_h^2 (1.6e-9 at the small end, 1.2e-40 at the large), so x_b = 1 is not a premise.  "
+               "Complete proof lemmas/BOUNCE-PROOF.md (L1-L14), checked by bounce_qm Q1-Q9, bounce_close C1-C6 and "
+               "bounce_proof P1-P6.  Theorized, named (its section 4): quantum mechanics for the interior's geometry "
+               "at Planckian curvature, where effective field theory's expansion parameter is of order one; the "
+               "minisuperspace off symmetry (BKL, READ through 2409.03006); the clock and the extension (the record's "
+               "slow clock, 273 (a)); and the place well inside the horizon (effective field theory's natural "
+               "coefficients, unmeasured).  Computed rather than derived: 0.7424, 0.25-0.3 and the 1e-4 grid "
+               "agreement, none bearing on 1-7")
+QB_ROW = ('N', "QB the quantum bounce M chose at 273, realized in quantum mechanics: the interior's exact "
+               "Kantowski-Sachs sector quantised from general relativity's own Hamiltonian, evolving unitarily in "
+               "the bulk's clock (bounce_qm, bounce_close, bounce_proof)", "COMPUTED-THEORIZED",
+          "items 536-538 (M: 'It's a quantum bounce, thus it has to be defined in quantum physics'; 537: the ten rows "
+          "rest on it 'instead of transition5q'; 538: 'build them and compute them as COMPUTED-THEORIZED')."
+          + NOTE_538_QB)
+NOTE_538_ON = ("  [Item 538] Rests on QB, an input row (COMPUTED-THEORIZED; complete proof BOUNCE-PROOF.md).  The place "
+               "x = 1 is no longer a premise: every part QB supplies holds at any place well inside the horizon "
+               "(bounce_proof P6); beyond established physics this row rests on quantum mechanics at Planckian "
+               "curvature, through QB")
+NOTE_538_SOURCE = ("  [Item 538] The complete proof of its computations is lemmas/SOURCE-PROOF.md (M-CT-PROOF): "
+                   "THM-SOURCE, Parts A-D (the read, the emitter, the high-frequency limit, delivery within half a "
+                   "bit) composed in Part E; its section 7 lists what is computed numerically, each with its error "
+                   "control and margin, and what is theorized, named")
+ON_538 = TEN_537 + ("H2", "FACE2s", "FACE2")
+_rows_538 = []
+for c, n, s_, t in LEMMAS_NOW:
+    k = n.split()[0]
+    if k in ON_538:
+        t = t + NOTE_538_ON
+    if k in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_538_SOURCE
+    _rows_538.append((c, n, s_, t))
+    if k == "SOURCE":
+        _rows_538.append(QB_ROW)
+LEMMAS_NOW = _rows_538
+RESTS_ON_NOW.update({k: (RESTS_ON_NOW[k] + " QB") if k in RESTS_ON_NOW else "QB" for k in ON_538})
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1811,7 +1862,9 @@ def lemma_selftests():
               # item 530: the second order of the record's own equations at 2w, exact (route b)
               "seed_second.py",
               # items 536-537: the bounce defined in quantum physics; what 536 left open, closed
-              "bounce_qm.py", "bounce_close.py"):
+              "bounce_qm.py", "bounce_close.py",
+              # item 538: QB's complete proof checked -- the flat ordering, the identities, the place theorem
+              "bounce_proof.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
@@ -1879,7 +1932,7 @@ def report(d):
     counts = {k: sum(1 for l in LEMMAS_NOW if l[2] == k) for k in ("DERIVED", "DEFINITION", "PROVED", "READING",
                                                                      "NATURE", "OPEN", "COMPUTED-THEORIZED")}
     print("\n%d lemmas: %d PROVED, %d DERIVED from your more basic rulings, %d PROVED under a named board READING, "
-          "%d your DEFINITIONS, %d NATURE, %d COMPUTED-THEORIZED (534), %d OPEN" % (
+          "%d your DEFINITIONS, %d NATURE, %d COMPUTED-THEORIZED (534, 538), %d OPEN" % (
               len(LEMMAS_NOW), counts["PROVED"], counts["DERIVED"], counts["READING"], counts["DEFINITION"],
               counts["NATURE"], counts["COMPUTED-THEORIZED"], counts["OPEN"]))
     print("   the record's register through item 247 (LEMMAS, kept): %d rows, %d OPEN; superseded since: %s"

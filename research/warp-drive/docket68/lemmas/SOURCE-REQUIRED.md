@@ -5,6 +5,28 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 538: the complete proof of SOURCE's computations (SOURCE-PROOF.md)
+
+M, 538: "anything COMPUTED-THEORIZED should have a complete proof for the computations".
+- **The proof.** lemmas/SOURCE-PROOF.md proves THM-SOURCE (read, emit, deliver within half a bit) in five parts, each
+  lemma proved or exactly checked and mapped to its instrument's checks:
+  - Part A, the read (reader A1-A9);
+  - Part B, the emitter (emitter_process B1-B7: dE5/dN = k T_H ln2; the Dirichlet bound on the emission's spread;
+    reflection symmetry gives zero momentum and angular momentum);
+  - Part C, the high-frequency limit (C1-C5: the exact vacuum sequence; THM-HF5 (ii) and (iv) exact, (i) through N1*,
+    cited at its own session);
+  - Part D, delivery within half a bit (D1-D8: I' = -x0 S <= 0, so the escape is monotone; the floor criterion; the
+    thresholds 102, 61, 808 and 917 l5^2; the second order, 2.0e-18 half bits under a conservative slope);
+  - Part E composes them.
+- **What stays computed rather than derived, and what is theorized**, named in its section 7:
+  - computed numerically, each with its error control and margin: R_l(x), C(x), mu0*, the powers 0.639 and 0.361, and
+    hf_core5's rates;
+  - theorized: the floor's constant (the hoop criterion), linear adiabatic scattering in the seed phase (validated by
+    the second order), the second order's monochromatic extrapolation, A3's copper rates, and N1*;
+  - not a computation: the read's 23 orders of technology (source_spec U7).
+- **Status.** Unchanged: SOURCEs and SOURCE COMPUTED-THEORIZED, now with the complete proof M-CT-PROOF requires; the
+  register carries the note on both rows.
+
 ## Item 534: SOURCEs and SOURCE COMPUTED-THEORIZED, on M's ruling
 
 M, 534: "label them as computed. SOURCE can be label computed." ... "Compute items in this ruling can be marked

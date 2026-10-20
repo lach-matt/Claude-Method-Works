@@ -3420,3 +3420,49 @@ probably supported by our current candidate theory."; "what stays open: - let's 
   minisuperspace (the Wheeler-DeWitt equation with unitarity in the bulk's clock): quantum mechanics and general
   relativity, not an established theory of quantum gravity. The place x_b = 1: the candidate theory's, admitted and
   bounded below by effective field theory. bounce_close 5/5, mutants 2/2.
+
+## 62. Beyond established physics, worked out; QB an input row with its proof (538; lemmas/bounce_proof.py)
+
+M, 538: "What still rests beyond established physics - let's work these out. If we cannot prove them, we can at least
+build them and compute them as COMPUTED-THEORIZED. We probably already have everything we need to write the proofs for
+the computations.... On that note, anything COMPUTED-THEORIZED should have a complete proof for the computations".
+537 named two premises beyond established physics: quantum mechanics applied to general relativity's minisuperspace,
+and the place x_b = 1.
+- **The place, worked out of the premises (P6).** Each part the rows take was computed at x_b = 0.3, 1, 3, 10 and 100
+  on one state family (k_c = 300): two horizons only, the state time-symmetric, the curvature maximum
+  K_max/K_cl(Y_min) = 0.7423-0.7424, the crossing 2 r_h to within 0.3 Y_min/mu + 3 (sigma_k/k_c)^2, and the departure
+  2.80e-3 at a tenth of the place, within effective field theory's x^2 at every place. Every part holds wherever the
+  bounce sits well inside the horizon, x_b >> x_h = sqrt(72) l5^2/r_h^2 (1.6e-9 at the small end, 1.2e-40 at the
+  large). x_b = 1 is not a premise of any row; the candidate theory's place is one admissible value of a range
+  effective field theory bounds below (x_b >= 0.27 at coefficient one).
+- **Quantum mechanics at Planckian curvature: not provable, so built.** No established theory has been tested where
+  effective field theory's expansion parameter is of order one, so unitarity of the interior's evolution there cannot
+  be proved from established physics. It is the postulate the record already makes of the passage (418, 491). Built
+  and computed, it is a new input row, **QB** (clause N, COMPUTED-THEORIZED): "the quantum bounce M chose at 273,
+  realized in quantum mechanics: the interior's exact Kantowski-Sachs sector quantised from general relativity's own
+  Hamiltonian, evolving unitarily in the bulk's clock". The ten rows, H2, FACE2s and FACE2 now rest on QB in
+  RESTS_ON, so the register states the dependence it previously carried only in notes.
+- **QB's complete proof (BOUNCE-PROOF.md).** Theorem QB, parts 1-7 under (H1)-(H5), and lemmas L1-L14, each proved or
+  exactly checked. The new checks (bounce_proof):
+  - P1: the minisuperspace metric is d xi d(6 Y^2), flat, so the covariant ordering is unique;
+  - P2: the closed forms of <Y> and <xi>, from a cosh series and Kummer's transformation (worst 2.0e-30 against
+    quadrature);
+  - P3: the departure is monotone, since d/dz 1F1(-a/2, 1/2, -z) = a e^-z 1F1((1+a)/2, 3/2, z) > 0;
+  - P4: its asymptote is -1/(16z), from -0.06280, -0.06253 and -0.06250 at z = 1e2, 1e3 and 1e4;
+  - P5: Kretschmann's denominator is Y^2, free of xi, so the curvature is bounded wherever Y_min > 0;
+  - P6: the place, as above.
+- **Off symmetry.** Within spherical symmetry the minisuperspace is exact (Birkhoff, C2). Off it, the local
+  homogeneity of a generic spacelike singularity is the BKL conjecture (READ through 2409.03006): theorized, named in
+  QB's section 4.
+- **Every COMPUTED-THEORIZED row has its complete proof.** QB has BOUNCE-PROOF.md. SOURCEs and SOURCE have
+  SOURCE-PROOF.md: THM-SOURCE, Parts A-D (the read, the emitter, the high-frequency limit, delivery within half a bit)
+  composed in Part E. Its section 7 lists what is computed numerically, each with its error control and margin, and
+  what is theorized, named. N1* is cited at its own session, not re-checked.
+- **What remains beyond established physics, named.**
+  - For QB: quantum mechanics for the interior's geometry at Planckian curvature; the minisuperspace off symmetry
+    (BKL); the choice of clock and extension (the record's slow clock and 273 (a)); and the place well inside the
+    horizon, on effective field theory's natural coefficients, which are unmeasured.
+  - For SOURCE: its section 7's named steps.
+
+Register: 83 rows -- 74 PROVED, 6 DEFINITION, 3 COMPUTED-THEORIZED (SOURCEs, SOURCE, QB); T2 entailed, none open;
+bounce_proof in T1. bounce_proof 6/6 (P1-P6), mutants 2/2.
