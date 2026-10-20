@@ -314,3 +314,22 @@ with a Volterra bound E_(i+1) <= A + B int E_i, needing no smallness; the paraph
 SO(4)-averaging note fell with the mollification. The [LR05] and [CD03] quotes could not be checked from the saved
 texts; they were READ 2026-10-19. data5.py --mutants: 6/6. Status: no citation outstanding; the D18 repairs not yet
 re-checked; N1* not yet claimed as PROVED; no paper begun.
+
+**D19 (2026-10-20, session decision): the fifth verifier's findings on the D18 repairs, and their repairs.** One
+independent verifier (one at a time) checked the D18 repairs against the diff and the saved source texts. No major gap.
+Lemma 6.4's Faedo-Galerkin existence holds (the ODE system well posed, S A0 being absolutely continuous in r; the test
+functions in the range of the projection; the bound on d_r of the hyperbolic unknowns by induction), Step 8 (i) and (iv)
+hold (Omega is a trapezoid in (tau, r) times S^3, so bounded and Lipschitz; [SY21]'s Stein covers W^(k,infinity); [LY22]
+Theorem 26 covers every H^m), and every new quote in section 7 is in its source. Two minor gaps, repaired as it
+proposed. (1) Proposition 6.5's smoothness: the remainder has a term q_th d_r a in J_th (it computed the coefficient
+r^4/(r^2+mu)^2 in the symmetric class), which as a source at U_i puts E_i(r) itself, not its integral, on the right of
+the X_(s'') bound, so lam0 would depend on s''. Such terms are now frozen as coefficients (f in (6.4)) multiplying d_r
+a_(i+1), and the bound is E_(i+1) <= A + int omega_i E_i with omega_i bounded in L^2 uniformly, giving E_i(r) <= A sum_k
+W^k ((r - a)^k / k!)^(1/2) with no smallness; the contraction treats the new frozen coefficient as it treats the others.
+(2) [DS23] (A1) asks for bounds uniform in t, and the coordinates of Step 8 (ii) degenerate as |tau| grows (it measured
+g^rr in y against x growing to 6.3e8 by tau - tau0 = 40): the coefficients are now clamped in time, theta(tau) = tau on
+[tau0 - 1, tau_end + 1] and constant outside a slightly larger interval. Four notes, applied: the projection on the
+covector q is the Hodge Laplacian's, with X^I acting by Lie derivatives; Lemma 6.4 asks only that M_s be finite, not
+smooth coefficients; the data are extended in x and then composed with Phi; the uniformity in tau of the extension
+constants is deduced from [LY22] Lemma 27's proof, not READ. Status: no citation outstanding; the D19 repairs not yet
+re-checked; N1* not yet claimed as PROVED; no paper begun.

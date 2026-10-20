@@ -20,9 +20,11 @@ local theory excludes; it is repaired there by a change of the independent varia
 hypotheses are now met explicitly in Lemma 6.4. A fourth verifier checked those two repairs and the D16 repairs (D18):
 no major gap, one minor gap (the linear parabolic theory cited for Lemma 6.4 did not cover a system) and five notes, all
 repaired as it proposed: Lemma 6.4's existence is now by Faedo-Galerkin with no citation, the extensions in Step 8 use
-one universal operator for every order, and Proposition 6.5's smoothness is an induction with a Volterra bound. What is
-not done: the D18 repairs have not been re-checked. N1* is therefore not yet claimed as PROVED; no citation is
-outstanding.
+one universal operator for every order, and Proposition 6.5's smoothness is an induction with a Volterra bound. A fifth
+verifier checked the D18 repairs (D19): no major gap, the Galerkin existence and section 7 holding; two minor gaps (a
+term of Proposition 6.5's scheme that broke the Volterra form of the smoothness bound, and (A1)'s bounds uniform in t,
+which the coordinates of Step 8 do not give for all tau) and four notes, all repaired as it proposed. What is not done:
+the D19 repairs have not been re-checked. N1* is therefore not yet claimed as PROVED; no citation is outstanding.
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -414,15 +416,20 @@ Cartesian arrays of 0.1, the principal part stays -(1/2) g^{ab} d_a d_b with g^{
 system stays quasilinear with coefficients smooth in (tau, y). (iii) The cut-off. Let chi be a smooth map of the
 components, the identity on |w| <= eps2/2 and into |w| <= eps2, with eps2 so small that every metric within eps2 of
 g_ext keeps (1.3) with fixed constants in (tau, y); put chi(w) for w in the coefficients and lower-order terms. The
-modified system agrees with the original where |w| <= eps2/2, which holds on Omega (|w| <= C M lam^(K-3), Step 3). Its
+modified system agrees with the original where |w| <= eps2/2, which holds on Omega (|w| <= C M lam^(K-3), Step 3). The
+coefficients and the source are taken at time theta(tau), theta smooth, equal to tau on [tau0 - 1, tau_end + 1] and
+constant outside [tau0 - 2, tau_end + 2]: the coordinates of (ii) degenerate as |tau| grows (the flow lines of Z pile up
+where beta_ext vanishes), and [DS23] (A1) asks for bounds uniform in t; on [tau0, tau_end] nothing changes. Its
 coefficients and source equal Minkowski's outside a compact set in y, so it is posed on a torus T^4_L of large period.
 In V := (w, d_tau w, d_y w) it is symmetric hyperbolic, A^0 = diag(1, -g^{00}, g^{ij}) > 0, and satisfies (A1)-(A4) of
 [DS23] on all of R^m: the distinct eigenvalues are lambda_- < 0 < lambda_+, the characteristic roots having product
 g^{ij} xi_i xi_j / g^{00} < 0, so they never meet; u_i = d_i w propagates, since d_tau (u_i - d_i w) = d_i (u_0 - d_tau
-w) = 0. (iv) The restarts. At tau_i extend the data from Sigma_tau_i cap Omega = A(tau_i) to the torus (the universal
-Seeley-type operator of [LY22] Theorem 26 for the smooth annulus A(tau), one operator bounded on every H^m, so smooth
-data extend to smooth data; its constants are uniform in tau, the annuli being images of a fixed one under radial
-diffeomorphisms with bounded derivatives, [LY22] Lemma 27; then a cut-off). [DS23] Theorem 2.4 with r = k > 4/2 + 1 (k =
+w) = 0. (iv) The restarts. At tau_i extend the data from Sigma_tau_i cap Omega = A(tau_i), in x, by the universal
+Seeley-type operator of [LY22] Theorem 26 for the smooth annulus (one operator bounded on every H^m, so smooth data
+extend to smooth data), cut off, and compose with Phi(tau_i, .) to pass to y. The constants are uniform in tau, the
+annuli being images of a fixed one under radial diffeomorphisms with bounded derivatives (deduced: [LY22] Lemma 27
+states the composition bounded, and its proof, by chain and product rules and a change of variables, gives a bound
+through finitely many derivatives of the diffeomorphism and its inverse). [DS23] Theorem 2.4 with r = k > 4/2 + 1 (k =
 6) gives a solution on [tau_i, tau_i + delta], delta depending only on the norm of the data, which Steps 1 and 7 bound
 for each fixed lam (|w|_{k+1} <= C N <= C M lam^K); the data are smooth, and by [DS23] Theorem 2.6 the solution lies in
 every H^r on the same interval, so it is smooth. On Omega cap {tau_i <= tau <= tau_i + delta} it solves the original
@@ -680,21 +687,19 @@ alone, whose first derivatives are bounded uniformly in lam, and Lemma 6.4 needs
 may oscillate at O(1) (those of d_th a in J_th and of a in rho do, the latter with nonzero mean, which is part of B_m
 in Lemma 6.2(iii)); Lemma 6.4 needs only their angular regularity.
 
-**Lemma 6.4 (the linear evolution; deduced).** Consider on [a, R] x S^3 the linear system with smooth coefficients
+**Lemma 6.4 (the linear evolution; deduced).** Consider on [a, R] x S^3 the linear system, with coefficients measurable
+in r for which M_s below is finite
 
     alpha d_r a - (Delta_alpha) a + b . d_S a + c a + e . (w, q) = F_rho,
     A0 d_r (w, q) + A^B d_B (w, q) + c' (w, q) + f d_r a + f' . d_S a + c'' a = F_J,                         (6.4)
 
 Delta_alpha a second-order angular operator elliptic on each sphere with ellipticity constant >= delta0 > 0, alpha >=
-alpha0 > 0, and a smooth invertible symmetrizer S with S A0 >= A00 > 0 and S A^B symmetric, with zero data at r = a.
-For s >= 0 there is a unique solution, and
-
-    sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) + ||a||_{L^2 H^(s+2)} <= C (||F_rho||_{L^2 H^s} + ||F_J||_{L^2 H^s}),
-
-norms on the spheres S^3, for s > 3/2 + 2, with C depending only on s, R - a, alpha0, delta0, A00 and an upper bound
-for M_s := sup_r ||(alpha, Delta_alpha, S, S A0, S A^B)||_{H^(s+1)(S^3)} + sup_r ||(b, c, e, c', f, f',
-c'')||_{H^s(S^3)} + int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other r-derivative of a coefficient
-enters.
+alpha0 > 0, and an invertible symmetrizer S with S A0 >= A00 > 0 and S A^B symmetric, with zero data at r = a. For s >=
+0 there is a unique solution, and      sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) + ||a||_{L^2 H^(s+2)} <= C
+(||F_rho||_{L^2 H^s} + ||F_J||_{L^2 H^s}),  norms on the spheres S^3, for s > 3/2 + 2, with C depending only on s, R -
+a, alpha0, delta0, A00 and an upper bound for M_s := sup_r ||(alpha, Delta_alpha, S, S A0, S A^B)||_{H^(s+1)(S^3)} +
+sup_r ||(b, c, e, c', f, f', c'')||_{H^s(S^3)} + int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other
+r-derivative of a coefficient enters.
 
 *Proof.* Commute s angular derivatives (by the Killing fields of the round S^3) through (6.4); the commutators are
 estimated in terms of M_s by the Moser and commutator (Kato-Ponce) inequalities on S^3 ([GO13], [DS23] Remark 2.3,
@@ -705,20 +710,22 @@ A0)||_{L^inf}) ||(w, q)||^2_{H^s} + C ||(w, q)||_{H^s} (||d_r a||_{H^s} + ||a||_
 terms integrating by parts on the closed spheres, and ||d_r a||_{H^s} <= C (||a||_{H^(s+2)} + ||(w, q)||_{H^s} +
 ||F_rho||_{H^s}) from the first equation. Young's inequality and Gronwall's lemma (which needs ||d_r (S A0)||_{L^inf}
 only integrable in r) give the bound. Existence (Faedo-Galerkin; no citation). Let P_L be the L^2(S^3)-orthogonal
-projection onto the spherical harmonics of degree <= L. The eigenspaces of Delta_S are SO(4)-invariant, so P_L commutes
-with Delta_S and with every Killing field. Solve the first equation for d_r a (dividing by alpha), and seek a_L and (w,
-q)_L in the range of P_L with d_r a_L = P_L[...] and P_L[S A0 d_r (w, q)_L] = P_L[...] (the symmetrized second equation,
-d_r a_L in it), with the data of the lemma projected by P_L: a linear system of ordinary differential equations in r for
-finitely many coefficients, whose matrix P_L S A0 P_L is positive definite on the range (S A0 > 0) and continuous in r,
-the other coefficients and the sources being integrable in r, so Picard iteration gives a unique absolutely continuous
-solution on [a, R]. The test functions of the argument above, X^{I*} X^I applied to a_L or to (w, q)_L, lie in the range
-of P_L, so the projection drops out of each tested equation (<P_L G, f> = <G, f> for f in the range) and the energy
-identities are those above, with one addition: the commutator [X^I, S A0] d_r (w, q)_L needs ||d_r (w, q)_L||_{H^(s-1)},
-which testing the projected second equation with X^{J*} X^J d_r (w, q)_L, |J| = 0, ..., s - 1 in turn, bounds by C
-(||(w, q)_L||_{H^s} + ||d_r a_L||_{H^(s-1)} + ||F_J||_{H^(s-1)}) (S A0 > 0; the commutators are of lower order in J). So
-the bound holds for (a_L, (w, q)_L) uniformly in L; a weak-* limit L -> infinity solves (6.4) and obeys it, and
-uniqueness follows from the bound. (Earlier forms of this step regularised by epsilon Delta_S and cited a linear
-parabolic theory, [Hua15] and [MM10]; neither is needed, and [MM10] concerns a scalar equation, N1STAR-LOG.md D18.) []
+projection onto the eigenfunctions of the Laplacian with eigenvalue <= L(L + 2), for the covector q those of the Hodge
+Laplacian on 1-forms. The eigenspaces are SO(4)-invariant, so P_L commutes with the Laplacian and with the Lie
+derivative along every Killing field, which is what X^I means on q. Solve the first equation for d_r a (dividing by
+alpha), and seek a_L and (w, q)_L in the range of P_L with d_r a_L = P_L[...] and P_L[S A0 d_r (w, q)_L] = P_L[...] (the
+symmetrized second equation, d_r a_L in it), with the data of the lemma projected by P_L: a linear system of ordinary
+differential equations in r for finitely many coefficients, whose matrix P_L S A0 P_L is positive definite on the range
+(S A0 > 0) and continuous in r, the other coefficients and the sources being integrable in r, so Picard iteration gives
+a unique absolutely continuous solution on [a, R]. The test functions of the argument above, X^{I*} X^I applied to a_L
+or to (w, q)_L, lie in the range of P_L, so the projection drops out of each tested equation (<P_L G, f> = <G, f> for f
+in the range) and the energy identities are those above, with one addition: the commutator [X^I, S A0] d_r (w, q)_L
+needs ||d_r (w, q)_L||_{H^(s-1)}, which testing the projected second equation with X^{J*} X^J d_r (w, q)_L, |J| = 0,
+..., s - 1 in turn, bounds by C (||(w, q)_L||_{H^s} + ||d_r a_L||_{H^(s-1)} + ||F_J||_{H^(s-1)}) (S A0 > 0; the
+commutators are of lower order in J). So the bound holds for (a_L, (w, q)_L) uniformly in L; a weak-* limit L ->
+infinity solves (6.4) and obeys it, and uniqueness follows from the bound. (Earlier forms of this step regularised by
+epsilon Delta_S and cited a linear parabolic theory, [Hua15] and [MM10]; neither is needed, and [MM10] concerns a scalar
+equation, N1STAR-LOG.md D18.) []
 
 **Proposition 6.5 (the exact correction; deduced).** Let the stage data be those of Lemma 6.2 with N >= K + 3 and
 (gamma, K) the data of g_app on Sigma. For lam <= lam0 there is U on Sigma, U = 0 on r < v_start - tau0, with
@@ -732,24 +739,28 @@ rho-component is linear in d_r a and in the angular second derivatives of a, wit
 algebraically (the scalar curvature of gamma + a dr dr contains no (d_r a)^2), and the J-component is linear in d(w, q)
 with coefficients depending on a algebraically. Put ||U||_{X_s} := sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) +
 ||a||_{L^2 H^(s+2)} + ||d_r a||_{L^2 H^s}, the left side of Lemma 6.4 with the d_r a the first equation gives. Iterate:
-U_(i+1) solves, with zero data at r = a, the linear system (6.4) whose principal coefficients are frozen at U_i and
-whose sources are -Phi(gamma, K) and the remaining terms, at least quadratic and evaluated at U_i. Fix s0 > 3/2 + 4 and
-s := s0 + 2. At U = 0 the coefficients are those of Lemma 6.3; frozen at U_i they change by at most C lam^-1 ||U_i||_X,
-d_r a_i entering M only through int ||d_r (S A0)||_{L^inf} dr <= C (1 + ||U_i||_{X_(s0)}); so while ||U_i||_{X_s} <= 2
-C0 lam^(N-2), Lemma 6.4's hypotheses hold at indices s0 and s with constants independent of lam, for lam small and N >=
-4. Lemma 6.4 at index s keeps the iterates in the ball of radius 2 C0 lam^(N-2) of X_s, and at index s0 gives ||U_(i+1)
-- U_i||_{X_(s0)} <= C lam^(N-3) ||U_i - U_(i-1)||_{X_(s0)} (the difference of the frozen coefficients multiplies U_i,
-estimated in the higher norm), a contraction: bounded in X_s and contracting in X_(s0), the iterates converge to a
-solution in X_s (the scheme of Kato and Majda for quasilinear symmetric hyperbolic systems, READ in [DS23] section 4 and
-[AO14] section 4.1, section 7; the parabolic component obeys the same estimates). Uniqueness holds in the ball of radius
-2 C0 lam^(N-2) of X_s, by the difference estimate. The r-derivatives follow from the equations, each d_r of a
-coefficient costing at most lam^-1. Smoothness (persistence of regularity): the coefficients and sources of each step
-are smooth in the angles when the previous iterate is, so by Lemma 6.4 at every index the iterates U_i are smooth, by
-induction. At an index s'' > s the bound of Lemma 6.4 is linear in the top norms, those of the coefficients (functions
-of a) entering linearly by the Moser and Kato-Ponce inequalities with factors depending only on the X_s bound; with
-E_i(r) the X_(s'') norm of U_i on [a, r] it reads E_(i+1)(r) <= A + B int_a^r E_i, so E_i <= A e^{B (R - a)} for every
-i, with no smallness, and the limit U lies in X_(s'') for every s''. So U is smooth for lam <= lam0, lam0 independent of
-s''. Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
+U_(i+1) solves, with zero data at r = a, the linear system (6.4) whose principal coefficients are frozen at U_i, as are
+the terms of the remainder linear in d_r a with a coefficient depending on (w, q) (such as the q_th d_r a term of J_th:
+it enters f in (6.4), evaluated at U_i and multiplying d_r a_(i+1)), and whose sources are -Phi(gamma, K) and the
+remaining terms, at least quadratic and evaluated at U_i. Fix s0 > 3/2 + 4 and s := s0 + 2. At U = 0 the coefficients
+are those of Lemma 6.3; frozen at U_i they change by at most C lam^-1 ||U_i||_X, d_r a_i entering M only through int
+||d_r (S A0)||_{L^inf} dr <= C (1 + ||U_i||_{X_(s0)}); so while ||U_i||_{X_s} <= 2 C0 lam^(N-2), Lemma 6.4's hypotheses
+hold at indices s0 and s with constants independent of lam, for lam small and N >= 4. Lemma 6.4 at index s keeps the
+iterates in the ball of radius 2 C0 lam^(N-2) of X_s, and at index s0 gives ||U_(i+1) - U_i||_{X_(s0)} <= C lam^(N-3)
+||U_i - U_(i-1)||_{X_(s0)} (the difference of the frozen coefficients multiplies U_i, estimated in the higher norm), a
+contraction: bounded in X_s and contracting in X_(s0), the iterates converge to a solution in X_s (the scheme of Kato
+and Majda for quasilinear symmetric hyperbolic systems, READ in [DS23] section 4 and [AO14] section 4.1, section 7; the
+parabolic component obeys the same estimates). Uniqueness holds in the ball of radius 2 C0 lam^(N-2) of X_s, by the
+difference estimate. The r-derivatives follow from the equations, each d_r of a coefficient costing at most lam^-1.
+Smoothness (persistence of regularity): the coefficients and sources of each step are smooth in the angles when the
+previous iterate is, so by Lemma 6.4 at every index the iterates U_i are smooth, by induction. At an index s'' > s the
+bound of Lemma 6.4 is linear in the top norms, those of the coefficients (functions of a) entering linearly by the Moser
+and Kato-Ponce inequalities with factors depending only on the X_s bound; with E_i(r) the X_(s'') norm of U_i on [a, r]
+it reads E_(i+1)(r) <= A + int_a^r omega_i E_i, the weight omega_i built from ||d_r a_(i+1)||_inf and ||d_r (S A0)||_inf
+and bounded in L^2(a, R) by some W uniformly in i (a source term carrying d_r a_i would put E_i(r) itself on the right,
+which is why those terms are frozen as coefficients); by induction E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for
+every i, with no smallness, and the limit U lies in X_(s'') for every s''. So U is smooth for lam <= lam0, lam0
+independent of s''. Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
 
 ### 6.4 Proof of Theorem D
 
@@ -769,14 +780,17 @@ v_start - tau0}. []
   gap (Step 6 at the top level, repaired) and seven notes (repaired). Sections 5-6 were checked by a second (D15): no
   major gap, two minor gaps (Lemma 6.2(iii), Proposition 6.5, repaired) and ten notes (repaired, among them an error at
   O(lam) in `data5.py`'s inverse metric that touched no check, now caught by S5). The repairs were checked by a third
-  (D16): the two repairs hold; it found two further minor gaps, both in the rewritten Lemma 6.4 and Proposition 6.5
-  (the regularisation must act on the symmetrized equation; the persistence of regularity must be stated as a tame
+  (D16): the two repairs hold; it found two further minor gaps, both in the rewritten Lemma 6.4 and Proposition 6.5 (the
+  regularisation must act on the symmetrized equation; the persistence of regularity must be stated as a tame
   inequality), and nine notes, all repaired as it proposed. A fourth (D18) checked those repairs and the two made at D17
   (Step 8, the time lines; Lemma 6.4): no major gap; one minor gap, the linear parabolic theory cited for Lemma 6.4
   ([MM10] is about a scalar equation, and [Hua15] was READ only in its introduction), repaired by a Faedo-Galerkin
   existence proof with no citation; five notes, repaired (the extensions in Step 8 by one operator for every order;
-  g_app extended beyond Omega; Proposition 6.5's smoothness by induction; the (2.7) paraphrase marked). **Not yet
-  checked by a verifier:** the D18 repairs.
+  g_app extended beyond Omega; Proposition 6.5's smoothness by induction; the (2.7) paraphrase marked). A fifth (D19)
+  checked those: no major gap; two minor gaps (Proposition 6.5's smoothness bound, a term to freeze as a coefficient;
+  Step 8, time clamped in the coefficients for [DS23] (A1)) and four notes (the projection on the covector q; Lemma
+  6.4's coefficients need only M_s finite; the data extended in x before the change to y; the uniformity in tau of the
+  extension constants deduced, not READ), all repaired. **Not yet checked by a verifier:** the D19 repairs.
 - **READ at source (D17).** By the retrieval protocol of the site's Ask prompt: targets enumerated, routes by type with
   the open ones first, the sources a source names followed back and the papers citing a target followed forward, a
   blocked route left for the next and not retried, two independent routes closing a fact and one route fragile. rho
