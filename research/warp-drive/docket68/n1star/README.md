@@ -19,7 +19,7 @@ independent check; what is proved, what is verified and what is left are listed 
 - `lead5.py`: Theorem A's stage 0, the leading equation (E2) for the record's waves in the proof's gauge (L1-L5).
   `python3 lead5.py --selftest` (5/5, seconds), `--mutants` (4/4).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
-  uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (six mutants), `--show` (the
-  principal part).
+  uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
+  minutes), `--show` (the principal part).
 
 All five are stdlib plus sympy, and import nothing from the tree. The board's shared record is not edited here.
