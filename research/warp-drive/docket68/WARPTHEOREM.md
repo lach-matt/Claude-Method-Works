@@ -98,7 +98,16 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 527.** The seed and the emitter's wavelength are derived and proved (`seed_derive.py`, 10/10,
+**Where it stands, at item 530.** The second order of the record's own equations at 2w is computed exactly
+(`seed_second.py`, 8/8, mutants 3/3): the 2+1 equations expanded to second order about Tangherlini, the l = 2 waves of
+both Kodama-Ishibashi types in the record's own variables (tensor Ps = -1/2, Om = -(3/4) x; scalar Ps = (2/3) x, Om = 1;
+three modes close the tower exactly), the first order reproducing KI's barriers to 1e-4 at x = 1.0-2.5, the second
+order gauge-invariant and radius-independent. C = P_out(2w)/P_in(w) per unit record amplitude is 8.6e-7 (tensor) and
+6.5e-7 (scalar) at x = 2.1 and 3.9e-8 (tensor) at 2.5, falling with an amplitude slope 4-6 above the barrier tops; in
+T7's normalisation the exact coupling is 1.1-1.3 times the model at x = 2.1. At the derived point (x* = 10.67, copper)
+the second order lets out 2.4e-14 half bits. SOURCEs and SOURCE are put to M for PROVED under 441.
+
+**Where it stood at item 527.** The seed and the emitter's wavelength are derived and proved (`seed_derive.py`, 10/10,
 mutants 4/4). The window's floor is lam_P = (64 pi^2/3)^(1/3) l5 = 5.949 l5: below it a quantum of the shell is a hole
 of its own (a criterion; U3's 2 pi l5 is 1.056 lam_P). The least seed rises with the wavelength, so the least seed is at
 the floor: 102 l5^2 for copper, 61 for the example README, 808 for r0 = 20 ell and 917 for the Earth cap, growing as (ln
@@ -2151,6 +2160,12 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 530** (M: "Yes , b please"). Route (b) built: the second-order source derived symbolically from the record's
+  own equations and solved for the outgoing amplitude at 2w (`lemmas/seed_second.py`, 8/8, mutants 3/3). The first
+  order reproduces Kodama-Ishibashi's l = 2 barriers of both types to 1e-4 in the record's own gauge and variables;
+  the second order's escaping fraction C(x) is computed at x = 1.0, 1.5, 2.1, 2.5 for both types, gauge-invariant,
+  radius-independent, T7's model confirmed in slope and order; at the derived point 2.4e-14 half bits (copper).
+  SOURCE-REQUIRED "Item 530"; BOUNCE-RESEARCH section 57. SOURCEs and SOURCE put to M for PROVED under 441.
 - **Items 527-529** (M: the seed "must be derived then proven"; the sequence counts "if it was FULLY computed"; E6
   "was ruled, this math decides this"; "Continue with all SOURCE work"; 528 a re-send, 529 "Continue"). Answered
   (SOURCE-REQUIRED "Item 527"; `lemmas/seed_derive.py`, 10/10, mutants 4/4; BOUNCE-RESEARCH 56).

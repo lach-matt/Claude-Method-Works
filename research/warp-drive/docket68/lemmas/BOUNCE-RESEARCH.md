@@ -3228,3 +3228,30 @@ math decides this"; "Continue with all SOURCE work".
 - **Status.** Open: the second order on the exact equations, by the second-order source derived symbolically from the
   record's own equations (the board's recommendation; the exact code's route cannot reach the derived point).
   SOURCEs and SOURCE stay OPEN.
+
+## 57. The second order of the record's own equations at 2w, exact (530; lemmas/seed_second.py, 8/8, mutants 3/3)
+
+M, 530: "Yes , b please" -- route (b) of the 527 report.
+- **The equations, to second order** (exact). hf_mirror5's class in kn_gauge's K1 form, expanded about Tangherlini to
+  order eps^2 by sympy; Legendre modes in x = cos 2 th; each equation cleared of its denominators, reduced by its rows'
+  common factor and projected exactly on P_m, the same multiplier on the quadratic terms with every coefficient reduced
+  to lowest terms in x and sin 2 th first (the raw sums carry 1/sin^23 2 th that cancel only together). Frequency
+  domain: rr, r th, th th and the two box equations give the radial system; v th and v v are the supplementary
+  conditions (Bondi's lemma, checked at R/2: 1e-11 first order, 1e-6 second); v r is the trivial one.
+- **The l = 2 waves in the record's variables** (exact): tensor Ps = -1/2, Om = -(3/4) x; scalar Ps = (2/3) x,
+  Om = 1; the record's own F, G without h(x) are -F/3 and -F/4 of them. The products reach l' = 4, n <= 2: three modes
+  close the tower exactly.
+- **Validated**: each type's l = 2 reflection reproduces Kodama-Ishibashi's barrier at x = 1.0, 1.5, 2.1, 2.5 to 1e-4
+  (scalar at 2.1: 9e-4; at 1.0: 2e-3); the modes pure to 1e-6; the outgoing projection gauge-clean to 1e-15; C at
+  x = 2.1 the same at R = 100 and 150 (2e-5) and under a pure gauge admixture of the wave's own size (every digit).
+- **Found**: C = P_out(2w)/P_in(w) per unit record amplitude -- tensor 9.00e-4, 7.62e-4, 8.61e-7, 3.90e-8 at
+  x = 1.0, 1.5, 2.1, 2.5; scalar 2.29, 1.42e-3, 6.50e-7 (2.5 in the data file). Above the barrier tops the amplitude
+  slope is 5.7 (tensor), 6.4 (scalar) over 1.5-2.1 and 3.9 over 2.1-2.5; in T7's normalisation the exact tensor
+  coupling is 2.11e-3 at 2.1 and 5.17e-4 at 2.5 against the model's 1.65e-3 / 1.84e-3 and 9.8e-5 / 1.6e-4
+  (p = 3 / 6): T7 confirmed in slope and order. At x = 1.0 the scalar type is near-resonant (C = 2.3).
+- **At the derived point**: with T7's deliberately low slope from x = 2.5, C(x*) = 2e-29 for copper and the second
+  order lets out 2.4e-14 half bits; the example and the large end below. The full pattern's tail is bounded by its
+  first-order escape times h_H^2.
+- **Standing**: the second order is computed on the record's own equations, not estimated; SOURCEs and SOURCE go to M
+  for PROVED under 441 on the exact first and second orders, the strain 1.3e-4 as the expansion parameter, the
+  monochromatic peak as the bound and a Tangherlini hole of fixed mass through the passage.

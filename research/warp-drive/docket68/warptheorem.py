@@ -1488,6 +1488,19 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_527_SOURCE
     _rows_527.append((c, n, s_, t))
 LEMMAS_NOW = _rows_527
+NOTE_530_SOURCE = ("  [Item 530] The second order on the record's own equations, exact (seed_second.py; route b): the "
+                   "2+1 equations to order eps^2 about Tangherlini, the l = 2 waves of both KI types in the record's "
+                   "variables (three modes close the tower), the first order reproducing KI's barriers to 1e-4 at "
+                   "x = 1.0-2.5, the second order gauge-invariant and radius-independent: C = P_out(2w)/P_in(w) per "
+                   "unit amplitude 8.6e-7 (tensor) and 6.5e-7 (scalar) at x = 2.1, 3.9e-8 (tensor) at 2.5, amplitude "
+                   "slope 4-6; T7's model confirmed (1.1-1.3 times at 2.1).  At the derived point 2.4e-14 half bits "
+                   "(copper).  Put to M for PROVED under 441")
+_rows_530 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_530_SOURCE
+    _rows_530.append((c, n, s_, t))
+LEMMAS_NOW = _rows_530
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1703,7 +1716,9 @@ def lemma_selftests():
               # item 527: the seed and the wavelength derived and proved; the large end
               "seed_derive.py",
               # item 527: the seed phase in the exact equations -- run, and not resolved by the scheme's diagnostics
-              "seed_nonlinear.py"):
+              "seed_nonlinear.py",
+              # item 530: the second order of the record's own equations at 2w, exact (route b)
+              "seed_second.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
