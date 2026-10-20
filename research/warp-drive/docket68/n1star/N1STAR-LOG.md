@@ -638,3 +638,79 @@ Pizzocchero's control inequality; Reiterer-Trubowitz in general relativity), on 
 growth factor exp int K over D_T. Settling: Hintz's generalized wave map gauge route (arXiv:2606.28253, full subextremal
 Kerr, 2026) in the class, whose reflections and T^2 leave the mass as the only final parameter; first milestone, linear
 stability in wave gauge within the class.
+
+**D37 (2026-10-20, M's direction, "all 3 please, proceed with them in order"): the mass at past null infinity, Theorem
+M.** Step 0 first: the numerical solver's mean-mass offset after the shell fits c lam^2 with c = 0.4568 and 0.4569 at
+lam = 0.0125 (mu0 = 100 and 1000 l5^2), against the law's (2/9) int env'^2 = 5 pi^2/108 = 0.45693 for its sin^4 envelope
+on [1/2, 7/2]: within 0.05 %, converging as O(lam) from 0.4589 and 0.4577 at lam = 0.05, 0.025 (bondi5.py B4,
+response5.py R8). This compares the law with the solver's own integration of it (its mass aspect's rate is fixed by E_vv
+= 0 at past null infinity), not with g_lam. Then the theorem, section 11: at fixed lam the far region of Theorem P is a
+neighbourhood of past null infinity on which g_lam - g0 has an asymptotic expansion in r^(-1/2) to any order (Lemma 11.2
+gains half an order per step by Theorem P's own energy estimate, and the remainders gain a full order under ell because
+the wave equation is a transport along the outgoing generators for them, which reach the seed in a bounded parameter
+length); Bondi coordinates are built on g_lam as in He and Lindblad's construction at future null infinity (the eikonal
+transport has an r^-2 source because the first-order wave is transverse to ell), with the leading angular coefficient
+untouched (Proposition 11.2, bondi5.py B2); and the five-dimensional Bondi hierarchy (Tanabe, Tanahashi and Shiromizu
+2009, (28)) is recomputed in the class with every coefficient general as truncated Laurent series in s = r^(-1/2) (B1,
+about a minute): b3 = b4 = b5 = 0, b6 = -(1/4)(p^2 + pq + q^2), u3 = u4 = 0, u5 and w3 = -(2/3) div u5, d_v a_i = 0, and
+R_vv at s^6 the law d_v M = (4/3)(p_v^2 + p_v q_v + q_v^2) + (2/3) div(d_v u6), pointwise once a_i = 0, which the seed
+gives. The Hawking mass of the Bondi spheres tends to the mean of M (B3). So the mean mass at past null infinity is
+mu(v) + O(lam) in the shell and mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it, for g_lam: the paper's section 8
+item closed; Theorem 3 in the paper. One correction of the session's own guess in passing: the areal radius's s^4
+coefficient carries the divergence of the angular shift, rho_4 = tr_S G_4/6 - (1/3) div ϑ_4, as B2 found when the
+guessed formula failed. Not claimed: uniformity in lam of the expansion beyond its leading term, which the law does not
+need. Not yet read by a verifier.
+
+**D38 (2026-10-20, M's direction, the second of the three): the go/no-go at 10 l5, measured.** ROUTES-OPEN.md section 2
+asks first for the growth factor exp int K dv of the computed solution over D_T, non-rigorously. growth5.py runs the
+solver of hf_mirror5.py on hf_core5's own domain (seed 1, A = 1, the record's envelope, the slice continued to the core
+boundary x_K = 1: y = 1.361 for mu0 = 100 l5^2 and 1.815 for 1000 l5^2) at lam = 10 l5, that is lam/sqrt(mu0) = 1.000
+and 0.3162, recording at every step two measures of K (the radiation field's own rate, and the sup of the first
+derivatives of the five dimensionless departures from the seed in the Bondi chart, fifteen maxima kept apart), the
+first v at which the scheme's premise fails (a second zero of the round spheres' outgoing expansion in some column, or
+the core boundary untrapped), and, from a second run with A -> A(1 + 10^-3) on the same fixed step, the
+finite-difference amplification of the data's difference into the slices. At mu0 = 100 l5^2 the premise fails at
+v = 1.4516 (Ny = 20) and 1.4508 (Ny = 28), before the shell's peak at v = 2: the expansion acquires a second zero and
+within 0.2 the boundary's W changes sign (its value +19 at v = 1.75 in a first trial), the mean mass aspect runs away
+and the slice solve fails at v = 1.69-1.75. The time is the solution's in the scheme's gauge, not the grid's. The wave's
+metric amplitude at the core boundary there is lam A r^-3/2 = 2.5, beyond the high-frequency regime hf_mirror5 X9
+recorded as ending near 1.2; up to the break, int K_v dv = 0.52 (exp 1.7) and the amplification is 1.00. The record's
+own regime, lam = 0.1 at mu0 = 100 l5^2, serves as control: complete, int K_v dv = 1.93 (exp 6.9), amplification 1.71.
+The mu0 = 1000 l5^2 pair is running at this commit; its figures follow in D41 when they land.
+
+**D39 (2026-10-20, M's direction, the third of the three): the linear milestone in the class.** ROUTES-OPEN.md section
+3's first milestone L1 asks for linear stability of five-dimensional Tangherlini within the class with decay of every
+metric component. What [HKW18] leave to "a suitable choice of linearized gauge" is, in the class, already written in
+Kodama and Ishibashi's master-equation paper (hep-th/0305147, READ): for every scalar mode l >= 2 the gauge f_a = 0 =
+H_T exists, and in it the metric components are their (3.14), the master field and its derivatives to order two with
+coefficients bounded on r >= r_h uniformly in l; the tensor type is its own master field; the class has no vector type
+and no l = 1; the l = 0 part is the mass shift. So every metric component of a perturbation in the class settles, in
+that Regge-Wheeler-type gauge, to a change of mass at [HKW18]'s rate tau^-2 in energy with the loss of two derivatives
+(Proposition 10.1, deduced from READ, section 10.3). Not L1: the gauge is not the wave-map gauge of the nonlinear
+problem, and the pure-gauge passage between them (the zero-frequency analysis) is open, as it was in four dimensions.
+The computed companion ROUTES-OPEN.md asked for: settle5.py T5, no growing mode for l = 2..10 in either type (the field
+on a fixed region falls by five to fourteen orders within 150 r_h of the launch; the sign-reversed potential grows), and
+T6, the late-time tail of the l = 2 master fields, 7.05 (tensor; 7.03 at half the step) and 7.06 (scalar) on [550, 700]
+r_h measured from the launch and approaching 7 from above, 11.5 at l = 4: Cardoso, Yoshida, Dias and Lemos's t^-(2l+D-2)
+for odd D (hep-th/0307122, READ; their D = 5 numerics 7.1 and 11.4), the flat five-dimensional Green's function's tail
+and not the hole's. A first measurement with the time origin at the run's own t = 0 read 2.65 from the same points; the
+control keeps that mistake visible. Not yet read by a verifier.
+
+**D40 (2026-10-20): the twelfth verifier, on Theorem M.** One independent verifier read section 11, bondi5.py (ran
+`--verbose`, 4/4, and `--mutants`, 5/5) and the paper's Theorem 3: "holds with the gaps listed", no major finding, five
+minor, four notes, every attack it tried recorded as held. The five, each repaired in place: (1) Lemma 11.2 claimed the
+ell-gain at every order m from a hypothesis without ell-derivatives of the source; the lemma now carries (H_m), and at
+J = 3 the gains are proved by induction on m, the case m = 1 needing nothing and supplying ell u_1 in E_3 for the next.
+(2) "u_1 in E_2 with all its derivatives" rested on Theorem P, which controls four; Lemma 11.0 gives every order at
+fixed lam by commuting on the far region, the data on the null hypersurface {v = v_start} being zero. (3) The
+contraction building v_B lost a derivative through eps(dů); v_B is now built by characteristics, the null geodesics of
+g_lam asymptotic to the background's generators (an ODE contraction, no loss), and (11.9) is then an identity it
+satisfies, from which the expansion follows as before. (4) B1's ansatz started b and U at s^3, so b_2 = 0, which the
+chart does not give (e^{-2b} = 1 - (d_v C4/2) s^2 + ...), was assumed; B1 now runs the orders below the waves' first:
+R_ss at s^-1, s^0 read -12 b_1, -24 b_2 and R_sth at s^-2, s^-1 read -(7/4) u_1, 3 b_1 u_1 - 3 u_2, so they vanish by
+the equations (Proposition 11.3(0)). (5) G_k's coefficient is 2/(k - 3), not 2/(k - 4). The notes: the J = 3 source's
+sign and argument; the areal condition's coefficient is 6 rho_k (the d_r r_B factors cancel), so it is algebraic as
+stated; R_rr's orders are s^7..s^10; "derivatives in s raise the order" is false as written and is replaced by what
+holds (d_r raises the s-order by two, v- and th-derivatives preserve it, and the s^6 equation's content is read off).
+The ninth, that the solver's M = -w_y|_{y=0} was not independently checked, is covered by 11.4's own caveat. The
+repairs are not themselves verified.

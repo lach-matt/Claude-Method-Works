@@ -10,9 +10,9 @@ Tangherlini in any class depending on more than (t, r) found none.
 
 | Item | Recommended method | Precedent | First step |
 |---|---|---|---|
-| Mass at I⁻ | published 5D Bondi law, time-reversed; prove g_λ's expansion | [TTS09], [KK25] | numerics' offset coefficient |
+| Mass at I⁻ | the 5D Bondi law, time-reversed; prove g_λ's expansion | [TTS09], [KK25] | the numerics' coefficient |
 | 10 l5 | a posteriori existence: Theorem E with certified numbers | [CCRT07], [MP11], [RT12] | growth factor exp ∫K |
-| Settling | generalized wave map gauge, finite modulation, in the class | [Hin26], [KS17] | linear stability, wave gauge |
+| Settling | generalized wave map gauge in the class, finite modulation | [Hin26], [KS17] | linear stability, L1 |
 
 Recommended order: the mass first (one lemma beyond section 9), then the 10 l5 go/no-go measurement, then the linear
 milestone of settling.
@@ -170,6 +170,24 @@ The low-energy analysis is where five dimensions differ: the spatial dimension i
 
 **Cheap companion (computed, to do).** Extend settle5.py T3 to show no growing mode in the class for l = 2, …, 10, and
 measure the late-time tail of the l = 2 master fields. That fixes the decay rate the nonlinear step must use.
+
+## Status, the same day (D37-D40)
+
+1. *The mass at past null infinity: closed.* Theorem M (N1STAR-PROOF.md section 11; the paper's Theorem 3): Bondi
+   coordinates on g_lam at past null infinity, the hierarchy recomputed in the class with every coefficient from s^1
+   general (bondi5.py B1-B3), the mean mass mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after the shell. Read by the
+   twelfth verifier: no major finding, five minor repaired in place (D40). Step 0 first: the solver's offset/lam^2 ->
+   0.4569 against the law's 0.45693 (B4, R8).
+2. *The go/no-go at 10 l5: measured, growth5.py (D38, section 10.2).* At mu0 = 100 l5^2 the scheme's premise fails at
+   v = 1.451 on two grids: the round spheres' expansion acquires a second zero and the core boundary untraps before the
+   shell's peak, so no approximant on D_T comes from the record's own scheme there, and step 2 of the route would have
+   to be re-posed. At mu0 = 1000 l5^2 see section 10.2 for the run's end, the growth factor and the finite-difference
+   amplification; the record's regime lam = 0.1 serves as control (int K_v dv = 1.93, amplification 1.71).
+3. *Settling: the linear milestone in the class, as far as [KI03] carries it (D39, section 10.3).* Every metric
+   component in the Regge-Wheeler-type gauge f_a = 0 = H_T is a combination of [HKW18]'s master quantities and their
+   derivatives to order two (Proposition 10.1, deduced), so linear settling of the components follows at their rate;
+   L1 proper (the wave-map gauge) stays open. The cheap companion ran: no growing mode for l = 2, ..., 10 (settle5.py
+   T5) and the l = 2 tail t^-7, [CYDL03]'s law (T6).
 
 ## References (READ 2026-10-20 unless marked)
 
