@@ -1491,10 +1491,10 @@ LEMMAS_NOW = _rows_527
 NOTE_530_SOURCE = ("  [Item 530] The second order on the record's own equations, exact (seed_second.py; route b): the "
                    "2+1 equations to order eps^2 about Tangherlini, the l = 2 waves of both KI types in the record's "
                    "variables (three modes close the tower), the first order reproducing KI's barriers to 1e-4 at "
-                   "x = 1.0-2.5, the second order gauge-invariant and radius-independent: C = P_out(2w)/P_in(w) per "
-                   "unit amplitude 8.6e-7 (tensor) and 6.5e-7 (scalar) at x = 2.1, 3.9e-8 (tensor) at 2.5, amplitude "
-                   "slope 4-6; T7's model confirmed (1.1-1.3 times at 2.1).  At the derived point 2.4e-14 half bits "
-                   "(copper).  Put to M for PROVED under 441")
+                   "x = 1.0-3.0, the second order gauge-invariant and radius-independent: C = P_out(2w)/P_in(w) per "
+                   "unit amplitude 4.3e-7 (tensor) at x = 2.1, 1.4e-9 at 2.5, 1.3e-12 at 3.0, amplitude slope 6.7-7.7; "
+                   "T7's model confirmed in slope and value (the tensor coupling on its p = 3 line to 10 %).  At the "
+                   "derived point 2e-17 half bits (copper).  Put to M for PROVED under 441")
 _rows_530 = []
 for c, n, s_, t in LEMMAS_NOW:
     if n.split()[0] in ("SOURCEs", "SOURCE"):

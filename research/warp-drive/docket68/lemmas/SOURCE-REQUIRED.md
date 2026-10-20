@@ -10,7 +10,7 @@ ruling), proved/derived (a row), computed (a number from a named instrument), es
 M, 530: "Yes , b please" -- the second-order source derived symbolically from the record's own equations, the l = 2
 seed wave squared, solved for the outgoing amplitude at 2w (the 527 report's route (b)).
 
-- **Built** (`lemmas/seed_second.py`, 8/8, mutants 3/3; heavy stages cached under `data/seed_second/`).
+- **Built** (`lemmas/seed_second.py`, 9/9, mutants 3/3; heavy stages cached under `data/seed_second/`).
   - *The equations* (exact). hf_mirror5's class in kn_gauge's K1 form -- the 2+1 reduction h = rho^2 g3, Bondi's
     conditions, the two scalars psi and omega with R[h]_ab = (3/2) dpsi dpsi + 2 domega domega and the two box
     equations -- expanded about Tangherlini to order eps^2 by sympy (the order-0 identically zero). The fields are
@@ -23,41 +23,47 @@ seed wave squared, solved for the outgoing amplitude at 2w (the 527 report's rou
     Ps = (2/3) x, Om = 1 (Kodama-Ishibashi's harmonics with both circles' charges zero); the record's own F and G
     without their h(x) are exactly -F/3 of the one and -F/4 of the other. At second order the products reach l' = 4,
     n <= 2: three modes close the tower exactly (no truncation).
-  - *The solve*: regular at the horizon (2 NM exponents -1 + i w excluded), supplementary rows at r = 2, incoming
+  - *The solve*: regular at the horizon (the pole's Frobenius expansion to its next order, the 2 NM exponents
+    -1 + i w excluded; the particular solution started on the pole balance), supplementary rows at r = 2, incoming
     amplitudes by a Hann-windowed projection on r^-3/2 over [R/2, R], the 2 NM residual gauge directions fixed by the
     least h_vv, h_vr, h_vth at R; the outgoing projection on r^-3/2 e^{2 i w r*} is gauge-clean to 1e-15. Second
     order: the particular solution from the horizon, no incoming wave at 2w, the supplementary rows with their
     sources, the gauge fixed as before; C = P_out(2w)/P_in(w) at unit record amplitude.
 - **Validated.** The l = 2 reflection of each type reproduces Kodama and Ishibashi's barriers (522's V_T, 525's V_S)
-  at x = w r_h = 1.0, 1.5, 2.1, 2.5 -- tensor 0.993559, 0.557119, 8.28849e-3, 3.73881e-4; scalar 0.378617,
-  1.81518e-3, 2.2326e-6 -- to 1e-4 (the scalar at 2.1 to 9e-4, at 1.0 to 2e-3), the modes pure to 1e-6, the
-  supplementary rows holding at R/2 to 1e-11 (first order) and 1e-6 (second). The record's equations are linearized
+  at x = w r_h = 1.0, 1.5, 2.1, 2.5, 3.0 -- tensor 0.993559, 0.557119, 8.28849e-3, 3.73881e-4; scalar 0.378617,
+  1.81518e-3, 2.2326e-6, 1.84e-8 -- to 1e-4 (the scalar at 2.1 to 9e-4, at 1.0 to 2e-3, at 3.0 to 9e-3), the modes pure to 1e-6, the
+  supplementary rows holding at R/2 to 1e-11 (first order) and 1e-6 (second; 2e-5 at x = 1.0). The record's equations are linearized
   five-dimensional gravity mode by mode, and the identification of the types in its variables is exact. C at x = 2.1
   is the same at R = 100 and 150 (2e-5) and under a pure gauge admixture of the wave's own size at first order (to
   every printed digit).
 - **Found** (C = the second-order energy out at 2w over the wave's, per unit record amplitude eps = lam A; the
   energy out is C eps^2 = (9/4) C h_H^2 in 527's strain).
 
-  | x = w r_h | C tensor | C scalar | sigma, T7's normalisation (tensor) | T7's model, p = 3 / 6 |
+  | x = w r_h | C tensor | C scalar | sigma, T7's normalisation (tensor / scalar) | T7's model, tensor p = 3 / 6 |
   |---|---|---|---|---|
-  | 1.0 | 9.00e-4 | 2.29 | | 1.29 / 0.72 |
-  | 1.5 | 7.62e-4 | 1.42e-3 | | 0.176 / 0.069 |
-  | 2.1 | 8.61e-7 | 6.50e-7 | 2.11e-3 | 1.65e-3 / 1.84e-3 |
-  | 2.5 | 3.90e-8 | (build) | 5.17e-4 | 9.8e-5 / 1.6e-4 |
+  | 1.0 | 8.99e-4 | S10 | 1.22 / S10s | 1.29 / 0.72 |
+  | 1.5 | 7.51e-4 | 1.51e-3 | 0.110 / 1.42e-2 | 0.176 / 0.069 |
+  | 2.1 | 4.34e-7 | S21 | 1.50e-3 / S21s | 1.65e-3 / 1.84e-3 |
+  | 2.5 | 1.44e-9 | 1.90e-10 | 9.93e-5 / 1.76e-5 | 9.8e-5 / 1.6e-4 |
+  | 3.0 | 1.3e-12 | 1.4e-13 | 3.5e-6 / 6.6e-7 | 3.3e-6 / 7.3e-6 |
 
-  Above the barrier tops C falls exponentially: the amplitude slope is 5.7 (tensor) and 6.4 (scalar) over
-  1.5-2.1 and 3.9 (tensor) over 2.1-2.5, against T7's model slopes 5.7-6.9 (near 2 pi); in T7's own normalisation
-  (out at infinity over in at the horizon) the exact tensor coupling is 1.1-1.3 times the model at x = 2.1 and 3-5
-  times at 2.5. Below the tops (x = 1.0) the law does not hold: the scalar type's 2w emission there exceeds the wave
-  itself per unit amplitude (C = 2.3), a near-resonant response with the first order almost wholly reflected.
+  Above the barrier tops C falls exponentially: the amplitude slope over x = 1.5-3.0 is 6.7 (tensor) and 7.7
+  (scalar), T7's model slopes 5.7-6.9 (near 2 pi); in T7's own normalisation (out at infinity over in at the horizon)
+  the exact tensor coupling is 0.9 times the model's p = 3 line at x = 2.1 and 1.0 times it at 2.5 and 3.0 -- the
+  model couplings f/r^3 were the right ones -- the scalar type 1-5 times its p = 3 line. Below the tops (x = 1.0) the
+  law does not hold: the scalar type's 2w emission there exceeds the wave itself per unit amplitude, a near-resonant
+  response with the first order almost wholly reflected. The horizon start matters: the particular solution started
+  from zero at r = 1 + eps, or on eigenvectors of the pole's degenerate cluster, carries an outgoing-from-horizon
+  admixture of order eps that floors C near 1e-8 (x = 2.5) and 1e-11 (3.0); the Frobenius start and the pole-residue
+  basis remove it (C(3.0) the same at eps = 1e-3 and 1e-4 to 10-20 %).
 - **At the derived point** (527: x* = 10.67 copper, h_H = 1.3e-4; the example 8.5e-4; the large end 1e-10). With
-  T7's deliberately low slope (3 in amplitude, 6 in C) from the last computed point, C(x*) is 2e-29 for copper and
-  the second order lets out 2.4e-14 half bits; the example and the large end below that (the instrument's report
-  prints each anchor). The channels the full pattern adds (its h(x) tail; 0.988 of the power is l = 2) are bounded
-  by the first-order escape times h_H^2, below 1e-7 half bits at every anchor.
+  T7's deliberately low slope (3 in amplitude, 6 in C) from the last computed point x = 3.0, C(x*) is 1e-32 for
+  copper and the second order lets out 2e-17 half bits; the example and the large end below that (the instrument's
+  report prints each anchor). The channels the full pattern adds (its h(x) tail; 0.988 of the power is l = 2) are
+  bounded by the first-order escape times h_H^2, below 1e-7 half bits at every anchor.
 - **What this closes.** The second order is no longer an estimate on model couplings: it is computed on the record's
   own equations, validated against Kodama-Ishibashi at first order, gauge-invariant and radius-independent at second
-  order, and T7's model is confirmed in slope and order of magnitude. Under 441 the delivery of E5(N) within half a
+  order, and T7's model is confirmed in slope and, for the tensor type, in value. Under 441 the delivery of E5(N) within half a
   bit at the derived point rests on: the exact barriers (first order), the exact second order (this item), the strain
   at the horizon 1.3e-4 (the expansion parameter), the monochromatic treatment at the envelope's peak (an upper
   bound) and a Tangherlini hole of fixed mass through the passage. SOURCEs and SOURCE go to M for PROVED under 441.
