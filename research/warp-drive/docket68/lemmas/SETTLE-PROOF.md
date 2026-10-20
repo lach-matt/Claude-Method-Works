@@ -88,6 +88,26 @@ S3-S4 only: the nonlinear evolution to the scheme's resolution, two resolutions 
 The five-dimensional statement in this class is open in the field. The physical wavelength, 10 l5, is the N1*
 session's (M, 540).
 
+**Since 544 (M: "Theorem P carried, and 10 l5 left with the N1* seesion - are now ready. The nonlinear settlings are
+still being worked").** Carried from the N1* session (N1STAR-PROOF.md section 10; merged by PRs #62-#64, its
+instruments re-run here):
+- *Linear settling, every metric component (Proposition 10.1; deduced from READ).* In Kodama and Ishibashi's gauge
+  f_a = 0 = H_T, every component of a perturbation in the class settles to a change of mass at Hung, Keller and Wang's
+  rate, tau^-2 in energy with two derivatives lost. That is P2 above, written out mode by mode. settle5 T5: no growing
+  mode for l = 2..10 in either type to tau = 275 r_h, a finite-time observation excluding rates above 0.08/r_h. T6: the
+  late tail is t^-7 at l = 2, Cardoso, Yoshida, Dias and Lemos's law (READ).
+- *The harmonic gauge's objects (Proposition 10.2; computed exact, wavegauge5 W1-W5).* The Lichnerowicz equation;
+  the tensor type is harmonic as it stands; the scalar gauge vector's three 1+1 equations per mode; the stationary
+  one-form W* regular at the horizon; the gauge-fixed mass change K*, linear in t. The decay estimate for that system
+  (Hung's sections 5-8 in five dimensions) is named and not attempted: linear stability in the wave-map gauge in which
+  the nonlinear problem is posed is still open.
+- *The physical wavelength (growth5 G0-G5).* At 10 l5 the record's own scheme fails its premise at both seeds before
+  the shell's peak: the interior of the seed's horizon untraps from the inside outward in the scheme's gauge. No
+  approximant at that wavelength comes from it, so S3-S4's settling run, made at lam/sqrt(mu0) = 0.1, cannot be
+  repeated there with this scheme. The exterior of the event horizon is unaffected. The question is re-posed as the
+  characteristic problem in double-null gauge, which is not built.
+- *The nonlinear settling is still being worked in the N1* session (M, 544).* It stays theorized here, named as above.
+
 ## 5. The large end (SETTLE, PROVED)
 
 settle_large.py E0-E4:

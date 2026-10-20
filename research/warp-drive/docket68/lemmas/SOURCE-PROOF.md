@@ -203,8 +203,24 @@ r_h/10 in a region of r_h/3. The scales separate (arithmetic).
     - two resolutions agreeing on the final mass;
   - a proof of the nonlinear statement in this class is open in the field (theorized, named). The nearest proved case
     is Dafermos and Holzegel's, for perturbations depending on (t, r) alone.
-- **The physical wavelength 10 l5**, which no high-frequency theorem reaches (response5 R7), is being worked in the N1*
-  session (M, 540). SOURCE's delivery at 10 l5 is Part D's computation, not this theorem's.
+- **The physical wavelength 10 l5**, which no high-frequency theorem reaches (response5 R7), was worked in the N1*
+  session (M, 540) and is ready (M, 544; N1STAR-PROOF.md section 10.2; growth5 G0-G5, re-run here).
+  - The record's own scheme (hf_mirror5's, on hf_core5's domain) at 10 l5, at mu0 = 100 and 1000 l5^2, fails its
+    premise before the shell's peak at v = 2. A second zero of the round spheres' outgoing expansion persists from
+    v = 1.500 and 1.583 (two and three grids agreeing). The core boundary then ceases to be outflow, and the slice
+    solve fails at v = 1.69-1.75. Deeper excisions fail earlier.
+  - So no approximant on D_T at 10 l5 comes from the record's scheme. In the scheme's gauge the interior of the seed's
+    horizon untraps from the inside outward: an inner marginally trapped surface forms and moves outward. That is a
+    measurement on the scheme's solution, not a theorem. The exterior of the event horizon is unaffected.
+  - Re-posed there as the characteristic problem in double-null gauge (Luk's local existence without smallness, READ
+    there); not built.
+  - SOURCE's delivery is Part D's computation, linear scattering outside the horizon, and is not touched.
+  - At the record's own derived point (lam_P = 5.949 l5 on the least seeds), derived_go's runs are in progress.
+  - What this leaves theorized is named in Part E: the passage at the physical wavelength through the seed's interior
+    to x = 1.
+- **Linear settling with every metric component and the harmonic gauge's objects** (544; N1STAR-PROOF.md Propositions
+  10.1 and 10.2; settle5 T1-T6, wavegauge5 W1-W5, re-run here); see SETTLE-PROOF.md section 4. The nonlinear settling
+  is still being worked in the N1* session (M, 544).
 - The rates are computed (hf_core5 C1-C5: the C^0 departure halves with lam, the mean-mass offset quarters, the horizon
   converges at first order). The coefficients are exact (hf_anchor5: sqrt2 A, and (2/9) A^2 int env'^2 = 0.45693, the
   runs agreeing to 0.01 %).
@@ -311,6 +327,9 @@ No inner or Cauchy horizon enters anywhere (U2, C5 (iii), hf_theorem5 F1).
 | hf_core5's rates | -- | four wavelengths |
 
 **Theorized, named:**
+- (since 544) the passage at the physical wavelength through the seed's interior to x = 1. N1* covers lam <= lam0,
+  with lam0 not controlled. The record's scheme fails its premise at 10 l5 (growth5) and is not run at lam_P beyond
+  derived_go's points. The delivery itself is computed outside the horizon (D1-D7) and does not use it;
 - the floor's constant (D5, the hoop criterion);
 - linear adiabatic scattering in the seed phase, validated by the second order (D4, D7);
 - the second order taken monochromatic at the envelope's peak on mu = 1 Tangherlini, and extrapolated by a
@@ -320,6 +339,9 @@ No inner or Cauchy horizon enters anywhere (U2, C5 (iii), hf_theorem5 F1).
 **Proved elsewhere, cited and re-run:** N1* (C5 (i)), with C5 (iii) for lam > 0, the mean-mass rate and, since 540,
 Theorem P. They are proved in the N1* session (seven verifiers for N1*, eleven by Theorem P) and are in the
 repository, merged to main. Their instruments, re-run here at 539 and 540, all pass. They are no longer cited claims.
+Since 544, Theorem M is deduced there and verified with repairs, its last repairs not yet read (C5). Its inputs and
+the session's other new instruments were re-run here at 544, and all pass: bondi5 4/4, growth5, wavegauge5 5/5
+(mutants 5/5), settle5 6/6 (mutants 6/6), routes5 2/2 (mutants 2/2), response5 R1-R8.
 
 **Late-time settling** (540) has three parts:
 - proved: the end state, if any, is Tangherlini of the final mass, and linear settling holds, metric included;
