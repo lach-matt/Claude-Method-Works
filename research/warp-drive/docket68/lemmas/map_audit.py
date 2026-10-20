@@ -124,6 +124,8 @@ def chip(aud, rid, status=None):
     k = klass(aud, rid)
     if k == "ok" and (status or {}).get(rid) == "COMPUTED-THEORIZED":     # [item 534] M: 'label them as computed'
         return k, "Computed · theorized"
+    if k == "ok" and (status or {}).get(rid) == "PROVED on QB":           # [item 542] M: 'PROVED on QB'
+        return k, "Passes · on QB"
     if k == "open" and any("own claim (OPEN)" in x for x in aud[rid]):
         return k, "Open"
     return k, {"ok": "Passes", "def": "Deferred", "open": "Beyond · 273"}.get(k) or \

@@ -21,9 +21,13 @@ FACE2: face2_release).  M's definitions -- R0, R1, R2, R6, RECON, B6' -- stand a
                  four-dimensional corridor (eq. (17) at r0 = 2m as the plane's reading) above it; ell set by our
                  plane's tension (B6').  Static: at one N a spinning hole carries more energy, 1.021 to 4.061 E at a/R
                  = 0.25 to 2, without bound, and the static hole is unique (Gibbons-Ida-Shiromizu, READ; scope C1).
-                 At the small end r_h = (2 N ln2/pi^2)^(1/3) l5 and E = 3 pi c^4 r_h^2/(8 G5), 1.12008e-20 m and
-                 1.28098e9 J at the example README (r_h/ell = 8.0e-16); at the large end E = 459,404,002.42 J x
-                 sqrt(N), r0 = 2m;
+                 At the small end r_h = (2 N ln2/pi^2)^(1/3) l5 and E = 3 pi c^4 r_h^2/(8 G5), so r_h goes as
+                 ell^(1/3) and E as ell^(-1/3).  ell is not yet fixed (380); it lies between the Higgs tie's bound
+                 and the window's top, the largest observation allows: ell_H = 0.611 nm <= ell <= 13.964 um.  At the
+                 example README: 3.94781e-22 m and 3.63442e10 J at ell_H (r_h/ell = 6.5e-13); 9.07553e-21 m and
+                 1.58096e9 J at the dark-energy tie's 7.43 um; 1.12008e-20 m and 1.28098e9 J at the window's top
+                 (r_h/ell = 8.0e-16) (ell_si L2; corrected at 542, M-ELL-SI: it gave the window's top alone, unnamed).
+                 At the large end E = 459,404,002.42 J x sqrt(N), r0 = 2m, free of ell;
   (H) HOLDING    its horizon holds the README: 2 pi^2 r_h^3 = 4 N ln2 l5^3 at the small end (C2 verified), 4 pi r0^2 =
                  N A_bit at the large -- exactly once written, in the mean during the write (1.3e8 bits of 2.74e15,
                  passage_est Q6);
@@ -35,11 +39,14 @@ FACE2: face2_release).  M's definitions -- R0, R1, R2, R6, RECON, B6' -- stand a
                  horizons (282 (2)); its horizon is not extremal -- surface gravity c^2/r_h at the small end, 1/(4M)
                  at the large (251, 271) -- our face damping every disturbance (stability S6); the static bulk, its
                  horizon and the passage regular and complete classically, the hole's interior singularity off the
-                 passage (259; o1c_oneway, verified 337); the two faces of equal mass on one onset curvature for both
-                 sectors of the transition (415's P1-P4; transition5r R5); our face held at its size through the write
+                 passage (259; o1c_oneway, verified 337); the two faces of equal mass, the mass function kept across
+                 the bounce by unitarity with time-reversal symmetry (273 (a), 183, 386; bounce_qm Q6, bounce_close
+                 C3; corrected at 542, D3: it read "on one onset curvature for both sectors of the transition (415's
+                 P1-P4; transition5r R5)", superseded at 537); our face held at its size through the write
                  by the plane's inflow, then closing by Hawking emission over the hole's life, 8.57e14 clocks, its
                  energy staying in our universe (336); position 2's face, the white hole of our hole's mass
-                 (transition5q), open while the README is within it (390) -- the release whole at the write's end
+                 (bounce_qm's reflected state, transition5q supporting; 542, D3), open while the README is within it
+                 (390) -- the release whole at the write's end
                  (432 (2)), at most 2 r_h/c, 4 clocks of GM/c^3 at the large end -- and holding through it: in
                  position 2's vacuum t_q = 35.8 clocks (620) is 17.9 (155) times longer, and no perturbation reaches
                  it (face2_release V1-V5; Barcelo et al., READ);
@@ -185,6 +192,10 @@ mechanism (R5), and corrected B4, B5, E3 and I2 (WARPTHEOREM.md History).
 Each clause is a conjunction of lemmas.  A lemma is PROVED (an owner, imported and re-run here), DERIVED (proved from M's more basic rulings,
 lemmas/axioms.py), DEFINITION (M's definition of a term, shown consistent with the rest), READING (proved under a named reading of the board's, labelled, withdrawn if M corrects it), NATURE (a premise
 measurement fixes), or OPEN.  The theorem is proved exactly when no lemma is OPEN.
+[Item 534: COMPUTED-THEORIZED -- built and computed, what rests beyond established physics named, closing the row (M:
+'label them as computed'); since 538 with a complete proof of its computations (M-CT-PROOF).  Item 542: PROVED on QB --
+every step a computed solution consistent with established physics but QB's, the input row it rests on (M: 'PROVED on
+QB').  So the theorem is proved on QB and on SOURCE's named theorized steps.]
 
   T1  the PROVED lemmas are re-run: exactE.py's identities (z3), passage5d.py's identity and Q, localbulk.py's Gauss
       condition, stability.py's surface gravity, coin.py's passage reading.  [Item 331: stability.py's S1 re-run is
@@ -1709,6 +1720,32 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_540_SOURCE
     _rows_540.append((c, n, s_, t))
 LEMMAS_NOW = _rows_540
+# [item 542] M: the gaps closed by added lemmas, the statement expanded and never narrowed (M-GAPS-EXPAND); the weak rows
+# strengthened and support lemmas added (M-WEAK-STRENGTHEN); the rows on QB labelled "PROVED on QB" (M-PROVED-ON-QB);
+# the SI figures' ell addressed and corrected (M-ELL-SI); one current-basis line per row (M-BASIS-LINE); 541's five
+# corrections approved (M-541-CORRECTIONS; lemmas/GAP-ANALYSIS.md D1-D5).
+NOTE_542_ONQB = ("  [Item 542] PROVED on QB (M: 'PROVED on QB'): every step a computed solution consistent with "
+                 "established physics but QB's, the input row it rests on (COMPUTED-THEORIZED; complete proof "
+                 "BOUNCE-PROOF.md)")
+NOTE_542_J1 = ("  [Item 542, D1] Corrected: c_junction J1's 33.6 clocks, cited above, was withdrawn with the junction "
+               "model at 427; on 432 (2) position 2's face is open only for the release, at most 2 r_h/c, and holds "
+               "through it (face2_release V2-V4)")
+_rows_542 = []
+for c, n, s_, t in LEMMAS_NOW:
+    k = n.split()[0]
+    if k in ON_538:
+        s_, t = "PROVED on QB", t + NOTE_542_ONQB
+    if k in ("E2us", "E2xs"):
+        t = t + NOTE_542_J1
+    if k in ("FACE2s", "FACE2"):                            # [542, D3] what stands at position 2, named as since 537
+        n = n.replace("the white hole of our hole's mass (transition5q)",
+                      "the white hole of our hole's mass (bounce_qm's reflected state, transition5q supporting)")
+    _rows_542.append((c, n, s_, t))
+LEMMAS_NOW = _rows_542
+# [542, D2] the edges the rows' own notes give: E1us's emission is close_small's (CLOSEs), and the README's emergence
+# at position 2, which E1xs, E1x and O1a carry, is FACE2s's and FACE2's (face2_release)
+RESTS_ON_NOW.update({"E1us": "CLOSEs", "E1xs": "CLOSEs FACE2s", "E1x": RESTS_ON_NOW["E1x"] + " FACE2",
+                     "O1a": RESTS_ON_NOW["O1a"] + " FACE2s FACE2"})
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -2001,11 +2038,12 @@ def report(d):
                 print("  (%s) %-6s %s  [%s]" % (c, status, name, where))
     a, b, c = d["t1"], d["t2"], d["t3"]
     counts = {k: sum(1 for l in LEMMAS_NOW if l[2] == k) for k in ("DERIVED", "DEFINITION", "PROVED", "READING",
-                                                                     "NATURE", "OPEN", "COMPUTED-THEORIZED")}
-    print("\n%d lemmas: %d PROVED, %d DERIVED from your more basic rulings, %d PROVED under a named board READING, "
-          "%d your DEFINITIONS, %d NATURE, %d COMPUTED-THEORIZED (534, 538), %d OPEN" % (
-              len(LEMMAS_NOW), counts["PROVED"], counts["DERIVED"], counts["READING"], counts["DEFINITION"],
-              counts["NATURE"], counts["COMPUTED-THEORIZED"], counts["OPEN"]))
+                                                                     "NATURE", "OPEN", "COMPUTED-THEORIZED",
+                                                                     "PROVED on QB")}
+    print("\n%d lemmas: %d PROVED, %d PROVED on QB (542), %d DERIVED from your more basic rulings, %d PROVED under a "
+          "named board READING, %d your DEFINITIONS, %d NATURE, %d COMPUTED-THEORIZED (534, 538), %d OPEN" % (
+              len(LEMMAS_NOW), counts["PROVED"], counts["PROVED on QB"], counts["DERIVED"], counts["READING"],
+              counts["DEFINITION"], counts["NATURE"], counts["COMPUTED-THEORIZED"], counts["OPEN"]))
     print("   the record's register through item 247 (LEMMAS, kept): %d rows, %d OPEN; superseded since: %s"
           % (len(LEMMAS), len(d["t2_record"]["open"]), ", ".join(r[1].split()[0] for r in SUPERSEDED_NOW)))
     print("T1 proved lemmas re-run: E = %.8f J x sqrt(N); H1/G3/O1 %s; Z1 %s; Z2 %s; B1 %s; O2 (the record's, eq. "

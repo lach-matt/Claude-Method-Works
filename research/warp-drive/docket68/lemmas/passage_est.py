@@ -55,6 +55,10 @@ propagation of a quantum field on a globally hyperbolic background.
   Q6 (computed; estimate in its quantum count; worded at 489, F8) The face's size at balance holds in the mean, not at
      every instant: it fluctuates by about sqrt(n) quanta's worth, 1.3e8 bits of 2.74e15 at the example README (4.6e-8),
      and the inflow must match P_H to 1/N (3.6e-16) for the drift over the write to stay below one bit.
+     [Item 542, D5: the balance is an unstable equilibrium -- P_H goes as 1/M in five dimensions, so a departure grows
+     at P/M, one e-fold per two lives.  Over the write, (1 + b) lives, x = (1 + b)/2 = 0.503: a constant mismatch drifts
+     (e^x - 1)/x = 1.30 times what the count above gives, and the random walk's spread sqrt((e^2x - 1)/(2x)) = 1.31
+     times -- 1.7e8 bits of 2.74e15, the match 1/(1.30 N).  No verdict moves (computed below).]
   Q7 (deduced) So the passage holds on established physics, with Q5's and Q6's qualifications.  The face opens all at
      once with E5(N) (source_spec U2); the README streams in over tau_write / F, absorbed at the face's own emission so
      the face stands at its size in the mean (162, 163's "one whole" at a fixed size, 426 M-LONG-WRITE); each quantum
@@ -63,6 +67,10 @@ propagation of a quantum field on a globally hyperbolic background.
      position 2 with error below any epsilon, not exactly: 432 (1) is not needed and is superseded as their carrier.
      What it costs: the supply is E5(N) plus E5(N)/2 per tau_write, the face holding E5(N) in the mean throughout; the
      passage's interior rests, as before, on 273's basis (transition5r: 415's shared onset).
+     [Item 542, D4: kept as written.  "Whose holding through the write is face2_open's, OPEN" and "with error below any
+     epsilon, not exactly" were withdrawn at 491: position 2's face holds through the release (face2_release), and the
+     README is recovered exactly by the inverse of the interior's unitary map (r1_exact).  The interior's basis is QB
+     since 538.]
 
 python3 passage_est.py [--selftest | --mutants]
 """
@@ -252,7 +260,11 @@ def fluctuation(A, Wt):
     n_in = Wt["E_in"] / e_in; n_out = Wt["E_in"] / e_out
     dM = math.sqrt(n_in * e_in ** 2 + n_out * e_out ** 2)
     dbits = dM / (kT * math.log(2))
-    return dict(dbits=dbits, rel=dbits / N, match=1 / N)
+    x = (1 + Wt["b"]) / 2                                            # [542, D5] the write in units of 2 lives
+    g_drift = (math.exp(x) - 1) / x                                  # a constant mismatch, against linear drift
+    g_walk = math.sqrt((math.exp(2 * x) - 1) / (2 * x))              # the random walk's spread, against linear
+    return dict(dbits=dbits, rel=dbits / N, match=1 / N, x=x, g_drift=g_drift, g_walk=g_walk,
+                dbits_u=dbits * g_walk, match_u=1 / (N * g_drift))
 
 
 def compute():
@@ -285,7 +297,8 @@ def checks(o):
     Cp = o["cap"]
     q5 = q5 and all(0 < c["F"] < 1 for c in Cp.values()) and Cp[1e6]["F"] < Cp[1e4]["F"] \
         and all(r[1] > 0 for c in Cp.values() for r in c["rows"])
-    q6 = 1e-9 < F["rel"] < 1e-5 and F["match"] < 1e-15
+    q6 = 1e-9 < F["rel"] < 1e-5 and F["match"] < 1e-15 \
+        and "%.3f" % F["g_drift"] == "1.300" and "%.3f" % F["g_walk"] == "1.313"      # [542, D5]
     return dict(Q0=q0, Q1=q1, Q2=q2, Q3=q3, Q4=q4, Q5=q5, Q6=q6)
 
 
@@ -311,6 +324,9 @@ def report(o=None):
             r[0], r[1], r[3], r[4]) for r in c["rows"]) + "; recoverable fraction F = %.3f" % c["F"])
     print("Q6 the face at balance holds in the mean: fluctuates by %.2g bits of N (%.1e); P_in must match P_H to %.1e" % (
         o["fluct"]["dbits"], o["fluct"]["rel"], o["fluct"]["match"]))
+    print("   [542, D5] the balance unstable, one e-fold per two lives: over the write (x = %.4f) the drift x %.3f, the "
+          "spread x %.3f -- %.2g bits, the match %.2e" % (o["fluct"]["x"], o["fluct"]["g_drift"], o["fluct"]["g_walk"],
+                                                          o["fluct"]["dbits_u"], o["fluct"]["match_u"]))
     for kk, vv in ck.items():
         print("%s %s" % (kk, vv))
     return all(ck.values())

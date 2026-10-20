@@ -143,7 +143,7 @@ V11_RAMP, V11_FLOOR = 5.39, 66980           # arrival_small V11 (b)
 ELL, EARTH_R0 = 13.964e-6, 8.870e-3         # earth_cap K3; close_large / bearing26
 CELLS = (("before the opening", "B7", "PROVED"), ("the global shape", "B4a", "PROVED"),
          ("the opening", "ARRIVAL", "PROVED"), ("the hold", "O3", "PROVED"), ("the write", "WRITE", "PROVED"),
-         ("the interior", "O1c", "PROVED"), ("no singularity on the passage", "O1b", "PROVED"),
+         ("the interior", "O1c", "PROVED on QB"), ("no singularity on the passage", "O1b", "PROVED on QB"),   # [542]
          ("position 2's face", "M1P2x", "PROVED"), ("our face's closing", "CLOSE", "PROVED"),
          ("the far boundary", "FAR", "PROVED"), ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2t", "PROVED"))   # [item 478: the rows proved by computation]
 
@@ -310,7 +310,8 @@ def selftest(quiet=False):
     c6 = abs(f1 - 1e-3) < 1e-12 and abs(f2 / 3.90e-9 - 1) < 0.01
     ok.append(c6); say("K6 the life's last part at the small end, 1e-3 and 3.9e-9: %s" % c6)
     cells, b3, b4d = k9()
-    c9 = all(now == st for _, _, st, now in cells) and b3 == "PROVED" and b4d == "PROVED"   # [483: PROVED]   # [439; READING at 438]
+    c9 = all(now == st for _, _, st, now in cells) and b3 == b4d == "PROVED on QB"   # [542: M-PROVED-ON-QB]
+    # [483: PROVED; 439: DERIVED, a READING at 438]
     ok.append(c9); say("K9 every cell's row at its stated status; B3 and B4d DERIVED (439): %s" % c9)
     k = k12()
     c12 = k["ramp_first"] == 0 and sp.simplify(k["step_first"] - 2 * sp.Symbol("E", positive=True)) == 0 \

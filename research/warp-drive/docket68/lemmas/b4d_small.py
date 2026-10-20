@@ -218,7 +218,7 @@ COMPACT, SPREAD3, SPREAD4 = 4.79, 5.27, 4.79    # arrival_small V2, V11 (verifie
 # the cells of D10: (stage, the register row that decides it, its status there)
 CELLS = (("before the opening", "B7", "PROVED"), ("the global shape", "B4a", "PROVED"),
          ("the opening", "ARRIVALs", "PROVED"), ("the hold", "O3s", "PROVED"), ("the write", "WRITEs", "PROVED"),
-         ("the interior", "O1cs", "PROVED"), ("no singularity on the passage", "O1bs", "PROVED"),
+         ("the interior", "O1cs", "PROVED on QB"), ("no singularity on the passage", "O1bs", "PROVED on QB"),   # [542]
          ("our face's closing", "CLOSEs", "PROVED"), ("the far boundary", "FARs", "PROVED"),   # [item 354]
          ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2ts", "PROVED"))   # [item 356: split by end; 478: proved]
 
@@ -449,8 +449,9 @@ def checks(o):
     # [item 438: B3 and B4d at the large end READINGs (b4d_large K12); this check read them OPEN before]
     # [item 439: all four DERIVED (settle_arrival A6), the opening's cell ARRIVALs DERIVED; READING before]
     # [item 483: all four PROVED, 273 computed from the five-dimensional quantum dynamics (transition5q)]
-    add("D10 every cell's row in the register with the status stated; B3, B4d, B3s and B4ds PROVED there (483)",
-        e["ok"] and e["b3"] == e["b4d"] == "PROVED" and e["b3s"] == e["b4ds"] == "PROVED")
+    # [item 542: M-PROVED-ON-QB -- the four, the interior and the passage's regularity rest on QB: "PROVED on QB"]
+    add("D10 every cell's row in the register with the status stated; B3, B4d, B3s and B4ds PROVED on QB there (542)",
+        e["ok"] and e["b3"] == e["b4d"] == "PROVED on QB" and e["b3s"] == e["b4ds"] == "PROVED on QB")
     f = o["d13"]
     add("D13 (item 352) the Vaidya Kretschmann exactly 72 mu^2/r^8, no term in mu'; 72/mu^2 on r^2 = mu; Planckian at "
         "2.91 l5; the core 6.3e-3 of the face at the example", f["exact"] and f["trap"]

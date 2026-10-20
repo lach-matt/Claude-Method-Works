@@ -108,7 +108,8 @@ CLASS = {
     "RECON": ("X", "M's definition (437)"),
     "B6'": ("X", "M's definition (201), its consistency computed (sigma_defines T1-T4, nature_rows B1-B3)"),
 }
-PASSING = ("PROVED", "C", "COMPUTED-THEORIZED")                   # [item 534] COMPUTED-THEORIZED closes a row
+PASSING = ("PROVED", "C", "COMPUTED-THEORIZED", "PROVED on QB")   # [item 542] M-PROVED-ON-QB
+# [item 534] COMPUTED-THEORIZED closes a row
 OPEN_489 = []                                      # [item 491] 489's rest back; [534] SOURCEs, SOURCE closed
 # P5 (item 441): each row's premises among M's rulings (substantive; verifier and work-item numbers set aside)
 RULED = {
@@ -203,6 +204,8 @@ def classify(rows):
         key = name.split()[0]
         if status == "PROVED":
             out[key] = ("PROVED", "")
+        elif status == "PROVED on QB":                              # [item 542] M: 'PROVED on QB'
+            out[key] = ("PROVED on QB", "")
         elif status == "COMPUTED-THEORIZED":                        # [item 534] M: 'label them as computed'
             out[key] = ("COMPUTED-THEORIZED", "")
         elif status == "OPEN":

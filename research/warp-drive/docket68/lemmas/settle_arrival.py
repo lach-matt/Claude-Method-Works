@@ -186,7 +186,8 @@ def _register():
 def a6():
     reg = _register()
     want = "READING" if "status" in MUT else "DERIVED"
-    return {k: reg.get(k) for k in SETTLED}, all(reg.get(k) in ("DERIVED", "PROVED") for k in SETTLED) and \
+    return {k: reg.get(k) for k in SETTLED}, all(reg.get(k) in ("DERIVED", "PROVED", "PROVED on QB")
+                                                    for k in SETTLED) and \
         want == "DERIVED"                                               # [item 478: ARRIVALs, ARRIVAL proved]
 
 
