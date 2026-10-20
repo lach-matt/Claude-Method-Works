@@ -146,6 +146,10 @@ mean-mass rate with it; its instruments re-run here pass.  The Planckian curvatu
 Baez's constants, as copper was (qb_baez.py): QB's numbers are the same in every universe scanned; the 26 move the
 curvature's size only through ell, and in every universe with a metastable vacuum it lies orders above anything tested
 (BOUNCE-RESEARCH 63).  No status moves.]
+[Item 540: Theorem P proved in the N1* session and re-run here.  Whether the hole settles at late times, determined
+by the math (settle_late.py): the only end state is Tangherlini of the final mass, linear settling holds with the
+metric, and the record's nonlinear evolution settles to its resolution; the nonlinear proof is open in the field.
+The 10 l5 wavelength is the N1* session's (BOUNCE-RESEARCH 64).  No status moves.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -1683,6 +1687,28 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_539_SOURCE
     _rows_539.append((c, n, s_, t))
 LEMMAS_NOW = _rows_539
+# [item 540] M: settling "for the math to determine"; Theorem P "finished and verified by the N1*, it is now updated and
+# available to you"; the 10 l5 wavelength "currently being worked in the N1* session" (settle_late.py).  No status moves.
+NOTE_540_SOURCE = ("  [Item 540] Theorem P, the same solution built from the record's free data at past null infinity, "
+                   "is PROVED in the N1* session (D35: an eleventh verifier found the repair of the tenth's one major "
+                   "gap "
+                   "closes it), merged to main (PRs #59, #60) and re-run here (past5 8/8).  Whether the hole settles at "
+                   "late times, determined by the math (settle_late S0-S5): if it settles, it settles to Tangherlini of "
+                   "the final mass (proved: Emparan and Reall's integrability with both reflections makes the end state "
+                   "static, and Gibbons, Ida and Shiromizu's uniqueness makes it Tangherlini); linearly it settles, the "
+                   "metric included (Kodama and Ishibashi's reconstruction with Hung, Keller and Wang's decay, READ); "
+                   "in "
+                   "the record's own nonlinear evolution to v = 40 it settles to the scheme's resolution (computed: one "
+                   "Tangherlini mass at every radius to 2e-7, the horizon round to 1e-4, the non-round part down "
+                   "175-fold "
+                   "with no growth, two resolutions agreeing); a proof of the nonlinear statement in this class is open "
+                   "in the field (theorized, named).  The 10 l5 wavelength is being worked in the N1* session (M, 540)")
+_rows_540 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_540_SOURCE
+    _rows_540.append((c, n, s_, t))
+LEMMAS_NOW = _rows_540
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1906,7 +1932,9 @@ def lemma_selftests():
               # item 538: QB's complete proof checked -- the flat ordering, the identities, the place theorem
               "bounce_proof.py",
               # item 539: QB's Planckian curvature under varying values of Baez's constants
-              "qb_baez.py"):
+              "qb_baez.py",
+              # item 540: whether the hole settles at late times, for the math to determine
+              "settle_late.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

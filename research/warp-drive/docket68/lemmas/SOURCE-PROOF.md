@@ -1,4 +1,4 @@
-# SOURCE: the complete proof of its computations (SOURCEs and SOURCE; items 485-539)
+# SOURCE: the complete proof of its computations (SOURCEs and SOURCE; items 485-540)
 
 *First written* 2026-10-20, on M's item 538: "anything COMPUTED-THEORIZED should have a complete proof for the
 computations". SOURCEs and SOURCE are COMPUTED-THEORIZED since 534. This file proves every computation they name, from
@@ -171,10 +171,30 @@ r_h/10 in a region of r_h/3. The scales separate (arithmetic).
 
   **Re-run here (539), at that head, in a separate worktree:** foliation5 4/4, lead5 5/5, horizon5 4/4, ks5 5/5,
   mass5 4/4, ansatz5 5/5, past5 7/7, data5 7/7, and the paper's independent check response5 R1-R7, all pass. The
-  proof's text is the session's, read here and not re-verified. **Open there**, by its own list: late-time settling;
-  Theorem P, the construction from past null infinity (written at D32, not yet verified; the mass law at past null
-  infinity OPEN); the application at the physical wavelength 10 l5, which no high-frequency theorem reaches (response5
-  R7). SOURCE's delivery at 10 l5 is Part D's computation, not this theorem's.
+  proof's text is the session's, read here and not re-verified.
+- **Theorem P** (item 540): the same solution built from the record's free data at past null infinity, so that the
+  datum on the first slice is the trace of the solution coming in. It is PROVED in the N1* session (D35):
+  - a tenth verifier found one major gap (D34), in the near-region estimate;
+  - it was repaired (Lemma 9.4b, past5 P8);
+  - an eleventh verifier found the repair closes it.
+
+  It is merged to main by PRs #59 and #60 and re-run here: past5 P1-P8, 8/8. The mass law at past null infinity, with
+  which the flux would become a statement about the mean mass there, stays OPEN in that session (its section 9.5).
+- **Late-time settling** (item 540; M: "for the math to determine"), determined in settle_late S0-S5:
+  - if the hole settles, it settles to Tangherlini of the final mass. This is proved: Emparan and Reall's integrability
+    with both reflections makes any end state static, and Gibbons, Ida and Shiromizu's uniqueness makes it Tangherlini
+    (both READ);
+  - linearly it settles, the metric included. This is proved from READ results: Kodama and Ishibashi's reconstruction
+    with Hung, Keller and Wang's decay, the reconstruction's coefficients regular on the whole exterior (computed);
+  - in the record's own nonlinear evolution to v = 40 it settles to the scheme's resolution (computed):
+    - one Tangherlini mass at every radius, to 2e-7;
+    - the horizon round to 1e-4;
+    - the non-round part down 175-fold with no growth;
+    - two resolutions agreeing on the final mass;
+  - a proof of the nonlinear statement in this class is open in the field (theorized, named). The nearest proved case
+    is Dafermos and Holzegel's, for perturbations depending on (t, r) alone.
+- **The physical wavelength 10 l5**, which no high-frequency theorem reaches (response5 R7), is being worked in the N1*
+  session (M, 540). SOURCE's delivery at 10 l5 is Part D's computation, not this theorem's.
 - The rates are computed (hf_core5 C1-C5: the C^0 departure halves with lam, the mean-mass offset quarters, the horizon
   converges at first order). The coefficients are exact (hf_anchor5: sqrt2 A, and (2/9) A^2 int env'^2 = 0.45693, the
   runs agreeing to 0.01 %).
@@ -287,9 +307,14 @@ No inner or Cauchy horizon enters anywhere (U2, C5 (iii), hf_theorem5 F1).
   conservative slope (D7);
 - A3's copper rates (standard values, not READ).
 
-**Proved elsewhere, cited and re-run:** N1* (C5 (i)), with C5 (iii) for lam > 0 and the mean-mass rate. They are proved
-in the N1* session (seven verifiers) and are in the repository; their instruments, re-run here at 539, all pass. They
-are no longer a cited claim.
+**Proved elsewhere, cited and re-run:** N1* (C5 (i)), with C5 (iii) for lam > 0, the mean-mass rate and, since 540,
+Theorem P. They are proved in the N1* session (seven verifiers for N1*, eleven by Theorem P) and are in the
+repository, merged to main. Their instruments, re-run here at 539 and 540, all pass. They are no longer cited claims.
+
+**Late-time settling** (540) has three parts:
+- proved: the end state, if any, is Tangherlini of the final mass, and linear settling holds, metric included;
+- computed: nonlinear settling in the record's own evolution, to the scheme's resolution;
+- theorized: a proof of nonlinear settling in the T^2-mirror class, open in the field.
 
 **Not a computation:** the gap between the read's demonstrated technology and its requirement (source_spec U7: 23
 orders). The device is defined as quantum mechanics admits it (A4), not built.

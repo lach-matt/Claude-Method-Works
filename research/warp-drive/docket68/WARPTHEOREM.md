@@ -99,7 +99,21 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 539 (the counterpart of Huneau and Luk carried; QB measured across Baez's constants).**
+**Where it stands, at item 540 (Theorem P proved; whether the hole settles, determined).** Theorem P -- the same
+solution built from the record's free data at past null infinity -- is proved in the N1* session (eleven verifiers),
+merged to main and from main into this branch, and re-run here (past5 8/8). Whether the hole settles at late times is
+determined by the math, as M said (`lemmas/settle_late.py`):
+- if it settles, it settles to Tangherlini of the final mass (proved: integrability with both reflections makes the
+  end state static, and uniqueness makes it Tangherlini);
+- linearly it settles, the metric included (proved from the master equations' reconstruction and decay, READ);
+- in the record's own nonlinear evolution to v = 40 it settles to the scheme's resolution (computed: one Tangherlini
+  mass at every radius to 2e-7, the horizon round to 1e-4, the non-round part down 175-fold with no growth, two
+  resolutions agreeing);
+- a proof of the nonlinear statement in this class is open in the field.
+
+The 10 l5 wavelength is being worked in the N1* session. 83 rows pass, unchanged. BOUNCE-RESEARCH section 64.
+
+**Where it stood at item 539 (the counterpart of Huneau and Luk carried; QB measured across Baez's constants).**
 The five-dimensional counterpart of Huneau and Luk's theorem -- the exact mirror-symmetric vacuum sequence for the whole
 shell, in cohomogeneity three, which 497 left not proved -- is proved in the N1* session and is in the repository, as
 M noted: N1* PROVED (seven verifiers), part (iii) for lam > 0 and the mean-mass rate with it (n1star/, at ddfe90f4;
@@ -2227,6 +2241,12 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 540** (M: settling "for the math to determine"; Theorem P "finished and verified by the N1*, it is now
+  updated and available to you"; the 10 l5 wavelength "currently being worked in the N1* session"). main merged into
+  the branch (n1star at 2780e2f9; past5 8/8, settle5 4/4, response5 pass here). Settling determined
+  (`lemmas/settle_late.py`, S0-S5): the end state Tangherlini (proved), linear settling with the metric (proved), the
+  record's nonlinear evolution settled to its resolution (computed), the nonlinear proof open (theorized). settle_late
+  in T1. No status moves. BOUNCE-RESEARCH section 64; SOURCE-REQUIRED item 540.
 - **Item 539** (M: the five-dimensional counterpart of Huneau and Luk "is now available in the repo from the N1*
   session"; "measure the planckian curvature under varying Baez constants values, like the copper study"). The N1*
   proof carried (N1* PROVED, part (iii), the mean-mass rate; its instruments re-run here pass; SOURCE-PROOF C5,

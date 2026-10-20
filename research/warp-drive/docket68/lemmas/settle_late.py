@@ -1,14 +1,49 @@
 #!/usr/bin/env python3
 """settle_late.py -- item 540: whether the hole settles at late times, for the math to determine.  M: "whether the hole
 settles at late times - for the math to determine".  Labels: computed (exact unless marked numerical), READ, deduced,
-M's.  This file is its run part; the checks are added once the runs are pinned.
+theorized, M's.  The N1* session (N1STAR-PROOF section 10, settle5.py) found the class's modes and their ringdown and
+left settling open; this file determines what the math determines now.
 
-The runs: hf_mirror5's own nonlinear five-dimensional vacuum scheme (T^2 with both reflections, cohomogeneity three,
-ingoing Bondi slices compactified at past null infinity), taken through the shell and then on to late times, the step
-widened once the incoming waves have passed.  Checkpointed, so a container restart costs only the steps since the last
-checkpoint.
+  S0 (read) M's words, verbatim in the rulings file, 540.
+  S1 (deduced, READ; computed exactly) The end state, if there is one, is Tangherlini of the final mass.  A stationary
+     solution in the class has three commuting Killing fields (d_t, d_phi1, d_phi2), the phi-ones vanishing on the
+     axes; in vacuum the 2-planes orthogonal to them are then integrable (Emparan and Reall, hep-th/0110258v2 p. 5,
+     READ), so the metric is a Killing block plus a 2-metric.  Both reflections remove the t-phi and phi1-phi2 terms of
+     the block (computed: the twist xi ^ d xi of the time Killing field vanishes; control: without the reflections it
+     does not), so the end state is static, and the only asymptotically flat static vacuum black hole in five dimensions
+     is Tangherlini (Gibbons, Ida and Shiromizu, gr-qc/0203004, READ).  The class excludes rotation (settle5 T1).
+  S2 (READ, deduced; computed exactly) Linear settling in the class, the metric included.  The class carries only
+     scalar- and tensor-type modes of even l >= 2 and the l = 0 mass shift (settle5 T1; Kodama and Ishibashi,
+     hep-th/0305147v3, READ: the k = 0 mode is "a shift of the mass parameter of the black hole").  Their master
+     quantities decay as tau^-2 in energy at every order (Hung, Keller and Wang, arXiv:1809.05144v1, Theorem 2, READ via
+     settle5), and in Kodama and Ishibashi's gauge the metric components are those quantities, "represented as
+     combinations of this field and its derivatives" ((3.12), (3.14); tensor type H_T = r^(-3/2) Phi), whose
+     coefficients carry H = m + 6x in their denominators: positive on the whole exterior for l >= 2 (computed; control
+     H = m - 30x fails).  So the linearised metric settles, in that gauge, to a change of mass -- the part
+     Hung, Keller and Wang left untreated, for this class.  Their potential is settle5's exactly (computed).
+  S3 (computed, numerical) The record's own nonlinear evolution taken to late times.  hf_mirror5's scheme (five-
+     dimensional vacuum, T^2 with both reflections, cohomogeneity three; lam = 0.1, A = 1, seed 1) through the shell
+     and on to v = 40 (thirty-seven times the final horizon radius, nine e-folds of the least-damped mode), at two
+     resolutions:
+     - the round part is Tangherlini of one mass at every radius probed, to 2e-7, unchanged in v (mu_f = 1.18689, the
+       Isaacson prediction 1.18229 plus the second-order offset 4.6e-3 of hf_mirror5 X5); the apparent horizon closes
+       onto sqrt(mu_f), round to 1e-4;
+     - the non-round part falls from 1.15e-2 at the shell's end to 6.6e-5 at v = 40 (run a), its late maximum below its
+       maximum at v = 14-24: no growth.  Below about 1e-3 its fall is at the scheme's floor (constraint residuals 1e-4 at
+       16 x 10), so the late rate is not resolved; the early fall, v = 6-14, is at about the least-damped mode's rate.
+  S4 (computed) The two resolutions agree on the final mass to 1e-4 and both bound the late non-round part.
+  S5 (theorized, named) A proof of nonlinear settling in the class.  The nearest theorem READ, Dafermos and Holzegel
+     (gr-qc/0510051): Tangherlini "orbitally stable (in the fully non-linear theory) with respect to vacuum perturbations
+     of initial data preserving triaxial Bianchi IX symmetry" -- solutions depending on (t, r) alone.  The class here
+     depends on (t, r, theta); its nonlinear stability is the five-dimensional counterpart of Klainerman and Szeftel's
+     polarized axisymmetric case, open in the field.
 
-python3 settle_late.py --run NAME     (NAME in RUNS; resumes from its checkpoint)
+So the math determines: if the hole settles, it settles to Tangherlini of the final mass (proved); linearly it does
+(proved, metric included); in the full nonlinear equations it does, to the scheme's resolution (computed); a proof of
+the nonlinear statement is open.
+
+The runs are checkpointed, so a container restart costs only the steps since the last checkpoint.
+python3 settle_late.py [--selftest | --mutants | --run NAME]     (the runs take about an hour each; --run resumes)
 """
 import json, os, sys, time
 import numpy as np
@@ -196,6 +231,101 @@ def analyse(name, v0=8.0):
     return res
 
 
+def settled(name):
+    """S3: the run's late state -- the round part against one Tangherlini mass at every probe, the horizon's
+    roundness, the non-round part's fall and its late bound"""
+    J = json.load(open(os.path.join(DATA, "settle_late_%s.json" % name)))
+    h = J["hist"]
+    v = np.array([r["v"] for r in h])
+    amp = np.array([max(max(p["Wspread"], p["F"], p["G"], p["q"]) for p in r["probe"]) for r in h])
+    if "growth" in MUT:
+        amp = amp * np.exp(0.2 * np.maximum(v - 20, 0))
+    late = [r for r in h if r["v"] >= 20]
+    dl = np.array([[p["dWt"] / p["y"] ** 4 for p in r["probe"]] for r in late])
+    if "two_masses" in MUT:
+        dl[:, 0] += 1e-3
+    mu_end = J.get("mu_end") or H.Data(*J["cfg"][:2], m0=J["cfg"][4]).mu_pred(10.0)
+    mu_f = mu_end - float(dl.mean())
+    i0 = int(np.searchsorted(v, 3.75))
+    ve = v[-1]
+    return dict(v_end=float(ve), mu_end=mu_end, mu_f=mu_f, d_spread=float(np.ptp(dl.mean(0))),
+                d_drift=float(dl.std(0).max()), r_lo=h[-1]["r_lo"], r_hi=h[-1]["r_hi"],
+                a_shell=float(amp[i0]), a_end=float(amp[-1]), fall=float(amp[-1] / amp[i0]),
+                late_max=float(amp[v >= ve - 10].max()), mid_max=float(amp[(v >= 14) & (v <= 24)].max()),
+                res=float(max(r["resv"] for r in late)))
+
+
+def compute():
+    o = dict(words=words(), endpoint=endpoint(), endpoint_ctrl=endpoint(True), linear=linear(),
+             linear_ctrl=linear(True), runs={n: settled(n) for n in RUNS
+                                            if os.path.exists(os.path.join(DATA, "settle_late_%s.json" % n))})
+    return o
+
+
+def checks(o):
+    ck = {"S0": o["words"], "S1": o["endpoint"] and not o["endpoint_ctrl"],
+          "S2": o["linear"] and not o["linear_ctrl"]}
+    good = []
+    for n, r in o["runs"].items():
+        good.append(r["v_end"] >= 40 - 1e-9 and r["d_spread"] < 1e-5 and r["d_drift"] < 1e-6
+                    and r["r_lo"] ** 2 - 1e-4 <= r["mu_f"] <= r["r_hi"] ** 2 + 1e-4
+                    and r["r_hi"] - r["r_lo"] < 2e-4 and r["fall"] < 2e-2 and r["late_max"] < r["mid_max"])
+    ck["S3"] = len(good) == len(RUNS) and all(good)
+    if len(o["runs"]) == len(RUNS):
+        a, b = o["runs"]["a"], o["runs"]["b"]
+        ck["S4"] = abs(a["mu_f"] - b["mu_f"]) < 1e-4 and max(a["late_max"], b["late_max"]) < 5e-4
+    else:
+        ck["S4"] = False
+    return ck
+
+
+def report(o=None):
+    o = o or compute()
+    ck = checks(o)
+    print("S0 M's words (540) verbatim: %s" % ck["S0"])
+    print("S1 the end state, if any, is static and so Tangherlini (Emparan-Reall; Gibbons-Ida-Shiromizu): %s" % ck["S1"])
+    print("S2 linear settling in the class, metric included (Kodama-Ishibashi; Hung-Keller-Wang): %s" % ck["S2"])
+    for n, r in o["runs"].items():
+        print("   run %s %s to v %.1f: mu_f %.6f (one mass at every probe, spread %.1e, drift %.1e); horizon %.5f-%.5f; "
+              "non-round %.2e -> %.2e (x %.1e), late max %.1e < %.1e; residual %.1e"
+              % (n, RUNS[n][2:4], r["v_end"], r["mu_f"], r["d_spread"], r["d_drift"], r["r_lo"], r["r_hi"],
+                 r["a_shell"], r["a_end"], r["fall"], r["late_max"], r["mid_max"], r["res"]))
+    print("S3 each run settles: %s; S4 the two resolutions agree: %s" % (ck["S3"], ck["S4"]))
+    return ck
+
+
+def selftest(quiet=False):
+    o = compute()
+    ck = checks(o)
+    if not quiet:
+        report(o)
+    return all(ck.values())
+
+
+MUTANTS = {"growth": "a late growth e^(0.2 (v - 20)) put into the non-round part (S3)",
+           "two_masses": "one probe's round part moved off the common mass (S3)"}
+
+
+def mutants():
+    caught = 0
+    for m, why in MUTANTS.items():
+        MUT.clear(); MUT.add(m)
+        ok = selftest(quiet=True)
+        caught += not ok
+        print("mutant %-11s %s  (%s)" % (m, "caught" if not ok else "MISSED", why))
+    MUT.clear()
+    print("%d/%d caught" % (caught, len(MUTANTS)))
+    return caught == len(MUTANTS)
+
+
 if __name__ == "__main__":
     if "--run" in sys.argv:
         run(sys.argv[sys.argv.index("--run") + 1])
+    elif "--mutants" in sys.argv:
+        sys.exit(0 if mutants() else 1)
+    elif "--selftest" in sys.argv:
+        r = selftest()
+        print("selftest:", "PASS" if r else "FAIL")
+        sys.exit(0 if r else 1)
+    else:
+        report()

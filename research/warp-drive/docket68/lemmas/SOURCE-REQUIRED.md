@@ -5,6 +5,25 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 540: Theorem P proved; whether the hole settles, determined; the 10 l5 wavelength in the N1* session
+
+M, 540: settling "for the math to determine"; Theorem P "recently finished and verified by the N1*, it is now updated
+and available to you"; the 10 l5 wavelength "currently being worked in the N1* session".
+- **Theorem P.** It is PROVED in the N1* session (D35: an eleventh verifier found the repair of the tenth's major gap
+  closes it). The session is merged to main (PRs #59, #60) and from main into this branch; past5 re-run here passes
+  8/8. The datum on the first slice can be taken as the trace of the solution coming in from past null infinity, with
+  the record's own free data there. The mass law at past null infinity stays OPEN in that session.
+- **Settling** (settle_late S0-S5):
+  - the only end state is Tangherlini of the final mass (proved, READ);
+  - linear settling holds with the metric (proved from READ results; regularity computed);
+  - the record's nonlinear evolution to v = 40 settles to its resolution (computed);
+  - the nonlinear proof is open in the field (theorized).
+
+  Nothing here asks more of SOURCE: the hole that holds the README is Tangherlini of its final mass at late times, as
+  the theorem takes it.
+- **10 l5.** Worked in the N1* session (M, 540).
+- **Status.** Unchanged: SOURCEs and SOURCE stay COMPUTED-THEORIZED; SOURCE-PROOF C5 and section 7 carry the above.
+
 ## Item 539: the five-dimensional counterpart of Huneau and Luk, proved in the N1* session and carried here
 
 M, 539, to "Not proved: one exact mirror-symmetric vacuum sequence for the whole shell ... the five-dimensional
