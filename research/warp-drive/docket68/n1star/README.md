@@ -5,13 +5,13 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D34).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D35).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
-  READ at source (section 7, D17-D18); part (iii) and the mean-mass rate (section 8, D24-D30); and Theorem P (section 9:
-  the same solution from the record's data at past null infinity, D32), in which a verifier found one major gap,
-  repaired with the repair not yet verified (D34). Start here.
+  READ at source (section 7, D17-D18); part (iii) and the mean-mass rate (section 8, D24-D30); Theorem P (section 9: the
+  same solution from the record's data at past null infinity, D32), PROVED: one major gap found by a verifier and
+  repaired (D34), the repair confirmed by a second (D35); and section 10, settling and the wavelength (D33). Start here.
 - `ansatz5.py`: route W step 1, the geometric-optics ansatz on 5D Vaidya with the phase v (A1-A5).
   `python3 ansatz5.py --selftest` (5/5, about 3 minutes), `--mutants` (5/5).
 - `foliation5.py`: route W steps 3 and 5, the null foliation, Touati's commutator lemma as an identity, the slices and
@@ -28,7 +28,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `past5.py`: Theorem P, the construction from past null infinity (section 9): the past domain, the operator and the
   transport near past null infinity, the leading wave's decay, the stage-0 source, the rotations, and the flux of the
   record's radiation field, and the mollifier's commutator (P1-P8). `python3 past5.py --selftest` (8/8, about 4
-  minutes), `--mutants` (8/8).
+  minutes), `--mutants` (9/9).
 - `settle5.py`: late-time settling, linearly, on the copper study's barrier (seed_escape.py E1): the class's
   perturbation types, the potentials, the l = 2 ringdown against the published values, the settling times at the
   study's seeds (T1-T4). `python3 settle5.py --selftest` (4/4, under a minute), `--mutants` (4/4).

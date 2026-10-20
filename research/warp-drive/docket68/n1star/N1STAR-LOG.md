@@ -612,3 +612,15 @@ the hierarchy of constants in (9.7) and the convergence of the stage solutions w
 lam^-1 N_P (F6); Lemma 9.5's bound on P+ (F7); four wording points (F8). The repair has not been read by a verifier:
 Theorem P is not claimed as PROVED, and the supplement's status lines say so. The earlier text was merged with PR #59
 as "not yet verified"; nothing there claimed it proved.
+
+**D35 (2026-10-20, session finding): an eleventh verifier on the repair; Theorem P PROVED.** The verifier read section
+9 after D34, ran past5.py (8/8, mutants 8/8) and rebuilt the commutator independently with mu = mu(v) and psi =
+psi(tau, v). Verdict: the repair closes the gap and Theorem P holds as stated; every step of D34's list and F2-F8 was
+re-derived and found sound. Two minor findings and four notes, all seated: the coefficient of the angular derivatives
+r^-1 Omega phi is E_(5/2), not E_(3/2), and D1 is taken as (d_tau phi, d_r phi, r^-1 Omega phi) with c0 = 0, 0, 1 so
+that its top order closes; Lemma 9.4b's remainder with mu(v) and psi(tau, v) has exactly the four further terms the
+verifier listed (mu(psi) - mu(v) and three with psi_t or psi_tt), each with a decaying factor, now stated and checked
+in P8 (an exact polynomial identity on e^(a tau + b v), with two controls: the psi_t terms left out, the mu term left
+out); the Z commute with the shift only up to bounded operators, which suffices; the data terms at tau_T are added to
+every line of (9.9); the rate of p in Theorem A_P's convergence step is corrected; B and C are fixed so that the
+constants close. These seated edits are the only text of section 9 no verifier has read after the edit.

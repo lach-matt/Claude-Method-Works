@@ -33,12 +33,16 @@ rotations and in th are O(r^-p) (section 9.2).
      (2/9) A^2 (lam^2/4)(E'^2 - E E'') sin(2v/lam), which is O(lam^3).  Control: the two quadratures in phase.
 
   P8 The mollifier's commutator.  In the coordinates (tau, v, xhat) of the past slices, L0 = d_tau at fixed (v, xhat)
-     and the radial part of box~ is -(1 + mu/r^2) L0^2 - 2 d_v L0 + (3/r) d_v (d_v at fixed tau, r = v - tau), which is
-     (9.5)'s (checked on explicit functions).  The shift of Lemma 9.4, C f(tau, v) := f(tau, psi(v)) with psi independent
-     of tau, satisfies exactly
-       [box~_rad, C] f = -L0( 2 (psi' - 1) C d_v f ) + (3 psi'/r - 3/(psi - tau)) C d_v f
-                         - mu (1/r^2 - 1/(psi - tau)^2) C L0^2 f:
-     the part of the commutator without a decaying factor is an exact L0-derivative.  Control: psi depending on tau.
+     and the radial part of box~ is -(1 + mu(v)/r^2) L0^2 - 2 d_v L0 + (3/r) d_v (d_v at fixed tau, r = v - tau),
+     which is (9.5)'s (checked on explicit functions).  For the shift C f(tau, v) := f(tau, psi(tau, v)), exactly,
+       [box~_rad, C] f = -L0( 2 (psi_v - 1) C d_v f ) + (3 psi_v/r - 3/(psi - tau)) C d_v f
+                         - mu(v) (1/r^2 - 1/(psi - tau)^2) C L0^2 f + (mu(psi) - mu(v))/(psi - tau)^2 C L0^2 f
+                         - (1 + mu/r^2) psi_tt C d_v f - (2 + (1 + mu/r^2) psi_t) psi_t C d_v^2 f
+                         - 2 (1 + mu/r^2) psi_t C d_v L0 f:
+     the part of the commutator without a decaying factor (1/r, mu/r^2, mu' through mu(psi) - mu(v), psi_t) is an
+     exact L0-derivative.  Checked as a polynomial identity on e^(a tau + b v) (which fixes every coefficient of a
+     second-order operator), for symbolic psi and mu, and in the case psi = psi(v), mu constant.  Controls: psi
+     depending on tau with the psi_t terms left out; the mu(psi) - mu(v) term left out.
 
 python3 past5.py [--selftest | --mutants]
 """
@@ -184,23 +188,39 @@ def p7(control=0):
 
 
 def p8(control=0):
-    t_, v_, mu_, y = sp.symbols("t_ v_ mu_ y", real=True)
-    f = sp.Function("f")
-    P = sp.Function("psi")(t_, v_) if control == 1 else sp.Function("psi")(v_)
-    rr = v_ - t_
-    box_rad = lambda w: -(1 + mu_/rr**2)*sp.diff(w, t_, 2) - 2*sp.diff(w, v_, t_) + 3/rr*sp.diff(w, v_)  # noqa: E731
-    lhs = box_rad(f(t_, P))
-    fb = -(1 + mu_/(y - t_)**2)*sp.diff(f(t_, y), t_, 2) - 2*sp.diff(f(t_, y), y, t_) + 3/(y - t_)*sp.diff(f(t_, y), y)
-    Cdvf = sp.diff(f(t_, y), y).subs(y, P)
-    CL02 = sp.diff(f(t_, y), t_, 2).subs(y, P)
-    pred = (-sp.diff(2*(sp.diff(P, v_) - 1)*Cdvf, t_) + (3*sp.diff(P, v_)/rr - 3/(P - t_))*Cdvf
-            - mu_*(1/rr**2 - 1/(P - t_)**2)*CL02)
-    ok = sp.simplify(sp.expand(lhs - fb.subs(y, P) - pred)) == 0
+    t_, v_, y, a, b, mu0 = sp.symbols("t_ v_ y a b mu0", real=True)
+    M = sp.Function("mu")
+
+    def identity(time_dep, mu_dep, with_resid=True, drop=None):
+        P = sp.Function("psi")(t_, v_) if time_dep else sp.Function("psi")(v_)
+        mu = (lambda q: M(q)) if mu_dep else (lambda q: mu0)            # noqa: E731
+        rr = v_ - t_
+        g = sp.exp(a*t_ + b*y)
+        box_rad = lambda w: -(1 + mu(v_)/rr**2)*sp.diff(w, t_, 2) - 2*sp.diff(w, v_, t_) + 3/rr*sp.diff(w, v_)  # noqa
+        lhs = box_rad(g.subs(y, P))
+        fb = (-(1 + mu(y)/(y - t_)**2)*sp.diff(g, t_, 2) - 2*sp.diff(g, y, t_) + 3/(y - t_)*sp.diff(g, y)).subs(y, P)
+        C = lambda e: e.subs(y, P)                                        # noqa: E731
+        dv, dv2, dvL0, L02 = C(sp.diff(g, y)), C(sp.diff(g, y, 2)), C(sp.diff(g, y, t_)), C(sp.diff(g, t_, 2))
+        psv, pst, pstt = sp.diff(P, v_), sp.diff(P, t_), sp.diff(P, t_, 2)
+        pred = (-sp.diff(2*(psv - 1)*dv, t_) + (3*psv/rr - 3/(P - t_))*dv - mu(v_)*(1/rr**2 - 1/(P - t_)**2)*L02)
+        terms = [(mu(P) - mu(v_))/(P - t_)**2*L02, -(1 + mu(v_)/rr**2)*pstt*dv,
+                 -(2 + (1 + mu(v_)/rr**2)*pst)*pst*dv2, -2*(1 + mu(v_)/rr**2)*pst*dvL0]
+        if with_resid:
+            pred += sum(q for i, q in enumerate(terms) if i != drop)
+        return sp.simplify(sp.expand((lhs - fb - pred)*sp.exp(-a*t_ - b*P))) == 0
+    if control == 1:
+        ok = identity(True, False, with_resid=False)
+    elif control == 2:
+        ok = identity(True, True, drop=0)
+    else:
+        ok = identity(True, True) and identity(False, False, with_resid=False)
     V, R = sp.symbols("V R", real=True)
+    rr = v_ - t_
+    box_c = lambda w: -(1 + mu0/rr**2)*sp.diff(w, t_, 2) - 2*sp.diff(w, v_, t_) + 3/rr*sp.diff(w, v_)  # noqa: E731
     for G in (sp.exp(t_/3)*sp.sin(2*v_) + t_**3*v_**2, sp.cos(t_*v_) + v_/(1 + t_**2)):
         W = G.subs({t_: V - R, v_: V}, simultaneous=True)
-        f95 = 2*sp.diff(W, R, V) + 3/R*(sp.diff(W, V) + sp.diff(W, R)) + (1 - mu_/R**2)*sp.diff(W, R, 2)
-        ok &= sp.simplify(f95 - box_rad(G).subs({t_: V - R, v_: V}, simultaneous=True)) == 0
+        f95 = 2*sp.diff(W, R, V) + 3/R*(sp.diff(W, V) + sp.diff(W, R)) + (1 - mu0/R**2)*sp.diff(W, R, 2)
+        ok &= sp.simplify(f95 - box_c(G).subs({t_: V - R, v_: V}, simultaneous=True)) == 0
     return bool(ok)
 
 
@@ -211,7 +231,7 @@ CHECKS = [("P1 the outer boundary of the past domain is spacelike, margin (kappa
           ("P5 the stage-0 vv second harmonic is r^-3 times a function of (v, th): chi in E_2", p5, 1),
           ("P6 the rotations annihilate v and r and commute with L0 and box~", p6, 1),
           ("P7 the sphere-mean flux of the record's radiation field, and its integral in v", p7, 1),
-          ("P8 the shift's commutator with box~ is -L0(X) plus terms with decaying factors", p8, 1)]
+          ("P8 the shift's commutator with box~ is -L0(X) plus terms with decaying factors", p8, 2)]
 
 
 def selftest():

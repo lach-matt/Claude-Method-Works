@@ -21,10 +21,10 @@ found it to hold, with one clause of Lemma 6.4 stated more weakly than its proof
 the form the verifier specified, and it and the three notes applied with it are the only text no verifier has read after
 the edit. The instruments' selftests and mutant runs pass (README.md).
 
-**Theorem P (2026-10-20, D32)** builds the same solution from the record's free data at past null infinity, so that
-the datum on Sigma_tau0 is the trace of the solution coming in and Theorem D is not needed on that route (section 9,
-computed inputs in `past5.py`). A verifier found one major gap (D34), in the near-region estimate; it is repaired,
-and the repair is not yet read, so Theorem P is not claimed as PROVED.
+**Theorem P (2026-10-20, D32)** builds the same solution from the record's free data at past null infinity, so that the
+datum on Sigma_tau0 is the trace of the solution coming in and Theorem D is not needed on that route (section 9,
+computed inputs in `past5.py`). It is PROVED (D35): a verifier found one major gap in the near-region estimate (D34), it
+was repaired, and a second verifier found that the repair closes it.
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -1012,20 +1012,15 @@ infinity, which is not part of this proposition.
 
 ## 9. Theorem P: the construction from past null infinity (D32)
 
-**Status.** Written here (deduced), with its exact inputs computed in `past5.py` (P1-P8). A tenth independent verifier
-(D34) read it whole: the far region, the decay counting, the gauge argument and the radiation field held; the near
-region did not close as first written, because the commutator of the mollifier with box~ forces Psi's transport by a
-term of size ||d s|| with no decay in t. That term is an exact L0-derivative (Lemma 9.4b, P8), and Proposition 9.9 now
-transports Psi - (1/2) X_s, whose forcing decays; the verifier's seven minor findings and notes are seated. The repair
-has not yet been read by a verifier, so Theorem P is not claimed as PROVED. Theorem P builds the solution of N1* from
-the record's free data at past null infinity, not from a Cauchy datum on Sigma_tau0; the datum on Sigma_tau0 is then the
-trace of the solution coming in, and Theorem D is not needed on this route. Two facts make the infinite past tractable.
-Near past null infinity every profile and every coefficient decays in r (section 9.3), and the decay is integrable in
-time. The loop of the decomposition of section 3.3 does not see that integrability: its auxiliary Psi is transported
-with a growth factor r^2, and its forcing contains terms of size r^-1 times first derivatives, so in norms each unit of
-log t costs a constant factor. So the past is split at t = lam^-2 (section 9.4): before it, the 1/lam coupling is itself
-integrable and no decomposition is used; after it, the decomposition runs over an interval of length lam^-2, and the
-logarithms cost a fixed power of lam, which the free order of the approximant absorbs.
+**Status. Theorem P is PROVED** (deduced, with its exact inputs computed in `past5.py`, P1-P8; D35). A tenth independent
+verifier read it whole (D34): the far region, the decay counting, the gauge argument and the radiation field held; the
+near region did not close as first written, because the commutator of the mollifier with box~ forces Psi's transport by
+a term of size ||d s|| with no decay in t. That term is an exact L0-derivative (Lemma 9.4b, P8), and Proposition 9.9
+transports Psi - (1/2) X_s, whose forcing decays. An eleventh verifier read the repair and the seated minor findings
+(D35) and found that it closes the gap and that Theorem P holds as stated; its two minor findings and four notes are
+seated (the coefficient class of the angular derivatives of phi, the full commutator with mu(v) and psi(tau, v) in Lemma
+9.4b and P8, the data terms at tau_T, the constants, a rate in Theorem A_P), and these are the only text of section 9 no
+verifier has read after the edit.
 
 **Theorem P.** Let the seed, A, env and the record's angular profile be as in section 0 (mu' = (2/9) A^2 env^2), and
 let W_TT be the record's first-order wave (section 5.1), whose r^(3/2)-normalised components at past null infinity
@@ -1132,20 +1127,23 @@ Then [box~, P] f = -L0 X_f + R_f, and for j <= k, with Z ranging over {lam d_tau
     ||Z^j X_f|| <= C lam sum_{i <= j} ||Z^i d f||,
     ||Z^j R_f|| <= C (t^-1 + h') sum_{i <= j} ||Z^i d f|| + ||Z^j R'_f||,
 
-where R'_f collects the terms with two time derivatives of f, each with a factor at most C lam mu r^-3, which for f = s
-are rewritten through the equation of Lemma 3.3 as in Step 6. *Proof.* By (9.5), box~ = -(1 + mu/r^2) L0^2 - 2 d_r L0 +
-(3/r) d_r + r^-2 Deltaring, with L0 = d_tau at fixed (v, xhat) and d_r = d_v at fixed tau (P8 checks the radial part
-against (9.5)). For psi independent of tau, P8 gives exactly [box~_rad, C] g = -L0(2 (psi' - 1) C d_v g) + (3 psi'/r -
-3/(psi - tau)) C d_v g - mu (1/r^2 - 1/(psi - tau)^2) C L0^2 g, with 2 (psi' - 1) = 4 lam sigma_v; the dependence of psi
-on tau adds [L0, C] g = (d_tau psi) C d_v g, and d_tau psi = 2 lam sigma0' (v - v_start) h'/Delta^2 is at most C lam h'
-(Lemma 9.1: Delta' = -h'); the angular part gives [r^-2 Deltaring, C] = (r^-2 - (psi - tau)^-2) C Deltaring, of size C
-lam r^-3 times two rotations, that is C lam r^-1 times two derivatives. M commutes with the constant-coefficient part
-eta^{ab} d_a d_b of box~; with the rest, -(mu/r^2) L0 L0 (L0 = d_tau - xhat.d_x), it commutes up to terms with the
-factor lam |d(mu xhat xhat/r^2)| <= C lam mu r^-3 (M5). Apply this to g = M f: a lam-weighted second spatial derivative
-of M f costs no more than one derivative of f (Bernstein, (M2)); 3 psi'/r - 3/(psi - tau) is at most C/r; and L0 and Z
-commute with lam sigma_v, C and M up to factors C (h' + r^-1) (L0 sigma_v = O(h'), [L0, C] above, [xhat.d_x, M] = O(lam
-r^-1) by (M5)). Z commutes with L0 exactly (d_tau, d_r and Omega do, and L0 = d_tau - d_r), so the same holds at every
-order. []
+where R'_f collects the terms with two time derivatives of f, each with a factor at most C lam (mu r^-3 + |mu'| r^-2),
+which for f = s are rewritten through the equation of Lemma 3.3 as in Step 6. *Proof.* By (9.5), box~ = -(1 + mu/r^2)
+L0^2 - 2 d_r L0 + (3/r) d_r + r^-2 Deltaring, with L0 = d_tau at fixed (v, xhat) and d_r = d_v at fixed tau (P8 checks
+the radial part against (9.5)). For psi independent of tau, P8 gives exactly [box~_rad, C] g = -L0(2 (psi' - 1) C d_v
+g) + (3 psi'/r - 3/(psi - tau)) C d_v g - mu (1/r^2 - 1/(psi - tau)^2) C L0^2 g, with 2 (psi' - 1) = 4 lam sigma_v; the
+dependence of psi on tau, and of mu on v, add exactly the terms listed in P8, (mu(psi) - mu(v))/(psi - tau)^2 C L0^2 g
+and three terms with a factor psi_t or psi_tt, where psi_t = 2 lam sigma0' (v - v_start) h'/Delta^2 and psi_tt are at
+most C lam h' (Lemma 9.1: Delta' = -h') and |mu(psi) - mu(v)| <= 2 lam |mu'|; the angular part gives [r^-2 Deltaring,
+C] = (r^-2 - (psi - tau)^-2) C Deltaring, of size C lam r^-3 times two rotations, that is C lam r^-1 times two
+derivatives. M commutes with the constant-coefficient part eta^{ab} d_a d_b of box~; with the rest, -(mu/r^2) L0 L0 (L0
+= d_tau - xhat.d_x), it commutes up to terms with the factor lam |d(mu xhat xhat/r^2)| <= C lam (mu r^-3 + |mu'| r^-2)
+(M5). Apply this to g = M f: a lam-weighted second spatial derivative of M f costs no more than one derivative of f
+(Bernstein, (M2)); 3 psi'/r - 3/(psi - tau) is at most C/r; and L0 commutes with lam sigma_v, C and M up to factors C
+(h' + r^-1) (L0 sigma_v = O(h'), the psi_t terms above, [xhat.d_x, M] = O(lam r^-1) by (M5)), while the Z commute with
+them up to bounded operators of the same order, which suffices: every term of R_f already carries a decaying factor,
+and the bound on X_f needs none. Z commutes with L0 exactly (d_tau, d_r and Omega do, and L0 = d_tau - d_r), so the
+same holds at every order. []
 
 So the part of [box~, P] f with no decaying factor is an exact L0-derivative. Lemma 2.2's version on Omega has the same
 form, harmlessly there; on P it would force Psi's transport (3.6) by a term of size ||d s|| with no decay, which
@@ -1285,12 +1283,12 @@ large, (9.7) returns their bounds with a factor 1/2; f and p are fed by e with k
 e, p <= 2 C (A_e + A_f + 1) t^-1), so A_f := C' A_e and A_p := C'' (A_e + A_f) close; and [1, T0] is a bounded interval
 (Gronwall). As n -> oo the solutions converge: the difference of the n-th and the n'-th solves the homogeneous system on
 P_n with data on Sigma_tau_n given by the n'-th remainders there, of sizes C t_n^-1 (e, z, p) and O(1) (f); (9.7)
-without sources keeps e, z, p of size C t_n^-1, and f, transported with gam = -3/2, of size C (t/t_n)^(3/2) <= C t^(3/2)
-t_n^(-3/2), so the difference tends to zero on every bounded part of P. The limit solves the stage system on P with the
-same bounds, and a solution with nothing coming in is unique, since the difference of two satisfies (9.7) without
-sources and tends to zero at -oo. *Classes:* Lemma 9.3(a) turns e <= C t^-1 into m~ in E_(5/2); then sigma~ is in
-E_(5/2), phi~ = -(1/2) int_r^oo sigma~ dr' is in E_(3/2) with ell phi~ in E_(5/2), Psi~ is in E_(5/2) by (9.5), the
-source of (c) is in E_(7/2), and gh~ is in O_(5/2) by Lemma 9.7(d). This is (9.6) at stage m.
+without sources keeps e and z of size C t_n^-1, p of size C t^(-1/2) t_n^(-1/2), and f, transported with gam = -3/2, of
+size C (t/t_n)^(3/2) <= C t^(3/2) t_n^(-3/2), so the difference tends to zero on every bounded part of P. The limit
+solves the stage system on P with the same bounds, and a solution with nothing coming in is unique, since the difference
+of two satisfies (9.7) without sources and tends to zero at -oo. *Classes:* Lemma 9.3(a) turns e <= C t^-1 into m~ in
+E_(5/2); then sigma~ is in E_(5/2), phi~ = -(1/2) int_r^oo sigma~ dr' is in E_(3/2) with ell phi~ in E_(5/2), Psi~ is in
+E_(5/2) by (9.5), the source of (c) is in E_(7/2), and gh~ is in O_(5/2) by Lemma 9.7(d). This is (9.6) at stage m.
 
 **The residual, the phase, the continuation.** Section 5.4's argument gives Rm^(m) = 0 for m <= N - 1; the rest of
 R_u[G] is lam^N times a sum of monomials of (0.2) with all factors known, each in E_3 by the count (the expansion of
@@ -1309,18 +1307,18 @@ Take the approximant of Theorem A_P of order N = K + 4 + ceil(4 beta0) (beta0 be
 F := -Ric^H(g_app) has |F|_(k,P) <= C_R lam^K' t^(-3/2). Put T := lam^-2 and let tau_T be the time with t = T; the
 *far region* is P cap {tau <= tau_T} and the *near region* P cap {tau_T <= tau <= tau0}.
 
-**The coefficients on P.** By Theorem A_P and section 3, on P+: B and C of (3.2) are in E_(3/2) (built from g_app
-and d g_app, and d [lam g1] = dv [d_th g1] + lam [d g1]); G1 = [d_th g1] and G2 = [d_th^2 g1] are in E_(3/2), and the
-slow derivative [ell d_th g1] is in E_(5/2) (g1's oscillating part W_TT(. + phi1) is in O_(3/2) up to L_(5/2));
-g_app^-1 - g0^-1 is in lam E_(3/2) and ell_app - ell in lam E_2; and T1 of Lemma 3.1 is in E_3: T1 collects the lam^1
-terms of the linearisation in the direction d_th G, namely d_th Rm^(1) = 0, -P_0(d_th g1) and -T(d_th g2), and the
-count of section 9.3 puts each in E_3 (for instance box~ (W_TT(. + phi1)) = box~ W_TT + 2 g0^-1(dphi1, d d_th W_TT) +
-(box~ phi1) d_th W_TT + g0^-1(dphi1, dphi1) d_th^2 W_TT, each in E_(7/2), and (ell + 3/(2r)) annihilates W_TT and
-maps gh_2 into L_3). In (3.5) and Lemma 3.2 the terms in phi therefore have these coefficients: E_(3/2) on ell phi =
-(1/2) P s, on Psi and on the angular derivatives r^-1 Omega phi; E_(5/2) on d_v phi (the slow coupling (d_v d_th
-g1)(d_r phi) of section 3.3 acts through ell phi, by (9.5)); E_3 on phi and on lam d_x^2 phi. The same holds for the
-ell ell contraction of Lemma 3.3, in which the d phi terms of B1 vanish since g1's oscillating part is transverse to
-ell and ell depends on xhat alone.
+**The coefficients on P.** By Theorem A_P and section 3, on P+: B and C of (3.2) are in E_(3/2) (built from g_app and d
+g_app, and d [lam g1] = dv [d_th g1] + lam [d g1]); G1 = [d_th g1] and G2 = [d_th^2 g1] are in E_(3/2), and the slow
+derivative [ell d_th g1] is in E_(5/2) (g1's oscillating part W_TT(. + phi1) is in O_(3/2) up to L_(5/2)); g_app^-1 -
+g0^-1 is in lam E_(3/2) and ell_app - ell in lam E_2; and T1 of Lemma 3.1 is in E_3: T1 collects the lam^1 terms of the
+linearisation in the direction d_th G, namely d_th Rm^(1) = 0, -P_0(d_th g1) and -T(d_th g2), and the count of section
+9.3 puts each in E_3 (for instance box~ (W_TT(. + phi1)) = box~ W_TT + 2 g0^-1(dphi1, d d_th W_TT) + (box~ phi1) d_th
+W_TT + g0^-1(dphi1, dphi1) d_th^2 W_TT, each in E_(7/2), and (ell + 3/(2r)) annihilates W_TT and maps gh_2 into L_3). In
+(3.5) and Lemma 3.2 the terms in phi therefore have these coefficients: E_(3/2) on ell phi = (1/2) P s and on Psi;
+E_(5/2) on d_v phi (the slow coupling (d_v d_th g1)(d_r phi) of section 3.3 acts through ell phi, by (9.5)) and on the
+angular derivatives r^-1 Omega phi (the angular block r^-2 <dring phi, dring d_th g1> of (9.5) is (r^-1 Omega phi) .
+(r^-1 Omega d_th g1)); E_3 on phi and on lam d_x^2 phi. The same holds for the ell ell contraction of Lemma 3.3, in
+which the d phi terms of B1 vanish since g1's oscillating part is transverse to ell and ell depends on xhat alone.
 
 **Proposition 9.8 (the far region; deduced).** There are lam_F > 0 and M_F, independent of tau_n, such that for 0 <
 lam <= lam_F and every tau_n < tau_T the solution g_n of Ric^H(g_n) = 0 on P cap {tau >= tau_n} with g_n = g_app and
@@ -1362,39 +1360,43 @@ lam and is absorbed for lam <= lam_N. In particular N_P(tau0) <= M_N lam^(K' - 2
 
 *Proof.* Steps 1-7 of section 4 on [tau_T, tau], with these changes. Lemmas 9.3-9.6 replace Lemmas 2.1-2.4; the
 mollifier is that of Lemma 9.4; the coefficients have the decay listed above; and the phi-quantities are transported
-from Sigma_tau_T, where they vanish (h = w_n there, so N_P(tau_T) <= C E(tau_T) <= C M_F lam^K' T^(-1/2), the constant
-C taken at least as large as this one). Write H for the h-part of N_P, Q' for the Psi'-part, and D0, D1, D2 for the
-parts ||phi||, first derivatives of phi and second derivatives of phi. Since Psi = Psi' + (1/2) X_s and ||Z^j X_s|| <=
-C lam H (Lemma 9.4b), the Psi-part is at most Q' + C lam H. The transport of Psi' follows from (3.6) and Lemma 9.4b:
+from Sigma_tau_T, where phi vanishes (h = w_n there); its Z-derivatives containing lam d_tau, and Psi', do not vanish
+there, but with L0 phi = -(1/2) P s all are bounded by C' E(tau_T), so N_P(tau_T) <= C' E(tau_T) <= C' M_F lam^K'
+T^(-1/2), and each line below carries this data term. Write H for the h-part of N_P, Q' for the Psi'-part, and D0, D1,
+D2 for the parts ||phi||, the first derivatives (d_tau phi, d_r phi, r^-1 Omega phi) and the second derivatives of phi.
+Since Psi = Psi' + (1/2) X_s and ||Z^j X_s|| <= C lam H (Lemma 9.4b), the Psi-part is at most Q' + C lam H. The
+transport of Psi' follows from (3.6) and Lemma 9.4b:
 
     (L0 - 2/r) Psi' = -(1/2) P box~ s - (1/2) R_s + r^-1 X_s - r^-1 (d_tau + d_r) P s - 3 r^-2 d_r phi,       (9.9b)
 
 in which the term (1/2) L0 X_s of -(1/2) [box~, P] s has been absorbed. With every integral over (tau_T, tau) (the
 initial values at tau_T of Lemma 9.6 are those of N_P(tau_T) and are included in its first term):
 
-- H <= C N_P(tau_T) + C int ( t^(-3/2) (H + Q') + t^(-5/2) D1 + t^-3 (D0 + D2) + lam^K' t^(-3/2) + R_nl ) (Step 4;
-  the coefficients above; ell phi = (1/2) P s is bounded by H through Lemma 9.3(b));
-- t^(-3/2) (D0 + D1) <= C int t^(-3/2) H (Step 5: Lemma 9.6 with c0 = 0 for phi and its Z-derivatives, with forcing
-  -(1/2) Z^j P s; ell phi is (1/2) P s itself);
-- t^(1/2) D2 <= C int t^(1/2) H (the transports of lam d_r^2 phi, lam r^-1 d_r Omega phi and lam r^-2 Omega^2 phi have c0
-  = 0, 1, 2, so Lemma 9.6 applies with c0 <= 2; the forcing, lam times the same derivatives of P s, is bounded by
-  Bernstein (M2) in one d_r or one r^-1 Omega);
-- t^(1/2) Q' <= C int t^(1/2) ( t^-1 H + t^-2 D1 + t^(-3/2) (H + Q') + t^-3 (D0 + D2) + lam^K' t^(-3/2) + R_nl )
-  (Lemma 9.6 with c0 = 2 for (9.9b): Lemma 9.4b bounds R_s and r^-1 X_s by C (t^-1 + h') H <= C t^-1 H, its R'_s
-  terms rewritten through Lemma 3.3 as in Step 6; r^-1 (d_tau + d_r) P s and r^-2 d_r phi give t^-1 H and t^-2 D1;
-  P box~ s is bounded through Lemma 3.3 with the coefficients above),                                              (9.9)
+- H <= C N_P(tau_T) + C int ( t^(-3/2) (H + Q') + t^(-5/2) D1 + t^-3 (D0 + D2) + lam^K' t^(-3/2) + R_nl ) (Step 4; the
+  coefficients above; ell phi = (1/2) P s is bounded by H through Lemma 9.3(b));
+- t^(-1/2) (D0 + D1) <= C T^(-1/2) N_P(tau_T) + C int t^(-1/2) H (Step 5: Lemma 9.6 with c0 = 0 for phi, d_tau phi and
+  d_r phi and c0 = 1 for r^-1 Omega phi, with forcing -(1/2) Z^j of P s, d_tau P s, d_r P s and r^-1 Omega P s, the last
+  bounded at top order by Bernstein in one r^-1 Omega; the c0 = 0 parts satisfy the stronger bound with t^(-3/2); ell
+  phi is (1/2) P s itself);
+- t^(1/2) D2 <= C T^(1/2) N_P(tau_T) + C int t^(1/2) H (the transports of lam d_r^2 phi, lam r^-1 d_r Omega phi and lam
+  r^-2 Omega^2 phi have c0 = 0, 1, 2, so Lemma 9.6 applies with c0 <= 2; the forcing, lam times the same derivatives of
+  P s, is bounded by Bernstein (M2) in one d_r or one r^-1 Omega);
+- t^(1/2) Q' <= C T^(1/2) N_P(tau_T) + C int t^(1/2) ( t^-1 H + t^-2 D1 + t^(-3/2) (H + Q') + t^-3 (D0 + D2) + lam^K'
+  t^(-3/2) + R_nl ) (Lemma 9.6 with c0 = 2 for (9.9b): Lemma 9.4b bounds R_s and r^-1 X_s by C (t^-1 + h') H <= C t^-1
+  H, its R'_s terms rewritten through Lemma 3.3 as in Step 6; r^-1 (d_tau + d_r) P s and r^-2 d_r phi give t^-1 H and
+  t^-2 D1; P box~ s is bounded through Lemma 3.3 with the coefficients above),                                   (9.9)
 
-R_nl the nonlinear terms. Z commutes with L0, and [Z, r^-c] has the factor r^(-c-1), so every line holds at every
-order j <= k with c0 unchanged. Bootstrap: H, Q' <= B t^(-1/2) (T/t)^beta and D0, D1, D2 <= B t^(1/2) (T/t)^beta, with B
-:= 2 C (M_F + C_R + 1) lam^K'. For beta > 1 and a > -beta, int_t^T t'^(-1-a) (T/t')^beta dt' <= t^(-a) (T/t)^beta /
-(beta + a), and int_t^T t'^(-1) dt' = log(T/t) <= (T/t)^beta / beta. Substituting the bootstrap bounds, each integral in
-(9.9) returns its bound times C/(beta - 1) at most: the t^-1 H and t^-2 D1 terms of the Q'-line give C B (T/t)^beta /
-beta, which is the loss the split pays, and every other term carries an extra integrable power. So for beta = beta0 :=
-max(2, 4C + 1) the bounds are improved to B/2, provided the nonlinear terms are small, which they are: every bootstrap
-quantity is at most B lam^(-2 beta0) t^(1/2) <= B lam^(-2 beta0 - 1), so by Lemma 9.3(a) R_nl <= C lam^-5 t^(-3/2) (B
-lam^(-2 beta0 - 1))^2, and its contributions to (9.9) are at most C B^2 lam^(-8 - 4 beta0) (the log T of the Q'-line
-included), small against B because K' = K + 3 + ceil(4 beta0) > 8 + 4 beta0. The margin of Lemma 9.1(f) holds, by Lemma
-9.3, as in Proposition 9.8. []
+R_nl the nonlinear terms. Z commutes with L0, and [Z, r^-c] has the factor r^(-c-1), so every line holds at every order
+j <= k with c0 unchanged. Bootstrap: H, Q' <= B t^(-1/2) (T/t)^beta and D0, D1, D2 <= B t^(1/2) (T/t)^beta, with B := 8
+C C' (M_F + C_R + 1) lam^K' and C the sum of the constants of each line of (9.9). For beta > 1 and a > -beta, int_t^T
+t'^(-1-a) (T/t')^beta dt' <= t^(-a) (T/t)^beta / (beta + a), and int_t^T t'^(-1) dt' = log(T/t) <= (T/t)^beta / beta.
+Substituting the bootstrap bounds, each integral in (9.9) returns its bound times C/(beta - 1) at most: the t^-1 H and
+t^-2 D1 terms of the Q'-line give C B (T/t)^beta / beta, which is the loss the split pays, and every other term carries
+an extra integrable power. So for beta = beta0 := max(2, 4C + 1) the bounds are improved to B/2, provided the nonlinear
+terms are small, which they are: every bootstrap quantity is at most B lam^(-2 beta0) t^(1/2) <= B lam^(-2 beta0 - 1),
+so by Lemma 9.3(a) R_nl <= C lam^-5 t^(-3/2) (B lam^(-2 beta0 - 1))^2, and its contributions to (9.9) are at most C B^2
+lam^(-8 - 4 beta0) (the log T of the Q'-line included), small against B because K' = K + 3 + ceil(4 beta0) > 8 + 4
+beta0. The margin of Lemma 9.1(f) holds, by Lemma 9.3, as in Proposition 9.8. []
 
 **Proof of Theorem P.** *The solution on P cup Omega.* At tau0, Data(w_n) <= C lam^-1 N_P(tau0) <= C M_N lam^(K' - 2
 beta0 - 1) (the term ||d_x(phi G1)|| contains lam^-1 ||phi||), and K' - 2 beta0 - 1 >= K + 2. (E1)-(E3) hold on Omega
