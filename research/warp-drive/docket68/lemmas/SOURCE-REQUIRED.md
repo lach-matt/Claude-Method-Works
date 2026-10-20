@@ -32,7 +32,7 @@ seed wave squared, solved for the outgoing amplitude at 2w (the 527 report's rou
 - **Validated.** The l = 2 reflection of each type reproduces Kodama and Ishibashi's barriers (522's V_T, 525's V_S)
   at x = w r_h = 1.0, 1.5, 2.1, 2.5, 3.0 -- tensor 0.993559, 0.557119, 8.28849e-3, 3.73881e-4; scalar 0.378617,
   1.81518e-3, 2.2326e-6, 1.84e-8 -- to 1e-4 (the scalar at 2.1 to 9e-4, at 1.0 to 2e-3, at 3.0 to 9e-3), the modes pure to 1e-6, the
-  supplementary rows holding at R/2 to 1e-11 (first order) and 1e-6 (second; 2e-5 at x = 1.0). The record's equations are linearized
+  supplementary rows holding at R/2 to 1e-8 (first order) and 1e-6 (second; 6e-5 at x = 1.0-1.5). The record's equations are linearized
   five-dimensional gravity mode by mode, and the identification of the types in its variables is exact. C at x = 2.1
   is the same at R = 100 and 150 (2e-5) and under a pure gauge admixture of the wave's own size at first order (to
   every printed digit).
@@ -57,9 +57,9 @@ seed wave squared, solved for the outgoing amplitude at 2w (the 527 report's rou
   admixture of order eps that floors C near 1e-8 (x = 2.5) and 1e-11 (3.0); the Frobenius start and the pole-residue
   basis remove it (C(3.0) the same at eps = 1e-3 and 1e-4 to 10-20 %).
 - **At the derived point** (527: x* = 10.67 copper, h_H = 1.3e-4; the example 8.5e-4; the large end 1e-10). With
-  T7's deliberately low slope (3 in amplitude, 6 in C) from the last computed point x = 3.0, C(x*) is 1e-32 for
-  copper and the second order lets out 2e-17 half bits; the example and the large end below that (the instrument's
-  report prints each anchor). The channels the full pattern adds (its h(x) tail; 0.988 of the power is l = 2) are
+  T7's deliberately low slope (3 in amplitude, 6 in C) from the last computed point x = 3.0, C(x*) is 1.3e-32 for
+  copper and the second order lets out 2.0e-18 half bits (T7's estimate: 1.2e-15); the example README 4.0e-16 at
+  x* = 8.25 (T7: 2.4e-13); the large end 5e-39 and 2e-42. The channels the full pattern adds (its h(x) tail; 0.988 of the power is l = 2) are
   bounded by the first-order escape times h_H^2, below 1e-7 half bits at every anchor.
 - **What this closes.** The second order is no longer an estimate on model couplings: it is computed on the record's
   own equations, validated against Kodama-Ishibashi at first order, gauge-invariant and radius-independent at second

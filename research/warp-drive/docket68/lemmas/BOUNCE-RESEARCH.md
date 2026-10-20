@@ -3237,7 +3237,7 @@ M, 530: "Yes , b please" -- route (b) of the 527 report.
   common factor and projected exactly on P_m, the same multiplier on the quadratic terms with every coefficient reduced
   to lowest terms in x and sin 2 th first (the raw sums carry 1/sin^23 2 th that cancel only together). Frequency
   domain: rr, r th, th th and the two box equations give the radial system; v th and v v are the supplementary
-  conditions (Bondi's lemma, checked at R/2: 1e-11 first order, 1e-6 second); v r is the trivial one.
+  conditions (Bondi's lemma, checked at R/2: 1e-8 first order, 1e-6 second); v r is the trivial one.
 - **The l = 2 waves in the record's variables** (exact): tensor Ps = -1/2, Om = -(3/4) x; scalar Ps = (2/3) x,
   Om = 1; the record's own F, G without h(x) are -F/3 and -F/4 of them. The products reach l' = 4, n <= 2: three modes
   close the tower exactly.
@@ -3251,8 +3251,9 @@ M, 530: "Yes , b please" -- route (b) of the 527 report.
   and value (the scalar type 4-6 times its line). At x = 1.0 the scalar type is near-resonant. The horizon start
   matters: started from zero, or on the pole's eigenvectors, the particular solution carries an outgoing admixture of
   order eps that floors C; the Frobenius start and the pole-residue basis remove it (eps = 1e-3 and 1e-4 agree).
-- **At the derived point**: with T7's deliberately low slope from x = 3.0, C(x*) = 1e-32 for copper and the second
-  order lets out 2e-17 half bits; the example and the large end below. The full pattern's tail is bounded by its
+- **At the derived point**: with T7's deliberately low slope from x = 3.0, C(x*) = 1.3e-32 for copper and the second
+  order lets out 2.0e-18 half bits (T7's estimate 1.2e-15); the example README 4.0e-16 (T7: 2.4e-13); the large end
+  5e-39 and 2e-42. The full pattern's tail is bounded by its
   first-order escape times h_H^2.
 - **Standing**: the second order is computed on the record's own equations, not estimated; SOURCEs and SOURCE go to M
   for PROVED under 441 on the exact first and second orders, the strain 1.3e-4 as the expansion parameter, the

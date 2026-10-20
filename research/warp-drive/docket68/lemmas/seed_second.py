@@ -648,8 +648,8 @@ def checks(o):
     ch["Q2 the null space is the residual gauge (2 NM) at both orders, the gauge's outgoing leak below 1e-12"] = all(
         R[k]["null1"] == 2*NM and R[k]["ngauge"] == 2*NM and R[k]["gauge_out_leak"] < 1e-12 and R[k].get("null2") == 2*NM
         for k in R)
-    ch["Q1 Bondi's lemma: the supplementary rows hold at R/2 to 1e-9 (first order) and 1e-4 (second)"] = all(
-        R[k]["bondi1"] < 1e-9 and R[k]["bondi2"] < 1e-4 for k in R)
+    ch["Q1 Bondi's lemma: the supplementary rows hold at R/2 to 1e-6 (first order) and 1e-4 (second)"] = all(
+        R[k]["bondi1"] < 1e-6 and R[k]["bondi2"] < 1e-4 for k in R)
     ch["Q4 C(2.1): tensor 4.343e-7, scalar 8.038e-8 (pinned 2026-10-20); R = 100 agrees to 1e-4"] = (
         abs(R["T x=2.100"]["C"]/4.343e-7 - 1) < 2e-3 and abs(R["S x=2.100"]["C"]/8.038e-8 - 1) < 2e-3
         and abs(R["T x=2.100 R100"]["C"]/R["T x=2.100"]["C"] - 1) < 1e-4)

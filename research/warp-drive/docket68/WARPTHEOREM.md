@@ -105,7 +105,7 @@ three modes close the tower exactly), the first order reproducing KI's barriers 
 order gauge-invariant and radius-independent. C = P_out(2w)/P_in(w) per unit record amplitude is 4.3e-7 (tensor) at
 x = 2.1, 1.4e-9 at 2.5 and 1.3e-12 at 3.0 (scalar 1.9e-10 and 1.4e-13), falling with an amplitude slope 6.7-7.7 above
 the barrier tops; in T7's normalisation the exact tensor coupling equals the model's p = 3 line at x = 2.1-3.0 to 10 %.
-At the derived point (x* = 10.67, copper) the second order lets out 2e-17 half bits. SOURCEs and SOURCE are put to M
+At the derived point (x* = 10.69, copper) the second order lets out 2.0e-18 half bits. SOURCEs and SOURCE are put to M
 for PROVED under 441.
 
 **Where it stood at item 527.** The seed and the emitter's wavelength are derived and proved (`seed_derive.py`, 10/10,
@@ -2165,7 +2165,7 @@ state was rebuilt first.
   own equations and solved for the outgoing amplitude at 2w (`lemmas/seed_second.py`, 9/9, mutants 3/3). The first
   order reproduces Kodama-Ishibashi's l = 2 barriers of both types to 1e-4 in the record's own gauge and variables;
   the second order's escaping fraction C(x) is computed at x = 1.0, 1.5, 2.1, 2.5, 3.0 for both types, gauge-invariant,
-  radius-independent, T7's model confirmed in slope and value; at the derived point 2e-17 half bits (copper).
+  radius-independent, T7's model confirmed in slope and value; at the derived point 2.0e-18 half bits (copper).
   SOURCE-REQUIRED "Item 530"; BOUNCE-RESEARCH section 57. SOURCEs and SOURCE put to M for PROVED under 441.
 - **Items 527-529** (M: the seed "must be derived then proven"; the sequence counts "if it was FULLY computed"; E6
   "was ruled, this math decides this"; "Continue with all SOURCE work"; 528 a re-send, 529 "Continue"). Answered
