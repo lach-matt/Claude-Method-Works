@@ -2246,7 +2246,9 @@ state was rebuilt first.
   the branch (n1star at 2780e2f9; past5 8/8, settle5 4/4, response5 pass here). Settling determined
   (`lemmas/settle_late.py`, S0-S5): the end state Tangherlini (proved), linear settling with the metric (proved), the
   record's nonlinear evolution settled to its resolution (computed), the nonlinear proof open (theorized). settle_late
-  in T1. No status moves. BOUNCE-RESEARCH section 64; SOURCE-REQUIRED item 540.
+  in T1. No status moves. BOUNCE-RESEARCH section 64; SOURCE-REQUIRED item 540. The full theorem selftest had not
+  passed since item 527: the loader never registered an instrument as a module, so `seed_second.py`'s source hash
+  (in T1 since 530) failed. The loader now registers it, and the selftest passes 12/12.
 - **Item 539** (M: the five-dimensional counterpart of Huneau and Luk "is now available in the repo from the N1*
   session"; "measure the planckian curvature under varying Baez constants values, like the copper study"). The N1*
   proof carried (N1* PROVED, part (iii), the mean-mass rate; its instruments re-run here pass; SOURCE-PROOF C5,
