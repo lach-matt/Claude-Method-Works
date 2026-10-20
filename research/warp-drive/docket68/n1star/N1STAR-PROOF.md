@@ -23,8 +23,10 @@ repaired as it proposed: Lemma 6.4's existence is now by Faedo-Galerkin with no 
 one universal operator for every order, and Proposition 6.5's smoothness is an induction with a Volterra bound. A fifth
 verifier checked the D18 repairs (D19): no major gap, the Galerkin existence and section 7 holding; two minor gaps (a
 term of Proposition 6.5's scheme that broke the Volterra form of the smoothness bound, and (A1)'s bounds uniform in t,
-which the coordinates of Step 8 do not give for all tau) and four notes, all repaired as it proposed. What is not done:
-the D19 repairs have not been re-checked. N1* is therefore not yet claimed as PROVED; no citation is outstanding.
+which the coordinates of Step 8 do not give for all tau) and four notes, all repaired as it proposed. A sixth verifier
+checked the D19 repairs (D20): no major gap; one minor gap, repaired as it proposed and as it checked (the whole
+coefficient of d_r a in the J-equation is frozen, since it depends on a as well), and two notes applied. What is not
+done: the D20 repairs have not been re-checked. N1* is therefore not yet claimed as PROVED; no citation is outstanding.
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -699,7 +701,9 @@ alpha0 > 0, and an invertible symmetrizer S with S A0 >= A00 > 0 and S A^B symme
 (||F_rho||_{L^2 H^s} + ||F_J||_{L^2 H^s}),  norms on the spheres S^3, for s > 3/2 + 2, with C depending only on s, R -
 a, alpha0, delta0, A00 and an upper bound for M_s := sup_r ||(alpha, Delta_alpha, S, S A0, S A^B)||_{H^(s+1)(S^3)} +
 sup_r ||(b, c, e, c', f, f', c'')||_{H^s(S^3)} + int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other
-r-derivative of a coefficient enters.
+r-derivative of a coefficient enters. The bound is tame: at an index s'' > s its constant depends only on s'', M_s and
+the bounds above, and the coefficients' norms at index s'' enter only multiplied by norms of the solution at index s
+(the Moser and Kato-Ponce inequalities of the proof).
 
 *Proof.* Commute s angular derivatives (by the Killing fields of the round S^3) through (6.4); the commutators are
 estimated in terms of M_s by the Moser and commutator (Kato-Ponce) inequalities on S^3 ([GO13], [DS23] Remark 2.3,
@@ -739,27 +743,29 @@ rho-component is linear in d_r a and in the angular second derivatives of a, wit
 algebraically (the scalar curvature of gamma + a dr dr contains no (d_r a)^2), and the J-component is linear in d(w, q)
 with coefficients depending on a algebraically. Put ||U||_{X_s} := sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) +
 ||a||_{L^2 H^(s+2)} + ||d_r a||_{L^2 H^s}, the left side of Lemma 6.4 with the d_r a the first equation gives. Iterate:
-U_(i+1) solves, with zero data at r = a, the linear system (6.4) whose principal coefficients are frozen at U_i, as are
-the terms of the remainder linear in d_r a with a coefficient depending on (w, q) (such as the q_th d_r a term of J_th:
-it enters f in (6.4), evaluated at U_i and multiplying d_r a_(i+1)), and whose sources are -Phi(gamma, K) and the
-remaining terms, at least quadratic and evaluated at U_i. Fix s0 > 3/2 + 4 and s := s0 + 2. At U = 0 the coefficients
-are those of Lemma 6.3; frozen at U_i they change by at most C lam^-1 ||U_i||_X, d_r a_i entering M only through int
-||d_r (S A0)||_{L^inf} dr <= C (1 + ||U_i||_{X_(s0)}); so while ||U_i||_{X_s} <= 2 C0 lam^(N-2), Lemma 6.4's hypotheses
-hold at indices s0 and s with constants independent of lam, for lam small and N >= 4. Lemma 6.4 at index s keeps the
-iterates in the ball of radius 2 C0 lam^(N-2) of X_s, and at index s0 gives ||U_(i+1) - U_i||_{X_(s0)} <= C lam^(N-3)
-||U_i - U_(i-1)||_{X_(s0)} (the difference of the frozen coefficients multiplies U_i, estimated in the higher norm), a
-contraction: bounded in X_s and contracting in X_(s0), the iterates converge to a solution in X_s (the scheme of Kato
-and Majda for quasilinear symmetric hyperbolic systems, READ in [DS23] section 4 and [AO14] section 4.1, section 7; the
-parabolic component obeys the same estimates). Uniqueness holds in the ball of radius 2 C0 lam^(N-2) of X_s, by the
-difference estimate. The r-derivatives follow from the equations, each d_r of a coefficient costing at most lam^-1.
-Smoothness (persistence of regularity): the coefficients and sources of each step are smooth in the angles when the
-previous iterate is, so by Lemma 6.4 at every index the iterates U_i are smooth, by induction. At an index s'' > s the
-bound of Lemma 6.4 is linear in the top norms, those of the coefficients (functions of a) entering linearly by the Moser
-and Kato-Ponce inequalities with factors depending only on the X_s bound; with E_i(r) the X_(s'') norm of U_i on [a, r]
-it reads E_(i+1)(r) <= A + int_a^r omega_i E_i, the weight omega_i built from ||d_r a_(i+1)||_inf and ||d_r (S A0)||_inf
-and bounded in L^2(a, R) by some W uniformly in i (a source term carrying d_r a_i would put E_i(r) itself on the right,
-which is why those terms are frozen as coefficients); by induction E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for
-every i, with no smallness, and the limit U lies in X_(s'') for every s''. So U is smooth for lam <= lam0, lam0
+U_(i+1) solves, with zero data at r = a, the linear system (6.4) whose principal coefficients are frozen at U_i, as is
+the whole coefficient f of d_r a in the J-equation, f(gamma, K; a, w, q), evaluated at U_i and multiplying d_r a_(i+1)
+(it depends on a and on (w, q), so the terms q_th d_r a and a d_r a of J's remainder are not left in the source; in the
+contraction the extra source (f(U_i) - f(U_(i-1))) d_r a_i is at most C lam^(N-2) ||U_i - U_(i-1)||_{X_(s0)} in L^2
+H^(s0)), and whose sources are -Phi(gamma, K) and the remaining terms, at least quadratic and evaluated at U_i. Fix s0 >
+3/2 + 4 and s := s0 + 2. At U = 0 the coefficients are those of Lemma 6.3; frozen at U_i they change by at most C lam^-1
+||U_i||_X, d_r a_i entering M only through int ||d_r (S A0)||_{L^inf} dr <= C (1 + ||U_i||_{X_(s0)}); so while
+||U_i||_{X_s} <= 2 C0 lam^(N-2), Lemma 6.4's hypotheses hold at indices s0 and s with constants independent of lam, for
+lam small and N >= 4. Lemma 6.4 at index s keeps the iterates in the ball of radius 2 C0 lam^(N-2) of X_s, and at index
+s0 gives ||U_(i+1) - U_i||_{X_(s0)} <= C lam^(N-3) ||U_i - U_(i-1)||_{X_(s0)} (the difference of the frozen coefficients
+multiplies U_i, estimated in the higher norm), a contraction: bounded in X_s and contracting in X_(s0), the iterates
+converge to a solution in X_s (the scheme of Kato and Majda for quasilinear symmetric hyperbolic systems, READ in [DS23]
+section 4 and [AO14] section 4.1, section 7; the parabolic component obeys the same estimates). Uniqueness holds in the
+ball of radius 2 C0 lam^(N-2) of X_s, by the difference estimate. The r-derivatives follow from the equations, each d_r
+of a coefficient costing at most lam^-1. Smoothness (persistence of regularity): the coefficients and sources of each
+step are smooth in the angles when the previous iterate is, so by Lemma 6.4 at every index the iterates U_i are smooth,
+by induction. At an index s'' > s the bound of Lemma 6.4 is linear in the top norms, those of the coefficients
+(functions of a) entering linearly by the Moser and Kato-Ponce inequalities with factors depending only on the X_s
+bound; with E_i(r) the X_(s'') norm of U_i on [a, r] it reads E_(i+1)(r) <= A + W (int_a^r E_i^2)^(1/2), W uniform in i
+(the sources enter in L^2 H^(s''), and the weight built from ||d_r a_(i+1)||_inf and ||d_r (S A0)||_inf, bounded in
+L^2(a, R), through Cauchy-Schwarz; a source term carrying d_r a_i would put E_i(r) itself on the right, which is why the
+coefficient of d_r a is frozen); by induction and Minkowski's inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2)
+for every i, with no smallness, and the limit U lies in X_(s'') for every s''. So U is smooth for lam <= lam0, lam0
 independent of s''. Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
 
 ### 6.4 Proof of Theorem D
@@ -790,7 +796,10 @@ v_start - tau0}. []
   checked those: no major gap; two minor gaps (Proposition 6.5's smoothness bound, a term to freeze as a coefficient;
   Step 8, time clamped in the coefficients for [DS23] (A1)) and four notes (the projection on the covector q; Lemma
   6.4's coefficients need only M_s finite; the data extended in x before the change to y; the uniformity in tau of the
-  extension constants deduced, not READ), all repaired. **Not yet checked by a verifier:** the D19 repairs.
+  extension constants deduced, not READ), all repaired. A sixth (D20) checked those: no major gap; one minor gap (f, the
+  coefficient of d_r a in the J-equation, depends on a too, so the whole of it is frozen; it checked the repair) and two
+  notes (the bound's form, A + W (int E_i^2)^(1/2); the tame form stated in Lemma 6.4), applied. **Not yet checked by a
+  verifier:** the D20 repairs.
 - **READ at source (D17).** By the retrieval protocol of the site's Ask prompt: targets enumerated, routes by type with
   the open ones first, the sources a source names followed back and the papers citing a target followed forward, a
   blocked route left for the next and not retried, two independent routes closing a fact and one route fragile. rho

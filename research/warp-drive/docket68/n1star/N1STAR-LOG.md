@@ -333,3 +333,18 @@ covector q is the Hodge Laplacian's, with X^I acting by Lie derivatives; Lemma 6
 smooth coefficients; the data are extended in x and then composed with Phi; the uniformity in tau of the extension
 constants is deduced from [LY22] Lemma 27's proof, not READ. Status: no citation outstanding; the D19 repairs not yet
 re-checked; N1* not yet claimed as PROVED; no paper begun.
+
+**D20 (2026-10-20, session decision): the sixth verifier's findings on the D19 repairs, and their repair.** One
+independent verifier (one at a time) checked the D19 repairs. No major gap: the time clamp gives [DS23] (A1)-(A4)
+uniformly in t and changes nothing on [tau0, tau_end] (Phi has bounded derivatives on the clamped interval, by
+Gronwall); the extension in x then composition with Phi, with the uniformity in tau deduced, holds; Lemma 6.4 uses no
+smoothness of its coefficients, and the projection on 1-forms commutes with Lie derivatives along Killing fields. One
+minor gap, with a repair it checked: the coefficient f of d_r a in the J-equation depends on a as well as on (w, q) (it
+computed f = -(B k3 - C k2) C / (A C - B^2)^2 for a general symmetric-class gamma and K, and the a d_r a term of the
+remainder as its derivative in A, present wherever f is, as on data5.py's data with chi on the slice), so freezing only
+its (w, q)-part left a source a_i d_r a_i putting E_i(r) itself on the right. The whole of f is now frozen at U_i, which
+Lemma 6.4 admits (f is algebraic in U_i), and the contraction keeps its factor (the extra source is at most C lam^(N-2)
+times the difference in the low norm); the density equation has no such term (its coefficient of d_r a, alpha, is
+already frozen). Two notes applied: the smoothness bound is stated as E_(i+1)(r) <= A + W (int_a^r E_i^2)^(1/2), which
+gives the same induction by Minkowski's inequality; Lemma 6.4 now states the tame form its proof gives. Status: no
+citation outstanding; the D20 repair not yet re-checked; N1* not yet claimed as PROVED; no paper begun.
