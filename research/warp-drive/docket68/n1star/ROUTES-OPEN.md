@@ -171,27 +171,38 @@ The low-energy analysis is where five dimensions differ: the spatial dimension i
 **Cheap companion (computed, to do).** Extend settle5.py T3 to show no growing mode in the class for l = 2, …, 10, and
 measure the late-time tail of the l = 2 master fields. That fixes the decay rate the nonlinear step must use.
 
-## Status, the same day (D37-D40)
+## Status, the same day (D37-D44)
 
 1. *The mass at past null infinity: closed.* Theorem M (N1STAR-PROOF.md section 11; the paper's Theorem 3): Bondi
    coordinates on g_lam at past null infinity, the hierarchy recomputed in the class with every coefficient from s^1
    general (bondi5.py B1-B3), the mean mass mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after the shell. Read by the
    twelfth verifier: no major finding, five minor repaired in place (D40). Step 0 first: the solver's offset/lam^2 ->
    0.4569 against the law's 0.45693 (B4, R8).
-2. *The go/no-go at 10 l5: measured, growth5.py (D38, D41, section 10.2).* At both seeds the scheme's premise fails
-   before the shell's peak: the round spheres' expansion acquires a second zero at v = 1.451 (mu0 = 100 l5^2, two grids
-   agreeing to 0.001) and 1.583 (1000 l5^2), and the core boundary untraps within 0.1 after. So no approximant on D_T
-   comes from the record's own scheme at 10 l5, and step 2 above must be re-posed with an inner boundary that stays
-   outflow (the 2+1 system of step 1, or an excision deeper inside the seed's horizon). To the break the radiation
-   field's growth factor is 1.7 and 2.1 and the finite-difference amplification 1.00; in the record's own regime (lam =
-   0.1, the control, complete) they are 6.9 and 1.71, while the sup-norm Groenwall factor exp int K_all is 6e3 there and
-   2e5 at the second seed to the break: the certified argument would have to carry the propagator's norm, as [MP11] do,
-   not a sup-norm bound.
-3. *Settling: the linear milestone in the class, as far as [KI03] carries it (D39, section 10.3).* Every metric
+2. 2. *The go/no-go at 10 l5: measured, growth5.py (D38, D41, D43; section 10.2).* At both seeds the scheme's premise
+   fails before the shell's peak: the round spheres' expansion acquires a persistent second zero at v = 1.500 (mu0 = 100
+   l5^2; 1.496 on the finer grid) and 1.583 (1000 l5^2, three grids to 0.0005), and the core boundary ceases to be
+   outflow within 0.1 after; a deeper excision fails earlier, not later (r = 0.39 and 0.25 r_h at the first seed, 0.21
+   r_h at the second). So no approximant on D_T comes from the record's own scheme at 10 l5 at any excision depth: the
+   untrapping is of the seed's interior in the scheme's gauge, from the inside outward, the exterior of the event
+   horizon unaffected. The step is re-posed as the characteristic initial value problem in double-null gauge -- the
+   incoming wave on an ingoing null hypersurface from past null infinity, the seed's outgoing cone from inside x_K = 1
+   -- where Luk's theorem gives local existence without smallness ([Wu26] Theorem 2.1) and [Wu26]'s Theorem 2.2, the
+   metric controlled by the curvature residues, is the a posteriori structure; its five-dimensional version in the
+   class, a 2+1 problem, is not built. To the break the radiation field's growth factor is 1.9 and 2.1 and the
+   finite-difference amplification along one direction of the data, a lower bound for the propagator's norm, 1.28 and
+   1.00; in the record's own regime (lam = 0.1, the control, complete) they are 6.9 and 1.71, while the sup-norm
+   Groenwall factor exp int K_all is 17 and 2e5 at 10 l5 and 6e3 in the control: the certified argument would have to
+   carry the propagator's norm, as [MP11] do, not a sup-norm bound.
+3. 3. *Settling: the linear milestone in the class, as far as [KI03] carries it (D39, section 10.3).* Every metric
    component in the Regge-Wheeler-type gauge f_a = 0 = H_T is a combination of [HKW18]'s master quantities and their
-   derivatives to order two (Proposition 10.1, deduced), so linear settling of the components follows at their rate;
-   L1 proper (the wave-map gauge) stays open. The cheap companion ran: no growing mode for l = 2, ..., 10 (settle5.py
-   T5) and the l = 2 tail t^-7, [CYDL03]'s law (T6).
+   derivatives to order two -- orbit-space for F_ab, angular for F, the factor l^2 that Phi~ carries -- (Proposition
+   10.1, deduced), so linear settling of the components follows at their rate; L1 proper (the wave-map gauge) stays
+   open. The cheap companion ran: no growing mode for l = 2, ..., 10 to tau = 275 r_h (settle5.py T5, a finite-time
+   observation) and the l = 2 tail t^-7, [CYDL03]'s law (T6). The passage to the harmonic gauge then (D42, section 10.4,
+   wavegauge5.py): Hung's four-dimensional structure ([Hun19], arXiv:1909.06733) computed in five dimensions in the
+   class -- the tensor type needs no gauge vector, the scalar one solves three 1+1 wave equations per mode with the
+   master field as source, and the l = 0 sector's W* and K* are explicit; L1 now rests on the decay estimate for that
+   system, which does not exist in five dimensions.
 
 ## References (READ 2026-10-20 unless marked)
 
@@ -210,4 +221,8 @@ measure the late-time tail of the l = 2 master fields. That fixes the decay rate
   perturbations, arXiv:1711.07597v2.
 - [Hin26] P. Hintz, Nonlinear stability of subextremal Kerr black holes, arXiv:2606.28253v2.
 - [DHRT21] M. Dafermos, G. Holzegel, I. Rodnianski, M. Taylor, arXiv:2104.08222 (abstract only).
+- [Hun19] P.-K. Hung, The linear stability of the Schwarzschild spacetime in the harmonic gauge: even part,
+  arXiv:1909.06733v1.
+- [Wu26] S. Wu, Picard iteration for the characteristic initial value problem in Einstein equations,
+  arXiv:2609.08421v1.
 - [IK03], [HKW18], [Hol08], [Sch10], [CLY03b], [AB26]: as in RESPONSE-HL-5D.md.

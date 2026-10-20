@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D41).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D44).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -29,18 +29,19 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   transport near past null infinity, the leading wave's decay, the stage-0 source, the rotations, and the flux of the
   record's radiation field, and the mollifier's commutator (P1-P8). `python3 past5.py --selftest` (8/8, about 4
   minutes), `--mutants` (9/9).
-- `settle5.py`: late-time settling, linearly, on the copper study's barrier (seed_escape.py E1): the class's
-  perturbation types, the potentials, the l = 2 ringdown against the published values, the settling times at the
-  study's seeds (T1-T4); no growing mode for l = 2..10 and the late-time tail t^-7 against Cardoso, Yoshida, Dias and
-  Lemos (T5-T6, section 10.3). `python3 settle5.py --selftest` (6/6, about a minute), `--mutants` (6/6).
-- `growth5.py`: the go/no-go at the wavelength 10 l5 (ROUTES-OPEN.md section 2): the solver of
-  `../lemmas/hf_mirror5.py` run on hf_core5's domain at lam = 10 l5 for mu0 = 100 and 1000 l5^2, the growth factor
-  exp int K dv of the computed solution recorded at every step (two measures, fifteen maxima), the breakdown of the
-  scheme's premise (a second zero of the expansion, the core boundary untrapped) and a finite-difference linear
-  amplification (G0-G4, section 10.2): at both seeds the premise fails before the shell's peak (the second zero at
-  v = 1.451 and 1.583), so no approximant on D_T comes from the record's scheme at 10 l5. `python3 growth5.py
-  --selftest` reads `data/growth5_runs.json` (G0 live, G1-G4 pinned); `--run L lam Ny Nx [delta] [v_end]` regenerates
-  one run (five minutes to half an hour), `--merge` trims the run files into the data file, `--report`.
+- - `settle5.py`: late-time settling, linearly, on the copper study's barrier (seed_escape.py E1): the class's
+  perturbation types, the potentials, the l = 2 ringdown against the published values, the settling times at the study's
+  seeds (T1-T4); no growing mode for l = 2..10 to tau = 275 r_h and the late-time tail t^-7 against Cardoso, Yoshida,
+  Dias and Lemos (T5-T6, section 10.3). `python3 settle5.py --selftest` (6/6, about a minute), `--mutants` (6/6).
+- - `growth5.py`: the go/no-go at the wavelength 10 l5 (ROUTES-OPEN.md section 2): the solver of
+  `../lemmas/hf_mirror5.py` run on hf_core5's domain at lam = 10 l5 for mu0 = 100 and 1000 l5^2, the growth factor exp
+  int K dv of the computed solution recorded at every step (two measures, fifteen maxima), the breakdown of the scheme's
+  premise (a persistent second zero of the expansion, or the core boundary no longer outflow) and a finite-difference
+  linear amplification (G0-G5, section 10.2): at both seeds the premise fails before the shell's peak (the second zero
+  persists from v = 1.500 and 1.583, two and three grids agreeing; deeper excisions fail earlier), so no approximant on
+  D_T comes from the record's scheme at 10 l5 at any excision depth. `python3 growth5.py --selftest` reads
+  `data/growth5_runs.json` (G0 live, G1-G5 pinned, twelve runs); `--run L lam Ny Nx [delta] [v_end] [--yex Y]`
+  regenerates one run (five minutes to an hour), `--merge` trims the run files into the data file, `--report`.
 - `routes5.py`: the two computed facts behind ROUTES-OPEN.md's route for the mass at past null infinity:
   five-dimensional Vaidya's R_vv, and Tanabe, Tanahashi and Shiromizu's Bondi mass law as the class's P7
   density (Q1-Q2). `python3 routes5.py --selftest` (2/2), `--mutants` (2/2).
@@ -51,10 +52,15 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   order r^-3), the chart from the wave-gauge expansion, the Hawking mass of the Bondi spheres, the numerics'
   coefficient (B1-B4). `python3 bondi5.py --selftest` (4/4, about ten minutes, B2 the slow one), `--mutants`
   (5/5), `--verbose` lists every sub-check.
+- - `wavegauge5.py`: the passage to the harmonic gauge on five-dimensional Tangherlini in the class (section 10.4,
+  Proposition 10.2; D42): the Lichnerowicz identity and Gamma[pi_X] = box X, the l = 0 stationary one-form W* regular at
+  the horizon, the gauge-fixed mass change K* linear in t, the scalar gauge vector's three 1+1 equations per mode (l =
+  2, 4), the tensor type already harmonic (W1-W5). `python3 wavegauge5.py --selftest` (5/5, about 1 minute), `--mutants`
+  (5/5), `--verbose` lists every sub-check.
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All twelve are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
-numpy, growth5.py importing the solver beside it), and the eleven others import
-nothing from the tree. The board's shared record is not edited here.
+All thirteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
+numpy, growth5.py importing the solver beside it), and the twelve others import nothing from the tree. The board's
+shared record is not edited here.

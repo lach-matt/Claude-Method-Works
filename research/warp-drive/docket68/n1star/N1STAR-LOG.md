@@ -718,14 +718,74 @@ repairs are not themselves verified.
 **D41 (2026-10-20): the go/no-go at 10 l5, the second seed and the verdict.** At mu0 = 1000 l5^2 (lam/r_h = 0.316, the
 core boundary at r = 0.30 r_h where the wave's metric amplitude is 1.9) the record's scheme fails its premise as it did
 at 100 l5^2: the round spheres' expansion acquires a second zero at v = 1.5825 (Ny = 24; the Ny = 28 and 20 runs to v =
-1.75 are in progress at this commit and are seated in the next), W at the core boundary turns positive at v = 1.680 and
-the slice solve fails at v = 1.704, before the shell's peak. To the break, int K_v dv = 0.75 (exp 2.1), int K_all dv =
-12.3 (exp 2e5, d_r of W - W_V at the deep boundary), amplification 1.00; the K referenced to Vaidya at the Isaacson mean
-mass rather than to the seed, after a first run let the shell's own mass gradient dominate (int K_all dv = 12.6 at lam =
-0.1, 8.8 of it the mass term's d_r; the control now reads 8.77 with d_v of W's oscillating part the largest). The
-verdict (section 10.2): no approximant on D_T at 10 l5 comes from the record's own scheme at either seed -- the core
-boundary x_K = 1 is not trapped throughout the passage there, so the record's premise that the exterior is fixed by its
-own data fails, and step 2 of the route must be re-posed with an inner boundary that stays outflow; and the sup-norm
-Groenwall factor is no measure of the growth (1e3 to 1e5 against an amplification of 1.0 to 1.7), so the certified
-argument would need the propagator's norm. growth5.py pins the seven runs (G1-G4) and reads them back; the run files are
-intermediate and `--merge` keeps one trimmed data file. Not read by a verifier.
+1.75 agree, D43), W at the core boundary turns positive at v = 1.680 and the slice solve fails at v = 1.704, before the
+shell's peak. To the break, int K_v dv = 0.75 (exp 2.1), int K_all dv = 12.3 (exp 2e5, d_r of W - W_V at the deep
+boundary), amplification 1.00; the K referenced to Vaidya at the Isaacson mean mass rather than to the seed, after a
+first run let the shell's own mass gradient dominate (int K_all dv = 12.6 at lam = 0.1, 8.8 of it the mass term's d_r;
+the control now reads 8.77 with d_v of W's oscillating part the largest). The verdict (section 10.2): no approximant on
+D_T at 10 l5 comes from the record's own scheme at either seed -- the core boundary x_K = 1 is not trapped throughout
+the passage there, so the record's premise that the exterior is fixed by its own data fails, and step 2 of the route
+must be re-posed with an inner boundary that stays outflow; and the sup-norm Groenwall factor is no measure of the
+growth (1e3 to 1e5 against an amplification of 1.0 to 1.7), so the certified argument would need the propagator's norm.
+growth5.py pins the seven runs (G1-G4) and reads them back; the run files are intermediate and `--merge` keeps one
+trimmed data file. Not read by a verifier.
+
+**D42 (2026-10-20, M: "evaluate what is still open, execute more deep research ... then work them to completion"):
+the harmonic gauge in the class.** The literature was read again at source: Hung's four-dimensional even part in the
+harmonic gauge (arXiv:1909.06733) is the template for L1 -- the Lichnerowicz equation under the gauge, the gauge
+vector to the Regge-Wheeler gauge solving the tensorial wave equation with the Zerilli source, the l = 0 sector's
+stationary one-form W* and linearly growing gauge-fixed mass change K*, and tau^(-2+) decay for the rest -- and nothing
+of it exists in five dimensions. wavegauge5.py computes every explicit object of that structure on five-dimensional
+Tangherlini in the class (section 10.4, Proposition 10.2): the Lichnerowicz identity and Gamma[pi_X] = box X (W1); the
+tensor type is in harmonic gauge already (W5); the scalar gauge vector's three 1+1 equations per mode with the master
+field as source (W4, l = 2 and 4); W* = dt/r^2 + sqrt(mu) dr/(r^3 f), regular at the horizon (W2); and K* = K +
+pi_{W**} with A and B explicit, harmonic, linear in t (W3). What L1 still needs is the decay estimate for that system,
+Hung's sections 5-8 in five dimensions; it is named and not attempted. Not read by a verifier.
+
+
+**D43 (2026-10-20): the go/no-go at 10 l5 finished -- the grids, the deeper excisions, the criterion, the re-posing.**
+The Ny = 28 and 20 runs at mu0 = 1000 l5^2 agree with Ny = 24 (break 1.5829, 1.5825, 1.5825; D41's forward reference
+points here). The breakdown is read by a persistence criterion -- a second zero of the expansion holding over 0.01 in v,
+or W >= 0 at the boundary (growth5.breakdown): a single-step excursion of the root count at v = 1.4516 had set the first
+seed's figure, and the persistent figure is 1.500 (Ny = 20) and 1.496 (Ny = 28); both are stated in section 10.2. Deeper
+excisions do not help and fail earlier: y = 1.6 (r = 0.39 r_h) at the first seed breaks at 1.410, W >= 0 at 1.455, the
+solve fails at 1.556; y = 2.0 (r = 0.25 r_h) at 1.353, 1.362, 1.370; y = 2.2 (r = 0.21 r_h, Ny = 16) at the second seed
+at 1.524, 1.558, 1.559 against 1.583, 1.680, 1.69 (G5, three runs pinned). The untrapping is of the seed's interior in
+the scheme's gauge, from the inside outward, and the exterior of the event horizon is unaffected; D41's causal sentence
+("the exterior is no longer fixed by its data") is narrowed in 10.2 to the region between x_K = 1 and the apparent
+horizon. The question is re-posed as the characteristic initial value problem in double-null gauge, where Luk's theorem
+gives local existence without smallness ([Wu26] Theorem 2.1, READ) and [Wu26]'s Theorem 2.2 is the a posteriori
+structure; not built. K_all is now referenced to Vaidya at the Isaacson mean mass and U is carried as r U (the first
+K_all was dominated by the seed-referenced mass gradient and mixed dimensions), and the amplification run is paired with
+its own base (growth5.partner). One rule slip is recorded: a process was once addressed by `pkill -f` with a pattern
+instead of by its PID; it killed the issuing shell and the selftest it named, nothing else, and was not repeated. Read
+in part by the thirteenth verifier (D44).
+
+**D44 (2026-10-20): the thirteenth verifier -- D38-D41, the repairs of D40, sections 10.2 and 10.3.** Two major
+findings. (1) Lemma 11.0 ran Lemma 9.5's identity on the region between {v = v_start} and Sigma_tau, which is unbounded
+toward past null infinity, where the flux of d^gamma u_1 is known to vanish only at the orders Theorem P controls (k =
+6): the twelfth verifier's gap was moved, not closed. Repaired by running the identity for each approximating solution
+g_n of Proposition 9.8 on P cap {tau_n <= tau' <= tau}, the region of (9.8)'s own identity, where the data on
+Sigma_tau_n are the approximant's residual, explicit, with constants independent of n, and passing the bounds to the
+limit by Arzela-Ascoli; the sup-against-L^2 bookkeeping is written (floor((N + 2)/2) <= max(4, N - 3)). The verifier
+proposed a finite derivative budget instead; k = 6 is fixed in Theorem P, so that route would re-run section 9 at a
+higher k, and the one taken keeps every order. (2) Section 10.2's break time at the first seed, 1.4516 / 1.4508, was a
+single step of the root count on both grids, and the amplification 1.00 was sampled before the field had grown: the grid
+agreement supported a transient, not a persistent second zero -- as D43's criterion had found the same day. Nine minor
+findings and notes, all seated: Proposition 11.2(i)'s nullity argument used the transverse Jacobi field d_{v0} gamma
+with the false g0(ell, d_v) = 0 (now gamma' and d_{xhat0} gamma only, with the limits in E_1) and called -(2/r) xi' a
+Lipschitz perturbation (it is the unperturbed angular operator); Proposition 11.2(iv) had e^{-2b} = 1 + 2 d_v ů (the
+factor is 1, as B2 computes); "an order" is one power of r, two of s, in Theorem M(a) and Proposition 11.3's hypothesis;
+Proposition 10.1(iii)-(iv) hid a factor H ~ l^2 in Phi~ (the two derivatives lost are orbit-space for F_ab and angular
+for F) and left the l = 0 gauge unfixed (h_0 = c K, now stated); the even-l claim for the tensor type is not needed and
+no longer made; T5's region r* in [-20, 50] was covered by the computed slice only to tau = 175 at T = 120 (now T = 170,
+covered to 275, the checks restricted to the covered range, the figures unchanged to two digits), and its verdict is a
+finite-time observation (rates above 0.08/r_h excluded); T6's "approaching 7 from above" is origin-dependent at that
+level (the origin shifted by the launch radius gives 6.89 and 7.23; that the pair brackets 7 is now checked); 10.2's
+"ceases to be trapped" and "ceases to be outflow" are given one meaning each, and the amplification is called the lower
+bound it is. Open: the literature identifications ([KI03] (3.13)-(3.14), [HKW18] (169)-(186), [CYDL03] (14)) could not
+be re-fetched by the verifier (403) and stand as READ by this session. Attacks that held: Lemma 11.2's coefficient 2/(k
+- 3) and G_4 = 2 int S_3, the induction at J = 3, Proposition 11.3(0) with its controls, the ODE classes of 11.2(i),
+10.3's regularity at the horizon and the absence of l = 1, settle5 6/6 with mutants 6/6, growth5's fields against
+hf_mirror5's form and every figure of 10.2 from the pinned data, no line over 121 characters, no model identifier. The
+repairs of this entry, D42's section 10.4 and D43's deeper excisions have not been read by a verifier.
