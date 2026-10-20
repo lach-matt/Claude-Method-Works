@@ -258,13 +258,14 @@ if __name__ == "__main__":
         part = RUNS.replace(".json", "_" + k + ".json")
         json.dump({k: rec}, open(part, "w"))
         print("wrote", part, "%ds" % rec["seconds"])
-    elif "--merge" in sys.argv:                      # the part files are intermediate (data/.gitignore); the merge is kept
+    elif "--merge" in sys.argv:            # the part files are intermediate (data/.gitignore); the merge is kept
         R = load()
-        parts = [f for f in sorted(os.listdir(os.path.dirname(RUNS))) if f.startswith("growth5_runs_") and f.endswith(".json")]
+        d = os.path.dirname(RUNS)
+        parts = [f for f in sorted(os.listdir(d)) if f.startswith("growth5_runs_") and f.endswith(".json")]
         for f in parts:
-            R.update(json.load(open(os.path.join(os.path.dirname(RUNS), f))))
+            R.update(json.load(open(os.path.join(d, f))))
 
-        def trim(x):                                 # six significant digits: what the figures quote, a fifth of the bytes
+        def trim(x):                       # six significant digits: what the figures quote, a fifth of the bytes
             if isinstance(x, float):
                 return float("%.6g" % x)
             if isinstance(x, list):
@@ -274,7 +275,7 @@ if __name__ == "__main__":
             return x
         json.dump(trim(R), open(RUNS, "w"), separators=(",", ":"))
         for f in parts:
-            os.remove(os.path.join(os.path.dirname(RUNS), f))
+            os.remove(os.path.join(d, f))
         report(load())
     elif "--report" in sys.argv:
         report()
