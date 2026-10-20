@@ -495,3 +495,21 @@ Tangherlini in the class, once the solution is also built outside D_T; both are 
 computed (response5.py R7), lam/L with L = K^(-1/4) the curvature length is 10 on x = 1 and 2.913 (mu = 100 l5^2),
 0.921 (mu = 1000 l5^2) at the horizon: no separation of scales, so no high-frequency theorem reaches it.
 
+**D30 (2026-10-20, session decision): the ninth verifier, on section 8 and the paper's new text, and its findings
+seated.** One independent read-only verifier checked Propositions 8.1 and 8.2 and Lemma 8.2 at ee41dbb with its own
+code: the background expansion by the Lie-derivative formula (mu' does not enter), the absence of an O(lam^0)
+oscillation for the record's wave itself at the shifted phase with chi and a generic mean m1, the remainder's C^2
+bound, the counting, M1-M3 independently, the equivariance of every stage (no choice breaks it; the record's own
+Bondi-gauge terms of ansatz5 A4-A5 carry the predicted parities), the supports, and R7. No major finding; one minor and
+nine notes, all seated. (Minor) Holzegel's SU(2) x U(1) class is not a subclass of ours, as D29 said: its squashing is
+a dphi1 dphi2 term that the reflections exclude, so the two classes meet only in spherical symmetry (the waves are
+outside it either way); corrected in the paper, and D29's sentence stands corrected by this entry. Notes: Theorem 1
+item 6 holds for lam <= lam1; H2 is a sample profile, so H2b is added (`horizon5.py`, the record's wave at the shifted
+phase with chi dv^2 and every T^2-invariant component of m1, symbolic in every function; 4/4, mutants 4/4); k_g carries
+a positive normalising factor c(g); the naturality used is diffeomorphism covariance, M[S](phi^* g) = M[phi(S)](g); the
+induced action of S on the stage unknowns (m_j, phi_j, gh_j) written out; "apparent horizon" for g_lam replaced by the
+zero of the spheres' outgoing expansion; the mean mass of the spheres kept apart from the numerics' mass aspect at past
+null infinity; the decay claim in the past-null-infinity assessment labelled as an assessment; the [Hol08] locator
+made consistent. Two prose lines of sections 2-6 that began with "- " (and so rendered as list items) were re-flowed;
+the words of sections 0-7 are unchanged.
+

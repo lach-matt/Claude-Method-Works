@@ -19,6 +19,10 @@ n = g^-1 k is theta_k = -gamma^AB Gamma[g]^c_AB k_c (gamma the induced metric; t
      reason is one line: the fast derivative enters only through d_c of the tangential components, as
      (1/2) k(ell) d_th(tr_S W), and tr_S W = tr_g0 W = 0 when W(ell, .) = 0.  Control: a W with a trace on the spheres
      gives an O(1) oscillation.
+  H2b (computed, exact, symbolic in every function) The same for the record's wave itself (lead5.py's P1, P2 with
+     amplitude A E(v) H(th) r^(-3/2)) at the shifted phase Theta + phi1(tau, r, th), with chi dv^2 and a mean m1 of
+     every T^2-invariant component: the coefficients of lam^-2, lam^-1 and lam^0 beyond g0's vanish identically.
+     Control: a trace on the spheres.
   H3 (computed, exact) Along a column (v and the angles fixed, r varying) the phase v/lam is constant, so the
      r-derivative of a profile term [f] = f(X, v/lam) is [d_r f] with no 1/lam.  Control: along a line of fixed tau the
      phase is not constant.
@@ -145,6 +149,51 @@ def h2(control=False):
     return all(abs(x_) < 1e-20 for x_ in lead)
 
 
+def h2b(control=False):
+    """the record's wave itself: W_TT (lead5.py's P1, P2, amplitude A E(v) H(th) r^(-3/2)) at the shifted phase
+    Theta + phi1(tau, r, th), with chi(tau, r, th, Theta) dv^2 and a mean m1 (all T^2-invariant components, functions
+    of (tau, r, th)): no term of order lam^-1 or lam^0 beyond g0's in the expansion; symbolic in every function"""
+    mu = sp.Symbol("mu", positive=True)
+    A = sp.Symbol("A", positive=True)
+    E = sp.Function("E")(tau + r)
+    Hh = sp.Function("H")(th)
+    ph1 = sp.Function("phi1")(tau, r, th)
+    chi = sp.Function("chi")(tau, r, th, TH)
+    Ph = TH + ph1
+    c, s_ = sp.cos(th), sp.sin(th)
+    amp = A*E*Hh*r**sp.Rational(-3, 2)
+    P1 = amp*(2*c**2*sp.cos(Ph) - s_**2*sp.sin(Ph))/3
+    P2 = amp*(2*s_**2*sp.sin(Ph) - c**2*sp.cos(Ph))/3
+    W = sp.zeros(5)
+    W[2, 2] = -2*r**2*(P1 + P2) + (r**2*P1 if control else 0)      # the control adds a trace on the spheres
+    W[3, 3] = 2*r**2*c**2*P1
+    W[4, 4] = 2*r**2*s_**2*P2
+    dvv = sp.Matrix([1, 1, 0, 0, 0])
+    W = W + chi*dvv*dvv.T
+    m1 = sp.zeros(5)
+    idx = [(0, 0), (0, 1), (1, 1), (0, 2), (1, 2), (2, 2), (3, 3), (4, 4)]
+    for n_, (i, j) in enumerate(idx):
+        m1[i, j] = m1[j, i] = sp.Function(f"m{n_}")(tau, r, th)
+    g0 = g0_of(mu)
+    g1 = W + m1
+    g = g0 + lam*g1
+    g0i = g0.inv()
+    gi = g0i - lam*g0i*g1*g0i
+    Aidx = [2, 3, 4]
+    gam0i = sp.Matrix([[g0[a_, b_] for b_ in Aidx] for a_ in Aidx]).inv()
+    g1s = sp.Matrix([[g1[a_, b_] for b_ in Aidx] for a_ in Aidx])
+    gami = gam0i - lam*gam0i*g1s*gam0i
+    al0 = [x_ for x_ in roots_g0(mu) if sp.simplify(x_ - 1) != 0][0]
+    al, a1 = sp.symbols("al a1")
+    k = sp.Matrix([al, 1, 0, 0, 0])
+    q1 = sp.expand((k.T*gi*k)[0, 0].subs(al, al0 + lam*a1))
+    a1s = sp.solve(sp.expand(sp.series(q1, lam, 0, 2).removeO()).coeff(lam, 1), a1)
+    th_g = theta_of(g, al0 + lam*a1s[0], gi=gi, gami=gami)
+    th_0 = theta_of(g0, al0)
+    diff0 = sp.expand(th_g - th_0)
+    return all(sp.simplify(diff0.coeff(lam, n_)) == 0 for n_ in (-2, -1, 0))
+
+
 def h3(control=False):
     """d/dr of v at fixed v along a column is 0; along fixed tau it is 1"""
     s = sp.Symbol("s")
@@ -155,6 +204,7 @@ def h3(control=False):
 
 CHECKS = [("H1 theta_out(g0) = 3 (1 - mu/r^2)/(2r) up to a positive factor; simple zero at sqrt(mu); ingoing < 0", h1),
           ("H2 a wave tangent and traceless on the spheres adds no O(1) term to the expansion", h2),
+          ("H2b the record's wave, phase-shifted, with chi dv^2 and a mean m1: no O(1) term (symbolic)", h2b),
           ("H3 along a column the phase v/lam is constant", h3)]
 
 
