@@ -548,3 +548,28 @@ paper cites for the regime without a small parameter (Chen and Hou, "II: Rigorou
 there as [4]): existence near a computed solution at a fixed wavelength, from a rigorous bound on its residual and on
 the linearized operator. Order of work: (1), then (2) and (3).
 
+
+**D32 (2026-10-20, session decision): Theorem P built (N1STAR-PROOF.md section 9; `past5.py` P1-P7, 7/7, mutants
+7/7).** The construction from past null infinity is written out as a theorem: on P = {tau <= tau0, |x| >= a, v +
+kappa t^(-1/4) <= V_P} (outer boundary spacelike with a margin decaying like t^(-5/4), P1), the seed region is exactly
+the seed (Lemma 9.2); the stages of the approximant are solved with nothing coming in from past null infinity, each
+with an explicit leading term in r and a remainder half a power better (classes L_p, O_p; Lemma 9.7, P2-P5), and the
+residual is in E_3; the remainder is controlled with rotations as commutators (P6; Sobolev gains t^(-3/2)). The D31
+expectation "an expansion in r^(-1/2) without logarithms" holds in this form: every source is r^-3 times a function
+plus a better remainder, so no r^(-5/2) source (the logarithm of P4) ever occurs. One obstruction found while writing:
+in norms, the auxiliary Psi of section 3.3 is transported with growth r^2 and forced by r^-1 times first derivatives,
+so each unit of log t costs a constant factor (the true Psi has a cancellation that norms do not see). It is met in
+two ways. For the stages, by subtracting the explicit leading terms first, after which every forcing integral
+converges. For the remainder, by splitting the past at t = lam^-2: before it the 1/lam coupling integrates to a
+constant and no decomposition is used (Proposition 9.8); after it the decomposition runs over an interval of length
+lam^-2 with weights (T/t)^beta0, at a cost lam^(-2 beta0) with beta0 independent of K (Proposition 9.9), absorbed by
+taking the approximant to order N = K + 4 + ceil(4 beta0). The limit is vacuum because D(g_app) decays at past null
+infinity (D_0 = 0 by transversality and trace, D_j in E_2), so the energy of D tends to zero there and Lemma 9.5 gives
+D = 0: no constraints are solved on this route. Its radiation field at past null infinity is lam [W_TT] exactly, the
+record's F and G at every lam. The mean mass at past null infinity: P7 computes the sphere mean of the flux density of
+that field exactly. **A correction of the session's own expectation:** it was taken to be (2/9) A^2 (env^2 + lam^2
+env'^2), and the first form of P7 failed; the computation gives that plus a second harmonic, (2/9) A^2 [-(1/2)(env^2 -
+lam^2 env'^2) sin(2v/lam) + lam env env' cos(2v/lam)], so the integrated flux oscillates by O(lam) while the shell
+passes and exceeds mu by exactly (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it. Turning that into a statement about
+a mass at past null infinity needs a five-dimensional mass law there and an expansion of g_lam beyond the r^-2 the
+estimates give; that stays OPEN (section 9.5). Theorem P is not yet read by a verifier.
