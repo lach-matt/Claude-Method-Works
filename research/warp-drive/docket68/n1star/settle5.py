@@ -23,15 +23,20 @@ decay.  This program fixes which perturbation types the class contains and measu
   T4 (computed) The settling times at the copper study's seeds.  The least-damped mode of the class is scalar-type
      l = 2, e-folding time r_h / 0.2561 = 3.905 r_h: 39.0, 54.5, 70.1 and 123.5 l5 for mu = 100, 195, 322 and 1000 l5^2
      (r_h = sqrt mu), the seeds of seed_escape.py E4.
-  T5 (computed, numerical; D39) No growing mode in the class for l = 2, ..., 10, both types.  The same 1+1 equation is
-     marched by diagonals (slices of constant t) from a pulse launched at r* = 15 r_h; on the fixed region r* in
-     [-20, 50], which the outgoing pulse has left by tau = 150 r_h after the launch, the field's sup is below 1e-5 of
-     its maximum from then on (2.5e-6 at l = 2, 1e-14 at l = 10) and still falling at tau = 200.  Control: the
-     potential's sign reversed grows (the ratio is 1).
+  T5 (computed, numerical; D39, D44) No growing mode in the class for l = 2, ..., 10, both types, to tau = 275 r_h.
+     The same 1+1 equation is marched by diagonals (slices of constant t) from a pulse launched at r* = 15 r_h, with
+     T = 170 so that the computed slice, |r*| <= 2T - 15 - tau, covers the fixed region r* in [-20, 50] to tau = 275;
+     the outgoing pulse has left that region by tau = 150 r_h after the launch, and from then to 275 the field's sup
+     on it is below 1e-5 of its maximum (2.5e-6 at l = 2, 1e-14 at l = 10) and smaller on [200, 275] than on
+     [100, 125].  A finite-time observation: growth rates above ln(1e5)/150 r_h = 0.08/r_h are excluded, slower ones
+     are not.  Control: the potential's sign reversed grows (the ratio is 1).
   T6 (computed, numerical; D39) The late-time tail.  Measured from the launch, the l = 2 master fields of both types
      fall as a power law with local exponent 7.05 (tensor; 7.03 at step 0.05) and 7.06 (scalar) on tau in [550, 700]
      r_h, approaching 7 from above (7.41, 7.22, 7.12, 7.07 on [100, 150], [150, 250], [250, 400], [400, 550]), the
-     two steps agreeing (so no ghost potential, [CYDL03] p. 5); the l = 4 tensor field, seen at r* = 30 where its tail
+     two steps agreeing (so no ghost potential, [CYDL03] p. 5).  The origin is the launch; shifted by the launch
+     radius, 15 r_h either way, the [550, 700] exponent moves to 6.89 and 7.23 and the earlier windows the other way
+     (6.79 and 7.48 on [250, 400]), so the limit 7 is resolved and the direction of approach is not (the shifted pair
+     brackets 7, checked).  The l = 4 tensor field, seen at r* = 30 where its tail
      is 3^5.5 times larger, gives 11.5 on [150, 250] before the floor of double precision.  READ:
      [CYDL03] (14), "Psi ~ t^-(2l+D-2), odd D", 7 and 11 at D = 5, their own D = 5 numerics 7.1 and 11.4 (Fig. 2).
      The tail is the flat odd-dimensional Green's function's, not the hole's ([CYDL03] p. 2, p. 4).  Control: the time
@@ -203,9 +208,11 @@ def t5(control=0):
     ok = True
     for l in range(2, 11):
         for kind in ("tensor", "scalar"):
-            tau, sig, sup = march(l, kind, T=120.0, sign=-1.0 if control == 1 else 1.0, rs_hi=50.0)
-            late = sup[tau >= 150.0].max()/sup.max()                     # the outgoing pulse has left r* <= 50 by then
-            falling = sup[tau >= 200.0].max() < sup[(tau >= 100.0) & (tau <= 125.0)].max()
+            T = 170.0
+            tau, sig, sup = march(l, kind, T=T, sign=-1.0 if control == 1 else 1.0, rs_hi=50.0)
+            cov = tau <= 2*T - 15.0 - 50.0           # the slice spans |r*| <= 2T - 15 - tau: covered to 275
+            late = sup[(tau >= 150.0) & cov].max()/sup[cov].max()        # the outgoing pulse has left r* <= 50 by then
+            falling = sup[(tau >= 200.0) & cov].max() < sup[(tau >= 100.0) & (tau <= 125.0)].max()
             ok &= late < 1e-5 and falling and bool(np.isfinite(sig[0][:, 1]).all())
             if not ok:
                 return False
@@ -223,6 +230,7 @@ def t6(control=0):
                 continue
             late, mid = exponent(t_, y, 550.0, 700.0), exponent(t_, y, 250.0, 400.0)
             ok &= abs(late - 7.0) < 0.1 and mid > late
+            ok &= exponent(t_ - 15.0, y, 550.0, 700.0) < 7.0 < exponent(t_ + 15.0, y, 550.0, 700.0)   # the origin
     if control == 0:
         tau, sig, _ = march(4, "tensor", T=400.0, obs=(30.0,))               # the l = 4 tail is 3^5.5 larger there
         ok &= abs(exponent(sig[0][:, 0], sig[0][:, 1], 150.0, 250.0) - 11.0) < 0.6

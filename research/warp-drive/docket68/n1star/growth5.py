@@ -23,9 +23,12 @@ and aliased the oscillation).  Whether K_v or K_all is the constant of the estim
 printed, and the finite-difference amplification below is what either must bound.
 
 Breakdown.  The scheme's premise is that the core boundary is trapped (hf_core5 C3): the inner boundary is then
-outflow and the region outside it is fixed by the data outside it.  Each run records v_break, the first v at which the
-round spheres' outgoing expansion has a second zero in some column, or W at the boundary is >= 0, or a field is not
-finite.  Past v_break nothing the scheme prints is a solution of anything; the growth factor is reported up to it.
+outflow and the region outside it is fixed by the data outside it.  Each run records every step's count of zeros of
+the round spheres' outgoing expansion (hf_mirror5.horizon) and W at the boundary; `breakdown` reads off the first v
+from which a second zero persists over 0.01 in v, or W at the boundary is >= 0, or a field is not finite (a single-step
+second zero, which the Chebyshev root count can report on a smooth slice, is not one: the deeper-excision run shows one
+at its second step).  Past the breakdown nothing the scheme prints is a solution of anything; the growth factor is
+reported up to it.
 
 Amplification.  The data are perturbed, A -> A (1 + delta), the two runs taken on the same fixed step, and
     amp := max over v, slice of |Delta F|, |Delta G|  /  max over v, x of |Delta F0|, |Delta G0| at past null infinity
@@ -37,25 +40,30 @@ the measure, not a theorem.
      record's data at v = 2 over fields still zero, both measures are positive, K_all >= K_v, and the field whose
      derivative gives K_all is named.  Control: a perturbation of W alone at the boundary gives K_v = 0 with K_all > 0,
      so K_v alone is blind to it.
-  G1 (computed) L = 100, lam = 1.000 (the wave's metric amplitude lam A r^-3/2 at the core boundary 2.5): the premise
-     fails at v = 1.4516 (Ny = 20) and 1.4508 (Ny = 28), a second zero of the expansion; W at the boundary turns
-     positive at 1.516 and 1.512 and the slice solve fails at 1.69 and 1.75, before the shell's peak at v = 2.  To the
-     break, int K_v dv = 0.523 (exp 1.7), int K_all dv = 2.13 (exp 8.5).
-  G2 (computed) L = 1000, lam = 0.3162 (amplitude 1.9 at the boundary), Ny = 24: the same sequence, the second zero at
-     v = 1.5825, W positive at the boundary at 1.680, the slice solve failing at 1.704; to the break int K_v dv = 0.751
-     (exp 2.1), int K_all dv = 12.27 (exp 2e5, from d_r of W - W_V at the deep boundary).
-     the Ny = 28 and 20 runs to v = 1.75 are in progress at this commit and are seated in the next
+  G1 (computed) L = 100, lam = 1.000 (the wave's metric amplitude lam A r^-3/2 at the core boundary 2.5): a second
+     zero of the expansion first appears at v = 1.4516 (Ny = 20) and 1.4508 (Ny = 28) and stays from 1.500 and 1.496;
+     W at the boundary turns positive at 1.516 and 1.512 and the slice solve fails at 1.69 and 1.75, before the
+     shell's peak at v = 2.  To the breakdown (1.50), int K_v dv = 0.647 (exp 1.9), int K_all dv = 2.81 (exp 17).
+  G2 (computed) L = 1000, lam = 0.3162 (amplitude 1.9 at the boundary): the same sequence at Ny = 20, 24 and 28, the
+     second zero from v = 1.58294, 1.58251, 1.58252, W positive at the boundary at 1.680, the slice solve failing at
+     1.69-1.71; to the breakdown int K_v dv = 0.751 (exp 2.1), int K_all dv = 12.27 (exp 2e5, from d_r of W - W_V at
+     the deep boundary).  The breakdown time is the scheme's solution's at both seeds, not the grid's.
   G3 (computed) the record's own regime as control, L = 100, lam = 0.1: complete to v = 4.5 with one zero throughout,
      int K_v dv = 1.933 (exp 6.9), int K_all dv = 8.77 (exp 6e3, from d_v of the oscillating part of W), and the
      amplification 1.713 <= exp int K_v.
-  G4 (computed) the amplification to the break is 1.003 at L = 100 and 1.000 at L = 1000: the data's difference has not
-     grown into the slices by then.
+  G4 (computed) the amplification to the breakdown is 1.28 at L = 100 and 1.000 at L = 1000: the data's difference has
+     barely grown into the slices by then.
+  G5 (computed) a deeper excision, y = 1.6 (r = 0.39 r_h, inside x_K = 1 as the paper's own inner boundary is) at
+     L = 100: W at the boundary turns positive at v = 1.455, the second zero stays from 1.410 and the slice solve fails
+     at 1.556 -- the same moment as at x_K = 1.  The untrapping is of the interior of the seed's horizon, not of the
+     boundary, so no excision depth keeps the premise, and the scheme cannot be made to yield an approximant at 10 l5.
   So: no approximant on D_T at lam = 10 l5 comes from the record's own scheme at either seed; and the sup-norm Groenwall
   factor is no measure of the linear growth (1e3 to 1e5 against an amplification of 1.0 to 1.7), so a certified
   argument would need the propagator's norm, not a sup-norm bound.
 
-python3 growth5.py [--selftest | --run L lam Ny Nx [delta] | --report]
-Runs write data/growth5_runs.json (one key per run); --selftest reads it and asserts the pinned figures.
+python3 growth5.py [--selftest | --run L lam Ny Nx [delta] [v_end] [--yex Y] | --merge | --report]
+Runs write part files that --merge trims into data/growth5_runs.json (one key per run); --selftest reads it and asserts
+the pinned figures (G1-G5).
 """
 import sys, os, json, time
 import numpy as np
@@ -115,8 +123,10 @@ def fixed_step(lam, g, yex, mu_final=1.25):
     return SAMPLE/n, n
 
 
-def run(L, lam, Ny, Nx, delta=0.0, v_end=V_END, log=print):
-    yex = float(y_core(1.0, L))
+def run(L, lam, Ny, Nx, delta=0.0, v_end=V_END, log=print, yex=None):
+    """yex overrides the core boundary: a deeper excision, inside x_K = 1, for the question whether the scheme's premise
+    can be kept there (the paper's own inner boundary r = a lies inside x_K = 1)"""
+    yex = float(y_core(1.0, L)) if yex is None else float(yex)
     g = H.Grid(Ny, Nx, yex); data = H.Data(lam, 1.0 + delta, m0=1.0); fb, fa = H.filters(g)
     dv, nper = fixed_step(lam, g, yex)
     Z = np.zeros((Ny + 1, Nx + 1))
@@ -162,9 +172,30 @@ def run(L, lam, Ny, Nx, delta=0.0, v_end=V_END, log=print):
     return out
 
 
+def breakdown(rec, hold=0.01):
+    """the first v from which the premise stays failed (a second zero of the expansion over an interval of length
+    hold in v, or W at the boundary >= 0, or a field not finite); a single-step second zero, which the Chebyshev root
+    count can report on a smooth slice, is not a breakdown.  Recomputed from the steps, so it supersedes the value a
+    run wrote while it ran"""
+    st = rec["steps"]
+    for i, s in enumerate(st):
+        if s[5] >= 0 or not np.isfinite(s[2]):
+            return s[0]
+        if s[4] > 1:
+            j = i
+            while j < len(st) and st[j][4] > 1 and st[j][0] - s[0] < hold:
+                j += 1
+            if j < len(st) and st[j][4] > 1 and st[j][0] - s[0] >= hold:
+                return s[0]
+    if rec["end"] != "complete":
+        return st[-1][0]
+    return None
+
+
 def integrals(rec):
-    """trapezoid of K_v and K_all over the steps, up to v_break where there is one; and of each of the fifteen maxima"""
-    vb = rec["v_break"]
+    """trapezoid of K_v and K_all over the steps, up to the breakdown where there is one; and of each of the fifteen
+    maxima"""
+    vb = breakdown(rec)
     S = [s for s in rec["steps"] if vb is None or s[0] <= vb + 1e-9]
     vs = np.array([s[0] for s in S]); Kv = np.array([s[1] for s in S]); Ka = np.array([s[2] for s in S])
     M = np.array([s[6] for s in S])
@@ -178,7 +209,8 @@ def amplification(base, pert):
     for a, b in zip(base["samples"], pert["samples"]):
         if abs(a["v"] - b["v"]) > 1e-9:
             break
-        if base["v_break"] is not None and a["v"] > base["v_break"] + 1e-9:
+        vb = breakdown(base)
+        if vb is not None and a["v"] > vb + 1e-9:
             break
         dF = np.array(b["F"]) - np.array(a["F"]); dG = np.array(b["G"]) - np.array(a["G"])
         m = float(max(np.abs(dF).max(), np.abs(dG).max()))
@@ -188,8 +220,13 @@ def amplification(base, pert):
     return (num/den if den > 0 else float("nan")), per_v
 
 
-def key(L, lam, Ny, Nx, delta):
-    return "L%g_lam%.4g_%dx%d_d%g" % (L, lam, Ny, Nx, delta)
+def partner(k):
+    """the perturbed run (delta = 0.001) that pairs with a base run's key, same grid and excision"""
+    return k.replace("_d0_", "_d0.001_") if "_d0_" in k else (k[:-3] + "_d0.001" if k.endswith("_d0") else None)
+
+
+def key(L, lam, Ny, Nx, delta, yex=None):
+    return "L%g_lam%.4g_%dx%d_d%g" % (L, lam, Ny, Nx, delta) + ("" if yex is None else "_y%g" % yex)
 
 
 def load():
@@ -200,16 +237,14 @@ def report(R=None):
     R = R or load()
     for k, rec in sorted(R.items()):
         iv, ia, vend, each = integrals(rec)
-        print("%-28s dv %.4f  end: %s  v_break %s (%s)  int K_v %.3f exp %.2f  int K_all %.3f exp %.2f  to v = %.3f" % (
-            k, rec["cfg"]["dv"], rec["end"], rec["v_break"], rec["break_why"], iv, np.exp(iv), ia, np.exp(ia), vend))
+        print("%-28s dv %.4f  end: %s  v_break %s  int K_v %.3f exp %.2f  int K_all %.3f exp %.2f  to v = %.3f" % (
+            k, rec["cfg"]["dv"], rec["end"], breakdown(rec), iv, np.exp(iv), ia, np.exp(ia), vend))
         top = sorted(each.items(), key=lambda q: -q[1])[:5]
         print("    largest integrals: " + ", ".join("%s %.3f" % q for q in top))
     for k, rec in sorted(R.items()):
-        if rec["cfg"]["delta"] == 0:
-            kp = [q for q in R if q.startswith(k[:k.rfind("_d")]) and R[q]["cfg"]["delta"] != 0]
-            for q in kp:
-                amp, per_v = amplification(rec, R[q])
-                print("%-28s amplification (delta = %g): %.3f" % (k, R[q]["cfg"]["delta"], amp))
+        if rec["cfg"]["delta"] == 0 and partner(k) in R:
+            amp, per_v = amplification(rec, R[partner(k)])
+            print("%-28s amplification (delta = 0.001): %.3f" % (k, amp))
 
 
 # ---- live check -----------------------------------------------------------------------------------------------------
@@ -236,12 +271,17 @@ def g0(control=False):
 
 
 # ---- pinned figures ---------------------------------------------------------------------------------------------------
-PINNED = {    # the runs of 2026-10-20 (data/growth5_runs.json): v_break, int K_v, int K_all to the break, amplification
-    "L100_lam1_20x16_d0": dict(v_break=1.45161, int_Kv=0.5233, int_Kall=2.1344, amp=1.003),
-    "L100_lam1_20x16_d0.001": dict(v_break=1.45161, int_Kv=0.5238, int_Kall=2.1375),
-    "L100_lam1_28x16_d0": dict(v_break=1.45082, int_Kv=0.5214, int_Kall=2.1236),
+PINNED = {    # the runs of 2026-10-20 (data/growth5_runs.json): breakdown, int K_v, int K_all to it, amplification
+    "L100_lam1_20x16_d0": dict(v_break=1.5, int_Kv=0.6466, int_Kall=2.8143, amp=1.2821),
+    "L100_lam1_20x16_d0.001": dict(v_break=1.5, int_Kv=0.6474, int_Kall=2.8183),
+    "L100_lam1_28x16_d0": dict(v_break=1.4959, int_Kv=0.6354, int_Kall=2.7490),
+    "L100_lam1_20x16_d0_y1.6": dict(v_break=1.40957, int_Kv=0.6834, int_Kall=5.4463),
+    "L100_lam1_20x16_d0_y2": dict(v_break=1.35298, int_Kv=1.1218, int_Kall=29.2637),
+    "L1000_lam0.3162_20x16_d0": dict(v_break=1.58294, int_Kv=0.7527, int_Kall=12.3129),
     "L1000_lam0.3162_24x16_d0": dict(v_break=1.58251, int_Kv=0.7508, int_Kall=12.2742, amp=1.0),
     "L1000_lam0.3162_24x16_d0.001": dict(v_break=1.58251, int_Kv=0.7519, int_Kall=12.2896),
+    "L1000_lam0.3162_28x16_d0": dict(v_break=1.58252, int_Kv=0.7509, int_Kall=12.2752),
+    "L1000_lam0.3162_16x16_d0_y2.2": dict(v_break=1.52354, int_Kv=1.1145, int_Kall=45.6083),
     "L100_lam0.1_20x16_d0": dict(v_break=None, int_Kv=1.9329, int_Kall=8.7663, amp=1.7132),
     "L100_lam0.1_20x16_d0.001": dict(v_break=None, int_Kv=1.9348, int_Kall=8.7755),
 }
@@ -259,15 +299,16 @@ def selftest():
         if k not in R:
             print("[FAIL] %s not in %s" % (k, RUNS)); ok = False; continue
         iv, ia, vend, _ = integrals(R[k])
-        good = (abs((R[k]["v_break"] or -1) - (pin["v_break"] or -1)) < 1e-6 and abs(iv - pin["int_Kv"]) < 1e-3
+        vb = breakdown(R[k])
+        good = (abs((vb or -1) - (pin["v_break"] or -1)) < 1e-6 and abs(iv - pin["int_Kv"]) < 1e-3
                 and abs(ia - pin["int_Kall"]) < 1e-3)
-        line = "v_break %s int K_v %.3f int K_all %.3f" % (R[k]["v_break"], iv, ia)
+        line = "v_break %s int K_v %.3f int K_all %.3f" % (vb, iv, ia)
         if "amp" in pin:
-            kp = k[:k.rfind("_d")] + "_d0.001"
+            kp = partner(k)
             amp = amplification(R[k], R[kp])[0] if kp in R else float("nan")
             good &= abs(amp - pin["amp"]) < 1e-3 and amp <= np.exp(iv)
             line += " amplification %.3f (<= exp int K_v %.2f)" % (amp, np.exp(iv))
-        tag = "G1" if "lam1_" in k else ("G2" if "L1000" in k else "G3")
+        tag = "G5" if "_y" in k else ("G1" if "lam1_" in k else ("G2" if "L1000" in k else "G3"))
         print("[%s] %s %s %s" % ("ok" if good else "FAIL", tag, k, line))
         ok &= good
     print("growth5.py: %s" % ("all checks pass" if ok else "FAILED"))
@@ -276,12 +317,13 @@ def selftest():
 
 if __name__ == "__main__":
     if "--run" in sys.argv:
-        a = sys.argv[sys.argv.index("--run") + 1:]
+        yex = float(sys.argv[sys.argv.index("--yex") + 1]) if "--yex" in sys.argv else None
+        a = [q for q in sys.argv[sys.argv.index("--run") + 1:] if q != "--yex" and (yex is None or q != "%g" % yex)]
         L, lam, Ny, Nx = float(a[0]), float(a[1]), int(a[2]), int(a[3])
         delta = float(a[4]) if len(a) > 4 else 0.0
         v_end = float(a[5]) if len(a) > 5 else V_END
-        rec = run(L, lam, Ny, Nx, delta, v_end)
-        k = key(L, lam, Ny, Nx, delta)
+        rec = run(L, lam, Ny, Nx, delta, v_end, yex=yex)
+        k = key(L, lam, Ny, Nx, delta, yex)
         part = RUNS.replace(".json", "_" + k + ".json")
         json.dump({k: rec}, open(part, "w"))
         print("wrote", part, "%ds" % rec["seconds"])
