@@ -3529,3 +3529,49 @@ p2_matter, copper computed under our law and under the laws of other positions.
 
 BOUNCE-PROOF section 5 (L15-L19) carries the complete proof. qb_baez selftest PASS, mutants 4/4. Register unchanged:
 83 rows (74 PROVED, 6 DEFINITION, 3 COMPUTED-THEORIZED); qb_baez is in T1.
+
+## 64. Late-time settling determined; Theorem P carried; 10 l5 in the N1* session (540; settle_late.py)
+
+M, 540, to the three items the N1* session left open: "whether the hole settles at late times - for the math to
+determine"; "Theorem P (the construction from past null infinity), written but not yet verified - recently finished
+and verified by the N1*, it is now updated and available to you"; "the 10 l5 wavelength itself - currently being
+worked in the N1* session".
+- **Theorem P, carried.** PROVED in the N1* session (D35). A tenth verifier found one major gap in the near-region
+  estimate (D34); it was repaired (Lemma 9.4b, past5 P8), and an eleventh verifier found the repair closes it. Merged
+  to main by PRs #59 and #60, merged here, re-run: past5 P1-P8, 8/8. The mass law at past null infinity stays open
+  there (its section 9.5).
+- **What the math determines of settling (settle_late S0-S5).**
+  - The end state (S1; READ, deduced; computed exactly). A stationary solution in the class has three commuting Killing
+    fields, so in vacuum its orthogonal 2-planes are integrable (Emparan and Reall). Both reflections kill the twist of
+    the time Killing field (computed; without them it does not vanish), so the end state is static. Gibbons, Ida and
+    Shiromizu then make it Tangherlini of the final mass. The class excludes rotation.
+  - Linear settling, the metric included (S2; READ, deduced; computed exactly). The class carries scalar and tensor
+    modes of even l >= 2 and the l = 0 mass shift. Their master quantities decay as tau^-2 (Hung, Keller and Wang).
+    Kodama and Ishibashi's reconstruction ((3.12), (3.14)) has coefficients over H = m + 6x, positive on the whole
+    exterior (computed; control H = m - 30x fails). So the linearised metric settles to a change of mass. Their
+    potential is settle5's exactly (computed).
+  - Nonlinear, in the record's own evolution (S3-S4; computed, numerical). hf_mirror5 (lam = 0.1, A = 1) was run
+    through the shell to v = 40, nine e-folds of the least-damped mode, at two resolutions:
+
+    | | run a (16 x 10) | run b (20 x 16) |
+    |---|---|---|
+    | final mass mu_f | 1.186885 | 1.186861 |
+    | round part's spread over radii / drift in v | 2.2e-7 / 2.4e-7 | 2.5e-8 / 2.3e-7 |
+    | apparent horizon, over the sphere | 1.08939-1.08949 | 1.08942-1.08944 |
+    | non-round part, shell's end to v = 40 | 1.15e-2 to 6.62e-5 | 1.16e-2 to 2.86e-5 |
+    | late maximum against v = 14-24 maximum | 1.8e-4 < 1.1e-3 | 1.7e-4 < 1.2e-3 |
+    | constraint residual | 2.6e-4 | 1.3e-4 |
+
+    The round part is one Tangherlini mass at every radius. mu_f is the Isaacson prediction 1.18229 plus the
+    second-order offset 4.6e-3 (hf_mirror5 X5), and sqrt(mu_f) = 1.08945 is the horizon. The non-round part falls 174
+    and 406-fold with no growth; the resolutions agree on mu_f to 2.4e-5. Below about 1e-3 the fall is at the scheme's
+    floor, so the late quasinormal rate is not claimed, only decay.
+  - A proof of nonlinear settling in this class (S5; theorized, named) is open in the field. The nearest theorem,
+    Dafermos and Holzegel's, covers perturbations preserving triaxial Bianchi IX symmetry, depending on (t, r) alone.
+    This class depends on (t, r, theta): the five-dimensional counterpart of Klainerman and Szeftel's polarized
+    axisymmetric case.
+- **10 l5** is being worked in the N1* session (M, 540). No high-frequency theorem reaches it (response5 R7). Here it
+  is SOURCE's Part D computation, unchanged.
+
+SOURCE-PROOF carries all three. settle_late selftest PASS, mutants 2/2. Register unchanged: 83 rows (74 PROVED,
+6 DEFINITION, 3 COMPUTED-THEORIZED); settle_late is in T1.
