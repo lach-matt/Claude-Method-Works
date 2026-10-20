@@ -3245,10 +3245,10 @@ M, 530: "Yes , b please" -- route (b) of the 527 report.
   (scalar at 2.1: 9e-4; at 1.0: 2e-3); the modes pure to 1e-6; the outgoing projection gauge-clean to 1e-15; C at
   x = 2.1 the same at R = 100 and 150 (2e-5) and under a pure gauge admixture of the wave's own size (every digit).
 - **Found**: C = P_out(2w)/P_in(w) per unit record amplitude -- tensor 8.99e-4, 7.51e-4, 4.34e-7, 1.44e-9, 1.3e-12
-  at x = 1.0, 1.5, 2.1, 2.5, 3.0; scalar S10, 1.51e-3, S21, 1.90e-10, 1.4e-13. Above the barrier tops the amplitude
+  at x = 1.0, 1.5, 2.1, 2.5, 3.0; scalar 2.29, 1.51e-3, 8.04e-8, 1.90e-10, 1.4e-13. Above the barrier tops the amplitude
   slope over 1.5-3.0 is 6.7 (tensor) and 7.7 (scalar); in T7's normalisation the exact tensor coupling is 1.50e-3,
   9.93e-5, 3.5e-6 at x = 2.1, 2.5, 3.0 against the model's p = 3 line 1.65e-3, 9.8e-5, 3.3e-6: T7 confirmed in slope
-  and value (the scalar type 1-5 times its line). At x = 1.0 the scalar type is near-resonant. The horizon start
+  and value (the scalar type 4-6 times its line). At x = 1.0 the scalar type is near-resonant. The horizon start
   matters: started from zero, or on the pole's eigenvectors, the particular solution carries an outgoing admixture of
   order eps that floors C; the Frobenius start and the pole-residue basis remove it (eps = 1e-3 and 1e-4 agree).
 - **At the derived point**: with T7's deliberately low slope from x = 3.0, C(x*) = 1e-32 for copper and the second

@@ -650,8 +650,8 @@ def checks(o):
         for k in R)
     ch["Q1 Bondi's lemma: the supplementary rows hold at R/2 to 1e-9 (first order) and 1e-4 (second)"] = all(
         R[k]["bondi1"] < 1e-9 and R[k]["bondi2"] < 1e-4 for k in R)
-    ch["Q4 C(2.1): tensor 8.606e-7, scalar 6.505e-7 (pinned 2026-10-20); R = 100 agrees to 1e-4"] = (
-        abs(R["T x=2.100"]["C"]/8.606e-7 - 1) < 2e-3 and abs(R["S x=2.100"]["C"]/6.505e-7 - 1) < 2e-3
+    ch["Q4 C(2.1): tensor 4.343e-7, scalar 8.038e-8 (pinned 2026-10-20); R = 100 agrees to 1e-4"] = (
+        abs(R["T x=2.100"]["C"]/4.343e-7 - 1) < 2e-3 and abs(R["S x=2.100"]["C"]/8.038e-8 - 1) < 2e-3
         and abs(R["T x=2.100 R100"]["C"]/R["T x=2.100"]["C"] - 1) < 1e-4)
     ch["Q5 a pure gauge admixture of the wave's own size at first order moves C by under 1e-3"] = (
         abs(R["T x=2.100 gauge"]["C"]/R["T x=2.100"]["C"] - 1) < 1e-3)

@@ -41,9 +41,9 @@ seed wave squared, solved for the outgoing amplitude at 2w (the 527 report's rou
 
   | x = w r_h | C tensor | C scalar | sigma, T7's normalisation (tensor / scalar) | T7's model, tensor p = 3 / 6 |
   |---|---|---|---|---|
-  | 1.0 | 8.99e-4 | S10 | 1.22 / S10s | 1.29 / 0.72 |
+  | 1.0 | 8.99e-4 | 2.29 | 1.22 / 0.251 | 1.29 / 0.72 |
   | 1.5 | 7.51e-4 | 1.51e-3 | 0.110 / 1.42e-2 | 0.176 / 0.069 |
-  | 2.1 | 4.34e-7 | S21 | 1.50e-3 / S21s | 1.65e-3 / 1.84e-3 |
+  | 2.1 | 4.34e-7 | 8.04e-8 | 1.50e-3 / 2.47e-4 | 1.65e-3 / 1.84e-3 |
   | 2.5 | 1.44e-9 | 1.90e-10 | 9.93e-5 / 1.76e-5 | 9.8e-5 / 1.6e-4 |
   | 3.0 | 1.3e-12 | 1.4e-13 | 3.5e-6 / 6.6e-7 | 3.3e-6 / 7.3e-6 |
 
