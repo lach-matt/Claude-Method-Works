@@ -160,10 +160,10 @@ Theorems 1 and P, and no incoming radiation at I⁻ for v ≥ v_end, since the r
 - L1, the first milestone, a paper on its own: linear stability of five-dimensional Tangherlini in a generalized wave
   gauge within the class, with decay of every metric component. This closes [HKW18]'s stated gap in the class. It
   needs mode stability at σ ≠ 0 from [IK03]'s master equations, and the zero-energy structure, where l < 2 is gauge
-  plus δμ ([HKW18] Theorem 1). The four-dimensional template is Hung, Keller and Wang's generalized-harmonic-gauge
-  paper and Johnson's (both cited in [Hin26], p. 6).
+  plus δμ ([HKW18] Theorem 1). The four-dimensional templates are Johnson's generalized wave gauge paper and Hung, Keller
+  and Wang's in the Regge-Wheeler gauge (both cited in [Hin26], p. 6).
 - L2: constraint damping in five dimensions ([Hin26]'s companion [Hin26a]).
-- L3: decay rates in the class (r^p hierarchy; [Sch10]'s higher-dimensional estimates; [HKW18]).
+- L3: decay rates in the class (r^p hierarchy; [Sch13]'s higher-dimensional estimates; [HKW18]).
 - N: the nonlinear iteration of [Hin26], or a bootstrap with these rates.
 
 The low-energy analysis is where five dimensions differ: the spatial dimension is four. It must be redone, not copied.
@@ -282,17 +282,16 @@ in it is proved.
 
 ### 4.2 What the class removes
 
-Deduced from the symmetry, not from an estimate. (i) The perturbations are scalar type on the even harmonics
-P_k(cos 2theta), one per l = 2, 4, ..., plus the tensor type, which needs no gauge vector (W5); there is no vector
-type and no rotation (T1). (ii) There is no translation and no boost: a vector fixed by both rotations of the T^2
-is zero, since the two planes of rotation span R^4, so the asymptotic translations and boosts that give Kerr's
-zero-energy nullspace its second-order pole ([Hin26] section 1.4.1) are absent, and the only parameter of the final
-state is the mass. (iii) The l = 0 sector is one function of (t, r) for each of two components, with W* and K*
-explicit (W2, W3). (iv) The angular eigenvalue starts at k^2 = 8, so Hung's condition (A.3) reads 8/r^2 + V >= 0 at
-the lowest mode, and the Morawetz borrowing from the angular term (HKW18 (98), Schlue section 4.2) has room.
-What the dimension changes: the weights r^(n-1)/2 = r^(3/2) in place of r in the r^p identity ([Sch13] (5.11)-(5.12)),
-the photon sphere at r^2 = 2 mu, the flat tails t^-(2l+3) ([CYDL03]), and the indicial gap (0, 2) at zero energy
-([Hin26c] Proposition 9.40, n = 4).
+Deduced from the symmetry, not from an estimate. (i) The perturbations are scalar type on the even harmonics P_k(cos
+2theta), one per l = 2, 4, ..., plus the tensor type, which needs no gauge vector (W5); there is no vector type and no
+rotation (T1). (ii) There is no translation and no boost: a vector fixed by both rotations of the T^2 is zero, since the
+two planes of rotation span R^4, so the asymptotic translations and the generalized boosts that give Kerr's zero-energy
+nullspace its second-order pole ([Hin26] section 1.4.1, the boosts) are absent, and the only parameter of the final state
+is the mass. (iii) The l = 0 sector is one function of (t, r) for each of two components, with W* and K* explicit (W2,
+W3). (iv) The angular eigenvalue starts at k^2 = 8, so Hung's condition (A.3) reads 8/r^2 + V >= 0 at the lowest mode,
+and the Morawetz borrowing from the angular term (HKW18 (98), Schlue section 4.2) has room. What the dimension changes:
+the weights r^(n-1)/2 = r^(3/2) in place of r in the r^p identity ([Sch13] (5.11)-(5.12)), the photon sphere at r^2 = 2
+mu, the flat tails t^-(2l+3) ([CYDL03]), and the indicial gap (0, 2) at zero energy ([Hin26c] Proposition 9.40, n = 4).
 
 ### 4.3 Route A: the decay of the gauge-vector system, Hung's architecture in five dimensions
 
@@ -321,7 +320,7 @@ the l = 0 one-form. L1 follows from the decay of X: h = h_RW - pi_X.
    true on the exterior for k^2 >= 8. The counterpart of [Hun19] (4.21) carries no potential where four dimensions
    has 2M/r^3, and X_r needs no wave equation where four dimensions has (4.22).
 2. *The rungs.* In order: S (free wave, source div J); A (Maxwell master, source from J and dS); X_t (source
-   (2 mu/r^3) P + J_t, no potential); X_r and X_L (sources in S, P, Q_r and J, potentials V_r, V_L). Each rung is an
+   (2 mu/r^3) P + J_t, no potential); r X_L (source (2 k f/r) Q_r + r J_L, no potential); X_r algebraic. Each rung is an
    inhomogeneous scalar wave equation with a radial potential on five-dimensional Tangherlini, and the proposition to
    prove for it is the five-dimensional form of [Hun19] Appendix A: the red-shift estimate ([Sch13] Proposition
    3.1), the Morawetz estimate with a current of the form HKW18 (122) and f changing sign at r^2 = 2 mu (the choice
@@ -343,11 +342,12 @@ the l = 0 one-form. L1 follows from the decay of X: h = h_RW - pi_X.
    potentials (HKW18 section 10.5); the statement obtained: in the harmonic gauge, h - h_(l=0) decays at tau^(-2+) in
    energy with the loss of a fixed number of derivatives, and h_(l=0) -> c K* + c_1 pi_{W*}, the mass change growing
    linearly in t as in four dimensions -- L1 in the class.
-6. *What is new in five dimensions and must be done, not quoted.* (a) The Morawetz currents for V_r, V_L and the
-   Maxwell potential at n = 3 (HKW18's construction is specific to each potential). (b) The lower-order terms of the
+6. *What is new in five dimensions and must be done, not quoted.* (a) The Morawetz current for the Maxwell
+   potential -4 mu/r^4 at n = 3 (HKW18's construction is specific to each potential; the other rungs are the free wave,
+   [Sch13]'s). (b) The lower-order terms of the
    r^p identity with the weight r^(3/2) ((5.11)-(5.12) of [Sch13]). (c) The semi-positivity of the zeroth-order
    matrix of the harmonic-gauge Lichnerowicz system in the class's components (Hung's Proposition 4.2), which gives
-   the red-shift and r^p estimates for h itself (Proposition 4.1); a W7 computation. (d) The l = 0 ODE and red-shift
+   the red-shift and r^p estimates for h itself (Proposition 4.1): W7, computed (4.6). (d) The l = 0 ODE and red-shift
    argument. None of (a)-(d) needs an idea absent from [Hun19], [HKW18] and [Sch13]; each is a computation and an
    estimate in a dimension where the three papers already did the analogous one.
 
@@ -365,9 +365,11 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    strong damping (1.43), and [Hin26a]'s construction is on Kerr; a five-dimensional construction does not exist and
    is the first genuinely new object of the route. Tangherlini being static, the indicial-root computation it needs is
    an ODE problem in r for each l of the class.
-3. *The zero-energy nullspace in the class* is then the mass change in gauge alone (4.2(ii)): a first-order pole
-   where Kerr has a second-order one, so the forward solutions lose one power of t_* rather than two, and no
-   centre-of-mass or momentum elimination ([Hin26] section 1.4.2) is needed. Deduced from the structure; not proved.
+3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
+   W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
+   second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
+   so that the forward solutions lose one power of t_* rather than two and no centre-of-mass or momentum
+   elimination ([Hin26] section 1.4.2) is needed, is OPEN: it rests on item 2, not on the symmetry (D47).
 4. *The tame estimates* of [Hin26c] in 4 + 1: the microlocal pieces -- edge-b near null infinity, 3b in the forward
    cone, normally hyperbolic trapping at r^2 = 2 mu -- are stated in 3 + 1 "for concreteness" with the general-dimension
    conventions in [Hin23c] section 3.1.2; the zero-energy indicial gap is (0, 2) (Proposition 9.40). Rewriting the
@@ -388,10 +390,49 @@ Theorem E; it is the heavier of the two for this problem and is recorded, not re
 
 ### 4.5 The first step, and the order
 
-Finish W6: the r- and L-component coefficients and potentials in closed form, the Maxwell master equation of F in
-the class against [KI03b] (5.20), and the check 8/r^2 + V >= 0 on r >= sqrt(mu) for each potential (Hung's (A.3))
-with the asymptotic a_0 > 0 of HKW18 Proposition 15. Then W7: Hung's Proposition 4.2 in the class. Then route A's
-rungs, one proposition each, in the order of 4.3(2); then route B's item 2, the five-dimensional constraint damping.
+W6 is finished (4.3(1), all seven identities at l = 2 and 4) and W7, Hung's Proposition 4.2 in five dimensions, is
+computed (4.6): the structure his Proposition 4.1 rests on -- the gauge-adjusted system with U along nabla_L in two
+rows, the semi-positive leading matrix, the positive nabla_L' coefficients of the horizon-regular rows -- is in hand
+in the class. Next, in order: Proposition 4.1 itself in five dimensions (Hung's (4.4) and (4.8) on that structure with
+[Sch13]'s r^p weights and f' for 2M/r^2; an estimate, not a computation); route A's rungs, one proposition each, in
+the order of 4.3(2), the Morawetz current for the Maxwell potential first; the growing source (4.3(3)) and l = 0
+(4.3(4)); then route B's item 2, the five-dimensional constraint damping.
+
+### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
+
+Hung's Proposition 4.2 ([Hun19] p. 18; Appendix C, pp. 75-79) is not the Lichnerowicz system alone: each row is a
+combination of the Lichnerowicz components and of the harmonic gauge condition Gamma[h] = 0, the admixture chosen so
+that the first-order terms cancel except along nabla_L in rows 6 and 7. The control `hung4.py` recomputes his seven
+rows from the Schwarzschild metric with the instrument W7 runs and reproduces the printed A, B and U: rows 1-5 as
+printed; row 7 as printed once the "(ME3)" of its combination is read as (HG3), the angular gauge component, which
+is what balances its first-order terms; row 6 as printed once its combination is read as f (ME3) + (M/r^3)(ME6) +
+(4M(r - 2M)/r^3)(HG2) for the printed (ME2), M/r^2 and 4M(r - 2M)/r^2 -- the component with one t index and the
+powers of r the dimensions require; the printed row-6 combination leaves second-order terms. Two misprints, no
+finding about the theorem. On Tangherlini, in the class (wavegauge5.py W7):
+- the components H1 = (h_tt + f^2 h_rr)/2 + ((1 - f)/2) trs h, H2 = trs h/sqrt3, H3 = (h_tt/f - f h_rr)/2,
+  H6 = f h_tr + ((1 - f)/2) trs h, H4 = f k h_rth/(r S'), H7 = k h_tth/(r S'), hhat_ij = 2 r^2 H5 S_ij, with
+  (1 - f)/2 = mu/(2 r^2) where Hung has M/r = (1 - f)/2: the same coefficient in both dimensions;
+- the admixtures 2 f f' Gamma_r in rows 1 and 6 and k f' Gamma_th/r in rows 4 and 7 (Hung's 4M(r - 2M)/r^3 = 2 f f'
+  and 2M/r^2 = f', in his normalisation of h_rA);
+- box_l H = A H + U H with U = (2f'/f) nabla_L (H6 - H1) in row 6 and (f'/f) nabla_L (H7 - H4) in row 7, nothing
+  else, A rational in r, mu and k;
+- r^2 A_main at k^2 = l(l+2) has the eigenvalues (l+a)(l+a+2), a = -2, -1, 0, 0, 0, 1, 2 (Hung's Lemma 4.3:
+  (l+a)(l+a+1)): semi-positive for l >= 2, one zero at l = 2, comparable to the angular term for l >= 4;
+  A - A_main/r^2 = O(mu/r^4) where Hung's A_sub is O(M/r^3); at l = 0 (H1, H2, H3, H6) the eigenvalues are 0, 0, 3, 8;
+- in the regular variables H6' = (H6 - H1)/f^2 = -h(L', L')/2 and H7' = (H7 - H4)/f every coefficient is regular at
+  the horizon, rows 1-5 carry no first-order term, and rows 6', 7' carry 2f' nabla_L' H6' and f' nabla_L' H7',
+  f' = 2 mu/r^3 > 0, and no nabla_L: Hung's 4M/r^2 and 2M/r^2 (p. 23), so the red-shift step of his Proposition 4.1
+  applies as written.
+What the gauge condition does. The Lichnerowicz operator alone carries, in the null frame, -f' times the boost weight
+as the nabla_L' coefficient of each component: -2f' on h(L, L), -f' on h(L, d_th), 0 on h(L, L') and the angular
+part, +f' on h(L', d_th), +2f' on h(L', L') -- the Teukolsky-type structure, in which a red-shift estimate for the
+positive weights would need commutation with L'; the admixture of Gamma[h] = 0 removes the negative ones. In the
+orthonormal frame, without the admixture, the system is box v = T d_t v + M v with no d_r term, M symmetric with the
+same leading spectrum, T the chain coupling (h_00, h_01), (h_01, h_11) with sqrt2 f'/f and (h_0th, h_1th) with f'/f.
+What W7 does not do: it is the structure, not the estimate. Proposition 4.1 (Hung's (4.1), r^p and red-shift for h
+with the compact region as the error) is to be proved on it with [Sch13]'s weights; the Morawetz step for the Maxwell
+rung, the growing source and l = 0 are 4.3(3), (4), (6)(a), (b), (d). Labels: computed (wavegauge5.py W7, hung4.py);
+READ ([Hun19] pp. 18-25 and 70-79, alphaXiv, 2026-10-21); OPEN (the estimate).
 
 ## References (READ 2026-10-20 unless marked)
 
@@ -428,5 +469,5 @@ rungs, one proposition each, in the order of 4.3(2); then route B's item 2, the 
   arXiv:1511.07002 (abstract).
 - [HL17] C. Huneau, J. Luk, Einstein equations under polarized U(1) symmetry in an elliptic gauge,
   arXiv:1706.09499 (abstract).
-- [IK03], [HKW18], [Hol08], [CLY03b], [AB26]: as in RESPONSE-HL-5D.md ([Sch10] stood here with no entry in the
-  paper; [Sch13] above is the reference, D46).
+- [IK03], [HKW18], [Hol08], [CLY03b], [AB26]: as in RESPONSE-HL-5D.md ([Sch13] carried the label [Sch10] here and in
+  N1STAR-PROOF.md section 10.1 until D47; one paper, one label now).

@@ -41,7 +41,8 @@ the measure, not a theorem.
      derivative gives K_all is named.  Control: a perturbation of W alone at the boundary gives K_v = 0 with K_all > 0,
      so K_v alone is blind to it.
   G1 (computed) L = 100, lam = 1.000 (the wave's metric amplitude lam A r^-3/2 at the core boundary 2.5): a second
-     zero of the expansion first appears at v = 1.4516 (Ny = 20) and 1.4508 (Ny = 28) and stays from 1.500 and 1.496;
+     zero of the expansion first appears at v = 1.4516 (Ny = 20) and 1.4508 (Ny = 28), holds from 1.500 and 1.496 over
+     0.04 in v, lapses and returns at 1.669 and 1.721;
      W at the boundary turns positive at 1.516 and 1.512 and the slice solve fails at 1.69 and 1.75, before the
      shell's peak at v = 2.  To the breakdown (1.50), int K_v dv = 0.647 (exp 1.9), int K_all dv = 2.81 (exp 17).
   G2 (computed) L = 1000, lam = 0.3162 (amplitude 1.9 at the boundary): the same sequence at Ny = 20, 24 and 28, the

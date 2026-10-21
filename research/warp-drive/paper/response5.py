@@ -427,8 +427,10 @@ CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) 
           ("R4 ell null geodesic; the contractions of the domain; tau-lines spacelike where r^2 < mu", r4, 1),
           ("R5 the constraints at the background: parabolic in a, symmetric hyperbolic in (w, q)", r5, 1),
           ("R6 the dust is round and positive; g0^-1(dPhi, dPhi) = 1 - mu/r^2 - 2 r_q' at x = 1", r6, 4),
-          ("R7 lam = 10 l5 against the curvature length (10; 2.91, 0.92) and against r (1.85, 1.04; 1.00, 0.32)", r7, 1),
-          ("R8 the mass law's coefficient for the solver's envelope: (2/9) int env'^2 = 5 pi^2/108; the shell 35/192", r8, 1)]
+          ("R7 lam = 10 l5 against the curvature length (10; 2.91, 0.92) and against r (1.85, 1.04; 1.00, 0.32)",
+           r7, 1),
+          ("R8 the mass law's coefficient for the solver's envelope: (2/9) int env'^2 = 5 pi^2/108; the shell 35/192",
+           r8, 1)]
 
 INSTRUMENTS = ["ks5.py", "foliation5.py", "lead5.py", "ansatz5.py", "data5.py"]
 
