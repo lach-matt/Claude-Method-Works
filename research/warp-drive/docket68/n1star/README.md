@@ -80,10 +80,20 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   Sturm count on a polynomial of degree ten (W > 0 on the exterior, W >= r^-3/5 and r^-3/7; W0 alone is not); Hung's
   (A.3) with room; the radiation variable's V_inf = k^2 + 3/4 and the p-current with the source; the g-current (M1-M5).
   `python3 rungs5.py --selftest` (5/5, about half a minute), `--mutants` (6/6).
+- `growing5.py`: the growing source (section 10.7; D50): [KI03]'s master equation and reconstruction at n = 3 checked
+  against the Einstein equations; J = -Gamma[h_RW] in h_RW's components; the direct system (Hung's (4.21)-(4.23) in five
+  dimensions); the rung sources in canonical form with their bad weights; the substitutions (Hung's (4.27)-(4.30)) and
+  the residual sources, every weight checked (G1-G5). `python3 growing5.py --selftest` (5/5, about twelve minutes),
+  `--mutants` (5/5).
+- `lzero5.py`: the l = 0 sector (section 10.8; D50): the identities of Hung's section 8 in five dimensions -- the
+  components of box W, P = r (dW)_tr - 2 W0 with box_s P = d_t S_W, the (W0, W3) form with the red-shift sign, c_1(oo),
+  the two radial ODEs and their singular solutions, the substitution P + (u + r) S_W/2 (Z1-Z5). `python3 lzero5.py
+  --selftest` (5/5, about a quarter of a minute), `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All fifteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
+All seventeen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
 numpy, growth5.py importing the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing
-lead5.py), and the others import nothing from the tree. The board's shared record is not edited here.
+lead5.py), growing5.py and lzero5.py import wavegauge5.py, and the others import nothing from the tree. The board's
+shared record is not edited here.

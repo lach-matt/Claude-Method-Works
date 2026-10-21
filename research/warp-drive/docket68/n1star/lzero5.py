@@ -19,8 +19,9 @@ mu)/r^3) d_r the scalar wave operator at l = 0.
   Z3 (computed, exact) His (8.9)-(8.12) in (W0, W3): P = r d_t W3 + r L' W0 - 2 W0; S_W = -2 L' W0 + 2 f d_r W3 + (6/r)
      W0 + (6/r)(1 - mu/(3 r^2)) W3; the W3 equation f^-1 (f (box W)_r - (box W)_t) = box_s W3 - f' L' W3 - (3 f/r^2) W3
      - (3/r^2) W0, with f' = 2 mu/r^3 > 0 the coefficient of nabla_L' W3 (his 2M/r^2: the red-shift sign); and, modulo
-     box W = 0, d_t W0 = (r f/4) d_r S_W - (1/2) d_t P (his (8.12) with r f/2 and 1), so that on the horizon, where
-     f d_r = d_t along the generator, W0 + P/2 - (sqrt mu/4) S_W is constant along H^+: his c_1(oo) is
+     box W = 0, d_t W0 = (r f/4) d_r S_W - (1/2) d_t P (his (8.12) with r f/2 and 1), so that on the horizon, where f d_r
+     = d_t along the generator, W0 + P/2 - (sqrt mu/4) S_W is constant along H^+ (deduced from (8.12), not a check): his
+     c_1(oo) is
        c_1(oo) = mu (W0 + P/2 - (sqrt mu/4) S_W)|_{H^+}
      (his -2M (M S_W - P_even - W0)).  Control: the sign of f' L' W3 reversed.
   Z4 (computed, exact) The two radial ODEs of his (8.14) and (8.24).  The W0 equation at fixed tau, f u'' + ((3 r^2 -
