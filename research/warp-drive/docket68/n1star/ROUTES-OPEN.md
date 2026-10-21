@@ -391,11 +391,12 @@ Theorem E; it is the heavier of the two for this problem and is recorded, not re
 ### 4.5 The first step, and the order
 
 W6 is finished (4.3(1), all seven identities at l = 2 and 4), W7, Hung's Proposition 4.2 in five dimensions, is computed
-(4.6), and his Proposition 4.1 is deduced on it (4.7; N1STAR-PROOF.md Proposition 10.3): the energy of h in the harmonic
-gauge is controlled by its data and by h on the compact region [r_rs,H, R_null + r_h], with [Sch13]'s r^p weights at
-null infinity and the red-shift at r_h, constants not tracked. Next, in order: route A's rungs, one proposition each, in
-the order of 4.3(2), the Morawetz current for the Maxwell potential first -- the compact region is where they enter;
-the growing source (4.3(3)) and l = 0 (4.3(4)); then route B's item 2, the five-dimensional constraint damping.
+(4.6), his Proposition 4.1 is deduced on it (4.7; N1STAR-PROOF.md Proposition 10.3), and the rungs are done (4.8;
+Propositions 10.4-10.5): every scalar wave equation of 4.3(1), with its potential and its source, has the estimates of
+[Hun19] Appendix A in five dimensions, the Morawetz multiplier for the Maxwell potential computed, so the gauge vector
+decays at tau^(-2+) with the loss of a fixed number of derivatives once its sources do. Next, in order: the growing
+source (4.3(3)), to be read off the explicit sources of W4 and W6 as [Hun19] (4.35)-(4.36) read theirs; l = 0 (4.3(4));
+then route B's item 2, the five-dimensional constraint damping.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -465,6 +466,40 @@ deduced (Proposition 10.3, constants not tracked); READ ([Hun19] pp. 4-25 and 70
   intermediate inequality of Step 1 repaired with the five-dimensional powers, and this section's count of the new terms
     corrected from three to two.
 
+### 4.8 The rungs: the Morawetz current for the Maxwell potential, and the decay of each rung (deduced, D49)
+
+4.3(6)(a) asked for the one thing in [HKW18]'s chain that depends on the potential, the Morawetz multiplier, for the
+Maxwell potential -4 mu/r^4 of the rung r P; rungs5.py computes it and the rest of what the chain uses, and
+N1STAR-PROOF.md 10.6 runs the chain with the source carried (Propositions 10.4-10.5):
+- the Morawetz identity [HKW18] (123) at n = 3 holds for a scalar with potential and source, exactly (M1);
+- with [HKW18]'s n = 3 choice read in mu = 2M, F = (1 - 2 mu/r^2)(1 - mu/(2 r^2) + mu^2/(5 r^4)) and beta = 1/(2 sqrt
+  mu),
+  and the angular term borrowed at k^2 = 8, the bulk coefficient W is -(y^3/40) Q(y) mu^(-3/2) with y = sqrt(mu)/r and Q
+  a polynomial of degree ten without a root in [0, 1], Q(0) = -300 -- so W > 0 on the whole exterior, W >= r^-3/4
+  (Maxwell) and r^-3/5 (free), F' > 0 on the closed exterior, the angular coefficient a square at the photon sphere
+  (M2). Their choice, made for their master potentials, serves both rung potentials unchanged; beta = 0 or beta >=
+  1/sqrt mu does not;
+- Hung's (A.3) holds with room, k^2/r^2 - 4 mu/r^4 >= k^2/(2 r^2) on the exterior, so the T-energy comparison is
+  pointwise and no Hardy inequality enters (M3); the radiation variable's potential has V_inf = k^2 + 3/4 and a remainder
+  -7 mu/(4 r^4) or 9 mu/(4 r^4), so the r^p step is Proposition 10.3's Step 1 for one component (M4); the g-current that
+  supplies |d_t u|^2 is (M5);
+- Proposition 10.4: the energy inequality with the degenerate Morawetz bulk and no compact-region term, F + E^p +
+  int (B + E^{p-1}) <~ F + E^p + E^p_source[G], for p in [delta, 2 - delta], the source norm the five-dimensional one
+  this proof produces (mu^1/2 int s^(p+1) |G|^2 in the bulk, |G|^2 on the two slices, |nabla_T G|^2 on a compact region
+  in r, from an integration by parts in T at the photon sphere);
+- Proposition 10.5: the decay (1 + tau/sqrt mu)^(-2 + p + delta + delta-bar) of F + E^p by [HKW18] Theorem 18's dyadic
+  argument with the source, the commuted quantities T u and k u in the data, the photon-sphere degeneracy lifted by the
+  one-dimensional Poincare inequality in r -- [Hun19] (A.10) with one more delta in the exponent, the cost of the
+  intermediate times, cosmetic for L1.
+Two readings of [HKW18] recorded: Proposition 15 states a_0 > 0 for the 1/r^2 coefficient of the potential, but its
+proof uses only a_0 bar = a_0 + (n^2 - 2n)/4 > 0, which the rungs' a_0 = 0 satisfies at n = 3 (a_0 bar = 3/4, the 3/4
+of Proposition 10.3's V_inf); and their beta = 1/2 and f are written in units M = 1 (beta has the dimension of 1/length),
+read here as 1/(2 sqrt mu). What the rungs give: the gauge vector X of 4.3(1) decays at the rate of Proposition 10.5
+with the loss of a fixed number of derivatives, each rung's source norm being the energy norm of the rungs below and J's
+from Proposition 10.1; what they do not: the growing source (4.3(3)) and l = 0 (4.3(4)). Labels: computed (rungs5.py
+M1-M5); deduced (Propositions 10.4-10.5, constants not tracked); READ ([HKW18] section 7 pp. 28-48, 9.3.2 pp. 54-57,
+10.4.2-10.5 pp. 66-67; alphaXiv, 2026-10-21). Sent to the seventeenth verifier; verdict pending.
+
 ## References (READ 2026-10-20 unless marked)
 
 - [TTS09] K. Tanabe, N. Tanahashi, T. Shiromizu, On asymptotic structure at null infinity in five dimensions,
@@ -484,6 +519,8 @@ deduced (Proposition 10.3, constants not tracked); READ ([Hun19] pp. 4-25 and 70
 - [DHRT21] M. Dafermos, G. Holzegel, I. Rodnianski, M. Taylor, arXiv:2104.08222 (abstract only).
 - [Hun19] P.-K. Hung, The linear stability of the Schwarzschild spacetime in the harmonic gauge: even part,
   arXiv:1909.06733v1.
+- [HKW18] P.-K. Hung, J. Keller, M.-T. Wang, Linear stability of higher dimensional Schwarzschild spacetimes: decay
+  of master quantities, arXiv:1809.05144v1 (section 7 and 9.3.2 READ 2026-10-21).
 - [Wu26] S. Wu, Picard iteration for the characteristic initial value problem in Einstein equations,
   arXiv:2609.08421v1.
 - [Sch13] V. Schlue, Decay of linear waves on higher dimensional Schwarzschild black holes, Anal. PDE 6 (2013),
