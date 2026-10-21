@@ -2378,13 +2378,13 @@ of the first rungs: for Sigma (box_l Sigma = 0) and for phi (box_l phi = V_phi p
 potential), the extension of the r^p hierarchy of 10.6 past p = 2 by one commutation with f^-1 r^2 nabla_L
 (Angelopoulos-Aretakis-Gajic; his Proposition A.5 with k = 1 and its conditions (A.7)-(A.9)), giving (1 + tau/sqrt
 mu)^(-4+p+3 delta) in place of 10.6's (-2+p+...). 10.9 computes the five-dimensional conditions and deduces the rate for
-l >= 1 (Proposition 10.6); at l = 0 it finds the extension obstructed. (b) The coupled estimate for (X_1-hat, X_L-hat):
-his section 6 for the system W = A_W W + G, the T-energy, red-shift, Morawetz and r^p currents for a two-component system
-whose coupling matrix is (10.29)'s, in the manner of 10.5 (whose W8 handles a matrix potential, but for h's seven
-components and without a source). With (a) and (b) the gauge vector decays and h = h_RW + pi_X with it -- his Theorem 2.5
-in five dimensions, for the class. Nothing of this section is proved: (10.27)-(10.33) are computed, exactly, at the
-sample points stated; the three-region bounds are deduced from them by his argument; (a) is deduced in 10.9 for l >= 2
-and (b) is open.
+l >= 2, and for Sigma at l >= 1 (Proposition 10.6); at l = 0 it finds the extension obstructed. (b) The coupled estimate
+for (X_1-hat, X_L-hat): his section 6 for the system W = A_W W + G, the T-energy, red-shift, Morawetz and r^p currents
+for a two-component system whose coupling matrix is (10.29)'s; 10.10 computes the five-dimensional currents and deduces
+it (Proposition 10.7). With (a) and (b) the gauge vector decays and h = h_RW + pi_X with it -- his Theorems 2.5 and
+2.4(1) in five dimensions, for the class at l >= 2 (10.10). Nothing of this section is proved: (10.27)-(10.33) are
+computed, exactly, at the sample points stated; the three-region bounds are deduced from them by his argument; (a) is
+deduced in 10.9 for l >= 2 and (b) in 10.10.
 
 ### 10.8 The l = 0 sector: [Hun19] Theorem 8.1 in five dimensions (`lzero5.py` Z1-Z5; D50)
 
@@ -2457,8 +2457,8 @@ for the l = 0 free wave is a separate choice ([Sch13] makes it in every dimensio
 past p = 2 is the rapid-decay input the growing source of 10.7 needs as well. The radiation field at l = 0 has V_inf =
 3/4 (W8(h)), not zero as in four dimensions, so the Newman-Penrose constant that his Proposition A.6 assumes to vanish
 has no five-dimensional counterpart at this order. 10.9 computes what the extension past p = 2 meets in five dimensions:
-at l >= 1 it goes through (Proposition 10.6), at l = 0 it is obstructed (H4), so (a) here is open in a stronger sense --
-his route does not supply it.
+at l >= 2, and for Sigma at l >= 1, it goes through (Proposition 10.6), at l = 0 it is obstructed (H4), so (a) here is
+open in a stronger sense -- his route does not supply it.
 
 ### 10.9 The first rungs' rapid decay: [Hun19] Proposition A.5 in five dimensions, and l = 0 (`hierarchy5.py` H1-H4; D51)
 
@@ -2472,11 +2472,13 @@ the current it enters and of each condition, for the first rungs Sigma = tr h (b
 V_phi phi, (10.30)), states what follows by his argument, and finds the l = 0 case obstructed.
 
 *Setting.* u a scalar mode k^2 = l(l + 2) with box_l u = V u, V = 0 (Sigma) or V = V_phi (phi); Psi := r^(3/2) u its
-radiation field, with L Lbar Psi = -f Vcal Psi, Vcal = k^2/r^2 + V + (3/4 + 9 mu/(4 r^2))/r^2 and V_inf = k^2 + 3/4 =
-(l + 1/2)(l + 3/2) (M4; L = d_t + f d_r, Lbar = d_t - f d_r); F, B, E^{p,(0)}_L as in 10.5-10.6. The commuted field is
+radiation field, with L Lbar Psi = -f Vcal Psi, Vcal = k^2/r^2 + V + (3/4 + 9 mu/(4 r^2))/r^2 and V_inf = k^2 + 3/4 = (l
++ 1/2)(l + 3/2) (M4; L = d_t + f d_r, Lbar = d_t - f d_r); F, B, E^{p,(0)}_L as in 10.5-10.6, whose radiation field
+Phi^(0) := s^(3/2) u is mu^(-3/4) Psi, a constant the linear identities below do not see. The commuted field is
     Psi_1 := f^-1 r^2 nabla_L Psi
-(his (2.4)'s Phi^(1) with M s^2 read as r^2), E^{p,(1)}_L[u] := E^{p,(0)}_L with Psi_1 in Psi's place (his (2.19) at j
-= 1), and
+(his (2.4)'s Phi^(1) with M s^2 read as r^2), in 10.5's normalisation Psi_1 = mu^(5/4) Phi^(1) with Phi^(1) := sqrt(mu)
+f^-1 s^2 nabla_L Phi^(0) (his M s^2 read as sqrt(mu) s^2), E^{p,(1)}_L[u] := mu^2 int s^p |nabla_L Phi^(1)|^2 ds (his
+(2.19) at j = 1), and
     I^(1)[u] := I^(0)[T^{<= 2} u] + k^2 I^(0)[T^{<= 1} u] + k^4 I^(0)[u]
                 + (E^{2-delta,(1)}_L[T^{<= 2} u-tilde] + k^2 E^{2-delta,(1)}_L[T^{<= 1} u-tilde]
                    + k^4 E^{2-delta,(1)}_L[u-tilde])(0),
@@ -2488,11 +2490,12 @@ his (2.23) at k = 1 read as Proposition 10.5 reads it at k = 0.
           Vcal_1 = Vcal - 2/r^2 + 12 mu/r^4,   V^(1)_inf := lim r^2 Vcal_1 = k^2 - 5/4 = (l - 1/2)(l + 5/2),    (10.34)
       exactly: the angular coefficient shifts by -2, his j(j + 1) at j = 1; the Psi term, the "bad term" of his account
       of [2], is (9 mu f/(2 r^3)) Psi for V = 0, free of k; and a first-order term appears. In four dimensions the same
-      computation on r psi gives Vcal_1 = Vcal - 2/r^2 + 12 M/r^3, the first-order term -(2/r)(1 - 3M/r) nabla_L Phi^(1)
-      and the Psi term f (2M/r^2 - r^2 V' - 2 r V) Phi^(0): his V^(1), the definition before (A.7), prints -2/r^2 --
-      the datum (A.8) reads and Lemma 5.3 verifies -- and 14 M/r^3 for the 12 M/r^3 here, with no first-order term; his
-      sentence that r^-1 (r^2 L)^k (r psi) "behaves like a solution of (A.2) with potential V^(k)" is the absorption of
-      both differences, which are of the order the r^p current absorbs (READ, H1).
+      computation on r psi gives Vcal_1 = l(l + 1)/r^2 + V^(1) exactly, his V^(1) of the definition before (A.7), whose
+      -2/r^2 is the datum (A.8) reads and Lemma 5.3 verifies: his V^(j) is counted from V, the radiation field's own
+      2M/r^3 being its j = 0 term, so his 14 M/r^3 is the 12 M/r^3 by which Vcal_1 exceeds Vcal - 2/r^2, with that
+      2M/r^3. Beside it stand the first-order term -(2/r)(1 - 3M/r) nabla_L Phi^(1), which his sentence that r^-1 (r^2
+      L)^k (r psi) "behaves like a solution of (A.2) with potential V^(k)" does not print and which enters the current
+      with a good sign (H2), and the Psi term f (2M/r^2 - r^2 V' - 2 r V) Phi^(0) (READ, H1).
  (H2) The current. For J^p of (10.7) built on Psi_1 with V^(1)_inf, the divergence taken with the measure r^3,
           div J^p[Psi_1] = r^(p-4) f^-2 (p f/2 + 2 - 5 mu/r^2) |nabla_L Psi_1|^2 + ((2 - p)/2) r^(p-6) V^(1)_inf Psi_1^2
                            + r^(p-3) f^-1 nabla_L Psi_1 . ((Vcal_1 - V^(1)_inf/r^2) Psi_1 - f^-1 C Psi),      (10.35)
@@ -2502,19 +2505,21 @@ his (2.23) at k = 1 read as Proposition 10.5 reads it at k = 0.
       term is div((1/2) h Psi_1^2 L) - (1/2) Psi_1^2 r^-3 d_r(r^p (Vcal_1 - V^(1)_inf/r^2)), h := r^(p-3) f^-1 (Vcal_1 -
       V^(1)_inf/r^2), so that the Psi_1^2 bulk is r^(p-6) B_1 with
           B_1 := ((2 - p)/2) V^(1)_inf - (1/2) r^(6-p) r^-3 d_r(r^p (Vcal_1 - V^(1)_inf/r^2)).
- (H3) His conditions in five dimensions. For Sigma, B_1 = ((2 - p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2 exactly,
-      positive on the whole exterior for p in [0, 2] and l >= 1: (A.7) at j = 1 with no R_null needed. For phi, B_1 =
-      ((2 - p)/2)(k^2 - 5/4) + (mu/r^2) Q_1(k^2, mu/r^2, p)/H^3 with Q_1 a polynomial (H = k^2 - 3 + 6 mu/r^2), and B_1
-      >= (1/4)(2 - p)(k^2 - 5/4) for r >= R_1: R_1 = 8.14 r_h at k^2 = 8 and R_1 = r_h at k^2 = 24, 48, 80, over p in
-      [1/10, 19/10] -- the computation of his Lemma 5.3 for R_Z. The base bulk, (A.5), is B_0 = ((2 - p)/2)(k^2 + 3/4) +
-      (9/8)(4 - p) mu/r^2 for Sigma (positive everywhere) and for phi holds with the same room for r >= R_0 = 10.56,
-      4.61, 3.04, 2.29 r_h at the four modes. (A.8): V^(1)_inf = k^2 - 5/4, 7/4 at l = 1 and 27/4 at l = 2, positive for
-      l >= 1. (A.9): r^4 |V_phi|/mu <= 25.2 and r^3 |d_r(r^2 V_phi)|/mu <= 47.9 on the exterior at k^2 = 8, falling to
-      12.9 and 25.7 at k^2 = 80 as V_phi -> -12 mu/r^4 (k -> oo; his lim V_Z = -8 M/r^3, the uniformity in l). (A.3):
-      r^2 (k^2/r^2 + V_phi) >= 4/11 at k^2 = 8, the minimum at the horizon (124/9, 628/17, 5692/83 at the other modes):
-      phi's T-energy density is non-negative, with 4.5 % of room at l = 2 where the Maxwell rung has half (M3), and the
-      bound fails at k^2 = 3, the l = 1 mode the scalar sector does not contain. (A.4), the Morawetz multiplier for
-      V_phi, is [HKW18]'s (their decay of the master quantity, which Proposition 10.1(iv) cites) and is not re-derived.
+ (H3) His conditions in five dimensions. For Sigma, B_1 = ((2 - p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2 exactly, positive
+      on the whole exterior for p in [0, 2] and l >= 1: (A.7) at j = 1 with no R_null needed. For phi, B_1 = ((2 -
+      p)/2)(k^2 - 5/4) + (mu/r^2) Q_1(k^2, mu/r^2, p)/H^3 with Q_1 a polynomial (H = k^2 - 3 + 6 mu/r^2), and B_1 >=
+      (1/4)(2 - p)(k^2 - 5/4) for r >= R_1: R_1 = 8.14 r_h at k^2 = 8 and R_1 = r_h at k^2 = 24, 48, 80, over p in [1/10,
+      19/10] on a grid of 21 values, complete because B_1 - (1/4)(2 - p)(k^2 - 5/4) is affine in p -- the computation of
+      his Lemma 5.3 for R_Z. The base bulk, (A.5), is B_0 = ((2 - p)/2)(k^2 + 3/4) + (9/8)(4 - p) mu/r^2 for Sigma
+      (positive everywhere) and for phi holds with the same room for r >= R_0 = 10.56, 4.61, 3.04, 2.29 r_h at the four
+      modes. (A.8): V^(1)_inf = k^2 - 5/4, 7/4 at l = 1 and 27/4 at l = 2, positive for l >= 1. (A.9): r^4 |V_phi|/mu <=
+      12 (k^2 + 3)/(k^2 - 3) and r^3 |d_r(r^2 V_phi)|/mu <= 24 (k^2 + 3)/(k^2 - 3) on the exterior, exactly, the suprema
+      attained at infinity -- 26.4 and 52.8 at k^2 = 8, 12.9 and 25.9 at k^2 = 80 -- and bounded uniformly in l as V_phi
+      -> -12 mu/r^4 (k -> oo; his lim V_Z = -8 M/r^3). (A.3): r^2 (k^2/r^2 + V_phi) decreases in mu/r^2, so its minimum
+      is the horizon's value, 4/11 at k^2 = 8 (124/9, 628/17, 5692/83 at the other modes), exactly: phi's T-energy
+      density is non-negative, with 4.5 % of room at l = 2 where the Maxwell rung has half (M3), and the bound fails at
+      k^2 = 3, the l = 1 mode the scalar sector does not contain. (A.4), the Morawetz multiplier for V_phi, is [HKW18]'s
+      (their decay of the master quantity, which Proposition 10.1(iv) cites) and is not re-derived.
  (H4) l = 0. There V_inf = 3/4 and V^(1)_inf = -5/4: (A.8) fails for the commuted potential, and the base bulk B_0 =
       (3/8)(2 - p) + (9/8)(4 - p) mu/r^2 is negative for every p > 2 once r^2 > 3 (4 - p) mu/(p - 2), so the hierarchy
       of S_W stops at p < 2. In four dimensions V_inf = 0 at l = 0 and the Psi^2 bulk is (3 - p) M r^(p-6), positive to
@@ -2538,13 +2543,14 @@ r^(p-8) Psi^2, and mu^2 r^(p-8) Psi^2 <= (mu/R_null^2) mu r^(p-6) Psi^2 is the b
 he credits to [2]'s Poincare inequality, which at a fixed mode is this weight count; the cut-off terms on [R_null, R_null
 + r_h] are controlled by the Morawetz bulk as in Proposition 10.3's Step 1. So E^{p,(1)}_L[u-tilde](tau_2) + int
 E^{p-1,(1)}_L <~ E^{p,(1)}_L[u-tilde](tau_1) + (base terms), and the dyadic argument of [HKW18] Theorem 18 gives
-E^{p,(1)}_L decaying as (1 + tau/sqrt mu)^(-2+p+delta). (iii) The step between the levels: nabla_L Psi = f Psi_1/r^2, so
-E^{2,(0)}_L[u-tilde] = mu^2 int s^2 f^2 |Psi_1|^2 r^-4 ds <= 4 E^{0,(1)}_L[u-tilde] by the Hardy inequality int_R^oo s^-2
-|Psi_1|^2 ds <= 4 int_R^oo |d_s Psi_1|^2 ds on the null leaf -- his Lemma 3.2 with the same exponent, because Psi carries
-r^(3/2) and the record's E^{p,(0)}_L is mu^2 int s^p |nabla_L Psi|^2 ds (10.5). (iv) With (ii)-(iii) the base hierarchy
-restarts from E^{2-delta,(0)}_L decaying as tau^(-2+2 delta), and its own dyadic argument gives (10.36): his (A.11) at k
-= 1, the three deltas being the two hierarchies' and the interpolation's. For Sigma, l >= 1 suffices (V^(1)_inf = 7/4 > 0
-at l = 1).
+E^{p,(1)}_L decaying as (1 + tau/sqrt mu)^(-2+p+delta). (iii) The step between the levels: nabla_L Phi^(0) = mu^(-1/2) f
+s^-2 Phi^(1), so E^{2,(0)}_L[u-tilde] = mu int f^2 s^-2 |Phi^(1)|^2 ds <= 4 mu int |d_s Phi^(1)|^2 ds = 4 mu^2 int f^-2
+|nabla_L Phi^(1)|^2 ds <= 4 (100/99)^2 E^{0,(1)}_L[u-tilde], by the Hardy inequality on the null leaf (the cut-off field
+vanishing at R_null; d_s = sqrt(mu) f^-1 nabla_L along the leaf, f >= 99/100 there) -- his Lemma 3.2 with the same
+exponents, 2 at level 0 and 0 at level 1, because 10.5's Phi^(0) = s^(3/2) u is the radiation field of the
+five-dimensional measure. (iv) With (ii)-(iii) the base hierarchy restarts from E^{2-delta,(0)}_L decaying as tau^(-2+2
+delta), and its own dyadic argument gives (10.36): his (A.11) at k = 1, the three deltas being the two hierarchies' and
+the interpolation's. For Sigma, l >= 1 suffices (V^(1)_inf = 7/4 > 0 at l = 1).
 
 *What this gives 10.7.* With (10.36) for Sigma and phi, 10.7's three-region bound closes as his Lemma 5.5: the middle
 region's (1 + tau/sqrt mu)^2 spends 2 of the 4, and I_source[G] of each hatted rung is bounded with (1 + tau/sqrt
@@ -2556,12 +2562,122 @@ H3's conditions, deduced and not proved here.
 p < 4 - delta) rests on Proposition A.6(1), that is on V_inf = 0 at l = 0, which is false in five dimensions (H4). What
 his route supplies for S_W here is Propositions 10.4-10.5's (1 + tau/sqrt mu)^(-2+p+delta) and nothing more: the
 commutation that rescues l >= 1 has V^(1)_inf = -5/4, and the base hierarchy stops at p < 2. So the conditional of 10.8
-("if S_W and P-hat decay as in his Propositions 8.2 and 8.4") is not discharged by his method, and the five-dimensional
-l = 0 sector is open in a stronger sense than 10.7 said: either a different commutator at l = 0 in odd dimension (the
+("if S_W and P-hat decay as in his Propositions 8.2 and 8.4") is not discharged by his method, and the five-dimensional l
+= 0 sector is open in a stronger sense than 10.7 said: either a different commutator at l = 0 in odd dimension (the
 five-dimensional l = 0 wave has the tail t^-3 by [CYDL03], so the faster decay is expected and the obstruction is the
 method's), or his Appendix B's O_j bounds re-run with the weaker rate, which is not examined here. And (b) of 10.7, the
-coupled estimate for (X_1-hat, X_L-hat), unchanged. Nothing of this section is proved: (10.34)-(10.35) and H3-H4 are
-computed, exactly and at the modes stated; Proposition 10.6 is deduced by his argument; l = 0 and (b) are open.
+coupled estimate for (X_1-hat, X_L-hat), which 10.10 deduces. Nothing of this section is proved: (10.34)-(10.35) and
+H3-H4 are computed, exactly and at the modes stated; Proposition 10.6 is deduced by his argument; l = 0 is open, and (b)
+is 10.10's.
+
+
+### 10.10 The coupled estimate: [Hun19] section 6 in five dimensions (`coupled5.py` K1-K6; D52)
+
+10.7's item (b). The last two components of the gauge vector, X := (X_1-hat, X_L-hat) with X_1 := f X_r, solve a coupled
+system with the zeroth-order matrix of (10.29) and the sources G of 10.7: with box_s := -f^-1 d_t^2 + r^-3 d_r(r^3 f d_r)
+and x := mu/r^2,
+    box_s X = V X + G,   V := (k^2/r^2) I + A,   A := (1/r^2) [[3 (1 - 3x), 2k (1 - 2x)], [2k, -(1 + x)]],     (10.37)
+[Hun19]'s (6.1) W = A_W W + G. His section 6 estimates such a pair by four currents -- the T-energy, the red-shift, the
+Morawetz and the r^p current -- with the non-self-adjoint part of A_W handled in the compact region by the identities
+(6.8)-(6.10), which express derivatives of W through quantities sections 4-5 already control. This section computes the
+five-dimensional form of each, and finds the Morawetz step simpler than his.
+
+*What is computed (K1-K6, exact, sympy).*
+ (K1) The identities. For the scalar-type one-form of Proposition 10.2(iii), with W6's S = div X, P = (dX)_tr/S, Q_t and
+      Q_r,
+          d_r X_1 + (3/r) X_1 + (k/r) X_L = S + f^-1 d_t X_t =: F_1,
+          f d_r X_L + (f/r) X_L + (k/r) X_1 = (k f/r) Q_r =: F_2,
+          d_t X_1 = f (P + d_r X_t) =: F_3,
+          d_t X_L = (k/r)(Q_t - X_t) =: F_4,                                                                   (10.38)
+      with Q_r = (r^2/k^2)(d_r S - f^-1 d_t P - J_r) and Q_t = (r^2/k^2)(d_t S - (f/r^3) d_r(r^3 P) - J_t) under box X =
+      J (W6, re-run): his (6.8), (6.9), (6.10), and a fourth, d_t X_L, that his list does not have. Both time derivatives
+      and both radial derivatives of the pair are zeroth order in it modulo S, P, X_t and J -- the rungs below it and the
+      master field. They hold for the unhatted pair, which is the hatted one on [r_h, b r_h].
+ (K2) The pair's matrix. r^2 V tends to [[k^2 + 3, 2k], [2k, k^2 - 1]], whose eigenvalues at k^2 = l(l + 2) are (l + 1)(l
+      + 3) and (l - 1)(l + 1), the flat decomposition into the modes l +- 1: positive definite for every mode of the
+      class, the least 3 at l = 2. Hung's leading matrix [[Lambda + 2, -2 sqrt Lambda], [-2 sqrt Lambda, Lambda]] has (l
+      + 1)(l + 2) and l(l - 1), the eigenvalues {0, 6} at l = 1 that his p. 40 calls "only semi-positive definite"
+      (READ). The antisymmetric part of A is (k mu/r^4)[[0, -2], [2, 0]]; A_12 = 2k(1 - 2x)/r^2 vanishes and changes sign
+      at the photon sphere r^2 = 2 mu, as his 1 - 3M/r does at r = 3M, so no diagonal rescaling symmetrises A.
+ (K3) The T-current. For C = diag(c_1, c_2) and N symmetric, J := sum_i c_i T[X_i](d_t, .) - (1/2)(X.N.X) g(d_t, .) has
+      div J = d_t X.(C V - N) X + d_t X.C G. Hung's J_1,1 + J_1,2, with his weight 9 + 1 on the first component, is C =
+      diag(10, 1) and N_in := [[10 V_11, V_21], [V_21, V_22]] on [r_h, R_T], where the error is d_t X_1 (10 V_12 - V_21)
+      X_L -- the time derivative of X_1 only, which is F_3 -- and C = I, N_ex := [[V_11, V_12], [V_12, V_22]] beyond,
+      where it is (4 k mu/r^4) d_t X_L X_1; N_in >= (k^2/4) r^-2 I on the whole exterior and N_ex >= (k^2/4) r^-2 I for
+      r^2 >= 2 mu, for every real k^2 >= 8 (exact: each determinant a polynomial in (x, k^2) whose coefficients in powers
+      of k^2 - 8 are positive on the interval, by Sturm sequences). With c_1 = 1, N_in is indefinite at the horizon at
+      k^2 = 8 (the control): the weight is needed, as in four dimensions.
+ (K4) The Morawetz current for a pair: for M symmetric and box_s X = V X + G with V arbitrary, J := T(F d_r*, .) + (1/4)
+      omega d|X|^2 - (1/4)(d omega)|X|^2 + F' beta |X|^2 dr*, T built with X.M.X, has
+          div J = (dF/dr) |f d_r X + beta X|^2 + X.W_M.X + (F f d_r X + (omega/2) X).((V - M) X + G),
+      W_M := s_0 I - (1/2) F f M' - (mu/r^3) F M, s_0 the scalar part of rungs5's W0 -- M1 for a system; and the
+      g-current of M5 likewise, with X.V.X = X.sym(V).X.
+ (K5) The Morawetz bulk is positive outright. With M = sym(V) and rungs5's F and beta = 1/(2 sqrt mu), the cross term F f
+      d_r X.(V - M) X is -(2 k mu F/r^4)(X_L Y_1 - X_1 Y_L), Y := f d_r X + beta X, exactly (the beta parts cancel by
+      antisymmetry), and completes into the first term at the cost (k^2 mu^2 F^2/((dF/dr) r^8))|X|^2. Keeping a tenth of
+      the angular term k^2 F (1 - 2 mu/r^2)/r^3 for the bulk's angular control,
+          W_rest := W_M - (1/10)(k^2 F (1 - 2 mu/r^2)/r^3) I - (k^2 mu^2 F^2/((dF/dr) r^8)) I >= (1/40) r^-3 I
+      on the whole exterior for every real k^2 >= 8, exactly: in y = sqrt(mu)/r, r^3 W_rest - I/40 = [[p_1 + e k^2, k q],
+      [k q, p_2 + e k^2]] with e >= 0 (a double zero at the photon sphere), p_i + 8e > 0, and the determinant's
+      coefficients in k^2 - 8 positive or, where the linear one is negative, its discriminant negative (Sturm on the
+      numerators, the photon-sphere factor divided out). At l = 2 the least eigenvalue of r^3 W_rest has its minimum
+      0.0352 at r = 1.261 r_h; keeping half of the angular term instead fails at l = 2 (the control). Hung needs
+      (6.8)-(6.9) on [2M, bM] -- his matrices M_[2M,bM] and the polynomials p_1, p_2, p_3 -- because his pair is only
+      semi-definite at l = 1; in five dimensions the class starts at l = 2, where the pair is definite, and the
+      substitution is not needed for positivity.
+ (K6) The r^p current. Psi := r^(3/2) X solves L Lbar Psi = -f Vcal Psi - f r^(3/2) G, Vcal = V + (3/4 + 9 mu/(4 r^2))
+      r^-2 I, with V_inf := lim r^2 Vcal = [[k^2 + 15/4, 2k], [2k, k^2 - 1/4]], eigenvalues (l + 3/2)(l + 5/2) and (l -
+      1/2)(l + 1/2), positive definite; sym(Vcal) - V_inf/r^2 = O(mu/r^4) and the antisymmetric part is (k mu/r^4) [[0,
+      -2], [2, 0]]. So (10.7) holds for the pair with V_inf positive definite, as W8d has it for h's components.
+
+*What is deduced.*
+
+**Proposition 10.7 (the coupled estimate; deduced from K1-K6, Propositions 10.4-10.6, 10.7's sources and [Hun19] section
+6's argument; constants not tracked).** Let X = (X_1-hat, X_L-hat) solve (10.37) at a mode l >= 2 of the class, with G
+the sources of 10.7. For p in [delta, 2 - 3 delta] and tau >= 0,
+    (F[X] + E^{p,(0)}_L[X-tilde])(tau) + mu^-1/2 int_tau^oo (B-bar[X] + E^{p-1,(0)}_{L,ang}[X-tilde])(tau') dtau'
+      <= C (1 + tau/sqrt mu)^(-2+p+3 delta) Decay[X], (10.39)
+Decay[X] := (F[X] + E^{2-delta,(0)}_L[X-tilde])(0) + I_{source,3 delta}[G] + I^(0)[k^{<= 1} T^{<= 1} (X_t-hat, r P-hat)]
++ mu (I^(0)[(sqrt mu d)^{<= 1} k^{<= 1} S] + I^(1)[k^{<= 1} Sigma, k^{<= 3} phi]), his Decay[W] with Q_even's place taken
+by K1's F_2, F_4.
+
+*Proof, his.* (i) The T-current of K3, the two choices joined at R_T >= 2 R_null by Hung's cut-off eta_T on [R_T, 4 R_T]:
+its flux is comparable to the T-energy, by K3's lower bounds; the inner error d_t X_1 (10 V_12 - V_21) X_L lives on [r_h,
+4 R_T], inside [r_h, b r_h] where the pair is unhatted, and there d_t X_1 = F_3 by (10.38), so |error| <= epsilon r^-3
+|X|^2 + C_epsilon k^2 r^-1 |F_3|^2: the first is K5's bulk, the second the rungs P and X_t with one angular derivative;
+the outer error (4 k mu/r^4) d_t X_L X_1 decays like r^-4 and is absorbed by the r^p bulk for R_T large, as his 6.5
+absorbs 6M/r^2 nabla_t W_2 D_1* W_1. (ii) The red-shift current: the pair is regular at the horizon (X_1 = X_t + f X_R in
+the ingoing chart, X_L an angular component) and (10.37) has bounded zeroth-order coefficients and no first-order term,
+so [HKW18] Lemma 11's red-shift estimate "for any bounded radial potential" applies componentwise, the coupling being
+lower order -- deduced, as in Proposition 10.4, not computed. (iii) The Morawetz current: K4-K5 give a bulk at least c
+((dF/dr)|Y + c' J X|^2 + (1/10) k^2 F (1 - 2 mu/r^2) r^-3 |X|^2 + r^-3 |X|^2/40), J X := (X_L, -X_1), the zeroth-order
+part non-degenerate everywhere, and the g-current of K4 adds |d_t X|^2 away from the photon sphere as M5 does. The
+angular and time derivatives degenerate at r^2 = 2 mu, as for the scalar rungs; Hung removes the degeneracy with
+(6.8)-(6.9), and here (10.38) does the same with one identity more: near r_P every first derivative of the pair is zeroth
+order in it modulo F_1, ..., F_4, so B-bar, the non-degenerate bulk, is bounded by the non-degenerate |X|^2 bulk plus the
+F's, at the price of the rungs' derivatives. (iv) The r^p current: K6 with (10.7), V_inf positive definite; the
+remainders O(mu/r^4) and the antisymmetric term r^(p-3) nabla_L Psi . E Psi <= epsilon r^(p-4)|nabla_L Psi|^2 + C_epsilon
+k^2 mu^2 r^(p-10) |Psi|^2 are absorbed for r >= R_W, as his A_W,sub is. (v) His 6.5: C_1 J_1 + epsilon_2 J_2 + J_3 +
+epsilon_4 J^p_4 with the constants chosen in his order, the source term Err[W, G] bounded by I_source[G], which 10.7
+bounds and 10.9's rates close, the F-terms on [r_h, b r_h] by Propositions 10.5 and 10.6 for P-hat, X_t-hat, Sigma and
+phi, and the dyadic argument (6.35)-(6.37) to (10.39).
+
+*What this gives.* With 10.6 (the rungs S, X_t-hat, r P-hat, by Propositions 10.4-10.5 fed with 10.7's sources), 10.9
+(the first rungs Sigma and phi at the rapid rate) and (10.39), every component of the gauge vector at every mode l >= 2
+of the class decays at (1 + tau/sqrt mu)^(-2+p+3 delta); on [r_h, b r_h] the hatted components are the unhatted ones.
+Then h decays as [Hun19] section 7 has it: Proposition 10.3 (his Proposition 4.1) leaves only the compact region, and
+there h = h_RW + pi_X is bounded, as his Proposition 7.1 bounds it, by the master field with three derivatives ((10.1)
+and [HKW18]'s decay, Proposition 10.1(iv)) and by the gauge vector with two, the bulks of (10.39), of 10.6's rungs and of
+their commuted versions -- so h decays in harmonic gauge at every mode l >= 2 of the class at (1 + tau/sqrt mu)^(-2+p+3
+delta), with the loss of a fixed number of derivatives: [Hun19]'s Theorem 2.4(1), the l >= 2 part of his Theorem 1.2, in
+five dimensions, for the class. Route A is thereby carried through for l >= 2, every step deduced on computed identities
+and none proved here.
+
+*What remains, and is not done here.* The l = 0 sector alone: 10.9 found that his Proposition A.6 does not transcribe
+(V_inf = 3/4 at l = 0 in five dimensions), so 10.8's conditional stands, and with it the final-state statement of
+Proposition 10.2(iv), c_1 K* + c_2 pi_{W*}. Nothing of this section is proved: (10.37)-(10.38) and K2-K6 are computed,
+exactly, for every real k^2 >= 8 where so stated and at l = 2 for K1; Proposition 10.7 is deduced by his argument, the
+red-shift step without a computation; l = 0 is open.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)

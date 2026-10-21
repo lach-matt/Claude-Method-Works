@@ -398,10 +398,13 @@ decays at tau^(-2+) with the loss of a fixed number of derivatives once its sour
 = 0 (4.3(4)) are computed (4.9; N1STAR-PROOF.md 10.7-10.8): [Hun19]'s substitutions (4.27)-(4.30) in five dimensions,
 every bad weight removed and the residual sources in the norm's weights, and the identities of his section 8; what they
 left open was two estimates. The first, the rapid decay of the first rungs, is 4.10 (N1STAR-PROOF.md 10.9): his
-Proposition A.5 with k = 1 goes through in five dimensions for l >= 1 (Proposition 10.6, deduced), and at l = 0 his
-Proposition A.6 does not -- the radiation field carries V_inf = 3/4 there, not zero, so the hierarchy of S_W stops at p <
-2 and 10.8's conditional is not discharged by his method. Next, in order: the coupled (X_1, X_L) estimate of his section
-6; the l = 0 rapid decay by another route; then route B's item 2, the five-dimensional constraint damping.
+Proposition A.5 with k = 1 goes through in five dimensions for l >= 2, and for Sigma at l >= 1 (Proposition 10.6,
+deduced), and at l = 0 his Proposition A.6 does not -- the radiation field carries V_inf = 3/4 there, not zero, so the
+hierarchy of S_W stops at p < 2 and 10.8's conditional is not discharged by his method. The second, the coupled (X_1,
+X_L) estimate of his section 6, is 4.11 (N1STAR-PROOF.md 10.10, Proposition 10.7, deduced): the Morawetz bulk of the pair
+is positive without his compact-region substitution, and with it route A is carried through for every mode l >= 2 of the
+class. Next, in order: the l = 0 rapid decay by another route; then route B's item 2, the five-dimensional constraint
+damping.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -590,7 +593,7 @@ for the l = 0 argument. growing5.py and lzero5.py compute both, and N1STAR-PROOF
   (10.29). With (b) and an l = 0 rate, his Theorem 2.5 and Theorems 1.3-1.4 follow in the class. Labels: computed
   (growing5.py G1-G5, lzero5.py Z1-Z5, exact at the sample points); deduced (the three-region bounds, the l = 0
   argument); READ ([KI03] sections 2-3 and 6, Appendix A; [Hun19] 4.2, 5, (6.1)-(6.11), 8, Appendices A-B; alphaXiv,
-  2026-10-21); nothing proved; (a) and (b) open.
+  2026-10-21); nothing proved; (a) is 4.10 (open at l = 0) and (b) is 4.11.
 
 ### 4.10 The first rungs' rapid decay: Hung's A.5 in five dimensions, and the l = 0 obstruction (computed, deduced; D51)
 
@@ -599,19 +602,21 @@ five dimensions; N1STAR-PROOF.md 10.9 states Proposition 10.6 and the obstructio
 - The commuted field Psi_1 := f^-1 r^2 nabla_L Psi of the radiation field Psi = r^(3/2) u satisfies L Lbar Psi_1 =
   -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V) Psi with Vcal_1 = Vcal - 2/r^2
   + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2), exactly for a symbolic potential (H1). In four dimensions the
-  same computation gives his -2/r^2 with 12 M/r^3 for his 14 M/r^3 and a first-order term his remark does not print,
-  differences at the order his argument absorbs (READ).
+  same computation gives his V^(1) exactly -- his 14 M/r^3 is the 12 M/r^3 here with the radiation field's own 2M/r^3,
+  which his V^(j) counts from V -- and a first-order term his remark does not print, which enters the current with a good
+  sign (READ).
 - The p-current identity for Psi_1 is (10.7) with the first-order term adding 2(1 - 2 mu/r^2) to the |nabla_L Psi_1|^2
   bulk, positive for r^2 > (10 + p) mu/(4 + p) (H2). The Psi_1^2 bulk is ((2 - p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2
   for Sigma, positive on the exterior for p in [0, 2] and l >= 1 -- (A.7) with no R_null -- and for phi it has the room
   (1/4)(2 - p)(k^2 - 5/4) for r >= 8.14 r_h at k^2 = 8 and everywhere at k^2 = 24, 48, 80; the base bulk (A.5) likewise
-  with R_0 = 10.56, 4.61, 3.04, 2.29 r_h; (A.8) holds for l >= 1; (A.9) with r^4 |V_phi|/mu <= 25.2 and V_phi -> -12
-  mu/r^4 as k -> oo; (A.3) holds with the margin 4/11 at k^2 = 8 and fails at k^2 = 3 (H3).
+  with R_0 = 10.56, 4.61, 3.04, 2.29 r_h; (A.8) holds for l >= 1; (A.9) with r^4 |V_phi|/mu <= 12 (k^2 + 3)/(k^2 - 3),
+  attained at infinity, and V_phi -> -12 mu/r^4 as k -> oo; (A.3) holds with the margin 4/11 at k^2 = 8 and fails at k^2
+  = 3 (H3).
 - Proposition 10.6 (deduced): for Sigma and phi at l >= 2, F + E^{p,(0)}_L + the bulks decay as (1 + tau/sqrt mu)^(-4+p+3
   delta) against I^(1)[u], by his argument on (10.34)-(10.35): the base hierarchy, the commuted one, the Hardy step
-  E^{2,(0)}_L <= 4 E^{0,(1)}_L (the same exponent, since Psi carries r^(3/2)), and the dyadic argument twice. With it
-  10.7's three-region bound closes as his Lemma 5.5: I_source[G] of each hatted rung decays at (1 + tau/sqrt mu)^(-2+p+3
-  delta).
+  E^{2,(0)}_L <= 4 (100/99)^2 E^{0,(1)}_L (his exponents, the radiation field carrying s^(3/2)), and the dyadic argument
+  twice. With it 10.7's three-region bound closes as his Lemma 5.5: I_source[G] of each hatted rung decays at (1 +
+  tau/sqrt mu)^(-2+p+3 delta).
 - l = 0 (H4): V_inf = 3/4 and V^(1)_inf = -5/4, so (A.8) fails and the base bulk (3/8)(2 - p) + (9/8)(4 - p) mu/r^2 is
   negative for p > 2 once r^2 > 3(4 - p) mu/(p - 2): the hierarchy of S_W stops at p < 2, where in four dimensions (V_inf
   = 0) it reaches p < 3 and, with the Newman-Penrose constant, p < 4 (his Proposition A.6(1), the input of his
@@ -621,4 +626,33 @@ five dimensions; N1STAR-PROOF.md 10.9 states Proposition 10.6 and the obstructio
   rate.
 - Labels: computed (hierarchy5.py H1-H4, exact; the radii and constants at k^2 = 8, 24, 48, 80); deduced (Proposition
   10.6); READ ([Hun19] Appendix A in full, Lemma 5.3, Propositions 5.2, 5.4, 8.2, Lemma 8.3, (2.4), (2.19)-(2.23);
-  alphaXiv, 2026-10-21); nothing proved; l = 0 and 4.9's (b) open.
+  alphaXiv, 2026-10-21); nothing proved; l = 0 open; 4.9's (b) is 4.11.
+
+### 4.11 The coupled estimate: Hung's section 6 in five dimensions; route A through for l >= 2 (computed, deduced; D52)
+
+4.9's item (b). coupled5.py computes the identities, the pair's matrix and the four currents in five dimensions;
+N1STAR-PROOF.md 10.10 states Proposition 10.7.
+- The identities (K1): d_r X_1 + (3/r) X_1 + (k/r) X_L = S + f^-1 d_t X_t, f d_r X_L + (f/r) X_L + (k/r) X_1 = (k f/r)
+  Q_r, d_t X_1 = f (P + d_r X_t) -- his (6.8)-(6.10) -- and d_t X_L = (k/r)(Q_t - X_t), a fourth: every first derivative
+  of the pair is zeroth order in it modulo the rungs S, P, X_t and the source J (W6 re-run).
+- The pair's matrix (K2): at infinity its eigenvalues are (l + 1)(l + 3) and (l - 1)(l + 1), positive definite for l >=
+  2, where Hung's are (l + 1)(l + 2) and l(l - 1), zero at l = 1; A_12 vanishes at the photon sphere, so no diagonal
+  symmetriser exists, as in four dimensions.
+- The T-current (K3): with his weight 9 + 1 and the inner and outer symmetric parts, N_in, N_ex >= (k^2/4) r^-2 I for
+  every k^2 >= 8, exactly; the inner error involves d_t X_1 only, which is the identity's F_3, and the outer one is (4 k
+  mu/r^4) d_t X_L X_1, absorbed by the r^p bulk.
+- The Morawetz current (K4-K5): the identity for a pair with arbitrary V, and with M = sym(V), the record's F and beta =
+  1/(2 sqrt mu), the antisymmetric cross term completed into the radial square, a tenth of the angular term kept, the
+  zeroth-order bulk satisfies W_rest >= r^-3/40 for every real k^2 >= 8 on the whole exterior, exactly (Sturm); 0.0352
+  r^-3 at l = 2, at 1.261 r_h. Hung needs (6.8)-(6.9) for positivity on [2M, bM] because his pair is semi-definite at l =
+  1; here the identities are used only to remove the photon-sphere degeneracy of the derivatives, as he also does.
+- The r^p current (K6): V_inf = [[k^2 + 15/4, 2k], [2k, k^2 - 1/4]], eigenvalues (l + 3/2)(l + 5/2) and (l - 1/2)(l +
+  1/2), remainders O(mu/r^4).
+- Proposition 10.7 (deduced): the pair decays at (1 + tau/sqrt mu)^(-2+p+3 delta) against Decay[X], by his argument; the
+  red-shift step by [HKW18] Lemma 11 for a bounded matrix potential, without a computation. With 4.9, 4.10 and the rungs
+  of 10.6, every component of the gauge vector and h = h_RW + pi_X decay in harmonic gauge at every mode l >= 2 of the
+  class, by his section 7 on Proposition 10.3: [Hun19]'s Theorem 2.4(1) (h at l >= 2; the l >= 2 part of his Theorem 1.2)
+  in five dimensions, deduced.
+- Labels: computed (coupled5.py K1-K6, exact; K1 at l = 2, K3 and K5 for every real k^2 >= 8); deduced (Proposition 10.7
+  and its consequences); READ ([Hun19] section 6 in full, (6.1)-(6.37); alphaXiv, 2026-10-21); nothing proved; l = 0
+  open.
