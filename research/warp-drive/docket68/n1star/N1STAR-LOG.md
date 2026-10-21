@@ -928,3 +928,59 @@ estimate OPEN; nothing proved. Two slips in the check's code, caught by its own 
 computation before anything was committed: a positive assumption on the eigenvalue symbol defeats sympy's polynomial
 comparison, and the row-6' zeroth-order correction needed its 1/f. Not read by a verifier: W7, hung4.py, the repairs.
 
+
+**D48 (2026-10-21, M: "Continue with Route A"): Hung's Proposition 4.1 in five dimensions, deduced as Proposition 10.3 on
+W7's structure from the identities of W8.**
+
+*What was read.* [Hun19] at source (alphaXiv): section 2 (the ingoing chart (2.1), the wave operator (2.2), the red-shift
+cut-off and vector field (2.6)-(2.7), the vector-field sets (2.8), the red-shift identity (2.13), the divergence theorem
+(2.14), the norms (2.15)-(2.22)); Lemma 3.2 and Corollaries 3.3-3.5 (the Hardy inequalities); section 4.1 in full
+(Proposition 4.1 and (4.1), the components, Proposition 4.2 and (4.3), Lemma 4.3, Lemma 4.4 with the current (4.5) and
+its divergence, the J_{H,delta} current (4.6), the regular variables H6', H7' and the red-shift current (4.7) with (4.8),
+the proof of Proposition 4.1 with the T-current (4.9), Remark 4.5 on l = 1 and l = 0); Appendix A ((A.1)-(A.11), the
+class V(delta, R_null, l_0) and Propositions A.4-A.5). [Sch13]: the radiation field r^((n-1)/2) psi and its potential
+((5.11)-(5.12), at n = 4 the weight s^(3/2) and V0 = (3/4 + 9 mu/(4 r^2))/r^2), (2.17)-(2.20), Proposition 3.1,
+(5.8)-(5.17).
+
+*What was computed (wavegauge5.py W8).* On the W7 system, in the rescaling Hhat = diag(sqrt2, 1, sqrt2, sqrt2, 2 n_S,
+sqrt2, sqrt2) H that makes the leading matrix symmetric: (a) the radiation field Psi = s^(3/2) Hhat obeys d_u d_v Psi =
+-f (Ahat + V0) Psi - f Uhat Psi, and V_inf = lim r^2 (Ahat + V0) has the eigenvalues (l+a+1/2)(l+a+3/2) -- at least 3/4
+at every l >= 2 and at least (3/32) l(l+2): the zero eigenvalue Hung's leading matrix has at l = 2 is lifted by the 3/4
+of the five-dimensional radiation weight, so the far-region estimate needs no Hardy inequality (his Corollary 3.3 at l =
+2); (b) Uhat Psi = (2f'/f) nabla_L (Psi6 - Psi1) - (3f'/r)(Psi6 - Psi1) and (f'/f) nabla_L (Psi7 - Psi4) -
+(3f'/(2r))(Psi7 - Psi4), the zeroth-order parts from the weight; (c) the p-current's divergence, his (4.5) with every
+power of s lowered by one, flux s^(p-5) Psi . V_inf . Psi >= 0 at I^+; (d) the red-shift divergence at r = r_h: his
+(2.13) with (1/(2M), 2/M) -> (2/r_h, 6/r_h) and three terms new in five dimensions, (1/r_h)|nabla-slash Q|^2,
+(2c/mu^(3/2))|Q|^2 and (2c/mu) Q . Q_R, the first-order term entering as 2 Q_R . beta Q_R with beta = diag(0, 0, 0, 0, 0,
+2f', f') >= 0; (e) the J_delta current's divergence, his (4.6); (f) the rough Laplacian of S^3 on the one-form S_th dth
+and the traceless tensor S_AB, -(k^2 - 2) and -(k^2 - 6), so K = diag(k^2, k^2, k^2, k^2 - 2, k^2 - 6, k^2, k^2 - 2); (g)
+A - K/r^2, its regular form and A - A_main/r^2 are of degree at most one in k and the regular form is finite at r_h, so
+one angular derivative bounds them uniformly in l; (h) at l = 0, A0 - A0_main/r^2 = O(mu/r^4) and the rescaling
+diag(sqrt2, 1, sqrt2, sqrt2) makes A0_main symmetric, V_inf with eigenvalues 3/4, 3/4, 15/4, 35/4. The three divergence
+identities are formal: two components, the matrices symbols, the structure the same at seven. Control: V0's sign reversed
+and L-bar for L in J^p. The selftest is 8/8 in about seven and a half minutes, the mutants 8/8 in about six minutes; the
+l = 0 matrices are cached from W7, which W8 reuses.
+
+*What was deduced.* Section 10.5: the setting and norms of [Hun19] section 2 with (2M, 9M/4, 5M/2, 10M, M) -> (r_h, 9
+r_h/8, 5 r_h/4, 10 r_h, r_h), M^-2 -> mu^-1, the radial weights lowered by one for the measure r^3 dr; Proposition 10.3,
+his (4.1) with M^-1, M^-3 -> mu^-1/2, mu^-3/2; the proof in his three steps -- the far region on the p-current plus
+epsilon J_delta (Lemma 4.4), the horizon on the red-shift current in the regular variables with sigma > 18/r_h and then
+large ((4.8)), the T-current in the regular variables and the sum ((4.9)) -- every identity one of (a)-(h), every
+inequality Cauchy-Schwarz or a choice of epsilon, R_H, sigma; the remark on l = 0 (his Remark 4.5), which does not bound
+h_{l=0}: K* grows. Constants not tracked. Not a decay statement: the right side carries h on [r_rs,H, R_null + r_h],
+where Proposition 10.1's master quantities and the gauge vector enter; the rungs' Morawetz estimates (4.3(2)), the
+growing source and l = 0 remain. Seated: N1STAR-PROOF.md 10.5 and the closing paragraph of 10.4; ROUTES-OPEN.md 4.5 (the
+order: the rungs next) and 4.7; the README; the paper's settling paragraph, Appendix C and D, the retrieval table,
+[Sch13] in its references.
+
+*Slips, each caught before anything was committed.* The seven-component divergences in full exceeded the thirty-minute
+background limit (exit 143) -- the identities are formal now, two components with the matrices symbolic, which carries
+the structure and loses nothing the proof uses, the bounds on the matrices being (a), (b), (g); the first p-current
+template had its cross term with the wrong sign (the residual was exactly twice it); the first horizon template lacked
+the (1/r_h)|nabla-slash Q|^2 term; V0 enters the system with a minus sign, read off the radiation identity's residual;
+substituting r = r_h before replacing the derivatives by symbols left Subs objects; the k-degree script first ran from
+the scratchpad and could not import the instrument; Proposition 10.2(vi)'s text and W7's docstring called the quotient
+wave operator box_l, (v)'s symbol with the angular term included -- a notational slip, repaired (A carries K/r^2 on its
+diagonal, W8(f)); a first statement of the bound on Uhat used the row constants 4 and 6 where the vector bound needs 9
+and 13; and the instrument's lines ran past 121 characters four times before the length was asserted in the edit itself.
+The sixteenth verifier is sent on W7, hung4.py, W8 and Proposition 10.3 with the D47 repairs; its verdict follows.
