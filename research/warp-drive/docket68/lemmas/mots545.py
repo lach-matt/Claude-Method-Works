@@ -1,6 +1,120 @@
 #!/usr/bin/env python3
 """mots545.py -- item 545: the inner marginally trapped surface the record's scheme was read as showing at the physical
-wavelength, investigated.  Labels: computed (exact unless marked), deduced, READ, M's.  (Docstring completed below.)
+wavelength, investigated exhaustively.  It does not form.  Labels: computed (exact unless marked), deduced, READ, M's.
+
+  M0 (M's) 545, verbatim: "Does 519 cover this? - no it does not. Please investigate this exhaustively, and report back
+     the findings, how it affects the rest of the theorem, and how to mitigate it if it does, or determine if it
+     applies at all".
+  M1 (deduced; computed exact) The expansion of a cross-section.  On the slice v = const of hf_mirror5's metric (r =
+     y^-2, x = cos 2 th, the circles e^{2 Q1}, e^{2 Q2}) the surface y = Y(x) has the null normals l = d_y (the slice's
+     ingoing generator) and k, with
+         theta_l = -6/y < 0,
+         theta_k[Y] = (3/2) Y^2 W + V_x + Y' V_y + 8 E [(1 - x^2)(Y Y'' - 2 Y'^2) - 2 x Y Y']
+                      + 8 Y Y' (1 - x^2)(E_x + E_y Y'),
+     E = e^{2(beta + S)}, every field at (Y(x), x), no v-derivative.  At Y' = 0 it is hf_mirror5 X10's round-sphere
+     expansion (checked on the record's slice to the x-grid's aliasing).  A marginally trapped surface is a closed
+     surface with theta_k = 0 at every point.  A sign change of a round sphere's theta_k along a column -- what growth5
+     counts -- is not one.
+  M2 (deduced) Every closed cross-section is a graph.  The slice is ruled by its null generators d_y, and a spacelike
+     surface cannot contain a null direction.  So projecting a closed connected spacelike surface in the domain along
+     the generators onto their S^3 is a local diffeomorphism of compact onto connected: a covering, hence (S^3 simply
+     connected) one-to-one.  The surface is y = Y(omega), embedded; no fold, self-intersection or torus can occur on a
+     null slice, and a T^2-invariant one is a curve y = Y(x).
+  M3 (deduced) Ellipticity and comparison.  In the base metric g_yy = g_yx = 0, so the induced metric of y = Y(omega)
+     involves no derivative of Y, and theta_k is quasi-linear with a positive multiple of its Laplacian as principal
+     part (8 E Y (1 - x^2) Y'' in M1).  If two cross-sections touch at p, the outer one's (smaller y) theta_k at p is at
+     most the inner one's.  So a marginally trapped surface's innermost point lies where the round spheres are locally
+     untrapped and its outermost where they are trapped (the record's own hf_mirror5 horizon docstring).
+  M4 (deduced; computed exact) The control.  With u = 1/Y, Y Lap Y - 2 |grad Y|^2 = -u^-3 Lap u on S^3 (sympy), so on
+     Tangherlini theta_k = (3/2) u^-2 (1 - mu u^-4) - 2 u^-3 Lap u.  At the greatest and the least u the maximum
+     principle gives u = mu^(1/4): on Tangherlini's ingoing null slices the only marginally trapped surface of any
+     shape is r = sqrt(mu), strictly stable.  On its Painleve-Gullstrand slices five-dimensional Schwarzschild holds a
+     family of closed self-intersecting interior ones (READ, M11).  Interior marginally trapped surfaces belong to a
+     slicing, and a black hole with no inner horizon holds them.
+  M5 (deduced; computed, numerical) The exhaustive search among T^2-invariant surfaces.  theta_k[Y] = 0 is a
+     second-order ODE on [-1, 1], regular singular at both axes with indicial roots 0, 0.  The solutions regular at
+     x = -1 are one family fixed by Y(-1), so the T^2-invariant marginally trapped surfaces are exactly the zeros of one
+     function C(Y(-1)), the singular solution's coefficient at x = +1.  Shot by RK4 (mesh graded to both axes) from 600
+     values of Y(-1) inside half the least round zero; a shot leaving the domain counts as +-inf on its side.  Each sign
+     change is refined, kept only if its shot stays in the domain with |C| < 1e-6, polished by Newton collocation on
+     the scheme's own x-grid (kept only if the polish stays on the shot), and given lambda_1 = -max Re eig of theta_k's
+     linearisation.
+  M6 (deduced; computed, numerical) The sweep, which bounds every surface of any shape.  From the outer marginally
+     trapped surface, closed T^2-invariant leaves are continued by Newton collocation.  Inward they solve theta_k = c g,
+     c < 0, with g = max(1, -the round expansion at the core boundary) > 0, so each is strictly trapped; they run until
+     one lies wholly past the core boundary.  Past it the fields are continued by their boundary values, since only a
+     leaf's part in the domain is ever compared, and nesting is required only there.  Outward they solve theta_k = c >
+     0 until one lies wholly outside the least round zero.  A marginally trapped surface of any shape in the domain
+     would touch, from the wrong side, the deepest inward leaf it reaches or the farthest outward one (M2, M3): so
+     where both sweeps complete the outer one is the only one.  Checked between the nodes on 401 points: every inward
+     leaf's theta_k < 0 and every outward one's > 0 in the domain, consecutive leaves nested.
+  M7 (deduced; READ) A surface not invariant under a rotation of the circles would be carried by it through
+     marginally trapped surfaces, giving its stability operator the eigenfunction d_phi Y, which changes sign, so it
+     would be unstable (Booth, Cox and Margalef-Bentabol, Theorem 1.6).  Moot wherever M6 completes.
+  M8 (computed, numerical; pinned) The slices.  The record's scheme run with growth5's code at the five points where a
+     second round zero was reported, the accepted state captured at the step nearest each hundredth of v from where
+     the zero first appears; "outflow" is the premise's causal clause, W < 0 at the core boundary:
+       point                          v span     slices  outflow  2nd round zero  W 2nd zero  one MOTS  unique  lambda_1
+       ---------------------------------------------------------------------------------------------------------
+       10 l5, mu0 = 100 l5^2          1.31-1.69      40       21              10           0        21      21    5.89
+       10 l5, mu0 = 1000 l5^2         1.40-1.68      29       28               9           0        28      27    5.93
+       lam_P, copper (102.4)          1.30-1.80      51       26              10           0        26      26    5.92
+       lam_P, the example README (60.9) 1.30-1.73      35       17              10           0        17      17    5.90
+       lam_P, r0 = 20 ell (808.5)     1.60-2.30      71       71              47           0        71      71    5.70
+     226 slices: on all 163 with the boundary outflow the search finds one marginally trapped surface, the outer
+     apparent horizon, strictly stable; 162 are unique of any shape by the sweeps.  The 163rd (10 l5 at mu0 = 1000,
+     v = 1.671, two steps before the slice solve fails) sweeps completely, but one leaf's expansion between the nodes
+     is +0.0025 against the outer surface's own between-node residual of 0.034 there: unique to the x-grid's
+     resolution, not certified.  On the 63 slices past the premise, where the scheme's excision is ill-posed, the
+     search still finds exactly one.  The extra round zeros are the angular shift's term (2/3) y^3 d_x((1 - x^2) q):
+     W alone has one zero per column on every one of the 86 slices that show them.
+  M9 (computed) Resolution.  Copper at Ny = 28 and at Nx = 20 (v = 1.30-1.60, 16 slices each): the outer surface's
+     radii agree with Ny = 20 to 1e-4 at Nx 20 (the same steps) and to 3e-3 at Ny 28 (its steps fall up to 0.007
+     in v away), lambda_1 to 0.01, and every slice with the boundary
+     outflow is unique at both (13 and 13).  The round-zero count itself moves with resolution (13 slices with a second
+     zero at Ny = 28, 4 at Nx = 20, 10 at Ny = 20 over the same span): the proxy is noisy, the result is not.  Nx = 24
+     makes the scheme itself unstable (it fails at v = 0.39).
+  M10 (computed; pinned) Mitigation at the small end.  What stops the scheme at the least seeds is its core boundary
+     turning inflow, not an inner surface.  At lam_P on larger seeds (growth5.run, the same envelope, its breakdown
+     criterion): {MIT}
+  M11 (READ) Prior art.
+     - Booth, Chan, Hennigar, Kunduri and Muth (2210.15685v2, p. 17): "self-intersecting MOTSs may also be found in D =
+       5 Schwarzschild and they are qualitatively the same as in D = 4"; p. 49: "a family of closed, self-intersecting
+       MOTSs contained in the black hole interior".  Booth, Hennigar and Mondal (2005.05350v3, p. 16): "an (apparently)
+       infinite number of self-intersecting MOTS inside r = 2m".
+     - Booth, Brits, Gonzalez and Van Den Broeck (gr-qc/0506119v2, p. 4): "large (though not infinite) concentrations
+       of matter may force the creation of a dynamical horizon-timelike membrane pair ... Timelike membrane-dynamical
+       horizon pairs can annihilate each other"; p. 6: an MTT "is a timelike membrane if and only it is a future inner
+       trapping horizon"; p. 23: "all of these intricacies are contained within the outermost isolated horizon ... and
+       would not be visible to outside observers".  Pook-Kolb, Birnholtz, Krishnan and Schnetter (1903.05626v3, p. 2),
+       in vacuum: "a common horizon is formed, which bifurcates into an inner branch ... and an outer branch".
+     - Galloway and Schoen (gr-qc/0509107v2, p. 6), in any dimension: "marginally outer trapped surfaces cannot occur
+       outside the event horizon".
+     - Booth, Cox and Margalef-Bentabol (2311.02063v2, p. 3, Theorem 1.6): "Suppose S is a MOTS and X is a symmetry of
+       (Sigma, g, K) but not of S.  Then 0 is an eigenvalue of L_S ... (2) S is unstable if and only if X is tangent to
+       S at some point."
+  M12 (deduced) What it decides.
+     - It does not apply.  No inner marginally trapped surface forms on the record's slices at any of the five points,
+       so there is no inner trapping horizon either.  544's sentence (carried from N1STAR-PROOF section 10.2) is
+       withdrawn.
+     - 519 is unchanged.  The work has no inner or Cauchy horizon, and the end state is Tangherlini, which has neither
+       (SETTLE, SETTLEs S1).  A black hole without an inner horizon may still hold interior marginally trapped surfaces
+       on some slicing (M4): their presence on a slicing is not what an inner horizon is.
+     - The rest of the theorem: no status moves.  The second round zero was the premise's one-zero clause, the
+       record's proxy for one horizon, and on these slices it fails only by the angular shift's term.
+       - What stops the scheme at the small end is the causal clause: the core boundary turns inflow (copper from v =
+         1.5625, the example README from 1.5125; at 10 l5 from 1.516 and 1.680).  So the passage at the physical
+         wavelength through the seed's interior stays named theorized (SOURCE-PROOF Part E).
+       - At the large end the boundary stays outflow and one horizon holds throughout; the run past v = 1.833 is not
+         converged (derived_go D2).
+       - The face forms with one horizon at the physical wavelength too, on every slice the scheme computes with its
+         boundary outflow.
+     - Mitigation: the surface needs none, since it does not form.  For the small end's inflow boundary see M10; the
+       route needing no excision, the characteristic problem in double-null gauge, stays named (N1STAR-PROOF 10.2).
+
+What this does not claim: a theorem about the spacetime (the slices are the scheme's, and a run of a scheme is not a
+proof); anything inside the core boundary, which bounds the record's core; anything on other slicings, where the prior
+art shows interior marginally trapped surfaces are generic even in Tangherlini.
 
 Usage: python3 mots545.py --selftest | --mutants | --scan NAME v0 v1 dv [Ny [Nx]] | --report
 """
@@ -23,7 +137,8 @@ MUT = set()
 
 def words():
     return ("Does 519 cover this? - no it does not. Please investigate this exhaustively, and report back the findings, "
-            "how it affects the rest of the theorem, and how to mitigate it if it does, or determine if it applies at all")
+            "how it affects the rest of the theorem, and how to mitigate it if it does, or determine if it applies "
+            "at all")
 
 
 def load_mods():
@@ -471,8 +586,17 @@ def legendre_identity():
     return sp.simplify(Y*L(Y) - 2*g2(Y) + L(u)/u**3) == 0
 
 
-PINNED = {}
-PIN_RES = {}
+PINNED = {
+    'L100_10l5': {'n': 40, 'valid': 21, 'nz2': 10, 'nzW2': 0, 'not_one': 0, 'unique_valid': 21, 'lam1_min': 5.89, 'past': 19, 'past_one': 19},
+    'L1000_10l5': {'n': 29, 'valid': 28, 'nz2': 9, 'nzW2': 0, 'not_one': 0, 'unique_valid': 27, 'lam1_min': 5.93, 'past': 1, 'past_one': 1},
+    'copper': {'n': 51, 'valid': 26, 'nz2': 10, 'nzW2': 0, 'not_one': 0, 'unique_valid': 26, 'lam1_min': 5.92, 'past': 25, 'past_one': 25},
+    'example': {'n': 35, 'valid': 17, 'nz2': 10, 'nzW2': 0, 'not_one': 0, 'unique_valid': 17, 'lam1_min': 5.9, 'past': 18, 'past_one': 18},
+    'r0=20ell': {'n': 71, 'valid': 71, 'nz2': 47, 'nzW2': 0, 'not_one': 0, 'unique_valid': 71, 'lam1_min': 5.7, 'past': 0, 'past_one': 0},
+}    # M8, the runs of 2026-10-21 (data/mots545_scans.json)
+PIN_RES = {
+    'copper_28x16': {'n': 16, 'valid': 13, 'nz2': 13, 'nzW2': 0, 'not_one': 0, 'unique_valid': 13, 'lam1_min': 5.93, 'past': 3, 'past_one': 3},
+    'copper_20x20': {'n': 16, 'valid': 13, 'nz2': 4, 'nzW2': 0, 'not_one': 0, 'unique_valid': 13, 'lam1_min': 5.93, 'past': 3, 'past_one': 3},
+}    # M9
 PIN_MIT = {}
 
 
@@ -507,9 +631,26 @@ def checks(fast=False):
     if PINNED:
         ok["M8 the five points' scans read back as pinned"] = all(
             k in R and summary(R[k]) == pin for k, pin in PINNED.items())
+        S5 = [summary(R[k]) for k in PINNED if k in R]
+        val = sum(a["valid"] for a in S5)
+        ok["M8 on all %d slices with the core boundary outflow: one marginally trapped surface, W alone one zero per "
+           "column on all %d that show a second round zero" % (val, sum(a["nz2"] for a in S5))] = (
+            len(S5) == 5 and all(a["not_one"] == 0 and a["nzW2"] == 0 for a in S5) and val == 163)
+        ok["M8 unique of any shape by the sweeps on 162 of the 163; on the 63 slices past the premise one each"] = (
+            sum(a["unique_valid"] for a in S5) == 162 and sum(a["past"] for a in S5) == 63
+            and sum(a["past_one"] for a in S5) == 63 and min(a["lam1_min"] for a in S5) > 5)
     if PIN_RES:
         ok["M9 the resolution scans read back as pinned"] = all(
             k in R and summary(R[k]) == pin for k, pin in PIN_RES.items())
+        if all(k in R for k in ("copper", "copper_28x16", "copper_20x20")):
+            def near(rows, v):
+                return min(rows, key=lambda a: abs(a["v"] - v))
+            d20 = max(abs(near(R["copper"], a["v"])["mots"][0][f] - a["mots"][0][f])
+                      for a in R["copper_20x20"] for f in ("r_min", "r_max"))
+            d28 = max(abs(near(R["copper"], a["v"])["mots"][0][f] - a["mots"][0][f])
+                      for a in R["copper_28x16"] for f in ("r_min", "r_max"))
+            ok["M9 the outer surface's radii: Nx 20 against Nx 16 within 1e-3, Ny 28 against Ny 20 within 5e-3"] = (
+                d20 < 1e-3 and d28 < 5e-3)
     if PIN_MIT:
         Mt = load(MITIG)
         ok["M10 the mitigation runs read back as pinned"] = all(
