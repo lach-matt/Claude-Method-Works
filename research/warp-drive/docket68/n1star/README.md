@@ -89,11 +89,15 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   components of box W, P = r (dW)_tr - 2 W0 with box_s P = d_t S_W, the (W0, W3) form with the red-shift sign, c_1(oo),
   the two radial ODEs and their singular solutions, the substitution P + (u + r) S_W/2 (Z1-Z5). `python3 lzero5.py
   --selftest` (5/5, about a quarter of a minute), `--mutants` (5/5).
+- `hierarchy5.py`: the first rungs' rapid decay (section 10.9; D51): Hung's Proposition A.5 at k = 1 in five dimensions
+  -- the commuted equation of the radiation field, the p-current identity for the commuted field, his conditions (A.3),
+  (A.5), (A.7)-(A.9) with the radii and constants at four modes, and the l = 0 obstruction (V_inf = 3/4, V^(1)_inf =
+  -5/4) (H1-H4). `python3 hierarchy5.py --selftest` (4/4, about a minute), `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All seventeen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
+All eighteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
 numpy, growth5.py importing the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing
 lead5.py), growing5.py and lzero5.py import wavegauge5.py, and the others import nothing from the tree. The board's
 shared record is not edited here.

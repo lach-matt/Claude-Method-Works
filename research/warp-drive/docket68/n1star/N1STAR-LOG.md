@@ -1151,3 +1151,50 @@ reconstruction with k symbolic; (10.32)-(10.33)'s forced coefficients and the Si
 from its own one-form box, Z2 in the stronger joint form (alpha, c) = (-2, 1); _frac's soundness; the mutants as real
 controls; the md5 rows, counts and timings. Its verdict: 10.7-10.8 can be relied on as labelled, computed / deduced /
 READ, nothing proved, (a) and (b) open. The repairs are seated in this PR before merge.
+
+**D51 (2026-10-21, M: "Continue with the next step of Route A please"): the first rungs' rapid decay -- [Hun19]
+Proposition A.5 with k = 1 in five dimensions, and the l = 0 obstruction (section 10.9; hierarchy5.py H1-H4).**
+
+*The step.* ROUTES 4.5's order after D50: the two estimates 10.7 left, first the rapid decay of the first rungs (a), then
+the coupled (X_1, X_L) estimate (b). PR #71 had merged (M, 17:11 UTC); the branch was restarted from main.
+
+*What was read.* [Hun19] at source (alphaXiv): Appendix A in full, pp. 70-73 -- (A.1)-(A.14), the assumptions (A.3)
+(T-energy), (A.4) (Morawetz), (A.5) (the r^p bulk), (A.6) (derivatives), the commuted potentials V^(j) := V + 2M/r^3 -
+j(j + 1)/r^2 + 6 M j(j + 1)/r^3 with (A.7)-(A.9), Definitions A.1-A.2, Remark A.3 (V = 0 qualifies when l_0 >= k),
+Propositions A.4-A.6 with the account of [2] (Angelopoulos-Aretakis-Gajic: r^2 L as commutator, the bad term absorbed by
+Poincare, the l = 0 extension to p < 4 when the Newman-Penrose constant vanishes), the rate -2(k + 1) + p + (1 + 2k)
+delta and the step E^{2,(j)}_L <~ E^{0,(j+1)}_L by Lemma 3.2; Lemma 5.3 with its proof (V^(1)_Z = V_Z - 2/r^2 + 14 M/r^3,
+lim r^2 V^(1) = -2, lim V_Z = -8 M/r^3, the polynomial Q_1 and R_Z); Propositions 5.2 and 5.4, Lemma 5.5 re-read; (2.4)
+Phi^(j) := (1 - 2M/r)^-1 M s^2 nabla_L Phi^(j-1), (2.19)-(2.23); Proposition 8.2 and Lemma 8.3.
+
+*What was computed.* hierarchy5.py (H1) the commuted equation of Psi_1 := f^-1 r^2 nabla_L Psi for a symbolic potential:
+L Lbar Psi_1 = -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V) Psi, Vcal_1 = Vcal
+- 2/r^2 + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2); in four dimensions the same computation gives Vcal_1 =
+Vcal - 2/r^2 + 12 M/r^3 with the first-order term -(2/r)(1 - 3M/r) and the Psi term f (2M/r^2 - r^2 V' - 2 r V) where his
+V^(1) prints 14 M/r^3 and no first-order term -- the -2/r^2 his (A.8) reads is reproduced, the rest is at the order his
+argument absorbs, recorded as READ and not as a fault; the normalisation without f^-1 was tried and leaves a Psi term -2
+k^2 mu f/r^5, not uniform in l (the control). (H2) the p-current identity for Psi_1: the first-order term adds 2(1 - 2
+mu/r^2) to the |nabla_L Psi_1|^2 bulk, positive beyond r^2 = (10 + p) mu/(4 + p); the Psi_1 nabla_L Psi_1 term integrated
+by parts to the bulk r^(p-6) B_1. (H3) B_1 = ((2 - p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2 for Sigma, positive everywhere
+for l >= 1; for phi, B_1 >= (1/4)(2 - p)(k^2 - 5/4) for r >= R_1 = 8.14 r_h at k^2 = 8 and everywhere at k^2 = 24, 48, 80
+(p in [1/10, 19/10], a grid of 21, the first root in mu/r^2 found numerically to thirty digits); the base bulk B_0 = ((2
+- p)/2)(k^2 + 3/4) + (9/8)(4 - p) mu/r^2 for Sigma and R_0 = 10.56, 4.61, 3.04, 2.29 r_h for phi; (A.9): r^4 |V_phi|/mu
+<= 25.13, 15.25, 13.53, 12.89 and r^3 |d_r(r^2 V_phi)|/mu <= 47.84, 30.13, 26.90, 25.70, with V_phi -> -12 mu/r^4; (A.3):
+min r^2 (k^2/r^2 + V_phi) = 4/11, 124/9, 628/17, 5692/83, at the horizon, and -1 at k^2 = 3 (the control). (H4) l = 0:
+V_inf = 3/4, V^(1)_inf = -5/4; the base bulk (3/8)(2 - p) + (9/8)(4 - p) mu/r^2 is negative for p > 2 once r^2 > 3(4 - p)
+mu/(p - 2); in four dimensions the l = 0 bulk is (3 - p) M r^(p-6), positive to p = 3 (the control asserts the
+five-dimensional sign of it). Selftest 4/4 (about a minute), mutants 5/5.
+
+*What was deduced.* Proposition 10.6, the rate (1 + tau/sqrt mu)^(-4+p+3 delta) for Sigma and phi at l >= 2 against
+I^(1)[u], by his Proposition A.5's argument on (10.34)-(10.35) and H3: the base hierarchy, the commuted one with the bad
+term absorbed into the base bulk at the same p (mu^2 r^(p-8) Psi^2 <= (mu/R_null^2) mu r^(p-6) Psi^2), the Hardy step
+E^{2,(0)}_L <= 4 E^{0,(1)}_L with the same exponent as his because Psi carries r^(3/2) and E^{p,(0)}_L is mu^2 int s^p
+|nabla_L Psi|^2 ds, and the dyadic argument twice. With it 10.7's bound closes as his Lemma 5.5 and (a) is done for l >=
+2. At l = 0 his route does not transcribe: Proposition A.6(1) needs V_inf = 0, and in five dimensions V_inf = 3/4; S_W
+gets Propositions 10.4-10.5's rate only, and 10.8's conditional stands undischarged -- open, with two routes named (a
+different commutator at l = 0 in odd dimension; his Appendix B's O_j bounds at the weaker rate).
+
+*Seated.* N1STAR-PROOF.md 10.9, the closing paragraphs of 10.7 and 10.8; hierarchy5.py; ROUTES-OPEN.md 4.5 and 4.10; the
+README; the paper (the settling paragraph, Appendix A, the settling row, Appendix D, the [Hun19] entry, D1-D51, the md5
+rows). Labels: computed (exact; the radii and constants at four modes), deduced (Proposition 10.6), READ; nothing proved;
+l = 0 and (b) open. The nineteenth verifier is sent on 10.9 and hierarchy5.py; its verdict follows.

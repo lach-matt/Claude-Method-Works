@@ -397,9 +397,11 @@ Propositions 10.4-10.5): every scalar wave equation of 4.3(1), with its potentia
 decays at tau^(-2+) with the loss of a fixed number of derivatives once its sources do. The growing source (4.3(3)) and l
 = 0 (4.3(4)) are computed (4.9; N1STAR-PROOF.md 10.7-10.8): [Hun19]'s substitutions (4.27)-(4.30) in five dimensions,
 every bad weight removed and the residual sources in the norm's weights, and the identities of his section 8; what they
-leave open is two estimates, the rapid decay of the first rungs (his Proposition A.5 with k = 1, A.6 at l = 0, in five
-dimensions) and the coupled (X_1, X_L) estimate of his section 6. Next, in order: those two; then route B's item 2, the
-five-dimensional constraint damping.
+left open was two estimates. The first, the rapid decay of the first rungs, is 4.10 (N1STAR-PROOF.md 10.9): his
+Proposition A.5 with k = 1 goes through in five dimensions for l >= 1 (Proposition 10.6, deduced), and at l = 0 his
+Proposition A.6 does not -- the radiation field carries V_inf = 3/4 there, not zero, so the hierarchy of S_W stops at p <
+2 and 10.8's conditional is not discharged by his method. Next, in order: the coupled (X_1, X_L) estimate of his section
+6; the l = 0 rapid decay by another route; then route B's item 2, the five-dimensional constraint damping.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -581,10 +583,42 @@ for the l = 0 argument. growing5.py and lzero5.py compute both, and N1STAR-PROOF
   (8.12)); the radial ODEs with the solutions 1/r^2 and 1 + (mu/r^2) log(r^2/mu - 1), 1/(r^3 f) and W*'s own W3; the
   substitution P + (u + r) S_W/2 whose source is -(mu/(r^2 f)) nabla_L S_W - (mu/(2 r^3)) S_W (Z1-Z5). His Theorem 8.1's
   argument goes through on them (10.8, deduced).
-- What remains (10.7-10.8, said there): (a) the rapid decay of the first rungs, Sigma and phi at l >= 2 and S_W at l = 0
+- What remained (10.7-10.8, said there): (a) the rapid decay of the first rungs, Sigma and phi at l >= 2 and S_W at l = 0
   -- the extension of the r^p hierarchy past p = 2 by one commutation with r^2 nabla_L, his Proposition A.5 with k = 1
-  and A.6, in five dimensions, where V_inf = k^2 + 3/4 is never zero and the potentials' tails are r^-4; (b) the coupled
-  estimate for (X_1-hat, X_L-hat), his section 6 for the matrix of (10.29). With both, his Theorem 2.5 and Theorems
-  1.3-1.4 follow in the class. Labels: computed (growing5.py G1-G5, lzero5.py Z1-Z5, exact at the sample points); deduced
-  (the three-region bounds, the l = 0 argument); READ ([KI03] sections 2-3 and 6, Appendix A; [Hun19] 4.2, 5,
-  (6.1)-(6.11), 8, Appendices A-B; alphaXiv, 2026-10-21); nothing proved; (a) and (b) open.
+  and A.6, in five dimensions, where V_inf = k^2 + 3/4 is never zero and the potentials' tails are r^-4 -- now 4.10: done
+  for l >= 2, obstructed at l = 0; (b) the coupled estimate for (X_1-hat, X_L-hat), his section 6 for the matrix of
+  (10.29). With (b) and an l = 0 rate, his Theorem 2.5 and Theorems 1.3-1.4 follow in the class. Labels: computed
+  (growing5.py G1-G5, lzero5.py Z1-Z5, exact at the sample points); deduced (the three-region bounds, the l = 0
+  argument); READ ([KI03] sections 2-3 and 6, Appendix A; [Hun19] 4.2, 5, (6.1)-(6.11), 8, Appendices A-B; alphaXiv,
+  2026-10-21); nothing proved; (a) and (b) open.
+
+### 4.10 The first rungs' rapid decay: Hung's A.5 in five dimensions, and the l = 0 obstruction (computed, deduced; D51)
+
+4.9's item (a). hierarchy5.py computes the commuted equation, the current and his conditions (A.3), (A.5), (A.7)-(A.9) in
+five dimensions; N1STAR-PROOF.md 10.9 states Proposition 10.6 and the obstruction.
+- The commuted field Psi_1 := f^-1 r^2 nabla_L Psi of the radiation field Psi = r^(3/2) u satisfies L Lbar Psi_1 =
+  -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V) Psi with Vcal_1 = Vcal - 2/r^2
+  + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2), exactly for a symbolic potential (H1). In four dimensions the
+  same computation gives his -2/r^2 with 12 M/r^3 for his 14 M/r^3 and a first-order term his remark does not print,
+  differences at the order his argument absorbs (READ).
+- The p-current identity for Psi_1 is (10.7) with the first-order term adding 2(1 - 2 mu/r^2) to the |nabla_L Psi_1|^2
+  bulk, positive for r^2 > (10 + p) mu/(4 + p) (H2). The Psi_1^2 bulk is ((2 - p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2
+  for Sigma, positive on the exterior for p in [0, 2] and l >= 1 -- (A.7) with no R_null -- and for phi it has the room
+  (1/4)(2 - p)(k^2 - 5/4) for r >= 8.14 r_h at k^2 = 8 and everywhere at k^2 = 24, 48, 80; the base bulk (A.5) likewise
+  with R_0 = 10.56, 4.61, 3.04, 2.29 r_h; (A.8) holds for l >= 1; (A.9) with r^4 |V_phi|/mu <= 25.2 and V_phi -> -12
+  mu/r^4 as k -> oo; (A.3) holds with the margin 4/11 at k^2 = 8 and fails at k^2 = 3 (H3).
+- Proposition 10.6 (deduced): for Sigma and phi at l >= 2, F + E^{p,(0)}_L + the bulks decay as (1 + tau/sqrt mu)^(-4+p+3
+  delta) against I^(1)[u], by his argument on (10.34)-(10.35): the base hierarchy, the commuted one, the Hardy step
+  E^{2,(0)}_L <= 4 E^{0,(1)}_L (the same exponent, since Psi carries r^(3/2)), and the dyadic argument twice. With it
+  10.7's three-region bound closes as his Lemma 5.5: I_source[G] of each hatted rung decays at (1 + tau/sqrt mu)^(-2+p+3
+  delta).
+- l = 0 (H4): V_inf = 3/4 and V^(1)_inf = -5/4, so (A.8) fails and the base bulk (3/8)(2 - p) + (9/8)(4 - p) mu/r^2 is
+  negative for p > 2 once r^2 > 3(4 - p) mu/(p - 2): the hierarchy of S_W stops at p < 2, where in four dimensions (V_inf
+  = 0) it reaches p < 3 and, with the Newman-Penrose constant, p < 4 (his Proposition A.6(1), the input of his
+  Proposition 8.2). His route gives S_W the rate (1 + tau/sqrt mu)^(-2+p+delta) of Propositions 10.4-10.5 and nothing
+  more; 10.8's conditional is not discharged by it. Open: a different commutator at l = 0 in odd dimension (the l = 0
+  tail is t^-3 by [CYDL03], so the obstruction is the method's), or his Appendix B's O_j bounds re-run at the weaker
+  rate.
+- Labels: computed (hierarchy5.py H1-H4, exact; the radii and constants at k^2 = 8, 24, 48, 80); deduced (Proposition
+  10.6); READ ([Hun19] Appendix A in full, Lemma 5.3, Propositions 5.2, 5.4, 8.2, Lemma 8.3, (2.4), (2.19)-(2.23);
+  alphaXiv, 2026-10-21); nothing proved; l = 0 and 4.9's (b) open.
