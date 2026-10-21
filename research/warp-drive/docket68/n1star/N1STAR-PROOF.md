@@ -2024,15 +2024,15 @@ steps apply as written, without the angular terms: (10.5) holds for h_{l=0} with
 This is [Hun19] Remark 4.5, whose l = 0 leading matrix has the eigenvalues 0, 0, 1, 6 and needs no Hardy inequality
 either. Deduced; it does not bound h_{l=0}: (iv)'s K* grows linearly in t, and the right side of (10.5) grows with it.
 
-*What L1 still needs, and nothing else.* (10.5) reduces the decay of h in the harmonic gauge to its decay on the
-compact region [r_rs,H, R_null + r_h], and there h = h_RW + pi_X (Proposition 10.2(i), (iii)): the Regge-Wheeler-type
-part is Proposition 10.1's, which decays, and pi_X is the gauge vector's, the triangular system (v) with (10.1)'s
-source. In four dimensions this is how [Hun19] closes (sections 4.2-7, the compact region bounded by the Zerilli
-quantity and W). The rungs are 10.6: each scalar wave equation of (v), with its potential and its source, has the
-  estimates of [Hun19] Appendix A in five dimensions (Propositions 10.4-10.5, the Morawetz multiplier for the Maxwell
-    potential computed). What remains of route A is the growing source (ROUTES-OPEN.md 4.3(3)) and l = 0 (4.3(4)),
-      neither an estimate for a new equation.
-The scalar tails of T6 (t^-7 at l = 2) bound the rate any of this could reach.
+*What L1 still needs, and nothing else.* (10.5) reduces the decay of h in the harmonic gauge to its decay on the compact
+region [r_rs,H, R_null + r_h], and there h = h_RW + pi_X (Proposition 10.2(i), (iii)): the Regge-Wheeler-type part is
+Proposition 10.1's, which decays, and pi_X is the gauge vector's, the triangular system (v) with (10.1)'s source. In four
+dimensions this is how [Hun19] closes (sections 4.2-7, the compact region bounded by the Zerilli quantity and W). The
+rungs are 10.6: each scalar wave equation of (v), with its potential, has the estimates of [Hun19] Appendix A in five
+dimensions for a source in the norm (10.16) (Propositions 10.4-10.5, the Morawetz multiplier for the Maxwell potential
+computed); the sources the rungs carry are not yet in that norm, which is the growing source (ROUTES-OPEN.md 4.3(3)), the
+next step of route A, with l = 0 (4.3(4)) beside it. The scalar tails of T6 (t^-7 at l = 2) bound the rate any of this
+could reach.
 
 ### 10.6 The rungs: the scalar wave equation with the Maxwell potential and the free one (`rungs5.py` M1-M5; D49)
 
@@ -2054,14 +2054,16 @@ photon sphere ([HKW18]'s (n + 1)M/r^(n-1) = 1 at n = 3, 2M = mu); and the degene
 delta] and tau_2 >= tau_1, is
     E^p_source[G](tau_1, tau_2) := mu^1/2 int_{D(tau_1, tau_2)} s^(p+1) |G|^2 dvol
                                    + mu (int_{Sigma''_tau_1} + int_{Sigma''_tau_2}) |G|^2 dvol_3
-                                   + mu^3/2 int_{D(tau_1, tau_2) cap {r <= R_null + 2 r_h}} |nabla_T G|^2 dvol,
+                                   + mu^3/2 int_{D(tau_1, tau_2) cap {r <= 5 r_h/2}} |nabla_T G|^2 dvol,
                                      (10.16)
-the five-dimensional weights this proof produces (the first three terms are [Hun19]'s (2.23) with M -> mu^1/2; the fourth
-replaces his degenerate |d G|^2 and |d_r G|^2 terms, whose mechanism is not reproduced here).
+the five-dimensional weights this proof produces (the first three terms are [Hun19]'s E^p_source, the display before his
+(2.23), with M -> mu^1/2; the fourth replaces his degenerate |d G|^2 and |d_r G|^2 on D'', whose mechanism is not
+reproduced here, by |nabla_T G|^2 on a neighbourhood of the photon sphere).
 
 **Proposition 10.4 (the rung estimates; deduced from M1-M5, W8 and [HKW18] section 7; constants not tracked).** Let u
 solve (10.14) on the exterior, smooth up to H^+, with G smooth and the norms below finite. There are R_H >= 10 r_h,
-depending on delta, and C such that for R_null >= R_H, every p in [delta, 2 - delta] and tau_2 >= tau_1,
+depending on delta, and C, depending on delta and R_null, such that for R_null >= R_H, every p in [delta, 2 - delta]
+and tau_2 >= tau_1,
     F[u](tau_2) + E^{p,(0)}_L[u-tilde](tau_2) + mu^-1/2 int_{tau_1}^{tau_2} (B[u] + E^{p-1,(0)}_{L,ang}[u-tilde]) dtau
 <= C (F[u](tau_1) + E^{p,(0)}_L[u-tilde](tau_1) + E^p_source[G](tau_1, tau_2)).                               (10.17)
 There is no compact-region term: where Proposition 10.3 leaves h on [r_rs,H, R_null + r_h] to the master quantities, the
@@ -2073,20 +2075,29 @@ rung's Morawetz current controls it.
           J^M0_a := T_ab[u] X^b + (1/4) omega d_a(u^2) - (1/4) (d_a omega) u^2 + F' beta u^2 (dr*)_a,
 with T_ab[u] := d_a u d_b u - (1/2) g_ab (du . du + (k^2/r^2 + V) u^2) on the quotient,
           div J^M0 = (F'/f) |d_r* u + beta u|^2 + (F/r^3)(1 - 2 mu/r^2) k^2 u^2 + W0 u^2 + G (F d_r* u + omega u/2),
-          W0 := -(1/4) box omega - (1/2) V' F + (1/2) (mu/r^2)' V F + F'' beta/f + F' (beta'/f + 3 beta/r - beta^2/f),
+          W0 := -(1/4) box omega - (1/2) V' F + (1/2) d_r(mu/r^2) V F + F'' beta/f + F' (beta'/f + 3 beta/r - beta^2/f),
                                                                                                                  (10.18)
-box omega = r^-3 d_r (r^3 f d_r omega); the k^2 term is the angular energy's, |nabla-slash u|^2 = k^2 u^2/r^2.
+box omega = r^-3 d_r (r^3 f d_r omega) and d_r(mu/r^2) = -2 mu/r^3 (d_r, not d_r*, in that one term); the k^2 term is
+the angular energy's, |nabla-slash u|^2 = k^2 u^2/r^2, so the coefficient of |nabla-slash u|^2 is F (1 - 2 mu/r^2)/r.
  (M2) With [HKW18]'s n = 3 choice read in mu = 2M,
           F := (1 - 2 mu/r^2)(1 - mu/(2 r^2) + mu^2/(5 r^4)),   beta := 1/(2 sqrt mu)                           (10.19)
 (their beta = 1/2 in units M = 1), F'/f = dF/dr = mu (25 r^4 - 24 mu r^2 + 12 mu^2)/(5 r^7) > 0 on the closed exterior
-(13/(5 sqrt mu) at r_h, 5 mu/r^3 at infinity); F is bounded, from -7/10 at r_h to 1; the angular coefficient is F (1 - 2
-mu/r^2)/r^3 = (r^2 - 2 mu)^2 (10 r^4 - 5 mu r^2 + 2 mu^2)/(10 r^11) >= 0, a double zero at the photon sphere; and with
-the angular term borrowed at the lowest mode, k^2 u^2 >= 8 u^2,
-          W := W0 + 8 F (1 - 2 mu/r^2)/r^3 = -(y^3/40) Q(y) mu^-3/2,   y := sqrt(mu)/r in (0, 1],
-with Q a polynomial of degree ten having no root in [0, 1] (Sturm) and Q(0) = -300, for V = -4 mu/r^4 and for V = 0
-alike: W > 0 on the exterior, W >= c r^-3 with c = 1/4 (Maxwell) and 1/5 (free), W(r_h) = 17/(4 mu^3/2) and 141/(20
-mu^3/2). [HKW18] 9.3.2 made this choice for their potentials; for beta = 0 or beta >= 1/sqrt mu the bulk is negative on
-part of the exterior (the control uses 2/sqrt mu).
+(13/(5 sqrt mu) at r_h, 5 mu/r^3 at infinity, and F'/f >= 13 mu/(5 r^3) throughout); F is bounded, from -7/10 at r_h to
+1; the coefficient of k^2 u^2 is F (1 - 2 mu/r^2)/r^3 = (r^2 - 2 mu)^2 (10 r^4 - 5 mu r^2 + 2 mu^2)/(10 r^11) >= (r^2 - 2
+mu)^2/(2 r^7) >= 0, a double zero at the photon sphere; and with half the angular term borrowed at the lowest mode,
+(1/2) k^2 u^2 >= 4 u^2,
+          W := W0 + 4 F (1 - 2 mu/r^2)/r^3 = -(y^3/40) Q(y) mu^-3/2,   y := sqrt(mu)/r in (0, 1],
+with Q a polynomial of degree ten having no root in [0, 1] (Sturm) and Q(0) = -140, for V = -4 mu/r^4 and for V = 0
+alike: W > 0 on the exterior, W >= c r^-3 with c = 1/5 (Maxwell; min r^3 W = 0.240478) and 1/7 (free; 0.166665), W(r_h)
+= 29/(20 mu^3/2) and 17/(4 mu^3/2), and W(r_P) = (11/20 - 51 sqrt 2/160) mu^-3/2 for both, F vanishing there. The other
+half of the angular term, (1/2) F (1 - 2 mu/r^2) |nabla-slash u|^2 / r, stays in the bulk with its coefficient
+proportional to k^2, where (b) needs it. Some borrowing is necessary: W0 alone is negative at the horizon for the Maxwell
+rung (r^3 W0 = -27/20 at r_h) and at infinity for both (r^3 W0 -> -1/2); the share theta of k^2 u^2 >= 8 u^2 borrowed
+must exceed 27/112 for the Maxwell rung (r^3 W_theta(r_h) = -27/20 + 28 theta/5) and 1/16 for the free one (r^3 W_theta
+-> -1/2 + 8 theta), theta = 1/4 already serves both (min r^3 W_theta = 0.050 and 0.111), and borrowing all of it, as the
+first version of this section did, leaves nothing for (b) at l = 2. [HKW18] 9.3.2 made this choice of F and beta for
+their potentials; for beta = 0 or beta >= 1/sqrt mu the bulk is negative on part of the exterior (the control uses
+2/sqrt mu).
  (M3) [Hun19]'s (A.3) with room: k^2/r^2 - 4 mu/r^4 >= k^2/(2 r^2) on the exterior for every k^2 >= 8 (equality at r_h
       when k^2 = 8), so the T-energy density of the Maxwell rung is pointwise at least half of the one without the
       potential, and |V| <= 4/mu on the exterior.
@@ -2099,8 +2110,10 @@ part of the exterior (the control uses 2/sqrt mu).
                                                      - (1/2) g (f |d_r u|^2 + (k^2/r^2 + V) u^2) - (1/2) g u G.
                                                        (10.20)
 
-*Proof.* Six currents, one divergence theorem, every bulk positive. Fix r_h < r_0 < r_1 < r_P and R_1 := R_null + r_h (so
-that r >= R_1 lies where eta_null = 1), and let chi_M be a cut-off equal to 1 on r <= R_1 and 0 on r >= R_1 + r_h.
+*Proof.* Six currents, one divergence theorem, every bulk positive. Fix r_h < r_0 <= 9 r_h/8 and 5 r_h/4 <= r_1 < r_P --
+so that eta_rs is constant off [r_0, r_1], and, the foliation being [Hun19]'s with his g = r_* on [5M/2, R_null] read as
+[5 r_h/4, R_null], the leaves are t = const on [r_1, R_null] -- and R_1 := R_null + r_h (so that r >= R_1 lies where
+eta_null = 1), and let chi_M be a cut-off equal to 1 on r <= R_1 and 0 on r >= R_1 + r_h.
 Throughout, the sums over the modes are taken last; the constants are uniform in l by (M2), (M3), (M4) and the Poincare
 inequality k^2 u^2 >= 8 u^2.
 
@@ -2115,34 +2128,42 @@ Theorem 12 with the source,
 dvol, the fluxes through H^+ and I^+ non-negative. The middle term and the source term are what the Morawetz current
 pays.
 
-*(b) The Morawetz current.* By (M1), (M2) and the Poincare inequality,
-    div J^M0 >= (F'/f) |d_r* u + beta u|^2 + (F/r^3)(1 - 2 mu/r^2) |nabla-slash u|^2 + W u^2 + G (F d_r* u + omega u/2)
-with every coefficient non-negative and W >= c r^-3. [HKW18] pp. 55-57 turn this into the current J^M := J^M0 + (1/4)(d
-g) u^2 - (1/4) g d(u^2) + epsilon_3 T-hat_ab[u] Y^b of their Lemma 13 by three generic steps, each a choice of a constant
-and valid for any F, beta, W with these signs: the epsilon_0 and epsilon_1 splits of the square and of the angular term,
-which leave epsilon_0 (F'/f) |d_r* u|^2 + epsilon_1 (F/r^3)(1 - 2 mu/r^2) |nabla-slash u|^2 + (1/4) W u^2 (their p. 55,
-using W >~ r^-3 and beta F'/f ~ r^-3 at infinity, (M2)); the g-current (10.20) with g := epsilon_2 mu chi (1 - 2
-mu/r^2)^2 / r^3, chi vanishing for r <= r_0 and equal to 1 for r >= (r_0 + r_1)/2, which adds (1/2) g f^-1 |d_t u|^2 and
-whose negative terms -(1/2) g (f |d_r u|^2 + (k^2/r^2 + V) u^2) + (1/4)(box g) u^2 are absorbed by the three positive
-ones for epsilon_2 small (F'/f >= mu/(5 r^3) and the angular coefficient >= (r^2 - 2 mu)^2/(2 r^7) on the exterior, (M2);
-(M3) for the sign of k^2/r^2 + V); and the red-shift addition epsilon_3 T-hat_ab Y^b, which makes the bulk coercive in r
-<= r_0 by (a). The result is their Lemma 13 for the rung:
-    K^M := div J^M >~ r^-3 ((1 - 2 mu/r^2)^2 (|nabla_T u|^2 + |nabla-slash u|^2) + f^2 |nabla_r u|^2 + mu^-1 r^-2 |u|^2)
+*(b) The Morawetz current.* By (M1), (M2) and the Poincare inequality in the form k^2 u^2 >= (1/2) k^2 u^2 + 4 u^2,
+    div J^M0 >= (F'/f) |d_r* u + beta u|^2 + (F/(2 r))(1 - 2 mu/r^2) |nabla-slash u|^2 + W u^2 + G (F d_r* u + omega u/2)
+with every coefficient non-negative and W >= c r^-3 (the term dropped, (1/2)(F/r^3)(1 - 2 mu/r^2)(k^2 - 8) u^2, is
+non-negative; half the angular term is in W and the other half is here, each used once). [HKW18] pp. 55-57 turn this into
+the current J^M := J^M0 + (1/4)(d g) u^2 - (1/4) g d(u^2) + epsilon_3 T-hat_ab[u] Y^b of their Lemma 13 by three generic
+steps, each a choice of a constant and valid for any F, beta, W with these signs: the epsilon_0 and epsilon_1 splits of
+the square and of the angular term, which leave epsilon_0 (F'/f) |d_r* u|^2 + epsilon_1 (F/r)(1 - 2 mu/r^2) |nabla-slash
+u|^2 + (1/4) W u^2 (their p. 55: |a + b|^2 >= epsilon_0 |a|^2 - (epsilon_0/(1 - epsilon_0)) |b|^2 with b = beta u costs
+(epsilon_0/(1 - epsilon_0)) beta^2 (F'/f) u^2, and beta^2 F'/f <= 5/(4 r^3) on the exterior against W >= c r^-3, (M2), so
+epsilon_0 <= 3c/(5 + 3c) serves; epsilon_1 <= 1/2); the g-current (10.20) with g := epsilon_2 mu chi (1 - 2 mu/r^2)^2 /
+r^3, chi vanishing for r <= r_0 and equal to 1 for r >= (r_0 + r_1)/2, which adds (1/2) g f^-1 |d_t u|^2 and whose
+negative terms -(1/2) g (f |d_r u|^2 + (k^2/r^2 + V) u^2) + (1/4)(box g) u^2 are absorbed by the three positive ones for
+epsilon_2 small (F'/f >= 13 mu/(5 r^3), and the coefficient of k^2 u^2 left after the epsilon_1 split is at least (1/2 -
+epsilon_1)(r^2 - 2 mu)^2/(2 r^7) against the epsilon_2 mu (r^2 - 2 mu)^2/(2 r^9) of g, (M2); (M3) for the sign of k^2/r^2
++ V); and the red-shift addition epsilon_3 T-hat_ab Y^b, which makes the bulk coercive in r <= r_0 by (a). The result is
+their Lemma 13 for the rung:
+    K^M := div J^M >~ r^-1 s^-2 ((1 - 2 mu/r^2)^2 (|nabla_T u|^2 + |nabla-slash u|^2) + f^2 |nabla_r u|^2 + mu^-1 |u|^2)
                        in r >= r_0,   K^M >~ (F's density) in r <= r_0,
                          (10.21)
 up to the source term G (F d_r* u + omega u/2 - g u/2 + epsilon_3 Y(u)), and the boundary terms of J^M through Sigma_tau,
 H^+ and v = v_0 are bounded by F's density, by T-hat_ab T^b n^a and by T-hat_ab T^b L^a (F bounded, omega - g = 0 at r_h
-since F'(r_h) = 0 and g vanishes there). (10.21) is B's integrand (10.15) up to constants, which is the point of the
-degenerate bulk: the Morawetz current pays the middle term of (a), r_1 < r_P, and the whole of B on r <= R_1.
+since F'(r_h) = 0 and g vanishes there). (10.21) is at least r^-1 times B's integrand (10.15) (its mu^-1 r^-3 |u|^2 is >=
+mu^-1 r^-1 s^-4 |u|^2), so B's integrand <~ K^M on r <= R_1 + r_h with a constant depending on R_null -- which is the
+point of the degenerate bulk: the Morawetz current pays the middle term of (a), r_1 < r_P, and the whole of B on r <=
+R_1.
 
 *(c) The far region.* (M4) puts the rung in the form of Proposition 10.3's Step 1 with one component, Uhat = 0 and the
-source r^(3/2) G: the p-current J^p of (W8d) on Psi-tilde := s^(3/2) eta_null u and epsilon_1 J_delta of (W8e) on
-eta_null u give (10.11) with its left side enlarged by mu^-1/2 int_D s^(-1-delta) |nabla_L-bar u-tilde|^2 dvol and its
-right side by F[u](tau_1), the compact-region term supported in [R_null, R_null + r_h] -- the only differences being that
-V_inf = k^2 + 3/4 is a number, that Vcal - V_inf/r^2 = O(mu/r^4) is -7 mu/(4 r^4) or 9 mu/(4 r^4), and that the source
-enters the two cross terms: s^(p-3) f^-1 |nabla_L Psi-tilde| r^(3/2) |G| <= epsilon mu^-1/2 s^(p-4) |nabla_L Psi-tilde|^2
-+ C epsilon^-1 mu^1/2 s^(p+1) |G|^2 and epsilon_1 s^-delta |nabla_T u-tilde| |G| <= epsilon mu^-1/2 s^(-1-delta) |nabla_T
-u-tilde|^2 + C epsilon^-1 mu^1/2 s^(1+delta) |G|^2, with s^(1+delta) <= s^(p+1) for p >= delta: the first term of
+source s^(3/2) G in the normalisation of Psi-tilde := s^(3/2) eta_null u (plus the commutator of box with eta_null,
+supported in [R_null, R_null + r_h]): the p-current J^p of (W8d) on Psi-tilde and epsilon_1 J_delta of (W8e) on eta_null
+u give (10.11) with its left side enlarged by mu^-1/2 int_D s^(-1-delta) |nabla_L-bar u-tilde|^2 dvol and its right side
+by F[u](tau_1), the compact-region term supported in [R_null, R_null + r_h] (paid in (d) by epsilon_M K^M, which is
+non-degenerate there) -- the only differences being that V_inf = k^2 + 3/4 is a number, that Vcal - V_inf/r^2 = O(mu/r^4)
+is -7 mu/(4 r^4) or 9 mu/(4 r^4), and that the source enters the two cross terms: s^(p-3) f^-1 |nabla_L Psi-tilde|
+s^(3/2) |G| <= epsilon mu^-1/2 s^(p-4) |nabla_L Psi-tilde|^2 + C epsilon^-1 mu^1/2 s^(p+1) |G|^2 and epsilon_1 s^-delta
+|nabla_T u-tilde| |G| <= epsilon mu^-1/2 s^(-1-delta) |nabla_T u-tilde|^2 + C epsilon^-1 mu^1/2 s^(1-delta) |G|^2, with
+s^(1-delta) <= s^(p+1) since s >= 1: the first term of
 (10.16).
 
 *(d) The sum.* Apply the divergence theorem to J := J^N + epsilon_M chi_M J^M + epsilon_p (J^p + epsilon_1 J_delta) on
@@ -2158,24 +2179,27 @@ epsilon_1 J_delta and bounded by T-hat_ab T^b n^a, which J^N's own flux controls
 J_delta's by (c); J^M's -- G (F d_r* u + omega u/2 - g u/2 + epsilon_3 Y(u)) on r <= R_1 + r_h -- by Cauchy-Schwarz
 against (10.21), whose |nabla_r u|^2, |u|^2 and near-horizon terms are non-degenerate, at the cost of C mu^1/2 int |G|^2
 dvol there, below the first term of (10.16); and J^N's, int_D nabla_N u . G: in r <= r_0 against the N-bulk, on [r_0,
-r_1] against (10.21), in r >= R_1 against the far bulks as in (c) (|nabla_T u| <= |nabla_L u| + |nabla_L-bar u|), and on
-[r_1, R_1], which contains the photon sphere where (10.21) degenerates in nabla_T u, by parts in T with a cut-off chi_T
-equal to 1 on [r_1, R_1] and supported in [r_0, R_1 + r_h]: int_D chi_T nabla_T u . G = -int_D chi_T u nabla_T G +
-int_{Sigma_tau_2} chi_T u G (T . n) - int_{Sigma_tau_1} chi_T u G (T . n) (T is Killing and the cut-off kills the null
-boundaries), the bulk bounded by epsilon mu^-3/2 int chi_T |u|^2 + C epsilon^-1 mu^3/2 int chi_T |nabla_T G|^2 and the
-two boundary terms by epsilon F[u](tau_i) + C epsilon^-1 mu int_{Sigma''_tau_i} |G|^2 dvol_3 -- the last three terms of
-(10.16), the epsilon F[u](tau_2) absorbed on the left. Collecting, with B's integrand bounded by (10.21) on r <= R_1 and
-by the far bulks on r >= R_1 (as in Proposition 10.3's Step 3), (10.17) follows. []
+r_1] and on [2 r_h, R_1], where (1 - 2 mu/r^2)^2 >= 1/4, against (10.21), in r >= R_1 against the far bulks as in (c)
+(|nabla_T u| <= |nabla_L u| + |nabla_L-bar u|), and on [r_1, 2 r_h], which contains the photon sphere, where (10.21)
+degenerates in nabla_T u, by parts in T with a cut-off chi_T equal to 1 on [r_1, 2 r_h] and supported in [r_0, 5 r_h/2]:
+int_D chi_T nabla_T u . G = -int_D chi_T u nabla_T G + int_{Sigma_tau_2} chi_T u G (T . n) - int_{Sigma_tau_1} chi_T u G
+(T . n) (T is Killing, chi_T is radial, and the cut-off kills the null boundaries, r_0 > r_h and 5 r_h/2 < R_null), the
+bulk bounded by epsilon mu^-3/2 int chi_T |u|^2 + C epsilon^-1 mu^3/2 int chi_T |nabla_T G|^2 and the two boundary terms
+by epsilon F[u](tau_i) + C epsilon^-1 mu int_{Sigma''_tau_i} |G|^2 dvol_3 (supp chi_T lies in Sigma'') -- the last three
+terms of (10.16), the epsilon F[u](tau_2) absorbed on the left. Collecting, with B's integrand bounded by (10.21) on r <=
+R_1 and by the far bulks on r >= R_1 (as in Proposition 10.3's Step 3), (10.17) follows. []
 
 **Proposition 10.5 (decay of the rungs; deduced from Proposition 10.4 by [HKW18] Theorem 18's argument with the source
 carried; constants not tracked).** Let u solve (10.14) as in Proposition 10.4, fix delta-bar in [delta, 1/10], and let
-    I^(0)[u] := (F[T^{<= 2} u] + k^2 F[T^{<= 1} u] + k^4 F[u] + E^{2-delta,(0)}_L[T^{<= 1} u-tilde]
-                 + k^2 E^{2-delta,(0)}_L[u-tilde])(0),
+    I^(0)[u] := (F[T^{<= 2} u] + k^2 F[T^{<= 1} u] + k^4 F[u] + E^{2-delta,(0)}_L[T^{<= 2} u-tilde]
+                 + k^2 E^{2-delta,(0)}_L[T^{<= 1} u-tilde] + k^4 E^{2-delta,(0)}_L[u-tilde])(0),
     I_{source, delta-bar}[G] := sup_{p in [delta, 2 - delta-bar]} sup_{tau_2 >= tau_1 >= 0} (1 + tau_1/sqrt mu)^(2 - p -
       delta-bar)
                  E^p_source[T^{<= 2} G, k T^{<= 1} G, k^2 G](tau_1, tau_2)
-([Hun19] (2.23)-(2.24) with K^{<= j} read at a mode of the class, where the rotations act as k). Then for every p in
-[delta, 2 - delta-bar] and tau >= 0,
+([Hun19] (2.23)-(2.24) with K^{<= j} read at a mode of the class, where the rotations act as k -- except that his I^(0)
+carries E^{2-delta}_L for K^{<= 1} only, and here it is carried at every order of T and k, because (iv) runs the argument
+for T u and k u through (10.17), whose right side has E^p_L; a boundedness statement for F alone would spare them and is
+not proved here). Then for every p in [delta, 2 - delta-bar] and tau >= 0,
     F[u](tau) + E^{p,(0)}_L[u-tilde](tau) + mu^-1/2 int_tau^oo (B[u] + E^{p-1,(0)}_{L,ang}[u-tilde]) dtau'
 <~ (1 + tau/sqrt mu)^(-2 + p + delta + delta-bar) (I^(0)[u] + I_{source, delta-bar}[G]),                       (10.22)
 [Hun19] (A.10) in five dimensions, with one more delta in the exponent: the cost of carrying the source through the times
@@ -2185,12 +2209,14 @@ any rate tau^(-2+) serves, and what is proved.
 *Proof.* Write e_p(tau) := F[u](tau) + E^{p,(0)}_L[u-tilde](tau), I := I^(0)[u] + I_{source, delta-bar}[G], and tau_j :=
 2^j sqrt mu. Four facts, each from (10.17):
  (i) *Boundedness.* (10.17) at p and on [0, tau] with E^p_source[G](0, tau) <= I gives e_p(tau) <~ e_p(0) + I <~ I for p
-     <= 2 - delta-bar, and the same for T u and k u.
+     <= 2 - delta-bar, and the same for T^{<= 2} u, k T^{<= 1} u and k^2 u, whose data are in I^(0) and whose sources
+     are in I_source.
  (ii) *The first dyadic step, p = 2 - delta-bar.* (10.17) on [tau_{j-1}, tau_j]: mu^-1/2 int_{tau_{j-1}}^{tau_j}
-     E^{1-delta-bar}_{L,ang} dtau <~ I by (i), so by the mean value theorem there is tau-tilde_j in [tau_{j-1}, tau_j]
-     with E^{1-delta-bar,(0)}_L[u-tilde](tau-tilde_j) <~ (tau_j/sqrt mu)^-1 I, and by interpolation of the weights,
-     s^(1-3) = (s^(1-delta-bar-3))^(1-delta-bar) (s^(2-delta-bar-3))^(delta-bar), E^{1,(0)}_L[u-tilde](tau-tilde_j) <~
-     (tau_j/sqrt mu)^(-1+delta-bar) I.
+     E^{1-delta-bar}_{L,ang} dtau <~ I by (i), so by the mean value theorem, applied to the sum of the integrals for u, T
+     u, k u, T^2 u, k T u and k^2 u so that one sample time serves all six, there is tau-tilde_j in [tau_{j-1}, tau_j]
+     with E^{1-delta-bar,(0)}_L[u-tilde](tau-tilde_j) <~ (tau_j/sqrt mu)^-1 I, and the same for the other five, and by
+     interpolation of the weights, s^(1-3) = (s^(1-delta-bar-3))^(1-delta-bar) (s^(2-delta-bar-3))^(delta-bar),
+     E^{1,(0)}_L[u-tilde](tau-tilde_j) <~ (tau_j/sqrt mu)^(-1+delta-bar) I.
  (iii) *The second dyadic step, p = 1.* (10.17) on [tau-tilde_{j-2}, tau-tilde_j], with E^1_source(tau-tilde_{j-2},
      tau-tilde_j) <= (1 + tau-tilde_{j-2}/sqrt mu)^(-1+delta-bar) I from the definition of I_source:
          mu^-1/2 int_{tau-tilde_{j-2}}^{tau-tilde_j} (B[u] + E^{0,(0)}_{L,ang}[u-tilde]) dtau
@@ -2200,10 +2226,11 @@ u)|^2) >= (1/2)|nabla_L u|^2 + |nabla-slash u|^2 - (9/4) mu^-1 s^-2 |u|^2 >= (1/
 + (7/4) mu^-1 s^-2 |u|^2 by k^2 >= 8 (no Hardy inequality; [HKW18] Lemma 17 borrows the same way), and on r <= R_1 B's,
 non-degenerate except at the photon sphere, where (1 - 2 mu/r^2)^2 multiplies |nabla_T u|^2 and |nabla-slash u|^2. There
 the one-dimensional Poincare inequality in r on [r_P - rho, r_P + rho], int |w|^2 dr <~ rho^2 int |d_r w|^2 dr + int_{rho
-<= |r - r_P| <= 2 rho} |w|^2 dr, applied to w = nabla_T u with B[T u]'s f^2 |nabla_r T u|^2 and B[u]'s |nabla_T u|^2 off
-the photon sphere, while |nabla-slash u|^2 = k^2 u^2/r^2 is k^2 B[u]'s zeroth-order term, non-degenerate; this gives
-int_{Sigma_tau} (F's density) <~ B[u] + B[T u] + k^2 B[u] + E^{0,(0)}_{L,ang}[u-tilde]. So, with (iii) for T u and k u as
-well (their sources are T G and k G, their data in I),
+<= |r - r_P| <= 2 rho} |w|^2 dr, applied to w = nabla_T u along Sigma_tau, where d_r is nabla_r since the leaves are t =
+const on [5 r_h/4, R_null], with B[T u]'s f^2 |nabla_r T u|^2 and B[u]'s |nabla_T u|^2 off the photon sphere, while
+|nabla-slash u|^2 = k^2 u^2/r^2 is k^2 B[u]'s zeroth-order term, non-degenerate; this gives int_{Sigma_tau} (F's density)
+<~ B[u] + B[T u] + k^2 B[u] + E^{0,(0)}_{L,ang}[u-tilde]. So, with (iii) for T u and k u as well (their sources are T G
+and k G, their data in I),
          mu^-1/2 int_{tau-tilde_{j-2}}^{tau-tilde_j} F[u] dtau <~ (tau_j/sqrt mu)^(-1+delta-bar) I +
            F[u](tau-tilde_{j-2})
                                                            + F[T u](tau-tilde_{j-2}) + k^2 F[u](tau-tilde_{j-2}).
@@ -2213,7 +2240,8 @@ well (their sources are T G and k G, their data in I),
      the nearest tau-hat_j below gives F[u](tau) <~ F[u](tau-hat_j) + E^{delta,(0)}_L[u-tilde](tau-hat_j) + (tau_j/sqrt
      mu)^(-2+delta+delta-bar) I, and E^{delta,(0)}_L <= (E^{0,(0)}_L)^(1-theta) (E^{2-delta-bar,(0)}_L)^theta with theta
      := delta/(2 - delta-bar) and E^{0,(0)}_L <~ F: so F[u](tau) <~ (tau/sqrt mu)^(-1+theta) I for every tau >= sqrt mu,
-     and the same for T u and k u, whose data are in I. Fed back into the first inequality, since theta < delta <=
+     and the same for T u and k u by (ii)-(iii) run for them, with (10.17) for T^2 u, k T u and k^2 u, whose data are in
+     I^(0) and whose sources are in I_source. Fed back into the first inequality, since theta < delta <=
      delta-bar, F[u](tau-hat_j) <~ (tau_j/sqrt mu)^(-2+delta-bar) I, and between the samples, by the same interpolation,
      F[u](tau) <~ (tau/sqrt mu)^(-2+delta+delta-bar) I. The p-weighted energy follows by interpolation between
      E^{0,(0)}_L <~ F and E^{2-delta-bar,(0)}_L <~ I: E^{p,(0)}_L[u-tilde](tau) <~ (tau/sqrt
@@ -2221,15 +2249,23 @@ well (their sources are T G and k G, their data in I),
      from (10.17) on [tau, oo) with the decayed data at tau and E^p_source(tau, oo) <= (1 + tau/sqrt mu)^(-2+p+delta-bar)
      I. []
 
-*What this gives, and what it does not.* Every rung of Proposition 10.2(v) -- S with source div J, r P with source in S
-and J, X_t with source J_t - (2 mu/r^3) P, r X_L with source (2 k f/r) Q_r + r J_L -- is an equation (10.14), so
-Proposition 10.5 applies to each in turn, the source norm of a rung being the energy norm of the rungs below it with one
-derivative spent per rung and J's norm from Proposition 10.1 through (10.1): the gauge vector X decays at the rate
-(10.22) with the loss of a fixed number of derivatives, uniformly in l, and h = h_RW + pi_X with it. What remains of
-route A is what [Hun19] sections 4.3 and 8 do: the source that grows like u + r (4.3(3); his (4.35)-(4.36), the
-modification of the first rung by eta_b), whose five-dimensional form must be read off the explicit sources of W4 and W6,
-and the l = 0 sector (4.3(4); his Theorem 8.1, the red-shift argument for the coefficient of the singular stationary
-solution, with W2's ODE). Neither is an estimate for a new equation.
+*What this gives, and what it does not.* Each rung of Proposition 10.2(v) -- S with source div J, r P with source r dJ_tr
++ 2 (d_t S - J_t) in S and J, X_t with source J_t - (2 mu/r^3) P, r X_L with source (2 k f/r) Q_r + r J_L -- is an
+equation (10.14), and Propositions 10.4-10.5 are the estimates for that equation with a source in the norm (10.16). They
+do not by themselves give the decay of the gauge vector, because the sources the rungs carry are not in (10.16)'s
+weights: the norm asks for mu^1/2 int s^(p+1) |G|^2 dvol, and what a rung below supplies, by (10.17), is mu^-1/2 int
+E^{p'-1,(0)}_{L,ang} dtau, a bulk integral of s^(p'-4) |nabla_L Psi|^2 with p' <= 2 - delta, and s^(-1-delta)
+|nabla_L-bar u|^2 from J_delta. For r P the source carries 2 d_t S, and s^(p+1) |nabla_T S|^2 = s^(p-2) |nabla_T Psi_S|^2
+up to lower order would need p' = p + 2 of S's rung, outside the hierarchy for every p >= delta; for r X_L the source (2
+k f/r) Q_r carries (2 f r/k) d_r S, which grows in r. This is [Hun19] section 4.3's problem in five dimensions. There the
+first rung is tr h, which solves the homogeneous wave equation in the harmonic gauge and so decays at the rate of his
+Proposition A.5 with k = 1 (his Proposition 5.2, (1 + tau/M)^(-4+p+3 delta)); P and W are replaced through (4.27)-(4.30)
+by P-bar and W-bar, combinations of them with S and psi_Z carrying the factor u + r, interpolated by eta_b into
+(4.35)-(4.38); and the sources G_P, G_0, G_1, G_2 of (4.39)-(4.42) are bounded in his Lemmas 4.8-4.10 with factors (1 +
+tau/M)^2 that the faster decay of the first rung pays (his Lemma 5.5). That is ROUTES-OPEN.md 4.3(3), the next step of
+route A, and what 10.6 contributes to it is the estimate each rung of the modified system is fed to. Beside it stands l =
+0 (4.3(4); his Theorem 8.1, the red-shift argument for the coefficient of the singular stationary solution, with W2's
+ODE). Neither needs an estimate for a new equation; both are work on the sources and on the first rung.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
