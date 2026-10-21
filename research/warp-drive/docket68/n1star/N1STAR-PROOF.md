@@ -2295,7 +2295,7 @@ S_W = 2 div W. u := t - r_* + const, u = tau for r >= R_null; eta_b as in 10.8.
 
 *What is computed (G1-G5, exact, sympy; the harmonic kept symbolic with S'' = -2 cot 2th S' - k^2 S applied and the
 angle evaluated at two exact points, as in W7).*
- (G1) (G1) The reconstruction read from [KI03] solves the Einstein equations: with F, F_ab from (10.1) and Phi solving
+ (G1) The reconstruction read from [KI03] solves the Einstein equations: with F, F_ab from (10.1) and Phi solving
       (10.27), F^a_a = -2F ([KI03] (2.11)) and D^b(r F_ab) - 2 D_a(r F) = 0 ([KI03] (2.12), the equations E_a = 0) hold
       modulo (10.27), at three rational (mu, k) and three radii; and at n = 2 the same transcription of (3.7) is the
       Zerilli potential (Q = 128 lambda^2 (lambda + 1) + 192 lambda^2 x + 288 lambda x^2 + 144 x^3, m = 2 lambda). A READ
@@ -2326,11 +2326,11 @@ angle evaluated at two exact points, as in W7).*
           G_1 := f J_r = -2 r d_t^2 phi + 2 mu f ((m + 12) r^2 - 6 mu)/(r^4 H) d_r phi - r f V_phi phi,
           G_L := J_L = 0,                                                                      m := k^2 - 3     (10.31)
       every other term cancelling modulo the master equation (the coefficient functions read exactly at k^2 = 8, 24, 48
-      and fitted in k, the fits re-checked at the three points; G4 verifies (10.31) at three (k^2, mu) points)
-      -- [Hun19] (4.25), (4.21), (4.22), (4.23): his -6 f nabla_t nabla_r psi_Z and 2 f nabla_t nabla_r psi_Z are O(r)
-      d_t d_r on r^-1 psi_Z, his 2 nabla_t^2 psi_Z is O(r) d_t^2, and his W_2 equation has no source either. The bad
-      terms are the O(r) d_t d_r phi of G_P and G_t, the O(1) d_t phi of both, the d_t Sigma of G_P and the O(r) d_t^2
-      phi of G_1; everything else is in the norm's weights.
+      and fitted in k, the fit checked at a fourth mode, k^2 = 80, outside the fitting set; G4 verifies (10.31) at four
+      (k^2, mu) points) -- [Hun19] (4.25), (4.21), (4.22), (4.23): his -6 f nabla_t nabla_r psi_Z and 2 f nabla_t nabla_r
+      psi_Z are O(r) d_t d_r on r^-1 psi_Z, his 2 nabla_t^2 psi_Z is O(r) d_t^2, and his W_2 equation has no source
+      either. The bad terms are the O(r) d_t d_r phi of G_P and G_t, the O(1) d_t phi of both, the d_t Sigma of G_P and
+      the O(r) d_t^2 phi of G_1; everything else is in the norm's weights.
  (G5) The substitutions, [Hun19] (4.27)-(4.30) in five dimensions. With u := t - r_* + const and the corrections taken
       where eta_b = 1,
           r P-bar   := r P - r^2 d_t phi + (u + r) ((2 k^2/3) phi + Sigma/2),
@@ -2350,24 +2350,26 @@ angle evaluated at two exact points, as in W7).*
       eta_b = 1 and modulo box_l phi = V_phi phi, box_l Sigma = 0,
           box_l(r P-bar) + (4 mu/r^4) r P-bar = -(mu/(r^2 f)) nabla_L Sigma - (mu/(2 r^3)) Sigma - (4 k^2 mu/(3 r^2))
               d_r phi + O(r^-2) d_t phi - (2 k^2 mu/(3 r^3)) phi + (u + r) ((2 mu/r^4) Sigma + O(r^-4) phi),
-          box_l X_t-bar = (2 mu/r^2) d_r phi + O(r^-2) d_t phi + (mu/r^3) phi + (u + r) O(r^-4) phi - (2 mu/r^3) P,
-          box_l X_1-bar - (3/r^2)(1 - 3 mu/r^2) X_1-bar - (2k/r^2)(1 - 2 mu/r^2) X_L-bar = (2 mu/r^3) S + O(mu/r^3) phi,
-          box_l X_L-bar + (1/r^2)(1 + mu/r^2) X_L-bar - (2k/r^2) X_1-bar = O(k mu/r^3) phi,                   (10.33)
-      every coefficient O(r^-2) or better and the (u + r)-weighted ones O(r^-4), the Sigma terms of the first line exact
-      and its phi coefficients shown to leading order, checked at the three (k^2, mu) of G4 by exact cancellation (G5):
-      his (4.31)-(4.34), with s^-2 nabla_L Sigma where he has s^-1 nabla_L S and no d_t^2 term left anywhere. The
-      interpolation into the horizon region is his (4.35)-(4.38) verbatim, P-hat := P + eta_b (...) and so on, with G_P,
-      G_0, G_1, G_2 the sources of the hatted rungs.
+          box_l X_t-bar = (2 mu/r^2) d_r phi + O(r^-2) d_t phi + (mu/r^3) phi - (u + r) V_phi phi - (2 mu/r^3) P,
+          box_l X_1-bar - (3/r^2)(1 - 3 mu/r^2) X_1-bar - (2k/r^2)(1 - 2 mu/r^2) X_L-bar = (2 mu/r^3) S + c_1(r) phi,
+          box_l X_L-bar + (1/r^2)(1 + mu/r^2) X_L-bar - (2k/r^2) X_1-bar = c_L(r) phi,                        (10.33)
+      every coefficient O(r^-2) or better and the (u + r)-weighted ones O(r^-4); in the first line the Sigma terms are
+      exact and the phi coefficients are leading terms, in the second the d_r phi, phi and (u + r) phi terms are exact
+      (the last is -V_phi, (10.30)), and in the third and fourth the source is a single phi term, c_1 and c_L of order
+      r^-3 with leading terms 2 mu k^2 (k^2 + 1)/((k^2 - 3) r^3) and -6 k mu (k^2 + 1)/((k^2 - 3) r^3) -- all checked at
+      the four (k^2, mu) of G4 by exact cancellation (G5): his (4.31)-(4.34), with s^-2 nabla_L Sigma where he has s^-1
+      nabla_L S and no d_t^2 term left anywhere. The interpolation into the horizon region is his (4.35)-(4.38) verbatim,
+      P-hat := P + eta_b (...) and so on, with G_P, G_0, G_1, G_2 the sources of the hatted rungs.
 
 *What is deduced.* The three regions of his Lemmas 4.8-4.10. On [r_h, b r_h] the hatted rungs are the rungs and the
 sources are (10.31): bounded by mu^-1/2 |(sqrt mu d)^{<= 1} Sigma| and mu^-1/2 |(sqrt mu d)^{<= 2} phi| (one derivative
-more than the rung's own order, the price of the photon sphere he names), with constants depending on b. On [b r_h,
-2 b r_h] the cut-off's derivatives act on the corrections, whose (u + r) factor is (1 + tau/sqrt mu) there: the sources
-are bounded by (1 + tau/sqrt mu) times the same quantities. On [2 b r_h, oo) they are (10.33): mu^-1/2 s^-2 |nabla_L
-Sigma| + mu^-1/2 s^-3 |Sigma| + mu^-1/2 s^-2 |(sqrt mu d)^{<= 1} phi| + (1 + tau/sqrt mu) mu^-1/2 s^-4 |phi| for r P-bar,
-and better for the others. So I_source[G] of each hatted rung is bounded, as in his Lemmas 5.5 and 5.7, by the initial
-norms of Sigma and phi with the derivatives counted, provided the first rungs decay fast enough to pay the (1 + tau)^2
-of the middle region: Sigma and phi at the rate (1 + tau/sqrt mu)^(-4+p+delta) of his Proposition A.5 with k = 1.
+more than the rung's own order, the price of the photon sphere he names), with constants depending on b. On [b r_h, 2 b
+r_h] the cut-off's derivatives act on the corrections, whose (u + r) factor is (1 + tau/sqrt mu) there: the sources are
+bounded by (1 + tau/sqrt mu) times the same quantities. On [2 b r_h, oo) they are (10.33): mu^-1/2 s^-2 |nabla_L Sigma| +
+mu^-1/2 s^-3 |Sigma| + mu^-1/2 s^-2 |(sqrt mu d)^{<= 1} phi| + (1 + tau/sqrt mu) mu^-1/2 s^-4 (|Sigma| + |phi|) for r
+P-bar, and better for the others. So I_source[G] of each hatted rung is bounded, as in his Lemmas 5.5 and 5.7, by the
+initial norms of Sigma and phi with the derivatives counted, provided the first rungs decay fast enough to pay the (1 +
+tau)^2 of the middle region: Sigma and phi at the rate (1 + tau/sqrt mu)^(-4+p+delta) of his Proposition A.5 with k = 1.
 Then Propositions 10.4-10.5 apply to r P-hat and X_t-hat in turn (their potentials -4 mu/r^4 and 0, their sources in
 (10.16)), and the pair (X_1-hat, X_L-hat) is a system with the zeroth-order matrix of (10.29) and a source in (10.16).
 
@@ -2410,7 +2412,8 @@ u = tau for r >= R_null; eta_b the cut-off of [Hun19] p. 29, 0 on [r_h, b r_h] a
           box_s W3 - f' L' W3 - (3 f/r^2) W3 - (3/r^2) W0 = 0,   f' = 2 mu/r^3,                                (10.24)
       his (8.11) with 2M/r^2 -> f' and 2 -> 3, the coefficient of nabla_L' W3 positive -- the red-shift sign his (8.34)
       needs; and d_t W0 = (r f/4) d_r S_W - (1/2) d_t P (his (8.12) with r f/2 and 1). On the horizon f d_r = d_t along
-      the generator, so W0 + P/2 - (sqrt mu/4) S_W is constant along H^+: his c_1(oo) is
+      the generator (W0, W3, P and S_W being the regular components in (v, r)), so W0 + P/2 - (sqrt mu/4) S_W is constant
+      along H^+ -- deduced from (8.12), not a check of Z3 -- and his c_1(oo) is
           c_1(oo) := mu (W0 + P/2 - (sqrt mu/4) S_W)|_{H^+}                                                    (10.25)
       (his -2M (M S_W - P_even - W0)|_{H^+}).
  (Z4) The two radial ODEs. At fixed tau, (10.23)'s first line is f d_rho^2 W0 + ((3 r^2 - mu)/r^3) d_rho W0 + (4 mu/r^4)

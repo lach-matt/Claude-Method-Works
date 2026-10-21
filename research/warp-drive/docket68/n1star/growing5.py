@@ -34,7 +34,7 @@ tr h, with box Sigma = 0 in harmonic gauge; S = div X = (Sigma - 4F)/2.  u := t 
      6) r^2)/(r^2 H), c_2 = 2 c_F, c_t = -2 (3 m r^4 - (4m - 6) mu r^2 - 12 mu^2)/(r^4 H): Hung's (4.21)-(4.25) in five
      dimensions, the bad terms O(r) d_t d_r phi, O(1) d_t phi, d_t Sigma and O(r) d_t^2 phi.  Control: the sign of 2 J_t
      in G_P.
-  G5 (computed, exact at the three sample points) The substitutions (10.32), Hung's (4.27)-(4.30): r P-bar = r P -
+  G5 (computed, exact at the four sample points) The substitutions (10.32), Hung's (4.27)-(4.30): r P-bar = r P -
      r^2 d_t phi + (u + r)((2 k^2/3) phi + Sigma/2), X_t-bar = X_t + (r^2/2) d_t phi - (u + r) phi, X_1-bar = X_1 +
      (r^2 f/2) d_r phi + (m r^4 + 6 mu^2)/(r^3 H) phi, X_L-bar = X_L + (k r/2) phi, with u + r carried as an abstract
      function (d_t(u + r) = 1, d_r(u + r) = 1 - 1/f).  The barred rungs' sources, modulo the wave equations of phi and
@@ -47,7 +47,7 @@ maximally symmetric black holes in higher dimensions, hep-th/0305147v3: sections
 (2.20)-(2.21), (3.1)-(3.7), (3.9)-(3.14)), section 6 (6.1), Appendix A ((A.1b)).  [Hun19] section 4.2 pp. 26-32
 ((4.10)-(4.42), Lemmas 4.8-4.10), section 5 (Propositions 5.1-5.9, Lemma 5.5), section 6 (6.1)-(6.11).
 
-sympy.  python3 growing5.py [--selftest | --mutants]   (about eight minutes; --verbose lists every sub-check)
+sympy.  python3 growing5.py [--selftest | --mutants]   (about twelve minutes; --verbose lists every sub-check)
 """
 import os
 import sys
@@ -283,7 +283,7 @@ phi = sp.Function("phi")(t, r)                     # the scalar-wave normalisati
 Sig = sp.Function("Sigma")(t, r)                   # tr h, box Sigma = 0
 Uf = sp.Function("U")(t, r)                        # u + r as an abstract function: d_t U = 1, d_r U = 1 - 1/f
 USYM = sp.Symbol("U")
-SAMPLES = [(8, sp.Rational(2, 3)), (24, sp.Rational(5, 4)), (48, sp.Rational(3, 2))]     # (k^2, mu)
+SAMPLES = [(8, sp.Rational(2, 3)), (24, sp.Rational(5, 4)), (48, sp.Rational(3, 2)), (80, sp.Rational(7, 5))]  # k^2, mu
 
 
 def boxl_k(u, K2):
@@ -504,7 +504,7 @@ def g5(control=0, verbose=False):
                 o = order_at_infinity(c)
                 cnt = dict(key.variable_count) if isinstance(key, sp.Derivative) else {}
                 nt, nr = cnt.get(t, 0), cnt.get(r, 0)
-                if (nt >= 2 and nr == 0 and key.expr == phi) or (nt >= 1 and nr >= 1):
+                if (nt >= 2 and nr == 0) or (nt >= 1 and nr >= 1):
                     bad.append(("second order", key))
                 elif o is not None and o > (-2 if pw == 0 else -4):
                     bad.append((o, key))
@@ -514,10 +514,20 @@ def g5(control=0, verbose=False):
         exact = {(0, D(Sig, t)): -muv/(r**2*ff), (0, D(Sig, r)): -muv/r**2, (0, Sig): -muv/(2*r**3),
                  (1, Sig): 2*muv/r**4}
         lead = {(0, D(phi, r)): (-2, -sp.Rational(4, 3)*K2*muv), (0, phi): (-3, -sp.Rational(2, 3)*K2*muv)}
-        good = all(_frac(co[key] - v)[0] == 0 for key, v in exact.items())
-        good &= all(leading(co[key]) == v for key, v in lead.items())
+        good = all(_frac(co.get(key, 0) - v)[0] == 0 for key, v in exact.items())
+        good &= all(leading(co.get(key, 0)) == v for key, v in lead.items())
         chk("k^2 = %d, mu = %s, rP-bar's source: -(mu/(r^2 f)) nabla_L Sigma - (mu/(2 r^3)) Sigma + (2 mu/r^4) (u + r) "
             "Sigma exactly, -(4 k^2 mu/(3 r^2)) d_r phi - (2 k^2 mu/(3 r^3)) phi to leading order" % (K2, muv), good)
+        co = C.coeffs(Nt)                                     # line 2: d_r phi, phi and the (u + r) phi term exact
+        exact = {(0, D(phi, r)): 2*muv/r**2, (0, phi): muv/r**3, (1, phi): -v_phi(K2).subs(mu, muv)}
+        good = all(_frac(co.get(key, 0) - v)[0] == 0 for key, v in exact.items())
+        chk("k^2 = %d, mu = %s, X_t-bar's source: (2 mu/r^2) d_r phi + (mu/r^3) phi - (u + r) V_phi phi exactly" %
+            (K2, muv), good)
+        mm = K2 - 3                                           # lines 3-4: one phi term each, of order r^-3
+        for name, N, lc in (("X_1-bar", N1, 2*muv*K2*(K2 + 1)/mm), ("X_L-bar", NL, -6*k*muv*(K2 + 1)/mm)):
+            co = C.coeffs(N)
+            good = set(co) == {(0, phi)} and leading(co[(0, phi)]) == (-3, lc)
+            chk("k^2 = %d, mu = %s, %s's source is a single phi term, leading (%s)/r^3" % (K2, muv, name, lc), good)
     return chk.ok
 
 
@@ -525,7 +535,7 @@ CHECKS = [("G1 the transcription of [KI03] at n = 3: the trace, the Einstein equ
            1),
           ("G2 J = -Gamma[h_RW] in h_RW's components, (10.28), and tr h_RW = F^a_a + 6F = 4F", g2, 1),
           ("G3 the direct system (10.29): Hung's (4.21)-(4.23) in five dimensions", g3, 1),
-          ("G4 the rung sources in canonical form, (10.31), at three modes", g4, 1),
+          ("G4 the rung sources in canonical form, (10.31), at four modes", g4, 1),
           ("G5 the substitutions (10.32) remove every bad weight: the sources of the barred rungs", g5, 1)]
 
 

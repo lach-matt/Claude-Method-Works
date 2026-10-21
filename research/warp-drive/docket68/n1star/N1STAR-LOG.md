@@ -1108,17 +1108,18 @@ d_t(u + r) = 1, d_r(u + r) = 1 - 1/f) and the normalisation phi = r^(-3/2) Phi_K
 J_t = -2 r f d_t d_r phi + c_t d_t phi, f J_r = -2 r d_t^2 phi + O(mu/r^2) d_r phi - r f V_phi phi, J_L = 0, 4F = 2 r f
 d_r phi + c_F phi -- a first pass in the other canonical form (d_t^2 eliminated) showed apparent fourth-order terms with
 r^3 weights, which were the artefact of that form; the coefficient functions read at k^2 = 8, 24, 48 and fitted in k, the
-fits re-checked. (G5) the substitutions: r P-bar = r P - r^2 d_t phi + (u + r)((2 k^2/3) phi + Sigma/2), X_t-bar = X_t +
-(r^2/2) d_t phi - (u + r) phi, X_1-bar = X_1 + (r^2 f/2) d_r phi + (m r^4 + 6 mu^2)/(r^3 H) phi, X_L-bar = X_L + (k r/2)
-phi, each coefficient forced as 10.7 says (a hand estimate 7 k^2/6 for the (u + r) phi coefficient was wrong; the
-computation gives 2 k^2/3 at all three modes, and with 7 k^2/6 an O(1) d_t phi survives -- the control); the residual
-sources carry no second-order term, every coefficient O(r^-2) or better, the (u + r)-weighted ones O(r^-4), and r P-bar's
-Sigma terms are exact, its phi terms checked to leading order. Selftest 5/5 (about eight minutes), mutants 5/5.
-lzero5.py: (Z1)-(Z5), the l = 0 identities (10.23)-(10.26), selftest 5/5 in a quarter of a minute, mutants 5/5; P = r
-(dW)_tr - 2 W0 is forced (the coefficient -2 is the one value making box_s P a multiple of d_t S_W), the W3 equation
-carries f' L' W3 with f' > 0, the second homogeneous solution of the W0 ODE is 1 + (mu/r^2) log(r^2/mu - 1), the
-particular W3 for W0 = c_1/r^2 is -c_1/(r (r + sqrt mu)), W*'s own, and the l = 0 substitution P + (u + r) S_W/2 has the
-source -(mu/(r^2 f)) nabla_L S_W - (mu/(2 r^3)) S_W.
+fit checked at a fourth mode, k^2 = 80 (added on the eighteenth verifier's note). (G5) the substitutions: r P-bar = r P -
+r^2 d_t phi + (u + r)((2 k^2/3) phi + Sigma/2), X_t-bar = X_t + (r^2/2) d_t phi - (u + r) phi, X_1-bar = X_1 + (r^2 f/2)
+d_r phi + (m r^4 + 6 mu^2)/(r^3 H) phi, X_L-bar = X_L + (k r/2) phi, each coefficient forced as 10.7 says (a hand
+estimate 7 k^2/6 for the (u + r) phi coefficient was wrong; the computation gives 2 k^2/3 at every mode, and with the
+coefficient halved to k^2/3 an O(1) d_t phi survives -- the control); the residual sources carry no second-order term,
+every coefficient O(r^-2) or better, the (u + r)-weighted ones O(r^-4), and r P-bar's Sigma terms are exact, its phi
+terms checked to leading order. Selftest 5/5 (about twelve minutes), mutants 5/5. lzero5.py: (Z1)-(Z5), the l = 0
+identities (10.23)-(10.26), selftest 5/5 in a quarter of a minute, mutants 5/5; P = r (dW)_tr - 2 W0 is forced (the
+coefficient -2 is the one value making box_s P a multiple of d_t S_W), the W3 equation carries f' L' W3 with f' > 0, the
+second homogeneous solution of the W0 ODE is 1 + (mu/r^2) log(r^2/mu - 1), the particular W3 for W0 = c_1/r^2 is -c_1/(r
+(r + sqrt mu)), W*'s own, and the l = 0 substitution P + (u + r) S_W/2 has the source -(mu/(r^2 f)) nabla_L S_W - (mu/(2
+r^3)) S_W.
 
 *What was deduced.* 10.7: the three-region bounds of his Lemmas 4.8-4.10 on the barred and hatted rungs, with the (1 +
 tau/sqrt mu) factor on [b r_h, 2 b r_h] and the weights s^-2 nabla_L Sigma, s^-3 Sigma, s^-2 (sqrt mu d)^{<= 1} phi, (1 +
@@ -1132,3 +1133,21 @@ his section 6's coupled estimate for (X_1-hat, X_L-hat). Said in both sections a
 4.5 and 4.9; the README; the paper (the settling paragraph, Appendix A, the settling row, Appendix D, the [KI03] and
 [Hun19] entries, D1-D50, the md5 rows). Labels: computed (exact at the sample points), deduced, READ; nothing proved; (a)
 and (b) open. The eighteenth verifier is sent on 10.7-10.8, growing5.py and lzero5.py; its verdict follows.
+
+*The eighteenth verifier (the same day; one agent, sent on 10.7-10.8, growing5.py, lzero5.py and the records).* No major
+finding; six minor and five notes, all seated. Minor: the far-region bound of 10.7 omitted the (1 + tau/sqrt mu) mu^-1/2
+s^-4 |Sigma| term its own (10.33) produces (added); (10.25) stood under "what is computed" and is deduced from (8.12)
+with f d_r = d_t along the generator (relabelled, in 10.8 and in lzero5.py's docstring); G5 asserted less of (10.33) than
+the text printed on lines 2-4 (G5 now checks line 2's d_r phi, phi and (u + r) phi terms exactly -- the last is -V_phi --
+and lines 3-4 as single phi terms with the leading coefficients 2 mu k^2 (k^2 + 1)/((k^2 - 3) r^3) and -6 k mu (k^2 +
+1)/((k^2 - 3) r^3), which the verifier had derived; the text prints them); this entry misrecorded the G5 control as 7
+k^2/6 (it is the coefficient halved to k^2/3); the README's and the paper's import sentences omitted that growing5.py and
+lzero5.py import wavegauge5.py; the paper's settling row cited 10.3-10.6 for instruments of 10.7-10.8. Notes: the fit in
+k was checked at the fitting points only (a fourth mode, k^2 = 80, is now in SAMPLES; the verifier had run G4 and G5
+there itself, passing); a doubled "(G1)"; the second-order flag tested d_t^2 on phi only (now on Sigma too); Appendix D's
+R1-R7 is R1-R8; the branch name M's commission quotes at the head of this log carries a model-family word, left as M's
+words. What held under its attack: (10.28), (10.30) and all five closed forms of (10.31) from its own Christoffels and
+reconstruction with k symbolic; (10.32)-(10.33)'s forced coefficients and the Sigma line by hand; the l = 0 identities
+from its own one-form box, Z2 in the stronger joint form (alpha, c) = (-2, 1); _frac's soundness; the mutants as real
+controls; the md5 rows, counts and timings. Its verdict: 10.7-10.8 can be relied on as labelled, computed / deduced /
+READ, nothing proved, (a) and (b) open. The repairs are seated in this PR before merge.

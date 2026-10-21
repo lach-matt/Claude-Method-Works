@@ -396,9 +396,9 @@ Propositions 10.4-10.5): every scalar wave equation of 4.3(1), with its potentia
 [Hun19] Appendix A in five dimensions, the Morawetz multiplier for the Maxwell potential computed, so the gauge vector
 decays at tau^(-2+) with the loss of a fixed number of derivatives once its sources do. The growing source (4.3(3)) and l
 = 0 (4.3(4)) are computed (4.9; N1STAR-PROOF.md 10.7-10.8): [Hun19]'s substitutions (4.27)-(4.30) in five dimensions,
-every bad weight removed and the residual sources in the norm, and the identities of his section 8; what they leave open
-is two estimates, the rapid decay of the first rungs (his Proposition A.5 with k = 1, A.6 at l = 0, in five dimensions)
-and the coupled (X_1, X_L) estimate of his section 6. Next, in order: those two; then route B's item 2, the
+every bad weight removed and the residual sources in the norm's weights, and the identities of his section 8; what they
+leave open is two estimates, the rapid decay of the first rungs (his Proposition A.5 with k = 1, A.6 at l = 0, in five
+dimensions) and the coupled (X_1, X_L) estimate of his section 6. Next, in order: those two; then route B's item 2, the
 five-dimensional constraint damping.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
@@ -564,22 +564,23 @@ for the l = 0 argument. growing5.py and lzero5.py compute both, and N1STAR-PROOF
   first rung (S = (Sigma - 4F)/2), the rung sources are exactly: G_P = 4 r f d_t d_r phi + c_2 d_t phi + d_t Sigma, J_t =
   -2 r f d_t d_r phi + c_t d_t phi, f J_r = -2 r d_t^2 phi + O(mu/r^2) d_r phi - r f V_phi phi, J_L = 0, tr h_RW = 2 r f
   d_r phi + c_F phi -- his (4.25), (4.21), (4.22), (4.23): the same bad terms, O(r) d_t d_r, O(1) d_t, d_t Sigma and O(r)
-  d_t^2 on phi, and nothing else (G4, at three (k^2, mu) points; the coefficient functions read at k^2 = 8, 24, 48 and
-  fitted in k: c_F = (12 mu + (2/3)(k^2 - 3)(k^2 + 6) r^2)/(r^2 H), c_2 = 2 c_F, c_t = -2 (3m r^4 - (4m - 6) mu r^2 - 12
-  mu^2)/(r^4 H), m = k^2 - 3).
+  d_t^2 on phi, and nothing else (G4, at four (k^2, mu) points; the coefficient functions read at k^2 = 8, 24, 48, fitted
+  in k and checked at k^2 = 80: c_F = (12 mu + (2/3)(k^2 - 3)(k^2 + 6) r^2)/(r^2 H), c_2 = 2 c_F, c_t = -2 (3m r^4 - (4m
+  - 6) mu r^2 - 12 mu^2)/(r^4 H), m = k^2 - 3).
 - The substitutions, his (4.27)-(4.30): r P-bar = r P - r^2 d_t phi + (u + r)((2 k^2/3) phi + Sigma/2); X_t-bar = X_t +
   (r^2/2) d_t phi - (u + r) phi; X_1-bar = X_1 + (r^2 f/2) d_r phi + (m r^4 + 6 mu^2)/(r^3 H) phi; X_L-bar = X_L + (k
   r/2) phi. Each coefficient is forced: the r^2 d_t phi terms by the d_t d_r coefficients, (r^2 f/2) d_r phi by the ODE
   the d_t^2 coefficient imposes, (k r/2) phi by the X_1-X_L coupling, the (u + r) coefficients as the limits at infinity
   of the exact functions that would remove d_t phi and d_t Sigma outright. The barred rungs' sources carry no
   second-order term, every coefficient O(r^-2) or better and the (u + r)-weighted ones O(r^-4), with s^-2 nabla_L Sigma
-  where his (4.31) has s^-1 nabla_L S (G5, exact at the three (k^2, mu) points; r P-bar's Sigma terms exact and its phi
-  terms to leading order, as 10.7 prints them). Interpolated by eta_b as his (4.35)-(4.38).
+  where his (4.31) has s^-1 nabla_L S (G5, exact at the four (k^2, mu) points; r P-bar's Sigma terms exact and its phi
+  terms to leading order, X_t-bar's d_r phi, phi and (u + r) phi terms exact, X_1-bar's and X_L-bar's single phi terms to
+  leading order, as 10.7 prints them). Interpolated by eta_b as his (4.35)-(4.38).
 - l = 0: the identities of his section 8 in five dimensions -- P = r (dW)_tr - 2 W0 with box_s P = d_t S_W, box_s S_W =
-  0; the (W0, W3) form with f' L' W3 (the red-shift sign); c_1(oo) = mu (W0 + P/2 - (sqrt mu/4) S_W)|_{H^+}; the radial
-  ODEs with the solutions 1/r^2 and 1 + (mu/r^2) log(r^2/mu - 1), 1/(r^3 f) and W*'s own W3; the substitution P + (u + r)
-  S_W/2 whose source is -(mu/(r^2 f)) nabla_L S_W - (mu/(2 r^3)) S_W (Z1-Z5). His Theorem 8.1's argument goes through on
-  them (10.8, deduced).
+  0; the (W0, W3) form with f' L' W3 (the red-shift sign); c_1(oo) = mu (W0 + P/2 - (sqrt mu/4) S_W)|_{H^+} (deduced from
+  (8.12)); the radial ODEs with the solutions 1/r^2 and 1 + (mu/r^2) log(r^2/mu - 1), 1/(r^3 f) and W*'s own W3; the
+  substitution P + (u + r) S_W/2 whose source is -(mu/(r^2 f)) nabla_L S_W - (mu/(2 r^3)) S_W (Z1-Z5). His Theorem 8.1's
+  argument goes through on them (10.8, deduced).
 - What remains (10.7-10.8, said there): (a) the rapid decay of the first rungs, Sigma and phi at l >= 2 and S_W at l = 0
   -- the extension of the r^p hierarchy past p = 2 by one commutation with r^2 nabla_L, his Proposition A.5 with k = 1
   and A.6, in five dimensions, where V_inf = k^2 + 3/4 is never zero and the potentials' tails are r^-4; (b) the coupled

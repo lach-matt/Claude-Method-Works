@@ -904,7 +904,7 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   reconstruction at n = 3 checked against the Einstein equations modulo the master equation; the gauge source in h_RW's
   components; the direct system for the gauge vector's components, Hung's (4.21)–(4.23) in five dimensions; the rung
   sources in canonical form with their bad weights; the substitutions, Hung's (4.27)–(4.30), and the residual sources
-  with every weight checked, exact at the sample points. 5/5; mutants 5/5 (about eight minutes).
+  with every weight checked, exact at the sample points. 5/5; mutants 5/5 (about twelve minutes).
 - `lzero5.py` Z1–Z5: the l = 0 sector (supplement section 10.8): the identities of Hung's section 8 in five dimensions —
   the components of the one-form wave equation, the quantity P with its wave equation, the regular component with the
   red-shift sign, the horizon constant, the two radial ODEs and their singular solutions, the l = 0 substitution. 5/5;
@@ -1011,7 +1011,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D5
 | | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
-| settling, section 8 | supplement sections 10.1, 10.3–10.6 (Propositions 10.1–10.5); `docket68/n1star/settle5.py` |
+| settling, section 8 | supplement sections 10.1, 10.3–10.8 (Propositions 10.1–10.5); `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
 | | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; [HKW18], |
 | | [KI03], [CLY03b], [CYDL03], [Hun19], [Sch13] |
@@ -1026,16 +1026,16 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D5
 ## Appendix D. Reproduction
 
 Python 3.11 with sympy; z3-solver for `foliation5.py`; numpy for `bondi5.py` and `growth5.py`, numpy and scipy for
-`settle5.py`. `growth5.py` imports the solver `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py`
-imports `lead5.py`; the others import nothing from the research tree:
+`settle5.py`. `growth5.py` imports the solver `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imports
+`lead5.py`, `growing5.py` and `lzero5.py` import `wavegauge5.py`; the others import nothing from the research tree:
 
-    cd paper && python3 response5.py --selftest          # R1-R7, about 30 seconds
+    cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
         cd ../docket68/n1star && python3 ks5.py --selftest   # and foliation5, ansatz5, lead5, data5, horizon5, mass5,
                                                          # past5 (about 4 minutes), settle5, bondi5 (about ten minutes)
                                                          # wavegauge5 (about 7.5 minutes), hung4 (about 2.5 minutes),
                                                          # rungs5 (about half a minute)
-                                                         # growing5 (about eight minutes)
+                                                         # growing5 (about twelve minutes)
                                                          # lzero5 (a quarter of a minute)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
@@ -1044,9 +1044,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `fe6dfcf59eedfbdcbab53677e2202af1` |
-| `docket68/n1star/N1STAR-LOG.md` | `235f85a75c12edc58fbf633167aafd92` |
-| `docket68/n1star/README.md` | `602afaca8ea2a0b9a5a3ac7cd59a9461` |
+| `docket68/n1star/N1STAR-PROOF.md` | `cdf2c7f9773a6ec291f615ec758d3d40` |
+| `docket68/n1star/N1STAR-LOG.md` | `01e9646daa928f2cabb4206e5ca0e60a` |
+| `docket68/n1star/README.md` | `222babc2022b9106e2d3b4fa8e8c28af` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1059,8 +1059,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/growth5.py` | `7493d63335c521c78d35653716881934` |
 | `docket68/n1star/wavegauge5.py` | `d2d8e22bf8d52fe42eea3f32ae49306f` |
 | `docket68/n1star/rungs5.py` | `2bc4e9021ae529e63eb548a99049cb08` |
-| `docket68/n1star/growing5.py` | `aff9f5c29b368208cc6a127696747deb` |
-| `docket68/n1star/lzero5.py` | `6da55e137dff76f81a03abdb9b76421e` |
+| `docket68/n1star/growing5.py` | `f0af993ae740166648df5e57bb0bd8ee` |
+| `docket68/n1star/lzero5.py` | `15b82c25a3f446d596d4f34119eab15f` |
 | `docket68/n1star/hung4.py` | `7f3d68853fde8bda4ff383dc039dadfe` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |
