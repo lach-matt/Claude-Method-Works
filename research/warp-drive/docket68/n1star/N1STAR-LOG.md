@@ -1536,3 +1536,59 @@ ROUTES-OPEN.md 4.4 (its list restored), 4.5, 4.13 (its bullets restored), 4.14 a
 3b-estimates of his section 5, with h_0), section 6's five-dimensional steps, Theorem B.1, E^Upsilon. The twenty-fourth
 verifier is sent on 10.14, cform5.py and the twenty-third's repairs; its verdict follows. Next: route B's item 2
 continues at his section 5 in five dimensions.
+
+*The twenty-fourth verifier (the same day; one agent, sent on 10.14, cform5.py and the twenty-third's repairs).* No
+major finding, four minor and six notes, all seated in the PR that seats 10.15. Minor: (1) "every bound his Proposition
+5.1 places on e -- ... Theorem 4.9's ... is met by computation" claimed Theorem 4.9 for every h below an h_0(e), where
+Proposition 10.9 is computed at h = 10^-6 (it ran the certificate at 10^-8 and 10^-12 too, the same counts) -- now
+"Theorem 4.9's at h = 10^-6"; (2) "where Kerr needs three" put down to rotation a saving that is the time's: Hintz's
+three pieces come from Boyer-Lindquist time, and on four-dimensional Schwarzschild in Kerr-Schild time dt + dr/4 serves
+alone (its exact check) -- now said in 10.14, ROUTES 4.15 and cform5.py; (3) semiclass5.py's W3 docstring still carried
+the thresholds without "at n = 3 and 4" and the translation into (5.14) as computed -- now as in 10.13(ii); (4) the
+paper's settling sentence omitted the smoothing of c from what is deduced -- now added. Notes: (5) "by scaling 86
+mu^(1/2)" is a deduction (now labelled), and its threshold analysis finds (3) iff r_0 > 85.521 r_h, (6) iff r_0 > 32.900
+r_h, and at e/4 (3) iff r_0 > 136.787 r_h, so every r_0 > 85.52 r_h works -- now in 10.14 and ROUTES 4.15 as its
+measurement; (6) footnote 14 reads "roughly r_2 >= 81m/e^(1/2)" -- "roughly" restored; (7) with <c, dr> > 0 it is -c#,
+not c, that points into the black hole -- now said; (8) the paper's [Hin26a] entry repeated pp. 38-41, 53 and 67, and
+10.14's READ omitted p. 93 -- merged, and added; (9) C6's control mutated the assertion, not the instrument -- now the
+scan with the window of (3) widened to 121/100; (10) C7's positivity holds to rho_K < 51.33, beyond the stated 10 -- the
+statement stands. What held under its attack: Proposition 10.11 and C1-C7 re-derived with its own code (Cartesian
+Kerr-Schild coordinates, a Christoffel-free divergence), validated on Hintz's printed Lemma 4.4 entries and the misprint
+10.13 named; Lemma 3.8's translation into f e G(c) + 2 (1 - e) <c, dr>^2 > 0 with the signs of (6); the threshold b* =
+27307/27306 - 819205^(1/2)/136530; every control failing for its stated reason; every READ at source; every repair of
+the twenty-third but (8)-(9) in semiclass5.py's W3; the 31 md5 rows.
+
+**D57 (2026-10-21, M: "Continue please"): the gauge potential operator in five dimensions -- the inputs of [Hin26]
+Proposition 6.12 (section 10.15; gaugepot5.py G1-G7) -- and the twenty-fourth verifier's findings seated.**
+
+*The step.* ROUTES 4.5's order after D56: the rest of item 2. PR #77 had merged; the branch is main at 5886b9b. Of the
+rest, the modification E^Upsilon of [Hin26] Proposition 6.12 is the piece whose inputs are computations; the
+twenty-fourth verifier, sent on 10.14, reported during this step.
+
+*What was read.* At source (alphaXiv, 2026-10-21): [Hin26] pp. 25-26 (section 1.4.1), 82, 113 (section 6, (6.1)-(6.6)),
+117-119 (Lemma 6.6, (6.17), Lemma 6.8), 119-124 (section 6.4: Proposition 6.9, Lemmas 6.10-6.11, Proposition 6.12 and
+its proof, (6.20)-(6.28)). His Step 1 needs (6.26), <f, omega*> = 4 pi (-i sigma^ + c_b gamma^) != 0, which holds when
+(6.21) and (6.23) are real and of one sign; Lemma 6.10's kernel he takes from [AHW24] on Kerr.
+
+*What was computed.* gaugepot5.py: (G1) the indicial roots of box^Ups on 4+1 Minkowski, his Lemma 6.6 reproduced in four
+dimensions, the gap (0, 2) and, for e gam^2 > 0, (0, lam_s1,2) with 2 < lam_s1,2 < lam_s0, at the weight 2/3; (G2) the
+stationary mode equations on Tangherlini for symbolic l, the dt and spatial parts decoupled; (G3) the identities behind
+the kernel for l >= 1; (G4) the l = 0 kernel, W*; (G5) the cokernel functional delta(r - r_h) dr at every l; (G6) the
+pairings, 4 pi^2 against his 4 pi (his reproduced), eta != 0, (6.23) = -12 pi^2 c_v - 8 pi^2 c_r; (G7) the first term of
+f at infinity, rho^3 by the dimension. Selftest 7/7 (about a minute and a half), mutants 7/7. Found by exploring before
+it was checked: the first pairing used r_h^n for the sphere's area, r_h^(n-1), and gave 4 pi mu against his 4 pi -- the
+four-dimensional control caught it; G2's first control (2 delta delta* on the dt part) was vacuous, the divergence of a
+stationary dt-form vanishing -- now on the spatial part; with the weight 1 the modification near infinity moves the
+Coulomb root down into the gap rather than up.
+
+*What was deduced.* The kernel of box(0) on Tangherlini is W* alone: A(r_h) = 0 and three energy identities with
+positive forms for l >= 1, the l = 0 computation; delta(r - r_h) dr spans the cokernel once the index is 0; the
+augmented operator of his Step 1 is injective in five dimensions, its f in the target space for alpha + 2 < 1.
+
+*Seated.* N1STAR-PROOF.md 10.15 with Proposition 10.12, and 10.14 repaired; gaugepot5.py; cform5.py and semiclass5.py's
+docstrings and C6's control; ROUTES-OPEN.md 4.4, 4.5, 4.15 and the new 4.16; the README; the paper (the settling
+paragraph, the Review bullet, Appendices A, C and D, the [Hin26a] and [Hin26] entries, D1-D57, the md5 rows). Labels:
+computed (gaugepot5.py G1-G7, exact), deduced, READ; nothing proved. OPEN: [Hin26c]'s low-energy theory in five
+dimensions, his Step 2, mode stability of box at nonzero frequencies, his Theorem 5.2, section 6's five-dimensional
+steps, Theorem B.1. The twenty-fifth verifier is sent on 10.15, gaugepot5.py and the twenty-fourth's repairs; its
+verdict follows. Next: route B's item 2 continues at [Hin26c] and his section 5 in five dimensions.

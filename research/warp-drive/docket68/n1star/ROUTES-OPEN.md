@@ -366,9 +366,11 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    first genuinely new object of the route. Tangherlini being static, the indicial-root computation it needs is an ODE
    problem in r for each l of the class. Its indicial half is computed (4.13; N1STAR-PROOF.md 10.12), the semiclassical
    inputs of the construction (4.14; 10.13), and a five-dimensional c of his Proposition 5.1's kind on Tangherlini
-   (4.15; 10.14): with the trace weight 2/(D - 2) in place of his 1 the strip is clear at a point below the
-   five-dimensional bound of his Lemma 4.4, h < e chosen here, and the c's conditions hold at that e; his Theorem 5.2
-   and the rest of the item are OPEN.
+   (4.15; 10.14), and the zero energy inputs of the modification E^Upsilon (4.16; 10.15): with the trace weight 2/(D -
+   2) in place of his 1 the strip is clear at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen
+   here, the c's conditions hold at that e, and box^Upsilon's zero energy kernel is W* alone, with pairings that let a
+   horizon modification remove it; his Theorem 5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the
+   item are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -415,9 +417,11 @@ the class. Route B's item 2, the five-dimensional constraint damping, is 4.13 fo
 [-100, 2] but for the Coulomb root, at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here;
 4.14 (10.13, Proposition 10.10, computed) recomputes the semiclassical inputs of [Hin26a] in five dimensions, and 4.15
 (10.14, Proposition 10.11, computed) gives a five-dimensional c of his Proposition 5.1's kind on Tangherlini, its
-conditions checked at that e. Next: the rest of item 2 -- the 3b-estimates of his section 5 (his Theorem 5.2, with its
-h_0) and section 6's five-dimensional steps, his Theorem B.1 in five dimensions, and the modification E^Upsilon ([Hin26]
-Proposition 6.12).
+conditions checked at that e; 4.16 (10.15, Proposition 10.12, computed; the kernel deduced) gives the gauge potential
+operator's zero energy kernel, cokernel functional and pairings in five dimensions, the inputs of [Hin26] Proposition
+6.12. Next: the rest of item 2 -- the 3b-estimates of his section 5 (his Theorem 5.2, with its h_0) and section 6's
+five-dimensional steps, his Theorem B.1, [Hin26c]'s low-energy theory and mode stability of the 1-form wave operator at
+nonzero frequencies, all in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -749,18 +753,37 @@ recomputes them on 4+1 Minkowski; N1STAR-PROOF.md 10.13 states Proposition 10.10
 
 ROUTES 4.4 item 2's c. cform5.py computes it; N1STAR-PROOF.md 10.14 states Proposition 10.11.
 - The 1-form: in Kerr-Schild time, (2 r_0)^-1 (dt + (v/2) dr) inside r_0/2, his (5.1) on [r_0/2, 2 r_0], r^-1 (dt - v
-  dr) beyond 2 r_0; continuous; one inner piece, past timelike for every r > 0, where Kerr needs three and a partition
-  of unity (C2).
+  dr) beyond 2 r_0; continuous; one inner piece, past timelike for every r > 0, where his construction, in
+  Boyer-Lindquist time, uses three and a partition of unity -- the saving is the horizon-regular time (C2).
 - At (v, e) = (1/2, 1/102400) and r_0 = 100, exactly, on Tangherlini: condition (1), r c past timelike on [r_h/2, oo)
-  (C2); condition (6), c pointing into the black hole inside the saddle and out of it beyond, with Lemma 3.8's
+  (C2); condition (6), -c# pointing into the black hole inside the saddle and out of it beyond, with Lemma 3.8's
   inequality (C3); condition (3), S computed on Tangherlini from its definition and positive definite on the saddle
   window (C1, C4).
 - On sf, exactly: (4)-(5) at dK+ and R_v iff b_K > b_sf - b* and b_sf < b*, b* = 0.99341, the e = 0 thresholds moved by
   0.0066; at the weights (1, -102), T is positive on all of sf with rho_K <= 10 (C7); (5.8) fails only within 0.00166 of
   v (C5).
-- The bound on r_0 (C6, a measurement): 86 r_h at this e, 137 r_h at e/4; footnote 14's on Schwarzschild is 81
-  m/e^(1/2), 25920 m at this e.
+- The bound on r_0 (C6, a measurement): 86 r_h at this e, 137 r_h at e/4; footnote 14's on Schwarzschild is roughly 81
+  m/e^(1/2), 25920 m at this e; by the twenty-fourth verifier's threshold analysis every r_0 > 85.52 r_h works.
 - Deduced, by his arguments: (4)-(5) off sf near it, with delta_r not explicit; the smoothing at r_0/2 and 2 r_0.
 - OPEN: his Theorem 5.2 in five dimensions (the 3b-estimates of his section 5, with h_0(e), so that h = 10^-6 is not
   certified below it); section 6's five-dimensional steps; his Theorem B.1; E^Upsilon. Labels: computed (cform5.py
   C1-C7; C6 a measurement); deduced; READ ([Hin26a] pp. 3, 38-41, 53, 67; alphaXiv, 2026-10-21); nothing proved.
+
+### 4.16 The gauge potential operator in five dimensions: inputs of [Hin26] Proposition 6.12 (computed; D57)
+
+ROUTES 4.4 item 2's E^Upsilon. gaugepot5.py computes them; N1STAR-PROOF.md 10.15 states Proposition 10.12.
+- The indicial roots (G1): s0 lam (lam - 3)(lam^2 - lam - 2 - 4 e gam^2), vl (lam + l)(l + 2 - lam), sl (l + 3 -
+  lam)(lam + l - 1) Q; the gap (0, 2) at gam = 0, (0, lam_s1,2) with 2 < lam_s1,2 < lam_s0 for e gam^2 > 0, at the
+  weight 2/3 near infinity; the weight 1 moves the root 2 into (1, 2). Four-dimensional control: his Lemma 6.6.
+- The zero energy kernel (G2-G4): the dt and spatial parts decouple on the static metric; at l = 0 the kernel is W*; for
+  l >= 1, A(r_h) = 0 from the equation at the horizon and three energy identities with positive forms give none
+  (deduced: [AHW24]'s role in his Lemma 6.10, here elementary).
+- The cokernel functional (G5): delta(r - r_h) dr annihilates the range of box(0) at every l; that it spans the cokernel
+  needs index 0 ([Hin26c] in five dimensions, OPEN).
+- The pairings (G6): (6.21) is 4 pi^2 (his 4 pi, reproduced); W* is divergence-free; eta = -mu^(-3/2) (dv + (3/2) dr) !=
+  0; (6.23) = -12 pi^2 c_v - 8 pi^2 c_r, 4 pi^2 at c_H = -(1/2) dr, so (6.26) holds: 4 pi^2 (-i sigma^ + gamma^) != 0.
+  The first term of f decays at rho^3 by the dimension, where his needs a cancellation (G7).
+- OPEN: [Hin26c]'s low-energy theory in five dimensions (index 0, tf-admissibility, the estimates (6.27)-(6.28)); his
+  Step 2, the perturbation near infinity; mode stability of box at nonzero frequencies in five dimensions (his
+  Proposition 6.9 rests on [AHW24] Theorem 5.1). Labels: computed (gaugepot5.py G1-G7, exact); deduced (the kernel, the
+  augmented operator's injectivity); READ ([Hin26] pp. 25-26, 82, 113, 117-124; alphaXiv, 2026-10-21); nothing proved.
