@@ -2841,12 +2841,15 @@ middle region, compact, by mu^-1/2 int_tau^oo (1 + tau'/sqrt mu)^2 B-bar[D^{<= m
 delta) I_0, summed over dyadic intervals (2 - 3 + 4 delta < 0); the inner region by the integrated bulk of (10.44), at (1
 + tau/sqrt mu)^(-3+4 delta); the outer by (10.26)'s weights, which put the source density r^-2 below the bulk of (10.44)
 at the same p. So E^p_source(tau, oo) <~ (1 + tau/sqrt mu)^(-1+4 delta) I_0 for every p in [delta, 2 - delta], uniformly
--- less than his I_source,l=0,delta asks, (1 + tau/M)^(-2+p+delta), and enough: Proposition 10.5's argument with it gives
-(i) boundedness at every p <= 2 - delta, the source integral being finite at every p; (ii) the dyadic step at p = 2 -
-delta; (iii) at p = 1, with the source's (1 + tau_j/sqrt mu)^(-1+4 delta) for its (1 + tau_j/sqrt mu)^(-1+delta-bar),
-F[P-hat] <~ (tau_j/sqrt mu)^-1 at sample times; and (iv) between them F(tau) <~ F + E^{delta,(0)}_L at the sample plus
-the source from it, <~ tau^(-1+theta) + tau^(-1+4 delta), with theta < delta: (10.45), its integrated term from (10.17)
-at p = delta on [tau, oo).
+-- less than his I_source,l=0,delta asks, (1 + tau/M)^(-2+p+delta), and enough. The Morawetz step for P-hat, which
+carries a source, is [Sch13]'s with the source added: his Proposition 4.1 is stated for box phi = 0, and its currents are
+multiplier identities, so with a source each divergence gains the source times the multiplier, which Cauchy-Schwarz puts
+into E^p_source and the bulk -- deduced, as Proposition 10.4 carries its source, not READ. Proposition 10.5's argument
+with it gives (i) boundedness at every p <= 2 - delta, the source integral being finite at every p; (ii) the dyadic step
+at p = 2 - delta; (iii) at p = 1, with the source's (1 + tau_j/sqrt mu)^(-1+4 delta) for its (1 + tau_j/sqrt
+mu)^(-1+delta-bar), F[P-hat] <~ (tau_j/sqrt mu)^-1 at sample times; and (iv) between them F(tau) <~ F + E^{delta,(0)}_L
+at the sample plus the source from it, <~ tau^(-1+theta) + tau^(-1+4 delta), with theta < delta: (10.45), its integrated
+term from (10.17) at p = delta on [tau, oo).
 
 (e) W'. 10.8's argument, his section 8.2 on (10.23)-(10.26), with (10.44)-(10.45) for his Propositions 8.2 and 8.4: his
 Appendix B bounds the O_j by sup norms on [r-underline, R_null] of (sqrt mu d)^{<= m+6} P and S_W, which spherical

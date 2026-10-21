@@ -1086,7 +1086,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `f1e7b39620efda19a3eba182c83063ac` |
+| `docket68/n1star/N1STAR-PROOF.md` | `8582e5e11388755d5dfe0defb03b90bc` |
 | `docket68/n1star/N1STAR-LOG.md` | `0dd7b19ac5769583b7e20bc30c57aa70` |
 | `docket68/n1star/README.md` | `a05860cf21153a3d65ee7d61d5a326ab` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
