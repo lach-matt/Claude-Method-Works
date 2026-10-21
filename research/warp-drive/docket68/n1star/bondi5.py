@@ -594,11 +594,11 @@ CHECKS = [("B1 the hierarchy in the class: b, U, W from R_rr, R_rth, R_vr; d_v a
           ("B4 the numerics' mean-mass offset is (2/9) lam^2 int env'^2 = 5 pi^2/108 lam^2 to 0.5 %", b4, 1)]
 
 
-def selftest():
+def selftest(verbose=False):
     ok_all = True
     for name, f, nc in CHECKS:
         t0 = time.time()
-        good = f()
+        good = f(verbose=verbose) if "verbose" in f.__code__.co_varnames else f()
         control = any(f(control=k) for k in range(1, nc + 1))
         state = "PASS" if good and not control else "FAIL"
         ok_all &= state == "PASS"
@@ -625,9 +625,6 @@ if __name__ == "__main__":
         K = int(sys.argv[sys.argv.index("--K") + 1])
         print("B1 at K =", K, b1(K=K, verbose=True))
         sys.exit(0)
-    if "--verbose" in sys.argv:
-        print("B1", b1(verbose=True)); print("B2", b2(verbose=True))
-        sys.exit(0)
     if "--mutants" in sys.argv:
         sys.exit(0 if mutants() else 1)
-    sys.exit(0 if selftest() else 1)
+    sys.exit(0 if selftest("--verbose" in sys.argv) else 1)

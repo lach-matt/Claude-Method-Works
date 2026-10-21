@@ -1485,7 +1485,8 @@ the latter is a linearised change of mass alone (T1). So, linearly, a perturbati
 settles, in its gauge-invariant part, to a change of its mass, at the rate tau^-2 in energy. What [HKW18] leaves open
 is stated there, p. 4: "the remaining linearized metric components can be controlled by the gauge-invariant master
 quantities ... We do not treat this matter in the current paper". For the scalar wave on these backgrounds the same
-rate is [Sch10] (V. Schlue, arXiv:1012.5963v1, p. 5, Theorem 1), "E[phi](Sigma_tau) <= C D / tau^2", n >= 3.
+rate is [Sch13] (V. Schlue, Anal. PDE 6 (2013), arXiv:1012.5963v1, p. 5, Theorem 1), "E[phi](Sigma_tau) <= C D /
+tau^2", n >= 3.
 
 *The ringdown, measured on the copper study's barrier (computed, T2-T4).* The tensor-type potential of [CLY03b] (V.
 Cardoso, J. P. S. Lemos, S. Yoshida, arXiv:hep-th/0311260v2, (2.4) at n = 3) is exactly the barrier of
@@ -1498,7 +1499,7 @@ and 123.5 l5 at the copper study's seeds mu = 100, 195, 322 and 1000 l5^2 (T4).
 *What stays open.* Nonlinear settling. The class depends on (t, r, th): its reduced problem is 2+1 dimensional, the
 dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18],
 p. 2: "Klainerman-Szeftel [20] for the Schwarzschild spacetime subject to polarized axisymmetric perturbations"); the
-five-dimensional results READ ([Hol08], and Dafermos and Holzegel's triaxial Bianchi IX, cited in [Sch10], p. 2, as
+five-dimensional results READ ([Hol08], and Dafermos and Holzegel's triaxial Bianchi IX, cited in [Sch13], p. 2, as
 "for work on the 5-dimensional case under symmetry see also [12, 23]") have the solution depend on (t, r) alone. A
 five-dimensional counterpart in the T^2-mirror class would be needed, together with the decay of the metric components
 in a gauge, and the solution would first have to be continued outside D_T. None of this is attempted.
@@ -1560,7 +1561,8 @@ stays from v = 1.410, W at that boundary turns positive at 1.455 and the slice s
 column the expansion has no zero at all, so by hf_core5's criterion no round sphere is trapped there; in the column
 where the wave is strongest W > 0 for r >= 0.74 r_h and W < 0 on r = 0.54-0.66 r_h, and the zero of W in that column
 moves inward with v (0.86-1.02 r_h at v = 1.0 and 1.25, 0.66-0.74 at 1.5, the boundary r = 0.54 at 1.516) while in other
-columns W < 0 persists out to 1.61 r_h; with the deeper excisions failing earlier, no excision depth keeps the premise.
+columns W < 0 persists out to 1.26 r_h (Ny = 20; 1.22 at Ny = 28; the next grid point, 1.61, has W > 0 in every
+stored sample); with the deeper excisions failing earlier, no excision depth keeps the premise.
 Where the second zero sits and how it moves is not a measurement of these runs: `--run` stored q as its maximum and the
 zeros only when every column had one (D45, OPEN; the run records every zero per column from D45 on). Two phrases carry
 one meaning each here: a sphere *ceases to be trapped* when the expansion's second zero reaches it, and the boundary
@@ -1673,9 +1675,9 @@ energies on the decay foliation, regular at the horizon ((115), (131)), and the 
 through the equation and the commutation with T that I_Psi already carries. []
 
 *What this is.* The content of [HKW18]'s deferred sentence, in the class: a linear stability statement for every
-metric component, in a named gauge, at their rate. It is the analogue of Johnson's and of Hung-Keller-Wang's
-four-dimensional results in the Regge-Wheeler gauge, which [HKW18] cite on p. 4, and in the class it costs nothing
-beyond (10.1), because the class has no vector part and no l = 1.
+metric component, in a named gauge, at their rate. It is the analogue of Hung-Keller-Wang's four-dimensional result
+in the Regge-Wheeler gauge and of Johnson's in the generalized wave gauge, which [HKW18] cite on p. 4, and in the
+class it costs nothing beyond (10.1), because the class has no vector part and no l = 1.
 
 *What this is not.* It is not L1. The gauge of (ii) is defined mode by mode through the harmonic decomposition, not
 by a hyperbolic condition, so it is not the wave-map gauge in which the nonlinear problem of section 2.5 is posed;
@@ -1702,7 +1704,7 @@ potential, the control, grows).
 *What stays open.* L1 in the wave-map gauge; the zero-energy structure of the gauge problem in spatial dimension four;
 L2 and L3; and the nonlinear iteration. The solution would first have to be continued outside D_T.
 
-### 10.4 The passage to the harmonic gauge in the class (`wavegauge5.py` W1-W5; D42)
+### 10.4 The passage to the harmonic gauge in the class (`wavegauge5.py` W1-W7; D42, D46, D47)
 
 L1 asks for linear stability in a generalised wave gauge, and Proposition 10.1 stopped at the Regge-Wheeler-type gauge.
 In four dimensions the passage is Hung's even-part paper [Hun19] (P.-K. Hung, arXiv:1909.06733v1, READ 2026-10-20):
@@ -1738,7 +1740,7 @@ perturbations in the class:
     perturbation in the class settles in harmonic gauge to c1 K* + c2 pi_{W*}, the mass change growing linearly in t as
     in four dimensions (conditional, D45).
 
-    (vi) *The gauge-vector system is triangular (W6).* With S := div X, F := dX, P := F_tr/S_l, Q_t := -F_{t th}/S_l'
+    (v) *The gauge-vector system is triangular (W6).* With S := div X, F := dX, P := F_tr/S_l, Q_t := -F_{t th}/S_l'
     and Q_r := -F_{r th}/S_l' (S_l the harmonic) and box_l := -f^-1 d_t^2 + f d_r^2 + ((3r^2 - mu)/r^3) d_r - k^2/r^2
     the scalar wave operator at mode l, seven identities hold in X, exactly (W6; at l = 2 in the selftest, at l = 4
     under --l4, where all seven pass and the control fails, in 72 minutes): div(box X) = box_l(div X);
@@ -1753,6 +1755,25 @@ perturbations in the class:
     k^2/r^2 + V >= 0, holds on every rung: V = 0 for S, X_t and r X_L, and V = -4 mu/r^4 for r P gives k^2/r^2 - 4
     mu/r^4 >= 0 for r^2 >= 4 mu/k^2, true on the exterior for k^2 >= 8 (equality would need r^2 = mu/2). The counterpart
     of [Hun19] (4.21) carries no potential where four dimensions has 2M/r^3.
+(vi) *Hung's Proposition 4.2 in five dimensions (W7).* In Hung's components -- H1 = (h_tt + f^2 h_rr)/2 + ((1 - f)/2) trs
+    h, H2 = trs h/sqrt3, H3 = (h_tt/f - f h_rr)/2, H6 = f h_tr + ((1 - f)/2) trs h, H4 = f k h_rth/(r S'), H7 = k
+    h_tth/(r S'), hhat_ij = 2 r^2 H5 S_ij, with trs h = r^-2 gamma^ij h_ij and (1 - f)/2 = mu/(2 r^2), which in four
+    dimensions is his M/r -- and under Gamma[h] = 0, admixed as 2 f f' Gamma_r in rows 1 and 6 and k f' Gamma_th/r in
+    rows 4 and 7, the Lichnerowicz equation reads box_l H = A H + U H: A zeroth order and rational in r, mu, k, and U =
+    (2f'/f) nabla_L (H6 - H1) in row 6, (f'/f) nabla_L (H7 - H4) in row 7, nothing else, L = d_t + f d_r (Hung's U, p.
+    19, with 2M/r^2 -> f' = 2 mu/r^3). The leading part A_main := lim r^2 A at k^2 = l(l + 2) has the eigenvalues (l +
+    a)(l + a + 2), a = -2, -1, 0, 0, 0, 1, 2 -- Hung's Lemma 4.3 with (l + a)(l + a + 1) replaced -- so its quadratic
+    form is semi-positive for every l >= 2, with one zero at l = 2 and comparable to the angular term for l >= 4, and A -
+    A_main/r^2 = O(mu/r^4). In the horizon-regular variables H6' := (H6 - H1)/f^2 = -h(L', L')/2 and H7' := (H7 - H4)/f =
+    k h(L', d_th)/(r S'), L' = f^-1 (d_t - f d_r) the future-directed transversal null direction, every coefficient is
+    regular at r = sqrt mu, rows 1-5 carry no first-order term, and rows 6', 7' carry 2 f' nabla_L' H6' and f' nabla_L'
+    H7' with no nabla_L: Hung's 4M/r^2 and 2M/r^2 (p. 23), positive, so the red-shift step of his Proposition 4.1 applies
+    as written. The l = 0 sector (H1, H2, H3, H6) has the same form, r^2 A_main with eigenvalues 0, 0, 3, 8. Without the
+    gauge admixture the Lichnerowicz operator alone carries, in the null frame, -f' times the boost weight as the
+    nabla_L' coefficient of each component (-2f' on h(L, L), -f' on h(L, d_th), 0 on h(L, L') and the angular part, +f'
+    and +2f' on h(L', d_th) and h(L', L')); the gauge condition removes the negative ones, which is what Hung's Appendix
+    C does in four dimensions (`hung4.py`, the control, reproduces his printed rows from the Schwarzschild metric the
+    same way).
 
 *Proof.* Each item is a sympy identity on the metric -f dt^2 + dr^2/f + r^2 (dth^2 + cos^2 th dphi1^2 + sin^2 th
 dphi2^2), f = 1 - mu/r^2, with the class's eight components as functions of (t, r, th): (i) is the linearised Ricci
@@ -1763,7 +1784,12 @@ the quotients are th-free and have the stated second-order coefficients; (iv) so
 tests regularity in the ingoing chart, and verifies Gamma[K*] = 0 by direct computation after B is found by variation
 of parameters from the two homogeneous solutions 1/(r^3 f) and r^3/(r^2 - mu). The controls: the curvature term's sign
 reversed, dt/r^2 alone (singular at the horizon), W** without its t W* term, a vector-type angular part, and T without
-the divergence condition, each fail. []
+the divergence condition, each fail. (v) is W6, section 10.4's seven identities with every coefficient evaluated at the
+three sample points to forty digits. (vi) is W7: the Lichnerowicz components and the gauge one-form on the ansatz in
+Hung's components, the harmonic kept symbolic with its equation S'' = -2 cot 2th S' - k^2 S applied and the angle
+evaluated exactly at two Pythagorean points, every coefficient a rational function cancelled exactly, the leading
+matrix's characteristic polynomial factored over Q[l]; the control reverses the sign of the gauge admixture, and
+first-order terms survive in rows 1-5. []
 
 *What L1 still needs, and nothing else.* Decay for the system (iii) with (10.1)'s source and for its l = 0 part: the
 five-dimensional version of [Hun19]'s sections 5-8 (the vector field method on the three coupled equations and the
@@ -1771,9 +1797,11 @@ red-shift argument for the coefficient of the singular stationary solution), whi
 vector wave equation on Tangherlini -- not in the literature. ROUTES-OPEN.md section 4 proposes the route (D46): by (vi)
 the system is triangular and every rung is a scalar wave equation on Tangherlini with a potential satisfying Hung's
 condition (A.3), so the estimate is Schlue's scalar estimates and Hung's Appendix A in five dimensions, rung by rung,
-with the l = 0 argument of [Hun19] section 8 on W2's ODE. With it, every metric component in the class would decay in a
-gauge in which the nonlinear problem can be posed, and the final state would be read off (iv). The scalar tails of T6
-(t^-7 at l = 2) bound the rate such an estimate could reach.
+with the l = 0 argument of [Hun19] section 8 on W2's ODE; and by (vi) Hung's Proposition 4.1 -- the red-shift and r^p
+estimates for h itself, with the compact region as the error -- has its structure in the class (D47), so that what
+remains of it is the estimate on that structure with [Sch13]'s weights (ROUTES-OPEN.md 4.6). With it, every metric
+component in the class would decay in a gauge in which the nonlinear problem can be posed, and the final state would be
+read off (iv). The scalar tails of T6 (t^-7 at l = 2) bound the rate such an estimate could reach.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
@@ -1848,27 +1876,29 @@ region, with constants depending on lam and the order.
 containing u_1 means the orders already controlled. Induction on the order: for |gamma| = j + 1, U := d^gamma u_1 solves
 -(1/2) g_lam^{ab} d_a d_b U = d^gamma F_1 + sum_{0 < gamma' <= gamma} (d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b
 u_1. The terms with |gamma'| = 1 are (d g_lam) d U with d g_lam in E_(3/2), of the kind Lemma 9.5's kernel k absorbs; a
-term with |gamma'| >= 2 is a product of a derivative of g_lam of order <= j + 1 with one of u_1 of order <= j + 1, and
-is estimated in L^2(Sigma_tau) with the factor of higher order in L^2 (the energies of the lower steps, at most C
-t^(-1/2)) and the other in sup norm (E_2 by the induction hypothesis, through Lemma 9.3 for the orders it costs, and by
-Theorem P for the lowest), so the source is at most C(lam, j) t^(-3/2) in L^2. The identity is not run on the region
-between {v = v_start} and Sigma_tau: that region is unbounded toward past null infinity (Lemma 9.1(e)), and the flux of
-d^gamma u_1 through infinity there is known to vanish only at the orders Theorem P controls (a thirteenth verifier's
-finding, D44). It is run for each approximating solution g_n of Proposition 9.8 -- which equals g0 on {v <= v_start} and
-solves the same equations, so that u_1^n := g_n - g0 - r^(-3/2) G_3 has the structure above, Lemma 11.1 applying to it
-verbatim with (9.8) through Lemma 9.3 in place of Theorem P at the lowest orders, uniformly in n -- on P cap {tau_n <=
-tau' <= tau}, the region of (9.8)'s own identity. On Sigma_tau_n the data of U_n := d^gamma u_1^n are explicit: w_n =
-g_n - g_app vanishes there with its first derivatives and its higher derivatives are those of the approximant's residual
-Ric^H(g_app) through the equation, and g_app - g0 - r^(-3/2) G_3 is explicit with all derivatives (Lemma 9.7(c), P2), so
-||d U_n(tau_n)|| <= C(lam, j) t_n^(-1/2) with t_n >= t. Lemma 9.5's identity then gives ||d U_n(tau)|| <= ||d
-U_n(tau_n)|| + C int_{tau_n}^tau t'^(-3/2) dtau' <= C(lam, j) t^(-1/2) at every order, uniformly in n. The bookkeeping
-of sup against L^2 closes at every order N := |gamma|: the factor taken in sup norm has order at most floor((N + 2)/2),
-E_2 is in hand pointwise to order max(4, N - 3) (Theorem P for the lowest orders, Lemma 9.3 on the energies of the lower
-steps for the rest, at the cost of three), and floor((N + 2)/2) <= max(4, N - 3) for every N >= 1. Lemma 9.3 turns the
-energies of the next three orders into |d^gamma u_1^n| <= C(lam, j) t^(-3/2) t^(-1/2) = C(lam, j) t^-2, uniformly in n,
-and the bounds pass to the limit: g_n -> g_lam with k - 5 derivatives on compact sets (section 9.4, the proof of Theorem
-P), the higher derivatives of u_1^n are bounded uniformly in n on each compact set, so by Arzela-Ascoli a subsequence
-converges in every C^j, its limit is d^gamma u_1, and the bound is inherited: d^gamma u_1 is in E_2. []
+term with |gamma'| >= 2 is a product of a derivative of g_lam of order <= j + 1 with one of u_1 of order <= j + 1, and is
+estimated in L^2(Sigma_tau) with the factor of higher order in L^2 (the energies of the lower steps, at most C t^(-1/2))
+and the other in sup norm (E_2 by the induction hypothesis, through Lemma 9.3 for the orders it costs, and by Theorem P
+for the lowest), so the source is at most C(lam, j) t^(-3/2) in L^2. The identity is not run on the region between {v =
+v_start} and Sigma_tau: that region is unbounded toward past null infinity (Lemma 9.1(e)), and the flux of d^gamma u_1
+through infinity there is known to vanish only at the orders Theorem P controls (a thirteenth verifier's finding, D44).
+It is run for each approximating solution g_n of Proposition 9.8 -- which equals g0 on {v <= v_start} and solves the same
+equations, so that u_1^n := g_n - g0 - r^(-3/2) G_3 has the structure above, Lemma 11.1 applying to it verbatim with
+(9.8) through Lemma 9.3 in place of Theorem P at the lowest orders, uniformly in n -- on P cap {tau_n <= tau' <= tau},
+the region of (9.8)'s own identity. On Sigma_tau_n the data of U_n := d^gamma u_1^n are explicit: w_n = g_n - g_app
+vanishes there with its first derivatives and its higher derivatives are those of the approximant's residual Ric^H(g_app)
+through the equation, and g_app - g0 - r^(-3/2) G_3 is explicit with all derivatives (Lemma 9.7(c), P2), so ||d
+U_n(tau_n)|| <= C(lam, j) t_n^(-1/2) with t_n >= t. Lemma 9.5's identity then gives ||d U_n(tau)|| <= ||d U_n(tau_n)|| +
+C int_{tau_n}^tau t'^(-3/2) dtau' <= C(lam, j) t^(-1/2) at every order, uniformly in n. The bookkeeping of sup against
+L^2 closes at every order N := |gamma|: the factor taken in sup norm has order at most floor((N + 2)/2), E_2 is in hand
+pointwise to order max(4, N - 3) (Theorem P for the lowest orders, Lemma 9.3 on the energies of the lower steps for the
+rest, at the cost of three), and floor((N + 2)/2) <= max(4, N - 3) for every N >= 1. Lemma 9.3 turns the energies of the
+next three orders into |d^gamma u_1^n| <= C(lam, j) t^(-3/2) t^(-1/2) = C(lam, j) t^-2, uniformly in n (with Omega^beta
+among the derivatives the same way: Lemma 9.3(a) with the rotation energies, the commutator [Omega, g_n^{ab} d_a d_b]
+absorbed as in 9.8(iii)), and the bounds pass to the limit: g_n -> g_lam with k - 5 derivatives on compact sets (section
+9.4, the proof of Theorem P), the higher derivatives of u_1^n are bounded uniformly in n on each compact set, so by
+Arzela-Ascoli a subsequence converges in every C^j, its limit is d^gamma u_1, and the bound is inherited: d^gamma u_1 is
+in E_2. []
 
 **Lemma 11.1 (the equation for u).** On P, -(1/2) box~ u = S(u) with
 

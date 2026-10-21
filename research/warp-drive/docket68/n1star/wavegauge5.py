@@ -56,6 +56,20 @@ computed on g = -f dt^2 + dr^2/f + r^2 (dth^2 + cos^2 th dphi1^2 + sin^2 th dphi
      mu/r^4 >= 0 for r^2 >= 4 mu/k^2, true on the exterior for k^2 >= 8 (equality would need r^2 = mu/2). The
      counterpart of [Hun19] (4.21) carries no potential where four dimensions has 2M/r^3.  Control: the sign of the term
      2 mu/r^3 (and of 4 mu/r^4) reversed.
+  W7 (computed, exact) Hung's Proposition 4.2 in five dimensions.  In his components -- H1 = (h_tt + f^2 h_rr)/2 +
+     ((1 - f)/2) trs h, H2 = trs h/sqrt3, H3 = (h_tt/f - f h_rr)/2, H6 = f h_tr + ((1 - f)/2) trs h, H4 = f k h_rth/(r
+     S'), H7 = k h_tth/(r S'), hhat_ij = 2 r^2 H5 S_ij; (1 - f)/2 = mu/(2 r^2) is his M/r -- with the gauge condition
+     Gamma[h] = 0 admixed as 2 f f' Gamma_r in rows 1 and 6 and k f' Gamma_th/r in rows 4 and 7 (his Appendix C), the
+     Lichnerowicz equation is box_l H = A H + U H with A zeroth order and rational in r, mu, k and U = (2f'/f) nabla_L
+     (H6 - H1) in row 6, (f'/f) nabla_L (H7 - H4) in row 7 and nothing else (his U with 2M/r^2 -> f').  r^2 A_main at
+     k^2 = l(l+2) has the eigenvalues (l+a)(l+a+2), a = -2, -1, 0, 0, 0, 1, 2 (his Lemma 4.3 with (l+a)(l+a+1)):
+     semi-positive for l >= 2; A - A_main/r^2 = O(mu/r^4).  In the regular variables H6' = (H6 - H1)/f^2 =
+     -h(L', L')/2, H7' = (H7 - H4)/f every coefficient is regular at the horizon, rows 1-5 carry no first-order term,
+     rows 6', 7' carry 2f' nabla_L' H6' and f' nabla_L' H7' and no nabla_L (his 4M/r^2, 2M/r^2).  At l = 0 (H1, H2,
+     H3, H6) the eigenvalues are 0, 0, 3, 8.  The harmonic is kept symbolic with its equation S'' = -2 cot 2th S' -
+     k^2 S applied and the angle evaluated exactly at (cos, sin) = (3/5, 4/5) and (5/13, 12/13); every coefficient is a
+     rational function, cancelled.  Control: the sign of the gauge admixture reversed (first-order terms survive in rows
+     1-5).  hung4.py is the four-dimensional control: the same instrument on Schwarzschild reproduces his printed rows.
 
 READ (alphaXiv, 2026-10-20).  [Hun19] P.-K. Hung, arXiv:1909.06733v1, "The linear stability of the Schwarzschild
 spacetime in the harmonic gauge: even part": abstract ("the energy decays at a rate tau^{-2+} for the solution of the
@@ -63,9 +77,11 @@ linearized Einstein equation after subtracting its spherically symmetric part ..
 converges to a linear combination of two special solutions.  One is the gauge-fixed mass change solution [19].  The
 other is the deformation tensor of a stationary one form"); (1.3)-(1.5) pp. 2; Theorems 1.1-1.4 pp. 2-3; section 4.2,
 (4.10)-(4.13), (4.21) p. 26-27 (the gauge vector to the Regge-Wheeler gauge and its wave equations with the Zerilli
-source); (8.1) p. 58 W* = dt/r + 2M dr/(r^2 f); (8.38)-(8.39) p. 69 W** and K*.
+source); (8.1) p. 58 W* = dt/r + 2M dr/(r^2 f); (8.38)-(8.39) p. 69 W** and K*.  READ 2026-10-21 (alphaXiv) for W7:
+section 4.1 pp. 17-25 (Propositions 4.1, 4.2, A, B, U, Lemma 4.3, the red-shift paragraph p. 23 with H6', H7');
+Appendix A pp. 70-71 ((A.3)-(A.8)); Appendix C pp. 75-79 ((C.1)-(C.12), (ME1)-(ME7), (HG1)-(HG3), the seven rows).
 
-sympy.  python3 wavegauge5.py [--selftest | --mutants]   (about a minute and a half)
+sympy.  python3 wavegauge5.py [--selftest | --mutants]   (about seven and a half minutes; --l4 adds 72 minutes)
 """
 import sys
 import time
@@ -367,8 +383,9 @@ def w5(control=0, verbose=False):
 # ---------------------------------------------------------------------------------------------------------- W6
 def w6(control=0, verbose=False, ls=(2,)):
     """the structure of box X = J for the scalar-type one-form of W4: with S := div X, F := dX, P := F_tr/S_l,
-    Q_t := -F_{t th}/S_l', Q_r := -F_{r th}/S_l' and box_l the scalar wave operator at mode l, seven identities in X;
-    l = 2 by default (about half a minute), l = 2 and 4 under --l4 (about 72 minutes with the control)"""
+    Q_t := -F_{t th}/S_l', Q_r := -F_{r th}/S_l' and box_l the scalar wave operator at mode l, seven identities in X,
+    every coefficient evaluated at the three sample points to forty digits (as W1); l = 2 by default (about half a
+    minute), l = 2 and 4 under --l4 (about 72 minutes with the control)"""
     chk = Checklist(verbose, quiet=control != 0)
     D = sp.diff
 
@@ -416,12 +433,294 @@ def w6(control=0, verbose=False, ls=(2,)):
     return chk.ok
 
 
+# ---------------------------------------------------------------------------------------------------------- W7
+_S = sp.Function("S")(th)
+_Sp = sp.diff(_S, th)
+_RULE2 = -2*sp.cot(2*th)*_Sp - kk**2*_S                  # the harmonic ODE on S^3 for a T^2-invariant S: S'' = ...
+_PYTH = [(sp.Rational(3, 5), sp.Rational(4, 5)), (sp.Rational(5, 13), sp.Rational(12, 13))]   # exact (cos, sin)
+_s0, _s1 = sp.symbols("s0 s1")
+_fp = sp.diff(f, r)
+
+
+def _red(e):
+    """apply the harmonic's ODE to every second and higher derivative of S"""
+    e = e.doit()
+    for _ in range(8):
+        ds = [d for d in e.atoms(sp.Derivative) if d.expr == _S and d.derivative_count >= 2]
+        if not ds:
+            break
+        e = e.xreplace({d: sp.diff(_RULE2, th, d.derivative_count - 2) for d in ds}).doit()
+    return e
+
+
+def _at_angle(e, cs0, sn0):
+    """the angle evaluated exactly at a Pythagorean pair, every trigonometric multiple reduced first"""
+    for _ in range(3):
+        rep = {}
+        for atom in e.atoms(sp.cos, sp.sin, sp.tan, sp.cot):
+            if atom.args[0] != th:
+                rep[atom] = sp.expand_trig(atom)
+        rep.update({sp.tan(th): sn/cs, sp.cot(th): cs/sn})
+        e = e.xreplace(rep)
+    e = e.xreplace({cs: cs0, sn: sn0})
+    assert not e.has(th), "angle left"
+    return e
+
+
+def _lin(e, V):
+    """e linear in V and their t, r derivatives: {(j, nt, nr): coefficient}, cancelled, zeros dropped"""
+    e = sp.expand(e)
+    rep, keys = {}, {}
+    for dd in e.atoms(sp.Derivative):
+        if dd.expr in V:
+            nt = sum(c for v_, c in dd.variable_count if v_ == t)
+            nr = sum(c for v_, c in dd.variable_count if v_ == r)
+            s_ = sp.Symbol("D%d_%d%d" % (V.index(dd.expr), nt, nr))
+            rep[dd] = s_
+            keys[s_] = (V.index(dd.expr), nt, nr)
+    for j, v_ in enumerate(V):
+        s_ = sp.Symbol("D%d_00" % j)
+        rep[v_] = s_
+        keys[s_] = (j, 0, 0)
+    ee = sp.expand(e.xreplace(rep))
+    syms = [q for q in rep.values() if ee.has(q)]
+    out = {}
+    if syms:
+        P = sp.Poly(ee, *syms)
+        assert P.total_degree() <= 1
+        for m, c in zip(P.monoms(), P.coeffs()):
+            idx = [i for i, e_ in enumerate(m) if e_ == 1]
+            c = sp.cancel(c)
+            if idx and c != 0:
+                out[keys[syms[idx[0]]]] = c
+    return out
+
+
+def _ang(e, which, V):
+    """the coefficient of S (which 0) or of its derivative (which 1) in e, the other one vanishing and the angle
+    dropping out (two Pythagorean points agree): the scalar sector closes"""
+    out = []
+    for cs0, sn0 in _PYTH:
+        ee = _at_angle(_red(e).xreplace({_Sp: _s1}).xreplace({_S: _s0}), cs0, sn0)
+        rep = {}
+        for dd in ee.atoms(sp.Derivative):
+            if dd.expr in V:
+                nt = sum(c for v_, c in dd.variable_count if v_ == t)
+                nr = sum(c for v_, c in dd.variable_count if v_ == r)
+                rep[dd] = sp.Symbol("D%d_%d%d" % (V.index(dd.expr), nt, nr))
+        for j, v_ in enumerate(V):
+            rep[v_] = sp.Symbol("D%d_00" % j)
+        ee = sp.expand(ee.xreplace(rep))
+        syms = [q for q in rep.values() if ee.has(q)]
+        P = sp.Poly(ee, _s0, _s1, *syms)
+        other, mine = 0, 0
+        for m, c in zip(P.monoms(), P.coeffs()):
+            mono = sp.Mul(*[q**e_ for q, e_ in zip(syms, m[2:])])
+            if m[(which + 1) % 2] == 1:
+                other += sp.cancel(c)*mono
+            elif m[which] == 1:
+                mine += sp.cancel(c)*mono
+        assert sp.cancel(other) == 0, "the other angular factor survives"
+        out.append(mine)
+    assert sp.cancel(sp.expand(out[0] - out[1])) == 0, "angle dependence"
+    back = {sp.Symbol("D%d_%d%d" % (j, nt, nr)): (sp.diff(V[j], *([t]*nt + [r]*nr)) if nt + nr else V[j])
+            for j in range(len(V)) for nt in range(3) for nr in range(3)}
+    return out[0].xreplace(back)
+
+
+def _lich(h):
+    """the Lichnerowicz operator box h + 2 Riem h, components (tt, tr, rr, t th, r th, th th, 11, 22)"""
+    DhT = [[[Dh(h, c, a, b) for b in range(N)] for a in range(N)] for c in range(N)]
+
+    def DDh(d, c, a, b):
+        return (sp.diff(DhT[c][a][b], X[d]) - sum(Gam[e][d][c]*DhT[e][a][b] + Gam[e][d][a]*DhT[c][e][b]
+                                                   + Gam[e][d][b]*DhT[c][a][e] for e in range(N)))
+    E = {}
+    for (a, b) in [(0, 0), (0, 1), (1, 1), (0, 2), (1, 2), (2, 2), (3, 3), (4, 4)]:
+        box = sum(gi[c, d]*DDh(d, c, a, b) for c in range(N) for d in range(N) if gi[c, d] != 0)
+        rh = sum(gi[c, e]*gi[d, ff]*riem_low(a, e, b, ff)*h[c, d] for c in range(N) for d in range(N)
+                 for e in range(N) for ff in range(N) if gi[c, e] != 0 and gi[d, ff] != 0 and h[c, d] != 0)
+        E[(a, b)] = box + 2*rh
+    return E
+
+
+def _hung_ansatz(H, l0=False):
+    """h in Hung's components, five-dimensional: H1 = (h_tt + f^2 h_rr)/2 + ((1 - f)/2) trs h, H2 = trs h/sqrt3,
+    H3 = (h_tt/f - f h_rr)/2, H6 = f h_tr + ((1 - f)/2) trs h, H4 = f k h_rth/(r S_th), H7 = k h_tth/(r S_th),
+    hhat_AB = 2 r^2 H5 S_AB (S_AB = D_A D_B S/k^2 + gamma_AB S/3); l0: the l = 0 sector, S = 1"""
+    H1, H2, H3, H4, H5, H6, H7 = H
+    gam = sp.diag(1, cs**2, sn**2)
+    a = (1 - f)/2
+    trs = sp.sqrt(3)*H2
+    Sl, Spl = (sp.Integer(1), sp.Integer(0)) if l0 else (_S, _Sp)
+    h = sp.zeros(N)
+    h[0, 0] = (H1 - a*trs + f*H3)*Sl
+    h[1, 1] = (H1 - a*trs - f*H3)*Sl/f**2
+    h[0, 1] = h[1, 0] = (H6 - a*trs)*Sl/f
+    if not l0:
+        h[0, 2] = h[2, 0] = r*H7*Spl/kk
+        h[1, 2] = h[2, 1] = r*H4*Spl/(kk*f)
+        DDS = sp.diag(sp.diff(_S, th, 2), -cs*sn*_Sp, sn*cs*_Sp)
+        SAB = DDS/kk**2 + gam*_S/3
+    for i in range(3):
+        h[2 + i, 2 + i] = r**2*(trs*Sl*gam[i, i]/3 + (0 if l0 else 2*H5*SAB[i, i]))
+    return h
+
+
+def _hung_rows(sign=1):
+    """box H_i = sum_j A_ij H_j + U_i for Hung's seven components on five-dimensional Tangherlini, from the
+    Lichnerowicz components LW and the gauge one-form Gamma (admixtures times sign): returns A (7x7, rational in
+    r, mu, k), the first-order residuals of the seven rows ({(j, nt, nr): coefficient} each) after the nabla_L terms
+    rho_6 L(H6 - H1), rho_7 L(H7 - H4) with rho_6 = 2f'/f, rho_7 = f'/f are removed, and the second-order residuals"""
+    H = [sp.Function("H%d" % i)(t, r) for i in range(1, 8)]
+    h = _hung_ansatz(H)
+    E = _lich(h)
+    G = gamma_of(h, simp=False)
+    gam = sp.diag(1, cs**2, sn**2)
+    trE = sum(E[(2 + i, 2 + i)]/gam[i, i] for i in range(3))/r**2
+    TF = E[(2, 2)] - r**2*trE/3
+    outs = []
+    for cs0, sn0 in _PYTH:                   # hat LW_thth = 2 r^2 e5 S_thth, S_thth = -2 cot(2th) S_th/k^2 - 2 S/3
+        ee = _at_angle(_red(TF).xreplace({_Sp: _s1}).xreplace({_S: _s0}), cs0, sn0)
+        cot2 = (cs0**2 - sn0**2)/(2*cs0*sn0)
+        a0 = sp.expand(ee.xreplace({_s1: 0}).xreplace({_s0: 1}))/(2*r**2*sp.Rational(-2, 3))
+        a1 = sp.expand(ee.xreplace({_s0: 0}).xreplace({_s1: 1}))/(2*r**2*(-2*cot2/kk**2))
+        assert not _lin(sp.expand(a0 - a1), H), "traceless part not proportional to S_AB"
+        outs.append(a0)
+    assert not _lin(sp.expand(outs[0] - outs[1]), H), "angle dependence"
+    LW5 = outs[0]
+    LWtt, LWtr, LWrr = _ang(E[(0, 0)], 0, H), _ang(E[(0, 1)], 0, H), _ang(E[(1, 1)], 0, H)
+    LWt, LWr, trLW = _ang(E[(0, 2)], 1, H), _ang(E[(1, 2)], 1, H), _ang(trE, 0, H)
+    Gr, Gth = _ang(G[1], 0, H), _ang(G[2], 1, H)
+    a = (1 - f)/2
+    boxhat = lambda u: -sp.diff(u, t, 2)/f + f*sp.diff(u, r, 2) + (_fp + 3*f/r)*sp.diff(u, r)   # noqa: E731
+    Lop = lambda u: sp.diff(u, t) + f*sp.diff(u, r)                                               # noqa: E731
+    b1, b4 = sign*2*f*_fp, sign*kk*_fp/r
+    combo = [(LWtt + f**2*LWrr)/2 + a*trLW + b1*Gr, trLW/sp.sqrt(3), (LWtt/f - f*LWrr)/2, f*kk*LWr/r + b4*Gth, LW5,
+             f*LWtr + a*trLW + b1*Gr, kk*LWt/r + b4*Gth]
+    rho = {5: 2*_fp/f, 6: _fp/f}
+    dvar = {5: H[5] - H[0], 6: H[6] - H[3]}
+    A = sp.zeros(7)
+    first, second = {}, {}
+    for i in range(7):
+        res = sp.expand(boxhat(H[i]) - combo[i])
+        if i in dvar:
+            res = sp.expand(res - rho[i]*Lop(dvar[i]))
+        parts = _lin(res, H)
+        first[i] = {key: c for key, c in parts.items() if key[1] + key[2] == 1}
+        second[i] = {key: c for key, c in parts.items() if key[1] + key[2] == 2}
+        for key, c in parts.items():
+            if key[1] + key[2] == 0:
+                A[i, key[0]] = c
+    return A, first, second
+
+
+def _hung_l0(sign=1):
+    """the l = 0 sector (H1, H2, H3, H6; S = 1): the zeroth-order matrix after the same admixtures"""
+    H = [sp.Function("H%d" % i)(t, r) for i in range(1, 8)]
+    h = _hung_ansatz(H, l0=True)
+    E = _lich(h)
+    G = gamma_of(h, simp=False)
+    gam = sp.diag(1, cs**2, sn**2)
+    trE = sum(E[(2 + i, 2 + i)]/gam[i, i] for i in range(3))/r**2
+
+    def flat(e):
+        out = [_at_angle(e.doit(), cs0, sn0) for cs0, sn0 in _PYTH]
+        assert not _lin(sp.expand(out[0] - out[1]), H)
+        return out[0]
+    LWtt, LWtr, LWrr, trLW, Gr = flat(E[(0, 0)]), flat(E[(0, 1)]), flat(E[(1, 1)]), flat(trE), flat(G[1])
+    a = (1 - f)/2
+    boxhat = lambda u: -sp.diff(u, t, 2)/f + f*sp.diff(u, r, 2) + (_fp + 3*f/r)*sp.diff(u, r)   # noqa: E731
+    Lop = lambda u: sp.diff(u, t) + f*sp.diff(u, r)                                               # noqa: E731
+    b1 = sign*2*f*_fp
+    combo = {0: (LWtt + f**2*LWrr)/2 + a*trLW + b1*Gr, 1: trLW/sp.sqrt(3), 2: (LWtt/f - f*LWrr)/2,
+             5: f*LWtr + a*trLW + b1*Gr}
+    idx = [0, 1, 2, 5]
+    A0 = sp.zeros(4)
+    ok = True
+    for ii, i in enumerate(idx):
+        res = sp.expand(boxhat(H[i]) - combo[i])
+        if i == 5:
+            res = sp.expand(res - (2*_fp/f)*Lop(H[5] - H[0]))
+        parts = _lin(res, H)
+        ok &= not any(key[1] + key[2] >= 1 for key in parts)
+        for key, c in parts.items():
+            if key[1] + key[2] == 0:
+                A0[ii, idx.index(key[0])] = c
+    return A0, ok
+
+
+def w7(control=0, verbose=False):
+    """the five-dimensional form of Hung's Proposition 4.2 (arXiv:1909.06733): in his seven components, with the
+    harmonic gauge condition admixed, box H = A H + U H with U along nabla_L in rows 6, 7 only; the leading matrix's
+    spectrum; the horizon-regular variables and their nabla_L' coefficients; the l = 0 sector (about two minutes)"""
+    chk = Checklist(verbose, quiet=control != 0)
+    sign = -1 if control == 1 else 1
+    try:
+        A, first, second = _hung_rows(sign)
+    except AssertionError as exc:
+        chk("the scalar sector closes (every component projects on S, its derivative or S_AB alone): %s" % exc, False)
+        return chk.ok
+    chk("the scalar sector closes: every Lichnerowicz and gauge component projects on S, S_th or S_AB alone", True)
+    chk("every row has the scalar wave operator as principal part", all(not second[i] for i in range(7)))
+    chk("rows 1-5 have no first-order term: (1 - f)/2 trs h in H1, H6; 2 f f' Gamma_r in rows 1, 6; k f'/r Gamma_th in "
+        "rows 4, 7", all(not first[i] for i in range(5)))
+    chk("rows 6, 7: the first-order terms are (2f'/f) nabla_L (H6 - H1) and (f'/f) nabla_L (H7 - H4), Hung's U with "
+        "2M/r^2 -> f'", not first[5] and not first[6])
+    if control and not chk.ok:                        # the control has failed already; the rest costs minutes
+        return chk.ok
+    l = sp.symbols("l", positive=True)
+    lam = sp.symbols("lambda")
+    Amain = (A*r**2).applyfunc(lambda x: sp.cancel(sp.limit(x, r, sp.oo)))
+    cp = sp.expand(Amain.subs(kk, sp.sqrt(l*(l + 2))).charpoly(lam).as_expr())
+    want = sp.expand(sp.prod([(lam - (l + aa)*(l + aa + 2)) for aa in (-2, -1, 0, 0, 0, 1, 2)]))
+    chk("r^2 A_main at k^2 = l(l+2) has the eigenvalues (l+a)(l+a+2), a = -2, -1, 0, 0, 0, 1, 2: semi-positive for "
+        "l >= 2, Hung's Lemma 4.3 with (l+a)(l+a+1) -> (l+a)(l+a+2)", sp.expand(cp - want) == 0)
+    sub = ((A - Amain/r**2)*r**4).applyfunc(lambda x: sp.cancel(sp.limit(x, r, sp.oo)))
+    chk("A - A_main/r^2 = O(mu/r^4): the sub-leading part decays two powers faster, as Hung's A_sub does one",
+        all(x.is_finite for x in sub) and sub != sp.zeros(7))
+    # the regular variables H' = (H1, ..., H5, H6' = (H6 - H1)/f^2, H7' = (H7 - H4)/f): H = R H', so that
+    # box H' = R^-1 (A R - f R'' - c1 R') H' + R^-1 (U - 2 f R' d_r H'), c1 = f' + 3f/r; rows 1-5 of R^-1 are the
+    # identity's, so rows 1'-5' keep no first-order term; row 6': rho_6 L(f^2 H6')/f^2 - 4 f' d_r H6' =
+    # 2 f' (f^-1 d_t - d_r) H6' = 2 f' nabla_L' H6' plus rho_6 L(f^2) H6'/f^2 = 4 f'^2/f H6' at zeroth order, which
+    # cancels a singular term of R^-1 A R; row 7' likewise with f'
+    R = sp.eye(7)
+    R[5, 0] = 1
+    R[5, 5] = f**2
+    R[6, 3] = 1
+    R[6, 6] = f
+    Ri = R.inv()
+    c1 = _fp + 3*f/r
+    Rd, Rdd = R.diff(r), R.diff(r, 2)
+    Ap = (Ri*(A*R - f*Rdd - c1*Rd)).applyfunc(sp.cancel)
+    Ap[5, 5] = sp.cancel(Ap[5, 5] + (2*_fp/f)*(2*f**2*_fp)/f**2)     # rho_6 L(f^2) H6' / f^2 = 4 f'^2/f H6'
+    Ap[6, 6] = sp.cancel(Ap[6, 6] + (_fp/f)*(f*_fp)/f)                  # rho_7 L(f) H7' / f = f'^2/f H7'
+    at6, ar6 = 2*_fp/f, 2*_fp - 4*_fp                 # coefficients of d_t H6', d_r H6' in row 6'
+    at7, ar7 = _fp/f, _fp - 2*_fp
+    alpha6, beta6 = sp.cancel((ar6 + f*at6)/(2*f)), sp.cancel((f*at6 - ar6)/2)
+    alpha7, beta7 = sp.cancel((ar7 + f*at7)/(2*f)), sp.cancel((f*at7 - ar7)/2)
+    rh = sp.sqrt(mu)
+    regular = all(sp.fraction(sp.cancel(x))[1].subs(r, rh) != 0 for x in Ap)
+    chk("in the regular variables H6' = (H6 - H1)/f^2, H7' = (H7 - H4)/f every coefficient is regular at the "
+        "horizon", regular)
+    chk("rows 6', 7' carry 2f' nabla_L' H6' and f' nabla_L' H7' (f' = 2 mu/r^3 > 0) and no nabla_L; rows 1'-5' no "
+        "first-order term: Hung's 4M/r^2, 2M/r^2 with 2M/r^2 -> f'",
+        alpha6 == 0 and alpha7 == 0 and sp.cancel(beta6 - 2*_fp) == 0 and sp.cancel(beta7 - _fp) == 0)
+    A0, ok0 = _hung_l0(sign)
+    A0main = (A0*r**2).applyfunc(lambda x: sp.cancel(sp.limit(x, r, sp.oo)))
+    cp0 = sp.expand(A0main.charpoly(lam).as_expr())
+    chk("l = 0 (H1, H2, H3, H6): no first-order term but the U row, r^2 A_main with eigenvalues 0, 0, 3, 8",
+        ok0 and sp.expand(cp0 - lam**2*(lam - 3)*(lam - 8)) == 0)
+    return chk.ok
+
+
 CHECKS = [("W1 the Lichnerowicz identity in the class, and Gamma[pi_X] = box X", w1, 1),
           ("W2 the l = 0 stationary one-form W* = dt/r^2 + sqrt(mu) dr/(r^3 f), regular at the horizon", w2, 1),
           ("W3 the gauge-fixed mass change K* = K + pi_{W**}, harmonic and linear in t", w3, 1),
           ("W4 the scalar gauge vector: three 1+1 wave equations per mode, sources in F, F_ab (l = 2, 4)", w4, 1),
           ("W5 the tensor type is in harmonic gauge already", w5, 1),
-          ("W6 the gauge-vector system is triangular: S, then F_tr, then X_t and r X_L, X_r algebraic", w6, 1)]
+          ("W6 the gauge-vector system is triangular: S, then F_tr, then X_t and r X_L, X_r algebraic", w6, 1),
+          ("W7 Hung's Proposition 4.2 in five dimensions: box H = A H + U H, the spectrum, the horizon, l = 0", w7, 1)]
 
 
 def selftest(verbose=False):

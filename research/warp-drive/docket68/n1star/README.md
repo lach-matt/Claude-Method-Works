@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D46).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D47).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -47,23 +47,31 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   five-dimensional Vaidya's R_vv, and Tanabe, Tanahashi and Shiromizu's Bondi mass law as the class's P7
   density (Q1-Q2). `python3 routes5.py --selftest` (2/2), `--mutants` (2/2).
 - `ROUTES-OPEN.md`: one proposed method for each of the three open items, with the literature READ (D36), and in
-  section 4 the route for the decay of the gauge-vector system and the nonlinear settling (D46). Nothing in it is
-  proved.
+  section 4 the route for the decay of the gauge-vector system and the nonlinear settling (D46), with 4.6 W7, Hung's
+  Proposition 4.2 in five dimensions, computed (D47). Nothing in it is proved.
 - `bondi5.py`: Theorem M, the Bondi mass at past null infinity (section 11): the five-dimensional Bondi hierarchy in
   the class with every coefficient from s^1 general (the orders below the waves' vanish; the mass law from R_vv at
   order r^-3), the chart from the wave-gauge expansion, the Hawking mass of the Bondi spheres, the numerics'
   coefficient (B1-B4). `python3 bondi5.py --selftest` (4/4, about ten minutes, B2 the slow one), `--mutants`
-  (5/5), `--verbose` lists every sub-check.
+  (5/5), `--verbose` lists B1's and B2's sub-checks (until D47 the flag ran those two alone and exited 0).
 - `wavegauge5.py`: the passage to the harmonic gauge on five-dimensional Tangherlini in the class (section 10.4,
   Proposition 10.2; D42): the Lichnerowicz identity and Gamma[pi_X] = box X, the l = 0 stationary one-form W* regular at
   the horizon, the gauge-fixed mass change K* linear in t, the scalar gauge vector's three 1+1 equations per mode (l =
-  2, 4), the tensor type already harmonic, and the gauge-vector system triangular, every rung a scalar wave equation
-  whose potential obeys Hung's positivity condition (W1-W6). `python3 wavegauge5.py --selftest` (6/6, about a
-  minute and a half), `--mutants` (6/6), `--verbose` lists every sub-check.
+  2, 4), the tensor type already harmonic, the gauge-vector system triangular, every rung a scalar wave equation
+  whose potential obeys Hung's positivity condition (W1-W6), and Hung's Proposition 4.2 in five dimensions: in his
+  components with the gauge condition admixed, box H = A H + U H with U along nabla_L in two rows, r^2 A_main with
+  eigenvalues (l+a)(l+a+2), the horizon-regular rows with nabla_L' coefficients 2f', f' > 0, and l = 0 (W7; D47).
+  `python3 wavegauge5.py --selftest` (7/7, about seven and a half minutes, six of them W7), `--mutants` (7/7), `--verbose` lists every sub-check, `--l4`
+  runs W6 at l = 4 as well (72 minutes).
+- `hung4.py`: the four-dimensional control of W7: Hung's Proposition 4.2 (arXiv:1909.06733) recomputed from the
+  Schwarzschild metric with the instrument W7 runs, his seven rows as Appendix C combines them, reproducing the
+  printed A, B and U rows and naming the two misprints in the printed combinations ((HG3) for (ME3) in row 7; f (ME3),
+  M/r^3 and 4M(r - 2M)/r^3 in row 6) (C1-C2). `python3 hung4.py --selftest` (2/2, about two and a half minutes),
+  `--mutants` (3/3).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All thirteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
-numpy, growth5.py importing the solver beside it and past5.py importing lead5.py), and the eleven others import nothing
-from the tree. The board's shared record is not edited here.
+All fourteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
+numpy, growth5.py importing the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing
+lead5.py), and the others import nothing from the tree. The board's shared record is not edited here.

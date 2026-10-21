@@ -860,3 +860,71 @@ mu/r^4) pass. Nothing in the route is proved. Not read by a verifier.
 l = 4 pass and the control fails, 72 minutes for l = 2 and 4 with the control. The three places that said the l = 4
 run had confirmed the first four and the equation of F_tr (the wavegauge5.py docstring, Prop 10.2(vi), ROUTES-OPEN.md
 section 4.1) now state the full result. Not read by a verifier.
+
+**D47 (2026-10-21, M: "The open item: - begin with Route A, if it fails, then we will pursue route B. AND Unread. The D45
+repairs, the paper's Theorem 3 text, and the D46 route have not been read by a verifier. - send these to the verifier
+please"): the fifteenth verifier, then route A's first step, W7, with its four-dimensional control hung4.py.**
+
+*The fifteenth verifier* (the repairs of D45, the paper's Theorem 3 against section 11, the route of D46; sent before
+the route work began, one at a time). Verdict: no blocking finding; the D45 repairs hold with repairs, Theorem 3 holds
+(labels and numbers as section 11 earns them, Lemma 11.0 sound as repaired), the route holds as a route. Nine repairs,
+seated: (1) a bullet of the paper's section 8 merged into the one before it by a doubled marker mid-line, which D45's
+pass over line starts missed; (2) growth5.py's G1 docstring still said the second zero "stays from 1.500" where the
+data lapse and return; (3) section 10.2 said W < 0 persists out to 1.61 r_h in the other columns -- the stored samples
+put the outermost W < 0 at 1.26 r_h (Ny = 20; 1.22 at Ny = 28), the next grid point 1.61 has W > 0 in every sample;
+repaired to the samples, and escalated here as a figure in repaired text the record did not support; (9) bondi5.py's
+`--verbose` ran B1 and B2 alone, with no controls, no B3-B4 and no summary, and exited 0 -- a defect of the
+instrument, not of the mathematics; it is a modifier of `--selftest` now, listing B1's and B2's sub-checks; (14) ROUTES
+4.4(3) called the first-order pole at zero energy deduced: in the harmonic gauge of W1-W6 the t-linear zero-energy
+state K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is present, the second-order structure, and the first-order
+claim rests on 4.4(2)'s unconstructed five-dimensional constraint damping removing W*, not on the symmetry -- OPEN now;
+and 4.2(ii) credited Kerr's second-order pole to translations and boosts where 4.1 (READ) gives it to the generalized
+boosts; (15) 4.3(2), 4.3(6)(a) and 4.5 carried pre-W6 wording (potentials V_r and V_L, a wave equation for X_r, "finish
+W6" as the first step) -- rewritten; (16) the paper's "reduces to known tools rung by rung" against the route's four
+things to be done rather than quoted -- aligned; (17) one paper under two labels, [Sch10] in section 10.1 and [Sch13] in
+the route -- [Sch13] everywhere; (18) the gauges of Johnson's paper and of Hung, Keller and Wang's were swapped between
+the route and section 10.3 -- Hung, Keller and Wang in the Regge-Wheeler gauge, Johnson in the generalized wave gauge,
+from the titles, the papers not re-fetched. Seven notes: zeros_of verified (the map r = (y_ex(1 - t0)/2)^-2, the roots
+refined in the same column, the two new pins); growth5.py's import of hf_core5.y_core omitted by the README and the
+paper (added); the paper's Appendix C listed verifiers to the thirteenth (extended); Lemma 11.0's induction written for
+d^gamma only while its statement has Omega^beta (a clause added: Lemma 9.3(a) with the rotation energies, the commutator
+absorbed as in 9.8(iii)); Lemma 11.1's mutual induction with 11.0 acceptable; Proposition 10.2 skipped (v) (renumbered);
+response5.py line 431 at 126 characters (wrapped) and W6's docstring saying "exact" for three points to forty digits
+(reworded). The verifier re-derived W6's identities 1, 2, 6 and 7 with its own Christoffels (to 1e-172) and the master
+equation of r^3 P against [KI03b] (5.20) by hand, and ran every fast selftest. Not checkable by it: Hung's (A.3) sign
+convention, the two papers' gauges, [Hin26]'s pole attributions (the proxy's 403).
+
+*Route A, first step (M: route A first; route B if it fails).* 4.5 named W7, Hung's Proposition 4.2 in the class.
+READ at source (alphaXiv, [Hun19] pp. 17-25, 70-71, 75-79): Proposition 4.2 writes the harmonic-gauge system as
+box H = A H + B H + U H in seven components, U along nabla_L in rows 6 and 7 only, A_main + B_main self-adjoint with
+r^2 (A_main + B_main + O) semi-positive per mode (Lemma 4.3, eigenvalues (l+a)(l+a+1), a = -2, -1, 0, 0, 0, 1, 2),
+and the red-shift needing the nabla_L' coefficient non-negative in the regular variables H6', H7' (p. 23: 4M/r^2 and
+2M/r^2); and Appendix C: each row is a combination of the Lichnerowicz components and of the harmonic gauge
+condition. The instrument built for it -- the Lichnerowicz operator and the gauge one-form on the class's mode ansatz
+with the harmonic kept symbolic, its equation S'' = -2 cot 2th S' - k^2 S applied, the angle evaluated exactly at two
+Pythagorean points, every coefficient a rational function cancelled -- found, in this order: (i) in the orthonormal
+frame the Lichnerowicz system alone is box v = T d_t v + M v with no d_r term, M symmetric, T the chain coupling
+(h_00, h_01) and (h_01, h_11) at sqrt2 f'/f and (h_0th, h_1th) at f'/f; in the null frame this is -f' times the boost
+weight as the nabla_L' coefficient of each component (-2f' on h(L, L), -f' on h(L, d_th), 0 on h(L, L') and the
+angular part, +f' on h(L', d_th), +2f' on h(L', L')), the Teukolsky-type structure -- so the red-shift coefficient is
+negative on the positive weights, and Hung's zero rows 1-5 could not be the Lichnerowicz operator alone; a
+four-dimensional run in his components showed the same first-order terms in rows 1 and 6 (a first version of that run
+used 2/r for the scalar operator's radial coefficient, 2/r - 2M/r^2, and showed spurious terms in rows 2, 3 and 5;
+corrected before anything was recorded); (ii) Appendix C, fetched for the discrepancy, resolves it: the gauge
+condition is admixed, and that is what removes them; hung4.py recomputes his seven rows from the Schwarzschild metric
+and reproduces the printed A, B and U -- rows 1-5 as printed, row 7 as printed with (HG3) for the printed "(ME3)" of
+its combination, row 6 as printed once its combination is read as f (ME3) + (M/r^3)(ME6) + (4M(r - 2M)/r^3)(HG2) for
+the printed (ME2), M/r^2, 4M(r - 2M)/r^2 (the printed one leaves second-order terms), "nabla_L . r" read as r nabla_L
+in row 7 and as nabla_L(r .) in row 6; two misprints, no finding about the theorem; 2/2, mutants 3/3; (iii) W7 in five
+dimensions, wavegauge5.py: in his components with (1 - f)/2 = mu/(2 r^2) where his M/r is the same (1 - f)/2, the
+admixtures 2 f f' Gamma_r (rows 1, 6) and k f' Gamma_th/r (rows 4, 7), box_l H = A H + U H with U = (2f'/f) nabla_L
+(H6 - H1) and (f'/f) nabla_L (H7 - H4) only; r^2 A_main at k^2 = l(l+2) with the eigenvalues (l+a)(l+a+2), a = -2, -1,
+0, 0, 0, 1, 2, the characteristic polynomial factored over Q[l]; A - A_main/r^2 = O(mu/r^4); in the regular variables
+every coefficient regular at the horizon, rows 1-5 without first-order terms, rows 6', 7' with 2f' nabla_L' and
+f' nabla_L', f' = 2 mu/r^3 > 0, and no nabla_L; l = 0 with eigenvalues 0, 0, 3, 8. Seated as Proposition 10.2(vi),
+ROUTES 4.6 and 4.5 (the order now: Hung's Proposition 4.1 in five dimensions on this structure, an estimate; the rungs;
+the growing source and l = 0; then route B's constraint damping), the README and the paper. Labels: computed; the
+estimate OPEN; nothing proved. Two slips in the check's code, caught by its own failing against the standalone
+computation before anything was committed: a positive assumption on the eigenvalue symbol defeats sympy's polynomial
+comparison, and the row-6' zeroth-order correction needed its 1/f. Not read by a verifier: W7, hung4.py, the repairs.
+
