@@ -113,9 +113,11 @@ def round_profile(S, ny=2000):
     return yy, Tc, np.array(outer)
 
 
-def zeros_per_column(S):
-    """count of sign changes of the round spheres' expansion along y in each column, on a fine sampling"""
-    T = S.round_theta()
+def zeros_per_column(S, w_only=False):
+    """count of sign changes of the round spheres' expansion along y in each column, on a fine sampling; with w_only,
+    of W alone (the expansion without the angular shift's term (2/3) y^3 d_x((1 - x^2) q))"""
+    y = S.yex*(1 - S.t)/2
+    T = (1 + y[:, None]**3*S.f["w"]) if w_only else S.round_theta()
     tt = np.linspace(-1, 1, 4001)
     out = []
     for j in range(S.Nx + 1):
@@ -124,9 +126,10 @@ def zeros_per_column(S):
     return out
 
 
-def newton(S, Y0, c=0.0, tol=1e-9, it=60, ymax=None):
-    """collocation Newton for theta_k[Y] = c on the scheme's x-grid (axes included)"""
+def newton(S, Y0, c=0.0, tol=1e-9, it=60, ymax=None, g=None):
+    """collocation Newton for theta_k[Y] = c g on the scheme's x-grid (axes included); g = 1 unless given"""
     ymax = S.yex*1.0000001 if ymax is None else ymax
+    c = c*(np.ones(S.Nx + 1) if g is None else np.asarray(g, float))
     Y = np.array(Y0, float)
     for _ in range(it):
         r = S.theta(Y) - c
@@ -287,14 +290,15 @@ def roots(F2, lo, hi, c=0.0, n0=600, ymin=0.0, rounds=6, tol=1e-6):
 def leaf_nodes(S, F2, y0, c=0.0):
     """the shot from Y(-1) = y0 sampled at the scheme's x-nodes (a Newton start)"""
     C, st, psis, path = shoot(F2, [y0], c=c, keep=True)
-    return np.interp(S.x, (-np.cos(psis))[::-1], path[::-1, 0])
+    return np.interp(S.x, -np.cos(psis), path[:, 0])            # x = -cos psi increases along the shot
 
 
 # ---------------------------------------------------------------- the sweep (M6)
-def sweep(S, Ystar, sign=-1, dc=0.05, cmax=500.0, stop_y=None, beyond=3.0):
-    """closed leaves theta_k = c continued from the outer MOTS (c = 0): inward (sign -1, c < 0) until a leaf lies wholly
-    past the core boundary, outward (sign +1) until a leaf lies wholly outside the least round zero (stop_y).  Each
-    leaf must lie strictly beyond the last at every node; the step halves on failure down to dc/64"""
+def sweep(S, Ystar, sign=-1, dc=0.05, cmax=500.0, stop_y=None, beyond=3.0, g=None):
+    """closed leaves theta_k = c g continued from the outer MOTS (c = 0): inward (sign -1, c < 0, g > 0) until a leaf
+    lies wholly past the core boundary, outward (sign +1) until a leaf lies wholly outside the least round zero
+    (stop_y).  Each leaf must lie strictly beyond the last at every node where the last is in the domain; the step
+    halves on failure down to dc/64"""
     if "leaf_sign" in MUT:
         sign = -sign
     leaves = [(0.0, Ystar.copy())]
@@ -302,15 +306,17 @@ def sweep(S, Ystar, sign=-1, dc=0.05, cmax=500.0, stop_y=None, beyond=3.0):
     while abs(c) < cmax:
         cn = c + sign*h
         guess = Y + (Y - leaves[-2][1])*(h/abs(leaves[-1][0] - leaves[-2][0])) if len(leaves) > 1 else Y
-        Yn = newton(S, guess, c=cn, ymax=S.yex*beyond)
-        ok = Yn is not None and (np.all(Yn > Y) if sign < 0 else np.all(Yn < Y))
+        Yn = newton(S, guess, c=cn, ymax=S.yex*beyond, g=g)
+        # inward, only the leaf's part in the domain matters: deeper where the last leaf is inside, still past the
+        # boundary where it was past it
+        ok = Yn is not None and (np.all(np.where(Y < S.yex, Yn > Y, Yn >= S.yex)) if sign < 0 else np.all(Yn < Y))
         if not ok:
             if h > dc/64:
                 h /= 2; continue
             why = "no further nested leaf" if Yn is None else "not nested"
             break
         leaves.append((cn, Yn)); c, Y = cn, Yn
-        h = min(h*1.5, 4*dc)
+        h = min(h*1.5, max(4*dc, 0.05*abs(cn)))       # steps grow with |c| (a deep core needs many units of c)
         if sign > 0 and stop_y is not None and Y.max() < stop_y:
             why = "outside every round zero"; break
         if sign < 0 and Y.min() >= S.yex:
@@ -336,10 +342,18 @@ def fine_theta(S, F2, Yn, nfine=401):
     return th
 
 
-def nested_fine(S, Ya, Yb, nfine=401):
-    """least of Yb - Ya over a fine x-grid (both interpolated through the nodes)"""
+def nested_fine(S, Ya, Yb, nfine=401, domain=False):
+    """least of Yb - Ya over a fine x-grid (both interpolated through the nodes); with domain, of min(Yb, yex) -
+    min(Ya, yex) where Ya is inside the domain, and -inf if Yb comes back inside where Ya was past the boundary"""
     xs = np.cos(np.linspace(0, np.pi, nfine))
-    return float(np.polynomial.chebyshev.chebval(xs, np.polynomial.chebyshev.chebfit(S.x, Yb - Ya, S.Nx)).min())
+    A = np.polynomial.chebyshev.chebval(xs, np.polynomial.chebyshev.chebfit(S.x, Ya, S.Nx))
+    B = np.polynomial.chebyshev.chebval(xs, np.polynomial.chebyshev.chebfit(S.x, Yb, S.Nx))
+    if not domain:
+        return float((B - A).min())
+    if np.any((A >= S.yex) & (B < S.yex)):
+        return -np.inf
+    inn = A < S.yex
+    return float((np.minimum(B, S.yex) - A)[inn].min()) if inn.any() else np.inf
 
 
 def analyse(S):
@@ -351,9 +365,11 @@ def analyse(S):
     ylo = 0.5*np.nanmin(outer)
     mots = []
     for y0 in roots(F2, ylo, S.yex*0.9999, ymin=0.25*ylo):
-        Yn = newton(S, leaf_nodes(S, F2, y0))
-        if Yn is None:
-            mots.append(dict(y0=float(y0), polished=False)); continue
+        Ys = leaf_nodes(S, F2, y0)
+        Yn = newton(S, Ys)
+        if Yn is None or np.max(np.abs(Yn - Ys)) > 0.05:          # a polish that leaves the shot is not kept
+            mots.append(dict(y0=float(y0), polished=False, r_min=float((Ys**-2).min()), r_max=float((Ys**-2).max())))
+            continue
         mots.append(dict(y0=float(y0), polished=True, r_min=float((Yn**-2).min()), r_max=float((Yn**-2).max()),
                          lam1=stability(S, Yn), Y=Yn.tolist()))
     sw = None
@@ -361,14 +377,16 @@ def analyse(S):
     if len(good) == 1:
         Ystar = np.array(good[0]["Y"])
         SC = SliceC(S.yex, S.Ny, S.Nx, S.f, v=S.v, mu=S.mu)
-        Lin, why_in = sweep(SC, Ystar, sign=-1)
+        g = np.maximum(1.0, -T[-1])        # inward leaves theta_k = c g: deepest where the core boundary is most trapped
+        Lin, why_in = sweep(SC, Ystar, sign=-1, g=g)
         Lout, why_out = sweep(S, Ystar, sign=+1, stop_y=np.nanmin(outer))
         th_in = [np.nanmax(np.append(fine_theta(S, F2, Y), -np.inf)) for _, Y in Lin[1:]]
         th_out = [np.nanmin(np.append(fine_theta(S, F2, Y), np.inf)) for _, Y in Lout[1:]]
         sw = dict(n_in=len(Lin) - 1, c_in=Lin[-1][0], why_in=why_in,
                   pocket=int((Lin[-1][1] < S.yex).sum()),
                   th_in=float(max(th_in)) if th_in else None,
-                  gap_in=min([nested_fine(S, A, B) for (_, A), (_, B) in zip(Lin[:-1], Lin[1:])] or [np.nan]),
+                  gap_in=min([nested_fine(S, A, B, domain=True) for (_, A), (_, B) in zip(Lin[:-1], Lin[1:])]
+                             or [np.nan]),
                   n_out=len(Lout) - 1, c_out=Lout[-1][0], why_out=why_out,
                   th_out=float(min(th_out)) if th_out else None,
                   gap_out=min([nested_fine(S, B, A) for (_, A), (_, B) in zip(Lout[:-1], Lout[1:])] or [np.nan]))
@@ -377,7 +395,8 @@ def analyse(S):
                             and sw["th_out"] is not None and sw["th_out"] > 0 and sw["gap_out"] > 0)
     for m in mots:
         m.pop("Y", None)
-    return dict(v=S.v, mu=S.mu, nz=int(max(zeros_per_column(S))), Wex=float((1 + S.yex**3*S.f["w"][-1]).max()),
+    return dict(v=S.v, mu=S.mu, nz=int(max(zeros_per_column(S))), nzW=int(max(zeros_per_column(S, w_only=True))),
+                Wex=float((1 + S.yex**3*S.f["w"][-1]).max()),
                 Tex=float(T[-1].max()), band=[float(trapped.max()**-2), float(trapped.min()**-2)] if len(trapped)
                 else None, r_core=float(S.yex**-2), mots=mots, sweep=sw)
 
@@ -416,14 +435,17 @@ def scan(name, vs, Ny=20, Nx=16):
 
 
 def summary(rows):
-    """per point: slices; slices with a second round zero; slices with W_ex < 0 (the scheme valid); slices where the
-    exhaustive search found any MOTS but the outer one; slices where the sweeps prove the outer one unique; least
-    lambda_1 of the outer one"""
+    """per point: slices; those with W_ex < 0 (the scheme's premise, causal clause); of those, with a second round zero,
+    with a second zero of W alone, with other than one T^2-invariant MOTS, unique of any shape by the sweeps; the least
+    lambda_1 there; and past the premise, the slices and those with one T^2-invariant MOTS"""
     valid = [r for r in rows if r["Wex"] < 0]
-    inner = sum(1 for r in rows if len(r["mots"]) != 1) if "count_all" not in MUT else len(rows)
-    return dict(n=len(rows), nz2=sum(1 for r in rows if r["nz"] > 1), valid=len(valid), not_one=inner,
+    past = [r for r in rows if r["Wex"] >= 0]
+    inner = sum(1 for r in valid if len(r["mots"]) != 1) if "count_all" not in MUT else len(valid)
+    return dict(n=len(rows), valid=len(valid), nz2=sum(1 for r in valid if r["nz"] > 1),
+                nzW2=sum(1 for r in valid if r.get("nzW", 1) > 1), not_one=inner,
                 unique_valid=sum(1 for r in valid if r["sweep"] and r["sweep"]["unique"]),
-                lam1_min=round(min(m["lam1"] for r in rows for m in r["mots"] if m.get("polished")), 2))
+                lam1_min=round(min([m["lam1"] for r in valid for m in r["mots"] if m.get("polished")] or [0.0]), 2),
+                past=len(past), past_one=sum(1 for r in past if len(r["mots"]) == 1))
 
 
 # ---------------------------------------------------------------- checks
