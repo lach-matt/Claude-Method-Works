@@ -56,13 +56,13 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   (5/5), `--verbose` lists B1's and B2's sub-checks (until D47 the flag ran those two alone and exited 0).
 - `wavegauge5.py`: the passage to the harmonic gauge on five-dimensional Tangherlini in the class (section 10.4,
   Proposition 10.2; D42): the Lichnerowicz identity and Gamma[pi_X] = box X, the l = 0 stationary one-form W* regular at
-  the horizon, the gauge-fixed mass change K* linear in t, the scalar gauge vector's three 1+1 equations per mode (l =
-  2, 4), the tensor type already harmonic, the gauge-vector system triangular, every rung a scalar wave equation
-  whose potential obeys Hung's positivity condition (W1-W6), and Hung's Proposition 4.2 in five dimensions: in his
-  components with the gauge condition admixed, box H = A H + U H with U along nabla_L in two rows, r^2 A_main with
-  eigenvalues (l+a)(l+a+2), the horizon-regular rows with nabla_L' coefficients 2f', f' > 0, and l = 0 (W7; D47).
-  `python3 wavegauge5.py --selftest` (7/7, about seven and a half minutes, six of them W7), `--mutants` (7/7), `--verbose` lists every sub-check, `--l4`
-  runs W6 at l = 4 as well (72 minutes).
+  the horizon, the gauge-fixed mass change K* linear in t, the scalar gauge vector's three 1+1 equations per mode (l = 2,
+  4), the tensor type already harmonic, the gauge-vector system triangular, every rung a scalar wave equation whose
+  potential obeys Hung's positivity condition (W1-W6), and Hung's Proposition 4.2 in five dimensions: in his components
+  with the gauge condition admixed, box H = A H + U H with U along nabla_L in two rows, r^2 A_main with eigenvalues
+  (l+a)(l+a+2), the horizon-regular rows with nabla_L' coefficients 2f', f' > 0, and l = 0 (W7; D47). `python3
+  wavegauge5.py --selftest` (7/7, about seven and a half minutes, six of them W7), `--mutants` (7/7), `--verbose` lists
+  every sub-check, `--l4` runs W6 at l = 4 as well (72 minutes).
 - `hung4.py`: the four-dimensional control of W7: Hung's Proposition 4.2 (arXiv:1909.06733) recomputed from the
   Schwarzschild metric with the instrument W7 runs, his seven rows as Appendix C combines them, reproducing the
   printed A, B and U rows and naming the two misprints in the printed combinations ((HG3) for (ME3) in row 7; f (ME3),
