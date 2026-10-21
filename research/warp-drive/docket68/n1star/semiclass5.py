@@ -25,8 +25,9 @@ the critical sets of -r^2 c# on Minkowski space (section 4.1-4.2), and by the in
   W3 (computed, exact) Lemmas 4.1-4.2 in five dimensions.  At the saddle dK+ the eigenvalues of r^2 (-l(dw/w) + S)/2 at
      e = 0 are v (1 + b_K - b_sf), 2v (1 + b_K - b_sf) and v (2 + b_K - b_sf) (3x), at the sink R_v (b_K = 0) v (1 -
      b_sf), 2v (1 - b_sf) and v (2 - b_sf) (3x): positive iff b_K > b_sf - 1 and b_sf < 1, where his are b_K > b_sf -
-     1/2 and b_sf < 1/2 -- the thresholds -(n - 2)/2 and (n - 2)/2; so his (5.14), a_sf < -1/2 and a_K > a_sf + 1/2,
-     reads a_sf < 0 and a_K > a_sf.  Four-dimensional control: his (4.7) and Lemma 4.2.  Control: his thresholds claimed
+     1/2 and b_sf < 1/2 -- the thresholds -(n - 2)/2 and (n - 2)/2 at n = 3 and 4.  Deduced, his section 5 being open in
+     five dimensions: with b_K = a_K, b_sf = a_sf + 1 (his p. 39), his (5.14), a_sf < -1/2 and a_K > a_sf + 1/2, would
+     read a_sf < 0 and a_K > a_sf.  Four-dimensional control: his (4.7) and Lemma 4.2.  Control: his thresholds claimed
      at n = 4.
   W4 (computed, exact; e_0 numerical) Lemma 4.4 in five dimensions.  At e = 0 the interior saddle's S is his: a_22 = v,
      trace 5v, determinant 2 v^2 (3 - 2x^2), positive on |x| <= 6/5 < (3/2)^(1/2); at v = 1/2 and damping5.py's e =

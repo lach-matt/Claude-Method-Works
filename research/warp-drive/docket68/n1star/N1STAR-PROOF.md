@@ -3056,9 +3056,9 @@ r_0 e^(1/2)/v; (4)-(5) positivity at the corner dK+ and at the sink R_v of sf, f
 rho_K^a_K and w' = rho_sf^(a_sf + 1); (6) -l(-dr) positive definite for m <= r <= r_0 - r_0 e^(1/2)/v and -l(dr) for
 r >= r_0 + r_0 e^(1/2)/v, with two conditions on sf. Near the horizon he uses three pieces and a partition of unity,
 Boyer-Lindquist t being singular there. His proof is perturbative: each of its bounds (e', e_partial, e_2, r_1, r_2,
-delta_r) exists, and none is given but footnote 14's numerical r_2 >= 81 m/e^(1/2) on Schwarzschild. This section writes
-one c on five-dimensional Tangherlini, explicitly, and checks its conditions at the point of Proposition 10.9 exactly.
-Tangherlini in Kerr-Schild time,
+delta_r) exists, and none is given but footnote 14's numerical "roughly r_2 >= 81m/e^(1/2)" on Schwarzschild. This
+section writes one c on five-dimensional Tangherlini, explicitly, and checks its conditions at the point of Proposition
+10.9 exactly. Tangherlini in Kerr-Schild time,
 
     g = -f dt^2 + 2 (1 - f) dt dr + (2 - f) dr^2 + r^2 dOmega_3^2,   f = 1 - mu/r^2,                         (10.48)
 
@@ -3075,7 +3075,7 @@ is continuous and has the following properties on (10.48).
  (i) (condition (1)) r c is past timelike on [r_h/2, oo). The inner piece is past timelike for every r > 0 and every v
      in (0, 1): G(dt + b dr) = (1 - b)(-2 + f (1 - b)) and <dt + b dr, dt> = -(2 - b) + f (1 - b), negative for
      f < 1 and 0 < b < 1 (C2).
- (ii) (condition (6) off sf) <c, dr> > 0 on [r_h/2, r_0 - r_0 e^(1/2)/v] -- c points into the black hole there -- and
+ (ii) (condition (6) off sf) <c, dr> > 0 on [r_h/2, r_0 - r_0 e^(1/2)/v] -- -c# points into the black hole there -- and
      <c, dr> < 0 on [r_0 + r_0 e^(1/2)/v, oo), with Lemma 3.8's f e G(c) + 2 (1 - e) <c, dr>^2 > 0 (G(dr) = f): so
      -l(-dr), resp. -l(dr), is positive definite (C3; Lemma 3.8 holds in five dimensions, Proposition 10.10(i)).
  (iii) (condition (3)) S, computed on (10.48) from its definition, is of order zero, free of the angles and block
@@ -3089,7 +3089,8 @@ is continuous and has the following properties on (10.48).
      sink's weight on all of sf (C7). His (5.8) holds on (0, 10] but on an interval about v of half-width under 0.00166,
      so the conditions (6) on sf hold with delta_sf = 1/100 and any delta_r (C5).
  (v) (a measurement) The smallest integer r_0 for which (i)-(iii) hold is 86: (1) holds at every integer r_0 in [2, 86],
-     (6) from 33 on, (3) at 86 alone. At e/4 it is 137. By scaling it is 86 mu^(1/2) = 86 r_h (C6).
+     (6) from 33 on, (3) at 86 alone. At e/4 it is 137. By scaling (deduced: with mu = u r_0^2 every condition depends
+     on u and r/r_0 alone) it is 86 mu^(1/2) = 86 r_h (C6).
 
 *Proof.* C1-C7 of cform5.py. Each sign condition is checked by Sturm on the numerator and the denominator of a rational
 function of r over its interval, unbounded intervals included. S is computed from S = (L - L*)/(2ih) with Christoffel
@@ -3104,24 +3105,112 @@ depends on c at each point and not on its derivatives, so a small smoothing keep
 outer piece is r^-1 (dt - v dr) in Kerr-Schild time; in the static time t_s it is r^-1 (dt_s - v dr) + O(mu r^-3) dr,
 with the same leading part at infinity, which is all the indicial roots of 10.12 see.
 
-*READ.* [Hin26a] (alphaXiv, 2026-10-21): pp. 3 (v = 1/2; the sign of the dr term), 38-41 (Proposition 5.1 and its proof,
-(5.1)-(5.13), footnote 14), 41 (Theorem 5.2, (5.14)-(5.15)), 53 (Proposition 5.1 (4) and (6) in use), 67 (Theorem 6.2
-and its proof: a_K = 1, a_sf = -C_0 - 2).
+*READ.* [Hin26a] (alphaXiv, 2026-10-21): pp. 3 (v = 1/2; the sign of the dr term), 93 (Theorem B.4), 38-41 (Proposition
+5.1 and its proof, (5.1)-(5.13), footnote 14), 41 (Theorem 5.2, (5.14)-(5.15)), 53 (Proposition 5.1 (4) and (6) in use),
+67 (Theorem 6.2 and its proof: a_K = 1, a_sf = -C_0 - 2).
 
 *What this gives, and what it does not.* The five-dimensional c that 10.12 and 10.13 named as missing exists on
 Tangherlini, explicitly. At the point of Proposition 10.9 its conditions (1), (3) and (6) hold exactly on the
 Tangherlini metric itself, and (4)-(6) on sf. Only (4)-(5) in a neighbourhood of sf, off it, and the smoothing are
-deduced, by his arguments. So every bound his Proposition 5.1 places on e -- Lemma 4.4's, Theorem 4.9's, e' near the
-horizon, e_partial at the critical sets, (5.9) and (5.10) -- is met at e = 1/102400 on Tangherlini, by computation, for
-the weights (1, -102). The construction is simpler than his: without rotation, Kerr-Schild time is regular across the
-horizon, and one piece, dt + (v/2) dr, serves from inside the horizon to r_0/2 where Kerr needs three and a partition of
-unity. The bound on r_0 is also far below his: 86 r_h at e = 1/102400, against footnote 14's 81 m/e^(1/2) = 25920 m
-(12960 r_+) on Schwarzschild at that e. Tangherlini's correction falls like mu r^-2 where Schwarzschild's falls like m
-r^-1. These are two numerical bounds, not a law: at e/4 the ratio 137/86 = 1.59 is neither 4^(1/4) nor 4^(1/2). What
-[Hin26a] still asks in five dimensions is his Theorem 5.2 -- the 3b-estimates of his section 5 on five-dimensional
-Tangherlini, with an h_0(e) that his proof does not make explicit, so that h = 10^-6 is not certified below it -- and
-his section 6's five-dimensional steps and Theorem B.1. All of these are OPEN, as is item 2's E^Upsilon. Nothing of this
-section is proved: Proposition 10.11 is computed at one point, and (v) is a measurement.
+deduced, by his arguments. So every bound his Proposition 5.1 places on e -- Lemma 4.4's, Theorem 4.9's at h = 10^-6
+(Proposition 10.9; not for every h below an h_0(e)), e' near the horizon, e_partial at the critical sets, (5.9) and
+(5.10) -- is met at e = 1/102400 on Tangherlini, by computation, for the weights (1, -102). The construction is simpler
+than his because of the time it uses: Kerr-Schild time is regular across the horizon, and one piece, dt + (v/2) dr,
+serves from inside the horizon to r_0/2, where his, in Boyer-Lindquist time, uses three and a partition of unity. The
+saving is the time, not the dimension: on four-dimensional Schwarzschild in Kerr-Schild time dt + dr/4 serves as well
+(the twenty-fourth verifier, exact; at a /= 0 not checked). The bound on r_0 is also far below his: 86 r_h at e =
+1/102400 -- and every r_0 > 85.52 r_h, by the twenty-fourth verifier's threshold analysis ((3) holds iff r_0 > 85.521
+r_h, (6) iff r_0 > 32.900 r_h; at e/4 (3) iff r_0 > 136.787 r_h; not an instrument here) -- against footnote 14's
+roughly 81 m/e^(1/2) = 25920 m (12960 r_+) on Schwarzschild at that e. Tangherlini's correction falls like mu r^-2 where
+Schwarzschild's falls like m r^-1. These are two numerical bounds, not a law: at e/4 the ratio 137/86 = 1.59 is neither
+4^(1/4) nor 4^(1/2). What [Hin26a] still asks in five dimensions is his Theorem 5.2 -- the 3b-estimates of his section 5
+on five-dimensional Tangherlini, with an h_0(e) that his proof does not make explicit, so that h = 10^-6 is not
+certified below it -- and his section 6's five-dimensional steps and Theorem B.1. All of these are OPEN, as is item 2's
+E^Upsilon, whose inputs 10.15 computes. Nothing of this section is proved: Proposition 10.11 is computed at one point,
+and (v) is a measurement.
+
+
+### 10.15 The gauge potential operator in five dimensions: inputs of [Hin26] Proposition 6.12 (`gaugepot5.py` G1-G7; D57)
+
+*The setting.* Beside the constraint damping, [Hin26]'s route needs mode stability of the gauge potential wave operator
+box^Ups = 2 delta_E G delta* at every frequency of the closed upper half plane, zero included: with that of box^C it
+gives mode stability of the gauge-fixed linearized operator and a simple zero energy nullspace (his section 1.4.1). The
+unmodified operator box = 2 delta G delta*, on a Ricci-flat metric the 1-form wave operator, has a zero energy state --
+on Kerr his Lemma 6.10, from [AHW24]; on five-dimensional Tangherlini W* of 10.4, (10.2) -- and his Proposition 6.12
+removes it by modifying the divergence: near the horizon by gamma_H E_{H+,1}, E_{H+,1} h = 2 iota_{c_H#} h - c_H tr h
+with c_H compactly supported ((6.22)), near infinity by h -> -gam (2 iota_{c#} h - (1 - e) c tr h), c = r^-1 dt ((6.5)).
+Step 1 of his proof is an augmented-operator argument at low energy whose inputs are the kernel omega_(0) and cokernel
+omega* = delta(r - r_+) dr of box(0) and two pairings, (6.21) <[box, t_*] omega_(0), omega*> = 4 pi and (6.23) <2
+E_{H+,1} G delta* omega_(0), omega*> in (3 pi, 5 pi), which make <f, omega*> = 4 pi (-i sigma^ + c_b gamma^) != 0
+((6.26)); Step 2 adds the modification near infinity perturbatively. This section computes the five-dimensional inputs.
+Near infinity the modification takes the trace weight 2/(D - 2) = 2/3, as C does (10.12, U2), so that E G h = -gam (2
+iota_c h - e c tr h) in any dimension.
+
+**Proposition 10.12 (computed; exact).** On 4+1 Minkowski and on five-dimensional Tangherlini, f = 1 - mu/r^2, r_h =
+mu^(1/2):
+ (i) (his Lemma 6.6) The indicial roots of box^Ups solve, at s0, lam (lam - 3)(lam^2 - lam - 2 - z) = 0, z = 4 e gam^2;
+     at vl, (lam + l)(l + 2 - lam) = 0; at sl, (l + 3 - lam)(l + lam - 1) Q = 0, Q = s^2 - (2 + 2 kappa + z) s + kappa
+     (kappa + 1) + z kappa, s = lam (lam - 1), kappa = l (l + 2). At gam = 0 the indicial gap is (0, 2), his (0, 1); for
+     z > 0, 2 < lam_s1,2 < lam_s0 and every other root is at least 3 or at most 0, so (0, lam_s1,2) is an indicial gap,
+     his (6.17b). With the weight 1 the s0 root 2 moves down into (1, 2) (G1).
+ (ii) (the zero energy equations) For stationary 1-forms on Tangherlini the dt part and the spatial part of box
+     decouple, by the time reflection: A S dt solves (f/r)(r^3 A')' = kappa A; B S dr + C dS and the vector type V solve
+     the systems of G2, each the Euler-Lagrange form of an energy, B (r^3 f^2 B')' + kappa C (r f C')' = (r^3 f^2 B B' +
+     kappa r f C C')' - r^3 f^2 B'^2 - kappa r f C'^2 with a zeroth-order matrix of determinant kappa^2 f (kappa - 1 +
+     mu/r^2) > 0 for r > r_h and l >= 1, and V (r f V')' = (r f V V')' - r f V'^2 (G2, G3).
+ (iii) (his Lemma 6.10 at l = 0) At l = 0, A = a + b/r^2 and B = c/(r^3 f) + d r/f; smooth at the future horizon and
+     decaying, the kernel is the span of W* = dt/r^2 + mu^(1/2) dr/(r^3 f) (G4).
+ (iv) (the cokernel functional) For every stationary u, <box(0) u, delta(r - r_h) dr> = 0: g^-1(box u, dr) vanishes at
+     r_h for u = a(r) dv + b(r) dr, is a multiple of S at every l >= 1, and vanishes for the vector type (G5).
+ (v) (his Lemma 6.11 and (6.26)) With |dg_X| = r^3 cos th sin th |dr dth dp1 dp2| and t_* = v near the horizon, <[box,
+     t_*] W*, delta(r - r_h) dr> = 4 pi^2, where his is 4 pi (the four-dimensional control reproduces it); W* is
+     divergence-free; eta = iota_{grad r} delta* W* = -mu^(-3/2) (dv + (3/2) dr) at r_h; and <2 E_{H+,1} G delta* W*,
+     delta(r - r_h) dr> = -12 pi^2 c_v - 8 pi^2 c_r for c_H = c_v dv + c_r dr at r_h. So c_H = -(1/2) chi(r) dr, chi = 1
+     near r_h, gives 4 pi^2, and <f(0, sigma^, gamma^), omega*> = 4 pi^2 (-i sigma^ + gamma^) != 0 for Im sigma^ >= 0,
+     gamma^ >= 0, not both zero (G6).
+ (vi) d_sigma box(0) W* = -i [box, t_*] W* = i r^-3 dt + O(r^-4) for t_* = t - r*: of order rho^3, as his omega_(0)'s is
+     in four dimensions, but by the dimension and not by his cancellation: (rho d_rho - 3/2) rho^2 = rho^2/2, where (rho
+     d_rho - 1) rho = 0 (G7).
+
+*Proof.* G1-G7 of gaugepot5.py. The operator is built from its definitions, with Christoffel symbols in polar
+coordinates (static for the mode equations and at infinity, ingoing at the horizon) and harmonics of symbolic degree (S
+= cos^l th cos l p1 and the record's vector harmonic); the pairings integrate over the horizon sphere, of area 2 pi^2
+r_h^3. Four-dimensional controls: his Lemma 6.6's roots, his (6.21) = 4 pi, and his cancellation at infinity. Controls:
+the weight 1; 2 delta delta* without G; kappa = 0 in (ii); dt/r^2 alone; delta(r - 2 r_h) dr; c_H = +(1/2) dr, for which
+(6.26) vanishes at (sigma^, gamma^) = (i, 1); and the four-dimensional cancellation claimed in five dimensions. []
+
+*Deduced.* (a) The kernel of box(0) on Tangherlini, on 1-forms smooth across the future horizon and decaying at infinity
+(shifted weight alpha + 2 in (0, 2)), is the span of W*. At l = 0 this is (iii). At l >= 1 the dv component of a kernel
+element is A S, so A is smooth, and at r_h the A equation f (r^3 A')' = kappa r A reads -kappa r_h A(r_h) = 0: A
+vanishes there and A/f is smooth. Multiplying by A and integrating over [r_h, oo), where the boundary terms vanish
+(A(r_h) = 0, and A ~ r^-(l+2) at infinity), gives -int r^3 A'^2 = kappa int r A^2/f, so A = 0. Then B, C and V are
+smooth at r_h, and the identities of (ii), integrated over [r_h, oo) with the boundary terms vanishing at r_h (f = 0)
+and at infinity (decaying exponents at least 2, by (i)), give B = C = V = 0. Inside the horizon a kernel element
+vanishes to infinite order at r_h, a regular singular point of each mode's equations, and so vanishes. This is his Lemma
+6.10's kernel in five dimensions, which [Hin26] takes from [AHW24] on Kerr; here Tangherlini is static and the argument
+is an energy identity. The smoothness of kernel elements at the horizon, and their expansion at infinity, are [Hin26c]'s
+radial-point and b-regularity, taken as in four dimensions. (b) By (iv), delta(r - r_h) dr annihilates the range of
+box(0); it spans the cokernel once the index is 0, which in four dimensions is [Hin26c] Corollary 9.43 with his Lemma
+6.8 (tf-admissibility). (c) With (a), (b) and (v), the augmented zero-parameter operator of his Step 1 is injective:
+pairing box(0) u + c f(0, sigma^, gamma^) = 0 with omega* gives c = 0, then u is a multiple of W* and the augmentation
+row makes it 0. By (vi), the first summand of f lies in rho^3 C^oo, inside the target space for shifted weights alpha +
+2 < 1 (his: alpha + 2 < 3/2), and such weights lie in the gap (0, 2).
+
+*READ.* [Hin26] (alphaXiv, 2026-10-21): pp. 25-26 (section 1.4.1), 82 ((4.6), Definition 4.2), 113 (section 6,
+(6.1)-(6.6)), 117-119 (Lemma 6.6, (6.17a)-(6.17b), Remark 6.7, Lemma 6.8), 119-124 (section 6.4: Proposition 6.9, Lemmas
+6.10-6.11, Proposition 6.12 and its proof, (6.20)-(6.28), footnotes 65-69).
+
+*What this gives, and what it does not.* The zero energy structure of the gauge potential operator in five dimensions is
+that of four: a one-dimensional kernel spanned by W*, decaying at the Coulomb rate r^-(n-2); a cokernel functional
+supported at the horizon; and pairings that do not vanish -- 4 pi^2 where his is 4 pi, in both cases (n - 2) times the
+area of the unit sphere -- so that a horizon modification of his form removes the kernel, at the level of his Step 1's
+algebra. Two things differ: the kernel for l >= 1 is settled here by an energy identity, Tangherlini being static, where
+[Hin26] needs [AHW24] for Kerr; and the first term of f decays at rho^3 by the dimension, where his needs a
+cancellation. Not done, and OPEN: [Hin26c]'s low-energy theory in five dimensions -- the index 0 of box(0) on the
+weighted spaces, and with it that delta(r - r_h) dr spans the cokernel; tf-admissibility (his Lemma 6.8, from [Hin26c]
+Proposition 9.40); the estimates (6.27)-(6.28) -- and his Step 2, the perturbation near infinity; and mode stability of
+box at nonzero frequencies in five dimensions, which his Proposition 6.9 takes from [AHW24] Theorem 5.1 on Kerr. Nothing
+of this section is proved: Proposition 10.12 is computed, and (a)-(c) are deduced.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)

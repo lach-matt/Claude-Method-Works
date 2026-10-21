@@ -27,10 +27,11 @@ is r^-1 (dt - v dr) up to O(mu r^-3) dr.
      Control: the adjoint taken with g^-1 for B (not of order zero).
   C2 (computed, exact) Condition (1): each piece is past timelike (G(c) < 0, <c, dt> < 0) on its interval of [r_h/2,
      oo), and the pieces join continuously at r_0/2 and 2 r_0.  The inner piece is past timelike for every r > 0 and
-     every v in (0, 1): G = (1 - v/2)(-2 + f (1 - v/2)) and <c, dt> = -(2 - v/2) + f (1 - v/2), f < 1 -- one piece
-     where Kerr needs three.  Control: the inner piece dt + dr (b = 1), null.
-  C3 (computed, exact) Condition (6) on [r_h/2, oo): <c, dr> > 0 for r <= r_0 - r_0 e^(1/2)/v -- c points into the black
-     hole at the horizon -- and < 0 for r >= r_0 + r_0 e^(1/2)/v, with Lemma 3.8's f e G(c) + 2 (1 - e) <c, dr>^2 > 0
+     every v in (0, 1): G = (1 - v/2)(-2 + f (1 - v/2)) and <c, dt> = -(2 - v/2) + f (1 - v/2), f < 1 -- one piece,
+     where his construction, in Boyer-Lindquist time, uses three: the saving is the horizon-regular time.  Control: the
+     inner piece dt + dr (b = 1), null.
+  C3 (computed, exact) Condition (6) on [r_h/2, oo): <c, dr> > 0 for r <= r_0 - r_0 e^(1/2)/v -- -c# points into the
+     black hole there -- and < 0 for r >= r_0 + r_0 e^(1/2)/v, with Lemma 3.8's f e G(c) + 2 (1 - e) <c, dr>^2 > 0
      (G(dr) = f), so -l(-dr), resp. -l(dr), is positive definite (semiclass5.py W1: Lemma 3.8 holds in five
      dimensions).  Control: r_0 = 30, where the condition fails just outside the saddle.
   C4 (computed, exact) Condition (3): on Tangherlini, S is positive definite on |r - r_0| <= (6/5) r_0 e^(1/2)/v at r_0
@@ -42,7 +43,8 @@ is r^-1 (dt - v dr) up to O(mu r^-3) dr.
      Control: e = 1/2.
   C6 (computed; a measurement) The smallest integer r_0 >= 2 for which C2-C4 hold at (mu, v, e) = (1, 1/2, 1/102400) is
      86, by every integer in [2, 86]: (1) holds at each, (6) from 33 on, (3) at 86 alone; 87, 200 and 1000 pass.  At
-     e/4 it is 137.  By scaling the bound is 86 mu^(1/2) = 86 r_h at this e.  Control: the claim 87.
+     e/4 it is 137.  By scaling (deduced: with mu = u r_0^2 every condition depends on u and r/r_0 alone) the bound is
+     86 mu^(1/2) = 86 r_h at this e.  Control: the scan with the window of (3) widened to (121/100) r_0 e^(1/2)/v.
   C7 (computed, exact) Conditions (4)-(5) on sf at e = 1/102400.  There the symbol T = r^2 (-l(dw/w) + S) of c = r^-1
      (dt - v dr), w = rho_sf^b_sf rho_K^b_K, depends on rho_K = r/t and the weights only, is B-self-adjoint, and at
      b_K = 0 (the sink's w') is free of rho_K.  Its characteristic polynomial is (2 - d - lam)^3 q(d, lam), d = b_sf -
@@ -56,8 +58,8 @@ differs from its Minkowski model by rho_sf C^oo terms, so that C7's positivity p
 explicit, here or in his proof); and the smoothing of c at r_0/2 and 2 r_0, where only (1) and (6) are asked, open
 conditions on c at each point.  Not touched: h_0 of his Theorem 5.2, which his proof does not make explicit.
 
-READ (alphaXiv, 2026-10-21).  [Hin26a] pp. 38-41 (Proposition 5.1 and its proof: (5.1)-(5.13), footnote 14, "r_2 >=
-81m/e^(1/2)" on Schwarzschild), 25-27 (Lemmas 3.3, 3.5, 3.8), 28-33 (section 4.1-4.2), 41 (Theorem 5.2, (5.14)), 53
+READ (alphaXiv, 2026-10-21). [Hin26a] pp. 38-41 (Proposition 5.1 and its proof: (5.1)-(5.13), footnote 14, "roughly r_2
+>= 81m/e^(1/2)" on Schwarzschild), 25-27 (Lemmas 3.3, 3.5, 3.8), 28-33 (section 4.1-4.2), 41 (Theorem 5.2, (5.14)), 53
 (Proposition 5.1 (4) and (6) in its use), 67 (Theorem 6.2's proof: alpha_K = 1, alpha_sf = -C_0 - 2).
 
 sympy.  python3 cform5.py [--selftest | --mutants]   (--verbose lists every sub-check)
@@ -287,15 +289,15 @@ def c6(control=0, verbose=False):
     ks = list(range(2, 87))
     s1 = [k for k in ks if all(cond1(sp.Integer(k)).values())]
     s6 = [k for k in ks if all(cond6(sp.Integer(k)).values())]
-    s3 = [k for k in ks if cond3(sp.Integer(k))]
+    fac3 = sp.Rational(121, 100) if control == 1 else sp.Rational(6, 5)     # control: the window of (3) widened
+    s3 = [k for k in ks if cond3(sp.Integer(k), factor=fac3)]
     both = sorted(set(s1) & set(s6) & set(s3))
     if verbose:
         print("        r_0 in [2, 86]: (1) at %d of %d, (6) from %d, (3) at %s" % (len(s1), len(ks), s6[0], s3))
     chk("every integer r_0 in [2, 86]: (1) holds at each, (6) exactly from 33 on, (3) only at 86",
         s1 == ks and s6 == list(range(33, 87)) and s3 == [86])
-    want = 87 if control == 1 else 86
-    chk("the smallest integer r_0 >= 2 with C2-C4 at (1, 1/2, 1/102400) is %d; 87, 200 and 1000 pass" % want,
-        bool(both) and both[0] == want
+    chk("the smallest integer r_0 >= 2 with C2-C4 at (1, 1/2, 1/102400) is 86; 87, 200 and 1000 pass",
+        bool(both) and both[0] == 86
         and all(all(cond1(sp.Integer(k)).values()) and all(cond6(sp.Integer(k)).values()) and cond3(sp.Integer(k))
                 for k in (87, 200, 1000)))
     if control != 0:
@@ -356,8 +358,9 @@ def c7(control=0, verbose=False):
 
 CHECKS = [("C1 S on Tangherlini from its definition: order zero, angle-free, block diagonal; mu = 0 as semiclass5",
            c1, 1),
-          ("C2 condition (1): the glued c is past timelike from r_h/2; one inner piece where Kerr needs three", c2, 1),
-          ("C3 condition (6) on [r_h/2, oo) at r_0 = 100: c points into the black hole inside the saddle", c3, 1),
+          ("C2 condition (1): the glued c is past timelike from r_h/2; one inner piece (his, Boyer-Lindquist: three)",
+           c2, 1),
+          ("C3 condition (6) on [r_h/2, oo) at r_0 = 100: -c# points into the black hole inside the saddle", c3, 1),
           ("C4 condition (3) at r_0 = 100: S positive definite on the saddle window (6/5) r_0 e^(1/2)/v", c4, 1),
           ("C5 condition (6) on sf: his (5.8), dimension-free, at e = 1/102400", c5, 1),
           ("C6 the smallest integer r_0 for (1), (3), (6) at (mu, v, e) = (1, 1/2, 1/102400): 86, a measurement",
