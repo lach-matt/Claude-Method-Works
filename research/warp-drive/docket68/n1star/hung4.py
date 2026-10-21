@@ -22,6 +22,14 @@ computed:
   sign-flipped gauge admixture, both caught.  Nothing here is a finding about Hung's theorem: the rows are his, the
   combinations print with two misprints, and the instrument that reproduces them is the one W7 runs.
 
+C3 is the four-dimensional red-shift identity, Hung's (2.13), for one component: with boxhat Q = (kappa/r^2 + a) Q +
+b nabla_L' Q and Y = (sigma/2)(r - 2M) T + (2 + sigma (r - 2M)) L', the divergence of T_ab[Q] Y^b - (c/r^2)|Q|^2 Y_a at
+r = 2M is (sigma/2)|Q_v|^2 + (1/(2M))|Q_R|^2 + (2/M) Q_R Q_v + (sigma/2)|nabla-slash Q|^2 as printed, then
+c sigma/(4M^2)|Q|^2 and (c/(2M^2)) Q Q_R beside nabla_Y Q (a Q - c Q/r^2) where the print has c sigma/(8M^2) and no
+Q Q_R term -- the normalisation of c, which no argument depends on -- and 2b|Q_R|^2, the sign the red-shift step needs.
+Its five-dimensional counterpart is wavegauge5.py W8(d); the two terms new there are (1/r_h)|nabla-slash Q|^2 and
+(2c/r_h^3)|Q|^2.  Control: the sign of Y's L' part reversed.
+
 Conventions.  The mode ansatz at symbolic k^2 = l(l+1): h_tt = A S, h_tr = B S, h_rr = C S, h_tA = D S_A,
 h_rA = E S_A, h_AB = r^2 (K S gamma_AB + G S_AB), S'' + cot th S' = -k^2 S, S_AB = D_A D_B S/k^2 + gamma_AB S/2
 (so Hung's H0 = A/f, H1 = B, H2 = f C, K = K, h0 = D, h1 = E, G_Hung = G/(2 k^2)), the angle evaluated exactly at two
@@ -29,7 +37,7 @@ Pythagorean points (cos, sin) = (3/5, 4/5), (5/13, 12/13) after the harmonic's O
 box^0_l = -f^-1 d_t^2 + f d_r^2 + (2/r)(1 - M/r) d_r - l(l+1)/r^2, box^1_l = r box^0_l r^-1 + 1/r^2,
 box^2_l = r^2 box^0_l r^-2 + 4/r^2 are (C.1)-(C.3).
 
-python3 hung4.py [--selftest | --mutants]   (about two minutes; --verbose lists every row)
+python3 hung4.py [--selftest | --mutants]   (about two minutes; --verbose lists every row and C3's identity)
 """
 import sys
 import time
@@ -287,6 +295,41 @@ def c2(control=0, verbose=False):
     return chk.ok
 
 
+def c3(control=0, verbose=False):
+    """C3: the red-shift divergence at the horizon for one component, Hung's (2.13): for boxhat Q = (kappa/r^2 + a) Q
+    + b nabla_L' Q in the ingoing chart g = -f dv^2 + 2 dv dR + r^2 gamma and Y = (sigma/2)(r - 2M) T + (2 + sigma (r -
+    2M)) L', L' = -d_R, the divergence of T_ab[Q] Y^b - (c/r^2)|Q|^2 Y_a at r = 2M; the control reverses the sign of
+    Y's L' part"""
+    chk = Checklist(verbose, quiet=control != 0)
+    v, R = sp.symbols("v R", positive=True)
+    sigma, c, a, b, kap = sp.symbols("sigma c a b kappa", positive=True)
+    Q = sp.Function("Q")(v, R)
+    fR = 1 - 2*Mm/R
+    fpR = sp.diff(fR, R)
+    w = R**2                       # the measure; boxhat = 2 d_v d_R + f d_R^2 + (f' + 2f/R) d_R + (2/R) d_v
+    QvR = ((kap/R**2 + a)*Q - b*D(Q, R) - fR*D(Q, R, 2) - (fpR + 2*fR/R)*D(Q, R) - (2/R)*D(Q, v))/2
+    gV = sp.Matrix([[-fR, 1], [1, 0]])
+    gVi = gV.inv()
+    grad = [D(Q, v), D(Q, R)]
+    sq = sum(gVi[i, j]*grad[i]*grad[j] for i in range(2) for j in range(2)) + kap*Q**2/R**2
+    T = sp.Matrix(2, 2, lambda i, j: grad[i]*grad[j] - gV[i, j]*sq/2)
+    sgn = -1 if control == 1 else 1
+    Y = sp.Matrix([sigma/2*(R - 2*Mm), -sgn*(2 + sigma*(R - 2*Mm))])
+    Yl = gV*Y
+    Jl = sp.Matrix([sum(T[i, j]*Y[j] for j in range(2)) - c/R**2*Q**2*Yl[i] for i in range(2)])
+    Ju = gVi*Jl
+    div = (D(w*Ju[0], v) + D(w*Ju[1], R))/w
+    div = sp.expand(div.subs({D(Q, v, R): QvR, D(Q, R, v): QvR}).doit())
+    Qv, QR, Qs = sp.symbols("Q_v Q_R Q_s")
+    div = sp.expand(div.xreplace({D(Q, v): Qv, D(Q, R): QR}).xreplace({Q: Qs}).subs(R, 2*Mm))
+    want = (sigma/2*Qv**2 + QR**2/(2*Mm) + 2/Mm*QR*Qv + sigma/2*kap/(4*Mm**2)*Qs**2 + c*sigma/(4*Mm**2)*Qs**2
+            + c/(2*Mm**2)*Qs*QR + (-2*QR)*(a*Qs - c/(4*Mm**2)*Qs) + 2*b*QR**2)
+    chk("at r = 2M: (sigma/2)|Q_v|^2 + (1/(2M))|Q_R|^2 + (2/M) Q_R Q_v + (sigma/2)|nabla-slash Q|^2 as Hung's (2.13), "
+        "c sigma/(4M^2)|Q|^2 and (c/(2M^2)) Q Q_R beside nabla_Y Q (a Q - c Q/r^2) where his print has c sigma/(8M^2) "
+        "and no Q Q_R term, and 2b|Q_R|^2 for the first-order term b nabla_L' Q", sp.expand(div - want) == 0)
+    return chk.ok
+
+
 class Checklist:
     def __init__(self, verbose, quiet=False):
         self.ok, self.verbose, self.quiet = True, verbose, quiet
@@ -302,7 +345,8 @@ def c1ok(control=0, verbose=False):
 
 
 CHECKS = [("C1 Hung's seven rows: scalar principal parts, first-order terms only the two U rows", c1ok, 2),
-          ("C2 the zeroth-order rows are the printed A and B at the mode", c2, 1)]
+          ("C2 the zeroth-order rows are the printed A and B at the mode", c2, 1),
+          ("C3 the red-shift divergence at r = 2M, Hung's (2.13), for the current -(c/r^2)|Q|^2 Y_a", c3, 1)]
 
 
 def selftest(verbose=False):

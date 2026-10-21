@@ -983,4 +983,24 @@ the scratchpad and could not import the instrument; Proposition 10.2(vi)'s text 
 wave operator box_l, (v)'s symbol with the angular term included -- a notational slip, repaired (A carries K/r^2 on its
 diagonal, W8(f)); a first statement of the bound on Uhat used the row constants 4 and 6 where the vector bound needs 9
 and 13; and the instrument's lines ran past 121 characters four times before the length was asserted in the edit itself.
-The sixteenth verifier is sent on W7, hung4.py, W8 and Proposition 10.3 with the D47 repairs; its verdict follows.
+The sixteenth verifier was sent on W7, hung4.py, W8 and Proposition 10.3 with the D47 repairs.
+
+*The sixteenth verifier* (W7, hung4.py, the D47 repairs, W8 and Proposition 10.3; Hung's and Schlue's papers were
+unreachable to it through the proxy, so every item 'against Hung' was checked against the record's quotations and its own
+derivations; it re-derived (a), (c), (d), (e), (f), the spectrum, the bound (10.9) in structure and numerically to l =
+60, and the flux signs, and ran every selftest: wavegauge5 8/8 in 7m25s, its control False, mutants 8/8, hung4 2/2 and
+3/3, bondi5 --verbose as repaired). Verdict: no blocking and no major finding. Four minor, each seated: (1) Step 1's
+J_delta cross term was bounded with Hung's four-dimensional power s^(-3-delta) and absorbed by 's^(-3-delta) <= s^(p-4)',
+which is false for p < 1 - delta; the five-dimensional powers are s^(-8-delta) on the gradients and s^(-10-delta) on
+|Psi|^2 (from Q = s^-3/2 Psi), absorbed for every p >= delta -- repaired, the conclusion unchanged; (2) (W8h) called the
+(2c/mu) Q . Q_R term new in five dimensions and quoted Hung's c sigma/(8M^2): the same current in four dimensions has c
+sigma/(4M^2)|Q|^2 and (c/(2M^2)) Q . Q_R (the verifier's derivation, and this session's, now hung4.py C3, 3/3 and mutants
+4/4), so the Q . Q_R term is four-dimensional too and his print differs by the normalisation of c -- two new terms,
+corrected in the proof, the route, the paper and here, the print recorded as read; (3) the paper's md5 rows for
+N1STAR-PROOF.md, N1STAR-LOG.md and README.md were D47's -- refreshed; (4) the paper's Appendix C said D1-D46 -- D48. Four
+notes, each seated: |G_eta|^2 is mu^-2 |(sqrt mu d)^{<= 1} H|^2, not mu^-1; the T part of the red-shift current carries
+2c/r^2; Hung's 10M is 5 r_h, and the record keeps R_null >= 10 r_h and says so; dvol_3 on Sigma' is r^3 dv domega / 2 in
+the ingoing chart's v (a constant, constants not tracked). Sound by its report: the three steps, the flux signs, the
+thresholds, the sufficiency of the two-component formal identities for the seven-component system, W7's regular
+variables, hung4.py's two misprint claims as internally consistent, the D47 repairs, the records' consistency. Not
+checkable by it: Hung's and Schlue's text, hung4.py's transcription of the printed rows, the W6 --l4 run.

@@ -680,7 +680,7 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   the bulk is bounded by its initial value and by the perturbation on a compact region [r_rs, R + r_h], with [Sch13]'s
   weights at null infinity, where the five-dimensional radiation field's potential is coercive at every l ≥ 2 (its
   leading eigenvalues are (l+a+1/2)(l+a+3/2) ≥ 3/4, so no Hardy inequality is needed where Hung's l = 2 needs one), and
-  the red-shift at r_h, where the identity acquires three terms absent in four dimensions, all absorbed. It is not a
+  the red-shift at r_h, where the identity acquires two terms absent in four dimensions, both absorbed. It is not a
   decay statement: the compact region is where the master quantities and the gauge vector enter, and the rungs' Morawetz
   estimates, the growing source and the l = 0 argument remain unwritten. No growing mode appears in either type for l =
   2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields,
@@ -744,8 +744,12 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   supplement), and seven minor ones, seated. Those repairs, this paper's Theorem 3 and the route of D46 were read by a
   fifteenth (D47): no blocking finding; nine repairs seated (among them a figure in section 10.2's repaired text that the
   stored samples do not support, 1.61 r_h, now 1.26; the route's first-order-pole label, now OPEN; its pre-W6 wording;
-  `bondi5.py`'s `--verbose` flag, which ran two checks alone) and seven notes. W7, `hung4.py` and those repairs have not
-  been read by a verifier.
+  `bondi5.py`'s `--verbose` flag, which ran two checks alone) and seven notes. W7, `hung4.py`, those repairs and
+    Proposition 10.3 with W8 were read by a sixteenth (D48): no blocking or major finding; one intermediate inequality
+      in Proposition 10.3's proof carried a four-dimensional power and is repaired with the five-dimensional ones, the
+        conclusion unchanged; the count of red-shift terms new in five dimensions is corrected from three to two, the
+          four-dimensional identity now computed in `hung4.py` C3; three stale md5 rows, a decision count and four notes
+            are repaired.
 
 ---
 
@@ -879,8 +883,9 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   T-current divergences, the angular eigenvalues on S³, the k-degree of the matrices, l = 0). 8/8; mutants 8/8 (about
   seven and a half minutes; the mutants about six minutes).
 - `hung4.py` C1–C2: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
-  with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations. 2/2;
-  mutants 3/3 (about two and a half minutes).
+  with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
+    the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
+      minutes).
 - `bondi5.py` B1–B4: Theorem 3's hierarchy in the Bondi form with general coefficients from the first order (the
   orders below the waves' vanish; the mass law from R_vv at order r^(−3)), the chart from the wave-gauge expansion,
   the Hawking mass of the Bondi spheres, the numerics' coefficient; B4 numerical. 4/4; mutants 5/5 (about ten minutes,
@@ -951,7 +956,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D46).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D48).
 
 | claim | where it is established |
 | --- | --- |
@@ -980,13 +985,14 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D4
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
 | settling, section 8 | supplement sections 10.1, 10.3–10.5 (Propositions 10.1–10.3); `docket68/n1star/settle5.py` |
-| | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C2; [HKW18], [KI03], [CLY03b], |
+| | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; [HKW18], [KI03], [CLY03b], |
 | | [CYDL03], [Hun19], [Sch13] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
 | | the repairs of D40 and sections 10.2–10.3 (D44); the fourteenth D42–D44 (D45); the fifteenth the |
-| | repairs of D45, Theorem 3 and the route of D46 (D47) |
+| | repairs of D45, Theorem 3 and the route of D46 (D47); the sixteenth W7, `hung4.py`, those repairs and |
+| | Proposition 10.3 with W8 (D48) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1007,9 +1013,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `af2ebad1444cefcd0aca169fe0a7b1e0` |
-| `docket68/n1star/N1STAR-LOG.md` | `e1674a743ee2818afec1967f1b29b172` |
-| `docket68/n1star/README.md` | `1f5e5041ed56256c80326702daff03ab` |
+| `docket68/n1star/N1STAR-PROOF.md` | `822c70e90ef40442c771b457dcf068c9` |
+| `docket68/n1star/N1STAR-LOG.md` | `446614be564d54a9800895337e090c1e` |
+| `docket68/n1star/README.md` | `6b62e8aef620d2120115d256b0f61b13` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1021,7 +1027,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/bondi5.py` | `998cfceff0a2781cd161fe0640408e63` |
 | `docket68/n1star/growth5.py` | `7493d63335c521c78d35653716881934` |
 | `docket68/n1star/wavegauge5.py` | `d2d8e22bf8d52fe42eea3f32ae49306f` |
-| `docket68/n1star/hung4.py` | `907d426420c38ff4eb8e19935b69eb47` |
+| `docket68/n1star/hung4.py` | `7f3d68853fde8bda4ff383dc039dadfe` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |
 | `docket68/lemmas/counterpart5.py` | `e7dcf7bf898c2147492d28c5fb888d18` |

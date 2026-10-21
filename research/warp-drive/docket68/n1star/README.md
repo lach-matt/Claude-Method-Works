@@ -70,8 +70,9 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `hung4.py`: the four-dimensional control of W7: Hung's Proposition 4.2 (arXiv:1909.06733) recomputed from the
   Schwarzschild metric with the instrument W7 runs, his seven rows as Appendix C combines them, reproducing the
   printed A, B and U rows and naming the two misprints in the printed combinations ((HG3) for (ME3) in row 7; f (ME3),
-  M/r^3 and 4M(r - 2M)/r^3 in row 6) (C1-C2). `python3 hung4.py --selftest` (2/2, about two and a half minutes),
-  `--mutants` (3/3).
+  M/r^3 and 4M(r - 2M)/r^3 in row 6) (C1-C2), and the red-shift divergence of his (2.13) at r = 2M for one component,
+    whose c sigma/(4M^2)|Q|^2 and (c/(2M^2)) Q Q_R terms the print halves and omits (C3; D48). `python3 hung4.py
+      --selftest` (3/3, about two and a half minutes), `--mutants` (4/4).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).

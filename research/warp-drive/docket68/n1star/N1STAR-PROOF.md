@@ -1818,12 +1818,14 @@ consistent with the growing K* of (iv) -- and what it leaves to the compact regi
 coordinate dr_*/dr = 1/f, the ingoing chart (v, R) := (t + r_*, r) in which g = -f dv^2 + 2 dv dR + r^2 gamma_{S^3} is
 smooth across r = r_h ([Hun19] (2.1) with the five-dimensional f). T := d_t, L := d_t + f d_r, L-bar := d_t - f d_r,
 L' := f^-1 L-bar = -d_R, the future-directed transversal null direction, regular at the horizon. The foliation is
-[Hun19] section 2.2 with (2M, 9M/4, 5M/2, 10M, M) read as (r_h, 9 r_h/8, 5 r_h/4, 10 r_h, r_h): R_null >= 10 r_h;
+[Hun19] section 2.2 with (2M, 9M/4, 5M/2, M) read as (r_h, 9 r_h/8, 5 r_h/4, r_h), and R_null >= 10 r_h (his 10M is 5
+    r_h; the larger value only helps);
 Sigma_tau := {t + r_* - g(r) = tau}, spacelike in [r_h, R_null] and null, with n = L, in r >= R_null, meeting H^+
 transversally; Sigma''_tau := Sigma_tau cap {r <= R_null}, Sigma'_tau := Sigma_tau cap {r >= R_null}; D(tau_1, tau_2)
 the region between two leaves, H^+(tau_1, tau_2) and I^+(tau_1, tau_2) its boundaries at the horizon and at null
 infinity; dvol = r^3 dt dr domega and dvol_3 the induced form of the leaf (-n^flat wedge dvol_3 = dvol; on Sigma' it is
-r^3 dv domega, and dvol = f dtau wedge dvol_3). The cut-offs: eta_null(r) := phi((r - R_null)/r_h) with phi = 0 on
+    r^3 dv domega / 2 in the ingoing chart's v, and dvol = f dtau wedge dvol_3). The cut-offs: eta_null(r) := phi((r -
+        R_null)/r_h) with phi = 0 on
 (-oo, 0] and 1 on [1, oo), so d eta_null is supported in [R_null, R_null + r_h], and Phi-tilde := eta_null Phi;
 eta_rs := 1 on [r_h, 9 r_h/8] and 0 on [5 r_h/4, oo); and the red-shift vector field
     Y(sigma) := eta_rs ((sigma/2)(r - r_h) T + (2 + sigma (r - r_h)) L'),                                         (10.3)
@@ -1872,7 +1874,8 @@ It is [Hun19] (4.1) with M^-1, M^-3 read as mu^-1/2, mu^-3/2.
 
 *What is computed (W8, exact, sympy; the three divergence identities formally, on two components with the matrices
 symbolic, the structure being the same at seven).* On the system boxhat H = A H + U H of Proposition 10.2(vi):
- (W8a) the radiation field Psi := s^(3/2) Hhat satisfies, with d_u d_v := d_t^2 - f d_r (f d_r) (u, v := (t -+ r_*)/2),
+ (W8a) the radiation field Psi := s^(3/2) Hhat satisfies, with d_u d_v := d_t^2 - f d_r (f d_r), the mixed derivative in
+     u, v := (t -+ r_*)/2 (not the ingoing chart's v),
           d_u d_v Psi = -f V Psi - f Uhat Psi,   V := Ahat + V0 I,   V0 := (3/4 + 9 mu/(4 r^2))/r^2,              (10.6)
        Ahat := D_m A D_m^-1 and Uhat the first-order term in these variables -- [Sch13] (5.11)-(5.12) at n = 4,
        component by component, the matrix in place of the angular eigenvalue;
@@ -1913,10 +1916,13 @@ symbolic, the structure being the same at seven).* On the system boxhat H = A H 
           div(T_ab[Q] Y^b - (c/r^2) |Q|^2 Y_a)|_{r = r_h} = (sigma/2)|Q_v|^2 + (2/r_h)|Q_R|^2 + (6/r_h) Q_R . Q_v
                 + (sigma/2 + 1/r_h)|nabla-slash Q|^2 + c (sigma/mu + 2/mu^(3/2))|Q|^2 + (2c/mu) Q . Q_R
                 + nabla_Y Q . (Acal Q - (c/r^2) Q) + 2 Q_R . beta Q_R,                                            (10.10)
-       Q_v := d_v Q, Q_R := d_R Q = -nabla_L' Q: [Hun19] (2.13) with (2M, 1/(2M), 2/M, c sigma/(8M^2)) read as
-       (r_h, 2/r_h, 6/r_h, c (sigma/mu + 2/mu^(3/2))), the terms (1/r_h)|nabla-slash Q|^2, (2c/mu^(3/2))|Q|^2 and
-       (2c/mu) Q . Q_R new in five dimensions, and the beta term, which in the system is 2 Q_R . diag(0, 0, 0, 0, 0, 2f',
-       f') Q_R >= 0 (Proposition 10.2(vi)), of the sign Hung's argument needs.
+       Q_v := d_v Q, Q_R := d_R Q = -nabla_L' Q: [Hun19] (2.13) with 2M -> r_h, his 1/(2M) and 2/M becoming 2/r_h and
+           6/r_h. The same current in four dimensions (hung4.py C3) has c sigma/(4M^2)|Q|^2 and (c/(2M^2)) Q . Q_R
+               beside nabla_Y Q . (-(c/r^2) Q) -- the c sigma/mu |Q|^2 and (2c/mu) Q . Q_R here, with r_h = 2M -- where
+                   his print has c sigma/(8M^2) and no Q . Q_R term, a normalisation of c the argument does not depend
+                       on, c being free; the terms new in five dimensions are (1/r_h)|nabla-slash Q|^2 and
+                           (2c/mu^(3/2))|Q|^2; and the beta term, which in the system is 2 Q_R . diag(0, 0, 0, 0, 0,
+                               2f', f') Q_R >= 0 (Proposition 10.2(vi)), has the sign Hung's argument needs.
 The control reverses the sign of V0 and takes L-bar for L in J^p: (10.6), the spectrum and (10.7) fail.
 
 *Proof.* Three estimates, as [Hun19] Lemma 4.4, (4.8) and (4.9), then their sum. Everything is at a fixed mode and summed
@@ -1924,8 +1930,8 @@ over the modes last; every constant is uniform in l by (W8b) and (W8g).
 
 *Step 1 (the far region; [Hun19] Lemma 4.4).* Let Psi := s^(3/2) eta_null Hhat, the radiation field of H-tilde. By
 (10.6), d_u d_v Psi = -f V Psi - f Uhat Psi - f G_eta, where G_eta collects Uhat's action on eta_null and the terms in
-d eta_null, d^2 eta_null: supported in [R_null, R_null + r_h], with |G_eta|^2 <~_{R_null} mu^-1 |(sqrt mu d)^{<= 1} H|^2
-there. Apply the divergence theorem to J^p of (W8d) built on this Psi; its divergence is (10.7) with G_eta added to
+d eta_null, d^2 eta_null: supported in [R_null, R_null + r_h], with |G_eta|^2 <~_{R_null} mu^-2 |(sqrt mu d)^{<= 1} H|^2
+    there. Apply the divergence theorem to J^p of (W8d) built on this Psi; its divergence is (10.7) with G_eta added to
 Uhat Psi. The fluxes: through Sigma'_tau the current gives E^{p,(0)}_L[H-tilde](tau) up to the factor f in [99/100, 1];
 on Sigma'' and H^+ it vanishes (Psi does); at every v = v_0 it is non-negative (W8d). The bulk, for p in [delta, 2 -
 delta] and s >= s_H := max(10, (8/delta)^(1/2)): the first term of (10.7) is at least (p/4) mu^-1/2 s^(p-4) |nabla_L
@@ -1953,10 +1959,13 @@ dvol = f dtau dvol_3 on D' reading the bulk as an integral in tau. For the ingoi
 every v = v_0 are non-negative, the one through Sigma_tau at most C F[H](tau) (V_inf >= 0, T causal), and by (10.8) its
 divergence is (delta/4) mu^-1/2 s^(-1-delta) |nabla_L-bar Q|^2 minus (delta/4) mu^-1/2 s^(-1-delta) |nabla_L Q|^2 plus
 a cross term, which by Cauchy-Schwarz, (10.9) and (W8c) is at most epsilon_2 mu^-1/2 s^(-1-delta) (|nabla_L Q|^2 +
-|nabla_L-bar Q|^2) + C epsilon_2^-1 mu^-1/2 s^(-3-delta) (|nabla_L Psi|^2 + |nabla-slash Psi|^2 + mu^-1 s^-2 |Psi|^2) +
-C(R_null) mu^-3/2 |(sqrt mu d)^{<= 1} H|^2 chi_{[R_null, R_null + r_h]}. The negative term and the s^(-3-delta) terms
-are absorbed by the bulk of (10.11), since |nabla_L Q|^2 <= 2 s^-3 |nabla_L Psi|^2 + (9/2) mu^-1 s^-5 |Psi|^2 and
-s^(-3-delta) <= s^(p-4) for s >= 1 and p >= delta, after enlarging R_H once more and for epsilon_1 small. So (10.11)
+|nabla_L-bar Q|^2) + C epsilon_2^-1 (mu^-1/2 s^(-8-delta) (|nabla_L Psi|^2 + |nabla-slash Psi|^2) + mu^-3/2
+    s^(-10-delta) |Psi|^2) + C(R_null) mu^-3/2 |(sqrt mu d)^{<= 1} H|^2 chi_{[R_null, R_null + r_h]}. The negative term
+        and the C epsilon_2^-1 terms are absorbed by the bulk of (10.11): the first since |nabla_L Q|^2 <= 2 s^-3
+            |nabla_L Psi|^2 + (9/2) mu^-1 s^-5 |Psi|^2 with s^(-4-delta) <= s^(p-4) and s^(-6-delta) <= s^(p-6); the
+                others, whose powers come from Q = s^-3/2 Psi and the bounds mu^-1 s^-4 and mu^-1/2 s^-3 of (10.9) and
+                    (W8c) on the coefficients, since s^(-8-delta) <= s^(p-4) and s^(-10-delta) <= s^(p-6) -- for s >= 1
+                        and every p >= delta, after enlarging R_H once more and for epsilon_1 small. So (10.11)
 holds with mu^-1/2 int_D s^(-1-delta) |nabla_L-bar H-tilde|^2 dvol added on the left and F[H](tau_1) on the right: this
 is [Hun19] (4.4).
 
@@ -1967,10 +1976,11 @@ diag(0, 0, 0, 0, 0, 2f', f') (Proposition 10.2(vi)). Consider, as [Hun19] (4.7),
 Sigma_tau is non-negative and, on [r_h, 9 r_h/8], where Y + T is timelike and equals 2 L' + T at the horizon, is
 comparable (constants depending on sigma) to mu^-1 |(sqrt mu d)^{<= 1} Hhat'|^2 dvol_3; through H^+ it is
 2 |nabla-slash Hhat'|^2 + T(T, L) + (4c/r_h^2)|Hhat'|^2 >= 0 ((Y + T) . L = -4 there, T(L', L) = |nabla-slash|^2). Its
-divergence at r = r_h is (10.10) plus the T part, nabla_T Hhat' . (Acal Hhat' - (c/r^2) Hhat' - beta Hhat'_R) (T is
-Killing and nabla_T r = 0). Collect: the form (sigma/2)|Q_v|^2 + (1/r_h)|Q_R|^2 + (6/r_h) Q_R . Q_v in (Q_v, Q_R) is
+divergence at r = r_h is (10.10) plus the T part, nabla_T Hhat' . (Acal Hhat' - (2c/r^2) Hhat' - beta Hhat'_R) (T is
+    Killing and nabla_T r = 0). Collect: the form (sigma/2)|Q_v|^2 + (1/r_h)|Q_R|^2 + (6/r_h) Q_R . Q_v in (Q_v, Q_R) is
 positive definite for sigma > 18/r_h; the other (1/r_h)|Q_R|^2 absorbs, by Cauchy-Schwarz with (10.9) at r_h, the terms
-(2c/mu) Q . Q_R, nabla_{Y+T} Q . (Acal Q - (c/r^2) Q) (nabla_{Y+T} Q = Q_v - 2 Q_R there) and -Q_v . beta Q_R up to
+(2c/mu) Q . Q_R, nabla_Y Q . (Acal Q - (c/r^2) Q) + nabla_T Q . (Acal Q - (2c/r^2) Q) (nabla_Y Q = -2 Q_R and nabla_T Q
+    = Q_v there) and -Q_v . beta Q_R up to
 C (mu^-1/2 |Q_v|^2 + mu^-1/2 |nabla-slash Q|^2 + mu^-3/2 |Q|^2), C depending on the coefficients at r_h alone; 2 Q_R .
 beta Q_R >= 0 is dropped; and (sigma/2 + 1/r_h)|nabla-slash Q|^2 + c (sigma/mu + 2/mu^(3/2))|Q|^2 with (sigma/2)|Q_v|^2
 dominate the C terms for sigma >= sigma_0/r_h, sigma_0 depending on C. Hence div J|_{r_h} >= c_0 mu^-3/2 |(sqrt mu

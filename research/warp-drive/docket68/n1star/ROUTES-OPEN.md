@@ -447,9 +447,11 @@ computes (exact; the three divergence identities formally, on two components wit
 - the p-current's divergence (W8c) is his (4.5) with the powers of s lowered by one, its flux at I^+ is s^(p-5) Psi .
   V_inf . Psi >= 0, and the first-order term Uhat is bounded by 9 mu r^-3 f^-1 |nabla_L Psi| + 13 mu r^-4 |Psi|,
   absorbed for R_H ~ delta^-1/2 r_h as his is;
-- the red-shift identity at r = r_h (W8d) is his (2.13) with (1/(2M), 2/M) read as (2/r_h, 6/r_h) and three terms new in
-  five dimensions, (1/r_h)|nabla-slash Q|^2, (2c/mu^(3/2))|Q|^2 and (2c/mu) Q . Q_R, absorbed for sigma > 18/r_h and
-  then sigma large; the first-order term along nabla_L' enters as 2 Q_R . diag(0, 0, 0, 0, 0, 2f', f') Q_R >= 0, the
+- the red-shift identity at r = r_h (W8d) is his (2.13) with (1/(2M), 2/M) read as (2/r_h, 6/r_h) and two terms new in
+  five dimensions, (1/r_h)|nabla-slash Q|^2 and (2c/mu^(3/2))|Q|^2, absorbed for sigma > 18/r_h and then sigma large
+    (the (2c/mu) Q . Q_R and c sigma/mu |Q|^2 terms are the four-dimensional current's own, hung4.py C3, which his print
+      carries as c sigma/(8M^2) without the Q . Q_R term); the first-order term along nabla_L' enters as 2 Q_R . diag(0,
+        0, 0, 0, 0, 2f', f') Q_R >= 0, the
   sign his argument needs (4.6);
 - the sub-leading and horizon matrices have entries of degree at most one in k (W8g), so one angular derivative bounds
   them uniformly in l, which is what his (4.3) states for A_sub and B_sub;
@@ -459,7 +461,9 @@ What it is not: a decay statement. The right side carries h on [r_rs,H, R_null +
 bounded through the Zerilli quantity and the gauge vector W (sections 4.2-7), here through Proposition 10.1's master
 quantities and the gauge vector system of 4.3(1)-(2), whose rungs are the next item. Labels: computed (wavegauge5.py W8);
 deduced (Proposition 10.3, constants not tracked); READ ([Hun19] pp. 4-25 and 70-72, [Sch13] (2.17)-(2.20), Proposition
-3.1 and (5.8)-(5.17); alphaXiv, 2026-10-21). Sent to the sixteenth verifier; verdict pending.
+3.1 and (5.8)-(5.17); alphaXiv, 2026-10-21). Read by the sixteenth verifier (D48): no blocking or major finding; one
+  intermediate inequality of Step 1 repaired with the five-dimensional powers, and this section's count of the new terms
+    corrected from three to two.
 
 ## References (READ 2026-10-20 unless marked)
 
