@@ -1759,21 +1759,23 @@ perturbations in the class:
     h, H2 = trs h/sqrt3, H3 = (h_tt/f - f h_rr)/2, H6 = f h_tr + ((1 - f)/2) trs h, H4 = f k h_rth/(r S'), H7 = k
     h_tth/(r S'), hhat_ij = 2 r^2 H5 S_ij, with trs h = r^-2 gamma^ij h_ij and (1 - f)/2 = mu/(2 r^2), which in four
     dimensions is his M/r -- and under Gamma[h] = 0, admixed as 2 f f' Gamma_r in rows 1 and 6 and k f' Gamma_th/r in
-    rows 4 and 7, the Lichnerowicz equation reads box_l H = A H + U H: A zeroth order and rational in r, mu, k, and U =
-    (2f'/f) nabla_L (H6 - H1) in row 6, (f'/f) nabla_L (H7 - H4) in row 7, nothing else, L = d_t + f d_r (Hung's U, p.
-    19, with 2M/r^2 -> f' = 2 mu/r^3). The leading part A_main := lim r^2 A at k^2 = l(l + 2) has the eigenvalues (l +
-    a)(l + a + 2), a = -2, -1, 0, 0, 0, 1, 2 -- Hung's Lemma 4.3 with (l + a)(l + a + 1) replaced -- so its quadratic
-    form is semi-positive for every l >= 2, with one zero at l = 2 and comparable to the angular term for l >= 4, and A -
-    A_main/r^2 = O(mu/r^4). In the horizon-regular variables H6' := (H6 - H1)/f^2 = -h(L', L')/2 and H7' := (H7 - H4)/f =
-    k h(L', d_th)/(r S'), L' = f^-1 (d_t - f d_r) the future-directed transversal null direction, every coefficient is
-    regular at r = sqrt mu, rows 1-5 carry no first-order term, and rows 6', 7' carry 2 f' nabla_L' H6' and f' nabla_L'
-    H7' with no nabla_L: Hung's 4M/r^2 and 2M/r^2 (p. 23), positive, so the red-shift step of his Proposition 4.1 applies
-    as written. The l = 0 sector (H1, H2, H3, H6) has the same form, r^2 A_main with eigenvalues 0, 0, 3, 8. Without the
-    gauge admixture the Lichnerowicz operator alone carries, in the null frame, -f' times the boost weight as the
-    nabla_L' coefficient of each component (-2f' on h(L, L), -f' on h(L, d_th), 0 on h(L, L') and the angular part, +f'
-    and +2f' on h(L', d_th) and h(L', L')); the gauge condition removes the negative ones, which is what Hung's Appendix
-    C does in four dimensions (`hung4.py`, the control, reproduces his printed rows from the Schwarzschild metric the
-    same way).
+    rows 4 and 7, the Lichnerowicz equation reads boxhat H = A H + U H, boxhat := -f^-1 d_t^2 + f d_r^2 + ((3 r^2 -
+    mu)/r^3) d_r the wave operator of the quotient ((v)'s box_l without its -k^2/r^2, so that A carries the angular
+    eigenvalues K/r^2 of (10.4) on its diagonal and is otherwise of degree at most one in k, W8f, g): A zeroth order and
+    rational in r, mu, k, and U = (2f'/f) nabla_L (H6 - H1) in row 6, (f'/f) nabla_L (H7 - H4) in row 7, nothing else, L
+    = d_t + f d_r (Hung's U, p. 19, with 2M/r^2 -> f' = 2 mu/r^3). The leading part A_main := lim r^2 A at k^2 = l(l + 2)
+    has the eigenvalues (l + a)(l + a + 2), a = -2, -1, 0, 0, 0, 1, 2 -- Hung's Lemma 4.3 with (l + a)(l + a + 1)
+    replaced -- so its quadratic form is semi-positive for every l >= 2, with one zero at l = 2 and comparable to the
+    angular term for l >= 4, and A - A_main/r^2 = O(mu/r^4). In the horizon-regular variables H6' := (H6 - H1)/f^2 =
+    -h(L', L')/2 and H7' := (H7 - H4)/f = k h(L', d_th)/(r S'), L' = f^-1 (d_t - f d_r) the future-directed transversal
+    null direction, every coefficient is regular at r = sqrt mu, rows 1-5 carry no first-order term, and rows 6', 7'
+    carry 2 f' nabla_L' H6' and f' nabla_L' H7' with no nabla_L: Hung's 4M/r^2 and 2M/r^2 (p. 23), positive, so the red-
+    shift step of his Proposition 4.1 applies as written. The l = 0 sector (H1, H2, H3, H6) has the same form, r^2 A_main
+    with eigenvalues 0, 0, 3, 8. Without the gauge admixture the Lichnerowicz operator alone carries, in the null frame,
+    -f' times the boost weight as the nabla_L' coefficient of each component (-2f' on h(L, L), -f' on h(L, d_th), 0 on
+    h(L, L') and the angular part, +f' and +2f' on h(L', d_th) and h(L', L')); the gauge condition removes the negative
+    ones, which is what Hung's Appendix C does in four dimensions (`hung4.py`, the control, reproduces his printed rows
+    from the Schwarzschild metric the same way).
 
 *Proof.* Each item is a sympy identity on the metric -f dt^2 + dr^2/f + r^2 (dth^2 + cos^2 th dphi1^2 + sin^2 th
 dphi2^2), f = 1 - mu/r^2, with the class's eight components as functions of (t, r, th): (i) is the linearised Ricci
@@ -1797,11 +1799,229 @@ red-shift argument for the coefficient of the singular stationary solution), whi
 vector wave equation on Tangherlini -- not in the literature. ROUTES-OPEN.md section 4 proposes the route (D46): by (vi)
 the system is triangular and every rung is a scalar wave equation on Tangherlini with a potential satisfying Hung's
 condition (A.3), so the estimate is Schlue's scalar estimates and Hung's Appendix A in five dimensions, rung by rung,
-with the l = 0 argument of [Hun19] section 8 on W2's ODE; and by (vi) Hung's Proposition 4.1 -- the red-shift and r^p
-estimates for h itself, with the compact region as the error -- has its structure in the class (D47), so that what
-remains of it is the estimate on that structure with [Sch13]'s weights (ROUTES-OPEN.md 4.6). With it, every metric
-component in the class would decay in a gauge in which the nonlinear problem can be posed, and the final state would be
-read off (iv). The scalar tails of T6 (t^-7 at l = 2) bound the rate such an estimate could reach.
+with the l = 0 argument of [Hun19] section 8 on W2's ODE; and on (vi) Hung's Proposition 4.1 -- the red-shift and r^p
+estimates for h itself, with the compact region as the error -- is deduced in five dimensions in 10.5 (Proposition
+10.3, D48), so that what remains is the compact region, which the master quantities and the gauge vector govern. With
+it, every metric component in the class would decay in a gauge in which the nonlinear problem can be posed, and the
+final state would be read off (iv). The scalar tails of T6 (t^-7 at l = 2) bound the rate such an estimate could reach.
+
+### 10.5 Hung's Proposition 4.1 in five dimensions (`wavegauge5.py` W8; D48)
+
+The first estimate of this section. [Hun19]'s Proposition 4.1 (p. 18, (4.1)) is the energy inequality for h itself in
+the harmonic gauge: the r^p and red-shift estimates of Dafermos and Rodnianski applied to the seven components of his
+Proposition 4.2, with the compact region between the two as the only error term. Its five-dimensional form is deduced
+here on the structure of Proposition 10.2(vi), from identities W8 computes; constants are not tracked, and every
+inequality is Cauchy-Schwarz, a choice of a constant, or the divergence theorem. It is not a decay statement -- it is
+consistent with the growing K* of (iv) -- and what it leaves to the compact region is said at the end.
+
+*Setting.* Five-dimensional Tangherlini, f = 1 - mu/r^2, r_h = sqrt mu, s := r/sqrt mu (Hung's r/M), the tortoise
+coordinate dr_*/dr = 1/f, the ingoing chart (v, R) := (t + r_*, r) in which g = -f dv^2 + 2 dv dR + r^2 gamma_{S^3} is
+smooth across r = r_h ([Hun19] (2.1) with the five-dimensional f). T := d_t, L := d_t + f d_r, L-bar := d_t - f d_r,
+L' := f^-1 L-bar = -d_R, the future-directed transversal null direction, regular at the horizon. The foliation is
+[Hun19] section 2.2 with (2M, 9M/4, 5M/2, 10M, M) read as (r_h, 9 r_h/8, 5 r_h/4, 10 r_h, r_h): R_null >= 10 r_h;
+Sigma_tau := {t + r_* - g(r) = tau}, spacelike in [r_h, R_null] and null, with n = L, in r >= R_null, meeting H^+
+transversally; Sigma''_tau := Sigma_tau cap {r <= R_null}, Sigma'_tau := Sigma_tau cap {r >= R_null}; D(tau_1, tau_2)
+the region between two leaves, H^+(tau_1, tau_2) and I^+(tau_1, tau_2) its boundaries at the horizon and at null
+infinity; dvol = r^3 dt dr domega and dvol_3 the induced form of the leaf (-n^flat wedge dvol_3 = dvol; on Sigma' it is
+r^3 dv domega, and dvol = f dtau wedge dvol_3). The cut-offs: eta_null(r) := phi((r - R_null)/r_h) with phi = 0 on
+(-oo, 0] and 1 on [1, oo), so d eta_null is supported in [R_null, R_null + r_h], and Phi-tilde := eta_null Phi;
+eta_rs := 1 on [r_h, 9 r_h/8] and 0 on [5 r_h/4, oo); and the red-shift vector field
+    Y(sigma) := eta_rs ((sigma/2)(r - r_h) T + (2 + sigma (r - r_h)) L'),                                         (10.3)
+causal on the exterior and equal to 2 L' at r = r_h ([Hun19] (2.6)-(2.7)). The divergence theorem on D(tau_1, tau_2)
+for a one-form J is [Hun19] (2.14): int_{Sigma_tau_1} J.n = int_{Sigma_tau_2} J.n + int_{H^+} J.L + int_{I^+} J.L-bar
++ int_D div J, the fluxes at H^+ and I^+ taken with the normals L and L-bar, the second as the limit of the flux through
+v = v_0 -- so a current whose fluxes through H^+ and through every v = v_0 are non-negative gives
+int_{Sigma_tau_2} J.n + int_D div J <= int_{Sigma_tau_1} J.n with no decay at I^+ assumed beyond the finiteness of the
+norms. Every current below is of that kind.
+
+*Components and norms.* H = (H1, ..., H7) are Hung's components (Proposition 10.2(vi)), H' := (H1, ..., H5, H6', H7')
+the horizon-regular ones, Hhat := D_m H with D_m := diag(sqrt2, 1, sqrt2, sqrt2, 2 n_S, sqrt2, sqrt2), n_S :=
+sqrt(2 (k^2 - 3)/(3 k^2)) in [sqrt(5/12), sqrt(2/3)] for l >= 2, the rescaling in which V_inf below is symmetric;
+Hhat' := D_m H'. H and H' are related by H6 = H1 + f^2 H6', H7 = H4 + f H7', so on r >= 5 r_h/4, where f >= 9/25, every
+norm below of H, H', Hhat and Hhat' is equivalent to every other with constants independent of l; at the horizon only
+H' and Hhat' are the right variables. At a scalar mode (k^2 = l(l + 2), l even) a vector Phi of functions of (t, r) has
+the angular energy
+    |nabla-slash Phi|^2 := r^-2 Phi . K . Phi,   K := diag(k^2, k^2, k^2, k^2 - 2, k^2 - 6, k^2, k^2 - 2),       (10.4)
+(W8f: the rough Laplacian of S^3 on S, on the one-form S_th dth and on the traceless tensor S_AB has the eigenvalues
+-k^2, -(k^2 - 2), -(k^2 - 6)), so that (k^2/4)|Phi|^2 <= Phi . K . Phi for l >= 2; and its radiation field Phi^(0) :=
+s^(3/2) Phi (Hung's s Phi; [Sch13] (5.11) at n = 4). With |d Phi|^2 := |nabla_T Phi|^2 + |nabla-slash Phi|^2 +
+|nabla_L' Phi|^2 (Hung's set partial = {T, Omega/r, L'}, (2.8)) and |(sqrt mu d)^{<= 1} Phi|^2 := |Phi|^2 +
+mu |d Phi|^2, the norms are [Hun19] (2.15), (2.18)-(2.21) with M^-2 read as mu^-1 and the radial weight lowered by one
+for the measure r^3 dr:
+    F[Phi](tau) := int_{Sigma''_tau} (|d Phi|^2 + mu^-1 s^-2 |Phi|^2) dvol_3
+                   + int_{Sigma'_tau} (|nabla_L Phi|^2 + |nabla-slash Phi|^2 + mu^-1 s^-2 |Phi|^2) dvol_3,
+    B-bar[Phi](tau) := int_{Sigma_tau} s^-2 (|d Phi|^2 + mu^-1 s^-2 |Phi|^2) dvol_3,
+    E^{p,(0)}_L[Phi](tau) := int_{Sigma'_tau} s^(p-3) |nabla_L Phi^(0)|^2 dvol_3,
+    E^{p,(0)}_ang[Phi](tau) := int_{Sigma'_tau} s^(p-3) |nabla-slash Phi^(0)|^2 dvol_3,
+    E^{p,(0)}_{L,ang} := E^{p,(0)}_L + E^{p,(0)}_ang,
+each summed over the modes. So int_{Sigma'} s^(p-3) |nabla_L Phi^(0)|^2 dvol_3 = mu^2 int s^p |nabla_L Phi^(0)|^2 ds
+domega, the one-dimensional content of Hung's (2.19), and F and E^p have the dimension of mu, as his have that of M.
+
+**Proposition 10.3 (deduced from W7, W8 and [Hun19] section 4.1; constants not tracked).** Let h be a scalar-type
+solution in the class of the harmonic-gauge Lichnerowicz equation (Proposition 10.2(i)) on the exterior of
+five-dimensional Tangherlini, smooth up to H^+, supported on the modes l >= 2. There are R_H >= 10 r_h, depending on
+delta, and r_rs,H in (r_h, 5 r_h/4) such that for R_null >= R_H, every p in [delta, 2 - delta] and tau_2 >= tau_1,
+    F[H'](tau_2) + E^{p,(0)}_L[H-tilde](tau_2)
+      + mu^-1/2 int_{tau_1}^{tau_2} (B-bar[H'] + E^{p-1,(0)}_{L,ang}[H-tilde]) dtau
+      <~ F[H'](tau_1) + E^{p,(0)}_L[H-tilde](tau_1)
+         + mu^-3/2 int_{D(tau_1, tau_2) cap {r_rs,H <= r <= R_null + r_h}} |(sqrt mu d)^{<= 1} H'|^2 dvol,         (10.5)
+the constant depending on R_null and delta, whenever the right side is finite: the energy of h in the harmonic gauge
+is controlled, at every later time and in the spacetime bulk, by its initial value and by h on the compact region
+[r_rs,H, R_null + r_h], where the master quantities and the gauge vector of Propositions 10.1 and 10.2 speak for it.
+It is [Hun19] (4.1) with M^-1, M^-3 read as mu^-1/2, mu^-3/2.
+
+*What is computed (W8, exact, sympy; the three divergence identities formally, on two components with the matrices
+symbolic, the structure being the same at seven).* On the system boxhat H = A H + U H of Proposition 10.2(vi):
+ (W8a) the radiation field Psi := s^(3/2) Hhat satisfies, with d_u d_v := d_t^2 - f d_r (f d_r) (u, v := (t -+ r_*)/2),
+          d_u d_v Psi = -f V Psi - f Uhat Psi,   V := Ahat + V0 I,   V0 := (3/4 + 9 mu/(4 r^2))/r^2,              (10.6)
+       Ahat := D_m A D_m^-1 and Uhat the first-order term in these variables -- [Sch13] (5.11)-(5.12) at n = 4,
+       component by component, the matrix in place of the angular eigenvalue;
+ (W8b) V_inf := lim r^2 V is symmetric with the eigenvalues (l + a + 1/2)(l + a + 3/2), a = -2, -1, 0, 0, 0, 1, 2, at
+       k^2 = l(l + 2): V_inf >= (3/4) I and V_inf >= (3/32) l(l + 2) I >= (3/32) K at every l >= 2 -- where Hung's
+       A_main + B_main + O has the zero eigenvalue (l - 1)(l - 2) at l = 2 and he needs his Corollary 3.3 -- and
+       V - V_inf/r^2 = O(mu/r^4);
+ (W8c) Uhat Psi = (2f'/f) nabla_L (Psi_6 - Psi_1) - (3f'/r)(Psi_6 - Psi_1) in row 6, (f'/f) nabla_L (Psi_7 - Psi_4) -
+       (3f'/(2r))(Psi_7 - Psi_4) in row 7, nothing else, f' = 2 mu/r^3: |Uhat Psi| <= 9 mu r^-3 f^-1 |nabla_L Psi| +
+       13 mu r^-4 |Psi| (the two rows added, each by Cauchy-Schwarz);
+ (W8d) for J^p_a := s^(p-3) f^-1 (T^o_ab[Psi] L^b - (1/(2 r^2)) Psi . V_inf . Psi L_a), T^o_ab[Psi] := nabla_a Psi .
+       nabla_b Psi - (1/2) g_ab nabla^c Psi . nabla_c Psi on the quotient (a, b in {t, r}), the divergence taken with the
+       measure r^3,
+          div J^p = mu^-1/2 s^(p-4) f^-2 (p f/2 - s^-2) |nabla_L Psi|^2 + ((2 - p)/2) mu^-3/2 s^(p-6) Psi . V_inf . Psi
+                    + s^(p-3) f^-1 nabla_L Psi . ((V - V_inf/r^2) Psi + Uhat Psi),                                (10.7)
+       J^p . L-bar = mu^-1 s^(p-5) Psi . V_inf . Psi >= 0 (the flux at I^+) and J^p . L = s^(p-3) f^-1 |nabla_L Psi|^2
+       (the flux through Sigma'): [Hun19] (4.5) and the two lines before it, the powers of s lowered by one (the check
+       runs with r^(p-3) for s^(p-3), a constant factor);
+ (W8e) for J_delta,a := s^-delta (T^o_ab[Q] - (1/(2 r^2)) Q . V_inf . Q g_ab) T^b and a solution of boxhat Q = V Q + U Q,
+          div J_delta = (delta/4) mu^-1/2 s^(-1-delta) (|nabla_L-bar Q|^2 - |nabla_L Q|^2)
+                        + s^-delta nabla_T Q . ((V - V_inf/r^2) Q + U Q),
+                          (10.8)
+       [Hun19] (4.6) and p. 23; the identity is polynomial in delta and holds for any constant symmetric matrix in the
+       place of V_inf, so at delta = 0 with K it is the T-current's, div((T^o_ab[Q] - (1/(2 r^2)) Q . K . Q g_ab) T^b)
+       = nabla_T Q . ((V - K/r^2) Q + U Q);
+ (W8f) the angular eigenvalues (10.4);
+ (W8g) A - K/r^2, its horizon-regular form A' - K/r^2 (the matrix of Proposition 10.2(vi)'s regular variables) and the
+       sub-leading part A - A_main/r^2 have entries of degree at most one in k, and A' - K/r^2 is finite at r = r_h;
+       so
+       (the entries being rational, homogeneous of degree -2 in (r, sqrt mu) and without pole on the closed exterior,
+       hence bounded by C r^-2 and C k r^-2, and k |Phi| <= 2 r |nabla-slash Phi| by (10.4)), at every mode l >= 2
+          |(A' - K/r^2) Phi| <= C (r^-1 |nabla-slash Phi| + r^-2 |Phi|)        on [r_h, oo),
+          |(A - A_main/r^2) Phi| <= C mu r^-4 (r |nabla-slash Phi| + |Phi|)    on [10 r_h, oo),                   (10.9)
+       with C independent of l, and at l = 0 the same decay O(mu/r^4) of the sub-leading part;
+ (W8h) at r = r_h, in the ingoing chart, for a vector Q of functions of (v, R) solving boxhat Q - (K/r^2) Q = Acal Q +
+       beta L' Q with beta diagonal, for c > 0 and Y = Y(sigma) of (10.3), with T_ab[Q] := T^o_ab[Q] - (1/(2 r^2)) g_ab
+       Q . K . Q the energy-momentum tensor of the components,
+          div(T_ab[Q] Y^b - (c/r^2) |Q|^2 Y_a)|_{r = r_h} = (sigma/2)|Q_v|^2 + (2/r_h)|Q_R|^2 + (6/r_h) Q_R . Q_v
+                + (sigma/2 + 1/r_h)|nabla-slash Q|^2 + c (sigma/mu + 2/mu^(3/2))|Q|^2 + (2c/mu) Q . Q_R
+                + nabla_Y Q . (Acal Q - (c/r^2) Q) + 2 Q_R . beta Q_R,                                            (10.10)
+       Q_v := d_v Q, Q_R := d_R Q = -nabla_L' Q: [Hun19] (2.13) with (2M, 1/(2M), 2/M, c sigma/(8M^2)) read as
+       (r_h, 2/r_h, 6/r_h, c (sigma/mu + 2/mu^(3/2))), the terms (1/r_h)|nabla-slash Q|^2, (2c/mu^(3/2))|Q|^2 and
+       (2c/mu) Q . Q_R new in five dimensions, and the beta term, which in the system is 2 Q_R . diag(0, 0, 0, 0, 0, 2f',
+       f') Q_R >= 0 (Proposition 10.2(vi)), of the sign Hung's argument needs.
+The control reverses the sign of V0 and takes L-bar for L in J^p: (10.6), the spectrum and (10.7) fail.
+
+*Proof.* Three estimates, as [Hun19] Lemma 4.4, (4.8) and (4.9), then their sum. Everything is at a fixed mode and summed
+over the modes last; every constant is uniform in l by (W8b) and (W8g).
+
+*Step 1 (the far region; [Hun19] Lemma 4.4).* Let Psi := s^(3/2) eta_null Hhat, the radiation field of H-tilde. By
+(10.6), d_u d_v Psi = -f V Psi - f Uhat Psi - f G_eta, where G_eta collects Uhat's action on eta_null and the terms in
+d eta_null, d^2 eta_null: supported in [R_null, R_null + r_h], with |G_eta|^2 <~_{R_null} mu^-1 |(sqrt mu d)^{<= 1} H|^2
+there. Apply the divergence theorem to J^p of (W8d) built on this Psi; its divergence is (10.7) with G_eta added to
+Uhat Psi. The fluxes: through Sigma'_tau the current gives E^{p,(0)}_L[H-tilde](tau) up to the factor f in [99/100, 1];
+on Sigma'' and H^+ it vanishes (Psi does); at every v = v_0 it is non-negative (W8d). The bulk, for p in [delta, 2 -
+delta] and s >= s_H := max(10, (8/delta)^(1/2)): the first term of (10.7) is at least (p/4) mu^-1/2 s^(p-4) |nabla_L
+Psi|^2 (there p f/2 - s^-2 >= p/4 and f^-2 >= 1); the second, by (W8b) with its two bounds averaged, is at least
+    (2 - p) mu^-3/2 s^(p-6) ((3/16)|Psi|^2 + (3/128) Psi . K . Psi)
+      >= (3 delta/16) mu^-3/2 s^(p-6) |Psi|^2 + (3 delta/128) mu^-1/2 s^(p-4) |nabla-slash Psi|^2,
+the zeroth-order and angular bulk that Hung obtains at l = 2 only through his Corollary 3.3 (a Hardy inequality); in
+five dimensions V_inf >= (3/4) I gives them outright, and no Hardy inequality enters the proof. The cross terms, by
+Cauchy-Schwarz with epsilon and then R_H: by (10.9) and D_m bounded,
+    s^(p-3) f^-1 |nabla_L Psi| |(V - V_inf/r^2) Psi|
+      <= epsilon mu^-1/2 s^(p-4) |nabla_L Psi|^2 + C epsilon^-1 mu^-1/2 s^(p-8) (|nabla-slash Psi|^2 + mu^-1 s^-2
+        |Psi|^2),
+the second term absorbed by the bulk above once s^4 >= C' epsilon^-1 delta^-1; by (W8c),
+    s^(p-3) f^-1 |nabla_L Psi| |Uhat Psi|
+      <= 16 mu^-1/2 s^(p-6) f^-2 |nabla_L Psi|^2 + 7 mu^-3/2 s^(p-8) f^-1 |Psi|^2,
+absorbed once s^2 >= C'' delta^-1; and the G_eta term is at most epsilon mu^-1/2 s^(p-4) |nabla_L Psi|^2 + C(R_null)
+mu^-3/2 |(sqrt mu d)^{<= 1} H|^2 chi_{[R_null, R_null + r_h]}. With epsilon = p/16 and R_H the largest of the thresholds
+(depending on delta alone), the divergence theorem gives
+    E^{p,(0)}_L[H-tilde](tau_2) + mu^-1/2 int_{tau_1}^{tau_2} (E^{p-1,(0)}_{L,ang}[H-tilde]
+      + mu^-1 int_{Sigma'_tau} s^(p-6) |H-tilde^(0)|^2 dvol_3) dtau
+      <~ E^{p,(0)}_L[H-tilde](tau_1) + mu^-3/2 int_{D cap {R_null <= r <= R_null + r_h}} |(sqrt mu d)^{<= 1} H|^2 dvol,
+                                                                                                                 (10.11)
+dvol = f dtau dvol_3 on D' reading the bulk as an integral in tau. For the ingoing derivative add epsilon_1 J_delta of
+(W8e) built on Q := eta_null Hhat, whose equation carries the same cut-off terms: its fluxes through Sigma_tau, H^+ and
+every v = v_0 are non-negative, the one through Sigma_tau at most C F[H](tau) (V_inf >= 0, T causal), and by (10.8) its
+divergence is (delta/4) mu^-1/2 s^(-1-delta) |nabla_L-bar Q|^2 minus (delta/4) mu^-1/2 s^(-1-delta) |nabla_L Q|^2 plus
+a cross term, which by Cauchy-Schwarz, (10.9) and (W8c) is at most epsilon_2 mu^-1/2 s^(-1-delta) (|nabla_L Q|^2 +
+|nabla_L-bar Q|^2) + C epsilon_2^-1 mu^-1/2 s^(-3-delta) (|nabla_L Psi|^2 + |nabla-slash Psi|^2 + mu^-1 s^-2 |Psi|^2) +
+C(R_null) mu^-3/2 |(sqrt mu d)^{<= 1} H|^2 chi_{[R_null, R_null + r_h]}. The negative term and the s^(-3-delta) terms
+are absorbed by the bulk of (10.11), since |nabla_L Q|^2 <= 2 s^-3 |nabla_L Psi|^2 + (9/2) mu^-1 s^-5 |Psi|^2 and
+s^(-3-delta) <= s^(p-4) for s >= 1 and p >= delta, after enlarging R_H once more and for epsilon_1 small. So (10.11)
+holds with mu^-1/2 int_D s^(-1-delta) |nabla_L-bar H-tilde|^2 dvol added on the left and F[H](tau_1) on the right: this
+is [Hun19] (4.4).
+
+*Step 2 (the horizon; [Hun19] (4.8)).* In the regular variables the system is boxhat Hhat' - (K/r^2) Hhat' = Acal
+Hhat' + beta nabla_L' Hhat', Acal := D_m (A' - K/r^2) D_m^-1 regular at r_h and of degree at most one in k (W8g), beta =
+diag(0, 0, 0, 0, 0, 2f', f') (Proposition 10.2(vi)). Consider, as [Hun19] (4.7), J_a := T_ab[Hhat'] (Y + eta_rs T)^b -
+(c/r^2) |Hhat'|^2 (Y + eta_rs T)_a with c := 1/2 and Y = Y(sigma). It is supported in r <= 5 r_h/4. Its flux through
+Sigma_tau is non-negative and, on [r_h, 9 r_h/8], where Y + T is timelike and equals 2 L' + T at the horizon, is
+comparable (constants depending on sigma) to mu^-1 |(sqrt mu d)^{<= 1} Hhat'|^2 dvol_3; through H^+ it is
+2 |nabla-slash Hhat'|^2 + T(T, L) + (4c/r_h^2)|Hhat'|^2 >= 0 ((Y + T) . L = -4 there, T(L', L) = |nabla-slash|^2). Its
+divergence at r = r_h is (10.10) plus the T part, nabla_T Hhat' . (Acal Hhat' - (c/r^2) Hhat' - beta Hhat'_R) (T is
+Killing and nabla_T r = 0). Collect: the form (sigma/2)|Q_v|^2 + (1/r_h)|Q_R|^2 + (6/r_h) Q_R . Q_v in (Q_v, Q_R) is
+positive definite for sigma > 18/r_h; the other (1/r_h)|Q_R|^2 absorbs, by Cauchy-Schwarz with (10.9) at r_h, the terms
+(2c/mu) Q . Q_R, nabla_{Y+T} Q . (Acal Q - (c/r^2) Q) (nabla_{Y+T} Q = Q_v - 2 Q_R there) and -Q_v . beta Q_R up to
+C (mu^-1/2 |Q_v|^2 + mu^-1/2 |nabla-slash Q|^2 + mu^-3/2 |Q|^2), C depending on the coefficients at r_h alone; 2 Q_R .
+beta Q_R >= 0 is dropped; and (sigma/2 + 1/r_h)|nabla-slash Q|^2 + c (sigma/mu + 2/mu^(3/2))|Q|^2 with (sigma/2)|Q_v|^2
+dominate the C terms for sigma >= sigma_0/r_h, sigma_0 depending on C. Hence div J|_{r_h} >= c_0 mu^-3/2 |(sqrt mu
+d)^{<= 1} Hhat'|^2, and since every coefficient is continuous in the regular chart (Proposition 10.2(vi)) the same holds
+on [r_h, r_rs,H] for some r_rs,H in (r_h, 9 r_h/8], while |div J| <= C mu^-3/2 |(sqrt mu d)^{<= 1} Hhat'|^2 on [r_rs,H,
+5 r_h/4]. The divergence theorem gives
+    mu^-1 int_{Sigma_tau_2} |(sqrt mu d)^{<= 1} Hhat'|^2 chi_{[r_h, r_rs,H]} dvol_3
+      + mu^-3/2 int_D |(sqrt mu d)^{<= 1} Hhat'|^2 chi_{[r_h, r_rs,H]} dvol
+      <~ mu^-1 int_{Sigma_tau_1} |(sqrt mu d)^{<= 1} Hhat'|^2 chi_{[r_h, 5 r_h/4]} dvol_3
+         + mu^-3/2 int_D |(sqrt mu d)^{<= 1} Hhat'|^2 chi_{[r_rs,H, 5 r_h/4]} dvol,                               (10.12)
+[Hun19] (4.8).
+
+*Step 3 (the T-energy, and the sum; [Hun19] (4.9)).* (10.11) controls E^{p,(0)}_L[H-tilde](tau_2) and the bulk on r >=
+R_null + r_h, whose integrand, s^(p-4) (|nabla_L Psi|^2 + |nabla-slash Psi|^2 + mu^-1 s^-2 |Psi|^2) + s^(-1-delta)
+|nabla_L-bar H-tilde|^2 with p - 4 > -5 and 1 + delta < 2, bounds the integrand of B-bar[H] there; (10.12) controls
+F[H'] at tau_2 and B-bar[H'] in the bulk on [r_h, r_rs,H]. What (10.5) still asks is F[H'](tau_2) on r >= r_rs,H and
+B-bar[H'] on [r_rs,H, R_null + r_h], the latter already of the form of the error term. For the former consider J_T,a :=
+(T_ab[Hhat'] - (1/(2 r^2))|Hhat'|^2 g_ab) T^b ([Hun19] (4.9), in the regular variables): its flux through Sigma_tau is
+non-negative, controls F[H'](tau) on r >= r_rs,H (T timelike there, uniformly; on Sigma' the flux is (1/2)|nabla_L
+Hhat'|^2 + (f/2)|nabla-slash Hhat'|^2 + (f/(2 r^2))|Hhat'|^2) and is at most C F[H'](tau); its fluxes through H^+ and
+every v = v_0 are non-negative; and by (W8e) at delta = 0, div J_T = nabla_T Hhat' . (Acal Hhat' - beta Hhat'_R -
+Hhat'/r^2), so by (10.9), Proposition 10.2(vi) and Cauchy-Schwarz with the weights s^(-1-delta), s^(1+delta),
+    |div J_T| <~ mu^-3/2 |(sqrt mu d)^{<= 1} Hhat'|^2 chi_{[r_h, R_null + r_h]}
+                 + (mu^-1/2 s^(-1-delta) (|nabla_T Hhat'|^2 + |nabla_L-bar Hhat'|^2)
+                 + mu^-1/2 s^(-4+delta) (|nabla-slash Psi|^2 + mu^-1 s^-2 |Psi|^2)) chi_{[R_null + r_h, oo)},
+Psi the radiation field of H-tilde: on s >= 10, |Acal Hhat'| + |Hhat'|/r^2 <~ s^(-3/2) (r^-1 |nabla-slash Psi| + r^-2
+|Psi|) by the equivalence of the norms of H and H' there, and |beta Hhat'_R| <= 4 mu r^-3 f^-1 |nabla_L-bar Hhat'| =
+4 mu^-1/2 s^-3 f^-1 |nabla_L-bar Hhat'| with s^-3 <= s^(-1-delta). The second line is bounded by the bulk of Step 1
+(|nabla_T|^2 <= 2|nabla_L|^2 + 2|nabla_L-bar|^2, s^(-1-delta)|nabla_L Hhat'|^2 <~ s^(p-4)|nabla_L Psi|^2 + mu^-1
+s^(p-6)|Psi|^2, and s^(-4+delta) <= s^(p-4) for p >= delta). Apply the divergence theorem to epsilon_3 J_T with epsilon_3
+small enough for |div J_T| to be absorbed by the bulk of (10.12) on [r_h, r_rs,H] and by that of Step 1 on [R_null +
+r_h, oo), and add the three estimates. The compact-region terms of each -- [R_null, R_null + r_h] in Step 1, [r_rs,H,
+5 r_h/4] in Step 2, [r_rs,H, R_null + r_h] in Step 3 -- lie in [r_rs,H, R_null + r_h], the error term of (10.5); the
+initial terms are F[H'](tau_1) and E^{p,(0)}_L[H-tilde](tau_1) by the equivalence of the norms on r >= 5 r_h/4. []
+
+*Remark (the l = 0 sector).* At l = 0 the components are (H1, H2, H3, H6), with no angular term, U in row 6 alone and the
+regular variable H6' with 2f' nabla_L' (Proposition 10.2(iv), (vi)); r^2 A0_main has the eigenvalues 0, 0, 3, 8,
+diag(sqrt2, 1, sqrt2, sqrt2) A0_main diag(sqrt2, 1, sqrt2, sqrt2)^-1 is symmetric and A0 - A0_main/r^2 = O(mu/r^4) (W8g),
+so V_inf := A0_main + (3/4) I in that rescaling is symmetric with the eigenvalues 3/4, 3/4, 15/4, 35/4 > 0, and the three
+steps apply as written, without the angular terms: (10.5) holds for h_{l=0} with the norms read without |nabla-slash|.
+This is [Hun19] Remark 4.5, whose l = 0 leading matrix has the eigenvalues 0, 0, 1, 6 and needs no Hardy inequality
+either. Deduced; it does not bound h_{l=0}: (iv)'s K* grows linearly in t, and the right side of (10.5) grows with it.
+
+*What L1 still needs, and nothing else.* (10.5) reduces the decay of h in the harmonic gauge to its decay on the
+compact region [r_rs,H, R_null + r_h], and there h = h_RW + pi_X (Proposition 10.2(i), (iii)): the Regge-Wheeler-type
+part is Proposition 10.1's, which decays, and pi_X is the gauge vector's, the triangular system (v) with (10.1)'s
+source. In four dimensions this is how [Hun19] closes (sections 4.2-7, the compact region bounded by the Zerilli
+quantity and W). What remains of route A is the rungs: the Morawetz estimate for each scalar wave equation of (v) with
+its potential (ROUTES-OPEN.md 4.3(2), 4.7), the growing source (4.3(3)) and l = 0 (4.3(4)); every one of them a
+statement about a scalar wave equation on Tangherlini with a potential satisfying Hung's (A.3), none of them written.
+The scalar tails of T6 (t^-7 at l = 2) bound the rate any of this could reach.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

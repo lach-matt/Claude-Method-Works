@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D47).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D48).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -48,21 +48,25 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   density (Q1-Q2). `python3 routes5.py --selftest` (2/2), `--mutants` (2/2).
 - `ROUTES-OPEN.md`: one proposed method for each of the three open items, with the literature READ (D36), and in
   section 4 the route for the decay of the gauge-vector system and the nonlinear settling (D46), with 4.6 W7, Hung's
-  Proposition 4.2 in five dimensions, computed (D47). Nothing in it is proved.
+  Proposition 4.2 in five dimensions, computed (D47), and 4.7 his Proposition 4.1 in five dimensions, deduced on it
+  (D48; the proposition and its proof are N1STAR-PROOF.md section 10.5). Nothing in the file itself is proved.
 - `bondi5.py`: Theorem M, the Bondi mass at past null infinity (section 11): the five-dimensional Bondi hierarchy in
   the class with every coefficient from s^1 general (the orders below the waves' vanish; the mass law from R_vv at
   order r^-3), the chart from the wave-gauge expansion, the Hawking mass of the Bondi spheres, the numerics'
   coefficient (B1-B4). `python3 bondi5.py --selftest` (4/4, about ten minutes, B2 the slow one), `--mutants`
   (5/5), `--verbose` lists B1's and B2's sub-checks (until D47 the flag ran those two alone and exited 0).
-- `wavegauge5.py`: the passage to the harmonic gauge on five-dimensional Tangherlini in the class (section 10.4,
-  Proposition 10.2; D42): the Lichnerowicz identity and Gamma[pi_X] = box X, the l = 0 stationary one-form W* regular at
-  the horizon, the gauge-fixed mass change K* linear in t, the scalar gauge vector's three 1+1 equations per mode (l = 2,
-  4), the tensor type already harmonic, the gauge-vector system triangular, every rung a scalar wave equation whose
-  potential obeys Hung's positivity condition (W1-W6), and Hung's Proposition 4.2 in five dimensions: in his components
-  with the gauge condition admixed, box H = A H + U H with U along nabla_L in two rows, r^2 A_main with eigenvalues
-  (l+a)(l+a+2), the horizon-regular rows with nabla_L' coefficients 2f', f' > 0, and l = 0 (W7; D47). `python3
-  wavegauge5.py --selftest` (7/7, about seven and a half minutes, six of them W7), `--mutants` (7/7), `--verbose` lists
-  every sub-check, `--l4` runs W6 at l = 4 as well (72 minutes).
+- `wavegauge5.py`: the passage to the harmonic gauge on five-dimensional Tangherlini in the class (sections 10.4-10.5,
+  Propositions 10.2-10.3; D42): the Lichnerowicz identity and Gamma[pi_X] = box X, the l = 0 stationary one-form W*
+  regular at the horizon, the gauge-fixed mass change K* linear in t, the scalar gauge vector's three 1+1 equations per
+  mode (l = 2, 4), the tensor type already harmonic, the gauge-vector system triangular, every rung a scalar wave
+  equation whose potential obeys Hung's positivity condition (W1-W6), and Hung's Proposition 4.2 in five dimensions: in
+  his components with the gauge condition admixed, box H = A H + U H with U along nabla_L in two rows, r^2 A_main with
+  eigenvalues (l+a)(l+a+2), the horizon-regular rows with nabla_L' coefficients 2f', f' > 0, and l = 0 (W7; D47); and the
+  identities of his Proposition 4.1 in five dimensions: the radiation field's potential, coercive at every l >= 2 where
+  his has a zero at l = 2, the first-order term, the p-current, red-shift and T-current divergences, the angular
+  eigenvalues on S^3, the k-degree of the matrices and l = 0 (W8; D48), on which Proposition 10.3 is deduced. `python3
+  wavegauge5.py --selftest` (8/8, about seven and a half minutes, W7 and W8 most of them), `--mutants` (8/8, about six
+  minutes), `--verbose` lists every sub-check, `--l4` runs W6 at l = 4 as well (72 minutes).
 - `hung4.py`: the four-dimensional control of W7: Hung's Proposition 4.2 (arXiv:1909.06733) recomputed from the
   Schwarzschild metric with the instrument W7 runs, his seven rows as Appendix C combines them, reproducing the
   printed A, B and U rows and naming the two misprints in the printed combinations ((HG3) for (ME3) in row 7; f (ME3),

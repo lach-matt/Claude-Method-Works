@@ -390,13 +390,12 @@ Theorem E; it is the heavier of the two for this problem and is recorded, not re
 
 ### 4.5 The first step, and the order
 
-W6 is finished (4.3(1), all seven identities at l = 2 and 4) and W7, Hung's Proposition 4.2 in five dimensions, is
-computed (4.6): the structure his Proposition 4.1 rests on -- the gauge-adjusted system with U along nabla_L in two
-rows, the semi-positive leading matrix, the positive nabla_L' coefficients of the horizon-regular rows -- is in hand
-in the class. Next, in order: Proposition 4.1 itself in five dimensions (Hung's (4.4) and (4.8) on that structure with
-[Sch13]'s r^p weights and f' for 2M/r^2; an estimate, not a computation); route A's rungs, one proposition each, in
-the order of 4.3(2), the Morawetz current for the Maxwell potential first; the growing source (4.3(3)) and l = 0
-(4.3(4)); then route B's item 2, the five-dimensional constraint damping.
+W6 is finished (4.3(1), all seven identities at l = 2 and 4), W7, Hung's Proposition 4.2 in five dimensions, is computed
+(4.6), and his Proposition 4.1 is deduced on it (4.7; N1STAR-PROOF.md Proposition 10.3): the energy of h in the harmonic
+gauge is controlled by its data and by h on the compact region [r_rs,H, R_null + r_h], with [Sch13]'s r^p weights at
+null infinity and the red-shift at r_h, constants not tracked. Next, in order: route A's rungs, one proposition each, in
+the order of 4.3(2), the Morawetz current for the Maxwell potential first -- the compact region is where they enter;
+the growing source (4.3(3)) and l = 0 (4.3(4)); then route B's item 2, the five-dimensional constraint damping.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -433,6 +432,34 @@ What W7 does not do: it is the structure, not the estimate. Proposition 4.1 (Hun
 with the compact region as the error) is to be proved on it with [Sch13]'s weights; the Morawetz step for the Maxwell
 rung, the growing source and l = 0 are 4.3(3), (4), (6)(a), (b), (d). Labels: computed (wavegauge5.py W7, hung4.py);
 READ ([Hun19] pp. 18-25 and 70-79, alphaXiv, 2026-10-21); OPEN (the estimate).
+
+### 4.7 Hung's Proposition 4.1 in five dimensions (deduced, D48)
+
+Hung's Proposition 4.1 ([Hun19] p. 18, (4.1); its proof pp. 20-25: Lemma 4.4 with the current (4.5), the J_{H,delta}
+current (4.6), the red-shift (4.7)-(4.8), the T-current (4.9)) is deduced in five dimensions as N1STAR-PROOF.md
+Proposition 10.3, its proof written in the same three steps on the structure of 4.6, from the identities wavegauge5.py W8
+computes (exact; the three divergence identities formally, on two components with the matrices symbolic):
+- the radiation field Psi = s^(3/2) Hhat has the potential V = Ahat + V0, V0 = (3/4 + 9 mu/(4 r^2))/r^2 ([Sch13]
+  (5.11)-(5.12) at n = 4), and V_inf = lim r^2 V, symmetric in the rescaling diag(sqrt2, 1, sqrt2, sqrt2, 2 n_S, sqrt2,
+  sqrt2), has the eigenvalues (l+a+1/2)(l+a+3/2), a = -2, -1, 0, 0, 0, 1, 2: at least 3/4 at every l >= 2 and at least
+  (3/32) l(l+2). Hung's zero eigenvalue at l = 2 is lifted by the 3/4 of the five-dimensional radiation weight, so the
+  far-region estimate needs no Hardy inequality where four dimensions needs his Corollary 3.3;
+- the p-current's divergence (W8c) is his (4.5) with the powers of s lowered by one, its flux at I^+ is s^(p-5) Psi .
+  V_inf . Psi >= 0, and the first-order term Uhat is bounded by 9 mu r^-3 f^-1 |nabla_L Psi| + 13 mu r^-4 |Psi|,
+  absorbed for R_H ~ delta^-1/2 r_h as his is;
+- the red-shift identity at r = r_h (W8d) is his (2.13) with (1/(2M), 2/M) read as (2/r_h, 6/r_h) and three terms new in
+  five dimensions, (1/r_h)|nabla-slash Q|^2, (2c/mu^(3/2))|Q|^2 and (2c/mu) Q . Q_R, absorbed for sigma > 18/r_h and
+  then sigma large; the first-order term along nabla_L' enters as 2 Q_R . diag(0, 0, 0, 0, 0, 2f', f') Q_R >= 0, the
+  sign his argument needs (4.6);
+- the sub-leading and horizon matrices have entries of degree at most one in k (W8g), so one angular derivative bounds
+  them uniformly in l, which is what his (4.3) states for A_sub and B_sub;
+- l = 0 (W8h): A0 - A0_main/r^2 = O(mu/r^4) and V_inf has the eigenvalues 3/4, 3/4, 15/4, 35/4, so the proposition
+  holds for h_{l=0} too, as his Remark 4.5 -- without bounding it: K* grows linearly in t and the right side with it.
+What it is not: a decay statement. The right side carries h on [r_rs,H, R_null + r_h]; in [Hun19] the compact region is
+bounded through the Zerilli quantity and the gauge vector W (sections 4.2-7), here through Proposition 10.1's master
+quantities and the gauge vector system of 4.3(1)-(2), whose rungs are the next item. Labels: computed (wavegauge5.py W8);
+deduced (Proposition 10.3, constants not tracked); READ ([Hun19] pp. 4-25 and 70-72, [Sch13] (2.17)-(2.20), Proposition
+3.1 and (5.8)-(5.17); alphaXiv, 2026-10-21). Sent to the sixteenth verifier; verdict pending.
 
 ## References (READ 2026-10-20 unless marked)
 
