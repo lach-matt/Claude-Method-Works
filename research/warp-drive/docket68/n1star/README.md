@@ -92,12 +92,16 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `hierarchy5.py`: the first rungs' rapid decay (section 10.9; D51): Hung's Proposition A.5 at k = 1 in five dimensions
   -- the commuted equation of the radiation field, the p-current identity for the commuted field, his conditions (A.3),
   (A.5), (A.7)-(A.9) with the radii and constants at four modes, and the l = 0 obstruction (V_inf = 3/4, V^(1)_inf =
-  -5/4) (H1-H4). `python3 hierarchy5.py --selftest` (4/4, about a minute), `--mutants` (5/5).
+  -5/4) (H1-H4). `python3 hierarchy5.py --selftest` (4/4, about a minute), `--mutants` (6/6).
+- `coupled5.py`: the coupled estimate for the last two components of the gauge vector (section 10.10; D52): Hung's
+  section 6 in five dimensions -- the identities (6.8)-(6.10) and a fourth, the pair's matrix, the T-current with exact
+  positivity, the Morawetz current for a pair and its bulk, positive for every k^2 >= 8 without Hung's compact-region
+  substitution, and the r^p current (K1-K6). `python3 coupled5.py --selftest` (6/6, about a minute), `--mutants` (6/6).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All eighteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
+All nineteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
 numpy, growth5.py importing the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing
-lead5.py), growing5.py and lzero5.py import wavegauge5.py, and the others import nothing from the tree. The board's
-shared record is not edited here.
+lead5.py), growing5.py, lzero5.py and coupled5.py import wavegauge5.py, and the others import nothing from the tree. The
+board's shared record is not edited here.

@@ -1170,31 +1170,105 @@ Phi^(j) := (1 - 2M/r)^-1 M s^2 nabla_L Phi^(j-1), (2.19)-(2.23); Proposition 8.2
 *What was computed.* hierarchy5.py (H1) the commuted equation of Psi_1 := f^-1 r^2 nabla_L Psi for a symbolic potential:
 L Lbar Psi_1 = -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V) Psi, Vcal_1 = Vcal
 - 2/r^2 + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2); in four dimensions the same computation gives Vcal_1 =
-Vcal - 2/r^2 + 12 M/r^3 with the first-order term -(2/r)(1 - 3M/r) and the Psi term f (2M/r^2 - r^2 V' - 2 r V) where his
-V^(1) prints 14 M/r^3 and no first-order term -- the -2/r^2 his (A.8) reads is reproduced, the rest is at the order his
-argument absorbs, recorded as READ and not as a fault; the normalisation without f^-1 was tried and leaves a Psi term -2
-k^2 mu f/r^5, not uniform in l (the control). (H2) the p-current identity for Psi_1: the first-order term adds 2(1 - 2
-mu/r^2) to the |nabla_L Psi_1|^2 bulk, positive beyond r^2 = (10 + p) mu/(4 + p); the Psi_1 nabla_L Psi_1 term integrated
-by parts to the bulk r^(p-6) B_1. (H3) B_1 = ((2 - p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2 for Sigma, positive everywhere
-for l >= 1; for phi, B_1 >= (1/4)(2 - p)(k^2 - 5/4) for r >= R_1 = 8.14 r_h at k^2 = 8 and everywhere at k^2 = 24, 48, 80
-(p in [1/10, 19/10], a grid of 21, the first root in mu/r^2 found numerically to thirty digits); the base bulk B_0 = ((2
-- p)/2)(k^2 + 3/4) + (9/8)(4 - p) mu/r^2 for Sigma and R_0 = 10.56, 4.61, 3.04, 2.29 r_h for phi; (A.9): r^4 |V_phi|/mu
-<= 25.13, 15.25, 13.53, 12.89 and r^3 |d_r(r^2 V_phi)|/mu <= 47.84, 30.13, 26.90, 25.70, with V_phi -> -12 mu/r^4; (A.3):
-min r^2 (k^2/r^2 + V_phi) = 4/11, 124/9, 628/17, 5692/83, at the horizon, and -1 at k^2 = 3 (the control). (H4) l = 0:
-V_inf = 3/4, V^(1)_inf = -5/4; the base bulk (3/8)(2 - p) + (9/8)(4 - p) mu/r^2 is negative for p > 2 once r^2 > 3(4 - p)
-mu/(p - 2); in four dimensions the l = 0 bulk is (3 - p) M r^(p-6), positive to p = 3 (the control asserts the
-five-dimensional sign of it). Selftest 4/4 (about a minute), mutants 5/5.
+l(l + 1)/r^2 + V^(1), his V^(1) exactly (his 14 M/r^3 counts the radiation field's 2M/r^3 from V; this entry first
+compared shifts from different baselines and called them different, repaired on the nineteenth verifier's finding), with
+the first-order term -(2/r)(1 - 3M/r), which his remark does not print, and the Psi term f (2M/r^2 - r^2 V' - 2 r V); the
+normalisation without f^-1 was tried and leaves a Psi term -2 k^2 mu f/r^5, not uniform in l (the control). (H2) the
+p-current identity for Psi_1: the first-order term adds 2(1 - 2 mu/r^2) to the |nabla_L Psi_1|^2 bulk, positive beyond
+r^2 = (10 + p) mu/(4 + p); the Psi_1 nabla_L Psi_1 term integrated by parts to the bulk r^(p-6) B_1. (H3) B_1 = ((2 -
+p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2 for Sigma, positive everywhere for l >= 1; for phi, B_1 >= (1/4)(2 - p)(k^2 -
+5/4) for r >= R_1 = 8.14 r_h at k^2 = 8 and everywhere at k^2 = 24, 48, 80 (p in [1/10, 19/10], a grid of 21, the first
+root in mu/r^2 found numerically to thirty digits); the base bulk B_0 = ((2 - p)/2)(k^2 + 3/4) + (9/8)(4 - p) mu/r^2 for
+Sigma and R_0 = 10.56, 4.61, 3.04, 2.29 r_h for phi; (A.9): r^4 |V_phi|/mu <= 12 (k^2 + 3)/(k^2 - 3) = 26.40, 15.43,
+13.60, 12.94 and r^3 |d_r(r^2 V_phi)|/mu <= 24 (k^2 + 3)/(k^2 - 3) = 52.80, 30.86, 27.20, 25.87, the suprema at infinity
+(this entry first gave grid values over r <= 6.3 r_h, 25.13 and 47.84 at k^2 = 8, repaired on the nineteenth verifier's
+finding), with V_phi -> -12 mu/r^4; (A.3): min r^2 (k^2/r^2 + V_phi) = 4/11, 124/9, 628/17, 5692/83, at the horizon, and
+-1 at k^2 = 3 (the control). (H4) l = 0: V_inf = 3/4, V^(1)_inf = -5/4; the base bulk (3/8)(2 - p) + (9/8)(4 - p) mu/r^2
+is negative for p > 2 once r^2 > 3(4 - p) mu/(p - 2); in four dimensions the l = 0 bulk is (3 - p) M r^(p-6), positive to
+p = 3 (the control asserts the five-dimensional sign of it). Selftest 4/4 (about a minute), mutants 5/5.
 
 *What was deduced.* Proposition 10.6, the rate (1 + tau/sqrt mu)^(-4+p+3 delta) for Sigma and phi at l >= 2 against
 I^(1)[u], by his Proposition A.5's argument on (10.34)-(10.35) and H3: the base hierarchy, the commuted one with the bad
 term absorbed into the base bulk at the same p (mu^2 r^(p-8) Psi^2 <= (mu/R_null^2) mu r^(p-6) Psi^2), the Hardy step
-E^{2,(0)}_L <= 4 E^{0,(1)}_L with the same exponent as his because Psi carries r^(3/2) and E^{p,(0)}_L is mu^2 int s^p
-|nabla_L Psi|^2 ds, and the dyadic argument twice. With it 10.7's bound closes as his Lemma 5.5 and (a) is done for l >=
-2. At l = 0 his route does not transcribe: Proposition A.6(1) needs V_inf = 0, and in five dimensions V_inf = 3/4; S_W
-gets Propositions 10.4-10.5's rate only, and 10.8's conditional stands undischarged -- open, with two routes named (a
-different commutator at l = 0 in odd dimension; his Appendix B's O_j bounds at the weaker rate).
+E^{2,(0)}_L <= 4 (100/99)^2 E^{0,(1)}_L with his exponents, in 10.5's normalisation Phi^(0) = s^(3/2) u and Phi^(1) =
+sqrt(mu) f^-1 s^2 nabla_L Phi^(0) (the constant 4 and the identification of the norm with Psi = r^(3/2) u, first written
+here, repaired on the nineteenth verifier's finding), and the dyadic argument twice. With it 10.7's bound closes as his
+Lemma 5.5 and (a) is done for l >= 2. At l = 0 his route does not transcribe: Proposition A.6(1) needs V_inf = 0, and in
+five dimensions V_inf = 3/4; S_W gets Propositions 10.4-10.5's rate only, and 10.8's conditional stands undischarged --
+open, with two routes named (a different commutator at l = 0 in odd dimension; his Appendix B's O_j bounds at the weaker
+rate).
 
 *Seated.* N1STAR-PROOF.md 10.9, the closing paragraphs of 10.7 and 10.8; hierarchy5.py; ROUTES-OPEN.md 4.5 and 4.10; the
 README; the paper (the settling paragraph, Appendix A, the settling row, Appendix D, the [Hun19] entry, D1-D51, the md5
 rows). Labels: computed (exact; the radii and constants at four modes), deduced (Proposition 10.6), READ; nothing proved;
 l = 0 and (b) open. The nineteenth verifier is sent on 10.9 and hierarchy5.py; its verdict follows.
+
+*The nineteenth verifier (the same day; one agent, sent on 10.9, hierarchy5.py and the records).* No major finding; five
+minor and four notes, all seated. Minor: (1) the four-dimensional comparison -- the record's own computation reproduces
+Hung's V^(1) exactly, his V^(j) being counted from V, which already carries the radiation field's 2M/r^3 at j = 0, so his
+14 M/r^3 is the 12 M/r^3 by which Vcal_1 exceeds Vcal - 2/r^2; the record had compared shifts from different baselines;
+H1 now asserts the agreement, and 10.9, ROUTES 4.10 and this entry say it; (2) the (A.9) constants were grid suprema over
+r <= 6.3 r_h; the exact suprema are 12 (k^2 + 3)/(k^2 - 3) and 24 (k^2 + 3)/(k^2 - 3), attained at infinity (26.4 and
+52.8 at l = 2), now proved in H3 by Sturm sequences; (3) the Hardy step's constant is 4 (100/99)^2 in 10.5's
+normalisation Phi^(0) = s^(3/2) u with Phi^(1) := sqrt(mu) f^-1 s^2 nabla_L Phi^(0) (his M s^2), the record having
+written 4 and identified the norm with Psi = r^(3/2) u, off by a power of mu; the exponents were right; (4) l >= 1
+against l >= 2 -- Proposition 10.6 is stated for l >= 2, Sigma alone at l >= 1 (for phi at l = 1, (A.3) fails), and 10.7,
+10.8 and ROUTES 4.5 now say so; (5) ROUTES 4.9's label line said (a) and (b) open after (a) was done for l >= 2. Notes:
+the paper's settling sentence now says every mode but the spherically symmetric one; the p-grid is complete because the
+difference is affine in p, now checked; H3 now pins the radii, the (A.9) suprema and the (A.3) minima, the last exact at
+the horizon because the function decreases in mu/r^2 (checked); H4's five-dimensional claims had no control -- V^(1)_inf
+at l = 0 is now computed from H1's equation, and a second control drops the radiation field's (3/4)/r^2; a first attempt
+at that control, V_inf claimed 0 at l = 0, passed and so was vacuous, because the Psi^2 bulk -(1/2) r^(3-p) d_r(r^p Vcal)
+does not depend on how V_inf is split off -- V_inf's own role is the sign of the flux at null infinity, which is (A.8).
+hierarchy5.py now: selftest 4/4 (about a minute), mutants 6/6. What held under its attack: (10.34) and (10.35) by two
+independent routes and in Minkowski; B_0, B_1 and the l = 0 root; the radii to four digits; the absorption of the bad
+term into the base bulk at the same p; the three deltas; the obstruction stated as the method's; the md5 rows and counts.
+Its verdict: 10.9 can be relied on as labelled once these sentences are repaired; they are, in the PR that seats 10.10.
+
+**D52 (2026-10-21, M: "Continue please"): the coupled estimate -- [Hun19] section 6 in five dimensions (section 10.10;
+coupled5.py K1-K6); route A carried through for l >= 2.**
+
+*The step.* ROUTES 4.5's order after D51: the coupled (X_1, X_L) estimate, 10.7's (b). PR #72 had merged (M, 17:45 UTC);
+the branch was restarted from main. The nineteenth verifier, sent on 10.9, had not reported when this step began; its
+findings are seated beside this entry when it does, and the twentieth is sent on 10.10 after it.
+
+*What was read.* [Hun19] section 6 in full at source (alphaXiv), pp. 38-55: Proposition 6.1 and Decay[W], the assumption
+(6.3), the identities (6.8)-(6.11) with F_1, F_2, F_3, the T-current (6.12)-(6.19) with A_W,in, A_W,ex, A_W,aux and his
+positivity matrices ("only semi-positive definite with eigenvalues {0, 6}" at l = 1, p. 40), the Morawetz current
+(6.22)-(6.27) with A_W,Mor, M_[bM,oo), M_[2M,bM] and the polynomials p_1, p_2, p_3, the f-bar current J_3,2, the r^p
+current (6.28)-(6.32) with A_W,main and A_W,sub, section 6.5 with the order of the constants C_1, epsilon_2, epsilon_4,
+R_T, b, and the dyadic argument (6.35)-(6.37).
+
+*What was computed.* coupled5.py (K1) at l = 2, for the scalar-type one-form with W6's S, P, Q_t, Q_r: d_r X_1 + (3/r)
+X_1 + (k/r) X_L = S + f^-1 d_t X_t, f d_r X_L + (f/r) X_L + (k/r) X_1 = (k f/r) Q_r, d_t X_1 = f (P + d_r X_t), and d_t
+X_L = (k/r)(Q_t - X_t), the last not in his list; W6 re-run for Q_r and Q_t in terms of S, P and J. (K2) r^2 V -> [[k^2 +
+3, 2k], [2k, k^2 - 1]] with eigenvalues (l + 1)(l + 3), (l - 1)(l + 1); his leading matrix's (l + 1)(l + 2), l(l - 1)
+reproduced; the antisymmetric part (k mu/r^4)[[0, -2], [2, 0]]; A_12 = 0 at r^2 = 2 mu with a change of sign. (K3) the
+weighted T-current identity for generic C and N; N_in (weight 10) and N_ex >= (k^2/4) r^-2 I for every real k^2 >= 8 on
+[0, 1] and [0, 1/2] in mu/r^2, by Sturm sequences on the coefficients in k^2 - 8; with weight 1, N_in indefinite at the
+horizon at k^2 = 8 (the control). (K4) the Morawetz identity for a pair with arbitrary V and symmetric M, and the
+g-current, both exact with generic functions. (K5) the cross term -(2 k mu F/r^4)(X_L Y_1 - X_1 Y_L) and its completion
+at the cost k^2 mu^2 F^2/((dF/dr) r^8); W_rest >= r^-3/40 on the exterior for every real k^2 >= 8, exactly. It was found
+by exploring before it was checked: with half the angular term kept, the bulk is negative at l = 2 at infinity (-3/2
+r^-3) and slightly negative at l = 4, 6 near 1.25 r_h; with a tenth kept it is positive, its least value 0.0352 r^-3 at l
+= 2 at 1.261 r_h; beta = 1/4 and 3/4 were tried and are worse; completing the cross term into half of the radial square
+instead (to keep the rest of it) fails at the horizon, so the full square is used and the radial derivative is recovered
+from the completed square and the kept angular term. (K6) the radiation equation for the pair, V_inf = [[k^2 + 15/4, 2k],
+[2k, k^2 - 1/4]] with eigenvalues (l + 3/2)(l + 5/2), (l - 1/2)(l + 1/2), the remainders O(mu/r^4) and the antisymmetric
+part. Selftest 6/6 (about a minute), mutants 6/6.
+
+*What was deduced.* Proposition 10.7, the pair at (1 + tau/sqrt mu)^(-2+p+3 delta) against Decay[X], by his section 6 on
+K1-K6: the T-current's inner error through F_3, its outer error absorbed by the r^p bulk; the red-shift step by [HKW18]
+Lemma 11 for a bounded matrix potential, deduced without a computation; the Morawetz bulk positive without the
+compact-region substitution, which five dimensions does not need because the class starts at l = 2 where the pair is
+definite; the photon-sphere degeneracy of the derivatives removed by (10.38) as his (6.8)-(6.9) remove it; the r^p
+current with V_inf positive definite; his 6.5 and the dyadic argument. With 10.6, 10.9 and 10.10, every component of the
+gauge vector and h = h_RW + pi_X decay in harmonic gauge at every mode l >= 2 of the class: route A carried through for l
+>= 2, his Theorem 2.4(1) in five dimensions, deduced, by his section 7: Proposition 10.3 with its compact region bounded
+by the master field and the gauge vector there. Open: l = 0 alone (10.9's obstruction), and with it the final state c_1
+K* + c_2 pi_{W*} of Proposition 10.2(iv).
+
+*Seated.* N1STAR-PROOF.md 10.10 and the closing paragraphs of 10.7 and 10.9; coupled5.py; ROUTES-OPEN.md 4.5, 4.10's last
+bullet and 4.11; the README; the paper (the settling paragraph, Appendix A, the settling row, Appendix D and its import
+sentence, the [Hun19] entry, D1-D52, the md5 rows). Labels: computed (exact; K1 at l = 2, K3 and K5 for every real k^2 >=
+8), deduced (Proposition 10.7 and the l >= 2 conclusion), READ; nothing proved; l = 0 open.
