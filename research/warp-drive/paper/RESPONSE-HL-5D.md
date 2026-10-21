@@ -701,7 +701,13 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   by another route (supplement section 10.11, `lzerorate5.py`): the same commutation, its negative potential absorbed by
   a Hardy inequality on each outgoing null leaf for p < 1, with Schlue's Morawetz estimate at l = 0 [Sch13], gives the
   decay Hung's l = 0 argument needs at a rate one power weaker, so that the spherically symmetric part settles to a
-  change of mass and a stationary gauge mode, deduced: every mode of the class is carried. No growing mode appears in
+  change of mass and a stationary gauge mode, deduced: every mode of the class is carried. The nonlinear route through
+  Hintz's generalized wave map gauge [Hin26] needs a strongly damped constraint propagation operator; at zero energy
+  that is a condition on indicial roots, which see only the Minkowski model at infinity, and it is computed in five
+  dimensions (supplement section 10.12, `damping5.py`): Hintz's constraint damping [Hin26a], with the trace weight
+  2/(D − 2) in place of his 1 — his 1 transcribed literally puts a root in (0, 1) — has at his parameters no indicial
+  root with real part in [−100, 2) but the Coulomb root r^−2, exactly; the rest of that operator's analysis on
+  Tangherlini is open. No growing mode appears in
   either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l
   = 2 master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h,
   the same at half the step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is
@@ -770,10 +776,13 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   angular term spent twice at l = 2, a closing claim that the gauge vector decays at the rungs' rate (withdrawn: the
   sources are not in the norm, the growing-source problem then taken up), and an initial norm without the weighted data
   the proof uses — repaired the same day, with eight minor findings and two notes. Sections 10.7–10.8 with `growing5.py`
-  and `lzero5.py` were read by an eighteenth (D50), section 10.9 with `hierarchy5.py` by a nineteenth (D51) and section
-  10.10 with `coupled5.py` by a twentieth (D52): no major finding in any; six, five and six minor findings and five, four
-  and eight notes, seated — among the twentieth's, a step of the coupled estimate's Morawetz argument that lost a factor
-  of the angular eigenvalue, repaired uniformly in the mode. Section 10.11 has not been read by a verifier.
+  and `lzero5.py` were read by an eighteenth (D50), section 10.9 with `hierarchy5.py` by a nineteenth (D51),
+  section 10.10 with `coupled5.py` by a twentieth (D52) and section 10.11 with `lzerorate5.py` by a twenty-first (D53):
+  no major finding in any; six, five, six and two minor findings and five, four, eight and nine notes, seated — among the
+  twentieth's, a step of the coupled estimate's Morawetz argument that lost a factor of the angular eigenvalue, repaired
+  uniformly in the mode; among the twenty-first's, the leading-order window's condition on the commuted potential at
+  infinity, stated as a bound on its modulus where it is the lower bound −2. Section 10.12 has not been read by a
+  verifier.
 
 ---
 
@@ -838,6 +847,12 @@ from the arXiv text, with the extraction's spacing.
   arXiv:1012.5963v1. READ 2026-10-21: (2.17)–(2.20), Proposition 3.1, (5.8)–(5.17); and, for the spherically symmetric
   sector, Theorem 1 ((1.9)–(1.10)), Proposition 4.1 ((4.4)) with its proof ((4.76)–(4.92)), Corollary 4.3, Propositions
   4.21–4.22 and (5.18)–(5.22).
+- [Hin26a] P. Hintz, *Constraint damping on subextremal Kerr spacetimes*, arXiv:2606.27658v2. READ 2026-10-21: pp. 1–3
+  (Theorem 1.1, (1.1)–(1.2)), 5, 7, 25 (Definition 3.1, Lemma 3.2), 29, 33–37 (section 4.3, Lemma 4.6, Corollary 4.7,
+  (4.19), Definition 4.8, Theorem 4.9, Remarks 4.10–4.12), 67 (Theorem 6.2), 69–74 (Appendix A, (A.1)–(A.2), (A.13)),
+  85.
+- [Hin26] P. Hintz, *Nonlinear stability of subextremal Kerr black holes*, arXiv:2606.28253v2. READ 2026-10-21: pp. 1,
+  4, 25–26, 29 ((1.43)), 82 (Definition 4.2, (4.6)–(4.9)), 136 (Theorem 7.1).
 - [Wu26] S. Wu, *Picard iteration for the characteristic initial value problem in Einstein equations*,
   arXiv:2609.08421v1. READ 2026-10-20: abstract; p. 2, (1.1); Theorems 2.1–2.2, p. 6.
 - [AB26] L. Alpöge, T. Buckmaster, *Blowup for the Boussinesq equations with smooth forcing*, preprint (September
@@ -941,9 +956,14 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   current with exact positivity, the Morawetz current for a pair and its bulk, positive for every mode without his
   substitutions and uniformly in the mode, and the r^p current. 6/6; mutants 6/6 (about a minute).
 - `lzerorate5.py` Y1–Y5: the spherically symmetric sector by another route (supplement section 10.11): the commuted
-  equation and currents at l = 0, the Hardy step on the outgoing leaf with its exact absorption identity, the window p <
-  1 at the null radius, the base hierarchy without an angular term, and the cut-off source of the l = 0 substitution.
-  5/5; mutants 7/7 (about half a minute).
+  equation and currents at l = 0, the Hardy step on the outgoing leaf with its exact absorption identity, the window
+  [δ, 1 − δ] at the null radius, the base hierarchy without an angular term, and the cut-off source of the l = 0
+  substitution. 5/5; mutants 7/7 (about half a minute).
+- `damping5.py` U1–U6: the constraint damping of the nonlinear route in five dimensions (supplement section 10.12): the
+  indicial families of Hintz's constraint propagation operator on 4+1 Minkowski from the definitions, his
+  four-dimensional formulas as the control, the trace weight 2/(D − 2), the exact certificate that at his parameters no
+  root lies in [−100, 2) but the Coulomb root, his weight 1 failing, and a numerical survey over the damping parameters.
+  6/6; mutants 6/6 (about eighty seconds).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
     the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1018,7 +1038,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D53).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D54).
 
 | claim | where it is established |
 | --- | --- |
@@ -1046,27 +1066,28 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D5
 | | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
-| settling, section 8 | supplement sections 10.1, 10.3–10.11 (Propositions 10.1–10.8); `docket68/n1star/settle5.py` |
+| settling, section 8 | supplement sections 10.1, 10.3–10.12 (Propositions 10.1–10.9); `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
 | | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; |
 | | `docket68/n1star/hierarchy5.py` H1–H4; `docket68/n1star/coupled5.py` K1–K6; |
-| | `docket68/n1star/lzerorate5.py` Y1–Y5; [HKW18], [KI03], [CLY03b], |
-| | [CYDL03], [Hun19], [Sch13] |
+| | `docket68/n1star/lzerorate5.py` Y1–Y5; `docket68/n1star/damping5.py` U1–U6; [HKW18], [KI03], |
+| | [CLY03b], [CYDL03], [Hun19], [Sch13], [Hin26a], [Hin26] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
 | | the repairs of D40 and sections 10.2–10.3 (D44); the fourteenth D42–D44 (D45); the fifteenth the |
 | | repairs of D45, Theorem 3 and the route of D46 (D47); the sixteenth W7, `hung4.py`, those repairs and |
 | | Proposition 10.3 with W8 (D48); the seventeenth section 10.6 (D49); the eighteenth sections 10.7–10.8 |
-| | (D50); the nineteenth section 10.9 (D51); the twentieth section 10.10 (D52) |
+| | (D50); the nineteenth section 10.9 (D51); the twentieth section 10.10 (D52); the twenty-first section |
+| | 10.11 (D53) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
 
 Python 3.11 with sympy; z3-solver for `foliation5.py`; numpy for `bondi5.py` and `growth5.py`, numpy and scipy for
-`settle5.py`. `growth5.py` imports the solver `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imports
-`lead5.py`, `growing5.py`, `lzero5.py` and `coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports `hierarchy5.py`;
-the others import nothing from the research tree:
+`settle5.py`; mpmath for `damping5.py`. `growth5.py` imports the solver `docket68/lemmas/hf_mirror5.py` and
+`hf_core5.y_core`, `past5.py` imports `lead5.py`, `growing5.py`, `lzero5.py` and `coupled5.py` import `wavegauge5.py`,
+`lzerorate5.py` imports `hierarchy5.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1079,6 +1100,7 @@ the others import nothing from the research tree:
                                                          # hierarchy5 (about a minute)
                                                          # coupled5 (about a minute)
                                                          # lzerorate5 (about half a minute)
+                                                         # damping5 (about eighty seconds)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1086,9 +1108,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `8582e5e11388755d5dfe0defb03b90bc` |
-| `docket68/n1star/N1STAR-LOG.md` | `0dd7b19ac5769583b7e20bc30c57aa70` |
-| `docket68/n1star/README.md` | `a05860cf21153a3d65ee7d61d5a326ab` |
+| `docket68/n1star/N1STAR-PROOF.md` | `5df66bdbe9fe44e159ad7790b9f8abc7` |
+| `docket68/n1star/N1STAR-LOG.md` | `28c80873c8a9a63cea625ec14fd2cbb2` |
+| `docket68/n1star/README.md` | `3d77b094e3d34adc8c5801a872faeaca` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1104,8 +1126,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/growing5.py` | `f0af993ae740166648df5e57bb0bd8ee` |
 | `docket68/n1star/lzero5.py` | `15b82c25a3f446d596d4f34119eab15f` |
 | `docket68/n1star/hierarchy5.py` | `0ccf0a2d871a186c6391eda8e0ab9d95` |
-| `docket68/n1star/coupled5.py` | `3f0714a5e4a01cce303cf6b1d65c5e26` |
-| `docket68/n1star/lzerorate5.py` | `9cf64a8457d81cb17c5fe585deefeb72` |
+| `docket68/n1star/coupled5.py` | `bdf92b44776f162add54534ae04d68c3` |
+| `docket68/n1star/lzerorate5.py` | `5a104010df4a5e7390659db094910f45` |
+| `docket68/n1star/damping5.py` | `b904d9198b1637d510c9689e13a50c21` |
 | `docket68/n1star/hung4.py` | `7f3d68853fde8bda4ff383dc039dadfe` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |

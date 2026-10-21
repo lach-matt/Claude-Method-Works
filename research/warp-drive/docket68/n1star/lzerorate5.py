@@ -42,7 +42,7 @@ u the radiation field, L Lbar Psi = -f Vcal Psi, Psi_1 := f^-1 r^2 L Psi, L = d_
      window closes at p = 0.9716 at x = 1/100 and at p = 1 at x = 0; for general delta in (0, 1/10], R_null >= 3
      r_h/delta^(1/2) (x_R <= delta/9) keeps Q > 0 at both corners, exactly (Q(1 - delta, delta/9) = delta (25 - 19
      delta + delta^2)/18, vanishing with delta).  At leading order the condition is (4 +
-     p)(2 - p) > -4 V1_inf, which needs |V1_inf| < 2: open on p < 1 at the five-dimensional l = 0 value -5/4 and
+     p)(2 - p) > -4 V1_inf, which needs V1_inf > -2: open on p < 1 at the five-dimensional l = 0 value -5/4 and
      empty at the four-dimensional one, -2 (H1), so the window is the odd dimension's.  Controls: R_null = 5 r_h,
      where Q(9/10, 1/25) < 0; and p = 1 at x = 0, where Q = 0.
   Y4 (computed, exact) The base hierarchy at l = 0 needs no angular term.  B_0 = (3/8)(2 - p) + (9/8)(4 - p) mu/r^2 >=
@@ -65,7 +65,7 @@ READ (alphaXiv, 2026-10-21).  [Hun19] section 8 pp. 58-70 in full (Theorem 8.1, 
 pp. 73-75.  [Sch13] Theorem 1 (1.9)-(1.10) p. 5, Proposition 4.1 (4.4) pp. 19-20, Corollary 4.3, the proof of
 Proposition 4.1 (4.76)-(4.92) pp. 44-52, Propositions 4.21-4.22 pp. 53-54, (5.8)-(5.22) pp. 57-62.
 
-sympy.  python3 lzerorate5.py [--selftest | --mutants]   (about a minute; --verbose lists every sub-check)
+sympy.  python3 lzerorate5.py [--selftest | --mutants]   (about half a minute; --verbose lists every sub-check)
 """
 import os
 import sys
@@ -122,8 +122,9 @@ def y1(control=0, verbose=False):
     leaf = (r**(p - 1)*c35*wp**2 + r**(p - 3)*(-sp.Rational(5, 8)*(2 - p)
                                                  + sp.Rational(57, 8)*(4 - p)*mu/r**2)*w**2
             - sp.Rational(9, 2)*mu*r**(p - 3)*Ps*wp)
-    chk("(10.35) at k = 0 on an outgoing leaf, measure r^3 du dr, L = f d_r: r^(p-1) c w'^2 + r^(p-3) B_1 w^2 "
-        "- (9 mu/2) r^(p-3) Psi w', the f's cancelling", sp.simplify(sp.expand(dens - leaf)) == 0)
+    chk("(10.35) at k = 0 on an outgoing leaf: L Psi_1 = f w' and the measure r^3 du dr turn its density into "
+        "r^(p-1) c w'^2 + r^(p-3) B_1 w^2 - (9 mu/2) r^(p-3) Psi w', the f's cancelling (c and B_1 as above)",
+        sp.simplify(sp.expand(dens - leaf)) == 0)
     return chk.ok
 
 
@@ -177,13 +178,17 @@ def y3(control=0, verbose=False):
     chk("at x = 0 the window is open at p = 9/10 (Q = 39/200)",
         q_of(pend, 0) > 0 and (control == 2 or q_of(pend, 0) == sp.Rational(39, 200)))
     c = p*(1 - xv)/2 + 2 - 5*xv
-    chk("c = p f/2 + 2 - 5 x decreases in x (least at R_null); B_1 >= -(5/8)(2 - p) on p <= 4",
-        sp.simplify(D(c, xv) + (p/2 + 5)) == 0)
+    chk("c = p f/2 + 2 - 5 x decreases in x (least at R_null)", sp.simplify(D(c, xv) + (p/2 + 5)) == 0)
+    B1 = HI.bulk_poly(sp.Integer(0), kk**2 - sp.Rational(5, 4), -2).subs(kk, 0)
+    chk("B_1 + (5/8)(2 - p) = (57/8)(4 - p) x, so B_1 >= -(5/8)(2 - p) on p <= 4",
+        sp.simplify(B1 + sp.Rational(5, 8)*(2 - p) - sp.Rational(57, 8)*(4 - p)*xv) == 0)
     dl = sp.Symbol("delta", positive=True)
     corners = [sp.Poly(sp.cancel(sp.expand(q_of(pc, dl/9)*20)/dl**k), dl) for pc, k in ((dl, 0), (1 - dl, 1))]
     chk("general delta in (0, 1/10]: Q(delta, delta/9) > 0 and Q(1 - delta, delta/9) > 0 (R_null >= 3 r_h/delta^(1/2))",
         all(P.count_roots(0, DELTA) == 0 and P.eval(DELTA) > 0 for P in corners)
         and sp.expand(q_of(1 - dl, dl/9)).subs(dl, 0) == 0)
+    chk("Q(1 - delta, delta/9) = delta (25 - 19 delta + delta^2)/18",
+        sp.simplify(q_of(1 - dl, dl/9) - dl*(25 - 19*dl + dl**2)/18) == 0)
     # the leading-order condition for a general V1_inf: (2 + p/2)(2 - p)^2/4 > -((2 - p)/2) V1  <=>  (4 + p)(2 - p) >
     # -4 V1; at the five-dimensional l = 0 value -5/4 it is p < 1, at the four-dimensional one, -2 (H1), empty
     V1 = sp.Symbol("V1")

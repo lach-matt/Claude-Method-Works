@@ -2458,8 +2458,10 @@ past p = 2 is the rapid-decay input the growing source of 10.7 needs as well. Th
 3/4 (W8(h)), not zero as in four dimensions, so the Newman-Penrose constant that his Proposition A.6 assumes to vanish
 has no five-dimensional counterpart at this order. 10.9 computes what the extension past p = 2 meets in five dimensions:
 at l >= 2, and for Sigma at l >= 1, it goes through (Proposition 10.6), at l = 0 it is obstructed (H4), so (a) here is
-open in a stronger sense -- his route does not supply it. 10.11 supplies (a) and (b) by another route, at a weaker rate,
-and with them discharges the conditional.
+open in a stronger sense -- his route does not supply it. 10.11 supplies weaker forms of (a) and (b) -- the same
+commutator with a Hardy absorption, S_W at (1 + tau/sqrt mu)^(-3+p+3 delta) for p <= 2 - delta where his rate is
+(1 + tau/M)^(-4+p+delta) up to p = 4 - delta -- re-runs his Appendix B at the weaker rate, and with them discharges the
+conditional.
 
 ### 10.9 The first rungs' rapid decay: [Hun19] Proposition A.5 in five dimensions, and l = 0 (`hierarchy5.py` H1-H4; D51)
 
@@ -2566,9 +2568,10 @@ commutation that rescues l >= 1 has V^(1)_inf = -5/4, and the base hierarchy sto
 ("if S_W and P-hat decay as in his Propositions 8.2 and 8.4") is not discharged by his method, and the five-dimensional l
 = 0 sector is open in a stronger sense than 10.7 said: either a different commutator at l = 0 in odd dimension (the
 five-dimensional l = 0 wave has the tail t^-3 by [CYDL03], so the faster decay is expected and the obstruction is the
-method's), or his Appendix B's O_j bounds re-run with the weaker rate, which is not examined here. 10.11 does both: the
-same commutator, with V^(1)_inf = -5/4 absorbed by a Hardy inequality on the leaf for p < 1, and his Appendix B at the
-weaker rate. And (b) of 10.7, the coupled estimate for (X_1-hat, X_L-hat), which 10.10 deduces. Nothing of this section
+method's), or his Appendix B's O_j bounds re-run with the weaker rate, which is not examined here. 10.11 takes the
+second, with the same commutator rather than a different one: V^(1)_inf = -5/4 is absorbed by a Hardy inequality on the
+leaf for p < 1, and his Appendix B is re-run at the weaker rate. And (b) of 10.7, the coupled estimate for (X_1-hat,
+X_L-hat), which 10.10 deduces. Nothing of this section
 is proved: (10.34)-(10.35) and H3-H4 are computed, exactly and at the modes stated; Proposition 10.6 is deduced by his
 argument; l = 0 is 10.11's, and (b) is 10.10's.
 
@@ -2716,8 +2719,10 @@ rotations acting trivially at l = 0.
 *What is READ.* [Sch13] at its spatial dimension n = 4 (his 2m is mu): Proposition 4.1, (4.4), pp. 19-20, for every
 solution of box phi = 0 on the exterior, "int_{R^oo_{r_0,r_1}(t_0)} {r^-n (d phi/d r*)^2 + r^-(n+1) (d phi/dt)^2 + r^-3
 (1 - 2m/r^(n-2)) |nabla-slash phi|^2} dmu_g <= C(n, m) int_{Sigma_tau_0} (J^T(phi) + J^T(T phi), n)", with "no
-restriction on the spherical harmonic number" (p. 44): its low harmonics are treated by the current J^(alpha) commuted
-with the rotations Omega_i ((4.90)-(4.92), p. 47), which vanish at l = 0. Corollary 4.3 gives its non-degenerate form
+restriction on the spherical harmonic number" (p. 44). It is used here as stated, for every solution of box phi =
+0, so at l = 0; which part of his proof (4.76)-(4.92) carries the l = 0 mode is not identified here -- the current
+J^(alpha) commuted with the rotations Omega_i, which treats his low harmonics ((4.90)-(4.92), p. 47), vanishes there.
+Corollary 4.3 gives its non-degenerate form
 with the red-shift, Proposition 4.22 the zeroth-order term on a timelike boundary, and Theorem 1 (1.9), p. 5,
 E[phi](Sigma_tau) <= C D/tau^2 by the hierarchy (5.17) at p = 1, 2. At l = 0 this is the Morawetz estimate 10.8 found
 missing; it costs one T-derivative, which D^{<= m} absorbs. [Hun19] section 8, Proposition A.6 and Appendix B as quoted
@@ -2758,7 +2763,7 @@ Newman-Penrose constant vanishes" (p. 73).
       Q(9/10, 1/100) = 2701/20000 at R_null = 10 r_h, and for delta in (0, 1/10], with x_R = delta/9 (R_null = 3
       r_h/delta^(1/2)), Q(delta, delta/9) > 0 and Q(1 - delta, delta/9) = delta (25 - 19 delta + delta^2)/18 > 0. The
       window closes at p = 0.9716 at x = 1/100 and at p = 1 at x = 0. At leading order the condition is (4 + p)(2 - p) >
-      -4 V^(1)_inf, which needs |V^(1)_inf| < 2: it is open on p < 1 at the five-dimensional l = 0 value -5/4 and empty
+      -4 V^(1)_inf, which needs V^(1)_inf > -2: it is open on p < 1 at the five-dimensional l = 0 value -5/4 and empty
       at the four-dimensional one, -2 (his V^(1) at l = 0, H1), where his Proposition A.6(1) rests instead on V_inf = 0
       and a vanishing Newman-Penrose constant. Controls: R_null = 5 r_h, where Q(9/10, 1/25) < 0; p = 1 at x = 0, where Q
       = 0.
@@ -2790,8 +2795,9 @@ let
     I_0[S_W] := (F + E^{2-delta,(0)}_L + E^{1-delta,(1)}_L)[D^{<= 10} S_W](0),
     Decay_0[W'] := F[D^{<= 2} W'](0) + (F + E^{2-delta,(0)}_L)[D^{<= 7} P-hat](0) + mu I_0[S_W]
 
-be finite -- no Newman-Penrose condition: E^{1-delta,(1)}_L is finite when Psi_1 tends at null infinity to a limit, zero
-or not, at the rate 1/r, where his E^{4-delta,(0)}_L < oo forces the limit to vanish. Then for tau >= 0:
+be finite -- no Newman-Penrose condition: E^{1-delta,(1)}_L is finite when d_r Psi_1 = O(r^-2) along the leaf, so that
+Psi_1 tends at null infinity to a limit, zero or not, at the rate 1/r, where his E^{4-delta,(0)}_L < oo forces the limit
+to vanish. Then for tau >= 0:
 
  (i) for p in [delta, 2 - delta] and m <= 8,
     (F[D^{<= m} S_W] + E^{p,(0)}_L[D^{<= m} S_W-tilde])(tau) + mu^-1/2 int_tau^oo (B-bar[D^{<= m} S_W]
@@ -2806,11 +2812,14 @@ or not, at the rate 1/r, where his E^{4-delta,(0)}_L < oo forces the limit to va
 
 *Proof.* (a) The base hierarchy at l = 0. [Sch13] Proposition 4.1 gives the Morawetz bulk of S_W at l = 0 with one
 T-derivative on the right, Corollary 4.3 its non-degenerate form and Proposition 4.22 the zeroth-order term on the
-timelike boundary r = R_null; with these in place of Proposition 10.4's Morawetz step, and the current (10.40) with B_0 >
+timelike boundary r = R_null. The red-shift commutator in D^{<= m} gives Y^j S_W an inhomogeneous equation,
+so for those the Morawetz step is the one with a source of (d) -- deduced, not READ. With these in place of Proposition
+10.4's Morawetz step, and the current (10.40) with B_0 >
 0 (Y4) in place of its angular term -- its |nabla_L Psi|^2 coefficient positive for mu/r^2 < p f/2, which x_R <= delta/9
 secures -- Proposition 10.5's argument runs at l = 0, its step (iii) with Y4's domination where it borrowed k^2 >= 8, and
-gives (F + E^{p,(0)}_L)[D^{<= m} S_W](tau) <~ (1 + tau/sqrt mu)^(-2+p+delta) I_0 for p in [delta, 2 - delta], his Theorem
-1 (1.9) with the r^p weights.
+gives (F + E^{p,(0)}_L)[D^{<= m} S_W](tau) <~ (1 + tau/sqrt mu)^(-2+p+2 delta) I_0 for p in [delta, 2 - delta], his
+Theorem 1 (1.9) with the r^p weights -- (10.22)'s rate at delta-bar = delta; the boundedness of [Sch13] Theorem 1 would
+save that delta, which (c) does not need.
 
 (b) The commuted hierarchy at l = 0. Take J^p of (10.7) on chi Psi_1, chi the cut-off vanishing at R_null and equal to 1
 beyond R_null + r_h as in 10.9 (iii), on D(tau_1, tau_2) cap {r >= R_null}, p in [delta, 1 - delta]. On each leaf,
@@ -2847,7 +2856,9 @@ multiplier identities, so with a source each divergence gains the source times t
 into E^p_source and the bulk -- deduced, as Proposition 10.4 carries its source, not READ. Proposition 10.5's argument
 with it gives (i) boundedness at every p <= 2 - delta, the source integral being finite at every p; (ii) the dyadic step
 at p = 2 - delta; (iii) at p = 1, with the source's (1 + tau_j/sqrt mu)^(-1+4 delta) for its (1 + tau_j/sqrt
-mu)^(-1+delta-bar), F[P-hat] <~ (tau_j/sqrt mu)^-1 at sample times; and (iv) between them F(tau) <~ F + E^{delta,(0)}_L
+mu)^(-1+delta-bar) -- 4 delta in delta-bar's place, past 10.5's range delta-bar <= 1/10 once delta > 1/40, but its
+steps (i)-(iv) use only 4 delta < 1 and, for the middle region's dyadic sum, -1 + 4 delta < 0, which delta <= 1/10
+secures -- F[P-hat] <~ (tau_j/sqrt mu)^-1 at sample times; and (iv) between them F(tau) <~ F + E^{delta,(0)}_L
 at the sample plus the source from it, <~ tau^(-1+theta) + tau^(-1+4 delta), with theta < delta: (10.45), its integrated
 term from (10.17) at p = delta on [tau, oo).
 
@@ -2858,8 +2869,9 @@ rate of (10.45), Err_{l=0}(tau_1, tau_2) <~ (1 + tau_1/sqrt mu)^(-1+4 delta) Dec
 int_{tau_1}^{tau_2} E <~ E(tau_1) + Err_{l=0}(tau_1, tau_2), from the red-shift current on (W-bar_0, W-bar_3), coercive
 by (10.24)'s sign, then gives E(tau) <~ (1 + tau/sqrt mu)^(-1+4 delta) Decay_0[W'] in one dyadic step, the rate being
 below 1. Since mu (W0 + P/2 - (sqrt mu/4) S_W) is constant along H^+ (10.25) and W0 = c_1(tau)/r^2 + W-bar_0, c_1(tau) -
-c_1(oo) = -mu (P/2 - (sqrt mu/4) S_W + W-bar_0)(tau, r_h), which tends to zero at the same rate; W-hat - W-bar is
-(c_1(tau) - c_1(oo)) times W*'s components, and (iii) follows as his Theorem 8.1's last step does. With c K* (Proposition
+c_1(oo) = -mu (P/2 - (sqrt mu/4) S_W + W-bar_0)(tau, r_h), whose square the energy bounds, so it tends to zero at the
+square root of that rate; W-hat - W-bar is (c_1(tau) - c_1(oo)) times W*'s components, its energy at the rate itself,
+and (iii) follows as his Theorem 8.1's last step does. With c K* (Proposition
 10.2(iv)), h_0 settles to c K* + c_1(oo) pi_{W*}. []
 
 *What this gives.* Proposition 10.2(iv)'s conditional is discharged, and 10.8's with it: at l = 0 the perturbation
@@ -2874,7 +2886,87 @@ absorption that keeps B_1's positive (57/8)(4 - p) mu/r^2, is not attempted.
 *What remains, and is not done here.* Nothing of route A. Nothing of this section is proved: (10.40)-(10.43) and Y1-Y5
 are computed, exactly; the base Morawetz estimate at l = 0 is READ ([Sch13]); Proposition 10.8 is deduced by Proposition
 10.5's argument and his section 8, constants not tracked. Route B's item 2, the five-dimensional constraint damping
-(ROUTES-OPEN.md 4.5), is next.
+(ROUTES-OPEN.md 4.5), is 10.12's.
+
+### 10.12 Route B's constraint damping in five dimensions: the indicial roots at zero energy (`damping5.py` U1-U6; D54)
+
+*The setting.* Route B (ROUTES-OPEN.md 4.4) is [Hin26]'s nonlinear argument carried to five dimensions. Its gauge-fixed
+Einstein operator Ric(g) - delta*_{g,C} Upsilon(g) has the constraint propagation operator box^C = 2 delta_g G_g
+(delta*_g + C), and [Hin26] (1.43) asks that the zero energy operator of box^C have no indicial root with real part in
+[-C_0, 1) -- "C_0 = 100 suffices by a large margin". In four dimensions that is [Hin26a] Theorem 4.9, for C omega =
+h^-1 (2 c (x)_s omega - (1 - e) g iota_{c#} omega), c = r^-1 (dt - v dr), v in (0, 1), e > 0 small and then h > 0
+small. Indicial roots see only the model at infinity ([Hin26] Theorem 7.1's proof: "Parts (3) and (4) only see the
+Minkowskian model"), so in five dimensions the question is one on 4+1 Minkowski. ROUTES 4.4 item 2 named it the first
+genuinely new object of the route. Notation: delta* omega = (1/2)(omega_{a;b} + omega_{b;a}), G = Id - (1/2) g tr_g,
+(delta k)_a = -g^{bc} k_{ab;c}, n the spatial dimension (4 here, 3 his), kappa := l (l + n - 2).
+
+*What is computed* (`damping5.py`, exact unless said).
+
+(U1) The indicial families, from the definitions: box^C on Minkowski^{n+1} in polar coordinates, applied to the
+stationary 1-forms r^-lam (a S dx^0 + b S dx^1 + c r dS) (scalar type, S a spherical harmonic) and r^(1-lam) V (vector
+type), returns the same type times r^(-lam-2) with a matrix N(lam) -- 3 x 3 for scalar l >= 1, 2 x 2 at l = 0, 1 x 1 for
+the vector type -- free of the angles and affine in kappa. At n = 3 and weight 1, N is his (4.19) with Corollary 4.7's
+q's entry by entry, and his p_v ((A.2)), p_s0 and the sextic (A.13) follow.
+
+(U2) The weight must be adapted to the dimension. Since G (g f) = (1 - D/2) g f in D = n + 1 dimensions, with C omega =
+h^-1 (2 c (x)_s omega - m (1 - e) g iota_{c#} omega),
+
+    h G_g C omega = 2 c (x)_s omega + (-1 + m (1 - e)(D/2 - 1)) g <c, omega>,                                  (10.46)
+
+which is his h^-1 (2 c (x)_s omega - e g <c, omega>) -- the form whose symbol is his Lemma 3.2's l_{g,c,e} -- for every e
+if and only if m = 2/(D - 2): 1 in four dimensions, his, and 2/3 in five. C_5 below is C with m = 2/3.
+
+(U3) The polynomials at weight 2/3. The vector type: p_v = -h lam^2 + (2h - 2v) lam + h kappa + 6v (his: -h lam^2 + (h -
+2v) lam + h kappa + 4v). lam = 2 is a root of the scalar type at l = 0 and l = 1 for every (v, e, h) -- the Coulomb rate
+r^-(n-2), as lam = 1 is in his. At h = 0 the scalar sextic h^3 det N is
+
+    8 v (lam - 2) Q_5,  Q_5 = e ((v^2 - 1) kappa + (1 + v^2)(lam - 3)(lam + 1)) - 2 v^2 (lam - 2)(lam - 3),   (10.47)
+
+-16 v^3 (lam - 3)(lam - 2)^2 at e = 0 (his: 8 v (lam - 1) Q_4, and the roots 1, 1, 2 of his (P1)); and the very negative
+roots lam = (h lt)^-1 have the same h = 0 limit in four and five dimensions.
+
+(U5) His weight transcribed literally fails: with m = 1 the scalar type at l = 0 has, at h = 0, the root (7 v^2 - 1 + 3e
+(1 + v^2))/(5 v^2 + 1 - 3e (1 + v^2)), at e = 0 in (-1, 1) for every v in (0, 1); at the parameters below the quartic has
+a real root in (0, 1), inside [-C_0, 1).
+
+(U6, numerical, a measurement) At v = 1/2 over e, h in {10^-2, 10^-3, 10^-4} and l up to 1.5 10^6 (mpmath, 50 digits):
+besides lam = 2 at l = 1, found at all nine, the roots of the upper family stay above 1.93; they are above 2 exactly
+where h <= e (six points) and between 1.939 and 1.967 where h > e (three); the lower family sits near -1/h, so C_0 asks
+h small against 1/C_0 -- at h = 10^-2 its largest root is -96.3 (e = 10^-2), inside [-100, 1).
+
+**Proposition 10.9 (computed; exact).** At (v, e, h) = (1/2, 1/100, 1/1000), with C = C_5, the zero energy operator of
+box^C on 4+1 Minkowski has, over every l and both types, no indicial root with real part in [-100, 19/10], and the only
+ones with real part in [-100, 2] are lam = 2 at l = 0 and l = 1, each simple. So [Hin26] (1.43) holds in five dimensions
+with C_0 = 100, and so does its form with the strip [-100, 2), ending at the Coulomb root r^-(n-2) as his [-C_0, 1) ends
+at r^-1. With m = 1 in place of 2/3 it fails.
+
+*Proof* (U4). The leading coefficient of the scalar sextic is -h^3 /= 0, so its roots move continuously in real kappa.
+On a line Re lam = x a root appears only if the polynomial shifted to the line has a zero constant coefficient (a real
+root at x) or a zero Hurwitz determinant Delta_{deg-1} (Orlando's formula: two roots summing to 2x, which a pair on the
+line does). Both, as polynomials in kappa, have no root on kappa >= 3 at x = -100 and x = 19/10 (Sturm), and at l = 1
+Routh arrays count 3 roots right of 19/10 and 3 left of -100; so the strip is empty for every l >= 1, and the same for
+the vector quadratic (1 and 1) and, at l = 0, the quartic (2 and 2). At x = 2 the same holds for kappa >= 8 (l >= 2; 3 |
+0 | 3 at l = 2), and at l = 1 and l = 0 the cofactors of lam - 2, a quintic and a cubic, have 2 | 0 | 3 and 1 | 0 | 2
+(right | between | left) and do not vanish at 2; the vector type has 1 | 0 | 1 at l = 1 and does not cross. A Routh
+array with no zero in its first column also excludes roots on its line. Four-dimensional control: the same at his weight
+1, at the lines 9/10 and 1 -- his Theorem 4.9 at these parameters. Controls: the line 21/10, right of lam = 2; U5's m =
+1. []
+
+*READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-21): pp. 1-3 (Theorem 1.1, (1.1)-(1.2)), 5, 7, 25 (Definition
+3.1, Lemma 3.2), 29, 33-37 (section 4.3, Lemma 4.6, Corollary 4.7, (4.19), Definition 4.8, Theorem 4.9, Remarks
+4.10-4.12), 67 (Theorem 6.2), 69-74 (Appendix A, (A.1)-(A.2), A.2, (A.13)), 85. [Hin26] (arXiv:2606.28253v2): pp. 1, 4,
+25-26, 29 ((1.43)), 82 (Definition 4.2, (4.6)-(4.9)), 136 (Theorem 7.1).
+
+*What this gives, and what it does not.* The strong damping condition of route B, which ROUTES 4.4 named as the first
+object with no five-dimensional construction, has one: Hintz's constraint damping with the trace weight 2/(D - 2) in
+place of 1, at his parameters, computed exactly, the strip clear by nine tenths for (1.43) as he states it and up to the
+Coulomb root for its five-dimensional reading. That reading -- that the five-dimensional argument needs the strip up to
+r^-(n-2) -- is this record's, from the role of lam = 1 in his; which strip the argument needs is part of what is not
+done. Not done, and OPEN: [Hin26] Theorem 7.1's other parts on five-dimensional Tangherlini -- (1) mode stability of
+box^C at nonzero energy, (2) invertibility of its zero energy operator on the weighted spaces, and (4) the
+tf-admissibility, which sees only the Minkowski model but is not an indicial-root statement -- and item 2's other half,
+the modification E^Upsilon of [Hin26] Proposition 6.12 that removes W* from box^Upsilon. Nothing of this section is
+proved: Proposition 10.9 is computed, at one parameter point, with U6 a numerical measurement around it.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
