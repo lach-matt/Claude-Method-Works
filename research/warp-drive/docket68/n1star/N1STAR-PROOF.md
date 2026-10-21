@@ -2908,7 +2908,7 @@ here, 3 his), kappa := l (l + n - 2).
 stationary 1-forms r^-lam (a S dx^0 + b S dx^1 + c r dS) (scalar type, S a spherical harmonic) and r^(1-lam) V (vector
 type), returns the same type times r^(-lam-2) with a matrix N(lam) -- 3 x 3 for scalar l >= 1, 2 x 2 at l = 0, 1 x 1 for
 the vector type -- free of the angles and affine in kappa. At n = 3 and weight 1, N is his (4.19) with Corollary 4.7's
-q's entry by entry, and his p_v ((A.2)), p_s0 and the sextic (A.13) follow.
+q's entry by entry, and the vector polynomial p_v (the display of his section A.1), p_s0 and the sextic (A.13) follow.
 
 (U2) The weight must be adapted to the dimension. Since G (g f) = (1 - D/2) g f in D = n + 1 dimensions, with C omega =
 h^-1 (2 c (x)_s omega - m (1 - e) g iota_{c#} omega),
@@ -2948,7 +2948,7 @@ only at +-infinity. With m = 1 in place of 2/3 it fails.
 there with C_0 = 100: indicial roots see only the leading-order part at infinity ([Hin26] p. 136, "Parts (3) and (4)
 only see the Minkowskian model"; p. 29, "indicial roots are determined by the leading-order (in the sense of decay as
 rho -> 0) part"), Tangherlini differs from Minkowski by O(mu r^-2), and c must equal r^-1 (dt - v dr) for large r -- a
-five-dimensional c of [Hin26a] Proposition 5.1's kind, which 10.13 prepares and does not construct.
+five-dimensional c of [Hin26a] Proposition 5.1's kind, which 10.13 prepares and 10.14 constructs.
 
 *Proof* (U4). The leading coefficient of the scalar sextic is -h^3 /= 0, so its roots move continuously in real kappa.
 On a line Re lam = x a root appears only if the polynomial shifted to the line has a zero constant coefficient (a real
@@ -2969,21 +2969,24 @@ section used (v, e, h) = (1/2, 1/100, 1/1000), which the certificate also clears
 4.10-4.12), 67 (Theorem 6.2), 69-74 (Appendix A, (A.1)-(A.2), A.2, (A.13)), 85. [Hin26] (arXiv:2606.28253v2): pp. 1, 4,
 25-26, 17, 29 ((1.43) and the reason for its strip), 82 (Definition 4.2, (4.6)-(4.9)), 136 (Theorem 7.1).
 
-*What this gives, and what it does not.* The indicial half of route B's strong damping condition, which ROUTES 4.4
-named as the first object with no five-dimensional construction, has one at the level of the Minkowski model: Hintz's
-constraint damping with the trace weight 2/(D - 2) in place of 1, at a point inside the range his construction admits
-in five dimensions (Proposition 10.10), computed exactly; its transfer to Tangherlini is deduced. Which strip the
-five-dimensional argument needs: [Hin26] p. 29 asks for no root in [-C_0, 1) because a root lam of box^C gives the root
-lam - 1 of the linearized gauge-fixed operator (the order of decay gained under delta*), and that operator's large roots
-are those below its indicial gap, which begins at 0. The shift does not depend on the dimension, so the strip needed in
-five dimensions is his literal [-C_0, 1), provided the five-dimensional operator's gap also begins at 0 -- not computed
-here. Both strips are clear at the point: [-100, 19/10] with nine tenths to spare, and [-100, 2] but for the Coulomb
-root. Not done, and OPEN: [Hin26] Theorem 7.1's other parts on five-dimensional Tangherlini -- (1) mode stability of
-box^C at nonzero energy, (2) invertibility of its zero energy operator on the weighted spaces, and (4) the
-tf-admissibility, which sees only the Minkowski model but is not an indicial-root statement -- with the five-dimensional
-c they need; and item 2's other half, the modification E^Upsilon of [Hin26] Proposition 6.12 that removes W* from
-box^Upsilon. Nothing of this section is proved: Proposition 10.9 is computed, at one parameter point, with U6 a
-numerical measurement around it; its transfer to Tangherlini is deduced.
+*What this gives, and what it does not.* The indicial half of route B's strong damping condition, which ROUTES 4.4 named
+as the first object with no five-dimensional construction, has one at the level of the Minkowski model: Hintz's
+constraint damping with the trace weight 2/(D - 2) in place of 1, at a point below the five-dimensional bound of his
+Lemma 4.4 (Proposition 10.10), h < e chosen here, computed exactly; its transfer to Tangherlini is deduced. The point is
+not certified as one of his construction: that also asks e below the bounds of his Proposition 5.1 on the black hole
+side, which 10.14 meets on Tangherlini at this e, and h below the h_0(e) of his Theorem 5.2, which his proof does not
+make explicit (the twenty-third verifier, D56). Which strip the five-dimensional argument needs: [Hin26] p. 29 asks for
+no root in [-C_0, 1) because a root lam of box^C gives the root lam - 1 of the linearized gauge-fixed operator (the
+order of decay gained under delta*), and that operator's large roots are those below its indicial gap, which begins at
+0. The shift does not depend on the dimension, so the strip needed in five dimensions is his literal [-C_0, 1), provided
+the five-dimensional operator's gap also begins at 0 -- not computed here. Both strips are clear at the point: [-100,
+19/10] with nine tenths to spare, and [-100, 2] but for the Coulomb root. Not done, and OPEN: [Hin26] Theorem 7.1's
+other parts on five-dimensional Tangherlini -- (1) mode stability of box^C at nonzero energy, (2) invertibility of its
+zero energy operator on the weighted spaces, and (4) the tf-admissibility, which sees only the Minkowski model but is
+not an indicial-root statement -- on the five-dimensional c of 10.14; and item 2's other half, the modification
+E^Upsilon of [Hin26] Proposition 6.12 that removes W* from box^Upsilon. Nothing of this section is proved: Proposition
+10.9 is computed, at one parameter point, with U6 a numerical survey at larger e and h, whose grid does not contain the
+point; its transfer to Tangherlini is deduced.
 
 
 ### 10.13 The semiclassical inputs of the constraint damping in five dimensions (`semiclass5.py` W1-W6; D55)
@@ -3006,15 +3009,17 @@ weight is 2/(D - 2) (10.12, U2): L = 4ih delta(c (x)_s .) + 2ihe d iota_{c#}, hi
      indefinite (W1).
  (ii) (his Lemmas 4.1-4.2) At dK+ the eigenvalues of r^2 (-l(dw/w) + S)/2 at e = 0, w = rho_sf^b_sf rho_K^b_K, are
      v (1 + b_K - b_sf), 2v (1 + b_K - b_sf) and v (2 + b_K - b_sf) (3x); at R_v (b_K = 0) v (1 - b_sf), 2v (1 - b_sf)
-     and v (2 - b_sf) (3x). They are positive iff b_K > b_sf - 1 and b_sf < 1, where his are b_K > b_sf - 1/2 and b_sf
-     < 1/2: the thresholds are -(n - 2)/2 and (n - 2)/2, and his (5.14), a_sf < -1/2 and a_K > a_sf + 1/2, becomes
-     a_sf < 0 and a_K > a_sf (W3).
+     and v (2 - b_sf) (3x). They are positive iff b_K > b_sf - 1 and b_sf < 1, where his are b_K > b_sf - 1/2 and
+     b_sf < 1/2: the thresholds are -(n - 2)/2 and (n - 2)/2 at n = 3 and 4 (W3). Deduced, his section 5 being open in
+     five dimensions: with his b_K = a_K, b_sf = a_sf + 1 (p. 39) and spaces normalised by |dg| (footnote 15), his
+     (5.14), a_sf < -1/2 and a_K > a_sf + 1/2, would become a_sf < 0 and a_K > a_sf.
  (iii) (his Lemma 4.4) At the interior saddle, at e = 0, S is his -- a_22 = v, trace 5v, determinant 2 v^2 (3 - 2x^2),
      positive on |x| <= 6/5 < (3/2)^(1/2) -- and at v = 1/2, e = 1/102400 it is positive definite on |x| <= 6/5 (Sturm).
      The largest admissible e is about 0.000069 v^2, against about 0.000154 v^2 in four dimensions (numerical, a grid
      of 1201 points in x and bisection; his "c ~ 0.000152") (W4).
- (iv) (his Lemma 4.3) l(+-dr) is negative definite for +-(r - r_0) >= r_0 e^(1/2)/v; its proof, Lemma 3.8's condition
-     2(1 - e) w/(e (1 - w)) >= 2 > 1 for w >= e, involves no dimension (W5).
+ (iv) (his Lemma 4.3) l(+-dr) is negative definite for +-(r - r_0) >= r_0 e^(1/2)/v, r in [r_0/2, 2 r_0] (beyond
+     r_0 (1 + 1/v) c is not timelike); its proof, Lemma 3.8's condition 2(1 - e) w/(e (1 - w)) >= 2 > 1 for
+     e <= w < 1, w = v^2 (r - r_0)^2/r_0^2, involves no dimension (W5).
  (v) Proposition 10.9's point (1/2, 1/102400, 10^-6) is admissible for (iii); e = 1/100 is not (W6).
 
 *Proof.* W1-W6 of semiclass5.py. S is computed from its definition, S = (L - L*)/(2ih), the adjoint taken with respect
@@ -3033,10 +3038,90 @@ thresholds at the two critical sets on sf, shifted by 1/2; and a smaller admissi
 v^2. The e = 0 limit at the interior saddle, on which his 6/5 > 1 rests, is unchanged. Not deduced here: his Theorems
 5.2 and 6.2 in five dimensions. They need, besides these inputs, a five-dimensional c of his Proposition 5.1's kind on
 Tangherlini -- past timelike, pointing into the black hole near the horizon, equal to r^-1 (dt - v dr) at large r, with
-the interior saddle and the positivity (6) -- and his 3b-analysis (sections 2 and 5), which this record has not read in
-five dimensions. Not done, and OPEN: that c; the 3b-estimates of his section 5 in five dimensions; his Theorem B.1, the
-tf-admissibility; and item 2's E^Upsilon. Nothing of this section is proved: Proposition 10.10 is computed, (iii)'s e_0
-numerically.
+the interior saddle and the positivity (6) -- which 10.14 constructs; his 3b-analysis (sections 2 and 5); and section
+6's own five-dimensional steps: the weight interval of (6.1) with its density r^2 |dr dg/| (r^3 in five dimensions), the
+exponent of (6.4) and the data weights of (5.16). This record has read none of these in five dimensions. The one
+Minkowski input of his section 6, S^C of his (4.17), carries over: in the null splitting it is the same matrix with
+three angular copies (the twenty-third verifier, not an instrument here). Not done, and OPEN: the 3b-estimates of his
+section 5 in five dimensions; section 6's five-dimensional steps; his Theorem B.1, the tf-admissibility; and item 2's
+E^Upsilon. Nothing of this section is proved: Proposition 10.10 is computed, (iii)'s e_0 numerically.
+
+
+### 10.14 A constraint damping 1-form on five-dimensional Tangherlini (`cform5.py` C1-C7; D56)
+
+*The setting.* [Hin26a] Proposition 5.1 glues, for e small and r_0 large, a stationary c on Kerr from the Minkowski
+pieces of his section 4: (1) r c past timelike; (2) c = (1/2) r_0^-2 (r_0 dt - v (r - r_0) dr) on [r_0/2, 2 r_0] and
+r^-1 (dt - v dr) for r >= 3 r_0 (r >= 2 r_0 before smoothing, his (5.11)); (3) S positive definite on |r - r_0| <= (6/5)
+r_0 e^(1/2)/v; (4)-(5) positivity at the corner dK+ and at the sink R_v of sf, for the weights w = rho_sf^(a_sf + 1)
+rho_K^a_K and w' = rho_sf^(a_sf + 1); (6) -l(-dr) positive definite for m <= r <= r_0 - r_0 e^(1/2)/v and -l(dr) for
+r >= r_0 + r_0 e^(1/2)/v, with two conditions on sf. Near the horizon he uses three pieces and a partition of unity,
+Boyer-Lindquist t being singular there. His proof is perturbative: each of its bounds (e', e_partial, e_2, r_1, r_2,
+delta_r) exists, and none is given but footnote 14's numerical r_2 >= 81 m/e^(1/2) on Schwarzschild. This section writes
+one c on five-dimensional Tangherlini, explicitly, and checks its conditions at the point of Proposition 10.9 exactly.
+Tangherlini in Kerr-Schild time,
+
+    g = -f dt^2 + 2 (1 - f) dt dr + (2 - f) dr^2 + r^2 dOmega_3^2,   f = 1 - mu/r^2,                         (10.48)
+
+regular across the horizon, its t differing from the static time by int (f^-1 - 1) dr; mu = 1, so r_h = 1, and the
+domain [r_h/2, oo) stands for his m <= r (m = r_+/2 at a = 0).
+
+**Proposition 10.11 (computed; exact unless said).** At (v, e) = (1/2, 1/102400) and r_0 = 100 the 1-form
+
+    c = (2 r_0)^-1 (dt + (v/2) dr)                for r <= r_0/2,
+    c = (1/2) r_0^-2 (r_0 dt - v (r - r_0) dr)    for r_0/2 <= r <= 2 r_0,                                      (10.49)
+    c = r^-1 (dt - v dr)                          for r >= 2 r_0
+
+is continuous and has the following properties on (10.48).
+ (i) (condition (1)) r c is past timelike on [r_h/2, oo). The inner piece is past timelike for every r > 0 and every v
+     in (0, 1): G(dt + b dr) = (1 - b)(-2 + f (1 - b)) and <dt + b dr, dt> = -(2 - b) + f (1 - b), negative for
+     f < 1 and 0 < b < 1 (C2).
+ (ii) (condition (6) off sf) <c, dr> > 0 on [r_h/2, r_0 - r_0 e^(1/2)/v] -- c points into the black hole there -- and
+     <c, dr> < 0 on [r_0 + r_0 e^(1/2)/v, oo), with Lemma 3.8's f e G(c) + 2 (1 - e) <c, dr>^2 > 0 (G(dr) = f): so
+     -l(-dr), resp. -l(dr), is positive definite (C3; Lemma 3.8 holds in five dimensions, Proposition 10.10(i)).
+ (iii) (condition (3)) S, computed on (10.48) from its definition, is of order zero, free of the angles and block
+     diagonal, is the Minkowski S of 10.13 at mu = 0, and is positive definite on |r - r_0| <= (6/5) r_0 e^(1/2)/v
+     (C1, C4).
+ (iv) (conditions (4)-(6) on sf, where g and its Minkowski model agree as 3sc-metrics) The symbol T = r^2 (-l(dw/w) + S)
+     of r^-1 (dt - v dr) depends on rho_K = r/t and the weights only, is B-self-adjoint, and its eigenvalues are
+     positive at dK+ iff b_K > b_sf - b* and at R_v iff b_sf < b*, where b* = 0.99340731... is a root of 204795 d^2 -
+     409605 d + 204801: Proposition 10.10(ii)'s thresholds at e = 0, moved by 0.0066. At (a_K, a_sf) = (1, -102), the
+     weights of his Theorem 6.2's proof at C_0 = 100, T is positive definite on all of sf with rho_K <= 10, and at the
+     sink's weight on all of sf (C7). His (5.8) holds on (0, 10] but on an interval about v of half-width under 0.00166,
+     so the conditions (6) on sf hold with delta_sf = 1/100 and any delta_r (C5).
+ (v) (a measurement) The smallest integer r_0 for which (i)-(iii) hold is 86: (1) holds at every integer r_0 in [2, 86],
+     (6) from 33 on, (3) at 86 alone. At e/4 it is 137. By scaling it is 86 mu^(1/2) = 86 r_h (C6).
+
+*Proof.* C1-C7 of cform5.py. Each sign condition is checked by Sturm on the numerator and the denominator of a rational
+function of r over its interval, unbounded intervals included. S is computed from S = (L - L*)/(2ih) with Christoffel
+symbols in polar Kerr-Schild coordinates, the adjoint taken with |dg| = r^3 cos th sin th and B. Controls: the adjoint
+with g^-1 (not of order zero); the inner piece dt + dr (null); r_0 = 30 ((6) fails just outside the saddle); the window
+12/5; e = 1/2 in (5.8); the claim 87; and b_sf = 1 at this e ((5) fails). []
+
+*Deduced.* (a) Conditions (4)-(5) off sf, for 0 < rho_sf <= 2 delta_r: Tangherlini differs from its Minkowski model by
+rho_sf C^oo terms, so the positivity of (iv) persists for some delta_r > 0 (his argument, p. 39). delta_r is not made
+explicit, here or in his proof. (b) The smoothing at r_0/2 and 2 r_0: there only (1) and (6) are asked, and l(dr)
+depends on c at each point and not on its derivatives, so a small smoothing keeps them (his argument, p. 41). (c) The
+outer piece is r^-1 (dt - v dr) in Kerr-Schild time; in the static time t_s it is r^-1 (dt_s - v dr) + O(mu r^-3) dr,
+with the same leading part at infinity, which is all the indicial roots of 10.12 see.
+
+*READ.* [Hin26a] (alphaXiv, 2026-10-21): pp. 3 (v = 1/2; the sign of the dr term), 38-41 (Proposition 5.1 and its proof,
+(5.1)-(5.13), footnote 14), 41 (Theorem 5.2, (5.14)-(5.15)), 53 (Proposition 5.1 (4) and (6) in use), 67 (Theorem 6.2
+and its proof: a_K = 1, a_sf = -C_0 - 2).
+
+*What this gives, and what it does not.* The five-dimensional c that 10.12 and 10.13 named as missing exists on
+Tangherlini, explicitly. At the point of Proposition 10.9 its conditions (1), (3) and (6) hold exactly on the
+Tangherlini metric itself, and (4)-(6) on sf. Only (4)-(5) in a neighbourhood of sf, off it, and the smoothing are
+deduced, by his arguments. So every bound his Proposition 5.1 places on e -- Lemma 4.4's, Theorem 4.9's, e' near the
+horizon, e_partial at the critical sets, (5.9) and (5.10) -- is met at e = 1/102400 on Tangherlini, by computation, for
+the weights (1, -102). The construction is simpler than his: without rotation, Kerr-Schild time is regular across the
+horizon, and one piece, dt + (v/2) dr, serves from inside the horizon to r_0/2 where Kerr needs three and a partition of
+unity. The bound on r_0 is also far below his: 86 r_h at e = 1/102400, against footnote 14's 81 m/e^(1/2) = 25920 m
+(12960 r_+) on Schwarzschild at that e. Tangherlini's correction falls like mu r^-2 where Schwarzschild's falls like m
+r^-1. These are two numerical bounds, not a law: at e/4 the ratio 137/86 = 1.59 is neither 4^(1/4) nor 4^(1/2). What
+[Hin26a] still asks in five dimensions is his Theorem 5.2 -- the 3b-estimates of his section 5 on five-dimensional
+Tangherlini, with an h_0(e) that his proof does not make explicit, so that h = 10^-6 is not certified below it -- and
+his section 6's five-dimensional steps and Theorem B.1. All of these are OPEN, as is item 2's E^Upsilon. Nothing of this
+section is proved: Proposition 10.11 is computed at one point, and (v) is a measurement.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
