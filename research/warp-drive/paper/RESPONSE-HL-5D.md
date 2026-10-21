@@ -691,14 +691,17 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   first rung taken as tr h, which solves the homogeneous wave equation, and the master field's bad terms removed by
   corrections carrying the factor u + r — are computed in five dimensions term by term in his shape, every residual
   weight checked (supplement section 10.7, `growing5.py`), and the identities of his l = 0 argument likewise (section
-  10.8, `lzero5.py`); what the route still owes is two estimates of a known type, the rapid decay of the first rungs and
-  the coupled estimate for the last two components, neither done here. No growing mode appears in either type for l = 2,
-  …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields,
-  measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the
-  step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch
-  radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is
-  the rate a nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one with
-  l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1%
+  10.8, `lzero5.py`); of the two estimates the route then owed, the rapid decay of the first rungs is deduced in five
+  dimensions for every mode of the class by Hung's own argument, with his conditions on the potential computed
+  (supplement section 10.9, `hierarchy5.py`), and found obstructed for the spherically symmetric mode, where the
+  radiation field carries a potential his argument needs to vanish; the coupled estimate for the last two components and
+  the spherically symmetric rate remain. No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h
+  (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured from the
+  pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching
+  7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way
+  (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a
+  nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω
+  r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1%
   (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
   problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of
   four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open. - **Physical wavelengths.** λ0
@@ -812,7 +815,9 @@ from the arXiv text, with the extraction's spacing.
   Appendices A and C; and, the same day, 2.2 (the foliation, g = r_* on [5M/2, R_null]) and 2.4 (the source norm,
   (2.23)–(2.24)) re-read, Proposition 5.2, Lemmas 5.5 and 5.8; and, for the growing source and l = 0, section 4.2 in full
   ((4.10)–(4.42), Lemmas 4.8–4.10), section 5 (Propositions 5.1–5.9, Lemma 5.5), (6.1)–(6.11), section 8 in full
-  ((8.1)–(8.33), Theorems 8.1 and 8.7), Appendix A ((A.12)–(A.14), Proposition A.6), Appendix B.
+  ((8.1)–(8.33), Theorems 8.1 and 8.7), Appendix A ((A.12)–(A.14), Proposition A.6), Appendix B; and, for the first
+  rungs' rapid decay, Appendix A in full ((A.1)–(A.14), Definitions A.1–A.2, Remark A.3, Propositions A.4–A.6), Lemma 5.3
+  with its proof, Propositions 5.2, 5.4 and 8.2, Lemma 8.3, (2.4), (2.19)–(2.23).
 - [Sch13] V. Schlue, *Decay of linear waves on higher dimensional Schwarzschild black holes*, Anal. PDE 6 (2013),
   arXiv:1012.5963v1. READ 2026-10-21: (2.17)–(2.20), Proposition 3.1, (5.8)–(5.17).
 - [Wu26] S. Wu, *Picard iteration for the characteristic initial value problem in Einstein equations*,
@@ -909,6 +914,10 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   the components of the one-form wave equation, the quantity P with its wave equation, the regular component with the
   red-shift sign, the horizon constant, the two radial ODEs and their singular solutions, the l = 0 substitution. 5/5;
   mutants 5/5 (about a quarter of a minute).
+- `hierarchy5.py` H1–H4: the first rungs' rapid decay (supplement section 10.9): Hung's Proposition A.5 at k = 1 in five
+  dimensions — the commuted equation of the radiation field, the current it enters, his conditions on the potential with
+  the radii and constants at four modes, and the obstruction at the spherically symmetric mode. 4/4; mutants 5/5 (about a
+  minute).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
     the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -983,7 +992,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D50).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D51).
 
 | claim | where it is established |
 | --- | --- |
@@ -1013,8 +1022,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D5
 | | `paper/response5.py` R7 |
 | settling, section 8 | supplement sections 10.1, 10.3–10.8 (Propositions 10.1–10.5); `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
-| | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; [HKW18], |
-| | [KI03], [CLY03b], [CYDL03], [Hun19], [Sch13] |
+| | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; |
+| | `docket68/n1star/hierarchy5.py` H1–H4; [HKW18], [KI03], [CLY03b], [CYDL03], [Hun19], [Sch13] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1037,6 +1046,7 @@ Python 3.11 with sympy; z3-solver for `foliation5.py`; numpy for `bondi5.py` and
                                                          # rungs5 (about half a minute)
                                                          # growing5 (about twelve minutes)
                                                          # lzero5 (a quarter of a minute)
+                                                         # hierarchy5 (about a minute)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1044,9 +1054,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `cdf2c7f9773a6ec291f615ec758d3d40` |
-| `docket68/n1star/N1STAR-LOG.md` | `01e9646daa928f2cabb4206e5ca0e60a` |
-| `docket68/n1star/README.md` | `222babc2022b9106e2d3b4fa8e8c28af` |
+| `docket68/n1star/N1STAR-PROOF.md` | `78cf1fa55e5b827d9a66e7d83cf7e587` |
+| `docket68/n1star/N1STAR-LOG.md` | `0bec03358c4c69a5b383d5c5cdc699ff` |
+| `docket68/n1star/README.md` | `08a2c7543cb9909956c5a2280db59498` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1061,6 +1071,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/rungs5.py` | `2bc4e9021ae529e63eb548a99049cb08` |
 | `docket68/n1star/growing5.py` | `f0af993ae740166648df5e57bb0bd8ee` |
 | `docket68/n1star/lzero5.py` | `15b82c25a3f446d596d4f34119eab15f` |
+| `docket68/n1star/hierarchy5.py` | `465559172f3be462ab2bb01890ef8ef3` |
 | `docket68/n1star/hung4.py` | `7f3d68853fde8bda4ff383dc039dadfe` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |
