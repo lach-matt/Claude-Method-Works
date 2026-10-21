@@ -356,28 +356,32 @@ the l = 0 one-form. L1 follows from the decay of X: h = h_RW - pi_X.
 Route A gives L1, the linear decay in the gauge the nonlinear problem uses. The nonlinear step that has closed in
 four dimensions is [Hin26]'s, and its inputs read as follows in the class.
 
-1. *Mode stability of the ungauged linearized equation* is in hand in every dimension: [IK03] for the master equations,
-strengthened to uniform boundedness by [HKW18] (Theorem 2, (6)); in four dimensions this is the role of the Teukolsky
-mode stability in [Hin26] -- the one black box there that took a separate theorem. 2. *Mode stability of the two 1-form
-operators.* The gauge potential operator box^Upsilon on five-dimensional Tangherlini has the zero energy state W* (W2);
-the perturbative modification E^Upsilon that removes it ([Hin26] Proposition 6.12) is a static argument and should
-carry. The constraint propagation operator box^C needs the strong damping (1.43), and [Hin26a]'s construction is on
-Kerr; a five-dimensional construction does not exist and is the first genuinely new object of the route. Tangherlini
-being static, the indicial-root computation it needs is an ODE problem in r for each l of the class. Its indicial half
-is computed (4.13; N1STAR-PROOF.md 10.12), and the semiclassical inputs of the construction (4.14; 10.13): with the
-trace weight 2/(D - 2) in place of his 1 the strip is clear at a point his construction admits; the rest of the item is
-OPEN. 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
-W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
-second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole, so
-that the forward solutions lose one power of t_* rather than two and no centre-of-mass or momentum elimination ([Hin26]
-section 1.4.2) is needed, is OPEN: it rests on item 2, not on the symmetry (D47). 4. *The tame estimates* of [Hin26c] in
-4 + 1: the microlocal pieces -- edge-b near null infinity, 3b in the forward cone, normally hyperbolic trapping at r^2 =
-2 mu -- are stated in 3 + 1 "for concreteness" with the general-dimension conventions in [Hin23c] section 3.1.2; the
-zero-energy indicial gap is (0, 2) (Proposition 9.40). Rewriting the framework in 4 + 1 is work, not a new idea. 5. *The
-iteration* is then [Hin26]'s: gauge source terms in a finite-dimensional space, which in the class reduce to the mass
-and the pure-gauge l = 0 terms; the final state is Tangherlini of the final mass. In the class and on the domain of
-Theorem E this would be the nonlinear settling the paper leaves open, with the rate [Hin26] obtains in compact sets,
-t_*^(-2-eps), expected to improve with the tails t^-(2l+3).
+1. *Mode stability of the ungauged linearized equation* is in hand in every dimension: [IK03] for the master
+   equations, strengthened to uniform boundedness by [HKW18] (Theorem 2, (6)); in four dimensions this is the role of
+   the Teukolsky mode stability in [Hin26] -- the one black box there that took a separate theorem.
+2. *Mode stability of the two 1-form operators.* The gauge potential operator box^Upsilon on five-dimensional
+   Tangherlini has the zero energy state W* (W2); the perturbative modification E^Upsilon that removes it ([Hin26]
+   Proposition 6.12) is a static argument and should carry. The constraint propagation operator box^C needs the strong
+   damping (1.43), and [Hin26a]'s construction is on Kerr; a five-dimensional construction did not exist and is the
+   first genuinely new object of the route. Tangherlini being static, the indicial-root computation it needs is an ODE
+   problem in r for each l of the class. Its indicial half is computed (4.13; N1STAR-PROOF.md 10.12), the semiclassical
+   inputs of the construction (4.14; 10.13), and a five-dimensional c of his Proposition 5.1's kind on Tangherlini
+   (4.15; 10.14): with the trace weight 2/(D - 2) in place of his 1 the strip is clear at a point below the
+   five-dimensional bound of his Lemma 4.4, h < e chosen here, and the c's conditions hold at that e; his Theorem 5.2
+   and the rest of the item are OPEN.
+3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
+   W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
+   second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
+   so that the forward solutions lose one power of t_* rather than two and no centre-of-mass or momentum
+   elimination ([Hin26] section 1.4.2) is needed, is OPEN: it rests on item 2, not on the symmetry (D47).
+4. *The tame estimates* of [Hin26c] in 4 + 1: the microlocal pieces -- edge-b near null infinity, 3b in the forward
+   cone, normally hyperbolic trapping at r^2 = 2 mu -- are stated in 3 + 1 "for concreteness" with the general-dimension
+   conventions in [Hin23c] section 3.1.2; the zero-energy indicial gap is (0, 2) (Proposition 9.40). Rewriting the
+   framework in 4 + 1 is work, not a new idea.
+5. *The iteration* is then [Hin26]'s: gauge source terms in a finite-dimensional space, which in the class reduce to
+   the mass and the pure-gauge l = 0 terms; the final state is Tangherlini of the final mass. In the class and on the
+   domain of Theorem E this would be the nonlinear settling the paper leaves open, with the rate [Hin26] obtains in
+   compact sets, t_*^(-2-eps), expected to improve with the tails t^-(2l+3).
 
 The alternative is the 2+1 reduction: both Killing fields are hypersurface-orthogonal in the class (the reflections
 exclude dphi_1 dphi_2 and the twists), so the SL(3, R)/SO(3) sigma model of two commuting Killing fields reduces to
@@ -408,10 +412,12 @@ negative V^(1)_inf = -5/4 absorbed by a Hardy inequality on the leaf for p < 1, 
 0, gives S_W and P-hat the decay 10.8 needs at a weaker rate, and with it route A is carried through for every mode of
 the class. Route B's item 2, the five-dimensional constraint damping, is 4.13 for its indicial roots (N1STAR-PROOF.md
 10.12, Proposition 10.9, computed): Hintz's damping with the trace weight 2/(D - 2) clears the strip [-100, 19/10], and
-[-100, 2] but for the Coulomb root, at a point his construction admits; 4.14 (10.13, Proposition 10.10, computed)
-recomputes the semiclassical inputs of [Hin26a] in five dimensions. Next: the rest of item 2 -- a five-dimensional c of
-[Hin26a] Proposition 5.1's kind on Tangherlini, the 3b-estimates of his section 5 and his Theorem B.1 in five
-dimensions, and the modification E^Upsilon ([Hin26] Proposition 6.12).
+[-100, 2] but for the Coulomb root, at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here;
+4.14 (10.13, Proposition 10.10, computed) recomputes the semiclassical inputs of [Hin26a] in five dimensions, and 4.15
+(10.14, Proposition 10.11, computed) gives a five-dimensional c of his Proposition 5.1's kind on Tangherlini, its
+conditions checked at that e. Next: the rest of item 2 -- the 3b-estimates of his section 5 (his Theorem 5.2, with its
+h_0) and section 6's five-dimensional steps, his Theorem B.1 in five dimensions, and the modification E^Upsilon ([Hin26]
+Proposition 6.12).
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -692,25 +698,29 @@ Proposition 10.8.
 
 ### 4.13 Route B's constraint damping in five dimensions: the indicial roots at zero energy (computed; D54)
 
-ROUTES 4.4 item 2's new object. damping5.py computes it; N1STAR-PROOF.md 10.12 states Proposition 10.9. - The families
-(U1): box^C = 2 delta_g G_g (delta*_g + C) on 4+1 Minkowski, the model at infinity, on stationary 1-forms of scalar and
-vector type, gives 3 x 3, 2 x 2 and 1 x 1 indicial matrices affine in kappa = l (l + 2); the four-dimensional control
-reproduces [Hin26a] (4.19), (A.2), p_s0 and (A.13). - The weight (U2): G (g f) = (1 - D/2) g f, so Hintz's form 2 c
-(x)_s omega - e g <c, omega> after G needs the trace weight m = 2/(D - 2): 1 in four dimensions, 2/3 in five. His weight
-transcribed literally fails in five dimensions (U5): a root in (0, 1) at l = 0. - The roots (U3): lam = 2, the Coulomb
-rate r^-(n-2), is a root at l = 0 and 1 for every (v, e, h), as lam = 1 is in four dimensions; at h = 0 the scalar
-sextic is 8 v (lam - 2) Q_5; the very negative roots have his h = 0 limit. - Proposition 10.9 (U4, computed, exact): at
-(v, e, h) = (1/2, 1/102400, 10^-6), a point Lemma 4.4 admits (4.14), no indicial root of the Minkowski model at any l
-has real part in [-100, 19/10], and in [-100, 2] only lam = 2 at l = 0 and 1, simple; the roots accumulate only at
-+-infinity. That (1.43) then holds on Tangherlini with C_0 = 100 is deduced: the roots see only the model at infinity.
-Four-dimensional control: his Theorem 4.9, the same at 9/10 and 1. The first version used (1/2, 1/100, 1/1000), above
-Lemma 4.4's bound (the twenty-second verifier, D54). - The configuration (U6, numerical): over e, h in {10^-2, 10^-3,
-10^-4} the upper roots other than lam = 2 at l = 1 stay above 1.93, and above 2 exactly where h <= e; the lower ones sit
-near -1/h, so C_0 = 100 asks h below 1/100. - OPEN: whether the five-dimensional gauge-fixed operator's indicial gap
-begins at 0, on which [Hin26] p. 29's reason for the strip [-C_0, 1) rests (both strips are clear at the point); [Hin26]
-Theorem 7.1 (1), (2) and (4) for box^C on Tangherlini; the modification E^Upsilon of [Hin26] Proposition 6.12. Labels:
-computed (damping5.py U1-U6; U6 numerical); deduced (the transfer to Tangherlini); READ ([Hin26a] and [Hin26], alphaXiv,
-2026-10-21, pages as in 10.12); nothing proved.
+ROUTES 4.4 item 2's new object. damping5.py computes it; N1STAR-PROOF.md 10.12 states Proposition 10.9.
+- The families (U1): box^C = 2 delta_g G_g (delta*_g + C) on 4+1 Minkowski, the model at infinity, on stationary 1-forms
+  of scalar and vector type, gives 3 x 3, 2 x 2 and 1 x 1 indicial matrices affine in kappa = l (l + 2); the
+  four-dimensional control reproduces [Hin26a] (4.19), p_v (the display of his section A.1), p_s0 and (A.13).
+- The weight (U2): G (g f) = (1 - D/2) g f, so Hintz's form 2 c (x)_s omega - e g <c, omega> after G needs the trace
+  weight m = 2/(D - 2): 1 in four dimensions, 2/3 in five. His weight transcribed literally fails in five dimensions
+  (U5): a root in (0, 1) at l = 0.
+- The roots (U3): lam = 2, the Coulomb rate r^-(n-2), is a root at l = 0 and 1 for every (v, e, h), as lam = 1 is in
+  four dimensions; at h = 0 the scalar sextic is 8 v (lam - 2) Q_5; the very negative roots have his h = 0 limit.
+- Proposition 10.9 (U4, computed, exact): at (v, e, h) = (1/2, 1/102400, 10^-6), below Lemma 4.4's five-dimensional
+  bound (4.14) with h < e chosen here, no indicial root of the Minkowski model at any l has real part in [-100, 19/10],
+  and in [-100, 2] only lam = 2 at l = 0 and 1, simple; the roots accumulate only at +-infinity. That (1.43) then holds
+  on Tangherlini with C_0 = 100 is deduced: the roots see only the model at infinity. Four-dimensional control: his
+  Theorem 4.9, the same at 9/10 and 1. The first version used (1/2, 1/100, 1/1000), above Lemma 4.4's bound (the
+  twenty-second verifier, D54).
+- The configuration (U6, numerical): over e, h in {10^-2, 10^-3, 10^-4} the upper roots other than lam = 2 at l = 1 stay
+  above 1.93, and above 2 exactly where h <= e; the lower ones sit near -1/h, so C_0 = 100 asks h below 1/100. The grid
+  does not contain the point of U4.
+- OPEN: whether the five-dimensional gauge-fixed operator's indicial gap begins at 0, on which [Hin26] p. 29's reason
+  for the strip [-C_0, 1) rests (both strips are clear at the point); [Hin26] Theorem 7.1 (1), (2) and (4) for box^C on
+  Tangherlini; the modification E^Upsilon of [Hin26] Proposition 6.12. Labels: computed (damping5.py U1-U6; U6
+  numerical); deduced (the transfer to Tangherlini); READ ([Hin26a] and [Hin26], alphaXiv, 2026-10-21, pages as in
+  10.12); nothing proved.
 
 ### 4.14 The semiclassical inputs of the constraint damping in five dimensions (computed; D55)
 
@@ -722,13 +732,35 @@ recomputes them on 4+1 Minkowski; N1STAR-PROOF.md 10.13 states Proposition 10.10
 - The subprincipal symbol (W2), from its definition: his (4.6), (4.7), Lemma 4.2 and Lemma 4.4 reproduced in four
   dimensions, but for a misprint in Lemma 4.4's a_01 (x e^(1/2) for x/e^(1/2)), which his own determinant refutes.
 - The weight thresholds (W3): b_K > b_sf - 1 at dK+ and b_sf < 1 at R_v, his -1/2 and 1/2 shifted by 1/2; his (5.14)
-  becomes a_sf < 0, a_K > a_sf.
+  would become a_sf < 0, a_K > a_sf (deduced: b_sf = a_sf + 1, his p. 39).
 - The interior saddle (W4): the e = 0 limit is his, positive on |x| <= 6/5; the admissible e is about 0.000069 v^2
   (numerical), against about 0.000154 v^2 in four dimensions (his ~ 0.000152); exact positivity at e = 1/102400, v =
   1/2. Lemma 4.3 is dimension-free (W5).
-- The certificate's point (W6): damping5.py's (1/2, 1/102400, 10^-6) is admissible; the first version's e = 1/100 is
-  not.
-- OPEN: a five-dimensional c of [Hin26a] Proposition 5.1's kind on Tangherlini; the 3b-estimates of his section 5 and
-  his Theorem B.1 in five dimensions; with them his Theorem 6.2. Labels: computed (semiclass5.py W1-W6, exact; W4's e_0
-  numerical); READ ([Hin26a] pp. 9-10, 25-33, 38-41, 43, 53, 66-68; [Hin26] pp. 17, 29, 134-137; alphaXiv,
+- The certificate's point (W6): damping5.py's (1/2, 1/102400, 10^-6) is admissible for Lemma 4.4, h < e; the first
+  version's e = 1/100 is not.
+- OPEN: the 3b-estimates of his section 5 (his Theorem 5.2, with h_0(e), which his proof does not make explicit);
+  section 6's own five-dimensional steps -- the weight interval of (6.1) with the density r^3, the exponent of (6.4),
+  the data weights of (5.16) -- of which only S^C, his (4.17), is a Minkowski input (it carries, by the twenty-third
+  verifier); and his Theorem B.1, in five dimensions. The c is 4.15. Labels: computed (semiclass5.py W1-W6, exact; W4's
+  e_0 numerical); READ ([Hin26a] pp. 9-10, 25-33, 38-41, 43, 53, 66-68; [Hin26] pp. 17, 29, 134-137; alphaXiv,
   2026-10-21); nothing proved.
+
+### 4.15 A constraint damping 1-form on five-dimensional Tangherlini (computed; D56)
+
+ROUTES 4.4 item 2's c. cform5.py computes it; N1STAR-PROOF.md 10.14 states Proposition 10.11.
+- The 1-form: in Kerr-Schild time, (2 r_0)^-1 (dt + (v/2) dr) inside r_0/2, his (5.1) on [r_0/2, 2 r_0], r^-1 (dt - v
+  dr) beyond 2 r_0; continuous; one inner piece, past timelike for every r > 0, where Kerr needs three and a partition
+  of unity (C2).
+- At (v, e) = (1/2, 1/102400) and r_0 = 100, exactly, on Tangherlini: condition (1), r c past timelike on [r_h/2, oo)
+  (C2); condition (6), c pointing into the black hole inside the saddle and out of it beyond, with Lemma 3.8's
+  inequality (C3); condition (3), S computed on Tangherlini from its definition and positive definite on the saddle
+  window (C1, C4).
+- On sf, exactly: (4)-(5) at dK+ and R_v iff b_K > b_sf - b* and b_sf < b*, b* = 0.99341, the e = 0 thresholds moved by
+  0.0066; at the weights (1, -102), T is positive on all of sf with rho_K <= 10 (C7); (5.8) fails only within 0.00166 of
+  v (C5).
+- The bound on r_0 (C6, a measurement): 86 r_h at this e, 137 r_h at e/4; footnote 14's on Schwarzschild is 81
+  m/e^(1/2), 25920 m at this e.
+- Deduced, by his arguments: (4)-(5) off sf near it, with delta_r not explicit; the smoothing at r_0/2 and 2 r_0.
+- OPEN: his Theorem 5.2 in five dimensions (the 3b-estimates of his section 5, with h_0(e), so that h = 10^-6 is not
+  certified below it); section 6's five-dimensional steps; his Theorem B.1; E^Upsilon. Labels: computed (cform5.py
+  C1-C7; C6 a measurement); deduced; READ ([Hin26a] pp. 3, 38-41, 53, 67; alphaXiv, 2026-10-21); nothing proved.

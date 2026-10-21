@@ -15,8 +15,8 @@ the critical sets of -r^2 c# on Minkowski space (section 4.1-4.2), and by the in
      (1 + e) G(c)^-1 c# (x) c# makes l(zeta) self-adjoint (Lemma 3.3) and is positive definite for e > 0; the
      characteristic polynomial of l(zeta)/2 is (lam - G(c) zeta_0)^(n-1) times the quadratic with trace (3 - e) G(c)
      zeta_0 and determinant (2 - e) G(c)^2 zeta_0^2 + e G(c) G(zeta'), his (3.8) with the multiplicity n - 1 for 2:
-     so Lemmas 3.5-3.8, which use only this, hold verbatim at n = 4.  Control: the weight 1 in five dimensions, where
-     the effective e is (3e - 1)/2 < 0 and B is indefinite.
+     so Lemmas 3.5-3.8, which use only this, hold verbatim at n = 4.  Control: the effective e (3e - 1)/2 < 0 -- the
+     weight 1 at n = 4, the weight 3/2 at n = 3 -- where B is indefinite.
   W2 (computed, exact) The subprincipal symbol S = (L - L*)/(2ih), from the definition in Cartesian coordinates
      (adjoint with |dg| and B), not from Lemma 3.9's formula.  Four-dimensional control: his (4.6) for every e, and
      at the interior saddle his Lemma 4.4's a_00, a_10, a_11, a_22 and his e = 0 determinant 2 v^2 (3 - 2x^2); his
@@ -34,11 +34,12 @@ the critical sets of -r^2 c# on Minkowski space (section 4.1-4.2), and by the in
      x, bisection) is e_0 ~ 0.000069 v^2 in five dimensions and ~ 0.000154 v^2 in four (his ~ 0.000152 v^2).  Control: e
      = 1/40000, above e_0 at v = 1/2, where positivity fails.
   W5 (computed, exact) Lemma 4.3 is dimension-free: its proof is Lemma 3.8's condition, 2(1 - e) w/(e (1 - w)) >= 2 >
-     1 = G(+-dr) for w = v^2 (r - r_0)^2/r_0^2 >= e, which involves no dimension; checked exactly at n = 4, ell(+-dr)
-     negative definite at the edge points r = r_0 (1 +- sqrt(e)/v) and at r_0/2, 2 r_0.  Control: inside, at r = r_0
-     (1 + sqrt(e)/(2v)), where it is not.
+     1 = G(+-dr) for e <= w = v^2 (r - r_0)^2/r_0^2 < 1, which involves no dimension (w < 1 on his range [r_0/2, 2 r_0];
+     beyond r_0 (1 + 1/v) c is not timelike); checked exactly at n = 4, ell(+-dr) negative definite at the edge
+     points r = r_0 (1 +- sqrt(e)/v) and at r_0/2, 2 r_0.  Control: inside, at r = r_0 (1 + sqrt(e)/(2v)), where it is
+     not.
   W6 (computed, exact) The two points.  damping5.py's certificate point (1/2, 1/102400, 10^-6) has W4's admissible e and
-     h < e/10; the point of section 10.12's first version, e = 1/100, is not admissible: S fails positivity on |x| <=
+     h < e; the point of section 10.12's first version, e = 1/100, is not admissible: S fails positivity on |x| <=
      6/5 there, so that point was an indicial statement only.  Control: e = 1/100 claimed admissible.
 
 READ (alphaXiv, 2026-10-21).  [Hin26a] pp. 1-3 (Theorem 1.1), 7, 9-10 (section 1.2.2), 25-28 (section 3: Definition
@@ -141,7 +142,7 @@ def w1(control=0, verbose=False):
         z = sp.symbols("z0:%d" % (n + 1), real=True)
         c = sp.Matrix([c0] + [0] * n)
         zeta = sp.Matrix(z)
-        eff = e if control == 0 else (3 * e - 1) / 2                     # control: weight 1 in five dimensions
+        eff = e if control == 0 else (3 * e - 1) / 2                     # control: weight 1 at n = 4, 3/2 at n = 3
         L = ell(n, c, zeta, eff)
         Bm = B_of(n, c, eff)
         chk("n = %d: B l(zeta) is symmetric for generic zeta (Lemma 3.3)" % n,

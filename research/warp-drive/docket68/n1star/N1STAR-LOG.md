@@ -1475,3 +1475,64 @@ paragraph, the Review bullet, Appendix A, the settling and verification rows, Ap
 proved. OPEN: a five-dimensional c of [Hin26a] Proposition 5.1's kind on Tangherlini, his section 5's 3b-estimates and
 Theorem B.1 in five dimensions, E^Upsilon. The twenty-third verifier is sent on 10.13, semiclass5.py and the
 twenty-second's repairs; its verdict follows. Next: the five-dimensional c on Tangherlini.
+
+*The twenty-third verifier (the same day; one agent, sent on 10.13, semiclass5.py and the twenty-second's repairs).* No
+major finding, six minor and seven notes, all seated in the PR that seats 10.14. Minor: (1) the records called the
+certificate's point one "his construction admits" -- shown is only that it lies below Lemma 4.4's five-dimensional
+bound; his construction also asks e below the black-hole-side bounds of Proposition 5.1 (e', (5.9)-(5.10)) and h below
+Theorem 5.2's h_0(e), which he never makes explicit (his one numerical example, p. 76, is plotted, not certified) --
+repaired to "below the five-dimensional bound of his Lemma 4.4, h < e chosen here" wherever it stood, with the
+uncertified h_0 said, and the black-hole-side bounds met on Tangherlini in 10.14; (2) semiclass5.py's docstring still
+said h < e/10 -- now h < e; (3) the reflow of D55 collapsed ROUTES 4.4's numbered items and 4.13's bullets into run-on
+paragraphs -- the list layout of d481823 restored with the new text; (4) "his p_v ((A.2))" was repaired in damping5.py
+only, while the log said everywhere -- now the display of his section A.1 in 10.12 and ROUTES 4.13 too; (5) Proposition
+10.10(iv) dropped Lemma 4.3's range [r_0/2, 2 r_0], beyond r_0 (1 + 1/v) of which c is not timelike -- now stated, with
+e <= w < 1 in the proof; (6) "U6 a numerical measurement around it" -- U6's grid does not contain the point; now a
+survey at larger e and h. Notes: (7) 10.13's and ROUTES 4.14's OPEN lists omitted section 6's own five-dimensional steps
+(the weights of (6.1) with the density r^3, (6.4), (5.16)) and "with them his Theorem 6.2" overstated -- now listed, the
+overstatement removed, and S^C of (4.17), section 6's one Minkowski input, said to carry (its computation, not an
+instrument here); (8) Proposition 10.10(ii)'s translation into (5.14) rests on b_sf = a_sf + 1 and the |dg|
+normalisation -- now labelled deduced, READ at p. 39 in this step; (9) the thresholds -(n - 2)/2, (n - 2)/2 were checked
+at n = 3, 4 only -- now said (it checked n = 2, 5 too); (10) the paper set 0.000069 v^2 against his 0.000152, where the
+like-for-like figure is the computed 0.000154, e_0/v^2 being nearly independent of v -- now said; (11) the paper's
+settling paragraph omitted Theorem 7.1(4), the tf-admissibility -- now listed; (12) W1's control is the weight 1 at n =
+4 but the weight 3/2 at n = 3 -- now said; (13) Lemma 3.9 is correct as printed (a flattened extract had lost its
+parentheses) -- nothing to change. What held under its attack: W1-W6 and U1-U6 re-derived independently (its own B, S by
+Lemma 3.9 at both points, its own Sturm counts and bisection for e_0, the a_01 misprint confirmed basis-independently),
+every control and mutant failing on its stated sub-check, every READ at source, the 30 md5 rows, the line lengths and
+the paper's guard. Its scan at the point (mpmath, l <= 3 x 10^6) found no root in [-100, 2) but lam = 2 at l = 0 and 1,
+the least other upper real part 2.000003.
+
+**D56 (2026-10-21, M: "Continue"): a constraint damping 1-form on five-dimensional Tangherlini (section 10.14; cform5.py
+C1-C7), and the twenty-third verifier's findings seated.**
+
+*The step.* ROUTES 4.5's order after D55: the five-dimensional c of [Hin26a] Proposition 5.1's kind. PR #76 had merged;
+the branch is main at 1c45342. The twenty-third verifier, sent on 10.13, reported during this step; its findings are
+seated above, beside D55, in the same PR.
+
+*What was read.* At source (alphaXiv, 2026-10-21): [Hin26a] pp. 1-3, 38-41 (Proposition 5.1 and its proof, (5.1)-(5.13),
+footnote 14: r_2 >= 81m/e^(1/2) on Schwarzschild), 41 (Theorem 5.2, (5.14)-(5.15)), 43, 53 (Proposition 5.1 (4) and (6)
+in use), 67 (Theorem 6.2's proof: alpha_K = 1, alpha_sf = -C_0 - 2) and 93 (Theorem B.4). Re-reading p. 39 showed
+condition (6) on sf to rest on a delta'_r fixed by (4), which this step then computed rather than assumed.
+
+*What was computed.* cform5.py, in Kerr-Schild time on Tangherlini (mu = 1): (C1) S from its definition on the
+Tangherlini metric, of order zero, angle-free, block diagonal, semiclass5.py's at mu = 0; (C2) condition (1), the inner
+piece dt + (v/2) dr past timelike for every r > 0; (C3) condition (6) on [r_h/2, oo) at r_0 = 100; (C4) condition (3) at
+r_0 = 100; (C5) (5.8) on sf, failing only within 0.00166 of v; (C6) the smallest integer r_0, 86, by every integer in
+[2, 86], and 137 at e/4; (C7) (4)-(5) on sf at e = 1/102400, the thresholds b_sf < b* = 0.99341 and b_K > b_sf - b*, and
+positivity on all of sf at the weights (1, -102). Selftest 7/7 (about a minute and a half), mutants 7/7. Found by
+exploring before it was checked: C6's first form bisected over [30, 100] and so claimed a smallest r_0 it had not shown
+-- now every integer is run, and (3) holds at 86 alone below 87; the first reading of (6) on sf fixed delta = 1/100
+without the delta'_r that (4) sets -- now C7; the r_0 bound scales neither as e^(-1/4) nor as his e^(-1/2) at these e --
+recorded as two measurements, not a law.
+
+*What was deduced.* (4)-(5) off sf in a neighbourhood of it, delta_r not explicit, and the smoothing of c at r_0/2 and 2
+r_0, both by his arguments (pp. 39, 41).
+
+*Seated.* N1STAR-PROOF.md 10.14 with Proposition 10.11, and 10.12-10.13 repaired; cform5.py; semiclass5.py's docstring;
+ROUTES-OPEN.md 4.4 (its list restored), 4.5, 4.13 (its bullets restored), 4.14 and the new 4.15; the README; the paper
+(the settling paragraph, the Review bullet, Appendix A, Appendix C, Appendix D, D1-D56, the md5 rows). Labels: computed
+(cform5.py C1-C7, exact; C6 a measurement), deduced, READ; nothing proved. OPEN: his Theorem 5.2 in five dimensions (the
+3b-estimates of his section 5, with h_0), section 6's five-dimensional steps, Theorem B.1, E^Upsilon. The twenty-fourth
+verifier is sent on 10.14, cform5.py and the twenty-third's repairs; its verdict follows. Next: route B's item 2
+continues at his section 5 in five dimensions.

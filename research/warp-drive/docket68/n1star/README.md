@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D55).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D56).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -103,20 +103,24 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   (5/5, about forty seconds), `--mutants` (7/7).
 - `damping5.py`: route B's constraint damping in five dimensions (section 10.12; D54): the indicial roots of [Hin26a]'s
   constraint propagation operator on 4+1 Minkowski from the definitions, the trace weight 2/(D - 2), and the exact
-  certificate at a point his construction admits, the strip [-100, 2] free but for the Coulomb root at l = 0 and 1, his
-  four-dimensional formulas as the control (U1-U6). `python3 damping5.py --selftest` (6/6, about eighty seconds),
-  `--mutants` (6/6).
+  certificate at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here, the strip [-100, 2] free
+  but for the Coulomb root at l = 0 and 1, his four-dimensional formulas as the control (U1-U6). `python3 damping5.py
+  --selftest` (6/6, about eighty seconds), `--mutants` (6/6).
 - `semiclass5.py`: the semiclassical inputs of the constraint damping in five dimensions (section 10.13; D55):
   [Hin26a]'s fibrewise theory at the weight 2/(D - 2), the subprincipal symbol from its definition (his four-dimensional
   formulas as the control, one misprint named), the weight thresholds at the critical sets, the interior saddle's
   positivity with its admissible e, and the admissibility of damping5.py's point (W1-W6). `python3 semiclass5.py
   --selftest` (6/6, about a minute), `--mutants` (6/6).
+- `cform5.py`: a constraint damping 1-form of [Hin26a] Proposition 5.1's kind on five-dimensional Tangherlini (section
+  10.14; D56): one explicit c in Kerr-Schild time, its conditions (1), (3) and (6) checked exactly on the Tangherlini
+  metric at damping5.py's point, (4)-(6) on sf, and the smallest r_0 measured (C1-C7). `python3 cform5.py --selftest`
+  (7/7, about a minute and a half), `--mutants` (7/7).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All twenty-two are stdlib plus sympy (foliation5.py also uses z3; damping5.py and semiclass5.py mpmath; settle5.py numpy
-and scipy; bondi5.py and growth5.py numpy, growth5.py importing the solver `../lemmas/hf_mirror5.py` and
+All twenty-three are stdlib plus sympy (foliation5.py also uses z3; damping5.py and semiclass5.py mpmath; settle5.py
+numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing the solver `../lemmas/hf_mirror5.py` and
 `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py, lzero5.py and coupled5.py import wavegauge5.py,
-lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py, and the others import nothing from the tree. The
-board's shared record is not edited here.
+lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py, cform5.py imports semiclass5.py and damping5.py,
+and the others import nothing from the tree. The board's shared record is not edited here.
