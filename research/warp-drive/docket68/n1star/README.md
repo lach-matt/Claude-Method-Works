@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D49).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D53).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -95,13 +95,17 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   -5/4) (H1-H4). `python3 hierarchy5.py --selftest` (4/4, about a minute), `--mutants` (6/6).
 - `coupled5.py`: the coupled estimate for the last two components of the gauge vector (section 10.10; D52): Hung's
   section 6 in five dimensions -- the identities (6.8)-(6.10) and a fourth, the pair's matrix, the T-current with exact
-  positivity, the Morawetz current for a pair and its bulk, positive for every k^2 >= 8 without Hung's compact-region
-  substitution, and the r^p current (K1-K6). `python3 coupled5.py --selftest` (6/6, about a minute), `--mutants` (6/6).
+  positivity, the Morawetz current for a pair and its bulk, positive for every k^2 >= 8 without Hung's substitutions and
+  uniform in l, and the r^p current (K1-K6). `python3 coupled5.py --selftest` (6/6, about a minute), `--mutants` (6/6).
+- `lzerorate5.py`: the l = 0 sector by another route (section 10.11; D53): the commuted hierarchy at l = 0 with V^(1)_inf
+  = -5/4 absorbed by a Hardy inequality on the outgoing leaf for p < 1, the window exact at R_null = 10 r_h, the base
+  hierarchy at l = 0 without an angular term, and the cut-off source of P-hat (Y1-Y5). `python3 lzerorate5.py --selftest`
+  (5/5, about half a minute), `--mutants` (7/7).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All nineteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
-numpy, growth5.py importing the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing
-lead5.py), growing5.py, lzero5.py and coupled5.py import wavegauge5.py, and the others import nothing from the tree. The
-board's shared record is not edited here.
+All twenty are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py numpy,
+growth5.py importing the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py),
+growing5.py, lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, and the others import
+nothing from the tree. The board's shared record is not edited here.

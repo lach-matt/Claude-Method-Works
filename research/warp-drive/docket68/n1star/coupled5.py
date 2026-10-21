@@ -10,7 +10,8 @@ operator and V := (k^2/r^2) I + A,
 [Hun19]'s (6.1) W = A_W W + G in five dimensions.  His section 6 estimates it by the T-energy, red-shift, Morawetz and
 r^p currents for the pair, the non-self-adjoint part of A_W handled in the compact region by the identities (6.8)-(6.10)
 that express derivatives of W through quantities already controlled.  This instrument computes the five-dimensional
-form of each ingredient.
+identities and three of the four currents, the T-energy, Morawetz and r^p ones; the red-shift current is deduced
+(N1STAR-PROOF.md 10.10 (ii)), not computed.
 
   K1 (computed, exact) The identities, [Hun19] (6.8)-(6.10) in five dimensions, and one more.  For the scalar-type
      one-form X = X_t S dt + X_r S dr + X_L r S_i dz^i (S_i = -d_th S/k) with S := div X, P := (dX)_tr/S, Q_t :=
@@ -29,11 +30,14 @@ form of each ingredient.
      there, so no diagonal rescaling symmetrises A.  Control: the eigenvalue (l - 1)(l + 1) claimed to be l^2.
   K3 (computed, exact) The T-current.  For C = diag(c_1, c_2) and N symmetric, J := sum_i c_i T[X_i](d_t, .) - (1/2)
      (X.N.X) g(d_t, .) has div J = d_t X.(C V - N) X + d_t X.C G (measure r^3).  With C = diag(10, 1) and N_in := [[10
-     V_11, V_21], [V_21, V_22]] -- Hung's J_1,1 + J_1,2 with his weight 9 + 1 -- the error is d_t X_1 (10 V_12 - V_21)
-     X_L, the time derivative of X_1 only, and N_in >= (k^2/4) r^-2 I on the whole exterior for every k^2 >= 8; with C =
-     I and N_ex := sym(V) taking V_12 off the diagonal, the error is (4 k mu/r^4) d_t X_L X_1 and N_ex >= (k^2/4) r^-2 I
-     for r^2 >= 2 mu.  Positivity exact: each determinant a polynomial in (x, k^2) with every coefficient in k^2 - 8
-     positive on the stated x-interval (Sturm).  Control: c_1 = 1, N_in then indefinite at the horizon at k^2 = 8.
+     V_11, V_21], [V_21, V_22]], C V - N_in = [[0, 10 V_12 - V_21], [0, 0]] exactly: the error is d_t X_1 (10 V_12 -
+     V_21) X_L, the time derivative of X_1 only, and N_in >= (k^2/4) r^-2 I on the whole exterior for every k^2 >= 8
+     (Hung's J_1,1 + J_1,2 weighs T[W_1] by 1 + 9 and T[W_2] by 1 + 1, his (6.17)-(6.18); here 1 suffices for X_L); with
+     C = I and N_ex := [[V_11, V_12], [V_12, V_22]], V - N_ex = [[0, 0], [V_21 - V_12, 0]] exactly: the error is (4 k
+     mu/r^4) d_t X_L X_1 and N_ex >= (k^2/4) r^-2 I for r^2 >= 2 mu; a radial weight c_1(r), the join on [R_T, 4
+     R_T], adds c_1' f d_r X_1 d_t X_1, again in d_t X_1 alone.  Positivity exact: each determinant a polynomial
+     in (x, k^2) with every coefficient in k^2 - 8 positive on the stated x-interval (Sturm).  Control: c_1 = 1, N_in
+     then indefinite at the horizon at k^2 = 8.
   K4 (computed, exact) The Morawetz current for the pair.  With M symmetric (generic) and T_ab = sum_i d_a X_i d_b X_i -
      (1/2) g_ab (sum_i dX_i.dX_i + X.M.X), J := T(F d_r*, .) + (1/4) omega d|X|^2 - (1/4) (d omega)|X|^2 + F' beta |X|^2
      dr* has, for box_s X = V X + G with V arbitrary,
@@ -49,11 +53,14 @@ form of each ingredient.
      the bulk's angular control,
          W_rest := W_M - (1/10)(k^2 F (1 - 2 mu/r^2)/r^3) I - (k^2 mu^2 F^2/((dF/dr) r^8)) I >= (1/40) r^-3 I
      on the whole exterior for every real k^2 >= 8: in y = sqrt(mu)/r, r^3 W_rest - I/40 = [[p_1 + e K, k q], [k q, p_2 +
-     e K]] (K = k^2) with e >= 0, p_i + 8 e > 0, and its determinant d_0 + d_1 (K - 8) + e^2 (K - 8)^2 with d_0 > 0, and
-     4 d_0 e^2 - d_1^2 > 0 wherever d_1 < 0 (Sturm on the numerators, the photon-sphere factor divided out).  The minimum
-     of r^3 W_rest at l = 2 is reported.  Hung needs (6.8)-(6.9) on [2M, bM] because his matrix is only semi-definite at
-     l = 1; in five dimensions the class starts at l = 2 and the pair is definite there.  Control: half of the angular
-     term kept, which fails at l = 2.
+     e K]] (K = k^2) with e >= 0, p_i + 8 e > 0, and its determinant d_0 + d_1 (K - 8) + e^2 (K - 8)^2 with d_0 > 0 and
+     d_1 >= 0, a double zero at the photon sphere (Sturm on the numerators, the photon-sphere factor divided out), so
+     every coefficient in K - 8 is non-negative.  The minimum of r^3 W_rest at l = 2 is reported.  And the completion
+     cost is at most 35/13 of the kept tenth, uniformly in k: their ratio is 50 x (1 - x/2 + x^2/5)/(25 - 24 x + 12
+     x^2), increasing in x = mu/r^2 to 35/13 at the horizon, so the completed square controls (dF/dr)|f d_r X|^2 with a
+     constant independent of l (10.10 (iii)).  Hung needs (6.8)-(6.9) on [2M, bM] because his matrix is only
+     semi-definite at l = 1; in five dimensions the class starts at l = 2 and the pair is definite there.  Control: half
+     of the angular term kept, which fails at l = 2.
   K6 (computed, exact) The r^p current for the pair.  Psi := r^(3/2) X solves L Lbar Psi = -f Vcal Psi - f r^(3/2) G with
      Vcal = V + (3/4 + 9 mu/(4 r^2)) r^-2 I; V_inf := lim r^2 Vcal = [[k^2 + 15/4, 2k], [2k, k^2 - 1/4]] has the
      eigenvalues (l + 3/2)(l + 5/2) and (l - 1/2)(l + 1/2) > 0; sym(Vcal) - V_inf/r^2 = O(mu/r^4) and the antisymmetric
@@ -251,15 +258,25 @@ def k3(control=0, verbose=False):
     want = (dX.T*(C*v - Nm)*sp.Matrix(X))[0, 0] + (dX.T*C*sp.Matrix(G))[0, 0]
     chk("div J = d_t X.(C V - N) X + d_t X.C G for J = sum c_i T[X_i](d_t, .) - (1/2)(X.N.X) g(d_t, .)",
         sp.simplify(sp.expand(div - want)) == 0)
+    c1f = sp.Function("c1")(r)                                                       # the join's radial weight
+    Jl2 = sp.Matrix([c1f*(Tu(X[0])*Tv)[a] + (Tu(X[1])*Tv)[a] - XNX*(g*Tv)[a]/2 for a in range(2)])
+    C2 = sp.diag(c1f, 1)
+    want2 = ((dX.T*(C2*v - Nm)*sp.Matrix(X))[0, 0] + (dX.T*C2*sp.Matrix(G))[0, 0]
+             + D(c1f, r)*f*D(X[0], r)*D(X[0], t))
+    chk("with a radial weight c_1(r) (the join on [R_T, 4 R_T]) the cut-off adds c_1' f d_r X_1 d_t X_1, in d_t X_1",
+        sp.simplify(sp.expand(_div(Jl2, gi, X, Xtt) - want2)) == 0)
     # the five-dimensional choices, in x = mu/r^2 and K = k^2 (r^2 V)
     V = (V_of(kk)*r**2).subs(mu, xv*r**2).applyfunc(sp.expand)
     c1v = 1 if control == 1 else 10
     Nin = sp.Matrix([[c1v*V[0, 0], V[1, 0]], [V[1, 0], V[1, 1]]])
     Nex = sp.Matrix([[V[0, 0], V[0, 1]], [V[0, 1], V[1, 1]]])
-    err_in = sp.expand(c1v*V[0, 1] - V[1, 0])
-    err_ex = sp.expand(V[1, 0] - V[0, 1])
-    chk("the inner error is d_t X_1 (10 V_12 - V_21) X_L and the outer one (4 k mu/r^4) d_t X_L X_1",
-        sp.simplify(err_in - (10*V[0, 1] - V[1, 0])) == 0 and sp.simplify(err_ex - 4*kk*xv) == 0)
+    Min = (sp.diag(c1v, 1)*V - Nin).applyfunc(sp.simplify)
+    Mex = (V - Nex).applyfunc(sp.simplify)
+    want_in = sp.Matrix([[0, 10*V[0, 1] - V[1, 0]], [0, 0]]).applyfunc(sp.simplify)
+    chk("C V - N_in = [[0, 10 V_12 - V_21], [0, 0]] and V - N_ex = [[0, 0], [4 k mu/r^2, 0]] (r^2 V): the inner "
+        "error is d_t X_1 (10 V_12 - V_21) X_L and the outer one (4 k mu/r^4) d_t X_L X_1",
+        (Min - want_in).applyfunc(sp.simplify) == sp.zeros(2, 2)
+        and (Mex - sp.Matrix([[0, 0], [4*kk*xv, 0]])).applyfunc(sp.simplify) == sp.zeros(2, 2))
 
     def posdef(Nmat, lower, xa, xb):
         """Nmat - lower I > 0 for x in [xa, xb] and every K = k^2 >= 8: the diagonal entries and the determinant, each
@@ -379,21 +396,18 @@ def k5(control=0, verbose=False):
     d1 = sp.simplify(e*(a1 + a2) - q**2)
     d2 = sp.simplify(e**2)
     chk("the determinant's coefficient d_0 (at k^2 = 8) > 0 on the exterior", positive_on(d0, yv, 0, 1))
-    disc = sp.simplify(4*d0*d2 - d1**2)
-    nu1, de1 = _num_den(d1, yv)
-    nu1s, _ = _strip(nu1, yv, (ps,))
-    roots = [iv for iv in nu1s.intervals() if iv[0][1] >= 0 and iv[0][0] <= 1]
-    cuts = sorted({sp.Rational(0)} | {sp.Rational(1)} | {sp.Rational(iv[0][0]) for iv in roots}
-                  | {sp.Rational(iv[0][1]) for iv in roots})
-    cuts = [c for c in cuts if 0 <= c <= 1]
-    good = True
-    for lo, hi in zip(cuts[:-1], cuts[1:]):
-        mid = (lo + hi)/2
-        if sp.sign(d1.subs(yv, mid)) >= 0 and nu1s.count_roots(lo, hi) == 0:
-            continue                                                                  # d_1 >= 0 here
-        good &= positive_on(disc, yv, lo, hi, allow_zero_at=(ps,))
-    chk("where d_1 < 0 the discriminant 4 d_0 e^2 - d_1^2 > 0 (the photon-sphere factor divided out): the determinant "
-        "is positive for every real k^2 >= 8", good)
+    chk("the determinant's linear coefficient d_1 >= 0 on the exterior (a double zero at the photon sphere), so every "
+        "coefficient in k^2 - 8 is non-negative: the determinant is positive for every real k^2 >= 8",
+        positive_on(d1, yv, 0, 1, allow_zero_at=(ps,)) and sp.simplify(d2 - e**2) == 0)
+    # the photon-sphere step of 10.10 (iii): the completion cost against the kept tenth, uniformly in k
+    Fm, fm = F_HKW.subs(mu, 1), f.subs(mu, 1)
+    ratio = sp.simplify(((Fm**2/(D(Fm, r)*r**8))/(KEEP*Fm*(1 - 2/r**2)/r**3)).subs(r, 1/sp.sqrt(xv)))
+    want = 50*xv*(1 - xv/2 + xv**2/5)/(25 - 24*xv + 12*xv**2)
+    dnum = sp.Poly(sp.numer(sp.together(D(want, xv))), xv)
+    chk("the completion cost over the kept tenth is 50 x (1 - x/2 + x^2/5)/(25 - 24 x + 12 x^2), increasing on [0, 1] "
+        "to 35/13 at the horizon: uniform in k",
+        sp.simplify(ratio - want) == 0 and dnum.count_roots(0, 1) == 0 and dnum.eval(sp.Rational(1, 2)) > 0
+        and want.subs(xv, 1) == sp.Rational(35, 13))
     # the minimum at l = 2, reported
     W8 = W.subs(kk, sp.sqrt(8))
     fns = [sp.lambdify(yv, W8[i, j]) for i, j in ((0, 0), (0, 1), (1, 1))]

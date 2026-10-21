@@ -1268,7 +1268,79 @@ gauge vector and h = h_RW + pi_X decay in harmonic gauge at every mode l >= 2 of
 by the master field and the gauge vector there. Open: l = 0 alone (10.9's obstruction), and with it the final state c_1
 K* + c_2 pi_{W*} of Proposition 10.2(iv).
 
-*Seated.* N1STAR-PROOF.md 10.10 and the closing paragraphs of 10.7 and 10.9; coupled5.py; ROUTES-OPEN.md 4.5, 4.10's last
-bullet and 4.11; the README; the paper (the settling paragraph, Appendix A, the settling row, Appendix D and its import
-sentence, the [Hun19] entry, D1-D52, the md5 rows). Labels: computed (exact; K1 at l = 2, K3 and K5 for every real k^2 >=
-8), deduced (Proposition 10.7 and the l >= 2 conclusion), READ; nothing proved; l = 0 open.
+*Seated.* N1STAR-PROOF.md 10.10 and the closing paragraphs of 10.7 and 10.9; coupled5.py; ROUTES-OPEN.md 4.5, 4.9's last
+bullet, 4.10 (its last bullet, and three more with the nineteenth verifier's repairs) and 4.11 (this list first named
+4.10's last bullet alone; corrected on the twentieth verifier's note); the README; the paper (the settling paragraph,
+Appendix A, the settling row, Appendix D and its import sentence, the [Hun19] entry, D1-D52, the md5 rows). Labels:
+computed (exact; K1 at l = 2, K3 and K5 for every real k^2 >= 8), deduced (Proposition 10.7 and the l >= 2 conclusion),
+READ; nothing proved; l = 0 open.
+
+*The twentieth verifier (the same day; one agent, sent on 10.10, coupled5.py, the 10.9 repairs and the records).* No
+major finding; six minor and eight notes, all seated in the PR that seats 10.11. Minor: (1) the photon-sphere step of
+Proposition 10.7 (iii) bounded the angular term through (10.38) with a constant of order k^2 -- the first identity of
+(10.38) carries (k/r) X_L -- so not uniformly in l, while 10.10's "What this gives" sums the modes; repaired by the route
+this entry had named: the completed square bounds (dF/dr)|f d_r X|^2, the completion cost is at most 35/13 of the kept
+tenth of the angular term (their ratio 50 x (1 - x/2 + x^2/5)/(25 - 24 x + 12 x^2), increasing in x = mu/r^2, now
+computed in K5), and the identities then bound the angular term; (10.39) now says its constant is independent of l. (2)
+The paper said the coupled estimate's Morawetz step needs none of Hung's compact-region substitutions, while step (iii)
+uses (10.38) at the photon sphere and step (i) uses F_3: now "needs none of Hung's substitutions for its positivity". (3)
+10.10's opening and coupled5.py's docstring said every current is computed; the red-shift current is deduced, now said.
+(4) K3's sub-check of the inner error compared an expression with itself; it now forms C V - N_in and V - N_ex whole. (5)
+coupled5.py's docstring called N_ex sym(V); it is [[V_11, V_12], [V_12, V_22]], now said. (6) The README's D1-D49, stale
+since D50, now D1-D53. Notes: K5's discriminant branch was never used -- d_1 >= 0 on the exterior, with a double zero at
+the photon sphere -- now asserted and the branch removed; the T-current's join adds c_1' f d_r X_1 d_t X_1 on [R_T, 4
+R_T], again in F_3 alone, now computed in K3 and said in (i), with b r_h >= 4 R_T; (ii)'s coefficients are bounded per
+mode, uniformity in l coming from the red-shift's angular term as in Proposition 10.3's Step 2, now said; the attribution
+of C = diag(10, 1) to Hung, which the verifier could not check -- READ at source, pp. 41-42, (6.17)-(6.18): his J_1,1 +
+J_1,2 weighs T[W_1] by 10 and T[W_2] by 2, now said in 10.10, coupled5.py and ROUTES 4.11, the five-dimensional (10, 1)
+standing on K3; the 10.9 reading of his V^(j), which it could not check either -- READ at source, p. 71: "V^(j)(r) :=
+V(r) + 2M/r^3 - j(j + 1)/r^2 + 6Mj(j + 1)/r^3", which carries the radiation field's 2M/r^3 at j = 0, so the repaired
+comparison of D51 stands; the paper's Review bullet and Appendix C stopped at the sixteenth verifier, now through the
+twentieth, with 10.11 marked unread; this entry's Seated list omitted ROUTES 4.9's last bullet and three bullets of 4.10,
+now named; c' in (iii) is a function, now defined. What held under its attack: K4 and K5 rebuilt from scratch (its W_M
+equal to the record's w_rest), the factorisation of e and the signs of a_1, a_2, d_0 and d_1, the minimum 0.0352 at 1.261
+r_h at l = 2 on a 200,000-point grid, the keep and beta trials, K1 and (10.29) by an independent Christoffel computation
+at l = 2, K3's positivity on a grid, every coupled5 mutant failing a substantive sub-check, the 10.9 repairs and the 27
+md5 rows. Its verdict: 10.10 can be relied on as labelled once these sentences are repaired; they are. coupled5.py now:
+selftest 6/6 (about a minute), mutants 6/6.
+
+**D53 (2026-10-21, M: "Continue"): the l = 0 sector by another route -- the commuted hierarchy at l = 0 with a Hardy
+absorption (section 10.11; lzerorate5.py Y1-Y5); route A carried through for every mode of the class.**
+
+*The step.* ROUTES 4.5's order after D52: the l = 0 rapid decay by another route. PR #73 had merged; the branch was
+restarted from main at f7a5577. The twentieth verifier, sent on 10.10, reported during this step; its findings are seated
+above, beside D52, in the same PR.
+
+*What was read.* At source (alphaXiv): [Hun19] section 8, pp. 58-70, in full, with Proposition A.6 ((A.12)-(A.14)) and
+Appendix B, pp. 73-75. The l = 0 theorem's rate (1 + tau/M)^(-2+2 delta) comes from his Lemma 8.5, Err_{l=0} bounded by F
+and the integrated B-bar of D^{<= 7} P-hat and S_W; c_1(oo) exists because c_1' is an exact tau-derivative of a quantity
+that tends to zero; his Proposition 8.4 rests on Lemma 8.3's middle region, where G_P carries (1 + tau/M) |(M d)^{<= 1}
+S_W|, which his Proposition 8.2's rate pays. [Sch13]: Theorem 1, Proposition 4.1 with its proof, Corollary 4.3,
+Propositions 4.21-4.22 and (5.8)-(5.22); Proposition 4.1 holds with "no restriction on the spherical harmonic number".
+And, for the twentieth verifier's two open questions, [Hun19] p. 71 and pp. 40-42.
+
+*What was computed.* lzerorate5.py: (Y1) at k = 0 the commuted equation (Vcal_1 = -5/(4 r^2) + 57 mu/(4 r^4), C = 9 mu
+f/(2 r^3)), the base current's |nabla_L Psi|^2 coefficient p f/2 - mu/r^2, and (10.35) on the outgoing leaf, the f's
+cancelling; (Y2) the Hardy identity, its constant checked on w = 1 - R/r, the exact absorption identity (10.42) and the
+perfect square for the bad term; (Y3) Q(p, x) and its corners, positive on [1/10, 9/10] at R_null = 10 r_h and on [delta,
+1 - delta] at R_null = 3 r_h/delta^(1/2), and the leading-order window |V^(1)_inf| < 2, open in five dimensions at l = 0
+and empty in four; (Y4) B_0 >= (3/8)(2 - p) and the T-energy density at most 12 times the p = 1 bulk on x <= 1/100; (Y5)
+the cut-off source of P-hat, its growing terms in S_W and d_r S_W only, and (10.26) re-derived. Selftest 5/5 (about half
+a minute), mutants 7/7. Found by exploring before it was checked: 10.10's Morawetz multiplier with M = 0 is of both signs
+at l = 0 (r^3 s_0 is 3/4 at infinity and -1/2 at the horizon with beta = 0, and other choices of beta tried change sign
+too), so the base Morawetz estimate at l = 0 is taken from [Sch13], READ, not computed; and the window is the
+leading-order condition (4 + p)(2 - p) > 5.
+
+*What was deduced.* Proposition 10.8: S_W at (1 + tau/sqrt mu)^(-3+p+3 delta), by the commuted hierarchy on [delta, 1 -
+delta], whose bulk's zeroth-order term is the base energy one level up; P-hat at (1 + tau/sqrt mu)^(-1+4 delta), its
+source decaying at that rate uniformly in p; W' -> c_1(oo) W* and h_0 -> c K* + c_1(oo) pi_{W*} at (1 + tau/sqrt
+mu)^(-1+4 delta), by his section 8 and Appendix B. Proposition 10.2(iv)'s conditional and 10.8's are discharged, and with
+10.10 route A is carried through for every mode of the class, deduced; the l = 0 rate is a power below his, and the data
+need no Newman-Penrose condition.
+
+*Seated.* N1STAR-PROOF.md 10.11, with pointers to it in 10.8-10.10; lzerorate5.py; ROUTES-OPEN.md 4.5, 4.11 and 4.12; the
+README; the paper (the settling paragraph, Appendix A, the Review bullet, the settling and verification rows, Appendix D
+with its import sentence and commands, the [Sch13] and [Hun19] entries, D1-D53, the md5 rows). Labels: computed
+(lzerorate5.py Y1-Y5, exact), deduced (Proposition 10.8), READ ([Sch13]'s Morawetz estimate at l = 0); nothing proved.
+The twenty-first verifier is sent on 10.11, lzerorate5.py and the twentieth's repairs; its verdict follows. Next: route
+B's item 2, the five-dimensional constraint damping.

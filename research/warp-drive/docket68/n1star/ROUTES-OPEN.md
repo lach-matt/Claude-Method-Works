@@ -403,8 +403,10 @@ deduced), and at l = 0 his Proposition A.6 does not -- the radiation field carri
 hierarchy of S_W stops at p < 2 and 10.8's conditional is not discharged by his method. The second, the coupled (X_1,
 X_L) estimate of his section 6, is 4.11 (N1STAR-PROOF.md 10.10, Proposition 10.7, deduced): the Morawetz bulk of the pair
 is positive without his compact-region substitution, and with it route A is carried through for every mode l >= 2 of the
-class. Next, in order: the l = 0 rapid decay by another route; then route B's item 2, the five-dimensional constraint
-damping.
+class. The l = 0 sector is 4.12 (N1STAR-PROOF.md 10.11, Proposition 10.8, deduced): the same commutator, its negative
+V^(1)_inf = -5/4 absorbed by a Hardy inequality on the leaf for p < 1, with [Sch13]'s Morawetz estimate at l = 0, gives
+S_W and P-hat the decay 10.8 needs at a weaker rate, and with it route A is carried through for every mode of the class.
+Next: route B's item 2, the five-dimensional constraint damping.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -630,7 +632,8 @@ five dimensions; N1STAR-PROOF.md 10.9 states Proposition 10.6 and the obstructio
 
 ### 4.11 The coupled estimate: Hung's section 6 in five dimensions; route A through for l >= 2 (computed, deduced; D52)
 
-4.9's item (b). coupled5.py computes the identities, the pair's matrix and the four currents in five dimensions;
+4.9's item (b). coupled5.py computes the identities, the pair's matrix and three of the four currents in five
+dimensions, the red-shift current being deduced;
 N1STAR-PROOF.md 10.10 states Proposition 10.7.
 - The identities (K1): d_r X_1 + (3/r) X_1 + (k/r) X_L = S + f^-1 d_t X_t, f d_r X_L + (f/r) X_L + (k/r) X_1 = (k f/r)
   Q_r, d_t X_1 = f (P + d_r X_t) -- his (6.8)-(6.10) -- and d_t X_L = (k/r)(Q_t - X_t), a fourth: every first derivative
@@ -638,14 +641,15 @@ N1STAR-PROOF.md 10.10 states Proposition 10.7.
 - The pair's matrix (K2): at infinity its eigenvalues are (l + 1)(l + 3) and (l - 1)(l + 1), positive definite for l >=
   2, where Hung's are (l + 1)(l + 2) and l(l - 1), zero at l = 1; A_12 vanishes at the photon sphere, so no diagonal
   symmetriser exists, as in four dimensions.
-- The T-current (K3): with his weight 9 + 1 and the inner and outer symmetric parts, N_in, N_ex >= (k^2/4) r^-2 I for
-  every k^2 >= 8, exactly; the inner error involves d_t X_1 only, which is the identity's F_3, and the outer one is (4 k
-  mu/r^4) d_t X_L X_1, absorbed by the r^p bulk.
+- The T-current (K3): with the weights (10, 1) inside (his are (10, 2), (6.17)-(6.18)) and the inner and outer symmetric
+  parts, N_in, N_ex >= (k^2/4) r^-2 I for every k^2 >= 8, exactly; the inner error involves d_t X_1 only, which is the
+  identity's F_3, and the outer one is (4 k mu/r^4) d_t X_L X_1, absorbed by the r^p bulk.
 - The Morawetz current (K4-K5): the identity for a pair with arbitrary V, and with M = sym(V), the record's F and beta =
   1/(2 sqrt mu), the antisymmetric cross term completed into the radial square, a tenth of the angular term kept, the
   zeroth-order bulk satisfies W_rest >= r^-3/40 for every real k^2 >= 8 on the whole exterior, exactly (Sturm); 0.0352
   r^-3 at l = 2, at 1.261 r_h. Hung needs (6.8)-(6.9) for positivity on [2M, bM] because his pair is semi-definite at l =
-  1; here the identities are used only to remove the photon-sphere degeneracy of the derivatives, as he also does.
+  1; here the identities are used only to remove the photon-sphere degeneracy of the derivatives, as he also does --
+  uniformly in l, the completion cost being at most 35/13 of the kept tenth (the twentieth verifier's repair, D52).
 - The r^p current (K6): V_inf = [[k^2 + 15/4, 2k], [2k, k^2 - 1/4]], eigenvalues (l + 3/2)(l + 5/2) and (l - 1/2)(l +
   1/2), remainders O(mu/r^4).
 - Proposition 10.7 (deduced): the pair decays at (1 + tau/sqrt mu)^(-2+p+3 delta) against Decay[X], by his argument; the
@@ -654,5 +658,29 @@ N1STAR-PROOF.md 10.10 states Proposition 10.7.
   class, by his section 7 on Proposition 10.3: [Hun19]'s Theorem 2.4(1) (h at l >= 2; the l >= 2 part of his Theorem 1.2)
   in five dimensions, deduced.
 - Labels: computed (coupled5.py K1-K6, exact; K1 at l = 2, K3 and K5 for every real k^2 >= 8); deduced (Proposition 10.7
-  and its consequences); READ ([Hun19] section 6 in full, (6.1)-(6.37); alphaXiv, 2026-10-21); nothing proved; l = 0
-  open.
+  and its consequences); READ ([Hun19] section 6 in full, (6.1)-(6.37); alphaXiv, 2026-10-21); nothing proved; l = 0 open
+  here, and 4.12's.
+
+### 4.12 The l = 0 sector by another route: the commuted hierarchy with a Hardy absorption (computed, deduced; D53)
+
+4.10's obstruction at l = 0, taken by another route. lzerorate5.py computes what it needs; N1STAR-PROOF.md 10.11 states
+Proposition 10.8.
+- The currents at l = 0 (Y1): Vcal_1 = -5/(4 r^2) + 57 mu/(4 r^4) and C = 9 mu f/(2 r^3); the base current's |nabla_L
+  Psi|^2 coefficient p f/2 - mu/r^2; on the outgoing leaf the commuted bulk r^(p-1) c w'^2 + r^(p-3) B_1 w^2 - (9 mu/2)
+  r^(p-3) Psi w', c = p f/2 + 2 - 5 mu/r^2, B_1 = -(5/8)(2 - p) + (57/8)(4 - p) mu/r^2.
+- The Hardy step (Y2) and the window (Y3): with A and B the leaf's zeroth- and first-order integrals and A <= 4 B/(2 -
+  p)^2, the bulk is at least (Q/(2 (2 - p))) B + (Q (2 - p)/8) A, exactly, Q = (2 + p/2 - (5 + p/2) mu/R_null^2)(2 - p) -
+  5/2; Q(p, 0) = (1 - p)(3 + p)/2, and Q > 0 on [delta, 1 - delta] at R_null = 10 r_h for delta = 1/10 and at R_null = 3
+  r_h/delta^(1/2) for every delta in (0, 1/10]. At leading order the window needs |V^(1)_inf| < 2: open at five
+  dimensions' -5/4, empty at four dimensions' -2.
+- The base hierarchy (Y4): B_0 >= (3/8)(2 - p) at l = 0, and the T-energy density is at most 12 times the p = 1 bulk: the
+  radiation field's (3/4)/r^2 replaces the angular term. The base Morawetz estimate at l = 0 is READ: [Sch13] Proposition
+  4.1, which holds for every spherical harmonic number.
+- The cut-off source (Y5): the terms of G_P carrying u + r are S_W and d_r S_W only, on [b r_h, 2 b r_h] (his Lemma 8.3).
+- Proposition 10.8 (deduced): S_W at (1 + tau/sqrt mu)^(-3+p+3 delta), P-hat at (1 + tau/sqrt mu)^(-1+4 delta), and W' ->
+  c_1(oo) W* at the second rate, so h_0 -> c K* + c_1(oo) pi_{W*}: Proposition 10.2(iv)'s conditional discharged, his
+  Theorems 1.3-1.4 and 8.7 in five dimensions at a rate one power below his, with no Newman-Penrose condition on the
+  data. With 4.11, route A is carried through for every mode of the class.
+- Labels: computed (lzerorate5.py Y1-Y5, exact); deduced (Proposition 10.8); READ ([Sch13] Theorem 1, Propositions 4.1
+  and 4.21-4.22, Corollary 4.3, (4.76)-(4.92), (5.8)-(5.22); [Hun19] section 8, Proposition A.6 and Appendix B; alphaXiv,
+  2026-10-21); nothing proved. Next: route B's item 2.
