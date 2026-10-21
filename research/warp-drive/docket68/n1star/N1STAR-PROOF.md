@@ -2448,9 +2448,9 @@ d)^{<= 1} W-hat on Sigma''_tau, W-hat := W' - c_1(oo) W*, and h_0 settles to c K
 the five-dimensional analogue of his Theorems 1.3-1.4 that Proposition 10.2(iv) left conditional.
 
 *What it feeds on, and is not proved here.* Two estimates for the free scalar wave equation at l = 0 on five-dimensional
-Tangherlini, his Propositions 8.2 and 8.4: (a) for S_W, with box_s S_W = 0, the decay (1 + tau/sqrt mu)^(-4+p+delta) of F
-+ E^{p,(0)}_L for p up to 4 - delta -- his Proposition A.6(1), Angelopoulos-Aretakis-Gajic's extended hierarchy; (b) for
-P-hat, with the source (10.26) and its cut-off terms on [b r_h, 2 b r_h], where (u + r) S_W carries a factor (1 +
+Tangherlini, his Propositions 8.2 and 8.4: (a) for S_W, with box_s S_W = 0, the decay (1 + tau/sqrt mu)^(-4+p+delta) of
+F + E^{p,(0)}_L for p up to 4 - delta -- his Proposition A.6(1), Angelopoulos-Aretakis-Gajic's extended hierarchy; (b)
+for P-hat, with the source (10.26) and its cut-off terms on [b r_h, 2 b r_h], where (u + r) S_W carries a factor (1 +
 tau/sqrt mu) that (a)'s rate pays, his Proposition A.6(2). Neither is in 10.6: Propositions 10.4-10.5 are stated at k^2
 >= 8, where the Morawetz bulk borrows the angular term, and at l = 0 there is none to borrow -- the Morawetz multiplier
 for the l = 0 free wave is a separate choice ([Sch13] makes it in every dimension), and the extension of the hierarchy
@@ -2459,9 +2459,9 @@ past p = 2 is the rapid-decay input the growing source of 10.7 needs as well. Th
 has no five-dimensional counterpart at this order. 10.9 computes what the extension past p = 2 meets in five dimensions:
 at l >= 2, and for Sigma at l >= 1, it goes through (Proposition 10.6), at l = 0 it is obstructed (H4), so (a) here is
 open in a stronger sense -- his route does not supply it. 10.11 supplies weaker forms of (a) and (b) -- the same
-commutator with a Hardy absorption, S_W at (1 + tau/sqrt mu)^(-3+p+3 delta) for p <= 2 - delta where his rate is
-(1 + tau/M)^(-4+p+delta) up to p = 4 - delta -- re-runs his Appendix B at the weaker rate, and with them discharges the
-conditional.
+commutator with a Hardy absorption, S_W at (1 + tau/sqrt mu)^(-3+p+3 delta) for p <= 2 - delta where his rate is (1 +
+tau/M)^(-4+p+delta) up to p = 4 - delta -- re-runs his Appendix B at the weaker rate, and with them discharges the
+conditional at that rate, (1 + tau/sqrt mu)^(-1+4 delta) for h_0 in place of his (1 + tau/M)^(-2+2 delta).
 
 ### 10.9 The first rungs' rapid decay: [Hun19] Proposition A.5 in five dimensions, and l = 0 (`hierarchy5.py` H1-H4; D51)
 
@@ -2719,15 +2719,15 @@ rotations acting trivially at l = 0.
 *What is READ.* [Sch13] at its spatial dimension n = 4 (his 2m is mu): Proposition 4.1, (4.4), pp. 19-20, for every
 solution of box phi = 0 on the exterior, "int_{R^oo_{r_0,r_1}(t_0)} {r^-n (d phi/d r*)^2 + r^-(n+1) (d phi/dt)^2 + r^-3
 (1 - 2m/r^(n-2)) |nabla-slash phi|^2} dmu_g <= C(n, m) int_{Sigma_tau_0} (J^T(phi) + J^T(T phi), n)", with "no
-restriction on the spherical harmonic number" (p. 44). It is used here as stated, for every solution of box phi =
-0, so at l = 0; which part of his proof (4.76)-(4.92) carries the l = 0 mode is not identified here -- the current
-J^(alpha) commuted with the rotations Omega_i, which treats his low harmonics ((4.90)-(4.92), p. 47), vanishes there.
-Corollary 4.3 gives its non-degenerate form
-with the red-shift, Proposition 4.22 the zeroth-order term on a timelike boundary, and Theorem 1 (1.9), p. 5,
-E[phi](Sigma_tau) <= C D/tau^2 by the hierarchy (5.17) at p = 1, 2. At l = 0 this is the Morawetz estimate 10.8 found
-missing; it costs one T-derivative, which D^{<= m} absorbs. [Hun19] section 8, Proposition A.6 and Appendix B as quoted
-in 10.8 (READ 2026-10-21, pp. 58-75), with his remark that "our assumption E^{4-delta,(0)}_L < oo implies the
-Newman-Penrose constant vanishes" (p. 73).
+restriction on the spherical harmonic number" (p. 44). It holds at l = 0, and his proof shows how: Step 2
+((4.90)-(4.91), p. 47) treats pi_{<L} phi, which contains l = 0, by the current J^(alpha)(phi) = J^{X_a,0}(phi) + sum_i
+J^{X_b,2}(Omega_i phi) ((4.67), p. 38), whose uncommuted part, f^a solving (4.64), gives the bulk C(n - 1)/(alpha^2
+r^n)(d phi/d r*)^2 at every l ((4.71), p. 39) -- only the commuted part vanishes at l = 0 -- and Corollary 4.18 (p. 43)
+supplies d phi/dt through K^aux. Corollary 4.3 gives its non-degenerate form with the red-shift, Proposition 4.22 the
+zeroth-order term on a timelike boundary, and Theorem 1 (1.9), p. 5, E[phi](Sigma_tau) <= C D/tau^2 by the hierarchy
+(5.17) at p = 1, 2. At l = 0 this is the Morawetz estimate 10.8 found missing; it costs one T-derivative, which D^{<= m}
+absorbs. [Hun19] section 8, Proposition A.6 and Appendix B as quoted in 10.8 (READ 2026-10-21, pp. 58-75), with his
+remark that "our assumption E^{4-delta,(0)}_L < oo implies the Newman-Penrose constant vanishes" (p. 73).
 
 *What is computed (Y1-Y5, exact, sympy; on hierarchy5.py's equation and current at k = 0).*
 
@@ -2874,13 +2874,13 @@ square root of that rate; W-hat - W-bar is (c_1(tau) - c_1(oo)) times W*'s compo
 and (iii) follows as his Theorem 8.1's last step does. With c K* (Proposition
 10.2(iv)), h_0 settles to c K* + c_1(oo) pi_{W*}. []
 
-*What this gives.* Proposition 10.2(iv)'s conditional is discharged, and 10.8's with it: at l = 0 the perturbation
-settles to a change of mass and a stationary gauge mode, c K* + c_1(oo) pi_{W*}, at (1 + tau/sqrt mu)^(-1+4 delta). With
-10.10, every mode of the class is carried: h decays in harmonic gauge at every mode l >= 2 at (1 + tau/sqrt mu)^(-2+p+3
-delta) and settles at l = 0 -- [Hun19]'s Theorems 1.2-1.4 (his Theorems 2.4(1) and 8.7) in five dimensions, for the
-class. Route A is carried through, every step deduced on computed identities and READ inputs, none proved here. The l = 0
-rate is a power below his (1 + tau/M)^(-2+2 delta): the commuted hierarchy runs one step where his runs two. The
-five-dimensional l = 0 wave has the tail t^-3 ([CYDL03]), so the loss is the method's; a second commutation, or an
+*What this gives.* Proposition 10.2(iv)'s conditional is discharged, and 10.8's at the weaker rate: at l = 0 the
+perturbation settles to a change of mass and a stationary gauge mode, c K* + c_1(oo) pi_{W*}, at (1 + tau/sqrt mu)^(-1+4
+delta). With 10.10, every mode of the class is carried: h decays in harmonic gauge at every mode l >= 2 at (1 + tau/sqrt
+mu)^(-2+p+3 delta) and settles at l = 0 -- [Hun19]'s Theorems 1.2-1.4 (his Theorems 2.4(1) and 8.7) in five dimensions,
+for the class. Route A is carried through, every step deduced on computed identities and READ inputs, none proved here.
+The l = 0 rate is a power below his (1 + tau/M)^(-2+2 delta): the commuted hierarchy runs one step where his runs two.
+The five-dimensional l = 0 wave has the tail t^-3 ([CYDL03]), so the loss is the method's; a second commutation, or an
 absorption that keeps B_1's positive (57/8)(4 - p) mu/r^2, is not attempted.
 
 *What remains, and is not done here.* Nothing of route A. Nothing of this section is proved: (10.40)-(10.43) and Y1-Y5
@@ -2893,12 +2893,14 @@ are computed, exactly; the base Morawetz estimate at l = 0 is READ ([Sch13]); Pr
 *The setting.* Route B (ROUTES-OPEN.md 4.4) is [Hin26]'s nonlinear argument carried to five dimensions. Its gauge-fixed
 Einstein operator Ric(g) - delta*_{g,C} Upsilon(g) has the constraint propagation operator box^C = 2 delta_g G_g
 (delta*_g + C), and [Hin26] (1.43) asks that the zero energy operator of box^C have no indicial root with real part in
-[-C_0, 1) -- "C_0 = 100 suffices by a large margin". In four dimensions that is [Hin26a] Theorem 4.9, for C omega =
-h^-1 (2 c (x)_s omega - (1 - e) g iota_{c#} omega), c = r^-1 (dt - v dr), v in (0, 1), e > 0 small and then h > 0
-small. Indicial roots see only the model at infinity ([Hin26] Theorem 7.1's proof: "Parts (3) and (4) only see the
-Minkowskian model"), so in five dimensions the question is one on 4+1 Minkowski. ROUTES 4.4 item 2 named it the first
-genuinely new object of the route. Notation: delta* omega = (1/2)(omega_{a;b} + omega_{b;a}), G = Id - (1/2) g tr_g,
-(delta k)_a = -g^{bc} k_{ab;c}, n the spatial dimension (4 here, 3 his), kappa := l (l + n - 2).
+[-C_0, 1) -- "C_0 = 100 suffices by a large margin". In four dimensions that is [Hin26a] Theorem 4.9, for C omega = h^-1
+(2 c (x)_s omega - (1 - e) g iota_{c#} omega), c = r^-1 (dt - v dr), v in (0, 1), e > 0 small and then h > 0 small -- e
+below the bounds of his Theorem 4.9 and his Lemma 4.4, of which he writes "the maximal possible value of e_0 is very
+small (namely, e_0 < c v^2 for c ~ 0.000152)" (p. 33). Indicial roots see only the model at infinity ([Hin26] Theorem
+7.1's proof: "Parts (3) and (4) only see the Minkowskian model"), so in five dimensions the question is one on 4+1
+Minkowski. ROUTES 4.4 item 2 named it the first genuinely new object of the route. Notation: delta* omega =
+(1/2)(omega_{a;b} + omega_{b;a}), G = Id - (1/2) g tr_g, (delta k)_a = -g^{bc} k_{ab;c}, n the spatial dimension (4
+here, 3 his), kappa := l (l + n - 2).
 
 *What is computed* (`damping5.py`, exact unless said).
 
@@ -2923,22 +2925,30 @@ r^-(n-2), as lam = 1 is in his. At h = 0 the scalar sextic h^3 det N is
     8 v (lam - 2) Q_5,  Q_5 = e ((v^2 - 1) kappa + (1 + v^2)(lam - 3)(lam + 1)) - 2 v^2 (lam - 2)(lam - 3),   (10.47)
 
 -16 v^3 (lam - 3)(lam - 2)^2 at e = 0 (his: 8 v (lam - 1) Q_4, and the roots 1, 1, 2 of his (P1)); and the very negative
-roots lam = (h lt)^-1 have the same h = 0 limit in four and five dimensions.
+roots lam = (h lt)^-1 have the same h = 0 limit in four and five dimensions; the top-weight parts (lam of weight 1,
+kappa of weight 2) are h^3 (kappa - lam^2)^3 and h (kappa - lam^2), so the roots go as +-kappa^(1/2) and accumulate only
+at +-infinity, his Theorem 4.9's last clause.
 
 (U5) His weight transcribed literally fails: with m = 1 the scalar type at l = 0 has, at h = 0, the root (7 v^2 - 1 + 3e
 (1 + v^2))/(5 v^2 + 1 - 3e (1 + v^2)), at e = 0 in (-1, 1) for every v in (0, 1); at the parameters below the quartic has
 a real root in (0, 1), inside [-C_0, 1).
 
-(U6, numerical, a measurement) At v = 1/2 over e, h in {10^-2, 10^-3, 10^-4} and l up to 1.5 10^6 (mpmath, 50 digits):
-besides lam = 2 at l = 1, found at all nine, the roots of the upper family stay above 1.93; they are above 2 exactly
-where h <= e (six points) and between 1.939 and 1.967 where h > e (three); the lower family sits near -1/h, so C_0 asks
-h small against 1/C_0 -- at h = 10^-2 its largest root is -96.3 (e = 10^-2), inside [-100, 1).
+(U6, numerical, a measurement) At v = 1/2 over e, h in {10^-2, 10^-3, 10^-4} and l <= 10^6, 85 sampled values (mpmath,
+50 digits): besides lam = 2 at l = 1, found at all nine, the roots of the upper family stay above 1.93; they are above 2
+exactly where h <= e (six points) and between 1.939 and 1.967 where h > e (three); the lower family sits near -1/h, so
+C_0 asks h small against 1/C_0 -- at h = 10^-2 its largest root is -96.3 (e = 10^-2), inside [-100, 1).
 
-**Proposition 10.9 (computed; exact).** At (v, e, h) = (1/2, 1/100, 1/1000), with C = C_5, the zero energy operator of
-box^C on 4+1 Minkowski has, over every l and both types, no indicial root with real part in [-100, 19/10], and the only
-ones with real part in [-100, 2] are lam = 2 at l = 0 and l = 1, each simple. So [Hin26] (1.43) holds in five dimensions
-with C_0 = 100, and so does its form with the strip [-100, 2), ending at the Coulomb root r^-(n-2) as his [-C_0, 1) ends
-at r^-1. With m = 1 in place of 2/3 it fails.
+**Proposition 10.9 (computed; exact).** At (v, e, h) = (1/2, 1/102400, 10^-6) -- v = 1/2 as [Hin26a] p. 3 suggests, e
+below the five-dimensional bound of his Lemma 4.4 (Proposition 10.10) and h < e, chosen here -- with C = C_5, the zero
+energy operator of box^C on 4+1 Minkowski has, over every l and both types, no indicial root with real part in [-100,
+19/10], and the only ones with real part in [-100, 2] are lam = 2 at l = 0 and l = 1, each simple; the roots accumulate
+only at +-infinity. With m = 1 in place of 2/3 it fails.
+
+*Deduced.* That these are the indicial roots of box^C on five-dimensional Tangherlini, so that [Hin26] (1.43) holds
+there with C_0 = 100: indicial roots see only the leading-order part at infinity ([Hin26] p. 136, "Parts (3) and (4)
+only see the Minkowskian model"; p. 29, "indicial roots are determined by the leading-order (in the sense of decay as
+rho -> 0) part"), Tangherlini differs from Minkowski by O(mu r^-2), and c must equal r^-1 (dt - v dr) for large r -- a
+five-dimensional c of [Hin26a] Proposition 5.1's kind, which 10.13 prepares and does not construct.
 
 *Proof* (U4). The leading coefficient of the scalar sextic is -h^3 /= 0, so its roots move continuously in real kappa.
 On a line Re lam = x a root appears only if the polynomial shifted to the line has a zero constant coefficient (a real
@@ -2948,25 +2958,85 @@ Routh arrays count 3 roots right of 19/10 and 3 left of -100; so the strip is em
 the vector quadratic (1 and 1) and, at l = 0, the quartic (2 and 2). At x = 2 the same holds for kappa >= 8 (l >= 2; 3 |
 0 | 3 at l = 2), and at l = 1 and l = 0 the cofactors of lam - 2, a quintic and a cubic, have 2 | 0 | 3 and 1 | 0 | 2
 (right | between | left) and do not vanish at 2; the vector type has 1 | 0 | 1 at l = 1 and does not cross. A Routh
-array with no zero in its first column also excludes roots on its line. Four-dimensional control: the same at his weight
-1, at the lines 9/10 and 1 -- his Theorem 4.9 at these parameters. Controls: the line 21/10, right of lam = 2; U5's m =
-1. []
+array with no zero in its first column also excludes roots on its line, a zero constant term being refused.
+Four-dimensional control: the same at his weight 1, at the lines 9/10 and 1 -- his Theorem 4.9 at this point. The roots'
+growth is U3's top-weight computation. Controls: the line 21/10, right of lam = 2; U5's m = 1. The first version of this
+section used (v, e, h) = (1/2, 1/100, 1/1000), which the certificate also clears but which lies above Lemma 4.4's bound
+(W6 of 10.13): an indicial statement only (the twenty-second verifier, D54). []
 
 *READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-21): pp. 1-3 (Theorem 1.1, (1.1)-(1.2)), 5, 7, 25 (Definition
 3.1, Lemma 3.2), 29, 33-37 (section 4.3, Lemma 4.6, Corollary 4.7, (4.19), Definition 4.8, Theorem 4.9, Remarks
 4.10-4.12), 67 (Theorem 6.2), 69-74 (Appendix A, (A.1)-(A.2), A.2, (A.13)), 85. [Hin26] (arXiv:2606.28253v2): pp. 1, 4,
-25-26, 29 ((1.43)), 82 (Definition 4.2, (4.6)-(4.9)), 136 (Theorem 7.1).
+25-26, 17, 29 ((1.43) and the reason for its strip), 82 (Definition 4.2, (4.6)-(4.9)), 136 (Theorem 7.1).
 
-*What this gives, and what it does not.* The strong damping condition of route B, which ROUTES 4.4 named as the first
-object with no five-dimensional construction, has one: Hintz's constraint damping with the trace weight 2/(D - 2) in
-place of 1, at his parameters, computed exactly, the strip clear by nine tenths for (1.43) as he states it and up to the
-Coulomb root for its five-dimensional reading. That reading -- that the five-dimensional argument needs the strip up to
-r^-(n-2) -- is this record's, from the role of lam = 1 in his; which strip the argument needs is part of what is not
-done. Not done, and OPEN: [Hin26] Theorem 7.1's other parts on five-dimensional Tangherlini -- (1) mode stability of
+*What this gives, and what it does not.* The indicial half of route B's strong damping condition, which ROUTES 4.4
+named as the first object with no five-dimensional construction, has one at the level of the Minkowski model: Hintz's
+constraint damping with the trace weight 2/(D - 2) in place of 1, at a point inside the range his construction admits
+in five dimensions (Proposition 10.10), computed exactly; its transfer to Tangherlini is deduced. Which strip the
+five-dimensional argument needs: [Hin26] p. 29 asks for no root in [-C_0, 1) because a root lam of box^C gives the root
+lam - 1 of the linearized gauge-fixed operator (the order of decay gained under delta*), and that operator's large roots
+are those below its indicial gap, which begins at 0. The shift does not depend on the dimension, so the strip needed in
+five dimensions is his literal [-C_0, 1), provided the five-dimensional operator's gap also begins at 0 -- not computed
+here. Both strips are clear at the point: [-100, 19/10] with nine tenths to spare, and [-100, 2] but for the Coulomb
+root. Not done, and OPEN: [Hin26] Theorem 7.1's other parts on five-dimensional Tangherlini -- (1) mode stability of
 box^C at nonzero energy, (2) invertibility of its zero energy operator on the weighted spaces, and (4) the
-tf-admissibility, which sees only the Minkowski model but is not an indicial-root statement -- and item 2's other half,
-the modification E^Upsilon of [Hin26] Proposition 6.12 that removes W* from box^Upsilon. Nothing of this section is
-proved: Proposition 10.9 is computed, at one parameter point, with U6 a numerical measurement around it.
+tf-admissibility, which sees only the Minkowski model but is not an indicial-root statement -- with the five-dimensional
+c they need; and item 2's other half, the modification E^Upsilon of [Hin26] Proposition 6.12 that removes W* from
+box^Upsilon. Nothing of this section is proved: Proposition 10.9 is computed, at one parameter point, with U6 a
+numerical measurement around it; its transfer to Tangherlini is deduced.
+
+
+### 10.13 The semiclassical inputs of the constraint damping in five dimensions (`semiclass5.py` W1-W6; D55)
+
+*The setting.* [Hin26a] proves its Theorem 6.2 -- [Hin26] Theorem 7.1 (1)-(2), mode stability of box^C at nonzero
+energy and invertibility of its zero energy operator -- by semiclassical estimates in h on a compactified spacetime.
+Their inputs are fibrewise linear algebra (his section 3, stated for "dim M = 4"); the symbols of the zero section
+transport operator at the critical sets of -r^2 c# on Minkowski space (section 4.1-4.2): a saddle at the corner dK+ of
+K+ and sf, a sink at R_v = {r/t = v}, and, where -c# turns from pointing into the black hole to pointing out of it, an
+interior saddle at r = r_0 with c = r_0^-2 (r_0 dt - v (r - r_0) dr), his (4.8); and the indicial roots (section 4.3;
+10.12). His Proposition 5.1 then glues a c on Kerr from these pieces for e below the bounds of his Lemma 4.4 and
+Theorem 4.9, and his Theorem 5.2 solves the forward problem on weighted 3b-spaces whose weights the critical-set lemmas
+fix. This section recomputes the inputs on 4+1 Minkowski. The semiclassical part has his form in any dimension once the
+weight is 2/(D - 2) (10.12, U2): L = 4ih delta(c (x)_s .) + 2ihe d iota_{c#}, his (3.2).
+
+**Proposition 10.10 (computed; exact unless said).** On 4+1 Minkowski, with the weight 2/3:
+ (i) (his section 3) B = g^-1 - (1 + e) G(c)^-1 c# (x) c# makes l(zeta) self-adjoint and is positive definite for e >
+     0, and the characteristic polynomial of l(zeta)/2 is (lam - G(c) zeta_0)^3 times his (3.8) quadratic; his Lemmas
+     3.3-3.8, whose proofs use only this, hold verbatim. With the weight 1 the effective e is (3e - 1)/2 < 0 and B is
+     indefinite (W1).
+ (ii) (his Lemmas 4.1-4.2) At dK+ the eigenvalues of r^2 (-l(dw/w) + S)/2 at e = 0, w = rho_sf^b_sf rho_K^b_K, are
+     v (1 + b_K - b_sf), 2v (1 + b_K - b_sf) and v (2 + b_K - b_sf) (3x); at R_v (b_K = 0) v (1 - b_sf), 2v (1 - b_sf)
+     and v (2 - b_sf) (3x). They are positive iff b_K > b_sf - 1 and b_sf < 1, where his are b_K > b_sf - 1/2 and b_sf
+     < 1/2: the thresholds are -(n - 2)/2 and (n - 2)/2, and his (5.14), a_sf < -1/2 and a_K > a_sf + 1/2, becomes
+     a_sf < 0 and a_K > a_sf (W3).
+ (iii) (his Lemma 4.4) At the interior saddle, at e = 0, S is his -- a_22 = v, trace 5v, determinant 2 v^2 (3 - 2x^2),
+     positive on |x| <= 6/5 < (3/2)^(1/2) -- and at v = 1/2, e = 1/102400 it is positive definite on |x| <= 6/5 (Sturm).
+     The largest admissible e is about 0.000069 v^2, against about 0.000154 v^2 in four dimensions (numerical, a grid
+     of 1201 points in x and bisection; his "c ~ 0.000152") (W4).
+ (iv) (his Lemma 4.3) l(+-dr) is negative definite for +-(r - r_0) >= r_0 e^(1/2)/v; its proof, Lemma 3.8's condition
+     2(1 - e) w/(e (1 - w)) >= 2 > 1 for w >= e, involves no dimension (W5).
+ (v) Proposition 10.9's point (1/2, 1/102400, 10^-6) is admissible for (iii); e = 1/100 is not (W6).
+
+*Proof.* W1-W6 of semiclass5.py. S is computed from its definition, S = (L - L*)/(2ih), the adjoint taken with respect
+to |dg| and B in Cartesian coordinates, and not from his Lemma 3.9's formula; the four-dimensional control reproduces
+his (4.6) for every e, his (4.7) and Lemma 4.2, and Lemma 4.4's a_00, a_10, a_11 and a_22 with his e = 0 determinant.
+His printed a_01 is the computed one times e; with it the e = 0 determinant would be 2 v^2 (1 - x^2)(3 + 2x^2), not his
+2 v^2 (3 - 2x^2) -- a misprint, x e^(1/2) for x/e^(1/2) (W2). []
+
+*READ.* [Hin26a] (alphaXiv, 2026-10-21) pp. 9-10, 25-33 (section 3: Definition 3.1, Lemmas 3.2-3.9, Remark 3.4,
+Corollary 3.6; section 4.1-4.2: (4.1)-(4.9), Lemmas 4.1-4.4 and the sentence after Lemma 4.4), 38-41 (Proposition 5.1
+and its proof), 43, 53, 66-68 (Definition 6.1, Theorem 6.2 and its proof); [Hin26] pp. 17, 29, 134-137.
+
+*What this gives, and what it does not.* Every input of [Hin26a]'s semiclassical argument that is a computation on
+Minkowski space carries to five dimensions, with three differences, each computed: the weight 2/(D - 2); the weight
+thresholds at the two critical sets on sf, shifted by 1/2; and a smaller admissible e, about 0.000069 v^2 for 0.000154
+v^2. The e = 0 limit at the interior saddle, on which his 6/5 > 1 rests, is unchanged. Not deduced here: his Theorems
+5.2 and 6.2 in five dimensions. They need, besides these inputs, a five-dimensional c of his Proposition 5.1's kind on
+Tangherlini -- past timelike, pointing into the black hole near the horizon, equal to r^-1 (dt - v dr) at large r, with
+the interior saddle and the positivity (6) -- and his 3b-analysis (sections 2 and 5), which this record has not read in
+five dimensions. Not done, and OPEN: that c; the 3b-estimates of his section 5 in five dimensions; his Theorem B.1, the
+tf-admissibility; and item 2's E^Upsilon. Nothing of this section is proved: Proposition 10.10 is computed, (iii)'s e_0
+numerically.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
