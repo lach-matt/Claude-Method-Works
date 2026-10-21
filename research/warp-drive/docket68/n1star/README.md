@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D48).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D49).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -49,7 +49,8 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `ROUTES-OPEN.md`: one proposed method for each of the three open items, with the literature READ (D36), and in
   section 4 the route for the decay of the gauge-vector system and the nonlinear settling (D46), with 4.6 W7, Hung's
   Proposition 4.2 in five dimensions, computed (D47), and 4.7 his Proposition 4.1 in five dimensions, deduced on it
-  (D48; the proposition and its proof are N1STAR-PROOF.md section 10.5). Nothing in the file itself is proved.
+  (D48; the proposition and its proof are N1STAR-PROOF.md section 10.5), and 4.8 the rungs, deduced (D49; section
+  10.6). Nothing in the file itself is proved.
 - `bondi5.py`: Theorem M, the Bondi mass at past null infinity (section 11): the five-dimensional Bondi hierarchy in
   the class with every coefficient from s^1 general (the orders below the waves' vanish; the mass law from R_vv at
   order r^-3), the chart from the wave-gauge expansion, the Hawking mass of the Bondi spheres, the numerics'
@@ -73,6 +74,12 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   M/r^3 and 4M(r - 2M)/r^3 in row 6) (C1-C2), and the red-shift divergence of his (2.13) at r = 2M for one component,
     whose c sigma/(4M^2)|Q|^2 and (c/(2M^2)) Q Q_R terms the print halves and omits (C3; D48). `python3 hung4.py
       --selftest` (3/3, about two and a half minutes), `--mutants` (4/4).
+- `rungs5.py`: the rungs of the gauge-vector system (section 10.6, Propositions 10.4-10.5; D49): the Morawetz identity
+  [HKW18] (123) at n = 3 for a scalar with potential and source; the positivity of its bulk for the Maxwell potential
+  -4 mu/r^4 and the free rung with [HKW18]'s f and beta = 1/(2 sqrt mu), certified by a Sturm count on a polynomial of
+  degree ten (W > 0 on the exterior, W >= r^-3/4); Hung's (A.3) with room; the radiation variable's V_inf = k^2 + 3/4 and
+  the p-current with the source; the g-current (M1-M5). `python3 rungs5.py --selftest` (5/5, about half a minute),
+  `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).

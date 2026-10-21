@@ -1004,3 +1004,47 @@ the ingoing chart's v (a constant, constants not tracked). Sound by its report: 
 thresholds, the sufficiency of the two-component formal identities for the seven-component system, W7's regular
 variables, hung4.py's two misprint claims as internally consistent, the D47 repairs, the records' consistency. Not
 checkable by it: Hung's and Schlue's text, hung4.py's transcription of the printed rows, the W6 --l4 run.
+
+**D49 (2026-10-21, M: "Continue please"): the rungs. The Morawetz current for the Maxwell potential, and the estimates of
+[Hun19] Appendix A in five dimensions for every rung of the gauge-vector system (Propositions 10.4-10.5; rungs5.py
+M1-M5).**
+
+*What was read.* [HKW18] at source (alphaXiv), section 7 in full (pp. 28-48: Definition 8 and the energy-momentum tensor
+(88), the decay foliation 7.3, the Poincare inequality (98) with lambda = 2 on scalar potentials, Lemmas 9-10, the
+T-energy comparison (111), the red-shift 7.8 with Lemma 11 'for any bounded radial potential', Theorem 12 with its
+Gronwall-type proof, Lemma 13, Theorem 14, the Morawetz currents (119)-(123), the r^p current (125), Proposition 15 with
+its proof, Theorem 16, Lemma 17, Theorem 18 with its dyadic proof), 9.3.2 (pp. 54-57: the n = 3 and n = 4 choices of f
+and beta, the epsilon_0 and epsilon_1 splits, the g-current, the red-shift addition, the boundary terms at the horizon,
+the remark that the construction fails for n >= 5), 10.4.2 and 10.5 (pp. 66-67). ROUTES 4.3(2) and 4.3(6)(a) named the
+Morawetz multiplier for the Maxwell potential as the one thing to be done rather than quoted.
+
+*What was computed (rungs5.py).* (M1) the Morawetz identity (123) at n = 3 for a scalar with potential and source,
+re-derived from the current on the quotient with the measure r^3 (the source enters as G (F d_r* u + omega u/2)); (M2)
+with [HKW18]'s n = 3 choice read in mu = 2M -- F = (1 - 2 mu/r^2)(1 - mu/(2 r^2) + mu^2/(5 r^4)), beta = 1/(2 sqrt mu),
+their 1/2 being in units M = 1 -- and the angular term borrowed at k^2 = 8, the bulk coefficient W is -(y^3/40) Q(y)
+mu^(-3/2), y = sqrt(mu)/r, with Q of degree ten and no root in [0, 1] by Sturm's count, Q(0) = -300: W > 0 on the
+exterior, W >= r^-3/4 for the Maxwell rung and r^-3/5 for the free one, W(r_h) = 17/(4 mu^(3/2)) and 141/(20 mu^(3/2)),
+F'/f = dF/dr = mu (25 r^4 - 24 mu r^2 + 12 mu^2)/(5 r^7) > 0 on the closed exterior, the angular coefficient (r^2 - 2
+mu)^2 (10 r^4 - 5 mu r^2 + 2 mu^2)/(10 r^11); a scan over beta = b0/sqrt mu found the bulk positive for b0 in {0.3, 0.5,
+0.707} and negative on part of the exterior for b0 = 0 and b0 >= 1 (the control uses 2); (M3) k^2/r^2 - 4 mu/r^4 >=
+k^2/(2 r^2) on the exterior for k^2 >= 8, equality at r_h at k^2 = 8, and |V| <= 4/mu; (M4) V_inf = k^2 + 3/4 and the
+remainder -7 mu/(4 r^4) (Maxwell), 9 mu/(4 r^4) (free), the p-current identity (10.7) with the source for one component;
+(M5) the g-current identity. Selftest 5/5 in about half a minute, mutants 5/5.
+
+*What was deduced.* Section 10.6. Proposition 10.4, the rung estimate: the N-current, the Morawetz current cut off at
+R_null + r_h, and the p-current with epsilon J_delta in one divergence theorem, every bulk positive, no compact-region
+term; the source norm (10.16) is the one this proof produces -- mu^1/2 int s^(p+1)|G|^2 in the bulk (the radiation weight
+supplies the power, so the s-exponent is Hung's), mu int |G|^2 on the two slices and mu^(3/2) int |nabla_T G|^2 on a
+compact region in r, both from an integration by parts in T where the Morawetz bulk degenerates in nabla_T u at the
+photon sphere; Hung's degenerate |d G|^2 and |d_r G|^2 terms are not reproduced and the norm is said to be this proof's.
+Proposition 10.5, the decay: [HKW18] Theorem 18's dyadic argument with the source weights of Hung's I_source, the samples
+at p = 2 - delta-bar and p = 1 with an interpolation of the weights between them, the far part of F from E^0_{L,ang} by
+k^2 >= 8 alone (their Lemma 17), the photon-sphere degeneracy lifted by the one-dimensional Poincare inequality in r with
+T u and k u (their commutation with T and Omega), and the rate (1 + tau/sqrt mu)^(-2 + p + delta + delta-bar): one delta
+more than [Hun19] (A.10), the cost of controlling F between the dyadic samples with (10.17) itself (its right side
+carries E^delta, interpolated, hence the loss) rather than with a separate boundedness theorem; said so in the statement.
+Two readings of [HKW18] recorded: Proposition 15's hypothesis a_0 > 0 is stronger than its proof uses (a_0 bar = a_0 +
+3/4 > 0 at n = 3, which the rungs' a_0 = 0 satisfies -- the 3/4 of Proposition 10.3's V_inf), and their beta = 1/2 is
+dimensionful. Seated: N1STAR-PROOF.md 10.6 and the closing paragraph of 10.5; ROUTES-OPEN.md 4.5 (the order: the growing
+source, then l = 0) and 4.8, [HKW18] in its references; the README; the paper. Labels: computed, deduced (constants not
+tracked), READ; nothing proved. The seventeenth verifier is sent on section 10.6 and rungs5.py; its verdict follows.
