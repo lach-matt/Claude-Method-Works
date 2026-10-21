@@ -1048,3 +1048,39 @@ Two readings of [HKW18] recorded: Proposition 15's hypothesis a_0 > 0 is stronge
 dimensionful. Seated: N1STAR-PROOF.md 10.6 and the closing paragraph of 10.5; ROUTES-OPEN.md 4.5 (the order: the growing
 source, then l = 0) and 4.8, [HKW18] in its references; the README; the paper. Labels: computed, deduced (constants not
 tracked), READ; nothing proved. The seventeenth verifier is sent on section 10.6 and rungs5.py; its verdict follows.
+
+*The seventeenth verifier (2026-10-21), and the repairs.* Verdict: three major findings, eight minor, two notes; the
+instrument sound (an independent sympy derivation of M1-M5 from scratch reproduced every identity, polynomial and
+constant), the arithmetic of 10.6 checked by hand, the records' md5s matching. The majors, each repaired the same day:
+(1) the angular term was spent twice at l = 2 -- (M2) borrowed the whole of it into W through k^2 u^2 >= 8 u^2, and (b)
+then used it again for the epsilon_1 split, the g-current's absorption and (10.21); at k^2 = 8 the displayed inequality
+was false off the photon sphere. Repaired by borrowing half: W := W0 + 4 F (1 - 2 mu/r^2)/r^3 = -(y^3/40) Q(y) mu^(-3/2),
+Q of degree ten with no root in [0, 1], Q(0) = -140, W >= r^-3/5 (Maxwell; min r^3 W = 0.240478) and r^-3/7 (free;
+0.166665), W(r_h) = 29/(20 mu^(3/2)) and 17/(4 mu^(3/2)), W(r_P) = (11/20 - 51 sqrt 2/160) mu^(-3/2) for both; the other
+half stays in the bulk with its coefficient proportional to k^2. Some borrowing is necessary -- r^3 W0 = -27/20 at the
+horizon for the Maxwell rung and -> -1/2 at infinity for both -- and the thresholds are 27/112 (Maxwell, set at the
+horizon) and 1/16 (free, set at infinity); theta = 1/4 serves both. rungs5.py M2 now certifies the half-borrowed W and
+carries a second control, no borrowing at all (six mutants, all caught). (2) The closing paragraph of 10.6 and ROUTES 4.8
+claimed that the gauge vector decays at the rate of Proposition 10.5 with the loss of a fixed number of derivatives, each
+rung's source norm being the energy norm of the rungs below. Withdrawn: (10.16) asks for mu^1/2 int s^(p+1) |G|^2, a rung
+supplies s^(p'-4) |nabla_L Psi|^2 with p' <= 2 - delta, r P's source 2 d_t S would need p' = p + 2, and r X_L's (2 f r/k)
+d_r S grows in r -- which is the growing-source problem of 4.3(3), now stated as the next step, with what [Hun19] section
+4.3 does read and recorded (tr h as the first rung, homogeneous, decaying at his Proposition A.5's rate with k = 1; P-bar
+and W-bar through (4.27)-(4.30); eta_b; the sources G_P, G_0, G_1, G_2 bounded with (1 + tau/M)^2 factors in Lemmas
+4.8-4.10 and 5.5). (3) I^(0) omitted the p-weighted data the proof uses: (iv) runs (ii)-(iii) for T u and k u, which
+takes (10.17) for T^2 u, k T u and k^2 u and so E^{2-delta}_L for them at tau = 0. Enlarged to every order of T and k;
+[Hun19]'s (2.23) at k = 0 carries E^{2-delta}_L for K^{<= 1} only, and the difference is said in the statement. The
+minors: the slice term of (10.16) and the support of chi_T (the integration by parts in T is now confined to [r_1, 2 r_h]
+around the photon sphere, chi_T supported in [r_0, 5 r_h/2] inside Sigma'', and (10.21) is used directly on [2 r_h, R_1],
+where (1 - 2 mu/r^2)^2 >= 1/4); d_r(mu/r^2), not d_r*, in (10.18); the coefficient of |nabla-slash u|^2 is F (1 - 2
+mu/r^2)/r; (10.21)'s weight r^-1 s^-2, with the constant depending on R_null, now in the statement of Proposition 10.4;
+the source of the radiation variable s^(3/2) G and the second cross term's s^(1-delta); beta^2 F'/f <= 5/(4 r^3) in the
+epsilon_0 split, with epsilon_0 <= 3c/(5 + 3c); the F' root count on 12 y^4 - 24 y^2 + 25; the README's W >= r^-3/4 and
+"fourteen"; the paper's D1-D48 and the [HKW18] READ scope. The notes: r_0 <= 9 r_h/8 and r_1 >= 5 r_h/4, so that eta_rs
+is constant off [r_0, r_1]; one sample time for u, T u, k u, T^2 u, k T u and k^2 u in (ii) and (iii); the cut-off
+commutator of (c) paid by epsilon_M K^M; and the one the verifier could not settle -- whether the leaves are t = const
+near the photon sphere, which the one-dimensional Poincare inequality in r needs -- settled by reading [Hun19] 2.2 at
+source: g = r_* on [5M/2, R_null], so the leaves are t = const on [5 r_h/4, R_null] here, said in the proof. Seated:
+N1STAR-PROOF.md 10.6 and the closing paragraph of 10.5; rungs5.py; ROUTES-OPEN.md 4.8; the README; the paper (the
+settling paragraph, Appendix A, the [HKW18] and [Hun19] entries, D1-D49, the md5 rows). Labels unchanged: computed,
+deduced (constants not tracked), READ; nothing proved. Selftest 5/5, mutants 6/6.

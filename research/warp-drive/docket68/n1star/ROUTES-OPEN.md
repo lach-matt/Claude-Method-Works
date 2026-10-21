@@ -473,12 +473,12 @@ Maxwell potential -4 mu/r^4 of the rung r P; rungs5.py computes it and the rest 
 N1STAR-PROOF.md 10.6 runs the chain with the source carried (Propositions 10.4-10.5):
 - the Morawetz identity [HKW18] (123) at n = 3 holds for a scalar with potential and source, exactly (M1);
 - with [HKW18]'s n = 3 choice read in mu = 2M, F = (1 - 2 mu/r^2)(1 - mu/(2 r^2) + mu^2/(5 r^4)) and beta = 1/(2 sqrt
-  mu),
-  and the angular term borrowed at k^2 = 8, the bulk coefficient W is -(y^3/40) Q(y) mu^(-3/2) with y = sqrt(mu)/r and Q
-  a polynomial of degree ten without a root in [0, 1], Q(0) = -300 -- so W > 0 on the whole exterior, W >= r^-3/4
-  (Maxwell) and r^-3/5 (free), F' > 0 on the closed exterior, the angular coefficient a square at the photon sphere
-  (M2). Their choice, made for their master potentials, serves both rung potentials unchanged; beta = 0 or beta >=
-  1/sqrt mu does not;
+  mu), and half the angular term borrowed at k^2 = 8 (the other half stays in the bulk, where the current needs it), the
+  bulk coefficient W is -(y^3/40) Q(y) mu^(-3/2) with y = sqrt(mu)/r and Q a polynomial of degree ten without a root in
+  [0, 1], Q(0) = -140 -- so W > 0 on the whole exterior, W >= r^-3/5 (Maxwell) and r^-3/7 (free); W0 alone is negative at
+  the horizon (Maxwell) and at infinity (both), so some borrowing is necessary, the thresholds 27/112 and 1/16; F' > 0 on
+  the closed exterior, the angular coefficient a square at the photon sphere (M2). Their choice, made for their master
+  potentials, serves both rung potentials unchanged; beta = 0 or beta >= 1/sqrt mu does not;
 - Hung's (A.3) holds with room, k^2/r^2 - 4 mu/r^4 >= k^2/(2 r^2) on the exterior, so the T-energy comparison is
   pointwise and no Hardy inequality enters (M3); the radiation variable's potential has V_inf = k^2 + 3/4 and a remainder
   -7 mu/(4 r^4) or 9 mu/(4 r^4), so the r^p step is Proposition 10.3's Step 1 for one component (M4); the g-current that
@@ -491,14 +491,21 @@ N1STAR-PROOF.md 10.6 runs the chain with the source carried (Propositions 10.4-1
   argument with the source, the commuted quantities T u and k u in the data, the photon-sphere degeneracy lifted by the
   one-dimensional Poincare inequality in r -- [Hun19] (A.10) with one more delta in the exponent, the cost of the
   intermediate times, cosmetic for L1.
-Two readings of [HKW18] recorded: Proposition 15 states a_0 > 0 for the 1/r^2 coefficient of the potential, but its
-proof uses only a_0 bar = a_0 + (n^2 - 2n)/4 > 0, which the rungs' a_0 = 0 satisfies at n = 3 (a_0 bar = 3/4, the 3/4
-of Proposition 10.3's V_inf); and their beta = 1/2 and f are written in units M = 1 (beta has the dimension of 1/length),
-read here as 1/(2 sqrt mu). What the rungs give: the gauge vector X of 4.3(1) decays at the rate of Proposition 10.5
-with the loss of a fixed number of derivatives, each rung's source norm being the energy norm of the rungs below and J's
-from Proposition 10.1; what they do not: the growing source (4.3(3)) and l = 0 (4.3(4)). Labels: computed (rungs5.py
-M1-M5); deduced (Propositions 10.4-10.5, constants not tracked); READ ([HKW18] section 7 pp. 28-48, 9.3.2 pp. 54-57,
-10.4.2-10.5 pp. 66-67; alphaXiv, 2026-10-21). Sent to the seventeenth verifier; verdict pending.
+Two readings of [HKW18] recorded: Proposition 15 states a_0 > 0 for the 1/r^2 coefficient of the potential, but its proof
+uses only a_0 bar = a_0 + (n^2 - 2n)/4 > 0, which the rungs' a_0 = 0 satisfies at n = 3 (a_0 bar = 3/4, the 3/4 of
+Proposition 10.3's V_inf); and their beta = 1/2 and f are written in units M = 1 (beta has the dimension of 1/length),
+read here as 1/(2 sqrt mu). What the rungs give: the estimate for each rung's equation with a source in the norm (10.16).
+What they do not: the decay of the gauge vector, because the sources the rungs carry -- 2 d_t S in r P's, (2 f r/k) d_r S
+in r X_L's -- are not in that norm's weights (S's rung supplies s^(p'-4) |nabla_L Psi_S|^2 with p' <= 2 - delta where r
+P's source needs p' = p + 2); that is the growing source (4.3(3)), the next step, and l = 0 (4.3(4)) stands beside it.
+Labels: computed (rungs5.py M1-M5); deduced (Propositions 10.4-10.5, constants not tracked); READ ([HKW18] section 7 pp.
+28-48, 9.3.2 pp. 54-57, 10.4.2-10.5 pp. 66-67; [Hun19] 2.2 (g = r_* on [5M/2, R_null]), 2.4 (the source norm,
+(2.23)-(2.24)), Proposition 5.2, Lemma 5.5; alphaXiv, 2026-10-21). The seventeenth verifier (2026-10-21): three major
+findings, all repaired -- the angular term spent twice at l = 2 (now half of it borrowed, the thresholds computed), the
+claim that X decays (withdrawn: the sources are not in the norm), I^(0) short of the p-weighted data the proof uses
+(carried at every order of T and k, where [Hun19]'s (2.23) carries them at K^{<= 1}) -- eight minor ones repaired and two
+notes seated (r_1 >= 5 r_h/4; the leaves t = const on [5 r_h/4, R_null], settled from [Hun19] 2.2); sound otherwise, by
+an independent sympy derivation of M1-M5 and the arithmetic of 10.6 by hand.
 
 ## References (READ 2026-10-20 unless marked)
 

@@ -14,18 +14,23 @@ potential is the Morawetz multiplier.  This instrument computes what the proofs 
      potential V and a source G, on the quotient with the measure r^3: for X = F d_r*, omega = F' + 3 f F/r (' = d_r* = f
      d_r), and the current J_a = T_ab X^b + (1/4) omega d_a(u^2) - (1/4) (d_a omega) u^2 + F' beta u^2 (dr*)_a with T_ab
      = d_a u d_b u - (1/2) g_ab (du.du + (k^2/r^2 + V) u^2), div J = (F'/f) |d_r* u + beta u|^2 + (F/r^3)(1 - 2 mu/r^2)
-     k^2 u^2 + W0(F, beta) u^2 + G (F d_r* u + omega u/2), W0 = -(1/4) box omega - (1/2) V' F + (1/2) (mu/r^2)' V F + F''
-     beta/f + F' (beta'/f + 3 beta/r - beta^2/f), box omega = r^-3 d_r (r^3 f d_r omega).  Control: the sign of the beta
-     term reversed.
+     k^2 u^2 + W0(F, beta) u^2 + G (F d_r* u + omega u/2), W0 = -(1/4) box omega - (1/2) V' F + (1/2) d_r(mu/r^2) V F +
+     F'' beta/f + F' (beta'/f + 3 beta/r - beta^2/f) -- d_r, not d_r*, in the third term, d_r(mu/r^2) = -2 mu/r^3 -- and
+     box omega = r^-3 d_r (r^3 f d_r omega).  Control: the sign of the beta term reversed.
   M2 (computed, exact) The positivity for the Maxwell rung V = -4 mu/r^4 and the free rung V = 0 at k^2 = 8 with
      [HKW18]'s n = 3 choice read in mu = 2M, F = (1 - 2 mu/r^2)(1 - mu/(2 r^2) + mu^2/(5 r^4)) and beta = 1/(2 sqrt mu)
-     (their 1/2 in units M = 1): with the angular term borrowed through k^2 u^2 >= 8 u^2, W := W0 + 8 F (1 - 2
-     mu/r^2)/r^3 is mu^(-3/2) (-y^3/40) Q(y), y = sqrt(mu)/r in (0, 1], with Q a polynomial of degree ten having no root
-     in [0, 1] and Q(0) = -300: so W > 0 on the exterior, W >= c r^-3 with c = 1/4 (Maxwell) and 1/5 (free), W(r_h) =
-     17/(4 mu^(3/2)) and 141/(20 mu^(3/2)); F'/f = dF/dr = mu (25 r^4 - 24 mu r^2 + 12 mu^2)/(5 r^7) > 0 on the closed
-     exterior, 13/(5 sqrt mu) at r_h; the angular coefficient F (1 - 2 mu/r^2)/r^3 = (r^2 - 2 mu)^2 (10 r^4 - 5 mu r^2 +
-     2 mu^2)/(10 r^11) >= 0 with its double zero at the photon sphere r^2 = 2 mu; F bounded, from -7/10 at r_h to 1.
-     Control: beta = 2/sqrt mu, for which W is negative on part of the exterior.
+     (their 1/2 in units M = 1): with half the angular term borrowed through (1/2) k^2 u^2 >= 4 u^2, W := W0 + 4 F (1 -
+     2 mu/r^2)/r^3 is mu^(-3/2) (-y^3/40) Q(y), y = sqrt(mu)/r in (0, 1], with Q a polynomial of degree ten having no
+     root in [0, 1] and Q(0) = -140: so W > 0 on the exterior, W >= c r^-3 with c = 1/5 (Maxwell; min r^3 W = 0.240478)
+     and 1/7 (free; 0.166665), W(r_h) = 29/(20 mu^(3/2)) and 17/(4 mu^(3/2)), W(r_P) = (11/20 - 51 sqrt 2/160)
+     mu^(-3/2) for both (F vanishes there); the other half of the angular term stays in the bulk. W0 alone is negative,
+     at the horizon for the Maxwell rung (r^3 W0 = -27/20 there) and at infinity for both (r^3 W0 -> -1/2), so some
+     borrowing is necessary; borrowing the whole angular term gives W > 0 too but leaves none for the bulk at l = 2 (the
+     record's first version, repaired on the seventeenth verifier's finding). F'/f = dF/dr = mu (25 r^4 - 24 mu r^2 +
+     12 mu^2)/(5 r^7) > 0 on the closed exterior (12 y^4 - 24 y^2 + 25 has no real root), 13/(5 sqrt mu) at r_h; the
+     coefficient of k^2 u^2, F (1 - 2 mu/r^2)/r^3 = (r^2 - 2 mu)^2 (10 r^4 - 5 mu r^2 + 2 mu^2)/(10 r^11) >= 0, has its
+     double zero at the photon sphere r^2 = 2 mu; F bounded, from -7/10 at r_h to 1.  Controls: beta = 2/sqrt mu, for
+     which W is negative on part of the exterior; and no borrowing at all, W0 alone, negative on part of the exterior.
   M3 (computed, exact) Hung's (A.3) and the T-energy comparison pointwise: k^2/r^2 - 4 mu/r^4 >= k^2/(2 r^2) on the
      exterior for every k^2 >= 8 (equality at the horizon when k^2 = 8), so the T-energy density of the Maxwell rung is
      at least half the virtual one and no Hardy inequality is needed; |V| <= 4/mu, the bound the red-shift step needs.
@@ -109,7 +114,8 @@ def _divergence(Jl, gi, u, utt):
 
 
 def W_of(F, beta, V, k2):
-    """W0(F, beta) of M1 and W = W0 + k2 F (1 - 2 mu/r^2)/r^3, the angular term borrowed"""
+    """W0(F, beta) of M1 and W = W0 + k2 F (1 - 2 mu/r^2)/r^3: the share k2 u^2 of the angular term k^2 u^2 >= 8 u^2
+    borrowed (k2 = 4 is half of it at l = 2)"""
     omega = drs(F) + 3*f*F/r
     W0 = ((-boxrad(omega)/4 - drs(V)*F/2 + D(mu/r**2, r)*V*F/2)
           + (drs(drs(F))*beta/f + drs(F)*(drs(beta)/f + 3*beta/r - beta**2/f)))
@@ -132,8 +138,8 @@ def m1(control=0, verbose=False):
     want = (drs(F)/f*(drs(u) + beta*u)**2 + F/r**3*(1 - 2*mu/r**2)*kk**2*u**2 + W0*u**2
             + G*(F*drs(u) + omega*u/2))
     chk("div J = (F'/f)|d_r* u + beta u|^2 + (F/r^3)(1 - 2 mu/r^2) k^2 u^2 + W0 u^2 + G (F d_r* u + omega u/2), W0 = "
-        "-(1/4) box omega - (1/2) V' F + (1/2)(mu/r^2)' V F + F'' beta/f + F'(beta'/f + 3 beta/r - beta^2/f) ([HKW18] "
-        "(123), n = 3)", sp.simplify(sp.expand(div - want)) == 0)
+        "-(1/4) box omega - (1/2) V' F + (1/2) d_r(mu/r^2) V F + F'' beta/f + F'(beta'/f + 3 beta/r - beta^2/f) "
+        "([HKW18] (123), n = 3)", sp.simplify(sp.expand(div - want)) == 0)
     return chk.ok
 
 
@@ -141,29 +147,39 @@ def m2(control=0, verbose=False):
     """M2: positivity of the Morawetz bulk for the Maxwell and the free rung with HKW18's F and beta = 1/(2 sqrt mu)"""
     chk = Checklist(verbose, quiet=control != 0)
     beta = 2/sp.sqrt(mu) if control == 1 else BETA_HKW
+    share = 0 if control == 2 else 4                          # of k^2 u^2 >= 8 u^2, half is borrowed into W
     Fp = sp.factor(sp.simplify(drs(F_HKW)/f))
     chk("F'/f = dF/dr = mu (25 r^4 - 24 mu r^2 + 12 mu^2)/(5 r^7) > 0 on the closed exterior, 13/(5 sqrt mu) at r_h; F "
         "from -7/10 at r_h to 1",
         sp.simplify(Fp - mu*(25*r**4 - 24*mu*r**2 + 12*mu**2)/(5*r**7)) == 0
-        and sp.Poly(25*yv**4 - 24*yv**2 + 12, yv).count_roots(0, 1) == 0
+        and sp.Poly(12*yv**4 - 24*yv**2 + 25, yv).count_roots(0, 1) == 0
         and sp.simplify(Fp.subs(r, sp.sqrt(mu)) - sp.Rational(13, 5)/sp.sqrt(mu)) == 0
         and F_HKW.subs(r, sp.sqrt(mu)) == sp.Rational(-7, 10) and sp.limit(F_HKW, r, sp.oo) == 1)
     ang = sp.factor(F_HKW*(1 - 2*mu/r**2)/r**3)
-    chk("the angular coefficient F (1 - 2 mu/r^2)/r^3 = (r^2 - 2 mu)^2 (10 r^4 - 5 mu r^2 + 2 mu^2)/(10 r^11) >= 0, a "
-        "double zero at the photon sphere",
+    chk("the coefficient of k^2 u^2, F (1 - 2 mu/r^2)/r^3 = (r^2 - 2 mu)^2 (10 r^4 - 5 mu r^2 + 2 mu^2)/(10 r^11) >= 0, "
+        "has a double zero at the photon sphere",
         sp.simplify(ang - (r**2 - 2*mu)**2*(10*r**4 - 5*mu*r**2 + 2*mu**2)/(10*r**11)) == 0
         and sp.Poly(10 - 5*yv**2 + 2*yv**4, yv).count_roots(0, 1) == 0)
-    for name, V, c, Wh in (("Maxwell V = -4 mu/r^4", V_MAX, sp.Rational(1, 4), sp.Rational(17, 4)),
-                           ("free V = 0", sp.Integer(0), sp.Rational(1, 5), sp.Rational(141, 20))):
-        W0, W = W_of(F_HKW, beta, V, 8)
+    WP = (sp.Rational(11, 20) - 51*sp.sqrt(2)/160)/mu**sp.Rational(3, 2)
+    for name, V, c, Wh, W0h in (("Maxwell V = -4 mu/r^4", V_MAX, sp.Rational(1, 5), sp.Rational(29, 20),
+                                 sp.Rational(-27, 20)),
+                                ("free V = 0", sp.Integer(0), sp.Rational(1, 7), sp.Rational(17, 4),
+                                 sp.Rational(29, 20))):
+        W0, W = W_of(F_HKW, beta, V, share)
         P = sp.simplify((W*mu**sp.Rational(3, 2)).subs(r, sp.sqrt(mu)/yv))
         Q = sp.Poly(sp.cancel(-40*P/yv**3), yv)
-        good = Q.degree() == 10 and Q.count_roots(0, 1) == 0 and Q.eval(0) < 0 and Q.eval(1) < 0
+        good = Q.degree() == 10 and Q.count_roots(0, 1) == 0 and Q.eval(0) == -140 and Q.eval(1) < 0
         # W >= c r^-3 on the exterior: -Q(y)/40 >= c on [0, 1], tested on a fine grid after the root count
         good &= all(-Q.eval(sp.Rational(i, 200))/40 >= c for i in range(201))
         good &= sp.simplify(W.subs(r, sp.sqrt(mu)) - Wh/mu**sp.Rational(3, 2)) == 0
-        chk("%s, k^2 = 8, beta = 1/(2 sqrt mu): mu^(3/2) W = -(y^3/40) Q(y) with Q of degree ten, no root in [0, 1], "
-            "Q(0) = -300: W > 0 on the exterior, W >= %s r^-3, W(r_h) = %s/mu^(3/2)" % (name, c, Wh), good)
+        good &= sp.simplify(W.subs(r, sp.sqrt(2*mu)) - WP) == 0
+        chk("%s, half the angular term borrowed at k^2 = 8, beta = 1/(2 sqrt mu): mu^(3/2) W = -(y^3/40) Q(y) with Q of "
+            "degree ten, no root in [0, 1], Q(0) = -140: W > 0 on the exterior, W >= %s r^-3, W(r_h) = %s/mu^(3/2), "
+            "W(r_P) = (11/20 - 51 sqrt 2/160)/mu^(3/2)" % (name, c, Wh), good)
+        chk("%s: W0 alone is negative on part of the exterior (r^3 W0 = %s at r_h, -> -1/2 at infinity): some "
+            "borrowing is necessary" % (name, W0h),
+            sp.simplify((W0*mu**sp.Rational(3, 2)).subs(r, sp.sqrt(mu)/yv)).subs(yv, 1) == W0h
+            and sp.limit(sp.simplify(W0*r**3), r, sp.oo) == sp.Rational(-1, 2))
     return chk.ok
 
 
@@ -234,7 +250,7 @@ def m5(control=0, verbose=False):
 
 
 CHECKS = [("M1 the Morawetz identity, HKW18 (123) at n = 3, scalar with potential and source", m1, 1),
-          ("M2 the Morawetz bulk is positive for the Maxwell and the free rung: F' > 0, W > 0, W >= c r^-3", m2, 1),
+          ("M2 the Morawetz bulk is positive for the Maxwell and the free rung: F' > 0, W > 0, W >= c r^-3", m2, 2),
           ("M3 Hung's (A.3) with room: the T-energy density at least half the virtual one; |V| <= 4/mu", m3, 1),
           ("M4 the radiation variable: V_inf = k^2 + 3/4, the remainder O(mu/r^4), the p-current with the source", m4,
            1),

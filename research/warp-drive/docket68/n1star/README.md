@@ -75,15 +75,15 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
     whose c sigma/(4M^2)|Q|^2 and (c/(2M^2)) Q Q_R terms the print halves and omits (C3; D48). `python3 hung4.py
       --selftest` (3/3, about two and a half minutes), `--mutants` (4/4).
 - `rungs5.py`: the rungs of the gauge-vector system (section 10.6, Propositions 10.4-10.5; D49): the Morawetz identity
-  [HKW18] (123) at n = 3 for a scalar with potential and source; the positivity of its bulk for the Maxwell potential
-  -4 mu/r^4 and the free rung with [HKW18]'s f and beta = 1/(2 sqrt mu), certified by a Sturm count on a polynomial of
-  degree ten (W > 0 on the exterior, W >= r^-3/4); Hung's (A.3) with room; the radiation variable's V_inf = k^2 + 3/4 and
-  the p-current with the source; the g-current (M1-M5). `python3 rungs5.py --selftest` (5/5, about half a minute),
-  `--mutants` (5/5).
+  [HKW18] (123) at n = 3 for a scalar with potential and source; the positivity of its bulk for the Maxwell potential -4
+  mu/r^4 and the free rung with [HKW18]'s f and beta = 1/(2 sqrt mu) and half the angular term borrowed, certified by a
+  Sturm count on a polynomial of degree ten (W > 0 on the exterior, W >= r^-3/5 and r^-3/7; W0 alone is not); Hung's
+  (A.3) with room; the radiation variable's V_inf = k^2 + 3/4 and the p-current with the source; the g-current (M1-M5).
+  `python3 rungs5.py --selftest` (5/5, about half a minute), `--mutants` (6/6).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All fourteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
+All fifteen are stdlib plus sympy (foliation5.py also uses z3; settle5.py numpy and scipy; bondi5.py and growth5.py
 numpy, growth5.py importing the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing
 lead5.py), and the others import nothing from the tree. The board's shared record is not edited here.
