@@ -364,7 +364,8 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    Proposition 6.12) is a static argument and should carry. The constraint propagation operator box^C needs the
    strong damping (1.43), and [Hin26a]'s construction is on Kerr; a five-dimensional construction does not exist and
    is the first genuinely new object of the route. Tangherlini being static, the indicial-root computation it needs is
-   an ODE problem in r for each l of the class.
+   an ODE problem in r for each l of the class. Its indicial half is computed (4.13; N1STAR-PROOF.md 10.12): with the
+   trace weight 2/(D - 2) in place of his 1, the strip is clear at his parameters; the rest of the item is OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -394,19 +395,22 @@ W6 is finished (4.3(1), all seven identities at l = 2 and 4), W7, Hung's Proposi
 (4.6), his Proposition 4.1 is deduced on it (4.7; N1STAR-PROOF.md Proposition 10.3), and the rungs are done (4.8;
 Propositions 10.4-10.5): every scalar wave equation of 4.3(1), with its potential and its source, has the estimates of
 [Hun19] Appendix A in five dimensions, the Morawetz multiplier for the Maxwell potential computed, so the gauge vector
-decays at tau^(-2+) with the loss of a fixed number of derivatives once its sources do. The growing source (4.3(3)) and l
-= 0 (4.3(4)) are computed (4.9; N1STAR-PROOF.md 10.7-10.8): [Hun19]'s substitutions (4.27)-(4.30) in five dimensions,
+decays at tau^(-2+) with the loss of a fixed number of derivatives once its sources do. The growing source (4.3(3)) and
+l = 0 (4.3(4)) are computed (4.9; N1STAR-PROOF.md 10.7-10.8): [Hun19]'s substitutions (4.27)-(4.30) in five dimensions,
 every bad weight removed and the residual sources in the norm's weights, and the identities of his section 8; what they
 left open was two estimates. The first, the rapid decay of the first rungs, is 4.10 (N1STAR-PROOF.md 10.9): his
 Proposition A.5 with k = 1 goes through in five dimensions for l >= 2, and for Sigma at l >= 1 (Proposition 10.6,
 deduced), and at l = 0 his Proposition A.6 does not -- the radiation field carries V_inf = 3/4 there, not zero, so the
 hierarchy of S_W stops at p < 2 and 10.8's conditional is not discharged by his method. The second, the coupled (X_1,
-X_L) estimate of his section 6, is 4.11 (N1STAR-PROOF.md 10.10, Proposition 10.7, deduced): the Morawetz bulk of the pair
-is positive without his compact-region substitution, and with it route A is carried through for every mode l >= 2 of the
-class. The l = 0 sector is 4.12 (N1STAR-PROOF.md 10.11, Proposition 10.8, deduced): the same commutator, its negative
-V^(1)_inf = -5/4 absorbed by a Hardy inequality on the leaf for p < 1, with [Sch13]'s Morawetz estimate at l = 0, gives
-S_W and P-hat the decay 10.8 needs at a weaker rate, and with it route A is carried through for every mode of the class.
-Next: route B's item 2, the five-dimensional constraint damping.
+X_L) estimate of his section 6, is 4.11 (N1STAR-PROOF.md 10.10, Proposition 10.7, deduced): the Morawetz bulk of the
+pair is positive without his compact-region substitution, and with it route A is carried through for every mode l >= 2
+of the class. The l = 0 sector is 4.12 (N1STAR-PROOF.md 10.11, Proposition 10.8, deduced): the same commutator, its
+negative V^(1)_inf = -5/4 absorbed by a Hardy inequality on the leaf for p < 1, with [Sch13]'s Morawetz estimate at l =
+0, gives S_W and P-hat the decay 10.8 needs at a weaker rate, and with it route A is carried through for every mode of
+the class. Route B's item 2, the five-dimensional constraint damping, is 4.13 for its indicial roots (N1STAR-PROOF.md
+10.12, Proposition 10.9, computed): Hintz's damping with the trace weight 2/(D - 2) clears the strip [-100, 2) at his
+parameters. Next: the rest of item 2 -- the modification E^Upsilon ([Hin26] Proposition 6.12), and [Hin26] Theorem 7.1's
+parts (1), (2) and (4) for box^C on Tangherlini.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -671,7 +675,7 @@ Proposition 10.8.
 - The Hardy step (Y2) and the window (Y3): with A and B the leaf's zeroth- and first-order integrals and A <= 4 B/(2 -
   p)^2, the bulk is at least (Q/(2 (2 - p))) B + (Q (2 - p)/8) A, exactly, Q = (2 + p/2 - (5 + p/2) mu/R_null^2)(2 - p) -
   5/2; Q(p, 0) = (1 - p)(3 + p)/2, and Q > 0 on [delta, 1 - delta] at R_null = 10 r_h for delta = 1/10 and at R_null = 3
-  r_h/delta^(1/2) for every delta in (0, 1/10]. At leading order the window needs |V^(1)_inf| < 2: open at five
+  r_h/delta^(1/2) for every delta in (0, 1/10]. At leading order the window needs V^(1)_inf > -2: open at five
   dimensions' -5/4, empty at four dimensions' -2.
 - The base hierarchy (Y4): B_0 >= (3/8)(2 - p) at l = 0, and the T-energy density is at most 12 times the p = 1 bulk: the
   radiation field's (3/4)/r^2 replaces the angular term. The base Morawetz estimate at l = 0 is READ: [Sch13] Proposition
@@ -684,3 +688,24 @@ Proposition 10.8.
 - Labels: computed (lzerorate5.py Y1-Y5, exact); deduced (Proposition 10.8); READ ([Sch13] Theorem 1, Propositions 4.1
   and 4.21-4.22, Corollary 4.3, (4.76)-(4.92), (5.8)-(5.22); [Hun19] section 8, Proposition A.6 and Appendix B; alphaXiv,
   2026-10-21); nothing proved. Next: route B's item 2.
+
+### 4.13 Route B's constraint damping in five dimensions: the indicial roots at zero energy (computed; D54)
+
+ROUTES 4.4 item 2's new object. damping5.py computes it; N1STAR-PROOF.md 10.12 states Proposition 10.9.
+- The families (U1): box^C = 2 delta_g G_g (delta*_g + C) on 4+1 Minkowski, the model at infinity, on stationary 1-forms
+  of scalar and vector type, gives 3 x 3, 2 x 2 and 1 x 1 indicial matrices affine in kappa = l (l + 2); the
+  four-dimensional control reproduces [Hin26a] (4.19), (A.2), p_s0 and (A.13).
+- The weight (U2): G (g f) = (1 - D/2) g f, so Hintz's form 2 c (x)_s omega - e g <c, omega> after G needs the trace
+  weight m = 2/(D - 2): 1 in four dimensions, 2/3 in five. His weight transcribed literally fails in five dimensions
+  (U5): a root in (0, 1) at l = 0.
+- The roots (U3): lam = 2, the Coulomb rate r^-(n-2), is a root at l = 0 and 1 for every (v, e, h), as lam = 1 is in four
+  dimensions; at h = 0 the scalar sextic is 8 v (lam - 2) Q_5; the very negative roots have his h = 0 limit.
+- Proposition 10.9 (U4, computed, exact): at (v, e, h) = (1/2, 1/100, 1/1000) no indicial root at any l has real part in
+  [-100, 19/10], and in [-100, 2] only lam = 2 at l = 0 and 1, simple; so [Hin26] (1.43) holds with C_0 = 100, and so
+  does its reading with the strip ending at the Coulomb root. Four-dimensional control: his Theorem 4.9, the same at
+  9/10 and 1.
+- The configuration (U6, numerical): over e, h in {10^-2, 10^-3, 10^-4} the upper roots other than lam = 2 at l = 1 stay
+  above 1.93, and above 2 exactly where h <= e; the lower ones sit near -1/h, so C_0 = 100 asks h below 1/100.
+- OPEN: which strip the five-dimensional argument needs; [Hin26] Theorem 7.1 (1), (2) and (4) for box^C on Tangherlini;
+  the modification E^Upsilon of [Hin26] Proposition 6.12. Labels: computed (damping5.py U1-U6; U6 numerical); READ
+  ([Hin26a] and [Hin26], alphaXiv, 2026-10-21, pages as in 10.12); nothing proved.

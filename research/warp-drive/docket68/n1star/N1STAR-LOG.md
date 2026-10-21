@@ -1323,7 +1323,7 @@ And, for the twentieth verifier's two open questions, [Hun19] p. 71 and pp. 40-4
 f/(2 r^3)), the base current's |nabla_L Psi|^2 coefficient p f/2 - mu/r^2, and (10.35) on the outgoing leaf, the f's
 cancelling; (Y2) the Hardy identity, its constant checked on w = 1 - R/r, the exact absorption identity (10.42) and the
 perfect square for the bad term; (Y3) Q(p, x) and its corners, positive on [1/10, 9/10] at R_null = 10 r_h and on [delta,
-1 - delta] at R_null = 3 r_h/delta^(1/2), and the leading-order window |V^(1)_inf| < 2, open in five dimensions at l = 0
+1 - delta] at R_null = 3 r_h/delta^(1/2), and the leading-order window V^(1)_inf > -2, open in five dimensions at l = 0
 and empty in four; (Y4) B_0 >= (3/8)(2 - p) and the T-energy density at most 12 times the p = 1 bulk on x <= 1/100; (Y5)
 the cut-off source of P-hat, its growing terms in S_W and d_r S_W only, and (10.26) re-derived. Selftest 5/5 (about half
 a minute), mutants 7/7. Found by exploring before it was checked: 10.10's Morawetz multiplier with M = 0 is of both signs
@@ -1344,3 +1344,67 @@ with its import sentence and commands, the [Sch13] and [Hun19] entries, D1-D53, 
 (lzerorate5.py Y1-Y5, exact), deduced (Proposition 10.8), READ ([Sch13]'s Morawetz estimate at l = 0); nothing proved.
 The twenty-first verifier is sent on 10.11, lzerorate5.py and the twentieth's repairs; its verdict follows. Next: route
 B's item 2, the five-dimensional constraint damping.
+
+*The twenty-first verifier (the same day; one agent, sent on 10.11, lzerorate5.py and the twentieth's repairs).* No
+major finding; two minor and nine notes, all seated in the PR that seats 10.12. Minor: (1) "which needs |V^(1)_inf| < 2"
+was false as a general statement -- (4 + p)(2 - p) > -4 V1 holds for every V1 >= 0 -- and is now "V^(1)_inf > -2" in
+10.11, lzerorate5.py, ROUTES 4.12 and D53 above; (2) 10.8 said 10.11 supplies its (a) and (b), and 10.9 that 10.11 "does
+both" of its two options, where 10.11 supplies weaker forms -- S_W at -3 + p + 3 delta for p <= 2 - delta where Hung's
+rate is -4 + p + delta up to 4 - delta, by the same commutator with a Hardy absorption -- and re-runs his Appendix B at
+the weaker rate: both now say so. Notes: step (a)'s rate is (10.22)'s -2 + p + 2 delta, which [Sch13] Theorem 1's
+boundedness would improve by a delta that (c) does not need, now stated; step (d)'s 4 delta in delta-bar's place leaves
+10.5's range delta-bar <= 1/10 once delta > 1/40, and the verifier re-ran 10.5 (i)-(iv) to find only 4 delta < 1 and -1
++ 4 delta < 0 used, now said; the red-shift commutator gives Y^j S_W an inhomogeneous equation, so its Morawetz step is
+(d)'s deduced one with a source, now said in (a); the [Sch13] quotation read as if the mechanism it named did nothing at
+l = 0, and now rests on "for every solution of box phi = 0", the part of his proof that carries l = 0 not identified;
+four gaps in the instruments -- Y3's label asserted the B_1 bound and checked only d_x c (now a sub-check of B_1 +
+(5/8)(2 - p) = (57/8)(4 - p) x), the closed form Q(1 - delta, delta/9) = delta (25 - 19 delta + delta^2)/18 was never
+asserted (now it is), Y1's leaf sub-check compared c with itself (its label now names its content, the substitution L
+Psi_1 = f w' and the measure), and coupled5.py's d_2 - e^2 conjunct was d_2's definition (removed; the label says the
+top coefficient is a square); the paper's "the window p < 1 at the null radius", where p < 1 is the leading-order
+window, now "[delta, 1 - delta]"; c_1(tau) - c_1(oo) decays at the square root of the energy rate, its contribution to
+the energy at the rate, now said, conclusion (iii) unchanged; the finiteness of E^{1-delta,(1)}_L is the condition d_r
+Psi_1 = O(r^-2), now said; lzerorate5.py's "about a minute", now half a minute (37 s measured). What held under its
+attack: an independent sympy check, importing none of the record's code, of the commuted equation at l = 0 and of the
+leaf identity with its flux in (u, r) coordinates; the cut-off and null-infinity terms; (10.42) by hand; the absorption
+bound and the C-term's cost; the window's corners, its control and Q(1 - delta, delta/9); the four-dimensional
+comparison, (4 + p)(2 - p) > 8, empty; Y4; the rates of (c), (d) and (e), re-run; the l = 0 sign claim for 10.10's
+Morawetz multiplier; the 10.10 repairs; every control failing a substantive sub-check; the 28 md5 rows. The proxy
+refused it arXiv and alphaXiv, so it judged the READ inputs for internal consistency only. Its verdict: 10.11 holds as
+labelled, and so do the twentieth's repairs; the sentences it named are repaired. lzerorate5.py now: selftest 5/5 (about
+half a minute), mutants 7/7; coupled5.py 6/6, mutants 6/6.
+
+**D54 (2026-10-21, M: "Continue"): route B's constraint damping in five dimensions -- the indicial roots of the
+constraint propagation operator at zero energy (section 10.12; damping5.py U1-U6).**
+
+*The step.* ROUTES 4.5's order after D53: route B's item 2. PR #74 had merged; the branch was restarted from main at
+365a0ba. The twenty-first verifier, sent on 10.11, reported during this step; its findings are seated above, beside D53,
+in the same PR.
+
+*What was read.* At source (alphaXiv, 2026-10-21): [Hin26a] (P. Hintz, Constraint damping on subextremal Kerr
+spacetimes, arXiv:2606.27658v2) pp. 1-3, 5, 7, 25, 29, 33-37 (section 4.3 to Remark 4.12, with Theorem 4.9), 67, 69-74
+(Appendix A) and 85; [Hin26] (arXiv:2606.28253v2) pp. 1, 4, 25-26, 29 ((1.43)), 82 (Definition 4.2) and 136 (Theorem
+7.1). His damping is C omega = h^-1 (2 c (x)_s omega - (1 - e) g iota_{c#} omega), c = r^-1 (dt - v dr); (1.43) asks the
+zero energy operator of box^C for no indicial root with real part in [-C_0, 1); and the indicial roots see only the
+Minkowski model at infinity.
+
+*What was computed.* damping5.py: (U1) the indicial families from the definitions on Minkowski^{n+1}, n = 3, 4, the
+four-dimensional ones his (4.19), (A.2), p_s0 and (A.13); (U2) the trace weight 2/(D - 2), which alone makes G C his
+form; (U3) the five-dimensional polynomials, lam = 2 at l = 0 and 1, the h = 0 sextic 8 v (lam - 2) Q_5; (U4) the
+certificate, Proposition 10.9; (U5) his weight 1 failing in five dimensions; (U6) a numerical survey over (e, h).
+Selftest 6/6 (about eighty seconds), mutants 6/6. Found by exploring before it was checked: his weight transcribed
+literally puts a root in (-1, 1) at l = 0, so the weight is the dimension's; U6's first statement, the upper roots above
+2 once h is small against e, failed against lam = 2 at l = 1, a root for every (e, h) -- now set aside and found at all
+nine, the others above 2 exactly where h <= e; and the certificate at 19/10 extends to the line 2, the cofactors of
+lam - 2 at l = 0 and 1 allowing it: the strip [-100, 2) is clear but for the Coulomb root, simple, and the same at his
+weight 1 in four dimensions up to his Coulomb root 1.
+
+*What was deduced.* Nothing: Proposition 10.9 is computed, at one parameter point.
+
+*Seated.* N1STAR-PROOF.md 10.12 with (10.46)-(10.47) and Proposition 10.9, and 10.11's last line pointing to it;
+damping5.py; ROUTES-OPEN.md 4.4 item 2, 4.5 and 4.13; the README; the paper (the settling paragraph, Appendix A, the
+Review bullet, the settling and verification rows, Appendix D with its import sentence and commands, the [Hin26a] and
+[Hin26] entries, D1-D54, the md5 rows). Labels: computed (damping5.py U1-U5 exact, U6 numerical), READ ([Hin26a],
+[Hin26]); nothing proved. OPEN: which strip the five-dimensional argument needs; [Hin26] Theorem 7.1 (1), (2) and (4)
+for box^C on Tangherlini; the modification E^Upsilon of [Hin26] Proposition 6.12. The twenty-second verifier is sent on
+10.12, damping5.py and the twenty-first's repairs; its verdict follows. Next: the rest of route B's item 2.

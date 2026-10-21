@@ -394,11 +394,10 @@ def k5(control=0, verbose=False):
     chk("p_1 + 8 e > 0 and p_2 + 8 e > 0 on the exterior", positive_on(a1, yv, 0, 1) and positive_on(a2, yv, 0, 1))
     d0 = sp.simplify(a1*a2 - 8*q**2)
     d1 = sp.simplify(e*(a1 + a2) - q**2)
-    d2 = sp.simplify(e**2)
     chk("the determinant's coefficient d_0 (at k^2 = 8) > 0 on the exterior", positive_on(d0, yv, 0, 1))
     chk("the determinant's linear coefficient d_1 >= 0 on the exterior (a double zero at the photon sphere), so every "
-        "coefficient in k^2 - 8 is non-negative: the determinant is positive for every real k^2 >= 8",
-        positive_on(d1, yv, 0, 1, allow_zero_at=(ps,)) and sp.simplify(d2 - e**2) == 0)
+        "coefficient in k^2 - 8 is non-negative (the top one e^2, a square): the determinant is positive for every "
+        "real k^2 >= 8", positive_on(d1, yv, 0, 1, allow_zero_at=(ps,)))
     # the photon-sphere step of 10.10 (iii): the completion cost against the kept tenth, uniformly in k
     Fm, fm = F_HKW.subs(mu, 1), f.subs(mu, 1)
     ratio = sp.simplify(((Fm**2/(D(Fm, r)*r**8))/(KEEP*Fm*(1 - 2/r**2)/r**3)).subs(r, 1/sp.sqrt(xv)))
