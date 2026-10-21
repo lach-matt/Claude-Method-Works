@@ -3705,3 +3705,89 @@ worked". Main's PRs #62-#64 merged into this branch; that session's new instrume
   inner marginally trapped surface at the physical wavelength, against the ruling 519 (no inner or Cauchy horizon).
 
 93 rows, unchanged: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6 COMPUTED-THEORIZED. derived_go is in T1.
+
+## 68. The inner marginally trapped surface investigated: it does not form (545; mots545.py)
+
+M, 545, to the finding put at 544: "Does 519 cover this? - no it does not. Please investigate this exhaustively, and
+report back the findings, how it affects the rest of the theorem, and how to mitigate it if it does, or determine if
+it applies at all".
+- **What was reported.** growth5's premise has two clauses: one zero per column of the round spheres' outgoing
+  expansion, and W < 0 at the core boundary (the boundary outflow). The N1* session (N1STAR-PROOF section 10.2), and
+  this record after it at 544, read a second zero as "an inner marginally trapped surface forms and moves outward".
+  A marginally trapped surface is a closed surface with theta_k = 0 at every point (theta_l = -6/y < 0 always). A sign
+  change of a round sphere's theta_k along a column is a statement about round spheres, so the reading had to be
+  tested.
+- **The search, exhaustive** (mots545 M1-M7).
+  - The expansion of any cross-section y = Y(x) of the scheme's null slice is M1's formula: no v-derivative, and
+    X10's round expansion at Y' = 0.
+  - Every closed cross-section is a graph over the generators (M2): a spacelike surface cannot contain the
+    generator's null direction, so its projection onto the generators' S^3 is a covering, hence one-to-one. No fold,
+    self-intersection or torus can occur on a null slice.
+  - The induced metric involves no derivative of Y (g_yy = g_yx = 0), so theta_k is elliptic for every shape and two
+    touching cross-sections compare (M3).
+  - The T^2-invariant marginally trapped surfaces are the zeros of one function of one variable: the singular
+    coefficient at x = +1 of the solution regular at x = -1 (M5). It is shot from 600 values on every slice and every
+    zero is refined and polished.
+  - Nested leaves run inward from the outer surface, theta_k = c g with c < 0 and g = max(1, -the round expansion
+    at the core boundary), until one lies wholly past the core boundary. Outward they solve theta_k = c > 0 until one
+    lies wholly outside every round zero (M6). By comparison no marginally trapped surface of any shape fits between
+    them, except the outer one. Each leaf's sign and nesting is checked on 401 points between the nodes.
+  - Control (M4): on Tangherlini's null slices the horizon is the only one of any shape. With u = 1/Y the equation is
+    Lap_{S^3} u = (3/4)(u - mu u^-3), and the maximum principle gives u = mu^(1/4).
+- **The result** (M8; growth5's code, the accepted state at every step near each hundredth of v):
+
+  | point | v | slices | outflow | 2nd round zero | W 2nd zero | one surface | unique | least λ₁ | inflow from |
+  |---|---|---|---|---|---|---|---|---|---|
+  | 10 l5, mu0 = 100 l5^2 | 1.31-1.69 | 40 | 21 | 10 | 0 | 21 of 21 | 21 of 21 | 5.89 | 1.516 |
+  | 10 l5, mu0 = 1000 l5^2 | 1.40-1.68 | 29 | 28 | 9 | 0 | 28 of 28 | 27 of 28 | 5.93 | 1.680 |
+  | lam_P, copper (102.4) | 1.30-1.80 | 51 | 26 | 10 | 0 | 26 of 26 | 26 of 26 | 5.92 | 1.562 |
+  | lam_P, the example README (60.9) | 1.30-1.73 | 35 | 17 | 10 | 0 | 17 of 17 | 17 of 17 | 5.90 | 1.512 |
+  | lam_P, r0 = 20 ell (808.5) | 1.60-2.30 | 71 | 71 | 47 | 0 | 71 of 71 | 71 of 71 | 5.70 | never |
+
+  On every slice of every point the exhaustive search finds exactly one marginally trapped surface, the outer
+  apparent horizon, strictly stable (226 of 226; the 63 past the premise included). On 162 of the 163 slices with the
+  core boundary outflow the sweeps leave room for no other of any shape. On the 163rd (10 l5 at mu0 = 1000, v =
+  1.671, two steps before the slice solve fails) they complete, but one leaf's expansion between the nodes is +0.0025
+  against the outer surface's own between-node residual of 0.034 there: unique to the grid's resolution, not
+  certified. The extra round zeros are the angular shift's term (2/3) y^3 d_x((1 - x^2) q): W alone has one zero per
+  column on all 86 slices that show them. Where the wave's amplitude at the core is of order one, the round spheres
+  are the wrong test surfaces; the trapped ones tilt.
+- **Resolution** (M9): copper at Ny = 28 and at Nx = 20 gives the same outer surface (radii within 1e-4 at Nx = 20 on
+  the same steps, 3e-3 at Ny = 28 on steps up to 0.007 away in v), the same lambda_1 to 0.01, and uniqueness on every
+  slice with the boundary outflow (13 and 13). The round-zero count itself moves with resolution (13, 4 and 10 slices
+  over the same span): the proxy is noisy, the result is not.
+- **Prior art (READ; mots545 M11).**
+  - Interior marginally trapped surfaces are generic and belong to a slicing. Five-dimensional Schwarzschild holds a
+    family of closed self-intersecting ones on its Painlevé–Gullstrand slices (Booth, Chan, Hennigar, Kunduri and Muth
+    2022, p. 17, p. 49; four dimensions, Booth, Hennigar and Mondal 2020, p. 16). Its null slices hold none but the
+    horizon (M4). So a black hole without an inner horizon holds them, and their presence on a slicing does not make
+    one.
+  - In collapse and mergers the marginally trapped tubes form in pairs: a dynamical horizon and a timelike membrane,
+    the "future inner trapping horizon", that later annihilate. All of it lies inside the outermost horizon (Booth,
+    Brits, Gonzalez and Van Den Broeck 2005, pp. 4, 6, 23; in vacuum, Pook-Kolb, Birnholtz, Krishnan and Schnetter
+    2019, p. 2).
+  - In any dimension, "marginally outer trapped surfaces cannot occur outside the event horizon" (Galloway and Schoen
+    2005, p. 6).
+  - A marginally trapped surface not invariant under a symmetry of its slice is unstable (Booth, Cox and
+    Margalef-Bentabol 2023, Theorem 1.6).
+- **What it decides** (M12).
+  - It does not apply. No inner marginally trapped surface forms on the record's slices at any of the five points,
+    so no inner trapping horizon either, in Hayward's sense or the record's. 544's sentence is withdrawn.
+  - 519 stands as before: no inner or Cauchy horizon anywhere. The end state is Tangherlini, which has neither (SETTLE,
+    SETTLEs).
+  - How it affects the rest: no status moves.
+    - At the small end what stops the record's scheme is its causal clause, the core boundary turning inflow (copper
+      from v = 1.5625, the example README from 1.5125). It is not an inner surface. The passage at the physical
+      wavelength through the seed's interior stays named theorized in Part E.
+    - At the large end (r0 = 20 ell) the boundary stays outflow and one horizon holds on every slice. The run past
+      v = 1.83 is still not converged (derived_go D2): a numerical matter, not an inner surface.
+    - The face's formation with one horizon now also stands at the physical wavelength, on every slice the scheme
+      computes with its boundary outflow.
+  - Mitigation, measured (M10): at lam_P a seed of mu0 >= 808.5 l5^2 keeps the core boundary outflow through the
+    shell: r0 = 20 ell's own runs on both grids (W at the boundary at most -1.50) and mu0 = 1000 (at most -3.59).
+    Every seed up to 750 l5^2 turns it inflow before the shell ends: 300 at v = 1.82, 500 at 2.50 (2.53 at Ny = 28),
+    650 at 2.18 (2.19), 750 at 2.13, not monotone below the threshold. So the record's scheme stays valid through the
+    shell at the small end on a seed some 8 to 13 times the least (copper 102, the example README 61 l5^2).
+    seed_derive D2 makes escape fall as the seed grows, so the larger seed still delivers within half a bit.
+
+93 rows, unchanged: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6 COMPUTED-THEORIZED. mots545 is in T1.

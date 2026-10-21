@@ -32,6 +32,11 @@ seed_derive.py D3 gives there.  Labels: computed (exact unless marked), deduced,
      passage at the physical wavelength through the seed's interior is not computed by the record's scheme at any
      anchor.  The delivery within half a bit is computed outside the horizon (seed_escape, seed_types, seed_derive,
      seed_second) and does not use it.
+  D5 (deduced; since 545) What the clauses are.  mots545 searched every slice for marginally trapped surfaces.  The
+     one-zero clause fails on these slices only by the angular shift's term, and the outer horizon is the only
+     marginally trapped surface of any shape wherever the boundary is outflow, so no inner one forms.  What stops the
+     scheme at the small end is the causal clause (the boundary inflow from 1.5625 and 1.5125).  At the large end
+     nothing stops it but the run's convergence past 1.833.
 
 What this does not claim: anything about the event horizon or the exterior (growth5's measurement is of the round
 spheres inside the seed's horizon, in the scheme's gauge); a theorem (a run of a scheme is not one); the large end's

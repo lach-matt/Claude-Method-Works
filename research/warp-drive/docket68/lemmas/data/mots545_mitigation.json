@@ -1,4 +1,15 @@
 {
+ "L1000_Ny20": {
+  "L": 1000.0,
+  "Ny": 20,
+  "amp": 1.125130709288851,
+  "end": "complete",
+  "v_break": 1.740521,
+  "wex_first": null,
+  "wex_max": -3.5869814993817526,
+  "nz2_first": 1.740521,
+  "seconds": 1346
+ },
  "L300_Ny20": {
   "L": 300.0,
   "Ny": 20,
@@ -21,6 +32,17 @@
   "nz2_first": 1.652893,
   "seconds": 581
  },
+ "L500_Ny28": {
+  "L": 500.0,
+  "Ny": 28,
+  "amp": 1.2269637387386378,
+  "end": "scheme failed at v = 2.5316: LinAlgError",
+  "v_break": 1.652954,
+  "wex_first": 2.525316,
+  "wex_max": 136.90828896496507,
+  "nz2_first": 1.652954,
+  "seconds": 1249
+ },
  "L650_Ny20": {
   "L": 650.0,
   "Ny": 20,
@@ -42,5 +64,16 @@
   "wex_max": 18.32530386847994,
   "nz2_first": 1.985495,
   "seconds": 1399
+ },
+ "L750_Ny20": {
+  "L": 750.0,
+  "Ny": 20,
+  "amp": 1.1663269759952526,
+  "end": "scheme failed at v = 2.1354: LinAlgError",
+  "v_break": 1.879464,
+  "wex_first": 2.13244,
+  "wex_max": 4.147711615180073,
+  "nz2_first": 1.879464,
+  "seconds": 664
  }
 }

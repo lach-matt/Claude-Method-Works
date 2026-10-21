@@ -209,9 +209,11 @@ r_h/10 in a region of r_h/3. The scales separate (arithmetic).
     premise before the shell's peak at v = 2. A second zero of the round spheres' outgoing expansion persists from
     v = 1.500 and 1.583 (two and three grids agreeing). The core boundary then ceases to be outflow, and the slice
     solve fails at v = 1.69-1.75. Deeper excisions fail earlier.
-  - So no approximant on D_T at 10 l5 comes from the record's scheme. In the scheme's gauge the interior of the seed's
-    horizon untraps from the inside outward: an inner marginally trapped surface forms and moves outward. That is a
-    measurement on the scheme's solution, not a theorem. The exterior of the event horizon is unaffected.
+  - So no approximant on D_T at 10 l5 comes from the record's scheme. In its gauge the round spheres inside the
+    seed's horizon cease to be trapped from the inside outward. *[545: that is the round spheres' expansion only. Its
+    extra zeros are the angular shift's term, and no marginally trapped surface forms (mots545; below). 544's "an
+    inner marginally trapped surface forms and moves outward" is withdrawn.]* The exterior of the event horizon is
+    unaffected.
   - Re-posed there as the characteristic problem in double-null gauge (Luk's local existence without smallness, READ
     there); not built.
   - SOURCE's delivery is Part D's computation, linear scattering outside the horizon, and is not touched.
@@ -223,10 +225,35 @@ r_h/10 in a region of r_h/3. The scales separate (arithmetic).
     - r0 = 20 ell at v = 1.833 (1.8326 on a finer grid), at the peak, by a second zero, the boundary staying
       outflow. Its run past the break does not converge: the mass aspect at past null infinity differs between the
       grids by 0.28.
+    - *(545)* The premise's one-zero clause is the record's proxy for one horizon. On these slices it fails only by
+      the angular shift's term, and the outer horizon is the only marginally trapped surface (mots545). So what stops
+      the scheme at the small end is the causal clause, the core boundary turning inflow. At the large end it is only
+      the run's convergence past v = 1.83.
     So the measurement bears on SOURCE's own wavelength. 527's "first row at the derived point" is not so: the
     sequence's rows lie in its own regime, lam/sqrt(mu0) <= 0.1.
   - What this leaves theorized is named in Part E: the passage at the physical wavelength through the seed's interior
     to x = 1.
+- **The inner marginally trapped surface investigated: it does not form** (545; mots545 M0-M12; BOUNCE-RESEARCH
+  section 68). M ruled that 519 does not cover it and asked for an exhaustive investigation.
+  - What was read as one -- a second zero of the round spheres' outgoing expansion in a column -- is not one. A
+    marginally trapped surface is closed, with theta_k = 0 at every point.
+  - Every closed cross-section of a null slice is a graph over its generators (M2), and theta_k is elliptic for every
+    shape (M3). So the T^2-invariant marginally trapped surfaces are the zeros of one shooting function (M5), and
+    nested leaves, trapped inward and untrapped outward, bound every surface of any shape (M6).
+  - Result (M8): 226 slices of the record's scheme at the five points (10 l5 at mu0 = 100 and 1000 l5^2; lam_P at
+    copper, the example README and r0 = 20 ell). On all 163 with the core boundary outflow there is one marginally
+    trapped surface, the outer apparent horizon, strictly stable (lambda_1 >= 5.7). 162 are unique of any shape by
+    the sweeps, the 163rd to the x-grid's resolution. The extra round zeros are the angular shift's term: W alone has
+    one zero per column on all 86 slices that show them. Copper at Ny = 28 and Nx = 20 agrees (M9).
+  - Control: on Tangherlini's null slices the horizon is the only one of any shape (M4, proved). On its
+    Painleve-Gullstrand slices five-dimensional Schwarzschild holds a family of self-intersecting interior ones
+    (READ). Interior marginally trapped surfaces belong to a slicing.
+  - So no inner marginally trapped surface forms, and no inner trapping horizon. The face forms with one horizon at
+    the physical wavelength too, on every slice the scheme computes with its core boundary outflow.
+  - Mitigation for the small end's inflow boundary, measured (M10): at lam_P a seed of mu0 >= 808.5 l5^2 keeps the
+    core boundary outflow through the shell (808.5 on two grids, 1000). Every seed up to 750 l5^2 turns it inflow
+    before the shell ends (300 at v = 1.82, 500 at 2.50, 650 at 2.18, 750 at 2.13; not monotone). That is some 8 to
+    13 times the small end's least seeds, which seed_derive D2 allows, since escape falls as the seed grows.
 - **Linear settling with every metric component and the harmonic gauge's objects** (544; N1STAR-PROOF.md Propositions
   10.1 and 10.2; settle5 T1-T6, wavegauge5 W1-W5, re-run here); see SETTLE-PROOF.md section 4. The nonlinear settling
   is still being worked in the N1* session (M, 544).
@@ -318,10 +345,13 @@ at 3e-5 of its length, and the second order lets out below 1e-35 half bits.
 - 2 is Part B with Part C: emitted at one coordinate time from a mirrored sphere in the bulk (B3), band-limited to
   half a bit (B4-B5), reflection-symmetric (B6), high-frequency gravitational waves whose limit is 5D Vaidya null dust
   (C1-C5). The face forms holding exactly N, with one horizon and no partner.
+  *(Since 545)* At the physical wavelength the record's scheme shows one marginally trapped surface of any shape, the
+  outer horizon, on every slice where its core boundary is outflow (mots545).
 - 3 is Part D: at lam_P (or any lam in the window) with mu0 >= mu0*(lam), the first order delivers within half a bit
   (D4-D6), and the second order adds at most 2.0e-18 half bits (D7).
 
-No inner or Cauchy horizon enters anywhere (U2, C5 (iii), hf_theorem5 F1).
+No inner or Cauchy horizon enters anywhere (U2, C5 (iii), hf_theorem5 F1). Since 545 there is no inner marginally
+trapped surface on the record's slices at the physical wavelength either (mots545).
 
 ## 7. What is computed rather than derived, and what is theorized -- why the status is COMPUTED-THEORIZED
 
@@ -336,9 +366,12 @@ No inner or Cauchy horizon enters anywhere (U2, C5 (iii), hf_theorem5 F1).
 | hf_core5's rates | -- | four wavelengths |
 
 **Theorized, named:**
-- (since 544) the passage at the physical wavelength through the seed's interior to x = 1. N1* covers lam <= lam0,
-  with lam0 not controlled. The record's scheme fails its premise at 10 l5 (growth5) and is not run at lam_P beyond
-  derived_go's points. The delivery itself is computed outside the horizon (D1-D7) and does not use it;
+- (since 544; its reason refined at 545) the passage at the physical wavelength through the seed's interior to x = 1.
+  N1* covers lam <= lam0, with lam0 not controlled. The record's scheme stops at the small end when its core boundary
+  turns inflow (copper from v = 1.5625, the example README from 1.5125; at 10 l5 from 1.516 and 1.680). At the large
+  end it runs on unconverged past v = 1.83. No inner marginally trapped surface forms before either (mots545). A seed
+  of mu0 >= 808.5 l5^2 at lam_P keeps the boundary outflow through the shell. The delivery itself is computed outside
+  the horizon (D1-D7) and does not use it;
 - the floor's constant (D5, the hoop criterion);
 - linear adiabatic scattering in the seed phase, validated by the second order (D4, D7);
 - the second order taken monochromatic at the envelope's peak on mu = 1 Tangherlini, and extrapolated by a

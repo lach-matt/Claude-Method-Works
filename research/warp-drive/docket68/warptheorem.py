@@ -1965,6 +1965,37 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_544_SETTLE
     _rows_544.append((c, n, s_, t))
 LEMMAS_NOW = _rows_544
+# [Item 545] M: "Does 519 cover this? - no it does not. Please investigate this exhaustively ...".  The inner
+# marginally trapped surface reported at 544 investigated (mots545, in T1): it does not form.  No status moves.
+NOTE_545_SOURCE = ("  [Item 545] The inner marginally trapped surface investigated (mots545 M0-M12; M: 519 does not "
+                   "cover it).  What 544 read as one -- a second zero of the round spheres' outgoing expansion in a "
+                   "column -- is not one.  Every closed cross-section of a null slice is a graph over its generators, "
+                   "so the T^2-invariant marginally trapped surfaces are the zeros of one shooting function; nested "
+                   "trapped and untrapped leaves bound every surface of any shape.  On all 163 slices with the core "
+                   "boundary outflow, of 226 at the five points (10 l5 at mu0 = 100 and 1000; lam_P at copper, the "
+                   "example README and r0 = 20 ell), there is one marginally trapped surface, the outer horizon, "
+                   "strictly stable, unique of any shape on 162 (the 163rd to the grid's resolution); the extra round "
+                   "zeros are the angular shift's term (W alone has one zero per column on all 86 that show them); "
+                   "resolution checked at Ny = 28 and Nx = 20.  So no inner marginally trapped surface forms, and "
+                   "544's sentence is withdrawn.  What stops the record's scheme at the small end is its core "
+                   "boundary turning inflow (copper from v = 1.5625, the example README from 1.5125): the passage at "
+                   "the physical wavelength stays named theorized (Part E).  At the large end the boundary stays "
+                   "outflow and one horizon holds; the run past v = 1.83 is not converged.  Mitigation, measured: at "
+                   "lam_P a seed of mu0 >= 808.5 l5^2 keeps the core boundary outflow through the shell (808.5 on two "
+                   "grids, 1000), every seed up to 750 turning it inflow before the shell ends (300 at v = 1.82, 500 "
+                   "at 2.50, 650 at 2.18, 750 at 2.13); seed_derive D2 allows the larger seed.  No status moves")
+NOTE_545_SETTLE = ("  [Item 545] At the physical wavelength no inner marginally trapped surface forms on the record's "
+                   "slices (mots545): the formed hole has one horizon there, where the scheme computes with its core "
+                   "boundary outflow.  The settling's statement is unchanged")
+_rows_545 = []
+for c, n, s_, t in LEMMAS_NOW:
+    k = n.split()[0]
+    if k in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_545_SOURCE
+    if k == "SETTLEs":
+        t = t + NOTE_545_SETTLE
+    _rows_545.append((c, n, s_, t))
+LEMMAS_NOW = _rows_545
 # [542, M-BASIS-LINE] One current-basis line per row (M: 'yes'): what the row rests on now, with the superseded notes
 # left in the row's record.  The selftest checks every row has exactly one; the map shows it.
 CURRENT_BASIS = {
@@ -2115,7 +2146,8 @@ CURRENT_BASIS = {
              "bounce_qm's reflected state -- on QB",
     "SOURCEs": "SOURCE-PROOF.md: THM-SOURCE parts A-E (the read, the emitter, the high-frequency limit, delivery within "
                "half a bit); N1* and Theorem P proved, Theorem M deduced -- theorized steps named, the passage at "
-               "the physical wavelength among them (544)",
+               "the physical wavelength among them (544); one horizon on the record's slices at the physical "
+               "wavelength, no inner marginally trapped surface (mots545, 545)",
     "SOURCE": "SOURCE-PROOF.md at the large end, as SOURCEs -- theorized steps named",
     "QB": "BOUNCE-PROOF.md L1-L14 (bounce_qm Q1-Q9, bounce_close C1-C6, bounce_proof P1-P6): unitary reflection at r "
           "= 0, two horizons only -- theorized, quantum mechanics at Planckian curvature",
@@ -2351,7 +2383,9 @@ def lemma_selftests():
               "ell_si.py", "g0_small.py", "gmid.py", "i3_info.py", "z3q.py", "face_grav.py", "z3d.py",
               "settle_large.py",
               # item 544: the N1* session's go/no-go at 10 l5, run at the record's own derived point lam_P
-              "derived_go.py"):
+              "derived_go.py",
+              # item 545: the inner marginally trapped surface investigated exhaustively
+              "mots545.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

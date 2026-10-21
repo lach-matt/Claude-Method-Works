@@ -129,7 +129,45 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 544 (the N1* session's ready work carried; the go/no-go at the derived point).** M: "Theorem
+**Where it stands, at item 545 (the inner marginally trapped surface investigated: it does not form).** You ruled that
+519 does not cover the inner marginally trapped surface reported at 544, and asked for it to be investigated
+exhaustively: the findings, how it affects the rest of the theorem, and how to mitigate it if it does, or whether it
+applies at all (`lemmas/mots545.py`, M0-M12, in T1).
+- **It does not apply: no inner marginally trapped surface forms.** At 544 a second zero of the round spheres'
+  outgoing expansion in a column -- what growth5 counts -- was read as one. A marginally trapped surface is a closed
+  surface with zero outgoing expansion at every point, and on the record's own slices there is none but the outer one.
+  - Every closed cross-section of a null slice is a graph over its generators (a spacelike surface cannot contain the
+    generator's null direction), so the T²-invariant ones are exactly the zeros of one shooting function. Searched
+    from 600 starting values on every slice (226, at the five points): one surface, the outer apparent horizon,
+    strictly stable (λ₁ ≥ 5.7).
+  - Nested trapped leaves run from it past the core boundary, and untrapped ones outward past every round zero. By the
+    comparison principle no marginally trapped surface of any shape fits anywhere else. That holds on 162 of the 163
+    slices where the scheme's core boundary is outflow, and on the 163rd to the grid's resolution.
+  - The extra round zeros come from the angular shift's term alone: W by itself has one zero per column on all
+    86 such slices. A round sphere stops being the right test surface when the wave's amplitude at the core is of
+    order one; the trapped surfaces there tilt.
+  - Control: on Tangherlini's null slices the horizon is the only marginally trapped surface of any shape (proved). Yet
+    on its Painlevé–Gullstrand slices five-dimensional Schwarzschild holds infinitely many self-intersecting interior
+    ones (READ, Booth, Chan, Hennigar, Kunduri and Muth). Interior marginally trapped surfaces belong to a slicing, and
+    a black hole without an inner horizon holds them.
+- **How it affects the rest.** No status moves. 544's sentence "an inner marginally trapped surface forms and moves
+  outward" is withdrawn wherever it stood, and replaced by the computed statement. What stops the record's scheme at
+  the small end is its core boundary turning inflow (copper from v = 1.5625, the example README from 1.5125). The
+  passage at the physical wavelength through the seed's interior stays named theorized (SOURCE-PROOF Part E). At the
+  large end the boundary stays outflow and one horizon holds throughout; the run past v = 1.83 is still not
+  converged. The face's formation with one horizon now also stands at the physical wavelength, on the slices the scheme
+  computes.
+- **Mitigation, measured.** at lam_P a seed of mu0 >= 808.5 l5^2 keeps the core boundary outflow through the shell:
+  r0 = 20 ell's own runs on both grids (W at the boundary at most -1.50) and mu0 = 1000 (at most -3.59). Every seed
+  up to 750 l5^2 turns it inflow before the shell ends: 300 at v = 1.82, 500 at 2.50 (2.53 at Ny = 28), 650 at 2.18
+  (2.19), 750 at 2.13, not monotone below the threshold. So the record's scheme stays valid through the shell at the
+  small end on a seed some 8 to 13 times the least (copper 102, the example README 61 l5^2). seed_derive D2 makes
+  escape fall as the seed grows, so the larger seed still delivers within half a bit.
+
+Put to you: nothing new. 519 and 484 stand as they were: the work has no inner or Cauchy horizon, and now no inner
+marginally trapped surface on the record's slices either.
+
+**Where it stood at item 544 (the N1* session's ready work carried; the go/no-go at the derived point).** M: "Theorem
 P carried, and 10 l5 left with the N1* seesion - are now ready. The nonlinear settlings are still being worked". Main's
 PRs #62-#64 are merged here and that session's new instruments re-run, all passing (bondi5, growth5, wavegauge5,
 settle5, routes5, response5).
@@ -153,8 +191,8 @@ SOURCE-PROOF Part E. The delivery within half a bit is computed outside the hori
 moves: 93 rows, 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6 COMPUTED-THEORIZED.
 
 One finding is put to M. At the physical wavelength, in the scheme's gauge, an inner marginally trapped surface forms
-inside the seed's horizon while the shell passes. Whether the ruling 519 (no inner or Cauchy horizon) bears on it is
-M's. BOUNCE-RESEARCH section 67.
+inside the seed's horizon while the shell passes. *[Withdrawn at 545: none forms (mots545).]* Whether the ruling 519
+(no inner or Cauchy horizon) bears on it is M's. BOUNCE-RESEARCH section 67.
 
 **Where it stood at item 542 (the gaps closed and the weak rows strengthened).** You ruled on 541: gaps are closed by
 added lemmas and nothing is narrowed; weak rows are strengthened and given more support; the rows on QB are labelled
@@ -2334,6 +2372,14 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 545** (M: "Does 519 cover this? - no it does not. Please investigate this exhaustively, and report back the
+  findings, how it affects the rest of the theorem, and how to mitigate it if it does, or determine if it applies at
+  all"). The inner marginally trapped surface reported at 544 investigated exhaustively (`lemmas/mots545.py`, M0-M12,
+  in T1). It does not form. On all 163 slices of the record's scheme with the core boundary outflow, at the five
+  points, there is one marginally trapped surface, the outer horizon, unique of any shape on 162 by the sweeps and
+  the 163rd to the grid's resolution; the extra round zeros are the angular shift's term. A seed of mu0 >= 808.5 l5^2
+  keeps the small end's boundary outflow at lam_P. 544's sentence withdrawn where it stood; no status moves.
+  BOUNCE-RESEARCH section 68; SOURCE-PROOF C5, Part E and section 7; SETTLE-PROOF section 4; the map updated in full.
 - **Item 544** (M: "Theorem P carried, and 10 l5 left with the N1* seesion - are now ready. The nonlinear settlings
   are still being worked"). The N1* session's work merged from main (PRs #62-#64) and its instruments re-run, all
   passing; Theorem M carried as deduced and verified with repairs; the go/no-go at 10 l5 carried; Propositions 10.1

@@ -103,11 +103,18 @@ instruments re-run here):
   the nonlinear problem is posed is still open.
 - *The physical wavelength (growth5 G0-G5; derived_go D0-D4).* At 10 l5 the record's own scheme fails its premise at
   both seeds before the shell's peak: the interior of the seed's horizon untraps from the inside outward in the
-  scheme's gauge. At the record's own lam_P on the least seeds it fails too, before or at the peak (derived_go). No
+  scheme's gauge *[the round spheres' expansion only: no marginally trapped surface forms there, 545]*. At the
+  record's own lam_P on the least seeds it fails too, before or at the peak (derived_go). No
   approximant at the physical wavelength comes from it, so S3-S4's settling run, made at lam/sqrt(mu0) = 0.1, cannot
   be repeated there with this scheme. The exterior of the event horizon is unaffected. The question is re-posed as the
   characteristic problem in double-null gauge, which is not built.
 - *The nonlinear settling is still being worked in the N1* session (M, 544).* It stays theorized here, named as above.
+- *Since 545 (M: "Does 519 cover this? - no it does not. Please investigate this exhaustively ...").* At the physical
+  wavelength no inner marginally trapped surface forms on the record's slices (mots545 M0-M12). On every slice where
+  the core boundary is outflow the outer horizon is the only marginally trapped surface of any shape, so the formed
+  hole has one horizon there too. What stops the scheme at the small end is that boundary turning inflow, so S3-S4's
+  run is still not repeated there; a seed of mu0 >= 808.5 l5^2 at lam_P keeps it outflow. At the large end the run
+  past v = 1.83 is not converged. The settling's statement is unchanged: theorized, named.
 
 ## 5. The large end (SETTLE, PROVED)
 

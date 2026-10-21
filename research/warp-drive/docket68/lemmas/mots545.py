@@ -76,7 +76,12 @@ wavelength, investigated exhaustively.  It does not form.  Labels: computed (exa
      makes the scheme itself unstable (it fails at v = 0.39).
   M10 (computed; pinned) Mitigation at the small end.  What stops the scheme at the least seeds is its core boundary
      turning inflow, not an inner surface.  At lam_P on larger seeds (growth5.run, the same envelope, its breakdown
-     criterion): {MIT}
+     criterion): a seed of mu0 >= 808.5 l5^2 keeps the core boundary outflow
+     through the shell (r0 = 20 ell's own run, both grids, W at the boundary at most -1.50; mu0 = 1000, at most -3.59),
+     and every seed up to 750 l5^2 turns it inflow before the shell ends: 300 at v = 1.82, 500 at 2.50 (2.53 at Ny =
+     28), 650 at 2.18 (2.19), 750 at 2.13 -- not monotone below the threshold.  So the record's scheme stays valid
+     through the shell at the small end on a seed some 8 to 13 times the least (copper 102, the example README 61
+     l5^2).  seed_derive D2 lets a seed exceed the least, since escape falls as it grows.
   M11 (READ) Prior art.
      - Booth, Chan, Hennigar, Kunduri and Muth (2210.15685v2, p. 17): "self-intersecting MOTSs may also be found in D =
        5 Schwarzschild and they are qualitatively the same as in D = 4"; p. 49: "a family of closed, self-intersecting
@@ -586,18 +591,40 @@ def legendre_identity():
     return sp.simplify(Y*L(Y) - 2*g2(Y) + L(u)/u**3) == 0
 
 
-PINNED = {
-    'L100_10l5': {'n': 40, 'valid': 21, 'nz2': 10, 'nzW2': 0, 'not_one': 0, 'unique_valid': 21, 'lam1_min': 5.89, 'past': 19, 'past_one': 19},
-    'L1000_10l5': {'n': 29, 'valid': 28, 'nz2': 9, 'nzW2': 0, 'not_one': 0, 'unique_valid': 27, 'lam1_min': 5.93, 'past': 1, 'past_one': 1},
-    'copper': {'n': 51, 'valid': 26, 'nz2': 10, 'nzW2': 0, 'not_one': 0, 'unique_valid': 26, 'lam1_min': 5.92, 'past': 25, 'past_one': 25},
-    'example': {'n': 35, 'valid': 17, 'nz2': 10, 'nzW2': 0, 'not_one': 0, 'unique_valid': 17, 'lam1_min': 5.9, 'past': 18, 'past_one': 18},
-    'r0=20ell': {'n': 71, 'valid': 71, 'nz2': 47, 'nzW2': 0, 'not_one': 0, 'unique_valid': 71, 'lam1_min': 5.7, 'past': 0, 'past_one': 0},
-}    # M8, the runs of 2026-10-21 (data/mots545_scans.json)
-PIN_RES = {
-    'copper_28x16': {'n': 16, 'valid': 13, 'nz2': 13, 'nzW2': 0, 'not_one': 0, 'unique_valid': 13, 'lam1_min': 5.93, 'past': 3, 'past_one': 3},
-    'copper_20x20': {'n': 16, 'valid': 13, 'nz2': 4, 'nzW2': 0, 'not_one': 0, 'unique_valid': 13, 'lam1_min': 5.93, 'past': 3, 'past_one': 3},
-}    # M9
-PIN_MIT = {}
+PINNED = {    # M8, the runs of 2026-10-21 (data/mots545_scans.json)
+    'L100_10l5': dict(n=40, valid=21, nz2=10, nzW2=0, not_one=0, unique_valid=21,
+                      lam1_min=5.89, past=19, past_one=19),
+    'L1000_10l5': dict(n=29, valid=28, nz2=9, nzW2=0, not_one=0, unique_valid=27,
+                       lam1_min=5.93, past=1, past_one=1),
+    'copper': dict(n=51, valid=26, nz2=10, nzW2=0, not_one=0, unique_valid=26,
+                   lam1_min=5.92, past=25, past_one=25),
+    'example': dict(n=35, valid=17, nz2=10, nzW2=0, not_one=0, unique_valid=17,
+                    lam1_min=5.9, past=18, past_one=18),
+    'r0=20ell': dict(n=71, valid=71, nz2=47, nzW2=0, not_one=0, unique_valid=71,
+                     lam1_min=5.7, past=0, past_one=0),
+}
+PIN_RES = {    # M9
+    'copper_28x16': dict(n=16, valid=13, nz2=13, nzW2=0, not_one=0, unique_valid=13,
+                         lam1_min=5.93, past=3, past_one=3),
+    'copper_20x20': dict(n=16, valid=13, nz2=4, nzW2=0, not_one=0, unique_valid=13,
+                         lam1_min=5.93, past=3, past_one=3),
+}
+PIN_MIT = {    # M10: the boundary's first inflow and the run's end
+    'L1000_Ny20': dict(wex_first=None,
+                       end='complete'),
+    'L300_Ny20': dict(wex_first=1.815625,
+                      end='scheme failed at v = 1.8969: LinAlgError'),
+    'L500_Ny20': dict(wex_first=2.5,
+                      end='scheme failed at v = 2.5021: LinAlgError'),
+    'L500_Ny28': dict(wex_first=2.525316,
+                      end='scheme failed at v = 2.5316: LinAlgError'),
+    'L650_Ny20': dict(wex_first=2.181667,
+                      end='scheme failed at v = 2.1967: LinAlgError'),
+    'L650_Ny28': dict(wex_first=2.193686,
+                      end='scheme failed at v = 2.2056: LinAlgError'),
+    'L750_Ny20': dict(wex_first=2.13244,
+                      end='scheme failed at v = 2.1354: LinAlgError'),
+}
 
 
 def load(path=DATA):
@@ -655,6 +682,12 @@ def checks(fast=False):
         Mt = load(MITIG)
         ok["M10 the mitigation runs read back as pinned"] = all(
             k in Mt and {kk: Mt[k][kk] for kk in pin} == pin for k, pin in PIN_MIT.items())
+        dg = load(os.path.join(HERE, "data", "derived_go_runs.json"))
+        r0w = [max(st[5] for st in dg[k]["steps"]) for k in ("r0=20ell_20x16", "r0=20ell_28x16") if k in dg]
+        ok["M10 at lam_P: every seed up to 750 l5^2 turns the core boundary inflow inside the shell; 808.5 (both "
+           "grids) and 1000 never"] = (
+            all(d["wex_first"] is not None and d["wex_first"] < 3.5 for d in Mt.values() if d["L"] <= 750)
+            and Mt.get("L1000_Ny20", {}).get("wex_first", 0) is None and len(r0w) == 2 and max(r0w) < 0)
     return ok
 
 
