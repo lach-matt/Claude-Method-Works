@@ -62,10 +62,11 @@ u the radiation field, L Lbar Psi = -f Vcal Psi, Psi_1 := f^-1 r^2 L Psi, L = d_
 
 READ (alphaXiv, 2026-10-21).  [Hun19] section 8 pp. 58-70 in full (Theorem 8.1, Propositions 8.2 and 8.4, Lemma 8.3,
 (8.2)-(8.39), Lemmas 8.5-8.6 and the proof of Theorem 8.1, Theorem 8.7), Proposition A.6 (A.12)-(A.14) and Appendix B
-pp. 73-75.  [Sch13] Theorem 1 (1.9)-(1.10) p. 5, Proposition 4.1 (4.4) pp. 19-20, Corollary 4.3, the proof of
-Proposition 4.1 (4.76)-(4.92) pp. 44-52, Propositions 4.21-4.22 pp. 53-54, (5.8)-(5.22) pp. 57-62.
+pp. 73-75.  [Sch13] Theorem 1 (1.9)-(1.10) p. 5, Proposition 4.1 (4.4) pp. 19-20, Corollary 4.3, (4.64), (4.67), (4.71)
+pp. 38-39 and Corollary 4.18 p. 43, the proof of Proposition 4.1 (4.76)-(4.92) pp. 44-52, Propositions 4.21-4.22 pp.
+53-54, (5.8)-(5.22) pp. 57-62.
 
-sympy.  python3 lzerorate5.py [--selftest | --mutants]   (about half a minute; --verbose lists every sub-check)
+sympy.  python3 lzerorate5.py [--selftest | --mutants]   (about forty seconds; --verbose lists every sub-check)
 """
 import os
 import sys

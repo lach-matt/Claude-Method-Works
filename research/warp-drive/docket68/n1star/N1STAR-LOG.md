@@ -1408,3 +1408,70 @@ Review bullet, the settling and verification rows, Appendix D with its import se
 [Hin26]); nothing proved. OPEN: which strip the five-dimensional argument needs; [Hin26] Theorem 7.1 (1), (2) and (4)
 for box^C on Tangherlini; the modification E^Upsilon of [Hin26] Proposition 6.12. The twenty-second verifier is sent on
 10.12, damping5.py and the twenty-first's repairs; its verdict follows. Next: the rest of route B's item 2.
+
+*The twenty-second verifier (the same day; one agent, sent on 10.12, damping5.py and the twenty-first's repairs).* One
+major finding, six minor and seven notes, all seated in the PR that seats 10.13. Major: (1) every record called (v, e,
+h) = (1/2, 1/100, 1/1000) "his parameters"; it is not his -- [Hin26a] suggests only v = 1/2 (p. 3), its one numerical
+example is at (1/2, 10^-4, 10^-6) (p. 76), and [Hin26] fixes v and C_0 and no e -- and e = 1/100 lies far above the
+bound his construction needs, "e_0 < c v^2 for c ~ 0.000152" (p. 33, after Lemma 4.4), so the claim that the strong
+damping condition has a five-dimensional construction was unsupported at the stated point. The record's own certificate
+passes at admissible points, which it showed; repaired: damping5.py's point is now (1/2, 1/102400, 10^-6), inside the
+five-dimensional bound computed in 10.13 (W4: e_0 ~ 0.000069 v^2), the certificate re-run there (U4: [-100, 19/10]
+clear, and [-100, 2] but for the Coulomb root), "his parameters" withdrawn wherever it stood, and the first point
+recorded as an indicial statement only (10.13 W6). This step had found the same bound independently while the verifier
+ran. Minor: (2) "So [Hin26] (1.43) holds in five dimensions" sat in a Proposition labelled computed, where the
+computation reaches only the Minkowski model -- now a separate deduced paragraph naming its inputs; (3) Theorem 7.1(3)'s
+clause that the roots accumulate only at +-infinity was not covered -- now U3's top-weight check, h^3 (kappa - lam^2)^3
+and h (kappa - lam^2); (4) U6's l range was 10^6 over 85 sampled values, not 1.5 10^6 -- now said; (5) the paper's
+settling paragraph made the zero-energy condition indicial only and gave the strip without its status -- now with
+invertibility, the point inside the range and the transfer deduced; (6) the 10.11 sentence that the commuted J^(alpha)
+of [Sch13] vanishes at l = 0, leaving the l = 0 carrier unnamed, was wrong about the proof -- READ at source (pp. 38-39,
+43, 47): Step 2 treats pi_{<L} phi, which contains l = 0, by J^(alpha) = J^{X_a,0} + sum J^{X_b,2}(Omega_i .), whose
+uncommuted part gives the bulk C(n - 1)/(alpha^2 r^n)(d phi/d r*)^2 ((4.64), (4.71)); now said; (7) "discharges the
+conditional" in 10.8 and "10.8's with it" in 10.11 claimed his rate -- now at the weaker rate (-1 + 4 delta). Notes:
+U1's closure was read on the t, r, theta components only (its own code asserts every component; the sentence stands);
+routh_rhp did not refuse a zero constant term -- now asserted; "his p_v ((A.2))" -- the display of his section A.1, now
+said; "no root in [-100, 2) but the Coulomb root" was self-contradictory -- now [-100, 2]; [Hin26] p. 29 ties the
+strip's endpoint 1 to the shift lam - 1 under delta*, which does not depend on the dimension, so the literal [-C_0, 1)
+may be the five-dimensional strip -- READ at source (p. 29) and now 10.12's account of which strip is needed, the
+gauge-fixed operator's gap in five dimensions left OPEN; the weight 2/(D - 2) also preserves the form of l_{g,c,e} his
+section 3 uses -- now 10.13 W1, whose control is the weight 1 making B indefinite; lzerorate5.py ran in 43 s -- now
+"about forty seconds". What held under its attack: U1-U6 re-derived independently (its own Cartesian derivation with
+other harmonics, full closure at three points, its own certificate by resultants and a Sturm count over Fractions),
+every count reproduced, Hintz's printed four-dimensional formulas matched term by term, the certificate's logic, every
+control failing substantively, every READ claim checked at source ([Hin26a], [Hin26], [Sch13] through alphaXiv), the
+twenty-first's repairs but two, the 29 md5 rows. Its verdict: Proposition 10.9 and U1-U6 hold as computations; the
+labels and the point are repaired.
+
+**D55 (2026-10-21, M: "Continue"): the semiclassical inputs of the constraint damping in five dimensions (section 10.13;
+semiclass5.py W1-W6), and the certificate moved inside the range they admit.**
+
+*The step.* ROUTES 4.5's order after D54: the rest of route B's item 2. PR #75 had merged; the branch was restarted from
+main at d481823, and M set FRUGAL_ALLOW_EXPENSIVE for the session so that the verifier could be sent. The twenty-second
+verifier, sent on 10.12, reported during this step; its findings are seated above, beside D54, in the same PR.
+
+*What was read.* At source (alphaXiv, 2026-10-21): [Hin26] pp. 17, 29 (the reason for (1.43)'s strip), 120-121 (Lemmas
+6.10-6.11, Proposition 6.12), 134-137 (section 7.1, Theorem 7.1 and its proof); [Hin26a] pp. 9-10, 25-33 (section 3 and
+section 4.1-4.2), 38-41 (Proposition 5.1), 43, 53, 66-68 (Theorem 6.2 and its proof); [Sch13] pp. 38-39, 43, 47 for the
+verifier's finding (6). [Hin26] Theorem 7.1 (1)-(2) are [Hin26a] Theorem 6.2, proved by semiclassical estimates whose
+inputs are his section 3 (stated for dim M = 4) and section 4's Minkowski symbol calculations.
+
+*What was computed.* semiclass5.py: (W1) his fibrewise theory at n = 4 and the weight 2/3; (W2) the subprincipal symbol
+from its definition, his four-dimensional formulas reproduced but Lemma 4.4's a_01, misprinted by a factor e; (W3) the
+thresholds at dK+ and R_v, b_K > b_sf - 1 and b_sf < 1; (W4) the interior saddle, its e = 0 limit his, the admissible e
+~ 0.000069 v^2 against ~ 0.000154 v^2; (W5) Lemma 4.3 dimension-free; (W6) the two points. Selftest 6/6 (about a
+minute), mutants 6/6. damping5.py moved to (1/2, 1/102400, 10^-6), with U3's accumulation check and routh_rhp's guard:
+6/6, mutants 6/6. Found by exploring before it was checked: the first statement of W4 took the limit e -> 0 entry by
+entry and met a_01's 1/e^(1/2), which the determinant cancels; W6's first statement claimed h < e/10 for h = 10^-6 and e
+= 1/102400, which is false -- now h < e, U6's boundary.
+
+*What was deduced.* Nothing new: 10.12's transfer to Tangherlini is now labelled deduced; his Theorems 5.2 and 6.2 in
+five dimensions are not deduced here.
+
+*Seated.* N1STAR-PROOF.md 10.13 with Proposition 10.10, and 10.8, 10.11 and 10.12 repaired; semiclass5.py; damping5.py;
+lzerorate5.py's header; ROUTES-OPEN.md 4.4 item 2, 4.5, 4.13 and the new 4.14; the README; the paper (the settling
+paragraph, the Review bullet, Appendix A, the settling and verification rows, Appendix D, the [Hin26a], [Hin26] and
+[Sch13] entries, D1-D55, the md5 rows). Labels: computed (semiclass5.py W1-W6, exact; W4's e_0 numerical), READ; nothing
+proved. OPEN: a five-dimensional c of [Hin26a] Proposition 5.1's kind on Tangherlini, his section 5's 3b-estimates and
+Theorem B.1 in five dimensions, E^Upsilon. The twenty-third verifier is sent on 10.13, semiclass5.py and the
+twenty-second's repairs; its verdict follows. Next: the five-dimensional c on Tangherlini.

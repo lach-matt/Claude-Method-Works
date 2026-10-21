@@ -16,12 +16,12 @@ eigenvalue of the Laplacian on S^{n-1}.
 
   U1 (computed, exact) The indicial families.  box^C is computed from its definition on Minkowski^{n+1}, n = 3, 4, in
      polar coordinates, on the stationary 1-forms r^-lam (a S dx^0 + b S dx^1 + c r dS) (scalar type) and r^(1-lam) V
-     (vector type), S = Re (x_1 + i x_2)^l (sin^l th cos(l ph) on S^2, cos^l th cos(l p_1) on S^3) and V = *dS on S^2,
-     V = Re (x_3 + i x_4)^(l-1) (x_1 dx_2 - x_2 dx_1) on S^3, with l a symbol: the zero energy operator returns the same
+     (vector type), S = Re (x_1 + i x_2)^l (sin^l th cos(l ph) on S^2, cos^l th cos(l p_1) on S^3) and V = *dS on S^2, V
+     = Re (x_3 + i x_4)^(l-1) (x_1 dx_2 - x_2 dx_1) on S^3, with l a symbol: the zero energy operator returns the same
      type times r^(-lam-2), with a 3 x 3 (scalar l >= 1), 2 x 2 (l = 0) and 1 x 1 (vector) matrix N(lam) whose entries
      are free of the angles and affine in kappa.  Control (n = 3, weight 1): N is his (4.19) with Corollary 4.7's q_00,
-     ..., q_// entry by entry, and his p_v ((A.2)'s polynomial), p_s0 and the sextic (A.13) follow as h N_v, h^2
-     det N_s0/(lam - 1) and -h^3 det N_sl, at l = 1, 2, 3.  Mutant: the trace reversal G dropped.
+     ..., q_// entry by entry, and his p_v (the display of his section A.1), p_s0 and the sextic (A.13) follow as h N_v,
+     h^2 det N_s0/(lam - 1) and -h^3 det N_sl, at l = 1, 2, 3.  Mutant: the trace reversal G dropped.
   U2 (computed, exact) The weight.  G (g f) = (1 - D/2) g f in D = n + 1 dimensions, so with C omega = h^-1 (2 c (x)_s
      omega - m (1 - e) g iota_{c#} omega), 2 h G C omega = 2 (2 c (x)_s omega) + 2 (-1 + m (1 - e)(D/2 - 1)) g <c,
      omega>, which is his h^-1 (2 c (x)_s omega - e g <c, omega>) -- the form whose semiclassical symbol is his
@@ -29,34 +29,39 @@ eigenvalue of the Laplacian on S^{n-1}.
      four-dimensional value of the dimension-adapted 2/(D - 2).  Control: m = 1 in five dimensions.
   U3 (computed, exact) The five-dimensional polynomials (weight 2/3).  Vector type: p_v = -h lam^2 + (2h - 2v) lam + h
      kappa + 6 v (four dimensions: -h lam^2 + (h - 2v) lam + h kappa + 4 v, his).  lam = 2 is a root of scalar types 0
-     and 1 for all (v, e, h) (four dimensions: lam = 1, his), the Coulomb rate r^-(n-2).  At h = 0 the scalar-type sextic
-     h^3 det N_sl is 8 v (lam - 2) Q_5, Q_5 = e ((v^2 - 1) kappa + (1 + v^2)(lam - 3)(lam + 1)) - 2 v^2 (lam - 2)(lam -
-     3), and -16 v^3 (lam - 3)(lam - 2)^2 at e = 0 (four dimensions: 8 v (lam - 1) Q_4 and -16 v^3 (lam - 2)(lam -
-     1)^2, his (P1) roots 1, 1, 2); the very negative roots, lam = (h lt)^-1, have the h = 0 limit (2 v lt + 1)(4 e (1 +
-     v^2) lt^2 + 2 e v lt - 8 v^2 lt^2 - 6 v lt - 1) in both dimensions.  Control: the exceptional root claimed 1.
-  U4 (computed, exact) The certificate.  At (v, e, h) = (1/2, 1/100, 1/1000) and C_0 = 100, for every real kappa >= 3
-     the scalar-type sextic and the vector quadratic have no root on Re lam = -100 nor on Re lam = 19/10: shifted to the
-     line, the constant coefficient and the Hurwitz determinant Delta_{deg-1} have no root in kappa >= 3 (Sturm), and
+     and 1 for all (v, e, h) (four dimensions: lam = 1, his), the Coulomb rate r^-(n-2).  At h = 0 the scalar-type
+     sextic h^3 det N_sl is 8 v (lam - 2) Q_5, Q_5 = e ((v^2 - 1) kappa + (1 + v^2)(lam - 3)(lam + 1)) - 2 v^2 (lam -
+     2)(lam - 3), and -16 v^3 (lam - 3)(lam - 2)^2 at e = 0 (four dimensions: 8 v (lam - 1) Q_4 and -16 v^3 (lam -
+     2)(lam - 1)^2, his (P1) roots 1, 1, 2); the very negative roots, lam = (h lt)^-1, have the h = 0 limit (2 v lt +
+     1)(4 e (1 + v^2) lt^2 + 2 e v lt - 8 v^2 lt^2 - 6 v lt - 1) in both dimensions.  The top-weight parts (lam of
+     weight 1, kappa of weight 2) of the sextic and of p_v are constants times (kappa - lam^2)^3 and kappa - lam^2, so
+     the roots go as +-kappa^(1/2) and accumulate only at +-infinity, his Theorem 4.9's last clause.  Control: the
+     exceptional root claimed 1.
+  U4 (computed, exact) The certificate.  At (v, e, h) = (1/2, 1/102400, 10^-6) -- v = 1/2 as [Hin26a] p. 3 suggests, e
+     below the five-dimensional bound of his Lemma 4.4 (semiclass5.py W4, e_0 ~ 0.000069 v^2) and h < e (U6: the upper
+     roots stay above 2 exactly where h <= e), chosen here -- and C_0 = 100, for every real kappa >= 3 the scalar-type
+     sextic and the vector quadratic have no root on Re lam = -100 nor on Re lam = 19/10: shifted to the line, the
+     constant coefficient and the Hurwitz determinant Delta_{deg-1} have no root in kappa >= 3 (Sturm), and
      Delta_{deg-1} vanishes whenever two roots sum to zero (Orlando's formula), so no root lies on either line; the
      leading coefficient -h^3 does not vanish, so roots move continuously in kappa and cannot enter the strip; at l = 1
-     (Routh arrays) 3 roots have Re lam > 19/10 and 3 have Re lam < -100, and 1 and 1 for the vector type; the scalar
-     type 0 quartic, 2 and 2.  So no indicial root at any l has real part in [-100, 19/10], and (1.43) holds with C_0
-     = 100 and nine tenths to spare.  Up to the Coulomb root: at the line 2 the same argument for kappa >= 8 (l >= 2,
-     counts 3 | 0 | 3 at l = 2), and at l = 1 and l = 0 the cofactors of lam - 2, a quintic and a cubic, 2 | 0 | 3 and
-     1 | 0 | 2 (Routh), the vector type 1 | 0 | 1: the only roots with real part in [-100, 2] are lam = 2 at l = 0 and
-     l = 1, simple, so none lies in [-100, 2) -- (1.43) in its five-dimensional form, the strip ending at the Coulomb
-     root r^-(n-2) as his ends at r^-1.  Four-dimensional control: the same at the lines 9/10 and 1, his Theorem 4.9 at
-     these parameters.  Control: the line 21/10, which lam = 2 at l = 1 lies to the left of.
+     (Routh arrays, a zero constant term refused) 3 roots have Re lam > 19/10 and 3 have Re lam < -100, and 1 and 1 for
+     the vector type; the scalar type 0 quartic, 2 and 2. So no indicial root of the Minkowski model at any l has real
+     part in [-100, 19/10], (1.43)'s strip with nine tenths to spare.  Up to the Coulomb root: at the line 2 the same
+     argument for kappa >= 8 (l >= 2, counts 3 | 0 | 3 at l = 2), and at l = 1 and l = 0 the cofactors of lam - 2, a
+     quintic and a cubic, 2 | 0 | 3 and 1 | 0 | 2 (Routh), the vector type 1 | 0 | 1: the only roots with real part in
+     [-100, 2] are lam = 2 at l = 0 and l = 1, simple -- the strip [-100, 2] free but for the Coulomb root r^-(n-2), as
+     his ends at r^-1.  Four-dimensional control: the same at the lines 9/10 and 1 at his weight, his Theorem 4.9 at
+     this point.  Control: the line 21/10, which lam = 2 at l = 1 lies to the left of.
   U5 (computed, exact) His weight transcribed literally fails in five dimensions.  With m = 1, the scalar type 0 cubic
      at h = 0 has the root (7 v^2 - 1 + 3 e (1 + v^2))/(5 v^2 + 1 - 3 e (1 + v^2)), which at e = 0 is
      (7 v^2 - 1)/(5 v^2 + 1), in (-1, 1) for every v in (0, 1); at the parameters of U4 the quartic has a real root in
      (0, 1) (Sturm), in [-C_0, 1), and the scalar type 1 sextic a root in the strip.  Control: the weight 2/3 has no
      root in (0, 1).
-  U6 (computed, numerical; a measurement) The configuration over the parameters.  v = 1/2, e in {10^-2, 10^-3,
-     10^-4}, h in {10^-2, 10^-3, 10^-4}, l up to 1.5 10^6 (mpmath polyroots, 50 digits): the least real part of the upper
-     roots and the largest of the lower, weight 2/3.  Besides the exceptional root lam = 2 at l = 1 (U3), found at all
-     nine, the upper roots stay above 1.93 at all nine: above 2 exactly where h <= e (six points), below 2 where h > e
-     (three; the least, 1.939, at e = 10^-4, h = 10^-2, l = 5); the lower ones are about -1/h.  Control: h = 3/10.
+  U6 (computed, numerical; a measurement) The configuration over the parameters.  v = 1/2, e in {10^-2, 10^-3, 10^-4}, h
+     in {10^-2, 10^-3, 10^-4}, l <= 10^6, 85 sampled values (mpmath polyroots, 50 digits): the least real part of the
+     upper roots and the largest of the lower, weight 2/3.  Besides the exceptional root lam = 2 at l = 1 (U3), found at
+     all nine, the upper roots stay above 1.93 at all nine: above 2 exactly where h <= e (six points), below 2 where h >
+     e (three; the least, 1.939, at e = 10^-4, h = 10^-2, l = 5); the lower ones are about -1/h.  Control: h = 3/10.
 
 READ (alphaXiv, 2026-10-21).  [Hin26a] pp. 1-3 (Theorem 1.1, (1.1)-(1.2)), 5, 7, 25 (Definition 3.1, Lemma 3.2), 29,
 33-37 (section 4.3, Lemma 4.6, Corollary 4.7, (4.19), Definition 4.8, Theorem 4.9, Remarks 4.10-4.12), 67 (Theorem
@@ -78,7 +83,7 @@ L = sp.Symbol("l", positive=True, integer=True)
 mu_ = sp.Symbol("mu")
 lt = sp.Symbol("lt")
 D = sp.diff
-PARAMS = {v: sp.Rational(1, 2), e: sp.Rational(1, 100), h: sp.Rational(1, 1000)}
+PARAMS = {v: sp.Rational(1, 2), e: sp.Rational(1, 102400), h: sp.Rational(1, 10**6)}
 C0 = 100
 
 
@@ -309,6 +314,15 @@ def u3(control=0, verbose=False):
         q = sp.expand(sp.expand(p.subs(lam, 1/(h*lt))*h**3*lt**6))
         ok &= sp.expand(q.subs(h, 0) - neg) == 0
     chk("the very negative roots lam = (h lt)^-1: the same h = 0 limit in four and five dimensions", ok)
+    q = sp.Symbol("q", positive=True)
+    tops = []
+    for P in (pk, pv):
+        Pq = sp.Poly(sp.expand(P.subs({lam: lam*q, K: K*q**2})), q)
+        tops.append(sp.factor(Pq.LC()))
+    r6, r2 = sp.cancel(tops[0]/(K - lam**2)**3), sp.cancel(tops[1]/(K - lam**2))
+    chk("top weight (lam 1, kappa 2): %s (kappa - lam^2)^3 and %s (kappa - lam^2): roots ~ +-kappa^(1/2), accumulating "
+        "only at +-infinity" % (r6, r2), not (r6.free_symbols & {lam, K}) and not (r2.free_symbols & {lam, K})
+        and r6 != 0 and r2 != 0)
     return chk.ok
 
 
@@ -321,6 +335,7 @@ def hurwitz_det(cs, k):
 
 def routh_rhp(cs):
     nn = len(cs) - 1
+    assert cs[-1] != 0, "a root on the line"
     if cs[0] < 0:
         cs = [-c for c in cs]
     r1, r2 = list(cs[0::2]), list(cs[1::2])
@@ -382,7 +397,8 @@ def u4(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
     x1 = sp.Rational(21, 10) if control == 1 else sp.Rational(19, 10)
     res = certificate(4, sp.Rational(2, 3), x1)
-    chk("n = 4, weight 2/3, (v, e, h) = (1/2, 1/100, 1/1000): no crossing of Re lam = -100 or %s for kappa >= 3 (scalar,"
+    chk("n = 4, weight 2/3, (v, e, h) = (1/2, 1/102400, 10^-6): no crossing of Re lam = -100 or %s for kappa >= 3 "
+        "(scalar,"
         " vector)" % x1, res["sl"][0] and res["vl"][0])
     chk("at l = 1 the counts (right of %s | between | left of -100) are 3 | 0 | 3 and 1 | 0 | 1; scalar type 0: "
         "2 | 0 | 2" % x1, res["sl"][1:] == (3, 0, 3) and res["vl"][1:] == (1, 0, 1) and res["s0"][1:] == (2, 0, 2))
@@ -393,7 +409,7 @@ def u4(control=0, verbose=False):
         "kappa >= 8; 3 | 0 | 3 at l = 2, the cofactors 2 | 0 | 3 at l = 1 and 1 | 0 | 2 at l = 0, vector 1 | 0 | 1)",
         coulomb(4, sp.Rational(2, 3)) == want)
     res4 = certificate(3, 1, sp.Rational(9, 10))
-    chk("n = 3 (his Theorem 4.9 at these parameters): the same at the lines 9/10 and 1",
+    chk("n = 3 (his Theorem 4.9 at this point): the same at the lines 9/10 and 1",
         all(res4[k][0] for k in res4) and res4["sl"][1:] == (3, 0, 3) and res4["vl"][1:] == (1, 0, 1)
         and res4["s0"][1:] == (2, 0, 2) and coulomb(3, 1) == want)
     return chk.ok
@@ -455,7 +471,8 @@ def u6(control=0, verbose=False):
         for k, (up, lo, exc) in res.items():
             print("        e = %s, h = %s: the other upper roots >= %.4f, lower roots <= %.1f" % (k[0], k[1], up, lo))
     chk("lam = 2 is a root at l = 1 at every (e, h) of the grid (to 10^-30)", all(x[2] for x in res.values()))
-    chk("the other upper roots stay above 1.93 and the lower below -95 at every (e, h) of the grid, l <= 1.5 10^6",
+    chk("the other upper roots stay above 1.93 and the lower below -95 at every (e, h) of the grid, l <= 10^6 "
+        "(85 values)",
         all(up > 1.93 and lo < -95 for up, lo, _ in res.values()))
     if control == 0:
         chk("the other upper roots are above 2 where h <= e (six points) and below 2 where h > e (three)",
@@ -463,15 +480,16 @@ def u6(control=0, verbose=False):
     return chk.ok
 
 
-CHECKS = [("U1 the indicial families from the definition; four-dimensional control: [Hin26a] (4.19), (A.2), p_s0, "
-           "(A.13)", u1, 1),
+CHECKS = [("U1 the indicial families from the definition; four-dimensional control: [Hin26a] (4.19), A.1's p_v, "
+           "p_s0, (A.13)", u1, 1),
           ("U2 the weight: G C has his form, the symbol l_{g,c,e}, iff m = 2/(D - 2) (1 in four dimensions, 2/3 in "
            "five)", u2, 1),
           ("U3 the five-dimensional polynomials: lam = 2 exceptional; h = 0 roots 2, 2, 3; the negative roots as his",
            u3, 1),
-          ("U4 the certificate: at (1/2, 1/100, 1/1000) no indicial root in [-100, 2), any l; his in [-100, 1)", u4, 1),
+          ("U4 the certificate: at (1/2, 1/102400, 10^-6) no indicial root in [-100, 2), any l; his in [-100, 1)",
+           u4, 1),
           ("U5 his weight 1 transcribed literally fails in five dimensions: a root in (0, 1)", u5, 1),
-          ("U6 the configuration over a grid of (e, h), l <= 1.5 10^6 (numerical)", u6, 1)]
+          ("U6 the configuration over a grid of (e, h), l <= 10^6 (numerical)", u6, 1)]
 
 
 def selftest(verbose=False):
