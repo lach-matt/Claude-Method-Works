@@ -25,12 +25,29 @@ tr h, with box Sigma = 0 in harmonic gauge; S = div X = (Sigma - 4F)/2.  u := t 
      X_1 = J_L -- [Hun19] (4.21)-(4.23) in five dimensions, d_t X_t eliminated through S = div X.  Control: the sign of
      the X_1-X_L coupling reversed.
 
+  G4 (computed, exact at (k^2, mu) = (8, 2/3), (24, 5/4), (48, 3/2)) The rung sources in Hung's canonical form -- d_r^2
+     eliminated by the wave equations, Psi = r^3 H phi (phi = r^(-3/2) Phi_KI the scalar-wave normalisation, box_l phi =
+     V_phi phi with V_phi = -12 mu (k^2 + 3)((k^2 - 3) r^2 + 2 mu)/(r^6 H^2)) -- are (10.31): tr h_RW = 4F = 2 r f d_r
+     phi + c_F phi; G_P := r dJ_tr + d_t Sigma - d_t(4F) - 2 J_t = 4 r f d_t d_r phi + c_2 d_t phi + d_t Sigma; J_t =
+     -2 r f d_t d_r phi + c_t d_t phi; f J_r = -2 r d_t^2 phi + 2 mu f ((m + 12) r^2 - 6 mu)/(r^4 H) d_r phi - r f V_phi
+     phi; J_L = 0 (every other term cancels modulo the master equation), with m = k^2 - 3, c_F = (12 mu + (2/3) m (k^2 +
+     6) r^2)/(r^2 H), c_2 = 2 c_F, c_t = -2 (3 m r^4 - (4m - 6) mu r^2 - 12 mu^2)/(r^4 H): Hung's (4.21)-(4.25) in five
+     dimensions, the bad terms O(r) d_t d_r phi, O(1) d_t phi, d_t Sigma and O(r) d_t^2 phi.  Control: the sign of 2 J_t
+     in G_P.
+  G5 (computed, exact at the three sample points) The substitutions (10.32), Hung's (4.27)-(4.30): r P-bar = r P -
+     r^2 d_t phi + (u + r)((2 k^2/3) phi + Sigma/2), X_t-bar = X_t + (r^2/2) d_t phi - (u + r) phi, X_1-bar = X_1 +
+     (r^2 f/2) d_r phi + (m r^4 + 6 mu^2)/(r^3 H) phi, X_L-bar = X_L + (k r/2) phi, with u + r carried as an abstract
+     function (d_t(u + r) = 1, d_r(u + r) = 1 - 1/f).  The barred rungs' sources, modulo the wave equations of phi and
+     Sigma, carry no d_t d_r phi and no d_t^2 phi, and every coefficient is O(r^-2) or better, the (u + r)-weighted ones
+     O(r^-4): (10.33), his (4.31)-(4.34).  Control: the (u + r) phi coefficient of r P-bar halved, which leaves an O(1)
+     d_t phi.
+
 READ (alphaXiv, 2026-10-21).  [KI03] H. Kodama, A. Ishibashi, A master equation for gravitational perturbations of
 maximally symmetric black holes in higher dimensions, hep-th/0305147v3: sections 2-3 ((2.4)-(2.8), (2.11)-(2.13),
 (2.20)-(2.21), (3.1)-(3.7), (3.9)-(3.14)), section 6 (6.1), Appendix A ((A.1b)).  [Hun19] section 4.2 pp. 26-32
 ((4.10)-(4.42), Lemmas 4.8-4.10), section 5 (Propositions 5.1-5.9, Lemma 5.5), section 6 (6.1)-(6.11).
 
-sympy.  python3 growing5.py [--selftest | --mutants]   (about four minutes; --verbose lists every sub-check)
+sympy.  python3 growing5.py [--selftest | --mutants]   (about eight minutes; --verbose lists every sub-check)
 """
 import os
 import sys
@@ -260,10 +277,256 @@ def g3(control=0, verbose=False):
     return chk.ok
 
 
+
+# ---------------------------------------------------------------------------------------------- G4, G5: the sources
+phi = sp.Function("phi")(t, r)                     # the scalar-wave normalisation, Psi = r^3 H phi
+Sig = sp.Function("Sigma")(t, r)                   # tr h, box Sigma = 0
+Uf = sp.Function("U")(t, r)                        # u + r as an abstract function: d_t U = 1, d_r U = 1 - 1/f
+USYM = sp.Symbol("U")
+SAMPLES = [(8, sp.Rational(2, 3)), (24, sp.Rational(5, 4)), (48, sp.Rational(3, 2))]     # (k^2, mu)
+
+
+def boxl_k(u, K2):
+    return -D(u, t, 2)/f + f*D(u, r, 2) + (3*r**2 - mu)/r**3*D(u, r) - K2/r**2*u
+
+
+def v_phi(K2):
+    """box_l phi = V_phi phi for phi = r^(-3/2) Phi_KI: the master potential read on phi, (10.30)"""
+    mm = K2 - 3
+    HH = mm + 6*mu/r**2
+    return -12*mu*(K2 + 3)*(mm*r**2 + 2*mu)/(r**6*HH**2)
+
+
+class Canon:
+    """canonical forms at a sample point: d_r^2 eliminated by the wave equations of phi and Sigma; u + r resolved"""
+
+    def __init__(self, K2, muv):
+        self.K2, self.muv = K2, muv
+        self.sub = {mu: muv}
+        self.boxl = lambda u: boxl_k(u, K2).subs(self.sub)
+        self.phi_rr = sp.expand(sp.solve(self.boxl(phi) - v_phi(K2).subs(self.sub)*phi, D(phi, r, 2))[0])
+        self.Sig_rr = sp.expand(sp.solve(self.boxl(Sig), D(Sig, r, 2))[0])
+
+    def resolve_U(self, e):
+        e = sp.expand(e.doit())
+        rep = {}
+        for d in e.atoms(sp.Derivative):
+            if d.expr == Uf:
+                cnt = dict(d.variable_count)
+                nt, nr = cnt.get(t, 0), cnt.get(r, 0)
+                if nt >= 2 or (nt == 1 and nr >= 1):
+                    rep[d] = 0
+                elif nt == 1:
+                    rep[d] = 1
+                else:
+                    rep[d] = D(1 - 1/f, r, nr - 1).subs(self.sub)
+        return sp.expand(e.xreplace(rep).xreplace({Uf: USYM}))
+
+    def reduce(self, e):
+        e = self.resolve_U(e)
+        for _ in range(12):
+            rep = {}
+            for d in e.atoms(sp.Derivative):
+                if d.expr in (phi, Sig):
+                    cnt = dict(d.variable_count)
+                    nt, nr = cnt.get(t, 0), cnt.get(r, 0)
+                    if nr >= 2:
+                        base = self.phi_rr if d.expr == phi else self.Sig_rr
+                        extra = [t]*nt + [r]*(nr - 2)
+                        rep[d] = D(base, *extra) if extra else base
+            if not rep:
+                break
+            e = sp.expand(e.xreplace(rep).doit())
+        return e
+
+    def coeffs(self, e):
+        """{(U-power, derivative or function): coefficient}, cancelled"""
+        e = self.reduce(e)
+        out = {}
+        for fn in (phi, Sig):
+            keys = sorted([d for d in e.atoms(sp.Derivative) if d.expr == fn], key=str) + [fn]
+            for key in keys:
+                c = sp.expand(e.coeff(key))
+                for pw in (0, 1, 2):
+                    nu, de = _frac(c.coeff(USYM, pw))
+                    if nu != 0:
+                        out[(pw, key)] = nu/de
+        return out
+
+
+_DENS = {}
+
+
+def _den_factors(de):
+    """a term's denominator as {irreducible polynomial in r: exponent} with the multiplier that completes 1/de; the
+    denominators the reduction leaves are products of r, f and H multiplied out, which sp.together does not see as
+    common (cached)"""
+    if de not in _DENS:
+        const, poly = de.as_independent(r, as_Add=False)
+        pn, pd = sp.fraction(sp.together(poly))                 # a Laurent polynomial in r: clear the negative powers
+        co, fl = sp.factor_list(pn, r)
+        facs = {}
+        for base, ex in fl:
+            facs[base] = facs.get(base, 0) + ex
+        _DENS[de] = (pd/(const*co), facs)                        # 1/de = (pd/(const co)) / prod base^ex
+    return _DENS[de]
+
+
+def _frac(c):
+    """c, a sum of rational functions of r, as one fraction over the factored common denominator, the numerator expanded;
+    no gcd is taken (sp.cancel over the algebraic k took hours), since a common factor changes neither whether the
+    numerator vanishes nor the difference of the degrees"""
+    parts, dens = [], {}
+    for term in sp.Add.make_args(sp.expand(c)):
+        nu, de = sp.fraction(term)
+        mult, facs = _den_factors(de)
+        parts.append((nu*mult, facs))
+        for base, ex in facs.items():
+            dens[base] = max(dens.get(base, 0), ex)
+    total = sum(nu*sp.Mul(*[base**(dens[base] - facs.get(base, 0)) for base in dens]) for nu, facs in parts)
+    return sp.expand(total), sp.Mul(*[base**ex for base, ex in dens.items()])
+
+
+def order_at_infinity(c):
+    nu, de = _frac(c)
+    if nu == 0:
+        return None
+    return sp.Poly(nu, r).degree() - sp.Poly(de, r).degree()
+
+
+def leading(c):
+    """(order at infinity, leading coefficient) of a rational function of r"""
+    nu, de = _frac(c)
+    pn, pd = sp.Poly(nu, r), sp.Poly(de, r)
+    return pn.degree() - pd.degree(), sp.nsimplify(sp.simplify(pn.LC()/pd.LC()))
+
+
+def psi_to_phi(e, K2, muv):
+    """Psi = r^3 H phi"""
+    HH = (K2 - 3 + 6*muv/r**2)
+    e = sp.expand(e)
+    rep = {d: D(r**3*HH*phi, *[v for v, c in d.variable_count for _ in range(c)]) for d in e.atoms(sp.Derivative)
+           if d.expr == Psi}
+    return sp.expand(e.xreplace(rep).xreplace({Psi: r**3*HH*phi}).doit())
+
+
+_SOURCES = {}
+
+
+def rung_sources(K2, muv, control=0):
+    """the four rung sources of (10.31) and tr h_RW at a sample point, in canonical form, from G2's J and (10.1)"""
+    if (K2, muv, control) in _SOURCES:
+        return _SOURCES[(K2, muv, control)]
+    C = Canon(K2, muv)
+    F, Fab = reconstruction()
+    J, _ = gauge_source()
+    sub = {Ftt: Fab[0, 0], Ftr: Fab[0, 1], Frr: Fab[1, 1], Fs: F}
+    sub = {k_: v.subs({kk: sp.sqrt(K2), mu: muv}) for k_, v in sub.items()}
+
+    def in_phi(e):
+        e = sp.expand(e.subs({kk: sp.sqrt(K2), mu: muv}))
+        rep = {d: D(sub[d.expr], *[v for v, c in d.variable_count for _ in range(c)]) for d in e.atoms(sp.Derivative)
+               if d.expr in sub}
+        e = e.xreplace(rep).xreplace(sub)
+        return C.reduce(psi_to_phi(e, K2, muv))
+    Jt, Jr, JL = in_phi(J["t"]), in_phi(J["r"]), in_phi(J["L"])
+    F4 = in_phi(4*Fs)
+    ff = f.subs(mu, muv)
+    GP = C.reduce(r*(D(Jr, t) - D(Jt, r)) - D(F4, t) - (1 if control != 1 else -1)*2*Jt) + D(Sig, t)
+    _SOURCES[(K2, muv, control)] = (C, {"P": GP, "t": Jt, "1": C.reduce(ff*Jr), "L": JL, "F4": F4})
+    return _SOURCES[(K2, muv, control)]
+
+
+def closed_forms(K2, muv):
+    """the coefficient functions of (10.31) as read off the three modes and fitted in k"""
+    mm = K2 - 3
+    HH = mm + 6*muv/r**2
+    ff = f.subs(mu, muv)
+    c2 = (24*muv + sp.Rational(4, 3)*mm*(K2 + 6)*r**2)/(r**2*HH)
+    ct = -2*(3*mm*r**4 - (4*mm - 6)*muv*r**2 - 12*muv**2)/(r**4*HH)
+    c1r = 2*muv*ff*((mm + 12)*r**2 - 6*muv)/(r**4*HH)
+    cF = (12*muv + sp.Rational(2, 3)*mm*(K2 + 6)*r**2)/(r**2*HH)
+    Vp = v_phi(K2).subs(mu, muv)
+    return {"P": 4*r*ff*D(phi, r, t) + c2*D(phi, t) + D(Sig, t),
+            "t": -2*r*ff*D(phi, r, t) + ct*D(phi, t),
+            "1": -2*r*D(phi, t, 2) + c1r*D(phi, r) - r*ff*Vp*phi,
+            "L": sp.Integer(0),
+            "F4": 2*r*ff*D(phi, r) + cF*phi}
+
+
+def g4(control=0, verbose=False):
+    chk = Checklist(verbose, quiet=control != 0)
+    for K2, muv in SAMPLES:
+        C, G = rung_sources(K2, muv, control)
+        want = closed_forms(K2, muv)
+        good = True
+        for key in ("P", "t", "1", "L", "F4"):
+            diff = C.coeffs(G[key] - want[key])
+            good &= not diff
+        chk("k^2 = %d, mu = %s: the sources in canonical form are (10.31) -- G_P = 4 r f d_t d_r phi + c_2 d_t phi + "
+            "d_t Sigma, J_t = -2 r f d_t d_r phi + c_t d_t phi, f J_r = -2 r d_t^2 phi + O(r^-2) d_r phi - r f V_phi "
+            "phi, J_L = 0, 4F = 2 r f d_r phi + c_F phi" % (K2, muv), good)
+    return chk.ok
+
+
+def substitutions(K2, muv):
+    """the corrections (10.32): rP-bar, X_t-bar, X_1-bar, X_L-bar"""
+    mm = K2 - 3
+    HH = mm + 6*muv/r**2
+    ff = f.subs(mu, muv)
+    k = sp.sqrt(K2)
+    corrP = -r**2*D(phi, t) + Uf*(sp.Rational(2, 3)*K2*phi + Sig/2)
+    corrT = r**2/2*D(phi, t) - Uf*phi
+    corr1 = r**2*ff/2*D(phi, r) + (mm*r**4 + 6*muv**2)/(r**3*HH)*phi
+    corrL = k*r/2*phi
+    return corrP, corrT, corr1, corrL
+
+
+def g5(control=0, verbose=False):
+    chk = Checklist(verbose, quiet=control != 0)
+    for K2, muv in SAMPLES:
+        C, G = rung_sources(K2, muv)
+        ff = f.subs(mu, muv)
+        k = sp.sqrt(K2)
+        corrP, corrT, corr1, corrL = substitutions(K2, muv)
+        if control == 1:                                   # half the (u + r) phi coefficient: an O(1) d_t phi survives
+            corrP = -r**2*D(phi, t) + Uf*(sp.Rational(1, 3)*K2*phi + Sig/2)
+        NP = G["P"] + C.boxl(corrP) + 4*muv/r**4*corrP
+        Nt = G["t"] + C.boxl(corrT)
+        L1 = lambda X1, XL: C.boxl(X1) - 3/r**2*(1 - 3*muv/r**2)*X1 - 2*k/r**2*(1 - 2*muv/r**2)*XL
+        LL = lambda X1, XL: C.boxl(XL) + (1 + muv/r**2)/r**2*XL - 2*k/r**2*X1
+        N1 = G["1"] + L1(corr1, corrL)
+        NL = G["L"] + LL(corr1, corrL)
+        for name, N in (("rP-bar", NP), ("X_t-bar", Nt), ("X_1-bar", N1), ("X_L-bar", NL)):
+            co = C.coeffs(N)
+            bad = []
+            for (pw, key), c in co.items():
+                o = order_at_infinity(c)
+                cnt = dict(key.variable_count) if isinstance(key, sp.Derivative) else {}
+                nt, nr = cnt.get(t, 0), cnt.get(r, 0)
+                if (nt >= 2 and nr == 0 and key.expr == phi) or (nt >= 1 and nr >= 1):
+                    bad.append(("second order", key))
+                elif o is not None and o > (-2 if pw == 0 else -4):
+                    bad.append((o, key))
+            chk("k^2 = %d, mu = %s, %s: no d_t d_r or d_t^2 term, every coefficient O(r^-2) or better, the (u + r)-"
+                "weighted ones O(r^-4)%s" % (K2, muv, name, "" if not bad else " -- FAILS: %s" % bad), not bad)
+        co = C.coeffs(NP)                                     # (10.33)'s first line: Sigma exact, phi to leading order
+        exact = {(0, D(Sig, t)): -muv/(r**2*ff), (0, D(Sig, r)): -muv/r**2, (0, Sig): -muv/(2*r**3),
+                 (1, Sig): 2*muv/r**4}
+        lead = {(0, D(phi, r)): (-2, -sp.Rational(4, 3)*K2*muv), (0, phi): (-3, -sp.Rational(2, 3)*K2*muv)}
+        good = all(_frac(co[key] - v)[0] == 0 for key, v in exact.items())
+        good &= all(leading(co[key]) == v for key, v in lead.items())
+        chk("k^2 = %d, mu = %s, rP-bar's source: -(mu/(r^2 f)) nabla_L Sigma - (mu/(2 r^3)) Sigma + (2 mu/r^4) (u + r) "
+            "Sigma exactly, -(4 k^2 mu/(3 r^2)) d_r phi - (2 k^2 mu/(3 r^3)) phi to leading order" % (K2, muv), good)
+    return chk.ok
+
+
 CHECKS = [("G1 the transcription of [KI03] at n = 3: the trace, the Einstein equations E_a = 0, Zerilli at n = 2", g1,
            1),
           ("G2 J = -Gamma[h_RW] in h_RW's components, (10.28), and tr h_RW = F^a_a + 6F = 4F", g2, 1),
-          ("G3 the direct system (10.29): Hung's (4.21)-(4.23) in five dimensions", g3, 1)]
+          ("G3 the direct system (10.29): Hung's (4.21)-(4.23) in five dimensions", g3, 1),
+          ("G4 the rung sources in canonical form, (10.31), at three modes", g4, 1),
+          ("G5 the substitutions (10.32) remove every bad weight: the sources of the barred rungs", g5, 1)]
 
 
 def selftest(verbose=False):

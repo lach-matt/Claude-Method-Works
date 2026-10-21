@@ -1084,3 +1084,51 @@ source: g = r_* on [5M/2, R_null], so the leaves are t = const on [5 r_h/4, R_nu
 N1STAR-PROOF.md 10.6 and the closing paragraph of 10.5; rungs5.py; ROUTES-OPEN.md 4.8; the README; the paper (the
 settling paragraph, Appendix A, the [HKW18] and [Hun19] entries, D1-D49, the md5 rows). Labels unchanged: computed,
 deduced (constants not tracked), READ; nothing proved. Selftest 5/5, mutants 6/6.
+
+**D50 (2026-10-21, M: "Continue"): the growing source and the l = 0 sector -- [Hun19] sections 4.2 and 8 in five
+dimensions (sections 10.7-10.8; growing5.py G1-G5, lzero5.py Z1-Z5).**
+
+*What was read.* [Hun19] at source (alphaXiv): section 4.2 in full (pp. 26-32: (4.10)-(4.20), Proposition 4.7 with
+(4.21)-(4.26), the substitution (4.27)-(4.30) with u, (4.31)-(4.34), eta_b and (4.35)-(4.42), Lemmas 4.8-4.10 with their
+proofs), section 5 (Propositions 5.1-5.9, Lemma 5.5's proof with its three regions and the loss of a derivative at the
+photon sphere, Lemma 5.8's Morawetz function for -2M/r^3), (6.1)-(6.11), section 8 in full (pp. 58-69: (8.1)-(8.33),
+Theorem 8.1, Propositions 8.2 and 8.4, Lemma 8.3, the red-shift current (8.34) and the argument for d(tau), c_2(tau),
+c_1(oo), Theorem 8.7), Appendix A (A.12)-(A.14) and Proposition A.6, Appendix B. [KI03] at source: sections 2-3 ((2.4)-
+(2.8), (2.11)-(2.13), (2.20)-(2.21), (3.1)-(3.7), (3.9)-(3.14)), (6.1), Appendix A (A.1b). The order was ROUTES 4.5's:
+the growing source, then l = 0; the l = 0 identities being quick, both were carried in parallel.
+
+*What was computed.* growing5.py: (G1) [KI03]'s (3.7) at n = 3, K = 1, lambda = 0 is Q = 1296 x^3 + (624 m - 144) x^2 +
+(36 m^2 - 432 m) x + 16 m^3 + 60 m^2, V_S = f Q/(16 r^2 H^2), and with (3.14) the reconstructed F, F_ab satisfy F^a_a =
+-2F and the Einstein equations E_a = 0 modulo the master equation (at three (mu, k) and three radii); at n = 2 the same
+transcription is the Zerilli potential. (G2) J = -Gamma[h_RW] in h_RW's components, (10.28); tr h_RW = F^a_a + 6F = 4F.
+(G3) the direct system (10.29), Hung's (4.21)-(4.23): d_t X_t eliminated through div X, X_1 := f X_r, the (X_1, X_L) pair
+coupled at zeroth order. (G4) in Hung's canonical form (d_r^2 eliminated, u + r carried as an abstract function with
+d_t(u + r) = 1, d_r(u + r) = 1 - 1/f) and the normalisation phi = r^(-3/2) Phi_KI (box_l phi = V_phi phi, V_phi = -12 mu
+(k^2 + 3)((k^2 - 3) r^2 + 2 mu)/(r^6 H^2)), the sources are exactly G_P = 4 r f d_t d_r phi + c_2 d_t phi + d_t Sigma,
+J_t = -2 r f d_t d_r phi + c_t d_t phi, f J_r = -2 r d_t^2 phi + O(mu/r^2) d_r phi - r f V_phi phi, J_L = 0, 4F = 2 r f
+d_r phi + c_F phi -- a first pass in the other canonical form (d_t^2 eliminated) showed apparent fourth-order terms with
+r^3 weights, which were the artefact of that form; the coefficient functions read at k^2 = 8, 24, 48 and fitted in k, the
+fits re-checked. (G5) the substitutions: r P-bar = r P - r^2 d_t phi + (u + r)((2 k^2/3) phi + Sigma/2), X_t-bar = X_t +
+(r^2/2) d_t phi - (u + r) phi, X_1-bar = X_1 + (r^2 f/2) d_r phi + (m r^4 + 6 mu^2)/(r^3 H) phi, X_L-bar = X_L + (k r/2)
+phi, each coefficient forced as 10.7 says (a hand estimate 7 k^2/6 for the (u + r) phi coefficient was wrong; the
+computation gives 2 k^2/3 at all three modes, and with 7 k^2/6 an O(1) d_t phi survives -- the control); the residual
+sources carry no second-order term, every coefficient O(r^-2) or better, the (u + r)-weighted ones O(r^-4), and r P-bar's
+Sigma terms are exact, its phi terms checked to leading order. Selftest 5/5 (about eight minutes), mutants 5/5.
+lzero5.py: (Z1)-(Z5), the l = 0 identities (10.23)-(10.26), selftest 5/5 in a quarter of a minute, mutants 5/5; P = r
+(dW)_tr - 2 W0 is forced (the coefficient -2 is the one value making box_s P a multiple of d_t S_W), the W3 equation
+carries f' L' W3 with f' > 0, the second homogeneous solution of the W0 ODE is 1 + (mu/r^2) log(r^2/mu - 1), the
+particular W3 for W0 = c_1/r^2 is -c_1/(r (r + sqrt mu)), W*'s own, and the l = 0 substitution P + (u + r) S_W/2 has the
+source -(mu/(r^2 f)) nabla_L S_W - (mu/(2 r^3)) S_W.
+
+*What was deduced.* 10.7: the three-region bounds of his Lemmas 4.8-4.10 on the barred and hatted rungs, with the (1 +
+tau/sqrt mu) factor on [b r_h, 2 b r_h] and the weights s^-2 nabla_L Sigma, s^-3 Sigma, s^-2 (sqrt mu d)^{<= 1} phi, (1 +
+tau) s^-4 phi beyond; Propositions 10.4-10.5 then apply to r P-hat and X_t-hat, and (X_1-hat, X_L-hat) is a system with
+the matrix of (10.29) and a source in (10.16). 10.8: his Theorem 8.1's argument on (10.23)-(10.26). What both leave: (a)
+the rapid decay of the first rungs (Sigma, phi; S_W at l = 0) -- the hierarchy past p = 2, his Proposition A.5 with k = 1
+and A.6, to be derived in five dimensions, where V_inf = k^2 + 3/4 never vanishes and the potentials' tails are r^-4; (b)
+his section 6's coupled estimate for (X_1-hat, X_L-hat). Said in both sections and in ROUTES 4.5 and 4.9.
+
+*Seated.* N1STAR-PROOF.md 10.7-10.8 and the closing paragraphs of 10.5 and 10.6; growing5.py; lzero5.py; ROUTES-OPEN.md
+4.5 and 4.9; the README; the paper (the settling paragraph, Appendix A, the settling row, Appendix D, the [KI03] and
+[Hun19] entries, D1-D50, the md5 rows). Labels: computed (exact at the sample points), deduced, READ; nothing proved; (a)
+and (b) open. The eighteenth verifier is sent on 10.7-10.8, growing5.py and lzero5.py; its verdict follows.

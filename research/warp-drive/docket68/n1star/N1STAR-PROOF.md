@@ -2030,9 +2030,9 @@ Proposition 10.1's, which decays, and pi_X is the gauge vector's, the triangular
 dimensions this is how [Hun19] closes (sections 4.2-7, the compact region bounded by the Zerilli quantity and W). The
 rungs are 10.6: each scalar wave equation of (v), with its potential, has the estimates of [Hun19] Appendix A in five
 dimensions for a source in the norm (10.16) (Propositions 10.4-10.5, the Morawetz multiplier for the Maxwell potential
-computed); the sources the rungs carry are not yet in that norm, which is the growing source (ROUTES-OPEN.md 4.3(3)), the
-next step of route A, with l = 0 (4.3(4)) beside it. The scalar tails of T6 (t^-7 at l = 2) bound the rate any of this
-could reach.
+computed); the sources the rungs carry are not yet in that norm; 10.7 computes the substitutions that bring them into it
+(the growing source, ROUTES-OPEN.md 4.3(3)) and names the two estimates still owed, and 10.8 does the same for l = 0
+(4.3(4)). The scalar tails of T6 (t^-7 at l = 2) bound the rate any of this could reach.
 
 ### 10.6 The rungs: the scalar wave equation with the Maxwell potential and the free one (`rungs5.py` M1-M5; D49)
 
@@ -2262,10 +2262,199 @@ first rung is tr h, which solves the homogeneous wave equation in the harmonic g
 Proposition A.5 with k = 1 (his Proposition 5.2, (1 + tau/M)^(-4+p+3 delta)); P and W are replaced through (4.27)-(4.30)
 by P-bar and W-bar, combinations of them with S and psi_Z carrying the factor u + r, interpolated by eta_b into
 (4.35)-(4.38); and the sources G_P, G_0, G_1, G_2 of (4.39)-(4.42) are bounded in his Lemmas 4.8-4.10 with factors (1 +
-tau/M)^2 that the faster decay of the first rung pays (his Lemma 5.5). That is ROUTES-OPEN.md 4.3(3), the next step of
-route A, and what 10.6 contributes to it is the estimate each rung of the modified system is fed to. Beside it stands l =
+tau/M)^2 that the faster decay of the first rung pays (his Lemma 5.5). That is ROUTES-OPEN.md 4.3(3), done in 10.7, where
+the five-dimensional substitutions are computed and what 10.6 contributes is the estimate each barred rung is fed to; l =
 0 (4.3(4); his Theorem 8.1, the red-shift argument for the coefficient of the singular stationary solution, with W2's
-ODE). Neither needs an estimate for a new equation; both are work on the sources and on the first rung.
+ODE) is 10.8. Neither needs an estimate for a new equation; both are work on the sources and on the first rung, and both
+leave the first rung's rapid decay to be proved.
+
+### 10.7 The growing source: [Hun19] section 4.2 in five dimensions (`growing5.py` G1-G5; D50)
+
+10.6 estimates a rung whose source lies in the norm (10.16); the sources the rungs of Proposition 10.2(v) carry do not
+(10.6's closing paragraph). [Hun19] section 4.2 meets the same obstacle in four dimensions and resolves it in three
+moves: the first rung is taken as tr h, which solves the homogeneous wave equation in the harmonic gauge; the gauge
+vector's components are written with the master field as source ((4.21)-(4.26)); and the components are replaced by
+combinations with the master field and tr h carrying the factor u + r ((4.27)-(4.30)), interpolated into the horizon
+region by eta_b ((4.35)-(4.38)), so that every source has a good weight in r at the price of a weight in u, which the
+rapid decay of the first rungs pays (his Lemmas 4.8-4.10, 5.5). This section computes the five-dimensional form of each
+move; what the computation does not give is said at the end.
+
+*Setting.* A scalar mode l >= 2 (even, k^2 = l(l + 2) >= 8) of a perturbation h in the class in harmonic gauge, h = h_RW
++ pi_X (Proposition 10.2(iii)), X = X_t S dt + X_r S dr + X_L r S_i dz^i with box X = J := -Gamma[h_RW]. In [KI03]'s
+variables at n = 3 (Proposition 10.1(iii)): x := mu/r^2, m := k^2 - 3, H := m + 6x, Phi the master field on the orbit
+space with
+    box_2 Phi = (V_S/f) Phi,   V_S = f Q/(16 r^2 H^2),
+    Q = 1296 x^3 + (624 m - 144) x^2 + (36 m^2 - 432 m) x + 16 m^3 + 60 m^2                                   (10.27)
+([KI03] (3.5)-(3.7) at n = 3, K = 1, lambda = 0; box_2 the d'Alembertian of g_2 = -f dt^2 + dr^2/f), Psi := r^(3/2) H
+Phi, and h_RW's components F, F_ab reconstructed by (10.1). The scalar-wave normalisation of the master field is phi :=
+r^(-3/2) Phi = Psi/(r^3 H): it is to Phi what [Hun19]'s r^-1 psi_Z is to psi_Z, since Phi, like psi_Z, solves the
+radiation-field form of a wave equation on the orbit space, and the energies F, B, E^p of 10.5 are phi's. Sigma := tr h
+is the first rung: box Sigma = 0 (the trace of Proposition 10.2(i)'s Lichnerowicz equation, R_ab = 0), and S = div X =
+(Sigma - tr h_RW)/2 with tr h_RW = 4 F (the trace of (10.1) is -2F, G1) -- [Hun19]'s S = tr h = tr h_RW - S_W with his
+S_W = 2 div W. u := t - r_* + const, u = tau for r >= R_null; eta_b as in 10.8.
+
+*What is computed (G1-G5, exact, sympy; the harmonic kept symbolic with S'' = -2 cot 2th S' - k^2 S applied and the
+angle evaluated at two exact points, as in W7).*
+ (G1) (G1) The reconstruction read from [KI03] solves the Einstein equations: with F, F_ab from (10.1) and Phi solving
+      (10.27), F^a_a = -2F ([KI03] (2.11)) and D^b(r F_ab) - 2 D_a(r F) = 0 ([KI03] (2.12), the equations E_a = 0) hold
+      modulo (10.27), at three rational (mu, k) and three radii; and at n = 2 the same transcription of (3.7) is the
+      Zerilli potential (Q = 128 lambda^2 (lambda + 1) + 192 lambda^2 x + 288 lambda x^2 + 144 x^3, m = 2 lambda). A READ
+      check of (10.27) and (10.1).
+ (G2) The source in h_RW's components, theta-free after division by S and r S_th:
+          J_t = 3 d_t F + (f/2) d_t F_rr - f d_r F_tr + (1/(2f)) d_t F_tt - ((3 r^2 - mu)/r^3) F_tr,
+          J_r = 3 d_r F - (f/2) d_r F_rr + f^-1 d_t F_tr - (1/(2f)) d_r F_tt - ((3 r^2 - mu)/r^3) F_rr + (6/r) F,
+          J_L = (k/(2 r f)) F_tt - (k f/(2 r)) F_rr - (k/r) F,                                              (10.28)
+      and tr h_RW = 4F.
+ (G3) The direct system, [Hun19] (4.21)-(4.23) in five dimensions: with X_1 := f X_r and d_t X_t eliminated through
+      S = div X = -f^-1 d_t X_t + r^-3 d_r(r^3 X_1) + (k/r) X_L,
+          box_l X_t + (2 mu/r^3)(d_t X_r - d_r X_t) = J_t,
+          box_l X_1 - (3/r^2)(1 - 3 mu/r^2) X_1 - (2k/r^2)(1 - 2 mu/r^2) X_L = (2 mu/r^3) S + f J_r,
+          box_l X_L + (1/r^2)(1 + mu/r^2) X_L - (2k/r^2) X_1 = J_L                                            (10.29)
+      (his (4.21): box W_0 + (2M/r^3) W_0 = -(2M/r^3) P_even + ...; (4.22): box W_1 - (2/r^2)(1 - 4M/r) W_1 - (2/r)(1
+      - 3M/r) D-slash_1 W_2 = -(M/r^2) S + ...; (4.23): box_1 W_2 - (1/r^2)(1 - 2M/r) W_2 - (2/r) D-slash_1* W_1 = 0),
+      the first line being W6's (box X)_t = box_l X_t + (2 mu/r^3) P. The (X_1, X_L) pair is coupled at zeroth order
+      with the matrix his section 6 calls A_W, read in five dimensions.
+ (G4) The sources in [Hun19]'s canonical form -- d_r^2 eliminated by the master equation, so that only d_t^a and
+      d_t^a d_r remain -- and in the scalar-wave normalisation phi, with box_l phi = V_phi phi,
+          V_phi = -12 mu (k^2 + 3) ((k^2 - 3) r^2 + 2 mu) / (r^6 H^2) = O(mu/r^4)                               (10.30)
+      (the master potential read on phi: [HKW18]'s scalar master quantity, whose decay Proposition 10.1(iv) cites, is
+      Phi = r^(3/2) phi), with H = k^2 - 3 + 6 mu/r^2 and f = 1 - mu/r^2, the trace and the four rung sources read
+          tr h_RW = 4F = 2 r f d_r phi + c_F phi,            c_F = (12 mu + (2/3)(k^2 - 3)(k^2 + 6) r^2)/(r^2 H),
+          G_P := r dJ_tr + d_t Sigma - d_t(4F) - 2 J_t = 4 r f d_t d_r phi + c_2 d_t phi + d_t Sigma,
+                                                             c_2 = (24 mu + (4/3)(k^2 - 3)(k^2 + 6) r^2)/(r^2 H),
+          G_t := J_t = -2 r f d_t d_r phi + c_t d_t phi,     c_t = -2 (3 m r^4 - (4 m - 6) mu r^2 - 12 mu^2)/(r^4 H),
+          G_1 := f J_r = -2 r d_t^2 phi + 2 mu f ((m + 12) r^2 - 6 mu)/(r^4 H) d_r phi - r f V_phi phi,
+          G_L := J_L = 0,                                                                      m := k^2 - 3     (10.31)
+      every other term cancelling modulo the master equation (the coefficient functions read exactly at k^2 = 8, 24, 48
+      and fitted in k, the fits re-checked at the three points; G4 verifies (10.31) at three (k^2, mu) points)
+      -- [Hun19] (4.25), (4.21), (4.22), (4.23): his -6 f nabla_t nabla_r psi_Z and 2 f nabla_t nabla_r psi_Z are O(r)
+      d_t d_r on r^-1 psi_Z, his 2 nabla_t^2 psi_Z is O(r) d_t^2, and his W_2 equation has no source either. The bad
+      terms are the O(r) d_t d_r phi of G_P and G_t, the O(1) d_t phi of both, the d_t Sigma of G_P and the O(r) d_t^2
+      phi of G_1; everything else is in the norm's weights.
+ (G5) The substitutions, [Hun19] (4.27)-(4.30) in five dimensions. With u := t - r_* + const and the corrections taken
+      where eta_b = 1,
+          r P-bar   := r P - r^2 d_t phi + (u + r) ((2 k^2/3) phi + Sigma/2),
+          X_t-bar   := X_t + (r^2/2) d_t phi - (u + r) phi,
+          X_1-bar   := X_1 + (r^2 f/2) d_r phi + ((k^2 - 3) r^4 + 6 mu^2)/(r^3 H) phi,
+          X_L-bar   := X_L + (k r/2) phi                                                                        (10.32)
+      (his P-bar = P + (3/2) r nabla_t psi_Z - ((u + r)/(2r))(2 lambda + 3) psi_Z - ((u + r)/2) S, W-bar_0 = W_0 - (r/2)
+      nabla_t psi_Z + ((u + r)/(2r)) psi_Z, W-bar_1 = W_1 - (r/2) f nabla_r psi_Z + (3M/(2r)) f (lambda + 3M/r)^-1 psi_Z,
+      W-bar_2 = W_2 - (r/2) D-slash_1* psi_Z, with psi_Z = r (r^-1 psi_Z): the same shape term by term). Each coefficient
+      was found, not fitted: the r^2 d_t phi terms are forced exactly by the d_t d_r phi coefficients of (10.31) through
+      2 nabla(A) . nabla d_t phi = 2 f A' d_t d_r phi (A' = -2 r, r); (r^2 f/2) d_r phi is the solution of the
+      first-order ODE that the d_t^2 phi coefficient of the X_1 equation imposes, its homogeneous solution f dropped; (k
+      r/2) phi is forced exactly by the coupling -(2k/r^2) X_1-bar in the X_L equation; the zeroth-order coefficient of
+      X_1-bar is the exact integral that removes the d_r phi term of the X_1 equation; and the (u + r) coefficients are
+      the limits at infinity of the exact functions f c/2 that would remove the d_t phi, d_t Sigma coefficients outright
+      (2 k^2/3, 1/2 and -1), through 2 nabla(u + r) . nabla = -2 f^-1 d_t - (2 mu/r^2) d_r. The barred rungs solve, where
+      eta_b = 1 and modulo box_l phi = V_phi phi, box_l Sigma = 0,
+          box_l(r P-bar) + (4 mu/r^4) r P-bar = -(mu/(r^2 f)) nabla_L Sigma - (mu/(2 r^3)) Sigma - (4 k^2 mu/(3 r^2))
+              d_r phi + O(r^-2) d_t phi - (2 k^2 mu/(3 r^3)) phi + (u + r) ((2 mu/r^4) Sigma + O(r^-4) phi),
+          box_l X_t-bar = (2 mu/r^2) d_r phi + O(r^-2) d_t phi + (mu/r^3) phi + (u + r) O(r^-4) phi - (2 mu/r^3) P,
+          box_l X_1-bar - (3/r^2)(1 - 3 mu/r^2) X_1-bar - (2k/r^2)(1 - 2 mu/r^2) X_L-bar = (2 mu/r^3) S + O(mu/r^3) phi,
+          box_l X_L-bar + (1/r^2)(1 + mu/r^2) X_L-bar - (2k/r^2) X_1-bar = O(k mu/r^3) phi,                   (10.33)
+      every coefficient O(r^-2) or better and the (u + r)-weighted ones O(r^-4), the Sigma terms of the first line exact
+      and its phi coefficients shown to leading order, checked at the three (k^2, mu) of G4 by exact cancellation (G5):
+      his (4.31)-(4.34), with s^-2 nabla_L Sigma where he has s^-1 nabla_L S and no d_t^2 term left anywhere. The
+      interpolation into the horizon region is his (4.35)-(4.38) verbatim, P-hat := P + eta_b (...) and so on, with G_P,
+      G_0, G_1, G_2 the sources of the hatted rungs.
+
+*What is deduced.* The three regions of his Lemmas 4.8-4.10. On [r_h, b r_h] the hatted rungs are the rungs and the
+sources are (10.31): bounded by mu^-1/2 |(sqrt mu d)^{<= 1} Sigma| and mu^-1/2 |(sqrt mu d)^{<= 2} phi| (one derivative
+more than the rung's own order, the price of the photon sphere he names), with constants depending on b. On [b r_h,
+2 b r_h] the cut-off's derivatives act on the corrections, whose (u + r) factor is (1 + tau/sqrt mu) there: the sources
+are bounded by (1 + tau/sqrt mu) times the same quantities. On [2 b r_h, oo) they are (10.33): mu^-1/2 s^-2 |nabla_L
+Sigma| + mu^-1/2 s^-3 |Sigma| + mu^-1/2 s^-2 |(sqrt mu d)^{<= 1} phi| + (1 + tau/sqrt mu) mu^-1/2 s^-4 |phi| for r P-bar,
+and better for the others. So I_source[G] of each hatted rung is bounded, as in his Lemmas 5.5 and 5.7, by the initial
+norms of Sigma and phi with the derivatives counted, provided the first rungs decay fast enough to pay the (1 + tau)^2
+of the middle region: Sigma and phi at the rate (1 + tau/sqrt mu)^(-4+p+delta) of his Proposition A.5 with k = 1.
+Then Propositions 10.4-10.5 apply to r P-hat and X_t-hat in turn (their potentials -4 mu/r^4 and 0, their sources in
+(10.16)), and the pair (X_1-hat, X_L-hat) is a system with the zeroth-order matrix of (10.29) and a source in (10.16).
+
+*What remains, and is not done here.* Two estimates, both of a known type and neither in this record. (a) The rapid
+decay of the first rungs: for Sigma (box_l Sigma = 0) and for phi (box_l phi = V_phi phi, V_phi = O(mu/r^4), the
+master potential), the extension of the r^p hierarchy of 10.6 past p = 2 by one commutation with r^2 nabla_L
+(Angelopoulos-Aretakis-Gajic; his Proposition A.5 with k = 1 and its conditions (A.7)-(A.9)), giving (1 + tau/sqrt
+mu)^(-4+p+3 delta) in place of 10.6's (-2+p+...). In five dimensions the radiation field r^(3/2) phi has V_inf = k^2 +
+3/4 and the potential's tail is r^-4 where his is r^-3, so the conditions are to be re-derived, not read; nothing here
+computes them. (b) The coupled estimate for (X_1-hat, X_L-hat): his section 6 for the system W = A_W W + G, the
+T-energy, red-shift, Morawetz and r^p currents for a two-component system whose coupling matrix is (10.29)'s, in the
+manner of 10.5 (whose W8 handles a matrix potential, but for h's seven components and without a source). With (a) and
+(b) the gauge vector decays and h = h_RW + pi_X with it -- his Theorem 2.5 in five dimensions, for the class.
+Nothing of this section is proved: (10.27)-(10.33) are computed, exactly, at the sample points stated; the three-region
+bounds are deduced from them by his argument; (a) and (b) are open.
+
+### 10.8 The l = 0 sector: [Hun19] Theorem 8.1 in five dimensions (`lzero5.py` Z1-Z5; D50)
+
+The l = 0 part of a perturbation in the class is h_0 = c K + pi_W (Proposition 10.1(i): a change of mass and a pure
+gauge part), and in harmonic gauge h_0 = c K* + pi_{W'} with box W' = 0, since Gamma[K*] = 0 and Gamma[pi_W'] = box W'
+(Proposition 10.2(i), (iv)). What [Hun19] section 8 proves in four dimensions is that such a W' converges to c_1(oo) W*,
+W* the stationary one-form regular at the horizon ((10.2) here), so that h_0 settles to c K* + c_1(oo) pi_{W*}, the mass
+change growing linearly in t (his Theorems 8.1 and 8.7). The identities his argument rests on are computed here in five
+dimensions; the argument itself is his, transcribed; and the two estimates it feeds on are named at the end.
+
+*Setting.* W = W0 dt + f^-1 W1 dr spherically symmetric with box W = 0 on the exterior; S_W := tr pi_W = 2 div W, P :=
+r (dW)_tr - 2 W0 (his P_even = r (dW)_tr - W0: the coefficient of W0 is the one value for which box_s P is a multiple of
+d_t S_W, Z2), W3 := f^-1 (W1 - W0), the dr-component in the ingoing chart and regular at the horizon; box_s := -f^-1
+d_t^2 + f d_r^2 + ((3 r^2 - mu)/r^3) d_r the wave operator at l = 0; L' = f^-1 (d_t - f d_r); u := t - r_* + const with
+u = tau for r >= R_null; eta_b the cut-off of [Hun19] p. 29, 0 on [r_h, b r_h] and 1 on [2 b r_h, oo), b r_h >= 2 R_null.
+
+*What is computed (Z1-Z5, exact, sympy; the one-form box from W1's machinery).*
+ (Z1) His (8.2)-(8.3): (box W)_t = box_s W0 + (4 mu/r^4) W0 + (2 mu/r^4) P and f (box W)_r = box_s W1 - (3/r^2)(1 - 3
+      mu/r^2) W1 - (mu/r^3) S_W; so box W = 0 reads
+          box_s W0 + (4 mu/r^4) W0 = -(2 mu/r^4) P,   box_s W1 - (3/r^2)(1 - 3 mu/r^2) W1 = (mu/r^3) S_W      (10.23)
+      (four dimensions: 2M/r^3 for 4 mu/r^4 and 2 mu/r^4, (2/r^2)(1 - 4M/r) and M/r^2).
+ (Z2) His (8.4)-(8.5): modulo box W = 0, box_s P = d_t S_W and box_s S_W = 0.
+ (Z3) His (8.9)-(8.12): P = r d_t W3 + r L' W0 - 2 W0; S_W = -2 L' W0 + 2 f d_r W3 + (6/r) W0 + (6/r)(1 - mu/(3 r^2)) W3;
+      the W3 equation
+          box_s W3 - f' L' W3 - (3 f/r^2) W3 - (3/r^2) W0 = 0,   f' = 2 mu/r^3,                                (10.24)
+      his (8.11) with 2M/r^2 -> f' and 2 -> 3, the coefficient of nabla_L' W3 positive -- the red-shift sign his (8.34)
+      needs; and d_t W0 = (r f/4) d_r S_W - (1/2) d_t P (his (8.12) with r f/2 and 1). On the horizon f d_r = d_t along
+      the generator, so W0 + P/2 - (sqrt mu/4) S_W is constant along H^+: his c_1(oo) is
+          c_1(oo) := mu (W0 + P/2 - (sqrt mu/4) S_W)|_{H^+}                                                    (10.25)
+      (his -2M (M S_W - P_even - W0)|_{H^+}).
+ (Z4) The two radial ODEs. At fixed tau, (10.23)'s first line is f d_rho^2 W0 + ((3 r^2 - mu)/r^3) d_rho W0 + (4 mu/r^4)
+      W0 = O_2 in the (tau, rho) coordinates of his (2.3), O_2 the terms in P and d_t W0 (his (8.14)-(8.15)); the
+      homogeneous solutions are W_{0,1} = 1/r^2, regular, W*'s dt-component, and W_{0,2} = 1 + (mu/r^2) log(r^2/mu - 1),
+      singular at the horizon (his 1/r and 1 + (2M/r) log(r/2M - 1)), with Wronskian a constant times 1/(r^3 f). And
+      S_W = 0 with W0 = c_1/r^2 and a stationary W3 is 2 f W3' + (6/r)(1 - mu/(3 r^2)) W3 = -2 c_1/r^3 (his (8.24)), with
+      the homogeneous solution 1/(r^3 f), singular (his 1/(r^2 f)), and the regular particular solution -c_1/(r (r +
+      sqrt mu)), which at c_1 = 1 is W*'s own W3 = f^-1 (sqrt mu/r^3 - 1/r^2) (W2); his particular solution -c_1/r is
+      replaced by this one, and the coefficient d(tau) of the singular solution is defined against it.
+ (Z5) His substitution (8.6), P-hat := P + eta_b (u + r) S_W/2: where eta_b = 1, modulo box_s S_W = 0,
+          box_s P-hat = -(mu/(r^2 f)) nabla_L S_W - (mu/(2 r^3)) S_W,                                         (10.26)
+      the d_t S_W of (Z2) cancelled: the source has the weights s^-2 f^-1 nabla_L S_W and mu^-1/2 s^-3 S_W where his
+      Lemma 8.3 has s^-1 nabla_L S_W and M^-1 s^-2 S_W -- the same coefficient 1/2, better weights.
+
+*What is deduced: his argument on these identities.* With (10.23)-(10.26) in place of (8.2)-(8.12), (8.14), (8.16),
+(8.24) and (8.6), [Hun19] section 8.2 goes through line by line: W0 = c_1(tau) W_{0,1} + c_2(tau) W_{0,2} + O_3 by
+variation of parameters from the Wronskian, the coefficients read off at rho = 2 r_h (his 4M) and their tau-derivatives
+expressed through O_1 := (r f/4) d_r S_W - (1/2) d_t P; d_tau W3 = c_2(tau)/(r^3 f) + O_4 from (Z3)'s P (his (8.23) with
+1/(r f) replaced by 1/(r^3 f), the W3 ODE's singular solution); c_2(tau) = (r^3/2)·O_6-type from the tau-derivative of
+(10.24), so c_2 -> 0 when the O_j do; W3 = -c_1(tau)/(r (r + sqrt mu)) + d(tau)/(r^3 f) + O_10 from (Z4)'s ODE; W-bar_0
+:= W0 - c_1(tau)/r^2 and W-bar_3 := W3 + c_1(tau)/(r (r + sqrt mu)) solve (10.23)'s first line and (10.24) with sources
+O_11, O_12 in P and the O_j; the red-shift current (8.34) on (W-bar_0, W-bar_3), whose horizon divergence is coercive
+because the coefficient of nabla_L' in (10.24) is f' > 0 (his "the coefficient of nabla_L' W_{l=0} in box W_{l=0} is
+non-negative"), gives the integrated decay of d(tau) and d'(tau) and of W_{l=0} near the horizon, the singular 1/(r^3 f)
+being what the current sees; and c_1(tau) converges by (10.25). Every step is an identity of (Z1)-(Z5), the divergence
+theorem on a current whose coercivity is the sign in (10.24), or an ODE in rho with the solutions of (Z4); the constants
+are not tracked and the O_j are bounded, as in his Appendix B, by sup norms of (sqrt mu d)^{<= m} P and S_W on [r_h <
+r_underline, R_null], which the spherical symmetry turns into energy norms. So: **if S_W and P-hat decay as in his
+Propositions 8.2 and 8.4, W' converges to c_1(oo) W* at his rate (1 + tau/sqrt mu)^(-2+2 delta) in the energy of (sqrt mu
+d)^{<= 1} W-hat on Sigma''_tau, W-hat := W' - c_1(oo) W*, and h_0 settles to c K* + c_1(oo) pi_{W*}** (his Theorem 8.7),
+the five-dimensional analogue of his Theorems 1.3-1.4 that Proposition 10.2(iv) left conditional.
+
+*What it feeds on, and is not proved here.* Two estimates for the free scalar wave equation at l = 0 on
+five-dimensional Tangherlini, his Propositions 8.2 and 8.4: (a) for S_W, with box_s S_W = 0, the decay (1 + tau/sqrt
+mu)^(-4+p+delta) of F + E^{p,(0)}_L for p up to 4 - delta -- his Proposition A.6(1), Angelopoulos-Aretakis-Gajic's
+extended hierarchy; (b) for P-hat, with the source (10.26) and its cut-off terms on [b r_h, 2 b r_h], where (u + r) S_W
+carries a factor (1 + tau/sqrt mu) that (a)'s rate pays, his Proposition A.6(2). Neither is in 10.6: Propositions
+10.4-10.5 are stated at k^2 >= 8, where the Morawetz bulk borrows the angular term, and at l = 0 there is none to
+borrow -- the Morawetz multiplier for the l = 0 free wave is a separate choice ([Sch13] makes it in every dimension),
+and the extension of the hierarchy past p = 2 is the rapid-decay input the growing source of 10.7 needs as well. The
+radiation field at l = 0 has V_inf = 3/4 (W8(h)), not zero as in four dimensions, so the Newman-Penrose constant that
+his Proposition A.6 assumes to vanish has no five-dimensional counterpart at this order; what the extension past p = 2
+asks for in five dimensions is the subject of 10.7's closing paragraph.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
