@@ -468,10 +468,10 @@ inequality that does not give it: the inequality the proof gives, d_r Z + c0 ||a
 ||F||^2_(H^s'') + C m_(s'') omega_s Z^(1/2), now stated; the verifier checked that Proposition 6.5's use holds and that
 no frozen source term carries d_r a_i. Notes: HL's (1.3) box restored, its p. 2-3 locator, a dropped footnote marker
 declared; Touati's Fourier-multiplier sentence p. 21; [CBCM10]'s page removed (unpaginated HTML); Luk and Rodnianski's
-reverse statement is their Corollary 1.14, on a domain short in one null direction; the boundary spacelike only for mu0
-> sqrt(72) l5^2; nothing is claimed beyond Omega, not beyond x = 1; the g_lam margin -delta + C lam; Q's linear and
-constant parts; k = 6 only; uniqueness among C^2 solutions; R1 made exact (symbolic 2-jets in normal coordinates of
-g3), K for mu(v) added to R3, R6's controls run one at a time; z3-solver listed. The retitling M set (D24) is applied.
+reverse statement is their Corollary 1.14, on a domain short in one null direction; the boundary spacelike only for
+mu0 > sqrt(72) l5^2; nothing is claimed beyond Omega, not beyond x = 1; the g_lam margin -delta + C lam; Q's linear and
+constant parts; k = 6 only; uniqueness among C^2 solutions; R1 made exact (symbolic 2-jets in normal coordinates of g3),
+K for mu(v) added to R3, R6's controls run one at a time; z3-solver listed. The retitling M set (D24) is applied.
 
 **D27 (2026-10-20, session decision): the mean-mass rate proved, by a symmetry.** N1STAR-PROOF.md section 8, Lemma 8.2
 and Proposition 8.2, with `mass5.py` (M1-M4, selftest 4/4, mutants 5/5). The record's "mean mass" (hf_mirror5:
@@ -1353,10 +1353,10 @@ both" of its two options, where 10.11 supplies weaker forms -- S_W at -3 + p + 3
 rate is -4 + p + delta up to 4 - delta, by the same commutator with a Hardy absorption -- and re-runs his Appendix B at
 the weaker rate: both now say so. Notes: step (a)'s rate is (10.22)'s -2 + p + 2 delta, which [Sch13] Theorem 1's
 boundedness would improve by a delta that (c) does not need, now stated; step (d)'s 4 delta in delta-bar's place leaves
-10.5's range delta-bar <= 1/10 once delta > 1/40, and the verifier re-ran 10.5 (i)-(iv) to find only 4 delta < 1 and -1
-+ 4 delta < 0 used, now said; the red-shift commutator gives Y^j S_W an inhomogeneous equation, so its Morawetz step is
-(d)'s deduced one with a source, now said in (a); the [Sch13] quotation read as if the mechanism it named did nothing at
-l = 0, and now rests on "for every solution of box phi = 0", the part of his proof that carries l = 0 not identified;
+10.5's range delta-bar <= 1/10 once delta > 1/40, and the verifier re-ran 10.5 (i)-(iv) to find only 4 delta < 1 and
+-1 + 4 delta < 0 used, now said; the red-shift commutator gives Y^j S_W an inhomogeneous equation, so its Morawetz step
+is (d)'s deduced one with a source, now said in (a); the [Sch13] quotation read as if the mechanism it named did nothing
+at l = 0, and now rests on "for every solution of box phi = 0", the part of his proof that carries l = 0 not identified;
 four gaps in the instruments -- Y3's label asserted the B_1 bound and checked only d_x c (now a sub-check of B_1 +
 (5/8)(2 - p) = (57/8)(4 - p) x), the closed form Q(1 - delta, delta/9) = delta (25 - 19 delta + delta^2)/18 was never
 asserted (now it is), Y1's leaf sub-check compared c with itself (its label now names its content, the substitution L
@@ -1592,3 +1592,60 @@ computed (gaugepot5.py G1-G7, exact), deduced, READ; nothing proved. OPEN: [Hin2
 dimensions, his Step 2, mode stability of box at nonzero frequencies, his Theorem 5.2, section 6's five-dimensional
 steps, Theorem B.1. The twenty-fifth verifier is sent on 10.15, gaugepot5.py and the twenty-fourth's repairs; its
 verdict follows. Next: route B's item 2 continues at [Hin26c] and his section 5 in five dimensions.
+
+**D58 (2026-10-22, M: "Continue"): mode stability of the gauge potential operator at nonzero frequency in five
+dimensions -- the input of [Hin26] Proposition 6.9 (section 10.16; modes5.py M1-M5) -- and the twenty-fifth verifier's
+findings seated.**
+
+*The step.* ROUTES 4.5's order after D57: the rest of item 2. PR #78 had merged; the branch is main at 6d6a368. Of the
+rest, the mode stability of the unmodified operator at sigma != 0 is the piece [Hin26] takes from another paper ([AHW24]
+on Kerr), and the one a static background reduces to ODEs.
+
+*The twenty-fifth verifier* (on 10.15, gaugepot5.py and the twenty-fourth's repairs): no MAJOR finding. Every computed
+claim of Proposition 10.12 reproduced with its own code -- Cartesian coordinates for the indicial roots, the Hodge
+Laplacian for the mode equations and pairings, and a search for a kernel element at l = 1, 2, 3 by integrating the
+decaying solutions inward, none found -- and its READ claims matched at source. One MINOR: the record gave box^Upsilon
+the kernel W*, which is the unmodified operator's (his Lemma 6.10 is on box, and E^Upsilon exists to remove it; it
+computed 2 E_inf G delta* W* != 0); repaired in ROUTES 4.4 (twice), 4.16, 10.15 and the paper. Six notes, seated: G3's
+control now mutates the operator (f -> 1 in the A equation) where it tripped a literal; the W3 docstring has 10.13(ii)'s
+qualifier; 10.15's and 4.16's OPEN lists name the high-energy side (his Proposition 6.5, Lemma 6.4, Lemma 6.1) and the
+regularity behind the kernel; the weight-1 root is (1 + (9 - 8 gam^2 (1 - 3e))^(1/2))/2, in (1, 2) only for e < 1/3 and
+0 < gam^2 (1 - 3e) < 1 (confirmed here from gaugepot5.indicial); the admissible weight is alpha + 2 in (0, 1), his
+alpha + 2 + eta < 3/2 being a target weight; the trace weight at the horizon is stated, 2/3, (6.23) being the same at 1
+since tr delta* W* = 0; (6.26) can vanish only if (6.23)/(6.21) <= 0; this record's z is 4 e gam^2, his e gam^2; READ:
+E^Upsilon is Definition 4.1 on p. 81 (as the verifier read; Definition 4.2 is E^C), gaugepot5.py's pages and 10.15's
+agree at 117-118, 10.14's Theorem B.1 is on p. 87, and the paper's [Hin26a] entry is merged. Fifteen older lines that
+opened with "+ " or "> " inside a paragraph -- eleven in N1STAR-PROOF.md, two here, two in ROUTES -- are reflowed
+locally; a first attempt that moved one word and cascaded left seven lines over 121 characters, was restored from git,
+and redone as a local reflow.
+
+*What was read.* From D57's reading (alphaXiv, 2026-10-21), [Hin26] pp. 118-119: Proposition 6.9 takes high energies
+from his Proposition 6.5 and bounded |sigma| >= c_0 from the unmodified operator by [Hin26c] Theorem 9.5's uniform
+Fredholm estimates. [KI03b] (ROUTES 4.1; 2026-10-22): (4.23), (5.17), (5.19), (5.20) at zero charge -- the vector and
+scalar Maxwell master equations, which (iii) and (iv) reproduce.
+
+*What was computed.* modes5.py: (M1) box = 2 delta G delta* = d delta + delta d on five arbitrary functions of all five
+coordinates, Schwarzschild reproducing it and f = 1 - mu/r, not Ricci flat, failing; (M2) the scalar wave, V_0 =
+(f/r^2)(kappa + 3/4 + 9 mu/(4 r^2)); (M3) the Maxwell vector type, V_1 = (f/r^2)(lam - 1/4 + 5 mu/(4 r^2)), the record's
+harmonic co-closed with lam = (l + 1)^2; (M4) the Maxwell scalar type, R[r^3 F_tr] = (r^2 M_t)' + i sigma r^2 M_r, V_2 =
+(f/r^2)(kappa + 3/4 - 7 mu/(4 r^2)), F_tr = 0 forcing the field to vanish, l = 0 by M_r = -i sigma F_tr/f, and the
+converse; (M5) positivity for r > r_h at l >= 1 (and V_0 at l = 0; V_2 negative near the horizon at l = 0, the control),
+the tortoise coordinate, Cartan. Selftest 5/5 (about 40 seconds), mutants 5/5. Found by exploring before it was checked:
+the representative harmonic cos^l th cos l p1 of symbolic degree made the scalar-type reductions slow (164 s for the
+converse, and over 300 s for the Hodge identity at fixed l, stopped); an arbitrary function S of the angles with Delta S
+= -kappa S imposed as a substitution rule took about a second and covers every harmonic, and the Hodge identity on
+arbitrary functions of all coordinates 13 s; a zero test by simplify spent 149 s on a control's nonzero expression,
+where expanding the numerator took one.
+
+*What was deduced.* The unmodified operator has no mode at sigma != 0, Im sigma >= 0, on five-dimensional Tangherlini,
+for modes smooth across the future horizon and outgoing at infinity: delta omega by the scalar master equation (an
+energy identity for Im sigma > 0, the constant Wronskian for real sigma), then d omega by the Maxwell ones (positive
+potentials at l >= 1, the equation itself at l = 0), then omega = (i/sigma) d(omega(T)) by Cartan, a scalar mode again.
+
+*Seated.* N1STAR-PROOF.md 10.16 with Proposition 10.13, and 10.14-10.15 repaired; modes5.py; gaugepot5.py (G3's control
+and the docstring) and semiclass5.py's docstring; ROUTES-OPEN.md 4.4, 4.5, 4.16 and the new 4.17; the README; the paper
+(the settling paragraph, the Review bullet, Appendices A, C and D, the [Hin26a] entry and a new [KI03b], D1-D58, the md5
+rows). Labels: computed (modes5.py M1-M5, exact), deduced, READ; nothing proved. OPEN: that the kernel elements of his
+spectral family in five dimensions lie in the class; his Proposition 6.5 and [Hin26c] in five dimensions; the rest of
+item 2 as before. The twenty-sixth verifier is sent on 10.16, modes5.py and the twenty-fifth's repairs; its verdict
+follows. Next: route B's item 2 continues at [Hin26c] and his section 5 in five dimensions.

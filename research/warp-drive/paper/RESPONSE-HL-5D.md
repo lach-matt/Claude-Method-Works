@@ -713,21 +713,25 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   in [−100, 19/10], and in [−100, 2] only the Coulomb root r^−2, exactly; the transfer to Tangherlini is deduced. A
   damping 1-form of his kind exists on five-dimensional Tangherlini, explicitly, its conditions holding at that point by
   computation, two of them near infinity, and its smoothing at the joins, by his arguments (supplement section 10.14,
-  `cform5.py`). The gauge potential operator, the other 1-form operator of the route, has on Tangherlini the zero energy
-  structure of Hintz's Kerr case: its zero energy kernel is a single Coulomb-type state, a functional at the horizon
-  annihilates its range, and the pairings his horizon modification needs are 4π² where his are 4π (supplement section
-  10.15, `gaugepot5.py`; computed, the kernel deduced by an energy identity). The semiclassical estimates on
-  Tangherlini, whose threshold h₀ his proof does not make explicit, the low-energy theory behind both operators in five
-  dimensions, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ =
-  275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured from
-  the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step,
-  approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch
-  radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which
-  is the rate a nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one
-  with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces
-  to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
-  problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of
-  four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
+  `cform5.py`). The gauge potential operator, the other 1-form operator of the route, has on Tangherlini, unmodified
+  (E^Υ = 0), the zero energy structure of Hintz's Kerr case: its zero energy kernel is a single Coulomb-type state, a
+  functional at the horizon annihilates its range, and the pairings his horizon modification needs are 4π² where his are
+  4π (supplement section 10.15, `gaugepot5.py`; computed, the kernel deduced by an energy identity); and it has no mode
+  at nonzero frequency in the closed upper half plane — the input Hintz's Proposition 6.9 takes, on Kerr, from a
+  separate theorem — by the master equations of scalar waves and of both Maxwell types, whose potentials on Tangherlini
+  are positive ([KI03b]; supplement section 10.16, `modes5.py`; computed, the mode stability deduced for modes smooth
+  across the horizon and outgoing at infinity). The semiclassical estimates on Tangherlini, whose threshold h₀ his proof
+  does not make explicit, the low-energy theory behind both operators in five dimensions, and the rest of their analysis
+  are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time
+  observation), and the late-time tail of the l = 2 master fields, measured from the pulse's launch, is t^(−7.05)
+  (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with that
+  origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s
+  t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in
+  the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i
+  ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier
+  of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
+  2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
+  Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -803,7 +807,9 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   Section 10.14 with `cform5.py` was read by a twenty-fourth (D56): no major finding; four minor findings — among them
   that a construction's saving was put down to the absence of rotation where it is the horizon-regular time, and that
   Hintz's Theorem 4.9 was claimed at every h where it was computed at one — and six notes, seated (D57). Section 10.15
-  has not been read by a verifier.
+  with `gaugepot5.py` was read by a twenty-fifth (D57): no major finding; one minor finding — the unmodified operator's
+  zero energy state had been given to the modified one — and six notes, seated (D58). Section 10.16 has not been read by
+  a verifier.
 
 ---
 
@@ -850,6 +856,8 @@ from the arXiv text, with the extraction's spacing.
   holes in higher dimensions*, arXiv:hep-th/0305147v3. READ 2026-10-20: (2.4), (2.7)–(2.8), pp. 4–5; p. 7 (l = 1);
   (3.1), (3.13)–(3.14), pp. 8–10; section 5.1, p. 13. READ 2026-10-21: (2.11)–(2.13), (2.20)–(2.21), (3.5)–(3.7),
   (3.9)–(3.14), (6.1), Appendix A (A.1b).
+- [KI03b] H. Kodama, A. Ishibashi, *Master equations for perturbations of generalised static black holes with charge in
+  higher dimensions*, arXiv:hep-th/0308128v4. READ 2026-10-22: (4.23), (5.17), (5.19), (5.20), at zero charge.
 - [CYDL03] V. Cardoso, S. Yoshida, O. J. C. Dias, J. P. S. Lemos, *Late-time tails of wave propagation in higher
   dimensional spacetimes*, arXiv:hep-th/0307122v3. READ 2026-10-20: (14), p. 4; p. 2; Fig. 2 and p. 5.
 - [Hun19] P.-K. Hung, *The linear stability of the Schwarzschild spacetime in the harmonic gauge: even part*,
@@ -869,11 +877,10 @@ from the arXiv text, with the extraction's spacing.
   sector, Theorem 1 ((1.9)–(1.10)), Proposition 4.1 ((4.4)) with its proof ((4.76)–(4.92)), Corollary 4.3, Propositions
   4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
 - [Hin26a] P. Hintz, *Constraint damping on subextremal Kerr spacetimes*, arXiv:2606.27658v2. READ 2026-10-21: pp. 1–3
-  (Theorem 1.1, (1.1)–(1.2)), 5, 7, 25 (Definition 3.1, Lemma 3.2), 29, 33–37 (section 4.3, Lemma 4.6, Corollary 4.7,
-  (4.19), Definition 4.8, Theorem 4.9, Remarks 4.10–4.12), 67 (Theorem 6.2), 69–74 (Appendix A, (A.1)–(A.2), (A.13)),
-  85; and pp. 9–10, 25–33 (section 3; section 4.1–4.2, (4.1)–(4.9), Lemmas 4.1–4.4), 38–41 (Proposition 5.1), 43, 53,
-  66–68 (Definition 6.1, Theorem 6.2 and its proof); and footnote 14 and (5.1)–(5.13) of Proposition 5.1's proof (pp.
-  38–41), Theorem 5.2 with (5.14)–(5.15) (p. 41), Theorem B.4 (p. 93).
+  (Theorem 1.1, (1.1)–(1.2)), 5, 7, 9–10, 25–37 (section 3: Definition 3.1, Lemmas 3.2–3.9; sections 4.1–4.3:
+  (4.1)–(4.9), Lemmas 4.1–4.4 and 4.6, Corollary 4.7, (4.19), Definition 4.8, Theorem 4.9, Remarks 4.10–4.12), 38–41
+  (Proposition 5.1 and its proof, (5.1)–(5.13), footnote 14; Theorem 5.2, (5.14)–(5.15)), 43, 53, 66–68 (Definition 6.1,
+  Theorem 6.2 and its proof), 69–74 (Appendix A, (A.1)–(A.2), (A.13)), 85, 93 (Theorem B.4).
 - [Hin26] P. Hintz, *Nonlinear stability of subextremal Kerr black holes*, arXiv:2606.28253v2. READ 2026-10-21: pp. 1,
   4, 17, 25–26, 29 ((1.43) and the reason for its strip), 82 (Definition 4.2, (4.6)–(4.9)), 113 (section 6,
   (6.1)–(6.6)), 117–124 (Lemma 6.6, (6.17), Lemma 6.8, Proposition 6.9, Lemmas 6.10–6.11, Proposition 6.12 and its
@@ -1007,6 +1014,11 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   equations on Tangherlini for every l and the energy identities that leave one zero energy state, the functional at the
   horizon that annihilates its range, and the pairings of his Lemma 6.11, 4π² against his 4π, with his value reproduced.
   7/7; mutants 7/7 (about a minute and a half).
+- `modes5.py` M1–M5: mode stability of the gauge potential operator at nonzero frequency on five-dimensional Tangherlini
+  (supplement section 10.16): the operator equal to the Hodge d'Alembertian on every 1-form, and the master equations of
+  scalar waves and of both Maxwell types on arbitrary harmonics, with potentials (f/r²)(κ + 3/4 + 9μ/(4r²)), (f/r²)(λ −
+  1/4 + 5μ/(4r²)) and (f/r²)(κ + 3/4 − 7μ/(4r²)), positive for r > r_h, and the spherically symmetric Maxwell sector
+  settled by its own equation. 5/5; mutants 5/5 (under a minute).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
     the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1081,7 +1093,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D57).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D58).
 
 | claim | where it is established |
 | --- | --- |
@@ -1109,15 +1121,15 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D5
 | | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
-| settling, section 8 | supplement sections 10.1, 10.3–10.15 (Propositions 10.1–10.12); |
+| settling, section 8 | supplement sections 10.1, 10.3–10.16 (Propositions 10.1–10.13); |
 | | `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
 | | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; |
 | | `docket68/n1star/hierarchy5.py` H1–H4; `docket68/n1star/coupled5.py` K1–K6; |
 | | `docket68/n1star/lzerorate5.py` Y1–Y5; `docket68/n1star/damping5.py` U1–U6; |
 | | `docket68/n1star/semiclass5.py` W1–W6; `docket68/n1star/cform5.py` C1–C7; |
-| | `docket68/n1star/gaugepot5.py` G1–G7; [HKW18], [KI03], |
-| | [CLY03b], [CYDL03], [Hun19], [Sch13], [Hin26a], [Hin26] |
+| | `docket68/n1star/gaugepot5.py` G1–G7; `docket68/n1star/modes5.py` M1–M5; [HKW18], [KI03], |
+| | [KI03b], [CLY03b], [CYDL03], [Hun19], [Sch13], [Hin26a], [Hin26] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1126,7 +1138,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D5
 | | Proposition 10.3 with W8 (D48); the seventeenth section 10.6 (D49); the eighteenth sections 10.7–10.8 |
 | | (D50); the nineteenth section 10.9 (D51); the twentieth section 10.10 (D52); the twenty-first section |
 | | 10.11 (D53); the twenty-second section 10.12 (D54); the twenty-third section 10.13 (D55); |
-| | the twenty-fourth section 10.14 (D56) |
+| | the twenty-fourth section 10.14 (D56); the twenty-fifth section 10.15 (D57) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1135,8 +1147,8 @@ Python 3.11 with sympy; z3-solver for `foliation5.py`; numpy for `bondi5.py` and
 `settle5.py`; mpmath for `damping5.py` and the three that import it. `growth5.py` imports the solver
 `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imports `lead5.py`, `growing5.py`, `lzero5.py` and
 `coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports `hierarchy5.py`, `semiclass5.py` imports `damping5.py`,
-`cform5.py` imports `semiclass5.py` and `damping5.py`, `gaugepot5.py` imports `damping5.py`; the others import nothing
-from the research tree:
+`cform5.py` imports `semiclass5.py` and `damping5.py`, `gaugepot5.py` imports `damping5.py`, `modes5.py` imports
+`gaugepot5.py` and `damping5.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1153,6 +1165,7 @@ from the research tree:
                                                          # semiclass5 (about a minute)
                                                          # cform5 (about a minute and a half)
                                                          # gaugepot5 (about a minute and a half)
+                                                         # modes5 (under a minute)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1160,9 +1173,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `6233e6512e16c77f3b56143c5bc12d5f` |
-| `docket68/n1star/N1STAR-LOG.md` | `28cd63d8a54333b31a28a3d552b167fb` |
-| `docket68/n1star/README.md` | `69ca1280e3cef04c07585830be22e2f7` |
+| `docket68/n1star/N1STAR-PROOF.md` | `45cd194943f764596a7f17e2e39820d9` |
+| `docket68/n1star/N1STAR-LOG.md` | `c753adaf17c8ce91ead76df23cf6e66b` |
+| `docket68/n1star/README.md` | `e66de9888082cbe8006a39b06f668443` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1181,9 +1194,10 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/coupled5.py` | `bdf92b44776f162add54534ae04d68c3` |
 | `docket68/n1star/lzerorate5.py` | `5a4d15308940fa5e4acf3bb0e4426f74` |
 | `docket68/n1star/damping5.py` | `ee245ea92fbd0f0b7e793eb36b2aa956` |
-| `docket68/n1star/semiclass5.py` | `e703c16d29b21a7c5ca74ac030017d4e` |
+| `docket68/n1star/semiclass5.py` | `139089729105c047b67c3fd3223c1613` |
 | `docket68/n1star/cform5.py` | `380e49f6d5a6712ce883c3f456ae4ebf` |
-| `docket68/n1star/gaugepot5.py` | `d7ac72c9acf16f45589f546694dd4a07` |
+| `docket68/n1star/gaugepot5.py` | `e547d9d20ff4428d1fa60dcf4a2c5b89` |
+| `docket68/n1star/modes5.py` | `b208e308d6c585bb3e140035f8c93081` |
 | `docket68/n1star/hung4.py` | `7f3d68853fde8bda4ff383dc039dadfe` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |

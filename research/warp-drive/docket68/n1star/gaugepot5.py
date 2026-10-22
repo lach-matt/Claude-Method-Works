@@ -14,14 +14,15 @@ omega*> in (3 pi, 5 pi) (6.23), which make <f, omega*> = 4 pi (-i sigma^ + c_b g
 five-dimensional counterparts, on 4+1 Minkowski and on Tangherlini, f = 1 - mu/r^2, r_h = mu^(1/2), with the trace
 weight m = 2/(D - 2) = 2/3 in E (damping5.py U2: E G h = -gam (2 iota_c h - e c tr h) in any dimension iff m = 2/(D-2)).
 
-  G1 (computed, exact) The indicial roots of box^Ups on 4+1 Minkowski, from the definitions, on r^-lam (a S dt + b S dr
-     + c r dS) and r^(1-lam) V: s0: lam (lam - 3)(lam^2 - lam - 2 - z) = 0, z = 4 e gam^2; vl: (lam + l)(l + 2 - lam) =
-     0; sl: (l + 3 - lam)(l + lam - 1) Q = 0, Q = s^2 - (2 + 2 kappa + z) s + kappa (kappa + 1) + z kappa, s = lam (lam
-     - 1), kappa = l (l + 2).  At gam = 0 the roots are -1, 0, 2, 3 | -l - 1, -l, 1 - l, l + 1, l + 2, l + 3 | -l, l +
-     2: the indicial gap of box is (0, 2) (his (0, 1)); for z > 0 the root 2 moves up in s0 and s1, 2 < lam_s1,2 <
-     lam_s0, so (0, lam_s1,2) is an indicial gap (his (6.17b)).  Four-dimensional control: his Lemma 6.6 (s0 0, 2, +-(1
-     + z)^(1/2); vl -l, l + 1; sl -l + 1, l + 2 and the four roots +-lam_sl,l, +-lam_sl,l+1 of his formula).  Control:
-     the weight 1 in five dimensions, where the s0 root 2 moves down into (1, 2) for small e.
+  G1 (computed, exact) The indicial roots of box^Ups on 4+1 Minkowski, from the definitions, on r^-lam (a S dt + b S
+     dr + c r dS) and r^(1-lam) V: s0: lam (lam - 3)(lam^2 - lam - 2 - z) = 0, z = 4 e gam^2; vl: (lam + l)(l + 2 - lam)
+     = 0; sl: (l + 3 - lam)(l + lam - 1) Q = 0, Q = s^2 - (2 + 2 kappa + z) s + kappa (kappa + 1) + z kappa, s = lam
+     (lam - 1), kappa = l (l + 2) (this z is 4 e gam^2; his z := e gam^2, p. 117).  At gam = 0 the roots are -1, 0, 2, 3
+     | -l - 1, -l, 1 - l, l + 1, l + 2, l + 3 | -l, l + 2: the indicial gap of box is (0, 2) (his (0, 1)); for z > 0 the
+     root 2 moves up in s0 and s1, 2 < lam_s1,2 < lam_s0, so (0, lam_s1,2) is an indicial gap (his (6.17b)).
+     Four-dimensional control: his Lemma 6.6 (s0 0, 2, +-(1 + z)^(1/2); vl -l, l + 1; sl -l + 1, l + 2 and the four
+     roots +-lam_sl,l, +-lam_sl,l+1 of his formula).  Control: the weight 1 in five dimensions, where the s0 root 2
+     moves to (1 + (9 - 8 gam^2 (1 - 3 e))^(1/2))/2, in (1, 2) for e < 1/3 and 0 < gam^2 (1 - 3 e) < 1.
   G2 (computed, exact) The stationary mode equations of box on Tangherlini, static coordinates, symbolic l (S = cos^l th
      cos l p1, V the record's vector harmonic): the dt part and the spatial part decouple (the time reflection); A S dt:
      -r^2 (box)_t = (f/r)(r^3 A')' - kappa A; B S dr + C dS: -r^3 f (box)_r/S = (r^3 f^2 B')' - r f (kappa + 3 - 3
@@ -32,7 +33,8 @@ weight m = 2/(D - 2) = 2/3 in E (damping5.py U2: E G h = -gam (2 iota_c h - e c 
      (r^3 A')' = (r^3 A A')' - r^3 A'^2; B (r^3 f^2 B')' + kappa C (r f C')' = (r^3 f^2 B B' + kappa r f C C')' - r^3
      f^2 B'^2 - kappa r f C'^2, with the zeroth-order matrix [[r f (kappa + 3 - 3 mu/r^2), -2 kappa f], [-2 kappa f,
      kappa^2/r]] of determinant kappa^2 f (kappa - 1 + mu/r^2), positive definite for r > r_h, l >= 1; V (r f V')' = (r
-     f V V')' - r f V'^2.  Control: at l = 0 (kappa = 0) the A equation leaves A(r_h) free.
+     f V V')' - r f V'^2.  Control: f -> 1 in the A equation, which at r_h keeps (r^3 A')' and does not force A(r_h) =
+     0.
   G4 (computed, exact) l = 0: A = a + b/r^2, B = c/(r^3 f) + d r/f; smooth at the future horizon (A and B - A/f smooth,
      the ingoing chart) and decaying, the kernel is the span of W* = dt/r^2 + mu^(1/2) dr/(r^3 f) (wavegauge5.py W2), in
      the space of shifted weight alpha + 2 < 2.  Control: dt/r^2 alone, not smooth.
@@ -45,9 +47,10 @@ weight m = 2/(D - 2) = 2/3 in E (damping5.py U2: E G h = -gam (2 iota_c h - e c 
      horizon: <[box, t_*] W*, omega*> = 4 pi^2 (his (6.21), 4 pi; the four-dimensional control reproduces it); a change
      t_* -> t_* + F(r) does not change it (F = r^2 checked); W* is divergence-free; eta := iota_{grad r} delta* W* =
      -mu^(-3/2) (dv + (3/2) dr) at r_h, nonzero; <2 E_{H+,1} G delta* W*, omega*> = -12 pi^2 c_v - 8 pi^2 c_r for c_H =
-     c_v dv + c_r dr at r_h (four-dimensional control -16 pi c_v - 8 pi c_r, so that c_H = -(1/2) dr gives his 4 pi), so
-     c_H = -(1/2) chi(r) dr, chi = 1 near r_h, gives 4 pi^2 and (6.26) reads 4 pi^2 (-i sigma^ + gamma^) != 0 for Im
-     sigma^ >= 0, gamma^ >= 0, not both 0.  Control: c_H = +(1/2) dr, where it vanishes at (sigma^, gamma^) = (i, 1).
+     c_v dv + c_r dr at r_h, E_{H+,1} with the trace weight 2/3 (the same at his weight 1, tr delta* W* = 0)
+     (four-dimensional control -16 pi c_v - 8 pi c_r, so that c_H = -(1/2) dr gives his 4 pi), so c_H = -(1/2) chi(r)
+     dr, chi = 1 near r_h, gives 4 pi^2 and (6.26) reads 4 pi^2 (-i sigma^ + gamma^) != 0 for Im sigma^ >= 0, gamma^ >=
+     0, not both 0.  Control: c_H = +(1/2) dr, where it vanishes at (sigma^, gamma^) = (i, 1).
   G7 (computed, exact) The first term of his f, d_sigma box(0) W* = -i [box, t_*] W*, t_* = t - r* for large r: i r^-3
      dt + O(r^-4); in four dimensions -i [box, t - r*] omega_(0) = O(r^-3) as well, by his cancellation ((rho d_rho - 1)
      annihilates rho; his footnote 69), while in five dimensions (rho d_rho - 3/2) rho^2 = rho^2/2 and the order rho^3
@@ -59,9 +62,10 @@ infinity (decaying exponents >= 2) -- and that delta(r - r_h) dr spans the coker
 Fredholm theory in five dimensions, OPEN).  With these, Step 1 of his proof of Proposition 6.12 has its five-dimensional
 inputs; its estimates, and Step 2, are [Hin26c]'s in five dimensions (OPEN).
 
-READ (alphaXiv, 2026-10-21).  [Hin26] pp. 25-26 (section 1.4.1), 82 ((4.6), Definition 4.2), 113 (section 6,
-(6.1)-(6.6)), 117-118 (Lemma 6.6, (6.17a)-(6.17b), Remark 6.7, Lemma 6.8), 119-124 (section 6.4: Proposition 6.9, Lemmas
-6.10-6.11, Proposition 6.12 and its proof, (6.20)-(6.28), footnotes 65-69).
+READ (alphaXiv, 2026-10-21).  [Hin26] pp. 25-26 (section 1.4.1), 82 ((4.6)), 113 (section 6, (6.1)-(6.6)), 117-118
+(Lemma 6.6, (6.17a)-(6.17b), Remark 6.7, Lemma 6.8), 119-124 (section 6.4: Proposition 6.9, Lemmas 6.10-6.11,
+Proposition 6.12 and its proof, (6.20)-(6.28), footnotes 65-69).  E^Ups is his Definition 4.1, (4.1)-(4.2), p. 81, as
+the twenty-fifth verifier read at source (Definition 4.2 on p. 82 is E^C).
 
 sympy.  python3 gaugepot5.py [--selftest | --mutants]   (--verbose lists every sub-check)
 """
@@ -334,9 +338,10 @@ def g3(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
     M = modes()
     A, B, Cf, V, r, f = M["A"], M["B"], M["C"], M["V"], M["r"], M["f"]
-    kap = 0 if control == 1 else L*(L + 2)
+    kap = L*(L + 2)
     rh = SQ
-    at_h = sp.simplify(sp.expand(f*D(r**3*D(A, r), r) - kap*r*A).subs(r, rh))
+    fA = 1 if control == 1 else f
+    at_h = sp.simplify(sp.expand(fA*D(r**3*D(A, r), r) - kap*r*A).subs(r, rh))
     chk("at r_h the A equation f (r^3 A')' = kappa r A reads -kappa r_h A(r_h) = 0, so A(r_h) = 0 for l >= 1",
         sp.simplify(at_h + kap*rh*A.subs(r, rh)) == 0 and kap != 0)
     if control == 1:
@@ -458,7 +463,8 @@ def g6(control=0, verbose=False):
     chk("<[box, t_*] W*, delta(r - r_h) dr> = 4 pi^2, and 4 pi in four dimensions (his (6.21)); t_* + r^2 changes "
         "neither",
         P5["P21"] == 4*sp.pi**2 and P4["P21"] == 4*sp.pi and P5["P21F"] == P5["P21"] and P4["P21F"] == P4["P21"])
-    chk("W* is divergence-free (as his omega_(0)), so E_{H+,1} G = 2 iota_c and the trace weight drops out",
+    chk("W* is divergence-free (as his omega_(0)): tr delta* W* = 0, so E_{H+,1} G delta* W* = 2 iota_c delta* W* at "
+        "either trace weight",
         P5["divW"] == 0 and P4["divW"] == 0)
     chk("eta = iota_{grad r} delta* W* at r_h = -mu^(-3/2) (dv + (3/2) dr) != 0",
         [sp.simplify(x) for x in P5["eta"][:2]] == [-mu**sp.Rational(-3, 2), -sp.Rational(3, 2)*mu**sp.Rational(-3, 2)]
@@ -471,7 +477,7 @@ def g6(control=0, verbose=False):
     sh, gh = sp.symbols("sh gh")
     F = -sp.I*sh*P5["P21"] + gh*P23
     chk("c_H = %s chi(r) dr: (6.23) = %s; -i sigma^ (6.21) + gamma^ (6.23) vanishes with Im sigma^ >= 0, gamma^ >= 0 "
-        "only if (6.21) and (6.23) differ in sign, as at (sigma^, gamma^) = (i, 1) for the opposite c_H" % (crv, P23),
+        "only if (6.23)/(6.21) <= 0, as at (sigma^, gamma^) = (i, 1) for the opposite c_H" % (crv, P23),
         P23 == 4*sp.pi**2 and P5["P21"] > 0 and sp.simplify(F.subs({sh: sp.I, gh: 1})) != 0)
     return chk.ok
 

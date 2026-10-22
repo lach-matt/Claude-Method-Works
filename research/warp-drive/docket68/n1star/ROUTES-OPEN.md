@@ -239,18 +239,18 @@ in it is proved.
   deferred ("We do not treat this matter in the current paper", p. 4), and Hung's wave-map gauge work is named there as
   "more promising". The tools are stated for a general Regge-Wheeler-type equation (Definition 8: V radial, bounded,
   comparable to 1/r^2 at infinity, not necessarily non-negative): the T-energy comparison (111), the Morawetz current
-  with Schlue's f vanishing at the photon sphere (Lemma 13, (119)-(123); for n = 3 the choice f = (1 - 4M/r^2)(1 - M/r^2
-  + 4M^2/(5r^4)), beta = 1/2, section 9.3.2), the r^p hierarchy with Phi = r^(n/2) Psi for 1 <= p <= 2 (Proposition 15,
-  Theorem 16) requiring V = a_0/r^2 + b_0 M/r^(n+1) + ... with a_0 > 0, and the decay theorem (Theorem 18). The
-  restriction to six dimensions is the near-horizon positivity of the Morawetz current, impossible by their construction
-  for n >= 5 (section 9.3.2). - **[Sch13]** (V. Schlue, arXiv:1012.5963, Anal. PDE 6 (2013)). For the scalar wave
-  equation on Schwarzschild of spatial dimension n >= 3 (five spacetime dimensions is n = 4 there): E[phi](Sigma_tau) <=
-  C D/tau^2 (Theorem 1, (1.9)), the first-order energy at tau^-(4-2delta) on bounded r ((1.10)), and r^((n-2)/2)|phi| <=
-  C D/tau^(3/2-delta) (Theorem 2); the photon sphere at r = (nm)^(1/(n-2)) (section 2), r^2 = 2 mu here; radial
-  multipliers f(r*) d_r* changing sign at the photon sphere with Poincare on the spheres (section 4); the p-hierarchy
-  with r^p d_v* on psi = r^((n-1)/2) phi, p in {1, 2}, and the commutation with d_v* for the four-step hierarchy
-  (section 5). No potential and no source are treated there; Hung's Appendix A says how both enter. - **[CYDL03]**: the
-  tails t^-(2l+3) in five dimensions, measured here as T6. - **[KI03b]** (H. Kodama, A. Ishibashi,
+  with Schlue's f vanishing at the photon sphere (Lemma 13, (119)-(123); for n = 3 the choice f = (1 - 4M/r^2)(1 -
+  M/r^2 + 4M^2/(5r^4)), beta = 1/2, section 9.3.2), the r^p hierarchy with Phi = r^(n/2) Psi for 1 <= p <= 2
+  (Proposition 15, Theorem 16) requiring V = a_0/r^2 + b_0 M/r^(n+1) + ... with a_0 > 0, and the decay theorem (Theorem
+  18). The restriction to six dimensions is the near-horizon positivity of the Morawetz current, impossible by their
+  construction for n >= 5 (section 9.3.2). - **[Sch13]** (V. Schlue, arXiv:1012.5963, Anal. PDE 6 (2013)). For the
+  scalar wave equation on Schwarzschild of spatial dimension n >= 3 (five spacetime dimensions is n = 4 there):
+  E[phi](Sigma_tau) <= C D/tau^2 (Theorem 1, (1.9)), the first-order energy at tau^-(4-2delta) on bounded r ((1.10)),
+  and r^((n-2)/2)|phi| <= C D/tau^(3/2-delta) (Theorem 2); the photon sphere at r = (nm)^(1/(n-2)) (section 2), r^2 = 2
+  mu here; radial multipliers f(r*) d_r* changing sign at the photon sphere with Poincare on the spheres (section 4);
+  the p-hierarchy with r^p d_v* on psi = r^((n-1)/2) phi, p in {1, 2}, and the commutation with d_v* for the four-step
+  hierarchy (section 5). No potential and no source are treated there; Hung's Appendix A says how both enter. -
+  **[CYDL03]**: the tails t^-(2l+3) in five dimensions, measured here as T6. - **[KI03b]** (H. Kodama, A. Ishibashi,
   arXiv:hep-th/0308128v4). The Maxwell field on the n+2-dimensional static black hole, scalar type: F_ab = epsilon_ab E
   S, F_ai = E_a S_i, with E_a = (k/r^(n-1))(D_a A + J~_a) (5.17), r^n E = -k^2 A at Q = 0 (5.19), and the master
   equation r^(n-2) D^a (D_a A / r^(n-2)) - (k^2/r^2) A = -r^(n-2) D^a (J~_a / r^(n-2)) (5.20) -- no potential beyond
@@ -360,17 +360,18 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    equations, strengthened to uniform boundedness by [HKW18] (Theorem 2, (6)); in four dimensions this is the role of
    the Teukolsky mode stability in [Hin26] -- the one black box there that took a separate theorem.
 2. *Mode stability of the two 1-form operators.* The gauge potential operator box^Upsilon on five-dimensional
-   Tangherlini has the zero energy state W* (W2); the perturbative modification E^Upsilon that removes it ([Hin26]
-   Proposition 6.12) is a static argument and should carry. The constraint propagation operator box^C needs the strong
-   damping (1.43), and [Hin26a]'s construction is on Kerr; a five-dimensional construction did not exist and is the
-   first genuinely new object of the route. Tangherlini being static, the indicial-root computation it needs is an ODE
-   problem in r for each l of the class. Its indicial half is computed (4.13; N1STAR-PROOF.md 10.12), the semiclassical
-   inputs of the construction (4.14; 10.13), and a five-dimensional c of his Proposition 5.1's kind on Tangherlini
-   (4.15; 10.14), and the zero energy inputs of the modification E^Upsilon (4.16; 10.15): with the trace weight 2/(D -
-   2) in place of his 1 the strip is clear at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen
-   here, the c's conditions hold at that e, and box^Upsilon's zero energy kernel is W* alone, with pairings that let a
-   horizon modification remove it; his Theorem 5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the
-   item are OPEN.
+   Tangherlini has, unmodified (E^Upsilon = 0), the zero energy state W* (W2); the perturbative modification E^Upsilon
+   that removes it ([Hin26] Proposition 6.12) is a static argument and should carry. The constraint propagation operator
+   box^C needs the strong damping (1.43), and [Hin26a]'s construction is on Kerr; a five-dimensional construction did
+   not exist and is the first genuinely new object of the route. Tangherlini being static, the indicial-root computation
+   it needs is an ODE problem in r for each l of the class. Its indicial half is computed (4.13; N1STAR-PROOF.md 10.12),
+   the semiclassical inputs of the construction (4.14; 10.13), and a five-dimensional c of his Proposition 5.1's kind on
+   Tangherlini (4.15; 10.14), the zero energy inputs of the modification E^Upsilon (4.16; 10.15), and the mode stability
+   of the unmodified operator at nonzero frequency (4.17; 10.16): with the trace weight 2/(D - 2) in place of his 1 the
+   strip is clear at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here, the c's conditions
+   hold at that e, and the unmodified operator's (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let
+   a horizon modification remove it, and it has no mode at sigma != 0, Im sigma >= 0, in a class (deduced); his Theorem
+   5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the item are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -417,11 +418,12 @@ the class. Route B's item 2, the five-dimensional constraint damping, is 4.13 fo
 [-100, 2] but for the Coulomb root, at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here;
 4.14 (10.13, Proposition 10.10, computed) recomputes the semiclassical inputs of [Hin26a] in five dimensions, and 4.15
 (10.14, Proposition 10.11, computed) gives a five-dimensional c of his Proposition 5.1's kind on Tangherlini, its
-conditions checked at that e; 4.16 (10.15, Proposition 10.12, computed; the kernel deduced) gives the gauge potential
-operator's zero energy kernel, cokernel functional and pairings in five dimensions, the inputs of [Hin26] Proposition
-6.12. Next: the rest of item 2 -- the 3b-estimates of his section 5 (his Theorem 5.2, with its h_0) and section 6's
-five-dimensional steps, his Theorem B.1, [Hin26c]'s low-energy theory and mode stability of the 1-form wave operator at
-nonzero frequencies, all in five dimensions.
+conditions checked at that e; 4.16 (10.15, Proposition 10.12, computed; the kernel deduced) gives the unmodified gauge
+potential operator's zero energy kernel, cokernel functional and pairings in five dimensions, the inputs of [Hin26]
+Proposition 6.12; and 4.17 (10.16, Proposition 10.13, computed; the mode stability deduced) gives that operator's mode
+stability at sigma != 0 on Tangherlini, in a class, the input of his Proposition 6.9. Next: the rest of item 2 -- the
+3b-estimates of his section 5 (his Theorem 5.2, with its h_0) and section 6's five-dimensional steps, his Theorem B.1,
+his Proposition 6.5 (high energies) and [Hin26c]'s theory, low energy and regularity, all in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -617,11 +619,11 @@ for the l = 0 argument. growing5.py and lzero5.py compute both, and N1STAR-PROOF
 4.9's item (a). hierarchy5.py computes the commuted equation, the current and his conditions (A.3), (A.5), (A.7)-(A.9) in
 five dimensions; N1STAR-PROOF.md 10.9 states Proposition 10.6 and the obstruction.
 - The commuted field Psi_1 := f^-1 r^2 nabla_L Psi of the radiation field Psi = r^(3/2) u satisfies L Lbar Psi_1 =
-  -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V) Psi with Vcal_1 = Vcal - 2/r^2
-  + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2), exactly for a symbolic potential (H1). In four dimensions the
-  same computation gives his V^(1) exactly -- his 14 M/r^3 is the 12 M/r^3 here with the radiation field's own 2M/r^3,
-  which his V^(j) counts from V -- and a first-order term his remark does not print, which enters the current with a good
-  sign (READ).
+  -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V) Psi with Vcal_1 = Vcal -
+  2/r^2 + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2), exactly for a symbolic potential (H1). In four
+  dimensions the same computation gives his V^(1) exactly -- his 14 M/r^3 is the 12 M/r^3 here with the radiation
+  field's own 2M/r^3, which his V^(j) counts from V -- and a first-order term his remark does not print, which enters
+  the current with a good sign (READ).
 - The p-current identity for Psi_1 is (10.7) with the first-order term adding 2(1 - 2 mu/r^2) to the |nabla_L Psi_1|^2
   bulk, positive for r^2 > (10 + p) mu/(4 + p) (H2). The Psi_1^2 bulk is ((2 - p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2
   for Sigma, positive on the exterior for p in [0, 2] and l >= 1 -- (A.7) with no R_null -- and for phi it has the room
@@ -774,10 +776,11 @@ ROUTES 4.4 item 2's c. cform5.py computes it; N1STAR-PROOF.md 10.14 states Propo
 ROUTES 4.4 item 2's E^Upsilon. gaugepot5.py computes them; N1STAR-PROOF.md 10.15 states Proposition 10.12.
 - The indicial roots (G1): s0 lam (lam - 3)(lam^2 - lam - 2 - 4 e gam^2), vl (lam + l)(l + 2 - lam), sl (l + 3 -
   lam)(lam + l - 1) Q; the gap (0, 2) at gam = 0, (0, lam_s1,2) with 2 < lam_s1,2 < lam_s0 for e gam^2 > 0, at the
-  weight 2/3 near infinity; the weight 1 moves the root 2 into (1, 2). Four-dimensional control: his Lemma 6.6.
-- The zero energy kernel (G2-G4): the dt and spatial parts decouple on the static metric; at l = 0 the kernel is W*; for
-  l >= 1, A(r_h) = 0 from the equation at the horizon and three energy identities with positive forms give none
-  (deduced: [AHW24]'s role in his Lemma 6.10, here elementary).
+  weight 2/3 near infinity; the weight 1 moves the root 2 into (1, 2) when e < 1/3 and 0 < gam^2 (1 - 3e) < 1.
+  Four-dimensional control: his Lemma 6.6.
+- The zero energy kernel of the unmodified box (G2-G4): the dt and spatial parts decouple on the static metric; at l = 0
+  the kernel is W*; for l >= 1, A(r_h) = 0 from the equation at the horizon and three energy identities with positive
+  forms give none (deduced: [AHW24]'s role in his Lemma 6.10, here elementary).
 - The cokernel functional (G5): delta(r - r_h) dr annihilates the range of box(0) at every l; that it spans the cokernel
   needs index 0 ([Hin26c] in five dimensions, OPEN).
 - The pairings (G6): (6.21) is 4 pi^2 (his 4 pi, reproduced); W* is divergence-free; eta = -mu^(-3/2) (dv + (3/2) dr) !=
@@ -785,5 +788,28 @@ ROUTES 4.4 item 2's E^Upsilon. gaugepot5.py computes them; N1STAR-PROOF.md 10.15
   The first term of f decays at rho^3 by the dimension, where his needs a cancellation (G7).
 - OPEN: [Hin26c]'s low-energy theory in five dimensions (index 0, tf-admissibility, the estimates (6.27)-(6.28)); his
   Step 2, the perturbation near infinity; mode stability of box at nonzero frequencies in five dimensions (his
-  Proposition 6.9 rests on [AHW24] Theorem 5.1). Labels: computed (gaugepot5.py G1-G7, exact); deduced (the kernel, the
-  augmented operator's injectivity); READ ([Hin26] pp. 25-26, 82, 113, 117-124; alphaXiv, 2026-10-21); nothing proved.
+  Proposition 6.9 rests on [AHW24] Theorem 5.1; deduced in 4.17); the high-energy side of his Proposition 6.9
+  (Proposition 6.5, section 6.1's Lemma 6.4) and Lemma 6.1's structure; the radial-point and b-regularity behind the
+  kernel. Labels: computed (gaugepot5.py G1-G7, exact); deduced (the kernel, the augmented operator's injectivity); READ
+  ([Hin26] pp. 25-26, 82, 113, 117-124; alphaXiv, 2026-10-21); nothing proved.
+
+### 4.17 Mode stability of the gauge potential operator at nonzero frequency in five dimensions (computed; D58)
+
+ROUTES 4.4 item 2's [Hin26] Proposition 6.9 rests, beside his Proposition 6.5 and [Hin26c]'s Fredholm estimates, on the
+mode stability of the unmodified operator box = 2 delta G delta* at sigma != 0, which on Kerr he takes from [AHW24]
+Theorem 5.1. modes5.py computes the five-dimensional reductions on Tangherlini; N1STAR-PROOF.md 10.16 states Proposition
+10.13 and deduces the mode stability.
+- box = d delta + delta d on every 1-form (M1, five arbitrary functions of all coordinates), so delta omega is a scalar
+  mode, d omega a Maxwell field, and omega = (i/sigma)(d iota_T omega + iota_T d omega) (M5).
+- The master equations, on arbitrary harmonics (M2-M4): scalar waves V_0 = (f/r^2)(kappa + 3/4 + 9 mu/(4 r^2)), Phi =
+  r^(3/2) R; Maxwell vector type V_1 = (f/r^2)(lam - 1/4 + 5 mu/(4 r^2)), lam = (l + 1)^2; Maxwell scalar type V_2 =
+  (f/r^2)(kappa + 3/4 - 7 mu/(4 r^2)) for W = r^3 F_tr, from Maxwell by R[r^3 F_tr] = (r^2 M_t)' + i sigma r^2 M_r, with
+  F_tr = 0 forcing the field to vanish; at l = 0, M_r = -i sigma F_tr/f. [KI03b]'s (4.23), (5.17), (5.19) and (5.20) at
+  Q = 0 (READ).
+- All three potentials are positive for r > r_h at l >= 1, and V_0 at l = 0 (M5); the l = 0 Maxwell scalar potential is
+  negative near the horizon and is not needed.
+- Deduced: for sigma != 0, Im sigma >= 0, a mode smooth across the future horizon and outgoing at infinity vanishes --
+  each step an energy identity (Im sigma > 0) or the constant Wronskian (sigma real).
+- OPEN: that his spectral family's kernel elements lie in the class in five dimensions; his Proposition 6.5 and [Hin26c]
+  Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there; the low-energy part (4.16). Labels:
+  computed (modes5.py M1-M5, exact); deduced (the mode stability); READ ([Hin26] pp. 118-119; [KI03b]); nothing proved.

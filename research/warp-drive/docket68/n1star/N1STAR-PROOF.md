@@ -1830,11 +1830,11 @@ infinity; dvol = r^3 dt dr domega and dvol_3 the induced form of the leaf (-n^fl
 eta_rs := 1 on [r_h, 9 r_h/8] and 0 on [5 r_h/4, oo); and the red-shift vector field
     Y(sigma) := eta_rs ((sigma/2)(r - r_h) T + (2 + sigma (r - r_h)) L'),                                         (10.3)
 causal on the exterior and equal to 2 L' at r = r_h ([Hun19] (2.6)-(2.7)). The divergence theorem on D(tau_1, tau_2)
-for a one-form J is [Hun19] (2.14): int_{Sigma_tau_1} J.n = int_{Sigma_tau_2} J.n + int_{H^+} J.L + int_{I^+} J.L-bar
-+ int_D div J, the fluxes at H^+ and I^+ taken with the normals L and L-bar, the second as the limit of the flux through
-v = v_0 -- so a current whose fluxes through H^+ and through every v = v_0 are non-negative gives
-int_{Sigma_tau_2} J.n + int_D div J <= int_{Sigma_tau_1} J.n with no decay at I^+ assumed beyond the finiteness of the
-norms. Every current below is of that kind.
+for a one-form J is [Hun19] (2.14): int_{Sigma_tau_1} J.n = int_{Sigma_tau_2} J.n + int_{H^+} J.L + int_{I^+} J.L-bar +
+int_D div J, the fluxes at H^+ and I^+ taken with the normals L and L-bar, the second as the limit of the flux through v
+= v_0 -- so a current whose fluxes through H^+ and through every v = v_0 are non-negative gives int_{Sigma_tau_2} J.n +
+int_D div J <= int_{Sigma_tau_1} J.n with no decay at I^+ assumed beyond the finiteness of the norms. Every current
+below is of that kind.
 
 *Components and norms.* H = (H1, ..., H7) are Hung's components (Proposition 10.2(vi)), H' := (H1, ..., H5, H6', H7')
 the horizon-regular ones, Hhat := D_m H with D_m := diag(sqrt2, 1, sqrt2, sqrt2, 2 n_S, sqrt2, sqrt2), n_S :=
@@ -2141,9 +2141,9 @@ epsilon_0 <= 3c/(5 + 3c) serves; epsilon_1 <= 1/2); the g-current (10.20) with g
 r^3, chi vanishing for r <= r_0 and equal to 1 for r >= (r_0 + r_1)/2, which adds (1/2) g f^-1 |d_t u|^2 and whose
 negative terms -(1/2) g (f |d_r u|^2 + (k^2/r^2 + V) u^2) + (1/4)(box g) u^2 are absorbed by the three positive ones for
 epsilon_2 small (F'/f >= 13 mu/(5 r^3), and the coefficient of k^2 u^2 left after the epsilon_1 split is at least (1/2 -
-epsilon_1)(r^2 - 2 mu)^2/(2 r^7) against the epsilon_2 mu (r^2 - 2 mu)^2/(2 r^9) of g, (M2); (M3) for the sign of k^2/r^2
-+ V); and the red-shift addition epsilon_3 T-hat_ab Y^b, which makes the bulk coercive in r <= r_0 by (a). The result is
-their Lemma 13 for the rung:
+epsilon_1)(r^2 - 2 mu)^2/(2 r^7) against the epsilon_2 mu (r^2 - 2 mu)^2/(2 r^9) of g, (M2); (M3) for the sign of
+k^2/r^2 + V); and the red-shift addition epsilon_3 T-hat_ab Y^b, which makes the bulk coercive in r <= r_0 by (a). The
+result is their Lemma 13 for the rung:
     K^M := div J^M >~ r^-1 s^-2 ((1 - 2 mu/r^2)^2 (|nabla_T u|^2 + |nabla-slash u|^2) + f^2 |nabla_r u|^2 + mu^-1 |u|^2)
                        in r >= r_0,   K^M >~ (F's density) in r <= r_0,
                          (10.21)
@@ -2222,15 +2222,15 @@ any rate tau^(-2+) serves, and what is proved.
          mu^-1/2 int_{tau-tilde_{j-2}}^{tau-tilde_j} (B[u] + E^{0,(0)}_{L,ang}[u-tilde]) dtau
            <~ (tau_j/sqrt mu)^(-1+delta-bar) I + F[u](tau-tilde_{j-2}).
 The integrand controls F's: on r >= R_1, E^{0,(0)}_{L,ang}'s, s^-3 (|nabla_L (s^(3/2) u)|^2 + |nabla-slash (s^(3/2)
-u)|^2) >= (1/2)|nabla_L u|^2 + |nabla-slash u|^2 - (9/4) mu^-1 s^-2 |u|^2 >= (1/2)|nabla_L u|^2 + (1/2)|nabla-slash u|^2
-+ (7/4) mu^-1 s^-2 |u|^2 by k^2 >= 8 (no Hardy inequality; [HKW18] Lemma 17 borrows the same way), and on r <= R_1 B's,
-non-degenerate except at the photon sphere, where (1 - 2 mu/r^2)^2 multiplies |nabla_T u|^2 and |nabla-slash u|^2. There
-the one-dimensional Poincare inequality in r on [r_P - rho, r_P + rho], int |w|^2 dr <~ rho^2 int |d_r w|^2 dr + int_{rho
-<= |r - r_P| <= 2 rho} |w|^2 dr, applied to w = nabla_T u along Sigma_tau, where d_r is nabla_r since the leaves are t =
-const on [5 r_h/4, R_null], with B[T u]'s f^2 |nabla_r T u|^2 and B[u]'s |nabla_T u|^2 off the photon sphere, while
-|nabla-slash u|^2 = k^2 u^2/r^2 is k^2 B[u]'s zeroth-order term, non-degenerate; this gives int_{Sigma_tau} (F's density)
-<~ B[u] + B[T u] + k^2 B[u] + E^{0,(0)}_{L,ang}[u-tilde]. So, with (iii) for T u and k u as well (their sources are T G
-and k G, their data in I),
+u)|^2) >= (1/2)|nabla_L u|^2 + |nabla-slash u|^2 - (9/4) mu^-1 s^-2 |u|^2 >= (1/2)|nabla_L u|^2 + (1/2)|nabla-slash
+u|^2 + (7/4) mu^-1 s^-2 |u|^2 by k^2 >= 8 (no Hardy inequality; [HKW18] Lemma 17 borrows the same way), and on r <= R_1
+B's, non-degenerate except at the photon sphere, where (1 - 2 mu/r^2)^2 multiplies |nabla_T u|^2 and |nabla-slash u|^2.
+There the one-dimensional Poincare inequality in r on [r_P - rho, r_P + rho], int |w|^2 dr <~ rho^2 int |d_r w|^2 dr +
+int_{rho <= |r - r_P| <= 2 rho} |w|^2 dr, applied to w = nabla_T u along Sigma_tau, where d_r is nabla_r since the
+leaves are t = const on [5 r_h/4, R_null], with B[T u]'s f^2 |nabla_r T u|^2 and B[u]'s |nabla_T u|^2 off the photon
+sphere, while |nabla-slash u|^2 = k^2 u^2/r^2 is k^2 B[u]'s zeroth-order term, non-degenerate; this gives
+int_{Sigma_tau} (F's density) <~ B[u] + B[T u] + k^2 B[u] + E^{0,(0)}_{L,ang}[u-tilde]. So, with (iii) for T u and k u
+as well (their sources are T G and k G, their data in I),
          mu^-1/2 int_{tau-tilde_{j-2}}^{tau-tilde_j} F[u] dtau <~ (tau_j/sqrt mu)^(-1+delta-bar) I +
            F[u](tau-tilde_{j-2})
                                                            + F[T u](tau-tilde_{j-2}) + k^2 F[u](tau-tilde_{j-2}).
@@ -2249,24 +2249,24 @@ and k G, their data in I),
      from (10.17) on [tau, oo) with the decayed data at tau and E^p_source(tau, oo) <= (1 + tau/sqrt mu)^(-2+p+delta-bar)
      I. []
 
-*What this gives, and what it does not.* Each rung of Proposition 10.2(v) -- S with source div J, r P with source r dJ_tr
-+ 2 (d_t S - J_t) in S and J, X_t with source J_t - (2 mu/r^3) P, r X_L with source (2 k f/r) Q_r + r J_L -- is an
+*What this gives, and what it does not.* Each rung of Proposition 10.2(v) -- S with source div J, r P with source r
+dJ_tr + 2 (d_t S - J_t) in S and J, X_t with source J_t - (2 mu/r^3) P, r X_L with source (2 k f/r) Q_r + r J_L -- is an
 equation (10.14), and Propositions 10.4-10.5 are the estimates for that equation with a source in the norm (10.16). They
 do not by themselves give the decay of the gauge vector, because the sources the rungs carry are not in (10.16)'s
 weights: the norm asks for mu^1/2 int s^(p+1) |G|^2 dvol, and what a rung below supplies, by (10.17), is mu^-1/2 int
 E^{p'-1,(0)}_{L,ang} dtau, a bulk integral of s^(p'-4) |nabla_L Psi|^2 with p' <= 2 - delta, and s^(-1-delta)
-|nabla_L-bar u|^2 from J_delta. For r P the source carries 2 d_t S, and s^(p+1) |nabla_T S|^2 = s^(p-2) |nabla_T Psi_S|^2
-up to lower order would need p' = p + 2 of S's rung, outside the hierarchy for every p >= delta; for r X_L the source (2
-k f/r) Q_r carries (2 f r/k) d_r S, which grows in r. This is [Hun19] section 4.3's problem in five dimensions. There the
-first rung is tr h, which solves the homogeneous wave equation in the harmonic gauge and so decays at the rate of his
-Proposition A.5 with k = 1 (his Proposition 5.2, (1 + tau/M)^(-4+p+3 delta)); P and W are replaced through (4.27)-(4.30)
-by P-bar and W-bar, combinations of them with S and psi_Z carrying the factor u + r, interpolated by eta_b into
-(4.35)-(4.38); and the sources G_P, G_0, G_1, G_2 of (4.39)-(4.42) are bounded in his Lemmas 4.8-4.10 with factors (1 +
-tau/M)^2 that the faster decay of the first rung pays (his Lemma 5.5). That is ROUTES-OPEN.md 4.3(3), done in 10.7, where
-the five-dimensional substitutions are computed and what 10.6 contributes is the estimate each barred rung is fed to; l =
-0 (4.3(4); his Theorem 8.1, the red-shift argument for the coefficient of the singular stationary solution, with W2's
-ODE) is 10.8. Neither needs an estimate for a new equation; both are work on the sources and on the first rung, and both
-leave the first rung's rapid decay to be proved.
+|nabla_L-bar u|^2 from J_delta. For r P the source carries 2 d_t S, and s^(p+1) |nabla_T S|^2 = s^(p-2) |nabla_T
+Psi_S|^2 up to lower order would need p' = p + 2 of S's rung, outside the hierarchy for every p >= delta; for r X_L the
+source (2 k f/r) Q_r carries (2 f r/k) d_r S, which grows in r. This is [Hun19] section 4.3's problem in five
+dimensions. There the first rung is tr h, which solves the homogeneous wave equation in the harmonic gauge and so decays
+at the rate of his Proposition A.5 with k = 1 (his Proposition 5.2, (1 + tau/M)^(-4+p+3 delta)); P and W are replaced
+through (4.27)-(4.30) by P-bar and W-bar, combinations of them with S and psi_Z carrying the factor u + r, interpolated
+by eta_b into (4.35)-(4.38); and the sources G_P, G_0, G_1, G_2 of (4.39)-(4.42) are bounded in his Lemmas 4.8-4.10 with
+factors (1 + tau/M)^2 that the faster decay of the first rung pays (his Lemma 5.5). That is ROUTES-OPEN.md 4.3(3), done
+in 10.7, where the five-dimensional substitutions are computed and what 10.6 contributes is the estimate each barred
+rung is fed to; l = 0 (4.3(4); his Theorem 8.1, the red-shift argument for the coefficient of the singular stationary
+solution, with W2's ODE) is 10.8. Neither needs an estimate for a new equation; both are work on the sources and on the
+first rung, and both leave the first rung's rapid decay to be proved.
 
 ### 10.7 The growing source: [Hun19] section 4.2 in five dimensions (`growing5.py` G1-G5; D50)
 
@@ -2279,10 +2279,10 @@ region by eta_b ((4.35)-(4.38)), so that every source has a good weight in r at 
 rapid decay of the first rungs pays (his Lemmas 4.8-4.10, 5.5). This section computes the five-dimensional form of each
 move; what the computation does not give is said at the end.
 
-*Setting.* A scalar mode l >= 2 (even, k^2 = l(l + 2) >= 8) of a perturbation h in the class in harmonic gauge, h = h_RW
-+ pi_X (Proposition 10.2(iii)), X = X_t S dt + X_r S dr + X_L r S_i dz^i with box X = J := -Gamma[h_RW]. In [KI03]'s
-variables at n = 3 (Proposition 10.1(iii)): x := mu/r^2, m := k^2 - 3, H := m + 6x, Phi the master field on the orbit
-space with
+*Setting.* A scalar mode l >= 2 (even, k^2 = l(l + 2) >= 8) of a perturbation h in the class in harmonic gauge, h =
+h_RW + pi_X (Proposition 10.2(iii)), X = X_t S dt + X_r S dr + X_L r S_i dz^i with box X = J := -Gamma[h_RW]. In
+[KI03]'s variables at n = 3 (Proposition 10.1(iii)): x := mu/r^2, m := k^2 - 3, H := m + 6x, Phi the master field on the
+orbit space with
     box_2 Phi = (V_S/f) Phi,   V_S = f Q/(16 r^2 H^2),
     Q = 1296 x^3 + (624 m - 144) x^2 + (36 m^2 - 432 m) x + 16 m^3 + 60 m^2                                   (10.27)
 ([KI03] (3.5)-(3.7) at n = 3, K = 1, lambda = 0; box_2 the d'Alembertian of g_2 = -f dt^2 + dr^2/f), Psi := r^(3/2) H
@@ -2475,8 +2475,8 @@ the current it enters and of each condition, for the first rungs Sigma = tr h (b
 V_phi phi, (10.30)), states what follows by his argument, and finds the l = 0 case obstructed.
 
 *Setting.* u a scalar mode k^2 = l(l + 2) with box_l u = V u, V = 0 (Sigma) or V = V_phi (phi); Psi := r^(3/2) u its
-radiation field, with L Lbar Psi = -f Vcal Psi, Vcal = k^2/r^2 + V + (3/4 + 9 mu/(4 r^2))/r^2 and V_inf = k^2 + 3/4 = (l
-+ 1/2)(l + 3/2) (M4; L = d_t + f d_r, Lbar = d_t - f d_r); F, B, E^{p,(0)}_L as in 10.5-10.6, whose radiation field
+radiation field, with L Lbar Psi = -f Vcal Psi, Vcal = k^2/r^2 + V + (3/4 + 9 mu/(4 r^2))/r^2 and V_inf = k^2 + 3/4 =
+(l + 1/2)(l + 3/2) (M4; L = d_t + f d_r, Lbar = d_t - f d_r); F, B, E^{p,(0)}_L as in 10.5-10.6, whose radiation field
 Phi^(0) := s^(3/2) u is mu^(-3/4) Psi, a constant the linear identities below do not see. The commuted field is
     Psi_1 := f^-1 r^2 nabla_L Psi
 (his (2.4)'s Phi^(1) with M s^2 read as r^2), in 10.5's normalisation Psi_1 = mu^(5/4) Phi^(1) with Phi^(1) := sqrt(mu)
@@ -2543,8 +2543,8 @@ E^{p,(0)}_L decaying as (1 + tau/sqrt mu)^(-2+p+delta). (ii) The commuted hierar
 >= R_null} with (10.35), R_null >= R_1: the bulk is at least c (E^{p-1,(1)}_L + int s^(p-6) Psi_1^2) by H2-H3; the bad
 term r^(p-3) f^-2 |C nabla_L Psi_1 Psi| with C = O(mu/r^3) is <= epsilon r^(p-4) |nabla_L Psi_1|^2 + C_epsilon mu^2
 r^(p-8) Psi^2, and mu^2 r^(p-8) Psi^2 <= (mu/R_null^2) mu r^(p-6) Psi^2 is the base bulk at the same p -- the absorption
-he credits to [2]'s Poincare inequality, which at a fixed mode is this weight count; the cut-off terms on [R_null, R_null
-+ r_h] are controlled by the Morawetz bulk as in Proposition 10.3's Step 1. So E^{p,(1)}_L[u-tilde](tau_2) + int
+he credits to [2]'s Poincare inequality, which at a fixed mode is this weight count; the cut-off terms on [R_null,
+R_null + r_h] are controlled by the Morawetz bulk as in Proposition 10.3's Step 1. So E^{p,(1)}_L[u-tilde](tau_2) + int
 E^{p-1,(1)}_L <~ E^{p,(1)}_L[u-tilde](tau_1) + (base terms), and the dyadic argument of [HKW18] Theorem 18 gives
 E^{p,(1)}_L decaying as (1 + tau/sqrt mu)^(-2+p+delta). (iii) The step between the levels: nabla_L Phi^(0) = mu^(-1/2) f
 s^-2 Phi^(1), so E^{2,(0)}_L[u-tilde] = mu int f^2 s^-2 |Phi^(1)|^2 ds <= 4 mu int |d_s Phi^(1)|^2 ds = 4 mu^2 int f^-2
@@ -2646,9 +2646,9 @@ red-shift current is deduced, not computed -- and finds the Morawetz bulk positi
 the sources of 10.7. For p in [delta, 2 - 3 delta] and tau >= 0,
     (F[X] + E^{p,(0)}_L[X-tilde])(tau) + mu^-1/2 int_tau^oo (B-bar[X] + E^{p-1,(0)}_{L,ang}[X-tilde])(tau') dtau'
       <= C (1 + tau/sqrt mu)^(-2+p+3 delta) Decay[X],   C independent of l,                                 (10.39)
-Decay[X] := (F[X] + E^{2-delta,(0)}_L[X-tilde])(0) + I_{source,3 delta}[G] + I^(0)[k^{<= 1} T^{<= 1} (X_t-hat, r P-hat)]
-+ mu (I^(0)[(sqrt mu d)^{<= 1} k^{<= 1} S] + I^(1)[k^{<= 1} Sigma, k^{<= 3} phi]), his Decay[W] with Q_even's place taken
-by K1's F_2, F_4.
+Decay[X] := (F[X] + E^{2-delta,(0)}_L[X-tilde])(0) + I_{source,3 delta}[G] + I^(0)[k^{<= 1} T^{<= 1} (X_t-hat, r
+P-hat)] + mu (I^(0)[(sqrt mu d)^{<= 1} k^{<= 1} S] + I^(1)[k^{<= 1} Sigma, k^{<= 3} phi]), his Decay[W] with Q_even's
+place taken by K1's F_2, F_4.
 
 *Proof, his.* (i) The T-current of K3, the two choices joined at R_T >= 2 R_null by Hung's cut-off eta_T on [R_T, 4 R_T]:
 its flux is comparable to the T-energy, by K3's lower bounds; the inner error d_t X_1 (10 V_12 - V_21) X_L lives on [r_h,
@@ -2847,18 +2847,18 @@ delta), and the integrated terms from (a) on [tau, oo): (10.44), with a delta to
 2 b r_h], which b r_h >= 2 R_null places in the far region where u = tau, |D^{<= m} G_P| <~ mu^-1/2 (1 + tau/sqrt mu)
 |(sqrt mu d)^{<= 1} D^{<= m} S_W| -- his Lemma 8.3. So E^p_source[D^{<= m} G_P](tau, oo) is bounded through (10.44): the
 middle region, compact, by mu^-1/2 int_tau^oo (1 + tau'/sqrt mu)^2 B-bar[D^{<= m+1} S_W] dtau' <~ (1 + tau/sqrt mu)^(-1+4
-delta) I_0, summed over dyadic intervals (2 - 3 + 4 delta < 0); the inner region by the integrated bulk of (10.44), at (1
-+ tau/sqrt mu)^(-3+4 delta); the outer by (10.26)'s weights, which put the source density r^-2 below the bulk of (10.44)
-at the same p. So E^p_source(tau, oo) <~ (1 + tau/sqrt mu)^(-1+4 delta) I_0 for every p in [delta, 2 - delta], uniformly
--- less than his I_source,l=0,delta asks, (1 + tau/M)^(-2+p+delta), and enough. The Morawetz step for P-hat, which
-carries a source, is [Sch13]'s with the source added: his Proposition 4.1 is stated for box phi = 0, and its currents are
-multiplier identities, so with a source each divergence gains the source times the multiplier, which Cauchy-Schwarz puts
-into E^p_source and the bulk -- deduced, as Proposition 10.4 carries its source, not READ. Proposition 10.5's argument
-with it gives (i) boundedness at every p <= 2 - delta, the source integral being finite at every p; (ii) the dyadic step
-at p = 2 - delta; (iii) at p = 1, with the source's (1 + tau_j/sqrt mu)^(-1+4 delta) for its (1 + tau_j/sqrt
-mu)^(-1+delta-bar) -- 4 delta in delta-bar's place, past 10.5's range delta-bar <= 1/10 once delta > 1/40, but its
-steps (i)-(iv) use only 4 delta < 1 and, for the middle region's dyadic sum, -1 + 4 delta < 0, which delta <= 1/10
-secures -- F[P-hat] <~ (tau_j/sqrt mu)^-1 at sample times; and (iv) between them F(tau) <~ F + E^{delta,(0)}_L
+delta) I_0, summed over dyadic intervals (2 - 3 + 4 delta < 0); the inner region by the integrated bulk of (10.44), at
+(1 + tau/sqrt mu)^(-3+4 delta); the outer by (10.26)'s weights, which put the source density r^-2 below the bulk of
+(10.44) at the same p. So E^p_source(tau, oo) <~ (1 + tau/sqrt mu)^(-1+4 delta) I_0 for every p in [delta, 2 - delta],
+uniformly -- less than his I_source,l=0,delta asks, (1 + tau/M)^(-2+p+delta), and enough. The Morawetz step for P-hat,
+which carries a source, is [Sch13]'s with the source added: his Proposition 4.1 is stated for box phi = 0, and its
+currents are multiplier identities, so with a source each divergence gains the source times the multiplier, which
+Cauchy-Schwarz puts into E^p_source and the bulk -- deduced, as Proposition 10.4 carries its source, not READ.
+Proposition 10.5's argument with it gives (i) boundedness at every p <= 2 - delta, the source integral being finite at
+every p; (ii) the dyadic step at p = 2 - delta; (iii) at p = 1, with the source's (1 + tau_j/sqrt mu)^(-1+4 delta) for
+its (1 + tau_j/sqrt mu)^(-1+delta-bar) -- 4 delta in delta-bar's place, past 10.5's range delta-bar <= 1/10 once delta >
+1/40, but its steps (i)-(iv) use only 4 delta < 1 and, for the middle region's dyadic sum, -1 + 4 delta < 0, which delta
+<= 1/10 secures -- F[P-hat] <~ (tau_j/sqrt mu)^-1 at sample times; and (iv) between them F(tau) <~ F + E^{delta,(0)}_L
 at the sample plus the source from it, <~ tau^(-1+theta) + tau^(-1+4 delta), with theta < delta: (10.45), its integrated
 term from (10.17) at p = delta on [tau, oo).
 
@@ -3105,9 +3105,10 @@ depends on c at each point and not on its derivatives, so a small smoothing keep
 outer piece is r^-1 (dt - v dr) in Kerr-Schild time; in the static time t_s it is r^-1 (dt_s - v dr) + O(mu r^-3) dr,
 with the same leading part at infinity, which is all the indicial roots of 10.12 see.
 
-*READ.* [Hin26a] (alphaXiv, 2026-10-21): pp. 3 (v = 1/2; the sign of the dr term), 93 (Theorem B.4), 38-41 (Proposition
-5.1 and its proof, (5.1)-(5.13), footnote 14), 41 (Theorem 5.2, (5.14)-(5.15)), 53 (Proposition 5.1 (4) and (6) in use),
-67 (Theorem 6.2 and its proof: a_K = 1, a_sf = -C_0 - 2).
+*READ.* [Hin26a] (alphaXiv, 2026-10-21): pp. 3 (v = 1/2; the sign of the dr term), 93 (Theorem B.4; Theorem B.1, which
+the text below names, is on p. 87, as the twenty-fifth verifier read at source), 38-41 (Proposition 5.1 and its proof,
+(5.1)-(5.13), footnote 14), 41 (Theorem 5.2, (5.14)-(5.15)), 53 (Proposition 5.1 (4) and (6) in use), 67 (Theorem 6.2
+and its proof: a_K = 1, a_sf = -C_0 - 2).
 
 *What this gives, and what it does not.* The five-dimensional c that 10.12 and 10.13 named as missing exists on
 Tangherlini, explicitly. At the point of Proposition 10.9 its conditions (1), (3) and (6) hold exactly on the
@@ -3144,15 +3145,17 @@ omega* = delta(r - r_+) dr of box(0) and two pairings, (6.21) <[box, t_*] omega_
 E_{H+,1} G delta* omega_(0), omega*> in (3 pi, 5 pi), which make <f, omega*> = 4 pi (-i sigma^ + c_b gamma^) != 0
 ((6.26)); Step 2 adds the modification near infinity perturbatively. This section computes the five-dimensional inputs.
 Near infinity the modification takes the trace weight 2/(D - 2) = 2/3, as C does (10.12, U2), so that E G h = -gam (2
-iota_c h - e c tr h) in any dimension.
+iota_c h - e c tr h) in any dimension. At the horizon gaugepot5.py takes the same weight in E_{H+,1}; the pairing (6.23)
+is the same at his weight 1, since tr delta* W* = 0.
 
 **Proposition 10.12 (computed; exact).** On 4+1 Minkowski and on five-dimensional Tangherlini, f = 1 - mu/r^2, r_h =
 mu^(1/2):
- (i) (his Lemma 6.6) The indicial roots of box^Ups solve, at s0, lam (lam - 3)(lam^2 - lam - 2 - z) = 0, z = 4 e gam^2;
-     at vl, (lam + l)(l + 2 - lam) = 0; at sl, (l + 3 - lam)(l + lam - 1) Q = 0, Q = s^2 - (2 + 2 kappa + z) s + kappa
-     (kappa + 1) + z kappa, s = lam (lam - 1), kappa = l (l + 2). At gam = 0 the indicial gap is (0, 2), his (0, 1); for
-     z > 0, 2 < lam_s1,2 < lam_s0 and every other root is at least 3 or at most 0, so (0, lam_s1,2) is an indicial gap,
-     his (6.17b). With the weight 1 the s0 root 2 moves down into (1, 2) (G1).
+ (i) (his Lemma 6.6) The indicial roots of box^Ups solve, at s0, lam (lam - 3)(lam^2 - lam - 2 - z) = 0, z = 4 e gam^2
+     (his z is e gam^2, p. 117); at vl, (lam + l)(l + 2 - lam) = 0; at sl, (l + 3 - lam)(l + lam - 1) Q = 0, Q = s^2 -
+     (2 + 2 kappa + z) s + kappa (kappa + 1) + z kappa, s = lam (lam - 1), kappa = l (l + 2). At gam = 0 the indicial
+     gap is (0, 2), his (0, 1); for z > 0, 2 < lam_s1,2 < lam_s0 and every other root is at least 3 or at most 0, so (0,
+     lam_s1,2) is an indicial gap, his (6.17b). With the weight 1 the s0 root 2 moves to (1 + (9 - 8 gam^2 (1 -
+     3e))^(1/2))/2, in (1, 2) when e < 1/3 and 0 < gam^2 (1 - 3e) < 1 (G1).
  (ii) (the zero energy equations) For stationary 1-forms on Tangherlini the dt part and the spatial part of box
      decouple, by the time reflection: A S dt solves (f/r)(r^3 A')' = kappa A; B S dr + C dS and the vector type V solve
      the systems of G2, each the Euler-Lagrange form of an energy, B (r^3 f^2 B')' + kappa C (r f C')' = (r^3 f^2 B B' +
@@ -3176,8 +3179,9 @@ mu^(1/2):
 coordinates (static for the mode equations and at infinity, ingoing at the horizon) and harmonics of symbolic degree (S
 = cos^l th cos l p1 and the record's vector harmonic); the pairings integrate over the horizon sphere, of area 2 pi^2
 r_h^3. Four-dimensional controls: his Lemma 6.6's roots, his (6.21) = 4 pi, and his cancellation at infinity. Controls:
-the weight 1; 2 delta delta* without G; kappa = 0 in (ii); dt/r^2 alone; delta(r - 2 r_h) dr; c_H = +(1/2) dr, for which
-(6.26) vanishes at (sigma^, gamma^) = (i, 1); and the four-dimensional cancellation claimed in five dimensions. []
+the weight 1; 2 delta delta* without G; f -> 1 in (ii)'s A equation; dt/r^2 alone; delta(r - 2 r_h) dr; c_H = +(1/2) dr,
+for which (6.26) vanishes at (sigma^, gamma^) = (i, 1); and the four-dimensional cancellation claimed in five
+dimensions. []
 
 *Deduced.* (a) The kernel of box(0) on Tangherlini, on 1-forms smooth across the future horizon and decaying at infinity
 (shifted weight alpha + 2 in (0, 2)), is the span of W*. At l = 0 this is (iii). At l >= 1 the dv component of a kernel
@@ -3189,28 +3193,113 @@ and at infinity (decaying exponents at least 2, by (i)), give B = C = V = 0. Ins
 vanishes to infinite order at r_h, a regular singular point of each mode's equations, and so vanishes. This is his Lemma
 6.10's kernel in five dimensions, which [Hin26] takes from [AHW24] on Kerr; here Tangherlini is static and the argument
 is an energy identity. The smoothness of kernel elements at the horizon, and their expansion at infinity, are [Hin26c]'s
-radial-point and b-regularity, taken as in four dimensions. (b) By (iv), delta(r - r_h) dr annihilates the range of
-box(0); it spans the cokernel once the index is 0, which in four dimensions is [Hin26c] Corollary 9.43 with his Lemma
-6.8 (tf-admissibility). (c) With (a), (b) and (v), the augmented zero-parameter operator of his Step 1 is injective:
-pairing box(0) u + c f(0, sigma^, gamma^) = 0 with omega* gives c = 0, then u is a multiple of W* and the augmentation
-row makes it 0. By (vi), the first summand of f lies in rho^3 C^oo, inside the target space for shifted weights alpha +
-2 < 1 (his: alpha + 2 < 3/2), and such weights lie in the gap (0, 2).
+radial-point and b-regularity, taken as in four dimensions and OPEN in five. (b) By (iv), delta(r - r_h) dr annihilates
+the range of box(0); it spans the cokernel once the index is 0, which in four dimensions is [Hin26c] Corollary 9.43 with
+his Lemma 6.8 (tf-admissibility). (c) With (a), (b) and (v), the augmented zero-parameter operator of his Step 1 is
+injective: pairing box(0) u + c f(0, sigma^, gamma^) = 0 with omega* gives c = 0, then u is a multiple of W* and the
+augmentation row makes it 0. By (vi), the first summand of f lies in rho^3 C^oo, inside the target space when alpha + 2
+< 1; with (a), which needs alpha + 2 in (0, 2), the admissible range is alpha + 2 in (0, 1) (his condition is alpha +
+2 + eta < 3/2, p. 124).
 
-*READ.* [Hin26] (alphaXiv, 2026-10-21): pp. 25-26 (section 1.4.1), 82 ((4.6), Definition 4.2), 113 (section 6,
-(6.1)-(6.6)), 117-119 (Lemma 6.6, (6.17a)-(6.17b), Remark 6.7, Lemma 6.8), 119-124 (section 6.4: Proposition 6.9, Lemmas
-6.10-6.11, Proposition 6.12 and its proof, (6.20)-(6.28), footnotes 65-69).
+*READ.* [Hin26] (alphaXiv, 2026-10-21): pp. 25-26 (section 1.4.1), 82 ((4.6)), 113 (section 6, (6.1)-(6.6)), 117-118
+(Lemma 6.6, (6.17a)-(6.17b), Remark 6.7, Lemma 6.8), 119-124 (section 6.4: Proposition 6.9, Lemmas 6.10-6.11,
+Proposition 6.12 and its proof, (6.20)-(6.28), footnotes 65-69). E^Upsilon is his Definition 4.1, (4.1)-(4.2), p. 81, as
+the twenty-fifth verifier read at source; Definition 4.2 on p. 82 is E^C.
 
-*What this gives, and what it does not.* The zero energy structure of the gauge potential operator in five dimensions is
-that of four: a one-dimensional kernel spanned by W*, decaying at the Coulomb rate r^-(n-2); a cokernel functional
-supported at the horizon; and pairings that do not vanish -- 4 pi^2 where his is 4 pi, in both cases (n - 2) times the
-area of the unit sphere -- so that a horizon modification of his form removes the kernel, at the level of his Step 1's
-algebra. Two things differ: the kernel for l >= 1 is settled here by an energy identity, Tangherlini being static, where
-[Hin26] needs [AHW24] for Kerr; and the first term of f decays at rho^3 by the dimension, where his needs a
-cancellation. Not done, and OPEN: [Hin26c]'s low-energy theory in five dimensions -- the index 0 of box(0) on the
-weighted spaces, and with it that delta(r - r_h) dr spans the cokernel; tf-admissibility (his Lemma 6.8, from [Hin26c]
-Proposition 9.40); the estimates (6.27)-(6.28) -- and his Step 2, the perturbation near infinity; and mode stability of
-box at nonzero frequencies in five dimensions, which his Proposition 6.9 takes from [AHW24] Theorem 5.1 on Kerr. Nothing
-of this section is proved: Proposition 10.12 is computed, and (a)-(c) are deduced.
+*What this gives, and what it does not.* The zero energy structure of the unmodified gauge potential operator (E^Upsilon
+= 0) in five dimensions is that of four: a one-dimensional kernel spanned by W*, decaying at the Coulomb rate r^-(n-2);
+a cokernel functional supported at the horizon; and pairings that do not vanish -- 4 pi^2 where his is 4 pi, in both
+cases (n - 2) times the area of the unit sphere -- so that a horizon modification of his form removes the kernel, at the
+level of his Step 1's algebra. Two things differ: the kernel for l >= 1 is settled here by an energy identity,
+Tangherlini being static, where [Hin26] needs [AHW24] for Kerr; and the first term of f decays at rho^3 by the
+dimension, where his needs a cancellation. Not done, and OPEN: [Hin26c]'s low-energy theory in five dimensions -- the
+index 0 of box(0) on the weighted spaces, and with it that delta(r - r_h) dr spans the cokernel; tf-admissibility (his
+Lemma 6.8, from [Hin26c] Proposition 9.40); the estimates (6.27)-(6.28) -- and his Step 2, the perturbation near
+infinity; mode stability of box at nonzero frequencies in five dimensions, which his Proposition 6.9 takes from [AHW24]
+Theorem 5.1 on Kerr (deduced on Tangherlini, within a class, in 10.16); the high-energy side of his Proposition 6.9 in
+five dimensions -- his Proposition 6.5, from section 6.1's strong trapping admissibility (Lemma 6.4) -- and Lemma 6.1's
+structure; and the radial-point and b-regularity behind (a). Nothing of this section is proved: Proposition 10.12 is
+computed, and (a)-(c) are deduced.
+
+### 10.16 Mode stability of the gauge potential operator at sigma != 0 in five dimensions (`modes5.py` M1-M5; D58)
+
+*The setting.* [Hin26] Proposition 6.9 makes box^Upsilon = 2 (delta + E^Upsilon) G delta* mode stable at every sigma
+with Im sigma >= 0 and |sigma| >= c_0, for E^Upsilon small: high energies by his Proposition 6.5, and bounded
+frequencies by perturbation from the unmodified operator box = 2 delta G delta*, [Hin26c] Theorem 9.5's Fredholm
+estimates holding uniformly. The input is the mode stability of box at sigma != 0, which on Kerr he takes from [AHW24]
+Theorem 5.1. On a Ricci-flat metric box is the Hodge d'Alembertian d delta + delta d, which commutes with d and delta:
+for a mode omega at sigma != 0, delta omega is a scalar wave mode, d omega a Maxwell field, and omega = (i/sigma) (d
+iota_T omega + iota_T d omega), T = d_t. This section computes the five-dimensional reductions on Tangherlini and
+deduces from them the mode stability of box there. The spectral family: every field is e^(-i sigma t) times a stationary
+one, d_t -> -i sigma, in the static chart, f = 1 - mu/r^2, r_h = mu^(1/2); kappa = l (l + 2) is the eigenvalue of -Delta
+on S^3, lam that of delta_S d_S on a co-closed 1-form of S^3, and r* the tortoise coordinate, Phi_* = f Phi'.
+
+**Proposition 10.13 (computed; exact).** On five-dimensional Tangherlini, f = 1 - mu/r^2:
+ (i) box = 2 delta G delta* equals d delta + delta d on every 1-form (M1).
+ (ii) (scalar waves) For u = r^(-3/2) Phi(r) S, S any function on S^3 with Delta S = -kappa S, -f r^(3/2) (delta d u)/S
+     = f (f Phi')' + sigma^2 Phi - V_0 Phi, V_0 = (f/r^2)(kappa + 3/4 + 9 mu/(4 r^2)) (M2).
+ (iii) (Maxwell, vector type) For A = V Y, V = r^(-1/2) Phi(r), Y any 1-form on S^3: delta A = r^-2 V delta_S Y, (delta
+     d A)_t = i sigma r^-2 V delta_S Y, (delta d A)_r = -r^-2 V' delta_S Y, and -f r^(1/2) ((delta d A)_i - r^-2 V
+     (delta_S d_S Y)_i) = (f (f Phi')' + sigma^2 Phi - U_1 Phi) Y_i, U_1 = (f/r^2)(-1/4 + 5 mu/(4 r^2)); so for Y
+     co-closed with delta_S d_S Y = lam Y the potential is V_1 = (f/r^2)(lam - 1/4 + 5 mu/(4 r^2)). The record's vector
+     harmonic is co-closed with lam = (l + 1)^2, symbolic l (M3).
+ (iv) (Maxwell, scalar type) For A = a(r) S dt + b(r) S dr -- every scalar-type A in the gauge c = 0, since A - d(c S
+     e^(-i sigma t)) has the same dA -- and M = delta d A, with R[W] := (f W'/r)' - kappa W/r^3 + sigma^2 W/(r f): R[r^3
+     F_tr] = (r^2 M_t)' + i sigma r^2 M_r; F_tr = -i sigma b - a', and where it vanishes, M_t = kappa a/r^2 and M_r =
+     kappa b/r^2; f r^(1/2) R[r^(1/2) Phi] = f (f Phi')' + sigma^2 Phi - V_2 Phi, V_2 = (f/r^2)(kappa + 3/4 - 7 mu/(4
+     r^2)); at l = 0, M_r = -i sigma F_tr/f and F = F_tr dt dr; and for every solution of R[W] = 0, A(W) = (-f W' S dt +
+     i sigma W S dr/f)/(kappa r) is a Maxwell field with r^3 F_tr = W (M4).
+ (v) For r > r_h: V_0 > 0 at every l, V_1 > 0 for lam >= 2, V_2 > 0 for kappa >= 3 (l >= 1), while at l = 0 V_2 is
+     negative near the horizon; r* = r + (r_h/2) log((r - r_h)/(r + r_h)) has dr*/dr = 1/f and r* = r - mu/r + O(r^-3),
+     and f'(r_h)/2 = 1/r_h; and d iota_T omega + iota_T d omega = -i sigma omega for every spectral 1-form (M5).
+
+*Proof.* M1-M5 of modes5.py. box is built with Christoffel symbols, d and delta from the volume form and the diagonal
+metric; M1 on five arbitrary functions of all five coordinates, and the reductions on arbitrary functions of the angles
+-- S with the rule d_th^2 S -> ... that imposes Delta S = -kappa S, Y with no condition -- so that (ii)-(iv) hold for
+every harmonic and not for a representative only. Four-dimensional controls: Schwarzschild in M1-M4, where the
+potentials are f (kappa/r^2 + mu/r^3), f lam/r^2 and f kappa/r^2. Controls: f = 1 - mu/r in five dimensions, not Ricci
+flat, where box and d delta + delta d differ; the four-dimensional exponents r^-1 in (ii) and r^0 in (iii); the
+four-dimensional weight r^2 F_tr in (iv); and V_2's positivity claimed at l = 0. []
+
+*Deduced (mode stability of box at nonzero frequency).* Let sigma != 0, Im sigma >= 0, and let omega = e^(-i sigma t)
+omega_0 solve box omega = 0 for r > r_h, smooth across the future event horizon (in v = t + r*, r and the angles) and
+outgoing at infinity: omega_0 = e^(i sigma r) times a function with an expansion in powers of 1/r. Then omega = 0. (a)
+The scalar step. delta omega solves delta d (delta omega) = delta box omega = 0, by (i) and delta delta = 0. For each
+spherical harmonic component u = R(r) S of it, Phi = r^(3/2) R solves -Phi_** + V_0 Phi = sigma^2 Phi by (ii). At the
+horizon Phi = e^(-i sigma r*) h(r) with h smooth at r_h, u being smooth in v; at infinity, V_0 being O(r^-2), the
+solutions are e^(+-i sigma r*) (1 + O(1/r)), and the class admits only the first, so Phi = c e^(i sigma r*) (1 + O(1/r))
+by (v). If Im sigma > 0, Phi and Phi_* decay exponentially at both ends, and int (|Phi_*|^2 + V_0 |Phi|^2) dr* = sigma^2
+int |Phi|^2 dr* with V_0 > 0 forces Phi = 0: otherwise sigma^2 would be positive and sigma real. If sigma is real, the
+Wronskian Im(conj(Phi) Phi_*) is constant, -sigma |h(r_h)|^2 at the horizon and sigma |c|^2 at infinity, so c = 0 and
+Phi = 0. So delta omega = 0. (b) The Maxwell step. Then delta d omega = box omega - d delta omega = 0: omega is a
+Maxwell potential. Its vector part, each co-closed component r^(-1/2) Phi Y, has -Phi_** + V_1 Phi = sigma^2 Phi by
+(iii), with V_1 > 0 since lam >= 2 (on co-closed 1-forms of S^3, delta_S d_S = nabla* nabla + Ric with Ric = 2;
+Bochner), so Phi = 0 as in (a). Its scalar part at l >= 1: W = r^3 F_tr solves R[W] = 0 by (iv), so Phi = r^(-1/2) W
+solves -Phi_** + V_2 Phi = sigma^2 Phi with V_2 > 0 by (v); F_tr = F_vr is smooth across the horizon, so Phi = 0 as in
+(a), and then F_tr = 0 and M = 0 give a = b = 0 in the gauge c = 0 by (iv), kappa being nonzero: that part of omega is a
+gradient. At l = 0, M_r = -i sigma F_tr/f = 0 gives F_tr = 0, which is all of F there. So d omega = 0. (c) The gauge
+step. By (v) and d omega = 0, omega = (i/sigma) d phi with phi = omega(T), smooth across the horizon (T = d_v there) and
+in the class at infinity; d phi = -i sigma omega gives delta d phi = -i sigma delta omega = 0, so phi is a scalar mode,
+phi = 0 by (a), and omega = 0.
+
+This is the five-dimensional counterpart, on Tangherlini, of what his Proposition 6.9 takes from [AHW24] Theorem 5.1 on
+Kerr; Tangherlini being static, each step is an ODE with a positive potential.
+
+*READ.* [Hin26] (alphaXiv, 2026-10-21): pp. 118-119 (Lemma 6.8, Proposition 6.9 and its proof). [KI03b]
+(arXiv:hep-th/0308128v4; ROUTES-OPEN.md 4.1): (4.23), (5.17), (5.19) and (5.20), at Q = 0, n = 3, K = 1: (4.23)'s
+(k_V^2 + (n - 1) K)/r^2 is lam/r^2, k_V^2 + 2 = (l + 1)^2; F_ab = epsilon_ab E S with r^n E = -k^2 A (5.19) makes their
+A a multiple of W = r^3 F_tr, and (5.20) without source is r R[W] = 0 -- (iii)'s and (iv)'s master equations.
+
+*What this gives, and what it does not.* The unmodified gauge potential operator has no mode at sigma != 0, Im sigma >=
+0, on five-dimensional Tangherlini, in the class stated: the input his Proposition 6.9 takes from [AHW24] Theorem 5.1,
+here by three ODE arguments with positive potentials. The potentials differ from four dimensions by the terms the sphere
+S^3 brings -- 3/4, and 9/4, 5/4 and -7/4 times mu/r^2 -- and positivity survives in each sector at l >= 1; at l = 0 the
+Maxwell scalar potential is negative near the horizon, and that sector is settled by the equation, M_r = -i sigma
+F_tr/f, not by positivity. Not done, and OPEN: that the kernel elements of his spectral family in five dimensions lie in
+the class ([Hin26c]'s radial-point and scattering regularity in five dimensions); his Proposition 6.5, from section
+6.1's trapping, and the uniform estimates of [Hin26c] Theorem 9.5 in five dimensions, which with this give his
+Proposition 6.9 there for small E^Upsilon; and the low-energy part (10.15). Nothing of this section is proved:
+Proposition 10.13 is computed, and the mode stability is deduced.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
@@ -3263,8 +3352,8 @@ and after the shell mu_B = mu(v_end) + (2/9) lam^2 A^2 int env'^2 + O(lam^3) (P7
 (B3).
 
 So the record's mean mass at past null infinity -- the sphere mean of the Bondi mass aspect, the quantity the
-numerical solver integrates -- is, for g_lam, mu(v) + O(lam) while the shell passes and mu + (2/9) lam^2 A^2 int env'^2
-+ O(lam^3) after it, with this coefficient: the O(lam^2) rate of the paper's section 6, now proved for g_lam. The
+numerical solver integrates -- is, for g_lam, mu(v) + O(lam) while the shell passes and mu + (2/9) lam^2 A^2 int
+env'^2 + O(lam^3) after it, with this coefficient: the O(lam^2) rate of the paper's section 6, now proved for g_lam. The
 proof is in 11.1-11.3; 11.4 compares with the numerics.
 
 ### 11.1 The expansion of g_lam at past null infinity
@@ -3390,11 +3479,11 @@ u whose every term either is explicit (the terms in G_3 and g0, whose ell-deriva
 and the profiles do) or contains u_1 or a derivative of it, on which ell^j gains j orders by the hypothesis, the other
 factors keeping their classes. So (H_m) holds and Lemma 11.2 gives ell^m u_4 in E_(5/2+m): (11.7) at J = 4. Stage J >=
 4: the remainder u_J has every ell-gain, so the source of u_J, a polynomial in (u, d u, d^2 u) with coefficients smooth
-in (X, g) whose arguments are expanded to the previous order with remainders in E_((J+1)/2), has the expansion r^-q S_q
-+ S~ with q = (J+3)/2 and S~ satisfying (H_m) for every m: every product with a remainder factor is in E_(3/2 +
+in (X, g) whose arguments are expanded to the previous order with remainders in E_((J+1)/2), has the expansion r^-q
+S_q + S~ with q = (J+3)/2 and S~ satisfying (H_m) for every m: every product with a remainder factor is in E_(3/2 +
 (J+1)/2) = E_(q+1/2) or better and gains under ell, so the r^-q coefficient is a polynomial in the G_k, k <= J, and
-their derivatives, and Lemma 11.2 applies at every m. Invariance and the vanishing for v <= v_start are inherited by
-the integrals from v_start. []
+their derivatives, and Lemma 11.2 applies at every m. Invariance and the vanishing for v <= v_start are inherited by the
+integrals from v_start. []
 
 The coefficients from G_4 on depend on lam (through the phase v/lam and the powers of lam of the profiles), and the
 proposition claims nothing uniform in lam: it is an asymptotic statement at past null infinity at each fixed lam, which
