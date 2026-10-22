@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D64).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D65).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -134,8 +134,9 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   threshold 3/2 under 10.15's horizon modification (deduced), and Tangherlini's decay to Minkowski (U1-U4). `python3
   thresh5.py --selftest` (4/4, about 8 seconds), `--mutants` (4/4).
 - `hienergy5.py`: the remaining inputs of Hintz's high-energy and Fredholm estimates in five dimensions (section 10.19;
-  D62): the threshold at the incoming radial set, -1/2 - S-bar, the photon sphere's hypotheses with its gap and loss,
-  and the global dynamics (V1-V4). `python3 hienergy5.py --selftest` (4/4, about 25 seconds), `--mutants` (6/6).
+  D62): the threshold at the incoming radial set, -1/2 - S-bar (deduced), the photon sphere's hypotheses with its gap
+  and loss, and the global dynamics, dr future timelike inside (V1-V4). `python3 hienergy5.py --selftest` (4/4, about 25
+  seconds), `--mutants` (6/6).
 - `lowenergy5.py`: the five-dimensional inputs of Hintz's low-energy theory (section 10.20; D64): the transition face
   model on 4+1 Minkowski, its Bessel reduction with the sharp range (0, 2), and the weights (L1-L3). `python3
   lowenergy5.py --selftest` (3/3, about 7 seconds), `--mutants` (4/4).

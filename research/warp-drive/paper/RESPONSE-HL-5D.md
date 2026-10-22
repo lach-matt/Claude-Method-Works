@@ -726,28 +726,29 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   section 10.17, `trap5.py`; computed, the admissibility deduced); and the horizon and outgoing thresholds [Hin26c]'s
   estimates need are his: the endomorphism at infinity has his spectrum, and the horizon threshold is 3/2, also under
   the horizon modification of supplement section 10.15 (supplement section 10.18, `thresh5.py`; computed, the thresholds
-  deduced). The remaining inputs are computed too — at the incoming radial set the threshold is the mirror of the
-  outgoing one, −1/2 − S̄ against −1/2 + S̄, and at the photon sphere the gap is half the expansion rate per unit time
-  and the semiclassical loss as small as wished — so that, on the reading that [Hin26c]'s spectral theory, stated in
-  general dimension, carries over, the operator's spectral family is invertible at large frequency and, for small
+  deduced). The remaining inputs follow — at the incoming radial set the threshold is the mirror of the outgoing one,
+  −1/2 − S̄ against −1/2 + S̄ (deduced from a computed similarity), and at the photon sphere the gap is half the
+  expansion rate per unit time and the semiclassical loss as small as wished — so that, on the reading that [Hin26c]'s
+  spectral theory — set up for scalar operators in general dimension, its main theorems stated in three — carries over
+  to operators on bundles in four, the operator's spectral family is invertible at large frequency and, for small
   modifications, at every nonzero frequency in the closed upper half plane: Hintz's Propositions 6.5 and 6.9 in five
-  dimensions (supplement section 10.19, `hienergy5.py`; computed, the propositions deduced). The low-energy theory
-  carries over in the same way — the transition face is the Helmholtz operator, whose outgoing solutions are excluded
-  exactly for weights below n − 2 = 2, and the weights shift by n/2 — so that, with the horizon modification of
-  supplement section 10.15, the operator is mode stable on the whole closed upper half plane: Hintz's Proposition 6.12
-  in five dimensions (supplement section 10.20, `lowenergy5.py`; computed, the proposition deduced). The semiclassical
-  estimates on Tangherlini, whose threshold h₀ his proof does not make explicit, a line-by-line check of [Hin26c]'s
-  section 9 in five dimensions, the constraint propagation operator's low-energy theory in five dimensions, and the rest
-  of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a
-  finite-time observation), and the late-time tail of the l = 2 master fields, measured from the pulse's launch, is
-  t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with
-  that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s
-  t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in
-  the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i
-  ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier
-  of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
-  2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
-  Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
+  dimensions (supplement section 10.19, `hienergy5.py`; computed, the threshold and the propositions deduced). The
+  low-energy theory carries over in the same way — the transition face is the Helmholtz operator, whose outgoing
+  solutions are excluded exactly for weights below n − 2 = 2, and the weights shift by n/2 — so that, with the horizon
+  modification of supplement section 10.15, the operator is mode stable on the whole closed upper half plane: Hintz's
+  Proposition 6.12 in five dimensions (supplement section 10.20, `lowenergy5.py`; computed, the proposition deduced).
+  The semiclassical estimates on Tangherlini, whose threshold h₀ his proof does not make explicit, a line-by-line check
+  of [Hin26c]'s section 9 in five dimensions, the constraint propagation operator's low-energy theory in five
+  dimensions, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ =
+  275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured from
+  the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step,
+  approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch
+  radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which
+  is the rate a nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one
+  with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces
+  to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
+  problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of
+  four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -828,9 +829,14 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   read by a twenty-sixth (D58): no major finding; three minor findings — the unmodified operator still called the gauge
   potential operator in titles, positive potentials stated without the spherically symmetric exception, and an outgoing
   class that, read with integer powers of 1/r, excluded the five-dimensional fall-off r^(−3/2) — and six notes, seated
-  (D61). Sections 10.17–10.18 with `trap5.py` and `thresh5.py` were read by a twenty-seventh (D61): no major finding;
-  one minor finding — deduced thresholds summarised as computed, and the thresholds called complete where the one at the
-  incoming radial set was open — and nine notes, seated (D63). Sections 10.19–10.20 have not been read by a verifier.
+  (D61). Sections 10.17–10.18 with `trap5.py` and `thresh5.py` were read by a twenty-seventh (D59–D60): no major
+  finding; one minor finding — deduced thresholds summarised as computed, and the thresholds called complete where the
+  one at the incoming radial set was open — and nine notes, seated (D63). Section 10.19 with `hienergy5.py` was read by
+  a twenty-eighth (D62): no major finding; three minor findings — the incoming threshold, and every input, called
+  computed where the threshold and the trapped set's hypotheses are deduced; [Hin26c]'s section 9 described as stated
+  for general dimension where its estimates are written for scalar operators and its main theorems carry
+  three-dimensional numbers; and a time orientation claimed of a check that did not make it — and eight notes, seated
+  (D65). Sections 10.20–10.21 have not been read by a verifier.
 
 ---
 
@@ -1062,10 +1068,10 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   e)γ, 2γ, γ, at the trace weight 2/3; the horizon threshold 3/2 (deduced), also under the horizon modification of
   section 10.15; and Tangherlini's O(ρ²) approach to Minkowski. 4/4; mutants 4/4 (about 8 seconds).
 - `hienergy5.py` V1–V4: the remaining five-dimensional inputs of Hintz's high-energy and Fredholm estimates for the
-  gauge potential operator (supplement section 10.19): at the incoming radial set A_ω + S̄ = D S̄ D, so the threshold is
-  −1/2 − S̄; at the photon sphere (Γ.1)–(Γ.3) with ν = 4(2μ)^(−1/2), β₀ = 2 and the gap (8μ)^(−1/2), and (Γ.4) with the
-  loss δ_Γ(0) = (μη)^(1/2); and the global dynamics, with no ergoregion and dr timelike inside. 4/4; mutants 6/6 (about
-  25 seconds).
+  gauge potential operator (supplement section 10.19): at the incoming radial set A_w + S̄ = D S̄ D, so the threshold is
+  −1/2 − S̄ (deduced); at the photon sphere (Γ.1)–(Γ.3) with ν = 4(2μ)^(−1/2), β₀ = 2 and the gap (8μ)^(−1/2), and (Γ.4)
+  with the loss δ_Γ(0) = (μη)^(1/2); and the global dynamics, with no ergoregion and dr future timelike inside. 4/4;
+  mutants 6/6 (about 25 seconds).
 - `lowenergy5.py` L1–L3: the five-dimensional inputs of Hintz's low-energy theory (supplement section 10.20): the
   transition face model on 4+1 Minkowski, the Helmholtz operator componentwise; its Bessel reduction, of order l + 1,
   whose outgoing solutions are excluded exactly for weights below 2 (the Hankel asymptotics numerical); and the weights,
@@ -1144,7 +1150,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D64).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D65).
 
 | claim | where it is established |
 | --- | --- |
@@ -1193,7 +1199,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D6
 | | (D50); the nineteenth section 10.9 (D51); the twentieth section 10.10 (D52); the twenty-first section |
 | | 10.11 (D53); the twenty-second section 10.12 (D54); the twenty-third section 10.13 (D55); |
 | | the twenty-fourth section 10.14 (D56); the twenty-fifth section 10.15 (D57); the twenty-sixth |
-| | section 10.16 (D61); the twenty-seventh sections 10.17–10.18 (D63) |
+| | section 10.16 (D58); the twenty-seventh sections 10.17–10.18 (D59–D60); |
+| | the twenty-eighth section 10.19 (D62) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1234,9 +1241,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `027efff70f72953a04011d1e6d1c1f81` |
-| `docket68/n1star/N1STAR-LOG.md` | `a4a840da8bb87e4a8b9c859ed84c284b` |
-| `docket68/n1star/README.md` | `f889d01b037fb4f0aa3b69dc9bb1bd03` |
+| `docket68/n1star/N1STAR-PROOF.md` | `8fc80c6f4d69cd9f21a6f89b4623b8a5` |
+| `docket68/n1star/N1STAR-LOG.md` | `d3fa9070bf1418aaeeea72aa84168ba6` |
+| `docket68/n1star/README.md` | `f71c76fc2f6beb410949c03de5b7101c` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1261,7 +1268,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/modes5.py` | `0e61753d554d6447aaf466571c3e8283` |
 | `docket68/n1star/trap5.py` | `45625a944c610a406f4622fbde411f49` |
 | `docket68/n1star/thresh5.py` | `a8fb23d38fd7425b56b5b2cc8b1adbef` |
-| `docket68/n1star/hienergy5.py` | `0d42822398039cfd799a64cf9cf5f6ed` |
+| `docket68/n1star/hienergy5.py` | `e855d66955c409646409c6e32ae87678` |
 | `docket68/n1star/lowenergy5.py` | `e3a618cd29dd7266ef49e54294a51968` |
 | `docket68/n1star/hung4.py` | `7f3d68853fde8bda4ff383dc039dadfe` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |

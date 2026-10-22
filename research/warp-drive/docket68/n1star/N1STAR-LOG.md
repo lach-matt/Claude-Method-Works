@@ -1874,3 +1874,48 @@ deduced, READ; nothing proved. OPEN: section 9 line by line at n = 4; [Hin26] se
 and 8 in five dimensions, and [Hin26a] Theorem 5.2, section 6 and Theorem B.1. The twenty-eighth verifier's findings
 will be seated when it reports, and the twenty-ninth then sent on 10.20. Next: [Hin26] section 6.5 in five dimensions,
 or [Hin26a] Theorem 5.2.
+
+**D65 (2026-10-22): the twenty-eighth verifier's findings on 10.19 (hienergy5.py, D62) and the D63 repairs, seated.**
+
+*The verifier.* The twenty-eighth, on 54ad36c: no MAJOR finding; three MINOR findings and eight notes. Every computed
+claim of 10.19 reproduced, by its runs and by computations of its own -- V1's symbol algebra in five dimensions at the
+weights 2/3 and 1 and in four; nu by an RK4 integration of the flow at mu = 1.3, 2.480675 against 4 (2 mu)^(-1/2) =
+2.480695; the loss at theta = pi/3 with a generic eta -- and every control fails at its stated sub-check. Deductions
+(a)-(d) hold on the stated reading; every READ matched at source; the D63 repairs were made; all 36 md5 rows matched.
+
+*Three MINOR, repaired.* (1) The incoming threshold, and "every input", were called computed where they are deduced --
+10.19(d) and its last paragraph, 10.18's pointer, ROUTES 4.4 and 4.5, hienergy5.py's V1 and Deduced paragraph, the
+paper's settling paragraph -- and two inputs were not addressed: the horizon's radial point structure (9.24) and a
+global t* with dt* past timelike (his Definition 9.3). Each site now separates the computed (A_w + S-bar = D S-bar D,
+nu, beta_0, the spectrum of p_1 at a point, W, the time orientation) from the deduced (vartheta_in and its threshold,
+(Gamma.1)-(Gamma.4)) and names (9.24) and t* as those of a non-degenerate static horizon, stated and not computed; the
+README's and Appendix A's hienergy5.py bullets add "(deduced)". (2) [Hin26c] section 9 was described as stated for
+general n. It sets up general n for scalar operators only -- "the purely notational modifications required to treat
+operators acting on vector bundles are left to the reader" (p. 158) -- and states Theorems 9.5 and 9.16 on the Kerr
+model with three-dimensional numbers: (9.20), (9.21), (9.55) in Part (5) of the proof (p. 172), his Proposition 4.24 in
+section 9.3.6 (p. 193); read again at source here (alphaXiv, 2026-10-22: pp. 157-159, 163, 165, 172-173, 193). The
+reading in 10.19(d) is now (i) the scalar-to-bundle step and (ii) Theorems 9.5 and 9.16 restated for n = 4, with (9.20)
+and (9.55) at 3/2 (10.18(b)) and Proposition 4.24 replaced by (c); its OPEN list adds the scalar-to-bundle step, Lemmas
+9.20, 9.21 and 9.33, Parts (3) and (5) of section 9.2.3 and section 9.3.6; (a) and the last paragraph no longer say that
+the dimension enters only through (n - 1)/2; ROUTES 4.4, 4.5 and 4.20, hienergy5.py and the paper say the same. No
+conclusion changes. (3) V4's docstring claimed g^-1(dr) future directed, which its code did not check: it checked
+f(r_h/2) < 0 and f'(r_h/2) > 0, the second unrelated to time orientation. V4 now checks f' > 0 for every r > 0 with
+f(r_h) = 0, so the signs hold on the intervals and not at one point, and g_vr = 1, g(d_v, -d_r) = -1, g(g^-1 dr, -d_r) =
+-1; Proposition 10.16(iv) states it.
+
+*Eight notes, seated.* (1) V1's identity is structural -- S-bar = (1/2) M(dt - dr) and A_w + S-bar = (1/2) M(dt + dr), M
+the first-order symbol of 2 E-bar G delta* -- so it holds by reflection covariance at every weight and in every
+dimension: recorded in 10.19's proof and in V1. (2) The control "the outgoing covector" is a sign flip of A_w, which
+does not enter at R_out: renamed in 10.19 and hienergy5.py. (3) Proposition 10.16(iii) called gamma_+ and delta_Gamma(0)
+computed; they are computed at one point, and hold on Gamma by 10.17's p_1 = 0 on V_perp (deduced) and the symmetry,
+which the verifier's check at theta = pi/3 agrees with: (iii) now states the point values and (b) the deduction. (4) The
+sign in (Gamma.3) is a normalisation, phi_u -> -phi_u preserving (Gamma.2): said in (b). (5) [Hin26c] p. 100 ((5.2)) and
+[Hin26] p. 114 (footnote 60), cited in 10.19 and hienergy5.py, are added to their READ lists, and p. 100 to ROUTES
+4.19's. (6) The paper's Review bullet gave the twenty-seventh "(D61)" where its convention, the decision of the sections
+read, gives D59-D60, and Appendix C gave the twenty-sixth and twenty-seventh the decisions that seated them: now D58 and
+D59-D60 in both, and the twenty-eighth added. (7) His Proposition 6.5 asserts its constant uniform over a compact set of
+parameters, and Theorem 9.16's loss is delta_Gamma(Im sigma - eps): (d) says both. (8) The paper wrote A_ω where the
+supplement writes A_w: now A_w.
+
+*Runs.* hienergy5.py 4/4 and mutants 6/6 after the change to V4. The twenty-ninth verifier will be sent on 10.20
+(lowenergy5.py, D64) and 10.21 once 10.21 is seated.
