@@ -1593,9 +1593,9 @@ dimensions, his Step 2, mode stability of box at nonzero frequencies, his Theore
 steps, Theorem B.1. The twenty-fifth verifier is sent on 10.15, gaugepot5.py and the twenty-fourth's repairs; its
 verdict follows. Next: route B's item 2 continues at [Hin26c] and his section 5 in five dimensions.
 
-**D58 (2026-10-22, M: "Continue"): mode stability of the gauge potential operator at nonzero frequency in five
-dimensions -- the input of [Hin26] Proposition 6.9 (section 10.16; modes5.py M1-M5) -- and the twenty-fifth verifier's
-findings seated.**
+**D58 (2026-10-22, M: "Continue"): mode stability of the 1-form wave operator at nonzero frequency in five dimensions --
+the input of [Hin26] Proposition 6.9 (section 10.16; modes5.py M1-M5) -- and the twenty-fifth verifier's findings
+seated.**
 
 *The step.* ROUTES 4.5's order after D57: the rest of item 2. PR #78 had merged; the branch is main at 6d6a368. Of the
 rest, the mode stability of the unmodified operator at sigma != 0 is the piece [Hin26] takes from another paper ([AHW24]
@@ -1606,18 +1606,18 @@ claim of Proposition 10.12 reproduced with its own code -- Cartesian coordinates
 Laplacian for the mode equations and pairings, and a search for a kernel element at l = 1, 2, 3 by integrating the
 decaying solutions inward, none found -- and its READ claims matched at source. One MINOR: the record gave box^Upsilon
 the kernel W*, which is the unmodified operator's (his Lemma 6.10 is on box, and E^Upsilon exists to remove it; it
-computed 2 E_inf G delta* W* != 0); repaired in ROUTES 4.4 (twice), 4.16, 10.15 and the paper. Six notes, seated: G3's
-control now mutates the operator (f -> 1 in the A equation) where it tripped a literal; the W3 docstring has 10.13(ii)'s
-qualifier; 10.15's and 4.16's OPEN lists name the high-energy side (his Proposition 6.5, Lemma 6.4, Lemma 6.1) and the
-regularity behind the kernel; the weight-1 root is (1 + (9 - 8 gam^2 (1 - 3e))^(1/2))/2, in (1, 2) only for e < 1/3 and
-0 < gam^2 (1 - 3e) < 1 (confirmed here from gaugepot5.indicial); the admissible weight is alpha + 2 in (0, 1), his
-alpha + 2 + eta < 3/2 being a target weight; the trace weight at the horizon is stated, 2/3, (6.23) being the same at 1
-since tr delta* W* = 0; (6.26) can vanish only if (6.23)/(6.21) <= 0; this record's z is 4 e gam^2, his e gam^2; READ:
-E^Upsilon is Definition 4.1 on p. 81 (as the verifier read; Definition 4.2 is E^C), gaugepot5.py's pages and 10.15's
-agree at 117-118, 10.14's Theorem B.1 is on p. 87, and the paper's [Hin26a] entry is merged. Fifteen older lines that
-opened with "+ " or "> " inside a paragraph -- eleven in N1STAR-PROOF.md, two here, two in ROUTES -- are reflowed
-locally; a first attempt that moved one word and cascaded left seven lines over 121 characters, was restored from git,
-and redone as a local reflow.
+computed 2 E_inf G delta* W* != 0); repaired in ROUTES 4.4 (twice), 4.16, 10.15 and the paper. Six notes (nine items),
+seated: G3's control now mutates the operator (f -> 1 in the A equation) where it tripped a literal; the W3 docstring
+has 10.13(ii)'s qualifier; 10.15's and 4.16's OPEN lists name the high-energy side (his Proposition 6.5, Lemma 6.4,
+Lemma 6.1) and the regularity behind the kernel; the weight-1 root is (1 + (9 - 8 gam^2 (1 - 3e))^(1/2))/2, in (1, 2)
+only for e < 1/3 and 0 < gam^2 (1 - 3e) < 1 (confirmed here from gaugepot5.indicial); the admissible weight is alpha + 2
+in (0, 1), his alpha + 2 + eta < 3/2 being a target weight; the trace weight at the horizon is stated, 2/3, (6.23) being
+the same at 1 since tr delta* W* = 0; (6.26) can vanish only if (6.23)/(6.21) <= 0; this record's z is 4 e gam^2, his e
+gam^2; READ: E^Upsilon is Definition 4.1 on p. 81 (as the verifier read; Definition 4.2 is E^C), gaugepot5.py's pages
+and 10.15's agree at 117-118, 10.14's Theorem B.1 is on p. 87, and the paper's [Hin26a] entry is merged. Fifteen older
+lines that opened with "+ " or "> " inside a paragraph -- eleven in N1STAR-PROOF.md, two here, two in ROUTES -- are
+reflowed locally; a first attempt that moved one word and cascaded left seven lines over 121 characters, was restored
+from git, and redone as a local reflow.
 
 *What was read.* From D57's reading (alphaXiv, 2026-10-21), [Hin26] pp. 118-119: Proposition 6.9 takes high energies
 from his Proposition 6.5 and bounded |sigma| >= c_0 from the unmodified operator by [Hin26c] Theorem 9.5's uniform
@@ -1628,14 +1628,14 @@ scalar Maxwell master equations, which (iii) and (iv) reproduce.
 coordinates, Schwarzschild reproducing it and f = 1 - mu/r, not Ricci flat, failing; (M2) the scalar wave, V_0 =
 (f/r^2)(kappa + 3/4 + 9 mu/(4 r^2)); (M3) the Maxwell vector type, V_1 = (f/r^2)(lam - 1/4 + 5 mu/(4 r^2)), the record's
 harmonic co-closed with lam = (l + 1)^2; (M4) the Maxwell scalar type, R[r^3 F_tr] = (r^2 M_t)' + i sigma r^2 M_r, V_2 =
-(f/r^2)(kappa + 3/4 - 7 mu/(4 r^2)), F_tr = 0 forcing the field to vanish, l = 0 by M_r = -i sigma F_tr/f, and the
-converse; (M5) positivity for r > r_h at l >= 1 (and V_0 at l = 0; V_2 negative near the horizon at l = 0, the control),
-the tortoise coordinate, Cartan. Selftest 5/5 (about 40 seconds), mutants 5/5. Found by exploring before it was checked:
-the representative harmonic cos^l th cos l p1 of symbolic degree made the scalar-type reductions slow (164 s for the
-converse, and over 300 s for the Hodge identity at fixed l, stopped); an arbitrary function S of the angles with Delta S
-= -kappa S imposed as a substitution rule took about a second and covers every harmonic, and the Hodge identity on
-arbitrary functions of all coordinates 13 s; a zero test by simplify spent 149 s on a control's nonzero expression,
-where expanding the numerator took one.
+(f/r^2)(kappa + 3/4 - 7 mu/(4 r^2)), F_tr = 0 and M = 0 forcing the field to vanish, l = 0 by M_r = -i sigma F_tr/f, and
+the converse; (M5) positivity for r > r_h at l >= 1 (and V_0 at l = 0; V_2 negative near the horizon at l = 0, the
+control), the tortoise coordinate, Cartan. Selftest 5/5 (about 40 seconds), mutants 5/5. Found by exploring before it
+was checked: the representative harmonic cos^l th cos l p1 of symbolic degree made the scalar-type reductions slow (164
+s for the converse, and over 300 s for the Hodge identity at fixed l, stopped); an arbitrary function S of the angles
+with Delta S = -kappa S imposed as a substitution rule took about a second and covers every harmonic, and the Hodge
+identity on arbitrary functions of all coordinates 13 s; a zero test by simplify spent 149 s on a control's nonzero
+expression, where expanding the numerator took one.
 
 *What was deduced.* The unmodified operator has no mode at sigma != 0, Im sigma >= 0, on five-dimensional Tangherlini,
 for modes smooth across the future horizon and outgoing at infinity: delta omega by the scalar master equation (an
@@ -1727,3 +1727,35 @@ OPEN: [Hin26c]'s estimates themselves in five dimensions, the threshold at R_in,
 twenty-sixth verifier, on 10.16, has still not reported; its findings will be seated when it does, and the
 twenty-seventh then sent on 10.17-10.18. Next: route B's item 2 continues at [Hin26c] and his section 5 in five
 dimensions.
+
+**D61 (2026-10-22): the twenty-sixth verifier's findings seated.**
+
+*The verdict* (on 10.16, modes5.py and the twenty-fifth's repairs, checked at ff67ac6): no MAJOR finding. Every computed
+claim of Proposition 10.13 reproduced with its own code -- the Weitzenboeck identity in Kerr-Schild Cartesian
+coordinates at exact rational points, the reductions in a hyperspherical chart from Christoffel symbols on Gegenbauer
+harmonics l = 0..4, the vector harmonic l = 1..6 -- the deduced mode stability walked step by step and found to hold,
+the READ claims matched at source ([Hin26] pp. 81, 116-119, 124; [KI03b] pp. 13, 17-18), the twenty-fifth's repairs
+made, the fifteen reflowed lines changed only in their breaks.
+
+*Three MINOR, repaired.* (1) The unmodified operator was still called "the gauge potential operator" in the titles of
+10.16 and 4.17, the README and the paper's Appendix A bullets for modes5.py, D58's title, and the older gaugepot5.py
+bullets; each now says the 1-form wave operator or the unmodified operator. (2) "Positive potentials" was stated without
+the spherically symmetric exception -- V_2 r^2/f = 3/4 - 7 mu/(4 r^2) at l = 0, -1 at r_h -- in the paper's main text
+and Appendix A and twice in 10.16; each now says l >= 1, the l = 0 Maxwell sector settled by its own equation. (3) The
+outgoing class read "an expansion in powers of 1/r": with integer powers it holds no nonzero outgoing field, the
+five-dimensional ones carrying r^(-3/2), so the theorem would have been near-vacuous; it now reads a conormal function,
+powers of r^(-1/2) sufficing, the conditions uniform on the sphere (the argument used only that the class excludes e^(-i
+sigma r*)), in 10.16 and modes5.py.
+
+*Six notes, seated.* V_1's constant is -1/4, now listed beside the 3/4 of V_0 and V_2; M5 now checks r* - r + mu/r to
+its r^-3 coefficient, -mu^2/3, where it showed only o(1/r); the OPEN list names [Hin26c] Theorem 9.5(5) (kernel elements
+in A^(3/2 - eps), 10.18(b) with S-bar = 0), the index 0 that makes injectivity invertibility (his p. 119), and the
+interior uniqueness carrying the vanishing inside the horizon; modes5.py's docstring says M3's control is caught by its
+second sub-check and that M4 (e) is not used in the deduction; "F_tr = 0 forcing the field to vanish" now needs M = 0
+and kappa != 0 (ROUTES 4.17, D58); D58's "Six notes" counts nine items, now said; the paper's [KI03b] entry adds the
+2026-10-20 reading of (5.20) (D46); and ROUTES 4.1's F_ai = E_a S_i is now KI03b's F_ai = r epsilon_ab E^b S_i at Q = 0
+((5.10b), p. 17, as the verifier read). D58's title, its count and its F_tr sentence are corrected in place, this entry
+recording it.
+
+*Runs.* modes5.py 5/5, mutants 5/5 after the changes. The twenty-seventh verifier is sent on 10.17-10.18 (trap5.py,
+thresh5.py) and these repairs.

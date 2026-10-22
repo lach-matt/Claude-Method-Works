@@ -3221,7 +3221,7 @@ five dimensions -- his Proposition 6.5, from section 6.1's strong trapping admis
 -- and Lemma 6.1's structure (computed in 10.18); and the radial-point and b-regularity behind (a) (its threshold, 3/2,
 computed in 10.18). Nothing of this section is proved: Proposition 10.12 is computed, and (a)-(c) are deduced.
 
-### 10.16 Mode stability of the gauge potential operator at sigma != 0 in five dimensions (`modes5.py` M1-M5; D58)
+### 10.16 Mode stability of the 1-form wave operator at sigma != 0 in five dimensions (`modes5.py` M1-M5; D58)
 
 *The setting.* [Hin26] Proposition 6.9 makes box^Upsilon = 2 (delta + E^Upsilon) G delta* mode stable at every sigma
 with Im sigma >= 0 and |sigma| >= c_0, for E^Upsilon small: high energies by his Proposition 6.5, and bounded
@@ -3250,8 +3250,9 @@ on S^3, lam that of delta_S d_S on a co-closed 1-form of S^3, and r* the tortois
      r^2)); at l = 0, M_r = -i sigma F_tr/f and F = F_tr dt dr; and for every solution of R[W] = 0, A(W) = (-f W' S dt +
      i sigma W S dr/f)/(kappa r) is a Maxwell field with r^3 F_tr = W (M4).
  (v) For r > r_h: V_0 > 0 at every l, V_1 > 0 for lam >= 2, V_2 > 0 for kappa >= 3 (l >= 1), while at l = 0 V_2 is
-     negative near the horizon; r* = r + (r_h/2) log((r - r_h)/(r + r_h)) has dr*/dr = 1/f and r* = r - mu/r + O(r^-3),
-     and f'(r_h)/2 = 1/r_h; and d iota_T omega + iota_T d omega = -i sigma omega for every spectral 1-form (M5).
+     negative near the horizon; r* = r + (r_h/2) log((r - r_h)/(r + r_h)) has dr*/dr = 1/f and r* = r - mu/r - (mu^2/3)
+     r^-3 + o(r^-3), and f'(r_h)/2 = 1/r_h; and d iota_T omega + iota_T d omega = -i sigma omega for every spectral
+     1-form (M5).
 
 *Proof.* M1-M5 of modes5.py. box is built with Christoffel symbols, d and delta from the volume form and the diagonal
 metric; M1 on five arbitrary functions of all five coordinates, and the reductions on arbitrary functions of the angles
@@ -3263,27 +3264,29 @@ four-dimensional weight r^2 F_tr in (iv); and V_2's positivity claimed at l = 0.
 
 *Deduced (mode stability of box at nonzero frequency).* Let sigma != 0, Im sigma >= 0, and let omega = e^(-i sigma t)
 omega_0 solve box omega = 0 for r > r_h, smooth across the future event horizon (in v = t + r*, r and the angles) and
-outgoing at infinity: omega_0 = e^(i sigma r) times a function with an expansion in powers of 1/r. Then omega = 0. (a)
-The scalar step. delta omega solves delta d (delta omega) = delta box omega = 0, by (i) and delta delta = 0. For each
-spherical harmonic component u = R(r) S of it, Phi = r^(3/2) R solves -Phi_** + V_0 Phi = sigma^2 Phi by (ii). At the
-horizon Phi = e^(-i sigma r*) h(r) with h smooth at r_h, u being smooth in v; at infinity, V_0 being O(r^-2), the
-solutions are e^(+-i sigma r*) (1 + O(1/r)), and the class admits only the first, so Phi = c e^(i sigma r*) (1 + O(1/r))
-by (v). If Im sigma > 0, Phi and Phi_* decay exponentially at both ends, and int (|Phi_*|^2 + V_0 |Phi|^2) dr* = sigma^2
-int |Phi|^2 dr* with V_0 > 0 forces Phi = 0: otherwise sigma^2 would be positive and sigma real. If sigma is real, the
-Wronskian Im(conj(Phi) Phi_*) is constant, -sigma |h(r_h)|^2 at the horizon and sigma |c|^2 at infinity, so c = 0 and
-Phi = 0. So delta omega = 0. (b) The Maxwell step. Then delta d omega = box omega - d delta omega = 0: omega is a
-Maxwell potential. Its vector part, each co-closed component r^(-1/2) Phi Y, has -Phi_** + V_1 Phi = sigma^2 Phi by
-(iii), with V_1 > 0 since lam >= 2 (on co-closed 1-forms of S^3, delta_S d_S = nabla* nabla + Ric with Ric = 2;
-Bochner), so Phi = 0 as in (a). Its scalar part at l >= 1: W = r^3 F_tr solves R[W] = 0 by (iv), so Phi = r^(-1/2) W
-solves -Phi_** + V_2 Phi = sigma^2 Phi with V_2 > 0 by (v); F_tr = F_vr is smooth across the horizon, so Phi = 0 as in
-(a), and then F_tr = 0 and M = 0 give a = b = 0 in the gauge c = 0 by (iv), kappa being nonzero: that part of omega is a
-gradient. At l = 0, M_r = -i sigma F_tr/f = 0 gives F_tr = 0, which is all of F there. So d omega = 0. (c) The gauge
-step. By (v) and d omega = 0, omega = (i/sigma) d phi with phi = omega(T), smooth across the horizon (T = d_v there) and
-in the class at infinity; d phi = -i sigma omega gives delta d phi = -i sigma delta omega = 0, so phi is a scalar mode,
-phi = 0 by (a), and omega = 0.
+outgoing at infinity: omega_0 = e^(i sigma r) times a function conormal at infinity -- an expansion in powers of
+r^(-1/2) suffices, the outgoing fields of five dimensions carrying r^(-3/2) -- the conditions holding uniformly on the
+sphere, so that each spherical harmonic component inherits them. Then omega = 0. (a) The scalar step. delta omega solves
+delta d (delta omega) = delta box omega = 0, by (i) and delta delta = 0. For each spherical harmonic component u = R(r)
+S of it, Phi = r^(3/2) R solves -Phi_** + V_0 Phi = sigma^2 Phi by (ii). At the horizon Phi = e^(-i sigma r*) h(r) with
+h smooth at r_h, u being smooth in v; at infinity, V_0 being O(r^-2), the solutions are e^(+-i sigma r*) (1 + O(1/r)),
+and the class admits only the first, so Phi = c e^(i sigma r*) (1 + O(1/r)) by (v). If Im sigma > 0, Phi and Phi_* decay
+exponentially at both ends, and int (|Phi_*|^2 + V_0 |Phi|^2) dr* = sigma^2 int |Phi|^2 dr* with V_0 > 0 forces Phi = 0:
+otherwise sigma^2 would be positive and sigma real. If sigma is real, the Wronskian Im(conj(Phi) Phi_*) is constant,
+-sigma |h(r_h)|^2 at the horizon and sigma |c|^2 at infinity, so c = 0 and Phi = 0. So delta omega = 0. (b) The Maxwell
+step. Then delta d omega = box omega - d delta omega = 0: omega is a Maxwell potential. Its vector part, each co-closed
+component r^(-1/2) Phi Y, has -Phi_** + V_1 Phi = sigma^2 Phi by (iii), with V_1 > 0 since lam >= 2 (on co-closed
+1-forms of S^3, delta_S d_S = nabla* nabla + Ric with Ric = 2; Bochner), so Phi = 0 as in (a). Its scalar part at l >=
+1: W = r^3 F_tr solves R[W] = 0 by (iv), so Phi = r^(-1/2) W solves -Phi_** + V_2 Phi = sigma^2 Phi with V_2 > 0 by (v);
+F_tr = F_vr is smooth across the horizon, so Phi = 0 as in (a), and then F_tr = 0 and M = 0 give a = b = 0 in the gauge
+c = 0 by (iv), kappa being nonzero: that part of omega is a gradient. At l = 0, M_r = -i sigma F_tr/f = 0 gives F_tr =
+0, which is all of F there. So d omega = 0. (c) The gauge step. By (v) and d omega = 0, omega = (i/sigma) d phi with phi
+= omega(T), smooth across the horizon (T = d_v there) and in the class at infinity; d phi = -i sigma omega gives delta d
+phi = -i sigma delta omega = 0, so phi is a scalar mode, phi = 0 by (a), and omega = 0.
 
 This is the five-dimensional counterpart, on Tangherlini, of what his Proposition 6.9 takes from [AHW24] Theorem 5.1 on
-Kerr; Tangherlini being static, each step is an ODE with a positive potential.
+Kerr; Tangherlini being static, each step is an ODE with a positive potential, save the spherically symmetric Maxwell
+sector, which its own equation settles.
 
 *READ.* [Hin26] (alphaXiv, 2026-10-21): pp. 118-119 (Lemma 6.8, Proposition 6.9 and its proof). [KI03b]
 (arXiv:hep-th/0308128v4; ROUTES-OPEN.md 4.1): (4.23), (5.17), (5.19) and (5.20), at Q = 0, n = 3, K = 1: (4.23)'s
@@ -3292,14 +3295,17 @@ A a multiple of W = r^3 F_tr, and (5.20) without source is r R[W] = 0 -- (iii)'s
 
 *What this gives, and what it does not.* The unmodified gauge potential operator has no mode at sigma != 0, Im sigma >=
 0, on five-dimensional Tangherlini, in the class stated: the input his Proposition 6.9 takes from [AHW24] Theorem 5.1,
-here by three ODE arguments with positive potentials. The potentials differ from four dimensions by the terms the sphere
-S^3 brings -- 3/4, and 9/4, 5/4 and -7/4 times mu/r^2 -- and positivity survives in each sector at l >= 1; at l = 0 the
-Maxwell scalar potential is negative near the horizon, and that sector is settled by the equation, M_r = -i sigma
-F_tr/f, not by positivity. Not done, and OPEN: that the kernel elements of his spectral family in five dimensions lie in
-the class ([Hin26c]'s radial-point and scattering regularity in five dimensions); his Proposition 6.5, from section
-6.1's trapping (whose input, his Lemma 6.4, 10.17 deduces), and the uniform estimates of [Hin26c] Theorem 9.5 in five
-dimensions, which with this give his Proposition 6.9 there for small E^Upsilon; and the low-energy part (10.15). Nothing
-of this section is proved: Proposition 10.13 is computed, and the mode stability is deduced.
+here by three ODE arguments, with potentials positive at l >= 1. The potentials differ from four dimensions by the terms
+the sphere S^3 brings -- 3/4 in V_0 and V_2 and -1/4 in V_1, and 9/4, 5/4 and -7/4 times mu/r^2 -- and positivity
+survives in each sector at l >= 1; at l = 0 the Maxwell scalar potential is negative near the horizon, and that sector
+is settled by the equation, M_r = -i sigma F_tr/f, not by positivity. Not done, and OPEN: that the kernel elements of
+his spectral family in five dimensions lie in the class -- [Hin26c] Theorem 9.5(5) in five dimensions, kernel elements
+in A^(3/2 - eps) by 10.18(b) with S-bar = 0 -- and the index 0 that turns injectivity into invertibility (his p. 119),
+with the vanishing carried from r > r_h to the region inside the horizon by the standard interior uniqueness; his
+Proposition 6.5, from section 6.1's trapping (whose input, his Lemma 6.4, 10.17 deduces), and the uniform estimates of
+[Hin26c] Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there for small E^Upsilon; and the
+low-energy part (10.15). Nothing of this section is proved: Proposition 10.13 is computed, and the mode stability is
+deduced.
 
 ### 10.17 Strong trapping admissibility of the gauge potential operator in five dimensions (`trap5.py` T0-T4; D59)
 

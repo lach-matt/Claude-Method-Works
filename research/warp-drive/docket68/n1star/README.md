@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D60).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D61).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -116,14 +116,15 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   metric at damping5.py's point, (4)-(6) on sf, and the smallest r_0 measured (C1-C7). `python3 cform5.py --selftest`
   (7/7, about a minute and a half), `--mutants` (7/7).
 - `gaugepot5.py`: the gauge potential operator of [Hin26] section 6 in five dimensions (section 10.15; D57): its
-  indicial roots on 4+1 Minkowski, its zero energy mode equations on Tangherlini and the identities that leave W* its
-  only kernel, the cokernel functional at the horizon, and the pairings of his Lemma 6.11 and (6.26), his
-  four-dimensional values as the control (G1-G7). `python3 gaugepot5.py --selftest` (7/7, about a minute and a half),
-  `--mutants` (7/7).
-- `modes5.py`: mode stability of the gauge potential operator at nonzero frequency on five-dimensional Tangherlini
-  (section 10.16; D58): box = d delta + delta d on every 1-form, and the scalar-wave and Maxwell master equations on
-  arbitrary harmonics, with their potentials positive and the l = 0 Maxwell sector by its own equation (M1-M5). `python3
-  modes5.py --selftest` (5/5, under a minute), `--mutants` (5/5).
+  indicial roots on 4+1 Minkowski, its zero energy mode equations on Tangherlini and the identities that leave W* the
+  only kernel of the unmodified operator, the cokernel functional at the horizon, and the pairings of his Lemma 6.11 and
+  (6.26), his four-dimensional values as the control (G1-G7). `python3 gaugepot5.py --selftest` (7/7, about a minute and
+  a half), `--mutants` (7/7).
+- `modes5.py`: mode stability of the 1-form wave operator -- the gauge potential operator with E^Upsilon = 0 -- at
+  nonzero frequency on five-dimensional Tangherlini (section 10.16; D58): box = d delta + delta d on every 1-form, and
+  the scalar-wave and Maxwell master equations on arbitrary harmonics, with their potentials positive at l >= 1 and the
+  l = 0 Maxwell sector by its own equation (M1-M5). `python3 modes5.py --selftest` (5/5, under a minute), `--mutants`
+  (5/5).
 - `trap5.py`: the trapping input of the high-energy mode stability in five dimensions (section 10.17; D59): the
   subprincipal operator of the 1-form wave operator, the photon sphere r^2 = 2 mu as the trapped set with its expansion
   rate, and Hintz's frame with its nilpotent connection on Tangherlini, so that the gauge potential operator is strongly

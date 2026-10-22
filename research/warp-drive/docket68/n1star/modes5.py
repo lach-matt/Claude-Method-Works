@@ -22,34 +22,37 @@ the static chart with d_t -> -i sigma (the spectral family), kappa = l (l + 2) t
      functions of the angles), delta A = r^-2 (r^(-1/2) Phi) delta_S Y, (delta d A)_t = i sigma r^-2 (r^(-1/2) Phi)
      delta_S Y, (delta d A)_r = -r^-2 (r^(-1/2) Phi)' delta_S Y, and -f r^(1/2) ((delta d A)_i - r^-2 (r^(-1/2) Phi)
      (delta_S d_S Y)_i) = (f (f Phi')' + sigma^2 Phi - U_1 Phi) Y_i, U_1 = (f/r^2)(-1/4 + 5 mu/(4 r^2)); so for Y
-     co-closed with delta_S d_S Y = lam Y the potential is V_1 = (f/r^2)(lam - 1/4 + 5 mu/(4 r^2)).  The record's
-     vector harmonic (gaugepot5.py) is co-closed with lam = (l + 1)^2 = kappa + 1, symbolic l.  Four-dimensional
-     control: U_1 = 0.  Control: the four-dimensional exponent r^0 in five dimensions.
-  M4 (computed, exact) The Maxwell scalar type, A = a(r) S dt + b(r) S dr (the gauge c = 0: A - d(c S e^(-i sigma
-     t)) has the same dA), M = delta d A, R[W] := (f W'/r)' - kappa W/r^3 + sigma^2 W/(r f): (a) R[r^3 F_tr] = (r^2
-     M_t)' + i sigma r^2 M_r; (b) where F_tr = 0, M_t = kappa a/r^2 and M_r = kappa b/r^2; (c) f r^(1/2) R[r^(1/2) Phi]
-     = f (f Phi')' + sigma^2 Phi - V_2 Phi, V_2 = (f/r^2)(kappa + 3/4 - 7 mu/(4 r^2)); (d) l = 0 (S = 1): M_r = -i
-     sigma F_tr/f; (e) for every solution of R[W] = 0, A(W) = (-f W' S dt + i sigma W S dr/f)/(kappa r) is a Maxwell
-     field with r^3 F_tr = W.  Four-dimensional control: W = r^2 F_tr, R[W] = (f W')' - kappa W/r^2 + sigma^2 W/f, V_2
-     = f kappa/r^2.  Control: the four-dimensional weight r^2 F_tr in five dimensions.
-  M5 (computed, exact) (a) For r > r_h, x = mu/r^2 in (0, 1): V_0 r^2/f = kappa + 3/4 + 9x/4 > 0 for l >= 0, V_1
-     r^2/f = lam - 1/4 + 5x/4 > 0 for lam >= 2, V_2 r^2/f = kappa + 3/4 - 7x/4 > 0 for kappa >= 3 (l >= 1); (b) r* = r
-     + (r_h/2) log((r - r_h)/(r + r_h)) has dr*/dr = 1/f and r* = r - mu/r + O(r^-3), so e^(i sigma r*) = e^(i sigma r)
-     (1 + O(1/r)); f'(r_h)/2 = 1/r_h; (c) d iota_T omega + iota_T d omega = -i sigma omega on every spectral 1-form.
-     Control: V_2 at l = 0, negative near the horizon (so l = 0 is M4 (d)'s).
+     co-closed with delta_S d_S Y = lam Y the potential is V_1 = (f/r^2)(lam - 1/4 + 5 mu/(4 r^2)).  The record's vector
+     harmonic (gaugepot5.py) is co-closed with lam = (l + 1)^2 = kappa + 1, symbolic l.  Four-dimensional control: U_1 =
+     0.  Control: the four-dimensional exponent r^0 in five dimensions.  The first sub-check holds for any V; the
+     control is caught by the second.
+  M4 (computed, exact) The Maxwell scalar type, A = a(r) S dt + b(r) S dr (the gauge c = 0: A - d(c S e^(-i sigma t))
+     has the same dA), M = delta d A, R[W] := (f W'/r)' - kappa W/r^3 + sigma^2 W/(r f): (a) R[r^3 F_tr] = (r^2 M_t)' +
+     i sigma r^2 M_r; (b) where F_tr = 0, M_t = kappa a/r^2 and M_r = kappa b/r^2; (c) f r^(1/2) R[r^(1/2) Phi] = f (f
+     Phi')' + sigma^2 Phi - V_2 Phi, V_2 = (f/r^2)(kappa + 3/4 - 7 mu/(4 r^2)); (d) l = 0 (S = 1): M_r = -i sigma
+     F_tr/f; (e) for every solution of R[W] = 0, A(W) = (-f W' S dt + i sigma W S dr/f)/(kappa r) is a Maxwell field
+     with r^3 F_tr = W.  Four-dimensional control: W = r^2 F_tr, R[W] = (f W')' - kappa W/r^2 + sigma^2 W/f, V_2 = f
+     kappa/r^2.  Control: the four-dimensional weight r^2 F_tr in five dimensions.  (e), the converse, is not used in
+     the deduction; the control mutates (a).
+  M5 (computed, exact) (a) For r > r_h, x = mu/r^2 in (0, 1): V_0 r^2/f = kappa + 3/4 + 9x/4 > 0 for l >= 0, V_1 r^2/f =
+     lam - 1/4 + 5x/4 > 0 for lam >= 2, V_2 r^2/f = kappa + 3/4 - 7x/4 > 0 for kappa >= 3 (l >= 1); (b) r* = r + (r_h/2)
+     log((r - r_h)/(r + r_h)) has dr*/dr = 1/f and r* = r - mu/r - (mu^2/3) r^-3 + o(r^-3), so e^(i sigma r*) = e^(i
+     sigma r) (1 + O(1/r)); f'(r_h)/2 = 1/r_h; (c) d iota_T omega + iota_T d omega = -i sigma omega on every spectral
+     1-form. Control: V_2 at l = 0, negative near the horizon (so l = 0 is M4 (d)'s).
 
 Deduced, not computed here (the class: e^(-i sigma t) omega_0 smooth across the future event horizon in (v, r, angles),
-v = t + r*, and outgoing at infinity, omega_0 = e^(i sigma r) times a function with an expansion in 1/r): for sigma !=
-0, Im sigma >= 0, every mode of box vanishes.  delta omega is a scalar mode (M1: delta box = delta d delta); each
-spherical harmonic component's Phi solves -Phi_** + V_0 Phi = sigma^2 Phi with V_0 > 0 (M2, M5), Phi = e^(-i sigma r*)
-times a smooth function at r_h and e^(i sigma r*) (c + O(1/r)) at infinity, so Phi = 0: for Im sigma > 0 by the
-energy identity, for real sigma by the constant Wronskian Im(conj(Phi) Phi_*), -sigma |Phi e^(i sigma r*)(r_h)|^2 =
-sigma |c|^2.  Then delta d omega = box omega - d delta omega = 0: omega is a Maxwell potential; its vector part
-vanishes by M3 and M5 (lam >= 2, Bochner on S^3), its scalar part has r^3 F_tr = 0 by M4 (a), (c), M5 for l >= 1 and
-M4 (d) for l = 0, hence F = 0 by M4 (b).  So d omega = 0, omega = (i/sigma) d (omega(T)) (M5 (c)), and omega(T) is a
-scalar mode (delta d omega(T) = -i sigma delta omega = 0), so 0.  This is what [Hin26] Proposition 6.9 takes from
-[AHW24] Theorem 5.1, for Tangherlini.  Not deduced: that kernel elements of his spectral family in five dimensions lie
-in the class ([Hin26c] in five dimensions); his Proposition 6.5 in five dimensions.
+v = t + r*, and outgoing at infinity, omega_0 = e^(i sigma r) times a function conormal at infinity, an expansion in
+powers of r^(-1/2) sufficing; the conditions uniform on the sphere): for sigma != 0, Im sigma >= 0, every mode of box
+vanishes.  delta omega is a scalar mode (M1: delta box = delta d delta); each spherical harmonic component's Phi solves
+-Phi_** + V_0 Phi = sigma^2 Phi with V_0 > 0 (M2, M5), Phi = e^(-i sigma r*) times a smooth function at r_h and e^(i
+sigma r*) (c + O(1/r)) at infinity, so Phi = 0: for Im sigma > 0 by the energy identity, for real sigma by the constant
+Wronskian Im(conj(Phi) Phi_*), -sigma |Phi e^(i sigma r*)(r_h)|^2 = sigma |c|^2.  Then delta d omega = box omega - d
+delta omega = 0: omega is a Maxwell potential; its vector part vanishes by M3 and M5 (lam >= 2, Bochner on S^3), its
+scalar part has r^3 F_tr = 0 by M4 (a), (c), M5 for l >= 1 and M4 (d) for l = 0, hence F = 0 by M4 (b).  So d omega = 0,
+omega = (i/sigma) d (omega(T)) (M5 (c)), and omega(T) is a scalar mode (delta d omega(T) = -i sigma delta omega = 0), so
+0.  This is what [Hin26] Proposition 6.9 takes from [AHW24] Theorem 5.1, for Tangherlini.  Not deduced: that kernel
+elements of his spectral family in five dimensions lie in the class ([Hin26c] Theorem 9.5(5) in five dimensions), and
+the index 0 that makes the injective operator invertible; his Proposition 6.5 in five dimensions.
 
 READ.  [KI03b] (H. Kodama, A. Ishibashi, arXiv:hep-th/0308128v4) (4.23), (5.17), (5.19), (5.20), with n = 3, K = 1, Q
 = 0: the master equations of M3 and M4.  [Hin26] pp. 118-119 (Lemma 6.8, Proposition 6.9; alphaXiv, 2026-10-21).
@@ -269,8 +272,8 @@ def m5(control=0, verbose=False):
     r, f, X, N = C["r"], C["f"], C["X"], C["N"]
     rh = G.SQ
     rs = r + rh/2*sp.log((r - rh)/(r + rh))
-    chk("(b) dr*/dr = 1/f, r* = r - mu/r + O(r^-3), f'(r_h)/2 = 1/r_h",
-        sp.simplify(D(rs, r) - 1/f) == 0 and sp.limit(r*(rs - r) + mu, r, sp.oo) == 0
+    chk("(b) dr*/dr = 1/f, r* = r - mu/r - (mu^2/3) r^-3 + o(r^-3), f'(r_h)/2 = 1/r_h",
+        sp.simplify(D(rs, r) - 1/f) == 0 and sp.limit(r**3*(rs - r + mu/r), r, sp.oo) == -mu**2/3
         and sp.simplify(D(f, r).subs(r, rh)/2 - 1/rh) == 0)
     w = [sp.Function("w%d" % a)(*X[1:]) for a in range(N)]
     dT = [dd(C, w[0], b, True) for b in range(N)]
