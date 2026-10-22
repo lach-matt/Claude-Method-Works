@@ -371,22 +371,25 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    the unmodified operator at nonzero frequency (4.17; 10.16), the trapping input of the high energies (4.18; 10.17),
    its structure and thresholds (4.19; 10.18), the remaining inputs of [Hin26c]'s estimates at nonzero frequency (4.20;
    10.19), its low-energy theory (4.21; 10.20), [Hin26a] section 6 for the constraint propagation operator (4.22;
-   10.21), and the inputs of his Theorem 5.2 (4.23; 10.22): with the trace weight 2/(D - 2) in place of his 1 the strip
-   is clear at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at
-   that e, and the unmodified operator's (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a
-   horizon modification remove it, and it has no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is
-   strongly trapping admissible at the photon sphere r^2 = 2 mu (deduced); S-bar has his spectrum (computed) and its
-   horizon threshold is 3/2, for 10.15's c_H (deduced); at R_in the threshold is -1/2 - S-bar (deduced from a computed
-   similarity) and at the photon sphere the loss is as small as wished (computed at a point, deduced on the trapped
-   set), so that [Hin26] Propositions 6.5 and 6.9 hold there on the reading that [Hin26c] section 9's scalar estimates
-   hold on bundles and his Theorems 9.5 and 9.16 restated at n = 4 (deduced); with [Hin26c]'s low-energy theory at n = 4
-   the operator is tf-admissible and its zero energy operator of index 0, so that [Hin26] Proposition 6.12 holds there
-   on the same reading (deduced): box^Upsilon with 10.15's modification is mode stable on the closed upper half plane;
-   and, with his Theorem 5.2 there on the reading that his 3b-analysis carries to five dimensions (4.23; its inputs
-   computed), the constraint propagation operator has no outgoing mode at sigma != 0, Im sigma >= 0, and, at one
-   parameter point, an invertible zero energy operator on l in [-C_0 - 2, 0), [Hin26a] Theorem 6.2 (deduced; the horizon
-   threshold its Fredholm property needs is OPEN); the line-by-line readings of [Hin26a] sections 2.3 and 5.2 and of
-   [Hin26c] section 9 at n = 4, his Theorem B.1 and the rest of the item are OPEN.
+   10.21), the inputs of his Theorem 5.2 (4.23; 10.22), and those of his Theorem B.1 (4.24; 10.23): with the trace
+   weight 2/(D - 2) in place of his 1 the strip is clear at a point below the five-dimensional bound of his Lemma 4.4, h
+   < e chosen here, the c's conditions hold at that e, and the unmodified operator's (E^Upsilon = 0) zero energy kernel
+   is W* alone, with pairings that let a horizon modification remove it, and it has no mode at sigma != 0, Im sigma >=
+   0, in a class (deduced); box^Upsilon is strongly trapping admissible at the photon sphere r^2 = 2 mu (deduced); S-bar
+   has his spectrum (computed) and its horizon threshold is 3/2, for 10.15's c_H (deduced); at R_in the threshold is
+   -1/2 - S-bar (deduced from a computed similarity) and at the photon sphere the loss is as small as wished (computed
+   at a point, deduced on the trapped set), so that [Hin26] Propositions 6.5 and 6.9 hold there on the reading that
+   [Hin26c] section 9's scalar estimates hold on bundles and his Theorems 9.5 and 9.16 restated at n = 4 (deduced); with
+   [Hin26c]'s low-energy theory at n = 4 the operator is tf-admissible and its zero energy operator of index 0, so that
+   [Hin26] Proposition 6.12 holds there on the same reading (deduced): box^Upsilon with 10.15's modification is mode
+   stable on the closed upper half plane; and, with his Theorem 5.2 there on the reading that his 3b-analysis carries to
+   five dimensions (4.23; its inputs computed), the constraint propagation operator has no outgoing mode at sigma != 0,
+   Im sigma >= 0, and, at one parameter point, an invertible zero energy operator on l in [-C_0 - 2, 0), [Hin26a]
+   Theorem 6.2 (deduced; the horizon threshold its Fredholm property needs is OPEN); with his Theorem B.1 on 4+1
+   Minkowski on the same readings (4.24; its inputs computed), the constraint propagation operator is tf-admissible for
+   every beta in [-C_0, 2) at that point, [Hin26] Theorem 7.1(4) (deduced); the line-by-line readings of [Hin26a]
+   sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections
+   6.5, 7.2 and 8, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -450,9 +453,12 @@ section 6 to five dimensions -- S-bar^C with three angular copies, the radial se
 alpha_sf = -C_0 - 5/2 and l in [-C_0 - 2, 0) -- and deduces his Theorem 6.2 there from his Theorem 5.2; and 4.23 (10.22,
 Proposition 10.19, computed; deduced) computes the inputs of his Theorem 5.2 that 10.13-10.14 had not -- Tangherlini a
 3sc-metric with two powers to spare, the time functions of his energy estimates, his Proposition 5.1 (4)-(5) at 10.21's
-weights -- and deduces Theorem 5.2 on the reading that his 3b-analysis carries to five dimensions. Next: the rest of
-item 2 -- his Theorem B.1, the transition face model on Minkowski space, and with it [Hin26] Theorem 7.1(4) -- and
-[Hin26] sections 6.5 and 7.2, in five dimensions.
+weights -- and deduces Theorem 5.2 on the reading that his 3b-analysis carries to five dimensions; and 4.24 (10.23,
+Proposition 10.20, computed; deduced) computes the five-dimensional inputs of his Theorem B.1, the transition face model
+on Minkowski space -- its dilation structure, the beta-range (0, 2 + C_0] at the origin, the thresholds at the cone face
+and the sink, section B.4's weights, data and closing integral -- and deduces Theorem B.1 there and [Hin26] Theorem
+7.1(4), tf-admissibility for every beta in [-C_0, 2), on the same readings. Next: the rest of item 2 -- [Hin26] sections
+6.5, 7.2 and 8 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -951,8 +957,9 @@ Proposition 10.18 and deduces.
   10.12's roots at Proposition 10.9's point (h = 10^-6), C_0 <= 100, and invertible given the Fredholm property, whose
   horizon threshold is OPEN; so his Theorem 6.2 there, (2) at one parameter point, provided 10^-6 < h_0.
 - OPEN: his Theorem 5.2 and Theorem B.1 in five dimensions; [Hin26] Theorem 7.1(4); [Hin26] section 6.5, Lemma 6.13 and
-  sections 7-8. Labels: computed (cpmodes5.py K1-K3, exact); deduced; READ ([Hin26a] pp. 1-3, 9-11, 38-43, 47, 51, 54,
-  64, 66-69, 87, 93, 98; [Hin26] p. 135); nothing proved.
+  sections 7-8 (4.23 and 4.24 deduce Theorems 5.2, B.1 and 7.1(4) on readings). Labels: computed (cpmodes5.py K1-K3,
+  exact); deduced; READ ([Hin26a] pp. 1-3, 9-11, 38-43, 47, 51, 54, 64, 66-69, 87, 93, 98; [Hin26] p. 135); nothing
+  proved.
 
 ### 4.23 [Hin26a] Theorem 5.2 in five dimensions: the inputs, and the reading (computed; D67)
 
@@ -972,6 +979,28 @@ N1STAR-PROOF.md 10.22 states Proposition 10.19 and deduces.
 - Deduced, on the reading that his 3b-analysis (sections 2.3 and 5.2) holds in five dimensions: his Theorem 5.2 on
   Tangherlini at (v, e) = (1/2, 1/102400) with 10.14's c, h_0 not explicit; with 4.22, his Theorem 6.2 there, (1) for
   every h < h_0 and (2) at h = 10^-6 if that is below h_0, C_0 <= 100.
-- OPEN: that reading line by line; h_0; his Theorem B.1 and [Hin26] Theorem 7.1(4); [Hin26] sections 6.5, 7.2 and 8.
-  Labels: computed (solv5.py Q1-Q4, exact); deduced; READ ([Hin26a] pp. 9, 12-16, 25-27, 38, 41-44, 47-48, 51-52, 54,
-  56, 58-60, 64, 66); nothing proved.
+- OPEN: that reading line by line; h_0; his Theorem B.1 and [Hin26] Theorem 7.1(4) (4.24 deduces them on the same
+  reading); [Hin26] sections 6.5, 7.2 and 8. Labels: computed (solv5.py Q1-Q4, exact); deduced; READ ([Hin26a] pp. 9,
+  12-16, 25-27, 38, 41-44, 47-48, 51-52, 54, 56, 58-60, 64, 66); nothing proved.
+
+### 4.24 [Hin26a] Theorem B.1 in five dimensions, and [Hin26] Theorem 7.1(4) (computed; D69)
+
+4.22-4.23 left [Hin26a] Theorem B.1, the transition face problem on Minkowski space, OPEN in five dimensions, and with
+it [Hin26] Theorem 7.1(4), which applies it at beta' = -beta + 3/2 - eps. tface5.py computes the five-dimensional
+pieces; N1STAR-PROOF.md 10.23 states Proposition 10.20 and deduces.
+- Dilations: box^C on 4+1 Minkowski in t* = t - r is homogeneous of degree -2, every coefficient checked (F1); so
+  (B.10), and, deduced, (B.12): at the origin r^2 box^C(0), whose indicial roots are minus those at infinity.
+  Four-dimensional control: his, at the trace weight 1.
+- The origin: r^mu lies in r^beta L^2(r^3 dr) iff mu > beta - 2, so with 10.12's roots the weights there are beta in (0,
+  2 + C_0], C_0 <= 100; his (1/2, 3/2 + C_0] (F2).
+- The thresholds at (v, e) = (1/2, 1/102400): at the cone face alpha_cf > 1 - b* (his 1/2), bracketed at d = 0.9934 and
+  0.9935 in cform5.py's T; at the sink alpha_sf < b* - 1 (4.23); -(1/2) r^2 l(dr/r) is his matrix with three copies of
+  v, with positive eigenvalues (F3).
+- Section B.4: (alpha_sf, alpha_cf) = (-5/2, 5/2), the closing integral divergent, l = -1/2 in the l-window, beta = 7/2
+  for C_0 >= 3/2, (B.33)'s data weights alpha_sf + 1/2 and alpha_cf - 1/2 from Omega's one time direction; and beta' =
+  -beta + 2 - eps in (0, 2 + C_0] iff beta in [-C_0, 2) (F4).
+- Deduced, on the readings of 4.21 and 4.23, the latter here in Theorem B.4's edge-b version: Proposition B.2, Theorem
+  B.4 and his Theorem B.1 on 4+1 Minkowski with beta in (0, 2 + C_0], and [Hin26] Theorem 7.1(4) with every beta in
+  [-C_0, 2), at (v, e) = (1/2, 1/102400), C_0 <= 100, and h = 10^-6 if that is below h_0.
+- OPEN: the readings line by line; h_0; box^C's horizon threshold; [Hin26] sections 6.5, 7.2 and 8. Labels: computed
+  (tface5.py F1-F4, exact); deduced; READ ([Hin26a] pp. 85-88, 93-94, 96-98; [Hin26] pp. 136-137); nothing proved.

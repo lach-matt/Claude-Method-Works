@@ -2037,3 +2037,37 @@ rho^5: said in 10.20 and lowenergy5.py. (11) lowenergy5.py's dead code removed. 
 
 *Runs.* cpmodes5.py 3/3 and mutants 3/3, lowenergy5.py 3/3 and mutants 4/4, after the changes. The thirtieth verifier is
 sent on 10.22 (solv5.py, D67) and these repairs.
+
+**D69 (2026-10-22): [Hin26a] Theorem B.1 and [Hin26] Theorem 7.1(4) in five dimensions (tface5.py F1-F4; section
+10.23).**
+
+*The step.* With Theorem 5.2's inputs computed (10.22), the next piece of item 2 was his Appendix B, the transition face
+problem on Minkowski space, from which [Hin26] Theorem 7.1(4) takes the tf-admissibility of box^C. READ at source
+(alphaXiv): [Hin26a] pp. 85-88, 93-94, 96-98; [Hin26] pp. 136-137.
+
+*Computed.* tface5.py F1-F4: (F1) box^C on 4+1 Minkowski in t* = t - r at the trace weight 2/3 is homogeneous of degree
+-2, all 147 terms; (F2) the beta-range at the origin is (0, 2 + C_0], the density's shift n/2 = 2; (F3) at (1/2,
+1/102400) the cf threshold alpha_cf > 1 - b*, bracketed at d = 0.9934 and 0.9935 in cform5.py's T, and -(1/2) r^2
+l(dr/r) with characteristic polynomial (lam - v)^3 (lam^2 - (3 - e) v lam + (2 - e) v^2 - e) and positive eigenvalues;
+(F4) section B.4's (alpha_sf, alpha_cf) = (-5/2, 5/2), the closing integral divergent, l = -1/2 in the l-window, beta =
+7/2 for C_0 >= 3/2, (B.33)'s data shifts +1/2 and -1/2 from Omega's one time direction, and beta' = -beta + 2 - eps in
+range iff beta in [-C_0, 2). 4/4, mutants 4/4, about 10 seconds; the four-dimensional controls reproduce his numbers.
+
+*Deduced (10.23).* Proposition B.2 on the reading of 10.19-10.20, Theorem B.4 on 10.22's reading in its edge-b version,
+Theorem B.1 on 4+1 Minkowski with beta in (0, 2 + C_0], and [Hin26] Theorem 7.1(4) with every beta in [-C_0, 2), at (v,
+e) = (1/2, 1/102400), C_0 <= 100, and h = 10^-6 if that is below h_0. Nothing proved.
+
+*Decisions.* (1) Hintz calls -(1/2) r^2 l(dr/r) positive definite with respect to Lemma 3.3's fiber inner product
+because its eigenvalues are positive; the record computes the eigenvalues, deduces the rest as he does, and labels F3
+so. (2) (B.33)'s data weights are not typed: their +1/2 and -1/2 are computed from the density in (tau, r), and are
+dimension-free. (3) The closing integral is computed, not compared. (4) After a first passing run, F1's separate d_t*
+sub-check, implied by the homogeneity, was replaced by a count of the d_t* terms, F3's threshold was bracketed directly,
+F4's data shifts and closing integral were computed rather than typed, and the page of the Lemma 3.3 quotation corrected
+to 96.
+
+*Records.* 10.19-10.22's OPEN lists and ROUTES 4.4, 4.5, 4.22 and 4.23 point to 10.23 and 4.24; ROUTES 4.24; the README
+(thirty-two programs); the paper's settling paragraph, review bullet, Appendices A, C and D, its [Hin26a] and [Hin26]
+entries and the md5 table (40 rows).
+
+*Next.* The thirtieth verifier's findings on 10.22 and D68 are seated when it reports, and the thirty-first is then sent
+on 10.23 and tface5.py. Then [Hin26] sections 6.5, 7.2 and 8 in five dimensions.
