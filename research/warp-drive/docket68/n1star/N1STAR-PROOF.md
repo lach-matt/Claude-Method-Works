@@ -3217,9 +3217,9 @@ index 0 of box(0) on the weighted spaces, and with it that delta(r - r_h) dr spa
 Lemma 6.8, from [Hin26c] Proposition 9.40); the estimates (6.27)-(6.28) -- and his Step 2, the perturbation near
 infinity; mode stability of box at nonzero frequencies in five dimensions, which his Proposition 6.9 takes from [AHW24]
 Theorem 5.1 on Kerr (deduced on Tangherlini, within a class, in 10.16); the high-energy side of his Proposition 6.9 in
-five dimensions -- his Proposition 6.5, from section 6.1's strong trapping admissibility (Lemma 6.4) -- and Lemma 6.1's
-structure; and the radial-point and b-regularity behind (a). Nothing of this section is proved: Proposition 10.12 is
-computed, and (a)-(c) are deduced.
+five dimensions -- his Proposition 6.5, from section 6.1's strong trapping admissibility (Lemma 6.4; deduced in 10.17)
+-- and Lemma 6.1's structure; and the radial-point and b-regularity behind (a). Nothing of this section is proved:
+Proposition 10.12 is computed, and (a)-(c) are deduced.
 
 ### 10.16 Mode stability of the gauge potential operator at sigma != 0 in five dimensions (`modes5.py` M1-M5; D58)
 
@@ -3297,9 +3297,79 @@ S^3 brings -- 3/4, and 9/4, 5/4 and -7/4 times mu/r^2 -- and positivity survives
 Maxwell scalar potential is negative near the horizon, and that sector is settled by the equation, M_r = -i sigma
 F_tr/f, not by positivity. Not done, and OPEN: that the kernel elements of his spectral family in five dimensions lie in
 the class ([Hin26c]'s radial-point and scattering regularity in five dimensions); his Proposition 6.5, from section
-6.1's trapping, and the uniform estimates of [Hin26c] Theorem 9.5 in five dimensions, which with this give his
-Proposition 6.9 there for small E^Upsilon; and the low-energy part (10.15). Nothing of this section is proved:
-Proposition 10.13 is computed, and the mode stability is deduced.
+6.1's trapping (whose input, his Lemma 6.4, 10.17 deduces), and the uniform estimates of [Hin26c] Theorem 9.5 in five
+dimensions, which with this give his Proposition 6.9 there for small E^Upsilon; and the low-energy part (10.15). Nothing
+of this section is proved: Proposition 10.13 is computed, and the mode stability is deduced.
+
+### 10.17 Strong trapping admissibility of the gauge potential operator in five dimensions (`trap5.py` T0-T4; D59)
+
+*The setting.* [Hin26] Proposition 6.5, the mode stability of box^Upsilon at high energies (|sigma| >= C, Im sigma >=
+0), comes from [Hin26c] Theorem 9.16, whose input at the trapped set is his Lemma 6.4: box^Upsilon is strongly trapping
+admissible ([Hin26c] Definition 5.8). That is, for every eps > 0 there is a stationary positive definite fiber inner
+product on pi^*(T^*), homogeneous of degree 0, with sigma^-1 (1/2i) (S_sub - S_sub^*) < eps at the trapped set Gamma_0
+((6.14)), Gamma_0 = {xi = H_G xi = 0} in the future characteristic set over r > r_+ ([Hin26c] Definition 4.13).
+E^Upsilon vanishes near the trapped set by his requirement (6.1), so only box = 2 delta G delta* enters, with S_sub(box)
+= -i nabla_{H_G} ((6.13), from [Hin17] Proposition 4.1). His proof uses a frame e_0 = zeta, e_1, e_2, e_3
+((6.15)-(6.16b)) in which nabla_{H_G} = H_G + 2 sigma N with N nilpotent ((6.16c)). In five dimensions the angular
+directions orthogonal to the motion form a plane, not a line; this section computes the frame's part and carries the
+plane by metric compatibility. Notation: zeta = -sigma dt + xi dr + eta, G = g^-1(zeta, zeta), H_G = d_zeta G d_z - d_z
+G d_zeta, C = r^2 |eta|^2_g, the Casimir of S^3 (his Carter constant at a = 0), and w^(0) = f^(1/2) dt, w^(1) = f^(-1/2)
+dr with zeta_(0), zeta_(1) the components of zeta along them.
+
+**Proposition 10.14 (computed; exact).** On five-dimensional Tangherlini, f = 1 - mu/r^2, r_h = mu^(1/2):
+ (i) S_sub(box) = -i nabla^{pi^* T^*}_{H_G}: conjugated to half densities by |dg|, box = 2 delta G delta* has principal
+     part G Id and subprincipal part i Gam^c_ab d_{zeta_b} G (T0).
+ (ii) The trapped set is {r^2 = 2 mu, xi = 0} in the future characteristic set: on G = 0 at xi = 0, H_G xi = (2 C/(f
+     r^5))(r^2 - 2 mu), whose only zero in r > r_h is r^2 = 2 mu; there C = 4 mu sigma^2 > 0, the differentials of xi,
+     H_G xi and G are independent, and under H_G/(H_G t) the normal expansion rate is nu = (2 mu)^(-1/2), the inverse of
+     the photon-sphere radius (T1).
+ (iii) H_G C = 0, and on G = 0 the frame e_0 = zeta, e_1 = r (zeta_(1) w^(0) + zeta_(0) w^(1)), e_2 = (r^2/2) (zeta_(0)
+     w^(0) + zeta_(1) w^(1) - eta) has the Gram matrix C J, J = [[0, 0, -1], [0, 1, 0], [-1, 0, 0]], of determinant
+     -C^3; an angular covector is g-orthogonal to all three iff it is orthogonal to eta (T2).
+ (iv) On G = 0: nabla_{H_G} e_0 = 0, nabla_{H_G} e_1 = -2 sigma e_0, nabla_{H_G} e_2 = -2 sigma e_1 (T3).
+ (v) For N e_0 = 0, N e_1 = e_0, N e_2 = e_1, the operator N + N^* has norm 2^(1/2) eta^(1/2) for the inner product
+     diag(1, eta^-1, eta^-2) in (e_0, e_1, e_2)/C^(1/2), and 2^(1/2) eta for diag(1, eta^-2, eta^-4) (T4).
+
+*Proof.* T0-T4 of trap5.py, from the definitions in the static chart, the covector components symbolic and the
+identities reduced modulo G in zeta_t. Four-dimensional controls, Schwarzschild in T0-T3: (i); the photon sphere r = 3
+mu/2 with nu = 2/(3^(3/2) mu) = 1/(3^(3/2) M); the Gram matrix of (6.16a); and (6.16c) at a = 0, with e_3 = r (zeta_(3)
+w^(2) - zeta_(2) w^(3)) parallel. Controls: the coordinate density dx in place of |dg| in (i); the four-dimensional
+ratio r_ph = (3/2) r_h claimed in five dimensions; the Gram matrix off the characteristic set; e_1 without its weight r;
+and a diagonal entry in N. []
+
+*Remarks (computed).* (a) In these conventions nabla_{H_G} e_1 = -2 sigma e_0, in four dimensions as in five; (6.16c)
+prints +2 sigma, which is the computed relation with e_1 replaced by -e_1. The convention behind his sign is not
+identified here; the matrix is nilpotent either way, which is all the proof uses. (b) For the inner product his proof
+names, diag(1, eta^-1, eta^-2, eta^-3), the norm is 2^(1/2) eta^(1/2) -- e_3 does not enter, N vanishing on it -- where
+his text says O(eta); O(eta) holds for the squared weights. Either tends to 0, which is all the proof uses.
+
+*Deduced.*
+ (a) (his Lemma 6.4 in five dimensions) Near Gamma_0, where C > 0 by (ii), pi^*(T^*) = P + V_perp, P = span{e_0, e_1,
+     e_2} and V_perp its g-orthogonal complement, the angular covectors orthogonal to eta (iii), on which g is positive
+     definite. P is nabla_{H_G}-invariant by (iv); nabla is metric, so V_perp is invariant too and nabla_{H_G} is g-skew
+     there. Take B_eta = diag(1, eta^-1, eta^-2) on P in (e_0, e_1, e_2)/C^(1/2) -- stationary and homogeneous of degree
+     0, since H_G C = 0 and C has degree 2 -- and g on V_perp. In these frames B_eta is constant, -i H_G is symmetric
+     (H_G preserves the symplectic volume) and H_G sigma = 0, so by (i) sigma^-1 (1/2i) (S_sub - S_sub^*) is N + N^* on
+     P and 0 on V_perp, of norm 2^(1/2) eta^(1/2) by (v): below any eps > 0 for small eta. So box is strongly trapping
+     admissible on five-dimensional Tangherlini, and so is box^Upsilon when E^Upsilon vanishes near r^2 = 2 mu ((6.1))
+     -- a choice of the supports of c_H and c^Upsilon, as in his Proposition 6.12.
+ (b) ([Hin26c] Proposition 4.19 in five dimensions) On Gamma_0 the flow is the t-translation together with the geodesic
+     flow of the round S^3, which is periodic, and it is normally hyperbolic at the uniform rate nu of (ii): the trapped
+     set is r-normally hyperbolic for every r.
+
+*READ.* [Hin26] (alphaXiv, 2026-10-22): pp. 113-116 (section 6: (6.1)-(6.3), Lemma 6.1, Remark 6.2; section 6.1:
+(6.12)-(6.16c), Lemma 6.4 and its proof, Proposition 6.5). [Hin26c] (arXiv:2606.28008v1; alphaXiv, 2026-10-22): pp. 88
+(Definition 4.13, Lemma 4.14), 90-91 (Proposition 4.19), 101-103 (Example 5.4, Remark 5.6, section 5.1.1, Definition
+5.8, Remark 5.9), 265 (the high-frequency control, resting on strong trapping admissibility).
+
+*What this gives, and what it does not.* The trapping input of his Proposition 6.5 holds on five-dimensional
+Tangherlini: the 1-form wave operator, and with it box^Upsilon, is strongly trapping admissible, by his argument -- the
+frame and its nilpotent connection matrix are the same -- with the second angular direction carried by metric
+compatibility; the trapped set is the photon sphere r^2 = 2 mu, with expansion rate 1/r_ph. Not done, and OPEN: [Hin26c]
+Theorem 9.16 in five dimensions -- the high-energy estimates themselves, with the radial point estimates at the horizon
+and at infinity; [Hin26c] works "in 3 + 1 dimensions for concreteness" (Remark 5.6) -- and with it his Proposition 6.5
+there; the other OPEN items of 10.15-10.16 stand. Nothing of this section is proved: Proposition 10.14 is computed, and
+(a)-(b) are deduced.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)

@@ -1649,3 +1649,43 @@ rows). Labels: computed (modes5.py M1-M5, exact), deduced, READ; nothing proved.
 spectral family in five dimensions lie in the class; his Proposition 6.5 and [Hin26c] in five dimensions; the rest of
 item 2 as before. The twenty-sixth verifier is sent on 10.16, modes5.py and the twenty-fifth's repairs; its verdict
 follows. Next: route B's item 2 continues at [Hin26c] and his section 5 in five dimensions.
+
+**D59 (2026-10-22, M: "Continue please"): strong trapping admissibility of the gauge potential operator in five
+dimensions -- the input of [Hin26] Proposition 6.5, his Lemma 6.4 (section 10.17; trap5.py T0-T4).**
+
+*The step.* PR #79 merged; the branch restarts at main a75e91f. Of item 2's rest, 10.15-10.16 named the high-energy side
+of his Proposition 6.9 as OPEN: his Proposition 6.5, from [Hin26c] Theorem 9.16 with his Lemma 6.4 as the input at the
+trapped set. The lemma's content is a computation on the null geodesic flow; the theorem is [Hin26c]'s microlocal
+analysis.
+
+*What was read.* At source (alphaXiv, 2026-10-22; firecrawl timed out twice at 60 s): [Hin26] pp. 113-116 -- section 6's
+opening, (6.1) E^Upsilon = 0 near the trapped set, (6.2), Lemma 6.1, Remark 6.2, section 6.1 with (6.12)-(6.16c), Lemma
+6.4 and its proof, Proposition 6.5; and [Hin26c] (arXiv:2606.28008v1) pp. 88 (Definition 4.13: Gamma_0 = {xi = H_G xi =
+0} in the future characteristic set; Lemma 4.14), 90-91 (Proposition 4.19, r-normal hyperbolicity), 101-103 (Example
+5.4, Remark 5.6 -- "we work in 3 + 1 dimensions for concreteness" --, Definition 5.8, Remark 5.9), 265.
+
+*What was computed.* trap5.py: (T0) (6.13) in five dimensions from the full symbol of 2 delta G delta* on half
+densities: principal part G Id, subprincipal part i Gam^c_ab d_zeta_b G, so S_sub = -i nabla_{H_G}; (T1) the trapped set
+r^2 = 2 mu, xi = 0, with C = 4 mu sigma^2 > 0, the differentials independent, and the normal expansion rate (2
+mu)^(-1/2) = 1/r_ph (four dimensions: r = 3 mu/2, 1/(3^(3/2) M)); (T2) H_G C = 0 and his frame's Gram matrix C J on the
+characteristic set, its complement the angular covectors orthogonal to eta; (T3) nabla_{H_G} e_0 = 0, e_1 -> -2 sigma
+e_0, e_2 -> -2 sigma e_1, nilpotent (four dimensions: the same, e_3 parallel); (T4) the skew part N + N^* of norm
+2^(1/2) eta^(1/2) for diag(1, eta^-1, eta^-2). Selftest 5/5 (about 12 seconds), mutants 5/5. Found by exploring before
+it was checked: (6.16c) prints +2 sigma where the computation gives -2 sigma in four dimensions as in five -- his
+relation is the computed one with e_1 -> -e_1, the convention not identified, harmless since the matrix is nilpotent
+either way; with his inner product diag(1, eta^-1, eta^-2, eta^-3) the norm is of size eta^(1/2), not O(eta) as his
+proof says -- harmless, as it tends to 0; the first symbol check failed only through |sin th| in sqrt(-det g), removed
+by the chart's volume factor; and the first expansion-rate check compared four dimensions with 1/r_ph, which holds in
+five only.
+
+*What was deduced.* His Lemma 6.4 in five dimensions: with diag(1, eta^-1, eta^-2) on span{e_0, e_1, e_2}/C^(1/2) and g
+on the complement -- invariant and g-skew, nabla being metric -- the skew part of S_sub is below any eps at the photon
+sphere, so box, and box^Upsilon with E^Upsilon vanishing there, is strongly trapping admissible; and the trapped set is
+r-normally hyperbolic, the flow on it the periodic geodesic flow of the round S^3 at the normal rate 1/r_ph.
+
+*Seated.* N1STAR-PROOF.md 10.17 with Proposition 10.14, and pointers in 10.15-10.16; trap5.py; ROUTES-OPEN.md 4.4, 4.5,
+4.16, 4.17 and the new 4.18; the README; the paper (the settling paragraph, Appendices A, C and D, the [Hin26] entry and
+a new [Hin26c], D1-D59, the md5 rows). Labels: computed (trap5.py T0-T4, exact), deduced, READ; nothing proved. OPEN:
+[Hin26c] Theorem 9.16 in five dimensions, and with it his Proposition 6.5; the rest of item 2 as before. The
+twenty-sixth verifier, on 10.16, has not reported; its findings will be seated when it does, and the twenty-seventh sent
+on 10.17 after it, one at a time. Next: route B's item 2 continues at [Hin26c] and his section 5 in five dimensions.

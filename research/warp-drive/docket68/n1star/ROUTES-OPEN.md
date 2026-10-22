@@ -366,12 +366,14 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    not exist and is the first genuinely new object of the route. Tangherlini being static, the indicial-root computation
    it needs is an ODE problem in r for each l of the class. Its indicial half is computed (4.13; N1STAR-PROOF.md 10.12),
    the semiclassical inputs of the construction (4.14; 10.13), and a five-dimensional c of his Proposition 5.1's kind on
-   Tangherlini (4.15; 10.14), the zero energy inputs of the modification E^Upsilon (4.16; 10.15), and the mode stability
-   of the unmodified operator at nonzero frequency (4.17; 10.16): with the trace weight 2/(D - 2) in place of his 1 the
-   strip is clear at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here, the c's conditions
-   hold at that e, and the unmodified operator's (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let
-   a horizon modification remove it, and it has no mode at sigma != 0, Im sigma >= 0, in a class (deduced); his Theorem
-   5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the item are OPEN.
+   Tangherlini (4.15; 10.14), the zero energy inputs of the modification E^Upsilon (4.16; 10.15), the mode stability of
+   the unmodified operator at nonzero frequency (4.17; 10.16), and the trapping input of the high energies (4.18;
+   10.17): with the trace weight 2/(D - 2) in place of his 1 the strip is clear at a point below the five-dimensional
+   bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at that e, and the unmodified operator's
+   (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a horizon modification remove it, and it has
+   no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is strongly trapping admissible at the photon
+   sphere r^2 = 2 mu (deduced); his Theorem 5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the
+   item are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -421,9 +423,11 @@ the class. Route B's item 2, the five-dimensional constraint damping, is 4.13 fo
 conditions checked at that e; 4.16 (10.15, Proposition 10.12, computed; the kernel deduced) gives the unmodified gauge
 potential operator's zero energy kernel, cokernel functional and pairings in five dimensions, the inputs of [Hin26]
 Proposition 6.12; and 4.17 (10.16, Proposition 10.13, computed; the mode stability deduced) gives that operator's mode
-stability at sigma != 0 on Tangherlini, in a class, the input of his Proposition 6.9. Next: the rest of item 2 -- the
-3b-estimates of his section 5 (his Theorem 5.2, with its h_0) and section 6's five-dimensional steps, his Theorem B.1,
-his Proposition 6.5 (high energies) and [Hin26c]'s theory, low energy and regularity, all in five dimensions.
+stability at sigma != 0 on Tangherlini, in a class, the input of his Proposition 6.9; and 4.18 (10.17, Proposition
+10.14, computed; deduced) gives the strong trapping admissibility of box^Upsilon, his Lemma 6.4, the input of his
+Proposition 6.5. Next: the rest of item 2 -- the 3b-estimates of his section 5 (his Theorem 5.2, with its h_0) and
+section 6's five-dimensional steps, his Theorem B.1, and [Hin26c]'s theory -- the high-energy estimates (his Theorem
+9.16, which with 4.18 gives his Proposition 6.5), low energy and regularity -- all in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -789,9 +793,9 @@ ROUTES 4.4 item 2's E^Upsilon. gaugepot5.py computes them; N1STAR-PROOF.md 10.15
 - OPEN: [Hin26c]'s low-energy theory in five dimensions (index 0, tf-admissibility, the estimates (6.27)-(6.28)); his
   Step 2, the perturbation near infinity; mode stability of box at nonzero frequencies in five dimensions (his
   Proposition 6.9 rests on [AHW24] Theorem 5.1; deduced in 4.17); the high-energy side of his Proposition 6.9
-  (Proposition 6.5, section 6.1's Lemma 6.4) and Lemma 6.1's structure; the radial-point and b-regularity behind the
-  kernel. Labels: computed (gaugepot5.py G1-G7, exact); deduced (the kernel, the augmented operator's injectivity); READ
-  ([Hin26] pp. 25-26, 82, 113, 117-124; alphaXiv, 2026-10-21); nothing proved.
+  (Proposition 6.5, section 6.1's Lemma 6.4; the latter deduced in 4.18) and Lemma 6.1's structure; the radial-point and
+  b-regularity behind the kernel. Labels: computed (gaugepot5.py G1-G7, exact); deduced (the kernel, the augmented
+  operator's injectivity); READ ([Hin26] pp. 25-26, 82, 113, 117-124; alphaXiv, 2026-10-21); nothing proved.
 
 ### 4.17 Mode stability of the gauge potential operator at nonzero frequency in five dimensions (computed; D58)
 
@@ -810,6 +814,28 @@ Theorem 5.1. modes5.py computes the five-dimensional reductions on Tangherlini; 
   negative near the horizon and is not needed.
 - Deduced: for sigma != 0, Im sigma >= 0, a mode smooth across the future horizon and outgoing at infinity vanishes --
   each step an energy identity (Im sigma > 0) or the constant Wronskian (sigma real).
-- OPEN: that his spectral family's kernel elements lie in the class in five dimensions; his Proposition 6.5 and [Hin26c]
-  Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there; the low-energy part (4.16). Labels:
-  computed (modes5.py M1-M5, exact); deduced (the mode stability); READ ([Hin26] pp. 118-119; [KI03b]); nothing proved.
+- OPEN: that his spectral family's kernel elements lie in the class in five dimensions; his Proposition 6.5 (its
+  trapping input in 4.18) and [Hin26c] Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there;
+  the low-energy part (4.16). Labels: computed (modes5.py M1-M5, exact); deduced (the mode stability); READ ([Hin26] pp.
+  118-119; [KI03b]); nothing proved.
+
+### 4.18 Strong trapping admissibility of the gauge potential operator in five dimensions (computed; D59)
+
+ROUTES 4.4 item 2's [Hin26] Proposition 6.5, mode stability of box^Upsilon at high energies, comes from [Hin26c] Theorem
+9.16 with his Lemma 6.4 as the input at the trapped set: strong trapping admissibility ([Hin26c] Definition 5.8).
+trap5.py computes the five-dimensional pieces on Tangherlini; N1STAR-PROOF.md 10.17 states Proposition 10.14 and deduces
+the lemma.
+- S_sub(box) = -i nabla_{H_G} ((6.13)) from the full symbol of 2 delta G delta* on half densities (T0); E^Upsilon
+  vanishes near the trapped set ((6.1)), so box is all that enters.
+- The trapped set ([Hin26c] Definition 4.13) is the photon sphere r^2 = 2 mu, xi = 0, with C = 4 mu sigma^2 > 0,
+  codimension 2, and expansion rate 1/r_ph = (2 mu)^(-1/2) (T1; four-dimensional control 1/(3^(3/2) M)).
+- His frame e_0 = zeta, e_1, e_2 carries over: Gram matrix C J on the characteristic set, and nabla_{H_G} = 0, -2 sigma
+  e_0, -2 sigma e_1 on it -- nilpotent (T2-T3; (6.16c) at a = 0 up to the sign of e_1). The complement, the angular
+  covectors orthogonal to eta, is a plane in five dimensions where it is his e_3 in four; it is invariant and g is
+  parallel on it, so it adds nothing to the skew part (deduced).
+- With diag(1, eta^-1, eta^-2) the skew part has norm 2^(1/2) eta^(1/2) (his "O(eta)" holds for the squared weights;
+  T4): strongly trapping admissible (deduced). The trapped set is r-normally hyperbolic: the round S^3 geodesic flow,
+  periodic, at the normal rate nu (deduced).
+- OPEN: [Hin26c] Theorem 9.16 in five dimensions, and with it his Proposition 6.5; [Hin26c] is in 3 + 1 "for
+  concreteness" (Remark 5.6). Labels: computed (trap5.py T0-T4, exact); deduced (the lemma, the normal hyperbolicity);
+  READ ([Hin26] pp. 113-116; [Hin26c] pp. 88, 90-91, 101-103, 265); nothing proved.
