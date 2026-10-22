@@ -383,9 +383,10 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    the operator is tf-admissible and its zero energy operator of index 0, so that [Hin26] Proposition 6.12 holds there
    on the same reading (deduced): box^Upsilon with 10.15's modification is mode stable on the closed upper half plane;
    and, with his Theorem 5.2 there on the reading that his 3b-analysis carries to five dimensions (4.23; its inputs
-   computed), the constraint propagation operator has no outgoing mode at sigma != 0, Im sigma >= 0, and an invertible
-   zero energy operator on l in [-C_0 - 2, 0), [Hin26a] Theorem 6.2 (deduced); the line-by-line readings of [Hin26a]
-   sections 2.3 and 5.2 and of [Hin26c] section 9 at n = 4, his Theorem B.1 and the rest of the item are OPEN.
+   computed), the constraint propagation operator has no outgoing mode at sigma != 0, Im sigma >= 0, and, at one
+   parameter point, an invertible zero energy operator on l in [-C_0 - 2, 0), [Hin26a] Theorem 6.2 (deduced; the horizon
+   threshold its Fredholm property needs is OPEN); the line-by-line readings of [Hin26a] sections 2.3 and 5.2 and of
+   [Hin26c] section 9 at n = 4, his Theorem B.1 and the rest of the item are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -445,7 +446,7 @@ reading that [Hin26c] section 9's scalar estimates hold on bundles and his Theor
 4.21 (10.20, Proposition 10.17, computed; deduced) carries [Hin26c]'s low-energy theory to n = 4 -- the transition face
 model and its Bessel reduction, the weights -- and deduces [Hin26] Proposition 6.12 there: the gauge potential operator
 is mode stable on the closed upper half plane; and 4.22 (10.21, Proposition 10.18, computed; deduced) carries [Hin26a]
-section 6 to five dimensions -- S-bar^C with three angular copies, the radial sets and (B.13)'s window, the weights
+section 6 to five dimensions -- S-bar^C with three angular copies, the radial sets and (B.13)'s l-window, the weights
 alpha_sf = -C_0 - 5/2 and l in [-C_0 - 2, 0) -- and deduces his Theorem 6.2 there from his Theorem 5.2; and 4.23 (10.22,
 Proposition 10.19, computed; deduced) computes the inputs of his Theorem 5.2 that 10.13-10.14 had not -- Tangherlini a
 3sc-metric with two powers to spare, the time functions of his energy estimates, his Proposition 5.1 (4)-(5) at 10.21's
@@ -919,13 +920,15 @@ Corollary 9.43 write Lemma 3.11's shift at n = 3. lowenergy5.py computes the fiv
 - The transition face: on 4+1 Minkowski the 1-form wave operator acts componentwise and, conjugated by e^(i sigma r),
   its spectral family is Delta_e - sigma^2 (L1).
 - Bessel at n = 4: order l + 1, exponents l and -(l + 2) -- the zero energy roots -l, l + 2 of 10.15 -- and the Hankel
-  asymptotics (mpmath): the outgoing solution, of size r^^-(l+2) near 0, is excluded exactly for weights below 2 (L2),
-  so box is tf-admissible on (0, 2), his Proposition 9.40 at n = 4.
+  asymptotics (mpmath): the outgoing solution, of size r^^-(l+2) near 0, is excluded exactly for weights below 2 (L2);
+  with the lower end 0 from the adjoint condition (READ, his Proposition 9.40 for n >= 3), box is tf-admissible on (0,
+  2), his Proposition 9.40 at n = 4 (deduced).
 - The weights: the shift is n/2 = 2; the augmentation's terms are rho^3 and rho^4, inside the target iff alpha + 2 < 1
   (L3).
-- Deduced, on 10.19's reading: Theorem 9.36 at n = 4; his Lemma 6.8 (box^Upsilon tf-admissible on (0, lam_s1,2));
-  Corollary 9.43, index 0, so 10.15's horizon functional spans the cokernel of box(0); and his Proposition 6.12, Steps
-  1-2: with 10.15's modification box^Upsilon is mode stable at every sigma with Im sigma >= 0.
+- Deduced, on 10.19's reading widened to Lemma 3.11, Theorems 9.36-9.41 and Corollary 9.43 at n = 4 with alpha + 2:
+  Theorem 9.36 at n = 4; his Lemma 6.8 (box^Upsilon tf-admissible on (0, lam_s1,2)); Corollary 9.43, index 0, so 10.15's
+  horizon functional spans the cokernel of box(0); and his Proposition 6.12, Steps 1-2: with 10.15's modification
+  box^Upsilon is mode stable at every sigma with Im sigma >= 0.
 - OPEN: section 9 line by line at n = 4; his section 6.5 and Lemma 6.13; his section 7 ([Hin26a]) and section 8 in five
   dimensions. Labels: computed (lowenergy5.py L1-L3; exact, L2's asymptotics numerical); deduced; READ ([Hin26c] pp. 61,
   104, 193-200; [Hin26] pp. 117-124); nothing proved.
@@ -940,12 +943,13 @@ Proposition 10.18 and deduces.
   Minkowski, spec S-bar^C = h^-1 {2 (1 - v), (1 - e)(1 - v), 1 - v (3x)}, positive (K1). Four-dimensional control: his,
   with two copies and the shift 1.
 - The radial sets: A_w + S-bar^C = D S-bar^C(-v) D, spec h^-1 {2 (1 + v), (1 - e)(1 + v), 1 + v (3x)} (K2); so his
-  (B.13) window is the same in five dimensions (deduced).
+  (B.13) l-window is the same in five dimensions (deduced); its beta-range carries the density's shift.
 - The weights: a mode's data in rho^(-2-eps) H-bar_b (r^3), alpha_sf = -C_0 - 5/2 with alpha_K = 1, and l in [-C_0 - 2,
   0) (K3).
 - Deduced, on [Hin26a] Theorem 5.2 in five dimensions (OPEN): no outgoing mode of box^C at sigma != 0, Im sigma >= 0;
-  the zero energy operator injective, and of index 0 by the radial ODEs of the static metric with 10.12's roots at
-  Proposition 10.9's point, C_0 <= 96; so his Theorem 6.2 there.
+  the zero energy operator injective, both for every h < h_0; of index 0 by the radial ODEs of the static metric with
+  10.12's roots at Proposition 10.9's point (h = 10^-6), C_0 <= 100, and invertible given the Fredholm property, whose
+  horizon threshold is OPEN; so his Theorem 6.2 there, (2) at one parameter point, provided 10^-6 < h_0.
 - OPEN: his Theorem 5.2 and Theorem B.1 in five dimensions; [Hin26] Theorem 7.1(4); [Hin26] section 6.5, Lemma 6.13 and
   sections 7-8. Labels: computed (cpmodes5.py K1-K3, exact); deduced; READ ([Hin26a] pp. 1-3, 9-11, 38-43, 47, 51, 54,
   64, 66-69, 87, 93, 98; [Hin26] p. 135); nothing proved.
@@ -966,8 +970,8 @@ N1STAR-PROOF.md 10.22 states Proposition 10.19 and deduces.
   with rho_K <= 10 at C_0 = 96 (Q4); the five-dimensional (5.14) at e = 1/102400 is alpha_sf < b* - 1, alpha_K >
   alpha_sf + 1 - b*, b* = 0.99340731... (10.14).
 - Deduced, on the reading that his 3b-analysis (sections 2.3 and 5.2) holds in five dimensions: his Theorem 5.2 on
-  Tangherlini at (v, e) = (1/2, 1/102400) with 10.14's c, h_0 not explicit; with 4.22, his Theorem 6.2 there for C_0 <=
-  96.
+  Tangherlini at (v, e) = (1/2, 1/102400) with 10.14's c, h_0 not explicit; with 4.22, his Theorem 6.2 there, (1) for
+  every h < h_0 and (2) at h = 10^-6 if that is below h_0, C_0 <= 100.
 - OPEN: that reading line by line; h_0; his Theorem B.1 and [Hin26] Theorem 7.1(4); [Hin26] sections 6.5, 7.2 and 8.
   Labels: computed (solv5.py Q1-Q4, exact); deduced; READ ([Hin26a] pp. 9, 12-16, 25-27, 38, 41-44, 47-48, 51-52, 54,
   56, 58-60, 64, 66); nothing proved.

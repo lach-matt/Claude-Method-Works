@@ -18,28 +18,33 @@ which his (6.25) secures in four dimensions through a cancellation at infinity.
      component: the 1-form wave operator acts componentwise, and conjugated by e^(i sigma r) its spectral family is the
      Helmholtz operator (his p. 197 display, at n = 4).  Four-dimensional control: n = 3, the same.  Controls: gam =
      1, where the modification does not act componentwise; and the conjugation by e^(-i sigma r).
-  L2 (computed; exact, and numerical where said) The Bessel reduction at n = 4: for u = r^-1 w, -u'' - (3/r) u' + l (l
-     + 2) u/r^2 - u = -r^-3 (r^2 w'' + r w' + (r^2 - (l + 1)^2) w), Bessel's equation of order nu = l + 1 = (n - 2)/2 +
-     l; the exponents at r = 0 are l and -(l + 2) -- in rho^ = 1/r^ the zero energy indicial roots -l and l + 2 of the
+  L2 (computed; exact, and numerical where said) The Bessel reduction at n = 4: for u = r^-1 w, -u'' - (3/r) u' + l (l +
+     2) u/r^2 - u = -r^-3 (r^2 w'' + r w' + (r^2 - (l + 1)^2) w), Bessel's equation of order nu = l + 1 = (n - 2)/2 + l;
+     the exponents at r = 0 are l and -(l + 2) -- in rho^ = 1/r^ the zero energy indicial roots -l and l + 2 of the
      unmodified operator (10.15's vl roots), the gap (0, 2) at l = 0; and, numerically (mpmath, 30 digits, l = 0, ...,
      4): x^nu H^(1)_nu(x) -> -(i/pi) Gamma(nu) 2^nu as x -> 0, e^(-ix) x^(1/2) H^(1)_nu(x) -> (2/pi)^(1/2) e^(-i (nu
      pi/2 + pi/4)) as x -> oo, and on the ray x = i t, H^(1) decays and H^(2) grows.  So the outgoing solution r^^-1
      H^(1)_(l+1) is c r^^-(l+2) near 0 with c != 0: excluded from O(r^^-beta) for beta < 2 at every l, and admitted at l
-     = 0 for beta > 2 -- the range (0, n - 2) is sharp.  Four-dimensional control: u = r^(-1/2) w, nu = l + 1/2, the
-     exponents l and -(l + 1), the range (0, 1).  Control: the range (0, 3) claimed.
+     = 0 for beta > 2 -- the top n - 2, read off the computed exponents, is sharp; the lower end 0 is not computed here
+     but READ (his Proposition 9.40, from the adjoint condition).  Four-dimensional control: u = r^(-1/2) w, nu = l +
+     1/2, the exponents l and -(l + 1), the top 1.  Control: the top 3 claimed.
   L3 (computed, exact) The weights at n = 4.  rho^a lies in rho^alpha L^2(r^3 dr) near infinity iff a > alpha + 2: the
-     shift of his Lemma 3.11 is n/2 = 2 (his 3/2), so Theorem 9.36's alpha + 3/2 reads alpha + 2, 10.15's shifted weight.
-     On Tangherlini with t* = t - r, d_sigma^2 of the spectral family is 2 g00 Id, g00 = g^-1(dt*, dt*) in rho^2 C^oo
-     (thresh5.py U4), so the third summand of f, (lambda sigma^^2/2) d_sigma^2 box(0) W*, is -2 mu rho^4 dt + O(rho^5):
-     with 10.15's rho^3 for the first summand, f lies in the target space H_b^(oo, alpha + 2) iff alpha + 2 < 1.
+     shift of his Lemma 3.11 is n/2 = 2 (his 3/2), so Theorem 9.36's alpha + 3/2 reads alpha + 2, 10.15's shifted
+     weight. On Tangherlini with t* = t - r, d_sigma^2 of the spectral family is 2 g00 Id -- deduced from his Definition
+     9.4, not computed here -- with g00 = g^-1(dt*, dt*) in rho^2 C^oo (thresh5.py U4) and W*'s leading term rho^2 dt
+     (10.15) typed in, so the third summand of f, (lambda sigma^^2/2) d_sigma^2 box(0) W*, is -2 mu rho^4 dt + O(rho^5),
+     computed from these (10.15(vi) uses t* = t - r_*, which differs by O(mu/r) and moves it only at rho^5): with
+     10.15's rho^3 for the first summand, f lies in the target space H_b^(oo, alpha + 2) iff alpha + 2 < 1.
      Four-dimensional control: n = 3, the shift 3/2.  Control: the Coulomb fall-off rho of four dimensions put on W*,
      where the third summand is rho^3.
 
 Deduced, not computed here: with 10.18-10.19 (thresholds, dynamics, Theorems 9.5 and 9.16 on the reading of [Hin26c]
-section 9 for n = 4): Theorem 9.36 at n = 4 with alpha + 2 in an indicial gap; Proposition 9.40 (READ, n >= 3) at n = 4
-for the unmodified operator, weights (0, 2); his Lemma 6.8 there, box^Ups tf-admissible on (0, lam_s1,2) for small gam
-and e, by his perturbation and Corollary 9.39; Corollary 9.43, index 0, so the cokernel of box(0) is spanned by 10.15's
-delta(r - r_h) dr functional; and [Hin26] Proposition 6.12's Steps 1-2 in five dimensions, with alpha + 2 in (0, 1).
+section 9 for n = 4), and on that reading widened to Lemma 3.11, Theorems 9.36-9.41 and Corollary 9.43 at n = 4 with
+alpha + 2 for alpha + 3/2 (section 9.5 again stated for scalar operators): Theorem 9.36 at n = 4 with alpha + 2 in an
+indicial gap; Proposition 9.40 (READ, n >= 3) at n = 4 for the unmodified operator, weights (0, 2); his Lemma 6.8 there,
+box^Ups tf-admissible on (0, lam_s1,2) for small gam and e, by his perturbation and Corollary 9.39; Corollary 9.43,
+index 0, so the cokernel of box(0) is spanned by 10.15's delta(r - r_h) dr functional; and [Hin26] Proposition 6.12's
+Steps 1-2 in five dimensions, with alpha + 2 in (0, 1).
 
 READ.  [Hin26c] pp. 61 (Lemma 3.11, Definition 3.12, (3.47)), 104 (Definition 5.10), 193-195 (Theorem 9.36 and its
 proof, (9.107)-(9.109), section 9.5: (9.110), Theorem 9.38, (9.111)-(9.115)), 197-198 (Corollary 9.39, Proposition
@@ -114,13 +119,16 @@ def l2(control=0, verbose=False):
             want1 = mp.sqrt(2/mp.pi)*mp.exp(-1j*(v*mp.pi/2 + mp.pi/4))
             ray = abs(mp.hankel1(v, 1j*40)) < mp.exp(-30) and abs(mp.hankel2(v, 1j*40)) > mp.exp(30)
             num &= abs(small/want0 - 1) < mp.mpf("1e-6") and abs(far/want1 - 1) < mp.mpf("1e-3") and ray
-        top = (n - 2) if control != 1 else (n - 1)
-        # the outgoing solution is c r^-(l + n - 2) near 0 with c != 0, so it is O(r^-beta) iff beta >= l + n - 2:
-        # excluded for every l and every beta in (0, top) iff min_l (l + n - 2) = n - 2 >= top, with equality (sharp)
-        sharp = (n - 2) == top
+        # the outgoing solution is c r^-(l + n - 2) near 0 with c != 0 (the negative exponent, read off ex), so it is
+        # O(r^-beta) iff beta >= l + n - 2: excluded for every l and beta < min_l (l + n - 2), attained at l = 0 (sharp)
+        neg = [z for z in ex if sp.simplify(z.subs(l, 0)) < 0]
+        grow = -neg[0] if len(neg) == 1 else None
+        top_c = grow.subs(l, 0) if grow is not None and sp.diff(grow, l).is_positive else None
+        top = (n - 2) if control != 1 else (n - 1)                   # the claim
+        sharp = top_c is not None and top_c == top
         chk(f"n + 1 = {n + 1}: u = r^-{sp.Rational(n - 2, 2)} w gives Bessel's equation of order l + "
             f"{sp.Rational(n - 2, 2)}; exponents l, -(l + {n - 2}); Hankel asymptotics (mpmath); the outgoing solution "
-            f"excluded exactly for beta in (0, {top})", bessel and expo and num and sharp)
+            f"excluded exactly for beta < {top_c}, the claimed top {top}", bessel and expo and num and sharp)
     return chk.ok
 
 
@@ -128,21 +136,22 @@ def l2(control=0, verbose=False):
 def l3(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
     rho, a, al = sp.symbols("rho a alpha", real=True)
+    shift4 = None
     for n in ((4,) if control else (4, 3)):
         e = 2*(a - al) - n - 1                                     # rho^(2(a - alpha)) rho^(-n-1) d rho near rho = 0
         thr = sp.solve(sp.Eq(e, -1), a)[0]
+        if n == 4:
+            shift4 = sp.simplify(thr - al)
         chk(f"n + 1 = {n + 1}: rho^a in rho^alpha L^2(r^{n - 1} dr) iff a > {thr} (shift n/2)",
             sp.simplify(thr - (al + sp.Rational(n, 2))) == 0)
-    if control:
-        pass
     rs = sp.Symbol("rho", positive=True)
     g00 = -(2*mu*rs**2 - mu**2*rs**4)/(1 - mu*rs**2)             # thresh5.py U4, t* = t - r
     Wdt = rs**2 if control != 1 else rs                          # W* = dt/r^2 + ...; the control puts on rho
     third = sp.series(2*g00*Wdt, rs, 0, 6).removeO()
     lead = sp.Poly(third, rs).monoms()[-1][0]
-    first = 3                                                    # 10.15 (vi): d_sigma box(0) W* = i r^-3 dt + O(r^-4)
-    # rho^k lies in H_b^(oo, alpha + 2) (Euclidean density, n = 4) iff k > (alpha + 2) + 2, i.e. alpha + 2 < k - 2
-    bound = min(first, lead) - 2
+    first = 3                                    # 10.15 (vi), computed there: d_sigma box(0) W* = i r^-3 dt + O(r^-4)
+    # rho^k lies in H_b^(oo, alpha + 2) (Euclidean density, n = 4) iff k > (alpha + 2) + shift4, shift4 = 2 from above
+    bound = min(first, lead) - shift4
     chk(f"n + 1 = 5: (1/2) d_sigma^2 box(0) W* = g00 W*: 2 g00 W* = {sp.factor(third.as_leading_term(rs))} + ..., order "
         f"rho^{lead}; with 10.15's rho^3, f in H_b^(oo, alpha + 2) iff alpha + 2 < {bound}",
         lead == 4 and sp.simplify(third.coeff(rs, 4) + 4*mu) == 0 and bound == 1)

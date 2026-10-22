@@ -3222,7 +3222,7 @@ five dimensions -- his Proposition 6.5, from section 6.1's strong trapping admis
 -- and Lemma 6.1's structure (deduced in 10.18 from its computed U1-U4); and the radial-point and b-regularity behind
 (a) (its threshold, 3/2, deduced in 10.18, for this section's c_H). Nothing of this section is proved: Proposition 10.12
 is computed, and (a)-(c) are deduced. 10.20 deduces the index 0, tf-admissibility and the estimates, and his Proposition
-6.12, on the reading of [Hin26c] section 9 stated in 10.19.
+6.12, on the reading of [Hin26c] section 9 stated in 10.19 and widened in 10.20.
 
 ### 10.16 Mode stability of the 1-form wave operator at sigma != 0 in five dimensions (`modes5.py` M1-M5; D58)
 
@@ -3308,7 +3308,8 @@ with the vanishing carried from r > r_h to the region inside the horizon by the 
 Proposition 6.5, from section 6.1's trapping (whose input, his Lemma 6.4, 10.17 deduces), and the uniform estimates of
 [Hin26c] Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there for small E^Upsilon; and the
 low-energy part (10.15). Nothing of this section is proved: Proposition 10.13 is computed, and the mode stability is
-deduced. 10.19 deduces all of these but the low-energy part, on the reading of [Hin26c] section 9 stated there.
+deduced. 10.19 deduces all of these but the low-energy part, on the reading of [Hin26c] section 9 stated there (10.20
+widens it for the low-energy part).
 
 ### 10.17 Strong trapping admissibility of the gauge potential operator in five dimensions (`trap5.py` T0-T4; D59)
 
@@ -3579,16 +3580,17 @@ Nothing of this section is proved: Proposition 10.16 is computed, and (a)-(d) ar
 *The setting.* [Hin26] Proposition 6.12 makes box^Upsilon mode stable on the whole closed upper half plane, sigma = 0
 included, for E^Upsilon with a horizon modification gamma_H in (0, eps_0] and small e and gamma at infinity: by his
 Proposition 6.9 away from sigma = 0 (10.19 in five dimensions), and near it by a perturbation in two steps -- Step 1,
-the horizon modification alone, through a Grushin problem augmented by W* and a functional at the horizon, whose
-estimate (6.27) is [Hin26c] Theorem 9.41's for the augmented operator; Step 2, the modification at infinity, by the
-uniformity of the zero energy and transition face estimates. These rest on [Hin26c] sections 9.4-9.6: Theorem 9.36 (the
-zero energy operator is b-Fredholm when the weight, shifted by the density, lies in an indicial gap), tf-admissibility
-(Definition 5.10; Proposition 9.40 for the wave operator, his Lemma 6.8 for box^Upsilon), Corollary 9.43 (index 0) and
-Theorem 9.41 (uniform low-energy estimates). Section 9.5 is stated for R^n -- (9.110) with (n - 1)/2, Theorem 9.38 with
-n/2, Corollary 9.39 with -n + 2 + beta, and Proposition 9.40 for every n >= 3 with the weights (0, n - 2) -- while
-Theorems 9.36 and 9.41 and Corollary 9.43 write the shift of his Lemma 3.11 at n = 3, alpha + 3/2. 10.15 computed the
-zero energy indicial roots, kernel, cokernel functional and pairings in five dimensions, and left the index 0,
-tf-admissibility and the estimates OPEN.
+the horizon modification alone, through a Grushin problem augmented by W* and a pairing <., f*> with f* compactly
+supported in the interior and <W*, f*> = 1 (his (6.24)), the horizon functional entering through (6.26), whose estimate
+(6.27) is [Hin26c] Theorem 9.41's for the augmented operator; Step 2, the modification at infinity, by the uniformity of
+the zero energy and transition face estimates. These rest on [Hin26c] sections 9.4-9.6: Theorem 9.36 (the zero energy
+operator is b-Fredholm when the weight, shifted by the density, lies in an indicial gap), tf-admissibility (Definition
+5.10; Proposition 9.40 for the wave operator, his Lemma 6.8 for box^Upsilon), Corollary 9.43 (index 0) and Theorem 9.41
+(uniform low-energy estimates). Section 9.5 is stated for R^n -- (9.110) with (n - 1)/2, Theorem 9.38 with n/2,
+Corollary 9.39 with -n + 2 + beta, and Proposition 9.40 for every n >= 3 with the weights (0, n - 2) -- while Theorems
+9.36 and 9.41 and Corollary 9.43 write the shift of his Lemma 3.11 at n = 3, alpha + 3/2. 10.15 computed the zero energy
+indicial roots, kernel, cokernel functional and pairings in five dimensions, and left the index 0, tf-admissibility and
+the estimates OPEN.
 
 **Proposition 10.17 (computed; exact, and numerical where said).** On 4+1 Minkowski and five-dimensional Tangherlini:
 
@@ -3600,8 +3602,10 @@ tf-admissibility and the estimates OPEN.
      H^(1)_(l+1)(x) -> -(i/pi) Gamma(l + 1) 2^(l+1) as x -> 0, e^(-ix) x^(1/2) H^(1)_(l+1)(x) -> (2/pi)^(1/2) e^(-i
      ((l + 1) pi/2 + pi/4)) as x -> oo, and on the imaginary ray H^(1) decays and H^(2) grows (L2).
  (iii) (the weights) rho^a lies in rho^alpha L^2(r^3 dr) near infinity iff a > alpha + 2, so his Lemma 3.11's shift is
-     n/2 = 2; and on Tangherlini with t* = t - r, d_sigma^2 of the spectral family is 2 g00 Id, so d_sigma^2 box(0) W* =
-     2 g00 W* = -4 mu rho^4 dt + O(rho^5) (L3).
+     n/2 = 2; and on Tangherlini with t* = t - r, 2 g00 W* = -4 mu rho^4 dt + O(rho^5), from g00 of thresh5.py U4 and
+     W*'s leading term rho^2 dt of 10.15 (L3) -- that d_sigma^2 of the spectral family is 2 g00 Id, so that this is
+     d_sigma^2 box(0) W*, is deduced from his Definition 9.4, not computed by L3; 10.15(vi) uses t* = t - r_*, which
+     differs from t - r by O(mu/r) and moves d_sigma box(0) W* only at rho^5.
 
 *Proof.* L1-L3 of lowenergy5.py. L1 builds the operator with thresh5.py's minkowski, applies it to e^(-i sigma t*) e^(-i
 sigma r) w(x) with w abstract, and checks every coefficient exactly over the sphere; L2 is exact for the reduction and
@@ -3639,7 +3643,9 @@ dimensions put on W*, where the term is rho^3. []
      and with it mode stability near sigma = 0, persists for small e and gamma. With 10.19's Propositions 6.5 and 6.9:
      box^Upsilon, with 10.15's horizon modification c_H = -(1/2) chi dr, gamma_H in (0, eps_0], and c^Upsilon = r^-1 dt
      near infinity with small e and gamma, is mode stable at every sigma with Im sigma >= 0 on five-dimensional
-     Tangherlini -- his Proposition 6.12 -- on the reading of [Hin26c] section 9 stated in 10.19(d).
+     Tangherlini -- his Proposition 6.12 -- on the reading of [Hin26c] section 9 stated in 10.19(d), widened to (iii)
+     Lemma 3.11, Theorems 9.36-9.41 and Corollary 9.43 read at n = 4 with alpha + 2 for alpha + 3/2, section 9.5 again
+     stated for scalar operators.
 
 *READ.* [Hin26c] (alphaXiv, 2026-10-22): pp. 61 (Lemma 3.11, Definition 3.12, (3.47)), 104 (Definition 5.10), 193-195
 (Theorem 9.36 and its proof, (9.107)-(9.109); section 9.5: (9.110), Theorem 9.38, (9.111)-(9.115)), 197-198 (Corollary
@@ -3676,8 +3682,8 @@ rho^(-3/2-eps) H-bar_b (r^2 |dr dg/|), and Theorem 5.2 puts omega in rho_sf^(-C_
 = e^((Im sigma) t) |omega_0|, is not over an annulus. Part (2): injectivity by the same with data (omega_0, 0), as l >=
 alpha_sf + 1/2; index 0 from his Theorem B.1 and [Hin26c] Corollary 9.43, or directly from the radial ordinary
 differential operators of a static metric and his Theorem 4.9(3). In five dimensions 10.12 computed the indicial roots
-(the trace weight 2/(D - 2)), 10.13 the semiclassical inputs and the five-dimensional (5.14), alpha_sf < 0 and alpha_K >
-alpha_sf, and 10.14 a c on Tangherlini; section 6's own steps were OPEN.
+(the trace weight 2/(D - 2)), 10.13 the semiclassical inputs, deducing the five-dimensional (5.14), alpha_sf < 0 and
+alpha_K > alpha_sf at e = 0, and 10.14 a c on Tangherlini; section 6's own steps were OPEN.
 
 **Proposition 10.18 (computed; exact).** With C at the trace weight 2/3, on 4+1 Minkowski in t* = t - r, rho = 1/r and
 the Cartesian frame:
@@ -3729,19 +3735,27 @@ its sign flipped (at R_out A_w does not enter); and the four-dimensional data we
      none has real part in [-100, 2) and the only one with real part 2 is lam = 2, simple, at l = 0 and at l = 1; and
      each harmonic's roots split evenly across the strip, as his Theorem 4.9 gives in four dimensions (10.12's counts: 3
      and 3 for the scalar sextic at l >= 1, 2 and 2 for the quartic at l = 0, 1 and 1 for the vector type, lam = 2
-     counted on the right). So for C_0 + 4 <= 100, on the weights of (iii), each radial operator has index 0 as in his
-     proof, and the zero energy operator, injective by (c), is invertible; its indicial roots have Re lam >= 2 or Re lam
-     < -C_0, the only one with Re lam = 2 being lam = 2, simple of scalar type 0 and of scalar type 1. His other route,
-     through his Theorem B.1, has by (i)-(ii) the window of (B.13), -1/2 - h^-1 (1 - e)(1 + v) < l < -1/2 + h^-1 (1 -
-     e)(1 - v), in five dimensions, on the reading of 10.19(d) ([Hin26c] (9.16b)-(9.16c), (9.32)); Theorem B.1 itself is
-     not deduced here.
- (e) ([Hin26a] Theorem 6.2 in five dimensions, on his Theorem 5.2) So, at that point and for C_0 <= 96, with h below the
-     h_0 of Theorem 5.2 in five dimensions: box^C on five-dimensional Tangherlini has no outgoing mode at sigma != 0, Im
-     sigma >= 0, and its zero energy operator is invertible from H-bar_b^(s,l) to H-bar_b^(s-1,l+2) for l in [-C_0 - 2,
-     0) and s >= -C_0, with the density r^3 |dr dg/|: [Hin26] Theorem 7.1 (1)-(2) in five dimensions, conditional on
+     counted on the right). So for C_0 <= 100, on the weights of (iii), each radial operator has index 0 as in his
+     proof, and the zero energy operator, Fredholm and injective by (c), is invertible -- Fredholm by [Hin26c] Theorem
+     9.36 at n = 4 on the reading of 10.20, given box^C's threshold at the conormal bundle of the horizon below -C_0 -
+     1/2, which is not computed here: his Remark 5.7 has the damping h^-1 l, positive on future causal covectors (Lemma
+     3.5), push it below any fixed number for small h, and in five dimensions it is OPEN. (He takes C_0 + 4 in Theorem
+     4.9 for his adjoint route, p. 69, which the direct route does not need.) its indicial roots have Re lam >= 2 or Re
+     lam < -C_0, the only one with Re lam = 2 being lam = 2, simple of scalar type 0 and of scalar type 1. His other
+     route, through his Theorem B.1, has by (i)-(ii) the l-window of (B.13), -1/2 - h^-1 (1 - e)(1 + v) < l < -1/2 +
+     h^-1 (1 - e)(1 - v), in five dimensions, on the reading of 10.19(d) ([Hin26c] (9.16b)-(9.16c), (9.32)); Theorem B.1
+     itself is not deduced here.
+ (e) ([Hin26a] Theorem 6.2 in five dimensions, on his Theorem 5.2) So, with Theorem 5.2 applied for C_0 + 1 as in his
+     proof (p. 67): for every h in (0, h_0), h_0 that of Theorem 5.2 in five dimensions, box^C on five-dimensional
+     Tangherlini has no outgoing mode at sigma != 0, Im sigma >= 0, and its zero energy operator is injective on the
+     weights l >= -C_0 - 2; and at h = 10^-6, the one point at which the roots are known (Proposition 10.9), for C_0 <=
+     100 and given the horizon threshold of (d), it is invertible from H-bar_b^(s,l) to H-bar_b^(s-1,l+2) for l in
+     [-C_0 - 2, 0) and s >= -C_0, with the density r^3 |dr dg/| -- provided 10^-6 lies below the five-dimensional
+     h_0(e), which is not certified (10.12, 10.14): [Hin26] Theorem 7.1 (1)-(2) in five dimensions, conditional on
      [Hin26a] Theorem 5.2 there (10.22 deduces it on a reading). His Theorem 1.1(2) follows as his does, with C_0 + 2
-     for C_0: a stationary solution with |omega_mu| <= C r^(C_0) lies in r^(C_0 + 2 + eps) L^2(r^3 dr), the shift being
-     n/2 = 2, so by the roots in r^eps L^2, and vanishes by the injectivity at l = -eps.
+     for C_0, so for C_0 <= 98 at that point: a stationary solution with |omega_mu| <= C r^(C_0) lies in r^(C_0 + 2 +
+     eps) L^2(r^3 dr), the shift being n/2 = 2, so by the roots in r^eps L^2, and vanishes by the injectivity at l =
+     -eps.
 
 *READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-22): pp. 1-3 (Theorem 1.1, (1.2)), 9-11 (section 1.2.2, Figure
 1.1, Remark 1.4), 38-43 (Proposition 5.1, Theorem 5.2, (5.14)-(5.18), Lemma 5.3, footnote 15, section 5.2.1), 47
@@ -3833,7 +3847,9 @@ outside the horizon; and alpha_K = alpha_sf in (iv), below the threshold at dK+.
      alpha_sf < b* - 1 and alpha_K > alpha_sf + 1 - b*, there is h_0 > 0, not made explicit, such that for h in (0, h_0)
      and s in [-C_0, C_0] the forward problem (5.15) and the initial value problem (5.16), with the density r^3 |dr dg/|
      for r^2 |dr dg/|, have solutions with the weights of his Theorem 5.2. With 10.21, [Hin26a] Theorem 6.2 holds on
-     five-dimensional Tangherlini, at Proposition 10.9's point and for C_0 <= 96, on the same reading.
+     five-dimensional Tangherlini on the same reading: (1) and the injectivity of (2) for every h in (0, h_0); the
+     invertibility of (2) at h = 10^-6, Proposition 10.9's point, for C_0 <= 100, provided 10^-6 < h_0 and given
+     10.21(d)'s horizon threshold.
 
 *READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-22): pp. 9 (section 1.2.2), 12-16 (Definition 2.1, its charts,
 (2.4), (2.7)-(2.10), Definitions 2.2 and 2.5, (2.11)-(2.14)), 25-27 (Lemmas 3.3, 3.5, 3.7 and 3.8, Remark 3.4, Corollary
