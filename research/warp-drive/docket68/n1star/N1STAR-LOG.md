@@ -1838,3 +1838,39 @@ wording repaired.
 
 *Runs.* thresh5.py 4/4 and mutants 4/4, hienergy5.py 4/4, response5.py all pass, after the changes. The twenty-eighth
 verifier is sent on 10.19 (hienergy5.py, D62) and these repairs.
+
+**D64 (2026-10-22, M: "Continue please"): [Hin26c]'s low-energy theory in five dimensions -- [Hin26] Proposition 6.12
+deduced (section 10.20; lowenergy5.py L1-L3).**
+
+*The step.* PR #83 merged at its head 54ad36c (D62-D63); the branch restarts at main 34a8199. The twenty-eighth
+verifier, on 10.19 and D63, is still out. 10.15 left OPEN the index 0, tf-admissibility and the estimates of [Hin26]
+Proposition 6.12; 10.19 left the low-energy theory.
+
+*What was read.* At source (alphaXiv, 2026-10-22): [Hin26c] pp. 61 (Lemma 3.11 -- the shift alpha + 3/2 from |dx| to a
+b-density --, Definition 3.12, (3.47)), 193-195 (Theorem 9.36 and its proof; section 9.5: (9.110) with (n - 1)/2,
+Theorem 9.38 with n/2 and -n + 2 + beta), 197-198 (Corollary 9.39; Proposition 9.40, "Suppose the spatial dimension
+satisfies n >= 3", tf-admissible with all weights in (0, n - 2), by Hankel functions), 198-200 (Theorem 9.41 and its
+proof, Remark 9.42, Corollary 9.43); [Hin26] pp. 117-124 again.
+
+*What was computed.* lowenergy5.py: (L1) on 4+1 Minkowski the 1-form wave operator acts componentwise and, conjugated by
+e^(i sigma r), its spectral family is Delta_e - sigma^2, exactly over the sphere; (L2) at n = 4, u = r^-1 w gives
+Bessel's equation of order l + 1, with exponents l and -(l + 2), and the Hankel asymptotics at 0, at infinity and on the
+imaginary ray (mpmath, l = 0, ..., 4), so the outgoing solution is excluded exactly for weights below 2; (L3) the shift
+n/2 = 2, and d_sigma^2 box(0) W* = 2 g00 W* = -4 mu rho^4 dt + O(rho^5), so the augmentation lies in the target iff
+alpha + 2 < 1. Four-dimensional controls: n = 3 throughout. Selftest 3/3 (about 7 seconds), mutants 4/4. Found by
+exploring before it was checked: the large-argument Hankel check at x = 10^4 missed its tolerance at order 5, the
+correction (4 nu^2 - 1)/(8x) being 1.2 x 10^-3 there, so it is made at 10^6; and the exponent equation, solved with a
+positive unknown, returned one root.
+
+*What was deduced.* Theorem 9.36 at n = 4; Proposition 9.40 at n = 4 (READ for n >= 3, the inputs of its proof
+reproduced); his Lemma 6.8 in five dimensions; Corollary 9.43, index 0, so 10.15's horizon functional spans the cokernel
+of box(0); and his Proposition 6.12 -- box^Upsilon with 10.15's modification mode stable on the closed upper half plane
+-- on 10.19's reading of [Hin26c] section 9 at n = 4.
+
+*Seated.* N1STAR-PROOF.md 10.20 with Proposition 10.17, and a pointer in 10.15; lowenergy5.py; ROUTES-OPEN.md 4.4, 4.5
+and the new 4.21; the README; the paper (the settling paragraph, the Review bullet, Appendices A, C and D, the [Hin26]
+and [Hin26c] entries, D1-D64, the md5 rows). Labels: computed (lowenergy5.py L1-L3; exact, L2's asymptotics numerical),
+deduced, READ; nothing proved. OPEN: section 9 line by line at n = 4; [Hin26] section 6.5 and Lemma 6.13; his sections 7
+and 8 in five dimensions, and [Hin26a] Theorem 5.2, section 6 and Theorem B.1. The twenty-eighth verifier's findings
+will be seated when it reports, and the twenty-ninth then sent on 10.20. Next: [Hin26] section 6.5 in five dimensions,
+or [Hin26a] Theorem 5.2.

@@ -3220,7 +3220,8 @@ Theorem 5.1 on Kerr (deduced on Tangherlini, within a class, in 10.16); the high
 five dimensions -- his Proposition 6.5, from section 6.1's strong trapping admissibility (Lemma 6.4; deduced in 10.17)
 -- and Lemma 6.1's structure (deduced in 10.18 from its computed U1-U4); and the radial-point and b-regularity behind
 (a) (its threshold, 3/2, deduced in 10.18, for this section's c_H). Nothing of this section is proved: Proposition 10.12
-is computed, and (a)-(c) are deduced.
+is computed, and (a)-(c) are deduced. 10.20 deduces the index 0, tf-admissibility and the estimates, and his Proposition
+6.12, on the reading of [Hin26c] section 9 stated in 10.19.
 
 ### 10.16 Mode stability of the 1-form wave operator at sigma != 0 in five dimensions (`modes5.py` M1-M5; D58)
 
@@ -3547,6 +3548,90 @@ energy operator's Fredholm property (his Theorem 9.36, on the indicial gap of 10
 Definition 5.10 and Lemma 6.8) and the uniform low-energy estimate (his Theorem 9.41) -- and with it his Proposition
 6.12; and [Hin26a] Theorem 5.2, section 6 and Theorem B.1. Nothing of this section is proved: Proposition 10.16 is
 computed, and (a)-(d) are deduced.
+
+
+### 10.20 The low-energy theory in five dimensions (`lowenergy5.py` L1-L3; D64)
+
+*The setting.* [Hin26] Proposition 6.12 makes box^Upsilon mode stable on the whole closed upper half plane, sigma = 0
+included, for E^Upsilon with a horizon modification gamma_H in (0, eps_0] and small e and gamma at infinity: by his
+Proposition 6.9 away from sigma = 0 (10.19 in five dimensions), and near it by a perturbation in two steps -- Step 1,
+the horizon modification alone, through a Grushin problem augmented by W* and a functional at the horizon, whose
+estimate (6.27) is [Hin26c] Theorem 9.41's for the augmented operator; Step 2, the modification at infinity, by the
+uniformity of the zero energy and transition face estimates. These rest on [Hin26c] sections 9.4-9.6: Theorem 9.36 (the
+zero energy operator is b-Fredholm when the weight, shifted by the density, lies in an indicial gap), tf-admissibility
+(Definition 5.10; Proposition 9.40 for the wave operator, his Lemma 6.8 for box^Upsilon), Corollary 9.43 (index 0) and
+Theorem 9.41 (uniform low-energy estimates). Section 9.5 is stated for R^n -- (9.110) with (n - 1)/2, Theorem 9.38 with
+n/2, Corollary 9.39 with -n + 2 + beta, and Proposition 9.40 for every n >= 3 with the weights (0, n - 2) -- while
+Theorems 9.36 and 9.41 and Corollary 9.43 write the shift of his Lemma 3.11 at n = 3, alpha + 3/2. 10.15 computed the
+zero energy indicial roots, kernel, cokernel functional and pairings in five dimensions, and left the index 0,
+tf-admissibility and the estimates OPEN.
+
+**Proposition 10.17 (computed; exact, and numerical where said).** On 4+1 Minkowski and five-dimensional Tangherlini:
+
+ (i) (the transition face) The 1-form wave operator, box^Upsilon at gamma = 0, acts componentwise in the Cartesian frame
+     on 4+1 Minkowski, and its spectral family conjugated by e^(i sigma r) is Delta_e - sigma^2 on each component (L1).
+ (ii) (the Bessel reduction) At n = 4, u = r^-1 w turns -u'' - (3/r) u' + l (l + 2) u/r^2 - u = 0 into Bessel's equation
+     of order l + 1; the exponents at r = 0 are l and -(l + 2), in rho^ = 1/r^ the zero energy roots -l and l + 2 of
+     10.15's vl family, the gap (0, 2) at l = 0; and numerically (mpmath, 30 digits, l = 0, ..., 4) x^(l+1)
+     H^(1)_(l+1)(x) -> -(i/pi) Gamma(l + 1) 2^(l+1) as x -> 0, e^(-ix) x^(1/2) H^(1)_(l+1)(x) -> (2/pi)^(1/2) e^(-i
+     ((l + 1) pi/2 + pi/4)) as x -> oo, and on the imaginary ray H^(1) decays and H^(2) grows (L2).
+ (iii) (the weights) rho^a lies in rho^alpha L^2(r^3 dr) near infinity iff a > alpha + 2, so his Lemma 3.11's shift is
+     n/2 = 2; and on Tangherlini with t* = t - r, d_sigma^2 of the spectral family is 2 g00 Id, so d_sigma^2 box(0) W* =
+     2 g00 W* = -4 mu rho^4 dt + O(rho^5) (L3).
+
+*Proof.* L1-L3 of lowenergy5.py. L1 builds the operator with thresh5.py's minkowski, applies it to e^(-i sigma t*) e^(-i
+sigma r) w(x) with w abstract, and checks every coefficient exactly over the sphere; L2 is exact for the reduction and
+the exponents, and numerical (mpmath) for the Hankel asymptotics, which are standard ([Hin26c] cites [Olv97]); L3 is
+exact. Four-dimensional controls: (i) at n = 3, the same; (ii) u = r^(-1/2) w, order l + 1/2, exponents l and -(l + 1),
+the range (0, 1); (iii) the shift 3/2. Controls: gamma = 1 in (i), where the modification does not act componentwise;
+the conjugation by e^(-i sigma r); the range (0, 3) claimed in (ii); and in (iii) the Coulomb fall-off rho of four
+dimensions put on W*, where the term is rho^3. []
+
+*Deduced.*
+
+ (a) (Theorem 9.36 at n = 4) With s_0 > 3/2 at the horizon (10.18), no ergoregion and dr timelike inside the horizon
+     (10.19(c)), the zero energy operator of box^Upsilon is Fredholm on the b-spaces of weight alpha with alpha + 2 in
+     an indicial gap, his (3.47) holding with the shift of (iii); its kernel elements lie in A^beta for beta below the
+     top of the gap.
+ (b) (Proposition 9.40 at n = 4) By (i) the transition face operator of the unmodified box is, on each component, the
+     conjugated Helmholtz operator. By (ii) and his argument -- outgoing, or for Im sigma^ > 0 decaying, forces H^(1),
+     whose size r^^-(l+2) near r^ = 0 is not O(r^^-beta) for beta < 2, and the adjoint condition with -n + 2 + beta =
+     -2 + beta in the same way -- box is tf-admissible with every weight in (0, 2), as his Proposition 9.40 states for
+     n >= 3 (READ). The range is sharp: at l = 0 the outgoing solution is admitted for beta > 2.
+ (c) (his Lemma 6.8 in five dimensions) The transition face operator depends only on the operator at infinity (his
+     (6.18a), Lemma 6.1(2), 10.18(b)); for small gamma and e >= 0 the Fredholm estimates (9.111) hold uniformly, so
+     box^Upsilon is tf-admissible with a weight in (0, 2), and by his Corollary 9.39 with every weight in the indicial
+     gap (0, lam_s1,2) of 10.15(i). The horizon modification is compactly supported and does not enter.
+ (d) (Corollary 9.43 at n = 4) The zero energy operators of box and box^Upsilon have index 0 on the spaces of (a), with
+     alpha + 2 in the gap. For box, whose kernel is the span of W* (10.15(a)), the cokernel is one-dimensional, and
+     10.15(iv)'s functional at the horizon, which annihilates the range and does not vanish (10.15(v)), spans it.
+ (e) ([Hin26] Proposition 6.12 in five dimensions) Step 1: the augmented operator of his (6.24), with W* in place of
+     omega_(0), has an injective zero-parameter operator (10.15(c)) of index 0 by (d), so it is invertible; the
+     augmentation is consistent with the spaces when alpha + 2 + eta < 1, its terms being rho^3 (10.15(vi)), rho^4
+     ((iii)) and compactly supported, and it vanishes faster than quadratically at the transition face, whose operator
+     is box's, invertible by (b) and his Corollary 9.39; so (6.27) holds as in his Theorem 9.41's proof, and box with
+     the horizon modification alone is mode stable for small |sigma| and gamma_H in (0, eps_0]. Step 2: the zero energy
+     and transition face estimates hold uniformly under the small modification at infinity, so the low-energy estimate,
+     and with it mode stability near sigma = 0, persists for small e and gamma. With 10.19's Propositions 6.5 and 6.9:
+     box^Upsilon, with 10.15's horizon modification c_H = -(1/2) chi dr, gamma_H in (0, eps_0], and c^Upsilon = r^-1 dt
+     near infinity with small e and gamma, is mode stable at every sigma with Im sigma >= 0 on five-dimensional
+     Tangherlini -- his Proposition 6.12 -- on the reading of [Hin26c] section 9 stated in 10.19(d).
+
+*READ.* [Hin26c] (alphaXiv, 2026-10-22): pp. 61 (Lemma 3.11, Definition 3.12, (3.47)), 104 (Definition 5.10), 193-195
+(Theorem 9.36 and its proof, (9.107)-(9.109); section 9.5: (9.110), Theorem 9.38, (9.111)-(9.115)), 197-198 (Corollary
+9.39, Proposition 9.40 and its proof), 198-200 (Theorem 9.41 and its proof, (9.119)-(9.122), Remark 9.42, Corollary 9.43
+and its proof). [Hin26] (alphaXiv, 2026-10-22): pp. 117-119 (Lemma 6.6, (6.17b), Lemma 6.8 and its proof), 121-124
+(Proposition 6.12 and its proof, (6.24)-(6.28)).
+
+*What this gives, and what it does not.* At the level of deduction [Hin26] section 6.4 holds in five dimensions: the
+gauge potential operator with 10.15's modification is mode stable on the closed upper half plane. The dimension enters
+through the shift n/2 = 2 in the weights, the gap (0, 2) of the unmodified operator where his is (0, 1), and the
+augmentation's first term, which decays at rho^3 by the dimension where his needs a cancellation; the shifted weight
+alpha + 2 is left in (0, 1), as his alpha + 3/2 is. Not done, and OPEN: the line-by-line reading of [Hin26c] section 9
+at n = 4, now including sections 9.4-9.6 and Lemma 3.11; [Hin26] section 6.5 (the large zero energy states of
+box^Upsilon) and Lemma 6.13 in five dimensions; the constraint propagation operator's counterpart, his section 7, which
+rests on [Hin26a] (Theorem 5.2, section 6, Theorem B.1); and the linearized gauge-fixed Einstein operator, his section
+8, in five dimensions. Nothing of this section is proved: Proposition 10.17 is computed, and (a)-(e) are deduced.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
