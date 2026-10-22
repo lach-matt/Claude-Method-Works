@@ -4,26 +4,33 @@ Tangherlini: the threshold at the incoming radial set, the trapping hypotheses (
 function delta_Gamma, and the global dynamics (N1STAR-PROOF.md section 10.19; ROUTES-OPEN.md 4.20; D62).  Labels:
 computed (exact, sympy), deduced, READ.
 
-[Hin26c] (arXiv:2606.28008v1) section 9 states its spectral theory for stationary asymptotically Minkowski wave
-operators on R^n (Definition 9.4): P_0 = -2 d_t* rho (rho d_rho - (n - 1)/2 - S) + P_0-hat(0) + Q d_t* - g00 d_t*^2,
-d_sigma P_0-hat(0) = 2i rho (rho d_rho - (n - 1)/2 - S) - iQ "symmetric with respect to the Euclidean volume density
-r^(n-1) |dr dg|" at S = Q = 0 ((9.37)).  His estimates for the spectral family need: at the horizon s > 1/2 +
-vartheta_H+ (10.18: 3/2); at R_in, r + alpha > (1/2)(-1 + vartheta_in), vartheta_in = sup over the boundary of the
-b-symbol of Im P_0-hat(0) at -2 dr/r minus 2 Re S ((9.16b), (9.32)); at R_out, r + alpha < -1/2 + S-bar ((9.16c)); at
-the trapped set, (Gamma.1)-(Gamma.4), with beta_0 = min g^-1(-dt + xi, dt), p_1 = sigma_h((P_h,1 - P_h,1^*)/2ih),
-gamma_+ = sup p_1/(2 beta_0), gamma_- = gamma_+ - nu_min/(4 beta_0), and the loss delta_Gamma(eta) = max((gamma_+ -
-eta)/(gamma_+ - gamma_-), 0) ((9.79)-(9.81)); near the interior hypersurface, dr future timelike (Proposition 9.35).
-[Hin26] p. 119 records vartheta_in = vartheta_out = S-bar = 0 for the unmodified 1-form wave operator. S-bar is the
-endomorphism in V1's identity and the number min Re spec of it in a threshold ((5.2); [Hin26] footnote 60).
+[Hin26c] (arXiv:2606.28008v1) section 9 sets up stationary asymptotically Minkowski wave operators on R^n (Definition
+9.4): P_0 = -2 d_t* rho (rho d_rho - (n - 1)/2 - S) + P_0-hat(0) + Q d_t* - g00 d_t*^2, d_sigma P_0-hat(0) = 2i rho (rho
+d_rho - (n - 1)/2 - S) - iQ "symmetric with respect to the Euclidean volume density r^(n-1) |dr dg|" at S = Q = 0
+((9.37)) -- scalar ones only, "the purely notational modifications required to treat operators acting on vector bundles
+are left to the reader" (p. 158) -- and states his Theorems 9.5 and 9.16 on the Kerr model with three-dimensional
+numbers: (9.20)'s A^(1 + S-bar - eps), (9.55) in Part (5) of the proof (p. 172), his Proposition 4.24 in section 9.3.6
+(p. 193).  His estimates for the spectral family need: at the horizon s > 1/2 + vartheta_H+ (10.18: 3/2), with the
+radial point structure (9.24) (p. 165); at R_in, r + alpha > (1/2)(-1 + vartheta_in), vartheta_in = sup over the
+boundary of the b-symbol of Im P_0-hat(0) at -2 dr/r minus 2 Re S ((9.16b), (9.32)); at R_out, r + alpha < -1/2 + S-bar
+((9.16c)); at the trapped set, (Gamma.1)-(Gamma.4), with beta_0 = min g^-1(-dt + xi, dt), p_1 = sigma_h((P_h,1 -
+P_h,1^*)/2ih), gamma_+ = sup p_1/(2 beta_0), gamma_- = gamma_+ - nu_min/(4 beta_0), and the loss delta_Gamma(eta) =
+max((gamma_+ - eta)/(gamma_+ - gamma_-), 0) ((9.79)-(9.81)); near the interior hypersurface, dr future timelike
+(Proposition 9.35). [Hin26] p. 119 records vartheta_in = vartheta_out = S-bar = 0 for the unmodified 1-form wave
+operator. S-bar is the endomorphism in V1's identity and the number min Re spec of it in a threshold ((5.2); [Hin26]
+footnote 60).
 
-  V1 (computed, exact) On 4+1 Minkowski: rho (rho d_rho - c) is skew for rho^(-n-1) d rho, n = 4, iff c = (n - 1)/2
-     = 3/2 -- (Lu) v + u (Lv) = rho^(n+1) d_rho (rho^(1-n) u v); and for box^Ups at the weight 2/3 the first-order
-     part of P_0-hat(0) at the incoming covector, A_w, satisfies A_w + S-bar = D S-bar D, D the reflection in the radial
-     direction: spec (A_w + S-bar) = spec S-bar, his (6.11)'s, so vartheta_in = -2 S-bar (within eps, exactly when
-     S-bar is diagonalisable) and the threshold at R_in is r + alpha > -1/2 - S-bar, the mirror of R_out's.  At gam =
-     0 vartheta_in = 0, his p. 122's r > -1/2.  Four-dimensional control: the same at the weight 1.  Controls: the
-     constant 1 in place of 3/2; the weight 1 in five dimensions, where spec (A_w + S-bar) is not his; the outgoing
-     covector, where -A_w + S-bar is not similar to S-bar.
+  V1 (computed, exact) On 4+1 Minkowski: rho (rho d_rho - c) is skew for rho^(-n-1) d rho, n = 4, iff c = (n - 1)/2 =
+     3/2 -- (Lu) v + u (Lv) = rho^(n+1) d_rho (rho^(1-n) u v); and for box^Ups at the weight 2/3 the first-order part of
+     P_0-hat(0) at the incoming covector, A_w, satisfies A_w + S-bar = D S-bar D, D the reflection in the radial
+     direction: spec (A_w + S-bar) = spec S-bar, his (6.11)'s.  Deduced from it by (9.38a)-(9.38b): vartheta_in = -2
+     S-bar (within eps, exactly when S-bar is diagonalisable) and the threshold at R_in is r + alpha > -1/2 - S-bar, the
+     mirror of R_out's; at gam = 0 vartheta_in = 0, his p. 122's r > -1/2.  The identity is structural: S-bar = (1/2)
+     M(dt - dr) and A_w + S-bar = (1/2) M(dt + dr), M the first-order symbol of 2 E-bar G delta*, built from c, a
+     multiple of dt, and g, so it holds by reflection covariance at every weight and in every dimension (the
+     twenty-eighth verifier).  Four-dimensional control: the same at the weight 1.  Controls: the constant 1 in place of
+     3/2; the weight 1 in five dimensions, where spec (A_w + S-bar) is not his; A_w with its sign flipped (at R_out A_w
+     does not enter, xi_sc = 0), where -A_w + S-bar is not similar to S-bar.
   V2 (computed, exact) (Gamma.1)-(Gamma.3) on Tangherlini for the semiclassical family at z = 1, G_1 = -1/f + f xi^2
      + C/r^2: Gamma = {r^2 = 2 mu, xi = 0, C = 4 mu}, its only point with r > r_h; on Sigma_1 the linearised flow in
      (r, xi) has eigenvalues +-nu, nu = 4 (2 mu)^(-1/2), with phi_s/u = xi +- (nu/(2 f)) (r - r_ph) as left
@@ -31,28 +38,37 @@ endomorphism in V1's identity and the number min Re spec of it in a threshold ((
      there (d_C G_1 = 1/r^2); beta_0 = 1/f(r_ph) = 2, unchanged by t* = t - F(r); and the strip nu/(4 beta_0) =
      (8 mu)^(-1/2), half trap5.py T1's rate per unit t.  Four-dimensional control: r = 3 mu/2, beta_0 = 3, nu/(4
      beta_0) = 1/(3^(3/2) mu).  Control: the four-dimensional ratio r_ph = (3/2) r_h.
-  V3 (computed, exact) (Gamma.4) and delta_Gamma: at a point of Gamma (sigma = 1, r^2 = 2 mu, C = 4 mu), nabla_{H_G}
-     on trap5.py's frame is e_0 -> 0, e_1 -> -2 e_0, e_2 -> -2 e_1, with no V_perp part, and the angular covectors
+  V3 (computed, exact) (Gamma.4) and delta_Gamma: at a point of Gamma (sigma = 1, r^2 = 2 mu, C = 4 mu), nabla_{H_G} on
+     trap5.py's frame is e_0 -> 0, e_1 -> -2 e_0, e_2 -> -2 e_1, with no V_perp part, and the angular covectors
      orthogonal to eta are carried into V_perp; with diag(1, eta^-1, eta^-2) on the span, p_1 = -(M + M^*)/2 has
-     spectrum 0, +-(2 eta)^(1/2), so sup p_1 = (2 eta)^(1/2) and delta_Gamma(0) = 2 sup p_1/nu = (mu eta)^(1/2) -> 0.
-     Four-dimensional control: the same spectrum, delta_Gamma(0) = (3 mu^2 eta/2)^(1/2).  Control: a connection that
-     is not nilpotent (a diagonal entry -1), where sup p_1 does not tend to 0.
-  V4 (computed, exact) The global dynamics and the interior: on Sigma_1, f^2 xi^2 = 1 - C W(r), W = f/r^2, and W' =
-     2 (2 mu - r^2)/r^5 on r > r_h: one critical point, a maximum W = 1/(4 mu) at r^2 = 2 mu, W(r_h) = 0, W -> 0 at
-     infinity; g^-1 is positive on ann(d_t) for r > r_h (no ergoregion); and in the ingoing chart g^-1(dr, dr) = f <
-     0 on 0 < r < r_h with g^-1(dr) future directed.  Four-dimensional control: W' = (3 mu - 2 r)/r^4, maximum at r =
-     3 mu/2.  Control: the four-dimensional ratio r_ph = (3/2) r_h.
+     spectrum 0, +-(2 eta)^(1/2) there, so there sup p_1 = (2 eta)^(1/2) and 2 sup p_1/nu = (mu eta)^(1/2) -> 0 --
+     delta_Gamma(0) on all of Gamma by the symmetry, with 10.17's p_1 = 0 on V_perp (deduced). Four-dimensional control:
+     the same spectrum, delta_Gamma(0) = (3 mu^2 eta/2)^(1/2).  Control: a connection that is not nilpotent (a diagonal
+     entry -1), where sup p_1 does not tend to 0.
+  V4 (computed, exact) The global dynamics and the interior: on Sigma_1, f^2 xi^2 = 1 - C W(r), W = f/r^2, and W' = 2 (2
+     mu - r^2)/r^5 on r > r_h: one critical point, a maximum W = 1/(4 mu) at r^2 = 2 mu, W(r_h) = 0, W -> 0 at infinity;
+     f is increasing, f' = 2 mu/r^3 > 0, and vanishes at r_h, so g_tt = -f < 0 on r > r_h (no ergoregion) and, in the
+     ingoing chart, g^-1(dr, dr) = f < 0 on 0 < r < r_h; there g_vr = 1, so -d_r, null, lies in the future cone of d_v
+     (g(d_v, -d_r) = -1, d_v future timelike for r > r_h), and g(g^-1 dr, -d_r) = -1 < 0: g^-1(dr) is future directed
+     where it is timelike.  Four-dimensional control: W' = (3 mu - 2 r)/r^4, maximum at r = 3 mu/2.  Control: the
+     four-dimensional ratio r_ph = (3/2) r_h.
 
-Deduced, not computed here: with 10.18's vartheta_H+ = 1 and R_out threshold, every input of [Hin26c] Theorems 9.5
-and 9.16 is computed in five dimensions, its section 9 stated for general n; so, on the reading that its proofs carry
-over as their statements do, the spectral family of box^Ups is Fredholm of index 0 at bounded sigma != 0 with kernel
-elements in A^(3/2 + S-bar - eps), and invertible for |sigma| >= C_0, Im sigma >= 0, with semiclassical loss
-delta_Gamma(0) as small as wished: [Hin26] Proposition 6.5; with 10.16, his Proposition 6.9 for small E^Ups.
+Deduced, not computed here: with 10.18's vartheta_H+ = 1 and R_out threshold, the inputs of [Hin26c] Theorems 9.5 and
+9.16 that the operator supplies are in hand in five dimensions -- A_w + S-bar = D S-bar D, nu, beta_0, the spectrum of
+p_1 at a point and W computed; vartheta_in, its threshold and (Gamma.1)-(Gamma.4) deduced -- the horizon's radial point
+structure (9.24) and a global t* with dt* past timelike (his Definition 9.3) being those of a non-degenerate static
+horizon, stated, not computed.  So, on the reading that his scalar estimates hold on bundles with the modifications he
+leaves to the reader and that his Theorems 9.5 and 9.16 hold restated for n = 4 -- (9.20) and (9.55) with 3/2 for 1
+(10.18(b)), his Proposition 4.24 replaced by V4's dynamics -- the spectral family of box^Ups is Fredholm of index 0 at
+bounded sigma != 0 with kernel elements in A^(3/2 + S-bar - eps), and invertible for |sigma| >= C_0, Im sigma >= 0, with
+semiclassical loss delta_Gamma(Im sigma - eps) as small as wished: [Hin26] Proposition 6.5; with 10.16, his Proposition
+6.9 for small E^Ups.
 
-READ.  [Hin26c] pp. 81 (Definition 4.5), 98 (Proposition 4.24), 104-105 (Definition 5.11, Lemma 5.12), 158-159
-(Definition 9.4, (9.4)-(9.6)), 161, 163 ((9.16a)-(9.16c), Theorem 9.5), 167-168 (Proposition 9.10, (9.32)-(9.42)),
-174-175 (Theorem 9.16, Remarks 9.17-9.18), 178 (Proposition 9.25), 180 (Propositions 9.26-9.27), 182 ((Gamma.1)-
-(Gamma.4), (9.79)-(9.81)), 191 (Proposition 9.35), 193 (the proof of Theorem 9.16); [Hin26] pp. 113, 116 (Lemma 6.4's
+READ.  [Hin26c] pp. 81 (Definition 4.5), 98 (Proposition 4.24), 100 ((5.2)), 104-105 (Definition 5.11, Lemma 5.12),
+157-159 (Notation 9.2, Definitions 9.3-9.4 and the sentence after, (9.4)-(9.6)), 161, 163 ((9.16a)-(9.16c), Theorem
+9.5), 165 ((9.24)), 167-168 (Proposition 9.10, (9.32)-(9.42)), 172 (section 9.2.3, (9.55)), 174-175 (Theorem 9.16,
+Remarks 9.17-9.18), 178 (Proposition 9.25), 180 (Propositions 9.26-9.27), 182 ((Gamma.1)- (Gamma.4), (9.79)-(9.81)), 191
+(Proposition 9.35), 193 (section 9.3.6, the proof of Theorem 9.16); [Hin26] pp. 113, 114 (footnote 60), 116 (Lemma 6.4's
 proof, Proposition 6.5), 118-119 (Lemma 6.8's proof, Proposition 6.9 and its proof), 121-122 (Proposition 6.12, the
 orders of its proof), 200 (Remark 10.2); alphaXiv, 2026-10-22.
 
@@ -209,14 +225,20 @@ def v4(control=0, verbose=False):
         ends = sp.simplify(Wf.subs(r, rh)) == 0 and sp.limit(Wf, r, sp.oo) == 0
         maxi = sp.simplify(D(Wf, r, 2).subs(r, rph)) < 0 if sp.simplify(Wp.subs(r, rph)) == 0 else False
         Ci = G.ch(n, "ingoing")
-        grr = sp.simplify(Ci["gi"][1, 1] - Ci["f"])
-        inside = sp.simplify(Ci["f"].subs(Ci["r"], rh/2)) < 0 and sp.simplify(D(Ci["f"], Ci["r"])).subs(
-            Ci["r"], rh/2).is_positive
-        gtt = -f
+        fi, ri, gC, gI = Ci["f"], Ci["r"], Ci["g"], Ci["gi"]
+        grr = sp.simplify(gI[1, 1] - fi)
+        # f increasing and 0 at r_h: f < 0 inside, so g^-1(dr, dr) < 0 there, and g_tt = -f < 0 outside (no ergoregion)
+        mono = sp.simplify(D(fi, ri)).is_positive is True and sp.simplify(fi.subs(ri, rh)) == 0
+        # time orientation: g_vr = 1 puts -d_r (null) in the future cone of d_v, future timelike for r > r_h; and
+        # g(g^-1 dr, -d_r) = -1 < 0, so g^-1(dr) is future directed where it is timelike
+        Y, dv = sp.zeros(Ci["N"], 1), sp.zeros(Ci["N"], 1)
+        Y[1], dv[0] = -1, 1
+        orient = (sp.simplify(gC[0, 1] - 1) == 0 and sp.simplify((dv.T*gC*Y)[0]) == -1
+                  and sp.simplify((gI[:, 1].T*gC*Y)[0]) == -1)
         chk(f"n + 1 = {n + 1}: f^2 xi^2 = 1 - C W on Sigma_1; W' = {Wp}, one critical point, a maximum W = {top} at "
-            f"r = {rph}, W(r_h) = 0, W -> 0; g_tt = -f < 0 off the horizon; g^-1(dr, dr) = f < 0 inside",
-            sig and sp.simplify(Wp - want) == 0 and len(crit) == 1 and maxi and ends and grr == 0 and inside and
-            sp.simplify(gtt.subs(r, 2*rh)) < 0)
+            f"r = {rph}, W(r_h) = 0, W -> 0; f increasing, so g_tt = -f < 0 off the horizon and g^-1(dr, dr) = f < 0 "
+            f"inside; g_vr = 1, g(g^-1 dr, -d_r) = -1: g^-1(dr) future directed",
+            sig and sp.simplify(Wp - want) == 0 and len(crit) == 1 and maxi and ends and grr == 0 and mono and orient)
     return chk.ok
 
 
