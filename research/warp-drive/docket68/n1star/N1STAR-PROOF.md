@@ -3305,7 +3305,7 @@ with the vanishing carried from r > r_h to the region inside the horizon by the 
 Proposition 6.5, from section 6.1's trapping (whose input, his Lemma 6.4, 10.17 deduces), and the uniform estimates of
 [Hin26c] Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there for small E^Upsilon; and the
 low-energy part (10.15). Nothing of this section is proved: Proposition 10.13 is computed, and the mode stability is
-deduced.
+deduced. 10.19 deduces all of these but the low-energy part, on the reading of [Hin26c] section 9 stated there.
 
 ### 10.17 Strong trapping admissibility of the gauge potential operator in five dimensions (`trap5.py` T0-T4; D59)
 
@@ -3375,7 +3375,8 @@ compatibility; the trapped set is the photon sphere r^2 = 2 mu, with expansion r
 Theorem 9.16 in five dimensions -- the high-energy estimates themselves, with the radial point estimates at the horizon
 and at infinity; [Hin26c] works "in 3 + 1 dimensions for concreteness" (Remark 5.6) -- and with it his Proposition 6.5
 there; the other OPEN items of 10.15-10.16 stand. Nothing of this section is proved: Proposition 10.14 is computed, and
-(a)-(b) are deduced.
+(a)-(b) are deduced. 10.19 computes the rest of Theorem 9.16's inputs and deduces it, with his Proposition 6.5, on the
+reading stated there.
 
 ### 10.18 The structure and thresholds of the gauge potential operator in five dimensions (`thresh5.py` U1-U4; D60)
 
@@ -3434,7 +3435,108 @@ spectrum; the structure is his with (n - 1)/2 = 3/2, Tangherlini's deviation fro
 Kerr's. Not done, and OPEN: the radial point, propagation and trapping estimates themselves in five dimensions ([Hin26c]
 sections 7 and 9, general in their arguments, written in 3 + 1); the threshold at R_in, which depends on the order
 functions of [Hin26c] Definition 5.11(6); and the rest of item 2. Nothing of this section is proved: Proposition 10.15
-is computed, and (a)-(b) are deduced.
+is computed, and (a)-(b) are deduced. 10.19 computes the threshold at R_in, -1/2 - S-bar, and the trapping and dynamical
+inputs, and deduces his Propositions 6.5 and 6.9 on the reading stated there.
+
+
+### 10.19 The inputs of the high-energy and Fredholm estimates in five dimensions (`hienergy5.py` V1-V4; D62)
+
+*The setting.* [Hin26] Proposition 6.5, the invertibility of the spectral family of box^Upsilon for |sigma| >= C, Im
+sigma >= 0, is [Hin26c] Theorem 9.16 with his Lemma 6.4 as its input at the trapped set; his Proposition 6.9 adds
+[Hin26c] Theorem 9.5's Fredholm estimates at bounded sigma != 0, uniform under small perturbations, and the mode
+stability of the unmodified operator (10.16 in five dimensions). [Hin26c] section 9 is stated for stationary
+asymptotically Minkowski wave operators on R^n (his Definition 9.4: P_0 = -2 d_t* rho (rho d_rho - (n - 1)/2 - S) +
+...), and the symmetry its radial point estimates at infinity rest on is stated for the density r^(n-1) |dr dg| ((9.37),
+(9.41)). From the operator his estimates take: the horizon threshold vartheta_H+ ((9.16a); 10.18: 1); the threshold at
+the incoming radial set R_in, vartheta_in = sup over the boundary of sigma_1^b(Im P_0-hat(0))(-2 dr/r) - 2 Re S
+((9.16b), (9.32)); the bottom S-bar of the spectrum of S at R_out ((9.16c); 10.18); at high energy the trapped set's
+hypotheses (Gamma.1)-(Gamma.4) and the loss function delta_Gamma ((9.79)-(9.81)); the global dynamics (his Proposition
+4.24 on Kerr, and the paragraph after (9.5)); and a timelike dr inside the horizon for his energy estimate there
+(Proposition 9.35). 10.18 left R_in and the rest OPEN.
+
+**Proposition 10.16 (computed; exact).** On 4+1 Minkowski and five-dimensional Tangherlini, f = 1 - mu/r^2:
+
+ (i) (the incoming radial set) rho (rho d_rho - c) is skew for the density rho^(-5) d rho exactly when c = 3/2; and for
+     box^Upsilon at the trace weight 2/3, the first-order part A_w of its zero energy operator at the incoming covector
+     (the coefficients of the spatial derivatives contracted with the radial direction, times r) satisfies A_w + S-bar =
+     D S-bar D, D the reflection of the radial direction, so spec (A_w + S-bar) = spec S-bar = gamma (1 - e), 2 gamma,
+     gamma; at gamma = 0 both vanish (V1).
+ (ii) (the trapped set) For the semiclassical family at z = 1, G_1 = -1/f + f xi^2 + C/r^2 (C the S^3 Casimir), the
+     trapped set is r^2 = 2 mu, xi = 0, C = 4 mu, the only critical point with r > r_h; the linearised flow on Sigma_1
+     has eigenvalues +-nu, nu = 4 (2 mu)^(-1/2), with phi_s/u = xi +- (nu/(2 f)) (r - r_ph) as left eigenvectors and
+     {phi_u, phi_s} = nu/f > 0; d_C G_1 = 1/r^2 != 0; beta_0 = 1/f(r_ph) = 2, the same for t* = t - F(r); and nu/(4
+     beta_0) = (8 mu)^(-1/2), half 10.17's expansion rate (V2).
+ (iii) (the loss) At a point of the trapped set, nabla_{H_G} on 10.17's frame is e_0 -> 0, e_1 -> -2 e_0, e_2 -> -2 e_1,
+     with no component in V_perp, which it preserves; with diag(1, eta^-1, eta^-2) on span{e_0, e_1, e_2}, p_1 = -(M +
+     M^*)/2 there has spectrum 0, +-(2 eta)^(1/2), so gamma_+ = (2 eta)^(1/2)/4 and delta_Gamma(0) = 2 sup p_1/nu = (mu
+     eta)^(1/2) (V3).
+ (iv) (the dynamics) On Sigma_1, f^2 xi^2 = 1 - C W with W = f/r^2, and W' = 2 (2 mu - r^2)/r^5 on r > r_h: one critical
+     point, a maximum W = 1/(4 mu) at r^2 = 2 mu, with W(r_h) = 0 and W -> 0 at infinity; g_tt = -f < 0 for r > r_h; and
+     in the ingoing chart g^-1(dr, dr) = f < 0 on 0 < r < r_h (V4).
+
+*Proof.* V1-V4 of hienergy5.py. V1 builds box^Upsilon on 4+1 Minkowski with thresh5.py's minkowski, reads A_w off the
+coefficients of the spatial first derivatives and S-bar off those of d_t*, and checks the conjugation exactly over the
+sphere; V2 linearises H_{G_1} on Sigma_1, where C = r^2 (1/f - f xi^2) is conserved; V3 evaluates trap5.py's frame and
+connection at theta = pi/4, sigma = 1, eta along d theta, and decomposes; V4 is algebra. Four-dimensional controls: (i)
+at the weight 1, the same; (ii) r = 3 mu/2, beta_0 = 3, nu/(4 beta_0) = 1/(3^(3/2) mu), trap5.py T1's rate halved; (iii)
+the same spectrum, delta_Gamma(0) = (3 mu^2 eta/2)^(1/2); (iv) W' = (3 mu - 2 r)/r^4. Controls: the constant 1 for 3/2;
+the weight 1 in five dimensions, where spec (A_w + S-bar) is not his (6.11)'s; the outgoing covector, where -A_w + S-bar
+is not similar to S-bar; the four-dimensional ratio r_ph = (3/2) r_h in (ii) and (iv); and in (iii) a connection with a
+diagonal entry, where sup p_1 does not tend to 0. []
+
+*Deduced.*
+
+ (a) (The incoming threshold.) By (9.38a)-(9.38b), p_1 - 2 Re S at R_1,in is -2 Re (A_w + S-bar) in any fiber inner
+     product, and by (i) A_w + S-bar is similar to S-bar; so vartheta_in = -2 S-bar to within eps, exactly when S-bar is
+     diagonalisable (as in his Lemma 5.12 and Remark 10.2), and (9.16b) reads r + alpha_+ > -1/2 - S-bar: the mirror of
+     10.18's -1/2 + S-bar at R_out. At gamma = 0 it is his p. 122's r > -1/2. The operator being of his class with (n -
+     1)/2 = 3/2 (i), his radial point estimates at infinity carry these thresholds for n = 4. Admissible order functions
+     (his Definition 5.11) exist at all weights: s constant above 3/2 for r <= r_Gamma,+ (10.18), decreasing along the
+     flow to R_out, and as large as needed at R_in.
+ (b) (The trapped set.) By (ii), (Gamma.1)-(Gamma.3) hold: Gamma_u/s are the separatrices C = 4 mu of the hyperbolic
+     point of the radial flow (stable manifold theorem) times the S^3 directions, of codimension 1 in Sigma_1^+ and
+     transversal along Gamma. By (iii) and 10.17, (Gamma.4) holds with gamma_+ as small as wished, gamma_- < 0 and
+     delta_Gamma(0) = (mu eta)^(1/2) -> 0 as eta -> 0 -- the "arbitrarily small h^(-eps)-loss" of his remark after
+     (9.81). The gap nu_min/(4 beta_0) = (8 mu)^(-1/2) is, in units of Im sigma, half the expansion rate per unit t, as
+     in four dimensions.
+ (c) (The dynamics.) By (iv), on Sigma_1 a bicharacteristic with C < 4 mu passes between the horizon and infinity, one
+     with C > 4 mu turns once and returns to the end it came from, and one with C = 4 mu lies on Gamma or tends to it:
+     each tends to R_H+, Gamma, R_in or R_out, or crosses into the horizon -- the spectral-side counterpart of his
+     Proposition 4.24. There is no ergoregion, so at bounded sigma the characteristic set over the interior of X lies
+     over r <= r_h (his p. 159); and dr is future timelike inside the horizon (g(g^-1 dr, -d_r) = -1 < 0, -d_r the
+     future ingoing null direction), his Proposition 9.35's hypothesis.
+ (d) With 10.18, every input of [Hin26c] Theorems 9.5 and 9.16 is computed in five dimensions. On the reading that
+     section 9's arguments, stated for general n, carry over as their statements do -- not verified here line by line --
+     Theorem 9.16 gives the spectral family of box^Upsilon invertible for Im sigma >= 0, |sigma| >= C_0, between the
+     spaces (9.18), with the h^(-1 - delta_Gamma) loss: [Hin26] Proposition 6.5 in five dimensions. Theorem 9.5 gives it
+     Fredholm at bounded sigma != 0, of index 0 (constant in sigma, and 0 by the invertibility at large |sigma|), with
+     kernel elements in A^(3/2 + S-bar - eps) (10.18(b)). For the unmodified box (S-bar = 0) a kernel element is
+     A^(3/2 - eps) at infinity and smooth on X: in the t-family it is e^(i sigma r) times a conormal function, smooth
+     across the horizon -- 10.16's class -- so it vanishes for r > r_h by 10.16, and inside, dr being timelike (c), by
+     uniqueness for the Cauchy problem in r with vanishing data at r_h. Injective of index 0, the spectral family of box
+     is invertible at every sigma != 0, Im sigma >= 0; the Fredholm estimates hold uniformly under small perturbations
+     within the class, so that of box^Upsilon is invertible at Im sigma >= 0, |sigma| >= c_0, for small e, gamma and
+     gamma_H (E^Upsilon vanishing near the trapped set, (6.1)): his Proposition 6.9 in five dimensions.
+
+*READ.* [Hin26c] (alphaXiv, 2026-10-22): pp. 81 (Definition 4.5), 98 (Proposition 4.24), 104-105 (Definition 5.11, Lemma
+5.12), 158-159 (Definition 9.4, (9.4)-(9.6)), 161, 163 ((9.16a)-(9.16c), Theorem 9.5), 167-168 (Proposition 9.10,
+(9.32)-(9.42)), 174-175 (Theorem 9.16, Remarks 9.17-9.18), 178 (Proposition 9.25), 180 (Propositions 9.26-9.27), 182
+((Gamma.1)-(Gamma.4), (9.79)-(9.81)), 191 (Proposition 9.35), 193 (the proof of Theorem 9.16). [Hin26] (alphaXiv,
+2026-10-22): pp. 113, 116 (Lemma 6.4's proof, Proposition 6.5), 118-119 (Lemma 6.8's proof, Proposition 6.9 and its
+proof), 121-122 (Proposition 6.12, the orders in its proof), 200 (Remark 10.2).
+
+*What this gives, and what it does not.* Every input [Hin26c]'s spectral theory at nonzero frequency takes from the
+operator is computed for box^Upsilon on five-dimensional Tangherlini: the threshold at R_in is the mirror of R_out's,
+-1/2 - S-bar against -1/2 + S-bar, the dimension entering only as the (n - 1)/2 his statements already carry; the
+trapped set is a single photon sphere, its gap half the expansion rate and its loss as small as wished, as in four
+dimensions; and the dynamics and the interior are his. With them his Propositions 6.5 and 6.9 are deduced in five
+dimensions, and 10.16's OPEN items -- the kernel's class, the index 0, the interior -- are settled at the level of
+deduction. Not done, and OPEN: the line-by-line check that [Hin26c] section 9's proofs hold for n = 4 (Propositions
+9.9-9.11 and 9.22-9.27, Theorem 9.28 on [Dya16], Proposition 9.35); the low-energy theory in five dimensions -- the zero
+energy operator's Fredholm property (his Theorem 9.36, on the indicial gap of 10.12 and 10.15), tf-admissibility (his
+Definition 5.10 and Lemma 6.8) and the uniform low-energy estimate (his Theorem 9.41) -- and with it his Proposition
+6.12; and [Hin26a] Theorem 5.2, section 6 and Theorem B.1. Nothing of this section is proved: Proposition 10.16 is
+computed, and (a)-(d) are deduced.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)

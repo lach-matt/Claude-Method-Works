@@ -369,13 +369,15 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    the semiclassical inputs of the construction (4.14; 10.13), and a five-dimensional c of his Proposition 5.1's kind on
    Tangherlini (4.15; 10.14), the zero energy inputs of the modification E^Upsilon (4.16; 10.15), the mode stability of
    the unmodified operator at nonzero frequency (4.17; 10.16), the trapping input of the high energies (4.18; 10.17),
-   and its structure and thresholds (4.19; 10.18): with the trace weight 2/(D - 2) in place of his 1 the strip is clear
-   at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at that e,
-   and the unmodified operator's (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a horizon
-   modification remove it, and it has no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is
-   strongly trapping admissible at the photon sphere r^2 = 2 mu (deduced); its horizon threshold is 3/2 and S-bar has
-   his spectrum (computed); his Theorem 5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the item
-   are OPEN.
+   its structure and thresholds (4.19; 10.18), and the remaining inputs of [Hin26c]'s estimates at nonzero frequency
+   (4.20; 10.19): with the trace weight 2/(D - 2) in place of his 1 the strip is clear at a point below the
+   five-dimensional bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at that e, and the unmodified
+   operator's (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a horizon modification remove it,
+   and it has no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is strongly trapping admissible at
+   the photon sphere r^2 = 2 mu (deduced); its horizon threshold is 3/2 and S-bar has his spectrum (computed); at R_in
+   the threshold is -1/2 - S-bar and at the photon sphere the loss is as small as wished (computed), so that [Hin26]
+   Propositions 6.5 and 6.9 hold there on the reading that [Hin26c] section 9 carries over to n = 4 (deduced); his
+   Theorem 5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the item are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -428,10 +430,13 @@ Proposition 6.12; and 4.17 (10.16, Proposition 10.13, computed; the mode stabili
 stability at sigma != 0 on Tangherlini, in a class, the input of his Proposition 6.9; and 4.18 (10.17, Proposition
 10.14, computed; deduced) gives the strong trapping admissibility of box^Upsilon, his Lemma 6.4, the input of his
 Proposition 6.5; and 4.19 (10.18, Proposition 10.15, computed; deduced) gives his Lemma 6.1's structure, S-bar of his
-(6.11) and the horizon threshold 3/2 of his footnote 71 in five dimensions. Next: the rest of item 2 -- the 3b-estimates
-of his section 5 (his Theorem 5.2, with its h_0) and section 6's five-dimensional steps, his Theorem B.1, and [Hin26c]'s
-theory -- the high-energy estimates (his Theorem 9.16, which with 4.18 gives his Proposition 6.5), low energy and
-regularity -- all in five dimensions.
+(6.11) and the horizon threshold 3/2 of his footnote 71 in five dimensions; and 4.20 (10.19, Proposition 10.16,
+computed; deduced) computes the remaining inputs of [Hin26c] Theorems 9.5 and 9.16 -- the threshold at R_in, -1/2 -
+S-bar, the trapped set's hypotheses and loss, the dynamics -- and deduces [Hin26] Propositions 6.5 and 6.9 there, on the
+reading that [Hin26c] section 9, stated for general n, carries over. Next: the rest of item 2 -- the 3b-estimates of
+[Hin26a] section 5 (his Theorem 5.2, with its h_0), its section 6's five-dimensional steps and its Theorem B.1, and
+[Hin26c]'s low-energy theory (Theorems 9.36-9.41, with which [Hin26] Proposition 6.12 follows) -- all in five
+dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -861,3 +866,23 @@ computes them; N1STAR-PROOF.md 10.18 states Proposition 10.15.
 - OPEN: the radial point, propagation and trapping estimates of [Hin26c] in five dimensions; the threshold at R_in.
   Labels: computed (thresh5.py U1-U4, exact); deduced; READ ([Hin26] pp. 113-115, 124; [Hin26c] pp. 101, 104-105, 158,
   163); nothing proved.
+
+### 4.20 The inputs of the high-energy and Fredholm estimates in five dimensions (computed; D62)
+
+4.18 and 4.19 left [Hin26c] Theorem 9.16 -- and with it [Hin26] Proposition 6.5 -- and the threshold at R_in OPEN;
+10.16's OPEN list adds Theorem 9.5(5), the index 0 and the interior. [Hin26c] section 9 is stated for general n
+(Definition 9.4, (9.37), (9.41)). hienergy5.py computes the remaining inputs on five-dimensional Tangherlini;
+N1STAR-PROOF.md 10.19 states Proposition 10.16 and deduces.
+- R_in: at the incoming covector the first-order part of the zero energy operator satisfies A_w + S-bar = D S-bar D, D
+  the radial reflection (V1), so vartheta_in = -2 S-bar and the threshold is r + alpha > -1/2 - S-bar, the mirror of
+  R_out's; at gamma = 0 his r > -1/2 (p. 122). Four-dimensional control: the same.
+- The trapped set of the semiclassical family: r^2 = 2 mu, nu = 4 (2 mu)^(-1/2), beta_0 = 2, {phi_u, phi_s} > 0, the gap
+  nu/(4 beta_0) = (8 mu)^(-1/2), half the expansion rate (V2); (Gamma.4) with sup p_1 = (2 eta)^(1/2) and delta_Gamma(0)
+  = (mu eta)^(1/2) -> 0 (V3).
+- The dynamics: W = f/r^2 with one maximum, at the photon sphere; no ergoregion; dr future timelike inside (V4).
+- Deduced, on the reading that section 9 carries over to n = 4: Theorem 9.16, and so [Hin26] Proposition 6.5; Theorem
+  9.5 with kernel elements in A^(3/2 + S-bar - eps) and index 0, and with 10.16 and uniqueness inside the horizon the
+  invertibility of the unmodified spectral family at sigma != 0; so his Proposition 6.9 for small E^Upsilon.
+- OPEN: section 9's proofs line by line for n = 4; the low-energy theory (Theorems 9.36-9.41) and his Proposition 6.12;
+  [Hin26a] Theorem 5.2, section 6 and Theorem B.1. Labels: computed (hienergy5.py V1-V4, exact); deduced; READ ([Hin26c]
+  pp. 81, 98, 104-105, 158-168, 174-182, 191-193; [Hin26] pp. 113-122, 200); nothing proved.

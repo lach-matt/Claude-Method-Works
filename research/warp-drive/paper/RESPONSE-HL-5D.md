@@ -723,21 +723,26 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   supplement section 10.16, `modes5.py`; computed, the mode stability deduced for modes smooth across the horizon and
   outgoing at infinity). At high energies its trapping input carries over: at the photon sphere r² = 2μ Hintz's frame
   has the same nilpotent connection along the null flow, so the operator is strongly trapping admissible (supplement
-  section 10.17, `trap5.py`; computed, the admissibility deduced), the high-energy estimates of [Hin26c] in five
-  dimensions remaining open; and the threshold quantities those estimates need are his: the horizon threshold is 3/2,
-  also under the horizon modification, and the endomorphism at infinity has his spectrum (supplement section 10.18,
-  `thresh5.py`; computed). The semiclassical estimates on Tangherlini, whose threshold h₀ his proof does not make
-  explicit, the low-energy theory behind both operators in five dimensions, and the rest of their analysis are open. No
-  growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and
-  the late-time tail of the l = 2 master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06)
-  (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with that origin and bracketing 7
-  (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the
-  flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in the class would carry. The
-  least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8),
-  which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
-  `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
-  2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
-  Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
+  section 10.17, `trap5.py`; computed, the admissibility deduced); and the threshold quantities [Hin26c]'s estimates
+  need are his: the horizon threshold is 3/2, also under the horizon modification, and the endomorphism at infinity has
+  his spectrum (supplement section 10.18, `thresh5.py`; computed). The remaining inputs are computed too — at the
+  incoming radial set the threshold is the mirror of the outgoing one, −1/2 − S̄ against −1/2 + S̄, and at the photon
+  sphere the gap is half the expansion rate and the semiclassical loss as small as wished — so that, on the reading that
+  [Hin26c]'s spectral theory, stated in general dimension, carries over, the operator's spectral family is invertible at
+  large frequency and, for small modifications, at every nonzero frequency in the closed upper half plane: Hintz's
+  Propositions 6.5 and 6.9 in five dimensions (supplement section 10.19, `hienergy5.py`; computed, the propositions
+  deduced). The semiclassical estimates on Tangherlini, whose threshold h₀ his proof does not make explicit, a
+  line-by-line check of [Hin26c]'s section 9 in five dimensions, the low-energy theory behind both operators in five
+  dimensions, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ =
+  275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured from
+  the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step,
+  approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch
+  radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which
+  is the rate a nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one
+  with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces
+  to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
+  problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of
+  four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -818,7 +823,7 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   read by a twenty-sixth (D58): no major finding; three minor findings — the unmodified operator still called the gauge
   potential operator in titles, positive potentials stated without the spherically symmetric exception, and an outgoing
   class that, read with integer powers of 1/r, excluded the five-dimensional fall-off r^(−3/2) — and six notes, seated
-  (D61). Sections 10.17–10.18 have not been read by a verifier.
+  (D61). Sections 10.17–10.19 have not been read by a verifier.
 
 ---
 
@@ -895,11 +900,14 @@ from the arXiv text, with the extraction's spacing.
   4, 17, 25–26, 29 ((1.43) and the reason for its strip), 82 (Definition 4.2, (4.6)–(4.9)), 113 (section 6,
   (6.1)–(6.6)), 117–124 (Lemma 6.6, (6.17), Lemma 6.8, Proposition 6.9, Lemmas 6.10–6.11, Proposition 6.12 and its
   proof, (6.20)–(6.28)), 134–137 (section 7.1, Theorem 7.1). READ 2026-10-22: pp. 113–116 (Lemma 6.1, Remark 6.2, Lemma
-  6.3, (6.10)–(6.11), section 6.1: (6.12)–(6.16c), Lemma 6.4 and its proof, Proposition 6.5), 124 (footnote 71).
+  6.3, (6.10)–(6.11), section 6.1: (6.12)–(6.16c), Lemma 6.4 and its proof, Proposition 6.5), 124 (footnote 71), 200
+  (Remark 10.2).
 - [Hin26c] P. Hintz, *(Non-)linear waves on asymptotically flat spacetimes. II: trapping, bound states, nonlinear
   applications*, arXiv:2606.28008v1. READ 2026-10-22: pp. 88 (Definition 4.13, Lemma 4.14), 90–91 (Proposition 4.19),
-  101–105 (Example 5.4, Remark 5.6, Definitions 5.8, 5.10–5.11, Remark 5.9, Lemma 5.12), 158 (Definition 9.4), 163
-  ((9.16), Theorem 9.5), 265.
+  101–105 (Example 5.4, Remark 5.6, Definitions 5.8, 5.10–5.11, Remark 5.9, Lemma 5.12), 158–159 (Definition 9.4,
+  (9.4)–(9.6)), 161, 163 ((9.16), Theorem 9.5), 167–168 (Proposition 9.10, (9.32)–(9.42)), 174–175 (Theorem 9.16), 178,
+  180 (Propositions 9.25–9.27), 182 ((Γ.1)–(Γ.4), (9.79)–(9.81)), 191 (Proposition 9.35), 193, 265; and pp. 81
+  (Definition 4.5), 98 (Proposition 4.24).
 - [Wu26] S. Wu, *Picard iteration for the characteristic initial value problem in Einstein equations*,
   arXiv:2609.08421v1. READ 2026-10-20: abstract; p. 2, (1.1); Theorems 2.1–2.2, p. 6.
 - [AB26] L. Alpöge, T. Buckmaster, *Blowup for the Boussinesq equations with smooth forcing*, preprint (September
@@ -1044,6 +1052,11 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   (supplement section 10.18): its form −2∂_t* ρ(ρ∂_ρ − 3/2 − S̄) on 4+1 Minkowski with S̄ and its spectrum, Hintz's (1 −
   e)γ, 2γ, γ, at the trace weight 2/3; the horizon threshold 3/2, also under the horizon modification; and Tangherlini's
   O(ρ²) approach to Minkowski. 4/4; mutants 4/4 (about 8 seconds).
+- `hienergy5.py` V1–V4: the remaining five-dimensional inputs of Hintz's high-energy and Fredholm estimates for the
+  gauge potential operator (supplement section 10.19): at the incoming radial set A_ω + S̄ = D S̄ D, so the threshold is
+  −1/2 − S̄; at the photon sphere (Γ.1)–(Γ.3) with ν = 4(2μ)^(−1/2), β₀ = 2 and the gap (8μ)^(−1/2), and (Γ.4) with the
+  loss δ_Γ(0) = (μη)^(1/2); and the global dynamics, with no ergoregion and dr timelike inside. 4/4; mutants 6/6 (about
+  25 seconds).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
     the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1118,7 +1131,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D61).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D62).
 
 | claim | where it is established |
 | --- | --- |
@@ -1146,7 +1159,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D6
 | | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
-| settling, section 8 | supplement sections 10.1, 10.3–10.18 (Propositions 10.1–10.15); |
+| settling, section 8 | supplement sections 10.1, 10.3–10.19 (Propositions 10.1–10.16); |
 | | `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
 | | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; |
@@ -1154,7 +1167,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D6
 | | `docket68/n1star/lzerorate5.py` Y1–Y5; `docket68/n1star/damping5.py` U1–U6; |
 | | `docket68/n1star/semiclass5.py` W1–W6; `docket68/n1star/cform5.py` C1–C7; |
 | | `docket68/n1star/gaugepot5.py` G1–G7; `docket68/n1star/modes5.py` M1–M5; |
-| | `docket68/n1star/trap5.py` T0–T4; `docket68/n1star/thresh5.py` U1–U4; [HKW18], [KI03], |
+| | `docket68/n1star/trap5.py` T0–T4; `docket68/n1star/thresh5.py` U1–U4; |
+| | `docket68/n1star/hienergy5.py` V1–V4; [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin26a], [Hin26], [Hin26c] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
@@ -1175,8 +1189,9 @@ Python 3.11 with sympy; z3-solver for `foliation5.py`; numpy for `bondi5.py` and
 `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imports `lead5.py`, `growing5.py`, `lzero5.py` and
 `coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports `hierarchy5.py`, `semiclass5.py` imports `damping5.py`,
 `cform5.py` imports `semiclass5.py` and `damping5.py`, `gaugepot5.py` imports `damping5.py`, `modes5.py` imports
-`gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `gaugepot5.py`, `damping5.py` and `modes5.py`; the
-others import nothing from the research tree:
+`gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `gaugepot5.py`, `damping5.py` and `modes5.py`,
+`hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py` and `trap5.py`; the others import nothing from the
+research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1196,6 +1211,7 @@ others import nothing from the research tree:
                                                          # modes5 (under a minute)
                                                          # trap5 (about 12 seconds)
                                                          # thresh5 (about 8 seconds)
+                                                         # hienergy5 (about 25 seconds)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1203,9 +1219,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `af591a1e58cf579d90309cd6b998493d` |
-| `docket68/n1star/N1STAR-LOG.md` | `558d3164e7ed55c1a790df35d349dee2` |
-| `docket68/n1star/README.md` | `0044b22d9880af6f00d595da361ddd9d` |
+| `docket68/n1star/N1STAR-PROOF.md` | `8669fb4cccd7d796910a28ba87e93951` |
+| `docket68/n1star/N1STAR-LOG.md` | `bc73c3d72d95ce5a684e3d4c46e8aeb0` |
+| `docket68/n1star/README.md` | `665b5aa1e6689cf6fb41b8b62419badf` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1230,6 +1246,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/modes5.py` | `0e61753d554d6447aaf466571c3e8283` |
 | `docket68/n1star/trap5.py` | `45625a944c610a406f4622fbde411f49` |
 | `docket68/n1star/thresh5.py` | `412327f9015160d20213cf2a007262ac` |
+| `docket68/n1star/hienergy5.py` | `48d6dd942ad892b01e529383df9686f8` |
 | `docket68/n1star/hung4.py` | `7f3d68853fde8bda4ff383dc039dadfe` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
 | `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |

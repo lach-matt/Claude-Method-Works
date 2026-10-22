@@ -1759,3 +1759,45 @@ recording it.
 
 *Runs.* modes5.py 5/5, mutants 5/5 after the changes. The twenty-seventh verifier is sent on 10.17-10.18 (trap5.py,
 thresh5.py) and these repairs.
+
+**D62 (2026-10-22, M: "Continue"): the inputs of [Hin26c]'s high-energy and Fredholm estimates in five dimensions --
+[Hin26] Propositions 6.5 and 6.9 deduced (section 10.19; hienergy5.py V1-V4).**
+
+*The step.* PR #81 merged at 93edd5e; its last commit (a10a62c, D61), pushed after the merge, was rebased onto main as
+305fd4c and merged as PR #82; the branch restarts at main 6f1b61c. The twenty-seventh verifier, on 10.17-10.18, is still
+out. 10.16-10.18 left OPEN the high-energy estimates ([Hin26c] Theorem 9.16, which with his Lemma 6.4 gives [Hin26]
+Proposition 6.5), the threshold at R_in, and, for his Proposition 6.9, Theorem 9.5's kernel class, the index 0 and the
+interior.
+
+*What was read.* At source (alphaXiv, 2026-10-22): [Hin26c] pp. 81 (Definition 4.5), 98 (Proposition 4.24), 104-105
+again (Definition 5.11(5)-(6)), 158-159 (Definition 9.4, on R^n), 161, 163, 167-168 (Proposition 9.10; (9.32),
+vartheta_in = sup sigma_1^b(Im P_0-hat(0))(-2 dr/r) - 2 Re S; (9.37), "symmetric with respect to the Euclidean volume
+density r^(n-1) |dr dg|"; (9.41) with (n - 1)/2), 174-175 (Theorem 9.16), 178, 180 (Propositions 9.25-9.27), 182
+((Gamma.1)-(Gamma.4), (9.79)-(9.81), and the remark that delta_Gamma(0) is arbitrarily small for tensor-valued
+equations), 191 (Proposition 9.35, dr future timelike), 193 (the proof of Theorem 9.16); [Hin26] pp. 116 (Lemma 6.4's
+proof, diag(1, eta^-1, eta^-2, eta^-3); Proposition 6.5), 119 (Lemma 6.8's proof: vartheta_in = vartheta_out = S-bar = 0
+for the unmodified box), 122 (orders r > -1/2 at R_in), 200 (Remark 10.2).
+
+*What was computed.* hienergy5.py: (V1) on 4+1 Minkowski rho (rho d_rho - c) is skew for rho^(-5) d rho iff c = 3/2, and
+for box^Upsilon at the weight 2/3 the first-order part at the incoming covector satisfies A_w + S-bar = D S-bar D, D the
+radial reflection, exactly over the sphere -- four-dimensional control at the weight 1, the same; (V2) on Tangherlini
+the trapped set of G_1 is r^2 = 2 mu, C = 4 mu, with nu = 4 (2 mu)^(-1/2), {phi_u, phi_s} = nu/f, beta_0 = 2, and the
+gap nu/(4 beta_0) = (8 mu)^(-1/2), half trap5.py T1's rate -- four-dimensional control r = 3 mu/2, beta_0 = 3,
+1/(3^(3/2) mu); (V3) at a point of the trapped set the connection on trap5.py's frame is nilpotent with V_perp
+invariant, spec p_1 = 0, +-(2 eta)^(1/2), delta_Gamma(0) = (mu eta)^(1/2); (V4) W = f/r^2 has one maximum, 1/(4 mu) at
+r^2 = 2 mu, there is no ergoregion, and g^-1(dr, dr) = f < 0 inside. Selftest 4/4 (about 25 seconds), mutants 6/6. Found
+by exploring before it was checked: the first-order part at the incoming covector leaves the spectrum unchanged -- A_w +
+S-bar is S-bar conjugated by the radial reflection, in five dimensions and in four -- so the threshold at R_in is the
+mirror of R_out's; and the five-dimensional angular chart is singular at theta = pi/2, so V3's point is theta = pi/4.
+
+*What was deduced.* vartheta_in = -2 S-bar, the threshold at R_in -1/2 - S-bar; (Gamma.1)-(Gamma.4) with delta_Gamma(0)
+= (mu eta)^(1/2) -> 0; the dynamics and the interior; with 10.18, [Hin26c] Theorems 9.16 and 9.5 in five dimensions on
+the reading that section 9, stated for general n, carries over -- so [Hin26] Proposition 6.5, and with 10.16, the index
+0 and uniqueness inside the horizon, his Proposition 6.9.
+
+*Seated.* N1STAR-PROOF.md 10.19 with Proposition 10.16, and pointers in 10.16-10.18; hienergy5.py; ROUTES-OPEN.md 4.4,
+4.5 and the new 4.20; the README; the paper (the settling paragraph, the Review bullet, Appendices A, C and D, the
+[Hin26] and [Hin26c] entries, D1-D62, the md5 rows). Labels: computed (hienergy5.py V1-V4, exact), deduced, READ;
+nothing proved. OPEN: section 9's proofs line by line for n = 4; the low-energy theory and [Hin26] Proposition 6.12;
+[Hin26a] Theorem 5.2, section 6 and Theorem B.1. The twenty-seventh verifier's findings will be seated when it reports,
+and the twenty-eighth then sent on 10.19. Next: [Hin26c]'s low-energy theory in five dimensions.
