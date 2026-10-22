@@ -2071,3 +2071,44 @@ entries and the md5 table (40 rows).
 
 *Next.* The thirtieth verifier's findings on 10.22 and D68 are seated when it reports, and the thirty-first is then sent
 on 10.23 and tface5.py. Then [Hin26] sections 6.5, 7.2 and 8 in five dimensions.
+
+**D70 (2026-10-22): the thirtieth verifier's findings on 10.22 and D68 (solv5.py; D67, D68), seated.**
+
+*The verifier.* The thirtieth, on f0c106f: no MAJOR finding; four MINOR findings and thirteen notes. All three
+instruments pass their selftests and mutants, every control fails at its stated sub-check, all 39 md5 rows matched; it
+confirmed Q1's scaling at a rational point with the true r = |x|, Q4's thresholds to +-10^-3 and its positivity for C_0
+in {0, 50, 96, 100, 200} with mpmath, and the D68 split (C_0 <= 100 direct, <= 98 for Theorem 1.1(2), (1) and
+injectivity for every h < h_0, invertibility at 10^-6) at source.
+
+*Four MINOR, repaired.* (1) "Every input ... is computed" overstated the labels: (4)-(5) off the critical points and the
+smoothing of c (10.14(a)-(b)), Lemmas 3.3-3.8 (10.13(i)) and the uniformity Corollary 5.15 asks (p. 60) are deduced from
+computed quantities. 10.22's setting and summary, ROUTES 4.4 and 4.23 and solv5.py's docstring now say "computed or
+deduced from computed quantities"; 10.22(d) deduces the uniformity from (i) and c in rho_sf C^oo. The D67 entry's
+"(4)-(5) holds ... for every C_0 >= 0" is superseded likewise (positive roots at the critical points for every C_0). (2)
+His text was described as stated for general n where only Lemma 5.14 and Corollary 5.15 are (pp. 58-59); the rest of
+section 5.2 is written in 3+1 (charts on S^2, p. 60; alpha_sf < -1/2 in Proposition 5.11, p. 54) and is to be read at n
+= 4: 10.22's summary now says so. (3) The horizon-threshold caveat of D68 had not reached ROUTES 4.23 or 10.22's OPEN
+list: added to both and to 4.23's OPEN line. (4) 10.21(d): the root statement dangled after a lower-case "its"
+(repaired); Remark 5.7 concerns the spacetime estimate (5.21), so the threshold argument is now "by the mechanism of his
+Remark 5.7, stated there for (5.21)"; his own Fredholm citations for (6.1), [HHV21, Theorem 4.3], [Vas21b, section 6],
+[Vas18, Theorem 6.9] (p. 68), are named, with [Hin26c] Theorem 9.36 at n = 4 standing in their place; the condition is
+written vartheta_H+ < -C_0 - 1/2, the threshold 1/2 + vartheta_H+ of 10.18's convention below -C_0; p. 44 added to
+10.21's READ.
+
+*Thirteen notes, seated.* (1) mu rho^2 runs to 4 at r = m: [0, 4] in 10.22(a) and solv5.py. (2) (10.49) is only
+continuous at r_0/2 and 2 r_0; 10.22(a) now cites the smoothing (10.14(b), his p. 41) and r >= 3 r_0, and 10.23(a)
+likewise. (3) Propositions 5.5-5.6 also use "only simple causal information" near tau = 0 and r = m (pp. 44-45), which
+is 10.22(d): in the setting and (b). (4) delta_sf is not a continuity argument: C5 forces delta_sf > 0.0034, and (5)
+holds there because T' at the sink does not depend on rho_K (C7; 10.14(iv)): in (c). (5) Q4's Sturm check now runs at
+C_0 = 100, the largest C_0 10.21 uses (it held at 96; the verifier's corner minimum at 100 is 103.5). (6) [Hin23d]
+replaced by his [Hin26d] section 3 (p. 19), the source he cites for the 3b-calculus. (7) The dimension also enters
+through the trace weight 2/(D - 2); the thresholds are now compared at e = 0 (0 against his -1/2) and at e = 1/102400
+separately, in 10.22 and in 10.23's summary. (8) solv5.py's Q1-Q4 labels now say what follows "so" is deduced, and Q2
+computes the bound on all of tau in [0, T], r in [m, oo] (bound - G = T^2 (1 - s^2) + mu r^-2 (1 + T s)^2 at tau = T s),
+not only its limit; the controls stay as they were, not vacuous, as the verifier found. (9) 10.21(b) now cites the e =
+1/102400 thresholds (10.22(c), Q4). (10) h_0 = h_0(e, C_0), depending also on the weights, in 10.21(e), 10.22(e) and
+ROUTES 4.23. (11) 10.20(e)'s "widened to (iii)" now reads "widened, for (iii), to". (12) Corollary 5.15 is on p. 59, not
+60 as the D67 entry has it. (13) The README's mpmath sentence now covers every program importing those three.
+
+*Runs.* solv5.py 4/4 and mutants 4/4 after the changes; response5.py all pass. Next: the thirty-first verifier on 10.23
+(tface5.py, D69) and these repairs; and [Hin26] section 8 in five dimensions, its Lemma 8.4 first.

@@ -855,8 +855,12 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   (D65). Sections 10.20–10.21 with `lowenergy5.py` and `cpmodes5.py` were read by a twenty-ninth (D64, D66): no major
   finding; four minor findings — the zero energy part of Theorem 6.2 in five dimensions stated for every small h where
   the roots are known at one, the Fredholm property it uses left unnamed, a reading of [Hin26c] wider than the one
-  cited, and a deduced identity labelled computed — and twelve notes, seated (D68). Sections 10.22–10.23 have not been
-  read by a verifier.
+  cited, and a deduced identity labelled computed — and twelve notes, seated (D68). Section 10.22 with `solv5.py` and
+  those repairs was read by a thirtieth (D67, D68): no major finding; four minor findings — summary sentences calling
+  computed what is in part deduced from computed quantities, his solvability proof described as stated for general
+  dimension where most of it is written in 3+1, the horizon-threshold caveat missing from two places, and three slips in
+  one sentence on the Fredholm property — and thirteen notes, seated (D70). Section 10.23 has not been read by a
+  verifier.
 
 ---
 
@@ -1196,7 +1200,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D69).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D70).
 
 | claim | where it is established |
 | --- | --- |
@@ -1249,6 +1253,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D6
 | | the twenty-fourth section 10.14 (D56); the twenty-fifth section 10.15 (D57); the twenty-sixth |
 | | section 10.16 (D58); the twenty-seventh sections 10.17–10.18 (D59–D60); |
 | | the twenty-eighth section 10.19 (D62); the twenty-ninth sections 10.20–10.21 (D64, D66) |
+| | the thirtieth section 10.22 (D67, D70) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1293,9 +1298,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `e890e069ce7de2ad9804b582fba2351d` |
-| `docket68/n1star/N1STAR-LOG.md` | `a2cf778c3da2871f3a344b9f7e7c089c` |
-| `docket68/n1star/README.md` | `6c0d2b4b545b586577c960f206ffd2e4` |
+| `docket68/n1star/N1STAR-PROOF.md` | `0fcbc362e5fb716c28032b528c8f5bf0` |
+| `docket68/n1star/N1STAR-LOG.md` | `dab184e9eb71725f97523865991b0b36` |
+| `docket68/n1star/README.md` | `84b07d475a70ccf232f8c23d0167fc82` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1330,7 +1335,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/lemmas/hf_core5.py` | `84b715eb461838abcb5e018cd455eb5c` |
 | `docket68/lemmas/seed_escape.py` | `1a8b2ff82872e7096f13bf891a10424c` |
 | `docket68/n1star/cpmodes5.py` | `4579a4605556992e5398c4d2abef2add` |
-| `docket68/n1star/solv5.py` | `4a51df97c02803602abc5e0380c100be` |
+| `docket68/n1star/solv5.py` | `ecd9105c258bb6d65b5b08c5828a61e8` |
 | `docket68/n1star/tface5.py` | `0414ec3e0a7b5c4049447a4d53339395` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

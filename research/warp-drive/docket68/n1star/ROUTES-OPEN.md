@@ -383,13 +383,13 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    [Hin26c]'s low-energy theory at n = 4 the operator is tf-admissible and its zero energy operator of index 0, so that
    [Hin26] Proposition 6.12 holds there on the same reading (deduced): box^Upsilon with 10.15's modification is mode
    stable on the closed upper half plane; and, with his Theorem 5.2 there on the reading that his 3b-analysis carries to
-   five dimensions (4.23; its inputs computed), the constraint propagation operator has no outgoing mode at sigma != 0,
-   Im sigma >= 0, and, at one parameter point, an invertible zero energy operator on l in [-C_0 - 2, 0), [Hin26a]
-   Theorem 6.2 (deduced; the horizon threshold its Fredholm property needs is OPEN); with his Theorem B.1 on 4+1
-   Minkowski on the same readings (4.24; its inputs computed), the constraint propagation operator is tf-admissible for
-   every beta in [-C_0, 2) at that point, [Hin26] Theorem 7.1(4) (deduced); the line-by-line readings of [Hin26a]
-   sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections
-   6.5, 7.2 and 8, are OPEN.
+   five dimensions (4.23; its inputs computed or deduced from computed quantities), the constraint propagation operator
+   has no outgoing mode at sigma != 0, Im sigma >= 0, and, at one parameter point, an invertible zero energy operator on
+   l in [-C_0 - 2, 0), [Hin26a] Theorem 6.2 (deduced; the horizon threshold its Fredholm property needs is OPEN); with
+   his Theorem B.1 on 4+1 Minkowski on the same readings (4.24; its numbers computed), the constraint propagation
+   operator is tf-admissible for every beta in [-C_0, 2) at that point, [Hin26] Theorem 7.1(4) (deduced); the
+   line-by-line readings of [Hin26a] sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the
+   rest of the item, [Hin26] sections 6.5, 7.2 and 8, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -966,22 +966,24 @@ Proposition 10.18 and deduces.
 4.22 deduced [Hin26a] Theorem 6.2 from his Theorem 5.2 and left Theorem 5.2 OPEN. His proof (section 5.2) takes from the
 metric and from c: Lemma 5.3's memberships, from (2.12)-(2.14); Lemmas 3.5 and 3.7 (Propositions 5.5-5.6); his
 Proposition 5.1 (3)-(6) (Propositions 5.8-5.12); and two time functions (Proposition 5.16, whose Lemma 5.14 and
-Corollary 5.15 are stated for general n). 10.13-10.14 computed most of these; solv5.py computes the rest;
-N1STAR-PROOF.md 10.22 states Proposition 10.19 and deduces.
+Corollary 5.15 are stated for general n). 10.13-10.14 computed most of these or deduced them from computed quantities;
+solv5.py computes the rest, the uniformity Corollary 5.15 asks being deduced from Q1; N1STAR-PROOF.md 10.22 states
+Proposition 10.19 and deduces.
 - The 3sc structure: in Cartesian coordinates g^-1 = eta^-1 - mu r^-2 k# (x) k#, and Gamma(lam x; mu) = lam^-1 Gamma(x;
   mu lam^-2) with no mu^0 term, so Gamma in mu rho^3 C^oo, two powers better than (2.12) asks (Q1). Four-dimensional
   control: Schwarzschild, rho^2.
 - Near X: r^2 G(d tau) = -(1 - tau^2) - mu r^-2 (1 + tau)^2, so d tau is past timelike for g_3b on tau in [0, T] for
   every T < 1, uniformly to infinity (Q2). Near Sigma# = {r = r_h/2}: dr future timelike, m - r a time function (Q3).
 - The weights: his Proposition 5.1 (4)-(5) at (alpha_K, alpha_sf) = (1, -C_0 - 5/2) for every C_0 >= 0, and on all of sf
-  with rho_K <= 10 at C_0 = 96 (Q4); the five-dimensional (5.14) at e = 1/102400 is alpha_sf < b* - 1, alpha_K >
+  with rho_K <= 10 at C_0 = 100 (Q4); the five-dimensional (5.14) at e = 1/102400 is alpha_sf < b* - 1, alpha_K >
   alpha_sf + 1 - b*, b* = 0.99340731... (10.14).
 - Deduced, on the reading that his 3b-analysis (sections 2.3 and 5.2) holds in five dimensions: his Theorem 5.2 on
-  Tangherlini at (v, e) = (1/2, 1/102400) with 10.14's c, h_0 not explicit; with 4.22, his Theorem 6.2 there, (1) for
-  every h < h_0 and (2) at h = 10^-6 if that is below h_0, C_0 <= 100.
-- OPEN: that reading line by line; h_0; his Theorem B.1 and [Hin26] Theorem 7.1(4) (4.24 deduces them on the same
-  reading); [Hin26] sections 6.5, 7.2 and 8. Labels: computed (solv5.py Q1-Q4, exact); deduced; READ ([Hin26a] pp. 9,
-  12-16, 25-27, 38, 41-44, 47-48, 51-52, 54, 56, 58-60, 64, 66); nothing proved.
+  Tangherlini at (v, e) = (1/2, 1/102400) with 10.14's c, h_0 = h_0(e, C_0) not explicit; with 4.22, his Theorem 6.2
+  there, (1) for every h < h_0 and (2) at h = 10^-6 if that is below h_0, C_0 <= 100, given 10.21(d)'s horizon threshold
+  (OPEN).
+- OPEN: that reading line by line; h_0; 10.21(d)'s horizon threshold; his Theorem B.1 and [Hin26] Theorem 7.1(4) (4.24
+  deduces them on the same reading); [Hin26] sections 6.5, 7.2 and 8. Labels: computed (solv5.py Q1-Q4, exact); deduced;
+  READ ([Hin26a] pp. 9, 12-16, 25-27, 38, 41-44, 47-48, 51-52, 54, 56, 58-60, 64, 66); nothing proved.
 
 ### 4.24 [Hin26a] Theorem B.1 in five dimensions, and [Hin26] Theorem 7.1(4) (computed; D69)
 
