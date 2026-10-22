@@ -1993,3 +1993,81 @@ D1-D67, the md5 rows). Labels: computed (solv5.py Q1-Q4, exact), deduced, READ; 
 reading of [Hin26a] sections 2.3 and 5.2 at n = 4, and h_0; his Theorem B.1 and [Hin26] Theorem 7.1(4); [Hin26] sections
 6.5, 7.2 and 8 in five dimensions. The twenty-ninth verifier is still out on 10.20-10.21; 10.22 goes to the thirtieth.
 Next: [Hin26a] Theorem B.1 in five dimensions, or [Hin26] section 7.2.
+
+**D68 (2026-10-22): the twenty-ninth verifier's findings on 10.20-10.21 (lowenergy5.py, cpmodes5.py; D64, D66),
+seated.**
+
+*The verifier.* The twenty-ninth, on c5d17a2: no MAJOR finding; four MINOR findings and twelve notes. Every READ it
+checked matched at source, all 38 md5 rows matched, every control fails at its stated sub-check, and an independent
+symbol computation, S-bar^C = (r/2) B(dt - dr) and A_w + S-bar^C = (r/2) B(dt + dr) with B(zeta) = -2 iota_{zeta#} G C,
+reproduces K1's and K2's spectra at both weights and dimensions. It found 10.21(b)'s r_* - r = -mu/r - mu^2/(3 r^3) +
+..., the data weight, the weights and the n/2 shift right, and his Theorem 4.9(3) the even split the record uses.
+
+*Four MINOR, repaired.* (1) Theorem 6.2(2) in five dimensions was stated "at that point and for C_0 <= 96, with h below
+the h_0 of Theorem 5.2", but the roots are known at h = 10^-6 alone, and whether that lies below h_0(e) is not
+certified. 10.21(e) now says (1) and the injectivity of (2) for every h in (0, h_0), the invertibility of (2) at h =
+10^-6 provided it lies below h_0; 10.22(e), ROUTES 4.4, 4.22 and 4.23 and the paper ("its zero energy part at one
+parameter point") say the same. The direct route needs C_0 <= 100; his C_0 + 4 (p. 67) serves his adjoint route, now
+said, and the Theorem 1.1(2) analogue holds for C_0 <= 98; Theorem 5.2 is applied for C_0 + 1, also said. (2) The
+Fredholm property of (6.1), on which index 0 gives invertibility, was used and not named: 10.21(d) now names it --
+[Hin26c] Theorem 9.36 at n = 4 -- with box^C's threshold at the conormal bundle of the horizon below -C_0 - 1/2, not
+computed here and OPEN in five dimensions (his Remark 5.7: the damping pushes it below any fixed number for small h).
+(3) 10.20 used a wider reading of [Hin26c] than 10.19(d)'s: Lemma 3.11 and (3.47), Theorems 9.36-9.41 and Corollary 9.43
+at n = 4 with alpha + 2, section 9.5 again for scalar operators. 10.20(e), the pointers in 10.15 and 10.16, ROUTES 4.21,
+the paper and lowenergy5.py now say so. (4) Proposition 10.17(iii) called d_sigma^2 box(0) W* = 2 g00 W* computed; L3
+types g00 (thresh5.py U4) and W*'s leading term (10.15) and computes their product, the identity d_sigma^2 = 2 g00 Id
+being his Definition 9.4's: now labelled deduced, in 10.20 and lowenergy5.py.
+
+*Twelve notes, seated.* (1) cpmodes5.py's docstring said D65: now D66. (2) Only (B.13)'s l-window is dimension-free; its
+beta-range carries the density's shift ([Hin26] p. 137): "l-window" in 10.21, cpmodes5.py, ROUTES 4.5 and 4.22, the
+README and the paper; the beta-range is taken up with Theorem B.1. (3) Checks that compared typed constants: K2's window
+is now read off the computed spectra, each least eigenvalue shown below the others; K3's data weights are solved from
+the integrability exponent; L2's top is read off the computed exponents; L3's shift is taken from its own computed
+threshold; K3's top 2 and L3's rho^3 are typed from damping5.py U3 and 10.15(vi), where they are computed, and now say
+so. (4) The lower end 0 of (0, 2) is READ (his Proposition 9.40, the adjoint condition), not computed: L2, the README
+and ROUTES 4.21 now say so. (5) 10.20's setting called the augmentation "a functional at the horizon"; (6.24)'s row is
+<., f*> with f* compactly supported and <W*, f*> = 1, the horizon functional entering through (6.26): repaired. (6)
+10.21 credited 10.13 with the five-dimensional (5.14), which 10.13 deduces: repaired. (7) The constants C_0 + 1, C_0 + 4
+and the Theorem 1.1(2) range: see (1). (8) 10.14's all-of-sf positivity was checked at (1, -102); 10.22's Q4 (D67)
+checks it at 10.21's weights, at C_0 = 96 on all of sf and for every C_0 at the critical points. (9) ROUTES 4.4 called
+[Hin26c]'s low-energy theory OPEN beside its deduction; D67 already replaced it by the line-by-line readings. (10) The
+two t* conventions, t - r (L3, 10.18) and t - r_* (10.15(vi)), differ by O(mu/r) and move d_sigma box(0) W* only at
+rho^5: said in 10.20 and lowenergy5.py. (11) lowenergy5.py's dead code removed. (12) The paper's [Hin26a] entry adds pp.
+1-3 to its section 6 group, and its [Hin26c] entry (3.47) and Remark 9.42.
+
+*Runs.* cpmodes5.py 3/3 and mutants 3/3, lowenergy5.py 3/3 and mutants 4/4, after the changes. The thirtieth verifier is
+sent on 10.22 (solv5.py, D67) and these repairs.
+
+**D69 (2026-10-22): [Hin26a] Theorem B.1 and [Hin26] Theorem 7.1(4) in five dimensions (tface5.py F1-F4; section
+10.23).**
+
+*The step.* With Theorem 5.2's inputs computed (10.22), the next piece of item 2 was his Appendix B, the transition face
+problem on Minkowski space, from which [Hin26] Theorem 7.1(4) takes the tf-admissibility of box^C. READ at source
+(alphaXiv): [Hin26a] pp. 85-88, 93-94, 96-98; [Hin26] pp. 136-137.
+
+*Computed.* tface5.py F1-F4: (F1) box^C on 4+1 Minkowski in t* = t - r at the trace weight 2/3 is homogeneous of degree
+-2, all 147 terms; (F2) the beta-range at the origin is (0, 2 + C_0], the density's shift n/2 = 2; (F3) at (1/2,
+1/102400) the cf threshold alpha_cf > 1 - b*, bracketed at d = 0.9934 and 0.9935 in cform5.py's T, and -(1/2) r^2
+l(dr/r) with characteristic polynomial (lam - v)^3 (lam^2 - (3 - e) v lam + (2 - e) v^2 - e) and positive eigenvalues;
+(F4) section B.4's (alpha_sf, alpha_cf) = (-5/2, 5/2), the closing integral divergent, l = -1/2 in the l-window, beta =
+7/2 for C_0 >= 3/2, (B.33)'s data shifts +1/2 and -1/2 from Omega's one time direction, and beta' = -beta + 2 - eps in
+range iff beta in [-C_0, 2). 4/4, mutants 4/4, about 10 seconds; the four-dimensional controls reproduce his numbers.
+
+*Deduced (10.23).* Proposition B.2 on the reading of 10.19-10.20, Theorem B.4 on 10.22's reading in its edge-b version,
+Theorem B.1 on 4+1 Minkowski with beta in (0, 2 + C_0], and [Hin26] Theorem 7.1(4) with every beta in [-C_0, 2), at (v,
+e) = (1/2, 1/102400), C_0 <= 100, and h = 10^-6 if that is below h_0. Nothing proved.
+
+*Decisions.* (1) Hintz calls -(1/2) r^2 l(dr/r) positive definite with respect to Lemma 3.3's fiber inner product
+because its eigenvalues are positive; the record computes the eigenvalues, deduces the rest as he does, and labels F3
+so. (2) (B.33)'s data weights are not typed: their +1/2 and -1/2 are computed from the density in (tau, r), and are
+dimension-free. (3) The closing integral is computed, not compared. (4) After a first passing run, F1's separate d_t*
+sub-check, implied by the homogeneity, was replaced by a count of the d_t* terms, F3's threshold was bracketed directly,
+F4's data shifts and closing integral were computed rather than typed, and the page of the Lemma 3.3 quotation corrected
+to 96.
+
+*Records.* 10.19-10.22's OPEN lists and ROUTES 4.4, 4.5, 4.22 and 4.23 point to 10.23 and 4.24; ROUTES 4.24; the README
+(thirty-two programs); the paper's settling paragraph, review bullet, Appendices A, C and D, its [Hin26a] and [Hin26]
+entries and the md5 table (40 rows).
+
+*Next.* The thirtieth verifier's findings on 10.22 and D68 are seated when it reports, and the thirty-first is then sent
+on 10.23 and tface5.py. Then [Hin26] sections 6.5, 7.2 and 8 in five dimensions.
