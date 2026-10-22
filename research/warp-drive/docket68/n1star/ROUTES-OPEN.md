@@ -369,16 +369,18 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    the semiclassical inputs of the construction (4.14; 10.13), and a five-dimensional c of his Proposition 5.1's kind on
    Tangherlini (4.15; 10.14), the zero energy inputs of the modification E^Upsilon (4.16; 10.15), the mode stability of
    the unmodified operator at nonzero frequency (4.17; 10.16), the trapping input of the high energies (4.18; 10.17),
-   its structure and thresholds (4.19; 10.18), and the remaining inputs of [Hin26c]'s estimates at nonzero frequency
-   (4.20; 10.19): with the trace weight 2/(D - 2) in place of his 1 the strip is clear at a point below the
-   five-dimensional bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at that e, and the unmodified
-   operator's (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a horizon modification remove it,
-   and it has no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is strongly trapping admissible at
-   the photon sphere r^2 = 2 mu (deduced); S-bar has his spectrum (computed) and its horizon threshold is 3/2, for
-   10.15's c_H (deduced); at R_in the threshold is -1/2 - S-bar and at the photon sphere the loss is as small as wished
-   (computed), so that [Hin26] Propositions 6.5 and 6.9 hold there on the reading that [Hin26c] section 9 carries over
-   to n = 4 (deduced); his Theorem 5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the item are
-   OPEN.
+   its structure and thresholds (4.19; 10.18), the remaining inputs of [Hin26c]'s estimates at nonzero frequency (4.20;
+   10.19), and its low-energy theory (4.21; 10.20): with the trace weight 2/(D - 2) in place of his 1 the strip is clear
+   at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at that e,
+   and the unmodified operator's (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a horizon
+   modification remove it, and it has no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is
+   strongly trapping admissible at the photon sphere r^2 = 2 mu (deduced); S-bar has his spectrum (computed) and its
+   horizon threshold is 3/2, for 10.15's c_H (deduced); at R_in the threshold is -1/2 - S-bar and at the photon sphere
+   the loss is as small as wished (computed), so that [Hin26] Propositions 6.5 and 6.9 hold there on the reading that
+   [Hin26c] section 9 carries over to n = 4 (deduced); with [Hin26c]'s low-energy theory at n = 4 the operator is
+   tf-admissible and its zero energy operator of index 0, so that [Hin26] Proposition 6.12 holds there on the same
+   reading (deduced): box^Upsilon with 10.15's modification is mode stable on the closed upper half plane; his Theorem
+   5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the item are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -434,10 +436,11 @@ Proposition 6.5; and 4.19 (10.18, Proposition 10.15, computed; deduced) gives hi
 (6.11) and the horizon threshold 3/2 of his footnote 71 in five dimensions; and 4.20 (10.19, Proposition 10.16,
 computed; deduced) computes the remaining inputs of [Hin26c] Theorems 9.5 and 9.16 -- the threshold at R_in, -1/2 -
 S-bar, the trapped set's hypotheses and loss, the dynamics -- and deduces [Hin26] Propositions 6.5 and 6.9 there, on the
-reading that [Hin26c] section 9, stated for general n, carries over. Next: the rest of item 2 -- the 3b-estimates of
-[Hin26a] section 5 (his Theorem 5.2, with its h_0), its section 6's five-dimensional steps and its Theorem B.1, and
-[Hin26c]'s low-energy theory (Theorems 9.36-9.41, with which [Hin26] Proposition 6.12 follows) -- all in five
-dimensions.
+reading that [Hin26c] section 9, stated for general n, carries over; and 4.21 (10.20, Proposition 10.17, computed;
+deduced) carries [Hin26c]'s low-energy theory to n = 4 -- the transition face model and its Bessel reduction, the
+weights -- and deduces [Hin26] Proposition 6.12 there: the gauge potential operator is mode stable on the closed upper
+half plane. Next: the rest of item 2 -- the 3b-estimates of [Hin26a] section 5 (his Theorem 5.2, with its h_0), its
+section 6's five-dimensional steps and its Theorem B.1 -- and [Hin26] section 6.5, in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -889,3 +892,23 @@ N1STAR-PROOF.md 10.19 states Proposition 10.16 and deduces.
 - OPEN: section 9's proofs line by line for n = 4; the low-energy theory (Theorems 9.36-9.41) and his Proposition 6.12;
   [Hin26a] Theorem 5.2, section 6 and Theorem B.1. Labels: computed (hienergy5.py V1-V4, exact); deduced; READ ([Hin26c]
   pp. 81, 98, 104-105, 158-168, 174-182, 191-193; [Hin26] pp. 113-122, 200); nothing proved.
+
+### 4.21 The low-energy theory in five dimensions (computed; D64)
+
+4.16 left the index 0, tf-admissibility and the low-energy estimates of [Hin26] Proposition 6.12 OPEN. [Hin26c] section
+9.5 is stated for R^n -- Proposition 9.40 for every n >= 3, with the weights (0, n - 2) -- and Theorems 9.36, 9.41 and
+Corollary 9.43 write Lemma 3.11's shift at n = 3. lowenergy5.py computes the five-dimensional pieces; N1STAR-PROOF.md
+10.20 states Proposition 10.17 and deduces.
+- The transition face: on 4+1 Minkowski the 1-form wave operator acts componentwise and, conjugated by e^(i sigma r),
+  its spectral family is Delta_e - sigma^2 (L1).
+- Bessel at n = 4: order l + 1, exponents l and -(l + 2) -- the zero energy roots -l, l + 2 of 10.15 -- and the Hankel
+  asymptotics (mpmath): the outgoing solution, of size r^^-(l+2) near 0, is excluded exactly for weights below 2 (L2),
+  so box is tf-admissible on (0, 2), his Proposition 9.40 at n = 4.
+- The weights: the shift is n/2 = 2; the augmentation's terms are rho^3 and rho^4, inside the target iff alpha + 2 < 1
+  (L3).
+- Deduced, on 10.19's reading: Theorem 9.36 at n = 4; his Lemma 6.8 (box^Upsilon tf-admissible on (0, lam_s1,2));
+  Corollary 9.43, index 0, so 10.15's horizon functional spans the cokernel of box(0); and his Proposition 6.12, Steps
+  1-2: with 10.15's modification box^Upsilon is mode stable at every sigma with Im sigma >= 0.
+- OPEN: section 9 line by line at n = 4; his section 6.5 and Lemma 6.13; his section 7 ([Hin26a]) and section 8 in five
+  dimensions. Labels: computed (lowenergy5.py L1-L3; exact, L2's asymptotics numerical); deduced; READ ([Hin26c] pp. 61,
+  104, 193-200; [Hin26] pp. 117-124); nothing proved.
