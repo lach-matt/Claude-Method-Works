@@ -216,20 +216,20 @@ in it is proved.
 
 ### 4.1 What exists
 
-- **[Hun19]** (P.-K. Hung, arXiv:1909.06733v1, the even part in four dimensions). Theorems 1.1-1.4: a one-form
-  solving box W = 0 decays at tau^(-2+) in energy after its l = 0 part is subtracted; so does h solving the harmonic
-  gauge and the Lichnerowicz equation; the l = 0 part of W converges to c W*, W* = dt/r + (2M/r^2) f^-1 dr (8.1); and
-  h_(l=0) converges to c_1 K* + c_2 pi_{W*}, K* = K + pi_{W**} (8.39) growing linearly in t. The mechanism (sections
-  4-8): h is split into seven components whose zeroth-order matrix A + B + O in box H = (A + B + U) H is semi-positive
-  (Proposition 4.2, Remark 4.5), which gives red-shift and r^p estimates near the horizon and null infinity (Proposition
-  4.1); a gauge vector W = (W_0, W_1, W_2) carries h to the Regge-Wheeler gauge, determined by invertible angular
-  operators for l >= 2 ((4.11)-(4.13)); the trace S_W of pi_W, and P_even and Q_even -- components of dW when S_W and
-  the Zerilli field vanish ((4.18)-(4.20)) -- satisfy with W_0, W_1, W_2 a *triangular* system of scalar wave equations
-  with potentials and sources (Proposition 4.7, (4.21)-(4.25)): box S = 0, box P_even = d_t S_W, and box W_0 + (2M/r^3)
-  W_0 = -(2M/r^3) P_even + (Zerilli terms)                                           (4.21) and its two companions; each
-  rung is an inhomogeneous wave equation with a radial potential V treated by the vector field method of Appendix A
-  under the single condition l_0(l_0 + 1)/r^2 + V >= 0 ((A.3)) -- red-shift, Morawetz and the r^p hierarchy of Dafermos
-  and Rodnianski, Schlue's commutators L and rL, Angelopoulos-Aretakis-Gajic's r^2 L -- with a modification W_0 -> W_0 +
+- **[Hun19]** (P.-K. Hung, arXiv:1909.06733v1, the even part in four dimensions). Theorems 1.1-1.4: a one-form solving
+  box W = 0 decays at tau^(-2+) in energy after its l = 0 part is subtracted; so does h solving the harmonic gauge and
+  the Lichnerowicz equation; the l = 0 part of W converges to c W*, W* = dt/r + (2M/r^2) f^-1 dr (8.1); and h_(l=0)
+  converges to c_1 K* + c_2 pi_{W*}, K* = K + pi_{W**} (8.39) growing linearly in t. The mechanism (sections 4-8): h is
+  split into seven components whose zeroth-order matrix A + B + O in box H = (A + B + U) H is semi-positive (Proposition
+  4.2, Remark 4.5), which gives red-shift and r^p estimates near the horizon and null infinity (Proposition 4.1); a
+  gauge vector W = (W_0, W_1, W_2) carries h to the Regge-Wheeler gauge, determined by invertible angular operators for
+  l >= 2 ((4.11)-(4.13)); the trace S_W of pi_W, and P_even and Q_even -- components of dW when S_W and the Zerilli
+  field vanish ((4.18)-(4.20)) -- satisfy with W_0, W_1, W_2 a *triangular* system of scalar wave equations with
+  potentials and sources (Proposition 4.7, (4.21)-(4.25)): box S = 0, box P_even = d_t S_W, and box W_0 + (2M/r^3) W_0 =
+  -(2M/r^3) P_even + (Zerilli terms)                                           (4.21) and its two companions; each rung
+  is an inhomogeneous wave equation with a radial potential V treated by the vector field method of Appendix A under the
+  single condition l_0(l_0 + 1)/r^2 + V >= 0 ((A.3)) -- red-shift, Morawetz and the r^p hierarchy of Dafermos and
+  Rodnianski, Schlue's commutators L and rL, Angelopoulos-Aretakis-Gajic's r^2 L -- with a modification W_0 -> W_0 +
   eta_b (...) absorbing a source that grows like u + r ((4.35)-(4.36), Lemma 4.9). The l = 0 sector (section 8): if
   P_even and S_W vanish the one-form is stationary and solves an ODE in r with two solutions, one regular at the horizon
   (W*); with P_even and S_W decaying, the coefficient of the singular solution decays by the red-shift estimate (Theorem
@@ -252,33 +252,34 @@ in it is proved.
   hierarchy (section 5). No potential and no source are treated there; Hung's Appendix A says how both enter. -
   **[CYDL03]**: the tails t^-(2l+3) in five dimensions, measured here as T6. - **[KI03b]** (H. Kodama, A. Ishibashi,
   arXiv:hep-th/0308128v4). The Maxwell field on the n+2-dimensional static black hole, scalar type: F_ab = epsilon_ab E
-  S, F_ai = E_a S_i, with E_a = (k/r^(n-1))(D_a A + J~_a) (5.17), r^n E = -k^2 A at Q = 0 (5.19), and the master
-  equation r^(n-2) D^a (D_a A / r^(n-2)) - (k^2/r^2) A = -r^(n-2) D^a (J~_a / r^(n-2)) (5.20) -- no potential beyond
-  k^2/r^2 in that normalisation; the vector type (4.23) has (k_V^2 + (n - 1)K)/r^2. - **[Hin26]** (P. Hintz,
-  arXiv:2606.28253v2, with [Hin26a] arXiv:2606.27658 and [Hin26c] arXiv:2606.28008). The nonlinear stability of
-  subextremal Kerr in a generalized wave map gauge Upsilon(g) - theta = 0 whose source theta lies in a
-  finite-dimensional space, with strong constraint damping (the modified symmetric gradient delta*_{g,E^C}) and a
-  Nash-Moser iteration; "we work directly with the tensorial equation" and use as black boxes the mode stability of the
-  ungauged linearized equation (via Teukolsky, by Andersson, Hafner and Whiting, cited there) and of two 1-form wave
-  operators -- the gauge potential operator box^Upsilon = 2 delta_{E^Upsilon} G delta* and the constraint propagation
-  operator box^C (section 1.4.1): "mode stability for [both] implies mode stability for the gauge-fixed linearized
-  Einstein operator L_b, and a simple structure of its (generalized) zero energy nullspace". That nullspace on Kerr is
-  the linearized Kerr family in gauge, the deformation tensors of asymptotic translations, and (generalized) those of
-  boosts -- a second-order pole of the resolvent at zero energy, "forward solutions of L_b lose two powers of
-  t_*-decay". The constraint damping must satisfy (1.43): no indicial root of the zero energy operator of box^C with
-  real part in [-C_0, 1), C_0 = 100, which needs a non-perturbative E^C ([Hin26a]); mode stability of box^Upsilon at
-  zero energy is arranged perturbatively (Proposition 6.12), since the plain 1-form wave operator has a zero energy
-  bound state ([Hin26c] p. 21, citing Andersson, Hafner and Whiting) -- Hung's W*. [Hin26c] gives the tame estimates for
-  wave-type operators whose stationary model is mode stable and may carry zero energy bound states ("examples include
-  the wave operator on 1-forms and the linearization of the Einstein field equations in generalized harmonic gauge"),
-  "in 3 + 1 dimensions for concreteness" (Remark 5.6), with the Minkowskian zero-energy structure stated in general
-  spatial dimension n: the wave operator on tensors is tf-admissible with all weights in the indicial gap (0, n - 2)
-  (Proposition 9.40). - **The 2+1 reductions.** [KS17] (Klainerman-Szeftel, arXiv:1711.07597): nonlinear stability of
-  Schwarzschild under polarized axisymmetric perturbations, a 2+1 problem. [Hun15] (C. Huneau, arXiv:1511.07002):
-  nonlinear stability of Minkowski with a translation Killing field, where "the 3 + 1 vacuum Einstein equations reduce
-  to the 2 + 1 Einstein equations coupled to a wave map". [HL17] (Huneau-Luk, arXiv:1706.09499): the polarized U(1)
-  Einstein equations in an elliptic gauge, the setting of the theorem this paper answers. [Hol08]: the five-dimensional
-  biaxial class, a 1+1 problem, closed by vector field multipliers and a bootstrap.
+  S, F_ai = r epsilon_ab E^b S_i at Q = 0 ((5.10b), p. 17, as the twenty-sixth verifier read at source; this entry had
+  F_ai = E_a S_i), with E_a = (k/r^(n-1))(D_a A + J~_a) (5.17), r^n E = -k^2 A at Q = 0 (5.19), and the master equation
+  r^(n-2) D^a (D_a A / r^(n-2)) - (k^2/r^2) A = -r^(n-2) D^a (J~_a / r^(n-2)) (5.20) -- no potential beyond k^2/r^2 in
+  that normalisation; the vector type (4.23) has (k_V^2 + (n - 1)K)/r^2. - **[Hin26]** (P. Hintz, arXiv:2606.28253v2,
+  with [Hin26a] arXiv:2606.27658 and [Hin26c] arXiv:2606.28008). The nonlinear stability of subextremal Kerr in a
+  generalized wave map gauge Upsilon(g) - theta = 0 whose source theta lies in a finite-dimensional space, with strong
+  constraint damping (the modified symmetric gradient delta*_{g,E^C}) and a Nash-Moser iteration; "we work directly with
+  the tensorial equation" and use as black boxes the mode stability of the ungauged linearized equation (via Teukolsky,
+  by Andersson, Hafner and Whiting, cited there) and of two 1-form wave operators -- the gauge potential operator
+  box^Upsilon = 2 delta_{E^Upsilon} G delta* and the constraint propagation operator box^C (section 1.4.1): "mode
+  stability for [both] implies mode stability for the gauge-fixed linearized Einstein operator L_b, and a simple
+  structure of its (generalized) zero energy nullspace". That nullspace on Kerr is the linearized Kerr family in gauge,
+  the deformation tensors of asymptotic translations, and (generalized) those of boosts -- a second-order pole of the
+  resolvent at zero energy, "forward solutions of L_b lose two powers of t_*-decay". The constraint damping must satisfy
+  (1.43): no indicial root of the zero energy operator of box^C with real part in [-C_0, 1), C_0 = 100, which needs a
+  non-perturbative E^C ([Hin26a]); mode stability of box^Upsilon at zero energy is arranged perturbatively (Proposition
+  6.12), since the plain 1-form wave operator has a zero energy bound state ([Hin26c] p. 21, citing Andersson, Hafner
+  and Whiting) -- Hung's W*. [Hin26c] gives the tame estimates for wave-type operators whose stationary model is mode
+  stable and may carry zero energy bound states ("examples include the wave operator on 1-forms and the linearization of
+  the Einstein field equations in generalized harmonic gauge"), "in 3 + 1 dimensions for concreteness" (Remark 5.6),
+  with the Minkowskian zero-energy structure stated in general spatial dimension n: the wave operator on tensors is
+  tf-admissible with all weights in the indicial gap (0, n - 2) (Proposition 9.40). - **The 2+1 reductions.** [KS17]
+  (Klainerman-Szeftel, arXiv:1711.07597): nonlinear stability of Schwarzschild under polarized axisymmetric
+  perturbations, a 2+1 problem. [Hun15] (C. Huneau, arXiv:1511.07002): nonlinear stability of Minkowski with a
+  translation Killing field, where "the 3 + 1 vacuum Einstein equations reduce to the 2 + 1 Einstein equations coupled
+  to a wave map". [HL17] (Huneau-Luk, arXiv:1706.09499): the polarized U(1) Einstein equations in an elliptic gauge, the
+  setting of the theorem this paper answers. [Hol08]: the five-dimensional biaxial class, a 1+1 problem, closed by
+  vector field multipliers and a bootstrap.
 
 ### 4.2 What the class removes
 
@@ -800,7 +801,7 @@ ROUTES 4.4 item 2's E^Upsilon. gaugepot5.py computes them; N1STAR-PROOF.md 10.15
   b-regularity behind the kernel. Labels: computed (gaugepot5.py G1-G7, exact); deduced (the kernel, the augmented
   operator's injectivity); READ ([Hin26] pp. 25-26, 82, 113, 117-124; alphaXiv, 2026-10-21); nothing proved.
 
-### 4.17 Mode stability of the gauge potential operator at nonzero frequency in five dimensions (computed; D58)
+### 4.17 Mode stability of the 1-form wave operator at nonzero frequency in five dimensions (computed; D58)
 
 ROUTES 4.4 item 2's [Hin26] Proposition 6.9 rests, beside his Proposition 6.5 and [Hin26c]'s Fredholm estimates, on the
 mode stability of the unmodified operator box = 2 delta G delta* at sigma != 0, which on Kerr he takes from [AHW24]
@@ -811,16 +812,17 @@ Theorem 5.1. modes5.py computes the five-dimensional reductions on Tangherlini; 
 - The master equations, on arbitrary harmonics (M2-M4): scalar waves V_0 = (f/r^2)(kappa + 3/4 + 9 mu/(4 r^2)), Phi =
   r^(3/2) R; Maxwell vector type V_1 = (f/r^2)(lam - 1/4 + 5 mu/(4 r^2)), lam = (l + 1)^2; Maxwell scalar type V_2 =
   (f/r^2)(kappa + 3/4 - 7 mu/(4 r^2)) for W = r^3 F_tr, from Maxwell by R[r^3 F_tr] = (r^2 M_t)' + i sigma r^2 M_r, with
-  F_tr = 0 forcing the field to vanish; at l = 0, M_r = -i sigma F_tr/f. [KI03b]'s (4.23), (5.17), (5.19) and (5.20) at
-  Q = 0 (READ).
+  F_tr = 0 and M = 0 forcing the field to vanish (kappa != 0); at l = 0, M_r = -i sigma F_tr/f. [KI03b]'s (4.23),
+  (5.17), (5.19) and (5.20) at Q = 0 (READ).
 - All three potentials are positive for r > r_h at l >= 1, and V_0 at l = 0 (M5); the l = 0 Maxwell scalar potential is
   negative near the horizon and is not needed.
 - Deduced: for sigma != 0, Im sigma >= 0, a mode smooth across the future horizon and outgoing at infinity vanishes --
   each step an energy identity (Im sigma > 0) or the constant Wronskian (sigma real).
-- OPEN: that his spectral family's kernel elements lie in the class in five dimensions; his Proposition 6.5 (its
-  trapping input in 4.18) and [Hin26c] Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there;
-  the low-energy part (4.16). Labels: computed (modes5.py M1-M5, exact); deduced (the mode stability); READ ([Hin26] pp.
-  118-119; [KI03b]); nothing proved.
+- OPEN: that his spectral family's kernel elements lie in the class in five dimensions ([Hin26c] Theorem 9.5(5)), and
+  the index 0 that makes the injective operator invertible; his Proposition 6.5 (its trapping input in 4.18) and
+  [Hin26c] Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there; the low-energy part (4.16).
+  Labels: computed (modes5.py M1-M5, exact); deduced (the mode stability); READ ([Hin26] pp. 118-119; [KI03b]); nothing
+  proved.
 
 ### 4.18 Strong trapping admissibility of the gauge potential operator in five dimensions (computed; D59)
 
