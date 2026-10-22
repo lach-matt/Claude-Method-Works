@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D57).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D58).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -120,13 +120,17 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   only kernel, the cokernel functional at the horizon, and the pairings of his Lemma 6.11 and (6.26), his
   four-dimensional values as the control (G1-G7). `python3 gaugepot5.py --selftest` (7/7, about a minute and a half),
   `--mutants` (7/7).
+- `modes5.py`: mode stability of the gauge potential operator at nonzero frequency on five-dimensional Tangherlini
+  (section 10.16; D58): box = d delta + delta d on every 1-form, and the scalar-wave and Maxwell master equations on
+  arbitrary harmonics, with their potentials positive and the l = 0 Maxwell sector by its own equation (M1-M5). `python3
+  modes5.py --selftest` (5/5, under a minute), `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All twenty-four are stdlib plus sympy (foliation5.py also uses z3; damping5.py and semiclass5.py mpmath; settle5.py
+All twenty-five are stdlib plus sympy (foliation5.py also uses z3; damping5.py and semiclass5.py mpmath; settle5.py
 numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing the solver `../lemmas/hf_mirror5.py` and
 `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py, lzero5.py and coupled5.py import wavegauge5.py,
 lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py, cform5.py imports semiclass5.py and damping5.py,
-gaugepot5.py imports damping5.py, and the others import nothing from the tree. The board's shared record is not edited
-here.
+gaugepot5.py imports damping5.py, modes5.py imports gaugepot5.py and damping5.py, and the others import nothing from the
+tree. The board's shared record is not edited here.
