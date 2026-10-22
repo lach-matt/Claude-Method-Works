@@ -3218,8 +3218,8 @@ Lemma 6.8, from [Hin26c] Proposition 9.40); the estimates (6.27)-(6.28) -- and h
 infinity; mode stability of box at nonzero frequencies in five dimensions, which his Proposition 6.9 takes from [AHW24]
 Theorem 5.1 on Kerr (deduced on Tangherlini, within a class, in 10.16); the high-energy side of his Proposition 6.9 in
 five dimensions -- his Proposition 6.5, from section 6.1's strong trapping admissibility (Lemma 6.4; deduced in 10.17)
--- and Lemma 6.1's structure; and the radial-point and b-regularity behind (a). Nothing of this section is proved:
-Proposition 10.12 is computed, and (a)-(c) are deduced.
+-- and Lemma 6.1's structure (computed in 10.18); and the radial-point and b-regularity behind (a) (its threshold, 3/2,
+computed in 10.18). Nothing of this section is proved: Proposition 10.12 is computed, and (a)-(c) are deduced.
 
 ### 10.16 Mode stability of the gauge potential operator at sigma != 0 in five dimensions (`modes5.py` M1-M5; D58)
 
@@ -3370,6 +3370,65 @@ Theorem 9.16 in five dimensions -- the high-energy estimates themselves, with th
 and at infinity; [Hin26c] works "in 3 + 1 dimensions for concreteness" (Remark 5.6) -- and with it his Proposition 6.5
 there; the other OPEN items of 10.15-10.16 stand. Nothing of this section is proved: Proposition 10.14 is computed, and
 (a)-(b) are deduced.
+
+### 10.18 The structure and thresholds of the gauge potential operator in five dimensions (`thresh5.py` U1-U4; D60)
+
+*The setting.* [Hin26c]'s estimates for a stationary wave-type operator P_0 = -2 d_t* rho (rho d_rho - (n - 1)/2 - S) +
+P_0^(0) + Q d_t* - g00 d_t*^2 (its Definition 9.4, n the spatial dimension; (5.1a), with 1 at n = 3, Remark 5.6) need
+threshold conditions on the orders: at the event horizon s > 1/2 + vartheta_H+, vartheta_H+ the supremum over N^*H+ of
+the spectrum of (rho^2/(2 (r_+ - m))) xi^-1 sigma_1((P_0 - P_0^*)/2i) (Definition 5.11(4)); at infinity, through S-bar,
+the bottom of the spectrum of S over the boundary ((9.16c), (9.20), Lemma 5.12). [Hin26] Lemma 6.1 puts box^Upsilon in
+this class, his Lemma 6.3 computes S-bar for E^Upsilon on Minkowski ((6.11)), and his footnote 71 gives the horizon
+threshold 3/2 for the unmodified 1-form operator. 10.15 named Lemma 6.1's structure and this regularity as OPEN in five
+dimensions; this section computes them, with the trace weight 2/3 at infinity and at the horizon, f = 1 - mu/r^2, r_h =
+mu^(1/2). At a = 0, rho^2/(2 (r_+ - m)) is 1/f'(r_+).
+
+**Proposition 10.15 (computed; exact).**
+ (i) On 4+1 Minkowski, in t* = t - r and the Cartesian frame (dt, dx^i), box^Upsilon = 2 (delta + E-bar) G delta*, with
+     E-bar h = -gam (2 iota_c# h - (2/3)(1 - e) c tr h), c = r^-1 dt, is -2 d_t* rho (rho d_rho - 3/2 - S-bar) plus a
+     stationary operator: no d_t*^2 term, and S-bar omega = gam (omega + omega_t dt* + e <dt*, omega> dt) (U1).
+ (ii) The spectrum of S-bar is gam (1 - e), 2 gam, and gam on the three angular directions: his (6.11)'s, the weight
+     2/(D - 2) making (2/(D - 2))(1 - D/2) = -1 in every dimension (U2).
+ (iii) At N^*H+ in the ingoing chart (r = r_h, zeta = xi dr), the subprincipal symbol of box + 2 gam_H E_H G delta*, E_H
+     h = 2 iota_c_H# h - (2/3) c_H tr h, c_H = c_v dv + c_r dr, on half densities by |dg|, is i xi f'(r_h) K with K
+     lower triangular, its diagonal 1 + c_v gam_H r_h, -1 + 2 c_v gam_H r_h and c_v gam_H r_h (three times), and its
+     angular block diagonal (U3).
+ (iv) On Tangherlini, with t* = t - r, g^-1(dt*, dt*) = -(2 mu rho^2 - mu^2 rho^4)/(1 - mu rho^2), in rho^2 C^oo, and
+     g - g-bar = O(rho^2) in the frame (dt, dr, r dw) (U4).
+
+*Proof.* thresh5.py U1-U4: (i) from the definitions in Cartesian coordinates, d_t = d_t* and d_x^i = d_x^i - (x^i/r)
+d_t*, exact on a stereographic chart of the sphere; (iii) from the full symbol on half densities, as 10.17's T0.
+Four-dimensional controls: (i) with rho d_rho - 1 and the same S-bar at the weight 1; (ii) his (6.11)'s spectrum; (iii)
+1 + 2 c_v gam mu, -1 + 4 c_v gam mu and 2 c_v gam mu (twice), the threshold 3/2 of his footnote 71 at gam_H = 0.
+Controls: the weight 1 in five dimensions, where S-bar's e becomes (3e - 1)/2 and its spectrum (3/2)(1 - e) gam, 2 gam,
+gam; the scalar wave operator, K = 0, threshold 1/2; and f = 1 - mu/r in five dimensions, O(rho). []
+
+*Deduced.*
+ (a) (the horizon threshold) For small |c_v gam_H| the diagonal entries 1 + c_v gam_H r_h and -1 + 2 c_v gam_H r_h are
+     distinct from each other and from the angular ones, so K is diagonalizable and, for a suitable fiber inner product,
+     vartheta_H+ is the largest of them: 1 + c_v gam_H r_h. It is 1 at gam_H = 0, as in four dimensions, and 1 at every
+     gam_H for 10.15's c_H = -(1/2) chi dr (c_v = 0, chi = 1 at r_h). So the threshold behind 10.15's deduced (a) is s >
+     3/2 in five dimensions; his footnote's "close to 3/2 for small gamma_H" is, for this c_H, equality.
+ (b) (the structure at infinity) By (i)-(ii), [Hin26] Lemma 6.1(1) holds in five dimensions with rho d_rho - 3/2 for rho
+     d_rho - 1 and S-bar's spectrum his; by (iv) the differences (6.7) gain a power, S_E - S-bar in rho^2 C^oo and the
+     zero energy operators' difference in rho^4 Diff_b^2, Tangherlini's Christoffel symbols differing from Minkowski's
+     by O(rho^3) where Kerr's differ by O(rho^2). The transport equation (rho d_rho - 3/2 - S-bar) u = 0 gives outgoing
+     kernel elements of the spectral family the leading behaviour rho^(3/2 + S-bar) (his (9.20): rho^(1 + S-bar)), which
+     lies in rho^r L^2(r^3 dr) iff r < -1/2 + S-bar: the threshold (9.16c) at R_out is unchanged on the Euclidean
+     density, and Lemma 5.12's vartheta_out = 2 S-bar (to within eps) carries over, -2 d_t* rho (rho d_rho - 3/2) being
+     symmetric for the five-dimensional density.
+
+*READ.* [Hin26] (alphaXiv, 2026-10-22): pp. 113-115 (Lemma 6.1, (6.4a)-(6.7), Lemma 6.3, (6.10)-(6.11)), 124 (footnote
+71). [Hin26c] (alphaXiv, 2026-10-22): pp. 101 (Example 5.4, Remark 5.6), 104-105 (Definitions 5.10-5.11, Lemma 5.12),
+158 (Definition 9.4), 163 ((9.16a)-(9.16c), Theorem 9.5 with (9.20)).
+
+*What this gives, and what it does not.* The numbers [Hin26c]'s estimates need from the gauge potential operator in five
+dimensions: the horizon threshold is 3/2, as in four, and stays 3/2 under 10.15's horizon modification; S-bar has his
+spectrum; the structure is his with (n - 1)/2 = 3/2, Tangherlini's deviation from Minkowski one power better than
+Kerr's. Not done, and OPEN: the radial point, propagation and trapping estimates themselves in five dimensions ([Hin26c]
+sections 7 and 9, general in their arguments, written in 3 + 1); the threshold at R_in, which depends on the order
+functions of [Hin26c] Definition 5.11(6); and the rest of item 2. Nothing of this section is proved: Proposition 10.15
+is computed, and (a)-(b) are deduced.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)

@@ -367,13 +367,14 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    it needs is an ODE problem in r for each l of the class. Its indicial half is computed (4.13; N1STAR-PROOF.md 10.12),
    the semiclassical inputs of the construction (4.14; 10.13), and a five-dimensional c of his Proposition 5.1's kind on
    Tangherlini (4.15; 10.14), the zero energy inputs of the modification E^Upsilon (4.16; 10.15), the mode stability of
-   the unmodified operator at nonzero frequency (4.17; 10.16), and the trapping input of the high energies (4.18;
-   10.17): with the trace weight 2/(D - 2) in place of his 1 the strip is clear at a point below the five-dimensional
-   bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at that e, and the unmodified operator's
-   (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a horizon modification remove it, and it has
-   no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is strongly trapping admissible at the photon
-   sphere r^2 = 2 mu (deduced); his Theorem 5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the
-   item are OPEN.
+   the unmodified operator at nonzero frequency (4.17; 10.16), the trapping input of the high energies (4.18; 10.17),
+   and its structure and thresholds (4.19; 10.18): with the trace weight 2/(D - 2) in place of his 1 the strip is clear
+   at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at that e,
+   and the unmodified operator's (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a horizon
+   modification remove it, and it has no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is
+   strongly trapping admissible at the photon sphere r^2 = 2 mu (deduced); its horizon threshold is 3/2 and S-bar has
+   his spectrum (computed); his Theorem 5.2, [Hin26c]'s low-energy theory in five dimensions and the rest of the item
+   are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -425,9 +426,11 @@ potential operator's zero energy kernel, cokernel functional and pairings in fiv
 Proposition 6.12; and 4.17 (10.16, Proposition 10.13, computed; the mode stability deduced) gives that operator's mode
 stability at sigma != 0 on Tangherlini, in a class, the input of his Proposition 6.9; and 4.18 (10.17, Proposition
 10.14, computed; deduced) gives the strong trapping admissibility of box^Upsilon, his Lemma 6.4, the input of his
-Proposition 6.5. Next: the rest of item 2 -- the 3b-estimates of his section 5 (his Theorem 5.2, with its h_0) and
-section 6's five-dimensional steps, his Theorem B.1, and [Hin26c]'s theory -- the high-energy estimates (his Theorem
-9.16, which with 4.18 gives his Proposition 6.5), low energy and regularity -- all in five dimensions.
+Proposition 6.5; and 4.19 (10.18, Proposition 10.15, computed; deduced) gives his Lemma 6.1's structure, S-bar of his
+(6.11) and the horizon threshold 3/2 of his footnote 71 in five dimensions. Next: the rest of item 2 -- the 3b-estimates
+of his section 5 (his Theorem 5.2, with its h_0) and section 6's five-dimensional steps, his Theorem B.1, and [Hin26c]'s
+theory -- the high-energy estimates (his Theorem 9.16, which with 4.18 gives his Proposition 6.5), low energy and
+regularity -- all in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -839,3 +842,20 @@ the lemma.
 - OPEN: [Hin26c] Theorem 9.16 in five dimensions, and with it his Proposition 6.5; [Hin26c] is in 3 + 1 "for
   concreteness" (Remark 5.6). Labels: computed (trap5.py T0-T4, exact); deduced (the lemma, the normal hyperbolicity);
   READ ([Hin26] pp. 113-116; [Hin26c] pp. 88, 90-91, 101-103, 265); nothing proved.
+
+### 4.19 The structure and thresholds of the gauge potential operator in five dimensions (computed; D60)
+
+10.15 named [Hin26] Lemma 6.1's structure and the regularity behind its deduced (a) as OPEN in five dimensions;
+[Hin26c]'s estimates need, from them, threshold quantities ([Hin26c] Definition 5.11, (9.16), Lemma 5.12). thresh5.py
+computes them; N1STAR-PROOF.md 10.18 states Proposition 10.15.
+- On 4+1 Minkowski, box^Upsilon = -2 d_t* rho (rho d_rho - 3/2 - S-bar) + (stationary), S-bar omega = gam (omega +
+  omega_t dt* + e <dt*, omega> dt) (U1); spec S-bar = gam (1 - e), 2 gam, gam -- his (6.11)'s, at the weight 2/(D - 2)
+  in any dimension; at the weight 1 in five dimensions it would be (3/2)(1 - e) gam, 2 gam, gam (U2).
+- The horizon threshold: K/f'(r_h) lower triangular with diagonal 1 + c_v gam_H r_h, -1 + 2 c_v gam_H r_h, c_v gam_H r_h
+  (U3), so vartheta_H+ = 1 and s > 3/2 at gam_H = 0 and, for 10.15's c_H = -(1/2) chi dr, at every gam_H (deduced).
+  Four-dimensional control: his footnote 71's 3/2.
+- Tangherlini at infinity: g00 in rho^2 C^oo for t* = t - r, and g - g-bar = O(rho^2) (U4), so (6.7) holds with a power
+  to spare; outgoing kernel elements ~ rho^(3/2 + S-bar), the threshold at R_out -1/2 + S-bar as in (9.16c) (deduced).
+- OPEN: the radial point, propagation and trapping estimates of [Hin26c] in five dimensions; the threshold at R_in.
+  Labels: computed (thresh5.py U1-U4, exact); deduced; READ ([Hin26] pp. 113-115, 124; [Hin26c] pp. 101, 104-105, 158,
+  163); nothing proved.

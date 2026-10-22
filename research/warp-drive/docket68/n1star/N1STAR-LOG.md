@@ -1689,3 +1689,41 @@ a new [Hin26c], D1-D59, the md5 rows). Labels: computed (trap5.py T0-T4, exact),
 [Hin26c] Theorem 9.16 in five dimensions, and with it his Proposition 6.5; the rest of item 2 as before. The
 twenty-sixth verifier, on 10.16, has not reported; its findings will be seated when it does, and the twenty-seventh sent
 on 10.17 after it, one at a time. Next: route B's item 2 continues at [Hin26c] and his section 5 in five dimensions.
+
+**D60 (2026-10-22, M: "Continue"): the structure and threshold quantities of the gauge potential operator in five
+dimensions -- [Hin26] Lemma 6.1, (6.11) and footnote 71 (section 10.18; thresh5.py U1-U4).**
+
+*The step.* PR #80 merged; the branch restarts at main f2f7f3b. Of item 2's rest, [Hin26a] Appendix B (Theorem B.1, the
+tf-admissibility of box^C) was read first and is a microlocal theorem -- Fredholm analysis and a spacetime solvability
+estimate -- whose five-dimensional inputs are threshold quantities; so are [Hin26c]'s. 10.15 named two of them OPEN:
+Lemma 6.1's structure and the regularity behind its deduced (a), whose threshold [Hin26] footnote 71 gives as 3/2 in
+four dimensions.
+
+*What was read.* At source (alphaXiv, 2026-10-22): [Hin26a] (arXiv:2606.27658v2) pp. 1-2, 11 and Appendix B pp. 85,
+87-88, 90-91, 93, 98 (Theorem B.1, Proposition B.2 and its proof, Theorem B.4, section B.4); [Hin26] p. 124 (footnote
+71) and pp. 113-115 again; [Hin26c] pp. 101-105 (Definitions 5.10-5.11 -- vartheta_H+ = sup spec (rho^2/(2 (r_+ - m)))
+xi^-1 sigma_1((P_0 - P_0^*)/2i) over N^*H+, s > 1/2 + vartheta_H+ --, Lemma 5.12, Definition 5.13), 158 (Definition 9.4,
+with (n - 1)/2 in general dimension), 161-163 ((9.16a)-(9.16c), Theorem 9.5 with (9.20)).
+
+*What was computed.* thresh5.py: (U1) box^Upsilon on 4+1 Minkowski in t* = t - r and the Cartesian frame is -2 d_t* rho
+(rho d_rho - 3/2 - S-bar) + (stationary), S-bar omega = gam (omega + omega_t dt* + e <dt*, omega> dt), exact on a
+stereographic chart; (U2) its spectrum gam (1 - e), 2 gam, gam, his (6.11)'s, the weight 2/(D - 2) making it
+dimension-free (at weight 1 in five dimensions, (3/2)(1 - e) gam); (U3) at N^*H+, K/f'(r_h) lower triangular with
+diagonal 1 + c_v gam_H r_h, -1 + 2 c_v gam_H r_h, c_v gam_H r_h -- 4D control 1 + 2 c_v gam mu, -1 + 4 c_v gam mu, 2 c_v
+gam mu, his 3/2 at gam_H = 0; (U4) g00 in rho^2 C^oo and g - g-bar = O(rho^2) on Tangherlini. Selftest 4/4 (about 8
+seconds), mutants 4/4. Found by exploring before it was checked: S-bar came out right at a boundary point but a symbolic
+simplify could not clear the sqrt(x^2) forms, nor the d_t*^2 coefficient; the inverse stereographic chart, on which |x|
+= R exactly, settles both.
+
+*What was deduced.* The horizon threshold is s > 3/2 in five dimensions, and for 10.15's c_H = -(1/2) chi dr (c_v = 0)
+at every gam_H -- equality where his footnote says "close to"; Lemma 6.1's structure holds with rho d_rho - 3/2 and
+S-bar his, (6.7) with a power to spare; outgoing kernel elements ~ rho^(3/2 + S-bar), the threshold at R_out -1/2 +
+S-bar as in (9.16c).
+
+*Seated.* N1STAR-PROOF.md 10.18 with Proposition 10.15, and a pointer in 10.15; thresh5.py; ROUTES-OPEN.md 4.4, 4.5 and
+the new 4.19; the README; the paper (the settling paragraph, the Review bullet, Appendices A, C and D, the [Hin26] and
+[Hin26c] entries, D1-D60, the md5 rows). Labels: computed (thresh5.py U1-U4, exact), deduced, READ; nothing proved.
+OPEN: [Hin26c]'s estimates themselves in five dimensions, the threshold at R_in, and the rest of item 2. The
+twenty-sixth verifier, on 10.16, has still not reported; its findings will be seated when it does, and the
+twenty-seventh then sent on 10.17-10.18. Next: route B's item 2 continues at [Hin26c] and his section 5 in five
+dimensions.
