@@ -1958,3 +1958,38 @@ said "the three that import" damping5.py where every program importing it needs 
 K1-K3, exact), deduced, READ; nothing proved. OPEN: [Hin26a] Theorem 5.2 and Theorem B.1 in five dimensions; [Hin26]
 Theorem 7.1(4), section 6.5, Lemma 6.13 and sections 7-8. The twenty-ninth verifier is sent on 10.20-10.21
 (lowenergy5.py, cpmodes5.py; D64, D66). Next: [Hin26a] Theorem 5.2 in five dimensions, or [Hin26] section 6.5.
+
+**D67 (2026-10-22, M: "Continue"): the inputs of [Hin26a] Theorem 5.2 in five dimensions -- the theorem deduced on a
+reading (section 10.22; solv5.py Q1-Q4).**
+
+*The step.* 10.21 rested on [Hin26a] Theorem 5.2 in five dimensions, OPEN. [Hin26] section 6.5 was weighed first and set
+aside for now: its Proposition 6.18 is organised by the indicial roots of the linearized gauge-fixed Einstein operator
+([Hin26] Lemma 8.4), not yet in five dimensions, and only its Proposition 6.15 stands alone.
+
+*What was read.* At source (alphaXiv, 2026-10-22): [Hin26a] pp. 9, 12-16, 25-27, 38, 41-44, 47-48, 51-52, 54, 56, 58-60,
+64, 66; [Hin26] pp. 113, 118, 124-125, 128-129, 131-132 and 138 (sections 6.5 and 7.2, to weigh them). Proposition
+5.16's energy estimates rest on Lemma 5.14, stated for any time-oriented Lorentzian vector space, and Corollary 5.15,
+stated on R^(1+n) and for n-dimensional manifolds of bounded geometry (p. 60); Propositions 5.5-5.6 on Lemmas 3.5 and
+3.7 alone ("does not rely on any fine properties of the null-geodesic flow", p. 44); and the weights enter only through
+Proposition 5.1 (4)-(5).
+
+*What was computed.* solv5.py Q1-Q4 (Proposition 10.19): Tangherlini in Kerr-Schild time is a 3sc-metric, g^-1 =
+eta^-1 - mu r^-2 k# k#, its Christoffel symbols in mu rho^3 C^oo by Gamma(lam x; mu) = lam^-1 Gamma(x; mu lam^-2), two
+powers beyond (2.12) (Schwarzschild: rho^2); r^2 G(d tau) = -(1 - tau^2) - mu r^-2 (1 + tau)^2, so d tau is past
+timelike for g_3b for every T < 1, uniformly; dr is future timelike on [r_h/2, r_h); and his Proposition 5.1 (4)-(5)
+holds at 10.21's weights (1, -C_0 - 5/2) for every C_0 >= 0, and on all of sf with rho_K <= 10 at C_0 = 96. Selftest 4/4
+(about 15 seconds), mutants 4/4. Found by running: the first Q1 took r = |x| literally, and its scaling check over 125
+components ran past three minutes; it was stopped by PID, and Q1 now treats r as an independent symbol with d_i =
+d/dx_i + (x_i/r) d/dr, the scaling being a homogeneity in (x, r) jointly.
+
+*What was deduced.* Lemma 5.3 and Propositions 5.5-5.6, 5.8-5.12 and 5.16 have their inputs in five dimensions; on the
+reading that his 3b-analysis (sections 2.3 and 5.2) holds there, his Theorem 5.2 on Tangherlini at (v, e) = (1/2,
+1/102400) with 10.14's c, for alpha_sf < b* - 1 and alpha_K > alpha_sf + 1 - b*, h_0 not explicit; with 10.21, his
+Theorem 6.2 there for C_0 <= 96, on the same reading.
+
+*Seated.* N1STAR-PROOF.md 10.22 with Proposition 10.19, and pointers in 10.21; solv5.py; ROUTES-OPEN.md 4.4, 4.5 and the
+new 4.23; the README; the paper (the settling paragraph, the Review bullet, Appendices A, C and D, the [Hin26a] entry,
+D1-D67, the md5 rows). Labels: computed (solv5.py Q1-Q4, exact), deduced, READ; nothing proved. OPEN: the line-by-line
+reading of [Hin26a] sections 2.3 and 5.2 at n = 4, and h_0; his Theorem B.1 and [Hin26] Theorem 7.1(4); [Hin26] sections
+6.5, 7.2 and 8 in five dimensions. The twenty-ninth verifier is still out on 10.20-10.21; 10.22 goes to the thirtieth.
+Next: [Hin26a] Theorem B.1 in five dimensions, or [Hin26] section 7.2.

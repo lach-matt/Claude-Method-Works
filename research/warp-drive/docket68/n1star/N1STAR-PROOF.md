@@ -3739,9 +3739,9 @@ its sign flipped (at R_out A_w does not enter); and the four-dimensional data we
      h_0 of Theorem 5.2 in five dimensions: box^C on five-dimensional Tangherlini has no outgoing mode at sigma != 0, Im
      sigma >= 0, and its zero energy operator is invertible from H-bar_b^(s,l) to H-bar_b^(s-1,l+2) for l in [-C_0 - 2,
      0) and s >= -C_0, with the density r^3 |dr dg/|: [Hin26] Theorem 7.1 (1)-(2) in five dimensions, conditional on
-     [Hin26a] Theorem 5.2 there, which stays OPEN. His Theorem 1.1(2) follows as his does, with C_0 + 2 for C_0: a
-     stationary solution with |omega_mu| <= C r^(C_0) lies in r^(C_0 + 2 + eps) L^2(r^3 dr), the shift being n/2 = 2, so
-     by the roots in r^eps L^2, and vanishes by the injectivity at l = -eps.
+     [Hin26a] Theorem 5.2 there (10.22 deduces it on a reading). His Theorem 1.1(2) follows as his does, with C_0 + 2
+     for C_0: a stationary solution with |omega_mu| <= C r^(C_0) lies in r^(C_0 + 2 + eps) L^2(r^3 dr), the shift being
+     n/2 = 2, so by the roots in r^eps L^2, and vanishes by the injectivity at l = -eps.
 
 *READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-22): pp. 1-3 (Theorem 1.1, (1.2)), 9-11 (section 1.2.2, Figure
 1.1, Remark 1.4), 38-43 (Proposition 5.1, Theorem 5.2, (5.14)-(5.18), Lemma 5.3, footnote 15, section 5.2.1), 47
@@ -3756,9 +3756,102 @@ volume r^3, which puts a mode's data in rho^(-2-eps), half an order below his, a
 shift (n - 1)/2 = 3/2 of (6.4), above which S-bar^C, his matrix with three angular copies, stays positive; and through
 the indicial roots of 10.12, which put the top of the range at the Coulomb root 2 where his is at 1. His argument is
 otherwise unchanged. Not done, and OPEN: his Theorem 5.2 in five dimensions -- the 3b-estimates of his section 5 and
-their h_0 -- on which (b)-(e) rest; his Theorem B.1 in five dimensions; the tf-admissibility of box^C ([Hin26] Theorem
-7.1(4)); [Hin26] section 6.5 and Lemma 6.13; and [Hin26] sections 7 and 8 in five dimensions. Nothing of this section is
-proved: Proposition 10.18 is computed, and (a)-(e) are deduced, (b)-(e) on [Hin26a] Theorem 5.2, which is OPEN.
+their h_0 -- on which (b)-(e) rest (10.22 computes its remaining inputs and deduces it on a reading); his Theorem B.1 in
+five dimensions; the tf-admissibility of box^C ([Hin26] Theorem 7.1(4)); [Hin26] section 6.5 and Lemma 6.13; and [Hin26]
+sections 7 and 8 in five dimensions. Nothing of this section is proved: Proposition 10.18 is computed, and (a)-(e) are
+deduced, (b)-(e) on [Hin26a] Theorem 5.2, which 10.22 deduces on the reading that his 3b-analysis holds in five
+dimensions.
+
+
+### 10.22 [Hin26a] Theorem 5.2 in five dimensions: the inputs, and the reading (`solv5.py` Q1-Q4; D67)
+
+*The setting.* 10.21 deduced [Hin26a] Theorem 6.2 on five-dimensional Tangherlini from his Theorem 5.2 there, which it
+left OPEN. His proof of Theorem 5.2 (section 5.2, pp. 41-66) is a chain of semiclassical estimates on weighted
+3b-spaces. Lemma 5.3 puts h^2 box_g in h^2 rho_sf^2 Diff_3b^2 and L in h rho_sf^2 Diff_3b^1, from (2.12)-(2.14) -- the
+Christoffel symbols of a 3sc-metric lie in rho_sf C^oo -- and c in rho_sf C^oo. Propositions 5.5-5.6 give elliptic
+estimates at finite nonzero frequency and damped estimates at fiber infinity from Lemmas 3.5 and 3.7; their proof "does
+not rely on any fine properties of the null-geodesic flow" (p. 44). Propositions 5.8, 5.9, 5.11 and 5.12 propagate
+estimates along the zero section through the three critical sets of -r c# and between them, by positive commutators
+whose signs are his Proposition 5.1 (3)-(6). Proposition 5.16 gives energy estimates near the initial surface X = {t =
+0} and the final surface Sigma# = {r = m} inside the black hole, from Lemma 5.14, stated for any time-oriented
+Lorentzian vector space, and Corollary 5.15, stated on R^(1+n) and for n-dimensional manifolds of bounded geometry (pp.
+58-60); it asks that d tau, tau = t/r, be past timelike for g_3b = rho^2 g on tau^-1([0, T]) and that m - r be a time
+function near Sigma#. Section 5.2.7 combines them, with a duality argument for existence. The weights enter only at the
+corner dK+ and the sink R_v of sf, through Proposition 5.1 (4)-(5). In five dimensions 10.13 computed his section 3 --
+Lemmas 3.3-3.8 hold verbatim at the trace weight 2/(D - 2) -- and section 4's symbols, and 10.14 wrote a c on
+Tangherlini in Kerr-Schild time ((10.48)) with his Proposition 5.1 (1)-(6) at (v, e) = (1/2, 1/102400) and r_0 = 100,
+(4)-(5) at the four-dimensional weights (1, -102) and with the thresholds b_sf < b* and b_K > b_sf - b* at that e, b* =
+0.99340731.... Not computed: the 3sc structure of Tangherlini, the geometry of the energy estimates, and (4)-(5) at the
+weights 10.21 uses.
+
+**Proposition 10.19 (computed; exact).** On five-dimensional Tangherlini in Kerr-Schild time, g = eta + mu r^-2 k (x) k
+with k = dt + dr:
+
+ (i) (the 3sc structure) In Cartesian coordinates g^-1 = eta^-1 - mu r^-2 k# (x) k# exactly; the Christoffel symbols are
+     polynomials of degree at most 2 in mu with no constant term and satisfy Gamma(lam x; mu) = lam^-1 Gamma(x; mu
+     lam^-2); and c = r^-1 (dt - v dr) has components homogeneous of degree -1 (Q1).
+ (ii) (near X) r^2 g^-1(d tau, d tau) = -(1 - tau^2) - mu r^-2 (1 + tau)^2 and r g^-1(d tau, dt) = -1 - mu r^-2 (1 +
+     tau) (Q2).
+ (iii) (near Sigma#) g^-1(dr, dr) = f = 1 - mu r^-2, increasing with f(r_h) = 0; g^-1(dr, dt) = mu r^-2 > 0 and g^-1(dt,
+     dt) = -1 - mu r^-2 < 0 for every r > 0 (Q3).
+ (iv) (the weights) In cform5.py's symbol T = r^2 (-l(dw/w) + S) on sf at (v, e) = (1/2, 1/102400), at the weights of
+     10.21, (alpha_K, alpha_sf) = (1, -C_0 - 5/2), that is b_K = 1 and b_sf = -C_0 - 3/2: the characteristic polynomials
+     at dK+ and at R_v have positive roots for every C_0 >= 0, and at C_0 = 96 T is positive definite for every rho_K in
+     [0, 10] (Q4).
+
+*Proof.* Q1-Q4 of solv5.py. Q1 builds g in Cartesian coordinates with r an independent symbol and d_i = d/dx_i + (x_i/r)
+d/dr, so that the scaling, a homogeneity in (x, r) jointly, is checked as an identity of rational functions over all 125
+components; Q2-Q3 are exact algebra on the (t, r) block of g^-1; Q4 evaluates cform5.py C7's characteristic polynomials
+(2 - d - lam)^3 q(d, lam) at d = -C_0 - 5/2 (dK+) and d = -C_0 - 3/2 (R_v), with C_0 symbolic, and runs C7's Sturm test
+at C_0 = 96. Four-dimensional controls: Schwarzschild in Kerr-Schild time, 2m r^-1 for mu r^-2, with Gamma(lam x; m) =
+lam^-1 Gamma(x; m/lam), in rho^2; and (ii)-(iii) the same with 2m/r. Controls: the four-dimensional profile with the
+five-dimensional scaling; T = 1 in (ii), where the bound degenerates at infinity; the interval [2 r_h, 3 r_h) in (iii),
+outside the horizon; and alpha_K = alpha_sf in (iv), below the threshold at dK+. []
+
+*Deduced.*
+
+ (a) (Lemma 5.3) By (i), Gamma lies in mu rho^3 C^oo(S^3 x [0, 1)_(mu rho^2)), in rho_sf C^oo with two powers to spare
+     (Kerr's are in rho^2), so (2.12) holds and with it (2.14): h^2 box_g in h^2 rho_sf^2 Diff_3b^2, and delta* and
+     delta in rho_sf Diff_3b^1. 10.14's c is r^-1 (dt - v dr) for r >= 2 r_0 and smooth and stationary elsewhere, so it
+     lies in rho_sf C^oo, and L in h rho_sf^2 Diff_3b^1, with semiclassical principal symbol G - i l, as in his.
+ (b) (Propositions 5.5-5.6) They use Lemmas 3.5 and 3.7 and the time orientation only; both lemmas hold in five
+     dimensions (10.13(i)).
+ (c) (Propositions 5.8, 5.9, 5.11, 5.12) Their signs are his Proposition 5.1 (3)-(6): (3) and (6) by 10.14 at r_0 = 100;
+     (4)-(5) at the weights of 10.21 by (iv) at the critical points, and on neighbourhoods of them of sizes delta_r and
+     delta_sf by continuity, as in his proof (p. 39; 10.14(a)) -- at C_0 = 96 on all of sf with rho_K <= 10. The
+     five-dimensional (5.14) at this e is alpha_sf < b* - 1 and alpha_K > alpha_sf + 1 - b* (10.14(iv), with b_sf =
+     alpha_sf + 1 and b_K = alpha_K), at e = 0 10.13(ii)'s alpha_sf < 0 and alpha_K > alpha_sf.
+ (d) (Proposition 5.16) By (ii), d tau is past timelike for g_3b on tau^-1([0, T]) for every T < 1, with g_3b^-1(d tau,
+     d tau) <= -(1 - T^2) uniformly up to sf -- his hypothesis for (1), where his T is sufficiently small. By (iii), on
+     [r_h/2, r_h) dr is timelike and in the cone opposite to the past timelike dt, so future timelike: m - r, with m =
+     r_h/2 (10.14), is a time function, Sigma# is spacelike, future timelike vectors leave Omega there, and (2) applies
+     with r_3 < r_h. The hypothesis of Lemma 5.14 and Corollary 5.15 on l, positive definite on future causal covectors,
+     is Lemma 3.5 (10.13(i)).
+ (e) ([Hin26a] Theorem 5.2 in five dimensions) On the reading that his 3b-analysis -- the 3b-pseudodifferential calculus
+     of his section 2.3 and the positive commutator and energy arguments of section 5.2 -- holds in five dimensions as
+     its arguments do, not verified here line by line: at (v, e) = (1/2, 1/102400), with 10.14's c and any weights with
+     alpha_sf < b* - 1 and alpha_K > alpha_sf + 1 - b*, there is h_0 > 0, not made explicit, such that for h in (0, h_0)
+     and s in [-C_0, C_0] the forward problem (5.15) and the initial value problem (5.16), with the density r^3 |dr dg/|
+     for r^2 |dr dg/|, have solutions with the weights of his Theorem 5.2. With 10.21, [Hin26a] Theorem 6.2 holds on
+     five-dimensional Tangherlini, at Proposition 10.9's point and for C_0 <= 96, on the same reading.
+
+*READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-22): pp. 9 (section 1.2.2), 12-16 (Definition 2.1, its charts,
+(2.4), (2.7)-(2.10), Definitions 2.2 and 2.5, (2.11)-(2.14)), 25-27 (Lemmas 3.3, 3.5, 3.7 and 3.8, Remark 3.4, Corollary
+3.6), 38 (Proposition 5.1), 41-44 (Theorem 5.2, footnote 15, Lemma 5.3, (5.18)-(5.20), Lemma 5.4, Propositions 5.5-5.6),
+47-48 and 51 (Proposition 5.8 and its proof), 51-52 and 54 (Proposition 5.9, (5.53)-(5.54), the remark after its proof),
+54 (Proposition 5.11), 56 (Proposition 5.12), 58-60 (Remark 5.13, Lemma 5.14, Corollary 5.15, Proposition 5.16), 64
+(Proposition 5.17 and its proof), 66 (the end of section 5.2.7).
+
+*What this gives, and what it does not.* 10.21's condition is reduced from an OPEN theorem to a reading: every input
+[Hin26a] section 5.2 takes from the metric and from c is computed in five dimensions, in 10.13, 10.14 and here, and the
+estimates themselves are positive commutator and energy arguments which his text, where it names a dimension, states for
+general n (Corollary 5.15 and the bounded-geometry setting of p. 60). The dimension enters the inputs through the
+thresholds of (5.14), b* - 1 and 1 - b* where his are -1/2 and 1/2, and through Tangherlini's faster approach to
+Minkowski, which only helps. What remains is the line-by-line reading of his sections 2.3 and 5.2 at n = 4, the
+3b-calculus of [Hin23d] in five dimensions among it, and h_0, which neither his proof nor this record makes explicit.
+Not done, and OPEN: that reading; his Theorem B.1 in five dimensions, and with it [Hin26] Theorem 7.1(4); [Hin26]
+sections 6.5, 7.2 and 8 in five dimensions. Nothing of this section is proved: Proposition 10.19 is computed, and
+(a)-(e) are deduced.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)

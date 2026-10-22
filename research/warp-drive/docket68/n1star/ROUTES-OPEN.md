@@ -370,21 +370,22 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    Tangherlini (4.15; 10.14), the zero energy inputs of the modification E^Upsilon (4.16; 10.15), the mode stability of
    the unmodified operator at nonzero frequency (4.17; 10.16), the trapping input of the high energies (4.18; 10.17),
    its structure and thresholds (4.19; 10.18), the remaining inputs of [Hin26c]'s estimates at nonzero frequency (4.20;
-   10.19), its low-energy theory (4.21; 10.20), and [Hin26a] section 6 for the constraint propagation operator (4.22;
-   10.21): with the trace weight 2/(D - 2) in place of his 1 the strip is clear at a point below the five-dimensional
-   bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at that e, and the unmodified operator's
-   (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a horizon modification remove it, and it has
-   no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is strongly trapping admissible at the photon
-   sphere r^2 = 2 mu (deduced); S-bar has his spectrum (computed) and its horizon threshold is 3/2, for 10.15's c_H
-   (deduced); at R_in the threshold is -1/2 - S-bar (deduced from a computed similarity) and at the photon sphere the
-   loss is as small as wished (computed at a point, deduced on the trapped set), so that [Hin26] Propositions 6.5 and
-   6.9 hold there on the reading that [Hin26c] section 9's scalar estimates hold on bundles and his Theorems 9.5 and
-   9.16 restated at n = 4 (deduced); with [Hin26c]'s low-energy theory at n = 4 the operator is tf-admissible and its
-   zero energy operator of index 0, so that [Hin26] Proposition 6.12 holds there on the same reading (deduced):
-   box^Upsilon with 10.15's modification is mode stable on the closed upper half plane; and, if his Theorem 5.2 holds
-   there, the constraint propagation operator has no outgoing mode at sigma != 0, Im sigma >= 0, and an invertible zero
-   energy operator on l in [-C_0 - 2, 0), [Hin26a] Theorem 6.2 (deduced); his Theorem 5.2, [Hin26c]'s low-energy theory
-   in five dimensions and the rest of the item are OPEN.
+   10.19), its low-energy theory (4.21; 10.20), [Hin26a] section 6 for the constraint propagation operator (4.22;
+   10.21), and the inputs of his Theorem 5.2 (4.23; 10.22): with the trace weight 2/(D - 2) in place of his 1 the strip
+   is clear at a point below the five-dimensional bound of his Lemma 4.4, h < e chosen here, the c's conditions hold at
+   that e, and the unmodified operator's (E^Upsilon = 0) zero energy kernel is W* alone, with pairings that let a
+   horizon modification remove it, and it has no mode at sigma != 0, Im sigma >= 0, in a class (deduced); box^Upsilon is
+   strongly trapping admissible at the photon sphere r^2 = 2 mu (deduced); S-bar has his spectrum (computed) and its
+   horizon threshold is 3/2, for 10.15's c_H (deduced); at R_in the threshold is -1/2 - S-bar (deduced from a computed
+   similarity) and at the photon sphere the loss is as small as wished (computed at a point, deduced on the trapped
+   set), so that [Hin26] Propositions 6.5 and 6.9 hold there on the reading that [Hin26c] section 9's scalar estimates
+   hold on bundles and his Theorems 9.5 and 9.16 restated at n = 4 (deduced); with [Hin26c]'s low-energy theory at n = 4
+   the operator is tf-admissible and its zero energy operator of index 0, so that [Hin26] Proposition 6.12 holds there
+   on the same reading (deduced): box^Upsilon with 10.15's modification is mode stable on the closed upper half plane;
+   and, with his Theorem 5.2 there on the reading that his 3b-analysis carries to five dimensions (4.23; its inputs
+   computed), the constraint propagation operator has no outgoing mode at sigma != 0, Im sigma >= 0, and an invertible
+   zero energy operator on l in [-C_0 - 2, 0), [Hin26a] Theorem 6.2 (deduced); the line-by-line readings of [Hin26a]
+   sections 2.3 and 5.2 and of [Hin26c] section 9 at n = 4, his Theorem B.1 and the rest of the item are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -445,9 +446,12 @@ reading that [Hin26c] section 9's scalar estimates hold on bundles and his Theor
 model and its Bessel reduction, the weights -- and deduces [Hin26] Proposition 6.12 there: the gauge potential operator
 is mode stable on the closed upper half plane; and 4.22 (10.21, Proposition 10.18, computed; deduced) carries [Hin26a]
 section 6 to five dimensions -- S-bar^C with three angular copies, the radial sets and (B.13)'s window, the weights
-alpha_sf = -C_0 - 5/2 and l in [-C_0 - 2, 0) -- and deduces his Theorem 6.2 there from his Theorem 5.2. Next: the rest
-of item 2 -- the 3b-estimates of [Hin26a] section 5 (his Theorem 5.2, with its h_0) and his Theorem B.1 -- and [Hin26]
-section 6.5, in five dimensions.
+alpha_sf = -C_0 - 5/2 and l in [-C_0 - 2, 0) -- and deduces his Theorem 6.2 there from his Theorem 5.2; and 4.23 (10.22,
+Proposition 10.19, computed; deduced) computes the inputs of his Theorem 5.2 that 10.13-10.14 had not -- Tangherlini a
+3sc-metric with two powers to spare, the time functions of his energy estimates, his Proposition 5.1 (4)-(5) at 10.21's
+weights -- and deduces Theorem 5.2 on the reading that his 3b-analysis carries to five dimensions. Next: the rest of
+item 2 -- his Theorem B.1, the transition face model on Minkowski space, and with it [Hin26] Theorem 7.1(4) -- and
+[Hin26] sections 6.5 and 7.2, in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -945,3 +949,25 @@ Proposition 10.18 and deduces.
 - OPEN: his Theorem 5.2 and Theorem B.1 in five dimensions; [Hin26] Theorem 7.1(4); [Hin26] section 6.5, Lemma 6.13 and
   sections 7-8. Labels: computed (cpmodes5.py K1-K3, exact); deduced; READ ([Hin26a] pp. 1-3, 9-11, 38-43, 47, 51, 54,
   64, 66-69, 87, 93, 98; [Hin26] p. 135); nothing proved.
+
+### 4.23 [Hin26a] Theorem 5.2 in five dimensions: the inputs, and the reading (computed; D67)
+
+4.22 deduced [Hin26a] Theorem 6.2 from his Theorem 5.2 and left Theorem 5.2 OPEN. His proof (section 5.2) takes from the
+metric and from c: Lemma 5.3's memberships, from (2.12)-(2.14); Lemmas 3.5 and 3.7 (Propositions 5.5-5.6); his
+Proposition 5.1 (3)-(6) (Propositions 5.8-5.12); and two time functions (Proposition 5.16, whose Lemma 5.14 and
+Corollary 5.15 are stated for general n). 10.13-10.14 computed most of these; solv5.py computes the rest;
+N1STAR-PROOF.md 10.22 states Proposition 10.19 and deduces.
+- The 3sc structure: in Cartesian coordinates g^-1 = eta^-1 - mu r^-2 k# (x) k#, and Gamma(lam x; mu) = lam^-1 Gamma(x;
+  mu lam^-2) with no mu^0 term, so Gamma in mu rho^3 C^oo, two powers better than (2.12) asks (Q1). Four-dimensional
+  control: Schwarzschild, rho^2.
+- Near X: r^2 G(d tau) = -(1 - tau^2) - mu r^-2 (1 + tau)^2, so d tau is past timelike for g_3b on tau in [0, T] for
+  every T < 1, uniformly to infinity (Q2). Near Sigma# = {r = r_h/2}: dr future timelike, m - r a time function (Q3).
+- The weights: his Proposition 5.1 (4)-(5) at (alpha_K, alpha_sf) = (1, -C_0 - 5/2) for every C_0 >= 0, and on all of sf
+  with rho_K <= 10 at C_0 = 96 (Q4); the five-dimensional (5.14) at e = 1/102400 is alpha_sf < b* - 1, alpha_K >
+  alpha_sf + 1 - b*, b* = 0.99340731... (10.14).
+- Deduced, on the reading that his 3b-analysis (sections 2.3 and 5.2) holds in five dimensions: his Theorem 5.2 on
+  Tangherlini at (v, e) = (1/2, 1/102400) with 10.14's c, h_0 not explicit; with 4.22, his Theorem 6.2 there for C_0 <=
+  96.
+- OPEN: that reading line by line; h_0; his Theorem B.1 and [Hin26] Theorem 7.1(4); [Hin26] sections 6.5, 7.2 and 8.
+  Labels: computed (solv5.py Q1-Q4, exact); deduced; READ ([Hin26a] pp. 9, 12-16, 25-27, 38, 41-44, 47-48, 51-52, 54,
+  56, 58-60, 64, 66); nothing proved.
