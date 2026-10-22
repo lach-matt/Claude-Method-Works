@@ -1919,3 +1919,42 @@ supplement writes A_w: now A_w.
 
 *Runs.* hienergy5.py 4/4 and mutants 6/6 after the change to V4. The twenty-ninth verifier will be sent on 10.20
 (lowenergy5.py, D64) and 10.21 once 10.21 is seated.
+
+**D66 (2026-10-22, M: "Continue"): [Hin26a] section 6 in five dimensions -- his Theorem 6.2 deduced from his Theorem 5.2
+(section 10.21; cpmodes5.py K1-K3).**
+
+*The step.* The next piece of route B item 2 after 10.20: [Hin26a]'s constraint damping, whose section 6 deduces the
+mode stability of the constraint propagation operator -- his Theorem 6.2, [Hin26] Theorem 7.1 (1)-(2) -- from his
+Theorem 5.2. 10.12-10.14 had computed the indicial roots, the semiclassical inputs and a c on Tangherlini, and left
+section 6's own steps OPEN.
+
+*What was read.* At source (alphaXiv, 2026-10-22): [Hin26a] pp. 1-3, 41-42 (Theorem 5.2, (5.14)-(5.16), footnote 15),
+66-69 (the end of section 5.2.7, Definition 6.1, Theorem 6.2 and its proof, (6.1)-(6.4), Remarks 6.3-6.4) and 93
+(Theorem B.4), with pp. 9-11, 38-43, 47, 51, 54, 64, 87 and 98 read earlier the same day; [Hin26] p. 135 ((7.3)-(7.6)).
+His proof fixes alpha_K = 1 and alpha_sf = -C_0 - 2, applies Theorem 5.2 with C_0 + 1 and Theorem 4.9 with C_0 + 4, puts
+a mode's outgoing part in A^1 by the regular-singular ODE of (6.4), and gets the index 0 from Theorem B.1 with [Hin26c]
+Corollary 9.43, or from the radial ODEs of a static metric.
+
+*What was computed.* cpmodes5.py: (K1) on 4+1 Minkowski at the trace weight 2/3, box^C = -2 d_t* rho (rho d_rho - 3/2 -
+S-bar^C) plus a stationary operator -- the d_t* d_r coefficient 2 Id, no d_t* times a tangential derivative, no d_t*^2
+-- with spec S-bar^C = h^-1 {2 (1 - v), (1 - e)(1 - v), 1 - v (3x)}; (K2) at the incoming covector A_w + S-bar^C = D
+S-bar^C(-v) D, spec h^-1 {2 (1 + v), (1 - e)(1 + v), 1 + v (3x)}; (K3) the weights: the slab's +1/2, a mode's data in
+rho^(-2-eps) H-bar_b (r^3), alpha_sf = -C_0 - 5/2, l in [-C_0 - 2, 0). Four-dimensional controls: his (7.5) spectrum
+with the shift 1, and his weights. Selftest 3/3 (about 5 seconds), mutants 3/3. Found by running: the first version
+checked only the d_t* coefficient, so the form -2 d_t* rho (rho d_rho - ...) rested on the shift; the d_t* d_x
+coefficients are now checked too. The twenty-eighth verifier's note on a mislabelled control in hienergy5.py applied
+here as well: K2's control is the sign flip of A_w.
+
+*What was deduced.* (6.4) on Tangherlini with 10.14's c; Part (1) and the injectivity of Part (2) from Theorem 5.2 in
+five dimensions with alpha_sf = -C_0 - 5/2 and alpha_K = 1 (10.13's five-dimensional (5.14)); the index 0 by the radial
+ODEs, c being spherically symmetric, with 10.12's roots and their even split at Proposition 10.9's point, for C_0 <= 96;
+(B.13)'s window in five dimensions; so [Hin26a] Theorem 6.2 on five-dimensional Tangherlini, conditional on his Theorem
+5.2 there, which stays OPEN.
+
+*Seated.* N1STAR-PROOF.md 10.21 with Proposition 10.18, and pointers in 10.12, 10.13 and 10.20; cpmodes5.py;
+ROUTES-OPEN.md 4.4, 4.5 and the new 4.22; the README; the paper (the settling paragraph, Appendices A, C and D, the
+[Hin26a] entry and the [Hin26c] entry with D65's readings, D1-D66, the md5 rows, and Appendix D's mpmath sentence, which
+said "the three that import" damping5.py where every program importing it needs mpmath). Labels: computed (cpmodes5.py
+K1-K3, exact), deduced, READ; nothing proved. OPEN: [Hin26a] Theorem 5.2 and Theorem B.1 in five dimensions; [Hin26]
+Theorem 7.1(4), section 6.5, Lemma 6.13 and sections 7-8. The twenty-ninth verifier is sent on 10.20-10.21
+(lowenergy5.py, cpmodes5.py; D64, D66). Next: [Hin26a] Theorem 5.2 in five dimensions, or [Hin26] section 6.5.
