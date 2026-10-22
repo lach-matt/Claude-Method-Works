@@ -13,7 +13,8 @@ b-symbol of Im P_0-hat(0) at -2 dr/r minus 2 Re S ((9.16b), (9.32)); at R_out, r
 the trapped set, (Gamma.1)-(Gamma.4), with beta_0 = min g^-1(-dt + xi, dt), p_1 = sigma_h((P_h,1 - P_h,1^*)/2ih),
 gamma_+ = sup p_1/(2 beta_0), gamma_- = gamma_+ - nu_min/(4 beta_0), and the loss delta_Gamma(eta) = max((gamma_+ -
 eta)/(gamma_+ - gamma_-), 0) ((9.79)-(9.81)); near the interior hypersurface, dr future timelike (Proposition 9.35).
-[Hin26] p. 119 records vartheta_in = vartheta_out = S-bar = 0 for the unmodified 1-form wave operator.
+[Hin26] p. 119 records vartheta_in = vartheta_out = S-bar = 0 for the unmodified 1-form wave operator. S-bar is the
+endomorphism in V1's identity and the number min Re spec of it in a threshold ((5.2); [Hin26] footnote 60).
 
   V1 (computed, exact) On 4+1 Minkowski: rho (rho d_rho - c) is skew for rho^(-n-1) d rho, n = 4, iff c = (n - 1)/2
      = 3/2 -- (Lu) v + u (Lv) = rho^(n+1) d_rho (rho^(1-n) u v); and for box^Ups at the weight 2/3 the first-order
@@ -28,8 +29,8 @@ eta)/(gamma_+ - gamma_-), 0) ((9.79)-(9.81)); near the interior hypersurface, dr
      (r, xi) has eigenvalues +-nu, nu = 4 (2 mu)^(-1/2), with phi_s/u = xi +- (nu/(2 f)) (r - r_ph) as left
      eigenvectors (H phi_s = nu phi_s, H phi_u = -nu phi_u to first order) and {phi_u, phi_s} = nu/f > 0; dG_1 != 0
      there (d_C G_1 = 1/r^2); beta_0 = 1/f(r_ph) = 2, unchanged by t* = t - F(r); and the strip nu/(4 beta_0) =
-     (8 mu)^(-1/2), half trap5.py T1's rate.  Four-dimensional control: r = 3 mu/2, beta_0 = 3, nu/(4 beta_0) =
-     1/(3^(3/2) mu).  Control: the four-dimensional ratio r_ph = (3/2) r_h.
+     (8 mu)^(-1/2), half trap5.py T1's rate per unit t.  Four-dimensional control: r = 3 mu/2, beta_0 = 3, nu/(4
+     beta_0) = 1/(3^(3/2) mu).  Control: the four-dimensional ratio r_ph = (3/2) r_h.
   V3 (computed, exact) (Gamma.4) and delta_Gamma: at a point of Gamma (sigma = 1, r^2 = 2 mu, C = 4 mu), nabla_{H_G}
      on trap5.py's frame is e_0 -> 0, e_1 -> -2 e_0, e_2 -> -2 e_1, with no V_perp part, and the angular covectors
      orthogonal to eta are carried into V_perp; with diag(1, eta^-1, eta^-2) on the span, p_1 = -(M + M^*)/2 has

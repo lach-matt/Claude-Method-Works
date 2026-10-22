@@ -3218,8 +3218,9 @@ Lemma 6.8, from [Hin26c] Proposition 9.40); the estimates (6.27)-(6.28) -- and h
 infinity; mode stability of box at nonzero frequencies in five dimensions, which his Proposition 6.9 takes from [AHW24]
 Theorem 5.1 on Kerr (deduced on Tangherlini, within a class, in 10.16); the high-energy side of his Proposition 6.9 in
 five dimensions -- his Proposition 6.5, from section 6.1's strong trapping admissibility (Lemma 6.4; deduced in 10.17)
--- and Lemma 6.1's structure (computed in 10.18); and the radial-point and b-regularity behind (a) (its threshold, 3/2,
-computed in 10.18). Nothing of this section is proved: Proposition 10.12 is computed, and (a)-(c) are deduced.
+-- and Lemma 6.1's structure (deduced in 10.18 from its computed U1-U4); and the radial-point and b-regularity behind
+(a) (its threshold, 3/2, deduced in 10.18, for this section's c_H). Nothing of this section is proved: Proposition 10.12
+is computed, and (a)-(c) are deduced.
 
 ### 10.16 Mode stability of the 1-form wave operator at sigma != 0 in five dimensions (`modes5.py` M1-M5; D58)
 
@@ -3344,10 +3345,14 @@ ratio r_ph = (3/2) r_h claimed in five dimensions; the Gram matrix off the chara
 and a diagonal entry in N. []
 
 *Remarks (computed).* (a) In these conventions nabla_{H_G} e_1 = -2 sigma e_0, in four dimensions as in five; (6.16c)
-prints +2 sigma, which is the computed relation with e_1 replaced by -e_1. The convention behind his sign is not
-identified here; the matrix is nilpotent either way, which is all the proof uses. (b) For the inner product his proof
-names, diag(1, eta^-1, eta^-2, eta^-3), the norm is 2^(1/2) eta^(1/2) -- e_3 does not enter, N vanishing on it -- where
-his text says O(eta); O(eta) holds for the squared weights. Either tends to 0, which is all the proof uses.
+prints +2 sigma, which is the computed relation with e_1 replaced by -e_1. The twenty-seventh verifier traced his sign
+(D63): with his sigma = -<., d_t> and the standard H_p the coefficient is -2 sigma; his source, [Hin24a]
+(arXiv:2408.06712) Proposition 3.21 (p. 60), obtains +2 sigma from alpha_0 = -g^-1(D_b e_1, e_2) with Remark 3.22's e_2,
+printed with the sign opposite to its (3.34b) -- the likeliest cause a sign slip in e_2 -- and +2 sigma holds for sigma
+= +<zeta, d_t>, or with e_1 -> -e_1. The matrix is nilpotent either way, which is all the proof uses. (b) For the inner
+product his proof names, diag(1, eta^-1, eta^-2, eta^-3), the norm is 2^(1/2) eta^(1/2) -- e_3 does not enter, N
+vanishing on it -- where his text says O(eta); O(eta) holds for the squared weights. Either tends to 0, which is all the
+proof uses. His Proposition 8.3 (p. 149) has the same wording (as the twenty-seventh verifier read).
 
 *Deduced.*
  (a) (his Lemma 6.4 in five dimensions) Near Gamma_0, where C > 0 by (ii), pi^*(T^*) = P + V_perp, P = span{e_0, e_1,
@@ -3371,12 +3376,12 @@ his text says O(eta); O(eta) holds for the squared weights. Either tends to 0, w
 *What this gives, and what it does not.* The trapping input of his Proposition 6.5 holds on five-dimensional
 Tangherlini: the 1-form wave operator, and with it box^Upsilon, is strongly trapping admissible, by his argument -- the
 frame and its nilpotent connection matrix are the same -- with the second angular direction carried by metric
-compatibility; the trapped set is the photon sphere r^2 = 2 mu, with expansion rate 1/r_ph. Not done, and OPEN: [Hin26c]
-Theorem 9.16 in five dimensions -- the high-energy estimates themselves, with the radial point estimates at the horizon
-and at infinity; [Hin26c] works "in 3 + 1 dimensions for concreteness" (Remark 5.6) -- and with it his Proposition 6.5
-there; the other OPEN items of 10.15-10.16 stand. Nothing of this section is proved: Proposition 10.14 is computed, and
-(a)-(b) are deduced. 10.19 computes the rest of Theorem 9.16's inputs and deduces it, with his Proposition 6.5, on the
-reading stated there.
+compatibility; the trapped set is the photon sphere r^2 = 2 mu, with expansion rate 1/r_ph per unit t. Not done, and
+OPEN: [Hin26c] Theorem 9.16 in five dimensions -- the high-energy estimates themselves, with the radial point estimates
+at the horizon and at infinity; [Hin26c] works "in 3 + 1 dimensions for concreteness" (Remark 5.6) -- and with it his
+Proposition 6.5 there; the other OPEN items of 10.15-10.16 stand. Nothing of this section is proved: Proposition 10.14
+is computed, and (a)-(b) are deduced. 10.19 computes the rest of Theorem 9.16's inputs and deduces it, with his
+Proposition 6.5, on the reading stated there.
 
 ### 10.18 The structure and thresholds of the gauge potential operator in five dimensions (`thresh5.py` U1-U4; D60)
 
@@ -3384,11 +3389,13 @@ reading stated there.
 P_0^(0) + Q d_t* - g00 d_t*^2 (its Definition 9.4, n the spatial dimension; (5.1a), with 1 at n = 3, Remark 5.6) need
 threshold conditions on the orders: at the event horizon s > 1/2 + vartheta_H+, vartheta_H+ the supremum over N^*H+ of
 the spectrum of (rho^2/(2 (r_+ - m))) xi^-1 sigma_1((P_0 - P_0^*)/2i) (Definition 5.11(4)); at infinity, through S-bar,
-the bottom of the spectrum of S over the boundary ((9.16c), (9.20), Lemma 5.12). [Hin26] Lemma 6.1 puts box^Upsilon in
-this class, his Lemma 6.3 computes S-bar for E^Upsilon on Minkowski ((6.11)), and his footnote 71 gives the horizon
-threshold 3/2 for the unmodified 1-form operator. 10.15 named Lemma 6.1's structure and this regularity as OPEN in five
-dimensions; this section computes them, with the trace weight 2/3 at infinity and at the horizon, f = 1 - mu/r^2, r_h =
-mu^(1/2). At a = 0, rho^2/(2 (r_+ - m)) is 1/f'(r_+).
+the bottom of the spectrum of S over the boundary ((5.2), (9.16c), (9.20), Lemma 5.12). S-bar names two things here, as
+in the sources, whose difference [Hin26]'s footnote 60 points out: the endomorphism of Proposition 10.15 (i)-(ii), his
+S-bar_{E-bar^Upsilon} of (6.6), and, in a threshold or a weight, the number min Re spec of it ([Hin26c] (5.2)). [Hin26]
+Lemma 6.1 puts box^Upsilon in this class, his Lemma 6.3 computes S-bar for E^Upsilon on Minkowski ((6.11)), and his
+footnote 71 gives the horizon threshold 3/2 for the unmodified 1-form operator. 10.15 named Lemma 6.1's structure and
+this regularity as OPEN in five dimensions; this section computes them, with the trace weight 2/3 at infinity and at the
+horizon, f = 1 - mu/r^2, r_h = mu^(1/2). At a = 0, rho^2/(2 (r_+ - m)) is 1/f'(r_+).
 
 **Proposition 10.15 (computed; exact).**
  (i) On 4+1 Minkowski, in t* = t - r and the Cartesian frame (dt, dx^i), box^Upsilon = 2 (delta + E-bar) G delta*, with
@@ -3420,23 +3427,25 @@ gam; the scalar wave operator, K = 0, threshold 1/2; and f = 1 - mu/r in five di
      d_rho - 1 and S-bar's spectrum his; by (iv) the differences (6.7) gain a power, S_E - S-bar in rho^2 C^oo and the
      zero energy operators' difference in rho^4 Diff_b^2, Tangherlini's Christoffel symbols differing from Minkowski's
      by O(rho^3) where Kerr's differ by O(rho^2). The transport equation (rho d_rho - 3/2 - S-bar) u = 0 gives outgoing
-     kernel elements of the spectral family the leading behaviour rho^(3/2 + S-bar) (his (9.20): rho^(1 + S-bar)), which
-     lies in rho^r L^2(r^3 dr) iff r < -1/2 + S-bar: the threshold (9.16c) at R_out is unchanged on the Euclidean
-     density, and Lemma 5.12's vartheta_out = 2 S-bar (to within eps) carries over, -2 d_t* rho (rho d_rho - 3/2) being
-     symmetric for the five-dimensional density.
+     kernel elements of the spectral family the leading behaviour rho^(3/2 + S-bar) (his (9.21): rho^(1 + S), the
+     endomorphism; (9.20) is the space A^(1 + S-bar - eps), the number), which lies in rho^r L^2(r^3 dr) iff r < -1/2 +
+     S-bar: the threshold (9.16c) at R_out is unchanged on the Euclidean density, and Lemma 5.12's vartheta_out = 2
+     S-bar (to within eps) carries over, -2 d_t* rho (rho d_rho - 3/2) being symmetric for the five-dimensional density.
 
-*READ.* [Hin26] (alphaXiv, 2026-10-22): pp. 113-115 (Lemma 6.1, (6.4a)-(6.7), Lemma 6.3, (6.10)-(6.11)), 124 (footnote
-71). [Hin26c] (alphaXiv, 2026-10-22): pp. 101 (Example 5.4, Remark 5.6), 104-105 (Definitions 5.10-5.11, Lemma 5.12),
-158 (Definition 9.4), 163 ((9.16a)-(9.16c), Theorem 9.5 with (9.20)).
+*READ.* [Hin26] (alphaXiv, 2026-10-22): pp. 113-115 (Lemma 6.1, (6.4a)-(6.7), footnote 60, Lemma 6.3, (6.10)-(6.11)),
+124 (footnote 71). [Hin26c] (alphaXiv, 2026-10-22): pp. 100 ((5.1a)-(5.2)), 101 (Example 5.4, Remark 5.6), 104-105
+(Definitions 5.10-5.11, Lemma 5.12, Definition 5.13), 158 (Definition 9.4), 161-163 ((9.16a)-(9.16c), Theorem 9.5 with
+(9.20)-(9.21)).
 
 *What this gives, and what it does not.* The numbers [Hin26c]'s estimates need from the gauge potential operator in five
 dimensions: the horizon threshold is 3/2, as in four, and stays 3/2 under 10.15's horizon modification; S-bar has his
 spectrum; the structure is his with (n - 1)/2 = 3/2, Tangherlini's deviation from Minkowski one power better than
 Kerr's. Not done, and OPEN: the radial point, propagation and trapping estimates themselves in five dimensions ([Hin26c]
-sections 7 and 9, general in their arguments, written in 3 + 1); the threshold at R_in, which depends on the order
-functions of [Hin26c] Definition 5.11(6); and the rest of item 2. Nothing of this section is proved: Proposition 10.15
-is computed, and (a)-(b) are deduced. 10.19 computes the threshold at R_in, -1/2 - S-bar, and the trapping and dynamical
-inputs, and deduces his Propositions 6.5 and 6.9 on the reading stated there.
+sections 7 and 9, general in their arguments, written in 3 + 1); the threshold at R_in, vartheta_in of [Hin26c]
+Definition 5.11(6) -- a property of the operator, which the order functions must clear; and the rest of item 2. Nothing
+of this section is proved: Proposition 10.15 is computed, and (a)-(b) are deduced. 10.19 computes the threshold at R_in,
+-1/2 - S-bar, and the trapping and dynamical inputs, and deduces his Propositions 6.5 and 6.9 on the reading stated
+there.
 
 
 ### 10.19 The inputs of the high-energy and Fredholm estimates in five dimensions (`hienergy5.py` V1-V4; D62)
@@ -3452,7 +3461,8 @@ the incoming radial set R_in, vartheta_in = sup over the boundary of sigma_1^b(I
 ((9.16b), (9.32)); the bottom S-bar of the spectrum of S at R_out ((9.16c); 10.18); at high energy the trapped set's
 hypotheses (Gamma.1)-(Gamma.4) and the loss function delta_Gamma ((9.79)-(9.81)); the global dynamics (his Proposition
 4.24 on Kerr, and the paragraph after (9.5)); and a timelike dr inside the horizon for his energy estimate there
-(Proposition 9.35). 10.18 left R_in and the rest OPEN.
+(Proposition 9.35). 10.18 left R_in and the rest OPEN. As there, S-bar is the endomorphism in Proposition 10.16(i) and
+the number min Re spec S-bar ([Hin26c] (5.2)) in a threshold.
 
 **Proposition 10.16 (computed; exact).** On 4+1 Minkowski and five-dimensional Tangherlini, f = 1 - mu/r^2:
 
@@ -3465,7 +3475,7 @@ hypotheses (Gamma.1)-(Gamma.4) and the loss function delta_Gamma ((9.79)-(9.81))
      trapped set is r^2 = 2 mu, xi = 0, C = 4 mu, the only critical point with r > r_h; the linearised flow on Sigma_1
      has eigenvalues +-nu, nu = 4 (2 mu)^(-1/2), with phi_s/u = xi +- (nu/(2 f)) (r - r_ph) as left eigenvectors and
      {phi_u, phi_s} = nu/f > 0; d_C G_1 = 1/r^2 != 0; beta_0 = 1/f(r_ph) = 2, the same for t* = t - F(r); and nu/(4
-     beta_0) = (8 mu)^(-1/2), half 10.17's expansion rate (V2).
+     beta_0) = (8 mu)^(-1/2), half 10.17's expansion rate per unit t (V2).
  (iii) (the loss) At a point of the trapped set, nabla_{H_G} on 10.17's frame is e_0 -> 0, e_1 -> -2 e_0, e_2 -> -2 e_1,
      with no component in V_perp, which it preserves; with diag(1, eta^-1, eta^-2) on span{e_0, e_1, e_2}, p_1 = -(M +
      M^*)/2 there has spectrum 0, +-(2 eta)^(1/2), so gamma_+ = (2 eta)^(1/2)/4 and delta_Gamma(0) = 2 sup p_1/nu = (mu
@@ -3528,8 +3538,8 @@ proof), 121-122 (Proposition 6.12, the orders in its proof), 200 (Remark 10.2).
 *What this gives, and what it does not.* Every input [Hin26c]'s spectral theory at nonzero frequency takes from the
 operator is computed for box^Upsilon on five-dimensional Tangherlini: the threshold at R_in is the mirror of R_out's,
 -1/2 - S-bar against -1/2 + S-bar, the dimension entering only as the (n - 1)/2 his statements already carry; the
-trapped set is a single photon sphere, its gap half the expansion rate and its loss as small as wished, as in four
-dimensions; and the dynamics and the interior are his. With them his Propositions 6.5 and 6.9 are deduced in five
+trapped set is a single photon sphere, its gap half the expansion rate per unit t and its loss as small as wished, as in
+four dimensions; and the dynamics and the interior are his. With them his Propositions 6.5 and 6.9 are deduced in five
 dimensions, and 10.16's OPEN items -- the kernel's class, the index 0, the interior -- are settled at the level of
 deduction. Not done, and OPEN: the line-by-line check that [Hin26c] section 9's proofs hold for n = 4 (Propositions
 9.9-9.11 and 9.22-9.27, Theorem 9.28 on [Dya16], Proposition 9.35); the low-energy theory in five dimensions -- the zero

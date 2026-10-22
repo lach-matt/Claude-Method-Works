@@ -3,14 +3,15 @@
 Lemma 6.1 and (6.11), and the horizon threshold of his footnote 71 ([Hin26c] Definition 5.11) (N1STAR-PROOF.md section
 10.18; ROUTES-OPEN.md 4.19; D60).  Labels: computed (exact, sympy), deduced, READ.
 
-[Hin26c] (arXiv:2606.28008v1) works with stationary wave-type operators P_0 = -2 d_t* rho (rho d_rho - (n - 1)/2 - S)
-+ P_0^(0) + Q d_t* - g00 d_t*^2 (Definition 9.4, n the spatial dimension; (5.1a) with 1 at n = 3), whose estimates
-need threshold conditions: at the event horizon s > 1/2 + vartheta_H+, vartheta_H+ the supremum over N^*H+ of the
-spectrum of (rho^2/(2 (r_+ - m))) xi^-1 sigma_1((P_0 - P_0^*)/2i) (Definition 5.11(4)); at infinity, through S-bar, the
-bottom of the spectrum of S on the boundary ((9.16c), (9.20), Lemma 5.12).  [Hin26] Lemma 6.1 puts box^Ups in this
-class with S = S_E; his Lemma 6.3 computes S-bar for E^Ups on Minkowski ((6.11)); his footnote 71 gives the horizon
-threshold 3/2 at gamma_H = 0 for 1-forms.  Here the five-dimensional counterparts, with the trace weight 2/(D - 2) =
-2/3 (10.12, U2), f = 1 - mu/r^2, r_h = mu^(1/2); rho^2/(2 (r_+ - m)) is 1/f'(r_+) at a = 0.
+[Hin26c] (arXiv:2606.28008v1) works with stationary wave-type operators P_0 = -2 d_t* rho (rho d_rho - (n - 1)/2 - S) +
+P_0^(0) + Q d_t* - g00 d_t*^2 (Definition 9.4, n the spatial dimension; (5.1a) with 1 at n = 3), whose estimates need
+threshold conditions: at the event horizon s > 1/2 + vartheta_H+, vartheta_H+ the supremum over N^*H+ of the spectrum of
+(rho^2/(2 (r_+ - m))) xi^-1 sigma_1((P_0 - P_0^*)/2i) (Definition 5.11(4)); at infinity, through S-bar, the bottom of
+the spectrum of S on the boundary ((5.2), (9.16c), (9.20), Lemma 5.12); below, S-bar is his endomorphism
+S-bar_{E-bar^Ups} of (6.6), and in a threshold the number min Re spec of it, as [Hin26]'s footnote 60 warns.  [Hin26]
+Lemma 6.1 puts box^Ups in this class with S = S_E; his Lemma 6.3 computes S-bar for E^Ups on Minkowski ((6.11)); his
+footnote 71 gives the horizon threshold 3/2 at gamma_H = 0 for 1-forms.  Here the five-dimensional counterparts, with
+the trace weight 2/(D - 2) = 2/3 (10.12, U2), f = 1 - mu/r^2, r_h = mu^(1/2); rho^2/(2 (r_+ - m)) is 1/f'(r_+) at a = 0.
 
   U1 (computed, exact) On 4+1 Minkowski, t* = t - r, the Cartesian frame (dt, dx^i), box^Ups = 2 (delta + E) G delta*
      with E h = -gam (2 iota_c# h - (2/3)(1 - e) c tr h), c = r^-1 dt: no d_t*^2 term, the mixed terms 2 d_t* d_r, and
@@ -29,8 +30,9 @@ threshold 3/2 at gamma_H = 0 for 1-forms.  Here the five-dimensional counterpart
      mu, 2 c_v gam mu (twice), so 3/2 at gam_H = 0 (his footnote 71).  Control: the scalar wave operator, K = 0, the
      threshold 1/2.
   U4 (computed, exact) On Tangherlini, t* = t - r: g^-1(dt*, dt*) = -(2 mu rho^2 - mu^2 rho^4)/(1 - mu rho^2), in rho^2
-     C^oo as Lemma 6.1 asks; and g - g-bar = (mu rho^2/(1 - mu rho^2)) (dt^2 + ... ) is O(rho^2) in the frame (dt,
-     dr, r dw) where Schwarzschild's is O(rho).  Control: the four-dimensional f = 1 - mu/r in five dimensions, O(rho).
+     C^oo as Lemma 6.1 asks; and g - g-bar = mu rho^2 dt^2 + (mu rho^2/(1 - mu rho^2)) dr^2 is O(rho^2) in the frame
+     (dt, dr, r dw) where Schwarzschild's is O(rho).  Control: the four-dimensional f = 1 - mu/r in five dimensions,
+     where both fail: g00 only in rho C^oo, and O(rho).
 
 Deduced, not computed here: (6.7) in five dimensions with one power to spare -- S_E - S-bar in rho^2 C^oo and the
 zero energy operators' difference in rho^4 Diff_b^2, the Christoffel symbols of Tangherlini differing from
@@ -39,9 +41,9 @@ giving u ~ rho^(3/2 + S-bar), outgoing kernel elements of the spectral family in
 1 + S-bar), the threshold at R_out (9.16c), r + alpha < -1/2 + S-bar, unchanged for scattering Sobolev spaces on the
 Euclidean density.  Not deduced: the radial point estimates themselves in five dimensions ([Hin26c] section 9.2).
 
-READ.  [Hin26] pp. 113-115 (Lemma 6.1, (6.4a)-(6.7), Remark 6.2, Lemma 6.3, (6.10)-(6.11)), 124 (footnote 71);
-[Hin26c] pp. 101 (Example 5.4, Remark 5.6), 104-105 (Definition 5.10, Definition 5.11, Lemma 5.12), 158 (Definition
-9.4), 163 ((9.16a)-(9.16c), Theorem 9.5, (9.20)); alphaXiv, 2026-10-22.
+READ.  [Hin26] pp. 113-115 (Lemma 6.1, (6.4a)-(6.7), footnote 60, Remark 6.2, Lemma 6.3, (6.10)-(6.11)), 124
+(footnote 71); [Hin26c] pp. 100 ((5.2)), 101 (Example 5.4, Remark 5.6), 104-105 (Definition 5.10, Definition 5.11,
+Lemma 5.12), 158 (Definition 9.4), 163 ((9.16a)-(9.16c), Theorem 9.5, (9.20)); alphaXiv, 2026-10-22.
 
 sympy.  python3 thresh5.py [--selftest | --mutants]   (--verbose lists every sub-check)
 """

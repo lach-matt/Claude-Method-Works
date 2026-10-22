@@ -1747,15 +1747,15 @@ five-dimensional ones carrying r^(-3/2), so the theorem would have been near-vac
 powers of r^(-1/2) sufficing, the conditions uniform on the sphere (the argument used only that the class excludes e^(-i
 sigma r*)), in 10.16 and modes5.py.
 
-*Six notes, seated.* V_1's constant is -1/4, now listed beside the 3/4 of V_0 and V_2; M5 now checks r* - r + mu/r to
-its r^-3 coefficient, -mu^2/3, where it showed only o(1/r); the OPEN list names [Hin26c] Theorem 9.5(5) (kernel elements
-in A^(3/2 - eps), 10.18(b) with S-bar = 0), the index 0 that makes injectivity invertibility (his p. 119), and the
-interior uniqueness carrying the vanishing inside the horizon; modes5.py's docstring says M3's control is caught by its
-second sub-check and that M4 (e) is not used in the deduction; "F_tr = 0 forcing the field to vanish" now needs M = 0
-and kappa != 0 (ROUTES 4.17, D58); D58's "Six notes" counts nine items, now said; the paper's [KI03b] entry adds the
-2026-10-20 reading of (5.20) (D46); and ROUTES 4.1's F_ai = E_a S_i is now KI03b's F_ai = r epsilon_ab E^b S_i at Q = 0
-((5.10b), p. 17, as the verifier read). D58's title, its count and its F_tr sentence are corrected in place, this entry
-recording it.
+*Six notes (eight items), seated.* V_1's constant is -1/4, now listed beside the 3/4 of V_0 and V_2; M5 now checks r* -
+r + mu/r to its r^-3 coefficient, -mu^2/3, where it showed only o(1/r); the OPEN list names [Hin26c] Theorem 9.5(5)
+(kernel elements in A^(3/2 - eps), 10.18(b) with S-bar = 0), the index 0 that makes injectivity invertibility (his p.
+119), and the interior uniqueness carrying the vanishing inside the horizon; modes5.py's docstring says M3's control is
+caught by its second sub-check and that M4 (e) is not used in the deduction; "F_tr = 0 forcing the field to vanish" now
+needs M = 0 and kappa != 0 (ROUTES 4.17, D58); D58's "Six notes" counts nine items, now said; the paper's [KI03b] entry
+adds the 2026-10-20 reading of (5.20) (D46); and ROUTES 4.1's F_ai = E_a S_i is now KI03b's F_ai = r epsilon_ab E^b S_i
+at Q = 0 ((5.10b), p. 17, as the verifier read). D58's title, its count and its F_tr sentence are corrected in place,
+this entry recording it.
 
 *Runs.* modes5.py 5/5, mutants 5/5 after the changes. The twenty-seventh verifier is sent on 10.17-10.18 (trap5.py,
 thresh5.py) and these repairs.
@@ -1801,3 +1801,40 @@ the reading that section 9, stated for general n, carries over -- so [Hin26] Pro
 nothing proved. OPEN: section 9's proofs line by line for n = 4; the low-energy theory and [Hin26] Proposition 6.12;
 [Hin26a] Theorem 5.2, section 6 and Theorem B.1. The twenty-seventh verifier's findings will be seated when it reports,
 and the twenty-eighth then sent on 10.19. Next: [Hin26c]'s low-energy theory in five dimensions.
+
+**D63 (2026-10-22): the twenty-seventh verifier's findings seated.**
+
+*The verdict* (on 10.17-10.18, trap5.py, thresh5.py and the D61 repairs, checked at a10a62c): no MAJOR finding. Every
+computed claim of Propositions 10.14 and 10.15 reproduced with its own code -- S_sub(box) = -i nabla_{H_G} in ingoing
+coordinates with hyperspherical angles, the trapped set, and nu by integrating null geodesics (0.620177 against (2
+mu)^(-1/2) = 0.620174 at mu = 1.3), the frame relations at exact rational points, S-bar's spectrum in the t* frame, K at
+N^*H+ -- the deduced Lemma 6.4 and 10.18's (a)-(b) held, the optimisation over fiber inner products was found legitimate
+(Definition 5.11(4)-(5), Lemma 5.12), the READ claims matched at source, the D61 repairs were made consistently, and all
+35 md5 rows matched.
+
+*One MINOR, repaired.* Deduced results were summarised as computed: 10.15's "Lemma 6.1's structure (computed in 10.18)"
+and "its threshold, 3/2, computed in 10.18", ROUTES 4.4's "its horizon threshold is 3/2 ... (computed)", and the paper's
+settling paragraph, which also called the thresholds complete where the one at R_in was open, and said "also under the
+horizon modification" where that holds for 10.15's c_H (c_v = 0) only, vartheta_H+ being 1 + c_v gam_H r_h in general.
+Each now says K and S-bar computed and the threshold 3/2 deduced for 10.15's c_H, the paper "the horizon and outgoing
+thresholds"; the README's and Appendix A's thresh5.py bullets likewise.
+
+*Nine notes, seated.* (1) The sign of (6.16c), traced: with his sigma = -<., d_t> and the standard H_p the coefficient
+is -2 sigma, and his source, [Hin24a] Proposition 3.21 (p. 60), obtains +2 sigma with Remark 3.22's e_2, printed with
+the sign opposite to its (3.34b); recorded in 10.17's Remark (a), as the verifier read. (2) "O(eta)" against eta^(1/2):
+Remark (b) stands, and his Proposition 8.3 (p. 149) has the same wording, now noted. (3) "Expansion rate 1/r_ph" is the
+rate per unit t, the normalisation of [Hin26c] Proposition 4.19, not the nu of its (4.48)-(4.49): "per unit t" added in
+10.17, ROUTES 4.18 and the paper's Appendix A, and in 10.19, 4.20 and hienergy5.py. (4) S-bar named both the
+endomorphism and the number inf Re spec S ([Hin26c] (5.2), p. 100, now READ; [Hin26] footnote 60, p. 114, now READ): a
+sentence in 10.18, 10.19, ROUTES 4.19, thresh5.py and hienergy5.py says which is which, and "his (9.20): rho^(1 +
+S-bar)" now reads (9.21), rho^(1 + S). (5) thresh5.py's U4 docstring: g - g-bar = mu rho^2 dt^2 + (mu rho^2/(1 - mu
+rho^2)) dr^2, and its control fails both conjuncts, now said. (6) ROUTES 4.19 now names K as Proposition 10.15(iii)
+does, the symbol at N^*H+ being i xi f'(r_h) K; D60 and U3's code call that matrix K/f'(r_h), recorded here. (7)
+Records: 10.18's READ now matches D60's (pp. 100, 104-105 with Definition 5.13, 161-163; footnote 60); the paper's
+[Hin26a] entry adds D60's 2026-10-22 reading of Appendix B, its [Hin26c] entry p. 100 and pp. 161-163; Appendix C's
+verification row adds the twenty-sixth and twenty-seventh. (8) D61's "Six notes" listed eight items, now said in place.
+(9) The threshold at R_in is vartheta_in, a property of the operator, which the order functions must clear: 10.18's
+wording repaired.
+
+*Runs.* thresh5.py 4/4 and mutants 4/4, hienergy5.py 4/4, response5.py all pass, after the changes. The twenty-eighth
+verifier is sent on 10.19 (hienergy5.py, D62) and these repairs.
