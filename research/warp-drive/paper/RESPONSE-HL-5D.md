@@ -799,7 +799,12 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   10.21 rests on: eleven in five dimensions against his seven, the translations' one order faster in 1/r, and near zero
   rotation two of the six rotations' stay Killing at first order, the other four carrying his (7.18) ratios (`dual5.py`;
   computed at first order in the rotation, his four-dimensional values reproduced as the control, his Lemma 7.2 and
-  Proposition 7.3 deduced in supplement section 10.31). A line-by-line check of Hintz's 3b- and edge-b-analysis and of
+  Proposition 7.3 deduced in supplement section 10.31). And the pairings that make his zero energy kernel and cokernel
+  exact are boundary pairings at infinity -- -8π times the ADM mass and angular momentum and 4πM times the centre of
+  mass, in five dimensions as in four -- so the eleven kernel states and the eleven dual states are independent and his
+  count holds with eleven for seven, up to the rigidity of decaying stationary linearized solutions on five-dimensional
+  Tangherlini, which is open (`pairing5.py`; the pairings computed, his four-dimensional table reproduced as the control,
+  the rest deduced in supplement section 10.32). A line-by-line check of Hintz's 3b- and edge-b-analysis and of
   [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make explicit, and the rest of
   their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a
   finite-time observation), and the late-time tail of the l = 2 master fields, measured from the pulse's launch, is
@@ -1014,6 +1019,11 @@ from the arXiv text, with the extraction's spacing.
   arXiv:1012.5963v1. READ 2026-10-21: (2.17)–(2.20), Proposition 3.1, (5.8)–(5.17); and, for the spherically symmetric
   sector, Theorem 1 ((1.9)–(1.10)), Proposition 4.1 ((4.4)) with its proof ((4.76)–(4.92)), Corollary 4.3, Propositions
   4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
+- [Hin23b] P. Hintz, *Gluing small black holes along timelike geodesics I: formal solution*, arXiv:2306.07409v2. READ
+  2026-10-23: pp. 101–110 (Lemma 9.1, Definition 9.2, Lemma 9.3, Theorem 9.6 and its proof, Lemma 9.7), 116–117.
+- [Hin24b] P. Hintz, *Gluing small black holes along timelike geodesics III: construction of true solutions and extreme
+  mass ratio mergers*, arXiv:2408.06715v1. READ 2026-10-23: pp. 13, 33 ((3.1a)), 38–39 (Lemma 3.8 and its proof), 50–53
+  (Proposition 3.16, Lemma 3.17 and their proofs).
 - [Hin26a] P. Hintz, *Constraint damping on subextremal Kerr spacetimes*, arXiv:2606.27658v2. READ 2026-10-21: pp. 1–3
   (Theorem 1.1, (1.1)–(1.2)), 5, 7, 9–10, 25–37 (section 3: Definition 3.1, Lemmas 3.2–3.9; sections 4.1–4.3:
   (4.1)–(4.9), Lemmas 4.1–4.4 and 4.6, Corollary 4.7, (4.19), Definition 4.8, Theorem 4.9, Remarks 4.10–4.12), 38–41
@@ -1039,7 +1049,8 @@ from the arXiv text, with the extraction's spacing.
   2.29, Definition 4.1, Lemmas 6.1, 6.6, 6.13 and 6.14, Propositions 6.12, 6.15 and 6.18, Proposition 8.9, Remark 8.10,
   Proposition 8.11, Lemma 8.12, Corollary 8.13). READ 2026-10-23 for Proposition 6.18 (4)–(7): pp. 19, 67, 113, 117–118,
   121, 128–134 (the proof's decomposition on p. 132), 149–151, 158. READ 2026-10-23 for section 7.2: pp. 126, 134–144
-  (section 7, Lemma 7.2, Propositions 7.3–7.4, Lemma 7.5, (7.1)–(7.35)).
+  (section 7, Lemma 7.2, Propositions 7.3–7.4, Lemma 7.5, (7.1)–(7.35)). READ 2026-10-23 for Lemma 8.12 and Proposition
+  8.11: pp. 145 ((8.1)), 154–158 (Proposition 8.9 through Corollary 8.13).
 - [Hin26c] P. Hintz, *(Non-)linear waves on asymptotically flat spacetimes. II: trapping, bound states, nonlinear
   applications*, arXiv:2606.28008v1. READ 2026-10-22: pp. 88 (Definition 4.13, Lemma 4.14), 90–91 (Proposition 4.19),
   100 ((5.1a)–(5.2)), 101–105 (Example 5.4, Remark 5.6, Definitions 5.8, 5.10–5.11, Remark 5.9, Lemma 5.12), 158–159
@@ -1273,6 +1284,10 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   constraint propagation operator, the translations' dual state, and the rotations' near zero rotation at first order on
   the Myers–Perry metric, his (7.8), (7.10), (7.18), (7.20) and (7.31) reproduced in four dimensions (his lemma and
   proposition deduced). 3/3; mutants 3/3 (about a minute and a half).
+- `pairing5.py` P1–P5: Hintz's Lemma 8.12 in five dimensions (supplement section 10.32): the pairings of the zero energy
+  kernel and cokernel as boundary pairings at infinity, [Hin23b]'s four-dimensional table reproduced, the
+  five-dimensional 11 × 11 matrix non-degenerate (his Proposition 8.11 and Corollary 8.13 deduced, up to the
+  five-dimensional rigidity). 5/5; mutants 5/5 (about two minutes).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1347,7 +1362,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D87).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D88).
 
 | claim | where it is established |
 | --- | --- |
@@ -1389,10 +1404,10 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D8
 | | `docket68/n1star/tface5.py` F1–F5; `docket68/n1star/lin5.py` E1–E5; `docket68/n1star/sbar5.py` S1–S3; |
 | | `docket68/n1star/strap5.py` P1–P3; `docket68/n1star/gmodes5.py` G1–G5; `docket68/n1star/zstates5.py` Z1–Z6; |
 | | `docket68/n1star/genstates5.py` H1–H5; `docket68/n1star/puregauge5.py` J1–J6; |
-| | `docket68/n1star/dual5.py` A1–A3; |
+| | `docket68/n1star/dual5.py` A1–A3; `docket68/n1star/pairing5.py` P1–P5; |
 | | [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
-| | [Sch13], [Hin26a], [Hin26], [Hin26c] |
+| | [Sch13], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1425,8 +1440,8 @@ and `trap5.py`, `lowenergy5.py` imports `thresh5.py` and `damping5.py`, `cpmodes
 imports `cform5.py` and `damping5.py`, `tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and
 `damping5.py`, `lin5.py` imports `damping5.py` and `gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and
 `zstates5.py` import `damping5.py`, `genstates5.py` imports `damping5.py` and `zstates5.py`, `puregauge5.py` imports
-`damping5.py`, `genstates5.py` and `zstates5.py`, `dual5.py` imports `damping5.py`, `genstates5.py` and `puregauge5.py`;
-the others import nothing from the research tree:
+`damping5.py`, `genstates5.py` and `zstates5.py`, `dual5.py` imports `damping5.py`, `genstates5.py` and `puregauge5.py`,
+`pairing5.py` imports `damping5.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1459,6 +1474,7 @@ the others import nothing from the research tree:
                                                          # genstates5 (about a minute)
                                                          # puregauge5 (about four minutes)
                                                          # dual5 (about a minute and a half)
+                                                         # pairing5 (about two minutes)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1466,9 +1482,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `16555b062d182a4a52e1d17a6c0e7d1e` |
-| `docket68/n1star/N1STAR-LOG.md` | `a4e95829687638d104db92f0058e7927` |
-| `docket68/n1star/README.md` | `2878b864e549a20baa49725ee76330b4` |
+| `docket68/n1star/N1STAR-PROOF.md` | `6502ed3a6e1d4cccd21c0af350d2f84b` |
+| `docket68/n1star/N1STAR-LOG.md` | `34d88aae4965cb57cbd88b58c8af654a` |
+| `docket68/n1star/README.md` | `8db6967d67a56e33d8a0f169cd804b40` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1513,5 +1529,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/genstates5.py` | `f2ef7478e67760e3d6ff05d0a0dd74e5` |
 | `docket68/n1star/puregauge5.py` | `6fda612d263dcfa82b79a9ff76a70000` |
 | `docket68/n1star/dual5.py` | `c85cd907bd71d3c4fb1a12be89adf783` |
+| `docket68/n1star/pairing5.py` | `d41db1b08994fda741f874268ceb1518` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

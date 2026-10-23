@@ -2755,3 +2755,37 @@ dual states now carries its condition, the readings 10.21 rests on. (e) The defa
 1.14.0 (python3.11 has no sympy in this container); Appendix D now says Python 3 and names them.
 
 *Runs.* dual5.py 3/3 (about a minute and a half), mutants 3/3; response5.py all pass; md5 rows current (48).
+
+**D88 (2026-10-23): [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions (10.32, pairing5.py).**
+
+M asked to continue after PR #96 merged; the fortieth verifier's findings are D87. 10.31 left his Proposition 8.11, Lemma
+8.12 and Corollary 8.13 OPEN: the zero energy kernel and cokernel of L-hat(0) and the pairings that count them. READ at
+source (alphaXiv, 2026-10-23): [Hin26] pp. 145 ((8.1)), 154-158 (Proposition 8.9 through Corollary 8.13); [Hin24b]
+(arXiv:2408.06715) pp. 13, 33 ((3.1a)), 38-39 (Lemma 3.8), 50-53 (Proposition 3.16, Lemma 3.17 and its proof); [Hin23b]
+(arXiv:2306.07409) pp. 101-110 (Theorem 9.6 and its proof), 116-117. His Lemma 8.12 is proved by [Hin24b] Lemma 3.17's
+proof, "verbatim", which removes the gauge terms and reduces to [Hin23b] Theorem 9.6, where every pairing is a boundary
+pairing at infinity on the leading terms.
+
+*Computed (Proposition 10.29, pairing5.py P1-P5).* The boundary pairings directly, on Minkowski in Cartesian coordinates,
+chi a radial cutoff and the sphere integrals exact. (P1) Four dimensions: his table, -8 pi m-dot, -8 pi m (q . a-dot), 4
+pi m (q . c). (P2) Five dimensions: mass against dt -3 pi^2 mu-dot, rotations -2 pi^2 mu on their own plane, the other
+Kerr-row entries 0. (P3) Centres of mass (3 pi^2/2) mu (q . c), 0 against dt. (P4) The 11 x 11 matrix non-degenerate,
+block triangular whatever the entries the leading terms leave undetermined. (P5) Kerr-Schild, a pure gauge tensor and t*
+= t - r change nothing. Controls: G dropped; the mass perturbation's dr^2 dropped; h-breve dropped; the first-order
+translation pairing, which his Theorem 9.6(6) says vanishes, in place of the centre of mass; a non-gauge term added.
+
+*Deduced (10.32).* (a) The entries are -8 pi M-dot, -8 pi J-dot and 4 pi M (q . c) in both dimensions, M and J the ADM
+mass and angular momentum. (b) His Lemma 8.12 in five dimensions at a = 0, and near it by continuity, for his L_b of
+(8.1); his printed values, -16 pi m-dot and so on, are [Hin24b]'s, whose L is twice L_b. (c) His Proposition 8.11 with
+dim ker = dim coker >= 11; equality rests on [AHW24] Theorem 6.1(2) in five dimensions, OPEN. (d) His Corollary 8.13 with
+eleven for seven on (c).
+
+*Notes on the computation.* (1) Three entries per centre of mass -- against the rotations of the planes containing its
+direction -- sit above the critical weight: their leading terms vanish over the sphere, and they are not determined by
+leading terms. The program returns them as undetermined, never as 0, and P4 shows the determinant free of them; his
+argument for Theorem 9.6(5) gives 0 there at a = 0. (2) The first P4 control paired only the [[D Ric, t], chi] piece and
+passed vacuously; the control is the Kerr-row formula applied to h_b,c, which is his Theorem 9.6(6), and it fails as it
+should. (3) sym() first divided Python integers and produced floats; it is exact.
+
+*Runs.* pairing5.py 5/5 (about two minutes), mutants 5/5; response5.py all pass; md5 rows current (49). Next: the
+forty-first verifier on D87 and D88 (10.31-10.32, dual5.py, pairing5.py).
