@@ -1143,11 +1143,11 @@ states Proposition 10.25 and deduces.
   -h_A (Z6).
 - Deduced: his Proposition 6.15 and Proposition 8.9 in five dimensions, every order one higher and neither logarithm, on
   his Lemma 6.13 in five dimensions; six angular momenta in place of three.
-- OPEN: the readings of 10.20, on which 4.30 deduces his Lemma 6.13 in five dimensions; the index sets; section 7.2,
-  Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions (the candidates for the kernel number 1 + 6 + 4 =
-  11 against his 7, the count not established); section 8.5 and sections 9-10; how small gam_Ups must be, and h_0.
-  Labels: computed (zstates5.py Z1-Z6, exact); deduced; READ ([Hin26] pp. 25, 81, 113, 117, 124-128, 154-155, 157;
-  [ER08] p. 14); nothing proved.
+- OPEN: the readings of 10.20, on which 4.30 deduces his Lemma 6.13 in five dimensions (and 4.30-4.31 his Proposition
+  6.18); the index sets; section 7.2, Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions (the candidates
+  for the kernel number 1 + 6 + 4 = 11 against his 7, the count not established); section 8.5 and sections 9-10; how
+  small gam_Ups must be, and h_0. Labels: computed (zstates5.py Z1-Z6, exact); deduced; READ ([Hin26] pp. 25, 81, 113,
+  117, 124-128, 154-155, 157; [ER08] p. 14); nothing proved.
 
 ### 4.30 [Hin26] Lemma 6.13 and Proposition 6.18 (1)-(3) in five dimensions (computed; D81)
 
@@ -1168,7 +1168,7 @@ control; N1STAR-PROOF.md 10.29 states Proposition 10.26 and deduces.
   and h_0. Labels: computed (genstates5.py H1-H5, exact); deduced; READ ([Hin26] pp. 51-52, 64-67, 81, 113, 117-119,
   121, 124-125, 128-134); nothing proved.
 
-### 4.31 [Hin26] Proposition 6.18 (4)-(7) in five dimensions (computed; D84)
+### 4.31 [Hin26] Proposition 6.18 (4)-(7) in five dimensions (computed; D84, D85)
 
 His parts (4)-(7) build the pure gauge states whose gauge potentials carry no symmetry, from the gauge potential
 operator's growing roots below -1 and the s2 root -1. puregauge5.py computes the indicial families, the classes, the
@@ -1179,11 +1179,14 @@ Minkowski the control; N1STAR-PROOF.md 10.30 states Proposition 10.27 and deduce
   matrices entry by entry (J1).
 - The classes: s0's -1 - z/3 + O(z^2), Q's two negative roots just below -l and -l - 1 for every l, sl's -l + 1 and vl's
   -l -- his four, with his ranges (J2); delta-bar* injective at each, his (2.46a)-(2.46c) reproduced (J3).
-- No resonance for 0 < z < 4, the z = 0 coincidences all at sl (J4); the states exact on Minkowski at every class's
-  largest k, at vl kappa_1 = 1 + 2 gam_U/(2l + 3) and the rest in closed form (J5).
-- Deduced: his Proposition 6.18 (4)-(7) in five dimensions on Tangherlini, each stationary correction one order faster;
-  the tensor types carry no pure gauge state.
+- No resonance for 0 < z < 4, sharp (the s0 class root -2 meets 0 there; four dimensions' 3 is the partner root's, not
+  sharp), the z = 0 coincidences all at sl (J4); the states exact on Minkowski at every class's largest k, at vl kappa_1
+  = 1 + 2 gam_U/(2l + 3) and the rest in closed form (J5); at e_U = 0, on Minkowski, a logarithm forced at mu_l,0's first
+  step and none at -l + 1's first two steps (J6).
+- Deduced: his Proposition 6.18 (4)-(7) in five dimensions on Tangherlini, each stationary correction one order faster,
+  no logarithm in the leading terms; the tensor types carry no pure gauge state; delta-bar* injective at sl and vl for
+  every l >= 2, the stationary Killing 1-forms having l <= 1.
 - OPEN: the readings of 10.20 line by line; the index sets; whether five dimensions needs his window [-3, 0]; section
   7.2, Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions; section 8.5 (with t2 and t3) and sections
-  9-10; how small gam_Ups must be, and h_0. Labels: computed (puregauge5.py J1-J5, exact); deduced; READ ([Hin26] pp.
-  19, 67, 113, 117-118, 121, 128-134, 149-151, 158); nothing proved.
+  9-10; how small gam_Ups must be, and h_0. Labels: computed (puregauge5.py J1-J6, exact); deduced; READ ([Hin26] pp. 19,
+  67, 113, 117-118, 121, 128-134, 149-151, 158); nothing proved.

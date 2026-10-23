@@ -193,12 +193,13 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   printed four-dimensional numbers and (6.40) as the control, and the gap's top lam_s1,2 = 2 + z/12 + O(z^2) (H1-H5;
   Lemma 6.13, on 10.20's readings, and the states deduced in 10.29). `python3 genstates5.py --selftest` (5/5, about a
   minute), `--mutants` (8/8).
-- `puregauge5.py`: [Hin26] Proposition 6.18 (4)-(7) in five dimensions (section 10.30; D84): the pure gauge states built
-  on the gauge potential operator's growing roots below -1 -- its indicial families on every harmonic type (his Lemma
-  6.6 and (2.46a)-(2.46c) reproduced in four dimensions), his four classes with their ranges, the symmetric gradient
-  injective at each, no resonance for 0 < z < 4, and the generalized states' leading terms exact on Minkowski, the
-  vector type's in closed form (J1-J5; the proposition deduced in 10.30). `python3 puregauge5.py --selftest` (5/5, about
-  four minutes), `--mutants` (5/5).
+- `puregauge5.py`: [Hin26] Proposition 6.18 (4)-(7) in five dimensions (section 10.30; D84, D85): the pure gauge states
+  built on the gauge potential operator's growing roots below -1 and the s2 root -1 -- its indicial families on s0, sl (l
+  <= 5) and vl (l <= 4) (his Lemma 6.6 and (2.46a)-(2.46c) reproduced in four dimensions), his four classes with their
+  ranges, the symmetric gradient injective at each, no resonance for 0 < z < 4 (sharp), the generalized states' leading
+  terms exact on Minkowski, the vector type's in closed form, and at e_U = 0 which coincidences force a logarithm on
+  Minkowski (J1-J6; the proposition deduced in 10.30). `python3 puregauge5.py --selftest` (6/6, about four minutes),
+  `--mutants` (7/7).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).

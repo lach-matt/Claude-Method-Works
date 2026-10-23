@@ -2635,9 +2635,9 @@ k; at vl kappa_i = prod (2l + 2j + 1 + 2 gam_U)/(j (2l + j + 2)), 10.29's 1 + 2 
 in five dimensions; z = -1/100; v1 claimed injective at -1; z = 0; the factor k!/(k - i)! dropped.
 
 *Deduced (10.30).* (a) His Proposition 6.18 (4)-(7) in five dimensions on Tangherlini, on 10.29(a): his classes and
-ranges, each stationary correction at rho^(mu + 2) where his is at rho^(mu + 1), no logarithm at e_U > 0. (b) The tensor
-types of L-hat(0) carry no pure gauge state; their roots -2 and -3 fall with section 8.5's physical states. All seven
-parts of his Proposition 6.18 now have five-dimensional counterparts.
+ranges, each stationary correction at rho^(mu + 2) where his is at rho^(mu + 1), no logarithm in the leading terms at e_U
+> 0. (b) The tensor types of L-hat(0) carry no pure gauge state; their roots -2 and -3 fall with section 8.5's physical
+states. All seven parts of his Proposition 6.18 now have five-dimensional counterparts.
 
 *Notes on the computation.* (1) The vector harmonics of S^3 are P(x^3, x^4)(x^1 dx^2 - x^2 dx^1)/r^(l + 1), P harmonic
 of degree l - 1 in (x^3, x^4): tangential, divergence-free and componentwise harmonic; at l = 1 the rotation of
@@ -2648,3 +2648,44 @@ for the decay he proves; whether five dimensions needs the same window is left O
 
 *Runs.* puregauge5.py 5/5 (about four minutes), mutants 5/5; response5.py all pass; md5 rows current (47). Next: one
 verifier on D83 and D84 (10.28-10.30, genstates5.py, zstates5.py, puregauge5.py).
+
+**D85 (2026-10-23): the thirty-ninth verifier's findings on 10.29-10.30, puregauge5.py, D83 and D84, seated.**
+
+The thirty-ninth verifier read 6f373bd read-only, every program run from an archive, and recomputed independently in
+Cartesian coordinates without Christoffel symbols, with generic harmonics other than the program's: N0 and N1 for s0,
+s1-s5 and v1-v4 in both dimensions, the classes, the injectivity by the gcd of maximal minors over complex lam, the
+states (the irrational roots at (1/5, 1/3), residuals about 1e-46), and D83's ranges by hand. Verdict: D83 and D84 hold;
+no major finding; three minor findings and notes, each seated here.
+
+*Minor.* (1) J4 asserted only that its bound was positive, which its least positive zero guarantees: a shift resonant at
+z = 7/4 passed. J4 now asserts the bound exactly, 4 (four dimensions 3), the roots at it, and 10.30(iv)'s z = 0
+coincidences class by class, with the range claimed 0 < z < 5 as a new control. (2) 10.30(b) said the coincidences "would
+put logarithms" into -l + 1's first two steps. Computed at e_U = 0 (J6, new; gam_U = 1/3 and 2/7, both dimensions): -l +
+1's first step is solvable, and its second step's obstruction is of degree 1 in the first step's kernel coefficient, so
+one choice removes it; mu_l,0's first step is obstructed, so a logarithm is forced there. 10.30 gains (vi), and (b) says
+which logarithms are forced, which are not, and which -- the stationary corrections, on Tangherlini's sources at e_U = 0
+-- are not computed. (3) The paper's [Hin26] entry did not record D84's reads; it now has "READ 2026-10-23 for
+Proposition 6.18 (4)-(7)", pp. 19, 67, 113, 117-118, 121, 128-134, 149-151 and 158.
+
+*Notes.* (a) 10.29(a): injectivity past weight 1 follows by inclusion alone, rho^alpha H_b lying in rho^alpha' H_b for
+alpha > alpha'; and a kernel element's exponents lie in the index set the roots above the gap generate, shifted by
+integers and possibly with logarithms, not "among the roots". (b) The four-dimensional bound 3 is not sharp: at z = 3 the
+s0 partner root 2 meets 0 and is double, the class root -2 nothing; five dimensions' 4 is sharp, the class root -2
+meeting 0 under mu + 2. J4 asserts both and 10.30(iv) says so. (c) "No logarithm" holds in the leading terms: in five
+dimensions omega-breve^2's first correction sits at rho^mu, the class root itself (four dimensions omega-breve^1's), and
+at s0 mu_s0 + 4 = 1 - mu_s0 at z = 7/4, above the gap; his E_ind absorbs them. 10.30(a), its closing paragraph, D84's
+entry (in place), ROUTES 4.31 and the paper say "in the leading terms". (d) J5's modular check is not vacuous because
+each of its eight moduli is irreducible over Q; J5 now asserts it. (e) "Never at sl or vl for l >= 2" was computed for l
+<= 5 and l <= 4; 10.30(iii) says so, and a new 10.30(c) deduces every l: a kernel element gives a stationary Killing
+1-form of Minkowski space, and those have l <= 1 (his remark after (2.46c), p. 67). The paper and the README name the
+computed range. (f) J1 asserts det N0 equal to 10.15(i)'s polynomial, ratio 1. (g) 10.30(a) cited 10.28(i), which covers
+delta* and box(0) only, for the orders of A1 and A2; it now cites his decomposition on p. 132 (A0 in rho^2 Diff^2_b, A1
+in rho Diff^1_b, A2 = -g^00 in rho^2 C^oo, from (6.4a)), READ at source, in five dimensions by 10.18(b): Tangherlini's A1
+differs from Minkowski's in rho^3 Diff^1_b and A2 is in rho^2 C^oo, each two orders above the leading equation (deduced).
+(h) The README bullet names the s2 root -1, and ROUTES 4.29's OPEN list points to 4.30-4.31 for his Proposition 6.18.
+
+*Not checked by the verifier*, and OPEN as before: the readings of 10.20; Tangherlini's sources at e_U = 0, so whether
+mu_l,1's stationary correction forces a logarithm; the simplicity of L-hat(0)'s roots beyond 10.24's parameter point; his
+Lemmas 2.13 and 2.15 in detail.
+
+*Runs.* puregauge5.py 6/6 (about four minutes), mutants 7/7; response5.py all pass; md5 rows current (47).
