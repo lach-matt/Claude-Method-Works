@@ -6,31 +6,34 @@ section 10.26; ROUTES-OPEN.md 4.27; D75).  Labels: computed (exact, sympy), dedu
 [Hin26] (arXiv:2606.28253v2) Proposition 8.3 (pp. 147-149): 2 L_b is strongly trapping admissible.  His proof: E^Ups
 vanishes near the trapped set, so i S_sub(2 L) = i S_sub(box) + 2 E^C sigma_1(i delta) G ((8.10)); in the frame e_mu of
 (6.16b), with nabla_{H_G} = H_G + 2 sigma N on 1-forms ((6.16c)) and its Leibniz extension to S^2 in the splitting
-(8.11), sigma_1(i delta) = -C^(1/2) iota_{e_2}, g = -2 e_0 e_2 + e_1^2 + e_3^2 and E^C = gam_C (2 c (x)_s . - (1 - e_C)
-g <c, .>), he finds i S_sub(2 L) = H_G + sigma A with a printed 10 x 10 matrix A (p. 148), gam := C^(1/2) gam_C/sigma,
-upper triangular in the basis (8.12) with diagonal 0 (6x), -2 (1 - e_C) gam c_2, -2 gam c_2 (2x), -4 gam c_2; c_2 = -g^-1
-(c^C, e_0) < 0 because c^C is past timelike and e_0 future null, so every eigenvalue is >= 0, and the inner product
-diag(1, eta^-1, ..., eta^-9) in (8.12) makes the symmetric part >= -C eta.  10.17 computed, on five-dimensional
-Tangherlini, the frame e_0, e_1, e_2 with nabla_{H_G} e_0 = 0, nabla_{H_G} e_1 = -2 sigma e_0, nabla_{H_G} e_2 = -2 sigma
-e_1 (trap5.py T3; his +2 sigma is the same with e_1 -> -e_1) and the angular plane V of covectors orthogonal to all
-three, on which nabla_{H_G} is g-skew.  Here the frame is abstract: covectors e_0, ..., e_n with g^-1 Gram
-[[0, 0, -1], [0, 1, 0], [-1, 0, 0]] (+) Id_(n-2), c = c_mu e_mu, and the 1-form part of nabla_{H_G}/sigma is s N.
+(8.11), sigma_1(i delta) = -C^(1/2) iota_{e_2} (his notation: the contraction with the vector e^2 of the dual frame), g
+= -2 e_0 e_2 + e_1^2 + e_3^2 and E^C = gam_C (2 c (x)_s . - (1 - e_C) g <c, .>), he finds i S_sub(2 L) = H_G + sigma A
+with a printed 10 x 10 matrix A (p. 148), gam := C^(1/2) gam_C/sigma, upper triangular in the basis (8.12) with diagonal
+0 (6x), -2 (1 - e_C) gam c_2, -2 gam c_2 (2x), -4 gam c_2; c_2 = -g^-1 (c^C, e_0) < 0 because c^C is past timelike and
+e_0 future null, so every eigenvalue is >= 0, and the inner product diag(1, eta^-1, ..., eta^-9) in (8.12) makes the
+symmetric part >= -C eta.  10.17 computed, on five-dimensional Tangherlini, the frame e_0, e_1, e_2 with nabla_{H_G} e_0
+= 0, nabla_{H_G} e_1 = -2 sigma e_0, nabla_{H_G} e_2 = -2 sigma e_1 (trap5.py T3; his +2 sigma is the same with e_1 ->
+-e_1) and the angular plane V of covectors orthogonal to all three, on which nabla_{H_G} is g-skew.  Here the frame is
+abstract: covectors e_0, ..., e_n with g^-1 Gram [[0, 0, -1], [0, 1, 0], [-1, 0, 0]] (+) Id_(n-2), c = c_mu e_mu, and
+the 1-form part of nabla_{H_G}/sigma is s N.
 
   P1 (computed, exact) Four-dimensional control: with his sign (s = +2), the trace weight 1 and his splitting (8.11),
      the computed A equals his printed matrix in all 100 entries; it is upper triangular in his basis (8.12) with his
-     diagonal.  Control: the computed sign s = -2 against his printed matrix, which then differs.
+     diagonal in his order.  And the computed sign s = -2 is his with e_1 -> -e_1 (and so c_1 -> -c_1): after that
+     change of frame the computed A equals his printed matrix in all 100 entries.  Control: the computed sign s = -2
+     against his printed matrix with no change of frame, which then differs in 8 entries.
   P2 (computed, exact) Five dimensions, c general: the characteristic polynomial of the 15 x 15 A is lam^10 (lam + 2 gam
      c_2)^3 (lam + 4 gam c_2)(lam + 2 (1 - e_C) gam c_2) -- at the trace weight 1 the last factor is lam + 3 (1 - e_C)
      gam c_2 -- and A is upper triangular in the constant basis e_0^2, e_0 e_1, e_0 e_2, e_0 e_3, e_0 e_4, e_1 e_3, e_1
      e_4, e_3 e_4, e_1^2 - e_3^2, e_1^2 - e_4^2, e_1^2, e_1 e_2, e_2 e_3, e_2 e_4, e_2^2 for every c, gam, e_C.
      Control: e_1^2 placed before e_1^2 - e_3^2, where A is not upper triangular.
-  P3 (computed, exact) Five dimensions, c with no angular part (c_3 = c_4 = 0, as 10.14's c = a(r) dt + b(r) dr):
-     A commutes with the rotation of the angular plane, extended to S^2; in the units e_0^2, e_0 e_1, e_0 e_2, e_1^2 -
-     T/2, e_1^2, e_1 e_2, e_2^2, (e_0 e_3, e_0 e_4), (e_1 e_3, e_1 e_4), (e_2 e_3, e_2 e_4), (e_3 e_4, e_3^2 - e_4^2),
-     T = e_3^2 + e_4^2, it is block upper triangular with scalar diagonal blocks 0, 0, 0, 0, -2 (1 - e_C) gam c_2, -2 gam
+  P3 (computed, exact) Five dimensions, c with no angular part (c_3 = c_4 = 0, as 10.14's c = a(r) dt + b(r) dr): A
+     commutes with the rotation of the angular plane, extended to S^2; in the units e_0^2, e_0 e_1, e_0 e_2, e_1^2 -
+     T/2, e_1^2, e_1 e_2, e_2^2, (e_0 e_3, e_0 e_4), (e_1 e_3, e_1 e_4), (e_2 e_3, e_2 e_4), (e_3 e_4, e_3^2 - e_4^2), T
+     = e_3^2 + e_4^2, it is block upper triangular with scalar diagonal blocks 0, 0, 0, 0, -2 (1 - e_C) gam c_2, -2 gam
      c_2, -4 gam c_2, 0, 0, -2 gam c_2, 0, and the rotation acts within each unit, skew; for the inner product weighting
-     unit k by eta^-k, the rescaled A tends to that block diagonal as eta -> 0.  Control: c_4 != 0, where A does not
-     commute with the rotation.
+     unit k by eta^-k, the rescaled A tends to that block diagonal as eta -> 0.  Control: c_4 = 1/3, where A does not
+     commute with the rotation, nor is it block triangular in the units (five entries below the unit blocks).
 
 Deduced, not computed here: his Proposition 8.3 on five-dimensional Tangherlini, with E^Ups vanishing near the photon
 sphere ((6.1)) and 10.14's c, past timelike there, so that c_2 < 0 and every diagonal block is >= 0: the inner product
@@ -138,8 +141,16 @@ def p1(control=0, verbose=False):
     tri, diag = upper(A, b812)
     c2 = c[2]
     want = [0] * 5 + [0] + [sp.factor(-2 * (1 - eC) * gam * c2)] + [sp.factor(-2 * gam * c2)] * 2 + [-4 * gam * c2]
+    inorder = all(sp.expand(x - y) == 0 for x, y in zip(diag, want))                         # in his order
+    sign = True
+    if control == 0:                                    # the computed sign s = -2 is his with e_1 -> -e_1, c_1 -> -c_1
+        Am, _, _ = build(3, sp.Integer(1), s=-2)
+        Dg = sp.diag(*[(-1)**((a == 1) + (b == 1)) for a, b in pairs])
+        Ap = (Dg * Am * Dg).subs({c[1]: -c[1]}, simultaneous=True).extract(perm, perm)
+        sign = (Ap - his_A(c)).applyfunc(sp.expand) == sp.zeros(10, 10)
     chk(f"n + 1 = 4: A in (8.11) against his printed matrix: {100 - nbad}/100 entries equal; upper triangular in "
-        f"(8.12) with diagonal {diag}", nbad == 0 and tri and sorted(map(str, diag)) == sorted(map(str, want)))
+        f"(8.12) with diagonal {diag}, in his order; at s = -2 the same after e_1 -> -e_1, c_1 -> -c_1",
+        nbad == 0 and tri and inorder and sign)
     return chk.ok
 
 

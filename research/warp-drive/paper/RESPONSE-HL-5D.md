@@ -767,21 +767,22 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   endomorphism carries the gauge potential and constraint propagation operators' spectra and five zeros, so that the
   decay improves to 3/2 − ε where his improves to 1 − ε (supplement section 10.25, `sbar5.py`; the spectrum computed,
   the improvement deduced). And the operator is strongly trapping admissible at the photon sphere, his Proposition 8.3:
-  its subprincipal matrix there, 15 × 15 where his is 10 × 10 — his printed matrix recomputed exactly in four dimensions
-  as the control — has ten zero eigenvalues and five of one sign fixed by the damping 1-form being past timelike, and is
-  triangular in a fixed basis, the rotation of the angular plane along the flow absorbed by weighting its pairs alike
-  (supplement section 10.26, `strap5.py`; computed, the proposition deduced). A line-by-line check of Hintz's 3b- and
-  edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make
-  explicit, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275
-  r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured from the
-  pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching
-  7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way
-  (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a
-  nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω
-  r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1%
-  (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
-  problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of
-  four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
+  its subprincipal matrix there, 15 × 15 where his is 10 × 10 — his printed matrix recomputed exactly in four
+  dimensions, with his sign convention, as the control — has ten zero eigenvalues and five of one sign fixed by the
+  damping 1-form being past timelike, and is triangular in a fixed basis, the rotation of the angular plane along the
+  flow absorbed by weighting its pairs alike (supplement section 10.26, `strap5.py`; computed, the proposition deduced).
+  A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold
+  h₀, which his proof does not make explicit, and the rest of their analysis are open. No growing mode appears in either
+  type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2
+  master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the
+  same at half the step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is
+  shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's
+  function's tail, which is the rate a nonlinear argument in the class would carry. The least-damped mode of the class
+  is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master
+  equation in time reproduces to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding
+  time of 3.905 r_h. The reduced problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's
+  polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is
+  open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -887,7 +888,13 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   by a thirty-third (D72), which recomputed the factorization by an independent construction: no major finding; five
   minor findings — Lemma 8.5 and this paper's summary stated for every parameter where they rest on the parameter point,
   a step of the deduction left unstated, the factor at l ≤ 1 missing from one sentence and miscalled at the vector type,
-  and a sign in an exponent — and seven notes, seated (D73).
+  and a sign in an exponent — and seven notes, seated (D73). Section 10.25 with `sbar5.py` was read by a thirty-fourth
+  (D74), which recomputed the endomorphism by hand from principal symbols: no major finding; four minor findings — the
+  four-dimensional multiplicities misstated, a stale pointer, a sentence of this paper and its label, and a
+  proposition's hypotheses missing at five sites — and eight notes, seated (D76). Section 10.26 with `strap5.py` and
+  those repairs was read by a thirty-fifth (D75, D76), which recomputed the matrix along a trapped null geodesic of the
+  concrete metrics: no major finding; three minor findings — two stale entries in the open lists, this record stopping
+  at the thirty-third, and one site still lacking a hypothesis — and eight notes, seated (D77).
 
 ---
 
@@ -1174,11 +1181,11 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   as the control); so the decay improves to 3/2 − ε and the threshold keeps −1/2 (Proposition 8.6 deduced on readings,
   at the parameter point for a small gauge parameter). 3/3; mutants 3/3 (about a minute).
 - `strap5.py` P1–P3: Hintz's Proposition 8.3 in five dimensions (supplement section 10.26): the subprincipal matrix of
-  the linearized gauge-fixed Einstein operator at the trapped set, his printed 10 × 10 reproduced in all 100 entries in
-  four dimensions; in five, the 15 × 15 matrix with ten zero eigenvalues and −2(1 − e_C)γc₂, −2γc₂ (three times),
-  −4γc₂, triangular in a constant basis, and for a damping 1-form without angular part block triangular in units on
-  which the rotation of the angular plane is skew (strong trapping admissibility on Tangherlini deduced). 3/3; mutants
-  3/3 (a few seconds).
+  the linearized gauge-fixed Einstein operator at the trapped set, his printed 10 × 10 reproduced in all 100 entries
+  with his sign convention, and with the supplement's after reversing one frame vector, in four dimensions; in five, the
+  15 × 15 matrix with ten zero eigenvalues and −2(1 − e_C)γc₂, −2γc₂ (three times), −4γc₂, triangular in a constant
+  basis, and for a damping 1-form without angular part block triangular in units on which the rotation of the angular
+  plane is skew (strong trapping admissibility on Tangherlini deduced). 3/3; mutants 3/3 (a few seconds).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1253,7 +1260,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D75).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D77).
 
 | claim | where it is established |
 | --- | --- |
@@ -1309,7 +1316,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | section 10.16 (D58); the twenty-seventh sections 10.17–10.18 (D59–D60); |
 | | the twenty-eighth section 10.19 (D62); the twenty-ninth sections 10.20–10.21 (D64, D66); |
 | | the thirtieth section 10.22 (D67, D70); the thirty-first section 10.23 (D69, D71); |
-| | the thirty-second its repairs (D71, D72); the thirty-third section 10.24 (D72, D73) |
+| | the thirty-second its repairs (D71, D72); the thirty-third section 10.24 (D72, D73); |
+| | the thirty-fourth section 10.25 (D74, D76); the thirty-fifth section 10.26 (D75, D77) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1358,9 +1366,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `9315eb30ce7ea8a4352eef150f2df4de` |
-| `docket68/n1star/N1STAR-LOG.md` | `9aa3e5e0c50299a9a8ed9c268bc20ef4` |
-| `docket68/n1star/README.md` | `01223554ffe28e0e5cd7abd1267e8286` |
+| `docket68/n1star/N1STAR-PROOF.md` | `24e42009499de15d567677025d39d293` |
+| `docket68/n1star/N1STAR-LOG.md` | `2acf8f55b3d06150208e8417d926e2b5` |
+| `docket68/n1star/README.md` | `14a6229faea90a574eb9e031b4201dcc` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1399,6 +1407,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/tface5.py` | `de9625072d570b423959da1af7654e41` |
 | `docket68/n1star/lin5.py` | `b108caf5ebecc29dc61ce56d7f49af37` |
 | `docket68/n1star/sbar5.py` | `a1899ea2f8470115ece25a400dc5fdc7` |
-| `docket68/n1star/strap5.py` | `9e63bb0091d5dd9b688002b8a441eef4` |
+| `docket68/n1star/strap5.py` | `8d716c0c7dd36f8cd23987f1c79fec3d` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

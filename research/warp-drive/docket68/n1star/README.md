@@ -161,17 +161,19 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   parameter symbolic, his four-dimensional factorizations as the control, the factors checked against gaugepot5.py and
   damping5.py, and at one parameter point, for l <= 12, the roots simple, none with real part in (0, 1], each type split
   evenly and Lemma 8.5 (E1-E5; Lemma 8.4 for every l at that point, Lemma 8.5 and, but for one threshold, Proposition
-  8.6 deduced in 10.24). `python3 lin5.py --selftest` (5/5, about 50 minutes), `--mutants` (4/4, about 20 minutes).
+  8.6 for small gam_Ups deduced in 10.24). `python3 lin5.py --selftest` (5/5, about 50 minutes), `--mutants` (4/4, about
+  20 minutes).
 - `sbar5.py`: Hintz's Lemma 8.2 and (8.7) in five dimensions (section 10.25; D74): the endomorphism S-bar by which the
   linearized gauge-fixed Einstein operator's d_t* terms differ from the wave operator's on 4+1 Minkowski, its spectrum
   -- the gauge potential and constraint propagation operators' with five zeros, min spec S-bar = 0 -- and the decay
   3/2 - eps and thresholds it gives (S1-S3; Proposition 8.6 deduced on readings in 10.25, at Proposition 10.9's point
   for small gam_Ups). `python3 sbar5.py --selftest` (3/3, about a minute), `--mutants` (3/3).
 - `strap5.py`: Hintz's Proposition 8.3 in five dimensions (section 10.26; D75): the subprincipal matrix of the
-  linearized gauge-fixed Einstein operator at the trapped set -- his printed 10 x 10 reproduced in four dimensions, the
-  15 x 15 in five with its spectrum and a constant triangularizing basis, and, for a c with no angular part, the
-  rotation-adapted block triangular form (P1-P3; strong trapping admissibility on Tangherlini deduced in 10.26).
-  `python3 strap5.py --selftest` (3/3, a few seconds), `--mutants` (3/3).
+  linearized gauge-fixed Einstein operator at the trapped set -- his printed 10 x 10 reproduced in four dimensions with
+  his sign, and with 10.17's after e_1 -> -e_1, the 15 x 15 in five with its spectrum and a constant triangularizing
+  basis, and, for a c with no angular part, the rotation-adapted block triangular form (P1-P3; strong trapping
+  admissibility on Tangherlini deduced in 10.26). `python3 strap5.py --selftest` (3/3, a few seconds), `--mutants`
+  (3/3).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).

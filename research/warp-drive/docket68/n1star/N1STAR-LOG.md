@@ -2354,3 +2354,35 @@ as OPEN and computed at once. (8) 10.17's "Proposition 8.3 (p. 149)" is p. 147.
 *Runs.* sbar5.py 3/3 (about a minute), mutants 3/3, the new checks refusing the misstated ranks; response5.py all pass;
 md5 rows current. Next: the thirty-fifth verifier on 10.26, strap5.py, D75 and these repairs; and [Hin26] section 8.4,
 his Proposition 8.8, in five dimensions.
+
+**D77 (2026-10-23): the thirty-fifth verifier's findings on 10.26, strap5.py, D75 and D76, seated.**
+
+*The verifier.* The thirty-fifth, on cca4070: no MAJOR finding; three MINOR findings and eight notes, all in the
+records. It reran strap5.py (3/3; mutants 3/3), sbar5.py and response5.py, found the 43 md5 rows current, and recomputed
+A by a route that shares no code with strap5.py: on concrete static Schwarzschild (r = 3M) and Tangherlini (r^2 = 2 mu),
+along an equatorial circular null orbit, nabla_{H_G} from the Christoffel symbols along X = 2 zeta^#, E^C sigma_1(i
+delta) G in coordinates with iota_{zeta^#}, in 10.17(iii)'s frame -- the connection matrix -2 sigma, 10.17's sign, in
+both dimensions; the characteristic polynomials of P2, with 3 (1 - e) at the weight 1 and -3 m (1 - e) gam c_2 at the
+symbolic weight m; P2's basis and P3's units holding with its A, and their controls failing; and, with 10.14's c at r^2
+= 2, G(c) = -39/1280000, <c, dt> = -1/100, c_2 = -1/200 < 0. It read [Hin26] pp. 34, 113, 115-116, 144-149 and 152, and
+[Hin26c] Definition 5.8 (pp. 102-103), Theorem 9.38 (p. 195) and Lemma 4.14 (p. 88) at source, and checked each D76
+repair, patching S2 to the misstated ranks to see it fail.
+
+*Three MINOR, repaired.* (1) ROUTES 4.25 and 4.26 still listed his Proposition 8.3 as OPEN; both now point to 4.27,
+where it is deduced. (2) The paper's record of verifiers stopped at the thirty-third: its section 8 paragraph and
+Appendix C's verification row now carry the thirty-fourth and thirty-fifth, and Appendix C's range reads D1-D77. (3) The
+README's lin5.py bullet now carries "for small gam_Ups" on Proposition 8.6.
+
+*Eight notes, seated.* (a) The sign: 10.17's s = -2 is his +2 read in the frame with e_1 -> -e_1 (and so c_1 -> -c_1);
+P1 now checks it -- after that change of frame the computed A equals his printed matrix in all 100 entries -- and
+10.26(i), its proof, ROUTES 4.27, the README and the paper say so. (b) P1 now compares the diagonal in his order, not
+sorted. (c) P3's control breaks the commutation and the block triangularity both (five entries below the unit blocks,
+recounted here); the docstring and 10.26 name both. (d) The paper's "reproduced" now says "with his sign convention".
+(e) 10.26(a)'s degree 0 comes from the normalization by C^(1/2), H_G C = 0 keeping the connection matrix unchanged under
+it. (f) iota_{e_2} is his notation, the contraction with the vector e^2 of the dual frame; the docstring and 10.26 say
+so. (g) gam > 0 has its clause: sigma > 0 on the future characteristic set, d_t being timelike outside the horizon
+([Hin26c] Lemma 4.14, (4.41)). (h) 10.26(iii) states the angular pair's normalization: in his 2 e_3 (x)_s e_4 the
+rotation acts on (e_3 e_4, e_3^2 - e_4^2) as [[0, 2], [-2, 0]], both members of norm^2 2.
+
+*Runs.* strap5.py 3/3 (a few seconds), mutants 3/3; response5.py all pass; md5 rows current. Next: [Hin26] section 8.4,
+his Proposition 8.8 in five dimensions (D78), and a thirty-sixth verifier on these repairs with it.

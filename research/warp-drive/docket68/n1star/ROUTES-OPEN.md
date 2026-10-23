@@ -1047,9 +1047,9 @@ states Proposition 10.21 and deduces.
   eps_ind) for small gam_Ups, on the readings of 4.20-4.24, but for the spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2),
   which the domain step of its kernel half needs.
 - OPEN: that spectrum and his (8.7) in five dimensions (computed in 4.26); simplicity and (8.13) beyond l <= 12; how
-  small gam_Ups must be, and h_0; his Proposition 8.3, sections 8.4-8.5 and 9-10 in five dimensions. Labels: computed
-  (lin5.py E1-E5, exact, the point's roots by mpmath); deduced; READ ([Hin26] pp. 28, 117, 135-137, 144-146, 149-153);
-  nothing proved.
+  small gam_Ups must be, and h_0; sections 8.4-8.5 and 9-10 in five dimensions (his Proposition 8.3 deduced in 4.27).
+  Labels: computed (lin5.py E1-E5, exact, the point's roots by mpmath); deduced; READ ([Hin26] pp. 28, 117, 135-137,
+  144-146, 149-153); nothing proved.
 
 ### 4.26 [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (computed; D74, D76)
 
@@ -1067,17 +1067,18 @@ which the kernel half's decay improves before the outgoing threshold is applied.
   beta_sctf < 3/2 (his 1) (S3).
 - Deduced: his (8.4) on Tangherlini, and Proposition 8.6 at Proposition 10.9's point for small gam_Ups on the readings
   of 4.20-4.25, the step 4.25 left OPEN now filled.
-- OPEN: the readings line by line; how small gam_Ups must be, and h_0; his Proposition 8.3 (4.27), sections 8.4-8.5 and
-  9-10 in five dimensions. Labels: computed (sbar5.py S1-S3, exact); deduced; READ ([Hin26] pp. 144-146, 152-153);
-  nothing proved.
+- OPEN: the readings line by line; how small gam_Ups must be, and h_0; sections 8.4-8.5 and 9-10 in five dimensions (his
+  Proposition 8.3 deduced in 4.27). Labels: computed (sbar5.py S1-S3, exact); deduced; READ ([Hin26] pp. 144-146,
+  152-153); nothing proved.
 
-### 4.27 [Hin26] Proposition 8.3 in five dimensions: strong trapping admissibility of L (computed; D75)
+### 4.27 [Hin26] Proposition 8.3 in five dimensions: strong trapping admissibility of L (computed; D75, D77)
 
 His Proposition 8.3 makes 2 L strongly trapping admissible for fixed modification parameters, from a printed 10 x 10
 matrix A at the trapped set ((8.10)-(8.12)). strap5.py computes it on an abstract quasi-orthonormal frame;
 N1STAR-PROOF.md 10.26 states Proposition 10.23 and deduces.
-- Four-dimensional control: with his sign convention the computed A equals his printed matrix in all 100 entries and
-  is upper triangular in his (8.12) with his eigenvalues (P1).
+- Four-dimensional control: with his sign convention the computed A equals his printed matrix in all 100 entries and is
+  upper triangular in his (8.12) with his eigenvalues in his order; 10.17's sign is his after e_1 -> -e_1, c_1 -> -c_1
+  (P1).
 - Five dimensions: det(lam - A) = lam^10 (lam + 2 gam c_2)^3 (lam + 4 gam c_2)(lam + 2 (1 - e_C) gam c_2), the last
   factor with 3 (1 - e_C) at the trace weight 1; a constant basis triangularizes A for every c (P2).
 - With c's angular part zero, as for 10.14's c = a(r) dt + b(r) dr: A commutes with the rotation of the angular plane,
