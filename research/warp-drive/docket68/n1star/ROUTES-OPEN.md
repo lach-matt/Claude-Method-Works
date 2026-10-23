@@ -396,9 +396,10 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    Tangherlini has no outgoing mode but pure gauge at sigma != 0, Im sigma >= 0, so that his Proposition 8.8 holds on
    the same readings (4.28; the reduction computed, the rest deduced); his section 6.5.1's zero energy states and
    Proposition 8.9's gauged linearized metrics hold one order faster in rho and without his logarithms, on his Lemma
-   6.13 in five dimensions (4.29; the orders and exponents computed, the rest deduced); the line-by-line readings of
+   6.13 in five dimensions (4.29; the orders and exponents computed, the rest deduced); his Lemma 6.13 and Proposition
+   6.18 (1)-(3) hold there too (4.30; the leading terms computed, the rest deduced); the line-by-line readings of
    [Hin26a] sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26]
-   Lemma 6.13 and sections 6.5.2, 7.2, 8.4 beyond Proposition 8.9 and 8.5, are OPEN.
+   Proposition 6.18 (4)-(7) and sections 7.2, 8.4 beyond Proposition 8.9 and 8.5, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -480,9 +481,11 @@ Proposition 10.24, computed; deduced) computes the Kodama-Ishibashi reduction of
 type at l >= 2 to one master equation with a positive potential, l <= 1 pure gauge at sigma != 0 -- and deduces [AHW24]
 Theorem 6.1(1) there and his Proposition 8.8; and 4.29 (10.28, Proposition 10.25, computed; deduced) computes
 Tangherlini's orders against Minkowski, the asymptotic symmetries' defects and the linearized metrics' gauge sources,
-and deduces his Proposition 6.15 and Proposition 8.9 there, one order faster and without logarithms, on his Lemma 6.13.
-Next: the rest of item 2 -- [Hin26] Lemma 6.13, sections 6.5.2, 7.2, 8.4 from Proposition 8.10 on, and 8.5 -- in five
-dimensions.
+and deduces his Proposition 6.15 and Proposition 8.9 there, one order faster and without logarithms, on his Lemma 6.13;
+and 4.30 (10.29, Proposition 10.26, computed; deduced) deduces his Lemma 6.13 there and computes the leading terms of
+his Proposition 6.18 (1)-(3), the time translation's state without his logarithm and his (6.40) as (1/4)(1 +- 2
+gam_U/5). Next: the rest of item 2 -- [Hin26] Proposition 6.18 (4)-(7), sections 7.2, 8.4 from Proposition 8.10 on, and
+8.5 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -1136,8 +1139,27 @@ states Proposition 10.25 and deduces.
   vanishing, E^Ups h_A at rho^4 (v1); 1 no s0 root, 2 no v1 root (Z5).
 - Deduced: his Proposition 6.15 and Proposition 8.9 in five dimensions, every order one higher and neither logarithm, on
   his Lemma 6.13 in five dimensions; six angular momenta in place of three.
-- OPEN: his Lemma 6.13 in five dimensions (10.20); the index sets; the Myers-Perry identification, not READ; his
-  Proposition 6.18, section 7.2, Propositions 8.10-8.13 and Lemma 8.12 in five dimensions (the candidates for the kernel
-  number 1 + 6 + 4 = 11 against his 7, the count not established); section 8.5 and sections 9-10; how small gam_Ups must
-  be, and h_0. Labels: computed (zstates5.py Z1-Z5, exact); deduced; READ ([Hin26] pp. 25, 81, 124-127, 154-155);
-  nothing proved.
+- OPEN: his Lemma 6.13 in five dimensions (10.20; deduced in 4.30); the index sets; the Myers-Perry identification, not
+  READ; his Proposition 6.18, section 7.2, Propositions 8.10-8.13 and Lemma 8.12 in five dimensions (the candidates for
+  the kernel number 1 + 6 + 4 = 11 against his 7, the count not established); section 8.5 and sections 9-10; how small
+  gam_Ups must be, and h_0. Labels: computed (zstates5.py Z1-Z5, exact); deduced; READ ([Hin26] pp. 25, 81, 124-127,
+  154-155); nothing proved.
+
+### 4.30 [Hin26] Lemma 6.13 and Proposition 6.18 (1)-(3) in five dimensions (computed; D81)
+
+His Lemma 6.13 inverts box^Ups(0) on the weights of its indicial gap; his Proposition 6.18 builds generalized zero
+energy states, polynomials in t*, for the roots of L-hat(0) in [-3, 0] that are not stationary pure gauge. genstates5.py
+computes the leading terms of the first three in five dimensions, with his printed four-dimensional numbers as the
+control; N1STAR-PROOF.md 10.29 states Proposition 10.26 and deduces.
+- Part (1), the s0 root 0: W = r(-dt + b dr), b = (2 - e_U)/(4 e_U); the Tangherlini source without a rho^2 term, so no
+  logarithm (H1).
+- Part (2), the s1 root -1: the boost to second order, W at rho^-2 with exact coefficients, h-bar^2_s1 stationary and
+  nonzero (H2). Part (3), the v1 root -1: kappa = 1 + 2 gam_U/5, his (6.40) as (1/4)(1 +- 2 gam_U/5) (H3).
+- The control: his (0, -1/4, -1/2, 0), (0, 0, 0, -1, 1/2, 0), kappa = 1 + gam_U/2 and (6.40) reproduced (H4); the gap's
+  top lam_s1,2 = 2 + z/12 + O(z^2) < lam_s0 (H5).
+- Deduced: his Lemma 6.13 in five dimensions on 10.20's readings, every correction of 4.29 inside the gap; his
+  Proposition 6.18 (1)-(3) there, six rotation states at a = 0.
+- OPEN: the readings of 10.20 line by line; the index sets; his Proposition 6.18 (4)-(7), section 7.2, Propositions
+  8.10-8.13 and Lemma 8.12 in five dimensions; section 8.5 and sections 9-10; how small gam_Ups must be, and h_0.
+  Labels: computed (genstates5.py H1-H5, exact); deduced; READ ([Hin26] pp. 51-52, 64-67, 81, 113, 117-119, 121,
+  124-125, 129-134); nothing proved.
