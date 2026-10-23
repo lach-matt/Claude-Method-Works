@@ -174,11 +174,17 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   basis, and, for a c with no angular part, the rotation-adapted block triangular form (P1-P3; strong trapping
   admissibility on Tangherlini deduced in 10.26). `python3 strap5.py --selftest` (3/3, a few seconds), `--mutants`
   (3/3).
+- `gmodes5.py`: mode stability of the linearized Einstein operator on five-dimensional Tangherlini at sigma != 0, the
+  input [Hin26] Proposition 8.8 takes from [AHW24] (section 10.27; D78): the Kodama-Ishibashi reduction of D Ric
+  computed for every harmonic at a point of S^3 -- the tensor, vector and scalar types' master equations, their
+  potentials positive at l >= 2, the scalar type through [KI03]'s first-order system and one constraint, l <= 1 pure
+  gauge at sigma != 0 -- and the horizon in ingoing coordinates (G1-G5; Proposition 8.8 deduced in 10.27). `python3
+  gmodes5.py --selftest` (5/5, about five minutes), `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All thirty-five are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All thirty-six are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing
 the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py,
 lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py,
@@ -186,5 +192,5 @@ cform5.py imports semiclass5.py and damping5.py, gaugepot5.py imports damping5.p
 damping5.py, trap5.py and thresh5.py import gaugepot5.py, damping5.py and modes5.py, hienergy5.py imports gaugepot5.py,
 damping5.py, thresh5.py and trap5.py, lowenergy5.py imports thresh5.py and damping5.py, cpmodes5.py imports damping5.py,
 solv5.py imports cform5.py and damping5.py, tface5.py imports cform5.py, gaugepot5.py, semiclass5.py and damping5.py,
-lin5.py imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, strap5.py imports damping5.py, and the
-others import nothing from the tree. The board's shared record is not edited here.
+lin5.py imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, strap5.py imports damping5.py, gmodes5.py
+imports damping5.py, and the others import nothing from the tree. The board's shared record is not edited here.

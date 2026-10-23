@@ -2386,3 +2386,45 @@ rotation acts on (e_3 e_4, e_3^2 - e_4^2) as [[0, 2], [-2, 0]], both members of 
 
 *Runs.* strap5.py 3/3 (a few seconds), mutants 3/3; response5.py all pass; md5 rows current. Next: [Hin26] section 8.4,
 his Proposition 8.8 in five dimensions (D78), and a thirty-sixth verifier on these repairs with it.
+
+**D78 (2026-10-23): [Hin26] Proposition 8.8 in five dimensions, mode stability (10.27, gmodes5.py).**
+
+*What and why.* [Hin26] section 8.4 opens with Proposition 8.8, mode stability of L-hat(sigma) at 0 != sigma, Im
+sigma >= 0. His proof (pp. 153-154) takes his Theorem 7.1(1), his Proposition 6.12 and [AHW24] Theorem 6.1(1): every
+outgoing mode of D Ric is pure gauge, on Kerr through the Teukolsky equation. The first two are in five dimensions
+already (10.21(e), 10.20(e)); the third was not. On Tangherlini the Kodama-Ishibashi decomposition [KI03] (read for
+10.3, and now at its sections 2, 3 and 5 and Appendices A-B) reduces each harmonic type to one master equation, and
+gmodes5.py computes that reduction from D Ric at n = 3.
+
+*Computed (gmodes5.py G1-G5, exact).* A harmonic enters through its Taylor jets at a point of S^3 with rational sines,
+every jet free but for its defining equations and their derivatives -- every harmonic of the type at once, the
+isometries carrying the point anywhere. (G1) D Ric annihilates delta* omega for arbitrary jets; the tensor type gives
+[KI03] (5.3) and V_T = (f/r^2)(l (l + 2) + 3/4 + 9 mu/(4 r^2)), 10.16's scalar wave potential. (G2) The vector type:
+delta*(r^2 B V) shifts f_a by (r/2) D_a B and H_T by -k_V B/2; in H_T = 0, E_T = -(k_V/(2 r^3)) D_a(r^2 F^a), and Omega
+= r^2 F^r/(i sigma) turns E_a = 0 into the master equation with V_V = (f/r^2)(l (l + 2) + 3/4 - 27 mu/(4 r^2)). (G3) The
+scalar type: [KI03]'s gauge 1-form, -2 X_a S dy^a - (2 r^2/k) H_T S_i dz^i, leaves their F, F_ab; the seven reduced
+equations; at sigma != 0, E_t, E_r and E_tr give exactly their (2.24a-c) with Z = i sigma Z~ (the other sign fails all
+three), the remaining three one constraint that the flow preserves, their Phi (3.1) solving (3.5) with Q of (3.7), and
+det[Phi; Phi'; C] = -r^4 (r^2 - mu)^5. (G4) l <= 1 at sigma != 0, pure gauge: scalar l = 0 by the algebraic gauge f_tt =
+H_L = 0; vector l = 1 by E_r = r^2 d_t F^(1)/(2 (r^2 - mu)); scalar l = 1 by the algebraic gauge f_tt = f_t = H_L = 0,
+determinant (r^2 - mu)(sigma^2 r^4 - mu)/(4 r^6); the eliminations over Q(3^(1/2), i)(r, sigma) at mu = 1 by the
+homothety, every pivot's factors free of r powers of sigma. (G5) The potentials positive at l >= 2, Q >= 16 m (m -
+3)(m + 9); in ingoing coordinates Gamma^lam_rr = 0, and the master fields free of 1/f.
+
+*Deduced (10.27).* (a) [AHW24] Theorem 6.1(1) on five-dimensional Tangherlini, in the class of 10.16: each master
+equation as in 10.16(a); the gauge 1-forms in the class -- covariant on the orbit space at l >= 2, algebraic at l <= 1
+with the sphere sigma^2 r^4 = mu removable, smooth across the horizon by the ingoing r-row ODE. (b) His Proposition 8.8
+there, on the readings of 10.19-10.26, at Proposition 10.9's point with gam_Ups small; the kernel elements' class and
+the interior uniqueness OPEN, as in 10.16.
+
+*Notes on the computation.* (1) Zero tests by expand left the 1/f fractions uncombined, so D Ric(delta* omega) = 0 and
+the vector match failed at first; every comparison now cancels. (2) The l = 1 elimination by rref took sixteen minutes
+and divided silently by its pivots; it now runs over a fraction field at mu = 1, in about two minutes, every pivot kept,
+and the factors free of r are powers of sigma. (3) The reverse direction of the scalar type -- that [KI03] (3.14)
+carries every master solution to a solution -- ran for over half an hour unfinished and is not needed for uniqueness;
+what is computed is the direction the argument uses, from the equations to the master equation, with Phi = 0 forcing the
+invariants to vanish. (4) The master fields are built from static components, which carry 1/f at the horizon; written in
+ingoing components they are free of it (G5), which is what puts them in 10.16's class.
+
+*Runs.* gmodes5.py 5/5 (about five minutes), mutants 5/5; response5.py all pass; md5 rows current (44). Next: the
+thirty-sixth verifier on 10.27, gmodes5.py, D77 and D78.

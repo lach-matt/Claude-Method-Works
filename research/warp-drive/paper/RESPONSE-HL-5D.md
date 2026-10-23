@@ -771,18 +771,23 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   dimensions, with his sign convention, as the control — has ten zero eigenvalues and five of one sign fixed by the
   damping 1-form being past timelike, and is triangular in a fixed basis, the rotation of the angular plane along the
   flow absorbed by weighting its pairs alike (supplement section 10.26, `strap5.py`; computed, the proposition deduced).
-  A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold
-  h₀, which his proof does not make explicit, and the rest of their analysis are open. No growing mode appears in either
-  type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2
-  master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the
-  same at half the step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is
-  shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's
-  function's tail, which is the rate a nonlinear argument in the class would carry. The least-damped mode of the class
-  is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master
-  equation in time reproduces to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding
-  time of 3.905 r_h. The reduced problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's
-  polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is
-  open.
+  Its spectral family has no mode at nonzero frequency in the closed upper half plane, his Proposition 8.8: the one
+  input he takes from the mode stability of the linearized Einstein equations on Kerr is, on Tangherlini, the
+  Kodama–Ishibashi reduction, here computed from the linearized Ricci operator itself for every harmonic — each type at
+  l ≥ 2 reduced to one master equation whose potential is positive, the tensor type, which four dimensions lacks, with
+  the scalar wave's, and l ≤ 1 pure gauge — so that every outgoing mode of the linearized Einstein operator is pure
+  gauge (supplement section 10.27, `gmodes5.py`; computed, the proposition deduced). A line-by-line check of Hintz's 3b-
+  and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make
+  explicit, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275
+  r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured from the
+  pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching
+  7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way
+  (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a
+  nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω
+  r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1%
+  (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
+  problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of
+  four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -1186,6 +1191,12 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   15 × 15 matrix with ten zero eigenvalues and −2(1 − e_C)γc₂, −2γc₂ (three times), −4γc₂, triangular in a constant
   basis, and for a damping 1-form without angular part block triangular in units on which the rotation of the angular
   plane is skew (strong trapping admissibility on Tangherlini deduced). 3/3; mutants 3/3 (a few seconds).
+- `gmodes5.py` G1–G5: Hintz's Proposition 8.8 in five dimensions (supplement section 10.27): the linearized Ricci
+  operator on Tangherlini reduced by the harmonics of the three-sphere, computed at a point for every harmonic — the
+  tensor type's master equation with potential (f/r²)(l(l + 2) + 3/4 + 9μ/(4r²)), the vector type's with (f/r²)(l(l +
+  2) + 3/4 − 27μ/(4r²)), the scalar type through Kodama and Ishibashi's first-order system, one constraint and their
+  master equation, every potential positive at l ≥ 2, and l ≤ 1 pure gauge at nonzero frequency (the mode stability of
+  the linearized Einstein operator, and with it the proposition, deduced). 5/5; mutants 5/5 (about five minutes).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1288,7 +1299,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
-| settling, section 8 | supplement sections 10.1, 10.3–10.26 (Propositions 10.1–10.23); |
+| settling, section 8 | supplement sections 10.1, 10.3–10.27 (Propositions 10.1–10.24); |
 | | `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
 | | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; |
@@ -1300,7 +1311,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | `docket68/n1star/hienergy5.py` V1–V4; `docket68/n1star/lowenergy5.py` L1–L3; |
 | | `docket68/n1star/cpmodes5.py` K1–K3; `docket68/n1star/solv5.py` Q1–Q4; |
 | | `docket68/n1star/tface5.py` F1–F5; `docket68/n1star/lin5.py` E1–E5; `docket68/n1star/sbar5.py` S1–S3; |
-| | `docket68/n1star/strap5.py` P1–P3; |
+| | `docket68/n1star/strap5.py` P1–P3; `docket68/n1star/gmodes5.py` G1–G5; |
 | | [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin26a], [Hin26], [Hin26c] |
@@ -1331,7 +1342,8 @@ imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `ga
 `modes5.py`, `hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py` and `trap5.py`, `lowenergy5.py` imports
 `thresh5.py` and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py` imports `cform5.py` and `damping5.py`,
 `tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and `damping5.py`, `lin5.py` imports `damping5.py` and
-`gaugepot5.py`, `sbar5.py` and `strap5.py` import `damping5.py`; the others import nothing from the research tree:
+`gaugepot5.py`, `sbar5.py`, `strap5.py` and `gmodes5.py` import `damping5.py`; the others import nothing from the
+research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1359,6 +1371,7 @@ imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `ga
                                                          # lin5 (about 50 minutes)
                                                          # sbar5 (about a minute)
                                                          # strap5 (a few seconds)
+                                                         # gmodes5 (about five minutes)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1366,9 +1379,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `24e42009499de15d567677025d39d293` |
-| `docket68/n1star/N1STAR-LOG.md` | `2acf8f55b3d06150208e8417d926e2b5` |
-| `docket68/n1star/README.md` | `14a6229faea90a574eb9e031b4201dcc` |
+| `docket68/n1star/N1STAR-PROOF.md` | `4e26e434b2f6c8dd927c04e72b1e0f1a` |
+| `docket68/n1star/N1STAR-LOG.md` | `41e499dfda7772025da6cbe24aa61819` |
+| `docket68/n1star/README.md` | `400ac5592e3fd61f9883caa29db2e414` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1408,5 +1421,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/lin5.py` | `b108caf5ebecc29dc61ce56d7f49af37` |
 | `docket68/n1star/sbar5.py` | `a1899ea2f8470115ece25a400dc5fdc7` |
 | `docket68/n1star/strap5.py` | `8d716c0c7dd36f8cd23987f1c79fec3d` |
+| `docket68/n1star/gmodes5.py` | `567faef7ee6293b75c5645bd47bfce13` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

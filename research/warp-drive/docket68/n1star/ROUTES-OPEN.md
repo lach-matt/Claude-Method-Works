@@ -392,9 +392,11 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    Lemma 8.4 in five dimensions, its gap beginning at 0, for every l at that point (4.25; the factorization computed,
    the roots at the point for l <= 12, the rest deduced), so that his Lemma 8.5 and, with his Lemma 8.2's S-bar computed
    (4.26; min spec S-bar = 0, his (8.7)), his Proposition 8.6, for small gam_Ups, hold on the same readings (deduced),
-   and 2 L is strongly trapping admissible, his Proposition 8.3 (4.27; deduced); the line-by-line readings of [Hin26a]
-   sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections
-   6.5, 7.2 and 8 beyond Proposition 8.6, are OPEN.
+   and 2 L is strongly trapping admissible, his Proposition 8.3 (4.27; deduced); the linearized Einstein operator on
+   Tangherlini has no outgoing mode but pure gauge at sigma != 0, Im sigma >= 0, so that his Proposition 8.8 holds on
+   the same readings (4.28; the reduction computed, the rest deduced); the line-by-line readings of [Hin26a] sections
+   2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 6.5, 7.2,
+   8.4 beyond Proposition 8.8 and 8.5, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -471,8 +473,11 @@ computed; deduced) computes that S-bar -- the gauge potential operator's spectru
 and five zeros, min spec S-bar = 0 -- and completes Proposition 8.6 on readings, at that point for small gam_Ups; and
 4.27 (10.26, Proposition 10.23, computed; deduced) computes the subprincipal matrix of 2 L at the trapped set -- his
 printed 10 x 10 reproduced, the 15 x 15 with ten zeros and the eigenvalues -2 (1 - e_C) gam c_2, -2 gam c_2 (three
-times), -4 gam c_2, triangular in a constant basis -- and deduces his Proposition 8.3 on Tangherlini. Next: the rest of
-item 2 -- [Hin26] sections 6.5, 7.2, 8.4 and 8.5 -- in five dimensions.
+times), -4 gam c_2, triangular in a constant basis -- and deduces his Proposition 8.3 on Tangherlini; and 4.28 (10.27,
+Proposition 10.24, computed; deduced) computes the Kodama-Ishibashi reduction of D Ric on Tangherlini -- each harmonic
+type at l >= 2 to one master equation with a positive potential, l <= 1 pure gauge at sigma != 0 -- and deduces [AHW24]
+Theorem 6.1(1) there and his Proposition 8.8. Next: the rest of item 2 -- [Hin26] sections 6.5, 7.2, 8.4 from
+Proposition 8.9 on, and 8.5 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -1088,3 +1093,23 @@ N1STAR-PROOF.md 10.26 states Proposition 10.23 and deduces.
 - OPEN: [Hin26c]'s high-energy estimates for symmetric 2-tensors at n = 4 (the reading of 4.20); his sections 8.4-8.5
   and 9-10 in five dimensions. Labels: computed (strap5.py P1-P3, exact); deduced; READ ([Hin26] pp. 34, 113-116,
   147-149); nothing proved.
+
+### 4.28 [Hin26] Proposition 8.8 in five dimensions: the linearized Einstein operator's mode stability (computed; D78)
+
+His Proposition 8.8 makes L-hat(sigma) injective at 0 != sigma, Im sigma >= 0, from his Theorem 7.1(1), his Proposition
+6.12 and [AHW24] Theorem 6.1(1): an outgoing mode of D Ric is pure gauge. gmodes5.py computes the Kodama-Ishibashi
+reduction of D Ric on five-dimensional Tangherlini for every harmonic; N1STAR-PROOF.md 10.27 states Proposition 10.24
+and deduces.
+- Every type at l >= 2: the tensor type with [KI03] (5.3) and V_T = (f/r^2)(l (l + 2) + 3/4 + 9 mu/(4 r^2)) (G1); the
+  vector type in the gauge H_T = 0, its master field r^(-3/2) Omega with V_V = (f/r^2)(l (l + 2) + 3/4 - 27 mu/(4 r^2))
+  (G2); the scalar type in [KI03]'s gauge, the computed equations giving their first-order system (2.24) and one
+  preserved constraint, their master field (3.1) solving (3.5), det[Phi; Phi'; C] = -r^4 (r^2 - mu)^5 (G3).
+- l <= 1 at sigma != 0 (scalar l = 0 and 1, vector l = 1): pure gauge, through gauge 1-forms algebraic in the mode (G4).
+- The potentials positive at l >= 2; in ingoing coordinates the r-row of delta* xi = u an ODE across the horizon, and
+  the master fields free of 1/f (G5).
+- Deduced: [AHW24] Theorem 6.1(1) on five-dimensional Tangherlini, in the class of 10.16, by 10.16's argument on each
+  master equation; and his Proposition 8.8 there, on the readings of 4.20-4.27, at Proposition 10.9's point with gam_Ups
+  small.
+- OPEN: the kernel elements' class and the interior uniqueness, as in 10.16; his Propositions 8.9-8.11 (zero energy,
+  [AHW24] Theorem 6.1(2)), section 8.5 and sections 9-10 in five dimensions. Labels: computed (gmodes5.py G1-G5, exact);
+  deduced; READ ([Hin26] pp. 25, 153-154; [KI03] pp. 4-10, 13-15, 18-20); nothing proved.
