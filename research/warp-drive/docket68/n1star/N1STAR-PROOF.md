@@ -4755,10 +4755,10 @@ Minkowski and Tangherlini, f = 1 - mu/r^2, and on the one-spin Myers-Perry metri
 h_A (10.28(vi)), in his splitting (2.37b), (2.43):
 
  (i) (the adjoint's indicial roots) For s0, sl (l <= 3) and vl (l <= 3), det N*(lam) = det N(2 - lam), N the indicial
-     family of box^C, whose polynomials are 10.12's at kappa = l (l + 2); in four dimensions det N(1 - lam), his (7.10).
-     So the adjoint's roots are 2 - conj(lam); at v1 box^C's are 3 and -1 - 2 v gam_C and the adjoint's -1 and 3 + 2 v
-     gam_C (four dimensions 2 and -1 - 2 v gam_C, his (7.8)), and N*_v1(2) = 3 + 6 gam_C v_C (four dimensions N*_v1(1) =
-     2 + 4 gam_C v_C, his p. 143) (A1).
+     family of box^C, whose polynomials are 10.12's at kappa = l (l + 2) times h^-2 (s0), h^-3 (sl) and h^-1 (vl); in
+     four dimensions det N(1 - lam), his (7.10). So for these types the adjoint's roots are 2 - conj(lam); at v1 box^C's
+     are 3 and -1 - 2 v gam_C and the adjoint's -1 and 3 + 2 v gam_C (four dimensions 2 and -1 - 2 v gam_C, his (7.8)),
+     and N*_v1(2) = 3 + 6 gam_C v_C (four dimensions N*_v1(1) = 2 + 4 gam_C v_C, his p. 143) (A1).
  (ii) (the translations) On Tangherlini, with dx = d(r S), S = cos chi, box^C*(dx) vanishes to order rho^3 with a nonzero
      rho^4 term (four dimensions rho^3, his p. 139); the correction rho^2 (a S d xbar^0 + b S d xbar^1 + c r dS)
      cancelling it is unique, 2 being no root of the adjoint's s1 polynomial (four dimensions rho^1); and h*_s1 = G
@@ -4773,11 +4773,11 @@ h_A (10.28(vi)), in his splitting (2.37b), (2.43):
      on d xbar^0 and (h + 2v + 2)/(h + 2v) on d xbar^1, in five dimensions as in four -- his (7.18) (A3).
 
 *Proof.* A1-A3 of dual5.py, exact. box^C and its adjoint are applied in polar coordinates to rho^lam times each basis
-1-form of 10.30 (the zonal harmonic at sl, the vector harmonic at vl), read at r = 1 and two angles, the angular
-components in the orthonormal frame; the sources and corrections by their series in rho, the correction's coefficients
-solved; on Myers-Perry with d_a g = -h_A (10.28(vi)) and V' in Cartesian components. Controls: in (i) the shift 1 claimed
-in five dimensions; in (ii) the four-dimensional order rho^2 claimed in five dimensions; in (iii) his c_0 = -2 mu/(h +
-2v) claimed in five dimensions. []
+1-form of 10.30 (the zonal harmonic at sl, the vector harmonic at vl), read at r = 1 and two generic angles, which agree
+(pure type), the angular components in the orthonormal frame; the sources and corrections by their series in rho, the
+correction's coefficients solved at one generic angle and checked at a second; on Myers-Perry with d_a g = -h_A
+(10.28(vi)) and V' in Cartesian components. Controls: in (i) the shift 1 claimed in five dimensions; in (ii) the
+four-dimensional order rho^2 claimed in five dimensions; in (iii) his c_0 = -2 mu/(h + 2v) claimed in five dimensions. []
 
 *Deduced.*
 
@@ -4801,9 +4801,11 @@ in five dimensions; in (ii) the four-dimensional order rho^2 claimed in five dim
      7.4's structure holds by (iii): the leading term of h*_v1(V), at rho^3, depends on V only through V', the bracket of
      V's plane with the spin plane, and is his (7.18) with m -> mu/2 and rho^2 -> rho^3, the leading term of delta*_(g_a)
      V_a being -mu rho^3 (dt* + dr) (x)_s rho (a V') where his is -2m rho^2 (dt* + dr) (x)_s rho V(S'). The rotations in
-     the planes 12 and 34 stay Killing at this order, so the space of V for which (7.16) holds falls from six at a = 0 to
-     two at first order in a (four dimensions three to one): his discontinuity at a = 0 (p. 140), of four dimensions in
-     five where his is of two. The higher orders in a, Lemma 7.5 on the full metric, and his (7.19) are not computed.
+     the planes 12 and 34 stay Killing at this order, and on the full metric for every a, d_phi and d_psi being Killing
+     there (10.28(vi), Z6: its coefficients functions of r and theta); the other four are not Killing at first order. So
+     the space of V for which (7.16) holds falls from six at a = 0 to two for small a != 0 (four dimensions three to
+     one): his discontinuity at a = 0 (p. 140), of four dimensions in five where his is of two. The higher orders in a,
+     Lemma 7.5 on the full metric, and his (7.19) are not computed.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 126 ((6.30)-(6.32),
 Remarks 6.16-6.17), 134-137 (section 7: (7.1)-(7.8), Theorem 7.1 and its proof), 137-139 (section 7.2: Lemma 7.2 and its

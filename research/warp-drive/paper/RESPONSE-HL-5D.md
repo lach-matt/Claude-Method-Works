@@ -795,21 +795,22 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   logarithm in their leading terms once the gauge modification is on (`puregauge5.py`; the leading terms computed
   exactly, his four-dimensional indicial matrices reproduced entry by entry as the control, the proposition deduced in
   supplement section 10.30). The dual states of the constraint propagation operator, whose symmetric gradients enter the
-  cokernel of the linearized gauge-fixed operator in his section 8.4, carry over too: eleven in five dimensions against
-  his seven, the translations' one order faster in 1/r, and near zero rotation two of the six rotations' stay Killing at
-  first order, the other four carrying his coefficients (`dual5.py`; computed at first order in the rotation, his
-  four-dimensional values reproduced as the control, his Lemma 7.2 and Proposition 7.3 deduced in supplement section
-  10.31). A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the
-  threshold h₀, which his proof does not make explicit, and the rest of their analysis are open. No growing mode appears
-  in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of
-  the l = 2 master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700]
-  r_h, the same at half the step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin
-  is shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's
-  function's tail, which is the rate a nonlinear argument in the class would carry. The least-damped mode of the class is
-  the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation
-  in time reproduces to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of
-  3.905 r_h. The reduced problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized
-  axisymmetric stability of four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
+  cokernel of the linearized gauge-fixed operator in his section 8.4, carry over too, on the readings supplement section
+  10.21 rests on: eleven in five dimensions against his seven, the translations' one order faster in 1/r, and near zero
+  rotation two of the six rotations' stay Killing at first order, the other four carrying his (7.18) ratios (`dual5.py`;
+  computed at first order in the rotation, his four-dimensional values reproduced as the control, his Lemma 7.2 and
+  Proposition 7.3 deduced in supplement section 10.31). A line-by-line check of Hintz's 3b- and edge-b-analysis and of
+  [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make explicit, and the rest of
+  their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a
+  finite-time observation), and the late-time tail of the l = 2 master fields, measured from the pulse's launch, is
+  t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with
+  that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s
+  t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in
+  the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i
+  ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
+  `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is 2+1-dimensional,
+  the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18]
+  p. 2); its five-dimensional counterpart is open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -935,10 +936,14 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   the indicial polynomials and the Myers–Perry family with its own programs: no major finding; five minor findings —
   root statements made for every z > 0 that hold for small z, the five-dimensional Lemma 6.13 cited without its
   readings, one step of its deduction left implicit, a notation slip and a pointer — and notes, seated (D83). Section
-10.30 with `puregauge5.py` and the repairs of D83 were read by a thirty-ninth (D83, D84), which recomputed the indicial
-families, the classes, the injectivity and the states with its own programs: no major finding; three minor findings — a
-resonance bound printed but not asserted, the logarithms at zero gauge modification overstated, and this paper's
-reference entry without those reads — and notes, seated (D85).
+  10.30 with `puregauge5.py` and the repairs of D83 were read by a thirty-ninth (D83, D84), which recomputed the indicial
+  families, the classes, the injectivity and the states with its own programs: no major finding; three minor findings — a
+  resonance bound printed but not asserted, the logarithms at zero gauge modification overstated, and this paper's
+  reference entry without those reads — and notes, seated (D85). Section 10.31 with `dual5.py` and those repairs were
+  read by a fortieth (D85, D86), which recomputed the adjoint's indicial families and both dual states with its own
+  programs: no major finding; three minor findings — families read at one angle where the text said two, a factor of h
+  asserted loosely, and this paper's "his coefficients" where only his ratios are meant — a formatting slip and notes,
+  seated (D87).
 
 ---
 
@@ -1342,7 +1347,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D86).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D87).
 
 | claim | where it is established |
 | --- | --- |
@@ -1403,23 +1408,25 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D8
 | | the thirty-second its repairs (D71, D72); the thirty-third section 10.24 (D72, D73); |
 | | the thirty-fourth section 10.25 (D74, D76); the thirty-fifth section 10.26 (D75, D77); |
 | | the thirty-sixth section 10.27 (D78, D79); the thirty-seventh section 10.28 (D80, D82); |
-| | the thirty-eighth section 10.29 (D81, D83); the thirty-ninth section 10.30 (D84, D85) |
+| | the thirty-eighth section 10.29 (D81, D83); the thirty-ninth section 10.30 (D84, D85); |
+| | the fortieth section 10.31 (D86, D87) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
 
-Python 3.11 with sympy; z3-solver for `foliation5.py`; numpy for `bondi5.py` and `growth5.py`, numpy and scipy for
-`settle5.py`; mpmath for `damping5.py` and every program that imports it, and for `lowenergy5.py`. `growth5.py` imports
-the solver `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imports `lead5.py`, `growing5.py`,
-`lzero5.py` and `coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports `hierarchy5.py`, `semiclass5.py` imports
-`damping5.py`, `cform5.py` imports `semiclass5.py` and `damping5.py`, `gaugepot5.py` imports `damping5.py`, `modes5.py`
-imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `gaugepot5.py`, `damping5.py` and
-`modes5.py`, `hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py` and `trap5.py`, `lowenergy5.py` imports
-`thresh5.py` and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py` imports `cform5.py` and `damping5.py`,
-`tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and `damping5.py`, `lin5.py` imports `damping5.py` and
-`gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and `zstates5.py` import `damping5.py`, `genstates5.py` imports
-`damping5.py` and `zstates5.py`, `puregauge5.py` imports `damping5.py`, `genstates5.py` and `zstates5.py`, `dual5.py`
-imports `damping5.py`, `genstates5.py` and `puregauge5.py`; the others import nothing from the research tree:
+Python 3 with sympy (3.13.16 and 1.14.0 in the runs recorded here); z3-solver for `foliation5.py`; numpy for `bondi5.py`
+and `growth5.py`, numpy and scipy for `settle5.py`; mpmath for `damping5.py` and every program that imports it, and for
+`lowenergy5.py`. `growth5.py` imports the solver `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py`
+imports `lead5.py`, `growing5.py`, `lzero5.py` and `coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports
+`hierarchy5.py`, `semiclass5.py` imports `damping5.py`, `cform5.py` imports `semiclass5.py` and `damping5.py`,
+`gaugepot5.py` imports `damping5.py`, `modes5.py` imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py`
+import `gaugepot5.py`, `damping5.py` and `modes5.py`, `hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py`
+and `trap5.py`, `lowenergy5.py` imports `thresh5.py` and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py`
+imports `cform5.py` and `damping5.py`, `tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and
+`damping5.py`, `lin5.py` imports `damping5.py` and `gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and
+`zstates5.py` import `damping5.py`, `genstates5.py` imports `damping5.py` and `zstates5.py`, `puregauge5.py` imports
+`damping5.py`, `genstates5.py` and `zstates5.py`, `dual5.py` imports `damping5.py`, `genstates5.py` and `puregauge5.py`;
+the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1459,8 +1466,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `5883c3934d709438a8f7695a264075d6` |
-| `docket68/n1star/N1STAR-LOG.md` | `58d97c9fe4da1d3eec39f9061a52963a` |
+| `docket68/n1star/N1STAR-PROOF.md` | `16555b062d182a4a52e1d17a6c0e7d1e` |
+| `docket68/n1star/N1STAR-LOG.md` | `a4e95829687638d104db92f0058e7927` |
 | `docket68/n1star/README.md` | `2878b864e549a20baa49725ee76330b4` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -1505,6 +1512,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/zstates5.py` | `ea860787d2a4345a193e6ce2f9a19b7f` |
 | `docket68/n1star/genstates5.py` | `f2ef7478e67760e3d6ff05d0a0dd74e5` |
 | `docket68/n1star/puregauge5.py` | `6fda612d263dcfa82b79a9ff76a70000` |
-| `docket68/n1star/dual5.py` | `5a42c251c771e61156d7cd03b8ebfc1f` |
+| `docket68/n1star/dual5.py` | `c85cd907bd71d3c4fb1a12be89adf783` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

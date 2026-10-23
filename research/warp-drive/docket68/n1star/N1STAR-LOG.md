@@ -2725,3 +2725,33 @@ the full metric and (7.19) stay OPEN.
 
 *Runs.* dual5.py 3/3 (about a minute and a half), mutants 3/3; response5.py all pass; md5 rows current (48). Next: the
 fortieth verifier on D85 and D86 (10.29-10.31, puregauge5.py, dual5.py).
+
+**D87 (2026-10-23): the fortieth verifier's findings on 10.30-10.31, puregauge5.py, dual5.py, D85 and D86, seated.**
+
+The fortieth verifier read 5df1aee and 925844b read-only, every program run from an archive, and recomputed independently
+in Cartesian coordinates without Christoffel symbols, with its own harmonics: the adjoint's indicial families in both
+dimensions (shift 2 in five, 1 in four, failing with the wrong shift), the translations' dual state at leading order in
+the mass, the rotations' at first order in a on the full Tangherlini and Schwarzschild operators, J6's ranks and
+obstructions, J4's bounds; it READ every quotation of 10.31 at source, and p. 132's decomposition and p. 67's Killing
+remark. Verdict: D85 and D86 hold; no major finding; three minor findings, one of formatting, and notes, each seated
+here.
+
+*Minor.* (1) 10.31's Proof said the families are read "at r = 1 and two angles", but dual5.py's fam() decomposed at one,
+A2 solved its correction at one and A3 read at one, so pure type and independence of the angle were never checked. fam()
+now reads at two generic angles and asserts that they agree, A2's correction is checked at a second angle, A3's c_0 and
+ratios too; the Proof says so. (2) A1 asserted box^C's polynomials 10.12's "up to powers of h" by checking only that the
+ratio involved h alone; it now asserts the ratios h^-2 (s0), h^-3 (sl) and h^-1 (vl), and 10.31(i) prints them. (3) The
+paper said the four non-Killing rotations carry "his coefficients": c_0 = -2 mu/(3 (h + 2v)) differs from his -2M/(h +
+2v) by more than M -> mu/2, through N*_v1(2) = 3 + 6 gam_C v_C; only (7.18)'s ratios are his, and the paper now says so.
+
+*Formatting.* The rewrapping helper of D85-D86 took the wrong continuation indent inside ROUTES 4.4's item 2, in 4.5's
+paragraph (which it broke) and in the paper's verifier record; the three are reflowed.
+
+*Notes.* (a) 10.31(i)'s "the adjoint's roots are 2 - conj(lam)" now reads "for these types", the general statement being
+(a)'s. (b) A3 checks the lower orders for every non-Killing plane, not only 13. (c) The two Killing rotations are Killing
+on the full one-spin metric for every a (its coefficients functions of r and theta, 10.28(vi)), so the space where (7.16)
+holds is two-dimensional for small a != 0, not only at first order; 10.31(c) says so. (d) The paper's sentence on the
+dual states now carries its condition, the readings 10.21 rests on. (e) The default python3 here is 3.13.16 with sympy
+1.14.0 (python3.11 has no sympy in this container); Appendix D now says Python 3 and names them.
+
+*Runs.* dual5.py 3/3 (about a minute and a half), mutants 3/3; response5.py all pass; md5 rows current (48).

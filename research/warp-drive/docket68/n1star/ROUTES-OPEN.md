@@ -399,10 +399,10 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    6.13 in five dimensions (4.29; the orders and exponents computed, the rest deduced); his Lemma 6.13, on 10.20's
    readings, and Proposition 6.18 (1)-(3) hold there too (4.30; the leading terms computed, the rest deduced), and so
    does Proposition 6.18 (4)-(7) (4.31; the leading terms computed, the rest deduced); his section 7.2's dual states hold
-  there on 10.21(e)'s readings, eleven against his seven, and section 7.2.1's structure at first order in the rotation
-  (4.32; the leading terms computed, the rest deduced); the line-by-line readings of [Hin26a] sections 2.3 and 5.2 and
-  Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 7.2.1 beyond first order in
-  the rotation, 8.4 beyond Proposition 8.9, and 8.5, are OPEN.
+   there on 10.21(e)'s readings, eleven against his seven, and section 7.2.1's structure at first order in the rotation
+   (4.32; the leading terms computed, the rest deduced); the line-by-line readings of [Hin26a] sections 2.3 and 5.2 and
+   Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 7.2.1 beyond first order in
+   the rotation, 8.4 beyond Proposition 8.9, and 8.5, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -489,11 +489,10 @@ and 4.30 (10.29, Proposition 10.26, computed; deduced) deduces his Lemma 6.13 th
 leading terms of his Proposition 6.18 (1)-(3), the time translation's state without his logarithm and his (6.40) as
 (1/4)(1 +- 2 gam_U/5); and 4.31 (10.30, Proposition 10.27, computed; deduced) computes the leading terms of his
 Proposition 6.18 (4)-(7) and deduces it there, every stationary correction one order faster; and 4.32 (10.31, Proposition
-  10.28, computed; deduced) computes the adjoint constraint operator's roots and the leading terms of his section 7.2's
-  dual states and deduces his Lemma 7.2 and Proposition 7.3 there, section 7.2.1 at first order in the rotation. Next:
-  the rest of item 2 --
-[Hin26] sections 8.4 from Proposition 8.11 on and 8.5, and 7.2.1 beyond first order in the rotation -- in five
-  dimensions.
+10.28, computed; deduced) computes the adjoint constraint operator's roots and the leading terms of his section 7.2's
+dual states and deduces his Lemma 7.2 and Proposition 7.3 there, section 7.2.1 at first order in the rotation. Next: the
+rest of item 2 -- [Hin26] sections 8.4 from Proposition 8.11 on and 8.5, and 7.2.1 beyond first order in the rotation --
+in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
