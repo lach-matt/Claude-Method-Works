@@ -2515,16 +2515,16 @@ thirty-seventh verifier on 10.28, zstates5.py, D79 and D80.
 M asked to continue. 10.28 deduced section 6.5.1 and Proposition 8.9 in five dimensions on his Lemma 6.13 there, OPEN;
 the next step of item 2 is that lemma and his section 6.5.2. READ at source (alphaXiv, 2026-10-23): [Hin26] pp. 51-52
 (Lemmas 2.13 and 2.15), 64-67 (Definition 2.28, (2.37b), Lemma 2.29, (2.43)-(2.46)), 81, 113, 117-119, 121, 124-125
-(Lemma 6.13), 129-134 (Proposition 6.18, Remark 6.19 and the proof).
+(Lemma 6.13), 128-134 (Proposition 6.18, Remark 6.19 and the proof; 129-134 until D83).
 
 *Computed (Proposition 10.26, genstates5.py H1-H5).* (H1) Part (1) on Minkowski: W = r(-dt + b dr), b = (2 - e_U)/(4
 e_U), h-bar^(0)_s0 = (2 - 5 e_U, -(2 + 3 e_U), 2 - 5 e_U, 4 (2 - e_U))/(16 e_U); on Tangherlini the source at rho^1 and
 rho^3, nothing at rho^2 (Schwarzschild: (2M, 2M (2 gam_U + 1)) there). (H2) Part (2): W at rho^-2, (alpha, beta, kappa)
 = (4 - 7 e_U, -(4 + 17 e_U), (2/3)(25 e_U - 4))/(24 e_U), h-bar^2_s1 stationary and nonzero. (H3) Part (3): kappa = 1 +
 2 gam_U/5, h-bar^1_v1 = (1/4)(1 +- 2 gam_U/5). (H4) His printed (0, -1/4, -1/2, 0), (0, 0, 0, -1, 1/2, 0), kappa = 1 +
-gam_U/2 and (6.40) reproduced in four dimensions. (H5) lam_s1,2 = 2 + z/12 + O(z^2) < lam_s0 = 2 + z/3 + O(z^2) for 0 <
-z < 4. Controls: the five-dimensional claim on Schwarzschild; the factor 2 on B dropped; his kappa in five dimensions;
-the five-dimensional kappa in four; z = 0.
+gam_U/2 and (6.40) reproduced in four dimensions. (H5) lam_s1,2 = 2 + z/12 + O(z^2) < lam_s0 = 2 + z/3 + O(z^2) for
+every z > 0 (0 < z < 4 until D83). Controls: the five-dimensional claim on Schwarzschild; the factor 2 on B dropped; his
+kappa in five dimensions; the five-dimensional kappa in four; z = 0.
 
 *Deduced (10.29).* (a) His Lemma 6.13 in five dimensions on 10.20's readings, every correction of 10.28 inside the gap,
 so 10.28's deductions no longer rest on an OPEN input. (b) His Proposition 6.18 (1)-(3) there: part (1) without his
@@ -2575,3 +2575,42 @@ pages outside those it read; minus-sign glyphs in the extraction.
 
 *Runs.* zstates5.py 6/6 (about half a minute), mutants 6/6; genstates5.py 5/5; response5.py all pass; md5 rows current
 (46). Next: one verifier on 10.29, genstates5.py, D81 and D82.
+
+**D83 (2026-10-23): the thirty-eighth verifier's findings on 10.29, genstates5.py, D81 and D82, seated.**
+
+The thirty-eighth verifier read fb25218 (and 967d52c) read-only, every program run from an archive, and recomputed
+independently: parts (1)-(3) on 4+1 and 3+1 Minkowski in Cartesian coordinates without Christoffel symbols, the
+coefficients solved at six points; the Tangherlini source by the density formula along two rays, with box_g(t* omega_s0
++ W) starting at rho^3 where four dimensions has a rho^2 term; the indicial polynomials from scratch, his Lemma 6.6 as
+the control; Z3 with the Lie derivative; and Z6's Ricci tensor identically in cos theta. Verdict: D81 and D82 hold; no
+major finding; five minor findings and notes, each seated here.
+
+*Minor.* (1) "-k is no root for z > 0" held for small z only: the s0 polynomial vanishes at -2, -3 and -4 when z = 4, 10
+and 18, the s1 polynomial at -3 and -4 when z = 20/3 and 252/17. 10.29(i), (ii) and (b) and genstates5.py's H1-H2 now
+say 0 < z < 4 and 0 < z < 20/3 (-1 at s0 and -2 at s1 for every z > 0), computed exactly as the least positive zero in z
+of 10.15(i)'s polynomial at each value, with z = 4 and z = 20/3 as new controls. (2) The five-dimensional Lemma 6.13 was
+cited without "on the readings of 10.20" in the paper's settling paragraph, the README's two bullets, ROUTES 4.4, 4.5
+and 4.29's OPEN list, and genstates5.py's docstring; each now carries it, and 10.28(a)'s "(OPEN since 10.20)" reads
+"(deduced in 10.29 on the readings of 10.20)". (3) 10.29(a) passed from injectivity at the shifted weights in (0, 1)
+(10.20(e)) to every weight of the gap without saying how; it now says it -- a kernel element at one weight of the gap is
+polyhomogeneous by his Lemma 2.13 with exponents above the gap, so lies in every weighted space of it -- with his "and
+thus has trivial nullspace on A^eps(X; T*X) for all eps > 0" (p. 121), READ at source. (4) "omega-breve^(0),1_s0 =
+rho^-1 W + ..." in 10.29(b) and genstates5.py's H1 counted W's factor r twice; it reads W + .... (5) 10.29(a)'s "at
+rho^2 for the translations and the rotations" now names the rotating metrics, the rotations needing none at a = 0; and
+"10.12(i)" there and in genstates5.py, Proposition 10.12(i) of section 10.15, now reads 10.15(i), as zstates5.py and
+10.20 write it.
+
+*Notes.* (a) H4 now asserts the four-dimensional b = (2 - e_U)/(3 e_U) and (alpha, beta, kappa) = (2 - 3 e_U, -(2 + 7
+e_U), 2 (4 e_U - 1))/(10 e_U) that 10.29(iv) prints. (b) (6.40) is printed on p. 130 and re-derived on p. 134; 10.29(iv)
+and H4 cite both. Section 6.5.2 begins on p. 128: 10.29's READ, ROUTES 4.30 and D81's entry (corrected in place) read
+128-134. (c) lam_s1,2 < lam_s0 holds for every z > 0, not only 0 < z < 4: 10.29(v), H5 and D81's entry say so. (d) d_a g
+= -h_A, so h_A is the derivative with the rotation reversed; 10.28(b) and Z6 say so. (e) The partial controls are
+completed: Z6 gains d_a g = +h_A claimed, H5 lam_s1,2's first-order coefficient claimed 1/3. (f) The one word the
+identifier check flagged in the paper is a quotation of the author; unchanged. (g) The untracked puregauge5.py the
+verifier saw is this record's next program, written meanwhile (D84).
+
+*Not checked by the verifier.* The readings of 10.20 ([Hin26c] Theorem 9.36, Corollary 9.43 and section 9 at n = 4); the
+index sets; 10.24's kernel dimension and root simplicity; his Lemma 2.15 in detail; minus-sign glyphs in the extraction.
+
+*Runs.* genstates5.py 5/5 (about a minute), mutants 8/8; zstates5.py 6/6 (about half a minute), mutants 7/7;
+response5.py all pass; md5 rows current (46). Next: D84, his Proposition 6.18 (4)-(7) in five dimensions.

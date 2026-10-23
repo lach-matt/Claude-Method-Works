@@ -52,7 +52,7 @@ orthonormal frame (dt, dr, r dchi, ...) at sin chi = 3/5, sin theta = 5/13, sin 
      dpsi^2, Sigma = r^2 + a^2 cos^2 theta, Delta = r^2 + a^2 - mu, has Ric = 0 at three exact points, is Tangherlini
      at a = 0 on the round S^3 (x^1 + i x^2 = r sin theta e^(i phi), x^3 + i x^4 = r cos theta e^(i psi)), and d_a g at
      a = 0 is -h_A with w = r^2 sin^2 theta dphi = x^1 dx^2 - x^2 dx^1: h_mu and h_A are its derivatives at zero
-     rotation.  Control: a^2 dropped from Delta, not Ricci-flat.
+     rotation (h_A with the rotation reversed).  Controls: a^2 dropped from Delta, not Ricci-flat; d_a g = +h_A claimed.
 
 Deduced, not computed here (N1STAR-PROOF.md 10.28): [Hin26] Proposition 6.15 in five dimensions with the orders shifted
 by one -- omega_b,s1(S) - d(rS) in A^((2,0) u (2 + E_ind)) and h_b,s1(S) in A^((3,0) u (3 + E_ind)) at z > 0, the
@@ -453,7 +453,7 @@ def z6(control=0, verbose=False):
     a = sp.Symbol("a", positive=True)
     Y = (tt, rr, q, p_, s_)
     Sig = rr**2 + a**2 * sp.cos(q)**2
-    Dl = rr**2 + a**2 - mu if control == 0 else rr**2 - mu              # control: a^2 dropped from Delta
+    Dl = rr**2 + a**2 - mu if control != 1 else rr**2 - mu              # control 1: a^2 dropped from Delta
     g = sp.zeros(5, 5)
     g[0, 0] = -1 + mu / Sig
     g[0, 3] = g[3, 0] = -mu * a * sp.sin(q)**2 / Sig
@@ -465,7 +465,7 @@ def z6(control=0, verbose=False):
     pts = [(2, sp.Rational(1, 3), 1, sp.Rational(3, 5), sp.Rational(4, 5)),
            (3, sp.Rational(1, 2), 2, sp.Rational(5, 13), sp.Rational(12, 13)),
            (sp.Rational(5, 2), sp.Rational(2, 7), sp.Rational(3, 2), sp.Rational(8, 17), sp.Rational(15, 17))]
-    for rv, av, mv, sv, cv in pts:
+    for rv, av, mv, sv, cv in (pts if control != 2 else []):
         pt = {rr: rv, a: av, mu: mv, sp.sin(q): sv, sp.cos(q): cv}
         Gm = g.subs(pt)
         Gi = Gm.inv()
@@ -491,7 +491,7 @@ def z6(control=0, verbose=False):
     ga = sp.diff(g, a).subs(a, 0).applyfunc(sp.simplify)
     w = [0, 0, 0, rr**2 * sp.sin(q)**2, 0]                                # x^1 dx^2 - x^2 dx^1
     hA = sp.Matrix(5, 5, lambda i, j: (mu / rr**4) * ((1 if i == 0 else 0) * w[j] + (1 if j == 0 else 0) * w[i]))
-    lin = (ga + hA).applyfunc(sp.simplify) == sp.zeros(5, 5)
+    lin = (ga + (hA if control != 2 else -hA)).applyfunc(sp.simplify) == sp.zeros(5, 5)   # control 2: d_a g = +h_A
     xs = [rr * sp.sin(q) * sp.cos(p_), rr * sp.sin(q) * sp.sin(p_), rr * sp.cos(q) * sp.cos(s_),
           rr * sp.cos(q) * sp.sin(s_)]
     J = sp.Matrix([[sp.diff(xi, v) for v in Y[1:]] for xi in xs])
@@ -509,7 +509,7 @@ CHECKS = [("Z1 the orders: g - gbar rho^2, Gamma rho^3 (four dimensions rho, rho
           ("Z4 the rotations: all six Killing on Tangherlini; V_1 = so(4) of rank 6, S_1 of rank 4", z4, 1),
           ("Z5 the linearized metrics: vacuum, rho^2, rho^3; gauge sources rho^3, rho^4; exponents off the roots",
            z5, 1),
-          ("Z6 the one-spin Myers-Perry metric: Ricci-flat, Tangherlini at a = 0, d_a g = -h_A", z6, 1)]
+          ("Z6 the one-spin Myers-Perry metric: Ricci-flat, Tangherlini at a = 0, d_a g = -h_A", z6, 2)]
 
 
 def selftest(verbose=False):

@@ -4473,17 +4473,18 @@ d_M g, of order rho, its source at rho^2; in (vi) a^2 dropped from Delta, not Ri
 
 *Deduced.*
 
- (a) ([Hin26] Proposition 6.15 in five dimensions) Take z > 0, and his Lemma 6.13 in five dimensions (OPEN since 10.20).
-     His proof runs with every order raised by one. Translations: f_b = box^Ups omega-bar_s1(S) is in rho^4 C^oo by
-     (ii), its E^Ups part too (c in rho C^oo against delta*_g dx^1 in rho^3), of type s1, so omega' = -box^Ups(0)^-1 f_b
-     is in A^((2,0) u (2 + E_ind)), 2 being no s1 root at z > 0, and h_b,s1(S) = delta*_g omega_b,s1(S) in A^((3,0) u (3
-     + E_ind)). Boosts: of his four terms in f-breve_b the first vanishes, the boost being Killing for gbar, and the
-     others gain one order: [box^Ups - box^Ups_gbar, t*] omega-bar_s1 + (box^Ups(0) - box^Ups_gbar(0)) omega-breve-bar^1
-     is (iii)'s stationary residual, of order rho^3 (computed; in four dimensions he cites his Lemma 6.1's structure),
-     and [box^Ups, t*] omega' is in A^((3,0) u (3 + E_ind)) -- so f-breve_b is in A^((3,0) u (3 + E_ind)), of type s1,
-     and the stationary correction lies at rho^1, 1 being no s1 root by (iii): no logarithm in place of (6.31), and
-     h-breve^1_b,s1(S) in A^((2,0) u (2 + E_ind)), K being of order rho^2. Rotations: by (iv) omega_b,v1(V) = V and
-     h_b,v1(V) = 0 for all six V (his Remark 6.17 at a = 0); and omega_b,s0 = g(d_t, .) is Killing.
+ (a) ([Hin26] Proposition 6.15 in five dimensions) Take z > 0, and his Lemma 6.13 in five dimensions (deduced in 10.29
+     on the readings of 10.20). His proof runs with every order raised by one. Translations: f_b = box^Ups
+     omega-bar_s1(S) is in rho^4 C^oo by (ii), its E^Ups part too (c in rho C^oo against delta*_g dx^1 in rho^3), of
+     type s1, so omega' = -box^Ups(0)^-1 f_b is in A^((2,0) u (2 + E_ind)), 2 being no s1 root at z > 0, and h_b,s1(S) =
+     delta*_g omega_b,s1(S) in A^((3,0) u (3 + E_ind)). Boosts: of his four terms in f-breve_b the first vanishes, the
+     boost being Killing for gbar, and the others gain one order: [box^Ups - box^Ups_gbar, t*] omega-bar_s1 +
+     (box^Ups(0) - box^Ups_gbar(0)) omega-breve-bar^1 is (iii)'s stationary residual, of order rho^3 (computed; in four
+     dimensions he cites his Lemma 6.1's structure), and [box^Ups, t*] omega' is in A^((3,0) u (3 + E_ind)) -- so
+     f-breve_b is in A^((3,0) u (3 + E_ind)), of type s1, and the stationary correction lies at rho^1, 1 being no s1
+     root by (iii): no logarithm in place of (6.31), and h-breve^1_b,s1(S) in A^((2,0) u (2 + E_ind)), K being of order
+     rho^2. Rotations: by (iv) omega_b,v1(V) = V and h_b,v1(V) = 0 for all six V (his Remark 6.17 at a = 0); and
+     omega_b,s0 = g(d_t, .) is Killing.
  (b) ([Hin26] Proposition 8.9 in five dimensions) Mass: g-dot(mu) = h_mu is in rho^2 C^oo and 2 eta_mu in rho^3 C^oo,
      spherically symmetric, so the gauge 1-form omega-dot(mu) = -box^Ups(0)^-1(2 eta_mu) is in A^((1,0) u (1 + E_ind)),
      1 being no s0 root -- no logarithm in place of (8.19) -- and g-dot^Ups(mu) = h_mu + delta*_g omega-dot(mu) in
@@ -4491,7 +4492,8 @@ d_M g, of order rho, its source at rho^2; in (vi) a^2 dropped from Delta, not Ri
      is in rho^3 C^oo and its source 2 eta_A = 2 E^Ups h_A in rho^4 C^oo, of vector type l = 1, so omega-dot(A) is in
      A^((2,0) u (2 + E_ind)), 2 being no v1 root, and g-dot^Ups(A) in A^((3,0) u (3 + E_ind)); at gam_Ups = 0 the source
      would vanish and h_A be in the gauge already. By (vi), h_mu and h_A are the derivatives of the five-dimensional
-     Myers-Perry family ([ER08] (32)-(33)) at zero rotation, in the mass and in the rotation in A's plane.
+     Myers-Perry family ([ER08] (32)-(33)) at zero rotation, in the mass and in the rotation in A's plane (h_A with the
+     rotation reversed: d_a g = -h_A).
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 25 (section 1.4.1:
 "The zero energy nullspace of L_b is always nontrivial; it is 7-dimensional when the two 1-form wave operators have no
@@ -4544,49 +4546,56 @@ xbar^1 and r T*S^3 (xbar^0 = t + r, xbar^1 = t - r = t*), and on five-dimensiona
      e_U, 4 (2 - e_U))/(16 e_U), and lies in the kernels of D Ric and of delta_(g,E) G. On Tangherlini the source
      box^Ups(t* omega_s0) = 2 delta_(g,E) G (dt* (x)_s omega_s0), omega_s0 = -f dt, has on (dt, dr) the rho^1 term (2
      e_U gam_U - 4 gam_U - 3, 2 gam_U), no rho^2 term, and the rho^3 term (mu, 2 mu (gam_U + 1)); -1, -2, -3 and -4 are
-     no s0 roots of box^Ups(0) for z > 0 (H1).
+     no s0 roots of box^Ups(0) for 0 < z < 4 (-1 for every z > 0; -2 is one at z = 4) (H1).
  (ii) (part (2)) t*^2 dx^1 + 2 t* B + 2 W, B = r d(rS) - rS dt, S = x^1/r, W = r^2 (alpha S d(t + r) + beta S d(t - r))
      + kappa r^3 dS, (alpha, beta, kappa) = (4 - 7 e_U, -(4 + 17 e_U), (2/3)(25 e_U - 4))/(24 e_U), solves box^Ups = 0;
      h-bar^2_s1 = dt* (x)_s B + delta* W is stationary, nonzero, of degree -1, and in both kernels; -2, -3 and -4 are no
-     s1 roots for z > 0, -2 one at z = 0 (H2).
+     s1 roots for 0 < z < 20/3 (-2 for every z > 0 and one at z = 0; -3 one at z = 20/3) (H2).
  (iii) (part (3)) t* V + kappa r V, V = x^1 dx^2 - x^2 dx^1 = r^2 sin^2 chi sin^2 theta dphi, solves box^Ups = 0 exactly
      at kappa = 1 + 2 gam_U/5, and h-bar^1_v1 = (1/4)(0, 0, (1 + 2 gam_U/5) V, 0, (1 - 2 gam_U/5) V, 0), stationary and
-     in both kernels: his (6.40) in five dimensions; -2, -3 and -4 are no v1 roots (H3).
+     in both kernels: his (6.40) in five dimensions; -2, -3 and -4 are no v1 roots at any z (H3).
  (iv) (the four-dimensional control) His printed dt* (x)_s omega-bar = (0, -1/4, -1/2, 0) (p. 132), dt* (x)_s B = (0, 0,
-     0, -1, 1/2, 0) rho^-1 S (p. 133), kappa = 1 + gam_U/2 and (6.40) (p. 134) come out exactly, b and (alpha, beta,
-     kappa) there being (2 - e_U)/(3 e_U) and (2 - 3 e_U, -(2 + 7 e_U), 2 (4 e_U - 1))/(10 e_U); the Schwarzschild
+     0, -1, 1/2, 0) rho^-1 S (p. 133), kappa = 1 + gam_U/2 and (6.40) (pp. 130, 134) come out exactly, b and (alpha,
+     beta, kappa) there being (2 - e_U)/(3 e_U) and (2 - 3 e_U, -(2 + 7 e_U), 2 (4 e_U - 1))/(10 e_U); the Schwarzschild
      source has the rho^2 term (2M, 2M (2 gam_U + 1)) (H4, and H1's control); the two splittings are the same in five
      dimensions (H4).
  (v) (his Lemma 6.13's gap) The s1 and s0 roots of box^Ups(0) through 2 are lam_s1,2 = (1 + (17 + 2z - 2 (z^2 + 4z +
      16)^(1/2))^(1/2))/2 = 2 + z/12 + O(z^2) and lam_s0 = (1 + (9 + 4z)^(1/2))/2 = 2 + z/3 + O(z^2), and lam_s1,2 <
-     lam_s0 for 0 < z < 4, his (6.17b); 1 and 2 lie in (0, lam_s1,2) for z > 0, 2 at its edge at z = 0 (H5).
+     lam_s0 for every z > 0, his (6.17b); 1 and 2 lie in (0, lam_s1,2) for z > 0, 2 at its edge at z = 0 (H5).
 
 *Proof.* H1-H5 of genstates5.py, exact. Each 1-form is posed with unknown coefficients, box^Ups taken in polar
 coordinates, the coefficients solved from the expansion in r and t at generic angles, and the vanishing then checked
-identically; the splitting is read on d_0 = (d_t + d_r)/2 and d_1 = (d_t - d_r)/2. Controls: in (i) the five-dimensional
-claim, no rho^2 term, on Schwarzschild; in (ii) the factor 2 on B dropped, where no W exists; in (iii) his kappa = 1 +
-gam_U/2 in five dimensions; in (iv) the five-dimensional kappa in four; in (v) z = 0, where 2 is the gap's edge. []
+identically; the values -k against the roots of box^Ups(0) by the least positive zero in z of 10.15(i)'s polynomial at
+each; the splitting is read on d_0 = (d_t + d_r)/2 and d_1 = (d_t - d_r)/2. Controls: in (i) the five-dimensional claim,
+no rho^2 term, on Schwarzschild, and -2 claimed no s0 root at z = 4; in (ii) the factor 2 on B dropped, where no W
+exists, and -3 claimed no s1 root at z = 20/3; in (iii) his kappa = 1 + gam_U/2 in five dimensions; in (iv) the
+five-dimensional kappa in four; in (v) z = 0, where 2 is the gap's edge, and lam_s1,2's first-order coefficient claimed
+1/3. []
 
 *Deduced.*
 
- (a) ([Hin26] Lemma 6.13 in five dimensions) For alpha in (0, lam_s1,2) -- an indicial gap by 10.12(i) and (v), every
-     other root at least 3 or at most 0 -- the zero energy operator is Fredholm (10.20(a)), of index 0 (10.20(d)) and
-     injective (his Proposition 6.12 at sigma = 0, 10.20(e)), so invertible, on the b-spaces of 10.20 with the shift
-     alpha + 2 of 10.20(iii), which is alpha itself for an unweighted b-density; and its polyhomogeneity is his Lemma
-     2.13, a statement on any compact manifold with boundary, here [0, rho_0) x S^3. So, on the readings of 10.20, his
-     Lemma 6.13 holds in five dimensions, and 10.28's deductions rest on it rather than on an OPEN input. Every
-     correction 10.28 needs lies inside the gap -- at rho^1 for the boosts and the mass, at rho^2 for the translations
-     and the rotations -- so Lemma 6.13 applies to it directly; his boosts' and mass's corrections sit at rho^0, the
-     gap's lower end, and need his Lemma 2.15 first.
+ (a) ([Hin26] Lemma 6.13 in five dimensions) For alpha in (0, lam_s1,2) -- an indicial gap by 10.15(i) and (v), every
+     other root at least 3 or at most 0 -- the zero energy operator is Fredholm (10.20(a)) and of index 0 (10.20(d)),
+     the index constant across the gap, and injective at the shifted weights in (0, 1) (his Proposition 6.12 at sigma =
+     0, 10.20(e)); so injective at every alpha in the gap, since by his Lemma 2.13 a kernel element at one weight of the
+     gap is polyhomogeneous with exponents among the indicial roots above the gap and so lies in every weighted space of
+     it -- his "and thus has trivial nullspace on A^eps(X; T*X) for all eps > 0" (p. 121) -- and invertible, on the
+     b-spaces of 10.20 with the shift alpha + 2 of 10.20(iii), which is alpha itself for an unweighted b-density; and
+     its polyhomogeneity is his Lemma 2.13, a statement on any compact manifold with boundary, here [0, rho_0) x S^3.
+     So, on the readings of 10.20, his Lemma 6.13 holds in five dimensions, and 10.28's deductions rest on it rather
+     than on an OPEN input. Every correction 10.28 needs lies inside the gap -- at rho^1 for the boosts and the mass, at
+     rho^2 for the translations and the rotating metrics, the rotations themselves needing none at a = 0 -- so Lemma
+     6.13 applies to it directly; his boosts' and mass's corrections sit at rho^0, the gap's lower end, and need his
+     Lemma 2.15 first.
  (b) ([Hin26] Proposition 6.18 (1)-(3) in five dimensions) Part (1): by (i) the source is rho times its leading term
-     plus O(rho^3), and box^Ups(0) - box^Ups_gbar(0) is in rho^4 Diff^2_b (10.28(i)), so omega-breve^(0),1_s0 = rho^-1 W
-     + A^((1,0) u (1 + E_ind)), without his (0,1): no logarithm; the leading term h-bar^(0)_s0 of h^(0)_s0 spans the
+     plus O(rho^3), and box^Ups(0) - box^Ups_gbar(0) is in rho^4 Diff^2_b (10.28(i)), so omega-breve^(0),1_s0 = W +
+     A^((1,0) u (1 + E_ind)), without his (0,1): no logarithm; the leading term h-bar^(0)_s0 of h^(0)_s0 spans the
      one-dimensional kernel of N_s0(L-bar(0), 0) (10.24(a)-(b)); and omega-breve^(0),k_s0, k = 2, 3, 4, exist, -k being
-     no s0 root (his Lemmas 2.15 and 6.13). Part (2): by (ii) omega-breve^(0),k_s1, k = 2, 3, 4, exist with s1 leading
-     terms, -k being no s1 root for z > 0, and h-bar^2_s1(S) spans ker N_s1(L-bar(0), -1), the root simple (10.24(iv)).
-     Part (3): by (iii) with h-bar^1_v1 as computed; and since every rotation is Killing on Tangherlini (10.28(iv)),
-     h^(<=1)_v1(V) = h-breve^1_v1(V) is a stationary large zero energy state for each of the six V in V_1 = so(4) -- his
-     Remark 6.19 at a = 0, six states where he has three.
+     no s0 root for 0 < z < 4 (his Lemmas 2.15 and 6.13). Part (2): by (ii) omega-breve^(0),k_s1, k = 2, 3, 4, exist
+     with s1 leading terms, -k being no s1 root for 0 < z < 20/3, and h-bar^2_s1(S) spans ker N_s1(L-bar(0), -1), the
+     root simple (10.24(iv)). Part (3): by (iii) with h-bar^1_v1 as computed; and since every rotation is Killing on
+     Tangherlini (10.28(iv)), h^(<=1)_v1(V) = h-breve^1_v1(V) is a stationary large zero energy state for each of the
+     six V in V_1 = so(4) -- his Remark 6.19 at a = 0, six states where he has three.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 51-52 (Lemma 2.13
 and its proof, Remark 2.14, Lemma 2.15 and its proof), 64-67 (Definition 2.28, (2.34)-(2.35), (2.37b), (2.38)-(2.40),
@@ -4594,8 +4603,9 @@ Lemma 2.29, (2.43)-(2.46c), Definition 2.30), 81 (Definition 4.1, and: "The flex
 e^Upsilon simplifies some bookkeeping: it is used in the present paper to reduce the multiplicity of these indicial
 roots as well as to remove integer coincidences in indicial roots of zero energy operators, which leads to fewer
 logarithmic terms (at low exponents) in asymptotic expansions."), 113 (Lemma 6.1), 117-119 (Lemma 6.6, (6.17a)-(6.17b),
-Lemma 6.8, (6.20)), 121 (Proposition 6.12), 124-125 (Lemma 6.13 and its proof), 129-134 (section 6.5.2: Proposition
-6.18, (6.36)-(6.42), Remark 6.19, and the proof).
+Lemma 6.8, (6.20)), 121 (Proposition 6.12, and: "and thus has trivial nullspace on A^eps(X; T*X) for all eps > 0"),
+124-125 (Lemma 6.13 and its proof), 128-134 (section 6.5.2: Proposition 6.18, (6.40) on p. 130, (6.36)-(6.42), Remark
+6.19, and the proof).
 
 *What this gives, and what it does not.* His Lemma 6.13 stands in five dimensions on the readings of 10.20, and with it
 10.28's constructions; and the first three classes of his generalized zero energy states -- on the time translation, on
