@@ -2508,3 +2508,33 @@ marker.
 
 *Runs.* zstates5.py 5/5 (about 15 seconds), mutants 5/5; response5.py all pass; md5 rows current (45). Next: the
 thirty-seventh verifier on 10.28, zstates5.py, D79 and D80.
+
+**D81 (2026-10-23): [Hin26] Lemma 6.13 and Proposition 6.18 (1)-(3) in five dimensions (10.29, genstates5.py).**
+
+M asked to continue. 10.28 deduced section 6.5.1 and Proposition 8.9 in five dimensions on his Lemma 6.13 there, OPEN;
+the next step of item 2 is that lemma and his section 6.5.2. READ at source (alphaXiv, 2026-10-23): [Hin26] pp. 51-52
+(Lemmas 2.13 and 2.15), 64-67 (Definition 2.28, (2.37b), Lemma 2.29, (2.43)-(2.46)), 81, 113, 117-119, 121, 124-125
+(Lemma 6.13), 129-134 (Proposition 6.18, Remark 6.19 and the proof).
+
+*Computed (Proposition 10.26, genstates5.py H1-H5).* (H1) Part (1) on Minkowski: W = r(-dt + b dr), b = (2 - e_U)/(4
+e_U), h-bar^(0)_s0 = (2 - 5 e_U, -(2 + 3 e_U), 2 - 5 e_U, 4 (2 - e_U))/(16 e_U); on Tangherlini the source at rho^1 and
+rho^3, nothing at rho^2 (Schwarzschild: (2M, 2M (2 gam_U + 1)) there). (H2) Part (2): W at rho^-2, (alpha, beta, kappa)
+= (4 - 7 e_U, -(4 + 17 e_U), (2/3)(25 e_U - 4))/(24 e_U), h-bar^2_s1 stationary and nonzero. (H3) Part (3): kappa = 1 +
+2 gam_U/5, h-bar^1_v1 = (1/4)(1 +- 2 gam_U/5). (H4) His printed (0, -1/4, -1/2, 0), (0, 0, 0, -1, 1/2, 0), kappa = 1 +
+gam_U/2 and (6.40) reproduced in four dimensions. (H5) lam_s1,2 = 2 + z/12 + O(z^2) < lam_s0 = 2 + z/3 + O(z^2) for 0 <
+z < 4. Controls: the five-dimensional claim on Schwarzschild; the factor 2 on B dropped; his kappa in five dimensions;
+the five-dimensional kappa in four; z = 0.
+
+*Deduced (10.29).* (a) His Lemma 6.13 in five dimensions on 10.20's readings, every correction of 10.28 inside the gap,
+so 10.28's deductions no longer rest on an OPEN input. (b) His Proposition 6.18 (1)-(3) there: part (1) without his
+logarithm, part (2) with its corrections at rho^-k, part (3) with six states at a = 0.
+
+*Notes on the computation.* (1) The first test of h-bar^2_s1's stationarity compared unsimplified t-derivatives with 0
+and reported False; with an exact zero test it holds -- the boost's t-terms cancel, as his Killing argument says. (2)
+The coefficients of parts (1) and (2) carry 1/e_U, in four dimensions as in five: at e_U = 0, -1 (s0) and -2 (s1) are
+roots of box^Ups(0), the coincidences his e_Ups > 0 removes (p. 81). (3) His splitting (2.37b) was READ before the
+controls were written; with it his three printed vectors and (6.40) come out exactly, which fixes the convention the
+five-dimensional numbers are stated in.
+
+*Runs.* genstates5.py 5/5 (about a minute), mutants 5/5; response5.py all pass; md5 rows current (46). Next: the
+thirty-seventh verifier's report on D79-D80, then one verifier on 10.29.
