@@ -22,12 +22,14 @@ Re S-bar = 1 ((8.18a)).  Here, from the definitions (lin5.py's E^Ups and E^C, wi
   S2 (computed, exact) The spectrum: spec S-bar = spec S-bar^Ups u spec S-bar^C u {0 ((n - 1) n/2 - 1 times)}, the two
      1-form endomorphisms computed by the same construction from 2 E^Ups G delta* and 2 delta G E^C and equal to
      thresh5.py U2's gam_U {1 - e_U, 2, 1 (n - 1 times)} and cpmodes5.py K1's gam_C {2 (1 - v), (1 - e_C)(1 - v), 1 - v
-     (n - 1 times)} (typed from there); every eigenvalue is >= 0 for 0 < v, e_U, e_C < 1 and gam_U, gam_C > 0, and 0
-     is one, so min spec S-bar = 0: his (8.7) in five dimensions, with the zero five times (twice in four); at the
-     trace weight 1 in five dimensions the two eigenvalues (1 - e) gam become (3/2)(1 - e) gam (m (n - 1)/2 times) and
-     the rest stay, so the minimum is 0 there too.  Four-dimensional control: his (8.8)'s seven values, multiplicities
-     2, 2, 1, 1, 2, 1, 1.  Control: the incoming t* = t + r, where the constraint part becomes gam_C {2 (1 + v), (1 -
-     e_C)(1 + v), 1 + v (n - 1 times)} -- cpmodes5.py K2's spectrum at R_in -- and the union fails.
+     (n - 1 times)} (typed from there); every eigenvalue is >= 0 for 0 < v, e_U, e_C < 1 and gam_U, gam_C > 0, and 0 is
+     one, so min spec S-bar = 0: his (8.7) in five dimensions, with the zero five times (twice in four); at the trace
+     weight 1 in five dimensions the two eigenvalues (1 - e) gam become (3/2)(1 - e) gam (m (n - 1)/2 times) and the
+     rest stay, so the minimum is 0 there too.  Four-dimensional control: his (8.8)'s seven values with multiplicities
+     1, 2, 1, 1, 2, 2, 1 in his order, the ranks of the summands of his splitting (5.27).  At gam_C = 0, the unmodified
+     symmetric gradient: spec S-bar^Ups u {0 ((n + 1) + (n - 1) n/2 - 1 times)}, the minimum 0 again.  Control: the
+     incoming t* = t + r, where the constraint part becomes gam_C {2 (1 + v), (1 - e_C)(1 + v), 1 + v (n - 1 times)} --
+     cpmodes5.py K2's spectrum at R_in -- and the union fails.
   S3 (computed, exact; what follows "so" is deduced) The consequences: the transport equation (rho d_rho - (n - 1)/2 -
      s) u = 0 has u = rho^((n - 1)/2 + s), so the improvement at sctf is to (n - 1)/2 + min spec S-bar - eps = 3/2 -
      eps, his 1 - eps; rho^(3/2 - eps) lies in rho^l L^2(r^(n-1) dr) near infinity iff l < -1/2 - eps, the
@@ -41,9 +43,9 @@ deduces (6.7), Tangherlini differing from Minkowski by O(mu rho^2) and c, c_Ups 
 with S1-S3 the step of [Hin26] Proposition 8.6's kernel half that 10.24(c) left OPEN, on the reading of [Hin26c]
 Theorem 9.38 at n = 4.
 
-READ.  [Hin26] pp. 145-146 (section 8: (8.1), Lemma 8.1 with (8.2)-(8.5), Lemma 8.2 with (8.6)-(8.8) and its proof),
-152 (the proof of Proposition 8.6, its parenthetical on (8.7) and the threshold), 153 (Corollary 8.7, (8.18a));
-alphaXiv, 2026-10-23.
+READ.  [Hin26] pp. 144-146 (section 8: its opening on p. 144, fixing c_Ups = r^-1 dt and gam_Ups << 1; (8.1), Lemma 8.1
+with (8.2)-(8.5), Lemma 8.2 with (8.6)-(8.8) and its proof), 152 (the proof of Proposition 8.6, its parenthetical on
+(8.7) and the threshold), 153 (Corollary 8.7, (8.18a)); alphaXiv, 2026-10-23.
 
 sympy.  python3 sbar5.py [--selftest | --mutants]   (--verbose lists every sub-check; about a minute)
 """
@@ -212,13 +214,18 @@ def s2(control=0, verbose=False):
             scale = {sp.factor(gU * (1 - eU)): sp.factor(f_ * gU * (1 - eU)),
                      sp.factor(gC * (1 - eC) * (1 - v)): sp.factor(f_ * gC * (1 - eC) * (1 - v))}
             wfree = s1w == {scale.get(k, k): mm for k, mm in sp_L.items()} and 0 in s1w
-        if n == 3:                                                          # his (8.8): the seven values
-            his = {sp.factor(2 * (1 - v) * gC), sp.factor((1 - v) * gC), sp.factor((1 - eC) * (1 - v) * gC),
-                   sp.factor((1 - eU) * gU), gU, sp.Integer(0), 2 * gU}
-            ok &= set(sp_L) == his and sorted(sp_L.values()) == [1, 1, 1, 1, 2, 2, 2]
+        if n == 3:                                       # his (8.8): the seven values in his order, with the ranks
+            his = [(2 * (1 - v) * gC, 1), ((1 - v) * gC, 2), ((1 - eC) * (1 - v) * gC, 1),    # of his (5.27)'s summands
+                   ((1 - eU) * gU, 1), (gU, 2), (sp.Integer(0), 2), (2 * gU, 1)]
+            ok &= sp_L == {sp.factor(k): mm for k, mm in his}
+        if control == 0:                                         # gam_C = 0: the unmodified symmetric gradient
+            want0 = dict(wantU)
+            want0[sp.Integer(0)] = (n + 1) + (n - 1) * n // 2 - 1
+            ok &= spec(S.subs(gC, 0)) == want0
         chk(f"n + 1 = {n + 1}: spec S-bar = {sorted(sp_L.items(), key=str)}: S-bar^Ups's u S-bar^C's u "
             f"{{0 x {(n - 1) * n // 2 - 1}}}; every eigenvalue >= 0 and 0 one of them, min spec S-bar = 0 ((8.7)); "
-            f"at the trace weight 1 the (1 - e) gam scaled by {sp.Rational(n - 1, 2)}, the minimum 0",
+            f"at the trace weight 1 the (1 - e) gam scaled by {sp.Rational(n - 1, 2)}, the minimum 0; at gam_C = 0 the "
+            f"minimum 0",
             ok and allpos and zero and wfree)
     return chk.ok
 

@@ -3356,7 +3356,7 @@ printed with the sign opposite to its (3.34b) -- the likeliest cause a sign slip
 = +<zeta, d_t>, or with e_1 -> -e_1. The matrix is nilpotent either way, which is all the proof uses. (b) For the inner
 product his proof names, diag(1, eta^-1, eta^-2, eta^-3), the norm is 2^(1/2) eta^(1/2) -- e_3 does not enter, N
 vanishing on it -- where his text says O(eta); O(eta) holds for the squared weights. Either tends to 0, which is all the
-proof uses. His Proposition 8.3 (p. 149) has the same wording (as the twenty-seventh verifier read).
+proof uses. His Proposition 8.3 (p. 147) has the same wording (as the twenty-seventh verifier read).
 
 *Deduced.*
  (a) (his Lemma 6.4 in five dimensions) Near Gamma_0, where C > 0 by (ii), pi^*(T^*) = P + V_perp, P = span{e_0, e_1,
@@ -4096,11 +4096,11 @@ kept at s0, where the root 1 enters (0, 1]. []
      which reaches l near 50, the bound is smaller still and not computed -- and he uses it "only really ... for |lam|
      <= 4".
  (b) (Lemma 8.5) At the point, by (iv). For every z > 0 at Proposition 10.9's point -- 0 is a simple root at s0 only if
-box^C has no root at 1, which Proposition 10.9 gives there -- his proof carries over: by (a) the kernel at s0 is
-one-dimensional, spanned by delta* of t dt plus the correction -N(box^Ups(0), -1)^-1 [box^Ups, t] dt, which is well
-defined since -1 is not an s0 root of box^Ups for z > 0 (10.12(i): 0, 3 and (1 +- (9 + 4z)^(1/2))/2), and at s2 by
-delta* of the kernel of N_s2(box^Ups(0), -1), -1 = 1 - l being box^Ups's root there; both are annihilated by the gauge
-operator, since box^Ups annihilates the 1-forms.
+     box^C has no root at 1, which Proposition 10.9 gives there -- his proof carries over: by (a) the kernel at s0 is
+     one-dimensional, spanned by delta* of t dt plus the correction -N(box^Ups(0), -1)^-1 [box^Ups, t] dt, which is well
+     defined since -1 is not an s0 root of box^Ups for z > 0 (10.12(i): 0, 3 and (1 +- (9 + 4z)^(1/2))/2), and at s2 by
+     delta* of the kernel of N_s2(box^Ups(0), -1), -1 = 1 - l being box^Ups's root there; both are annihilated by the
+     gauge operator, since box^Ups annihilates the 1-forms.
  (c) (Proposition 8.6, the kernel half) For beta in (0, eps_ind) and N_tf(L, sigma^) u_0 = 0: the indicial roots at r^ =
      0 are the negatives of (a)'s, so the first above -beta is the s0 and s2 root 0, and u_0 is its indicial solutions
      plus an element of A^(alpha, delta) for delta in (0, 1) with every negative real part below -delta -- delta exists:
@@ -4127,8 +4127,8 @@ operator, since box^Ups annihilates the 1-forms.
      0 and, with (c), its cokernel is trivial. He writes that 3 roots are crossed at scalar type l >= 2; his own list
      has 7 on each side there, 3 being the 1-form count of the example after his Definition 2.30 (p. 67: -l - 1, -l,
      -l + 1 | l, l + 1, l + 2); the argument uses only that the two counts agree. So, on the readings of 10.19-10.23 and
-     with (c)'s threshold OPEN (10.25 computes it), L is tf-admissible on 4+1 Minkowski with every weight beta in (0,
-     eps_ind), for gam_Ups small, at the point.
+     with (c)'s threshold from 10.25, L is tf-admissible on 4+1 Minkowski with every weight beta in (0, eps_ind), for
+     gam_Ups small, at the point.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 28 (section 1.4.3's three kinds of indicial roots, "With
 no modifications E^Ups and E^C, it would be (0, 1) just as for the scalar wave operator", footnote 28), 144-146 (section
@@ -4141,13 +4141,13 @@ a computed factorization and the roots of 10.12 and 10.15: the physical roots ar
 2 = 2 in place of his 1, and the mass the s0 root 2; the gap begins at 0, which 10.12 left open, and reaches past 1 --
 in four dimensions 1 is an s0 root and his gap is (0, eps_ind) with eps_ind < 1; each type splits evenly, the tensor
 type included; and box^C's nonpositive roots lie below -101. Lemma 8.5 is computed at the point and deduced for every
-z > 0 there, and Proposition 8.6 is deduced on readings but for one input, which 10.25 computes. Not done, and OPEN
-(10.25 computes the spectrum of S-bar_{E^Ups, E^C}, his Lemma 8.2 and (8.7), in five dimensions): simplicity and (8.13)
-beyond l <= 12; how small gam_Ups must be, and h_0; his Proposition 8.3 (strong trapping admissibility of L), section
-8.4 (mode stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5, and sections 9-10, in five dimensions.
-Nothing of this section is proved: Proposition 10.21 is computed, and (a)-(d) are deduced.
+z > 0 there, and Proposition 8.6 is deduced on readings, at that point for small gam_Ups, but for one input, the
+spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2 and (8.7)), which 10.25 computes. Not done, and OPEN: simplicity and
+(8.13) beyond l <= 12; how small gam_Ups must be, and h_0; section 8.4 (mode stability, Proposition 8.8, which uses
+[AHW24] on Kerr), section 8.5, and sections 9-10, in five dimensions (10.26 takes his Proposition 8.3, strong trapping
+admissibility of L). Nothing of this section is proved: Proposition 10.21 is computed, and (a)-(d) are deduced.
 
-### 10.25 [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (`sbar5.py` S1-S3; D74)
+### 10.25 [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (`sbar5.py` S1-S3; D74, D76)
 
 *The setting.* 10.24(c) carried the kernel half of [Hin26] Proposition 8.6 to five dimensions but for one step: "One
 first improves the sctf = scf cap tf-decay rate alpha to 1 - eps for every eps > 0 using (8.7), and then notes that
@@ -4170,17 +4170,19 @@ K1); not computed before this section: L's.
      (three times), 2 (1 - v) gam_C, (1 - e_C)(1 - v) gam_C}: the union of the spectra of the S-bar of box^Ups and of
      box^C -- computed here by the same construction from 2 E^Ups G delta* and 2 delta G E^C, and equal to thresh5.py
      U2's and cpmodes5.py K1's -- with five zeros; every eigenvalue is >= 0 for 0 < v, e_Ups, e_C < 1 and gam_Ups,
-     gam_C > 0. At the trace weight 1 the two eigenvalues (1 - e) gam become (3/2)(1 - e) gam and the rest stay (S2).
+     gam_C > 0. At the trace weight 1 the two eigenvalues (1 - e) gam become (3/2)(1 - e) gam and the rest stay; at
+     gam_C = 0, the unmodified symmetric gradient, the spectrum is {0 (ten times), gam_Ups (three times), 2 gam_Ups,
+     (1 - e_Ups) gam_Ups}, the minimum 0 again (S2).
  (iii) (the consequences) u = rho^(3/2 + s) solves (rho d_rho - 3/2 - s) u = 0; rho^(3/2 - eps) lies in rho^l L^2(r^3
      dr) near infinity iff l < -1/2 - eps; and rho^(3/2 + s) lies in rho^beta L^2(drho/rho) iff beta < 3/2 + s (S3).
 
 *Proof.* S1-S3 of sbar5.py. Fields h(t*, x) on 4+1 Minkowski with r = |x|, d_t = d_t* and d_i = d/dx_i - (x_i/r) d_t*;
 the operators are lin5.py's, with time dependence; the coefficients of d_t* h are read off at a point after expansion,
 the spectra by sympy, and the signs by substituting v = 1/(1 + p), e = 1/(1 + q). Four-dimensional control: rho d_rho -
-1, and his (8.8)'s seven values with multiplicities 2, 2, 1, 1, 2, 1, 1, summing to 10, min spec 0 -- his (8.7) -- and
-his 1 - eps and 1. Controls: c_Ups = dt in place of r^-1 dt in (i), where S-bar carries r; the incoming t* = t + r in
-(ii), where the constraint part becomes gam_C {2 (1 + v), (1 - e_C)(1 + v), 1 + v}, 10.21 K2's spectrum at R_in, and the
-union fails; and his 1 - eps claimed in (iii). []
+1, and his (8.8)'s seven values with multiplicities 1, 2, 1, 1, 2, 2, 1 in his order -- the ranks of the summands of his
+splitting (5.27) -- summing to 10, min spec 0 -- his (8.7) -- and his 1 - eps and 1. Controls: c_Ups = dt in place of
+r^-1 dt in (i), where S-bar carries r; the incoming t* = t + r in (ii), where the constraint part becomes gam_C {2 (1 +
+v), (1 - e_C)(1 + v), 1 + v}, 10.21 K2's spectrum at R_in, and the union fails; and his 1 - eps claimed in (iii). []
 
 *Deduced.*
 
@@ -4190,25 +4192,30 @@ union fails; and his 1 - eps claimed in (iii). []
      box^Ups: the metric differs from Minkowski's by O(mu rho^2), and c and c_Ups equal Minkowski's for large r (10.14,
      10.15). So Corollary 8.7's condition reads beta_sctf < 3/2 + min Re S-bar = 3/2, his 1, by (iii).
  (b) (Proposition 8.6, the last step of the kernel half) In 10.24(c) the kernel element u_0 improves at sctf, by
-     [Hin26c] Theorem 9.38(5) at n = 4 and (a), to 3/2 - eps for every eps > 0, his 1 - eps; by (iii) it then lies in
-     rho^l L^2(r^3 dr) for l < -1/2 - eps, inside the domain of [Hin26c] (9.112) under the outgoing threshold r +
-     alpha_+ < -1/2, whose -1/2 is dimension-free as in 10.23(iv). So the step 10.24(c) left OPEN holds on the same
-     reading, and with 10.24(d) his Proposition 8.6 holds on 4+1 Minkowski, at Proposition 10.9's point and for gam_Ups
-     small, on the readings of 10.19-10.24: L is tf-admissible with every weight beta in (0, eps_ind).
+     [Hin26c] Theorem 9.38(5) at n = 4 and (a), to 3/2 - eps for every eps > 0, his 1 - eps; that theorem's
+     parenthetical (p. 195, as the thirty-fourth verifier read it) places the intersection over eps > 0 of A^((n -
+     1)/2 + S-bar - eps, -beta_- - eps) in the domain of [Hin26c] (9.112) under its part (2)'s outgoing threshold r +
+     alpha_+ < -1/2 + S-bar, here -1/2 since min spec S-bar = 0 -- dimension-free as in 10.23(iv) -- and that is what
+     his proof cites; (iii) cross-checks it, rho^(3/2 - eps) lying in rho^l L^2(r^3 dr) iff l < -1/2 - eps. The operator
+     of that step, with the unmodified symmetric gradient, is (ii)'s at gam_C = 0, whose minimum is 0 as well. So the
+     step 10.24(c) left OPEN holds on the same reading, and with 10.24(d) his Proposition 8.6 holds on 4+1 Minkowski, at
+     Proposition 10.9's point and for gam_Ups small, on the readings of 10.19-10.24: L is tf-admissible with every
+     weight beta in (0, eps_ind).
 
-*READ.* [Hin26] (arXiv:2606.28253v2): pp. 145-146 (section 8's opening, (8.1), Lemma 8.1 with (8.2)-(8.5), Lemma 8.2
-with (8.6)-(8.8) and its proof), 152 (the parenthetical in the proof of Proposition 8.6), 153 (Corollary 8.7, (8.18a));
-alphaXiv, 2026-10-23. [Hin26c] Theorem 9.38(5) (p. 195), as 10.23 reads it.
+*READ.* [Hin26] (arXiv:2606.28253v2): pp. 144-146 (section 8's opening on p. 144, which fixes c_Ups = r^-1 dt and
+gam_Ups << 1, (8.1), Lemma 8.1 with (8.2)-(8.5), Lemma 8.2 with (8.6)-(8.8) and its proof), 152 (the parenthetical in
+the proof of Proposition 8.6), 153 (Corollary 8.7, (8.18a)); alphaXiv, 2026-10-23. [Hin26c] Theorem 9.38(5) (p. 195), as
+10.23 reads it.
 
 *What this gives, and what it does not.* The one input 10.24 left OPEN for Proposition 8.6 is computed: the S-bar of the
 linearized gauge-fixed Einstein operator in five dimensions carries the gauge potential operator's spectrum, the
 constraint propagation operator's and five zeros, and min spec S-bar = 0, so the decay at sctf improves to 3/2 - eps,
 (n - 1)/2 where his is 1, and the threshold keeps its dimension-free -1/2. Proposition 8.6 is now deduced on readings
-alone. Not done, and OPEN (10.26 takes his Proposition 8.3): those readings ([Hin26c] section 9 at n = 4, line by line);
-how small gam_Ups must be, and h_0; simplicity and (8.13) beyond l <= 12; his Proposition 8.3 (strong trapping
-admissibility of L), section 8.4 (mode stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5, and
-sections 9-10, in five dimensions. Nothing of this section is proved: Proposition 10.22 is computed, and (a)-(b) are
-deduced.
+alone, at Proposition 10.9's point for small gam_Ups. Not done, and OPEN: those readings ([Hin26c] section 9 at n = 4,
+line by line); how small gam_Ups must be, and h_0; simplicity and (8.13) beyond l <= 12; section 8.4 (mode stability,
+Proposition 8.8, which uses [AHW24] on Kerr), section 8.5, and sections 9-10, in five dimensions (10.26 takes his
+Proposition 8.3, strong trapping admissibility of L). Nothing of this section is proved: Proposition 10.22 is computed,
+and (a)-(b) are deduced.
 
 ### 10.26 [Hin26] Proposition 8.3 in five dimensions: strong trapping admissibility of L (`strap5.py` P1-P3; D75)
 

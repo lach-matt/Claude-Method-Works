@@ -391,10 +391,10 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    h_0, [Hin26] Theorem 7.1(4) (deduced); the linearized gauge-fixed Einstein operator's indicial roots are those of his
    Lemma 8.4 in five dimensions, its gap beginning at 0, for every l at that point (4.25; the factorization computed,
    the roots at the point for l <= 12, the rest deduced), so that his Lemma 8.5 and, with his Lemma 8.2's S-bar computed
-   (4.26; min spec S-bar = 0, his (8.7)), his Proposition 8.6 hold on the same readings (deduced), and 2 L is strongly
-   trapping admissible, his Proposition 8.3 (4.27; deduced); the line-by-line readings of [Hin26a] sections 2.3 and 5.2
-   and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 6.5, 7.2 and 8 beyond
-   Proposition 8.6, are OPEN.
+   (4.26; min spec S-bar = 0, his (8.7)), his Proposition 8.6, for small gam_Ups, hold on the same readings (deduced),
+   and 2 L is strongly trapping admissible, his Proposition 8.3 (4.27; deduced); the line-by-line readings of [Hin26a]
+   sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections
+   6.5, 7.2 and 8 beyond Proposition 8.6, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -466,13 +466,13 @@ and the sink, section B.4's weights, data and closing integral -- and deduces Th
 and h = 10^-6 if that is below h_0; and 4.25 (10.24, Proposition 10.21, computed; deduced) computes the indicial roots
 of the linearized gauge-fixed Einstein operator -- its factorization through box^Upsilon and box^C with the physical
 roots -l and l + 2, the tensor type -- and deduces his Lemma 8.4 for every l at Proposition 10.9's point, Lemma 8.5 and,
-but for the spectrum of his Lemma 8.2's S-bar, Proposition 8.6; and 4.26 (10.25, Proposition 10.22, computed; deduced)
-computes that S-bar -- the gauge potential operator's spectrum, the constraint propagation operator's and five zeros,
-min spec S-bar = 0 -- and completes Proposition 8.6 on readings; and 4.27 (10.26, Proposition 10.23, computed; deduced)
-computes the subprincipal matrix of 2 L at the trapped set -- his printed 10 x 10 reproduced, the 15 x 15 with ten zeros
-and the eigenvalues -2 (1 - e_C) gam c_2, -2 gam c_2 (three times), -4 gam c_2, triangular in a constant basis -- and
-deduces his Proposition 8.3 on Tangherlini. Next: the rest of item 2 -- [Hin26] sections 6.5, 7.2, 8.4 and 8.5 -- in
-five dimensions.
+but for the spectrum of his Lemma 8.2's S-bar, Proposition 8.6 for small gam_Ups; and 4.26 (10.25, Proposition 10.22,
+computed; deduced) computes that S-bar -- the gauge potential operator's spectrum, the constraint propagation operator's
+and five zeros, min spec S-bar = 0 -- and completes Proposition 8.6 on readings, at that point for small gam_Ups; and
+4.27 (10.26, Proposition 10.23, computed; deduced) computes the subprincipal matrix of 2 L at the trapped set -- his
+printed 10 x 10 reproduced, the 15 x 15 with ten zeros and the eigenvalues -2 (1 - e_C) gam c_2, -2 gam c_2 (three
+times), -4 gam c_2, triangular in a constant basis -- and deduces his Proposition 8.3 on Tangherlini. Next: the rest of
+item 2 -- [Hin26] sections 6.5, 7.2, 8.4 and 8.5 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -772,10 +772,10 @@ ROUTES 4.4 item 2's new object. damping5.py computes it; N1STAR-PROOF.md 10.12 s
   above 1.93, and above 2 exactly where h <= e; the lower ones sit near -1/h, so C_0 = 100 asks h below 1/100. The grid
   does not contain the point of U4.
 - OPEN: whether the five-dimensional gauge-fixed operator's indicial gap begins at 0 (it does at the point: 4.25), on
-which [Hin26] p. 29's reason for the strip [-C_0, 1) rests (both strips are clear at the point); [Hin26] Theorem 7.1
-(1), (2) and (4) for box^C on Tangherlini; the modification E^Upsilon of [Hin26] Proposition 6.12. Labels: computed
-(damping5.py U1-U6; U6 numerical); deduced (the transfer to Tangherlini); READ ([Hin26a] and [Hin26], alphaXiv,
-2026-10-21, pages as in 10.12); nothing proved.
+  which [Hin26] p. 29's reason for the strip [-C_0, 1) rests (both strips are clear at the point); [Hin26] Theorem 7.1
+  (1), (2) and (4) for box^C on Tangherlini; the modification E^Upsilon of [Hin26] Proposition 6.12. Labels: computed
+  (damping5.py U1-U6; U6 numerical); deduced (the transfer to Tangherlini); READ ([Hin26a] and [Hin26], alphaXiv,
+  2026-10-21, pages as in 10.12); nothing proved.
 
 ### 4.14 The semiclassical inputs of the constraint damping in five dimensions (computed; D55)
 
@@ -1051,7 +1051,7 @@ states Proposition 10.21 and deduces.
   (lin5.py E1-E5, exact, the point's roots by mpmath); deduced; READ ([Hin26] pp. 28, 117, 135-137, 144-146, 149-153);
   nothing proved.
 
-### 4.26 [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (computed; D74)
+### 4.26 [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (computed; D74, D76)
 
 4.25 left one input of [Hin26] Proposition 8.6 OPEN: the spectrum of S-bar_{E^Ups, E^C}, by which the linearized
 gauge-fixed Einstein operator's d_t* terms differ from the wave operator's, and his (8.7), min spec S-bar = 0, with
@@ -1068,7 +1068,7 @@ which the kernel half's decay improves before the outgoing threshold is applied.
 - Deduced: his (8.4) on Tangherlini, and Proposition 8.6 at Proposition 10.9's point for small gam_Ups on the readings
   of 4.20-4.25, the step 4.25 left OPEN now filled.
 - OPEN: the readings line by line; how small gam_Ups must be, and h_0; his Proposition 8.3 (4.27), sections 8.4-8.5 and
-  9-10 in five dimensions. Labels: computed (sbar5.py S1-S3, exact); deduced; READ ([Hin26] pp. 145-146, 152-153);
+  9-10 in five dimensions. Labels: computed (sbar5.py S1-S3, exact); deduced; READ ([Hin26] pp. 144-146, 152-153);
   nothing proved.
 
 ### 4.27 [Hin26] Proposition 8.3 in five dimensions: strong trapping admissibility of L (computed; D75)

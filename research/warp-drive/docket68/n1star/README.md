@@ -165,8 +165,8 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `sbar5.py`: Hintz's Lemma 8.2 and (8.7) in five dimensions (section 10.25; D74): the endomorphism S-bar by which the
   linearized gauge-fixed Einstein operator's d_t* terms differ from the wave operator's on 4+1 Minkowski, its spectrum
   -- the gauge potential and constraint propagation operators' with five zeros, min spec S-bar = 0 -- and the decay
-  3/2 - eps and thresholds it gives (S1-S3; Proposition 8.6 deduced on readings in 10.25). `python3 sbar5.py
-  --selftest` (3/3, about a minute), `--mutants` (3/3).
+  3/2 - eps and thresholds it gives (S1-S3; Proposition 8.6 deduced on readings in 10.25, at Proposition 10.9's point
+  for small gam_Ups). `python3 sbar5.py --selftest` (3/3, about a minute), `--mutants` (3/3).
 - `strap5.py`: Hintz's Proposition 8.3 in five dimensions (section 10.26; D75): the subprincipal matrix of the
   linearized gauge-fixed Einstein operator at the trapped set -- his printed 10 x 10 reproduced in four dimensions, the
   15 x 15 in five with its spectrum and a constant triangularizing basis, and, for a c with no angular part, the

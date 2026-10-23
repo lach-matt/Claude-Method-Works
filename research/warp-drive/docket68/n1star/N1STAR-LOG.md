@@ -2265,10 +2265,10 @@ with which his proof improves the decay at sctf to 1 - eps before the outgoing t
 plus a stationary operator; 2 L - box is first order with d_t* coefficient 2 rho S-bar, S-bar a constant 15 x 15 matrix
 (the same characteristic polynomial at two points). Its spectrum is {0 (x5), gam_Ups (x3), 2 gam_Ups, (1 - e_Ups)
 gam_Ups, (1 - v) gam_C (x3), 2 (1 - v) gam_C, (1 - e_C)(1 - v) gam_C}: the union of box^Ups's S-bar (10.18's) and
-box^C's (10.21's), computed by the same construction, with five zeros; every eigenvalue >= 0, so min spec S-bar = 0,
-his (8.7). The four-dimensional run gives his (8.8)'s seven values with multiplicities 2, 2, 1, 1, 2, 1, 1. And the
-consequences: the improvement to 3/2 - eps (his 1 - eps), rho^(3/2 - eps) in rho^l L^2(r^3 dr) iff l < -1/2 - eps, and
-(8.18a) beta_sctf < 3/2 (his 1).
+box^C's (10.21's), computed by the same construction, with five zeros; every eigenvalue >= 0, so min spec S-bar = 0, his
+(8.7). The four-dimensional run gives his (8.8)'s seven values with multiplicities 1, 2, 1, 1, 2, 2, 1 in his order. And
+the consequences: the improvement to 3/2 - eps (his 1 - eps), rho^(3/2 - eps) in rho^l L^2(r^3 dr) iff l < -1/2 - eps,
+and (8.18a) beta_sctf < 3/2 (his 1).
 
 *Deduced (10.25).* His (8.4) on Tangherlini, as 10.18 deduces (6.7); and the step of Proposition 8.6's kernel half that
 10.24(c) left OPEN, so that Proposition 8.6 holds at Proposition 10.9's point for small gam_Ups on the readings of
@@ -2316,3 +2316,41 @@ nonzero eigenvalues where there are five.
 the computed sign; A not triangular with e_1^2 moved; A not commuting with the rotation at c_4 = 1/3); response5.py
 all pass; md5 rows current (43). Next: the thirty-fourth verifier's findings on D73-D74 when it reports, then the
 thirty-fifth on D75; his sections 8.4-8.5 in five dimensions.
+
+**D76 (2026-10-23): the thirty-fourth verifier's findings on 10.25, sbar5.py, D73 and D74, seated.**
+
+*M's words.* "Continue please", after PR #90 (D75) merged; the branch restarted from main (8d51f67).
+
+*The verifier.* The thirty-fourth, on 49c0f00: no MAJOR finding; four MINOR findings and eight notes. It reran sbar5.py
+(3/3; mutants 3/3) and response5.py (all pass), found the 42 md5 rows current, and recomputed S-bar by a route that
+shares no code with sbar5.py: by hand from principal symbols, S-bar = rho^-1 [E^C sigma_delta(dt*) G + sigma_delta*(dt*)
+E^Ups G], in his null splitting (5.27) at a point -- at n = 3 his (5.28) at h = 0 entry for entry, (8.8) with its
+starred entries; at n = 4 lower triangular with sbar5.py's spectrum; at the trace weight 1 only the two (1 - e) entries
+scaled by 3/2; and the 1-form S-bars equal to thresh5.py U2, cpmodes5.py K1 and his (7.5). It gave the union its reason:
+S-bar = XY with X = [E^C | sigma_delta*] and Y = [rho^-1 sigma_delta G; rho^-1 E^Ups G], and YX is block triangular with
+diagonal blocks S-bar^C and S-bar^Ups because sigma_delta G sigma_delta*(xi) = -|xi|^2/2 vanishes at the null dt*,
+whence (n + 1)(n + 2)/2 - 2 (n + 1) zeros at every trace weight. It read [Hin26c] Theorem 9.38(2), (5) and Proposition
+9.40 at source (arXiv:2606.28008v1, pp. 195, 197), and checked each D73 repair against the thirty-third verifier's list.
+
+*Four MINOR, repaired.* (1) (8.8)'s multiplicities were misstated as 2, 2, 1, 1, 2, 1, 1; in his order they are 1, 2, 1,
+1, 2, 2, 1, the ranks of the summands of his splitting (5.27). 10.25, sbar5.py's docstring and D74 above are corrected
+in place, and S2 now compares the n = 3 spectrum with his seven values at those ranks in his order, which the
+set-and-sorted comparison could not see. (2) ROUTES 4.5's "Next" named sections 8.3-8.5; D75 had already rewritten it to
+6.5, 7.2, 8.4 and 8.5, right now that Proposition 8.3 is deduced in 4.27. (3) The paper's S-bar sentence reads "that it
+needs", and its label is now "the spectrum computed, the improvement deduced". (4) Proposition 8.6 now carries both
+hypotheses, Proposition 10.9's point and small gam_Ups, in the README, the paper's lin5.py and sbar5.py bullets, ROUTES
+4.4 and 4.5, and the summaries of 10.24 and 10.25.
+
+*Eight notes.* (1) The hanging indents of 10.24(b) and of ROUTES 4.13's OPEN bullet are restored. (2) The headings of
+10.25 and ROUTES 4.26 add D76; those of 10.24 and ROUTES 4.25 would pass 121 characters with D73, D74 and D76, so they
+stay and this LOG records the edits. (3) The paper's sbar5.py bullet says "the diagonal of his (8.8)", which is what S2
+recomputes. (4) The READ ranges begin at p. 144, where section 8 fixes c_Ups = r^-1 dt and gam_Ups << 1. (5) 10.25(b)
+now cites what his proof cites, [Hin26c] Theorem 9.38(5)'s parenthetical, the domain inclusion itself, under part (2)'s
+threshold -1/2 + S-bar, here -1/2; (iii) is the cross-check. (6) The operator of that step, with the unmodified
+symmetric gradient, has minimum 0 as well: the verifier computed {0 (ten times), gam_Ups (three times), 2 gam_Ups, (1 -
+e_Ups) gam_Ups}, and S2 now checks it at gam_C = 0, which 10.25(ii) states. (7) 10.24(d) and its summary no longer read
+as OPEN and computed at once. (8) 10.17's "Proposition 8.3 (p. 149)" is p. 147.
+
+*Runs.* sbar5.py 3/3 (about a minute), mutants 3/3, the new checks refusing the misstated ranks; response5.py all pass;
+md5 rows current. Next: the thirty-fifth verifier on 10.26, strap5.py, D75 and these repairs; and [Hin26] section 8.4,
+his Proposition 8.8, in five dimensions.
