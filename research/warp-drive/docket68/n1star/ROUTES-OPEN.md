@@ -484,7 +484,7 @@ Tangherlini's orders against Minkowski, the asymptotic symmetries' defects and t
 and deduces his Proposition 6.15 and Proposition 8.9 there, one order faster and without logarithms, on his Lemma 6.13;
 and 4.30 (10.29, Proposition 10.26, computed; deduced) deduces his Lemma 6.13 there and computes the leading terms of
 his Proposition 6.18 (1)-(3), the time translation's state without his logarithm and his (6.40) as (1/4)(1 +- 2
-gam_U/5). Next: the rest of item 2 -- [Hin26] Proposition 6.18 (4)-(7), sections 7.2, 8.4 from Proposition 8.10 on, and
+gam_U/5). Next: the rest of item 2 -- [Hin26] Proposition 6.18 (4)-(7), sections 7.2, 8.4 from Proposition 8.11 on, and
 8.5 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
@@ -1119,12 +1119,12 @@ and deduces.
   master equation; and his Proposition 8.8 there, on the readings of 4.20-4.27, at Proposition 10.9's point with gam_Ups
   small.
 - OPEN: the kernel elements' class, omega's continuation inside the horizon (before his Proposition 6.12 applies) and
-  the interior uniqueness, as in 10.16; how small gam_Ups must be, and h_0; his Propositions 8.9-8.11 (zero energy,
-  [AHW24] Theorem 6.1(2); Proposition 8.9 deduced in 4.29), section 8.5 and sections 9-10 in five dimensions. Labels:
-  computed (gmodes5.py G1-G5, exact); deduced; READ ([Hin26] pp. 25, 153-154; [KI03] pp. 4-10, 13-15, 18-20); nothing
-  proved.
+  the interior uniqueness, as in 10.16; how small gam_Ups must be, and h_0; his Proposition 8.9, Remark 8.10 and
+  Proposition 8.11 (zero energy, [AHW24] Theorem 6.1(2); Proposition 8.9 deduced in 4.29), section 8.5 and sections 9-10
+  in five dimensions. Labels: computed (gmodes5.py G1-G5, exact); deduced; READ ([Hin26] pp. 25, 153-154; [KI03] pp.
+  4-10, 13-15, 18-20); nothing proved.
 
-### 4.29 [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions: the zero energy states (computed; D80)
+### 4.29 [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions: the zero energy states (computed; D80, D82)
 
 His section 6.5.1 builds box^Ups's zero energy states from the Minkowskian translations, boosts and rotations, and his
 Proposition 8.9 brings the linearized Kerr metrics into the gauge, with logarithms at (6.31) and (8.19) where an
@@ -1133,17 +1133,19 @@ states Proposition 10.25 and deduces.
 - Orders: g - gbar in rho^2, Gamma in rho^3, so the delta* and box^Ups differences in rho^3 Diff^0_b and rho^4 Diff^2_b;
   r* without a logarithm (Z1).
 - Translations: delta*_g dx^1 at rho^3, box dx^1 at rho^4, the correction at rho^2, 2 an s1 root only at z = 0 (Z2);
-  boosts: the stationary defect K at rho^2, the correction at rho^1, 1 no s1 root (Z3); rotations Killing on
-  Tangherlini, V_1 = so(4) (Z4).
+  boosts: the stationary defect K at rho^2, with his t-bar = t* + r too, and the stationary residual at rho^3, the
+  correction at rho^1, 1 no s1 root (Z3); all six rotations Killing on Tangherlini, V_1 = so(4) (Z4).
 - The linearized metrics: d_mu g at rho^2, h_A at rho^3, both vacuum; the sources at rho^3 (s0) and, delta G h_A
   vanishing, E^Ups h_A at rho^4 (v1); 1 no s0 root, 2 no v1 root (Z5).
+- The Myers-Perry family ([ER08] (32)-(33)): Ricci-flat at three exact points, Tangherlini at a = 0, d_a g at a = 0 =
+  -h_A (Z6).
 - Deduced: his Proposition 6.15 and Proposition 8.9 in five dimensions, every order one higher and neither logarithm, on
   his Lemma 6.13 in five dimensions; six angular momenta in place of three.
-- OPEN: his Lemma 6.13 in five dimensions (10.20; deduced in 4.30); the index sets; the Myers-Perry identification, not
-  READ; his Proposition 6.18, section 7.2, Propositions 8.10-8.13 and Lemma 8.12 in five dimensions (the candidates for
-  the kernel number 1 + 6 + 4 = 11 against his 7, the count not established); section 8.5 and sections 9-10; how small
-  gam_Ups must be, and h_0. Labels: computed (zstates5.py Z1-Z5, exact); deduced; READ ([Hin26] pp. 25, 81, 124-127,
-  154-155); nothing proved.
+- OPEN: his Lemma 6.13 in five dimensions (10.20; deduced in 4.30); the index sets; his Proposition 6.18, section 7.2,
+  Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions (the candidates for the kernel number 1 + 6 + 4 =
+  11 against his 7, the count not established); section 8.5 and sections 9-10; how small gam_Ups must be, and h_0.
+  Labels: computed (zstates5.py Z1-Z6, exact); deduced; READ ([Hin26] pp. 25, 81, 113, 117, 124-128, 154-155, 157;
+  [ER08] p. 14); nothing proved.
 
 ### 4.30 [Hin26] Lemma 6.13 and Proposition 6.18 (1)-(3) in five dimensions (computed; D81)
 
@@ -1159,7 +1161,7 @@ control; N1STAR-PROOF.md 10.29 states Proposition 10.26 and deduces.
   top lam_s1,2 = 2 + z/12 + O(z^2) < lam_s0 (H5).
 - Deduced: his Lemma 6.13 in five dimensions on 10.20's readings, every correction of 4.29 inside the gap; his
   Proposition 6.18 (1)-(3) there, six rotation states at a = 0.
-- OPEN: the readings of 10.20 line by line; the index sets; his Proposition 6.18 (4)-(7), section 7.2, Propositions
-  8.10-8.13 and Lemma 8.12 in five dimensions; section 8.5 and sections 9-10; how small gam_Ups must be, and h_0.
+- OPEN: the readings of 10.20 line by line; the index sets; his Proposition 6.18 (4)-(7), section 7.2, Proposition 8.11,
+  Lemma 8.12 and Corollary 8.13 in five dimensions; section 8.5 and sections 9-10; how small gam_Ups must be, and h_0.
   Labels: computed (genstates5.py H1-H5, exact); deduced; READ ([Hin26] pp. 51-52, 64-67, 81, 113, 117-119, 121,
   124-125, 129-134); nothing proved.
