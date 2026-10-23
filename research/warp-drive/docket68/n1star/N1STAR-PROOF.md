@@ -3882,7 +3882,7 @@ reading; 10.21(d)'s horizon threshold; his Theorem B.1 in five dimensions, and w
 deduces both on the same reading); [Hin26] sections 6.5, 7.2 and 8 in five dimensions. Nothing of this section is
 proved: Proposition 10.19 is computed, and (a)-(e) are deduced.
 
-### 10.23 [Hin26a] Theorem B.1 in five dimensions, and [Hin26] Theorem 7.1(4) (`tface5.py` F1-F4; D69)
+### 10.23 [Hin26a] Theorem B.1 in five dimensions, and [Hin26] Theorem 7.1(4) (`tface5.py` F1-F5; D69, D71)
 
 *The setting.* 10.21 left [Hin26a] Theorem B.1 OPEN in five dimensions, and with it [Hin26] Theorem 7.1(4), the
 tf-admissibility of the constraint propagation operator for every weight beta in [-C_0, 1), which his proof takes from
@@ -3924,27 +3924,33 @@ structure, the beta-range, the threshold at cf, section B.4's numbers and the in
      times X's r^3 |dr dg/|, so (B.33)'s data weights are alpha_sf + 1/2 and alpha_cf - 1/2, and section B.4's data, in
      rho_sf^(l - 1) rho_cf^beta (the l - 1 of his inclusion H_sc,b^1 in rho_sc^-1 H_b^1, READ), lie in them; a kernel
      element of size rho^(3/2 + S-bar - eps) at infinity lies in rho^l L^2(r^3 dr) iff l < -1/2 + S-bar - eps; for the
-     adjoint, an element of size rho^(3/2 + S_in - eps) at R_in, S_in = h^-1 (1 - e)(1 + v) the bottom of spec (A_w +
-     S-bar^C) (10.21 K2), lies in rho^(-l-1) L^2(r^3 dr) iff l > -1/2 - S_in + eps, the l-window's lower end; and beta'
-     = -beta + 2 - eps lies in (ii)'s range for every sufficiently small eps > 0 iff beta in [-C_0, 2) (F4).
+     adjoint, box^C's formal adjoint in the incoming T = t + r has mixed coefficient -2 Id and no d_T^2 term, and
+     S-tilde = -(r/2) (its d_T coefficient) - 3/2 has spectrum h^-1 {(1 - e)(1 + v), 2 (1 + v), 1 + v (three times)},
+     whose bottom S_in = h^-1 (1 - e)(1 + v) is 10.21 K2's spec (A_w + S-bar^C); an element of size rho^(3/2 + S_in -
+     eps) at R_in lies in rho^(-l-1) L^2(r^3 dr) (the dual weight -l - 1 READ, his p. 137) iff l > -1/2 - S_in + eps,
+     the l-window's lower end; and beta' = -beta + 2 - eps lies in (ii)'s range for every sufficiently small eps > 0 iff
+     beta in [-C_0, 2) (F4).
  (v) (Proposition B.2's index) The free 1-form wave operator 2 delta G delta* has at the origin the r-roots -3, -2 | 0,
      1 at l = 0, -l - 3, -l - 2, -l - 1 | l - 1, l, l + 1 for scalar type l >= 1, and -l - 2 | l for vector type; the
      window of beta - 2 between the two groups contains (-2, 0), and rising into it from below crosses 2, 3 and 1 roots
      (F5).
 
-*Proof.* F1-F4 of tface5.py. F1 builds box^C in Cartesian coordinates (t*, x), with r an independent symbol and d_i =
+*Proof.* F1-F5 of tface5.py. F1 builds box^C in Cartesian coordinates (t*, x), with r an independent symbol and d_i =
 d/dx_i + (x_i/r) d/dr - (x_i/r) d/dt*, expands it, and checks every coefficient under (x, r) -> (lam x, lam r) as an
 identity of rational functions; F2 and F4 are exact algebra on the exponents, with F4's integral and the Jacobian of t =
-tau r by sympy; F3 builds T from semiclass5.py for any n, equal at n = 4 to cform5.py's, derives q(d, 0) from det T,
-keeps e symbolic for the limit e -> 0, counts real roots with multiplicity, and factors the characteristic polynomial of
-semiclass5.py's l; F5 reads the free operator's roots off gaugepot5.py's indicial determinants at gamma = 0.
-Four-dimensional controls: his numbers -- 90 terms at the trace weight 1, beta in (1/2, 3/2 + C_0], the eigenvalues 1 -
-2 d, 1/2 - d and 3/2 - d (twice) as e -> 0 and so his alpha_cf > 1/2 (and 0.4956 at e = 1/102400), (lam - v)^2 for
-(lam - v)^3, C_0 >= 2, beta in [-C_0, 1), and his free roots -l - 2, -l - 1, -l | l - 1, l, l + 1 with the window (-l,
-l - 1) for beta - 3/2 (p. 91). Controls: c = r^-1 dt - v dr in (i), not homogeneous; his beta-range claimed in five
-dimensions in (ii); alpha_cf = 0 in (iii), where T is not positive definite; the characteristic polynomial with n - 2
-copies of v in (iii); alpha_cf = -alpha_sf - 1 in (iv), where the closing integral converges, and his top 1 claimed
-there; and his window claimed in (v). []
+tau r by sympy, and F4's S-tilde from box^C's formal adjoint (dt dx, the Euclidean fibre product in the Cartesian frame)
+rewritten in T = t + r ([Hin26c] (9.117); the thirty-second verifier's construction); F3 builds T from semiclass5.py for
+any n, equal at n = 4 to cform5.py's, derives q(d, 0) from det T, takes the limit e -> 0 by substitution (T's entries
+are polynomial in e, B being singular at e = 0), counts real roots with multiplicity, and factors the characteristic
+polynomial of semiclass5.py's l; F5 reads the free operator's roots off gaugepot5.py's indicial determinants at gamma =
+0, each simple. Four-dimensional controls, at his trace weight 1: the program's 90 terms; his beta in (1/2, 3/2 + C_0],
+the eigenvalues 1 - 2 d, 1/2 - d and 3/2 - d (twice) as e -> 0 and so his alpha_cf > 1/2 (and 0.4956 at e = 1/102400),
+(lam - v)^2 for (lam - v)^3, C_0 >= 2, S-tilde's bottom h^-1 (1 - e)(1 + v) (his p. 137), beta in [-C_0, 1), and his
+free roots -l - 2, -l - 1, -l | l - 1, l, l + 1 with the window (-l, l - 1) for beta - 3/2 (p. 91). Controls: c = r^-1
+dt - v dr in (i), not homogeneous; his beta-range claimed in five dimensions in (ii); alpha_cf = 0 in (iii), where T is
+not positive definite; the characteristic polynomial with n - 2 copies of v in (iii); alpha_cf = -alpha_sf - 1 in (iv),
+where the closing integral converges, his top 1 claimed there, which the endpoints refuse, and the bottom h^-1 (1 -
+e)(1 - v) claimed for S_in; and his window claimed in (v). []
 
 *Deduced.*
 
@@ -3954,13 +3960,16 @@ there; and his window claimed in (v). []
      sets, the l-window). By dilation invariance the indicial roots of box^C(0) at the origin, in r, are the negatives
      of those at infinity, in rho = 1/r -- which are Proposition 10.9's, stated on 4+1 Minkowski: they avoid [-C_0, 2)
      at its point for C_0 <= 100.
- (b) (Proposition B.2) box^C(sigma) is Fredholm on (B.13)'s spaces with the l-window of 10.21 and, by (a) and (ii), beta
- in (0, 2 + C_0], C_0 <= 100, at that point -- by his microlocal argument, or by [Hin26c] Theorem 9.38 at n = 4 on the
- reading of 10.19-10.20, whose part (3) gives only that the index does not depend on the weights -- and of index 0 by
- his relative index argument (p. 91) with (v): lowering beta below every root at the origin raises the index by the
- number of the damped operator's roots with real part >= 2 at that point, 2, 3 and 1 by 10.12; deforming h^-1 to 0 with
- beta held below the roots keeps it; and rising into the free operator's window, where it is invertible ([Hin26c]
- Proposition 9.40 at n = 4, 10.20), lowers it by as many, (v).
+ (b) (Proposition B.2) box^C(sigma) is Fredholm on (B.13)'s spaces with the l-window of 10.21 and, by (a) and (ii),
+     beta in (0, 2 + C_0], C_0 <= 100, at that point -- by his microlocal argument, or by [Hin26c] Theorem 9.38 at n =
+     4 on the reading of 10.19-10.20, whose part (3) gives that the index depends neither on theta in [0, pi] nor on the
+     weight, so that with his Corollary 9.39 the index 0 would follow from tf-admissibility at theta = 0, which is what
+     is being proved -- and of index 0 by his relative index argument (p. 91) with (v), l taken a variable order > -1/2
+     at R_in and < -1/2 at R_out (p. 91; F4's dimension-free -1/2), which keeps the operator Fredholm as h^-1 -> 0,
+     where (B.13)'s window empties: lowering beta below every root at the origin raises the index by the number of the
+     damped operator's roots with real part >= 2 at that point, 2, 3 and 1 by 10.12; deforming h^-1 to 0 with beta held
+     below the roots keeps it; and rising into the free operator's window, where it is invertible ([Hin26c] Proposition
+     9.40 at n = 4, 10.20), lowers it by as many, (v).
  (c) (Theorem B.4) By (iii) and cform5.py C7 (positive definite iff d < b*), the positivity at cf holds for alpha_cf >
      1 - b*, and -(1/2) r^2 l(dr/r) has positive eigenvalues, so that it is positive definite with respect to the fiber
      inner product of his Lemma 3.3, which holds in five dimensions (10.13(i)), as he concludes. Near X, d tau is past
@@ -3977,23 +3986,27 @@ there; and his window claimed in (v). []
      3/2), and at h = 10^-6 provided that lies below the h_0 of Theorems 5.2 and B.4 -- the one point at which (a)'s
      roots are known.
  (e) ([Hin26] Theorem 7.1(4)) His proof applies Theorem B.1 at beta' = -beta + 3/2 - eps, the 3/2 from the density's
-     weight rho^-3; in five dimensions that weight is rho^-4 and the shift n/2 = 2 of (ii), and by (iv) beta' lies in
-     (0, 2 + C_0] for every sufficiently small eps > 0 iff beta in [-C_0, 2): the kernel half of tf-admissibility. The
-     adjoint half ([Hin26c] Definition 5.10, p. 104; his p. 137): an element of the kernel of N_tf(box^C, 1)^* on
-     e^(-2i/rho) A^(alpha, -2+beta) -- the ztf weight -n + 2 + beta of [Hin26c] Theorem 9.38(5) at n = 4 -- is improved
-     first at ztf by that theorem, then at R_in to the decay 3/2 + S_in - eps, S_in the bottom of the conjugated
-     operator's spectrum, h^-1 (1 - e)(1 + v) (10.21 K2; his p. 137), and so lies in the dual of Theorem B.1's spaces
-     with -l - 1 < -1/2 + S_in, the l-window's lower end by (iv); Theorem B.1 makes it 0. So, on the same readings and
-     at the same point, the constraint propagation operator on five-dimensional Tangherlini is tf-admissible for every
-     weight beta in [-C_0, 2), his [-C_0, 1), for C_0 <= 100.
+     weight rho^-3; in five dimensions that weight is rho^-4 ([Hin26c] p. 196: mu_e = r^^(n-1) |dr^ dg/| = rho^^-n
+     mu_b) and the shift n/2 = 2 of (ii), and by (iv) beta' lies in (0, 2 + C_0] for every sufficiently small eps > 0
+     iff beta in [-C_0, 2): the kernel half of tf-admissibility. The adjoint half ([Hin26c] Definition 5.10, p. 104,
+     stated for every n in his Corollary 9.39, p. 197, "with -1 + beta in (5.16) replaced by -n + 2 + beta"; his p.
+     137): an element of the kernel of N_tf(box^C, 1)^* on e^(-2i/rho) A^(alpha, -2+beta) is improved first at ztf, by
+     the normal-operator argument of the proof of [Hin26c] Theorem 9.38 (p. 196), then at R_in to the decay 3/2 + S_in -
+     eps, S_in = h^-1 (1 - e)(1 + v) the bottom of S-tilde's spectrum ((iv); his p. 137), and so lies in the dual of
+     Theorem B.1's spaces with -l - 1 < -1/2 + S_in, the l-window's lower end by (iv) -- the condition of [Hin26c]'s
+     parenthetical to (9.115) (p. 195), "when r|R_in,1 + alpha_+ > (n - 2)/2 - alpha", at alpha = (n - 1)/2 + S_in -
+     eps, for every n; Theorem B.1 makes it 0. At ztf, comparing the improved weight with the dual weight -beta' + 2 =
+     beta + eps asks beta < 2 again (the thirty-second verifier; not computed here). So, on the same readings and at the
+     same point, the constraint propagation operator on five-dimensional Tangherlini is tf-admissible for every weight
+     beta in [-C_0, 2), his [-C_0, 1), for C_0 <= 100.
 
 *READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-22): pp. 85-91 (Appendix B: (B.1)-(B.17), Theorem B.1,
 Proposition B.2 and its proof -- the beta-range from Theorem 4.9 on p. 89, the radial thresholds, the index 0 on p. 91),
 93-94 (Theorem B.4 with (B.31)-(B.33), the energy estimate (B.34)-(B.37)), 96-98 (the positivity at cf, (B.38)-(B.41),
 the eigenvalues of -(1/2) r^2 l(dr/r) and Lemma 3.3's inner product, the remark on Proposition 5.11, section B.4:
 (B.42)-(B.45) and the closing integral). [Hin26] (arXiv:2606.28253v2): pp. 136-137 (Theorem 7.1 and the proof of its
-part (4), both halves). [Hin26c] Definition 5.10 (p. 104) and Theorem 9.38(3), (5) (p. 195), as the thirty-first
-verifier read at source.
+part (4), both halves). [Hin26c] Definition 5.10 (p. 104), Theorem 9.38(3), (5) (p. 195) and its proof (p. 196),
+Corollary 9.39 and Proposition 9.40 (p. 197), as the thirty-first and thirty-second verifiers read at source.
 
 *What this gives, and what it does not.* The transition face problem reduces to the readings 10.19-10.22 already name:
 every number Appendix B takes in four dimensions -- the degree of homogeneity, the beta-range at the origin, the
@@ -4004,8 +4017,125 @@ The dimension moves the beta-range by 1/2 at both ends, (0, 2 + C_0] for his (1/
 1/102400 to 1 - b* and b* - 1 for his 1/2 and -1/2 (to 0 and 0 as e -> 0, 10.13(ii)), and the top of the tf weights from
 1 to 2, the Coulomb root n - 2; section B.4's choice works unchanged. Not done, and OPEN: the line-by-line readings
 ([Hin26a] sections 2.3 and 5.2 and Appendix B's edge-b version, [Hin26c] section 9, at n = 4); h_0; box^C's horizon
-threshold (10.21(d)); [Hin26] sections 6.5, 7.2 and 8 in five dimensions. Nothing of this section is proved: Proposition
-10.20 is computed, and (a)-(e) are deduced.
+threshold (10.21(d)); [Hin26] sections 6.5, 7.2 and 8 in five dimensions (section 8's Lemmas 8.4-8.5 and Proposition
+8.6 in 10.24). Nothing of this section is proved: Proposition 10.20 is computed, and (a)-(e) are deduced.
+
+### 10.24 [Hin26] Lemma 8.4 in five dimensions: the gauge-fixed Einstein operator's indicial roots (`lin5.py` E1-E5; D72)
+
+*The setting.* [Hin26] section 8 studies the linearized gauge-fixed Einstein operator L = D Ric + delta*_{E^C}
+delta_{E^Ups} G ((8.1)), whose Minkowski model has 2 L = box + 2 E^C delta G + 2 delta*_{E^C} E^Ups G ((8.5), the
+curvature term vanishing there). His Lemma 8.4 (p. 149) lists the indicial roots of its zero energy operator by harmonic
+type, in terms of box^Ups's (his Lemma 6.6) and box^C's ((7.8)): "All indicial roots ... are simple"; "there is a
+positive number eps_ind > 0 such that no indicial root has real part in the interval (0, eps_ind). Moreover, the number
+of roots of a fixed type with real parts <= 0, resp. >= eps_ind are equal"; and those from box^C with real part <= 0 lie
+below -100. His proof (pp. 149-151) explains the shifts -- a root lam of box^Ups gives lam + 1 through delta*, unless
+the indicial solution is a Killing 1-form, "and thus only for lam = -1, 0", and a root lam of box^C gives lam - 1
+through the adjoint -- and computes each type's determinant, as "- det N_vl(L(0), lam) = (lam + l)(lam - l - 1) x
+N_vl(box^Ups(0), lam - 1) x N_vl(box^C(0), lam + 1)" at vl (p. 151). Lemma 8.5 puts the kernel of N(L(0), 0) inside that
+of the gauge operator's; Proposition 8.6 (pp. 151-153) makes L tf-admissible with weight beta in (0, eps_ind) for small
+gam_Ups, the kernel half by the linearized second Bianchi identity, Lemma 8.5, his Theorem 7.1(4) and [Hin26c]
+Proposition 9.40 for box on symmetric 2-tensors, the cokernel half by an index argument that counts the roots crossed.
+10.12 and 10.15 computed box^C's and box^Ups's roots in five dimensions, and 10.23 deduced Theorem 7.1(4); 10.12 left
+whether the five-dimensional operator's gap also begins at 0 "not computed here". Not computed before this section: L's
+own roots in five dimensions, and its tensor harmonic type, which four dimensions lacks.
+
+**Proposition 10.21 (computed; exact, and numerical where said).** On 4+1 Minkowski, with E^Ups h = -gam_U (2
+iota_{c_U#} h - (2/3)(1 - e_U) c_U tr h), c_U = r^-1 dt, and E^C w = gam_C (2 c (x)_s w - (2/3)(1 - e_C) g <c, w>), c =
+r^-1 (dt - v dr), let N(lam) be the indicial family of r^2 L(0) on static tensors r^-lam u, u of degree 0 and of one
+harmonic type of degree l on S^3 -- scalar (S = z^l), vector (z^(l-1) beta) or tensor (z^(l-2) beta (x) beta), beta = z
+dw - w dz on C^2 = R^4 -- of size 4 at s0, 6 at s1, 7 at sl (l >= 2), 2 at v1, 3 at vl (l >= 2) and 1 at tl (l >= 2):
+
+ (i) (the types; (8.5)) At two points of R^4, |x| = 5 and 3, the images under r^2 L of the basis tensors of types s0,
+     s2, v1, v2 and t2 lie in their span, with the same N(lam) at both, and (8.5) holds at both on each (E1).
+ (ii) (the factorization) Every parameter symbolic, det N_L(lam) = c (lam + l)(lam - l - 2) det N_Ups(lam - 1) det
+     N_C(lam + 1) / D(lam), c a nonzero number, with D = (lam - 1)^2 at s0 and s1, lam (lam - 2) at v1 and 1 at sl and vl
+     (l >= 2 symbolic); at tl, det N_L = c (lam + l)(lam - l - 2) (E2).
+ (iii) (cross-checks; the free operator) det N_Ups and det N_C are gaugepot5.py G1's and damping5.py's, up to constants
+     and, for det N_C, the power of h = 1/gam_C by which damping5.py normalizes; at gam_U = gam_C = 0, where 2 L = box,
+     every type has integer roots, none in (0, 2), as many <= 0 as >= 2 (l = 0, 1 and l = 2, 3, 7) (E4).
+ (iv) (the point) At (v, e_C, gam_C) = (1/2, 1/102400, 10^6) and (e_U, gam_U) = (1/100, 1/100), for every type and l <=
+     12, the roots (those of the factors of (ii), by mpmath at 50 digits) are simple; none has real part in (0, 1]; s0
+     has 4 | 4 with real part <= 0 | > 1, s1 6 | 6, sl 7 | 7, v1 2 | 2, vl 3 | 3 and tl 1 | 1; box^C's with real part <=
+     0 lie below -101; the least positive real part is 1.000003 (box^C's root nearest 2, less 1, at l = 2), the greatest
+     negative -3.3333 x 10^-7 (box^Ups's at s1, -z/12 to first order in z = 4 e_U gam_U^2 = 4 x 10^-6), and the least
+     distance from Z of the real part of a non-integer root with |lam| <= 50 is 7.3846 x 10^-8; 0 is a root of s0 and s2
+     only, where the kernel of N(L, 0) is one-dimensional and N(r^-1 delta_{E^Ups} G, 0) vanishes on it (exact) (E5).
+
+*Proof.* E1-E5 of lin5.py. The operators are built from their definitions in Cartesian coordinates, r an independent
+symbol, on fields r^-(lam + deg) times expressions of degree deg, with z^p a symbol of derivative p z^p dz/z so that l
+is symbolic; N(lam) is read off at a point by least squares, with the closure residual exactly 0, and the determinants
+are taken over Q[lam, gam_U, e_U, gam_C, e_C, v]. Four-dimensional control (E3): at n = 3 and the trace weight 1 the
+same computation gives his (1)-(5), s0 with no factor, s1 and v1 (lam + 1)(lam - 2)/(lam (lam - 1)), sl and vl (lam +
+l)(lam - l - 1). Controls: in (i) a scalar basis with its Hessian tensor replaced by the tensor type's, which is not
+closed; in (ii) the four-dimensional factor (lam + l)(lam - l - 1) claimed; in (iii) the gap (0, 3) claimed; in (iv) D
+kept at s0, where the root 1 enters (0, 1]. []
+
+*Deduced.*
+
+ (a) (his Lemma 8.4 in five dimensions, every l) By (ii) the roots of each type are box^Ups's plus 1, box^C's minus 1,
+     and -l and l + 2, less D's. By Proposition 10.12(i), for z = 4 e_U gam_U^2 > 0 every root of box^Ups is at most 0
+     or above 2, so plus 1 at most 1 or above 3; the only ones in (0, 1] are the 1 that its root 0 gives at s0 and at s1
+     (the Killing dt and dx; 1 - l at l = 1), and D removes them, as it removes the 0 that its root -1 gives at v1 (the
+     rotations) -- his "only for lam = -1, 0". By Proposition 10.9, at the point and for every l, every root of box^C
+     has real part below -100 or above 2, but the Coulomb root 2 at l = 0 and 1, which D removes; so minus 1 below -101
+     or above 1. And -l <= 0 < 2 <= l + 2. So for every l no root has real part in (0, 1], and since the roots
+     accumulate only at infinity (Proposition 10.9's, and box^Ups's explicitly), the least positive real part is
+     attained and exceeds 1 (1.000003 at l <= 12 at the point), and the gap is (0, eps_ind) for any eps_ind up to it.
+     Counting each factor's roots on either side -- box^C 2 | 2 at l = 0, 3 | 3 scalar and 1 | 1 vector for l >= 1
+     (Proposition 10.9's certificates); box^Ups 2 | 2 at s0, 3 | 3 at sl and 1 | 1 at vl (10.12(i)); the physical 1 | 1
+     -- with D removing one root on each side (box^Ups's at 0 or -1 on the left, box^C's 2 or 3 on the right), every
+     type splits evenly for every l: s0 4 | 4, s1 6 | 6, sl 7 | 7, v1 2 | 2, vl 3 | 3, tl 1 | 1, as (iv) computes at l
+     <= 12. And 0 is a root only of s0 (the physical -l) and s2 (box^Ups's 1 - l), each simple. Simplicity in general is
+     computed only for l <= 12; his (8.13), which asks d(Re lam, Z) >= eps_ind for the non-integer roots with |lam| <=
+     50, holds for l <= 12 by (iv) once eps_ind is at most 7.3846 x 10^-8 -- box^Ups's shifted roots lie within O(z/l)
+     of integers, the nearest computed at l = 12, so that over |lam| <= 50, which reaches l near 50, the bound is
+     smaller still and not computed -- and he uses it "only really ... for |lam| <= 4".
+ (b) (Lemma 8.5) At the point, by (iv). For every parameter, his proof carries over: by (a) the kernel at s0 is
+     one-dimensional, spanned by delta* of t dt plus the correction -N(box^Ups(0), -1)^-1 [box^Ups, t] dt, which is well
+     defined since -1 is not an s0 root of box^Ups for z > 0 (10.12(i): 0, 3 and (1 +- (9 + 4z)^(1/2))/2), and at s2 by
+     delta* of the kernel of N_s2(box^Ups(0), -1), -1 = 1 - l being box^Ups's root there; both are annihilated by the
+     gauge operator, since box^Ups annihilates the 1-forms.
+ (c) (Proposition 8.6, the kernel half) For beta in (0, eps_ind) and N_tf(L, sigma^) u_0 = 0: the indicial roots at r^ =
+     0 are the negatives of (a)'s, so the first above -beta is the s0 and s2 root 0, and u_0 is its indicial solutions
+     plus an element of A^(alpha, delta) for delta in (0, 1) with every negative real part below -delta -- delta exists:
+     by (a) and 10.12(i), for l >= 2 every negative real part is at most -1, so the greatest is at l <= 1, -3.3333 x
+     10^-7 at the point (iv). The linearized second Bianchi identity holds in any dimension, so the gauge 1-form eta_0
+     solves N_tf(box^C(0), sigma^) eta_0 = 0; its r^^-1 leading term vanishes by (b), so eta_0 lies in A^(alpha, delta -
+     1), and since 1 - delta lies in [-C_0, 2), Theorem 7.1(4) in five dimensions (10.23(e)) gives eta_0 = 0. Then u_0
+     solves the operator with the unmodified symmetric gradient; at gam_Ups = 0 that is box/2, which acts componentwise
+     on symmetric 2-tensors in the Cartesian frame, so by 10.20(b) ([Hin26c] Proposition 9.40 at n = 4) it is
+     tf-admissible with every weight in (0, 2), and by the uniformity of [Hin26c] (9.111) for small gam_Ups, u_0 = 0 --
+     once u_0 lies in the domain of [Hin26c] (9.112), which his proof obtains by improving the decay at sctf with (8.7)
+     and the threshold at the outgoing radial set ([Hin26c] Theorem 9.38(5)). In five dimensions that improvement needs
+     the spectrum of S-bar_{E^Ups, E^C} of his Lemma 8.2, not computed here.
+ (d) (Proposition 8.6, the cokernel half) His index argument (p. 153), with the density r^^3 |dr^ dg/| and -q + 2 in (0,
+     eps_ind) for his -q + 3/2 (the shift n/2 = 2 of 10.23(ii)): on each type, raising q past every root crosses the
+     roots with real part <= 0, 4, 6, 7, 2, 3 or 1 by (a), lowering the index by as many; deforming gam_Ups and gam_C to
+     0 with q held above every root keeps it; at gam = 0, N_tf(L, 1) = N_tf(box/2, 1), and lowering q into -q + 2 in (0,
+     2) crosses the free operator's roots with real part <= 0, as many by (iii) -- for every l, box acting componentwise
+     with the roots -k and k + 2 on harmonics of degree k -- raising it by as many; there box/2 is invertible
+     (10.20(b)). So the index of (8.17) is 0 and, with (c), its cokernel is trivial. He writes that 3 roots are crossed
+     at scalar type l >= 2; his own list has 7 on each side there, 3 being the count for 1-forms of that type (box^Ups's
+     and box^C's 3 | 3); the argument uses only that the two counts agree. So, on the readings of 10.19-10.23 and with
+     (c)'s threshold OPEN, L is tf-admissible on 4+1 Minkowski with every weight beta in (0, eps_ind), for gam_Ups
+     small, at the point.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 28 (section 1.4.3's three kinds of indicial roots, "With
+no modifications E^Ups and E^C, it would be (0, 1) just as for the scalar wave operator", footnote 28), 144-146 (section
+8: (8.1)-(8.5), Lemma 8.2), 149-151 (Lemma 8.4, (8.13), its proof, Lemma 8.5 and its proof), 151-153 (section 8.3,
+(8.15)-(8.17), Proposition 8.6 and its proof, both halves, Corollary 8.7), 117 (Lemma 6.6), 135-137 ((7.3)-(7.8),
+Theorem 7.1).
+
+*What this gives, and what it does not.* His Lemma 8.4 in five dimensions, for every l, from a computed factorization and
+the roots of 10.12 and 10.15: the physical roots are -l and l + 2, the Coulomb exponent n - 2 = 2 in place of his 1, and
+the mass the s0 root 2; the gap begins at 0, which 10.12 left open, and reaches past 1 -- in four dimensions 1 is an s0
+root and his gap is (0, eps_ind) with eps_ind < 1; each type splits evenly, the tensor type included; and box^C's
+nonpositive roots lie below -101. Lemma 8.5 is computed at the point and deduced for every parameter, and Proposition 8.6
+is deduced on readings but for one input. Not done, and OPEN: the spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2) and
+(8.7) in five dimensions; simplicity and (8.13) beyond l <= 12; how small gam_Ups must be, and h_0; his Proposition 8.3
+(strong trapping admissibility of L), section 8.4 (mode stability, Proposition 8.8, which uses [AHW24] on Kerr), section
+8.5, and sections 9-10, in five dimensions. Nothing of this section is proved: Proposition 10.21 is computed, and (a)-(d)
+are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

@@ -215,7 +215,8 @@ CHECKS = [("Q1 Tangherlini a 3sc-metric: Gamma in mu rho^3 C^oo by scaling, (2.1
            q1, 1),
           ("Q2 near X: d tau past timelike for g_3b on tau in [0, T], every T < 1, uniformly to infinity", q2, 1),
           ("Q3 near Sigma#: dr future timelike on [r_h/2, r_h), m - r a time function, Sigma# spacelike", q3, 1),
-          ("Q4 his Proposition 5.1 (4)-(5) at 10.21's weights (1, -C_0 - 5/2): positive at dK+, R_v, all C_0", q4, 1)]
+          ("Q4 his Proposition 5.1 (4)-(5) at 10.21's weights (1, -C_0 - 5/2): positive at dK+, R_v, every C_0 >= 0",
+           q4, 1)]
 
 
 def selftest(verbose=False):

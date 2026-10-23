@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """tface5.py -- the five-dimensional inputs of [Hin26a] Theorem B.1, the invertibility of the dilation-invariant model
 of the constraint propagation operator on Minkowski space (the transition face problem), and the weights by which
-[Hin26] Theorem 7.1(4) follows from it (N1STAR-PROOF.md section 10.23; ROUTES-OPEN.md 4.24; D69, D71).  Labels: computed
-(exact, sympy), deduced, READ.
+[Hin26] Theorem 7.1(4) follows from it (N1STAR-PROOF.md section 10.23; ROUTES-OPEN.md 4.24; D69, D71, D72).  Labels:
+computed (exact, sympy), deduced, READ.
 
 [Hin26a] (arXiv:2606.27658v2) Appendix B, on R_t x R^3: box^C = 2 delta G (delta* + C_h) with c = r^-1 (dt - v dr) is
 homogeneous of degree -2 under dilations ((B.2), (B.10)); its spectral family at sigma in e^(i[0, pi]) is a scattering
@@ -33,11 +33,12 @@ being due to the weight rho^-3 of this density" (p. 137).
      to cform5.py's: det T(d) = c (2 - d)^3 q(d, 0), with q(d, 0) = 204795 d^2 - 409605 d + 204801 derived (C7's), and
      an eigenvalue first reaches 0 at d = b* = 0.99340731..., the smaller root of q(d, 0); T is positive definite at
      alpha_cf = 5/2 and at d = 0.9934, not at d = 0.9935 -- so the threshold alpha_cf > 1 - b*; as e -> 0 (B is singular
-     at e = 0: e symbolic, then the limit) its eigenvalues are 2 - d (three times), 1 - d and 2 - 2 d, the threshold d <
-     1 of 10.13 (W3); at the sink, alpha_sf < b* - 1 (10.22).  And -(1/2) r^2 l(dr/r) has characteristic polynomial
-     (lam - v)^(n-1) (lam^2 - (3 - e) v lam + (2 - e) v^2 - e), his matrix [[v, -1], [-e, (2 - e) v]] with n - 1 copies
-     of v, with positive eigenvalues at this point and at e = 0 -- "and is thus positive definite (with respect to the
-     fiber inner product from Lemma 3.3)", he concludes from the eigenvalues (READ, p. 96; deduced in five dimensions).
+     at e = 0; T's entries are polynomial in e, so the limit is a substitution) its eigenvalues are 2 - d (three times),
+     1 - d and 2 - 2 d, the threshold d < 1 of 10.13 (W3); at the sink, alpha_sf < b* - 1 (10.22).  And -(1/2) r^2
+     l(dr/r) has characteristic polynomial (lam - v)^(n-1) (lam^2 - (3 - e) v lam + (2 - e) v^2 - e), his matrix [[v,
+     -1], [-e, (2 - e) v]] with n - 1 copies of v, with positive eigenvalues at this point and at e = 0 -- "and is thus
+     positive definite (with respect to the fiber inner product from Lemma 3.3)", he concludes from the eigenvalues
+     (READ, p. 96; deduced in five dimensions).
      Four-dimensional control, computed: as e -> 0 the eigenvalues 1 - 2 d, 1/2 - d and 3/2 - d (twice), so d < 1/2, his
      alpha_cf > 1/2 ((4.7)); at e = 1/102400 the first zero at d = 0.4956; and the matrix with two copies of v.
      Controls: alpha_cf = 0; the characteristic polynomial with n - 2 copies of v.
@@ -49,19 +50,24 @@ being due to the weight rho^-3 of this density" (p. 137).
      X's r^(n-1) |dr dg/| in (tau = t/r, r) -- the one time direction, whatever n -- so the traces lie in
      rho_sf^(alpha_sf + 1/2) rho_cf^(alpha_cf - 1/2) L^2, and l - 1 >= alpha_sf + 1/2, beta >= alpha_cf - 1/2 (the l - 1
      of his sc-to-b inclusion READ); a kernel element of size rho^((n - 1)/2 + S-bar - eps) lies in rho^l L^2(r^(n-1)
-     dr) iff l < -1/2 + S-bar - eps, the -1/2 dimension-free; the adjoint half: an element of the adjoint kernel of size
-     rho^((n - 1)/2 + S_in - eps) at R_in, S_in = h^-1 (1 - e)(1 + v) the bottom of spec (A_w + S-bar^C) (10.21 K2,
-     typed from there), lies in rho^(-l-1) L^2 iff l > -1/2 - S_in + eps, the l-window's lower end; and beta' = -beta +
-     n/2 - eps lies in F2's range for every sufficiently small eps > 0 iff beta in [-C_0, n - 2) (the endpoints tested
-     with symbolic eps and delta: -C_0 in, -C_0 - delta out, n - 2 out, n - 2 - delta in) -- so the weights of
-     tf-admissibility are [-C_0, 2) in five dimensions, his [-C_0, 1) (10.23(e)).  Four-dimensional control: his
-     numbers.  Controls: alpha_cf = -alpha_sf - 1, where the closing integral converges; his top 1 claimed in five
-     dimensions.
+     dr) iff l < -1/2 + S-bar - eps, the -1/2 dimension-free; the adjoint half: box^C's formal adjoint (dt dx, the
+     Euclidean fibre product in the Cartesian frame), in the incoming T = t + r ([Hin26c] (9.117)), has mixed
+     coefficient -2 Id and no d_T^2 term, and S-tilde = -(r/2) (its d_T coefficient) - (n - 1)/2 has spectrum h^-1 {(1 -
+     e)(1 + v), 2 (1 + v), 1 + v (n - 1 times)}, whose bottom S_in = h^-1 (1 - e)(1 + v) is 10.21 K2's spec (A_w +
+     S-bar^C) (the thirty-second verifier's construction); an element of the adjoint kernel of size rho^((n - 1)/2 +
+     S_in - eps) at R_in lies in rho^(-l-1) L^2 (the dual weight -l - 1 READ, his p. 137) iff l > -1/2 - S_in + eps, the
+     l-window's lower end; and beta' = -beta + n/2 - eps lies in F2's range for every sufficiently small eps > 0 iff beta
+     in [-C_0, n - 2) (the endpoints tested with symbolic eps and delta against F2's range: -C_0 in, -C_0 - delta out,
+     n - 2 out, n - 2 - delta in) -- so the weights of tf-admissibility are [-C_0, 2) in five dimensions, his [-C_0, 1)
+     (10.23(e)).  Four-dimensional control: his numbers, his p. 137's bottom h^-1 (1 - e)(1 + v) among them.  Controls:
+     alpha_cf = -alpha_sf - 1, where the closing integral converges; his top 1 claimed in five dimensions, which the
+     endpoints then refuse; the bottom h^-1 (1 - e)(1 - v) claimed for S_in.
   F5 (computed, exact; what follows "so" is deduced) Proposition B.2's index 0 in five dimensions, his relative index
      argument (p. 91): the free 1-form wave operator 2 delta G delta* (gaugepot5.py's box at gamma = 0) has at the
      origin the r-roots, minus its rho-roots at infinity, -3, -2 | 0, 1 at l = 0, -l - 3, -l - 2, -l - 1 | l - 1, l, l +
      1 for scalar type l >= 1 and -l - 2 | l for vector type, so the window of beta - 2 between the two groups contains
-     (-2, 0), where the free operator is invertible ([Hin26c] Proposition 9.40 at n = 4, 10.20), and rising into it from
+     (-2, 0), where the free operator is invertible ([Hin26c] Proposition 9.40 at n = 4, 10.20); the roots are simple,
+     their count the degree of each polynomial; and rising into it from
      below crosses 2, 3 and 1 roots -- as many as the damped operator's roots with real part >= 2 at Proposition 10.9's
      point that his argument crosses the other way (10.12's counts, typed from there).  Four-dimensional control: his
      -l - 2, -l - 1, -l | l - 1, l, l + 1 and window (-l, l - 1) for beta - 3/2, with his Theorem 4.9(3)'s counts.
@@ -78,8 +84,9 @@ READ.  [Hin26a] pp. 85-91 (Appendix B: (B.1)-(B.17), Theorem B.1, Proposition B.
 Theorem 4.9 on p. 89, the radial thresholds, the index 0 on p. 91), 93-94 (Theorem B.4 with (B.31)-(B.33), the energy
 estimate (B.34)-(B.37)), 96-98 (the cf positivity, (B.38)-(B.41), the eigenvalues of -(1/2) r^2 l(dr/r), the remark on
 Proposition 5.11, section B.4: (B.42)-(B.45) and the closing integral); [Hin26] pp. 136-137 (Theorem 7.1 and its proof
-of part (4), both halves); alphaXiv, 2026-10-22 and 2026-10-23.  [Hin26c] Definition 5.10 (p. 104) and Theorem 9.38(5)
-(p. 195), as the thirty-first verifier read at source.
+of part (4), both halves); alphaXiv, 2026-10-22 and 2026-10-23.  [Hin26c] Definition 5.10 (p. 104), Theorem 9.38(3)
+and (5) (p. 195), Corollary 9.39 and Proposition 9.40 (p. 197), as the thirty-first and thirty-second verifiers read at
+source.
 
 sympy.  python3 tface5.py [--selftest | --mutants]   (--verbose lists every sub-check)
 """
@@ -276,6 +283,53 @@ def f3(control=0, verbose=False):
 
 
 # ------------------------------------------------------------------------------------------------- F4
+def s_tilde(n, m):
+    """box^C's formal adjoint (dt dx, the Euclidean fibre product, Cartesian frame) in (T = t + r, x) near R_in: S-tilde
+    = -(r/2) (its d_T coefficient) - (n - 1)/2, and its d_T d_x1 and d_T^2 coefficients, on the x_1-axis"""
+    N = n + 1
+    t = sp.Symbol("t")
+    x = sp.symbols("x1:%d" % (n + 1), real=True)
+    X = (t,) + x
+    r = sp.sqrt(sum(xi**2 for xi in x))
+    eta = sp.diag(-1, *([1]*n))
+    W = [sp.Function("W%d" % a)(*X) for a in range(N)]
+    c = [1/r] + [-v*xi/r**2 for xi in x]
+    cw = sum(eta[a, a]*c[a]*W[a] for a in range(N))
+    S = sp.Matrix(N, N, lambda a, b: (D(W[b], X[a]) + D(W[a], X[b]))/2
+                  + (c[a]*W[b] + c[b]*W[a] - m*(1 - e)*eta[a, b]*cw)/h)
+    trS = sum(eta[a, a]*S[a, a] for a in range(N))
+    P = [sp.expand(-2*sum(eta[k, k]*D((S - eta*trS/2)[a, k], X[k]) for k in range(N))) for a in range(N)]
+    coef = {}                                                  # P_a = sum K[a, b, gamma] d^gamma W_b
+    for a in range(N):
+        for tm in sp.Add.make_args(P[a]):
+            dd = list(tm.atoms(sp.Derivative))
+            if dd:
+                b, gam, k = W.index(dd[0].expr), tuple(dd[0].variables), tm/dd[0]
+            else:
+                f = [g for g in tm.atoms(sp.Function) if g in W][0]
+                b, gam, k = W.index(f), (), tm/f
+            coef[(a, b, gam)] = coef.get((a, b, gam), 0) + k
+    T = sp.Symbol("T")
+    U = [sp.Function("U%d" % a)(T, *x) for a in range(N)]
+
+    def d(f, var):
+        return D(f, T) if var == t else D(f, var) + var/r*D(f, T)
+    Ps = [0]*N
+    for (a, b, gam), k in coef.items():
+        f = k*U[a]
+        for var in gam:
+            f = d(f, var)
+        Ps[b] += (-1)**len(gam)*f
+    R = sp.Symbol("R", positive=True)
+    pt = {x[0]: R, **{xi: 0 for xi in x[1:]}}
+    Ps = [sp.expand(q) for q in Ps]
+    at = lambda q: sp.simplify(q.subs(pt))
+    dT = sp.Matrix(N, N, lambda b, a: at(Ps[b].coeff(D(U[a], T))))
+    mixed = sp.Matrix(N, N, lambda b, a: at(Ps[b].coeff(D(U[a], T, x[0]))))
+    d2 = sp.Matrix(N, N, lambda b, a: at(Ps[b].coeff(D(U[a], T, 2))))
+    return (-R/2*dT - sp.Rational(n - 1, 2)*sp.eye(N)).applyfunc(sp.simplify), mixed, d2
+
+
 def f4(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
     C0, eps, Sb, dl = sp.symbols("C_0 epsilon Sbar delta", positive=True)
@@ -306,8 +360,12 @@ def f4(control=0, verbose=False):
         aa = sp.Symbol("aa")
         lmax = sp.solve(sp.Eq(2*((sp.Rational(n - 1, 2) + Sb - eps) - aa) - n - 1, -1), aa)[0]  # rho^k in rho^l L^2
         dimfree = sp.simplify(lmax - (-HALF + Sb - eps)) == 0
-        # the adjoint half: decay (n - 1)/2 + S_in - eps at R_in, S_in the bottom of spec(A_w + S-bar^C) (10.21 K2)
-        S_in = (1 - e)*(1 + v)/h
+        # the adjoint half: decay (n - 1)/2 + S_in - eps at R_in, S_in the bottom of spec S-tilde (10.21 K2's)
+        St, mixed, d2 = s_tilde(n, sp.Rational(2, n - 1))
+        evs = list(St.eigenvals())
+        bottoms = [k for k in evs if all(sp.factor(sp.together((k2 - k).subs(sub))).is_nonnegative for k2 in evs)]
+        form = mixed == -2*sp.eye(n + 1) and d2 == sp.zeros(n + 1, n + 1) and len(bottoms) == 1
+        S_in = sp.factor(bottoms[0]) if control != 3 else (1 - e)*(1 - v)/h          # control 3: the other bottom
         lmax_in = lmax.subs(Sb, S_in)                                          # rho^(-l-1) needs -l - 1 < lmax_in
         adj = sp.simplify((-1 - lmax_in.subs(eps, 0)) - lo_w) == 0             # -l - 1 < ... iff l > lo_w (+ eps)
         # the tf weights: beta' = -beta + n/2 - eps in (lo, hi] for every sufficiently small eps > 0
@@ -316,16 +374,15 @@ def f4(control=0, verbose=False):
         top = (n - 2) if control != 2 else 1                                    # control 2: his top 1 claimed
         ends = (sp.simplify((bp - hi).subs(b_, -C0)) == -eps                    # -C_0 in for every eps
                 and sp.simplify((bp - hi).subs(b_, -C0 - dl)) == dl - eps        # -C_0 - delta out once eps < delta
-                and sp.simplify((bp - lo).subs(b_, top)) == -eps + (n - 2 - top)  # the top out for every eps (iff n-2)
-                and sp.simplify((bp - lo).subs(b_, top - dl)) == dl - eps + (n - 2 - top))
-        ends = ends and top == n - 2
+                and sp.simplify((bp - lo).subs(b_, top)) == -eps                 # the top out for every eps
+                and sp.simplify((bp - lo).subs(b_, top - dl)) == dl - eps)       # top - delta in once eps < delta
         want_c0 = {4: sp.Rational(3, 2), 3: 2}[n]
         chk(f"n + 1 = {n + 1}: (alpha_sf, alpha_cf) = ({a_sf}, {a_cf}) above the computed thresholds (d* = "
             f"{sp.N(dstar, 6)}), int_1^oo {integrand} dt diverges; l = -1/2 in the l-window; beta = 7/2 in the origin "
             f"range iff C_0 >= {c0_min}; data in (B.33), shifts ({sh_sf}, {sh_cf}); l < -1/2 + S-bar - eps "
-            f"dimension-free; the adjoint's R_in threshold the l-window's lower end; for every small eps tf weights "
-            f"beta in [-C_0, {top})",
-            bool(thr) and closing and bool(in_win) and c0_min == want_c0 and data and dimfree and adj and ends)
+            f"dimension-free; S-tilde's bottom {S_in}, the adjoint's R_in threshold the l-window's lower end; for "
+            f"every small eps tf weights beta in [-C_0, {top})",
+            bool(thr) and closing and bool(in_win) and c0_min == want_c0 and data and dimfree and form and adj and ends)
     return chk.ok
 
 
@@ -340,7 +397,8 @@ def f5(control=0, verbose=False):
         ok = True
         info = []
         for name, P in (("s0", s0), ("sl", sl), ("vl", vl)):
-            rr_ = [-z for z in sp.roots(sp.Poly(P, lam_)).keys()]                    # r-roots at the origin
+            rts_ = sp.roots(sp.Poly(P, lam_))
+            rr_ = [-z for z in rts_]                                               # r-roots at the origin
             def below(z):                                                         # Re z <= -(n - 2) for every l >= 1
                 z1 = sp.expand(z)
                 return z1.subs(L_, 1) <= -(n - 2) and sp.diff(z1, L_) <= 0
@@ -352,6 +410,7 @@ def f5(control=0, verbose=False):
             win_lo = max(lower, key=lambda z: z.subs(L_, 1))
             win_hi = min(upper, key=lambda z: z.subs(L_, 1))
             good = len(lower) + len(upper) == len(rr_) and len(lower) == damped[name]
+            good &= set(rts_.values()) == {1} and len(rts_) == sp.Poly(P, lam_).degree()      # simple, all found
             if control == 1 and n == 4 and name == "sl":
                 win_lo, win_hi = -L_, L_ - 1                                     # control: his window in 5D
             good &= sp.expand(win_lo - (lower and max(lower, key=lambda z: z.subs(L_, 1)))) == 0
@@ -372,7 +431,7 @@ def f5(control=0, verbose=False):
 CHECKS = [("F1 box^C on 4+1 Minkowski dilation invariant of degree -2, d_t* counted: (B.10)", f1, 1),
           ("F2 the beta-range at the origin in five dimensions: (0, 2 + C_0], his (1/2, 3/2 + C_0]", f2, 1),
           ("F3 Theorem B.4's thresholds: alpha_cf > 1 - b* at cf; -(1/2) r^2 l(dr/r) has positive eigenvalues", f3, 2),
-          ("F4 section B.4's choice; the weights of Theorem 7.1(4), both halves, in five dimensions: [-C_0, 2)", f4, 2),
+          ("F4 section B.4's choice; the weights of Theorem 7.1(4), both halves, in five dimensions: [-C_0, 2)", f4, 3),
           ("F5 Proposition B.2's index 0 in five dimensions: the free operator's roots, windows and counts", f5, 1)]
 
 
