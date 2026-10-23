@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """puregauge5.py -- [Hin26] Proposition 6.18 (4)-(7) in five dimensions: the pure gauge generalized zero energy states
 built on the growing indicial roots of box^Ups(0) that carry no symmetry (N1STAR-PROOF.md section 10.30; ROUTES-OPEN.md
-4.31; D84).  Labels: computed (exact, sympy), deduced, READ.
+4.31; D84, D85).  Labels: computed (exact, sympy), deduced, READ.
 
 [Hin26] (arXiv:2606.28253v2) Proposition 6.18 (4)-(7) records "the remaining four classes of pure gauge solutions"
 (p. 130), built on the indicial roots mu of box^Ups(0) below -1 and the s2 root -1: (4) the s0 root -lam^Ups_s0,1,
@@ -17,11 +17,11 @@ and vl 1-forms c r V, V = P(x^3, x^4)(x^1 dx^2 - x^2 dx^1)/r^(l + 1), P harmonic
 Minkowski (trace weight 1) is the control.  z = 4 e gam^2 in both dimensions (his z in four dimensions is z/4).
 
   J1 (computed, exact) The indicial families.  N0(lam) = rho^-2 A0 and N1(lam) = rho^-1 A1 on rho^lam times each pure
-     type, s0, sl (l = 1, ..., 5) and vl (l = 1, ..., 4), the same at two generic angles, and A2 = 0.  Four
-     dimensions: N0 is his Lemma 6.6 matrix entry by entry (p. 117), N0_v1 = -lam^2 + lam + 2 and N1_v1 = -2 (lam - 1 -
-     gam) (p. 134), N1 = -2 (lam - 1) + 2 S-bar with S-bar free of lam.  Five dimensions: det N0 is exactly 10.15(i)'s
-     polynomial, N1 = -2 (lam - 3/2) + 2 S-bar, N0_vl = -(lam + l)(lam - l - 2) and N1_vl = -2 (lam - 3/2 - gam).
-     Control: his four-dimensional matrices claimed in five dimensions.
+     type, s0, sl (l = 1, ..., 5) and vl (l = 1, ..., 4), the same at two generic angles, and A2 = 0.  Four dimensions:
+     N0 is his Lemma 6.6 matrix entry by entry (p. 117), N0_v1 = -lam^2 + lam + 2 and N1_v1 = -2 (lam - 1 - gam) (p.
+     134), N1 = -2 (lam - 1) + 2 S-bar with S-bar free of lam.  Five dimensions: det N0 is 10.15(i)'s polynomial (ratio
+     1), N1 = -2 (lam - 3/2) + 2 S-bar, N0_vl = -(lam + l)(lam - l - 2) and N1_vl = -2 (lam - 3/2 - gam).  Control: his
+     four-dimensional matrices claimed in five dimensions.
   J2 (computed, exact) The classes.  Five dimensions, every l: Q(l(l + 1)) = l z and Q((l + 1)(l + 2)) = -(l + 2) z, so
      for z > 0 the two negative roots of Q lie in (-l - 1, -l) and below -l - 1, mu_l,0 = -l - l z/(2 (l + 1)(2l + 1))
      + O(z^2) and mu_l,1 = -l - 1 - (l + 2) z/(2 (l + 1)(2l + 3)) + O(z^2) (computed for l <= 6, with the roots at z =
@@ -32,28 +32,40 @@ Minkowski (trace weight 1) is the control.  z = 4 e gam^2 in both dimensions (hi
      1) in his z, all from J1's matrices.  Control: z < 0, where the roots move the other way.
   J3 (computed, exact) delta-bar* on indicial solutions.  N(delta-bar*(0), lam) fails to be injective only at 0 (s0,
      s1) and -1 (v1) -- the real roots of det(M^T M), M its matrix at two generic angles -- in five dimensions as in
-     four, never at sl or vl for l >= 2: so every class root has symmetric gradient nonzero at rho^(mu + 1).  Four
+     four, never at sl (2 <= l <= 5) or vl (2 <= l <= 4; every l by his Killing-form argument, p. 67, deduced): so
+     every class root has symmetric gradient nonzero at rho^(mu + 1).  Four
      dimensions: his (2.46a), (2.46b) and (2.46c) entry by entry (p. 67), and his remark after them.  Control: v1
      claimed injective at -1 (the rotations).
   J4 (computed, exact) No resonance.  For each class root mu and each shift its construction meets -- mu - k for the
      t*-recursion, k up to his range; mu + 2 for the stationary correction on Tangherlini, whose zero energy operator
      differs from Minkowski's in rho^4 Diff^2_b (10.28(i)), mu + 1 in four dimensions; and mu itself, simple -- the
-     resultant against the type's polynomial has no zero in 0 < z < 4 (four dimensions 0 < z < 3; at z = 4 the s0 root
-     is -2, two above it 0).  At z = 0 the integer coincidences e_Ups > 0 removes (his p. 81 and Remark 6.7) are: at sl,
-     mu_l,0 - 1 = mu_l,1, mu_l,1 + 2 = -l + 1, and -l + 1 - k = mu_l,k-1 at k = 1, 2; four dimensions, mu + 1 = 0 at
-     s0, and at sl mu_l,0 - 1 = mu_l,1, mu_l,1 + 1 = mu_l,0, mu_l,0 + 1 = -l + 1 and -l + 1 - k = mu_l,k-1; none at vl
-     at any z.  Control: z = 0.
+     resultant against the type's polynomial has least positive zero exactly z = 4 (four dimensions 3).  At z = 4 the
+     s0 class root -2 meets the Killing root 0 under the shift +2, so 4 is sharp; at z = 3 in four dimensions only the
+     s0 partner root 2 meets (2 - 2 = 0, and 2 is double), the class root -2 meets nothing, so 3 is not sharp.  At z = 0
+     the coincidences e_Ups > 0 removes (his p. 81 and Remark 6.7) are exactly: at sl, mu_l,0 - 1 = mu_l,1, mu_l,1 + 2 =
+     -l + 1, and -l + 1 - k = mu_l,k-1 for k <= min(2, 5 - l); four dimensions, mu + 1 = 0 at s0, and at sl mu_l,0 - 1 =
+     mu_l,1, mu_l,1 + 1 = mu_l,0, mu_l,0 + 1 = -l + 1 and the same -l + 1 - k; none at vl at any z.  Controls: z = 0
+     claimed free of them; the range claimed 0 < z < 5.
   J5 (computed, exact) The states.  On Minkowski t*^k omega-bar + sum_i k!/(k - i)! t*^(k - i) omega-breve-bar^i, by J1's
      recursion, is in ker box^Ups at every class's largest k: exactly in e and gam at the integer roots (sl -l + 1, vl
      -l; both dimensions), and for s0 and the roots of Q with mu a symbol modulo its polynomial at (e, gam) = (1/3, 1/2)
-     and (1/7, 2/5).  At vl, omega-breve-bar^i = kappa_i r^i omega-bar with kappa_i = prod_(j <= i) (2l + 2j + 1 + 2
-     gam)/(j (2l + j + 2)) (four dimensions 2 (l + j + gam)/(j (2l + j + 1))), l <= 4 and i <= 3: at l = 1, 10.29's 1 +
-     2 gam/5 and his 1 + gam/2 (p. 134).  Control: the factor k!/(k - i)! dropped.
+     and (1/7, 2/5), each polynomial irreducible over Q (so nonzero modulo it is nonzero at every root).  At vl,
+     omega-breve-bar^i = kappa_i r^i omega-bar with kappa_i = prod_(j <= i) (2l + 2j + 1 + 2 gam)/(j (2l + j + 2)) (four
+     dimensions 2 (l + j + gam)/(j (2l + j + 1))), l <= 4 and i <= 3: at l = 1, 10.29's 1 + 2 gam/5 and his 1 + gam/2 (p.
+     134).  Control: the factor k!/(k - i)! dropped.
+  J6 (computed, exact) What e_Ups > 0 removes, on Minkowski.  At e = 0 (z = 0; gam = 1/3 and 2/7; both dimensions) J4's
+     t*-recursion coincidences: mu_l,0 = -l's first step meets mu_l,1 = -l - 1 and is obstructed, rank N0(-l - 1) = 2
+     against 3 with its right side (l = 1, 2, 3), so a logarithm is forced; -l + 1's first step meets -l and is
+     solvable, rank 2 with its right side (l = 2, 3, 4), and its second meets -l - 1 with an obstruction of degree 1 in
+     the first step's kernel coefficient alpha (l = 2, 3), so one alpha removes it (five dimensions, l = 2, gam = 1/3: 2
+     (15 alpha - 17)/63).  The stationary correction's coincidences need Tangherlini's sources at e = 0 and are not
+     computed.  Control: -l + 1's first step claimed obstructed.
 
 Deduced, not computed here (N1STAR-PROOF.md 10.30): his Proposition 6.18 (4)-(7) in five dimensions on Tangherlini, by
-his proof with J2-J5, on 10.29(a) (his Lemma 6.13 there, on the readings of 10.20), his Lemma 2.15 and 10.28(i): the
-same four classes, ranges and index sets, the stationary correction at rho^(mu + 2) where his is at rho^(mu + 1), the
-leading term of each h spanning ker N(L-bar(0), mu + 1) where that root is simple (10.24(iv)).
+his proof with J2-J5, on 10.29(a) (his Lemma 6.13 there, on the readings of 10.20), his Lemma 2.15 and 10.28(i): the same
+four classes, ranges and index sets (no logarithm in the leading terms), the stationary correction at rho^(mu + 2) where
+his is at rho^(mu + 1), the leading term of each h spanning ker N(L-bar(0), mu + 1) where that root is simple
+(10.24(iv)).
 
 READ.  [Hin26] pp. 19 ((1.27)-(1.29)), 67 ((2.43)-(2.46c) and the remark after them), 113 (Lemma 6.1, (6.4a), (6.5)-
 (6.6)), 117-118 (Lemma 6.6, (6.17a)-(6.17b), Remark 6.7), 121 (Proposition 6.12), 128-134 (section 6.5.2: Proposition
@@ -242,7 +254,7 @@ def j1(control=0, verbose=False):
             N0, N1, clean = families(4, typ, l)
             p = poly(4, typ, l)
             ratio = None if p is None else sp.cancel(p / poly5(typ, l))
-            good = clean and ratio is not None and ratio.is_number and ratio != 0
+            good = clean and ratio == 1
             Sb = (N1 + 2 * (lam - sp.Rational(3, 2)) * sp.eye(N1.shape[0])) / 2
             good &= all(not q.has(lam) for q in Sb.applyfunc(sp.expand))
             if typ == "v":
@@ -405,21 +417,53 @@ def resonances(n):
     return out
 
 
+def at0_want(n, typ, l, kind):
+    """10.30(iv)'s coincidences at z = 0: (class root, shift)"""
+    if typ == "v":
+        return set()
+    if typ == "s0":
+        return {(-1, 1)} if n == 3 else set()
+    if kind == "q":
+        return {(-l - 1, 2), (-l, -1)} if n == 4 else {(-l - 1, 1), (-l, -1), (-l, 1)}
+    return {(-l + 1, -k) for k in range(1, min(2, 5 - l) + 1)}
+
+
+def s0_hits(n, z0):
+    """at z = z0, the roots of the s0 factor that meet a root of the type under a shift or are double: the class root
+    (negative) and its partner (positive), each with what it meets"""
+    q, p = factors(n, "s0", 0)
+    pz = p.subs(z, z0)
+    out = {"class": [], "partner": []}
+    for m in sp.Poly(q.as_expr().subs(z, z0), lam).all_roots():
+        ks = [k for k in shifts(n, "q", 2) if sp.expand(pz.subs(lam, m + k)) == 0]
+        ks += ["double"] if sp.expand(sp.diff(pz, lam).subs(lam, m)) == 0 else []
+        if ks:
+            out["class" if m < 0 else "partner"].append((m, ks))
+    return out
+
+
 def j4(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
     ok = True
+    zwant = {4: 4 if control != 2 else 5, 3: 3}
     for n in (4, 3):
         res = resonances(n)
         zmin = sp.oo
         for typ, l, kind, roots0, at0, zs in res:
-            good = zs is not None and zs > 0
+            got = {(int(a), int(b)) for a, b in at0}
+            good = zs is not None and zs >= zwant[n] and (got == at0_want(n, typ, l, kind) or control == 1)
             ok &= good
             zmin = min(zmin, zs) if zs is not None else zmin
             chk(f"n + 1 = {n + 1}, {typ}{l} {'root of Q' if kind == 'q' else kind}: at z = 0 resonant "
-                f"{at0}; none for 0 < z < {sp.N(zs, 6) if zs is not None else 'NONE'}", good)
-        chk(f"n + 1 = {n + 1}: no class root meets a root of its type under its shifts for 0 < z < {sp.N(zmin, 6)}",
-            zmin > 0)
-        if control:
+                f"{sorted(got)}; none for 0 < z < {sp.N(zs, 6) if zs is not None else 'NONE'}", good)
+        chk(f"n + 1 = {n + 1}: no class root meets a root of its type under its shifts for 0 < z < {zmin}, exactly "
+            f"the bound {zwant[n]}", zmin == zwant[n])
+        hits = s0_hits(n, zmin)
+        sharp = hits == ({"class": [(-2, [2])], "partner": [(3, ["double"])]} if n == 4 else
+                         {"class": [], "partner": [(2, [-2, "double"])]})
+        chk(f"n + 1 = {n + 1} at z = {zmin}: s0 {hits} ("
+            + ("sharp: the class root -2 meets 0)" if n == 4 else "not sharp: only the partner root 2 meets)"), sharp)
+        if control == 1:
             ok &= all(not at0 for *_, at0, _ in res)
             chk(f"n + 1 = {n + 1} at z = 0: no resonance (control)", all(not at0 for *_, at0, _ in res))
     return chk.ok and ok
@@ -526,11 +570,52 @@ def j5(control=0, verbose=False):
                 for n in (4,):
                     q, _ = factors(n, typ, l)
                     modq = sp.expand(q.as_expr().subs(z, 4 * eg[0] * eg[1]**2).subs(lam, mu))
+                    irr = sp.Poly(modq, mu).is_irreducible   # nonzero modulo it is then nonzero at every root
                     w, c, live = state(n, typ, l, mu, kmax, eg=eg, modq=modq)
-                    good = live and boxes_zero(n, w, modq=modq, eg=eg)
+                    good = irr and live and boxes_zero(n, w, modq=modq, eg=eg)
                     ok &= good
-                    chk(f"n + 1 = {n + 1}, {typ}{l} at the roots of {modq}, k = {kmax}, (e, gam) = {eg}: "
-                        f"box^Ups = 0 modulo it", good)
+                    chk(f"n + 1 = {n + 1}, {typ}{l} at the roots of {modq} (irreducible), k = {kmax}, (e, gam) = "
+                        f"{eg}: box^Ups = 0 modulo it", good)
+    return chk.ok and ok
+
+
+# ------------------------------------------------------------------------------------------------- J6
+def j6(control=0, verbose=False):
+    chk = Checklist(verbose, quiet=control != 0)
+    al = sp.Symbol("alpha")
+    ok = True
+    want1 = 2 if control == 0 else 3                   # the control: -l + 1's first step claimed obstructed
+    for n in (4, 3):
+        for gv in (sp.Rational(1, 3), sp.Rational(2, 7)):
+            fam = {l: [M.subs({e: 0, g: gv}) for M in families(n, "s", l)[:2]] for l in range(1, 5)}
+            for l in (1, 2, 3):                         # mu_l,0 = -l: the first step meets mu_l,1 = -l - 1
+                N0, N1 = fam[l]
+                c0 = N0.subs(lam, -l).nullspace()
+                A, f = N0.subs(lam, -l - 1), -(N1.subs(lam, -l) * c0[0])
+                good = len(c0) == 1 and A.rank() == 2 and A.row_join(f).rank() == 3
+                ok &= good
+                chk(f"n + 1 = {n + 1}, gam = {gv}, s{l} at -l: first step obstructed (rank 2, 3 with its right side): "
+                    f"a logarithm", good)
+            for l in (2, 3, 4):                         # -l + 1: the first step meets -l, the second -l - 1
+                N0, N1 = fam[l]
+                m = -l + 1
+                c0 = N0.subs(lam, m).nullspace()
+                A1, f1 = N0.subs(lam, m - 1), -(N1.subs(lam, m) * c0[0])
+                good = len(c0) == 1 and A1.rank() == 2 and A1.row_join(f1).rank() == want1
+                txt = "first step solvable"
+                if good and 5 - l >= 2:
+                    sol, par = A1.gauss_jordan_solve(f1)
+                    K = A1.nullspace()
+                    c1 = sol.subs({q: 0 for q in par}) + al * K[0]
+                    A2, f2 = N0.subs(lam, m - 2), -(N1.subs(lam, m - 1) * c1)
+                    y = A2.T.nullspace()
+                    ob = sp.factor((y[0].T * f2)[0]) if len(y) == 1 else None
+                    good &= len(K) == 1 and A2.rank() == 2 and ob is not None and sp.degree(ob, al) == 1
+                    txt += f"; second step's obstruction {ob}, zero at alpha = {sp.solve(ob, al)}"
+                if good and 5 - l >= 3:
+                    good &= N0.subs(lam, m - 3).det() != 0
+                ok &= good
+                chk(f"n + 1 = {n + 1}, gam = {gv}, s{l} at -l + 1: {txt}", good)
     return chk.ok and ok
 
 
@@ -538,10 +623,12 @@ CHECKS = [("J1 the indicial families: four dimensions his Lemma 6.6, p. 134; fiv
            j1, 1),
           ("J2 the classes: s0, two roots of Q, sl -l + 1, vl -l, each below its integer for z > 0; his in four", j2, 1),
           ("J3 delta-bar* injective at every class root (not at s0 0, s1 0, v1 -1); his (2.46a)-(2.46c)", j3, 1),
-          ("J4 no resonance for 0 < z < z*: the t*-recursion's shifts, the stationary correction's, simple roots",
-           j4, 1),
+          ("J4 no resonance for 0 < z < 4 (four dimensions 3): the t*-recursion's, the stationary correction's shifts",
+           j4, 2),
           ("J5 the states: t*^k omega-bar + ... in ker box^Ups on Minkowski at every class's largest k; vl in closed "
-           "form", j5, 1)]
+           "form", j5, 1),
+          ("J6 e = 0: a logarithm forced at mu_l,0's first step; at -l + 1 none (first step), removable (second)",
+           j6, 1)]
 
 
 def selftest(verbose=False):

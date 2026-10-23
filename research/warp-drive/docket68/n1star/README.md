@@ -193,25 +193,32 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   printed four-dimensional numbers and (6.40) as the control, and the gap's top lam_s1,2 = 2 + z/12 + O(z^2) (H1-H5;
   Lemma 6.13, on 10.20's readings, and the states deduced in 10.29). `python3 genstates5.py --selftest` (5/5, about a
   minute), `--mutants` (8/8).
-- `puregauge5.py`: [Hin26] Proposition 6.18 (4)-(7) in five dimensions (section 10.30; D84): the pure gauge states built
-  on the gauge potential operator's growing roots below -1 -- its indicial families on every harmonic type (his Lemma
-  6.6 and (2.46a)-(2.46c) reproduced in four dimensions), his four classes with their ranges, the symmetric gradient
-  injective at each, no resonance for 0 < z < 4, and the generalized states' leading terms exact on Minkowski, the
-  vector type's in closed form (J1-J5; the proposition deduced in 10.30). `python3 puregauge5.py --selftest` (5/5, about
-  four minutes), `--mutants` (5/5).
+- `puregauge5.py`: [Hin26] Proposition 6.18 (4)-(7) in five dimensions (section 10.30; D84, D85): the pure gauge states
+  built on the gauge potential operator's growing roots below -1 and the s2 root -1 -- its indicial families on s0, sl (l
+  <= 5) and vl (l <= 4) (his Lemma 6.6 and (2.46a)-(2.46c) reproduced in four dimensions), his four classes with their
+  ranges, the symmetric gradient injective at each, no resonance for 0 < z < 4 (sharp), the generalized states' leading
+  terms exact on Minkowski, the vector type's in closed form, and at e_U = 0 which coincidences force a logarithm on
+  Minkowski (J1-J6; the proposition deduced in 10.30). `python3 puregauge5.py --selftest` (6/6, about four minutes),
+  `--mutants` (7/7).
+- `dual5.py`: [Hin26] section 7.2 in five dimensions (section 10.31; D86): the zero energy dual states of the constraint
+  propagation operator -- the adjoint's indicial roots 2 - conj(lam) (his 1 - conj(lam) and (7.8) reproduced in four
+  dimensions), the translations' dual state with h*_s1 at rho^3, and the rotations' at first order in the rotation on
+  Myers-Perry, two of six Killing, h-sharp with his (7.18)'s ratios (his (7.20), (7.31) and (7.18) reproduced on Kerr)
+  (A1-A3; Lemma 7.2, Proposition 7.3 and section 7.2.1's structure deduced in 10.31). `python3 dual5.py --selftest` (3/3,
+  about a minute and a half), `--mutants` (3/3).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All thirty-nine are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
-and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing
-the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py,
-lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py,
-cform5.py imports semiclass5.py and damping5.py, gaugepot5.py imports damping5.py, modes5.py imports gaugepot5.py and
-damping5.py, trap5.py and thresh5.py import gaugepot5.py, damping5.py and modes5.py, hienergy5.py imports gaugepot5.py,
-damping5.py, thresh5.py and trap5.py, lowenergy5.py imports thresh5.py and damping5.py, cpmodes5.py imports damping5.py,
-solv5.py imports cform5.py and damping5.py, tface5.py imports cform5.py, gaugepot5.py, semiclass5.py and damping5.py,
-lin5.py imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, strap5.py imports damping5.py, gmodes5.py
-imports damping5.py, zstates5.py imports damping5.py, genstates5.py imports damping5.py and zstates5.py, puregauge5.py
-imports damping5.py, genstates5.py and zstates5.py, and the others import nothing from the tree. The board's shared
-record is not edited here.
+All forty are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath, and so
+every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing the solver
+`../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py, lzero5.py and
+coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py, cform5.py
+imports semiclass5.py and damping5.py, gaugepot5.py imports damping5.py, modes5.py imports gaugepot5.py and damping5.py,
+trap5.py and thresh5.py import gaugepot5.py, damping5.py and modes5.py, hienergy5.py imports gaugepot5.py, damping5.py,
+thresh5.py and trap5.py, lowenergy5.py imports thresh5.py and damping5.py, cpmodes5.py imports damping5.py, solv5.py
+imports cform5.py and damping5.py, tface5.py imports cform5.py, gaugepot5.py, semiclass5.py and damping5.py, lin5.py
+imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, strap5.py imports damping5.py, gmodes5.py imports
+damping5.py, zstates5.py imports damping5.py, genstates5.py imports damping5.py and zstates5.py, puregauge5.py imports
+damping5.py, genstates5.py and zstates5.py, dual5.py imports damping5.py, genstates5.py and puregauge5.py, and the others
+import nothing from the tree. The board's shared record is not edited here.
