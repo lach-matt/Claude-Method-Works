@@ -3738,10 +3738,10 @@ its sign flipped (at R_out A_w does not enter); and the four-dimensional data we
      each harmonic's roots split evenly across the strip, as his Theorem 4.9 gives in four dimensions (10.12's counts: 3
      and 3 for the scalar sextic at l >= 1, 2 and 2 for the quartic at l = 0, 1 and 1 for the vector type, lam = 2
      counted on the right). So for C_0 <= 100, on the weights of (iii), each radial operator has index 0 as in his
-     proof, and the zero energy operator, Fredholm and injective by (c), is invertible -- Fredholm -- his own citations
-     for (6.1) are [HHV21, Theorem 4.3], [Vas21b, section 6] and [Vas18, Theorem 6.9] (p. 68), and [Hin26c] Theorem 9.36
-     at n = 4, on the reading of 10.20, stands here in their place -- given box^C's quantity at the conormal bundle of
-     the horizon, vartheta_H+ < -C_0 - 1/2 ([Hin26c] p. 193 asks s_0 > 1/2 + vartheta_H+, and s >= -C_0), that is the
+     proof, and the zero energy operator, Fredholm and injective by (c), is invertible. It is Fredholm by [Hin26c]
+     Theorem 9.36 at n = 4, on the reading of 10.20, which stands here in place of his own citations for (6.1), [HHV21,
+     Theorem 4.3], [Vas21b, section 6] and [Vas18, Theorem 6.9] (p. 68), given box^C's quantity at the conormal bundle
+     of the horizon, vartheta_H+ < -C_0 - 1/2 ([Hin26c] p. 193 asks s_0 > 1/2 + vartheta_H+, and s >= -C_0), that is the
      threshold 1/2 + vartheta_H+ of 10.18's convention below -C_0, which is not computed here: by the mechanism of his
      Remark 5.7, stated there for the spacetime estimate (5.21), the damping h^-1 l, positive on future causal covectors
      (Lemma 3.5), pushes the threshold below any fixed number for small h, and in five dimensions it is OPEN. (He takes
@@ -3788,14 +3788,14 @@ reading that his 3b-analysis holds in five dimensions.
 left OPEN. His proof of Theorem 5.2 (section 5.2, pp. 41-66) is a chain of semiclassical estimates on weighted
 3b-spaces. Lemma 5.3 puts h^2 box_g in h^2 rho_sf^2 Diff_3b^2 and L in h rho_sf^2 Diff_3b^1, from (2.12)-(2.14) -- the
 Christoffel symbols of a 3sc-metric lie in rho_sf C^oo -- and c in rho_sf C^oo. Propositions 5.5-5.6 give elliptic
-estimates at finite nonzero frequency and damped estimates at fiber infinity from Lemmas 3.5 and 3.7; their proof "does
-not rely on any fine properties of the null-geodesic flow" (p. 44) and uses "only simple causal information" near tau =
-0 and r = m (pp. 44-45). Propositions 5.8, 5.9, 5.11 and 5.12 propagate estimates along the zero section through the
-three critical sets of -r c# and between them, by positive commutators whose signs are his Proposition 5.1 (3)-(6).
-Proposition 5.16 gives energy estimates near the initial surface X = {t = 0} and the final surface Sigma# = {r = m}
-inside the black hole, from Lemma 5.14, stated for any time-oriented Lorentzian vector space, and Corollary 5.15, stated
-on R^(1+n) and for n-dimensional manifolds of bounded geometry (pp. 58-60); it asks that d tau, tau = t/r, be past
-timelike for g_3b = rho^2 g on tau^-1([0, T]) and that m - r be a time function near Sigma#. Section 5.2.7 combines
+estimates at finite nonzero frequency and damped estimates at fiber infinity from Lemmas 3.5 and 3.7; Proposition 5.6's
+proof "does not rely on any fine properties of the null-geodesic flow" (p. 44) and uses "only simple causal information"
+near tau = 0 and r = m (pp. 44-45). Propositions 5.8, 5.9, 5.11 and 5.12 propagate estimates along the zero section
+through the three critical sets of -r c# and between them, by positive commutators whose signs are his Proposition 5.1
+(3)-(6). Proposition 5.16 gives energy estimates near the initial surface X = {t = 0} and the final surface Sigma# = {r
+= m} inside the black hole, from Lemma 5.14, stated for any time-oriented Lorentzian vector space, and Corollary 5.15,
+stated on R^(1+n) and for n-dimensional manifolds of bounded geometry (pp. 58-60); it asks that d tau, tau = t/r, be
+past timelike for g_3b = rho^2 g on tau^-1([0, T]) and that m - r be a time function near Sigma#. Section 5.2.7 combines
 them, with a duality argument for existence. The weights enter only at the corner dK+ and the sink R_v of sf, through
 Proposition 5.1 (4)-(5). In five dimensions 10.13 computed his section 3's quantities, deducing that Lemmas 3.3-3.8 hold
 verbatim at the trace weight 2/(D - 2), and section 4's symbols, and 10.14 wrote a c on Tangherlini in Kerr-Schild time
@@ -3834,8 +3834,8 @@ outside the horizon; and alpha_K = alpha_sf in (iv), below the threshold at dK+.
      Diff_3b^2, and delta* and delta in rho_sf Diff_3b^1. 10.14's c, (10.49) smoothed near r_0/2 and 2 r_0 as in
      10.14(b) and his p. 41, is stationary and smooth, and r^-1 (dt - v dr) for r >= 3 r_0, so it lies in rho_sf C^oo,
      and L in h rho_sf^2 Diff_3b^1, with semiclassical principal symbol G - i l, as in his.
- (b) (Propositions 5.5-5.6) They use Lemmas 3.5 and 3.7, which hold in five dimensions (10.13(i)), and "only simple
- causal information" near tau = 0 and r = m (pp. 44-45), which is (d).
+ (b) (Propositions 5.5-5.6) They use Lemmas 3.5 and 3.7, which hold in five dimensions (10.13(i)); Proposition 5.6's
+ proof uses also "only simple causal information" near tau = 0 and r = m (pp. 44-45), which is (d).
  (c) (Propositions 5.8, 5.9, 5.11, 5.12) Their signs are his Proposition 5.1 (3)-(6): (3) and (6) by 10.14 at r_0 = 100;
      (4)-(5) at the weights of 10.21 by (iv) at the critical points; on a neighbourhood of size delta_r in r by
      continuity, as in his proof (p. 39; 10.14(a)); and (5) on |r/(t v) - 1| <= 2 delta_sf, delta_sf > 0.0034 being
@@ -3891,19 +3891,19 @@ density" ([Hin26] p. 137). Theorem B.1 (pp. 85-88) concerns box^C = 2 delta G (d
 with c = r^-1 (dt - v dr): it is homogeneous of degree -2 under dilations ((B.10)); its spectral family at sigma in
 e^(i[0, pi]) is a scattering operator near infinity and a weighted b-operator near the origin ((B.12)); and it is
 invertible on H_sc,b^(s,(l, beta)) for l in (B.13)'s l-window and beta in (1/2, 3/2 + C_0], the density being r^2 |dr
-dg/|. His proof has three parts. Proposition B.2 gives the Fredholm property with index 0, "also" from [Hin26b] Theorem
-9.38 ([Hin26c]'s here). Theorem B.4 (pp. 93-98) gives solvability and uniqueness on edge-b spaces for alpha_sf < -1/2
-and alpha_cf > 1/2 by the arguments of Theorem 5.2: positivity at the cone face cf "from (4.5) (with beta_K - beta_sf
-replaced by alpha_cf - 1)"; -(1/2) r^2 l(dr/r), whose eigenvalues are positive, "and thus positive definite (with
-respect to the fiber inner product from Lemma 3.3)" (p. 96); energy estimates near X, in tau = t/r with d tau past
-timelike for |tau| < 1, and near the final hypersurface r = 1 - t; and his Proposition 5.11, quoted at the sink of sf,
-where the edge-b and 3b spaces agree. Section B.4 (p. 98) takes l = -1/2, beta = 7/2, alpha_sf = -5/2, alpha_cf = 5/2
-and, "without loss", C_0 >= 2: a kernel element omega_0 at Im sigma >= 0 gives omega = e^(-i sigma (t - r)) omega_0,
-whose data lie in Theorem B.4's (B.33), so that omega is Theorem B.4's solution, in rho_sf^alpha_sf rho_cf^alpha_cf
-H-bar_eb^1, which the integral of t^(2 (alpha_sf + alpha_cf)) over t >= 1 forbids unless omega_0 = 0. 10.21 computed
-(B.13)'s l-window in five dimensions (K2) and noted that its beta-range carries the density's shift; 10.22 computed the
-inputs of Theorem 5.2. Not computed before this section: the dilation structure, the beta-range, the threshold at cf and
-section B.4's numbers in five dimensions.
+dg/|. His proof has three parts. Proposition B.2 gives the Fredholm property, "also" from [Hin26b] Theorem 9.38
+([Hin26c]'s here), and index 0 by a relative index argument (p. 91). Theorem B.4 (pp. 93-98) gives solvability and
+uniqueness on edge-b spaces for alpha_sf < -1/2 and alpha_cf > 1/2 by the arguments of Theorem 5.2: positivity at the
+cone face cf "from (4.5) (with beta_K - beta_sf replaced by alpha_cf - 1)"; -(1/2) r^2 l(dr/r), whose eigenvalues are
+positive, "and is thus positive definite (with respect to the fiber inner product from Lemma 3.3)" (p. 96); energy
+estimates near X, in tau = t/r with d tau past timelike for |tau| < 1, and near the final hypersurface r = 1 - t; and
+his Proposition 5.11, quoted at the sink of sf, where the edge-b and 3b spaces agree. Section B.4 (p. 98) takes l =
+-1/2, beta = 7/2, alpha_sf = -5/2, alpha_cf = 5/2 and, "without loss", C_0 >= 2: a kernel element omega_0 at Im sigma >=
+0 gives omega = e^(-i sigma (t - r)) omega_0, whose data lie in Theorem B.4's (B.33), so that omega is Theorem B.4's
+solution, in rho_sf^alpha_sf rho_cf^alpha_cf H-bar_eb^1, which the integral of t^(2 (alpha_sf + alpha_cf)) over t >= 1
+forbids unless omega_0 = 0. 10.21 computed (B.13)'s l-window in five dimensions (K2) and noted that its beta-range
+carries the density's shift; 10.22 computed the inputs of Theorem 5.2. Not computed before this section: the dilation
+structure, the beta-range, the threshold at cf, section B.4's numbers and the index argument's in five dimensions.
 
 **Proposition 10.20 (computed; exact).** On 4+1 Minkowski space with c = r^-1 (dt - v dr) and the trace weight 2/3:
 
@@ -3914,24 +3914,37 @@ section B.4's numbers in five dimensions.
      origin are beta in (0, 2 + C_0] (F2).
  (iii) (the thresholds) At (v, e) = (1/2, 1/102400): cform5.py's T = r^2 (-l(dw/w) + S) at rho_K = 0 with d = b_sf - b_K
      = 1 - alpha_cf is positive definite at alpha_cf = 5/2 and at d = 0.9934, and not at d = 0.9935, between which lies
-     b*, the root of cform5.py C7's q(d, 0); and -(1/2) r^2 l(dr/r) has characteristic polynomial (lam - v)^3 (lam^2 -
-     (3 - e) v lam + (2 - e) v^2 - e), with positive roots there and, at e = 0, for every v > 0 (F3).
+     b*, the smaller root of q(d, 0) = 204795 d^2 - 409605 d + 204801, derived from det T (cform5.py C7's); as e -> 0, e
+     kept symbolic since B is singular at e = 0, its eigenvalues are 2 - d (three times), 1 - d and 2 - 2 d, the
+     threshold d < 1; and -(1/2) r^2 l(dr/r) has characteristic polynomial (lam - v)^3 (lam^2 - (3 - e) v lam + (2 - e)
+     v^2 - e), with positive roots there and, at e = 0, for every v > 0 (F3).
  (iv) (section B.4) (alpha_sf, alpha_cf) = (-5/2, 5/2) satisfies alpha_sf < b* - 1 and alpha_cf > 1 - b*; the integral
      of t^(2 (alpha_sf + alpha_cf)) over [1, oo) diverges; l = -1/2 lies in the l-window for every h > 0 and 0 < v, e <
      1; beta = 7/2 lies in (ii)'s range iff C_0 >= 3/2; in (tau = t/r, r) the density |dg| = r^4 |dt (dr/r) dg/| is r
      times X's r^3 |dr dg/|, so (B.33)'s data weights are alpha_sf + 1/2 and alpha_cf - 1/2, and section B.4's data, in
      rho_sf^(l - 1) rho_cf^beta (the l - 1 of his inclusion H_sc,b^1 in rho_sc^-1 H_b^1, READ), lie in them; a kernel
-     element of size rho^(3/2 + S-bar - eps) at infinity lies in rho^l L^2(r^3 dr) iff l < -1/2 + S-bar - eps; and beta'
-     = -beta + 2 - eps lies in (ii)'s range for some eps > 0 iff beta in [-C_0, 2) (F4).
+     element of size rho^(3/2 + S-bar - eps) at infinity lies in rho^l L^2(r^3 dr) iff l < -1/2 + S-bar - eps; for the
+     adjoint, an element of size rho^(3/2 + S_in - eps) at R_in, S_in = h^-1 (1 - e)(1 + v) the bottom of spec (A_w +
+     S-bar^C) (10.21 K2), lies in rho^(-l-1) L^2(r^3 dr) iff l > -1/2 - S_in + eps, the l-window's lower end; and beta'
+     = -beta + 2 - eps lies in (ii)'s range for every sufficiently small eps > 0 iff beta in [-C_0, 2) (F4).
+ (v) (Proposition B.2's index) The free 1-form wave operator 2 delta G delta* has at the origin the r-roots -3, -2 | 0,
+     1 at l = 0, -l - 3, -l - 2, -l - 1 | l - 1, l, l + 1 for scalar type l >= 1, and -l - 2 | l for vector type; the
+     window of beta - 2 between the two groups contains (-2, 0), and rising into it from below crosses 2, 3 and 1 roots
+     (F5).
 
 *Proof.* F1-F4 of tface5.py. F1 builds box^C in Cartesian coordinates (t*, x), with r an independent symbol and d_i =
 d/dx_i + (x_i/r) d/dr - (x_i/r) d/dt*, expands it, and checks every coefficient under (x, r) -> (lam x, lam r) as an
 identity of rational functions; F2 and F4 are exact algebra on the exponents, with F4's integral and the Jacobian of t =
-tau r by sympy; F3 evaluates cform5.py's T, as 10.22's Q4 does, and semiclass5.py's l, counts nonpositive roots exactly
-and factors the characteristic polynomial. Four-dimensional controls: his numbers -- 90 terms at the trace weight 1,
-beta in (1/2, 3/2 + C_0], (lam - v)^2 for (lam - v)^3, alpha_sf < -1/2 and alpha_cf > 1/2, C_0 >= 2, beta in [-C_0, 1).
-Controls: c = r^-1 dt - v dr in (i), not homogeneous; his beta-range claimed in five dimensions in (ii); alpha_cf = 0 in
-(iii), where T is not positive definite; and alpha_cf = -alpha_sf - 1 in (iv), where the closing integral converges. []
+tau r by sympy; F3 builds T from semiclass5.py for any n, equal at n = 4 to cform5.py's, derives q(d, 0) from det T,
+keeps e symbolic for the limit e -> 0, counts real roots with multiplicity, and factors the characteristic polynomial of
+semiclass5.py's l; F5 reads the free operator's roots off gaugepot5.py's indicial determinants at gamma = 0.
+Four-dimensional controls: his numbers -- 90 terms at the trace weight 1, beta in (1/2, 3/2 + C_0], the eigenvalues 1 -
+2 d, 1/2 - d and 3/2 - d (twice) as e -> 0 and so his alpha_cf > 1/2 (and 0.4956 at e = 1/102400), (lam - v)^2 for
+(lam - v)^3, C_0 >= 2, beta in [-C_0, 1), and his free roots -l - 2, -l - 1, -l | l - 1, l, l + 1 with the window (-l,
+l - 1) for beta - 3/2 (p. 91). Controls: c = r^-1 dt - v dr in (i), not homogeneous; his beta-range claimed in five
+dimensions in (ii); alpha_cf = 0 in (iii), where T is not positive definite; the characteristic polynomial with n - 2
+copies of v in (iii); alpha_cf = -alpha_sf - 1 in (iv), where the closing integral converges, and his top 1 claimed
+there; and his window claimed in (v). []
 
 *Deduced.*
 
@@ -3939,20 +3952,23 @@ Controls: c = r^-1 dt - v dr in (i), not homogeneous; his beta-range claimed in 
      box^C(sigma) that carries sigma carries a positive power of r, and at r = 0 it is r^2 box^C(0), a weighted
      b-operator; at infinity it is the scattering operator whose structure 10.21 computed (K1-K2: S-bar^C, the radial
      sets, the l-window). By dilation invariance the indicial roots of box^C(0) at the origin, in r, are the negatives
-     of those at infinity, in rho = 1/r -- which, Tangherlini's c being r^-1 (dt - v dr) for r >= 3 r_0 (10.14, after
-     its smoothing) and its metric Minkowski's up to O(r^-2), are 10.12's, avoiding [-C_0, 2) at Proposition 10.9's
-     point for C_0 <= 100.
- (b) (Proposition B.2) On the reading of 10.19-10.20 ([Hin26c] section 9 at n = 4, Theorem 9.38 among it), box^C(sigma)
-     is Fredholm of index 0 on (B.13)'s spaces with the l-window of 10.21 and, by (a) and (ii), beta in (0, 2 + C_0],
-     C_0 <= 100, at that point.
- (c) (Theorem B.4) By (iii), the positivity at cf holds for alpha_cf > 1 - b*, and -(1/2) r^2 l(dr/r) has positive
-     eigenvalues, so that it is positive definite with respect to the fiber inner product of his Lemma 3.3, which holds
-     in five dimensions (10.13(i)), as he concludes. Near X, d tau is past timelike for |tau| < 1 by Proposition
-     10.19(ii) at mu = 0, and the energy estimates near X and near r = 1 - t are Minkowski geometry, for which his Lemma
-     5.14 and Corollary 5.15 are stated in any dimension (10.22(d)). At the sink his Proposition 5.11 is quoted, which
-     10.22(c) has with alpha_sf < b* - 1. So, on the reading of 10.22(e) in its edge-b version, Theorem B.4 holds on 4+1
-     Minkowski at (v, e) = (1/2, 1/102400) for alpha_sf < b* - 1 and alpha_cf > 1 - b*, for h below an h_0 not made
-     explicit, with (B.33)'s data weights by (iv).
+     of those at infinity, in rho = 1/r -- which are Proposition 10.9's, stated on 4+1 Minkowski: they avoid [-C_0, 2)
+     at its point for C_0 <= 100.
+ (b) (Proposition B.2) box^C(sigma) is Fredholm on (B.13)'s spaces with the l-window of 10.21 and, by (a) and (ii), beta
+ in (0, 2 + C_0], C_0 <= 100, at that point -- by his microlocal argument, or by [Hin26c] Theorem 9.38 at n = 4 on the
+ reading of 10.19-10.20, whose part (3) gives only that the index does not depend on the weights -- and of index 0 by
+ his relative index argument (p. 91) with (v): lowering beta below every root at the origin raises the index by the
+ number of the damped operator's roots with real part >= 2 at that point, 2, 3 and 1 by 10.12; deforming h^-1 to 0 with
+ beta held below the roots keeps it; and rising into the free operator's window, where it is invertible ([Hin26c]
+ Proposition 9.40 at n = 4, 10.20), lowers it by as many, (v).
+ (c) (Theorem B.4) By (iii) and cform5.py C7 (positive definite iff d < b*), the positivity at cf holds for alpha_cf >
+     1 - b*, and -(1/2) r^2 l(dr/r) has positive eigenvalues, so that it is positive definite with respect to the fiber
+     inner product of his Lemma 3.3, which holds in five dimensions (10.13(i)), as he concludes. Near X, d tau is past
+     timelike for |tau| < 1 by Proposition 10.19(ii) at mu = 0, and the energy estimates near X and near r = 1 - t are
+     Minkowski geometry, for which his Lemma 5.14 and Corollary 5.15 are stated in any dimension (10.22(d)). At the sink
+     his Proposition 5.11 is quoted, which 10.22(c) has with alpha_sf < b* - 1. So, on the reading of 10.22(e) in its
+     edge-b version, Theorem B.4 holds on 4+1 Minkowski at (v, e) = (1/2, 1/102400) for alpha_sf < b* - 1 and alpha_cf >
+     1 - b*, for h below an h_0 not made explicit, with (B.33)'s data weights by (iv).
  (d) (Theorem B.1) Section B.4 runs as his with (iv): for a kernel element omega_0 at Im sigma >= 0, omega = e^(-i sigma
      (t - r)) omega_0 has data in (B.33), so by the uniqueness of Theorem B.4(2) it lies in rho_sf^(-5/2) rho_cf^(5/2)
      H-bar_eb^1, and the divergent integral of (iv) gives omega_0 = 0; with (b), box^C(sigma) is invertible. So [Hin26a]
@@ -3962,25 +3978,34 @@ Controls: c = r^-1 dt - v dr in (i), not homogeneous; his beta-range claimed in 
      roots are known.
  (e) ([Hin26] Theorem 7.1(4)) His proof applies Theorem B.1 at beta' = -beta + 3/2 - eps, the 3/2 from the density's
      weight rho^-3; in five dimensions that weight is rho^-4 and the shift n/2 = 2 of (ii), and by (iv) beta' lies in
-     (0, 2 + C_0] for some eps > 0 iff beta in [-C_0, 2). So, on the same readings and at the same point, the constraint
-     propagation operator on five-dimensional Tangherlini is tf-admissible for every weight beta in [-C_0, 2), his
-     [-C_0, 1), for C_0 <= 100.
+     (0, 2 + C_0] for every sufficiently small eps > 0 iff beta in [-C_0, 2): the kernel half of tf-admissibility. The
+     adjoint half ([Hin26c] Definition 5.10, p. 104; his p. 137): an element of the kernel of N_tf(box^C, 1)^* on
+     e^(-2i/rho) A^(alpha, -2+beta) -- the ztf weight -n + 2 + beta of [Hin26c] Theorem 9.38(5) at n = 4 -- is improved
+     first at ztf by that theorem, then at R_in to the decay 3/2 + S_in - eps, S_in the bottom of the conjugated
+     operator's spectrum, h^-1 (1 - e)(1 + v) (10.21 K2; his p. 137), and so lies in the dual of Theorem B.1's spaces
+     with -l - 1 < -1/2 + S_in, the l-window's lower end by (iv); Theorem B.1 makes it 0. So, on the same readings and
+     at the same point, the constraint propagation operator on five-dimensional Tangherlini is tf-admissible for every
+     weight beta in [-C_0, 2), his [-C_0, 1), for C_0 <= 100.
 
-*READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-22): pp. 85-88 (Appendix B: (B.1)-(B.17), Theorem B.1,
-Proposition B.2 and the start of its proof), 93-94 (Theorem B.4 with (B.31)-(B.33), the energy estimate (B.34)-(B.37)),
-96-98 (the positivity at cf, (B.38)-(B.41), the eigenvalues of -(1/2) r^2 l(dr/r) and Lemma 3.3's inner product, the
-remark on Proposition 5.11, section B.4: (B.42)-(B.45) and the closing integral). [Hin26] (arXiv:2606.28253v2): pp.
-136-137 (Theorem 7.1 and the proof of its part (4)).
+*READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-22): pp. 85-91 (Appendix B: (B.1)-(B.17), Theorem B.1,
+Proposition B.2 and its proof -- the beta-range from Theorem 4.9 on p. 89, the radial thresholds, the index 0 on p. 91),
+93-94 (Theorem B.4 with (B.31)-(B.33), the energy estimate (B.34)-(B.37)), 96-98 (the positivity at cf, (B.38)-(B.41),
+the eigenvalues of -(1/2) r^2 l(dr/r) and Lemma 3.3's inner product, the remark on Proposition 5.11, section B.4:
+(B.42)-(B.45) and the closing integral). [Hin26] (arXiv:2606.28253v2): pp. 136-137 (Theorem 7.1 and the proof of its
+part (4), both halves). [Hin26c] Definition 5.10 (p. 104) and Theorem 9.38(3), (5) (p. 195), as the thirty-first
+verifier read at source.
 
 *What this gives, and what it does not.* The transition face problem reduces to the readings 10.19-10.22 already name:
 every number Appendix B takes in four dimensions -- the degree of homogeneity, the beta-range at the origin, the
-thresholds at cf and at the sink, the matrix -(1/2) r^2 l(dr/r), the data weights of (B.33), and section B.4's weights
-and closing integral -- is computed in five dimensions. The dimension moves the beta-range by 1/2 at both ends, (0, 2 +
-C_0] for his (1/2, 3/2 + C_0], the thresholds at e = 1/102400 to 1 - b* and b* - 1 for his 1/2 and -1/2 (to 0 and 0 as e
--> 0, 10.13(ii)), and the top of the tf weights from 1 to 2, the Coulomb root n - 2; section B.4's choice works
-unchanged. Not done, and OPEN: the line-by-line readings ([Hin26a] sections 2.3 and 5.2 and Appendix B's edge-b version,
-[Hin26c] section 9, at n = 4); h_0; box^C's horizon threshold (10.21(d)); [Hin26] sections 6.5, 7.2 and 8 in five
-dimensions. Nothing of this section is proved: Proposition 10.20 is computed, and (a)-(e) are deduced.
+thresholds at cf and at the sink, the matrix -(1/2) r^2 l(dr/r), the data weights of (B.33), section B.4's weights and
+closing integral, and Proposition B.2's free roots, windows and counts -- is computed in five dimensions, or typed from
+10.12 and 10.21 where those compute it (the roots at Proposition 10.9's point and their counts, the spectrum at R_in).
+The dimension moves the beta-range by 1/2 at both ends, (0, 2 + C_0] for his (1/2, 3/2 + C_0], the thresholds at e =
+1/102400 to 1 - b* and b* - 1 for his 1/2 and -1/2 (to 0 and 0 as e -> 0, 10.13(ii)), and the top of the tf weights from
+1 to 2, the Coulomb root n - 2; section B.4's choice works unchanged. Not done, and OPEN: the line-by-line readings
+([Hin26a] sections 2.3 and 5.2 and Appendix B's edge-b version, [Hin26c] section 9, at n = 4); h_0; box^C's horizon
+threshold (10.21(d)); [Hin26] sections 6.5, 7.2 and 8 in five dimensions. Nothing of this section is proved: Proposition
+10.20 is computed, and (a)-(e) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

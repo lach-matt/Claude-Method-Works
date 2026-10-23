@@ -2112,3 +2112,44 @@ ROUTES 4.23. (11) 10.20(e)'s "widened to (iii)" now reads "widened, for (iii), t
 
 *Runs.* solv5.py 4/4 and mutants 4/4 after the changes; response5.py all pass. Next: the thirty-first verifier on 10.23
 (tface5.py, D69) and these repairs; and [Hin26] section 8 in five dimensions, its Lemma 8.4 first.
+
+**D71 (2026-10-23): the thirty-first verifier's findings on 10.23, tface5.py, D69 and D70, seated.**
+
+*The verifier.* The thirty-first, on 1012c7d (identical content at 8ccda3e): no MAJOR finding; eight MINOR findings and
+seven notes. It confirmed the beta-range (0, 2 + C_0], the dimension-free +-1/2 shifts of (B.33), the cone-face
+threshold as the translation of his (4.5), and, with [Hin26c] Theorem 9.38's general-n statement, F2's range and F4's
+decay and threshold; it re-derived T's characteristic polynomial independently (b* = 0.993407313835418), read the D70
+repairs at source, and found every md5 row current. Its first run stopped on a usage limit and resumed.
+
+*Eight MINOR, repaired.* (1) "beta' in range for some eps > 0 iff beta in [-C_0, 2)" was false as an iff (beta < -C_0
+passes with eps = -C_0 - beta): now "for every sufficiently small eps > 0", in 10.23 (iv) and (e), ROUTES 4.24 and
+tface5.py, and F4 now tests the endpoints with symbolic eps and delta instead of typing the brackets. (2)
+tf-admissibility has two halves ([Hin26c] Definition 5.10, p. 104; his p. 137); 10.23(e) now carries the adjoint half:
+an element of the adjoint kernel, at the ztf weight -n + 2 + beta, is improved at ztf by [Hin26c] Theorem 9.38(5) and at
+R_in to the decay 3/2 + S_in - eps, S_in = h^-1 (1 - e)(1 + v) from 10.21 K2, so lies where -l - 1 < -1/2 + S_in, the
+l-window's lower end -- computed in F4. (3) The index 0 of Proposition B.2 is his relative index argument (p. 91), not
+Theorem 9.38, whose part (3) gives only the independence of the weights; its numbers are now computed in a new F5: the
+free 1-form operator's r-roots at the origin in five dimensions, -3, -2 | 0, 1 (l = 0), -l - 3, -l - 2, -l - 1 | l - 1,
+l, l + 1 (scalar l >= 1), -l - 2 | l (vector), windows containing (-2, 0), crossing counts 2, 3, 1 equal to 10.12's; the
+four-dimensional run reproduces his p. 91. 10.23(b) states the step, and pp. 89-91 are in the READ lists. (4) F3's
+four-dimensional control was typed: T is now built from semiclass5.py for any n, and as e -> 0 (e symbolic, B being
+singular at e = 0) the four-dimensional eigenvalues are 1 - 2d, 1/2 - d and 3/2 - d (twice), so d < 1/2, his alpha_cf >
+1/2 ((4.7)); the five-dimensional are 2 - d (three times), 1 - d and 2 - 2d, so d < 1, 10.13's W3; at e = 1/102400 the
+four-dimensional first zero is d = 0.4956, which F4 now uses. (5) Labels: F2-F5's docstrings say what follows "so" is
+deduced; the README and the paper's Appendix A say tf-admissibility is deduced and that the sink threshold is 10.22's,
+met. (6) Hypotheses: C_0 <= 100, the point and h = 10^-6 if below h_0 are now in the paper (settling sentence and
+Appendix A), the README and ROUTES 4.4 and 4.5. (7) D70's supersession of "for every C_0 >= 0" now reaches ROUTES 4.23
+("positive roots at the critical points for every C_0 >= 0"), solv5.py's Q4 label and the paper's Appendix A. (8) The
+paper's thresholds now say "0 and 0 as e -> 0".
+
+*Seven notes, seated.* (1) The quotation now reads "and is thus positive definite" (10.23, tface5.py). (2) 10.23(c)
+cites cform5.py C7 for the half-line d < b*. (3) "The smaller root of q(d, 0)". (4) q(d, 0) is now derived from det T in
+F3, not typed. (5) 10.23(a) now cites Proposition 10.9 directly, which is stated on 4+1 Minkowski. (6) Control coverage:
+F3 adds the characteristic polynomial with n - 2 copies of v, F4 his top 1 claimed, F5 his window claimed; 7/7 caught.
+(7) Small items: the 10.21(d) sentence restructured ("It is Fredholm by ... which stands here in place of his own
+citations ..."); "only simple causal information" is attributed to Proposition 5.6's proof in 10.22 and its indentation
+repaired; the paper's Appendix C row ends in ";"; verbose output prints decimals where it can. The label (10.23) of an
+earlier equation shares its number with the section; it is cited elsewhere and stays.
+
+*Runs.* tface5.py 5/5 and mutants 7/7, about 20 seconds; solv5.py 4/4; response5.py all pass. Next: [Hin26] Lemma 8.4 in
+five dimensions (D72), its computations under way; the thirty-second verifier on 10.23's repairs and that section.
