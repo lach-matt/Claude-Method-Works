@@ -789,7 +789,11 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   time translation, on the boosts carried to second order in time, and on the rotations — have five-dimensional
   counterparts with exact leading terms: his rotation coefficients (1 ± γ/2)/4 become (1 ± 2γ/5)/4, each of the six
   rotations gives such a state, and the time translation's state carries no logarithm (`genstates5.py`; the leading
-  terms computed, his four-dimensional numbers reproduced as the control, the lemma and the states deduced). A
+  terms computed, his four-dimensional numbers reproduced as the control, the lemma and the states deduced). And the
+  four remaining classes — the pure gauge states whose gauge potentials carry no symmetry, built on the gauge potential
+  operator's growing roots — carry over with his ranges, every stationary correction one order faster in 1/r and no
+  logarithm once the gauge modification is on (`puregauge5.py`; the leading terms computed exactly, his four-dimensional
+  indicial matrices reproduced entry by entry as the control, the proposition deduced in supplement section 10.30). A
   line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold
   h₀, which his proof does not make explicit, and the rest of their analysis are open. No growing mode appears in either
   type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2
@@ -1244,6 +1248,11 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   Tangherlini without the sub-leading term that gives his logarithm, his printed four-dimensional numbers reproduced as
   the control, and the top of the indicial gap (the lemma, on the five-dimensional reading of [Hin26c]'s section 9, and
   the states deduced). 5/5; mutants 8/8 (about a minute).
+- `puregauge5.py` J1–J5: Hintz's Proposition 6.18 (4)–(7) in five dimensions (supplement section 10.30): the indicial
+  families of the gauge potential operator on every harmonic type, his Lemma 6.6 matrices and his symmetric-gradient
+  families reproduced in four dimensions, his four classes of growing roots with their ranges, the symmetric gradient
+  injective at each, no resonance for 0 < z < 4, and the generalized states' leading terms exact on Minkowski space (the
+  proposition deduced). 5/5; mutants 5/5 (about four minutes).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1318,7 +1327,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D83).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D84).
 
 | claim | where it is established |
 | --- | --- |
@@ -1359,7 +1368,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D8
 | | `docket68/n1star/cpmodes5.py` K1–K3; `docket68/n1star/solv5.py` Q1–Q4; |
 | | `docket68/n1star/tface5.py` F1–F5; `docket68/n1star/lin5.py` E1–E5; `docket68/n1star/sbar5.py` S1–S3; |
 | | `docket68/n1star/strap5.py` P1–P3; `docket68/n1star/gmodes5.py` G1–G5; `docket68/n1star/zstates5.py` Z1–Z6; |
-| | `docket68/n1star/genstates5.py` H1–H5; |
+| | `docket68/n1star/genstates5.py` H1–H5; `docket68/n1star/puregauge5.py` J1–J5; |
 | | [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin26a], [Hin26], [Hin26c] |
@@ -1393,7 +1402,8 @@ imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `ga
 `thresh5.py` and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py` imports `cform5.py` and `damping5.py`,
 `tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and `damping5.py`, `lin5.py` imports `damping5.py` and
 `gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and `zstates5.py` import `damping5.py`, `genstates5.py` imports
-`damping5.py` and `zstates5.py`; the others import nothing from the research tree:
+`damping5.py` and `zstates5.py`, `puregauge5.py` imports `damping5.py`, `genstates5.py` and `zstates5.py`; the others
+import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1424,6 +1434,7 @@ imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `ga
                                                          # gmodes5 (about five minutes)
                                                          # zstates5 (about half a minute)
                                                          # genstates5 (about a minute)
+                                                         # puregauge5 (about four minutes)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1431,9 +1442,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `0c35fb3b0b37fa898cf2d194857cac0c` |
-| `docket68/n1star/N1STAR-LOG.md` | `330cd4373adfd92a774d200fce1652c1` |
-| `docket68/n1star/README.md` | `0246a753db09e89ca85f7f1cc8de81d4` |
+| `docket68/n1star/N1STAR-PROOF.md` | `f528b7019b45f22386c34e55329bac90` |
+| `docket68/n1star/N1STAR-LOG.md` | `4bbbcd839fac91c24db358c6063ffa10` |
+| `docket68/n1star/README.md` | `488bc14218f270b3fdfd649687b3a5be` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1476,5 +1487,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/gmodes5.py` | `5d2b68e8b13e2b921e08a733e0900031` |
 | `docket68/n1star/zstates5.py` | `ea860787d2a4345a193e6ce2f9a19b7f` |
 | `docket68/n1star/genstates5.py` | `f2ef7478e67760e3d6ff05d0a0dd74e5` |
+| `docket68/n1star/puregauge5.py` | `70a434c70df64beb2e27c98c12ed5bd7` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

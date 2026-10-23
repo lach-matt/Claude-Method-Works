@@ -2614,3 +2614,37 @@ index sets; 10.24's kernel dimension and root simplicity; his Lemma 2.15 in deta
 
 *Runs.* genstates5.py 5/5 (about a minute), mutants 8/8; zstates5.py 6/6 (about half a minute), mutants 7/7;
 response5.py all pass; md5 rows current (46). Next: D84, his Proposition 6.18 (4)-(7) in five dimensions.
+
+**D84 (2026-10-23): [Hin26] Proposition 6.18 (4)-(7) in five dimensions (10.30, puregauge5.py).**
+
+M asked to continue while the thirty-eighth verifier read D81-D82. 10.29 left his Proposition 6.18 (4)-(7) OPEN: the
+pure gauge states built on the gauge potential operator's growing roots below -1, whose gauge potentials carry no
+symmetry. READ at source (alphaXiv, 2026-10-23): [Hin26] pp. 19, 67 ((2.43)-(2.46c) and the remark after them), 113,
+117-118 (Lemma 6.6's matrices, (6.17a)-(6.17b), Remark 6.7), 121, 128-134 (Proposition 6.18 (4)-(7), footnotes 74-76,
+the proof), 149-151 (Lemma 8.4), 158 (section 8.5).
+
+*Computed (Proposition 10.27, puregauge5.py J1-J5).* (J1) The indicial families of box^Ups on every harmonic type: in
+four dimensions his Lemma 6.6 matrices entry by entry and his p. 134 values; in five dimensions det N0 exactly
+10.15(i)'s polynomial, N1 = -2 (lam - 3/2) + 2 S-bar, at vl N1 = -2 (lam - 3/2 - gam_U). (J2) His four classes in five
+dimensions, every l: Q(l(l + 1)) = l z and Q((l + 1)(l + 2)) = -(l + 2) z put Q's negative roots just below -l and -l -
+1, with first-order coefficients -l/(2 (l + 1)(2l + 1)) and -(l + 2)/(2 (l + 1)(2l + 3)); s0's root is at -1 - z/3; sl's
+-l + 1 and vl's -l are roots at every z; nothing else is <= 0 but the Killing roots. (J3) delta-bar* is injective at
+every class root; his (2.46a)-(2.46c) come out. (J4) No resonance for 0 < z < 4 (four dimensions 0 < z < 3), the z = 0
+coincidences all at sl (and at s0 in four dimensions). (J5) The states are exact on Minkowski at every class's largest
+k; at vl kappa_i = prod (2l + 2j + 1 + 2 gam_U)/(j (2l + j + 2)), 10.29's 1 + 2 gam_U/5 at l = 1. Controls: his matrices
+in five dimensions; z = -1/100; v1 claimed injective at -1; z = 0; the factor k!/(k - i)! dropped.
+
+*Deduced (10.30).* (a) His Proposition 6.18 (4)-(7) in five dimensions on Tangherlini, on 10.29(a): his classes and
+ranges, each stationary correction at rho^(mu + 2) where his is at rho^(mu + 1), no logarithm at e_U > 0. (b) The tensor
+types of L-hat(0) carry no pure gauge state; their roots -2 and -3 fall with section 8.5's physical states. All seven
+parts of his Proposition 6.18 now have five-dimensional counterparts.
+
+*Notes on the computation.* (1) The vector harmonics of S^3 are P(x^3, x^4)(x^1 dx^2 - x^2 dx^1)/r^(l + 1), P harmonic
+of degree l - 1 in (x^3, x^4): tangential, divergence-free and componentwise harmonic; at l = 1 the rotation of
+10.28-10.29. (2) The irrational class roots are checked exactly with mu a symbol modulo its polynomial, each recursion
+step scaled by det N0(mu - i), which is checked nonzero modulo it, so that the check cannot pass vacuously. (3) Real
+roots are compared exactly (sympy's real_roots), never as floats. (4) The window [-3, 0] and the ranges are his, chosen
+for the decay he proves; whether five dimensions needs the same window is left OPEN.
+
+*Runs.* puregauge5.py 5/5 (about four minutes), mutants 5/5; response5.py all pass; md5 rows current (47). Next: one
+verifier on D83 and D84 (10.28-10.30, genstates5.py, zstates5.py, puregauge5.py).
