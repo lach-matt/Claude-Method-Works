@@ -3661,10 +3661,11 @@ through the shift n/2 = 2 in the weights, the gap (0, 2) of the unmodified opera
 augmentation's first term, which decays at rho^3 by the dimension where his needs a cancellation; the shifted weight
 alpha + 2 is left in (0, 1), as his alpha + 3/2 is. Not done, and OPEN: the line-by-line reading of [Hin26c] section 9
 at n = 4, now including sections 9.4-9.6 and Lemma 3.11; [Hin26] section 6.5 (the large zero energy states of
-box^Upsilon) and Lemma 6.13 in five dimensions; the constraint propagation operator's counterpart, his section 7, which
-rests on [Hin26a] (Theorem 5.2, section 6, Theorem B.1; 10.21 deduces section 6 from Theorem 5.2, and 10.22-10.23
-Theorems 5.2 and B.1 on readings); and the linearized gauge-fixed Einstein operator, his section 8, in five dimensions.
-Nothing of this section is proved: Proposition 10.17 is computed, and (a)-(e) are deduced.
+box^Upsilon; 10.28 deduces section 6.5.1 on Lemma 6.13) and Lemma 6.13 in five dimensions; the constraint propagation
+operator's counterpart, his section 7, which rests on [Hin26a] (Theorem 5.2, section 6, Theorem B.1; 10.21 deduces
+section 6 from Theorem 5.2, and 10.22-10.23 Theorems 5.2 and B.1 on readings); and the linearized gauge-fixed Einstein
+operator, his section 8, in five dimensions. Nothing of this section is proved: Proposition 10.17 is computed, and
+(a)-(e) are deduced.
 
 
 ### 10.21 [Hin26a] section 6 in five dimensions: the constraint propagation operator (`cpmodes5.py` K1-K3; D66)
@@ -4334,10 +4335,10 @@ gradient:
      dz^i, X_a = (r/k)(f_a + (r/k) D_a H_T) of [KI03] (2.8), leaves f_a = H_T = 0 and their invariants F, F_ab of (2.7);
      there the reduced equations E_ab, E_a, E_L, E_T are computed, and at sigma != 0, in their X, Y, Z of (2.20)-(2.21)
      with Z = i sigma Z~: E_t, E_r and E_tr give exactly (2.24a-c); E_tt, E_rr and E_L then reduce to multiples of one
-     linear form C in (X, Y, Z~), which the flow preserves, so the solutions form a two-dimensional space; Phi := (3
-     Z~ - r (X + Y))/(r^(1/2) H), H = m + 6 mu/r^2, m = k^2 - 3, solves f (f Phi')' + (sigma^2 - V_S) Phi = 0 on C = 0,
-     V_S = f Q/(16 r^2 H^2) with Q of (3.7) at n = 3, [KI03] (3.1)-(3.6); and det[Phi; Phi'; C] = -r^4 (r^2 - mu)^5
-     (G3).
+     linear form C in (X, Y, Z~), which the flow preserves, so the solutions form a two-dimensional space; Phi := (3 Z~
+     - r (X + Y))/(r^(1/2) H), H = m + 6 mu/r^2, m = k^2 - 3, solves f (f Phi')' + (sigma^2 - V_S) Phi = 0 on C = 0, V_S
+     = f Q/(16 r^2 H^2) with Q of (3.7) at n = 3, [KI03] (3.1)-(3.6); and det[r^(1/2) Phi; r^(1/2) Phi'; C] = -r^4 (r^2
+     - mu)^5, C as G3 normalizes it: a multiple of C by a function of r rescales the determinant by that function (G3).
  (iv) (the exceptional sectors, sigma != 0) Scalar l = 0: f_tt = H_L = 0 is reached by a gauge 1-form A_t dt + A_r dr
      algebraic in the mode, and then the mode equations force f_tr = f_rr = 0. Vector l = 1 (V Killing): D Ric(h)_ab = 0
      and E_r = r^2 d_t F^(1)_tr/(2 (r^2 - mu)), F^(1)_tr = r d_t(f_r/r) - r d_r(f_t/r), [KI03] (5.16), so a mode has
@@ -4345,21 +4346,24 @@ gradient:
      f_tt, f_t and H_L are free of derivatives, with determinant (r^2 - mu)(sigma^2 r^4 - mu)/(4 r^6), and then the mode
      equations force f_tr = f_rr = f_r = 0. Every pivot of these eliminations has its factors free of r among the powers
      of sigma (G4).
- (v) (the potentials, and the horizon) V_T > 0, V_V >= (f/r^2)(l (l + 2) - 6) > 0 and V_S > 0 for l >= 2 on r > r_h,
-     Q >= 16 m (m - 3)(m + 9) > 0 there. In ingoing Eddington-Finkelstein coordinates (v = t + r*, r) Gamma^lam_rr = 0;
-     and the master fields, written in the ingoing components of the reduced field, are free of 1/f: 3 Z~ - r (X + Y) =
-     (4 sigma r^3 F - sigma r^3 f F'_rr - 2 sigma r^3 F_vr - 3 i r^2 f F_vr - 3 i r^2 F_vv)/(r sigma) and Omega = r^2 (f
-     F'_r + F_v)/(i sigma) (G5).
+ (v) (the potentials, and the horizon) V_T > 0, V_V >= (f/r^2)(l (l + 2) - 6) > 0 and V_S > 0 for l >= 2 on r > r_h, Q
+     >= 16 m (m - 3)(m + 9) for 3 < m <= 12 and Q >= 16 m^3 + 60 m^2 for m >= 12, so Q > 0 there (the first bound alone
+     fails beyond m = 12; corrected, D79). In ingoing Eddington-Finkelstein coordinates (v = t + r*, r) Gamma^lam_rr =
+     0; and the master fields, written in the ingoing components of the reduced field, are free of 1/f: 3 Z~ - r (X + Y)
+     = (4 sigma r^3 F - sigma r^3 f F'_rr - 2 sigma r^3 F_vr - 3 i r^2 f F_vr - 3 i r^2 F_vv)/(r sigma) and Omega = r^2
+     (f F'_r + F_v)/(i sigma) (G5).
 
 *Proof.* G1-G5 of gmodes5.py, exact. A harmonic enters through its Taylor jets at a point of S^3 (sin chi = 3/5, sin
 theta = 5/13), every jet free but for the harmonic's defining equations and their derivatives there, so that an identity
 checked there holds for every harmonic of the type at that point, and so at every point, the isometries of S^3 acting
 transitively and commuting with D Ric and delta*. D Ric is checked on delta* omega for an omega with arbitrary jets,
-where it vanishes. (iv)'s eliminations -- the equations and their r-derivatives, every derivative eliminated first --
-run over Q(3^(1/2), i)(r, sigma) at mu = 1: the homothety t, r -> lam t, lam r carries g_mu to lam^2 g_(mu/lam^2) and
-sigma to lam sigma, and D Ric of lam^2 g is that of g. Controls: in (i) the divergence condition dropped, where D
-Ric(h)_ai is not zero; in (ii) +27 for -27; in (iii) Z = -i sigma Z~, where (2.24a-c) fail; in (iv) f_t left free at l =
-1, where the derivative-free rank is 2 of 4; in (v) V_V lowered by 6. []
+where it vanishes. At scalar l = 1 the jets stop at order 2, the constraints at order 0: S's third jet enters D Ric only
+through nabla^j (nabla_j nabla_i - nabla_i nabla_j) S, which vanishes. (iv)'s eliminations -- the equations and their
+r-derivatives, every derivative eliminated first -- run over Q(3^(1/2), i)(r, sigma) at mu = 1: the homothety t, r ->
+lam t, lam r carries g_mu to lam^2 g_(mu/lam^2) and sigma to lam sigma, and D Ric of lam^2 g is that of g. Controls: in
+(i) the divergence condition dropped, where D Ric(h)_ai is not zero; in (ii) +27 for -27; in (iii) Z = -i sigma Z~,
+where (2.24a-c) fail; in (iv) f_t left free at l = 1, where the derivative-free rank is 2 of 4; in (v) V_V lowered by 6.
+[]
 
 *Deduced.*
 
@@ -4382,29 +4386,122 @@ Ric(h)_ai is not zero; in (ii) +27 for -27; in (iii) Z = -i sigma Z~, where (2.2
      u's and of their derivatives, so the sum converges with u's.
  (b) ([Hin26] Proposition 8.8 in five dimensions) His proof then runs as written: eta = 0 by his Theorem 7.1(1)
      (10.21(e), on [Hin26a] Theorem 5.2, which 10.22 deduces on a reading); u = delta*(sigma) omega by (a);
-     box^Ups(sigma) omega = 0, so omega = 0 by his Proposition 6.12 (10.20(e)) and u = 0 on r >= r_h; the index 0 comes
-     from his Proposition 8.3 (10.26) through [Hin26c] Theorem 9.5 on the reading of 10.19. So, on the readings of
-     10.19-10.26, at Proposition 10.9's point with gam_Ups small, L-hat(sigma) is injective, and so invertible, at 0 !=
-     sigma, Im sigma >= 0 -- with, as in 10.16, the kernel elements' class ([Hin26c] Theorem 9.5(5) in five dimensions)
-     and the vanishing carried from r >= r_h to the part of X inside the horizon by the standard interior uniqueness,
-     both OPEN.
+     box^Ups(sigma) omega = 0 on r >= r_h; continued into the part of X inside the horizon as a solution of
+     box^Ups(sigma) omega = 0 -- harmonic by harmonic a linear ODE in r with coefficients smooth there -- it vanishes by
+     his Proposition 6.12 (10.20(e)), a statement on all of X, and u = 0 on r >= r_h; the index 0 comes from his
+     Proposition 8.3 (10.26) through [Hin26c] Theorem 9.5 on the reading of 10.19. So, on the readings of 10.19-10.26,
+     at Proposition 10.9's point with gam_Ups small, L-hat(sigma) is injective, and so invertible, at 0 != sigma, Im
+     sigma >= 0 -- with, as in 10.16, the kernel elements' class ([Hin26c] Theorem 9.5(5) in five dimensions), omega's
+     continuation into the part of X inside the horizon as a solution there (the harmonics summed), and the vanishing of
+     u carried from r >= r_h to that part by the standard interior uniqueness, all OPEN.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 25 (section 1.4.1: "Mode stability for the ungauged
 linearized Einstein equation D_{g_b} Ric(h) = 0 (see [AHW24, Theorem 6.1(1)]) implies that h is the sum of a linearized
 Kerr metric g-dot_b(b-dot) and a pure gauge term delta*_{g_b} omega. In the absence of the former (which can only occur
 at frequency sigma = 0) ..."), 153-154 (section 8.4: Proposition 8.8 and its proof). [KI03] (arXiv:hep-th/0305147v3,
 alphaXiv, 2026-10-23): pp. 4-5 ((2.1)-(2.8)), 7-10 ((2.20)-(2.24), (3.1)-(3.14)), 13-15 (section 5, (5.1)-(5.17)), 18-20
-(Appendices A and B).
+(Appendices A and B). The extraction drops minus signs; (2.23)'s Z = i sigma Z~ is settled by (A.1b) through (2.22a),
+(2.24c), (3.9c) and (3.12c), and by G3, where the other sign fails.
 
 *What this gives, and what it does not.* The input his Proposition 8.8 takes from [AHW24] on Kerr, on five-dimensional
 Tangherlini: every outgoing mode of the linearized Einstein operator at sigma != 0, Im sigma >= 0, is pure gauge, its
 gauge 1-form in the same class. The computation is [KI03]'s, carried from their general formulas to D Ric at n = 3
 directly: the tensor type, which four dimensions lacks, has the potential of 10.16's scalar wave (k_T^2 + 2 = l(l + 2));
 the vector potential's -27 mu/(4 r^2) and the scalar potential's Q leave both positive at l >= 2; and l <= 1 is pure
-gauge at nonzero frequency. Not done, and OPEN: the kernel elements' class and the interior uniqueness, as in 10.16; the
-zero-energy analysis of his section 8.4 (Propositions 8.9-8.11, [AHW24] Theorem 6.1(2)), section 8.5 and sections 9-10,
-in five dimensions; and the readings of 10.19-10.26. Nothing of this section is proved: Proposition 10.24 is computed,
-and (a)-(b) are deduced.
+gauge at nonzero frequency. Not done, and OPEN: the kernel elements' class, omega's continuation inside the horizon and
+the interior uniqueness, as in 10.16; how small gam_Ups must be, and h_0, below which Proposition 10.9's h = 10^-6 must
+lie (10.21(e)); the zero-energy analysis of his section 8.4 (Propositions 8.9-8.11, [AHW24] Theorem 6.1(2); 10.28
+deduces Proposition 8.9), section 8.5 and sections 9-10, in five dimensions; and the readings of 10.19-10.26. Nothing of
+this section is proved: Proposition 10.24 is computed, and (a)-(b) are deduced.
+
+### 10.28 [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions: the zero energy states (`zstates5.py` Z1-Z5; D80)
+
+*The setting.* [Hin26] section 6.5.1 builds the zero energy states of box^Upsilon from the symmetries of Minkowski space
+-- dt, the translations d(rS) (S in S_1, the span of the x^i/r), the boosts t* d(rS) + r d(rS) - rS dt and the rotations
+V (V in V_1, dual to the rotation vector fields) ((6.29)) -- each corrected by solving box^Ups(0) omega' =
+-box^Ups(0)(leading term) with his Lemma 6.13, the orders from his Lemma 6.14: delta*_g(0) - delta*_gbar(0) in rho^2
+Diff^0_b and box^Ups(0) - box^Ups_gbar(0) in rho^3 Diff^2_b, Kerr meeting Minkowski at m/r. His Proposition 6.15 gives
+h_b,s1(S) in A^((2,0) u (2 + E_ind)) ((6.32a)), the boost's correction with a logarithm, (log rho) c_b,s1
+omega-bar_s1(S) ((6.31)), the s1 root 0 met, and h_b,v1 = 0 at a = 0 (Remark 6.17). His Proposition 8.9 brings the
+linearized Kerr metrics into the gauge delta_(g,E) G h = 0, delta_(g,E) = delta_g + E^Ups, E^Ups h = -gam_Ups (2
+iota_(g^-1 c) h - (1 - e_Ups) c tr h), c = r^-1 dt near infinity ((4.1)-(4.3)): g-dot(1, 0) in rho C^oo has its source
+in rho^2 C^oo, so its gauge 1-form carries (log rho) c_b omega-bar_s0 ((8.19)), the s0 root 0 met; g-dot(0, a-dot) in
+rho^2 C^oo has its source in rho^3 C^oo and its gauge 1-form at rho^1, 1 being no root ((8.20)). Both feed his
+Proposition 8.11, the seven-dimensional kernel of L-hat(0), and Lemma 8.12's pairings. In five dimensions E^Ups takes
+the trace weight 2/3 (10.15), and z = 4 e_Ups gam_Ups^2 enters the indicial roots of 10.15(i).
+
+**Proposition 10.25 (computed; exact).** On five-dimensional Tangherlini, f = 1 - mu/r^2, against 4+1 Minkowski gbar,
+with four-dimensional Schwarzschild as the control:
+
+ (i) (the orders, his Lemma 6.14) In Cartesian coordinates g - gbar is in rho^2 C^oo and Gamma(g) of order rho^3 (four
+     dimensions: rho, rho^2), whence, as his Lemma 6.14 from his (3.21), delta*_g(0) - delta*_gbar(0) is in rho^3
+     Diff^0_b and box^Ups(0) - box^Ups_gbar(0) in rho^4 Diff^2_b; and r* = r + (r_h/2) log((r - r_h)/(r + r_h)) has r* -
+     r -> 0, with no logarithm (four dimensions: r* - r ~ 2M log r) (Z1).
+ (ii) (the translations) delta*_g dx^1 is of order rho^3 and box dx^1 = 2 delta G delta* dx^1 of order rho^4 (four
+     dimensions: rho^2, rho^3); 2 is an s1 root of box^Ups(0) at z = 0 (the root l + 1 at l = 1) and not for z > 0,
+     where the root through 2 is (1 + (17 + 2z - 2 (z^2 + 4z + 16)^(1/2))^(1/2))/2 > 2 (Z2).
+ (iii) (the boosts) delta*_g (t dx^1 - x^1 dt) = t delta*_g dx^1 + K with K stationary of order rho^2 (four dimensions:
+     rho); 1 is no s1 root of box^Ups(0) for z >= 0, the s1 polynomial at l = 1 being 3 (12 + 3z) at lam = 1 (Z3).
+ (iv) (the rotations) R = x^1 dx^2 - x^2 dx^1 equals g gbar^-1 R and is Killing for g; V_1 = so(4) is six-dimensional
+     and S_1 four-dimensional (Z4).
+ (v) (the linearized rotating and mass-changing metrics) h_mu = d_mu g and h_A = (mu/r^4)(dt (x) w + w (x) dt), w = x^1
+     dx^2 - x^2 dx^1, solve D Ric(h) = 0 and are of orders rho^2 and rho^3 (four dimensions: d_M g of order rho); eta_mu
+     = delta_(g,E) G h_mu is of order rho^3 and spherically symmetric; delta G h_A = 0, so eta_A = E^Ups h_A = (2
+     gam_Ups mu/(f r^5)) w, of order rho^4 and of vector type l = 1; and 1 is no s0 root and 2 no v1 root of box^Ups(0)
+     (10.15(i): s0 0, 3, (1 +- (9 + 4z)^(1/2))/2; v1 -1, 3) (Z5).
+
+*Proof.* Z1-Z5 of zstates5.py, exact. (i), (iii) and (iv) in Cartesian coordinates, g = -f dt^2 + dx^2 + (mu/(r^2 -
+mu))(x.dx)^2/r^2, the orders read along the generic ray x = R u, u = (2, 4, 5, 6)/9, where every component is rational
+in R; (ii) and (v) in polar coordinates, the orders read on gbar's orthonormal frame (dt, dr, r dchi, r sin chi dtheta,
+r sin chi sin theta dphi) at sin chi = 3/5, sin theta = 5/13, sin phi = 8/17 -- the same orders, the two frames
+differing by a rotation bounded with its inverse. Controls: in (i) the four-dimensional orders claimed; in (ii) z = 0;
+in (iii) four-dimensional Schwarzschild, where K is of order rho; in (iv) f R, which is not Killing; in (v)
+four-dimensional Schwarzschild's d_M g, of order rho, its source at rho^2. []
+
+*Deduced.*
+
+ (a) ([Hin26] Proposition 6.15 in five dimensions) Take z > 0, and his Lemma 6.13 in five dimensions (OPEN since 10.20).
+     His proof runs with every order raised by one. Translations: f_b = box^Ups omega-bar_s1(S) is in rho^4 C^oo by
+     (ii), its E^Ups part too (c in rho C^oo against delta*_g dx^1 in rho^3), of type s1, so omega' = -box^Ups(0)^-1 f_b
+     is in A^((2,0) u (2 + E_ind)), 2 being no s1 root at z > 0, and h_b,s1(S) = delta*_g omega_b,s1(S) in A^((3,0) u (3
+     + E_ind)). Boosts: of his four terms in f-breve_b the first vanishes, the boost being Killing for gbar, and the
+     others gain one order by (i) -- [box^Ups - box^Ups_gbar, t*] omega-bar_s1 in rho^3, [box^Ups, t*] omega' in
+     A^((3,0) u (3 + E_ind)), (box^Ups(0) - box^Ups_gbar(0)) of the rho^-1 term in rho^3 -- so f-breve_b is in A^((3,0)
+     u (3 + E_ind)), of type s1, and the stationary correction lies at rho^1, 1 being no s1 root by (iii): no logarithm
+     in place of (6.31), and h-breve^1_b,s1(S) in A^((2,0) u (2 + E_ind)), K being of order rho^2. Rotations: by (iv)
+     omega_b,v1(V) = V and h_b,v1(V) = 0 for all six V (his Remark 6.17 at a = 0); and omega_b,s0 = g(d_t, .) is
+     Killing.
+ (b) ([Hin26] Proposition 8.9 in five dimensions) Mass: g-dot(mu) = h_mu is in rho^2 C^oo and 2 eta_mu in rho^3 C^oo,
+     spherically symmetric, so the gauge 1-form omega-dot(mu) = -box^Ups(0)^-1(2 eta_mu) is in A^((1,0) u (1 + E_ind)),
+     1 being no s0 root -- no logarithm in place of (8.19) -- and g-dot^Ups(mu) = h_mu + delta*_g omega-dot(mu) in
+     A^((2,0) u (2 + E_ind)). Angular momenta, one for each antisymmetric A, six in place of his three: g-dot(A) = h_A
+     is in rho^3 C^oo and its source 2 eta_A = 2 E^Ups h_A in rho^4 C^oo, of vector type l = 1, so omega-dot(A) is in
+     A^((2,0) u (2 + E_ind)), 2 being no v1 root, and g-dot^Ups(A) in A^((3,0) u (3 + E_ind)); at gam_Ups = 0 the source
+     would vanish and h_A be in the gauge already. That h_mu and h_A are the derivatives of the Myers-Perry family at
+     zero rotation in the mass and in the rotation in A's plane, up to normalization, is not READ here; what is computed
+     is that they solve D Ric = 0.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 25 (section 1.4.1:
+"The zero energy nullspace of L_b is always nontrivial; it is 7-dimensional when the two 1-form wave operators have no
+zero modes"), 81 (Definition 4.1, (4.1)-(4.3); footnote 49: "upon perturbing away the s1 indicial root 0--which is
+absent indeed in Lemma 8.4--mildly simplifies the construction of improved zero energy states corresponding to
+asymptotic boosts"), 124-127 (Lemma 6.13; section 6.5.1: Lemma 6.14, Proposition 6.15, (6.29)-(6.33), Remarks 6.16-6.17,
+and the proof: "Since 1 is not an indicial root of box^Ups_{g_b,E^Ups}(0), we have omega'_b in A^{(1,0) u (1+E_ind)}"),
+154-155 (Proposition 8.9 and its proof, (8.19)-(8.20): "This is equal to -box^Ups_{g_b,E^Ups}(0) omega-dot_b(0, a-dot)
+for some omega-dot_b(0, a-dot) in A^{(1,0) u (1+E_ind)} by Lemma 6.13 and the fact that 1 is not an indicial root";
+Remark 8.10).
+
+*What this gives, and what it does not.* The zero energy states his section 6.5.1 builds and the gauged linearized
+metrics of his Proposition 8.9 have five-dimensional counterparts, at the level of deduction, one order faster in rho
+and without his two logarithms: Tangherlini meets Minkowski at mu/r^2 where Kerr does at m/r; the exponents the
+constructions need -- 1 for the boosts and the mass, 2 for the translations and the angular momenta -- miss the
+five-dimensional indicial roots once z > 0, the translations' 2 meeting the s1 root at z = 0, which e_Ups, gam_Ups > 0
+move; and the rotations' gauge source comes from E^Ups alone. Not done, and OPEN: his Lemma 6.13 in five dimensions
+(10.20), and with it every inverse used here; the index sets E_ind; the identification of h_mu and h_A with the
+Myers-Perry family, not READ; section 6.5.2 (Proposition 6.18, the generalized zero energy states), section 7.2's dual
+states, Propositions 8.10-8.13 and Lemma 8.12's pairings in five dimensions -- the candidates for his Proposition 8.11's
+kernel number 1 + 6 + 4 = 11 against his 7, a count not established; section 8.5 and sections 9-10; how small gam_Ups
+must be, and h_0. Nothing of this section is proved: Proposition 10.25 is computed, and (a)-(b) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

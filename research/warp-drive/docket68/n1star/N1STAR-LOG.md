@@ -2408,8 +2408,9 @@ three), the remaining three one constraint that the flow preserves, their Phi (3
 det[Phi; Phi'; C] = -r^4 (r^2 - mu)^5. (G4) l <= 1 at sigma != 0, pure gauge: scalar l = 0 by the algebraic gauge f_tt =
 H_L = 0; vector l = 1 by E_r = r^2 d_t F^(1)/(2 (r^2 - mu)); scalar l = 1 by the algebraic gauge f_tt = f_t = H_L = 0,
 determinant (r^2 - mu)(sigma^2 r^4 - mu)/(4 r^6); the eliminations over Q(3^(1/2), i)(r, sigma) at mu = 1 by the
-homothety, every pivot's factors free of r powers of sigma. (G5) The potentials positive at l >= 2, Q >= 16 m (m -
-3)(m + 9); in ingoing coordinates Gamma^lam_rr = 0, and the master fields free of 1/f.
+homothety, every pivot's factors free of r powers of sigma. (G5) The potentials positive at l >= 2, Q >= 16 m (m - 3)(m
++ 9) for 3 < m <= 12 and Q >= 16 m^3 + 60 m^2 for m >= 12 (corrected in D79); in ingoing coordinates Gamma^lam_rr = 0,
+and the master fields free of 1/f.
 
 *Deduced (10.27).* (a) [AHW24] Theorem 6.1(1) on five-dimensional Tangherlini, in the class of 10.16: each master
 equation as in 10.16(a); the gauge 1-forms in the class -- covariant on the orbit space at l >= 2, algebraic at l <= 1
@@ -2428,3 +2429,82 @@ ingoing components they are free of it (G5), which is what puts them in 10.16's 
 
 *Runs.* gmodes5.py 5/5 (about five minutes), mutants 5/5; response5.py all pass; md5 rows current (44). Next: the
 thirty-sixth verifier on 10.27, gmodes5.py, D77 and D78.
+
+**D79 (2026-10-23): the thirty-sixth verifier's findings on 10.27, gmodes5.py, D77 and D78, seated.**
+
+The thirty-sixth verifier read d47dbd0 read-only, every program run from an archive of it, and recomputed independently:
+its own D Ric (equal to d/d eps Ric(g + eps h), annihilating d_mu g and delta* omega, agreeing with the record's dric in
+all 25 components at the point), explicit harmonics (a TT tensor from two self-dual Killing forms, k_T^2 = 6; co-closed
+vectors at l = 2 and 3; zonal scalars at l = 2 and 3; cos chi and a Killing field at l = 1) and the exceptional ranks at
+numeric points, complex sigma among them. Verdict: D78 holds; no major finding; five minor findings and eight notes,
+each seated here.
+
+*Minor.* (1) Q >= 16 m (m - 3)(m + 9) is false for m > 12 (l >= 4): at x = 0 Q = 16 m^3 + 60 m^2, below the bound there;
+at m = 21 Q's minimum on [0, 1] is 174636 against 181440. Q > 0 held by the code's own case split. Repaired in 10.27(v)
+and in gmodes5.py's G5, docstring and check, which now verifies both branches -- Q - 16 m (m - 3)(m + 9) = 1296 x^3 +
+(624 m - 144) x^2 + 36 m (12 - m)(1 - x) on 3 < m <= 12, every coefficient of Q(12 + p, x) nonnegative for p >= 0 -- and
+records the failure at m = 21; D78's entry corrected in place. (2) The paper's Appendix C range stood at D77: now D79.
+(3) ROUTES 4.25-4.27's OPEN lists did not point to 4.28: each now names his Proposition 8.8 deduced there. (4) The paper
+stated Proposition 8.8 without its class and open items: it now says smooth across the horizon and outgoing at infinity,
+deduced on the same readings, the kernel elements' class and the uniqueness inside the horizon open. (5) The paper's
+[KI03] and [Hin26] entries lacked the reads of 2026-10-23: added ([KI03] sections 2, 3 and 5 and Appendices A-B; [Hin26]
+pp. 25, 28, 34, 113-117, 135-137, 144-154).
+
+*Notes.* (a) His Proposition 6.12 is a statement on all of X: omega must be continued into the part of X inside the
+horizon as a solution of box^Ups(sigma) omega = 0 before it applies; 10.27(b), 10.27's OPEN list and ROUTES 4.28 now say
+so, the continuation OPEN. (b) h_0 and the size of gam_Ups added to 10.27's and 4.28's OPEN lists. (c) gmodes5.py's
+docstring and a comment had f_tt shifting by 2 (d_t A_t - Gamma^r_tt A_r); the code and the verifier's computation give
+no factor 2: corrected. (d) E_T is not printed in [KI03]; their (5.12) implies it: the attribution corrected. (e) G4's
+vector l = 1 label claimed f_a = (r/2) D_a B unchecked: the check now runs, on a mode with F^(1) = 0 and B = 2 i
+f_t/(sigma r). (f) The determinant's value depends on C's normalization (the verifier's E_rr form gives -r^3):
+10.27(iii) and the docstring now name the rows, r^(1/2) Phi, r^(1/2) Phi' and C as G3 normalizes it, a multiple of C by
+a function of r rescaling the determinant by that function. (g) At scalar l = 1 the jets stop at order 2 with the
+constraints at order 0; S's third jet enters D Ric only through nabla^j (nabla_j nabla_i - nabla_i nabla_j) S = 0, and
+the verifier's order-3 jets gave identical reduced equations: said in the docstring and the proof. (h) The alphaXiv
+extraction drops minus signs; (2.23)'s Z = i sigma Z~ was settled by (A.1b) through (2.22a), (2.24c), (3.9c) and (3.12c)
+and by computation: 10.27's READ says so.
+
+*Not checked by the verifier.* [AHW24] itself, read through Hintz; [KI03]'s minus-sign glyphs; the OPEN items; l >= 4
+with explicit harmonics, which the record's general-k jets carry.
+
+*Runs.* gmodes5.py 5/5, mutants 5/5; response5.py all pass; md5 rows current (44). The headings of 10.27 and 4.28 keep
+D78 alone, D79 added there exceeding 121 characters. Next: [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions
+(D80).
+
+**D80 (2026-10-23): [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions (10.28, zstates5.py).**
+
+M's commission (522) continues: route B item 2 carried to five dimensions step by step. After Proposition 8.8 (D78) the
+next step of his section 8.4 is the zero energy theory, which rests on section 6.5.1's states built from the Minkowskian
+symmetries and on Proposition 8.9's gauged linearized Kerr metrics. READ at source (alphaXiv, 2026-10-23): [Hin26] pp.
+25, 81 (Definition 4.1), 124-127 (Lemma 6.13, section 6.5.1), 154-155 (Propositions 8.8-8.9, Remark 8.10).
+
+*Computed (Proposition 10.25, zstates5.py Z1-Z5).* (Z1) g - gbar in rho^2, Gamma in rho^3, r* without a logarithm. (Z2)
+delta*_g dx^1 at rho^3, box dx^1 at rho^4; 2 an s1 root only at z = 0, the root through 2 (1 + (17 + 2z - 2 (z^2 + 4z +
+16)^(1/2))^(1/2))/2 > 2 for z > 0. (Z3) The boost's stationary defect K at rho^2; 1 no s1 root. (Z4) R Killing, g
+gbar^-1 R = R; V_1 = so(4). (Z5) d_mu g and h_A vacuum, at rho^2 and rho^3; eta_mu at rho^3; delta G h_A = 0 and eta_A =
+E^Ups h_A = (2 gam mu/(f r^5)) w at rho^4; 1 no s0 root, 2 no v1 root. Controls: the four-dimensional orders; z = 0;
+four-dimensional Schwarzschild's K at rho; f R; four-dimensional d_M g at rho.
+
+*Deduced (10.28).* (a) His Proposition 6.15 in five dimensions, every order raised by one and no logarithm at the
+boosts, h_v1 = 0. (b) His Proposition 8.9 there, no logarithm at the mass, g-dot^Ups(mu) at rho^2 and g-dot^Ups(A) at
+rho^3, six angular momenta. Both on his Lemma 6.13 in five dimensions, OPEN since 10.20.
+
+*Notes on the computation.* (1) The first draft read orders by simplify and as_leading_term along the ray and ran for
+over ten minutes on one Christoffel table; every component along a ray is rational in R, so the order is now a
+difference of degrees, exact. (2) A ray along (1, 1, 1, 1)/2, on which x^1 - x^2 vanishes identically, was replaced
+before the first full run by the generic (2, 4, 5, 6)/9. (3) The symbolic inverse of the 5 x 5 Cartesian metric did not
+finish in ten minutes; the inverse is now written out, delta_ij - mu x_i x_j/r^4, and checked against g. (4) D Ric of
+h_A in Cartesian coordinates ran for over twenty minutes unfinished; in polar coordinates it takes under a second, and
+Z2 moved there too (from four minutes), the orders read on gbar's orthonormal frame. (5) The draft gave the s1 root
+through 2 as (1 + (9 + z)^(1/2))/2: the run refuted it, and the root is now solved exactly. (6) The draft's Z4 control,
+the gbar-dual of R, was vacuous -- R is orthogonal to x, so its g- and gbar-duals agree -- and the selftest flagged it;
+the control is now f R. (7) The draft's Z3 control was forced to fail; it now computes four-dimensional Schwarzschild's
+K, of order rho, against the five-dimensional claim. (8) The rotation's gauge source was first written as an assumption;
+it is now computed with 10.15's E^Ups at the trace weight 2/3.
+
+*Also repaired.* D79's reflow doubled the marker ('- - ') of six bullets whose first line it rewrapped: ROUTES-OPEN.md
+4.25-4.28's OPEN bullets and the paper's [KI03] and [Hin26] entries. Repaired; the reflow now keeps a bullet's own
+marker.
+
+*Runs.* zstates5.py 5/5 (about 15 seconds), mutants 5/5; response5.py all pass; md5 rows current (45). Next: the
+thirty-seventh verifier on 10.28, zstates5.py, D79 and D80.
