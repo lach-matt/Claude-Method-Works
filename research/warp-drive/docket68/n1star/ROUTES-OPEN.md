@@ -390,10 +390,10 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    operator is tf-admissible for every beta in [-C_0, 2) at that point, for C_0 <= 100 and h = 10^-6 if that is below
    h_0, [Hin26] Theorem 7.1(4) (deduced); the linearized gauge-fixed Einstein operator's indicial roots are those of his
    Lemma 8.4 in five dimensions, its gap beginning at 0, for every l at that point (4.25; the factorization computed,
-   the roots at the point for l <= 12, the rest deduced), so that his Lemma 8.5 and, but for the spectrum of his Lemma
-   8.2's S-bar, his Proposition 8.6 hold on the same readings (deduced); the line-by-line readings of [Hin26a] sections
-   2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 6.5, 7.2
-   and 8 beyond Proposition 8.6, are OPEN.
+   the roots at the point for l <= 12, the rest deduced), so that his Lemma 8.5 and, with his Lemma 8.2's S-bar computed
+   (4.26; min spec S-bar = 0, his (8.7)), his Proposition 8.6 hold on the same readings (deduced); the line-by-line
+   readings of [Hin26a] sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the
+   item, [Hin26] sections 6.5, 7.2 and 8 beyond Proposition 8.6, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -465,8 +465,10 @@ and the sink, section B.4's weights, data and closing integral -- and deduces Th
 and h = 10^-6 if that is below h_0; and 4.25 (10.24, Proposition 10.21, computed; deduced) computes the indicial roots
 of the linearized gauge-fixed Einstein operator -- its factorization through box^Upsilon and box^C with the physical
 roots -l and l + 2, the tensor type -- and deduces his Lemma 8.4 for every l at Proposition 10.9's point, Lemma 8.5 and,
-but for the spectrum of his Lemma 8.2's S-bar, Proposition 8.6. Next: that spectrum, and the rest of item 2 -- [Hin26]
-sections 6.5, 7.2 and 8 -- in five dimensions.
+but for the spectrum of his Lemma 8.2's S-bar, Proposition 8.6; and 4.26 (10.25, Proposition 10.22, computed; deduced)
+computes that S-bar -- the gauge potential operator's spectrum, the constraint propagation operator's and five zeros,
+min spec S-bar = 0 -- and completes Proposition 8.6 on readings. Next: the rest of item 2 -- [Hin26] sections 6.5, 7.2
+and 8.3-8.5 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -1040,6 +1042,27 @@ states Proposition 10.21 and deduces.
   nonpositive roots lie below -101 -- his Lemma 8.5, and his Proposition 8.6, tf-admissibility with weight in (0,
   eps_ind) for small gam_Ups, on the readings of 4.20-4.24, but for the spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2),
   which the domain step of its kernel half needs.
-- OPEN: that spectrum and his (8.7) in five dimensions; simplicity and (8.13) beyond l <= 12; how small gam_Ups must
-  be, and h_0; his Proposition 8.3, sections 8.4-8.5 and 9-10 in five dimensions. Labels: computed (lin5.py E1-E5,
-  exact, the point's roots by mpmath); deduced; READ ([Hin26] pp. 28, 117, 135-137, 144-146, 149-153); nothing proved.
+- OPEN: that spectrum and his (8.7) in five dimensions (computed in 4.26); simplicity and (8.13) beyond l <= 12; how
+  small gam_Ups must be, and h_0; his Proposition 8.3, sections 8.4-8.5 and 9-10 in five dimensions. Labels: computed
+  (lin5.py E1-E5, exact, the point's roots by mpmath); deduced; READ ([Hin26] pp. 28, 117, 135-137, 144-146, 149-153);
+  nothing proved.
+
+### 4.26 [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (computed; D74)
+
+4.25 left one input of [Hin26] Proposition 8.6 OPEN: the spectrum of S-bar_{E^Ups, E^C}, by which the linearized
+gauge-fixed Einstein operator's d_t* terms differ from the wave operator's, and his (8.7), min spec S-bar = 0, with
+which the kernel half's decay improves before the outgoing threshold is applied. sbar5.py computes it; N1STAR-PROOF.md
+10.25 states Proposition 10.22 and deduces.
+- The structure: on 4+1 Minkowski in t* = t - r the wave operator is -2 d_t* rho (rho d_rho - 3/2) plus a stationary
+  operator, and 2 L - box is first order with d_t* coefficient 2 rho S-bar, S-bar constant (S1).
+- The spectrum: {0 (five times), gam_Ups (three times), 2 gam_Ups, (1 - e_Ups) gam_Ups, (1 - v) gam_C (three times),
+  2 (1 - v) gam_C, (1 - e_C)(1 - v) gam_C}, the union of the S-bar of box^Ups (4.19) and of box^C (4.22) with five
+  zeros; every eigenvalue >= 0, so min spec S-bar = 0, his (8.7); at the trace weight 1 the (1 - e) gam scale by 3/2
+  and the minimum stays 0. Four-dimensional control: his (8.8) (S2).
+- The consequences: the improvement to 3/2 - eps (his 1 - eps), the threshold -1/2 dimension-free, and Corollary 8.7's
+  beta_sctf < 3/2 (his 1) (S3).
+- Deduced: his (8.4) on Tangherlini, and Proposition 8.6 at Proposition 10.9's point for small gam_Ups on the readings
+  of 4.20-4.25, the step 4.25 left OPEN now filled.
+- OPEN: the readings line by line; how small gam_Ups must be, and h_0; his Proposition 8.3, sections 8.4-8.5 and 9-10
+  in five dimensions. Labels: computed (sbar5.py S1-S3, exact); deduced; READ ([Hin26] pp. 145-146, 152-153); nothing
+  proved.

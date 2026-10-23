@@ -2250,3 +2250,36 @@ s1's physical 3 and box^Ups's 3 + z/12, 3.3 x 10^-7 apart; and 10.24(d) gives hi
 *Runs.* lin5.py's changes are to its docstring only (its AST is unchanged, checked), so its 5/5 and 4/4 of D72 stand;
 response5.py all pass; md5 rows current. Next: the spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2) and his (8.7) in
 five dimensions, the one input Proposition 8.6 lacks.
+
+**D74 (2026-10-23): [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (10.25, sbar5.py).**
+
+*M's words.* "Continue please", after PR #88 (D71-D73) merged; the branch restarted from main (b3ed5d0).
+
+*What and why.* 10.24 left one input of [Hin26] Proposition 8.6 OPEN: the spectrum of S-bar_{E^Ups, E^C}, the
+endomorphism by which 2 L-bar's d_t* terms differ from the wave operator's ((8.3b)), and his (8.7), min spec S-bar = 0,
+with which his proof improves the decay at sctf to 1 - eps before the outgoing threshold (p. 152). His Lemma 8.2 (p.
+146) gives S-bar as 1/2 rho^-1 times the d_t* coefficients of 2 E^C delta G + 2 (delta* + E^C) E^Ups G, with diagonal
+2 (1 - v) gam_C, (1 - v) gam_C, (1 - e_C)(1 - v) gam_C, (1 - e_Ups) gam_Ups, gam_Ups, 0, 2 gam_Ups ((8.8)).
+
+*Computed (sbar5.py S1-S3, exact).* On 4+1 Minkowski in t* = t - r: the wave operator is -2 d_t* rho (rho d_rho - 3/2)
+plus a stationary operator; 2 L - box is first order with d_t* coefficient 2 rho S-bar, S-bar a constant 15 x 15 matrix
+(the same characteristic polynomial at two points). Its spectrum is {0 (x5), gam_Ups (x3), 2 gam_Ups, (1 - e_Ups)
+gam_Ups, (1 - v) gam_C (x3), 2 (1 - v) gam_C, (1 - e_C)(1 - v) gam_C}: the union of box^Ups's S-bar (10.18's) and
+box^C's (10.21's), computed by the same construction, with five zeros; every eigenvalue >= 0, so min spec S-bar = 0,
+his (8.7). The four-dimensional run gives his (8.8)'s seven values with multiplicities 2, 2, 1, 1, 2, 1, 1. And the
+consequences: the improvement to 3/2 - eps (his 1 - eps), rho^(3/2 - eps) in rho^l L^2(r^3 dr) iff l < -1/2 - eps, and
+(8.18a) beta_sctf < 3/2 (his 1).
+
+*Deduced (10.25).* His (8.4) on Tangherlini, as 10.18 deduces (6.7); and the step of Proposition 8.6's kernel half that
+10.24(c) left OPEN, so that Proposition 8.6 holds at Proposition 10.9's point for small gam_Ups on the readings of
+10.19-10.24 alone.
+
+*Two corrections inside the computation.* The first draft of S2 claimed the spectrum independent of the trace weight;
+the run refused it: at the weight 1 in five dimensions the two eigenvalues (1 - e) gam become (3/2)(1 - e) gam, as
+thresh5.py's control already records for box^Ups, and the minimum stays 0; S2 now checks that. And S2's incoming
+control (t* = t + r) was described as giving a negative eigenvalue; it gives none -- its constraint part is gam_C {2 (1
++ v), (1 - e_C)(1 + v), 1 + v}, cpmodes5.py K2's spectrum at R_in -- and it is caught because the union fails; the
+docstring and 10.25 say so.
+
+*Runs.* sbar5.py 3/3 (about a minute), mutants 3/3; response5.py all pass; md5 rows current (42). Next: the
+thirty-fourth verifier on 10.25, sbar5.py and the D73 repairs.
