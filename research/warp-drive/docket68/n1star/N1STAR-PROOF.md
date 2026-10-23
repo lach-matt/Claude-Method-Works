@@ -4204,10 +4204,83 @@ alphaXiv, 2026-10-23. [Hin26c] Theorem 9.38(5) (p. 195), as 10.23 reads it.
 linearized gauge-fixed Einstein operator in five dimensions carries the gauge potential operator's spectrum, the
 constraint propagation operator's and five zeros, and min spec S-bar = 0, so the decay at sctf improves to 3/2 - eps,
 (n - 1)/2 where his is 1, and the threshold keeps its dimension-free -1/2. Proposition 8.6 is now deduced on readings
-alone. Not done, and OPEN: those readings ([Hin26c] section 9 at n = 4, line by line); how small gam_Ups must be, and
-h_0; simplicity and (8.13) beyond l <= 12; his Proposition 8.3 (strong trapping admissibility of L), section 8.4 (mode
-stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5, and sections 9-10, in five dimensions. Nothing of
-this section is proved: Proposition 10.22 is computed, and (a)-(b) are deduced.
+alone. Not done, and OPEN (10.26 takes his Proposition 8.3): those readings ([Hin26c] section 9 at n = 4, line by line);
+how small gam_Ups must be, and h_0; simplicity and (8.13) beyond l <= 12; his Proposition 8.3 (strong trapping
+admissibility of L), section 8.4 (mode stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5, and
+sections 9-10, in five dimensions. Nothing of this section is proved: Proposition 10.22 is computed, and (a)-(b) are
+deduced.
+
+### 10.26 [Hin26] Proposition 8.3 in five dimensions: strong trapping admissibility of L (`strap5.py` P1-P3; D75)
+
+*The setting.* [Hin26] Proposition 8.3 (p. 147) makes 2 L_b strongly trapping admissible ([Hin26c] Definition 5.8): "for
+all eps > 0 there exists a time-translation-invariant positive definite fiber inner product on pi^*(S^2 T^*),
+homogeneous of degree 0 with respect to fiber-dilations ..., such that sigma^-1 (1/2i)(S_sub(2 L_b) - S_sub(2 L_b)^*) <
+eps at Gamma_0" ((8.9)). His proof (pp. 147-149): E^Ups is supported away from the trapped set, so "only the constraint
+damping modifications enter", i S_sub(2 L_b) = i S_sub(box) + 2 E^C sigma_1(i delta) G ((8.10)); in the frame of (6.16b)
+and the splitting (8.11) this is H_G + sigma A with a printed 10 x 10 matrix A, gam = C^(1/2) gam_C/sigma; "A is upper
+triangular in the basis" (8.12) with eigenvalues "0 (6x), -2 (1 - e_C) gam c_2 (1x), -2 gam c_2 (2x), -4 gam c_2 (1x)";
+c_2 = -g^-1(c_C, e_0) < 0 since c_C is past timelike and e_0 future null; and the inner product diag(1, eta^-1, ...,
+eta^-9) in (8.12) gives the bound. He needs it "for fixed modification parameters" (footnote 77: for the b-regularity of
+solutions with a fixed loss). 10.17 computed the frame on five-dimensional Tangherlini and carried his Lemma 6.4; not
+computed before this section: the symmetric 2-tensor operator, whose angular part in five dimensions is a plane V, on
+which nabla_{H_G} rotates.
+
+**Proposition 10.23 (computed; exact).** On an abstract covector frame e_0, ..., e_n with g^-1 Gram [[0, 0, -1], [0, 1,
+0], [-1, 0, 0]] (+) Id_(n-2), the 1-form part of nabla_{H_G}/sigma s N (N e_1 = e_0, N e_2 = e_1), E^C with the trace
+weight m, c = c_mu e_mu, and A defined by i S_sub(2 L) = H_G + sigma A through (8.10):
+
+ (i) (the four-dimensional control) At n = 3, his sign s = +2 and m = 1, A in the splitting (8.11) equals his printed
+     matrix in all 100 entries, and it is upper triangular in his basis (8.12) with his diagonal (P1).
+ (ii) (five dimensions, c general) At n = 4, s = -2 (10.17's) and m = 2/3, det(lam - A) = lam^10 (lam + 2 gam c_2)^3
+     (lam + 4 gam c_2)(lam + 2 (1 - e_C) gam c_2) -- at m = 1 the last factor is lam + 3 (1 - e_C) gam c_2 -- and A is
+     upper triangular, for every c, gam and e_C, in the constant basis e_0^2, e_0 e_1, e_0 e_2, e_0 e_3, e_0 e_4, e_1
+     e_3, e_1 e_4, e_3 e_4, e_1^2 - e_3^2, e_1^2 - e_4^2, e_1^2, e_1 e_2, e_2 e_3, e_2 e_4, e_2^2 (P2).
+ (iii) (five dimensions, c with no angular part) At c_3 = c_4 = 0, A commutes with the rotation R of the plane of e_3,
+     e_4, extended to S^2; in the units e_0^2, e_0 e_1, e_0 e_2, e_1^2 - T/2, e_1^2, e_1 e_2, e_2^2, (e_0 e_3, e_0 e_4),
+     (e_1 e_3, e_1 e_4), (e_2 e_3, e_2 e_4), (e_3 e_4, e_3^2 - e_4^2), T = e_3^2 + e_4^2, it is block upper triangular
+     with scalar diagonal blocks 0, 0, 0, 0, -2 (1 - e_C) gam c_2, -2 gam c_2, -4 gam c_2, 0, 0, -2 gam c_2, 0; R acts
+     within each unit and is skew there; and in the basis orthonormal for the inner product weighting unit k by eta^-k
+     the matrix of A tends to that block diagonal as eta -> 0 (P3).
+
+*Proof.* P1-P3 of strap5.py, exact over Q[gam, e_C, c_mu], with sympy: the Leibniz extension of s N to S^2, G = 1 -
+(1/2) g tr, sigma_1(i delta) = -C^(1/2) iota_{e_2} and E^C as in Proposition 10.21, his normalization 2 e_a (x)_s e_b of
+(8.11). Four-dimensional control: (i) itself. Controls: the computed sign s = -2 against his printed matrix in (i),
+where 8 entries differ, the nabla part; e_1^2 placed before e_1^2 - e_3^2 in (ii), where A is not upper triangular; and
+c_4 = 1/3 in (iii), where A does not commute with R. []
+
+*Deduced.*
+
+ (a) (his Proposition 8.3 on five-dimensional Tangherlini) Near the trapped set Gamma_0 = {r^2 = 2 mu, xi = 0}
+     (10.17(ii)) take 10.17's frame e_0 = zeta, e_1, e_2, normalized by C^(1/2), with nabla_{H_G} e_0 = 0, nabla_{H_G}
+     e_1 = -2 sigma e_0, nabla_{H_G} e_2 = -2 sigma e_1 (trap5.py T3), and a local g-orthonormal frame e_3, e_4 of V, on
+     which nabla_{H_G} is k R with k a function and R skew (10.17(a)). E^Ups vanishes near the photon sphere ((6.1)),
+     S_sub(box) = -i nabla on symmetric 2-tensors ([Hin17] Proposition 4.1, his (6.13), in any dimension; 10.17 T0
+     computes it on 1-forms), and (8.10) holds as he writes it, so i S_sub(2 L) = H_G + sigma A + k R in this frame, A
+     that of (ii) with s = -2. 10.14's c = a(r) dt + b(r) dr has no angular part, so c_3 = c_4 = 0 and (iii) applies; it
+     is past timelike at r^2 = 2 mu > r_h^2 (Proposition 10.11(i)), and e_0 is future null, so c_2 = -g^-1(c, e_0) < 0,
+     and with gam > 0 every diagonal block of (iii) is >= 0 (for 0 < e_C < 1). The inner product of (iii) -- weights
+     eta^-k on the units in the frames e_mu, the two members of each angular pair weighted alike -- is independent of
+     the choice of e_3, e_4, so it is defined near Gamma_0, stationary and homogeneous of degree 0 (H_G C = 0); for it
+     H_G is skew (it acts componentwise and preserves the symplectic volume), k R is skew by (iii), and the symmetric
+     part of A is its block diagonal, >= 0, plus O(eta^(1/2)). So sigma^-1 (1/2)(i S_sub(2 L) + (i S_sub(2 L))^*) > -C
+     eta^(1/2) at Gamma_0, below any eps for small eta, with the modification parameters fixed, as footnote 77 asks: 2 L
+     is strongly trapping admissible on five-dimensional Tangherlini.
+ (b) (general c) For a c with angular components, (ii)'s constant basis triangularizes A, but the rotation of V along
+     the flow is skew only for weights constant on its orbits, which (ii)'s single-member units do not give; on
+     Tangherlini the question does not arise, c being spherically symmetric.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 34 (item (1)), 113-116 (section 6.1, (6.12)-(6.16c),
+Lemma 6.4 and its proof), 147-149 (section 8.1: Proposition 8.3, (8.9)-(8.12), the printed A and its eigenvalues, the
+proof's last paragraph, footnote 77). [Hin26c] Definition 5.8, as 10.17 reads it.
+
+*What this gives, and what it does not.* His Proposition 8.3 on five-dimensional Tangherlini, by his computation in five
+dimensions: the 15 x 15 subprincipal matrix has the same structure as his 10 x 10 -- ten zeros and the eigenvalues -2
+(1 - e_C) gam c_2, -2 gam c_2 (three times), -4 gam c_2, all >= 0 at the trapped set -- and a constant basis
+triangularizes it; the one new point, the rotation of the angular plane along the flow, is absorbed by weighting the
+angular pairs alike, which c's spherical symmetry permits. Not done, and OPEN: [Hin26c]'s use of it (the high-energy
+estimates of Theorem 9.16 for symmetric 2-tensors in five dimensions, on the reading of 10.19); his section 8.4 (mode
+stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5 and sections 9-10, in five dimensions; and the
+readings of 10.19-10.25. Nothing of this section is proved: Proposition 10.23 is computed, and (a)-(b) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

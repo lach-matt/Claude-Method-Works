@@ -2283,3 +2283,36 @@ docstring and 10.25 say so.
 
 *Runs.* sbar5.py 3/3 (about a minute), mutants 3/3; response5.py all pass; md5 rows current (42). Next: the
 thirty-fourth verifier on 10.25, sbar5.py and the D73 repairs.
+
+**D75 (2026-10-23): [Hin26] Proposition 8.3 in five dimensions, strong trapping admissibility of L (10.26, strap5.py).**
+
+*M's words.* "Continue please", after PR #89 (D74) merged; the branch restarted from main (03650e6). The thirty-fourth
+verifier, sent on D73-D74, is still reading.
+
+*What and why.* His Proposition 8.3 (pp. 147-149) makes 2 L strongly trapping admissible for fixed modification
+parameters (footnote 77: needed for b-regularity with a fixed loss). His proof writes i S_sub(2 L) = H_G + sigma A in the
+frame of (6.16b) and the splitting (8.11), prints the 10 x 10 A, triangularizes it in (8.12) with eigenvalues 0 (6x),
+-2 (1 - e_C) gam c_2, -2 gam c_2 (2x), -4 gam c_2, all >= 0 because c_2 = -g^-1(c_C, e_0) < 0, and weights (8.12) by
+powers of eta. 10.17 had carried the frame to five-dimensional Tangherlini (his Lemma 6.4).
+
+*Computed (strap5.py P1-P3, exact).* On an abstract quasi-orthonormal frame: with his sign the computed A equals his
+printed matrix in all 100 entries, triangular in his (8.12) with his diagonal (P1); in five dimensions det(lam - A) =
+lam^10 (lam + 2 gam c_2)^3 (lam + 4 gam c_2)(lam + 2 (1 - e_C) gam c_2) -- 3 (1 - e_C) at the trace weight 1 -- and a
+constant basis triangularizes A for every c (P2); with c's angular part zero, A commutes with the rotation of the angular
+plane, and in rotation-adapted units it is block triangular with scalar blocks, the rotation skew within each unit (P3).
+
+*Deduced (10.26).* His Proposition 8.3 on five-dimensional Tangherlini: 10.14's c = a(r) dt + b(r) dr has no angular
+part and is past timelike at the photon sphere, so c_2 < 0 and the blocks are >= 0; the inner product weights the
+angular pairs alike, so the rotation of the plane along the flow -- the one point four dimensions lacks -- stays skew.
+
+*Three corrections inside the computation.* The first run of P2 compared characteristic polynomials built on two
+symbols named lam with different assumptions (charpoly's generator carries none), so equal polynomials compared
+unequal: lam is now plain. The draft claimed the spectrum the same at the trace weight 1; the run refused it -- the
+last eigenvalue becomes -3 (1 - e_C) gam c_2, as sbar5.py found for S-bar -- and P2 now checks both. P3's eta-rescaling
+was written W A W^-1 where the orthonormal coordinates give W^-1 A W; fixed. And the paper's new sentence counted four
+nonzero eigenvalues where there are five.
+
+*Runs.* strap5.py 3/3 (a few seconds), mutants 3/3, each control failing for its stated reason (8 entries differ at
+the computed sign; A not triangular with e_1^2 moved; A not commuting with the rotation at c_4 = 1/3); response5.py
+all pass; md5 rows current (43). Next: the thirty-fourth verifier's findings on D73-D74 when it reports, then the
+thirty-fifth on D75; his sections 8.4-8.5 in five dimensions.

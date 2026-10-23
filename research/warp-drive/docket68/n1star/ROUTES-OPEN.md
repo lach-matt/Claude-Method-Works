@@ -391,9 +391,10 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    h_0, [Hin26] Theorem 7.1(4) (deduced); the linearized gauge-fixed Einstein operator's indicial roots are those of his
    Lemma 8.4 in five dimensions, its gap beginning at 0, for every l at that point (4.25; the factorization computed,
    the roots at the point for l <= 12, the rest deduced), so that his Lemma 8.5 and, with his Lemma 8.2's S-bar computed
-   (4.26; min spec S-bar = 0, his (8.7)), his Proposition 8.6 hold on the same readings (deduced); the line-by-line
-   readings of [Hin26a] sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the
-   item, [Hin26] sections 6.5, 7.2 and 8 beyond Proposition 8.6, are OPEN.
+   (4.26; min spec S-bar = 0, his (8.7)), his Proposition 8.6 hold on the same readings (deduced), and 2 L is strongly
+   trapping admissible, his Proposition 8.3 (4.27; deduced); the line-by-line readings of [Hin26a] sections 2.3 and 5.2
+   and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 6.5, 7.2 and 8 beyond
+   Proposition 8.6, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -467,8 +468,11 @@ of the linearized gauge-fixed Einstein operator -- its factorization through box
 roots -l and l + 2, the tensor type -- and deduces his Lemma 8.4 for every l at Proposition 10.9's point, Lemma 8.5 and,
 but for the spectrum of his Lemma 8.2's S-bar, Proposition 8.6; and 4.26 (10.25, Proposition 10.22, computed; deduced)
 computes that S-bar -- the gauge potential operator's spectrum, the constraint propagation operator's and five zeros,
-min spec S-bar = 0 -- and completes Proposition 8.6 on readings. Next: the rest of item 2 -- [Hin26] sections 6.5, 7.2
-and 8.3-8.5 -- in five dimensions.
+min spec S-bar = 0 -- and completes Proposition 8.6 on readings; and 4.27 (10.26, Proposition 10.23, computed; deduced)
+computes the subprincipal matrix of 2 L at the trapped set -- his printed 10 x 10 reproduced, the 15 x 15 with ten zeros
+and the eigenvalues -2 (1 - e_C) gam c_2, -2 gam c_2 (three times), -4 gam c_2, triangular in a constant basis -- and
+deduces his Proposition 8.3 on Tangherlini. Next: the rest of item 2 -- [Hin26] sections 6.5, 7.2, 8.4 and 8.5 -- in
+five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -1063,6 +1067,23 @@ which the kernel half's decay improves before the outgoing threshold is applied.
   beta_sctf < 3/2 (his 1) (S3).
 - Deduced: his (8.4) on Tangherlini, and Proposition 8.6 at Proposition 10.9's point for small gam_Ups on the readings
   of 4.20-4.25, the step 4.25 left OPEN now filled.
-- OPEN: the readings line by line; how small gam_Ups must be, and h_0; his Proposition 8.3, sections 8.4-8.5 and 9-10
-  in five dimensions. Labels: computed (sbar5.py S1-S3, exact); deduced; READ ([Hin26] pp. 145-146, 152-153); nothing
-  proved.
+- OPEN: the readings line by line; how small gam_Ups must be, and h_0; his Proposition 8.3 (4.27), sections 8.4-8.5 and
+  9-10 in five dimensions. Labels: computed (sbar5.py S1-S3, exact); deduced; READ ([Hin26] pp. 145-146, 152-153);
+  nothing proved.
+
+### 4.27 [Hin26] Proposition 8.3 in five dimensions: strong trapping admissibility of L (computed; D75)
+
+His Proposition 8.3 makes 2 L strongly trapping admissible for fixed modification parameters, from a printed 10 x 10
+matrix A at the trapped set ((8.10)-(8.12)). strap5.py computes it on an abstract quasi-orthonormal frame;
+N1STAR-PROOF.md 10.26 states Proposition 10.23 and deduces.
+- Four-dimensional control: with his sign convention the computed A equals his printed matrix in all 100 entries and
+  is upper triangular in his (8.12) with his eigenvalues (P1).
+- Five dimensions: det(lam - A) = lam^10 (lam + 2 gam c_2)^3 (lam + 4 gam c_2)(lam + 2 (1 - e_C) gam c_2), the last
+  factor with 3 (1 - e_C) at the trace weight 1; a constant basis triangularizes A for every c (P2).
+- With c's angular part zero, as for 10.14's c = a(r) dt + b(r) dr: A commutes with the rotation of the angular plane,
+  and in rotation-adapted units it is block triangular with scalar blocks and the rotation skew within each unit (P3).
+- Deduced: his Proposition 8.3 on Tangherlini, c_2 < 0 at the photon sphere since c is past timelike there, the angular
+  pairs weighted alike so that the rotation of the plane along the flow stays skew.
+- OPEN: [Hin26c]'s high-energy estimates for symmetric 2-tensors at n = 4 (the reading of 4.20); his sections 8.4-8.5
+  and 9-10 in five dimensions. Labels: computed (strap5.py P1-P3, exact); deduced; READ ([Hin26] pp. 34, 113-116,
+  147-149); nothing proved.
