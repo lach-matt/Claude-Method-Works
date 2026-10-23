@@ -2265,10 +2265,10 @@ with which his proof improves the decay at sctf to 1 - eps before the outgoing t
 plus a stationary operator; 2 L - box is first order with d_t* coefficient 2 rho S-bar, S-bar a constant 15 x 15 matrix
 (the same characteristic polynomial at two points). Its spectrum is {0 (x5), gam_Ups (x3), 2 gam_Ups, (1 - e_Ups)
 gam_Ups, (1 - v) gam_C (x3), 2 (1 - v) gam_C, (1 - e_C)(1 - v) gam_C}: the union of box^Ups's S-bar (10.18's) and
-box^C's (10.21's), computed by the same construction, with five zeros; every eigenvalue >= 0, so min spec S-bar = 0,
-his (8.7). The four-dimensional run gives his (8.8)'s seven values with multiplicities 2, 2, 1, 1, 2, 1, 1. And the
-consequences: the improvement to 3/2 - eps (his 1 - eps), rho^(3/2 - eps) in rho^l L^2(r^3 dr) iff l < -1/2 - eps, and
-(8.18a) beta_sctf < 3/2 (his 1).
+box^C's (10.21's), computed by the same construction, with five zeros; every eigenvalue >= 0, so min spec S-bar = 0, his
+(8.7). The four-dimensional run gives his (8.8)'s seven values with multiplicities 1, 2, 1, 1, 2, 2, 1 in his order. And
+the consequences: the improvement to 3/2 - eps (his 1 - eps), rho^(3/2 - eps) in rho^l L^2(r^3 dr) iff l < -1/2 - eps,
+and (8.18a) beta_sctf < 3/2 (his 1).
 
 *Deduced (10.25).* His (8.4) on Tangherlini, as 10.18 deduces (6.7); and the step of Proposition 8.6's kernel half that
 10.24(c) left OPEN, so that Proposition 8.6 holds at Proposition 10.9's point for small gam_Ups on the readings of
@@ -2316,3 +2316,115 @@ nonzero eigenvalues where there are five.
 the computed sign; A not triangular with e_1^2 moved; A not commuting with the rotation at c_4 = 1/3); response5.py
 all pass; md5 rows current (43). Next: the thirty-fourth verifier's findings on D73-D74 when it reports, then the
 thirty-fifth on D75; his sections 8.4-8.5 in five dimensions.
+
+**D76 (2026-10-23): the thirty-fourth verifier's findings on 10.25, sbar5.py, D73 and D74, seated.**
+
+*M's words.* "Continue please", after PR #90 (D75) merged; the branch restarted from main (8d51f67).
+
+*The verifier.* The thirty-fourth, on 49c0f00: no MAJOR finding; four MINOR findings and eight notes. It reran sbar5.py
+(3/3; mutants 3/3) and response5.py (all pass), found the 42 md5 rows current, and recomputed S-bar by a route that
+shares no code with sbar5.py: by hand from principal symbols, S-bar = rho^-1 [E^C sigma_delta(dt*) G + sigma_delta*(dt*)
+E^Ups G], in his null splitting (5.27) at a point -- at n = 3 his (5.28) at h = 0 entry for entry, (8.8) with its
+starred entries; at n = 4 lower triangular with sbar5.py's spectrum; at the trace weight 1 only the two (1 - e) entries
+scaled by 3/2; and the 1-form S-bars equal to thresh5.py U2, cpmodes5.py K1 and his (7.5). It gave the union its reason:
+S-bar = XY with X = [E^C | sigma_delta*] and Y = [rho^-1 sigma_delta G; rho^-1 E^Ups G], and YX is block triangular with
+diagonal blocks S-bar^C and S-bar^Ups because sigma_delta G sigma_delta*(xi) = -|xi|^2/2 vanishes at the null dt*,
+whence (n + 1)(n + 2)/2 - 2 (n + 1) zeros at every trace weight. It read [Hin26c] Theorem 9.38(2), (5) and Proposition
+9.40 at source (arXiv:2606.28008v1, pp. 195, 197), and checked each D73 repair against the thirty-third verifier's list.
+
+*Four MINOR, repaired.* (1) (8.8)'s multiplicities were misstated as 2, 2, 1, 1, 2, 1, 1; in his order they are 1, 2, 1,
+1, 2, 2, 1, the ranks of the summands of his splitting (5.27). 10.25, sbar5.py's docstring and D74 above are corrected
+in place, and S2 now compares the n = 3 spectrum with his seven values at those ranks in his order, which the
+set-and-sorted comparison could not see. (2) ROUTES 4.5's "Next" named sections 8.3-8.5; D75 had already rewritten it to
+6.5, 7.2, 8.4 and 8.5, right now that Proposition 8.3 is deduced in 4.27. (3) The paper's S-bar sentence reads "that it
+needs", and its label is now "the spectrum computed, the improvement deduced". (4) Proposition 8.6 now carries both
+hypotheses, Proposition 10.9's point and small gam_Ups, in the README, the paper's lin5.py and sbar5.py bullets, ROUTES
+4.4 and 4.5, and the summaries of 10.24 and 10.25.
+
+*Eight notes.* (1) The hanging indents of 10.24(b) and of ROUTES 4.13's OPEN bullet are restored. (2) The headings of
+10.25 and ROUTES 4.26 add D76; those of 10.24 and ROUTES 4.25 would pass 121 characters with D73, D74 and D76, so they
+stay and this LOG records the edits. (3) The paper's sbar5.py bullet says "the diagonal of his (8.8)", which is what S2
+recomputes. (4) The READ ranges begin at p. 144, where section 8 fixes c_Ups = r^-1 dt and gam_Ups << 1. (5) 10.25(b)
+now cites what his proof cites, [Hin26c] Theorem 9.38(5)'s parenthetical, the domain inclusion itself, under part (2)'s
+threshold -1/2 + S-bar, here -1/2; (iii) is the cross-check. (6) The operator of that step, with the unmodified
+symmetric gradient, has minimum 0 as well: the verifier computed {0 (ten times), gam_Ups (three times), 2 gam_Ups, (1 -
+e_Ups) gam_Ups}, and S2 now checks it at gam_C = 0, which 10.25(ii) states. (7) 10.24(d) and its summary no longer read
+as OPEN and computed at once. (8) 10.17's "Proposition 8.3 (p. 149)" is p. 147.
+
+*Runs.* sbar5.py 3/3 (about a minute), mutants 3/3, the new checks refusing the misstated ranks; response5.py all pass;
+md5 rows current. Next: the thirty-fifth verifier on 10.26, strap5.py, D75 and these repairs; and [Hin26] section 8.4,
+his Proposition 8.8, in five dimensions.
+
+**D77 (2026-10-23): the thirty-fifth verifier's findings on 10.26, strap5.py, D75 and D76, seated.**
+
+*The verifier.* The thirty-fifth, on cca4070: no MAJOR finding; three MINOR findings and eight notes, all in the
+records. It reran strap5.py (3/3; mutants 3/3), sbar5.py and response5.py, found the 43 md5 rows current, and recomputed
+A by a route that shares no code with strap5.py: on concrete static Schwarzschild (r = 3M) and Tangherlini (r^2 = 2 mu),
+along an equatorial circular null orbit, nabla_{H_G} from the Christoffel symbols along X = 2 zeta^#, E^C sigma_1(i
+delta) G in coordinates with iota_{zeta^#}, in 10.17(iii)'s frame -- the connection matrix -2 sigma, 10.17's sign, in
+both dimensions; the characteristic polynomials of P2, with 3 (1 - e) at the weight 1 and -3 m (1 - e) gam c_2 at the
+symbolic weight m; P2's basis and P3's units holding with its A, and their controls failing; and, with 10.14's c at r^2
+= 2, G(c) = -39/1280000, <c, dt> = -1/100, c_2 = -1/200 < 0. It read [Hin26] pp. 34, 113, 115-116, 144-149 and 152, and
+[Hin26c] Definition 5.8 (pp. 102-103), Theorem 9.38 (p. 195) and Lemma 4.14 (p. 88) at source, and checked each D76
+repair, patching S2 to the misstated ranks to see it fail.
+
+*Three MINOR, repaired.* (1) ROUTES 4.25 and 4.26 still listed his Proposition 8.3 as OPEN; both now point to 4.27,
+where it is deduced. (2) The paper's record of verifiers stopped at the thirty-third: its section 8 paragraph and
+Appendix C's verification row now carry the thirty-fourth and thirty-fifth, and Appendix C's range reads D1-D77. (3) The
+README's lin5.py bullet now carries "for small gam_Ups" on Proposition 8.6.
+
+*Eight notes, seated.* (a) The sign: 10.17's s = -2 is his +2 read in the frame with e_1 -> -e_1 (and so c_1 -> -c_1);
+P1 now checks it -- after that change of frame the computed A equals his printed matrix in all 100 entries -- and
+10.26(i), its proof, ROUTES 4.27, the README and the paper say so. (b) P1 now compares the diagonal in his order, not
+sorted. (c) P3's control breaks the commutation and the block triangularity both (five entries below the unit blocks,
+recounted here); the docstring and 10.26 name both. (d) The paper's "reproduced" now says "with his sign convention".
+(e) 10.26(a)'s degree 0 comes from the normalization by C^(1/2), H_G C = 0 keeping the connection matrix unchanged under
+it. (f) iota_{e_2} is his notation, the contraction with the vector e^2 of the dual frame; the docstring and 10.26 say
+so. (g) gam > 0 has its clause: sigma > 0 on the future characteristic set, d_t being timelike outside the horizon
+([Hin26c] Lemma 4.14, (4.41)). (h) 10.26(iii) states the angular pair's normalization: in his 2 e_3 (x)_s e_4 the
+rotation acts on (e_3 e_4, e_3^2 - e_4^2) as [[0, 2], [-2, 0]], both members of norm^2 2.
+
+*Runs.* strap5.py 3/3 (a few seconds), mutants 3/3; response5.py all pass; md5 rows current. Next: [Hin26] section 8.4,
+his Proposition 8.8 in five dimensions (D78), and a thirty-sixth verifier on these repairs with it.
+
+**D78 (2026-10-23): [Hin26] Proposition 8.8 in five dimensions, mode stability (10.27, gmodes5.py).**
+
+*What and why.* [Hin26] section 8.4 opens with Proposition 8.8, mode stability of L-hat(sigma) at 0 != sigma, Im
+sigma >= 0. His proof (pp. 153-154) takes his Theorem 7.1(1), his Proposition 6.12 and [AHW24] Theorem 6.1(1): every
+outgoing mode of D Ric is pure gauge, on Kerr through the Teukolsky equation. The first two are in five dimensions
+already (10.21(e), 10.20(e)); the third was not. On Tangherlini the Kodama-Ishibashi decomposition [KI03] (read for
+10.3, and now at its sections 2, 3 and 5 and Appendices A-B) reduces each harmonic type to one master equation, and
+gmodes5.py computes that reduction from D Ric at n = 3.
+
+*Computed (gmodes5.py G1-G5, exact).* A harmonic enters through its Taylor jets at a point of S^3 with rational sines,
+every jet free but for its defining equations and their derivatives -- every harmonic of the type at once, the
+isometries carrying the point anywhere. (G1) D Ric annihilates delta* omega for arbitrary jets; the tensor type gives
+[KI03] (5.3) and V_T = (f/r^2)(l (l + 2) + 3/4 + 9 mu/(4 r^2)), 10.16's scalar wave potential. (G2) The vector type:
+delta*(r^2 B V) shifts f_a by (r/2) D_a B and H_T by -k_V B/2; in H_T = 0, E_T = -(k_V/(2 r^3)) D_a(r^2 F^a), and Omega
+= r^2 F^r/(i sigma) turns E_a = 0 into the master equation with V_V = (f/r^2)(l (l + 2) + 3/4 - 27 mu/(4 r^2)). (G3) The
+scalar type: [KI03]'s gauge 1-form, -2 X_a S dy^a - (2 r^2/k) H_T S_i dz^i, leaves their F, F_ab; the seven reduced
+equations; at sigma != 0, E_t, E_r and E_tr give exactly their (2.24a-c) with Z = i sigma Z~ (the other sign fails all
+three), the remaining three one constraint that the flow preserves, their Phi (3.1) solving (3.5) with Q of (3.7), and
+det[Phi; Phi'; C] = -r^4 (r^2 - mu)^5. (G4) l <= 1 at sigma != 0, pure gauge: scalar l = 0 by the algebraic gauge f_tt =
+H_L = 0; vector l = 1 by E_r = r^2 d_t F^(1)/(2 (r^2 - mu)); scalar l = 1 by the algebraic gauge f_tt = f_t = H_L = 0,
+determinant (r^2 - mu)(sigma^2 r^4 - mu)/(4 r^6); the eliminations over Q(3^(1/2), i)(r, sigma) at mu = 1 by the
+homothety, every pivot's factors free of r powers of sigma. (G5) The potentials positive at l >= 2, Q >= 16 m (m -
+3)(m + 9); in ingoing coordinates Gamma^lam_rr = 0, and the master fields free of 1/f.
+
+*Deduced (10.27).* (a) [AHW24] Theorem 6.1(1) on five-dimensional Tangherlini, in the class of 10.16: each master
+equation as in 10.16(a); the gauge 1-forms in the class -- covariant on the orbit space at l >= 2, algebraic at l <= 1
+with the sphere sigma^2 r^4 = mu removable, smooth across the horizon by the ingoing r-row ODE. (b) His Proposition 8.8
+there, on the readings of 10.19-10.26, at Proposition 10.9's point with gam_Ups small; the kernel elements' class and
+the interior uniqueness OPEN, as in 10.16.
+
+*Notes on the computation.* (1) Zero tests by expand left the 1/f fractions uncombined, so D Ric(delta* omega) = 0 and
+the vector match failed at first; every comparison now cancels. (2) The l = 1 elimination by rref took sixteen minutes
+and divided silently by its pivots; it now runs over a fraction field at mu = 1, in about two minutes, every pivot kept,
+and the factors free of r are powers of sigma. (3) The reverse direction of the scalar type -- that [KI03] (3.14)
+carries every master solution to a solution -- ran for over half an hour unfinished and is not needed for uniqueness;
+what is computed is the direction the argument uses, from the equations to the master equation, with Phi = 0 forcing the
+invariants to vanish. (4) The master fields are built from static components, which carry 1/f at the horizon; written in
+ingoing components they are free of it (G5), which is what puts them in 10.16's class.
+
+*Runs.* gmodes5.py 5/5 (about five minutes), mutants 5/5; response5.py all pass; md5 rows current (44). Next: the
+thirty-sixth verifier on 10.27, gmodes5.py, D77 and D78.

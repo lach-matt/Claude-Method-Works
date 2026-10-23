@@ -161,22 +161,30 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   parameter symbolic, his four-dimensional factorizations as the control, the factors checked against gaugepot5.py and
   damping5.py, and at one parameter point, for l <= 12, the roots simple, none with real part in (0, 1], each type split
   evenly and Lemma 8.5 (E1-E5; Lemma 8.4 for every l at that point, Lemma 8.5 and, but for one threshold, Proposition
-  8.6 deduced in 10.24). `python3 lin5.py --selftest` (5/5, about 50 minutes), `--mutants` (4/4, about 20 minutes).
+  8.6 for small gam_Ups deduced in 10.24). `python3 lin5.py --selftest` (5/5, about 50 minutes), `--mutants` (4/4, about
+  20 minutes).
 - `sbar5.py`: Hintz's Lemma 8.2 and (8.7) in five dimensions (section 10.25; D74): the endomorphism S-bar by which the
   linearized gauge-fixed Einstein operator's d_t* terms differ from the wave operator's on 4+1 Minkowski, its spectrum
   -- the gauge potential and constraint propagation operators' with five zeros, min spec S-bar = 0 -- and the decay
-  3/2 - eps and thresholds it gives (S1-S3; Proposition 8.6 deduced on readings in 10.25). `python3 sbar5.py
-  --selftest` (3/3, about a minute), `--mutants` (3/3).
+  3/2 - eps and thresholds it gives (S1-S3; Proposition 8.6 deduced on readings in 10.25, at Proposition 10.9's point
+  for small gam_Ups). `python3 sbar5.py --selftest` (3/3, about a minute), `--mutants` (3/3).
 - `strap5.py`: Hintz's Proposition 8.3 in five dimensions (section 10.26; D75): the subprincipal matrix of the
-  linearized gauge-fixed Einstein operator at the trapped set -- his printed 10 x 10 reproduced in four dimensions, the
-  15 x 15 in five with its spectrum and a constant triangularizing basis, and, for a c with no angular part, the
-  rotation-adapted block triangular form (P1-P3; strong trapping admissibility on Tangherlini deduced in 10.26).
-  `python3 strap5.py --selftest` (3/3, a few seconds), `--mutants` (3/3).
+  linearized gauge-fixed Einstein operator at the trapped set -- his printed 10 x 10 reproduced in four dimensions with
+  his sign, and with 10.17's after e_1 -> -e_1, the 15 x 15 in five with its spectrum and a constant triangularizing
+  basis, and, for a c with no angular part, the rotation-adapted block triangular form (P1-P3; strong trapping
+  admissibility on Tangherlini deduced in 10.26). `python3 strap5.py --selftest` (3/3, a few seconds), `--mutants`
+  (3/3).
+- `gmodes5.py`: mode stability of the linearized Einstein operator on five-dimensional Tangherlini at sigma != 0, the
+  input [Hin26] Proposition 8.8 takes from [AHW24] (section 10.27; D78): the Kodama-Ishibashi reduction of D Ric
+  computed for every harmonic at a point of S^3 -- the tensor, vector and scalar types' master equations, their
+  potentials positive at l >= 2, the scalar type through [KI03]'s first-order system and one constraint, l <= 1 pure
+  gauge at sigma != 0 -- and the horizon in ingoing coordinates (G1-G5; Proposition 8.8 deduced in 10.27). `python3
+  gmodes5.py --selftest` (5/5, about five minutes), `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All thirty-five are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All thirty-six are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing
 the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py,
 lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py,
@@ -184,5 +192,5 @@ cform5.py imports semiclass5.py and damping5.py, gaugepot5.py imports damping5.p
 damping5.py, trap5.py and thresh5.py import gaugepot5.py, damping5.py and modes5.py, hienergy5.py imports gaugepot5.py,
 damping5.py, thresh5.py and trap5.py, lowenergy5.py imports thresh5.py and damping5.py, cpmodes5.py imports damping5.py,
 solv5.py imports cform5.py and damping5.py, tface5.py imports cform5.py, gaugepot5.py, semiclass5.py and damping5.py,
-lin5.py imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, strap5.py imports damping5.py, and the
-others import nothing from the tree. The board's shared record is not edited here.
+lin5.py imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, strap5.py imports damping5.py, gmodes5.py
+imports damping5.py, and the others import nothing from the tree. The board's shared record is not edited here.

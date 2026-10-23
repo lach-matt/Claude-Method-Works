@@ -3356,7 +3356,7 @@ printed with the sign opposite to its (3.34b) -- the likeliest cause a sign slip
 = +<zeta, d_t>, or with e_1 -> -e_1. The matrix is nilpotent either way, which is all the proof uses. (b) For the inner
 product his proof names, diag(1, eta^-1, eta^-2, eta^-3), the norm is 2^(1/2) eta^(1/2) -- e_3 does not enter, N
 vanishing on it -- where his text says O(eta); O(eta) holds for the squared weights. Either tends to 0, which is all the
-proof uses. His Proposition 8.3 (p. 149) has the same wording (as the twenty-seventh verifier read).
+proof uses. His Proposition 8.3 (p. 147) has the same wording (as the twenty-seventh verifier read).
 
 *Deduced.*
  (a) (his Lemma 6.4 in five dimensions) Near Gamma_0, where C > 0 by (ii), pi^*(T^*) = P + V_perp, P = span{e_0, e_1,
@@ -4096,11 +4096,11 @@ kept at s0, where the root 1 enters (0, 1]. []
      which reaches l near 50, the bound is smaller still and not computed -- and he uses it "only really ... for |lam|
      <= 4".
  (b) (Lemma 8.5) At the point, by (iv). For every z > 0 at Proposition 10.9's point -- 0 is a simple root at s0 only if
-box^C has no root at 1, which Proposition 10.9 gives there -- his proof carries over: by (a) the kernel at s0 is
-one-dimensional, spanned by delta* of t dt plus the correction -N(box^Ups(0), -1)^-1 [box^Ups, t] dt, which is well
-defined since -1 is not an s0 root of box^Ups for z > 0 (10.12(i): 0, 3 and (1 +- (9 + 4z)^(1/2))/2), and at s2 by
-delta* of the kernel of N_s2(box^Ups(0), -1), -1 = 1 - l being box^Ups's root there; both are annihilated by the gauge
-operator, since box^Ups annihilates the 1-forms.
+     box^C has no root at 1, which Proposition 10.9 gives there -- his proof carries over: by (a) the kernel at s0 is
+     one-dimensional, spanned by delta* of t dt plus the correction -N(box^Ups(0), -1)^-1 [box^Ups, t] dt, which is well
+     defined since -1 is not an s0 root of box^Ups for z > 0 (10.12(i): 0, 3 and (1 +- (9 + 4z)^(1/2))/2), and at s2 by
+     delta* of the kernel of N_s2(box^Ups(0), -1), -1 = 1 - l being box^Ups's root there; both are annihilated by the
+     gauge operator, since box^Ups annihilates the 1-forms.
  (c) (Proposition 8.6, the kernel half) For beta in (0, eps_ind) and N_tf(L, sigma^) u_0 = 0: the indicial roots at r^ =
      0 are the negatives of (a)'s, so the first above -beta is the s0 and s2 root 0, and u_0 is its indicial solutions
      plus an element of A^(alpha, delta) for delta in (0, 1) with every negative real part below -delta -- delta exists:
@@ -4127,8 +4127,8 @@ operator, since box^Ups annihilates the 1-forms.
      0 and, with (c), its cokernel is trivial. He writes that 3 roots are crossed at scalar type l >= 2; his own list
      has 7 on each side there, 3 being the 1-form count of the example after his Definition 2.30 (p. 67: -l - 1, -l,
      -l + 1 | l, l + 1, l + 2); the argument uses only that the two counts agree. So, on the readings of 10.19-10.23 and
-     with (c)'s threshold OPEN (10.25 computes it), L is tf-admissible on 4+1 Minkowski with every weight beta in (0,
-     eps_ind), for gam_Ups small, at the point.
+     with (c)'s threshold from 10.25, L is tf-admissible on 4+1 Minkowski with every weight beta in (0, eps_ind), for
+     gam_Ups small, at the point.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 28 (section 1.4.3's three kinds of indicial roots, "With
 no modifications E^Ups and E^C, it would be (0, 1) just as for the scalar wave operator", footnote 28), 144-146 (section
@@ -4141,13 +4141,14 @@ a computed factorization and the roots of 10.12 and 10.15: the physical roots ar
 2 = 2 in place of his 1, and the mass the s0 root 2; the gap begins at 0, which 10.12 left open, and reaches past 1 --
 in four dimensions 1 is an s0 root and his gap is (0, eps_ind) with eps_ind < 1; each type splits evenly, the tensor
 type included; and box^C's nonpositive roots lie below -101. Lemma 8.5 is computed at the point and deduced for every
-z > 0 there, and Proposition 8.6 is deduced on readings but for one input, which 10.25 computes. Not done, and OPEN
-(10.25 computes the spectrum of S-bar_{E^Ups, E^C}, his Lemma 8.2 and (8.7), in five dimensions): simplicity and (8.13)
-beyond l <= 12; how small gam_Ups must be, and h_0; his Proposition 8.3 (strong trapping admissibility of L), section
-8.4 (mode stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5, and sections 9-10, in five dimensions.
-Nothing of this section is proved: Proposition 10.21 is computed, and (a)-(d) are deduced.
+z > 0 there, and Proposition 8.6 is deduced on readings, at that point for small gam_Ups, but for one input, the
+spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2 and (8.7)), which 10.25 computes. Not done, and OPEN: simplicity and
+(8.13) beyond l <= 12; how small gam_Ups must be, and h_0; section 8.4 (mode stability, Proposition 8.8, which uses
+[AHW24] on Kerr; 10.27 deduces it), section 8.5, and sections 9-10, in five dimensions (10.26 takes his Proposition 8.3,
+strong trapping admissibility of L). Nothing of this section is proved: Proposition 10.21 is computed, and (a)-(d) are
+deduced.
 
-### 10.25 [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (`sbar5.py` S1-S3; D74)
+### 10.25 [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (`sbar5.py` S1-S3; D74, D76)
 
 *The setting.* 10.24(c) carried the kernel half of [Hin26] Proposition 8.6 to five dimensions but for one step: "One
 first improves the sctf = scf cap tf-decay rate alpha to 1 - eps for every eps > 0 using (8.7), and then notes that
@@ -4170,17 +4171,19 @@ K1); not computed before this section: L's.
      (three times), 2 (1 - v) gam_C, (1 - e_C)(1 - v) gam_C}: the union of the spectra of the S-bar of box^Ups and of
      box^C -- computed here by the same construction from 2 E^Ups G delta* and 2 delta G E^C, and equal to thresh5.py
      U2's and cpmodes5.py K1's -- with five zeros; every eigenvalue is >= 0 for 0 < v, e_Ups, e_C < 1 and gam_Ups,
-     gam_C > 0. At the trace weight 1 the two eigenvalues (1 - e) gam become (3/2)(1 - e) gam and the rest stay (S2).
+     gam_C > 0. At the trace weight 1 the two eigenvalues (1 - e) gam become (3/2)(1 - e) gam and the rest stay; at
+     gam_C = 0, the unmodified symmetric gradient, the spectrum is {0 (ten times), gam_Ups (three times), 2 gam_Ups,
+     (1 - e_Ups) gam_Ups}, the minimum 0 again (S2).
  (iii) (the consequences) u = rho^(3/2 + s) solves (rho d_rho - 3/2 - s) u = 0; rho^(3/2 - eps) lies in rho^l L^2(r^3
      dr) near infinity iff l < -1/2 - eps; and rho^(3/2 + s) lies in rho^beta L^2(drho/rho) iff beta < 3/2 + s (S3).
 
 *Proof.* S1-S3 of sbar5.py. Fields h(t*, x) on 4+1 Minkowski with r = |x|, d_t = d_t* and d_i = d/dx_i - (x_i/r) d_t*;
 the operators are lin5.py's, with time dependence; the coefficients of d_t* h are read off at a point after expansion,
 the spectra by sympy, and the signs by substituting v = 1/(1 + p), e = 1/(1 + q). Four-dimensional control: rho d_rho -
-1, and his (8.8)'s seven values with multiplicities 2, 2, 1, 1, 2, 1, 1, summing to 10, min spec 0 -- his (8.7) -- and
-his 1 - eps and 1. Controls: c_Ups = dt in place of r^-1 dt in (i), where S-bar carries r; the incoming t* = t + r in
-(ii), where the constraint part becomes gam_C {2 (1 + v), (1 - e_C)(1 + v), 1 + v}, 10.21 K2's spectrum at R_in, and the
-union fails; and his 1 - eps claimed in (iii). []
+1, and his (8.8)'s seven values with multiplicities 1, 2, 1, 1, 2, 2, 1 in his order -- the ranks of the summands of his
+splitting (5.27) -- summing to 10, min spec 0 -- his (8.7) -- and his 1 - eps and 1. Controls: c_Ups = dt in place of
+r^-1 dt in (i), where S-bar carries r; the incoming t* = t + r in (ii), where the constraint part becomes gam_C {2 (1 +
+v), (1 - e_C)(1 + v), 1 + v}, 10.21 K2's spectrum at R_in, and the union fails; and his 1 - eps claimed in (iii). []
 
 *Deduced.*
 
@@ -4190,27 +4193,32 @@ union fails; and his 1 - eps claimed in (iii). []
      box^Ups: the metric differs from Minkowski's by O(mu rho^2), and c and c_Ups equal Minkowski's for large r (10.14,
      10.15). So Corollary 8.7's condition reads beta_sctf < 3/2 + min Re S-bar = 3/2, his 1, by (iii).
  (b) (Proposition 8.6, the last step of the kernel half) In 10.24(c) the kernel element u_0 improves at sctf, by
-     [Hin26c] Theorem 9.38(5) at n = 4 and (a), to 3/2 - eps for every eps > 0, his 1 - eps; by (iii) it then lies in
-     rho^l L^2(r^3 dr) for l < -1/2 - eps, inside the domain of [Hin26c] (9.112) under the outgoing threshold r +
-     alpha_+ < -1/2, whose -1/2 is dimension-free as in 10.23(iv). So the step 10.24(c) left OPEN holds on the same
-     reading, and with 10.24(d) his Proposition 8.6 holds on 4+1 Minkowski, at Proposition 10.9's point and for gam_Ups
-     small, on the readings of 10.19-10.24: L is tf-admissible with every weight beta in (0, eps_ind).
+     [Hin26c] Theorem 9.38(5) at n = 4 and (a), to 3/2 - eps for every eps > 0, his 1 - eps; that theorem's
+     parenthetical (p. 195, as the thirty-fourth verifier read it) places the intersection over eps > 0 of A^((n -
+     1)/2 + S-bar - eps, -beta_- - eps) in the domain of [Hin26c] (9.112) under its part (2)'s outgoing threshold r +
+     alpha_+ < -1/2 + S-bar, here -1/2 since min spec S-bar = 0 -- dimension-free as in 10.23(iv) -- and that is what
+     his proof cites; (iii) cross-checks it, rho^(3/2 - eps) lying in rho^l L^2(r^3 dr) iff l < -1/2 - eps. The operator
+     of that step, with the unmodified symmetric gradient, is (ii)'s at gam_C = 0, whose minimum is 0 as well. So the
+     step 10.24(c) left OPEN holds on the same reading, and with 10.24(d) his Proposition 8.6 holds on 4+1 Minkowski, at
+     Proposition 10.9's point and for gam_Ups small, on the readings of 10.19-10.24: L is tf-admissible with every
+     weight beta in (0, eps_ind).
 
-*READ.* [Hin26] (arXiv:2606.28253v2): pp. 145-146 (section 8's opening, (8.1), Lemma 8.1 with (8.2)-(8.5), Lemma 8.2
-with (8.6)-(8.8) and its proof), 152 (the parenthetical in the proof of Proposition 8.6), 153 (Corollary 8.7, (8.18a));
-alphaXiv, 2026-10-23. [Hin26c] Theorem 9.38(5) (p. 195), as 10.23 reads it.
+*READ.* [Hin26] (arXiv:2606.28253v2): pp. 144-146 (section 8's opening on p. 144, which fixes c_Ups = r^-1 dt and
+gam_Ups << 1, (8.1), Lemma 8.1 with (8.2)-(8.5), Lemma 8.2 with (8.6)-(8.8) and its proof), 152 (the parenthetical in
+the proof of Proposition 8.6), 153 (Corollary 8.7, (8.18a)); alphaXiv, 2026-10-23. [Hin26c] Theorem 9.38(5) (p. 195), as
+10.23 reads it.
 
 *What this gives, and what it does not.* The one input 10.24 left OPEN for Proposition 8.6 is computed: the S-bar of the
 linearized gauge-fixed Einstein operator in five dimensions carries the gauge potential operator's spectrum, the
 constraint propagation operator's and five zeros, and min spec S-bar = 0, so the decay at sctf improves to 3/2 - eps,
 (n - 1)/2 where his is 1, and the threshold keeps its dimension-free -1/2. Proposition 8.6 is now deduced on readings
-alone. Not done, and OPEN (10.26 takes his Proposition 8.3): those readings ([Hin26c] section 9 at n = 4, line by line);
-how small gam_Ups must be, and h_0; simplicity and (8.13) beyond l <= 12; his Proposition 8.3 (strong trapping
-admissibility of L), section 8.4 (mode stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5, and
-sections 9-10, in five dimensions. Nothing of this section is proved: Proposition 10.22 is computed, and (a)-(b) are
-deduced.
+alone, at Proposition 10.9's point for small gam_Ups. Not done, and OPEN: those readings ([Hin26c] section 9 at n = 4,
+line by line); how small gam_Ups must be, and h_0; simplicity and (8.13) beyond l <= 12; section 8.4 (mode stability,
+Proposition 8.8, which uses [AHW24] on Kerr; 10.27 deduces it), section 8.5, and sections 9-10, in five dimensions
+(10.26 takes his Proposition 8.3, strong trapping admissibility of L). Nothing of this section is proved: Proposition
+10.22 is computed, and (a)-(b) are deduced.
 
-### 10.26 [Hin26] Proposition 8.3 in five dimensions: strong trapping admissibility of L (`strap5.py` P1-P3; D75)
+### 10.26 [Hin26] Proposition 8.3 in five dimensions: strong trapping admissibility of L (`strap5.py` P1-P3; D75, D77)
 
 *The setting.* [Hin26] Proposition 8.3 (p. 147) makes 2 L_b strongly trapping admissible ([Hin26c] Definition 5.8): "for
 all eps > 0 there exists a time-translation-invariant positive definite fiber inner product on pi^*(S^2 T^*),
@@ -4230,7 +4238,8 @@ which nabla_{H_G} rotates.
 weight m, c = c_mu e_mu, and A defined by i S_sub(2 L) = H_G + sigma A through (8.10):
 
  (i) (the four-dimensional control) At n = 3, his sign s = +2 and m = 1, A in the splitting (8.11) equals his printed
-     matrix in all 100 entries, and it is upper triangular in his basis (8.12) with his diagonal (P1).
+     matrix in all 100 entries, and it is upper triangular in his basis (8.12) with his diagonal, in his order; and at
+     10.17's sign s = -2, A equals his printed matrix after the change of frame e_1 -> -e_1, c_1 -> -c_1 (P1).
  (ii) (five dimensions, c general) At n = 4, s = -2 (10.17's) and m = 2/3, det(lam - A) = lam^10 (lam + 2 gam c_2)^3
      (lam + 4 gam c_2)(lam + 2 (1 - e_C) gam c_2) -- at m = 1 the last factor is lam + 3 (1 - e_C) gam c_2 -- and A is
      upper triangular, for every c, gam and e_C, in the constant basis e_0^2, e_0 e_1, e_0 e_2, e_0 e_3, e_0 e_4, e_1
@@ -4239,14 +4248,17 @@ weight m, c = c_mu e_mu, and A defined by i S_sub(2 L) = H_G + sigma A through (
      e_4, extended to S^2; in the units e_0^2, e_0 e_1, e_0 e_2, e_1^2 - T/2, e_1^2, e_1 e_2, e_2^2, (e_0 e_3, e_0 e_4),
      (e_1 e_3, e_1 e_4), (e_2 e_3, e_2 e_4), (e_3 e_4, e_3^2 - e_4^2), T = e_3^2 + e_4^2, it is block upper triangular
      with scalar diagonal blocks 0, 0, 0, 0, -2 (1 - e_C) gam c_2, -2 gam c_2, -4 gam c_2, 0, 0, -2 gam c_2, 0; R acts
-     within each unit and is skew there; and in the basis orthonormal for the inner product weighting unit k by eta^-k
-     the matrix of A tends to that block diagonal as eta -> 0 (P3).
+     within each unit and is skew there -- on (e_3 e_4, e_3^2 - e_4^2), in his normalization 2 e_3 (x)_s e_4, as [[0,
+     2], [-2, 0]], both members of norm^2 2; and in the basis orthonormal for the inner product weighting unit k by
+     eta^-k the matrix of A tends to that block diagonal as eta -> 0 (P3).
 
 *Proof.* P1-P3 of strap5.py, exact over Q[gam, e_C, c_mu], with sympy: the Leibniz extension of s N to S^2, G = 1 -
-(1/2) g tr, sigma_1(i delta) = -C^(1/2) iota_{e_2} and E^C as in Proposition 10.21, his normalization 2 e_a (x)_s e_b of
-(8.11). Four-dimensional control: (i) itself. Controls: the computed sign s = -2 against his printed matrix in (i),
-where 8 entries differ, the nabla part; e_1^2 placed before e_1^2 - e_3^2 in (ii), where A is not upper triangular; and
-c_4 = 1/3 in (iii), where A does not commute with R. []
+(1/2) g tr, sigma_1(i delta) = -C^(1/2) iota_{e_2} (his notation: the contraction with the vector e^2 of the dual frame)
+and E^C as in Proposition 10.21, his normalization 2 e_a (x)_s e_b of (8.11). Four-dimensional control: (i) itself, so
+that 10.17's sign and his are one frame read two ways. Controls: the computed sign s = -2 against his printed matrix
+with no change of frame in (i), where 8 entries differ, the nabla part; e_1^2 placed before e_1^2 - e_3^2 in (ii), where
+A is not upper triangular; and c_4 = 1/3 in (iii), where A does not commute with R, nor is it block triangular in the
+units (five entries below the unit blocks). []
 
 *Deduced.*
 
@@ -4258,20 +4270,24 @@ c_4 = 1/3 in (iii), where A does not commute with R. []
      computes it on 1-forms), and (8.10) holds as he writes it, so i S_sub(2 L) = H_G + sigma A + k R in this frame, A
      that of (ii) with s = -2. 10.14's c = a(r) dt + b(r) dr has no angular part, so c_3 = c_4 = 0 and (iii) applies; it
      is past timelike at r^2 = 2 mu > r_h^2 (Proposition 10.11(i)), and e_0 is future null, so c_2 = -g^-1(c, e_0) < 0,
-     and with gam > 0 every diagonal block of (iii) is >= 0 (for 0 < e_C < 1). The inner product of (iii) -- weights
-     eta^-k on the units in the frames e_mu, the two members of each angular pair weighted alike -- is independent of
-     the choice of e_3, e_4, so it is defined near Gamma_0, stationary and homogeneous of degree 0 (H_G C = 0); for it
-     H_G is skew (it acts componentwise and preserves the symplectic volume), k R is skew by (iii), and the symmetric
-     part of A is its block diagonal, >= 0, plus O(eta^(1/2)). So sigma^-1 (1/2)(i S_sub(2 L) + (i S_sub(2 L))^*) > -C
-     eta^(1/2) at Gamma_0, below any eps for small eta, with the modification parameters fixed, as footnote 77 asks: 2 L
-     is strongly trapping admissible on five-dimensional Tangherlini.
+     and with gam = C^(1/2) gam_C/sigma > 0 -- sigma > 0 on the future characteristic set, d_t being timelike outside
+     the horizon ([Hin26c] Lemma 4.14, (4.41), as he cites it) -- every diagonal block of (iii) is >= 0 (for 0 < e_C <
+     1). The inner product of (iii) -- weights eta^-k on the units in the frames e_mu, the two members of each angular
+     pair weighted alike -- is independent of the choice of e_3, e_4, so it is defined near Gamma_0, stationary and
+     homogeneous of degree 0 -- the frame being normalized by C^(1/2) (10.17(a)), and H_G C = 0 keeping the connection
+     matrix unchanged under that normalization; for it H_G is skew (it acts componentwise and preserves the symplectic
+     volume), k R is skew by (iii), and the symmetric part of A is its block diagonal, >= 0, plus O(eta^(1/2)). So
+     sigma^-1 (1/2)(i S_sub(2 L) + (i S_sub(2 L))^*) > -C eta^(1/2) at Gamma_0, below any eps for small eta, with the
+     modification parameters fixed, as footnote 77 asks: 2 L is strongly trapping admissible on five-dimensional
+     Tangherlini.
  (b) (general c) For a c with angular components, (ii)'s constant basis triangularizes A, but the rotation of V along
      the flow is skew only for weights constant on its orbits, which (ii)'s single-member units do not give; on
      Tangherlini the question does not arise, c being spherically symmetric.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 34 (item (1)), 113-116 (section 6.1, (6.12)-(6.16c),
 Lemma 6.4 and its proof), 147-149 (section 8.1: Proposition 8.3, (8.9)-(8.12), the printed A and its eigenvalues, the
-proof's last paragraph, footnote 77). [Hin26c] Definition 5.8, as 10.17 reads it.
+proof's last paragraph, footnote 77). [Hin26c] Definition 5.8 (pp. 102-103), as 10.17 reads it, and Lemma 4.14 (p. 88),
+as the thirty-fifth verifier read it.
 
 *What this gives, and what it does not.* His Proposition 8.3 on five-dimensional Tangherlini, by his computation in five
 dimensions: the 15 x 15 subprincipal matrix has the same structure as his 10 x 10 -- ten zeros and the eigenvalues -2
@@ -4279,8 +4295,116 @@ dimensions: the 15 x 15 subprincipal matrix has the same structure as his 10 x 1
 triangularizes it; the one new point, the rotation of the angular plane along the flow, is absorbed by weighting the
 angular pairs alike, which c's spherical symmetry permits. Not done, and OPEN: [Hin26c]'s use of it (the high-energy
 estimates of Theorem 9.16 for symmetric 2-tensors in five dimensions, on the reading of 10.19); his section 8.4 (mode
-stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5 and sections 9-10, in five dimensions; and the
-readings of 10.19-10.25. Nothing of this section is proved: Proposition 10.23 is computed, and (a)-(b) are deduced.
+stability, Proposition 8.8, which uses [AHW24] on Kerr; 10.27 deduces it), section 8.5 and sections 9-10, in five
+dimensions; and the readings of 10.19-10.25. Nothing of this section is proved: Proposition 10.23 is computed, and
+(a)-(b) are deduced.
+
+### 10.27 [Hin26] Proposition 8.8 in five dimensions: the Einstein operator's mode stability (`gmodes5.py` G1-G5; D78)
+
+*The setting.* [Hin26] Proposition 8.8 (p. 153): "Mode stability holds for L_b at all 0 != sigma in C with Im sigma >=
+0: the kernel of L-hat_b(sigma) on A^alpha(X; S^2 T^*X) is trivial for all alpha in R, and L-hat_b(sigma) is invertible
+as a map [Hin26c, (9.18)]." His proof (pp. 153-154): the index 0 of that map, "which follows from Proposition 8.3",
+reduces invertibility to injectivity; for u in the kernel, eta := delta_{E^Ups}(sigma) G u solves box^C(sigma) eta = 0
+by the second Bianchi identity, so eta = 0 by his Theorem 7.1(1); then D Ric(e^(-i sigma t*) u) = 0, and "By [AHW24,
+Theorem 6.1(1)], we obtain u = delta*_{g_b}(sigma) omega where omega in A^alpha'(X; T^*X) for some alpha' in R"; then
+box^Ups(sigma) omega = 0, and his Proposition 6.12 gives omega = 0. In five dimensions 10.21(e) deduces his Theorem
+7.1(1), 10.20(e) his Proposition 6.12 and 10.26 his Proposition 8.3. Not computed before this section: the input from
+[AHW24], mode stability of the linearized Einstein operator itself, which on Kerr goes through the Teukolsky equation.
+On Tangherlini, static, the decomposition of [KI03] (H. Kodama and A. Ishibashi, arXiv:hep-th/0305147v3; n = 3, K = 1,
+Lambda = 0, 2M = mu) reduces each harmonic type of S^3 to one master equation; this section computes that reduction in
+five dimensions from D Ric itself.
+
+**Proposition 10.24 (computed; exact).** On five-dimensional Tangherlini, f = 1 - mu/r^2, with h decomposed by the
+harmonics of S^3 as in [KI03] (2.4), (5.1)-(5.9) -- h_ab = f_ab S, h_ai = r f_a S_i, h_ij = 2 r^2 (H_L gamma_ij S + H_T
+S_ij) at the scalar type, the like at the others -- D Ric the linearized Ricci operator and delta* the symmetric
+gradient:
+
+ (i) (tensor type) For h_ij = 2 r^2 H T_ij, T trace-free and divergence-free with (Delta + k_T^2) T = 0, k_T^2 = l(l +
+     2) - 2, l >= 2: D Ric(h)_ab = D Ric(h)_ai = 0 and D Ric(h)_ij = -r^2 (box H + (3/r) Dr.DH - (k_T^2 + 2) H/r^2)
+     T_ij, [KI03] (5.3); and Phi = r^(3/2) H solves -Phi_tt + f (f Phi')' - V_T Phi = 0 with V_T = (f/r^2)(k_T^2 +
+     11/4 + 9 mu/(4 r^2)), [KI03] (5.6) (G1).
+ (ii) (vector type, l >= 2) For V co-closed with (Delta + k_V^2) V = 0, k_V^2 = l(l + 2) - 1, V_ij = -(D_i V_j + D_j
+     V_i)/(2 k_V): delta*(r^2 B V_i dz^i) shifts f_a by (r/2) D_a B and H_T by -k_V B/2, so B = -2 H_T/k_V leaves H_T =
+     0 and F_a = f_a + (r/k_V) D_a H_T, [KI03] (5.10); there D Ric(h)_ab = 0, D Ric(h)_ai = r E_a V_i and D Ric(h)_ij =
+     2 r^2 E_T V_ij with E_T = -(k_V/(2 r^3)) D_a(r^2 F^a); and at sigma != 0, with Omega := r^2 F^r/(i sigma), E_T = 0
+     is r^2 F^t = Omega', and then E_a = 0 iff Phi = r^(-3/2) Omega solves f (f Phi')' + (sigma^2 - V_V) Phi = 0, V_V =
+     (f/r^2)(k_V^2 + 7/4 - 27 mu/(4 r^2)), [KI03] (5.15) (G2).
+ (iii) (scalar type, l >= 2) delta* of A_a S dy^a + r^2 B S_i dz^i shifts f_ab by D_(a A_b), f_a by (r^2 D_a B - k
+     A_a)/(2 r), H_L by k B/6 + f A_r/(2 r) and H_T by -k B/2, so the gauge 1-form -2 X_a S dy^a - (2 r^2/k) H_T S_i
+     dz^i, X_a = (r/k)(f_a + (r/k) D_a H_T) of [KI03] (2.8), leaves f_a = H_T = 0 and their invariants F, F_ab of (2.7);
+     there the reduced equations E_ab, E_a, E_L, E_T are computed, and at sigma != 0, in their X, Y, Z of (2.20)-(2.21)
+     with Z = i sigma Z~: E_t, E_r and E_tr give exactly (2.24a-c); E_tt, E_rr and E_L then reduce to multiples of one
+     linear form C in (X, Y, Z~), which the flow preserves, so the solutions form a two-dimensional space; Phi := (3
+     Z~ - r (X + Y))/(r^(1/2) H), H = m + 6 mu/r^2, m = k^2 - 3, solves f (f Phi')' + (sigma^2 - V_S) Phi = 0 on C = 0,
+     V_S = f Q/(16 r^2 H^2) with Q of (3.7) at n = 3, [KI03] (3.1)-(3.6); and det[Phi; Phi'; C] = -r^4 (r^2 - mu)^5
+     (G3).
+ (iv) (the exceptional sectors, sigma != 0) Scalar l = 0: f_tt = H_L = 0 is reached by a gauge 1-form A_t dt + A_r dr
+     algebraic in the mode, and then the mode equations force f_tr = f_rr = 0. Vector l = 1 (V Killing): D Ric(h)_ab = 0
+     and E_r = r^2 d_t F^(1)_tr/(2 (r^2 - mu)), F^(1)_tr = r d_t(f_r/r) - r d_r(f_t/r), [KI03] (5.16), so a mode has
+     F^(1) = 0 and f_a = (r/2) D_a B with B = 2 i f_t/(sigma r). Scalar l = 1 (D_i D_j S = -gamma_ij S): the shifts of
+     f_tt, f_t and H_L are free of derivatives, with determinant (r^2 - mu)(sigma^2 r^4 - mu)/(4 r^6), and then the mode
+     equations force f_tr = f_rr = f_r = 0. Every pivot of these eliminations has its factors free of r among the powers
+     of sigma (G4).
+ (v) (the potentials, and the horizon) V_T > 0, V_V >= (f/r^2)(l (l + 2) - 6) > 0 and V_S > 0 for l >= 2 on r > r_h,
+     Q >= 16 m (m - 3)(m + 9) > 0 there. In ingoing Eddington-Finkelstein coordinates (v = t + r*, r) Gamma^lam_rr = 0;
+     and the master fields, written in the ingoing components of the reduced field, are free of 1/f: 3 Z~ - r (X + Y) =
+     (4 sigma r^3 F - sigma r^3 f F'_rr - 2 sigma r^3 F_vr - 3 i r^2 f F_vr - 3 i r^2 F_vv)/(r sigma) and Omega = r^2 (f
+     F'_r + F_v)/(i sigma) (G5).
+
+*Proof.* G1-G5 of gmodes5.py, exact. A harmonic enters through its Taylor jets at a point of S^3 (sin chi = 3/5, sin
+theta = 5/13), every jet free but for the harmonic's defining equations and their derivatives there, so that an identity
+checked there holds for every harmonic of the type at that point, and so at every point, the isometries of S^3 acting
+transitively and commuting with D Ric and delta*. D Ric is checked on delta* omega for an omega with arbitrary jets,
+where it vanishes. (iv)'s eliminations -- the equations and their r-derivatives, every derivative eliminated first --
+run over Q(3^(1/2), i)(r, sigma) at mu = 1: the homothety t, r -> lam t, lam r carries g_mu to lam^2 g_(mu/lam^2) and
+sigma to lam sigma, and D Ric of lam^2 g is that of g. Controls: in (i) the divergence condition dropped, where D
+Ric(h)_ai is not zero; in (ii) +27 for -27; in (iii) Z = -i sigma Z~, where (2.24a-c) fail; in (iv) f_t left free at l =
+1, where the derivative-free rank is 2 of 4; in (v) V_V lowered by 6. []
+
+*Deduced.*
+
+ (a) ([AHW24] Theorem 6.1(1) on five-dimensional Tangherlini) Let 0 != sigma, Im sigma >= 0, and let h = e^(-i sigma t)
+     u solve D Ric(h) = 0 on r > r_h in the class of 10.16: smooth across the future horizon and outgoing at infinity.
+     Then h = delta*(e^(-i sigma t) omega) with omega in the same class. Each harmonic component of u is in the class, D
+     Ric and delta* commuting with the decomposition. For l >= 2 the gauge 1-form of (ii) or (iii) is built from u's
+     coefficients and their orbit-space derivatives, covariantly on the orbit space, so it is in the class, and the
+     reduced field solves D Ric = 0; its master field -- r^(3/2) H, r^(-3/2) Omega, or (iii)'s Phi -- is by (v) e^(-i
+     sigma r*) times a function smooth at r_h, and at infinity c e^(i sigma r*) (1 + O(1/r)), the potentials being
+     O(r^-2) there. By (v) and 10.16(a) -- the energy identity int (|Phi_*|^2 + V |Phi|^2) dr* = sigma^2 int |Phi|^2 dr*
+     if Im sigma > 0, the constant Wronskian Im(conj(Phi) Phi_*) if sigma is real -- Phi = 0, and then the reduced
+     coefficients vanish: H by (i), F_a by (ii), X = Y = Z~ = 0 by (iii)'s determinant and so F, F_ab by (2.21). So u is
+     delta* of the gauge 1-form. For l <= 1, (iv) gives u = delta* xi with xi algebraic in u's coefficients, at scalar l
+     = 1 off the sphere sigma^2 r^4 = mu; across it xi is smooth, since xi = eta/(r - r_s) with eta smooth would leave
+     (r - r_s)^2 delta* xi = (r - r_s) delta* eta - dr (x)_s eta smooth only with eta(r_s) = 0. In every sector xi is
+     smooth across the future horizon: by (v), in ingoing coordinates (delta* xi)_rr = d_r xi_r, and the r-row of delta*
+     xi = u is a linear ODE in r for xi whose coefficients and source are smooth across r = r_h, the exterior xi its
+     solution. Summed over the harmonics, the gauge 1-forms' coefficients are bounded by polynomial multiples in l of
+     u's and of their derivatives, so the sum converges with u's.
+ (b) ([Hin26] Proposition 8.8 in five dimensions) His proof then runs as written: eta = 0 by his Theorem 7.1(1)
+     (10.21(e), on [Hin26a] Theorem 5.2, which 10.22 deduces on a reading); u = delta*(sigma) omega by (a);
+     box^Ups(sigma) omega = 0, so omega = 0 by his Proposition 6.12 (10.20(e)) and u = 0 on r >= r_h; the index 0 comes
+     from his Proposition 8.3 (10.26) through [Hin26c] Theorem 9.5 on the reading of 10.19. So, on the readings of
+     10.19-10.26, at Proposition 10.9's point with gam_Ups small, L-hat(sigma) is injective, and so invertible, at 0 !=
+     sigma, Im sigma >= 0 -- with, as in 10.16, the kernel elements' class ([Hin26c] Theorem 9.5(5) in five dimensions)
+     and the vanishing carried from r >= r_h to the part of X inside the horizon by the standard interior uniqueness,
+     both OPEN.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 25 (section 1.4.1: "Mode stability for the ungauged
+linearized Einstein equation D_{g_b} Ric(h) = 0 (see [AHW24, Theorem 6.1(1)]) implies that h is the sum of a linearized
+Kerr metric g-dot_b(b-dot) and a pure gauge term delta*_{g_b} omega. In the absence of the former (which can only occur
+at frequency sigma = 0) ..."), 153-154 (section 8.4: Proposition 8.8 and its proof). [KI03] (arXiv:hep-th/0305147v3,
+alphaXiv, 2026-10-23): pp. 4-5 ((2.1)-(2.8)), 7-10 ((2.20)-(2.24), (3.1)-(3.14)), 13-15 (section 5, (5.1)-(5.17)), 18-20
+(Appendices A and B).
+
+*What this gives, and what it does not.* The input his Proposition 8.8 takes from [AHW24] on Kerr, on five-dimensional
+Tangherlini: every outgoing mode of the linearized Einstein operator at sigma != 0, Im sigma >= 0, is pure gauge, its
+gauge 1-form in the same class. The computation is [KI03]'s, carried from their general formulas to D Ric at n = 3
+directly: the tensor type, which four dimensions lacks, has the potential of 10.16's scalar wave (k_T^2 + 2 = l(l + 2));
+the vector potential's -27 mu/(4 r^2) and the scalar potential's Q leave both positive at l >= 2; and l <= 1 is pure
+gauge at nonzero frequency. Not done, and OPEN: the kernel elements' class and the interior uniqueness, as in 10.16; the
+zero-energy analysis of his section 8.4 (Propositions 8.9-8.11, [AHW24] Theorem 6.1(2)), section 8.5 and sections 9-10,
+in five dimensions; and the readings of 10.19-10.26. Nothing of this section is proved: Proposition 10.24 is computed,
+and (a)-(b) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
