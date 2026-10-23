@@ -2689,3 +2689,39 @@ mu_l,1's stationary correction forces a logarithm; the simplicity of L-hat(0)'s 
 Lemmas 2.13 and 2.15 in detail.
 
 *Runs.* puregauge5.py 6/6 (about four minutes), mutants 7/7; response5.py all pass; md5 rows current (47).
+
+**D86 (2026-10-23): [Hin26] section 7.2 in five dimensions (10.31, dual5.py).**
+
+M asked to continue after PR #95 merged. 10.30 left [Hin26] section 7.2 OPEN: the large zero energy states of the adjoint
+of the constraint propagation operator, built on the Killing 1-forms of Minkowski space, whose trace-reversed symmetric
+gradients span the cokernel of the linearized gauge-fixed Einstein operator in his section 8.4. READ at source (alphaXiv,
+2026-10-23): [Hin26] pp. 126 ((6.30)-(6.32), Remarks 6.16-6.17), 134-137 (section 7, Theorem 7.1, (7.1)-(7.8)), 137-139
+(Lemma 7.2, (7.9)-(7.15), Proposition 7.3 and its proof), 140-144 (section 7.2.1: (7.16), Proposition 7.4, Lemma 7.5,
+(7.17)-(7.35)).
+
+*Computed (Proposition 10.28, dual5.py A1-A3).* (A1) The adjoint 2 (delta + C*) G delta* has det N*(lam) = det N(2 - lam)
+for s0, sl and vl (l <= 3), so its roots are 2 - conj(lam) (four dimensions his 1 - conj(lam), (7.10)); at v1 -1 and 3 +
+2 v gam_C, and N*_v1(2) = 3 + 6 gam_C v_C where his p. 143 has N*_v1(1) = 2 + 4 gam_C v_C. (A2) On Tangherlini the
+translations' source is at rho^4, the unique correction at rho^2, h*_s1 at rho^3 (four dimensions rho^3, rho^1, rho^2).
+(A3) On one-spin Myers-Perry at first order in a, delta*_(g_a) V_a = -(mu/r^4) a dt (x)_s V', V' the rotation of the
+bracket of V's plane with the spin plane, zero for the planes 12 and 34; for the other four c_0 = -2 mu/(3 (h + 2v)) and
+h-sharp's rho^3 leading term carries his (7.18)'s ratios (h + 2v -+ 2)/(h + 2v); on Kerr his (7.20), (7.31) and (7.18)
+come out. Controls: the shift 1 in five dimensions; the four-dimensional order rho^2 in five dimensions; his c_0 in five
+dimensions.
+
+*Deduced (10.31).* (a) His Lemma 7.2 in five dimensions, on what 10.21(e) rests on: invertible on the weights (0, C_0 +
+2], the adjoint's roots 0, of negative real part or beyond C_0 + 2. (b) His Proposition 7.3 on Tangherlini: eleven dual
+states against his seven, the time translation's and the six rotations' h* rapidly decaying at a = 0 and the
+translations' at rho^3, one order faster than his (7.15). (c) Section 7.2.1 at first order in a: his (7.18) with m ->
+mu/2 and rho^2 -> rho^3, depending on V only through V'; two of the six rotations Killing, so the space where (7.16)
+holds falls from six to two.
+
+*Notes on the computation.* (1) The adjoint is the formal one, 2 (delta + C*) G delta* with C* the pointwise adjoint of
+C, his (7.11). (2) The angular components are read in the orthonormal frame (divided by r), as his splitting (2.37b)
+does; read in coordinates they gave spurious orders in a first attempt. (3) A3's first control claimed the ratios, which
+agree in both dimensions, so it could not fail; it now claims his c_0 = -2 mu/(h + 2v) in five dimensions, which does.
+(4) Only first order in a: Myers-Perry enters through d_a g = -h_A (10.28(vi), Z6), and the higher orders, Lemma 7.5 on
+the full metric and (7.19) stay OPEN.
+
+*Runs.* dual5.py 3/3 (about a minute and a half), mutants 3/3; response5.py all pass; md5 rows current (48). Next: the
+fortieth verifier on D85 and D86 (10.29-10.31, puregauge5.py, dual5.py).

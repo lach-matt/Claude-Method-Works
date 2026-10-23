@@ -398,9 +398,11 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    Proposition 8.9's gauged linearized metrics hold one order faster in rho and without his logarithms, on his Lemma
    6.13 in five dimensions (4.29; the orders and exponents computed, the rest deduced); his Lemma 6.13, on 10.20's
    readings, and Proposition 6.18 (1)-(3) hold there too (4.30; the leading terms computed, the rest deduced), and so
-   does Proposition 6.18 (4)-(7) (4.31; the leading terms computed, the rest deduced); the line-by-line readings of
-   [Hin26a] sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26]
-   sections 7.2, 8.4 beyond Proposition 8.9 and 8.5, are OPEN.
+   does Proposition 6.18 (4)-(7) (4.31; the leading terms computed, the rest deduced); his section 7.2's dual states hold
+  there on 10.21(e)'s readings, eleven against his seven, and section 7.2.1's structure at first order in the rotation
+  (4.32; the leading terms computed, the rest deduced); the line-by-line readings of [Hin26a] sections 2.3 and 5.2 and
+  Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 7.2.1 beyond first order in
+  the rotation, 8.4 beyond Proposition 8.9, and 8.5, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -486,8 +488,12 @@ and deduces his Proposition 6.15 and Proposition 8.9 there, one order faster and
 and 4.30 (10.29, Proposition 10.26, computed; deduced) deduces his Lemma 6.13 there on 10.20's readings and computes the
 leading terms of his Proposition 6.18 (1)-(3), the time translation's state without his logarithm and his (6.40) as
 (1/4)(1 +- 2 gam_U/5); and 4.31 (10.30, Proposition 10.27, computed; deduced) computes the leading terms of his
-Proposition 6.18 (4)-(7) and deduces it there, every stationary correction one order faster. Next: the rest of item 2 --
-[Hin26] sections 7.2, 8.4 from Proposition 8.11 on, and 8.5 -- in five dimensions.
+Proposition 6.18 (4)-(7) and deduces it there, every stationary correction one order faster; and 4.32 (10.31, Proposition
+  10.28, computed; deduced) computes the adjoint constraint operator's roots and the leading terms of his section 7.2's
+  dual states and deduces his Lemma 7.2 and Proposition 7.3 there, section 7.2.1 at first order in the rotation. Next:
+  the rest of item 2 --
+[Hin26] sections 8.4 from Proposition 8.11 on and 8.5, and 7.2.1 beyond first order in the rotation -- in five
+  dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -1144,10 +1150,11 @@ states Proposition 10.25 and deduces.
 - Deduced: his Proposition 6.15 and Proposition 8.9 in five dimensions, every order one higher and neither logarithm, on
   his Lemma 6.13 in five dimensions; six angular momenta in place of three.
 - OPEN: the readings of 10.20, on which 4.30 deduces his Lemma 6.13 in five dimensions (and 4.30-4.31 his Proposition
-  6.18); the index sets; section 7.2, Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions (the candidates
-  for the kernel number 1 + 6 + 4 = 11 against his 7, the count not established); section 8.5 and sections 9-10; how
-  small gam_Ups must be, and h_0. Labels: computed (zstates5.py Z1-Z6, exact); deduced; READ ([Hin26] pp. 25, 81, 113,
-  117, 124-128, 154-155, 157; [ER08] p. 14); nothing proved.
+  6.18); the index sets; section 7.2.1 beyond first order in the rotation (4.32 has the rest of section 7.2), Proposition
+  8.11, Lemma 8.12 and Corollary 8.13 in five dimensions (the candidates for the kernel number 1 + 6 + 4 = 11 against his
+  7, the count not established); section 8.5 and sections 9-10; how small gam_Ups must be, and h_0. Labels: computed
+  (zstates5.py Z1-Z6, exact); deduced; READ ([Hin26] pp. 25, 81, 113, 117, 124-128, 154-155, 157; [ER08] p. 14); nothing
+  proved.
 
 ### 4.30 [Hin26] Lemma 6.13 and Proposition 6.18 (1)-(3) in five dimensions (computed; D81)
 
@@ -1163,10 +1170,10 @@ control; N1STAR-PROOF.md 10.29 states Proposition 10.26 and deduces.
   top lam_s1,2 = 2 + z/12 + O(z^2) < lam_s0 (H5).
 - Deduced: his Lemma 6.13 in five dimensions on 10.20's readings, every correction of 4.29 inside the gap; his
   Proposition 6.18 (1)-(3) there, six rotation states at a = 0.
-- OPEN: the readings of 10.20 line by line; the index sets; section 7.2, Proposition 8.11, Lemma 8.12 and Corollary 8.13
-  in five dimensions (his Proposition 6.18 (4)-(7) is 4.31's); section 8.5 and sections 9-10; how small gam_Ups must be,
-  and h_0. Labels: computed (genstates5.py H1-H5, exact); deduced; READ ([Hin26] pp. 51-52, 64-67, 81, 113, 117-119,
-  121, 124-125, 128-134); nothing proved.
+- OPEN: the readings of 10.20 line by line; the index sets; section 7.2 (4.32's), Proposition 8.11, Lemma 8.12 and
+  Corollary 8.13 in five dimensions (his Proposition 6.18 (4)-(7) is 4.31's); section 8.5 and sections 9-10; how small
+  gam_Ups must be, and h_0. Labels: computed (genstates5.py H1-H5, exact); deduced; READ ([Hin26] pp. 51-52, 64-67, 81,
+  113, 117-119, 121, 124-125, 128-134); nothing proved.
 
 ### 4.31 [Hin26] Proposition 6.18 (4)-(7) in five dimensions (computed; D84, D85)
 
@@ -1186,7 +1193,31 @@ Minkowski the control; N1STAR-PROOF.md 10.30 states Proposition 10.27 and deduce
 - Deduced: his Proposition 6.18 (4)-(7) in five dimensions on Tangherlini, each stationary correction one order faster,
   no logarithm in the leading terms; the tensor types carry no pure gauge state; delta-bar* injective at sl and vl for
   every l >= 2, the stationary Killing 1-forms having l <= 1.
-- OPEN: the readings of 10.20 line by line; the index sets; whether five dimensions needs his window [-3, 0]; section
-  7.2, Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions; section 8.5 (with t2 and t3) and sections
+- OPEN: the readings of 10.20 line by line; the index sets; whether five dimensions needs his window [-3, 0]; section 7.2
+  (4.32's), Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions; section 8.5 (with t2 and t3) and sections
   9-10; how small gam_Ups must be, and h_0. Labels: computed (puregauge5.py J1-J6, exact); deduced; READ ([Hin26] pp. 19,
   67, 113, 117-118, 121, 128-134, 149-151, 158); nothing proved.
+
+### 4.32 [Hin26] section 7.2 in five dimensions: the constraint operator's dual states (computed; D86)
+
+His section 7.2 records the large zero energy states of the adjoint of the constraint propagation operator, built on the
+Killing 1-forms of Minkowski space; their trace-reversed symmetric gradients span the cokernel of the linearized
+gauge-fixed Einstein operator in his section 8.4. dual5.py computes the adjoint's indicial roots, the translations' dual
+state and the rotations' near a = 0 in five dimensions, four-dimensional Schwarzschild and Kerr the control;
+N1STAR-PROOF.md 10.31 states Proposition 10.28 and deduces.
+
+- The adjoint's roots: 2 - conj(lam) for each root lam of box^C (four dimensions his 1 - conj(lam), (7.10)); at v1 -1 and
+  3 + 2 v gam_C, and N*_v1(2) = 3 + 6 gam_C v_C where his N*_v1(1) = 2 + 4 gam_C v_C (p. 143) (A1).
+- The translations on Tangherlini: the source at rho^4, the correction at rho^2, h*_s1 at rho^3 -- one order faster than
+  his (7.15) (A2).
+- The rotations at first order in a on Myers-Perry: delta* V_a = -(mu/r^4) a dt (x)_s V', zero for the planes 12 and 34;
+  c_0 = -2 mu/(3 (h + 2v)) where his (7.31) has -2M/(h + 2v); h-sharp's leading term at rho^3 with his (7.18)'s ratios
+  (A3).
+- Deduced: his Lemma 7.2 in five dimensions on 10.21(e)'s readings, the weights (0, C_0 + 2]; his Proposition 7.3 on
+  Tangherlini, eleven dual states against his seven, the time translation's and the six rotations' h* rapidly decaying at
+  a = 0, the translations' at rho^3; section 7.2.1's structure at first order in a, his (7.18) with m -> mu/2 and rho^2
+  -> rho^3, two of the six rotations Killing.
+- OPEN: the higher orders in a, Lemma 7.5 and (7.19) on the full Myers-Perry metric; Proposition 8.11, Lemma 8.12 and
+  Corollary 8.13 in five dimensions (the kernel count); section 8.5 and sections 9-10; the readings of 10.20-10.22 line
+  by line; how small gam_Ups must be, and h_0. Labels: computed (dual5.py A1-A3, exact); deduced; READ ([Hin26] pp. 126,
+  134-144); nothing proved.
