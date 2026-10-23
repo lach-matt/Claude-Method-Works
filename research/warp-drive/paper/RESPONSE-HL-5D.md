@@ -784,23 +784,28 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   zero rotation of the five-dimensional Myers–Perry family [ER08], checked — have their gauge source from the gauge
   modification alone, and the exponents the constructions need, 1 and 2, miss the five-dimensional indicial roots once
   that modification is on (supplement section 10.28, `zstates5.py`; the orders and exponents computed, the propositions
-  deduced on the five-dimensional form of his Lemma 6.13, itself deduced in supplement section 10.29). There, too, the
-  first three of his generalized zero energy states — on the time translation, on the boosts carried to second order in
-  time, and on the rotations — have five-dimensional counterparts with exact leading terms: his rotation coefficients (1
-  ± γ/2)/4 become (1 ± 2γ/5)/4, each of the six rotations gives such a state, and the time translation's state carries
-  no logarithm (`genstates5.py`; the leading terms computed, his four-dimensional numbers reproduced as the control, the
-  lemma and the states deduced). A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in
-  five dimensions, the threshold h₀, which his proof does not make explicit, and the rest of their analysis are open. No
-  growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and
-  the late-time tail of the l = 2 master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06)
-  (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with that origin and bracketing 7
-  (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the
-  flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in the class would carry. The
-  least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8),
-  which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
-  `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
-  2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
-  Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
+  deduced on the five-dimensional form of his Lemma 6.13, itself deduced in supplement section 10.29 on the reading of
+  [Hin26c]'s section 9 that is open below). There, too, the first three of his generalized zero energy states — on the
+  time translation, on the boosts carried to second order in time, and on the rotations — have five-dimensional
+  counterparts with exact leading terms: his rotation coefficients (1 ± γ/2)/4 become (1 ± 2γ/5)/4, each of the six
+  rotations gives such a state, and the time translation's state carries no logarithm (`genstates5.py`; the leading
+  terms computed, his four-dimensional numbers reproduced as the control, the lemma and the states deduced). And the
+  four remaining classes — the pure gauge states whose gauge potentials carry no symmetry, built on the gauge potential
+  operator's growing roots — carry over with his ranges, every stationary correction one order faster in 1/r and no
+  logarithm once the gauge modification is on (`puregauge5.py`; the leading terms computed exactly, his four-dimensional
+  indicial matrices reproduced entry by entry as the control, the proposition deduced in supplement section 10.30). A
+  line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold
+  h₀, which his proof does not make explicit, and the rest of their analysis are open. No growing mode appears in either
+  type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2
+  master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the
+  same at half the step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is
+  shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's
+  function's tail, which is the rate a nonlinear argument in the class would carry. The least-damped mode of the class
+  is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master
+  equation in time reproduces to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding
+  time of 3.905 r_h. The reduced problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's
+  polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is
+  open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -921,7 +926,11 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   those repairs was read by a thirty-seventh (D79, D80), which recomputed the indicial roots, the orders and the
   linearized metrics with its own programs and checked the Myers–Perry family directly: no major finding; four minor
   findings — the page ranges of two reads, the numbering of Hintz's section 8.4, one line over the limit, and this
-  paper's reference entry without those reads — and eight notes, seated (D82).
+  paper's reference entry without those reads — and eight notes, seated (D82). Section 10.29 with `genstates5.py` and
+  the repairs of D82 were read by a thirty-eighth (D81, D82), which recomputed parts (1)–(3), the Tangherlini source,
+  the indicial polynomials and the Myers–Perry family with its own programs: no major finding; five minor findings —
+  root statements made for every z > 0 that hold for small z, the five-dimensional Lemma 6.13 cited without its
+  readings, one step of its deduction left implicit, a notation slip and a pointer — and notes, seated (D83).
 
 ---
 
@@ -1232,12 +1241,18 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   linearized mass-changing and rotating metrics — the derivatives of the Myers–Perry family [ER08], whose Ricci-flatness
   is checked at exact points — with their gauge sources at 1/r³ and 1/r⁴, and the exponents 1 and 2 off the indicial
   roots of the gauge potential operator, four-dimensional Schwarzschild the control (the zero energy states and the
-  gauged metrics, without logarithms, deduced). 6/6; mutants 6/6 (about half a minute).
+  gauged metrics, without logarithms, deduced). 6/6; mutants 7/7 (about half a minute).
 - `genstates5.py` H1–H5: Hintz's Lemma 6.13 and the first three classes of his generalized zero energy states in five
   dimensions (supplement section 10.29): on the time translation, the boosts carried to second order and the rotations,
   their leading terms solved exactly on Minkowski space with the gauge modification, the time translation's source on
   Tangherlini without the sub-leading term that gives his logarithm, his printed four-dimensional numbers reproduced as
-  the control, and the top of the indicial gap (the lemma and the states deduced). 5/5; mutants 5/5 (about a minute).
+  the control, and the top of the indicial gap (the lemma, on the five-dimensional reading of [Hin26c]'s section 9, and
+  the states deduced). 5/5; mutants 8/8 (about a minute).
+- `puregauge5.py` J1–J5: Hintz's Proposition 6.18 (4)–(7) in five dimensions (supplement section 10.30): the indicial
+  families of the gauge potential operator on every harmonic type, his Lemma 6.6 matrices and his symmetric-gradient
+  families reproduced in four dimensions, his four classes of growing roots with their ranges, the symmetric gradient
+  injective at each, no resonance for 0 < z < 4, and the generalized states' leading terms exact on Minkowski space (the
+  proposition deduced). 5/5; mutants 5/5 (about four minutes).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1312,7 +1327,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D82).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D84).
 
 | claim | where it is established |
 | --- | --- |
@@ -1353,7 +1368,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D8
 | | `docket68/n1star/cpmodes5.py` K1–K3; `docket68/n1star/solv5.py` Q1–Q4; |
 | | `docket68/n1star/tface5.py` F1–F5; `docket68/n1star/lin5.py` E1–E5; `docket68/n1star/sbar5.py` S1–S3; |
 | | `docket68/n1star/strap5.py` P1–P3; `docket68/n1star/gmodes5.py` G1–G5; `docket68/n1star/zstates5.py` Z1–Z6; |
-| | `docket68/n1star/genstates5.py` H1–H5; |
+| | `docket68/n1star/genstates5.py` H1–H5; `docket68/n1star/puregauge5.py` J1–J5; |
 | | [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin26a], [Hin26], [Hin26c] |
@@ -1371,7 +1386,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D8
 | | the thirtieth section 10.22 (D67, D70); the thirty-first section 10.23 (D69, D71); |
 | | the thirty-second its repairs (D71, D72); the thirty-third section 10.24 (D72, D73); |
 | | the thirty-fourth section 10.25 (D74, D76); the thirty-fifth section 10.26 (D75, D77); |
-| | the thirty-sixth section 10.27 (D78, D79); the thirty-seventh section 10.28 (D80, D82) |
+| | the thirty-sixth section 10.27 (D78, D79); the thirty-seventh section 10.28 (D80, D82); |
+| | the thirty-eighth section 10.29 (D81, D83) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1386,7 +1402,8 @@ imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `ga
 `thresh5.py` and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py` imports `cform5.py` and `damping5.py`,
 `tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and `damping5.py`, `lin5.py` imports `damping5.py` and
 `gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and `zstates5.py` import `damping5.py`, `genstates5.py` imports
-`damping5.py` and `zstates5.py`; the others import nothing from the research tree:
+`damping5.py` and `zstates5.py`, `puregauge5.py` imports `damping5.py`, `genstates5.py` and `zstates5.py`; the others
+import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1417,6 +1434,7 @@ imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `ga
                                                          # gmodes5 (about five minutes)
                                                          # zstates5 (about half a minute)
                                                          # genstates5 (about a minute)
+                                                         # puregauge5 (about four minutes)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1424,9 +1442,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `498d1466a178b7bbc7f5f6cd5dedad5c` |
-| `docket68/n1star/N1STAR-LOG.md` | `4e9ad8e1ae28e9421e9026c571bf1ebc` |
-| `docket68/n1star/README.md` | `634adce9abb5e40aa3f258c76720adbb` |
+| `docket68/n1star/N1STAR-PROOF.md` | `f528b7019b45f22386c34e55329bac90` |
+| `docket68/n1star/N1STAR-LOG.md` | `4bbbcd839fac91c24db358c6063ffa10` |
+| `docket68/n1star/README.md` | `488bc14218f270b3fdfd649687b3a5be` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1467,7 +1485,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/sbar5.py` | `a1899ea2f8470115ece25a400dc5fdc7` |
 | `docket68/n1star/strap5.py` | `8d716c0c7dd36f8cd23987f1c79fec3d` |
 | `docket68/n1star/gmodes5.py` | `5d2b68e8b13e2b921e08a733e0900031` |
-| `docket68/n1star/zstates5.py` | `3f58a77a2b58b929beeab177b3ad7163` |
-| `docket68/n1star/genstates5.py` | `19e979751197cf2b45ed6331fe239e01` |
+| `docket68/n1star/zstates5.py` | `ea860787d2a4345a193e6ce2f9a19b7f` |
+| `docket68/n1star/genstates5.py` | `f2ef7478e67760e3d6ff05d0a0dd74e5` |
+| `docket68/n1star/puregauge5.py` | `70a434c70df64beb2e27c98c12ed5bd7` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

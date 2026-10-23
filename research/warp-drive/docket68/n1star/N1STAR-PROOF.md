@@ -3661,11 +3661,11 @@ through the shift n/2 = 2 in the weights, the gap (0, 2) of the unmodified opera
 augmentation's first term, which decays at rho^3 by the dimension where his needs a cancellation; the shifted weight
 alpha + 2 is left in (0, 1), as his alpha + 3/2 is. Not done, and OPEN: the line-by-line reading of [Hin26c] section 9
 at n = 4, now including sections 9.4-9.6 and Lemma 3.11; [Hin26] section 6.5 (the large zero energy states of
-box^Upsilon; 10.28 deduces section 6.5.1 on Lemma 6.13, 10.29 Proposition 6.18 (1)-(3)) and Lemma 6.13 in five
-dimensions (10.29 deduces it); the constraint propagation operator's counterpart, his section 7, which rests on [Hin26a]
-(Theorem 5.2, section 6, Theorem B.1; 10.21 deduces section 6 from Theorem 5.2, and 10.22-10.23 Theorems 5.2 and B.1 on
-readings); and the linearized gauge-fixed Einstein operator, his section 8, in five dimensions. Nothing of this section
-is proved: Proposition 10.17 is computed, and (a)-(e) are deduced.
+box^Upsilon; 10.28 deduces section 6.5.1 on Lemma 6.13, 10.29 Proposition 6.18 (1)-(3), 10.30 (4)-(7)) and Lemma 6.13 in
+five dimensions (10.29 deduces it); the constraint propagation operator's counterpart, his section 7, which rests on
+[Hin26a] (Theorem 5.2, section 6, Theorem B.1; 10.21 deduces section 6 from Theorem 5.2, and 10.22-10.23 Theorems 5.2
+and B.1 on readings); and the linearized gauge-fixed Einstein operator, his section 8, in five dimensions. Nothing of
+this section is proved: Proposition 10.17 is computed, and (a)-(e) are deduced.
 
 
 ### 10.21 [Hin26a] section 6 in five dimensions: the constraint propagation operator (`cpmodes5.py` K1-K3; D66)
@@ -4473,17 +4473,18 @@ d_M g, of order rho, its source at rho^2; in (vi) a^2 dropped from Delta, not Ri
 
 *Deduced.*
 
- (a) ([Hin26] Proposition 6.15 in five dimensions) Take z > 0, and his Lemma 6.13 in five dimensions (OPEN since 10.20).
-     His proof runs with every order raised by one. Translations: f_b = box^Ups omega-bar_s1(S) is in rho^4 C^oo by
-     (ii), its E^Ups part too (c in rho C^oo against delta*_g dx^1 in rho^3), of type s1, so omega' = -box^Ups(0)^-1 f_b
-     is in A^((2,0) u (2 + E_ind)), 2 being no s1 root at z > 0, and h_b,s1(S) = delta*_g omega_b,s1(S) in A^((3,0) u (3
-     + E_ind)). Boosts: of his four terms in f-breve_b the first vanishes, the boost being Killing for gbar, and the
-     others gain one order: [box^Ups - box^Ups_gbar, t*] omega-bar_s1 + (box^Ups(0) - box^Ups_gbar(0)) omega-breve-bar^1
-     is (iii)'s stationary residual, of order rho^3 (computed; in four dimensions he cites his Lemma 6.1's structure),
-     and [box^Ups, t*] omega' is in A^((3,0) u (3 + E_ind)) -- so f-breve_b is in A^((3,0) u (3 + E_ind)), of type s1,
-     and the stationary correction lies at rho^1, 1 being no s1 root by (iii): no logarithm in place of (6.31), and
-     h-breve^1_b,s1(S) in A^((2,0) u (2 + E_ind)), K being of order rho^2. Rotations: by (iv) omega_b,v1(V) = V and
-     h_b,v1(V) = 0 for all six V (his Remark 6.17 at a = 0); and omega_b,s0 = g(d_t, .) is Killing.
+ (a) ([Hin26] Proposition 6.15 in five dimensions) Take z > 0, and his Lemma 6.13 in five dimensions (deduced in 10.29
+     on the readings of 10.20). His proof runs with every order raised by one. Translations: f_b = box^Ups
+     omega-bar_s1(S) is in rho^4 C^oo by (ii), its E^Ups part too (c in rho C^oo against delta*_g dx^1 in rho^3), of
+     type s1, so omega' = -box^Ups(0)^-1 f_b is in A^((2,0) u (2 + E_ind)), 2 being no s1 root at z > 0, and h_b,s1(S) =
+     delta*_g omega_b,s1(S) in A^((3,0) u (3 + E_ind)). Boosts: of his four terms in f-breve_b the first vanishes, the
+     boost being Killing for gbar, and the others gain one order: [box^Ups - box^Ups_gbar, t*] omega-bar_s1 +
+     (box^Ups(0) - box^Ups_gbar(0)) omega-breve-bar^1 is (iii)'s stationary residual, of order rho^3 (computed; in four
+     dimensions he cites his Lemma 6.1's structure), and [box^Ups, t*] omega' is in A^((3,0) u (3 + E_ind)) -- so
+     f-breve_b is in A^((3,0) u (3 + E_ind)), of type s1, and the stationary correction lies at rho^1, 1 being no s1
+     root by (iii): no logarithm in place of (6.31), and h-breve^1_b,s1(S) in A^((2,0) u (2 + E_ind)), K being of order
+     rho^2. Rotations: by (iv) omega_b,v1(V) = V and h_b,v1(V) = 0 for all six V (his Remark 6.17 at a = 0); and
+     omega_b,s0 = g(d_t, .) is Killing.
  (b) ([Hin26] Proposition 8.9 in five dimensions) Mass: g-dot(mu) = h_mu is in rho^2 C^oo and 2 eta_mu in rho^3 C^oo,
      spherically symmetric, so the gauge 1-form omega-dot(mu) = -box^Ups(0)^-1(2 eta_mu) is in A^((1,0) u (1 + E_ind)),
      1 being no s0 root -- no logarithm in place of (8.19) -- and g-dot^Ups(mu) = h_mu + delta*_g omega-dot(mu) in
@@ -4491,7 +4492,8 @@ d_M g, of order rho, its source at rho^2; in (vi) a^2 dropped from Delta, not Ri
      is in rho^3 C^oo and its source 2 eta_A = 2 E^Ups h_A in rho^4 C^oo, of vector type l = 1, so omega-dot(A) is in
      A^((2,0) u (2 + E_ind)), 2 being no v1 root, and g-dot^Ups(A) in A^((3,0) u (3 + E_ind)); at gam_Ups = 0 the source
      would vanish and h_A be in the gauge already. By (vi), h_mu and h_A are the derivatives of the five-dimensional
-     Myers-Perry family ([ER08] (32)-(33)) at zero rotation, in the mass and in the rotation in A's plane.
+     Myers-Perry family ([ER08] (32)-(33)) at zero rotation, in the mass and in the rotation in A's plane (h_A with the
+     rotation reversed: d_a g = -h_A).
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 25 (section 1.4.1:
 "The zero energy nullspace of L_b is always nontrivial; it is 7-dimensional when the two 1-form wave operators have no
@@ -4512,10 +4514,10 @@ constructions need -- 1 for the boosts and the mass, 2 for the translations and 
 five-dimensional indicial roots once z > 0, the translations' 2 meeting the s1 root at z = 0, which e_Ups, gam_Ups > 0
 move; and the rotations' gauge source comes from E^Ups alone. Not done, and OPEN: his Lemma 6.13 in five dimensions
 (10.20; 10.29 deduces it on 10.20's readings), and with it every inverse used here; the index sets E_ind; section 6.5.2
-(Proposition 6.18, the generalized zero energy states), section 7.2's dual states, his Proposition 8.11, Lemma 8.12's
-pairings and Corollary 8.13 in five dimensions -- the candidates for his Proposition 8.11's kernel number 1 + 6 + 4 = 11
-against his 7, a count not established; section 8.5 and sections 9-10; how small gam_Ups must be, and h_0. Nothing of
-this section is proved: Proposition 10.25 is computed, and (a)-(b) are deduced.
+(Proposition 6.18, the generalized zero energy states; 10.29-10.30 deduce it), section 7.2's dual states, his
+Proposition 8.11, Lemma 8.12's pairings and Corollary 8.13 in five dimensions -- the candidates for his Proposition
+8.11's kernel number 1 + 6 + 4 = 11 against his 7, a count not established; section 8.5 and sections 9-10; how small
+gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.25 is computed, and (a)-(b) are deduced.
 
 ### 10.29 [Hin26] Lemma 6.13 and Proposition 6.18 (1)-(3) in five dimensions (`genstates5.py` H1-H5; D81)
 
@@ -4544,49 +4546,56 @@ xbar^1 and r T*S^3 (xbar^0 = t + r, xbar^1 = t - r = t*), and on five-dimensiona
      e_U, 4 (2 - e_U))/(16 e_U), and lies in the kernels of D Ric and of delta_(g,E) G. On Tangherlini the source
      box^Ups(t* omega_s0) = 2 delta_(g,E) G (dt* (x)_s omega_s0), omega_s0 = -f dt, has on (dt, dr) the rho^1 term (2
      e_U gam_U - 4 gam_U - 3, 2 gam_U), no rho^2 term, and the rho^3 term (mu, 2 mu (gam_U + 1)); -1, -2, -3 and -4 are
-     no s0 roots of box^Ups(0) for z > 0 (H1).
+     no s0 roots of box^Ups(0) for 0 < z < 4 (-1 for every z > 0; -2 is one at z = 4) (H1).
  (ii) (part (2)) t*^2 dx^1 + 2 t* B + 2 W, B = r d(rS) - rS dt, S = x^1/r, W = r^2 (alpha S d(t + r) + beta S d(t - r))
      + kappa r^3 dS, (alpha, beta, kappa) = (4 - 7 e_U, -(4 + 17 e_U), (2/3)(25 e_U - 4))/(24 e_U), solves box^Ups = 0;
      h-bar^2_s1 = dt* (x)_s B + delta* W is stationary, nonzero, of degree -1, and in both kernels; -2, -3 and -4 are no
-     s1 roots for z > 0, -2 one at z = 0 (H2).
+     s1 roots for 0 < z < 20/3 (-2 for every z > 0 and one at z = 0; -3 one at z = 20/3) (H2).
  (iii) (part (3)) t* V + kappa r V, V = x^1 dx^2 - x^2 dx^1 = r^2 sin^2 chi sin^2 theta dphi, solves box^Ups = 0 exactly
      at kappa = 1 + 2 gam_U/5, and h-bar^1_v1 = (1/4)(0, 0, (1 + 2 gam_U/5) V, 0, (1 - 2 gam_U/5) V, 0), stationary and
-     in both kernels: his (6.40) in five dimensions; -2, -3 and -4 are no v1 roots (H3).
+     in both kernels: his (6.40) in five dimensions; -2, -3 and -4 are no v1 roots at any z (H3).
  (iv) (the four-dimensional control) His printed dt* (x)_s omega-bar = (0, -1/4, -1/2, 0) (p. 132), dt* (x)_s B = (0, 0,
-     0, -1, 1/2, 0) rho^-1 S (p. 133), kappa = 1 + gam_U/2 and (6.40) (p. 134) come out exactly, b and (alpha, beta,
-     kappa) there being (2 - e_U)/(3 e_U) and (2 - 3 e_U, -(2 + 7 e_U), 2 (4 e_U - 1))/(10 e_U); the Schwarzschild
+     0, -1, 1/2, 0) rho^-1 S (p. 133), kappa = 1 + gam_U/2 and (6.40) (pp. 130, 134) come out exactly, b and (alpha,
+     beta, kappa) there being (2 - e_U)/(3 e_U) and (2 - 3 e_U, -(2 + 7 e_U), 2 (4 e_U - 1))/(10 e_U); the Schwarzschild
      source has the rho^2 term (2M, 2M (2 gam_U + 1)) (H4, and H1's control); the two splittings are the same in five
      dimensions (H4).
  (v) (his Lemma 6.13's gap) The s1 and s0 roots of box^Ups(0) through 2 are lam_s1,2 = (1 + (17 + 2z - 2 (z^2 + 4z +
      16)^(1/2))^(1/2))/2 = 2 + z/12 + O(z^2) and lam_s0 = (1 + (9 + 4z)^(1/2))/2 = 2 + z/3 + O(z^2), and lam_s1,2 <
-     lam_s0 for 0 < z < 4, his (6.17b); 1 and 2 lie in (0, lam_s1,2) for z > 0, 2 at its edge at z = 0 (H5).
+     lam_s0 for every z > 0, his (6.17b); 1 and 2 lie in (0, lam_s1,2) for z > 0, 2 at its edge at z = 0 (H5).
 
 *Proof.* H1-H5 of genstates5.py, exact. Each 1-form is posed with unknown coefficients, box^Ups taken in polar
 coordinates, the coefficients solved from the expansion in r and t at generic angles, and the vanishing then checked
-identically; the splitting is read on d_0 = (d_t + d_r)/2 and d_1 = (d_t - d_r)/2. Controls: in (i) the five-dimensional
-claim, no rho^2 term, on Schwarzschild; in (ii) the factor 2 on B dropped, where no W exists; in (iii) his kappa = 1 +
-gam_U/2 in five dimensions; in (iv) the five-dimensional kappa in four; in (v) z = 0, where 2 is the gap's edge. []
+identically; the values -k against the roots of box^Ups(0) by the least positive zero in z of 10.15(i)'s polynomial at
+each; the splitting is read on d_0 = (d_t + d_r)/2 and d_1 = (d_t - d_r)/2. Controls: in (i) the five-dimensional claim,
+no rho^2 term, on Schwarzschild, and -2 claimed no s0 root at z = 4; in (ii) the factor 2 on B dropped, where no W
+exists, and -3 claimed no s1 root at z = 20/3; in (iii) his kappa = 1 + gam_U/2 in five dimensions; in (iv) the
+five-dimensional kappa in four; in (v) z = 0, where 2 is the gap's edge, and lam_s1,2's first-order coefficient claimed
+1/3. []
 
 *Deduced.*
 
- (a) ([Hin26] Lemma 6.13 in five dimensions) For alpha in (0, lam_s1,2) -- an indicial gap by 10.12(i) and (v), every
-     other root at least 3 or at most 0 -- the zero energy operator is Fredholm (10.20(a)), of index 0 (10.20(d)) and
-     injective (his Proposition 6.12 at sigma = 0, 10.20(e)), so invertible, on the b-spaces of 10.20 with the shift
-     alpha + 2 of 10.20(iii), which is alpha itself for an unweighted b-density; and its polyhomogeneity is his Lemma
-     2.13, a statement on any compact manifold with boundary, here [0, rho_0) x S^3. So, on the readings of 10.20, his
-     Lemma 6.13 holds in five dimensions, and 10.28's deductions rest on it rather than on an OPEN input. Every
-     correction 10.28 needs lies inside the gap -- at rho^1 for the boosts and the mass, at rho^2 for the translations
-     and the rotations -- so Lemma 6.13 applies to it directly; his boosts' and mass's corrections sit at rho^0, the
-     gap's lower end, and need his Lemma 2.15 first.
+ (a) ([Hin26] Lemma 6.13 in five dimensions) For alpha in (0, lam_s1,2) -- an indicial gap by 10.15(i) and (v), every
+     other root at least 3 or at most 0 -- the zero energy operator is Fredholm (10.20(a)) and of index 0 (10.20(d)),
+     the index constant across the gap, and injective at the shifted weights in (0, 1) (his Proposition 6.12 at sigma =
+     0, 10.20(e)); so injective at every alpha in the gap, since by his Lemma 2.13 a kernel element at one weight of the
+     gap is polyhomogeneous with exponents among the indicial roots above the gap and so lies in every weighted space of
+     it -- his "and thus has trivial nullspace on A^eps(X; T*X) for all eps > 0" (p. 121) -- and invertible, on the
+     b-spaces of 10.20 with the shift alpha + 2 of 10.20(iii), which is alpha itself for an unweighted b-density; and
+     its polyhomogeneity is his Lemma 2.13, a statement on any compact manifold with boundary, here [0, rho_0) x S^3.
+     So, on the readings of 10.20, his Lemma 6.13 holds in five dimensions, and 10.28's deductions rest on it rather
+     than on an OPEN input. Every correction 10.28 needs lies inside the gap -- at rho^1 for the boosts and the mass, at
+     rho^2 for the translations and the rotating metrics, the rotations themselves needing none at a = 0 -- so Lemma
+     6.13 applies to it directly; his boosts' and mass's corrections sit at rho^0, the gap's lower end, and need his
+     Lemma 2.15 first.
  (b) ([Hin26] Proposition 6.18 (1)-(3) in five dimensions) Part (1): by (i) the source is rho times its leading term
-     plus O(rho^3), and box^Ups(0) - box^Ups_gbar(0) is in rho^4 Diff^2_b (10.28(i)), so omega-breve^(0),1_s0 = rho^-1 W
-     + A^((1,0) u (1 + E_ind)), without his (0,1): no logarithm; the leading term h-bar^(0)_s0 of h^(0)_s0 spans the
+     plus O(rho^3), and box^Ups(0) - box^Ups_gbar(0) is in rho^4 Diff^2_b (10.28(i)), so omega-breve^(0),1_s0 = W +
+     A^((1,0) u (1 + E_ind)), without his (0,1): no logarithm; the leading term h-bar^(0)_s0 of h^(0)_s0 spans the
      one-dimensional kernel of N_s0(L-bar(0), 0) (10.24(a)-(b)); and omega-breve^(0),k_s0, k = 2, 3, 4, exist, -k being
-     no s0 root (his Lemmas 2.15 and 6.13). Part (2): by (ii) omega-breve^(0),k_s1, k = 2, 3, 4, exist with s1 leading
-     terms, -k being no s1 root for z > 0, and h-bar^2_s1(S) spans ker N_s1(L-bar(0), -1), the root simple (10.24(iv)).
-     Part (3): by (iii) with h-bar^1_v1 as computed; and since every rotation is Killing on Tangherlini (10.28(iv)),
-     h^(<=1)_v1(V) = h-breve^1_v1(V) is a stationary large zero energy state for each of the six V in V_1 = so(4) -- his
-     Remark 6.19 at a = 0, six states where he has three.
+     no s0 root for 0 < z < 4 (his Lemmas 2.15 and 6.13). Part (2): by (ii) omega-breve^(0),k_s1, k = 2, 3, 4, exist
+     with s1 leading terms, -k being no s1 root for 0 < z < 20/3, and h-bar^2_s1(S) spans ker N_s1(L-bar(0), -1), the
+     root simple (10.24(iv)). Part (3): by (iii) with h-bar^1_v1 as computed; and since every rotation is Killing on
+     Tangherlini (10.28(iv)), h^(<=1)_v1(V) = h-breve^1_v1(V) is a stationary large zero energy state for each of the
+     six V in V_1 = so(4) -- his Remark 6.19 at a = 0, six states where he has three.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 51-52 (Lemma 2.13
 and its proof, Remark 2.14, Lemma 2.15 and its proof), 64-67 (Definition 2.28, (2.34)-(2.35), (2.37b), (2.38)-(2.40),
@@ -4594,8 +4603,9 @@ Lemma 2.29, (2.43)-(2.46c), Definition 2.30), 81 (Definition 4.1, and: "The flex
 e^Upsilon simplifies some bookkeeping: it is used in the present paper to reduce the multiplicity of these indicial
 roots as well as to remove integer coincidences in indicial roots of zero energy operators, which leads to fewer
 logarithmic terms (at low exponents) in asymptotic expansions."), 113 (Lemma 6.1), 117-119 (Lemma 6.6, (6.17a)-(6.17b),
-Lemma 6.8, (6.20)), 121 (Proposition 6.12), 124-125 (Lemma 6.13 and its proof), 129-134 (section 6.5.2: Proposition
-6.18, (6.36)-(6.42), Remark 6.19, and the proof).
+Lemma 6.8, (6.20)), 121 (Proposition 6.12, and: "and thus has trivial nullspace on A^eps(X; T*X) for all eps > 0"),
+124-125 (Lemma 6.13 and its proof), 128-134 (section 6.5.2: Proposition 6.18, (6.40) on p. 130, (6.36)-(6.42), Remark
+6.19, and the proof).
 
 *What this gives, and what it does not.* His Lemma 6.13 stands in five dimensions on the readings of 10.20, and with it
 10.28's constructions; and the first three classes of his generalized zero energy states -- on the time translation, on
@@ -4603,12 +4613,103 @@ the translations and boosts carried to second order, and on the rotations -- hav
 leading terms computed exactly on Minkowski, part (1) without his logarithm, his (6.40) becoming (1/4)(1 +- 2 gam_U/5),
 six rotation states at a = 0. The coefficients of (i) and (ii) carry 1/e_U, in four dimensions as in five: at e_U = 0,
 -1 at s0 and -2 at s1 are roots of box^Ups(0), the integer coincidences his e_Ups > 0 removes (p. 81). Not done, and
-OPEN: the readings of 10.20 line by line; the index sets E_ind; his Proposition 6.18 (4)-(7) in five dimensions -- the
-states from box^Ups's roots below -1, which by 10.24(a) give L-hat(0) the s0 root 1 + (1 - (9 + 4z)^(1/2))/2, the sl
-roots one above Q's negative roots, 2 - l at sl and 1 - l at vl, the tensor types carrying no pure gauge state; section
-7.2's dual states; his Proposition 8.11, Lemma 8.12's pairings and Corollary 8.13 in five dimensions; section 8.5 and
-sections 9-10; how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.26 is computed, and
-(a)-(b) are deduced.
+OPEN: the readings of 10.20 line by line; the index sets E_ind; his Proposition 6.18 (4)-(7) in five dimensions (10.30
+computes their leading terms and deduces them); section 7.2's dual states; his Proposition 8.11, Lemma 8.12's pairings
+and Corollary 8.13 in five dimensions; section 8.5 and sections 9-10; how small gam_Ups must be, and h_0. Nothing of
+this section is proved: Proposition 10.26 is computed, and (a)-(b) are deduced.
+
+### 10.30 [Hin26] Proposition 6.18 (4)-(7) in five dimensions: the states without symmetry (`puregauge5.py` J1-J5; D84)
+
+*The setting.* [Hin26] section 6.5.2 lists the generalized zero energy states by the roots of L-hat(0) in [-3, 0] (p.
+128); parts (1)-(3), on the time translation, the boosts and the rotations, are 10.29's. "The remaining four classes of
+pure gauge solutions we record are not 'special' in that the corresponding gauge potentials do not involve (approximate)
+symmetries" (p. 130): "For each indicial root lambda in Lemma 6.6 (all of which are real) with lambda < -1, there exists
+an element in ker box^Ups(0) with rho^lambda-growth and leading-order term given by an indicial solution corresponding
+to the indicial root lambda. The symmetric gradient thereof is a pure gauge state with nontrivial rho^(lambda+1)
+leading-order term" (p. 131), the s2 root -1 included: (4) the s0 root -lam^Ups_s0,1, (5) the sl roots -lam^Ups_sl,l+j,
+l = 1, 2, 3, j = 0, 1, (6) the sl roots -l + 1, 2 <= l <= 5, (7) the vl roots -l, l = 2, 3, 4, each with generalized
+states (6.36a) of degree k up to 2, 2, 5 - l and 4 - l. His proof (p. 134) solves box^Ups(0) omega' = -(box^Ups(0) -
+box-bar^Ups(0)) omega-bar, notes that the symmetric gradient "has non-zero leading-order term since N(delta*(0), lambda
+- 1) is injective (see the discussion following (2.46c))", and solves A0 omega-breve^k = -A1 omega-breve^(k-1) - A2
+omega-breve^(k-2) "using Lemmas 2.15 and 6.13 as usual", box^Ups = A0 + A1 d_t* + A2 d_t*^2 ((6.4a), (6.6)). In five
+dimensions the gauge potential operator's roots are 10.15(i)'s, its zero energy operator differs from Minkowski's in
+rho^4 Diff^2_b (10.28(i)), and his Lemma 6.13 is 10.29(a)'s.
+
+**Proposition 10.27 (computed; exact).** On 4+1 Minkowski, with E^Ups at the trace weight 2/3, c = r^-1 dt and z = 4 e_U
+gam_U^2, in his splitting (2.37b), (2.43) -- s0 and sl 1-forms (a S, b S, c dS) on d xbar^0, d xbar^1 and r T*S^3, vl
+1-forms c r V -- with N0(lam) = rho^-2 A0 and N1(lam) = rho^-1 A1 on rho^lam:
+
+ (i) (the indicial families) For s0, sl (l <= 5) and vl (l <= 4), A2 = 0, det N0 is 10.15(i)'s polynomial exactly, and
+     N1 = -2 (lam - 3/2) + 2 S-bar with S-bar independent of lam; at vl N0 = -(lam + l)(lam - l - 2) and N1 = -2 (lam -
+     3/2 - gam_U). In four dimensions N0 is his Lemma 6.6 matrix entry by entry (p. 117), N1 = -2 (lam - 1) + 2 S-bar,
+     and N1_v1 = -2 (lam - 1 - gam_U) (p. 134) (J1).
+ (ii) (the classes) For every l, Q(l(l + 1)) = l z and Q((l + 1)(l + 2)) = -(l + 2) z (Q of 10.15(i)), so for z > 0 Q's
+     two negative roots satisfy -l - 1 < mu_l,0 < -l and mu_l,1 < -l - 1, with mu_l,0 = -l - l z/(2 (l + 1)(2l + 1)) +
+     O(z^2) and mu_l,1 = -l - 1 - (l + 2) z/(2 (l + 1)(2l + 3)) + O(z^2) (l <= 6); mu_s0 = (1 - (9 + 4z)^(1/2))/2 = -1 -
+     z/3 + O(z^2) lies in (-2, -1) for 0 < z < 4; sl's -l + 1 and vl's -l are roots at every z; and at z = 1/100 the
+     roots <= 0 of each type are these and the Killing 0 (s0, s1) and -1 (v1). In four dimensions his -lam_s0,1 = -(1 +
+     z)^(1/2), his lam_sl,l and lam_sl,l+1 and his first-order coefficient 2/(2l + 1) (in his z = z/4) come out of (i)'s
+     matrices (J2).
+ (iii) (the symmetric gradient) N(delta-bar*(0), lam) is injective except at 0 (s0, s1) and -1 (v1), in five dimensions
+     as in four, and never fails at sl or vl for l >= 2; in four dimensions his (2.46a)-(2.46c) come out entry by entry
+     (J3).
+ (iv) (no resonance) For each class root mu, none of mu - k (k up to his range), mu + 2 and mu itself, as a double root,
+     meets a root of its type for 0 < z < 4 (four dimensions, mu + 1 in place of mu + 2: 0 < z < 3). At z = 0 they meet
+     at sl: mu_l,0 - 1 = mu_l,1, mu_l,1 + 2 = -l + 1, and -l + 1 - k = mu_l,k-1 for k = 1, 2 (four dimensions: mu + 1 =
+     0 at s0, and at sl mu_l,0 - 1 = mu_l,1, mu_l,1 + 1 = mu_l,0, mu_l,0 + 1 = -l + 1 and -l + 1 - k = mu_l,k-1); never
+     at vl (J4).
+ (v) (the states) t*^k omega-bar + sum_i k!/(k - i)! t*^(k - i) omega-breve-bar^i, omega-breve-bar^i at rho^(mu - i)
+     from N0(mu - i) omega-breve-bar^i = -N1(mu - i + 1) omega-breve-bar^(i - 1), lies in ker box^Ups at every class's
+     largest k: exactly in e_U and gam_U at sl's -l + 1 and vl's -l, in both dimensions, and at s0's and Q's roots
+     modulo their polynomial at (e_U, gam_U) = (1/3, 1/2) and (1/7, 2/5). At vl, omega-breve-bar^i = kappa_i r^i
+     omega-bar with kappa_i = prod_(j <= i) (2l + 2j + 1 + 2 gam_U)/(j (2l + j + 2)) (four dimensions 2 (l + j +
+     gam_U)/(j (2l + j + 1))): 10.29's 1 + 2 gam_U/5 and his 1 + gam_U/2 at l = 1 (J5).
+
+*Proof.* J1-J5 of puregauge5.py, exact. N0 and N1 are read by applying box^Ups to rho^lam times each basis 1-form, lam a
+symbol, and to t* times it, at r = 1 and two generic angles, with the zonal harmonic U_l(cos chi) at sl and P(x^3,
+x^4)(x^1 dx^2 - x^2 dx^1)/r^(l + 1), P harmonic of degree l - 1, at vl; the classes by exact real roots; the injectivity
+by the real roots of det(M^T M), M the symmetric gradient's matrix at two angles; the resonances by resultants in lam
+and their least positive zeros in z; the states by applying box^Ups to the assembled t*-polynomial in polar coordinates,
+every power of t checked, the irrational roots carried as a symbol modulo their polynomial with each step's det N0(mu -
+i) checked nonzero modulo it. Controls: in (i) his four-dimensional matrices claimed in five dimensions; in (ii) z =
+-1/100, where the roots move the other way; in (iii) v1 claimed injective at -1, the rotations; in (iv) z = 0; in (v)
+the factor k!/(k - i)! dropped. []
+
+*Deduced.*
+
+ (a) ([Hin26] Proposition 6.18 (4)-(7) in five dimensions, on Tangherlini) Take 0 < z < 4 and his Lemma 6.13 in five
+     dimensions (10.29(a), on the readings of 10.20). His proof runs with the classes of (ii) and his ranges. For a
+     class root mu with indicial solution omega-bar, box^Ups(0) omega' = -(box^Ups(0) - box-bar^Ups(0)) omega-bar is in
+     rho^(mu + 4) C^oo by 10.28(i), so omega' is in A^((mu + 2, 0) u (mu + 2 + E_ind)) by his Lemmas 2.15 and 6.13, mu +
+     2 being no root of the type by (iv) -- one order faster than his A^((lam, 0) u (1 + E_ind)), lam = mu + 1. The
+     symmetric gradient's leading term is delta-bar* omega-bar at rho^(mu + 1), nonzero by (iii), the rest at rho^(mu +
+     3) (delta*_g - delta*_gbar in rho^3 Diff^0_b, 10.28(i)); mu + 1 is a root of L-hat(0) by 10.24(ii)'s factor det
+     N_Ups(lam - 1), and where it is simple (10.24(iv), at one parameter point, l <= 12) that leading term spans ker
+     N(L-bar(0), mu + 1). The generalized states: in A0 omega-breve^k = -A1 omega-breve^(k-1) - A2 omega-breve^(k-2) the
+     leading terms are (v)'s, Tangherlini's operators differing from Minkowski's at higher order (10.28(i)), solvable
+     without logarithm since mu - k is no root of the type by (iv), the rest by his Lemma 6.13; so his index sets hold
+     as stated, and the constant coefficients k! h-breve^k lie in A^((mu + 1 - k, 0) u (mu + 1 - k + E_ind)) by (6.44).
+ (b) (what five dimensions changes) The four classes and their ranges are his. The tensor types of L-hat(0), which four
+     dimensions lacks, carry no pure gauge state, 1-forms having no tensor type: their roots -l and l + 2 (10.24(ii))
+     fall, at l = 2, 3, with his section 8.5's physical states. At e_U = 0 the coincidences of (iv) would put logarithms
+     into the sl states -- at mu_l,0's first recursion step, mu_l,1's stationary correction and -l + 1's first two
+     steps; in four dimensions also at s0's correction and both of the sl corrections -- which e_U > 0 removes, as his
+     p. 81 says.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 19 ((1.27)-(1.29)),
+67 ((2.43)-(2.46c), and: "Note that for all other pure types . = sl, vl (l >= 2) and for all lambda in C, the operator
+N.(delta*(0), lambda) is injective"), 113 (Lemma 6.1, (6.4a)-(6.6)), 117-118 (Lemma 6.6 and its proof, (6.17a)-(6.17b),
+Remark 6.7), 121 (Proposition 6.12), 128-134 (section 6.5.2: Proposition 6.18 (4)-(7), footnotes 74-76, Remark 6.19, the
+proof of parts (4)-(7)), 149-151 (Lemma 8.4 and its proof), 158 (section 8.5, Proposition 8.14).
+
+*What this gives, and what it does not.* All seven parts of his Proposition 6.18 now have five-dimensional counterparts
+with their leading terms computed exactly on Minkowski: the four classes without symmetry carry over with his ranges,
+each stationary correction one order faster, no logarithm at e_U > 0, and the vector type's coefficients in closed form.
+Not done, and OPEN: the readings of 10.20 line by line; the index sets E_ind; whether five dimensions needs his window
+[-3, 0], which is his choice for the decay he proves; section 7.2's dual states; his Proposition 8.11, Lemma 8.12's
+pairings and Corollary 8.13 in five dimensions; section 8.5 (the physical states, s2, v2, s3 and v3, and in five
+dimensions t2 and t3) and sections 9-10; how small gam_Ups must be, and h_0. Nothing of this section is proved:
+Proposition 10.27 is computed, and (a)-(b) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

@@ -19,31 +19,34 @@ Schwarzschild (trace weight 1) are the control, reproducing his printed numbers.
      nonzero, of degree 0, (a, b, e, p) = (2 - 5e, -(2 + 3e), 2 - 5e, 4 (2 - e))/(16 e), and in the kernels of D Ric
      and of the gauge operator.  On Tangherlini the source box^Ups(t* omega_s0) = 2 delta_(g,E) G (dt* (x)_s omega_s0),
      omega_s0 = -f dt, has the rho^1 term (2 e gam - 4 gam - 3, 2 gam) on (dt, dr), no rho^2 term, and the rho^3 term
-     (mu, 2 mu (gam + 1)), so that (deduced, with zstates5.py Z1's orders) the correction is rho^-1 W + O(rho), with no
-     log rho -- four dimensions: the rho^2 term (2M, 2M (2 gam + 1)), his sub-leading term and his log.  -1, -2, -3, -4
-     are no s0 roots for z > 0.  Control: the five-dimensional claim (no rho^2 term) on Schwarzschild.
-  H2 (computed, exact) Part (2).  On Minkowski, t*^2 dx^1 + 2 t* B + 2 W, B = r d(rS) - rS dt, S = x^1/r, W = r^2
-     (alpha S d(t + r) + beta S d(t - r)) + kappa r^3 dS, (alpha, beta, kappa) = (4 - 7e, -(4 + 17e), (2/3)(25e - 4))/(24
-     e), solves box^Ups = 0; h-bar^2_s1 = dt* (x)_s B + delta* W is stationary, nonzero, of degree -1, and in both
-     kernels.  -2, -3, -4 are no s1 roots for z > 0; -2 is one at z = 0.  Control: the factor 2 on B dropped, where no W
-     exists.
+     (mu, 2 mu (gam + 1)), so that (deduced, with zstates5.py Z1's orders) the correction is W + O(rho), with no log
+     rho -- four dimensions: the rho^2 term (2M, 2M (2 gam + 1)), his sub-leading term and his log.  -1, -2, -3, -4 are
+     no s0 roots for 0 < z < 4 (-1 for every z > 0; -2 is one at z = 4, -3 at 10, -4 at 18).  Controls: the
+     five-dimensional claim (no rho^2 term) on Schwarzschild; -2 claimed no s0 root at z = 4.
+  H2 (computed, exact) Part (2).  On Minkowski, t*^2 dx^1 + 2 t* B + 2 W, B = r d(rS) - rS dt, S = x^1/r, W = r^2 (alpha
+     S d(t + r) + beta S d(t - r)) + kappa r^3 dS, (alpha, beta, kappa) = (4 - 7e, -(4 + 17e), (2/3)(25e - 4))/(24 e),
+     solves box^Ups = 0; h-bar^2_s1 = dt* (x)_s B + delta* W is stationary, nonzero, of degree -1, and in both
+     kernels.  -2, -3, -4 are no s1 roots for 0 < z < 20/3 (-2 for every z > 0 and one at z = 0; -3 is one at z = 20/3,
+     -4 at 252/17).  Controls: the factor 2 on B dropped, where no W exists; -3 claimed no s1 root at z = 20/3.
   H3 (computed, exact) Part (3).  On Minkowski, t* V + kappa r V, V = r^2 sin^2 chi sin^2 theta dphi = x^1 dx^2 - x^2
      dx^1, solves box^Ups = 0 exactly at kappa = 1 + 2 gam/5, and h-bar^1_v1 = (1/4)(0, 0, (1 + 2 gam/5) V, 0, (1 - 2
-     gam/5) V, 0), stationary and in both kernels: his (6.40) in five dimensions.  -2, -3, -4 are no v1 roots.  Control:
-     his kappa = 1 + gam/2 in five dimensions.
+     gam/5) V, 0), stationary and in both kernels: his (6.40) in five dimensions.  -2, -3, -4 are no v1 roots at any
+     z.  Control: his kappa = 1 + gam/2 in five dimensions.
   H4 (computed, exact) The four-dimensional control.  dt* (x)_s omega-bar = (0, -1/4, -1/2, 0) at s0 and dt* (x)_s B =
-     rho^-1 (0, 0, 0, -1, 1/2) S at s1 in his splitting (pp. 132-133), and kappa = 1 + gam/2 with h-bar^1_v1 = (1/4)(1 +
-     gam/2, 1 - gam/2) rho^-1, his (6.40) (p. 134); the same two splittings in five dimensions.  Control: the
-     five-dimensional kappa claimed in four.
+     rho^-1 (0, 0, 0, -1, 1/2) S at s1 in his splitting (pp. 132-133), and kappa = 1 + gam/2 with h-bar^1_v1 = (1/4)(1
+     + gam/2, 1 - gam/2) rho^-1, his (6.40) (pp. 130, 134), with b = (2 - e)/(3 e) and (alpha, beta, kappa) = (2 - 3e,
+     -(2 + 7e), 2 (4e - 1))/(10 e) there; the same two splittings in five dimensions.  Control: the five-dimensional
+     kappa claimed in four.
   H5 (computed, exact) Lemma 6.13's indicial gap.  The s1 root through 2 and the s0 root through 2 of box^Ups(0) (10.15)
-     are 2 + z/12 + O(z^2) and 2 + z/3 + O(z^2), and lam_s1,2 < lam_s0 for 0 < z < 4 (4 - z < (z^2 + 4z + 16)^(1/2)), his
-     (6.17b); so the exponents 1 and 2 of 10.28 lie in the gap (0, lam_s1,2) for z > 0, 2 at its edge at z = 0.
-     Control: z = 0.
+     are 2 + z/12 + O(z^2) and 2 + z/3 + O(z^2), and lam_s1,2 < lam_s0 for every z > 0 (4 - z < (z^2 + 4z + 16)^(1/2)),
+     his (6.17b); so the exponents 1 and 2 of 10.28 lie in the gap (0, lam_s1,2) for z > 0, 2 at its edge at z =
+     0.  Controls: z = 0; lam_s1,2's first-order coefficient claimed 1/3.
 
-Deduced, not computed here (N1STAR-PROOF.md 10.29): his Lemma 6.13 in five dimensions, from 10.12(i)'s gap, 10.20's
-Fredholm property, index 0 and mode stability at sigma = 0, and his Lemma 2.13; his Proposition 6.18 (1)-(3) there, with
-the corrections at rho^-1 (s0), rho^-2 (s1 and v1) and part (1) without his log, the six rotations Killing on
-Tangherlini so that h^(<=1)_v1 is stationary for each (his Remark 6.19 at a = 0).
+Deduced, not computed here (N1STAR-PROOF.md 10.29): his Lemma 6.13 in five dimensions on the readings of 10.20, from
+10.15(i)'s gap, 10.20's Fredholm property, index 0 and mode stability at sigma = 0, the nullspace the same at every
+weight of the gap, and his Lemma 2.13; his Proposition 6.18 (1)-(3) there, with the corrections at rho^-1 (s0), rho^-2
+(s1 and v1) and part (1) without his log, the six rotations Killing on Tangherlini so that h^(<=1)_v1 is stationary for
+each (his Remark 6.19 at a = 0).
 
 READ.  [Hin26] pp. 51-52 (Lemmas 2.13 and 2.15), 64-67 (Definition 2.28, (2.37b), Lemma 2.29, (2.43)-(2.46)), 81
 (Definition 4.1 and its remark on e_Ups), 113 (section 6, Lemma 6.1), 117-119 (Lemma 6.6, (6.17a)-(6.17b), Lemma 6.8,
@@ -269,6 +272,18 @@ def not_roots(typ, l, values, zs):
     return all(not is_root(typ, l, v, zz) for v in values for zz in zs)
 
 
+def first_zero(typ, l, values):
+    """the least positive z at which one of the values is a root of box^Ups(0) (oo if none; None if one is a root at
+    every z)"""
+    out = sp.oo
+    for v in values:
+        P = sp.Poly(sp.expand(poly5(typ, l).subs(lam, v)), z)
+        if P.is_zero:
+            return None
+        out = min([out] + ([x for x in P.real_roots() if x > 0] if P.degree() > 0 else []))
+    return out
+
+
 ZS = (sp.Rational(1, 100), sp.Rational(1, 2), 1)
 e = eU
 
@@ -276,6 +291,9 @@ e = eU
 # ------------------------------------------------------------------------------------------------- H1
 def h1(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
+    if control == 2:                                                     # control: -2 claimed no s0 root at z = 4
+        chk("-2 is no s0 root at z = 4", not_roots("s0", 0, (-2,), (4,)))
+        return chk.ok
     if control == 0:
         P = part1(4)
         okm = P is not None and P["sol"] == {sp.Symbol("a"): -1, sp.Symbol("b"): (2 - e) / (4 * e)} and P["box"] \
@@ -295,15 +313,19 @@ def h1(control=0, verbose=False):
         oks = co[0] == [0, 0] and co[2] == [0, 0] and ang
     chk(f"n + 1 = {n + 1}: the source on (dt, dr) by powers of rho: rho^1 {co[1]}, rho^2 {co[2]}, rho^3 {co[3]}; "
         f"no rho^2 term", oks)
-    okr = not_roots("s0", 0, (-1, -2, -3, -4), ZS)
+    zf = first_zero("s0", 0, (-1, -2, -3, -4))
+    okr = zf == 4 and first_zero("s0", 0, (-1,)) == sp.oo
     if control == 0:
-        chk("-1, -2, -3, -4 are no s0 roots of box^Ups(0) for z > 0", okr)
+        chk(f"-1, -2, -3, -4 are no s0 roots of box^Ups(0) for 0 < z < {zf} (-1 for every z > 0)", okr)
     return chk.ok
 
 
 # ------------------------------------------------------------------------------------------------- H2
 def h2(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
+    if control == 2:                                                     # control: -3 claimed no s1 root at z = 20/3
+        chk("-3 is no s1 root at z = 20/3", not_roots("s", 1, (-3,), (sp.Rational(20, 3),)))
+        return chk.ok
     P = part2(4, factor=2 if control == 0 else 1)
     al, be, ka = sp.symbols("alpha beta kappa")
     ok = P is not None
@@ -313,8 +335,9 @@ def h2(control=0, verbose=False):
             and P["nonzero"]
     chk(f"Minkowski: t*^2 dx^1 + 2 t* B + 2 W solves box^Ups = 0 with (alpha, beta, kappa) = "
         f"{None if P is None else P['sol']}; h-bar^2_s1 stationary, nonzero, in both kernels", ok)
-    okr = not_roots("s", 1, (-2, -3, -4), ZS) and is_root("s", 1, -2, 0)
-    chk("-2, -3, -4 are no s1 roots of box^Ups(0) for z > 0; -2 is one at z = 0", okr)
+    zf = first_zero("s", 1, (-2, -3, -4))
+    okr = zf == sp.Rational(20, 3) and first_zero("s", 1, (-2,)) == sp.oo and is_root("s", 1, -2, 0)
+    chk(f"-2, -3, -4 are no s1 roots of box^Ups(0) for 0 < z < {zf} (-2 for every z > 0); -2 is one at z = 0", okr)
     return chk.ok
 
 
@@ -326,8 +349,8 @@ def h3(control=0, verbose=False):
     ok = ok and all(zero(x - y) for x, y in zip(P["hb"], [0, 0, (1 + 2 * gU / 5) / 4, 0, (1 - 2 * gU / 5) / 4]))
     chk(f"Minkowski: t* V + kappa r V solves box^Ups = 0 at kappa = {None if P is None else P['kappa']}; h-bar^1_v1 = "
         f"(a, b, c rho, e, f rho) {None if P is None else P['hb']}, stationary, in both kernels", ok)
-    okr = not_roots("v", 1, (-2, -3, -4), ZS + (0,))
-    chk("-2, -3, -4 are no v1 roots of box^Ups(0)", okr)
+    okr = first_zero("v", 1, (-2, -3, -4)) == sp.oo and not_roots("v", 1, (-2, -3, -4), (0,))
+    chk("-2, -3, -4 are no v1 roots of box^Ups(0) at any z", okr)
     return chk.ok
 
 
@@ -338,11 +361,16 @@ def h4(control=0, verbose=False):
     P3 = part3(3, kappa=None if control == 0 else 1 + 2 * gU / 5)
     q = sp.Rational(1, 4)
     ok1 = P1["hd"] == [0, -q, -2 * q, 0] and P1["box"] and P1["ker"]
+    ok1 = ok1 and zero(P1["sol"][sp.Symbol("b")] - (2 - e) / (3 * e))
     ok2 = P2["hd"] == [0, 0, 0, -1, sp.Rational(1, 2)] and P2["box"] and P2["ker"]
+    al, be, ka = sp.symbols("alpha beta kappa")
+    want4 = {al: (2 - 3 * e) / (10 * e), be: -(2 + 7 * e) / (10 * e), ka: 2 * (4 * e - 1) / (10 * e)}
+    ok2 = ok2 and all(zero(P2["sol"][k] - v) for k, v in want4.items())
     ok3 = P3["box"] and zero(P3["kappa"] - (1 + gU / 2))
     ok3 = ok3 and all(zero(x - y) for x, y in zip(P3["hb"], [0, 0, q * (1 + gU / 2), 0, q * (1 - gU / 2)]))
     chk(f"n + 1 = 4: dt* (x)_s omega-bar = {P1['hd']}, dt* (x)_s B = {P2['hd']} rho^-1 S, his pp. 132-133; kappa = "
-        f"{P3['kappa']}, h-bar^1_v1 = {P3['hb']}, his (6.40)", ok1 and ok2 and ok3)
+        f"{P3['kappa']}, h-bar^1_v1 = {P3['hb']}, his (6.40); b = {P1['sol'][sp.Symbol('b')]}, (alpha, beta, kappa) = "
+        f"{P2['sol']}", ok1 and ok2 and ok3)
     if control == 0:
         P1b, P2b = part1(4), part2(4)
         ok5 = P1b["hd"] == [0, -q, -2 * q, 0] and P2b["hd"] == [0, 0, 0, -1, sp.Rational(1, 2)]
@@ -359,20 +387,21 @@ def h5(control=0, verbose=False):
     l0 = (1 + sp.sqrt(9 + 4 * zz)) / 2
     roots = sp.simplify(poly5("s", 1).subs({lam: l1, z: zz})) == 0 and sp.simplify(poly5("s0", 0).subs({lam: l0,
                                                                                                         z: zz})) == 0
-    ser = sp.series(l1, zz, 0, 2).removeO() == 2 + zz / 12 and sp.series(l0, zz, 0, 2).removeO() == 2 + zz / 3
+    c1 = zz / 12 if control != 2 else zz / 3                           # control 2: the coefficient claimed 1/3
+    ser = sp.series(l1, zz, 0, 2).removeO() == 2 + c1 and sp.series(l0, zz, 0, 2).removeO() == 2 + zz / 3
     order = sp.expand(sq**2 - (4 - zz)**2) == 12 * zz                    # lam_s1,2 < lam_s0 iff 4 - z < sq
-    zv = sp.Rational(1, 100) if control == 0 else 0
+    zv = 0 if control == 1 else sp.Rational(1, 100)
     gap = all(0 < x < l1.subs(zz, zv) for x in (1, 2))
-    chk(f"lam_s1,2 = 2 + z/12 + O(z^2) < lam_s0 = 2 + z/3 + O(z^2) for 0 < z < 4; the exponents 1, 2 in (0, "
+    chk(f"lam_s1,2 = 2 + z/12 + O(z^2) < lam_s0 = 2 + z/3 + O(z^2) for every z > 0; the exponents 1, 2 in (0, "
         f"lam_s1,2) at z = {zv}", roots and ser and order and gap)
     return chk.ok
 
 
-CHECKS = [("H1 part (1): the s0 state, W at rho^-1, the Tangherlini source without a rho^2 term: no log", h1, 1),
-          ("H2 part (2): the boost to second order, W at rho^-2, h-bar^2_s1 stationary; -2 a root only at z = 0", h2, 1),
+CHECKS = [("H1 part (1): the s0 state, W at rho^-1, the Tangherlini source without a rho^2 term: no log", h1, 2),
+          ("H2 part (2): the boost to second order, W at rho^-2, h-bar^2_s1 stationary; -2 a root only at z = 0", h2, 2),
           ("H3 part (3): the rotation's state, kappa = 1 + 2 gam/5, h-bar^1_v1 his (6.40) in five dimensions", h3, 1),
           ("H4 the four-dimensional control: his (0, -1/4, -1/2, 0), (0, 0, 0, -1, 1/2), kappa and (6.40)", h4, 1),
-          ("H5 Lemma 6.13's gap: lam_s1,2 = 2 + z/12 < lam_s0 = 2 + z/3; the exponents 1, 2 inside it", h5, 1)]
+          ("H5 Lemma 6.13's gap: lam_s1,2 = 2 + z/12 < lam_s0 = 2 + z/3; the exponents 1, 2 inside it", h5, 2)]
 
 
 def selftest(verbose=False):
