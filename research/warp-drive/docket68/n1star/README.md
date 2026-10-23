@@ -180,12 +180,13 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   potentials positive at l >= 2, the scalar type through [KI03]'s first-order system and one constraint, l <= 1 pure
   gauge at sigma != 0 -- and the horizon in ingoing coordinates (G1-G5; Proposition 8.8 deduced in 10.27). `python3
   gmodes5.py --selftest` (5/5, about five minutes), `--mutants` (5/5).
-- `zstates5.py`: [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions (section 10.28; D80): Tangherlini's orders
-  against Minkowski (g - gbar at rho^2, Gamma at rho^3, r* without a logarithm), the defects of the asymptotic
-  translations and boosts, the rotations Killing (V_1 = so(4)), the linearized metrics d_mu g and h_A with their gauge
-  sources (delta G h_A = 0, E^Ups h_A at rho^4), and the needed exponents against box^Ups(0)'s indicial roots,
-  four-dimensional Schwarzschild the control (Z1-Z5; Propositions 6.15 and 8.9 deduced in 10.28 on Lemma 6.13). `python3
-  zstates5.py --selftest` (5/5, about 15 seconds), `--mutants` (5/5).
+- `zstates5.py`: [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions (section 10.28; D80, D82): Tangherlini's
+  orders against Minkowski (g - gbar at rho^2, Gamma at rho^3, r* without a logarithm), the defects of the asymptotic
+  translations and boosts, the rotations Killing (V_1 = so(4)), the linearized metrics d_mu g and h_A -- the derivatives
+  at zero rotation of the one-spin Myers-Perry family, checked Ricci-flat at exact points -- with their gauge sources
+  (delta G h_A = 0, E^Ups h_A at rho^4), and the needed exponents against box^Ups(0)'s indicial roots, four-dimensional
+  Schwarzschild the control (Z1-Z6; Propositions 6.15 and 8.9 deduced in 10.28 on Lemma 6.13, which 10.29 deduces).
+  `python3 zstates5.py --selftest` (6/6, about half a minute), `--mutants` (6/6).
 - `genstates5.py`: [Hin26] Lemma 6.13 and Proposition 6.18 (1)-(3) in five dimensions (section 10.29; D81): the
   generalized zero energy states on the time translation, the boosts carried to second order and the rotations, their
   leading terms solved exactly on 4+1 Minkowski with E^Ups, part (1)'s Tangherlini source without a rho^2 term, his

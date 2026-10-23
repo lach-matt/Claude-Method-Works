@@ -2476,7 +2476,8 @@ D78 alone, D79 added there exceeding 121 characters. Next: [Hin26] section 6.5.1
 M's commission (522) continues: route B item 2 carried to five dimensions step by step. After Proposition 8.8 (D78) the
 next step of his section 8.4 is the zero energy theory, which rests on section 6.5.1's states built from the Minkowskian
 symmetries and on Proposition 8.9's gauged linearized Kerr metrics. READ at source (alphaXiv, 2026-10-23): [Hin26] pp.
-25, 81 (Definition 4.1), 124-127 (Lemma 6.13, section 6.5.1), 154-155 (Propositions 8.8-8.9, Remark 8.10).
+25, 81 (Definition 4.1), 124-128 (Lemma 6.13, section 6.5.1; 124-127 until D82), 154-155 (Propositions 8.8-8.9, Remark
+8.10).
 
 *Computed (Proposition 10.25, zstates5.py Z1-Z5).* (Z1) g - gbar in rho^2, Gamma in rho^3, r* without a logarithm. (Z2)
 delta*_g dx^1 at rho^3, box dx^1 at rho^4; 2 an s1 root only at z = 0, the root through 2 (1 + (17 + 2z - 2 (z^2 + 4z +
@@ -2538,3 +2539,39 @@ five-dimensional numbers are stated in.
 
 *Runs.* genstates5.py 5/5 (about a minute), mutants 5/5; response5.py all pass; md5 rows current (46). Next: the
 thirty-seventh verifier's report on D79-D80, then one verifier on 10.29.
+
+**D82 (2026-10-23): the thirty-seventh verifier's findings on 10.28, zstates5.py, D79 and D80, seated.**
+
+The thirty-seventh verifier read 6ee0a75 (and 73c552e) read-only, every program run from an archive, and recomputed
+independently: the five-dimensional indicial roots of box^Ups(0) in Cartesian coordinates without Christoffel symbols
+(his Lemma 6.6 reproduced as the control), Z2-Z5 with symbolic angles (delta* by the Lie derivative, delta by the
+density formula, D Ric as d/d eps Ric(g + eps h)), the boost terms of 10.28(a) with his Minkowski model, and the
+one-spin Myers-Perry metric. Verdict: D80 holds; no major finding; four minor findings and eight notes, each seated
+here.
+
+*Minor.* (1) The READ ranges stopped at p. 127, while 10.28(a) uses p. 128 (the origin of (6.31)'s logarithm, f-breve's
+type, h-breve^1, (6.35)), and Lemma 8.12 is on p. 157: 10.28's READ, zstates5.py's docstring, ROUTES 4.29 and D80's
+entry (corrected in place) now read 124-128, with p. 157 read and recorded. (2) His section 8.4 numbers 8.10 a Remark,
+8.12 a Lemma and 8.13 a Corollary: "Propositions 8.10-8.13" (10.28, 10.29, ROUTES 4.29 and 4.30), "Propositions
+8.9-8.11" (10.27, ROUTES 4.28) and "Proposition 8.10 on" (ROUTES 4.5) corrected. (3) zstates5.py's line of 122
+characters wrapped. (4) The paper's [Hin26] entry now records the reads of 2026-10-23 for sections 6.5 and 8.4.
+
+*Notes.* (a) The Myers-Perry identification is computed now rather than left unREAD: Z6 types [ER08] (32)-(33) at d = 5,
+READ at source, and finds Ric = 0 at three exact points, Tangherlini at a = 0 and d_a g at a = 0 = -h_A; 10.28(vi), (b)
+and its OPEN list, ROUTES 4.29 and the paper, with [ER08] added to its references, say so. (b) 10.28(i)'s consequence
+for his Lemma 6.14 is labelled deduced; (a)'s first and last boost terms now rest on (iii)'s computed residual, not on
+(i). (c) His boost uses t-bar = t* + r: Z3 now computes, in retarded coordinates, K-bar of order rho^2 and the
+stationary residual box^Ups_g B-bar - t* box^Ups_g dx^1 of order rho^3 (four dimensions rho, rho^2), B-bar Killing for
+gbar. (d) The README and zstates5.py's docstring now cite Lemma 6.13 as deduced in 10.29. (e) Z5's root claims are the
+polynomials' values, 2 (2 + z) and 3. (f) Z4 checks all six rotations and computes the ranks 6 and 4. (g) pp. 113 and
+117 added to 10.28's and 4.29's READ. (h) Z1-Z3 and Z5 read every order at a second ray or angle as well.
+
+*Notes on the computation.* (1) Z3's Killing test for B-bar first compared unsimplified entries with 0 and failed; they
+vanish once sin^2 + cos^2 is reduced. (2) Z4's first rank of S_1 took derivatives at points where x^i/r is degenerate
+and returned 0; it is now the rank of the four functions' values at four points.
+
+*Not checked by the verifier.* The index sets; Lemma 6.13 in five dimensions (OPEN at 6ee0a75, deduced in 10.29 since);
+pages outside those it read; minus-sign glyphs in the extraction.
+
+*Runs.* zstates5.py 6/6 (about half a minute), mutants 6/6; genstates5.py 5/5; response5.py all pass; md5 rows current
+(46). Next: one verifier on 10.29, genstates5.py, D81 and D82.
