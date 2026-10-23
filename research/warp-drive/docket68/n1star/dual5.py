@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """dual5.py -- [Hin26] section 7.2 in five dimensions: the zero energy dual states of the constraint propagation
-operator (N1STAR-PROOF.md section 10.31; ROUTES-OPEN.md 4.32; D86).  Labels: computed (exact, sympy), deduced, READ.
+operator (N1STAR-PROOF.md section 10.31; ROUTES-OPEN.md 4.32; D86, D87).  Labels: computed (exact, sympy), deduced, READ.
 
 [Hin26] (arXiv:2606.28253v2) section 7.2 records the large zero energy states of the adjoint (box^C)* = 2 (delta*_(g,
 E^C))* G delta* ((7.11)) of the constraint propagation operator box^C = 2 delta G (delta* + E^C): Lemma 7.2 (its zero
@@ -14,16 +14,17 @@ mu/r^2, and on the one-spin Myers-Perry metric at first order in its rotation, g
 Schwarzschild and Kerr at first order in a are the control.
 
   A1 (computed, exact) The adjoint's indicial families.  For s0, sl (l <= 3) and vl (l <= 3), det N*(lam) = det N(2 -
-     lam) exactly, N the indicial family of box^C (four dimensions det N(1 - lam): his (7.10)); box^C's polynomials are
-     10.12's (damping5.py) at kappa = l (l + 2); the v1 roots of box^C are 3 and -1 - 2 v gam_C, so the adjoint's are -1
-     and 3 + 2 v gam_C (four dimensions his (7.8), 2 and -1 - 2 v gam_C); and N*_v1(1) = 2 + 4 gam_C v_C in four
-     dimensions (his p. 143), N*_v1(2) = 3 + 6 gam_C v_C in five.  Control: the shift 1 claimed in five dimensions.
+     lam) exactly, N the indicial family of box^C read at two generic angles (four dimensions det N(1 - lam): his
+     (7.10)); box^C's polynomials are 10.12's (damping5.py) at kappa = l (l + 2) times h^-2 (s0), h^-3 (sl), h^-1 (vl);
+     the v1 roots of box^C are 3 and -1 - 2 v gam_C, so the adjoint's are -1 and 3 + 2 v gam_C (four dimensions his
+     (7.8), 2 and -1 - 2 v gam_C); and N*_v1(1) = 2 + 4 gam_C v_C in four dimensions (his p. 143), N*_v1(2) = 3 + 6 gam_C
+     v_C in five.  Control: the shift 1 claimed in five dimensions.
   A2 (computed, exact) The translations' dual state.  On Tangherlini, with dx = d(r S), S = cos chi, the source
      box^C*(dx) vanishes to order rho^3 and has its leading term at rho^4 (four dimensions: rho^3, his proof of
-     Proposition 7.3); the correction omega' = rho^2 (a S d xbar^0 + b S d xbar^1 + c r dS) cancelling it is unique (2
-     no root of the adjoint's s1 polynomial; four dimensions rho^1); and h*_s1 = G delta*(dx + omega') vanishes to order
-     rho^2 with a nonzero leading term at rho^3 (four dimensions rho^2, his (7.15)).  Control: the four-dimensional order
-     rho^2 claimed in five dimensions.
+     Proposition 7.3); the correction omega' = rho^2 (a S d xbar^0 + b S d xbar^1 + c r dS) cancelling it is unique,
+     solved at one generic angle and checked at a second (2 no root of the adjoint's s1 polynomial; four dimensions
+     rho^1); and h*_s1 = G delta*(dx + omega') vanishes to order rho^2 with a nonzero leading term at rho^3 (four
+     dimensions rho^2, his (7.15)).  Control: the four-dimensional order rho^2 claimed in five dimensions.
   A3 (computed, exact) The rotations' dual states near a = 0.  At first order in a, with V a rotation 1-form and V_a =
      g_a gbar^-1 V: delta*_(g_a) V_a = (a/2) L_R k is -(mu/r^4) a dt (x)_s V' on Myers-Perry, k = -h_A (four dimensions,
      Kerr: -(2M/r^3) a dt (x)_s V', his (7.20)'s -2 m rho^2 (dt* + dr) (x)_s rho V(S')), V' = L_R w the rotation 1-form
@@ -32,7 +33,7 @@ Schwarzschild and Kerr at first order in a are the control.
      unique, c_0 = -2 mu/(3 (h + 2v)) (four dimensions -2M/(h + 2v), his (7.31)); and the leading term of h-sharp, at
      rho^3 (four dimensions rho^2), is that of delta*_(g_a) V_a times (h + 2v - 2)/(h + 2v) on d xbar^0 and (h + 2v +
      2)/(h + 2v) on d xbar^1, in five dimensions as in four -- his (7.18), the same for each of the four non-Killing
-     rotations.  Control: his c_0 claimed in five dimensions.
+     rotations, at two generic angles.  Control: his c_0 claimed in five dimensions.
 
 Deduced, not computed here (N1STAR-PROOF.md 10.31): his Lemma 7.2 in five dimensions on 10.21(e) (the weights (0, C_0 +
 2]) with A1 and Proposition 10.9; his Proposition 7.3 there on Tangherlini, h*_s1 at rho^3 and the time translation's
@@ -54,7 +55,7 @@ import sympy as sp
 from damping5 import Checklist
 import damping5 as D5
 from genstates5 import geo, dstar, div, trace, Gop, TRIG, t, r, ch, th, ph, mu, M
-from puregauge5 import basis, decompose
+from puregauge5 import basis, decompose, TRIG2
 
 v, e, h = D5.v, D5.e, D5.h
 lam = sp.Symbol("lam")
@@ -102,8 +103,10 @@ def fam(n, typ, l, adj):
     op = boxCs if adj else boxC
     cols = []
     for E in basis(n, typ, l):
-        col, ok = decompose(op([r**(-lam) * q for q in E], G), n, typ, l, TRIG)
-        assert ok
+        F = op([r**(-lam) * q for q in E], G)
+        col, ok = decompose(F, n, typ, l, TRIG)
+        col2, ok2 = decompose(F, n, typ, l, TRIG2)                       # a second generic angle: pure type
+        assert ok and ok2 and all(sp.expand(x - y) == 0 for x, y in zip(col, col2))
         cols.append(col)
     return sp.Matrix(cols).T.applyfunc(sp.expand)
 
@@ -141,8 +144,9 @@ def a1(control=0, verbose=False):
         A = fam(4, typ, l, False).det().subs(lam, D5.lam)
         ref = {"s0": p0, "s": pk, "v": pv}[typ].subs(D5.K, l * (l + 2))
         ratio = sp.cancel(A / ref)
-        okp &= ratio.free_symbols <= {h} and ratio != 0
-    chk("n + 1 = 5: box^C's polynomials are 10.12's (damping5.py) at kappa = l (l + 2), up to powers of h", okp)
+        okp &= sp.simplify(ratio - h**(-{"s0": 2, "s": 3, "v": 1}[typ])) == 0
+    chk("n + 1 = 5: box^C's polynomials are 10.12's (damping5.py) at kappa = l (l + 2), times h^-2 (s0), h^-3 (sl), "
+        "h^-1 (vl)", okp)
     g_ = 1 / h
     r5, r4 = sp.solve(fam(4, "v", 1, False)[0], lam), sp.solve(fam(3, "v", 1, False)[0], lam)
     s5, s4 = sp.solve(fam(4, "v", 1, True)[0], lam), sp.solve(fam(3, "v", 1, True)[0], lam)
@@ -179,6 +183,9 @@ def s1_dual(n):
     sol = sp.solve([sp.expand(q.coeff(rho, kf).subs(pt)) for q in F], [A_, B_, C_], dict=True)
     if len(sol) != 1:
         return low, lead, None, None, None
+    pt2 = {sp.cos(X[2]): sp.Rational(12, 13), sp.sin(X[2]): sp.Rational(5, 13)}
+    if any(sp.simplify(sp.expand(q.coeff(rho, kf).subs(pt2)).subs(sol[0])) != 0 for q in F):
+        return low, lead, None, None, None                             # the correction fails at a second angle
     w = [sp.sympify(x + y).subs(sol[0]) for x, y in zip(dx, wp)]
     H = frame2(Gop(dstar(w, G), G)).applyfunc(lambda q: ser(q, p + 1))
     hlow = all(sp.simplify(H[i, j].coeff(rho, k)) == 0 for i in range(N) for j in range(N) for k in range(p + 1))
@@ -220,9 +227,9 @@ def rot1(n, X, i, j):
     return [sp.expand(x[i] * sp.diff(x[j], q) - x[j] * sp.diff(x[i], q)) for q in X]
 
 
-def at(x):
-    """the value at the generic angles, the trig expanded first so that no combined angle escapes"""
-    return sp.cancel(sp.expand_trig(sp.sympify(x)).subs(TRIG))
+def at(x, P=None):
+    """the value at the generic angles (TRIG, or P), the trig expanded first so that no combined angle escapes"""
+    return sp.cancel(sp.expand_trig(sp.sympify(x)).subs(TRIG if P is None else P))
 
 
 def geo_lin(g, gi, X):
@@ -279,16 +286,22 @@ def rot_dual(n, plane):
 
     def proj(H, u):                                                       # H(u, .) on the angular directions
         return [sum(u[i] * H[i, j] for i in range(2)) for j in range(2, N)]
-    ratios = []
-    for u in (e0, e1):
-        num = [at(x.coeff(rho, q)) for x in proj(hS, u)]
-        den = [at(x.coeff(rho, q)) for x in proj(hL, u)]
-        rs = {sp.factor(x / y) for x, y in zip(num, den) if y != 0}
-        ratios.append(rs.pop() if len(rs) == 1 else None)
+    two = all(sp.simplify(sp.expand(at(x.coeff(rho, kf), TRIG2)).subs(sol[0])) == 0 for x in F)
+
+    def ratio_at(P):
+        out = []
+        for u in (e0, e1):
+            num = [at(x.coeff(rho, q), P) for x in proj(hS, u)]
+            den = [at(x.coeff(rho, q), P) for x in proj(hL, u)]
+            rs = {sp.factor(x / y) for x, y in zip(num, den) if y != 0}
+            out.append(rs.pop() if len(rs) == 1 else None)
+        return out
+    ratios = ratio_at(None)
+    two &= ratio_at(TRIG2) == ratios                                      # a second generic angle
     lowL = all(sp.simplify(hL[i, j].coeff(rho, s)) == 0 for i in range(N) for j in range(N) for s in range(q))
     lowS = all(sp.simplify(hS[i, j].coeff(rho, s)) == 0 for i in range(N) for j in range(N) for s in range(q))
     return dict(Vp=Vp, pure=pure, form=form, zero=False, sol=sp.factor(sol[0][c0]), low=low and lowL and lowS,
-                ratios=ratios)
+                ratios=ratios, two=two)
 
 
 def a3(control=0, verbose=False):
@@ -297,7 +310,7 @@ def a3(control=0, verbose=False):
     c05 = -2 * mu / (h + 2 * v) if control else -2 * mu / (3 * (h + 2 * v))   # control 1: his c_0 in five dimensions
     X5 = geo(4, False)[0]
     R5 = rot_dual(4, (0, 2))
-    good5 = R5["pure"] and R5["form"] and not R5["zero"] and R5.get("sol") is not None and R5["low"]
+    good5 = R5["pure"] and R5["form"] and not R5["zero"] and R5.get("sol") is not None and R5["low"] and R5["two"]
     good5 &= sp.simplify(R5.get("sol", 0) - c05) == 0
     good5 &= all(sp.simplify(x - y) == 0 for x, y in zip(R5["Vp"], rot1(4, X5, 1, 2)))
     good5 &= all(x is not None and sp.simplify(x - y) == 0 for x, y in zip(R5.get("ratios", [None, None]), want))
@@ -312,12 +325,12 @@ def a3(control=0, verbose=False):
         okz &= R["zero"] and R["pure"]
     for pl in ((0, 3), (1, 2), (1, 3)):
         R = rot_dual(4, pl)
-        okz &= not R["zero"] and sp.simplify(R["sol"] - c05) == 0 and all(sp.simplify(x - y) == 0
-                                                                          for x, y in zip(R["ratios"], want))
+        okz &= not R["zero"] and R["low"] and R["two"] and sp.simplify(R["sol"] - c05) == 0
+        okz &= all(sp.simplify(x - y) == 0 for x, y in zip(R["ratios"], want))
     chk("n + 1 = 5: the rotations in the planes 12 and 34 stay Killing (V' = 0); those in 13, 14, 23, 24 give the same "
         "c_0 and ratios", okz)
     R4 = rot_dual(3, (0, 2))
-    good4 = R4["pure"] and R4["form"] and not R4["zero"] and R4.get("sol") is not None and R4["low"]
+    good4 = R4["pure"] and R4["form"] and not R4["zero"] and R4.get("sol") is not None and R4["low"] and R4["two"]
     good4 &= sp.simplify(R4["sol"] + 2 * M / (h + 2 * v)) == 0
     good4 &= all(x is not None and sp.simplify(x - y) == 0 for x, y in zip(R4["ratios"], want))
     V23 = rot1(3, geo(3, False)[0], 1, 2)

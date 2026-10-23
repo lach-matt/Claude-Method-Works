@@ -2725,3 +2725,67 @@ the full metric and (7.19) stay OPEN.
 
 *Runs.* dual5.py 3/3 (about a minute and a half), mutants 3/3; response5.py all pass; md5 rows current (48). Next: the
 fortieth verifier on D85 and D86 (10.29-10.31, puregauge5.py, dual5.py).
+
+**D87 (2026-10-23): the fortieth verifier's findings on 10.30-10.31, puregauge5.py, dual5.py, D85 and D86, seated.**
+
+The fortieth verifier read 5df1aee and 925844b read-only, every program run from an archive, and recomputed independently
+in Cartesian coordinates without Christoffel symbols, with its own harmonics: the adjoint's indicial families in both
+dimensions (shift 2 in five, 1 in four, failing with the wrong shift), the translations' dual state at leading order in
+the mass, the rotations' at first order in a on the full Tangherlini and Schwarzschild operators, J6's ranks and
+obstructions, J4's bounds; it READ every quotation of 10.31 at source, and p. 132's decomposition and p. 67's Killing
+remark. Verdict: D85 and D86 hold; no major finding; three minor findings, one of formatting, and notes, each seated
+here.
+
+*Minor.* (1) 10.31's Proof said the families are read "at r = 1 and two angles", but dual5.py's fam() decomposed at one,
+A2 solved its correction at one and A3 read at one, so pure type and independence of the angle were never checked. fam()
+now reads at two generic angles and asserts that they agree, A2's correction is checked at a second angle, A3's c_0 and
+ratios too; the Proof says so. (2) A1 asserted box^C's polynomials 10.12's "up to powers of h" by checking only that the
+ratio involved h alone; it now asserts the ratios h^-2 (s0), h^-3 (sl) and h^-1 (vl), and 10.31(i) prints them. (3) The
+paper said the four non-Killing rotations carry "his coefficients": c_0 = -2 mu/(3 (h + 2v)) differs from his -2M/(h +
+2v) by more than M -> mu/2, through N*_v1(2) = 3 + 6 gam_C v_C; only (7.18)'s ratios are his, and the paper now says so.
+
+*Formatting.* The rewrapping helper of D85-D86 took the wrong continuation indent inside ROUTES 4.4's item 2, in 4.5's
+paragraph (which it broke) and in the paper's verifier record; the three are reflowed.
+
+*Notes.* (a) 10.31(i)'s "the adjoint's roots are 2 - conj(lam)" now reads "for these types", the general statement being
+(a)'s. (b) A3 checks the lower orders for every non-Killing plane, not only 13. (c) The two Killing rotations are Killing
+on the full one-spin metric for every a (its coefficients functions of r and theta, 10.28(vi)), so the space where (7.16)
+holds is two-dimensional for small a != 0, not only at first order; 10.31(c) says so. (d) The paper's sentence on the
+dual states now carries its condition, the readings 10.21 rests on. (e) The default python3 here is 3.13.16 with sympy
+1.14.0 (python3.11 has no sympy in this container); Appendix D now says Python 3 and names them.
+
+*Runs.* dual5.py 3/3 (about a minute and a half), mutants 3/3; response5.py all pass; md5 rows current (48).
+
+**D88 (2026-10-23): [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions (10.32, pairing5.py).**
+
+M asked to continue after PR #96 merged; the fortieth verifier's findings are D87. 10.31 left his Proposition 8.11, Lemma
+8.12 and Corollary 8.13 OPEN: the zero energy kernel and cokernel of L-hat(0) and the pairings that count them. READ at
+source (alphaXiv, 2026-10-23): [Hin26] pp. 145 ((8.1)), 154-158 (Proposition 8.9 through Corollary 8.13); [Hin24b]
+(arXiv:2408.06715) pp. 13, 33 ((3.1a)), 38-39 (Lemma 3.8), 50-53 (Proposition 3.16, Lemma 3.17 and its proof); [Hin23b]
+(arXiv:2306.07409) pp. 101-110 (Theorem 9.6 and its proof), 116-117. His Lemma 8.12 is proved by [Hin24b] Lemma 3.17's
+proof, "verbatim", which removes the gauge terms and reduces to [Hin23b] Theorem 9.6, where every pairing is a boundary
+pairing at infinity on the leading terms.
+
+*Computed (Proposition 10.29, pairing5.py P1-P5).* The boundary pairings directly, on Minkowski in Cartesian coordinates,
+chi a radial cutoff and the sphere integrals exact. (P1) Four dimensions: his table, -8 pi m-dot, -8 pi m (q . a-dot), 4
+pi m (q . c). (P2) Five dimensions: mass against dt -3 pi^2 mu-dot, rotations -2 pi^2 mu on their own plane, the other
+Kerr-row entries 0. (P3) Centres of mass (3 pi^2/2) mu (q . c), 0 against dt. (P4) The 11 x 11 matrix non-degenerate,
+block triangular whatever the entries the leading terms leave undetermined. (P5) Kerr-Schild, a pure gauge tensor and t*
+= t - r change nothing. Controls: G dropped; the mass perturbation's dr^2 dropped; h-breve dropped; the first-order
+translation pairing, which his Theorem 9.6(6) says vanishes, in place of the centre of mass; a non-gauge term added.
+
+*Deduced (10.32).* (a) The entries are -8 pi M-dot, -8 pi J-dot and 4 pi M (q . c) in both dimensions, M and J the ADM
+mass and angular momentum. (b) His Lemma 8.12 in five dimensions at a = 0, and near it by continuity, for his L_b of
+(8.1); his printed values, -16 pi m-dot and so on, are [Hin24b]'s, whose L is twice L_b. (c) His Proposition 8.11 with
+dim ker = dim coker >= 11; equality rests on [AHW24] Theorem 6.1(2) in five dimensions, OPEN. (d) His Corollary 8.13 with
+eleven for seven on (c).
+
+*Notes on the computation.* (1) Three entries per centre of mass -- against the rotations of the planes containing its
+direction -- sit above the critical weight: their leading terms vanish over the sphere, and they are not determined by
+leading terms. The program returns them as undetermined, never as 0, and P4 shows the determinant free of them; his
+argument for Theorem 9.6(5) gives 0 there at a = 0. (2) The first P4 control paired only the [[D Ric, t], chi] piece and
+passed vacuously; the control is the Kerr-row formula applied to h_b,c, which is his Theorem 9.6(6), and it fails as it
+should. (3) sym() first divided Python integers and produced floats; it is exact.
+
+*Runs.* pairing5.py 5/5 (about two minutes), mutants 5/5; response5.py all pass; md5 rows current (49). Next: the
+forty-first verifier on D87 and D88 (10.31-10.32, dual5.py, pairing5.py).
