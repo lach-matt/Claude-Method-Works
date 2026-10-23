@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""lin5.py -- [Hin26] Lemma 8.4 in five dimensions: the indicial roots of the linearized gauge-fixed Einstein operator
-L = D Ric + delta*_{E^C} delta_{E^Ups} G on 4+1 Minkowski, by harmonic type, and their factorization through the gauge
+"""lin5.py -- [Hin26] Lemma 8.4 in five dimensions: the indicial roots of the linearized gauge-fixed Einstein operator L
+= D Ric + delta*_{E^C} delta_{E^Ups} G on 4+1 Minkowski, by harmonic type, and their factorization through the gauge
 potential operator box^Ups = 2 delta_{E^Ups} G delta* and the constraint propagation operator box^C = 2 delta G
-delta*_{E^C} (N1STAR-PROOF.md section 10.24; ROUTES-OPEN.md 4.25; D72).  Labels: computed (exact, sympy; numerical,
+delta*_{E^C} (N1STAR-PROOF.md section 10.24; ROUTES-OPEN.md 4.25; D72, D73).  Labels: computed (exact, sympy; numerical,
 mpmath, where said), deduced, READ.
 
 [Hin26] (arXiv:2606.28253v2) section 8: L_b = D Ric + delta*_{E^C} delta_{E^Ups} G ((8.1)), 2 L_b = box + 2 E^C delta
@@ -20,16 +20,17 @@ with the harmonics of C^2 = R^4 (z = x_1 + i x_2, w = x_3 + i x_4): S = z^l (sca
 z^(l-2) beta (x) beta (tensor), beta = z dw - w dz -- tangential, divergence-free, trace-free and harmonic -- with z^p a
 symbol of derivative p z^p dz/z, so that l is symbolic.
 
-  E1 (computed, exact) The type spaces are invariant: at two generic points of R^4 (|x| = 5 and 3) the image of every
+  E1 (computed, exact) The type spaces are invariant: at two points of R^4 (|x| = 5 and 3) the image of every
      basis tensor of types s0, s2, v1, v2 and t2, times r^2, lies in the span of the basis there, with the same matrix
      N(lam) at both; and (8.5) holds at both points on every basis tensor.  Control: a scalar-type basis with its
      Hessian tensor replaced by the tensor type's, which is not closed.
   E2 (computed, exact) The factorization in five dimensions, every parameter symbolic: det N_L(lam) = c (lam + l)(lam -
-     l - 2) det N_Ups(lam - 1) det N_C(lam + 1) / D(lam), c a nonzero number, for s0 (l = 0, D = (lam - 1)^2), s1 (l = 1,
-     D = (lam - 1)^2), sl (l >= 2 symbolic, D = 1), v1 (D = lam (lam - 2)), vl (l >= 2 symbolic, D = 1), and the tensor
-     type tl (l >= 2 symbolic): det N_L = c (lam + l)(lam - l - 2).  So the physical roots are -l and l + 2 (n - 2 = 2)
-     in every type, the mass at s0 the root 2, and D removes the roots box^Ups's Killing 1-forms (dt, dx, the rotations)
-     and box^C's Coulomb root give twice.  Control: the four-dimensional factor (lam + l)(lam - l - 1) claimed.
+     l - 2) det N_Ups(lam - 1) det N_C(lam + 1) / D(lam), c a nonzero number, for s0 (l = 0, D = (lam - 1)^2), s1 (l =
+     1, D = (lam - 1)^2), sl (l >= 2 symbolic, D = 1), v1 (D = lam (lam - 2)), vl (l >= 2 symbolic, D = 1), and the
+     tensor type tl (l >= 2 symbolic): det N_L = c (lam + l)(lam - l - 2).  So the physical roots are -l and l + 2 (n -
+     2 = 2) in every type, the mass at s0 the root 2, and D removes the roots box^Ups's Killing 1-forms (dt, dx, the
+     rotations) and box^C's root 2 (s0, s1) or 3 (v1) give twice.  Control: the four-dimensional factor (lam + l)(lam -
+     l - 1) claimed.
   E3 (computed, exact) Four-dimensional control: at n = 3 and the trace weight 1 the same computation gives his (1)-(5):
      s0 with no factor, s1 and v1 (lam + 1)(lam - 2)/(lam (lam - 1)), sl and vl (lam + l)(lam - l - 1) (pp. 150-151).
   E4 (computed, exact) Cross-checks: det N_Ups is gaugepot5.py G1's (gam -> gam_U, e -> e_U) and det N_C is damping5.py's
@@ -47,10 +48,11 @@ symbol of derivative p z^p dz/z, so that l is symbolic.
      enters (0, 1].
 
 Deduced, not computed here: with gaugepot5.py G1's explicit box^Ups roots (every l, every small z = 4 e_U gam_U^2 > 0,
-all moving away from the gap as z grows) and Proposition 10.9's box^C roots (none with real part in [-100, 2] but the
-Coulomb root 2 at l = 0 and 1, which D removes), E2 gives his Lemma 8.4 in five dimensions for every l: the roots are
-box^Ups's plus 1, box^C's minus 1 and -l, l + 2; none has real part in (0, 1]; each type splits evenly; and the box^C
-roots with real part <= 0 lie below -101.  Simplicity is computed for l <= 12 at the point and not claimed beyond.
+all moving away from the gap as z grows) and Proposition 10.9's box^C roots at its point (none with real part in [-100,
+2] but the Coulomb root 2 at scalar l = 0 and 1, which D removes), E2 gives his Lemma 8.4 in five dimensions for every l
+at that point: the roots are box^Ups's plus 1, box^C's minus 1 and -l, l + 2; none has real part in (0, 1]; each type
+splits evenly; and the box^C roots with real part <= 0 lie below -101.  Simplicity is computed for l <= 12 at the point
+and not claimed beyond.
 
 READ.  [Hin26] pp. 144-145 (section 8: (8.1), the choices (1)-(2), Lemma 8.1), 149-151 (Lemma 8.4 and its proof, (8.13),
 Lemma 8.5), 151-153 (Proposition 8.6 and its proof, Corollary 8.7), 117 (Lemma 6.6), 135-136 ((7.3)-(7.8)); alphaXiv,

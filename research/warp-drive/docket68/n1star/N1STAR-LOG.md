@@ -2216,3 +2216,37 @@ test: c gam_C^2 accepted, gam_C + 1 refused).
 *Runs.* lin5.py 5/5 (about 50 minutes), mutants 4/4; tface5.py 5/5 (about 25 seconds), mutants 8/8; solv5.py 4/4;
 response5.py all pass; md5 rows current. Next: the thirty-third verifier on 10.24, lin5.py and these repairs; then the
 spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2) and (8.7) in five dimensions.
+
+**D73 (2026-10-23): the thirty-third verifier's findings on 10.24, lin5.py and D72, seated.**
+
+*The verifier.* The thirty-third, on 5795bd5: no MAJOR finding; five MINOR findings and seven notes. It reran lin5.py
+(5/5; mutants 4/4), tface5.py (5/5; 8/8), solv5.py, response5.py, damping5.py and gaugepot5.py, found the 41 md5 rows
+current, and recomputed the factorization by an independent construction -- a true r, other real harmonics, D Ric from
+the linearized Christoffel symbols, the indicial matrices solved jointly at other points -- at s0-s3, v1-v3 and t2-t4,
+symbolically where it could and at two random parameter points otherwise, with the stated D; the four-dimensional
+control; E5's numbers from the full determinant, to every printed digit; and, from the factors, a scan to l <= 60 (no
+root in (0, 1], even splits, the (8.13) distance 1.94 x 10^-8 at l = 50). It read every quotation of 10.24 at source,
+and his "3" on p. 153 in the example after his Definition 2.30 (p. 67), the 1-form count.
+
+*Five MINOR, repaired.* (1) Lemma 8.5 "for every parameter" overstated it: 0 is a simple root at s0 only if box^C has no
+root at 1, which Proposition 10.9 gives at its point; 10.24(b) and its summary now say "for every z > 0 at Proposition
+10.9's point". (2) 10.24(a) used, unstated, that box^Ups has no root in (-1, 0); it now says why, for every z > 0 and l
+(at s0 (1 - (9 + 4z)^(1/2))/2 < -1; Q's negative roots solve lam (lam - 1) = s > l (l + 1) >= 2; the others are 1 - l
+and -l). (3) The paper's Lemma 8.4 sentence dropped "at that point" and the factor at l <= 1: both restored; ROUTES 4.4,
+4.5 and 4.25, the README and lin5.py's docstring now say "at the point" too. (4) "Coulomb root" was wrong at v1, where D
+removes box^C's root 3 (its v1 roots are 3 and -1 - 2 v gam_C): lin5.py's docstring and the paper's lin5.py bullet now
+say "2 (s0, s1) or 3 (v1)". (5) N(r^-1 delta_{E^Ups} G, 0) in 10.24(iv) is N(r delta_{E^Ups} G, 0), his N(rho^-1 ...)
+with rho = 1/r; the code was right.
+
+*Seven notes, seated.* (1) 10.24(c) states the five-dimensional improvement, (n - 1)/2 + S-bar - eps = 3/2 + min spec
+S-bar - eps by [Hin26c] Theorem 9.38(5), his 1 - eps with (8.7), and (d) records that S-bar enters (8.17)'s Fredholm
+setting only through admissible orders along the deformation, which any continuous S-bar allows, so (d) rests on the
+readings. (2) Forward pointers: 10.12's "not computed here" and ROUTES 4.13's OPEN bullet now point to 10.24 and 4.25.
+(3) The headings of 10.23 and ROUTES 4.24 add D72. (4) 10.23(iii) says the limit e -> 0 is a substitution. (5) The
+equation label (10.24) shares its number with the new section, as (10.23) did; it is cited elsewhere and stays. (6)
+lin5.py's "two generic points" is now "two points" (x_4 = 0 at one). (7) 10.24(a) names the closest pair at the point,
+s1's physical 3 and box^Ups's 3 + z/12, 3.3 x 10^-7 apart; and 10.24(d) gives his "3" its source, p. 67.
+
+*Runs.* lin5.py's changes are to its docstring only (its AST is unchanged, checked), so its 5/5 and 4/4 of D72 stand;
+response5.py all pass; md5 rows current. Next: the spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2) and his (8.7) in
+five dimensions, the one input Proposition 8.6 lacks.

@@ -389,11 +389,11 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    his Theorem B.1 on 4+1 Minkowski on the same readings (4.24; its numbers computed), the constraint propagation
    operator is tf-admissible for every beta in [-C_0, 2) at that point, for C_0 <= 100 and h = 10^-6 if that is below
    h_0, [Hin26] Theorem 7.1(4) (deduced); the linearized gauge-fixed Einstein operator's indicial roots are those of his
-   Lemma 8.4 in five dimensions, its gap beginning at 0, for every l (4.25; the factorization computed, the roots at the
-   point for l <= 12, the rest deduced), so that his Lemma 8.5 and, but for the spectrum of his Lemma 8.2's S-bar, his
-   Proposition 8.6 hold on the same readings (deduced); the line-by-line readings of [Hin26a] sections 2.3 and 5.2 and
-   Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 6.5, 7.2 and 8 beyond
-   Proposition 8.6, are OPEN.
+   Lemma 8.4 in five dimensions, its gap beginning at 0, for every l at that point (4.25; the factorization computed,
+   the roots at the point for l <= 12, the rest deduced), so that his Lemma 8.5 and, but for the spectrum of his Lemma
+   8.2's S-bar, his Proposition 8.6 hold on the same readings (deduced); the line-by-line readings of [Hin26a] sections
+   2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 6.5, 7.2
+   and 8 beyond Proposition 8.6, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -464,9 +464,9 @@ and the sink, section B.4's weights, data and closing integral -- and deduces Th
 7.1(4), tf-admissibility for every beta in [-C_0, 2), on the same readings, at Proposition 10.9's point, for C_0 <= 100
 and h = 10^-6 if that is below h_0; and 4.25 (10.24, Proposition 10.21, computed; deduced) computes the indicial roots
 of the linearized gauge-fixed Einstein operator -- its factorization through box^Upsilon and box^C with the physical
-roots -l and l + 2, the tensor type -- and deduces his Lemma 8.4 for every l, Lemma 8.5 and, but for the spectrum of his
-Lemma 8.2's S-bar, Proposition 8.6. Next: that spectrum, and the rest of item 2 -- [Hin26] sections 6.5, 7.2 and 8 -- in
-five dimensions.
+roots -l and l + 2, the tensor type -- and deduces his Lemma 8.4 for every l at Proposition 10.9's point, Lemma 8.5 and,
+but for the spectrum of his Lemma 8.2's S-bar, Proposition 8.6. Next: that spectrum, and the rest of item 2 -- [Hin26]
+sections 6.5, 7.2 and 8 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -765,11 +765,11 @@ ROUTES 4.4 item 2's new object. damping5.py computes it; N1STAR-PROOF.md 10.12 s
 - The configuration (U6, numerical): over e, h in {10^-2, 10^-3, 10^-4} the upper roots other than lam = 2 at l = 1 stay
   above 1.93, and above 2 exactly where h <= e; the lower ones sit near -1/h, so C_0 = 100 asks h below 1/100. The grid
   does not contain the point of U4.
-- OPEN: whether the five-dimensional gauge-fixed operator's indicial gap begins at 0, on which [Hin26] p. 29's reason
-  for the strip [-C_0, 1) rests (both strips are clear at the point); [Hin26] Theorem 7.1 (1), (2) and (4) for box^C on
-  Tangherlini; the modification E^Upsilon of [Hin26] Proposition 6.12. Labels: computed (damping5.py U1-U6; U6
-  numerical); deduced (the transfer to Tangherlini); READ ([Hin26a] and [Hin26], alphaXiv, 2026-10-21, pages as in
-  10.12); nothing proved.
+- OPEN: whether the five-dimensional gauge-fixed operator's indicial gap begins at 0 (it does at the point: 4.25), on
+which [Hin26] p. 29's reason for the strip [-C_0, 1) rests (both strips are clear at the point); [Hin26] Theorem 7.1
+(1), (2) and (4) for box^C on Tangherlini; the modification E^Upsilon of [Hin26] Proposition 6.12. Labels: computed
+(damping5.py U1-U6; U6 numerical); deduced (the transfer to Tangherlini); READ ([Hin26a] and [Hin26], alphaXiv,
+2026-10-21, pages as in 10.12); nothing proved.
 
 ### 4.14 The semiclassical inputs of the constraint damping in five dimensions (computed; D55)
 
@@ -993,7 +993,7 @@ Proposition 10.19 and deduces.
   deduces them on the same reading); [Hin26] sections 6.5, 7.2 and 8. Labels: computed (solv5.py Q1-Q4, exact); deduced;
   READ ([Hin26a] pp. 9, 12-16, 25-27, 38, 41-44, 47-48, 51-52, 54, 56, 58-60, 64, 66); nothing proved.
 
-### 4.24 [Hin26a] Theorem B.1 in five dimensions, and [Hin26] Theorem 7.1(4) (computed; D69, D71)
+### 4.24 [Hin26a] Theorem B.1 in five dimensions, and [Hin26] Theorem 7.1(4) (computed; D69, D71, D72)
 
 4.22-4.23 left [Hin26a] Theorem B.1, the transition face problem on Minkowski space, OPEN in five dimensions, and with
 it [Hin26] Theorem 7.1(4), which applies it at beta' = -beta + 3/2 - eps. tface5.py computes the five-dimensional
@@ -1035,11 +1035,11 @@ states Proposition 10.21 and deduces.
 - At the point (v, e_C, gam_C) = (1/2, 1/102400, 10^6), (e_U, gam_U) = (1/100, 1/100), for l <= 12: simple; none with
   real part in (0, 1]; s0 4 | 4, s1 6 | 6, sl 7 | 7, v1 2 | 2, vl 3 | 3, tl 1 | 1; box^C's nonpositive ones below
   -101; 0 a root at s0 and s2 only, its kernel annihilated by the gauge operator (E5).
-- Deduced, for every l, from 10.12(i)'s box^Upsilon roots and Proposition 10.9's box^C roots: his Lemma 8.4 in five
-  dimensions -- the gap begins at 0, which 4.13 left open, and reaches past 1; each type splits evenly; box^C's
+- Deduced, for every l at the point, from 10.12(i)'s box^Upsilon roots and Proposition 10.9's box^C roots: his Lemma 8.4
+  in five dimensions -- the gap begins at 0, which 4.13 left open, and reaches past 1; each type splits evenly; box^C's
   nonpositive roots lie below -101 -- his Lemma 8.5, and his Proposition 8.6, tf-admissibility with weight in (0,
-  eps_ind) for small gam_Ups, on the readings of 4.20-4.24, but for the spectrum of S-bar_{E^Ups, E^C} (his Lemma
-  8.2), which the domain step of its kernel half needs.
+  eps_ind) for small gam_Ups, on the readings of 4.20-4.24, but for the spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2),
+  which the domain step of its kernel half needs.
 - OPEN: that spectrum and his (8.7) in five dimensions; simplicity and (8.13) beyond l <= 12; how small gam_Ups must
   be, and h_0; his Proposition 8.3, sections 8.4-8.5 and 9-10 in five dimensions. Labels: computed (lin5.py E1-E5,
   exact, the point's roots by mpmath); deduced; READ ([Hin26] pp. 28, 117, 135-137, 144-146, 149-153); nothing proved.

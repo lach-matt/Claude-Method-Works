@@ -755,23 +755,24 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   that point, for C₀ ≤ 100 and provided the point's h lies below h₀, the constraint propagation operator is
   tf-admissible for every weight in [−C₀, 2), [Hin26] Theorem 7.1(4) with its top at the Coulomb root 2 where his is at
   1 (supplement section 10.23, `tface5.py`; computed, the theorems deduced). The indicial roots of the linearized
-  gauge-fixed Einstein operator itself, his Lemma 8.4, carry over for every harmonic degree l: on each harmonic type its
-  determinant is that of the gauge potential operator shifted by one and that of the constraint propagation operator
-  shifted by minus one, times the physical factor with roots −l and l + 2, his −l and l + 1, the mass at the Coulomb
-  root 2; no root has real part in (0, 1], so that the gap begins at 0 as his does and reaches past 1; and the roots of
-  each type, the tensor type included, which four dimensions lacks, split evenly — so that his Lemma 8.5 holds, and his
-  Proposition 8.6, tf-admissibility with a weight in the gap for a small gauge parameter, on the same readings but for
-  one threshold not computed here (supplement section 10.24, `lin5.py`; the factorization computed for every l, the
-  roots at the parameter point for l ≤ 12, the rest deduced). A line-by-line check of Hintz's 3b- and edge-b-analysis
-  and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make explicit, and the rest
-  of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a
-  finite-time observation), and the late-time tail of the l = 2 master fields, measured from the pulse's launch, is
-  t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with
-  that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s
-  t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in
-  the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i
-  ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier
-  of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
+  gauge-fixed Einstein operator itself, his Lemma 8.4, carry over, at that point, for every harmonic degree l: on each
+  harmonic type its determinant is that of the gauge potential operator shifted by one and that of the constraint
+  propagation operator shifted by minus one, times the physical factor with roots −l and l + 2, his −l and l + 1, the
+  mass at the Coulomb root 2, over a factor at l ≤ 1 that removes the roots counted twice; no root has real part in (0,
+  1], so that the gap begins at 0 as his does and reaches past 1; and the roots of each type, the tensor type included,
+  which four dimensions lacks, split evenly — so that his Lemma 8.5 holds, and his Proposition 8.6, tf-admissibility
+  with a weight in the gap for a small gauge parameter, on the same readings but for one threshold not computed here
+  (supplement section 10.24, `lin5.py`; the factorization computed for every l, the roots at the parameter point for l ≤
+  12, the rest deduced). A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five
+  dimensions, the threshold h₀, which his proof does not make explicit, and the rest of their analysis are open. No
+  growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and
+  the late-time tail of the l = 2 master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06)
+  (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with that origin and bracketing 7
+  (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the
+  flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in the class would carry. The
+  least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8),
+  which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
+  `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
   2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
   Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
@@ -875,7 +876,11 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   incomplete — and seven notes, seated (D71). Those repairs were read by a thirty-second (D71): no major finding; five
   minor findings — a control caught for the wrong reason, the adjoint half's threshold typed where it was called
   computed, a sentence of this paper stating a positivity on all of the spatial face where it is computed for ρ_K ≤ 10,
-  the proviso on h₀ missing here, and stale labels — and nine notes, seated (D72).
+  the proviso on h₀ missing here, and stale labels — and nine notes, seated (D72). Section 10.24 with `lin5.py` was read
+  by a thirty-third (D72), which recomputed the factorization by an independent construction: no major finding; five
+  minor findings — Lemma 8.5 and this paper's summary stated for every parameter where they rest on the parameter point,
+  a step of the deduction left unstated, the factor at l ≤ 1 missing from one sentence and miscalled at the vector type,
+  and a sign in an exponent — and seven notes, seated (D73).
 
 ---
 
@@ -1148,12 +1153,13 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
 - `lin5.py` E1–E5: the five-dimensional indicial roots of Hintz's linearized gauge-fixed Einstein operator (supplement
   section 10.24): on 4+1 Minkowski its zero energy operator preserves the scalar, vector and tensor harmonic types, and
   his identity with the wave operator holds; on each type its determinant is (λ + l)(λ − l − 2) times the gauge
-  potential operator's at λ − 1 and the constraint propagation operator's at λ + 1, over a factor that removes the
-  Killing and Coulomb roots at l ≤ 1, every parameter symbolic, with his four-dimensional factorizations recomputed as
-  the control; the factors are those of `gaugepot5.py` and `damping5.py`, and without damping the roots are integers
-  outside (0, 2); at the parameter point, for l ≤ 12, the roots are simple, none has real part in (0, 1], each type
-  splits evenly, and the kernel at 0 satisfies the gauge condition (his Lemma 8.4 for every l, Lemma 8.5 and, but for
-  one threshold, Proposition 8.6 deduced). 5/5; mutants 4/4 (about 50 minutes).
+  potential operator's at λ − 1 and the constraint propagation operator's at λ + 1, over a factor that removes, at l ≤
+  1, the roots the Killing 1-forms and the constraint propagation operator's roots 2 (scalar) and 3 (vector) give twice,
+  every parameter symbolic, with his four-dimensional factorizations recomputed as the control; the factors are those of
+  `gaugepot5.py` and `damping5.py`, and without damping the roots are integers outside (0, 2); at the parameter point,
+  for l ≤ 12, the roots are simple, none has real part in (0, 1], each type splits evenly, and the kernel at 0 satisfies
+  the gauge condition (his Lemma 8.4 for every l at the point, Lemma 8.5 and, but for one threshold, Proposition 8.6
+  deduced). 5/5; mutants 4/4 (about 50 minutes).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1228,7 +1234,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D72).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D73).
 
 | claim | where it is established |
 | --- | --- |
@@ -1282,7 +1288,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | section 10.16 (D58); the twenty-seventh sections 10.17–10.18 (D59–D60); |
 | | the twenty-eighth section 10.19 (D62); the twenty-ninth sections 10.20–10.21 (D64, D66); |
 | | the thirtieth section 10.22 (D67, D70); the thirty-first section 10.23 (D69, D71); |
-| | the thirty-second its repairs (D71, D72) |
+| | the thirty-second its repairs (D71, D72); the thirty-third section 10.24 (D72, D73) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1329,9 +1335,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `b324418f02b20fa4e4f7869efc203696` |
-| `docket68/n1star/N1STAR-LOG.md` | `63bf4241a0dd7624ff3f8009d0098889` |
-| `docket68/n1star/README.md` | `0ea0aa371b83cef2c201cc63fc0bafa3` |
+| `docket68/n1star/N1STAR-PROOF.md` | `8b940da9e43e62cbf330a8d1b7027636` |
+| `docket68/n1star/N1STAR-LOG.md` | `42be8dfa8f7ccb555a9c2bbc8f751b10` |
+| `docket68/n1star/README.md` | `c6115b7aabc720f63c9094396ce937eb` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1368,6 +1374,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/cpmodes5.py` | `4579a4605556992e5398c4d2abef2add` |
 | `docket68/n1star/solv5.py` | `dfc11365958695d53d4dc98ccdd747bc` |
 | `docket68/n1star/tface5.py` | `de9625072d570b423959da1af7654e41` |
-| `docket68/n1star/lin5.py` | `400a056b2c96df98f0031fe7c285f94b` |
+| `docket68/n1star/lin5.py` | `b108caf5ebecc29dc61ce56d7f49af37` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

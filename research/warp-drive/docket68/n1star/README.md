@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D72).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D73).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -156,12 +156,12 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   deduced in 10.23, at h = 10^-6 if below h_0). `python3 tface5.py --selftest` (5/5, about 25 seconds), `--mutants`
   (8/8).
 - `lin5.py`: Hintz's Lemma 8.4 in five dimensions, the indicial roots of the linearized gauge-fixed Einstein operator on
-  4+1 Minkowski by harmonic type, the tensor type included (section 10.24; D72): the types preserved and his (8.5) at
-  two points, the factorization det N_L = c (lam + l)(lam - l - 2) det N_Ups(lam - 1) det N_C(lam + 1) / D with every
+  4+1 Minkowski by harmonic type, the tensor type included (section 10.24; D72, D73): the types preserved and his (8.5)
+  at two points, the factorization det N_L = c (lam + l)(lam - l - 2) det N_Ups(lam - 1) det N_C(lam + 1) / D with every
   parameter symbolic, his four-dimensional factorizations as the control, the factors checked against gaugepot5.py and
   damping5.py, and at one parameter point, for l <= 12, the roots simple, none with real part in (0, 1], each type split
-  evenly and Lemma 8.5 (E1-E5; Lemma 8.4 for every l, Lemma 8.5 and, but for one threshold, Proposition 8.6 deduced in
-  10.24). `python3 lin5.py --selftest` (5/5, about 50 minutes), `--mutants` (4/4, about 20 minutes).
+  evenly and Lemma 8.5 (E1-E5; Lemma 8.4 for every l at that point, Lemma 8.5 and, but for one threshold, Proposition
+  8.6 deduced in 10.24). `python3 lin5.py --selftest` (5/5, about 50 minutes), `--mutants` (4/4, about 20 minutes).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
