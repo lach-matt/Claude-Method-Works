@@ -775,17 +775,18 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   input he takes from the mode stability of the linearized Einstein equations on Kerr is, on Tangherlini, the
   Kodama–Ishibashi reduction, here computed from the linearized Ricci operator itself for every harmonic — each type at
   l ≥ 2 reduced to one master equation whose potential is positive, the tensor type, which four dimensions lacks, with
-  the scalar wave's, and l ≤ 1 pure gauge — so that every outgoing mode of the linearized Einstein operator is pure
-  gauge (supplement section 10.27, `gmodes5.py`; computed, the proposition deduced). A line-by-line check of Hintz's 3b-
-  and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make
-  explicit, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275
-  r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured from the
-  pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching
-  7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way
-  (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a
-  nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω
-  r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1%
-  (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
+  the scalar wave's, and l ≤ 1 pure gauge — so that every mode of the linearized Einstein operator smooth across the
+  horizon and outgoing at infinity is pure gauge (supplement section 10.27, `gmodes5.py`; computed, the proposition
+  deduced on the same readings, the kernel elements' class and the uniqueness inside the horizon open). A line-by-line
+  check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his
+  proof does not make explicit, and the rest of their analysis are open. No growing mode appears in either type for l =
+  2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields,
+  measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the
+  step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch
+  radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which
+  is the rate a nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one
+  with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces
+  to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
   problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of
   four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
@@ -899,7 +900,12 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   proposition's hypotheses missing at five sites — and eight notes, seated (D76). Section 10.26 with `strap5.py` and
   those repairs was read by a thirty-fifth (D75, D76), which recomputed the matrix along a trapped null geodesic of the
   concrete metrics: no major finding; three minor findings — two stale entries in the open lists, this record stopping
-  at the thirty-third, and one site still lacking a hypothesis — and eight notes, seated (D77).
+  at the thirty-third, and one site still lacking a hypothesis — and eight notes, seated (D77). Section 10.27 with
+  `gmodes5.py` and those repairs was read by a thirty-sixth (D77, D78), which recomputed the Kodama–Ishibashi reduction
+  with explicit harmonics and its own linearized Ricci operator: no major finding; five minor findings — a lower bound
+  in the scalar potential's positivity false beyond l = 3, the positivity unaffected, the source map's decision range
+  stale, three open lists not pointing to it, this paper's statement of Proposition 8.8 without its class and open
+  items, and two references without the pages read — and eight notes, seated (D79).
 
 ---
 
@@ -942,10 +948,11 @@ from the arXiv text, with the extraction's spacing.
 - [CLY03b] V. Cardoso, J. P. S. Lemos, S. Yoshida, *Scalar-gravitational perturbations and quasinormal modes in the
   five dimensional Schwarzschild black hole*, arXiv:hep-th/0311260v2. READ 2026-10-20: (2.1)–(2.7), pp. 3–4; Tables
   1–3, pp. 8–9.
-- [KI03] H. Kodama, A. Ishibashi, *A master equation for gravitational perturbations of maximally symmetric black
+- - [KI03] H. Kodama, A. Ishibashi, *A master equation for gravitational perturbations of maximally symmetric black
   holes in higher dimensions*, arXiv:hep-th/0305147v3. READ 2026-10-20: (2.4), (2.7)–(2.8), pp. 4–5; p. 7 (l = 1);
   (3.1), (3.13)–(3.14), pp. 8–10; section 5.1, p. 13. READ 2026-10-21: (2.11)–(2.13), (2.20)–(2.21), (3.5)–(3.7),
-  (3.9)–(3.14), (6.1), Appendix A (A.1b).
+  (3.9)–(3.14), (6.1), Appendix A (A.1b). READ 2026-10-23: (2.1)–(2.8), pp. 4–5; (2.20)–(2.24), (3.1)–(3.14), pp. 7–10;
+  section 5, (5.1)–(5.17), pp. 13–15; Appendices A and B, pp. 18–20.
 - [KI03b] H. Kodama, A. Ishibashi, *Master equations for perturbations of generalised static black holes with charge in
   higher dimensions*, arXiv:hep-th/0308128v4. READ 2026-10-20: (5.20). READ 2026-10-22: (4.23), (5.17), (5.19), (5.20),
   at zero charge.
@@ -980,13 +987,15 @@ from the arXiv text, with the extraction's spacing.
   5.12), 58–60 (Lemma 5.14, Corollary 5.15, Proposition 5.16), 64, 66. READ 2026-10-22 for Theorem B.1 in five
   dimensions: pp. 85–88 ((B.1)–(B.17), Proposition B.2), 93–94 (Theorem B.4, (B.31)–(B.37)), 96–98 ((B.38)–(B.41), the
   eigenvalues of −½r²ℓ(dr/r) and Lemma 3.3's inner product, section B.4: (B.42)–(B.45)).
-- [Hin26] P. Hintz, *Nonlinear stability of subextremal Kerr black holes*, arXiv:2606.28253v2. READ 2026-10-21: pp. 1,
+- - [Hin26] P. Hintz, *Nonlinear stability of subextremal Kerr black holes*, arXiv:2606.28253v2. READ 2026-10-21: pp. 1,
   4, 17, 25–26, 29 ((1.43) and the reason for its strip), 82 (Definition 4.2, (4.6)–(4.9)), 113 (section 6,
   (6.1)–(6.6)), 117–124 (Lemma 6.6, (6.17), Lemma 6.8, Proposition 6.9, Lemmas 6.10–6.11, Proposition 6.12 and its
   proof, (6.20)–(6.28)), 134–137 (section 7.1, Theorem 7.1). READ 2026-10-22: pp. 113–116 (Lemma 6.1, footnote 60,
   Remark 6.2, Lemma 6.3, (6.10)–(6.11), section 6.1: (6.12)–(6.16c), Lemma 6.4 and its proof, Proposition 6.5), 124
   (footnote 71), 200 (Remark 10.2); and pp. 117–124 again (Lemmas 6.6 and 6.8, Proposition 6.12 and its proof). READ
-  2026-10-22 for Theorem 7.1(4) in five dimensions: pp. 136–137 (Theorem 7.1 and the proof of its part (4)).
+  2026-10-22 for Theorem 7.1(4) in five dimensions: pp. 136–137 (Theorem 7.1 and the proof of its part (4)). READ
+  2026-10-23 for section 8 in five dimensions: pp. 25, 28, 34, 113–117, 135–137, 144–154 (section 8 through Proposition
+  8.8 and its proof).
 - [Hin26c] P. Hintz, *(Non-)linear waves on asymptotically flat spacetimes. II: trapping, bound states, nonlinear
   applications*, arXiv:2606.28008v1. READ 2026-10-22: pp. 88 (Definition 4.13, Lemma 4.14), 90–91 (Proposition 4.19),
   100 ((5.1a)–(5.2)), 101–105 (Example 5.4, Remark 5.6, Definitions 5.8, 5.10–5.11, Remark 5.9, Lemma 5.12), 158–159
@@ -1271,7 +1280,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D77).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D79).
 
 | claim | where it is established |
 | --- | --- |
@@ -1328,7 +1337,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | the twenty-eighth section 10.19 (D62); the twenty-ninth sections 10.20–10.21 (D64, D66); |
 | | the thirtieth section 10.22 (D67, D70); the thirty-first section 10.23 (D69, D71); |
 | | the thirty-second its repairs (D71, D72); the thirty-third section 10.24 (D72, D73); |
-| | the thirty-fourth section 10.25 (D74, D76); the thirty-fifth section 10.26 (D75, D77) |
+| | the thirty-fourth section 10.25 (D74, D76); the thirty-fifth section 10.26 (D75, D77); |
+| | the thirty-sixth section 10.27 (D78, D79) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1379,8 +1389,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `4e26e434b2f6c8dd927c04e72b1e0f1a` |
-| `docket68/n1star/N1STAR-LOG.md` | `41e499dfda7772025da6cbe24aa61819` |
+| `docket68/n1star/N1STAR-PROOF.md` | `00991ae53949e7059779edeba573ea51` |
+| `docket68/n1star/N1STAR-LOG.md` | `102863ee12563787f1913bec57641e6a` |
 | `docket68/n1star/README.md` | `400ac5592e3fd61f9883caa29db2e414` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -1421,6 +1431,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/lin5.py` | `b108caf5ebecc29dc61ce56d7f49af37` |
 | `docket68/n1star/sbar5.py` | `a1899ea2f8470115ece25a400dc5fdc7` |
 | `docket68/n1star/strap5.py` | `8d716c0c7dd36f8cd23987f1c79fec3d` |
-| `docket68/n1star/gmodes5.py` | `567faef7ee6293b75c5645bd47bfce13` |
+| `docket68/n1star/gmodes5.py` | `5d2b68e8b13e2b921e08a733e0900031` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

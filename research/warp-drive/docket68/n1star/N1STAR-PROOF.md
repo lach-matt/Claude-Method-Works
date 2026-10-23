@@ -4334,10 +4334,10 @@ gradient:
      dz^i, X_a = (r/k)(f_a + (r/k) D_a H_T) of [KI03] (2.8), leaves f_a = H_T = 0 and their invariants F, F_ab of (2.7);
      there the reduced equations E_ab, E_a, E_L, E_T are computed, and at sigma != 0, in their X, Y, Z of (2.20)-(2.21)
      with Z = i sigma Z~: E_t, E_r and E_tr give exactly (2.24a-c); E_tt, E_rr and E_L then reduce to multiples of one
-     linear form C in (X, Y, Z~), which the flow preserves, so the solutions form a two-dimensional space; Phi := (3
-     Z~ - r (X + Y))/(r^(1/2) H), H = m + 6 mu/r^2, m = k^2 - 3, solves f (f Phi')' + (sigma^2 - V_S) Phi = 0 on C = 0,
-     V_S = f Q/(16 r^2 H^2) with Q of (3.7) at n = 3, [KI03] (3.1)-(3.6); and det[Phi; Phi'; C] = -r^4 (r^2 - mu)^5
-     (G3).
+     linear form C in (X, Y, Z~), which the flow preserves, so the solutions form a two-dimensional space; Phi := (3 Z~
+     - r (X + Y))/(r^(1/2) H), H = m + 6 mu/r^2, m = k^2 - 3, solves f (f Phi')' + (sigma^2 - V_S) Phi = 0 on C = 0, V_S
+     = f Q/(16 r^2 H^2) with Q of (3.7) at n = 3, [KI03] (3.1)-(3.6); and det[r^(1/2) Phi; r^(1/2) Phi'; C] = -r^4 (r^2
+     - mu)^5, C as G3 normalizes it: a multiple of C by a function of r rescales the determinant by that function (G3).
  (iv) (the exceptional sectors, sigma != 0) Scalar l = 0: f_tt = H_L = 0 is reached by a gauge 1-form A_t dt + A_r dr
      algebraic in the mode, and then the mode equations force f_tr = f_rr = 0. Vector l = 1 (V Killing): D Ric(h)_ab = 0
      and E_r = r^2 d_t F^(1)_tr/(2 (r^2 - mu)), F^(1)_tr = r d_t(f_r/r) - r d_r(f_t/r), [KI03] (5.16), so a mode has
@@ -4345,21 +4345,24 @@ gradient:
      f_tt, f_t and H_L are free of derivatives, with determinant (r^2 - mu)(sigma^2 r^4 - mu)/(4 r^6), and then the mode
      equations force f_tr = f_rr = f_r = 0. Every pivot of these eliminations has its factors free of r among the powers
      of sigma (G4).
- (v) (the potentials, and the horizon) V_T > 0, V_V >= (f/r^2)(l (l + 2) - 6) > 0 and V_S > 0 for l >= 2 on r > r_h,
-     Q >= 16 m (m - 3)(m + 9) > 0 there. In ingoing Eddington-Finkelstein coordinates (v = t + r*, r) Gamma^lam_rr = 0;
-     and the master fields, written in the ingoing components of the reduced field, are free of 1/f: 3 Z~ - r (X + Y) =
-     (4 sigma r^3 F - sigma r^3 f F'_rr - 2 sigma r^3 F_vr - 3 i r^2 f F_vr - 3 i r^2 F_vv)/(r sigma) and Omega = r^2 (f
-     F'_r + F_v)/(i sigma) (G5).
+ (v) (the potentials, and the horizon) V_T > 0, V_V >= (f/r^2)(l (l + 2) - 6) > 0 and V_S > 0 for l >= 2 on r > r_h, Q
+     >= 16 m (m - 3)(m + 9) for 3 < m <= 12 and Q >= 16 m^3 + 60 m^2 for m >= 12, so Q > 0 there (the first bound alone
+     fails beyond m = 12; corrected, D79). In ingoing Eddington-Finkelstein coordinates (v = t + r*, r) Gamma^lam_rr =
+     0; and the master fields, written in the ingoing components of the reduced field, are free of 1/f: 3 Z~ - r (X + Y)
+     = (4 sigma r^3 F - sigma r^3 f F'_rr - 2 sigma r^3 F_vr - 3 i r^2 f F_vr - 3 i r^2 F_vv)/(r sigma) and Omega = r^2
+     (f F'_r + F_v)/(i sigma) (G5).
 
 *Proof.* G1-G5 of gmodes5.py, exact. A harmonic enters through its Taylor jets at a point of S^3 (sin chi = 3/5, sin
 theta = 5/13), every jet free but for the harmonic's defining equations and their derivatives there, so that an identity
 checked there holds for every harmonic of the type at that point, and so at every point, the isometries of S^3 acting
 transitively and commuting with D Ric and delta*. D Ric is checked on delta* omega for an omega with arbitrary jets,
-where it vanishes. (iv)'s eliminations -- the equations and their r-derivatives, every derivative eliminated first --
-run over Q(3^(1/2), i)(r, sigma) at mu = 1: the homothety t, r -> lam t, lam r carries g_mu to lam^2 g_(mu/lam^2) and
-sigma to lam sigma, and D Ric of lam^2 g is that of g. Controls: in (i) the divergence condition dropped, where D
-Ric(h)_ai is not zero; in (ii) +27 for -27; in (iii) Z = -i sigma Z~, where (2.24a-c) fail; in (iv) f_t left free at l =
-1, where the derivative-free rank is 2 of 4; in (v) V_V lowered by 6. []
+where it vanishes. At scalar l = 1 the jets stop at order 2, the constraints at order 0: S's third jet enters D Ric only
+through nabla^j (nabla_j nabla_i - nabla_i nabla_j) S, which vanishes. (iv)'s eliminations -- the equations and their
+r-derivatives, every derivative eliminated first -- run over Q(3^(1/2), i)(r, sigma) at mu = 1: the homothety t, r ->
+lam t, lam r carries g_mu to lam^2 g_(mu/lam^2) and sigma to lam sigma, and D Ric of lam^2 g is that of g. Controls: in
+(i) the divergence condition dropped, where D Ric(h)_ai is not zero; in (ii) +27 for -27; in (iii) Z = -i sigma Z~,
+where (2.24a-c) fail; in (iv) f_t left free at l = 1, where the derivative-free rank is 2 of 4; in (v) V_V lowered by 6.
+[]
 
 *Deduced.*
 
@@ -4382,29 +4385,33 @@ Ric(h)_ai is not zero; in (ii) +27 for -27; in (iii) Z = -i sigma Z~, where (2.2
      u's and of their derivatives, so the sum converges with u's.
  (b) ([Hin26] Proposition 8.8 in five dimensions) His proof then runs as written: eta = 0 by his Theorem 7.1(1)
      (10.21(e), on [Hin26a] Theorem 5.2, which 10.22 deduces on a reading); u = delta*(sigma) omega by (a);
-     box^Ups(sigma) omega = 0, so omega = 0 by his Proposition 6.12 (10.20(e)) and u = 0 on r >= r_h; the index 0 comes
-     from his Proposition 8.3 (10.26) through [Hin26c] Theorem 9.5 on the reading of 10.19. So, on the readings of
-     10.19-10.26, at Proposition 10.9's point with gam_Ups small, L-hat(sigma) is injective, and so invertible, at 0 !=
-     sigma, Im sigma >= 0 -- with, as in 10.16, the kernel elements' class ([Hin26c] Theorem 9.5(5) in five dimensions)
-     and the vanishing carried from r >= r_h to the part of X inside the horizon by the standard interior uniqueness,
-     both OPEN.
+     box^Ups(sigma) omega = 0 on r >= r_h; continued into the part of X inside the horizon as a solution of
+     box^Ups(sigma) omega = 0 -- harmonic by harmonic a linear ODE in r with coefficients smooth there -- it vanishes by
+     his Proposition 6.12 (10.20(e)), a statement on all of X, and u = 0 on r >= r_h; the index 0 comes from his
+     Proposition 8.3 (10.26) through [Hin26c] Theorem 9.5 on the reading of 10.19. So, on the readings of 10.19-10.26,
+     at Proposition 10.9's point with gam_Ups small, L-hat(sigma) is injective, and so invertible, at 0 != sigma, Im
+     sigma >= 0 -- with, as in 10.16, the kernel elements' class ([Hin26c] Theorem 9.5(5) in five dimensions), omega's
+     continuation into the part of X inside the horizon as a solution there (the harmonics summed), and the vanishing of
+     u carried from r >= r_h to that part by the standard interior uniqueness, all OPEN.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 25 (section 1.4.1: "Mode stability for the ungauged
 linearized Einstein equation D_{g_b} Ric(h) = 0 (see [AHW24, Theorem 6.1(1)]) implies that h is the sum of a linearized
 Kerr metric g-dot_b(b-dot) and a pure gauge term delta*_{g_b} omega. In the absence of the former (which can only occur
 at frequency sigma = 0) ..."), 153-154 (section 8.4: Proposition 8.8 and its proof). [KI03] (arXiv:hep-th/0305147v3,
 alphaXiv, 2026-10-23): pp. 4-5 ((2.1)-(2.8)), 7-10 ((2.20)-(2.24), (3.1)-(3.14)), 13-15 (section 5, (5.1)-(5.17)), 18-20
-(Appendices A and B).
+(Appendices A and B). The extraction drops minus signs; (2.23)'s Z = i sigma Z~ is settled by (A.1b) through (2.22a),
+(2.24c), (3.9c) and (3.12c), and by G3, where the other sign fails.
 
 *What this gives, and what it does not.* The input his Proposition 8.8 takes from [AHW24] on Kerr, on five-dimensional
 Tangherlini: every outgoing mode of the linearized Einstein operator at sigma != 0, Im sigma >= 0, is pure gauge, its
 gauge 1-form in the same class. The computation is [KI03]'s, carried from their general formulas to D Ric at n = 3
 directly: the tensor type, which four dimensions lacks, has the potential of 10.16's scalar wave (k_T^2 + 2 = l(l + 2));
 the vector potential's -27 mu/(4 r^2) and the scalar potential's Q leave both positive at l >= 2; and l <= 1 is pure
-gauge at nonzero frequency. Not done, and OPEN: the kernel elements' class and the interior uniqueness, as in 10.16; the
-zero-energy analysis of his section 8.4 (Propositions 8.9-8.11, [AHW24] Theorem 6.1(2)), section 8.5 and sections 9-10,
-in five dimensions; and the readings of 10.19-10.26. Nothing of this section is proved: Proposition 10.24 is computed,
-and (a)-(b) are deduced.
+gauge at nonzero frequency. Not done, and OPEN: the kernel elements' class, omega's continuation inside the horizon and
+the interior uniqueness, as in 10.16; how small gam_Ups must be, and h_0, below which Proposition 10.9's h = 10^-6 must
+lie (10.21(e)); the zero-energy analysis of his section 8.4 (Propositions 8.9-8.11, [AHW24] Theorem 6.1(2)), section 8.5
+and sections 9-10, in five dimensions; and the readings of 10.19-10.26. Nothing of this section is proved: Proposition
+10.24 is computed, and (a)-(b) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

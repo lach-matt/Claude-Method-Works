@@ -12,12 +12,14 @@ computed here through the Kodama-Ishibashi decomposition ([KI03] H. Kodama and A
 3, K = 1, Lambda = 0, 2M = mu): h splits into tensor, vector and scalar types by the harmonics of S^3, and each type's
 linearized vacuum equations reduce to one master equation f (f Phi')' + (sigma^2 - V) Phi = 0.
 
-The harmonics are handled at a point of S^3 (chi, theta) with sin chi = 3/5, sin theta = 5/13: a harmonic enters through
-its Taylor jets there, every jet free but for the harmonic's defining equations (trace, divergence, eigenvalue, and
-their derivatives at the point), so that an identity checked there holds for every harmonic of the type at that point,
-and so at every point, the isometries of S^3 acting transitively and commuting with D Ric.  D Ric(h) is the linearized
-Ricci tensor, D Ric(h)_ab = nabla_c dGamma^c_ab - nabla_b dGamma^c_ca, dGamma^c_ab = (1/2) g^cd (nabla_a h_bd + nabla_b
-h_ad - nabla_d h_ab); delta* omega = (1/2)(nabla_a omega_b + nabla_b omega_a).
+The harmonics are handled at a point of S^3 (chi, theta) with sin chi = 3/5, sin theta = 5/13: a harmonic enters
+through its Taylor jets there, every jet free but for the harmonic's defining equations (trace, divergence, eigenvalue,
+and their derivatives at the point; at scalar l = 1 the jets stop at order 2, the constraints at order 0, S's third jet
+entering D Ric only through nabla^j (nabla_j nabla_i - nabla_i nabla_j) S, which vanishes), so that an identity checked
+there holds for every harmonic of the type at that point, and so at every point, the isometries of S^3 acting
+transitively and commuting with D Ric.  D Ric(h) is the linearized Ricci tensor, D Ric(h)_ab = nabla_c dGamma^c_ab -
+nabla_b dGamma^c_ca, dGamma^c_ab = (1/2) g^cd (nabla_a h_bd + nabla_b h_ad - nabla_d h_ab); delta* omega =
+(1/2)(nabla_a omega_b + nabla_b omega_a).
 
   G1 (computed, exact) The structure, and the tensor type.  D Ric(delta* omega) = 0 at the point for an omega with
      arbitrary jets (the operator's check).  For h_ij = 2 r^2 H T_ij, T any trace-free, divergence-free tensor harmonic
@@ -29,40 +31,42 @@ h_ad - nabla_d h_ab); delta* omega = (1/2)(nabla_a omega_b + nabla_b omega_a).
      k_V^2 = l(l + 2) - 1: the gauge 1-form r^2 B V_i dz^i shifts h_ai = r f_a V_i by (r/2) D_a B and h_ij = 2 r^2 H_T
      V_ij by -k_V B/2, so B = -2 H_T/k_V leaves H_T = 0 and F_a = f_a + (r/k_V) D_a H_T, [KI03] (5.10); there D
      Ric(h)_ab = 0, D Ric(h)_ai = r E_a V_i and D Ric(h)_ij = 2 r^2 E_T V_ij with E_T = -(k_V/(2 r^3)) D_a(r^2 F^a),
-     [KI03]'s.  At sigma != 0, with Omega := r^2 F^r/(i sigma): E_T = 0 iff r^2 F^t = Omega', and then E_a = 0 iff Phi =
-     r^(-3/2) Omega solves the master equation with V_V = (f/r^2)(k_V^2 + 1 + 3/4 - 27 mu/(4 r^2)), [KI03] (5.15); Phi =
-     0 forces F = 0.  Control: V_V with +27.
+     which [KI03] does not print, their (5.12) implying it.  At sigma != 0, with Omega := r^2 F^r/(i sigma): E_T = 0 iff
+     r^2 F^t = Omega', and then E_a = 0 iff Phi = r^(-3/2) Omega solves the master equation with V_V = (f/r^2)(k_V^2 +
+     1 + 3/4 - 27 mu/(4 r^2)), [KI03] (5.15); Phi = 0 forces F = 0.  Control: V_V with +27.
   G3 (computed, exact) The scalar type, l >= 2, S with (Delta + k^2) S = 0, S_i = -D_i S/k, S_ij = D_i D_j S/k^2 +
-     gamma_ij S/3, h = f_ab S dy^a dy^b + 2 r f_a S_i dy^a dz^i + 2 r^2 (H_L gamma_ij S + H_T S_ij) dz^i dz^j: delta* of
-     A_a S dy^a + r^2 B S_i dz^i shifts f_ab by D_(a A_b), f_a by (r^2 D_a B - k A_a)/(2 r), H_L by k B/6 + f A_r/(2 r)
-     and H_T by -k B/2, so the gauge 1-form -2 X_a S dy^a - (2 r^2/k) H_T S_i dz^i, X_a = (r/k)(f_a + (r/k) D_a H_T) of
-     [KI03] (2.8), leaves f_a = H_T = 0 and their invariants F, F_ab of (2.7); there the seven reduced equations are
+     gamma_ij S/3, h = f_ab S dy^a dy^b + 2 r f_a S_i dy^a dz^i + 2 r^2 (H_L gamma_ij S + H_T S_ij) dz^i dz^j: delta*
+     of A_a S dy^a + r^2 B S_i dz^i shifts f_ab by D_(a A_b), f_a by (r^2 D_a B - k A_a)/(2 r), H_L by k B/6 + f A_r/(2
+     r) and H_T by -k B/2, so the gauge 1-form -2 X_a S dy^a - (2 r^2/k) H_T S_i dz^i, X_a = (r/k)(f_a + (r/k) D_a H_T)
+     of [KI03] (2.8), leaves f_a = H_T = 0 and their invariants F, F_ab of (2.7); there the seven reduced equations are
      computed, and at sigma != 0, in [KI03]'s X, Y, Z (2.20)-(2.21) with Z = i sigma Z~: E_t, E_r, E_tr give exactly
      [KI03] (2.24a-c); E_tt, E_rr, E_L then reduce to one linear constraint, which the flow preserves, so the solutions
      form a two-dimensional space; Phi := (3 Z~ - r (X + Y))/(r^(1/2) H), H = m + 6 mu/r^2, m = k^2 - 3, solves f (f
      Phi')' + (sigma^2 - V_S) Phi = 0 with V_S = f Q/(16 r^2 H^2), [KI03] (3.1)-(3.7) at n = 3, on that constraint; and
-     det[Phi; Phi'; constraint] = -r^4 (r^2 - mu)^5, so Phi = 0 forces X = Y = Z~ = 0. Control: Z = -i sigma Z~, where
-     (2.24a-c) fail.
+     det[r^(1/2) Phi; r^(1/2) Phi'; constraint] = -r^4 (r^2 - mu)^5 (the constraint as G3 normalizes it: a multiple of
+     it by a function of r rescales the determinant by that function), so Phi = 0 forces X = Y = Z~ = 0. Control: Z =
+     -i sigma Z~, where (2.24a-c) fail.
 
-  G4 (computed, exact) The exceptional sectors at sigma != 0.  Scalar l = 0 (S = 1): delta*(A_t dt + A_r dr) shifts
-     f_tt by 2 (d_t A_t - Gamma^r_tt A_r) and H_L by f A_r/(2 r), so f_tt = H_L = 0 is reached algebraically; then the
-     mode equations force f_tr = f_rr = 0.  Vector l = 1 (V Killing, V_ij = 0): D Ric(h)_ab = 0 and E_r = r^2 d_t
-     F^(1)_tr/(2 (r^2 - mu)), F^(1)_tr = r d_t(f_r/r) - r d_r(f_t/r) ([KI03] (5.16)), so a mode has F^(1) = 0 and f_a =
-     (r/2) D_a B, B = 2 i f_t/(sigma r).  Scalar l = 1 (D_i D_j S = -gamma_ij S, S_ij = 0): the shifts of f_tt, f_t and
-     H_L are free of derivatives, with determinant (r^2 - mu)(sigma^2 r^4 - mu)/(4 r^6), so f_tt = f_t = H_L = 0 is
-     reached algebraically off the sphere sigma^2 r^4 = mu; then the mode equations force f_tr = f_rr = f_r = 0.  The
+  G4 (computed, exact) The exceptional sectors at sigma != 0.  Scalar l = 0 (S = 1): delta*(A_t dt + A_r dr) shifts f_tt
+     by d_t A_t - Gamma^r_tt A_r and H_L by f A_r/(2 r), so f_tt = H_L = 0 is reached algebraically; then the mode
+     equations force f_tr = f_rr = 0.  Vector l = 1 (V Killing, V_ij = 0): D Ric(h)_ab = 0 and E_r = r^2 d_t F^(1)_tr/(2
+     (r^2 - mu)), F^(1)_tr = r d_t(f_r/r) - r d_r(f_t/r) ([KI03] (5.16)), so a mode has F^(1) = 0 and f_a = (r/2) D_a
+     B, B = 2 i f_t/(sigma r).  Scalar l = 1 (D_i D_j S = -gamma_ij S, S_ij = 0): the shifts of f_tt, f_t and H_L are
+     free of derivatives, with determinant (r^2 - mu)(sigma^2 r^4 - mu)/(4 r^6), so f_tt = f_t = H_L = 0 is reached
+     algebraically off the sphere sigma^2 r^4 = mu; then the mode equations force f_tr = f_rr = f_r = 0.  The
      eliminations (the equations and their r-derivatives, every derivative eliminated first) run over Q(3^(1/2), i)(r,
-     sigma) at mu = 1 -- the homothety t, r -> lam t, lam r carries g_mu to lam^2 g_(mu/lam^2) and sigma to lam sigma --
-     and every pivot's factors free of r are powers of sigma.  Control: at l = 1, f_t left free, where the
+     sigma) at mu = 1 -- the homothety t, r -> lam t, lam r carries g_mu to lam^2 g_(mu/lam^2) and sigma to lam sigma
+     -- and every pivot's factors free of r are powers of sigma.  Control: at l = 1, f_t left free, where the
      derivative-free rank is 2 of 4.
   G5 (computed, exact) The potentials and the horizon.  V_T > 0 and V_V >= (f/r^2)(l (l + 2) - 6) > 0 for l >= 2 on r >
-     r_h; Q = 1296 x^3 + (624 m - 144) x^2 + 36 m (m - 12) x + 16 m^3 + 60 m^2 >= 16 m (m - 3)(m + 9) > 0 for m > 3, x =
-     mu/r^2 in [0, 1], so V_S > 0 for l >= 2 (m >= 5).  In ingoing Eddington-Finkelstein coordinates (v = t + r*, r)
+     r_h; Q = 1296 x^3 + (624 m - 144) x^2 + 36 m (m - 12) x + 16 m^3 + 60 m^2, x = mu/r^2 in [0, 1], is at least 16 m
+     (m - 3)(m + 9) for 3 < m <= 12 and at least 16 m^3 + 60 m^2 for m >= 12, the first bound alone failing beyond m =
+     12, so Q > 0 and V_S > 0 for l >= 2 (m >= 5).  In ingoing Eddington-Finkelstein coordinates (v = t + r*, r)
      Gamma^lam_rr = 0, so (delta* xi)_rr = d_r xi_r and the r-row of delta* xi = u is a linear ODE in r for xi, its
      coefficients smooth across r = r_h; and the master fields, written in the ingoing components of the reduced field,
      are free of 1/f -- the scalar numerator 3 Z~ - r (X + Y) = (4 sigma r^3 F - sigma r^3 f F'_rr - 2 sigma r^3 F_vr -
-     3 i r^2 f F_vr - 3 i r^2 F_vv)/(r sigma), the vector Omega = r^2 (f F'_r + F_v)/(i sigma) -- so each is e^(-i sigma
-     r*) times a function smooth across r = r_h.  Control: V_V lowered by 6, where positivity fails.
+     3 i r^2 f F_vr - 3 i r^2 F_vv)/(r sigma), the vector Omega = r^2 (f F'_r + F_v)/(i sigma) -- so each is e^(-i
+     sigma r*) times a function smooth across r = r_h.  Control: V_V lowered by 6, where positivity fails.
 
 Deduced, not computed here (N1STAR-PROOF.md 10.27): [AHW24] Theorem 6.1(1) on five-dimensional Tangherlini -- every mode
 solution of D Ric = 0 at 0 != sigma, Im sigma >= 0, smooth across the future horizon and outgoing at infinity, is
@@ -548,8 +552,7 @@ def algebraic_part(eqs, unk):
 
 def g4(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
-    # scalar l = 0 (S = 1): delta*(A_t dt + A_r dr) shifts f_tt by 2 (-i sigma A_t - Gamma^r_tt A_r) and H_L by
-    # f A_r/(2 r),
+    # scalar l = 0 (S = 1): delta*(A_t dt + A_r dr) shifts f_tt by -i sigma A_t - Gamma^r_tt A_r and H_L by f A_r/(2 r),
     # so f_tt = H_L = 0 is reached algebraically at sigma != 0; then D Ric = 0 forces f_tr = f_rr = 0
     if control == 0:
         At, Ar = sp.Function("A_t")(t, r), sp.Function("A_r")(t, r)
@@ -587,9 +590,14 @@ def g4(control=0, verbose=False):
         Er = R[1, 2 + i0] / (r * atpt(V[i0]).subs(sol))
         okv = zero(Er - r**2 * sp.diff(F1, t) / (2 * (r**2 - mu))) and all(zero(R[m, n]) for m in range(2)
                                                                           for n in range(2))
-        B = 2 * sp.I * Ft.subs(t, 0) / (sig * r)
+        # a mode f_a = e^(-i sigma t) g_a(r) with F^(1) = 0: g_r from g_t, and f_a = (r/2) D_a B, B = 2 i f_t/(sigma r)
+        gt, gr = sp.Function("g_t")(r), sp.Function("g_r")(r)
+        ex = sp.exp(-sp.I * sig * t)
+        grs = sp.solve(sp.diff(ex * gr, t) - sp.diff(ex * gt, r) + ex * gt / r, gr)[0]
+        Bm = 2 * sp.I * ex * gt / (sig * r)
+        okB = zero(r / 2 * sp.diff(Bm, t) - ex * gt) and zero(r / 2 * sp.diff(Bm, r) - ex * grs)
         chk("vector l = 1: D Ric(h)_ab = 0 and E_r = r^2 d_t F^(1)_tr/(2 (r^2 - mu)), so a mode at sigma != 0 has "
-            "F^(1) = 0, f_a = (r/2) D_a B with B = 2 i f_t/(sigma r)", okv)
+            "F^(1) = 0, f_a = (r/2) D_a B with B = 2 i f_t/(sigma r)", okv and okB)
     # scalar l = 1: S with D_i D_j S = -gamma_ij S (k^2 = 3, S_ij = 0); the gauge f_tt = f_t = H_L = 0 is algebraic at
     # sigma != 0; then D Ric = 0 forces (f_tr, f_rr, f_r) = 0
     k = sp.sqrt(3)
@@ -637,18 +645,26 @@ def g5(control=0, verbose=False):
     lowV = sp.expand(VV.subs(x, 1).subs(l, l + 2))                      # x <= 1 and the x-coefficient < 0
     okV = sp.Poly(VV, x).coeffs()[0] < 0 and all(cf > 0 for cf in sp.Poly(lowV, l).coeffs())
     chk("V_T > 0 and V_V >= (f/r^2)(l (l + 2) - 6) > 0 for l >= 2 on r > r_h", okT and okV)
-    # V_S: Q > 0 for m > 3, 0 <= x <= 1 -- Q = 1296 x^3 + (624 m - 144) x^2 + 36 m (m - 12) x + 16 m^3 + 60 m^2 >= 16 m
-    # (m + 9)(m - 3) there, and H = m + 6 x > 0; m = l (l + 2) - 3 >= 5 at l >= 2
-    m = sp.Symbol("m", positive=True)
+    # V_S: Q > 0 for m > 3, 0 <= x <= 1 -- Q = 1296 x^3 + (624 m - 144) x^2 + 36 m (m - 12) x + 16 m^3 + 60 m^2 is at
+    # least 16 m (m - 3)(m + 9) for 3 < m <= 12 and at least 16 m^3 + 60 m^2 for m >= 12 (the first bound alone fails
+    # beyond m = 12), and H = m + 6 x > 0; m = l (l + 2) - 3 >= 5 at l >= 2
+    m, p = sp.Symbol("m", positive=True), sp.Symbol("p", nonnegative=True)
     n = 3
     Q = (n**4 * (n + 1)**2 * x**3 + n * (n + 1) * (4 * (2 * n**2 - 3 * n + 4) * m + n * (n - 2) * (n - 4) * (n + 1))
          * x**2 - 12 * n * ((n - 4) * m + n * (n + 1) * (n - 2)) * m * x + 16 * m**3 + 4 * n * (n + 2) * m**2)
     form = sp.expand(Q - (1296 * x**3 + (624 * m - 144) * x**2 + 36 * m * (m - 12) * x + 16 * m**3 + 60 * m**2)) == 0
-    # on m >= 12 every term is >= 0; on 3 < m < 12, 36 m (m - 12) x >= 36 m (m - 12) for x <= 1
+    # 3 < m <= 12: Q - 16 m (m - 3)(m + 9) = 1296 x^3 + (624 m - 144) x^2 + 36 m (12 - m)(1 - x), every term >= 0;
+    # m = 12 + p, p >= 0: every coefficient in (p, x) is >= 0, so Q >= Q(x = 0) = 16 m^3 + 60 m^2
     low = sp.factor(16 * m**3 + 60 * m**2 + 36 * m * (m - 12))
-    okS = form and low == 16 * m * (m - 3) * (m + 9) and sp.expand(624 * 5 - 144) > 0
-    chk(f"Q = 1296 x^3 + (624 m - 144) x^2 + 36 m (m - 12) x + 16 m^3 + 60 m^2 >= {low} > 0 for m > 3, x in [0, 1]: "
-        f"V_S > 0 on r > r_h for l >= 2", okS)
+    brA = low == 16 * m * (m - 3) * (m + 9) and 624 * 3 - 144 > 0 and sp.expand(
+        Q - low - (1296 * x**3 + (624 * m - 144) * x**2 + 36 * m * (12 - m) * (1 - x))) == 0
+    brB = all(cf >= 0 for cf in sp.Poly(sp.expand(Q.subs(m, 12 + p)), p, x).coeffs())
+    brB &= sp.expand(Q.subs(x, 0) - 16 * m**3 - 60 * m**2) == 0
+    q21, l21 = Q.subs({m: 21, x: 0}), low.subs(m, 21)                    # l = 4: the first bound alone fails
+    okS = form and brA and brB and q21 < l21
+    chk(f"Q = 1296 x^3 + (624 m - 144) x^2 + 36 m (m - 12) x + 16 m^3 + 60 m^2 >= {low} for 3 < m <= 12 and >= 16 "
+        f"m^3 + 60 m^2 for m >= 12, x in [0, 1] (the first alone fails at m = 21: {q21} < {l21}): V_S > 0 on r > r_h "
+        f"for l >= 2", okS)
     # ingoing Eddington-Finkelstein: Gamma^lam_rr = 0, so the r-row of delta* xi = u is an ODE in r along d_r
     v = sp.Symbol("v", real=True)
     Xe = [v, r, a, b, d]

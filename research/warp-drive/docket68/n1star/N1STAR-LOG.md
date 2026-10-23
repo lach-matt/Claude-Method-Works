@@ -2408,8 +2408,9 @@ three), the remaining three one constraint that the flow preserves, their Phi (3
 det[Phi; Phi'; C] = -r^4 (r^2 - mu)^5. (G4) l <= 1 at sigma != 0, pure gauge: scalar l = 0 by the algebraic gauge f_tt =
 H_L = 0; vector l = 1 by E_r = r^2 d_t F^(1)/(2 (r^2 - mu)); scalar l = 1 by the algebraic gauge f_tt = f_t = H_L = 0,
 determinant (r^2 - mu)(sigma^2 r^4 - mu)/(4 r^6); the eliminations over Q(3^(1/2), i)(r, sigma) at mu = 1 by the
-homothety, every pivot's factors free of r powers of sigma. (G5) The potentials positive at l >= 2, Q >= 16 m (m -
-3)(m + 9); in ingoing coordinates Gamma^lam_rr = 0, and the master fields free of 1/f.
+homothety, every pivot's factors free of r powers of sigma. (G5) The potentials positive at l >= 2, Q >= 16 m (m - 3)(m
++ 9) for 3 < m <= 12 and Q >= 16 m^3 + 60 m^2 for m >= 12 (corrected in D79); in ingoing coordinates Gamma^lam_rr = 0,
+and the master fields free of 1/f.
 
 *Deduced (10.27).* (a) [AHW24] Theorem 6.1(1) on five-dimensional Tangherlini, in the class of 10.16: each master
 equation as in 10.16(a); the gauge 1-forms in the class -- covariant on the orbit space at l >= 2, algebraic at l <= 1
@@ -2428,3 +2429,44 @@ ingoing components they are free of it (G5), which is what puts them in 10.16's 
 
 *Runs.* gmodes5.py 5/5 (about five minutes), mutants 5/5; response5.py all pass; md5 rows current (44). Next: the
 thirty-sixth verifier on 10.27, gmodes5.py, D77 and D78.
+
+**D79 (2026-10-23): the thirty-sixth verifier's findings on 10.27, gmodes5.py, D77 and D78, seated.**
+
+The thirty-sixth verifier read d47dbd0 read-only, every program run from an archive of it, and recomputed independently:
+its own D Ric (equal to d/d eps Ric(g + eps h), annihilating d_mu g and delta* omega, agreeing with the record's dric in
+all 25 components at the point), explicit harmonics (a TT tensor from two self-dual Killing forms, k_T^2 = 6; co-closed
+vectors at l = 2 and 3; zonal scalars at l = 2 and 3; cos chi and a Killing field at l = 1) and the exceptional ranks at
+numeric points, complex sigma among them. Verdict: D78 holds; no major finding; five minor findings and eight notes,
+each seated here.
+
+*Minor.* (1) Q >= 16 m (m - 3)(m + 9) is false for m > 12 (l >= 4): at x = 0 Q = 16 m^3 + 60 m^2, below the bound there;
+at m = 21 Q's minimum on [0, 1] is 174636 against 181440. Q > 0 held by the code's own case split. Repaired in 10.27(v)
+and in gmodes5.py's G5, docstring and check, which now verifies both branches -- Q - 16 m (m - 3)(m + 9) = 1296 x^3 +
+(624 m - 144) x^2 + 36 m (12 - m)(1 - x) on 3 < m <= 12, every coefficient of Q(12 + p, x) nonnegative for p >= 0 -- and
+records the failure at m = 21; D78's entry corrected in place. (2) The paper's Appendix C range stood at D77: now D79.
+(3) ROUTES 4.25-4.27's OPEN lists did not point to 4.28: each now names his Proposition 8.8 deduced there. (4) The paper
+stated Proposition 8.8 without its class and open items: it now says smooth across the horizon and outgoing at infinity,
+deduced on the same readings, the kernel elements' class and the uniqueness inside the horizon open. (5) The paper's
+[KI03] and [Hin26] entries lacked the reads of 2026-10-23: added ([KI03] sections 2, 3 and 5 and Appendices A-B; [Hin26]
+pp. 25, 28, 34, 113-117, 135-137, 144-154).
+
+*Notes.* (a) His Proposition 6.12 is a statement on all of X: omega must be continued into the part of X inside the
+horizon as a solution of box^Ups(sigma) omega = 0 before it applies; 10.27(b), 10.27's OPEN list and ROUTES 4.28 now say
+so, the continuation OPEN. (b) h_0 and the size of gam_Ups added to 10.27's and 4.28's OPEN lists. (c) gmodes5.py's
+docstring and a comment had f_tt shifting by 2 (d_t A_t - Gamma^r_tt A_r); the code and the verifier's computation give
+no factor 2: corrected. (d) E_T is not printed in [KI03]; their (5.12) implies it: the attribution corrected. (e) G4's
+vector l = 1 label claimed f_a = (r/2) D_a B unchecked: the check now runs, on a mode with F^(1) = 0 and B = 2 i
+f_t/(sigma r). (f) The determinant's value depends on C's normalization (the verifier's E_rr form gives -r^3):
+10.27(iii) and the docstring now name the rows, r^(1/2) Phi, r^(1/2) Phi' and C as G3 normalizes it, a multiple of C by
+a function of r rescaling the determinant by that function. (g) At scalar l = 1 the jets stop at order 2 with the
+constraints at order 0; S's third jet enters D Ric only through nabla^j (nabla_j nabla_i - nabla_i nabla_j) S = 0, and
+the verifier's order-3 jets gave identical reduced equations: said in the docstring and the proof. (h) The alphaXiv
+extraction drops minus signs; (2.23)'s Z = i sigma Z~ was settled by (A.1b) through (2.22a), (2.24c), (3.9c) and (3.12c)
+and by computation: 10.27's READ says so.
+
+*Not checked by the verifier.* [AHW24] itself, read through Hintz; [KI03]'s minus-sign glyphs; the OPEN items; l >= 4
+with explicit harmonics, which the record's general-k jets carry.
+
+*Runs.* gmodes5.py 5/5, mutants 5/5; response5.py all pass; md5 rows current (44). The headings of 10.27 and 4.28 keep
+D78 alone, D79 added there exceeding 121 characters. Next: [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions
+(D80).
