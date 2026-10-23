@@ -750,19 +750,29 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   deduced). His transition face problem — the dilation-invariant model of the operator on Minkowski space, his Theorem
   B.1 — carries over in the same way: the model is homogeneous of degree −2, its weights at the origin move by a half to
   β ∈ (0, 2 + C₀], the thresholds at the cone face and at the sink, α_cf > 1/2 and α_sf < −1/2 in his, become α_cf >
-  0.0066 and α_sf < −0.0066 at the parameter point, and his choice of weights and his closing argument go through
-  unchanged, so that on the same readings and at that point the constraint propagation operator is tf-admissible for
-  every weight in [−C₀, 2), [Hin26] Theorem 7.1(4) with its top at the Coulomb root 2 where his is at 1 (supplement
-  section 10.23, `tface5.py`; computed, the theorems deduced). A line-by-line check of Hintz's 3b- and edge-b-analysis
-  and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make explicit, and the rest
-  of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a
-  finite-time observation), and the late-time tail of the l = 2 master fields, measured from the pulse's launch, is
-  t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with
-  that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s
-  t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in
-  the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i
-  ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier
-  of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
+  0.0066 and α_sf < −0.0066 at the parameter point (0 and 0 as e → 0), his choice of weights and his closing argument go
+  through unchanged, and his index-0 argument carries with the free operator's roots, so that on the same readings, at
+  that point, for C₀ ≤ 100 and provided the point's h lies below h₀, the constraint propagation operator is
+  tf-admissible for every weight in [−C₀, 2), [Hin26] Theorem 7.1(4) with its top at the Coulomb root 2 where his is at
+  1 (supplement section 10.23, `tface5.py`; computed, the theorems deduced). The indicial roots of the linearized
+  gauge-fixed Einstein operator itself, his Lemma 8.4, carry over, at that point, for every harmonic degree l: on each
+  harmonic type its determinant is that of the gauge potential operator shifted by one and that of the constraint
+  propagation operator shifted by minus one, times the physical factor with roots −l and l + 2, his −l and l + 1, the
+  mass at the Coulomb root 2, over a factor at l ≤ 1 that removes the roots counted twice; no root has real part in (0,
+  1], so that the gap begins at 0 as his does and reaches past 1; and the roots of each type, the tensor type included,
+  which four dimensions lacks, split evenly — so that his Lemma 8.5 holds, and his Proposition 8.6, tf-admissibility
+  with a weight in the gap for a small gauge parameter, on the same readings but for one threshold not computed here
+  (supplement section 10.24, `lin5.py`; the factorization computed for every l, the roots at the parameter point for l ≤
+  12, the rest deduced). A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five
+  dimensions, the threshold h₀, which his proof does not make explicit, and the rest of their analysis are open. No
+  growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and
+  the late-time tail of the l = 2 master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06)
+  (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with that origin and bracketing 7
+  (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the
+  flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in the class would carry. The
+  least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8),
+  which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
+  `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
   2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
   Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
@@ -859,8 +869,18 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   those repairs was read by a thirtieth (D67, D68): no major finding; four minor findings — summary sentences calling
   computed what is in part deduced from computed quantities, his solvability proof described as stated for general
   dimension where most of it is written in 3+1, the horizon-threshold caveat missing from two places, and three slips in
-  one sentence on the Fredholm property — and thirteen notes, seated (D70). Section 10.23 has not been read by a
-  verifier.
+  one sentence on the Fredholm property — and thirteen notes, seated (D70). Section 10.23 with `tface5.py` and those
+  repairs was read by a thirty-first (D69, D70): no major finding; eight minor findings — a quantifier in the tf
+  weights, the adjoint half of tf-admissibility and the index-0 step of the transition face problem's Fredholm property
+  carried only in part, a four-dimensional control typed, labels and hypotheses in the summaries, and two repairs
+  incomplete — and seven notes, seated (D71). Those repairs were read by a thirty-second (D71): no major finding; five
+  minor findings — a control caught for the wrong reason, the adjoint half's threshold typed where it was called
+  computed, a sentence of this paper stating a positivity on all of the spatial face where it is computed for ρ_K ≤ 10,
+  the proviso on h₀ missing here, and stale labels — and nine notes, seated (D72). Section 10.24 with `lin5.py` was read
+  by a thirty-third (D72), which recomputed the factorization by an independent construction: no major finding; five
+  minor findings — Lemma 8.5 and this paper's summary stated for every parameter where they rest on the parameter point,
+  a step of the deduction left unstated, the factor at l ≤ 1 missing from one sentence and miscalled at the vector type,
+  and a sign in an exponent — and seven notes, seated (D73).
 
 ---
 
@@ -1118,18 +1138,32 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
 - `solv5.py` Q1–Q4: the remaining five-dimensional inputs of Hintz's solvability theorem for the constraint propagation
   operator (supplement section 10.22): Tangherlini in Kerr–Schild time is a three-body scattering metric whose
   Christoffel symbols decay as μρ³, two powers beyond what his calculus needs; dτ is past timelike near the initial
-  surface for every T < 1, and dr future timelike inside the black hole; and his positivity conditions at the corner and
-  the sink hold at the weights (1, −C₀ − 5/2) for every C₀ ≥ 0. 4/4; mutants 4/4 (about 15 seconds).
-- `tface5.py` F1–F4: the five-dimensional inputs of Hintz's transition face theorem (supplement section 10.23): the
-  constraint propagation operator on 4+1 Minkowski at the trace weight 2/3 is homogeneous of degree −2 under dilations;
-  its weights at the origin are β ∈ (0, 2 + C₀], his (1/2, 3/2 + C₀]; at the parameter point the thresholds at the cone
-  face and the sink are α_cf > 0.0066 and α_sf < −0.0066, and −½r²ℓ(dr/r) is his matrix with three angular copies, with
-  positive eigenvalues; and his choice of weights, data and closing integral carry over, with tf-admissibility for β ∈
-  [−C₀, 2). 4/4; mutants 4/4 (about 10 seconds).
+  surface for every T < 1, and dr future timelike inside the black hole; and his positivity conditions hold at the
+  corner and the sink themselves at the weights (1, −C₀ − 5/2) for every C₀ ≥ 0, and on the spatial face for ρ_K ≤ 10
+  at C₀ = 100. 4/4; mutants 4/4 (about 15 seconds).
+- `tface5.py` F1–F5: the five-dimensional inputs of Hintz's transition face theorem (supplement section 10.23), at the
+  parameter point and for C₀ ≤ 100: the constraint propagation operator on 4+1 Minkowski at the trace weight 2/3 is
+  homogeneous of degree −2 under dilations; its weights at the origin are β ∈ (0, 2 + C₀], his (1/2, 3/2 + C₀]; the
+  threshold at the cone face is α_cf > 0.0066 (0 as e → 0, his 1/2 recomputed in four dimensions), the sink's being the
+  solvability theorem's, met; −½r²ℓ(dr/r) is his matrix with three angular copies, with positive eigenvalues; his choice
+  of weights, data and closing integral carry over; the weights of both halves of tf-admissibility; and the free
+  operator's roots and counts in his index-0 argument, with the adjoint's threshold from the conjugated adjoint's
+  computed spectrum (tf-admissibility for β ∈ [−C₀, 2) deduced, provided the point's h lies below h₀). 5/5; mutants 8/8
+  (about 25 seconds).
+- `lin5.py` E1–E5: the five-dimensional indicial roots of Hintz's linearized gauge-fixed Einstein operator (supplement
+  section 10.24): on 4+1 Minkowski its zero energy operator preserves the scalar, vector and tensor harmonic types, and
+  his identity with the wave operator holds; on each type its determinant is (λ + l)(λ − l − 2) times the gauge
+  potential operator's at λ − 1 and the constraint propagation operator's at λ + 1, over a factor that removes, at l ≤
+  1, the roots the Killing 1-forms and the constraint propagation operator's roots 2 (scalar) and 3 (vector) give twice,
+  every parameter symbolic, with his four-dimensional factorizations recomputed as the control; the factors are those of
+  `gaugepot5.py` and `damping5.py`, and without damping the roots are integers outside (0, 2); at the parameter point,
+  for l ≤ 12, the roots are simple, none has real part in (0, 1], each type splits evenly, and the kernel at 0 satisfies
+  the gauge condition (his Lemma 8.4 for every l at the point, Lemma 8.5 and, but for one threshold, Proposition 8.6
+  deduced). 5/5; mutants 4/4 (about 50 minutes).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
-    the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
-      minutes).
+  the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
+  minutes).
 - `bondi5.py` B1–B4: Theorem 3's hierarchy in the Bondi form with general coefficients from the first order (the
   orders below the waves' vanish; the mass law from R_vv at order r^(−3)), the chart from the wave-gauge expansion,
   the Hawking mass of the Bondi spheres, the numerics' coefficient; B4 numerical. 4/4; mutants 5/5 (about ten minutes,
@@ -1200,7 +1234,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D70).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D73).
 
 | claim | where it is established |
 | --- | --- |
@@ -1228,7 +1262,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
-| settling, section 8 | supplement sections 10.1, 10.3–10.23 (Propositions 10.1–10.20); |
+| settling, section 8 | supplement sections 10.1, 10.3–10.24 (Propositions 10.1–10.21); |
 | | `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
 | | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; |
@@ -1239,7 +1273,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | `docket68/n1star/trap5.py` T0–T4; `docket68/n1star/thresh5.py` U1–U4; |
 | | `docket68/n1star/hienergy5.py` V1–V4; `docket68/n1star/lowenergy5.py` L1–L3; |
 | | `docket68/n1star/cpmodes5.py` K1–K3; `docket68/n1star/solv5.py` Q1–Q4; |
-| | `docket68/n1star/tface5.py` F1–F4; [HKW18], [KI03], |
+| | `docket68/n1star/tface5.py` F1–F5; `docket68/n1star/lin5.py` E1–E5; [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin26a], [Hin26], [Hin26c] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
@@ -1252,8 +1286,9 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | 10.11 (D53); the twenty-second section 10.12 (D54); the twenty-third section 10.13 (D55); |
 | | the twenty-fourth section 10.14 (D56); the twenty-fifth section 10.15 (D57); the twenty-sixth |
 | | section 10.16 (D58); the twenty-seventh sections 10.17–10.18 (D59–D60); |
-| | the twenty-eighth section 10.19 (D62); the twenty-ninth sections 10.20–10.21 (D64, D66) |
-| | the thirtieth section 10.22 (D67, D70) |
+| | the twenty-eighth section 10.19 (D62); the twenty-ninth sections 10.20–10.21 (D64, D66); |
+| | the thirtieth section 10.22 (D67, D70); the thirty-first section 10.23 (D69, D71); |
+| | the thirty-second its repairs (D71, D72); the thirty-third section 10.24 (D72, D73) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1266,7 +1301,8 @@ the solver `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imp
 imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `gaugepot5.py`, `damping5.py` and
 `modes5.py`, `hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py` and `trap5.py`, `lowenergy5.py` imports
 `thresh5.py` and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py` imports `cform5.py` and `damping5.py`,
-`tface5.py` imports `cform5.py`, `semiclass5.py` and `damping5.py`; the others import nothing from the research tree:
+`tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and `damping5.py`, `lin5.py` imports `damping5.py` and
+`gaugepot5.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1290,7 +1326,8 @@ imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `ga
                                                          # lowenergy5 (about 7 seconds)
                                                          # cpmodes5 (about 5 seconds)
                                                          # solv5 (about 15 seconds)
-                                                         # tface5 (about 10 seconds)
+                                                         # tface5 (about 25 seconds)
+                                                         # lin5 (about 50 minutes)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1298,9 +1335,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `0fcbc362e5fb716c28032b528c8f5bf0` |
-| `docket68/n1star/N1STAR-LOG.md` | `dab184e9eb71725f97523865991b0b36` |
-| `docket68/n1star/README.md` | `84b07d475a70ccf232f8c23d0167fc82` |
+| `docket68/n1star/N1STAR-PROOF.md` | `8b940da9e43e62cbf330a8d1b7027636` |
+| `docket68/n1star/N1STAR-LOG.md` | `42be8dfa8f7ccb555a9c2bbc8f751b10` |
+| `docket68/n1star/README.md` | `c6115b7aabc720f63c9094396ce937eb` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1335,7 +1372,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/lemmas/hf_core5.py` | `84b715eb461838abcb5e018cd455eb5c` |
 | `docket68/lemmas/seed_escape.py` | `1a8b2ff82872e7096f13bf891a10424c` |
 | `docket68/n1star/cpmodes5.py` | `4579a4605556992e5398c4d2abef2add` |
-| `docket68/n1star/solv5.py` | `ecd9105c258bb6d65b5b08c5828a61e8` |
-| `docket68/n1star/tface5.py` | `0414ec3e0a7b5c4049447a4d53339395` |
+| `docket68/n1star/solv5.py` | `dfc11365958695d53d4dc98ccdd747bc` |
+| `docket68/n1star/tface5.py` | `de9625072d570b423959da1af7654e41` |
+| `docket68/n1star/lin5.py` | `b108caf5ebecc29dc61ce56d7f49af37` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

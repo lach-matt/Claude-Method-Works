@@ -2112,3 +2112,141 @@ ROUTES 4.23. (11) 10.20(e)'s "widened to (iii)" now reads "widened, for (iii), t
 
 *Runs.* solv5.py 4/4 and mutants 4/4 after the changes; response5.py all pass. Next: the thirty-first verifier on 10.23
 (tface5.py, D69) and these repairs; and [Hin26] section 8 in five dimensions, its Lemma 8.4 first.
+
+**D71 (2026-10-23): the thirty-first verifier's findings on 10.23, tface5.py, D69 and D70, seated.**
+
+*The verifier.* The thirty-first, on 1012c7d (identical content at 8ccda3e): no MAJOR finding; eight MINOR findings and
+seven notes. It confirmed the beta-range (0, 2 + C_0], the dimension-free +-1/2 shifts of (B.33), the cone-face
+threshold as the translation of his (4.5), and, with [Hin26c] Theorem 9.38's general-n statement, F2's range and F4's
+decay and threshold; it re-derived T's characteristic polynomial independently (b* = 0.993407313835418), read the D70
+repairs at source, and found every md5 row current. Its first run stopped on a usage limit and resumed.
+
+*Eight MINOR, repaired.* (1) "beta' in range for some eps > 0 iff beta in [-C_0, 2)" was false as an iff (beta < -C_0
+passes with eps = -C_0 - beta): now "for every sufficiently small eps > 0", in 10.23 (iv) and (e), ROUTES 4.24 and
+tface5.py, and F4 now tests the endpoints with symbolic eps and delta instead of typing the brackets. (2)
+tf-admissibility has two halves ([Hin26c] Definition 5.10, p. 104; his p. 137); 10.23(e) now carries the adjoint half:
+an element of the adjoint kernel, at the ztf weight -n + 2 + beta, is improved at ztf by [Hin26c] Theorem 9.38(5) and at
+R_in to the decay 3/2 + S_in - eps, S_in = h^-1 (1 - e)(1 + v) from 10.21 K2, so lies where -l - 1 < -1/2 + S_in, the
+l-window's lower end -- computed in F4. (3) The index 0 of Proposition B.2 is his relative index argument (p. 91), not
+Theorem 9.38, whose part (3) gives only the independence of the weights; its numbers are now computed in a new F5: the
+free 1-form operator's r-roots at the origin in five dimensions, -3, -2 | 0, 1 (l = 0), -l - 3, -l - 2, -l - 1 | l - 1,
+l, l + 1 (scalar l >= 1), -l - 2 | l (vector), windows containing (-2, 0), crossing counts 2, 3, 1 equal to 10.12's; the
+four-dimensional run reproduces his p. 91. 10.23(b) states the step, and pp. 89-91 are in the READ lists. (4) F3's
+four-dimensional control was typed: T is now built from semiclass5.py for any n, and as e -> 0 (e symbolic, B being
+singular at e = 0) the four-dimensional eigenvalues are 1 - 2d, 1/2 - d and 3/2 - d (twice), so d < 1/2, his alpha_cf >
+1/2 ((4.7)); the five-dimensional are 2 - d (three times), 1 - d and 2 - 2d, so d < 1, 10.13's W3; at e = 1/102400 the
+four-dimensional first zero is d = 0.4956, which F4 now uses. (5) Labels: F2-F5's docstrings say what follows "so" is
+deduced; the README and the paper's Appendix A say tf-admissibility is deduced and that the sink threshold is 10.22's,
+met. (6) Hypotheses: C_0 <= 100, the point and h = 10^-6 if below h_0 are now in the paper (settling sentence and
+Appendix A), the README and ROUTES 4.4 and 4.5. (7) D70's supersession of "for every C_0 >= 0" now reaches ROUTES 4.23
+("positive roots at the critical points for every C_0 >= 0"), solv5.py's Q4 label and the paper's Appendix A. (8) The
+paper's thresholds now say "0 and 0 as e -> 0".
+
+*Seven notes, seated.* (1) The quotation now reads "and is thus positive definite" (10.23, tface5.py). (2) 10.23(c)
+cites cform5.py C7 for the half-line d < b*. (3) "The smaller root of q(d, 0)". (4) q(d, 0) is now derived from det T in
+F3, not typed. (5) 10.23(a) now cites Proposition 10.9 directly, which is stated on 4+1 Minkowski. (6) Control coverage:
+F3 adds the characteristic polynomial with n - 2 copies of v, F4 his top 1 claimed, F5 his window claimed; 7/7 caught.
+(7) Small items: the 10.21(d) sentence restructured ("It is Fredholm by ... which stands here in place of his own
+citations ..."); "only simple causal information" is attributed to Proposition 5.6's proof in 10.22 and its indentation
+repaired; the paper's Appendix C row ends in ";"; verbose output prints decimals where it can. The label (10.23) of an
+earlier equation shares its number with the section; it is cited elsewhere and stays.
+
+*Runs.* tface5.py 5/5 and mutants 7/7, about 20 seconds; solv5.py 4/4; response5.py all pass. Next: [Hin26] Lemma 8.4 in
+five dimensions (D72), its computations under way; the thirty-second verifier on 10.23's repairs and that section.
+
+**D72 (2026-10-23): the thirty-second verifier's findings seated; [Hin26] Lemma 8.4 in five dimensions (10.24).**
+
+*The verifier.* The thirty-second, on 3868a8e: no MAJOR finding; five MINOR findings and nine notes. It reran tface5.py
+(5/5, mutants 7/7), solv5.py and response5.py and found the 40 md5 rows current; it recomputed F3's T and its limits,
+F5's free roots by a Kelvin transform, and the adjoint half's S-tilde independently, from box^C's formal adjoint in the
+incoming coordinate T = t + r: h^-1 {(1 - e)(1 + v), 2 (1 + v), 1 + v (n - 1 times)}, his p. 137 at n = 3 and 10.21
+K2's at n = 4.
+
+*Five MINOR, repaired.* (1) F4's "top 1" mutant was caught only by a typed top == n - 2, its endpoint equalities
+carrying an offset that made them identities in the top: the offsets and the typed line are gone, and the mutant fails
+at the endpoints, 1 - eps against -eps. (2) The adjoint half's S_in was typed where D71 called it computed: F4 now
+computes S-tilde by the verifier's construction (s_tilde), asks the mixed coefficient -2 Id and no d_T^2 term, takes the
+bottom of the spectrum, and a third control claims the other bottom h^-1 (1 - e)(1 - v); the dual weight -l - 1 is
+labelled READ (his p. 137). (3) The paper's solv5.py bullet said "on all of the spatial face at C_0 = 100" where Q4
+checks rho_K <= 10 (the verifier finds positivity lost near rho_K = 51.6): now "on the spatial face for rho_K <= 10 at
+C_0 = 100". (4) D71's repair (6) said the proviso "h = 10^-6 if below h_0" was in the paper; it was not: the settling
+sentence and Appendix A's tface5.py bullet now carry it. (5) 10.23's heading and Proof said F1-F4: now F1-F5 (D69, D71).
+
+*Nine notes, seated.* (1) 10.23(b)'s hanging indent restored. (2) 10.23(b) says why [Hin26c] Theorem 9.38(3) does not
+give the index: it makes the index independent of theta and of the weight, so with Corollary 9.39 it would give index 0
+from tf-admissibility at theta = 0, which is what is being proved. (3) 10.23(b) adds the variable order l > -1/2 at R_in
+and < -1/2 at R_out ([Hin26a] p. 91), which keeps the operator Fredholm as h^-1 -> 0, where (B.13)'s window empties. (4)
+10.23(e) cites Corollary 9.39 (Definition 5.10 for every n) and the parenthetical to (9.115) (p. 195), the same
+condition for every n, gives the five-dimensional density rho^-4 (p. 196), and records the verifier's comparison at ztf
+(beta < 2 again) as not computed here. (5) "improved first at ztf by that theorem" now names the normal-operator
+argument of its proof (p. 196). (6) F3's limit e -> 0 is a substitution, T's entries being polynomial in e: the
+docstring and 10.23's Proof say so. (7) F5 now asks every root simple and found (multiplicities 1, as many as the
+degree). (8) solv5.py's Q4 label: "every C_0 >= 0". (9) 10.23's Proof gives the 90 terms to the program; the READ lists
+of 10.23, tface5.py and ROUTES 4.24 add [Hin26c] Theorem 9.38(3), its proof, Corollary 9.39 and Proposition 9.40; ROUTES
+4.24's heading says D69, D71. The paper's hung4.py bullet regained its indentation.
+
+*Lemma 8.4 (10.24; lin5.py E1-E5).* [Hin26] Lemma 8.4 lists the indicial roots of the linearized gauge-fixed Einstein
+operator L by harmonic type, through those of box^Ups and box^C, and proves them by determinants computed in
+Mathematica; Lemma 8.5 and Proposition 8.6 (tf-admissibility) rest on it. lin5.py builds L on 4+1 Minkowski from its
+definitions (Cartesian, r an independent symbol, the harmonics of C^2 = R^4 with z^p a symbol so that l is symbolic) and
+reads off the indicial matrices of r^2 L at a point. Computed: the types are preserved and his (8.5) holds at two points
+(E1); det N_L = c (lam + l)(lam - l - 2) det N_Ups(lam - 1) det N_C(lam + 1) / D, every parameter symbolic, D = (lam -
+1)^2 at s0 and s1, lam (lam - 2) at v1, 1 for l >= 2, and at the tensor type, which four dimensions lacks, det N_L = c
+(lam + l)(lam - l - 2) (E2); his (1)-(5) recomputed in four dimensions (E3); the factors are gaugepot5.py's and
+damping5.py's, and without damping the roots are integers outside (0, 2), as many on each side (E4); at the point (v,
+e_C, gam_C, e_U, gam_U) = (1/2, 1/102400, 10^6, 1/100, 1/100), for l <= 12, the roots are simple, none has real part in
+(0, 1], the types split 4 | 4, 6 | 6, 7 | 7, 2 | 2, 3 | 3, 1 | 1, box^C's nonpositive ones lie below -101, the least
+positive real part is 1.000003, the greatest negative -3.3333 x 10^-7, the least distance from Z of a non-integer root's
+real part (|lam| <= 50) 7.3846 x 10^-8, and 0 is a root at s0 and s2 only, its kernel annihilated by the gauge operator
+(E5). Deduced for every l, with 10.12(i)'s box^Ups roots and Proposition 10.9's box^C roots: his Lemma 8.4 in five
+dimensions, the gap beginning at 0 -- which 10.12 left "not computed here" -- and containing (0, 1]; Lemma 8.5; and
+Proposition 8.6, both halves, on the readings of 10.19-10.23 but for the spectrum of his Lemma 8.2's S-bar_{E^Ups, E^C},
+which the domain step of the kernel half needs. His cokernel argument says 3 roots are crossed at scalar type l >= 2
+where his own list has 7 on each side, 3 being the 1-form count; the argument needs only that the two counts agree, and
+10.24(d) says so.
+
+*Three repairs inside the computation.* The first full run failed E1 at s0: N(lam) at the two points differed by the
+ratio of r^2 there (25 against 9), the images carrying r^-2; every indicial matrix is now read off r^2 times the images,
+which changes the determinants by constants only, and E1 passes. E5 now also reports the greatest negative real part
+(the delta of his Proposition 8.6's proof) and the least distance from Z of a non-integer root's real part (his (8.13)).
+The next run failed E4's comparison of det N_C with damping5.py's polynomials: the ratio is a power of gam_C alone,
+damping5.py normalizing by powers of h = 1/gam_C, so the comparison now allows that power and nothing else (a helper
+test: c gam_C^2 accepted, gam_C + 1 refused).
+
+*Runs.* lin5.py 5/5 (about 50 minutes), mutants 4/4; tface5.py 5/5 (about 25 seconds), mutants 8/8; solv5.py 4/4;
+response5.py all pass; md5 rows current. Next: the thirty-third verifier on 10.24, lin5.py and these repairs; then the
+spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2) and (8.7) in five dimensions.
+
+**D73 (2026-10-23): the thirty-third verifier's findings on 10.24, lin5.py and D72, seated.**
+
+*The verifier.* The thirty-third, on 5795bd5: no MAJOR finding; five MINOR findings and seven notes. It reran lin5.py
+(5/5; mutants 4/4), tface5.py (5/5; 8/8), solv5.py, response5.py, damping5.py and gaugepot5.py, found the 41 md5 rows
+current, and recomputed the factorization by an independent construction -- a true r, other real harmonics, D Ric from
+the linearized Christoffel symbols, the indicial matrices solved jointly at other points -- at s0-s3, v1-v3 and t2-t4,
+symbolically where it could and at two random parameter points otherwise, with the stated D; the four-dimensional
+control; E5's numbers from the full determinant, to every printed digit; and, from the factors, a scan to l <= 60 (no
+root in (0, 1], even splits, the (8.13) distance 1.94 x 10^-8 at l = 50). It read every quotation of 10.24 at source,
+and his "3" on p. 153 in the example after his Definition 2.30 (p. 67), the 1-form count.
+
+*Five MINOR, repaired.* (1) Lemma 8.5 "for every parameter" overstated it: 0 is a simple root at s0 only if box^C has no
+root at 1, which Proposition 10.9 gives at its point; 10.24(b) and its summary now say "for every z > 0 at Proposition
+10.9's point". (2) 10.24(a) used, unstated, that box^Ups has no root in (-1, 0); it now says why, for every z > 0 and l
+(at s0 (1 - (9 + 4z)^(1/2))/2 < -1; Q's negative roots solve lam (lam - 1) = s > l (l + 1) >= 2; the others are 1 - l
+and -l). (3) The paper's Lemma 8.4 sentence dropped "at that point" and the factor at l <= 1: both restored; ROUTES 4.4,
+4.5 and 4.25, the README and lin5.py's docstring now say "at the point" too. (4) "Coulomb root" was wrong at v1, where D
+removes box^C's root 3 (its v1 roots are 3 and -1 - 2 v gam_C): lin5.py's docstring and the paper's lin5.py bullet now
+say "2 (s0, s1) or 3 (v1)". (5) N(r^-1 delta_{E^Ups} G, 0) in 10.24(iv) is N(r delta_{E^Ups} G, 0), his N(rho^-1 ...)
+with rho = 1/r; the code was right.
+
+*Seven notes, seated.* (1) 10.24(c) states the five-dimensional improvement, (n - 1)/2 + S-bar - eps = 3/2 + min spec
+S-bar - eps by [Hin26c] Theorem 9.38(5), his 1 - eps with (8.7), and (d) records that S-bar enters (8.17)'s Fredholm
+setting only through admissible orders along the deformation, which any continuous S-bar allows, so (d) rests on the
+readings. (2) Forward pointers: 10.12's "not computed here" and ROUTES 4.13's OPEN bullet now point to 10.24 and 4.25.
+(3) The headings of 10.23 and ROUTES 4.24 add D72. (4) 10.23(iii) says the limit e -> 0 is a substitution. (5) The
+equation label (10.24) shares its number with the new section, as (10.23) did; it is cited elsewhere and stays. (6)
+lin5.py's "two generic points" is now "two points" (x_4 = 0 at one). (7) 10.24(a) names the closest pair at the point,
+s1's physical 3 and box^Ups's 3 + z/12, 3.3 x 10^-7 apart; and 10.24(d) gives his "3" its source, p. 67.
+
+*Runs.* lin5.py's changes are to its docstring only (its AST is unchanged, checked), so its 5/5 and 4/4 of D72 stand;
+response5.py all pass; md5 rows current. Next: the spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2) and his (8.7) in
+five dimensions, the one input Proposition 8.6 lacks.
