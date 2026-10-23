@@ -394,9 +394,11 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    (4.26; min spec S-bar = 0, his (8.7)), his Proposition 8.6, for small gam_Ups, hold on the same readings (deduced),
    and 2 L is strongly trapping admissible, his Proposition 8.3 (4.27; deduced); the linearized Einstein operator on
    Tangherlini has no outgoing mode but pure gauge at sigma != 0, Im sigma >= 0, so that his Proposition 8.8 holds on
-   the same readings (4.28; the reduction computed, the rest deduced); the line-by-line readings of [Hin26a] sections
-   2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26] sections 6.5, 7.2,
-   8.4 beyond Proposition 8.8 and 8.5, are OPEN.
+   the same readings (4.28; the reduction computed, the rest deduced); his section 6.5.1's zero energy states and
+   Proposition 8.9's gauged linearized metrics hold one order faster in rho and without his logarithms, on his Lemma
+   6.13 in five dimensions (4.29; the orders and exponents computed, the rest deduced); the line-by-line readings of
+   [Hin26a] sections 2.3 and 5.2 and Appendix B and of [Hin26c] section 9 at n = 4, and the rest of the item, [Hin26]
+   Lemma 6.13 and sections 6.5.2, 7.2, 8.4 beyond Proposition 8.9 and 8.5, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -476,8 +478,11 @@ printed 10 x 10 reproduced, the 15 x 15 with ten zeros and the eigenvalues -2 (1
 times), -4 gam c_2, triangular in a constant basis -- and deduces his Proposition 8.3 on Tangherlini; and 4.28 (10.27,
 Proposition 10.24, computed; deduced) computes the Kodama-Ishibashi reduction of D Ric on Tangherlini -- each harmonic
 type at l >= 2 to one master equation with a positive potential, l <= 1 pure gauge at sigma != 0 -- and deduces [AHW24]
-Theorem 6.1(1) there and his Proposition 8.8. Next: the rest of item 2 -- [Hin26] sections 6.5, 7.2, 8.4 from
-Proposition 8.9 on, and 8.5 -- in five dimensions.
+Theorem 6.1(1) there and his Proposition 8.8; and 4.29 (10.28, Proposition 10.25, computed; deduced) computes
+Tangherlini's orders against Minkowski, the asymptotic symmetries' defects and the linearized metrics' gauge sources,
+and deduces his Proposition 6.15 and Proposition 8.9 there, one order faster and without logarithms, on his Lemma 6.13.
+Next: the rest of item 2 -- [Hin26] Lemma 6.13, sections 6.5.2, 7.2, 8.4 from Proposition 8.10 on, and 8.5 -- in five
+dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -1051,7 +1056,7 @@ states Proposition 10.21 and deduces.
   nonpositive roots lie below -101 -- his Lemma 8.5, and his Proposition 8.6, tf-admissibility with weight in (0,
   eps_ind) for small gam_Ups, on the readings of 4.20-4.24, but for the spectrum of S-bar_{E^Ups, E^C} (his Lemma 8.2),
   which the domain step of its kernel half needs.
-- - OPEN: that spectrum and his (8.7) in five dimensions (computed in 4.26); simplicity and (8.13) beyond l <= 12; how
+- OPEN: that spectrum and his (8.7) in five dimensions (computed in 4.26); simplicity and (8.13) beyond l <= 12; how
   small gam_Ups must be, and h_0; sections 8.4-8.5 and 9-10 in five dimensions (his Propositions 8.3 and 8.8 deduced in
   4.27 and 4.28). Labels: computed (lin5.py E1-E5, exact, the point's roots by mpmath); deduced; READ ([Hin26] pp. 28,
   117, 135-137, 144-146, 149-153); nothing proved.
@@ -1072,7 +1077,7 @@ which the kernel half's decay improves before the outgoing threshold is applied.
   beta_sctf < 3/2 (his 1) (S3).
 - Deduced: his (8.4) on Tangherlini, and Proposition 8.6 at Proposition 10.9's point for small gam_Ups on the readings
   of 4.20-4.25, the step 4.25 left OPEN now filled.
-- - OPEN: the readings line by line; how small gam_Ups must be, and h_0; sections 8.4-8.5 and 9-10 in five dimensions
+- OPEN: the readings line by line; how small gam_Ups must be, and h_0; sections 8.4-8.5 and 9-10 in five dimensions
   (his Propositions 8.3 and 8.8 deduced in 4.27 and 4.28). Labels: computed (sbar5.py S1-S3, exact); deduced; READ
   ([Hin26] pp. 144-146, 152-153); nothing proved.
 
@@ -1090,7 +1095,7 @@ N1STAR-PROOF.md 10.26 states Proposition 10.23 and deduces.
   and in rotation-adapted units it is block triangular with scalar blocks and the rotation skew within each unit (P3).
 - Deduced: his Proposition 8.3 on Tangherlini, c_2 < 0 at the photon sphere since c is past timelike there, the angular
   pairs weighted alike so that the rotation of the plane along the flow stays skew.
-- - OPEN: [Hin26c]'s high-energy estimates for symmetric 2-tensors at n = 4 (the reading of 4.20); his sections 8.4-8.5
+- OPEN: [Hin26c]'s high-energy estimates for symmetric 2-tensors at n = 4 (the reading of 4.20); his sections 8.4-8.5
   and 9-10 in five dimensions (his Proposition 8.8 deduced in 4.28). Labels: computed (strap5.py P1-P3, exact); deduced;
   READ ([Hin26] pp. 34, 113-116, 147-149); nothing proved.
 
@@ -1110,7 +1115,29 @@ and deduces.
 - Deduced: [AHW24] Theorem 6.1(1) on five-dimensional Tangherlini, in the class of 10.16, by 10.16's argument on each
   master equation; and his Proposition 8.8 there, on the readings of 4.20-4.27, at Proposition 10.9's point with gam_Ups
   small.
-- - OPEN: the kernel elements' class, omega's continuation inside the horizon (before his Proposition 6.12 applies) and
+- OPEN: the kernel elements' class, omega's continuation inside the horizon (before his Proposition 6.12 applies) and
   the interior uniqueness, as in 10.16; how small gam_Ups must be, and h_0; his Propositions 8.9-8.11 (zero energy,
-  [AHW24] Theorem 6.1(2)), section 8.5 and sections 9-10 in five dimensions. Labels: computed (gmodes5.py G1-G5, exact);
-  deduced; READ ([Hin26] pp. 25, 153-154; [KI03] pp. 4-10, 13-15, 18-20); nothing proved.
+  [AHW24] Theorem 6.1(2); Proposition 8.9 deduced in 4.29), section 8.5 and sections 9-10 in five dimensions. Labels:
+  computed (gmodes5.py G1-G5, exact); deduced; READ ([Hin26] pp. 25, 153-154; [KI03] pp. 4-10, 13-15, 18-20); nothing
+  proved.
+
+### 4.29 [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions: the zero energy states (computed; D80)
+
+His section 6.5.1 builds box^Ups's zero energy states from the Minkowskian translations, boosts and rotations, and his
+Proposition 8.9 brings the linearized Kerr metrics into the gauge, with logarithms at (6.31) and (8.19) where an
+indicial root is met. zstates5.py computes the five-dimensional orders, defects and exponents; N1STAR-PROOF.md 10.28
+states Proposition 10.25 and deduces.
+- Orders: g - gbar in rho^2, Gamma in rho^3, so the delta* and box^Ups differences in rho^3 Diff^0_b and rho^4 Diff^2_b;
+  r* without a logarithm (Z1).
+- Translations: delta*_g dx^1 at rho^3, box dx^1 at rho^4, the correction at rho^2, 2 an s1 root only at z = 0 (Z2);
+  boosts: the stationary defect K at rho^2, the correction at rho^1, 1 no s1 root (Z3); rotations Killing on
+  Tangherlini, V_1 = so(4) (Z4).
+- The linearized metrics: d_mu g at rho^2, h_A at rho^3, both vacuum; the sources at rho^3 (s0) and, delta G h_A
+  vanishing, E^Ups h_A at rho^4 (v1); 1 no s0 root, 2 no v1 root (Z5).
+- Deduced: his Proposition 6.15 and Proposition 8.9 in five dimensions, every order one higher and neither logarithm, on
+  his Lemma 6.13 in five dimensions; six angular momenta in place of three.
+- OPEN: his Lemma 6.13 in five dimensions (10.20); the index sets; the Myers-Perry identification, not READ; his
+  Proposition 6.18, section 7.2, Propositions 8.10-8.13 and Lemma 8.12 in five dimensions (the candidates for the kernel
+  number 1 + 6 + 4 = 11 against his 7, the count not established); section 8.5 and sections 9-10; how small gam_Ups must
+  be, and h_0. Labels: computed (zstates5.py Z1-Z5, exact); deduced; READ ([Hin26] pp. 25, 81, 124-127, 154-155);
+  nothing proved.

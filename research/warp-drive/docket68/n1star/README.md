@@ -180,11 +180,17 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   potentials positive at l >= 2, the scalar type through [KI03]'s first-order system and one constraint, l <= 1 pure
   gauge at sigma != 0 -- and the horizon in ingoing coordinates (G1-G5; Proposition 8.8 deduced in 10.27). `python3
   gmodes5.py --selftest` (5/5, about five minutes), `--mutants` (5/5).
+- `zstates5.py`: [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions (section 10.28; D80): Tangherlini's orders
+  against Minkowski (g - gbar at rho^2, Gamma at rho^3, r* without a logarithm), the defects of the asymptotic
+  translations and boosts, the rotations Killing (V_1 = so(4)), the linearized metrics d_mu g and h_A with their gauge
+  sources (delta G h_A = 0, E^Ups h_A at rho^4), and the needed exponents against box^Ups(0)'s indicial roots,
+  four-dimensional Schwarzschild the control (Z1-Z5; Propositions 6.15 and 8.9 deduced in 10.28 on Lemma 6.13). `python3
+  zstates5.py --selftest` (5/5, about 15 seconds), `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All thirty-six are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All thirty-seven are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing
 the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py,
 lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py,
@@ -193,4 +199,5 @@ damping5.py, trap5.py and thresh5.py import gaugepot5.py, damping5.py and modes5
 damping5.py, thresh5.py and trap5.py, lowenergy5.py imports thresh5.py and damping5.py, cpmodes5.py imports damping5.py,
 solv5.py imports cform5.py and damping5.py, tface5.py imports cform5.py, gaugepot5.py, semiclass5.py and damping5.py,
 lin5.py imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, strap5.py imports damping5.py, gmodes5.py
-imports damping5.py, and the others import nothing from the tree. The board's shared record is not edited here.
+imports damping5.py, zstates5.py imports damping5.py, and the others import nothing from the tree. The board's shared
+record is not edited here.

@@ -777,7 +777,13 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   l ≥ 2 reduced to one master equation whose potential is positive, the tensor type, which four dimensions lacks, with
   the scalar wave's, and l ≤ 1 pure gauge — so that every mode of the linearized Einstein operator smooth across the
   horizon and outgoing at infinity is pure gauge (supplement section 10.27, `gmodes5.py`; computed, the proposition
-  deduced on the same readings, the kernel elements' class and the uniqueness inside the horizon open). A line-by-line
+  deduced on the same readings, the kernel elements' class and the uniqueness inside the horizon open). And the zero
+  energy states he builds from the Minkowskian translations, boosts and rotations, with the linearized Kerr metrics put
+  into his gauge, his Proposition 8.9, have five-dimensional counterparts one order faster in 1/r and without his two
+  logarithms: Tangherlini meets Minkowski at μ/r², the rotations are Killing, the rotating metrics' gauge source comes
+  from the gauge modification alone, and the exponents the constructions need, 1 and 2, miss the five-dimensional
+  indicial roots once that modification is on (supplement section 10.28, `zstates5.py`; the orders and exponents
+  computed, the propositions deduced on the five-dimensional form of his Lemma 6.13, which is open). A line-by-line
   check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his
   proof does not make explicit, and the rest of their analysis are open. No growing mode appears in either type for l =
   2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields,
@@ -948,7 +954,7 @@ from the arXiv text, with the extraction's spacing.
 - [CLY03b] V. Cardoso, J. P. S. Lemos, S. Yoshida, *Scalar-gravitational perturbations and quasinormal modes in the
   five dimensional Schwarzschild black hole*, arXiv:hep-th/0311260v2. READ 2026-10-20: (2.1)–(2.7), pp. 3–4; Tables
   1–3, pp. 8–9.
-- - [KI03] H. Kodama, A. Ishibashi, *A master equation for gravitational perturbations of maximally symmetric black
+- [KI03] H. Kodama, A. Ishibashi, *A master equation for gravitational perturbations of maximally symmetric black
   holes in higher dimensions*, arXiv:hep-th/0305147v3. READ 2026-10-20: (2.4), (2.7)–(2.8), pp. 4–5; p. 7 (l = 1);
   (3.1), (3.13)–(3.14), pp. 8–10; section 5.1, p. 13. READ 2026-10-21: (2.11)–(2.13), (2.20)–(2.21), (3.5)–(3.7),
   (3.9)–(3.14), (6.1), Appendix A (A.1b). READ 2026-10-23: (2.1)–(2.8), pp. 4–5; (2.20)–(2.24), (3.1)–(3.14), pp. 7–10;
@@ -987,7 +993,7 @@ from the arXiv text, with the extraction's spacing.
   5.12), 58–60 (Lemma 5.14, Corollary 5.15, Proposition 5.16), 64, 66. READ 2026-10-22 for Theorem B.1 in five
   dimensions: pp. 85–88 ((B.1)–(B.17), Proposition B.2), 93–94 (Theorem B.4, (B.31)–(B.37)), 96–98 ((B.38)–(B.41), the
   eigenvalues of −½r²ℓ(dr/r) and Lemma 3.3's inner product, section B.4: (B.42)–(B.45)).
-- - [Hin26] P. Hintz, *Nonlinear stability of subextremal Kerr black holes*, arXiv:2606.28253v2. READ 2026-10-21: pp. 1,
+- [Hin26] P. Hintz, *Nonlinear stability of subextremal Kerr black holes*, arXiv:2606.28253v2. READ 2026-10-21: pp. 1,
   4, 17, 25–26, 29 ((1.43) and the reason for its strip), 82 (Definition 4.2, (4.6)–(4.9)), 113 (section 6,
   (6.1)–(6.6)), 117–124 (Lemma 6.6, (6.17), Lemma 6.8, Proposition 6.9, Lemmas 6.10–6.11, Proposition 6.12 and its
   proof, (6.20)–(6.28)), 134–137 (section 7.1, Theorem 7.1). READ 2026-10-22: pp. 113–116 (Lemma 6.1, footnote 60,
@@ -1206,6 +1212,12 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   2) + 3/4 − 27μ/(4r²)), the scalar type through Kodama and Ishibashi's first-order system, one constraint and their
   master equation, every potential positive at l ≥ 2, and l ≤ 1 pure gauge at nonzero frequency (the mode stability of
   the linearized Einstein operator, and with it the proposition, deduced). 5/5; mutants 5/5 (about five minutes).
+- `zstates5.py` Z1–Z5: Hintz's section 6.5.1 and Proposition 8.9 in five dimensions (supplement section 10.28):
+  Tangherlini's metric and Christoffel symbols against Minkowski's at orders 1/r² and 1/r³, the tortoise coordinate
+  without a logarithm, the defects of the asymptotic translations (1/r³) and boosts (1/r²), the rotations Killing, the
+  linearized mass-changing and rotating metrics with their gauge sources at 1/r³ and 1/r⁴, and the exponents 1 and 2 off
+  the indicial roots of the gauge potential operator, four-dimensional Schwarzschild the control (the zero energy states
+  and the gauged metrics, without logarithms, deduced). 5/5; mutants 5/5 (about 15 seconds).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1280,7 +1292,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D79).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D80).
 
 | claim | where it is established |
 | --- | --- |
@@ -1308,7 +1320,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
-| settling, section 8 | supplement sections 10.1, 10.3–10.27 (Propositions 10.1–10.24); |
+| settling, section 8 | supplement sections 10.1, 10.3–10.28 (Propositions 10.1–10.25); |
 | | `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
 | | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; |
@@ -1320,7 +1332,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D7
 | | `docket68/n1star/hienergy5.py` V1–V4; `docket68/n1star/lowenergy5.py` L1–L3; |
 | | `docket68/n1star/cpmodes5.py` K1–K3; `docket68/n1star/solv5.py` Q1–Q4; |
 | | `docket68/n1star/tface5.py` F1–F5; `docket68/n1star/lin5.py` E1–E5; `docket68/n1star/sbar5.py` S1–S3; |
-| | `docket68/n1star/strap5.py` P1–P3; `docket68/n1star/gmodes5.py` G1–G5; |
+| | `docket68/n1star/strap5.py` P1–P3; `docket68/n1star/gmodes5.py` G1–G5; `docket68/n1star/zstates5.py` Z1–Z5; |
 | | [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin26a], [Hin26], [Hin26c] |
@@ -1352,8 +1364,8 @@ imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `ga
 `modes5.py`, `hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py` and `trap5.py`, `lowenergy5.py` imports
 `thresh5.py` and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py` imports `cform5.py` and `damping5.py`,
 `tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and `damping5.py`, `lin5.py` imports `damping5.py` and
-`gaugepot5.py`, `sbar5.py`, `strap5.py` and `gmodes5.py` import `damping5.py`; the others import nothing from the
-research tree:
+`gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and `zstates5.py` import `damping5.py`; the others import nothing
+from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1382,6 +1394,7 @@ research tree:
                                                          # sbar5 (about a minute)
                                                          # strap5 (a few seconds)
                                                          # gmodes5 (about five minutes)
+                                                         # zstates5 (about 15 seconds)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1389,9 +1402,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `00991ae53949e7059779edeba573ea51` |
-| `docket68/n1star/N1STAR-LOG.md` | `102863ee12563787f1913bec57641e6a` |
-| `docket68/n1star/README.md` | `400ac5592e3fd61f9883caa29db2e414` |
+| `docket68/n1star/N1STAR-PROOF.md` | `0a3fa76b0dfd907d807fd6ef13085d59` |
+| `docket68/n1star/N1STAR-LOG.md` | `67036de3ce06b82ea70ca3c1b8838ac3` |
+| `docket68/n1star/README.md` | `be40d297fd74bd792d626375763a44c7` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1432,5 +1445,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/sbar5.py` | `a1899ea2f8470115ece25a400dc5fdc7` |
 | `docket68/n1star/strap5.py` | `8d716c0c7dd36f8cd23987f1c79fec3d` |
 | `docket68/n1star/gmodes5.py` | `5d2b68e8b13e2b921e08a733e0900031` |
+| `docket68/n1star/zstates5.py` | `f3af86b878b40e9d56cfe2f114102f65` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

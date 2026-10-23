@@ -2470,3 +2470,41 @@ with explicit harmonics, which the record's general-k jets carry.
 *Runs.* gmodes5.py 5/5, mutants 5/5; response5.py all pass; md5 rows current (44). The headings of 10.27 and 4.28 keep
 D78 alone, D79 added there exceeding 121 characters. Next: [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions
 (D80).
+
+**D80 (2026-10-23): [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions (10.28, zstates5.py).**
+
+M's commission (522) continues: route B item 2 carried to five dimensions step by step. After Proposition 8.8 (D78) the
+next step of his section 8.4 is the zero energy theory, which rests on section 6.5.1's states built from the Minkowskian
+symmetries and on Proposition 8.9's gauged linearized Kerr metrics. READ at source (alphaXiv, 2026-10-23): [Hin26] pp.
+25, 81 (Definition 4.1), 124-127 (Lemma 6.13, section 6.5.1), 154-155 (Propositions 8.8-8.9, Remark 8.10).
+
+*Computed (Proposition 10.25, zstates5.py Z1-Z5).* (Z1) g - gbar in rho^2, Gamma in rho^3, r* without a logarithm. (Z2)
+delta*_g dx^1 at rho^3, box dx^1 at rho^4; 2 an s1 root only at z = 0, the root through 2 (1 + (17 + 2z - 2 (z^2 + 4z +
+16)^(1/2))^(1/2))/2 > 2 for z > 0. (Z3) The boost's stationary defect K at rho^2; 1 no s1 root. (Z4) R Killing, g
+gbar^-1 R = R; V_1 = so(4). (Z5) d_mu g and h_A vacuum, at rho^2 and rho^3; eta_mu at rho^3; delta G h_A = 0 and eta_A =
+E^Ups h_A = (2 gam mu/(f r^5)) w at rho^4; 1 no s0 root, 2 no v1 root. Controls: the four-dimensional orders; z = 0;
+four-dimensional Schwarzschild's K at rho; f R; four-dimensional d_M g at rho.
+
+*Deduced (10.28).* (a) His Proposition 6.15 in five dimensions, every order raised by one and no logarithm at the
+boosts, h_v1 = 0. (b) His Proposition 8.9 there, no logarithm at the mass, g-dot^Ups(mu) at rho^2 and g-dot^Ups(A) at
+rho^3, six angular momenta. Both on his Lemma 6.13 in five dimensions, OPEN since 10.20.
+
+*Notes on the computation.* (1) The first draft read orders by simplify and as_leading_term along the ray and ran for
+over ten minutes on one Christoffel table; every component along a ray is rational in R, so the order is now a
+difference of degrees, exact. (2) A ray along (1, 1, 1, 1)/2, on which x^1 - x^2 vanishes identically, was replaced
+before the first full run by the generic (2, 4, 5, 6)/9. (3) The symbolic inverse of the 5 x 5 Cartesian metric did not
+finish in ten minutes; the inverse is now written out, delta_ij - mu x_i x_j/r^4, and checked against g. (4) D Ric of
+h_A in Cartesian coordinates ran for over twenty minutes unfinished; in polar coordinates it takes under a second, and
+Z2 moved there too (from four minutes), the orders read on gbar's orthonormal frame. (5) The draft gave the s1 root
+through 2 as (1 + (9 + z)^(1/2))/2: the run refuted it, and the root is now solved exactly. (6) The draft's Z4 control,
+the gbar-dual of R, was vacuous -- R is orthogonal to x, so its g- and gbar-duals agree -- and the selftest flagged it;
+the control is now f R. (7) The draft's Z3 control was forced to fail; it now computes four-dimensional Schwarzschild's
+K, of order rho, against the five-dimensional claim. (8) The rotation's gauge source was first written as an assumption;
+it is now computed with 10.15's E^Ups at the trace weight 2/3.
+
+*Also repaired.* D79's reflow doubled the marker ('- - ') of six bullets whose first line it rewrapped: ROUTES-OPEN.md
+4.25-4.28's OPEN bullets and the paper's [KI03] and [Hin26] entries. Repaired; the reflow now keeps a bullet's own
+marker.
+
+*Runs.* zstates5.py 5/5 (about 15 seconds), mutants 5/5; response5.py all pass; md5 rows current (45). Next: the
+thirty-seventh verifier on 10.28, zstates5.py, D79 and D80.
