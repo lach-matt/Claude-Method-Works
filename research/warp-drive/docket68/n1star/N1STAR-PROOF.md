@@ -4114,7 +4114,7 @@ operator, since box^Ups annihilates the 1-forms.
      once u_0 lies in the domain of [Hin26c] (9.112), which his proof obtains by improving the decay at sctf with (8.7)
      and the threshold at the outgoing radial set ([Hin26c] Theorem 9.38(5)). In five dimensions that improvement needs
      the spectrum of S-bar_{E^Ups, E^C} of his Lemma 8.2 -- by [Hin26c] Theorem 9.38(5) it is to (n - 1)/2 + S-bar - eps
-     = 3/2 + min spec S-bar - eps, his 1 - eps with (8.7) -- not computed here.
+     = 3/2 + min spec S-bar - eps, his 1 - eps with (8.7) -- not computed here; 10.25 computes it: min spec S-bar = 0.
  (d) (Proposition 8.6, the cokernel half) His index argument (p. 153), with the density r^^3 |dr^ dg/| and -q + 2 in (0,
      eps_ind) for his -q + 3/2 (the shift n/2 = 2 of 10.23(ii)): on each type, raising q past every root crosses the
      roots with real part <= 0, 4, 6, 7, 2, 3 or 1 by (a), lowering the index by as many; deforming gam_Ups and gam_C to
@@ -4127,8 +4127,8 @@ operator, since box^Ups annihilates the 1-forms.
      0 and, with (c), its cokernel is trivial. He writes that 3 roots are crossed at scalar type l >= 2; his own list
      has 7 on each side there, 3 being the 1-form count of the example after his Definition 2.30 (p. 67: -l - 1, -l,
      -l + 1 | l, l + 1, l + 2); the argument uses only that the two counts agree. So, on the readings of 10.19-10.23 and
-     with (c)'s threshold OPEN, L is tf-admissible on 4+1 Minkowski with every weight beta in (0, eps_ind), for gam_Ups
-     small, at the point.
+     with (c)'s threshold OPEN (10.25 computes it), L is tf-admissible on 4+1 Minkowski with every weight beta in (0,
+     eps_ind), for gam_Ups small, at the point.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 28 (section 1.4.3's three kinds of indicial roots, "With
 no modifications E^Ups and E^C, it would be (0, 1) just as for the scalar wave operator", footnote 28), 144-146 (section
@@ -4141,11 +4141,73 @@ a computed factorization and the roots of 10.12 and 10.15: the physical roots ar
 2 = 2 in place of his 1, and the mass the s0 root 2; the gap begins at 0, which 10.12 left open, and reaches past 1 --
 in four dimensions 1 is an s0 root and his gap is (0, eps_ind) with eps_ind < 1; each type splits evenly, the tensor
 type included; and box^C's nonpositive roots lie below -101. Lemma 8.5 is computed at the point and deduced for every
-z > 0 there, and Proposition 8.6 is deduced on readings but for one input. Not done, and OPEN: the spectrum of
-S-bar_{E^Ups, E^C} (his Lemma 8.2) and (8.7) in five dimensions; simplicity and (8.13) beyond l <= 12; how small gam_Ups
-must be, and h_0; his Proposition 8.3 (strong trapping admissibility of L), section 8.4 (mode stability, Proposition
-8.8, which uses [AHW24] on Kerr), section 8.5, and sections 9-10, in five dimensions. Nothing of this section is proved:
-Proposition 10.21 is computed, and (a)-(d) are deduced.
+z > 0 there, and Proposition 8.6 is deduced on readings but for one input, which 10.25 computes. Not done, and OPEN
+(10.25 computes the spectrum of S-bar_{E^Ups, E^C}, his Lemma 8.2 and (8.7), in five dimensions): simplicity and (8.13)
+beyond l <= 12; how small gam_Ups must be, and h_0; his Proposition 8.3 (strong trapping admissibility of L), section
+8.4 (mode stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5, and sections 9-10, in five dimensions.
+Nothing of this section is proved: Proposition 10.21 is computed, and (a)-(d) are deduced.
+
+### 10.25 [Hin26] Lemma 8.2's S-bar and (8.7) in five dimensions (`sbar5.py` S1-S3; D74)
+
+*The setting.* 10.24(c) carried the kernel half of [Hin26] Proposition 8.6 to five dimensions but for one step: "One
+first improves the sctf = scf cap tf-decay rate alpha to 1 - eps for every eps > 0 using (8.7), and then notes that
+A^(1-eps,-beta)(tf) is contained in the domain of [Hin26c, (9.112)] in view of the threshold condition r + alpha_+ <
+-1/2 at the outgoing radial set" (p. 152). (8.7) closes his Lemma 8.2 (p. 146): in 2 L-bar = -2 d_t* rho (rho d_rho -
+1 - S-bar_{E^Ups, E^C}) + L-bar(0) ((8.3b)), S-bar "is equal to 1/2 rho^-1 times the sum of d_t*-coefficients of the
+second and third terms" of 2 L-bar = box + 2 E^C delta G + 2 (delta* + E^C) E^Ups G; it is "lower triangular" in his
+splitting (5.27), with diagonal 2 (1 - v) gam_C, (1 - v) gam_C, (1 - e_C)(1 - v) gam_C, (1 - e_Ups) gam_Ups, gam_Ups, 0,
+2 gam_Ups ((8.8)), "and min spec S-bar = 0. (8.7)". Corollary 8.7 (p. 153) asks beta_sctf < 1 + min Re S-bar = 1
+((8.18a)). 10.18 and 10.21 computed the S-bar of box^Ups and of box^C in five dimensions (thresh5.py U2, cpmodes5.py
+K1); not computed before this section: L's.
+
+**Proposition 10.22 (computed; exact).** On 4+1 Minkowski with t* = t - r, and E^Ups and E^C as in Proposition 10.21:
+
+ (i) (the structure) The wave operator on symmetric 2-tensors, componentwise in the Cartesian frame, has no d_t*^2 term,
+     the mixed term 2 d_t* d_r and the d_t* term 3/r: it is -2 d_t* rho (rho d_rho - 3/2) plus a stationary operator.
+     And 2 L-bar - box is first order, with d_t* coefficient 2 rho S-bar, S-bar a constant 15 x 15 matrix: free of r at
+     (r, 0, 0, 0), with the same characteristic polynomial at (1, 2, 2, 4) (S1).
+ (ii) (the spectrum) spec S-bar = {0 (five times), gam_Ups (three times), 2 gam_Ups, (1 - e_Ups) gam_Ups, (1 - v) gam_C
+     (three times), 2 (1 - v) gam_C, (1 - e_C)(1 - v) gam_C}: the union of the spectra of the S-bar of box^Ups and of
+     box^C -- computed here by the same construction from 2 E^Ups G delta* and 2 delta G E^C, and equal to thresh5.py
+     U2's and cpmodes5.py K1's -- with five zeros; every eigenvalue is >= 0 for 0 < v, e_Ups, e_C < 1 and gam_Ups,
+     gam_C > 0. At the trace weight 1 the two eigenvalues (1 - e) gam become (3/2)(1 - e) gam and the rest stay (S2).
+ (iii) (the consequences) u = rho^(3/2 + s) solves (rho d_rho - 3/2 - s) u = 0; rho^(3/2 - eps) lies in rho^l L^2(r^3
+     dr) near infinity iff l < -1/2 - eps; and rho^(3/2 + s) lies in rho^beta L^2(drho/rho) iff beta < 3/2 + s (S3).
+
+*Proof.* S1-S3 of sbar5.py. Fields h(t*, x) on 4+1 Minkowski with r = |x|, d_t = d_t* and d_i = d/dx_i - (x_i/r) d_t*;
+the operators are lin5.py's, with time dependence; the coefficients of d_t* h are read off at a point after expansion,
+the spectra by sympy, and the signs by substituting v = 1/(1 + p), e = 1/(1 + q). Four-dimensional control: rho d_rho -
+1, and his (8.8)'s seven values with multiplicities 2, 2, 1, 1, 2, 1, 1, summing to 10, min spec 0 -- his (8.7) -- and
+his 1 - eps and 1. Controls: c_Ups = dt in place of r^-1 dt in (i), where S-bar carries r; the incoming t* = t + r in
+(ii), where the constraint part becomes gam_C {2 (1 + v), (1 - e_C)(1 + v), 1 + v}, 10.21 K2's spectrum at R_in, and the
+union fails; and his 1 - eps claimed in (iii). []
+
+*Deduced.*
+
+ (a) ((8.7), (8.4), (8.18a) in five dimensions) min spec S-bar = 0, attained five times (twice in four dimensions), for
+     every admissible parameter -- at the point of 10.24 in particular -- and at either trace weight. On
+     five-dimensional Tangherlini S_{E^Ups, E^C} - S-bar lies in rho C^oo, his (8.4), as 10.18 deduces his (6.7) for
+     box^Ups: the metric differs from Minkowski's by O(mu rho^2), and c and c_Ups equal Minkowski's for large r (10.14,
+     10.15). So Corollary 8.7's condition reads beta_sctf < 3/2 + min Re S-bar = 3/2, his 1, by (iii).
+ (b) (Proposition 8.6, the last step of the kernel half) In 10.24(c) the kernel element u_0 improves at sctf, by
+     [Hin26c] Theorem 9.38(5) at n = 4 and (a), to 3/2 - eps for every eps > 0, his 1 - eps; by (iii) it then lies in
+     rho^l L^2(r^3 dr) for l < -1/2 - eps, inside the domain of [Hin26c] (9.112) under the outgoing threshold r +
+     alpha_+ < -1/2, whose -1/2 is dimension-free as in 10.23(iv). So the step 10.24(c) left OPEN holds on the same
+     reading, and with 10.24(d) his Proposition 8.6 holds on 4+1 Minkowski, at Proposition 10.9's point and for gam_Ups
+     small, on the readings of 10.19-10.24: L is tf-admissible with every weight beta in (0, eps_ind).
+
+*READ.* [Hin26] (arXiv:2606.28253v2): pp. 145-146 (section 8's opening, (8.1), Lemma 8.1 with (8.2)-(8.5), Lemma 8.2
+with (8.6)-(8.8) and its proof), 152 (the parenthetical in the proof of Proposition 8.6), 153 (Corollary 8.7, (8.18a));
+alphaXiv, 2026-10-23. [Hin26c] Theorem 9.38(5) (p. 195), as 10.23 reads it.
+
+*What this gives, and what it does not.* The one input 10.24 left OPEN for Proposition 8.6 is computed: the S-bar of the
+linearized gauge-fixed Einstein operator in five dimensions carries the gauge potential operator's spectrum, the
+constraint propagation operator's and five zeros, and min spec S-bar = 0, so the decay at sctf improves to 3/2 - eps,
+(n - 1)/2 where his is 1, and the threshold keeps its dimension-free -1/2. Proposition 8.6 is now deduced on readings
+alone. Not done, and OPEN: those readings ([Hin26c] section 9 at n = 4, line by line); how small gam_Ups must be, and
+h_0; simplicity and (8.13) beyond l <= 12; his Proposition 8.3 (strong trapping admissibility of L), section 8.4 (mode
+stability, Proposition 8.8, which uses [AHW24] on Kerr), section 8.5, and sections 9-10, in five dimensions. Nothing of
+this section is proved: Proposition 10.22 is computed, and (a)-(b) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
