@@ -1496,3 +1496,22 @@ Paley-Wiener argument and section 14.1 that [Hin26]'s proof of Theorem 10.1 foll
 - OPEN: [Hin26c] Lemma 3.9, the microlocal part of Lemma 13.13, the 3b-calculus (his scaled bounded geometry paper, not
   read) and Theorems 9.5, 9.16 and 9.41 at n = 4; his section 11. Labels: computed (lowfreq5.py W3; exact); deduced;
   READ ([Hin26c] pp. 8, 20-21, 56-59, 106-107, 233, 235, 252, 255, 262-267); nothing proved.
+
+### 4.43 [Hin26] section 11.1 in five dimensions: admissibility and forward solutions (computed; D108)
+
+His section 11 begins by making the main result of [Hin26c] available: the dynamical linearized operator is admissible
+relative to L_b (Corollary 11.10), and forward solutions lose two orders at iota+ plus his sf-loss delta (Theorem
+11.12). cone5.py computes the inputs that carry the dimension; N1STAR-PROOF.md 10.42 states Proposition 10.39 and
+deduces.
+
+- The densities: the unweighted b-density shifts the weights by (n/2, (n+1)/2, 1/2), his (3/2, 2, 1/2) and (2, 5/2, 1/2)
+  in five dimensions; beta_+ in (1/2, 1/2 + eps_ind) in both; the top of beta_I, the radiation field's I+ order, 3/2 for
+  his 1 (C1).
+- The background differences at iota+ -- mass, rotation, boost -- of orders 2, 3, 2 for his 1, 2, 1, and the patched
+  background's curvature of order 4 for his 3 (C2-C3).
+- Deduced, on readings: E+ with (2, 0) in E+ and min Re E+ >= 2 (with 10.38's alpha_5 = 2); Corollary 11.9's P(g0, g0)
+  in rho_+^4 C^oo; Corollary 11.10 with l_+ in (0, 1), sf-loss 0; Theorem 11.12 with delta = 0, beta_I in (beta_+, 3/2):
+  u in H^(k, beta_I, beta_+, -3/2)_b.
+- OPEN: [Hin26c] Theorem 11.1 and Definitions 5.15 and 5.18 at n = 4; the h-terms of (5.28) and Proposition 11.16 in
+  five dimensions; E^C_I, gam_Ups and l_I at I+; his sections 11.2-11.8. Labels: computed (cone5.py C1-C3; exact);
+  deduced; READ ([Hin26] pp. 218-226, 231, 244, 263; [Hin26c] pp. 107, 109, 201, 228); nothing proved.

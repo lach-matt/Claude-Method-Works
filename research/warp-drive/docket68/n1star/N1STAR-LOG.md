@@ -3604,3 +3604,29 @@ other reasons; the calculi at n = 4; Theorems 9.5, 9.16 and 9.41 at n = 4; 10.27
 
 *Runs.* lowfreq5.py --selftest 3/3 (W1 5 s, W2 and W3 under 1 s) and --mutants 7/7 (about 4 s); paper/response5.py
 --selftest all pass; md5 rows refreshed.
+
+**D108 (2026-10-24): [Hin26] section 11.1 in five dimensions, admissibility and forward solutions (10.42, cone5.py).**
+
+M asked to continue; after section 10 (D102-D107) his section 11 is the next step of ROUTES 4.4 route B item 2, and its
+section 11.1 makes [Hin26c]'s main result available. READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp.
+218-226, 231, 244, 263; [Hin26c] pp. 107, 109, 201, 228.
+
+*Computed (Proposition 10.39, cone5.py C1-C3).* (C1) 1/(t* r^n) = rho_I^n rho_+^(n+1) rho_K for [Hin26c]'s (11.4): the
+b-density shifts (n/2, (n+1)/2, 1/2), his (11.5) at n = 3 and (2, 5/2, 1/2) at n = 4; beta_+ in (1/2, 1/2 + eps_ind) at
+both; his delta > beta_+ - 1/2 is Theorem 10.1's; the radiation field's I+ order -1/2 against |dt dx| at both, so beta_I
+< (n - 1)/2 + S-bar: 1 and 3/2. (C2) Mass, rotation and boost differences of degrees -2, -3, -2 along rays (four
+dimensions -1, -2, -1). (C3) Ric of g = eta + M r^-(n-2) (dt + dr)^2 with M = mu_0 + d F(r/t): zero for F constant, the
+linear part of degree -n and supported where F varies, the quadratic of degree -(2n - 2), no cubic.
+
+*Deduced (10.42).* (a) E+ from (2, 0), min Re E+ >= 2, with 10.38's alpha_5 = 2. (b) Lemma 11.5's l_+ < 2, Definition
+5.15's l_+ <= 1 binding. (c) Proposition 11.6 on 10.38's (5.28) at h = 0; Corollary 11.9's P(g0, g0) in rho_+^4 C^oo.
+(d) Corollary 11.10 with l_+ in (0, 1), l_K in (2, 2 + eps_K]. (e) Theorem 11.12 with delta = 0 and beta_I in (beta_+,
+3/2): u in H^(k, beta_I, beta_+, -3/2)_b.
+
+*Notes.* (1) C3's first test took the part linear in d, which also carries mu_0 d terms, as one homogeneous piece and
+failed; graded by order in the deviation (M = eps(mu_0 + d F)) the pieces are homogeneous of degrees -n and -(2n - 2).
+(2) C1's first formula for the top of beta_I added 1/2 twice and failed against his 1; the threshold alpha_I < -1/2
+shifted by n/2 gives 1 and 3/2.
+
+*Runs.* cone5.py --selftest 3/3 (C1 under 1 s, C2 2 s, C3 7 s) and --mutants 3/3 (about 6 s); paper/response5.py
+--selftest all pass; md5 rows 58, cone5.py added.
