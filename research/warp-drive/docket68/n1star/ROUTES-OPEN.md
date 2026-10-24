@@ -1948,3 +1948,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   OPEN item on [Hin26d] section 3 closes at source.
 - Stated: X7's (4,7) identification uses the contraction reading (the coordinate reading would give -1); the computed
   coefficients and the n = 4 power are unchanged, reproduced independently by the verifier.
+
+### 4.71 The deductions inventoried (measured; D140)
+
+- Measured (`DEDUCTIONS.tsv`, section 10.70): 248 deduced items in 10.12-10.69 -- D 90, B 60, C 31, A 29, ? 38. The
+  60 B items, each a 3 + 1 proof carried by modification, are what a line-by-line check would write out; the A, C and
+  D items are proof-level once their hypotheses, standard arguments or computations are written.
+- Next: write the C items (perturbation, continuity) and the A items' hypothesis checks at proof level, then the B
+  items one proof at a time.

@@ -4162,3 +4162,9 @@ used only for J^munu (m1); [Hin23d] p. 10 quoted verbatim (m2); both n conventio
 (m4); X7's operator is (3.30)'s but for the h-free gamma_Ups term (m5); the label of 10.64 now names the reading (m6).
 Nits: xbar_I's cap not computed, stated; timings. The verifier's independent jet-based recomputation reproduced every X7
 coefficient at n = 3 and n = 4 at two radii.
+
+**D140 (2026-10-24): the deductions inventoried (10.70).** Four extraction passes listed every deduced item of
+10.12-10.69 with its sources and sorted it by one rule: 248 items, D 90 (bookkeeping on computed values), B 60 (a 3 + 1
+proof carried by modification), C 31 (perturbation or continuity), A 29 (a general-n result applied), ? 38. The
+extractors had no write tool and returned their rows inline; the rows were saved as returned, and merged into
+DEDUCTIONS.tsv. The paper's 8.8 now gives the count: the 60 B items are the core of the line-by-line check.

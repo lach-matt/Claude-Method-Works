@@ -1034,9 +1034,12 @@ for but one norm convention, now named (supplement section 10.69; `censusweep.py
 those papers line by line: that the censuses found every place the dimension enters is evidenced by the two methods
 agreeing and read at source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.69 are
 arguments from computed and READ inputs, each read by an independent verifier, not proofs written out at the level of
-the theorem's statement. λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates —
-and are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the deductions
-written out, would make Theorem 4 a theorem.
+the theorem's statement. Inventoried by a fixed rule, the 248 deduced steps are 90 pieces of bookkeeping on computed
+values, 29 applications of results printed for general n, 31 perturbation or continuity arguments, 38 other, and 60
+proofs written in 3 + 1 dimensions and carried to five by modification. Those 60 are the core of what a line-by-line
+check would write out (supplement section 10.70, `DEDUCTIONS.tsv`). λ1 and δ exist by the deduction — from Hintz's
+smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A line-by-line check
+of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
 
 ---
 
@@ -1736,7 +1739,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | `docket68/n1star/transfer5.py` T1–T2; `docket68/n1star/general5.py` G1–G2; [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin23a], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c], [AHW24], [CD03], [HHV21], [DLMF] |
-| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.69; the route and its |
+| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.70; the route and its |
 | | remaining reading, `docket68/n1star/ROUTES-OPEN.md` 4.44–4.69 |
 | the general class, section 8.6 | supplement sections 10.60–10.63; `docket68/n1star/general5.py` G1–G2; |
 | | [HHV21], [CD03] |
@@ -1747,6 +1750,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | [Hin26c]'s sections 7–8 and 9.3 and [HHV21] at n = 4, section 8.8 | supplement sections 10.67–10.68; |
 | | `docket68/n1star/edge5.py` E1–E4; [Hin26c], [HHV21] |
 | a second census by token sweep, section 8.8 | supplement section 10.69; `docket68/n1star/censusweep.py` |
+| the deductions inventoried, section 8.8 | supplement section 10.70; `docket68/n1star/DEDUCTIONS.tsv` |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1856,9 +1860,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `c1c58100e14930f8dfd430e75b92128a` |
-| `docket68/n1star/N1STAR-LOG.md` | `691a8930fc5ebb932e708dd614700777` |
-| `docket68/n1star/README.md` | `f58e2a5c1e24dd2c8c10db60353aae85` |
+| `docket68/n1star/N1STAR-PROOF.md` | `9da14a309da6364a05abc9fa9d015f49` |
+| `docket68/n1star/N1STAR-LOG.md` | `5bd019c28814e7431fdbd33497630331` |
+| `docket68/n1star/README.md` | `e5c41cc42289f61f92c48a0ebcb230be` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |

@@ -7896,6 +7896,43 @@ censuses that did that reading are 10.53-10.58's and those behind 10.64-10.68.
 
 Labels: computed (Proposition 10.51, the sweep); READ ((f)'s quotes); deduced (the accounting (a)-(f)); nothing proved.
 
+### 10.70 The deductions inventoried (`DEDUCTIONS.tsv`; D140)
+
+*The setting.* What separates Theorem 4 from proved is, besides the censuses (10.69), that the deductions of 10.12-10.69
+are not written at proof level. This section measures that gap. Every deduced item -- each lettered item under
+a *Deduced* heading, and each sentence labelled deduced -- was extracted with its sources and sorted by one fixed rule
+on its own words.
+
+ (A) It applies a result printed for general n, or dimension-free, to computed inputs.
+ (B) It carries a proof written in 3 + 1 dimensions to n = 4 by modification.
+ (C) It is a perturbation, continuity, openness or semicontinuity argument.
+ (D) It is arithmetic or bookkeeping on computed values.
+ (?) The rule's words do not decide.
+
+**Count (measured; `DEDUCTIONS.tsv`, 248 rows).** D 90, B 60, C 31, A 29, ? 38. By range: 10.12-10.29, 57 items (A 4, B
+16, C 11, D 14, ? 12); 10.30-10.45, 77 (A 5, B 17, C 3, D 40, ? 12); 10.46-10.58, 60 (A 10, B 13, C 7, D 17, ? 13);
+10.59-10.69, 54 (A 10, B 14, C 10, D 19, ? 1).
+
+The B items, where a 3 + 1 proof is carried by modification, are: 10.15 (a), (b); 10.18 (b); 10.19 (a), (d); 10.20 (a);
+10.21 (a), (c); 10.22 (e); 10.23 (b)-(d); 10.24 (b); 10.27 (b); 10.28 (a); 10.29 (a); 10.30 (a), (c); 10.31 (a), (b);
+10.32 (b), (c); 10.34 (c); 10.36 (b); 10.37 (c); 10.39 (d), (e); 10.41 (b); 10.42 (e); 10.43 (c); 10.44 (c); 10.45 (b),
+(e); 10.46 (a), (b), (e); 10.47 (d), (e); 10.48 (b), (c); 10.49 (a); 10.53 (e); 10.54 (a); 10.55 (b); 10.56 (b); 10.58
+(c); 10.60 (f); 10.61 (b), (c); 10.62 (b)-(d); 10.63 (c); 10.64 (b), (e)-(g); 10.66 (f); 10.67 (a), (b).
+
+*Read.* The 90 D items are proof-level once their computations are, since they are arithmetic on exact computed values.
+The 29 A items are proof-level once each hypothesis of the cited general-n result is checked. Each names its hypotheses
+and where they are computed. The 31 C items are standard functional-analytic or ODE arguments, about a page each written
+out. The 60 B items are the core of what is not done: each says that a proof of Hintz's, or of a companion paper, runs
+with the computed five-dimensional quantities in place. Writing each out line by line is the check 8.8 names. Some B
+items written before 10.64-10.68 are since carried by modification at source and stay listed as written: 10.22 (e) by
+10.65; 10.48 (c) by 10.64; 10.53 (e), 10.55 (b) and 10.58 (c) by 10.67. The 38 ? items are mostly summary sentences
+('deduced, not proved') and equivariance or uniqueness steps.
+
+The sort is a first pass by a fixed rule, by extraction, not adjudicated item by item. The extractors flagged their
+judgement calls: 10.56 (a), 10.59 (a), 10.61 (e), 10.65 (b), 10.67 (a) and the ? rows.
+
+Labels: measured (the count); nothing computed, deduced or proved here.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth
