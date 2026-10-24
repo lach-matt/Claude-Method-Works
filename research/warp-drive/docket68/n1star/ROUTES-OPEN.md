@@ -1948,3 +1948,29 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   OPEN item on [Hin26d] section 3 closes at source.
 - Stated: X7's (4,7) identification uses the contraction reading (the coordinate reading would give -1); the computed
   coefficients and the n = 4 power are unchanged, reproduced independently by the verifier.
+
+### 4.71 The deductions inventoried (measured; D140)
+
+- Measured (`DEDUCTIONS.tsv`, section 10.70): 248 deduced items in 10.12-10.69 -- D 90, B 60, C 31, A 29, ? 38. The
+  60 B items, each a 3 + 1 proof carried by modification, are what a line-by-line check would write out; the A, C and
+  D items are proof-level once their hypotheses, standard arguments or computations are written.
+- Next: write the C items (perturbation, continuity) and the A items' hypothesis checks at proof level, then the B
+  items one proof at a time.
+
+### 4.72 The perturbation steps at proof level (proved and deduced; D141)
+
+- Proved (Lemma 10.52, section 10.71): openness of invertibility (Neumann), semicontinuity of the kernel by a
+  rank-N stabilization, persistence of strict inequalities on compact sets; cited: Rouche/Hurwitz, the inverse
+  function theorem, [HPS77].
+- Deduced (the map): each of the 31 C rows of DEDUCTIONS.tsv rests on one of these and a continuity input READ from its
+  source; ten rows were misfiled by the rule (exact, computed or B steps) and are listed as such.
+- Remaining of 8.8 (ii): the 60 B steps, the A steps' hypothesis checks, the 38 undecided rows.
+
+### 4.73 The general-n steps: every hypothesis placed (READ and deduced; D142)
+
+- READ ([Hin26] pp. 110-111, 217; [Hin26c] pp. 264-265): Proposition 5.25's gauged-data construction is a triangular
+  linear system in a frame, the same for any n; Lemmas 10.13 and 14.6 are Hardy inequalities in t at fixed (r, omega)
+  with general s through the 3b calculus.
+- Deduced (10.72): all 29 A rows of DEDUCTIONS.tsv have their hypotheses placed; 10.38 (a) with one deduced link (X7
+  computes it for [Hin23a]'s gauge); 10.51 (c) misfiled (internal).
+- Remaining of 8.8 (ii): the 60 B steps and the 38 undecided rows.

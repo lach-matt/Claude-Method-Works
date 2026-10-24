@@ -4162,3 +4162,23 @@ used only for J^munu (m1); [Hin23d] p. 10 quoted verbatim (m2); both n conventio
 (m4); X7's operator is (3.30)'s but for the h-free gamma_Ups term (m5); the label of 10.64 now names the reading (m6).
 Nits: xbar_I's cap not computed, stated; timings. The verifier's independent jet-based recomputation reproduced every X7
 coefficient at n = 3 and n = 4 at two radii.
+
+**D140 (2026-10-24): the deductions inventoried (10.70).** Four extraction passes listed every deduced item of
+10.12-10.69 with its sources and sorted it by one rule: 248 items, D 90 (bookkeeping on computed values), B 60 (a 3 + 1
+proof carried by modification), C 31 (perturbation or continuity), A 29 (a general-n result applied), ? 38. The
+extractors had no write tool and returned their rows inline; the rows were saved as returned, and merged into
+DEDUCTIONS.tsv. The paper's 8.8 now gives the count: the 60 B items are the core of the line-by-line check.
+
+**D141 (2026-10-24): the perturbation steps at proof level (10.71).** The 31 C rows of DEDUCTIONS.tsv share one shape: a
+property at one point carried to a neighbourhood. Lemma 10.52 proves the three abstract steps they use -- openness of
+invertibility by the Neumann series; dim ker <= N near a Fredholm index-0 point by a rank-N stabilization V = sum f_j
+l_j; persistence of strict inequalities on compact sets -- and cites Rouche/Hurwitz and the inverse function theorem.
+Each C row is mapped to its lemma and its continuity input, READ from its source; ten rows the rule misfiled (exact,
+computed, or B steps) are listed apart.
+
+**D142 (2026-10-24): the general-n steps' hypotheses placed (10.72).** An extraction pass listed each A row's hypotheses
+and where the record establishes them: 23 of 28 complete, 5 partial, and one row (10.51 (c)) missed and misfiled. Three
+partials were closed by reading at source: [Hin26] Proposition 5.25 (pp. 110-111), a triangular frame system the same in
+any n; [Hin26] Lemma 10.13 (p. 217) and [Hin26c] Lemma 14.6 (pp. 264-265), Hardy inequalities in t with general s by the
+3b calculus. 10.41 (d)'s inputs are 10.53's and 10.67's; 10.38 (a) is X7's computation for [Hin23a]'s gauge, deduced for
+[Hin26]'s.

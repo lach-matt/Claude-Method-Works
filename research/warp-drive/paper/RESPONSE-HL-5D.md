@@ -1032,11 +1032,19 @@ section 5.2 is an identity of symbols whose sign is a positivity computed in fiv
 method agrees: a sweep of every marker of the dimension on every page of the carried passages finds 270, all accounted
 for but one norm convention, now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive
 those papers line by line: that the censuses found every place the dimension enters is evidenced by the two methods
-agreeing and read at source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.69 are
+agreeing and read at source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 are
 arguments from computed and READ inputs, each read by an independent verifier, not proofs written out at the level of
-the theorem's statement. λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates —
-and are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the deductions
-written out, would make Theorem 4 a theorem.
+the theorem's statement. Inventoried by a fixed rule, the 248 deduced steps are 90 pieces of bookkeeping on computed
+values, 29 applications of results printed for general n, 31 perturbation or continuity arguments, 38 other, and 60
+proofs written in 3 + 1 dimensions and carried to five by modification. Those 60 are the core of what a line-by-line
+check would write out (supplement section 10.70, `DEDUCTIONS.tsv`). The perturbation steps are now at proof level given
+their continuity inputs. They rest on five lemmas — openness of invertibility, semicontinuity of the kernel, persistence
+of strict inequalities, Rouché and the inverse function theorem — of which the first three are proved in the supplement
+and the last two are cited, and on continuity statements read from the sources (supplement section 10.71). The
+applications of general-n results have every hypothesis placed, three of them now read at source (supplement section
+10.72). λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not
+evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out,
+would make Theorem 4 a theorem.
 
 ---
 
@@ -1245,7 +1253,8 @@ from the arXiv text, with the extraction's spacing.
   152–154, 218–323. READ 2026-10-24 without the class: pp. 3, 5, 40, 76–81, 118–124, 136, 144, 154, 200–216, 233, 251,
   318–319. READ 2026-10-24 in full text for the boost at n = 4 (supplement section 10.66): pp. 63 (Definition 2.27), 74
   ((3.21)), 77–81 (section 3.4, Lemmas 3.18–3.19), 108–110 (section 5.6), 238–247 (section 11.4), 301–302, 310–311 and
-  318–326 (Theorem 13.1 and its proof).
+  318–326 (Theorem 13.1 and its proof). READ 2026-10-24 (supplement section 10.72): pp. 110–111 (Proposition 5.25 and
+  its proof), 217 (Lemma 10.13 and its proof).
 - [Hin26c] P. Hintz, *(Non-)linear waves on asymptotically flat spacetimes. II: trapping, bound states, nonlinear
   applications*, arXiv:2606.28008v1. READ 2026-10-22: pp. 88 (Definition 4.13, Lemma 4.14), 90–91 (Proposition 4.19),
   100 ((5.1a)–(5.2)), 101–105 (Example 5.4, Remark 5.6, Definitions 5.8, 5.10–5.11, Remark 5.9, Lemma 5.12), 158–159
@@ -1261,7 +1270,8 @@ from the arXiv text, with the extraction's spacing.
   proof, Lemmas 14.3–14.6), 277 (its references). READ 2026-10-24 for sections 5–13 at n = 4: pp. 19, 39, 61, 101–102,
   106–109, 114–116, 156–158, 163, 168, 174, 193–201, 211, 228, 255. READ 2026-10-24 in full text for sections 7–8 and
   9.3 at n = 4 (supplement section 10.67): pp. 101 (Remark 5.6), 114–157 (sections 7–8; (8.3), Lemma 8.1 and
-  (8.9)–(8.14) on pp. 142–145), 175, 179, 182, 188, 191 (section 9.3).
+  (8.9)–(8.14) on pp. 142–145), 175, 179, 182, 188, 191 (section 9.3). READ 2026-10-24 (supplement section 10.72): pp.
+  264–265 (Lemma 14.6 and its proof).
 - [Hin26d] P. Hintz, *Pseudodifferential operators on manifolds with scaled bounded geometry*, Commun. Am. Math. Soc.
   6 (2026) 153–243, arXiv:2408.06651. READ 2026-10-24 (supplement section 10.65): pp. 4 (Definition 1.3), 8 (Definition
   1.9), 14 (example (10), the 3b-algebra, (1.15)), 26 (section 3).
@@ -1736,7 +1746,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | `docket68/n1star/transfer5.py` T1–T2; `docket68/n1star/general5.py` G1–G2; [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin23a], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c], [AHW24], [CD03], [HHV21], [DLMF] |
-| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.69; the route and its |
+| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.72; the route and its |
 | | remaining reading, `docket68/n1star/ROUTES-OPEN.md` 4.44–4.69 |
 | the general class, section 8.6 | supplement sections 10.60–10.63; `docket68/n1star/general5.py` G1–G2; |
 | | [HHV21], [CD03] |
@@ -1747,6 +1757,9 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | [Hin26c]'s sections 7–8 and 9.3 and [HHV21] at n = 4, section 8.8 | supplement sections 10.67–10.68; |
 | | `docket68/n1star/edge5.py` E1–E4; [Hin26c], [HHV21] |
 | a second census by token sweep, section 8.8 | supplement section 10.69; `docket68/n1star/censusweep.py` |
+| the deductions inventoried, section 8.8 | supplement section 10.70; `docket68/n1star/DEDUCTIONS.tsv` |
+| the perturbation steps at proof level, section 8.8 | supplement section 10.71 |
+| the general-n steps' hypotheses placed, section 8.8 | supplement section 10.72; [Hin26], [Hin26c] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1856,9 +1869,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `c1c58100e14930f8dfd430e75b92128a` |
-| `docket68/n1star/N1STAR-LOG.md` | `691a8930fc5ebb932e708dd614700777` |
-| `docket68/n1star/README.md` | `f58e2a5c1e24dd2c8c10db60353aae85` |
+| `docket68/n1star/N1STAR-PROOF.md` | `6f57cd43fc9f0c8d978a5d19707d3e23` |
+| `docket68/n1star/N1STAR-LOG.md` | `afb8d7d97b7329fb2a33f9bcefcf6d0d` |
+| `docket68/n1star/README.md` | `e5c41cc42289f61f92c48a0ebcb230be` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |

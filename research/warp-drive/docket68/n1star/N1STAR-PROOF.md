@@ -7896,6 +7896,146 @@ censuses that did that reading are 10.53-10.58's and those behind 10.64-10.68.
 
 Labels: computed (Proposition 10.51, the sweep); READ ((f)'s quotes); deduced (the accounting (a)-(f)); nothing proved.
 
+### 10.70 The deductions inventoried (`DEDUCTIONS.tsv`; D140)
+
+*The setting.* What separates Theorem 4 from proved is, besides the censuses (10.69), that the deductions of 10.12-10.69
+are not written at proof level. This section measures that gap. Every deduced item -- each lettered item under
+a *Deduced* heading, and each sentence labelled deduced -- was extracted with its sources and sorted by one fixed rule
+on its own words.
+
+ (A) It applies a result printed for general n, or dimension-free, to computed inputs.
+ (B) It carries a proof written in 3 + 1 dimensions to n = 4 by modification.
+ (C) It is a perturbation, continuity, openness or semicontinuity argument.
+ (D) It is arithmetic or bookkeeping on computed values.
+ (?) The rule's words do not decide.
+
+**Count (measured; `DEDUCTIONS.tsv`, 248 rows).** D 90, B 60, C 31, A 29, ? 38. By range: 10.12-10.29, 57 items (A 4, B
+16, C 11, D 14, ? 12); 10.30-10.45, 77 (A 5, B 17, C 3, D 40, ? 12); 10.46-10.58, 60 (A 10, B 13, C 7, D 17, ? 13);
+10.59-10.69, 54 (A 10, B 14, C 10, D 19, ? 1).
+
+The B items, where a 3 + 1 proof is carried by modification, are: 10.15 (a), (b); 10.18 (b); 10.19 (a), (d); 10.20 (a);
+10.21 (a), (c); 10.22 (e); 10.23 (b)-(d); 10.24 (b); 10.27 (b); 10.28 (a); 10.29 (a); 10.30 (a), (c); 10.31 (a), (b);
+10.32 (b), (c); 10.34 (c); 10.36 (b); 10.37 (c); 10.39 (d), (e); 10.41 (b); 10.42 (e); 10.43 (c); 10.44 (c); 10.45 (b),
+(e); 10.46 (a), (b), (e); 10.47 (d), (e); 10.48 (b), (c); 10.49 (a); 10.53 (e); 10.54 (a); 10.55 (b); 10.56 (b); 10.58
+(c); 10.60 (f); 10.61 (b), (c); 10.62 (b)-(d); 10.63 (c); 10.64 (b), (e)-(g); 10.66 (f); 10.67 (a), (b).
+
+*Read.* The 90 D items are proof-level once their computations are, since they are arithmetic on exact computed values.
+The 29 A items are proof-level once each hypothesis of the cited general-n result is checked. Each names its hypotheses
+and where they are computed. The 31 C items are standard functional-analytic or ODE arguments, about a page each written
+out. The 60 B items are the core of what is not done: each says that a proof of Hintz's, or of a companion paper, runs
+with the computed five-dimensional quantities in place. Writing each out line by line is the check 8.8 names. Some B
+items written before 10.64-10.68 are since carried by modification at source and stay listed as written: 10.22 (e) by
+10.65; 10.48 (c) by 10.64; 10.53 (e), 10.55 (b) and 10.58 (c) by 10.67. The 38 ? items are mostly summary sentences
+('deduced, not proved') and equivariance or uniqueness steps.
+
+The sort is a first pass by a fixed rule, by extraction, not adjudicated item by item. The extractors flagged their
+judgement calls: 10.56 (a), 10.59 (a), 10.61 (e), 10.65 (b), 10.67 (a) and the ? rows.
+
+Labels: measured (the count); nothing computed, deduced or proved here.
+
+### 10.71 The perturbation steps at proof level: five lemmas and the map (D141)
+
+*The setting.* 10.70 counts 31 deduced steps of kind C: perturbation, continuity, openness or semicontinuity. Each has
+the same shape. A property holds at one point -- Tangherlini, h at the record's point, sigma != 0 on a compact set --
+and an abstract lemma carries it to a neighbourhood, given that the objects depend continuously on the parameter in a
+stated topology. The lemmas are written out here with proofs. Each C item is then mapped to its lemma and its continuity
+input, the input READ from the source that states it.
+
+**Lemma 10.52 (proved).** Let X, Y be Banach spaces and p -> T_p a map from a topological space into the bounded
+operators L(X, Y), continuous in operator norm.
+
+ (P1) (Openness.) If T_p0 is invertible, T_p is invertible for p near p0 and p -> T_p^-1 is continuous in operator
+     norm. *Proof.* T_p = T_p0 (I + T_p0^-1 (T_p - T_p0)), and ||T_p0^-1 (T_p - T_p0)|| < 1 near p0, so the Neumann
+     series inverts the second factor; its inverse depends continuously on p, with ||T_p^-1|| <= ||T_p0^-1|| / (1
+     - ||T_p0^-1|| ||T_p - T_p0||). []
+ (P2) (Semicontinuity of the kernel.) If T_p0 is Fredholm of index 0 with dim ker T_p0 = N, there is V in L(X, Y) of
+     rank N with T_p0 + V invertible. Then dim ker T_p <= N for p near p0, and if N independent elements of ker T_p are
+     given at each such p, they span it. *Proof.* Let h_1, ..., h_N span ker T_p0 and f_1, ..., f_N span a complement of
+     ran T_p0, of dimension N by index 0. Take l_j in X* with l_j(h_i) = delta_ij (Hahn-Banach), and V = sum f_j l_j.
+     Then T_p0 + V is injective: (T_p0 + V)u = 0 forces T_p0 u = -sum l_j(u) f_j in ran T_p0 meet the complement, so
+     l_j(u) = 0 and T_p0 u = 0; then u = sum c_i h_i with c_i = l_i(u) = 0. It is onto, since its range contains ran
+     T_p0 and every f_j = (T_p0 + V) h_j. By (P1), T_p + V is invertible near p0. On ker T_p, (T_p + V)u = Vu, so u =
+     (T_p + V)^-1 V u and ker T_p embeds into ran V, of dimension N. []
+ (P3) (Strict inequalities.) If F_p is a family of continuous real functions on a compact set K, with p -> F_p
+     continuous into C^0(K), and F_p0 > 0 on K, then F_p > 0 on K for p near p0. *Proof.* min_K F_p0 = c > 0, and
+     ||F_p - F_p0||_C0 < c near p0. []
+ (P4) (Zeros of analytic families; Hurwitz.) If z -> f_p(z) is holomorphic on a disc D with p -> f_p continuous in the
+     sup norm on D, and f_p0 has no zero on the boundary circle, then f_p and f_p0 have the same number of zeros in D,
+     counted with multiplicity, for p near p0 (Rouche). A real-analytic function of one variable that is not identically
+     zero vanishes at most on a discrete set.
+ (P5) (Inverse function theorem.) A C^1 map from an open set of R^N to R^N with invertible derivative at x0 is a C^1
+     diffeomorphism from a neighbourhood of x0 onto a neighbourhood of its value, which contains a closed ball about
+     that value.
+
+(P1)-(P3) are proved above. (P4) and (P5) are textbook theorems, cited.
+
+*The map (deduced).* By DEDUCTIONS.tsv's rows:
+
+ (i) (P1, openness of invertibility.) 10.20 (e), 10.34 (b) (a finite matrix), 10.60 (c), 10.60 (d) (with P2), 10.66 (g)
+     (I + o(1) on R^4), 10.68 (b). The continuity input in each is the operator family's continuity in its parameter
+     between fixed weighted spaces: [HHV21] Lemma 10.9 and p. 90 for (b, sigma), and [Hin26] p. 119 (Proposition 6.9's
+     proof) and p. 124 for the families of [Hin26]. Both are READ (10.60).
+ (ii) (P2, the kernel.) 10.33 (f) and 10.60 (d). N = 11 and the eleven independent states at every b near b0 are
+     computed and deduced in 10.28-10.33 (10.68 (a)).
+ (iii) (P3, strict inequalities.) 10.14 (a)-(b), 10.17 (a), 10.18 (a), 10.19 (b), 10.22 (c), 10.26 (a), 10.54 (e), 10.60
+     (b). In each, the function is an explicit symbol, threshold or quantity computed in closed form, continuous in its
+     parameter (eta, h, gamma, r, b). Compactness is of the set named: the critical set, the trapped set, the horizon's
+     radial set. For the trapped set's normal hyperbolicity at b near b0 the input is [HPS77] persistence, cited by
+     [Hin26] Remark 1.4.
+ (iv) (P4.) 10.37 (e) (Hurwitz, along the candidate zero) and 10.54 (d) (a discrete exceptional set in h).
+ (v) (P5.) 10.63 (a) and 10.66 (e): the charge map, polynomial in its parameters, with its Jacobian computed invertible
+     (Proposition 10.47).
+ (vi) (Not perturbative; the rule's word misled it.) 10.12 is exact: an indicial family depends only on the leading part
+     at infinity. 10.20 (c) and 10.60 (a), (e) are uniformity statements read with (i)'s inputs. 10.21 (e) rests on
+     [Hin26a] Theorem 5.2, a B step (10.65). 10.50 (c)-(e) are estimates from Theorems D and E and Hintz's
+     final-parameter continuity. 10.54 (b)-(c) are computed (uniform5.py) and monotone. 10.63 (d) is now computed
+     (gluing5.py D4).
+
+So the C steps are at proof level given their continuity inputs: (P1)-(P3) are proved here, (P4)-(P5) are textbook
+theorems, and each input is a statement READ from the source that makes it. What (ii) of 8.8 leaves is the 60 B steps,
+the A steps' hypothesis checks and the 38 undecided rows.
+
+Labels: proved (Lemma 10.52 (P1)-(P3)); cited ((P4), (P5), [HPS77]); deduced (the map); READ (the continuity inputs).
+
+### 10.72 The general-n steps: every hypothesis placed (D142)
+
+*The setting.* 10.70 counts 29 deduced steps of kind A. Each applies a result printed for general n, or dimension-free,
+to computed inputs, so each is at proof level once every hypothesis of the cited result is placed. An extraction pass
+listed each A step's hypotheses and where the record establishes each. Three hypotheses rested on readings, and those
+are now READ at source here.
+
+*READ.* [Hin26] (arXiv:2606.28253v2; alphaXiv, 2026-10-24): p. 110, Proposition 5.25 (gauged Cauchy data) and its proof,
+p. 111: in a frame e_0 = nu, e_i tangent to Sigma_IVP, "The left-hand side of (5.80) for (X, Y) = (e_i, e_j) thus equals
+-(1/2)(e_0 t_IVP)(h~_1)_ij, which thus uniquely determines (h~_1)_ij"; then (5.81)'s e^lambda component "For lambda = j
+... uniquely determines (h~_1)_0j ... and for lambda = 0 one obtains -(1/2)(e_0 t_IVP)(h~_1)_00 = f_0 + (1/2)(e_0
+t_IVP)(g_0)^ij (h~_1)_ij". p. 217, Lemma 10.13: "We use the product of |dt*| with any smooth weighted b-density on X to
+define L^2(M_0)", and its proof for s = 0 "Dropping angular variables from the notation", a Hardy inequality in t at
+fixed r. [Hin26c] (arXiv:2606.28008v1): pp. 264-265, Lemma 14.6 and its proof, the same Hardy inequality in t at fixed r
+"We drop the angular variables from the notation", and general s by an elliptic A in Psi^s_3b with parametrix, the
+calculus being [Hin23d]'s in every dimension (10.65).
+
+*Placed (deduced).* Of the 29:
+
+ (i) 23 have every hypothesis placed at a computed check, a READ statement printed for general n, or an earlier section:
+     10.20 (b), 10.23 (e), 10.24 (c), 10.25 (b), 10.32 (d), 10.48 (d), 10.49 (d), 10.53 (a), (d), 10.56 (a), 10.57 (d),
+     10.58 (a), (b), 10.59 (a), (d), 10.64 (a), (i), 10.65 (a)-(c), 10.66 (a), 10.67 (c), 10.68 (a).
+ (ii) Four were partial and are placed now. 10.49 (b): Proposition 5.25's proof is a triangular linear system in a
+     frame, (h~_1)_ij from (5.80), then (h~_1)_0j and (h~_1)_00 from (5.81), each with coefficient -(1/2) e_0 t_IVP. The
+     same equations hold for i, j = 1, ..., n, so it holds at n = 4. 10.40 (c) and 10.41 (c): Lemmas 10.13 and 14.6 are
+     Hardy inequalities in t at fixed (r, omega), for any weighted density on X, with general s through the 3b calculus,
+     so they hold in any dimension. 10.41 (d): its inputs, [Hin26c] Theorems 9.41, 9.16 and 9.5 (6) at n = 4, are
+     10.53's and 10.67's.
+ (iii) 10.38 (a), that the h-dependent couplings at I+ fall by r^-(1/2) in five dimensions, is computed for [Hin23a]'s
+     operator (exterior5.py X5, X7). For [Hin26]'s gauge it is deduced: his gauge modifications are independent of h, as
+     [Hin23a]'s (3.30) shows for that gauge.
+ (iv) 10.51 (c) cites the record's own Theorem A and Proposition 6.5, not an outside general-n result. The rule misfiled
+     it; it holds as stated there.
+
+So every A step has its hypotheses placed, 10.38 (a) with one deduced link. With 10.71, the A and C steps of (ii) are at
+proof level given their READ inputs. What (ii) leaves is the 60 B steps and the 38 undecided rows.
+
+Labels: READ (the three proofs above); deduced (the placing); nothing computed or proved here.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth
