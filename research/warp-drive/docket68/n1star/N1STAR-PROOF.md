@@ -6118,7 +6118,7 @@ Steps 2, 4 and 5 remove a boost, the black hole's rotation and centre-of-mass mo
 as parameters. This section computes which of his generators and harmonic types are G-invariant, and deduces that his
 construction may be run on G-invariant objects alone.
 
-*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; quotations transliterated to ASCII): p. 63,
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; quotations transliterated to ASCII): pp. 63-64,
 Definition 2.27, "S_l := ker(Delta - l(l + 1))", "V_l := {*dS : S in S_l}", 1-forms and 2-tensors "of scalar type l" and
 "of vector type l"; p. 219, the steps of section 11 (Step 2: "we shall counteract this term by boosting the initial Kerr
 black hole"; Step 4: "changes of the final black hole parameters as well as a logarithmic plus constant modulation of
@@ -6138,43 +6138,55 @@ Nash-Moser iteration scheme of Saint Raymond [SR89] for the map P o Psi", with i
      rotations of the two planes. Tangherlini's mass change mu' r^-2 (dt + dr)^2 is G-invariant (C1).
  (ii) (the harmonics of S^3) For l <= 8: one G-invariant scalar harmonic at each even l, none at odd l; no G-invariant
      smooth divergence-free 1-form at any l, the invariant 1-forms being a(theta) d theta, divergence-free only for a =
-     C/sin 2 theta (under T^2 alone cos^2 theta d phi1 and sin^2 theta d phi2 are such forms); and one G-invariant
-     transverse traceless tensor harmonic, (rough Laplacian + l(l + 2) - 2) T = 0, at each even l >= 2, none at odd l
-     (C2).
+     C/sin 2 theta (under T^2 alone there are two at each odd l, cos^2 theta d phi1 and sin^2 theta d phi2 at l = 1);
+     and one G-invariant transverse traceless tensor harmonic, (rough Laplacian + l(l + 2) - 2) T = 0, at each even l >=
+     2, none at odd l (under T^2 alone two at each even l >= 2) (C2, with C3's upper bounds).
 
-*Proof.* C1-C2 of class5.py: sympy, exact. (i) invariance as vanishing brackets with the two plane rotations and
-invariance under the two reflections, a linear system in the fifteen coefficients whose solution space is computed;
-the mass change by its Lie derivatives and pullbacks. (ii) scalar: G-invariant polynomials of degree l are polynomials
-in x1^2 + x2^2 and x3^2 + x4^2, their harmonic ones counted by rank; vector: on S^3 = {(cos theta e^(i phi1), sin
-theta e^(i phi2))} the reflections reverse d phi1 and d phi2, so an invariant 1-form is a(theta) d theta, and its
-divergence-free condition is solved exactly; tensor: the invariant ansatz T = A d theta^2 + B cos^2 theta d phi1^2 + C
-sin^2 theta d phi2^2, C = -A - B (the cross terms are reflection-odd), A and B polynomials in cos^2 theta of degree
-l/2 + 1, smooth at the axes, the divergence and the rough Laplacian from the round metric's Christoffel symbols (their
-off-diagonal parts vanish identically), each equation imposed exactly at 48 rational points of the circle -- more than
-twice its degree as a trigonometric polynomial -- and the solution space counted by rank. Controls: T^2 alone (three
-generators; two invariant divergence-free 1-forms); the eigenvalue moved by one (no tensor harmonic). []
+*Proof.* C1-C3 of class5.py: sympy, exact, and C3 exact modulo a prime. (i) invariance as vanishing brackets with the
+two plane rotations and invariance under the two reflections, a linear system in the fifteen coefficients whose solution
+space is computed; the mass change by its Lie derivatives and pullbacks. (ii) scalar: G-invariant polynomials of degree
+l are polynomials in x1^2 + x2^2 and x3^2 + x4^2, their harmonic ones counted by rank; vector: on S^3 = {(cos theta e^(i
+phi1), sin theta e^(i phi2))} the reflections reverse d phi1 and d phi2, so an invariant 1-form is a(theta) d theta, and
+its divergence-free condition is solved exactly; tensor: the invariant ansatz T = A d theta^2 + B cos^2 theta d phi1^2 +
+C sin^2 theta d phi2^2, C = -A - B (the cross terms are reflection-odd), A and B polynomials in cos^2 theta of degree
+floor(l/2) + 1, smooth at the axes, the divergence and the rough Laplacian from the round metric's Christoffel symbols
+(their off-diagonal parts vanish identically), each equation imposed exactly at 48 rational points of the circle -- more
+than twice its degree as a trigonometric polynomial (the fifty-second verifier measured at most 14 at l = 8; the
+instrument asserts the bound) -- and the solution space counted by rank. The ansatz exhibits its solutions, so C2's
+counts are lower bounds. C3 counts the same harmonics a second way, as homogeneous degree-l polynomials on R^4
+(harmonic; for 1-forms divergence-free with x.V = 0; for tensors divergence-free, traceless, with x.H = 0), invariance
+as linear conditions, by rank modulo 2^31 - 1, which bounds each count from above; the totals are SO(4)'s (l + 1)^2, 2 l
+(l + 2), 2 (l - 1)(l + 3), and the G-invariant counts meet C2's, which are therefore exact. Controls: T^2 alone (three
+generators; two invariant divergence-free 1-forms at each odd l and two TT tensors at each even l >= 2, C3); the
+eigenvalue moved by one (no tensor harmonic); x.H = 0 dropped (C3's totals break). []
+[]
 
 *Deduced.*
 
  (a) (equivariance) The gauge-fixed Einstein operator P(g, g0) = Ric(g) - delta*_(g0,E^C) Ups^(E^Ups)(g, g0) is natural
      under diffeomorphisms carrying its modifications along; its modifications here are built from dt and dr with radial
      coefficients (the damping 1-form of 10.14, the horizon modification c_H = -(1/2) chi(r) dr of 10.15, the trace
-     weight 2/(D - 2)), so they are O(4)-invariant, and so are Tangherlini, the cut-off chi_K (a function of t* and r)
-     and his t*. Hence for G-invariant g0 and h, P and its linearizations commute with G; forward solutions with
-     G-invariant sources are G-invariant, by uniqueness; and the Haar mean Pi over the compact G is a projection of norm
-     1 on every weighted b-Sobolev space of [Hin26c]'s compactification, G acting by isometries that preserve t*, r and
-     so every boundary defining function.
+     weight 2/(D - 2)), so they are O(4)-invariant, and so are Tangherlini, the cut-off chi_K = chi_0(t*) chi_1(r/t*)
+     (p. 318), the cut-offs chi_- and chi_+ of his sections 11.8 and 12 (functions of t*; pp. 277, 292) and his t*.
+     Hence for G-invariant g0 and h, P and its linearizations commute with G; forward solutions with G-invariant sources
+     are G-invariant, by uniqueness; and the Haar mean Pi over the compact G is a bounded projection (of norm 1 for
+     G-invariant norms) on every weighted b-Sobolev space of [Hin26c]'s compactification, G acting by isometries that
+     preserve t*, r and so every boundary defining function.
  (b) (the parameters) Every component of U, p-vec and q-vec lies in a representation of G: the final parameters b = (m,
      A), A in so(4) (10.36), with A -> R A R^-1; the boost S and the centre-of-mass shift in S_1; the remainders in S_l
      and V_l, harmonics of S^3 in five dimensions. An invariant A commutes with both plane rotations, so A = a J_12 + b
      J_34, and the reflections reverse J_12 and J_34: A = 0. By (ii) the G-fixed S_l vanish at odd l and are
-     one-dimensional at even l, and the G-fixed V_l vanish. So in the class S = 0, S^(0)_1 = 0, b = (m, 0), S_rem = 0,
-     V_1,rem = 0, and of (12.11)-(12.15) only the components in S_l with l even remain, with the tensor type's at even l
-     where the five-dimensional lists carry it.
- (c) (his steps) Step 2 (section 11.4) is absent: its t* h_(b,s1)(S-dot) term and the boost parameter are G-invariant
-     only when zero. Step 4 (section 11.6) reduces to the change of the mass, the centre-of-mass motion lying in S_1.
-     Step 5 (section 11.7), the t*^(-alpha) shifts of the centre of mass, is absent. Steps 1, 3 and 6 remain, Step 6's
-     gauge modifications restricted to (b)'s components.
+     one-dimensional at even l, and the G-fixed V_l vanish. So in the class S = 0, S^(0)_1 = 0, b = (m, 0), S_rem = 0
+     and V_1,rem = 0; of the S_l and V_l components of (12.11)-(12.15) only those in S_l with l even remain, with the
+     tensor type's at even l >= 2 where the five-dimensional lists carry it; b - b0 and b_rem keep their mass component
+     (in R^4 in his (12.12a) and (12.12c), R^7 in five dimensions); and (u^0_lam, f_lam) and h-tilde are restricted to
+     their G-fixed parts.
+ (c) (his steps) Step 2 (section 11.4) reduces to Proposition 11.20 with S-dot = 0: its t* h_(b,s1)(S-dot) term, the
+     boost parameter and augmentation #1 (section 11.4.2, Definition 11.25) are G-invariant only when zero, while the
+     improved remainder the proposition proves is still used (10.45(b)). Step 4 (section 11.6) reduces to the change of
+     the mass, the centre-of-mass motion lying in S_1. Step 5 (section 11.7) reduces to Proposition 11.51 with no S_1
+     shifts and no centre-of-mass modifications (10.46(a)). Step 6 (section 11.8) remains with its gauge modifications
+     restricted to (b)'s components (10.46(b)), and Steps 1 and 3 as his.
  (d) (the zero energy states) Of the eleven kernel states (10.28) and the eleven dual states (10.31), each the image of
      a Killing field under a construction that commutes with O(4) (each step a unique solution, 10.29(a)), only the mass
      state and the time translation's dual state are G-invariant, by (i); of 10.29's generalized states, part (1)'s (s0)
@@ -6187,12 +6199,19 @@ generators; two invariant divergence-free 1-forms); the eigenvalue moved by one 
      Phi on the G-fixed data D^oo_G with G-invariant output, satisfying (12.31) by his proof. For G-invariant U and f,
      Theorem 12.8's U' is read off from the forward solution of Corollary 11.66, G-invariant by (a), and lies in D^oo_G
      if the read-off commutes with G; and his smoothing operators S_theta may be replaced by Pi S_theta Pi, with the
-     same estimates by (a). [SR89]'s scheme then runs on the closed subspaces D^oo_G -> B^oo_G. So [Hin26]'s argument in
-     five dimensions needs only the G-fixed objects of (b)-(d) -- deduced, on the readings already named for each step
-     and on the reading that his read-off in Theorem 12.8's proof commutes with G, which A7 checks (ROUTES 4.44).
+     same estimates by (a). [SR89]'s scheme then runs on the closed subspaces D^oo_G -> B^oo_G. The scheme is run for P
+     o Psi with Psi(U) = (chi_-(t*) h_(-S), 0, 0) + Phi(U) ((12.34), (13.6), as the fifty-second verifier read them; to
+     be READ at A7), and its assumption (3) carries D_S(h_(-.))(S'): in the class S = S' = 0, so that term is absent,
+     and h_0 is G-invariant when the data are and the solution of (13.5) is unique, which A8 checks. So [Hin26]'s
+     argument in five dimensions needs only the G-fixed objects of (b)-(d) -- deduced, on the readings already named for
+     each step and on the reading that his read-off in Theorem 12.8's proof commutes with G, which A7 checks (ROUTES
+     4.44).
 
-OPEN: everything ROUTES 4.44 lists after A1; (e)'s reading of Theorem 12.8's proof (A7). Labels: computed (class5.py
-C1-C2; exact); deduced ((a)-(e)); READ ([Hin26] pp. 63, 219, 301-302, 310, 312, 321-322); nothing proved.
+OPEN: everything ROUTES 4.44 lists after A1; (e)'s reading of Theorem 12.8's proof (A7), for which a second route is
+noted: if his Phi is G-equivariant on all of D^oo -- each of its steps unique -- the G-average of U' solves (12.35) with
+the same estimates and the read-off needs no reading; (e)'s Psi and h_0 (A7, A8). Labels: computed (class5.py C1-C3;
+exact, C3 modulo a prime); deduced ((a)-(e)); READ ([Hin26] pp. 63-64, 219, 277, 292, 301-302, 310, 312, 318, 321-322);
+nothing proved.
 
 ### 10.44 [Hin26] section 11.2 in five dimensions: the structure at I+ and its formal solutions (`iplus5.py`; D112)
 
@@ -6295,9 +6314,9 @@ most singular term F(h^(<=1),aug_b,s1)(S-hat(0)) ~ |sigma|^-2 ... is absent"; pp
  (b) (Propositions 11.17 and 11.32 in the class) His proofs run with h_s1 = 0. In (11.48)-(11.49) and (11.114) only
      F(d_t* g-dot) remains, regular at zf (his (11.47), first line; its five-dimensional weights 10.40(b), the states'
      own), so one integration of d_t* suffices throughout -- footnote 116's case from the start -- and u_sing = g-dot
-     has K+ order alpha~_K - 1 where his (11.51) and (11.115) have alpha~_K - 2. His Step 2 (Propositions 11.20 and
-     11.30) is void: its leading term t* h_b,s1(S-dot) has S-dot in S_1, so S-dot = 0, and no augmentation #1 is needed
-     (S = 0).
+     has K+ order alpha~_K - 1 where his (11.51) and (11.115) have alpha~_K - 2. His Step 2 reduces to Proposition 11.20
+     with S-dot = 0 (its leading term t* h_b,s1(S-dot) has S-dot in S_1), the improvement it proves being the one above;
+     Proposition 11.30 and augmentation #1 are not needed (S = 0).
  (c) (Proposition 11.34 and Corollary 11.46 in the class) For G-invariant f of K+ order alpha_K in (1, 1 + eps_K): u =
      chi_K g-dot^Ups_b(m-dot) + u~ with m-dot real and continuous in f, and u~ of K+ order alpha_K - 1 in (0, eps_K) --
      his (11.117) with b-dot = (m-dot, 0) and no S_1 term (the log t* h_b,s1 of his (9.39b) has its coefficient in S_1),
@@ -6319,6 +6338,100 @@ OPEN: the weight l_I at I+ for the iteration (his 3 + eps_I; 7/2 + eps_I, two or
 five-dimensional candidate, to be fixed with his (2.27) at A4); [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4
 (Phase B). Labels: deduced ((a)-(e)); READ ([Hin26] pp. 23, 218-219, 221, 231-262); nothing computed here, nothing
 proved.
+
+### 10.46 [Hin26] sections 11.7-11.8 in the class: Proposition 11.51, Theorem 11.59, Corollary 11.66 (`sharp5.py`; D114)
+
+His section 11.7 (Step 5) pushes forward solutions to almost t*^-1 decay while undoing polynomially decaying
+centre-of-mass motions; his section 11.8 (Step 6) eliminates every pure gauge term of K+ order at most 2, records every
+term below 4 + eps_K as a parameter, and absorbs those parameters into the operator (augmentation #5). In the class the
+centre-of-mass and boost terms vanish (10.43) and the pole at zero energy is first order (10.45), so sources need K+
+order 3 + eps_K and the recorded terms are those below it. This section computes which terms those are in five
+dimensions and deduces his three results in the class.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; ASCII): p. 218, "The pure gauge contributions
+that do not have t*^(-2-eps_K)-decay must moreover be eliminated using gauge modifications"; p. 221, (11.9)-(11.11) and
+Remark 11.4; pp. 263-264, (11.148)-(11.151); pp. 265-266, Proposition 11.51 and its proof; p. 274, "we really need
+beta_+ = 3 + eps_+"; pp. 275-277, Definition 11.55, Definition 11.56 with footnote 124 ("the sum lam + mu is the
+t*^-1-power at which the corresponding pure gauge term arises in the K+-expansion, while lam is the iota+-decay rate"),
+Lemma 11.57 with footnote 125, Definition 11.58; pp. 278-279, Theorem 11.59, (11.195)-(11.196d), Remarks 11.60-11.62
+(11.61: the strong decay of h "solely to ensure that the linearization of P in the black hole parameters b has 4 + eps_K
+orders of K+-decay"); pp. 280-292, its proof, with p. 289, (3), "all terms in (9.39b), with lam = 1, that have t*-order
+<= 2 + eps_K (so <= 2) ... are pure gauge and can be eliminated using the modification parameters", and (5), the
+logarithmic term at zf, "a multiple of t*^-2 h^(0)_b,s0 and thus can be eliminated using the parameter S^(0),(2,0)_0";
+pp. 292-294, Definition 11.63, the proof of the lemma before Corollary 11.66 with (11.232), Corollary 11.66 with
+(11.233)-(11.234); p. 302, (12.14), "we only include terms with exponents ... lam-tilde + mu <= 2".
+
+**Proposition 10.42 (computed; `sharp5.py` K1-K4, `class5.py` C2-C3).**
+
+ (i) (the types and roots) The G-fixed types among window5.py's five-dimensional lists are the scalar ones at l = 0, 2,
+     4, 6 and the tensor ones at l = 2, 4. Their roots of det N_L in [-3, 0] at lin5.py's point are s0: c0, e0; s2: c-1,
+     c-2, e-2, e0; s4: e-2; t2: e-2; none at s6 and t4 -- the class roots between 2.6 x 10^-7 and 1.4 x 10^-6 below the
+     integer. alpha_min = 3/2 + (1 - e_Ups) gam_Ups = 1.5099 there.
+
+ (ii) (the bookkeeping) Let alpha be any iota+ exponent in [alpha_min, 3]. A root mu gives K+ order alpha - mu, plus the
+     class roots' distance. A term is recorded, with floor(3 - order) companions, while its order is at most 3; it is
+     eliminated if pure gauge with order at most 2 (the class roots: below 2). The eliminated terms lie in {s0 e0, s0
+     c0, s2 e0}, all three at alpha_min, and the recorded ones in these and s2 c-1, with at most one companion. No
+     physical state is recorded at any alpha, and every recorded term's L_b-image has K+ order above 3. In four
+     dimensions at alpha = 1 with threshold 4, the same rule gives his eight eliminated parameters ((11.197); p. 289,
+     (3)) and his physical s2, v2, s3, v3 with 1, 1, 0, 0 companions ((11.196b)).
+
+ (iii) (the weights) His I+ remainder weight 3 + eps_I lies in the five-dimensional non-resonant gap 3/2 + 2 gam_Ups < z
+     < 3/2 + (1 - e_C)(1 - v) gam_C (38/25 to 499997 at the point; iplus5.py P2), as in his own (51/50 to 499996); his
+     iota+ remainder 3 + eps_+ feeds K+ orders above 3 only.
+
+*Proof.* sharp5.py. K1 takes class5.py's counts (C2, made exact by C3's upper bounds); K2 finds the roots with
+window5.py's routine (mpmath, 50 digits); K3 is exact on 151 points of [alpha_min, 3], the orders being linear in alpha;
+K4 is exact at the point. Controls: without the reflections the vector type enters (K1); s4 claimed rootless (K2); at
+alpha = 1, four dimensions' order, the class records the physical s2 and t2 at -2 (K3); the radiative order 3/2 +
+gam_Ups taken as I+ weight falls below the gap (K4). []
+
+*Deduced.*
+
+ (a) (Proposition 11.51 in the class) His proof inducts in eps_K-steps on the K+ order of f, solving at I+ (Proposition
+     11.16; 10.44) and at iota+, and fixes at each step the parameters whose terms it uncovers: the S_1 shifts
+     S^(lam-1,k)_1 and the final parameters. In the class the shifts vanish and the final parameters are the mass
+     (10.43(b)). With 10.45's single order of loss: for G-invariant f with the iota+ structure of (11.155) and K+ order
+     alpha_K in (1, 1 + alpha_min), there is a unique mass parameter m' for which the forward solution has K+ order
+     alpha_K - 1. No gauge parameter is needed below the K+ order alpha_min, where (ii)'s first terms appear.
+
+ (b) (Theorem 11.59 in the class) Let h be G-invariant and small in H^(oo, (<E^C_I>, 3+eps_I), (E_+, 3+eps_+), 3+eps_K),
+     with 10.44's five-dimensional index sets. Let p-vec be small and G-fixed: the mass m - m_0, and the parameters
+     S^(0),(lam,k)_0, S^(-lam^Ups_s0,1+1),(lam,k)_0 and S^(0),(lam,k)_2 (on the G-fixed line of S_2) at the exponents of
+     K+ order at most 2 -- (ii)'s eliminated set, by (12.14)'s rule. Let f = f_1 + f_2 be G-invariant, as in (11.195)
+     but with K+ order 3 + eps_K for 4 + eps_K. Then there is a unique G-fixed p-vec' such that the forward solution is
+     u = chi_K u_exp + u~, where
+
+       u_exp = g-dot^Ups_b(m-dot_rem(t*)) + h^(0),<=1_b,s0(S-dot^(0)_0) + h^(-lam^Ups_s0,1+1),<=1_b,s0(S-dot^(c0)_0)
+               + h^(0),<=1_b,s2(S-dot^(0)_2) + h^(-lam^Ups_s2,2+1)_b,s2(S-dot^(c-1)_2),
+
+     m-dot_rem has t*-order 2 + eps_K, each S-dot lies in Definition 11.58's space with 3 + eps_K for 4 + eps_K (every
+     term of order at least 2 + eps_K), and u~ has K+ order 3 + eps_K. His proof runs with (ii)'s list in place of
+     (9.39b)'s, one order of loss in place of two, and 3 in place of 4. Parts 1-3 eliminate (ii)'s three types at every
+     exponent of order at most 2. The logarithmic zf term of his Part 3, (5), if five dimensions carry it, is a multiple
+     of t*^-a h^(0)_b,s0 and so one of them; (2, 0) lies in E^#_+ (10.44). Part 4 records the rest. Only the mass term
+     is not pure gauge: no physical state enters below K+ order 3 + eps_K, where his (11.196b) carries s2, v2, s3 and v3
+     (Remark 11.60(4)).
+
+ (c) (the requirement on h) By his Remark 11.61, h needs K+ order 4 + eps_K only for the linearization of P in b. In the
+     class that linearization is a source of h's K+ order, and sources need 3 + eps_K, so h of K+ order 3 + eps_K
+     suffices. L - L_b needs 2 + eps_K, as in his.
+
+ (d) (Corollary 11.66 in the class) Take augmentation #5 (Definition 11.63) with q-vec = (m_rem, S^(0)_0, S^(c0)_0,
+     S^(0)_2, S^(c-1)_2), and h, p-vec, q-vec G-invariant. For G-invariant f in H^(oo, (<E^C_I + 1>', 4+eps_I), 5+eps_+,
+     3+eps_K) there are unique p-vec' and q-vec' such that the forward solution h' lies in H^(oo, (<E^C_I>, 3+eps_I),
+     (E-tilde^#, 3+eps_+), 3+eps_K). The lemma before it (p. 294) needs L_b h_b,rem(q-vec) of K+ order 3 + eps_K. For
+     the gauge terms this is (ii)'s last clause, through his (9.37). For the mass, L_b g-dot^Ups_b(m-dot_rem) = [L_b,
+     t*] g-dot^Ups_b(m-dot_rem') + (1/2) [[L_b, t*], t*] g-dot^Ups_b(m-dot_rem''), with m-dot_rem' of order 3 + eps_K.
+     (L - L_b) h_b,rem has K+ order 2(2 + eps_K).
+
+ (e) (the weights) By (iii) his weights serve: 3 + eps_I at I+ (10.45's OPEN item), and at iota+ 3 + eps_+ for h and 5 +
+     eps_+ for f.
+
+OPEN: the readings of 10.39-10.45 on which (a)-(d) rest; Lemma 11.57's linearizations in five dimensions, on 10.30's
+gauge potentials (Phase B); whether the five-dimensional zf expansion of the mass's singular part carries his Part 3,
+(5) term (covered either way). Labels: computed (Proposition 10.42); deduced ((a)-(e)); READ ([Hin26] pp. 218, 221,
+263-266, 274-294, 302); nothing proved.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

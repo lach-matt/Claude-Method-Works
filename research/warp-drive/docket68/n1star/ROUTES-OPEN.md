@@ -1571,14 +1571,16 @@ largest, [Hin26c] running to about 280; Phase C two or three steps.
 ROUTES 4.44's first step. class5.py computes which of Hintz's generators and harmonic types are invariant under G = O(2)
 x O(2); N1STAR-PROOF.md 10.43 states Proposition 10.40 and deduces.
 
-- Computed (C1-C2): of the fifteen Killing fields of 4+1 Minkowski only d_t is G-invariant (T^2 alone: d_t and the two
-  plane rotations); the mass change is invariant; one invariant scalar harmonic and one invariant transverse traceless
-  tensor harmonic of S^3 at each even l, none at odd l, and no invariant divergence-free 1-form (l <= 8).
+- Computed (C1-C3): of the fifteen Killing fields of 4+1 Minkowski only d_t is G-invariant (T^2 alone: d_t and the two
+  plane rotations); the mass change is invariant; one invariant scalar harmonic of S^3 at each even l and one invariant
+  transverse traceless tensor harmonic at each even l >= 2, none at odd l, and no invariant divergence-free 1-form (l <=
+  8); C3 bounds the counts from above by a second method, so they are exact (D115).
 - Deduced: P and its linearizations commute with G (the damping 1-form and c_H radial); the final parameters are (m, 0);
-  the boost S, the centre-of-mass shift and every S_1 and V_l component vanish; his Step 2 and Step 5 are absent and
-  Step 4 is the mass change alone; of the kernel and dual states only the mass's and the time translation's remain, of
-  the physical states at l = 2 the scalar and the tensor ones; and the Nash-Moser iteration runs on the G-fixed
-  subspaces, on the reading that his read-off in Theorem 12.8's proof commutes with G (checked at A7).
+  the boost S, the centre-of-mass shift and every S_1 and V_l component vanish; his Steps 2 and 5 reduce to Propositions
+  11.20 and 11.51 with no S_1 terms and no modifications (D115), and Step 4 is the mass change alone; of the kernel and
+  dual states only the mass's and the time translation's remain, of the physical states at l = 2 the scalar and the
+  tensor ones; and the Nash-Moser iteration runs on the G-fixed subspaces, on the reading that his read-off in Theorem
+  12.8's proof commutes with G (checked at A7).
 - Next: A2, his section 11.2 in five dimensions (Propositions 11.14-11.16), on 10.38's (5.28).
 
 ### 4.46 A2: [Hin26] section 11.2 in five dimensions (computed; D112)
@@ -1602,8 +1604,24 @@ and deduces his Lemma 11.15 and Propositions 11.14 and 11.16.
 N1STAR-PROOF.md 10.45 deduces his Steps 1-4 in the class as one statement.
 
 - Deduced: S-hat_1 = 0 at every frequency in the class, so u_lo = u_reg + g-dot and one integration of d_t* suffices
-  (his footnote 116's case from the start); Step 2 void; u = chi_K g-dot^Ups_b(m-dot) + u~, u~ of K+ order alpha_K - 1,
-  on f of K+ order alpha_K in (1, 1 + eps_K) where his needs (2, 2 + eps_K); m-dot removed by the final mass (his Lemma
-  11.45 at (0, m_0)); f's iota+ requirement 5 + 2 (1 - e_Ups) gam_Ups - eps against his 4 - eps.
+  (his footnote 116's case from the start); Step 2 reduces to Proposition 11.20 with S-dot = 0 (D115); u = chi_K
+  g-dot^Ups_b(m-dot) + u~, with u~ of K+ order alpha_K - 1, on f of K+ order alpha_K in (1, 1 + eps_K) where his needs
+  (2, 2 + eps_K); m-dot is removed by the final mass (his Lemma 11.45 at (0, m_0)); f's iota+ requirement is 5 + 2 (1 -
+  e_Ups) gam_Ups - eps against his 4 - eps.
 - OPEN: the weight l_I at I+ (A4); [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4 (Phase B). Next: A4, his
   sections 11.7-11.8 (Theorem 11.59, Corollary 11.66) in the class.
+
+### 4.48 A4: [Hin26] sections 11.7-11.8 in the class (computed and deduced; D114)
+
+sharp5.py computes the class's late-time bookkeeping in five dimensions; N1STAR-PROOF.md 10.46 states Proposition 10.42
+and deduces Proposition 11.51, Theorem 11.59 and Corollary 11.66 in the class.
+
+- Computed (K1-K4): the class's types (scalar at even l, tensor at even l >= 2) and their roots in [-3, 0]; for every
+  iota+ exponent from 3/2 + (1 - e_Ups) gam_Ups to 3, the eliminated pure gauge terms within s0 e0, s0 c0 and s2 e0, the
+  recorded ones within these and s2 c-1, and no physical state; his eight parameters and his s2, v2, s3, v3 reproduced
+  in four dimensions; his weights 3 + eps_I and 3 + eps_+ serve.
+- Deduced: Proposition 11.51 with the mass alone; Theorem 11.59 with u_exp the mass change plus four pure gauge terms
+  and u~ of K+ order 3 + eps_K, sources needing 3 + eps_K and h the same; Corollary 11.66 with q-vec the mass and those
+  four.
+- OPEN: Lemma 11.57's linearizations in five dimensions (Phase B); the readings of 10.39-10.45. Next: A5, his section 12
+  in the class (Theorems 12.3 and 12.8).

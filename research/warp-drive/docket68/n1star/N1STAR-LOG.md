@@ -3762,3 +3762,53 @@ the iota+ orders 3/2 + (1 - e_Ups) gam_Ups - eps for u~ and 5 + 2 (1 - e_Ups) ga
 *Notes.* Nothing computed: the reduction is the equivariance of 10.43 applied to his proofs. iplus5.py's three lines
 over 121 characters are wrapped.
 
+**D114 (2026-10-24): A4, [Hin26] sections 11.7-11.8 in the class (10.46, sharp5.py).**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 218, 221, 263-266, 274-294, 302. His Step 6 eliminates
+the pure gauge terms of K+ order at most 2 (p. 289, "(so <= 2)") and records every term below 4 + eps_K; a root mu fed
+by t*^-alpha at iota+ gives K+ order alpha - mu (footnote 124).
+
+*Computed (Proposition 10.42, sharp5.py K1-K4).* The class's types and roots; for every iota+ exponent in [3/2 + (1 -
+e_Ups) gam_Ups, 3] the eliminated terms within s0 e0, s0 c0, s2 e0, the recorded within these and s2 c-1, no physical
+state; his eight parameters and his physical s2, v2, s3, v3 reproduced at alpha = 1 in four dimensions; his weights in
+the five-dimensional gaps.
+
+*Deduced (10.46(a)-(e)).* Proposition 11.51 with the mass alone; Theorem 11.59 with u_exp the mass change and four pure
+gauge terms, u~ of K+ order 3 + eps_K; h needing K+ order 3 + eps_K; Corollary 11.66 with q-vec the mass and those four;
+10.45's OPEN weight l_I settled as his 3 + eps_I.
+
+*Notes.* (1) The elimination rule is his "(so <= 2)": eps_K lies below every class root's distance (about 10^-6 here),
+so a class root at alpha = 2, of order 2 + 10^-6, is recorded rather than eliminated; window5.py's W2 at alpha = 2 lists
+s0's and s1's class roots among the eliminated, labelled "at 2 + eps" -- a difference of convention, his p. 289
+deciding. (2) K2's run is about eight minutes, nearly all in lin5.py's scalar-type determinant; caching it across l did
+not shorten it, and the cache was removed. (3) In the class no physical state is recorded at any iota+ exponent above 1,
+so the late-time expansion below K+ order 3 + eps_K is pure gauge apart from the mass.
+
+*Runs.* sharp5.py --selftest 4/4 and --mutants 4/4 (about nine minutes each).
+
+**D115 (2026-10-24): the fifty-second verifier's findings on D111 seated.**
+
+The fifty-second verifier confirmed C1 and C2 by an independent count (ambient polynomials on R^4, exact ranks), the
+sampling argument exact (the cleared numerators' trigonometric degree at most 14 at l = 8, against 48 points), and (a),
+(b)'s A = 0, (d) and (e)'s labelling at source. Seated:
+
+- Major: 10.43(c) said Steps 2 and 5 are absent; only their modifications vanish. Step 2 now reduces to Proposition
+  11.20 with S-dot = 0 and no augmentation #1, Step 5 to Proposition 11.51 with no S_1 shifts and no modifications
+  (10.46(a)); 10.45(b), ROUTES 4.45 and 4.47 and the README follow. D111's LOG entry stands as written.
+- 10.43(b): b - b0 and b_rem keep their mass component, (u^0_lam, f_lam) and h-tilde their G-fixed parts; the S_l-even
+  statement is now about the S_l and V_l components.
+- The tensor count's completeness: class5.py C3 (new, stdlib) counts the harmonics a second way, as homogeneous
+  polynomials on R^4 with ranks modulo 2^31 - 1, whose nullities bound the counts from above; the totals are SO(4)'s and
+  the G-invariant counts meet C2's lower bounds, which are therefore exact.
+- T^2 alone is now counted, not exhibited: two divergence-free 1-forms at each odd l, and two TT tensors at every even l
+  from 2 on (C3's control, which sees more than one solution); x.H = 0 dropped is a second control.
+- 10.43(e): the scheme runs for P o Psi, Psi(U) = (chi_-(t*) h_(-S), 0, 0) + Phi(U), with D_S(h_(-.))(S') in its
+  assumption (3): absent in the class, S = S' = 0; h_0's invariance needs (13.5)'s uniqueness (A8); (12.34) and (13.6)
+  to be READ at A7.
+- Pages: Definition 2.27 spans pp. 63-64; chi_K = chi_0(t*) chi_1(r/t*) is p. 318 (both READ at source today). Nits: Pi
+  is a bounded projection, of norm 1 for G-invariant norms; tensors "at each even l >= 2" in ROUTES 4.45 and the README;
+  the ansatz degree floor(l/2) + 1; chi_- and chi_+ named in (a).
+- Noted, not adopted: the verifier's second route for A7 -- if Phi is G-equivariant on all of D^oo, the G-average of U'
+  solves (12.35) with the same estimates -- recorded in 10.43's OPEN line.
+
+*Runs.* class5.py --selftest 3/3 (about forty seconds) and --mutants 5/5.

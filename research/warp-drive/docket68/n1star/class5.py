@@ -16,9 +16,17 @@ G-invariant decides which of his steps survive in the class.
      cos^2 theta d phi1^2 + C sin^2 theta d phi2^2, C = -A - B, with A, B polynomials in cos^2 theta, smooth at both
      axes; each equation imposed exactly at 48 rational points of the circle.  Controls: under T^2 alone the vector
      type has the plane rotations' duals; the eigenvalue moved by one empties the tensor table.
+  C3 (computed, exact upper bounds) The same counts by a second method: the harmonics of S^3 at level l as homogeneous
+     degree-l polynomials on R^4 (scalar: harmonic; 1-form: harmonic, divergence-free, x.V = 0; symmetric tensor:
+     harmonic, divergence-free, traceless, x.H = 0), invariance as linear conditions, ranks mod 2^31 - 1 (a nullity
+     mod p bounds the nullity over Q from above).  All harmonics: SO(4)'s (l + 1)^2, 2 l (l + 2), 2 (l - 1)(l + 3) for
+     l <= 8; the G-invariant ones: C2's counts, so C2's ansatz, which exhibits its solutions (a lower bound), misses
+     none.  Controls: T^2 alone, two divergence-free 1-forms at each odd l and two TT tensors at each even l >= 2;
+     x.H = 0 dropped, the totals break.
 
-Run: python3 class5.py --selftest | --mutants | --only k [--verbose]   (about thirty seconds).
+Run: python3 class5.py --selftest | --mutants | --only k [--verbose]   (about forty seconds).
 """
+import itertools
 import sys
 import time
 
@@ -244,8 +252,120 @@ def _offshell(l):
     return tensor_count(l, l // 2 + 1, ev=l * (l + 2) - 1)
 
 
+# ------------------------------------------------------------------------------------------------- C3
+PR = 2**31 - 1
+
+
+def nullity_mod(rows, n):
+    """n minus the rank mod PR of sparse rows {col: coeff}: an upper bound on the nullity over Q"""
+    piv = {}
+    for r in rows:
+        r = {c: a % PR for c, a in r.items() if a % PR}
+        while r:
+            c = min(r)
+            if c not in piv:
+                inv = pow(r[c], PR - 2, PR)
+                piv[c] = {k: v * inv % PR for k, v in r.items()}
+                break
+            p, a = piv[c], r[c]
+            for k, v in p.items():
+                w = (r.get(k, 0) - a * v) % PR
+                if w:
+                    r[k] = w
+                else:
+                    r.pop(k, None)
+    return n - len(piv)
+
+
+def ambient(kind, l, inv, drop=None):
+    """harmonics of S^3 at level l as homogeneous degree-l polynomials on R^4 -- scalar f, Delta f = 0; 1-form V,
+    Delta V = 0, div V = 0, x.V = 0; symmetric H, Delta H = 0, div H = 0, tr H = 0, x.H = 0 -- invariant under G (inv
+    'G'), the rotations alone ('T2') or nothing ('none'); the count mod PR, an upper bound"""
+    comps = {"s": [()], "v": [(i,) for i in range(4)], "t": [(i, j) for i in range(4) for j in range(i, 4)]}[kind]
+    ms = [m for m in itertools.product(range(l + 1), repeat=4) if sum(m) == l]
+    key = lambda c: tuple(sorted(c))
+    idx = {(c, m): k for k, (c, m) in enumerate((c, m) for c in comps for m in ms)}
+    rows = []
+
+    def acc(P, mono, c, m, a):
+        d = P.setdefault(mono, {})
+        d[idx[(key(c), m)]] = d.get(idx[(key(c), m)], 0) + a
+
+    def shift(m, k, s):
+        mm = list(m)
+        mm[k] += s
+        return tuple(mm)
+
+    def emit(P):
+        rows.extend(v for v in P.values() if any(v.values()))
+
+    for c in comps:
+        P = {}
+        for m in ms:
+            for k in range(4):
+                if m[k] >= 2:
+                    acc(P, shift(m, k, -2), c, m, m[k] * (m[k] - 1))
+        emit(P)
+    for j in range(4) if kind != "s" else ():
+        cs = [(i,) for i in range(4)] if kind == "v" else [(i, j) for i in range(4)]
+        P, Q = {}, {}
+        for i, c in enumerate(cs):
+            for m in ms:
+                if m[i]:
+                    acc(P, shift(m, i, -1), c, m, m[i])
+                acc(Q, shift(m, i, 1), c, m, 1)
+        emit(P)
+        if drop != "x":
+            emit(Q)
+        if kind == "v":
+            break
+    if kind == "t":
+        P = {}
+        for i in range(4):
+            for m in ms:
+                acc(P, m, (i, i), m, 1)
+        emit(P)
+    for a, b in ((0, 1), (2, 3)) if inv != "none" else ():
+        for c in comps:                                 # L_xi, xi = x_a d_b - x_b d_a
+            P = {}
+            for m in ms:
+                for p, q, s in ((a, b, 1), (b, a, -1)):
+                    if m[q]:
+                        acc(P, shift(shift(m, q, -1), p, 1), c, m, s * m[q])
+            for slot, i in enumerate(c):
+                for k, s in ((b, 1 if i == a else 0), (a, -1 if i == b else 0)):
+                    if s:
+                        cc = list(c)
+                        cc[slot] = k
+                        for m in ms:
+                            acc(P, m, tuple(cc), m, s)
+            emit(P)
+    if inv == "G":                                      # x2 -> -x2 and x4 -> -x4, each
+        rows += [{k: 1} for (c, m), k in idx.items() if any((m[r] + c.count(r)) % 2 for r in (1, 3))]
+    return nullity_mod(rows, len(idx))
+
+
+def c3(control=0, verbose=False):
+    chk = Checklist(verbose, quiet=control != 0)
+    drop = "x" if control == 2 else None
+    dims = {"s": lambda l: (l + 1)**2, "v": lambda l: 2 * l * (l + 2), "t": lambda l: 2 * (l - 1) * (l + 3)}
+    tot = {kd: [ambient(kd, l, "none", drop) for l in range(1, 9)] for kd in "svt"}
+    chk(f"the model: all harmonics per 1 <= l <= 8 {tot}, SO(4)'s (l + 1)^2, 2 l (l + 2), 2 (l - 1)(l + 3)",
+        all(tot[kd] == [dims[kd](l) for l in range(1, 9)] for kd in "svt"))
+    inv = "T2" if control == 1 else "G"
+    g = {kd: [ambient(kd, l, inv) for l in range(0 if kd == "s" else 1, 9)] for kd in "svt"}
+    want = {"s": [1 - l % 2 for l in range(9)], "v": [0] * 8, "t": [(1 - l % 2) * (l >= 2) for l in range(1, 9)]}
+    chk(f"G-invariant, upper bounds meeting C2's: scalar l = 0..8 {g['s']}, vector l = 1..8 {g['v']}, tensor {g['t']}",
+        g == want)
+    t2 = {kd: [ambient(kd, l, "T2") for l in range(1, 9)] for kd in "vt"}
+    chk(f"control: T^2 alone, vector l = 1..8 {t2['v']} (two at odd l), tensor {t2['t']} (two at even l)",
+        t2 == {"v": [2 * (l % 2) for l in range(1, 9)], "t": [2 * (1 - l % 2) * (l >= 2) for l in range(1, 9)]})
+    return chk.ok
+
+
 CHECKS = [("C1 the generators: G-invariant Killing fields d_t alone (T^2 alone: three); the mass change invariant", c1),
-          ("C2 the harmonics in the class: scalar and tensor one at each even l, vector none (l <= 8)", c2)]
+          ("C2 the harmonics in the class: scalar and tensor one at each even l, vector none (l <= 8)", c2),
+          ("C3 the same counts as upper bounds: ambient harmonic polynomials, ranks mod p; T^2 alone 2 and 2", c3)]
 
 
 def run(only=None, verbose=False):
