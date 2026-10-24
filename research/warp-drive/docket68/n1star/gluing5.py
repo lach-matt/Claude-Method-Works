@@ -21,21 +21,28 @@ of the charges under the dilation Phi_R(x) = x/R and its error terms, and the we
      (E.5b)'s n/2 - 1 < alpha and (E.9)'s alpha + alpha_- > n - 1, as printed for every n, met by Kerr (alpha = 1,
      alpha_- = 2) at n = 3 and by Tangherlini's glued data (alpha = 2, alpha_- = 3, 10.63(b)) at n = 4.  Without parity
      the linear KIDs' error is O(R^-2 alpha), (E.19)'s bound with alpha for alpha_-, so alpha > (n - 1)/2 replaces (E.9):
-     no alpha in (E.5b)'s range at n = 3, every alpha in (3/2, 2] at n = 4.  Mutant: K_R without the factor R.
-  D3 (computed, exact) The weighted indices.  rH^s_k = rH^k_(x, x^(-s-n/2)) ((5.2)): the embedding rH^(t-1)_(k+2) in
-     H^(k+2) needs t >= k + 3 - n/2, met by the proof's t = k + 6 at both n; (8.4)'s source rH^(t-2) and (8.5)'s
-     solution rH^(t-1) x rH^t are Theorem 5.6's (5.8) at s = t + n - 2 (t + 1 at n = 3, t + 2 at n = 4; the printed
-     "s = t - 1" matches neither, a reading of [CD03]'s index, recorded); Theorem 5.6's s >= n - 1, k > n/2 and Theorem
-     5.4's s not in {(n - 1)/2, (n - 3)/2} hold for every k >= floor(n/2) + 1 (2 at n = 3, the printed "2 <= k"; 3 at
-     n = 4).  Mutant: the printed s = t - 1.
+     no alpha in (E.5b)'s range at n = 3, every alpha in (3/2, 2] at n = 4.  The conditions are computed from the
+     exponents the charges just gave.  The printed (8.6) error O(R^-2 beta) equals J's main term R^-2 at n = 3 (alpha
+     = 1), so there the proof needs the parity-improved error for J and E C, which (8.6) does not state; at n = 4 it
+     lies below their R^-3 (D143).  Mutant: K_R without the factor R.
+  D3 (computed, exact; the embedding's weight deduced from (5.2)) The weighted indices.  rH^s_k = rH^k_(x, x^(-s-n/2))
+     ((5.2)): the embedding rH^(t-1)_(k+2) in H^(k+2) holds iff t >= k + 3 - n/2, computed from the weight x^(2i -
+     2(t-1) - n), i <= k + 2, read from (5.2); the printed t >= k + 5 (p. 36, chosen also so that the data vanish to
+     first order on the boundary) and the proof's t = k + 6 meet it at both n; (8.4)'s source rH^(t-2) and (8.5)'s
+     solution rH^(t-1) x rH^t are Theorem 5.6's (5.8) at s = t + n - 2 (t + 1 at n = 3, t + 2 at n = 4; the printed "s =
+     t - 1" matches neither, a reading of [CD03]'s index, recorded); Theorem 5.6's s >= n - 1, k > n/2 and Theorem 5.4's
+     s not in {(n - 1)/2, (n - 3)/2} hold for every k >= floor(n/2) + 1 (2 at n = 3, the printed "2 <= k"; 3 at n = 4).
+     Mutant: the printed s = t - 1.
   D4 (computed, exact) [Hin26]'s asymptotic boost (his section 3.4) at n = 4.  With S = c x_n/r in S_1 (degree-1
      harmonics on S^(n-1), dim n: 3 boosts at n = 3, 4 at n = 4), omega = t d(rS) - rS dt raised by Minkowski's metric
      is c (t d_(x_n) + x_n d_t), so phi_S = exp(V(S)), V = (1/2) gbar^-1(omega, .) where his cut-offs are 1, is the
-     Lorentz boost of rapidity chi = c/2.  The mass term of g_mu = gbar + mu r^(2-n) (dt*)^2 (t* = t - r; Ricci flat at
-     n = 3, his (3.21) with mu = 2m, and at n = 4) pulls back on t = r to mu r^(2-n) D^-n (dt*)^2, D = cosh chi + cos
-     theta sinh chi = a(theta)^-1, exactly: at n = 3 his (3.43)-(3.44), h_(S,11) = 2m (a^3 - 1) at r^-1 = r^-k, the
-     radiation order; at n = 4 mu (a^4 - 1) at r^-2 = r^(-k-1/2), below it.  His c^2 = (3/(4 pi)) ||S||^2_(L^2(S^2)) is
-     (n/|S^(n-1)|) ||S||^2: 2/pi^2 at n = 4.  Mutant: r' taken for r in the pull-back.
+     Lorentz boost of rapidity chi = c/2.  t*' = t' - r' vanishes on the cone t = r, so there the pull-back of dt*' is a
+     multiple of dt* and the statement below is one of tensors, not of one component (D143).  The mass term of g_mu =
+     gbar + mu r^(2-n) (dt*)^2 (t* = t - r; Ricci flat at n = 3, his (3.21) with mu = 2m, and at n = 4) pulls back on t
+     = r to mu r^(2-n) D^-n (dt*)^2, D = cosh chi + cos theta sinh chi = a(theta)^-1, exactly: at n = 3 his
+     (3.43)-(3.44), h_(S,11) = 2m (a^3 - 1) at r^-1 = r^-k, the radiation order; at n = 4 mu (a^4 - 1) at r^-2 =
+     r^(-k-1/2), below it.  His c^2 = (3/(4 pi)) ||S||^2_(L^2(S^2)) is (n/|S^(n-1)|) ||S||^2: 2/pi^2 at n = 4.  Mutant:
+     r' taken for r in the pull-back.
 
 sympy; imports general5.py.  python3 gluing5.py [--selftest | --mutants]   (under a minute)
 """
@@ -97,17 +104,27 @@ def d2(control=0, verbose=False):
         dirs = G5.family(n, mu)
         names = ["mass"] + ["boost"] * n + ["rotation"] * (n * (n - 1) // 2) + ["translation"] * n
         want = {"mass": 2 - n, "boost": 2 - n, "rotation": 1 - n, "translation": 1 - n}
-        good = True
+        good, got = True, {}
         for f, nm in zip(dirs, names):
             q0 = G5.charges(n, f)
             q1 = G5.charges(n, rescaled(f, R, mut=control == 1))
             ratios = {sp.simplify(b / a) for a, b in zip(q0, q1) if a != 0}
             good &= ratios == {R**want[nm]}
+            if len(ratios) == 1:
+                got[nm] = sp.simplify(sp.log(ratios.pop()) / sp.log(R))
         chk(f"n = {n}: charges of the data on Gamma(1, 4): R^-(n-2) for E, P and R^-(n-1) for J, E C", good)
-        e0, e1 = n - 2, n - 1                             # the main terms' exponents just computed
-        cond0 = sp.solve(2 * al - e0 > 0, al)              # constant KIDs: R^-(2 alpha) below R^-(n - 2)
-        chk(f"n = {n}: 2 alpha > {e0} is (E.5b)'s alpha > n/2 - 1; alpha + alpha_- > {e1} is (E.9)'s",
-            sp.Rational(e0, 2) == sp.Rational(n, 2) - 1 and e1 == n - 1 and cond0 is not None)
+        e0, e1 = -got.get("mass", 0), -got.get("rotation", 0)   # the main terms' exponents just computed
+        x = sp.Symbol("x", real=True)
+        thr0 = sp.solve_univariate_inequality(2 * x - e0 > 0, x, relational=False)    # R^-(2 alpha) below R^-e0
+        thr1 = sp.solve_univariate_inequality(x - e1 > 0, x, relational=False)        # R^-(alpha + alpha_-) below
+        chk(f"n = {n}: R^-(2 alpha) lies below R^-{e0} iff alpha > {e0 / 2}, (E.5b)'s n/2 - 1; R^-(alpha + alpha_-) "
+            f"below R^-{e1} iff alpha + alpha_- > {e1}, (E.9)'s n - 1",
+            thr0 == sp.Interval.open(sp.Rational(n, 2) - 1, sp.oo) and thr1 == sp.Interval.open(n - 1, sp.oo))
+        a_n = {3: 1, 4: 2}[n]                              # Kerr's alpha at n = 3, the glued data's at n = 4
+        beta = min(a_n, n - 2)
+        chk(f"n = {n}: printed (8.6)'s O(R^-2 beta), beta = {beta}, against J's R^-{e1}: "
+            f"{'equal (the parity-improved error is needed)' if 2 * beta == e1 else 'below'}",
+            (2 * beta == e1) if n == 3 else (2 * beta > e1))
     chk("Kerr (alpha, alpha_-) = (1, 2) at n = 3 and the glued data (2, 3) at n = 4 meet both",
         all(2 * a > n - 2 and a + am > n - 1 and a <= n - 2 and am > a for n, a, am in ((3, 1, 2), (4, 2, 3))))
     # without parity the linear KIDs' error is the constant ones' times r: R^-(2 alpha) against R^-(n - 1)
@@ -124,10 +141,14 @@ def d3(control=0, verbose=False):
     k, t = sp.symbols("k t", integer=True)
     for n in (3, 4):
         s = t - 1 if control == 1 else t + n - 2
-        # embedding: weight x^(2i - 2(t-1) - n) bounded on the annulus (x <= 1) for i <= k + 2
+        # embedding (deduced from (5.2)'s weight x^(2i - 2(t-1) - n), bounded on the annulus x <= 1 for i <= k + 2)
         emb = sp.simplify(2 * (k + 2) - 2 * (t - 1) - n)
-        chk(f"n = {n}: rH^(t-1)_(k+2) in H^(k+2) needs t >= k + 3 - n/2; t = k + 6 gives margin "
-            f"{-emb.subs(t, k + 6) / 2}", (emb.subs(t, k + 6) <= 0) == True)
+        tr = sp.Symbol("t_r", real=True)
+        tmin = sp.solve(sp.Eq(emb.subs(t, tr), 0), tr)[0]
+        chk(f"n = {n}: rH^(t-1)_(k+2) in H^(k+2) iff t >= {tmin}; the printed t >= k + 5 (p. 36, which also makes the "
+            f"data vanish to first order on the boundary) and the proof's t = k + 6 exceed it",
+            sp.simplify(tmin - (k + 3 - sp.Rational(n, 2))) == 0 and sp.simplify(k + 5 - tmin) > 0
+            and sp.diff(emb, t) < 0)
         chk(f"n = {n}: (5.8) at s = {s}: source rH^(s-n) = rH^(t-2), solution rH^(s-n+1) x rH^(s-n+2) = rH^(t-1) x "
             f"rH^t", sp.simplify(s - n - (t - 2)) == 0 and sp.simplify(s - n + 2 - t) == 0)
         kmin = n // 2 + 1
@@ -187,6 +208,8 @@ def d4(control=0, verbose=False):
         rp2 = xnp**2 + r**2 * (1 - z**2)
         chk(f"n = {n}: r'^2 = (r D)^2 on t = r", sp.simplify(rp2.subs(u, 0) - (r * D)**2) == 0)
         rp = r * D                                           # r' at u = 0 (D > 0)
+        chk(f"n = {n}: t*' = t' - r' vanishes on t = r, so there phi_S^* dt*' = lambda dt* and the pull-back of "
+            f"(dt*')^2 is lambda^2 (dt*)^2 as a tensor", sp.simplify(tp.subs(u, 0) - rp) == 0)
         dts = sp.diff(tp, u) - (xnp * sp.diff(xnp, u)).subs(u, 0) / rp
         coef = (rp if control != 1 else r)**(2 - n) * dts.subs(u, 0)**2
         chk(f"n = {n}: phi_S^*(mu r^(2-n) dt*^2) = mu r^(2-n) D^-{n} dt*^2 on t = r",

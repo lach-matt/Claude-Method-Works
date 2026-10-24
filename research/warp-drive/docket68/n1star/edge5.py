@@ -18,14 +18,16 @@ densities and in a few counts.  Each is computed here.
      coefficient -(n - 1) r^(2 alpha), -2 at n = 3 (his) and -3 at n = 4; the x_I^2 gslash^-1 coefficient -(2 alpha + n -
      1) r^(2 alpha), -2(alpha + 1) at n = 3 (his) and -(2 alpha + 3) at n = 4; and T(X_0, -grad t*) = (1/2) r^(2
      alpha)((x_I d_x_I)^2 + x_I^2 gslash^-1) at both, his second line.  With his large constant in front of T(X_0, -grad
-     t*), K + 2 w T is positive definite for alpha < -1/2 at both n.
+     t*), K + 2 w T is positive definite on (dt*, dx_I/x_I) for every alpha < -1/2 at both n, exactly when w > (n -
+     1)^2/(4 (-2 alpha - 1)): the determinant is the dt*^2 entry times w less (n - 1)^2/4 (D143).
   E3 (computed, exact) The sphere: the C(n, 2) rotation fields x_a d_b - x_b d_a span T S^(n-1) at every point (3
      fields on S^2, his V_3, V_4, V_5; 6 on S^3), and sum_(a<b) (x_a d_b - x_b d_a)^2 is the Laplacian of S^(n-1)
      (his Lap-slash as a sum of X_a X_b).
   E4 (computed, exact) The counts and densities: |dg| = r^(n-1) |dt* dr dgslash| = 2 x_I^(-2n) |dt* (dx_I/x_I)
      dgslash| (his x_I^-6; x_I^-8 at n = 4); the least integer above dim M/2 = (n + 1)/2 is 3 at both (Lemma 8.8's
      H^3_b); the commuting operators of Lemma 7.12, 2 + C(n, 2) + 1 (his N_0^6; 9 at n = 4); section 8.2's
-     second-order monomials in (t*, x), (n + 1)(n + 2)/2 (10; 15), and its fields X_1, ..., X_(n+1) (4; 5).
+     fields X_1, ..., X_(n+1) (4; 5) and their second-order monomials, (n + 1)(n + 2)/2 (10; 15), counted from the
+     list of fields (D143).
 
 Mutants: E1 with 2 for n - 1; E2 without the trace term; E3 with n - 1 rotation fields; E4 with r^(n-2).
 sympy.  python3 edge5.py [--selftest | --mutants]   (under a minute)
@@ -119,10 +121,13 @@ def e2(control=0, verbose=False):
             all(sp.simplify(got[k] - want[k]) == 0 for k in want))
         w = sp.Symbol("w", positive=True)
         M = sp.Matrix([[got["tt"], got["te"] / 2], [got["te"] / 2, got["ee"] + 2 * w * got["T_ee"]]])
-        a0 = sp.Rational(-3, 4)
-        pos = all(ev > 0 for ev in M.subs({al: a0, w: 40}).eigenvals())
-        chk(f"n = {n}: K + 2 w T positive on (dt*, dx_I/x_I) at alpha = -3/4, w = 40; the dt*^2 entry > 0 iff "
-            f"alpha < -1/2", pos and sp.solve(got["tt"] > 0, al) == (al < sp.Rational(-1, 2)))
+        det = sp.expand(M.det())
+        w0 = sp.solve(det, w)[0]
+        lin = sp.degree(det, w) == 1 and sp.simplify(sp.diff(det, w) - got["tt"]) == 0
+        chk(f"n = {n}: for every alpha < -1/2, K + 2 w T is positive on (dt*, dx_I/x_I) iff w > {sp.factor(w0)}: the "
+            f"dt*^2 entry > 0 iff alpha < -1/2, and det = (that entry) w - (n - 1)^2/4",
+            lin and sp.solve(got["tt"] > 0, al) == (al < sp.Rational(-1, 2))
+            and sp.simplify(w0 - (n - 1)**2 / (4 * got["tt"])) == 0)
     return chk.ok
 
 
@@ -165,10 +170,12 @@ def e4(control=0, verbose=False):
         dens = sp.simplify(rr**p * sp.diff(rr, x) * x)      # r^(n-1) dr in units of dx/x
         chk(f"n = {n}: r^(n-1) |dr| = {sp.simplify(-dens)} |dx_I/x_I|", sp.simplify(-dens - 2 * x**(-2 * n)) == 0)
         k = (n + 1) // 2 + 1
+        fields = sp.symbols(f"v0:{n + 1}")                   # d_t* and the n coordinate fields of R^n
+        mono = list(itertools.combinations_with_replacement(fields, 2))
         chk(f"n = {n}: least integer above (n + 1)/2 = {k}; Lemma 7.12's operators {2 + n * (n - 1) // 2 + 1}; "
-            f"section 8.2's monomials {(n + 1) * (n + 2) // 2} and fields {n + 1}",
-            k == 3 and (2 + n * (n - 1) // 2 + 1) == (6 if n == 3 else 9)
-            and (n + 1) * (n + 2) // 2 == (10 if n == 3 else 15))
+            f"section 8.2's fields {len(fields)} and their second-order monomials {len(mono)}",
+            k == 3 and (2 + n * (n - 1) // 2 + 1) == (6 if n == 3 else 9) and len(fields) == n + 1
+            and len(mono) == (10 if n == 3 else 15) == (n + 1) * (n + 2) // 2)
     return chk.ok
 
 

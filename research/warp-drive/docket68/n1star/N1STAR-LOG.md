@@ -4182,3 +4182,35 @@ partials were closed by reading at source: [Hin26] Proposition 5.25 (pp. 110-111
 any n; [Hin26] Lemma 10.13 (p. 217) and [Hin26c] Lemma 14.6 (pp. 264-265), Hardy inequalities in t with general s by the
 3b calculus. 10.41 (d)'s inputs are 10.53's and 10.67's; 10.38 (a) is X7's computation for [Hin23a]'s gauge, deduced for
 [Hin26]'s.
+
+**D143 (2026-10-24): the fifty-ninth verifier on D137-D139, seated.** gluing5.py and edge5.py 4/4 with mutants 4/4;
+censusweep.py reproduced for five papers; quotations verbatim. M1 (major): the parity inventory listed only (E.19) and
+(E.20b); [CD03] also uses parity for the Lorentz invariance of J^munu ((E.21)-(E.23), p. 74) and the preservation of
+(E.9) under boosts, both on the way to (E.14) -- uses that fall on the Myers-Perry family, which has alpha_- = 3 -- and
+(E.20b)'s bulk term is finite because the data are vacuum. Seated in 10.63(b) and the paper's 8.7. M2 (major): that the
+reason given for reading (8.1) with k^+ is false. Checked: on the boosted slice t = v x of a static metric, K = v N
+Hess_h(x) + O(v^2), odd and of order m r^-2 for Schwarzschild, so r |K^-| ~ r^-1 and printed (8.1) forces alpha_- <= 1 <
+alpha; the verifier's reading dropped (8.1)'s factor r. Refuted; the sign argument the verifier gave is the one 10.63(b)
+already states. Minors: [Hin26d] pages 4, 8, 26 -> 5, 9, 27 (m1; journal line verified, DOI added); (8.7)'s R^-1 for J
+and E C at n = 3 read as a misprint, the n = 3 proof needing the parity-improved error, n = 4 not (m2); gluing5.py D2-D4
+and edge5.py E2, E4 now test what they claim (m3); censusweep.py read the CD03 copy's page markers as opening their pages
+when they close them, so its window ran one page late -- corrected, with p. 38 added: 278 hits on 205 pages, CD03 48,
+all accounted for in 10.69(e) (m4); HHV21's "7-dimensional" on p. 70 (m5). Nits: "deductions by modification"; 10.69(c)'s
+dimensions per n; 10.66(d)'s units; 10.63(c)'s parity alternative.
+
+**D144 (2026-10-24): the undecided rows read (10.73).** All 38 ? rows of DEDUCTIONS.tsv read in full. Ten are summaries
+and two four-dimensional remarks; ten are bookkeeping on computed values (10.36 (a)'s "reading" that route B's family
+is equivariant is discharged by mp5.py M2's computation), three applications with hypotheses placed, five elementary
+steps written out where they stand. Two recurring kinds get lemmas: Lemma 10.55 (equivariance) for the five symmetry
+steps of the class, and Lemma 10.54 (harmonic synthesis) for the sums over harmonics in 10.27 (a) and 10.33 (a), whose
+input -- gauge 1-forms with coefficients bounded uniformly in l -- synth5.py computes (S1-S2, B = -2 H_T/k, A_a = -(2
+r/k)(f_a + (r/k) d_a H_T), B = -2 H_T/k_V) with the floor k^2 >= 8 (S3); 3/3, mutants 3/3. 10.40 (a) is a modification
+step. DEDUCTIONS.tsv gains a column `final`.
+
+**D145 (2026-10-24): the modification steps' changes placed (10.74).** One extraction pass tabulated the 60 B rows
+(10.40 (a) added by hand): the places each says change between n = 3 and n = 4, where each five-dimensional value comes
+from, inputs, residual wording, readings. 28 values the rows only state were placed by hand: 11 arithmetic in n, 8
+computed, 8 at an earlier section, 1 the record's choice. B-MAP.tsv. A modification step then holds if its source proof
+uses n only at its listed places -- the census question -- so 8.8 (ii) reduces to (i). The paper's abstract, 1.3, 8.8
+and 9 now say so.
+

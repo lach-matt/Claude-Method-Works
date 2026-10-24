@@ -1934,10 +1934,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 
 ### 4.69 A second census by token sweep (computed; D139)
 
-- Computed (`censusweep.py`): 270 markers of the dimension on 204 pages of the carried passages, read against the
-  sections: all accounted for by 10.53-10.58 and 10.63-10.68 but [Hin26a] p. 62's density on level sets of tau,
-  r^3 |dr dgslash| at n = 3, r^4 |dr dgslash_S3| at n = 4 -- a norm convention fixed by the metric density, named in
-  10.69 (f).
+- Computed (`censusweep.py`): 278 markers of the dimension on 205 pages (D143; 270 on 204 before its [CD03] window was
+  set right) of the carried passages, read against the sections: all accounted for by 10.53-10.58 and 10.63-10.68 but
+  [Hin26a] p. 62's density on level sets of tau, r^3 |dr dgslash| at n = 3, r^4 |dr dgslash_S3| at n = 4 -- a norm
+  convention fixed by the metric density, named in 10.69 (f).
 - Remaining: completeness of the censuses is evidenced by two methods agreeing, not proved; a dimension entering
   through a bare numeral is found only by reading.
 
@@ -1974,3 +1974,38 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Deduced (10.72): all 29 A rows of DEDUCTIONS.tsv have their hypotheses placed; 10.38 (a) with one deduced link (X7
   computes it for [Hin23a]'s gauge); 10.51 (c) misfiled (internal).
 - Remaining of 8.8 (ii): the 60 B steps and the 38 undecided rows.
+
+### 4.74 The fifty-ninth verifier on D137-D139 (D143)
+
+- M1 seated: on the data, [CD03] needs (E.9) only for the convergence of J^munu ((E.19), (E.20b)); its other uses --
+  that Lorentz maps preserve (E.5) and (E.9), and the T_R integral of (E.22) "by parity considerations" (p. 74), on the
+  way to the transformation law (E.14) -- fall on the Myers-Perry family, which meets (E.9) with alpha_- = 3; (E.20b)'s
+  bulk term vanishes because the data are vacuum (10.63(b)).
+- M2 checked and refuted: printed (8.1) bounds r |K^-|, and boosted Kerr's odd K of order m r^-2 forces alpha_- <= 1;
+  the verifier's reading dropped the factor r. The reading of (8.1) with k^+ stands (10.63(b)).
+- Computed: `censusweep.py`'s CD03 page markers close their pages; read so, with p. 38 added, 278 hits on 205 pages
+  (CD03 48); `gluing5.py` D2's conditions now computed from the charges' exponents, with (8.6)'s n = 3 error equal to
+  J's main term; D3's embedding threshold derived; D4's pull-back a tensor identity; `edge5.py` E2 for every alpha <
+  -1/2 (w > (n - 1)^2/(4(-2 alpha - 1))), E4's fields asserted.
+- READ: [Hin26d] pp. 5, 9, 27 (pages corrected), its journal record (doi:10.1090/cams/58); [HHV21] p. 70.
+
+### 4.75 The undecided rows read; symmetry and harmonic sums at proof level (computed, proved, deduced; D144)
+
+- Computed (`synth5.py` S1-S3, Proposition 10.53): the scalar and vector gauge 1-forms on Tangherlini, coefficients
+  r/k, r^2/k^2, 1/k, 1/k_V; k^2 = l(l + 2) >= 8 at l >= 2.
+- Proved: Lemma 10.54 (harmonic synthesis: polynomially bounded coefficient maps on eigenspaces of a type Laplacian give
+  a convergent sum, by the elliptic estimate, Sobolev and Weyl's law); Lemma 10.55 (equivariance: uniqueness gives
+  invariance, the Haar mean projects, invertible equivariant maps restrict, averaged smoothing keeps its estimates).
+- Deduced (10.73): of the 38 undecided rows, 12 have no step of their own, 25 are at proof level given their inputs (D
+  10, A 3, E 5, G 5, H 2), and 10.40 (a) is a modification step. DEDUCTIONS.tsv's `final` column.
+
+### 4.76 The modification steps: each change placed (measured, deduced; D145)
+
+- Measured (`B-MAP.tsv`): 61 rows; 50 name 85 places where the dimension changes the proof, 11 name none; the 88
+  placements are 26 computed, 50 at an earlier section, 11 arithmetic in n, 1 the record's choice; 30 rows rest on a
+  reading that 10.64-10.68 carry.
+- Deduced (10.74): a modification step holds at n = 4 if its source proof uses n only at its listed places (the census
+  question) and each changed value meets the proof's conditions there (the table). So 8.8 (ii) reduces to (i).
+- Remaining: the censuses' completeness, read at source and checked by two methods (10.64-10.69), not proved; writing
+  the source proofs out at n = 4 would replace that evidence by proof.
+

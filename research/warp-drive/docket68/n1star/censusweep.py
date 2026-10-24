@@ -6,12 +6,15 @@ the dimension -- S^2, S^3, R^3, R^4, R^10, 3 + 1, "dimension", "k-dimensional", 
 count, and the densities |x|^3, r^2 |d..|, x^-6 -- on every page of each carried passage, written to a TSV for
 reading against the sections.  The full texts are alphaXiv's (get_paper_content, fullText = true, 2026-10-24); they are
 not stored here, so the sweep runs only where they have been fetched: pass their directory with --texts and the CD03
-page-marked copy with --cd03.  Labels: computed (a token search), the accounting READ.
+page-marked copy with --cd03 -- the arXiv v2 PDF's text with each page's printed foot number replaced by a line
+<<<PAGE n>>> that closes page n (md5 da6b7ef29bf382456c266e8204fcf4fb).  Labels: computed (a token search), the
+accounting READ.
 
-Result at 2026-10-24: 270 hits on 204 pages -- [Hin23a] section 3 104, [Hin26a] section 5.2 25, [Hin26c] sections 7-8
-and 9.3 26, [Hin26]'s boost sections 65, [HHV21] pp. 89-93 10, [CD03] Theorem 8.1 and Appendix E 40 -- every one
-accounted for by 10.53-10.58 and 10.63-10.68, but one: [Hin26a] p. 62's density r^3 |dr dgslash| on level sets of
-tau, the metric density times rho^-1 (its p. 65), which is r^4 |dr dgslash_S3| at n = 4 (10.69).
+Result at 2026-10-24 (D143): 278 hits on 205 pages -- [Hin23a] section 3 104, [Hin26a] section 5.2 25, [Hin26c] sections
+7-8 and 9.3 26, [Hin26]'s boost sections 65, [HHV21] pp. 89-93 10, [CD03] Theorem 8.1, section 8.2 and Appendices E-F
+(pp. 35-38, 71-77) 48 -- every one accounted for by 10.53-10.58 and 10.63-10.68, but one: [Hin26a] p. 62's density r^3
+|dr dgslash| on level sets of tau, the metric density times rho^-1 (its p. 65), which is r^4 |dr dgslash_S3| at n = 4
+(10.69).
 
 python3 censusweep.py --texts DIR --cd03 FILE --out hits.tsv
 """
@@ -51,8 +54,8 @@ def pages(doc):
 
 def cd03_pages():
     t = open(CD03).read()
-    parts = re.split(r"<<<PAGE (\d+)>>>", t)
-    return {int(parts[i]): re.sub(r"\s+", " ", parts[i + 1]) for i in range(1, len(parts) - 1, 2)}
+    parts = re.split(r"<<<PAGE (\d+)>>>", t)            # the marker closes its page: page n is the text before it
+    return {int(parts[i]): re.sub(r"\s+", " ", parts[i - 1]) for i in range(1, len(parts), 2)}
 
 
 def run():
@@ -60,7 +63,7 @@ def run():
     allp = {d: pages(d) for d in DOCS}
     allp["cd03"] = cd03_pages()
     ranges = {d: v[3] for d, v in DOCS.items()}
-    ranges["cd03"] = [(35, 37), (71, 77)]
+    ranges["cd03"] = [(35, 38), (71, 77)]
     for d, pg in allp.items():
         for lo, hi in ranges[d]:
             for p in range(lo, hi + 1):
