@@ -217,18 +217,25 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   identities and exponents, the scalar type's flow in [KI03]'s X, Y and its master equation, the mass and time rescaling
   at l = 0, the rotations at vector l = 1, pure gauge at scalar l = 1, and the ingoing forms (S1-S6; the theorem and
   [Hin26] Proposition 8.11 at Tangherlini, and near it on a reading, deduced in 10.33). `python3 static5.py --selftest`
-  (6/6, about a minute and a quarter), `--mutants` (6/6).
+  (6/6, about a minute and a quarter), `--mutants` (7/7).
 - `physical5.py`: [Hin26] section 8.5 in five dimensions (section 10.34; D91): the physical large zero energy states --
   the stationary equations hypergeometric in r^2/mu, the solutions smooth at the horizon and their growth like r^l, the
   roots his Step 4 needs, and the rotation equivariance behind his Remark 8.10 and Lemma 8.15 (Y1-Y4; his Proposition
   8.14 at a = 0 for every l >= 2 and the three types, and near it for l = 2, 3 on 10.33(f)'s readings and his
   Proposition 7.4 in five dimensions, Step 2 modified, deduced in 10.34). `python3 physical5.py --selftest` (4/4, about
-  twelve minutes, lin5.py's determinants), `--mutants` (4/4).
-- `window5.py`: [Hin26]'s window in five dimensions (section 10.35; D93): the roots of the linearized gauge-fixed
+  twelve minutes, lin5.py's determinants), `--mutants` (5/5).
+- `window5.py`: [Hin26]'s window in five dimensions (section 10.35; D93, D95): the roots of the linearized gauge-fixed
   Einstein operator in [-3, 0] in four dimensions (his Lemma 8.4, the terms of (9.32)) and in five (the same and the
   tensor types), the bookkeeping of K+ orders that returns (9.32) at his iota+ order 1, and the radiative and Coulombic
-  orders of the flat wave operator (W1-W3; the window [-2, 0] and the states s2, v2, t2 at -2 alone deduced in 10.35).
-  `python3 window5.py --selftest` (3/3, about twenty-five minutes, lin5.py's determinants), `--mutants` (3/3).
+  orders of the flat wave operator, at his order 1 and at 3/2 and 2 (W1-W3, the roots from det N_L itself; the window
+  [alpha_5 - 4, 0] and, for any alpha_5 in (1, 2], the states s2, v2, t2 at -2 alone deduced in 10.35; D95). `python3
+  window5.py --selftest` (3/3, about twenty-five minutes, lin5.py's determinants), `--mutants` (4/4).
+- `mp5.py`: [Hin26] section 7.2.1 in five dimensions at every spin (section 10.36; D96): the Myers-Perry metric in
+  Kerr-Schild form for every spin matrix A in so(4), [ER08]'s at block form and Ricci-flat at exact rational points,
+  Lemma 7.5 as the identity delta* V_b = (1/2) L_R g = (1/2) D_A g([A_b, A_V]), symbolically and on the full metric, the
+  leading term spin-independent and the rest at rho^4, the Killing rotations 6, 4, 2, and h-sharp's leading term
+  independent of the coordinates (M1-M5; his Lemma 7.5, Proposition 7.4 and (7.19) at every spin deduced in 10.36).
+  `python3 mp5.py --selftest` (5/5, about three minutes), `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
@@ -245,5 +252,5 @@ lin5.py imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, stra
 imports damping5.py, zstates5.py imports damping5.py, genstates5.py imports damping5.py and zstates5.py, puregauge5.py
 imports damping5.py, genstates5.py and zstates5.py, dual5.py imports damping5.py, genstates5.py and puregauge5.py,
 pairing5.py imports damping5.py, static5.py imports damping5.py and gmodes5.py, physical5.py imports damping5.py and
-lin5.py, window5.py imports damping5.py and lin5.py, and the others import nothing from the tree. The board's shared
-record is not edited here.
+lin5.py, window5.py imports damping5.py and lin5.py, mp5.py imports damping5.py and dual5.py, and the others import
+nothing from the tree. The board's shared record is not edited here.

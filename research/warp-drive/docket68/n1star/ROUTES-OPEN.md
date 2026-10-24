@@ -400,19 +400,22 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    readings, and Proposition 6.18 (1)-(3) hold there too (4.30; the leading terms computed, the rest deduced), and so
    does Proposition 6.18 (4)-(7) (4.31; the leading terms computed, the rest deduced); his section 7.2's dual states hold
    there on 10.21(e)'s readings, eleven against his seven, and section 7.2.1's structure at first order in the rotation
-   (4.32; the leading terms computed, the rest deduced); his Lemma 8.12's pairings are non-degenerate there, so his
+   (4.32; the leading terms computed, the rest deduced) and at every spin (4.37; Lemma 7.5 an identity of the
+   Myers-Perry family, computed exactly, the rest deduced); his Lemma 8.12's pairings are non-degenerate there, so his
    Proposition 8.11 and Corollary 8.13 hold with eleven for seven up to [AHW24] Theorem 6.1(2) in five dimensions (4.33;
    the pairings computed, the rest deduced); and that rigidity holds on five-dimensional Tangherlini, the mass and the
    six rotations plus pure gauge, so they hold there, and near it on a reading (4.34; the stationary equations computed,
    the rest deduced); the line-by-line readings of [Hin26a] sections 2.3 and 5.2 and Appendix B and of [Hin26c] section
-   9 at n = 4, and the rest of the item, [Hin26] section 7.2.1 beyond first order in the rotation, section 8.5 beyond
-   4.35 (its physical states at a = 0, and near it on 10.33(f)'s readings, the tensor types included; 4.36: on readings
-   five dimensions needs only those at l = 2), and [AHW24] Theorem 6.1(2) in five dimensions beyond a = 0, are OPEN.
+   9 at n = 4, and the rest of the item, section 8.5 beyond 4.35 (its physical states at a = 0, and near it on
+   10.33(f)'s readings, the tensor types included; 4.36: on readings five dimensions needs only those at l = 2, for any
+   iota+ order in (1, 2]), and [AHW24] Theorem 6.1(2) in five dimensions beyond a = 0, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
    so that the forward solutions lose one power of t_* rather than two and no centre-of-mass or momentum
-   elimination ([Hin26] section 1.4.2) is needed, is OPEN: it rests on item 2, not on the symmetry (D47).
+   elimination ([Hin26] section 1.4.2) is needed, is OPEN: it rests on item 2, not on the symmetry (D47). And at a = 0,
+   where 10.35(b) reads the pole as of order 2, whether logarithms enter it, the mass state r^-2 lying just outside L^2
+   in four spatial dimensions, is OPEN too (D95).
 4. *The tame estimates* of [Hin26c] in 4 + 1: the microlocal pieces -- edge-b near null infinity, 3b in the forward
    cone, normally hyperbolic trapping at r^2 = 2 mu -- are stated in 3 + 1 "for concreteness" with the general-dimension
    conventions in [Hin23c] section 3.1.2; the zero-energy indicial gap is (0, 2) (Proposition 9.40). Rewriting the
@@ -505,9 +508,12 @@ invertibility). And 4.35 (10.34, Proposition 10.31, computed; deduced) finds his
 dimensions: at a = 0 for every l >= 2 and the three types, the static tidal solutions in Gauss functions of r^2/mu, and
 near it for his l = 2, 3 by his construction with its Step 2 modified, on his Proposition 7.4 in five dimensions, his
 Lemma 8.15 carried over with so(4)'s bracket for the cross product. And 4.36 (10.35, Proposition 10.32, computed;
-deduced) finds the window five dimensions needs: [-2, 0], on readings, the slowest iota+ term being the mass aspect's
-t*^-2, so that its physical states are s2, v2 and t2 at -2 alone, without companions. Next: the rest of item 2 -- 7.2.1
-beyond first order in the rotation, and sections 9-10 -- in five dimensions.
+deduced) finds what five dimensions needs: for any iota+ order alpha_5 in (1, 2] the physical states s2, v2 and t2 at -2
+alone, without companions, in the window [alpha_5 - 4, 0] -- [-2, 0] if the slowest iota+ term is the mass aspect's
+t*^-2, [-5/2, 0] if the radiative order reaches iota+ as his index sets carry it (D95). And 4.37 (10.36, Proposition
+10.33, computed; deduced) finds his section 7.2.1 at every spin: Lemma 7.5 is the identity delta* V_b = (1/2) D_A
+g_b([A_b, A_V]) of the Myers-Perry family over so(4), so h-sharp is defined on all of so(4) and his Proposition 7.4 and
+(7.19) follow on readings. Next: the rest of item 2 -- sections 9-10 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -1164,11 +1170,10 @@ states Proposition 10.25 and deduces.
 - Deduced: his Proposition 6.15 and Proposition 8.9 in five dimensions, every order one higher and neither logarithm, on
   his Lemma 6.13 in five dimensions; six angular momenta in place of three.
 - OPEN: the readings of 10.20, on which 4.30 deduces his Lemma 6.13 in five dimensions (and 4.30-4.31 his Proposition
-  6.18); the index sets; section 7.2.1 beyond first order in the rotation (4.32 has the rest of section 7.2), Proposition
-  8.11, Lemma 8.12 and Corollary 8.13 in five dimensions beyond 4.33-4.34 (the kernel 1 + 6 + 4 = 11 against his 7, the
-  count deduced at a = 0, and near it on a reading); section 8.5 and sections 9-10; how small gam_Ups must be, and h_0.
-  Labels: computed (zstates5.py Z1-Z6, exact); deduced; READ ([Hin26] pp. 25, 81, 113, 117, 124-128, 154-155, 157;
-  [ER08] p. 14); nothing proved.
+  6.18); the index sets; Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions beyond 4.33-4.34 (the kernel
+  1 + 6 + 4 = 11 against his 7, the count deduced at a = 0, and near it on a reading); section 8.5 and sections 9-10;
+  how small gam_Ups must be, and h_0. Labels: computed (zstates5.py Z1-Z6, exact); deduced; READ ([Hin26] pp. 25, 81,
+  113, 117, 124-128, 154-155, 157; [ER08] p. 14); nothing proved.
 
 ### 4.30 [Hin26] Lemma 6.13 and Proposition 6.18 (1)-(3) in five dimensions (computed; D81)
 
@@ -1259,9 +1264,9 @@ N1STAR-PROOF.md 10.32 states Proposition 10.29 and deduces.
   with dim ker = dim coker >= 11, equality up to [AHW24] Theorem 6.1(2) in five dimensions, which 4.34 deduces at a = 0;
   his Corollary 8.13 with eleven for seven on it.
 - OPEN: [AHW24] Theorem 6.1(2) in five dimensions beyond a = 0 (4.34 has it at a = 0); section 8.5 beyond 4.35 and
-  sections 9-10; section 7.2.1 beyond first order in a; the readings of 10.20-10.22 line by line; how small gam_Ups must
-  be, and h_0. Labels: computed (pairing5.py P1-P5, exact); deduced; READ ([Hin26] pp. 125, 138, 145, 154-158; [Hin24b]
-  pp. 13, 33, 38-39, 44, 49-53; [Hin23b] pp. 101-110, 116-117); nothing proved.
+  sections 9-10; the readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0. Labels: computed
+  (pairing5.py P1-P5, exact); deduced; READ ([Hin26] pp. 125, 138, 145, 154-158; [Hin24b] pp. 13, 33, 38-39, 44, 49-53;
+  [Hin23b] pp. 101-110, 116-117); nothing proved.
 
 ### 4.34 [AHW24] Theorem 6.1(2) in five dimensions: the stationary solutions on Tangherlini (computed; D90)
 
@@ -1286,10 +1291,9 @@ gmodes5.py's reduced operators; N1STAR-PROOF.md 10.33 states Proposition 10.30 a
   as Proposition 8.11 gives it (p. 157) -- Proposition 8.11 and his Corollary 8.13 (a statement for b near b_0) with
   eleven for seven (D92).
 - OPEN: [AHW24] Theorem 6.1(2) on Myers-Perry with a != 0 beyond that reading; the class of (8.22)'s kernel elements in
-  five dimensions line by line; omega's continuation inside the horizon; section 8.5 beyond 4.35 and sections 9-10;
-  section 7.2.1 beyond first order in a; the readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0.
-  Labels: computed (static5.py S1-S6, exact); deduced; READ ([AHW24] pp. 1, 35, 41; [Hin26] pp. 156-157; [KI03] pp.
-  4-10, 11, 13-15); nothing proved.
+  five dimensions line by line; omega's continuation inside the horizon; section 8.5 beyond 4.35 and sections 9-10; the
+  readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0. Labels: computed (static5.py S1-S6, exact);
+  deduced; READ ([AHW24] pp. 1, 35, 41; [Hin26] pp. 156-157; [KI03] pp. 4-10, 11, 13-15); nothing proved.
 
 ### 4.35 [Hin26] section 8.5 in five dimensions: the physical large zero energy states (computed; D91)
 
@@ -1311,10 +1315,10 @@ his Remark 8.10; N1STAR-PROOF.md 10.34 states Proposition 10.31 and deduces.
   pairings absorbed into V_1), on his Proposition 7.4 in five dimensions on the full metric and on the readings 4.34
   rests on.
 - OPEN: the window five dimensions needs, and whether t2, t3 and higher l enter the late-time expansion (4.36: on
-  readings [-2, 0], t2 at -2 and no l >= 3); Lemma 8.15(1) against the non-Killing rotations at a != 0 beyond its
-  lambda-sharp form; Myers-Perry beyond first order and two spins; the readings and weights; sections 9-10. Labels:
-  computed (physical5.py Y1-Y4; exact, and numerical at 40 and 50 digits); deduced; READ ([Hin26] pp. 25, 140-142,
-  154-163; [DLMF] 15.8.2, 15.8.8, 15.10.1); nothing proved.
+  readings, for any iota+ order in (1, 2], t2 at -2 and no l >= 3); Lemma 8.15(1) against the non-Killing rotations at a
+  != 0 beyond its lambda-sharp form (4.37 has his Proposition 7.4 at every spin, so the modified Step 2 stands); the
+  readings and weights; sections 9-10. Labels: computed (physical5.py Y1-Y4; exact, and numerical at 40 and 50 digits);
+  deduced; READ ([Hin26] pp. 25, 140-142, 154-163; [DLMF] 15.8.2, 15.8.8, 15.10.1); nothing proved.
 
 ### 4.36 [Hin26]'s window in five dimensions: the large indicial roots the expansion needs (computed; D93)
 
@@ -1325,15 +1329,41 @@ at alpha - mu + j. window5.py lists the roots in [-3, 0] in four and five dimens
 bookkeeping at alpha = 1, and computes the radiative and Coulombic orders of the flat wave operator; N1STAR-PROOF.md
 10.35 states Proposition 10.32 and deduces.
 
-- The roots: in four dimensions his Lemma 8.4's in [-3, 0], (9.32)'s set; in five dimensions the same with t2's -2 and
-  t3's -3 (W1).
+- The roots: those of det N_L itself; in four dimensions his Lemma 8.4's in [-3, 0], (9.32)'s set; in five dimensions
+  the same with t2's -2 and t3's -3; box^C's roots meet the window only at four-dimensional s0's 0 (W1; D95).
 - The bookkeeping: alpha = 1 gives (9.32)'s orders; for alpha in (1, 2] the physical states kept are s2, v2 and t2 at
-  -2, without companions; alpha = 2 in full (W2).
+  -2, without companions; alpha = 2 in full; alpha = 3/2, the window [-5/2, 0], with s2's and s3's class roots just
+  below -2 and more class-root companions (W2; D95).
 - The orders: the Coulombic order d - 2 separates from the radiative (d - 1)/2 above four dimensions (W3).
-- Deduced: alpha_5 = 2, Theorem M(c)'s mass aspect at the Coulombic order r^-2, on the reading that nothing decays more
-  slowly at iota+; the pole order 2, the centre-of-mass chain ended by Proposition 10.29(iii)'s pairing; so the window
-  is [-2, 0], and five dimensions needs s2, v2 and t2 at -2 alone -- not 10.34's l = 3 states, nor his Step 4.
+- Deduced: for any iota+ order alpha_5 in (1, 2], five dimensions needs s2, v2 and t2 at -2 alone -- not 10.34's l = 3
+  states, nor his Step 4; the pole order 2, on a reading, the centre-of-mass chain ended by Proposition 10.29(iii)'s
+  pairing; the window [alpha_5 - 4, 0]. Which alpha_5 is a reading: 2, Theorem M(c)'s mass aspect at the Coulombic order
+  r^-2, if nothing decays more slowly at iota+; 3/2 + O(gam), conservatively, as his index sets at I+ carry the
+  radiative order (the forty-fourth verifier; D95).
 - OPEN: (5.28) and Proposition 11.16 in five dimensions; [Hin26c] Theorem 11.1 there; a radiation field's late limit;
-  the data class; section 7.2.1 beyond first order; sections 9-10. Labels: computed (window5.py W1-W3; exact, and
-  numerical at 50 digits); deduced; READ ([Hin26] pp. 17-18, 27-34, 37, 85, 92-93, 117, 128, 149, 173-177, 199, 218, 225,
-  273, 279, 324); nothing proved.
+  the data class; which alpha_5; logarithms at the pole; sections 9-10. Labels: computed (window5.py W1-W3; exact, and
+  numerical at 50 digits); deduced; READ ([Hin26] pp. 16-18, 27-34, 37, 85, 92-93, 117, 128, 149, 169, 173-177, 199,
+  218, 225, 228, 248, 273, 279, 324); nothing proved.
+
+### 4.37 [Hin26] section 7.2.1 in five dimensions at every spin: Lemma 7.5 on the Myers-Perry family (computed; D96)
+
+His Proposition 7.4 needs the deformation tensor of a rotation on Kerr to depend on the rotation only through a(b) x
+a(V), linearly and for every vector (Lemma 7.5; footnote 82), and 4.32 had it in five dimensions at first order in one
+spin. mp5.py writes the five-dimensional Myers-Perry metric in Kerr-Schild form for every spin matrix A in so(4) at
+once, checks it, and computes Lemma 7.5 on it exactly; N1STAR-PROOF.md 10.36 states Proposition 10.33 and deduces.
+
+- The family: (r^2 - A^2)^-1 = M/P by Cayley-Hamilton, k null on Q = 0, [ER08]'s form at block A, Tangherlini at A = 0,
+  Ricci-flat exactly at rational points for two spins rotated out of block form, equal spins and one spin; Kerr likewise
+  (M1).
+- Lemma 7.5 at every spin: Q, P, x^T A^2 M^2 x invariant and M (r I + A) x covariant under so(4), symbolically, so
+  delta* V_b = (1/2) L_R g_b = (1/2) D_A g_b([A_b, A_V]) -- checked on the full metric at the exact points (M2).
+- The expansion: the leading term (mu/r^4)(dt + dr) (x)_s V(W) does not see the spin, the rest from rho^4 (M3); the
+  Killing rotations 6, 4 at equal spins, 2 otherwise (M4); h-sharp's leading term the same from the Kerr-Schild term as
+  from 4.32's, c_0 shifted by the pure gauge mu/3 (M5).
+- Deduced: his Lemma 7.5 at every spin with W = [A_b, A_V] for his S', h~_b : so(4) -> rho^4 C^oo, and no pure gauge
+  term at leading order in these coordinates; his Proposition 7.4 with h-sharp defined on all of so(4), smooth in the
+  spin across the jumps 6, 4, 2, and (7.19) at rho^(floor(C_0) + 3) on 10.31(a)'s readings; so 4.35's condition is met
+  and the modified Step 2 stands at every small spin, on the reading that route B's g_b is chosen SO(4)-equivariantly.
+- OPEN: (7.19) itself and the formal solution beyond leading order, deduced not computed; Ricci-flatness symbolically;
+  g_b in coordinates outgoing at infinity with his cut-offs; the readings of 10.31(a); sections 9-10. Labels: computed
+  (mp5.py M1-M5; exact); deduced; READ ([Hin26] pp. 69, 126, 140-144, 161; [ER08] pp. 10, 14, 16, 19); nothing proved.
