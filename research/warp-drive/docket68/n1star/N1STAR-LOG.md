@@ -3541,3 +3541,31 @@ derivatives of the columns have the states as zero-frequency values. (5) The pap
 
 *Runs.* lowfreq5.py --selftest 2/2 (W1 5 s, W2 under 1 s) and --mutants 5/5 (about 3 s); paper/response5.py --selftest
 all pass; md5 rows refreshed.
+
+**D106 (2026-10-24): [Hin26c]'s readings behind 10.40, at source (10.41, lowfreq5.py W3).**
+
+M asked to continue. Section 10.40 rested on [Hin26c] at n = 4 for Definition 5.13's delta, (13.30a), Lemmas 14.6 and
+3.9, and the Paley-Wiener argument and section 14.1 that [Hin26]'s proof of Theorem 10.1 follows; this step reads them.
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26c] pp. 8, 20-21, 56-59, 106-107, 233, 235, 252, 255,
+262-267. [Hin26c] is written on Kerr in 3 + 1 dimensions, so each is READ at n = 3.
+
+*Read.* Definition 5.13: "Let aleph >= 0 and alpha_sf in R, delta >= 0" -- delta = 0 is admitted, and Remark 5.14's
+relaxed version, with margin d and loss s - d, is [Hin26]'s (10.3). (13.30a): "The shift of 3/2 in the decay orders at
+rho^-1(0) = scf cup tf is due to the passage from mu to mu_b", with L^2(X, mu) = rho^(3/2) L^2(X, mu_b). Lemma 14.6: at
+s = 0 an estimate in t at each fixed r; general s through an elliptic t*-translation-invariant 3b-parametrix. Theorem
+12.2's Paley-Wiener argument: in t* alone, on Theorems 9.41, 9.16 and 9.5(6). Theorem 14.2, the template: the loss from
+u_0 in rho C^oo through Lemma 14.5's condition (14.16).
+
+*Computed (Proposition 10.38, lowfreq5.py W3).* The density shift n/2 -- 3/2 at n = 3, 2 at n = 4 -- from the thresholds
+of r^-a in L^2(r^(n-1) dr) and L^2(r^-1 dr); (13.30a)'s rule reproduces his p. 206 (two instances), p. 216 ((10.56)) and
+(10.59), and gives 10.40(b)'s five-dimensional requirements and weights. Controls: the shift 3/2 at n = 4; no shift.
+
+*Deduced (10.41).* (a) 10.40's conclusion holds with sf-loss 0 in Remark 5.14's sense (margin 1), the hedge on delta
+removed; 10.40(c) and (e) now say so. (b) (13.30a) at n = 4: the shift computed, the microlocal part of Lemma 13.13 a
+reading. (c) Lemmas 14.6 and 10.13 at s = 0 hold at every n; general s rests on the 3b-calculus ([Hin23d], not read).
+(d) The Paley-Wiener argument rests on the readings of 10.19-10.20; section 14.1's loss comes from the zero energy
+state's decay, as 10.40's does. (e) Still readings at n = 4: Lemma 3.9, Lemma 13.13's microlocal part, the 3b-calculus,
+Theorems 9.5, 9.16 and 9.41; 10.40's OPEN list now says so.
+
+*Runs.* lowfreq5.py --selftest 3/3 (W1 5 s, W2 and W3 under 1 s) and --mutants 7/7 (about 4 s); paper/response5.py
+--selftest all pass; md5 rows refreshed.

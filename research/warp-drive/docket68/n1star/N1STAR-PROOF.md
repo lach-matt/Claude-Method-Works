@@ -5875,15 +5875,15 @@ four dimensions claimed lossless, and five dimensions claimed at alpha_sf + 1 an
      log t* term; both are integrable in t*. By (2.25a) their Fourier transforms have scf orders 3 - eps and 4 - eps and
      tf orders 2 - eps and 3 - eps (unweighted b-density), so against |dx| = r^3 dr dS^3 scf weights 1 - eps and 2 - eps
      and tf weights -eps and 1 - eps (Proposition 10.37(i): the zero-frequency values are the states themselves, at
-     these weights). With [Hin26c] (13.30a) at n = 4 relating r to the scf weight as his p. 216 does at n = 3 -- and his
-     p. 206, "r + alpha_sf + 1 < 3/2 - eps" for the scf order 3 - eps -- and Lemma 2.20, d_t* g-dot lies in
-     H^((s';k),(alpha',0))_3b;b for alpha' < 0 with s' + alpha' < 1 at R_out, and d_t*^2 h_s1 for alpha' < 1 with s' +
-     alpha' < 2 there. By the margin, s < -3/2 - alpha_sf < 1/2 at R_out, so both requirements hold at s' = s with
-     alpha' = -eps and 1 - eps: the derivative columns carry the states' own weights, and the requirement at R_out does
-     not bind. In four dimensions his I+ order 1 makes both scf weights -1/2, his "r < -1/2 at R_out", which at s' = s
-     binds d_t*^2 h_s1 ((d)); I+ terms at the five-dimensional radiative order 3/2 would make them -1/2 too, and bind
-     both (Proposition 10.37(ii)). (D104 took the requirement at R_out as his -1/2 here, and had alpha_sf + 1 and
-     alpha_sf + 2: true, but weaker; corrected in D105.)
+     these weights). With [Hin26c] (13.30a) at n = 4 relating r to the scf weight as his p. 216 does at n = 3 (section
+     10.41: READ at n = 3, its shift at n = 4 computed) -- and his p. 206, "r + alpha_sf + 1 < 3/2 - eps" for the scf
+     order 3 - eps -- and Lemma 2.20, d_t* g-dot lies in H^((s';k),(alpha',0))_3b;b for alpha' < 0 with s' + alpha' < 1
+     at R_out, and d_t*^2 h_s1 for alpha' < 1 with s' + alpha' < 2 there. By the margin, s < -3/2 - alpha_sf < 1/2 at
+     R_out, so both requirements hold at s' = s with alpha' = -eps and 1 - eps: the derivative columns carry the states'
+     own weights, and the requirement at R_out does not bind. In four dimensions his I+ order 1 makes both scf weights
+     -1/2, his "r < -1/2 at R_out", which at s' = s binds d_t*^2 h_s1 ((d)); I+ terms at the five-dimensional radiative
+     order 3/2 would make them -1/2 too, and bind both (Proposition 10.37(ii)). (D104 took the requirement at R_out as
+     his -1/2 here, and had alpha_sf + 1 and alpha_sf + 2: true, but weaker; corrected in D105.)
  (c) (Lemma 10.13 and the conclusion in five dimensions) For s = 0 Lemma 10.13 does not see the dimension -- it takes
      "|dt*| with any smooth weighted b-density on X", and its proof drops the angular variables, removes powers of r,
      and estimates in L^2(|dt dr|); for variable orders, "The case of general t*-translation-invariant orders s is
@@ -5893,20 +5893,20 @@ four dimensions claimed lossless, and five dimensions claimed at alpha_sf + 1 an
      u_sing in H^((s-1;k),(alpha_sf,-2)) (Proposition 10.37(ii)): the integrations keep the initial weights, which set
      the bound. With (a), u = u_hi + u_reg + u_sing is in H^((s-1;k),(alpha_sf,-2))_3b;b: (10.3) holds with alpha_sf in
      place of alpha_sf - delta. So, on the readings of (a)-(c) and of 10.39, L_b is 2-admissible in five dimensions with
-     sf-weight alpha_sf, alpha_sf + 2 in (0, eps_ind), and no sf-loss -- every delta >= 0 in (10.3); if [Hin26c]
-     Definition 5.13 (not read here) asks delta > 0, every such delta. His loss is set by his states' decay, r^-1 (mass)
-     and r^-2 (h_s1), through the tf weights -1/2 and 1/2 and the scf weight -1/2 of their I+ order 1; in five
-     dimensions the states decay like r^-2 and r^-3 and the columns have no I+ term. Were I+ terms of the radiative
-     order 3/2 added -- whether his section 11 needs I+ asymptotics is 10.39's open question -- the loss would be eps:
-     every delta > 0 (Proposition 10.37(ii)).
+     sf-weight alpha_sf, alpha_sf + 2 in (0, eps_ind), and no sf-loss -- every delta >= 0 in (10.3), which [Hin26c]
+     Definition 5.13 admits (section 10.41(a)). His loss is set by his states' decay, r^-1 (mass) and r^-2 (h_s1),
+     through the tf weights -1/2 and 1/2 and the scf weight -1/2 of their I+ order 1; in five dimensions the states
+     decay like r^-2 and r^-3 and the columns have no I+ term. Were I+ terms of the radiative order 3/2 added -- whether
+     his section 11 needs I+ asymptotics is 10.39's open question -- the loss would be eps: every delta > 0 (Proposition
+     10.37(ii)).
  (d) (a note on (10.52)) He writes that its conditions "hold for alpha' = 1/2 - eps and s' = s (see again Remark
      10.2)" (p. 216). As we read Remark 10.2, the margin gives s < -3/2 - alpha_sf at R_out, which is below 0 but not
      below -1 + eps, while s' + alpha' < -1/2 at s' = s would ask the latter; at s' = s - 1 it asks s < eps, which
      holds. His proof uses (10.52) only through (10.63), at (s - 1;k), so his conclusion is unaffected; in five
      dimensions (b)'s requirement at R_out holds at s' = s. A reading of his text, recorded and not more.
  (e) (downstream) His Corollary 11.10 and Theorem 11.12 carry the loss as delta > alpha_sf + 3/2, resp. delta > beta_+ -
-     1/2 (p. 225); in five dimensions, on the readings of (c), delta may be taken 0 there, or any delta > 0 if [Hin26c]
-     Definition 5.13 asks it -- his section 11 is not examined here.
+     1/2 (p. 225); in five dimensions, on the readings of (c), delta may be taken 0 there (section 10.41(a)) -- his
+     section 11 is not examined here.
 
 *READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed page numbers): pp. 21 (the Fourier
 transform, Figure 1.5), 54-55 (the 3b spaces, Definition 2.19, Lemma 2.20), 60 ((2.25a)-(2.26b)), 199-201 (Theorem 10.1,
@@ -5918,10 +5918,89 @@ Lemma 10.9 and its proof, (10.45), Lemmas 10.10-10.13, (10.46)-(10.64), the end 
 at spatial infinity: the derivatives that remove the poles carry the states' own weights, one order better than his; the
 augmentation, cut off to vanish near I+, leaves the requirement at R_out slack; and the two integrations in t* keep the
 initial weights. In four dimensions the computation returns his -3/2 - eps and his loss. Not done, and OPEN: [Hin26c]
-Lemmas 3.9 and 14.6, (13.30a) and Theorems 9.16, 12.2 and 14.2 at n = 4 (readings, with 10.19-10.20); [Hin26c]
-Definition 5.13's delta; Lemma 10.9 line by line in five dimensions; whether the boosts' columns meet (b)'s orders on
-Tangherlini by computation (section 10.39's OPEN); his section 11. Nothing of this section is proved: Proposition 10.37
-is computed, and (a)-(e) are deduced.
+Lemma 3.9, the microlocal part of Lemma 13.13, the 3b-calculus behind Lemma 14.6, and Theorems 9.5, 9.16 and 9.41 at n =
+4 (readings, with 10.19-10.20; section 10.41 reads the rest at source); Lemma 10.9 line by line in five dimensions;
+whether the boosts' columns meet (b)'s orders on Tangherlini by computation (section 10.39's OPEN); his section 11.
+Nothing of this section is proved: Proposition 10.37 is computed, and (a)-(e) are deduced.
+
+### 10.41 [Hin26c]'s readings behind 10.40, at source (`lowfreq5.py` W3; D106)
+
+*The setting.* Section 10.40 rested on [Hin26c] at n = 4 for: the delta of its Definition 5.13; (13.30a), which turns
+the scf order of a Fourier transform into the requirement at R_out; Lemma 14.6, which [Hin26]'s Lemma 10.13 cites for
+variable orders; Lemma 3.9; and the Paley-Wiener argument of Theorem 12.2's proof and section 14.1, which [Hin26]'s
+proof of Theorem 10.1 follows ("Following essentially the same strategy as in [Hin26c, section 14.1]", his p. 200).
+[Hin26c] is written on Kerr in 3 + 1 dimensions -- "a blow-up of (-1, 1)_sigma x R^3" (p. 21), "r^-(alpha_sf+2) L^2(R^3,
+|dx|)" with "alpha_sf := beta_sf - 3/2" (p. 20) -- so each is READ here at n = 3, and what this section adds is where n
+enters each. [Hin26c] cites our [Hin26] as [Hin26b].
+
+**Proposition 10.38 (computed; exact).** On R^n, n = 3 and 4, r^-a lies in L^2(|dx|) iff a > n/2 and in L^2(mu_b), mu_b
+= |dx|/|x|^n, iff a > 0: L^2(|dx|) = rho^(n/2) L^2(mu_b), rho = |x|^-1, the shift 3/2 at n = 3 and 2 at n = 4.
+(13.30a)'s rule -- the target's scf order at R_out below the source's less the shift, its tf order the source's less
+the shift -- reproduces his printed instances at n = 3: p. 206's "r + alpha_sf + 1 < 3/2 - eps" for the scf order 3 -
+eps and "r + alpha_sf < -1/2" for 2 - eps; p. 216's "r < -1/2" for (10.56)'s orders (1 - eps, 1 - 2eps), the tf weight
+-1/2 - 2eps (his -1/2 - eps, eps renamed); and (10.59)'s (1 - eps, 2 - eps), r < -1/2 and 1/2 - eps. At n = 4 it gives
+section 10.40(b)'s requirements r < 1 - eps and r < 2 - eps and its tf weights -eps and 1 - eps (W3).
+
+*Proof.* W3 of lowfreq5.py: sympy, the integrals of r^(-2a) r^(n-1) and r^(-2a) r^(-1) at infinity at a and a + 1/10 for
+the two thresholds; exact arithmetic for the rule, eps symbolic. Controls: the shift taken as 3/2 at n = 4; the rule
+without the shift. []
+
+*READ.* [Hin26c] (arXiv:2606.28008v1; alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed pages):
+
+ (a) (Definition 5.13, p. 106) "Let aleph >= 0 and alpha_sf in R, delta >= 0. We then call a stationary wave-type
+     operator P_0 (Definition 5.1) aleph-admissible with sf-weight alpha_sf and sf-loss delta such the following holds
+     for all stationary-P_0-admissible orders s with weights alpha_sf, -aleph and margin 0", with (1) trapping
+     admissibility, (2) tf-admissibility "with weight alpha_sf + 3/2" (footnote 46: "In particular, alpha_sf + 3/2 lies
+     in the indicial gap (beta_-, beta_+)") and (3) the estimate (5.22); and Remark 5.14 (p. 106): "The following
+     relaxed version of Definition 5.13 is easier to verify in some settings (such as [Hin26b, Theorem 10.1]) ... we say
+     that P_0 is aleph-admissible with sf-weight alpha_sf, sf-loss delta, and margin d_aleph >= 0 if for all
+     stationary-P_0-admissible orders s with weights alpha_sf, -aleph and margin d_aleph, conditions (1)-(2) hold as
+     stated, while (5.22) is replaced by u in H^((s-d_aleph;k),(alpha_sf-delta,-aleph))_3b;b".
+ (b) ((13.30a), pp. 252, 255) "L^2(X, mu) = rho^(3/2) L^2(X, mu_b), rho = |x|^-1" for mu = |dx| and "mu_b := |dx|/|x|^3"
+     (p. 252), with Lemma 13.13's r-bar_o := sup_(R_out) r; (13.30a) bounds the H^((s-1;k),(r+alpha_++1,
+     alpha_tf+2,0))_(sc-b,|sigma|);b(X, mu) norm by the H^(k+l,(r-bar_o+alpha_++5/2+eps, alpha_tf+7/2,
+     0))_(b,|sigma|)(X, mu_b) norm, "(The shift of 3/2 in the decay orders at rho^-1(0) = scf cup tf is due to the
+     passage from mu to mu_b.)" (p. 255).
+ (c) (Lemma 14.6 and its proof, pp. 264-265) for a t*-translation-invariant order s, beta in R and l > 1/2, "d_t* u =: f
+     in H^(s,(beta,-l+1))_3b(M_0), t* >= 1 on supp u ==> u in H^(s,(beta-1,-l))_3b(M_0)" with "the Minkowskian volume
+     density |dt dx|"; the case s = 0 "drop[s] the angular variables" and estimates in t at each r, "For general s, let
+     A in Psi-tilde^s_3b(M_0) (see (3.27)) be elliptic with parametrix B ... we may arrange for A, B (and thus R and B')
+     to be t*-translation-invariant". Lemma 3.9 (p. 59) is on X-tilde = R^3 with |dx| (p. 56).
+ (d) (Theorems 12.2 and 14.2) "box_g is 0-admissible with any sf-weight alpha_sf in (-3/2, -1/2) and sf-loss 0" (p.
+     233), its Paley-Wiener argument pairing u-hat(sigma) with phi in C_c^oo(X^o) and shifting the contour from gamma =
+     0 to gamma > 0, "For t* <= 1 < t_+, this tends to 0 as gamma -> oo" (p. 235), from the bounds of Theorems 9.41 and
+     9.16 and the continuity of Theorem 9.5(6); and "Let alpha_sf in (-3/2, -1/2) and delta > alpha_sf + 3/2. Then the
+     Hodge d'Alembertian (or tensor wave operator) box_g on 1-forms is 1-admissible with sf-weight alpha_sf and sf-loss
+     delta" (p. 262), whose proof (pp. 265-267) takes the contour (14.19), the augmentation (14.13) with its entry in
+     rho^3 C^oo (Lemma 14.3), the singular part a(t*) u_0 with u_0 in rho C^oo, and Lemma 14.5 "(with alpha = 1, m = 1,
+     and beta_sf = -3/2 - eps, eps > 0)", whose condition (14.16), "max(beta_sf, s|_(R_out) + beta_sf) < (-m) + (-3/2 +
+     alpha)" (p. 263), gives (14.29), "chi_T a u_0 in H^((s;k),(-3/2-eps,0))_3b;b", and the loss.
+
+*Deduced.*
+
+ (a) (Definition 5.13's delta) delta = 0 is admitted, so section 10.40(c)'s hedge goes: on the readings of 10.40, L_b in
+     five dimensions is 2-admissible with sf-weight alpha_sf, sf-loss 0 and margin 1 in Remark 5.14's sense -- the form
+     of [Hin26]'s (10.3), margin 1 and s - 1 -- for alpha_sf + 2 in (0, eps_ind). Definition 5.13(2)'s weight alpha_sf +
+     3/2 is alpha_sf + n/2 at n = 3; in five dimensions it is alpha_sf + 2, the shift of section 10.24(d).
+ (b) ((13.30a) at n = 4) Its statement sees the dimension through the density, as he says: at n = 4 the shift is 2
+     (Proposition 10.38), which is what section 10.40(b) used, and the rule reproduces his three printed instances at n
+     = 3. The rest of Lemma 13.13's proof -- b-regularity giving scattering decay away from R_out, an elliptic
+     parametrix in the scattering calculus (p. 252) -- is, at n = 4, a reading.
+ (c) (Lemmas 14.6 and 10.13 at n = 4) For s = 0 the estimate is in t at each fixed (r, omega), so the density on X --
+     r^(n-1) dr dS^(n-1), or [Hin26]'s "any smooth weighted b-density on X" -- passes through, and the lemma holds at
+     every n; for general s it rests on an elliptic t*-translation-invariant parametrix in the 3b-calculus, at n = 4 a
+     reading of [Hin23d] (not read here).
+ (d) (the Paley-Wiener argument and section 14.1 at n = 4) The Paley-Wiener argument is in t* alone; at n = 4 it rests
+     on Theorems 9.41, 9.16 and 9.5(6) at n = 4, the readings of 10.19-10.20. Section 14.1 is the template section 10.40
+     follows: in it the loss comes from the zero energy state's decay through (14.16) -- u_0 in rho^1 against -3/2 =
+     -n/2 at n = 3 -- as 10.40(c) found the loss of [Hin26] section 10.2 to come from his states' decay.
+ (e) (what remains) Of 10.40's [Hin26c] readings, these stay readings at n = 4: Lemma 3.9, the microlocal part of Lemma
+     13.13, the 3b-calculus behind Lemma 14.6, and Theorems 9.5, 9.16 and 9.41 (10.19-10.20).
+
+*What this gives, and what it does not.* Every [Hin26c] item section 10.40 cites is now READ at source at n = 3, with
+where n enters it: 10.40's hedge on delta is gone, delta = 0 being admitted, and the shift in (13.30a) at n = 4 is
+computed. Not done, and OPEN: the readings of (e) at n = 4; [Hin23d]; his section 11. Nothing of this section is proved:
+Proposition 10.38 is computed, and (a)-(e) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
