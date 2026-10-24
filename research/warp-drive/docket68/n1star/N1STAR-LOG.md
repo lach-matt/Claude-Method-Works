@@ -3384,8 +3384,8 @@ matrices beyond L1; 10.24-10.25's readings; his pp. 27-29, 248 and 273; Proposit
 scri5 3/3 (C1 55 s, C2 262 s, C3 396 s) and mutants 4/4; iota5 5/5 and mutants 6/6; mp5 5/5; response5 all pass; md5
 rows 55 of 55 at 28fbe64.
 
-*Runs.* iota5.py --only 4 (218 s, the new assertion passing) and --mutants running at this commit, recorded when it
-ends; scri5.py's changes are its docstring's; paper/response5.py --selftest all pass; md5 rows refreshed.
+*Runs.* iota5.py --only 4 (218 s, the new assertion passing) and --mutants 6/6 (about fifteen minutes); scri5.py's
+changes are its docstring's; paper/response5.py --selftest all pass; md5 rows refreshed.
 
 **D102 (2026-10-24): [Hin26] section 10.1 in five dimensions, the augmented zero energy operator (10.39, aug5.py).**
 
