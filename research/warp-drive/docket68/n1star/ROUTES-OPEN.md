@@ -1411,8 +1411,9 @@ closed only the pure resonance channel. scri5.py writes it at h = 0 in his split
 tests the radiative exponents at iota+; N1STAR-PROOF.md 10.38 states Proposition 10.35 and deduces.
 
 - The matrix: A_0, sbar5.py's S-bar in the splitting with S^3, lower triangular, the same at two points, with his
-  diagonal, his (5, 2) and his (7, 4) entry 2 (1 - e_Ups) gam_Ups, and three trace couplings changed ((3, 1), (4, 1),
-  (4, 3), (7, 3)); in four dimensions his printed (5.28) at h = 0, all 49 entries (C1).
+  diagonal, his (5, 2) and his (7, 4) entry 2 (1 - e_Ups) gam_Ups, and four trace couplings changed ((3, 1), (4, 1), (4,
+  3), (7, 3); with his (1/2) tr-slash for the trace slot, (4, 1) and (4, 3) alone); in four dimensions his printed
+  (5.28) at h = 0, all 49 entries (C1).
 - The exponents: iota5.py's det L1 by type is the product of 3/2 + (A_0)_ii - x over the slots the type occupies -- s0
   1, 3, 4, 7; v1 2, 5; v2 2, 5, 6; t2 6 (C2).
 - At a radiative exponent: at s0, pi_01's and pi_11's, and at t2, 3/2, at gam_C = 10 and 100, no resonant state at
@@ -1423,6 +1424,29 @@ tests the radiative exponents at iota+; N1STAR-PROOF.md 10.38 states Proposition
   resonant state there, which 10.37's descent -- holding at an outgoing exponent under his (9.17), D99 -- and
   injectivity exclude below 2. So alpha_5 = 2 by both channels, on readings, and the window is [-2, 0].
 - OPEN: the perturbation's entries by computation; Proposition 11.16 in five dimensions; 10.37(c)'s index 0 half,
-  polyhomogeneity at iota+ cap I+, the data class and the decay lam_1 > 0; the radiative exponents at the record's
-  gam_C; four dimensions. Labels: computed (scri5.py C1-C3; exact, and numerical at 50-100 digits); deduced; READ
-  ([Hin26] pp. 85, 91-93, 96-98, 168-169); nothing proved.
+  polyhomogeneity at iota+ cap I+, the data class, the decay lam_1 > 0 and nothing below 2 fed from K+; the radiative
+  exponents at the record's gam_C; four dimensions. Labels: computed (scri5.py C1-C3; exact, and numerical at 50-100
+  digits); deduced; READ ([Hin26] pp. 85, 87, 92-93, 96-98, 146, 168-169, 223); nothing proved.
+
+### 4.40 [Hin26] section 10.1 in five dimensions: the augmented zero energy operator (computed; D102)
+
+His Theorem 10.1, 2-admissibility, rests near zero energy on augmenting L-hat_b(sigma) by the eleven-dimensional -- in
+four dimensions seven -- nullspace of L-hat_b(0). His naive augmentation (10.5) has entries [L_b, t*] g-dot and [L_b,
+t*] h-breve^1 + (1/2)[[L_b, t*], t*] h_s1 that decay only like r^-2 ((10.9)), outside the target space, so he builds
+improved states with t*^-1 and log t* terms (Lemma 10.3) and, on the spectral side, sigma log |sigma| corrections
+(section 10.1.3); his angular momenta alone, already O(r^-2), take chi_K g-dot ((10.24a)). aug5.py computes the
+mechanism on the model; N1STAR-PROOF.md 10.39 states Proposition 10.36 and deduces.
+
+- The states: the gauged mass state r^-2 (dt^2 + dr^2) plus delta*(r^-1 (a dt + b dr)) and rotation state 2 r^-4 dt
+  (x)_s w plus delta*(p r^-3 w) solve L-bar g-dot = 0 with no logarithm; in four dimensions the mass state's gauge
+  1-form needs his (8.19)'s log (A1).
+- The entries: [L-bar, T] g-dot is of degree -3 (mass) and -4 (rotation), nonzero, [[L-bar, T], T] g-dot = 0; four
+  dimensions -2 and -3, his (10.9a) and (3, 0) (A2). The cut-off state chi(r/T) g-dot: iota+ order 4 and 5; four
+  dimensions 3, his borderline, and 4 (A3).
+- Deduced: every five-dimensional entry of (10.5) is in A^3, inside the target space for alpha_sf + 2 < 1; his
+  (10.24a) serves every state, no improved states, no t*^-1 or log t* and no sigma log |sigma| in the augmentation;
+  his Proposition 10.6 from 10.32's pairings; his Proposition 10.7 and Theorem 10.1, 2-admissibility with alpha_sf + 2
+  in (0, eps_ind), on the readings of 10.19-10.20, 10.24-10.27 and 10.32-10.33.
+- OPEN: his Proposition 10.7 and section 10.2 line by line in five dimensions; the boost entry and g^00 on Tangherlini
+  and Myers-Perry by computation; whether L-tilde_b(sigma)^-1 has logarithms at 0 (his section 11). Labels: computed
+  (aug5.py A1-A3; exact); deduced; READ ([Hin26] pp. 145, 199-205, 207-209, 211-212, 214); nothing proved.

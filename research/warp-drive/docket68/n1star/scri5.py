@@ -18,7 +18,7 @@ Proposition 5.14's proof: "The (7, 4) and (7, 6) entries of I + A_h couple pi_01
      g(d_0, d_0), the tangential part of g(d_0, .), the trace of the tangential block over 3, g(d_0, d_1), the
      tangential part of g(d_1, .), the trace-free tangential block, g(d_1, d_1), with d_0 = (d_t + d_r)/2, d_1 = (d_t -
      d_r)/2 -- A_0 is lower triangular, the same at (R, 0, 0, 0) and at (1, 2, 2, 4), with the diagonal of his (5.28)
-     and (7, 4) entry 2 (1 - e_Ups) gam_Ups as in four dimensions, (2, 5) and (5, 2) as there, and three trace
+     and (7, 4) entry 2 (1 - e_Ups) gam_Ups as in four dimensions, (2, 5) and (5, 2) as there, and four trace
      couplings changed: (3, 1) = (4/3)(1 - e_C)(1 + v) gam_C, (4, 1) = (1 + 2 e_C)(1 + v) gam_C/3 + gam_Ups, (4, 3) =
      ((1 + 2 e_C)(1 - v) gam_C + 3 e_Ups gam_Ups)/4, (7, 3) = (3/2)((1 + v) gam_C + e_Ups gam_Ups).  Four-dimensional
      control: at n = 3 and the trace weight 1, his (5.28) with h = 0, all 49 entries.  Control: the five-dimensional
@@ -42,7 +42,7 @@ the Coulombic order 2, the mass aspect's, and not at the radiative 3/2; the (7, 
 exponent into pi_11 as in four dimensions; a radiative-order term at null infinity reaches timelike infinity at its own
 order only through a resonant state there at that exponent, which 10.37(b)-(d) exclude below 2 on their readings.
 
-sympy, mpmath.  python3 scri5.py [--selftest | --mutants | --only k]   (about twelve and ten minutes)
+sympy, mpmath.  python3 scri5.py [--selftest | --mutants | --only k]   (about twelve and nine minutes)
 """
 import sys
 import time

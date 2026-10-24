@@ -5256,7 +5256,7 @@ needed at alpha = 1; in (iii) the radiative order claimed to leave the a' term. 
      0), and the (7, 4) coupling's index set (the setting), are radiative-order exponents, which in four dimensions
      coincide with the Coulombic 1. The same bookkeeping in five dimensions gives alpha_5 = 3/2 + O(gam),
      conservatively, unless the iota+ coefficients at the radiative order vanish there, which is not examined here; no
-     five-dimensional (5.28), and so no (7, 4)-type coupling, has been written (D95).
+     five-dimensional (5.28), and so no (7, 4)-type coupling, had been written (D95; 10.38 writes it at h = 0, D100).
  (b) (the pole order, a reading) In five dimensions the zero energy states of Proposition 8.11 (10.32-10.33) are the
      mass, the six rotations and the four centres of mass, these with the boosts h-breve^1_s1 (10.29) as companions and
      the chain ended by Proposition 10.29(iii)'s nonzero pairing (3 pi^2/2) mu (q . c); so L-hat_b(sigma)^-1 has a pole
@@ -5294,8 +5294,9 @@ class-root states, if the radiative order 3/2 reaches iota+ as his index sets wo
 alpha_5 -- his (5.28) and Proposition 11.16 in five dimensions line by line, and whether the radiative-order iota+
 coefficients vanish there (10.38: (5.28) at h = 0 computed, the radiative coefficients vanishing at iota+ cap I+, and
 alpha_5 = 2, on readings); [Hin26c]'s Theorem 11.1 in five dimensions; whether logarithms enter at the pole; whether a
-five-dimensional radiation field can have a nonzero late limit; the data class; sections 9-10 (section 7.2.1 at every
-spin is 10.36's). Nothing of this section is proved: Proposition 10.32 is computed, and (a)-(d) are deduced.
+five-dimensional radiation field can have a nonzero late limit (10.38(d): not, on readings); the data class; sections
+9-10 (section 7.2.1 at every spin is 10.36's). Nothing of this section is proved: Proposition 10.32 is computed, and
+(a)-(d) are deduced.
 
 ### 10.36 [Hin26] section 7.2.1 in five dimensions at every spin: Lemma 7.5 on the Myers-Perry family (`mp5.py`; D96)
 
@@ -5565,18 +5566,23 @@ aspect) and 3/2 + O(gam) (his index sets carrying the radiative order), with "no
 4)-type coupling" written; 10.37 closed the pure resonance channel. Here the five-dimensional (5.28) at the background,
 the exponents it gives at null infinity, and the radiative order at timelike infinity. x^0 = t + r, x^1 = t - r
 (damping5.py), d_0 = (d_t + d_r)/2, d_1 = (d_t - d_r)/2, d_1 = d_t* at null infinity, and A_0 := A_h at h = 0 is
-sbar5.py's S-bar (10.25: 2 rho S-bar the d_t* coefficient of 2 L - box), v below being v_C.
+sbar5.py's S-bar (10.25: 2 rho S-bar the d_t* coefficient of 2 L - box) -- his own "A_h = A_0 = S-bar_(E-bar^Ups,
+E-bar^C) in the notation of Lemma 8.2" (p. 223; and (8.8), p. 146) -- v below being v_C.
 
 **Proposition 10.35 (computed; exact, and numerical where said).** On 4+1 Minkowski, in the splitting (5.27) with S^3:
 
  (i) (the five-dimensional (5.28) at h = 0) A_0 is lower triangular, the same at (R, 0, 0, 0) and at (1, 2, 2, 4), and
      agrees with the constant part of his (5.28) in its diagonal 2 (1 - v) gam_C, (1 - v) gam_C, (1 - e_C)(1 - v) gam_C,
      (1 - e_Ups) gam_Ups, gam_Ups, 0, 2 gam_Ups, its (5, 2) entry (1 + v) gam_C + gam_Ups and its (7, 4) entry 2 (1 -
-     e_Ups) gam_Ups; it differs in three trace couplings: (3, 1) = (4/3)(1 - e_C)(1 + v) gam_C (his 2 (1 - e_C)(1 + v)
+     e_Ups) gam_Ups; it differs in four trace couplings: (3, 1) = (4/3)(1 - e_C)(1 + v) gam_C (his 2 (1 - e_C)(1 + v)
      gam_C), (4, 1) = (1 + 2 e_C)(1 + v) gam_C/3 + gam_Ups (his e_C (1 + v) gam_C + gam_Ups), (4, 3) = ((1 + 2 e_C)(1 -
      v) gam_C + 3 e_Ups gam_Ups)/4 (his (e_C (1 - v) gam_C + e_Ups gam_Ups)/2) and (7, 3) = (3/2)((1 + v) gam_C + e_Ups
      gam_Ups) (his (1 + v) gam_C + e_Ups gam_Ups). In four dimensions, at the trace weight 1, the same computation is
-     his (5.28) at h = 0, all 49 entries (C1).
+     his (5.28) at h = 0, all 49 entries (C1). Which entries differ is a matter of slot 3's normalization: its
+     coordinate here is the coefficient of r^2 g-slash, the trace over 3; with his pi_C's (1/2) tr-slash (Definition
+     5.2, p. 85) in its place -- row 3 scaled by 3/2, column 3 by 2/3 -- (3, 1) and (7, 3) are his and only (4, 1) and
+     (4, 3) differ, by (1 - e_C)(1 + v) gam_C/3 and (1 - e_C)(1 - v) gam_C/6 (deduced from the entries; the
+     forty-seventh verifier).
  (ii) (the exponents at null infinity by type) iota5.py's L1(x) for L-bar (10.37) has det L1(x) = prod (3/2 + (A_0)_ii -
      x) over the slots its type occupies: s0 the scalar ones 1, 3, 4, 7; v1 the vector ones 2, 5; v2 those and the
      trace-free 6; t2 the 6 alone -- every parameter symbolic (C2).
@@ -5591,7 +5597,10 @@ sbar5.py's S-bar (10.25: 2 rho S-bar the d_t* coefficient of 2 L - box), v below
 w the tangential part of dx_3 -- and the result read in the frame (d_0, d_1, tangential), each summand landing in its
 own type; (ii) sympy, L1 = M0/(x - lam) entrywise, free of lam, and its determinant against the product; (iii) mpmath at
 50 and 100 digits, 260 and 700 terms, iota5.py's connection with the column at the exponent computed from a null vector
-of L1(lam), the recursion's M0(lam + n) = n L1(lam + n) being invertible for n >= 1. Controls: in (i) the
+of L1(lam), the recursion's M0(lam + n) = n L1(lam + n) being invertible for n >= 1. At s0 the determinant is itself
+small, about 7 x 10^-12 at gam_C = 10, two E_K exponents lying close together (0 and -1.33 x 10^-6, the smallest
+singular value 1.2 x 10^-6: the forty-seventh verifier, who reproduced the values at gam_C = 10 to 15 digits by a
+Frobenius expansion in s and Taylor stepping), so that (iii)'s test is relative to the grid. Controls: in (i) the
 five-dimensional matrix claimed to be his; in (ii) s0 claimed to carry slot 5 for slot 4; in (iii) the zero claimed, and
 the leading coefficient taken off ker L1(lam), where the value is not the limit. []
 
@@ -5623,38 +5632,172 @@ the leading coefficient taken off ker L1(lam), where the value is not the limit.
      t*^-lam v^x = r^-x t*^(x - lam), so that limit is the v^(x0) coefficient, in ker L1(x0) by his (9.17), of a term
      t*^(-x0) G of the iota+ expansion. Let lam_1 be the least real part in the solution's iota+ expansion and suppose 0
      < lam_1 < 2. Its term solves the homogeneous model: the sources are quadratic, of iota+ order at least 2 lam_1; the
-     data, O(r^(-2-eps_0)) (10.35(a)), give no incoming term below 2; and (c)'s forced terms enter at 2. So it is a
-     resonant state in 10.37's sense (D99) -- outgoing at v = 0, its v^lam coefficient, if lam_1 is an outgoing
+     data, O(r^(-2-eps_0)) (10.35(a)), give no incoming term below 2; and (c)'s forced terms enter at 2; and nothing
+     below order 2 is fed into iota+ from K+, so that at v = oo the term carries E_K's exponents alone -- a reading: the
+     zero energy and pure gauge states of 10.35(c)'s window enter at K+ order alpha_5 or are eliminated as his are. So
+     it is a resonant state in 10.37's sense (D99) -- outgoing at v = 0, its v^lam coefficient, if lam_1 is an outgoing
      exponent, in ker L1(lam_1), which is what makes 10.37(b)'s boundary term at 0 vanish, so that (b) holds at such lam
      verbatim. 10.37(c)-(d) leave none with real part below 2 (det N_L has no root in (0, 1]; at lam_1 = x0, x0 - 1 =
      1/2 + z). Hence lam_1 >= 2, and every radiative coefficient a(u) tends to 0 at iota+ cap I+, like t*^(x0 - 2) at
-     least. (iii) computes the absence of such a state at the two exponents the (7, 4) entry couples, at moderate gam_C.
+     least, up to logarithms. (iii) computes the absence of such a state at the two exponents the (7, 4) entry couples,
+     at moderate gam_C.
  (e) (alpha_5) So, on the readings of 10.37(c) -- the injectivity half on 10.24-10.25's, the index 0 half -- of (a), of
-     polyhomogeneity at iota+ cap I+ as in his Propositions 9.4 and 9.11, and of the decay that makes lam_1 > 0, the
-     slowest iota+ term of the five-dimensional iteration is the mass aspect's t*^-2, forced at null infinity by (c),
-     with 10.37's constraint-kind candidates above it: alpha_5 = 2 by both channels, and 10.35(a)'s conservative 3/2 +
-     O(gam) is not attained. 10.35(c)'s window is [-2, 0], with the physical states s2, v2 and t2 at -2 and no
-     companions.
+     polyhomogeneity at iota+ cap I+ as in his Propositions 9.4 and 9.11, of the decay that makes lam_1 > 0, and of
+     (d)'s K+ side, the slowest iota+ term of the five-dimensional iteration is the mass aspect's t*^-2, forced at null
+     infinity by (c), with 10.37's constraint-kind candidates above it: alpha_5 = 2 by both channels, and 10.35(a)'s
+     conservative 3/2 + O(gam) is not attained. 10.35(c)'s window is [-2, 0], with the physical states s2, v2 and t2 at
+     -2 and no companions.
  (f) (four dimensions) There the radiative order is the Coulombic one and his (1, 0) the mass's. Whether his E-sharp_+'s
      element (1 + (1 - e_Ups) gam_Ups, 0) is attained, the same descent would decide on his Lemma 8.4's roots in (0,
      eps_ind); his index sets are upper bounds, and this is not examined here.
 
 *READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed page numbers): pp. 85 (after
-Definition 5.2), 91-93 (Definition 5.4, section 5.2's opening, Lemma 5.6, Proposition 5.11 with (5.25)-(5.28)), 96
-((5.36)-(5.39)), 97 ((5.40)-(5.42)), 98 (Definition 5.13, (5.43), Proposition 5.14 and its proof), 168-169 ((9.11),
-Definition 9.3 with (9.12)-(9.13), the remark on (1, 0) and the (7, 6) entry, Proposition 9.4, (9.17)); and, as 10.35
-reads them, 27-29 (footnote 27), 228 (Lemma 11.15's proof), 248, 273.
+Definition 5.2), 87 (Definition 5.4, section 5.2's opening, Lemma 5.6, (5.11)), 92-93 (Proposition 5.11 with
+(5.25)-(5.28)), 96 ((5.36)-(5.39)), 97 ((5.40)-(5.42)), 98 (Definition 5.13, (5.43), Proposition 5.14 and its proof),
+146 ((8.8)), 168-169 ((9.11), Definition 9.3 with (9.12)-(9.13), the remark on (1, 0) and the (7, 6) entry, Proposition
+9.4, (9.17)), 223 (Proposition 11.6(1)); and, as 10.35 reads them, 27-29 (footnote 27), 228 (Lemma 11.15's proof), 248,
+273.
 
 *What this gives, and what it does not.* The five-dimensional (5.28) at the background, entry by entry, its
-four-dimensional form reproduced: the same diagonal and the same (7, 4) coupling, three trace couplings changed, and the
+four-dimensional form reproduced: the same diagonal and the same (7, 4) coupling, four trace couplings changed, and the
 couplings through the perturbation half an order lower. So the iteration's sources reach null infinity at the Coulombic
 order, the mass aspect's, and the radiative order reaches timelike infinity only through a resonant state at its own
 exponent, which the descent and the injectivity exclude below 2: alpha_5 = 2 on readings, both of 10.35(a)'s channels
 closed on them, and the window [-2, 0]. Not done, and OPEN: (a)'s entries by computation (the five-dimensional (5.28)
 with h); his Proposition 11.16 in five dimensions line by line; (e)'s readings -- 10.37(c)'s index 0 half,
-polyhomogeneity at iota+ cap I+ in five dimensions, the data class, the decay lam_1 > 0; states at the radiative
-exponents at the record's gam_C, which (iii) reaches only at 10 and 100; four dimensions ((f)). Nothing of this section
-is proved: Proposition 10.35 is computed, and (a)-(f) are deduced.
+polyhomogeneity at iota+ cap I+ in five dimensions, the data class, the decay lam_1 > 0, nothing below 2 fed from K+;
+states at the radiative exponents at the record's gam_C, which (iii) reaches only at 10 and 100; four dimensions ((f)).
+Nothing of this section is proved: Proposition 10.35 is computed, and (a)-(f) are deduced.
+
+### 10.39 [Hin26] section 10.1 in five dimensions: the augmented zero energy operator (`aug5.py`; D102)
+
+*The setting.* [Hin26] Theorem 10.1: "Let alpha_sf in R be such that alpha_sf + 3/2 in (0, eps_ind), and let delta >
+alpha_sf + 3/2. Then the operator L_b is 2-admissible with sf-weight alpha_sf, sf-loss delta, and margin 1" (p. 199).
+Near zero energy the nullspace of L-hat_b(0) (Proposition 8.11) is met by a finite rank augmentation, and "a naive
+attempt" (10.5) adds the columns L-hat_b(sigma)(i sigma^-1 g-dot^Ups_b) and L-hat_b(sigma)(-sigma^-2 h_b,s1 + i sigma^-1
+h-breve^1_b,s1), regular at sigma = 0 with values [L_b, t*] g-dot^Ups_b - (i sigma/2)[[L_b, t*], t*] g-dot^Ups_b (10.7)
+and [L_b, t*] h-breve^1_b,s1 + (1/2)[[L_b, t*], t*](h_b,s1 - i sigma h-breve^1_b,s1) (10.8) (p. 201). "The issue,
+however, is that these entries only have r^-2 decay" ((10.9a)-(10.9b)); "(Only terms arising from angular momentum
+changes, [L_b, t*] g-dot^Ups_b(0, a-dot) in A^((3,0) u (3+E_ind)), have acceptable o(r^-2)-decay.) Therefore, they do
+not lie in the target space of L-hat_b(0) in (8.22)", and "the tf-decay order 2 ... corresponds to L_b g-dot^Ups_b(1, 0)
+having iota+-decay order 3 (see (2.26a)), which we must thus consider to be (borderline) unacceptable" (p. 202);
+footnote 97: "[[L_b, t*], t*] in rho^2 C^oo(X)". Hence Lemma 10.3's improved states, built by inverting the iota+-normal
+operator (his Proposition 9.11) and carrying chi_K c_b t*^-1 h^(0)_b,s0 and chi_K c'_b h^(<=1)_b,s1(S-dot log t*)
+((10.13), p. 203), and Remark 10.8's sigma (log |sigma|) terms (p. 212); while the angular momenta, of "stronger
+(namely, O(r^-2)- instead of O(r^-1)-) decay", take "g-dot^Ups,aug_b(0, a-dot) := chi_K g-dot^Ups_b(0, a-dot)"
+((10.24a)), with "the index sets at I+ and K+ ... empty, and the index set at iota+ ... (4, 0) u (4 + E_ind)", and
+"Lemma 10.4 generalizes similarly (with the same proof)" ((10.24b)-(10.24c), p. 207). Lemma 10.4 asks of the Fourier
+transform f-hat of L_b applied to the augmentation tensor: (1) f-hat(0) in A^(2+eps_ind-eps), "and thus f-hat(0) in
+H_b^(oo,1/2+eps_ind-eps)" with the asymptotically Euclidean density, f-hat(0) == the entry modulo L-hat_b(0) of
+A^(-eps); (2) uniform bounds in H^((m;k),(r+alpha_sf+1, alpha_sf+2, 0)); (3) f-hat(sigma) - chi_zf f-hat(0) at zf-order
+eps_ind - eps; (4) holomorphy in Im sigma > 0 (p. 204). Proposition 10.6 inverts the augmented zero energy operator from
+H-tilde_b^(s0,alpha_sf) to H-tilde_b^(s0-1,alpha_sf+2), alpha_sf in (-3/2, -3/2 + eps_ind), by Proposition 8.11's index
+0 and pairing with the dual states through Lemma 8.12; Proposition 10.7 gives the uniform bounds, "The only novelty
+compared to [Hin26c, Theorem 9.41] is our handling of the augmentation terms" (pp. 208-209). In five dimensions the
+states are one order faster and carry no logarithm (10.28(a)-(b)): g-dot^Ups(mu) and h-breve^1_s1 in A^((2,0) u
+(2+E_ind)), g-dot^Ups(A) and h_s1 in A^((3,0) u (3+E_ind)); the asymptotically Euclidean density is r^3 |dr dg/|, and
+alpha_sf + 2 in (0, eps_ind) stands for his alpha_sf + 3/2 (the shift n/2 = 2, 10.24(d)).
+
+**Proposition 10.36 (computed; exact).** On 4+1 Minkowski in (T, x), T = t - r, r = |x|, with L-bar = D Ric + (delta* +
+E^C)(delta + E^Ups) G -- sbar5.py's E^Ups (trace weight 2/3, c_Ups = r^-1 dt) and E^C -- and four-dimensional Minkowski
+(trace weight 1) as the control:
+
+ (i) (the gauged states, his Proposition 8.9 on the model) The mass state r^-2 (dt^2 + dr^2) + delta* omega, omega =
+     r^-1 (a dt + b dr), a = -2 gam_Ups (e_Ups + 2)/(2 e_Ups gam_Ups^2 + 1), b = (1 - 4 gam_Ups^2)/(2 (2 e_Ups
+     gam_Ups^2 + 1)), and the rotation state r^-4 (dt (x) w + w (x) dt) + delta*(p r^-3 w), w = x^1 dx^2 - x^2 dx^1, p
+     = -4 gam_Ups/3, are in the gauge and solve L-bar g-dot = 0, every parameter symbolic; with log r dt and log r dr
+     admitted beside them, their coefficients are 0. In four dimensions the mass state r^-1 (dt^2 + dr^2) needs omega =
+     c log r dt + b dr, c = 4 gam_Ups (1 + e_Ups)/(4 e_Ups gam_Ups^2 + 1), b = (1 - 4 gam_Ups^2)/(4 e_Ups gam_Ups^2 +
+     1) -- the logarithm of his (8.19) -- and the rotation state r^-3 (dt (x) w + w (x) dt) takes p = -2 gam_Ups and
+     none, his (8.20) (A1).
+ (ii) (the entries, his (10.9)) [L-bar, T] g-dot = L-bar(T g-dot) is stationary, nonzero, and homogeneous of degree -3
+     for the mass state and -4 for the rotation state, and [[L-bar, T], T] g-dot = 0. In four dimensions -2 and -3: his
+     (10.9a)'s r^-2 and his angular momenta's (3, 0) (A2).
+ (iii) (the cut-off states, his (10.14) and (10.24b)) For chi = chi(r/T), chi unspecified, L-bar(chi g-dot) = [L-bar,
+     chi] g-dot is nonzero and homogeneous of degree -4 for the mass state and -5 for the rotation state in (T, x), so
+     of iota+ order 4 and 5. In four dimensions 3 -- his "iota+-decay order 3 ... (borderline) unacceptable" -- and 4,
+     (10.24b)'s (4, 0) (A3).
+
+*Proof.* A1-A3 of aug5.py, exact. The gauge 1-forms are solved on the ansatz at two points and checked, with L-bar
+g-dot, at the symbolic point (X1, 0, X3, 0): L-bar commutes with the rotations of R^4 and the reflections, the mass
+state is invariant under all of them and the rotation state under the rotations of the planes 12 and 34 and the
+reflection x^3 -> -x^3, and every orbit of these meets that set (four dimensions (X1, 0, X3)). (ii) and (iii) at (v_C,
+e_C, gam_C, e_Ups, gam_Ups) = (1/3, 1/5, 10, 1/7, 3/2), at a point and at twice it -- in (ii) at T = 0 and 3, in (iii)
+at T = r -- the ratio exact; nonzero there, so not identically. Controls: in (i) omega dropped, h claimed in the gauge,
+and the four-dimensional mass state without the logarithm, which has no solution; in (ii) the five-dimensional mass
+entry claimed of degree -2; in (iii) the five-dimensional mass state claimed of iota+ order 3. []
+
+*Deduced.*
+
+ (a) (his (10.9) in five dimensions) His Lemma 8.1 writes 2 L_b = -2 d_t* rho(rho d_rho - 1 - S) + L-hat_b(0) + Q d_t* -
+     g^00 d_t*^2 with g^00 = g_b^-1(dt*, dt*) in rho^2 C^oo and Q in rho^3 Diff^1_b ((8.2a)-(8.2b), p. 145), so that
+     [L_b, t*] at zero frequency is -rho(rho d_rho - 1 - S) + Q/2, in rho Diff^1_b, and [[L_b, t*], t*] = -g^00. In five
+     dimensions the first term reads -rho(rho d_rho - 3/2 - S) (10.25(i), 10.38(a)), and g^00 is in rho^2 C^oo: g_b -
+     g-bar in rho^2 C^oo (10.25(i)), g-bar^-1(dT, dT) = 0, and t* = t - r* (10.28(iii)) with d(r* - r) = (1/f - 1) dr in
+     rho^2 C^oo dr (10.25(i)). With 10.28's orders, [L_b, t*] g-dot^Ups(mu) and [L_b, t*] h-breve^1_s1 lie in A^((3,0) u
+     (3+E_ind)), [L_b, t*] g-dot^Ups(A) in A^((4,0) u (4+E_ind)), and the double commutator terms in A^4 and A^5: every
+     entry of (10.5) is in A^3, one order better than his. (ii) computes the mass and rotation entries' leading terms on
+     the model, nonzero at the orders 3 and 4, his orders reproduced in four dimensions; the boost entry's order is
+     10.28(a)'s, its correction vanishing on the model, where the boosts are Killing.
+ (b) (the target space) A stationary tensor in A^q lies in H_b^(oo,l)(X, r^3 |dr dg/|) for every l < q - 2, since
+     r^(2(l - q)) r^3 is integrable at infinity exactly then. So each five-dimensional entry, in A^3, lies in
+     H_b^(oo,1-eps) for every eps > 0: in the target weight alpha_sf + 2 whenever alpha_sf + 2 < 1, which covers (0,
+     eps_ind) once eps_ind <= 1 -- as 10.24(a)'s (8.13) bound, 7.3846 x 10^-8, makes it. His four-dimensional r^-2,
+     against r^2 |dr dg/|, lies in H_b^(oo,l) for l < 1/2 only, below his target weights (1/2, 1/2 + eps_ind). His
+     criterion, o(r^-2) decay, is the same in both dimensions -- the density's shift and the weights' shift are both
+     n/2 -- and in five every entry meets it, as only his angular momenta's do in four.
+ (c) (his (10.24a) for every state) So take g-dot^Ups,aug(b-dot) := chi_K g-dot^Ups(b-dot) for all seven b-dot =
+     (mu-dot, A) and h^(<=1),aug_s1(S) := chi_K h^(<=1)_s1(S), h^(<=1)_s1 = t* h_s1 + h-breve^1_s1, as he does for the
+     angular momenta. By his (10.14) -- [L_b, chi_K] in rho_+^2 Diff^2_b, and rho = r^-1 a joint defining function of I+
+     u iota+ -- with chi_K g-dot^Ups(mu-dot) in A^(oo,(2,0) u (2+E_ind),(0,0)) and chi_K h^(<=1)_s1 in A^(oo,(2,0) u
+     (2+E_ind),(-1,0)) (t* h_s1 losing one order of 10.28's 3), L_b of either lies in A^(oo,(4,0) u (4+E_ind),oo): iota+
+     order 4 >= 3 + eps_ind, empty index sets at I+ and K+, his (10.12) without his Proposition 9.11 ((10.15)-(10.16));
+     (iii) computes the order 4 on the model, against his 3. Lemma 10.4 then runs as for (10.24c), "with the same
+     proof": (1) f-hat(0) == the entry of (10.7), resp. (10.8), modulo L-hat_b(0) of A^(-eps), the error coming from
+     (chi_K - chi_+) g-dot alone, the t*^-1 and log t* terms of (10.13) being absent; (2)-(4) as his, (10.18) with the
+     iota+ order 4 for his 3 + eps_ind, so the tf-order 3 for his 2 + eps_ind, and by (b) the target weight met. The
+     naive (10.5) meets (1)-(4) as well, its entries being polynomials in sigma with coefficients in A^3 and A^4 and the
+     zf-order of sigma [[L_b, t*], t*] g-dot being 1 >= eps_ind; whether his section 10.2 could use it in place of
+     (10.26), whose columns are Fourier transforms of tensors on spacetime for the Paley-Wiener step, is not examined --
+     (10.24a)'s route needs no such question.
+ (d) (his Proposition 10.6 in five dimensions) His proof: a kernel element (u, (mu-dot, A), S-dot) has L-hat_b(0)u +
+     [L_b, t*] g-dot^Ups(mu-dot, A) + (1/2)[[L_b, t*], t*] h_s1(S-dot) + [L_b, t*] h-breve^1_s1(S-dot) + L-hat_b(0) h' =
+     0, h' in A^(-eps); the eleven dual states are O(r^-3) (10.31(b)), where his "only requires O(r^(-1-eta))-decay", so
+     the integrations by parts hold, and 10.32's pairings -- block triangular, determinant (-3 pi^2)(-2 pi^2 mu)^6 (3
+     pi^2 mu/2)^4 up to his factor and sign (10.32(b)) -- give mu-dot = 0, A = 0, S-dot = 0; then u lies in ker
+     L-hat_b(0), the eleven-dimensional span of 10.32(c), and f*_1 in C_c^oo tensor R^7, f*_2 in C_c^oo tensor S_1 (S_1
+     four-dimensional) remove it. With the index 0 of 10.32(c) (dim ker = dim coker = 11, on 10.33's reading near a =
+     0), the augmented zero energy operator is invertible from H-tilde_b^(s0,alpha_sf) to H-tilde_b^(s0-1,alpha_sf+2)
+     for alpha_sf + 2 in (0, eps_ind).
+ (e) (his Proposition 10.7 and Theorem 10.1 in five dimensions) His Proposition 10.7 uses Proposition 10.6, Lemma
+     10.4(2)-(3) for the augmentation's (1, 2) and (1, 3) entries, and the structure (10.32) of L-hat_b(sigma) from
+     Lemma 8.1 -- in five dimensions 2 i sigma rho(rho d_rho - 3/2 - S) + L-hat_b(0) - i sigma Q + g^00 sigma^2, by (a)
+     -- with [Hin26c] Theorem 9.41 at n = 4 (10.20's reading); his section 10.2 then gives (10.3) through the contour
+     (10.4), whose shift uses mode stability (10.27) and [Hin26c] Theorems 9.5 and 9.16 (10.19). So, on the readings of
+     10.19-10.20 ([Hin26c] at n = 4), 10.24-10.25 (tf-admissibility, with min spec S-bar = 0 for his Remark 10.2), 10.26
+     (strong trapping admissibility), 10.27 (mode stability) and 10.32-10.33 (Proposition 8.11's equality), and of
+     (c)-(d), L_b is 2-admissible in five dimensions with sf-weight alpha_sf, alpha_sf + 2 in (0, eps_ind), and sf-loss
+     delta > alpha_sf + 2: his Theorem 10.1.
+ (f) (no logarithm in the augmentation) In five dimensions the augmentation tensors are chi_K times the states: no t*^-1
+     h^(0)_s0 and no t* log t* term ((10.13)), so no sigma (log |sigma|) in the augmentation's columns ((10.40), Remark
+     10.8), and his section 10.1.3 is not needed. Whether L-tilde_b(sigma)^-1 itself has logarithmic terms at sigma = 0
+     is his section 11's question, not examined here.
+
+*READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed page numbers): pp. 145 (Lemma 8.1,
+(8.2a)-(8.2b), (8.5)), 199-205 (Theorem 10.1, (10.1)-(10.4), Remark 10.2, (10.5)-(10.9b), footnotes 96-97, Lemma 10.3
+with (10.10)-(10.16) and its proof, Lemma 10.4 and its proof to (10.18)), 207-209 (its proof's parts (3)-(4), (10.23),
+(10.24a)-(10.24c), Lemma 10.5, (10.26), Proposition 10.6 and its proof, Proposition 10.7 with (10.28)-(10.32)), 211-212
+((10.36)-(10.41), Remark 10.8, section 10.2's opening, Lemma 10.9), 214 ((10.46)-(10.48), Lemmas 10.10-10.11).
+
+*What this gives, and what it does not.* In five dimensions his zero energy augmentation needs no improved states: the
+entries of the naive (10.5) decay like r^-3, one order better than his r^-2 and inside the target space, and his own
+device for the angular momenta, (10.24a), serves every state, mass and boosts included; Proposition 10.6 follows from
+10.32's pairings as his, and Theorem 10.1 -- 2-admissibility with alpha_sf + 2 in (0, eps_ind) -- holds on the readings
+named in (e). The model computes the mechanism: the gauged mass state needs no logarithm in five dimensions, its entry
+is of degree -3 where his is -2, and its cut-off state is of iota+ order 4 where his is the borderline 3. Not done, and
+OPEN: his Proposition 10.7 and section 10.2 line by line in five dimensions (Lemma 10.9 onward, (10.56)-(10.59)); the
+boost entry and g^00 on Tangherlini and Myers-Perry by computation ((a) reads their orders); the readings of (e); his
+section 11. Nothing of this section is proved: Proposition 10.36 is computed, and (a)-(f) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

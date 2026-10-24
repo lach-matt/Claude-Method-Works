@@ -40,12 +40,13 @@ Here the five-dimensional model by type, from lin5.py's operators, and its pure 
      50 digits: s0 1.0000747438..., s1 1.0001201950..., none at v1 -- each 1 less than a root of det N_C of the same
      type; none in (0, 1].  (ii) For every l = 0, ..., 400, from damping5.py's polynomials (U3): box^C's roots with
      real part in [-100, 5/2] are the Coulomb root 2 at l = 0 and 1 and, at every scalar type, roots in (2, 5/2) -- 2 +
-     7.474e-5 at l = 0, 2 + 1.202e-4 at l = 1, two of them for 2 <= l <= 135, the lowest 2 + 2.93e-6 at l = 2 -- and
-     none at a vector type (the lowest 3, at l = 1); at the scalar types beyond, one in (2, 5/2) for 401 <= l <= 706
-     and none for 707 <= l <= 711 and at l = 10^3, 10^4, 10^5; the e_C-root against the h = 0 root 2 + e_C ((1 - v^2)
-     kappa + 3 (1 + v^2))/(2 v^2) of U3's Q_5, within 5 h.  (iii) At s0 box^C's root above 2 stays in (2, 5/2),
-     decreasing, as gam_C runs over 10^2, 10^2.5, ..., 10^6, and over 201 points 10^(2 + k/50) it is the only root of
-     det N_C there, det N_L has no root with real part in (0, 1] and exactly four with real part <= 0 (I2's K lowest).
+     7.474e-5 at l = 0, 2 + 1.202e-4 at l = 1, two of them for 2 <= l <= 135 and one for 136 <= l <= 400, the
+     lowest 2 + 2.93e-6 at l = 2 -- and none at a vector type (the lowest 3, at l = 1); at the scalar types beyond, one
+     in (2, 5/2) for 401 <= l <= 706 and none for 707 <= l <= 711 and at l = 10^3, 10^4, 10^5; the e_C-root against
+     the h = 0 root 2 + e_C ((1 - v^2) kappa + 3 (1 + v^2))/(2 v^2) of U3's Q_5, within 5 h.  (iii) At s0 box^C's root
+     above 2 stays in (2, 5/2), decreasing, as gam_C runs over 10^2, 10^2.5, ..., 10^6, and over 201 points 10^(2 +
+     k/50) it is the only root of det N_C there, det N_L has no root with real part in (0, 1] and exactly four with real
+     part <= 0 (I2's K lowest).
      Control: L-bar's root 1 at s0, which lin5.py's denominator (lam - 1)^2 removes, counted.
   I5 (computed, numerical) L-bar has a pure resonant state at the s0 candidate at moderate gam_C, the record's other
      parameters (a resonance on the reading of index 0, N1STAR-PROOF.md 10.37(c)): at gam_C = 10 (50 digits, 260 terms)
@@ -460,7 +461,7 @@ def i4(control=0, verbose=False):
         ok &= good
     pk, p0, pv = DP.polys(4, sp.Rational(2, 3))
     E, V, H = mp.mpf(1) / 102400, mp.mpf(1) / 2, mp.mpf(10)**-6
-    lo, exc, vlo, inband, two = mp.inf, [], mp.inf, set(), []
+    lo, exc, vlo, inband, two, one = mp.inf, [], mp.inf, set(), [], []
     for name, P, ls in (("s0", p0, [0]), ("sl", pk, range(1, 401)), ("vl", pv, range(1, 401))):
         co = [sp.lambdify((DP.e, DP.v, DP.h, DP.K), c, "mpmath") for c in sp.Poly(P, DP.lam).all_coeffs()]
         for lv in ls:
@@ -475,6 +476,8 @@ def i4(control=0, verbose=False):
                 inband.add(lv)
                 if len(band) == 2:
                     two.append(lv)
+                elif len(band) == 1:
+                    one.append(lv)
             if name != "vl" and lv <= 2:
                 eroot = max([z for z in rts if 2 + mp.mpf(10)**-30 < mp.re(z) < mp.mpf(5) / 2], key=mp.re)
                 h0 = 2 + E * ((1 - V**2) * kap + 3 * (1 + V**2)) / (2 * V**2)
@@ -483,10 +486,11 @@ def i4(control=0, verbose=False):
                 ok &= good
     l2 = max(two) if two else None
     good = exc == [("s0", 0), ("sl", 1)] and lo > 2 and abs(lo - 2 - mp.mpf("2.93235e-6")) < mp.mpf(10)**-10 and \
-        vlo == 3 and inband == set(range(0, 401)) and two == list(range(2, l2 + 1))
+        vlo == 3 and inband == set(range(0, 401)) and two == list(range(2, l2 + 1)) and \
+        one == [0, 1] + list(range((l2 or 0) + 1, 401))
     chk(f"l <= 400: box^C's roots in [-100, 5/2] are 2 at {exc} and others in (2, 5/2), the lowest 2 + "
-        f"{mp.nstr(lo - 2, 6)}, at every scalar l, two of them for 2 <= l <= {l2}; at the vector types none (the lowest "
-        f"{mp.nstr(vlo, 8)})", good)
+        f"{mp.nstr(lo - 2, 6)}, at every scalar l, two of them for 2 <= l <= {l2}, one at l = 0, 1 and for "
+        f"{(l2 or 0) + 1} <= l <= 400; at the vector types none (the lowest {mp.nstr(vlo, 8)})", good)
     ok &= good
     co = [sp.lambdify((DP.e, DP.v, DP.h, DP.K), c, "mpmath") for c in sp.Poly(pk, DP.lam).all_coeffs()]
     cnt = {}
