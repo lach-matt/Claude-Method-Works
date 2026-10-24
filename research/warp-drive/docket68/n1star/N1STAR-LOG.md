@@ -3085,3 +3085,92 @@ Proposition 7.4 in five dimensions beyond first order; box^C's roots for l > 12.
 *Runs.* physical5.py --selftest 4/4 (Y3 in 718 s), --mutants 5/5; static5.py --selftest 6/6, --mutants 7/7;
 pairing5.py --selftest 5/5, --mutants 6/6; window5.py as D93 records; paper/response5.py --selftest all pass; Appendix
 D's md5 rows current (52, window5.py added).
+
+**D95 (2026-10-24): the forty-fourth verifier's findings on D93-D94, seated.**
+
+One independent verifier read D93 and D94 (306331c, ab2fdd7 against c219c0f), recomputing W1 from det N_L itself with no
+cancellation rule, W2 at other iota+ orders and W3 in Cartesian coordinates, and reading [Hin26] pp. 16-17, 28, 32, 34,
+37, 85, 92-93, 117, 128, 145, 149, 157-163, 169, 174, 177, 199, 218, 221, 225, 228, 248, 273, 279 and 324 at source.
+Verdict: no major finding; every computed claim reproduces; D94's repairs sound. Two minor findings, nine nits, notes.
+READ again here at source: [Hin26] pp. 16 ((1.19)), 17 ((1.23)), 28 (the three kinds of root), 31 (Figure 1.7), 149
+(Lemma 8.4), 157 (Lemma 8.12), 169 (Proposition 9.4), 228 (Lemma 11.15's proof), 248 (Proposition 11.32's proof).
+
+*Minor 1 (alpha_5 is a reading).* 10.35 gave alpha_5 = 2 and the window [-2, 0], naming one route only to a slower iota+
+term, a radiation field with a nonzero late limit. But his index sets at I+ carry the radiative order: E+ "is the
+(extended) union of E_I and an index set determined by the pure resonances" ((1.19), p. 16), E-sharp_+ has "smallest
+elements (1, 0) and (1 + (1 - e_Ups) gam_Ups, 0)" (p. 248), and "The coupling of (A_h)_{7,4} with u_01 moreover
+contributes the index set (1 + (1 - e_Ups) gam_Ups, 0) at I+" (p. 228); in four dimensions these coincide with the
+Coulombic 1, in five the same bookkeeping gives alpha_5 = 3/2 + O(gam). Repaired: 10.35 leads with what holds for every
+alpha_5 in (1, 2] -- s2, v2, t2 at -2 alone -- gives the window as [alpha_5 - 4, 0], names both readings, and lists what
+3/2 adds; window5.py W2 computes it (s2's and s3's class roots just below -2 at k = 0, the class roots just below 0 at
+s0 and s1 at k = 2 and just below -1 at s1 and s2 at k = 1, the physical states and the list of order at most 2
+unchanged); ROUTES 4.4 and 4.36, README and the paper say so.
+
+*Minor 2 (a root of box^C in the window).* "None from box^C" was false at four-dimensional s0: there det N_L = (1/16)
+det N_Ups(lam - 1) det N_C(lam + 1), the surviving 0 is box^C's root 1 shifted by -1, and window5.py's tag "phys" came
+from the order in which the cancelled roots were removed. Hintz lists it as 0, without the superscript C (p. 149), and
+counts box^C's roots shifted by -1 as the third kind (p. 28). Repaired: W1 takes the roots of det N_L itself, checks
+each class root against det N_Ups(lam - 1), and reports which of them are det N_C(lam + 1)'s -- four-dimensional s0's 0
+alone, at s1 the same shifted root cancelling, none in five dimensions -- with D93's claim as a second control;
+Proposition 10.32(i) and the docstring say so. The first rerun of W1 failed: it counted det N_C(lam + 1)'s roots in the
+window rather than those of det N_L, and so found four-dimensional s1's cancelled 0 too; corrected and rerun.
+
+*Nits.* (1) README and the paper had static5.py's mutants at 6/6 and physical5.py's at 4/4: 7/7 and 5/5. (2)
+physical5.py's comment "(10.30(ii); D92)" now names Proposition 10.27(ii). (3) Ten bare references in 10.29-10.32 now
+name Propositions 10.25 and 10.21; three older wraps beginning "+ " there (one at the margin) rewrapped. (4) The p. 17
+quotation is now verbatim: "very large (i.e., very negative) indicial roots". (5) The "+ 1) a'" wrap in Proposition
+10.32(iii). (6) Proposition 10.32(ii)'s s2 list ("its class root just below -1 (0) and its -2 (0)"). (7) Proposition 9.4
+is on p. 169: 10.35's READ and window5.py; D93's entry stands. (8) Lemma 8.12's -16 pi m is on p. 157: 10.34; D94's
+entry stands. (9) W1's tensor-type roots come from lin5.py's det N_L, no longer written in. (10) D94's "(8.34)- (8.35)"
+stands as written.
+
+*Notes, accepted.* His Step 2 as modified is solvable near a = 0 because the a-dependent cross entries vanish there: one
+sentence in 10.34(b)(2). In four spatial dimensions the mass state r^-2 lies just outside L^2, where for Schroedinger
+operators logarithms enter the low-energy resolvent: 10.35(b) now names this as a second reading in the pole order,
+cross-referenced with ROUTES 4.4 item 3. W2 matched (9.32) and (9.39a)-(9.39b) term by term; twice the pole order
+matches his Remark 11.4 (p. 221, read by the verifier, not here). Not checked by the verifier: [Hin26c]'s admissibility
+at n = 4; a five-dimensional (5.28) and whether a (7, 4)-type coupling exists there, which decides how strong Minor 1
+is; Proposition 11.16 in full; logarithms at the pole; Proposition 7.4 beyond first order (D96). Its runs: window5 3/3
+and 3/3, physical5 4/4 and 5/5, static5 6/6 and 7/7, pairing5 5/5 and 6/6, response5 all pass; md5 rows 52 of 52 at
+ab2fdd7.
+
+*Runs.* window5.py --selftest 3/3 (W1 1398 s, beside its mutants; the first rerun failed W1, Minor 2's note), --mutants
+4/4; physical5.py changed in a comment only, not rerun.
+
+**D96 (2026-10-24): [Hin26] section 7.2.1 in five dimensions at every spin (10.36, mp5.py).**
+
+M asked to continue; the open piece was the one 10.34(c) and 10.35 made a condition: his Proposition 7.4, Lemma 7.5 and
+(7.19) on the full, two-spin Myers-Perry metric. READ at source (alphaXiv, 2026-10-24): [Hin26] pp. 69 (Definition
+2.28), 126 (Remark 6.17), 140-144 (section 7.2.1, Lemma 7.5's proof through the coefficients of (3.17), the proof of
+Proposition 7.4), 161 (footnote 82); [ER08] pp. 10, 14 ("the solutions belong in the Kerr-Schild class"), 16
+((42)-(44)), 19.
+
+*Computed (Proposition 10.33, mp5.py M1-M5).* The five-dimensional Myers-Perry metric in Kerr-Schild form for every spin
+matrix A in so(4) at once: P = r^4 + s r^2 + p^2, M = (r^2 + s) I + A^2 (M/P = (r^2 - A^2)^-1 by Cayley-Hamilton), r the
+root of Q = P - x^T M x, k = dt + M (r I + A) x . dx / P, H = mu r^2/(P F). (M1) k null on Q = 0; [ER08]'s Pi, F and
+g_tt at block form; Tangherlini at A = 0; Ricci-flat exactly at rational points (two spins rotated out of block form by
+a Cayley rotation, equal spins, one spin), the jet of g solved to second order in rational arithmetic; Kerr over so(3)
+likewise. (M2) Q, P, x^T A^2 M^2 x invariant and M (r I + A) x covariant under so(4) on (x, A), symbolically for each
+basis rotation, so delta* V_b = (1/2) L_R g_b = (1/2) D_A g_b([A_b, A_V]); the full identity at the exact points, r
+implicit. (M3) Along a ray, D_A g(W) = (2 mu/r^4)(dt + dr) (x)_s V(W) exactly at A = 0, the same leading term at a
+two-spin A, the rest from rho^4. (M4) dim ker ad_A = 6, 4 at a = +-b != 0, 2 otherwise; L_R g = 0 on a kernel basis.
+(M5) From the Kerr-Schild leading term, dual5.py A3's correction shifted by the pure gauge mu/3 and the same leading
+term of h-sharp. Kerr the control throughout. Controls: the even-dimensional H, the bracket reversed, the remainder at
+rho^5, two Killing rotations at equal spins, c_0 unshifted.
+
+*Deduced (10.36).* (a) His Lemma 7.5 at every spin, W = [A_b, A_V] for his S', h~_b : so(4) -> rho^4 C^oo, no pure
+gauge term at leading order in Kerr-Schild coordinates, on the reading that route B's g_b is SO(4)-equivariant. (b)
+His Proposition 7.4 with h-sharp on all of so(4), smooth in b, its leading term 10.31(iii)'s, and (7.19) at
+rho^(floor(C_0) + 3) on 10.31(a)'s readings. (c) The Killing rotations jump 6, 4, 2; footnote 82 holds with
+lambda-sharp(W) = <v_b, W>, and 10.34(b)'s modified Step 2 stands at every small spin. (d) 10.34(c)'s and 10.35(c)'s
+condition is met on those readings. (e) Kerr returns his structure.
+
+*Notes.* (1) The structural reason is the equivariance of the family, which 10.34(b)(2) already used at first order as
+his Remark 8.10; what mp5.py adds is the family itself over all of so(4), checked, and the identity on the full metric.
+(2) A first attempt checked the identities as rational functions in seventeen symbols and did not finish in ten minutes;
+it was stopped (by PID) and the invariance checked on the polynomial building blocks instead. (3) The sign of the
+leading term against his -2m depends on the orientation in which A is read as the angular momentum, which is not fixed
+here; nothing deduced depends on it. (4) D93-D95's window and D96 together leave of item 2 in five dimensions sections
+9-10 and the readings.
+
+*Runs.* mp5.py --selftest 5/5 (M3 157 s, about three minutes in all), --mutants 5/5.

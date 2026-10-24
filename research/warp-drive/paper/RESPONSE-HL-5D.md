@@ -1561,9 +1561,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `faca68aeb0ade4675dd548fd3d2bb34c` |
-| `docket68/n1star/N1STAR-LOG.md` | `db8df1836d7fbfd763cbe91dfb96ee85` |
-| `docket68/n1star/README.md` | `9fd1cf578de87772dcbad2858438e477` |
+| `docket68/n1star/N1STAR-PROOF.md` | `28e25bdc2704e65d22aafc6bdc10e162` |
+| `docket68/n1star/N1STAR-LOG.md` | `ac872b7339ddd8bcf475ea9f2bdd9e5b` |
+| `docket68/n1star/README.md` | `fcd703a8fc076676774218b84ddd0ab8` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1610,7 +1610,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/dual5.py` | `c85cd907bd71d3c4fb1a12be89adf783` |
 | `docket68/n1star/pairing5.py` | `e831c01861f659eddcaeb7a1d0a047bb` |
 | `docket68/n1star/static5.py` | `328a406c8499edf359eca522d34c7895` |
-| `docket68/n1star/physical5.py` | `f051540f973b601e96ec8ca9956ebb5a` |
-| `docket68/n1star/window5.py` | `21acdf3223c8a20aaccff19f8fde816f` |
+| `docket68/n1star/physical5.py` | `76a5cc7311dbeb9c4b185d543a7a5676` |
+| `docket68/n1star/window5.py` | `fa748ee598db1438efcd49e6c1b1ec83` |
+| `docket68/n1star/mp5.py` | `172bf1917ecdf22173f3280967afce25` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.
