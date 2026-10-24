@@ -1596,3 +1596,14 @@ and deduces his Lemma 11.15 and Propositions 11.14 and 11.16.
   conclusions without 10.38's readings.
 - OPEN: the weights l_I for the iteration (A3); 10.38(a)'s scaling argument; Definition 5.3's closure with section 5
   (A8). Next: A3, his section 11.3 (Step 1, Proposition 11.17).
+
+### 4.47 A3: [Hin26] sections 11.3-11.6 in the class (deduced; D113)
+
+N1STAR-PROOF.md 10.45 deduces his Steps 1-4 in the class as one statement.
+
+- Deduced: S-hat_1 = 0 at every frequency in the class, so u_lo = u_reg + g-dot and one integration of d_t* suffices
+  (his footnote 116's case from the start); Step 2 void; u = chi_K g-dot^Ups_b(m-dot) + u~, u~ of K+ order alpha_K - 1,
+  on f of K+ order alpha_K in (1, 1 + eps_K) where his needs (2, 2 + eps_K); m-dot removed by the final mass (his Lemma
+  11.45 at (0, m_0)); f's iota+ requirement 5 + 2 (1 - e_Ups) gam_Ups - eps against his 4 - eps.
+- OPEN: the weight l_I at I+ (A4); [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4 (Phase B). Next: A4, his
+  sections 11.7-11.8 (Theorem 11.59, Corollary 11.66) in the class.

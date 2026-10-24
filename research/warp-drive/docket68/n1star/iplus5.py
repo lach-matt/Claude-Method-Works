@@ -8,7 +8,7 @@ Diff^2_b, in his coordinates rho_I = t*/r, rho_+ = 1/t* (p. 235), with the b-ODE
 [0, 1) x H, H any compact manifold with corners, and on [0, 2)^2 x (-2, 2)^d).
 
   P1 (computed, exact) The leading part.  For the wave operator of R^(1,n) on u(t*, r) Y, Y a spherical harmonic of
-     S^(n-1) with eigenvalue -kappa, t* = t - r: rho_I^-1 rho_+^-2 (-box/2) = -(rho_I d_rho_I - (n - 1)/2)(rho_I d_rho_I -
+     S^(n-1) with eigenvalue -kappa, t* = t - r: rho_I^-1 rho_+^-2 (-box/2) = -(rho_I d_rho_I - (n - 1)/2)(rho_I d -
      rho_+ d_rho_+) + rho_I R, R a b-operator whose coefficients are polynomials in rho_I, rho_+, kappa: his I = 1 at
      n = 3, and 3/2 at n = 4, the conjugation r^-((n-1)/2) of 10.38(a).  The angular term and the potential lie in R.
      Control: the exponent claimed n/2.
@@ -92,7 +92,7 @@ def c2(control=0, verbose=False):
     want = [2 * (1 - v) * gC, (1 - v) * gC, (1 - eC) * (1 - v) * gC, (1 - eU) * gU, gU, 0, 2 * gU]
     chk(f"A_0 lower triangular, diagonal {diag}", lower and all(sp.simplify(x - y) == 0 for x, y in zip(diag, want)))
     ex = exceptional(I0, A)
-    chk(f"exceptional exponents of the 11-component {sorted(ex, key=str)}; the (7, 4) entry {sp.factor(A[6, 3])} nonzero",
+    chk(f"exceptional exponents of the 11-component {sorted(ex, key=str)}; (7, 4) entry {sp.factor(A[6, 3])} nonzero",
         ex == {2, sp.Rational(3, 2) + (1 - eU) * gU} and sp.simplify(A[6, 3] - 2 * (1 - eU) * gU) == 0)
     ex4 = exceptional(sp.Integer(1), S5.his528())
     chk(f"control: four dimensions (I = 1, his (5.28)) gives his {sorted(ex4, key=str)} ((11.33a), p. 229)",
@@ -132,7 +132,7 @@ def c3(control=0, verbose=False):
     return chk.ok
 
 
-CHECKS = [("P1 the leading part at I+: (rho_I d - (n - 1)/2)(rho_I d - rho_+ d), remainder in rho_I Diff_b; n = 3, 4", c1),
+CHECKS = [("P1 the leading part at I+: (rho_I d - (n - 1)/2)(rho_I d - rho_+ d), rest in rho_I Diff_b; n = 3, 4", c1),
           ("P2 five-dimensional A_0: diagonal, exceptional exponents 2 and 3/2 + (1 - e_U) gam_U, non-resonance", c2),
           ("P3 Proposition 11.16's Steps 1-2: coefficients nonzero, E#(1)_+ = {(2, 0), (3/2 + (1 - e_U) gam_U, 0)}", c3)]
 

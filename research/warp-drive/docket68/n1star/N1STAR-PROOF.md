@@ -6267,6 +6267,59 @@ OPEN: the five-dimensional weights l_I at I+ for the iteration (fixed with A3, b
 (2.27)); 10.38(a)'s scaling argument; Definition 5.3's closure written out with section 5 (A8). Labels: computed
 (iplus5.py P1-P3; exact); deduced ((a)-(e)); READ ([Hin26] pp. 47, 49-50, 57-58, 86, 181, 224-230, 235); nothing proved.
 
+### 10.45 [Hin26] sections 11.3-11.6 in the class: Steps 1-4 as one, with the mass alone (deduced; D113)
+
+In his Steps 1-4 the forward solution's low-energy part is u_reg + g-dot + h_s1: g-dot from the augmentation by the Kerr
+parameter changes b-hat_1, h_s1 from the boosts and translations S-hat_1, the boost being the second order "pole" of the
+resolvent at zero energy. In the class S-hat_1 vanishes at every frequency, so his four steps reduce to one, with one
+order of decay lost at K+ where his lose two.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; ASCII): p. 23, "u-hat loses one order at zf
+relative to f-hat", "When L-hat(sigma)^-1 has a second order 'pole' ... there is also a linear (in t*) contribution to
+u"; pp. 218-219, the six steps; p. 221, Remark 11.4, "we will require rho_K^(4+eps_K)-decay of f at K+ due to the second
+order pole of the resolvent ... which (in a rough accounting) causes forward solutions to lose 2 powers of t*-decay";
+pp. 231-238, Proposition 11.17 and its proof, (11.41)-(11.52), u_lo := u_reg + g-dot + h_s1 (11.43b), (11.47)-(11.51);
+pp. 238-247, Propositions 11.20 and 11.30, Definition 11.25; pp. 247-252, Proposition 11.32 and its proof,
+(11.112)-(11.115) with footnote 116, "we only need to integrate once to control u_sing globally; the reason is that the
+most singular term F(h^(<=1),aug_b,s1)(S-hat(0)) ~ |sigma|^-2 ... is absent"; pp. 252-256, Proposition 11.34,
+(11.116)-(11.117), and its proof; p. 238, "limited by 1 due to transport from I+"; p. 262, Lemma 11.45 and Corollary
+11.46, "(This thus decays at K+.)".
+
+*Deduced.*
+
+ (a) (the low-energy structure in the class) Restricted to G-invariant elements (10.43(a)), the augmented zero energy
+     operator of 10.39 is invertible with the mass state as its only augmentation (10.43(d)) -- his Proposition 10.6 in
+     five dimensions on 10.39's readings, restricted by equivariance. For G-invariant f the coefficient b-hat_1(sigma)
+     is the mass alone (A = 0) and S-hat_1(sigma) = 0 at every sigma (S_1 has no G-fixed element, Proposition
+     10.40(ii)): in his (11.43b) u_lo = u_reg + g-dot, h_s1 = 0.
+ (b) (Propositions 11.17 and 11.32 in the class) His proofs run with h_s1 = 0. In (11.48)-(11.49) and (11.114) only
+     F(d_t* g-dot) remains, regular at zf (his (11.47), first line; its five-dimensional weights 10.40(b), the states'
+     own), so one integration of d_t* suffices throughout -- footnote 116's case from the start -- and u_sing = g-dot
+     has K+ order alpha~_K - 1 where his (11.51) and (11.115) have alpha~_K - 2. His Step 2 (Propositions 11.20 and
+     11.30) is void: its leading term t* h_b,s1(S-dot) has S-dot in S_1, so S-dot = 0, and no augmentation #1 is needed
+     (S = 0).
+ (c) (Proposition 11.34 and Corollary 11.46 in the class) For G-invariant f of K+ order alpha_K in (1, 1 + eps_K): u =
+     chi_K g-dot^Ups_b(m-dot) + u~ with m-dot real and continuous in f, and u~ of K+ order alpha_K - 1 in (0, eps_K) --
+     his (11.117) with b-dot = (m-dot, 0) and no S_1 term (the log t* h_b,s1 of his (9.39b) has its coefficient in S_1),
+     on one order less decay of f at K+ than his alpha_K in (2, 2 + eps_K). The mass parameter m' of his Definition
+     11.40 (with S = S^(0)_1 = S^(0,1)_1 = 0) eliminates m-dot: the map m' -> m-dot is the identity at (h, m) = (0, m_0)
+     (his Lemma 11.45), so close to it for small (h, m - m_0). Corollary 11.46 in the class: u~ decays at K+.
+ (d) (the requirements on h) The coefficients of L - L_b carry h; for f of K+ order alpha_K the iteration needs (L -
+     L_b) u of that order with u bounded at K+, so h of K+ order alpha_K + eps suffices -- 1 + eps_K + eps in the class
+     against his 2 + eps_K, the price of the second order pole being absent. At iota+ the cap is 10.44's: u~ has iota+
+     order 3/2 + (1 - e_Ups) gam_Ups - eps where his has 1 - eps ("limited by 1 due to transport from I+"), the mass
+     state having iota+ order 2 (10.39(c)); and (L - L_b) u gains 2 + min Re E_+ at iota+ (his (11.19) with 10.44(e)'s
+     E_+), so f's iota+ requirement, his (11.116)'s 4 - eps, becomes 5 + 2 (1 - e_Ups) gam_Ups - eps.
+ (e) (what this gives) In the class, his Steps 1-4 hold in five dimensions as one statement: for G-invariant f with the
+     orders of (c)-(d), the forward solution is a mass change plus a remainder decaying at K+, and the mass change is
+     removed by the final mass -- on the readings of 10.39-10.44 and of [Hin26c] Proposition 13.18 and Corollary 13.17
+     at n = 4 (the low- and high-energy resolvent bounds his proofs invoke).
+
+OPEN: the weight l_I at I+ for the iteration (his 3 + eps_I; 7/2 + eps_I, two orders past the radiation field, is the
+five-dimensional candidate, to be fixed with his (2.27) at A4); [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4
+(Phase B). Labels: deduced ((a)-(e)); READ ([Hin26] pp. 23, 218-219, 221, 231-262); nothing computed here, nothing
+proved.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

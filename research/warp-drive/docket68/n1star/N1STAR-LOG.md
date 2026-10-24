@@ -3748,3 +3748,17 @@ factor 3 for every n; his L is -box/2 to leading order, and with that normalizat
 are now functions of the leading exponent I0, and I0 = 1 is the control.
 
 *Runs.* iplus5.py --selftest 3/3 and --mutants 3/3 (seconds).
+
+**D113 (2026-10-24): A3, [Hin26] sections 11.3-11.6 in the class (10.45).**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 23, 218-219, 221, 231-262. His Steps 1-4 build the
+low-energy part u_reg + g-dot + h_s1 and integrate twice because of the boost's second order pole; in the class the
+boosts and translations have no G-fixed element (10.43), so h_s1 = 0 and the four steps are one.
+
+*Deduced (10.45(a)-(e)).* Propositions 11.17 and 11.32 with one integration; Step 2 void; Proposition 11.34 and
+Corollary 11.46 with u~ of K+ order alpha_K - 1 on f of K+ order in (1, 1 + eps_K); h needed to K+ order 1 + eps_K + eps;
+the iota+ orders 3/2 + (1 - e_Ups) gam_Ups - eps for u~ and 5 + 2 (1 - e_Ups) gam_Ups - eps for f.
+
+*Notes.* Nothing computed: the reduction is the equivariance of 10.43 applied to his proofs. iplus5.py's three lines
+over 121 characters are wrapped.
+
