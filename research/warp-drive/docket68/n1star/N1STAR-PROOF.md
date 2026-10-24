@@ -4090,12 +4090,12 @@ kept at s0, where the root 1 enters (0, 1]. []
      and 1 | 1 at vl (10.12(i)); the physical 1 | 1 -- with D removing one root on each side (box^Ups's at 0 or -1 on
      the left, box^C's 2 or 3 on the right), every type splits evenly for every l: s0 4 | 4, s1 6 | 6, sl 7 | 7, v1 2 |
      2, vl 3 | 3, tl 1 | 1, as (iv) computes at l <= 12. And 0 is a root only of s0 (the physical -l) and s2 (box^Ups's
-     1 - l), each simple. Simplicity in general is computed only for l <= 12, the closest pair at the point being at s1,
-     the physical 3 and box^Ups's 3 + z/12 + O(z^2), 3.3 x 10^-7 apart; his (8.13), which asks d(Re lam, Z) >= eps_ind
-     for the non-integer roots with |lam| <= 50, holds for l <= 12 by (iv) once eps_ind is at most 7.3846 x 10^-8 --
-     box^Ups's shifted roots lie within O(z/l) of integers, the nearest computed at l = 12, so that over |lam| <= 50,
-     which reaches l near 50, the bound is smaller still and not computed -- and he uses it "only really ... for |lam|
-     <= 4".
+     1 - l), each simple. Simplicity in general is computed here only for l <= 12 (every l, and (8.13): 10.52), the
+     closest pair at the point being at s1, the physical 3 and box^Ups's 3 + z/12 + O(z^2), 3.3 x 10^-7 apart; his
+     (8.13), which asks d(Re lam, Z) >= eps_ind for the non-integer roots with |lam| <= 50, holds for l <= 12 by (iv)
+     once eps_ind is at most 7.3846 x 10^-8 -- box^Ups's shifted roots lie within O(z/l) of integers, the nearest
+     computed at l = 12, so that over |lam| <= 50, which reaches l near 50, the bound is smaller still and not computed
+     -- and he uses it "only really ... for |lam| <= 4".
  (b) (Lemma 8.5) At the point, by (iv). For every z > 0 at Proposition 10.9's point -- 0 is a simple root at s0 only if
      box^C has no root at 1, which Proposition 10.9 gives there -- his proof carries over: by (a) the kernel at s0 is
      one-dimensional, spanned by delta* of t dt plus the correction -N(box^Ups(0), -1)^-1 [box^Ups, t] dt, which is well
@@ -6155,11 +6155,12 @@ than twice its degree as a trigonometric polynomial (the fifty-second verifier m
 instrument asserts the bound) -- and the solution space counted by rank. The ansatz exhibits its solutions, so C2's
 counts are lower bounds. C3 counts the same harmonics a second way, as homogeneous degree-l polynomials on R^4
 (harmonic; for 1-forms divergence-free with x.V = 0; for tensors divergence-free, traceless, with x.H = 0), invariance
-as linear conditions, by rank modulo 2^31 - 1, which bounds each count from above; the totals are SO(4)'s (l + 1)^2, 2 l
-(l + 2), 2 (l - 1)(l + 3), and the G-invariant counts meet C2's, which are therefore exact. Controls: T^2 alone (three
-generators; two invariant divergence-free 1-forms at each odd l and two TT tensors at each even l >= 2, C3); the
-eigenvalue moved by one (no tensor harmonic); x.H = 0 dropped (C3's totals break). []
-[]
+as linear conditions, by rank modulo 2^31 - 1, which bounds each count from above (a TT eigentensor of level l extends
+to R^4 as r^l T(x/r), harmonic by the eigenvalue equation and bounded at 0, so a homogeneous polynomial,
+G-equivariantly; D121); the totals are SO(4)'s (l + 1)^2, 2 l (l + 2), 2 (l - 1)(l + 3), and the G-invariant counts meet
+C2's, which are therefore exact. Controls: T^2 alone (three generators; two invariant divergence-free 1-forms at each
+odd l and two TT tensors at each even l >= 2, C3); the eigenvalue moved by one (no tensor harmonic); x.H = 0 dropped
+(C3's totals break). [] []
 
 *Deduced.*
 
@@ -6219,36 +6220,39 @@ His Lemma 11.15 and Propositions 11.14 and 11.16 integrate the I+ normal operato
 lemmas. This section computes the five-dimensional normal operator's leading part, exponents and exceptional terms, and
 deduces the three statements in five dimensions.
 
-*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; ASCII): p. 47, b-Sobolev spaces on [0, oo)^k x
-R^(n-k) x S, "S is a closed (i.e., compact, no boundary) smooth manifold"; pp. 49-50, Lemma 2.12, "We work on [0, 1)_x x
-H where H is a compact manifold with corners"; pp. 57-58, Lemmas 2.22 and 2.23 on "[0, 2) x [0, 2) x (-2, 2)^d"; p. 86,
-Definition 5.3(3) and (5.5)-(5.8); p. 181, Lemma 9.14 and (9.47); pp. 224-226, Definition 11.3, Proposition 11.8,
-Theorem 11.12; pp. 226-230, Proposition 11.14, (11.26) "rho_I^-1 rho_+^-2 L = L_0 + L~, L_0 = -(rho_I d_rho_I - (I +
-A_h))(rho_I d_rho_I - rho_+ d_rho_+) + rho_+^-1 B_h", Lemma 11.15 and its proof (the (7, 6) term "(A_h)_7,6 = -1/2 d_1(r
-h_ab)" producing (1, 0), the (7, 4) term (1 + (1 - e_Ups) gam_Ups, 0), "using l_I <= 3 + eps_I < 1 + (1 - e_C)(1 - v_C)
-gam_C"), Proposition 11.16 with (11.33a)-(11.33b) and Steps 1-3 of its proof, (11.34) "L~ in rho_I Diff^2_b"; p. 235,
-the coordinates "rho_I = t*/r ... rho_+ = 1/t* (cf. (3.4e))".
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; ASCII): p. 47, b-Sobolev spaces on [0, oo)^k
+x R^(n-k) x S, "S is a closed (i.e., compact, no boundary) smooth manifold"; pp. 49-50, Lemma 2.12, "We work on [0,
+1)_x x H where H is a compact manifold with corners"; pp. 57-58, Lemmas 2.22 and 2.23 on "[0, 2) x [0, 2) x (-2, 2)^d";
+p. 86, Definition 5.3(3) and (5.5)-(5.8); p. 181, Lemma 9.14 and (9.47); p. 220, Definition 11.3; pp. 224-226,
+Proposition 11.8, Theorem 11.12; pp. 226-230, Proposition 11.14, (11.26) "rho_I^-1 rho_+^-2 L = L_0 + L~, L_0 = -(rho_I
+d_rho_I - (I + A_h))(rho_I d_rho_I - rho_+ d_rho_+) + rho_+^-1 B_h", Lemma 11.15 and its proof (the (7, 6) term
+"(A_h)_7,6 = -1/2 d_1(r h_ab)" producing (1, 0), the (7, 4) term (1 + (1 - e_Ups) gam_Ups, 0), "using l_I <= 3 + eps_I
+< 1 + (1 - e_C)(1 - v_C) gam_C"), Proposition 11.16 with (11.33a)-(11.33b) and Steps 1-3 of its proof, (11.34) "L~ in
+rho_I Diff^2_b"; p. 235, the coordinates "rho_I = t*/r ... rho_+ = 1/t* (cf. (3.4e))".
 
-**Proposition 10.41 (computed; exact).**
+**Proposition 10.41 (computed; exact, but for (ii)'s 2 I0 - 1, which rests on 10.38(a)).**
 
  (i) (the leading part) For the wave operator of R^(1,n) on u(t*, r) Y, Y a harmonic of S^(n-1) with eigenvalue -kappa,
      in rho_I = t*/r, rho_+ = 1/t*: rho_I^-1 rho_+^-2 (-box/2) = -(rho_I d_rho_I - (n - 1)/2)(rho_I d_rho_I - rho_+
      d_rho_+) + rho_I R, R = -(a^2 - (n - 2) a - kappa)/2 on rho_I^a rho_+^b, angular term and potential in R: his I = 1
      at n = 3, and 3/2 at n = 4 (P1).
  (ii) (the bookkeeping) The five-dimensional A_0 of 10.38(i) is lower triangular with his diagonal; the 11-component's
-     exceptional I+ exponents are 2 I0 - 1 and I0 + (1 - e_Ups) gam_Ups, that is 2 and 3/2 + (1 - e_Ups) gam_Ups at I0 =
-     3/2 and his 1 and 1 + (1 - e_Ups) gam_Ups at I0 = 1 from his (5.28); his Steps' coefficients are (2 - (3/2 + 2
+     exceptional I+ exponents are 2 I0 - 1, from the (7, 6) coupling's I+ order I0 - 1 by 10.38(a)'s scaling argument (a
+     reading), and I0 + (1 - e_Ups) gam_Ups, from A_0's (7, 4) entry (computed): 2 and 3/2 + (1 - e_Ups) gam_Ups at I0 =
+     3/2, his 1 and 1 + (1 - e_Ups) gam_Ups at I0 = 1 from his (5.28); his Steps' coefficients are (2 - (3/2 + 2
      gam_Ups)) = (1 - 4 gam_Ups)/2, zero only at gam_Ups = 1/4, and -(1 + e_Ups) gam_Ups; and z - 3/2 - A_0 is
      invertible for 3/2 + 2 gam_Ups < Re z < 3/2 + (1 - e_C)(1 - v) gam_C, at the record's point (v, e_C, gam_C, e_Ups,
-     gam_Ups) = (1/2, 1/102400, 10^6, 1/100, 1/100) for 38/25 < Re z < 499997 (P2).
- (iii) (Proposition 11.16's Steps 1-2) On chi rho_I^z u (dx^1)^2, z = 2 and 3/2 + (1 - e_Ups) gam_Ups, L_0 is (4
-     gam_Ups - 1)/2 (z - rho_+ d_rho_+) and (1 + e_Ups) gam_Ups (z - rho_+ d_rho_+), nonzero at the point (P3).
+     gam_Ups) = (1/2, 1/102400, 10^6, 1/100, 1/100) for 38/25 < Re z < 63999567/128 = 499996.6171875 (P2).
+ (iii) (Proposition 11.16's Steps 1-2) L_0 with the full A_0, on rho_I^z U(rho_+) e_11, z = 2 and 3/2 + (1 - e_Ups)
+     gam_Ups, is (4 gam_Ups - 1)/2 (z - rho_+ d_rho_+) U e_11 and (1 + e_Ups) gam_Ups (z - rho_+ d_rho_+) U e_11, no
+     other component appearing, nonzero at the point (P3).
 
-*Proof.* P1-P3 of iplus5.py: sympy, exact. (i) the operator applied to rho_I^a rho_+^b Y with a, b, kappa symbolic, t* =
-t - r, and the difference from the claimed leading part shown to carry a factor rho_I with polynomial coefficients; (ii)
-scri5.py's five528() and his528() (10.38), the exponents and coefficients read from their entries, the gap at lin5.py's
-point; (iii) the 11-entry of L_0 on the ansatz. Controls: the exponent claimed n/2; I0 = 1 with the five-dimensional
-matrix (the exponents then his, not ours). []
+*Proof.* P1-P3 of iplus5.py: sympy, exact. (i) the operator applied to rho_I^a rho_+^b Y with a, b, kappa symbolic,
+t* = t - r, and the difference from the claimed leading part shown to carry a factor rho_I with polynomial
+coefficients; (ii) scri5.py's five528() and his528() (10.38), the exponents and coefficients read from their entries,
+the gap at lin5.py's point; (iii) L_0 with scri5.py's full A_0 applied to the seven-component ansatz. Controls: the
+exponent claimed n/2; I0 = 1 with the five-dimensional matrix (the exponents then his, not ours); A_0's (7, 7) entry
+moved to 1/2, which makes the z = 2 coefficient vanish (P3; D121). []
 
 *Deduced.*
 
@@ -6327,8 +6331,10 @@ most singular term F(h^(<=1),aug_b,s1)(S-hat(0)) ~ |sigma|^-2 ... is absent"; pp
      L_b) u of that order with u bounded at K+, so h of K+ order alpha_K + eps suffices -- 1 + eps_K + eps in the class
      against his 2 + eps_K, the price of the second order pole being absent. At iota+ the cap is 10.44's: u~ has iota+
      order 3/2 + (1 - e_Ups) gam_Ups - eps where his has 1 - eps ("limited by 1 due to transport from I+"), the mass
-     state having iota+ order 2 (10.39(c)); and (L - L_b) u gains 2 + min Re E_+ at iota+ (his (11.19) with 10.44(e)'s
-     E_+), so f's iota+ requirement, his (11.116)'s 4 - eps, becomes 5 + 2 (1 - e_Ups) gam_Ups - eps.
+     state having iota+ order 2 (10.39(c)). f's iota+ requirement, his (11.116)'s 4 - eps, is 3 + min Re E_+ - eps, the
+     order f_1 carries in (11.155) and (11.195); in five dimensions 9/2 + (1 - e_Ups) gam_Ups - eps. (L - L_b) u, at 2 +
+     2 min Re E_+ = 5 + 2 (1 - e_Ups) gam_Ups by his (11.19), lies above it (D121; D113 had taken that order as the
+     requirement).
  (e) (what this gives) In the class, his Steps 1-4 hold in five dimensions as one statement: for G-invariant f with the
      orders of (c)-(d), the forward solution is a mass change plus a remainder decaying at K+, and the mass change is
      removed by the final mass -- on the readings of 10.39-10.44 and of [Hin26c] Proposition 13.18 and Corollary 13.17
@@ -6368,17 +6374,17 @@ pp. 292-294, Definition 11.63, the proof of the lemma before Corollary 11.66 wit
      c-2, e-2, e0; s4: e-2; t2: e-2; none at s6 and t4 -- the class roots between 2.6 x 10^-7 and 1.4 x 10^-6 below the
      integer. alpha_min = 3/2 + (1 - e_Ups) gam_Ups = 1.5099 there.
 
- (ii) (the bookkeeping) Let alpha be any iota+ exponent in [alpha_min, 3]. A root mu gives K+ order alpha - mu, plus the
-     class roots' distance. A term is recorded, with floor(3 - order) companions, while its order is at most 3; it is
-     eliminated if pure gauge with order at most 2 (the class roots: below 2). The eliminated terms lie in {s0 e0, s0
-     c0, s2 e0}, all three at alpha_min, and the recorded ones in these and s2 c-1, with at most one companion. No
-     physical state is recorded at any alpha, and every recorded term's L_b-image has K+ order above 3. In four
-     dimensions at alpha = 1 with threshold 4, the same rule gives his eight eliminated parameters ((11.197); p. 289,
-     (3)) and his physical s2, v2, s3, v3 with 1, 1, 0, 0 companions ((11.196b)).
-
+ (ii) (the bookkeeping) Let alpha be an iota+ exponent the class's sources carry -- every one at least alpha_min, by the
+     class's index sets below; the check covers [alpha_min, 3], above which nothing is recorded. A root mu gives K+
+     order alpha - mu, plus the class roots' distance. A term is recorded, with floor(3 - order) companions, while its
+     order is at most 3; it is eliminated if pure gauge with order at most 2 (the class roots: below 2). The eliminated
+     terms lie in {s0 e0, s0 c0, s2 e0}, all three at alpha_min, and the recorded ones in these and s2 c-1, with at most
+     one companion. No physical state is recorded at any alpha >= alpha_min, and every recorded term's L_b-image has K+
+     order above 3. In four dimensions at alpha = 1 with threshold 4, the same rule gives his eight eliminated
+     parameters ((11.197); p. 289, (3)) and his physical s2, v2, s3, v3 with 1, 1, 0, 0 companions ((11.196b)).
  (iii) (the weights) His I+ remainder weight 3 + eps_I lies in the five-dimensional non-resonant gap 3/2 + 2 gam_Ups < z
-     < 3/2 + (1 - e_C)(1 - v) gam_C (38/25 to 499997 at the point; iplus5.py P2), as in his own (51/50 to 499996); his
-     iota+ remainder 3 + eps_+ feeds K+ orders above 3 only.
+     < 3/2 + (1 - e_C)(1 - v) gam_C (38/25 to 63999567/128 = 499996.6171875 at the point; iplus5.py P2), as in his own
+     (51/50 to 499996.1171875); his iota+ remainder 3 + eps_+ feeds K+ orders above 3 only.
 
 *Proof.* sharp5.py. K1 takes class5.py's counts (C2, made exact by C3's upper bounds); K2 finds the roots with
 window5.py's routine (mpmath, 50 digits); K3 is exact on 151 points of [alpha_min, 3], the orders being linear in alpha;
@@ -6386,14 +6392,28 @@ K4 is exact at the point. Controls: without the reflections the vector type ente
 alpha = 1, four dimensions' order, the class records the physical s2 and t2 at -2 (K3); the radiative order 3/2 +
 gam_Ups taken as I+ weight falls below the gap (K4). []
 
+*The class's iota+ index sets (deduced; D121).* His E_+ contains (1, 0) "to allow smooth decaying perturbations at
+(iota+)°" (p. 221) -- the Kerr parameter change chi_K (g_b - g_b0) in rho_+ C^oo (Remark 11.7, p. 224) -- and his
+E-tilde_+ of (11.87) adds (1, 0) u (1 + E_ind) from the boost (Lemma 11.28, (11.88): the linearization in S is rho_+
+C^oo from g_0 and A^((1,1) u (1 + E_ind)) from h^(-1)); (11.151) adds E^#_+; Lemma 11.41's linearization in b starts
+from chi_K g-dot_b(b-dot) in rho_+ C^oo (p. 260). In the class the boost terms are absent (10.43) and the mass change
+is r^-2 in five dimensions, in rho_+^2 C^oo at iota+ (10.39(c)). So the class takes E_+^G with (2, 0) in place of his
+(1, 0), and E-tilde_+^G := (2, 0) u (2 + E_ind) u (E_+^G + ((2, 0) u (2 + E_ind))) u E^#_+ -- his (11.151) with the
+boost's exponents removed and the mass's at its five-dimensional order, on the reading that the mass patch h^(0)(m-dot)
+has iota+ index set (2, 0) u (2 + E_ind) in five dimensions (its logarithm, if any, not computed). Every element has
+real part at least alpha_min = min Re E^#_+ (10.44(e)); so the sources of (11.155) and (11.195), with iota+ index sets
+E_+^G + 3 and E-tilde_+^G + 2, feed K+ only from exponents alpha >= alpha_min, which is (ii)'s hypothesis (the
+fifty-third verifier's major finding: at his alpha = 1 the rule would record the physical s2, t2 and s4 e-2).
+
 *Deduced.*
 
  (a) (Proposition 11.51 in the class) His proof inducts in eps_K-steps on the K+ order of f, solving at I+ (Proposition
      11.16; 10.44) and at iota+, and fixes at each step the parameters whose terms it uncovers: the S_1 shifts
      S^(lam-1,k)_1 and the final parameters. In the class the shifts vanish and the final parameters are the mass
-     (10.43(b)). With 10.45's single order of loss: for G-invariant f with the iota+ structure of (11.155) and K+ order
-     alpha_K in (1, 1 + alpha_min), there is a unique mass parameter m' for which the forward solution has K+ order
-     alpha_K - 1. No gauge parameter is needed below the K+ order alpha_min, where (ii)'s first terms appear.
+     (10.43(b)). With 10.45's single order of loss: for G-invariant f with the iota+ structure of (11.155) in the
+     class's index sets and K+ order alpha_K in (1, 1 + alpha_min), there is a unique mass parameter m' for which the
+     forward solution has K+ order alpha_K - 1. No gauge parameter is needed below the K+ order alpha_min, where (ii)'s
+     first terms appear.
 
  (b) (Theorem 11.59 in the class) Let h be G-invariant and small in H^(oo, (<E^C_I>, 3+eps_I), (E_+, 3+eps_+), 3+eps_K),
      with 10.44's five-dimensional index sets. Let p-vec be small and G-fixed: the mass m - m_0, and the parameters
@@ -6425,8 +6445,10 @@ gam_Ups taken as I+ weight falls below the gap (K4). []
      t*] g-dot^Ups_b(m-dot_rem') + (1/2) [[L_b, t*], t*] g-dot^Ups_b(m-dot_rem''), with m-dot_rem' of order 3 + eps_K.
      (L - L_b) h_b,rem has K+ order 2(2 + eps_K).
 
- (e) (the weights) By (iii) his weights serve: 3 + eps_I at I+ (10.45's OPEN item), and at iota+ 3 + eps_+ for h and 5 +
-     eps_+ for f.
+ (e) (the weights) By (iii) his weights lie in the five-dimensional gaps: 3 + eps_I at I+, and at iota+ 3 + eps_+ for h
+     and 5 + eps_+ for f. His (2.27) (p. 61), beta_I >= beta_iota - beta_K and beta_I > beta_iota - min(1, min Re E_K),
+     which the iteration's spaces also need, holds with his weights in four dimensions; at n = 4 it rests on Proposition
+     2.25's density shifts (10.42(e)), a reading -- so 10.45's OPEN item on l_I is settled on that reading (D121).
 
 OPEN: the readings of 10.39-10.45 on which (a)-(d) rest; Lemma 11.57's linearizations in five dimensions, on 10.30's
 gauge potentials (Phase B); whether the five-dimensional zf expansion of the mass's singular part carries his Part 3,
@@ -6584,10 +6606,10 @@ g_m = O(t*^(-2-eps_K)) in spatially compact subsets of {r >= r_0}.
 
 *Deduced.*
 
- (a) (Step 1) The constraint damping is [Hin26a]'s Theorem 7.1 in five dimensions (10.21-10.23, Phase B's B4), E^Ups
-     with c_Ups and c_H from 10.14-10.15, gam_Ups small with the conclusions of Proposition 6.12 (10.15-10.18) and
-     Proposition 8.6 (10.24-10.25) and with 3/2 + 2 gam_Ups < min Re E_0 (10.48(d)); the record's point has gam_Ups =
-     1/100.
+ (a) (Step 1) The constraint damping is [Hin26] Theorem 7.1 (his summary of [Hin26a]) in five dimensions (10.21-10.23,
+     Phase B's B4), E^Ups with c_Ups and c_H from 10.14-10.15, gam_Ups small with the conclusions of Proposition 6.12
+     (10.15-10.18) and Proposition 8.6 (10.24-10.25) and with 3/2 + 2 gam_Ups < min Re E_0 (10.48(d)); the record's
+     point has gam_Ups = 1/100.
  (b) (Step 2) Proposition 5.25's gauged Cauchy data: frame linear algebra on Sigma_IVP (5.80)-(5.81), with three spatial
      frame vectors replaced by four -- dimension-free on its face, a reading; the data G-invariant, so are h_0 and h_1,
      the construction being natural. Theorem 5.21 in five dimensions (10.48(d)) gives the exterior solution, local
@@ -6692,6 +6714,45 @@ section 4 is read for its dependence on k.
 
 C-i is discharged: Theorem E holds at every order k >= 6 with K >= 6, its inputs at every order by Theorem A and
 Proposition 6.5. Labels: deduced ((a)-(d)), from the record's sections 4-6; nothing computed here, nothing proved.
+
+### 10.52 [Hin26] Lemma 8.4's simplicity and (8.13) for every l (`eind5.py` E1-E2; D120)
+
+*The setting.* 10.24 computed the indicial roots of L at the record's point for l <= 12 and located them for every l;
+simplicity, and his (8.13) -- d(Re lam, Z) >= eps_ind for the non-integer roots with |lam| <= 50 -- were left at l <= 12
+(Phase B's B8). By 10.24(ii) and gaugepot5.py G1, for l >= 2 the scalar type's roots are -l and l + 2, box^Ups's 2 - l
+and l + 4 and the four roots of Q(lam - 1), Q(lam') = s^2 - (2 + 2 kappa + z) s + kappa (kappa + 1) + z kappa, s =
+lam'(lam' - 1), kappa = l (l + 2), z = 4 e_Ups gam_Ups^2 = 4 x 10^-6, and box^C's six scalar roots less 1; the vector
+type's are -l and l + 2, box^Ups's 1 - l and l + 3, and box^C's two vector roots less 1; the tensor type's are -l and
+l + 2.
+
+**Proposition 10.43 (computed).** At the record's point, (v, e_C, gam_C) = (1/2, 1/102400, 10^6), (e_Ups, gam_Ups) =
+(1/100, 1/100):
+
+ (i) (simplicity, exact) for every l >= 2 every scalar, vector and tensor root of L is simple. Q(lam - 1) at lam = -l,
+     l + 2, l + 4, 2 - l is a nonzero polynomial in l with no root l >= 1; Q's discriminant in s, (z + 2)^2 + 4 kappa, is
+     positive and its roots in s positive, so its four roots in lam are distinct; box^C's scalar discriminant in lam, of
+     degree 9 in kappa, has its positive real roots near l = 135.59, 14640.49, 1534412.09 and 4959861.06, each isolated
+     strictly between consecutive integers, so it vanishes at no integer l; box^C at lam + 1 = 1 - l, l + 3, l + 5, 3 - l
+     has no root l >= 2, and its resultant with Q(lam - 1) has no root kappa > 0 (Sturm); box^C's vector quadratic,
+     kappa/10^6 + 3 - lam^2/10^6 - (499999/500000) lam, has a positive discriminant and at lam + 1 = 1 - l, l + 3, 2 - l,
+     l + 4 no root l >= 2.
+ (ii) ((8.13), exact certificate and numerical scan) box^C's lower roots lie below -100 at every l (Proposition 10.9);
+     at l* = 10^4 its three upper scalar roots and its upper vector root lie right of Re lam = 51 and none crosses that
+     line for kappa >= l*(l* + 2) (the constant coefficient and the Hurwitz determinant shifted to the line have no root
+     there, Sturm); box^Ups's roots are 2 - l, l + 4 (scalar), 1 - l, l + 3 (vector) and within O(z) of -l, 1 - l, l +
+     2, l + 3 (Q), so only l <= 52 reach |lam| <= 50. Over l = 0, 2, 3, ..., l* - 1 (mpmath, 30 digits), the least
+     distance from Z of the real part of a non-integer root with |lam| <= 50 is 1.94137 x 10^-8, at l = 50, lam =
+     -49.0000000194 (box^Ups's root near 1 - l). Over l <= 12 the scan gives 10.24(iv)'s 7.3846 x 10^-8.
+
+*Proof.* E1-E2 of eind5.py. Controls: at z = 0, Q(lam - 1) vanishes at the physical roots lam = -l and l + 2, which are
+then double (E1); the certificate placed at l* = 12, where box^C's upper roots have not yet passed the line (E2). []
+
+*Deduced.* [Hin26] Lemma 8.4 holds in five dimensions at the point for every l, as stated: 10.24(a) gave the gap and
+the counts for every l, (i) gives "All indicial roots ... are simple", and (ii) gives his (8.13) with eps_ind at most
+1.94137 x 10^-8, the l = 1 types being 10.24(iv)'s. The bound comes from box^Ups's roots near 1 - l, which approach the
+integers as l grows (O(z/l)); it is attained at the largest l whose root still has |lam| <= 50, so it depends on (8.13)'s
+cutoff 50, which he uses "only really ... for |lam| <= 4" (10.24(a)). B8 is discharged. Labels: computed ((i) exact,
+(ii)'s certificate exact and its scan numerical), deduced (Lemma 8.4); nothing proved beyond Lemma 8.4 at the point.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

@@ -3882,3 +3882,41 @@ lam0 independent of it. So 10.50(d)'s H^d smallness holds once k >= d and K >= d
 to [Hin23c] section 3.1.2 for general dimension; some of its results (Corollary 9.39, Proposition 9.40) are stated for
 general n. Its audit, and one of [Hin26a] and [Hin23a], are running as background reads; their reports are claims to be
 checked at source, not discharges. (2) The fifty-third verifier, on D112-D115, is still running.
+
+**D120 (2026-10-24): B8 discharged (10.52).**
+
+eind5.py E1-E2 computes, at the record's point, that every indicial root of L is simple for every l >= 2 -- exactly, the
+scalar, vector and tensor types -- and that his (8.13) holds for every l with eps_ind at most 1.94137 x 10^-8: an exact
+certificate puts box^C's upper scalar and vector roots right of Re lam = 51 for every l >= 10^4, and a 30-digit scan
+over l < 10^4 finds the least distance from Z, at l = 50, box^Ups's root near 1 - l. Section 10.52 (Proposition 10.43)
+deduces [Hin26] Lemma 8.4 in five dimensions at the point for every l.
+
+*Notes.* (1) The first run covered the scalar and tensor types only; 10.24's vector type carries box^C's quadratic,
+which was added to E1 and E2 before anything was written, with the same bound. (2) The bound is attained at the edge of
+(8.13)'s |lam| <= 50 and so depends on that cutoff; he uses (8.13) only for |lam| <= 4. (3) Selftest 2/2 (about four
+minutes), mutants 2/2.
+
+**D121 (2026-10-24): the fifty-third verifier's findings on D112-D115 seated.**
+
+One major finding: sharp5.py K3's bookkeeping rule was stated for every iota+ exponent, and at his alpha = 1 it would
+record the physical s2, t2 and s4 e-2. Repaired by deducing the class's iota+ index sets (10.46, new paragraph): his
+E_+'s (1, 0) is the Kerr parameter change and E-tilde_+'s (1, 0) u (1 + E_ind) the boost, both absent in the class,
+where the mass change enters at rho_+^2; so every iota+ exponent the class's sources carry is at least alpha_min, K3's
+hypothesis, now stated in sharp5.py and 10.46(ii). Minor findings, all seated: 10.44's READ page for Definition 11.3 (p.
+220); Proposition 10.41's exponent 2 = 2 I0 - 1 rests on 10.38(a)'s scaling, a reading, and is so labelled (iplus5.py
+P2, ROUTES 4.46); the gap's upper end is 63999567/128, checked exactly (P2); P3 now applies L_0 with the full A_0 to the
+seven-component ansatz, with a control; 10.45(d)'s iota+ requirement on f is 3 + min Re E_+ - eps = 9/2 + (1 - e_Ups)
+gam_Ups - eps, D113's figure having been (L - L_b) u's order (ROUTES 4.47); 10.43's C3 upper bound justified (a TT
+eigentensor extends to a harmonic homogeneous polynomial, G-equivariantly) and its doubled end mark removed.
+
+*Notes.* (1) sharp5.py K3 and K4 and iplus5.py rerun after the repairs: pass; mutants unchanged. (2) The response
+paper's "(D1-D108)" is stale; it is rebuilt in Phase D.
+
+**D122 (2026-10-24): the companion papers audited for their dimension; the plan for B1-B4 and B10 (ROUTES 4.55).**
+
+Two background readers audited [Hin26c], and [Hin26a] with [Hin23a], for where the dimension enters. Neither paper is
+written for general dimension, but the analysis under each is, and the items split three ways: by citation, by a short
+argument at n = 4 from the record's computed inputs, and real work (ROUTES 4.55). One finding was applied at once:
+[Hin26a] has no Theorem 7.1, and 10.49(a)'s label now reads [Hin26] Theorem 7.1, his summary of [Hin26a]. One finding
+shortens B10: [Hin23a] Theorem 3.35 peels off the radiation field, which five dimensions does not carry, so [Hin26] p.
+102's first step suffices there. The readers' claims are not discharges; each is to be checked at source.

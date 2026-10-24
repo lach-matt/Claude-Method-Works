@@ -12,18 +12,21 @@ Diff^2_b, in his coordinates rho_I = t*/r, rho_+ = 1/t* (p. 235), with the b-ODE
      rho_+ d_rho_+) + rho_I R, R a b-operator whose coefficients are polynomials in rho_I, rho_+, kappa: his I = 1 at
      n = 3, and 3/2 at n = 4, the conjugation r^-((n-1)/2) of 10.38(a).  The angular term and the potential lie in R.
      Control: the exponent claimed n/2.
-  P2 (computed, exact) The bookkeeping in five dimensions, from scri5.py's five-dimensional A_0 (10.38(i)): A_0 lower
-     triangular, diagonal 2 (1 - v) gam_C, (1 - v) gam_C, (1 - e_C)(1 - v) gam_C, (1 - e_Ups) gam_Ups, gam_Ups, 0,
-     2 gam_Ups; the I+ exponents 3/2 + that diagonal; the exceptional exponents of the 11-component, 2 (the (7, 6)
-     coupling, half an order below his) and 3/2 + (1 - e_Ups) gam_Ups (the (7, 4) coupling, his entry); and the
-     non-resonance his Steps 1-3 need: 2 != 3/2 + 2 gam_Ups (gam_Ups != 1/4), (1 + e_Ups) gam_Ups != 0, and z - 3/2 -
-     A_0 invertible for 3/2 + 2 gam_Ups < Re z < 3/2 + (1 - e_C)(1 - v) gam_C -- at the record's point (v, e_C, gam_C,
-     e_Ups, gam_Ups) = (1/2, 1/102400, 10^6, 1/100, 1/100) the interval reaches past 5 x 10^5.  Control: four
+  P2 (computed, exact, but for one input) The bookkeeping in five dimensions, from scri5.py's five-dimensional A_0
+     (10.38(i)): A_0 lower triangular, diagonal 2 (1 - v) gam_C, (1 - v) gam_C, (1 - e_C)(1 - v) gam_C, (1 - e_Ups)
+     gam_Ups, gam_Ups, 0, 2 gam_Ups; the I+ exponents 3/2 + that diagonal; the exceptional exponents of the
+     11-component, 2 I0 - 1 = 2 (the (7, 6) coupling, of I+ order I0 - 1 by 10.38(a)'s scaling argument -- a reading,
+     not computed here) and 3/2 + (1 - e_Ups) gam_Ups (A_0's (7, 4) entry, computed); and the non-resonance his Steps
+     1-3 need: 2 != 3/2 + 2 gam_Ups (gam_Ups != 1/4), (1 + e_Ups) gam_Ups != 0, and z - 3/2 - A_0 invertible for 3/2 + 2
+     gam_Ups < Re z < 3/2 + (1 - e_C)(1 - v) gam_C -- at the record's point (v, e_C, gam_C, e_Ups, gam_Ups) = (1/2,
+     1/102400, 10^6, 1/100, 1/100) the interval is (38/25, 63999567/128), its top 499996.6171875.  Control: four
      dimensions' exceptional exponents 1 and 1 + (1 - e_Ups) gam_Ups from his matrix with I = 1.
-  P3 (computed, exact) Proposition 11.16's Steps 1-2 in five dimensions: for the ansatz chi rho_I^z u^(z,0) (dx^1)^2,
-     z = 2 and 3/2 + (1 - e_Ups) gam_Ups, L_0 reduces to -(z - 3/2 - 2 gam_Ups)(z - rho_+ d_rho_+) on the 11-component,
-     with nonzero coefficient; the solution of (rho_+ d_rho_+ - z) u = g from rho_+ = 1 adds (z, 0) at iota+ (Lemma
-     2.12): E^#(1)_+ = E-breve_+ u {(2, 0)} u {(3/2 + (1 - e_Ups) gam_Ups, 0)}.  Control: the four-dimensional exponents.
+  P3 (computed, exact) Proposition 11.16's Steps 1-2 in five dimensions: L_0 = -(rho_I d_rho_I - (3/2 + A_0))(rho_I
+     d_rho_I - rho_+ d_rho_+), with scri5.py's full A_0, applied to the ansatz rho_I^z U(rho_+) e_11, z = 2 and 3/2 +
+     (1 - e_Ups) gam_Ups, is -(z - 3/2 - 2 gam_Ups)(z - rho_+ d_rho_+) U e_11 -- no other component, A_0 being lower
+     triangular -- with nonzero coefficient at the point; the solution of (rho_+ d_rho_+ - z) u = g from rho_+ = 1 adds
+     (z, 0) at iota+ (Lemma 2.12): E^#(1)_+ = E-breve_+ u {(2, 0)} u {(3/2 + (1 - e_Ups) gam_Ups, 0)}.  Control: A_0's
+     (7, 7) entry moved to 1/2, where the coefficient vanishes at z = 2.
 
 Run: python3 iplus5.py --selftest | --mutants | --only k [--verbose]   (seconds).
 """
@@ -108,25 +111,31 @@ def c2(control=0, verbose=False):
     chk(f"Step 1's coefficient (2 I0 - 1) - (I0 + 2 gam_Ups) = {c_st1}, zero only at gam_Ups = 1/4; Step 2's {c_st2}; "
         f"at the point: {c_st1.subs(pt)}, {c_st2.subs(pt)}", sp.solve(c_st1, gU) == [sp.Rational(1, 4)]
         and c_st1.subs(pt) != 0 and c_st2.subs(pt) != 0)
-    chk(f"z - 3/2 - A_0 invertible for {lo} < Re z < {float(hi):.6g} at the point (gauge exponents below, constraint "
-        f"exponents above)", ok_gap and hi > 3)
+    chk(f"z - 3/2 - A_0 invertible for {lo} < Re z < {hi} = {float(hi)} at the point (gauge exponents below, "
+        f"constraint exponents above)", ok_gap and hi > 3 and hi == sp.Rational(63999567, 128))
     return chk.ok
 
 
 # ------------------------------------------------------------------------------------------------- P3
 def c3(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
-    I0 = sp.Rational(3, 2) if control != 1 else sp.Integer(1)
+    I0 = sp.Rational(3, 2)
     A = S5.five528()
-    U = sp.Function("U")
     zs = sorted(exceptional(I0, A), key=str)
+    if control == 1:
+        A = A.copy()
+        A[6, 6] = sp.Rational(1, 2)                                     # the (7, 7) entry moved
+    U = sp.Function("U")
+    e7 = sp.Matrix([0] * 6 + [1])
     for z in zs:
-        u11 = U(p)
-        inner = z * u11 - p * sp.diff(u11, p)                         # (rho_I d - rho_+ d)(rho_I^z u)/rho_I^z
-        coeff = sp.factor(-(z - (I0 + A[6, 6])))                       # L_0's 11-entry on rho_I^z
-        Lu = coeff * inner
-        ok = sp.simplify(Lu - coeff * (z * u11 - p * sp.diff(u11, p))) == 0 and coeff.subs(dict(POINT)) != 0
-        chk(f"z = {z}: L_0 on rho_I^z u (dx^1)^2 is {coeff} (z - rho_+ d_rho_+) u; nonzero at the point", ok)
+        V = (z * U(p) - p * sp.diff(U(p), p)) * e7                       # (rho_I d - rho_+ d)(rho_I^z U e7)/rho_I^z
+        Lu = -((z - I0) * sp.eye(7) - A) * V                             # -(rho_I d - (I0 + A_0)) on rho_I^z V
+        coeff = sp.factor(-(z - I0 - A[6, 6]))
+        ok = all(sp.simplify(Lu[i]) == 0 for i in range(6))
+        ok &= sp.simplify(Lu[6] - coeff * (z * U(p) - p * sp.diff(U(p), p))) == 0
+        ok &= sp.simplify(coeff.subs(dict(POINT))) != 0
+        chk(f"z = {z}: L_0 with the full A_0 on rho_I^z U e_11 is {coeff} (z - rho_+ d_rho_+) U e_11, no other "
+            f"component; coefficient nonzero at the point", ok)
     chk(f"E#(1)_+ adds {zs} at iota+ (his: 1 and 1 + (1 - e_Ups) gam_Ups)",
         set(zs) == {2, sp.Rational(3, 2) + (1 - eU) * gU})
     return chk.ok
@@ -134,7 +143,8 @@ def c3(control=0, verbose=False):
 
 CHECKS = [("P1 the leading part at I+: (rho_I d - (n - 1)/2)(rho_I d - rho_+ d), rest in rho_I Diff_b; n = 3, 4", c1),
           ("P2 five-dimensional A_0: diagonal, exceptional exponents 2 and 3/2 + (1 - e_U) gam_U, non-resonance", c2),
-          ("P3 Proposition 11.16's Steps 1-2: coefficients nonzero, E#(1)_+ = {(2, 0), (3/2 + (1 - e_U) gam_U, 0)}", c3)]
+          ("P3 Proposition 11.16's Steps 1-2, the full A_0: coefficients nonzero, E#(1)_+ adds (2, 0), (3/2 + .., 0)",
+           c3)]
 
 
 def run(only=None, verbose=False):

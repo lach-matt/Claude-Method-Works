@@ -1589,9 +1589,10 @@ iplus5.py computes the I+ normal operator's structure in five dimensions; N1STAR
 and deduces his Lemma 11.15 and Propositions 11.14 and 11.16.
 
 - Computed (P1-P3): the leading part -(rho_I d - 3/2)(rho_I d - rho_+ d), his with 3/2 for 1; A_0's exponents 3/2 + his
-  diagonal; the 11-component's exceptional exponents 2 and 3/2 + (1 - e_Ups) gam_Ups (his 1 and 1 + (1 - e_Ups) gam_Ups
-  reproduced from his matrix); the Steps' coefficients nonzero for gam_Ups != 1/4; the gap 3/2 + 2 gam_Ups < Re z < 3/2
-  + (1 - e_C)(1 - v) gam_C, at the point past 5 x 10^5.
+  diagonal; the 11-component's exceptional exponents 2 (from 10.38(a)'s scaling, a reading) and 3/2 + (1 - e_Ups)
+  gam_Ups (his 1 and 1 + (1 - e_Ups) gam_Ups reproduced from his matrix); the Steps' coefficients nonzero for gam_Ups !=
+  1/4, with the full A_0 (D121); the gap 3/2 + 2 gam_Ups < Re z < 3/2 + (1 - e_C)(1 - v) gam_C, at the point (38/25,
+  499996.6171875).
 - Deduced: the five-dimensional index sets at I+ (Definition 5.3 and (5.5)-(5.8) with 3/2 for 1 and E_I,11's (2, 0));
   Lemma 11.15 with min(alpha_I, 3/2, l_+), Proposition 11.14 as stated, Proposition 11.16 with E^#(1)_+ = E-breve_+ u
   {(2, 0)} u {(3/2 + (1 - e_Ups) gam_Ups, 0)}; and E_+ with min Re 3/2 + (1 - e_Ups) gam_Ups, which keeps 10.42's
@@ -1606,8 +1607,8 @@ N1STAR-PROOF.md 10.45 deduces his Steps 1-4 in the class as one statement.
 - Deduced: S-hat_1 = 0 at every frequency in the class, so u_lo = u_reg + g-dot and one integration of d_t* suffices
   (his footnote 116's case from the start); Step 2 reduces to Proposition 11.20 with S-dot = 0 (D115); u = chi_K
   g-dot^Ups_b(m-dot) + u~, with u~ of K+ order alpha_K - 1, on f of K+ order alpha_K in (1, 1 + eps_K) where his needs
-  (2, 2 + eps_K); m-dot is removed by the final mass (his Lemma 11.45 at (0, m_0)); f's iota+ requirement is 5 + 2 (1 -
-  e_Ups) gam_Ups - eps against his 4 - eps.
+  (2, 2 + eps_K); m-dot is removed by the final mass (his Lemma 11.45 at (0, m_0)); f's iota+ requirement is 3 + min Re
+  E_+ - eps = 9/2 + (1 - e_Ups) gam_Ups - eps against his 4 - eps (D121).
 - OPEN: the weight l_I at I+ (A6); [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4 (Phase B). Next: A6, his
   sections 11.7-11.8 (Theorem 11.59, Corollary 11.66) in the class.
 
@@ -1681,6 +1682,38 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
 - Discharged (10.51, deduced from the record's sections 4-6): Theorem E at every order k >= 6 with K >= 6 -- k = 6 is
   [DS23]'s lower bound, the bootstrap's closing condition K >= 6 does not see k -- with (E3) from Theorem A and (E4)
   from Proposition 6.5, which bounds the data's correction at every order.
-- Under way: dimension audits of [Hin26c] (B1-B3; its Remark 5.6: "we work in 3 + 1 dimensions for concreteness",
-  general-dimension conventions in [Hin23c]) and of [Hin26a] and [Hin23a] (B4, B10). Their findings are to be checked at
-  source before anything is discharged on them.
+- Done: the dimension audits of [Hin26c] (B1-B3) and of [Hin26a] and [Hin23a] (B4, B10) reported (4.55); their findings
+  are claims to be checked at source before anything is discharged on them.
+
+### 4.54 B8: 10.24's roots for every l (computed; D120)
+
+- Computed (eind5.py E1-E2; N1STAR-PROOF.md 10.52, Proposition 10.43): every scalar, vector and tensor root of L simple
+  for every l >= 2, exact (discriminants isolated between integers, Sturm); (8.13) for every l, by an exact certificate
+  beyond l* = 10^4 for box^C's upper scalar and vector roots and a 30-digit scan below; eps_ind at most 1.94137 x 10^-8,
+  box^Ups's root near 1 - l at l = 50, the edge of (8.13)'s |lam| <= 50.
+- Deduced: [Hin26] Lemma 8.4 in five dimensions at the point for every l. B8 discharged.
+
+### 4.55 The companion papers' dimension: the plan for B1-B4 and B10 (READ by two readers; D122)
+
+- Reported, to be checked at source: [Hin26c] works in 3 + 1 "for concreteness" (Remark 5.6, printed p. 101), general
+  dimension in [Hin23c] section 3.1.2, and states some results for general n (Corollary 9.39, Proposition 9.40);
+  [Hin26a] is 3 + 1 by choice (p. 3, footnote 1: "we do not strive for any generality here"; p. 25, "dim M = 4") on
+  calculi stated for general dimension ([Hin23d], [Hin26d] section 3, its own Lemma 5.14 and Corollary 5.15); [Hin23a]
+  (arXiv:2302.13804v1) is 3 + 1 on a general calculus (section 3.1, p. 9; Lemma 3.33 on R^n, applied "with n = 4").
+  [Hin26a] has no Theorem 7.1: [Hin26] Theorem 7.1 (printed p. 136) summarizes it; 10.49(a)'s label corrected.
+- By citation: [Hin26c] Theorem 9.38, Corollary 9.39, Proposition 9.40, (9.37), (9.114)-(9.117), Definition 5.10's -n +
+  2 + beta, section 13.1.2, Lemma 14.6 (via [Hin23d]) and Paley-Wiener; the general-dimension calculi above; the flat
+  roots {-l, l + n - 2}; the harmonic split on S^(n-1) [KI03]; [SR89].
+- By short argument at n = 4: [Hin26c] section 3's lemmas, Definition 5.13, Theorem 9.5(5), Theorems 9.36 and 9.41,
+  Corollary 9.43, Lemma 14.5, section 13.2, (11.5) and (5.7); the trace weight 2/(D - 2) in [Hin26a] (3.2) and Lemma
+  3.2; [Hin26a] Theorems 5.2, 6.2 and B.1 and [Hin26] Theorem 7.1(1)-(4) at the record's point from its computed inputs
+  (10.12-10.23); [Hin23a] Propositions 3.17, 3.29 and 3.32 at n = 4 and Corollary 3.36 with its new loss; Theorem 3.35
+  (peeling the radiation field) not needed in five dimensions, where no radiation field is carried (10.48(a); [Hin26] p.
+  102's first step).
+- Real work: [Hin26c] Theorem 10.1 (sections 10.1-10.3), Theorem 11.1 through Theorem 8.14 (sections 6-8) and section
+  9's scalar to bundle step at n = 4; a five-dimensional [Hin26a] Theorem 4.9 for every small h (its Appendix A with
+  S^3's harmonics), or the route of its Remarks 4.10 and 6.3 (Re lam >= 2 - eps suffices for (1.43)'s strip [-C_0, 1) in
+  five dimensions); h_0 and the horizon threshold (B5, B6); the five-dimensional nonlinear error class (the analogue of
+  [Hin23a] Corollary 3.31).
+- Next: the citation items checked at source and recorded; then the short arguments, one section each; then the real
+  work.

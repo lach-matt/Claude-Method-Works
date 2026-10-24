@@ -15,16 +15,19 @@ needs K+ order 3 + eps_K, u~ has it, and u_exp records the terms below it.
      c-2 e-2 e0; s4 e-2; t2 e-2; none at s6, t4 -- the class roots' distances below the integer (about 10^-6 at the
      point; lin5.py's scalar-type determinant takes most of the run), and the least iota+
      exponent alpha_min = 3/2 + (1 - e_Ups) gam_Ups (10.44(e)).  Control: s4 claimed to have no root in [-3, 0].
-  K3 (computed, exact) The bookkeeping, for every iota+ exponent alpha in [alpha_min, 3] (a grid of 151 points, the
-     orders linear in alpha): a state is recorded with k = floor(3 - order) generalized companions while its order is
-     at most 3, and eliminated if pure gauge of order at most 2 (the class roots: below 2).  Eliminated: within {s0 e0,
+  K3 (computed, exact) The bookkeeping, for every iota+ exponent the class's sources carry -- all at least alpha_min
+     (10.46(a): his (1, 0) u (1 + E_ind) come from the boost, absent in the class, and the mass enters at order 2) --
+     checked on [alpha_min, 3] (151 points, the orders linear in alpha; above 3 nothing is recorded): a state is
+     recorded with k = floor(3 - order) generalized companions while its order is at most 3, and eliminated if pure
+     gauge of order at most 2 (the class roots: below 2).  Eliminated: within {s0 e0,
      s0 c0, s2 e0}, all three at alpha_min; recorded: within those and s2 c-1; no physical state at any alpha; each
      recorded term's L_b-image of K+ order above 3 (his (11.232), Lemma 11.65).  Control: four dimensions at alpha =
      1, threshold 4, gives his eight eliminated parameters ((11.197); p. 289, (3)) and his physical s2, v2, s3, v3 with
      1, 1, 0, 0 companions ((11.196b)); mutant: the class at alpha = 1 claimed to record no physical state.
   K4 (computed, at the point) The weights: his I+ remainder weight 3 + eps_I lies in the five-dimensional non-resonant
-     gap 3/2 + 2 gam_Ups < z < 3/2 + (1 - e_C)(1 - v) gam_C (iplus5.py P2), and his iota+ remainder 3 + eps_+ feeds
-     only K+ orders above 3 in the class.  Control: the radiative order 3/2 claimed as I+ weight.
+     gap 3/2 + 2 gam_Ups < z < 3/2 + (1 - e_C)(1 - v) gam_C, (38/25, 499996.6171875) (iplus5.py P2), and his iota+
+     remainder 3 + eps_+ feeds only K+ orders above 3 in the class.  (His (2.27) on the weights is not checked here.)
+     Control: the radiative order 3/2 claimed as I+ weight.
 
 sympy, mpmath; imports window5.py, class5.py, iplus5.py.
 python3 sharp5.py [--selftest | --mutants]   (about nine minutes each, K2's roots)
@@ -158,8 +161,8 @@ def k4(control=0, verbose=False):
     lo, hi = (sp.Rational(3, 2) + 2 * gU).subs(pt), (sp.Rational(3, 2) + (1 - eC) * (1 - v) * gC).subs(pt)
     lo4, hi4 = (1 + 2 * gU).subs(pt), (1 + (1 - eC) * (1 - v) * gC).subs(pt)
     lIv = lI.subs(pt)
-    chk(f"I+ weight {lIv} in the five-dimensional gap ({lo}, {float(hi):.6g}) and in his ({lo4}, {float(hi4):.6g})",
-        lo < lIv < hi and lo4 < lIv < hi4)
+    chk(f"I+ weight {lIv} in the five-dimensional gap ({lo}, {hi} = {float(hi)}) and in his ({lo4}, {hi4} = "
+        f"{float(hi4)})", lo < lIv < hi and lo4 < lIv < hi4)
     beta = 3 + sp.Rational(1, 10**6)
     feed = min(W.order(beta, t, kind).subs(EPS, 0) for _, t, kind in W.states(SPEC_G) if t[1:] in ("0", "-1", "-2"))
     chk(f"iota+ remainder 3 + eps_+ feeds K+ orders >= {feed} > 3 in the class", feed > 3)

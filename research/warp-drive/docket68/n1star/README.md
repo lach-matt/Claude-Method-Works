@@ -275,6 +275,9 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   reproduced in four dimensions; his weights 3 + eps_I and 3 + eps_+ in the five-dimensional gaps (K1-K4; Proposition
   11.51, Theorem 11.59 and Corollary 11.66 deduced in the class, sources and h at K+ order 3 + eps_K). `python3
   sharp5.py --selftest` (4/4, about nine minutes), `--mutants` (4/4).
+- `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
+  simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
+  below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).
 - `class5.py`: the T^2-mirror class G = O(2) x O(2) in [Hin26]'s construction (section 10.43; D111, D115): of the
   fifteen Killing fields of 4+1 Minkowski only d_t is G-invariant (T^2 alone: three); one invariant scalar harmonic of
   S^3 at each even l and one invariant transverse traceless tensor harmonic at each even l >= 2, none at odd l, and no
@@ -291,7 +294,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All fifty-three are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All fifty-four are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing
 the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py,
 lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py,
@@ -307,4 +310,4 @@ lin5.py, window5.py imports damping5.py and lin5.py, mp5.py imports damping5.py 
 damping5.py and lin5.py, scri5.py imports damping5.py, iota5.py, lin5.py and sbar5.py, aug5.py imports damping5.py and
 sbar5.py, lowfreq5.py imports aug5.py, damping5.py and sbar5.py, cone5.py and class5.py import damping5.py, iplus5.py
 imports damping5.py, lin5.py, sbar5.py and scri5.py, sharp5.py imports damping5.py, window5.py, class5.py and iplus5.py,
-and the others import nothing from the tree. The board's shared record is not edited here.
+eind5.py imports damping5.py, and the others import nothing from the tree. The board's shared record is not edited here.
