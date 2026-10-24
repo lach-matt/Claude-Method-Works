@@ -4168,3 +4168,10 @@ coefficient at n = 3 and n = 4 at two radii.
 proof carried by modification), C 31 (perturbation or continuity), A 29 (a general-n result applied), ? 38. The
 extractors had no write tool and returned their rows inline; the rows were saved as returned, and merged into
 DEDUCTIONS.tsv. The paper's 8.8 now gives the count: the 60 B items are the core of the line-by-line check.
+
+**D141 (2026-10-24): the perturbation steps at proof level (10.71).** The 31 C rows of DEDUCTIONS.tsv share one shape: a
+property at one point carried to a neighbourhood. Lemma 10.52 proves the three abstract steps they use -- openness of
+invertibility by the Neumann series; dim ker <= N near a Fredholm index-0 point by a rank-N stabilization V = sum f_j
+l_j; persistence of strict inequalities on compact sets -- and cites Rouche/Hurwitz and the inverse function theorem.
+Each C row is mapped to its lemma and its continuity input, READ from its source; ten rows the rule misfiled (exact,
+computed, or B steps) are listed apart.

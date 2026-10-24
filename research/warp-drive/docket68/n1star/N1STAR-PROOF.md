@@ -7933,6 +7933,70 @@ judgement calls: 10.56 (a), 10.59 (a), 10.61 (e), 10.65 (b), 10.67 (a) and the ?
 
 Labels: measured (the count); nothing computed, deduced or proved here.
 
+### 10.71 The perturbation steps at proof level: five lemmas and the map (D141)
+
+*The setting.* 10.70 counts 31 deduced steps of kind C: perturbation, continuity, openness or semicontinuity. Each has
+the same shape. A property holds at one point -- Tangherlini, h at the record's point, sigma != 0 on a compact set --
+and an abstract lemma carries it to a neighbourhood, given that the objects depend continuously on the parameter in a
+stated topology. The lemmas are written out here with proofs. Each C item is then mapped to its lemma and its continuity
+input, the input READ from the source that states it.
+
+**Lemma 10.52 (proved).** Let X, Y be Banach spaces and p -> T_p a map from a topological space into the bounded
+operators L(X, Y), continuous in operator norm.
+
+ (P1) (Openness.) If T_p0 is invertible, T_p is invertible for p near p0 and p -> T_p^-1 is continuous in operator
+     norm. *Proof.* T_p = T_p0 (I + T_p0^-1 (T_p - T_p0)), and ||T_p0^-1 (T_p - T_p0)|| < 1 near p0, so the Neumann
+     series inverts the second factor; its inverse depends continuously on p, with ||T_p^-1|| <= ||T_p0^-1|| / (1
+     - ||T_p0^-1|| ||T_p - T_p0||). []
+ (P2) (Semicontinuity of the kernel.) If T_p0 is Fredholm of index 0 with dim ker T_p0 = N, there is V in L(X, Y) of
+     rank N with T_p0 + V invertible. Then dim ker T_p <= N for p near p0, and if N independent elements of ker T_p are
+     given at each such p, they span it. *Proof.* Let h_1, ..., h_N span ker T_p0 and f_1, ..., f_N span a complement of
+     ran T_p0, of dimension N by index 0. Take l_j in X* with l_j(h_i) = delta_ij (Hahn-Banach), and V = sum f_j l_j.
+     Then T_p0 + V is injective: (T_p0 + V)u = 0 forces T_p0 u = -sum l_j(u) f_j in ran T_p0 meet the complement, so
+     l_j(u) = 0 and T_p0 u = 0; then u = sum c_i h_i with c_i = l_i(u) = 0. It is onto, since its range contains ran
+     T_p0 and every f_j = (T_p0 + V) h_j. By (P1), T_p + V is invertible near p0. On ker T_p, (T_p + V)u = Vu, so u =
+     (T_p + V)^-1 V u and ker T_p embeds into ran V, of dimension N. []
+ (P3) (Strict inequalities.) If F_p is a family of continuous real functions on a compact set K, with p -> F_p
+     continuous into C^0(K), and F_p0 > 0 on K, then F_p > 0 on K for p near p0. *Proof.* min_K F_p0 = c > 0, and
+     ||F_p - F_p0||_C0 < c near p0. []
+ (P4) (Zeros of analytic families; Hurwitz.) If z -> f_p(z) is holomorphic on a disc D with p -> f_p continuous in the
+     sup norm on D, and f_p0 has no zero on the boundary circle, then f_p and f_p0 have the same number of zeros in D,
+     counted with multiplicity, for p near p0 (Rouche). A real-analytic function of one variable that is not identically
+     zero vanishes at most on a discrete set.
+ (P5) (Inverse function theorem.) A C^1 map from an open set of R^N to R^N with invertible derivative at x0 is a C^1
+     diffeomorphism from a neighbourhood of x0 onto a neighbourhood of its value, which contains a closed ball about
+     that value.
+
+(P1)-(P3) are proved above. (P4) and (P5) are textbook theorems, cited.
+
+*The map (deduced).* By DEDUCTIONS.tsv's rows:
+
+ (i) (P1, openness of invertibility.) 10.20 (e), 10.34 (b) (a finite matrix), 10.60 (c), 10.60 (d) (with P2), 10.66 (g)
+     (I + o(1) on R^4), 10.68 (b). The continuity input in each is the operator family's continuity in its parameter
+     between fixed weighted spaces: [HHV21] Lemma 10.9 and p. 90 for (b, sigma), and [Hin26] p. 119 (Proposition 6.9's
+     proof) and p. 124 for the families of [Hin26]. Both are READ (10.60).
+ (ii) (P2, the kernel.) 10.33 (f) and 10.60 (d). N = 11 and the eleven independent states at every b near b0 are
+     computed and deduced in 10.28-10.33 (10.68 (a)).
+ (iii) (P3, strict inequalities.) 10.14 (a)-(b), 10.17 (a), 10.18 (a), 10.19 (b), 10.22 (c), 10.26 (a), 10.54 (e), 10.60
+     (b). In each, the function is an explicit symbol, threshold or quantity computed in closed form, continuous in its
+     parameter (eta, h, gamma, r, b). Compactness is of the set named: the critical set, the trapped set, the horizon's
+     radial set. For the trapped set's normal hyperbolicity at b near b0 the input is [HPS77] persistence, cited by
+     [Hin26] Remark 1.4.
+ (iv) (P4.) 10.37 (e) (Hurwitz, along the candidate zero) and 10.54 (d) (a discrete exceptional set in h).
+ (v) (P5.) 10.63 (a) and 10.66 (e): the charge map, polynomial in its parameters, with its Jacobian computed invertible
+     (Proposition 10.47).
+ (vi) (Not perturbative; the rule's word misled it.) 10.12 is exact: an indicial family depends only on the leading part
+     at infinity. 10.20 (c) and 10.60 (a), (e) are uniformity statements read with (i)'s inputs. 10.21 (e) rests on
+     [Hin26a] Theorem 5.2, a B step (10.65). 10.50 (c)-(e) are estimates from Theorems D and E and Hintz's
+     final-parameter continuity. 10.54 (b)-(c) are computed (uniform5.py) and monotone. 10.63 (d) is now computed
+     (gluing5.py D4).
+
+So the C steps are at proof level given their continuity inputs: (P1)-(P3) are proved here, (P4)-(P5) are textbook
+theorems, and each input is a statement READ from the source that makes it. What (ii) of 8.8 leaves is the 60 B steps,
+the A steps' hypothesis checks and the 38 undecided rows.
+
+Labels: proved (Lemma 10.52 (P1)-(P3)); cited ((P4), (P5), [HPS77]); deduced (the map); READ (the continuity inputs).
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

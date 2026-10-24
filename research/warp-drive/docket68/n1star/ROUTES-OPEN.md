@@ -1956,3 +1956,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   D items are proof-level once their hypotheses, standard arguments or computations are written.
 - Next: write the C items (perturbation, continuity) and the A items' hypothesis checks at proof level, then the B
   items one proof at a time.
+
+### 4.72 The perturbation steps at proof level (proved and deduced; D141)
+
+- Proved (Lemma 10.52, section 10.71): openness of invertibility (Neumann), semicontinuity of the kernel by a
+  rank-N stabilization, persistence of strict inequalities on compact sets; cited: Rouche/Hurwitz, the inverse
+  function theorem, [HPS77].
+- Deduced (the map): each of the 31 C rows of DEDUCTIONS.tsv rests on one of these and a continuity input READ from its
+  source; ten rows were misfiled by the rule (exact, computed or B steps) and are listed as such.
+- Remaining of 8.8 (ii): the 60 B steps, the A steps' hypothesis checks, the 38 undecided rows.
