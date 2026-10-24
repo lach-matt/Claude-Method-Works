@@ -3630,3 +3630,76 @@ shifted by n/2 gives 1 and 3/2.
 
 *Runs.* cone5.py --selftest 3/3 (C1 under 1 s, C2 2 s, C3 7 s) and --mutants 3/3 (about 6 s); paper/response5.py
 --selftest all pass; md5 rows 58, cone5.py added.
+
+**D109 (2026-10-24): the fifty-first verifier's findings on D108, seated.**
+
+One independent verifier read D108 (58655de against 1ca71df) with its own checks: every quotation of 10.42 re-read at
+source ([Hin26] pp. 218-226; [Hin26c] pp. 107, 109, 201, 226, 228); the density identity for symbolic n and the
+b-density Jacobians at the I+/iota+ corner and in the interior of iota+; the three background differences in
+five-dimensional Cartesian coordinates, each uncut term with linearized Ricci zero, and the cut-off terms' linearized
+Ricci of degrees -4, -5, -4; chi_K = chi_0(t*) chi_1(r/t*) read at [Hin26] p. 318; md5 rows 58 of 58. Verdict: D108
+stands; no major finding; three minor findings, four nits, a note.
+
+*Minor.* (1) Proposition 10.39(i), labelled computed, and cone5.py C1, README, ROUTES 4.43 presented the top of beta_I,
+3/2, as computed; only the radiation field's I+ order is, the threshold of [Hin26c] (10.2) at n = 4 is a reading, as
+10.42(e) already said. Repaired: 10.39(i) states the reading; C1's docstring, comment and label, README and ROUTES 4.43
+likewise. (2) The paper's "every order at timelike infinity one higher than his": the admissibility weight l_+ is
+bounded by Definition 5.15 and beta_+'s interval is his. Repaired in the paper: "the background's orders at timelike
+infinity one higher than his", in its settling paragraph. (3) The paper's Appendix A, README and ROUTES 4.43 put "the
+patched background's curvature of order 4" under cone5.py; C3 computes the cut-off mass interpolation, the rotation and
+boost being deduced. Repaired in all three; 10.42(c) now gives the deduction, his own count (g - g-bar in rho_+^2 C^oo,
+d in rho_+ V_b, so Ric in rho_+^4 C^oo), which the verifier confirmed with its own linearized computation.
+
+*Nits.* (1) 10.42(d)'s aleph = 2 cited sections 10.28-10.29 only; the 2-admissibility is deduced in 10.39-10.41(a), now
+cited beside them. (2) (d)'s l_+ in (0, 1) is a subset of what (b) admits, (0, 1]; harmless, kept. (3) C1's control
+swapped one hard-coded tuple and was caught only by comparison with another; repaired: the identity is now checked with
+the shifts themselves (exponents twice the shifts), so the control fails at the identity, at n = 4, and downstream. (4)
+Timings 3 s and 8 s against the log's 2 s and 7 s; machine variance.
+
+*Note.* [Hin26] Theorem 13.1 has (1, 1) in E+ in four dimensions; 10.42(a) leaves the logarithmic content of E+ in five
+dimensions to the later sections, consistent with 10.28's "no logarithm". Not checked by it: [Hin26] pp. 231, 244, 263
+and (8.7) at source; 10.38, 10.40 and 10.41's internal derivations; the quadratic curvature of the rotation and boost
+cut-offs (order 6 or more by the count).
+
+*Also.* `render_pdf.py` joined a list item's continuation lines only at three spaces of indent, so every wrapped bullet
+of a paper indented by two split into a bullet and a stray paragraph; it now joins at two, its selftest carrying the
+case, and takes the page title from the paper's first heading. The paper's sections 8-9 were arranged at M's direction
+of 2026-10-24 and the arrangement withdrawn the same day at M's next direction (D110); only the repairs above are in the
+paper.
+
+*Runs.* cone5.py --selftest 3/3 and --mutants 3/3; render_pdf.py --selftest PASS; paper/response5.py --selftest all
+pass; md5 rows refreshed.
+
+## M's words, 2026-10-24
+
+**2026-10-24, after the fiftieth verifier's report and the question how close the counterpart paper is, verbatim:**
+
+> Work the extended work into the paper as support for the commissioned work. Tell me the criteria that separates the
+> work from being proven. Tell me the title again, so I may consider it. The paper will be published to my webpage
+> later today in another session that handles the webpage build. Yes, render the PDF for my review
+
+**2026-10-24, during that arrangement, verbatim:**
+
+> The nonlinear route is only partly built. It has computed and deduced the inputs of Hintz's method in five
+> dimensions through his section 11.1 (sections 10.13–10.42). Many steps there rest on reading his four-dimensional
+> arguments as holding in five dimensions. - the warp session, which needs this work, says that we need to finish the
+> extended nonlinear works
+
+**2026-10-24, next, verbatim:**
+
+> The work has to be finished first and then fully built into the paper
+
+**D110 (2026-10-24): the arrangement withdrawn; the remaining route planned (ROUTES 4.44).**
+
+The paper's sections 8-9 had been arranged as asked (a supporting section 8 with Table 8.1 and a section 8.5 on what
+separates it from a proof, a condensed section 9, the abstract and section 1.3 pointing to them). M's next direction
+puts the work before the paper, so the arrangement is withdrawn and not committed; the draft and its PDF are kept
+outside the tree, and the paper carries only D109's repairs. The criteria that separate the extended work from a proof,
+as they were set out for M: readings of [Hin26], [Hin26a] and [Hin26c] at n = 4; parameter points and finite ranges (one
+gauge point, h below an h_0 his proof does not make explicit, l <= 12); steps not carried (section 11.2 on, section 12,
+section 13, section 5's exterior theorem); computations on the Minkowski model with the transfer deduced; the linear
+route's steps taken in Hung's shape with constants not tracked; and the global step from Theorem 1's domain to a Cauchy
+surface of the exterior. ROUTES 4.44 orders the work that removes them, the class reduction first.
+
+No five-dimensional nonlinear stability theorem for Tangherlini exists to shorten the route: a search of the literature
+(alphaXiv, 2026-10-24, recency first) returned linear, Riemannian and numerical work only.

@@ -6050,8 +6050,9 @@ rho_I^3 rho_+^4 rho_K |dt dx| ... (in which case rho_I^3 rho_+^4 rho_K = 1/(t* r
      K+) by (n/2, (n + 1)/2, 1/2) -- (3/2, 2, 1/2) at n = 3, his (11.5), and (2, 5/2, 1/2) at n = 4. alpha_sf + n/2 in
      (0, eps_ind) is beta_+ in (1/2, 1/2 + eps_ind) in both dimensions, and his delta > beta_+ - 1/2 is Theorem 10.1's
      delta > alpha_sf + 3/2. A radiation field r^-((n-1)/2) is of I+ order (n - 1)/2 against mu_b and -1/2 against |dt
-     dx| in both (rho_I rho_+ = 1/r), so the threshold alpha_I < -1/2 + S-bar is beta_I < (n - 1)/2 + S-bar: with min
-     spec S-bar = 0, his 1 at n = 3 and 3/2 at n = 4 (C1).
+     dx| in both (rho_I rho_+ = 1/r) (C1); so [Hin26c]'s threshold alpha_I < -1/2 + S-bar ((10.2)), on the reading
+     that it stands as printed at n = 4 -- a reading, not computed here -- is beta_I < (n - 1)/2 + S-bar: with min spec
+     S-bar = 0, his 1 at n = 3 and 3/2 at n = 4.
  (ii) (the background differences at iota+) Homogeneity along rays in the cone, in Cartesian components: a change of
      mass, r^-(n-2) k (x) k (Kerr-Schild, k null), is of degree -(n - 2); of rotation, r^-n (dt (x)_s w), w = x^1 dx^2 -
      x^2 dx^1, of degree -(n - 1); a boost, L_X of the mass term, X = t d_x1 + x^1 d_t, of degree -(n - 2) -- each
@@ -6083,12 +6084,13 @@ claimed dimension-free; the five-dimensional mass change claimed of order 1; its
  (c) (Proposition 11.6, Proposition 11.8, Corollary 11.9) The structure (11.17)-(11.18) rests on his section 5.2's
      computation, which 10.38 carries to five dimensions at h = 0 (its h-terms OPEN there), with the error classes at
      iota+ shifted as E+ is. P(g0, g0) = Ric(g_(b0,b,-S)), supported on supp d chi_K, is of class rho_+^4 C^oo near
-     (iota+)^o -- Proposition 10.39(iii) for a change of mass; for rotation and boost the same homogeneity, their
-     differences being of orders 3 and 2 -- and (4, 0) in E+ + 2: his conclusion, one order higher.
+     (iota+)^o -- Proposition 10.39(iii) for a change of mass; for rotation and boost by his own count, not computed
+     here: their differences are of orders 3 and 2 (Proposition 10.39(ii)), so g - g-bar in rho_+^2 C^oo and d in rho_+
+     V_b give Ric in rho_+^4 C^oo -- and (4, 0) in E+ + 2: his conclusion, one order higher.
  (d) (Corollary 11.10) [Hin26c] (5.23) asks l_+ > delta and l_K > aleph; with sf-loss 0 (section 10.41(a)) and aleph = 2
-     (the boosts' t* growth, sections 10.28-10.29), L_(g,g0) is admissible relative to L_b of class ((0; k - 5), (2l_I,
-     l_+, l_K)) for l_+ in (0, 1) and l_K in (2, 2 + eps_K] -- on the readings of [Hin26c] Definitions 5.15 and 5.18 at
-     n = 4 and of (b)'s l_I.
+     (the boosts' t* growth, sections 10.28-10.29; the 2-admissibility deduced on readings in sections 10.39-10.41(a)),
+     L_(g,g0) is admissible relative to L_b of class ((0; k - 5), (2l_I, l_+, l_K)) for l_+ in (0, 1) and l_K in (2, 2 +
+     eps_K] -- on the readings of [Hin26c] Definitions 5.15 and 5.18 at n = 4 and of (b)'s l_I.
  (e) (Theorem 11.12) [Hin26c] Theorem 11.1 at n = 4, a reading, in the unweighted b-density with the shifts (2, 5/2,
      1/2): for beta_+ in (1/2, 1/2 + eps_ind) -- his interval, alpha_sf + 2 in (0, eps_ind) -- beta_I in (beta_+, 3/2)
      (his alpha_+ < alpha_I - 1/2 is beta_+ < beta_I in both dimensions) and sf-loss 0, the forward solution of L_(g,g0)

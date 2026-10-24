@@ -22,8 +22,9 @@ dimensions:
      Theorem 10.1's delta > alpha_sf + 3/2; with section 10.41's sf-loss 0, the five-dimensional forward solution is at
      (beta_I, beta_+, -3/2), the K+ weight 1/2 - aleph with aleph = 2 in both.  A radiation field r^-((n-1)/2) is of
      I+ order (n-1)/2 against mu_b and -1/2 against |dt dx| in both dimensions (rho_I rho_+ = 1/r), so [Hin26c]'s
-     threshold alpha_I < -1/2 + S-bar ((10.2), p. 201) is beta_I < (n-1)/2 + S-bar: his 1 at n = 3 (S-bar's min 0), 3/2
-     at n = 4.  Control: the shifts claimed dimension-free.
+     threshold alpha_I < -1/2 + S-bar ((10.2), p. 201), read at n = 4, is beta_I < (n-1)/2 + S-bar: his 1 at n = 3
+     (S-bar's min 0), 3/2 at n = 4 -- the threshold's value at n = 4 a reading, the radiation field's order computed.
+     Control: the shifts claimed dimension-free, caught by the density identity they are read against.
   C2 (computed, exact) The background differences at iota+.  Homogeneity along rays in the cone, in Cartesian
      components: a change of mass, r^-(n-2) k (x) k (Kerr-Schild, k null), of degree -(n - 2); of rotation, r^-n (dt
      (x)_s w), w = x^1 dx^2 - x^2 dx^1, of degree -(n - 1); a boost, L_X of the mass term, X = t d_x1 + x^1 d_t, of
@@ -32,8 +33,9 @@ dimensions:
   C3 (computed, exact) Ric of the cut-off mass interpolation.  For g = eta + M(t, r) r^-(n-2) (dt + dr)^2 on
      R^(1,n), M = mu_0 + d F(r/t), F arbitrary: Ric = 0 for F constant (Tangherlini, Schwarzschild); its part linear in
      the deviation, d F's, is homogeneous of degree -n, nonzero, and vanishes where F is constant; its quadratic part
-     (mu_0 d, d^2) is homogeneous of degree -(2n - 2), and there is no cubic part.  So Ric of the patched background is
-     of iota+ order 4 in five dimensions, supported where the cut-off varies; four dimensions 3, his Corollary 11.9.
+     (mu_0 d, d^2) is homogeneous of degree -(2n - 2), and there is no cubic part.  So Ric of the cut-off mass
+     interpolation is of iota+ order 4 in five dimensions, supported where the cut-off varies; four dimensions 3, his
+     Corollary 11.9 (rotation and boost are deduced in section 10.42(c), not computed here).
      Control: the five-dimensional order claimed 3.
 
 Run: python3 cone5.py --selftest | --mutants | --only k [--verbose]   (seconds).
@@ -53,10 +55,11 @@ def c1(control=0, verbose=False):
     rI, rP, rK = t / (t + r), (t + r) / (t * r), r / (t + r)
     shift = {}
     for n in (3, 4):
-        ok = sp.simplify(rI**n * rP**(n + 1) * rK - 1 / (t * r**n)) == 0
         sh = (sp.Rational(n, 2), sp.Rational(n + 1, 2), sp.Rational(1, 2))
         if control == 1:
             sh = (sp.Rational(3, 2), 2, sp.Rational(1, 2))
+        # an L^2 weight moves by half the density's exponent: the shifts are read against the identity itself
+        ok = sp.simplify(rI**(2 * sh[0]) * rP**(2 * sh[1]) * rK**(2 * sh[2]) - 1 / (t * r**n)) == 0
         shift[n] = sh
         chk(f"n = {n}: 1/(t* r^{n}) = rho_I^{n} rho_+^{n + 1} rho_K; shifts {sh}", ok)
     chk("n = 3: his (11.5), beta_I = alpha_I + 3/2, beta_+ = alpha_+ + 2, and K+ 1/2",
@@ -79,11 +82,12 @@ def c1(control=0, verbose=False):
     # the radiation field r^-((n-1)/2) at I+: rho_I rho_+ = 1/r, so its I+ order is (n-1)/2 against mu_b and
     # (n-1)/2 - n/2 = -1/2 against |dt dx| in both dimensions; his threshold alpha_I < -1/2 + S-bar ([Hin26c] (10.2))
     # is then beta_I < (n-1)/2 + S-bar, with min spec S-bar = 0 (section 10.25): 1 at n = 3, his (11.22), 3/2 at n = 4
+    # -- on the reading that (10.2)'s -1/2 stands at n = 4; only the radiation field's order is computed here
     one_over_r = sp.simplify(rI * rP - 1 / r) == 0
     rad = {n: (sp.Rational(n - 1, 2), sp.Rational(n - 1, 2) - shift[n][0]) for n in (3, 4)}
     top = {n: rad[n][1] + shift[n][0] for n in (3, 4)}            # alpha_I < -1/2, S-bar's min 0, shifted by n/2
     chk(f"the radiation field's I+ order (n-1)/2 against mu_b, -1/2 against |dt dx| ({rad}); the top of beta_I: "
-        f"{top[3]} at n = 3 (his beta_I < 1), {top[4]} at n = 4",
+        f"{top[3]} at n = 3 (his beta_I < 1), {top[4]} at n = 4 (reading (10.2) there)",
         one_over_r and rad[3][1] == rad[4][1] == -sp.Rational(1, 2) and top == {3: 1, 4: sp.Rational(3, 2)})
     return chk.ok
 

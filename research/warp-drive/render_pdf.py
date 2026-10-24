@@ -77,7 +77,8 @@ def conv(md):
         if re.match(r'^---+\s*$', L): out.append('<hr>'); i+=1; continue
         if re.match(r'^\s*[-*]\s+', L) or re.match(r'^\s*\d+\.\s+', L):
             ordered = bool(re.match(r'^\s*\d+\.\s+', L)); items=[]
-            while i<len(lines) and (re.match(r'^\s*[-*]\s+', lines[i]) or re.match(r'^\s*\d+\.\s+', lines[i]) or (items and lines[i].startswith('   ') and lines[i].strip())):
+            while i<len(lines) and (re.match(r'^\s*[-*]\s+', lines[i]) or re.match(r'^\s*\d+\.\s+', lines[i])
+                                    or (items and lines[i].startswith('  ') and lines[i].strip())):
                 if re.match(r'^\s*[-*]\s+', lines[i]) or re.match(r'^\s*\d+\.\s+', lines[i]):
                     items.append(re.sub(r'^\s*(?:[-*]|\d+\.)\s+','',lines[i]))
                 else: items[-1]+=' '+lines[i].strip()
@@ -127,6 +128,12 @@ def selftest():
        inline("**N4 is the *number of factors* needed**"),
        "<strong>N4 is the <em>number of factors</em> needed</strong>")
 
+    # 5. A list item continued on lines indented two spaces is one item.  At
+    #    three spaces only, every wrapped bullet of a two-space paper split into
+    #    a bullet and a stray paragraph.
+    eq("two-space continuation stays in its item",
+       conv("- **a** b\n  c d\n- e"), "<ul><li><strong>a</strong> b c d</li><li>e</li></ul>")
+
     # Regressions on the ordinary cases, so a fix cannot trade one for another.
     eq("plain bold", inline("**a**"), "<strong>a</strong>")
     eq("plain italic", inline("*a*"), "<em>a</em>")
@@ -174,5 +181,7 @@ ul,ol { margin:0 0 7pt; padding-left:18pt; } li { margin-bottom:2.5pt; }
 del { color:#888; }
 a { color:#111; }
 """
-print('<!doctype html><html><head><meta charset="utf-8"><title>The Hierarchy Law of Mathematical Languages</title>'
-      '<style>%s</style></head><body>%s</body></html>' % (CSS, conv(md)))
+TITLE = next((x[2:].strip() for x in md.split('\n') if x.startswith('# ')),
+             'The Hierarchy Law of Mathematical Languages')
+print('<!doctype html><html><head><meta charset="utf-8"><title>%s</title>'
+      '<style>%s</style></head><body>%s</body></html>' % (html.escape(TITLE), CSS, conv(md)))

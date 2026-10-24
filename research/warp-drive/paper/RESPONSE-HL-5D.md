@@ -848,14 +848,14 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   cut off near future null infinity the threshold at the outgoing radial set does not bind, so the two integrations in
   time keep the weights they start from; his loss of decay δ > α_sf + 3/2, α_sf the weight of his Theorem 10.1, becomes
   none (`lowfreq5.py`; computed on the model, the rest deduced in supplement section 10.40). With it, his first step
-  towards decay carries over: on readings, the dynamical operator is admissible relative to the stationary one, every
-  order at timelike infinity one higher than his, and its forward solutions lose there only the two orders the operator
-  takes (`cone5.py`; computed on the model, the rest deduced in supplement section 10.42). A line-by-line check of
-  Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does
-  not make explicit, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to
-  τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured
-  from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step,
-  approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch
+  towards decay carries over: on readings, the dynamical operator is admissible relative to the stationary one, the
+  background's orders at timelike infinity one higher than his, and its forward solutions lose there only the two orders
+  the operator takes (`cone5.py`; computed on the model, the rest deduced in supplement section 10.42). A line-by-line
+  check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his
+  proof does not make explicit, and the rest of their analysis are open. No growing mode appears in either type for l =
+  2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields,
+  measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the
+  step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch
   radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which
   is the rate a nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one
   with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces
@@ -1040,7 +1040,12 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   taken rather than measured — seven nits, and notes, seated (D105). Section 10.41 with `lowfreq5.py` W3 was read by a
   fiftieth (D106), which re-read every quotation at source and reproduced the shift and the four printed instances: no
   major finding; two minor findings — the 3b-calculus attributed to the wrong one of Hintz's papers, and the shift's
-  thresholds stated on all of space rather than near infinity — five nits, and notes, seated (D107).
+  thresholds stated on all of space rather than near infinity — five nits, and notes, seated (D107). Section 10.42 with
+  `cone5.py` was read by a fifty-first (D108), which re-derived the densities, the background differences and their
+  curvature with its own programs: no major finding; three minor findings — the top of the weight at null infinity, 3/2,
+  presented as computed where its threshold is a reading of [Hin26c] at n = 4, this paper's "every order at timelike
+  infinity one higher" where only the background's orders are, and the patched background's curvature put under a
+  computation of the mass interpolation alone — four nits, and notes, seated (D109).
 
 ---
 
@@ -1441,8 +1446,9 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
 - `cone5.py` C1–C3: Hintz's section 11.1 in five dimensions (supplement section 10.42): the unweighted b-density's
   shifts at null infinity, timelike infinity and the Kerr face, 2, 5/2 and 1/2 for his 3/2, 2 and 1/2, his
   four-dimensional values reproduced; the background's differences at timelike infinity — mass, rotation, boost — of
-  orders 2, 3 and 2 for his 1, 2 and 1; the patched background's curvature of order 4 for his 3 (the admissibility and
-  the forward solutions with no loss deduced, on readings). 3/3; mutants 3/3 (about ten seconds).
+  orders 2, 3 and 2 for his 1, 2 and 1; the cut-off mass interpolation's curvature of order 4 for his 3 (the patched
+  background's, the admissibility and the forward solutions with no loss deduced, on readings). 3/3; mutants 3/3 (about
+  ten seconds).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1659,9 +1665,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `f0dcb1865800c8e09dc9c913be674cf0` |
-| `docket68/n1star/N1STAR-LOG.md` | `69d711817ac920eccffb52931fa469f9` |
-| `docket68/n1star/README.md` | `ce0b4074b6c93ed90f9eb084f4a26bb2` |
+| `docket68/n1star/N1STAR-PROOF.md` | `3ab2d8d4dc92d8312812860e2e05697f` |
+| `docket68/n1star/N1STAR-LOG.md` | `4efb871d7ad124e87a145731b48268b3` |
+| `docket68/n1star/README.md` | `ab3f9101ca2b0bcf9139f1a0a40084e9` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1715,6 +1721,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/scri5.py` | `6c63e01b0582c528bd84431edbc8eac6` |
 | `docket68/n1star/aug5.py` | `3bcbdc239f889819b64436ad7b562ae5` |
 | `docket68/n1star/lowfreq5.py` | `b952a94d5a9313a66b1c166c7ed0d1ed` |
-| `docket68/n1star/cone5.py` | `1630d075bb3b62d5436ff4103d2afe60` |
+| `docket68/n1star/cone5.py` | `ae24d0704a713c2ceb8bc26c8a809a44` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

@@ -1505,13 +1505,63 @@ relative to L_b (Corollary 11.10), and forward solutions lose two orders at iota
 deduces.
 
 - The densities: the unweighted b-density shifts the weights by (n/2, (n+1)/2, 1/2), his (3/2, 2, 1/2) and (2, 5/2, 1/2)
-  in five dimensions; beta_+ in (1/2, 1/2 + eps_ind) in both; the top of beta_I, the radiation field's I+ order, 3/2 for
-  his 1 (C1).
-- The background differences at iota+ -- mass, rotation, boost -- of orders 2, 3, 2 for his 1, 2, 1, and the patched
-  background's curvature of order 4 for his 3 (C2-C3).
+  in five dimensions; beta_+ in (1/2, 1/2 + eps_ind) in both; the top of beta_I 3/2 for his 1, on the reading of
+  [Hin26c] (10.2) at n = 4, the radiation field's I+ order computed (C1).
+- The background differences at iota+ -- mass, rotation, boost -- of orders 2, 3, 2 for his 1, 2, 1, and the cut-off
+  mass interpolation's curvature of order 4 for his 3 (C2-C3), the patched background's, with rotation and boost,
+  deduced (10.42(c)).
 - Deduced, on readings: E+ with (2, 0) in E+ and min Re E+ >= 2 (with 10.38's alpha_5 = 2); Corollary 11.9's P(g0, g0)
   in rho_+^4 C^oo; Corollary 11.10 with l_+ in (0, 1), sf-loss 0; Theorem 11.12 with delta = 0, beta_I in (beta_+, 3/2):
   u in H^(k, beta_I, beta_+, -3/2)_b.
 - OPEN: [Hin26c] Theorem 11.1 and Definitions 5.15 and 5.18 at n = 4; the h-terms of (5.28) and Proposition 11.16 in
   five dimensions; E^C_I, gam_Ups and l_I at I+; his sections 11.2-11.8. Labels: computed (cone5.py C1-C3; exact);
   deduced; READ ([Hin26] pp. 218-226, 231, 244, 263; [Hin26c] pp. 107, 109, 201, 228); nothing proved.
+
+### 4.44 The remaining route: what finishing the nonlinear work takes (plan; D110)
+
+M's direction of 2026-10-24: the nonlinear work is to be finished first and then built fully into the paper (LOG D110).
+What remains is READ from [Hin26]'s contents and section openings (alphaXiv, 2026-10-24; printed pp. iv, 218-219, 226,
+263, 295, 318-321): section 11.2, "Asymptotics and formal solutions at I+" (Propositions 11.14-11.16); sections
+11.3-11.8, six steps from "almost linear bounds" to "final gauge modifications; iota+- and K+-expansions,
+t*^(-4-eps_K)-remainder" (Propositions 11.17, 11.20, 11.32, 11.34, 11.51, Theorem 11.59, Corollary 11.66); section 12,
+"Efficient parameterization of metric perturbations" (Theorems 12.3, 12.8); and section 13, where "the global nonlinear
+stability ... can be proved by concatenating the exterior stability result (Theorem 5.23) with a Nash-Moser iteration
+based on Theorem 12.8" (p. 318), [SR89]'s scheme (p. 321). His section 5's Theorems 5.21 and 5.23 are not carried
+either.
+
+*The class.* What settling needs is stability within the T^2-mirror class (paper, section 8). The class carries no
+vector type and no scalar l = 1 (settle5.py T1; Proposition 10.1), so the states Hintz's steps remove -- the boost (his
+Step 2), the rotations, the centre-of-mass motions (Steps 4-5) -- should be absent and the final parameter the mass
+alone. That is the first step to compute and deduce (the equivariance of his forward map, augmentation and gauge
+modifications, and which states of 10.28-10.37 are invariant), not an assumption.
+
+*Phase A, his argument completed in five dimensions in the class, on the readings already named:*
+
+- A1 the class reduction: invariant zero energy, generalized, pure gauge and dual states; which of Steps 1-6 survive.
+- A2 section 11.2: Propositions 11.14-11.16, with E^C_I, gam_Ups and l_I at I+ and the h-terms of (5.28) (the OPEN items
+  of 10.38 and 10.42).
+- A3 section 11.3, Step 1 (Proposition 11.17); A4 sections 11.4-11.5, Step 2 as A1 leaves it and Step 3 (Proposition
+  11.32); A5 section 11.6, Step 4, the mass change (Proposition 11.34); A6 sections 11.7-11.8, Steps 5-6 (Theorem 11.59,
+  Corollary 11.66).
+- A7 section 12 in the class (Theorems 12.3, 12.8); A8 section 5's Theorems 5.21 and 5.23 in five dimensions, the data's
+  orders at spatial and null infinity; A9 section 13: his Theorem 13.1 in five dimensions in the class by [SR89]'s
+  iteration, READ.
+
+*Phase B, the readings discharged, each by a line-by-line check at n = 4 or by computation:*
+
+- B1 [Hin26c] section 9 on bundles (10.19); B2 its zero and low energy theorems at n = 4 (10.20, 10.41); B3 its Theorem
+  11.1 and Definitions 5.15, 5.18 at n = 4 (10.42).
+- B4 [Hin26a] Theorems 5.2 (the 3b-analysis), 6.2 and B.1 in five dimensions (10.21-10.23).
+- B5 h_0 at the parameter point, or the conditions on a range of parameters; B6 the horizon threshold of 10.21; B7 the
+  kernel class and the uniqueness inside the horizon of 10.27; B8 10.24's roots beyond l = 12; B9 the transfers from the
+  Minkowski model (10.12, 10.39-10.42). Items of 10.31-10.36 that A1 removes are recorded as removed.
+
+*Phase C, the global step:*
+
+- C1 the solutions of Theorems 1-2 on a region containing a Cauchy surface of the exterior after the shell; C2 their
+  data there in A8's spaces, small with lambda; C3 the conclusion, settling of g_lambda to Tangherlini of a nearby mass
+  in the class for lambda <= lambda_1.
+
+*Phase D:* the paper, built from the finished work, one verifier on the whole, the PDF. Every step as before: computed,
+deduced or READ, one verifier at a time. Scale: Phase A covers about 110 printed pages of [Hin26]; Phase B is the
+largest, [Hin26c] running to about 280; Phase C two or three steps.
