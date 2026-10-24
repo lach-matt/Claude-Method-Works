@@ -4198,3 +4198,19 @@ when they close them, so its window ran one page late -- corrected, with p. 38 a
 all accounted for in 10.69(e) (m4); HHV21's "7-dimensional" on p. 70 (m5). Nits: "deductions by modification"; 10.69(c)'s
 dimensions per n; 10.66(d)'s units; 10.63(c)'s parity alternative.
 
+**D144 (2026-10-24): the undecided rows read (10.73).** All 38 ? rows of DEDUCTIONS.tsv read in full. Ten are summaries
+and two four-dimensional remarks; ten are bookkeeping on computed values (10.36 (a)'s "reading" that route B's family
+is equivariant is discharged by mp5.py M2's computation), three applications with hypotheses placed, five elementary
+steps written out where they stand. Two recurring kinds get lemmas: Lemma 10.55 (equivariance) for the five symmetry
+steps of the class, and Lemma 10.54 (harmonic synthesis) for the sums over harmonics in 10.27 (a) and 10.33 (a), whose
+input -- gauge 1-forms with coefficients bounded uniformly in l -- synth5.py computes (S1-S2, B = -2 H_T/k, A_a = -(2
+r/k)(f_a + (r/k) d_a H_T), B = -2 H_T/k_V) with the floor k^2 >= 8 (S3); 3/3, mutants 3/3. 10.40 (a) is a modification
+step. DEDUCTIONS.tsv gains a column `final`.
+
+**D145 (2026-10-24): the modification steps' changes placed (10.74).** One extraction pass tabulated the 60 B rows
+(10.40 (a) added by hand): the places each says change between n = 3 and n = 4, where each five-dimensional value comes
+from, inputs, residual wording, readings. 28 values the rows only state were placed by hand: 11 arithmetic in n, 8
+computed, 8 at an earlier section, 1 the record's choice. B-MAP.tsv. A modification step then holds if its source proof
+uses n only at its listed places -- the census question -- so 8.8 (ii) reduces to (i). The paper's abstract, 1.3, 8.8
+and 9 now say so.
+

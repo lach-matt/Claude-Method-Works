@@ -1989,3 +1989,23 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   -1/2 (w > (n - 1)^2/(4(-2 alpha - 1))), E4's fields asserted.
 - READ: [Hin26d] pp. 5, 9, 27 (pages corrected), its journal record (doi:10.1090/cams/58); [HHV21] p. 70.
 
+### 4.75 The undecided rows read; symmetry and harmonic sums at proof level (computed, proved, deduced; D144)
+
+- Computed (`synth5.py` S1-S3, Proposition 10.53): the scalar and vector gauge 1-forms on Tangherlini, coefficients
+  r/k, r^2/k^2, 1/k, 1/k_V; k^2 = l(l + 2) >= 8 at l >= 2.
+- Proved: Lemma 10.54 (harmonic synthesis: polynomially bounded coefficient maps on eigenspaces of a type Laplacian give
+  a convergent sum, by the elliptic estimate, Sobolev and Weyl's law); Lemma 10.55 (equivariance: uniqueness gives
+  invariance, the Haar mean projects, invertible equivariant maps restrict, averaged smoothing keeps its estimates).
+- Deduced (10.73): of the 38 undecided rows, 12 have no step of their own, 25 are at proof level given their inputs (D
+  10, A 3, E 5, G 5, H 2), and 10.40 (a) is a modification step. DEDUCTIONS.tsv's `final` column.
+
+### 4.76 The modification steps: each change placed (measured, deduced; D145)
+
+- Measured (`B-MAP.tsv`): 61 rows; 50 name 85 places where the dimension changes the proof, 11 name none; the 88
+  placements are 26 computed, 50 at an earlier section, 11 arithmetic in n, 1 the record's choice; 30 rows rest on a
+  reading that 10.64-10.68 carry.
+- Deduced (10.74): a modification step holds at n = 4 if its source proof uses n only at its listed places (the census
+  question) and each changed value meets the proof's conditions there (the table). So 8.8 (ii) reduces to (i).
+- Remaining: the censuses' completeness, read at source and checked by two methods (10.64-10.69), not proved; writing
+  the source proofs out at n = 4 would replace that evidence by proof.
+

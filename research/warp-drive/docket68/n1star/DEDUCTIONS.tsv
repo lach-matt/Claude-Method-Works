@@ -1,249 +1,249 @@
-section	item	summary	sources	category	quote
-10.12	-	Indicial roots of box^C on 5D Tangherlini are Minkowski's, so (1.43) holds at C_0 = 100	[Hin26] (1.43), Thm 7.1 proof; [Hin26a] p.29	C	Tangherlini differs from Minkowski by O(mu r^-2)
-10.13	(ii)	Thresholds of (5.14) at e=0 transfer to 5D as a_sf < 0, a_K > a_sf	[Hin26a] Prop 5.1, (5.14); Prop 10.10(ii)	D	would become a_sf < 0 and a_K > a_sf
-10.14	(a)	Conditions (4)-(5) off sf persist for some delta_r > 0	[Hin26a] Prop 5.1 (4)-(5), p.39	C	positivity of (iv) persists for some delta_r
-10.14	(b)	Small smoothing at r0/2 and 2r0 keeps conditions (1) and (6)	[Hin26a] Prop 5.1, p.41	C	a small smoothing keeps them
-10.14	(c)	Outer piece in static time has the same leading part at infinity	10.12 indicial roots	?	with the same leading part at infinity
-10.14	(v)	Smallest r0 is 86, so 86 mu^(1/2) = 86 r_h by scaling	scaling of Prop 10.11(v) conditions	D	By scaling (deduced: with mu = u r_0^2
-10.15	(a)	Kernel of box(0) on Tangherlini is the span of W*	[Hin26] Lemma 6.10; [AHW24]	B	taken as in four dimensions
-10.15	(b)	Cokernel delta(r-r_h)dr spans it, index 0	[Hin26c] Cor 9.43; Lemma 6.8	B	which in four dimensions is [Hin26c] Corollary 9.43
-10.15	(c)	Augmented zero-parameter operator of Step 1 is injective	[Hin26] Step 1, (6.21)-(6.26)	?	gives c = 0, then u is a multiple of W*
-10.16	(a)	Scalar sector: delta omega = 0 since V_0 > 0 forces Phi = 0	[Hin26] Prop 6.9; [AHW24] Thm 5.1	D	with V_0 > 0 forces Phi = 0
-10.16	(b)	Maxwell sectors vanish by positivity of V_1 and V_2 for l >= 1	[Hin26] Prop 6.9; [AHW24] Thm 5.1	D	V_1 > 0 since lam >= 2
-10.16	(c)	Gauge step: omega = (i/sigma) d phi, phi = 0, so omega = 0	[Hin26] Prop 6.9	?	so phi = 0 by (a), and omega = 0
-10.17	(a)	Box strongly trapping admissible via frame and nilpotent connection	[Hin26] Lemma 6.4; [Hin26c] Def 5.8	C	below any eps > 0 for small eta
-10.17	(b)	Trapped set is r-normally hyperbolic for every r	[Hin26c] Prop 4.19	?	the trapped set is r-normally hyperbolic for every r
-10.18	(a)	Horizon threshold is 1 + c_v gam_H r_h, equal to 3/2 at 5D	[Hin26] footnote 71; 10.15 c_H	C	For small |c_v gam_H|
-10.18	(b)	Lemma 6.1(1) holds in 5D with rho d_rho - 3/2 at infinity	[Hin26] Lemma 6.1; [Hin26c] Lemma 5.12	B	vartheta_out = 2 S-bar (to within eps) carries over
-10.19	(a)	Incoming threshold -1/2 - S-bar; infinity estimates carry for n = 4	[Hin26c] (9.16b), (9.38); Lemma 5.12	B	carry these thresholds for n = 4
-10.19	(b)	Trapped set meets (Gamma.1)-(Gamma.4); loss small as eta -> 0	[Hin26c] Prop 4.19, (9.79)-(9.81)	C	as small as wished
-10.19	(c)	Dynamics and interior are the spectral counterpart of Prop 4.24	[Hin26c] Prop 4.24, Prop 9.35	?	the spectral-side counterpart of his Proposition 4.24
-10.19	(d)	Theorems 9.5 and 9.16 hold restated for n = 4 on the reading	[Hin26c] Thms 9.5, 9.16	B	his Theorems 9.5 and 9.16 hold restated for n = 4
-10.20	(a)	Zero energy operator Fredholm with alpha+2 in the gap, at n = 4	[Hin26c] Thm 9.36, (3.47)	B	Theorem 9.36 at n = 4
-10.20	(b)	Box tf-admissible with every weight in (0,2)	[Hin26c] Prop 9.40	A	as his Proposition 9.40 states for n >= 3
-10.20	(c)	Transition-face operator depends only on infinity; estimates uniform	[Hin26] Lemma 6.8; [Hin26c] Cor 9.39	C	for small gamma and e >= 0 the Fredholm estimates hold uniformly
-10.20	(d)	Index 0; box cokernel one-dimensional, spanned by horizon functional	[Hin26c] Cor 9.43; 10.15(iv)	D	the cokernel is one-dimensional
-10.20	(e)	Mode stability near sigma = 0 persists for small e and gamma	[Hin26] Prop 6.12	C	persists for small e and gamma
-10.20	(iii)	Derivative of box(0) W* in sigma follows from Definition 9.4	[Hin26c] Def 9.4	?	is deduced from his Definition 9.4
-10.21	(a)	Expansion (6.4) holds in 5D; Tangherlini approaches Minkowski at O(rho^2)	[Hin26a] (6.4); 10.18	B	the errors absorbed as in his proof
-10.21	(b)	Outgoing modes vanish via Theorem 5.2 with alpha_sf = -C_0-5/2	[Hin26a] Thm 5.2, (5.14)	D	alpha_sf < b* - 1 and alpha_K >
-10.21	(c)	Part (2) injectivity: kernel element vanishes by Theorem 5.2	[Hin26a] Thm 5.2	B	Theorem 5.2 forces omega_0 = 0, as in his proof
-10.21	(d)	Index 0 by radial operators; roots split evenly across the strip	[Hin26] Thm 4.9; [Hin26c] Thm 9.36	D	each harmonic's roots split evenly across the strip
-10.21	(e)	Theorem 6.2 in 5D: no outgoing mode, injective, for h in (0, h_0)	[Hin26a] Thm 6.2; Thm 5.2	C	for every h in (0, h_0)
-10.21	-	Reflection of dr maps c to r^-1(dt + v dr), giving the A_w identity	Prop 10.18 (K2)	?	the reflection of dr carrying c
-10.22	(a)	Lemma 5.3: Gamma lies in rho_sf C^oo with two powers to spare	[Hin26a] Lemma 5.3, (2.12)-(2.14)	D	with two powers to spare
-10.22	(b)	Propositions 5.5-5.6 follow from Lemmas 3.5 and 3.7 in 5D	[Hin26a] Lemmas 3.5, 3.7; Prop 5.6	?	They use Lemmas 3.5 and 3.7, which hold in five dimensions
-10.22	(c)	Propositions 5.8-5.12 signs hold by continuity near the critical sets	[Hin26a] Prop 5.1 (3)-(6), p.39	C	on a neighbourhood of size delta_r in r by continuity
-10.22	(d)	Prop 5.16 hypotheses hold; Corollary 5.15 uniformity follows	[Hin26a] Prop 5.16, Cor 5.15	?	follows from (i) and c in rho_sf C^oo
-10.22	(e)	Theorem 5.2 holds in 5D on the reading of its 3b-analysis	[Hin26a] Thm 5.2; section 2.3	B	holds in five dimensions as its arguments do
-10.23	(a)	Origin indicial roots are negatives of infinity's; avoid [-C_0, 2)	[Hin26a] (B.10), (B.12); Prop 10.9	D	they avoid [-C_0, 2) at its point
-10.23	(b)	Prop B.2: box(sigma) Fredholm of index 0 on the window	[Hin26a] Prop B.2; [Hin26c] Thm 9.38	B	by [Hin26c] Theorem 9.38 at n = 4
-10.23	(c)	Theorem B.4 holds on 4+1 Minkowski on the reading of 10.22(e)	[Hin26a] Thm B.4, Lemma 3.3	B	Theorem B.4 holds on 4+1 Minkowski
-10.23	(d)	Theorem B.1 holds on 5D Minkowski; section B.4 runs as his	[Hin26a] Thm B.1, section B.4	B	Section B.4 runs as his with (iv)
-10.23	(e)	tf-admissibility: beta' in range iff beta in [-C_0, 2)	[Hin26] Thm 7.1(4); [Hin26c] Def 5.10, Cor 9.39	A	stated for every n in his Corollary 9.39
-10.24	(a)	Lemma 8.4 in 5D, every l: roots split evenly, gap (0, eps_ind)	[Hin26] Lemma 8.4, (8.13)	D	every type splits evenly for every l
-10.24	(b)	Lemma 8.5 kernel holds at the point for every z > 0	[Hin26] Lemma 8.5	B	his proof carries over
-10.24	(c)	Prop 8.6 kernel half: linearized Bianchi identity holds in any dimension	[Hin26] Prop 8.6, Lemma 8.5, Thm 7.1(4)	A	The linearized second Bianchi identity holds in any dimension
-10.24	(d)	Prop 8.6 cokernel half: index argument, index 0	[Hin26] Prop 8.6, p.153	D	the argument uses only that the two counts agree
-10.25	(a)	min spec S-bar = 0 in 5D; Cor 8.7 condition reads beta < 3/2	[Hin26] Lemma 8.2, (8.7), Cor 8.7	D	Corollary 8.7's condition reads beta_sctf < 3/2
-10.25	(b)	Prop 8.6 last step holds: decay improves to 3/2 - eps	[Hin26c] Thm 9.38(5); [Hin26] Prop 8.6	A	dimension-free as in 10.23(iv)
-10.26	(a)	Near Gamma_0, 2L strongly trapping admissible via positive inner product	[Hin26] Prop 8.3; [Hin26c] Def 5.8	C	below any eps > 0 for small eta
-10.26	(b)	Rotation of the angular plane needs no treatment on Tangherlini	[Hin26] Prop 8.3	?	the question does not arise
-10.27	(a)	Outgoing modes of D Ric are pure gauge, via harmonic decomposition	[AHW24] Thm 6.1(1); [KI03]	?	the sum converges with u's
-10.27	(b)	Prop 8.8 in 5D: proof runs as written, injectivity and index 0	[Hin26] Prop 8.8; [Hin26c] Thm 9.5	B	His proof then runs as written
-10.28	(a)	Prop 6.15 in 5D: corrections with no logarithm, orders raised by one	[Hin26] Prop 6.15, Lemmas 6.13-6.14	B	His proof runs with every order raised by one
-10.28	(b)	Prop 8.9 in 5D: mass and angular momenta gauge 1-forms in the classes	[Hin26] Prop 8.9, (8.19)-(8.20)	D	1 being no s0 root
-10.28	(i)	Gauge source orders from Lemma 6.14 hold as deduced from (3.21)	[Hin26] Lemma 6.14, (3.21)	?	deduced, as his Lemma 6.14 from his (3.21)
-10.29	(a)	Lemma 6.13 holds in 5D on the readings of 10.20	[Hin26] Lemma 6.13, Lemma 2.13	B	on the readings of 10.20
-10.29	(b)	Prop 6.18 (1)-(3) in 5D: corrections exist, -k no s0 root for 0<z<4	[Hin26] Prop 6.18(1)-(3); Lemma 2.15	D	-k being no s0 root for 0 < z < 4
-10.30	(a)	Class-root states in 5D carry Hin26's proof with leading terms one order faster	[Hin26] Prop 6.18(4)-(7); Lemmas 2.15, 6.13	B	His proof runs with the classes of (ii) and his ranges
-10.30	(b)	Tensor types carry no pure gauge state; their roots fall at l=2,3	[Hin26] Lemma 6.13; section 8.5; 10.24(ii)	D	their roots -l and l + 2 (10.24(ii)) fall, at l = 2, 3
-10.30	(c)	Injectivity of symmetric gradient at sl, vl for every l>=2 and every lambda	[Hin26] remark after (2.46c), p. 67	B	in five dimensions as in four
-10.31	(a)	Adjoint zero-energy invertibility holds with density shifted by two	[Hin26] Lemma 7.2, (7.10); 10.21(e)	B	his (7.10) with the density rho^-4 in place of rho^-3
-10.31	(b)	Prop 7.3 gives eleven dual states in 5D against his seven	[Hin26] Prop 7.3, (7.14)-(7.16)	B	His proof runs with (a).
-10.31	(c)	Rotation dual-state count falls from six to two at small spin	[Hin26] Prop 7.4; section 7.2.1 (7.16)	D	falls from six at a = 0 to two for small a != 0
-10.32	(a)	Pairing entries equal -8 pi M-dot, -8 pi J-dot, 4 pi M(q.c) in both dimensions	[Hin26] Prop 8.11; Prop 10.29; [Hin23b] Thm 9.6	D	In both dimensions the entries are -8 pi M-dot
-10.32	(b)	Lemma 8.12 carries over at a=0; undetermined entries are zero	[Hin26] Lemma 8.12; [Hin23b] Thm 9.6; [Hin24b] Lemma 3.17	B	uses only integration by parts and decay, so his Lemma 8.12
-10.32	(c)	Kernel and cokernel at least eleven, equal by his argument with AHW24	[Hin26] Prop 8.11, Prop 8.9; [AHW24] Thm 6.1(2)	B	Equality is his kernel argument, which runs as his
-10.32	(d)	Corollary 8.13 holds with eleven for seven; uses only dimension and pairings	[Hin26] Corollary 8.13	A	uses only the (co)kernel's dimension and the pairings
-10.33	(a)	AHW24 Thm 6.1(2) on 5D Tangherlini, harmonic by harmonic	[AHW24] Thm 6.1(2); [KI03] section 4	?	Harmonic by harmonic, each component in the class
-10.33	(b)	Tensor and vector types with l>=2 vanish by integral identity	[Hin26] Prop 10.30(i)-(ii)	D	the exponent l > 0 is excluded
-10.33	(c)	Scalar type l>=2 gives no nonzero stationary solution	[KI03] gauge; Prop 10.30(iii); Prop 10.24(v)	D	which excludes the exponent l + 3/2 >= 7/2
-10.33	(d)	l=0 and vector l=1 leave only mass, rotations and pure gauge	[AHW24]; Prop 10.30(iv)-(v)	D	with a = 0 by the decay
-10.33	(e)	Scalar l=1 gauge 1-form bounded; sum over harmonics converges	Prop 10.30(vi); Prop 10.24(v); 10.27(a)	D	the sum over the harmonics converges with h's
-10.33	(f)	Near Tangherlini dim ker = 11 needs upper semicontinuity in b	[Hin26] Cor 8.13 proof; [Vas13] 2.7; [Hin26c] 9.2.3	C	the kernel's dimension upper semicontinuous in b
-10.33	(g)	Without decay, rescalings and rigid rotations enter; tidal growth is not pure gauge	[AHW24] stationary omega; (b)-(c) above	D	of order r^l, r^l and r^(l + 3/2)
-10.34	(a)	Unique smooth stationary state at Tangherlini for each l>=2, growing like r^l	[Hin26] section 8.5, Prop 8.14; Prop 10.31(ii)	D	every higher l so far as -l is simple
-10.34	(b)	Lemma 8.15 pairings near a=0 solvable by perturbation with so(4) bracket	[Hin26] Lemma 8.15, Prop 7.4, Remark 8.10	C	Near a = 0 it is a perturbation of the decoupled one
-10.34	(c)	Prop 8.14 Steps 0-5 run near Tangherlini for l=2,3 with modifications	[Hin26] Prop 8.14; 10.33(f); 10.31(c)	B	his Steps 0-5 run, Step 2 as modified
-10.35	(a)	Iota+ order alpha_5 is 3/2+O(gam) by four-dimensional bookkeeping	[Hin26] (1.19), (5.28), Prop 11.16; 10.24	D	The same bookkeeping in five dimensions gives alpha_5
-10.35	(b)	Pole of resolvent at zero energy has order 2, as in four dimensions	[Hin26] p. 34 footnote 35; Prop 10.29(iii)	D	a pole of order 2 at 0 as in four dimensions
-10.35	(c)	Window is [alpha_5 - 4, 0]; physical states s2, v2, t2 at -2	[Hin26] Prop 10.32(ii); Prop 8.14	D	Hence five dimensions needs [alpha_5 - 4, 0]
-10.35	(d)	Four dimensions: alpha=1 returns his window [-3, 0]	[Hin26] (9.32); Prop 10.32(ii)	D	At alpha = 1, (ii) returns his window
-10.36	(a)	Deformation tensor equals family derivative along bracket; defined on all of so(4)	[Hin26] Lemma 7.5, (7.20); Prop 10.33(ii)-(iii); [ER08]	?	is chosen equivariantly is a reading
-10.36	(b)	Prop 7.4 in 5D at every spin; leading term at rho^3	[Hin26] Prop 7.4, (7.33)	B	His proof runs with (a)
-10.36	(c)	Space of rotations giving (7.16) jumps six to four to two	[Hin26] section 7.2.1, discontinuity p. 140	D	six-dimensional at a = 0, four-dimensional at a = +-b
-10.36	(d)	Spin condition of 10.34(c) and 10.35(c) holds on the readings	[Hin26] Prop 7.4, Lemma 7.5, (7.19)	?	on the readings of (a) and (b)
-10.36	(e)	On Kerr the same computation gives Lemma 7.5's structure	[ER08]; [Hin26] Lemma 7.5	?	On Kerr the same computation gives his Lemma 7.5's structure
-10.37	(a)	Pure resonant state at lam+1 from lam; spectrum closed under shift	[Hin26] (9.11)-(9.17); Def 9.6	D	since c v^lam is not O(v^nu) at oo
-10.37	(b)	Descent: nonzero moment gives root of det N at lam-1	[Hin26] Prop 9.2, (9.17)	D	Re nu_k + 1 < Re lam < Re mu_j + 1
-10.37	(c)	Injectivity half of Prop 9.2(2) carries over to five dimensions	[Hin26] Prop 9.2(2) and proof, p. 166	B	carries over with v d_v - 3/2 - S-bar
-10.37	(d)	Descent applies between 1 and 5/2; resonances sit at box^C roots	[Hin26] Prop 8.6, Prop 10.24; (b)-(c) above	D	(b) applies whenever 1 < Re lam < 5/2
-10.37	(e)	Candidate resonant state at gam_C=10,100 carried to record's point	[Hin26] Def 9.6; Hurwitz theorem	C	Hurwitz's theorem carries the zero along the candidate
-10.37	(f)	No pure resonance at real part <=2; pure part of E_+ lies above 2	[Hin26] (1.19), E_K; 10.35	D	so the pure resonance part of E_+ lies above 2
-10.38	(a)	Perturbation couplings move null-infinity exponent up by 1/2	[Hin26] (5.26a), (5.28), (5.36); Def 5.13	A	which do not see the dimension
-10.38	(b)	Null-infinity decay rates r^(-3/2-z) per component	[Hin26] Def 5.2, (5.42), Prop 5.11	D	his rates with 3/2 for 1
-10.38	(c)	(7,4) couples pi_01 into 11-component; (7,6) half an order lower	[Hin26] Prop 5.14, footnote 27, Lemma 11.15	D	reaches the 11-component at 3/2 + 1/2 = 2
-10.38	(d)	Radiative order reaches iota+ only via resonant state; lam_1 >= 2	[Hin26] (9.17), Def 9.3; 10.37(c)-(d)	D	Hence lam_1 >= 2
-10.38	(e)	Slowest iota+ term is mass aspect t*^-2; alpha_5 = 2	[Hin26] Thm M(c), (11.2); 10.37	D	alpha_5 = 2 by both channels
-10.38	(f)	Four dimensions: radiative order is Coulombic; E-sharp element attainment not examined	[Hin26] E-sharp_+; Lemma 8.4	?	his index sets are upper bounds
-10.39	(a)	Naive augmentation entries decay like r^-3, one order better than his	[Hin26] (10.5), (10.9a)-(10.9b), (10.24a)	D	every entry of (10.5) is in A^3, one order better
-10.39	(b)	Stationary tensor in A^q lies in weighted space for l<q-2	[Hin26] Def 2.19, Lemma 2.20	D	since r^(2(l - q)) r^3 is integrable
-10.39	(c)	Cut-off states of iota+ order 4; Lemma 10.4 holds with tf order 3	[Hin26] (10.24a)-(10.24c), Lemma 10.4	D	iota+ order 4 >= 3 + eps_ind
-10.39	(d)	Prop 10.6 invertibility in 5D from kernel count and pairings	[Hin26] Prop 10.6, Prop 8.11, Lemma 8.12	B	where his 'only requires O(r^(-1-eta))-decay'
-10.39	(e)	Theorem 10.1 2-admissibility in 5D on the readings	[Hin26] Thm 10.1, Prop 10.7; [Hin26c] Thm 9.41	B	[Hin26c] Theorem 9.41 at n = 4
-10.39	(f)	Augmentation carries no logarithm in five dimensions	[Hin26] (10.13), Remark 10.8, (10.40)	?	In five dimensions the augmentation tensors are chi_K times the states
-10.40	(a)	Lemmas 10.9-10.11 lossless in 5D on the readings	[Hin26] Lemmas 10.9-10.11; [Hin26c] Thm 9.16(5)	?	They are lossless as his
-10.40	(b)	Derivative columns carry states' own weights; scf weights 1-eps, 2-eps	[Hin26] Lemma 10.12, (10.54), (10.57); (2.25a)	D	scf weights 1 - eps and 2 - eps
-10.40	(c)	Lemma 10.13 gives loss-free estimate in 5D	[Hin26] Lemma 10.13; [Hin26c] Lemma 14.6	A	Lemma 10.13 does not see the dimension
-10.40	(d)	Margin reading of (10.52): bound at s'=s fails, conclusion unaffected	[Hin26] (10.52), Remark 10.2, (10.63)	D	s' + alpha' < -1/2 at s' = s would ask the latter
-10.40	(e)	Downstream loss delta may be taken 0 in five dimensions	[Hin26] Cor 11.10, Thm 11.12	D	delta may be taken 0 there
-10.41	(a)	Definition 5.13 admits delta=0; alpha_sf+2 replaces alpha_sf+3/2	[Hin26c] Def 5.13, Remark 5.14; 10.40(c)	?	delta = 0 is admitted, so section 10.40(c)'s hedge goes
-10.41	(b)	(13.30a) at n=4; rest of Lemma 13.13 proof a reading at n=4	[Hin26c] (13.30a), Lemma 13.13	B	is, at n = 4, a reading
-10.41	(c)	Lemmas 14.6 and 10.13 hold at every n	[Hin26c] Lemma 14.6; [Hin26] Lemma 10.13	A	the lemma holds at every n
-10.41	(d)	Paley-Wiener argument is in t* alone, so dimension does not enter	[Hin26c] Thm 12.2, section 14.1; Thms 9.41, 9.16, 9.5(6)	A	The Paley-Wiener argument is in t* alone
-10.41	(e)	Readings remaining at n=4 listed	[Hin26c] Lemma 3.9, Lemma 13.13, Lemma 14.6, Thms 9.5, 9.16, 9.41	?	these stay readings at n = 4
-10.42	(a)	Background differences of iota+ order 2,3,2; E+ one order up	[Hin26] Def 11.3, Remark 11.7, (11.6), (11.10)	D	every order there one above his
-10.42	(b)	Lemma 11.5: h at 2-eps at iota+; l_+ bound relaxes	[Hin26] Lemma 11.5, (11.14); [Hin26c] Def 5.15	D	puts h at 2 - eps at iota+ where his is 1 - eps
-10.42	(c)	Patched curvature in rho_+^4; conclusion one order higher	[Hin26] Prop 11.6, Prop 11.8, Cor 11.9	D	his conclusion, one order higher
-10.42	(d)	Cor 11.10 admissibility for l_+ in (0,1), l_K in (2,2+eps_K]	[Hin26] Cor 11.10; [Hin26c] Def 5.15, 5.18, (5.23)	D	admissible relative to L_b of class
-10.42	(e)	Theorem 11.12 at n=4 as reading with delta=0	[Hin26] Thm 11.12; [Hin26c] Thm 11.1	B	[Hin26c] Theorem 11.1 at n = 4, a reading
-10.43	(a)	Equivariance: P and its linearisations commute with G	[Hin26] Prop 11.20-type operator; [Hin26c] spaces	?	P and its linearizations commute with G
-10.43	(b)	Invariant parameters: A=0; G-fixed S_l vanish at odd l	[Hin26] Prop 12.3 parameters; 10.40(ii)	D	the G-fixed S_l vanish at odd l
-10.43	(c)	Steps 2, 4, 5, 6 reduce to G-fixed parts; Steps 1 and 3 as his	[Hin26] sections 11.4, 11.6, 11.7, 11.8	B	Steps 1 and 3 as his
-10.43	(d)	Only mass state and time-translation dual state are G-invariant	[Hin26] 10.28, 10.29, 10.31, 10.34	D	only the mass state and the time translation's dual state are G-invariant
-10.43	(e)	Phi and Nash-Moser scheme run on G-fixed spaces by averaging	[Hin26] section 12.2, Thm 12.8, Cor 11.66; [SR89]	?	replacing each solution by its G-average
-10.44	(a)	I+ normal operator in 5D: components one order below h's	[Hin26] (11.26); 10.38(i), 10.38(a)	D	so of I+ order one below h's
-10.44	(b)	Index sets E^C_I and E_I,11 in 5D; (2,0) for (7,6) term	[Hin26] Def 5.3, (5.5)-(5.8)	D	min Re E^C_I > 3/2 + 2 gam_Ups
-10.44	(c)	Lemma 11.15 and Prop 11.14 proofs run in 5D with l_I bound	[Hin26] Lemma 11.15, Prop 11.14; Lemmas 2.12, 2.23	B	His proofs run with (a)-(b)
-10.44	(d)	Prop 11.16 index set gains (2,0) and (3/2+(1-e)gam,0)	[Hin26] Prop 11.16, (11.33a)-(11.33b)	D	so E^#(1)_+ = E-breve_+ u {(2, 0)}
-10.44	(e)	E_+ minimum 3/2+(1-e)gam without the 10.38 readings; 10.42 still holds	[Hin26] Cor 11.9-11.10, Thm 11.12	D	min Re E_+ = 3/2 + (1 - e_Ups) gam_Ups
-10.45	(a)	Restricted to G-invariant elements, augmented operator invertible with mass only	[Hin26] Prop 10.6; 10.43(a),(d); Prop 10.40(ii)	?	restricted by equivariance
-10.45	(b)	Props 11.17, 11.32 in class with h_s1=0; one integration suffices	[Hin26] Props 11.17, 11.32, 11.20, (11.114)	B	His proofs run with h_s1 = 0
-10.45	(c)	Prop 11.34 and Cor 11.46 in class: u~ of K+ order alpha_K-1	[Hin26] Prop 11.34, (11.117), Def 11.40, Lemma 11.45	D	u~ of K+ order alpha_K - 1
-10.45	(d)	h needs K+ order alpha_K+eps: 1+eps_K+eps against his 2+eps_K	[Hin26] (11.19), (11.116), Remark 11.4	D	1 + eps_K + eps in the class against his 2 + eps_K
-10.45	(e)	Steps 1-4 hold in 5D as one statement in the class	[Hin26] sections 11.3-11.6; [Hin26c] Prop 13.18, Cor 13.17	B	his Steps 1-4 hold in five dimensions as one statement
-10.46	(a)	Class's Prop 11.51 induction gives unique mass parameter with K+ order alpha_K - 1	[Hin26] Prop 11.51	B	His proof inducts in eps_K-steps on the K+ order
-10.46	(b)	Theorem 11.59 holds in class with unique G-fixed p-vec' and recorded parameters below order 3+eps_K	[Hin26] Thm 11.59; Remark 11.60	B	His proof runs with (ii)'s list in place of
-10.46	(c)	h of K+ order 3+eps_K suffices, since sources need 3+eps_K	[Hin26] Remark 11.61	D	h of K+ order 3 + eps_K suffices
-10.46	(d)	Corollary 11.66 in class: unique p-vec', q-vec' give forward solution in target space	[Hin26] Cor 11.66; p. 294 lemma; (9.37)	D	(L - L_b) h_b,rem has K+ order 2(2 + eps_K)
-10.46	(e)	Weights lie in five-dimensional gaps; (2.27) holds at n=4 by reading of Prop 2.25	[Hin26] (2.27); Prop 2.25	B	at n = 4 it rests on Proposition 2.25's density shifts
-10.46	-	Class iota+ index sets take (2,0) in place of (1,0); alpha_min bounds all elements	[Hin26] p. 221; Remark 11.7; (11.87); (11.151)	D	takes E_+^G with (2, 0) in place of his (1, 0)
-10.47	(a)	Definition 12.1 in class: data reduce to mass, iota+ data, tail; index sets one order below	[Hin26] Def 12.1; (12.11)-(12.16)	D	m_rem in H-dot^(k, 2+eps_K)
-10.47	(b)	Five-dimensional iota+ spectrum: finitely many resonances below 3+eps_+, none with real part at most 2	[Hin26] (9.49); Prop 9.2(2); Def 9.19	D	none with real part at most 2
-10.47	(c)	Phi commutes with O(4), hence with G, by canonical construction	[Hin26] Lemma 9.14; Prop 9.4(2); Cor 9.18	?	Phi commutes with O(4) on all of D^oo
-10.47	(d)	Theorem 12.3 in class: Phi(U) G-invariant; P(Phi(U)) in target space with 3+eps_K	[Hin26] Thm 12.3; (12.31); Prop 10.42(ii)	B	his (12.31) with 3 + eps_K for 4 + eps_K
-10.47	(e)	Theorem 12.8 in class: U' G-invariant, D_U Phi(U') = f with tame estimates	[Hin26] Thm 12.8; Remark 12.9; Cor 11.66	B	His proof reads U' off the forward solution
-10.48	(a)	Class of perturbations in five dims: every exponent of E^tot_I at least 3/2	[Hin26] Def 5.3; (5.5)-(5.8); 10.44(a)	D	Every exponent of E^tot_I is then at least 3/2
-10.48	(b)	Operator and Props 5.11, 5.14, Cor 5.15 in five dims carry over with orders unchanged	[Hin26] Prop 5.11; Prop 5.14; Cor 5.15; (5.46)	B	with (5.46)'s orders unchanged
-10.48	(c)	Theorem 5.17 holds in five dims by [Hin23a]'s proof, on a reading that its estimates hold at n=4	[Hin26] Thm 5.17; [Hin23a] Cor 3.36; [SR89]	B	on the reading that [Hin23a]'s estimates hold at n = 4
-10.48	(d)	Theorem 5.21 in five dims: Step 1 dimension-free; Step 2 holds given gam_Ups < 1/4	[Hin26] Thm 5.21; (5.58)-(5.60); Props 11.14-11.16	A	does not see the dimension once
-10.48	(e)	Theorem 5.23 in class: S=0, h_0 = h, and h_0 is G-invariant by uniqueness	[Hin26] Thm 5.23; Remark 5.24; (13.5)	?	h_0 is G-invariant by uniqueness
-10.49	-	Theorem 13.1 holds in five-dimensional Tangherlini for small G-invariant data with stated index sets	[Hin26] Thm 13.1; Thms 5.23, 12.3, 12.8	?	in five-dimensional Tangherlini of mass m_0
-10.49	(a)	Step 1: constraint damping Theorem 7.1 holds in five dimensions with gam_Ups = 1/100	[Hin26] Thm 7.1; Props 6.12, 8.6	B	in five dimensions (10.21-10.23, Phase B's B4)
-10.49	(b)	Step 2: gauged Cauchy data construction is dimension-free on its face, given as a reading	[Hin26] Prop 5.25; (5.80)-(5.81)	A	dimension-free on its face, a reading
-10.49	(c)	Step 3: SR89 assumptions (1)-(4) verified for P o Psi on the class spaces	[Hin26] Thm 12.3; Thm 12.8; [SR89]	?	tame estimates of Phi as his
-10.49	(d)	Step 4: metric, gauge and Ric(g)=0 conclusions are dimension-free; weakest K+ decay 2+eps_K	[Hin26] Thm 13.1, Step 4; second Bianchi identity	A	are dimension-free
-10.49	-	Phase A complete conditional on readings; the statement is deduced, not proved	[Hin26] Thm 13.1; record's 10.13-10.48 readings	?	The statement above is deduced, not proved
-10.50	(a)	After the shell oscillating profiles vanish; metric is Tangherlini of mass mu_end plus smooth terms	record's Lemma 6.2; Lemma 5.3(c); (0.1)	?	so env = 0 there
-10.50	(b)	A slice tau1 exists in v_end - a < tau1 <= tau_end once T is large	record's (1.1); Lemma 1.1	D	such tau1 exist once T > r_q(mu_end) - a
-10.50	(c)	Solution extended beyond Omega by gluing to Tangherlini; smooth O(lam) perturbation between	record's Theorem D; Prop 10.40(i); Lemma 1.1(e)	C	a smooth O(lam) perturbation of Tangherlini
-10.50	(d)	Slice data O(lam) in H^d of Tangherlini(m), so 10.49's hypotheses hold for small lam	record's Theorems E and D; 10.49	C	is O(lam) in H^d
-10.50	(e)	Maximal development settles to Tangherlini of mass m' with |m'-m| small for small lam	record's maximal development; 10.49 readings	C	with |m' - m| small
-10.51	(a)	k=6 enters via Sobolev bound i <= 4 and commutator split; Theorem E holds at order k	record's Lemma 2.1; Steps 1, 4, 8; [DS23] Thm 2.4	D	so i <= 4 at k = 6
-10.51	(b)	Bootstrap closes when 2K - 5 >= K + 1, i.e. K >= 6, for every k	record's Step 4 (C M^2 lam^(2K-5))	D	when K is at least 6
-10.51	(c)	Inputs at every order: Theorem A residual and Prop 6.5 bound hold for every order k	record's Theorem A (5.4); Proposition 6.5	A	lam0 independent of the order
-10.51	(d)	Unscaled norms give remainder O(lam) in H^d once k >= d and K >= d+1	record's N_k bound; 10.50(d)	D	so the remainder is O(lam) in H^d
-10.52	-	Lemma 8.4 holds in five dimensions at the point for every l; simplicity and (8.13) by computed counts	[Hin26] Lemma 8.4; (8.13); 10.24(a); 10.52(i)-(ii)	D	gave the gap and the counts for every l
-10.53	(a)	Definitions, Thm 9.38, Cor 9.39, Prop 9.40 carry n and hold at n=4 as printed	[Hin26c] Def 9.4; Thm 9.38; Cor 9.39; Prop 9.40	A	they hold as printed
-10.53	(b)	n=3 numerals become n=4 numerals via the b-density substitution	[Hin26c] Lemma 3.11; Thms 9.36, 9.41; Cor 9.43	D	holds with alpha + 2 for alpha + 3/2
-10.53	(c)	Kernel elements at nonzero frequency lie in A^(3/2+S-bar-eps) at n=4	[Hin26c] Thm 9.5(5); Thm 9.38	D	Theorem 9.5(5)'s exponent 1 + S-bar is (n - 1)/2 + S-bar
-10.53	(d)	Bundle step: scalar-to-bundle remark is the same at n=3 and n=4	[Hin26c] Section 9; Prop 9.40	A	the same at n = 3 as at n = 4
-10.53	(e)	Theorem 9.16 holds at n=4 on a reading; its proof sections 9.3.1-9.3.5 unchecked	[Hin26c] Thm 9.16; Prop 4.24; Props 9.25-9.28	B	sections 9.3.1-9.3.5 were not checked line by line at n = 4
-10.54	(a)	Theorem 4.9 in five dims at the point: Re lam >= 2 or < -100 for every h in (0, 10^-6]	[Hin26a] Thm 4.9; Prop 10.44 (uniform5.py H1-H2)	B	This is his Theorem 4.9 with 2 for his 1
-10.54	(b)	Every conclusion drawn from Prop 10.9 at the point holds for every h in (0, 10^-6]	record's Prop 10.9; 10.21(d); 10.24(a); 10.35	C	holds for every h in (0, 10^-6]
-10.54	(c)	Symbols free of h; quantities proportional to gam_C grow as h falls and are used as lower bounds	record's 10.13; 10.14-10.15; 10.23; 10.26	C	The quantities proportional to gam_C = 1/h grow as h falls
-10.54	(d)	Simplicity and (8.13) hold for h off a countable set	record's 10.52(i); (8.13); damping5.py U3	C	fails for at most finitely many h
-10.54	(e)	Horizon threshold of box^C holds for every h below some bound h_2	record's 10.21(d); [Hin26a] Lemmas 3.2, 3.5	C	the threshold holds for every h below some h_2 > 0
-10.54	-	B5 discharged; B6 deduced: threshold holds for small h, bound h_2 not computed	record's 10.54(a)-(e)	?	B6 is deduced, the threshold holding
-10.55	(a)	Operators on Tangherlini differ from Minkowski model two orders below; indicial families are the model's	[Hin26c] Example 5.4; [Hin26] p. 118; record's 10.12, 10.15	D	in rho^4 Diff^2_b against the model's rho^2 Diff^2_b
-10.55	(b)	Index 0 and kernel class at nonzero frequency hold at n=4 on 10.53(e)'s reading	[Hin26c] Thm 9.5(3); Thm 9.16(3); Thm 9.5(5)	B	so at n = 4 on 10.53(e)'s reading of Theorem 9.16
-10.55	(c)	Standard interior uniqueness: kernel vanishing outside horizon vanishes inside it	record's 10.16, 10.27; Frobenius theory	?	its Frobenius exponents are finitely many
-10.55	-	B9 discharged by computation; B7 deduced on 10.53(e)'s reading	record's 10.45; 10.53(e); 10.55(a)-(c)	?	B7 is deduced, the index 0 at nonzero frequency
-10.56	(a)	Theorem 5.2 holds at n=4 for every small h, given commutator signs equal the 5d symbol signs	[Hin26a] Thm 5.2; Lemmas 3.5, 3.8; (5.14); [Hin23d]	A	The calculus is stated for general dimension
-10.56	(b)	Theorem 6.2 holds at n=4 via Theorem 5.2, Theorem 4.9 and index 0	[Hin26a] Thm 6.2; Thm 4.9; Thm 5.2	B	His proof needs Theorem 5.2
-10.56	(c)	Theorem B.1 index argument holds at n=4 with computed flat roots	[Hin26a] Thm B.1; Thm 4.9(3); record's 10.23	D	computed roots, -3, -2 | 0, 1 at l = 0
-10.56	-	B4 deduced at source with one reading left (sign of commutators)	record's 10.56(a)-(c)	?	B4 is deduced at source with one reading left
-10.57	(a)	Dimension enters via radiative order, densities and Sobolev index: d_4 = 3 in place of d_3 = 2	[Hin23a] Prop 3.32; Lemma 3.33; Thm 3.35	D	d_4 = 3 in place of d_3 = 2
-10.57	(b)	Prop 3.29 at n=4: A_g lower triangular with h-free diagonal, so sharp-weight step holds	[Hin23a] Prop 3.29; Lemma 3.33; record's 10.38; 10.44(ii)	D	lower triangular with h-free diagonal
-10.57	(c)	Theorem 3.35 not needed; record's spaces carry no radiation field at iteration weight	[Hin23a] Thm 3.35; [Hin26] p. 102; record's 10.48(a)	?	Theorem 3.35 not needed
-10.57	(d)	Corollary 3.36 at n=4 applies with finite loss; gauge and Ricci flatness hold in any dimension	[Hin23a] Cor 3.36; [SR89]; second Bianchi identity	A	in any dimension
-10.57	-	B10 deduced at source; order count and gain read, not computed	[Hin23a] (1)-(4); record's 10.57(a)-(d)	?	B10 is deduced at source
-10.58	(a)	(2.25)-(2.27) are Minkowski algebra in (t*, r) and do not see n; numerals become n=4 values	[Hin26c] (2.25)-(2.27); (5.1a); (5.7); Def 9.4	A	do not see n beyond the round sphere's
-10.58	(b)	Dynamics near I+ and iota+ are free of n; horizon dynamics five-dimensional, computed in 10.17-10.18	[Hin26c] Sections 7-8; (2.27); (4.67); record's 10.17-10.18	A	free of n
-10.58	(c)	Defs 5.13, 5.15, 5.18, Thms 10.1, 11.1, Prop 13.18, Cor 13.17 hold at n=4 on one reading	[Hin26c] Defs 5.13, 5.15, 5.18; Thms 10.1, 11.1; Prop 13.18	B	hold at n = 4 with (a)'s numerals, on one reading
-10.58	-	B3 deduced at source; numerals accounted for; one reading (c) left	record's 10.58(a)-(c)	?	B3 is deduced at source
-10.59	(a)	(2.27) holds at n=4 as printed; 10.46(e) reading discharged	[Hin26] Prop 2.25; 10.42(e); 10.58(a)	A	Proposition 2.25 is stated on X = R^n
-10.59	(b)	Iota+ resonance locations unneeded; finiteness and exponents feed K+ bookkeeping, checked over interval	[Hin26] Prop 9.2(2), Thm 12.3; sharp5.py K3	D	sharp5.py K3 checks for every iota+ exponent
-10.59	(c)	Exceptional exponent 2 stays above alpha_min on either reading, so conclusions hold	10.38(a); 10.57(b); 10.46	D	either way it is at least 2 > alpha_min
-10.59	(d)	C-ii gluing: CD03 method dimension-free; gluing needs only Tangherlini mass family	[CD03] Thm 7.7, Remark 8.2, p. 55	A	[CD03]'s method is dimension-free
-10.60	(a)	Operators g_A, L_b, box at b near b0 are small perturbations of b0 operators	[Hin26c] stationary wave-type operators; 10.12, 10.24, 10.52, 10.54	C	are small perturbations of those at b0
-10.60	(b)	High-energy strict conditions are open, so they hold for b near b0	[HPS77]; [Hin26] Remark 1.4; [Hin26c] Thm 9.5	C	the inequalities are open
-10.60	(c)	Invertibility at intermediate frequencies persists for b near b0	[HHV21] p. 90; 10.16, 10.21, 10.27	C	invertibility is open in (b, sigma)
-10.60	(d)	Low-energy invertibility and zero-energy count 11 persist near b0 by perturbation	[Hin26c] Thm 9.41; [HHV21] Lemma 11.1; [AHW24] Thm 6.1(2)	C	uniformly for small perturbations
-10.60	(e)	Inputs from AHW24 and Hin26a hold in five dimensions at every b near b0	[AHW24] Thm 6.1; [Hin26a]; [Hin26] Props 6.12, 7.1, 8.8, 8.11	C	with constants uniform in b near b0
-10.60	(f)	Lemma 8.15 handled by continuity; Lemma 7.5 at every spin carries over	[Hin26] Lemma 8.15, Prop 7.4, Lemmas 2.15, 7.2	B	which carry over as 10.29 and 10.31 carry them
-10.61	(a)	Iota+ index sets take five-dimensional orders; min Re 2 exceeds alpha_min	[Hin26] 10.44(e); Prop 10.46; 10.28	D	min Re is 2, above alpha_min
-10.61	(b)	Steps 1-4 of section 11 run with five-dimensional states and inputs	[Hin26] Props 11.17, 11.20, 11.30, 11.32, 11.34; Lemma 11.45; Cor 11.46	B	run with the five-dimensional states
-10.61	(c)	Steps 5-6 run with Proposition 10.46's lists in place of the alpha = 1 lists	[Hin26] Prop 11.51, Thm 11.59, Cor 11.66	B	run with Proposition 10.46's lists in place of
-10.61	(d)	Weights 3+eps_I and 3+eps_+ fit the five-dimensional gaps	[Hin26] Remark 11.61; 10.46(e); iplus5.py P2	D	in the five-dimensional gaps
-10.61	(e)	Section 11 holds in five dimensions without the class, recorded terms as parameters	[Hin26] section 11; 10.39-10.45, 10.53-10.58, 10.60	?	His section 11 in five dimensions without the class
-10.62	(a)	Definition 12.1 in five dimensions: parameter counts with Prop 10.46's lists	[Hin26] Def 12.1, (12.14)-(12.15); Prop 10.46	D	b in R + so(4) (seven)
-10.62	(b)	Theorems 12.3 and 12.8 proved with 10.61 in place of section 11	[Hin26] Thms 12.3, 12.8, (12.31)	B	His proofs with 10.61 in place of his section 11
-10.62	(c)	Section 5 boost pullback of Theorem 5.17 solutions holds at n = 4	[Hin26] sec 3.4; Thms 5.17, 5.23	B	at n = 4 on 10.48's readings
-10.62	(d)	Theorem 13.1 in five dimensions without the class, by Steps 1-4 with (a)-(c)	[Hin26] Thm 13.1, Rem 13.2; [SR89]; 10.49(c)	B	The proof is his Steps 1-4 with (a)-(c)
-10.63	(a)	Charge map of translated, rotated, boosted family is a local diffeomorphism near Tangherlini	[CD03] reference family condition 4; 10.47	C	by the inverse function theorem it is a diffeomorphism
-10.63	(b)	Parity replaced by decay for glued data; alpha_- = 3 exceeds needed exponents	[CD03] (E.9), (E.5b), (E.17), Prop E.1	D	alpha + alpha_- = 5 > n - 1
-10.63	(c)	C1-C2 without class: 10.50's construction runs with CD03 Theorem 8.1's proof	[CD03] Thm 7.7, Thm 8.1, Remark 8.4; 10.63(a)	B	runs with [CD03] Theorem 8.1's proof in five dimensions
-10.63	(d)	C3: boost and translation terms are small and lie in the class	[Hin26] Remark 13.2; 10.49 class; 10.62(d)	C	polyhomogeneous and small, which lie in
-10.64	(a)	Calculus is dimension-free; Lemma 3.6 holds with xbar_I from mu	[Hin23a] Lemma 3.6, sections 3.1-3.2; 10.57(1)	A	The calculus is dimension-free
-10.64	(b)	Prop 3.17 symmetry, multiplier and estimate (3.21) follow unchanged at n=4	[Hin23a] Prop 3.17, (3.21), (3.22)	B	follow unchanged
-10.64	(c)	Projections use trace over S^3 with factor 1/3; spaces k >= 3	[Hin23a] Notation 3.22, Definitions 3.19-3.20	D	carry (1/3) g-slash^(ab) h_(ab), the trace over S^3
-10.64	(d)	Each h-dependent order gains rho^(1/2) and factor r^-(3/2)	[Hin23a] Lemmas 3.23-3.28, Cor 3.26	D	Each h-dependent order gains rho^(1/2)
-10.64	(e)	At n=4 h-dependent entries join the remainder; sharp-weight hypothesis holds outright	[Hin23a] Prop 3.29; X4, X5, X7	B	the hypothesis of his sharp-weight step holds outright
-10.64	(f)	Corollary 3.31's (3.49) holds with A; no leading radiation term at n=4	[Hin23a] Cor 3.31, (3.47), (3.49); X5	B	(3.47) at n = 4 reads
-10.64	(g)	Prop 3.32 basic and tame estimates are his, with A^0_h term absent	[Hin23a] Prop 3.32, (3.51), (3.53), Lemma 3.33	B	The basic estimate (3.53) is (b)'s
-10.64	(h)	Decay recovery: least positive eigenvalue -gamma_Ups in both dimensions	[Hin23a] Theorem 3.35; X4	D	whose least positive entry is -gamma_Ups in both dimensions
-10.64	(i)	Finite loss of derivatives suffices; gauge and Ricci flatness hold in any dimension	[SR89]; [Hin23a] Cor 3.36; 10.57(d)	A	by the second Bianchi identity in any dimension
-10.65	(a)	Semiclassical 3b-calculus constructed on R_t x R^(n-1) for every n	[Hin23d] pp. 3, 7, 10-12, 109; [Hin26a] section 2.3	A	is constructed on R_t x R^(n-1)_x for every n
-10.65	(b)	Commutator principal-symbol identities; dimension enters only through l, j, S, w	[Hin26a] Props 5.1(3)-(6), 5.8, 5.9, 5.11, 5.12	A	does not see the dimension
-10.65	(c)	Elliptic, fibre-infinity and energy estimates hold at n=4	[Hin26a] Lemmas 3.5, 3.7, 5.14; Cor 5.15; Prop 5.17	A	do not see the dimension
-10.66	(a)	Thm 3.19, Lemma 3.18, (8.2), constraint map, Prop 5.10, Cor 5.11 hold for every n	[CD03] Thm 3.19, Lemma 3.18, Prop 5.10, Cor 5.11	A	All are stated for every n
-10.66	(b)	Proof's KIDs number 15; Q in R^15; chi in C^oo(R^4)	[CD03] Thm 8.1 proof; 10.49 (D1)	D	Q in R^15; chi in C^oo(R^4)
-10.66	(c)	Index beta = min(alpha, n-2) is 2; t = k+6 embeds; Thm 5.6 gives (8.5)	[CD03] (8.3)-(8.5), Thm 5.6, (5.2)	D	beta := min(alpha, n - 2), which is 2
-10.66	(d)	Error terms lie below main terms when 2 alpha > n - 2	[CD03] (8.6)-(8.7), (E.17), (E.19), (E.20)	D	Both lie below the main terms when 2 alpha > n - 2
-10.66	(e)	Charge map a local diffeomorphism, hence homeomorphism onto set containing a ball	[CD03] Thm 3.19, Thm 8.1 proof; 10.63(a)	C	is a local diffeomorphism near Tangherlini, hence a homeomorphism
-10.66	(f)	Theorem 5.23's small-S statement carries over with S_1 ~= R^4	[Hin26] Thm 5.23, sec 3.4, Lemma 3.19	B	carries over with S_1 ~= R^4
-10.66	(g)	Prop 11.30(2) operator is identity plus o(1), invertible for small (h, b, S)	[Hin26] Prop 11.30(2), Defs 11.25, 11.37, 11.40, 12.1	C	is the identity plus o(1) on a four-dimensional space
-10.67	(a)	Section 7 positive commutator estimates hold at n=4 with counts changed as E4 states	[Hin26c] Props 7.4-7.9, 7.11; Lemmas 7.12-7.21; 10.50	B	Lemmas 7.12-7.21 commute the fields V_1, V_2
-10.67	(b)	Section 8 energy identity holds at n=4; Theorem 8.14 follows	[Hin26c] Lemma 8.1, Props 8.3, 8.6, 8.9, Lemma 8.8, Thm 8.14	B	Theorem 8.14 follows at n = 4
-10.67	(c)	Section 9.3 stated for a general stationary wave operator; (9.73) numeral 3/2 at n=4	[Hin26c] Thm 9.16, Thm 9.28, (9.73); 10.53(a); 10.50	A	are stated for a general stationary wave operator
-10.68	(a)	Lemma 11.1 at n=4: proof uses only finite N, here N=11; dim ker 11 near b0	[HHV21] Lemma 11.1 and proof; 10.32-10.33; 10.60(d)	A	uses of the dimension only N = dim K = dim R-perp
-10.68	(b)	Openness of invertibility of a family continuous in (b, sigma)	[HHV21] p. 90, Lemma 10.9; 10.24, 10.52	C	Invertibility of a family of bounded operators continuous in (b, sigma)
-10.68	(c)	Census counts and weights are four-dimensional instances; record uses five-dimensional ones	[HHV21] pp. 89-93; 10.24, 10.28-10.33	D	The counts (ranks 1, 4, 10
-10.69	(a)	[Hin23a] sweep hits of section 3 accounted for by 10.64's named places	[Hin23a] section 3 (pp. 9-33); X1-X6; 10.64	D	73 sphere hits on the round S^2
-10.69	(b)	[Hin26c] sweep hits accounted for by 10.67 and 10.53 named places	[Hin26c] sections 7-8, 9.3; E2-E4; 10.53	D	one codimension and one symbol class
-10.69	(c)	[Hin26] boost-section sweep hits accounted for by 10.61-10.62 and 10.66	[Hin26] pp. 77-81, 108-110, 238-326; D4	D	the harmonic parameter spaces S_2, S_3, V_2, V_3
-10.69	(d)	[HHV21] sweep hits are Lemma 11.1's 7 and Prop 11.3's 4 and 3, unused by record	[HHV21] Lemma 11.1, Prop 11.3, pp. 89-93; 10.68	D	which the record does not use
-10.69	(e)	[CD03] sweep hits accounted for by 10.63 and 10.66 named places	[CD03] Thm 8.1, Appendices E and F; 10.63; 10.66	D	Appendix E's n-expressions (D2)
-10.69	(f)	[Hin26a] sweep hit names one norm convention; r^3 and r^4 densities; estimate unchanged	[Hin26a] (5.74), pp. 62, 65; Lemma 5.14; Cor 5.15	D	p. 65's identity reads with r^3 and r^4
+section	item	summary	sources	category	quote	final
+10.12	-	Indicial roots of box^C on 5D Tangherlini are Minkowski's, so (1.43) holds at C_0 = 100	[Hin26] (1.43), Thm 7.1 proof; [Hin26a] p.29	C	Tangherlini differs from Minkowski by O(mu r^-2)	C
+10.13	(ii)	Thresholds of (5.14) at e=0 transfer to 5D as a_sf < 0, a_K > a_sf	[Hin26a] Prop 5.1, (5.14); Prop 10.10(ii)	D	would become a_sf < 0 and a_K > a_sf	D
+10.14	(a)	Conditions (4)-(5) off sf persist for some delta_r > 0	[Hin26a] Prop 5.1 (4)-(5), p.39	C	positivity of (iv) persists for some delta_r	C
+10.14	(b)	Small smoothing at r0/2 and 2r0 keeps conditions (1) and (6)	[Hin26a] Prop 5.1, p.41	C	a small smoothing keeps them	C
+10.14	(c)	Outer piece in static time has the same leading part at infinity	10.12 indicial roots	?	with the same leading part at infinity	D
+10.14	(v)	Smallest r0 is 86, so 86 mu^(1/2) = 86 r_h by scaling	scaling of Prop 10.11(v) conditions	D	By scaling (deduced: with mu = u r_0^2	D
+10.15	(a)	Kernel of box(0) on Tangherlini is the span of W*	[Hin26] Lemma 6.10; [AHW24]	B	taken as in four dimensions	B
+10.15	(b)	Cokernel delta(r-r_h)dr spans it, index 0	[Hin26c] Cor 9.43; Lemma 6.8	B	which in four dimensions is [Hin26c] Corollary 9.43	B
+10.15	(c)	Augmented zero-parameter operator of Step 1 is injective	[Hin26] Step 1, (6.21)-(6.26)	?	gives c = 0, then u is a multiple of W*	E
+10.16	(a)	Scalar sector: delta omega = 0 since V_0 > 0 forces Phi = 0	[Hin26] Prop 6.9; [AHW24] Thm 5.1	D	with V_0 > 0 forces Phi = 0	D
+10.16	(b)	Maxwell sectors vanish by positivity of V_1 and V_2 for l >= 1	[Hin26] Prop 6.9; [AHW24] Thm 5.1	D	V_1 > 0 since lam >= 2	D
+10.16	(c)	Gauge step: omega = (i/sigma) d phi, phi = 0, so omega = 0	[Hin26] Prop 6.9	?	so phi = 0 by (a), and omega = 0	E
+10.17	(a)	Box strongly trapping admissible via frame and nilpotent connection	[Hin26] Lemma 6.4; [Hin26c] Def 5.8	C	below any eps > 0 for small eta	C
+10.17	(b)	Trapped set is r-normally hyperbolic for every r	[Hin26c] Prop 4.19	?	the trapped set is r-normally hyperbolic for every r	D
+10.18	(a)	Horizon threshold is 1 + c_v gam_H r_h, equal to 3/2 at 5D	[Hin26] footnote 71; 10.15 c_H	C	For small |c_v gam_H|	C
+10.18	(b)	Lemma 6.1(1) holds in 5D with rho d_rho - 3/2 at infinity	[Hin26] Lemma 6.1; [Hin26c] Lemma 5.12	B	vartheta_out = 2 S-bar (to within eps) carries over	B
+10.19	(a)	Incoming threshold -1/2 - S-bar; infinity estimates carry for n = 4	[Hin26c] (9.16b), (9.38); Lemma 5.12	B	carry these thresholds for n = 4	B
+10.19	(b)	Trapped set meets (Gamma.1)-(Gamma.4); loss small as eta -> 0	[Hin26c] Prop 4.19, (9.79)-(9.81)	C	as small as wished	C
+10.19	(c)	Dynamics and interior are the spectral counterpart of Prop 4.24	[Hin26c] Prop 4.24, Prop 9.35	?	the spectral-side counterpart of his Proposition 4.24	D
+10.19	(d)	Theorems 9.5 and 9.16 hold restated for n = 4 on the reading	[Hin26c] Thms 9.5, 9.16	B	his Theorems 9.5 and 9.16 hold restated for n = 4	B
+10.20	(a)	Zero energy operator Fredholm with alpha+2 in the gap, at n = 4	[Hin26c] Thm 9.36, (3.47)	B	Theorem 9.36 at n = 4	B
+10.20	(b)	Box tf-admissible with every weight in (0,2)	[Hin26c] Prop 9.40	A	as his Proposition 9.40 states for n >= 3	A
+10.20	(c)	Transition-face operator depends only on infinity; estimates uniform	[Hin26] Lemma 6.8; [Hin26c] Cor 9.39	C	for small gamma and e >= 0 the Fredholm estimates hold uniformly	C
+10.20	(d)	Index 0; box cokernel one-dimensional, spanned by horizon functional	[Hin26c] Cor 9.43; 10.15(iv)	D	the cokernel is one-dimensional	D
+10.20	(e)	Mode stability near sigma = 0 persists for small e and gamma	[Hin26] Prop 6.12	C	persists for small e and gamma	C
+10.20	(iii)	Derivative of box(0) W* in sigma follows from Definition 9.4	[Hin26c] Def 9.4	?	is deduced from his Definition 9.4	E
+10.21	(a)	Expansion (6.4) holds in 5D; Tangherlini approaches Minkowski at O(rho^2)	[Hin26a] (6.4); 10.18	B	the errors absorbed as in his proof	B
+10.21	(b)	Outgoing modes vanish via Theorem 5.2 with alpha_sf = -C_0-5/2	[Hin26a] Thm 5.2, (5.14)	D	alpha_sf < b* - 1 and alpha_K >	D
+10.21	(c)	Part (2) injectivity: kernel element vanishes by Theorem 5.2	[Hin26a] Thm 5.2	B	Theorem 5.2 forces omega_0 = 0, as in his proof	B
+10.21	(d)	Index 0 by radial operators; roots split evenly across the strip	[Hin26] Thm 4.9; [Hin26c] Thm 9.36	D	each harmonic's roots split evenly across the strip	D
+10.21	(e)	Theorem 6.2 in 5D: no outgoing mode, injective, for h in (0, h_0)	[Hin26a] Thm 6.2; Thm 5.2	C	for every h in (0, h_0)	C
+10.21	-	Reflection of dr maps c to r^-1(dt + v dr), giving the A_w identity	Prop 10.18 (K2)	?	the reflection of dr carrying c	D
+10.22	(a)	Lemma 5.3: Gamma lies in rho_sf C^oo with two powers to spare	[Hin26a] Lemma 5.3, (2.12)-(2.14)	D	with two powers to spare	D
+10.22	(b)	Propositions 5.5-5.6 follow from Lemmas 3.5 and 3.7 in 5D	[Hin26a] Lemmas 3.5, 3.7; Prop 5.6	?	They use Lemmas 3.5 and 3.7, which hold in five dimensions	A
+10.22	(c)	Propositions 5.8-5.12 signs hold by continuity near the critical sets	[Hin26a] Prop 5.1 (3)-(6), p.39	C	on a neighbourhood of size delta_r in r by continuity	C
+10.22	(d)	Prop 5.16 hypotheses hold; Corollary 5.15 uniformity follows	[Hin26a] Prop 5.16, Cor 5.15	?	follows from (i) and c in rho_sf C^oo	A
+10.22	(e)	Theorem 5.2 holds in 5D on the reading of its 3b-analysis	[Hin26a] Thm 5.2; section 2.3	B	holds in five dimensions as its arguments do	B
+10.23	(a)	Origin indicial roots are negatives of infinity's; avoid [-C_0, 2)	[Hin26a] (B.10), (B.12); Prop 10.9	D	they avoid [-C_0, 2) at its point	D
+10.23	(b)	Prop B.2: box(sigma) Fredholm of index 0 on the window	[Hin26a] Prop B.2; [Hin26c] Thm 9.38	B	by [Hin26c] Theorem 9.38 at n = 4	B
+10.23	(c)	Theorem B.4 holds on 4+1 Minkowski on the reading of 10.22(e)	[Hin26a] Thm B.4, Lemma 3.3	B	Theorem B.4 holds on 4+1 Minkowski	B
+10.23	(d)	Theorem B.1 holds on 5D Minkowski; section B.4 runs as his	[Hin26a] Thm B.1, section B.4	B	Section B.4 runs as his with (iv)	B
+10.23	(e)	tf-admissibility: beta' in range iff beta in [-C_0, 2)	[Hin26] Thm 7.1(4); [Hin26c] Def 5.10, Cor 9.39	A	stated for every n in his Corollary 9.39	A
+10.24	(a)	Lemma 8.4 in 5D, every l: roots split evenly, gap (0, eps_ind)	[Hin26] Lemma 8.4, (8.13)	D	every type splits evenly for every l	D
+10.24	(b)	Lemma 8.5 kernel holds at the point for every z > 0	[Hin26] Lemma 8.5	B	his proof carries over	B
+10.24	(c)	Prop 8.6 kernel half: linearized Bianchi identity holds in any dimension	[Hin26] Prop 8.6, Lemma 8.5, Thm 7.1(4)	A	The linearized second Bianchi identity holds in any dimension	A
+10.24	(d)	Prop 8.6 cokernel half: index argument, index 0	[Hin26] Prop 8.6, p.153	D	the argument uses only that the two counts agree	D
+10.25	(a)	min spec S-bar = 0 in 5D; Cor 8.7 condition reads beta < 3/2	[Hin26] Lemma 8.2, (8.7), Cor 8.7	D	Corollary 8.7's condition reads beta_sctf < 3/2	D
+10.25	(b)	Prop 8.6 last step holds: decay improves to 3/2 - eps	[Hin26c] Thm 9.38(5); [Hin26] Prop 8.6	A	dimension-free as in 10.23(iv)	A
+10.26	(a)	Near Gamma_0, 2L strongly trapping admissible via positive inner product	[Hin26] Prop 8.3; [Hin26c] Def 5.8	C	below any eps > 0 for small eta	C
+10.26	(b)	Rotation of the angular plane needs no treatment on Tangherlini	[Hin26] Prop 8.3	?	the question does not arise	D
+10.27	(a)	Outgoing modes of D Ric are pure gauge, via harmonic decomposition	[AHW24] Thm 6.1(1); [KI03]	?	the sum converges with u's	H
+10.27	(b)	Prop 8.8 in 5D: proof runs as written, injectivity and index 0	[Hin26] Prop 8.8; [Hin26c] Thm 9.5	B	His proof then runs as written	B
+10.28	(a)	Prop 6.15 in 5D: corrections with no logarithm, orders raised by one	[Hin26] Prop 6.15, Lemmas 6.13-6.14	B	His proof runs with every order raised by one	B
+10.28	(b)	Prop 8.9 in 5D: mass and angular momenta gauge 1-forms in the classes	[Hin26] Prop 8.9, (8.19)-(8.20)	D	1 being no s0 root	D
+10.28	(i)	Gauge source orders from Lemma 6.14 hold as deduced from (3.21)	[Hin26] Lemma 6.14, (3.21)	?	deduced, as his Lemma 6.14 from his (3.21)	D
+10.29	(a)	Lemma 6.13 holds in 5D on the readings of 10.20	[Hin26] Lemma 6.13, Lemma 2.13	B	on the readings of 10.20	B
+10.29	(b)	Prop 6.18 (1)-(3) in 5D: corrections exist, -k no s0 root for 0<z<4	[Hin26] Prop 6.18(1)-(3); Lemma 2.15	D	-k being no s0 root for 0 < z < 4	D
+10.30	(a)	Class-root states in 5D carry Hin26's proof with leading terms one order faster	[Hin26] Prop 6.18(4)-(7); Lemmas 2.15, 6.13	B	His proof runs with the classes of (ii) and his ranges	B
+10.30	(b)	Tensor types carry no pure gauge state; their roots fall at l=2,3	[Hin26] Lemma 6.13; section 8.5; 10.24(ii)	D	their roots -l and l + 2 (10.24(ii)) fall, at l = 2, 3	D
+10.30	(c)	Injectivity of symmetric gradient at sl, vl for every l>=2 and every lambda	[Hin26] remark after (2.46c), p. 67	B	in five dimensions as in four	B
+10.31	(a)	Adjoint zero-energy invertibility holds with density shifted by two	[Hin26] Lemma 7.2, (7.10); 10.21(e)	B	his (7.10) with the density rho^-4 in place of rho^-3	B
+10.31	(b)	Prop 7.3 gives eleven dual states in 5D against his seven	[Hin26] Prop 7.3, (7.14)-(7.16)	B	His proof runs with (a).	B
+10.31	(c)	Rotation dual-state count falls from six to two at small spin	[Hin26] Prop 7.4; section 7.2.1 (7.16)	D	falls from six at a = 0 to two for small a != 0	D
+10.32	(a)	Pairing entries equal -8 pi M-dot, -8 pi J-dot, 4 pi M(q.c) in both dimensions	[Hin26] Prop 8.11; Prop 10.29; [Hin23b] Thm 9.6	D	In both dimensions the entries are -8 pi M-dot	D
+10.32	(b)	Lemma 8.12 carries over at a=0; undetermined entries are zero	[Hin26] Lemma 8.12; [Hin23b] Thm 9.6; [Hin24b] Lemma 3.17	B	uses only integration by parts and decay, so his Lemma 8.12	B
+10.32	(c)	Kernel and cokernel at least eleven, equal by his argument with AHW24	[Hin26] Prop 8.11, Prop 8.9; [AHW24] Thm 6.1(2)	B	Equality is his kernel argument, which runs as his	B
+10.32	(d)	Corollary 8.13 holds with eleven for seven; uses only dimension and pairings	[Hin26] Corollary 8.13	A	uses only the (co)kernel's dimension and the pairings	A
+10.33	(a)	AHW24 Thm 6.1(2) on 5D Tangherlini, harmonic by harmonic	[AHW24] Thm 6.1(2); [KI03] section 4	?	Harmonic by harmonic, each component in the class	H
+10.33	(b)	Tensor and vector types with l>=2 vanish by integral identity	[Hin26] Prop 10.30(i)-(ii)	D	the exponent l > 0 is excluded	D
+10.33	(c)	Scalar type l>=2 gives no nonzero stationary solution	[KI03] gauge; Prop 10.30(iii); Prop 10.24(v)	D	which excludes the exponent l + 3/2 >= 7/2	D
+10.33	(d)	l=0 and vector l=1 leave only mass, rotations and pure gauge	[AHW24]; Prop 10.30(iv)-(v)	D	with a = 0 by the decay	D
+10.33	(e)	Scalar l=1 gauge 1-form bounded; sum over harmonics converges	Prop 10.30(vi); Prop 10.24(v); 10.27(a)	D	the sum over the harmonics converges with h's	D
+10.33	(f)	Near Tangherlini dim ker = 11 needs upper semicontinuity in b	[Hin26] Cor 8.13 proof; [Vas13] 2.7; [Hin26c] 9.2.3	C	the kernel's dimension upper semicontinuous in b	C
+10.33	(g)	Without decay, rescalings and rigid rotations enter; tidal growth is not pure gauge	[AHW24] stationary omega; (b)-(c) above	D	of order r^l, r^l and r^(l + 3/2)	D
+10.34	(a)	Unique smooth stationary state at Tangherlini for each l>=2, growing like r^l	[Hin26] section 8.5, Prop 8.14; Prop 10.31(ii)	D	every higher l so far as -l is simple	D
+10.34	(b)	Lemma 8.15 pairings near a=0 solvable by perturbation with so(4) bracket	[Hin26] Lemma 8.15, Prop 7.4, Remark 8.10	C	Near a = 0 it is a perturbation of the decoupled one	C
+10.34	(c)	Prop 8.14 Steps 0-5 run near Tangherlini for l=2,3 with modifications	[Hin26] Prop 8.14; 10.33(f); 10.31(c)	B	his Steps 0-5 run, Step 2 as modified	B
+10.35	(a)	Iota+ order alpha_5 is 3/2+O(gam) by four-dimensional bookkeeping	[Hin26] (1.19), (5.28), Prop 11.16; 10.24	D	The same bookkeeping in five dimensions gives alpha_5	D
+10.35	(b)	Pole of resolvent at zero energy has order 2, as in four dimensions	[Hin26] p. 34 footnote 35; Prop 10.29(iii)	D	a pole of order 2 at 0 as in four dimensions	D
+10.35	(c)	Window is [alpha_5 - 4, 0]; physical states s2, v2, t2 at -2	[Hin26] Prop 10.32(ii); Prop 8.14	D	Hence five dimensions needs [alpha_5 - 4, 0]	D
+10.35	(d)	Four dimensions: alpha=1 returns his window [-3, 0]	[Hin26] (9.32); Prop 10.32(ii)	D	At alpha = 1, (ii) returns his window	D
+10.36	(a)	Deformation tensor equals family derivative along bracket; defined on all of so(4)	[Hin26] Lemma 7.5, (7.20); Prop 10.33(ii)-(iii); [ER08]	?	is chosen equivariantly is a reading	D
+10.36	(b)	Prop 7.4 in 5D at every spin; leading term at rho^3	[Hin26] Prop 7.4, (7.33)	B	His proof runs with (a)	B
+10.36	(c)	Space of rotations giving (7.16) jumps six to four to two	[Hin26] section 7.2.1, discontinuity p. 140	D	six-dimensional at a = 0, four-dimensional at a = +-b	D
+10.36	(d)	Spin condition of 10.34(c) and 10.35(c) holds on the readings	[Hin26] Prop 7.4, Lemma 7.5, (7.19)	?	on the readings of (a) and (b)	S
+10.36	(e)	On Kerr the same computation gives Lemma 7.5's structure	[ER08]; [Hin26] Lemma 7.5	?	On Kerr the same computation gives his Lemma 7.5's structure	N
+10.37	(a)	Pure resonant state at lam+1 from lam; spectrum closed under shift	[Hin26] (9.11)-(9.17); Def 9.6	D	since c v^lam is not O(v^nu) at oo	D
+10.37	(b)	Descent: nonzero moment gives root of det N at lam-1	[Hin26] Prop 9.2, (9.17)	D	Re nu_k + 1 < Re lam < Re mu_j + 1	D
+10.37	(c)	Injectivity half of Prop 9.2(2) carries over to five dimensions	[Hin26] Prop 9.2(2) and proof, p. 166	B	carries over with v d_v - 3/2 - S-bar	B
+10.37	(d)	Descent applies between 1 and 5/2; resonances sit at box^C roots	[Hin26] Prop 8.6, Prop 10.24; (b)-(c) above	D	(b) applies whenever 1 < Re lam < 5/2	D
+10.37	(e)	Candidate resonant state at gam_C=10,100 carried to record's point	[Hin26] Def 9.6; Hurwitz theorem	C	Hurwitz's theorem carries the zero along the candidate	C
+10.37	(f)	No pure resonance at real part <=2; pure part of E_+ lies above 2	[Hin26] (1.19), E_K; 10.35	D	so the pure resonance part of E_+ lies above 2	D
+10.38	(a)	Perturbation couplings move null-infinity exponent up by 1/2	[Hin26] (5.26a), (5.28), (5.36); Def 5.13	A	which do not see the dimension	A
+10.38	(b)	Null-infinity decay rates r^(-3/2-z) per component	[Hin26] Def 5.2, (5.42), Prop 5.11	D	his rates with 3/2 for 1	D
+10.38	(c)	(7,4) couples pi_01 into 11-component; (7,6) half an order lower	[Hin26] Prop 5.14, footnote 27, Lemma 11.15	D	reaches the 11-component at 3/2 + 1/2 = 2	D
+10.38	(d)	Radiative order reaches iota+ only via resonant state; lam_1 >= 2	[Hin26] (9.17), Def 9.3; 10.37(c)-(d)	D	Hence lam_1 >= 2	D
+10.38	(e)	Slowest iota+ term is mass aspect t*^-2; alpha_5 = 2	[Hin26] Thm M(c), (11.2); 10.37	D	alpha_5 = 2 by both channels	D
+10.38	(f)	Four dimensions: radiative order is Coulombic; E-sharp element attainment not examined	[Hin26] E-sharp_+; Lemma 8.4	?	his index sets are upper bounds	N
+10.39	(a)	Naive augmentation entries decay like r^-3, one order better than his	[Hin26] (10.5), (10.9a)-(10.9b), (10.24a)	D	every entry of (10.5) is in A^3, one order better	D
+10.39	(b)	Stationary tensor in A^q lies in weighted space for l<q-2	[Hin26] Def 2.19, Lemma 2.20	D	since r^(2(l - q)) r^3 is integrable	D
+10.39	(c)	Cut-off states of iota+ order 4; Lemma 10.4 holds with tf order 3	[Hin26] (10.24a)-(10.24c), Lemma 10.4	D	iota+ order 4 >= 3 + eps_ind	D
+10.39	(d)	Prop 10.6 invertibility in 5D from kernel count and pairings	[Hin26] Prop 10.6, Prop 8.11, Lemma 8.12	B	where his 'only requires O(r^(-1-eta))-decay'	B
+10.39	(e)	Theorem 10.1 2-admissibility in 5D on the readings	[Hin26] Thm 10.1, Prop 10.7; [Hin26c] Thm 9.41	B	[Hin26c] Theorem 9.41 at n = 4	B
+10.39	(f)	Augmentation carries no logarithm in five dimensions	[Hin26] (10.13), Remark 10.8, (10.40)	?	In five dimensions the augmentation tensors are chi_K times the states	D
+10.40	(a)	Lemmas 10.9-10.11 lossless in 5D on the readings	[Hin26] Lemmas 10.9-10.11; [Hin26c] Thm 9.16(5)	?	They are lossless as his	B
+10.40	(b)	Derivative columns carry states' own weights; scf weights 1-eps, 2-eps	[Hin26] Lemma 10.12, (10.54), (10.57); (2.25a)	D	scf weights 1 - eps and 2 - eps	D
+10.40	(c)	Lemma 10.13 gives loss-free estimate in 5D	[Hin26] Lemma 10.13; [Hin26c] Lemma 14.6	A	Lemma 10.13 does not see the dimension	A
+10.40	(d)	Margin reading of (10.52): bound at s'=s fails, conclusion unaffected	[Hin26] (10.52), Remark 10.2, (10.63)	D	s' + alpha' < -1/2 at s' = s would ask the latter	D
+10.40	(e)	Downstream loss delta may be taken 0 in five dimensions	[Hin26] Cor 11.10, Thm 11.12	D	delta may be taken 0 there	D
+10.41	(a)	Definition 5.13 admits delta=0; alpha_sf+2 replaces alpha_sf+3/2	[Hin26c] Def 5.13, Remark 5.14; 10.40(c)	?	delta = 0 is admitted, so section 10.40(c)'s hedge goes	D
+10.41	(b)	(13.30a) at n=4; rest of Lemma 13.13 proof a reading at n=4	[Hin26c] (13.30a), Lemma 13.13	B	is, at n = 4, a reading	B
+10.41	(c)	Lemmas 14.6 and 10.13 hold at every n	[Hin26c] Lemma 14.6; [Hin26] Lemma 10.13	A	the lemma holds at every n	A
+10.41	(d)	Paley-Wiener argument is in t* alone, so dimension does not enter	[Hin26c] Thm 12.2, section 14.1; Thms 9.41, 9.16, 9.5(6)	A	The Paley-Wiener argument is in t* alone	A
+10.41	(e)	Readings remaining at n=4 listed	[Hin26c] Lemma 3.9, Lemma 13.13, Lemma 14.6, Thms 9.5, 9.16, 9.41	?	these stay readings at n = 4	S
+10.42	(a)	Background differences of iota+ order 2,3,2; E+ one order up	[Hin26] Def 11.3, Remark 11.7, (11.6), (11.10)	D	every order there one above his	D
+10.42	(b)	Lemma 11.5: h at 2-eps at iota+; l_+ bound relaxes	[Hin26] Lemma 11.5, (11.14); [Hin26c] Def 5.15	D	puts h at 2 - eps at iota+ where his is 1 - eps	D
+10.42	(c)	Patched curvature in rho_+^4; conclusion one order higher	[Hin26] Prop 11.6, Prop 11.8, Cor 11.9	D	his conclusion, one order higher	D
+10.42	(d)	Cor 11.10 admissibility for l_+ in (0,1), l_K in (2,2+eps_K]	[Hin26] Cor 11.10; [Hin26c] Def 5.15, 5.18, (5.23)	D	admissible relative to L_b of class	D
+10.42	(e)	Theorem 11.12 at n=4 as reading with delta=0	[Hin26] Thm 11.12; [Hin26c] Thm 11.1	B	[Hin26c] Theorem 11.1 at n = 4, a reading	B
+10.43	(a)	Equivariance: P and its linearisations commute with G	[Hin26] Prop 11.20-type operator; [Hin26c] spaces	?	P and its linearizations commute with G	G
+10.43	(b)	Invariant parameters: A=0; G-fixed S_l vanish at odd l	[Hin26] Prop 12.3 parameters; 10.40(ii)	D	the G-fixed S_l vanish at odd l	D
+10.43	(c)	Steps 2, 4, 5, 6 reduce to G-fixed parts; Steps 1 and 3 as his	[Hin26] sections 11.4, 11.6, 11.7, 11.8	B	Steps 1 and 3 as his	B
+10.43	(d)	Only mass state and time-translation dual state are G-invariant	[Hin26] 10.28, 10.29, 10.31, 10.34	D	only the mass state and the time translation's dual state are G-invariant	D
+10.43	(e)	Phi and Nash-Moser scheme run on G-fixed spaces by averaging	[Hin26] section 12.2, Thm 12.8, Cor 11.66; [SR89]	?	replacing each solution by its G-average	G
+10.44	(a)	I+ normal operator in 5D: components one order below h's	[Hin26] (11.26); 10.38(i), 10.38(a)	D	so of I+ order one below h's	D
+10.44	(b)	Index sets E^C_I and E_I,11 in 5D; (2,0) for (7,6) term	[Hin26] Def 5.3, (5.5)-(5.8)	D	min Re E^C_I > 3/2 + 2 gam_Ups	D
+10.44	(c)	Lemma 11.15 and Prop 11.14 proofs run in 5D with l_I bound	[Hin26] Lemma 11.15, Prop 11.14; Lemmas 2.12, 2.23	B	His proofs run with (a)-(b)	B
+10.44	(d)	Prop 11.16 index set gains (2,0) and (3/2+(1-e)gam,0)	[Hin26] Prop 11.16, (11.33a)-(11.33b)	D	so E^#(1)_+ = E-breve_+ u {(2, 0)}	D
+10.44	(e)	E_+ minimum 3/2+(1-e)gam without the 10.38 readings; 10.42 still holds	[Hin26] Cor 11.9-11.10, Thm 11.12	D	min Re E_+ = 3/2 + (1 - e_Ups) gam_Ups	D
+10.45	(a)	Restricted to G-invariant elements, augmented operator invertible with mass only	[Hin26] Prop 10.6; 10.43(a),(d); Prop 10.40(ii)	?	restricted by equivariance	G
+10.45	(b)	Props 11.17, 11.32 in class with h_s1=0; one integration suffices	[Hin26] Props 11.17, 11.32, 11.20, (11.114)	B	His proofs run with h_s1 = 0	B
+10.45	(c)	Prop 11.34 and Cor 11.46 in class: u~ of K+ order alpha_K-1	[Hin26] Prop 11.34, (11.117), Def 11.40, Lemma 11.45	D	u~ of K+ order alpha_K - 1	D
+10.45	(d)	h needs K+ order alpha_K+eps: 1+eps_K+eps against his 2+eps_K	[Hin26] (11.19), (11.116), Remark 11.4	D	1 + eps_K + eps in the class against his 2 + eps_K	D
+10.45	(e)	Steps 1-4 hold in 5D as one statement in the class	[Hin26] sections 11.3-11.6; [Hin26c] Prop 13.18, Cor 13.17	B	his Steps 1-4 hold in five dimensions as one statement	B
+10.46	(a)	Class's Prop 11.51 induction gives unique mass parameter with K+ order alpha_K - 1	[Hin26] Prop 11.51	B	His proof inducts in eps_K-steps on the K+ order	B
+10.46	(b)	Theorem 11.59 holds in class with unique G-fixed p-vec' and recorded parameters below order 3+eps_K	[Hin26] Thm 11.59; Remark 11.60	B	His proof runs with (ii)'s list in place of	B
+10.46	(c)	h of K+ order 3+eps_K suffices, since sources need 3+eps_K	[Hin26] Remark 11.61	D	h of K+ order 3 + eps_K suffices	D
+10.46	(d)	Corollary 11.66 in class: unique p-vec', q-vec' give forward solution in target space	[Hin26] Cor 11.66; p. 294 lemma; (9.37)	D	(L - L_b) h_b,rem has K+ order 2(2 + eps_K)	D
+10.46	(e)	Weights lie in five-dimensional gaps; (2.27) holds at n=4 by reading of Prop 2.25	[Hin26] (2.27); Prop 2.25	B	at n = 4 it rests on Proposition 2.25's density shifts	B
+10.46	-	Class iota+ index sets take (2,0) in place of (1,0); alpha_min bounds all elements	[Hin26] p. 221; Remark 11.7; (11.87); (11.151)	D	takes E_+^G with (2, 0) in place of his (1, 0)	D
+10.47	(a)	Definition 12.1 in class: data reduce to mass, iota+ data, tail; index sets one order below	[Hin26] Def 12.1; (12.11)-(12.16)	D	m_rem in H-dot^(k, 2+eps_K)	D
+10.47	(b)	Five-dimensional iota+ spectrum: finitely many resonances below 3+eps_+, none with real part at most 2	[Hin26] (9.49); Prop 9.2(2); Def 9.19	D	none with real part at most 2	D
+10.47	(c)	Phi commutes with O(4), hence with G, by canonical construction	[Hin26] Lemma 9.14; Prop 9.4(2); Cor 9.18	?	Phi commutes with O(4) on all of D^oo	G
+10.47	(d)	Theorem 12.3 in class: Phi(U) G-invariant; P(Phi(U)) in target space with 3+eps_K	[Hin26] Thm 12.3; (12.31); Prop 10.42(ii)	B	his (12.31) with 3 + eps_K for 4 + eps_K	B
+10.47	(e)	Theorem 12.8 in class: U' G-invariant, D_U Phi(U') = f with tame estimates	[Hin26] Thm 12.8; Remark 12.9; Cor 11.66	B	His proof reads U' off the forward solution	B
+10.48	(a)	Class of perturbations in five dims: every exponent of E^tot_I at least 3/2	[Hin26] Def 5.3; (5.5)-(5.8); 10.44(a)	D	Every exponent of E^tot_I is then at least 3/2	D
+10.48	(b)	Operator and Props 5.11, 5.14, Cor 5.15 in five dims carry over with orders unchanged	[Hin26] Prop 5.11; Prop 5.14; Cor 5.15; (5.46)	B	with (5.46)'s orders unchanged	B
+10.48	(c)	Theorem 5.17 holds in five dims by [Hin23a]'s proof, on a reading that its estimates hold at n=4	[Hin26] Thm 5.17; [Hin23a] Cor 3.36; [SR89]	B	on the reading that [Hin23a]'s estimates hold at n = 4	B
+10.48	(d)	Theorem 5.21 in five dims: Step 1 dimension-free; Step 2 holds given gam_Ups < 1/4	[Hin26] Thm 5.21; (5.58)-(5.60); Props 11.14-11.16	A	does not see the dimension once	A
+10.48	(e)	Theorem 5.23 in class: S=0, h_0 = h, and h_0 is G-invariant by uniqueness	[Hin26] Thm 5.23; Remark 5.24; (13.5)	?	h_0 is G-invariant by uniqueness	G
+10.49	-	Theorem 13.1 holds in five-dimensional Tangherlini for small G-invariant data with stated index sets	[Hin26] Thm 13.1; Thms 5.23, 12.3, 12.8	?	in five-dimensional Tangherlini of mass m_0	S
+10.49	(a)	Step 1: constraint damping Theorem 7.1 holds in five dimensions with gam_Ups = 1/100	[Hin26] Thm 7.1; Props 6.12, 8.6	B	in five dimensions (10.21-10.23, Phase B's B4)	B
+10.49	(b)	Step 2: gauged Cauchy data construction is dimension-free on its face, given as a reading	[Hin26] Prop 5.25; (5.80)-(5.81)	A	dimension-free on its face, a reading	A
+10.49	(c)	Step 3: SR89 assumptions (1)-(4) verified for P o Psi on the class spaces	[Hin26] Thm 12.3; Thm 12.8; [SR89]	?	tame estimates of Phi as his	A
+10.49	(d)	Step 4: metric, gauge and Ric(g)=0 conclusions are dimension-free; weakest K+ decay 2+eps_K	[Hin26] Thm 13.1, Step 4; second Bianchi identity	A	are dimension-free	A
+10.49	-	Phase A complete conditional on readings; the statement is deduced, not proved	[Hin26] Thm 13.1; record's 10.13-10.48 readings	?	The statement above is deduced, not proved	S
+10.50	(a)	After the shell oscillating profiles vanish; metric is Tangherlini of mass mu_end plus smooth terms	record's Lemma 6.2; Lemma 5.3(c); (0.1)	?	so env = 0 there	E
+10.50	(b)	A slice tau1 exists in v_end - a < tau1 <= tau_end once T is large	record's (1.1); Lemma 1.1	D	such tau1 exist once T > r_q(mu_end) - a	D
+10.50	(c)	Solution extended beyond Omega by gluing to Tangherlini; smooth O(lam) perturbation between	record's Theorem D; Prop 10.40(i); Lemma 1.1(e)	C	a smooth O(lam) perturbation of Tangherlini	C
+10.50	(d)	Slice data O(lam) in H^d of Tangherlini(m), so 10.49's hypotheses hold for small lam	record's Theorems E and D; 10.49	C	is O(lam) in H^d	C
+10.50	(e)	Maximal development settles to Tangherlini of mass m' with |m'-m| small for small lam	record's maximal development; 10.49 readings	C	with |m' - m| small	C
+10.51	(a)	k=6 enters via Sobolev bound i <= 4 and commutator split; Theorem E holds at order k	record's Lemma 2.1; Steps 1, 4, 8; [DS23] Thm 2.4	D	so i <= 4 at k = 6	D
+10.51	(b)	Bootstrap closes when 2K - 5 >= K + 1, i.e. K >= 6, for every k	record's Step 4 (C M^2 lam^(2K-5))	D	when K is at least 6	D
+10.51	(c)	Inputs at every order: Theorem A residual and Prop 6.5 bound hold for every order k	record's Theorem A (5.4); Proposition 6.5	A	lam0 independent of the order	A
+10.51	(d)	Unscaled norms give remainder O(lam) in H^d once k >= d and K >= d+1	record's N_k bound; 10.50(d)	D	so the remainder is O(lam) in H^d	D
+10.52	-	Lemma 8.4 holds in five dimensions at the point for every l; simplicity and (8.13) by computed counts	[Hin26] Lemma 8.4; (8.13); 10.24(a); 10.52(i)-(ii)	D	gave the gap and the counts for every l	D
+10.53	(a)	Definitions, Thm 9.38, Cor 9.39, Prop 9.40 carry n and hold at n=4 as printed	[Hin26c] Def 9.4; Thm 9.38; Cor 9.39; Prop 9.40	A	they hold as printed	A
+10.53	(b)	n=3 numerals become n=4 numerals via the b-density substitution	[Hin26c] Lemma 3.11; Thms 9.36, 9.41; Cor 9.43	D	holds with alpha + 2 for alpha + 3/2	D
+10.53	(c)	Kernel elements at nonzero frequency lie in A^(3/2+S-bar-eps) at n=4	[Hin26c] Thm 9.5(5); Thm 9.38	D	Theorem 9.5(5)'s exponent 1 + S-bar is (n - 1)/2 + S-bar	D
+10.53	(d)	Bundle step: scalar-to-bundle remark is the same at n=3 and n=4	[Hin26c] Section 9; Prop 9.40	A	the same at n = 3 as at n = 4	A
+10.53	(e)	Theorem 9.16 holds at n=4 on a reading; its proof sections 9.3.1-9.3.5 unchecked	[Hin26c] Thm 9.16; Prop 4.24; Props 9.25-9.28	B	sections 9.3.1-9.3.5 were not checked line by line at n = 4	B
+10.54	(a)	Theorem 4.9 in five dims at the point: Re lam >= 2 or < -100 for every h in (0, 10^-6]	[Hin26a] Thm 4.9; Prop 10.44 (uniform5.py H1-H2)	B	This is his Theorem 4.9 with 2 for his 1	B
+10.54	(b)	Every conclusion drawn from Prop 10.9 at the point holds for every h in (0, 10^-6]	record's Prop 10.9; 10.21(d); 10.24(a); 10.35	C	holds for every h in (0, 10^-6]	C
+10.54	(c)	Symbols free of h; quantities proportional to gam_C grow as h falls and are used as lower bounds	record's 10.13; 10.14-10.15; 10.23; 10.26	C	The quantities proportional to gam_C = 1/h grow as h falls	C
+10.54	(d)	Simplicity and (8.13) hold for h off a countable set	record's 10.52(i); (8.13); damping5.py U3	C	fails for at most finitely many h	C
+10.54	(e)	Horizon threshold of box^C holds for every h below some bound h_2	record's 10.21(d); [Hin26a] Lemmas 3.2, 3.5	C	the threshold holds for every h below some h_2 > 0	C
+10.54	-	B5 discharged; B6 deduced: threshold holds for small h, bound h_2 not computed	record's 10.54(a)-(e)	?	B6 is deduced, the threshold holding	S
+10.55	(a)	Operators on Tangherlini differ from Minkowski model two orders below; indicial families are the model's	[Hin26c] Example 5.4; [Hin26] p. 118; record's 10.12, 10.15	D	in rho^4 Diff^2_b against the model's rho^2 Diff^2_b	D
+10.55	(b)	Index 0 and kernel class at nonzero frequency hold at n=4 on 10.53(e)'s reading	[Hin26c] Thm 9.5(3); Thm 9.16(3); Thm 9.5(5)	B	so at n = 4 on 10.53(e)'s reading of Theorem 9.16	B
+10.55	(c)	Standard interior uniqueness: kernel vanishing outside horizon vanishes inside it	record's 10.16, 10.27; Frobenius theory	?	its Frobenius exponents are finitely many	E
+10.55	-	B9 discharged by computation; B7 deduced on 10.53(e)'s reading	record's 10.45; 10.53(e); 10.55(a)-(c)	?	B7 is deduced, the index 0 at nonzero frequency	S
+10.56	(a)	Theorem 5.2 holds at n=4 for every small h, given commutator signs equal the 5d symbol signs	[Hin26a] Thm 5.2; Lemmas 3.5, 3.8; (5.14); [Hin23d]	A	The calculus is stated for general dimension	A
+10.56	(b)	Theorem 6.2 holds at n=4 via Theorem 5.2, Theorem 4.9 and index 0	[Hin26a] Thm 6.2; Thm 4.9; Thm 5.2	B	His proof needs Theorem 5.2	B
+10.56	(c)	Theorem B.1 index argument holds at n=4 with computed flat roots	[Hin26a] Thm B.1; Thm 4.9(3); record's 10.23	D	computed roots, -3, -2 | 0, 1 at l = 0	D
+10.56	-	B4 deduced at source with one reading left (sign of commutators)	record's 10.56(a)-(c)	?	B4 is deduced at source with one reading left	S
+10.57	(a)	Dimension enters via radiative order, densities and Sobolev index: d_4 = 3 in place of d_3 = 2	[Hin23a] Prop 3.32; Lemma 3.33; Thm 3.35	D	d_4 = 3 in place of d_3 = 2	D
+10.57	(b)	Prop 3.29 at n=4: A_g lower triangular with h-free diagonal, so sharp-weight step holds	[Hin23a] Prop 3.29; Lemma 3.33; record's 10.38; 10.44(ii)	D	lower triangular with h-free diagonal	D
+10.57	(c)	Theorem 3.35 not needed; record's spaces carry no radiation field at iteration weight	[Hin23a] Thm 3.35; [Hin26] p. 102; record's 10.48(a)	?	Theorem 3.35 not needed	D
+10.57	(d)	Corollary 3.36 at n=4 applies with finite loss; gauge and Ricci flatness hold in any dimension	[Hin23a] Cor 3.36; [SR89]; second Bianchi identity	A	in any dimension	A
+10.57	-	B10 deduced at source; order count and gain read, not computed	[Hin23a] (1)-(4); record's 10.57(a)-(d)	?	B10 is deduced at source	S
+10.58	(a)	(2.25)-(2.27) are Minkowski algebra in (t*, r) and do not see n; numerals become n=4 values	[Hin26c] (2.25)-(2.27); (5.1a); (5.7); Def 9.4	A	do not see n beyond the round sphere's	A
+10.58	(b)	Dynamics near I+ and iota+ are free of n; horizon dynamics five-dimensional, computed in 10.17-10.18	[Hin26c] Sections 7-8; (2.27); (4.67); record's 10.17-10.18	A	free of n	A
+10.58	(c)	Defs 5.13, 5.15, 5.18, Thms 10.1, 11.1, Prop 13.18, Cor 13.17 hold at n=4 on one reading	[Hin26c] Defs 5.13, 5.15, 5.18; Thms 10.1, 11.1; Prop 13.18	B	hold at n = 4 with (a)'s numerals, on one reading	B
+10.58	-	B3 deduced at source; numerals accounted for; one reading (c) left	record's 10.58(a)-(c)	?	B3 is deduced at source	S
+10.59	(a)	(2.27) holds at n=4 as printed; 10.46(e) reading discharged	[Hin26] Prop 2.25; 10.42(e); 10.58(a)	A	Proposition 2.25 is stated on X = R^n	A
+10.59	(b)	Iota+ resonance locations unneeded; finiteness and exponents feed K+ bookkeeping, checked over interval	[Hin26] Prop 9.2(2), Thm 12.3; sharp5.py K3	D	sharp5.py K3 checks for every iota+ exponent	D
+10.59	(c)	Exceptional exponent 2 stays above alpha_min on either reading, so conclusions hold	10.38(a); 10.57(b); 10.46	D	either way it is at least 2 > alpha_min	D
+10.59	(d)	C-ii gluing: CD03 method dimension-free; gluing needs only Tangherlini mass family	[CD03] Thm 7.7, Remark 8.2, p. 55	A	[CD03]'s method is dimension-free	A
+10.60	(a)	Operators g_A, L_b, box at b near b0 are small perturbations of b0 operators	[Hin26c] stationary wave-type operators; 10.12, 10.24, 10.52, 10.54	C	are small perturbations of those at b0	C
+10.60	(b)	High-energy strict conditions are open, so they hold for b near b0	[HPS77]; [Hin26] Remark 1.4; [Hin26c] Thm 9.5	C	the inequalities are open	C
+10.60	(c)	Invertibility at intermediate frequencies persists for b near b0	[HHV21] p. 90; 10.16, 10.21, 10.27	C	invertibility is open in (b, sigma)	C
+10.60	(d)	Low-energy invertibility and zero-energy count 11 persist near b0 by perturbation	[Hin26c] Thm 9.41; [HHV21] Lemma 11.1; [AHW24] Thm 6.1(2)	C	uniformly for small perturbations	C
+10.60	(e)	Inputs from AHW24 and Hin26a hold in five dimensions at every b near b0	[AHW24] Thm 6.1; [Hin26a]; [Hin26] Props 6.12, 7.1, 8.8, 8.11	C	with constants uniform in b near b0	C
+10.60	(f)	Lemma 8.15 handled by continuity; Lemma 7.5 at every spin carries over	[Hin26] Lemma 8.15, Prop 7.4, Lemmas 2.15, 7.2	B	which carry over as 10.29 and 10.31 carry them	B
+10.61	(a)	Iota+ index sets take five-dimensional orders; min Re 2 exceeds alpha_min	[Hin26] 10.44(e); Prop 10.46; 10.28	D	min Re is 2, above alpha_min	D
+10.61	(b)	Steps 1-4 of section 11 run with five-dimensional states and inputs	[Hin26] Props 11.17, 11.20, 11.30, 11.32, 11.34; Lemma 11.45; Cor 11.46	B	run with the five-dimensional states	B
+10.61	(c)	Steps 5-6 run with Proposition 10.46's lists in place of the alpha = 1 lists	[Hin26] Prop 11.51, Thm 11.59, Cor 11.66	B	run with Proposition 10.46's lists in place of	B
+10.61	(d)	Weights 3+eps_I and 3+eps_+ fit the five-dimensional gaps	[Hin26] Remark 11.61; 10.46(e); iplus5.py P2	D	in the five-dimensional gaps	D
+10.61	(e)	Section 11 holds in five dimensions without the class, recorded terms as parameters	[Hin26] section 11; 10.39-10.45, 10.53-10.58, 10.60	?	His section 11 in five dimensions without the class	S
+10.62	(a)	Definition 12.1 in five dimensions: parameter counts with Prop 10.46's lists	[Hin26] Def 12.1, (12.14)-(12.15); Prop 10.46	D	b in R + so(4) (seven)	D
+10.62	(b)	Theorems 12.3 and 12.8 proved with 10.61 in place of section 11	[Hin26] Thms 12.3, 12.8, (12.31)	B	His proofs with 10.61 in place of his section 11	B
+10.62	(c)	Section 5 boost pullback of Theorem 5.17 solutions holds at n = 4	[Hin26] sec 3.4; Thms 5.17, 5.23	B	at n = 4 on 10.48's readings	B
+10.62	(d)	Theorem 13.1 in five dimensions without the class, by Steps 1-4 with (a)-(c)	[Hin26] Thm 13.1, Rem 13.2; [SR89]; 10.49(c)	B	The proof is his Steps 1-4 with (a)-(c)	B
+10.63	(a)	Charge map of translated, rotated, boosted family is a local diffeomorphism near Tangherlini	[CD03] reference family condition 4; 10.47	C	by the inverse function theorem it is a diffeomorphism	C
+10.63	(b)	Parity replaced by decay for glued data; alpha_- = 3 exceeds needed exponents	[CD03] (E.9), (E.5b), (E.17), Prop E.1	D	alpha + alpha_- = 5 > n - 1	D
+10.63	(c)	C1-C2 without class: 10.50's construction runs with CD03 Theorem 8.1's proof	[CD03] Thm 7.7, Thm 8.1, Remark 8.4; 10.63(a)	B	runs with [CD03] Theorem 8.1's proof in five dimensions	B
+10.63	(d)	C3: boost and translation terms are small and lie in the class	[Hin26] Remark 13.2; 10.49 class; 10.62(d)	C	polyhomogeneous and small, which lie in	C
+10.64	(a)	Calculus is dimension-free; Lemma 3.6 holds with xbar_I from mu	[Hin23a] Lemma 3.6, sections 3.1-3.2; 10.57(1)	A	The calculus is dimension-free	A
+10.64	(b)	Prop 3.17 symmetry, multiplier and estimate (3.21) follow unchanged at n=4	[Hin23a] Prop 3.17, (3.21), (3.22)	B	follow unchanged	B
+10.64	(c)	Projections use trace over S^3 with factor 1/3; spaces k >= 3	[Hin23a] Notation 3.22, Definitions 3.19-3.20	D	carry (1/3) g-slash^(ab) h_(ab), the trace over S^3	D
+10.64	(d)	Each h-dependent order gains rho^(1/2) and factor r^-(3/2)	[Hin23a] Lemmas 3.23-3.28, Cor 3.26	D	Each h-dependent order gains rho^(1/2)	D
+10.64	(e)	At n=4 h-dependent entries join the remainder; sharp-weight hypothesis holds outright	[Hin23a] Prop 3.29; X4, X5, X7	B	the hypothesis of his sharp-weight step holds outright	B
+10.64	(f)	Corollary 3.31's (3.49) holds with A; no leading radiation term at n=4	[Hin23a] Cor 3.31, (3.47), (3.49); X5	B	(3.47) at n = 4 reads	B
+10.64	(g)	Prop 3.32 basic and tame estimates are his, with A^0_h term absent	[Hin23a] Prop 3.32, (3.51), (3.53), Lemma 3.33	B	The basic estimate (3.53) is (b)'s	B
+10.64	(h)	Decay recovery: least positive eigenvalue -gamma_Ups in both dimensions	[Hin23a] Theorem 3.35; X4	D	whose least positive entry is -gamma_Ups in both dimensions	D
+10.64	(i)	Finite loss of derivatives suffices; gauge and Ricci flatness hold in any dimension	[SR89]; [Hin23a] Cor 3.36; 10.57(d)	A	by the second Bianchi identity in any dimension	A
+10.65	(a)	Semiclassical 3b-calculus constructed on R_t x R^(n-1) for every n	[Hin23d] pp. 3, 7, 10-12, 109; [Hin26a] section 2.3	A	is constructed on R_t x R^(n-1)_x for every n	A
+10.65	(b)	Commutator principal-symbol identities; dimension enters only through l, j, S, w	[Hin26a] Props 5.1(3)-(6), 5.8, 5.9, 5.11, 5.12	A	does not see the dimension	A
+10.65	(c)	Elliptic, fibre-infinity and energy estimates hold at n=4	[Hin26a] Lemmas 3.5, 3.7, 5.14; Cor 5.15; Prop 5.17	A	do not see the dimension	A
+10.66	(a)	Thm 3.19, Lemma 3.18, (8.2), constraint map, Prop 5.10, Cor 5.11 hold for every n	[CD03] Thm 3.19, Lemma 3.18, Prop 5.10, Cor 5.11	A	All are stated for every n	A
+10.66	(b)	Proof's KIDs number 15; Q in R^15; chi in C^oo(R^4)	[CD03] Thm 8.1 proof; 10.49 (D1)	D	Q in R^15; chi in C^oo(R^4)	D
+10.66	(c)	Index beta = min(alpha, n-2) is 2; t = k+6 embeds; Thm 5.6 gives (8.5)	[CD03] (8.3)-(8.5), Thm 5.6, (5.2)	D	beta := min(alpha, n - 2), which is 2	D
+10.66	(d)	Error terms lie below main terms when 2 alpha > n - 2	[CD03] (8.6)-(8.7), (E.17), (E.19), (E.20)	D	Both lie below the main terms when 2 alpha > n - 2	D
+10.66	(e)	Charge map a local diffeomorphism, hence homeomorphism onto set containing a ball	[CD03] Thm 3.19, Thm 8.1 proof; 10.63(a)	C	is a local diffeomorphism near Tangherlini, hence a homeomorphism	C
+10.66	(f)	Theorem 5.23's small-S statement carries over with S_1 ~= R^4	[Hin26] Thm 5.23, sec 3.4, Lemma 3.19	B	carries over with S_1 ~= R^4	B
+10.66	(g)	Prop 11.30(2) operator is identity plus o(1), invertible for small (h, b, S)	[Hin26] Prop 11.30(2), Defs 11.25, 11.37, 11.40, 12.1	C	is the identity plus o(1) on a four-dimensional space	C
+10.67	(a)	Section 7 positive commutator estimates hold at n=4 with counts changed as E4 states	[Hin26c] Props 7.4-7.9, 7.11; Lemmas 7.12-7.21; 10.50	B	Lemmas 7.12-7.21 commute the fields V_1, V_2	B
+10.67	(b)	Section 8 energy identity holds at n=4; Theorem 8.14 follows	[Hin26c] Lemma 8.1, Props 8.3, 8.6, 8.9, Lemma 8.8, Thm 8.14	B	Theorem 8.14 follows at n = 4	B
+10.67	(c)	Section 9.3 stated for a general stationary wave operator; (9.73) numeral 3/2 at n=4	[Hin26c] Thm 9.16, Thm 9.28, (9.73); 10.53(a); 10.50	A	are stated for a general stationary wave operator	A
+10.68	(a)	Lemma 11.1 at n=4: proof uses only finite N, here N=11; dim ker 11 near b0	[HHV21] Lemma 11.1 and proof; 10.32-10.33; 10.60(d)	A	uses of the dimension only N = dim K = dim R-perp	A
+10.68	(b)	Openness of invertibility of a family continuous in (b, sigma)	[HHV21] p. 90, Lemma 10.9; 10.24, 10.52	C	Invertibility of a family of bounded operators continuous in (b, sigma)	C
+10.68	(c)	Census counts and weights are four-dimensional instances; record uses five-dimensional ones	[HHV21] pp. 89-93; 10.24, 10.28-10.33	D	The counts (ranks 1, 4, 10	D
+10.69	(a)	[Hin23a] sweep hits of section 3 accounted for by 10.64's named places	[Hin23a] section 3 (pp. 9-33); X1-X6; 10.64	D	73 sphere hits on the round S^2	D
+10.69	(b)	[Hin26c] sweep hits accounted for by 10.67 and 10.53 named places	[Hin26c] sections 7-8, 9.3; E2-E4; 10.53	D	one codimension and one symbol class	D
+10.69	(c)	[Hin26] boost-section sweep hits accounted for by 10.61-10.62 and 10.66	[Hin26] pp. 77-81, 108-110, 238-326; D4	D	the harmonic parameter spaces S_2, S_3, V_2, V_3	D
+10.69	(d)	[HHV21] sweep hits are Lemma 11.1's 7 and Prop 11.3's 4 and 3, unused by record	[HHV21] Lemma 11.1, Prop 11.3, pp. 89-93; 10.68	D	which the record does not use	D
+10.69	(e)	[CD03] sweep hits accounted for by 10.63 and 10.66 named places	[CD03] Thm 8.1, Appendices E and F; 10.63; 10.66	D	Appendix E's n-expressions (D2)	D
+10.69	(f)	[Hin26a] sweep hit names one norm convention; r^3 and r^4 densities; estimate unchanged	[Hin26a] (5.74), pp. 62, 65; Lemma 5.14; Cor 5.15	D	p. 65's identity reads with r^3 and r^4	D

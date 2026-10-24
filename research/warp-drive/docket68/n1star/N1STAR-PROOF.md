@@ -8056,6 +8056,153 @@ proof level given their READ inputs. What (ii) leaves is the 60 B steps and the 
 
 Labels: READ (the three proofs above); deduced (the placing); nothing computed or proved here.
 
+### 10.73 The undecided rows: each read, and two lemmas (`synth5.py` S1-S3; D144)
+
+*The setting.* 10.70's first pass left 38 of the 248 deduced rows undecided. Each is read here in full and placed. Two
+kinds recur that 10.71-10.72 do not cover, steps by symmetry and sums over harmonics, and each is put at proof level by
+a lemma proved here.
+
+**Proposition 10.53 (computed; `synth5.py` S1-S3; exact).** On five-dimensional Tangherlini, with gmodes5.py's harmonics
+([KI03], n = 3, K = 1): (i) (scalar type, (Delta + k^2) S = 0) the 1-form omega = A_t S dt + A_r S dr + r^2 B (-D_i S/k)
+dz^i that removes f_a and H_T from h has B = -2 H_T/k and A_a = -(2 r/k)(f_a + (r/k) d_a H_T), every coefficient c(r)
+k^-p with p >= 1, and h - delta* omega then has [KI03] (2.7)'s gauge-invariant F and F_ab; (ii) (vector type, D^i V_i =
+0, (Delta + k_V^2) V = 0) delta*(r^2 B V_i dz^i) shifts f_a by (r/2) d_a B and H_T by -k_V B/2, so the gauge 1-form is B
+= -2 H_T/k_V; (iii) on S^3, Re (x_1 + i x_2)^l restricted has Delta = -l(l + 2) for l = 1, ..., 6, and l(l - 1) + 3 l =
+l(l + 2) for every l, so k^2 = l(l + 2) >= 8 for l >= 2. Controls: S^2, where -l(l + 1). Mutants: H_T's harmonic without
+its 1/k^2, where B carries k; the S^2 count claimed for S^3.
+
+**Lemma 10.54 (harmonic synthesis; proved).** Let E be the bundle of functions, 1-forms or symmetric 2-tensors over S^3,
+Lambda a nonnegative self-adjoint elliptic second-order operator on its sections commuting with the rotations (the type
+Laplacians whose eigenspaces the scalar, vector and tensor harmonics of each degree span), and P_j the orthogonal
+projections onto its eigenspaces, eigenvalues kappa_j^2 -> oo. Let u(r), r in an interval J, be sections with ||d_r^i
+u(r)||_(C^m(S^3)) <= C_m w_i(r) for i = 0, 1 and every m.
+
+ (i) ||d_r^i P_j u(r)||_(C^m) <= C_(m,N) (1 + kappa_j^2)^-N w_i(r) for every m and N, uniformly in r in J.
+
+ (ii) Let xi_j(r) = A_j(r)(P_j u(r), d_r P_j u(r)), A_j(r) linear into an eigenspace of a type Laplacian Lambda'
+     (possibly of another bundle) with eigenvalue kappa'_j^2 <= C (1 + kappa_j^2), and ||A_j(r)(v_0, v_1)||_(L^2) <= C
+     (1 + kappa_j^2)^M w(r) sum_i ||v_i||_(L^2)/w_i(r). Then sum_j xi_j(r) converges in every C^m(S^3), uniformly in r
+     in J, to xi(r) with ||xi(r)||_(C^m) <= C_m w(r). If the A_j are C^1 in r with the same bounds on d_r A_j, the
+     convergence holds in C^1 in r, and a differential operator in (r, omega) of order one passes to the sum.
+
+*Proof.* (i) P_j commutes with d_r and with Lambda, so P_j v = (1 + kappa_j^2)^-N P_j (1 + Lambda)^N v and ||P_j
+v||_(L^2) <= (1 + kappa_j^2)^-N ||(1 + Lambda)^N v||_(L^2) <= C_N (1 + kappa_j^2)^-N ||v||_(C^(2N)). On the eigenspace
+the elliptic estimate gives ||P_j v||_(H^(2q)) <= C_q (1 + kappa_j^2)^q ||P_j v||_(L^2), and H^(2q)(S^3) is in C^m for
+2q > m + 3/2 (Sobolev). Take v = d_r^i u(r). (ii) The same two steps for Lambda' give ||xi_j(r)||_(C^m) <= C (1 +
+kappa_j^2)^(q + M - N) w(r) by (i) in L^2. The number of eigenvalues of Lambda below K, counted with multiplicity, is
+O(K^(3/2)) (Weyl's law on S^3), so sum_j (1 + kappa_j^2)^-s converges for s > 3/2, and N > q + M + 3/2 gives the sum.
+The last sentence is the same bound for d_r xi_j and uniform convergence of the derivatives. []
+
+**Lemma 10.55 (equivariance; proved).** Let G be a compact group acting on Banach spaces X and Y by linear isometries,
+strongly continuously (g -> g x continuous for each x).
+
+ (E1) If F: U -> Y, U in X a G-invariant set, is equivariant (F(g x) = g F(x)) and F(x) = y has at most one solution in
+     U, then for G-invariant y that solution is G-invariant. *Proof.* F(g x) = g y = y and g x is in U, so g x = x. []
+
+ (E2) Pi x = int_G g x dg (Haar probability measure, Bochner integral) is a projection of X onto the fixed space X^G
+     with ||Pi|| <= 1, and Pi T = T Pi for every bounded equivariant linear T: X -> Y. So T x = y with y in Y^G gives
+     T(Pi x) = y; and an invertible equivariant T has an equivariant inverse, and restricts to an isomorphism X^G ->
+     Y^G. *Proof.* h Pi x = int h g x dg = Pi x by invariance of Haar measure; Pi x = x on X^G; ||Pi x|| <= int ||g x||
+     dg = ||x||; T passes through the Bochner integral and T g = g T. T^-1(g y) = T^-1 g T T^-1 y = T^-1 T g T^-1 y = g
+     T^-1 y. []
+
+ (E3) A composite of equivariant maps is equivariant; so is a map built by solving, step by step, equations that are
+     uniquely solvable and equivariant in their data (E1). []
+
+ (E4) If S_theta are smoothing operators on a scale X_s on each of which G acts isometrically, Pi S_theta Pi maps X^G_s
+     into X^G_t and satisfies their estimates with the same constants. *Proof.* ||Pi S_theta Pi x||_t <= ||S_theta Pi
+     x||_t <= C theta^(t - s) ||x||_s, and for x in X^G, ||(I - Pi S_theta Pi) x||_s = ||Pi (I - S_theta) x||_s <= ||(I
+     - S_theta) x||_s. []
+
+The rotations act isometrically and strongly continuously on the weighted b-Sobolev spaces of the record (their norms
+are built from rotation-invariant data, and continuity on a dense set extends), so the lemma applies to them with G the
+record's symmetry group.
+
+*Placed (deduced).* By DEDUCTIONS.tsv's rows, now with a column `final`:
+
+ (i) No step of their own (12). Summaries or assemblies of other rows (10): 10.36 (d), 10.41 (e), 10.49 (the statement
+     and the Phase A paragraph), the closing paragraphs of 10.54-10.58, 10.61 (e). Four-dimensional controls or remarks,
+     outside the five-dimensional chain (2): 10.36 (e), 10.38 (f).
+
+ (ii) Bookkeeping on computed values (10). 10.14 (c): t = t_s + int (mu r^-2/f) dr, so dt = dt_s + mu r^-2 f^-1 dr.
+     10.17 (b): on Gamma_0 the flow is the t-translation with the geodesic flow of the round S^3, isometric, so its
+     tangential expansion rate is 0, below the computed normal rate nu, which is r-normal hyperbolicity for every r by
+     its definition. 10.19 (c): the bicharacteristics' fates by C against 4 mu are the computed (iv). 10.21: the
+     reflection identity is K2's exact check. 10.26 (b): c is spherically symmetric, so the case is void. 10.28 (i):
+     coefficients in rho^2 C^oo and Christoffel symbols of order rho^3 give the stated orders by counting. 10.36 (a):
+     computed in mp5.py, with the equivariance g_(O A O^T)(O x) = O g_A(x) O^T that M2 computes for every basis
+     rotation, so the Kerr-Schild Myers-Perry family that route B uses is equivariant and the reading there is
+     discharged. 10.39 (f): the augmentation tensors are chi_K times the states, with no t*^-1 or log t* term. 10.41
+     (a): Definition 5.13 admits delta = 0 (READ), and alpha_sf + n/2 = alpha_sf + 2. 10.57 (c): Theorem 3.35 is not
+     invoked, the iteration's weight lying below the radiative order (10.48 (a), READ).
+
+ (iii) Applications of dimension-free results (3), now with their hypotheses placed. 10.22 (b), (d): Lemmas 3.5 and 3.7,
+     READ dimension-free at source (10.65 (c)), and Proposition 5.16's data in a compact set of C^oo by (i) there and c
+     in rho_sf C^oo. 10.49 (c): [SR89]'s abstract theorem, its assumptions (1)-(4) placed at 10.47 (d), the construction
+     of Phi (inverting model operators only), 10.47 (e) and 10.43 (e).
+
+ (iv) Elementary steps written out where they stand (5). 10.15 (c): the pairing with omega* and (a), (b), (v). 10.16
+     (c): with d omega = 0, Cartan's formula L_T omega = d(i_T omega) + i_T d omega gives d phi = -i sigma omega. 10.20
+     (iii): the sigma^2 coefficient of e^(i sigma t*) P e^(-i sigma t*) is -G(dt*, dt*) for any second-order P with
+     scalar principal symbol G (his Definition 9.4). 10.50 (a): induction on m from the record's Lemmas 5.3 (c) and 6.2.
+     10.55 (c): a solution of a system with analytic coefficients and a regular singular point at r_h that vanishes to
+     infinite order there is zero (Frobenius; Coddington and Levinson, chapter 4), then zero on (r_int, r_h) by
+     uniqueness for the regular system.
+
+ (v) Symmetry (5): 10.43 (a), (e), 10.45 (a), 10.47 (c), 10.48 (e), by Lemma 10.55. The inputs: every ingredient of P is
+     O(4)-invariant (listed in 10.43 (a)); forward solutions are unique (his, and [Hin26c]'s); S_1 has no G-fixed
+     element (Proposition 10.40 (ii), computed); Phi is built from unique solutions and invariant cut-offs (10.47 (c),
+     so E3); the smoothing operators are averaged (E4); 10.45 (a) restricts the invertible augmented operator (E2);
+     10.48 (e) is E1 with Theorem 5.17's uniqueness.
+
+ (vi) Sums over harmonics (2): 10.27 (a), 10.33 (a), by Lemma 10.54 with Proposition 10.53. For l >= 2 the gauge 1-forms
+     are (i)-(ii)'s, with coefficients r/k, r^2/k^2, 1/k and 1/k_V, bounded uniformly in l since k^2 >= 8 and k_V^2 is
+     bounded below over l >= 2 (the eigenvalues are discrete and none is 0, a divergence-free 1-form with nabla V = 0
+     being parallel, and S^3 having none); so M = 0. The finitely many l <= 1 terms need no bound. u (and h) are smooth
+     across the horizon and conormal at infinity, where the rotations are b-vector fields, which gives the hypothesis
+     with the weights of 10.27 and 10.33. The formula for A_a is covariant on the orbit space, so in ingoing coordinates
+     it holds with f_a and H_T smooth across r = r_h, and each term, so the sum, is smooth there.
+
+ (vii) A modification step (1): 10.40 (a), his Lemmas 10.9-10.11 carried with the readings; it joins the B rows of
+     10.74.
+
+So of the 38, twelve have no step of their own, 25 are at proof level given their inputs (bookkeeping 10, applications
+3, elementary 5, symmetry 5, harmonics 2), and one is a modification step. With 10.71-10.72, every deduced row of
+10.12-10.69 that is not a modification step is at proof level given its computed and READ inputs.
+
+Labels: computed (Proposition 10.53); proved (Lemmas 10.54 and 10.55); cited (Weyl's law, the elliptic estimate, Sobolev
+embedding, Frobenius); deduced (the placing).
+
+### 10.74 The modification steps: what each changes, and where it is computed (`B-MAP.tsv`; D145)
+
+*The setting.* 10.70's 60 rows of kind B, with 10.73's 10.40 (a), each carry a proof written in 3 + 1 dimensions to n =
+4 'with the five-dimensional quantities in place'. An extraction pass listed, for each, the quantities it says change
+between n = 3 and n = 4, where it says each five-dimensional value comes from, its inputs, its residual wording
+('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
+by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
+
+*Measured.* Of the 61 rows, 50 name the places where the dimension changes the proof, 85 places in all, and 11 name
+none: the step is the source proof as it stands. The 88 placements of the five-dimensional values are: 26 at a computed
+check, 50 at an earlier section where they are computed or deduced, 11 arithmetic in n (n/2 = 2, (n - 1)/2 = 3/2,
+r^(n-1) dr = r^3 dr, rho^-n, 4 + 6 + 1 = 11, R^(n,1)) and 1 the record's choice (gamma_Ups = 1/100). 30 rows rest on a
+reading of a [Hin26c], [Hin26a] or [Hin23a] theorem at n = 4, and 10.64-10.68 have since carried each of those papers'
+dimension-dependent places by census and modification.
+
+*The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
+the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
+proof asks of it there. (b) is the table: every listed place has its five-dimensional value placed, and the inequalities
+it must meet are the ones the row's section checks. (a) is the census question of 8.8 (i). For the rows that name no
+place, (a) says the proof does not see n at all. So the B rows reduce to (i): to the censuses of the source proofs,
+which two methods agree on (10.64-10.69) and which are read at source, not proved complete.
+
+What 8.8 (ii) leaves is therefore not a separate kind of gap. Each deduced step of 10.12-10.69 is bookkeeping on
+computed values, an application of a general-n result with its hypotheses placed, a perturbation step under Lemma 10.52,
+an elementary step written out, a symmetry or harmonic step under Lemmas 10.54-10.55, or a modification step whose
+changes are placed; and the last kind rests on the censuses. Writing the source proofs out line by line at n = 4 is what
+would replace the censuses' evidence by proof.
+
+Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth
