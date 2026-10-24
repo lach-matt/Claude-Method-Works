@@ -2845,3 +2845,49 @@ the verifier did not read; static5.py and 10.33 take it up (D90).
 
 *Runs.* pairing5.py 5/5 (about three and a half minutes, P5 now pairing a source that is not zero), mutants 5/5;
 response5.py all pass; md5 rows current (49).
+
+**D90 (2026-10-24): [AHW24] Theorem 6.1(2) in five dimensions at a = 0 (10.33, static5.py).**
+
+M asked to continue after PR #97 merged. 10.32(c) left one input of [Hin26] Proposition 8.11's kernel count OPEN in five
+dimensions: [AHW24] Theorem 6.1(2), that every decaying stationary solution of D Ric(h) = 0 smooth across the horizon is
+a linearized Kerr metric plus a pure gauge term. READ at source (alphaXiv, 2026-10-23 and 2026-10-24): [AHW24]
+(arXiv:2207.12952v1) pp. 1, 35 (Theorem 6.1), 41 (section 6.4, its proof through the Teukolsky scalars and the gauge
+invariants); [Hin26] pp. 156-157 (the kernel proof: u in A^(eps_ind - eps), "By [AHW24, Theorem 6.1(2)], with q =
+eps_ind - 3/2 - eps ...", omega in A^(-1+eps_ind-eps); Corollary 8.13's proof). On Tangherlini, static, [KI03]'s
+decomposition makes it ordinary differential equations in r, harmonic by harmonic.
+
+*Computed (Proposition 10.30, static5.py S1-S6).* gmodes5.py's reduced operators (G1-G4) at coefficients independent of
+t. (S1) Tensor, l >= 2: (1/r^3)(r^3 f H')' = l(l + 2) H/r^2, Phi = r^(3/2) H with V_T/f > 0, the energy identity,
+exponents l, -(l + 2) at infinity and 0, 0 at r_h. (S2) Vector, l >= 2: E_r = (k_V^2 - 2) F_r/(2 r^2) forces F_r = 0,
+E_t gives (r^5 y')' = (k_V^2 - 2) r^3 y/f with F_t = r y, its identity and exponents; h_ri = r (f_r - f_t/f) V_i in
+ingoing form. (S3) Scalar, l >= 2: E_tr = k^2 F_tr/(2 r^2); in [KI03]'s X, Y the four even equations are equivalent to a
+first-order flow, Y' = f'(X - Y)/(2 f) their (2.24b), the determinant of the solve 18 k mu r^2 (r^2 - mu)^6; Z~ defined
+by (2.24a) has Z~' = X; Phi = (3 Z~ - r (X + Y))/(r^(1/2) H) solves the master equation at sigma = 0 with G3's V_S,
+det[Phi; Phi'] = r^3/(k^2 mu) up to r^(1/2); X and Y free of 1/f in ingoing form where F_tr = 0. (S4) l = 0: f_tr enters
+no stationary equation; the solutions are the time rescaling (f, 0) and the mass (r^-2, r^-2 f^-2), r^-2 dv^2 in ingoing
+form. (S5) Vector l = 1: f_t = a r + b r^-3, a r the rigid rotation delta*(2 a t r^2 V), b r^-3 the rotation, regular in
+ingoing form. (S6) Scalar l = 1: the stationary gauge f_tt = f_t = H_L = 0 algebraic, determinant -mu (r^2 - mu)/(4
+r^6), then rank 3 of 3. Controls: Phi = r^(1/2) H; l = 1 at the vector type; Phi without 1/H; (r^-2, 0) for the mass;
+the rotation in Schwarzschild form; f_t left free.
+
+*Deduced (10.33).* (a) [AHW24] Theorem 6.1(2) at a = 0: h stationary, smooth across the horizon, conormal and O(r^-eps),
+0 < eps < 1, with D Ric(h) = 0 is a mass and one of so(4)'s six rotations plus delta* omega, omega smooth across the
+horizon and O(r^(1 - eps)); (b)-(e) sector by sector, the energy identities with 10.24's potentials, the exponents, the
+gauge 1-forms and the horizon's r-row. (f) [Hin26] Proposition 8.11 at Tangherlini, dim ker = dim coker = 11, and
+Corollary 8.13 there; near Tangherlini on the reading that (8.22)'s kernel dimension is upper semicontinuous in b, as
+his Corollary 8.13's proof uses. (g) Without the decay the time rescaling and the rigid rotations (delta* of 1-forms
+linear in t) and the static tidal fields at l >= 2 (not pure gauge) survive.
+
+*Notes on the computation.* (1) At sigma = 0 [KI03]'s Z = i sigma Z~ leaves Z~ undefined, and Z = 0 there (F_tr = 0);
+reading (2.24a) as Z~'s definition restores the master variable, and the flow then gives Z~' = X, (2.24c), as an
+identity, not an assumption. (2) Phi = O(r^(7/2 - eps)) is a crude bound from X, Y = O(r^(1 - eps)) and the
+coefficients' degrees 2 and 4; at l = 2 it is exactly what excludes the exponent 7/2, and it needs eps > 0. (3) At
+vector l >= 2 regularity in ingoing form gives y(r_h) = 0 only once E_r has forced F_r = 0; at l = 1 E_r vanishes, F_r
+is free, and that is where the rotation lives (S2's control). (4) At scalar l = 1 every stationary solution is delta* of
+a stationary 1-form, the gauge determinant -mu (r^2 - mu)/(4 r^6) being nonzero; on Minkowski it vanishes, and there the
+uniform field h_tt = 2 g z is pure gauge only through a 1-form quadratic in t; the decay enters this sector through
+omega's growth, read from the f_rr, f_t and H_L rows. (5) The function F_t/r is y, not v, the ingoing coordinate being
+v. (6) The exponents at infinity are from the limit of r^2 op(r^s)/r^s, the one at r_h from Frobenius' p0 and q0; a
+first attempt multiplied by rho^(2-s) where rho^(1-s) was right and got 0.
+
+*Runs.* static5.py 6/6 (about a minute and a quarter), mutants 6/6; response5.py all pass; md5 rows current (50).
