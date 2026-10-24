@@ -1453,24 +1453,28 @@ mechanism on the model; N1STAR-PROOF.md 10.39 states Proposition 10.36 and deduc
   Lemma 10.3 supplies are needed (his section 11). Labels: computed (aug5.py A1-A3; exact); deduced; READ ([Hin26] pp.
   145, 199-205, 207-209, 211-212, 214); nothing proved.
 
-### 4.41 [Hin26] section 10.2 in five dimensions: 2-admissibility with no sf-loss (computed; D104)
+### 4.41 [Hin26] section 10.2 in five dimensions: 2-admissibility with no sf-loss (computed; D104, D105)
 
 His Theorem 10.1 asks, for f in H^((s;k),(alpha_sf+2,0)), the forward solution u in H^((s-1;k),(alpha_sf-delta,-2)), and
 his proof (section 10.2) loses delta > alpha_sf + 3/2 at spatial infinity, from the singular part of u alone: Lemma
-10.12 puts d_t* g-dot at -1/2 - eps and d_t*^2 h_s1 at 1/2 - eps, the r^-1 tails of his states read through (2.25a) and
-Lemma 2.20, and Lemma 10.13 integrates twice in t*. lowfreq5.py computes the two steps that carry the dimension;
-N1STAR-PROOF.md 10.40 states Proposition 10.37 and deduces.
+10.12 puts d_t* g-dot at -1/2 - eps and d_t*^2 h_s1 at 1/2 - eps -- the tf weights of the r^-1 and r^-2 tails of his
+states, and the scf weight -1/2 of their I+ order 1, through (2.25a), the requirement at R_out and Lemma 2.20 -- and
+Lemma 10.13 integrates twice in t*. lowfreq5.py computes the two steps that carry the dimension; N1STAR-PROOF.md 10.40
+states Proposition 10.37 and deduces.
 
 - The columns at zero frequency: d_T(chi(r/T) g-dot) integrates over T to g-dot and d_T^2 of the h_s1 column to h_s1, so
-  their zero-frequency values are the states; the mass state, of degree -2, gives the weights 0 and 1 in five
-  dimensions, his -1/2 and 1/2 in four (W1).
-- The weights: in five dimensions d_t* g-dot at alpha_sf + 1 and d_t*^2 h_s1 at alpha_sf + 2 -- the radial threshold at
-  R_out binds, not the states' decay -- and u_sing at alpha_sf after Lemma 10.13 twice, so no loss; in four his -1/2 -
-  eps, 1/2 - eps, -3/2 - eps and his loss (W2; 598 rational points).
+  their zero-frequency values are the states; the mass state, of degree -2, and h_s1 one order faster give the weights 0
+  and 1 in five dimensions, his -1/2 and 1/2 in four (W1).
+- The weights: in five dimensions, the columns having no I+ term, d_t* g-dot at -eps and d_t*^2 h_s1 at 1 - eps, the
+  states' own weights -- the requirement at R_out does not bind -- and u_sing at alpha_sf after Lemma 10.13 twice, the
+  initial weights setting the bound, so no loss; with I+ terms at the radiative order 3/2, a loss of eps; in four his
+  -1/2 - eps, 1/2 - eps, -3/2 - eps and his loss (W2; 598 rational points).
 - Deduced: his Theorem 10.1 in five dimensions with no sf-loss (every delta >= 0, or every delta > 0 if [Hin26c]
-  Definition 5.13 asks it), on the readings of 10.39 and of his Lemmas 10.9-10.11; his (10.52) as printed, at s' = s,
-  would need s < -1 + eps at R_out, which Remark 10.2 does not give, but his proof uses it only at s - 1, where it
-  holds.
-- OPEN: [Hin26c] Definition 5.13's delta; his Lemma 10.9 line by line in five dimensions; the boosts' columns on
-  Tangherlini by computation; his section 11 (Corollary 11.10, Theorem 11.12). Labels: computed (lowfreq5.py W1-W2;
-  exact); deduced; READ ([Hin26] pp. 25, 54-55, 60, 199-201, 212-217, 225); nothing proved.
+  Definition 5.13 asks it), on the readings of 10.39 and of his Lemmas 10.9-10.11 and 10.13; his (10.52) as printed, at
+  s' = s, would need s < -1 + eps at R_out, which Remark 10.2 does not give, but his proof uses it only at s - 1, where
+  it holds. D104 took the requirement at R_out as his four-dimensional -1/2 and found it binding; D105 reads it from
+  (2.25a).
+- OPEN: [Hin26c] Definition 5.13's delta; [Hin26c] Lemmas 3.9 and 14.6, (13.30a) and Theorem 12.2 at n = 4; his Lemma
+  10.9 line by line in five dimensions; the boosts' columns on Tangherlini by computation; his section 11 (Corollary
+  11.10, Theorem 11.12). Labels: computed (lowfreq5.py W1-W2; exact); deduced; READ ([Hin26] pp. 21, 54-55, 60, 199-201,
+  206, 212-217, 225); nothing proved.

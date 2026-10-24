@@ -3499,3 +3499,45 @@ have eps below both margins, and the two others are skipped. (3) Section 10.40 f
 
 *Runs.* lowfreq5.py --selftest 2/2 (W1 5 s, W2 under 1 s) and --mutants 3/3 (about 3 s); paper/response5.py --selftest
 all pass; md5 rows 57, lowfreq5.py added.
+
+**D105 (2026-10-24): the forty-ninth verifier's findings on D104, seated.**
+
+One independent verifier read D104 (2567ab5 against 2a90dc7) with its own checks: the zero-frequency integrals with a
+different step at r = 1/3, 2 and 7 over the whole transition; the chain of weights re-derived from his text with the scf
+requirement from (2.25a) in each dimension; the reading of (10.52); md5 rows 57 of 57. READ at source: [Hin26] pp. 21,
+34, 53-55, 60, 199-200, 202-205, 209, 212-217, 225-226. Verdict: the conclusion holds on readings, with more room than
+stated; one major finding, four minor findings, seven nits.
+
+*Major (the mechanism).* D104 took the requirement at R_out, "s' + alpha' < -1/2", as a condition of Lemma 2.20 and kept
+it in five dimensions, so that "the radial threshold binds". It is not Lemma 2.20's -- Plancherel, with no threshold (p.
+55) -- but the scf weight of his columns: (2.25a) gives the scf order min(beta_I, beta_iota) - eps (p. 60), his (10.54)
+has I+ order 1, and his p. 216 has "the requirement on r here is that r < -1/2 at the zero section R_out" for (10.56)'s
+scf order 1 - eps; his p. 206 makes the same link, "r + alpha_sf + 1 < 3/2 - eps" for the scf order 3 - eps. Checked
+here at source (pp. 60, 206, 215-217). In five dimensions the augmentation chi_K g-dot has no I+ term, the scf weights
+are 1 - eps and 2 - eps against |dx|, the requirements s' + alpha' < 1 and < 2 hold at s' = s, and the columns carry the
+states' own weights -eps and 1 - eps; the initial weights (10.61)-(10.62) set the bound, and u_sing is at alpha_sf as
+before. Repaired: lowfreq5.py W2 reads both weights from (2.25a) -- a column of iota+ order q and I+ order beta_I has tf
+weight q - 1 - n/2 and scf weight min(beta_I, q) - n/2, less eps -- and returns his values in four dimensions, -eps, 1 -
+eps (also at s' = s) and alpha_sf in five, and, with I+ terms at the radiative order 3/2, alpha_sf + 1 - eps, alpha_sf +
+2 - eps and a loss of eps; a third control holds D104's alpha_sf + 1 and alpha_sf + 2 and is caught. 10.40's setting,
+Proposition 10.37(ii), the proof, (b)-(e) and the closing paragraph, ROUTES 4.41, README, and the paper's sentence and
+Appendix A are rewritten; "binds" is gone.
+
+*Minor.* (1) "r^alpha L^2(r^(n-1) dr)", read literally, is the opposite convention; the code used his, rho^alpha L^2 =
+r^-alpha L^2, and the text and the code's comment now say so. (2) "p. 25" for Figure 1.5 was the PDF page; the printed
+page is 21 (its header "KERR 21", read here). (3) Lemma 10.13's independence of the dimension is shown for s = 0; for
+variable orders his proof refers to [Hin26c] Lemma 14.6 (p. 217), now in 10.40(c) and its OPEN list. (4) W1's weight for
+h_s1 is the mass state's plus 1, h_s1's order 3 being 10.28's and not measured; said so.
+
+*Nits.* (1) "His loss is the r^-1 tail" now names both columns and their I+ order. (2) 10.40(e) carries (c)'s Definition
+5.13 hedge. (3) [Hin26c] Theorem 12.2 is back on the OPEN list. (4) The paper's Appendix A bullet now says that the time
+derivatives of the columns have the states as zero-frequency values. (5) The paper's Appendix C row for settling read
+10.3-10.29 (Propositions 10.1-10.26); now 10.3-10.40 (Propositions 10.1-10.37). (6) 10.39(e)'s sf-loss now points to
+10.40. (7) W1 has a negative control: a ramp chi, C^0 only, under which the second integral is -3h'/8, not h.
+
+*Notes.* Not checked by the verifier: [Hin26c] (Definitions 5.11 and 5.13, Lemmas 3.9 and 14.6, (13.30a), Theorems 9.16,
+12.2 and 14.2); Lemma 10.9 line by line; printed p. 201; the 10.39 readings; response5.py --full. Its runs: lowfreq5.py
+2/2 and mutants 3/3; response5.py all pass; md5 rows 57 of 57 at 2567ab5.
+
+*Runs.* lowfreq5.py --selftest 2/2 (W1 5 s, W2 under 1 s) and --mutants 5/5 (about 3 s); paper/response5.py --selftest
+all pass; md5 rows refreshed.

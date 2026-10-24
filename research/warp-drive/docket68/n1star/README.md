@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D104).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D105).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -255,11 +255,12 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   his borderline 3 and 4) (A1-A3; the naive augmentation's entries in the target space, his (10.24a) for every state,
   Proposition 10.6 and Theorem 10.1 deduced on readings in 10.39). `python3 aug5.py --selftest` (3/3, about 8-12
   minutes), `--mutants` (4/4).
-- `lowfreq5.py`: [Hin26] section 10.2 in five dimensions (section 10.40; D104): on 4+1 Minkowski the zero-frequency
-  values of the derivative columns are the states, of weights 0 and 1 (four dimensions his (10.51)-(10.52)'s -1/2 and
-  1/2), and section 10.2's weights at 598 rational points: d_t* g-dot at alpha_sf + 1, d_t*^2 h_s1 at alpha_sf + 2,
-  u_sing at alpha_sf, no sf-loss (four dimensions his -3/2 - eps and his loss) (W1-W2; Theorem 10.1 with no sf-loss
-  deduced on readings in 10.40). `python3 lowfreq5.py --selftest` (2/2, about five seconds), `--mutants` (3/3).
+- `lowfreq5.py`: [Hin26] section 10.2 in five dimensions (section 10.40; D104, D105): on 4+1 Minkowski the
+  zero-frequency values of the derivative columns are the states, of weights 0 and 1 (four dimensions his
+  (10.51)-(10.52)'s -1/2 and 1/2), and section 10.2's weights at 598 rational points, the requirements at R_out read
+  from (2.25a): d_t* g-dot at -eps, d_t*^2 h_s1 at 1 - eps, u_sing at alpha_sf, no sf-loss (four dimensions his -3/2 -
+  eps and his loss; five dimensions with I+ terms at the radiative order 3/2 a loss of eps) (W1-W2; Theorem 10.1 with no
+  sf-loss deduced on readings in 10.40). `python3 lowfreq5.py --selftest` (2/2, about five seconds), `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
