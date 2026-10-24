@@ -2891,3 +2891,104 @@ v. (6) The exponents at infinity are from the limit of r^2 op(r^s)/r^s, the one 
 first attempt multiplied by rho^(2-s) where rho^(1-s) was right and got 0.
 
 *Runs.* static5.py 6/6 (about a minute and a quarter), mutants 6/6; response5.py all pass; md5 rows current (50).
+
+**D91 (2026-10-24): [Hin26] section 8.5 in five dimensions, the physical states (10.34, physical5.py).**
+
+M asked to continue, with fewer PRs; this batch carries D91 and the forty-second verifier's findings on D89-D90 in one
+PR. READ at source (alphaXiv, 2026-10-24): [Hin26] pp. 25 (section 1.4.1), 140-142 (section 7.2.1), 154-163 (Remark 8.10
+and (8.21), section 8.5: Proposition 8.14, Lemma 8.15, their proofs, (8.27)-(8.37)), 176 (Definition 9.10); [DLMF]
+(15.8.2), (15.8.8), (15.10.1). His section 8.5 builds large zero energy states at the roots that are not pure gauge, sl
+and vl's -l for l >= 2 (his window [-3, 0]: l = 2, 3), smoothly in the rotation by his Lemma 8.15; in five dimensions
+10.24's physical roots are -l at every type, the tensor type included.
+
+*Computed (Proposition 10.31, physical5.py Y1-Y4).* (Y1) 10.33's stationary equations are Gauss's hypergeometric
+equation in z = r^2/mu: H with (-l/2, 1 + l/2, 1), y = F_t/r with ((1 - l)/2, (l + 3)/2, 3), Y = z^(1/2) (z - 1)^-1 w
+with (-l/2, 1 + l/2, 2), l symbolic. (Y2) The solutions smooth at z = 1 -- F(-l/2, 1 + l/2; 1; 1 - z), (1 - z) F((l +
+5)/2, (3 - l)/2; 2; 1 - z), z^(1/2) F(2 + l/2, 1 - l/2; 2; 1 - z) -- solve them, exactly where they terminate and at 40
+digits for l = 2, ..., 8, and grow like r^l (H, f_t, F) with coefficients Gamma(l + 1)/Gamma(1 + l/2)^2 and two like it,
+never 0, matched at z = 10^12. (Y3) From lin5.py's factors at 50 digits: at sl, vl, tl, l = 2, 3, -l simple and -l - 1
+no root (his Step 4's condition), the root next to -l at sl box^Ups's class root. (Y4) L_R h_A = h_[A,B] on 4+1
+Minkowski; <[A_V, e_12], A_V'> on so(4) of rank 4, kernel e_12 and e_34; in three dimensions his triple product.
+Controls: c = 2 at the tensor type (Y1, Y2); -l for -l - 1; h_[B,A] for h_[A,B].
+
+*Deduced (10.34).* (a) At a = 0, for every l >= 2 and the three types, the stationary solution smooth across the horizon
+is unique up to scale and pure gauge and grows like r^l with a nonzero coefficient; put into the gauge it is his
+Proposition 8.14's state, the tensor types t2, t3 and every higher l included; no obstruction at a = 0, a type-l tensor
+pairing to 0 with the s0, s1, v1 dual states by SO(4) covariance. (b) His Lemma 8.15 in five dimensions: (1) minus
+10.32's centre-of-mass row; (2) by his Remark 8.10, which holds in five dimensions with so(4)'s bracket, -pi^2 mu <[A_V,
+A_b], A_V'>, 0 at a = 0, his Step 2 met by A_V1 = v_b/(pi^2 mu) by ad-invariance. (c) His Proposition 8.14 near a = 0
+for l = 2, 3 by his Steps 0-5, on the readings 10.33(f) rests on.
+
+*Notes.* (1) Y ~ r^(l-1) while X ~ r^(l+1)/mu and F ~ r^l: Y = r (f F_rr - 2 F) cancels at leading order; the
+exponents (l - 1)/2 and -(l + 3)/2 of Y in z are Y1's (X = Y + r (r^2 - mu) Y'/mu). (2) At sl, -l and box^Ups's class
+root mu_l,1 + 1 = -l - (l + 2) z/(2 (l + 1)(2l + 3)) + O(z^2) (10.30(ii)) are 3.81 x 10^-7 (l = 2) and 2.78 x 10^-7 (l
+= 3) apart at Proposition 10.9's point, z = 4 e_U gam_U^2 = 4 x 10^-6 -- simple, but close; they meet at z = 0. The
+in-progress commit printed 3.3 x 10^-7, section 10.24's s1 pair, in physical5.py and 10.34(iii); Y3 now checks the
+first-order term (D92). (3) Lemma 8.15(1)'s zero against the non-Killing rotations at a != 0 is not established here
+(10.32(b) has it at a = 0); his Step 2 uses that pairing only through his lambda-sharp functional and on the Killing
+rotations, where his Theorem 9.6(5) argument applies, so the construction does not need it. (4) Which l five
+dimensions needs is OPEN: his window [-3, 0] is his choice for the decay he proves (10.30).
+
+*Runs.* physical5.py --selftest 4/4 at D91 (Y3 in 713 s, lin5.py's determinants); its mutants and the runs after D92's
+change to Y3 are D92's.
+
+**D92 (2026-10-24): the forty-second verifier's findings on D89-D90, seated.**
+
+One independent verifier read D89 (f5d320e) and D90 (1c0fcda) against base 2af8d1a, rederiving Proposition 10.30's S1-S6
+with a linearized Ricci tensor of its own (scalar type at general k, vector at general k_V, tensor at l = 2 by an
+explicit harmonic, l = 0 and scalar l = 1) and the Minkowski pairings by its own code, and reading [Hin26] pp. 125, 138,
+156-157, [Hin23b] Definition 9.2 and Theorem 9.6, [Hin24b] Lemmas 3.11 and 3.17, [AHW24] pp. 1, 35, 41 and [KI03] p. 11
+at source. Verdict: no major finding; every computed claim reproduces; 10.33(a)-(g) hold as labelled; D89's s0 sign
+confirmed at source. Four minor findings, three nits, notes.
+
+*Minor 1 (P5 could not fail).* D89's pure gauge tensor delta*(x_2 R^-(n-2) dx_1) paired 0 by reflection parity alone:
+against dt both sphere integrals vanish separately, the tensor odd under x_1 -> -x_1 and the dual even, and against the
+translations a stationary spatial tensor has no tj source; the non-gauge x_1 x_2 R^-n (dt^2 + dR^2) passes the same
+check with the same row. Repaired as proposed: delta*(dG), G = R in four dimensions and log R in five, homogeneous as
+the mass, its source nonzero and its sphere integrals I_A = I_B = -4 pi and -3 pi^2, so its 0 against dt is -I_A + I_B,
+a cancellation; P5 now requires both nonzero. A second control, the non-gauge R^-(n-2) |dx|^2 in its place (pairing -4
+pi and -6 pi^2 with dt), is caught; mutants 6/6. pairing5.py's docstring, 10.32(v) and its proof, README and the paper's
+appendix row say so.
+
+*Minor 2 (p. 157 misdescribed).* ROUTES 4.34 and the D90 entry said near-Tangherlini rests on upper semicontinuity "as
+his Corollary 8.13's proof uses". His proof takes the (co)kernel near b_0 as Proposition 8.11 gives it ("The
+requirements on f*_j and f#_j are satisfied also for the (co)kernel ... when b is close to b_0") and cites [Vas13]
+section 2.7 and [Hin26c] section 9.2.3 Part (3) for the continuity of the augmented operator's inverse in b; he uses no
+semicontinuity. ROUTES 4.34 now has 10.33(f)'s wording (a property of the uniform Fredholm estimates his proof invokes,
+not read line by line); the D90 entry stands as written and is corrected here.
+
+*Minor 3 (Corollary 8.13 at Tangherlini).* Corollary 8.13 is a statement for b near b_0; at b_0 alone 11 for 7 gives the
+augmented operator's invertibility there and no more. 10.33(f) and its closing paragraph, ROUTES 4.4, 4.5, 4.29 and
+4.34, README, static5.py's docstring and the paper's appendix rows now say Proposition 8.11 at Tangherlini and, on a
+reading, near it, with Corollary 8.13 on that reading; "at and near" is gone from the five places that had dropped the
+qualifier, and from physical5.py's README and paper rows, which had copied it in D91.
+
+*Minor 4 ([KI03] section 4 uncited).* [KI03] p. 11, section 4 "Static perturbations", prints the static system (4.1),
+(4.2) and the master variable (4.3), Phi := (Q_Y X - Q_X Y)/(2 k^2 r^(n/2-1) f' H), and says "the same master equation
+holds for both non-static and static perturbations" -- READ at source here (alphaXiv, 2026-10-24). static5.py S3 now
+checks (4.2a), (4.2b) at n = 3 against the flow and (4.3) against the record's Phi, both identically; 10.33's opening,
+10.30(iii) and its READ cite it. The D90 entry's note (1), which presented reading (2.24a) at sigma = 0 as the record's
+own way to the master variable, is corrected here: [KI03] had done it.
+
+*Nits.* (1) The energy identities S1 and S2 checked are identities for any f, V and lambda and could not fail; they are
+no longer checks, and the sign each needs (V_T/f > 0, k_V^2 - 2 >= 5) is, as before. (2) [AHW24] v1's Theorem 6.1 (p.
+35) is one statement for Im sigma >= 0, 0 < a < m, without numbered parts; [Hin26] cites its sigma = 0 case as Theorem
+6.1(2), and static5.py's docstring now says so. (3) "10.24" meant two things in 10.33-10.34: Proposition 10.24
+(gmodes5.py, section 10.27) and section 10.24 (lin5.py, Proposition 10.21); each use now says which, and 10.34's
+"10.24(ii)" is Proposition 10.21(ii).
+
+*Notes, accepted.* Not checked by the verifier: the tensor type at general l by explicit harmonics (l = 2 only); [Vas13]
+section 2.7; the sign's use in [Hin26] (8.37)(1); the class and horizon smoothness of (8.22)'s kernel elements, which
+the record marks OPEN. Its confirmations: 10.33(f)'s 0 < eps_ind - eps < 1 (Hintz takes eps_ind below d(Re lam, Z) <=
+1/2, p. 125); Phi = O(r^(7/2 - eps)) excludes the r^(7/2) branch at l = 2, the logarithmic case included; the X, Y flow
+has residues 0 and -1 at r_h; A_r = O(r^(1 - eps)) from the f_rr row; the [AHW24] and [Hin26] quotations and pages.
+
+*D92's own finding.* Checking physical5.py's Y3 output: the root next to -l at sl is box^Ups's class root mu_l,1 + 1 =
+-l - (l + 2) z/(2 (l + 1)(2l + 3)) + O(z^2) (10.30(ii)), 3.81 x 10^-7 below -l at l = 2 and 2.78 x 10^-7 at l = 3 (z = 4
+x 10^-6), where the in-progress D91 commit printed 3.3 x 10^-7 -- section 10.24's s1 pair, z/12, copied to the wrong
+root. The distance falls by ten with e_U (a scratch run at l = 2, e_U/10 and e_U/100). Y3 now requires the root real,
+below -l, and its first-order term matched to 10^-3; 10.34(iii) and the docstring are corrected.
+
+*Runs.* pairing5.py --selftest 5/5 (about three and a half minutes), --mutants 6/6; static5.py --selftest 6/6 (about a
+minute), --mutants 6/6; physical5.py --selftest 4/4 (Y3 in 1047 s beside other runs, 713 s alone), --mutants 4/4;
+paper/response5.py --selftest all pass; Appendix D's md5 rows current (51, physical5.py added).

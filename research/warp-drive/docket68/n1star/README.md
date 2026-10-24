@@ -211,18 +211,23 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   leading terms -- [Hin23b] Theorem 9.6's table reproduced in four dimensions, in five mass -3 pi^2 mu-dot, rotations -2
   pi^2 mu, centres of mass (3 pi^2/2) mu (q . c), the 11 x 11 matrix non-degenerate, every entry classified by its
   weight first (P1-P5; Proposition 8.11 and Corollary 8.13 deduced in 10.32 with eleven for seven, up to [AHW24] Theorem
-  6.1(2)). `python3 pairing5.py --selftest` (5/5, about three and a half minutes), `--mutants` (5/5).
+  6.1(2)). `python3 pairing5.py --selftest` (5/5, about three and a half minutes), `--mutants` (6/6).
 - `static5.py`: [AHW24] Theorem 6.1(2) in five dimensions at a = 0 (section 10.33; D90): the stationary solutions of the
   linearized Einstein equation on Tangherlini, harmonic by harmonic at sigma = 0 -- the tensor and vector types' energy
   identities and exponents, the scalar type's flow in [KI03]'s X, Y and its master equation, the mass and time rescaling
   at l = 0, the rotations at vector l = 1, pure gauge at scalar l = 1, and the ingoing forms (S1-S6; the theorem and
-  [Hin26] Proposition 8.11 at and near Tangherlini deduced in 10.33). `python3 static5.py --selftest` (6/6, about a
-  minute and a quarter), `--mutants` (6/6).
+  [Hin26] Proposition 8.11 at Tangherlini, and near it on a reading, deduced in 10.33). `python3 static5.py --selftest`
+  (6/6, about a minute and a quarter), `--mutants` (6/6).
+- `physical5.py`: [Hin26] section 8.5 in five dimensions (section 10.34; D91): the physical large zero energy states --
+  the stationary equations hypergeometric in r^2/mu, the solutions smooth at the horizon and their growth like r^l, the
+  roots his Step 4 needs, and the rotation equivariance behind his Remark 8.10 and Lemma 8.15 (Y1-Y4; his Proposition
+  8.14 at a = 0 for every l >= 2 and the three types, and near it for l = 2, 3 on 10.33(f)'s readings, deduced in
+  10.34). `python3 physical5.py --selftest` (4/4, about twelve minutes, lin5.py's determinants), `--mutants` (4/4).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All forty-two are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All forty-three are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing
 the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py,
 lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py,
@@ -233,5 +238,5 @@ solv5.py imports cform5.py and damping5.py, tface5.py imports cform5.py, gaugepo
 lin5.py imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, strap5.py imports damping5.py, gmodes5.py
 imports damping5.py, zstates5.py imports damping5.py, genstates5.py imports damping5.py and zstates5.py, puregauge5.py
 imports damping5.py, genstates5.py and zstates5.py, dual5.py imports damping5.py, genstates5.py and puregauge5.py,
-pairing5.py imports damping5.py, static5.py imports damping5.py and gmodes5.py, and the others import nothing from the
-tree. The board's shared record is not edited here.
+pairing5.py imports damping5.py, static5.py imports damping5.py and gmodes5.py, physical5.py imports damping5.py and
+lin5.py, and the others import nothing from the tree. The board's shared record is not edited here.

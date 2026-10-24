@@ -405,7 +405,8 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    the pairings computed, the rest deduced); and that rigidity holds on five-dimensional Tangherlini, the mass and the
    six rotations plus pure gauge, so they hold there, and near it on a reading (4.34; the stationary equations computed,
    the rest deduced); the line-by-line readings of [Hin26a] sections 2.3 and 5.2 and Appendix B and of [Hin26c] section
-   9 at n = 4, and the rest of the item, [Hin26] sections 7.2.1 beyond first order in the rotation and 8.5, and [AHW24]
+   9 at n = 4, and the rest of the item, [Hin26] section 7.2.1 beyond first order in the rotation, section 8.5 beyond
+   4.35 (its physical states at a = 0, and near it on 10.33(f)'s readings, the tensor types included), and [AHW24]
    Theorem 6.1(2) in five dimensions beyond a = 0, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
@@ -499,8 +500,12 @@ dual states and deduces his Lemma 7.2 and Proposition 7.3 there, section 7.2.1 a
 ADM mass and angular momentum and 4 pi M times the centre of mass, and deduces his Proposition 8.11 and Corollary 8.13
 there with eleven for seven, up to [AHW24] Theorem 6.1(2); and 4.34 (10.33, Proposition 10.30, computed; deduced)
 computes the stationary solutions on Tangherlini harmonic by harmonic and deduces that theorem there, and with it his
-Proposition 8.11 and Corollary 8.13 at a = 0, and near it on a reading. Next: the rest of item 2 -- [Hin26] section 8.5,
-and 7.2.1 beyond first order in the rotation -- in five dimensions.
+Proposition 8.11 at a = 0 and, on a reading, near it, with his Corollary 8.13 (at a = 0 alone the augmented operator's
+invertibility). And 4.35 (10.34, Proposition 10.31, computed; deduced) finds his section 8.5's physical states in five
+dimensions: at a = 0 for every l >= 2 and the three types, the static tidal solutions in Gauss functions of r^2/mu, and
+near it for his l = 2, 3 by his construction, his Lemma 8.15 carried over with so(4)'s bracket for the cross product.
+Next: the rest of item 2 -- 7.2.1 beyond first order in the rotation, the window five dimensions needs, and sections
+9-10 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -1135,9 +1140,9 @@ and deduces.
   small.
 - OPEN: the kernel elements' class, omega's continuation inside the horizon (before his Proposition 6.12 applies) and
   the interior uniqueness, as in 10.16; how small gam_Ups must be, and h_0; his Proposition 8.9, Remark 8.10 and
-  Proposition 8.11 (zero energy; Proposition 8.9 deduced in 4.29, Proposition 8.11 in 4.33-4.34 at and near a = 0),
-  section 8.5 and sections 9-10 in five dimensions. Labels: computed (gmodes5.py G1-G5, exact); deduced; READ ([Hin26]
-  pp. 25, 153-154; [KI03] pp. 4-10, 13-15, 18-20); nothing proved.
+  Proposition 8.11 (zero energy; Proposition 8.9 deduced in 4.29, Proposition 8.11 in 4.33-4.34 at a = 0, and near it on
+  a reading), section 8.5 and sections 9-10 in five dimensions. Labels: computed (gmodes5.py G1-G5, exact); deduced;
+  READ ([Hin26] pp. 25, 153-154; [KI03] pp. 4-10, 13-15, 18-20); nothing proved.
 
 ### 4.29 [Hin26] section 6.5.1 and Proposition 8.9 in five dimensions: the zero energy states (computed; D80, D82)
 
@@ -1159,9 +1164,9 @@ states Proposition 10.25 and deduces.
 - OPEN: the readings of 10.20, on which 4.30 deduces his Lemma 6.13 in five dimensions (and 4.30-4.31 his Proposition
   6.18); the index sets; section 7.2.1 beyond first order in the rotation (4.32 has the rest of section 7.2), Proposition
   8.11, Lemma 8.12 and Corollary 8.13 in five dimensions beyond 4.33-4.34 (the kernel 1 + 6 + 4 = 11 against his 7, the
-  count deduced at and near a = 0); section 8.5 and sections 9-10; how small gam_Ups must be, and h_0. Labels: computed
-  (zstates5.py Z1-Z6, exact); deduced; READ ([Hin26] pp. 25, 81, 113, 117, 124-128, 154-155, 157; [ER08] p. 14); nothing
-  proved.
+  count deduced at a = 0, and near it on a reading); section 8.5 and sections 9-10; how small gam_Ups must be, and h_0.
+  Labels: computed (zstates5.py Z1-Z6, exact); deduced; READ ([Hin26] pp. 25, 81, 113, 117, 124-128, 154-155, 157;
+  [ER08] p. 14); nothing proved.
 
 ### 4.30 [Hin26] Lemma 6.13 and Proposition 6.18 (1)-(3) in five dimensions (computed; D81)
 
@@ -1243,17 +1248,18 @@ N1STAR-PROOF.md 10.32 states Proposition 10.29 and deduces.
 - Five dimensions: mass -3 pi^2 mu-dot, rotations -2 pi^2 mu on their planes, centres of mass (3 pi^2/2) mu (q . c), the
   cross terms 0 or, the mass and the centres of mass against the rotations, above the critical weight and undetermined
   by the leading terms (P2-P3; each entry classified by its weight before it is computed, D89); the 11 x 11 matrix
-  non-degenerate whatever those are (P4); Kerr-Schild, a pure gauge tensor whose cut-off source is not zero, and
-  t* = t - r change nothing (P5).
+  non-degenerate whatever those are (P4); Kerr-Schild, a pure gauge tensor delta*(dG) whose cut-off source is not zero
+  and whose 0 against dt is a cancellation of two nonzero sphere integrals, not a parity (D92), and t* = t - r change
+  nothing (P5).
 - Deduced: -8 pi times the ADM mass and angular momentum and 4 pi M times the centre of mass in both dimensions; his
   Lemma 8.12 in five dimensions at a = 0 for his L_b (his printed values are for 2 L_b, [Hin24b]'s L, and his s0 dual
   state, leading term -dt against [Hin23b]'s dt, reverses the s0 sign), and near it by continuity; his Proposition 8.11
   with dim ker = dim coker >= 11, equality up to [AHW24] Theorem 6.1(2) in five dimensions, which 4.34 deduces at a = 0;
   his Corollary 8.13 with eleven for seven on it.
-- OPEN: [AHW24] Theorem 6.1(2) in five dimensions beyond a = 0 (4.34 has it at a = 0); section 8.5 and sections 9-10;
-  section 7.2.1 beyond first order in a; the readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0.
-  Labels: computed (pairing5.py P1-P5, exact); deduced; READ ([Hin26] pp. 125, 138, 145, 154-158; [Hin24b] pp. 13, 33,
-  38-39, 44, 49-53; [Hin23b] pp. 101-110, 116-117); nothing proved.
+- OPEN: [AHW24] Theorem 6.1(2) in five dimensions beyond a = 0 (4.34 has it at a = 0); section 8.5 beyond 4.35 and
+  sections 9-10; section 7.2.1 beyond first order in a; the readings of 10.20-10.22 line by line; how small gam_Ups must
+  be, and h_0. Labels: computed (pairing5.py P1-P5, exact); deduced; READ ([Hin26] pp. 125, 138, 145, 154-158; [Hin24b]
+  pp. 13, 33, 38-39, 44, 49-53; [Hin23b] pp. 101-110, 116-117); nothing proved.
 
 ### 4.34 [AHW24] Theorem 6.1(2) in five dimensions: the stationary solutions on Tangherlini (computed; D90)
 
@@ -1272,10 +1278,35 @@ gmodes5.py's reduced operators; N1STAR-PROOF.md 10.33 states Proposition 10.30 a
   rotation, regular in ingoing form -- and scalar l = 1 pure gauge, the stationary gauge algebraic (S4-S6).
 - Deduced: [AHW24] Theorem 6.1(2) at a = 0 -- every stationary solution smooth across the horizon and O(r^-eps), 0 < eps
   < 1, is a mass and one of so(4)'s six rotations plus delta* omega, omega smooth there and O(r^(1 - eps)); his
-  Proposition 8.11 at Tangherlini with dim ker = dim coker = 11, and his Corollary 8.13 there; near Tangherlini on the
-  reading that (8.22)'s kernel dimension is upper semicontinuous in b, as his Corollary 8.13's proof uses.
+  Proposition 8.11 at Tangherlini with dim ker = dim coker = 11, and his augmented operator invertible there; near
+  Tangherlini, on the reading that (8.22)'s kernel dimension is upper semicontinuous in b -- a property of the uniform
+  Fredholm estimates his Corollary 8.13's proof invokes, not read line by line; his proof takes the (co)kernel near b_0
+  as Proposition 8.11 gives it (p. 157) -- Proposition 8.11 and his Corollary 8.13 (a statement for b near b_0) with
+  eleven for seven (D92).
 - OPEN: [AHW24] Theorem 6.1(2) on Myers-Perry with a != 0 beyond that reading; the class of (8.22)'s kernel elements in
-  five dimensions line by line; omega's continuation inside the horizon; section 8.5 and sections 9-10; section 7.2.1
-  beyond first order in a; the readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0. Labels:
-  computed (static5.py S1-S6, exact); deduced; READ ([AHW24] pp. 1, 35, 41; [Hin26] pp. 156-157; [KI03] pp. 4-10,
-  13-15); nothing proved.
+  five dimensions line by line; omega's continuation inside the horizon; section 8.5 beyond 4.35 and sections 9-10;
+  section 7.2.1 beyond first order in a; the readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0.
+  Labels: computed (static5.py S1-S6, exact); deduced; READ ([AHW24] pp. 1, 35, 41; [Hin26] pp. 156-157; [KI03] pp.
+  4-10, 13-15); nothing proved.
+
+### 4.35 [Hin26] section 8.5 in five dimensions: the physical large zero energy states (computed; D91)
+
+His section 8.5 builds the large zero energy states at the roots that are not pure gauge, sl and vl's -l for l >= 2,
+smoothly in the rotation by his Lemma 8.15's pairings. In five dimensions the physical roots are -l at every type, the
+tensor type included (4.24). physical5.py computes the stationary equations of 4.34 as Gauss's hypergeometric equation,
+their solutions smooth at the horizon and their growth, the roots his Step 4 needs, and the rotation equivariance behind
+his Remark 8.10; N1STAR-PROOF.md 10.34 states Proposition 10.31 and deduces.
+
+- The equations: H, y and Y hypergeometric in z = r^2/mu, l symbolic (Y1); the solutions smooth at z = 1 Gauss functions
+  of 1 - z, polynomials where the series terminates, growing like r^l with coefficients that never vanish (Y2).
+- The roots: -l simple and -l - 1 none at sl, vl, tl, l = 2, 3, at Proposition 10.9's point (Y3).
+- The rotations: L_R h_A = h_[A,B]; <[A_V, A_b], A_V'> on so(4) of rank 4 at one spin, kernel the two Killing rotations;
+  in three dimensions his triple product (Y4).
+- Deduced: his Proposition 8.14 at a = 0 for every l >= 2 and each of the tensor, vector and scalar types, the leading
+  terms Y2's, put into the gauge; his Lemma 8.15 in five dimensions, (1) minus 10.32's centre-of-mass row, (2) -pi^2 mu
+  <[A_V, A_b], A_V'>, 0 at a = 0; his Proposition 8.14 near a = 0 for l = 2, 3 by his Steps 0-5, on the readings 4.34
+  rests on.
+- OPEN: the window five dimensions needs, and whether t2, t3 and higher l enter the late-time expansion; Lemma 8.15(1)
+  against the non-Killing rotations at a != 0 beyond its lambda-sharp form; Myers-Perry beyond first order and two
+  spins; the readings and weights; sections 9-10. Labels: computed (physical5.py Y1-Y4; exact, and numerical at 40 and
+  50 digits); deduced; READ ([Hin26] pp. 25, 140-142, 154-163; [DLMF] 15.8.2, 15.8.8, 15.10.1); nothing proved.

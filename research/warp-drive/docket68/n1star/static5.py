@@ -6,8 +6,9 @@ D90).  Labels: computed (exact, sympy), deduced, READ.
 [AHW24] (arXiv:2207.12952v1) Theorem 6.1 (p. 35): "Let 0 < a < m, sigma in C, Im sigma >= 0, and suppose g-dot = e^(-i
 sigma t*) h-tilde, h-tilde in H-bar_b^(oo,q)(X; S^2 ...), q in (-3/2, -1/2) is an outgoing mode solution of the
 linearized Einstein equation D Ric(g-dot) = 0.  Then there exist parameters m-dot in R, a-dot in R^3, and an outgoing
-1-form omega in H-bar_b^(oo,q-1) such that g-dot - g-dot_(m,a)(m-dot, a-dot) = delta* omega."  Part (2), sigma = 0, is
-what [Hin26] Proposition 8.11's kernel count uses (N1STAR-PROOF.md 10.32(c)).  On five-dimensional Tangherlini, g = -f
+1-form omega in H-bar_b^(oo,q-1) such that g-dot - g-dot_(m,a)(m-dot, a-dot) = delta* omega."  It is one statement,
+with no numbered parts; its case sigma = 0, which [Hin26] cites as Theorem 6.1(2), is what [Hin26] Proposition 8.11's
+kernel count uses (N1STAR-PROOF.md 10.32(c)).  On five-dimensional Tangherlini, g = -f
 dt^2 + dr^2/f + r^2 gamma, f = 1 - mu/r^2, it is computed here at sigma = 0 through the decomposition of [KI03] (H.
 Kodama and A. Ishibashi, arXiv:hep-th/0305147v3; n = 3, K = 1), with the harmonics at a point of S^3 and the reduced
 equations of gmodes5.py (G1-G4), there at sigma != 0, here with every coefficient independent of t.  The candidates the
@@ -15,20 +16,23 @@ statement leaves are the mass and the six rotations of so(4); everything else mu
 
   S1 (computed, exact) The tensor type, l >= 2.  For h_ij = 2 r^2 H(r) T_ij: D Ric(h)_ab = D Ric(h)_ai = 0 and D
      Ric(h)_ij = -r^2 ((1/r^3)(r^3 f H')' - l(l + 2) H/r^2) T_ij; Phi = r^(3/2) H turns it into f (f Phi')' = V_T Phi,
-     V_T = (f/r^2)(l(l + 2) + 3/4 + 9 mu/(4 r^2)), V_T/f > 0 on r >= r_h; (f Phi Phi')' = f Phi'^2 + V_T Phi^2/f on
-     solutions; the exponents of H are l, -(l + 2) at infinity and 0, 0 at r_h (so a second solution there carries a
-     logarithm). Control: Phi = r^(1/2) H, where a first-derivative term survives.
+     V_T = (f/r^2)(l(l + 2) + 3/4 + 9 mu/(4 r^2)), V_T/f > 0 on r >= r_h, which is what the identity (f Phi Phi')' = f
+     Phi'^2 + V_T Phi^2/f on solutions, true for any f and V_T, needs; the exponents of H are l, -(l + 2) at infinity
+     and 0, 0 at r_h (so a second solution there carries a logarithm). Control: Phi = r^(1/2) H, where a
+     first-derivative term survives.
   S2 (computed, exact) The vector type, l >= 2.  With f_t, f_r, H_T of r: E_r = (k_V^2 - 2) F_r/(2 r^2), E_T = -k_V (r^2
-     f F_r)'/(2 r^3) and, F_t = r y, E_t = -(f (r^5 y')' - (k_V^2 - 2) r^3 y)/(2 r^4), k_V^2 - 2 = l(l + 2) - 3 >= 5;
-     (r^5 y y')' = r^5 y'^2 + (k_V^2 - 2) r^3 y^2/f on solutions; the exponents of f_t = r y are l and -(l + 2) at
-     infinity; in ingoing coordinates (dt = dv - dr/f) h_vi = r f_t V_i and h_ri = r (f_r - f_t/f) V_i.  Control: l = 1
-     (k_V^2 = 2), where E_r vanishes and F_r is not forced.
+     f F_r)'/(2 r^3) and, F_t = r y, E_t = -(f (r^5 y')' - (k_V^2 - 2) r^3 y)/(2 r^4), k_V^2 - 2 = l(l + 2) - 3 >= 5,
+     the sign the identity (r^5 y y')' = r^5 y'^2 + (k_V^2 - 2) r^3 y^2/f on solutions needs; the exponents of f_t = r y
+     are l and -(l + 2) at infinity; in ingoing coordinates (dt = dv - dr/f) h_vi = r f_t V_i and h_ri = r (f_r - f_t/f)
+     V_i.  Control: l = 1 (k_V^2 = 2), where E_r vanishes and F_r is not forced.
   S3 (computed, exact) The scalar type, l >= 2.  E_tr = k^2 F_tr/(2 r^2) and E_T = -(k^2/(4 r^2))(f F_rr - F_tt/f + 2
      F); in [KI03]'s X = r(-F_tt/f - 2 F), Y = r(f F_rr - 2 F) (E_T solved), E_r and the combination of E_tt, E_rr, E_L
      free of second derivatives give the flow Y' = mu (X - Y)/(r (r^2 - mu)) ([KI03] (2.24b) at sigma = 0) and X' = ...,
-     on which all four even equations vanish; Z~ := (f r^2/k^2)(X' - X/r - (f'/f - 2/r) Y) ((2.24a) at sigma = 0) has
-     Z~' = X ((2.24c)); Phi := (3 Z~ - r (X + Y))/(r^(1/2) H) solves f (f Phi')' = V_S Phi with G3's V_S, and
-     det[r^(1/2) Phi; r^(1/2) Phi'] = r^3/(k^2 mu); 3 Z~ - r (X + Y) is a combination of X and Y with coefficients
+     on which all four even equations vanish: [KI03] section 4's static system (4.2) at n = 3 (p. 11), identically;
+     Z~ := (f r^2/k^2)(X' - X/r - (f'/f - 2/r) Y) ((2.24a) at sigma = 0) has Z~' = X ((2.24c)); Phi := (3 Z~ - r (X +
+     Y))/(r^(1/2) H) solves f (f Phi')' = V_S Phi with G3's V_S, is [KI03]'s static master variable (4.3), (Q_Y X -
+     Q_X Y)/(2 k^2 r^(1/2) f' H), identically (the forty-second verifier; D92), and det[r^(1/2) Phi; r^(1/2) Phi'] =
+     r^3/(k^2 mu); 3 Z~ - r (X + Y) is a combination of X and Y with coefficients
      polynomials in r of degrees 2 and 4 over k^2 mu r; r^2 V_S -> l(l + 2) + 3/4 at infinity, exponents 1/2 +- (l + 1);
      and with F_tr = 0, in ingoing components, X = r (F_vr - 2 F) and Y = r (f F'_rr + F_vr - 2 F).  Control: Phi
      without the factor 1/H.
@@ -49,11 +53,11 @@ Deduced, not computed here (N1STAR-PROOF.md 10.33): [AHW24] Theorem 6.1(2) on fi
 stationary solution of D Ric(h) = 0 smooth across the future horizon and O(r^-eps) at infinity, 0 < eps < 1, conormally,
 is g-dot(mu-dot, A) + delta* omega with omega stationary, smooth across the horizon and O(r^(1 - eps)) -- by the energy
 identities of S1-S3 with the potentials of gmodes5.py G5, the exponents, and the gauge 1-forms; and with it [Hin26]
-Proposition 8.11 at and near Tangherlini.
+Proposition 8.11 at Tangherlini, and near it on a reading (10.33(f)).
 
 READ.  [AHW24] (L. Andersson, D. Hafner, B. F. Whiting, arXiv:2207.12952v1) pp. 1, 35 (Theorem 6.1), 41 (section 6.4,
 its proof); [Hin26] pp. 155-157 (Proposition 8.11 and its proof, Corollary 8.13's proof); [KI03] pp. 4-10 ((2.1)-(2.24),
-(3.1)-(3.7)), 13-15 ((5.1)-(5.17)); alphaXiv, 2026-10-23 and 2026-10-24.
+(3.1)-(3.7)), 11 ((4.1)-(4.3)), 13-15 ((5.1)-(5.17)); alphaXiv, 2026-10-23 and 2026-10-24.
 
 sympy.  python3 static5.py [--selftest | --mutants]   (--verbose lists every sub-check)
 """
@@ -143,13 +147,11 @@ def s1(control=0, verbose=False):
     VT = f / r**2 * (l * (l + 2) + sp.Rational(3, 4) + 9 * mu / (4 * r**2))
     pw = sp.Rational(3, 2) if control != 1 else sp.Rational(1, 2)
     master = zero(sp.expand(f * r**pw * op(r**-pw * Phi)) - (f * sp.diff(f * sp.diff(Phi, r), r) - VT * Phi))
-    energy = zero(sp.diff(f * Phi * sp.diff(Phi, r), r) - f * sp.diff(Phi, r)**2 - VT * Phi**2 / f
-                  - Phi * (f * sp.diff(f * sp.diff(Phi, r), r) - VT * Phi) / f)
     xs = sp.Symbol("x", nonnegative=True)                                          # x = mu/r^2 in [0, 1]
     pos = all(c > 0 for c in sp.Poly(sp.expand(VT / f * r**2).subs(mu, xs * r**2), l, xs).coeffs())
     pos &= not has_inv_f(VT / f)
-    chk("Phi = r^(3/2) H: f (f Phi')' = V_T Phi, V_T = (f/r^2)(l(l + 2) + 3/4 + 9 mu/(4 r^2)); (f Phi Phi')' = f "
-        "Phi'^2 + V_T Phi^2/f on solutions; V_T/f > 0 and bounded on r >= r_h", master and energy and pos)
+    chk("Phi = r^(3/2) H: f (f Phi')' = V_T Phi, V_T = (f/r^2)(l(l + 2) + 3/4 + 9 mu/(4 r^2)); V_T/f > 0 and bounded "
+        "on r >= r_h, the sign the identity (f Phi Phi')' = f Phi'^2 + V_T Phi^2/f on solutions needs", master and pos)
     if control == 0:
         P, s = exps_inf(op)
         roots_inf = set(sp.solve(P.as_expr(), s))
@@ -179,14 +181,12 @@ def s2(control=0, verbose=False):
     if control == 0:
         l = lv
         lam_l = l * (l + 2) - 3
-        energy = zero(sp.diff(r**5 * v * sp.diff(v, r), r) - r**5 * sp.diff(v, r)**2 - lam_l * r**3 * v**2 / f
-                      - v * (sp.diff(r**5 * sp.diff(v, r), r) - lam_l * r**3 * v / f))
         P, s = exps_inf(lambda u: sp.diff(r**5 * sp.diff(u / r, r), r) / r**4 - lam_l * u / (r**2 * f))
         roots = set(sp.solve(P.as_expr(), s))
         low = sp.expand(lam_l.subs(l, l + 2))
-        chk(f"(r^5 y y')' = r^5 y'^2 + (k_V^2 - 2) r^3 y^2/f on solutions, k_V^2 - 2 = l(l + 2) - 3 >= 5 at l >= 2; the "
-            f"exponents of f_t = r y at infinity {sorted(roots, key=str)}",
-            energy and roots == {l, -l - 2} and all(c > 0 for c in sp.Poly(low, l).coeffs()))
+        chk(f"k_V^2 - 2 = l(l + 2) - 3 >= 5 at l >= 2, the sign the identity (r^5 y y')' = r^5 y'^2 + (k_V^2 - 2) r^3 "
+            f"y^2/f on solutions needs; the exponents of f_t = r y at infinity {sorted(roots, key=str)}",
+            roots == {l, -l - 2} and all(c > 0 for c in sp.Poly(low, l).coeffs()))
         Vp = sp.symbols("V0:3")
         h = sp.zeros(N, N)
         ft, fr = sp.symbols("f_t f_r")
@@ -262,6 +262,16 @@ def s3(control=0, verbose=False):
     chk(f"Z~ := (f r^2/k^2)(X' - X/r - (f'/f - 2/r) Y) has Z~' = X on the flow; Phi = (3 Z~ - r (X + Y))/(r^(1/2) H) "
         f"solves f (f Phi')' = V_S Phi; det[r^(1/2) Phi; r^(1/2) Phi'] = {det}",
         zero(dr(Zt) - X0) and zero(ME) and zero(det - r**3 / (k**2 * mu)))
+    if control == 0:                                    # [KI03] section 4, p. 11, at n = 3, K = 1, Lambda = 0 (D92)
+        fp, fpp = sp.diff(f, r), sp.diff(f, r, 2)
+        cXk = 2 * (n - 1) * (f - 1) / r**2 + 2 * fp / r - fp**2 / (2 * f) + 2 * fpp / n
+        cYk = 2 * (f - 1) / r**2 + 2 * (n - 1) * fp / r - fp**2 / (2 * f) + 2 * (n - 1) * fpp / n - 2 * m_ / r**2
+        QX = n * (n + 1)**2 * x**2 + 2 * ((3 * n - 1) * m_ - n * (n + 1)) * x - 4 * n * m_
+        QY = n * (n - 1) * (n + 1) * x**2 - 2 * (n - 1) * (m_ + n * (n + 1)) * x
+        PhiKI = (QY * X0 - QX * Y0) / (2 * k**2 * sp.sqrt(r) * fp * H)
+        chk("[KI03] section 4 (p. 11): the flow is their static system (4.2a), (4.2b), and Phi their (4.3), (Q_Y X - "
+            "Q_X Y)/(2 k^2 r^(1/2) f' H), identically",
+            zero(fl[X1] - (cXk * X0 - cYk * Y0) / fp) and kiY and zero(sp.cancel((Phi - PhiKI) * sp.sqrt(r))))
     if control == 0:
         cX, cY = [sp.factor(sp.cancel(num.coeff(v_) * k**2 * mu * r)) for v_ in (X0, Y0)]
         poly = [sp.Poly(c_, r).degree() for c_ in (cX, cY)] == [2, 4] and not any(has_inv_f(c_) for c_ in (cX, cY))
@@ -410,7 +420,7 @@ def s6(control=0, verbose=False):
     return chk.ok
 
 
-CHECKS = [("S1 the tensor type, l >= 2: the stationary equation, Phi, V_T/f > 0, the energy identity, exponents", s1, 1),
+CHECKS = [("S1 the tensor type, l >= 2: the stationary equation, Phi, V_T/f > 0, exponents", s1, 1),
           ("S2 the vector type, l >= 2: E_r forces F_r = 0, (r^5 v')' = (k_V^2 - 2) r^3 v/f, exponents, horizon", s2, 1),
           ("S3 the scalar type, l >= 2: F_tr = 0, the flow, Z~, the master equation at sigma = 0, det, horizon", s3, 1),
           ("S4 scalar l = 0: the time rescaling and the mass, f_tr pure gauge, the mass regular in ingoing form", s4, 1),
