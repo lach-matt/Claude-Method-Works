@@ -6020,6 +6020,94 @@ with where n enters it: 10.40's hedge on delta is gone, delta = 0 being admitted
 is computed. Not done, and OPEN: the readings of (e) at n = 4; his scaled bounded geometry paper (READ (c)); his
 section 11. Nothing of this section is proved: Proposition 10.38 is computed, and (a)-(e) are deduced.
 
+### 10.42 [Hin26] section 11.1 in five dimensions: admissibility and forward solutions (`cone5.py`; D108)
+
+*The setting.* His section 11 linearizes around g = g_(b0,b,-S) + h, "g_(b0,b,-S) := (1 - chi_K) phi*_(-S) g_b0 + chi_K
+g_b" (11.1) (p. 218), with h in index sets E+ at iota+ subject to "(1, 0) in E+, min Re E+ >= 1, jE+ subset E+ for all j
+in N" (11.6) and remainder weights "3 + eps_I, 3 + eps_+, 2 + eps_K" (11.10) (pp. 220-221): "The requirement (1, 0) in
+E+ ensures that smooth decaying perturbations are allowed as far as their behavior at (iota+)^o is concerned" (p. 221),
+for "the two metrics g_b0 + h and g_b0,b,0 = chi_K g_b + (1 - chi_K) g_b0 + h differ near (iota+)^o by chi_K (g_b -
+g_b0) in rho_+ C^oo" (Remark 11.7, p. 224). Lemma 11.5 puts h in the e3b class "provided that l_I < min(2 gam_Ups, 1/2),
+l_+ < 1, l_K <= 2 + eps_K" (11.14), Sobolev embedding giving "h in C^(k-3,(1,1-eps,2+eps_K))" (p. 222); Proposition 11.6
+records the structure (11.17)-(11.18) of L_(g,g0), "the computations in section 5.2 ... carry over with only notational
+changes from a neighborhood of I0 cup I+ to a neighborhood of I+ cup iota+" (p. 223); and Corollary 11.9's proof: "Since
+g_(b0,b,-S) - g-bar is a smooth section of S^2 T* and of class rho_+ C^oo near (iota+)^o, we have P(g0, g0) in rho_+^3
+C^oo there. Since (3, 0) subset E+ + 2 by (11.6), this term lies in the space in (11.20)" (p. 225). Corollary 11.10:
+L_(g,g0) "is admissible (relative to L_b) of class ((0; k - 5), (2l_I, l_+, l_K)) in the sense of [Hin26c, Definition
+5.18] for all l_I < min(2gam_Ups, 1/2), l_+ in (delta, 1), and l_K in (2, 2 + eps_K]", "The weights l_+ in (delta, 1)
+and l_K > 2 satisfy the conditions in [Hin26c, (5.23)]" (p. 225), which read "l_I in (0, 1/2], l_+ > delta, l_K > aleph"
+([Hin26c] p. 109), within [Hin26c] Definition 5.15's "l_I in [0, 1/2], l_+ in [0, 1], l_K >= 0", "The requirements 2l_I,
+l_+ <= 1 are made for convenience" (p. 107). Theorem 11.12 states [Hin26c] Theorem 11.1 "in the form using unweighted
+b-densities": "Let beta_+ in (1/2, 1/2 + eps_ind) and beta_I in (beta_+, 1); fix delta > beta_+ - 1/2", f in H^(k+d,
+beta_I+1, beta_++2, 1/2)_b, "u in H^(k, beta_I, beta_+-delta, -3/2)_b" (11.22) (pp. 225-226); [Hin26c] p. 228: "mu_b :=
+rho_I^3 rho_+^4 rho_K |dt dx| ... (in which case rho_I^3 rho_+^4 rho_K = 1/(t* r^3))" and (11.5) "beta_I = alpha_I +
+3/2, beta_+ = alpha_+ + 2", from Theorem 11.1's "alpha_I < -1/2 + S-bar ... alpha_+ < alpha_I - 1/2" (pp. 228, 201).
+
+**Proposition 10.39 (computed; exact).** On Minkowski space R^(1,n), n = 4, with n = 3 as the control:
+
+ (i) (the densities and the weights) With [Hin26c]'s (11.4), rho_I = t*/(t* + r), rho_+ = (t* + r)/(t* r), rho_K =
+     r/(t* + r): 1/(t* r^n) = rho_I^n rho_+^(n+1) rho_K, so the unweighted b-density shifts the weights at (I+, iota+,
+     K+) by (n/2, (n + 1)/2, 1/2) -- (3/2, 2, 1/2) at n = 3, his (11.5), and (2, 5/2, 1/2) at n = 4. alpha_sf + n/2 in
+     (0, eps_ind) is beta_+ in (1/2, 1/2 + eps_ind) in both dimensions, and his delta > beta_+ - 1/2 is Theorem 10.1's
+     delta > alpha_sf + 3/2. A radiation field r^-((n-1)/2) is of I+ order (n - 1)/2 against mu_b and -1/2 against |dt
+     dx| in both (rho_I rho_+ = 1/r), so the threshold alpha_I < -1/2 + S-bar is beta_I < (n - 1)/2 + S-bar: with min
+     spec S-bar = 0, his 1 at n = 3 and 3/2 at n = 4 (C1).
+ (ii) (the background differences at iota+) Homogeneity along rays in the cone, in Cartesian components: a change of
+     mass, r^-(n-2) k (x) k (Kerr-Schild, k null), is of degree -(n - 2); of rotation, r^-n (dt (x)_s w), w = x^1 dx^2 -
+     x^2 dx^1, of degree -(n - 1); a boost, L_X of the mass term, X = t d_x1 + x^1 d_t, of degree -(n - 2) -- each
+     nonzero. So iota+ orders 2, 3 and 2; at n = 3, 1, 2 and 1, his rho_+ C^oo (C2).
+ (iii) (the patched background's curvature) For g = eta + M(t, r) r^-(n-2) (dt + dr)^2, M = mu_0 + d F(r/t), F
+     arbitrary: Ric = 0 for F constant; its part linear in the deviation, d F's, is homogeneous of degree -n, nonzero,
+     and vanishes where F is constant; its quadratic part (mu_0 d, d^2) is homogeneous of degree -(2n - 2); there is no
+     cubic part. So the curvature of a cut-off interpolation between two masses is of iota+ order 4, supported where the
+     cut-off varies; at n = 3 order 3, his Corollary 11.9 (C3).
+
+*Proof.* C1-C3 of cone5.py: sympy, exact. (i) the identity of densities simplified to 0, the weights in rational
+arithmetic at 72 points of (0, eps_ind); (ii) each component's ratio along the ray lam p, p = (7, 1/2, 1, ...), equal
+to lam^deg with one deg for all nonzero components; (iii) the Ricci tensor of the Kerr-Schild metric with M(t, r)
+generic, by its Christoffel symbols with the exact inverse eta^-1 - H k# k#, in the frame (dt, dr, r dS^(n-1)), then M
+= eps(mu_0 + d F(r/t)) and the eps^k pieces tested for homogeneity under (t, r) -> lam (t, r). Controls: the shifts
+claimed dimension-free; the five-dimensional mass change claimed of order 1; its curvature claimed of order 3. []
+
+*Deduced.*
+
+ (a) (Definition 11.3 in five dimensions) The background differences his E+ admits for g_(b0,b,-S) and Remark 11.7 -- a
+     change of mass or rotation, chi_K (g_b - g_b0), and the cut-off boost -- are of iota+ order 2, 3 and 2 (Proposition
+     10.39(ii)), and the iteration's slowest iota+ term is the mass aspect's t*^-2 (alpha_5 = 2, section 10.38, on
+     readings). So his (11.6) becomes (2, 0) in E+, min Re E+ >= 2, jE+ subset E+: every order there one above his, on
+     10.38's readings, which are also what keeps the radiative 3/2 out of E+ (his Proposition 11.16 in five dimensions,
+     10.38's OPEN).
+ (b) (Lemma 11.5) With min Re E+ = 2, Sobolev embedding puts h at 2 - eps at iota+ where his is 1 - eps, so (11.14)'s
+     l_+ < 1 relaxes to l_+ < 2 and [Hin26c] Definition 5.15's convenience bound l_+ <= 1 is the one that binds; l_K <=
+     2 + eps_K is unchanged, and l_I rests on E^C_I and gam_Ups at I+, his section 5 at n = 4 (10.38's readings).
+ (c) (Proposition 11.6, Proposition 11.8, Corollary 11.9) The structure (11.17)-(11.18) rests on his section 5.2's
+     computation, which 10.38 carries to five dimensions at h = 0 (its h-terms OPEN there), with the error classes at
+     iota+ shifted as E+ is. P(g0, g0) = Ric(g_(b0,b,-S)), supported on supp d chi_K, is of class rho_+^4 C^oo near
+     (iota+)^o -- Proposition 10.39(iii) for a change of mass; for rotation and boost the same homogeneity, their
+     differences being of orders 3 and 2 -- and (4, 0) in E+ + 2: his conclusion, one order higher.
+ (d) (Corollary 11.10) [Hin26c] (5.23) asks l_+ > delta and l_K > aleph; with sf-loss 0 (section 10.41(a)) and aleph = 2
+     (the boosts' t* growth, sections 10.28-10.29), L_(g,g0) is admissible relative to L_b of class ((0; k - 5), (2l_I,
+     l_+, l_K)) for l_+ in (0, 1) and l_K in (2, 2 + eps_K] -- on the readings of [Hin26c] Definitions 5.15 and 5.18 at
+     n = 4 and of (b)'s l_I.
+ (e) (Theorem 11.12) [Hin26c] Theorem 11.1 at n = 4, a reading, in the unweighted b-density with the shifts (2, 5/2,
+     1/2): for beta_+ in (1/2, 1/2 + eps_ind) -- his interval, alpha_sf + 2 in (0, eps_ind) -- beta_I in (beta_+, 3/2)
+     (his alpha_+ < alpha_I - 1/2 is beta_+ < beta_I in both dimensions) and sf-loss 0, the forward solution of L_(g,g0)
+     u = f, f in H^(k+d, beta_I+1, beta_++2, 1/2)_b, lies in H^(k, beta_I, beta_+, -3/2)_b: his (11.22) with delta = 0
+     and the top of beta_I at 3/2, the radiation field's order. The tame estimate (11.23) is his, with delta = 0.
+
+*READ.* [Hin26] (alphaXiv, 2026-10-24; printed pages): pp. 218-226 (section 11's opening, (11.1)-(11.11), Definition
+11.3, Remark 11.4, Lemma 11.5, Proposition 11.6, Remark 11.7, Proposition 11.8, Corollaries 11.9-11.10, Remark 11.11,
+Theorem 11.12, Remark 11.13), 231 (section 11.3's opening), 244 ((11.85)), 263 ((11.148)-(11.151)). [Hin26c] pp. 107,
+109 (Definitions 5.15 and 5.18), 201 ((10.2)), 228 (Theorem 11.1, (11.4)-(11.6a)).
+
+*What this gives, and what it does not.* His first step towards decay, in five dimensions: the index sets at iota+ one
+order up, the patched background's curvature at rho_+^4, the dynamical operator admissible with l_+ in (0, 1), and
+forward solutions that lose at timelike infinity only the two orders the operator takes -- his t*^(3/2) growth in
+spatially compact sets is the K+ weight -3/2, unchanged, aleph = 2 being the boosts'. Not done, and OPEN: [Hin26c]
+Theorem 11.1 and Definitions 5.15 and 5.18 at n = 4 (readings); the h-terms of (5.28) in five dimensions and his
+Proposition 11.16 there (10.38's OPEN), and with them E^C_I, gam_Ups and l_I at I+; his sections 11.2-11.8. Nothing of
+this section is proved: Proposition 10.39 is computed, and (a)-(e) are deduced.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

@@ -5,7 +5,7 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 after the last edit are listed there. The response paper is `../../paper/RESPONSE-HL-5D.md`, with its check
 `../../paper/response5.py` (D22-D23).
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D107).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D108).
 - `N1STAR-STATUS.md`: the first assessment (D6), kept as the record of the audit of Touati's smallness.
 - `N1STAR-PROOF.md`: the proof as it stands. Theorem E (evolution), Theorem A (the approximant) and Theorem D (the data,
   solved outward in r), checked by independent verifiers (D12, D15, D16, D18-D21), every standard theorem they invoke
@@ -263,11 +263,16 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   n/2, 2 at n = 4, its rule reproducing his printed instances (W1-W3; Theorem 10.1 with no sf-loss deduced on readings
   in 10.40, [Hin26c]'s readings at source in 10.41). `python3 lowfreq5.py --selftest` (3/3, about five seconds),
   `--mutants` (7/7).
+- `cone5.py`: [Hin26] section 11.1 in five dimensions (section 10.42; D108): the unweighted b-density's shifts (2, 5/2,
+  1/2) for his (11.5)'s (3/2, 2, 1/2), beta_+ in (1/2, 1/2 + eps_ind) in both, the top of beta_I 3/2 for his 1; the
+  background differences at iota+ (mass, rotation, boost) of orders 2, 3, 2 for his 1, 2, 1; the patched background's
+  curvature of order 4 for his 3 (C1-C3; E+ from (2, 0), Corollaries 11.9-11.10 and Theorem 11.12 with sf-loss 0 deduced
+  on readings in 10.42). `python3 cone5.py --selftest` (3/3, about ten seconds), `--mutants` (3/3).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All forty-nine are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All fifty are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing
 the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py,
 lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py,
@@ -281,5 +286,5 @@ imports damping5.py, genstates5.py and zstates5.py, dual5.py imports damping5.py
 pairing5.py imports damping5.py, static5.py imports damping5.py and gmodes5.py, physical5.py imports damping5.py and
 lin5.py, window5.py imports damping5.py and lin5.py, mp5.py imports damping5.py and dual5.py, iota5.py imports
 damping5.py and lin5.py, scri5.py imports damping5.py, iota5.py, lin5.py and sbar5.py, aug5.py imports damping5.py and
-sbar5.py, lowfreq5.py imports aug5.py, damping5.py and sbar5.py, and the others import nothing from the tree. The
-board's shared record is not edited here.
+sbar5.py, lowfreq5.py imports aug5.py, damping5.py and sbar5.py, cone5.py imports damping5.py, and the others import
+nothing from the tree. The board's shared record is not edited here.

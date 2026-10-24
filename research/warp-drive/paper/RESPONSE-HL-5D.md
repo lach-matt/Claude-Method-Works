@@ -847,7 +847,10 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   remove the poles at zero energy carry the states' own weights, one order better than his, and with the augmentation
   cut off near future null infinity the threshold at the outgoing radial set does not bind, so the two integrations in
   time keep the weights they start from; his loss of decay δ > α_sf + 3/2, α_sf the weight of his Theorem 10.1, becomes
-  none (`lowfreq5.py`; computed on the model, the rest deduced in supplement section 10.40). A line-by-line check of
+  none (`lowfreq5.py`; computed on the model, the rest deduced in supplement section 10.40). With it, his first step
+  towards decay carries over: on readings, the dynamical operator is admissible relative to the stationary one, every
+  order at timelike infinity one higher than his, and its forward solutions lose there only the two orders the operator
+  takes (`cone5.py`; computed on the model, the rest deduced in supplement section 10.42). A line-by-line check of
   Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does
   not make explicit, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to
   τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured
@@ -1435,6 +1438,11 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   loss — and his −1/2 − ε, 1/2 − ε and −3/2 − ε in four (2-admissibility with no loss deduced, on readings); and the
   density shift in his companion paper's bound (13.30a), 3/2 in four dimensions and 2 in five, its rule reproducing his
   printed instances. 3/3; mutants 7/7 (about 5 seconds).
+- `cone5.py` C1–C3: Hintz's section 11.1 in five dimensions (supplement section 10.42): the unweighted b-density's
+  shifts at null infinity, timelike infinity and the Kerr face, 2, 5/2 and 1/2 for his 3/2, 2 and 1/2, his
+  four-dimensional values reproduced; the background's differences at timelike infinity — mass, rotation, boost — of
+  orders 2, 3 and 2 for his 1, 2 and 1; the patched background's curvature of order 4 for his 3 (the admissibility and
+  the forward solutions with no loss deduced, on readings). 3/3; mutants 3/3 (about ten seconds).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1509,7 +1517,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D107).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D108).
 
 | claim | where it is established |
 | --- | --- |
@@ -1537,7 +1545,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
-| settling, section 8 | supplement sections 10.1, 10.3–10.41 (Propositions 10.1–10.38); |
+| settling, section 8 | supplement sections 10.1, 10.3–10.42 (Propositions 10.1–10.39); |
 | | `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
 | | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; |
@@ -1555,6 +1563,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | `docket68/n1star/static5.py` S1–S6; `docket68/n1star/physical5.py` Y1–Y4; |
 | | `docket68/n1star/window5.py` W1–W3; `docket68/n1star/mp5.py` M1–M5; `docket68/n1star/iota5.py` I1–I5; |
 | | `docket68/n1star/scri5.py` C1–C3; `docket68/n1star/aug5.py` A1–A3; `docket68/n1star/lowfreq5.py` W1–W3; |
+| | `docket68/n1star/cone5.py` C1–C3; |
 | | [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c], [AHW24], [DLMF] |
@@ -1600,7 +1609,7 @@ imports `cform5.py` and `damping5.py`, `tface5.py` imports `cform5.py`, `gaugepo
 `damping5.py` and `lin5.py`, `window5.py` imports `damping5.py` and `lin5.py`, `mp5.py` imports `damping5.py` and
 `dual5.py`, `iota5.py` imports `damping5.py` and `lin5.py`, `scri5.py` imports `damping5.py`, `iota5.py`, `lin5.py` and
 `sbar5.py`, `aug5.py` imports `damping5.py` and `sbar5.py`, `lowfreq5.py` imports `aug5.py`, `damping5.py` and
-`sbar5.py`; the others import nothing from the research tree:
+`sbar5.py`, `cone5.py` imports `damping5.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1642,6 +1651,7 @@ imports `cform5.py` and `damping5.py`, `tface5.py` imports `cform5.py`, `gaugepo
                                                          # scri5 (about twelve minutes)
                                                          # aug5 (about 8-12 minutes)
                                                          # lowfreq5 (about five seconds)
+                                                         # cone5 (about ten seconds)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1649,9 +1659,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `ccd1a6f2fd93852ba99487ee489a4a94` |
-| `docket68/n1star/N1STAR-LOG.md` | `0694904083903513dc13d563e278485d` |
-| `docket68/n1star/README.md` | `115bcfce479b4d381fd9645e612a001f` |
+| `docket68/n1star/N1STAR-PROOF.md` | `f0dcb1865800c8e09dc9c913be674cf0` |
+| `docket68/n1star/N1STAR-LOG.md` | `69d711817ac920eccffb52931fa469f9` |
+| `docket68/n1star/README.md` | `ce0b4074b6c93ed90f9eb084f4a26bb2` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1705,5 +1715,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/scri5.py` | `6c63e01b0582c528bd84431edbc8eac6` |
 | `docket68/n1star/aug5.py` | `3bcbdc239f889819b64436ad7b562ae5` |
 | `docket68/n1star/lowfreq5.py` | `b952a94d5a9313a66b1c166c7ed0d1ed` |
+| `docket68/n1star/cone5.py` | `1630d075bb3b62d5436ff4103d2afe60` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.
