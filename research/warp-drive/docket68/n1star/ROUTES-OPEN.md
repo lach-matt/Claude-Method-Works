@@ -1147,7 +1147,8 @@ and deduces.
   master equation; and his Proposition 8.8 there, on the readings of 4.20-4.27, at Proposition 10.9's point with gam_Ups
   small.
 - OPEN: the kernel elements' class, omega's continuation inside the horizon (before his Proposition 6.12 applies) and
-  the interior uniqueness, as in 10.16; how small gam_Ups must be, and h_0; his Proposition 8.9, Remark 8.10 and
+  the interior uniqueness, as in 10.16 (both closed: 4.80); how small gam_Ups must be, and h_0; his Proposition 8.9,
+  Remark 8.10 and
   Proposition 8.11 (zero energy; Proposition 8.9 deduced in 4.29, Proposition 8.11 in 4.33-4.34 at a = 0, and near it on
   a reading), section 8.5 and sections 9-10 in five dimensions. Labels: computed (gmodes5.py G1-G5, exact); deduced;
   READ ([Hin26] pp. 25, 153-154; [KI03] pp. 4-10, 13-15, 18-20); nothing proved.
@@ -1292,7 +1293,8 @@ gmodes5.py's reduced operators; N1STAR-PROOF.md 10.33 states Proposition 10.30 a
   as Proposition 8.11 gives it (p. 157) -- Proposition 8.11 and his Corollary 8.13 (a statement for b near b_0) with
   eleven for seven (D92).
 - OPEN: [AHW24] Theorem 6.1(2) on Myers-Perry with a != 0 beyond that reading; the class of (8.22)'s kernel elements in
-  five dimensions line by line; omega's continuation inside the horizon; section 8.5 beyond 4.35 and sections 9-10; the
+  five dimensions line by line; omega's continuation inside the horizon (closed: 4.80); section 8.5 beyond 4.35 and
+  sections 9-10; the
   readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0. Labels: computed (static5.py S1-S6, exact);
   deduced; READ ([AHW24] pp. 1, 35, 41; [Hin26] pp. 156-157; [KI03] pp. 4-10, 11, 13-15); nothing proved.
 
@@ -1761,7 +1763,8 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
   Minkowski model in rho^4 Diff^2_b and the indicial families, tf-normal operators and S-bar are the model's; g^00 = -4
   mu rho^2.
 - B7 deduced (10.55(b)-(c)): the kernel class from 10.53(c); the interior uniqueness by the radial systems' regular
-  singular point at the horizon; the index 0 at nonzero frequency on Theorem 9.16's reading (10.53(e)).
+  singular point at the horizon (its last step proved as Lemma 10.56 (a): 4.80); the index 0 at nonzero frequency on
+  Theorem 9.16's reading (10.53(e)).
 - B4 deduced at source (10.56): [Hin26a] section 5.2's estimates take from the metric and c only symbol data, all
   computed in five dimensions (10.13, 10.14, 10.22), on a general calculus; one reading left, the sign of each
   commutator there as the five-dimensional symbol gives it. Theorems 6.2 and B.1 follow with 10.54(a).
@@ -2042,3 +2045,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and 10.37 (c), the regularity in b added. With [Hin26] Propositions 8.11 and 7.4 (10.32 (c), 10.36 (b); pp. 155-156,
   140-144), sixteen of 61 are written out; 45 rest on the censuses.
 
+### 4.80 The sixty-first verifier seated; the continuation across the horizon proved (proved, deduced; D149)
+
+- Proved (10.76, Lemma 10.56): for z X' = A(z) X with A smooth, a solution on one side of 0 vanishing to infinite
+  order vanishes, by a Gronwall bound |X(z)| >= |X(z_1)| (z/z_1)^M; and one smooth up to 0 from one side is the
+  restriction of a smooth solution through 0, by Borel's lemma and variation of constants against a flat error; the
+  same for f phi'' + Q phi' + R phi = 0 with f vanishing simply.
+- Deduced at proof level (10.76 (a)-(c)): every operator of the record splits over the harmonics into such systems with
+  f = g^-1(dr, dr) = 1 - mu/r^2; so a kernel element vanishing outside the horizon vanishes on X, and in [Hin26]
+  Proposition 8.8 at n = 4 the gauge 1-form omega, smooth up to r_h by the radial components of delta* omega = u (a
+  regular system), continues inside the horizon as a solution of box^Ups omega = 0, so Proposition 6.12 applies on X.
+  Closes the continuation (10.27 (b), 10.33) and the interior uniqueness (10.15 (a), 10.16, 10.55 (c)); the kernel
+  class stays on its reading.
+- The verifier's other findings: 10.75 (iii) rests on 10.19 (d)'s reading, now marked; B-MAP.tsv gives 10.15 (a) and
+  10.63 (c) their places (52 name some, 9 none; 96 placements: 32 computed, 52 section, 11 arithmetic, 1 choice; 31
+  rest on a reading, ten of the sixteen written out among them); the paper names readings among the deductions'
+  inputs; nine minor findings seated (10.75 (ii), (iv)-(vi), (viii), (xi)).
