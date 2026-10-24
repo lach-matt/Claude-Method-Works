@@ -3791,3 +3791,44 @@ it applies at all".
     seed_derive D2 makes escape fall as the seed grows, so the larger seed still delivers within half a bit.
 
 93 rows, unchanged: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6 COMPUTED-THEORIZED. mots545 is in T1.
+
+## 69. The asymmetric settling: the formed hole outside the class (547-548; settle_asym.py)
+
+M, 547: "Do we need the nonlinear settlings to be symmetric or asymmetric in class? And would having both be helpful
+and preferred?" The board: the theorem needs the class, since the record's data keep its symmetry and their
+development keeps it; the asymmetric case strengthens it. M, 548: "Yes, add the asymmetric settling row to the
+register". The row is SETTLEa.
+
+- **What the class removes, and what returns** (A1, exact). A stationary end state near Tangherlini carries a spin A
+  in so(4) and a momentum P in R^4, the l = 1 vector and scalar sectors (6 and 4 on S^3). Invariant under the class:
+  (0, 0), the mass alone; under T^2 alone: (2, 0), a two-spin hole at rest; with no symmetry: (6, 4). A boost leaves
+  Tangherlini Tangherlini, so reaching it asks six conditions. Controls, four dimensions: axial with the reflection,
+  (0, 1) -- Klainerman and Szeftel's "center-of-mass may move along the symmetry axis"; none, (3, 3) -- Dafermos,
+  Holzegel, Rodnianski and Taylor's codimension 3 (Hintz 2606.28253v2 p. 6, READ). Mutant: one reflection leaves one
+  spin, caught.
+- **The family** (A2, READ and exact). Emparan and Reall (0801.3471v2 pp. 14-17) at d = 5: Pi = (r^2 + a^2)(r^2 +
+  b^2), Pi(r0) = mu r0^2, kappa = (Pi'(r0) - 2 mu r0)/(2 mu r0^2), A_H = (pi^2/kappa) mu (2 - 2a^2/(r0^2 + a^2) -
+  2b^2/(r0^2 + b^2)), M = 3 pi mu/(8G), J_i = (2/3) M a_i. With Omega_i = a_i/(r0^2 + a_i^2) the first law holds
+  identically; Tangherlini at a = b = 0. Mutant: Omega halved, caught. No ultraspinning regime in five dimensions (p.
+  17).
+- **The end state for the record's own perturbation** (A3). The inflow's random spin, a/r_h = 7.6e-8 (scope C1): at
+  fixed mass the Myers-Perry hole differs from Tangherlini by -(a/r_h)^2/2 = -2.9e-15 in area and in surface gravity,
+  Omega r_h = 7.6e-8.
+- **Prior art** (READ). Hintz, Theorem 1.1 (p. 2): data near subextremal Kerr data, small in H^d, "Then there exist
+  subextremal parameters b = (m, a) close to b0 such that the MGHD ... contains a region isometric to (Omega, g),
+  where g is a Lorentzian metric satisfying |g - g_b| <~ (1 + t)^(-2-eps_K)"; "This settles the Kerr stability
+  conjecture in the full subextremal range"; "Restricting to axisymmetry, ultimately Schwarzschildean spacetimes, or
+  small angular momenta would not lead to simplifications in our arguments" (p. 5). Emparan and Reall p. 20:
+  Myers-Perry's "classical linearized stability ... remains largely an open problem" (2008).
+- **What it decides.**
+  - Large end: within Hintz's theorem, to O((ell/r0)^2), on SETTLE's footing (threshold unquantified, both margins
+    falling with N).
+  - Small end: the end state a nearby Myers-Perry hole; linear settling proved for every type (O3gs); the nonlinear
+    step without symmetry theorized, named -- the five-dimensional counterpart of Hintz's theorem, open in the field.
+    What the class removed returns: the vector type, the boosts' second-order pole, the Myers-Perry end states. The
+    N1* session's route B already follows Hintz without symmetry in most of its inputs (N1STAR-PROOF 10.29-10.36,
+    main at 308c527a), [AHW24]'s rigidity beyond zero spin OPEN there.
+  - SETTLEs and SETTLE unchanged. For the perturbation the record computes, the end state is SETTLEs's Tangherlini to
+    2.9e-15.
+
+94 rows: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 7 COMPUTED-THEORIZED. settle_asym is in T1.

@@ -131,3 +131,70 @@ settle_large.py E0-E4:
 4. Closeness: the plane reads the large hole as Schwarzschild to O((ell/r0)^2), 2.5e-3 at r0 = 20 ell, and the
    formation's roundness is 10 l5/r0, at most 4.4e-18. Both fall with N, so the corollary's threshold, unquantified in
    the paper, is met for every N above a finite value.
+
+## 6. Outside the class (SETTLEa, COMPUTED-THEORIZED; item 548)
+
+M, 547: "Do we need the nonlinear settlings to be symmetric or asymmetric in class? And would having both be helpful
+and preferred?"; 548: "Yes, add the asymmetric settling row to the register". SETTLEs and SETTLE settle the record's own
+solution, which keeps the class's symmetry: a symmetry of the data is an isometry of their maximal development, which
+is unique up to isometry (Choquet-Bruhat and Geroch, as Hintz 2606.28253v2 p. 1 states it, READ). SETTLEa is the row
+for a perturbation that breaks the symmetry. Its computations are settle_asym.py A0-A3.
+
+**THM-SETTLEa.** (i) Outside the class the end state near Tangherlini is a five-dimensional Myers-Perry hole, its spin
+A in so(4) (dimension 6) and its momentum P in R^4; with T^2 alone, a two-spin hole at rest; in the class, Tangherlini.
+(ii) For the one perturbation of the class the record computes, the inflow's random spin a/r_h = 7.6e-8, the Myers-Perry
+hole of the formed hole's mass differs from Tangherlini by -2.9e-15 in horizon area and in surface gravity. (iii) At the
+large end a perturbation breaking the symmetry, small enough, settles to a nearby Kerr hole, to O((ell/r0)^2) (Hintz's
+theorem, READ). (iv) At the small end the linear settling is proved for every type of perturbation (O3gs); the
+nonlinear settling without symmetry is theorized, named.
+
+**Q1 (A1; computed exact, proved).**
+1. The stationary perturbations of Tangherlini below l = 2 are the l = 1 vector type, the six Killing fields of S^3
+   (rotations), the l = 1 scalar type, the four degree-one harmonics (translations and boosts, no physical degree of
+   freedom), and l = 0, the mass (Kodama and Ishibashi, READ in face_grav W4). At l >= 2 there is no static mode (G0s).
+   The counts 6 and 4 are dim so(4) and the degree-one harmonic polynomials of R^4; on S^2 they are 3 and 3.
+2. A symmetry g of the data is an isometry of the development and so of its end state: g A g^-1 = A for the
+   rotations, R A R = A for the reflections, and g P = P, R P = P.
+3. Commuting with both rotation generators J_12 and J_34 confines A to their span (computed: the rank of the linear
+   conditions on the six coefficients). The reflection phi_1 -> -phi_1 sends J_12 to -J_12 and fixes J_34, the other
+   the reverse, so the class leaves A = 0; T^2 alone leaves the span, dimension 2. A vector fixed by J_12 has x_1 = x_2
+   = 0 and by J_34 x_3 = x_4 = 0, so P = 0 under T^2.
+4. With no symmetry A ranges over so(4), dimension 6, and P over R^4. A boost carries Tangherlini to Tangherlini, so
+   reaching Tangherlini itself asks the six spins to vanish: codimension 6 in the linearised count.
+5. Control, four dimensions: an axial rotation with the reflection phi -> -phi leaves J = 0 and P along the axis, Hintz's
+   account of Klainerman and Szeftel's class ("though its center-of-mass may move along the symmetry axis", p. 6,
+   READ); no symmetry leaves so(3), dimension 3, Dafermos, Holzegel, Rodnianski and Taylor's codimension 3 (Hintz p. 6,
+   READ). Mutant: one reflection only leaves one spin, caught.
+
+**Q2 (A2; READ, computed exact, proved).**
+1. Emparan and Reall (0801.3471v2, READ) at d = 5: Pi = (r^2 + a^2)(r^2 + b^2) (p. 16, (44)), the horizon Pi(r0) =
+   mu r0^2 ((45)), A_H = (Omega_3/(2 kappa)) mu (2 - 2a^2/(r0^2 + a^2) - 2b^2/(r0^2 + b^2)) with Omega_3 = 2 pi^2
+   ((46)), kappa = (Pi'(r0) - 2 mu r0)/(2 mu r0^2) (p. 17, (47)), M = 3 pi mu/(8G) and J_i = (2/3) M a_i (p. 14,
+   (34)).
+2. With Omega_i = a_i/(r0^2 + a_i^2), the angular velocities of the horizon's null generator, the first law dM =
+   kappa dA_H/(8 pi G) + Omega_a dJ_a + Omega_b dJ_b holds identically in (r0, a, b) (sympy, exact). Mutant: Omega_i
+   halved, the law fails, caught.
+3. At b = 0, kappa = r0/(r0^2 + a^2), their (38)'s 2 pi T_H at d = 5; at a = b = 0, kappa = 1/r0 and A_H = 2 pi^2 r0^3,
+   Tangherlini. In d = 5 the family has no ultraspinning regime (p. 17, READ).
+
+**Q3 (A3; computed exact to O(a^4), numbers).**
+1. At fixed mass take mu = r_h^2 = 1 and b = 0: r0^2 = 1 - a^2, A_H/(2 pi^2) = r0 and kappa = r0 (Q2), so both differ
+   from Tangherlini's by -a^2/2 + O(a^4) (exact series).
+2. The inflow's random angular momentum, sqrt(n) hbar over the README's inflow quanta, gives a/r_h = 7.6e-8 at the
+   example (scope C1, imported). So -2.9e-15 in area and in surface gravity, and Omega r_h = 7.6e-8.
+
+**What is READ and deduced for (iii).** Hintz (2606.28253v2, p. 2, Theorem 1.1, READ): initial data satisfying the
+constraints, equal to subextremal Kerr data outside a compact set and close to them in H^d, have a development
+containing a region isometric to (Omega, g) with |g - g_b| <~ (1 + t)^(-2-eps_K) for "subextremal parameters b = (m, a)
+close to b0"; "This settles the Kerr stability conjecture in the full subextremal range" (p. 2); no symmetry is
+assumed, and "Restricting to axisymmetry, ultimately Schwarzschildean spacetimes, or small angular momenta would not
+lead to simplifications in our arguments" (p. 5). The plane reads the large hole as Schwarzschild to O((ell/r0)^2)
+(section 5, item 4), so (iii) holds on SETTLE's footing: the threshold is not quantified, and both margins fall with N.
+
+**Theorized, named: (iv)'s nonlinear step.** The five-dimensional counterpart of Hintz's theorem is open in the field.
+Its linear half is proved: O3gs (face_grav W0-W6), Hung, Keller and Wang's decay of every type in dimension six and
+below (1809.05144v1 Theorem 2, READ), below l = 2 the mass or the Myers-Perry member. What the class removed returns
+outside it: the vector type, the boosts' second-order pole at zero energy, the six rotations and the Myers-Perry end
+states, whose linearised stability Emparan and Reall call "largely an open problem" (p. 20, 2008). The route is the N1*
+session's route B, whose inputs already follow Hintz without symmetry (N1STAR-PROOF 10.29-10.36 on main at 308c527a),
+[AHW24]'s rigidity beyond zero spin still OPEN there. SETTLEs and SETTLE are unchanged.

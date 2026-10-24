@@ -51,7 +51,10 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
       E(N) is increasing and fixed by the first law between the two ends' laws, which it joins to 2.2e-4. The surface
       gravity is positive and there is no zero mode (`gmid.py`, GMID);
     - formed at the emitter's finite wavelength, it settles to that member: proved at the large end (`settle_large.py`,
-      SETTLE); at the small end computed, with its proof theorized (`settle_late.py`, SETTLEs).
+      SETTLE); at the small end computed, with its proof theorized (`settle_late.py`, SETTLEs). Under perturbations
+      that break the class's symmetry it settles to a nearby rotating member: within Hintz's theorem at the large end,
+      theorized at the small end, and for the inflow's own spin within 2.9e-15 of Tangherlini (`settle_asym.py`,
+      SETTLEa, 548).
   - **The domain is N ≥ 7.12e9**, where the five-dimensional interior is computed; a classical horizon needs N > 1.76e5.
     A 174-bit README would give r_h = 2.90 l₅, a Planck-scale corridor, and the theorem claims nothing there (C2).
 - **(H) Holding.** The horizon holds the README: exactly once written, in the mean during the write (it fluctuates by
@@ -129,7 +132,28 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 545 (the inner marginally trapped surface investigated: it does not form).** You ruled that
+**Where it stands, at item 548 (the asymmetric settling added to the register).** You asked whether the nonlinear
+settling must hold in the class or also outside it, and whether having both is preferred (547); the board answered
+that the theorem needs the class and that the asymmetric case strengthens it, and you approved adding it (548). One
+row, SETTLEa, after SETTLE (`lemmas/settle_asym.py`, A0-A3, in T1; `lemmas/SETTLE-PROOF.md` section 6). SETTLEs and
+SETTLE are unchanged: the record's data keep the class's symmetry and its development keeps it, so the end state
+there is Tangherlini, the mass its only parameter.
+- **What returns outside the class** (A1, exact). The end state's spin and momentum invariant under the class: none;
+  under the T² alone: two spins at rest; with no symmetry: six spins and four momenta, so reaching Tangherlini itself
+  is codimension 6 in the linearised count. The four-dimensional controls are Dafermos, Holzegel, Rodnianski and
+  Taylor's codimension 3 and Klainerman and Szeftel's momentum along the axis (READ, Hintz p. 6).
+- **The end state** (A2-A3). A five-dimensional Myers-Perry hole (Emparan and Reall, READ; its first law exact). For
+  the one symmetry-breaking perturbation the record computes, the inflow's random spin a/r_h = 7.6e-8 (scope C1), it
+  differs from Tangherlini by -2.9e-15 in horizon area and surface gravity.
+- **Large end.** A perturbation breaking the symmetry, small enough, settles to a nearby Kerr hole by Hintz's theorem
+  (2606.28253v2, Theorem 1.1, READ: the full subextremal range, no symmetry assumed), to O((ell/r0)^2), on SETTLE's
+  footing.
+- **Small end.** The linear settling is proved for every type (O3gs). The nonlinear settling without symmetry, the
+  five-dimensional counterpart of Hintz's theorem, is open in the field: theorized, named. The N1* session's route B
+  already follows Hintz without symmetry in most of its inputs (10.29-10.36).
+94 rows: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 7 COMPUTED-THEORIZED. Put to you: nothing new.
+
+**Where it stood at item 545 (the inner marginally trapped surface investigated: it does not form).** You ruled that
 519 does not cover the inner marginally trapped surface reported at 544, and asked for it to be investigated
 exhaustively: the findings, how it affects the rest of the theorem, and how to mitigate it if it does, or whether it
 applies at all (`lemmas/mots545.py`, M0-M12, in T1).
@@ -2372,6 +2396,13 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Item 548** (M: "Yes, add the asymmetric settling row to the register", on 547's question: "Do we need the
+  nonlinear settlings to be symmetric or asymmetric in class? And would having both be helpful and preferred?").
+  SETTLEa added after SETTLE (`lemmas/settle_asym.py`, A0-A3, in T1; SETTLE-PROOF section 6): outside the class the
+  end state is a nearby Myers-Perry hole (six spins, four momenta; the class leaves the mass alone), at the large end
+  within Hintz's theorem (READ), at the small end linearly proved (O3gs) and nonlinearly theorized; for the inflow's
+  own spin the end state is Tangherlini to 2.9e-15. SETTLEs and SETTLE unchanged and pointed at it. 94 rows.
+  BOUNCE-RESEARCH section 69; the map updated in full.
 - **Item 545** (M: "Does 519 cover this? - no it does not. Please investigate this exhaustively, and report back the
   findings, how it affects the rest of the theorem, and how to mitigate it if it does, or determine if it applies at
   all"). The inner marginally trapped surface reported at 544 investigated exhaustively (`lemmas/mots545.py`, M0-M12,

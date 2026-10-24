@@ -184,6 +184,12 @@ labelled PROVED on QB (M).  The SI figures name their ell: ell_H <= ell <= 13.96
 the dark-energy tie (ell_si; M: 'address and correct this').  Every row carries one current-basis line (M: 'yes').
 541's corrections D1-D5 applied (M: 'approved').  93 rows: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 6
 COMPUTED-THEORIZED (BOUNCE-RESEARCH 66).]
+[Item 548: the asymmetric settling added (M: 'Yes, add the asymmetric settling row to the register', on 547's
+question).  SETTLEa: the formed hole settles under perturbations that break the class's symmetry -- at the large end
+to a nearby Kerr hole by Hintz's theorem (2606.28253v2, READ), to O((ell/r0)^2); at the small end to a nearby
+Myers-Perry hole, its linear settling proved (O3gs), its nonlinear proof theorized; for the inflow's own spin the end
+state within 2.9e-15 of Tangherlini (settle_asym.py; lemmas/SETTLE-PROOF.md section 6).  SETTLEs and SETTLE
+unchanged.  94 rows: 65 PROVED, 16 PROVED on QB, 6 DEFINITION, 7 COMPUTED-THEORIZED (BOUNCE-RESEARCH 69).]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -225,7 +231,8 @@ every step a computed solution consistent with established physics but QB's, the
 QB').  So the theorem is proved on QB and on SOURCE's named theorized steps.  Item 542: the gaps' lemmas add two
 more named theorized steps, each COMPUTED-THEORIZED with its complete proof -- the island formula (I3s, I3;
 lemmas/I3-PROOF.md) and the formed hole's nonlinear settling at the small end (SETTLEs; lemmas/SETTLE-PROOF.md).  So
-the theorem is proved on QB, on SOURCE's, I3's and SETTLEs's named theorized steps.]
+the theorem is proved on QB, on SOURCE's, I3's and SETTLEs's named theorized steps.  Item 548: one more, the small
+end's nonlinear settling without the class's symmetry (SETTLEa; SETTLE-PROOF.md section 6).]
 
   T1  the PROVED lemmas are re-run: exactE.py's identities (z3), passage5d.py's identity and Q, localbulk.py's Gauss
       condition, stability.py's surface gravity, coin.py's passage reading.  [Item 331: stability.py's S1 re-run is
@@ -1996,6 +2003,43 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_545_SETTLE
     _rows_545.append((c, n, s_, t))
 LEMMAS_NOW = _rows_545
+# [Item 548] M: "Yes, add the asymmetric settling row to the register" (M-SETTLE-ASYM), on 547's question ("Do we need
+# the nonlinear settlings to be symmetric or asymmetric in class? And would having both be helpful and preferred?").
+# One row, SETTLEa, after SETTLE; SETTLEs and SETTLE unchanged, each pointed at it.
+ROW_548 = ('N', "SETTLEa the formed hole settles outside the class, under perturbations breaking its symmetry: at the "
+                "large end to a nearby Kerr hole, within Hintz's theorem, to O((ell/r0)^2); at the small end to a "
+                "nearby Myers-Perry hole, its linear settling proved (O3gs), its nonlinear proof theorized; for the "
+                "inflow's own spin the end state within 2.9e-15 of Tangherlini (settle_asym)",
+           "COMPUTED-THEORIZED",
+           "item 548 (M: 'Yes, add the asymmetric settling row to the register', on 547's question: 'Do we need the "
+           "nonlinear settlings to be symmetric or asymmetric in class? And would having both be helpful and "
+           "preferred?').  lemmas/settle_asym.py A0-A3: the end state's spin and momentum invariant under the class "
+           "(0, 0), under T^2 alone (2, 0), with no symmetry (6, 4) -- codimension 6 to reach Tangherlini in the "
+           "linearised count, against four dimensions' 3 (Dafermos, Holzegel, Rodnianski and Taylor) and "
+           "Klainerman and Szeftel's axial "
+           "momentum, the controls (A1, exact); the five-dimensional Myers-Perry family from Emparan and Reall "
+           "(0801.3471v2 pp. 14-17, READ), its first law exact (A2); at fixed mass the inflow's spin a/r_h = 7.6e-8 "
+           "(scope C1) moves the horizon area and surface gravity by -2.9e-15 (A3).  Large end: Hintz, Theorem 1.1 "
+           "(2606.28253v2 p. 2, READ): data near subextremal Kerr data, no symmetry assumed, settle to a nearby "
+           "member at (1 + t)^(-2-eps_K); the plane reads the hole as Schwarzschild to O((ell/r0)^2), SETTLE's "
+           "footing.  Complete proof of its computations lemmas/SETTLE-PROOF.md section 6 (M-CT-PROOF).  Theorized, "
+           "named: the small end's nonlinear settling without symmetry, the five-dimensional counterpart of Hintz's "
+           "theorem, open in the field; what the class removed returns there (the vector type, the boosts' "
+           "second-order pole, the Myers-Perry end states, their linearised stability 'largely an open problem', "
+           "Emparan and Reall p. 20); the route the N1* session's route B, its inputs already without symmetry "
+           "(N1STAR-PROOF 10.29-10.36, main at 308c527a)")
+NOTE_548 = ("  [Item 548] Outside the class, under perturbations that break its symmetry: SETTLEa (settle_asym), "
+            "the row beside this one.  This row's statement is unchanged")
+_rows_548 = []
+for c, n, s_, t in LEMMAS_NOW:
+    k = n.split()[0]
+    if k in ("SETTLEs", "SETTLE"):
+        t = t + NOTE_548
+    _rows_548.append((c, n, s_, t))
+    if k == "SETTLE":
+        _rows_548.append(ROW_548)
+LEMMAS_NOW = _rows_548
+RESTS_ON_NOW.update({"SETTLEa": "SETTLEs SETTLE"})
 # [542, M-BASIS-LINE] One current-basis line per row (M: 'yes'): what the row rests on now, with the superseded notes
 # left in the row's record.  The selftest checks every row has exactly one; the map shows it.
 CURRENT_BASIS = {
@@ -2152,6 +2196,10 @@ CURRENT_BASIS = {
     "QB": "BOUNCE-PROOF.md L1-L14 (bounce_qm Q1-Q9, bounce_close C1-C6, bounce_proof P1-P6): unitary reflection at r "
           "= 0, two horizons only -- theorized, quantum mechanics at Planckian curvature",
 }
+CURRENT_BASIS["SETTLEa"] = ("settle_asym A0-A3: the end state's parameters by symmetry (exact), the "  # item 548
+                            "Myers-Perry family's first law (exact), the inflow's spin moving it by 2.9e-15; "
+                            "Hintz's theorem (READ) at the large end; theorized at the small end; "
+                            "SETTLE-PROOF.md section 6")
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -2385,7 +2433,9 @@ def lemma_selftests():
               # item 544: the N1* session's go/no-go at 10 l5, run at the record's own derived point lam_P
               "derived_go.py",
               # item 545: the inner marginally trapped surface investigated exhaustively
-              "mots545.py"):
+              "mots545.py",
+              # item 548: the asymmetric settling, the row beside SETTLEs and SETTLE
+              "settle_asym.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
