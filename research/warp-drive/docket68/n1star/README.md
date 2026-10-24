@@ -284,8 +284,9 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   at n = 3 against his printed values and at n = 4 -- the conjugated wave operator's ((n-1)(n-3)/4) r^-2, the b-density,
   the energy form (3.25) with Lap + 3/4, the gauge endomorphism (2.11) from his Definition 2.2 (at n = 4 the diagonal 2
   gC, gC, 3gC/2, -3gU/2, -gU, 0, -2gU; his Remark 2.3's duality checked), the quadratic radiation term r^-(1/2) below
-  the linear terms, the Sobolev counts (X1-X6). `python3 exterior5.py --selftest` (12/12, about ten seconds),
-  `--mutants` (4/4).
+  the linear terms, the Sobolev counts (X1-X6); his Proposition 3.29's metric-dependent entries, r^-(1/2) times his
+  values at n = 4, and Lemma 3.6's compactification, xbar_I = min(sqrt3/2, 1/(2 mu^(1/4))) (X7-X8; D136). `python3
+  exterior5.py --selftest` (16/16, about thirty seconds), `--mutants` (6/6).
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).

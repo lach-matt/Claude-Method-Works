@@ -17,14 +17,23 @@ X3  the energy form (3.25): the principal part of [L0, W] - (div W) L0 for the m
 X4  A_(E_C,E_Ups) of (2.10)-(2.11) at h = 0, built from Definition 2.2's operators on
     S^2 T* R^(1+n) (p. 7) and reduced to the splitting (2.9): his printed matrices at n = 3
     ((2.11), (3.36), (3.39), (3.40), (3.42), (3.43)), the duality G^-1 A* G = -A_swap of
-    Remark 2.3 (G^-1 = G only at n = 3) at every n, the block-triangular structure and the
-    diagonal.
+    Remark 2.3 (G^-1 = G only at n = 3) at n = 3 and n = 4, the block-triangular structure and
+    the diagonal.
 X5  the order of the quadratic radiation term in R_11 for g = -dx0 dx1 + r^2 (g_S + r^-k chi T):
     r^-2k, against r^-(1+k) for the terms of L = 2 rho_I rho^-(2+k) P' rho^k; ratio r^(1-k),
-    critical at n = 3 (his (3.47)) and down by r^-1/2 at n = 4. The h-dependent entries of
-    A_g and B_g (Proposition 3.29) are bilinear in (r^-k h, r^-k u) and carry the same r^(1-k).
+    critical at n = 3 (his (3.47)) and down by r^-1/2 at n = 4.
 X6  the Sobolev counts: the least integer above dim M / 2 = (n + 1)/2 (Notation 3.22's k >= 3)
     and Lemma 3.33's d_(n-1) with his n = dim M.
+X7  the h-dependent entries of A_g and B_g (Proposition 3.29): the h u part of
+    L_2 = 2 r^(k+1) P r^-k, P(g) = Ric(g) - delta*_(gb,E_C) Upsilon(g; gb), for g = gb + r^-k h,
+    h a frame component of size 1, in the three cases A(7,1), A(4,7), B(4,1) (B(7,1) with A(7,1)).
+    Each entry is linear in h (the product with u is bilinear). At n = 3 the frame coefficients are
+    r-independent, 2 times his printed entries (A on d_1 u, B on u); at n = 4 they are the same
+    numbers times r^(1-k) = r^-1/2, exactly.
+X8  Lemma 3.6 at n = 4: with f = 1 - mu/r^2 and Tangherlini's r*, the identity (3.8)
+    g^-1(r d rho_I, r d rho_I) = (2 x1/r)(1 + x1 f/(2r)) and d rho_0 null; xbar_I = min(sqrt3/2,
+    1/(2 mu^(1/4))) keeps r > 2 sqrt(mu), twice the horizon radius (his 1/sqrt(8m): r > 4m), so r*
+    is defined, f > 3/4, and (3.8) is negative.
 
 Usage: exterior5.py [--selftest] [--mutants] [--only N]
 """
@@ -320,6 +329,115 @@ def x6(n):
     return {"dim M": dimM, "H^k_b in L^oo for k >=": k_inf, "d_(dimM-1)": d(dimM - 1)}
 
 
+# ---------------------------------------------------------------- X7
+HIN329 = {"A71": {(2, 2): {"C1F1": 4, "C2F0": 4}, (3, 3): {"C1F1": -4, "C2F0": -4}},
+          "A47": {(1, 1): {"C1F1": -2}},
+          "B41": {(1, 1): {"E2F0": 4}}}   # 2 x his A(7,1) = 2 d_1 h, B(7,1), A(4,7) = -(1/2) d_1 h, B(4,1)
+
+
+def x7(n, case, mut=None):
+    x0, xa = sp.symbols("x0 x1")
+    eps, s, R = sp.symbols("eps s R", positive=True)
+    th = sp.symbols("th1:%d" % n)
+    X = [x0, xa] + list(th)
+    N = n + 1
+    r = (x0 - xa) / 2
+    k = sp.Rational(n - 1, 2)
+    kh = k if mut != "x7" else sp.Rational(n - 2, 2)
+    chi, eta, f = sp.Function("chi")(xa), sp.Function("eta")(xa), sp.Function("f")(xa)
+    sph, w = [], sp.Integer(1)
+    for i in range(n - 1):
+        sph.append(w)
+        w = w * sp.sin(th[i])**2
+    T = [0] * (n - 1)
+    T[0], T[1] = 1, -1
+    gb = sp.zeros(N, N)
+    gb[0, 1] = gb[1, 0] = sp.Rational(-1, 2)
+    for a in range(n - 1):
+        gb[2 + a, 2 + a] = r**2 * sph[a]
+    H, U = sp.zeros(N, N), sp.zeros(N, N)
+    for a in range(n - 1):              # frame components: r^2 g-slash-weighted angular entries
+        H[2 + a, 2 + a] = r**2 * sph[a] * T[a] * chi * int(case != "B41")
+        U[2 + a, 2 + a] = r**2 * sph[a] * T[a] * int(case == "A47")
+    H[1, 1] = eta * int(case == "B41")
+    U[0, 0] = int(case != "A47")
+    g = gb + eps * r**(-kh) * H + s * r**(-k) * f * U
+    gi = sp.zeros(N, N)
+    Bi = g[:2, :2].inv()
+    for i in range(2):
+        for j in range(2):
+            gi[i, j] = Bi[i, j]
+    for a in range(2, N):
+        gi[a, a] = 1 / g[a, a]
+    gbi = gb.inv()
+
+    def chris(G, Gi):
+        return [[[sum(Gi[a, d] * (sp.diff(G[d, b], X[c]) + sp.diff(G[d, c], X[b]) - sp.diff(G[b, c], X[d]))
+                      for d in range(N)) / 2 for c in range(N)] for b in range(N)] for a in range(N)]
+    Gam, Gb = chris(g, gi), chris(gb, gbi)
+
+    def es(e):
+        return sp.diff(e, eps, s).subs({eps: 0, s: 0})
+    ups = [sum(gi[a, b] * (Gam[q][a][b] - Gb[q][a][b]) for a in range(N) for b in range(N)) for q in range(N)]
+    ups = [es(sum(g[m, q] * ups[q] for q in range(N))) for m in range(N)]
+    c = [1 / (2 * r), 1 / (2 * r)] + [0] * (n - 1)
+    d = sp.symbols("C0 C1 C2 E0 E1 E2 F0 F1 F2")
+    sub = {sp.Derivative(chi, (xa, 2)): d[2], sp.Derivative(chi, xa): d[1], sp.Derivative(eta, (xa, 2)): d[5],
+           sp.Derivative(eta, xa): d[4], sp.Derivative(f, (xa, 2)): d[8], sp.Derivative(f, xa): d[7]}
+    mons = {"C1F1": d[1] * d[7], "C2F0": d[2] * d[6], "E2F0": d[5] * d[6], "E1F1": d[4] * d[7]}
+    out = {}
+    for (i, j) in ([(1, 1)] if case != "A71" else [(2, 2), (3, 3)]):
+        ric = sum(sp.diff(Gam[a][i][j], X[a]) - sp.diff(Gam[a][i][a], X[j]) for a in range(N))
+        ric += sum(Gam[a][a][q] * Gam[q][i][j] - Gam[a][j][q] * Gam[q][i][a] for a in range(N) for q in range(N))
+        dst = (sp.diff(ups[j], X[i]) + sp.diff(ups[i], X[j])) / 2 - sum(Gb[l][i][j] * ups[l] for l in range(N))
+        dst += gC * (c[i] * ups[j] + c[j] * ups[i]
+                     - gb[i, j] * sum(gbi[a, b] * c[a] * ups[b] for a in range(N) for b in range(N)))
+        scale = 1 if i < 2 else r**2 * sph[i - 2]
+        L2 = sp.expand(2 * r**(k + 1) * (es(ric) - dst) / scale)
+        L2 = sp.expand(L2.subs(sub).subs({chi: d[0], eta: d[3], f: d[6]}).subs(x0, xa + 2 * R))
+        poly = sp.Poly(L2, *d)
+        out[(i, j)] = {nm: sp.simplify(poly.coeff_monomial(mo)) for nm, mo in mons.items()
+                       if poly.coeff_monomial(mo) != 0}
+    return out, R, k
+
+
+def x7all(n, mut=None):
+    res = {"matches": True}
+    for case, want in HIN329.items():
+        out, R, k = x7(n, case, mut)
+        res[case] = out
+        res["matches"] = res["matches"] and out == {ij: {nm: sp.simplify(v * R**(1 - k)) for nm, v in cf.items()}
+                                                     for ij, cf in want.items()}
+    return res
+
+
+# ---------------------------------------------------------------- X8
+def x8(n, mut=None):
+    r, mu, x1s, rs = sp.symbols("r mu x1 rs", positive=True)
+    mu_ = 2 * mu if n == 3 else mu                 # mu = m at n = 3: f = 1 - 2m/r
+    f = 1 - mu_ / r**(n - 2)
+    rh = mu_**sp.Rational(1, n - 2)                 # horizon radius: 2m, sqrt(mu)
+    # r d rho_I with rho_I = -x1/r and dr = f dr* = f (dx0 - dx1)/2:  a dx0 + b dx1
+    a = x1s * f / (2 * r)
+    b = -1 - x1s * f / (2 * r)
+    ginv01 = -2 / f                                # g = -f dx0 dx1 + r^2 g-slash
+    q = sp.simplify(2 * ginv01 * a * b)
+    ident = sp.simplify(q - (2 * x1s / r) * (1 + x1s * f / (2 * r))) == 0
+    rstar = (r + 2 * mu * sp.log(r - 2 * mu) if n == 3 else
+             r + sp.sqrt(mu) / 2 * sp.log((r - sp.sqrt(mu)) / (r + sp.sqrt(mu))))
+    tort = sp.simplify(sp.diff(rstar, r) - 1 / f) == 0
+    xbar_m = 1 / sp.sqrt(8 * mu) if n == 3 else 1 / (2 * mu**sp.Rational(1, 4))
+    if mut == "x8":
+        xbar_m = 1 / sp.sqrt(8 * mu)
+    rmin = sp.Rational(1, 2) * xbar_m**-2               # r > rmin on x_I < xbar_I, rho_0 < 2
+    samples = [sp.Rational(1, 100), 1, 100]
+    good = all(sp.simplify(rmin - 2 * rh).subs(mu, m0) >= 0 for m0 in samples)
+    fmin = sp.simplify(f.subs(r, 2 * rh))
+    # |x1 f/(2r)| = x_I^2 f/2 < (3/4)(1/2) < 1 since 0 < f < 1 for mu > 0
+    return {"identity_3.8": ident, "tortoise": tort, "r_min": sp.simplify(rmin), "r > 2 r_h": good,
+            "f(2 r_h)": fmin, "second_factor_bound": (sp.sqrt(3) / 2)**2 / 2}
+
+
 # ---------------------------------------------------------------- driver
 def run(only=None, mut=None, quiet=False):
     res = {}
@@ -336,6 +454,10 @@ def run(only=None, mut=None, quiet=False):
             res[("X5", n)] = x5(n)
         if only in (None, 6):
             res[("X6", n)] = x6(n)
+        if only in (None, 7):
+            res[("X7", n)] = x7all(n, mut)
+        if only in (None, 8):
+            res[("X8", n)] = x8(n, mut)
     if not quiet:
         for key, v in res.items():
             print(key)
@@ -374,6 +496,12 @@ def checks(res):
             v = res[("X6", n)]
             ok.append(("X6 n=%d" % n, v["H^k_b in L^oo for k >="] == 3
                        and v["d_(dimM-1)"] == (2 if n == 3 else 3)))
+        if ("X7", n) in res:
+            ok.append(("X7 n=%d" % n, res[("X7", n)]["matches"]))
+        if ("X8", n) in res:
+            v = res[("X8", n)]
+            ok.append(("X8 n=%d" % n, v["identity_3.8"] and v["tortoise"] and v["r > 2 r_h"]
+                       and v["f(2 r_h)"] == (sp.Rational(1, 2) if n == 3 else sp.Rational(3, 4))))
     return ok
 
 
@@ -382,7 +510,7 @@ def main():
     only = int(args[args.index("--only") + 1]) if "--only" in args else None
     if "--mutants" in args:
         caught = 0
-        muts = [("x1", 1), ("x3", 3), ("x4G", 4), ("x4s", 4)]
+        muts = [("x1", 1), ("x3", 3), ("x4G", 4), ("x4s", 4), ("x7", 7), ("x8", 8)]
         for m, o in muts:
             res = run(o, m, quiet=True)
             bad = [name for name, good in checks(res) if not good]

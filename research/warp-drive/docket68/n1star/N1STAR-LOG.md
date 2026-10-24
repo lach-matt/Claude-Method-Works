@@ -4117,3 +4117,16 @@ on R_t x R^(n-1)_x for every n ([Hin23d] pp. 3, 7, 10-12, 109). B4 discharged at
 noted that arXiv has a connector: it is alphaXiv, through which every READ of the record was taken; its full-text mode
 now carries the censuses of [Hin26c] sections 7-9, [HHV21]'s perturbation arguments, [Hin26]'s boost sections and
 [CD03]'s gluing.
+
+**D136 (2026-10-24): the fifty-seventh verifier on 10.64 and D133's repairs, seated.** Majors: M1, Theorem 4 (ii) and
+10.63(b)-(c) named the base of the perturbed data as g_lam's data, which on Sigma'' are the glued development's (g_lam
+on Omega, exact Tangherlini outside a compact set) -- named so now; M2, the order of [Hin23a] Proposition 3.29's
+h-dependent entries at n = 4 was stated, not computed -- computed now (exterior5.py X7: from Ric(g) - delta*_(gb,E_C)
+Upsilon(g; gb) linearized in g = gb + r^-k h; at n = 3 his four printed entries in L_2's normalization, at n = 4
+r^-(1/2) times them, exactly). Minors: each entry is linear in h, not bilinear (m1); the duality is computed at n = 3
+and 4, not every n (m3); Lemma 3.6 at n = 4 computed (X8: xbar_I = min(sqrt3/2, 1/(2 mu^(1/4))), r > 2 sqrt(mu), f >
+3/4, (3.8) negative) (m4); the class's gluing needs no parity, the other KIDs' charges vanishing on G-invariant data by
+averaging (m5); lambda1 and delta exist by the deduction (m6); the norms of 10.62(d) for 'Hintz's norms' (m7); P = -E
+v's sign convention (n1); the seating renumbered D136, D135 being 10.65's (m2). exterior5 --selftest 16/16, --mutants
+6/6. The censuses of [Hin26c] sections 7-8 (122 rows), [HHV21] (205), [Hin26]'s boost sections (123) and [CD03] (126)
+came back from the alphaXiv full texts; their replacements at n = 4 follow.

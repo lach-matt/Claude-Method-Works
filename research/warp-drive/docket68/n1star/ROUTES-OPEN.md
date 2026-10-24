@@ -1904,3 +1904,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   10.22's computations. [Hin26a] Theorem 5.2 holds at n = 4 with every sign computed; Theorems 6.2 and B.1 with it.
   Remaining readings of Theorem 4: [Hin26c] sections 7-9, and for part (ii) [HHV21], his boost sections and [CD03]'s
   argument at n = 4; their censuses are being taken in full text through the alphaXiv connector.
+
+### 4.67 The 57th verifier on 10.64 and D133's repairs (computed and deduced; D136)
+
+- Computed (`exterior5.py` X7-X8): the h-dependent entries of [Hin23a] Proposition 3.29 from P(g) = Ric(g) -
+  delta*_(gb,E_C) Upsilon(g; gb) linearized in g = gb + r^-k h -- at n = 3 his printed A(7,1), B(7,1), A(4,7), B(4,1)
+  in L_2's normalization, at n = 4 the same numbers times r^-(1/2), exactly (M2: the order was stated, not computed);
+  his Lemma 3.6 at n = 4, xbar_I = min(sqrt3/2, 1/(2 mu^(1/4))) and (3.8) negative with f = 1 - mu/r^2.
+- Deduced (10.63(b)-(c)): the base of the perturbed data is the glued development's, which contains g_lam on Omega and
+  is exact Tangherlini outside a compact set of Sigma'' (M1); the class's gluing needs no parity condition, the charges
+  of the KIDs other than d_t vanishing on G-invariant data by averaging over G. Paper: Theorem 4 (ii) in the norms of
+  10.62(d); lambda1 and delta exist by the deduction, not evaluated; P = -E v with its sign convention.
+- Remaining readings of Theorem 4: [Hin26c] sections 7-9, [HHV21]'s perturbation arguments, [Hin26]'s boost sections
+  and [CD03]'s gluing at n = 4; their full-text censuses are in.
