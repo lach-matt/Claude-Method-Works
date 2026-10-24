@@ -1647,7 +1647,8 @@ N1STAR-PROOF.md 10.48 deduces his Theorems 5.17, 5.21 and 5.23 in five dimension
 - OPEN: [Hin23a]'s energy estimates at n = 4, added to Phase B as B10; section 5.7's gauged data (A9); the record's data
   near I0 (C2).
 
-### 4.51 A9: [Hin26] Theorem 13.1 in five dimensions, in the class; Phase A complete (deduced; D117)
+### 4.51 A9: [Hin26] Theorem 13.1 in five dimensions, in the class; Phase A complete on its readings (deduced; D117,
+D126)
 
 N1STAR-PROOF.md 10.49 states his Theorem 13.1 in five dimensions in the T^2-mirror class -- G-invariant data near
 five-dimensional Tangherlini of mass m_0, partially polyhomogeneous with min Re E_0 > 3/2 + 2 gam_Ups, settle to
@@ -1656,10 +1657,11 @@ Tangherlini of a nearby mass m at t*^(-2-eps_K) in spatially compact sets -- ded
 - Deduced: his Steps 1-4 in the class: the parameters (10.14-10.25), the gauged data (Proposition 5.25, a reading), the
   exterior solution at S = 0 (10.48), [SR89]'s four assumptions from 10.47, the gauge and Ricci flatness by the Bianchi
   identity; the weakest K+ term the mass remainder's, at his order 2 + eps_K.
-- Phase A of 4.44 is complete on its readings. Phase B now has ten items: B1-B9 as listed in 4.44 and B10, [Hin23a]'s
-  exterior estimates at n = 4 (10.48(c)); with them the iota+ spectrum between 5/2 and 3 + eps_+ (10.47(b)) and section
-  9's propositions in five dimensions (10.47's OPEN). Phase C applies 10.49 to the record's solution; C2 decides whether
-  its data lie in 10.49's hypotheses (compact support near I0 would make 10.48's Step 1 empty).
+- Phase A of 4.44 is complete conditional on its readings -- B1-B4, B10 and 10.45(e)'s [Hin26c] Proposition 13.18 and
+  Corollary 13.17 at n = 4 (D126). Phase B now has ten items: B1-B9 as listed in 4.44 and B10, [Hin23a]'s exterior
+  estimates at n = 4 (10.48(c)); with them the iota+ spectrum between 5/2 and 3 + eps_+ (10.47(b)) and section 9's
+  propositions in five dimensions (10.47's OPEN). Phase C applies 10.49 to the record's solution; C2 decides whether its
+  data lie in 10.49's hypotheses (compact support near I0 would make 10.48's Step 1 empty).
 - Next: Phase B, the readings discharged, starting with those the class leans on most -- B9's transfers and B2/B3's
   [Hin26c] theorems at n = 4.
 
@@ -1680,8 +1682,9 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
 ### 4.53 Phase B begun: C-i discharged; the companion papers audited for their dimension (D119)
 
 - Discharged (10.51, deduced from the record's sections 4-6): Theorem E at every order k >= 6 with K >= 6 -- k = 6 is
-  [DS23]'s lower bound, the bootstrap's closing condition K >= 6 does not see k -- with (E3) from Theorem A and (E4)
-  from Proposition 6.5, which bounds the data's correction at every order.
+  Step 4's floor (its L^inf range, i + 3 <= k + 1 for i <= 4; [DS23] asks only k > 3; D126), the bootstrap's closing
+  condition K >= 6 does not see k -- with (E3) from Theorem A and (E4) from Proposition 6.5, which bounds the data's
+  correction at every order.
 - Done: the dimension audits of [Hin26c] (B1-B3) and of [Hin26a] and [Hin23a] (B4, B10) reported (4.55); their findings
   are claims to be checked at source before anything is discharged on them.
 
@@ -1701,20 +1704,20 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
   calculi stated for general dimension ([Hin23d], [Hin26d] section 3, its own Lemma 5.14 and Corollary 5.15); [Hin23a]
   (arXiv:2302.13804v1) is 3 + 1 on a general calculus (section 3.1, p. 9; Lemma 3.33 on R^n, applied "with n = 4").
   [Hin26a] has no Theorem 7.1: [Hin26] Theorem 7.1 (printed p. 136) summarizes it; 10.49(a)'s label corrected.
-- By citation: [Hin26c] Theorem 9.38, Corollary 9.39, Proposition 9.40, (9.37), (9.114)-(9.117), Definition 5.10's -n +
-  2 + beta, section 13.1.2, Lemma 14.6 (via [Hin23d]) and Paley-Wiener; the general-dimension calculi above; the flat
-  roots {-l, l + n - 2}; the harmonic split on S^(n-1) [KI03]; [SR89].
+- By citation: [Hin26c] Theorem 9.38, Corollary 9.39, Proposition 9.40, (9.37), (9.114)-(9.117), Corollary 9.39's -n +
+  2 + beta (Definition 5.10 has -1 + beta; D126), section 13.1.2, Lemma 14.6 (via [Hin23d]) and Paley-Wiener; the
+  general-dimension calculi above; the flat roots {-l, l + n - 2}; the harmonic split on S^(n-1) [KI03]; [SR89].
 - By short argument at n = 4: [Hin26c] section 3's lemmas, Definition 5.13, Theorem 9.5(5), Theorems 9.36 and 9.41,
-  Corollary 9.43, Lemma 14.5, section 13.2, (11.5) and (5.7); the trace weight 2/(D - 2) in [Hin26a] (3.2) and Lemma
-  3.2; [Hin26a] Theorems 5.2, 6.2 and B.1 and [Hin26] Theorem 7.1(1)-(4) at the record's point from its computed inputs
-  (10.12-10.23); [Hin23a] Propositions 3.17, 3.29 and 3.32 at n = 4 and Corollary 3.36 with its new loss; Theorem 3.35
-  (peeling the radiation field) not needed in five dimensions, where no radiation field is carried (10.48(a); [Hin26] p.
-  102's first step).
-- Real work: [Hin26c] Theorem 10.1 (sections 10.1-10.3), Theorem 11.1 through Theorem 8.14 (sections 6-8) and section
-  9's scalar to bundle step at n = 4; a five-dimensional [Hin26a] Theorem 4.9 for every small h (its Appendix A with
-  S^3's harmonics), or the route of its Remarks 4.10 and 6.3 (Re lam >= 2 - eps suffices for (1.43)'s strip [-C_0, 1) in
-  five dimensions); h_0 and the horizon threshold (B5, B6); the five-dimensional nonlinear error class (the analogue of
-  [Hin23a] Corollary 3.31).
+  Corollary 9.43, Lemma 14.5, section 13.2, (11.5) and (5.7); the trace weight 2/(D - 2) for [Hin26a] (3.2)'s weight 1,
+  the record's own derivation (damping5.py U2; D126); [Hin26a] Theorems 5.2, 6.2 and B.1 and [Hin26] Theorem 7.1(1)-(4)
+  at the record's point from its computed inputs (10.12-10.23); [Hin23a] Propositions 3.17, 3.29 and 3.32 at n = 4 and
+  Corollary 3.36 with its new loss; Theorem 3.35 (peeling the radiation field) not needed in five dimensions, where no
+  radiation field is carried (10.48(a); [Hin26] p. 102's first step).
+- Real work: [Hin26c] Theorem 10.1 (sections 10.1-10.3), Theorem 11.1, whose proof rests on Theorem 8.14 (sections 6-8),
+  and section 9's scalar to bundle step at n = 4; a five-dimensional [Hin26a] Theorem 4.9 for every small h (its
+  Appendix A with S^3's harmonics), or the route of its Remarks 4.10 and 6.3 (Re lam >= 2 - eps suffices for (1.43)'s
+  strip [-C_0, 1) in five dimensions); h_0 and the horizon threshold (B5, B6); the five-dimensional nonlinear error
+  class (the analogue of [Hin23a] Corollary 3.31).
 - Next: the citation items checked at source and recorded; then the short arguments, one section each; then the real
   work.
 
@@ -1750,4 +1753,22 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
   B4 ([Hin26a] section 5.2 and Theorems 6.2 and B.1 line by line at n = 4), B7 (10.27's kernel class and uniqueness
   inside the horizon), B9 (the transfers from the Minkowski model), B10 ([Hin23a] in five dimensions), C-ii, the iota+
   spectrum between 5/2 and 3 + eps_+, (2.27) at n = 4, 10.38(a)'s scaling.
+
+### 4.58 B4, B7, B9, B10 (computed, READ and deduced; D125)
+
+- B9 discharged (transfer5.py T1-T2; N1STAR-PROOF.md 10.55, Proposition 10.45): Tangherlini in Kerr-Schild form, g =
+  eta + (mu/r^2) k (x) k, exact; its connection two orders below Minkowski's, so every operator differs from its
+  Minkowski model in rho^4 Diff^2_b and the indicial families, tf-normal operators and S-bar are the model's; g^00 = -4
+  mu rho^2.
+- B7 deduced (10.55(b)-(c)): the kernel class from 10.53(c); the interior uniqueness by the radial systems' regular
+  singular point at the horizon; the index 0 at nonzero frequency on Theorem 9.16's reading (10.53(e)).
+- B4 deduced at source (10.56): [Hin26a] section 5.2's estimates take from the metric and c only symbol data, all
+  computed in five dimensions (10.13, 10.14, 10.22), on a general calculus; one reading left, the sign of each
+  commutator there as the five-dimensional symbol gives it. Theorems 6.2 and B.1 follow with 10.54(a).
+- B10 deduced at source (10.57): for the record's compactly supported data [Hin23a] is needed only near a piece of I+;
+  at n = 4 its A_g is 10.38's A_0 (the radiation couplings drop to the error at r^-(3/2)), its Theorem 3.35 is not
+  needed, and [SR89] applies with a finite loss; the order count of (b) and the gain of (c) read, not computed.
+- Remaining: B3 ([Hin26c] Theorems 10.1 and 11.1, Definitions 5.15 and 5.18, and Theorem 9.16's proof, at n = 4),
+  10.45(e)'s [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4, C-ii, the iota+ spectrum between 5/2 and 3 +
+  eps_+, (2.27) at n = 4, 10.38(a)'s scaling and the h-terms of (5.28).
 

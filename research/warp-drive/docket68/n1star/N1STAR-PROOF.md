@@ -6392,18 +6392,19 @@ K4 is exact at the point. Controls: without the reflections the vector type ente
 alpha = 1, four dimensions' order, the class records the physical s2 and t2 at -2 (K3); the radiative order 3/2 +
 gam_Ups taken as I+ weight falls below the gap (K4). []
 
-*The class's iota+ index sets (deduced; D121).* His E_+ contains (1, 0) "to allow smooth decaying perturbations at
-(iota+)°" (p. 221) -- the Kerr parameter change chi_K (g_b - g_b0) in rho_+ C^oo (Remark 11.7, p. 224) -- and his
-E-tilde_+ of (11.87) adds (1, 0) u (1 + E_ind) from the boost (Lemma 11.28, (11.88): the linearization in S is rho_+
-C^oo from g_0 and A^((1,1) u (1 + E_ind)) from h^(-1)); (11.151) adds E^#_+; Lemma 11.41's linearization in b starts
-from chi_K g-dot_b(b-dot) in rho_+ C^oo (p. 260). In the class the boost terms are absent (10.43) and the mass change
-is r^-2 in five dimensions, in rho_+^2 C^oo at iota+ (10.39(c)). So the class takes E_+^G with (2, 0) in place of his
-(1, 0), and E-tilde_+^G := (2, 0) u (2 + E_ind) u (E_+^G + ((2, 0) u (2 + E_ind))) u E^#_+ -- his (11.151) with the
-boost's exponents removed and the mass's at its five-dimensional order, on the reading that the mass patch h^(0)(m-dot)
-has iota+ index set (2, 0) u (2 + E_ind) in five dimensions (its logarithm, if any, not computed). Every element has
-real part at least alpha_min = min Re E^#_+ (10.44(e)); so the sources of (11.155) and (11.195), with iota+ index sets
-E_+^G + 3 and E-tilde_+^G + 2, feed K+ only from exponents alpha >= alpha_min, which is (ii)'s hypothesis (the
-fifty-third verifier's major finding: at his alpha = 1 the rule would record the physical s2, t2 and s4 e-2).
+*The class's iota+ index sets (deduced; D121).* His E_+ contains (1, 0): "The requirement (1, 0) in E+ ensures that
+smooth decaying perturbations are allowed as far as their behavior at (iota+)^o is concerned" (p. 221) -- the Kerr
+parameter change chi_K (g_b - g_b0) in rho_+ C^oo (Remark 11.7, p. 224) -- and his E-tilde_+ of (11.87) adds (1, 0) u
+(1 + E_ind) from the boost (Lemma 11.28, (11.88): the linearization in S is rho_+ C^oo from g_0 and A^((1,1) u (1 +
+E_ind)) from h^(-1)); (11.151) adds E^#_+; Lemma 11.41's linearization in b starts from chi_K g-dot_b(b-dot) in rho_+
+C^oo (p. 260). In the class the boost terms are absent (10.43) and the mass change is r^-2 in five dimensions, in
+rho_+^2 C^oo at iota+ (10.39(c)). So the class takes E_+^G with (2, 0) in place of his (1, 0), and E-tilde_+^G := (2,
+0) u (2 + E_ind) u (E_+^G + ((2, 0) u (2 + E_ind))) u E^#_+ -- his (11.151) with the boost's exponents removed and the
+mass's at its five-dimensional order, on the reading that the mass patch h^(0)(m-dot) has iota+ index set (2, 0) u (2 +
+E_ind) in five dimensions (its logarithm, if any, not computed). Every element has real part at least alpha_min = min
+Re E^#_+ (10.44(e)); so the sources of (11.155) and (11.195), with iota+ index sets E_+^G + 3 and E-tilde_+^G + 2, feed
+K+ only from exponents alpha >= alpha_min, which is (ii)'s hypothesis (the fifty-third verifier's major finding: at his
+alpha = 1 the rule would record the physical s2, t2 and s4 e-2).
 
 *Deduced.*
 
@@ -6581,7 +6582,8 @@ computed here, nothing proved.
 
 His Theorem 13.1 concatenates the exterior solution (Theorem 5.23) with [SR89]'s Nash-Moser iteration for P o Psi, whose
 linearized solvability is Theorem 12.8. This section carries it into the class in five dimensions, on the readings of
-10.13-10.48, and so completes Phase A of ROUTES 4.44.
+10.13-10.48, and so completes Phase A of ROUTES 4.44 on those readings, which Phase B discharges (B1-B4, B10 and
+10.45(e)'s [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4; D126).
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; ASCII): pp. 2-3, Theorem 1.1 and Remark 1.3
 ("initial data (gamma, k) that are exactly Kerrian outside of a compact set", [CD03]); p. 110, Proposition 5.25 and its
@@ -6629,12 +6631,13 @@ g_m = O(t*^(-2-eps_K)) in spatially compact subsets of {r >= r_0}.
      in spatially compact sets. The other rates of his Theorem 13.1, (2)-(4), are not carried: their five- dimensional
      exponents (the mass patch's at iota+, among them) are not computed.
 
-*What this gives.* Phase A of ROUTES 4.44 is complete: Hintz's argument has been carried, step by step, into five
-dimensions in the T^2-mirror class, with the class's simplifications computed (10.43, 10.46) and every five-dimensional
-input either computed (10.13-10.46's propositions) or named as a reading. The statement above is deduced, not proved: it
-rests on the readings of [Hin26] at n = 4 recorded in 10.13-10.48, of [Hin26a] (B4), of [Hin26c] (B1-B3) and of [Hin23a]
-(B10), and on the open computations those sections list. Phase B discharges the readings; Phase C applies the statement
-to the record's solution, whose data must be shown to lie in its hypotheses (C2).
+*What this gives.* Phase A of ROUTES 4.44 is complete conditional on its readings (B1-B4, B10, 10.45(e); D126): Hintz's
+argument has been carried, step by step, into five dimensions in the T^2-mirror class, with the class's simplifications
+computed (10.43, 10.46) and every five-dimensional input either computed (10.13-10.46's propositions) or named as a
+reading. The statement above is deduced, not proved: it rests on the readings of [Hin26] at n = 4 recorded in
+10.13-10.48, of [Hin26a] (B4), of [Hin26c] (B1-B3) and of [Hin23a] (B10), and on the open computations those sections
+list. Phase B discharges the readings; Phase C applies the statement to the record's solution, whose data must be shown
+to lie in its hypotheses (C2).
 
 OPEN: Phase B (B1-B10); Phase C; the rates (2)-(4) in five dimensions. Labels: deduced (the statement, (a)-(d)); READ
 ([Hin26] pp. 2-3, 110, 318-323); nothing computed here, nothing proved.
@@ -6681,7 +6684,7 @@ Omega (1.1) is bounded, so C1 needs the solution beyond it; this section deduces
      settles in the class to Tangherlini of a mass m' with |m' - m| small, at the rate t*^(-2-eps_K) in spatially
      compact sets of the exterior -- on 10.49's readings and those of (f).
 
-(f) The readings Phase C adds: (C-i) Theorem E at every order k >= d with K >= k + 1 -- discharged in 10.51 from the
+(f) The readings Phase C adds: (C-i) Theorem E at every order k >= d with K >= d + 1 -- discharged in 10.51 from the
 record's own sections 4-6; (C-ii) G-equivariant gluing of vacuum data to Tangherlini in five dimensions ([CD03]-type,
 its obstructions the Killing initial data); (C-iii) Cauchy stability over a finite time for smooth data, standard.
 Labels: deduced ((a)-(e)), from the record's Lemmas 1.1, 5.3 and 6.2 and Theorems A, D, E; nothing computed here,
@@ -6747,12 +6750,13 @@ l + 2.
 *Proof.* E1-E2 of eind5.py. Controls: at z = 0, Q(lam - 1) vanishes at the physical roots lam = -l and l + 2, which are
 then double (E1); the certificate placed at l* = 12, where box^C's upper roots have not yet passed the line (E2). []
 
-*Deduced.* [Hin26] Lemma 8.4 holds in five dimensions at the point for every l, as stated: 10.24(a) gave the gap and
-the counts for every l, (i) gives "All indicial roots ... are simple", and (ii) gives his (8.13) with eps_ind at most
-1.94137 x 10^-8, the l = 1 types being 10.24(iv)'s. The bound comes from box^Ups's roots near 1 - l, which approach the
-integers as l grows (O(z/l)); it is attained at the largest l whose root still has |lam| <= 50, so it depends on (8.13)'s
-cutoff 50, which he uses "only really ... for |lam| <= 4" (10.24(a)). B8 is discharged. Labels: computed ((i) exact,
-(ii)'s certificate exact and its scan numerical), deduced (Lemma 8.4); nothing proved beyond Lemma 8.4 at the point.
+*Deduced.* [Hin26] Lemma 8.4 holds in five dimensions at the point for every l, as stated: 10.24(a) gave the gap and the
+counts for every l, (i) gives "All indicial roots ... are simple" for l >= 2 and 10.24(iv) for l = 0, 1, and (ii) gives
+his (8.13) with eps_ind at most 1.94137 x 10^-8, the scan covering l = 0 and l >= 2 and 10.24(iv) l = 1 (D126). The
+bound comes from box^Ups's roots near 1 - l, which approach the integers as l grows (O(z/l)); it is attained at the
+largest l whose root still has |lam| <= 50, so it depends on (8.13)'s cutoff 50, which he uses "only really ... for
+|lam| <= 4" (10.24(a)). B8 is discharged. Labels: computed ((i) exact, (ii)'s certificate exact and its scan numerical),
+deduced (Lemma 8.4); nothing proved beyond Lemma 8.4 at the point.
 
 ### 10.53 [Hin26c] section 9 at n = 4, at source (B1-B2; D123)
 
@@ -6884,6 +6888,136 @@ B5 is discharged: the record's point was a sample, and its conclusions hold for 
 set there. B6 is deduced, the threshold holding for every small h with its bound h_2 not computed, which his own
 statement does not need. Labels: computed (Proposition 10.44), deduced ((a)-(e)), READ (the quotations); nothing proved
 beyond that.
+
+### 10.55 The Minkowski model and the interior: B9 and B7 (`transfer5.py` T1-T2; D125)
+
+*The setting.* The record computed every indicial family, tf-normal operator and I+ structure on 4+1 Minkowski and
+carried them to Tangherlini on [Hin26]'s word that these "only see the Minkowskian model" (10.12) and on [Hin26c]
+Example 5.4's order, box_(g_m,a) - box_(g-bar) in rho^3 Diff^2_3b (B9). And 10.16 and 10.27 left OPEN the kernel class,
+the index 0 and the "standard interior uniqueness" that carries a mode's vanishing inside the horizon (B7).
+
+**Proposition 10.45 (computed; exact).** Five-dimensional Tangherlini is, in Kerr-Schild coordinates (t, x), x in R^4,
+r = |x|, g = eta + (mu/r^2) k (x) k with k = dt + dr null for eta and for g, g^-1 = eta^-1 - (mu/r^2) k# (x) k#
+exactly, and Ric(g) = 0 (T1, at three points). Every Christoffel symbol is mu G_3 + mu^2 G_5 with G_j homogeneous of
+degree -j; with t* = t - r, g^-1(dt*, dt*) = -4 mu/r^2, g^-1(dt*, dr) = -1 + 2 mu/r^2, g^-1(dr, dr) = 1 - mu/r^2; and
+the damping 1-form with the static time differs from Minkowski's r^-1 (dt - v dr) by -mu dr/(r (r^2 - mu)), of order
+r^-3 (T2).
+
+*Proof.* T1-T2 of transfer5.py. Controls: the four-dimensional profile mu/r in five dimensions, which is not Ricci flat
+(T1) and whose connection is one order below Minkowski's, not two (T2). []
+
+*Deduced.*
+
+ (a) (B9, the transfer) Every operator of the record -- box^Ups, box^C, L and their spectral families -- is built from
+     g, its connection and curvature (of order mu r^-4) and the 1-forms c, c_Ups; on Tangherlini each differs from its
+     Minkowski model by terms two orders below the model's own: in rho^4 Diff^2_b against the model's rho^2 Diff^2_b,
+     where [Hin26c] Example 5.4 has rho^3 in four dimensions. So the indicial families at infinity, the tf-normal
+     operators (only Minkowskian terms survive, [Hin26] p. 118) and S-bar are the Minkowski model's, as 10.12, 10.15,
+     10.24 and 10.38 used; g^00 = -4 mu rho^2 is in rho^2 C^oo, [Hin26c] Definition 9.4's class; and the mass enters at
+     rho^2, rho_+^2 at iota+ (10.46). 10.39's OPEN "the boost entry and g^00 on Tangherlini" is answered for g^00 here
+     and is removed for the boost by the class (10.43); Myers-Perry is outside the class.
+ (b) (B7, the kernel class and the index) Kernel elements at nonzero frequency lie in A^(3/2 + S-bar - eps) (10.53(c)),
+     the class 10.16 and 10.27 named. The index 0 at nonzero frequency is [Hin26c] Theorem 9.5(3), proved in his section
+     9.3 from Theorem 9.16(3)'s invertibility at large frequency, so at n = 4 on 10.53(e)'s reading of Theorem 9.16.
+ (c) (B7, the interior) Every operator of the record on Tangherlini is stationary and SO(4)-invariant (c, c_Ups and the
+     modifications near the horizon are spherically symmetric, 10.14-10.15), so its spectral family splits over the
+     harmonic types and degrees into systems of ordinary differential operators in r, regular on (r_int, r_h) (f = 1 -
+     mu/r^2 does not vanish there) and with a regular singular point at r_h, where f vanishes simply. A kernel element
+     on X, smooth across the horizon by the radial point estimate there, that vanishes for r > r_h vanishes to infinite
+     order at r_h; a solution of a regular singular system with that property is zero near r_h (its Frobenius exponents
+     are finitely many), and then on (r_int, r_h) by uniqueness for the regular system. This is the "standard interior
+     uniqueness" of 10.16.
+
+B9 is discharged (computed and deduced); B7 is deduced, the index 0 at nonzero frequency on 10.53(e)'s reading. Labels:
+computed (Proposition 10.45), deduced ((a)-(c)); nothing proved beyond that.
+
+### 10.56 [Hin26a] at n = 4, at source (B4; D125)
+
+*The setting.* 10.21-10.23 deduced [Hin26a] Theorems 5.2, 6.2 and B.1 in five dimensions from computed inputs, on the
+reading that his arguments hold at n = 4 (Phase B's B4). Here his section 5.2, read at source, against that reading.
+
+*READ.* [Hin26a] (arXiv:2606.27658v2; alphaXiv, 2026-10-24; printed page = PDF page; ASCII):
+
+ (1) pp. 41-42, Theorem 5.2: "Fix v in (0, 1), C_0 > 0, and alpha_sf, alpha_K such that alpha_sf < -1/2, alpha_K >
+     alpha_sf + 1/2 (5.14) ... Then there exists h_0 > 0 such that for all h in (0, h_0)", with the initial data in
+     "rho_sf^(alpha_sf + 1/2) H-bar^1_b(X, r^2 |dr dg/|)" (5.16); Lemma 5.3, "h^2 box_g in h^2 rho_sf^2 Diff^2_3b,
+     L_(g,c,e,h) in h rho_sf^2 Diff^1_3b" (5.17).
+ (2) p. 42, the proof's plan: elliptic estimates and complex absorption at nonzero and infinite semiclassical
+     frequencies (section 5.2.1); "propagation estimates near the three critical sets of the vector field -r c#"
+     (sections 5.2.2-5.2.4); real principal type propagation along the zero section (5.2.5); energy estimates near X and
+     Sigma# (5.2.6); their combination (5.2.7, pp. 64-65, Propositions 5.5, 5.6, 5.8, 5.9, 5.11, 5.12, 5.16, 5.17), with
+     "h_0 > 0 sufficiently small" at each absorption.
+ (3) p. 60: the energy estimate is stated on "I_t x M where ... M is an n-dimensional manifold of bounded geometry"; p.
+     65: "|dg| is a smooth positive multiple of dtau . r^3 dr |dg/|, and rho_sf^(alpha_sf + 1/2) H-bar^s_b(X, r^2 |dr
+     dg/|) = rho_sf^(alpha_sf) H-bar^s_b(X, r^3 dr |dg/|)".
+ (4) pp. 67-69, Theorem 6.2's proof: Theorem 5.2 "with C_0 increased by 1", Theorem 4.9, and index 0 because "Theorem
+     4.9(3) implies that, acting on suitable weighted spaces ... they are of index 0", with "the shift in the weight at
+     dX by -3/2 when passing from L^inf-based spaces to L^2-based spaces"; p. 91, Theorem B.1's index argument, through
+     "Theorem 4.9(3)" and the flat roots "-l - 2, -l - 1, -l and l - 1, l, l + 1".
+
+*Deduced.*
+
+ (a) (Theorem 5.2 at n = 4) Every estimate of the proof is microlocal or an energy estimate, and each takes from the
+     metric and from c only symbol data: the critical sets of -r c# and the subprincipal symbols there, the positivity
+     of the damping symbol (his Lemmas 3.5 and 3.8), the thresholds (5.14) and c itself. In five dimensions these are
+     computed: 10.13 (Lemmas 3.3-3.8 and the symbols at the critical sets, semiclass5.py W1-W6), 10.14 (c, cform5.py),
+     10.22 (solv5.py Q1-Q4: (5.14) as alpha_sf < b* - 1 and alpha_K > alpha_sf + 1 - b*, b* = 0.99340731...). The
+     calculus is stated for general dimension ((3); [Hin23d]), and the densities move as (3) shows: r^3 |dr dg/| in
+     place of r^2 |dr dg/|, the data weight shifting by 1/2 more, as 10.21(c) takes it. So Theorem 5.2 holds at n = 4
+     for every h below its h_0 -- on the reading, now narrowed to it, that each commutator's sign in sections
+     5.2.1-5.2.6 is the sign of the five-dimensional symbol the record computed; the commutator computations were not
+     redone at n = 4.
+ (b) (Theorem 6.2 at n = 4) His proof needs Theorem 5.2, Theorem 4.9 and index 0 from Theorem 4.9(3); in five dimensions
+     (a), 10.54(a) for every h in (0, 10^-6], and 10.21(d)'s radial operators, the L^inf to L^2 shift being n/2 = 2
+     (10.21(e)).
+ (c) (Theorem B.1 at n = 4) His index argument needs Theorem 4.9(3) and the flat operator's roots; in five dimensions
+     10.54(a) and tface5.py F5's computed roots, -3, -2 | 0, 1 at l = 0, -l - 3, -l - 2, -l - 1 | l - 1, l, l + 1 and
+     -l - 2 | l (10.23).
+
+B4 is deduced at source with one reading left, (a)'s: the sign of each commutator in his section 5.2 as computed in five
+dimensions. Labels: READ (1)-(4); deduced (a)-(c); nothing computed or proved here.
+
+### 10.57 [Hin23a] in five dimensions, at source (B10; D125)
+
+*The setting.* [Hin26] Theorem 5.17 solves the gauge-fixed equation near spatial and null infinity by [Hin23a]'s
+estimates and [SR89]; 10.48 carried it to five dimensions on the reading that [Hin23a]'s Proposition 3.32, Theorem 3.35
+and Corollary 3.36 hold at n = 4 (B10). With the record's data a compactly supported perturbation of Tangherlini
+(10.50), the solution is Tangherlini near I0 by finite speed of propagation ([Hin26] Remark 5.24, 10.48), so [Hin23a] is
+needed only for a piece of null infinity.
+
+*READ.* [Hin23a] (arXiv:2302.13804v1; alphaXiv, 2026-10-24; printed page = PDF page; ASCII):
+
+ (1) p. 1: "(3 + 1)-dimensional spacetimes"; p. 9, section 3.1: "Consider an n-dimensional manifold M with corners".
+ (2) pp. 21-22, Proposition 3.29: L_g = -2 (rho_I d_rho_I - A_g)(rho_0 d_rho_0 - rho_I d_rho_I) + x_I^2 Laplacian + 2
+     B_g + L~_g, L~_g in (x_I C^oo + H^(k-2,(l_0, 2 l_I))_b) Diff^2_(e,b), the 7 x 7 matrix A_g carrying the entries
+     -(1/2) d_1 h_(ab) and 2 d_1 h_(ab), for g = g_m + r^-1 h.
+ (3) pp. 27-30, Proposition 3.32 and its proof: the multiplier W, Lemma 3.33 ("Write points x in R^n ...", d_p the
+     smallest integer > p/2, Sobolev embedding H^(d_(n-1))(R^(n-1)) in L^inf) applied "with n = 4", and the sharp
+     weights from "A_g is lower triangular ... with scalar diagonal entries that are independent of h".
+ (4) pp. 30-32, Theorem 3.35: k >= m + 11, three improvements recovering "a radiation field" at order r^-1 and h_11 at
+     I+; Corollary 3.36: [SR89] "with loss of derivatives parameter d = 11 ... 2433 = 16 d^2 + 43 d + 24"; the gauge by
+     the second Bianchi identity.
+
+*Deduced.*
+
+ (a) (where the dimension enters) The calculus is general (1). The dimension enters through the radiative order -- r^-1
+     h in (2), r^-(3/2) h in five dimensions (10.38) -- through the densities (rho_0^4 rho_I^3 for rho_0^5 rho_I^4), and
+     through Lemma 3.33's Sobolev index, applied on the four-dimensional boundary I+ (u, S^3) in five dimensions: d_4 =
+     3 in place of d_3 = 2, one more derivative in each tame bound of Proposition 3.32.
+ (b) (Proposition 3.29 at n = 4) The h-dependent entries of A_g and B_g are the couplings of the radiation field r^-1 h
+     at the borderline order. With g - g_m = r^-(3/2) h they carry one more factor x_I = r^-(1/2) and join L~_g, so A_g
+     is 10.38's A_0, lower triangular with h-free diagonal (10.44(i)): the hypothesis of (3)'s sharp-weight step holds
+     outright, not only to leading order. (The order count is deduced, not computed: 10.38's OPEN "h-terms of (5.28)".)
+ (c) (Theorem 3.35 not needed) Its improvements recover the r^-1 radiation field and h_11's limit at I+ (4). The
+     record's five-dimensional spaces carry no radiation field at the iteration's weight: [Hin26] p. 102's first step,
+     the tame energy estimate with any I+ weight below the radiative order (10.48(a)), gives the space Theorem 5.17
+     needs, the quadratic terms gaining x_I^(1/2) there.
+ (d) (Corollary 3.36 at n = 4) [SR89] applies with the loss of (a)-(c), finite whatever its value, given data with
+     enough derivatives; the record's glued data are smooth (10.50). The gauge and Ricci flatness follow by the second
+     Bianchi identity in any dimension.
+
+B10 is deduced at source, with (b)'s order count and (c)'s gain read, not computed. Labels: READ (1)-(4); deduced
+(a)-(d); nothing computed or proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

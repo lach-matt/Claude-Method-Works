@@ -139,7 +139,8 @@ def run(only=None, verbose=False):
         res = f(0, verbose)
         ok &= res
         print(f"{name[:104]:<104} {'PASS' if res else 'FAIL'} {time.time() - t0:3.0f}s", flush=True)
-    print(f"uniform5.py: {len(CHECKS) if ok else 'not all'}/{len(CHECKS)}")
+    n = 1 if only else len(CHECKS)
+    print(f"uniform5.py: {n if ok else 'not all'}/{n}")
     return ok
 
 

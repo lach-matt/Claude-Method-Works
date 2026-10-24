@@ -3946,3 +3946,33 @@ every small h.
 *Notes.* (1) The certificate's counts are reported right | between | left, 10.12's convention. (2) The deduction in
 10.54(c) rests on the record's own statements of which quantities grow with gam_C; the fifty-fifth verifier is to check
 it. (3) Selftest 2/2 (about twenty seconds), mutants 2/2.
+
+**D125 (2026-10-24): B9 discharged; B4, B7, B10 deduced at source (transfer5.py, 10.55-10.57).**
+
+transfer5.py computes five-dimensional Tangherlini in Kerr-Schild form, exactly: its connection is two orders below
+Minkowski's (mu G_3 + mu^2 G_5), g^00 = -4 mu rho^2 with t* = t - r, and the damping 1-forms with the static time differ
+from Minkowski's at r^-3. Section 10.55 deduces the transfer (B9) -- every operator differs from its model in rho^4
+Diff_b, one order better than four dimensions -- and B7: the kernel class (10.53(c)), the interior uniqueness by the
+radial systems' regular singular point at the horizon, the index 0 at nonzero frequency on Theorem 9.16's reading.
+Sections 10.56 and 10.57 read [Hin26a] section 5.2 and [Hin23a] section 3 at source: the first takes only symbol data
+from the metric, all computed in five dimensions, leaving the commutators' signs as the one reading; the second is
+needed only near a piece of I+ for compactly supported data, its h-dependent couplings drop into the error term at
+r^-(3/2), and its peeling theorem is not needed.
+
+*Notes.* (1) transfer5.py: selftest 2/2 (about four minutes), mutants 2/2. (2) The fifty-fourth verifier's report
+arrived while this was written; D126 seats it.
+
+**D126 (2026-10-24): the fifty-fourth verifier's findings on D116-D122 seated.**
+
+Verdict PASS with one major finding: Phase A was called "complete" while 10.45(e) and 10.48(c) rest on Phase B readings.
+Repaired in 10.48, 10.49 and ROUTES 4.51: complete conditional on its readings, B1-B4, B10 and 10.45(e)'s [Hin26c]
+Proposition 13.18 and Corollary 13.17 at n = 4 (D117's wording stands in its entry as written then). Minor findings, all
+seated: k = 6 is Step 4's floor, not [DS23]'s, which asks k > 3 (ROUTES 4.53; D119's wording likewise stands); 10.46's
+quotation of [Hin26] p. 221 made verbatim; the trace weight 2/(D - 2) cited as the record's own derivation (damping5.py
+U2), [Hin26a] (3.2) having weight 1 (ROUTES 4.55); eind5.py and 10.52 state that l = 0 and 1 are 10.24(iv)'s; the --only
+summaries of eind5.py, sharp5.py, uniform5.py and transfer5.py count the checks run. Nits: ROUTES 4.55's -n + 2 + beta
+attributed to Corollary 9.39, its Theorem 11.1 clause made grammatical; 10.50(f)'s K >= d + 1.
+
+*Notes.* (1) The verifier recomputed 1.94137 x 10^-8 from the closed form z l/(2 (l + 1)(2 l + 1)) at l = 50 and checked
+E2's certificate numerically at 61 kappa up to 10^15 kappa*. (2) It did not check C-ii's gluing or Lemma 6.2's
+oscillating data, nor anything after d479898.
