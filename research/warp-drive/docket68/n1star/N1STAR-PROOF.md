@@ -5066,8 +5066,9 @@ exceptional indicial roots are the sl and vl roots -l for l >= 2. They are not r
 instead construct them using properties of L_b directly." His Proposition 8.14 (p. 158): for b near b_0, states
 h^(-2)_b,s2(S), h^(-2)_b,v2(V) in A^((-2,0) u (-2+E_ind)) with generalized companions h-breve^(-2),1 in A^((-3,0) u
 (-3+E_ind)), and h^(-3)_b,s3(S), h^(-3)_b,v3(V), all "in ker D_(g_b) Ric cap ker delta_(g_b,E^Ups) G_(g_b)", their
-rho^-l leading terms "comprising the spaces N_sl(L-bar(0), -l)"; his Lemma 8.15 (pp. 158-159): (1) <L-hat_b(0)
-h-breve^2_b,s1(S), h*> = 0 for h*_b,s0 and h*_b,v1, and S -> <L-hat_b(0) h-breve^2_b,s1(S), h*_b,s1(.)> an isomorphism;
+leading terms "comprising the spaces N_s2(L-bar(0), -2) and N_v2(L-bar(0), -2)", and the same at -3; his Lemma 8.15 (pp.
+158-159): (1) <L-hat_b(0) h-breve^2_b,s1(S), h*> = 0 for h*_b,s0 and h*_b,v1, and S -> <L-hat_b(0) h-breve^2_b,s1(S),
+h*_b,s1(.)> an isomorphism;
 (2) <L-hat_b(0) h-breve^1_b,v1(V), h*> = 0 for h*_b,s0 and h*_b,s1, and "= -8 pi m <a(V), a(b) x a(V')>" ((8.29)),
 proved from his Remark 8.10, "g-dot_(m,a)(0, v x a) = -L_R g_(m,a) = -2 delta* V_b(v)", with (8.21) and Lemma 8.12. His
 proof of Proposition 8.14 (pp. 160-163): a formal solution (Step 1), the obstruction pairings with the dual states
@@ -5091,10 +5092,11 @@ Gauss function 2F1:
      1)/(Gamma((l + 5)/2) Gamma((l + 1)/2)) z^((l - 1)/2) and Gamma(l + 1)/(Gamma(2 + l/2) Gamma(1 + l/2)) z^((l -
      1)/2), coefficients that are never 0, matched at z = 10^12 (Y2).
  (iii) (the roots his Step 4 needs) At sl, vl and tl, l = 2, 3, at Proposition 10.9's point, -l is a simple root of det
-     N_L and -l - 1 is none, its nearest root at distance 1; the nearest other root to -l at sl is box^Ups's class root
-     mu_l,1 + 1 = -l - (l + 2) z/(2 (l + 1)(2l + 3)) + O(z^2) (10.30(ii)), z = 4 e_U gam_U^2 = 4 x 10^-6, real and below
-     -l by 3.81 x 10^-7 (l = 2) and 2.78 x 10^-7 (l = 3), its first-order term matched to 10^-3 (Y3; D91 printed 3.3 x
-     10^-7, section 10.24's s1 pair, D92); the two meet at z = 0 (10.30(iv)).
+     N_L and -l - 1 is none, its nearest root at distance 1 (at sl less the class root's distance below -l); the nearest
+     other root to -l at sl is box^Ups's class root mu_l,1 + 1 = -l - (l + 2) z/(2 (l + 1)(2l + 3)) + O(z^2)
+     (Proposition 10.27(ii)), z = 4 e_U gam_U^2 = 4 x 10^-6, real and below -l by 3.81 x 10^-7 (l = 2) and 2.78 x 10^-7
+     (l = 3), its first-order term matched to 10^-3 (Y3; D91 printed 3.3 x 10^-7, section 10.24's s1 pair, D92); the two
+     meet at z = 0 (Proposition 10.27(iv)).
  (iv) (the rotation equivariance) On 4+1 Minkowski, with h_A = (mu/R^4)(dt (x) w_A + w_A (x) dt), w_A = x . A dx
      (10.28), L_R h_A = h_[A,B] for R = B x and every pair of the six basis rotations; B(V, V') := <[A_V, A_b], A_V'> at
      A_b = e_12 is antisymmetric of rank 4 with kernel spanned by e_12 and e_34, the trace form is ad-invariant, and in
@@ -5102,11 +5104,10 @@ Gauss function 2F1:
 
 *Proof.* Y1-Y4 of physical5.py: (i) symbolic in l; (ii) exact by hyperexpand where the series terminates, and by mpmath
 at 40 digits (the operators on the functions at r = 1.3, 2.1, 5.7, mu = 1, and the growth at z = 10^12 against the
-coefficients of [DLMF] (15.8.2), which in the case b - a = m an integer, (15.8.8), keeps the dominant term's coefficient
-Gamma(c) Gamma(m)/(Gamma(b) Gamma(c - a))); (iii) lin5.py's factors of Proposition 10.21(ii) at 50 digits; (iv) exact.
-Controls: in
-(i) c = 2 at the tensor type; in (ii) the tensor solution with c = 2; in (iii) -l in place of -l - 1; in (iv) h_[B,A]
-for h_[A,B]. []
+coefficients of [DLMF] (15.8.2), which in the case b - a = m an integer, (15.8.8), for m >= 1 -- here m = l + 1 -- keeps
+the dominant term's coefficient Gamma(c) Gamma(m)/(Gamma(b) Gamma(c - a))); (iii) lin5.py's factors of Proposition
+10.21(ii) at 50 digits; (iv) exact. Controls: in (i) c = 2 at the tensor type; in (ii) the tensor solution with c = 2;
+in (iii) -l in place of -l - 1; in (iv) h_[B,A] for h_[A,B]. []
 
 *Deduced.*
 
@@ -5117,28 +5118,42 @@ for h_[A,B]. []
      coefficient never 0 (H, f_t = r y and F = -(X + Y)/(6 r), X = Y + r (r^2 - mu) Y'/mu, all of order r^l). Put into
      the gauge by a stationary 1-form, as his section 1.4.1 does ("upon adding to h a pure gauge term delta*_(g_b) omega
      ... we can arrange that also the linearized gauge condition ... holds"), it is the large zero energy state of his
-     Proposition 8.14 at the root -l, its leading term spanning that type's part of ker N(L-bar(0), -l): his s2, v2, s3,
-     v3, and the tensor types t2, t3 that four dimensions lacks, and every higher l. At a = 0 no obstruction arises in
-     his Step 2: L-hat(0) and the dual states are SO(4)-covariant, and a type-l tensor, l >= 2, pairs to 0 with the dual
-     states of types s0, s1 and v1.
+     Proposition 8.14 at the root -l, its leading term spanning that type's part of ker N(L-bar(0), -l) where -l is
+     simple -- computed for l <= 12 at the point (section 10.24) and l = 2, 3 in (iii): his s2, v2, s3, v3, and the
+     tensor types t2, t3 that four dimensions lacks, and every higher l so far as -l is simple (the forty-third
+     verifier; D94). At a = 0 no obstruction arises in his Step 2: L-hat(0) and the dual states are SO(4)-covariant, and
+     a type-l tensor, l >= 2, pairs to 0 with the dual states of types s0, s1 and v1.
  (b) ([Hin26] Lemma 8.15 in five dimensions) (1) His proof -- L h^(<=2)_b,s1 = 0 gives L-hat(0) h-breve^2_b,s1 = -(1/2)
-     [[L, t*], t*] h_b,s1 - [L, t*] h-breve^1_b,s1 -- makes the s1 pairings minus 10.32's centre-of-mass row: against
-     h*_s0 0, against h*_s1 the isomorphism S(c) -> -(3 pi^2/2) mu (q . c) at a = 0 (10.32(iii)), and so near it;
-     against h*_v1 0 at a = 0 (10.32(b)), and near it 0 on the rotations that stay Killing (12 and 34 for one spin), his
-     Theorem 9.6(5) argument applying to them, which is what his Step 2 uses, the rest entering only through his
-     lambda-sharp. (2) His Remark 8.10 holds in five dimensions: rotating the parameter, g_(mu, A(s)) = (e^(-sR))*
-     g_(mu,A) with A(s) = e^(s ad B) A, so g-dot(0, [B, A]) = -L_R g = -2 delta* V_b, as (iv) has it at first order in
-     the rotation (L_R h_A = h_[A,B] and d_a g = -h_A, 10.28(vi)); with 10.32(ii)'s rotation row, his computation gives
-     <L-hat(0) h-breve^1_v1(V), h*_v1(V')> = (1/2)(-2 pi^2 mu) <[A_V, A_b], A_V'> = -pi^2 mu <[A_V, A_b], A_V'>, his -8
-     pi m <a(V), a(b) x a(V')> with so(4)'s bracket for the cross product, 0 at a = 0 (h_v1 = 0 there), and 0 against
-     h*_s0 and h*_s1 (10.32(ii)). By (iv) the form has rank 4 at one spin, its kernel the Killing rotations, and
-     ad-invariance gives his Step 2's choice: <[A_V1, A_b], A_V'> = <A_V1, [A_b, A_V']>, so his lambda_v1(V') = <v_b,
-     [A_b, A_V']> is met by A_V1 = v_b/(pi^2 mu), smooth in b.
- (c) ([Hin26] Proposition 8.14 near Tangherlini) For his l = 2, 3 and b near b_0 his Steps 0-5 run as his, with (b) for
-     Lemma 8.15, 10.33(f) for Corollary 8.13, (iii) for Step 4's "-3 is not an s2 root" (and at the vector and tensor
-     types), 10.32-10.33 for Lemma 8.12 in (8.37), and 10.21(e) for Theorem 7.1(2) in Step 5: the states exist in five
-     dimensions with smooth dependence on b, the tensor types included, on the readings 10.33(f) rests on and on the
-     weights shifted as in 10.23(ii).
+     [[L, t*], t*] h_b,s1 - [L, t*] h-breve^1_b,s1 -- makes the s1 pairings minus section 10.32's centre-of-mass row:
+     against h*_s0 0, against h*_s1 the isomorphism S(c) -> -(3 pi^2/2) mu (q . c) at a = 0 (Proposition 10.29(iii)),
+     and so near it; against h*_v1 0 at a = 0 (10.32(b)), and near it 0 on the rotations that stay Killing (12 and 34
+     for one spin), his Theorem 9.6(5) argument applying to them, but not established on the others. His Step 2 uses the
+     vanishing against every h*_v1 ("By Lemma 8.15, the left-hand side of (8.34) is independent of the choice of V_1 ...
+     Similarly, the left-hand side of (8.35) is independent of S_1", p. 161); a modification of it serves instead: by
+     the five-dimensional Proposition 7.4, as his (8.32c)-(8.33) give lambda_v1, the pairings P(S_1, V') := <L-hat(0)
+     h-breve^2_s1(S_1), h*_v1(V')> depend on V' only through [A_b, A_V'], P = <p_b(S_1), [A_b, A_V']>, and are absorbed
+     into V_1 in (2) (the forty-third verifier; D94). (2) His Remark 8.10 holds in five dimensions: rotating the
+     parameter, g_(mu, A(s)) = (e^(-sR))* g_(mu,A) with A(s) = e^(s ad B) A, so g-dot(0, [B, A]) = -L_R g = -2 delta*
+     V_b, as (iv) has it at first order in the rotation (L_R h_A = h_[A,B] and d_a g = -h_A, Proposition 10.25(vi));
+     with Proposition 10.29(ii)'s rotation row, his computation gives <L-hat(0) h-breve^1_v1(V), h*_v1(V')> = (1/2)(-2
+     pi^2 mu) <[A_V, A_b], A_V'> = -pi^2 mu <[A_V, A_b], A_V'>, L-hat(0) here the zero energy part of L_b, with [L_b,
+     t*] h_b,v1 + L-hat(0) h-breve^1_v1 = 0 (his (8.2a) writes 2 L_b = ... + L-hat_b(0)). The same computation in four
+     dimensions, with Proposition 10.29(i)'s rotation row -4 pi mu (mu = 2m), gives -4 pi m <a(V), a(b) x a(V')>, half
+     his -8 pi m, which is (1/2) times Lemma 8.12's printed -16 pi m (p. 159), the normalization 10.32(b) halves; so the
+     five-dimensional value is his with so(4)'s bracket for the cross product, in that normalization. It is 0 at a = 0
+     (h_v1 = 0 there); against h*_s0 and h*_s1 it is 0 at a = 0 (Proposition 10.29(ii)), and near it these are the
+     rotation row's a-dependent entries, not computed beyond continuity (10.32), so that his Step 2 solves (8.34)-(8.35)
+     as a coupled system. By (iv) the form has rank 4 at one spin, its kernel the Killing rotations, and ad-invariance,
+     <[A_V1, A_b], A_V'> = <A_V1, [A_b, A_V']>, meets (8.35) with (1)'s P absorbed: A_V1 = (v_b + p_b(S_1))/(pi^2 mu),
+     smooth in b, and v_b/(pi^2 mu) where P = 0 -- his choice, whose printed "-8 pi m a(V_1) = v_b" has the sign
+     reversed against (8.33) (his (8.35) prints lambda_b,s1 for lambda_b,v1).
+ (c) ([Hin26] Proposition 8.14 near Tangherlini) For his l = 2, 3 and b near b_0 his Steps 0-5 run, Step 2 as modified
+     in (b), with (b) for Lemma 8.15, 10.33(f) for Corollary 8.13, (iii) for Step 4's "-3 is not an s2 root" (and at the
+     vector and tensor types), 10.32-10.33 for Lemma 8.12 in (8.37), and 10.21(e) for Theorem 7.1(2) in Step 5: the
+     states exist in five dimensions with smooth dependence on b, the tensor types included, on the readings 10.33(f)
+     rests on, on the weights shifted as in Proposition 10.20(ii), and on [Hin26] Proposition 7.4, Lemma 7.5 and (7.19)
+     in five dimensions on the full, two-spin Myers-Perry metric, which his Steps 1-2 use ((8.32c)-(8.33)) and 10.31(c)
+     has at first order in one spin (the forty-third verifier; D94).
 
 *READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII): pp. 25 (section 1.4.1), 140-142 (section
 7.2.1: (7.16)-(7.18), Proposition 7.4, Lemma 7.5), 154-163 (Proposition 8.9, Remark 8.10, (8.21), Proposition 8.11,
@@ -5148,13 +5163,108 @@ Lemma 8.12, Corollary 8.13, section 8.5: Proposition 8.14, Lemma 8.15 and their 
 
 *What this gives, and what it does not.* The physical states his section 8.5 builds exist in five dimensions: at
 Tangherlini explicitly, for every l >= 2 and the three types, the static tidal solutions in Gauss functions of r^2/mu,
-growing like r^l with coefficients that never vanish; near it, for his l = 2, 3, by his construction, whose smoothness
-in the rotation rests on his Lemma 8.15, which carries over with so(4)'s bracket in place of the cross product. Not
-done, and OPEN: which l five dimensions needs -- his window [-3, 0] is his choice for the decay he proves (10.30) -- and
-with it whether t2, t3 and the higher l enter the late-time expansion; Lemma 8.15(1)'s pairing against the non-Killing
-rotations at a != 0 (only its lambda-sharp form is used); the general Myers-Perry rotation beyond first order and two
-spins; the readings 10.33(f) rests on, and the weights; his sections 9-10 in five dimensions. Nothing of this section is
-proved: Proposition 10.31 is computed, and (a)-(c) are deduced.
+growing like r^l with coefficients that never vanish; near it, for his l = 2, 3, by his construction with its Step 2
+modified, whose smoothness in the rotation rests on his Lemma 8.15, which carries over with so(4)'s bracket in place of
+the cross product, and on his Proposition 7.4 in five dimensions. Not done, and OPEN: which l five dimensions needs
+(10.35: on readings l = 2, t2 included); Lemma 8.15(1)'s pairing against the non-Killing rotations at a != 0 (absorbed
+by the modified Step 2 under Proposition 7.4); Proposition 7.4, Lemma 7.5 and (7.19) on the full two-spin metric; the
+general Myers-Perry rotation beyond first order and two spins; the readings 10.33(f) rests on, and the weights; his
+sections 9-10 in five dimensions. Nothing of this section is proved: Proposition 10.31 is computed, and (a)-(c) are
+deduced.
+
+### 10.35 [Hin26]'s window in five dimensions: the large indicial roots the expansion needs (`window5.py`; D93)
+
+*The setting.* [Hin26] (p. 17, (1.23)): a term t*^-alpha at iota+ whose coefficient has the term R^-lam u_d(omega) at
+R = 0, lam a large indicial root of L-hat(0), "contributes to u via t*^(-alpha+lam) u-bar^(lam)(r, omega)", and "very
+negative indicial roots contribute to very strongly decaying terms in the K+-asymptotics of u (and are thus ultimately
+uninteresting for the purpose of solving a nonlinear problem, for which some finite decay order suffices)". The order
+needed: "in a nonlinear iteration scheme we need u to have O(t*^(-2-eps_K))-decay (due to the 2-admissibility of L_b,
+cf. Corollary 11.10) ... we need the forward map to map u into a tensor f with O(t*^(-4-eps_K))-decay. This means that
+we must show that the contributions to u that are not of size O(t*^(-4-eps_K)) have spatial dependence given by large
+zero energy states" (p. 273); "The '2' in '2-admissibility' is the order of the 'pole' of L-hat_b(sigma)^-1 at sigma =
+0" (p. 34); and the pure gauge contributions without t*^(-2-eps_K)-decay "must moreover be eliminated using gauge
+modifications" (p. 218). The order alpha: "Sources f arising in the nonlinear iteration furthermore turn out to also
+cause a t*^-1-term at iota+" (p. 28), footnote 27: "on a dynamical background, there is a coupling of the trace-free
+spherical-spherical part of the metric perturbation, which decays at radiation field order r^-1, into the
+(dt*)^2-component ... (cf. the (7, 6)-component of A_h in (5.28)); the resulting r^-1-term in the (dt*)^2-component then
+does propagate from I+ to iota+ and gives the claimed t*^-1-term", which "On the nonlinear level ... is anticipated to
+encode the Bondi mass" (p. 32); and "The smallest lam for which we will apply this result is lam = 1, in which case the
+remainder in (9.41) has more than 4 orders of decay at K+" (p. 177). Hence his window [-3, 0] (p. 128) and Proposition
+9.9's expansion (9.32) (p. 174), each state with its generalized companions to a stated order: h^(<=4)_s1, h^(<=3)_v1,
+h^(0),(<=3)_s0, the class roots -lam_sl,l+j + 1 (0 <= l <= 3, j = 0, 1, 1 <= l + j <= 3) to order 2, -l + 2 at sl to
+5 - l (l = 2, ..., 5), -l + 1 at vl to 4 - l (l = 2, 3, 4), s2 and v2 at -2 to 1, s3 and v3 at -3 to 0. 10.34 left open
+which l five dimensions needs.
+
+**Proposition 10.32 (computed; exact, and numerical where said).** At lin5.py's point (Proposition 10.21(iv)):
+
+ (i) (the roots in [-3, 0]) The roots of det N_L with real part in [-3, 0] are, in four dimensions (n = 3, trace weight
+     1): s0: 0 and a class root just below 0; s1: -1 and class roots just below 0 and -1; s2: 0, -2 and class roots just
+     below -1 and -2; s3: -1, -3 and a class root just below -2; s4: -2; s5: -3; v1: -1; v2: -1, -2; v3: -2, -3; v4: -3;
+     none at s6 and v5 -- his Lemma 8.4's roots in [-3, 0] (p. 149) and the terms of his (9.32). In five dimensions they
+     are the same, and t2: -2, t3: -3, none at t4, t5. Every one is real, the integers exact (the physical -l,
+     box^Ups's -l + 2 at sl and -l + 1 at vl, s0's 0), each class root box^Ups's and less than 1/4 below its integer,
+     none from box^C (W1).
+ (ii) (the bookkeeping) Let a root mu, fed by t*^-alpha at iota+, give a(t*) = t*^(-alpha+mu) and companions
+     a^(j)(t*) of K+ order alpha - mu + j (at s1's and v1's -1, his a_s1 and a_v1 of (9.39a), alpha - 1 + j and alpha +
+     j), and keep a state while that order is at most 4, with k = floor(4 - order) companions. At alpha = 1 this gives
+     (9.32)'s orders exactly -- s1 4, v1 3, s0 3, -l + 2 at sl 5 - l, -l + 1 at vl 4 - l, s2 and v2 1, s3 and v3 0 --
+     and at most his 2 at the class roots. For every alpha in (1, 2] the physical states kept are s2, v2 and t2 at -2,
+     with k = 0, and none at l >= 3. At alpha = 2 the roots kept are those in [-2, 0]: s0's 0 (k = 2) and class root (1),
+     s1's -1 (3) and class roots just below 0 (1) and -1 (0), s2's 0 (2), class root just below -1 (0) and -2 (0), s3's
+     -1 (1), s4's -2 (0), v1's -1 (2), v2's -1 (1) and -2 (0), v3's -2 (0), t2's -2 (0); of order at most 2: s0's 0,
+     s1's -1 (order 1), s2's 0 and v1's -1, and the class roots just below 0 at s0 and s1 at order 2 + O(z) (W2).
+ (iii) (the orders at null infinity) In d + 1 dimensions, for S of degree l on S^(d-1), box(r^-p a(t - r) S) = (2p - d
+     + 1) a'(t - r) r^(-p-1) S + (l + p)(p - d - l + 2) a r^(-p-2) S exactly: the radiative order p = (d - 1)/2 kills the
+     first term, the Coulombic order p = d - 2 at l = 0 the second, where the first is (d - 3) a' r^(-d+1); at d = 4 the
+     two orders are 3/2 and 2 and the coefficient is 1, at d = 3 they coincide and it vanishes (W3).
+
+*Proof.* W1-W3 of window5.py: (i) lin5.py's factors at 50 digits, the cancelled roots removed as there, a root exact
+within 10^-30 of an integer; (ii) exact rational arithmetic, alpha on the grid 1 + m/100 (m = 1, ..., 100), the orders
+linear in alpha and the class roots' distance below their integer a positive symbol; (iii) sympy. Controls: in (i) the
+five-dimensional roots claimed without the tensor types; in (ii) s3 and v3 claimed not needed at alpha = 1; in (iii) the
+radiative order claimed to leave the a' term. []
+
+*Deduced.*
+
+ (a) (the iota+ order in five dimensions) His t*^-1 term is the mass aspect's: the trace-free spherical part's radiation
+     fields, quadratically, source the (dt*)^2 component, and in four dimensions the order they produce, the Coulombic,
+     is the radiative order 1 ((iii) at d = 3), which his gauge shift 2 gam_Ups keeps from resonance (Definition 5.2, p.
+     85: pi_11 h "without this coupling would have r^(-1-2 gam_Ups)-decay"). In five dimensions Theorem M(c) has the
+     mass aspect at s^4 = r^-2 with d_v M quadratic in the radiation fields, (11.2) -- at past null infinity, and the
+     same at future null infinity with u for v -- the Coulombic order of (iii) at d = 4, apart from the radiative 3/2;
+     and a rho_I^z term at future null infinity makes the index (z, 0) at iota+ (p. 273, his (11.37)). So alpha_5 = 2,
+     on the reading that no iota+ term of the five-dimensional iteration decays more slowly: data O(r^(-2-eps_0)), the
+     analogue of his O(r^(-1-eps_0)), give terms t*^-z with z > 2, and a term at the radiative order 3/2 would need a
+     radiation field with a nonzero late limit, which is not examined here.
+ (b) (the pole order) In five dimensions the zero energy states of Proposition 8.11 (10.32-10.33) are the mass, the six
+     rotations and the four centres of mass, these with the boosts h-breve^1_s1 (10.29) as companions and the chain
+     ended by Proposition 10.29(iii)'s nonzero pairing (3 pi^2/2) mu (q . c); so L-hat_b(sigma)^-1 has a pole of order 2
+     at 0 as in four dimensions (p. 34, footnote 35), and on the reading that [Hin26c]'s admissibility in five
+     dimensions asks the same l_K > 2, u needs t*^(-2-eps_K) and the sources t*^(-4-eps_K).
+ (c) (the window) Hence five dimensions needs [alpha_5 - 4, 0] = [-2, 0], and by (ii), for every alpha_5 in (1, 2],
+     its physical states are s2, v2 and t2 at -2 without generalized companions: of 10.34's states those at l = 2 -- at
+     a = 0 Y2's, near it by his Steps 0-3 and 5 on 10.34(c)'s conditions -- and not his Step 4, which builds the s2 and
+     v2 companions, nor any state at l >= 3, the higher tensor types included. The pure gauge states kept and their
+     companions are (ii)'s; s1's -1 enters at K+ order 1, a centre-of-mass motion decaying like t*^-1 (his (9.39a) at
+     lam = 2), and is eliminated as his are, with s0's and s2's 0 and v1's -1 at order 2, and the class roots just below
+     0 at order 2 + O(z) unless eps_K lies below their distance.
+ (d) (four dimensions) At alpha = 1, (ii) returns his window [-3, 0], (9.32) and the need for s3 and v3.
+
+*READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII): pp. 17-18 ((1.23)-(1.25)), 27-30 (section
+1.4.3, footnotes 27-28), 32 (section 1.4.4), 34 (footnote 35), 37, 85 (Definition 5.2), 92-93 (Proposition 5.11,
+(5.27)-(5.28)), 117 (Lemma 6.6), 128, 149 (Lemma 8.4), 173-177 (Proposition 9.4, Definition 9.8, Proposition 9.9,
+(9.32), Proposition 9.11, (9.39a)-(9.39b)), 199 (Theorem 10.1), 218, 225 (Corollary 11.10), 273, 279 (Remark 11.60),
+324 (section 13.2).
+
+*What this gives, and what it does not.* Which large indicial roots five dimensions needs: the window shrinks from [-3,
+0] to [-2, 0], because the slowest term at iota+, the mass aspect's, decays like t*^-2 where four dimensions has t*^-1
+-- the Coulombic order separates from the radiative one above four dimensions. The physical states needed are s2, v2 and
+t2 at -2 alone, and none of their companions; for any iota+ order in (1, 2] the same. So 10.34's l = 3 states and his
+Step 4 are spare in five dimensions, and the one tensor state needed is t2's, which 10.34 has at a = 0 and near it.
+Not done, and OPEN: his (5.28) and Proposition 11.16 in five dimensions line by line; [Hin26c]'s Theorem 11.1 in five
+dimensions; whether a five-dimensional radiation field can have a nonzero late limit; the data class; section 7.2.1
+beyond first order in the rotation; sections 9-10. Nothing of this section is proved: Proposition 10.32 is computed, and
+(a)-(d) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

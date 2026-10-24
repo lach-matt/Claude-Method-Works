@@ -29,10 +29,10 @@ whether or not they vanish pointwise, and it is left undetermined (D89).
      against the rotations above the critical weight, undetermined by the leading terms (his values there -8 pi (q . a)
      m-dot, from subleading terms, and 0, Theorem 9.6(5); both 0 at a = 0).  Control: G dropped from the dual slot.
   P2 (computed, exact) The Kerr rows in five dimensions, eta + mu R^-2 (dt^2 + dr^2), g'(0, A) = -(2 mu/R^4) dt (x)_s
-     w_A, w_A = x^i dx^j - x^j dx^i on the plane ij (d_a g = -h_A, 10.28(vi)): mass against dt -3 pi^2 mu-dot, against
-     the four translations 0, against the six rotations undetermined, above the critical weight; the rotations -2 pi^2
-     mu on their own plane, 0 across planes and against dt and the translations.  Control: the mass perturbation's dr^2
-     term dropped.
+     w_A, w_A = x^i dx^j - x^j dx^i on the plane ij (d_a g = -h_A, Proposition 10.25(vi)): mass against dt -3 pi^2
+     mu-dot, against the four translations 0, against the six rotations undetermined, above the critical weight; the
+     rotations -2 pi^2 mu on their own plane, 0 across planes and against dt and the translations.  Control: the mass
+     perturbation's dr^2 term dropped.
   P3 (computed, exact) The centres of mass in five dimensions: (3 pi^2/2) mu (q . c) against q . dx, 0 against dt,
      undetermined against the six rotations, above the critical weight; h-breve_b,c is O(mu), its Minkowski part zero,
      the boost being Killing.  Control: h-breve dropped.
@@ -196,7 +196,8 @@ def massg(M, ks=False, extra=False, nodr=False):
 
 
 def rotg(M, plane):
-    """g'(0, A) = -(2/R^n) dt (x)_s w_A per unit mu (d_a g = -h_A, 10.28(vi); Kerr: -(4M/r^3) dt (x)_s (a x x) . dx)"""
+    """g'(0, A) = -(2/R^n) dt (x)_s w_A per unit mu (d_a g = -h_A, Proposition 10.25(vi); Kerr: -(4M/r^3) dt (x)_s
+    (a x x) . dx)"""
     return M.sym(M.form(0), M.form(plane=plane)).applyfunc(lambda q: -2 * q / R**M.n)
 
 

@@ -6,11 +6,12 @@ ROUTES-OPEN.md 4.35; D91).  Labels: computed (exact, sympy; numerical, mpmath, w
 [Hin26] (arXiv:2606.28253v2) section 8.5 (pp. 158-163): of the roots of L-hat_b(0) with real part in [-3, 0], "the only
 exceptional indicial roots are the sl and vl roots -l for l >= 2. They are not related to pure gauge states"; his
 Proposition 8.14 constructs, for b near b_0, large zero energy states h^(-2)_b,s2(S), h^(-2)_b,v2(V) with generalized
-companions h-breve^(-2),1, and h^(-3)_b,s3(S), h^(-3)_b,v3(V), in ker D Ric and in the gauge, their rho^-l leading terms
-spanning ker N(L-bar(0), -l); his Lemma 8.15 gives the pairings of L-hat_b(0) h-breve^2_b,s1(S) and of L-hat_b(0)
-h-breve^1_b,v1(V) with the dual states, through which his Steps 1-3 remove the cokernel obstruction smoothly in b. In
-five dimensions 10.24 found the physical roots -l and l + 2 at every type, the tensor type included (which four
-dimensions lacks), and 10.33 the stationary solutions on Tangherlini harmonic by harmonic.
+companions h-breve^(-2),1, and h^(-3)_b,s3(S), h^(-3)_b,v3(V), in ker D Ric and in the gauge, their leading terms
+"comprising the spaces N_s2(L-bar(0), -2) and N_v2(L-bar(0), -2)" and the same at -3; his Lemma 8.15 gives the pairings
+of L-hat_b(0) h-breve^2_b,s1(S) and of L-hat_b(0) h-breve^1_b,v1(V) with the dual states, through which his Steps 1-3
+remove the cokernel obstruction smoothly in b. In five dimensions section 10.24 found the physical roots -l and l + 2 at
+every type, the tensor type included (which four dimensions lacks), and 10.33 the stationary solutions on Tangherlini
+harmonic by harmonic.
 
   Y1 (computed, exact) The stationary equations of 10.33, in z = r^2/mu, are Gauss's hypergeometric equation z (1 - z)
      w'' + (c - (a + b + 1) z) w' - a b w = 0: the tensor type's H with (a, b, c) = (-l/2, 1 + l/2, 1); the vector
@@ -24,21 +25,25 @@ dimensions lacks), and 10.33 the stationary solutions on Tangherlini harmonic by
      l/2)^2, -Gamma(l + 1)/(Gamma((l + 5)/2) Gamma((l + 1)/2)) and Gamma(l + 1)/(Gamma(2 + l/2) Gamma(1 + l/2)),
      nonzero.  Control: the tensor solution with c = 2.
   Y3 (computed, numerical, 50 digits, at Proposition 10.9's point) From lin5.py's factors of det N_L: at sl, vl and tl,
-     l = 2, 3, -l is a root and -l - 1 is not, the nearest root to it at distance 1; -l is simple, the nearest other
-     root at sl box^Ups's class root mu_l,1 + 1 = -l - (l + 2) z/(2 (l + 1)(2 l + 3)) + O(z^2) (10.30(ii); z = 4 e_U
-     gam_U^2 = 4 x 10^-6), real and below -l by 3.81 x 10^-7 (l = 2) and 2.78 x 10^-7 (l = 3), its first-order term
-     matched to 10^-3 (D91 printed 3.3 x 10^-7, section 10.24's s1 pair; D92).  Control: -l in place of -l - 1.
+     l = 2, 3, -l is a root and -l - 1 is not, the nearest root to it at distance 1 (at sl less the class root's
+     distance below -l); -l is simple, the nearest other root at sl box^Ups's class root mu_l,1 + 1 = -l - (l + 2) z/(2
+     (l + 1)(2 l + 3)) + O(z^2) (Proposition 10.27(ii); z = 4 e_U gam_U^2 = 4 x 10^-6), real and below -l by 3.81 x
+     10^-7 (l = 2) and 2.78 x 10^-7 (l = 3), its first-order term matched to 10^-3 (D91 printed 3.3 x 10^-7, section
+     10.24's s1 pair; D92).  Controls: -l in place of -l - 1; mu_l,0's first-order coefficient, l z/(2 (l + 1)(2 l +
+     1)), in place of mu_l,1's (D94).
   Y4 (computed, exact) The rotation equivariance behind his Remark 8.10 in five dimensions: on 4+1 Minkowski, with h_A =
-     (mu/R^4)(dt (x) w_A + w_A (x) dt) and w_A = x . A dx for A in so(4) (10.28(v)), the Lie derivative along R = B x is
-     L_R h_A = h_[A,B], for every pair of the six basis rotations; the form B(V, V') = <[A_V, A_b], A_V'> on so(4) at
-     A_b = e_12 is antisymmetric, of rank 4, with kernel spanned by e_12 and e_34, and <[X, Y], Z> = <X, [Y, Z]>; in
-     three dimensions it is his triple product <a(V), a(b) x a(V')> up to sign.  Control: h_[B,A] for h_[A,B].
+     (mu/R^4)(dt (x) w_A + w_A (x) dt) and w_A = x . A dx for A in so(4) (Proposition 10.25(v)), the Lie derivative
+     along R = B x is L_R h_A = h_[A,B], for every pair of the six basis rotations; the form B(V, V') = <[A_V, A_b],
+     A_V'> on so(4) at A_b = e_12 is antisymmetric, of rank 4, with kernel spanned by e_12 and e_34, and <[X, Y], Z> =
+     <X, [Y, Z]>; in three dimensions it is his triple product <a(V), a(b) x a(V')> up to sign.  Control: h_[B,A] for
+     h_[A,B].
 
 Deduced, not computed here (N1STAR-PROOF.md 10.34): [Hin26] Proposition 8.14 in five dimensions -- at a = 0 for every l
->= 2 and each of the three types, the state's leading term that of Y2's solution put into the gauge, and near a = 0 for
-his l = 2, 3 by his Steps 0-5 with 10.33's Corollary 8.13 -- and his Lemma 8.15 there: (1) the s1 pairings minus 10.32's
-centre-of-mass row, (2) the v1 pairings one half of 10.32's rotation row at the commutator, -pi^2 mu <[A_V, A_b], A_V'>,
-0 at a = 0.
+>= 2 and each of the three types, the state's leading term that of Y2's solution put into the gauge (spanning where -l
+is simple, computed for l <= 12), and near a = 0 for his l = 2, 3 by his Steps 0-5, Step 2 modified, with 10.33's
+Corollary 8.13 and on his Proposition 7.4 in five dimensions on the full metric -- and his Lemma 8.15 there: (1) the s1
+pairings minus section 10.32's centre-of-mass row, (2) the v1 pairings one half of section 10.32's rotation row at the
+commutator, -pi^2 mu <[A_V, A_b], A_V'>, 0 at a = 0 (his -8 pi m is twice that normalization; D94).
 
 READ.  [Hin26] pp. 125 ((6.29)), 140-142 (section 7.2.1: Proposition 7.4, Lemma 7.5), 154-163 (Proposition 8.9, Remark
 8.10, (8.21), Proposition 8.11, Lemma 8.12, Corollary 8.13, section 8.5: Proposition 8.14, Lemma 8.15, their proofs,
@@ -191,7 +196,7 @@ def y3(control=0, verbose=False):
             ok &= dist_target > 0.5 and len(at_l) == 1 and (others[0] > 1e-12)
             if typ == "sl":                                       # box^Ups's class root mu_l,1 + 1 (10.30(ii); D92)
                 q = min((q for q in rts if abs(q + L) >= 1e-30), key=lambda q: abs(q + L))
-                d1 = (L + 2) * zz / (2 * (L + 1) * (2 * L + 3))
+                d1 = (L + 2) * zz / (2 * (L + 1) * (2 * L + 3)) if control != 2 else L * zz / (2 * (L + 1) * (2 * L + 1))
                 ok &= abs(q.imag) < 1e-30 and q.real < -L and abs(abs(q + L) - d1) < 1e-3 * d1
                 rep.append(f"{typ[0]}{L}: nearest other {q.real:+.6e}, below -l by {abs(q + L):.3e} against "
                            f"(l + 2) z/(2 (l + 1)(2 l + 3)) = {d1:.3e}")
@@ -261,7 +266,7 @@ def y4(control=0, verbose=False):
 
 CHECKS = [("Y1 the stationary equations of 10.33 are hypergeometric in z = r^2/mu, l symbolic", y1, 1),
           ("Y2 the solutions smooth at the horizon, exact where they terminate, and their growth at infinity", y2, 1),
-          ("Y3 lin5.py's roots: -l simple and -l - 1 no root at sl, vl, tl, l = 2, 3 (his Step 4)", y3, 1),
+          ("Y3 lin5.py's roots: -l simple and -l - 1 no root at sl, vl, tl, l = 2, 3 (his Step 4)", y3, 2),
           ("Y4 L_R h_A = h_[A,B]; the form <[A_V, A_b], A_V'> on so(4): rank 4; three dimensions his triple product",
            y4, 1)]
 
