@@ -1028,12 +1028,15 @@ the coupling that four dimensions must track at leading order is an error term i
 infinity keeps its threshold α_I < −1/2. The boost changes the data at r^(−2), inside Hintz's class, where in four
 dimensions it changes them at the radiation order. [CD03]'s gluing needs its parity condition only for decay below
 r^(−3/2). [Hin26a]'s calculus is constructed in every dimension [Hin23d], and each positive commutator in its section
-5.2 is an identity of symbols whose sign is a positivity computed in five dimensions. What is not done is to re-derive
-those papers line by line: that the censuses found every place the dimension enters is read at source, page by page, not
-proved. (ii) The deductions of the supplement's sections 10.12–10.68 are arguments from computed and READ inputs, each
-read by an independent verifier, not proofs written out at the level of the theorem's statement. λ1 and δ exist by the
-deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate
-gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
+5.2 is an identity of symbols whose sign is a positivity computed in five dimensions. A second census by another method
+agrees: a sweep of every marker of the dimension on every page of the carried passages finds 270, all accounted for but
+one norm convention, now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive those
+papers line by line: that the censuses found every place the dimension enters is evidenced by the two methods agreeing
+and read at source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.69 are arguments
+from computed and READ inputs, each read by an independent verifier, not proofs written out at the level of the
+theorem's statement. λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and
+are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the deductions
+written out, would make Theorem 4 a theorem.
 
 ---
 
@@ -1586,6 +1589,9 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   coordinates at null infinity, its first-order term x_I∂_(x_I) − (n − 1); the K-current of his energy estimate, his
   (8.10) at n = 3 and the threshold α_I < −1/2 unchanged at n = 4; the rotation fields of S^(n−1); the densities and
   counts. 4/4; mutants 4/4 (a few seconds).
+- `censusweep.py`: a second census of the passages carried to n = 4 (supplement section 10.69): every marker of the
+  dimension on every page, 270 on 204 pages, each read against the supplement's sections. It runs where the alphaXiv
+  full texts have been fetched; they are not stored here.
 - `eind5.py` E1–E2: Hintz's Lemma 8.4 for every l (supplement section 10.52): every indicial root of the linearized
   gauge-fixed operator simple for l ≥ 2, exactly, in the scalar, vector and tensor types; his distance condition (8.13)
   by a certificate beyond l = 10⁴ and a 30-digit scan below, ε_ind ≤ 1.94137 × 10⁻⁸. 2/2; mutants 2/2 (about four
@@ -1724,8 +1730,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | `docket68/n1star/transfer5.py` T1–T2; `docket68/n1star/general5.py` G1–G2; [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin23a], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c], [AHW24], [CD03], [HHV21], [DLMF] |
-| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.68; the route and its |
-| | remaining reading, `docket68/n1star/ROUTES-OPEN.md` 4.44–4.68 |
+| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.69; the route and its |
+| | remaining reading, `docket68/n1star/ROUTES-OPEN.md` 4.44–4.69 |
 | the general class, section 8.6 | supplement sections 10.60–10.63; `docket68/n1star/general5.py` G1–G2; |
 | | [HHV21], [CD03] |
 | [Hin23a]'s section 3 at n = 4, section 8.8 | supplement section 10.64; `docket68/n1star/exterior5.py` X1–X8; [Hin23a] |
@@ -1734,6 +1740,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | `docket68/n1star/gluing5.py` D1–D4; [CD03], [Hin26] |
 | [Hin26c]'s sections 7–8 and 9.3 and [HHV21] at n = 4, section 8.8 | supplement sections 10.67–10.68; |
 | | `docket68/n1star/edge5.py` E1–E4; [Hin26c], [HHV21] |
+| a second census by token sweep, section 8.8 | supplement section 10.69; `docket68/n1star/censusweep.py` |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1843,9 +1850,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `aed58ef4b6dc86db70263c6094622ea3` |
-| `docket68/n1star/N1STAR-LOG.md` | `77e6cef250c4edc421a028dd58854a6c` |
-| `docket68/n1star/README.md` | `e108d546c13ff61d602b259997d4128b` |
+| `docket68/n1star/N1STAR-PROOF.md` | `c47d38e28e4a6528529bb7caa0280ce1` |
+| `docket68/n1star/N1STAR-LOG.md` | `691a8930fc5ebb932e708dd614700777` |
+| `docket68/n1star/README.md` | `760ad14412e1ddbd310e7d21f20a1693` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1910,5 +1917,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/exterior5.py` | `527346a3a8b0f1f7d5852b0082ca1fb2` |
 | `docket68/n1star/gluing5.py` | `94c387dfc0b6651ae65a0c3d73536a85` |
 | `docket68/n1star/edge5.py` | `f1cd2403c483c0d6631c3b9a7d574c9f` |
+| `docket68/n1star/censusweep.py` | `c4866366bb69a45f350cdc1c9bb43fe6` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

@@ -296,6 +296,10 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   coordinates at I+, first-order term x_I d_x_I - (n - 1); the K-current of Lemma 8.1, his (8.10) at n = 3 and the
   threshold alpha_I < -1/2 at n = 4; the rotation fields of S^(n-1); densities and counts (E1-E4). `python3 edge5.py
   --selftest` (4/4, a few seconds), `--mutants` (4/4).
+- `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
+  the passages carried to n = 4 -- 270 hits on 204 pages, every one accounted for by 10.53-10.58 and 10.63-10.68 but one
+  norm convention of [Hin26a] p. 62, named in 10.69. Runs where the alphaXiv full texts have been fetched: `python3
+  censusweep.py --texts DIR --cd03 FILE`.
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).
@@ -321,7 +325,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All sixty are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All sixty-one are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing the
 solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py, lzero5.py
 and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py, cform5.py

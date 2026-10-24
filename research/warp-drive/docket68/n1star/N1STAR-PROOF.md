@@ -7836,6 +7836,50 @@ and R-perp have the same (finite) dimension, namely 7 ... select h#_1, ..., h#_7
 So the two [HHV21] arguments the record uses hold at n = 4, with N = 11. Labels: deduced ((a)-(c)); READ; nothing
 computed or proved here (N is 10.32-10.33's).
 
+### 10.69 A second census, by token sweep (`censusweep.py`; D139)
+
+*The setting.* 10.64-10.68 rest on censuses taken by reading the full texts, and on the claim that they found every
+place the dimension enters. This sweep tests that claim by another route. It lists every marker of the dimension on
+every page of each carried passage, and each hit is read against the sections.
+
+**Proposition 10.51 (computed; `censusweep.py`).** On the alphaXiv full texts (fetched 2026-10-24) the patterns S^2,
+S^3, R^3, R^4, R^10, 3 + 1, "dimension", "k-dimensional", n - 1, n - 2, n/2, n + 1, a 7 x 7 count and the
+densities |x|^3, r^2 |d..|, x^-6 give 270 hits on 204 pages. By paper: [Hin23a] section 3 (pp. 9-33), 104 hits; [Hin26a]
+section 5.2 (pp. 38-66), 25; [Hin26c] sections 7-8 and 9.3 (pp. 114-157, 174-193), 26; [Hin26]'s boost sections (pp.
+77-81, 108-110, 238-262, 267-278, 301-326), 65; [HHV21] pp. 89-93, 10; [CD03] Theorem 8.1 and Appendix E, 40.
+
+*Read against the sections.*
+
+ (a) [Hin23a]: section 3.1's manifold "n-dimensional" with fibres R^(n-2), Lemma 3.33's d_(n-1) (X6), R^4 as Minkowski's
+     compactification, and 73 sphere hits on the round S^2 (X1-X5): 10.64.
+ (b) [Hin26c]: the rotation fields (E3), the densities r^2, x_I^-6 (E2, E4), section 8.2's R^3 (E4), (9.73)'s (n - 1)/2
+     and Theorem 9.28's (2 pi)^(-n-1) (10.67(c)), Notation 9.2's R^3 (10.53), one codimension and one symbol class
+     S^2_cl: 10.67 and 10.53.
+ (c) [Hin26]: the boost direction in R^3 (D4), c^2 = (3/(4 pi)) ||S||^2 (D4), b in R^4 -- (mu, A) in R^7 at n = 4 --
+     with S_1 ~= R^3 -- R^4 at n = 4 -- in sections 11.4-12 (10.66(g)), the harmonic parameter spaces S_2, S_3, V_2, V_3
+     (10.61-10.62), iota+'s S^2, the splitting (3.37) (exterior5.py X4), and "finite-dimensional" parameters: 10.66,
+     10.61-10.62.
+ (d) [HHV21]: Lemma 11.1's 7 (10.68(a)), Proposition 11.3's 4 and 3 and b in R^4, which the record does not use
+     (10.68(c)), and the bundle S^2 T*X: 10.68.
+ (e) [CD03]: the proof's R^3, R^10 and ball (10.66(b), (e)), section 8.2's reference family on R^3 with charges in R^4 x
+     R^6 (10.63(a)), Appendix E's n-expressions (D2), its "n + 1 = 3 + 1" Schwarzschild and Kerr examples, and Appendix
+     F's R^(1,3) (10.63(a)): 10.63 and 10.66.
+ (f) [Hin26a]: Lemma 5.14 on R^(n+1) and Corollary 5.15 on an n-dimensional manifold (10.65(c)), the S^2 charts,
+     (5.16)'s r^2 |dr dgslash| (the metric density, 10.56 READ (3)), Proposition 5.17's R^3 and T*R^4. One hit is in no
+     section. p. 62, after (5.74): "we use the volume density r^3 |dr dgslash| on level sets of tau, which upon
+     tensoring with |d tau| is a smooth positive multiple of the metric density |dg|". p. 65: "rho_sf^(alpha_sf + 1/2)
+     H-bar^s_b(X, r^2 |dr dgslash|) = rho_sf^(alpha_sf) H-bar^s_b(X, r^3 dr |dgslash|)". At n = 4 the metric density is
+     r^3 |dt dr dgslash_(S^3)|, so the density with that property is r^4 |dr dgslash_(S^3)|, and p. 65's identity reads
+     with r^3 and r^4. This is a choice of norm fixed by the metric density, so (5.74)'s estimate is unchanged. Named
+     here; it adds no input.
+
+So the token sweep finds no place the dimension enters that 10.53-10.58 and 10.63-10.68 do not name, but one norm
+convention, now named. Two censuses by different methods agree. That is evidence for completeness, not a proof of it: a
+dimension can enter without any of these markers, through a numeral read in 3 + 1, which only reading finds. The
+censuses that did that reading are 10.53-10.58's and those behind 10.64-10.68.
+
+Labels: computed (Proposition 10.51, the sweep); READ ((f)'s quotes); deduced (the accounting (a)-(f)); nothing proved.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

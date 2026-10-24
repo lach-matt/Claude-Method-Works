@@ -1931,3 +1931,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   [CD03]'s printed s = t - 1 (the index (8.5) states is s = t + n - 2) and (8.7)'s R^-1 for every charge.
 - Remaining: that the censuses are complete, read at source, not re-derived line by line; and the deductions, not
   written at proof level. Theorem 4 (ii) now admits perturbations that decay faster than r^-(3/2) without parity.
+
+### 4.69 A second census by token sweep (computed; D139)
+
+- Computed (`censusweep.py`): 270 markers of the dimension on 204 pages of the carried passages, read against the
+  sections: all accounted for by 10.53-10.58 and 10.63-10.68 but [Hin26a] p. 62's density on level sets of tau,
+  r^3 |dr dgslash| at n = 3, r^4 |dr dgslash_S3| at n = 4 -- a norm convention fixed by the metric density, named in
+  10.69 (f).
+- Remaining: completeness of the censuses is evidenced by two methods agreeing, not proved; a dimension entering
+  through a bare numeral is found only by reading.

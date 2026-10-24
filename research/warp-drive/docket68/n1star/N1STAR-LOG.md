@@ -4144,3 +4144,10 @@ reproduced at n = 3 with the threshold unchanged at n = 4, the rotation fields o
 Theorem 9.16's proof to n = 4. [HHV21] (10.68): its two arguments the record uses are dimension-free, Lemma 11.1 with N
 = 11. A first run of the boost prototype exhausted memory and restarted the container; the fifty-eighth verifier,
 reading 10.65 and D136, was restarted with it.
+
+**D139 (2026-10-24): a second census, by token sweep (10.69).** censusweep.py lists every marker of the dimension on
+every page of the passages carried to n = 4 (270 hits, 204 pages). Each was read against the sections. All are accounted
+for but one: [Hin26a] p. 62's density on level sets of tau, r^3 |dr dgslash|, chosen so that with |d tau| it is the
+metric density -- at n = 4, r^4 |dr dgslash_S3|. It is a norm convention and changes no estimate. Also: the 58th
+verifier's brief had named [Hin26c]'s full text for [Hin26a]; corrected by message, 10.65's quotes being from the right
+paper.
