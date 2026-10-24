@@ -5292,7 +5292,8 @@ window shrinks from [-3, 0] to [alpha_5 - 4, 0]: to [-2, 0] if the slowest iota+
 Coulombic order separating from the radiative one above four dimensions; to [-5/2, 0], with two more pure gauge
 class-root states, if the radiative order 3/2 reaches iota+ as his index sets would carry it. Not done, and OPEN: which
 alpha_5 -- his (5.28) and Proposition 11.16 in five dimensions line by line, and whether the radiative-order iota+
-coefficients vanish there; [Hin26c]'s Theorem 11.1 in five dimensions; whether logarithms enter at the pole; whether a
+coefficients vanish there (10.38: (5.28) at h = 0 computed, the radiative coefficients vanishing at iota+ cap I+, and
+alpha_5 = 2, on readings); [Hin26c]'s Theorem 11.1 in five dimensions; whether logarithms enter at the pole; whether a
 five-dimensional radiation field can have a nonzero late limit; the data class; sections 9-10 (section 7.2.1 at every
 spin is 10.36's). Nothing of this section is proved: Proposition 10.32 is computed, and (a)-(d) are deduced.
 
@@ -5351,8 +5352,8 @@ even-dimensional exponent, claimed Ricci-flat; in (ii) the bracket reversed; in 
 *Deduced.*
 
  (a) ([Hin26] Lemma 7.5 in five dimensions, at every spin) By (ii) the whole of delta*_(g_b) V_b is (1/2) D_A g_b(W)
-     with W = [A_b, A_V] (g_A at A = a J_12 + b J_34 is [ER08] (42) with (a_1, a_2) = (-a, -b), his p. 10 (16) and p.
-     14's footnote 4 fixing the sense, so A is minus the spin, and in four dimensions W = -A_(S'), the leading term
+     with W = [A_b, A_V] (g_A at A = a J_12 + b J_34 is [ER08] (42) with (a_1, a_2) = (-a, -b), [ER08]'s p. 10 (16) and
+     p. 14's footnote 4 fixing the sense, so A is minus the spin, and in four dimensions W = -A_(S'), the leading term
      below his -2m rho^2 (dt* + dr) (x)_s rho V(S') with its sign; D98): it depends on V only through W, linearly, and
      is defined for every W in so(4), not only on the image of ad_(A_b) -- the structural reason being the equivariance
      g_(O A O^T)(O x) = O g_A(x) O^T, which 10.34(b)(2) already uses at first order as his Remark 8.10. By (iii),
@@ -5414,8 +5415,12 @@ transforms in v, and ends "But since Re(-lam + 1) > -eps_ind, Proposition 8.6 ap
 (p. 166). 10.35(a) reads alpha_5 = 2 "on the reading that no iota+ term of the five-dimensional iteration decays more
 slowly"; a pure resonance with real part at most 2 would be such a term. Here the five-dimensional model by type, from
 lin5.py's operators, and its pure resonances. A pure resonant state at lam is u = t*^-lam G(v), N_iota+ G = 0, with
-only outgoing exponents at v = 0 (no v^lam) and only those of his E_K at v = oo, "an upper bound for the resulting
-index set E_K can be determined from -1 times the indicial roots in Lemma 8.4 with non-positive real parts" (p. 170).
+L1(D) G = O(v^(min mu + 1)) at v = 0, mu over the outgoing exponents -- his (9.17), "(v d_v - 1 - S-bar) h in
+A^(E^tot_(iota+,I) + 1)", which "reflects the fact that the asymptotics of h at I+, i.e., as v -> 0, are of radiation
+field type (with characteristic exponents given by the spectrum of 1 + S-bar)" (p. 169): only outgoing exponents, so
+no v^lam unless lam is one of them, its coefficient then in ker L1(lam) (D99) -- and only those of his E_K at v = oo,
+"an upper bound for the resulting index set E_K can be determined from -1 times the indicial roots in Lemma 8.4 with
+non-positive real parts" (p. 170).
 
 **Proposition 10.34 (computed; exact, and numerical where said).** On 4+1 Minkowski, with lin5.py's bases, point and
 parameters:
@@ -5439,19 +5444,25 @@ parameters:
      real part in (0, 3/2] are, at s0, 1.0000747438..., at s1 1.0001201950..., none at v1, each 1 less than a root of
      det N_C, none in (0, 1]. For every l <= 400 (damping5.py's polynomials) box^C's roots with real part in [-100, 5/2]
      are the Coulomb 2 at l = 0 and 1 and, at every scalar type, roots in (2, 5/2): 2 + 7.474 x 10^-5 at l = 0, 2 +
-     1.202 x 10^-4 at l = 1, two for 2 <= l <= 135 and one beyond, the lowest of all 2 + 2.932 x 10^-6 at l = 2; at the
-     vector types none (the lowest 3, at l = 1). The e_C-root is 2 + e_C ((1 - v^2) kappa + 3 (1 + v^2))/(2 v^2) of
-     damping5.py U3's Q_5 within 5 h, h = 1/gam_C; and box^C's s0 root above 2 decreases from 2.0149221 to 2.0000747 as
-     gam_C runs over 10^2, 10^2.5, ..., 10^6, inside (2, 5/2) (I4).
+     1.202 x 10^-4 at l = 1, two for 2 <= l <= 135 and one for 136 <= l <= 400, the lowest of all 2 + 2.932 x 10^-6 at l
+     = 2; at the vector types none (the lowest 3, at l = 1). Beyond, the scalar types have one root in (2, 5/2) for 401
+     <= l <= 706 and none for 707 <= l <= 711 and at l = 10^3, 10^4, 10^5. The e_C-root is 2 + e_C ((1 - v^2) kappa + 3
+     (1 + v^2))/(2 v^2) of damping5.py U3's Q_5 within 5 h, h = 1/gam_C; and box^C's s0 root above 2 decreases from
+     2.0149221 to 2.0000747 as gam_C runs over 10^2, 10^2.5, ..., 10^6, inside (2, 5/2); over 201 points gam_C = 10^(2 +
+     k/50) it is the only root of det N_C in (2, 5/2), decreasing, and det N_L has no root with real part in (0, 1] and
+     exactly four with real part <= 0, I2's K lowest (I4).
  (v) (the s0 candidate at moderate gam_C, the record's other parameters) At gam_C = 10 and 100 the determinant of
      L-bar's s0 connection changes sign once on a grid of [1.2, 2.3] with the candidate +- 10^-3, 10^-5 added, at the
      candidate -- box^C's root 2.1355877934... and 2.0149221090... -- where it is below 10^-4 of its value at +- 10^-5:
-     there the candidate is a pure resonance of L-bar. At gam_C = 10^6 the method fails: the outgoing exponents near
-     10^6 need of the order of 5 x 10^6 terms at s = 2 (at gam_C = 100, 400 suffice and 200 do not; 260 terms at 40 to
-     140 digits gave a smooth determinant at the record's point that was a truncation artefact) (I5).
+     there L-bar has a pure resonant state at the candidate, a pole of the inverse on the reading of index 0 (10.37(c)).
+     At gam_C = 10^6 the method fails: the outgoing exponents near 10^6 need millions of terms at s = 2, and digits to
+     match (at gam_C = 100, 400 suffice and 200 do not; the forty-sixth verifier found of the order of 3 gam_C terms
+     needed, 900 at gam_C = 300, where 200 digits left the candidate unresolved and 400 resolved it; 260 to 480 terms at
+     40 to 140 digits gave a smooth determinant at the record's point that was a truncation artefact) (I5).
 
-*Proof.* I1-I5 of iota5.py: (i) sympy, the powers of T split after the point is substituted; (ii)-(iii) mpmath at 30-40
-digits, the recursions in z four-term, the argument principle with every step's change of argument below pi/6, the
+*Proof.* I1-I5 of iota5.py: (i) sympy, the powers of T split after the point is substituted; (ii)-(iii) mpmath at
+30-40 digits, the connection asserting at every evaluation that the K lowest roots of det N are those with real part <=
+0 (D99), the recursions in z four-term, the argument principle with every step's change of argument below pi/6, the
 moment by quadrature in z on both halves; (iv) the roots at 50 digits, det N_L's from (i)'s M1 and box^C's from
 damping5.py U3's sextic and quadratic; (v) 50 and 100 digits, 260 and 700 terms. Controls: in (i) the powers of T split
 with z = x1 + i x2 symbolic, where sympy's expand moves T into denominators T x1 + I T x2 and the transport of the
@@ -5462,8 +5473,9 @@ degree-p harmonics is lost; in (ii) the outgoing exponent moved by 1/10; in (iii
 *Deduced.*
 
  (a) (towers) If u = t*^-lam G(v) is a pure resonant state, so is d_t* u = t*^(-lam-1) (D - lam) G at lam + 1: the
-     model's coefficients do not depend on t*, the outgoing and the E_K exponents are kept, and (D - lam) G != 0 as
-     v^lam is not outgoing. So spec_iota+ is closed under lam -> lam + 1, as (ii)-(iii) find.
+     model's coefficients do not depend on t*, the outgoing and the E_K exponents are kept, and (D - lam) G != 0, since
+     c v^lam is not O(v^nu) at oo for Re lam > 0 >= Re nu. So spec_iota+ is closed under lam -> lam + 1, as (ii)-(iii)
+     find.
  (b) (descent) Let mu_j be the outgoing exponents, nu_k those of E_K, and Re nu_k + 1 < Re lam < Re mu_j + 1 for all
      j, k. Then m := int_0^oo v^-lam G(v) dv converges and N(lam - 1) m = 0: pair the equation with v^-lam dv/v; (D -
      lam) L1(D) G integrates to [v^-lam L1(D) G], which vanishes at both ends since L1(mu_j) g_j = 0 makes L1(D) G =
@@ -5474,31 +5486,40 @@ degree-p harmonics is lost; in (ii) the outgoing exponent moved by 1/10; in (iii
      oo, m being 0, G~ = -v^(lam - 1) int_v^oo w^-lam G dw = O(v^nu); and G~ != 0. In spacetime: the time integral of
      a pure resonant state is a static solution homogeneous of degree 1 - lam, r^-(lam - 1) m, or zero, and then the
      state is the time derivative of one at lam - 1.
- (c) (injectivity in five dimensions) His proof of Proposition 9.2(2) carries over with v d_v - 3/2 - S-bar for v d_v -
-     1 - S-bar: the threshold becomes s < 2 + min spec S-bar - Re lam, the extension by zero is in L^1_loc for Re lam <
-     5/2 (min spec S-bar = 0, 10.25), the Fourier transform and the conjugation by r^(-lam + 1) are free of the
-     dimension (the shift comes from L~(0)'s argument v d_v + lam), and Proposition 8.6 in five dimensions
-     (10.24(c)-(d), 10.25(b)) takes the weights in (-eps_ind, 0). So there is no pure resonance with Re lam < 1 +
-     eps_ind -- at the record's point, on 10.24-10.25's readings. The bound comes from the zero energy weight, which
-     does not see the dimension: 1 + eps_ind in five dimensions as in four.
+ (c) (injectivity in five dimensions) The injectivity half of his proof of Proposition 9.2(2) (p. 166) carries over with
+     v d_v - 3/2 - S-bar for v d_v - 1 - S-bar: the threshold becomes s < 2 + min spec S-bar - Re lam, the extension by
+     zero is in L^1_loc for Re lam < 5/2 (min spec S-bar = 0, 10.25), the Fourier transform and the conjugation by
+     r^(-lam + 1) are free of the dimension (the shift comes from L~(0)'s argument v d_v + lam), and Proposition 8.6 in
+     five dimensions (10.24(c)-(d), 10.25(b)) takes the weights in (-eps_ind, 0). So there is no pure resonance with Re
+     lam < 1 + eps_ind -- at the record's point, on 10.24-10.25's readings. The bound comes from the zero energy weight,
+     which does not see the dimension: 1 + eps_ind in five dimensions as in four. The other half is not carried: the
+     index 0 property of his Proposition 9.2(1), proved "in an indirect way" by the semiclassical estimate (9.9) on cone
+     Sobolev spaces as Im lam -> +oo, with the inversion of N_tf(L-bar, 1) and, for the adjoint, his tf-admissibility
+     (pp. 167-168); it turns injectivity into invertibility and makes the inverse exist and be meromorphic. In five
+     dimensions it is a reading. (d) needs only the kernel half -- a resonant state is a kernel element, and a pole of
+     the inverse, where there is one, gives one -- while the converse, a kernel element being a pole, which Proposition
+     10.34(v) and (e) use, rests on that reading (the forty-sixth verifier, D99).
  (d) (below 5/2) For L-bar the outgoing exponents are 3/2 + spec S-bar >= 3/2 and E_K's are the roots with real part <=
      0, as many as K (10.24), so (b) applies whenever 1 < Re lam < 5/2. A pure resonance with real part in [1 + eps_ind,
      5/2) has lam - 1 a root of det N_L with real part in [eps_ind, 3/2), or is the time derivative of one at lam - 1;
      (c) excludes that one below 1 + eps_ind, and (b) sends it above to a root or a state with real part in [eps_ind,
      1/2), of which there are none ((c), and no root of det N_L in (0, 1]). By lin5.py E2 the roots of det N_L are the
      physical -l and l + 2, box^Ups's plus 1 and box^C's minus 1, D's cancelled; in (0, 3/2) neither the physical ones
-     lie nor box^Ups's (gaugepot5.py G1: near 0 only its exact Killing 0 at s0 and s1, which D removes), and box^C has
-     no root in [-100, 2] but the Coulomb 2 (damping5.py U4, (iv)). Hence at the record's point, on the readings of (c),
-     spec_iota+(L-bar) cap {Re lam < 5/2} lies in {lam^C : det N_C(lam^C) = 0, 2 < Re lam^C < 5/2, scalar types}, the
-     lowest candidate 2 + 2.93 x 10^-6 (l = 2), and no pure resonance has real part at most 2.
+     lie nor box^Ups's (gaugepot5.py G1: near -1 its roots lie below -1 for z > 0 -- at s0 (1 - (9 + 4z)^(1/2))/2 = -1 -
+     z/3 + O(z^2), at s1 a root of lam (lam - 1) = (8 + z - (16 + 4z + z^2)^(1/2))/2 > 2 -- so their shifts are
+     negative; near 0 only its exact Killing 0 at s0 and s1, which D removes), and box^C has no root in [-100, 2] but
+     the Coulomb 2 (damping5.py U4, (iv)). Hence at the record's point, on the readings of (c), spec_iota+(L-bar) cap
+     {Re lam < 5/2} lies in {lam^C : det N_C(lam^C) = 0, 2 < Re lam^C < 5/2, scalar types}, the lowest candidate over l
+     <= 400 2 + 2.93 x 10^-6 (l = 2), and no pure resonance has real part at most 2.
  (e) (the candidates) A state at a candidate is of the constraint kind: its moment is nonzero ((d)) and an indicial
      solution of det N_L's box^C root, whose gauge 1-form is not zero (his Lemma 8.4's proof: with it zero the solution
      is pure gauge or physical, and the root would be one of theirs), so eta = delta_(E^Ups) G h != 0 and eta is a pure
-     resonant state of box^C at lam^C + 1 = 1 + (box^C's upper root). By (v) the s0 candidate is a resonance at gam_C =
-     10 and 100. Along gam_C in [100, 10^6] it stays alone in (2, 5/2) ((iv)), and by (b)-(d) the zeros in the strip lie
-     at candidates; on the reading that (c) holds along that path (the record has it at 10^6 only), Hurwitz's theorem
-     carries the zero along the candidate, and 2.0000747438... is a pure resonance of L-bar at the record's point. Not
-     computed there.
+     resonant state of box^C at lam^C + 1 = 1 + (box^C's upper root). By (v) L-bar has a pure resonant state at the s0
+     candidate at gam_C = 10 and 100, a resonance on (c)'s index 0 reading. Along gam_C in [100, 10^6] it stays alone in
+     (2, 5/2) ((iv), at 201 points of a logarithmic grid, with det N_L free of roots in (0, 1] and its K lowest roots
+     those with real part <= 0), and by (b)-(d) the zeros in the strip lie at candidates; on the reading that (c) holds
+     along that path (the record has it at 10^6 only), Hurwitz's theorem carries the zero along the candidate, and
+     2.0000747438... is a pure resonance of L-bar at the record's point. Not computed there.
  (f) (for 10.35) The second channel of alpha_5 is closed on its alpha_5 = 2 reading: no pure resonance has real part at
      most 2, so the pure resonance part of E_+ lies above 2. A pure term reaches K+ at order lam^C - nu, nu <= 0 in E_K;
      at s0 and s2, whose E_K contains 0 (10.35(i)), that is 2 + 7.47 x 10^-5 and 2 + 2.93 x 10^-6 if those candidates
@@ -5507,20 +5528,133 @@ degree-p harmonics is lost; in (ii) the outgoing exponent moved by 1/10; in (iii
      them; whether the iteration's sources do is his section 12's question in five dimensions, not examined here.
 
 *READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed page numbers): pp. 16-17 ((1.16),
-(1.19), footnote 9, (1.20)-(1.22), Example 1.6), 164-166 ((9.2), Proposition 9.2 and its proof), 168 ((9.10)-(9.11),
-Definition 9.3), 170 (Remark 9.5, the proof of Proposition 9.4), 172 (Definition 9.6, Remark 9.7), 180 (Lemma 9.13),
-184-185 (Definition 9.19, Lemma 9.21, Proposition 9.22), 149 (Lemma 8.4 and its proof).
+(1.19), footnote 9, (1.20)-(1.22), Example 1.6), 164-166 ((9.2), Proposition 9.2 and its proof), 167 (the index 0 step;
+D99), 168 ((9.9), D99; (9.10)-(9.11), Definition 9.3), 169 (Proposition 9.4, (9.17); D99), 170 (Remark 9.5, the proof of
+Proposition 9.4), 172 (Definition 9.6, Remark 9.7), 180 (Lemma 9.13), 184-185 (Definition 9.19, Lemma 9.21, Proposition
+9.22), 149 (Lemma 8.4 and its proof).
 
 *What this gives, and what it does not.* The pure iota+ resonances of the five-dimensional model: on (b)'s descent and
 (c)'s injectivity, every one with real part below 5/2 sits at a root of box^C's zero energy operator in (2, 5/2) -- one
-at s0, one at s1, two at each scalar l from 2 to 135 and one beyond -- so none has real part at most 2, and the alpha_5
-= 2 reading of 10.35 is not undercut by pure resonances. The s0 candidate is a resonance where the method reaches (gam_C
-<= 100) and, on a reading, at the record's point. Not done, and OPEN: the candidates at the record's point by
-computation (a method for exponents near 10^6: their WKB form, or the gam_C -> oo limit); the s1 and l >= 2 candidates
-(the s1 determinant at gam_C = 10 sits below 10^-110 at 100 digits, not resolved); (c)'s readings and the path of (e);
-whether his section 12 excites the constraint-kind states; four dimensions, where the same argument would place the part
-of his spec_iota+ below 2 at box^C's roots in (1, 2). Nothing of this section is proved: Proposition 10.34 is computed,
-and (a)-(f) are deduced.
+at s0, one at s1, two at each scalar l from 2 to 135, one from 136 to 706 and none from 707 to 711 nor at l = 10^3,
+10^4, 10^5 -- so none has real part at most 2, and the alpha_5 = 2 reading of 10.35 is not undercut by pure resonances.
+L-bar has a pure resonant state at the s0 candidate at gam_C = 10 and 100, a resonance on the reading of index 0, and,
+on a further reading, at the record's point. Not done, and OPEN: the candidates at the record's point by computation (a
+method for exponents near 10^6: their WKB form, or the gam_C -> oo limit); the s1 and l >= 2 candidates (the s1
+determinant at gam_C = 10 sits below 10^-110 at 100 digits, not resolved); (c)'s readings, the index 0 half of his
+Proposition 9.2 in five dimensions among them, and the path of (e); whether his section 12 excites the constraint-kind
+states; four dimensions, where the same argument would place the part of his spec_iota+ below 2 at box^C's roots in (1,
+2). Nothing of this section is proved: Proposition 10.34 is computed, and (a)-(f) are deduced.
+
+### 10.38 [Hin26] (5.27)-(5.28) and Proposition 5.14 in five dimensions; the radiative order at iota+ (`scri5.py`; D100)
+
+*The setting.* [Hin26] Proposition 5.11: "L_(g,g0) == (2 r^-1 d_0 r + r^-1 A_h) d_1 + r^-1 B_h" (5.26a), "where, in the
+bundle splitting S^2 T* = <(dx^0)^2> + (2 dx^0 (x)_s r T*S^2) + <r^2 g-slash> + <2 dx^0 dx^1> + (2 dx^1 (x)_s r T*S^2) +
+r^2 ker tr-slash + <(dx^1)^2>, (5.27) the operator A_h is lower triangular and B_h is strictly lower triangular" (pp.
+92-93), (5.28) printing A_h with a constant part and entries d_1(r h_01), d_1(r h_1a), d_1(r h_ab) of the perturbation
+h, and B_h with entries d_1^2(r h); "one expects that if L_g g-dot = 0 ... then various components of g-dot decay like
+O(rho_I^(1+z)) where z is an eigenvalue of A_h" (p. 97); "pi_01 h and pi_1/ h have r^(-1-(1 - e_Ups) gam_Ups)- and
+r^(-1-gam_Ups)-decay, respectively; and pi-slash_0 h has a r^-1 radiation field, which couples into pi_11 h (which
+without this coupling would have r^(-1-2 gam_Ups)-decay)" (p. 85, after Definition 5.2); Definition 5.13: "F_I,11 := 1 +
+(E^C_I u (1, 0) u (1 + (1 - e_Ups) gam_Ups, 0))" (5.43), and Proposition 5.14's proof: "The (7, 4) and (7, 6) entries of
+I + A_h couple pi_01 g-dot and pi-slash_0 g-dot into the 11-component of the output, while the (7, 7) entry of I + A_h
+annihilates the rho_I^(1+2 gam_Ups)-term in the expansion of g-dot_11; hence the definition of F_I,11 in (5.43)" (p.
+98); at timelike infinity, "we do not need to include the index set (1, 0) in E_iota+,I,11 ... (This arose from the
+coupling of the r^2 ker tr-component with the (dx^1)^2-component via the (7, 6)-component of A_h in (5.28); but this
+coupling is absent when h = 0.)" (p. 169). 10.35(a) left the iota+ order alpha_5 between two readings, 2 (the mass
+aspect) and 3/2 + O(gam) (his index sets carrying the radiative order), with "no five-dimensional (5.28), and so no (7,
+4)-type coupling" written; 10.37 closed the pure resonance channel. Here the five-dimensional (5.28) at the background,
+the exponents it gives at null infinity, and the radiative order at timelike infinity. x^0 = t + r, x^1 = t - r
+(damping5.py), d_0 = (d_t + d_r)/2, d_1 = (d_t - d_r)/2, d_1 = d_t* at null infinity, and A_0 := A_h at h = 0 is
+sbar5.py's S-bar (10.25: 2 rho S-bar the d_t* coefficient of 2 L - box), v below being v_C.
+
+**Proposition 10.35 (computed; exact, and numerical where said).** On 4+1 Minkowski, in the splitting (5.27) with S^3:
+
+ (i) (the five-dimensional (5.28) at h = 0) A_0 is lower triangular, the same at (R, 0, 0, 0) and at (1, 2, 2, 4), and
+     agrees with the constant part of his (5.28) in its diagonal 2 (1 - v) gam_C, (1 - v) gam_C, (1 - e_C)(1 - v) gam_C,
+     (1 - e_Ups) gam_Ups, gam_Ups, 0, 2 gam_Ups, its (5, 2) entry (1 + v) gam_C + gam_Ups and its (7, 4) entry 2 (1 -
+     e_Ups) gam_Ups; it differs in three trace couplings: (3, 1) = (4/3)(1 - e_C)(1 + v) gam_C (his 2 (1 - e_C)(1 + v)
+     gam_C), (4, 1) = (1 + 2 e_C)(1 + v) gam_C/3 + gam_Ups (his e_C (1 + v) gam_C + gam_Ups), (4, 3) = ((1 + 2 e_C)(1 -
+     v) gam_C + 3 e_Ups gam_Ups)/4 (his (e_C (1 - v) gam_C + e_Ups gam_Ups)/2) and (7, 3) = (3/2)((1 + v) gam_C + e_Ups
+     gam_Ups) (his (1 + v) gam_C + e_Ups gam_Ups). In four dimensions, at the trace weight 1, the same computation is
+     his (5.28) at h = 0, all 49 entries (C1).
+ (ii) (the exponents at null infinity by type) iota5.py's L1(x) for L-bar (10.37) has det L1(x) = prod (3/2 + (A_0)_ii -
+     x) over the slots its type occupies: s0 the scalar ones 1, 3, 4, 7; v1 the vector ones 2, 5; v2 those and the
+     trace-free 6; t2 the 6 alone -- every parameter symbolic (C2).
+ (iii) (no state at a radiative exponent) At s0, gam_C = 10 and 100 with the record's other parameters, at lam = 3/2 +
+     (1 - e_Ups) gam_Ups and 3/2 + 2 gam_Ups, the exponents of pi_01 and pi_11 that the (7, 4) entry couples, the
+     connection determinant of 10.37 with that exponent's own column, its leading coefficient in ker L1(lam), is above
+     3/10 of its largest value on iota5.py I5's grid of [1.2, 2.3], and agrees with its values at lam +- 10^-15 to 10^-9
+     of them -- the computation's noise, 10^-15 at gam_C = 10 and 10^-11 at 100; at t2, lam = 3/2, likewise (C3).
+
+*Proof.* C1-C3 of scri5.py: (i) sympy, sbar5.py's S-bar at the point, applied to an element of each summand of (5.27) --
+(dx^0)^2, 2 dx^0 (x)_s w, the tangential metric, 2 dx^0 dx^1, 2 dx^1 (x)_s w, a trace-free tangential tensor, (dx^1)^2,
+w the tangential part of dx_3 -- and the result read in the frame (d_0, d_1, tangential), each summand landing in its
+own type; (ii) sympy, L1 = M0/(x - lam) entrywise, free of lam, and its determinant against the product; (iii) mpmath at
+50 and 100 digits, 260 and 700 terms, iota5.py's connection with the column at the exponent computed from a null vector
+of L1(lam), the recursion's M0(lam + n) = n L1(lam + n) being invertible for n >= 1. Controls: in (i) the
+five-dimensional matrix claimed to be his; in (ii) s0 claimed to carry slot 5 for slot 4; in (iii) the zero claimed, and
+the leading coefficient taken off ker L1(lam), where the value is not the limit. []
+
+*Deduced.*
+
+ (a) (the structure at null infinity) The five-dimensional (5.26a) reads L == (2 r^(-3/2) d_0 r^(3/2) + r^-1 A_h) d_1 +
+     r^-1 B_h: the leading part is the wave operator's, -2 d_t* rho (rho d_rho - 3/2) (10.25(i)), and A_h = A_0 + the
+     perturbation's entries. His -- 2 d_1(r h_01), 2 d_1(r h_1a), 2 d_1(r h_ab), -(1/2) d_1(r h_ab) and -2 d_1(r h_01)
+     in A_h, 2 d_1^2(r h) in B_h -- come from the Christoffel symbols of g_b + h and from (delta*_(g0) - delta*_g)
+     delta_g G_g ((5.36), p. 96), each linear in d_1 h and r^-1 h with the r-weights of a Christoffel symbol, which do
+     not see the dimension; and the dual metric's h-terms multiply d_0 or angular derivatives ((5.11)). With h at the
+     five-dimensional radiative order r^(-3/2), not r^-1, every such entry is O(r^(-1/2)) against A_0: a coupling
+     through the perturbation moves an exponent at null infinity up by 1/2. A scaling argument, not computed.
+ (b) (Definition 5.2 and (5.42) in five dimensions) By (i)-(ii) the components decay at null infinity like r^(-3/2-z), z
+     an eigenvalue of A_0 on their slot: pi_C h strongly, z = O(gam_C); pi_01 h with z = (1 - e_Ups) gam_Ups; pi_1/ h
+     with z = gam_Ups; pi-slash_0 h with a radiation field at r^(-3/2); pi_11 h with z = 2 gam_Ups -- his rates with 3/2
+     for 1, the diagonal being his. His positivity conditions (5.42) are unchanged.
+ (c) (Proposition 5.14 and footnote 27 in five dimensions) The (7, 4) entry is his, 2 (1 - e_Ups) gam_Ups: it couples
+     pi_01's leading term into the 11-component at its exponent 3/2 + (1 - e_Ups) gam_Ups, as his Lemma 11.15's proof
+     has it at 1 + (1 - e_Ups) gam_Ups (p. 228). The (7, 6) entry is the perturbation's alone and by (a) half an order
+     lower: pi-slash_0's radiation field reaches the 11-component at 3/2 + 1/2 = 2, the Coulombic order. So, on (a)'s
+     reading, F_I,11 becomes 1 + (E^C_I u (3/2 + (1 - e_Ups) gam_Ups, 0) u (2, 0)). The iteration's quadratic sources
+     likewise: the slowest at null infinity is the 11-component's (d_1 h)^2, r^-3 in five dimensions where his
+     Definition 5.13(3) has r^-2, and it enters at the exponent 2 -- the mass aspect, whose law Theorem M(c) computes at
+     past null infinity ((11.2)) and time reflection carries to future null infinity. His footnote 27's t*^-1 is the
+     radiative and the Coulombic order at once in four dimensions; in five it is the Coulombic 2 alone.
+ (d) (the radiative order at timelike infinity) A term r^(-x0) a(u) at null infinity, x0 = 3/2 + z with z in {0, (1 -
+     e_Ups) gam_Ups, gam_Ups, 2 gam_Ups}, reaches iota+ at its own order only if a has a nonzero limit at iota+ cap I+:
+     t*^-lam v^x = r^-x t*^(x - lam), so that limit is the v^(x0) coefficient, in ker L1(x0) by his (9.17), of a term
+     t*^(-x0) G of the iota+ expansion. Let lam_1 be the least real part in the solution's iota+ expansion and suppose 0
+     < lam_1 < 2. Its term solves the homogeneous model: the sources are quadratic, of iota+ order at least 2 lam_1; the
+     data, O(r^(-2-eps_0)) (10.35(a)), give no incoming term below 2; and (c)'s forced terms enter at 2. So it is a
+     resonant state in 10.37's sense (D99) -- outgoing at v = 0, its v^lam coefficient, if lam_1 is an outgoing
+     exponent, in ker L1(lam_1), which is what makes 10.37(b)'s boundary term at 0 vanish, so that (b) holds at such lam
+     verbatim. 10.37(c)-(d) leave none with real part below 2 (det N_L has no root in (0, 1]; at lam_1 = x0, x0 - 1 =
+     1/2 + z). Hence lam_1 >= 2, and every radiative coefficient a(u) tends to 0 at iota+ cap I+, like t*^(x0 - 2) at
+     least. (iii) computes the absence of such a state at the two exponents the (7, 4) entry couples, at moderate gam_C.
+ (e) (alpha_5) So, on the readings of 10.37(c) -- the injectivity half on 10.24-10.25's, the index 0 half -- of (a), of
+     polyhomogeneity at iota+ cap I+ as in his Propositions 9.4 and 9.11, and of the decay that makes lam_1 > 0, the
+     slowest iota+ term of the five-dimensional iteration is the mass aspect's t*^-2, forced at null infinity by (c),
+     with 10.37's constraint-kind candidates above it: alpha_5 = 2 by both channels, and 10.35(a)'s conservative 3/2 +
+     O(gam) is not attained. 10.35(c)'s window is [-2, 0], with the physical states s2, v2 and t2 at -2 and no
+     companions.
+ (f) (four dimensions) There the radiative order is the Coulombic one and his (1, 0) the mass's. Whether his E-sharp_+'s
+     element (1 + (1 - e_Ups) gam_Ups, 0) is attained, the same descent would decide on his Lemma 8.4's roots in (0,
+     eps_ind); his index sets are upper bounds, and this is not examined here.
+
+*READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed page numbers): pp. 85 (after
+Definition 5.2), 91-93 (Definition 5.4, section 5.2's opening, Lemma 5.6, Proposition 5.11 with (5.25)-(5.28)), 96
+((5.36)-(5.39)), 97 ((5.40)-(5.42)), 98 (Definition 5.13, (5.43), Proposition 5.14 and its proof), 168-169 ((9.11),
+Definition 9.3 with (9.12)-(9.13), the remark on (1, 0) and the (7, 6) entry, Proposition 9.4, (9.17)); and, as 10.35
+reads them, 27-29 (footnote 27), 228 (Lemma 11.15's proof), 248, 273.
+
+*What this gives, and what it does not.* The five-dimensional (5.28) at the background, entry by entry, its
+four-dimensional form reproduced: the same diagonal and the same (7, 4) coupling, three trace couplings changed, and the
+couplings through the perturbation half an order lower. So the iteration's sources reach null infinity at the Coulombic
+order, the mass aspect's, and the radiative order reaches timelike infinity only through a resonant state at its own
+exponent, which the descent and the injectivity exclude below 2: alpha_5 = 2 on readings, both of 10.35(a)'s channels
+closed on them, and the window [-2, 0]. Not done, and OPEN: (a)'s entries by computation (the five-dimensional (5.28)
+with h); his Proposition 11.16 in five dimensions line by line; (e)'s readings -- 10.37(c)'s index 0 half,
+polyhomogeneity at iota+ cap I+ in five dimensions, the data class, the decay lam_1 > 0; states at the radiative
+exponents at the record's gam_C, which (iii) reaches only at 10 and 100; four dimensions ((f)). Nothing of this section
+is proved: Proposition 10.35 is computed, and (a)-(f) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

@@ -559,7 +559,7 @@ CHECKS = [("M1 the Myers-Perry family over so(4), Kerr-Schild: [ER08]'s at block
            m2, 1),
           ("M3 the expansion: the leading term (mu/r^4)(dt + dr) (x)_s V(W) does not see the spin; the rest at rho^4",
            m3, 1),
-          ("M4 the Killing rotations: dim ker ad_A = 6, 4 (equal spins), 2; four dimensions 3, 1", m4, 1),
+          ("M4 the Killing rotations: dim ker ad_A = 6, 4 (a = +-b != 0), 2; four dimensions 3, 1", m4, 1),
           ("M5 h-sharp's leading term from the Kerr-Schild term: dual5.py A3's, c_0 shifted by the pure gauge mu/3", m5,
            1)]
 
