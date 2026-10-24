@@ -25,7 +25,9 @@ dimensions lacks), and 10.33 the stationary solutions on Tangherlini harmonic by
      nonzero.  Control: the tensor solution with c = 2.
   Y3 (computed, numerical, 50 digits, at Proposition 10.9's point) From lin5.py's factors of det N_L: at sl, vl and tl,
      l = 2, 3, -l is a root and -l - 1 is not, the nearest root to it at distance 1; -l is simple, the nearest other
-     root at sl 3.3 x 10^-7 away (box^Ups's class root mu_l,1 + 1, 10.30(ii)).  Control: -l in place of -l - 1.
+     root at sl box^Ups's class root mu_l,1 + 1 = -l - (l + 2) z/(2 (l + 1)(2 l + 3)) + O(z^2) (10.30(ii); z = 4 e_U
+     gam_U^2 = 4 x 10^-6), real and below -l by 3.81 x 10^-7 (l = 2) and 2.78 x 10^-7 (l = 3), its first-order term
+     matched to 10^-3 (D91 printed 3.3 x 10^-7, section 10.24's s1 pair; D92).  Control: -l in place of -l - 1.
   Y4 (computed, exact) The rotation equivariance behind his Remark 8.10 in five dimensions: on 4+1 Minkowski, with h_A =
      (mu/R^4)(dt (x) w_A + w_A (x) dt) and w_A = x . A dx for A in so(4) (10.28(v)), the Lie derivative along R = B x is
      L_R h_A = h_[A,B], for every pair of the six basis rotations; the form B(V, V') = <[A_V, A_b], A_V'> on so(4) at
@@ -177,6 +179,8 @@ def y3(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
     import lin5
     ok, rep = True, []
+    pt = {str(k_): v_ for k_, v_ in lin5.POINT.items()}
+    zz = float(4 * pt["eU"] * pt["gU"]**2)
     for typ in ("sl", "vl", "tl"):
         for L in (2, 3):
             rts, _ = lin5.roots_at_point(typ, L)
@@ -185,6 +189,13 @@ def y3(control=0, verbose=False):
             at_l = [q for q in rts if abs(q + L) < 1e-30]
             others = sorted(abs(q + L) for q in rts if abs(q + L) >= 1e-30)
             ok &= dist_target > 0.5 and len(at_l) == 1 and (others[0] > 1e-12)
+            if typ == "sl":                                       # box^Ups's class root mu_l,1 + 1 (10.30(ii); D92)
+                q = min((q for q in rts if abs(q + L) >= 1e-30), key=lambda q: abs(q + L))
+                d1 = (L + 2) * zz / (2 * (L + 1) * (2 * L + 3))
+                ok &= abs(q.imag) < 1e-30 and q.real < -L and abs(abs(q + L) - d1) < 1e-3 * d1
+                rep.append(f"{typ[0]}{L}: nearest other {q.real:+.6e}, below -l by {abs(q + L):.3e} against "
+                           f"(l + 2) z/(2 (l + 1)(2 l + 3)) = {d1:.3e}")
+                continue
             rep.append(f"{typ[0]}{L}: nearest other {others[0]:.2e}")
     chk(f"-l a simple root and -l - 1 none at sl, vl, tl, l = 2, 3 ({'; '.join(rep)})", ok)
     return chk.ok

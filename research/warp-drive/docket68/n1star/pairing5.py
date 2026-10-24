@@ -43,10 +43,14 @@ whether or not they vanish pointwise, and it is left undetermined (D89).
      translations' first-order pairing < D Ric(t h_b,c), h* > in place of the centre of mass, which [Hin23b] Theorem
      9.6(6) says vanishes, claimed non-degenerate.
   P5 (computed, exact) Invariance, both dimensions: the Kerr-Schild mass perturbation R^-(n-2) (dt + dr)^2, a pure gauge
-     tensor delta*(x_2 R^-(n-2) dx_1), whose cut-off source is not zero, and t* = t - r in place of t give the same Kerr
-     rows, the pure gauge tensor 0 at every determined entry; [Hin23b] Theorem 9.6(1), (7). (For delta*(f(R) alpha),
-     alpha constant, chi times it is pure gauge again, its source 0 -- D88's delta*(log R dt) among them -- and the
-     check tests nothing; D89.)  Control: a non-gauge R^-(n-2) dx_1^2 added, claimed invariant.
+     tensor delta*(dG), G = R (four dimensions) or log R (five), homogeneous as the mass, and t* = t - r in place of t
+     give the same Kerr rows, the pure gauge tensor 0 at every determined entry; [Hin23b] Theorem 9.6(1), (7).  Its
+     cut-off source is not zero and its pairing with dt is -I_A + I_B with I_A = I_B = -4 pi (four dimensions), -3 pi^2
+     (five), each nonzero, so the 0 is a cancellation and not a parity.  (For delta*(f(R) alpha), alpha constant, chi
+     times it is pure gauge again, its source 0, and the check tests nothing (D89); D89's delta*(x_2 R^-(n-2) dx_1)
+     paired 0 by reflection parity alone, as the non-gauge x_1 x_2 R^-n (dt^2 + dR^2) does -- the forty-second
+     verifier; D92.)  Controls: a non-gauge R^-(n-2) dx_1^2 added to the mass, claimed invariant; the non-gauge
+     R^-(n-2) |dx|^2 in place of delta*(dG), claimed pure gauge (it pairs -4 pi, -6 pi^2 with dt).
 
 Deduced, not computed here (N1STAR-PROOF.md 10.32): the values are -8 pi M-dot, -8 pi J-dot and 4 pi M (q . c), M and J
 the ADM mass and angular momentum (g_tt = -1 + 16 pi M/((n - 1) Omega_(n-1) r^(n-2)): M = 3 pi mu/8, J = pi mu a/4 in
@@ -254,17 +258,27 @@ def pair_row(M, src, cols, dropG=False, tstar=False):
     return out
 
 
+def parts(M, src, w):
+    """the two sphere integrals I_A, I_B of src's pairing against the dual state of the 1-form w (D92)"""
+    F = sp.expand(M.ip(src, M.G(M.sym(M.form(0), w))).subs(sp.Derivative(chi, (R, 2)), c2)
+                  .subs(sp.Derivative(chi, R), c1).subs(chi, 0))
+    return [M.sphere(sp.together(sp.together(F.coeff(c)).subs(R, 1))) for c in (c1, c2)]
+
+
 @lru_cache(maxsize=None)
-def matrix(n, dropG=False, tstar=False, ks=False, nobrev=False, nodr=False, gauge=False, extra=False, first=False):
+def matrix(n, dropG=False, tstar=False, ks=False, nobrev=False, nodr=False, gauge=False, extra=False, first=False,
+           iso=False):
     M = geo(n)
     cols, planes = duals(M)
     rows, ok0 = [], True
-    if gauge:            # delta*(x_2 R^-(n-2) dx_1), homogeneous as the mass perturbation, its coefficient not radial
-        w = [0, M.x[1] * R**-(n - 2)] + [0] * (n - 1)
+    if gauge:            # delta*(dG), G = R or log R, homogeneous as the mass perturbation (D92)
+        w = [0] + [M.d(R if n == 3 else sp.log(R), i) for i in range(1, n + 1)]
         u = sp.Matrix(M.N, M.N, lambda a, b: (M.d(w[b], a) + M.d(w[a], b)) / 2)
+        if iso:          # control: the non-gauge R^-(n-2) |dx|^2 in its place
+            u = sp.diag(0, *[R**-(n - 2)] * n)
         src = comm(M.dric, u)
         rows.append(pair_row(M, src, cols, dropG, tstar))
-        return rows, any(sp.simplify(q) != 0 for q in src)            # its cut-off source is not zero
+        return rows, (any(sp.simplify(q) != 0 for q in src), parts(M, src, cols[0][1]))
     rows.append(pair_row(M, comm(M.dric, massg(M, ks=ks, nodr=nodr, extra=extra)), cols, dropG, tstar))
     for pl in planes:
         rows.append([None if q is None else mu * q for q in pair_row(M, comm(M.dric, rotg(M, pl)), cols, dropG, tstar)])
@@ -361,14 +375,15 @@ def p5(control=0, verbose=False):
         k = 1 + n * (n - 1) // 2
         ks, _ = matrix(n, ks=True, extra=control == 1)
         ts, _ = matrix(n, tstar=True)
-        ga, gnz = matrix(n, gauge=True)
+        ga, (gnz, gab) = matrix(n, gauge=True, iso=control == 2)
         same = lambda p, q: (p is None and q is None) or (p is not None and q is not None and sp.simplify(p - q) == 0)
         good = all(same(p, q) for p, q in zip(ks[0], base[0]))
         good &= all(same(p, q) for i in range(k) for p, q in zip(ts[i], base[i]))
         good &= gnz and any(q is not None for q in ga[0]) and all(q is None or sp.simplify(q) == 0 for q in ga[0])
+        good &= all(q != 0 for q in gab)                                # a cancellation, not a parity
         ok &= good
-        chk(f"n + 1 = {n + 1}: Kerr-Schild mass row, t* = t - r, and delta*(x_2 R^-(n-2) dx_1), whose cut-off source "
-            f"is not zero ({gnz}; pairings {ga[0]}), leave the pairings unchanged", good)
+        chk(f"n + 1 = {n + 1}: Kerr-Schild mass row, t* = t - r, and delta*(dG), whose cut-off source is not zero "
+            f"({gnz}; pairings {ga[0]}; against dt I_A, I_B = {gab}, -I_A + I_B), leave the pairings unchanged", good)
     return chk.ok and ok
 
 
@@ -377,7 +392,7 @@ CHECKS = [("P1 four dimensions: [Hin23b] Theorem 9.6's table, -8 pi m-dot, -8 pi
           ("P3 five dimensions, centres of mass: (3 pi^2/2) mu (q . c) against the translations, 0 against dt", p3, 1),
           ("P4 the 11 x 11 matrix (four dimensions 7 x 7) non-degenerate; the first-order translation pairing not", p4,
            1),
-          ("P5 invariance: Kerr-Schild mass, t* = t - r, a pure gauge tensor; [Hin23b] Theorem 9.6(1), (7)", p5, 1)]
+          ("P5 invariance: Kerr-Schild mass, t* = t - r, a pure gauge tensor; [Hin23b] Theorem 9.6(1), (7)", p5, 2)]
 
 
 def selftest(verbose=False):

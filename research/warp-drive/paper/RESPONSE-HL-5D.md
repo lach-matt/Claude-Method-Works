@@ -811,20 +811,20 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   reading (`static5.py`; computed harmonic by harmonic, the rest deduced in supplement section 10.33). The physical
   states of his section 8.5 exist too: at Tangherlini, for every l ≥ 2 and each of the tensor, vector and scalar types,
   the static tidal solutions smooth at the horizon are Gauss functions of r²/μ growing like r^l with coefficients that
-  never vanish, and near it his construction runs with his Lemma 8.15 carried over, so(4)'s bracket in place of the
-  cross product (`physical5.py`; computed, the rest deduced in supplement section 10.34); which l five dimensions needs
-  is open. A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the
-  threshold h₀, which his proof does not make explicit, and the rest of their analysis are open. No growing mode appears
-  in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of
-  the l = 2 master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700]
-  r_h, the same at half the step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the
-  origin is shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional
-  Green's function's tail, which is the rate a nonlinear argument in the class would carry. The least-damped mode of the
-  class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master
-  equation in time reproduces to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding
-  time of 3.905 r_h. The reduced problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's
-  polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is
-  open.
+  never vanish, and near it, on the same reading, his construction runs with his Lemma 8.15 carried over, so(4)'s
+  bracket in place of the cross product (`physical5.py`; computed, the rest deduced in supplement section 10.34); which
+  l five dimensions needs is open. A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9
+  in five dimensions, the threshold h₀, which his proof does not make explicit, and the rest of their analysis are open.
+  No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and
+  the late-time tail of the l = 2 master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06)
+  (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with that origin and bracketing 7
+  (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the
+  flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in the class would carry. The
+  least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8),
+  which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
+  `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is
+  2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional
+  Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -962,7 +962,13 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   minor findings — entries above the critical weight returned as 0 where their leading terms vanish pointwise, the s0
   entries' sign under Hintz's normalization of the dual state, Corollary 8.13 claimed beyond the open rigidity, the
   independence of the translations' states argued by the wrong pairing, and one page — two nits, and notes, seated
-  (D89), with one finding of D89's own: the pure gauge invariance check had a source identically zero.
+  (D89), with one finding of D89's own: the pure gauge invariance check had a source identically zero. Section 10.33
+  with `static5.py` and D89's repairs were read by a forty-second (D89, D90), which rederived the stationary equations
+  with a linearized Ricci tensor of its own: no major finding; four minor findings — the pure gauge check D89 put in
+  place still passing by reflection parity alone, so that a non-gauge tensor of the same parity passes it too, a reading
+  of Hintz's proof misdescribed, Corollary 8.13 claimed at Tangherlini where only the augmented operator's invertibility
+  follows there, and Kodama and Ishibashi's section 4, which prints the static flow and master variable, not cited —
+  three nits, and notes, seated (D92).
 
 ---
 
@@ -1308,18 +1314,18 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
 - `pairing5.py` P1–P5: Hintz's Lemma 8.12 in five dimensions (supplement section 10.32): the pairings of the zero energy
   kernel and cokernel as boundary pairings at infinity, [Hin23b]'s four-dimensional table reproduced, the
   five-dimensional 11 × 11 matrix non-degenerate (his Proposition 8.11 and Corollary 8.13 deduced, up to the
-  five-dimensional rigidity, which `static5.py` supplies at zero rotation). 5/5; mutants 5/5 (about three and a half
+  five-dimensional rigidity, which `static5.py` supplies at zero rotation). 5/5; mutants 6/6 (about three and a half
   minutes).
 - `static5.py` S1–S6: [AHW24] Theorem 6.1(2) in five dimensions at zero rotation (supplement section 10.33): the
   stationary solutions of the linearized Einstein equation on Tangherlini, harmonic by harmonic at zero frequency — the
   tensor and vector types' energy identities, the scalar type's flow and master equation in Kodama and Ishibashi's
-  variables, the mass and time rescaling at l = 0, the rotations at vector l = 1, pure gauge at scalar l = 1, and the
-  ingoing forms (the theorem, and Hintz's Proposition 8.11 at and near Tangherlini, deduced). 6/6; mutants 6/6 (about a
-  minute and a quarter).
+  variables (their static system and master variable, identically), the mass and time rescaling at l = 0, the rotations
+  at vector l = 1, pure gauge at scalar l = 1, and the ingoing forms (the theorem, and Hintz's Proposition 8.11 at
+  Tangherlini and, on a reading, near it, deduced). 6/6; mutants 6/6 (about a minute and a quarter).
 - `physical5.py` Y1–Y4: Hintz's section 8.5 in five dimensions (supplement section 10.34): the stationary equations
   hypergeometric in r²/μ, the solutions smooth at the horizon and their growth like r^l, the roots his construction
-  needs, and the rotation equivariance behind his Lemma 8.15 (his Proposition 8.14 at and near Tangherlini deduced).
-  4/4; mutants 4/4 (about twelve minutes).
+  needs, and the rotation equivariance behind his Lemma 8.15 (his Proposition 8.14 at Tangherlini deduced, and near it
+  on a reading). 4/4; mutants 4/4 (about twelve minutes).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1458,6 +1464,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D9
 | | the thirty-sixth section 10.27 (D78, D79); the thirty-seventh section 10.28 (D80, D82); |
 | | the thirty-eighth section 10.29 (D81, D83); the thirty-ninth section 10.30 (D84, D85); |
 | | the fortieth section 10.31 (D86, D87); the forty-first section 10.32 (D88, D89) |
+| | the forty-second section 10.33 (D90, D92) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
