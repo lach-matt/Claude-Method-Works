@@ -3339,3 +3339,130 @@ first asked 10^-12 relative and failed at gam_C = 100, where the determinant's n
 
 *Runs.* scri5.py --selftest 3/3 (C1 54 s, C2 250 s, C3 409 s) and --mutants 4/4 (about nine minutes); paper/response5.py
 --selftest all pass; md5 rows 55, scri5.py added.
+
+**D101 (2026-10-24): the forty-seventh verifier's findings on D99-D100, seated.**
+
+One independent verifier read D99 and D100 (28fbe64 against ef1ae32), with its own checks: his matrix recomputed from
+the linearized gauge-fixed operator built from his Definitions 4.1-4.2 and (4.13), applied in Cartesian components to
+e^(k (t - r)) r^-x times explicit frame fields -- all 49 four-dimensional entries against his printed (5.28), the
+five-dimensional ones at two points; C2's slots from the pointwise a' term; C3's values at gam_C = 10 by a Frobenius
+expansion in s and Taylor stepping, to 15 digits at s0 and identical at t2; the l-range by exact Sturm counts in (2,
+5/2]; his pp. 87-96 and 228 for 10.38(a); 10.37(b) at lam equal to an outgoing exponent. READ at source: [Hin26] pp.
+81-83, 85, 87, 93, 167-169, 223, 228. Verdict: no major finding; three minor findings, five nits, four notes.
+
+*Minor 1 (four trace couplings).* C1 and 10.38 said "three trace couplings changed" and listed four, (3, 1), (4, 1), (4,
+3) and (7, 3); the verifier's own route gives those four as the only entries that differ from his. Repaired: "four" in
+scri5.py's docstring, Proposition 10.35(i), 10.38's "What this gives", README, ROUTES 4.39 and the paper (twice); LOG
+D100 stands. With its note: which entries differ is slot 3's normalization -- the record takes the coefficient of r^2
+g-slash, tr-slash/3, where his pi_C has (1/2) tr-slash (Definition 5.2, p. 85, READ here). In his, row 3 scales by 3/2
+and column 3 by 2/3, so (3, 1) and (7, 3) become his and only (4, 1) and (4, 3) differ, by (1 - e_C)(1 + v) gam_C/3 and
+(1 - e_C)(1 - v) gam_C/6 -- checked here by hand from C1's entries, and now said in 10.35(i) and ROUTES 4.39. *Minor 2
+(page numbers).* 10.38's READ, ROUTES 4.39 and LOG D100 cited printed pp. 91-93 for Definition 5.4, section 5.2's
+opening and Lemma 5.6, which are on p. 87 (PDF p. 91); printed p. 91 is Corollary 5.10. READ again here: p. 87 holds
+Definition 5.4, Lemma 5.6 and (5.11), pp. 92-93 Proposition 5.11. Repaired in 10.38 and ROUTES 4.39; LOG D100 stands.
+*Minor 3 (a reading at K+).* 10.38(d)'s "Its term solves the homogeneous model ... So it is a resonant state" also needs
+nothing below order 2 fed into iota+ from K+, so that at v = oo the least term carries E_K's exponents alone; on
+10.35(c)'s bookkeeping the zero energy and pure gauge states enter at K+ order alpha_5 or are eliminated as his are, so
+the conclusion stands, on that reading. Repaired: (d) names it, (e) lists it among its readings, and 10.38's and ROUTES
+4.39's OPEN lists carry it.
+
+*Nits.* (1) iota5.py's I4 asserted "not two" for 136 <= l <= 400 but not "one", which 10.34(iv) states; it now asserts
+one root in (2, 5/2) at l = 0, 1 and for 136 <= l <= 400, and the docstring's (ii) says so. (2) 10.35's OPEN list now
+points to 10.38(d) for a radiation field's late limit, and 10.35(a)'s "has been written (D95)" to 10.38. (3) 10.38(d)'s
+t*^(x0 - 2): up to logarithms. (4) README said "All forty-five" against 47 programs -- off by two since before D99 --
+and its log range D1-D75; now forty-eight with aug5.py, and D1-D102. (5) scri5.py's docstring: about nine minutes for
+the mutants, as LOG D100 has.
+
+*Notes, accepted.* (1) C3's determinant is about 7 x 10^-12 at s0 because two E_K exponents nearly coincide (0 and
+-1.33 x 10^-6, the smallest singular value 1.2 x 10^-6), so the test relative to the grid is the meaningful one;
+10.38's proof now says so. (2) His own identification, "A_h = A_0 = S-bar_(E-bar^Ups, E-bar^C) in the notation of Lemma
+8.2" (p. 223, Proposition 11.6(1)), and (8.8), p. 146 -- READ here -- are now in 10.38's setting and READ. (3) The
+paper's sentence and Appendices A-D matched the record but for minor 1. (4) His (9.17) reads "(v d_v - 1 - S-bar) h in
+A^(E^tot_(iota+,I) + 1)" (p. 169, READ here); 10.37's definition is its five-dimensional form, 3/2 for his 1. Not
+checked by the verifier: C3 at gam_C = 100 by a second method (one column took 572 s at 130 digits); lin5.py's model
+matrices beyond L1; 10.24-10.25's readings; his pp. 27-29, 248 and 273; Proposition 11.16 in five dimensions. Its runs:
+scri5 3/3 (C1 55 s, C2 262 s, C3 396 s) and mutants 4/4; iota5 5/5 and mutants 6/6; mp5 5/5; response5 all pass; md5
+rows 55 of 55 at 28fbe64.
+
+*Runs.* iota5.py --only 4 (218 s, the new assertion passing) and --mutants 6/6 (about fifteen minutes); scri5.py's
+changes are its docstring's; paper/response5.py --selftest all pass; md5 rows refreshed.
+
+**D102 (2026-10-24): [Hin26] section 10.1 in five dimensions, the augmented zero energy operator (10.39, aug5.py).**
+
+M asked to continue; ROUTES 4.4 route B item 2 carries [Hin26] to five dimensions step by step, and section 10 --
+2-admissibility -- is the next. READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 145 (Lemma 8.1,
+(8.2a)-(8.2b), (8.5)), 199-205 (Theorem 10.1, (10.1)-(10.9b), Remark 10.2, footnotes 96-97, Lemma 10.3 and its proof,
+Lemma 10.4 and its proof to (10.18)), 207-209 ((10.23), (10.24a)-(10.24c), Lemma 10.5, (10.26), Proposition 10.6 and its
+proof, Proposition 10.7 with (10.28)-(10.32)), 211-212 ((10.36)-(10.41), Remark 10.8, Lemma 10.9), 214 ((10.46)-(10.48),
+Lemmas 10.10-10.11).
+
+*Computed (Proposition 10.36, aug5.py A1-A3).* (A1) On 4+1 Minkowski with sbar5.py's E^Ups and E^C, the gauged mass
+state r^-2 (dt^2 + dr^2) + delta*(r^-1 (a dt + b dr)) and rotation state 2 r^-4 dt (x)_s w + delta*(p r^-3 w), p = -4
+gam_Ups/3, in closed form, solve L-bar g-dot = 0 at the symbolic point (X1, 0, X3, 0), every parameter symbolic, with no
+logarithm; in four dimensions the mass state's gauge 1-form needs c log r dt, the logarithm of his (8.19). (A2) [L-bar,
+T] g-dot is nonzero and of degree -3 and -4 (four dimensions -2 and -3, his (10.9a) and (3, 0)), and [[L-bar, T], T]
+g-dot = 0. (A3) L-bar(chi(r/T) g-dot) is of iota+ order 4 and 5 (four dimensions 3, his borderline, and 4, his
+(10.24b)).
+
+*Deduced (10.39).* (a) Every five-dimensional entry of (10.5) is in A^3, from 10.28's orders and Lemma 8.1's structure,
+g^00 in rho^2 C^oo. (b) Such an entry lies in the target space for alpha_sf + 2 < 1, so on (0, eps_ind); his criterion,
+o(r^-2), is the same in both dimensions. (c) His (10.24a) serves every state -- chi_K g-dot and chi_K h^(<=1)_s1, L_b of
+them of iota+ order 4 -- and Lemma 10.4 holds with his proof: no improved states. (d) Proposition 10.6 from 10.32's
+pairings. (e) Proposition 10.7 and Theorem 10.1, 2-admissibility with alpha_sf + 2 in (0, eps_ind), on readings. (f) No
+logarithm in the augmentation; whether the resolvent has one at sigma = 0 is his section 11's question.
+
+*Notes.* (1) The first ansatz for the four-dimensional mass state's gauge 1-form, r^0 (a dt + b dr), has no solution: 0
+is an s0 root of box^Ups(0) there (10.28), and the log r dt term his (8.19) carries is needed; in five dimensions the
+ansatz with log r admitted returns the log coefficients 0. (2) A1 first checked L-bar g-dot = 0 at three numerical
+points, which proves it for the mass state, invariant under SO(4), but not for the rotation state; it now checks at the
+symbolic point (X1, 0, X3, 0), which meets every orbit of the rotations of the planes 12 and 34. (3) A first run
+substituted the parameters into the states before the operator was applied, which left the operator's own symbolic; they
+are substituted after. (4) The forty-seventh verifier's report arrived during this work and is seated as D101; the
+section was first numbered D101.
+
+*Runs.* aug5.py --selftest 3/3 (A1 15 s, A2 183 s, A3 301 s with the controls, about eight minutes) and --mutants 4/4
+(about four minutes); paper/response5.py --selftest all pass; md5 rows 56, aug5.py added.
+
+**D103 (2026-10-24): the forty-eighth verifier's findings on D101-D102, seated.**
+
+One independent verifier read D101 and D102 (8ab8e22 against 4c144f1), with its own checks: L-bar rebuilt in Cartesian
+components from his (8.1), (6.5) and (7.3) without sbar5.py or aug5.py; the gauged states' closed forms (5D mass a, b;
+5D and 4D rotation p; the 4D mass's c and b), the log coefficients 0 in five dimensions at r^0 log r and at r^-1 log r,
+the residuals of L-bar g-dot zero at eight generic five-dimensional and five four-dimensional points, the degrees of A2
+and A3 at two parameter sets, and the leading matrix of [L-bar, T] on r^-k U, whose eigenvalues are (n - 1)/2 - k + spec
+S-bar to 2 x 10^-14 in both dimensions; the target space arithmetic; D101's slot 3 arithmetic. READ at source: [Hin26]
+pp. 113, 135, 145-146, 149, 154, 164, 169, 199-209, 212-216, 223, 234. Verdict: no major finding; four minor findings,
+four nits, notes.
+
+*Minor 1 (the boosts' cut-off order).* 10.39(c) said L_b of chi_K g-dot or chi_K h^(<=1)_s1 is of iota+ order 4 and that
+(iii) computes it; (iii) computes the mass state's only -- no boost state is built on the model, where it vanishes --
+and 10.39's OPEN list had the boost entry by computation open. Repaired: (c) says the mass state's order is computed and
+the boosts' deduced; ROUTES 4.40 likewise. *Minor 2 (the cut-off's place).* The paper's "the states cut off near
+timelike infinity" read as inverted: chi_K is 1 near K+ and vanishes near I+ and for t* <= 1 (his p. 203). Repaired:
+"cut off to vanish near future null infinity". *Minor 3 (a qualifier).* The paper's "Nor does the zero energy
+augmentation need Hintz's improved states" now reads "Nor, on readings, does". *Minor 4 (two readings not named).* His
+Theorem 10.1's proof takes the representation (10.4) from the Paley-Wiener argument of [Hin26c] Theorem 12.2's proof (p.
+200) and adapts [Hin26c] section 14.1 (pp. 201, 212); both are now among 10.39(e)'s readings, its OPEN list and ROUTES
+4.40's.
+
+*Nits.* (1) aug5.py's five-dimensional log ansatz sat at r^0 log r, not at the gauge 1-form's own power r^-1; it is now
+r^-(n-3) log r -- r^-1 log r in five dimensions, log r in four, as before -- and A1 passes, the log coefficients 0 (the
+verifier checked both powers). (2) 10.39(i): "takes p = -2 gam_Ups and none" now reads "with no logarithm, as in his
+(8.20)". (3) A parenthesized (10.28) could be his equation or this record's section: 10.39 now says a bare 10.n is a
+section here and a parenthesized (10.n) one of his equations, and writes "section 10.28(a)-(b)" and the like where both
+meet. (4) 10.39(b)'s 7.3846 x 10^-8 is the bound 10.24(a) computes for his (8.13) at l <= 12, the record's number, not
+his; said so.
+
+*Notes, accepted.* (1) The trace weight 2/(D - 2) of E^C is derived in the record (U2, damping5.py), and the verifier
+re-derived it; E^Ups's 2/3 is the record's choice made as E^C's is (10.15), and A1's closed forms depend on it. (2) His
+p. 202: "It is via inverting the iota+-normal operator ... that one can both improve the iota+-decay rate and obtain the
+correct asymptotics at I+"; the chi_K route does not do this -- 10.39(c) now says so, with whether his section 11 needs
+those asymptotics open. (3) His p. 208: "h*_b,s0 has O(r^-2) decay (as do all other dual states in (7.15))". (4) His
+(8.8) (p. 146) and Proposition 11.6(1) (p. 223) as D101's note 2 has them. Not checked by the verifier: scri5.py;
+dual5.py and pairing5.py; the eleven-state kernel count; the boost states; the naive (10.5) claims; his section 11; his
+Definitions 5.2 and 5.4 and (5.28) (D101's p. 85 READ is this session's); the 7.3846 x 10^-8. Its runs: aug5 3/3 (A1 20
+s, A2 216 s, A3 313 s) and mutants 4/4; iota5 --only 4 True; response5 all pass; md5 rows 56 of 56 at 8ab8e22.
+
+*Runs.* aug5.py --selftest 3/3 (A1 23 s, A2 316 s, A3 354 s with the controls, about eleven and a half minutes on a
+loaded machine) and --mutants 4/4 (about five minutes) after nit (1); paper/response5.py --selftest all pass; md5 rows
+refreshed.
