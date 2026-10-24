@@ -4240,3 +4240,11 @@ of the inverse and the onto-witness; the rotations' isometry and strong continui
 coefficient is -e_0 t_IVP (10.72); "278 hits on the 205 pages swept, 81 with a hit"; Kerr's K order sourced; Lemma
 14.6's density; the paper's "Settling, proved." heading renamed.
 
+**D148 (2026-10-24): one exception removed; fourteen modification steps written out.** [Hin26] Definitions 4.1-4.2
+read at source: E^Ups_g0 and E^C_g0 use only the background g_0 and the fixed 1-forms, and enter P(g, g_0) and its
+linearization (4.13) with g_0's coefficients, so the h-dependent terms are [Hin23a]'s (3.30) term by term and X5, X7's
+orders carry: 10.38 (a)'s deduced link is READ (10.72 (iii)), and the one exception left is 10.21 (e). Three more
+modification steps matched step by step against their source proofs, read at source: [Hin26] Proposition 6.15 (10.28
+(a), with the regularity-in-b paragraph added), Proposition 6.18 (4)-(7) (10.30 (a)), and the injectivity half of
+Proposition 9.2 (2) (10.37 (c)). Fourteen of 61 written out (10.75); 47 rest on the censuses. Paper: "but for one".
+

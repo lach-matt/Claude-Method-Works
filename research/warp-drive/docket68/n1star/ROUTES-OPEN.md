@@ -2032,3 +2032,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the inverse and onto-witness, and the isometry and strong continuity of the rotations, written out; Proposition 5.25's
   0j coefficient corrected.
 
+### 4.79 One exception removed; three more modification steps written out (READ, deduced; D148)
+
+- READ ([Hin26] pp. 81-82, Definitions 4.1-4.2, (4.3), (4.8), (4.13)): the gauge modifications E^Ups_g0, E^C_g0 are
+  built from the background and fixed 1-forms alone, so the h-dependent terms of his linearized operator are [Hin23a]'s
+  (3.30) term by term; 10.38 (a)'s deduced link is READ, and one exception remains, 10.21 (e).
+- Deduced (10.75 (xii)-(xiv)): [Hin26] Proposition 6.15, Proposition 6.18 (4)-(7) and the injectivity half of
+  Proposition 9.2 (2), read at source (pp. 125-128, 132-134, 165-167), are matched step by step by 10.28 (a), 10.30 (a)
+  and 10.37 (c), the regularity in b added. Fourteen of 61 written out; 47 rest on the censuses.
+

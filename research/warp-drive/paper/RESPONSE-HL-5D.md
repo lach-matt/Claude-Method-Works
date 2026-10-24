@@ -47,7 +47,7 @@ to a slowly rotating Myers–Perry black hole: Hintz's proof of the nonlinear st
 dimensions, every input that depends on the dimension computed at Schwarzschild–Tangherlini and deduced at nearby
 Myers–Perry parameters, his companion papers' arguments read at source, and the proofs of theirs the route uses carried
 to five dimensions by modification, every place where a full-text census of the source finds the dimension computed, and
-every other deduced step placed on its computed and read inputs, at proof level but for two the supplement names; the
+every other deduced step placed on its computed and read inputs, at proof level but for one the supplement names; the
 completeness of those censuses, read rather than re-derived, separates this from a proof (Theorem 4). We list what is
 not proved, the application at physical wavelengths among it.
 
@@ -117,7 +117,7 @@ the deduction from a proof is stated in section 8.8. The proofs of those papers 
 estimates, [Hin26a]'s constraint damping, [Hin23a]'s at null infinity, [CD03]'s gluing, Hintz's boost and [HHV21]'s
 perturbation arguments — are carried to five dimensions by modification, every place a full-text census of the source
 finds the dimension computed. Every other deduced step is placed on its computed and read inputs, at proof level but for
-two that section 8.8 names, and each modification step lists the places where the dimension changes it, each value
+one that section 8.8 names, and each modification step lists the places where the dimension changes it, each value
 computed, deduced in an earlier section, or arithmetic in n. What remains is that those censuses are complete, read at
 source rather than re-derived line by line.
 
@@ -1053,14 +1053,13 @@ by symmetry and sums over harmonics, put there by two lemmas proved in the suppl
 its proof — 50 name some, 11 none, the proof being the source's as it stands — and each five-dimensional value there is
 computed, deduced in an earlier section, arithmetic in n, or the record's choice (supplement section 10.74,
 `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those places, which is the census
-question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i), but for two steps — one
-resting on a single deduced link, one on a modification step and so on the census (supplement sections 10.72–10.73).
-Eleven of the 61 have source proofs of one or two pages, now written out step by step at n = 4, so they rest on their
-inputs and not on a census (supplement section 10.75); the other 50 carry proofs of several pages each, in [Hin26]
-sections 5–13, [Hin26c] sections 5–14, [Hin26a] sections 4–6 with its appendices and [Hin23a] section 3. λ1 and δ exist
-by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a
-separate gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a
-theorem.
+question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i), but for one step, which rests
+on a modification step and so on the census (supplement section 10.73). Fourteen of the 61 have source proofs of one to
+three pages, now written out step by step at n = 4, so they rest on their inputs and not on a census (supplement section
+10.75); the other 47 carry proofs of several pages each, in [Hin26] sections 5–13, [Hin26c] sections 5–14, [Hin26a]
+sections 4–6 with its appendices and [Hin23a] section 3. λ1 and δ exist by the deduction — from Hintz's smallness
+constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A line-by-line check of those
+papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
 
 ---
 
@@ -1068,7 +1067,7 @@ theorem.
 
 - **Settling as a theorem.** Theorem 4 is deduced: what separates it from a theorem is stated in section 8.8 — the
   completeness of the censuses that carry the companion papers' proofs to five dimensions, read at source rather than
-  re-derived. The other deductions are placed on their inputs, at proof level but for two named in section 8.8, the
+  re-derived. The other deductions are placed on their inputs, at proof level but for one named in section 8.8, the
   modification steps resting on those censuses. λ1 and δ exist by the deduction and are not evaluated, which is not a
   separate gap. The linear statements of section 8.2 are deduced too, the route of Hung's sections 5–8 in five
   dimensions not a proof.
@@ -1790,7 +1789,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | the general-n steps' hypotheses placed, section 8.8 | supplement section 10.72; [Hin26], [Hin26c] |
 | the undecided steps placed, section 8.8 | supplement section 10.73; `docket68/n1star/synth5.py` S1–S3; [KI03] |
 | the modification steps' changes placed, section 8.8 | supplement section 10.74; `docket68/n1star/B-MAP.tsv` |
-| eleven modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26c], [CD03] |
+| fourteen modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26c], [CD03] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1901,9 +1900,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `dfaf7b49eb1f7fb9f96a50eb26879267` |
-| `docket68/n1star/N1STAR-LOG.md` | `3dc92e06f0874f4e428f85a711862aa5` |
-| `docket68/n1star/README.md` | `a7a2eb4103e9093261825581a3932296` |
+| `docket68/n1star/N1STAR-PROOF.md` | `956633a2bd2148695feada0cf9ff9334` |
+| `docket68/n1star/N1STAR-LOG.md` | `6e67a86636a109e93086cbb63534749d` |
+| `docket68/n1star/README.md` | `a9b5aa154883a0a672f7a504d6c2f3b5` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1970,6 +1969,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/B-MAP.tsv` | `63c50008c187fece30aaaa97226a182c` |
+| `docket68/n1star/B-MAP.tsv` | `a13ae5ed258e0646de79f8c46e46f224` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

@@ -8054,13 +8054,17 @@ calculus being [Hin23d]'s in every dimension (10.65).
      b-density, the weight being arbitrary -- with general s through the 3b calculus, so they hold in any dimension.
      10.41 (d): its inputs, [Hin26c] Theorems 9.41, 9.16 and 9.5 (6) at n = 4, are 10.53's and 10.67's.
  (iii) 10.38 (a), that the h-dependent couplings at I+ fall by r^-(1/2) in five dimensions, is computed for [Hin23a]'s
-     operator (exterior5.py X5, X7). For [Hin26]'s gauge it is deduced: his gauge modifications are independent of h, as
-     [Hin23a]'s (3.30) shows for that gauge.
+     operator (exterior5.py X5, X7). For [Hin26]'s gauge it is now READ at source (D148): his E^Ups_g0 and E^C_g0
+     ((4.1)-(4.2), (4.7), pp. 81-82) are built from the background g_0 and the fixed 1-forms c^Ups, c^C alone, and enter
+     P(g, g_0) ((4.3), (4.8)) and its linearization (4.13) with g_0's coefficients, so the h-dependent terms of 2
+     L_(g,g_0) -- box_g, 2 E^C_g0 delta_g G_g + 2 (delta*_g0 - delta*_g) delta_g G_g = 2 (delta*_(g_0,E^C) - delta*_g)
+     delta_g G_g, 2 R_g and 2 delta*_(g_0,E^C)(C_(g,g_0) - Y_(g,g_0)) -- are [Hin23a]'s (3.30) term by term, E^C of the
+     same order r^-1 (c^C = r^-1 (dt - v_C dr)); the orders X5 and X7 compute carry, and 10.38 (a) is placed.
  (iv) 10.51 (c) cites the record's own Theorem A and Proposition 6.5, not an outside general-n result. The rule misfiled
      it; it holds as stated there.
 
-So every A step has its hypotheses placed, 10.38 (a) with one deduced link. With 10.71, the A and C steps of (ii) are at
-proof level given their READ inputs. What (ii) leaves is the 60 B steps and the 38 undecided rows.
+So every A step has its hypotheses placed, 10.38 (a)'s link READ at source since (D148). With 10.71, the A and C steps
+of (ii) are at proof level given their READ inputs. What (ii) leaves is the 60 B steps and the 38 undecided rows.
 
 Labels: READ (the three proofs above); deduced (the placing); nothing computed or proved here.
 
@@ -8186,8 +8190,9 @@ with G the record's symmetry group (D147).
 
 So of the 38, twelve have no step of their own, 25 are at proof level given their inputs (bookkeeping 10, applications
 3, elementary 5, symmetry 5, harmonics 2), and one is a modification step. With 10.71-10.72, every deduced row of
-10.12-10.69 that is not a modification step is at proof level given its computed and READ inputs, with two exceptions:
-10.38 (a) rests on one deduced link (10.72 (iii)), and 10.21 (e) on a modification step (10.71 (vi)) (D147).
+10.12-10.69 that is not a modification step is at proof level given its computed and READ inputs, with one exception:
+10.21 (e) rests on a modification step (10.71 (vi)) (D147); 10.38 (a)'s deduced link is READ at source since (10.72
+(iii); D148).
 
 Labels: computed (Proposition 10.53); proved (Lemmas 10.54 and 10.55); cited (Weyl's law, the elliptic estimate, Sobolev
 embedding, Frobenius); deduced (the placing).
@@ -8223,12 +8228,12 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Eleven modification steps written out at n = 4 (D146)
+### 10.75 Fourteen modification steps written out at n = 4 (D146, D148)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. The eleven below are those whose source proofs
+step so written out rests on its inputs, not on a census of its source. The fourteen below are those whose source proofs
 are at most about two pages and are already matched step by step in the sections named, or short enough to match here;
 each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69).
 
@@ -8306,12 +8311,39 @@ each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 tex
      carried from his proof but computed at n = 4: rho d_rho - 3/2 in place of rho d_rho - 1, S-bar's spectrum, and the
      differences (6.7) gaining a power (Proposition 10.18 (i), (ii), (iv); thresh5.py).
 
-So eleven of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. The other 50 carry proofs of several pages each, in [Hin26] sections 5-13,
+ (xii) 10.28 (a), [Hin26] Proposition 6.15 (pp. 125-128; D148). His proof has four parts and a regularity paragraph: the
+     time translation (Killing); the translations (f_b's order by Lemma 6.14, the correction by Lemma 6.13, 1 no s1
+     root, the symmetric gradient's order); the boosts (four terms in f-breve_b, the first zero, Lemma 2.15 for the
+     logarithm); the rotations; and the regularity in b by differentiating box^Ups(0) omega' = -f_b and inverting with
+     Lemma 6.13 against an operator difference in rho^3 Diff^2_b. 10.28 (a) places each at n = 4 (the orders raised by
+     one, 2 no s1 root at z > 0, (iii)'s stationary residual of order rho^3 computed, no logarithm since 1 is no s1
+     root, (iv)'s rotations); the regularity paragraph is the same iteration with Lemma 6.13 at n = 4 ((v)) and the
+     difference in rho^4 Diff^2_b (10.28 (i)).
+
+ (xiii) 10.30 (a), [Hin26] Proposition 6.18 (4)-(7) (pp. 132-134; D148). His proof of each part: an indicial solution of
+     the class root, the correction against the operator difference in rho^3 Diff^2_b by Lemmas 2.15 and 6.13, the
+     symmetric gradient's nonzero leading term (N(delta-bar*(0), lam - 1) injective), then the generalized states from
+     A_0, A_1, A_2 of (6.44), and the smoothness in b as in Proposition 6.15. 10.30 (a) places each at n = 4: the
+     difference in rho^4 Diff^2_b (Proposition 10.25 (i)), the correction one order faster, mu + 2 no root by (iv), the
+     leading term nonzero by (iii) and (vi) above, A_0, A_1, A_2 with their five-dimensional orders (10.18 (b)) and the
+     leading equations solvable without logarithm, mu - k no root by (iv); the smoothness in b as in (xii).
+
+ (xiv) 10.37 (c), the injectivity half of [Hin26] Proposition 9.2 (2) (pp. 165-167; D148). His steps: part (3)'s
+     regularity (a general radial-set result of Haber-Vasy); the identification (9.5) in v; (9.6), the exponent 1 + min
+     spec S-bar - Re lam; the extension by zero in L^1_loc; the Fourier transform ([Hin23d] Lemma 2.25) and the
+     polynomial argument; the conjugation by r-hat^(-lam+1) to N_tf; and Proposition 8.6. 10.37 (c) places each at n =
+     4: the threshold s < 2 + min spec S-bar - Re lam and the exponent shifted by 1/2 with v d_v - 3/2 - S-bar, the
+     extension in L^1_loc for Re lam < 5/2 (min spec S-bar = 0, 10.25), the Fourier transform, the polynomial argument
+     and the conjugation free of the dimension, and Proposition 8.6 at n = 4 (10.24 (c)-(d), 10.25 (b)). Its other half,
+     the index 0 property, is not carried, as 10.37 (c) says.
+
+
+So fourteen of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. The other 47 carry proofs of several pages each, in [Hin26] sections 5-13,
 [Hin26c] sections 5-14, [Hin26a] sections 4-6 with its appendices A-B, and [Hin23a] section 3; writing those out is what
 remains of 8.8.
 
-Labels: READ (the eleven source proofs); deduced (the matching); nothing computed or proved here.
+Labels: READ (the fourteen source proofs); deduced (the matching); nothing computed or proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
