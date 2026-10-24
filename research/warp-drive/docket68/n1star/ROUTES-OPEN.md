@@ -1772,3 +1772,21 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
   10.45(e)'s [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4, C-ii, the iota+ spectrum between 5/2 and 3 +
   eps_+, (2.27) at n = 4, 10.38(a)'s scaling and the h-terms of (5.28).
 
+### 4.59 B3, C-ii and the remaining items; Phase B's state (READ and deduced; D127)
+
+- B3 deduced at source (N1STAR-PROOF.md 10.58): every n = 3 numeral of [Hin26c] Definitions 5.13, 5.15, 5.18, Theorems
+  8.14, 10.1, 11.1, Proposition 13.18 and Corollary 13.17 comes from (5.7)'s (n - 1)/2 or a density (rho_I^n rho_+^(n+1)
+  rho_K at n = 4: beta_I = alpha_I + 2, beta_+ = alpha_+ + 5/2); section 7 uses the principal symbol and thresholds
+  only.
+- Closed (10.59): [Hin26] (2.27), Proposition 2.25 being stated on X = R^n (10.46(e)'s reading); the iota+ spectrum
+  between 5/2 and 3 + eps_+, whose locations sharp5.py K3's interval sweep makes unnecessary; 10.38(a)'s exponent, which
+  is at least 2 > alpha_min under either reading; C-ii, [CD03]'s dimension-free gluing with the Tangherlini mass family,
+  G-equivariant by uniqueness, the G-invariant KIDs d_t's alone.
+- Phase B's state. Discharged: B5, B8, B9 (computed), C-i, 10.46(e)'s (2.27). Deduced at source: B1-B4, B6, B7, B10,
+  C-ii, 10.45(e). One kind of reading remains, named in each place: that the propagation, radial point, trapping and
+  energy estimates of [Hin26c] sections 7-9.3, [Hin26a] section 5.2 and [Hin23a] section 3 (and those [Hin26c] quotes
+  from [HV26], [Hin23c], [Hin24a], [Hin21]) hold at n = 4 once their symbols are the five-dimensional ones the record
+  computes -- with 10.57(b)'s order count. That is what separates the result from proved: a line-by-line check of those
+  estimates at n = 4.
+- Next: the fifty-fifth verifier's findings (D123-D126), a fifty-sixth on D127; then Phase D, the paper.
+

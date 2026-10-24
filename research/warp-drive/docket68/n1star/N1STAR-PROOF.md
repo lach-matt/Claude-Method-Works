@@ -7019,6 +7019,93 @@ needed only for a piece of null infinity.
 B10 is deduced at source, with (b)'s order count and (c)'s gain read, not computed. Labels: READ (1)-(4); deduced
 (a)-(d); nothing computed or proved here.
 
+### 10.58 [Hin26c] sections 5-8, 10, 11 and 13 at n = 4, at source (B3; D127)
+
+*The setting.* 10.40-10.42 and 10.45(e) took [Hin26c]'s Definitions 5.13, 5.15 and 5.18, Theorems 8.14, 10.1 and 11.1,
+and Proposition 13.18 and Corollary 13.17 "at n = 4" (B3). 10.53 read section 9 at source. Here the rest.
+
+*READ.* [Hin26c] (arXiv:2606.28008v1; alphaXiv, 2026-10-24; printed page = PDF page - 4; ASCII):
+
+ (1) pp. 39 and 102: (2.25)-(2.27), "g-bar = -dt*^2 - 2 dt* dr + r^2 g/, g-bar^-1 = -2 d_t* (x)_s d_r + d_r^2 + r^-2
+     g/^-1", rewritten in rho_+ = 1/t*, x_I = (t*/r)^(1/2) as (1/2) x_I^2 rho_+^2 (x_I d_x_I (x)_s (-2 rho_+ d_rho_+ +
+     (1 + x_I^2/2) x_I d_x_I) + x_I^2 g/^-1); and (5.7), 2 x_I^-2 rho_+^-2 P_0 == -(x_I d_x_I - 2 (1 + S))(x_I d_x_I - 2
+     rho_+ d_rho_+) + 2 x_I^2 Laplacian-slash mod x_I Diff^2_eb, its "1" that of (5.1a)'s rho d_rho - 1 - S.
+ (2) pp. 107-109: Definition 5.15, h in x_I^-2 rho_+^-2 C^((d_0;k),(2 l_I, l_+, l_K))_(e3b;b); Definition 5.18, (5.25)
+     and (5.27), "-(x_I d_x_I - 2 (1 + p_1))(x_I d_x_I - 2 rho_+ d_rho_+)", p_1 = S|_(dX) + p~_1.
+ (3) p. 114: section 7's estimates "rely only on the principal symbol of P and thus on the dynamical properties of
+     asymptotically Kerr metrics (except for the precise values of certain threshold conditions on weights and
+     regularity orders which are determined by subprincipal terms of P)", and "can almost be quoted from the literature:
+     [HV26, section 4] ... [Hin23c, section 5.1] ... [Hin24a, section 4.3] ... and [Hin21, section 3B2]"; p. 115,
+     Proposition 7.1 with the weights (7.3), "alpha_I < -1/2 + p-bar_1, alpha_+ < alpha_I - 1/2", footnote 51 naming the
+     radial point estimates they come from; p. 19, footnote 13: "we work with L^2 relative to the metric density rather
+     than mu_b, which leads to constant shifts in the orders".
+ (4) p. 156: Theorem 8.14, the combination of Propositions 8.6 and 8.9 (energy estimates near t* = 1), 7.11 (the
+     microlocal estimate) and 8.12-8.13 (near r = m), under "alpha_I < -1/2 + p-bar_1"; p. 201, Theorem 10.1 under
+     (10.2), "alpha_I < -1/2 + S-bar, alpha_+ < alpha_I - 1/2"; p. 228, Theorem 11.1 and (11.5), mu_b = rho_I^3 rho_+^4
+     rho_K |dt dx|, "beta_I = alpha_I + 3/2, beta_+ = alpha_+ + 2".
+ (5) p. 255: (13.30a), "The shift of 3/2 in the decay orders at rho^-1(0) = scf u tf is due to the passage from mu to
+     mu_b"; Proposition 13.18, "with P_0 being tf-admissible with weight alpha + 3/2 ... Let beta_scf < 1 + S-bar ...
+     beta_tf - beta_zf in (beta_-, beta_+)", proved "identical to that of Corollary 13.14, mutatis mutandis".
+
+*Deduced.*
+
+ (a) (where n enters) (2.25)-(2.27) are Minkowski algebra in (t*, r) and do not see n beyond the round sphere's g/; at
+     n = 4 they hold with S^3's. The "1" of (5.1a) and (5.7) is (n - 1)/2 ([Hin26c] Definition 9.4, 10.53), so at n = 4
+     Definition 5.18's (5.27) reads -(x_I d_x_I - 2 (3/2 + p_1))(...), the record's iplus5.py P1 leading part. The
+     densities give every other numeral: 3/2 = n/2 in (11.5), (13.30a), Proposition 13.18 and Definition 5.13(2), and
+     mu_b = rho_I^4 rho_+^5 rho_K |dt dx| at n = 4 (rho_I^n rho_+^(n+1) rho_K, the b-density being |dt dx|/(t* r^n)),
+     so beta_I = alpha_I + 2, beta_+ = alpha_+ + 5/2 and beta_scf < 3/2 + S-bar, as 10.41-10.42 took them. The
+     thresholds (7.3) and (10.2) are stated in p-bar_1 and S-bar, measured in the metric density, the -1/2
+     dimension-free as at (9.16c) (10.53(c)).
+ (b) (the dynamics) Section 7 uses the principal symbol only, apart from those thresholds (3). Near I+ and iota+ the
+     dynamics are (2.27)'s and (4.67)'s, free of n; near the horizon and the trapped set they are five-dimensional
+     Tangherlini's, computed in 10.17-10.18 (hienergy5.py, the horizon's radial set and normally hyperbolic trapping).
+ (c) (what is left) Definitions 5.13, 5.15, 5.18, Theorems 10.1 and 11.1, Proposition 13.18 and Corollary 13.17 hold at
+     n = 4 with (a)'s numerals, on one reading: that the propagation, radial point and energy estimates of sections 7-8,
+     quoted in part from [HV26], [Hin23c], [Hin24a] and [Hin21], hold at n = 4 once their symbols are five-dimensional
+     -- the same reading as 10.53(e)'s for Theorem 9.16 and 10.56(a)'s for [Hin26a] section 5.2.
+
+B3 is deduced at source, its numerals all accounted for; the one reading left is (c)'s. Labels: READ (1)-(5); deduced
+(a)-(c); nothing computed or proved here.
+
+### 10.59 The remaining items: (2.27), the iota+ spectrum, 10.38(a), and the gluing (D127)
+
+*READ.* [Hin26] (arXiv:2606.28253v2; printed page = PDF page - 4): p. 59, section 2.3 works on "M := [R_t* x X; {-oo,
++oo} x dX], X := R^n_x" with the b-density |dx/<x>^n|; p. 61, Proposition 2.25, its condition (2.27) "beta_I >=
+beta_iota - beta_K, beta_I > beta_iota - min(1, min Re E_K)". [CD03] (Chrusciel-Delay, gr-qc/0301073v2): p. 4, "These
+are the general relativistic constraint equations whatever the space-dimension n"; Theorem 7.7 (p. 34), the constraint
+map onto its range orthogonal to the KIDs, in weighted spaces on R^n, "k > n/2"; Remark 8.2 (p. 36), on the gluing to
+Kerr at infinity: "The argument below carries over to any dimension, the only element missing is an equivalent of
+Proposition F.1 for the family of translated, rotated, and boosted Myers-Perry metrics"; p. 55, symmetric gluings by
+uniqueness: "Uniqueness implies that the solution will be even".
+
+*Deduced.*
+
+ (a) ([Hin26] (2.27) at n = 4; 10.46(e)) Proposition 2.25 is stated on X = R^n with the b-density |dx|/<x>^n, so (2.27)
+     holds at n = 4 as printed; the density shifts between it and the iteration's spaces are n/2 (10.42(e), 10.58(a)).
+     10.46(e)'s reading is discharged.
+ (b) (the iota+ spectrum between 5/2 and 3 + eps_+; 10.47(b)) Where those resonances lie is not needed. Theorem 12.3's
+     forward map carries whatever finitely many there are (his Proposition 9.2(2), on 10.37(c)'s reading), and their
+     exponents feed K+ through 10.46(ii)'s bookkeeping, which sharp5.py K3 checks for every iota+ exponent in
+     [alpha_min, 3] -- a whole interval, not a list -- with no physical state recorded. So 10.47(b)'s "above 5/2 not
+     computed" leaves nothing open beyond Proposition 9.2(2)'s finiteness.
+ (c) (10.38(a)'s scaling; the h-terms of (5.28)) The exceptional exponent that 10.38(a) puts at 2 I0 - 1 = 2 enters only
+     through min Re of the class's iota+ index sets (10.46), alpha_min = 3/2 + (1 - e_Ups) gam_Ups = 1.5099... If the
+     h-couplings carry the further factor x_I that 10.38(a) and 10.57(b) count, the exponent rises by 1/2 or more;
+     either way it is at least 2 > alpha_min, so the conclusions do not depend on the reading. The exponent itself stays
+     a reading.
+ (d) (C-ii, the gluing) The record's data after the shell are, on an annulus far out, an O(lam) perturbation of
+     Tangherlini of mass mu_end (10.50). [CD03]'s method is dimension-free (its p. 4 and Remark 8.2), its obstruction
+     the KIDs; on Tangherlini the G-invariant KIDs are d_t's alone (Proposition 10.40(i): among the fifteen Killing
+     fields of 4 + 1 Minkowski only d_t is G-invariant, and Tangherlini's are d_t and so(4)'s rotations, none of those
+     G-invariant), whose charge is the mass. So the gluing needs only the mass family of Tangherlini as its reference
+     family -- [CD03]'s missing Proposition F.1 being, for that one-parameter family, the mass charge's monotone
+     dependence on the parameter -- and it can be done G-equivariantly: the constraint map commutes with G, the solution
+     is unique in the complement of the KIDs, and so it is G-invariant, as [CD03] obtains parity by uniqueness. C-ii is
+     deduced on [CD03] at source; the n = 4 weighted estimates behind its Theorem 7.7 are as printed (k > n/2).
+
+Labels: READ (the quotations); deduced (a)-(d); nothing computed or proved here.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

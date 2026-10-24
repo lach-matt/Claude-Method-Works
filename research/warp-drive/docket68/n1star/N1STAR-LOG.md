@@ -3976,3 +3976,15 @@ attributed to Corollary 9.39, its Theorem 11.1 clause made grammatical; 10.50(f)
 *Notes.* (1) The verifier recomputed 1.94137 x 10^-8 from the closed form z l/(2 (l + 1)(2 l + 1)) at l = 50 and checked
 E2's certificate numerically at 61 kappa up to 10^15 kappa*. (2) It did not check C-ii's gluing or Lemma 6.2's
 oscillating data, nor anything after d479898.
+
+**D127 (2026-10-24): B3 deduced at source; (2.27), the iota+ spectrum, 10.38(a) and C-ii closed (10.58-10.59).**
+
+[Hin26c] sections 5, 7, 8, 10, 11 and 13 read at source: section 7's estimates use the principal symbol and the
+thresholds only, (2.27) is Minkowski algebra, (5.7)'s "1" is (n - 1)/2, and every other n = 3 numeral is a density
+shift, rho_I^n rho_+^(n+1) rho_K at n = 4. [Hin26] Proposition 2.25 is stated on R^n, which discharges 10.46(e)'s
+(2.27). The iota+ resonances between 5/2 and 3 + eps_+ need no location (sharp5.py K3 sweeps the interval); 10.38(a)'s
+exponent is at least 2 > alpha_min under either reading; and [CD03] is dimension-free, so the gluing of C-ii needs only
+the Tangherlini mass family and is G-equivariant by uniqueness. Phase B now leaves one kind of reading, named in ROUTES
+4.59: the analytic estimates of the companion papers at n = 4 given five-dimensional symbols.
+
+*Notes.* (1) Nothing computed here. (2) The fifty-fifth verifier is running on D123-D126.
