@@ -7376,34 +7376,35 @@ Boyer-Lindquist time 0"; p. 319, Remark 13.2 (the verifier's reading: b0 replace
      order in v, K = v N Hess_h(x) + O(v^2) up to sign, Hess_h(x)_ij = -Gamma(h)^x_ij, which for Schwarzschild in
      isotropic coordinates is odd and of order m r^-2, so r |K^-| is of order r^-1 and (8.1) would force alpha_- <= 1 <
      alpha -- though p. 38 makes boosted Kerr a reference family; and the Kerr value alpha_- = 2 of p. 72 is that of
-     Kerr's even K, of order r^-3 (p. 77). We read (8.1) with k^+ (deduced; D133). (The fifty-ninth verifier read
-     boosted Kerr as meeting (8.1) with alpha_- = 2; that drops (8.1)'s factor r, and the reading stands, D143.) At n =
-     4, with alpha = 2 (inside (E.5b)'s (1, 2]), (E.9) asks alpha_- > 2. The members: in static coordinates their
-     spatial metrics differ from the Euclidean one at order r^-2 and are even, their shifts odd and of order r^-3, so k
-     = k^+ is O(r^-4) and alpha_- = 3; a boost maps even and odd parts to themselves and a translation adds a derivative
-     of the even part, of order r^-3 (alpha_- = 3 > alpha, alpha + alpha_- = 5 > n - 1 = 3), as [CD03] p. 77 argues for
-     Kerr in Boyer-Lindquist coordinates (deduced for Myers-Perry the same way). The data: on 10.50's tau-slice they are
-     exact Tangherlini outside a compact set, but tau = v - r = t + (r* - r) = t - mu/r + O(r^-3) (exterior5.py X1), so
-     there their k is even and of order mu r^-3: alpha_- = 2, the borderline (E.9) excludes. So the gluing is done on a
-     Cauchy surface Sigma'' of their development that is the tau1-slice on a large ball and a static slice {t = t1} of
-     the exterior Tangherlini metric beyond a larger one: the development is that metric there (10.50(c)), and t - t1
-     interpolated by a cut-off between 0 and -mu/r + O(r^-3) has a gradient of size mu r^-2, so Sigma'' is spacelike. It
-     is [Hin26]'s own initial surface near infinity (his section 5.7.1, "Initial data at Boyer-Lindquist time 0"), his
-     Remark 13.3 returning to a tau-level set. On Sigma'' the data have gamma^- = 0 and k = 0 outside a compact set, and
-     a perturbation (gamma~, k~) with |gamma~^-| + r |d gamma~^-| + r |k~^+| <= C r^(-alpha_-), alpha_- > 2, keeps
-     (E.9). G-invariance, which makes gamma and k even, does not give this: it removes gamma^-, not k^+. (The class's
-     gluing, 10.50(c) and 10.59(d), needs no parity condition. On the data, [CD03] uses (E.9) only for the convergence
-     of the charges J^munu, angular momentum and centre of mass ((E.19), (E.20b), O(R_0^(n - 1 - alpha - alpha_-));
-     Proposition E.1, pp. 73-74); the energy-momentum p^mu converges without it ((E.17), (E.20a); D138). Its two other
-     uses fall on the reference family, not the data: that Lorentz transformations preserve (E.5) and (E.9), and that
-     the integral over T_R in (E.22) vanishes for J^munu "again by parity considerations" (p. 74) -- the steps to (E.23)
-     and so to the transformation law (E.14) that (a) uses -- and the Myers-Perry members meet (E.9) with alpha_- = 3,
-     as above. And (E.20b)'s bulk term (1/(16 pi)) int_(r >= R_0) T X, which for a linear KID (E.12)'s bound alone would
-     not make finite, vanishes: the data are vacuum, as Theorem 8.1 assumes ("suppose that (K, g) satisfies the vacuum
-     constraint equations", p. 35) and as g_lam's development is (D143). The charge of a KID Y on a sphere about the
-     origin is linear in Y and equivariant, so on G-invariant data it is the charge of Y's average over the compact G, a
-     multiple of d_t (10.50): the pairings with the other KIDs vanish at every radius, and the mass converges for alpha
-     > n/2 - 1 = 1, (E.17)'s O(R_0^(n - 2 - 2 alpha)) (deduced; D136).)
+     Kerr's even K, of order r^-3 (its evenness on p. 77, the order from the shift's r^-2). We read (8.1) with k^+
+     (deduced; D133). (The fifty-ninth verifier read boosted Kerr as meeting (8.1) with alpha_- = 2; that drops (8.1)'s
+     factor r, and the reading stands, D143.) At n = 4, with alpha = 2 (inside (E.5b)'s (1, 2]), (E.9) asks alpha_- > 2.
+     The members: in static coordinates their spatial metrics differ from the Euclidean one at order r^-2 and are even,
+     their shifts odd and of order r^-3, so k = k^+ is O(r^-4) and alpha_- = 3; a boost maps even and odd parts to
+     themselves and a translation adds a derivative of the even part, of order r^-3 (alpha_- = 3 > alpha, alpha +
+     alpha_- = 5 > n - 1 = 3), as [CD03] p. 77 argues for Kerr in Boyer-Lindquist coordinates (deduced for Myers-Perry
+     the same way). The data: on 10.50's tau-slice they are exact Tangherlini outside a compact set, but tau = v - r = t
+     + (r* - r) = t - mu/r + O(r^-3) (exterior5.py X1), so there their k is even and of order mu r^-3: alpha_- = 2, the
+     borderline (E.9) excludes. So the gluing is done on a Cauchy surface Sigma'' of their development that is the
+     tau1-slice on a large ball and a static slice {t = t1} of the exterior Tangherlini metric beyond a larger one: the
+     development is that metric there (10.50(c)), and t - t1 interpolated by a cut-off between 0 and -mu/r + O(r^-3) has
+     a gradient of size mu r^-2, so Sigma'' is spacelike. It is [Hin26]'s own initial surface near infinity (his section
+     5.7.1, "Initial data at Boyer-Lindquist time 0"), his Remark 13.3 returning to a tau-level set. On Sigma'' the data
+     have gamma^- = 0 and k = 0 outside a compact set, and a perturbation (gamma~, k~) with |gamma~^-| + r |d gamma~^-|
+     + r |k~^+| <= C r^(-alpha_-), alpha_- > 2, keeps (E.9). G-invariance, which makes gamma and k even, does not give
+     this: it removes gamma^-, not k^+. (The class's gluing, 10.50(c) and 10.59(d), needs no parity condition. On the
+     data, [CD03] uses (E.9) only for the convergence of the charges J^munu, angular momentum and centre of mass
+     ((E.19), (E.20b), O(R_0^(n - 1 - alpha - alpha_-)); Proposition E.1, pp. 73-74); the energy-momentum p^mu converges
+     without it ((E.17), (E.20a); D138). Its two other uses fall on the reference family, not the data: that Lorentz
+     transformations preserve (E.5) and (E.9), and that the integral over T_R in (E.22) vanishes for J^munu "again by
+     parity considerations" (p. 74) -- the steps to (E.23) and so to the transformation law (E.14) that (a) uses -- and
+     the Myers-Perry members meet (E.9) with alpha_- = 3, as above. And (E.20b)'s bulk term (1/(16 pi)) int_(r >= R_0) T
+     X, which for a linear KID (E.12)'s bound alone would not make finite, vanishes: the data are vacuum, as Theorem 8.1
+     assumes ("suppose that (K, g) satisfies the vacuum constraint equations", p. 35) and as g_lam's development is
+     (D143). The charge of a KID Y on a sphere about the origin is linear in Y and equivariant, so on G-invariant data
+     it is the charge of Y's average over the compact G, a multiple of d_t (10.50): the pairings with the other KIDs
+     vanish at every radius, and the mass converges for alpha > n/2 - 1 = 1, (E.17)'s O(R_0^(n - 2 - 2 alpha)) (deduced;
+     D136).)
  (c) (C1-C2 without the class) Let (gamma', k') be the data on (b)'s Sigma'' of the glued development of 10.50(c)-(d) --
      which contains g_lam on Omega and is exact Tangherlini outside a compact set of Sigma'' (D136) -- plus any
      perturbation that satisfies the constraints, is small in the norms of 10.62(d) and has (b)'s parity or decays
@@ -7698,10 +7699,12 @@ proof uses s >= n - 1. Step by step:
      every n. Proposition 5.10's k >= floor(n/2) + 1 is 3 at n = 4.
  (b) (KIDs, family, cut-off.) e^(i), i = 1, ..., 15 (D1); Q in R^15; 10.63(a)'s translated, rotated and boosted
      Myers-Perry metrics for the Kerr family; chi in C^oo(R^4).
- (c) ((8.3)-(8.5).) beta := min(alpha, n - 2), which is 2 for the glued data's alpha = 2. t = k + 6 embeds (D3). Theorem
-     5.6 with s = t + 2 gives (8.5) as printed, for k >= 3 (D3), which smooth data meet. The printed s = t - 1 gives
-     (8.4)'s source a fortiori, but a solution only in rH^(t-3) x rH^(t-2) at n = 3; s = t + n - 2 is the index (8.5)
-     states. This is a reading of [CD03]'s index, recorded.
+ (c) ((8.3)-(8.5).) beta := min(alpha, n - 2), which is 2 for the glued data's alpha = 2: after the scale-down, (g -
+     delta)(R x) and R K(R x) are O(R^-alpha) for the data, and the family's g_Q - delta, of order r^-(n-2) (the mass
+     term mu r^(2-n)), and K_Q, of order r^-(n-1), give O(R^-(n-2)) (deduced; [CD03]'s printed min(alpha, 1) is this at
+     n = 3; D147). t = k + 6 embeds (D3). Theorem 5.6 with s = t + 2 gives (8.5) as printed, for k >= 3 (D3), which
+     smooth data meet. The printed s = t - 1 gives (8.4)'s source a fortiori, but a solution only in rH^(t-3) x rH^(t-2)
+     at n = 3; s = t + n - 2 is the index (8.5) states. This is a reading of [CD03]'s index, recorded.
  (d) ((8.6)-(8.7).) Each pairing's main term is its charge difference times that charge's own power under Phi_R (D2):
      R^-2 for E and P at n = 4, R^-3 for J and E C. (8.7) prints R^-1 for every i at n = 3, where D2 gives R^-1 and
      R^-2; we read it as a misprint for J and E C. With R^-2 for them at n = 3 the printed (8.6) error O(R^-2 beta) =
@@ -7874,12 +7877,12 @@ every page of each carried passage, and each hit is read against the sections.
 
 **Proposition 10.51 (computed; `censusweep.py`).** On the alphaXiv full texts (fetched 2026-10-24) the patterns S^2,
 S^3, R^3, R^4, R^10, 3 + 1, "dimension", "k-dimensional", n - 1, n - 2, n/2, n + 1, a 7 x 7 count and the densities
-|x|^3, r^2 |d..|, x^-6 give 278 hits on 205 pages. By paper: [Hin23a] section 3 (pp. 9-33), 104 hits; [Hin26a] section
-5.2 (pp. 38-66), 25; [Hin26c] sections 7-8 and 9.3 (pp. 114-157, 174-193), 26; [Hin26]'s boost sections (pp. 77-81,
-108-110, 238-262, 267-278, 301-326), 65; [HHV21] pp. 89-93, 10; [CD03] Theorem 8.1, section 8.2 and Appendices E-F (pp.
-35-38, 71-77), 48. (D143: the page-marked copy's markers close their pages; D139 read them as opening them, which put
-its CD03 window, then pp. 35-37 and 71-77, one page late and gave 40, and 270 in all. The window now also takes in p.
-38, section 8.2's reference family, which 10.63(a) uses.)
+|x|^3, r^2 |d..|, x^-6 give 278 hits on the 205 pages swept, 81 of them with a hit. By paper: [Hin23a] section 3 (pp.
+9-33), 104 hits; [Hin26a] section 5.2 (pp. 38-66), 25; [Hin26c] sections 7-8 and 9.3 (pp. 114-157, 174-193), 26;
+[Hin26]'s boost sections (pp. 77-81, 108-110, 238-262, 267-278, 301-326), 65; [HHV21] pp. 89-93, 10; [CD03] Theorem 8.1,
+section 8.2 and Appendices E-F (pp. 35-38, 71-77), 48. (D143: the page-marked copy's markers close their pages; D139
+read them as opening them, which put its CD03 window, then pp. 35-37 and 71-77, one page late and gave 40, and 270 in
+all. The window now also takes in p. 38, section 8.2's reference family, which 10.63(a) uses.)
 
 *Read against the sections.*
 
@@ -7945,8 +7948,9 @@ and where they are computed. The 31 C items are standard functional-analytic or 
 out. The 60 B items are the core of what is not done: each says that a proof of Hintz's, or of a companion paper, runs
 with the computed five-dimensional quantities in place. Writing each out line by line is the check 8.8 names. Some B
 items written before 10.64-10.68 are since carried by modification at source and stay listed as written: 10.22 (e) by
-10.65; 10.48 (c) by 10.64; 10.53 (e), 10.55 (b) and 10.58 (c) by 10.67. The 38 ? items are mostly summary sentences
-('deduced, not proved') and equivariance or uniqueness steps.
+10.65; 10.48 (c) by 10.64; 10.53 (e), 10.55 (b) and 10.58 (c) by 10.67. The 38 ? items are read one by one in 10.73: ten
+summaries, two four-dimensional remarks, and the rest bookkeeping, applications, elementary, symmetry and harmonic
+steps, and one modification step.
 
 The sort is a first pass by a fixed rule, by extraction, not adjudicated item by item. The extractors flagged their
 judgement calls: 10.56 (a), 10.59 (a), 10.61 (e), 10.65 (b), 10.67 (a) and the ? rows.
@@ -7964,17 +7968,19 @@ input, the input READ from the source that states it.
 **Lemma 10.52 (proved).** Let X, Y be Banach spaces and p -> T_p a map from a topological space into the bounded
 operators L(X, Y), continuous in operator norm.
 
- (P1) (Openness.) If T_p0 is invertible, T_p is invertible for p near p0 and p -> T_p^-1 is continuous in operator
-     norm. *Proof.* T_p = T_p0 (I + T_p0^-1 (T_p - T_p0)), and ||T_p0^-1 (T_p - T_p0)|| < 1 near p0, so the Neumann
-     series inverts the second factor; its inverse depends continuously on p, with ||T_p^-1|| <= ||T_p0^-1|| / (1
-     - ||T_p0^-1|| ||T_p - T_p0||). []
+ (P1) (Openness.) If T_p0 is invertible, T_p is invertible for p near p0 and p -> T_p^-1 is continuous in operator norm.
+     *Proof.* T_p = T_p0 (I + T_p0^-1 (T_p - T_p0)), and ||T_p0^-1 (T_p - T_p0)|| < 1 near p0, so the Neumann series
+     inverts the second factor; with ||T_p^-1|| <= ||T_p0^-1|| / (1 - ||T_p0^-1|| ||T_p - T_p0||), a bound uniform near
+     p0; and A^-1 - B^-1 = A^-1 (B - A) B^-1 gives ||T_p^-1 - T_q^-1|| <= ||T_p^-1|| ||T_p - T_q|| ||T_q^-1||, so p ->
+     T_p^-1 is continuous. []
  (P2) (Semicontinuity of the kernel.) If T_p0 is Fredholm of index 0 with dim ker T_p0 = N, there is V in L(X, Y) of
      rank N with T_p0 + V invertible. Then dim ker T_p <= N for p near p0, and if N independent elements of ker T_p are
      given at each such p, they span it. *Proof.* Let h_1, ..., h_N span ker T_p0 and f_1, ..., f_N span a complement of
      ran T_p0, of dimension N by index 0. Take l_j in X* with l_j(h_i) = delta_ij (Hahn-Banach), and V = sum f_j l_j.
      Then T_p0 + V is injective: (T_p0 + V)u = 0 forces T_p0 u = -sum l_j(u) f_j in ran T_p0 meet the complement, so
-     l_j(u) = 0 and T_p0 u = 0; then u = sum c_i h_i with c_i = l_i(u) = 0. It is onto, since its range contains ran
-     T_p0 and every f_j = (T_p0 + V) h_j. By (P1), T_p + V is invertible near p0. On ker T_p, (T_p + V)u = Vu, so u =
+     l_j(u) = 0 and T_p0 u = 0; then u = sum c_i h_i with c_i = l_i(u) = 0. It is onto: for y = T_p0 x, u = x - sum_i
+     l_i(x) h_i gives (T_p0 + V) u = T_p0 x + sum_j f_j (l_j(x) - l_j(x)) = y, as T_p0 h_i = 0 and l_j(h_i) = delta_ij;
+     and f_j = (T_p0 + V) h_j; these span Y. By (P1), T_p + V is invertible near p0. On ker T_p, (T_p + V)u = Vu, so u =
      (T_p + V)^-1 V u and ker T_p embeds into ran V, of dimension N. []
  (P3) (Strict inequalities.) If F_p is a family of continuous real functions on a compact set K, with p -> F_p
      continuous into C^0(K), and F_p0 > 0 on K, then F_p > 0 on K for p near p0. *Proof.* min_K F_p0 = c > 0, and
@@ -8011,9 +8017,10 @@ operators L(X, Y), continuous in operator norm.
      final-parameter continuity. 10.54 (b)-(c) are computed (uniform5.py) and monotone. 10.63 (d) is now computed
      (gluing5.py D4).
 
-So the C steps are at proof level given their continuity inputs: (P1)-(P3) are proved here, (P4)-(P5) are textbook
-theorems, and each input is a statement READ from the source that makes it. What (ii) of 8.8 leaves is the 60 B steps,
-the A steps' hypothesis checks and the 38 undecided rows.
+So the twenty C steps of (i)-(v) are at proof level given their continuity inputs: (P1)-(P3) are proved here, (P4)-(P5)
+are textbook theorems, and each input is a statement READ from the source that makes it; the eleven of (vi) are placed
+as (vi) says, 10.21 (e) resting on a modification step and so on the censuses (D147). What (ii) of 8.8 leaves is the 60
+B steps, the A steps' hypothesis checks and the 38 undecided rows.
 
 Labels: proved (Lemma 10.52 (P1)-(P3)); cited ((P4), (P5), [HPS77]); deduced (the map); READ (the continuity inputs).
 
@@ -8040,19 +8047,24 @@ calculus being [Hin23d]'s in every dimension (10.65).
      10.20 (b), 10.23 (e), 10.24 (c), 10.25 (b), 10.32 (d), 10.48 (d), 10.49 (d), 10.53 (a), (d), 10.56 (a), 10.57 (d),
      10.58 (a), (b), 10.59 (a), (d), 10.64 (a), (i), 10.65 (a)-(c), 10.66 (a), 10.67 (c), 10.68 (a).
  (ii) Four were partial and are placed now. 10.49 (b): Proposition 5.25's proof is a triangular linear system in a
-     frame, (h~_1)_ij from (5.80), then (h~_1)_0j and (h~_1)_00 from (5.81), each with coefficient -(1/2) e_0 t_IVP. The
-     same equations hold for i, j = 1, ..., n, so it holds at n = 4. 10.40 (c) and 10.41 (c): Lemmas 10.13 and 14.6 are
-     Hardy inequalities in t at fixed (r, omega), for any weighted density on X, with general s through the 3b calculus,
-     so they hold in any dimension. 10.41 (d): its inputs, [Hin26c] Theorems 9.41, 9.16 and 9.5 (6) at n = 4, are
-     10.53's and 10.67's.
+     frame, (h~_1)_ij from (5.80), then (h~_1)_0j and (h~_1)_00 from (5.81), with coefficient -e_0 t_IVP for (h~_1)_0j
+     (g_0^00 = -1 in the frame) and -(1/2) e_0 t_IVP for (h~_1)_ij and (h~_1)_00, none zero (D147). The same equations
+     hold for i, j = 1, ..., n, so it holds at n = 4. 10.40 (c) and 10.41 (c): Lemmas 10.13 and 14.6 are Hardy
+     inequalities in t at fixed (r, omega) -- Lemma 14.6 for the density |dt* dx|, Lemma 10.13 for any weighted
+     b-density, the weight being arbitrary -- with general s through the 3b calculus, so they hold in any dimension.
+     10.41 (d): its inputs, [Hin26c] Theorems 9.41, 9.16 and 9.5 (6) at n = 4, are 10.53's and 10.67's.
  (iii) 10.38 (a), that the h-dependent couplings at I+ fall by r^-(1/2) in five dimensions, is computed for [Hin23a]'s
-     operator (exterior5.py X5, X7). For [Hin26]'s gauge it is deduced: his gauge modifications are independent of h, as
-     [Hin23a]'s (3.30) shows for that gauge.
+     operator (exterior5.py X5, X7). For [Hin26]'s gauge it is now READ at source (D148): his E^Ups_g0 and E^C_g0
+     ((4.1)-(4.2), (4.7), pp. 81-82) are built from the background g_0 and the fixed 1-forms c^Ups, c^C alone, and enter
+     P(g, g_0) ((4.3), (4.8)) and its linearization (4.13) with g_0's coefficients, so the h-dependent terms of 2
+     L_(g,g_0) -- box_g, 2 E^C_g0 delta_g G_g + 2 (delta*_g0 - delta*_g) delta_g G_g = 2 (delta*_(g_0,E^C) - delta*_g)
+     delta_g G_g, 2 R_g and 2 delta*_(g_0,E^C)(C_(g,g_0) - Y_(g,g_0)) -- are [Hin23a]'s (3.30) term by term, E^C of the
+     same order r^-1 (c^C = r^-1 (dt - v_C dr)); the orders X5 and X7 compute carry, and 10.38 (a) is placed.
  (iv) 10.51 (c) cites the record's own Theorem A and Proposition 6.5, not an outside general-n result. The rule misfiled
      it; it holds as stated there.
 
-So every A step has its hypotheses placed, 10.38 (a) with one deduced link. With 10.71, the A and C steps of (ii) are at
-proof level given their READ inputs. What (ii) leaves is the 60 B steps and the 38 undecided rows.
+So every A step has its hypotheses placed, 10.38 (a)'s link READ at source since (D148). With 10.71, the A and C steps
+of (ii) are at proof level given their READ inputs. What (ii) leaves is the 60 B steps and the 38 undecided rows.
 
 Labels: READ (the three proofs above); deduced (the placing); nothing computed or proved here.
 
@@ -8082,16 +8094,20 @@ u(r)||_(C^m(S^3)) <= C_m w_i(r) for i = 0, 1 and every m.
  (ii) Let xi_j(r) = A_j(r)(P_j u(r), d_r P_j u(r)), A_j(r) linear into an eigenspace of a type Laplacian Lambda'
      (possibly of another bundle) with eigenvalue kappa'_j^2 <= C (1 + kappa_j^2), and ||A_j(r)(v_0, v_1)||_(L^2) <= C
      (1 + kappa_j^2)^M w(r) sum_i ||v_i||_(L^2)/w_i(r). Then sum_j xi_j(r) converges in every C^m(S^3), uniformly in r
-     in J, to xi(r) with ||xi(r)||_(C^m) <= C_m w(r). If the A_j are C^1 in r with the same bounds on d_r A_j, the
-     convergence holds in C^1 in r, and a differential operator in (r, omega) of order one passes to the sum.
-
+     in J, to xi(r) with ||xi(r)||_(C^m) <= C_m w(r). If moreover the hypothesis on u holds for i = 2 with a weight w_2,
+     and the A_j are C^1 in r with ||(d_r A_j(r))(v_0, v_1)|| <= C (1 + kappa_j^2)^M w'(r) sum_(i<=1) ||v_i||/w_i(r) and
+     ||A_j(r)(v_1, v_2)|| <= C (1 + kappa_j^2)^M w'(r) (||v_1||/w_1(r) + ||v_2||/w_2(r)), then sum_j d_r xi_j converges
+     likewise to d_r xi with ||d_r xi(r)||_(C^m) <= C_m w'(r), and a differential operator in (r, omega) of order one
+     passes to the sum (D147).
 *Proof.* (i) P_j commutes with d_r and with Lambda, so P_j v = (1 + kappa_j^2)^-N P_j (1 + Lambda)^N v and ||P_j
 v||_(L^2) <= (1 + kappa_j^2)^-N ||(1 + Lambda)^N v||_(L^2) <= C_N (1 + kappa_j^2)^-N ||v||_(C^(2N)). On the eigenspace
 the elliptic estimate gives ||P_j v||_(H^(2q)) <= C_q (1 + kappa_j^2)^q ||P_j v||_(L^2), and H^(2q)(S^3) is in C^m for
 2q > m + 3/2 (Sobolev). Take v = d_r^i u(r). (ii) The same two steps for Lambda' give ||xi_j(r)||_(C^m) <= C (1 +
 kappa_j^2)^(q + M - N) w(r) by (i) in L^2. The number of eigenvalues of Lambda below K, counted with multiplicity, is
 O(K^(3/2)) (Weyl's law on S^3), so sum_j (1 + kappa_j^2)^-s converges for s > 3/2, and N > q + M + 3/2 gives the sum.
-The last sentence is the same bound for d_r xi_j and uniform convergence of the derivatives. []
+For the last sentence, d_r xi_j = (d_r A_j)(P_j u, d_r P_j u) + A_j(d_r P_j u, d_r^2 P_j u), each term bounded as before
+by (i) with i <= 2 and the two bounds on A_j, and uniform convergence of the sum of derivatives gives the derivative of
+the sum. []
 
 **Lemma 10.55 (equivariance; proved).** Let G be a compact group acting on Banach spaces X and Y by linear isometries,
 strongly continuously (g -> g x continuous for each x).
@@ -8114,9 +8130,12 @@ strongly continuously (g -> g x continuous for each x).
      x||_t <= C theta^(t - s) ||x||_s, and for x in X^G, ||(I - Pi S_theta Pi) x||_s = ||Pi (I - S_theta) x||_s <= ||(I
      - S_theta) x||_s. []
 
-The rotations act isometrically and strongly continuously on the weighted b-Sobolev spaces of the record (their norms
-are built from rotation-invariant data, and continuity on a dense set extends), so the lemma applies to them with G the
-record's symmetry group.
+The rotations act isometrically and strongly continuously on the record's weighted b-Sobolev spaces, normed by
+rotation-invariant data (rho d_rho and the round Laplacian of S^3 near infinity, the static frame elsewhere), equivalent
+to any other choice. *Proof.* The rotations commute with these data, so act isometrically. For u smooth and compactly
+supported, g -> g u is continuous into every such space, its derivatives being uniformly continuous; such u are dense,
+and ||g u - h u|| <= 2 ||u - u_k|| + ||g u_k - h u_k|| for isometries, so continuity extends. [] So the lemma applies
+with G the record's symmetry group (D147).
 
 *Placed (deduced).* By DEDUCTIONS.tsv's rows, now with a column `final`:
 
@@ -8130,12 +8149,12 @@ record's symmetry group.
      its definition. 10.19 (c): the bicharacteristics' fates by C against 4 mu are the computed (iv). 10.21: the
      reflection identity is K2's exact check. 10.26 (b): c is spherically symmetric, so the case is void. 10.28 (i):
      coefficients in rho^2 C^oo and Christoffel symbols of order rho^3 give the stated orders by counting. 10.36 (a):
-     computed in mp5.py, with the equivariance g_(O A O^T)(O x) = O g_A(x) O^T that M2 computes for every basis
-     rotation, so the Kerr-Schild Myers-Perry family that route B uses is equivariant and the reading there is
-     discharged. 10.39 (f): the augmentation tensors are chi_K times the states, with no t*^-1 or log t* term. 10.41
-     (a): Definition 5.13 admits delta = 0 (READ), and alpha_sf + n/2 = alpha_sf + 2. 10.57 (c): Theorem 3.35 is not
-     invoked, the iteration's weight lying below the radiative order (10.48 (a), READ).
-
+     computed in mp5.py, whose M2 computes, symbolically in A, the invariance and covariance under so(4) of the blocks
+     the Kerr-Schild Myers-Perry metric is built from, and the full metric's identity at three spins; the family's
+     equivariance g_(O A O^T)(O x) = O g_A(x) O^T at every spin follows from the blocks' (deduced), and the reading
+     there is discharged (D147). 10.39 (f): the augmentation tensors are chi_K times the states, with no t*^-1 or log t*
+     term. 10.41 (a): Definition 5.13 admits delta = 0 (READ), and alpha_sf + n/2 = alpha_sf + 2. 10.57 (c): Theorem
+     3.35 is not invoked, the iteration's weight lying below the radiative order (10.48 (a), READ).
  (iii) Applications of dimension-free results (3), now with their hypotheses placed. 10.22 (b), (d): Lemmas 3.5 and 3.7,
      READ dimension-free at source (10.65 (c)), and Proposition 5.16's data in a compact set of C^oo by (i) there and c
      in rho_sf C^oo. 10.49 (c): [SR89]'s abstract theorem, its assumptions (1)-(4) placed at 10.47 (d), the construction
@@ -8161,14 +8180,19 @@ record's symmetry group.
      being parallel, and S^3 having none); so M = 0. The finitely many l <= 1 terms need no bound. u (and h) are smooth
      across the horizon and conormal at infinity, where the rotations are b-vector fields, which gives the hypothesis
      with the weights of 10.27 and 10.33. The formula for A_a is covariant on the orbit space, so in ingoing coordinates
-     it holds with f_a and H_T smooth across r = r_h, and each term, so the sum, is smooth there.
-
+     it holds with f_a and H_T smooth across r = r_h, and each term, so the sum, is smooth there. delta* passes to the
+     sums by Lemma 10.54 (ii)'s second part (D147): in 10.33 (a), h conormal with frame components O(r^-eps) has (r
+     d_r)^i of its coefficients O(r^-eps), so w_i = r^(-eps-i) for i <= 2; A_r's coefficients 2r/k and 2r^2/k^2 multiply
+     f_r and d_r H_T, so w = r^(1-eps) and, for the derivative, w' = r^(-eps), uniformly in l since k^2 >= 8; in 10.27
+     (a) u is smooth and the r-interval compact.
  (vii) A modification step (1): 10.40 (a), his Lemmas 10.9-10.11 carried with the readings; it joins the B rows of
      10.74.
 
 So of the 38, twelve have no step of their own, 25 are at proof level given their inputs (bookkeeping 10, applications
 3, elementary 5, symmetry 5, harmonics 2), and one is a modification step. With 10.71-10.72, every deduced row of
-10.12-10.69 that is not a modification step is at proof level given its computed and READ inputs.
+10.12-10.69 that is not a modification step is at proof level given its computed and READ inputs, with one exception:
+10.21 (e) rests on a modification step (10.71 (vi)) (D147); 10.38 (a)'s deduced link is READ at source since (10.72
+(iii); D148).
 
 Labels: computed (Proposition 10.53); proved (Lemmas 10.54 and 10.55); cited (Weyl's law, the elliptic estimate, Sobolev
 embedding, Frobenius); deduced (the placing).
@@ -8183,10 +8207,11 @@ by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
 *Measured.* Of the 61 rows, 50 name the places where the dimension changes the proof, 85 places in all, and 11 name
 none: the step is the source proof as it stands. The 88 placements of the five-dimensional values are: 26 at a computed
-check, 50 at an earlier section where they are computed or deduced, 11 arithmetic in n (n/2 = 2, (n - 1)/2 = 3/2,
-r^(n-1) dr = r^3 dr, rho^-n, 4 + 6 + 1 = 11, R^(n,1)) and 1 the record's choice (gamma_Ups = 1/100). 30 rows rest on a
-reading of a [Hin26c], [Hin26a] or [Hin23a] theorem at n = 4, and 10.64-10.68 have since carried each of those papers'
-dimension-dependent places by census and modification.
+check, 50 at an earlier section where they are computed or deduced, 11 arithmetic in n (an entry naming an instrument or
+a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n, 4 +
+6 + 1 = 11, R^(n,1)) and 1 the record's choice (gamma_Ups = 1/100). 30 rows say they rest on a reading -- of a source
+theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
+dimension-dependent places by census and modification (D147).
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8203,13 +8228,13 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Eleven modification steps written out at n = 4 (D146)
+### 10.75 Sixteen modification steps written out at n = 4 (D146, D148)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. The eleven below are those whose source proofs
-are at most about two pages and are already matched step by step in the sections named, or short enough to match here;
+step so written out rests on its inputs, not on a census of its source. The sixteen below are those whose source proofs
+are at most about five pages and are already matched step by step in the sections named, or short enough to match here;
 each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69).
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
@@ -8286,12 +8311,60 @@ each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 tex
      carried from his proof but computed at n = 4: rho d_rho - 3/2 in place of rho d_rho - 1, S-bar's spectrum, and the
      differences (6.7) gaining a power (Proposition 10.18 (i), (ii), (iv); thresh5.py).
 
-So eleven of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. The other 50 carry proofs of several pages each, in [Hin26] sections 5-13,
+ (xii) 10.28 (a), [Hin26] Proposition 6.15 (pp. 125-128; D148). His proof has four parts and a regularity paragraph: the
+     time translation (Killing); the translations (f_b's order by Lemma 6.14, the correction by Lemma 6.13, 1 no s1
+     root, the symmetric gradient's order); the boosts (four terms in f-breve_b, the first zero, Lemma 2.15 for the
+     logarithm); the rotations; and the regularity in b by differentiating box^Ups(0) omega' = -f_b and inverting with
+     Lemma 6.13 against an operator difference in rho^3 Diff^2_b. 10.28 (a) places each at n = 4 (the orders raised by
+     one, 2 no s1 root at z > 0, (iii)'s stationary residual of order rho^3 computed, no logarithm since 1 is no s1
+     root, (iv)'s rotations); the regularity paragraph is the same iteration with Lemma 6.13 at n = 4 ((v)) and the
+     difference in rho^4 Diff^2_b (10.28 (i)).
+
+ (xiii) 10.30 (a), [Hin26] Proposition 6.18 (4)-(7) (pp. 132-134; D148). His proof of each part: an indicial solution of
+     the class root, the correction against the operator difference in rho^3 Diff^2_b by Lemmas 2.15 and 6.13, the
+     symmetric gradient's nonzero leading term (N(delta-bar*(0), lam - 1) injective), then the generalized states from
+     A_0, A_1, A_2 of (6.44), and the smoothness in b as in Proposition 6.15. 10.30 (a) places each at n = 4: the
+     difference in rho^4 Diff^2_b (Proposition 10.25 (i)), the correction one order faster, mu + 2 no root by (iv), the
+     leading term nonzero by (iii) and (vi) above, A_0, A_1, A_2 with their five-dimensional orders (10.18 (b)) and the
+     leading equations solvable without logarithm, mu - k no root by (iv); the smoothness in b as in (xii).
+
+ (xiv) 10.37 (c), the injectivity half of [Hin26] Proposition 9.2 (2) (pp. 165-167; D148). His steps: part (3)'s
+     regularity (a general radial-set result of Haber-Vasy); the identification (9.5) in v; (9.6), the exponent 1 + min
+     spec S-bar - Re lam; the extension by zero in L^1_loc; the Fourier transform ([Hin23d] Lemma 2.25) and the
+     polynomial argument; the conjugation by r-hat^(-lam+1) to N_tf; and Proposition 8.6. 10.37 (c) places each at n =
+     4: the threshold s < 2 + min spec S-bar - Re lam and the exponent shifted by 1/2 with v d_v - 3/2 - S-bar, the
+     extension in L^1_loc for Re lam < 5/2 (min spec S-bar = 0, 10.25), the Fourier transform, the polynomial argument
+     and the conjugation free of the dimension, and Proposition 8.6 at n = 4 (10.24 (c)-(d), 10.25 (b)). Its other half,
+     the index 0 property, is not carried, as 10.37 (c) says.
+
+
+ (xv) 10.32 (c), [Hin26] Proposition 8.11 (pp. 155-156; D148). His kernel argument: a normal operator argument puts u in
+     A^(eps_ind - eps); the Bianchi step of (i) gives box^C eta = 0, so eta = 0 by Theorem 7.1 (2); [AHW24] Theorem 6.1
+     (2) writes u = g-dot(b-dot) + delta* omega; Proposition 8.9 gauges g-dot; omega in ker box^Ups(0) with leading term
+     a combination of dt and d(rS), the least root above -1 being 0 at s0 and s1 (Lemma 6.6); subtracting the Killing
+     and s1 states leaves omega in A^eps, zero by Proposition 6.12; the pairings of Lemma 8.12 and d(rS) not Killing
+     give the dimension. His cokernel argument: index 0 (Propositions 8.3, 8.6, [Hin26c] Corollary 9.43) and (8.25).
+     10.32 (c) places each at n = 4: [Hin26c] Theorem 9.5 (5) (10.53), Theorem 7.1 (2) (10.21 (e)), [AHW24] Theorem 6.1
+     (2) on Tangherlini (10.33, whose hypothesis A^(eps_ind - eps) meets), Proposition 8.9 (10.28 (b)), Lemma 6.6's
+     roots (10.15, 10.24: none in (-1, 0), 0 at s0 and s1), Proposition 6.12 (10.20), the pairings (10.32 (b),
+     pairing5.py), the eleven states and duals, and the index 0 ((iv) above).
+
+ (xvi) 10.36 (b), [Hin26] Proposition 7.4 (pp. 140-144; D148). His proof: the ansatz V_b plus rho S-type terms plus chi
+     rho omega_0; omega_0 from the v1 normal operator of the adjoint at 1, 2 + 4 gam_C v_C; the leading term
+     h-bar-sharp; Lemma 7.5; the sources of (7.33) in rho^4 C^oo; a formal solution by Lemma 2.15 and the remainder by
+     Lemma 7.2; the splitting (7.17) and the formal-solution property (7.19). 10.36 (b) places each at n = 4: the ansatz
+     with c_0 r^-3 V(W), c_0 fixed by 3 + 6 gam_C v_C (dual5.py, 10.31 (i)); the leading term at rho^3 (10.31 (iii));
+     Lemma 7.5 at every spin (10.36 (a)); the sources in rho^5 C^oo; no root of the adjoint with real part in [3, C_0 +
+     2] (10.31 (a)), so the formal solution is in rho^3 C^oo, Lemma 7.2 at n = 4 ((ix)); and (7.19) to order floor(C_0)
+     + 3.
+
+
+So sixteen of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. The other 45 carry proofs of several pages each, in [Hin26] sections 5-13,
 [Hin26c] sections 5-14, [Hin26a] sections 4-6 with its appendices A-B, and [Hin23a] section 3; writing those out is what
 remains of 8.8.
 
-Labels: READ (the eleven source proofs); deduced (the matching); nothing computed or proved here.
+Labels: READ (the sixteen source proofs); deduced (the matching); nothing computed or proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

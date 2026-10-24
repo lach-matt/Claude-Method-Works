@@ -10,11 +10,11 @@ page-marked copy with --cd03 -- the arXiv v2 PDF's text with each page's printed
 <<<PAGE n>>> that closes page n (md5 da6b7ef29bf382456c266e8204fcf4fb).  Labels: computed (a token search), the
 accounting READ.
 
-Result at 2026-10-24 (D143): 278 hits on 205 pages -- [Hin23a] section 3 104, [Hin26a] section 5.2 25, [Hin26c] sections
-7-8 and 9.3 26, [Hin26]'s boost sections 65, [HHV21] pp. 89-93 10, [CD03] Theorem 8.1, section 8.2 and Appendices E-F
-(pp. 35-38, 71-77) 48 -- every one accounted for by 10.53-10.58 and 10.63-10.68, but one: [Hin26a] p. 62's density r^3
-|dr dgslash| on level sets of tau, the metric density times rho^-1 (its p. 65), which is r^4 |dr dgslash_S3| at n = 4
-(10.69).
+Result at 2026-10-24 (D143): 278 hits on the 205 pages swept (81 with a hit; D147) -- [Hin23a] section 3 104, [Hin26a]
+section 5.2 25, [Hin26c] sections 7-8 and 9.3 26, [Hin26]'s boost sections 65, [HHV21] pp. 89-93 10, [CD03] Theorem 8.1,
+section 8.2 and Appendices E-F (pp. 35-38, 71-77) 48 -- every one accounted for by 10.53-10.58 and 10.63-10.68, but one:
+[Hin26a] p. 62's density r^3 |dr dgslash| on level sets of tau, the metric density times rho^-1 (its p. 65), which is
+r^4 |dr dgslash_S3| at n = 4 (10.69).
 
 python3 censusweep.py --texts DIR --cd03 FILE --out hits.tsv
 """
