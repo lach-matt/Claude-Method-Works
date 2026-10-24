@@ -2992,3 +2992,96 @@ below -l, and its first-order term matched to 10^-3; 10.34(iii) and the docstrin
 *Runs.* pairing5.py --selftest 5/5 (about three and a half minutes), --mutants 6/6; static5.py --selftest 6/6 (about a
 minute), --mutants 6/6; physical5.py --selftest 4/4 (Y3 in 1047 s beside other runs, 713 s alone), --mutants 4/4;
 paper/response5.py --selftest all pass; Appendix D's md5 rows current (51, physical5.py added).
+
+**D93 (2026-10-24): [Hin26]'s window in five dimensions (10.35, window5.py).**
+
+M asked to continue; the next of item 2's open pieces was 10.34's: which l five dimensions needs. READ at source
+(alphaXiv, 2026-10-24): [Hin26] pp. 17-18 ((1.23): a term t*^-alpha at iota+ meets a large root lam at K+ as
+t*^(-alpha+lam)), 27-30 (footnote 27: the t*^-1 term at iota+ from the trace-free spherical part's radiation coupling
+into the (dt*)^2 component, (5.28)'s (7, 6)-entry), 32 (it "is anticipated to encode the Bondi mass"), 34 (the "2" of
+2-admissibility is the order of L-hat_b(sigma)^-1's pole at 0; footnote 35), 85, 92-93 (Definition 5.2, Proposition
+5.11, (5.27)-(5.28)), 117, 128 ([-3, 0] captures the pure gauge contributions to t*^-4), 149 (Lemma 8.4), 173-177
+(Proposition 9.9, (9.32), Proposition 9.11, (9.39a)-(9.39b), "The smallest lam ... is lam = 1"), 199, 218, 225
+(Corollary 11.10), 273 (u needs t*^(-2-eps_K) and the sources t*^(-4-eps_K)), 279, 324.
+
+*Computed (Proposition 10.32, window5.py W1-W3).* (W1) lin5.py's roots in [-3, 0] at its point: in four dimensions
+exactly his Lemma 8.4's, (9.32)'s set (s0: c0 e0; s1: c0 c-1 e-1; s2: c-1 c-2 e-2 e0; s3: c-2 e-1 e-3; s4: e-2;
+s5: e-3; v1: e-1; v2: e-1 e-2; v3: e-2 e-3; v4: e-3), in five the same and t2: e-2, t3: e-3 -- every root real,
+the class roots box^Ups's, none from box^C. (W2) The bookkeeping -- the j-th companion of a root mu at K+ order
+alpha - mu + j (s1: alpha - 1 + j, v1: alpha + j), kept to order 4 -- returns (9.32)'s orders at alpha = 1, and
+for every alpha in (1, 2] keeps s2, v2, t2 at -2 with no companion and nothing at l >= 3. (W3) box(r^-p a(t - r)
+S) = (2p - d + 1) a' r^(-p-1) S + (l + p)(p - d - l + 2) a r^(-p-2) S: the radiative order (d - 1)/2 and the
+Coulombic d - 2 coincide at d = 3 and part at d = 4, where the latter carries (d - 3) a' = a'. Controls: the
+tensor types dropped (W1), s3 and v3 dropped at alpha = 1 (W2), the radiative order claimed to leave a' (W3).
+
+*Deduced (10.35).* (a) alpha_5 = 2: Theorem M(c)'s mass aspect at r^-2, quadratic in the radiation fields, at the
+Coulombic order -- on the reading that nothing at iota+ decays more slowly. (b) The pole order is 2, the
+centre-of-mass chains ended by Proposition 10.29(iii)'s pairing, so the sources need t*^(-4-eps_K) as in four
+dimensions. (c) The window is [-2, 0]; for any alpha_5 in (1, 2] the physical states needed are s2, v2, t2 at -2
+alone: 10.34's l = 3 states and his Step 4 are spare. (d) alpha = 1 returns his [-3, 0] and (9.32).
+
+*Notes.* (1) The four-dimensional control is exact: lin5.py at n = 3 reproduces every root of his Lemma 8.4 in [-3,
+0], so the bookkeeping's input in five dimensions is the same computation. (2) The conclusion does not need alpha_5 =
+2 exactly: any iota+ order in (1, 2] gives the same physical states; only a t*^-1 term at iota+, which in five
+dimensions would need an r^-1 term at future null infinity, slower than radiation, would bring l = 3 back. (3) The
+class roots just below 0 enter at order 2 + O(z) and are eliminated unless eps_K lies below their distance. (4) New
+proposition numbers collide with section numbers (Proposition 10.32 in section 10.35); references to a proposition's
+item now name the proposition (D94 completes this).
+
+*Runs.* window5.py --selftest 3/3 (W1 in about 23 minutes, lin5.py's determinants in four and five dimensions),
+--mutants 3/3, on the final file after D94's one-line docstring change (before it also 3/3 and 3/3).
+
+**D94 (2026-10-24): the forty-third verifier's findings on D91-D92, seated.**
+
+One independent verifier read D91 and D92 (627a0d3, e2ea5e5, 1bc4243 against d2735c0), recomputing Proposition 10.31
+from [KI03]'s own equations (4.2), (5.3), (5.11)-(5.12) and the class root from its own box^Ups, and reading [Hin26]
+pp. 25, 125, 155-163, 176, [KI03] p. 11 and [AHW24] p. 35 at source. Verdict: no major finding; every computed claim
+reproduces; D92's repairs sound (the new P5 cannot pass by symmetry: against dt the pairing is (1/2) int (d_i d_j
+h_ij - Delta tr h), whose kernel among isotropic tensors of the mass's homogeneity is exactly the pure gauge line).
+Four minor findings, nine nits, notes. READ again here at source: [Hin26] pp. 145 ((8.2a)), 157-163.
+
+*Minor 1 (Step 2 and its dependency).* His Step 2 uses Lemma 8.15(1)'s vanishing against every h*_v1 ("By Lemma 8.15,
+the left-hand side of (8.34) is independent of the choice of V_1 ... Similarly, the left-hand side of (8.35) is
+independent of S_1", p. 161), not only its lambda-sharp form as 10.34(b)(1) and D91's note (3) said; and his Steps 1-2
+rest on his Proposition 7.4 and (7.19) ((8.32c)-(8.33), footnote 82), which five dimensions has at first order in one
+spin only (10.31(c)). Repaired: 10.34(b) now modifies Step 2 -- under the five-dimensional Proposition 7.4 the
+non-Killing pairings P(S_1, V') = <p_b(S_1), [A_b, A_V']> are absorbed into V_1, A_V1 = (v_b + p_b(S_1))/(pi^2 mu) --
+and 10.34(c) adds Proposition 7.4, Lemma 7.5 and (7.19) on the full two-spin metric to its conditions; ROUTES 4.4 and
+4.35, README, physical5.py's docstring, the paper's settling paragraph and 10.35(c) say so. D91's note (3) is
+corrected here.
+
+*Minor 2 (the factor of 2).* 10.34(b)(2) set -pi^2 mu <[A_V, A_b], A_V'> beside his -8 pi m. The record's formula in
+four dimensions, with Proposition 10.29(i)'s rotation row -4 pi mu (mu = 2m), gives -4 pi m: his -8 pi m is (1/2)
+times Lemma 8.12's printed -16 pi m (p. 159), the [Hin24b] normalization 10.32(b) halves. Now said, with which
+operator L-hat(0) is: L_b's zero energy part, where his (8.2a) writes 2 L_b = ... + L-hat_b(0).
+
+*Minor 3 (spanning).* "Every l >= 2 ... spanning ker N(L-bar(0), -l)" needs -l simple, computed for l <= 12 at the
+point (section 10.24) and l = 2, 3 in Y3; existence, uniqueness and growth hold for every l. Qualified in 10.34(a),
+ROUTES 4.35 and physical5.py.
+
+*Minor 4 (the a-dependent zeros).* 10.34(b)(2)'s "0 against h*_s0 and h*_s1" cited a table that covers a = 0 only;
+near it these are the rotation row's a-dependent entries, OPEN beyond continuity (10.32), and his Step 2 solves
+(8.34)- (8.35) as a coupled system. Now said.
+
+*Nits.* (1) ROUTES 4.35's "(4.24)" is 4.25 (lin5.py). (2) The paper's decision range and a missing ";" in its verifier
+table. (3) An accidental wrap in 10.34's proof ("Controls: in" / "(i) c = 2 ..."). (4) "-l - 1 ... its nearest root at
+distance 1": at sl it is the class root, at 1 - 3.81 x 10^-7 (l = 2) and 1 - 2.78 x 10^-7 (l = 3); said. (5) Bare
+"10.30(ii)", "10.30(iv)", "10.32(ii)", "10.32(iii)", "10.28(v)", "10.28(vi)" and "10.23(ii)" collided with
+Propositions 10.30, 10.32 and 10.28; each now names its proposition (10.27, 10.29, 10.25, 10.20) in 10.33-10.35,
+physical5.py, pairing5.py and window5.py, and physical5.py's "10.24 found" is section 10.24's; LOG entries stand as
+written. (6) 10.34's quotation "comprising the spaces N_sl(L-bar(0), -l)" was not verbatim: he prints N_s2 and N_v2 at
+-2 (p. 158); quoted as printed. (7) ROUTES 4.34's READ list now has [KI03] p. 11. (8) DLMF 15.8.8's coefficient needs
+m = b - a >= 1, here l + 1; said in 10.34's proof and the paper's [DLMF] entry. (9) New controls: physical5.py Y3 with
+mu_l,0's first-order coefficient for mu_l,1's, static5.py S3 with [KI03]'s Q_X and Q_Y exchanged in (4.3); mutants 5/5
+and 7/7.
+
+*Notes, accepted.* His Step 2 prints "-8 pi m a(V_1) = v_b", but (8.35) with (8.33) gives +8 pi m a(V_1) = v_b, and
+(8.35) prints lambda_b,s1 for lambda_b,v1; the record's sign is the consistent one, and 10.34(b)(2) now says so. Not
+checked by the verifier: [Vas13] section 2.7, [Hin26c] section 9.2.3; his direct (8.30) computation of (8.29) (the
+extraction's matrix is ambiguous); the tensor and vector equations from a linearized Ricci tensor of its own;
+Proposition 7.4 in five dimensions beyond first order; box^C's roots for l > 12. Its runs: physical5 4/4 and mutants
+4/4, pairing5 5/5 and 6/6, static5 6/6 and 6/6, response5 all pass; md5 rows matching at 1bc4243.
+
+*Runs.* physical5.py --selftest 4/4 (Y3 in 718 s), --mutants 5/5; static5.py --selftest 6/6, --mutants 7/7;
+pairing5.py --selftest 5/5, --mutants 6/6; window5.py as D93 records; paper/response5.py --selftest all pass; Appendix
+D's md5 rows current (52, window5.py added).

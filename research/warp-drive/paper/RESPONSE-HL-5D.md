@@ -973,7 +973,12 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   place still passing by reflection parity alone, so that a non-gauge tensor of the same parity passes it too, a reading
   of Hintz's proof misdescribed, Corollary 8.13 claimed at Tangherlini where only the augmented operator's invertibility
   follows there, and Kodama and Ishibashi's section 4, which prints the static flow and master variable, not cited —
-  three nits, and notes, seated (D92).
+  three nits, and notes, seated (D92). Section 10.34 with `physical5.py` and D92's repairs were read by a forty-third
+  (D91, D92), which recomputed the hypergeometric reductions from Kodama and Ishibashi's equations and the class root
+  from the definitions: no major finding; four minor findings — the construction near Tangherlini resting on Hintz's
+  Proposition 7.4 in five dimensions and his Step 2 described as using less than it does, the five-dimensional pairing
+  set beside his without its factor of two, a spanning claim beyond the roots computed simple, and a pairing said to
+  vanish where only a = 0 had been computed — nine nits, and notes, seated (D94).
 
 ---
 
@@ -1539,9 +1544,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `9e8edc178f5cc50ea11cc52b85090496` |
-| `docket68/n1star/N1STAR-LOG.md` | `2380b8b2b8045fa8c5b450bad784ae8d` |
-| `docket68/n1star/README.md` | `ee1d6a7bb99f925e17c613a4a0c35f85` |
+| `docket68/n1star/N1STAR-PROOF.md` | `faca68aeb0ade4675dd548fd3d2bb34c` |
+| `docket68/n1star/N1STAR-LOG.md` | `db8df1836d7fbfd763cbe91dfb96ee85` |
+| `docket68/n1star/README.md` | `9fd1cf578de87772dcbad2858438e477` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1586,8 +1591,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/genstates5.py` | `f2ef7478e67760e3d6ff05d0a0dd74e5` |
 | `docket68/n1star/puregauge5.py` | `6fda612d263dcfa82b79a9ff76a70000` |
 | `docket68/n1star/dual5.py` | `c85cd907bd71d3c4fb1a12be89adf783` |
-| `docket68/n1star/pairing5.py` | `ee468d62d228ab8500c111c7a30e1966` |
-| `docket68/n1star/static5.py` | `815107b40db9ded355fe924050d8c6d9` |
-| `docket68/n1star/physical5.py` | `2fd998d00cd7f2aeac86ec6b3b0f872f` |
+| `docket68/n1star/pairing5.py` | `e831c01861f659eddcaeb7a1d0a047bb` |
+| `docket68/n1star/static5.py` | `328a406c8499edf359eca522d34c7895` |
+| `docket68/n1star/physical5.py` | `f051540f973b601e96ec8ca9956ebb5a` |
+| `docket68/n1star/window5.py` | `21acdf3223c8a20aaccff19f8fde816f` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.
