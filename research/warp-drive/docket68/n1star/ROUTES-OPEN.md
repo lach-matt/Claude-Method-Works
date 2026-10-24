@@ -1675,3 +1675,12 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
 - Readings added: Theorem E at every order k >= d (C-i); equivariant gluing in five dimensions (C-ii); finite-time
   Cauchy stability (C-iii).
 - Next: Phase B, with C-i (the record's own bootstrap at higher order) among its first items.
+
+### 4.53 Phase B begun: C-i discharged; the companion papers audited for their dimension (D119)
+
+- Discharged (10.51, deduced from the record's sections 4-6): Theorem E at every order k >= 6 with K >= 6 -- k = 6 is
+  [DS23]'s lower bound, the bootstrap's closing condition K >= 6 does not see k -- with (E3) from Theorem A and (E4)
+  from Proposition 6.5, which bounds the data's correction at every order.
+- Under way: dimension audits of [Hin26c] (B1-B3; its Remark 5.6: "we work in 3 + 1 dimensions for concreteness",
+  general-dimension conventions in [Hin23c]) and of [Hin26a] and [Hin23a] (B4, B10). Their findings are to be checked at
+  source before anything is discharged on them.

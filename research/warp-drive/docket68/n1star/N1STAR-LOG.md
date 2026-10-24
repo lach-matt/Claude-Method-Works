@@ -3869,3 +3869,16 @@ G-equivariantly to exact Tangherlini; the result is a compactly supported pertur
 needs H^d smallness for a large d, so Theorem E must be rerun at higher order (C-i). (2) The gluing's obstruction space
 is the G-invariant Killing initial data; Proposition 10.40(i) leaves d_t alone, matched by the mass (C-ii). (3) Nothing
 computed here.
+
+**D119 (2026-10-24): Phase B begun; C-i discharged (10.51).**
+
+Theorem E at every order: the record's section 4 uses k = 6 only through Lemma 2.1's scaled L^inf bounds, the L^inf/L^2
+split of Step 4's commutator terms and [DS23]'s condition k > 4/2 + 1, all of which hold at every k >= 6 with
+k-dependent constants; the bootstrap closes when 2K - 5 >= K + 1, whatever k is. The inputs at order k come from Theorem
+A (5.4) and from Proposition 6.5, whose bound sup_r ||d_r^j U||_{H^s} <= C_(j,s) lam^(N-2-j) holds at every order with
+lam0 independent of it. So 10.50(d)'s H^d smallness holds once k >= d and K >= d + 1.
+
+*Notes.* (1) [Hin26c] states (Remark 5.6, printed p. 101) that it works in 3 + 1 dimensions for concreteness and refers
+to [Hin23c] section 3.1.2 for general dimension; some of its results (Corollary 9.39, Proposition 9.40) are stated for
+general n. Its audit, and one of [Hin26a] and [Hin23a], are running as background reads; their reports are claims to be
+checked at source, not discharges. (2) The fifty-third verifier, on D112-D115, is still running.

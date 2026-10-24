@@ -6659,11 +6659,39 @@ Omega (1.1) is bounded, so C1 needs the solution beyond it; this section deduces
      settles in the class to Tangherlini of a mass m' with |m' - m| small, at the rate t*^(-2-eps_K) in spatially
      compact sets of the exterior -- on 10.49's readings and those of (f).
 
-(f) The readings Phase C adds: (C-i) Theorem E at every order k >= d with K >= k + 1 -- k = 6 is [DS23]'s lower bound k
-> 4/2 + 1, and the bootstrap of section 4 is to be rerun at order k; (C-ii) G-equivariant gluing of vacuum data to
-Tangherlini in five dimensions ([CD03]-type, its obstructions the Killing initial data); (C-iii) Cauchy stability over a
-finite time for smooth data, standard. Labels: deduced ((a)-(e)), from the record's Lemmas 1.1, 5.3 and 6.2 and Theorems
-A, D, E; nothing computed here, nothing proved.
+(f) The readings Phase C adds: (C-i) Theorem E at every order k >= d with K >= k + 1 -- discharged in 10.51 from the
+record's own sections 4-6; (C-ii) G-equivariant gluing of vacuum data to Tangherlini in five dimensions ([CD03]-type,
+its obstructions the Killing initial data); (C-iii) Cauchy stability over a finite time for smooth data, standard.
+Labels: deduced ((a)-(e)), from the record's Lemmas 1.1, 5.3 and 6.2 and Theorems A, D, E; nothing computed here,
+nothing proved.
+
+### 10.51 Theorem E at every order (Phase C's C-i; deduced; D119)
+
+10.50(d) needs Theorem E's remainder small in H^d for Hintz's large d, while section 4 fixes k = 6. Here the proof of
+section 4 is read for its dependence on k.
+
+*Deduced.*
+
+ (a) (where k = 6 enters) Step 1: Lemma 2.1's scaled Sobolev bound ||d^i w||_inf <= C lam^(-3-i) N needs i + 3 <= k + 1,
+     so i <= 4 at k = 6 and i <= k - 2 in general. Step 4: the commutator terms d^i g . d^(j-i+1) d h are split with d^i
+     w in L^inf for i <= 4 and in L^2 for i >= 5, the other factor then of order j - i + 1 <= 2 in L^inf; at order k the
+     split is at k - 2, the L^inf factor needing at most 2 + 1 + 3 <= k + 1 derivatives of N's quantities. The nonlinear
+     terms use |d w d w|_k <= C lam^-3 |d w|_k^2, the scaled product bound in four space dimensions, valid at every k >=
+     3 with C = C_k. Step 8: [DS23] Theorem 2.4 with r = k > 4/2 + 1. Steps 2, 5, 6 and 7 do not use k = 6.
+
+ (b) (the closing) The bootstrap closes when 2K - 5 >= K + 1 (Step 4's C M^2 lam^(2K-5) <= C M^2 lam^(K+1)), that is
+     when K is at least 6, whatever k is; the constants C, C2, M and lam0 then depend on k. So Theorem E holds at every
+     k >= 6 with K >= 6: N_k(tau) <= M_k lam^K on [tau0, tau_end], given (E3) and (E4) at order k.
+ (c) (the inputs at order k) (E3) at order k: Theorem A's residual is lam^N times a profile bounded with all its
+     derivatives (5.4), so |Ric^H(g_app)|_k <= C_k lam^N for every k. (E4) at order k: Proposition 6.5 bounds the
+     correction at every order, sup_r ||d_r^j U(r)||_{H^s(S^3)} <= C_(j,s) lam^(N-2-j), with lam0 independent of the
+     order ("||U||_(X_(s'')) <= C_(s'') lam^(N-2) for every s''"), so Data(w) at order k is O(lam^(N-3)) = O(lam^K) with
+     section 6.4's N = K + 3.
+ (d) (unscaled norms) N_k <= M_k lam^K gives ||d^j d h|| <= M_k lam^(K - j) for j <= k, so the remainder is O(lam) in
+     H^d once k >= d and K >= d + 1, as 10.50(d) uses.
+
+C-i is discharged: Theorem E holds at every order k >= 6 with K >= 6, its inputs at every order by Theorem A and
+Proposition 6.5. Labels: deduced ((a)-(d)), from the record's sections 4-6; nothing computed here, nothing proved.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
