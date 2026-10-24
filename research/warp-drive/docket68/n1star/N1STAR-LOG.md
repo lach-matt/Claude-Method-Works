@@ -3174,3 +3174,89 @@ here; nothing deduced depends on it. (4) D93-D95's window and D96 together leave
 9-10 and the readings.
 
 *Runs.* mp5.py --selftest 5/5 (M3 157 s, about three minutes in all), --mutants 5/5.
+
+**D97 (2026-10-24): [Hin26] section 9.1 in five dimensions, the pure iota+ resonances (10.37, iota5.py).**
+
+M asked to continue; the open piece was the second channel of alpha_5 that 10.35 left: a pure resonance of the model at
+future timelike infinity with real part at most 2 would decay as slowly as the mass aspect. READ at source (alphaXiv,
+2026-10-24; printed pages): [Hin26] pp. 16-17 ((1.16), (1.19), footnote 9, (1.20)-(1.22), Example 1.6), 149 (Lemma 8.4),
+164-166 (Proposition 9.2 and its proof), 168 ((9.10)-(9.11), Definition 9.3), 170 (Remark 9.5), 172 (Definition 9.6,
+Remark 9.7), 180 (Lemma 9.13), 184-185 (Definition 9.19, Lemma 9.21, Proposition 9.22).
+
+*Computed (Proposition 10.34, iota5.py I1-I5).* (I1) The model by type from lin5.py's operators with t* = t - r: M0(D)
+G + s M1(D) G = 0, M0 = (x - lam) L1, L1 affine, M1 lin5.py's N itself, the free transport at gam = 0 (L-bar half of
+box there). (I2) A connection determinant through z = s/(s + 2), where the Frobenius series at both ends converge at s
+= 2: the free 4+1 wave's 3 + l + k to 10^-25 and his u_3 = z^(3/2) exactly; box^C at s0, gam_C = 1. (I3) On box^C at
+gam_C = 10 the argument principle counts 4 zeros in [6/5, 9/2] x [-3, 3], exactly 1 + mu + k for det N's upper roots,
+and the resonant state's moment obeys N(lam - 1) m = 0 at 1 + mu and vanishes at 2 + mu. (I4) At the record's point det
+N_L's roots in (0, 3/2] are box^C's less 1 (s0 1.0000747438, s1 1.0001201950, none at v1); over l <= 400 box^C has no
+root in [-100, 2] but the Coulomb 2 at l = 0, 1, and roots in (2, 5/2) at every scalar l (two for 2 <= l <= 135), the
+lowest 2 + 2.93 x 10^-6 at l = 2, none at the vector types; the s0 root decreasing inside (2, 5/2) from gam_C = 10^2 to
+10^6. (I5) L-bar's s0 candidate is a pure resonance at gam_C = 10 and 100.
+
+*Deduced (10.37).* (a) Towers lam -> lam + 1. (b) The descent: the moment m = int v^-lam G dv obeys N(lam - 1) m = 0,
+or m = 0 and the time integral is a pure resonant state at lam - 1. (c) His Proposition 9.2(2)'s injectivity holds
+below 1 + eps_ind in five dimensions as in four, on 10.24-10.25's readings. (d) Hence at the record's point every pure
+resonance of L-bar below 5/2 sits at a root of box^C's zero energy operator in (2, 5/2), and none has real part at
+most 2. (e) Those states are of the constraint kind; on a reading (the injectivity along gam_C in [100, 10^6]) Hurwitz
+carries the s0 zero to 2.0000747 at the record's point. (f) The second channel of alpha_5 is closed on the alpha_5 = 2
+reading.
+
+*Notes.* (1) A first attempt bridged the two Frobenius series by ODE integration and located zeros by the smallest
+singular value; poles of the unnormalized determinant within 5 x 10^-6 of integer-shifted exponents and ill-conditioned
+columns made it unreliable, and the z-variable matching replaced it. (2) The builder first split the powers of T with z
+= x1 + i x2 symbolic; sympy's expand moved T into denominators and the transport of the degree-p harmonics was lost. The
+free-transport check caught it at s1, and it is I1's control. (3) At the record's point, 260 to 480 terms at 40 to 140
+digits gave a smooth nonzero determinant at the s0 candidate; it drifted with the number of terms, and convergence needs
+some 5 gam_C terms, so it was a truncation artefact and is not reported as a result. (4) The scoping note had the
+five-dimensional injectivity bound at 3/2 + eps_ind; his proof gives 1 + eps_ind in any dimension, the bound coming from
+Proposition 8.6's zero energy weight. (5) gam_C = 1000 at s0 and gam_C = 10 at s1 were attempted at 100 digits and are
+noise-dominated: not used, and the s1 candidate is OPEN. (6) A "pkill -f" with -P (the shell's own children) was issued
+in error; it matched nothing; every other process was stopped by exact PID. (7) The forty-fifth verifier's report on
+D95-D96 arrived during this work and is seated as D98.
+
+*Runs.* iota5.py --selftest 5/5 (I1 446 s, I2 35 s, I3 516 s, I4 31 s, I5 258 s), --mutants 6/6. Before these, I2 failed
+twice and was repaired (a 1 x 1 eigenvalue call returned a nested list; two box^C zeros within 5 x 10^-6 of poles of the
+unnormalized determinant, I2 restated on the other root and its tower), I1 once (L-bar's transport is half of box's, his
+(8.5)) and I4 twice (a string comparison; the vector types' kappa, l (l + 2) as in damping5.py, not one less).
+
+**D98 (2026-10-24): the forty-fifth verifier's findings on D95-D96, seated.**
+
+One independent verifier read D95 and D96 (a5d581e, defc4c0, 65d2874, a24ab3f against 158c8b0), with its own checks: the
+family's Ricci-flatness by 60-digit finite differences at two generic A in so(4) (|Ric| <= 2.4 x 10^-62 against |Riem|
+0.03-0.10; a = -b too), the identification with [ER08] (42) by pulling g_A back to Boyer-Lindquist coordinates ((a_1,
+a_2) = (-a, -b) to 5 x 10^-51), Lemma 7.5 at generic A and A_V (2 x 10^-51), the Killing dimensions, M3's remainder at
+rho^4 (coefficient 0.30717), the asymptotic angular momentum, and W2's rule by hand. READ at source: [Hin26] pp. 1,
+16-17, 28-29, 31, 65, 126, 128, 132, 138, 140-144, 149, 156-161, 168, 170, 228, 248, 253; [ER08] pp. 9-10, 14, 16-20.
+Verdict: no major finding; five minor findings, seven nits, notes.
+
+*Minor 1 (the orientation).* g_A at A = a J_12 + b J_34 is [ER08] (42) with (a_1, a_2) = (-a, -b); his p. 10 (16) and
+p. 14's footnote 4 fix the sense, so A is minus the spin, and in four dimensions mp5.py's Kerr (A x = a x x) has J = -m
+a. So W = [A_b, A_V] = -A_(S') for Hintz's S' = a(b) x a(V), and the leading term is his -2m with its sign. Checked
+here independently: the standard Kerr-Schild Kerr has a (y dx - x dy)/(r^2 + a^2) in k for J = +m a, mp5.py's k has +a
+(x dy - y dx)/(r^2 + a^2). Repaired: 10.33(ii), 10.36(a), mp5.py's M2 docstring and labels, ROUTES 4.37; D96's note (3)
+stands as written and is superseded here.
+
+*Minor 2 (stale OPEN lists).* 10.31, 10.32, 10.33, 10.34 and ROUTES 4.32 now carry "(10.36: Lemma 7.5 at every spin
+computed; Proposition 7.4 and (7.19) deduced on readings)". *Minor 3 (a page).* Definition 2.28 is on printed p. 65:
+10.36's READ, mp5.py, ROUTES 4.37; D96's entry stands. *Minor 4 (where the index sets live).* E_+ and E-sharp_+ are
+index sets at iota+, carrying the I+ exponents: 10.35(a), window5.py, ROUTES 4.36; D95's entry stands; the argument is
+stronger for it. *Minor 5 (a reading omitted).* The paper now states Proposition 7.4 on readings, an SO(4)-equivariant
+family (supplement 10.31(a)).
+
+*Nits.* (1) 10.36(b): a V' replaced by -V(W). (2) 10.36(a) and ROUTES 4.37: the Kerr-Schild dt is the ingoing time, so
+dt + dr carries the spin-independent pure gauge mu rho^3 dr (x)_s rho V(W) against his static dt* + dr: "no
+spin-dependent pure gauge term". (3) mp5.py: [ER08]'s (31) the class, (42)-(44) the Boyer-Lindquist form. (4) The paper:
+the family's derivative, not half of it. (5) "Equal spins" -> a = +-b != 0 in 10.36(c), ROUTES 4.37 and the paper. (6)
+10.29's wrap beginning "- 1)" rewrapped with the quotation kept, 10.28's bare 10.20(iii) now Proposition 10.17(iii), and
+D95's nit (3) changed eleven references, not ten (D95 stands). (7) ROUTES 4.36's heading now (D93, D95).
+
+*Notes, accepted.* His (7.26) confirms 10.36(a)'s account of his gauge term (m-independent, from varrho^2 = r^2 +
+S(a)^2); 10.36(b)'s adjoint condition is consistent with 10.31(i); M5's shift mu/3 is exact; the Killing dimensions
+agree with [ER08] section 4.3; D95's reading of alpha_5 and its caution at the threshold are sound. Not checked by the
+verifier: Ricci-flatness symbolically; dual5.py's operators; lin5.py's determinants by another route; (7.19) beyond
+leading order; route B's g_b in outgoing coordinates; a five-dimensional (5.28) and Proposition 11.16; [Hin26c]. Its
+runs: mp5 5/5 and 5/5, window5 3/3 and 4/4, physical5 4/4, response5 all pass; md5 rows 53 of 53 at a24ab3f.
+
+*Runs.* mp5.py --selftest 5/5 after its label and docstring edits (M3 195 s); window5.py's edit is to its docstring
+alone (parsed); paper/response5.py --selftest: all checks pass, md5 rows 54.

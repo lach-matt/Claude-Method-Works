@@ -4583,13 +4583,13 @@ five-dimensional kappa in four; in (v) z = 0, where 2 is the gap's edge, and lam
      rho^alpha' H_b for alpha > alpha' -- his "and thus has trivial nullspace on A^eps(X; T*X) for all eps > 0" (p.
      121), a kernel element being moreover polyhomogeneous by his Lemma 2.13, its exponents in the index set the
      indicial roots above the gap generate (shifted by integers, possibly with logarithms) -- and invertible, on the
-     b-spaces of 10.20 with the shift alpha + 2 of 10.20(iii), which is alpha itself for an unweighted b-density; and
-     its polyhomogeneity is his Lemma 2.13, a statement on any compact manifold with boundary, here [0, rho_0) x S^3.
-     So, on the readings of 10.20, his Lemma 6.13 holds in five dimensions, and 10.28's deductions rest on it rather
-     than on an OPEN input. Every correction 10.28 needs lies inside the gap -- at rho^1 for the boosts and the mass, at
-     rho^2 for the translations and the rotating metrics, the rotations themselves needing none at a = 0 -- so Lemma
-     6.13 applies to it directly; his boosts' and mass's corrections sit at rho^0, the gap's lower end, and need his
-     Lemma 2.15 first.
+     b-spaces of 10.20 with the shift alpha + 2 of Proposition 10.17(iii), which is alpha itself for an unweighted
+     b-density; and its polyhomogeneity is his Lemma 2.13, a statement on any compact manifold with boundary, here [0,
+     rho_0) x S^3. So, on the readings of 10.20, his Lemma 6.13 holds in five dimensions, and 10.28's deductions rest on
+     it rather than on an OPEN input. Every correction 10.28 needs lies inside the gap -- at rho^1 for the boosts and
+     the mass, at rho^2 for the translations and the rotating metrics, the rotations themselves needing none at a = 0 --
+     so Lemma 6.13 applies to it directly; his boosts' and mass's corrections sit at rho^0, the gap's lower end, and
+     need his Lemma 2.15 first.
  (b) ([Hin26] Proposition 6.18 (1)-(3) in five dimensions) Part (1): by (i) the source is rho times its leading term
      plus O(rho^3), and box^Ups(0) - box^Ups_gbar(0) is in rho^4 Diff^2_b (Proposition 10.25(i)), so
      omega-breve^(0),1_s0 = W + A^((1,0) u (1 + E_ind)), without his (0,1): no logarithm; the leading term h-bar^(0)_s0
@@ -4625,18 +4625,18 @@ h_0. Nothing of this section is proved: Proposition 10.26 is computed, and (a)-(
 
 *The setting.* [Hin26] section 6.5.2 lists the generalized zero energy states by the roots of L-hat(0) in [-3, 0] (p.
 128); parts (1)-(3), on the time translation, the boosts and the rotations, are 10.29's. "The remaining four classes of
-pure gauge solutions we record are not 'special' in that the corresponding gauge potentials do not involve (approximate)
-symmetries" (p. 130): "For each indicial root lambda in Lemma 6.6 (all of which are real) with lambda < -1, there exists
-an element in ker box^Ups(0) with rho^lambda-growth and leading-order term given by an indicial solution corresponding
-to the indicial root lambda. The symmetric gradient thereof is a pure gauge state with nontrivial rho^(lambda+1)
-leading-order term" (p. 131), the s2 root -1 included: (4) the s0 root -lam^Ups_s0,1, (5) the sl roots -lam^Ups_sl,l+j,
-l = 1, 2, 3, j = 0, 1, (6) the sl roots -l + 1, 2 <= l <= 5, (7) the vl roots -l, l = 2, 3, 4, each with generalized
-states (6.36a) of degree k up to 2, 2, 5 - l and 4 - l. His proof (p. 134) solves box^Ups(0) omega' = -(box^Ups(0) -
-box-bar^Ups(0)) omega-bar, notes that the symmetric gradient "has non-zero leading-order term since N(delta*(0), lambda
-- 1) is injective (see the discussion following (2.46c))", and solves A0 omega-breve^k = -A1 omega-breve^(k-1) - A2
-omega-breve^(k-2) "using Lemmas 2.15 and 6.13 as usual", box^Ups = A0 + A1 d_t* + A2 d_t*^2 ((6.4a), (6.6)). In five
-dimensions the gauge potential operator's roots are 10.15(i)'s, its zero energy operator differs from Minkowski's in
-rho^4 Diff^2_b (Proposition 10.25(i)), and his Lemma 6.13 is 10.29(a)'s.
+pure gauge solutions we record are not 'special' in that the corresponding gauge potentials do not involve
+(approximate) symmetries" (p. 130): "For each indicial root lambda in Lemma 6.6 (all of which are real) with lambda <
+-1, there exists an element in ker box^Ups(0) with rho^lambda-growth and leading-order term given by an indicial
+solution corresponding to the indicial root lambda. The symmetric gradient thereof is a pure gauge state with
+nontrivial rho^(lambda+1) leading-order term" (p. 131), the s2 root -1 included: (4) the s0 root -lam^Ups_s0,1, (5) the
+sl roots -lam^Ups_sl,l+j, l = 1, 2, 3, j = 0, 1, (6) the sl roots -l + 1, 2 <= l <= 5, (7) the vl roots -l, l = 2, 3,
+4, each with generalized states (6.36a) of degree k up to 2, 2, 5 - l and 4 - l. His proof (p. 134) solves box^Ups(0)
+omega' = -(box^Ups(0) - box-bar^Ups(0)) omega-bar, notes that the symmetric gradient "has non-zero leading-order term
+since N(delta*(0), lambda - 1) is injective (see the discussion following (2.46c))", and solves A0 omega-breve^k = -A1
+omega-breve^(k-1) - A2 omega-breve^(k-2) "using Lemmas 2.15 and 6.13 as usual", box^Ups = A0 + A1 d_t* + A2 d_t*^2
+((6.4a), (6.6)). In five dimensions the gauge potential operator's roots are 10.15(i)'s, its zero energy operator
+differs from Minkowski's in rho^4 Diff^2_b (Proposition 10.25(i)), and his Lemma 6.13 is 10.29(a)'s.
 
 **Proposition 10.27 (computed; exact).** On 4+1 Minkowski, with E^Ups at the trace weight 2/3, c = r^-1 dt and z = 4 e_U
 gam_U^2, in his splitting (2.37b), (2.43) -- s0 and sl 1-forms (a S, b S, c dS) on d xbar^0, d xbar^1 and r T*S^3, vl
@@ -4816,12 +4816,13 @@ proof, (7.9)-(7.11), Proposition 7.3 and its proof, (7.12)-(7.15)), 140-144 (sec
 (7.17)-(7.19), Lemma 7.5 and its proof, (7.20)-(7.28), the proof of Proposition 7.4, (7.29)-(7.35)).
 
 *What this gives, and what it does not.* His section 7.2 has a five-dimensional counterpart: Lemma 7.2 on what 10.21(e)
-rests on, Proposition 7.3 on Tangherlini with eleven dual states, the translations' one order faster, and section 7.2.1's
-structure at first order in the rotation, two of the six rotations Killing there. Not done, and OPEN: the higher orders
-in a, Lemma 7.5 and (7.19) on the full Myers-Perry metric; his Proposition 8.11, Lemma 8.12's pairings and Corollary 8.13
-in five dimensions, where these dual states enter (10.32); section 8.5 and sections 9-10; the readings of 10.20-10.22
-line by line; how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.28 is computed, and
-(a)-(c) are deduced.
+rests on, Proposition 7.3 on Tangherlini with eleven dual states, the translations' one order faster, and section
+7.2.1's structure at first order in the rotation, two of the six rotations Killing there. Not done, and OPEN: the higher
+orders in a, Lemma 7.5 and (7.19) on the full Myers-Perry metric (10.36: Lemma 7.5 at every spin computed; Proposition
+7.4 and (7.19) deduced on readings); his Proposition 8.11, Lemma 8.12's pairings and Corollary 8.13 in five dimensions,
+where these dual states enter (10.32); section 8.5 and sections 9-10; the readings of 10.20-10.22 line by line; how
+small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.28 is computed, and (a)-(c) are
+deduced.
 
 ### 10.32 [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions: the zero energy pairings (`pairing5.py`; D88, D89)
 
@@ -4921,13 +4922,14 @@ and its proof); [Hin24b] (arXiv:2408.06715v1): pp. 13, 33 ((3.1a)), 38-39 (Lemma
 Definition 9.2, Lemma 9.3, Theorem 9.6, Lemma 9.7, the proof of Theorem 9.6), 116-117.
 
 *What this gives, and what it does not.* The non-degeneracy his zero energy analysis turns on holds in five dimensions:
-the eleven kernel states and the eleven dual states pair through -8 pi times the ADM mass and angular momentum and 4 pi M
-times the centre of mass, as in four, so his Lemma 8.12 carries over at and near Tangherlini, and his Proposition 8.11
+the eleven kernel states and the eleven dual states pair through -8 pi times the ADM mass and angular momentum and 4 pi
+M times the centre of mass, as in four, so his Lemma 8.12 carries over at and near Tangherlini, and his Proposition 8.11
 and Corollary 8.13 up to the five-dimensional [AHW24] Theorem 6.1(2). Not done, and OPEN: that rigidity statement in
 five dimensions beyond a = 0 (10.33 deduces it at a = 0); the a-dependent entries beyond continuity; his section 8.5
-(Proposition 8.14, Lemma 8.15's pairings) and sections 9-10; section 7.2.1 beyond first order in the rotation; the
-readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition
-10.29 is computed, and (a)-(d) are deduced.
+(Proposition 8.14, Lemma 8.15's pairings) and sections 9-10; section 7.2.1 beyond first order in the rotation (10.36:
+Lemma 7.5 at every spin computed; Proposition 7.4 and (7.19) deduced on readings); the readings of 10.20-10.22 line by
+line; how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.29 is computed, and (a)-(d)
+are deduced.
 
 ### 10.33 [AHW24] Theorem 6.1(2) in five dimensions: the stationary solutions on Tangherlini (`static5.py` S1-S6; D90)
 
@@ -5056,9 +5058,9 @@ holds at Tangherlini with eleven for seven, and his augmented operator is invert
 reading, Proposition 8.11 and his Corollary 8.13. Not done, and OPEN: [AHW24] Theorem 6.1(2) on Myers-Perry with a != 0
 beyond that reading; the class of (8.22)'s kernel elements and their smoothness across the horizon in five dimensions
 line by line; omega's continuation inside the horizon, as in 10.27(b); his section 8.5 beyond 10.34 (Proposition 8.14,
-Lemma 8.15) and sections 9-10; section 7.2.1 beyond first order in the rotation; the readings of 10.20-10.22 line by
-line; how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.30 is computed, and (a)-(g)
-are deduced.
+Lemma 8.15) and sections 9-10; section 7.2.1 beyond first order in the rotation (10.36: Lemma 7.5 at every spin
+computed; Proposition 7.4 and (7.19) deduced on readings); the readings of 10.20-10.22 line by line; how small gam_Ups
+must be, and h_0. Nothing of this section is proved: Proposition 10.30 is computed, and (a)-(g) are deduced.
 
 ### 10.34 [Hin26] section 8.5 in five dimensions: the physical large zero energy states (`physical5.py` Y1-Y4; D91)
 
@@ -5172,10 +5174,10 @@ growing like r^l with coefficients that never vanish; near it, for his l = 2, 3,
 modified, whose smoothness in the rotation rests on his Lemma 8.15, which carries over with so(4)'s bracket in place of
 the cross product, and on his Proposition 7.4 in five dimensions. Not done, and OPEN: which l five dimensions needs
 (10.35: on readings l = 2, t2 included); Lemma 8.15(1)'s pairing against the non-Killing rotations at a != 0 (absorbed
-by the modified Step 2 under Proposition 7.4); Proposition 7.4, Lemma 7.5 and (7.19) on the full two-spin metric; the
-general Myers-Perry rotation beyond first order and two spins; the readings 10.33(f) rests on, and the weights; his
-sections 9-10 in five dimensions. Nothing of this section is proved: Proposition 10.31 is computed, and (a)-(c) are
-deduced.
+by the modified Step 2 under Proposition 7.4); Proposition 7.4, Lemma 7.5 and (7.19) on the full two-spin metric and the
+general Myers-Perry rotation beyond first order and two spins (10.36: Lemma 7.5 at every spin computed; Proposition 7.4
+and (7.19) deduced on readings); the readings 10.33(f) rests on, and the weights; his sections 9-10 in five dimensions.
+Nothing of this section is proved: Proposition 10.31 is computed, and (a)-(c) are deduced.
 
 ### 10.35 [Hin26]'s window in five dimensions: the large indicial roots the expansion needs (`window5.py`; D93, D95)
 
@@ -5249,12 +5251,12 @@ needed at alpha = 1; in (iii) the radiative order claimed to leave the a' term. 
      at past null infinity, and the same at future null infinity with u for v -- the Coulombic order of (iii) at d = 4,
      apart from the radiative 3/2; and a rho_I^z term at future null infinity makes the index (z, 0) at iota+ (p. 273,
      his (11.37)). So alpha_5 = 2 on the reading that no iota+ term of the five-dimensional iteration decays more
-     slowly: data O(r^(-2-eps_0)), the analogue of his O(r^(-1-eps_0)), give terms t*^-z with z > 2. But his index sets
-     at I+ carry the radiative order: E-sharp_+'s smallest elements (1, 0) and (1 + (1 - e_Ups) gam_Ups, 0), and the (7,
-     4) coupling's index set (the setting), are radiative-order exponents, which in four dimensions coincide with the
-     Coulombic 1. The same bookkeeping in five dimensions gives alpha_5 = 3/2 + O(gam), conservatively, unless the iota+
-     coefficients at the radiative order vanish there, which is not examined here; no five-dimensional (5.28), and so no
-     (7, 4)-type coupling, has been written (D95).
+     slowly: data O(r^(-2-eps_0)), the analogue of his O(r^(-1-eps_0)), give terms t*^-z with z > 2. But his iota+ index
+     sets carry the I+ (radiative-order) exponents: E-sharp_+'s smallest elements (1, 0) and (1 + (1 - e_Ups) gam_Ups,
+     0), and the (7, 4) coupling's index set (the setting), are radiative-order exponents, which in four dimensions
+     coincide with the Coulombic 1. The same bookkeeping in five dimensions gives alpha_5 = 3/2 + O(gam),
+     conservatively, unless the iota+ coefficients at the radiative order vanish there, which is not examined here; no
+     five-dimensional (5.28), and so no (7, 4)-type coupling, has been written (D95).
  (b) (the pole order, a reading) In five dimensions the zero energy states of Proposition 8.11 (10.32-10.33) are the
      mass, the six rotations and the four centres of mass, these with the boosts h-breve^1_s1 (10.29) as companions and
      the chain ended by Proposition 10.29(iii)'s nonzero pairing (3 pi^2/2) mu (q . c); so L-hat_b(sigma)^-1 has a pole
@@ -5323,7 +5325,8 @@ V_A = g_A gbar^-1 V = g_A(R, .); for W in so(4), V(W) = (W x) . dx.
      (x, A) at fixed r, symbolically in A, x and r for each basis rotation; hence, for W = [A, A_V], delta*_(g_A) V_A =
      (1/2) L_R g_A = (1/2) D_A g_A(W), the derivative of the family along W -- checked directly on the full metric, r
      implicit, at the points of (i) for all six basis rotations, none Killing there. In four dimensions the same with
-     [A_a, A_v] = A_(a x v), his a(b) x a(V) (M2).
+     [A_a, A_v] = A_(a x v); there A x = a x x is the negative of the angular momentum (J = -m a), so W = [A_b, A_V] =
+     -A_(S') for his S' = a(b) x a(V) (M2).
  (iii) (the expansion) Along x = X/eps, X = (1, 2, 2, 4): at A = 0, D_A g_A(W) = (2 mu/r^4)(dt + dr) (x)_s V(W) exactly,
      the eps^3 term alone; at A = a J_12 + b J_34 with (a, b) = (1/3, 1/5) its eps^3 term is the same and its eps^4,
      eps^5 and eps^6 terms are nonzero. In four dimensions (2 mu/r^3)(dt + dr) (x)_s V(W), mu = 2m, at eps^2, the rest
@@ -5348,25 +5351,29 @@ even-dimensional exponent, claimed Ricci-flat; in (ii) the bracket reversed; in 
 *Deduced.*
 
  (a) ([Hin26] Lemma 7.5 in five dimensions, at every spin) By (ii) the whole of delta*_(g_b) V_b is (1/2) D_A g_b(W)
-     with W = [A_b, A_V]: it depends on V only through W, linearly, and is defined for every W in so(4), not only on the
-     image of ad_(A_b) -- the structural reason being the equivariance g_(O A O^T)(O x) = O g_A(x) O^T, which
-     10.34(b)(2) already uses at first order as his Remark 8.10. By (iii), delta*_(g_b) V_b = mu rho^3 (dt + dr) (x)_s
-     rho V(W) + h~_b(W) with h~_b : so(4) -> rho^4 C^oo linear and smooth in b (rational in x, r and the entries of A_b,
-     r analytic in rho at fixed direction), the leading term independent of A_b. These coordinates need no pure gauge
-     term at leading order: his -delta*(rho S(a) S' dr + (1/2) d/(S(a) S')) comes from x = r omega with r the
+     with W = [A_b, A_V] (g_A at A = a J_12 + b J_34 is [ER08] (42) with (a_1, a_2) = (-a, -b), his p. 10 (16) and p.
+     14's footnote 4 fixing the sense, so A is minus the spin, and in four dimensions W = -A_(S'), the leading term
+     below his -2m rho^2 (dt* + dr) (x)_s rho V(S') with its sign; D98): it depends on V only through W, linearly, and
+     is defined for every W in so(4), not only on the image of ad_(A_b) -- the structural reason being the equivariance
+     g_(O A O^T)(O x) = O g_A(x) O^T, which 10.34(b)(2) already uses at first order as his Remark 8.10. By (iii),
+     delta*_(g_b) V_b = mu rho^3 (dt + dr) (x)_s rho V(W) + h~_b(W) with h~_b : so(4) -> rho^4 C^oo linear and smooth in
+     b (rational in x, r and the entries of A_b, r analytic in rho at fixed direction), the leading term independent of
+     A_b. These coordinates need no spin-dependent pure gauge term at leading order -- their dt is the ingoing
+     Kerr-Schild time, so dt + dr carries the spin-independent pure gauge mu rho^3 dr (x)_s rho V(W) against his static
+     dt* + dr, as (v) shows: his -delta*(rho S(a) S' dr + (1/2) d/(S(a) S')) comes from x = r omega with r the
      Boyer-Lindquist radius, in which the flat part of the Kerr family is not Cartesian; Kerr in Kerr-Schild form has
      none, (iii). Any other SO(4)-equivariant family of coordinates gives the same structure, the leading term changing
      by a pure gauge term as (v) shows; that the five-dimensional g_b of route B is chosen equivariantly is a reading,
      as his is SO(3)-equivariant.
  (b) ([Hin26] Proposition 7.4 in five dimensions, at every spin) His proof runs with (a): the ansatz V_b plus rho S-type
      terms becomes V_b plus c_0 r^-3 V(W) with c_0 fixed by N*_v1(2) = 3 + 6 gam_C v_C (10.31(i)), and h-sharp_b,v1(W)
-     is defined for every W in so(4), smooth in b, with leading term at rho^3 that of 10.31(iii) with V' replaced by
-     V(W), the same at every spin by (iii) and in any equivariant coordinates by (v). The two sources of his (7.33) lie
+     is defined for every W in so(4), smooth in b, with leading term at rho^3 that of 10.31(iii) with a V' replaced by
+     -V(W), the same at every spin by (iii) and in any equivariant coordinates by (v). The two sources of his (7.33) lie
      in rho^5 C^oo, one order beyond his, the shift of 10.31(b); no root of the adjoint has real part in [3, C_0 + 2]
      (10.31(a)), so their formal solution is in rho^3 C^oo to that order, and his (7.19) becomes (delta*_(g_b, E^C))*
      h-sharp_b,v1(W) and D Ric(0)* h-sharp_b,v1(W) in rho^(floor(C_0) + 3) C^oo -- on the readings 10.31(a) rests on.
  (c) (the discontinuity) The space of V for which (7.16) holds, ker ad_(A_b), is six-dimensional at a = 0,
-     four-dimensional at equal spins, two-dimensional otherwise: his discontinuity at a = 0, of a richer kind; h-sharp
+     four-dimensional at a = +-b != 0, two-dimensional otherwise: his discontinuity at a = 0, of a richer kind; h-sharp
      being defined on all of so(4), his footnote 82 holds as stated with lambda-sharp_b,v1(W) = <v_b, W>, v_b in so(4)
      smooth in b, so that 10.34(b)'s modified Step 2, A_V1 = (v_b + p_b(S_1))/(pi^2 mu), stands at every small spin.
  (d) (what it settles) 10.34(c)'s and 10.35(c)'s condition -- his Proposition 7.4, Lemma 7.5 and (7.19) on the full
@@ -5375,7 +5382,7 @@ even-dimensional exponent, claimed Ricci-flat; in (ii) the bracket reversed; in 
  (e) (four dimensions) On Kerr the same computation gives his Lemma 7.5's structure, with no pure gauge term at leading
      order in Kerr-Schild coordinates and the remainder at rho^3, the cross product as so(3)'s bracket.
 
-*READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII): pp. 69 (Definition 2.28), 126 (Remark 6.17),
+*READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII): pp. 65 (Definition 2.28), 126 (Remark 6.17),
 140-144 (section 7.2.1: (7.16), Proposition 7.4, (7.17)-(7.19), Lemma 7.5 and its proof, (7.20)-(7.28), the proof of
 Proposition 7.4, (7.29)-(7.35)), 161 ((8.32c)-(8.33), footnote 82). [ER08] (arXiv:0801.3471v2): pp. 10 ((14)-(16)), 14
 ((31)-(34)), 16 ((42)-(44)), 19 (section 4.3).
@@ -5388,6 +5395,132 @@ done, and OPEN: the formal solution of (b) beyond its leading order and (7.19) i
 Ricci-flatness of the family symbolically rather than at points; the five-dimensional g_b in coordinates outgoing at
 infinity with his cut-offs; the readings 10.31(a) rests on; sections 9-10. Nothing of this section is proved:
 Proposition 10.33 is computed, and (a)-(e) are deduced.
+
+### 10.37 [Hin26] section 9.1 in five dimensions: the pure iota+ resonances (`iota5.py`; D97)
+
+*The setting.* [Hin26]'s model at future timelike infinity is "N_iota+(L-bar, lam) = ... = -2 v (v d_v - lam)(v d_v -
+1 - S-bar) + v^2 L~-bar(0)(omega, v d_v, d_omega)" (9.11), v = t*/r, where "At v = oo, the indicial roots of
+L~-bar(0)(omega, -R d_R, d_omega), i.e., the negatives of the indicial roots recorded in Lemma 8.4, dictate the
+asymptotic behavior ... At v = 0 on the other hand, the indicial roots of v d_v - 1 - S-bar take on this role" (p.
+168). Definition 9.6: "We denote by spec_iota+(L-bar) in {z in C : Re z >= 1 + eps_ind} the set of poles of
+N_iota+(L-bar, lam)^-1 acting on C-dot^oo(iota+; S^2 T*)", and "Elements of spec_iota+(L-bar) were called 'pure'
+resonances" (p. 172); "u_3(v, omega) := (v/(v+2))^(3/2) in ker N_iota+(box-bar_4+1, 3) ... Since u_3 has vanishing
+incoming data (no v^3-term), it is thus what we call a 'pure' resonant state" (p. 16), and E_+ "is the (extended)
+union of E_I and an index set determined by the pure resonances of the iota+-model operator" ((1.19), p. 16).
+Proposition 9.2(2): "For all lam in C with Re lam < 1 + eps_ind, the map (9.3) is invertible. Furthermore, for every
+C, the map (9.3) is invertible for all but finitely many lam in C with Re lam <= C" (p. 165); its proof extends u by
+zero across v = 0 ("Given the membership (9.6), the extension of u to {v < 0} by 0 lies in L^1_loc"), Fourier
+transforms in v, and ends "But since Re(-lam + 1) > -eps_ind, Proposition 8.6 applies and shows that w-flat_+- = 0"
+(p. 166). 10.35(a) reads alpha_5 = 2 "on the reading that no iota+ term of the five-dimensional iteration decays more
+slowly"; a pure resonance with real part at most 2 would be such a term. Here the five-dimensional model by type, from
+lin5.py's operators, and its pure resonances. A pure resonant state at lam is u = t*^-lam G(v), N_iota+ G = 0, with
+only outgoing exponents at v = 0 (no v^lam) and only those of his E_K at v = oo, "an upper bound for the resulting
+index set E_K can be determined from -1 times the indicial roots in Lemma 8.4 with non-positive real parts" (p. 170).
+
+**Proposition 10.34 (computed; exact, and numerical where said).** On 4+1 Minkowski, with lin5.py's bases, point and
+parameters:
+
+ (i) (the model) With t* = t - r and fields T^a r^-x u (T = t*, u of degree 0 and one harmonic type), L-bar, box^C and
+     box^Ups return T^(a-1) r^(-x-1) [a L1(x) u] + T^a r^(-x-2) [N(x) u] and no T^(a-2) term (dt* is null), closed in
+     the type; so with a = x - lam and G = sum s^x, s = v, the model is M0(D) G + s M1(D) G = 0, D = s d/ds, M0(x) =
+     (x - lam) L1(x) with L1 affine, M1 = N -- his (9.11) at n = 4 -- and M1 is lin5.py's indicial matrix itself (s0,
+     v1). At gam_Ups = gam_C = 0, L1(x) = (3 - 2x) Id for box^C and box^Ups (s0, s1, v1) and (3 - 2x)/2 Id for L-bar
+     (s0, s1, v1, v2, t2), the transport of the free wave (I1).
+ (ii) (the connection) z = s/(s + 2) sends the singular points s = 0, -2, oo to 0, oo, 1, so the Frobenius series at s =
+     0 (the roots of det L1) and at s = oo (the K lowest roots of det N) both converge at s = 2; a pure resonance is a
+     zero of the 2K x 2K determinant of the two families there. On the free 4+1 wave its zeros are lam = 3 + l + k (l, k
+     = 0, 1, 2) to 10^-25 and at lam = 3, l = 0 the outgoing series is z^(3/2) = (v/(v + 2))^(3/2) exactly, his u_3; on
+     box^C at s0, gam_C = 1, it vanishes at 1 + mu and 2 + mu for its upper root mu = 2.6457654215... (I2).
+ (iii) (the descent at work) On box^C at s0, gam_C = 10: the argument principle counts 4 zeros in [6/5, 9/2] x [-3, 3],
+     the points 1 + mu + k for the upper roots mu = 2, 2.1355877934... of det N (k = 0, 1), each located to 10^-22, so
+     none complex; at 1 + mu the resonant state's moment m = int_0^oo s^-lam G ds is nonzero with N(lam - 1) m = 0 to
+     10^-17 of its scale, and at 2 + mu it vanishes (I3).
+ (iv) (the record's point: gam_C = 10^6, e_C = 1/102400, v = 1/2, gam_Ups = e_Ups = 1/100) The roots of det N_L with
+     real part in (0, 3/2] are, at s0, 1.0000747438..., at s1 1.0001201950..., none at v1, each 1 less than a root of
+     det N_C, none in (0, 1]. For every l <= 400 (damping5.py's polynomials) box^C's roots with real part in [-100, 5/2]
+     are the Coulomb 2 at l = 0 and 1 and, at every scalar type, roots in (2, 5/2): 2 + 7.474 x 10^-5 at l = 0, 2 +
+     1.202 x 10^-4 at l = 1, two for 2 <= l <= 135 and one beyond, the lowest of all 2 + 2.932 x 10^-6 at l = 2; at the
+     vector types none (the lowest 3, at l = 1). The e_C-root is 2 + e_C ((1 - v^2) kappa + 3 (1 + v^2))/(2 v^2) of
+     damping5.py U3's Q_5 within 5 h, h = 1/gam_C; and box^C's s0 root above 2 decreases from 2.0149221 to 2.0000747 as
+     gam_C runs over 10^2, 10^2.5, ..., 10^6, inside (2, 5/2) (I4).
+ (v) (the s0 candidate at moderate gam_C, the record's other parameters) At gam_C = 10 and 100 the determinant of
+     L-bar's s0 connection changes sign once on a grid of [1.2, 2.3] with the candidate +- 10^-3, 10^-5 added, at the
+     candidate -- box^C's root 2.1355877934... and 2.0149221090... -- where it is below 10^-4 of its value at +- 10^-5:
+     there the candidate is a pure resonance of L-bar. At gam_C = 10^6 the method fails: the outgoing exponents near
+     10^6 need of the order of 5 x 10^6 terms at s = 2 (at gam_C = 100, 400 suffice and 200 do not; 260 terms at 40 to
+     140 digits gave a smooth determinant at the record's point that was a truncation artefact) (I5).
+
+*Proof.* I1-I5 of iota5.py: (i) sympy, the powers of T split after the point is substituted; (ii)-(iii) mpmath at 30-40
+digits, the recursions in z four-term, the argument principle with every step's change of argument below pi/6, the
+moment by quadrature in z on both halves; (iv) the roots at 50 digits, det N_L's from (i)'s M1 and box^C's from
+damping5.py U3's sextic and quadratic; (v) 50 and 100 digits, 260 and 700 terms. Controls: in (i) the powers of T split
+with z = x1 + i x2 symbolic, where sympy's expand moves T into denominators T x1 + I T x2 and the transport of the
+degree-p harmonics is lost; in (ii) the outgoing exponent moved by 1/10; in (iii) a count of 3 claimed, and N(lam - 2) m
+= 0; in (iv) L-bar's root 1 at s0, which lin5.py's denominator (lam - 1)^2 removes, counted; in (v) the zero claimed
+10^-3 above the candidate. []
+
+*Deduced.*
+
+ (a) (towers) If u = t*^-lam G(v) is a pure resonant state, so is d_t* u = t*^(-lam-1) (D - lam) G at lam + 1: the
+     model's coefficients do not depend on t*, the outgoing and the E_K exponents are kept, and (D - lam) G != 0 as
+     v^lam is not outgoing. So spec_iota+ is closed under lam -> lam + 1, as (ii)-(iii) find.
+ (b) (descent) Let mu_j be the outgoing exponents, nu_k those of E_K, and Re nu_k + 1 < Re lam < Re mu_j + 1 for all
+     j, k. Then m := int_0^oo v^-lam G(v) dv converges and N(lam - 1) m = 0: pair the equation with v^-lam dv/v; (D -
+     lam) L1(D) G integrates to [v^-lam L1(D) G], which vanishes at both ends since L1(mu_j) g_j = 0 makes L1(D) G =
+     O(v^(mu + 1)) at 0, and s M1(D) G pairs to M1(lam - 1) m, the boundary terms vanishing by the same bounds. Either
+     m != 0 and lam - 1 is a root of det N, or m = 0 and G~(v) := v^(lam - 1) int_0^v w^-lam G(w) dw -- in spacetime
+     int_0^t* u dt* -- is a pure resonant state at lam - 1: (D - lam + 1) G~ = G, so H := L1(D) G + s N(D) G~ has (D -
+     lam) H = 0, H = c v^lam, and H = O(v^(min mu + 1)) at 0 forces c = 0; G~ has the exponents mu_j + n at 0, and at
+     oo, m being 0, G~ = -v^(lam - 1) int_v^oo w^-lam G dw = O(v^nu); and G~ != 0. In spacetime: the time integral of
+     a pure resonant state is a static solution homogeneous of degree 1 - lam, r^-(lam - 1) m, or zero, and then the
+     state is the time derivative of one at lam - 1.
+ (c) (injectivity in five dimensions) His proof of Proposition 9.2(2) carries over with v d_v - 3/2 - S-bar for v d_v -
+     1 - S-bar: the threshold becomes s < 2 + min spec S-bar - Re lam, the extension by zero is in L^1_loc for Re lam <
+     5/2 (min spec S-bar = 0, 10.25), the Fourier transform and the conjugation by r^(-lam + 1) are free of the
+     dimension (the shift comes from L~(0)'s argument v d_v + lam), and Proposition 8.6 in five dimensions
+     (10.24(c)-(d), 10.25(b)) takes the weights in (-eps_ind, 0). So there is no pure resonance with Re lam < 1 +
+     eps_ind -- at the record's point, on 10.24-10.25's readings. The bound comes from the zero energy weight, which
+     does not see the dimension: 1 + eps_ind in five dimensions as in four.
+ (d) (below 5/2) For L-bar the outgoing exponents are 3/2 + spec S-bar >= 3/2 and E_K's are the roots with real part <=
+     0, as many as K (10.24), so (b) applies whenever 1 < Re lam < 5/2. A pure resonance with real part in [1 + eps_ind,
+     5/2) has lam - 1 a root of det N_L with real part in [eps_ind, 3/2), or is the time derivative of one at lam - 1;
+     (c) excludes that one below 1 + eps_ind, and (b) sends it above to a root or a state with real part in [eps_ind,
+     1/2), of which there are none ((c), and no root of det N_L in (0, 1]). By lin5.py E2 the roots of det N_L are the
+     physical -l and l + 2, box^Ups's plus 1 and box^C's minus 1, D's cancelled; in (0, 3/2) neither the physical ones
+     lie nor box^Ups's (gaugepot5.py G1: near 0 only its exact Killing 0 at s0 and s1, which D removes), and box^C has
+     no root in [-100, 2] but the Coulomb 2 (damping5.py U4, (iv)). Hence at the record's point, on the readings of (c),
+     spec_iota+(L-bar) cap {Re lam < 5/2} lies in {lam^C : det N_C(lam^C) = 0, 2 < Re lam^C < 5/2, scalar types}, the
+     lowest candidate 2 + 2.93 x 10^-6 (l = 2), and no pure resonance has real part at most 2.
+ (e) (the candidates) A state at a candidate is of the constraint kind: its moment is nonzero ((d)) and an indicial
+     solution of det N_L's box^C root, whose gauge 1-form is not zero (his Lemma 8.4's proof: with it zero the solution
+     is pure gauge or physical, and the root would be one of theirs), so eta = delta_(E^Ups) G h != 0 and eta is a pure
+     resonant state of box^C at lam^C + 1 = 1 + (box^C's upper root). By (v) the s0 candidate is a resonance at gam_C =
+     10 and 100. Along gam_C in [100, 10^6] it stays alone in (2, 5/2) ((iv)), and by (b)-(d) the zeros in the strip lie
+     at candidates; on the reading that (c) holds along that path (the record has it at 10^6 only), Hurwitz's theorem
+     carries the zero along the candidate, and 2.0000747438... is a pure resonance of L-bar at the record's point. Not
+     computed there.
+ (f) (for 10.35) The second channel of alpha_5 is closed on its alpha_5 = 2 reading: no pure resonance has real part at
+     most 2, so the pure resonance part of E_+ lies above 2. A pure term reaches K+ at order lam^C - nu, nu <= 0 in E_K;
+     at s0 and s2, whose E_K contains 0 (10.35(i)), that is 2 + 7.47 x 10^-5 and 2 + 2.93 x 10^-6 if those candidates
+     are resonances -- terms of the kind 10.35(c)'s caution names, when eps_K exceeds their distance. Such terms are of
+     the constraint kind ((e)): a solution whose gauge 1-form vanishes, the constraints propagated, does not excite
+     them; whether the iteration's sources do is his section 12's question in five dimensions, not examined here.
+
+*READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed page numbers): pp. 16-17 ((1.16),
+(1.19), footnote 9, (1.20)-(1.22), Example 1.6), 164-166 ((9.2), Proposition 9.2 and its proof), 168 ((9.10)-(9.11),
+Definition 9.3), 170 (Remark 9.5, the proof of Proposition 9.4), 172 (Definition 9.6, Remark 9.7), 180 (Lemma 9.13),
+184-185 (Definition 9.19, Lemma 9.21, Proposition 9.22), 149 (Lemma 8.4 and its proof).
+
+*What this gives, and what it does not.* The pure iota+ resonances of the five-dimensional model: on (b)'s descent and
+(c)'s injectivity, every one with real part below 5/2 sits at a root of box^C's zero energy operator in (2, 5/2) -- one
+at s0, one at s1, two at each scalar l from 2 to 135 and one beyond -- so none has real part at most 2, and the alpha_5
+= 2 reading of 10.35 is not undercut by pure resonances. The s0 candidate is a resonance where the method reaches (gam_C
+<= 100) and, on a reading, at the record's point. Not done, and OPEN: the candidates at the record's point by
+computation (a method for exponents near 10^6: their WKB form, or the gam_C -> oo limit); the s1 and l >= 2 candidates
+(the s1 determinant at gam_C = 10 sits below 10^-110 at 100 digits, not resolved); (c)'s readings and the path of (e);
+whether his section 12 excites the constraint-kind states; four dimensions, where the same argument would place the part
+of his spec_iota+ below 2 at box^C's roots in (1, 2). Nothing of this section is proved: Proposition 10.34 is computed,
+and (a)-(f) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

@@ -8,7 +8,8 @@ deduced, READ.
 h~_b : S_1 -> rho^3 C^oo linear and smooth in b); so Proposition 7.4's h-sharp_b,v1(w) is defined for every w in R^3 and
 "the rho^2 leading-order term of h*_b,v1(V) ... crucially, only depends on V through a(V') = a(b) x a(V)" (p. 143).
 dual5.py A3 has this in five dimensions at first order in one spin (10.31(c)).  Here the five-dimensional Myers-Perry
-metric in Kerr-Schild form ([ER08] (31), (42)-(44)) is written for every spin matrix A in so(4) at once:
+metric in Kerr-Schild form ([ER08]'s class (31); (42)-(44) its Boyer-Lindquist form) is written for every spin matrix A
+in so(4) at once:
 
     g_A = eta + H k (x) k,   P = r^4 + s r^2 + p^2,   M = (r^2 + s) I + A^2,   s = -tr(A^2)/2,   p = Pf A,
     r > 0 the root of Q = P - x^T M x,   k = dt + (M (r I + A) x / P) . dx,
@@ -23,10 +24,10 @@ metric in Kerr-Schild form ([ER08] (31), (42)-(44)) is written for every spin ma
      second order solved for exactly): two spins with A rotated out of block form by a Cayley rotation, equal spins, one
      spin; four dimensions likewise.  Control: H = mu r/(P F), the even-dimensional exponent, is not Ricci-flat.
   M2 (computed, exact) Lemma 7.5 at every spin.  Q, P and x^T A^2 M^2 x are invariant and M (r I + A) x covariant under
-     so(4) acting on (x, A) at fixed r (symbolic in A, x, r, for each basis rotation), so for R = A_V x and W = [A, A_V]:
-     delta*_(g_A) V_A = (1/2) L_R g_A = (1/2) D_A g_A(W), the derivative of the family along W -- checked directly on the
-     full metric (r implicit) at the exact points of M1, all six basis rotations.  Four dimensions: [A_a, A_v] = A_(a x
-     v), his S'.  Control: the bracket reversed.
+     so(4) acting on (x, A) at fixed r (symbolic in A, x, r, for each basis rotation), so for R = A_V x and W = [A,
+     A_V]: delta*_(g_A) V_A = (1/2) L_R g_A = (1/2) D_A g_A(W), the derivative of the family along W -- checked directly
+     on the full metric (r implicit) at the exact points of M1, all six basis rotations.  Four dimensions: [A_a, A_v] =
+     A_(a x v), -A_(S') for his S' (A x = a x x is minus the spin, J = -m a; D98).  Control: the bracket reversed.
   M3 (computed, exact) The expansion.  Along x = X/eps (X = (1, 2, 2, 4), |X| = 5), D_A g(W) at A = 0 is exactly (2 mu /
      r^4) (dt + dr) (x)_s V(W) (V(W) = (W x) . dx, the eps^3 term alone), and at a two-spin A its eps^3 term is the same
      while eps^4, eps^5, eps^6 are nonzero: the leading term does not see the spin, and the rest is of class rho^4 with
@@ -45,7 +46,7 @@ Deduced, not computed here (N1STAR-PROOF.md 10.36): [Hin26] Lemma 7.5 in five di
 gauge term at leading order in these coordinates; Proposition 7.4 with h-sharp_b,v1(W) for every W in so(4), its leading
 term 10.31(c)'s, and (7.19) with rho^(floor(C_0) + 3), on 10.31(a)'s readings; the Killing rotations 6, 4, 2.
 
-READ.  [Hin26] pp. 69 (Definition 2.28), 126 (Remark 6.17), 140-144 (section 7.2.1: (7.16), Proposition 7.4,
+READ.  [Hin26] pp. 65 (Definition 2.28), 126 (Remark 6.17), 140-144 (section 7.2.1: (7.16), Proposition 7.4,
 (7.17)-(7.19), Lemma 7.5 and its proof, (7.20)-(7.28), the proof of Proposition 7.4, (7.29)-(7.35)), 161 ((8.32c)-(8.33),
 footnote 82); alphaXiv, 2026-10-24.  [ER08] (arXiv:0801.3471v2) pp. 10 ((14)-(16)), 14 ((31)-(34)), 16 ((42)-(44)), 19
 (section 4.3).
@@ -391,7 +392,7 @@ def m2(control=0, verbose=False):
         f"rotations, none Killing there: {res}", all(res))
     x0, Ab = point(3, (Fr(1, 3),), O3)
     r4 = all(e and nz for e, nz in (lie_vs_dA(x0, Ab, 3, AV, sign) for AV in basis_rot(3)))
-    chk("four dimensions, Kerr: the same with [A_a, A_v] = A_(a x v), his S'", r4)
+    chk("four dimensions, Kerr: the same with [A_a, A_v] = A_(a x v), -A_(S') for his S'", r4)
     return chk.ok
 
 
@@ -554,7 +555,7 @@ def m5(control=0, verbose=False):
 
 CHECKS = [("M1 the Myers-Perry family over so(4), Kerr-Schild: [ER08]'s at block form, Ricci-flat at exact points",
            m1, 1),
-          ("M2 Lemma 7.5 at every spin: delta* V_b = (1/2) L_R g = (1/2) D_A g([A, A_V]); four dimensions his S'",
+          ("M2 Lemma 7.5 at every spin: delta* V_b = (1/2) L_R g = (1/2) D_A g([A, A_V]); four dimensions -A_(S')",
            m2, 1),
           ("M3 the expansion: the leading term (mu/r^4)(dt + dr) (x)_s V(W) does not see the spin; the rest at rho^4",
            m3, 1),

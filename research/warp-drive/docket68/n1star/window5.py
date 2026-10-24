@@ -41,12 +41,12 @@ orders of decay at K+" (p. 177): hence his roots with real part in [-3, 0] and P
      at d = 3 the two orders are one, 1, and the coefficient vanishes, which is why his (dt*)^2 component carries its
      r^-1 term through its gauge shift 2 gam_Ups (p. 85).  Control: p = (d - 1)/2 claimed to leave the a' term.
 
-Deduced, not computed here (N1STAR-PROOF.md 10.35): for any iota+ order alpha_5 in (1, 2] the physical states needed
-are s2, v2, t2 at -2 alone (W2): 10.34's l = 3 states and his generalized s2, v2 states are not needed; the pole order
-is 2, on a reading, the s1 chains ending at the nonzero centre-of-mass pairing of Proposition 10.29(iii), so sources
-need t*^(-4-eps_K) as in four dimensions and the window is [alpha_5 - 4, 0].  Which alpha_5 is a reading: 2, the mass
-aspect's t*^-2 (W3 with Theorem M(c)), if nothing decays more slowly at iota+; 3/2 + O(gam), conservatively, if, as
-his index sets at I+ do in four dimensions, the iteration carries the radiative order there (D95).
+Deduced, not computed here (N1STAR-PROOF.md 10.35): for any iota+ order alpha_5 in (1, 2] the physical states needed are
+s2, v2, t2 at -2 alone (W2): 10.34's l = 3 states and his generalized s2, v2 states are not needed; the pole order is 2,
+on a reading, the s1 chains ending at the nonzero centre-of-mass pairing of Proposition 10.29(iii), so sources need
+t*^(-4-eps_K) as in four dimensions and the window is [alpha_5 - 4, 0].  Which alpha_5 is a reading: 2, the mass
+aspect's t*^-2 (W3 with Theorem M(c)), if nothing decays more slowly at iota+; 3/2 + O(gam), conservatively, if, as his
+iota+ index sets do in four dimensions, the iteration carries the I+ (radiative-order) exponents there (D95, D98).
 
 READ.  [Hin26] pp. 17-18 ((1.23)-(1.25)), 27-30 (section 1.4.3, footnotes 27-28), 32 (section 1.4.4), 34 (the "2" in
 2-admissibility, footnote 35), 37, 85 (Definition 5.2), 92-93 (Proposition 5.11, (5.27)-(5.28)), 117 (Lemma 6.6), 128,

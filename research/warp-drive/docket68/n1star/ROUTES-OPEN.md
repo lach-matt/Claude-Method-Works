@@ -1238,10 +1238,11 @@ N1STAR-PROOF.md 10.31 states Proposition 10.28 and deduces.
   Tangherlini, eleven dual states against his seven, the time translation's and the six rotations' h* rapidly decaying at
   a = 0, the translations' at rho^3; section 7.2.1's structure at first order in a, his (7.18) with m -> mu/2 and rho^2
   -> rho^3, two of the six rotations Killing.
-- OPEN: the higher orders in a, Lemma 7.5 and (7.19) on the full Myers-Perry metric; Proposition 8.11, Lemma 8.12 and
-  Corollary 8.13 in five dimensions beyond 4.33-4.34's a = 0 and its neighbourhood; section 8.5 and sections 9-10; the
-  readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0. Labels: computed (dual5.py A1-A3, exact);
-  deduced; READ ([Hin26] pp. 126, 134-144); nothing proved.
+- OPEN: the higher orders in a, Lemma 7.5 and (7.19) on the full Myers-Perry metric (10.36: Lemma 7.5 at every spin
+  computed; Proposition 7.4 and (7.19) deduced on readings); Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five
+  dimensions beyond 4.33-4.34's a = 0 and its neighbourhood; section 8.5 and sections 9-10; the readings of 10.20-10.22
+  line by line; how small gam_Ups must be, and h_0. Labels: computed (dual5.py A1-A3, exact); deduced; READ ([Hin26] pp.
+  126, 134-144); nothing proved.
 
 ### 4.33 [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions: the zero energy pairings (computed; D88, D89)
 
@@ -1320,7 +1321,7 @@ his Remark 8.10; N1STAR-PROOF.md 10.34 states Proposition 10.31 and deduces.
   readings and weights; sections 9-10. Labels: computed (physical5.py Y1-Y4; exact, and numerical at 40 and 50 digits);
   deduced; READ ([Hin26] pp. 25, 140-142, 154-163; [DLMF] 15.8.2, 15.8.8, 15.10.1); nothing proved.
 
-### 4.36 [Hin26]'s window in five dimensions: the large indicial roots the expansion needs (computed; D93)
+### 4.36 [Hin26]'s window in five dimensions: the large indicial roots the expansion needs (computed; D93, D95)
 
 His window [-3, 0] is set by two numbers: the iota+ order alpha = 1 of the iteration's slowest term, the mass aspect's
 t*^-1 (footnote 27), and the K+ order 4 to which the sources must decay, twice the order 2 of the pole of
@@ -1338,8 +1339,8 @@ bookkeeping at alpha = 1, and computes the radiative and Coulombic orders of the
 - Deduced: for any iota+ order alpha_5 in (1, 2], five dimensions needs s2, v2 and t2 at -2 alone -- not 10.34's l = 3
   states, nor his Step 4; the pole order 2, on a reading, the centre-of-mass chain ended by Proposition 10.29(iii)'s
   pairing; the window [alpha_5 - 4, 0]. Which alpha_5 is a reading: 2, Theorem M(c)'s mass aspect at the Coulombic order
-  r^-2, if nothing decays more slowly at iota+; 3/2 + O(gam), conservatively, as his index sets at I+ carry the
-  radiative order (the forty-fourth verifier; D95).
+  r^-2, if nothing decays more slowly at iota+; 3/2 + O(gam), conservatively, as his iota+ index sets carry the I+
+  (radiative-order) exponents (the forty-fourth verifier; D95, D98).
 - OPEN: (5.28) and Proposition 11.16 in five dimensions; [Hin26c] Theorem 11.1 there; a radiation field's late limit;
   the data class; which alpha_5; logarithms at the pole; sections 9-10. Labels: computed (window5.py W1-W3; exact, and
   numerical at 50 digits); deduced; READ ([Hin26] pp. 16-18, 27-34, 37, 85, 92-93, 117, 128, 149, 169, 173-177, 199,
@@ -1358,12 +1359,41 @@ once, checks it, and computes Lemma 7.5 on it exactly; N1STAR-PROOF.md 10.36 sta
 - Lemma 7.5 at every spin: Q, P, x^T A^2 M^2 x invariant and M (r I + A) x covariant under so(4), symbolically, so
   delta* V_b = (1/2) L_R g_b = (1/2) D_A g_b([A_b, A_V]) -- checked on the full metric at the exact points (M2).
 - The expansion: the leading term (mu/r^4)(dt + dr) (x)_s V(W) does not see the spin, the rest from rho^4 (M3); the
-  Killing rotations 6, 4 at equal spins, 2 otherwise (M4); h-sharp's leading term the same from the Kerr-Schild term as
+  Killing rotations 6, 4 at a = +-b != 0, 2 otherwise (M4); h-sharp's leading term the same from the Kerr-Schild term as
   from 4.32's, c_0 shifted by the pure gauge mu/3 (M5).
-- Deduced: his Lemma 7.5 at every spin with W = [A_b, A_V] for his S', h~_b : so(4) -> rho^4 C^oo, and no pure gauge
-  term at leading order in these coordinates; his Proposition 7.4 with h-sharp defined on all of so(4), smooth in the
-  spin across the jumps 6, 4, 2, and (7.19) at rho^(floor(C_0) + 3) on 10.31(a)'s readings; so 4.35's condition is met
-  and the modified Step 2 stands at every small spin, on the reading that route B's g_b is chosen SO(4)-equivariantly.
+- Deduced: his Lemma 7.5 at every spin with W = [A_b, A_V], -A_(S') for his S' in four dimensions (A is minus the spin;
+  D98), h~_b : so(4) -> rho^4 C^oo, and no spin-dependent pure gauge term at leading order in these coordinates; his
+  Proposition 7.4 with h-sharp defined on all of so(4), smooth in the spin across the jumps 6, 4, 2, and (7.19) at
+  rho^(floor(C_0) + 3) on 10.31(a)'s readings; so 4.35's condition is met and the modified Step 2 stands at every small
+  spin, on the reading that route B's g_b is chosen SO(4)-equivariantly.
 - OPEN: (7.19) itself and the formal solution beyond leading order, deduced not computed; Ricci-flatness symbolically;
   g_b in coordinates outgoing at infinity with his cut-offs; the readings of 10.31(a); sections 9-10. Labels: computed
-  (mp5.py M1-M5; exact); deduced; READ ([Hin26] pp. 69, 126, 140-144, 161; [ER08] pp. 10, 14, 16, 19); nothing proved.
+  (mp5.py M1-M5; exact); deduced; READ ([Hin26] pp. 65, 126, 140-144, 161; [ER08] pp. 10, 14, 16, 19); nothing proved.
+
+### 4.38 [Hin26] section 9.1 in five dimensions: the pure iota+ resonances (computed; D97)
+
+His model at future timelike infinity has "pure" resonances, solutions with vanishing incoming data whose t*^-lam terms
+enter the iota+ index set E_+ ((1.19); Definition 9.6); in five dimensions, without Huygens, they are functions -- his
+own example is u_3 = (v/(v + 2))^(3/2) at lam = 3. 4.36 read alpha_5 = 2 on the reading that nothing at iota+ decays
+more slowly; a pure resonance at or below 2 would. iota5.py builds the model by type from lin5.py's operators and
+computes its pure resonances by a connection determinant; N1STAR-PROOF.md 10.37 states Proposition 10.34 and deduces.
+
+- The model: M0(D) G + s M1(D) G = 0 with M0 = (x - lam) L1, L1 affine, and M1 lin5.py's N itself, the free transport at
+  gam = 0 (I1). The connection through z = s/(s + 2), validated on the free wave's 3 + l + k and his u_3 (I2) and, with
+  the argument principle and the moment, on box^C at gam_C = 10, where the zeros are exactly 1 + mu + k for det N's
+  upper roots mu (I3).
+- At the record's point: det N_L's roots with real part in (0, 3/2] are box^C's roots less 1 (s0 1.0000747438, s1
+  1.0001201950, none at v1); over l <= 400 box^C's roots in [-100, 5/2] are the Coulomb 2 at l = 0, 1 and roots in (2,
+  5/2) at every scalar l, the lowest 2 + 2.93 x 10^-6 at l = 2, none at the vector types (I4). The s0 candidate is a
+  pure resonance of L-bar at gam_C = 10 and 100 (I5); at 10^6 the method fails (exponents near 10^6 need ~5 x 10^6
+  terms).
+- Deduced: the towers lam -> lam + 1 (d/dt*) and the descent lam -> lam - 1 (the moment int s^-lam G: N(lam - 1) m = 0,
+  or the state is d/dt* of one at lam - 1); his Proposition 9.2(2)'s injectivity below 1 + eps_ind in five dimensions as
+  in four, on 10.24-10.25's readings; hence every pure resonance of L-bar with real part below 5/2 sits at a root of
+  box^C's zero energy operator in (2, 5/2) -- of the constraint kind, eta != 0 -- and none has real part at most 2: the
+  second channel of alpha_5 is closed on the alpha_5 = 2 reading. On a reading (the injectivity along gam_C in [100,
+  10^6]) the s0 candidate 2.0000747 is a resonance at the record's point, by Hurwitz.
+- OPEN: the candidates at the record's point by computation (their WKB form, or gam_C -> oo); s1's and l >= 2's (s1
+  unresolved at 100 digits); the readings of the injectivity and of the path; whether his section 12 excites the
+  constraint-kind states; four dimensions. Labels: computed (iota5.py I1-I5; exact, and numerical at 30-100 digits);
+  deduced; READ ([Hin26] pp. 16-17, 149, 164-166, 168, 170, 172, 180, 184-185); nothing proved.
