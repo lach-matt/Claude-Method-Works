@@ -3466,3 +3466,78 @@ s, A2 216 s, A3 313 s) and mutants 4/4; iota5 --only 4 True; response5 all pass;
 *Runs.* aug5.py --selftest 3/3 (A1 23 s, A2 316 s, A3 354 s with the controls, about eleven and a half minutes on a
 loaded machine) and --mutants 4/4 (about five minutes) after nit (1); paper/response5.py --selftest all pass; md5 rows
 refreshed.
+
+**D104 (2026-10-24): [Hin26] section 10.2 in five dimensions, 2-admissibility with no sf-loss (10.40, lowfreq5.py).**
+
+M asked to continue; after section 10.1 (D102) the proof of his Theorem 10.1 itself, his section 10.2, is the next step
+of ROUTES 4.4 route B item 2. READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 25 (the Fourier
+transform convention, Figure 1.5), 54-55 (Definition 2.19, Lemma 2.20), 60 ((2.25a)-(2.26b)), 199-201 (Theorem 10.1,
+(10.1)-(10.4), Remark 10.2), 212-217 (Lemma 10.9 and its proof, (10.45), Lemmas 10.10-10.13, (10.46)-(10.64), the end of
+the proof of Theorem 10.1), 225 (Corollary 11.10, Theorem 11.12's opening).
+
+*Computed (Proposition 10.37, lowfreq5.py W1-W2).* (W1) For a piecewise cubic chi, 1 on [0, 1/4] and 0 from 1/2, C^1 at
+its joints, the zero-frequency integrals at r = 2 of d_T(chi(r/T) g-dot) and of d_T^2(chi(r/T)(T h + h')) are g-dot and
+h exactly; aug5.py's mass state is of degree -2 (four dimensions -1), from its components, so the weights of the states
+g-dot and h_s1 in r^alpha L^2(r^(n-1) dr) are below 0 and 1 (four dimensions -1/2 and 1/2, his (10.51) and (10.52)).
+(W2) Section 10.2's weight arithmetic at 598 rational points of alpha_sf + n/2 in (0, eps_ind): five dimensions
+alpha_sf + 1, alpha_sf + 2, the final alpha_sf, loss 0; four dimensions his -1/2 - eps, 1/2 - eps, -3/2 - eps and loss
+alpha_sf + 3/2 + eps.
+
+*Deduced (10.40).* (a) His Lemmas 10.9-10.11 lossless as his, on readings. (b) Lemma 10.12 in five dimensions: d_t*
+g-dot^aug in A^(oo,3,oo) and d_t*^2 h^aug in A^(oo,4,oo), tf orders 2 and 3, weights 0 and 1 against r^3 dr; the radial
+threshold at R_out, with Remark 10.2's margin, binds -- alpha_sf + 1 at s' = s and alpha_sf + 2 at s' = s - 1. (c) Lemma
+10.13 twice gives u in H^((s-1;k),(alpha_sf,-2)): (10.3) with no loss, every delta >= 0, or every delta > 0 if [Hin26c]
+Definition 5.13 asks it. (d) His (10.52) as printed, at s' = s, would need s < -1 + eps at R_out, where Remark 10.2
+gives s < -3/2 - alpha_sf; his proof uses (10.52) only through (10.63), at s - 1, where it holds -- a reading, recorded
+and not more. (e) His Corollary 11.10 and Theorem 11.12 carry delta; his section 11 is not examined.
+
+*Notes.* (1) sympy does not integrate the piecewise chi to infinity, nor over (1, 8); W1 integrates the explicit cubic
+over the transition [4, 8] at r = 2, where chi(2/T) varies, and checks chi C^1 at its joints, so that the second
+derivative carries no delta there. (2) W2's grid is five eps_ind, ten alpha_sf and twelve eps; 598 of its 600 points
+have eps below both margins, and the two others are skipped. (3) Section 10.40 first cited 10.39 parenthesized, which
+10.39's own convention reads as his equation; it now says "section 10.39".
+
+*Runs.* lowfreq5.py --selftest 2/2 (W1 5 s, W2 under 1 s) and --mutants 3/3 (about 3 s); paper/response5.py --selftest
+all pass; md5 rows 57, lowfreq5.py added.
+
+**D105 (2026-10-24): the forty-ninth verifier's findings on D104, seated.**
+
+One independent verifier read D104 (2567ab5 against 2a90dc7) with its own checks: the zero-frequency integrals with a
+different step at r = 1/3, 2 and 7 over the whole transition; the chain of weights re-derived from his text with the scf
+requirement from (2.25a) in each dimension; the reading of (10.52); md5 rows 57 of 57. READ at source: [Hin26] pp. 21,
+34, 53-55, 60, 199-200, 202-205, 209, 212-217, 225-226. Verdict: the conclusion holds on readings, with more room than
+stated; one major finding, four minor findings, seven nits.
+
+*Major (the mechanism).* D104 took the requirement at R_out, "s' + alpha' < -1/2", as a condition of Lemma 2.20 and kept
+it in five dimensions, so that "the radial threshold binds". It is not Lemma 2.20's -- Plancherel, with no threshold (p.
+55) -- but the scf weight of his columns: (2.25a) gives the scf order min(beta_I, beta_iota) - eps (p. 60), his (10.54)
+has I+ order 1, and his p. 216 has "the requirement on r here is that r < -1/2 at the zero section R_out" for (10.56)'s
+scf order 1 - eps; his p. 206 makes the same link, "r + alpha_sf + 1 < 3/2 - eps" for the scf order 3 - eps. Checked
+here at source (pp. 60, 206, 215-217). In five dimensions the augmentation chi_K g-dot has no I+ term, the scf weights
+are 1 - eps and 2 - eps against |dx|, the requirements s' + alpha' < 1 and < 2 hold at s' = s, and the columns carry the
+states' own weights -eps and 1 - eps; the initial weights (10.61)-(10.62) set the bound, and u_sing is at alpha_sf as
+before. Repaired: lowfreq5.py W2 reads both weights from (2.25a) -- a column of iota+ order q and I+ order beta_I has tf
+weight q - 1 - n/2 and scf weight min(beta_I, q) - n/2, less eps -- and returns his values in four dimensions, -eps, 1 -
+eps (also at s' = s) and alpha_sf in five, and, with I+ terms at the radiative order 3/2, alpha_sf + 1 - eps, alpha_sf +
+2 - eps and a loss of eps; a third control holds D104's alpha_sf + 1 and alpha_sf + 2 and is caught. 10.40's setting,
+Proposition 10.37(ii), the proof, (b)-(e) and the closing paragraph, ROUTES 4.41, README, and the paper's sentence and
+Appendix A are rewritten; "binds" is gone.
+
+*Minor.* (1) "r^alpha L^2(r^(n-1) dr)", read literally, is the opposite convention; the code used his, rho^alpha L^2 =
+r^-alpha L^2, and the text and the code's comment now say so. (2) "p. 25" for Figure 1.5 was the PDF page; the printed
+page is 21 (its header "KERR 21", read here). (3) Lemma 10.13's independence of the dimension is shown for s = 0; for
+variable orders his proof refers to [Hin26c] Lemma 14.6 (p. 217), now in 10.40(c) and its OPEN list. (4) W1's weight for
+h_s1 is the mass state's plus 1, h_s1's order 3 being 10.28's and not measured; said so.
+
+*Nits.* (1) "His loss is the r^-1 tail" now names both columns and their I+ order. (2) 10.40(e) carries (c)'s Definition
+5.13 hedge. (3) [Hin26c] Theorem 12.2 is back on the OPEN list. (4) The paper's Appendix A bullet now says that the time
+derivatives of the columns have the states as zero-frequency values. (5) The paper's Appendix C row for settling read
+10.3-10.29 (Propositions 10.1-10.26); now 10.3-10.40 (Propositions 10.1-10.37). (6) 10.39(e)'s sf-loss now points to
+10.40. (7) W1 has a negative control: a ramp chi, C^0 only, under which the second integral is -3h'/8, not h.
+
+*Notes.* Not checked by the verifier: [Hin26c] (Definitions 5.11 and 5.13, Lemmas 3.9 and 14.6, (13.30a), Theorems 9.16,
+12.2 and 14.2); Lemma 10.9 line by line; printed p. 201; the 10.39 readings; response5.py --full. Its runs: lowfreq5.py
+2/2 and mutants 3/3; response5.py all pass; md5 rows 57 of 57 at 2567ab5.
+
+*Runs.* lowfreq5.py --selftest 2/2 (W1 5 s, W2 under 1 s) and --mutants 5/5 (about 3 s); paper/response5.py --selftest
+all pass; md5 rows refreshed.
