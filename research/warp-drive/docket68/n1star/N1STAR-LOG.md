@@ -4182,3 +4182,19 @@ partials were closed by reading at source: [Hin26] Proposition 5.25 (pp. 110-111
 any n; [Hin26] Lemma 10.13 (p. 217) and [Hin26c] Lemma 14.6 (pp. 264-265), Hardy inequalities in t with general s by the
 3b calculus. 10.41 (d)'s inputs are 10.53's and 10.67's; 10.38 (a) is X7's computation for [Hin23a]'s gauge, deduced for
 [Hin26]'s.
+
+**D143 (2026-10-24): the fifty-ninth verifier on D137-D139, seated.** gluing5.py and edge5.py 4/4 with mutants 4/4;
+censusweep.py reproduced for five papers; quotations verbatim. M1 (major): the parity inventory listed only (E.19) and
+(E.20b); [CD03] also uses parity for the Lorentz invariance of J^munu ((E.21)-(E.23), p. 74) and the preservation of
+(E.9) under boosts, both on the way to (E.14) -- uses that fall on the Myers-Perry family, which has alpha_- = 3 -- and
+(E.20b)'s bulk term is finite because the data are vacuum. Seated in 10.63(b) and the paper's 8.7. M2 (major): that the
+reason given for reading (8.1) with k^+ is false. Checked: on the boosted slice t = v x of a static metric, K = v N
+Hess_h(x) + O(v^2), odd and of order m r^-2 for Schwarzschild, so r |K^-| ~ r^-1 and printed (8.1) forces alpha_- <= 1 <
+alpha; the verifier's reading dropped (8.1)'s factor r. Refuted; the sign argument the verifier gave is the one 10.63(b)
+already states. Minors: [Hin26d] pages 4, 8, 26 -> 5, 9, 27 (m1; journal line verified, DOI added); (8.7)'s R^-1 for J
+and E C at n = 3 read as a misprint, the n = 3 proof needing the parity-improved error, n = 4 not (m2); gluing5.py D2-D4
+and edge5.py E2, E4 now test what they claim (m3); censusweep.py read the CD03 copy's page markers as opening their pages
+when they close them, so its window ran one page late -- corrected, with p. 38 added: 278 hits on 205 pages, CD03 48,
+all accounted for in 10.69(e) (m4); HHV21's "7-dimensional" on p. 70 (m5). Nits: "deductions by modification"; 10.69(c)'s
+dimensions per n; 10.66(d)'s units; 10.63(c)'s parity alternative.
+

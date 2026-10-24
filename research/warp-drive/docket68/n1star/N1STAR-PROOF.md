@@ -7371,38 +7371,49 @@ Boyer-Lindquist time 0"; p. 319, Remark 13.2 (the verifier's reading: b0 replace
  (b) (decay and parity) [CD03]'s parity condition (E.9) bounds the part of the spacetime metric odd under x^mu -> -x^mu,
      time included ((E.8), p. 72). A metric even under (E.8) has on x^0 = 0 an even spatial metric and an odd second
      fundamental form, k being built from d_t gamma_ij and D_(i Y_j), both odd; so the 3 + 1 form of (E.9) bounds
-     gamma^- and k^+: |gamma^-| + r |d gamma^-| + r |k^+| <= C r^(-alpha_-). As printed, (8.1) (p. 35) has K^-; with it
-     boosted Kerr, whose K is odd and of order r^-2, would fail (8.1), though p. 38 makes boosted Kerr a reference
-     family, and the Kerr value alpha_- = 2 of p. 72 is that of Kerr's even K, of order r^-3 (p. 77). We read (8.1) with
-     k^+ (deduced; D133). At n = 4, with alpha = 2 (inside (E.5b)'s (1, 2]), (E.9) asks alpha_- > 2. The members: in
-     static coordinates their spatial metrics differ from the Euclidean one at order r^-2 and are even, their shifts odd
-     and of order r^-3, so k = k^+ is O(r^-4) and alpha_- = 3; a boost maps even and odd parts to themselves and a
-     translation adds a derivative of the even part, of order r^-3 (alpha_- = 3 > alpha, alpha + alpha_- = 5 > n - 1 =
-     3), as [CD03] p. 77 argues for Kerr in Boyer-Lindquist coordinates (deduced for Myers-Perry the same way). The
-     data: on 10.50's tau-slice they are exact Tangherlini outside a compact set, but tau = v - r = t + (r* - r) = t -
-     mu/r + O(r^-3) (exterior5.py X1), so there their k is even and of order mu r^-3: alpha_- = 2, the borderline (E.9)
-     excludes. So the gluing is done on a Cauchy surface Sigma'' of their development that is the tau1-slice on a large
-     ball and a static slice {t = t1} of the exterior Tangherlini metric beyond a larger one: the development is that
-     metric there (10.50(c)), and t - t1 interpolated by a cut-off between 0 and -mu/r + O(r^-3) has a gradient of size
-     mu r^-2, so Sigma'' is spacelike. It is [Hin26]'s own initial surface near infinity (his section 5.7.1, "Initial
-     data at Boyer-Lindquist time 0"), his Remark 13.3 returning to a tau-level set. On Sigma'' the data have gamma^- =
-     0 and k = 0 outside a compact set, and a perturbation (gamma~, k~) with |gamma~^-| + r |d gamma~^-| + r |k~^+| <= C
-     r^(-alpha_-), alpha_- > 2, keeps (E.9). G-invariance, which makes gamma and k even, does not give this: it removes
-     gamma^-, not k^+. (The class's gluing, 10.50(c) and 10.59(d), needs no parity condition. [CD03] uses (E.9) only for
-     the convergence of the charges J^munu, angular momentum and centre of mass ((E.19), (E.20b), O(R_0^(n - 1 - alpha -
-     alpha_-)); Proposition E.1, p. 73); the energy-momentum p^mu converges without it ((E.17), (E.20a); D138). The
-     charge of a KID Y on a sphere about the origin is linear in Y and equivariant, so on G-invariant data it is the
-     charge of Y's average over the compact G, a multiple of d_t (10.50): the pairings with the other KIDs vanish at
-     every radius, and the mass converges for alpha > n/2 - 1 = 1, (E.17)'s O(R_0^(n - 2 - 2 alpha)) (deduced; D136).)
+     gamma^- and k^+: |gamma^-| + r |d gamma^-| + r |k^+| <= C r^(-alpha_-). As printed, (8.1) (p. 35) bounds r |K^-|,
+     and boosted Kerr would fail it: on the slice t = v x of a static metric -N^2 dt^2 + h, the boosted slice to first
+     order in v, K = v N Hess_h(x) + O(v^2) up to sign, Hess_h(x)_ij = -Gamma(h)^x_ij, which for Schwarzschild in
+     isotropic coordinates is odd and of order m r^-2, so r |K^-| is of order r^-1 and (8.1) would force alpha_- <= 1 <
+     alpha -- though p. 38 makes boosted Kerr a reference family; and the Kerr value alpha_- = 2 of p. 72 is that of
+     Kerr's even K, of order r^-3 (p. 77). We read (8.1) with k^+ (deduced; D133). (The fifty-ninth verifier read
+     boosted Kerr as meeting (8.1) with alpha_- = 2; that drops (8.1)'s factor r, and the reading stands, D143.) At n =
+     4, with alpha = 2 (inside (E.5b)'s (1, 2]), (E.9) asks alpha_- > 2. The members: in static coordinates their
+     spatial metrics differ from the Euclidean one at order r^-2 and are even, their shifts odd and of order r^-3, so k
+     = k^+ is O(r^-4) and alpha_- = 3; a boost maps even and odd parts to themselves and a translation adds a derivative
+     of the even part, of order r^-3 (alpha_- = 3 > alpha, alpha + alpha_- = 5 > n - 1 = 3), as [CD03] p. 77 argues for
+     Kerr in Boyer-Lindquist coordinates (deduced for Myers-Perry the same way). The data: on 10.50's tau-slice they are
+     exact Tangherlini outside a compact set, but tau = v - r = t + (r* - r) = t - mu/r + O(r^-3) (exterior5.py X1), so
+     there their k is even and of order mu r^-3: alpha_- = 2, the borderline (E.9) excludes. So the gluing is done on a
+     Cauchy surface Sigma'' of their development that is the tau1-slice on a large ball and a static slice {t = t1} of
+     the exterior Tangherlini metric beyond a larger one: the development is that metric there (10.50(c)), and t - t1
+     interpolated by a cut-off between 0 and -mu/r + O(r^-3) has a gradient of size mu r^-2, so Sigma'' is spacelike. It
+     is [Hin26]'s own initial surface near infinity (his section 5.7.1, "Initial data at Boyer-Lindquist time 0"), his
+     Remark 13.3 returning to a tau-level set. On Sigma'' the data have gamma^- = 0 and k = 0 outside a compact set, and
+     a perturbation (gamma~, k~) with |gamma~^-| + r |d gamma~^-| + r |k~^+| <= C r^(-alpha_-), alpha_- > 2, keeps
+     (E.9). G-invariance, which makes gamma and k even, does not give this: it removes gamma^-, not k^+. (The class's
+     gluing, 10.50(c) and 10.59(d), needs no parity condition. On the data, [CD03] uses (E.9) only for the convergence
+     of the charges J^munu, angular momentum and centre of mass ((E.19), (E.20b), O(R_0^(n - 1 - alpha - alpha_-));
+     Proposition E.1, pp. 73-74); the energy-momentum p^mu converges without it ((E.17), (E.20a); D138). Its two other
+     uses fall on the reference family, not the data: that Lorentz transformations preserve (E.5) and (E.9), and that
+     the integral over T_R in (E.22) vanishes for J^munu "again by parity considerations" (p. 74) -- the steps to (E.23)
+     and so to the transformation law (E.14) that (a) uses -- and the Myers-Perry members meet (E.9) with alpha_- = 3,
+     as above. And (E.20b)'s bulk term (1/(16 pi)) int_(r >= R_0) T X, which for a linear KID (E.12)'s bound alone would
+     not make finite, vanishes: the data are vacuum, as Theorem 8.1 assumes ("suppose that (K, g) satisfies the vacuum
+     constraint equations", p. 35) and as g_lam's development is (D143). The charge of a KID Y on a sphere about the
+     origin is linear in Y and equivariant, so on G-invariant data it is the charge of Y's average over the compact G, a
+     multiple of d_t (10.50): the pairings with the other KIDs vanish at every radius, and the mass converges for alpha
+     > n/2 - 1 = 1, (E.17)'s O(R_0^(n - 2 - 2 alpha)) (deduced; D136).)
  (c) (C1-C2 without the class) Let (gamma', k') be the data on (b)'s Sigma'' of the glued development of 10.50(c)-(d) --
      which contains g_lam on Omega and is exact Tangherlini outside a compact set of Sigma'' (D136) -- plus any
-     perturbation that satisfies the constraints, is small in the norms of 10.62(d) and has (b)'s parity. 10.50's
-     construction runs with [CD03] Theorem 8.1's proof in five dimensions (Theorem 7.7 is stated in general n): glued on
-     an annulus to a member of the family whose charges lie in a small ball about those of (gamma', k') -- they converge
-     to them as R -> infinity ([CD03] Remark 8.4), not equal them (D133) -- inside (a)'s neighbourhood since those are
-     near Tangherlini's, the obstruction the full fifteen-dimensional space of Killing initial data, matched by (a). The
-     glued data equal a translated, rotated and boosted Myers-Perry metric outside a compact set, and near spatial
-     infinity their development is that metric by finite speed of propagation.
+     perturbation that satisfies the constraints, is small in the norms of 10.62(d) and has (b)'s parity or decays
+     faster than r^(-3/2) (10.66(d); D143). 10.50's construction runs with [CD03] Theorem 8.1's proof in five dimensions
+     (Theorem 7.7 is stated in general n): glued on an annulus to a member of the family whose charges lie in a small
+     ball about those of (gamma', k') -- they converge to them as R -> infinity ([CD03] Remark 8.4), not equal them
+     (D133) -- inside (a)'s neighbourhood since those are near Tangherlini's, the obstruction the full
+     fifteen-dimensional space of Killing initial data, matched by (a). The glued data equal a translated, rotated and
+     boosted Myers-Perry metric outside a compact set, and near spatial infinity their development is that metric by
+     finite speed of propagation.
  (d) (C3 without the class) 10.62(d) with the glued member as the reference near infinity: his Remark 13.2 (p. 319)
      replaces b0 by Kerr parameters b1 = (m1, a1), which covers the member's mass and spin; its boost and translation
      add to gamma terms of orders r^-2 and r^-3 and to k terms of order r^-3, polyhomogeneous and small, which lie in
@@ -7576,11 +7587,11 @@ vanishes cubically at o ..., the square root in the definition of b_0 is indeed 
 roots from "Proposition 5.1(6)"; p. 54, Proposition 5.11 and its commutant "a = (w')^-1 chi_sf chi_R chi_0, w' =
 rho_sf^(alpha_sf + 1)"; p. 58, Lemma 5.14, "Let (T*, <., .>_G) be a time-oriented Lorentzian vector space". [Hin26d]
 (arXiv:2408.06651; alphaXiv, 2026-10-24), the general construction [Hin26a]'s section 2.3.1 cites (his p. 19), which
-10.56 left OPEN: p. 4, Definition 1.3, "Let M be a smooth n-dimensional manifold. Then a scaled bounded geometry
-structure ... on M is"; p. 8, Definition 1.9, the parameterized version, "Let M be a smooth n-dimensional manifold, and
+10.56 left OPEN: p. 5, Definition 1.3, "Let M be a smooth n-dimensional manifold. Then a scaled bounded geometry
+structure ... on M is"; p. 9, Definition 1.9, the parameterized version, "Let M be a smooth n-dimensional manifold, and
 let P be a set"; p. 14, example (10), "3b-algebra, defined in [Hin23c] ... the vector fields are r d_t, r d_r, d_omega_m
 (vector fields on S^(n-2))", with unit cells (2^(j-2), 2^(j+2))_t x (2^(k-2), 2^(k+2))_r x (l + (-4, 4)^(n-2))_omega
-(1.15); p. 26, section 3, "We now develop the theory of (parameterized) scaled b.g. structures (Definitions 1.3 and
+(1.15); p. 27, section 3, "We now develop the theory of (parameterized) scaled b.g. structures (Definitions 1.3 and
 1.9)" (D138). With 10.22's READ (pp. 19, 38, 41-60, 64-66) and 10.56's.
 
 *Deduced.*
@@ -7693,13 +7704,16 @@ proof uses s >= n - 1. Step by step:
      states. This is a reading of [CD03]'s index, recorded.
  (d) ((8.6)-(8.7).) Each pairing's main term is its charge difference times that charge's own power under Phi_R (D2):
      R^-2 for E and P at n = 4, R^-3 for J and E C. (8.7) prints R^-1 for every i at n = 3, where D2 gives R^-1 and
-     R^-2; recorded. Theorem 3.19 applies to F_R rescaled componentwise by these powers, an invertible diagonal map that
-     does not move the zeros. The errors are O(R^-2 beta) = O(R^-4) for the KIDs constant at infinity. For the linear
-     ones they are O(R^-(alpha + alpha_-)) under parity and O(R^-2 alpha) without it, the bound of (E.17) times the
-     extra power of r that a linear KID carries. Both lie below the main terms when 2 alpha > n - 2 and either alpha +
-     alpha_- > n - 1 or 2 alpha > n - 1. (E.5b) and (E.9) are printed for every n, and the glued data meet them with
-     alpha = 2, alpha_- = 3 (10.63(b)). The convergence of the charges in (E.20), which the proof uses on S(0, 1) and
-     S(0, 4), has the same exponents.
+     R^-2; we read it as a misprint for J and E C. With R^-2 for them at n = 3 the printed (8.6) error O(R^-2 beta) =
+     O(R^-2) is not below their main terms, so the three-dimensional proof needs for them the parity-improved error of
+     (E.19), which (8.6) does not state; at n = 4 the printed error O(R^-4) lies below their R^-3 without it (gluing5.py
+     D2; D143). Theorem 3.19 applies to F_R rescaled componentwise by these powers, an invertible diagonal map that does
+     not move the zeros. The errors, in the units of the rescaled data on Gamma(1, 4), are O(R^-2 beta) = O(R^-4) for
+     the KIDs constant at infinity. For the linear ones they are O(R^-(alpha + alpha_-)) under parity and O(R^-2 alpha)
+     without it, the bound of (E.17) times the extra power of r that a linear KID carries. Both lie below the main terms
+     when 2 alpha > n - 2 and either alpha + alpha_- > n - 1 or 2 alpha > n - 1. (E.5b) and (E.9) are printed for every
+     n, and the glued data meet them with alpha = 2, alpha_- = 3 (10.63(b)). The convergence of the charges in (E.20),
+     which the proof uses on S(0, 1) and S(0, 4), has the same exponents.
  (e) (The homeomorphism and the ball.) 10.63(a): the family's charge map is a local diffeomorphism near Tangherlini,
      hence a homeomorphism from a neighbourhood onto a set containing a ball V in R^15 about Q^0, and Theorem 3.19 gives
      the parameter in U = Q^-1(V).
@@ -7727,7 +7741,7 @@ perturbation can therefore be replaced by its decay: |gamma~| + r |d gamma~| + r
      are the places the census finds the dimension entering his boost bookkeeping. It read his sections 3.4, 5.6, 11.4,
      12.2-12.3 and 13.1-13.3 in full and the other boost passages in windows around each occurrence.
 
-This replaces two of Theorem 4 (ii)'s readings by proofs by modification: every place the census finds the dimension
+This replaces two of Theorem 4 (ii)'s readings by deductions by modification: every place the census finds the dimension
 entering [CD03]'s Theorem 8.1 or [Hin26]'s boost is computed (Proposition 10.49), and each step above is theirs with the
 computed quantity in place. What remains is the censuses' own claim, read at source, that their proofs use n only where
 (a)-(g) name it -- as for [Hin23a]'s section 3 in 10.64 and [Hin26a]'s section 5.2 in 10.65.
@@ -7831,7 +7845,7 @@ invertibility for b = b_0, sigma = 0, since arguments as in the proof of Lemma 1
 continuous dependence for (b, sigma) close to (b_0, 0) ... The main input for the perturbation theory is the fact that K
 and R-perp have the same (finite) dimension, namely 7 ... select h#_1, ..., h#_7 ... such that (<h#_i, h*_j>) = delta_ij
 ... We then set V = sum_k h#_k <-, h-flat_k>"; the census rows: Lemma 3.4's ranks 1, 4, 10 (p. 28), Proposition 9.1(2)'s
-"7-dimensional kernel and cokernel" (p. 69), "a in R^3", "dim K_(b0,s) = 4, dim K_(b0,v) = 3" (p. 93), the weights s >
+"7-dimensional kernel and cokernel" (p. 70), "a in R^3", "dim K_(b0,s) = 4, dim K_(b0,v) = 3" (p. 93), the weights s >
 5/2, l in (-3/2, -1/2) (pp. 89-91).
 
 *Deduced.*
@@ -7859,10 +7873,13 @@ place the dimension enters. This sweep tests that claim by another route. It lis
 every page of each carried passage, and each hit is read against the sections.
 
 **Proposition 10.51 (computed; `censusweep.py`).** On the alphaXiv full texts (fetched 2026-10-24) the patterns S^2,
-S^3, R^3, R^4, R^10, 3 + 1, "dimension", "k-dimensional", n - 1, n - 2, n/2, n + 1, a 7 x 7 count and the
-densities |x|^3, r^2 |d..|, x^-6 give 270 hits on 204 pages. By paper: [Hin23a] section 3 (pp. 9-33), 104 hits; [Hin26a]
-section 5.2 (pp. 38-66), 25; [Hin26c] sections 7-8 and 9.3 (pp. 114-157, 174-193), 26; [Hin26]'s boost sections (pp.
-77-81, 108-110, 238-262, 267-278, 301-326), 65; [HHV21] pp. 89-93, 10; [CD03] Theorem 8.1 and Appendix E, 40.
+S^3, R^3, R^4, R^10, 3 + 1, "dimension", "k-dimensional", n - 1, n - 2, n/2, n + 1, a 7 x 7 count and the densities
+|x|^3, r^2 |d..|, x^-6 give 278 hits on 205 pages. By paper: [Hin23a] section 3 (pp. 9-33), 104 hits; [Hin26a] section
+5.2 (pp. 38-66), 25; [Hin26c] sections 7-8 and 9.3 (pp. 114-157, 174-193), 26; [Hin26]'s boost sections (pp. 77-81,
+108-110, 238-262, 267-278, 301-326), 65; [HHV21] pp. 89-93, 10; [CD03] Theorem 8.1, section 8.2 and Appendices E-F (pp.
+35-38, 71-77), 48. (D143: the page-marked copy's markers close their pages; D139 read them as opening them, which put
+its CD03 window, then pp. 35-37 and 71-77, one page late and gave 40, and 270 in all. The window now also takes in p.
+38, section 8.2's reference family, which 10.63(a) uses.)
 
 *Read against the sections.*
 
@@ -7871,15 +7888,18 @@ section 5.2 (pp. 38-66), 25; [Hin26c] sections 7-8 and 9.3 (pp. 114-157, 174-193
  (b) [Hin26c]: the rotation fields (E3), the densities r^2, x_I^-6 (E2, E4), section 8.2's R^3 (E4), (9.73)'s (n - 1)/2
      and Theorem 9.28's (2 pi)^(-n-1) (10.67(c)), Notation 9.2's R^3 (10.53), one codimension and one symbol class
      S^2_cl: 10.67 and 10.53.
- (c) [Hin26]: the boost direction in R^3 (D4), c^2 = (3/(4 pi)) ||S||^2 (D4), b in R^4 -- (mu, A) in R^7 at n = 4 --
-     with S_1 ~= R^3 -- R^4 at n = 4 -- in sections 11.4-12 (10.66(g)), the harmonic parameter spaces S_2, S_3, V_2, V_3
-     (10.61-10.62), iota+'s S^2, the splitting (3.37) (exterior5.py X4), and "finite-dimensional" parameters: 10.66,
-     10.61-10.62.
+ (c) [Hin26]: the boost direction in R^3 (D4), c^2 = (3/(4 pi)) ||S||^2 (D4), the final parameters b = (m, a) in R^4 at
+     n = 3 and (mu, A) in R^7 at n = 4, with S_1 ~= R^3 at n = 3 and R^4 at n = 4, in sections 11.4-12 (10.66(g)), the
+     harmonic parameter spaces S_2, S_3, V_2, V_3 (10.61-10.62), iota+'s S^2, the splitting (3.37) (exterior5.py X4),
+     and "finite-dimensional" parameters: 10.66, 10.61-10.62.
  (d) [HHV21]: Lemma 11.1's 7 (10.68(a)), Proposition 11.3's 4 and 3 and b in R^4, which the record does not use
      (10.68(c)), and the bundle S^2 T*X: 10.68.
- (e) [CD03]: the proof's R^3, R^10 and ball (10.66(b), (e)), section 8.2's reference family on R^3 with charges in R^4 x
-     R^6 (10.63(a)), Appendix E's n-expressions (D2), its "n + 1 = 3 + 1" Schwarzschild and Kerr examples, and Appendix
-     F's R^(1,3) (10.63(a)): 10.63 and 10.66.
+ (e) [CD03]: Theorem 8.1's three-dimensional data manifold and (8.1), the "3 + 1 equivalent" of (E.9), on p. 35 (10.66's
+     setting; 10.63(b)); Remark 8.2's "(n + 1) dimensions" (10.66); the proof's R^3, R^10 and ball (10.66(b), (e));
+     section 8.2's reference family on R^3 with charges in R^4 x R^6, or R^4 when time-symmetric (10.63(a)); Appendix
+     E's setting in n + 1 dimensions and its n-expressions (D2), its "n + 1 = 3 + 1" Schwarzschild and Kerr examples and
+     (E.26)'s vacuum development in n + 1 form (10.63(b)); and Appendix F's R^3, R^(1,3) and R^4 x R^6 (10.63(a)): 10.63
+     and 10.66 (D143).
  (f) [Hin26a]: Lemma 5.14 on R^(n+1) and Corollary 5.15 on an n-dimensional manifold (10.65(c)), the S^2 charts,
      (5.16)'s r^2 |dr dgslash| (the metric density, 10.56 READ (3)), Proposition 5.17's R^3 and T*R^4. One hit is in no
      section. p. 62, after (5.74): "we use the volume density r^3 |dr dgslash| on level sets of tau, which upon

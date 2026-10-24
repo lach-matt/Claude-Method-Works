@@ -297,9 +297,9 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   threshold alpha_I < -1/2 at n = 4; the rotation fields of S^(n-1); densities and counts (E1-E4). `python3 edge5.py
   --selftest` (4/4, a few seconds), `--mutants` (4/4).
 - `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
-  the passages carried to n = 4 -- 270 hits on 204 pages, every one accounted for by 10.53-10.58 and 10.63-10.68 but one
-  norm convention of [Hin26a] p. 62, named in 10.69. Runs where the alphaXiv full texts have been fetched: `python3
-  censusweep.py --texts DIR --cd03 FILE`.
+  the passages carried to n = 4 -- 278 hits on 205 pages (D143; 270 before its [CD03] window was set right), every one
+  accounted for by 10.53-10.58 and 10.63-10.68 but one norm convention of [Hin26a] p. 62, named in 10.69. Runs where the
+  alphaXiv full texts have been fetched: `python3 censusweep.py --texts DIR --cd03 FILE`.
 - `DEDUCTIONS.tsv`: every deduced item of sections 10.12-10.69, 248 rows, with its sources and a category by one fixed
   rule -- A applies a general-n result, B carries a 3 + 1 proof by modification, C perturbation or continuity, D
   bookkeeping on computed values, ? undecided (section 10.70; D140). A first pass by extraction, not adjudicated.
