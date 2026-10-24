@@ -16,9 +16,9 @@ orders of decay at K+" (p. 177): hence his roots with real part in [-3, 0] and P
   W1 (computed; numerical, mpmath at 50 digits, at lin5.py's point) The roots of det N_L itself with real part in [-3,
      0] (lin5.py's determinant, no cancellation rule), by type -- s0, s1, sl (2 <= l <= 6), v1, vl (2 <= l <= 5), and in
      five dimensions tl (2 <= l <= 5) -- each real and either an exact integer (the physical -l, box^Ups's -l + 2 at sl
-     and -l + 1 at vl, s0's 0) or a class root less than 1/4 below one and a root of det N_Ups(lam - 1); the roots of
-     det N_C(lam + 1) meet the window only at four-dimensional s0's 0 (box^C's root 1 shifted by -1, which his Lemma 8.4
-     lists as 0, p. 149), and in five dimensions not at all.  Four dimensions (n = 3, trace weight 1) gives
+     and -l + 1 at vl, s0's 0) or a class root less than 1/4 below one and a root of det N_Ups(lam - 1); of these only
+     four-dimensional s0's 0 is a root of det N_C(lam + 1) (box^C's root 1 shifted by -1, which his Lemma 8.4 lists as
+     0, p. 149; at s1 the same root cancels), and in five dimensions none.  Four dimensions (n = 3, trace weight 1) gives
      exactly his Lemma 8.4's roots in [-3, 0] (p. 149), which are (9.32)'s: the class roots -lam_sl,l+j + 1 for 0 <= l <=
      3, j = 0, 1, 1 <= l + j <= 3, the s0 and s2 root 0, -l + 2 at sl (l = 2, ..., 5), -l + 1 at vl (l = 2, 3, 4), -1 at
      s1 and v1, -2 at s2 and v2, -3 at s3 and v3; five dimensions the same and t2's -2 and t3's -3.  Controls: the five
@@ -98,7 +98,8 @@ def roots(n, kind, L):
 
 def window(n, kind, L, lo=-3):
     """the roots of det N_L with real part in [lo, 0], as 'e<k>' (exact integer) or 'c<k>' (less than 1/4 below k);
-    whether each is real and each class root a root of det N_Ups(lam - 1); and det N_C(lam + 1)'s roots in [lo, 0]"""
+    whether each is real and each class root a root of det N_Ups(lam - 1); and those of det N_C(lam + 1) among
+    them"""
     tags, ok = [], True
     rs = roots(n, kind, L)
     inw = lambda q: lo - 1e-20 <= q.real <= 1e-20
@@ -113,7 +114,8 @@ def window(n, kind, L, lo=-3):
             k = int(mpm.ceil(q.real))
             ok &= k - 0.25 < q.real < k and any(abs(q - u) < 1e-25 for u in rs["U"])
             tags.append(f"c{k}")
-    return sorted(tags), ok, [q.real for q in rs["C"] if inw(q)]
+    cin = [q.real for q in rs["C"] if inw(q) and any(abs(q - u) < 1e-25 for u in rs["L"])]
+    return sorted(tags), ok, cin
 
 
 def w1(control=0, verbose=False):
@@ -133,9 +135,9 @@ def w1(control=0, verbose=False):
     want = {3: [("s", 0)], 4: []} if control != 2 else {3: [], 4: []}
     cgood = sorted(cin[3]) == want[3] and sorted(cin[4]) == want[4]
     cgood &= all(abs(q) < 1e-30 for c in cin[3].values() for q in c) and sum(len(c) for c in cin[3].values()) == 1
-    chk(f"det N_C(lam + 1)'s roots in [-3, 0]: four dimensions {cin[3]} (s0's 0, box^C's root 1 shifted), five "
-        f"dimensions {cin[4] or 'none'}" + (" (control: none claimed in four dimensions)" if control == 2 else ""),
-        cgood)
+    chk(f"the roots of det N_L in [-3, 0] that are det N_C(lam + 1)'s: four dimensions {cin[3]} (s0's 0, box^C's "
+        f"root 1 shifted; at s1 the same root cancels), five dimensions {cin[4] or 'none'}"
+        + (" (control: none claimed in four dimensions)" if control == 2 else ""), cgood)
     return chk.ok
 
 

@@ -5212,9 +5212,9 @@ dimensions needs.
      -3; v4: -3; none at s6 and v5 -- his Lemma 8.4's roots in [-3, 0] (p. 149) and the terms of his (9.32). In five
      dimensions they are the same, and t2: -2, t3: -3, none at t4, t5. Every one is real, the integers exact (the
      physical -l, box^Ups's -l + 2 at sl and -l + 1 at vl, s0's 0), each class root a root of det N_Ups(lam - 1) and
-     less than 1/4 below its integer. The roots of det N_C(lam + 1) meet [-3, 0] only at four-dimensional s0's 0,
-     box^C's root 1 shifted by -1, which his Lemma 8.4 lists as 0, without the superscript C (p. 149); in five
-     dimensions they do not meet it (W1).
+     less than 1/4 below its integer. Of these only four-dimensional s0's 0 is a root of det N_C(lam + 1), box^C's root
+     1 shifted by -1, which his Lemma 8.4 lists as 0, without the superscript C (p. 149) -- at four-dimensional s1 the
+     same shifted root cancels against lin5.py's denominator -- and in five dimensions none is (W1).
  (ii) (the bookkeeping) Let a root mu, fed by t*^-alpha at iota+, give a(t*) = t*^(-alpha+mu) and companions a^(j)(t*)
      of K+ order alpha - mu + j (at s1's and v1's -1, his a_s1 and a_v1 of (9.39a), alpha - 1 + j and alpha + j), and
      keep a state while that order is at most 4, with k = floor(4 - order) companions. At alpha = 1 this gives (9.32)'s
