@@ -1038,8 +1038,8 @@ the theorem's statement. Inventoried by a fixed rule, the 248 deduced steps are 
 values, 29 applications of results printed for general n, 31 perturbation or continuity arguments, 38 other, and 60
 proofs written in 3 + 1 dimensions and carried to five by modification. Those 60 are the core of what a line-by-line
 check would write out (supplement section 10.70, `DEDUCTIONS.tsv`). The perturbation steps are now at proof level given
-their continuity inputs. They rest on five lemmas -- openness of invertibility, semicontinuity of the kernel,
-persistence of strict inequalities, Rouché and the inverse function theorem -- of which the first three are proved in
+their continuity inputs. They rest on five lemmas — openness of invertibility, semicontinuity of the kernel,
+persistence of strict inequalities, Rouché and the inverse function theorem — of which the first three are proved in
 the supplement and the last two are cited, and on continuity statements read from the sources (supplement section
 10.71). λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not
 evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out,
