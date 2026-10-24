@@ -1341,8 +1341,9 @@ bookkeeping at alpha = 1, and computes the radiative and Coulombic orders of the
   pairing; the window [alpha_5 - 4, 0]. Which alpha_5 is a reading: 2, Theorem M(c)'s mass aspect at the Coulombic order
   r^-2, if nothing decays more slowly at iota+; 3/2 + O(gam), conservatively, as his iota+ index sets carry the I+
   (radiative-order) exponents (the forty-fourth verifier; D95, D98).
-- OPEN: (5.28) and Proposition 11.16 in five dimensions; [Hin26c] Theorem 11.1 there; a radiation field's late limit;
-  the data class; which alpha_5; logarithms at the pole; sections 9-10. Labels: computed (window5.py W1-W3; exact, and
+- OPEN: (5.28) and Proposition 11.16 in five dimensions (4.39: (5.28) at h = 0 computed); [Hin26c] Theorem 11.1
+  there; a radiation field's late limit (4.39: zero at iota+ cap I+, on readings); the data class; which alpha_5 (4.39:
+  2, on readings); logarithms at the pole; sections 9-10. Labels: computed (window5.py W1-W3; exact, and
   numerical at 50 digits); deduced; READ ([Hin26] pp. 16-18, 27-34, 37, 85, 92-93, 117, 128, 149, 169, 173-177, 199,
   218, 225, 228, 248, 273, 279, 324); nothing proved.
 
@@ -1384,16 +1385,44 @@ computes its pure resonances by a connection determinant; N1STAR-PROOF.md 10.37 
   upper roots mu (I3).
 - At the record's point: det N_L's roots with real part in (0, 3/2] are box^C's roots less 1 (s0 1.0000747438, s1
   1.0001201950, none at v1); over l <= 400 box^C's roots in [-100, 5/2] are the Coulomb 2 at l = 0, 1 and roots in (2,
-  5/2) at every scalar l, the lowest 2 + 2.93 x 10^-6 at l = 2, none at the vector types (I4). The s0 candidate is a
-  pure resonance of L-bar at gam_C = 10 and 100 (I5); at 10^6 the method fails (exponents near 10^6 need ~5 x 10^6
-  terms).
+  5/2) at every scalar l, the lowest 2 + 2.93 x 10^-6 at l = 2, none at the vector types (I4). L-bar has a pure
+  resonant state at the s0 candidate at gam_C = 10 and 100 (I5), a resonance on the reading of index 0; at 10^6 the
+  method fails (exponents near 10^6 need millions of terms and digits to match; D99).
 - Deduced: the towers lam -> lam + 1 (d/dt*) and the descent lam -> lam - 1 (the moment int s^-lam G: N(lam - 1) m = 0,
-  or the state is d/dt* of one at lam - 1); his Proposition 9.2(2)'s injectivity below 1 + eps_ind in five dimensions as
-  in four, on 10.24-10.25's readings; hence every pure resonance of L-bar with real part below 5/2 sits at a root of
-  box^C's zero energy operator in (2, 5/2) -- of the constraint kind, eta != 0 -- and none has real part at most 2: the
-  second channel of alpha_5 is closed on the alpha_5 = 2 reading. On a reading (the injectivity along gam_C in [100,
-  10^6]) the s0 candidate 2.0000747 is a resonance at the record's point, by Hurwitz.
+  or the state is d/dt* of one at lam - 1); the injectivity half of his Proposition 9.2(2) below 1 + eps_ind in five
+  dimensions as in four, on 10.24-10.25's readings, its index 0 half a reading (D99); hence every pure resonance of
+  L-bar with real part below 5/2 sits at a root of box^C's zero energy operator in (2, 5/2) -- of the constraint kind,
+  eta != 0 -- and none has real part at most 2: the second channel of alpha_5 is closed on the alpha_5 = 2 reading. On a
+  reading (the injectivity along gam_C in [100, 10^6]) the s0 candidate 2.0000747 is a resonance at the record's point,
+  by Hurwitz.
 - OPEN: the candidates at the record's point by computation (their WKB form, or gam_C -> oo); s1's and l >= 2's (s1
-  unresolved at 100 digits); the readings of the injectivity and of the path; whether his section 12 excites the
-  constraint-kind states; four dimensions. Labels: computed (iota5.py I1-I5; exact, and numerical at 30-100 digits);
-  deduced; READ ([Hin26] pp. 16-17, 149, 164-166, 168, 170, 172, 180, 184-185); nothing proved.
+  unresolved at 100 digits); the readings of the injectivity, of the index 0 half (his pp. 167-168) and of the path;
+  whether his section 12 excites the constraint-kind states; four dimensions. Labels: computed (iota5.py I1-I5; exact,
+  and numerical at 30-100 digits); deduced; READ ([Hin26] pp. 16-17, 149, 164-169, 170, 172, 180, 184-185); nothing
+  proved.
+
+### 4.39 [Hin26] (5.27)-(5.28) and Proposition 5.14 in five dimensions; the radiative order at iota+ (computed; D100)
+
+His Proposition 5.11 writes the linearized gauge-fixed operator at future null infinity as (2 r^-1 d_0 r + r^-1 A_h)
+d_1 + r^-1 B_h in a seven-part splitting, A_h lower triangular: its eigenvalues set the decay of each component, and
+its (7, 4) and (7, 6) entries couple pi_01 and pi-slash_0 into the 11-component (Proposition 5.14), the second footnote
+27's mass-aspect coupling. 4.36 left alpha_5 between 2 and 3/2 + O(gam) for want of a five-dimensional (5.28), and 4.38
+closed only the pure resonance channel. scri5.py writes it at h = 0 in his splitting, gives the exponents by type, and
+tests the radiative exponents at iota+; N1STAR-PROOF.md 10.38 states Proposition 10.35 and deduces.
+
+- The matrix: A_0, sbar5.py's S-bar in the splitting with S^3, lower triangular, the same at two points, with his
+  diagonal, his (5, 2) and his (7, 4) entry 2 (1 - e_Ups) gam_Ups, and three trace couplings changed ((3, 1), (4, 1),
+  (4, 3), (7, 3)); in four dimensions his printed (5.28) at h = 0, all 49 entries (C1).
+- The exponents: iota5.py's det L1 by type is the product of 3/2 + (A_0)_ii - x over the slots the type occupies -- s0
+  1, 3, 4, 7; v1 2, 5; v2 2, 5, 6; t2 6 (C2).
+- At a radiative exponent: at s0, pi_01's and pi_11's, and at t2, 3/2, at gam_C = 10 and 100, no resonant state at
+  iota+, the determinant continuous through the exponent (C3).
+- Deduced: the perturbation's entries of A_h and B_h fall half an order in five dimensions (a scaling argument), so the
+  (7, 6) coupling and the quadratic sources reach the 11-component at the Coulombic 2, the mass aspect's; the (7, 4)
+  entry carries pi_01's radiative exponent into pi_11; a radiative term reaches iota+ at its own order only through a
+  resonant state there, which 10.37's descent -- holding at an outgoing exponent under his (9.17), D99 -- and
+  injectivity exclude below 2. So alpha_5 = 2 by both channels, on readings, and the window is [-2, 0].
+- OPEN: the perturbation's entries by computation; Proposition 11.16 in five dimensions; 10.37(c)'s index 0 half,
+  polyhomogeneity at iota+ cap I+, the data class and the decay lam_1 > 0; the radiative exponents at the record's
+  gam_C; four dimensions. Labels: computed (scri5.py C1-C3; exact, and numerical at 50-100 digits); deduced; READ
+  ([Hin26] pp. 85, 91-93, 96-98, 168-169); nothing proved.

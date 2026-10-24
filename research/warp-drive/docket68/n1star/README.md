@@ -238,16 +238,22 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   `python3 mp5.py --selftest` (5/5, about three minutes), `--mutants` (5/5).
 - `iota5.py`: [Hin26] section 9.1 in five dimensions (section 10.37; D97): the model at future timelike infinity by
   harmonic type from lin5.py's operators, M0 = (x - lam) L1 and M1 lin5.py's N; a connection determinant through z =
-  s/(s + 2) that returns the free wave's 3 + l + k and his u_3; on box^C the argument principle and the moment identity
-  of the descent; at the record's point det N_L's roots in (0, 3/2] box^C's less 1 and box^C's roots in (2, 5/2) over l
-  <= 400; L-bar's s0 candidate a pure resonance at gam_C = 10 and 100 (I1-I5; the descent, the injectivity below 1 +
-  eps_ind and no pure resonance at or below 2 deduced in 10.37). `python3 iota5.py --selftest` (5/5, about twenty
-  minutes), `--mutants` (6/6).
+  s/(s + 2) that returns the free wave's 3 + l + k and his u_3; on box^C the argument principle and the moment
+  identity of the descent; at the record's point det N_L's roots in (0, 3/2] box^C's less 1 and box^C's roots in (2,
+  5/2) over l <= 400; L-bar's s0 candidate a pure resonant state at gam_C = 10 and 100 (I1-I5; the descent, the
+  injectivity below 1 + eps_ind and no pure resonance at or below 2 deduced in 10.37). `python3 iota5.py --selftest`
+  (5/5, about twenty-five minutes), `--mutants` (6/6).
+- `scri5.py`: [Hin26] (5.27)-(5.28) and Proposition 5.14 in five dimensions (section 10.38; D100): sbar5.py's S-bar in
+  his splitting with S^3, lower triangular, his diagonal and (7, 4) entry, three trace couplings changed, his printed
+  matrix in four dimensions; iota5.py's det L1 by type the product over the type's slots; no resonant state at iota+ at
+  the radiative exponents of pi_01, pi_11 and the tensor, at gam_C = 10 and 100 (C1-C3; the radiative order excluded at
+  iota+ and alpha_5 = 2 deduced on readings in 10.38). `python3 scri5.py --selftest` (3/3, about twelve minutes),
+  `--mutants` (4/4).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All forty-four are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All forty-five are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing
 the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py,
 lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py,
@@ -260,4 +266,5 @@ imports damping5.py, zstates5.py imports damping5.py, genstates5.py imports damp
 imports damping5.py, genstates5.py and zstates5.py, dual5.py imports damping5.py, genstates5.py and puregauge5.py,
 pairing5.py imports damping5.py, static5.py imports damping5.py and gmodes5.py, physical5.py imports damping5.py and
 lin5.py, window5.py imports damping5.py and lin5.py, mp5.py imports damping5.py and dual5.py, iota5.py imports
-damping5.py and lin5.py, and the others import nothing from the tree. The board's shared record is not edited here.
+damping5.py and lin5.py, scri5.py imports damping5.py, iota5.py, lin5.py and sbar5.py, and the others import nothing
+from the tree. The board's shared record is not edited here.

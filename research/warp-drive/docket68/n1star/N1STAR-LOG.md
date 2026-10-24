@@ -3260,3 +3260,82 @@ runs: mp5 5/5 and 5/5, window5 3/3 and 4/4, physical5 4/4, response5 all pass; m
 
 *Runs.* mp5.py --selftest 5/5 after its label and docstring edits (M3 195 s); window5.py's edit is to its docstring
 alone (parsed); paper/response5.py --selftest: all checks pass, md5 rows 54.
+
+**D99 (2026-10-24): the forty-sixth verifier's findings on D97-D98, seated.**
+
+One independent verifier read D97 and D98 (92af9b0 against a24ab3f), with its own checks: the model rebuilt from
+explicit functions of (t, x1, ..., x4) with Hintz's operators written directly, reproducing iota5.py's M0 and M1
+symbolically at box^C s0 and s1, box^Ups s0 and L-bar s0, and the vector types' kappa = l (l + 2); the zeros reproduced
+by double-precision shooting (box^C s0 at gam_C = 10) and by high-precision Taylor stepping (L-bar s0 at gam_C = 10, to
+19 digits against box^C's root, and the single sign change at gam_C = 100); the descent and the injectivity line by
+line; the constraint kind of 10.37(e)'s states (the gauge 1-form about 3 x 10^-2 at gam_C = 10 and 3 x 10^-7 at 10^6);
+box^C's roots over l and along gam_C; the terms and digits the connection needs. READ at source: [Hin26] pp. 16-17, 149,
+164-170, 172, 180, 184-185; [ER08] p. 14. Verdict: no major finding; three minor findings, eight nits, notes.
+
+*Minor 1 (the l-range).* "One beyond" had lost 10.34(iv)'s l <= 400 and is false for large l: one root in (2, 5/2) for
+136 <= l <= 706 and none from 707 -- recomputed here, and now in I4 to l = 711 and at l = 10^3, 10^4, 10^5. Repaired:
+10.34(iv), 10.37(d) ("the lowest candidate over l <= 400") and its "What this gives", iota5.py's docstring and I4.
+*Minor 2 (the index 0 half).* 10.37(c) had his proof of Proposition 9.2(2) carry over; it carries the injectivity step
+(p. 166), not the index 0 step (pp. 167-168, the semiclassical estimate (9.9)), which in five dimensions is a reading
+and on which "kernel element => pole" rests -- 10.34(v)'s and 10.37(e)'s "is a pure resonance". READ here at source, pp.
+164-169. Repaired: 10.37(c) states the half carried and the reading; 10.34(v), (e), "What this gives", ROUTES 4.38 and
+iota5.py say resonant state, and a resonance on that reading; the OPEN lists carry it. *Minor 3 (the paper's
+qualifiers).* "And no pure resonance ... t^-2" now reads "at the parameters used and on readings", and "his injectivity"
+the injectivity half of his inversion.
+
+*Nits.* (1) iota5.py: I3's zeros are located to 10^-22, as the check asserts. (2) "Where the method reaches (gam_C <=
+100)": at gam_C = 10 and 100. (3) 10.37(e)'s path rested on nine points: I4 now checks 201 points of a logarithmic grid
+from gam_C = 10^2 to 10^6 -- box^C's s0 root alone in (2, 5/2) and decreasing, det N_L free of roots in (0, 1], its K
+lowest roots those with real part <= 0. (4) 10.37(d)'s G1 parenthetical names the fact used: box^Ups's roots near -1 lie
+below -1 for z > 0 (at s0 -1 - z/3 + O(z^2)), so their shifts are negative. (5) 10.36(a): [ER08]'s p. 10 (16) and p.
+14's footnote 4, not "his"; LOG D98 stands. (6) LOG D98's nit (6) placed its repairs a section early -- the "- 1)" wrap
+was in 10.30, the bare 10.20(iii) in 10.29; the repairs are right and D98 stands. (7) mp5.py's M4 label: a = +-b != 0.
+(8) 10.34(v): 260 to 480 terms, as LOG D97 has it.
+
+*Notes, accepted.* A pure resonant state is now defined by his (9.17), L1(D) G vanishing one order beyond the outgoing
+exponents (p. 169) -- what 10.37(b) uses, and what covers a lam equal to an outgoing exponent (D100 uses it); 10.37(a)'s
+(D - lam) G != 0 now rests on the behaviour at v = oo. iota5.py's connection now asserts at every evaluation that the K
+lowest roots of det N are those with real part <= 0, the exact root 0 within 10^(-dps/3). The connection needs of the
+order of 3 gam_C terms and digits growing with them (900 terms and 400 digits at gam_C = 300), so 10.34(v) and ROUTES
+4.38 say millions of terms, and digits to match; LOG D97's "some 5 gam_C" stands. Not checked by the verifier: the s1
+and l >= 2 candidates; his index 0 proof in five dimensions; pp. 180 and 184-185 beyond the citations; his section 12;
+iota5.py's I1 at v2 and t2 by its own route. Its runs: iota5 5/5 (I1 430 s, I2 33 s, I3 531 s, I4 32 s, I5 276 s) and
+mutants 6/6, mp5 5/5, response5 all pass; md5 rows 54 of 54 at 92af9b0.
+
+*Runs.* iota5.py --selftest 5/5 (I1 454 s, I2 34 s, I3 544 s, I4 149 s, I5 296 s) and --mutants 6/6; mp5.py --selftest
+5/5 (its M4 label changed); paper/response5.py --selftest all pass; md5 rows refreshed.
+
+**D100 (2026-10-24): [Hin26] (5.27)-(5.28) and Proposition 5.14 in five dimensions (10.38, scri5.py).**
+
+M asked to continue; 10.35 left alpha_5 between 2 and 3/2 + O(gam) for want of a five-dimensional (5.28), and 10.37 had
+closed only the pure resonance channel. READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 85 (after
+Definition 5.2), 91-93 (Definition 5.4, Lemma 5.6, Proposition 5.11, (5.25)-(5.28)), 96-98 ((5.36)-(5.43), Definition
+5.13, Proposition 5.14 and its proof), 164-169 (Proposition 9.2 and its proof, (9.11), Definition 9.3, Proposition 9.4,
+(9.17)).
+
+*Computed (Proposition 10.35, scri5.py C1-C3).* (C1) sbar5.py's S-bar written in his splitting (5.27) with S^3 is lower
+triangular, the same at two points, with his diagonal, his (5, 2) entry and his (7, 4) entry 2 (1 - e_Ups) gam_Ups, and
+three trace couplings changed -- (3, 1), (4, 1), (4, 3), (7, 3); in four dimensions, at the trace weight 1, it is his
+printed (5.28) at h = 0, all 49 entries. (C2) iota5.py's det L1 by type is the product of 3/2 + (A_0)_ii - x over the
+type's slots: s0 1, 3, 4, 7; v1 2, 5; v2 2, 5, 6; t2 6. (C3) At s0, gam_C = 10 and 100, at pi_01's and pi_11's radiative
+exponents, and at t2, lam = 3/2, the connection with the exponent's own column is nonzero and continuous through it.
+
+*Deduced (10.38).* (a) The perturbation's entries of A_h and B_h fall half an order in five dimensions (scaling). (b)
+Definition 5.2's rates with 3/2 for 1. (c) The (7, 6) coupling and the iteration's quadratic sources reach the
+11-component at the Coulombic 2, the mass aspect's; the (7, 4) entry carries pi_01's radiative exponent into pi_11;
+F_I,11 in five dimensions. (d) A radiative term reaches iota+ at its own order only through a resonant state there at
+that exponent; 10.37(b) holds at such a lam verbatim under D99's definition, and with 10.37(c)-(d) the least iota+ order
+is at least 2. (e) alpha_5 = 2 by both channels, on readings, and the window [-2, 0]. (f) Four dimensions, not examined.
+
+*Notes.* (1) The working notes first had his (7, 4) entry as (1 + v_C) gam_C + e_Ups gam_Ups - 2 d_1(r h_01), which is
+his (7, 3); the printed matrix (p. 93) and C1's control have (7, 4) = 2 (1 - e_Ups) gam_Ups, the entry his Lemma 11.15's
+proof couples. (2) The wrapping helper, run on iota5.py whole, joined a function's lines into a paragraph; the file was
+restored from git, the patches reapplied, and only its docstring rewrapped. (3) I4's fine grid first failed: det N_L's
+exact root 0 comes out at +-10^-22 at 30 digits; the checks take a tolerance, as the connection's new guard does. (4) A
+symbolic det of iota5.py's 4 x 4 M0 ran for minutes; C2 divides M0 by x - lam entrywise first. (5) C3's continuity check
+first asked 10^-12 relative and failed at gam_C = 100, where the determinant's noise is 10^-11 -- its differences at lam
++- 10^-15, 10^-25 and 10^-40 all of that size and of either sign, against 3 x 10^-15 at gam_C = 10 -- so it asks 10^-9.
+(6) The forty-sixth verifier's report arrived during this work and is seated as D99; the forty-seventh reads D99-D100.
+
+*Runs.* scri5.py --selftest 3/3 (C1 54 s, C2 250 s, C3 409 s) and --mutants 4/4 (about nine minutes); paper/response5.py
+--selftest all pass; md5 rows 55, scri5.py added.

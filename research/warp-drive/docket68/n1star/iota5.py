@@ -20,43 +20,47 @@ Here the five-dimensional model by type, from lin5.py's operators, and its pure 
      Control: the powers of T split with z = x1 + i x2 symbolic -- sympy's expand then moves T into denominators T x1 +
      I T x2 and the transport of the degree-p harmonics is lost, which the free-wave check catches at s1.
   I2 (computed, numerical) The connection.  z = s/(s + 2) sends the singular points s = 0, -2, oo to 0, oo, 1, so the
-     Frobenius series at s = 0 (the roots of det L1: the outgoing exponents, lam itself, the stationary r^-lam, left
-     out) and at s = oo (the K lowest roots of det N: [Hin26]'s E_K "from -1 times the indicial roots in Lemma 8.4 with
-     non-positive real parts", p. 170) both converge at s = 2; a pure resonance is a zero of the 2K x 2K determinant of
-     the two families there.  On the free 4+1 wave its zeros are lam = 3 + l + k (l, k = 0, 1, 2) to 10^-25, and at lam
-     = 3, l = 0 the outgoing series is z^(3/2) = (v/(v + 2))^(3/2), his u_3; on box^C at s0, gam_C = 1 (the record's v
-     and e_C) it vanishes at 1 + mu = 3.6457654215... and 2 + mu, mu = 2.6457654215... the upper root of det N other
-     than the Coulomb 2 (whose 3 and 4 lie within 5 x 10^-6 of poles mu' + 1, mu' + 2 of this unnormalized determinant,
-     mu' = 1.99999511... the outgoing exponent; I3 has them where no pole is near).  Control: the outgoing exponent
-     moved by 1/10, which loses lam = 3.
-  I3 (computed, numerical) The descent of N1STAR-PROOF.md 10.37(b) at work, on box^C s0 at gam_C = 10: (i) the
-     argument principle over [6/5, 9/2] x [-3, 3] counts 4 zeros, the points 1 + mu + k (mu = 2, 2.1355877934..., k = 0,
-     1), each located to 10^-25, so none complex; (ii) the resonant state's moment m = int_0^oo s^-lam G ds is nonzero
-     with N(lam - 1) m = 0 at lam = 1 + mu, and vanishes at lam = 2 + mu.  Controls: a count of 3 claimed; N(lam - 2) m
-     = 0 claimed.
+     Frobenius series at s = 0 (the roots of det L1: the outgoing exponents, lam itself, the stationary r^-lam, left out
+     -- [Hin26]'s (9.17), L1(D) G vanishing one order beyond them, which at a lam equal to an outgoing exponent keeps
+     that exponent's own column) and at s = oo (the K lowest roots of det N: [Hin26]'s E_K "from -1 times the indicial
+     roots in Lemma 8.4 with non-positive real parts", p. 170) both converge at s = 2; a pure resonance is a zero of the
+     2K x 2K determinant of the two families there.  On the free 4+1 wave its zeros are lam = 3 + l + k (l, k = 0, 1, 2)
+     to 10^-25, and at lam = 3, l = 0 the outgoing series is z^(3/2) = (v/(v + 2))^(3/2), his u_3; on box^C at s0, gam_C
+     = 1 (the record's v and e_C) it vanishes at 1 + mu = 3.6457654215... and 2 + mu, mu = 2.6457654215... the upper root
+     of det N other than the Coulomb 2 (whose 3 and 4 lie within 5 x 10^-6 of poles mu' + 1, mu' + 2 of this unnormalized
+     determinant, mu' = 1.99999511... the outgoing exponent; I3 has them where no pole is near).  Control: the outgoing
+     exponent moved by 1/10, which loses lam = 3.
+  I3 (computed, numerical) The descent of N1STAR-PROOF.md 10.37(b) at work, on box^C s0 at gam_C = 10: (i) the argument
+     principle over [6/5, 9/2] x [-3, 3] counts 4 zeros, the points 1 + mu + k (mu = 2, 2.1355877934..., k = 0, 1),
+     each located to 10^-22, so none complex; (ii) the resonant state's moment m = int_0^oo s^-lam G ds is nonzero with
+     N(lam - 1) m = 0 at lam = 1 + mu, and vanishes at lam = 2 + mu.  Controls: a count of 3 claimed; N(lam - 2) m = 0
+     claimed.
   I4 (computed, exact and numerical) The candidates at the record's point (lin5.py's POINT: gam_C = 10^6, e_C =
      1/102400, v = 1/2, gam_Ups = e_Ups = 1/100).  (i) The roots of det N_L with real part in (0, 3/2], from I1's M1 at
      50 digits: s0 1.0000747438..., s1 1.0001201950..., none at v1 -- each 1 less than a root of det N_C of the same
-     type; none in (0, 1].  (ii) For every l = 0, ..., 400, from damping5.py's polynomials (U3): box^C's roots with real
-     part in [-100, 5/2] are the Coulomb root 2 at l = 0 and 1 and, at every scalar type, roots in (2, 5/2) -- 2 +
+     type; none in (0, 1].  (ii) For every l = 0, ..., 400, from damping5.py's polynomials (U3): box^C's roots with
+     real part in [-100, 5/2] are the Coulomb root 2 at l = 0 and 1 and, at every scalar type, roots in (2, 5/2) -- 2 +
      7.474e-5 at l = 0, 2 + 1.202e-4 at l = 1, two of them for 2 <= l <= 135, the lowest 2 + 2.93e-6 at l = 2 -- and
-     none at a vector type (the lowest 3, at l = 1); the e_C-root against the h = 0 root 2 + e_C ((1 - v^2) kappa + 3
-     (1 + v^2))/(2 v^2) of U3's Q_5, within 5 h.  (iii) At s0 box^C's root above 2 stays in (2, 5/2), decreasing, as
-     gam_C runs over 10^2, 10^2.5, ..., 10^6.  Control: L-bar's root 1 at s0, which lin5.py's denominator
-     (lam - 1)^2 removes, counted.
-  I5 (computed, numerical) The s0 candidate is a resonance at moderate gam_C, the record's other parameters: at gam_C =
-     10 (50 digits, 260 terms) and 100 (100 digits, 700 terms) the determinant of L-bar's s0 connection changes sign once
-     on a grid of [1.2, 2.3] with the candidate +- 10^-3, 10^-5 added, at the candidate lam^C = 2.1355877934... and
-     2.0149221090..., where it is below 10^-4 of its value at +- 10^-5.  The record's gam_C = 10^6 is beyond this
-     method: the outgoing exponents near 10^6 need some 5 x 10^6 terms at s = 2 (at gam_C = 100, 400 do and 200 do not).
-     Control: the zero claimed 10^-3 above the candidate.
+     none at a vector type (the lowest 3, at l = 1); at the scalar types beyond, one in (2, 5/2) for 401 <= l <= 706
+     and none for 707 <= l <= 711 and at l = 10^3, 10^4, 10^5; the e_C-root against the h = 0 root 2 + e_C ((1 - v^2)
+     kappa + 3 (1 + v^2))/(2 v^2) of U3's Q_5, within 5 h.  (iii) At s0 box^C's root above 2 stays in (2, 5/2),
+     decreasing, as gam_C runs over 10^2, 10^2.5, ..., 10^6, and over 201 points 10^(2 + k/50) it is the only root of
+     det N_C there, det N_L has no root with real part in (0, 1] and exactly four with real part <= 0 (I2's K lowest).
+     Control: L-bar's root 1 at s0, which lin5.py's denominator (lam - 1)^2 removes, counted.
+  I5 (computed, numerical) L-bar has a pure resonant state at the s0 candidate at moderate gam_C, the record's other
+     parameters (a resonance on the reading of index 0, N1STAR-PROOF.md 10.37(c)): at gam_C = 10 (50 digits, 260 terms)
+     and 100 (100 digits, 700 terms) the determinant of L-bar's s0 connection changes sign once on a grid of [1.2, 2.3]
+     with the candidate +- 10^-3, 10^-5 added, at the candidate lam^C = 2.1355877934... and 2.0149221090..., where it is
+     below 10^-4 of its value at +- 10^-5.  The record's gam_C = 10^6 is beyond this method: the outgoing exponents near
+     10^6 need millions of terms at s = 2, and digits to match (at gam_C = 100, 400 do and 200 do not).  Control: the
+     zero claimed 10^-3 above the candidate.
 
 Deduced from these (N1STAR-PROOF.md 10.37): the tower lam -> lam + 1 (d/dt*), the descent lam -> lam - 1 (the moment),
-[Hin26] Proposition 9.2(2)'s injectivity below 1 + eps_ind in five dimensions on 10.25's readings, and hence: at the
-record's point every pure iota+ resonance of L-bar with real part below 5/2 is a root of box^C's det N_C in (2, 5/2),
-and none has real part at most 2.
+[Hin26] Proposition 9.2(2)'s injectivity below 1 + eps_ind in five dimensions on 10.25's readings (its index 0 half a
+reading), and hence: at the record's point every pure iota+ resonance of L-bar with real part below 5/2 is a root of
+box^C's det N_C in (2, 5/2), and none has real part at most 2.
 
-sympy, mpmath.  python3 iota5.py [--selftest | --mutants | --only k]   (about twenty and fifteen minutes)
+sympy, mpmath.  python3 iota5.py [--selftest | --mutants | --only k]   (about twenty-five and fifteen minutes)
 """
 import sys
 import time
@@ -240,7 +244,10 @@ def connection(P, Q, lam, N=260, shift=0, colnorm=False):
     (a control)"""
     K = P[0].rows
     out = [q + shift for q in out_exps(P, lam)]
-    allow = sorted(quad_eigs(Q), key=mp.re)[:K]
+    roots = sorted(quad_eigs(Q), key=mp.re)
+    allow = roots[:K]
+    tol = mp.mpf(10)**(-mp.mp.dps // 3)                     # the exact roots 0 come out at +- 10^-22 or so
+    assert all(mp.re(q) <= tol for q in allow) and all(mp.re(q) > tol for q in roots[K:]), "E_K: K lowest != Re <= 0"
     z = mp.mpf(1) / 2
     R0s, Rinf = coeffR(P, Q, 1), coeffR(neg(Q), neg(P), mp.mpf(1) / 4)
     cols = []
@@ -481,7 +488,17 @@ def i4(control=0, verbose=False):
         f"{mp.nstr(lo - 2, 6)}, at every scalar l, two of them for 2 <= l <= {l2}; at the vector types none (the lowest "
         f"{mp.nstr(vlo, 8)})", good)
     ok &= good
-    co = [sp.lambdify((DP.e, DP.v, DP.h, DP.K), c, "mpmath") for c in sp.Poly(p0, DP.lam).all_coeffs()]
+    co = [sp.lambdify((DP.e, DP.v, DP.h, DP.K), c, "mpmath") for c in sp.Poly(pk, DP.lam).all_coeffs()]
+    cnt = {}
+    for lv in list(range(401, 712)) + [10**3, 10**4, 10**5]:     # the scalar types beyond 400
+        rts = mp.polyroots([c(E, V, H, lv * (lv + 2)) for c in co], maxsteps=500, extraprec=300)
+        cnt[lv] = sum(1 for z in rts if 2 < mp.re(z) <= mp.mpf(5) / 2)
+    one = [lv for lv in cnt if cnt[lv] == 1]
+    good = one == list(range(401, 707)) and all(cnt[lv] == 0 for lv in cnt if lv >= 707)
+    chk(f"401 <= l <= 711 and l = 10^3, 10^4, 10^5: one root in (2, 5/2) for {one[0]} <= l <= {one[-1]}, none beyond",
+        good)
+    ok &= good
+    co0 = co = [sp.lambdify((DP.e, DP.v, DP.h, DP.K), c, "mpmath") for c in sp.Poly(p0, DP.lam).all_coeffs()]
     path = []
     for k in range(4, 13):                                  # gam_C = 10^(k/2), 10^2 to 10^6
         hv = mp.mpf(10)**(-mp.mpf(k) / 2)
@@ -490,6 +507,23 @@ def i4(control=0, verbose=False):
     good = all(2 < q < mp.mpf(5) / 2 for q in path) and all(p > q for p, q in zip(path, path[1:]))
     chk(f"s0 along gam_C = 10^2, ..., 10^6: box^C's root above 2 {[mp.nstr(q, 8) for q in path]}, in (2, 5/2) and "
         f"decreasing", good)
+    ok &= good
+    ML0, ML1, _ = mats(4, "s0", L5.Lbar)
+    mp.mp.dps = 30
+    fine, stays = [], True
+    for k in range(201):                                    # gam_C = 10^(2 + k/50)
+        gv = mp.mpf(10)**(2 + mp.mpf(k) / 50)
+        rts = mp.polyroots([c(E, V, 1 / gv, 0) for c in co0], maxsteps=500, extraprec=200)
+        band = [mp.re(z) for z in rts if 2 + mp.mpf(10)**-20 < mp.re(z) < mp.mpf(5) / 2]
+        subs = dict(L5.POINT)
+        subs[L5.gC] = sp.Integer(10)**(2 + sp.Rational(k, 50))
+        rL = quad_eigs(numeric(ML0, ML1, subs)(mp.mpf(2))[1])
+        tol = mp.mpf(10)**-15                               # det N_L's exact root 0 comes out at +- 10^-22 or so
+        stays &= len(band) == 1 and not any(tol < mp.re(q) <= 1 for q in rL) and sum(mp.re(q) <= tol for q in rL) == 4
+        fine.append(band[0] if band else mp.inf)
+    good = stays and all(p > q for p, q in zip(fine, fine[1:]))
+    chk(f"s0 over 201 points gam_C = 10^(2 + k/50): box^C's root alone in (2, 5/2), decreasing to "
+        f"{mp.nstr(fine[-1], 9)}; det N_L has none in (0, 1] and four with real part <= 0", good)
     return ok and good
 
 
@@ -527,7 +561,7 @@ CHECKS = [("I1 the iota+ model by type from lin5.py's operators: M0 = (x - lam) 
           ("I3 the descent: 4 zeros in [6/5, 9/2] x [-3, 3] at 1 + mu + k; the moment at 1 + mu and 2 + mu", i3, 2),
           ("I4 the record's point: det N_L's roots in (0, 3/2] are box^C's minus 1; box^C over l <= 400 in (2, 5/2)",
            i4, 1),
-          ("I5 the s0 candidate is a pure resonance of L-bar at gam_C = 10 and 100", i5, 1)]
+          ("I5 L-bar has a pure resonant state at the s0 candidate at gam_C = 10 and 100", i5, 1)]
 
 
 def selftest(verbose=False):
