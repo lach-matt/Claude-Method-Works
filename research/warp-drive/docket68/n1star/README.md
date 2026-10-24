@@ -221,8 +221,14 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `physical5.py`: [Hin26] section 8.5 in five dimensions (section 10.34; D91): the physical large zero energy states --
   the stationary equations hypergeometric in r^2/mu, the solutions smooth at the horizon and their growth like r^l, the
   roots his Step 4 needs, and the rotation equivariance behind his Remark 8.10 and Lemma 8.15 (Y1-Y4; his Proposition
-  8.14 at a = 0 for every l >= 2 and the three types, and near it for l = 2, 3 on 10.33(f)'s readings, deduced in
-  10.34). `python3 physical5.py --selftest` (4/4, about twelve minutes, lin5.py's determinants), `--mutants` (4/4).
+  8.14 at a = 0 for every l >= 2 and the three types, and near it for l = 2, 3 on 10.33(f)'s readings and his
+  Proposition 7.4 in five dimensions, Step 2 modified, deduced in 10.34). `python3 physical5.py --selftest` (4/4, about
+  twelve minutes, lin5.py's determinants), `--mutants` (4/4).
+- `window5.py`: [Hin26]'s window in five dimensions (section 10.35; D93): the roots of the linearized gauge-fixed
+  Einstein operator in [-3, 0] in four dimensions (his Lemma 8.4, the terms of (9.32)) and in five (the same and the
+  tensor types), the bookkeeping of K+ orders that returns (9.32) at his iota+ order 1, and the radiative and Coulombic
+  orders of the flat wave operator (W1-W3; the window [-2, 0] and the states s2, v2, t2 at -2 alone deduced in 10.35).
+  `python3 window5.py --selftest` (3/3, about twenty-five minutes, lin5.py's determinants), `--mutants` (3/3).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
@@ -239,4 +245,5 @@ lin5.py imports damping5.py and gaugepot5.py, sbar5.py imports damping5.py, stra
 imports damping5.py, zstates5.py imports damping5.py, genstates5.py imports damping5.py and zstates5.py, puregauge5.py
 imports damping5.py, genstates5.py and zstates5.py, dual5.py imports damping5.py, genstates5.py and puregauge5.py,
 pairing5.py imports damping5.py, static5.py imports damping5.py and gmodes5.py, physical5.py imports damping5.py and
-lin5.py, and the others import nothing from the tree. The board's shared record is not edited here.
+lin5.py, window5.py imports damping5.py and lin5.py, and the others import nothing from the tree. The board's shared
+record is not edited here.

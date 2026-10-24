@@ -811,12 +811,17 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   reading (`static5.py`; computed harmonic by harmonic, the rest deduced in supplement section 10.33). The physical
   states of his section 8.5 exist too: at Tangherlini, for every l ≥ 2 and each of the tensor, vector and scalar types,
   the static tidal solutions smooth at the horizon are Gauss functions of r²/μ growing like r^l with coefficients that
-  never vanish, and near it, on the same reading, his construction runs with his Lemma 8.15 carried over, so(4)'s
-  bracket in place of the cross product (`physical5.py`; computed, the rest deduced in supplement section 10.34); which
-  l five dimensions needs is open. A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9
-  in five dimensions, the threshold h₀, which his proof does not make explicit, and the rest of their analysis are open.
-  No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and
-  the late-time tail of the l = 2 master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06)
+  never vanish, and near it, on the same reading and on his Proposition 7.4 in five dimensions, his construction runs,
+  one step modified, with his Lemma 8.15 carried over, so(4)'s bracket in place of the cross product (`physical5.py`;
+  computed, the rest deduced in supplement section 10.34). And five dimensions needs only l = 2: the slowest term at
+  timelike infinity, the mass aspect's, decays like t^−2 where four dimensions has t^−1, the Coulombic order separating
+  from the radiative one above four dimensions, so that Hintz's window [−3, 0] shrinks to [−2, 0] and the physical
+  states needed are the scalar, vector and tensor ones at −2, without his generalized companions, on readings
+  (`window5.py`; computed, the rest deduced in supplement section 10.35). A line-by-line check of Hintz's 3b- and
+  edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make
+  explicit, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275
+  r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured from the
+  pulse's launch, is t^(−7.05) (tensor) and t^(−7.06)
   (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with that origin and bracketing 7
   (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the
   flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in the class would carry. The
@@ -968,7 +973,12 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   place still passing by reflection parity alone, so that a non-gauge tensor of the same parity passes it too, a reading
   of Hintz's proof misdescribed, Corollary 8.13 claimed at Tangherlini where only the augmented operator's invertibility
   follows there, and Kodama and Ishibashi's section 4, which prints the static flow and master variable, not cited —
-  three nits, and notes, seated (D92).
+  three nits, and notes, seated (D92). Section 10.34 with `physical5.py` and D92's repairs were read by a forty-third
+  (D91, D92), which recomputed the hypergeometric reductions from Kodama and Ishibashi's equations and the class root
+  from the definitions: no major finding; four minor findings — the construction near Tangherlini resting on Hintz's
+  Proposition 7.4 in five dimensions and his Step 2 described as using less than it does, the five-dimensional pairing
+  set beside his without its factor of two, a spanning claim beyond the roots computed simple, and a pairing said to
+  vanish where only a = 0 had been computed — nine nits, and notes, seated (D94).
 
 ---
 
@@ -1085,8 +1095,9 @@ from the arXiv text, with the extraction's spacing.
   metric: the large a case*, arXiv:2207.12952v1. READ 2026-10-23 and 2026-10-24: pp. 1 (the abstract), 35 (Theorem 6.1),
   41 (section 6.4, the proof of Theorem 6.1).
 - [DLMF] *NIST Digital Library of Mathematical Functions*, https://dlmf.nist.gov/. READ 2026-10-24: §15.8 ((15.8.2), the
-  connection formula at large argument, and (15.8.8), its case b − a = m an integer, the dominant coefficient
-  Γ(c)Γ(m)/(Γ(b) Γ(c − a))) and §15.10 ((15.10.1), the exponent pairs {0, 1 − c}, {0, c − a − b}, {a, b} at 0, 1, ∞).
+  connection formula at large argument, and (15.8.8), its case b − a = m a nonnegative integer, the dominant coefficient
+  Γ(c)Γ(m)/(Γ(b) Γ(c − a)) for m ≥ 1, here m = l + 1) and §15.10 ((15.10.1), the exponent pairs {0, 1 − c}, {0, c − a −
+  b}, {a, b} at 0, 1, ∞).
 - [Wu26] S. Wu, *Picard iteration for the characteristic initial value problem in Einstein equations*,
   arXiv:2609.08421v1. READ 2026-10-20: abstract; p. 2, (1.1); Theorems 2.1–2.2, p. 6.
 - [AB26] L. Alpöge, T. Buckmaster, *Blowup for the Boussinesq equations with smooth forcing*, preprint (September
@@ -1326,6 +1337,11 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   hypergeometric in r²/μ, the solutions smooth at the horizon and their growth like r^l, the roots his construction
   needs, and the rotation equivariance behind his Lemma 8.15 (his Proposition 8.14 at Tangherlini deduced, and near it
   on a reading). 4/4; mutants 4/4 (about twelve minutes).
+- `window5.py` W1–W3: Hintz's window in five dimensions (supplement section 10.35): the indicial roots in [−3, 0] in
+  four dimensions, his Lemma 8.4's and the terms of his (9.32), and in five, the same and the tensor types; the
+  bookkeeping of decay orders at the Kerr face that returns (9.32) at his order 1 at timelike infinity; and the
+  radiative and Coulombic orders of the flat wave operator in d + 1 dimensions (the window [−2, 0] and the states at −2
+  alone deduced). 3/3; mutants 3/3 (about twenty-five minutes).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1400,7 +1416,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D91).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D94).
 
 | claim | where it is established |
 | --- | --- |
@@ -1444,6 +1460,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D9
 | | `docket68/n1star/genstates5.py` H1–H5; `docket68/n1star/puregauge5.py` J1–J6; |
 | | `docket68/n1star/dual5.py` A1–A3; `docket68/n1star/pairing5.py` P1–P5; |
 | | `docket68/n1star/static5.py` S1–S6; `docket68/n1star/physical5.py` Y1–Y4; |
+| | `docket68/n1star/window5.py` W1–W3; |
 | | [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c], [AHW24], [DLMF] |
@@ -1463,8 +1480,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D9
 | | the thirty-fourth section 10.25 (D74, D76); the thirty-fifth section 10.26 (D75, D77); |
 | | the thirty-sixth section 10.27 (D78, D79); the thirty-seventh section 10.28 (D80, D82); |
 | | the thirty-eighth section 10.29 (D81, D83); the thirty-ninth section 10.30 (D84, D85); |
-| | the fortieth section 10.31 (D86, D87); the forty-first section 10.32 (D88, D89) |
-| | the forty-second section 10.33 (D90, D92) |
+| | the fortieth section 10.31 (D86, D87); the forty-first section 10.32 (D88, D89); |
+| | the forty-second section 10.33 (D90, D92); the forty-third section 10.34 (D91, D94) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1482,7 +1499,8 @@ imports `cform5.py` and `damping5.py`, `tface5.py` imports `cform5.py`, `gaugepo
 `zstates5.py` import `damping5.py`, `genstates5.py` imports `damping5.py` and `zstates5.py`, `puregauge5.py` imports
 `damping5.py`, `genstates5.py` and `zstates5.py`, `dual5.py` imports `damping5.py`, `genstates5.py` and `puregauge5.py`,
 `pairing5.py` imports `damping5.py`, `static5.py` imports `damping5.py` and `gmodes5.py`, `physical5.py` imports
-`damping5.py` and `lin5.py`; the others import nothing from the research tree:
+`damping5.py` and `lin5.py`, `window5.py` imports `damping5.py` and `lin5.py`; the others import nothing from the
+research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -1518,6 +1536,7 @@ imports `cform5.py` and `damping5.py`, `tface5.py` imports `cform5.py`, `gaugepo
                                                          # pairing5 (about three and a half minutes)
                                                          # static5 (about a minute and a quarter)
                                                          # physical5 (about twelve minutes)
+                                                         # window5 (about twenty-five minutes)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1525,9 +1544,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `9e8edc178f5cc50ea11cc52b85090496` |
-| `docket68/n1star/N1STAR-LOG.md` | `2380b8b2b8045fa8c5b450bad784ae8d` |
-| `docket68/n1star/README.md` | `ee1d6a7bb99f925e17c613a4a0c35f85` |
+| `docket68/n1star/N1STAR-PROOF.md` | `faca68aeb0ade4675dd548fd3d2bb34c` |
+| `docket68/n1star/N1STAR-LOG.md` | `db8df1836d7fbfd763cbe91dfb96ee85` |
+| `docket68/n1star/README.md` | `9fd1cf578de87772dcbad2858438e477` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1572,8 +1591,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/genstates5.py` | `f2ef7478e67760e3d6ff05d0a0dd74e5` |
 | `docket68/n1star/puregauge5.py` | `6fda612d263dcfa82b79a9ff76a70000` |
 | `docket68/n1star/dual5.py` | `c85cd907bd71d3c4fb1a12be89adf783` |
-| `docket68/n1star/pairing5.py` | `ee468d62d228ab8500c111c7a30e1966` |
-| `docket68/n1star/static5.py` | `815107b40db9ded355fe924050d8c6d9` |
-| `docket68/n1star/physical5.py` | `2fd998d00cd7f2aeac86ec6b3b0f872f` |
+| `docket68/n1star/pairing5.py` | `e831c01861f659eddcaeb7a1d0a047bb` |
+| `docket68/n1star/static5.py` | `328a406c8499edf359eca522d34c7895` |
+| `docket68/n1star/physical5.py` | `f051540f973b601e96ec8ca9956ebb5a` |
+| `docket68/n1star/window5.py` | `21acdf3223c8a20aaccff19f8fde816f` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

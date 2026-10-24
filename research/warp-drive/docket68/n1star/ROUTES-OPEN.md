@@ -406,8 +406,8 @@ four dimensions is [Hin26]'s, and its inputs read as follows in the class.
    six rotations plus pure gauge, so they hold there, and near it on a reading (4.34; the stationary equations computed,
    the rest deduced); the line-by-line readings of [Hin26a] sections 2.3 and 5.2 and Appendix B and of [Hin26c] section
    9 at n = 4, and the rest of the item, [Hin26] section 7.2.1 beyond first order in the rotation, section 8.5 beyond
-   4.35 (its physical states at a = 0, and near it on 10.33(f)'s readings, the tensor types included), and [AHW24]
-   Theorem 6.1(2) in five dimensions beyond a = 0, are OPEN.
+   4.35 (its physical states at a = 0, and near it on 10.33(f)'s readings, the tensor types included; 4.36: on readings
+   five dimensions needs only those at l = 2), and [AHW24] Theorem 6.1(2) in five dimensions beyond a = 0, are OPEN.
 3. *The zero-energy nullspace in the class* is the mass change in gauge (4.2(ii)), and in the harmonic gauge of
    W1-W6 it is not simple: K* = t pi_{W*} + (stationary) with Gamma[K*] = 0 (W3) is a t-linear zero-energy state, the
    second-order structure. Whether the five-dimensional E^Upsilon of item 2 removes W* and leaves a first-order pole,
@@ -503,9 +503,11 @@ computes the stationary solutions on Tangherlini harmonic by harmonic and deduce
 Proposition 8.11 at a = 0 and, on a reading, near it, with his Corollary 8.13 (at a = 0 alone the augmented operator's
 invertibility). And 4.35 (10.34, Proposition 10.31, computed; deduced) finds his section 8.5's physical states in five
 dimensions: at a = 0 for every l >= 2 and the three types, the static tidal solutions in Gauss functions of r^2/mu, and
-near it for his l = 2, 3 by his construction, his Lemma 8.15 carried over with so(4)'s bracket for the cross product.
-Next: the rest of item 2 -- 7.2.1 beyond first order in the rotation, the window five dimensions needs, and sections
-9-10 -- in five dimensions.
+near it for his l = 2, 3 by his construction with its Step 2 modified, on his Proposition 7.4 in five dimensions, his
+Lemma 8.15 carried over with so(4)'s bracket for the cross product. And 4.36 (10.35, Proposition 10.32, computed;
+deduced) finds the window five dimensions needs: [-2, 0], on readings, the slowest iota+ term being the mass aspect's
+t*^-2, so that its physical states are s2, v2 and t2 at -2 alone, without companions. Next: the rest of item 2 -- 7.2.1
+beyond first order in the rotation, and sections 9-10 -- in five dimensions.
 
 ### 4.6 W7: Hung's Proposition 4.2 in five dimensions (computed, D47)
 
@@ -1205,11 +1207,11 @@ Minkowski the control; N1STAR-PROOF.md 10.30 states Proposition 10.27 and deduce
 - Deduced: his Proposition 6.18 (4)-(7) in five dimensions on Tangherlini, each stationary correction one order faster,
   no logarithm in the leading terms; the tensor types carry no pure gauge state; delta-bar* injective at sl and vl for
   every l >= 2, the stationary Killing 1-forms having l <= 1.
-- OPEN: the readings of 10.20 line by line; the index sets; whether five dimensions needs his window [-3, 0]; section 7.2
-  (4.32's), Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions beyond 4.33-4.34's a = 0 and its
-  neighbourhood; section 8.5 (with t2 and t3) and sections 9-10; how small gam_Ups must be, and h_0. Labels: computed
-  (puregauge5.py J1-J6, exact); deduced; READ ([Hin26] pp. 19, 67, 113, 117-118, 121, 128-134, 149-151, 158); nothing
-  proved.
+- OPEN: the readings of 10.20 line by line; the index sets; whether five dimensions needs his window [-3, 0] (4.36: [-2,
+  0] on readings); section 7.2 (4.32's), Proposition 8.11, Lemma 8.12 and Corollary 8.13 in five dimensions beyond
+  4.33-4.34's a = 0 and its neighbourhood; section 8.5 (with t2 and t3) and sections 9-10; how small gam_Ups must be,
+  and h_0. Labels: computed (puregauge5.py J1-J6, exact); deduced; READ ([Hin26] pp. 19, 67, 113, 117-118, 121, 128-134,
+  149-151, 158); nothing proved.
 
 ### 4.32 [Hin26] section 7.2 in five dimensions: the constraint operator's dual states (computed; D86)
 
@@ -1287,13 +1289,13 @@ gmodes5.py's reduced operators; N1STAR-PROOF.md 10.33 states Proposition 10.30 a
   five dimensions line by line; omega's continuation inside the horizon; section 8.5 beyond 4.35 and sections 9-10;
   section 7.2.1 beyond first order in a; the readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0.
   Labels: computed (static5.py S1-S6, exact); deduced; READ ([AHW24] pp. 1, 35, 41; [Hin26] pp. 156-157; [KI03] pp.
-  4-10, 13-15); nothing proved.
+  4-10, 11, 13-15); nothing proved.
 
 ### 4.35 [Hin26] section 8.5 in five dimensions: the physical large zero energy states (computed; D91)
 
 His section 8.5 builds the large zero energy states at the roots that are not pure gauge, sl and vl's -l for l >= 2,
 smoothly in the rotation by his Lemma 8.15's pairings. In five dimensions the physical roots are -l at every type, the
-tensor type included (4.24). physical5.py computes the stationary equations of 4.34 as Gauss's hypergeometric equation,
+tensor type included (4.25). physical5.py computes the stationary equations of 4.34 as Gauss's hypergeometric equation,
 their solutions smooth at the horizon and their growth, the roots his Step 4 needs, and the rotation equivariance behind
 his Remark 8.10; N1STAR-PROOF.md 10.34 states Proposition 10.31 and deduces.
 
@@ -1303,10 +1305,35 @@ his Remark 8.10; N1STAR-PROOF.md 10.34 states Proposition 10.31 and deduces.
 - The rotations: L_R h_A = h_[A,B]; <[A_V, A_b], A_V'> on so(4) of rank 4 at one spin, kernel the two Killing rotations;
   in three dimensions his triple product (Y4).
 - Deduced: his Proposition 8.14 at a = 0 for every l >= 2 and each of the tensor, vector and scalar types, the leading
-  terms Y2's, put into the gauge; his Lemma 8.15 in five dimensions, (1) minus 10.32's centre-of-mass row, (2) -pi^2 mu
-  <[A_V, A_b], A_V'>, 0 at a = 0; his Proposition 8.14 near a = 0 for l = 2, 3 by his Steps 0-5, on the readings 4.34
+  terms Y2's, put into the gauge (spanning where -l is simple, computed for l <= 12); his Lemma 8.15 in five dimensions,
+  (1) minus section 10.32's centre-of-mass row, (2) -pi^2 mu <[A_V, A_b], A_V'>, 0 at a = 0, his -8 pi m in [Hin24b]'s
+  normalization; his Proposition 8.14 near a = 0 for l = 2, 3 by his Steps 0-5, Step 2 modified (the non-Killing s1
+  pairings absorbed into V_1), on his Proposition 7.4 in five dimensions on the full metric and on the readings 4.34
   rests on.
-- OPEN: the window five dimensions needs, and whether t2, t3 and higher l enter the late-time expansion; Lemma 8.15(1)
-  against the non-Killing rotations at a != 0 beyond its lambda-sharp form; Myers-Perry beyond first order and two
-  spins; the readings and weights; sections 9-10. Labels: computed (physical5.py Y1-Y4; exact, and numerical at 40 and
-  50 digits); deduced; READ ([Hin26] pp. 25, 140-142, 154-163; [DLMF] 15.8.2, 15.8.8, 15.10.1); nothing proved.
+- OPEN: the window five dimensions needs, and whether t2, t3 and higher l enter the late-time expansion (4.36: on
+  readings [-2, 0], t2 at -2 and no l >= 3); Lemma 8.15(1) against the non-Killing rotations at a != 0 beyond its
+  lambda-sharp form; Myers-Perry beyond first order and two spins; the readings and weights; sections 9-10. Labels:
+  computed (physical5.py Y1-Y4; exact, and numerical at 40 and 50 digits); deduced; READ ([Hin26] pp. 25, 140-142,
+  154-163; [DLMF] 15.8.2, 15.8.8, 15.10.1); nothing proved.
+
+### 4.36 [Hin26]'s window in five dimensions: the large indicial roots the expansion needs (computed; D93)
+
+His window [-3, 0] is set by two numbers: the iota+ order alpha = 1 of the iteration's slowest term, the mass aspect's
+t*^-1 (footnote 27), and the K+ order 4 to which the sources must decay, twice the order 2 of the pole of
+L-hat_b(sigma)^-1 at 0 (2-admissibility). A root mu then enters at K+ order alpha - mu and its j-th generalized companion
+at alpha - mu + j. window5.py lists the roots in [-3, 0] in four and five dimensions, reproduces (9.32) from that
+bookkeeping at alpha = 1, and computes the radiative and Coulombic orders of the flat wave operator; N1STAR-PROOF.md
+10.35 states Proposition 10.32 and deduces.
+
+- The roots: in four dimensions his Lemma 8.4's in [-3, 0], (9.32)'s set; in five dimensions the same with t2's -2 and
+  t3's -3 (W1).
+- The bookkeeping: alpha = 1 gives (9.32)'s orders; for alpha in (1, 2] the physical states kept are s2, v2 and t2 at
+  -2, without companions; alpha = 2 in full (W2).
+- The orders: the Coulombic order d - 2 separates from the radiative (d - 1)/2 above four dimensions (W3).
+- Deduced: alpha_5 = 2, Theorem M(c)'s mass aspect at the Coulombic order r^-2, on the reading that nothing decays more
+  slowly at iota+; the pole order 2, the centre-of-mass chain ended by Proposition 10.29(iii)'s pairing; so the window
+  is [-2, 0], and five dimensions needs s2, v2 and t2 at -2 alone -- not 10.34's l = 3 states, nor his Step 4.
+- OPEN: (5.28) and Proposition 11.16 in five dimensions; [Hin26c] Theorem 11.1 there; a radiation field's late limit;
+  the data class; section 7.2.1 beyond first order; sections 9-10. Labels: computed (window5.py W1-W3; exact, and
+  numerical at 50 digits); deduced; READ ([Hin26] pp. 17-18, 27-34, 37, 85, 92-93, 117, 128, 149, 173-177, 199, 218, 225,
+  273, 279, 324); nothing proved.

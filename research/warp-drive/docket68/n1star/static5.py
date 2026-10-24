@@ -34,8 +34,8 @@ statement leaves are the mass and the six rotations of so(4); everything else mu
      Q_X Y)/(2 k^2 r^(1/2) f' H), identically (the forty-second verifier; D92), and det[r^(1/2) Phi; r^(1/2) Phi'] =
      r^3/(k^2 mu); 3 Z~ - r (X + Y) is a combination of X and Y with coefficients
      polynomials in r of degrees 2 and 4 over k^2 mu r; r^2 V_S -> l(l + 2) + 3/4 at infinity, exponents 1/2 +- (l + 1);
-     and with F_tr = 0, in ingoing components, X = r (F_vr - 2 F) and Y = r (f F'_rr + F_vr - 2 F).  Control: Phi
-     without the factor 1/H.
+     and with F_tr = 0, in ingoing components, X = r (F_vr - 2 F) and Y = r (f F'_rr + F_vr - 2 F).  Controls: Phi
+     without the factor 1/H; [KI03]'s Q_X and Q_Y exchanged in (4.3) (D94).
   S4 (computed, exact) Scalar l = 0.  delta*(A_t dt + A_r dr) shifts H_L by f A_r/(2 r) and f_tr by (f/2)(A_t/f)'; f_tr
      enters no stationary equation; at H_L = 0 the equations give F_tt'' = -3 F_tt'/r and F_rr algebraic in F_tt, F_tt',
      so the stationary solutions are the span of (F_tt, F_rr) = (f, 0), the time rescaling t -> (1 + c) t, and (1/r^2,
@@ -262,12 +262,14 @@ def s3(control=0, verbose=False):
     chk(f"Z~ := (f r^2/k^2)(X' - X/r - (f'/f - 2/r) Y) has Z~' = X on the flow; Phi = (3 Z~ - r (X + Y))/(r^(1/2) H) "
         f"solves f (f Phi')' = V_S Phi; det[r^(1/2) Phi; r^(1/2) Phi'] = {det}",
         zero(dr(Zt) - X0) and zero(ME) and zero(det - r**3 / (k**2 * mu)))
-    if control == 0:                                    # [KI03] section 4, p. 11, at n = 3, K = 1, Lambda = 0 (D92)
+    if control in (0, 2):                               # [KI03] section 4, p. 11, at n = 3, K = 1, Lambda = 0 (D92)
         fp, fpp = sp.diff(f, r), sp.diff(f, r, 2)
         cXk = 2 * (n - 1) * (f - 1) / r**2 + 2 * fp / r - fp**2 / (2 * f) + 2 * fpp / n
         cYk = 2 * (f - 1) / r**2 + 2 * (n - 1) * fp / r - fp**2 / (2 * f) + 2 * (n - 1) * fpp / n - 2 * m_ / r**2
         QX = n * (n + 1)**2 * x**2 + 2 * ((3 * n - 1) * m_ - n * (n + 1)) * x - 4 * n * m_
         QY = n * (n - 1) * (n + 1) * x**2 - 2 * (n - 1) * (m_ + n * (n + 1)) * x
+        if control == 2:
+            QX, QY = QY, QX
         PhiKI = (QY * X0 - QX * Y0) / (2 * k**2 * sp.sqrt(r) * fp * H)
         chk("[KI03] section 4 (p. 11): the flow is their static system (4.2a), (4.2b), and Phi their (4.3), (Q_Y X - "
             "Q_X Y)/(2 k^2 r^(1/2) f' H), identically",
@@ -422,7 +424,7 @@ def s6(control=0, verbose=False):
 
 CHECKS = [("S1 the tensor type, l >= 2: the stationary equation, Phi, V_T/f > 0, exponents", s1, 1),
           ("S2 the vector type, l >= 2: E_r forces F_r = 0, (r^5 v')' = (k_V^2 - 2) r^3 v/f, exponents, horizon", s2, 1),
-          ("S3 the scalar type, l >= 2: F_tr = 0, the flow, Z~, the master equation at sigma = 0, det, horizon", s3, 1),
+          ("S3 the scalar type, l >= 2: F_tr = 0, the flow, Z~, the master equation at sigma = 0, det, horizon", s3, 2),
           ("S4 scalar l = 0: the time rescaling and the mass, f_tr pure gauge, the mass regular in ingoing form", s4, 1),
           ("S5 vector l = 1: f_t = a r + b r^-3, the rigid rotation's gauge, the rotation regular, ingoing", s5, 1),
           ("S6 scalar l = 1: the stationary gauge f_tt = f_t = H_L = 0, then the equations force the rest to 0", s6, 1)]
