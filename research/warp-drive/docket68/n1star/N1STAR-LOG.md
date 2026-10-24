@@ -4070,3 +4070,38 @@ mu/8, J = (pi mu/4) W, P = -E v, E C = E c, determinant (3 pi/8)(pi mu/4)^6 (3 p
 g_lam after the shell, perturbed without symmetry and with (E.9)'s parity, to a translated, rotated and boosted
 Myers-Perry metric, and its development settling to Myers-Perry at O(t*^(-2-eps_K)). general5.py: selftest 2/2 (seconds),
 mutants 2/2.
+
+**D133 (2026-10-24): the fifty-sixth verifier seated (10.58-10.63 and the paper).**
+
+Its report: the computed claims pass (general5.py G1-G2 re-derived by its own ADM quadrature on S^3 and by hand
+bookkeeping; transfer5 T2, response5 R1-R8, all 65 md5s), the READs it checked match, 10.58-10.62's deductions sound.
+One major finding, checked at source ([CD03] pp. 35-38, 72-77, alphaXiv 2026-10-24) and seated: 10.63(b) had the second
+fundamental form's parity backwards. (E.9) is stated on the spacetime metric under x^mu -> -x^mu, time included, so its
+3 + 1 form bounds gamma^- and k^+; (8.1) as printed has K^-, which boosted Kerr, p. 38's reference family, would fail,
+and (E.9)'s Kerr value alpha_- = 2 is that of Kerr's even K; we read (8.1) with k^+. G-invariance gives gamma^- = 0, not
+k^+ small. Found in seating it: on 10.50's tau-slice tau = t - mu/r + O(r^-3), so the unperturbed data's k is even at
+r^-3, alpha_- = 2, the borderline (E.9) excludes; the gluing moves to a Cauchy surface Sigma'' that is the tau1-slice
+near the hole and a static slice far out, where k = 0, [Hin26]'s own initial surface near infinity (his section 5.7.1),
+and Theorem 4(ii) is restated on Sigma'' with [CD03]'s condition, alpha_- > 2. Minor findings seated: the glued member's
+charges lie in a small ball about the data's (Remark 8.4); Remark 13.2 covers the member's mass and spin, its boost and
+translation lying in 10.49's class (E_0 may contain 2 + N); the charge map's smoothness from the exact Myers-Perry
+charges ([ER08] (34), pp. 14, 16, READ); 10.60(b)'s uniformity cited to [Hin26] p. 119 (the verifier's p. 121 is printed
+p. 119) and [Hin26c] Remark 7.2 (p. 116), p. 157 kept as the spacetime estimate's; 10.60(d)'s dependencies of
+Proposition 10.6 (Lemma 10.4, the dual states' decay, p. 208) and the first row's domain membership ((10.48), pp. 204,
+214-216, READ); the paper's overclaims (the gluing computed, every input computed, one kind of reading) and stale
+references; the nits (a line opening ">=", |P| = E|v|, general5.py's (E.14) for P = -m v, G1's image check automatic,
+10.58-10.63). The separation's item (iii), constants not evaluated, is withdrawn as a gap: lambda_1 and delta exist and
+are not evaluated, as Hintz's smallness constant is not.
+
+**D134 (2026-10-24): [Hin23a] section 3 at n = 4 by modification (exterior5.py X1-X6, 10.64).**
+
+The user's direction (2026-10-24): "What separates it from proved. The same three things as before: - continue please".
+Item (iii) is not a gap (D133). For item (i), [Hin23a]'s section 3, the one reading that is a whole proof in another
+dimension, is replaced by a proof by modification. The six places n enters are computed (Proposition 10.48): the
+conjugated wave operator's ((n-1)(n-3)/4) r^-2, the b-density, the energy form (3.25) with Lap + 3/4, the gauge
+endomorphism (2.11) from Definition 2.2 (his matrix and five intermediates at n = 3; at n = 4 lower triangular with
+diagonal 2 gC, gC, 3gC/2, -3gU/2, -gU, 0, -2gU, his Remark 2.3's duality holding at both), the quadratic radiation term
+r^(1-k) against the linear (critical at n = 3, r^-(1/2) at n = 4), the Sobolev counts; then each of his steps runs with
+the computed quantity in place (10.64(a)-(i)). exterior5.py: selftest 12/12 (about ten seconds), mutants 4/4. Remaining
+of item (i): [Hin26c] sections 7-9, [Hin26a] section 5.2, and for part (ii) [HHV21]'s perturbation arguments, Hintz's
+boost sections and [CD03]'s argument at n = 4.
