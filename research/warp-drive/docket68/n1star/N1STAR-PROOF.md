@@ -4411,9 +4411,9 @@ the vector potential's -27 mu/(4 r^2) and the scalar potential's Q leave both po
 gauge at nonzero frequency. Not done, and OPEN: the kernel elements' class, omega's continuation inside the horizon and
 the interior uniqueness, as in 10.16; how small gam_Ups must be, and h_0, below which Proposition 10.9's h = 10^-6 must
 lie (10.21(e)); the zero-energy analysis of his section 8.4 (Proposition 8.9, Remark 8.10 and Proposition 8.11, [AHW24]
-Theorem 6.1(2); 10.28 deduces Proposition 8.9, 10.32 Proposition 8.11 up to [AHW24] Theorem 6.1(2)), section 8.5 and
-sections 9-10, in five dimensions; and the readings of 10.19-10.26. Nothing of this section is proved: Proposition 10.24
-is computed, and (a)-(b) are deduced.
+Theorem 6.1(2); 10.28 deduces Proposition 8.9, 10.32 Proposition 8.11 up to [AHW24] Theorem 6.1(2), which 10.33 deduces
+at a = 0), section 8.5 and sections 9-10, in five dimensions; and the readings of 10.19-10.26. Nothing of this section
+is proved: Proposition 10.24 is computed, and (a)-(b) are deduced.
 
 ### 10.28 [Hin26] section 6.5.1, Proposition 8.9 in five dimensions: zero energy states (`zstates5.py` Z1-Z6; D80, D82)
 
@@ -4821,7 +4821,7 @@ in five dimensions, where these dual states enter (10.32); section 8.5 and secti
 line by line; how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.28 is computed, and
 (a)-(c) are deduced.
 
-### 10.32 [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions: the zero energy pairings (`pairing5.py`; D88)
+### 10.32 [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions: the zero energy pairings (`pairing5.py`; D88, D89)
 
 *The setting.* [Hin26] Proposition 8.11 (pp. 155-156) gives L-hat_b(0) index 0 on the weights (0, eps_ind) and counts
 both sides: "(1) (Kernel.) The nullspace of (8.22) is 7-dimensional", spanned by the gauged linearized Kerr metrics
@@ -4842,27 +4842,35 @@ w_A (w_A = x^i dx^j - x^j dx^i on the plane ij; d_a g = -h_A, 10.28(vi)), and h_
 against G (dt (x)_s omega*), omega* = dt, the rotations w_B and the translations dx^j:
 
  (i) (four dimensions) His table, with mu = 2m: -4 pi mu-dot = -8 pi m-dot; -4 pi mu per plane = -8 pi m (q . a-dot); 2
-     pi mu (q . c) = 4 pi m (q . c); every other entry 0, except a centre of mass against the rotations of the planes
-     containing its direction, which lies above the critical weight, where the leading terms vanish over the sphere and
-     do not determine it (P1).
- (ii) (five dimensions, the Kerr rows) Mass against dt -3 pi^2 mu-dot, against the translations and the rotations 0; a
-     rotation -2 pi^2 mu against its own plane, 0 against the other planes, dt and the translations (P2).
- (iii) (five dimensions, the centres of mass) (3 pi^2/2) mu (q . c) against q . dx, 0 against dt and the rotations of the
-     planes not containing c, undetermined against the three containing it; h-breve_b,c is O(mu), its Minkowski part the
-     boost's Killing form (P3).
- (iv) (non-degeneracy) With the undetermined entries as unknowns, the 11 x 11 matrix -- rows mass, rotations, centres of
-     mass; columns dt, rotations, translations -- is block triangular with determinant (-3 pi^2) (-2 pi^2 mu)^6 (3 pi^2
-     mu/2)^4, nonzero for mu != 0 whatever the unknowns; four dimensions (-4 pi) (-4 pi mu)^3 (2 pi mu)^3 (P4).
- (v) (invariance) The Kerr-Schild mass perturbation mu-dot R^-(n-2) (dt + dr)^2, a pure gauge tensor delta*(log R dt),
-     and t* = t - r in place of t leave the Kerr rows unchanged, his Theorem 9.6(1) and (7) (P5).
+     pi mu (q . c) = 4 pi m (q . c); every other entry 0, except the mass and the centres of mass against the rotations,
+     which lie above the critical weight, where the leading terms do not determine them (his values there -8 pi (q . a)
+     m-dot, from subleading terms, and 0; both 0 at a = 0) (P1).
+ (ii) (five dimensions, the Kerr rows) Mass against dt -3 pi^2 mu-dot, against the translations 0, against the rotations
+     undetermined, above the critical weight; a rotation -2 pi^2 mu against its own plane, 0 against the other planes,
+     dt and the translations (P2).
+ (iii) (five dimensions, the centres of mass) (3 pi^2/2) mu (q . c) against q . dx, 0 against dt, undetermined against
+     the six rotations, above the critical weight; h-breve_b,c is O(mu), its Minkowski part zero, the boost being
+     Killing (P3).
+ (iv) (non-degeneracy) With the undetermined entries (the mass and the centres of mass against the rotations) as
+     unknowns, the 11 x 11 matrix -- rows mass, rotations, centres of mass; columns dt, rotations, translations -- is
+     block triangular with determinant (-3 pi^2) (-2 pi^2 mu)^6 (3 pi^2 mu/2)^4, nonzero for mu != 0 whatever the
+     unknowns; four dimensions (-4 pi) (-4 pi mu)^3 (2 pi mu)^3 (P4).
+ (v) (invariance) The Kerr-Schild mass perturbation mu-dot R^-(n-2) (dt + dr)^2, a pure gauge tensor delta*(x_2 R^-(n-2)
+     dx_1), whose cut-off source is not zero, and t* = t - r in place of t leave the Kerr rows unchanged, his Theorem
+     9.6(1) and (7) (P5).
 
 *Proof.* P1-P5 of pairing5.py, exact. Each pairing is < [P, chi] u, v > with chi a radial cutoff, 1 near 0 and 0 near
-infinity: the integrand is chi'(R) A + chi''(R) B with A and B homogeneous, the sphere integrals are exact, and the
-pairing is -I_A + I_B at the critical weights (int chi' = -1, int R chi'' = 1), 0 below them, undetermined above them
-when the sphere integral of the leading term vanishes; a nonzero one would be a divergence, and none occurs. Controls: in
-(i) G dropped from the dual slot; in (ii) the mass perturbation's dr^2 term dropped; in (iii) h-breve_b,c dropped; in
-(iv) the translations' first-order pairing < D Ric(t h_b,c), h* >, which [Hin23b] Theorem 9.6(6) says vanishes, in place
-of the centre of mass; in (v) a non-gauge R^-(n-2) dx_1^2 added. []
+infinity: the integrand is chi'(R) A + chi''(R) B with A and B homogeneous, the sphere integrals are exact, and each
+entry is classified by its weight, read from the homogeneity of its two tensors, before it is computed: -I_A + I_B at
+the critical weight (int chi' = -1, int R chi'' = 1), 0 below it, undetermined above it whether or not the leading terms
+vanish pointwise there -- D88 classified only the entries with a nonzero leading integrand and returned 0 for the mass's
+six and each centre of mass's other three entries against the rotations (four dimensions three and one), corrected in
+D89; a nonzero sphere integral above it would be a divergence, and none occurs. P5's pure gauge tensor has a nonzero
+cut-off source: for delta*(f(R) alpha), alpha constant -- D88's delta*(log R dt) among them -- chi times it is pure
+gauge again, the source 0 and the check empty (D89). Controls: in (i) G dropped from the dual slot; in (ii) the mass
+perturbation's dr^2 term dropped; in (iii) h-breve_b,c dropped; in (iv) the translations' first-order pairing < D Ric(t
+h_b,c), h* >, which [Hin23b] Theorem 9.6(6) says vanishes, in place of the centre of mass; in (v) a non-gauge R^-(n-2)
+dx_1^2 added. []
 
 *Deduced.*
 
@@ -4874,36 +4882,168 @@ of the centre of mass; in (v) a non-gauge R^-(n-2) dx_1^2 added. []
      by integration by parts, the dual states vanishing inside the horizon and decaying at infinity, faster in five
      dimensions (10.31(b)), and the pairings rewritten as [Hin23b]'s boundary pairings -- uses only integration by parts
      and decay, so his Lemma 8.12 for his L_b of (8.1) has (ii)-(iii)'s values in five dimensions at a = 0. The
-     undetermined entries are 0 there by his argument for Theorem 9.6(5): by its part (1) omega* may be the cut-off
-     Killing form, the rotations being Killing on Tangherlini, so h* is compactly supported and the centre of mass's
-     pairing < D-hat Ric(0) h-ring, h* > vanishes by integration by parts; (c) does not need them. His printed values,
-     -16 pi m-dot and so on, are [Hin24b]'s, whose L ((3.1a), p. 33) is 2 (D Ric + delta* delta G), twice his L_b of
-     (8.1) (p. 145); for L_b they halve, which changes no non-degeneracy. For b near Tangherlini's parameters the matrix
-     stays non-degenerate by continuity.
+     undetermined entries are 0 there: the mass's by SO(4) symmetry -- at a = 0 the pairing is SO(4)-equivariant, the
+     mass state invariant, and the rotation duals span so(4), which has no invariant vector; the centres of mass's by
+     his argument for Theorem 9.6(5): by its part (1) omega* may be the cut-off Killing form, the rotations being
+     Killing on Tangherlini, so h* is compactly supported and the centre of mass's pairing < D-hat Ric(0) h-ring, h* >
+     vanishes by integration by parts; (c) does not need them. His printed values, -16 pi m-dot and so on, are
+     [Hin24b]'s, whose L ((3.1a), p. 33) is 2 (D Ric + delta* delta G), twice his L_b of (8.1) (p. 145); for L_b they
+     halve. And the s0 entries change sign with the s0 dual state's normalization: [Hin23b]'s is dt (Definition 9.2),
+     his omega-bar_s0 = g-bar(d_t*, .) = -dt ((6.29), p. 125; (7.12), p. 138; [Hin24b] Lemma 3.11(2), p. 44, omega*_s0 -
+     chi d_t^flat), so with his dual state the mass entry is +8 pi m-dot for L_b, +3 pi^2 mu-dot in five dimensions,
+     where he prints -16 pi m-dot with [Hin23b]'s sign (the forty-first verifier; D89). Neither the factor nor the sign
+     changes any non-degeneracy. For b near Tangherlini's parameters the matrix stays non-degenerate by continuity.
  (c) ([Hin26] Proposition 8.11 in five dimensions) The eleven tensors g-dot^Ups(mu-dot), g-dot^Ups(0, A) (A in so(4)) and
-     h_s1(S) (S in S_1) lie in ker L-hat(0) (10.28-10.29) and are independent, a combination of them pairing to zero with
-     all eleven dual states having zero coefficients by (b); the eleven dual states lie in ker L-hat(0)* (10.31(b) and
-     his (8.25)) and are independent by the same matrix. With his index 0 (his Propositions 8.3 and 8.6, deduced in 10.26
-     and 10.25, and [Hin26c] Corollary 9.43 at n = 4, 10.20(d)), dim ker = dim coker >= 11. Equality is his kernel
-     argument, which runs as his with 10.21(e) for Theorem 7.1(2), 10.28 for Proposition 8.9, 10.15 for Lemma 6.6 and
-     10.20 for Proposition 6.12, but needs [AHW24] Theorem 6.1(2) -- every decaying stationary solution of D Ric(h) = 0 a
-     linearized Kerr metric plus a pure gauge term -- in five dimensions, for linearized Myers-Perry: OPEN.
+     h_s1(S) (S in S_1) lie in ker L-hat(0) (10.28-10.29) and are independent: for u = g-dot^Ups(b-dot) + h_s1(S) = 0
+     the pairings of [L, t*] u with the dual states see b-dot alone, h_s1(S) pairing to 0 with each ([Hin23b] Theorem
+     9.6(6)), so b-dot = 0 by (b); and then S = 0, since h_s1(S) = 0 only if S = 0, d(rS) not being Killing for
+     Tangherlini ([Hin26] p. 156); the eleven dual states lie in ker L-hat(0)* (10.31(b) and his (8.25)) and are
+     independent by the same matrix. With his index 0 (his Propositions 8.3 and 8.6, deduced in 10.26 and 10.25, and
+     [Hin26c] Corollary 9.43 at n = 4, 10.20(d)), dim ker = dim coker >= 11. Equality is his kernel argument, which runs
+     as his with 10.21(e) for Theorem 7.1(2), 10.28 for Proposition 8.9, 10.15 for Lemma 6.6 and 10.20 for Proposition
+     6.12, but needs [AHW24] Theorem 6.1(2) -- every decaying stationary solution of D Ric(h) = 0 a linearized Kerr
+     metric plus a pure gauge term -- in five dimensions, for linearized Myers-Perry: 10.33 deduces it at a = 0, and
+     with it this equality at Tangherlini, and near it on a reading (10.33(f)).
  (d) ([Hin26] Corollary 8.13 in five dimensions) With 11 for 7, on (c): his construction of the linear right inverse uses
      only the (co)kernel's dimension and the pairings.
 
-*READ.* [Hin26] (alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 145 ((8.1)), 154-158 (Proposition 8.9,
-Remark 8.10, Proposition 8.11 and its proof, (8.22)-(8.25), Lemma 8.12, (8.26), Corollary 8.13 and its proof); [Hin24b]
-(arXiv:2408.06715v1): pp. 13, 33 ((3.1a)), 38-39 (Lemma 3.8 and its proof), 50-53 (Proposition 3.16 and its proof, Lemma
-3.17 and its proof); [Hin23b] (arXiv:2306.07409v2): pp. 101-110 (Lemma 9.1, Definition 9.2, Lemma 9.3, Theorem 9.6, Lemma
-9.7, the proof of Theorem 9.6), 116-117.
+*READ.* [Hin26] (alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 125 ((6.29)), 138 ((7.12)), 145 ((8.1)),
+154-158 (Proposition 8.9, Remark 8.10, Proposition 8.11 and its proof, (8.22)-(8.25), Lemma 8.12, (8.26), Corollary 8.13
+and its proof); [Hin24b] (arXiv:2408.06715v1): pp. 13, 33 ((3.1a)), 38-39 (Lemma 3.8 and its proof), 44 (Lemma 3.11),
+49-53 (Proposition 3.16 and its proof, Lemma 3.17 and its proof); [Hin23b] (arXiv:2306.07409v2): pp. 101-110 (Lemma 9.1,
+Definition 9.2, Lemma 9.3, Theorem 9.6, Lemma 9.7, the proof of Theorem 9.6), 116-117.
 
 *What this gives, and what it does not.* The non-degeneracy his zero energy analysis turns on holds in five dimensions:
 the eleven kernel states and the eleven dual states pair through -8 pi times the ADM mass and angular momentum and 4 pi M
-times the centre of mass, as in four, so his Lemma 8.12 and Corollary 8.13 carry over at and near Tangherlini, and his
-Proposition 8.11 up to the five-dimensional [AHW24] Theorem 6.1(2). Not done, and OPEN: that rigidity statement in five
-dimensions; the a-dependent entries beyond continuity; his section 8.5 (Proposition 8.14, Lemma 8.15's pairings) and
-sections 9-10; section 7.2.1 beyond first order in the rotation; the readings of 10.20-10.22 line by line; how small
-gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.29 is computed, and (a)-(d) are deduced.
+times the centre of mass, as in four, so his Lemma 8.12 carries over at and near Tangherlini, and his Proposition 8.11
+and Corollary 8.13 up to the five-dimensional [AHW24] Theorem 6.1(2). Not done, and OPEN: that rigidity statement in
+five dimensions beyond a = 0 (10.33 deduces it at a = 0); the a-dependent entries beyond continuity; his section 8.5
+(Proposition 8.14, Lemma 8.15's pairings) and sections 9-10; section 7.2.1 beyond first order in the rotation; the
+readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition
+10.29 is computed, and (a)-(d) are deduced.
+
+### 10.33 [AHW24] Theorem 6.1(2) in five dimensions: the stationary solutions on Tangherlini (`static5.py` S1-S6; D90)
+
+*The setting.* [Hin26] Proposition 8.11's kernel bound (p. 156): "every element u of the nullspace of (8.22) lies in
+A^(eps_ind - eps)(X; S^2 T*X) for all eps > 0"; then eta = 0 and D Ric(u) = 0, and "By [AHW24, Theorem 6.1(2)], with q =
+eps_ind - 3/2 - eps for an arbitrarily small eps > 0 so that q in (-3/2, -1/2), there exist b-dot in R^4 and a
+stationary 1-form omega in H-bar_b^(oo,q-1)(X; T*X) subset A^(-1+eps_ind-eps) such that u = g-dot_b(b-dot) +
+delta*_(g_b) omega." [AHW24] (L. Andersson, D. Hafner, B. F. Whiting, arXiv:2207.12952v1) Theorem 6.1 (p. 35): "Let 0 <
+a < m, sigma in C, Im sigma >= 0, and suppose g-dot = e^(-i sigma t*) h-tilde, h-tilde in H-bar_b^(oo,q)(X; S^2 ...), q
+in (-3/2; -1/2) is an outgoing mode solution of the linearized Einstein equation D_(g_b) Ric(g-dot) = 0. Then there
+exist parameters m-dot in R, a-dot in R^3, and an outgoing 1-form omega in H-bar_b^(oo,q-1)(X; ...), such that g-dot -
+g-dot_(m,a)(m-dot, a-dot) = delta*_(g_b) omega." Their proof at sigma = 0 (section 6.4, p. 41) runs through the
+Teukolsky scalars, which vanish (their Theorem 4.5), the gauge invariants of a type D perturbation and the completeness
+of the invariants. 10.32(c) left the statement OPEN in five dimensions. On Tangherlini, static, [KI03]'s decomposition
+reduces it harmonic by harmonic to ordinary differential equations in r; static5.py computes them at sigma = 0 from D
+Ric itself, with gmodes5.py's reduced operators (10.24) on coefficients independent of t.
+
+**Proposition 10.30 (computed; exact).** On five-dimensional Tangherlini, f = 1 - mu/r^2, r_h = mu^(1/2), for h
+stationary and decomposed by the harmonics of S^3 as in 10.24, F_t = r y at the vector type:
+
+ (i) (tensor type, l >= 2) For h_ij = 2 r^2 H(r) T_ij: D Ric(h)_ab = D Ric(h)_ai = 0 and D Ric(h)_ij = -r^2 ((1/r^3)(r^3
+     f H')' - l(l + 2) H/r^2) T_ij; Phi = r^(3/2) H solves f (f Phi')' = V_T Phi, V_T = (f/r^2)(l(l + 2) + 3/4 + 9 mu/(4
+     r^2)), V_T/f positive and bounded on r >= r_h; on solutions (f Phi Phi')' = f Phi'^2 + V_T Phi^2/f; the exponents
+     of H are l and -(l + 2) at infinity and 0, twice, at r_h (S1).
+ (ii) (vector type, l >= 2) E_r = (k_V^2 - 2) F_r/(2 r^2), E_T = -k_V (r^2 f F_r)'/(2 r^3) and E_t = -(f (r^5 y')' -
+     (k_V^2 - 2) r^3 y)/(2 r^4), k_V^2 - 2 = l(l + 2) - 3 >= 5; on solutions (r^5 y y')' = r^5 y'^2 + (k_V^2 - 2) r^3
+     y^2/f; the exponents of f_t = r y are l and -(l + 2) at infinity; in ingoing coordinates (v, r, z), dt = dv - dr/f,
+     h_vi = r f_t V_i and h_ri = r (f_r - f_t/f) V_i (S2).
+ (iii) (scalar type, l >= 2) E_tr = k^2 F_tr/(2 r^2), F_tr entering no even equation, and E_T = -(k^2/(4 r^2))(f F_rr -
+     F_tt/f + 2 F); in [KI03]'s X = r (-F_tt/f - 2 F), Y = r (f F_rr - 2 F), which solve E_T = 0, E_r and the
+     combination of E_tt, E_rr and E_L free of second derivatives give the flow Y' = mu (X - Y)/(r (r^2 - mu)) ([KI03]
+     (2.24b) at sigma = 0) and X' = (mu (mu - 2 r^2) X + (k^2 r^2 (r^2 - mu) + 4 mu r^2 - 3 r^4) Y)/(mu r (r^2 - mu)),
+     on which E_tt, E_rr, E_L and E_r vanish; Z~ := (f r^2/k^2)(X' - X/r - (f'/f - 2/r) Y), [KI03] (2.24a) at sigma = 0
+     read as its definition, has Z~' = X ((2.24c)); Phi := (3 Z~ - r (X + Y))/(r^(1/2) H), H = k^2 - 3 + 6 mu/r^2,
+     solves f (f Phi')' = V_S Phi with 10.24(iii)'s V_S, and det[r^(1/2) Phi; r^(1/2) Phi'] = r^3/(k^2 mu); 3 Z~ - r (X
+     + Y) = (-mu (k^2 r^2 + 9 r^2 - 6 mu) X + (3 (k^2 - 3) r^4 - 2 (2 k^2 - 9) mu r^2 - 12 mu^2) Y)/(k^2 mu r); r^2 V_S
+     -> l(l + 2) + 3/4 at infinity, exponents l + 3/2 and -l - 1/2; and where F_tr = 0, in ingoing components, F_vv = -f
+     F_vr, X = r (F_vr - 2 F) and Y = r (f F_rr + F_vr - 2 F), F_rr there the ingoing component (S3).
+ (iv) (scalar l = 0) delta*(A_t dt + A_r dr) shifts H_L by f A_r/(2 r) and f_tr by (f/2)(A_t/f)'; f_tr enters no
+     stationary equation; at H_L = 0 the equations give F_tt'' = -3 F_tt'/r and F_rr algebraic in F_tt and F_tt', so the
+     stationary solutions are spanned by (F_tt, F_rr) = (f, 0), the time rescaling, and (r^-2, r^-2 f^-2), the mass;
+     r^-2 (dt + dr/f)^2 solves, and is r^-2 dv^2 in ingoing coordinates (S4).
+ (v) (vector l = 1, V Killing) D Ric(h)_ab = 0, E_r = 0, D Ric(h)_ij = 0 and E_t = -f (r^5 y')'/(2 r^4), so f_t = a r +
+     b r^-3 with f_r free; delta*(r^2 B V_i dz^i) shifts f_t by (r/2) d_t B and f_r by (r/2) B', so f_t = a r is
+     delta*(2 a t r^2 V_i dz^i); f_t = r^-3, f_r = r^-3/f is r^-2 V_i dz^i dv in ingoing coordinates (S5).
+ (vi) (scalar l = 1, D_i D_j S = -gamma_ij S) The stationary shifts of f_tt, f_t and H_L by A_t S dt + A_r S dr + r^2 B
+     S_i dz^i are free of derivatives, with determinant -mu (r^2 - mu)/(4 r^6), and those of f_rr and f_r are A_r' + mu
+     A_r/(r (r^2 - mu)) and (r^2 B' - 3^(1/2) A_r)/(2 r); at f_tt = f_t = H_L = 0 the stationary equations force f_tr =
+     f_rr = f_r = 0 (S6).
+
+*Proof.* S1-S6 of static5.py, exact, the harmonics at the point of 10.27; the exponents at infinity from the limit of
+r^2 op(r^s)/r^s, at r_h from the Frobenius indicial polynomial; (iii)'s flow solves E_r and the second-derivative-free
+combination for (X', Y'), whose determinant 18 k mu r^2 (r^2 - mu)^6 is nonzero on r > r_h, and E_tt, E_rr, E_L and E_r
+then vanish with the flow's second derivatives substituted. Controls: in (i) Phi = r^(1/2) H; in (ii) l = 1, where E_r
+vanishes identically; in (iii) Phi without 1/H; in (iv) (r^-2, 0) in place of the mass; in (v) the rotation with f_r =
+0, singular at r_h; in (vi) f_t left free, where the rank is short. []
+
+*Deduced.*
+
+ (a) ([AHW24] Theorem 6.1(2) on five-dimensional Tangherlini) Let h be stationary on r >= r_h, smooth there in ingoing
+     coordinates, conormal at infinity with every component in the frame (dt, dr, r dz) O(r^-eps) for some 0 < eps < 1,
+     and D Ric(h) = 0. Then h = g-dot(mu-dot, A) + delta* omega with mu-dot real, A in so(4), g-dot(mu-dot, A) = mu-dot
+     r^-2 dv^2 + 2 r^-2 dv (x)_s V_A, V_A the Killing 1-form of A on the unit S^3 written V_i dz^i, and omega
+     stationary, smooth across the horizon and O(r^(1 - eps)), [AHW24]'s q - 1. Harmonic by harmonic, each component in
+     the class and D Ric and delta* commuting with the decomposition, (b)-(e).
+ (b) (tensor and vector types, l >= 2) Tensor: H = O(r^-eps) is smooth at r_h, and at infinity the exponent l > 0 is
+     excluded, so H = O(r^(-l-2)); by (i) the boundary terms f Phi Phi' vanish at r_h (f = 0, Phi smooth) and at
+     infinity (O(r^(-2l-2))), so the integral of f Phi'^2 + V_T Phi^2/f over (r_h, oo) is 0 and Phi = 0. Vector: B = -2
+     H_T/k_V removes H_T, the 1-form r^2 B V_i dz^i O(r^(1-eps)); E_r forces F_r = 0, so f_r = -(r/k_V) H_T' is smooth
+     at r_h, and with h_ri smooth in ingoing form so is f_t/f: y = f_t/r vanishes at r_h; at infinity y = O(r^(-l-3));
+     (ii)'s identity gives y = 0, and h = delta*(r^2 B V_i dz^i).
+ (c) (scalar type, l >= 2) [KI03]'s gauge 1-form -2 X_a S dy^a - (2 r^2/k) H_T S_i dz^i, built covariantly on the orbit
+     space from h's coefficients, is stationary, smooth across the horizon and O(r^(1-eps)); E_tr forces F_tr = 0, so by
+     Proposition 10.30(iii) X and Y are smooth at r_h, and O(r^(1-eps)) at infinity; Phi is smooth at r_h, H being at
+     least k^2 - 3, positive, and O(r^(7/2-eps)) by the degrees 2 and 4 of its coefficients, which excludes the exponent
+     l + 3/2 >= 7/2, so Phi = O(r^(-l-1/2)); the identity (f Phi Phi')' = f Phi'^2 + V_S Phi^2/f with V_S > 0 (10.24(v))
+     gives Phi = 0 as in (b), and the determinant X = Y = 0, so F_ab = F = 0 by (2.21) and h is delta* of the gauge
+     1-form.
+ (d) (l = 0 and vector l = 1) Scalar l = 0: A_r = 2 r H_L/f and A_t = f int 2 f_tr/f dr, fixed up to c f dt, which is
+     Killing, are O(r^(1-eps)) and leave (F_tt, F_rr) = c (f, 0) + mu-dot (r^-2, r^-2 f^-2), which decays only if c = 0;
+     the Schwarzschild-form mass differs from mu-dot r^-2 dv^2 by f_tr = mu-dot/(r^2 f), itself delta*(A_t dt) with
+     (A_t/f)' = 2 mu-dot/(r^2 f^2), A_t = O(r^-1). Vector l = 1: f_t = a r + b r^-3 with a = 0 by the decay, a r being
+     the rigid rotation; f_r = (r/2) B' with B = int 2 f_r/r dr, up to a constant (the Killing r^2 V), O(r^-eps); b r^-3
+     with f_r = b r^-3/f is 2 b r^-2 dv (x)_s V, regular, and the six Killing V make A.
+ (e) (scalar l = 1; the sum and the horizon) By (vi) h = delta* omega with omega = A_t S dt + A_r S dr + r^2 B S_i dz^i,
+     unique in the sector, which holds no Killing 1-form; A_t = -2 r f_t/3^(1/2) is O(r^(1-eps)); the f_rr row, (f^(1/2)
+     A_r)' = f^(1/2) f_rr, gives A_r = O(r^(1-eps)) (eps < 1); and H_L's, B = (6 r^3 H_L - 3 (r^2 - mu) A_r)/(3^(1/2)
+     r^3) = O(r^-eps). The gauge 1-forms' coefficients are bounded by polynomial multiples in l of h's coefficients and
+     their derivatives, so the sum over the harmonics converges with h's, as in 10.27(a); and omega is smooth across the
+     future horizon, since delta* omega = h - g-dot(mu-dot, A) is, and the r-row of delta* omega in ingoing coordinates
+     is a linear ordinary differential equation in r with coefficients smooth there (10.24(v)).
+ (f) ([Hin26] Proposition 8.11 and Corollary 8.13 in five dimensions) At Tangherlini his kernel argument (10.32(c)) runs
+     with (a) for [AHW24] Theorem 6.1(2): an element u of the nullspace of (8.22) is in A^(eps_ind - eps) by his normal
+     operator argument on 10.24's roots, so O(r^-(eps_ind - eps)) with 0 < eps_ind - eps < 1, and smooth across the
+     horizon; (a) gives u = g-dot(mu-dot, A) + delta* omega with omega O(r^(1 - eps_ind + eps)), his A^(-1+eps_ind-eps);
+     the rest is his, with 10.28 for Proposition 8.9, 10.15 for Lemma 6.6 and 10.20 for Proposition 6.12: dim ker = 11,
+     with his index 0 dim coker = 11, and his Corollary 8.13 holds with 11 for 7 (10.32(d)). Near Tangherlini dim ker <=
+     11 needs the kernel's dimension upper semicontinuous in b along (8.22), a property of the uniform Fredholm
+     estimates his Corollary 8.13's proof invokes ([Vas13] section 2.7, [Hin26c] section 9.2.3; p. 157), not read line
+     by line here: on that reading dim ker = 11 near Tangherlini with 10.32(c)'s lower bound, and his Corollary 8.13
+     there.
+ (g) (what the decay excludes) Without it, (iv)-(v) add the time rescaling f dt^2 = delta*(t f dt) and the rigid
+     rotations, f_t = a r, delta*(2 a t r^2 V_i dz^i): pure gauge, but with 1-forms linear in t, which [AHW24]'s
+     stationary omega excludes; and for l >= 2 the solution smooth at r_h has a nonzero growing part, H, f_t and Phi of
+     order r^l, r^l and r^(l + 3/2) -- the static tidal fields, which are not pure gauge -- since by (b)-(c) none is
+     both smooth there and decaying.
+
+*READ.* [AHW24] (arXiv:2207.12952v1, alphaXiv, 2026-10-23 and 2026-10-24; quotations transliterated to ASCII): pp. 1
+(the title and abstract), 35 (Theorem 6.1), 41 (section 6.4, the proof of Theorem 6.1); [Hin26]: pp. 156-157 (the proof
+of Proposition 8.11, its kernel part; Corollary 8.13's proof), 2026-10-24; [KI03] as in 10.27.
+
+*What this gives, and what it does not.* The rigidity his zero energy count takes from [AHW24], at Tangherlini: every
+decaying stationary solution of the linearized Einstein equation that is smooth across the horizon is a linearized
+Myers-Perry metric at zero rotation -- a mass and one of so(4)'s six rotations -- plus a pure gauge term, the gauge
+1-form one power of r larger. Each harmonic type reduces to an ordinary differential equation in r; for l >= 2 the
+energy identities of the master equations at zero frequency, with 10.24's potentials, leave nothing smooth at the
+horizon and decaying, and l = 0 and 1 give the mass, the rotations and pure gauge. With it his Proposition 8.11 holds at
+Tangherlini with eleven for seven, and his Corollary 8.13; near Tangherlini on a reading. Not done, and OPEN: [AHW24]
+Theorem 6.1(2) on Myers-Perry with a != 0 beyond that reading; the class of (8.22)'s kernel elements and their
+smoothness across the horizon in five dimensions line by line; omega's continuation inside the horizon, as in 10.27(b);
+his section 8.5 (Proposition 8.14, Lemma 8.15) and sections 9-10; section 7.2.1 beyond first order in the rotation; the
+readings of 10.20-10.22 line by line; how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition
+10.30 is computed, and (a)-(g) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
