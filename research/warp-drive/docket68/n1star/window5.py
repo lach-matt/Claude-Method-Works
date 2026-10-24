@@ -13,21 +13,26 @@ trace-free spherical part's radiation field couples into the (dt*)^2 component, 
 "The smallest lam for which we will apply this result is lam = 1, in which case the remainder in (9.41) has more than 4
 orders of decay at K+" (p. 177): hence his roots with real part in [-3, 0] and Proposition 9.9's expansion (9.32).
 
-  W1 (computed; numerical, mpmath at 50 digits, at lin5.py's point) The roots of det N_L with real part in [-3, 0], from
-     lin5.py's factors, by type -- s0, s1, sl (2 <= l <= 6), v1, vl (2 <= l <= 5), and in five dimensions tl (2 <= l <=
-     5) -- each real and either an exact integer (the physical -l, box^Ups's -l + 2 at sl and -l + 1 at vl, s0's 0) or a
-     class root of box^Ups less than 1/4 below one; none from box^C.  Four dimensions (n = 3, trace weight 1) gives
+  W1 (computed; numerical, mpmath at 50 digits, at lin5.py's point) The roots of det N_L itself with real part in [-3,
+     0] (lin5.py's determinant, no cancellation rule), by type -- s0, s1, sl (2 <= l <= 6), v1, vl (2 <= l <= 5), and in
+     five dimensions tl (2 <= l <= 5) -- each real and either an exact integer (the physical -l, box^Ups's -l + 2 at sl
+     and -l + 1 at vl, s0's 0) or a class root less than 1/4 below one and a root of det N_Ups(lam - 1); of these only
+     four-dimensional s0's 0 is a root of det N_C(lam + 1) (box^C's root 1 shifted by -1, which his Lemma 8.4 lists as
+     0, p. 149; at s1 the same root cancels), and in five dimensions none.  Four dimensions (n = 3, trace weight 1) gives
      exactly his Lemma 8.4's roots in [-3, 0] (p. 149), which are (9.32)'s: the class roots -lam_sl,l+j + 1 for 0 <= l <=
      3, j = 0, 1, 1 <= l + j <= 3, the s0 and s2 root 0, -l + 2 at sl (l = 2, ..., 5), -l + 1 at vl (l = 2, 3, 4), -1 at
-     s1 and v1, -2 at s2 and v2, -3 at s3 and v3; five dimensions the same and t2's -2 and t3's -3.  Control: the five
-     dimensional roots claimed without the tensor types.
+     s1 and v1, -2 at s2 and v2, -3 at s3 and v3; five dimensions the same and t2's -2 and t3's -3.  Controls: the five
+     dimensional roots claimed without the tensor types; no root from box^C claimed in four dimensions (D93's claim).
   W2 (computed, exact) The bookkeeping.  A root mu fed by t*^-alpha at iota+ gives a(t*) = t*^(-alpha + mu) and the
      generalized companions a^(j)(t*), of K+ order alpha - mu + j (the exceptional s1 and v1 at -1: alpha - 1 + j and
      alpha + j, his a_s1 and a_v1 of (9.39a)); a state is needed while that order is at most 4, with k = floor(4 - order)
      companions, and the pure gauge ones of order at most 2 are eliminated.  At alpha = 1 this gives (9.32)'s orders --
      s1 4, v1 3, s0 3, -l + 2 at sl 5 - l, -l + 1 at vl 4 - l, s2 and v2 1, s3 and v3 0 -- and at most his 2 at the class
      roots.  For every alpha in (1, 2] the physical states needed are s2, v2 and t2 at -2, without companions, and none
-     at l >= 3; at alpha = 2 the full list.  Control: alpha = 1 with s3 and v3 claimed unneeded.
+     at l >= 3; at alpha = 2 the full list; at alpha = 3/2, the radiative order of W3 at d = 4, the window [-5/2, 0], the
+     same physical states, and the pure gauge list longer by s2's and s3's class roots just below -2 (k = 0), with s0's
+     and s1's class roots just below 0 at k = 2 and s1's and s2's just below -1 at k = 1 (D95).  Control: alpha = 1 with
+     s3 and v3 claimed unneeded.
   W3 (computed, exact) In d + 1 dimensions the flat wave operator maps r^-p a(t - r) S, S a degree-l harmonic on
      S^(d-1), to (2p - d + 1) a' r^(-p-1) S + (p (p - d + 2) - l (l + d - 2)) a r^(-p-2) S exactly: the radiative order p
      = (d - 1)/2 kills the first term, the Coulombic order p = d - 2 at l = 0 the second, leaving (d - 3) a' r^(-d+1) --
@@ -36,16 +41,19 @@ orders of decay at K+" (p. 177): hence his roots with real part in [-3, 0] and P
      at d = 3 the two orders are one, 1, and the coefficient vanishes, which is why his (dt*)^2 component carries its
      r^-1 term through its gauge shift 2 gam_Ups (p. 85).  Control: p = (d - 1)/2 claimed to leave the a' term.
 
-Deduced, not computed here (N1STAR-PROOF.md 10.35): in five dimensions the slowest iota+ term of the iteration is the
-mass aspect's t*^-2 (alpha_5 = 2, W3 with Theorem M(c)), on the reading that nothing decays more slowly there; the pole
-order is 2, the s1 chains ending at the nonzero centre-of-mass pairing of Proposition 10.29(iii), so sources need
-t*^(-4-eps_K) as in four dimensions; so the window is [-2, 0], and for any alpha_5 in (1, 2] the physical states needed
-are s2, v2, t2 at -2 alone (W2): 10.34's l = 3 states and his generalized s2, v2 states are not needed.
+Deduced, not computed here (N1STAR-PROOF.md 10.35): for any iota+ order alpha_5 in (1, 2] the physical states needed
+are s2, v2, t2 at -2 alone (W2): 10.34's l = 3 states and his generalized s2, v2 states are not needed; the pole order
+is 2, on a reading, the s1 chains ending at the nonzero centre-of-mass pairing of Proposition 10.29(iii), so sources
+need t*^(-4-eps_K) as in four dimensions and the window is [alpha_5 - 4, 0].  Which alpha_5 is a reading: 2, the mass
+aspect's t*^-2 (W3 with Theorem M(c)), if nothing decays more slowly at iota+; 3/2 + O(gam), conservatively, if, as
+his index sets at I+ do in four dimensions, the iteration carries the radiative order there (D95).
 
 READ.  [Hin26] pp. 17-18 ((1.23)-(1.25)), 27-30 (section 1.4.3, footnotes 27-28), 32 (section 1.4.4), 34 (the "2" in
 2-admissibility, footnote 35), 37, 85 (Definition 5.2), 92-93 (Proposition 5.11, (5.27)-(5.28)), 117 (Lemma 6.6), 128,
-149 (Lemma 8.4), 173-177 (Proposition 9.4, Definition 9.8, Proposition 9.9, (9.32), Proposition 9.11, (9.39a)-(9.39b)),
-199 (Theorem 10.1), 218, 225 (Corollary 11.10), 273, 279 (Remark 11.60), 324; alphaXiv, 2026-10-24.
+149 (Lemma 8.4), 169 (Proposition 9.4), 173-177 (Definition 9.8, Proposition 9.9, (9.32), Proposition 9.11,
+(9.39a)-(9.39b)), 199 (Theorem 10.1), 218, 225 (Corollary 11.10), 228 (the proof of Lemma 11.15), 248 (the proof of
+Proposition 11.32: E-sharp_+ "with smallest elements (1, 0) and (1 + (1 - e_Ups) gam_Ups, 0)"), 273, 279 (Remark
+11.60), 324; also 16 ((1.19)) and 31 (Figure 1.7); alphaXiv, 2026-10-24.
 
 sympy, mpmath; imports lin5.py.  python3 window5.py [--selftest | --mutants]   (--verbose lists every sub-check)
 """
@@ -66,64 +74,70 @@ _R = {}
 
 
 def roots(n, kind, L):
-    """the roots of det N_L at lin5.py's point, from its factors: [(root, source)], source U, C or phys"""
+    """the roots of det N_L itself at lin5.py's point (no cancellation rule), and, for attribution only, those of its
+    factors det N_Ups(lam - 1) and det N_C(lam + 1): {"L": [...], "U": [...], "C": [...]}"""
     if (n, kind, L) in _R:
         return _R[(n, kind, L)]
     import lin5
     mpm.mp.dps = 50
     lam, l = lin5.lam, lin5.l
-    if kind == "t":
-        _R[(n, kind, L)] = [(complex(-L), "phys"), (complex(L + n - 2), "phys")]
-        return _R[(n, kind, L)]
     typ = f"{kind}{L}" if L <= 1 else f"{kind}l"
-    dU, dC, _, _, _ = lin5.dets(n, typ)
+    dU, dC, dL, _, _ = lin5.dets(n, typ)
 
     def rts(e):
+        e = sp.sympify(e)
+        if not e.has(lam):
+            return []
         P = sp.Poly(sp.expand(sp.numer(sp.together(e.subs(l, L).subs(lin5.POINT)))), lam)
-        return [complex(q) for q in mpm.polyroots([mpm.mpf(sp.Rational(c)) for c in P.all_coeffs()], maxsteps=400,
-                                                  extraprec=400)]
-    out = [(q, "U") for q in rts(dU.subs(lam, lam - 1))] + [(q, "C") for q in rts(dC.subs(lam, lam + 1))]
-    out += [(complex(q), "phys") for q in (-L, L + n - 2)]
-    den = lin5.DEN[n].get(typ)
-    for q0, m in (sp.roots(sp.Poly(den, lam)).items() if den is not None else []):
-        for _ in range(m):
-            k = min(range(len(out)), key=lambda i: abs(out[i][0] - complex(q0)))
-            assert abs(out[k][0] - complex(q0)) < 1e-20
-            out.pop(k)
-    _R[(n, kind, L)] = out
-    return out
+        return [complex(q) for q in mpm.polyroots([mpm.mpf(sp.Rational(c)) for c in P.all_coeffs()], maxsteps=600,
+                                                  extraprec=600)]
+    _R[(n, kind, L)] = {"L": rts(dL), "U": rts(sp.sympify(dU).subs(lam, lam - 1)),
+                        "C": rts(sp.sympify(dC).subs(lam, lam + 1))}
+    return _R[(n, kind, L)]
 
 
 def window(n, kind, L, lo=-3):
-    """the roots with real part in [lo, 0], as 'e<k>' (exact integer) or 'c<k>' (less than 1/4 below k), and whether
-    each is real, the class roots from box^Ups and none from box^C"""
+    """the roots of det N_L with real part in [lo, 0], as 'e<k>' (exact integer) or 'c<k>' (less than 1/4 below k);
+    whether each is real and each class root a root of det N_Ups(lam - 1); and those of det N_C(lam + 1) among
+    them"""
     tags, ok = [], True
-    for q, src in roots(n, kind, L):
-        if not lo - 1e-20 <= q.real <= 1e-20:
+    rs = roots(n, kind, L)
+    inw = lambda q: lo - 1e-20 <= q.real <= 1e-20
+    for q in rs["L"]:
+        if not inw(q):
             continue
         k = round(q.real)
-        ok &= abs(q.imag) < 1e-30 and src != "C"
+        ok &= abs(q.imag) < 1e-30
         if abs(q - k) < 1e-30:
             tags.append(f"e{k}")
         else:
             k = int(mpm.ceil(q.real))
-            ok &= k - 0.25 < q.real < k and src == "U"
+            ok &= k - 0.25 < q.real < k and any(abs(q - u) < 1e-25 for u in rs["U"])
             tags.append(f"c{k}")
-    return sorted(tags), ok
+    cin = [q.real for q in rs["C"] if inw(q) and any(abs(q - u) < 1e-25 for u in rs["L"])]
+    return sorted(tags), ok, cin
 
 
 def w1(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
+    cin = {}
     for n, spec in ((3, SPEC4), (4, SPEC5)):
         if control == 1 and n == 4:
             spec = {k: v for k, v in spec.items() if k[0] != "t"}
         got = {key: window(n, *key) for key in SPEC5 if not (n == 3 and key[0] == "t")}
-        good = all(ok for _, ok in got.values()) and set(got) == set(spec)
+        good = all(ok for _, ok, _ in got.values()) and set(got) == set(spec)
         good &= all(sorted(spec[key]) == got[key][0] for key in spec if key in got)
         rep = "; ".join(f"{a}{b}: {' '.join(got[(a, b)][0]) or '-'}" for (a, b) in got)
-        chk(f"n + 1 = {n + 1}: the roots of det N_L in [-3, 0] (e exact, c a class root just below), real, none from "
-            f"box^C, as Lemma 8.4{' and (9.32)' if n == 3 else ''} {'has them' if n == 3 else 'with t2, t3 added'}: "
+        chk(f"n + 1 = {n + 1}: the roots of det N_L itself in [-3, 0] (e exact, c a class root of box^Ups just below), "
+            f"real, as Lemma 8.4{' and (9.32)' if n == 3 else ''} {'has them' if n == 3 else 'with t2, t3 added'}: "
             f"{rep}", good)
+        cin[n] = {key: c for key, (_, _, c) in got.items() if c}
+    want = {3: [("s", 0)], 4: []} if control != 2 else {3: [], 4: []}
+    cgood = sorted(cin[3]) == want[3] and sorted(cin[4]) == want[4]
+    cgood &= all(abs(q) < 1e-30 for c in cin[3].values() for q in c) and sum(len(c) for c in cin[3].values()) == 1
+    chk(f"the roots of det N_L in [-3, 0] that are det N_C(lam + 1)'s: four dimensions {cin[3]} (s0's 0, box^C's "
+        f"root 1 shifted; at s1 the same root cancels), five dimensions {cin[4] or 'none'}"
+        + (" (control: none claimed in four dimensions)" if control == 2 else ""), cgood)
     return chk.ok
 
 
@@ -206,6 +220,17 @@ def w2(control=0, verbose=False):
     rep = ", ".join(f"{s} {t} k={k}" for s, t, k in needed)
     chk(f"alpha = 2: the window [-2, 0]: {rep}; pure gauge of order at most 2 (the class roots at 2 + eps): "
         f"{sorted(gauge)}", set(gauge) == want_gauge and all(t[1:] != "-3" for _, t, _ in needed))
+    ok32 = True
+    for al in (sp.Rational(3, 2), sp.Rational(3, 2) + sp.Rational(1, 100)):
+        k32 = {(s, t): companions(al, t, kind) for s, t, kind in st5}
+        k2 = {(s, t): k for s, t, kind, k in full}
+        more = {key: v for key, v in k32.items() if v is not None and k2[key] is None}
+        up = {key: (k2[key], v) for key, v in k32.items() if v is not None and k2[key] is not None and v != k2[key]}
+        ok32 &= more == {("s2", "c-2"): 0, ("s3", "c-2"): 0}
+        ok32 &= up == {("s0", "c0"): (1, 2), ("s1", "c0"): (1, 2), ("s1", "c-1"): (0, 1), ("s2", "c-1"): (0, 1)}
+        ok32 &= all(k2[key] is None or k32[key] is not None for key in k2)
+    chk(f"alpha = 3/2 and 3/2 + 1/100 (the radiative order, W3 at d = 4): the window [-5/2, 0]; beyond alpha = 2's list "
+        f"{sorted(more)} at k = 0, and companions raised {up}; the physical states unchanged", ok32)
     return chk.ok
 
 
@@ -234,7 +259,7 @@ def w3(control=0, verbose=False):
 
 
 CHECKS = [("W1 lin5.py's roots in [-3, 0], four dimensions (his Lemma 8.4, (9.32)) and five (the same and t2, t3)",
-           w1, 1),
+           w1, 2),
           ("W2 the bookkeeping: alpha = 1 gives (9.32); alpha in (1, 2] needs s2, v2, t2 at -2 alone; alpha = 2 in full",
            w2, 1),
           ("W3 the radiative and Coulombic orders of the flat wave operator in d + 1 dimensions; d - 3 at the latter",

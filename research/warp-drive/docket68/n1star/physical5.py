@@ -194,7 +194,7 @@ def y3(control=0, verbose=False):
             at_l = [q for q in rts if abs(q + L) < 1e-30]
             others = sorted(abs(q + L) for q in rts if abs(q + L) >= 1e-30)
             ok &= dist_target > 0.5 and len(at_l) == 1 and (others[0] > 1e-12)
-            if typ == "sl":                                       # box^Ups's class root mu_l,1 + 1 (10.30(ii); D92)
+            if typ == "sl":                                       # box^Ups's mu_l,1 + 1 (Proposition 10.27(ii); D92)
                 q = min((q for q in rts if abs(q + L) >= 1e-30), key=lambda q: abs(q + L))
                 d1 = (L + 2) * zz / (2 * (L + 1) * (2 * L + 3)) if control != 2 else L * zz / (2 * (L + 1) * (2 * L + 1))
                 ok &= abs(q.imag) < 1e-30 and q.real < -L and abs(abs(q + L) - d1) < 1e-3 * d1
