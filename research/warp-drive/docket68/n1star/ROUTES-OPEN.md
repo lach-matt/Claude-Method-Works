@@ -2009,13 +2009,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Remaining: the censuses' completeness, read at source and checked by two methods (10.64-10.69), not proved; writing
   the source proofs out at n = 4 would replace that evidence by proof.
 
-### 4.77 Eight modification steps written out at n = 4 (READ, deduced; D146)
+### 4.77 Eleven modification steps written out at n = 4 (READ, deduced; D146)
 
-- READ at source: [Hin26] Proposition 8.8, Lemmas 6.10, 6.13, 8.5, Proposition 10.6 and the remark after (2.46c);
-  [Hin26c] Corollary 9.43; [CD03] Theorem 8.1's proof.
+- READ at source: [Hin26] Proposition 8.8, Lemmas 6.1, 6.10, 6.13, 7.2, 8.5, Propositions 7.3 and 10.6 and the remark
+  after (2.46c); [Hin26c] Corollary 9.43; [CD03] Theorem 8.1's proof.
 - Deduced (10.75): each source proof's steps matched to an identity in every dimension, a computed check or an earlier
-  section; 10.15 (a), (b), 10.24 (b), 10.27 (b), 10.29 (a), 10.30 (c), 10.39 (d), 10.63 (c) rest on their inputs, not
-  on a census. B-MAP.tsv's column `written`.
-- Remaining: 53 modification steps whose source proofs run to several pages each, in [Hin26] sections 5-13, [Hin26c]
+  section; 10.15 (a), (b), 10.18 (b), 10.24 (b), 10.27 (b), 10.29 (a), 10.30 (c), 10.31 (a), (b), 10.39 (d), 10.63 (c)
+  rest on their inputs, not on a census. B-MAP.tsv's column `written`.
+- Remaining: 50 modification steps whose source proofs run to several pages each, in [Hin26] sections 5-13, [Hin26c]
   sections 5-14, [Hin26a] sections 4-6 and appendices A-B, and [Hin23a] section 3.
 

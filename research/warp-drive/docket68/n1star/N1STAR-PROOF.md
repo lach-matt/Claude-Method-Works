@@ -8203,13 +8203,14 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Eight modification steps written out at n = 4 (D146)
+### 10.75 Eleven modification steps written out at n = 4 (D146)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. The eight below are those whose source proofs
-are at most about a page; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69).
+step so written out rests on its inputs, not on a census of its source. The eleven below are those whose source proofs
+are at most about two pages and are already matched step by step in the sections named, or short enough to match here;
+each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69).
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
      Fredholm of index 0 on [Hin26c] (9.18)'s spaces, by Proposition 8.3 (10.26) and [Hin26c] Theorem 9.5 (10.19, 10.53,
@@ -8268,12 +8269,29 @@ are at most about a page; each is READ at source (alphaXiv full texts, 2026-10-2
      (10.63 (a), Proposition 10.47); Theorem 3.19's conclusion with V a ball about the data's charges (10.66 (e)); and
      the smooth case by Proposition 5.10 and Corollary 5.11 (10.66 (a)).
 
-So eight of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. The other 53 carry proofs of several pages each, in [Hin26] sections 5-13,
+ (ix) 10.31 (a), [Hin26] Lemma 7.2 (pp. 137-138). His proof has two parts: (1) duality with the target space of (7.7),
+     the unweighted b-density shifting the weight by n/2; (2) (7.10), the adjoint's indicial family through the density
+     rho^-3. 10.31 (a) writes both at n = 4: (1) by duality from 10.21 (e) with the shift n/2 = 2, so alpha in (0, C_0 +
+     2]; (2) (7.10) with rho^-4, N(rho^-2 box, lam)* = N(rho^-2 box*, 2 - conj(lam)), computed (dual5.py), the roots
+     placed by Proposition 10.9.
+
+ (x) 10.31 (b), [Hin26] Proposition 7.3 (pp. 138-139). His proof has three parts -- the time translation, the
+     translations, the rotations -- each a cut-off Killing 1-form corrected by Lemma 7.2, with the regularity in b by
+     iterating Lemma 7.2 against a source in rho^3 Diff^2_b. 10.31 (b) writes each at n = 4: the time translation's
+     state his; the four translations' sources in rho^4 C^oo (computed, (ii)), the correction one order faster, 2 being
+     no root of the adjoint by (ix); the six rotations Killing on Tangherlini (zstates5.py Z4), so his (7.14) holds; and
+     the iteration with Lemma 7.2 at n = 4 and the sources of order rho^4 (10.28 (i)).
+
+ (xi) 10.18 (b), [Hin26] Lemma 6.1 (1) (pp. 113-114). Its statement -- the operator's structure at infinity -- is not
+     carried from his proof but computed at n = 4: rho d_rho - 3/2 in place of rho d_rho - 1, S-bar's spectrum, and the
+     differences (6.7) gaining a power (Proposition 10.18 (i), (ii), (iv); thresh5.py).
+
+So eleven of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. The other 50 carry proofs of several pages each, in [Hin26] sections 5-13,
 [Hin26c] sections 5-14, [Hin26a] sections 4-6 with its appendices A-B, and [Hin23a] section 3; writing those out is what
 remains of 8.8.
 
-Labels: READ (the eight source proofs); deduced (the matching); nothing computed or proved here.
+Labels: READ (the eleven source proofs); deduced (the matching); nothing computed or proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

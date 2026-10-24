@@ -4214,11 +4214,12 @@ computed, 8 at an earlier section, 1 the record's choice. B-MAP.tsv. A modificat
 uses n only at its listed places -- the census question -- so 8.8 (ii) reduces to (i). The paper's abstract, 1.3, 8.8
 and 9 now say so.
 
-**D146 (2026-10-24): eight modification steps written out (10.75).** An extraction pass located the source proof
-behind each of the 61 modification steps (its choice of result wrong for about a third, reassigned by hand). The short
-ones held in full text were read at source and matched step by step to their five-dimensional justifications: [Hin26]
+**D146 (2026-10-24): eleven modification steps written out (10.75).** An extraction pass located the source proof behind
+each of the 61 modification steps (its choice of result wrong for about a third, reassigned by hand). The short ones
+held in full text were read at source and matched step by step to their five-dimensional justifications: [Hin26]
 Proposition 8.8 (the contracted Bianchi identity and box^Ups = 2 delta_(E^Ups) G delta* made explicit), Lemma 8.5
 (lin5.py E5 computes its conclusion), Lemma 6.10 (replaced by the record's energy identity), Lemma 6.13, Proposition
-10.6, the remark after (2.46c); [Hin26c] Corollary 9.43; [CD03] Theorem 8.1, whose twelve steps 10.66 places. These eight
-rest on their inputs, not on a census. The other 53 carry proofs of several pages each.
+10.6, the remark after (2.46c); [Hin26c] Corollary 9.43; [CD03] Theorem 8.1, whose twelve steps 10.66 places; and three
+that 10.31 (a)-(b) and 10.18 (b) had already written out step by step -- [Hin26] Lemma 7.2, Proposition 7.3 and Lemma
+6.1 (1). These eleven rest on their inputs, not on a census. The other 50 carry proofs of several pages each.
 
