@@ -311,7 +311,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `B-MAP.tsv`: the 61 modification steps (section 10.74; D145), each with the places where the dimension changes its
   proof, where it says each five-dimensional value comes from, the column `placed` with the stated values placed by
   hand (computed, an earlier section, arithmetic in n, or the record's choice), its inputs, its residual wording and
-  whether it rests on a reading.
+  whether it rests on a reading; the column `written` marks the eleven written out at n = 4 (section 10.75; D146).
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).

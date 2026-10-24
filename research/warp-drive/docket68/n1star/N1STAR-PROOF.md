@@ -8203,6 +8203,96 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
+### 10.75 Eleven modification steps written out at n = 4 (D146)
+
+*The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
+held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
+its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
+step so written out rests on its inputs, not on a census of its source. The eleven below are those whose source proofs
+are at most about two pages and are already matched step by step in the sections named, or short enough to match here;
+each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69).
+
+ (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
+     Fredholm of index 0 on [Hin26c] (9.18)'s spaces, by Proposition 8.3 (10.26) and [Hin26c] Theorem 9.5 (10.19, 10.53,
+     10.67), so injectivity gives invertibility; (2) L-hat_b(sigma) u = 0 is L_b(e^(-i sigma t*) u) = 0, the definition
+     of the spectral family; (3) with L_b = D Ric + delta*_(E^C) delta_(E^Ups) G ((8.1)), the contracted second Bianchi
+     identity delta_g G_g Ric(g) = 0, true for every metric in every dimension, linearized at the Ricci-flat g_b gives
+     delta G D Ric = 0, so delta G applied to L_b h = 0 gives (1/2) box^C eta = delta G delta*_(E^C) eta = 0 with eta :=
+     delta_(E^Ups) G h, box^C := 2 delta G delta*_(E^C) (his p. 145), eta one order more decaying since delta in rho
+     Diff^1_b; (4) eta = 0 by Theorem 7.1 (1) (10.21 (e)-10.23); (5) so D Ric(h) = 0, and [AHW24] Theorem 6.1 (1) on
+     Tangherlini (10.27 (a), gmodes5.py, the sum over harmonics by Lemma 10.54) gives u = delta-hat*(sigma) omega; (6)
+     eta = delta_(E^Ups) G delta* omega = (1/2) box^Ups omega, box^Ups := 2 delta_(E^Ups) G delta* (his p. 144), so
+     box^Ups(sigma) omega = 0; (7) omega = 0 by Proposition 6.12 (10.20 (e)) on all of X, omega continued inside the
+     horizon as a solution and the interior uniqueness of 10.55 (c) applying, so u = 0. Steps (2), (3) and (6) are
+     identities in every dimension; the rest are earlier sections.
+
+ (ii) 10.24 (b), [Hin26] Lemma 8.5 (p. 151). His proof: 0 is an indicial root of the types s0 and s2 only; there the
+     kernel is one-dimensional and spanned by the leading term of a gauged state, which satisfies the gauge condition,
+     so its leading term satisfies (8.14). At n = 4, lin5.py E5 computes the first two facts exactly and the conclusion
+     itself, N(r delta_(E^Ups) G, 0) vanishing on the kernel (10.24 (iv)), at the record's point; his argument through
+     the gauged states h^(0)_(b,s0) (10.28-10.30) gives it for every z > 0.
+
+ (iii) 10.15 (a), [Hin26] Lemma 6.10 (p. 120). His proof is a citation of [AHW24] Theorem 5.1 (2) on Kerr. At n = 4 it
+     is replaced, not carried: on static Tangherlini each mode's equations are ODEs in r, and the kernel is found by an
+     energy identity integrated over [r_h, oo) with the boundary terms computed (10.15 (i)-(ii), gaugepot5.py), the
+     interior by 10.55 (c).
+
+ (iv) 10.15 (b), [Hin26c] Corollary 9.43 (p. 200). His proof: augment the zero energy operator by maps E_01, E_10 onto a
+     complement of its range and from its kernel; Theorem 9.41 gives the augmented operator invertible at sigma = i eps
+     for small eps > 0; the index of (9.18) is 0; so the kernel and cokernel have equal dimension. At n = 4 the two
+     inputs are Theorem 9.41 (10.39 (e), 10.53) and the index of (9.18) (10.19, 10.53); the rest is linear algebra in
+     any dimension.
+
+ (v) 10.29 (a), [Hin26] Lemma 6.13 (pp. 124-125). Its invertibility is Proposition 6.12's at zero energy (10.20 (e)),
+     and his proof of its final part is Lemma 2.13, a statement on any compact manifold with boundary, here [0, rho_0) x
+     S^3.
+
+ (vi) 10.30 (c), the injectivity of N(delta-bar*(0), lam) at sl and vl for l >= 2 ([Hin26]'s remark after (2.46c), p.
+     67, which states it without proof). The record's argument: delta-bar*(0) is homogeneous, so a kernel element gives
+     a stationary Killing 1-form rho^lam omega of Minkowski space, and the Killing fields of R^(1,n) -- 15 at n = 4
+     (gluing5.py D1), the translations, rotations and boosts -- have harmonic degree l <= 1 in every dimension.
+
+ (vii) 10.39 (d), [Hin26] Proposition 10.6 (p. 208). His proof: index 0 (Proposition 8.11) reduces invertibility to
+     injectivity; a kernel element (u, b-dot, S-dot) satisfies Lemma 10.4's identity; pairing with the dual states,
+     integration by parts justified by their decay, Lemma 8.12's pairings give b-dot = 0 and S-dot = 0; then u lies in
+     the kernel of L-hat_b(0), spanned by the gauged Kerr and s1 states, and the augmentation functionals f*_1, f*_2
+     remove it. 10.39 (d) lists each step at n = 4: the index 0 of 10.32 (c), the eleven dual states of order r^-3
+     (10.31 (b)) where his proof asks O(r^(-1-eta)), the pairings and their determinant (10.32, pairing5.py), the
+     eleven-dimensional kernel (10.32 (c)), and f*_1 in C_c^oo x R^7, f*_2 in C_c^oo x S_1 with S_1 four-dimensional.
+
+ (viii) 10.63 (c), [CD03] Theorem 8.1 (pp. 35-37). Its proof has twelve steps, each placed at n = 4 in 10.66: the KIDs
+     e^(i), 15 (D1), and the charges Q^(i) of (E.26); the family of translated, rotated and boosted Myers-Perry metrics
+     (10.63 (a)); the scale-down (8.2) and the cut-off on R^4; (8.3) with beta = min(alpha, n - 2) = 2; t = k + 6 (D3);
+     (8.4) from (8.3), the constraint maps being smooth in the data and vanishing at flat data; Theorem 5.6 with s = t +
+     n - 2, giving (8.5) (D3); the pairing with the KIDs and (E.27)'s boundary form, (8.6); the charges on S(0, 1) and
+     S(0, 4) at D2's powers with (E.20)'s errors, (8.7) componentwise rescaled; the charge map's local diffeomorphism
+     (10.63 (a), Proposition 10.47); Theorem 3.19's conclusion with V a ball about the data's charges (10.66 (e)); and
+     the smooth case by Proposition 5.10 and Corollary 5.11 (10.66 (a)).
+
+ (ix) 10.31 (a), [Hin26] Lemma 7.2 (pp. 137-138). His proof has two parts: (1) duality with the target space of (7.7),
+     the unweighted b-density shifting the weight by n/2; (2) (7.10), the adjoint's indicial family through the density
+     rho^-3. 10.31 (a) writes both at n = 4: (1) by duality from 10.21 (e) with the shift n/2 = 2, so alpha in (0, C_0 +
+     2]; (2) (7.10) with rho^-4, N(rho^-2 box, lam)* = N(rho^-2 box*, 2 - conj(lam)), computed (dual5.py), the roots
+     placed by Proposition 10.9.
+
+ (x) 10.31 (b), [Hin26] Proposition 7.3 (pp. 138-139). His proof has three parts -- the time translation, the
+     translations, the rotations -- each a cut-off Killing 1-form corrected by Lemma 7.2, with the regularity in b by
+     iterating Lemma 7.2 against a source in rho^3 Diff^2_b. 10.31 (b) writes each at n = 4: the time translation's
+     state his; the four translations' sources in rho^4 C^oo (computed, (ii)), the correction one order faster, 2 being
+     no root of the adjoint by (ix); the six rotations Killing on Tangherlini (zstates5.py Z4), so his (7.14) holds; and
+     the iteration with Lemma 7.2 at n = 4 and the sources of order rho^4 (10.28 (i)).
+
+ (xi) 10.18 (b), [Hin26] Lemma 6.1 (1) (pp. 113-114). Its statement -- the operator's structure at infinity -- is not
+     carried from his proof but computed at n = 4: rho d_rho - 3/2 in place of rho d_rho - 1, S-bar's spectrum, and the
+     differences (6.7) gaining a power (Proposition 10.18 (i), (ii), (iv); thresh5.py).
+
+So eleven of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. The other 50 carry proofs of several pages each, in [Hin26] sections 5-13,
+[Hin26c] sections 5-14, [Hin26a] sections 4-6 with its appendices A-B, and [Hin23a] section 3; writing those out is what
+remains of 8.8.
+
+Labels: READ (the eleven source proofs); deduced (the matching); nothing computed or proved here.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth
