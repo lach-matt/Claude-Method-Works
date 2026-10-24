@@ -1441,12 +1441,14 @@ mechanism on the model; N1STAR-PROOF.md 10.39 states Proposition 10.36 and deduc
   (x)_s w plus delta*(p r^-3 w) solve L-bar g-dot = 0 with no logarithm; in four dimensions the mass state's gauge
   1-form needs his (8.19)'s log (A1).
 - The entries: [L-bar, T] g-dot is of degree -3 (mass) and -4 (rotation), nonzero, [[L-bar, T], T] g-dot = 0; four
-  dimensions -2 and -3, his (10.9a) and (3, 0) (A2). The cut-off state chi(r/T) g-dot: iota+ order 4 and 5; four
-  dimensions 3, his borderline, and 4 (A3).
-- Deduced: every five-dimensional entry of (10.5) is in A^3, inside the target space for alpha_sf + 2 < 1; his
-  (10.24a) serves every state, no improved states, no t*^-1 or log t* and no sigma log |sigma| in the augmentation;
-  his Proposition 10.6 from 10.32's pairings; his Proposition 10.7 and Theorem 10.1, 2-admissibility with alpha_sf + 2
-  in (0, eps_ind), on the readings of 10.19-10.20, 10.24-10.27 and 10.32-10.33.
+  dimensions -2 and -3, his (10.9a) and (3, 0) (A2). The cut-off states chi(r/T) g-dot: iota+ order 4 and 5 (the boosts'
+  deduced); four dimensions 3, his borderline, and 4 (A3).
+- Deduced: every five-dimensional entry of (10.5) is in A^3, inside the target space for alpha_sf + 2 < 1; his (10.24a)
+  serves every state, no improved states, no t*^-1 or log t* and no sigma log |sigma| in the augmentation; his
+  Proposition 10.6 from 10.32's pairings; his Proposition 10.7 and Theorem 10.1, 2-admissibility with alpha_sf + 2 in
+  (0, eps_ind), on the readings of 10.19-10.20 ([Hin26c] at n = 4, with its Theorem 12.2's proof and section 14.1),
+  10.24-10.27 and 10.32-10.33.
 - OPEN: his Proposition 10.7 and section 10.2 line by line in five dimensions; the boost entry and g^00 on Tangherlini
-  and Myers-Perry by computation; whether L-tilde_b(sigma)^-1 has logarithms at 0 (his section 11). Labels: computed
-  (aug5.py A1-A3; exact); deduced; READ ([Hin26] pp. 145, 199-205, 207-209, 211-212, 214); nothing proved.
+  and Myers-Perry by computation; whether L-tilde_b(sigma)^-1 has logarithms at 0, and whether the I+ asymptotics his
+  Lemma 10.3 supplies are needed (his section 11). Labels: computed (aug5.py A1-A3; exact); deduced; READ ([Hin26] pp.
+  145, 199-205, 207-209, 211-212, 214); nothing proved.

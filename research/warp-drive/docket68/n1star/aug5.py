@@ -16,11 +16,11 @@ x), T = t - r, with sbar5.py's E^Ups (trace weight 2/3) and E^C, L-bar = D Ric +
      1)), and the rotation state r^-4 (dt (x) w + w (x) dt), w = x^1 dx^2 - x^2 dx^1, plus delta*(p r^-3 w), p = -4
      gam_Ups/3, are in the gauge and solve L-bar g-dot = 0, every parameter symbolic, at the symbolic point (X1, 0, X3,
      0) -- every orbit of the rotations of the planes 12 and 34, which L-bar commutes with and the states are invariant
-     under, has a point there -- and the ansatz with log r dt and log r dr beside them returns their coefficients 0.
-     Four-dimensional control (trace weight 1): the mass state r^-1 (dt^2 + dr^2) needs omega = c log r dt + b dr, c = 4
-     gam_Ups (1 + e_Ups)/(4 e_Ups gam_Ups^2 + 1) -- the logarithm of his (8.19) -- and the rotation r^-3 (dt (x) w + w
-     (x) dt) takes p = -2 gam_Ups, no logarithm. Controls: omega dropped (h claimed in the gauge); the four-dimensional
-     mass state claimed gauged without the log.
+     under, has a point there -- and the ansatz with r^-1 log r dt and r^-1 log r dr beside them returns their
+     coefficients 0.  Four-dimensional control (trace weight 1): the mass state r^-1 (dt^2 + dr^2) needs omega = c log r
+     dt + b dr, c = 4 gam_Ups (1 + e_Ups)/(4 e_Ups gam_Ups^2 + 1) -- the logarithm of his (8.19) -- and the rotation
+     r^-3 (dt (x) w + w (x) dt) takes p = -2 gam_Ups, no logarithm. Controls: omega dropped (h claimed in the gauge);
+     the four-dimensional mass state claimed gauged without the log.
   A2 (computed, exact) The entries.  [L-bar, T]g-dot = L-bar(T g-dot) is stationary, nonzero and homogeneous of degree
      -3 for the mass state and -4 for the rotation state, and [[L-bar, T], T]g-dot = 0; four dimensions: degrees -2 and
      -3, his (10.9a) and his angular momentum's (3, 0).  Control: the five-dimensional mass entry claimed of degree -2.
@@ -29,7 +29,7 @@ x), T = t - r, with sbar5.py's E^Ups (trace weight 2/3) and E^C, L-bar = D Ric +
      -- his "iota+-decay order 3, which we must thus consider to be (borderline) unacceptable" (p. 202) -- and 4, his
      (10.24b).  Control: the five-dimensional mass state claimed of iota+ order 3.
 
-Run: python3 aug5.py --selftest | --mutants | --only k [--verbose]   (about eight and four minutes).
+Run: python3 aug5.py --selftest | --mutants | --only k [--verbose]   (about 8-12 and 4-5 minutes).
 """
 import sys
 import time
@@ -98,7 +98,7 @@ def states(n, log=True, drop=False):
     a, b, c, e, p, q = sp.symbols("a b c e p q")
     lg = sp.log(r) if log else 0
     hm = (sym(dt, dt) + sym(dr, dr)) * r**(-(n - 2))
-    om = [r**(-(n - 3)) * (a * dt[i] + b * dr[i]) + lg * (c * dt[i] + e * dr[i]) for i in range(C.N)]
+    om = [r**(-(n - 3)) * (a * dt[i] + b * dr[i] + lg * (c * dt[i] + e * dr[i])) for i in range(C.N)]
     hA = sym(dt, w) * (2 / r**n)
     oA = [(p + q * lg) * r**(-(n - 1)) * wi for wi in w]
     out = {}

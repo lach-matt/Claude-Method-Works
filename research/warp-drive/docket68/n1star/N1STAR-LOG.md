@@ -3422,3 +3422,47 @@ section was first numbered D101.
 
 *Runs.* aug5.py --selftest 3/3 (A1 15 s, A2 183 s, A3 301 s with the controls, about eight minutes) and --mutants 4/4
 (about four minutes); paper/response5.py --selftest all pass; md5 rows 56, aug5.py added.
+
+**D103 (2026-10-24): the forty-eighth verifier's findings on D101-D102, seated.**
+
+One independent verifier read D101 and D102 (8ab8e22 against 4c144f1), with its own checks: L-bar rebuilt in Cartesian
+components from his (8.1), (6.5) and (7.3) without sbar5.py or aug5.py; the gauged states' closed forms (5D mass a, b;
+5D and 4D rotation p; the 4D mass's c and b), the log coefficients 0 in five dimensions at r^0 log r and at r^-1 log r,
+the residuals of L-bar g-dot zero at eight generic five-dimensional and five four-dimensional points, the degrees of A2
+and A3 at two parameter sets, and the leading matrix of [L-bar, T] on r^-k U, whose eigenvalues are (n - 1)/2 - k + spec
+S-bar to 2 x 10^-14 in both dimensions; the target space arithmetic; D101's slot 3 arithmetic. READ at source: [Hin26]
+pp. 113, 135, 145-146, 149, 154, 164, 169, 199-209, 212-216, 223, 234. Verdict: no major finding; four minor findings,
+four nits, notes.
+
+*Minor 1 (the boosts' cut-off order).* 10.39(c) said L_b of chi_K g-dot or chi_K h^(<=1)_s1 is of iota+ order 4 and that
+(iii) computes it; (iii) computes the mass state's only -- no boost state is built on the model, where it vanishes --
+and 10.39's OPEN list had the boost entry by computation open. Repaired: (c) says the mass state's order is computed and
+the boosts' deduced; ROUTES 4.40 likewise. *Minor 2 (the cut-off's place).* The paper's "the states cut off near
+timelike infinity" read as inverted: chi_K is 1 near K+ and vanishes near I+ and for t* <= 1 (his p. 203). Repaired:
+"cut off to vanish near future null infinity". *Minor 3 (a qualifier).* The paper's "Nor does the zero energy
+augmentation need Hintz's improved states" now reads "Nor, on readings, does". *Minor 4 (two readings not named).* His
+Theorem 10.1's proof takes the representation (10.4) from the Paley-Wiener argument of [Hin26c] Theorem 12.2's proof (p.
+200) and adapts [Hin26c] section 14.1 (pp. 201, 212); both are now among 10.39(e)'s readings, its OPEN list and ROUTES
+4.40's.
+
+*Nits.* (1) aug5.py's five-dimensional log ansatz sat at r^0 log r, not at the gauge 1-form's own power r^-1; it is now
+r^-(n-3) log r -- r^-1 log r in five dimensions, log r in four, as before -- and A1 passes, the log coefficients 0 (the
+verifier checked both powers). (2) 10.39(i): "takes p = -2 gam_Ups and none" now reads "with no logarithm, as in his
+(8.20)". (3) A parenthesized (10.28) could be his equation or this record's section: 10.39 now says a bare 10.n is a
+section here and a parenthesized (10.n) one of his equations, and writes "section 10.28(a)-(b)" and the like where both
+meet. (4) 10.39(b)'s 7.3846 x 10^-8 is the bound 10.24(a) computes for his (8.13) at l <= 12, the record's number, not
+his; said so.
+
+*Notes, accepted.* (1) The trace weight 2/(D - 2) of E^C is derived in the record (U2, damping5.py), and the verifier
+re-derived it; E^Ups's 2/3 is the record's choice made as E^C's is (10.15), and A1's closed forms depend on it. (2) His
+p. 202: "It is via inverting the iota+-normal operator ... that one can both improve the iota+-decay rate and obtain the
+correct asymptotics at I+"; the chi_K route does not do this -- 10.39(c) now says so, with whether his section 11 needs
+those asymptotics open. (3) His p. 208: "h*_b,s0 has O(r^-2) decay (as do all other dual states in (7.15))". (4) His
+(8.8) (p. 146) and Proposition 11.6(1) (p. 223) as D101's note 2 has them. Not checked by the verifier: scri5.py;
+dual5.py and pairing5.py; the eleven-state kernel count; the boost states; the naive (10.5) claims; his section 11; his
+Definitions 5.2 and 5.4 and (5.28) (D101's p. 85 READ is this session's); the 7.3846 x 10^-8. Its runs: aug5 3/3 (A1 20
+s, A2 216 s, A3 313 s) and mutants 4/4; iota5 --only 4 True; response5 all pass; md5 rows 56 of 56 at 8ab8e22.
+
+*Runs.* aug5.py --selftest 3/3 (A1 23 s, A2 316 s, A3 354 s with the controls, about eleven and a half minutes on a
+loaded machine) and --mutants 4/4 (about five minutes) after nit (1); paper/response5.py --selftest all pass; md5 rows
+refreshed.

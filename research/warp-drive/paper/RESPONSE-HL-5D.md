@@ -837,23 +837,24 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   iteration's quadratic sources reach null infinity at the Coulombic order, the mass aspect's; and a radiative term
   reaches timelike infinity at its own order only through a resonant state there, which the same descent and injectivity
   exclude below 2. So α = 2 on readings, and the window is [−2, 0] (`scri5.py`; computed, the rest deduced in supplement
-  section 10.38). Nor does the zero energy augmentation need Hintz's improved states. In five dimensions the entries of
-  his naive augmentation decay like r⁻³, one order better than his r⁻² and inside the target space of his zero energy
-  operator, and his own device for the angular momenta — the states cut off near timelike infinity — serves every state,
-  the mass and the boosts included, with no logarithm in time; so his zero energy operator, augmented by the eleven
-  states, is invertible by the same pairings, and his uniform low energy bounds and 2-admissibility hold on readings
-  (`aug5.py`; computed on the model, the rest deduced in supplement section 10.39). A line-by-line check of Hintz's 3b-
-  and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make
-  explicit, and the rest of their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275
-  r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2 master fields, measured from the
-  pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching
-  7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way
-  (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a
-  nonlinear argument in the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω
-  r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1%
-  (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced
-  problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's polarized axisymmetric stability of
-  four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is open.
+  section 10.38). Nor, on readings, does the zero energy augmentation need Hintz's improved states. In five dimensions
+  the entries of his naive augmentation decay like r⁻³, one order better than his r⁻² and inside the target space of his
+  zero energy operator, and his own device for the angular momenta — the states themselves, cut off to vanish near
+  future null infinity — serves every state, the mass and the boosts included, with no logarithm in time; so his zero
+  energy operator, augmented by the eleven states, is invertible by the same pairings, and his uniform low energy bounds
+  and 2-admissibility hold on readings (`aug5.py`; computed on the model, the rest deduced in supplement section 10.39).
+  A line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold
+  h₀, which his proof does not make explicit, and the rest of their analysis are open. No growing mode appears in either
+  type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2
+  master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the
+  same at half the step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is
+  shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's
+  function's tail, which is the rate a nonlinear argument in the class would carry. The least-damped mode of the class
+  is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master
+  equation in time reproduces to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding
+  time of 3.905 r_h. The reduced problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's
+  polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is
+  open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -1019,7 +1020,12 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   Section 10.38 with `scri5.py` and D99's repairs were read by a forty-seventh (D99, D100), which recomputed his matrix
   from the operator on explicit functions and the connection by a Frobenius expansion with Taylor stepping: no major
   finding; three minor findings — four trace couplings counted as three, the page numbers of his section 5.2, and a
-  reading at the cone side of timelike infinity not named — five nits, and notes, seated (D101).
+  reading at the cone side of timelike infinity not named — five nits, and notes, seated (D101). Section 10.39 with
+  `aug5.py` and D101's repairs were read by a forty-eighth (D101, D102), which rebuilt the operator in Cartesian
+  components independently and reproduced the gauged states, the degrees and their leading terms against S̄: no major
+  finding; four minor findings — the boosts' cut-off order said computed where it is deduced, the cut-off described as
+  near timelike infinity, a sentence here without its qualifier, and two of Hintz's readings not named — four nits, and
+  notes, seated (D103).
 
 ---
 
@@ -1405,7 +1411,7 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   mass and rotation states with no logarithm, his four-dimensional logarithm reproduced; the augmentation's entries of
   degree −3 and −4, his −2 and −3 reproduced in four dimensions; the cut-off states of order 4 and 5 at timelike
   infinity, his borderline 3 and 4 in four (the entries in the target space, his device for the angular momenta for
-  every state, the invertibility and 2-admissibility deduced, on readings). 3/3; mutants 4/4 (about eight minutes).
+  every state, the invertibility and 2-admissibility deduced, on readings). 3/3; mutants 4/4 (about 8-12 minutes).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1480,7 +1486,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D102).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D103).
 
 | claim | where it is established |
 | --- | --- |
@@ -1548,7 +1554,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the fortieth section 10.31 (D86, D87); the forty-first section 10.32 (D88, D89); |
 | | the forty-second section 10.33 (D90, D92); the forty-third section 10.34 (D91, D94); |
 | | the forty-fourth section 10.35 (D93, D95); the forty-fifth section 10.36 (D96, D98); |
-| | the forty-sixth section 10.37 (D97, D99); the forty-seventh section 10.38 (D100, D101) |
+| | the forty-sixth section 10.37 (D97, D99); the forty-seventh section 10.38 (D100, D101); |
+| | the forty-eighth section 10.39 (D102, D103) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1608,7 +1615,7 @@ imports `cform5.py` and `damping5.py`, `tface5.py` imports `cform5.py`, `gaugepo
                                                          # mp5 (about three minutes)
                                                          # iota5 (about twenty-five minutes)
                                                          # scri5 (about twelve minutes)
-                                                         # aug5 (about eight minutes)
+                                                         # aug5 (about 8-12 minutes)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1616,9 +1623,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `ad99923ba71e041cf411d56788a3f016` |
-| `docket68/n1star/N1STAR-LOG.md` | `4afd7585f497acb5dd4e2a0a7e08c63a` |
-| `docket68/n1star/README.md` | `2d3e15ee0bdfdd339ce9d61d52231785` |
+| `docket68/n1star/N1STAR-PROOF.md` | `2f7fb7ea8502aa360010a9f892267fbe` |
+| `docket68/n1star/N1STAR-LOG.md` | `e12b40fb6a532b55e8e6a0f561bb23e0` |
+| `docket68/n1star/README.md` | `9bf979c6fbeebca2d53b7e241bdc2516` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1670,6 +1677,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/mp5.py` | `4f3521cc717fb1b0363cb73d045c26f7` |
 | `docket68/n1star/iota5.py` | `8731cc8b878418d9750c8cdd313d8ef1` |
 | `docket68/n1star/scri5.py` | `6c63e01b0582c528bd84431edbc8eac6` |
-| `docket68/n1star/aug5.py` | `229140f67952b24a4e0b653138d86218` |
+| `docket68/n1star/aug5.py` | `3bcbdc239f889819b64436ad7b562ae5` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.
