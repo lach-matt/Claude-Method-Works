@@ -2039,5 +2039,6 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (3.30) term by term; 10.38 (a)'s deduced link is READ, and one exception remains, 10.21 (e).
 - Deduced (10.75 (xii)-(xiv)): [Hin26] Proposition 6.15, Proposition 6.18 (4)-(7) and the injectivity half of
   Proposition 9.2 (2), read at source (pp. 125-128, 132-134, 165-167), are matched step by step by 10.28 (a), 10.30 (a)
-  and 10.37 (c), the regularity in b added. Fourteen of 61 written out; 47 rest on the censuses.
+  and 10.37 (c), the regularity in b added. With [Hin26] Propositions 8.11 and 7.4 (10.32 (c), 10.36 (b); pp. 155-156,
+  140-144), sixteen of 61 are written out; 45 rest on the censuses.
 

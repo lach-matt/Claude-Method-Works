@@ -8228,13 +8228,13 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Fourteen modification steps written out at n = 4 (D146, D148)
+### 10.75 Sixteen modification steps written out at n = 4 (D146, D148)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. The fourteen below are those whose source proofs
-are at most about two pages and are already matched step by step in the sections named, or short enough to match here;
+step so written out rests on its inputs, not on a census of its source. The sixteen below are those whose source proofs
+are at most about five pages and are already matched step by step in the sections named, or short enough to match here;
 each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69).
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
@@ -8338,12 +8338,33 @@ each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 tex
      the index 0 property, is not carried, as 10.37 (c) says.
 
 
-So fourteen of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. The other 47 carry proofs of several pages each, in [Hin26] sections 5-13,
+ (xv) 10.32 (c), [Hin26] Proposition 8.11 (pp. 155-156; D148). His kernel argument: a normal operator argument puts u in
+     A^(eps_ind - eps); the Bianchi step of (i) gives box^C eta = 0, so eta = 0 by Theorem 7.1 (2); [AHW24] Theorem 6.1
+     (2) writes u = g-dot(b-dot) + delta* omega; Proposition 8.9 gauges g-dot; omega in ker box^Ups(0) with leading term
+     a combination of dt and d(rS), the least root above -1 being 0 at s0 and s1 (Lemma 6.6); subtracting the Killing
+     and s1 states leaves omega in A^eps, zero by Proposition 6.12; the pairings of Lemma 8.12 and d(rS) not Killing
+     give the dimension. His cokernel argument: index 0 (Propositions 8.3, 8.6, [Hin26c] Corollary 9.43) and (8.25).
+     10.32 (c) places each at n = 4: [Hin26c] Theorem 9.5 (5) (10.53), Theorem 7.1 (2) (10.21 (e)), [AHW24] Theorem 6.1
+     (2) on Tangherlini (10.33, whose hypothesis A^(eps_ind - eps) meets), Proposition 8.9 (10.28 (b)), Lemma 6.6's
+     roots (10.15, 10.24: none in (-1, 0), 0 at s0 and s1), Proposition 6.12 (10.20), the pairings (10.32 (b),
+     pairing5.py), the eleven states and duals, and the index 0 ((iv) above).
+
+ (xvi) 10.36 (b), [Hin26] Proposition 7.4 (pp. 140-144; D148). His proof: the ansatz V_b plus rho S-type terms plus chi
+     rho omega_0; omega_0 from the v1 normal operator of the adjoint at 1, 2 + 4 gam_C v_C; the leading term
+     h-bar-sharp; Lemma 7.5; the sources of (7.33) in rho^4 C^oo; a formal solution by Lemma 2.15 and the remainder by
+     Lemma 7.2; the splitting (7.17) and the formal-solution property (7.19). 10.36 (b) places each at n = 4: the ansatz
+     with c_0 r^-3 V(W), c_0 fixed by 3 + 6 gam_C v_C (dual5.py, 10.31 (i)); the leading term at rho^3 (10.31 (iii));
+     Lemma 7.5 at every spin (10.36 (a)); the sources in rho^5 C^oo; no root of the adjoint with real part in [3, C_0 +
+     2] (10.31 (a)), so the formal solution is in rho^3 C^oo, Lemma 7.2 at n = 4 ((ix)); and (7.19) to order floor(C_0)
+     + 3.
+
+
+So sixteen of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. The other 45 carry proofs of several pages each, in [Hin26] sections 5-13,
 [Hin26c] sections 5-14, [Hin26a] sections 4-6 with its appendices A-B, and [Hin23a] section 3; writing those out is what
 remains of 8.8.
 
-Labels: READ (the fourteen source proofs); deduced (the matching); nothing computed or proved here.
+Labels: READ (the sixteen source proofs); deduced (the matching); nothing computed or proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
