@@ -264,10 +264,11 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   in 10.40, [Hin26c]'s readings at source in 10.41). `python3 lowfreq5.py --selftest` (3/3, about five seconds),
   `--mutants` (7/7).
 - `cone5.py`: [Hin26] section 11.1 in five dimensions (section 10.42; D108): the unweighted b-density's shifts (2, 5/2,
-  1/2) for his (11.5)'s (3/2, 2, 1/2), beta_+ in (1/2, 1/2 + eps_ind) in both, the top of beta_I 3/2 for his 1; the
-  background differences at iota+ (mass, rotation, boost) of orders 2, 3, 2 for his 1, 2, 1; the patched background's
-  curvature of order 4 for his 3 (C1-C3; E+ from (2, 0), Corollaries 11.9-11.10 and Theorem 11.12 with sf-loss 0 deduced
-  on readings in 10.42). `python3 cone5.py --selftest` (3/3, about ten seconds), `--mutants` (3/3).
+  1/2) for his (11.5)'s (3/2, 2, 1/2), beta_+ in (1/2, 1/2 + eps_ind) in both, the top of beta_I 3/2 for his 1 (on
+  reading [Hin26c] (10.2) at n = 4); the background differences at iota+ (mass, rotation, boost) of orders 2, 3, 2 for
+  his 1, 2, 1; the cut-off mass interpolation's curvature of order 4 for his 3 (C1-C3; the patched background's, E+ from
+  (2, 0), Corollaries 11.9-11.10 and Theorem 11.12 with sf-loss 0 deduced on readings in 10.42). `python3 cone5.py
+  --selftest` (3/3, about ten seconds), `--mutants` (3/3).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).

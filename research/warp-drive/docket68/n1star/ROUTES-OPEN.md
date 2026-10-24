@@ -1505,10 +1505,11 @@ relative to L_b (Corollary 11.10), and forward solutions lose two orders at iota
 deduces.
 
 - The densities: the unweighted b-density shifts the weights by (n/2, (n+1)/2, 1/2), his (3/2, 2, 1/2) and (2, 5/2, 1/2)
-  in five dimensions; beta_+ in (1/2, 1/2 + eps_ind) in both; the top of beta_I, the radiation field's I+ order, 3/2 for
-  his 1 (C1).
-- The background differences at iota+ -- mass, rotation, boost -- of orders 2, 3, 2 for his 1, 2, 1, and the patched
-  background's curvature of order 4 for his 3 (C2-C3).
+  in five dimensions; beta_+ in (1/2, 1/2 + eps_ind) in both; the top of beta_I 3/2 for his 1, on the reading of
+  [Hin26c] (10.2) at n = 4, the radiation field's I+ order computed (C1).
+- The background differences at iota+ -- mass, rotation, boost -- of orders 2, 3, 2 for his 1, 2, 1, and the cut-off
+  mass interpolation's curvature of order 4 for his 3 (C2-C3), the patched background's, with rotation and boost,
+  deduced (10.42(c)).
 - Deduced, on readings: E+ with (2, 0) in E+ and min Re E+ >= 2 (with 10.38's alpha_5 = 2); Corollary 11.9's P(g0, g0)
   in rho_+^4 C^oo; Corollary 11.10 with l_+ in (0, 1), sf-loss 0; Theorem 11.12 with delta = 0, beta_I in (beta_+, 3/2):
   u in H^(k, beta_I, beta_+, -3/2)_b.
