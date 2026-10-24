@@ -1034,7 +1034,10 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   outgoing radial set, taken from his four-dimensional columns, does not bind in five dimensions, where the augmentation
   has no term at future null infinity, so the mechanism was misstated and the weights stated were weaker than those
   available — four minor findings — a sign convention, a page, a reading for variable orders not named, and a weight
-  taken rather than measured — seven nits, and notes, seated (D105).
+  taken rather than measured — seven nits, and notes, seated (D105). Section 10.41 with `lowfreq5.py` W3 was read by a
+  fiftieth (D106), which re-read every quotation at source and reproduced the shift and the four printed instances: no
+  major finding; two minor findings — the 3b-calculus attributed to the wrong one of Hintz's papers, and the shift's
+  thresholds stated on all of space rather than near infinity — five nits, and notes, seated (D107).
 
 ---
 
@@ -1146,7 +1149,11 @@ from the arXiv text, with the extraction's spacing.
   (Proposition 9.35), 193–200 (Theorem 9.36; section 9.5: Theorem 9.38, Corollary 9.39, Proposition 9.40; Theorem 9.41,
   Remark 9.42, Corollary 9.43), 265; and pp. 61 (Lemma 3.11, Definition 3.12, (3.47)), 81 (Definition 4.5), 98
   (Proposition 4.24). READ again 2026-10-22 (the twenty-eighth verifier's findings): pp. 157–159 (Notation 9.2, the
-  sentence after Definition 9.4), 165 ((9.24)), 172–173 (section 9.2.3, Part (5), (9.55)), 193 (section 9.3.6).
+  sentence after Definition 9.4), 165 ((9.24)), 172–173 (section 9.2.3, Part (5), (9.55)), 193 (section 9.3.6). READ
+  2026-10-24 (section 10.41): pp. 8 (the sf-loss δ), 20–21 (the setting on R³), 45–46 (the scaled bounded geometry
+  calculus), 55–59 ((3.27), Lemmas 3.7 and 3.9), 106–107 (Definition 5.13, Remark 5.14), 233, 235 (Theorem 12.2 and its
+  Paley–Wiener argument), 247, 252, 255 (section 13.1's spaces, Lemma 13.13, (13.30a)), 262–267 (Theorem 14.2 and its
+  proof, Lemmas 14.3–14.6), 277 (its references).
 - [AHW24] L. Andersson, D. Häfner, B. F. Whiting, *Mode analysis for the linearized Einstein equations on the Kerr
   metric: the large a case*, arXiv:2207.12952v1. READ 2026-10-23 and 2026-10-24: pp. 1 (the abstract), 35 (Theorem 6.1),
   41 (section 6.4, the proof of Theorem 6.1).
@@ -1421,12 +1428,13 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   degree −3 and −4, his −2 and −3 reproduced in four dimensions; the cut-off states of order 4 and 5 at timelike
   infinity, his borderline 3 and 4 in four (the entries in the target space, his device for the angular momenta for
   every state, the invertibility and 2-admissibility deduced, on readings). 3/3; mutants 4/4 (about 8-12 minutes).
-- `lowfreq5.py` W1–W2: Hintz's section 10.2 in five dimensions (supplement section 10.40): on Minkowski space the time
-  derivatives of the columns that carry the poles have the states as their zero-frequency values, of weights 0 and 1,
-  his −1/2 and 1/2 reproduced in four dimensions; the weights of his proof at 598 points, with the requirements at the
-  outgoing radial set read from his Fourier transform's orders: −ε, 1 − ε and the last α_sf in five dimensions — no loss
-  — and his −1/2 − ε, 1/2 − ε and −3/2 − ε in four (2-admissibility with no loss deduced, on readings). 2/2; mutants 5/5
-  (about 5 seconds).
+- `lowfreq5.py` W1–W3: Hintz's section 10.2 in five dimensions (supplement sections 10.40–10.41): on Minkowski space the
+  time derivatives of the columns that carry the poles have the states as their zero-frequency values, of weights 0 and
+  1, his −1/2 and 1/2 reproduced in four dimensions; the weights of his proof at 598 points, with the requirements at
+  the outgoing radial set read from his Fourier transform's orders: −ε, 1 − ε and the last α_sf in five dimensions — no
+  loss — and his −1/2 − ε, 1/2 − ε and −3/2 − ε in four (2-admissibility with no loss deduced, on readings); and the
+  density shift in his companion paper's bound (13.30a), 3/2 in four dimensions and 2 in five, its rule reproducing his
+  printed instances. 3/3; mutants 7/7 (about 5 seconds).
 - `hung4.py` C1–C3: the four-dimensional control of W7, Hung's Proposition 4.2 recomputed from the Schwarzschild metric
   with the instrument W7 runs, reproducing his printed rows and naming two misprints in the printed combinations, and
   the red-shift divergence of his (2.13) at r = 2M for one component (C3). 3/3; mutants 4/4 (about two and a half
@@ -1501,7 +1509,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D105).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D107).
 
 | claim | where it is established |
 | --- | --- |
@@ -1529,7 +1537,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | (`docket68/lemmas/data/hf_core5_runs.json`); `paper/response5.py` R8 |
 | the wavelength 10 l5, section 8 | supplement section 10.2; `docket68/n1star/growth5.py` G0–G5 over its pinned runs; |
 | | `paper/response5.py` R7 |
-| settling, section 8 | supplement sections 10.1, 10.3–10.40 (Propositions 10.1–10.37); |
+| settling, section 8 | supplement sections 10.1, 10.3–10.41 (Propositions 10.1–10.38); |
 | | `docket68/n1star/settle5.py` |
 | | T1–T6; `docket68/n1star/wavegauge5.py` W1–W8; `docket68/n1star/hung4.py` C1–C3; `docket68/n1star/rungs5.py` |
 | | M1–M5; `docket68/n1star/growing5.py` G1–G5; `docket68/n1star/lzero5.py` Z1–Z5; |
@@ -1546,7 +1554,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | `docket68/n1star/dual5.py` A1–A3; `docket68/n1star/pairing5.py` P1–P5; |
 | | `docket68/n1star/static5.py` S1–S6; `docket68/n1star/physical5.py` Y1–Y4; |
 | | `docket68/n1star/window5.py` W1–W3; `docket68/n1star/mp5.py` M1–M5; `docket68/n1star/iota5.py` I1–I5; |
-| | `docket68/n1star/scri5.py` C1–C3; `docket68/n1star/aug5.py` A1–A3; `docket68/n1star/lowfreq5.py` W1–W2; |
+| | `docket68/n1star/scri5.py` C1–C3; `docket68/n1star/aug5.py` A1–A3; `docket68/n1star/lowfreq5.py` W1–W3; |
 | | [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c], [AHW24], [DLMF] |
@@ -1570,7 +1578,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the forty-second section 10.33 (D90, D92); the forty-third section 10.34 (D91, D94); |
 | | the forty-fourth section 10.35 (D93, D95); the forty-fifth section 10.36 (D96, D98); |
 | | the forty-sixth section 10.37 (D97, D99); the forty-seventh section 10.38 (D100, D101); |
-| | the forty-eighth section 10.39 (D102, D103); the forty-ninth section 10.40 (D104, D105) |
+| | the forty-eighth section 10.39 (D102, D103); the forty-ninth section 10.40 (D104, D105); |
+| | the fiftieth section 10.41 (D106, D107) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1640,9 +1649,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `bdaad9608f71574dec8d5d8e945ed686` |
-| `docket68/n1star/N1STAR-LOG.md` | `e5b1baa69fc777b9ce222720dd26e5af` |
-| `docket68/n1star/README.md` | `d36403f91cd36093522a8e02bda1cdb2` |
+| `docket68/n1star/N1STAR-PROOF.md` | `ccd1a6f2fd93852ba99487ee489a4a94` |
+| `docket68/n1star/N1STAR-LOG.md` | `0694904083903513dc13d563e278485d` |
+| `docket68/n1star/README.md` | `115bcfce479b4d381fd9645e612a001f` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1695,6 +1704,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/iota5.py` | `8731cc8b878418d9750c8cdd313d8ef1` |
 | `docket68/n1star/scri5.py` | `6c63e01b0582c528bd84431edbc8eac6` |
 | `docket68/n1star/aug5.py` | `3bcbdc239f889819b64436ad7b562ae5` |
-| `docket68/n1star/lowfreq5.py` | `6d4428c3a9d78db05b42c7d65cbac4dd` |
+| `docket68/n1star/lowfreq5.py` | `b952a94d5a9313a66b1c166c7ed0d1ed` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """lowfreq5.py -- [Hin26] section 10.2 in five dimensions: the low-frequency part of the proof of 2-admissibility and
-its sf-loss (N1STAR-PROOF.md section 10.40; ROUTES-OPEN.md 4.41; D104, D105).  Labels: computed (exact, sympy),
-deduced, READ.
+its sf-loss (N1STAR-PROOF.md sections 10.40-10.41; ROUTES-OPEN.md 4.41-4.42; D104-D106).  Labels: computed (exact,
+sympy), deduced, READ.
 
 [Hin26] (arXiv:2606.28253v2) writes the forward solution as u = u_hi + u_reg + g-dot + h_s1 ((10.50)), the last two
 the inverse Fourier transforms of the augmentation's columns against b-hat_1, S-hat_1; "Differentiation in t* removes
@@ -37,6 +37,15 @@ states are one order faster and the augmentation is chi_K times them, with no I+
      loss eps.  Controls: five dimensions with four-dimensional orders and I+ order 1 (a loss); four dimensions
      claimed lossless; five dimensions claimed at alpha_sf + 1 and alpha_sf + 2, the radial threshold binding (D104's
      reading, corrected in D105).
+  W3 (computed, exact) [Hin26c] (13.30a)'s shift at n = 4 (D106, D107). On R^n near infinity (|x| >= 1), r^-a lies in
+     L^2(|dx|) iff a > n/2 and in L^2(mu_b), mu_b = |dx|/|x|^n, iff a > 0: L^2(|dx|) = rho^(n/2) L^2(mu_b), the shift
+     his (13.30a) calls "due to the passage from mu to mu_b" (p. 255), 3/2 at n = 3 (his p. 252) and 2 at n = 4.
+     (13.30a)'s rule -- the target's scf order at R_out below the source's less the shift, its tf order the source's
+     less the shift -- reproduces his printed instances at n = 3: p. 206's "r + alpha_sf + 1 < 3/2 - eps" for scf order
+     3 - eps and "r + alpha_sf < -1/2" for 2 - eps; p. 216's "r < -1/2" for (10.56)'s (1 - eps, 1 - 2eps), tf -1/2 -
+     2eps (his -1/2 - eps, eps renamed); and (10.59)'s (1 - eps, 2 - eps), r < -1/2 and 1/2 - eps. At n = 4 it gives
+     10.40(b)'s requirements r < 1 - eps and r < 2 - eps and tf weights -eps and 1 - eps. Controls: the shift taken as
+     3/2 at n = 4; the rule without the shift.
 
 Run: python3 lowfreq5.py --selftest | --mutants | --only k [--verbose]   (seconds).
 """
@@ -158,8 +167,48 @@ def w2(control=0, verbose=False):
     return chk.ok
 
 
+# ------------------------------------------------------------------------------------------------- W3
+def shift(n):
+    """the a at which r^-a enters L^2(R^n, |dx|), less the one at which it enters L^2(R^n, |dx|/|x|^n)"""
+    R = sp.Symbol("R", positive=True)
+    tenth = sp.Rational(1, 10)
+
+    def enters(a0, power):                      # r^-a over r >= 1: in L^2(r^power dr) at a0 + 1/10, not at a0
+        return (sp.integrate(R**(-2 * (a0 + tenth) + power), (R, 1, sp.oo)).is_finite and
+                not sp.integrate(R**(-2 * a0 + power), (R, 1, sp.oo)).is_finite)
+    a_mu, a_mub = sp.Rational(n, 2), 0
+    assert enters(a_mu, n - 1) and enters(a_mub, -1)
+    return a_mu - a_mub
+
+
+def w3(control=0, verbose=False):
+    chk = Checklist(verbose, quiet=control != 0)
+    e = sp.Symbol("eps", positive=True)
+    sh = {3: shift(3), 4: shift(4)}
+    chk(f"the density shift: {sh[3]} at n = 3 (his p. 252), {sh[4]} at n = 4", sh == {3: sp.Rational(3, 2), 4: 2})
+    if control == 1:
+        sh[4] = sp.Rational(3, 2)
+    if control == 2:
+        sh = {3: 0, 4: 0}
+
+    def rule(n, scf, tf):                                      # (13.30a): (scf bound at R_out, tf weight) against |dx|
+        return sp.expand(scf - sh[n]), sp.expand(tf - sh[n])
+    half = sp.Rational(1, 2)
+    p206a = rule(3, 3 - e, 0)[0] == half * 3 - e               # r + alpha_sf + 1 < 3/2 - eps
+    p206b = rule(3, 2 - e, 0)[0] - 1 == -half - e              # r + alpha_sf < -1/2 (eps arbitrary)
+    p216 = rule(3, 1 - e, 1 - 2 * e) == (-half - e, -half - 2 * e)     # r < -1/2; his -1/2 - eps, eps renamed
+    p1059 = rule(3, 1 - e, 2 - e) == (-half - e, half - e)     # r < -1/2; 1/2 - eps
+    chk("n = 3: his p. 206 (r + alpha_sf + 1 < 3/2 - eps; r + alpha_sf < -1/2), p. 216 ((10.56): r < -1/2, -1/2 - eps) "
+        "and (10.59) (r < -1/2, 1/2 - eps)", p206a and p206b and p216 and p1059)
+    five = rule(4, 3 - e, 2 - e) == (1 - e, -e) and rule(4, 4 - e, 3 - e) == (2 - e, 1 - e)
+    chk("n = 4: 10.40(b)'s columns, (3 - eps, 2 - eps) and (4 - eps, 3 - eps): r < 1 - eps, r < 2 - eps; tf -eps, "
+        "1 - eps", five)
+    return chk.ok
+
+
 CHECKS = [("W1 the columns' zero-frequency values are the states; their weights 0 and 1 (four: his -1/2, 1/2)", w1, 2),
-          ("W2 section 10.2's weights: five dimensions -eps, 1 - eps, alpha_sf, no loss; I+ terms eps; four his", w2, 3)]
+          ("W2 section 10.2's weights: five dimensions -eps, 1 - eps, alpha_sf, no loss; I+ terms eps; four his", w2, 3),
+          ("W3 (13.30a)'s shift n/2 (3/2, 2): his pp. 206, 216 and (10.59) reproduced; five dimensions 10.40(b)", w3, 2)]
 
 
 def selftest(verbose=False):

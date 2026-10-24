@@ -1478,3 +1478,21 @@ states Proposition 10.37 and deduces.
   10.9 line by line in five dimensions; the boosts' columns on Tangherlini by computation; his section 11 (Corollary
   11.10, Theorem 11.12). Labels: computed (lowfreq5.py W1-W2; exact); deduced; READ ([Hin26] pp. 21, 54-55, 60, 199-201,
   206, 212-217, 225); nothing proved.
+
+### 4.42 [Hin26c]'s readings behind 10.40, at source (computed; D106)
+
+Section 10.40 rested on [Hin26c] at n = 4 for Definition 5.13's delta, (13.30a), Lemmas 14.6 and 3.9, and the
+Paley-Wiener argument and section 14.1 that [Hin26]'s proof of Theorem 10.1 follows. [Hin26c] is written on Kerr in 3 +
+1 dimensions, so each is READ at n = 3; N1STAR-PROOF.md 10.41 records where n enters each and states Proposition 10.38.
+
+- Definition 5.13 admits delta >= 0 (p. 106), and its Remark 5.14, with margin d and loss s - d, is the form of
+  [Hin26]'s (10.3): on the readings of 10.40, 2-admissibility in five dimensions with sf-loss 0, the hedge on delta
+  removed.
+- (13.30a) sees n through the density, its shift 3/2 "due to the passage from mu to mu_b" (p. 255): at n = 4 the shift
+  is 2, and the rule reproduces his printed instances on pp. 206 and 216 and at (10.59) (W3).
+- Lemma 14.6 at s = 0 is in t at each fixed r, so it holds at every n; general s rests on the 3b-calculus. The
+  Paley-Wiener argument (p. 235) is in t* alone. In section 14.1, the template, the loss comes from the zero energy
+  state's decay through (14.16).
+- OPEN: [Hin26c] Lemma 3.9, the microlocal part of Lemma 13.13, the 3b-calculus (his scaled bounded geometry paper, not
+  read) and Theorems 9.5, 9.16 and 9.41 at n = 4; his section 11. Labels: computed (lowfreq5.py W3; exact); deduced;
+  READ ([Hin26c] pp. 8, 20-21, 56-59, 106-107, 233, 235, 252, 255, 262-267); nothing proved.

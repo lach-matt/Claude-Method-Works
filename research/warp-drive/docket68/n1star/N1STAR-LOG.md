@@ -3541,3 +3541,66 @@ derivatives of the columns have the states as zero-frequency values. (5) The pap
 
 *Runs.* lowfreq5.py --selftest 2/2 (W1 5 s, W2 under 1 s) and --mutants 5/5 (about 3 s); paper/response5.py --selftest
 all pass; md5 rows refreshed.
+
+**D106 (2026-10-24): [Hin26c]'s readings behind 10.40, at source (10.41, lowfreq5.py W3).**
+
+M asked to continue. Section 10.40 rested on [Hin26c] at n = 4 for Definition 5.13's delta, (13.30a), Lemmas 14.6 and
+3.9, and the Paley-Wiener argument and section 14.1 that [Hin26]'s proof of Theorem 10.1 follows; this step reads them.
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26c] pp. 8, 20-21, 56-59, 106-107, 233, 235, 252, 255,
+262-267. [Hin26c] is written on Kerr in 3 + 1 dimensions, so each is READ at n = 3.
+
+*Read.* Definition 5.13: "Let aleph >= 0 and alpha_sf in R, delta >= 0" -- delta = 0 is admitted, and Remark 5.14's
+relaxed version, with margin d and loss s - d, is [Hin26]'s (10.3). (13.30a): "The shift of 3/2 in the decay orders at
+rho^-1(0) = scf cup tf is due to the passage from mu to mu_b", with L^2(X, mu) = rho^(3/2) L^2(X, mu_b). Lemma 14.6: at
+s = 0 an estimate in t at each fixed r; general s through an elliptic t*-translation-invariant 3b-parametrix. Theorem
+12.2's Paley-Wiener argument: in t* alone, on Theorems 9.41, 9.16 and 9.5(6). Theorem 14.2, the template: the loss from
+u_0 in rho C^oo through Lemma 14.5's condition (14.16).
+
+*Computed (Proposition 10.38, lowfreq5.py W3).* The density shift n/2 -- 3/2 at n = 3, 2 at n = 4 -- from the thresholds
+of r^-a in L^2(r^(n-1) dr) and L^2(r^-1 dr); (13.30a)'s rule reproduces his p. 206 (two instances), p. 216 ((10.56)) and
+(10.59), and gives 10.40(b)'s five-dimensional requirements and weights. Controls: the shift 3/2 at n = 4; no shift.
+
+*Deduced (10.41).* (a) 10.40's conclusion holds with sf-loss 0 in Remark 5.14's sense (margin 1), the hedge on delta
+removed; 10.40(c) and (e) now say so. (b) (13.30a) at n = 4: the shift computed, the microlocal part of Lemma 13.13 a
+reading. (c) Lemmas 14.6 and 10.13 at s = 0 hold at every n; general s rests on the 3b-calculus ([Hin23d], not read).
+(d) The Paley-Wiener argument rests on the readings of 10.19-10.20; section 14.1's loss comes from the zero energy
+state's decay, as 10.40's does. (e) Still readings at n = 4: Lemma 3.9, Lemma 13.13's microlocal part, the 3b-calculus,
+Theorems 9.5, 9.16 and 9.41; 10.40's OPEN list now says so.
+
+*Runs.* lowfreq5.py --selftest 3/3 (W1 5 s, W2 and W3 under 1 s) and --mutants 7/7 (about 4 s); paper/response5.py
+--selftest all pass; md5 rows refreshed.
+
+**D107 (2026-10-24): the fiftieth verifier's findings on D106, seated.**
+
+One independent verifier read D106 (5d0a56c against 541e310) with its own checks: every quotation in 10.41's READ
+re-read at source in [Hin26c] (pp. 8, 20-21, 45-46, 55-60, 106-107, 158, 172-173, 198, 200-201, 227-228, 233, 235,
+247-248, 252-253, 255, 260-267, 277) and [Hin26] (pp. 199-200, 206, 208, 210, 212, 215-217); the density identity at n =
+3, 4, 5, the thresholds, the rule's instances and (14.16) at n = 3 and 4 by its own sympy script; md5 rows 57 of 57.
+Verdict: D106 stands; no major finding; two minor findings, five nits, notes.
+
+*Minor.* (1) 10.41(c), its OPEN list, ROUTES 4.42 and LOG D106 put Lemma 14.6's general-s step on [Hin23d]
+(arXiv:2302.13803); the class Psi-tilde_3b of (3.27) is built on the scaled bounded geometry calculus, "the scaled
+bounded geometry perspective introduced by the author in [Hin26c]" (pp. 45-46) -- in [Hin26c]'s own references P. Hintz,
+*Pseudodifferential operators on manifolds with scaled bounded geometry*, CAMS 6 (2026) 153-243 (p. 277) -- with
+[Hin23d] named only for "the proof of the boundedness of a 3b-ps.d.o. on 3b-Sobolev spaces" with smooth coefficients (p.
+46). Checked here at source. Repaired: 10.41's READ (c), (c), closing paragraph and ROUTES 4.42 name the paper and its
+key; its section 3.1 is set "on an n-dimensional manifold". (2) Proposition 10.38's first sentence held only near
+infinity: on all of R^n no power of r is in either space. Repaired: "near infinity (|x| >= 1)", there and in
+lowfreq5.py's docstring.
+
+*Nits.* (1) "three printed instances" now "four printed instances, at three places". (2) (14.16)'s quotation had
+"s|_(R_out)" inside the quote marks; it now transliterates his subscript. (3) The rule's r < -1/2 - eps for every eps is
+his r < -1/2; said so in Proposition 10.38, and W3's shift() comment says it brackets the threshold. (4) The paper
+grouped p. 8 with "the setting"; it is the sf-loss, and 10.41's READ now quotes pp. 8 and 106-107. (5) The shift
+alpha_sf + 3/2 -> alpha_sf + 2 is 10.23(ii)'s, as applied in 10.24(d).
+
+*Notes, accepted.* (1) Parts of [Hin26c] are written in general n -- section 3.1 (p. 46), section 13.1's b-spaces (p.
+247), Definition 9.4 (p. 158) -- so "written on Kerr in 3 + 1" is its subject, not every section; 10.41's setting now
+says so. (2) The Paley-Wiener argument also needs the spectral family invertible for Im sigma >= 0, mode stability
+(10.27); 10.41(d) now says so. (3) Theorem 14.2's loss passes through one t*-integration (m = 1); 10.41(d) says so. Not
+checked by the verifier: 10.40 and W1-W2 beyond the pointer edits; whether [Hin26]'s section 11 needs delta > 0 for
+other reasons; the calculi at n = 4; Theorems 9.5, 9.16 and 9.41 at n = 4; 10.27. Its runs: lowfreq5.py 3/3, mutants
+7/7; response5.py all pass.
+
+*Runs.* lowfreq5.py --selftest 3/3 (W1 5 s, W2 and W3 under 1 s) and --mutants 7/7 (about 4 s); paper/response5.py
+--selftest all pass; md5 rows refreshed.
