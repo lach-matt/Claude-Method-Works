@@ -3965,13 +3965,13 @@ arrived while this was written; D126 seats it.
 **D126 (2026-10-24): the fifty-fourth verifier's findings on D116-D122 seated.**
 
 Verdict PASS with one major finding: Phase A was called "complete" while 10.45(e) and 10.48(c) rest on Phase B readings.
-Repaired in 10.48, 10.49 and ROUTES 4.51: complete conditional on its readings, B1-B4, B10 and 10.45(e)'s [Hin26c]
-Proposition 13.18 and Corollary 13.17 at n = 4 (D117's wording stands in its entry as written then). Minor findings, all
-seated: k = 6 is Step 4's floor, not [DS23]'s, which asks k > 3 (ROUTES 4.53; D119's wording likewise stands); 10.46's
-quotation of [Hin26] p. 221 made verbatim; the trace weight 2/(D - 2) cited as the record's own derivation (damping5.py
-U2), [Hin26a] (3.2) having weight 1 (ROUTES 4.55); eind5.py and 10.52 state that l = 0 and 1 are 10.24(iv)'s; the --only
-summaries of eind5.py, sharp5.py, uniform5.py and transfer5.py count the checks run. Nits: ROUTES 4.55's -n + 2 + beta
-attributed to Corollary 9.39, its Theorem 11.1 clause made grammatical; 10.50(f)'s K >= d + 1.
+Repaired in 10.49 and ROUTES 4.51 ("10.48" named here in error; D129): complete conditional on its readings, B1-B4, B10
+and 10.45(e)'s [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4 (D117's wording stands in its entry as written
+then). Minor findings, all seated: k = 6 is Step 4's floor, not [DS23]'s, which asks k > 3 (ROUTES 4.53; D119's wording
+likewise stands); 10.46's quotation of [Hin26] p. 221 made verbatim; the trace weight 2/(D - 2) cited as the record's own
+derivation (damping5.py U2), [Hin26a] (3.2) having weight 1 (ROUTES 4.55); eind5.py and 10.52 state that l = 0 and 1 are
+10.24(iv)'s; the --only summaries of eind5.py, sharp5.py, uniform5.py and transfer5.py count the checks run. Nits: ROUTES
+4.55's -n + 2 + beta attributed to Corollary 9.39, its Theorem 11.1 clause made grammatical; 10.50(f)'s K >= d + 1.
 
 *Notes.* (1) The verifier recomputed 1.94137 x 10^-8 from the closed form z l/(2 (l + 1)(2 l + 1)) at l = 50 and checked
 E2's certificate numerically at 61 kappa up to 10^15 kappa*. (2) It did not check C-ii's gluing or Lemma 6.2's
@@ -3988,3 +3988,85 @@ the Tangherlini mass family and is G-equivariant by uniqueness. Phase B now leav
 4.59: the analytic estimates of the companion papers at n = 4 given five-dimensional symbols.
 
 *Notes.* (1) Nothing computed here. (2) The fifty-fifth verifier is running on D123-D126.
+
+**2026-10-24, after the paper was rebuilt (d13d9a3), verbatim:**
+
+> Settling only has to hold within your symmetry class. - the warp session asks that we include the asymmetry class as
+> well
+
+**D128 (2026-10-24): the general class planned (ROUTES 4.60).**
+
+Theorem 4 is stated in the T^2-mirror class, which is what settling needs. M relays the request to include the general
+class as well: perturbations with no symmetry, whose development should settle to a boosted, centred, slowly rotating
+Myers-Perry black hole near Tangherlini. Read against the record: sections 10.13-10.42 and Phase B used no symmetry (the
+states, pairings, rigidity, window and Lemma 7.5 were computed for all of so(4) and S_1); the class entered at 10.43,
+where it removed his boost, rotations and centre-of-mass motions, made the zero energy pole first order, and fixed the
+final parameter to the mass. What it left is ROUTES 4.60's Phase E: the inputs at every b near b0 in the Myers-Perry
+family (where [Hin26] takes them at each b from [AHW24] and [Hin26a]), his Lemma 8.15 on the non-Killing rotations, the
+low-energy structure with the boosts, his sections 11.3-11.8, 12, 5 and 13 with the full parameters and two orders of
+loss at K+, and the gluing to the boosted Myers-Perry family ([CD03] Remark 8.2 names the one missing element). READ for
+the plan ([Hin26], alphaXiv, 2026-10-24; printed pages): p. 5, Remark 1.4, "The mode stability result of
+Andersson-Hafner-Whiting [AHW24] for linearized gravity holds in the full subextremal range and is used here as a black
+box"; p. 25, the zero energy nullspace "is 7-dimensional ... spanned by (i) linearized Kerr metrics ... (ii) deformation
+tensors ... of asymptotic translations", with the boosts' generalized states, "a second order pole at sigma = 0, and thus
+forward solutions of L_b lose two powers of t*-decay"; p. 144, section 8's parameters "b = (m, a) that are close to
+subextremal parameters b0"; p. 154, Proposition 8.8's proof, "By [AHW24, Theorem 6.1(1)], we obtain u = delta*(sigma)
+omega", at each b.
+
+**D129 (2026-10-24): the fifty-fifth verifier's findings on D123-D126 seated.**
+
+Verdict: PASS on the computed claims -- uniform5.py 2/2 and mutants 2/2, with an independent 150-digit spot check at h
+= 10^-6, 10^-9, 10^-12, 10^-15 and l up to 10^4 (no non-Coulomb root in (-100, 2], the counts at all 34 sampled l);
+transfer5.py 2/2 and mutants 2/2, Ricci flatness at four more random rational points -- and PARTIAL on the deductions.
+One major finding: 10.54(c) listed 10.38 among the uses of gam_C-proportional quantities through lower bounds only,
+where 10.38(iii) is a non-resonance computed at gam_C = 10 and 100 and OPEN at the record's gam_C; repaired (10.38
+dropped from the list, its status stated; B5 does not rest on it). Minor findings, all seated: the top-weight parts
+are h^3 (kappa - lam^2)^3 and h (kappa - lam^2), only their roots free of h (10.54(a), damping5.py U3's docstring);
+the scalar type 0 quartic's leading coefficient h^2 added to -h^3, -h (10.54's proof, uniform5.py); (8.13) holds at
+each h with its own eps_ind(h) > 0, the record using only eps_ind > 0 (10.54(d)); transfer5.py T2's homogeneity,
+tested at one point, is now exact, G_j(s x) = s^-j G_j(x) as rational functions of x, r and a scale s (10.55's proof);
+"10.44(i)" for the lower-triangular A_0 and its gap corrected to 10.44(ii) at two sites (the proposition numbers are
+the record's sequential ones: 10.44's section holds Proposition 10.41, 10.54's Proposition 10.44); [Hin26c] p. 168's
+quotation given its qualifier "when S = 0 and Q = 0"; D126's "10.48" corrected in place to 10.49 and ROUTES 4.51;
+eind5.py's docstring on l = 0 and 1 reworded (simplicity at l = 0 and 1 and (8.13) at l = 1 from 10.24(iv), the scan
+covering l = 0 and l >= 2). The quotations the verifier could not retrieve were retrieved here at source (alphaXiv,
+2026-10-24): [Hin26c] (5.10) and (5.13) (p. 103) carry "rho d_rho - 1 - S", Definition 5.13(2) (p. 106) "tf-admissible
+with weight alpha_sf + 3/2", Corollary 9.43 (p. 200) as quoted, proved through Theorem 9.41 and the index of (9.18);
+[Hin26a] p. 60 ("M is an n-dimensional manifold of bounded geometry") and p. 65 (the density identity) as quoted; and
+[Hin23a]'s "a radiation field" is p. 9's, Theorem 3.35's improvements being (3.63)-(3.64), 10.57's READ (4) restated
+so. Nits: 10.46's paragraph reflowed so that no line opens with "0)". Not checked by it, and not by this entry:
+10.54(b) line by line, 10.55(c)'s pole orders at r_h, commits 634eb63 and d13d9a3 (the fifty-sixth reads those).
+
+**D130 (2026-10-24): E1-E2, the inputs at every b near b0 (10.60).**
+
+[Hin26] takes mode stability and the zero energy count at each Kerr parameter from [AHW24]; the record had them at
+Tangherlini alone. READ at source (alphaXiv, 2026-10-24): [HHV21] (arXiv:1906.00860v2) pp. 6, 14, 90, 92-98 -- the
+perturbative route from Schwarzschild to slowly rotating Kerr, and its p. 14, "we expect the linear stability of
+higher-dimensional Schwarzschild black holes ... and their perturbations, slowly rotating Myers-Perry black holes [MP86],
+to follow by similar arguments"; [Hin26] pp. 5, 122-124, 136, 144, 153-154, 200-201, 208-209; [Hin26c] p. 157. Deduced:
+high energy uniformly near b0 (the conditions at b0 strict, normal hyperbolicity stable), intermediate frequencies by
+continuity, low energy by the eleven states against the kernel's upper semicontinuity and his Propositions 10.6-10.7,
+whose proofs use only Proposition 8.11 and Lemma 8.12; E2 by 10.34(b) and 10.36. Nothing computed.
+
+**D131 (2026-10-24): E3-E6, [Hin26] sections 11-13 and 5 without the class (general5.py G1, 10.61-10.62).**
+
+READ again for the boosts (printed pages): [Hin26] pp. 25, 40, 76-81, 108-110, 218-221, 231-294, 296-323, Theorem 13.1's
+"(1, 0), (1, 1) in E_+" and its proof's weakest terms. Computed (Proposition 10.46): the bookkeeping over every type with
+threshold 4 -- six classes eliminated, fourteen recorded, the physical s2, v2, t2 at -2 with no companion and only while
+alpha <= 2; his four-dimensional lists reproduced. Deduced: his six steps with the boosts and rotations (the index sets
+at iota+ with min Re alpha_min, the boost's logarithms absent by 10.28), Definition 12.1's full U, Theorems 12.3, 12.8,
+5.23 and 13.1 in five dimensions without the class. The tensor type's physical state t2 is the one new kind, recorded by
+a parameter beside his S_2, V_2. OPEN: the logarithms at (2, 1) and K+, covered either way.
+
+**D132 (2026-10-24): E7, the gluing to the Myers-Perry family; Phase E complete on its readings (general5.py G2,
+10.63).**
+
+[CD03] Remark 8.2 (p. 36): "The argument below carries over to any dimension, the only element missing is an equivalent
+of Proposition F.1 for the family of translated, rotated, and boosted Myers-Perry metrics". READ (alphaXiv, 2026-10-24):
+pp. 34-38, 72, 75-77 (Theorem 7.7, Theorem 8.1 and its proof, the reference family's condition 4, (E.5b), (E.9), Appendix
+F, Proposition F.1, (F.4)-(F.6)). Computed (Proposition 10.47): the charges' Jacobian at Tangherlini, diagonal, E = 3 pi
+mu/8, J = (pi mu/4) W, P = -E v, E C = E c, determinant (3 pi/8)(pi mu/4)^6 (3 pi mu/8)^8; four dimensions reproduces
+(F.4)-(F.6). Deduced: Proposition F.1's equivalent near Tangherlini (inverse function theorem), the gluing of the data of
+g_lam after the shell, perturbed without symmetry and with (E.9)'s parity, to a translated, rotated and boosted
+Myers-Perry metric, and its development settling to Myers-Perry at O(t*^(-2-eps_K)). general5.py: selftest 2/2 (seconds),
+mutants 2/2.

@@ -29,9 +29,9 @@ at lam + 1; the tensor type's are -l and l + 2.  At the point (v, e_C, gam_C) = 
      digits; scalar and vector types), the least distance from Z of the real part of a non-integer root with |lam| <=
      50 is printed, with the l
      where it occurs; it is positive, so (8.13) holds for every l with eps_ind below it.  Control: over l <= 12 the scan
-     reproduces 10.24(iv)'s 7.3846 x 10^-8.  Mutant: the certificate placed at l* = 12, where it fails.  l = 0 and l = 1
-     (simplicity and (8.13)) are 10.24(iv)'s, computed for every type at l <= 12; E1 starts at l = 2 and the scan omits
-     l = 1.
+     reproduces 10.24(iv)'s 7.3846 x 10^-8.  Mutant: the certificate placed at l* = 12, where it fails.  Simplicity at
+     l = 0 and 1, and (8.13) at l = 1, are 10.24(iv)'s, computed for every type at l <= 12; E1 starts at l = 2, and
+     the scan covers l = 0 and every l >= 2 (D129).
 
 sympy, mpmath; imports damping5.py.  python3 eind5.py [--selftest | --mutants]   (a few minutes)
 """

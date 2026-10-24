@@ -11,11 +11,11 @@ the differences are of lower order ([Hin26c] Example 5.4: box_(g_m,a) - box_(g-b
      g = eta + (mu/r^2) k (x) k: k is null for eta and for g, g^-1 = eta^-1 - (mu/r^2) k# (x) k# exactly (k# = eta^-1
      k), and Ric(g) = 0 at three points of R^5 (exact, mu = 7/5).  The static time is t_s = t - int mu/(r^2 - mu) dr.
   T2 (computed, exact) The orders.  Every Christoffel symbol of g is mu G_3 + mu^2 G_5 with G_j homogeneous of degree
-     -j in x (Euler's identity x . grad G_j = -j G_j, checked at a point): the connection differs from Minkowski's by
-     terms two orders below its own -1 (scattering) -- in four dimensions, mu/r, one order.  With t* = t - r: g^-1(dt*,
-     dt*) = -4 mu/r^2, g^-1(dt*, dr) = -1 + 2 mu/r^2, g^-1(dr, dr) = 1 - mu/r^2.  The constraint damping 1-form with
-     the static time, r^-1 (dt_s - v dr), differs from Minkowski's r^-1 (dt - v dr) by -mu dr/(r (r^2 - mu)), of order
-     r^-3; so does c_Ups = r^-1 dt_s.
+     -j in x (exactly: G_j(s x) = s^-j G_j(x) as rational functions of x, r and s): the connection differs from
+     Minkowski's by terms two orders below its own -1 (scattering) -- in four dimensions, mu/r, one order.  With t* =
+     t - r: g^-1(dt*, dt*) = -4 mu/r^2, g^-1(dt*, dr) = -1 + 2 mu/r^2, g^-1(dr, dr) = 1 - mu/r^2.  The constraint
+     damping 1-form with the static time, r^-1 (dt_s - v dr), differs from Minkowski's r^-1 (dt - v dr) by -mu dr/(r
+     (r^2 - mu)), of order r^-3; so does c_Ups = r^-1 dt_s.
   Controls: Ric(g) = 0 fails for the four-dimensional profile mu/r in five dimensions (T1); with mu/r the mu
      coefficient is homogeneous of degree -2, not -3 (T2).
 
@@ -52,8 +52,14 @@ def christoffel(g, gi):
              for b in range(5)] for a in range(5)]
 
 
-def zero_at(expr, pt):
-    return sp.simplify(expr.subs(dict(zip(X, pt))).subs(MU, MU0)) == 0
+RS, SC = sp.symbols("r_s s", positive=True)
+
+
+def homogeneous(expr, deg):
+    """exact: expr(s x) = s^deg expr(x), expr rational in x and r = |x| (r a symbol scaling with x)"""
+    e = expr.subs(R, RS)
+    scaled = e.subs({xi: SC * xi for xi in XS}, simultaneous=True).subs(RS, SC * RS)
+    return sp.cancel(scaled - SC**deg * e) == 0
 
 
 def ricci_zero(gam, pt):
@@ -94,9 +100,8 @@ def t2(control=0, verbose=False):
                     continue
                 P = sp.Poly(G, MU)
                 for (m,), co in zip(P.monoms(), P.coeffs()):
-                    euler = sum(xi * sp.diff(co, xi) for xi in XS) + (1 + 2 * m) * co
-                    ok &= zero_at(euler, PTS[0])
-    chk("every Christoffel symbol is mu G_3 + mu^2 G_5, G_j homogeneous of degree -j (Euler at a point)", ok)
+                    ok &= homogeneous(co, -(1 + 2 * m))
+    chk("every Christoffel symbol is mu G_3 + mu^2 G_5, G_j homogeneous of degree -j (exact)", ok)
     tstar = t - R
     dts = sp.Matrix([sp.diff(tstar, xx) for xx in X])
     dr = sp.Matrix([sp.diff(R, xx) for xx in X])

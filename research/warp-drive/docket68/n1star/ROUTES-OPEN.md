@@ -1790,3 +1790,80 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
   estimates at n = 4.
 - Next: the fifty-fifth verifier's findings (D123-D126), a fifty-sixth on D127; then Phase D, the paper.
 
+### 4.60 The general class: settling without symmetry (plan; D128)
+
+M's direction of 2026-10-24 (LOG D128): settling has to hold only within the class for Theorem 4, and the general
+class -- perturbations with no symmetry -- is to be included as well. Without G, [Hin26]'s final parameters are the mass
+and the spin A in so(4) (10.36), the boost S and the centre-of-mass shift in S_1, four each in five dimensions; his Steps
+2, 4 and 5 run with their modifications, forward solutions lose two orders at K+ (the boosts' second order pole), and the
+final state is a boosted, centred, slowly rotating Myers-Perry black hole.
+
+*What the record holds for it.* At Tangherlini, without symmetry: the zero energy, generalized and dual states (10.28-
+10.31: the mass, six rotations, four translations, four boosts; eleven duals), the pairings and the rigidity (10.32-
+10.33), his Lemma 8.15 and Proposition 8.14 near a = 0 with one class of rotations not established (10.34(b)-(c)), the
+window (10.35), Lemma 7.5 at every spin (10.36), the pure iota+ resonances at every type (10.37), the augmentation and
+2-admissibility (10.39-10.40), section 11.1 (10.42), and every reading of Phase B (10.52-10.59), none of which used G.
+
+*Phase E, each step computed, deduced or READ, one verifier at a time:*
+
+- E1 the inputs at every b near b0 = (m0, 0) in the Myers-Perry family, where [Hin26] takes them at each b from [AHW24]
+  and [Hin26a]: mode stability of box^Ups, box^C and L_b at sigma != 0 (his Propositions 6.12, 7.1(1), 8.8) and the zero
+  energy count (Proposition 8.11, [AHW24] Theorem 6.1(2)), by perturbation from b0 -- uniform high-energy estimates
+  (r-normally hyperbolic trapping and the threshold conditions, strict and so open), continuity on compact frequency
+  sets, and at low energy the states that exist at every b against the kernel's upper semicontinuity ([HHV21]'s
+  argument at n = 4, READ).
+- E2 his Lemma 8.15 and Proposition 7.4 on the rotations that do not stay Killing at a != 0 (10.34(b)'s "not
+  established"), and (7.19) on the full metric.
+- E3 the low-energy structure with the boosts: the boost entry of the augmentation on Tangherlini and Myers-Perry
+  (10.39's OPEN), the boosts' columns (10.40's OPEN), the rotation and boost differences at iota+ computed (10.42), and
+  the logarithm question of 10.35(b) at the second order pole.
+- E4 [Hin26] sections 11.3-11.8 without the class: Step 2 with the boost parameter and augmentation #1 (Proposition
+  11.20, Definition 11.25, Lemma 11.28), Step 4 with the spin and the centre-of-mass modulation (Proposition 11.34,
+  Corollary 11.46), Step 5's shifts (Proposition 11.51); the iota+ index sets with the boost's exponents and 10.46's
+  bookkeeping over every type and degree with his two orders of loss, the recorded physical states to be his kinds.
+- E5 section 12 without the class: Definition 12.1's full U in five dimensions, Theorems 12.3 and 12.8.
+- E6 section 5's Theorem 5.23 with the boost, and section 13's Theorem 13.1 without the class.
+- E7 Phase C without the class: the data of 10.50 with any small perturbation, glued to the translated, rotated and
+  boosted Myers-Perry family -- [CD03]'s "equivalent of Proposition F.1" for that family (Remark 8.2, p. 36), by the
+  charge map's Jacobian at Tangherlini, computed -- and the settling statement.
+- E8 the readings these add, at source.
+
+Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
+
+### 4.61 E1-E2: the inputs at every b near b0 (deduced; D130)
+
+- Deduced (10.60): mode stability of the three operators at sigma != 0 and the zero energy count at every b = (mu, A)
+  near (mu_0, 0) in the Myers-Perry family -- high energy by the open conditions at b0 and [HPS77]'s stability of normal
+  hyperbolicity, intermediate frequencies by continuity, low energy by the eleven states that exist at every b against
+  the kernel's upper semicontinuity, his Propositions 10.6-10.7 then making L^_b(sigma) invertible near 0: [HHV21]'s
+  perturbative route, which its p. 14 expects to give slowly rotating Myers-Perry. E2: 10.34(b)'s modified Step 2 and
+  10.36's Lemma 7.5 at every spin.
+- Readings added: [HHV21]'s perturbation arguments (its Lemma 11.1, Propositions 10.11 and 11.3) at n = 4.
+
+### 4.62 E3-E6: [Hin26] sections 11, 12, 5 and 13 without the class (computed and deduced; D131)
+
+- Computed (general5.py G1, Proposition 10.46): his bookkeeping over every five-dimensional type with his two orders of
+  loss, threshold 4, on [alpha_min, 4]: six pure gauge classes eliminated, fourteen recorded, the physical s2, v2 and t2
+  at -2 with no companion and only while alpha <= 2, every recorded image above 4; his four-dimensional lists reproduced
+  as the control.
+- Deduced (10.61-10.62): his Steps 1-6 with the boosts, rotations and centre-of-mass motions, the index sets at iota+
+  with the boost at (2, 0) and min Re alpha_min as in the class, the tensor type's physical state recorded by a parameter
+  T_2 beside his S_2 and V_2; Definition 12.1's full U, Theorems 12.3 and 12.8; Theorem 5.23 with the boost; Theorem 13.1
+  in five dimensions without the class, settling to a Myers-Perry metric g_b at O(t*^(-2-eps_K)) in spatially compact
+  sets. 10.39's OPEN boost entry is 10.28(iii)'s computed residual.
+- OPEN: whether five dimensions carry logarithms at (2, 1) at iota+ or his log t* h_b,s1 at K+ (covered either way, his
+  parameters indexing log powers).
+
+### 4.63 E7: the gluing to the Myers-Perry family; the general class done on readings (computed and deduced; D132)
+
+- Computed (general5.py G2, Proposition 10.47): the Poincare charges' Jacobian at Tangherlini in the mass, the four
+  boosts, the six rotations and the four translations, exactly: diagonal, E = 3 pi mu/8, J = (pi mu/4) W, P = -E v, E C =
+  E c, determinant nonzero; [CD03]'s (F.4)-(F.6) reproduced in four dimensions.
+- Deduced (10.63): [CD03]'s Proposition F.1 near Tangherlini by the inverse function theorem -- the element its Remark
+  8.2 names as missing in higher dimensions -- so its Theorem 8.1 glues the data of g_lam after the shell, perturbed
+  without symmetry, to a translated, rotated and boosted Myers-Perry metric, the whole fifteen-dimensional obstruction
+  matched; then 10.62(d): the development settles to a Myers-Perry metric g_b with b near (mu_end, 0), the initial slice
+  boosted, at O(t*^(-2-eps_K)).
+- Phase E is complete on its readings: those of Phase B (B1-B4, B10), [HHV21]'s perturbation arguments at n = 4,
+  [Hin26]'s sections 3.4, 5.6 and 11-13 with the boosts at n = 4, and [CD03]'s Theorem 8.1 in five dimensions. Next: the
+  paper, Theorem 4 for both classes, and one verifier on the whole.

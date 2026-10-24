@@ -9,14 +9,14 @@ explicit.  The record computed the five-dimensional roots at one point, h = 10^-
 point below h_0.  Here, at the record's (v, e) = (1/2, 1/102400) and C_0 = 100, the same conclusions for every h in (0,
 h_1], h_1 = 10^-6, so that any h below min(h_0, h_1) serves.
 
-The argument is damping5.py U4's with h a second parameter.  For h > 0 the leading coefficient -h^3 (scalar types),
--h (vector type) of box^C's indicial polynomial does not vanish, so its roots move continuously over the connected
-region R = {kappa >= kappa_0, 0 < h <= h_1}; a root reaches the line Re lam = x only where the shifted constant
-coefficient F_1 or the Hurwitz determinant F_2 (Orlando: it vanishes when two shifted roots sum to zero) vanishes.  F_1
-and F_2 are polynomials in (kappa, h); for fixed h the number of their roots kappa >= kappa_0 can change only at an h
-where their leading coefficient in kappa, their value at kappa_0 or their discriminant in kappa vanishes.  None of these
-has a root in (0, h_1] (Sturm), and at h_1 neither has a root kappa >= kappa_0 (Sturm): so neither vanishes on R, no
-root crosses either line, and the counts on each side are those at one point of R.
+The argument is damping5.py U4's with h a second parameter.  For h > 0 the leading coefficient in lam of box^C's indicial
+polynomial, -h^3 (scalar types l >= 1), h^2 (scalar type 0) or -h (vector type), does not vanish (D129), so its roots
+move continuously over the connected region R = {kappa >= kappa_0, 0 < h <= h_1}; a root reaches the line Re lam = x only
+where the shifted constant coefficient F_1 or the Hurwitz determinant F_2 (Orlando: it vanishes when two shifted roots
+sum to zero) vanishes.  F_1 and F_2 are polynomials in (kappa, h); for fixed h the number of their roots kappa >= kappa_0
+can change only at an h where their leading coefficient in kappa, their value at kappa_0 or their discriminant in kappa
+vanishes.  None of these has a root in (0, h_1] (Sturm), and at h_1 neither has a root kappa >= kappa_0 (Sturm): so
+neither vanishes on R, no root crosses either line, and the counts on each side are those at one point of R.
 
   H1 (computed, exact) The strip [-100, 19/10].  Scalar type l >= 1 (the sextic, kappa >= 3) and vector type (the
      quadratic, kappa >= 3): F_1, F_2 at Re lam = -100 and 19/10 vanish nowhere on R; scalar type 0 (the quartic, kappa

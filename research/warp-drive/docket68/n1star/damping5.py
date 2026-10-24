@@ -34,8 +34,8 @@ eigenvalue of the Laplacian on S^{n-1}.
      2)(lam - 3), and -16 v^3 (lam - 3)(lam - 2)^2 at e = 0 (four dimensions: 8 v (lam - 1) Q_4 and -16 v^3 (lam -
      2)(lam - 1)^2, his (P1) roots 1, 1, 2); the very negative roots, lam = (h lt)^-1, have the h = 0 limit (2 v lt +
      1)(4 e (1 + v^2) lt^2 + 2 e v lt - 8 v^2 lt^2 - 6 v lt - 1) in both dimensions.  The top-weight parts (lam of
-     weight 1, kappa of weight 2) of the sextic and of p_v are constants times (kappa - lam^2)^3 and kappa - lam^2, so
-     the roots go as +-kappa^(1/2) and accumulate only at +-infinity, his Theorem 4.9's last clause.  Control: the
+     weight 1, kappa of weight 2) of the sextic and of p_v are h^3 (kappa - lam^2)^3 and h (kappa - lam^2), so for
+     h > 0 the roots go as +-kappa^(1/2) and accumulate only at +-infinity, his Theorem 4.9's last clause.  Control: the
      exceptional root claimed 1.
   U4 (computed, exact) The certificate.  At (v, e, h) = (1/2, 1/102400, 10^-6) -- v = 1/2 as [Hin26a] p. 3 suggests, e
      below the five-dimensional bound of his Lemma 4.4 (semiclass5.py W4, e_0 ~ 0.000069 v^2) and h < e (U6: the upper
