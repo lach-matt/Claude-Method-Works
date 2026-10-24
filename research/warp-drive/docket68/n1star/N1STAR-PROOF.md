@@ -6617,6 +6617,54 @@ to the record's solution, whose data must be shown to lie in its hypotheses (C2)
 OPEN: Phase B (B1-B10); Phase C; the rates (2)-(4) in five dimensions. Labels: deduced (the statement, (a)-(d)); READ
 ([Hin26] pp. 2-3, 110, 318-323); nothing computed here, nothing proved.
 
+### 10.50 Phase C: the record's solution after the shell in 10.49's hypotheses (deduced; D118)
+
+ROUTES 4.44's Phase C asks whether g_lam itself settles: C1 a solution on a region containing a Cauchy surface of the
+exterior after the shell, C2 its data there in 10.49's spaces and small with lam, C3 the conclusion. The record's domain
+Omega (1.1) is bounded, so C1 needs the solution beyond it; this section deduces C1-C3 from the record's own sections 1,
+5 and 6 and three readings, named in (f).
+
+*Deduced.*
+
+ (a) (no oscillation after the shell) mu is constant for v >= v_end and mu' = (2/9) A^2 env^2 (0.5), so env = 0 there
+     and the leading wave W, proportional to env, vanishes on {v > v_end}. That set is a union of generators of ell
+     (L0(v) = 0, 0.1). By Lemma 6.2 the oscillating stage data gh_(m+1) on Sigma are -Pol^+ of terms bilinear with d_th
+     W or built from earlier oscillating quantities, and by Lemma 5.3(c) gh_(m+1) solves a transport along ell whose
+     source has an oscillating factor in every term (the oscillating part of a product of means is zero). By induction
+     on m every oscillating profile vanishes on {v > v_end}, so there g_app = g0 + sum_j lam^j m_j, with g0 Tangherlini
+     of mass mu_end (0.1) and the m_j smooth and independent of lam.
+
+ (b) (the slice) Take tau1 with v_end - a < tau1 <= tau_end; such tau1 exist once T > r_q(mu_end) - a, since tau_end >=
+     V - r_q(V) (1.1). Then Sigma' := {tau = tau1} meets Omega in {a <= r <= b(tau1)}, where v = tau1 + r > v_end, and a
+     < q0 <= sqrt(mu0) < sqrt(mu_end), inside every horizon in play.
+
+ (c) (beyond Omega; C1) Extend the construction to a larger domain Omega' of the form (1.1) (Theorems A, D and E do not
+     depend on the size of Omega); on Sigma cap Omega' minus Omega's base, v > v_end and the data are those of
+     Tangherlini(mu_end) plus smooth O(lam) terms, by (a) and Theorem D. Glue them, on an annulus outside b(tau0), to
+     exact Tangherlini data of a mass m with |m - mu_end| = O(lam), G-equivariantly: the obstruction space of the gluing
+     is the G-invariant part of the Killing initial data, which by Proposition 10.40(i) is spanned by d_t, matched by
+     the mass parameter. The glued data agree with the record's on Omega's base, so their development contains g_lam on
+     Omega (Lemma 1.1(e)); it is exactly Tangherlini(m) in the domain of dependence of the outer region; and between the
+     two it is a smooth O(lam) perturbation of Tangherlini over the finite interval [tau0, tau1], with no oscillation
+     there by (a), so it exists there by Cauchy stability. This gives the solution on Sigma'.
+
+ (d) (the data; C2) On Sigma', g - g_(Tangherlini(m)) is supported in a compact set and is O(lam) in H^d: inside Omega
+     it is (mu_end - m) terms, lam m_1 + lam^2 m_2 + ..., and w, whose unscaled H^j norms are at most M lam^(K - j) by
+     (0.5) once Theorem E holds at order k >= d with K >= d + 1; outside, the Cauchy stability bound and the glued
+     annulus. It is G-invariant (Theorem E's Step 8 and the equivariant gluing) and solves the constraints. So E_0 =
+     empty -- compactly supported data, his Theorem 1.1's case -- and 10.49's hypotheses hold for lam small, with m_0 :=
+     m; his Remark 13.3 lets the initial surface be a tau-level set near the hole and near infinity.
+
+ (e) (the conclusion; C3) For lam <= lam_1 the maximal development of the glued data, which contains g_lam on Omega,
+     settles in the class to Tangherlini of a mass m' with |m' - m| small, at the rate t*^(-2-eps_K) in spatially
+     compact sets of the exterior -- on 10.49's readings and those of (f).
+
+(f) The readings Phase C adds: (C-i) Theorem E at every order k >= d with K >= k + 1 -- k = 6 is [DS23]'s lower bound k
+> 4/2 + 1, and the bootstrap of section 4 is to be rerun at order k; (C-ii) G-equivariant gluing of vacuum data to
+Tangherlini in five dimensions ([CD03]-type, its obstructions the Killing initial data); (C-iii) Cauchy stability over a
+finite time for smooth data, standard. Labels: deduced ((a)-(e)), from the record's Lemmas 1.1, 5.3 and 6.2 and Theorems
+A, D, E; nothing computed here, nothing proved.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

@@ -3853,3 +3853,19 @@ neither was checked, and the sentence now says only that the radiation fields si
 (2) 10.49(a)'s cross-references are 10.15-10.18 for Proposition 6.12's inputs and 10.24-10.25 for Proposition 8.6's,
 checked against the section headings. (3) Nothing computed in D116-D117; the fifty-third verifier, on D112-D115, is
 still running.
+
+**D118 (2026-10-24): Phase C deduced (10.50).**
+
+Phase C was taken before Phase B because it decides whether the route connects to the record's own solution at all. It
+does, on readings: after the shell, {v > v_end}, every oscillating profile vanishes -- W is proportional to env, env = 0
+there (mu' = (2/9) A^2 env^2, mu constant for v >= v_end), Lemma 6.2's oscillating stage data are built from W and
+earlier oscillating parts, and Lemma 5.3(c)'s transports run along ell, on which v is constant -- so the approximant
+there is Tangherlini(mu_end) plus smooth lam-independent means times powers of lam, and its data on a tau-slice after
+the shell are small in every unscaled norm Theorem E controls. Beyond the bounded Omega the data are glued
+G-equivariantly to exact Tangherlini; the result is a compactly supported perturbation, Hintz's Theorem 1.1 case, inside
+10.49's hypotheses.
+
+*Notes.* (1) Theorem E is stated at k = 6, which is [DS23]'s lower bound k > 4/2 + 1 (section 4); Hintz's iteration
+needs H^d smallness for a large d, so Theorem E must be rerun at higher order (C-i). (2) The gluing's obstruction space
+is the G-invariant Killing initial data; Proposition 10.40(i) leaves d_t alone, matched by the mass (C-ii). (3) Nothing
+computed here.

@@ -1661,3 +1661,17 @@ Tangherlini of a nearby mass m at t*^(-2-eps_K) in spatially compact sets -- ded
   its data lie in 10.49's hypotheses (compact support near I0 would make 10.48's Step 1 empty).
 - Next: Phase B, the readings discharged, starting with those the class leans on most -- B9's transfers and B2/B3's
   [Hin26c] theorems at n = 4.
+
+### 4.52 Phase C: the record's solution in 10.49's hypotheses (deduced; D118)
+
+N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, with three readings.
+
+- Deduced: every oscillating profile vanishes on {v > v_end} (Lemmas 5.3 and 6.2 by induction; env = 0 there), so after
+  the shell the approximant is Tangherlini(mu_end) plus smooth O(lam) means; a tau1-slice in (v_end - a, tau_end] lies
+  there; beyond Omega the data are glued, G-equivariantly, to exact Tangherlini of a mass m = mu_end + O(lam), the
+  obstruction being the one G-invariant Killing datum; the slice's data are then a compactly supported O(lam)
+  perturbation of Tangherlini(m) in H^d, so 10.49 applies for lam small: the development settles in the class to
+  Tangherlini of a nearby mass at t*^(-2-eps_K).
+- Readings added: Theorem E at every order k >= d (C-i); equivariant gluing in five dimensions (C-ii); finite-time
+  Cauchy stability (C-iii).
+- Next: Phase B, with C-i (the record's own bootstrap at higher order) among its first items.
