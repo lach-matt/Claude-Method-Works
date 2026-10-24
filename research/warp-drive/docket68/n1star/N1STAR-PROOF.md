@@ -6754,6 +6754,137 @@ integers as l grows (O(z/l)); it is attained at the largest l whose root still h
 cutoff 50, which he uses "only really ... for |lam| <= 4" (10.24(a)). B8 is discharged. Labels: computed ((i) exact,
 (ii)'s certificate exact and its scan numerical), deduced (Lemma 8.4); nothing proved beyond Lemma 8.4 at the point.
 
+### 10.53 [Hin26c] section 9 at n = 4, at source (B1-B2; D123)
+
+*The setting.* Sections 10.19-10.20, 10.23-10.25, 10.29, 10.32 and 10.39-10.42 use [Hin26c] section 9's spectral theory
+-- Theorems 9.5, 9.16, 9.36, 9.38 and 9.41, Corollaries 9.39 and 9.43, Proposition 9.40 -- and its Definitions 5.10,
+5.13 and 5.18 and Theorems 10.1 and 11.1 "at n = 4", a reading (Phase B's B1-B3). Here is what the paper says about its
+dimension, READ at source, and what follows from it.
+
+*READ.* [Hin26c] (arXiv:2606.28008v1; alphaXiv, 2026-10-24; printed page = PDF page - 4; quotations transliterated to
+ASCII):
+
+ (1) p. 101, Remark 5.6: "In the present paper, we work in 3 + 1 dimensions for concreteness. The constant 1 in (5.1a)
+     arises naturally when P_0 = box_g ... See [Hin23c, section 3.1.2] for matching conventions in general dimension."
+     (5.10) and (5.13) carry rho d_rho - 1 - S.
+ (2) pp. 157-158, section 9's opening: "we present the arguments in some detail (and generality) here" (Remark 9.1);
+     Definition 9.3, "Let X be an open n-dimensional manifold (n >= 1)"; Definition 9.4, "Let X be an open neighborhood
+     of the boundary dR^n of the radial compactification of R^n ... P_0 = -2 d_t* rho (rho d_rho - (n - 1)/2 - S) +
+     P^_0(0) + Q d_t* - g_00 d_t*^2"; "We will only consider scalar wave operators; the purely notational modifications
+     required to treat operators acting on vector bundles are left to the reader." Notation 9.2 names the algebras "on
+     R^3-bar".
+ (3) pp. 163, 168: Theorem 9.5 uses "the Euclidean volume density on X for the underlying L^2-spaces", with the
+     thresholds (9.16a)-(9.16c), r + alpha_+ < -1/2 + S-bar at R_out, and kernel elements in A^(1 + S-bar - eps)
+     ((9.20)); section 9.2.2: d_sigma P^_0(0) = 2 i rho (rho d_rho - (n - 1)/2 - S) - i Q "is symmetric with respect to
+     the Euclidean volume density r^(n-1) |dr dg/|".
+ (4) pp. 194-198, section 9.5, "with X in R^n a neighborhood of dR^n-bar": (9.110) with (n - 1)/2; Theorem 9.38 for
+     "-q + n/2" in an indicial gap, (9.114) A^((n-1)/2 + S-bar - eps, -beta), (9.115) A^(alpha, -n + 2 + beta), its
+     proof with "H^(oo,q)_b([0, 1); r^^(n-1) |dr^|) in A^(q - n/2)" and the Euclidean density r^^(n-1) |dr^ dg/|;
+     Corollary 9.39, tf-admissibility "except with -1 + beta in (5.16) replaced by -n + 2 + beta"; Proposition 9.40:
+     "Suppose the spatial dimension satisfies n >= 3. Then scalar wave operator box_g, or indeed the tensor wave
+     operator acting on sections of any tensor bundle, on an asymptotically Minkowski spacetime is tf-admissible with
+     all weights beta in (0, n - 2)."
+ (5) Written at n = 3: p. 61, Lemma 3.11's proof, "if we pass from |dx| to a b-density such as |dx|/<x>^3, the weight
+     alpha is replaced by alpha + 3/2", and (3.47) "If alpha + 3/2 lies in an indicial gap"; pp. 193-194, Theorem 9.36,
+     "alpha + 3/2 lies in an indicial gap", and its proof through Proposition 9.9 and (3.47); p. 198, Theorem 9.41,
+     "tf-admissible with weight alpha + 3/2", "alpha lying in the interval (-3/2 + beta_-, -3/2 + beta_+)", and
+     "|sigma|^(3/2 - alpha)" in its proof; p. 200, Corollary 9.43, "tf-admissible with weight alpha + 3/2", proved from
+     Theorem 9.41 and the index 0 of (9.18); p. 106, Definition 5.13(2), "tf-admissible with weight alpha_sf + 3/2"; p.
+     201, Theorem 10.1, "alpha_I < -1/2 + S-bar, alpha_+ < alpha_I - 1/2"; p. 228, Theorem 11.1 and (11.5), mu_b =
+     rho_I^3 rho_+^4 rho_K |dt dx|, beta_I = alpha_I + 3/2, beta_+ = alpha_+ + 2; p. 211, Corollary 9.39 applied "with
+     n = 3".
+
+*Deduced.*
+
+ (a) (the general statements) Definition 9.4, the computations of sections 9.2.2 and 9.5, Theorem 9.38, Corollary 9.39
+     and Proposition 9.40 carry n, so at n = 4 they hold as printed: -q + 2 in an indicial gap, (n - 1)/2 = 3/2, the
+     adjoint weight -2 + beta, and the tensor wave operator tf-admissible for every beta in (0, 2). These are the
+     readings of 10.20(b), 10.23(e) and 10.24(c), now at source.
+ (b) (the n = 3 numerals) Each comes from the b-density. On R^n-bar, |dx| = <x>^n |dx|/<x>^n, so H^(s,alpha)_b(|dx|) =
+     H^(s, alpha + n/2)_b(b-density), Lemma 3.11's proof with <x>^n for <x>^3, and (3.47) holds once alpha + n/2 lies in
+     an indicial gap. At n = 4: Theorem 9.36 holds with alpha + 2 for alpha + 3/2 (its other input, Proposition 9.9, is
+     dimension-free); Theorem 9.41 with weight alpha + 2, the interval (-2 + beta_-, -2 + beta_+) and |sigma|^(2 -
+     alpha), its proof applying Corollary 9.39 with -q + n/2 = alpha + 2; Corollary 9.43 with weight alpha + 2, by the
+     same proof; Definition 5.13(2) with alpha_sf + 2. These are the substitutions 10.20 and 10.40-10.42 made.
+ (c) (kernel elements) Theorem 9.5(5)'s exponent 1 + S-bar is (n - 1)/2 + S-bar: the threshold -1/2 + S-bar at R_out is
+     in Euclidean L^2 (Theorem 9.5(1)), and a conormal function in rho^r L^2(r^(n-1) dr) lies in A^(r + n/2 - 0), as in
+     (9.114)'s proof. At n = 4 kernel elements at nonzero frequency lie in A^(3/2 + S-bar - eps), which is the class
+     10.16 and 10.27 left OPEN as "Theorem 9.5(5) in five dimensions".
+ (d) (bundles) Section 9 is written for scalar operators and leaves bundles to the reader as "purely notational", while
+     Proposition 9.40 states the tensor case; so B1's scalar-to-bundle step is, at source, the author's remark, the same
+     at n = 3 as at n = 4, and the record's operators (box^Ups on 1-forms, box^C, L on symmetric 2-tensors) are the kind
+     he applies it to.
+ (e) (what remains) Theorem 9.16 at n = 4: its statement carries no n, but its proof (pp. 174-193: Propositions
+     9.25-9.28 and 9.35, Theorem 9.28 at the trapped set) rests on Proposition 4.24's dynamics at the Kerr face, which
+     10.17-10.18 supply in five dimensions; sections 9.3.1-9.3.5 were not checked line by line at n = 4. Definition 5.18
+     and Theorems 10.1 and 11.1 at n = 4 are 10.42's reading, unchanged here.
+
+B1 and B2 are discharged at source but for Theorem 9.16's proof at n = 4, which (e) leaves as a reading. Labels: READ
+(1)-(5); deduced (a)-(e); nothing computed or proved here.
+
+### 10.54 Every small h, not one point: B5 and B6 (`uniform5.py` H1-H2; D124)
+
+*The setting.* The record computed box^C's indicial roots at one point, (v, e, h) = (1/2, 1/102400, 10^-6) (Proposition
+10.9, damping5.py U4), and so carried the condition that 10^-6 lie below the h_0 of [Hin26a] Theorems 5.2 and 6.2
+(10.21(e), 10.22, 10.23; B5), and left box^C's horizon threshold OPEN (10.21(d); B6). His own h_0 is not explicit:
+"there exists e_0 = e_0(v) in (0, 1) such that for all e in (0, e_0), there exists h_0 > 0 such that for all h in (0,
+h_0)" (Theorem 4.9, p. 37; Theorem 6.2, p. 67 likewise), and "Only a calculation of the indicial roots, as performed in
+Theorem 4.9, allows one to get invertibility ... for some fixed positive h in the full stated range of weights" (Remark
+6.3, p. 69; READ, alphaXiv, 2026-10-24). So the five-dimensional statement wanted is his: at the record's e, every
+sufficiently small h.
+
+**Proposition 10.44 (computed; exact).** At (v, e) = (1/2, 1/102400) and for every h in (0, 10^-6]:
+
+ (i) no indicial root of box^C (10.12's operator) at any harmonic type and degree has real part in [-100, 19/10]; the
+     counts (right | between | left) are 3 | 0 | 3 for the scalar sextic at every l >= 1, 1 | 0 | 1 for the vector
+     quadratic, 2 | 0 | 2 for the quartic at l = 0;
+ (ii) the only roots with real part in [-100, 2] are lam = 2 at l = 0 and at l = 1, each simple.
+
+*Proof.* H1-H2 of uniform5.py, damping5.py U4's certificate with h a second parameter: for h > 0 the leading coefficient
+(-h^3, -h) does not vanish, so the roots move continuously over the connected region {kappa >= kappa_0, 0 < h <= 10^-6},
+and reach a line Re lam = x only where the shifted constant coefficient or the Hurwitz determinant vanishes; these are
+polynomials in (kappa, h) whose number of roots kappa >= kappa_0 can change only at an h where their leading coefficient
+in kappa, their value at kappa_0 or their discriminant in kappa vanishes, and none of those has a root in (0, 10^-6]
+while at 10^-6 neither has a root kappa >= kappa_0 (Sturm throughout). At l = 0 and 1, lam - 2 divides for every h and
+the cofactors are treated the same way. Mutant: 10^-3 in place of 10^-6, above e, where the critical values appear
+(damping5.py U6: the upper roots stay above 2 exactly where h <= e). []
+
+*Deduced.*
+
+ (a) ([Hin26a] Theorem 4.9 in five dimensions, at the record's e) For every h in (0, 10^-6], with C_0 = 100: Re lam >= 2
+     or Re lam < -C_0; the only root with Re lam = 2 is lam = 2, simple, of scalar types 0 and 1; the counts of (i); and
+     the roots accumulate only at +-infinity (damping5.py U3's top-weight parts, free of h). This is his Theorem 4.9
+     with 2 for his 1, for every h below an explicit bound rather than below an h_0.
+ (b) (what inherits) Every conclusion the record drew from Proposition 10.9 at the point holds for every h in (0,
+     10^-6]: 10.21(d)'s index 0 and roots; 10.24(a)'s gap (0, 1] and even split of L's roots (box^C's minus 1, box^Ups's
+     plus 1 and the physical, the last two free of h); 10.35's window5.py roots in [-3, 0], which box^C does not reach;
+     10.37's "none has real part at most 2" for the pure iota+ resonances; the class's iota+ index sets above alpha_min
+     (10.46). The point's numbers themselves -- 1.000003, the roots in (2, 5/2) of iota5.py I4 -- move with h and are
+     not used beyond these bounds.
+ (c) (what does not depend on h, or improves as h falls) The symbols of the semiclassical argument -- 10.13's Lemmas
+     3.3-3.8, the e-bound of his Lemma 4.4 (semiclass5.py W4), cform5.py's and solv5.py's T at (v, e), tface5.py F3 --
+     are free of h. The quantities proportional to gam_C = 1/h grow as h falls, and the record uses lower bounds of them
+     only: A_0's diagonal and the I+ gap's upper end 3/2 + (1 - e_C)(1 - v) gam_C (10.38, 10.44), dual5.py's 3 + 2 v
+     gam_C (10.31), tface5.py's S_in = h^-1 (1 - e)(1 + v) (10.23), and strap5.py's diagonal -2 (1 - e_C) gam c_2, -2
+     gam c_2, -4 gam c_2, whose signs alone are used (10.26).
+ (d) (what holds off a countable set) Simplicity (10.52(i)) is, for each l, the nonvanishing of a polynomial in h that
+     is nonzero at 10^-6, so it fails for at most finitely many h at each l, and for at most countably many in all;
+     (8.13) holds at every h, finitely many roots having |lam| <= 50 (the top-weight parts) and a non-integer root lying
+     off Z. So the h that the record's theorems take may be any h in (0, 10^-6] outside a countable set, below the h_0
+     of his Theorems 5.2 and 6.2 and of [Hin26] Theorem 7.1 ("for all sufficiently large gam_C").
+ (e) (B6, the horizon threshold) 10.21(d) needs vartheta_H+ < -C_0 - 1/2 for box^C at the conormal bundle of the
+     horizon. The part of that quantity of order h^-1 is h^-1 rho_oo times the damping symbol l_{g,c,e} of C (his Lemma
+     3.2), even in the covector, which his Lemma 3.5 -- computed in five dimensions in 10.13 -- makes definite on future
+     causal covectors with respect to Lemma 3.3's fiber inner product, with the sign that damps (his Remark 5.7's
+     mechanism, as 10.21(d) reads it); the horizon's conormal covectors are null and its cosphere bundle is compact, so
+     vartheta_H+ <= vartheta_0 - c h^-1 with c > 0 and vartheta_0 free of h, neither computed, and the threshold holds
+     for every h below some h_2 > 0. With (d), any h in (0, min(10^-6, h_0, h_2)) off a countable set serves.
+
+B5 is discharged: the record's point was a sample, and its conclusions hold for every h in (0, 10^-6] or off a countable
+set there. B6 is deduced, the threshold holding for every small h with its bound h_2 not computed, which his own
+statement does not need. Labels: computed (Proposition 10.44), deduced ((a)-(e)), READ (the quotations); nothing proved
+beyond that.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

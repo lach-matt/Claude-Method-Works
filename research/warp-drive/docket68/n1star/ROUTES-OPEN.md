@@ -1717,3 +1717,37 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
   [Hin23a] Corollary 3.31).
 - Next: the citation items checked at source and recorded; then the short arguments, one section each; then the real
   work.
+
+### 4.56 B1-B2: [Hin26c] section 9 at n = 4, at source (READ and deduced; D123)
+
+- READ (N1STAR-PROOF.md 10.53): section 9 is set in general dimension (Definitions 9.3-9.4, "X an open n-dimensional
+  manifold"; Remark 9.1, "some detail (and generality)"), and Theorem 9.38, Corollary 9.39 and Proposition 9.40
+  ("Suppose the spatial dimension satisfies n >= 3 ... tensor wave operator ... tf-admissible with all weights beta in
+  (0, n - 2)") carry n; Theorems 9.36 and 9.41, Corollary 9.43, Definition 5.13(2), Theorems 10.1 and 11.1 are written
+  with n = 3's numerals; bundles are "purely notational" (p. 158).
+- Deduced: the n = 3 numerals all come from the b-density (Lemma 3.11's <x>^3), so at n = 4 they read alpha + 2 for
+  alpha + 3/2, the record's substitutions; Theorem 9.5(5)'s kernel class at n = 4 is A^(3/2 + S-bar - eps). B1 and B2
+  discharged at source but for Theorem 9.16's proof at n = 4 (sections 9.3.1-9.3.5, on Proposition 4.24's dynamics,
+  which 10.17-10.18 supply), left a reading.
+- READ for B5 ([Hin26a], 2026-10-24): his own h_0 is not explicit. Theorem 4.9 (p. 37): "there exists e_0 ... such that
+  for all e in (0, e_0), there exists h_0 > 0 such that for all h in (0, h_0)"; Theorem 6.2 (p. 67) likewise; Remark
+  6.3: "Only a calculation of the indicial roots, as performed in Theorem 4.9, allows one to get invertibility ... for
+  some fixed positive h in the full stated range of weights." So the five-dimensional statement is for every
+  sufficiently small h at a fixed small e, and B5 becomes: each property the record computes at h = 10^-6 is to hold for
+  every h in (0, h_1], h_1 explicit, at the record's e_C; then any h below min(h_0, h_1) serves.
+
+### 4.57 B5-B6: every small h, not one point (computed and deduced; D124)
+
+- Computed (uniform5.py H1-H2; N1STAR-PROOF.md 10.54, Proposition 10.44): at (v, e) = (1/2, 1/102400), for every h in
+  (0, 10^-6], box^C's roots avoid [-100, 2] at every type and l but for the simple Coulomb root 2 at l = 0, 1, with
+  10.12's counts -- damping5.py U4's certificate with h as a second parameter, exact.
+- Deduced: [Hin26a] Theorem 4.9 in five dimensions for every h <= 10^-6 at the record's e; every conclusion the record
+  drew from the point holds for every such h (10.21, 10.24, 10.35, 10.37, 10.46), or is free of h or improves as h falls
+  (10.13, 10.23, 10.26, 10.31, 10.38, 10.44), or holds off a countable set of h (simplicity; (8.13)); the horizon
+  threshold holds for every h below an uncomputed h_2 (his Remark 5.7's mechanism). So any h below min(10^-6, h_0, h_2)
+  off a countable set serves, and the condition "10^-6 < h_0" is gone. B5 discharged; B6 deduced.
+- Remaining in Phase B: B3 ([Hin26c] Theorem 11.1 and Definitions 5.15, 5.18 at n = 4; Theorem 9.16's proof at n = 4),
+  B4 ([Hin26a] section 5.2 and Theorems 6.2 and B.1 line by line at n = 4), B7 (10.27's kernel class and uniqueness
+  inside the horizon), B9 (the transfers from the Minkowski model), B10 ([Hin23a] in five dimensions), C-ii, the iota+
+  spectrum between 5/2 and 3 + eps_+, (2.27) at n = 4, 10.38(a)'s scaling.
+

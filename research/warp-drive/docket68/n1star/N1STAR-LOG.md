@@ -3920,3 +3920,29 @@ argument at n = 4 from the record's computed inputs, and real work (ROUTES 4.55)
 [Hin26a] has no Theorem 7.1, and 10.49(a)'s label now reads [Hin26] Theorem 7.1, his summary of [Hin26a]. One finding
 shortens B10: [Hin23a] Theorem 3.35 peels off the radiation field, which five dimensions does not carry, so [Hin26] p.
 102's first step suffices there. The readers' claims are not discharges; each is to be checked at source.
+
+**D123 (2026-10-24): B1-B2 at source -- [Hin26c] section 9 at n = 4 (10.53); B5 restated.**
+
+Read at source: [Hin26c] section 9 is written for general n (Definitions 9.3-9.4; Theorem 9.38, Corollary 9.39 and
+Proposition 9.40 carry n), and the n = 3 numerals elsewhere in it (Theorems 9.36 and 9.41, Corollary 9.43, Definition
+5.13(2), Theorems 10.1 and 11.1) come from the b-density alone, so at n = 4 they become the record's alpha + 2.
+Bundles are "purely notational" at source. Section 10.53 records this; B1-B2 are discharged but for Theorem 9.16's
+proof at n = 4. [Hin26a]'s h_0 is itself non-explicit (Theorems 4.9, 6.2; Remark 6.3), so B5 is restated (ROUTES
+4.56): the record's point computations are to be made uniform in h at its e_C.
+
+*Notes.* (1) The fifty-fourth verifier is running on D116-D122; 10.53 is outside its range. (2) Nothing computed here.
+
+**D124 (2026-10-24): B5 discharged, B6 deduced -- every small h, not one point (uniform5.py, 10.54).**
+
+[Hin26a]'s h_0 is not explicit (D123), so the five-dimensional statement wanted is his: at the record's e, every
+sufficiently small h. uniform5.py H1-H2 proves exactly that box^C's indicial roots avoid [-100, 2] but for the simple
+Coulomb root at l = 0, 1, for every h in (0, 10^-6] and every type and degree: damping5.py U4's line-crossing
+certificate with h a second parameter, the crossing polynomials' critical values in h (leading coefficient in kappa,
+value at kappa_0, discriminant in kappa) having no root in (0, 10^-6]. Section 10.54 (Proposition 10.44) deduces his
+Theorem 4.9 in five dimensions for every such h, sorts the record's other point computations into those that inherit,
+those free of h or improving as h falls, and those holding off a countable set, and deduces the horizon threshold for
+every small h.
+
+*Notes.* (1) The certificate's counts are reported right | between | left, 10.12's convention. (2) The deduction in
+10.54(c) rests on the record's own statements of which quantities grow with gam_C; the fifty-fifth verifier is to check
+it. (3) Selftest 2/2 (about twenty seconds), mutants 2/2.
