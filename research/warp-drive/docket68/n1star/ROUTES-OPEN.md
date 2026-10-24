@@ -2019,3 +2019,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Remaining: 50 modification steps whose source proofs run to several pages each, in [Hin26] sections 5-13, [Hin26c]
   sections 5-14, [Hin26a] sections 4-6 and appendices A-B, and [Hin23a] section 3.
 
+### 4.78 The sixtieth verifier on D140-D145 (D147)
+
+- M1 seated: Lemma 10.54 (ii)'s differentiated sum needs d_r^2 u; the hypothesis now takes i <= 2 and states the two
+  bounds on A_j, and 10.73 (vi) writes the weights for 10.33 (a) (w_i = r^(-eps-i), w = r^(1-eps), w' = r^(-eps)).
+- M2 seated: the paper's abstract, 1.3, 8.8 and 9 now say "placed on its inputs, at proof level but for two" -- 10.38 (a)
+  (one deduced link) and 10.21 (e) (a modification step) -- name 50 rows with places and 11 without, and mark the
+  reduction of (ii) to (i) as a rule deduced, not proved.
+- Minors: B-MAP.tsv's column `kind` and its rule (an instrument or check named counts as computed); the 30 readings'
+  sources; 10.71's closing sentence covering its eleven misfiled rows; beta = min(alpha, n - 2) derived in 10.66 (c);
+  mp5.py M2's symbolic block checks named for the family's equivariance; 10.70's ? sentence. Lemma 10.52's continuity of
+  the inverse and onto-witness, and the isometry and strong continuity of the rotations, written out; Proposition 5.25's
+  0j coefficient corrected.
+

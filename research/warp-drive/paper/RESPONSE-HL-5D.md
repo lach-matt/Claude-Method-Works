@@ -47,9 +47,9 @@ to a slowly rotating Myers–Perry black hole: Hintz's proof of the nonlinear st
 dimensions, every input that depends on the dimension computed at Schwarzschild–Tangherlini and deduced at nearby
 Myers–Perry parameters, his companion papers' arguments read at source, and the proofs of theirs the route uses carried
 to five dimensions by modification, every place where a full-text census of the source finds the dimension computed, and
-every other deduced step written at proof level from its computed and read inputs; the completeness of those censuses,
-read rather than re-derived, separates this from a proof (Theorem 4). We list what is not proved, the application at
-physical wavelengths among it.
+every other deduced step placed on its computed and read inputs, at proof level but for two the supplement names; the
+completeness of those censuses, read rather than re-derived, separates this from a proof (Theorem 4). We list what is
+not proved, the application at physical wavelengths among it.
 
 ---
 
@@ -116,9 +116,10 @@ charges by which the gluing at large radius matches the Myers–Perry family com
 the deduction from a proof is stated in section 8.8. The proofs of those papers that the route uses — [Hin26c]'s
 estimates, [Hin26a]'s constraint damping, [Hin23a]'s at null infinity, [CD03]'s gluing, Hintz's boost and [HHV21]'s
 perturbation arguments — are carried to five dimensions by modification, every place a full-text census of the source
-finds the dimension computed. Every other deduced step is written at proof level from its computed and read inputs, and
-each modification step names the places where the dimension changes it, each computed. What remains is that those
-censuses are complete, read at source rather than re-derived line by line.
+finds the dimension computed. Every other deduced step is placed on its computed and read inputs, at proof level but for
+two that section 8.8 names, and each modification step lists the places where the dimension changes it, each value
+computed, deduced in an earlier section, or arithmetic in n. What remains is that those censuses are complete, read at
+source rather than re-derived line by line.
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
 coupled to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an
@@ -1048,25 +1049,29 @@ last two are cited, and on continuity statements read from the sources (suppleme
 general-n results have every hypothesis placed, three of them now read at source (supplement section 10.72). The 38
 others, read one by one, are twelve with no step of their own, 25 at proof level given their inputs — among them steps
 by symmetry and sums over harmonics, put there by two lemmas proved in the supplement — and one more modification step
-(supplement section 10.73; `synth5.py`). Each of the 61 modification steps names the places where the dimension changes
-its proof, and each five-dimensional value there is computed, deduced in an earlier section, or arithmetic in n
-(supplement section 10.74, `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those
-places, which is the census question of (i): (ii) reduces to (i). Eleven of the 61 have source proofs of one or two
-pages, now written out step by step at n = 4, so they rest on their inputs and not on a census (supplement section
-10.75); the other 50 carry proofs of several pages each, in [Hin26] sections 5–13, [Hin26c] sections 5–14, [Hin26a]
-sections 4–6 with its appendices and [Hin23a] section 3. λ1 and δ exist by the deduction — from Hintz's smallness
-constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A line-by-line check of those
-papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
+(supplement section 10.73; `synth5.py`). Each of the 61 modification steps lists the places where the dimension changes
+its proof — 50 name some, 11 none, the proof being the source's as it stands — and each five-dimensional value there is
+computed, deduced in an earlier section, arithmetic in n, or the record's choice (supplement section 10.74,
+`B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those places, which is the census
+question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i), but for two steps — one
+resting on a single deduced link, one on a modification step and so on the census (supplement sections 10.72–10.73).
+Eleven of the 61 have source proofs of one or two pages, now written out step by step at n = 4, so they rest on their
+inputs and not on a census (supplement section 10.75); the other 50 carry proofs of several pages each, in [Hin26]
+sections 5–13, [Hin26c] sections 5–14, [Hin26a] sections 4–6 with its appendices and [Hin23a] section 3. λ1 and δ exist
+by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a
+separate gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a
+theorem.
 
 ---
 
 ## 9. What is not proved
 
-- **Settling, proved.** Theorem 4 is deduced: what separates it from a theorem is stated in section 8.8 — the
+- **Settling as a theorem.** Theorem 4 is deduced: what separates it from a theorem is stated in section 8.8 — the
   completeness of the censuses that carry the companion papers' proofs to five dimensions, read at source rather than
-  re-derived. The deductions are at proof level from their inputs, the modification steps resting on those censuses. λ1
-  and δ exist by the deduction and are not evaluated, which is not a separate gap. The linear statements of section 8.2
-  are deduced too, the route of Hung's sections 5–8 in five dimensions not a proof.
+  re-derived. The other deductions are placed on their inputs, at proof level but for two named in section 8.8, the
+  modification steps resting on those censuses. λ1 and δ exist by the deduction and are not evaluated, which is not a
+  separate gap. The linear statements of section 8.2 are deduced too, the route of Hung's sections 5–8 in five
+  dimensions not a proof.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1,
@@ -1150,7 +1155,10 @@ papers at n = 4, with the deductions written out, would make Theorem 4 a theorem
   parity condition unlisted — they fall on the Myers–Perry metrics glued to, which meet it, and the charges' bulk term
   vanishes in vacuum — and the second census's [CD03] window one page late, its count now 278; its finding that the
   reading of [CD03]'s (8.1) rests on a false reason was checked and does not stand, (8.1)'s factor r having been
-  dropped; with five minor findings, all seated (D143).
+  dropped; with five minor findings, all seated (D143); sections 10.70–10.74 and those repairs were read by the
+  sixtieth, which found Lemma 10.54's differentiated sum asking a second r-derivative its hypothesis did not give — the
+  hypothesis widened and the weights for the two harmonic sums written out — and this paper's proof-status sentences
+  stronger than the supplement's own accounting, now qualified, with six minor findings, all seated (D147).
 
 ---
 
@@ -1623,8 +1631,8 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   (8.10) at n = 3 and the threshold α_I < −1/2 unchanged at n = 4; the rotation fields of S^(n−1); the densities and
   counts. 4/4; mutants 4/4 (a few seconds).
 - `censusweep.py`: a second census of the passages carried to n = 4 (supplement section 10.69): every marker of the
-  dimension on every page, 278 on 205 pages, each read against the supplement's sections. It runs where the alphaXiv
-  full texts have been fetched; they are not stored here.
+  dimension on every page, 278 on the 205 pages swept, each read against the supplement's sections. It runs where the
+  alphaXiv full texts have been fetched; they are not stored here.
 - `synth5.py` S1–S3: the harmonic sums of the gauge 1-forms (supplement section 10.73): on five-dimensional
   Tangherlini the scalar and vector gauge 1-forms have coefficients r/k, r²/k², 1/k and 1/k_V, and k² = l(l + 2) ≥ 8 for
   l ≥ 2, so the sums over harmonics converge. 3/3; mutants 3/3 (about forty seconds).
@@ -1893,9 +1901,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `2f76f75a506f45a158ae8cb830f67a32` |
-| `docket68/n1star/N1STAR-LOG.md` | `2fa07b32579492e72bd11f5a47e67cf2` |
-| `docket68/n1star/README.md` | `1b170a9bd69b484b34af85779361a538` |
+| `docket68/n1star/N1STAR-PROOF.md` | `dfaf7b49eb1f7fb9f96a50eb26879267` |
+| `docket68/n1star/N1STAR-LOG.md` | `3dc92e06f0874f4e428f85a711862aa5` |
+| `docket68/n1star/README.md` | `a7a2eb4103e9093261825581a3932296` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1960,8 +1968,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/exterior5.py` | `dd978b8bee559d76cd22b3e449e7579b` |
 | `docket68/n1star/gluing5.py` | `f95d805e595c5ff690c46c793177fd36` |
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
-| `docket68/n1star/censusweep.py` | `367177a37cbf26b6dd5f3b194f1c1f12` |
+| `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/B-MAP.tsv` | `d3015923c36d70d1bc4b4c044d0731df` |
+| `docket68/n1star/B-MAP.tsv` | `63c50008c187fece30aaaa97226a182c` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

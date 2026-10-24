@@ -4223,3 +4223,20 @@ Proposition 8.8 (the contracted Bianchi identity and box^Ups = 2 delta_(E^Ups) G
 that 10.31 (a)-(b) and 10.18 (b) had already written out step by step -- [Hin26] Lemma 7.2, Proposition 7.3 and Lemma
 6.1 (1). These eleven rest on their inputs, not on a census. The other 50 carry proofs of several pages each.
 
+**D147 (2026-10-24): the sixtieth verifier on D140-D145, seated.** synth5.py 3/3, gluing5.py and edge5.py 4/4 with
+mutants caught; mp5.py 5/5; censusweep.py 278; the counts of 10.70, 10.73 and 10.74 reproduced; the five quotations of
+10.72 verbatim; the D143 refutation of the fifty-ninth's M2 confirmed. M1 (major): Lemma 10.54 (ii)'s C^1 clause needs
+d_r^2 u, which the hypothesis did not give, and the gauge 1-forms contain d_r H_T -- repaired: the hypothesis takes i <=
+2 with two stated bounds on A_j, and 10.73 (vi) writes the weights for 10.33 (a) and the compact interval of 10.27 (a).
+M2 (major): the paper's abstract, 1.3, 8.8 and 9 claimed proof level for every non-modification step and "each
+computed" for the modification steps' values; now qualified -- two exceptions named (10.38 (a), 10.21 (e)), the values
+computed, deduced in an earlier section, arithmetic or the record's choice, 11 rows naming no place, and the reduction a
+rule deduced, not proved. Minors: B-MAP.tsv's `kind` column and rule -- under it the 28 hand placements are 11
+arithmetic, 12 computed, 4 at an earlier section, 1 choice, where D145 gave 8 and 8 (m1); the 30 readings' sources
+reworded (m2); 10.71's misfiled rows are eleven, not ten as D141 said, and its closing sentence now covers them (m3);
+beta = min(alpha, n - 2) derived from the decay rates (m4); 10.36 (a)'s equivariance deduced from mp5.py M2's symbolic
+block checks, the full metric checked at three spins (m5); 10.70's ? sentence (m6). Also seated: Lemma 10.52's continuity
+of the inverse and the onto-witness; the rotations' isometry and strong continuity proved; Proposition 5.25's (h~_1)_0j
+coefficient is -e_0 t_IVP (10.72); "278 hits on the 205 pages swept, 81 with a hit"; Kerr's K order sourced; Lemma
+14.6's density; the paper's "Settling, proved." heading renamed.
+
