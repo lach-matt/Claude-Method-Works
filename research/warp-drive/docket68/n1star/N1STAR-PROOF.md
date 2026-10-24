@@ -6110,6 +6110,90 @@ Theorem 11.1 and Definitions 5.15 and 5.18 at n = 4 (readings); the h-terms of (
 Proposition 11.16 there (10.38's OPEN), and with them E^C_I, gam_Ups and l_I at I+; his sections 11.2-11.8. Nothing of
 this section is proved: Proposition 10.39 is computed, and (a)-(e) are deduced.
 
+### 10.43 The class in [Hin26]'s construction: his states, parameters and steps that survive (`class5.py`; D111)
+
+The settling the paper needs is stability within the T^2-mirror class: G = O(2) x O(2) acting on R^4 = R^2 x R^2 -- the
+rotations of the (x1, x2) and (x3, x4) planes and the reflections x2 -> -x2, x4 -> -x4 -- and trivially in t. [Hin26]'s
+Steps 2, 4 and 5 remove a boost, the black hole's rotation and centre-of-mass motions, and his section 12 carries them
+as parameters. This section computes which of his generators and harmonic types are G-invariant, and deduces that his
+construction may be run on G-invariant objects alone.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; quotations transliterated to ASCII): p. 63,
+Definition 2.27, "S_l := ker(Delta - l(l + 1))", "V_l := {*dS : S in S_l}", 1-forms and 2-tensors "of scalar type l" and
+"of vector type l"; p. 219, the steps of section 11 (Step 2: "we shall counteract this term by boosting the initial Kerr
+black hole"; Step 4: "changes of the final black hole parameters as well as a logarithmic plus constant modulation of
+its center-of-mass"; Step 5: "t*^(-alpha)-shifts in the center-of-mass"); p. 301: "The only remaining independent terms
+are those that, in linearized theory, are related to the zero energy bound states of L_b ... These are the final black
+hole parameters b, the boost parameter S, and the center-of-mass shift S^(0)_1", and Definition 12.1, (12.11)-(12.12c):
+U = (b - b0, S, S^(0)_1, (u^0_lam, f_lam), S_rem, b_rem, V_1,rem, (S^(0)_l,rem)_(l=0,2),
+(S^(-lam^Ups_sl,1+1)_l,rem)_(l=0,1), h-tilde), "S, S^(0)_1 in S_1"; p. 302, (12.14)-(12.16), the components of p-vec and
+q-vec each in some S_l or V_l (l <= 5) or in R^4; p. 310, Theorem 12.3; p. 312, Theorem 12.8, "there exist U' in D^oo
+such that D_Phi(U) P(D_U Phi(U')) = f" with tame estimates; pp. 321-322, the proof of Theorem 13.1: "We use the simple
+Nash-Moser iteration scheme of Saint Raymond [SR89] for the map P o Psi", with its assumptions (1)-(4) checked there.
+
+**Proposition 10.40 (computed; exact).** With G as above:
+
+ (i) (the generators) Of the fifteen Killing fields of 4+1 Minkowski -- d_t, d_i, t d_i + x^i d_t, x^a d_b - x^b d_a --
+     the G-invariant combinations are the multiples of d_t; under T^2 alone, without the reflections, d_t and the
+     rotations of the two planes. Tangherlini's mass change mu' r^-2 (dt + dr)^2 is G-invariant (C1).
+ (ii) (the harmonics of S^3) For l <= 8: one G-invariant scalar harmonic at each even l, none at odd l; no G-invariant
+     smooth divergence-free 1-form at any l, the invariant 1-forms being a(theta) d theta, divergence-free only for a =
+     C/sin 2 theta (under T^2 alone cos^2 theta d phi1 and sin^2 theta d phi2 are such forms); and one G-invariant
+     transverse traceless tensor harmonic, (rough Laplacian + l(l + 2) - 2) T = 0, at each even l >= 2, none at odd l
+     (C2).
+
+*Proof.* C1-C2 of class5.py: sympy, exact. (i) invariance as vanishing brackets with the two plane rotations and
+invariance under the two reflections, a linear system in the fifteen coefficients whose solution space is computed;
+the mass change by its Lie derivatives and pullbacks. (ii) scalar: G-invariant polynomials of degree l are polynomials
+in x1^2 + x2^2 and x3^2 + x4^2, their harmonic ones counted by rank; vector: on S^3 = {(cos theta e^(i phi1), sin
+theta e^(i phi2))} the reflections reverse d phi1 and d phi2, so an invariant 1-form is a(theta) d theta, and its
+divergence-free condition is solved exactly; tensor: the invariant ansatz T = A d theta^2 + B cos^2 theta d phi1^2 + C
+sin^2 theta d phi2^2, C = -A - B (the cross terms are reflection-odd), A and B polynomials in cos^2 theta of degree
+l/2 + 1, smooth at the axes, the divergence and the rough Laplacian from the round metric's Christoffel symbols (their
+off-diagonal parts vanish identically), each equation imposed exactly at 48 rational points of the circle -- more than
+twice its degree as a trigonometric polynomial -- and the solution space counted by rank. Controls: T^2 alone (three
+generators; two invariant divergence-free 1-forms); the eigenvalue moved by one (no tensor harmonic). []
+
+*Deduced.*
+
+ (a) (equivariance) The gauge-fixed Einstein operator P(g, g0) = Ric(g) - delta*_(g0,E^C) Ups^(E^Ups)(g, g0) is natural
+     under diffeomorphisms carrying its modifications along; its modifications here are built from dt and dr with radial
+     coefficients (the damping 1-form of 10.14, the horizon modification c_H = -(1/2) chi(r) dr of 10.15, the trace
+     weight 2/(D - 2)), so they are O(4)-invariant, and so are Tangherlini, the cut-off chi_K (a function of t* and r)
+     and his t*. Hence for G-invariant g0 and h, P and its linearizations commute with G; forward solutions with
+     G-invariant sources are G-invariant, by uniqueness; and the Haar mean Pi over the compact G is a projection of norm
+     1 on every weighted b-Sobolev space of [Hin26c]'s compactification, G acting by isometries that preserve t*, r and
+     so every boundary defining function.
+ (b) (the parameters) Every component of U, p-vec and q-vec lies in a representation of G: the final parameters b = (m,
+     A), A in so(4) (10.36), with A -> R A R^-1; the boost S and the centre-of-mass shift in S_1; the remainders in S_l
+     and V_l, harmonics of S^3 in five dimensions. An invariant A commutes with both plane rotations, so A = a J_12 + b
+     J_34, and the reflections reverse J_12 and J_34: A = 0. By (ii) the G-fixed S_l vanish at odd l and are
+     one-dimensional at even l, and the G-fixed V_l vanish. So in the class S = 0, S^(0)_1 = 0, b = (m, 0), S_rem = 0,
+     V_1,rem = 0, and of (12.11)-(12.15) only the components in S_l with l even remain, with the tensor type's at even l
+     where the five-dimensional lists carry it.
+ (c) (his steps) Step 2 (section 11.4) is absent: its t* h_(b,s1)(S-dot) term and the boost parameter are G-invariant
+     only when zero. Step 4 (section 11.6) reduces to the change of the mass, the centre-of-mass motion lying in S_1.
+     Step 5 (section 11.7), the t*^(-alpha) shifts of the centre of mass, is absent. Steps 1, 3 and 6 remain, Step 6's
+     gauge modifications restricted to (b)'s components.
+ (d) (the zero energy states) Of the eleven kernel states (10.28) and the eleven dual states (10.31), each the image of
+     a Killing field under a construction that commutes with O(4) (each step a unique solution, 10.29(a)), only the mass
+     state and the time translation's dual state are G-invariant, by (i); of 10.29's generalized states, part (1)'s (s0)
+     alone; of 10.30's classes, the scalar ones at even l; of the physical states (10.34) and the window (10.35), which
+     needs l = 2, the scalar s2 and the tensor t2, one each, and no vector v2. The constructions on the rotations and
+     boosts -- 10.29(2)-(3), 10.31's rotations at first order in the spin, 10.36's family at nonzero spin, 10.32's
+     angular momentum and centre-of-mass pairings -- are not needed in the class.
+ (e) (the iteration in the class) His construction of Phi (section 12.2) solves at each step a linear problem whose
+     right side is G-invariant when its inputs are; replacing each solution by its G-average, again a solution, gives
+     Phi on the G-fixed data D^oo_G with G-invariant output, satisfying (12.31) by his proof. For G-invariant U and f,
+     Theorem 12.8's U' is read off from the forward solution of Corollary 11.66, G-invariant by (a), and lies in D^oo_G
+     if the read-off commutes with G; and his smoothing operators S_theta may be replaced by Pi S_theta Pi, with the
+     same estimates by (a). [SR89]'s scheme then runs on the closed subspaces D^oo_G -> B^oo_G. So [Hin26]'s argument in
+     five dimensions needs only the G-fixed objects of (b)-(d) -- deduced, on the readings already named for each step
+     and on the reading that his read-off in Theorem 12.8's proof commutes with G, which A7 checks (ROUTES 4.44).
+
+OPEN: everything ROUTES 4.44 lists after A1; (e)'s reading of Theorem 12.8's proof (A7). Labels: computed (class5.py
+C1-C2; exact); deduced ((a)-(e)); READ ([Hin26] pp. 63, 219, 301-302, 310, 312, 321-322); nothing proved.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

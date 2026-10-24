@@ -1565,3 +1565,18 @@ modifications, and which states of 10.28-10.37 are invariant), not an assumption
 *Phase D:* the paper, built from the finished work, one verifier on the whole, the PDF. Every step as before: computed,
 deduced or READ, one verifier at a time. Scale: Phase A covers about 110 printed pages of [Hin26]; Phase B is the
 largest, [Hin26c] running to about 280; Phase C two or three steps.
+
+### 4.45 A1: the class in [Hin26]'s construction (computed; D111)
+
+ROUTES 4.44's first step. class5.py computes which of Hintz's generators and harmonic types are invariant under G = O(2)
+x O(2); N1STAR-PROOF.md 10.43 states Proposition 10.40 and deduces.
+
+- Computed (C1-C2): of the fifteen Killing fields of 4+1 Minkowski only d_t is G-invariant (T^2 alone: d_t and the two
+  plane rotations); the mass change is invariant; one invariant scalar harmonic and one invariant transverse traceless
+  tensor harmonic of S^3 at each even l, none at odd l, and no invariant divergence-free 1-form (l <= 8).
+- Deduced: P and its linearizations commute with G (the damping 1-form and c_H radial); the final parameters are (m, 0);
+  the boost S, the centre-of-mass shift and every S_1 and V_l component vanish; his Step 2 and Step 5 are absent and
+  Step 4 is the mass change alone; of the kernel and dual states only the mass's and the time translation's remain, of
+  the physical states at l = 2 the scalar and the tensor ones; and the Nash-Moser iteration runs on the G-fixed
+  subspaces, on the reading that his read-off in Theorem 12.8's proof commutes with G (checked at A7).
+- Next: A2, his section 11.2 in five dimensions (Propositions 11.14-11.16), on 10.38's (5.28).

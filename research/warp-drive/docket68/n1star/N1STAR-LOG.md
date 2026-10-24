@@ -3703,3 +3703,27 @@ surface of the exterior. ROUTES 4.44 orders the work that removes them, the clas
 
 No five-dimensional nonlinear stability theorem for Tangherlini exists to shorten the route: a search of the literature
 (alphaXiv, 2026-10-24, recency first) returned linear, Riemannian and numerical work only.
+
+**D111 (2026-10-24): A1, the class in [Hin26]'s construction (10.43, class5.py).**
+
+M asked to continue, with as few PRs as possible and in record time; the title is to be reconsidered when the work is
+finished. ROUTES 4.44's A1 first: what of Hintz's states, parameters and steps survives in the T^2-mirror class. READ at
+source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 63, 219, 301-302, 310, 312, 321-322.
+
+*Computed (Proposition 10.40, class5.py C1-C2).* Of the fifteen Killing fields of 4+1 Minkowski only d_t is G-invariant
+(T^2 alone: three); the mass change is invariant; one invariant scalar and one invariant TT tensor harmonic at each even
+l, none at odd l, no invariant divergence-free 1-form (l <= 8).
+
+*Deduced (10.43(a)-(e)).* Equivariance of P with the radial modifications of 10.14-10.15; b = (m, 0), S = 0, no S_1 or
+V_l component; Steps 2 and 5 absent, Step 4 the mass alone; only the mass's kernel state and the time translation's dual
+state, the s0 generalized state, the even scalar pure gauge classes, and the s2 and t2 physical states remain; the
+iteration on the G-fixed subspaces, on a reading of Theorem 12.8's proof checked at A7.
+
+*Notes.* (1) The tensor count first ran by substituting the polynomial ansatz into the symbolic Laplacian and clearing
+denominators through the rational parameterization; it took minutes per degree. It now imposes each equation exactly at
+48 rational points of the circle, more than twice its degree as a trigonometric polynomial: seconds. (2) A kill of the
+slow run by pattern matched its own shell and ended it; processes are killed by exact PID only. (3) The axis smoothness
+conditions change no count, the polynomial ansatz being regular already; the controls that bite are the reflections
+dropped (two divergence-free 1-forms appear) and the eigenvalue moved by one.
+
+*Runs.* class5.py --selftest 2/2 (about thirty seconds) and --mutants 3/3.

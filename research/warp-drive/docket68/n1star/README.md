@@ -263,6 +263,11 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   n/2, 2 at n = 4, its rule reproducing his printed instances (W1-W3; Theorem 10.1 with no sf-loss deduced on readings
   in 10.40, [Hin26c]'s readings at source in 10.41). `python3 lowfreq5.py --selftest` (3/3, about five seconds),
   `--mutants` (7/7).
+- `class5.py`: the T^2-mirror class G = O(2) x O(2) in [Hin26]'s construction (section 10.43; D111): of the fifteen
+  Killing fields of 4+1 Minkowski only d_t is G-invariant (T^2 alone: three); one invariant scalar and one invariant
+  transverse traceless tensor harmonic of S^3 at each even l, none at odd l, and no invariant divergence-free 1-form, l
+  <= 8 (C1-C2; the boost, rotations and centre-of-mass motion of his Steps 2, 4 and 5 deduced absent in the class).
+  `python3 class5.py --selftest` (2/2, about thirty seconds), `--mutants` (3/3).
 - `cone5.py`: [Hin26] section 11.1 in five dimensions (section 10.42; D108): the unweighted b-density's shifts (2, 5/2,
   1/2) for his (11.5)'s (3/2, 2, 1/2), beta_+ in (1/2, 1/2 + eps_ind) in both, the top of beta_I 3/2 for his 1 (on
   reading [Hin26c] (10.2) at n = 4); the background differences at iota+ (mass, rotation, boost) of orders 2, 3, 2 for
@@ -273,7 +278,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All fifty are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All fifty-one are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing
 the solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py,
 lzero5.py and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py,
@@ -287,5 +292,5 @@ imports damping5.py, genstates5.py and zstates5.py, dual5.py imports damping5.py
 pairing5.py imports damping5.py, static5.py imports damping5.py and gmodes5.py, physical5.py imports damping5.py and
 lin5.py, window5.py imports damping5.py and lin5.py, mp5.py imports damping5.py and dual5.py, iota5.py imports
 damping5.py and lin5.py, scri5.py imports damping5.py, iota5.py, lin5.py and sbar5.py, aug5.py imports damping5.py and
-sbar5.py, lowfreq5.py imports aug5.py, damping5.py and sbar5.py, cone5.py imports damping5.py, and the others import
-nothing from the tree. The board's shared record is not edited here.
+sbar5.py, lowfreq5.py imports aug5.py, damping5.py and sbar5.py, cone5.py and class5.py import damping5.py, and the
+others import nothing from the tree. The board's shared record is not edited here.

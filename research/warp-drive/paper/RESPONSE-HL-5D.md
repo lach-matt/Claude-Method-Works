@@ -1665,9 +1665,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `3ab2d8d4dc92d8312812860e2e05697f` |
-| `docket68/n1star/N1STAR-LOG.md` | `4efb871d7ad124e87a145731b48268b3` |
-| `docket68/n1star/README.md` | `ab3f9101ca2b0bcf9139f1a0a40084e9` |
+| `docket68/n1star/N1STAR-PROOF.md` | `3d66bf7d6caa31b5b765b4db2a508a79` |
+| `docket68/n1star/N1STAR-LOG.md` | `74188118d30c67effb5b595edf8c3f1f` |
+| `docket68/n1star/README.md` | `9a3e1d69d7812a3ad38b3f68fc50b3b6` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
