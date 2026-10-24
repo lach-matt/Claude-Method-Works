@@ -7334,10 +7334,12 @@ vector are odd").
 **Proposition 10.47 (computed; exact; `general5.py` G2).** On the linearizations at five-dimensional Tangherlini (the
 static spatial metric of mass mu) in the mass, in the four boosts, in the six rotations W in so(4) (the shift mu (W x)_i
 / r^4, Proposition 10.33(iii)'s leading term) and in the four translations, the ADM energy, momentum, angular momentum
-and centre-of-mass fluxes at infinity (G = 1) are E = 3 pi mu/8 at Tangherlini, dE/dmu = 3 pi/8, P = -E v, J(W) = (pi
-mu/4) W -- two thirds of E per unit spin -- and E C = E c, every other entry 0: the 15 x 15 Jacobian of the charges in
-the parameters is diagonal with determinant (3 pi/8)(pi mu/4)^6 (3 pi mu/8)^8, nonzero for mu > 0. In four dimensions the
-same fluxes give E = m, P = -m v, J = m a, E C = m c, [CD03]'s (F.4)-(F.6).
+and centre-of-mass fluxes at infinity (G = 1) are E = 3 pi mu/8 at Tangherlini, dE/dmu = 3 pi/8, P = -E v (v the
+velocity of the coordinate boost, the black hole moving with -v in the new coordinates, the sign of [CD03]'s
+transformation law (E.14)), J(W) = (pi mu/4) W -- two thirds of E per unit spin -- and E C = E c, every other entry 0:
+the 15 x 15 Jacobian of the charges in the parameters is diagonal with determinant (3 pi/8)(pi mu/4)^6 (3 pi mu/8)^8,
+nonzero for mu > 0. In four dimensions the same fluxes give E = m, P = -m v, J = m a, E C = m c, [CD03]'s (F.4)-(F.6).
+
 
 *Proof.* G2 of general5.py: each flux of the linearized data split into its parts homogeneous in (x, r), the part of
 degree -(n - 1) integrated exactly over the unit sphere, higher parts checked to integrate to zero, lower ones vanishing
@@ -7386,14 +7388,19 @@ Boyer-Lindquist time 0"; p. 319, Remark 13.2 (the verifier's reading: b0 replace
      data at Boyer-Lindquist time 0"), his Remark 13.3 returning to a tau-level set. On Sigma'' the data have gamma^- =
      0 and k = 0 outside a compact set, and a perturbation (gamma~, k~) with |gamma~^-| + r |d gamma~^-| + r |k~^+| <= C
      r^(-alpha_-), alpha_- > 2, keeps (E.9). G-invariance, which makes gamma and k even, does not give this: it removes
-     gamma^-, not k^+. (The class's gluing, 10.50(c) and 10.59(d), needs no parity condition: its obstruction is d_t's
-     alone, and the mass converges for alpha > 1, (E.5b).)
- (c) (C1-C2 without the class) Let (gamma', k') be the data of g_lam on (b)'s Sigma'' plus any perturbation that
-     satisfies the constraints, is small in the norms of 10.62(d) and has (b)'s parity. 10.50's construction runs with
-     [CD03] Theorem 8.1's proof in five dimensions (Theorem 7.7 is stated in general n): glued on an annulus to a member
-     of the family whose charges lie in a small ball about those of (gamma', k') -- they converge to them as R ->
-     infinity ([CD03] Remark 8.4), not equal them (D133) -- inside (a)'s neighbourhood since those are near
-     Tangherlini's, the obstruction the full fifteen-dimensional space of Killing initial data, matched by (a). The
+     gamma^-, not k^+. (The class's gluing, 10.50(c) and 10.59(d), needs no parity condition. [CD03] uses (E.9) only for
+     the convergence of the charges J^munu, angular momentum and centre of mass ((E.19), (E.20b), O(R_0^(n - 1 - alpha -
+     alpha_-)); Proposition E.1, p. 73); the energy-momentum p^mu converges without it ((E.17), (E.20a); D138). The
+     charge of a KID Y on a sphere about the origin is linear in Y and equivariant, so on G-invariant data it is the
+     charge of Y's average over the compact G, a multiple of d_t (10.50): the pairings with the other KIDs vanish at
+     every radius, and the mass converges for alpha > n/2 - 1 = 1, (E.17)'s O(R_0^(n - 2 - 2 alpha)) (deduced; D136).)
+ (c) (C1-C2 without the class) Let (gamma', k') be the data on (b)'s Sigma'' of the glued development of 10.50(c)-(d) --
+     which contains g_lam on Omega and is exact Tangherlini outside a compact set of Sigma'' (D136) -- plus any
+     perturbation that satisfies the constraints, is small in the norms of 10.62(d) and has (b)'s parity. 10.50's
+     construction runs with [CD03] Theorem 8.1's proof in five dimensions (Theorem 7.7 is stated in general n): glued on
+     an annulus to a member of the family whose charges lie in a small ball about those of (gamma', k') -- they converge
+     to them as R -> infinity ([CD03] Remark 8.4), not equal them (D133) -- inside (a)'s neighbourhood since those are
+     near Tangherlini's, the obstruction the full fifteen-dimensional space of Killing initial data, matched by (a). The
      glued data equal a translated, rotated and boosted Myers-Perry metric outside a compact set, and near spatial
      infinity their development is that metric by finite speed of propagation.
  (d) (C3 without the class) 10.62(d) with the glued member as the reference near infinity: his Remark 13.2 (p. 319)
@@ -7408,26 +7415,30 @@ Labels: computed (Proposition 10.47); deduced ((a)-(d)); READ; nothing proved. T
 is computed and deduced here near Tangherlini only, which is the case the gluing needs; its global form for the
 Myers-Perry family is not attempted.
 
-### 10.64 [Hin23a] section 3 at n = 4 by modification: every place the dimension enters (`exterior5.py`; D134)
+### 10.64 [Hin23a] section 3 at n = 4 by modification: every place the dimension enters (`exterior5.py`; D134, D136)
 
 *The setting.* [Hin23a]'s section 3 is the one reading behind Theorem 4 that is a whole proof in another dimension
 rather than estimates on symbols: [Hin26] Theorem 5.17 is solved by its energy estimates and [SR89] (10.48(c), 10.57).
-Its calculus is dimension-free (10.57 (1)); the dimension n of space enters its section 3 at six places. Each is
+Its calculus is dimension-free (10.57 (1)); the dimension n of space enters its section 3 at eight places. Each is
 computed here at n = 3, against his printed values, and at n = 4, and his proof is then run at n = 4 with the computed
 quantity in place at each.
+
 
 *READ.* [Hin23a] (arXiv:2302.13804v1; alphaXiv, 2026-10-24; printed page = PDF page; ASCII): pp. 3-4, (1.3)-(1.6); p. 7,
 (2.1)-(2.6) and Definition 2.2, "delta*_(g,E_C) := delta*_g + gamma_C (2 c_C (x)_s (-) - g iota_(g^-1)(c_C))",
 "delta_(g,E_Ups) = (delta*_(g,E_Ups))^* = delta_g + gamma_Ups (2 iota_(g^-1)(c_Ups) - c_Ups tr_g)", (2.7), x^0 = t + r,
 x^1 = t - r, and (2.9)'s splitting; p. 8, (2.10)-(2.11) and Remark 2.3, "G_gbar A*_(E_C,E_Ups) G_gbar = -A_(E_Ups,E_C)";
-pp. 8-9, (2.14)-(2.15b); p. 16, Proposition 3.17's proof, "mu_b = rho_0^4 rho_I^3 |dg_m| is a smooth positive
-b-density", (3.22)-(3.25); p. 17, Definitions 3.19-3.20 ("l_I < min(-gamma_Ups, l_0, 1/2)", "k >= 3"); p. 18, Notation
-3.22 ("O^(alpha,beta)_3 into rho_0^alpha x_I^(2 beta) L^inf"), Lemma 3.23; p. 20, Lemma 3.25; pp. 21-25, Definition
-3.27, Lemma 3.28, Proposition 3.29 and its proof, (3.30)-(3.46), with (3.34), (3.36), (3.39), (3.40), (3.42) and (3.43);
-p. 26, Corollary 3.31, (3.47)-(3.49); pp. 27-30, Proposition 3.32, Lemma 3.33 ("with n = 4"), Lemma 3.34; pp. 30-32,
-(3.59a)-(3.59b), Theorem 3.35, Corollary 3.36; p. 33, Remark 3.38. With 10.57's READ (1)-(4).
+pp. 8-9, (2.14)-(2.15b); p. 12, Lemma 3.6, "Put xbar_I := min(sqrt3/2, 1/sqrt(8m)) when m > 0", its proof, "r = rho_0^-1
+x_I^-2 > (1/2) x_I^-2 > 4m", and (3.8), "g_m^-1(r d rho_I, r d rho_I) = (2 x^1/r)(1 + (x^1/2r)(1 - 2m/r)) < 0" (D136);
+p. 16, Proposition 3.17's proof, "mu_b = rho_0^4 rho_I^3 |dg_m| is a smooth positive b-density", (3.22)-(3.25); p. 17,
+Definitions 3.19-3.20 ("l_I < min(-gamma_Ups, l_0, 1/2)", "k >= 3"); p. 18, Notation 3.22 ("O^(alpha,beta)_3 into
+rho_0^alpha x_I^(2 beta) L^inf"), Lemma 3.23; p. 20, Lemma 3.25; pp. 21-25, Definition 3.27, Lemma 3.28, Proposition
+3.29 and its proof, (3.30)-(3.46), with (3.34), (3.36), (3.39), (3.40), (3.42) and (3.43); p. 26, Corollary 3.31,
+(3.47)-(3.49); pp. 27-30, Proposition 3.32, Lemma 3.33 ("with n = 4"), Lemma 3.34; pp. 30-32, (3.59a)-(3.59b), Theorem
+3.35, Corollary 3.36; p. 33, Remark 3.38. With 10.57's READ (1)-(4).
 
-**Proposition 10.48 (computed; `exterior5.py` X1-X6).** For n = 3 and n = 4, with k = (n - 1)/2:
+
+**Proposition 10.48 (computed; `exterior5.py` X1-X8).** For n = 3 and n = 4, with k = (n - 1)/2:
 
  (X1) r^k box r^-k = 4 d_0 d_1 + ((n - 1)(n - 3)/4) r^-2 on functions of (x^0, x^1), with no first-order term: the added
      term 0 at n = 3 (his (3.34)) and 3/4 at n = 4. Tangherlini's r* - r = -mu/r - mu^2/(3 r^3) - mu^3/(5 r^5) - ..., a
@@ -7463,21 +7474,43 @@ p. 26, Corollary 3.31, (3.47)-(3.49); pp. 27-30, Proposition 3.32, Lemma 3.33 ("
      sources h_11's leading term (Remark 3.38's mass loss) -- and r^-(1/2) at n = 4.
  (X6) The least integer above dim M/2 is 3 at n = 3 and at n = 4 (Notation 3.22's k >= 3, O_3 in L^inf); Lemma 3.33's
      d_(dim M - 1) is 2 at n = 3 and 3 at n = 4.
+ (X7) For g = g-bar + r^-k h, h a frame component of size 1 -- h_ab = chi(x^1) T_ab or h_11 = eta(x^1) -- and u = r^-k
+     f(x^1) U, the principal h u part of L_2 = 2 r^(k+1) P r^-k -- the four derivative-squared monomials -- for P(g) =
+     Ric(g) - delta*_(g-bar,E_C) Upsilon(g; g-bar), which is his (3.30)'s operator 2P'_g but for the gamma_Ups term,
+     which carries G_(g_m) and does not enter the h u part, in the frame: in (7,1) (U = (dx^0)^2, angular output) chi'
+     f' and chi'' f with coefficient 4 T-hat each; in (4,7) (U = T, output (dx^1)^2) chi' f' with -2 and no chi'' f; in
+     (4,1) (h_11, U = (dx^0)^2) eta'' f with 4. At n = 3 these are r-independent and are his printed entries in L_2's
+     normalization: twice A(7,1) = 2 d_1 h_ab on d_1 u and twice B(7,1) = 2 rho_0^-1 d_1^2 h_ab on u, 4 and 4; twice
+     A(4,7) = -(1/2) d_1 h_ab, -2, B having no (4,7) entry, when the entry -- which maps the tf block to the scalar
+     (dx^1)^2 block -- acts by contraction, -(1/2) d_1 h_ab u^ab with |T|^2 = 2. Read instead as a coordinate on a unit
+     tf basis, the printed entry would give -1: the identification of this one entry rests on the reading (D138), the
+     computed -2 does not; twice B(4,1) = 2 rho_0^-1 d_1^2 h_11, 4. At n = 4 they are the same numbers times r^-(1/2) =
+     r^(1-k), exactly. Each entry is linear in h.
+ (X8) Lemma 3.6 at n = 4: with f = 1 - mu/r^2, r* = r + (sqrt(mu)/2) log((r - sqrt(mu))/(r + sqrt(mu))) (dr*/dr = 1/f),
+     x^0 = t + r*, x^1 = t - r*, rho_0 = 1/(r* - t) and rho_I = (r* - t)/r, d rho_0 = rho_0^2 dx^1 is null and g^-1(r d
+     rho_I, r d rho_I) = (2 x^1/r)(1 + x^1 f/(2r)), his (3.8) with f for 1 - 2m/r. With xbar_I = min(sqrt3/2, 1/(2
+     mu^(1/4))) for his min(sqrt3/2, 1/sqrt(8m)), r = rho_0^-1 x_I^-2 > (1/2) xbar_I^-2 >= 2 sqrt(mu), twice the horizon
+     radius as his 4m is: r* is defined, f > 3/4 (his 1/2), x^1/r = -x_I^2 < 0 and |x^1 f/(2r)| < 3/8, so (3.8) is
+     negative.
 
-*Proof.* X1-X6 of `exterior5.py`, sympy, exact: X1 from the wave operator of g = -dx^0 dx^1 + r^2 g-slash and the series
+*Proof.* X1-X8 of `exterior5.py`, sympy, exact: X1 from the wave operator of g = -dx^0 dx^1 + r^2 g-slash and the series
 of r*; X2 from the Jacobian of (t, r) in (rho_0, rho_I); X3 by applying [L0, W] - (div W) L0 to e^(i (xi_0 log rho_0 +
 xi_I log rho_I)); X4 on every symmetric 2-tensor, the reduction checked against the image of each representative; X5
-from the Christoffel symbols of the stated metric on S^2 and S^3. Controls: n = 3 gives his (2.11), (3.25), (3.34), mu_b
-and the five intermediates. Mutants: conjugation by r^-((n-2)/2) (X1), div W dropped (X3), G with 1/4 for 1/2, and the
-sign of (2.4)'s g-term (X4) -- each caught. []
+from the Christoffel symbols of the stated metric on S^2 and S^3; X7 likewise, P's h u part as the mixed derivative in
+two parameters; X8 from the null form of g_m and the bound at r = 2 r_h. Controls: n = 3 gives his (2.11), (3.25),
+(3.34), mu_b, the five intermediates, Proposition 3.29's h-dependent entries -- three as printed, the fourth under the
+contraction reading of X7 -- and Lemma 3.6's 4m. Mutants: conjugation by r^-((n-2)/2) (X1), div W dropped (X3), G with
+1/4 for 1/2, and the sign of (2.4)'s g-term (X4), h scaled by r^-((n-2)/2) (X7), and his 1/sqrt(8m) at n = 4 (X8) --
+each caught. []
+
 
 *Deduced: [Hin23a] section 3 at n = 4, by modification.* With g_m Tangherlini of mass mu, r* as in X1, rho_0 = 1/(r* -
 t), rho_I = (r* - t)/r, x_I = rho_I^(1/2), g = g_m + r^-(3/2) h and L_g := 2 rho_I rho^(-7/2) P'_g rho^(3/2), his
 section 3 runs as follows.
 
- (a) (Sections 3.1-3.2, Lemmas 3.6-3.16.) The calculus is dimension-free (10.57 (1)), M now with S^3 fibres. r* - r is
-     smooth in 1/r (X1), so the coordinates are Minkowski's up to smooth corrections, the logarithms of his (1.1)
-     absent.
+ (a) (Sections 3.1-3.2, Lemmas 3.6-3.16.) The calculus is dimension-free (10.57 (1)), M now with S^3 fibres; Lemma 3.6
+     holds with xbar_I = min(sqrt3/2, 1/(2 mu^(1/4))) (X8). r* - r is smooth in 1/r (X1), so the coordinates are
+     Minkowski's up to smooth corrections, the logarithms of his (1.1) absent.
  (b) (Proposition 3.17.) L = -2 rho_I d_rho_I (rho_0 d_rho_0 - rho_I d_rho_I) + x_I^2 (Lap + 3/4) mod x_I Diff^2_(e,b)
      (X1; the mass enters at r^-2 = rho_0^2 rho_I^2), symmetric on L^2(M, mu_b) with mu_b = rho_0^5 rho_I^4 |dg_m| (X2).
      His multiplier (3.22) gives Q-bar of (3.25) with Lap + 3/4 in place of Lap, positive elliptic under his conditions,
@@ -7489,11 +7522,11 @@ section 3 runs as follows.
      r^-(3/2) for r^-1, and the mass terms rho_0 rho_I (mu r^-2 for 2m r^-1); the leading Minkowski coefficients are
      those of X4's frame. His memberships hold a fortiori.
  (e) (Proposition 3.29.) L_g = -2 (rho_I d_rho_I - A)(rho_0 d_rho_0 - rho_I d_rho_I) + x_I^2 (Lap + 3/4) + L~_g with A
-     X4's matrix at n = 4. The h-dependent entries of his A_g and B_g are bilinear in r^-(3/2) h and r^-(3/2) u, so they
-     carry X5's r^-(1/2) and join L~_g, which stays in (x_I C^oo + H^(k-2,(l_0, 2 l_I))_b) Diff^2_(e,b) since l_I < 1/2.
-     So at n = 4 A_g = A, h-free and lower triangular with scalar diagonal (X4): the hypothesis of his sharp-weight step
-     holds outright, as 10.57(b) found, with the order count now computed for R_11's quadratic term (X5) and the same
-     bilinearity for the rest.
+     X4's matrix at n = 4. The h-dependent entries of his A_g and B_g, each linear in h, are at n = 4 his n = 3 values
+     times r^-(1/2) (X7), so they join L~_g, which stays in (x_I C^oo + H^(k-2,(l_0, 2 l_I))_b) Diff^2_(e,b) since l_I <
+     1/2. So at n = 4 A_g = A, h-free and lower triangular with scalar diagonal (X4): the hypothesis of his sharp-weight
+     step holds outright, as 10.57(b) found, with the orders computed for R_11's quadratic term (X5) and for the
+     h-dependent entries (X7) (D136).
  (f) (Corollary 3.31.) (3.49) holds with A; the (dx^1)^2 component's quadratic term lies r^-(1/2) below the linear one
      (X5), in O^(l_0,l_I)_(k-2), so (3.47) at n = 4 reads 2 rho_I^-1 rho^(7/2) P(g) in rho_0^-1 (-4 gamma_Ups d_1
      h_11)(dx^1)^2 + O^(l_0,l_I)_(k-2): no radiation term at leading order. (The five-dimensional mass aspect, at r^-2 =
@@ -7516,8 +7549,352 @@ This replaces B10's reading by a proof by modification: every place n enters [Hi
 step above is his with the computed quantity in place. For [Hin26] Theorem 5.17's use (10.48(c)), his later gauge's A_0
 at n = 4 is 10.38's, lower triangular with h-free diagonal; X1-X3, X5 and X6 are the same there.
 
-Labels: computed (Proposition 10.48, X1-X6); deduced ((a)-(i)); READ; nothing proved. What remains of B10 is that his
-proofs, read step by step, use n only where (a)-(i) name it: the census read at source, each replacement computed.
+Labels: computed (Proposition 10.48, X1-X8; X7's identification with his (3.29) READ, one entry under a stated reading);
+deduced ((a)-(i)); READ; nothing proved. What remains of B10 is that his proofs, read step by step, use n only where
+(a)-(i) name it: the census read at source, each replacement computed.
+
+
+### 10.65 [Hin26a] section 5.2 at n = 4: the calculus and the commutators (B4; D135)
+
+*The setting.* 10.22 computed in five dimensions every input [Hin26a] section 5.2 takes from the metric and from c, and
+10.56 narrowed B4 to one reading: that the commutator computations of his sections 5.2.1-5.2.6, not redone at n = 4,
+give the signs of the computed five-dimensional symbols. Here they are redone at source. Each is an identity of
+semiclassical symbols in which the dimension does not appear, on a calculus constructed in every dimension.
+
+*READ.* [Hin23d] (arXiv:2302.13803v1; alphaXiv, 2026-10-24; printed page = PDF page): p. 3, "(t, x) in R x R^(n-1) =
+R^n"; p. 7, "polar coordinates r = |x|, omega = x/|x| in S^(n-2)", the 3b-vector fields "r d_t, r d_r, d_omega" (1.7)
+and Diff^m_3b(M) (1.9); pp. 10-11, section 1.1.1, "3b-analysis on R^n takes on a particularly clean form on an
+appropriate compactification of R^n = R_t x R^(n-1)_x"; p. 12, "One can also define 3b-ps.d.o.s (modulo the space
+Psi^-oo_3b(M) of residual operators) as bounded geometry pseudodifferential operators [Shu92] on M^o ... this
+perspective immediately gives a composition law and suffices for the purposes of symbolic analysis"; p. 109, Proposition
+5.10, the composition law, stated for every n. [Hin26a] (arXiv:2606.27658v2; alphaXiv, 2026-10-24): p. 10, the sink's
+weight from "(the eigenvalues of) the subprincipal term E", "cf. Lemma 4.2 and Proposition 5.11"; p. 38, Proposition 5.1
+(3)-(6); p. 47, (5.31)-(5.32), J = h^2 J_0 + h^3 J_1; pp. 51 and 53, the commutants of Propositions 5.8(2) and 5.9 and
+their principal symbol identity "a H_(-l+j) a + S a^2 = c_0 a^2 + b_0^2 + b_K^2 - e^2 + f", b_0 at the corner
+"(rho_sf^-2 [-l(dw/w)] + S + w^-1 H_j w - c_0)^(1/2)", "By Proposition 5.1(4) and the observation that rho_sf^-2 j
+vanishes cubically at o ..., the square root in the definition of b_0 is indeed well-defined", and b_sf's and e's square
+roots from "Proposition 5.1(6)"; p. 54, Proposition 5.11 and its commutant "a = (w')^-1 chi_sf chi_R chi_0, w' =
+rho_sf^(alpha_sf + 1)"; p. 58, Lemma 5.14, "Let (T*, <., .>_G) be a time-oriented Lorentzian vector space". [Hin26d]
+(arXiv:2408.06651; alphaXiv, 2026-10-24), the general construction [Hin26a]'s section 2.3.1 cites (his p. 19), which
+10.56 left OPEN: p. 4, Definition 1.3, "Let M be a smooth n-dimensional manifold. Then a scaled bounded geometry
+structure ... on M is"; p. 8, Definition 1.9, the parameterized version, "Let M be a smooth n-dimensional manifold, and
+let P be a set"; p. 14, example (10), "3b-algebra, defined in [Hin23c] ... the vector fields are r d_t, r d_r, d_omega_m
+(vector fields on S^(n-2))", with unit cells (2^(j-2), 2^(j+2))_t x (2^(k-2), 2^(k+2))_r x (l + (-4, 4)^(n-2))_omega
+(1.15); p. 26, section 3, "We now develop the theory of (parameterized) scaled b.g. structures (Definitions 1.3 and
+1.9)" (D138). With 10.22's READ (pp. 19, 38, 41-60, 64-66) and 10.56's.
+
+*Deduced.*
+
+ (a) (The calculus) [Hin26a]'s semiclassical 3b-calculus, his section 2.3 from [Hin23d] and the bounded-geometry
+     calculus (his section 2.3.1, 10.22's READ p. 19), is constructed on R_t x R^(n-1)_x for every n, [Hin23d]'s n the
+     spacetime dimension (pp. 3, 7, 10-12, 109), and its bounded-geometry construction is [Hin26d]'s, for a smooth
+     manifold of any dimension n, with the 3b-algebra among its examples in every dimension ([Hin26d] pp. 4, 8, 14, 26;
+     10.56's OPEN item, read here): at n = 5 it is the calculus of five-dimensional Tangherlini's compactification, with
+     fibres S^3.
+ (b) (The commutators: Propositions 5.8, 5.9, 5.11, 5.12) Each proof takes the semiclassical principal symbol of
+     (i/2h)[-L_h + J, A^2] + h^-1 (Im L_h) A^2, or its adjoint form, as a H_(-l+j) a + S a^2 (pp. 51, 53-54) and splits
+     it, a being a power of the weight w times cut-offs, into c_0 a^2 + b_0^2 + b^2 - e^2 + f. These are identities of
+     symbols: the commutator's principal symbol is the Hamilton derivative, and on a = w^(-1) chi it is w^(-2) chi^2
+     (-H_(-l+j) log w) + w^(-2) chi H_(-l+j) chi, with -H_(-l) log w = -l(dw/w). The dimension enters only through l, j,
+     S and w, and through the density |dg| in the adjoint that defines S = h^-1 Im L_h. At n = 4 these are 10.13's, with
+     the density r^3 |dr dg-slash| (10.56 READ (3)), and the quantity under each square root is one of his Proposition
+     5.1 (3)-(6), computed in five dimensions (10.14, 10.22(c), (iv)): (3) for b_0 near r = r_0 (Proposition 5.8), (4)
+     for b_0 at dK+ (Proposition 5.9), (5) for b_0 at the sink (Proposition 5.11), (6) for b_K, b_sf and e and for the
+     real principal type propagation between the critical sets (Propositions 5.8, 5.9, 5.12). The cubic vanishing of
+     rho_sf^-2 j at the zero section, which lets b_0's square root exist, comes from J's form (5.32), J = h^2 J_0 + h^3
+     J_1 with h^-2 Im box_h and L_h* rho_sf^-2 box_h, and does not see the dimension.
+ (c) (Propositions 5.5-5.6, 5.16, 5.17) The elliptic and fibre-infinity estimates use Lemmas 3.5 and 3.7, which hold at
+     n = 4 (10.13(i)); the energy estimates use Lemma 5.14, stated for a Lorentzian vector space, and Corollary 5.15,
+     stated for n-dimensional manifolds of bounded geometry (p. 60; there n is spatial, R^(1+n) the spacetime, where
+     [Hin23d]'s n is the spacetime dimension), with 10.22(d)'s hypotheses computed; Proposition 5.17's combination and
+     the duality argument for existence (pp. 64-66) do not see the dimension.
+
+
+So B4's reading is discharged at source: [Hin26a] Theorem 5.2 holds in five dimensions, for h below its h_0, with every
+sign its proof uses computed there, on a calculus constructed in every dimension; 10.21's Theorem 6.2 and 10.23's
+Theorem B.1 follow with it (10.56(b)-(c)). What remains is the census's own claim, that his section 5.2 uses the
+dimension only where (a)-(c) name it, read at source (10.56 READ (1)-(4)) -- as for [Hin23a]'s section 3 in 10.64.
+
+Labels: READ; deduced ((a)-(c)); nothing computed here (the inputs are 10.13, 10.14 and 10.22's); nothing proved.
+
+### 10.66 [CD03]'s gluing and [Hin26]'s boost at n = 4 by modification (`gluing5.py`; D137)
+
+*The setting.* For part (ii) of Theorem 4, 10.63 left two readings besides the estimates: [CD03]'s proof of its Theorem
+8.1 at n = 4, and Hintz's handling of the boost (his sections 3.4, 5.6 and 11-13). Their censuses in full text
+(alphaXiv, 2026-10-24; [CD03] 126 rows, [Hin26]'s boost sections 123) find where the dimension enters. Each place is
+computed here at n = 3 against the printed value and at n = 4, and the proofs are run with the computed quantity in
+place.
+
+*READ.* [CD03] (arXiv:gr-qc/0301073v2; alphaXiv, 2026-10-24; printed page = PDF page): p. 4, "whatever the
+space-dimension n", "we shall assume that n >= 2"; p. 19, Lemma 3.18 and Theorem 3.19 ("open sets in R^n"); p. 22, (5.2)
+"rH^s_k(g) := rH^k_(x, x^(-s-n/2))(g)"; p. 24, Theorem 5.6, "with s >= n - 2, s > 1 if n = 3, k > n/2", the map (5.7) on
+rH^-s and (5.8) with "(delta J, delta rho) in rH^(s-n)_(k+1)(g) x rH^(s-n)_k(g)" and "(delta K, delta g) ... in
+rH^(s-n+1)_(k+2)(g) x rH^(s-n+2)_(k+2)(g)", its proof, "The conditions s >= n - 1 and k > n/2 ensure"; p. 35, "we assume
+that the initial data manifold is three-dimensional", Theorem 8.1, "for some alpha > 1/2 and 2 <= k in N", (8.1), "so
+that all Poincare charges of (K, g) are finite and well defined"; p. 36, Remark 8.2, "The argument below carries over to
+any dimension, the only element missing is an equivalent of Proposition F.1", and the proof: "e^(i), i = 1, ..., 10", "Q
+in R^10", (8.2)-(8.3), "chi in C^oo(R^3)", "We choose the index t to be larger than or equal to k + 5 -- say t = k + 6
+... this ensures the continuous embedding rH^(t-1)_(k+2) subset H^(k+2)", (8.4) with rH^(t-2), "Theorem 5.6 with s = t -
+1 provides a solution delta x_(Q,R) in rH^(t-1)_(k+2) x rH^t_(k+2)" (8.5); p. 37, (8.6) with "O(R^-2 beta)", "on S(0, 1)
+all the initial data considered coincide -- up to a rescaling -- with (g, K) ... by (E.20) ... = R^-1 {Q^0_(i) +
+O(R^-delta)}", (8.7), "up to an additive constant, the maps lambda F_lambda converge ... to the map Q of Proposition
+F.1", "V in R^10"; p. 58, (A.1); pp. 71-75, Appendix E for "n >= 2": (E.5b) "n/2 - 1 < alpha <= n - 2", (E.9),
+Proposition E.1 and its proof, (E.16) ("Q^alpha_beta is a quadratic form in nabla g"), (E.17) "O(R_0^(n-2-2 alpha))",
+(E.19) "For J^munu simple parity considerations lead instead to ... O(R_0^(n-1-alpha-alpha_-))", (E.20a)-(E.20b),
+(E.26)-(E.27). [Hin26] (arXiv:2606.28253v2; alphaXiv, 2026-10-24): p. 63, Definition 2.27, "We denote the (2l +
+1)-dimensional space of spherical harmonics of degree l by S_l := ker(Lap-slash - l(l + 1)) subset C^oo(S^2)"; p. 74,
+(3.21), "g_m - gbar = (2m/r) dt*^2"; p. 77, section 3.4, "A Lorentz boost on Minkowski space in the direction v in R^3
+is given by the time 1 flow of the vector field t v . d_x + (x . v) d_t. Since x . v = rS where S = (x/|x|) . v in S_1,
+the 1-form dual to this vector field is given by omegabar(S) := t d(rS) - rS dt" (3.38), and (3.39); p. 78,
+(3.40)-(3.41) and Lemma 3.18; p. 79, Lemma 3.19, "h_(S,11) := 2m [(cosh(c/2) + (S/c) sinh(c/2))^-3 - 1]" (3.43), "c^2 =
+(3/(4 pi)) ||S||^2_(L^2(S^2))", and (3.44); p. 80, "phi_S^* g_m - g_m = ... = 2m rho [a(theta)^3 - 1] (dt*)^2"; pp.
+108-109, Theorem 5.23, "For all S in S_1 with sufficiently small norm"; p. 246, Proposition 11.30(2), "S^(-1)_(h,b,S) is
+invertible provided h, b, and S are sufficiently small in X^d ..., R^4, and S_1 ~= R^3"; p. 318, Theorem 13.1,
+(13.2)-(13.3).
+
+**Proposition 10.49 (computed; `gluing5.py` D1-D4).** For n = 3 and n = 4:
+
+ (D1) The Killing fields of Minkowski R^(1,n) number (n + 1)(n + 2)/2: [CD03]'s ten at n = 3, fifteen at n = 4.
+ (D2) Carried to Gamma(1, 4) by Phi_R -- g_R(y) = g(Ry), K_R(y) = R K(Ry) -- the linearized charges of the family at
+     Schwarzschild and at Tangherlini scale by R^-(n - 2) for energy and momentum and by R^-(n - 1) for angular momentum
+     and centre of mass.
+ (D3) The embedding of the proof's rH^(t-1)_(k+2) in H^(k+2) needs t >= k + 3 - n/2, met by t = k + 6 at both n. (8.4)'s
+     source rH^(t-2) and (8.5)'s solution rH^(t-1) x rH^t are Theorem 5.6's (5.8) exactly at s = t + n - 2: t + 1 at n =
+     3, t + 2 at n = 4. Theorem 5.6's s >= n - 1 and k > n/2, and Theorem 5.4's exclusions s not in {(n - 1)/2, (n -
+     3)/2}, hold for every k >= floor(n/2) + 1: 2 at n = 3 (the printed "2 <= k") and 3 at n = 4.
+ (D4) With S = c x_n/r in S_1, the 1-form omega(S) = t d(rS) - rS dt raised by Minkowski's metric is c (x_n d_t + t
+     d_(x_n)), so phi_S = exp(V(S)), with V = (1/2) gbar^-1(omega, .) where his cut-offs are 1, is the Lorentz boost of
+     rapidity c/2. The Kerr-Schild metric gbar + mu r^(2-n) (dt*)^2, t* = t - r, is Ricci flat at n = 3 (his (3.21), mu
+     = 2m) and at n = 4. Its mass term pulls back on t = r to mu r^(2-n) a^n (dt*)^2, exactly, with a = (cosh(c/2) + cos
+     theta sinh(c/2))^-1: his h_(S,11) = 2m (a^3 - 1) at n = 3, and mu (a^4 - 1) at r^-2 at n = 4. His c^2 = (3/(4
+     pi)) ||S||^2_(L^2(S^2)) is (n/|S^(n-1)|) ||S||^2_(L^2), 2/pi^2 at n = 4. S_1 has dimension n: four boosts at n = 4.
+
+*Proof.* D1-D4 of `gluing5.py`, sympy, exact. D1 is the rank of the Killing operator on polynomial vector fields of
+degree at most 2. D2 is general5.py's charge integrals of each linearized direction of 10.63's family, before and after
+Phi_R. D3 is the arithmetic of (5.2)'s weights, x^(2i - 2s - n) bounded on the annulus. D4 is the boost on the cone t =
+r, r'^2 = (r D)^2 with D = cosh(c/2) + cos theta sinh(c/2) checked first, plus the Ricci tensor of the Kerr-Schild
+metric and general5.py's sphere integrals. The controls are the n = 3 values above, each [CD03]'s or Hintz's printed
+one. The mutants -- the Killing operator unsymmetrized (D1), K_R without its factor R (D2), the printed s = t - 1 (D3)
+and r for r' in the pull-back (D4) -- are each caught. []
+
+*Deduced: [CD03] Theorem 8.1's proof at n = 4.* By the census, the dimension enters the proof at five steps written for
+n = 3 only (the ten KIDs, the Kerr family, the cut-off on R^3, the homeomorphism, the ball in R^10), through (5.2)'s
+weights, and through Appendix E's exponents. Every result the proof cites is stated for general n (sections 2-4,
+5.1-5.10 and 7, Appendices A-E and G). The census also records that Theorem 5.6's statement asks s >= n - 2 where its
+proof uses s >= n - 1. Step by step:
+
+ (a) (Theorem 3.19, Lemma 3.18, (8.2), the constraint map, Proposition 5.10 and Corollary 5.11.) All are stated for
+     every n. Proposition 5.10's k >= floor(n/2) + 1 is 3 at n = 4.
+ (b) (KIDs, family, cut-off.) e^(i), i = 1, ..., 15 (D1); Q in R^15; 10.63(a)'s translated, rotated and boosted
+     Myers-Perry metrics for the Kerr family; chi in C^oo(R^4).
+ (c) ((8.3)-(8.5).) beta := min(alpha, n - 2), which is 2 for the glued data's alpha = 2. t = k + 6 embeds (D3). Theorem
+     5.6 with s = t + 2 gives (8.5) as printed, for k >= 3 (D3), which smooth data meet. The printed s = t - 1 gives
+     (8.4)'s source a fortiori, but a solution only in rH^(t-3) x rH^(t-2) at n = 3; s = t + n - 2 is the index (8.5)
+     states. This is a reading of [CD03]'s index, recorded.
+ (d) ((8.6)-(8.7).) Each pairing's main term is its charge difference times that charge's own power under Phi_R (D2):
+     R^-2 for E and P at n = 4, R^-3 for J and E C. (8.7) prints R^-1 for every i at n = 3, where D2 gives R^-1 and
+     R^-2; recorded. Theorem 3.19 applies to F_R rescaled componentwise by these powers, an invertible diagonal map that
+     does not move the zeros. The errors are O(R^-2 beta) = O(R^-4) for the KIDs constant at infinity. For the linear
+     ones they are O(R^-(alpha + alpha_-)) under parity and O(R^-2 alpha) without it, the bound of (E.17) times the
+     extra power of r that a linear KID carries. Both lie below the main terms when 2 alpha > n - 2 and either alpha +
+     alpha_- > n - 1 or 2 alpha > n - 1. (E.5b) and (E.9) are printed for every n, and the glued data meet them with
+     alpha = 2, alpha_- = 3 (10.63(b)). The convergence of the charges in (E.20), which the proof uses on S(0, 1) and
+     S(0, 4), has the same exponents.
+ (e) (The homeomorphism and the ball.) 10.63(a): the family's charge map is a local diffeomorphism near Tangherlini,
+     hence a homeomorphism from a neighbourhood onto a set containing a ball V in R^15 about Q^0, and Theorem 3.19 gives
+     the parameter in U = Q^-1(V).
+
+So [CD03] Theorem 8.1 holds at n = 4 for smooth data near Tangherlini's with 1 < alpha <= 2: under (E.9), or without it
+when alpha > 3/2 (D2). The second has no four-dimensional counterpart, because there (E.5b) caps alpha at 1 = (n - 1)/2.
+This is 10.63(c)'s gluing. Since the static slice's data are exact Tangherlini far out, 10.63(b)'s parity condition on a
+perturbation can therefore be replaced by its decay: |gamma~| + r |d gamma~| + r |k~| <= C r^-alpha for some alpha >
+3/2, of either parity.
+
+*Deduced: [Hin26]'s boost at n = 4.*
+
+ (f) (Sections 3.4 and 5.6.) S_1 is the space of degree-1 harmonics on S^3, of dimension 4, matching the four boosts
+     (D1, D4). phi_S is the Lorentz boost of rapidity c/2 cut off as in his (3.39), and Lemma 3.18's support properties
+     are those of the cut-offs. Lemma 3.19 at n = 4 reads phi_S^* g_mu - g_mu = mu r^-2 (a^4 - 1)(dt*)^2 modulo faster
+     terms (D4), at the order r^-2 = r^-(3/2) r^-(1/2). So the boost changes the data inside 10.49's class, where E_0
+     may contain 2 + N (10.63(d)). In four dimensions it changes them at the radiation order r^-1, which needs his
+     separate treatment of the (1,1)-component ([Hin23a] Definition 3.20, cited by him at p. 79). Theorem 5.23's "S in
+     S_1 with sufficiently small norm" carries over with S_1 ~= R^4.
+ (g) (Sections 11.4-13.) The boost enters as the finite-dimensional parameter space S_1 ~= R^4. Proposition 11.30(2)'s
+     S^(-1)_(h,b,S) in L(S_1) is the identity plus o(1) on a four-dimensional space, invertible for small (h, b, S).
+     Definitions 11.25, 11.37, 11.40 and 12.1 and Theorem 12.3 carry S_1, the centre-of-mass shifts S^(0)_1 and b = (mu,
+     A) in the Myers-Perry parameters (10.36) as parameters. The linear growth t* h_(b,s1)(S-dot) at zero energy and the
+     index sets at iota+ that the boost's terms carry are 10.43-10.46's and 10.61-10.62's five-dimensional ones. These
+     are the places the census finds the dimension entering his boost bookkeeping. It read his sections 3.4, 5.6, 11.4,
+     12.2-12.3 and 13.1-13.3 in full and the other boost passages in windows around each occurrence.
+
+This replaces two of Theorem 4 (ii)'s readings by proofs by modification: every place the census finds the dimension
+entering [CD03]'s Theorem 8.1 or [Hin26]'s boost is computed (Proposition 10.49), and each step above is theirs with the
+computed quantity in place. What remains is the censuses' own claim, read at source, that their proofs use n only where
+(a)-(g) name it -- as for [Hin23a]'s section 3 in 10.64 and [Hin26a]'s section 5.2 in 10.65.
+
+Labels: computed (Proposition 10.49, D1-D4); deduced ((a)-(g)); READ; nothing proved.
+
+### 10.67 [Hin26c] sections 7-8 and 9.3 at n = 4 by modification (`edge5.py`; D137)
+
+*The setting.* 10.58(c) and 10.53(e) left one reading of [Hin26c]: that the propagation, radial point, trapping and
+energy estimates of its sections 7-8 and the semiclassical estimates of section 9.3 (Theorem 9.16's proof) hold at n = 4
+once their symbols are five-dimensional. The full-text censuses of sections 7-8 (122 rows) and 9 (119 rows; alphaXiv,
+2026-10-24) find where the dimension enters. Each place is computed here at n = 3 against the printed value and at n
+= 4.
+
+*READ.* [Hin26c] (arXiv:2606.28008v1; alphaXiv, 2026-10-24; printed page = PDF page - 4): p. 101, Remark 5.6, "In the
+present paper, we work in 3 + 1 dimensions for concreteness. The constant 1 in (5.1a) arises naturally when P_0 =
+box_(g_m,a) ... See [Hin23c, section 3.1.2] for matching conventions in general dimension"; p. 142, (8.2), the edge
+coordinates "t*, x_I = r^-(1/2), omega in S^2", (8.3), "P == (1/2) x_I^2 [-2 (x_I d_x_I - 2(1 + p_1)) d_t* + 2 x_I^2
+Lap-slash + p_0]", Lemma 8.1 ("let alpha_I < -1/2 + p-bar_1", (8.5)) and footnotes 58-59 (the metric density, x_I^-6);
+p. 143, (8.9), "X_0 := x_I^(-4 alpha_I - 2)(-x_I d_x_I + d_t*) = r^(2 alpha_I + 1)(2 r d_r + d_t*)", the K-current "(X)K
+:= (X)pi . T = -(1/2)(L_X g^-1)_munu T(d_mu, d_nu), T(X, Y) := X (x)_s Y - (1/2) g(X, Y) g^-1", "the condition alpha_I <
+-1/2 provides positivity on dt* (x) dt* by direct computation", the factor e^(-2 w t*) and "2 w T(X_0, -grad t*) gives
+arbitrary amounts of positive definiteness also on the second symmetric tensor power of the span of dx_I/x_I, x_I^-1
+T*S^2", and (8.10), "(X_0)K == x_I^(-4 alpha_I) [-(2 alpha_I + 1) d_t*^2 - 2 d_t* (x)_s x_I d_x_I - 2(alpha_I + 1) x_I^2
+gslash^-1], T(X_0, -grad t*) == (1/2) x_I^(-4 alpha_I)((x_I d_x_I)^2 + x_I^2 gslash^-1)"; p. 144, (8.11)-(8.14); p. 175,
+"We work with a general stationary wave operator P_0 on M = R_t x X as in Definition 9.3"; p. 179, (9.73), "P_(h,z) = 2i
+z rho h (rho d_rho - (n - 1)/2 - S) + ..."; p. 182, section 9.3.4, "Let P_0 be a general stationary wave operator on M =
+R_t x X (Definition 9.3)"; p. 191, section 9.3.5, "We prove a general result here for a general stationary wave operator
+P_0". The census rows: section 7's radial-set symbols (7.13)-(7.23) and the fields (7.29a)-(7.30), "V_3, V_4, V_5 in
+V(S^2) spanning V(S^2) over C^oo(S^2)", Lemma 7.12's alpha in N_0^6 and the angular Laplacian "as a sum of terms X_a X_b
+... a, b in {3, 4, 5}" (pp. 127-129); section 8.2's "0 <= mu <= nu <= 3", R^3 and X_1, ..., X_4 (pp. 148, 155); Lemma
+8.8's H^3_b (pp. 151-152); section 9.3.3's T*S^2 (p. 179); Theorem 9.28's (2 pi)^(-n-1) (p. 188).
+
+**Proposition 10.50 (computed; `edge5.py` E1-E4).** For n = 3 and n = 4:
+
+ (E1) Minkowski's wave operator in the edge coordinates (t*, x_I = r^-(1/2), omega) is box = x_I^2 (x_I d_x_I - (n - 1))
+     d_t* + x_I^4 ((1/4)(x_I d_x_I)^2 - ((n - 2)/2) x_I d_x_I + Lap_S). Its second-order part does not depend on n
+     except through the sphere's metric. Its first-order term x_I d_x_I - (n - 1) is his x_I d_x_I - 2(1 + p_1), with
+     p_1 = 0, at n = 3, and x_I d_x_I - 2(3/2) at n = 4: Remark 5.6's constant 1 is (n - 1)/2.
+ (E2) The K-current of X_0 on Minkowski, in his frame, is r^(2 alpha_I)[-(2 alpha_I + 1) d_t*^2 - (n - 1) d_t* (x)_s x_I
+     d_x_I - (2 alpha_I + n - 1) x_I^2 gslash^-1] modulo lower order: his (8.10) at n = 3; at n = 4 the d_t*^2
+     coefficient is unchanged, the cross term is -3 and the angular coefficient is -(2 alpha_I + 3). T(X_0, -grad t*) is
+     his (1/2) r^(2 alpha_I)((x_I d_x_I)^2 + x_I^2 gslash^-1) at both n. K + 2 w T is positive definite for alpha_I <
+     -1/2 and w large, and the d_t*^2 entry is positive exactly when alpha_I < -1/2.
+ (E3) The C(n, 2) rotation fields x_a d_b - x_b d_a span T S^(n-1) at every point (3 on S^2, his V_3, V_4, V_5; 6 on
+     S^3), and the sum of their squares is the Laplacian of S^(n-1).
+ (E4) r^(n-1) |dr| = 2 x_I^(-2n) |dx_I/x_I|: his x_I^-6, and x_I^-8 at n = 4. The least integer above (n + 1)/2 is 3 at
+     both n (Lemma 8.8's H^3_b). Lemma 7.12's commuting operators number 2 + C(n, 2) + 1 (his 6; 9 at n = 4). Section
+     8.2's second-order monomials in (t*, x) number (n + 1)(n + 2)/2 (10; 15), and its fields X_1, ..., X_(n+1) number 4
+     and 5.
+
+*Proof.* E1-E4 of `edge5.py`, sympy, exact. E1 applies both sides to e^(c t*) x_I^p Y_lambda. E2 is -(1/2)(L_X0 g^-1)
+contracted with T on the Minkowski metric -dt*^2 - 2 dt* dr + r^2 g-hat, with the leading coefficients taken in the
+frame d_t*, x_I d_x_I = -2 r d_r and x_I d_omega. E3 is the rank at a point of the sphere plus the identity sum
+Omega_ab^2 f = r^2 Lap f on degree-0 functions. E4 is arithmetic. The controls are his (8.3), (8.10), V_3-V_5 and x_I^-6
+at n = 3. The mutants -- 2 for n - 1 (E1), the trace term dropped (E2), n - 1 rotation fields (E3) and r^(n-2) (E4) --
+are each caught. []
+
+*Deduced: [Hin26c] sections 7-8 and 9.3 at n = 4.*
+
+ (a) (Section 7.) Propositions 7.4-7.9 and 7.11 are positive commutator estimates: each takes the principal symbol of a
+     commutator with a weighted commutant and splits it into squares, as 10.65(b) found for [Hin26a] section 5.2. The
+     dimension enters through the characteristic set and radial sets at I+, functions of the principal symbol (E1:
+     n-free but for the sphere). It enters through the dynamics at the horizon and the trapped set, which are
+     five-dimensional Tangherlini's (10.17-10.18), and through the thresholds. Those are stated in p-bar_1 and S-bar,
+     the imaginary part of the subprincipal symbol relative to the metric density, so they are dimension-free once p_1
+     is measured from the symmetric Minkowski part x_I d_x_I - (n - 1) (E1; 10.58(a)). Lemmas 7.12-7.21 commute the
+     fields V_1, V_2 and the rotation fields, 6 of them at n = 4 (E3); every commutator identity they use ([V_1, V_2] =
+     [V_i, V_a] = 0, Lap-slash as a sum of X_a X_b) holds on S^3 (E3); and the counts change as E4 states.
+ (b) (Section 8.) Lemma 8.1's proof is the energy identity with X = e^(-2 w t*) X_0. Its one computation, (8.10), is E2:
+     at n = 4 the d_t*^2 coefficient, which gives the threshold alpha_I < -1/2 + p-bar_1, is his. The cross and angular
+     coefficients change, but his proof bounds them by the 2 w T(X_0, -grad t*) term, which is his at both n and gives
+     arbitrary positivity on dx_I/x_I and x_I^-1 T*S^3. Propositions 8.3 and 8.6, Lemma 8.7 and Proposition 8.9 commute
+     the same fields (a) and use the densities of E4. Section 8.2 near K+ runs on R^4 with X_1, ..., X_5 and fifteen
+     second-order monomials (E4). Lemma 8.8's Sobolev index 3 is unchanged (E4). Theorem 8.14 follows at n = 4.
+ (c) (Section 9.3, Theorem 9.16's proof.) Sections 9.3.1, 9.3.4 and 9.3.5 are stated for a general stationary wave
+     operator on R_t x X. The one numeral is (9.73)'s (n - 1)/2, which is 3/2 at n = 4 (E1, as in 10.53(a)). The
+     cotangent sphere of section 9.3.3 is X's, T*S^3. Theorem 9.28's normalization is (2 pi)^(-n-1). The dynamics are
+     10.17-10.18's.
+
+So [Hin26c]'s sections 7-8 and Theorem 9.16 hold at n = 4 by modification. Every place the censuses find the dimension
+is computed (Proposition 10.50) or is a general-n statement read at source (10.53, (c)), and each step above is his with
+the computed quantity in place. 10.58(c)'s and 10.53(e)'s readings are discharged. As in 10.64-10.66, what remains is
+the censuses' own claim, read at source, that his proofs use n only where (a)-(c) and 10.53 name it. Estimates he quotes
+from [HV26], [Hin23c], [Hin24a] and [Hin21] enter through their statements, which are applied at n = 4 with these
+inputs. ([Hin23c] section 3.1.2 sets its conventions in general dimension, by his Remark 5.6.)
+
+Labels: computed (Proposition 10.50, E1-E4); deduced ((a)-(c)); READ; nothing proved.
+
+### 10.68 [HHV21]'s perturbation arguments at n = 4 (D137)
+
+*The setting.* The record uses two of [HHV21]'s arguments, both in 10.60: the openness in (b, sigma) of invertibility
+(10.60(c), "[HHV21] p. 90's argument"), and Lemma 11.1's setting for the upper semicontinuity of dim ker L^_b(0)
+(10.60(d)). The full-text census of [HHV21] (205 rows; alphaXiv, 2026-10-24) finds the dimension in its counts, its
+weights and its 3 + 1 formulas.
+
+*READ.* [HHV21] (arXiv:1906.00860v2; alphaXiv, 2026-10-24): p. 92, Lemma 11.1, "There exist V in Psi^-oo ... with
+compactly supported Schwartz kernel, and a constant C_1 > 0 such that L-check_b(sigma) := L^_b(sigma) + V ... is
+invertible for sigma in C, Im sigma >= 0, |sigma| < C_1, and |b - b_0| <= C_1", and its proof, "It suffices to prove the
+invertibility for b = b_0, sigma = 0, since arguments as in the proof of Lemma 10.9 then imply the invertibility and
+continuous dependence for (b, sigma) close to (b_0, 0) ... The main input for the perturbation theory is the fact that K
+and R-perp have the same (finite) dimension, namely 7 ... select h#_1, ..., h#_7 ... such that (<h#_i, h*_j>) = delta_ij
+... We then set V = sum_k h#_k <-, h-flat_k>"; the census rows: Lemma 3.4's ranks 1, 4, 10 (p. 28), Proposition 9.1(2)'s
+"7-dimensional kernel and cokernel" (p. 69), "a in R^3", "dim K_(b0,s) = 4, dim K_(b0,v) = 3" (p. 93), the weights s >
+5/2, l in (-3/2, -1/2) (pp. 89-91).
+
+*Deduced.*
+
+ (a) (Lemma 11.1 at n = 4.) Its proof uses of the dimension only N = dim K = dim R-perp, finite: V is built from N pairs
+     with <h#_i, h*_j> = delta_ij and <h_i, h-flat_j> = delta_ij, and (11.2) is the N x N identity. At n = 4, N = 11,
+     the eleven states of 10.60(d) and their duals (10.32-10.33). So L^_b(0) + V is invertible near b_0. Since ker
+     L^_b(0) = {u : (L^_b(0) + V) u = V u} has dimension at most rank V = 11, and the eleven states exist at every b
+     near b_0, the dimension is 11 there: 10.60(d)'s semicontinuity.
+ (b) (The openness, p. 90 and Lemma 10.9.) Invertibility of a family of bounded operators continuous in (b, sigma),
+     between the fixed spaces of [Hin26]'s five-dimensional weights (10.24, 10.52), is open. This does not see the
+     dimension.
+ (c) (The census.) The counts (ranks 1, 4, 10 of the scalar, 1-form and symmetric 2-tensor bundles, which are 1, 5, 15
+     at n = 4; the 7 = 1 + 3 + 3 of Proposition 9.1(2) and Lemma 11.1, which is 11 = 1 + 6 + 4 at n = 4; a in R^3; dim
+     S_1 = 3) and the weights (s > 5/2, l in (-3/2, -1/2)) are [HHV21]'s four-dimensional instances. The record does not
+     use them: its counts and weights are the five-dimensional ones computed in 10.24 and 10.28-10.33.
+
+So the two [HHV21] arguments the record uses hold at n = 4, with N = 11. Labels: deduced ((a)-(c)); READ; nothing
+computed or proved here (N is 10.32-10.33's).
+
+### 10.69 A second census, by token sweep (`censusweep.py`; D139)
+
+*The setting.* 10.64-10.68 rest on censuses taken by reading the full texts, and on the claim that they found every
+place the dimension enters. This sweep tests that claim by another route. It lists every marker of the dimension on
+every page of each carried passage, and each hit is read against the sections.
+
+**Proposition 10.51 (computed; `censusweep.py`).** On the alphaXiv full texts (fetched 2026-10-24) the patterns S^2,
+S^3, R^3, R^4, R^10, 3 + 1, "dimension", "k-dimensional", n - 1, n - 2, n/2, n + 1, a 7 x 7 count and the
+densities |x|^3, r^2 |d..|, x^-6 give 270 hits on 204 pages. By paper: [Hin23a] section 3 (pp. 9-33), 104 hits; [Hin26a]
+section 5.2 (pp. 38-66), 25; [Hin26c] sections 7-8 and 9.3 (pp. 114-157, 174-193), 26; [Hin26]'s boost sections (pp.
+77-81, 108-110, 238-262, 267-278, 301-326), 65; [HHV21] pp. 89-93, 10; [CD03] Theorem 8.1 and Appendix E, 40.
+
+*Read against the sections.*
+
+ (a) [Hin23a]: section 3.1's manifold "n-dimensional" with fibres R^(n-2), Lemma 3.33's d_(n-1) (X6), R^4 as Minkowski's
+     compactification, and 73 sphere hits on the round S^2 (X1-X5): 10.64.
+ (b) [Hin26c]: the rotation fields (E3), the densities r^2, x_I^-6 (E2, E4), section 8.2's R^3 (E4), (9.73)'s (n - 1)/2
+     and Theorem 9.28's (2 pi)^(-n-1) (10.67(c)), Notation 9.2's R^3 (10.53), one codimension and one symbol class
+     S^2_cl: 10.67 and 10.53.
+ (c) [Hin26]: the boost direction in R^3 (D4), c^2 = (3/(4 pi)) ||S||^2 (D4), b in R^4 -- (mu, A) in R^7 at n = 4 --
+     with S_1 ~= R^3 -- R^4 at n = 4 -- in sections 11.4-12 (10.66(g)), the harmonic parameter spaces S_2, S_3, V_2, V_3
+     (10.61-10.62), iota+'s S^2, the splitting (3.37) (exterior5.py X4), and "finite-dimensional" parameters: 10.66,
+     10.61-10.62.
+ (d) [HHV21]: Lemma 11.1's 7 (10.68(a)), Proposition 11.3's 4 and 3 and b in R^4, which the record does not use
+     (10.68(c)), and the bundle S^2 T*X: 10.68.
+ (e) [CD03]: the proof's R^3, R^10 and ball (10.66(b), (e)), section 8.2's reference family on R^3 with charges in R^4 x
+     R^6 (10.63(a)), Appendix E's n-expressions (D2), its "n + 1 = 3 + 1" Schwarzschild and Kerr examples, and Appendix
+     F's R^(1,3) (10.63(a)): 10.63 and 10.66.
+ (f) [Hin26a]: Lemma 5.14 on R^(n+1) and Corollary 5.15 on an n-dimensional manifold (10.65(c)), the S^2 charts,
+     (5.16)'s r^2 |dr dgslash| (the metric density, 10.56 READ (3)), Proposition 5.17's R^3 and T*R^4. One hit is in no
+     section. p. 62, after (5.74): "we use the volume density r^3 |dr dgslash| on level sets of tau, which upon
+     tensoring with |d tau| is a smooth positive multiple of the metric density |dg|". p. 65: "rho_sf^(alpha_sf + 1/2)
+     H-bar^s_b(X, r^2 |dr dgslash|) = rho_sf^(alpha_sf) H-bar^s_b(X, r^3 dr |dgslash|)". At n = 4 the metric density is
+     r^3 |dt dr dgslash_(S^3)|, so the density with that property is r^4 |dr dgslash_(S^3)|, and p. 65's identity reads
+     with r^3 and r^4. This is a choice of norm fixed by the metric density, so (5.74)'s estimate is unchanged. Named
+     here; it adds no input.
+
+So the token sweep finds no place the dimension enters that 10.53-10.58 and 10.63-10.68 do not name, but one norm
+convention, now named. Two censuses by different methods agree. That is evidence for completeness, not a proof of it: a
+dimension can enter without any of these markers, through a numeral read in 3 + 1, which only reading finds. The
+censuses that did that reading are 10.53-10.58's and those behind 10.64-10.68.
+
+Labels: computed (Proposition 10.51, the sweep); READ ((f)'s quotes); deduced (the accounting (a)-(f)); nothing proved.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

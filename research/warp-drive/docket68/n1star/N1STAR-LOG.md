@@ -4105,3 +4105,60 @@ r^(1-k) against the linear (critical at n = 3, r^-(1/2) at n = 4), the Sobolev c
 the computed quantity in place (10.64(a)-(i)). exterior5.py: selftest 12/12 (about ten seconds), mutants 4/4. Remaining
 of item (i): [Hin26c] sections 7-9, [Hin26a] section 5.2, and for part (ii) [HHV21]'s perturbation arguments, Hintz's
 boost sections and [CD03]'s argument at n = 4.
+
+**D135 (2026-10-24): [Hin26a] section 5.2 at n = 4 -- the calculus and the commutators (10.65).**
+
+10.56 had narrowed B4 to one reading, that the commutator computations of [Hin26a] sections 5.2.1-5.2.6, not redone at n
+= 4, give the signs of the computed five-dimensional symbols. Redone at source (alphaXiv, 2026-10-24): each is the
+principal symbol identity a H_(-l+j) a + S a^2 = c_0 a^2 + b_0^2 + b^2 - e^2 + f, in which the dimension enters only
+through l, j, S, w and the density defining S, all 10.13's at n = 4; the square roots are Proposition 5.1 (3)-(6),
+computed (10.14, 10.22); Lemma 5.14 and Corollary 5.15 are stated in every dimension; and the 3b-calculus is constructed
+on R_t x R^(n-1)_x for every n ([Hin23d] pp. 3, 7, 10-12, 109). B4 discharged at source; nothing new computed. The user
+noted that arXiv has a connector: it is alphaXiv, through which every READ of the record was taken; its full-text mode
+now carries the censuses of [Hin26c] sections 7-9, [HHV21]'s perturbation arguments, [Hin26]'s boost sections and
+[CD03]'s gluing.
+
+**D136 (2026-10-24): the fifty-seventh verifier on 10.64 and D133's repairs, seated.** Majors: M1, Theorem 4 (ii) and
+10.63(b)-(c) named the base of the perturbed data as g_lam's data, which on Sigma'' are the glued development's (g_lam
+on Omega, exact Tangherlini outside a compact set) -- named so now; M2, the order of [Hin23a] Proposition 3.29's
+h-dependent entries at n = 4 was stated, not computed -- computed now (exterior5.py X7: from Ric(g) - delta*_(gb,E_C)
+Upsilon(g; gb) linearized in g = gb + r^-k h; at n = 3 his four printed entries in L_2's normalization, at n = 4
+r^-(1/2) times them, exactly). Minors: each entry is linear in h, not bilinear (m1); the duality is computed at n = 3
+and 4, not every n (m3); Lemma 3.6 at n = 4 computed (X8: xbar_I = min(sqrt3/2, 1/(2 mu^(1/4))), r > 2 sqrt(mu), f >
+3/4, (3.8) negative) (m4); the class's gluing needs no parity, the other KIDs' charges vanishing on G-invariant data by
+averaging (m5); lambda1 and delta exist by the deduction (m6); the norms of 10.62(d) for 'Hintz's norms' (m7); P = -E
+v's sign convention (n1); the seating renumbered D136, D135 being 10.65's (m2). exterior5 --selftest 16/16, --mutants
+6/6. The censuses of [Hin26c] sections 7-8 (122 rows), [HHV21] (205), [Hin26]'s boost sections (123) and [CD03] (126)
+came back from the alphaXiv full texts; their replacements at n = 4 follow.
+
+**D137 (2026-10-24): the censuses' readings carried to n = 4 (10.66-10.68).** From the full-text censuses: [CD03]
+Theorem 8.1's proof uses the dimension at five steps written for n = 3, through (5.2)'s weights and through Appendix E's
+exponents; gluing5.py D1-D3 computes them (fifteen KIDs; charges R^-(n-2) and R^-(n-1) under the rescaling; s = t + n -
+2), and 10.66 runs the proof at n = 4. Without parity the linear KIDs' errors are O(R^-2 alpha), so at n = 4 decay
+faster than r^-(3/2) replaces (E.9) -- impossible at n = 3, where (E.5b) caps alpha at 1 -- and Theorem 4 (ii) is
+widened accordingly. Recorded: [CD03]'s printed s = t - 1 gives a solution only in rH^(t-3) x rH^(t-2), and (8.7) prints
+R^-1 for charges D2 scales as R^-2. [Hin26]'s boost (D4): his phi_S is the Lorentz boost of rapidity c/2; the
+Kerr-Schild mass term pulls back to mu r^(2-n) a^n (dt*)^2, his 2m(a^3 - 1) at n = 3 and mu(a^4 - 1) at r^-2 at n = 4,
+inside his class. [Hin26c] sections 7-8 (edge5.py E1-E4): the edge form of the wave operator at I+, the K-current (8.10)
+reproduced at n = 3 with the threshold unchanged at n = 4, the rotation fields of S^3; 10.67 carries sections 7-8 and
+Theorem 9.16's proof to n = 4. [HHV21] (10.68): its two arguments the record uses are dimension-free, Lemma 11.1 with N
+= 11. A first run of the boost prototype exhausted memory and restarted the container; the fifty-eighth verifier,
+reading 10.65 and D136, was restarted with it.
+
+**D139 (2026-10-24): a second census, by token sweep (10.69).** censusweep.py lists every marker of the dimension on
+every page of the passages carried to n = 4 (270 hits, 204 pages). Each was read against the sections. All are accounted
+for but one: [Hin26a] p. 62's density on level sets of tau, r^3 |dr dgslash|, chosen so that with |d tau| it is the
+metric density -- at n = 4, r^4 |dr dgslash_S3|. It is a norm convention and changes no estimate. Also: the 58th
+verifier's brief had named [Hin26c]'s full text for [Hin26a]; corrected by message, 10.65's quotes being from the right
+paper.
+
+**D138 (2026-10-24): the fifty-eighth verifier on 10.65 and D136, seated.** Majors: M1, X7's (4,7) entry -2 matched
+Hintz's printed -(1/2) d_1 h_ab only by contraction with T, a reading not stated; the entry maps the tf block to a
+scalar, so contraction is the natural reading, now stated in exterior5.py, 10.64 and the control, with the coordinate
+reading's -1 recorded (HIN329_ALT) -- the computed -2 and the n = 4 power are unaffected. M2, 10.65's calculus rested on
+[Hin26d], unread (10.56's OPEN item); read at source (arXiv:2408.06651): Definitions 1.3 and 1.9 are for a smooth
+n-dimensional manifold and example (10) builds the 3b-algebra with S^(n-2) fibres, so the item closes. Minors: (E.9) is
+used only for J^munu (m1); [Hin23d] p. 10 quoted verbatim (m2); both n conventions stated (m3); X7 is the principal part
+(m4); X7's operator is (3.30)'s but for the h-free gamma_Ups term (m5); the label of 10.64 now names the reading (m6).
+Nits: xbar_I's cap not computed, stated; timings. The verifier's independent jet-based recomputation reproduced every X7
+coefficient at n = 3 and n = 4 at two radii.

@@ -1893,3 +1893,58 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - B10 is discharged by modification rather than by reading. Remaining readings of Theorem 4: [Hin26c] sections 7-9 and
   [Hin26a] section 5.2 (Phase B's B1-B4), and for part (ii) [HHV21], his boost sections and [CD03]'s argument at n = 4.
   Next: the same census for [Hin26a] section 5.2.
+
+### 4.66 [Hin26a] section 5.2 at n = 4: the calculus and the commutators (READ and deduced; D135)
+
+- READ ([Hin23d] pp. 3, 7, 10-12, 109; [Hin26a] pp. 10, 38, 47, 51, 53-54, 58): the 3b-calculus is built on R_t x
+  R^(n-1)_x for every n; each commutator of Propositions 5.8, 5.9 and 5.11 is a principal symbol identity whose square
+  roots are Proposition 5.1 (3)-(6); Lemma 5.14 is stated for a Lorentzian vector space.
+- Deduced (10.65(a)-(c)): B4's last reading, that the commutator computations give the computed five-dimensional signs,
+  is discharged at source: the identities do not see the dimension, and their positivity inputs are 10.13, 10.14 and
+  10.22's computations. [Hin26a] Theorem 5.2 holds at n = 4 with every sign computed; Theorems 6.2 and B.1 with it.
+  Remaining readings of Theorem 4: [Hin26c] sections 7-9, and for part (ii) [HHV21], his boost sections and [CD03]'s
+  argument at n = 4; their censuses are being taken in full text through the alphaXiv connector.
+
+### 4.67 The 57th verifier on 10.64 and D133's repairs (computed and deduced; D136)
+
+- Computed (`exterior5.py` X7-X8): the h-dependent entries of [Hin23a] Proposition 3.29 from P(g) = Ric(g) -
+  delta*_(gb,E_C) Upsilon(g; gb) linearized in g = gb + r^-k h -- at n = 3 his printed A(7,1), B(7,1), A(4,7), B(4,1)
+  in L_2's normalization, at n = 4 the same numbers times r^-(1/2), exactly (M2: the order was stated, not computed);
+  his Lemma 3.6 at n = 4, xbar_I = min(sqrt3/2, 1/(2 mu^(1/4))) and (3.8) negative with f = 1 - mu/r^2.
+- Deduced (10.63(b)-(c)): the base of the perturbed data is the glued development's, which contains g_lam on Omega and
+  is exact Tangherlini outside a compact set of Sigma'' (M1); the class's gluing needs no parity condition, the charges
+  of the KIDs other than d_t vanishing on G-invariant data by averaging over G. Paper: Theorem 4 (ii) in the norms of
+  10.62(d); lambda1 and delta exist by the deduction, not evaluated; P = -E v with its sign convention.
+- Remaining readings of Theorem 4: [Hin26c] sections 7-9, [HHV21]'s perturbation arguments, [Hin26]'s boost sections
+  and [CD03]'s gluing at n = 4; their full-text censuses are in.
+
+### 4.68 The censuses' readings carried to n = 4 (computed and deduced; D137)
+
+- Computed (`gluing5.py` D1-D4): [CD03] Theorem 8.1's dimension-dependent numbers -- fifteen KIDs, the charges'
+  scaling under the gluing's rescaling, R^-(n-2) and R^-(n-1), the weighted indices s = t + n - 2 -- and [Hin26]'s
+  boost, a Lorentz boost of rapidity c/2 that pulls the mass term back to mu r^-2 (a^4 - 1)(dt*)^2 at n = 4, below the
+  radiation order. (`edge5.py` E1-E4): [Hin26c] sections 7-8 -- the wave operator in edge coordinates at I+, the
+  K-current (8.10) with its threshold alpha_I < -1/2 unchanged, the rotation fields of S^3, densities and counts.
+- Deduced (10.66-10.68): [CD03] Theorem 8.1 at n = 4, and with decay faster than r^-(3/2) in place of its parity
+  condition, which has no four-dimensional counterpart; [Hin26]'s boost sections at n = 4, the boost changing the data
+  inside his class; [Hin26c] sections 7-8 and Theorem 9.16 at n = 4; [HHV21]'s two arguments with N = 11. Recorded:
+  [CD03]'s printed s = t - 1 (the index (8.5) states is s = t + n - 2) and (8.7)'s R^-1 for every charge.
+- Remaining: that the censuses are complete, read at source, not re-derived line by line; and the deductions, not
+  written at proof level. Theorem 4 (ii) now admits perturbations that decay faster than r^-(3/2) without parity.
+
+### 4.69 A second census by token sweep (computed; D139)
+
+- Computed (`censusweep.py`): 270 markers of the dimension on 204 pages of the carried passages, read against the
+  sections: all accounted for by 10.53-10.58 and 10.63-10.68 but [Hin26a] p. 62's density on level sets of tau,
+  r^3 |dr dgslash| at n = 3, r^4 |dr dgslash_S3| at n = 4 -- a norm convention fixed by the metric density, named in
+  10.69 (f).
+- Remaining: completeness of the censuses is evidenced by two methods agreeing, not proved; a dimension entering
+  through a bare numeral is found only by reading.
+
+### 4.70 The 58th verifier on 10.65 and D136 (READ and deduced; D138)
+
+- READ ([Hin26d], arXiv:2408.06651, pp. 4, 8, 14, 26): the scaled bounded-geometry calculus [Hin26a] section 2.3.1
+  cites is set on a smooth n-dimensional manifold, with the 3b-algebra in every dimension among its examples: 10.56's
+  OPEN item on [Hin26d] section 3 closes at source.
+- Stated: X7's (4,7) identification uses the contraction reading (the coordinate reading would give -1); the computed
+  coefficients and the n = 4 power are unchanged, reproduced independently by the verifier.

@@ -284,8 +284,22 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   at n = 3 against his printed values and at n = 4 -- the conjugated wave operator's ((n-1)(n-3)/4) r^-2, the b-density,
   the energy form (3.25) with Lap + 3/4, the gauge endomorphism (2.11) from his Definition 2.2 (at n = 4 the diagonal 2
   gC, gC, 3gC/2, -3gU/2, -gU, 0, -2gU; his Remark 2.3's duality checked), the quadratic radiation term r^-(1/2) below
-  the linear terms, the Sobolev counts (X1-X6). `python3 exterior5.py --selftest` (12/12, about ten seconds),
-  `--mutants` (4/4).
+  the linear terms, the Sobolev counts (X1-X6); his Proposition 3.29's metric-dependent entries, r^-(1/2) times his
+  values at n = 4, and Lemma 3.6's compactification, xbar_I = min(sqrt3/2, 1/(2 mu^(1/4))) (X7-X8; D136). `python3
+  exterior5.py --selftest` (16/16, about forty-five seconds), `--mutants` (6/6).
+- `gluing5.py`: [CD03]'s gluing and [Hin26]'s boost at n = 4 by modification (section 10.66; D137): the Killing fields
+  of R^(1,n); the charges under the gluing's rescaling, R^-(n-2) and R^-(n-1), so that the errors' conditions are (E.5b)
+  and (E.9), and at n = 4 only decay faster than r^-(3/2) replaces parity; the weighted indices of the proof, s = t +
+  n - 2; the boost as a Lorentz boost of rapidity c/2, the mass term pulled back to mu r^(2-n) a^n (dt*)^2 (D1-D4).
+  `python3 gluing5.py --selftest` (4/4, about fifteen seconds), `--mutants` (4/4).
+- `edge5.py`: [Hin26c] sections 7-8 and 9.3 at n = 4 by modification (section 10.67; D137): the wave operator in edge
+  coordinates at I+, first-order term x_I d_x_I - (n - 1); the K-current of Lemma 8.1, his (8.10) at n = 3 and the
+  threshold alpha_I < -1/2 at n = 4; the rotation fields of S^(n-1); densities and counts (E1-E4). `python3 edge5.py
+  --selftest` (4/4, a few seconds), `--mutants` (4/4).
+- `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
+  the passages carried to n = 4 -- 270 hits on 204 pages, every one accounted for by 10.53-10.58 and 10.63-10.68 but one
+  norm convention of [Hin26a] p. 62, named in 10.69. Runs where the alphaXiv full texts have been fetched: `python3
+  censusweep.py --texts DIR --cd03 FILE`.
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).
@@ -311,7 +325,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All fifty-eight are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All sixty-one are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing the
 solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py, lzero5.py
 and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py, cform5.py
