@@ -3669,3 +3669,37 @@ paper.
 
 *Runs.* cone5.py --selftest 3/3 and --mutants 3/3; render_pdf.py --selftest PASS; paper/response5.py --selftest all
 pass; md5 rows refreshed.
+
+## M's words, 2026-10-24
+
+**2026-10-24, after the fiftieth verifier's report and the question how close the counterpart paper is, verbatim:**
+
+> Work the extended work into the paper as support for the commissioned work. Tell me the criteria that separates the
+> work from being proven. Tell me the title again, so I may consider it. The paper will be published to my webpage
+> later today in another session that handles the webpage build. Yes, render the PDF for my review
+
+**2026-10-24, during that arrangement, verbatim:**
+
+> The nonlinear route is only partly built. It has computed and deduced the inputs of Hintz's method in five
+> dimensions through his section 11.1 (sections 10.13–10.42). Many steps there rest on reading his four-dimensional
+> arguments as holding in five dimensions. - the warp session, which needs this work, says that we need to finish the
+> extended nonlinear works
+
+**2026-10-24, next, verbatim:**
+
+> The work has to be finished first and then fully built into the paper
+
+**D110 (2026-10-24): the arrangement withdrawn; the remaining route planned (ROUTES 4.44).**
+
+The paper's sections 8-9 had been arranged as asked (a supporting section 8 with Table 8.1 and a section 8.5 on what
+separates it from a proof, a condensed section 9, the abstract and section 1.3 pointing to them). M's next direction
+puts the work before the paper, so the arrangement is withdrawn and not committed; the draft and its PDF are kept
+outside the tree, and the paper carries only D109's repairs. The criteria that separate the extended work from a proof,
+as they were set out for M: readings of [Hin26], [Hin26a] and [Hin26c] at n = 4; parameter points and finite ranges (one
+gauge point, h below an h_0 his proof does not make explicit, l <= 12); steps not carried (section 11.2 on, section 12,
+section 13, section 5's exterior theorem); computations on the Minkowski model with the transfer deduced; the linear
+route's steps taken in Hung's shape with constants not tracked; and the global step from Theorem 1's domain to a Cauchy
+surface of the exterior. ROUTES 4.44 orders the work that removes them, the class reduction first.
+
+No five-dimensional nonlinear stability theorem for Tangherlini exists to shorten the route: a search of the literature
+(alphaXiv, 2026-10-24, recency first) returned linear, Riemannian and numerical work only.
