@@ -4249,3 +4249,22 @@ modification steps matched step by step against their source proofs, read at sou
 Proposition 9.2 (2) (10.37 (c)). And [Hin26] Propositions 8.11 (10.32 (c)) and 7.4 (10.36 (b)). Sixteen of 61 written
 out (10.75); 45 rest on the censuses. Paper: "but for one".
 
+**D149 (2026-10-24): the sixty-first verifier seated; the continuation across the horizon proved.** The verifier read
+D146-D147 (10.73-10.75 (i)-(xi)) and found four majors. M1: 10.75 (i)'s step (7) used omega's continuation inside the
+horizon, which 10.27 (b) had left OPEN and 10.55 (c) does not give. Repaired by proof: Lemma 10.56 (10.76) -- for z X'
+= A(z) X with A smooth, a solution vanishing to infinite order on one side vanishes (a Gronwall bound), and one smooth
+up to 0 from one side extends as a smooth solution (Borel's lemma and variation of constants against a flat error); the
+same for f phi'' + Q phi' + R phi = 0 with f's zero simple. With it, deduced at proof level: every operator's radial
+system has f = g^-1(dr, dr); omega is smooth up to r_h by the radial components of delta* omega = u, a regular system;
+it continues as a solution of box^Ups omega = 0, so Proposition 6.12 applies on X; and the interior uniqueness (10.15
+(a), 10.16, 10.55 (c)) is proved in place of 'its Frobenius exponents are finitely many'. M2: 10.75 (iii) rests on 10.19
+(d)'s reading; marked, and B-MAP.tsv's row says so. M3: 10.15 (a) and 10.63 (c) named no place; given their places
+(the replaced citation; 10.66's seven), so 52 name some and 9 none, 96 placements (32 computed, 52 section, 11
+arithmetic, 1 choice; 10.31 (b)'s Z4 token counted computed, m6), 31 rows on a reading. M4: the paper called the
+deductions' inputs computed and READ; it now names readings, the modification steps' conclusions, among them (31 of 61;
+ten of the sixteen written out), in the abstract, 1.3 and 8.8. Minors: (xi) Proposition 10.15, with Q's order deduced
+from Proposition 10.45; (viii) [CD03]'s printed s = t - 1 and (8.7) noted; (iv) Corollary 9.43's tf-admissibility
+hypothesis placed; (ii) E5 for l <= 12, 10.24 (a) for every l; (vi) the Killing lift from R x (R^n \ 0), a superset,
+and 'justifies it in one line'; (v) Lemma 2.13 on b-manifolds; paper 1.3 adds the record's choice. The verifier did not
+read D148.
+

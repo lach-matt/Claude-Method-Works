@@ -47,7 +47,8 @@ to a slowly rotating Myers–Perry black hole: Hintz's proof of the nonlinear st
 dimensions, every input that depends on the dimension computed at Schwarzschild–Tangherlini and deduced at nearby
 Myers–Perry parameters, his companion papers' arguments read at source, and the proofs of theirs the route uses carried
 to five dimensions by modification, every place where a full-text census of the source finds the dimension computed, and
-every other deduced step placed on its computed and read inputs, at proof level but for one the supplement names; the
+every other deduced step placed on its computed and read inputs and on the modification steps' conclusions, at proof
+level but for one the supplement names; the
 completeness of those censuses, read rather than re-derived, separates this from a proof (Theorem 4). We list what is
 not proved, the application at physical wavelengths among it.
 
@@ -116,9 +117,10 @@ charges by which the gluing at large radius matches the Myers–Perry family com
 the deduction from a proof is stated in section 8.8. The proofs of those papers that the route uses — [Hin26c]'s
 estimates, [Hin26a]'s constraint damping, [Hin23a]'s at null infinity, [CD03]'s gluing, Hintz's boost and [HHV21]'s
 perturbation arguments — are carried to five dimensions by modification, every place a full-text census of the source
-finds the dimension computed. Every other deduced step is placed on its computed and read inputs, at proof level but for
-one that section 8.8 names, and each modification step lists the places where the dimension changes it, each value
-computed, deduced in an earlier section, or arithmetic in n. What remains is that those censuses are complete, read at
+finds the dimension computed. Every other deduced step is placed on its computed and read inputs and on the modification
+steps' conclusions, at proof level but for one that section 8.8 names, and each modification step lists the places where
+the dimension changes it, each value computed, deduced in an earlier section, arithmetic in n, or the record's choice.
+What remains is that those censuses are complete, read at
 source rather than re-derived line by line.
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
@@ -819,7 +821,8 @@ computed from the linearized Ricci operator itself for every harmonic — each t
 equation whose potential is positive, the tensor type, which four dimensions lacks, with the scalar wave's, and l ≤ 1
 pure gauge — so that every mode of the linearized Einstein operator smooth across the horizon and outgoing at infinity
 is pure gauge (supplement section 10.27, `gmodes5.py`; computed, the proposition deduced on the same readings, the
-kernel elements' class and the uniqueness inside the horizon open). And the zero energy states he builds from the
+kernel elements' class open; the continuation and the uniqueness inside the horizon by a lemma proved in supplement
+section 10.76). And the zero energy states he builds from the
 Minkowskian translations, boosts and rotations, with the linearized Kerr metrics put into his gauge, his Proposition
 8.9, have five-dimensional counterparts one order faster in 1/r and without his two logarithms: Tangherlini meets
 Minkowski at μ/r², the rotations are Killing, the rotating metrics — the derivatives at zero rotation of the
@@ -937,8 +940,9 @@ its sections 5–13 comes from (5.7)'s (n − 1)/2 or from a density, and bundle
 158); [Hin26a]'s section 5.2 takes from the metric only symbol data, all computed here in five dimensions; [Hin23a]'s
 exterior estimates are needed only near a piece of null infinity for compactly supported data, its radiation couplings
 falling half an order at the five-dimensional radiative order r^(−3/2); [Hin26]'s Proposition 2.25 is stated on Rⁿ; and
-[CD03]'s gluing is independent of the dimension. Deduced: the kernel elements' class and the uniqueness inside the
-horizon, by the regular singular point of the radial systems at r_h; the resonances at timelike infinity between 5/2 and
+[CD03]'s gluing is independent of the dimension. Deduced: the kernel elements' class; and the uniqueness inside the
+horizon, with the continuation there that Hintz's mode stability argument needs, by a lemma on the radial systems'
+simple zero at r_h proved in supplement section 10.76; the resonances at timelike infinity between 5/2 and
 3 + ε_+, whose locations the bookkeeping of section 8.4 does not need; and the gluing of section 8.7.
 
 ### 8.6 Without the class
@@ -1038,7 +1042,9 @@ every marker of the dimension on every page of the carried passages finds 278, a
 convention, now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive those papers line by
 line: that the censuses found every place the dimension enters is evidenced by the two methods agreeing and read at
 source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 are arguments from
-computed and READ inputs, each read by an independent verifier, not proofs written out at the level of the theorem's
+computed inputs, inputs READ at source, and readings — statements of the companion papers at n = 4 that the modification
+steps carry, on which 31 of those steps rest — each read by an independent verifier, not proofs written out at the level
+of the theorem's
 statement. Inventoried by a fixed rule, the 248 deduced steps are 90 pieces of bookkeeping on computed values, 29
 applications of results printed for general n, 31 perturbation or continuity arguments, 38 other, and 60 proofs written
 in 3 + 1 dimensions and carried to five by modification. Those 60 are the core of what a line-by-line check would write
@@ -1050,13 +1056,14 @@ general-n results have every hypothesis placed, three of them now read at source
 others, read one by one, are twelve with no step of their own, 25 at proof level given their inputs — among them steps
 by symmetry and sums over harmonics, put there by two lemmas proved in the supplement — and one more modification step
 (supplement section 10.73; `synth5.py`). Each of the 61 modification steps lists the places where the dimension changes
-its proof — 50 name some, 11 none, the proof being the source's as it stands — and each five-dimensional value there is
+its proof — 52 name some, 9 none, the proof being the source's as it stands — and each five-dimensional value there is
 computed, deduced in an earlier section, arithmetic in n, or the record's choice (supplement section 10.74,
 `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those places, which is the census
 question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i), but for one step, which rests
 on a modification step and so on the census (supplement section 10.73). Sixteen of the 61 have source proofs of one to
-five pages, now written out step by step at n = 4, so they rest on their inputs and not on a census (supplement section
-10.75); the other 45 carry longer proofs, in [Hin26] sections 5–13, [Hin26c] sections 5–14, [Hin26a] sections 4–6 with
+five pages, now written out step by step at n = 4, so their own steps rest on their inputs and not on a census, though
+ten take a reading among those inputs (supplement section 10.75, with a lemma at the horizon proved in section 10.76);
+the other 45 carry longer proofs, in [Hin26] sections 5–13, [Hin26c] sections 5–14, [Hin26a] sections 4–6 with
 its appendices and [Hin23a] section 3. λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's
 estimates — and are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the
 deductions written out, would make Theorem 4 a theorem.
@@ -1157,7 +1164,12 @@ deductions written out, would make Theorem 4 a theorem.
   dropped; with five minor findings, all seated (D143); sections 10.70–10.74 and those repairs were read by the
   sixtieth, which found Lemma 10.54's differentiated sum asking a second r-derivative its hypothesis did not give — the
   hypothesis widened and the weights for the two harmonic sums written out — and this paper's proof-status sentences
-  stronger than the supplement's own accounting, now qualified, with six minor findings, all seated (D147).
+  stronger than the supplement's own accounting, now qualified, with six minor findings, all seated (D147); sections
+  10.73–10.75 were read by the sixty-first, which found one step written out at n = 4 using the gauge 1-form's
+  continuation inside the horizon, open in the supplement — now proved, by a lemma on the radial systems (supplement
+  section 10.76) — two modification steps counted as naming no place and one reading unmarked, now placed and recounted,
+  and this paper's account of the deductions' inputs silent on readings, now stated, with nine minor findings, all
+  seated (D149).
 
 ---
 
@@ -1790,6 +1802,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | the undecided steps placed, section 8.8 | supplement section 10.73; `docket68/n1star/synth5.py` S1–S3; [KI03] |
 | the modification steps' changes placed, section 8.8 | supplement section 10.74; `docket68/n1star/B-MAP.tsv` |
 | sixteen modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26c], [CD03] |
+| the continuation and uniqueness inside the horizon, sections 8.4, 8.5 | supplement section 10.76 |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1815,7 +1828,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the fifty-second section 10.43 (D111, D115); the fifty-third sections 10.44–10.46 (D112–D114, D121); |
 | | the fifty-fourth sections 10.47–10.52 (D116–D122, D126); the fifty-fifth sections 10.53–10.57 |
 | | (D123–D126, D129); the fifty-sixth sections 10.58–10.63 and this paper (D127, D128, D130–D133) |
-| | the fifty-seventh section 10.64 and the repairs of D133 (D134, D136) |
+| | the fifty-seventh section 10.64 and the repairs of D133 (D134, D136); the fifty-eighth to |
+| | sixty-first sections 10.65–10.75 (D138, D143, D147, D149) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1900,7 +1914,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `d81822981d8ffab0054aa87f9e8968c3` |
+| `docket68/n1star/N1STAR-PROOF.md` | `2d7172812ca7f9259795151bfeeaff39` |
 | `docket68/n1star/N1STAR-LOG.md` | `3750d3a44df8a6efc3da204b1e1f6371` |
 | `docket68/n1star/README.md` | `5730349b87d62e093f9623a2fbfc8d04` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
@@ -1969,6 +1983,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/B-MAP.tsv` | `938f5bb2a6beb2e0980ce59ed9c0264b` |
+| `docket68/n1star/B-MAP.tsv` | `7ec8bd5e07bb8abeb3775f4e1be56d9d` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

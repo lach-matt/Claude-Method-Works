@@ -3192,16 +3192,16 @@ vanishes there and A/f is smooth. Multiplying by A and integrating over [r_h, oo
 (A(r_h) = 0, and A ~ r^-(l+2) at infinity), gives -int r^3 A'^2 = kappa int r A^2/f, so A = 0. Then B, C and V are
 smooth at r_h, and the identities of (ii), integrated over [r_h, oo) with the boundary terms vanishing at r_h (f = 0)
 and at infinity (decaying exponents at least 2, by (i)), give B = C = V = 0. Inside the horizon a kernel element
-vanishes to infinite order at r_h, a regular singular point of each mode's equations, and so vanishes. This is his Lemma
-6.10's kernel in five dimensions, which [Hin26] takes from [AHW24] on Kerr; here Tangherlini is static and the argument
-is an energy identity. The smoothness of kernel elements at the horizon, and their expansion at infinity, are [Hin26c]'s
-radial-point and b-regularity, taken as in four dimensions and OPEN in five. (b) By (iv), delta(r - r_h) dr annihilates
-the range of box(0); it spans the cokernel once the index is 0, which in four dimensions is [Hin26c] Corollary 9.43 with
-his Lemma 6.8 (tf-admissibility). (c) With (a), (b) and (v), the augmented zero-parameter operator of his Step 1 is
-injective: pairing box(0) u + c f(0, sigma^, gamma^) = 0 with omega* gives c = 0, then u is a multiple of W* and the
-augmentation row makes it 0. By (vi), the first summand of f lies in rho^3 C^oo, inside the target space when alpha + 2
-< 1; with (a), which needs alpha + 2 in (0, 2), the admissible range is alpha + 2 in (0, 1) (his condition is alpha +
-2 + eta < 3/2, p. 124).
+vanishes to infinite order at r_h, a regular singular point of each mode's equations, and so vanishes (Lemma 10.56 (c);
+D149). This is his Lemma 6.10's kernel in five dimensions, which [Hin26] takes from [AHW24] on Kerr; here Tangherlini is
+static and the argument is an energy identity. The smoothness of kernel elements at the horizon, and their expansion at
+infinity, are [Hin26c]'s radial-point and b-regularity, taken as in four dimensions and OPEN in five. (b) By (iv),
+delta(r - r_h) dr annihilates the range of box(0); it spans the cokernel once the index is 0, which in four dimensions
+is [Hin26c] Corollary 9.43 with his Lemma 6.8 (tf-admissibility). (c) With (a), (b) and (v), the augmented
+zero-parameter operator of his Step 1 is injective: pairing box(0) u + c f(0, sigma^, gamma^) = 0 with omega* gives c =
+0, then u is a multiple of W* and the augmentation row makes it 0. By (vi), the first summand of f lies in rho^3 C^oo,
+inside the target space when alpha + 2 < 1; with (a), which needs alpha + 2 in (0, 2), the admissible range is alpha + 2
+in (0, 1) (his condition is alpha + 2 + eta < 3/2, p. 124).
 
 *READ.* [Hin26] (alphaXiv, 2026-10-21): pp. 25-26 (section 1.4.1), 82 ((4.6)), 113 (section 6, (6.1)-(6.6)), 117-118
 (Lemma 6.6, (6.17a)-(6.17b), Remark 6.7, Lemma 6.8), 119-124 (section 6.4: Proposition 6.9, Lemmas 6.10-6.11,
@@ -3305,12 +3305,12 @@ survives in each sector at l >= 1; at l = 0 the Maxwell scalar potential is nega
 is settled by the equation, M_r = -i sigma F_tr/f, not by positivity. Not done, and OPEN: that the kernel elements of
 his spectral family in five dimensions lie in the class -- [Hin26c] Theorem 9.5(5) in five dimensions, kernel elements
 in A^(3/2 - eps) by 10.18(b) with S-bar = 0 -- and the index 0 that turns injectivity into invertibility (his p. 119),
-with the vanishing carried from r > r_h to the region inside the horizon by the standard interior uniqueness; his
-Proposition 6.5, from section 6.1's trapping (whose input, his Lemma 6.4, 10.17 deduces), and the uniform estimates of
-[Hin26c] Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there for small E^Upsilon; and the
-low-energy part (10.15). Nothing of this section is proved: Proposition 10.13 is computed, and the mode stability is
-deduced. 10.19 deduces all of these but the low-energy part, on the reading of [Hin26c] section 9 stated there (10.20
-widens it for the low-energy part).
+with the vanishing carried from r > r_h to the region inside the horizon by the standard interior uniqueness (10.76 (b);
+D149); his Proposition 6.5, from section 6.1's trapping (whose input, his Lemma 6.4, 10.17 deduces), and the uniform
+estimates of [Hin26c] Theorem 9.5 in five dimensions, which with this give his Proposition 6.9 there for small
+E^Upsilon; and the low-energy part (10.15). Nothing of this section is proved: Proposition 10.13 is computed, and the
+mode stability is deduced. 10.19 deduces all of these but the low-energy part, on the reading of [Hin26c] section 9
+stated there (10.20 widens it for the low-energy part).
 
 ### 10.17 Strong trapping admissibility of the gauge potential operator in five dimensions (`trap5.py` T0-T4; D59)
 
@@ -4393,7 +4393,8 @@ where (2.24a-c) fail; in (iv) f_t left free at l = 1, where the derivative-free 
      at Proposition 10.9's point with gam_Ups small, L-hat(sigma) is injective, and so invertible, at 0 != sigma, Im
      sigma >= 0 -- with, as in 10.16, the kernel elements' class ([Hin26c] Theorem 9.5(5) in five dimensions), omega's
      continuation into the part of X inside the horizon as a solution there (the harmonics summed), and the vanishing of
-     u carried from r >= r_h to that part by the standard interior uniqueness, all OPEN.
+     u carried from r >= r_h to that part by the standard interior uniqueness, all OPEN (D149: the continuation and the
+     interior uniqueness proved in 10.76; the class stays on 10.53 (c)'s reading, 10.55 (b)).
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-23): pp. 25 (section 1.4.1: "Mode stability for the ungauged
 linearized Einstein equation D_{g_b} Ric(h) = 0 (see [AHW24, Theorem 6.1(1)]) implies that h is the sum of a linearized
@@ -4409,11 +4410,11 @@ gauge 1-form in the same class. The computation is [KI03]'s, carried from their 
 directly: the tensor type, which four dimensions lacks, has the potential of 10.16's scalar wave (k_T^2 + 2 = l(l + 2));
 the vector potential's -27 mu/(4 r^2) and the scalar potential's Q leave both positive at l >= 2; and l <= 1 is pure
 gauge at nonzero frequency. Not done, and OPEN: the kernel elements' class, omega's continuation inside the horizon and
-the interior uniqueness, as in 10.16; how small gam_Ups must be, and h_0, below which Proposition 10.9's h = 10^-6 must
-lie (10.21(e)); the zero-energy analysis of his section 8.4 (Proposition 8.9, Remark 8.10 and Proposition 8.11, [AHW24]
-Theorem 6.1(2); 10.28 deduces Proposition 8.9, 10.32 Proposition 8.11 up to [AHW24] Theorem 6.1(2), which 10.33 deduces
-at a = 0), section 8.5 and sections 9-10, in five dimensions; and the readings of 10.19-10.26. Nothing of this section
-is proved: Proposition 10.24 is computed, and (a)-(b) are deduced.
+the interior uniqueness, as in 10.16 (the last two proved in 10.76; D149); how small gam_Ups must be, and h_0, below
+which Proposition 10.9's h = 10^-6 must lie (10.21(e)); the zero-energy analysis of his section 8.4 (Proposition 8.9,
+Remark 8.10 and Proposition 8.11, [AHW24] Theorem 6.1(2); 10.28 deduces Proposition 8.9, 10.32 Proposition 8.11 up to
+[AHW24] Theorem 6.1(2), which 10.33 deduces at a = 0), section 8.5 and sections 9-10, in five dimensions; and the
+readings of 10.19-10.26. Nothing of this section is proved: Proposition 10.24 is computed, and (a)-(b) are deduced.
 
 ### 10.28 [Hin26] section 6.5.1, Proposition 8.9 in five dimensions: zero energy states (`zstates5.py` Z1-Z6; D80, D82)
 
@@ -5057,10 +5058,11 @@ at the horizon and decaying, and l = 0 and 1 give the mass, the rotations and pu
 holds at Tangherlini with eleven for seven, and his augmented operator is invertible there; near Tangherlini, on a
 reading, Proposition 8.11 and his Corollary 8.13. Not done, and OPEN: [AHW24] Theorem 6.1(2) on Myers-Perry with a != 0
 beyond that reading; the class of (8.22)'s kernel elements and their smoothness across the horizon in five dimensions
-line by line; omega's continuation inside the horizon, as in 10.27(b); his section 8.5 beyond 10.34 (Proposition 8.14,
-Lemma 8.15) and sections 9-10; section 7.2.1 beyond first order in the rotation (10.36: Lemma 7.5 at every spin
-computed; Proposition 7.4 and (7.19) deduced on readings); the readings of 10.20-10.22 line by line; how small gam_Ups
-must be, and h_0. Nothing of this section is proved: Proposition 10.30 is computed, and (a)-(g) are deduced.
+line by line; omega's continuation inside the horizon, as in 10.27(b) (proved in 10.76; D149); his section 8.5 beyond
+10.34 (Proposition 8.14, Lemma 8.15) and sections 9-10; section 7.2.1 beyond first order in the rotation (10.36: Lemma
+7.5 at every spin computed; Proposition 7.4 and (7.19) deduced on readings); the readings of 10.20-10.22 line by line;
+how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.30 is computed, and (a)-(g) are
+deduced.
 
 ### 10.34 [Hin26] section 8.5 in five dimensions: the physical large zero energy states (`physical5.py` Y1-Y4; D91)
 
@@ -6935,7 +6937,9 @@ flat (T1) and whose connection is one order below Minkowski's, not two (T2). []
      on X, smooth across the horizon by the radial point estimate there, that vanishes for r > r_h vanishes to infinite
      order at r_h; a solution of a regular singular system with that property is zero near r_h (its Frobenius exponents
      are finitely many), and then on (r_int, r_h) by uniqueness for the regular system. This is the "standard interior
-     uniqueness" of 10.16.
+     uniqueness" of 10.16. (D149: that a solution vanishing to infinite order at a regular singular point vanishes near
+     it is Lemma 10.56 (a), proved in 10.76; the finiteness of the exponents alone does not give it for coefficients
+     that are only smooth.)
 
 B9 is discharged (computed and deduced); B7 is deduced, the index 0 at nonzero frequency on 10.53(e)'s reading. Labels:
 computed (Proposition 10.45), deduced ((a)-(c)); nothing proved beyond that.
@@ -8205,13 +8209,15 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 50 name the places where the dimension changes the proof, 85 places in all, and 11 name
-none: the step is the source proof as it stands. The 88 placements of the five-dimensional values are: 26 at a computed
-check, 50 at an earlier section where they are computed or deduced, 11 arithmetic in n (an entry naming an instrument or
-a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n, 4 +
-6 + 1 = 11, R^(n,1)) and 1 the record's choice (gamma_Ups = 1/100). 30 rows say they rest on a reading -- of a source
-theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
-dimension-dependent places by census and modification (D147).
+*Measured.* Of the 61 rows, 52 name the places where the dimension changes the proof, 93 places in all, and 9 name none:
+the step is the source proof as it stands. The 96 placements of the five-dimensional values are: 32 at a computed check,
+52 at an earlier section where they are computed or deduced, 11 arithmetic in n (an entry naming an instrument or a
+check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n, R^n,
+R^(n,1)) and 1 the record's choice (gamma_Ups = 1/100). 31 rows say they rest on a reading -- of a source theorem at n =
+4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers' dimension-dependent
+places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation replaced at n = 4,
+and 10.63 (c), whose seven places 10.66 computes, named none, 10.15 (a)'s reading was unmarked, and 10.31 (b)'s
+placement naming zstates5.py Z4 was counted arithmetic (the sixty-first verifier).
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8245,37 +8251,46 @@ each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 tex
      delta G D Ric = 0, so delta G applied to L_b h = 0 gives (1/2) box^C eta = delta G delta*_(E^C) eta = 0 with eta :=
      delta_(E^Ups) G h, box^C := 2 delta G delta*_(E^C) (his p. 145), eta one order more decaying since delta in rho
      Diff^1_b; (4) eta = 0 by Theorem 7.1 (1) (10.21 (e)-10.23); (5) so D Ric(h) = 0, and [AHW24] Theorem 6.1 (1) on
-     Tangherlini (10.27 (a), gmodes5.py, the sum over harmonics by Lemma 10.54) gives u = delta-hat*(sigma) omega; (6)
-     eta = delta_(E^Ups) G delta* omega = (1/2) box^Ups omega, box^Ups := 2 delta_(E^Ups) G delta* (his p. 144), so
-     box^Ups(sigma) omega = 0; (7) omega = 0 by Proposition 6.12 (10.20 (e)) on all of X, omega continued inside the
-     horizon as a solution and the interior uniqueness of 10.55 (c) applying, so u = 0. Steps (2), (3) and (6) are
-     identities in every dimension; the rest are earlier sections.
+     Tangherlini (10.27 (a), gmodes5.py, the sum over harmonics by Lemma 10.54) gives u = delta-hat*(sigma) omega on r >
+     r_h; (6) eta = delta_(E^Ups) G delta* omega = (1/2) box^Ups omega, box^Ups := 2 delta_(E^Ups) G delta* (his p.
+     144), so box^Ups(sigma) omega = 0 there; (7) harmonic by harmonic, omega is smooth up to r_h and continues inside
+     the horizon as a solution by Lemma 10.56, so it is 0 by Proposition 6.12 (10.20 (e)) on all of X, and u = 0 on r >
+     r_h and then on X (10.76 (b)-(c); D149). [AHW24] gives omega on X for Kerr, 10.27 (a) on r > r_h; the first writing
+     of (7) took the continuation from 10.55 (c), which has only the interior uniqueness (the sixty-first verifier).
+     Steps (2), (3) and (6) are identities in every dimension; the rest are earlier sections, (1), (4) and Proposition
+     6.12 on the readings of 10.19-10.22.
 
  (ii) 10.24 (b), [Hin26] Lemma 8.5 (p. 151). His proof: 0 is an indicial root of the types s0 and s2 only; there the
      kernel is one-dimensional and spanned by the leading term of a gauged state, which satisfies the gauge condition,
-     so its leading term satisfies (8.14). At n = 4, lin5.py E5 computes the first two facts exactly and the conclusion
-     itself, N(r delta_(E^Ups) G, 0) vanishing on the kernel (10.24 (iv)), at the record's point; his argument through
-     the gauged states h^(0)_(b,s0) (10.28-10.30) gives it for every z > 0.
+     so its leading term satisfies (8.14). At n = 4, lin5.py E5 computes the first two facts exactly for l <= 12, 10.24
+     (a) gives them for every l, and E5 computes the conclusion itself, N(r delta_(E^Ups) G, 0) vanishing on the kernel
+     (10.24 (iv)), at the record's point; his argument through the gauged states h^(0)_(b,s0) (10.28-10.30) gives it for
+     every z > 0.
 
  (iii) 10.15 (a), [Hin26] Lemma 6.10 (p. 120). His proof is a citation of [AHW24] Theorem 5.1 (2) on Kerr. At n = 4 it
      is replaced, not carried: on static Tangherlini each mode's equations are ODEs in r, and the kernel is found by an
      energy identity integrated over [r_h, oo) with the boundary terms computed (10.15 (i)-(ii), gaugepot5.py), the
-     interior by 10.55 (c).
+     interior by 10.76 (b). It rests on a reading: the kernel elements' smoothness at the horizon and their expansion at
+     infinity are [Hin26c]'s radial-point and b-regularity at n = 4, 10.19 (d)'s reading, which 10.15 (a) names (the
+     sixty-first verifier; B-MAP.tsv's row now says so).
 
  (iv) 10.15 (b), [Hin26c] Corollary 9.43 (p. 200). His proof: augment the zero energy operator by maps E_01, E_10 onto a
      complement of its range and from its kernel; Theorem 9.41 gives the augmented operator invertible at sigma = i eps
      for small eps > 0; the index of (9.18) is 0; so the kernel and cokernel have equal dimension. At n = 4 the two
-     inputs are Theorem 9.41 (10.39 (e), 10.53) and the index of (9.18) (10.19, 10.53); the rest is linear algebra in
-     any dimension.
+     inputs are Theorem 9.41 (10.39 (e), 10.53) and the index of (9.18) (10.19, 10.53), and the corollary's hypothesis,
+     tf-admissibility (his Lemma 6.8 in four dimensions), is 10.15 (b)'s, on 10.20's reading; the rest is linear algebra
+     in any dimension.
 
  (v) 10.29 (a), [Hin26] Lemma 6.13 (pp. 124-125). Its invertibility is Proposition 6.12's at zero energy (10.20 (e)),
-     and his proof of its final part is Lemma 2.13, a statement on any compact manifold with boundary, here [0, rho_0) x
-     S^3.
+     and his proof of its final part is Lemma 2.13, a statement on b-manifolds, here [0, rho_0) x S^3.
 
  (vi) 10.30 (c), the injectivity of N(delta-bar*(0), lam) at sl and vl for l >= 2 ([Hin26]'s remark after (2.46c), p.
-     67, which states it without proof). The record's argument: delta-bar*(0) is homogeneous, so a kernel element gives
-     a stationary Killing 1-form rho^lam omega of Minkowski space, and the Killing fields of R^(1,n) -- 15 at n = 4
-     (gluing5.py D1), the translations, rotations and boosts -- have harmonic degree l <= 1 in every dimension.
+     67, which justifies it in one line). The record's argument: delta-bar*(0) is homogeneous, so a kernel element gives
+     a stationary Killing 1-form rho^lam omega of Minkowski space on R x (R^n \ 0); on that connected open set a Killing
+     field is the restriction of one of R^(1,n)'s, a Killing field being fixed by its value and first derivative at a
+     point and flat space realizing every such pair; and the Killing fields of R^(1,n) -- 15 at n = 4 (gluing5.py D1),
+     the translations, rotations and boosts, a superset of the stationary ones -- have harmonic degree l <= 1 in every
+     dimension.
 
  (vii) 10.39 (d), [Hin26] Proposition 10.6 (p. 208). His proof: index 0 (Proposition 8.11) reduces invertibility to
      injectivity; a kernel element (u, b-dot, S-dot) satisfies Lemma 10.4's identity; pairing with the dual states,
@@ -8289,10 +8304,11 @@ each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 tex
      e^(i), 15 (D1), and the charges Q^(i) of (E.26); the family of translated, rotated and boosted Myers-Perry metrics
      (10.63 (a)); the scale-down (8.2) and the cut-off on R^4; (8.3) with beta = min(alpha, n - 2) = 2; t = k + 6 (D3);
      (8.4) from (8.3), the constraint maps being smooth in the data and vanishing at flat data; Theorem 5.6 with s = t +
-     n - 2, giving (8.5) (D3); the pairing with the KIDs and (E.27)'s boundary form, (8.6); the charges on S(0, 1) and
-     S(0, 4) at D2's powers with (E.20)'s errors, (8.7) componentwise rescaled; the charge map's local diffeomorphism
-     (10.63 (a), Proposition 10.47); Theorem 3.19's conclusion with V a ball about the data's charges (10.66 (e)); and
-     the smooth case by Proposition 5.10 and Corollary 5.11 (10.66 (a)).
+     n - 2, giving (8.5) (D3), where [CD03] prints s = t - 1 (p. 36; a reading of its index, 10.66 (c)); the pairing
+     with the KIDs and (E.27)'s boundary form, (8.6); the charges on S(0, 1) and S(0, 4) at D2's powers with (E.20)'s
+     errors, (8.7) componentwise rescaled, where [CD03] prints R^-1 for every charge (read as a misprint, 10.66 (d));
+     the charge map's local diffeomorphism (10.63 (a), Proposition 10.47); Theorem 3.19's conclusion with V a ball about
+     the data's charges (10.66 (e)); and the smooth case by Proposition 5.10 and Corollary 5.11 (10.66 (a)).
 
  (ix) 10.31 (a), [Hin26] Lemma 7.2 (pp. 137-138). His proof has two parts: (1) duality with the target space of (7.7),
      the unweighted b-density shifting the weight by n/2; (2) (7.10), the adjoint's indicial family through the density
@@ -8309,7 +8325,10 @@ each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 tex
 
  (xi) 10.18 (b), [Hin26] Lemma 6.1 (1) (pp. 113-114). Its statement -- the operator's structure at infinity -- is not
      carried from his proof but computed at n = 4: rho d_rho - 3/2 in place of rho d_rho - 1, S-bar's spectrum, and the
-     differences (6.7) gaining a power (Proposition 10.18 (i), (ii), (iv); thresh5.py).
+     differences (6.7) gaining a power (Proposition 10.15 (i), (ii), (iv), in section 10.18; thresh5.py). Q in rho^3
+     Diff^1_b ((6.4b)) is deduced from Proposition 10.45 (D149): the model's sigma-linear part is the leading term, and
+     the rest comes from g^-1(dt*, dr) + 1 = 2 mu/r^2 against d_r = -rho^2 d_rho and from the connection's and the
+     damping 1-forms' differences from the model, of order r^-3, against d_t*.
 
  (xii) 10.28 (a), [Hin26] Proposition 6.15 (pp. 125-128; D148). His proof has four parts and a regularity paragraph: the
      time translation (Killing); the translations (f_b's order by Lemma 6.14, the correction by Lemma 6.13, 1 no s1
@@ -8360,11 +8379,82 @@ each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 tex
 
 
 So sixteen of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. The other 45 carry proofs of several pages each, in [Hin26] sections 5-13,
-[Hin26c] sections 5-14, [Hin26a] sections 4-6 with its appendices A-B, and [Hin23a] section 3; writing those out is what
-remains of 8.8.
+B-MAP.tsv's column `written` marks them. Ten of the sixteen take a reading among their inputs (B-MAP.tsv's column
+`reading`: 10.15 (a), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.36 (b), 10.37 (c), 10.39
+(d)), and rest on the census through that input, not through their own steps (the sixty-first verifier; D149). The other
+45 carry proofs of several pages each, in [Hin26] sections 5-13, [Hin26c] sections 5-14, [Hin26a] sections 4-6 with its
+appendices A-B, and [Hin23a] section 3; writing those out is what remains of 8.8.
 
-Labels: READ (the sixteen source proofs); deduced (the matching); nothing computed or proved here.
+Labels: READ (the sixteen source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+which (i) uses, being proved in 10.76.
+
+### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)
+
+*The setting.* [Hin26]'s kernel arguments at nonzero frequency end with a mode stability statement on all of X, which
+reaches inside the horizon to r_in < r_h. At n = 4 their inputs are computed on r > r_h: 10.27 (a), in place of [AHW24]
+Theorem 6.1 (1), writes a mode as u = delta-hat*(sigma) omega there, and Proposition 6.12 (10.20 (e)) then needs omega
+on X. 10.27 (b) left omega's continuation inside the horizon OPEN, 10.55 (c) deduced the interior uniqueness from the
+regular singular point at r_h without a bound, and 10.75 (i) used both (the sixty-first verifier). Both follow from one
+lemma on linear ordinary differential equations whose leading coefficient has a simple zero.
+
+**Lemma 10.56 (proved).** Let delta > 0, I = (-delta, delta) and A in C^oo(I; C^(N x N)), and consider z X'(z) = A(z)
+X(z).
+ (a) A solution on (0, delta) with |X(z)| <= C_K z^K for every K vanishes there; likewise on (-delta, 0).
+ (b) A solution on (0, delta) that extends smoothly to [0, delta) is the restriction of a smooth solution on I.
+ (c) Let f, Q, R be smooth on I, f scalar with f(0) = 0 != f'(0) and f != 0 on I \ {0}, and Q, R N x N. For f phi'' + Q
+     phi' + R phi = 0, a solution on one side of 0 that vanishes to infinite order at 0 vanishes there, and one that is
+     smooth up to 0 from one side is the restriction of a smooth solution on I.
+
+*Proof.* (a) Let M := max ||A|| on [-delta/2, delta/2]. If X(z_1) != 0 for some z_1 in (0, delta/2], X has no zero on
+(0, z_1] (uniqueness for the equation, regular away from 0), and there d/dz log |X|^2 = 2 Re <X, A X>/(z |X|^2) <= 2
+M/z, so |X(z)|^2 >= |X(z_1)|^2 (z/z_1)^(2M) for 0 < z <= z_1; with K > M this contradicts |X(z)| <= C_K z^K as z -> 0.
+So X = 0 on (0, delta/2], and then on (0, delta). On (-delta, 0), Y(s) := X(-s) solves s Y'(s) = A(-s) Y(s), of the same
+form. (b) By Borel's lemma there is B in C^oo(I) with the Taylor series of X at 0; Y := X on [0, delta) and B on
+(-delta, 0) is smooth on I, all one-sided derivatives agreeing at 0. E := z Y' - A Y is smooth and vanishes on [0,
+delta), so it is flat at 0. On (-delta/2, 0) let Phi solve z Phi' = A Phi with Phi(-delta/2) = 1; Phi^-1 solves z
+(Phi^-1)' = -Phi^-1 A, and the estimate of (a), now |d/ds log |Y|^2| <= 2 M/s for s = -z, gives ||Phi(z)||,
+||Phi(z)^-1|| <= C |z|^-M. Set W(z) := -Phi(z) int_0^z Phi(s)^-1 E(s) ds/s: the integral converges, E/s being flat, W =
+O(|z|^K) for every K, and z W' = A W - E on (-delta/2, 0). Continue W to (-delta, 0) by the regular equation and by 0 to
+[0, delta). Differentiating, z W^(j+1) = (A W - E)^(j) - j W^(j), so by induction on j every derivative is O(|z|^K) for
+every K as z -> 0-, and W is smooth on I. Then Y + W is smooth, solves z (Y + W)' = A Y + E + A W - E = A (Y + W) on I \
+{0} and so on I, and equals X on [0, delta). (c) h := f/z is smooth and nonzero on I. With X := (phi, z phi') the
+equation is z X' = A X with A = [[0, 1], [-z R/h, 1 - Q/h]], smooth; phi flat, or smooth up to 0, makes X so; and the
+first component phi of a solution X, which has X_2 = z phi' by the first row, solves f phi'' + Q phi' + R phi = 0 on I \
+{0} by the second, and so on I. []
+
+*Deduced (at proof level, given the inputs named).*
+
+ (a) (the radial systems) Every operator of the record on Tangherlini -- box^Ups, box^C, L and their spectral families
+     -- is stationary, SO(4)-invariant and of wave type, its principal part g^-1(xi, xi) times the identity (10.55 (c)).
+     In the coordinates (t*, r, y) of X, regular across the horizon, its spectral family at sigma maps the span of each
+     harmonic (of a type and a degree) to itself, and on the vector phi(r) of a field's coefficients in a basis of that
+     span smooth in r > 0 it is f phi'' + Q phi' + R phi: the coefficient of phi'' is g^-1(dr, dr) = f = 1 - mu/r^2, the
+     cross term and the angular derivatives entering Q and R, both smooth on [r_in, oo). f vanishes at r_h, simply
+     (f'(r_h) = 2 mu/r_h^3), and nowhere else on [r_in, oo), 0 < r_in < r_h. So Lemma 10.56 (c) applies at r_h, and on
+     [r_in, r_h) and (r_h, oo) the systems are regular.
+ (b) (the interior uniqueness) A kernel element on X that vanishes for r > r_h vanishes on X: its coefficients in each
+     harmonic are smooth on X (it lies in A^alpha(X)) and so vanish to infinite order at r_h from inside; by (a) and
+     Lemma 10.56 (c) they vanish near r_h, and on [r_in, r_h) by uniqueness for the regular system; so every harmonic
+     component vanishes, and the element is 0. This is 10.55 (c) with its last step proved, and the interior of 10.15
+     (a).
+ (c) (the continuation; [Hin26] Proposition 8.8 at n = 4) Let u be in the kernel of L-hat(sigma), sigma != 0, Im sigma
+     >= 0, and fix a harmonic. On r > r_h, u = delta-hat*(sigma) omega (10.27 (a)), and box^Ups(sigma) omega = 2 eta = 0
+     (10.75 (i) (6)). omega is smooth up to r_h: the components (delta* omega)_(r nu) = (1/2)(d_r omega_nu + d_nu
+     omega_r) - Gamma^lam_(r nu) omega_lam, nu = t*, r and the angular ones, with d_t* = -i sigma and the angular
+     derivatives acting on the harmonic, give d_r omega = M(r) omega + N(r) (u_(r nu))_nu with M, N smooth on [r_in, oo)
+     in the regular chart, a regular linear system of which omega is the solution on (r_h, oo); so omega extends
+     smoothly across r_h. By (a) and Lemma 10.56 (c), omega on r >= r_h is the restriction of a smooth solution of
+     box^Ups(sigma) omega~ = 0 near r_h, continued to [r_in, r_h) by the regular system. omega~ lies in A^alpha'(X;
+     T*X), being omega near infinity, so Proposition 6.12 (10.20 (e)) gives omega~ = 0; then u = delta* omega = 0 on r >
+     r_h, and u = 0 on X by (b). Each harmonic is treated alone, and u, all of whose harmonic components vanish, is 0.
+     At sigma = 0 the same argument serves his Proposition 8.11's omega in ker box^Ups(0) (10.32 (c), 10.33), Lemma
+     10.56 asking nothing of sigma.
+
+What this closes: omega's continuation inside the horizon (10.27 (b), 10.33) and the interior uniqueness (10.15 (a),
+10.16, 10.55 (c)), OPEN or deduced without a bound before. What it does not: the kernel elements' class (10.55 (b), on
+10.53 (c)'s reading) and Proposition 6.12 at n = 4 (10.20 (e), on the readings of 10.19-10.20) stay as they were.
+
+Labels: proved (Lemma 10.56); deduced at proof level ((a)-(c)), given the inputs named; nothing computed here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
