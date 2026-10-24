@@ -1867,3 +1867,29 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Phase E is complete on its readings: those of Phase B (B1-B4, B10), [HHV21]'s perturbation arguments at n = 4,
   [Hin26]'s sections 3.4, 5.6 and 11-13 with the boosts at n = 4, and [CD03]'s Theorem 8.1 in five dimensions. Next: the
   paper, Theorem 4 for both classes, and one verifier on the whole.
+
+### 4.64 The fifty-sixth verifier: the parity condition and the gluing slice (READ and deduced; D133)
+
+- READ ([CD03] pp. 35-38, 72-77; [ER08] pp. 14, 16; [Hin26] pp. 3, 119, 204, 208, 214-216; [Hin26c] p. 116): (E.9) on
+  the spacetime metric under x^mu -> -x^mu, time included; (8.1) printed with K^-; Remark 8.4; the exact Myers-Perry
+  charges; the uniformity and augmentation statements behind 10.60(b), (d).
+- Deduced (10.63(b)-(d)): the 3 + 1 parity condition bounds gamma^- and k^+, alpha_- > 2 at n = 4; G-invariance gives
+  gamma^- = 0, not k^+; on the tau-slice Tangherlini's own k is even at r^-3, the borderline, so the gluing moves to
+  Sigma'', static far out, [Hin26]'s own initial surface there; Theorem 4(ii) restated on Sigma''. The glued member's
+  charges lie in a ball about the data's; its boost and translation lie in 10.49's class. The separation's item (iii) is
+  withdrawn as a gap: lambda_1 and delta exist, not evaluated, as Hintz's constant.
+
+### 4.65 [Hin23a] section 3 at n = 4 by modification (computed and deduced; D134)
+
+- Computed (exterior5.py X1-X6, Proposition 10.48): every place n enters his section 3, at n = 3 against his printed
+  values and at n = 4 -- the conjugated wave operator's ((n-1)(n-3)/4) r^-2; the b-density rho_0^5 rho_I^4 |dg|; the
+  energy form (3.25) with Lap + 3/4; the gauge endomorphism (2.11) from Definition 2.2, his matrix and five
+  intermediates at n = 3, at n = 4 lower triangular with diagonal 2 gC, gC, 3gC/2, -3gU/2, -gU, 0, -2gU, Remark 2.3's
+  duality at both; R_11's quadratic radiation term at r^-2k, r^-(1/2) below the linear terms at n = 4; the Sobolev
+  counts.
+- Deduced (10.64(a)-(i)): his section 3 at n = 4 step by step with the computed quantities in place: the A^0_h step
+  absent, (3.47) without its quadratic term at leading order, the decay recovery with the same l_I, [SR89] with a finite
+  loss. 10.57(b)'s order count is computed for R_11's quadratic term.
+- B10 is discharged by modification rather than by reading. Remaining readings of Theorem 4: [Hin26c] sections 7-9 and
+  [Hin26a] section 5.2 (Phase B's B1-B4), and for part (ii) [HHV21], his boost sections and [CD03]'s argument at n = 4.
+  Next: the same census for [Hin26a] section 5.2.

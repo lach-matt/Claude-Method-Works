@@ -280,6 +280,12 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   s2, v2 and t2 at -2 with no companion), and the Poincare charges of the translated, rotated and boosted Myers-Perry
   family at Tangherlini, their Jacobian diagonal and invertible, [CD03] Proposition F.1's equivalent near Tangherlini
   (G1-G2). `python3 general5.py --selftest` (2/2, a few seconds), `--mutants` (2/2).
+- `exterior5.py`: [Hin23a]'s section 3 at n = 4 by modification (section 10.64; D134): every place the dimension enters,
+  at n = 3 against his printed values and at n = 4 -- the conjugated wave operator's ((n-1)(n-3)/4) r^-2, the b-density,
+  the energy form (3.25) with Lap + 3/4, the gauge endomorphism (2.11) from his Definition 2.2 (at n = 4 the diagonal 2
+  gC, gC, 3gC/2, -3gU/2, -gU, 0, -2gU; his Remark 2.3's duality checked), the quadratic radiation term r^-(1/2) below
+  the linear terms, the Sobolev counts (X1-X6). `python3 exterior5.py --selftest` (12/12, about ten seconds),
+  `--mutants` (4/4).
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).
@@ -305,7 +311,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).
 
-All fifty-seven are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
+All fifty-eight are stdlib plus sympy (foliation5.py also uses z3; damping5.py, semiclass5.py and lowenergy5.py mpmath,
 and so every program importing them; settle5.py numpy and scipy; bondi5.py and growth5.py numpy, growth5.py importing the
 solver `../lemmas/hf_mirror5.py` and `hf_core5.y_core` beside it, past5.py importing lead5.py), growing5.py, lzero5.py
 and coupled5.py import wavegauge5.py, lzerorate5.py imports hierarchy5.py, semiclass5.py imports damping5.py, cform5.py

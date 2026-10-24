@@ -15,15 +15,17 @@ metrics").
      in [-3, 0] at lin5.py's point), at every iota+ exponent on a grid of [alpha_min, 4] (251 points, the orders linear
      in alpha), with sharp5.py's rule and K+ threshold 4: eliminated, the six pure gauge classes s0 c0, s0 e0, s1 c0,
      s1 e-1, s2 e0, v1 e-1; recorded, fourteen classes, each of a kind his (12.14)-(12.15) parameterizes; physical, s2,
-     v2 and t2 at -2, with no companion, and only while alpha <= 2; every recorded term's L_b-image above 4.  Control:
-     four dimensions at alpha = 1 gives his eight eliminated parameters and his physical s2, v2, s3, v3 with 1, 1, 0, 0
-     companions (sharp5.py K3's).  Mutant: the class's threshold 3, where no physical state is recorded.
+     v2 and t2 at -2, with no companion, and only while alpha <= 2; every recorded term's L_b-image above 4 (by the
+     threshold's definition, not a separate check).  Control: four dimensions at alpha = 1 gives his eight eliminated
+     parameters and his physical s2, v2, s3, v3 with 1, 1, 0, 0 companions (sharp5.py K3's).  Mutant: the class's
+     threshold 3, where no physical state is recorded.
   G2 (computed, exact) The charges.  On the linearizations at Tangherlini of the static spatial metric in the mass, of
      the shift mu (W x)_i / r^4 in the rotation W in so(4) (mp5.py M3's leading term), of the translation and of the
      boost, the ADM energy, momentum, angular momentum and centre-of-mass fluxes (G = 1) are, exactly: E = 3 pi mu/8,
      dE/dmu = 3 pi/8; J(W) = (pi mu/4) W, 2/3 of E per unit spin, on all six generators; P = -E v; E C = E c; every
      other entry 0.  The 15 x 15 Jacobian is diagonal with determinant (3 pi/8) (pi mu/4)^6 (3 pi mu/8)^8, nonzero for
-     mu > 0.  Control: four dimensions, E = m, J = m a, P = -m v, E C = m c ([CD03] (F.4)-(F.6)).  Mutant: mu = 0.
+     mu > 0.  Control: four dimensions, E = m, J = m a, E C = m c ([CD03] (F.4)-(F.6)), P = -m v ((E.14)).
+     Mutant: mu = 0.
 
 sympy; imports sharp5.py, window5.py, iplus5.py.  python3 general5.py [--selftest | --mutants]   (under a minute)
 """
@@ -172,7 +174,7 @@ def g2(control=0, verbose=False):
     chk(f"the 15 x 15 Jacobian (E, P, J, E C) by (mu, boost, rotation, translation): diagonal, det = {det}",
         sp.simplify(Jm - want) == sp.zeros(15) and det != 0)
     J3 = jacobian(3, 2 * m)
-    chk("control, four dimensions with mu = 2m: E = mu/2 = m, P = -m v, J = m a, E C = m c ([CD03] (F.4)-(F.6))",
+    chk("control, 4D with mu = 2m: E = mu/2 = m, J = m a, E C = m c ([CD03] (F.4)-(F.6)), P = -m v ((E.14))",
         sp.simplify(J3 - sp.diag(sp.Rational(1, 2), *([-m] * 3 + [m] * 3 + [m] * 3))) == sp.zeros(10))
     return chk.ok
 

@@ -7129,29 +7129,42 @@ Schwarzschild to slowly rotating Kerr.
 
 *READ.* [HHV21] (arXiv:1906.00860v2; alphaXiv, 2026-10-24; printed pages; ASCII): p. 6, "allowing us to deduce Theorem
 1.1 perturbatively from the statement for Schwarzschild parameters b = b0"; p. 14, "we expect the linear stability of
-higher-dimensional Schwarzschild black holes ... and their perturbations, slowly rotating Myers-Perry black holes [MP86],
-to follow by similar arguments, the main task again being computational, namely the detailed mode analysis; the general
-microlocal tools apply to such spacetimes as well"; p. 90, Proposition 10.11's proof, "Perturbation arguments ... imply
-... the invertibility of P^_(b,gamma)(sigma) in Im sigma >= 0 for b sufficiently close to b0"; pp. 92-98, Lemma 11.1
-("invertible for sigma in C, Im sigma >= 0, |sigma| < C_1, and |b - b0| <= C_1"), Proposition 11.3 and its proof: "The
-key facts we will use ... (1) the zero energy nullspace K_b is 7-dimensional, and the generalized zero energy nullspace
-K^_b is 11-dimensional, with both depending continuously on b ...; (2) suitable pairings ... are non-degenerate for b =
-b0, which persists for b near b0", and "using high energy estimates as well as perturbative arguments (starting with the
-mode stability of L_b0) in compact subsets of {Im sigma >= 0, sigma != 0}". [Hin26] (printed pages): p. 5, Remark 1.4
-((a) "an r-normally hyperbolic trapped set [HPS77]", (b) "a non-degenerate source at the conormal bundle of the event
-horizon"); pp. 122-124, Proposition 6.12's proof, Step 2: "the Fredholm estimates [Hin26c, (9.107)] hold uniformly also
-for small perturbations of box^gamma within the class of stationary wave-type operators ... Therefore, the low-energy
-estimate in [Hin26c, Theorem 9.41] holds uniformly as well ... for a fixed neighborhood {|sigma| <= c_0, Im sigma >= 0}",
-and p. 122, "by inspection of the first row of box~(lambda, sigma^, gamma^) for lambda != 0 the surjectivity (and thus
-invertibility)"; p. 136, Theorem 7.1, "provided b = (m, a) sufficiently close to b0"; p. 144, section 8's "Kerr
-parameters b = (m, a) that are close to subextremal parameters b0"; p. 154, Proposition 8.9, "depending smoothly on b
-near b0", and Proposition 8.8's proof, "By [AHW24, Theorem 6.1(1)]"; pp. 200-201, Theorem 10.1's proof, "the absence of
-poles of L^_b(sigma)^-1 (to handle regions of bounded |Re sigma|)--which is a consequence of mode stability (Proposition
-8.8)"; pp. 208-209, Proposition 10.6, "By Proposition 8.11, the map (10.27) is Fredholm of index 0. Therefore, we only
-need to prove its injectivity", by Lemma 8.12's pairings, and Proposition 10.7, "for all 0 != sigma in C with Im sigma >=
-0 and |sigma| <= c, the operator L~_b(sigma) is invertible". [Hin26c] p. 157: "This holds also when P_0 is replaced by
+higher-dimensional Schwarzschild black holes ... and their perturbations, slowly rotating Myers-Perry black holes
+[MP86], to follow by similar arguments, the main task again being computational, namely the detailed mode analysis; the
+general microlocal tools apply to such spacetimes as well"; p. 90, Proposition 10.11's proof, "Perturbation arguments
+... imply ... the invertibility of P^_(b,gamma)(sigma) in Im sigma >= 0 for b sufficiently close to b0"; pp. 92-98,
+Lemma 11.1 ("invertible for sigma in C, Im sigma >= 0, |sigma| < C_1, and |b - b0| <= C_1"), Proposition 11.3 and its
+proof: "The key facts we will use ... (1) the zero energy nullspace K_b is 7-dimensional, and the generalized zero
+energy nullspace K^_b is 11-dimensional, with both depending continuously on b ...; (2) suitable pairings ... are
+non-degenerate for b = b0, which persists for b near b0", and "using high energy estimates as well as perturbative
+arguments (starting with the mode stability of L_b0) in compact subsets of {Im sigma >= 0, sigma != 0}". [Hin26]
+(printed pages): p. 5, Remark 1.4 ((a) "an r-normally hyperbolic trapped set [HPS77]", (b) "a non-degenerate source at
+the conormal bundle of the event horizon"); pp. 122-124, Proposition 6.12's proof, Step 2: "the Fredholm estimates
+[Hin26c, (9.107)] hold uniformly also for small perturbations of box^gamma within the class of stationary wave-type
+operators ... Therefore, the low-energy estimate in [Hin26c, Theorem 9.41] holds uniformly as well ... for a fixed
+neighborhood {|sigma| <= c_0, Im sigma >= 0}", and p. 122, "by inspection of the first row of box~(lambda, sigma^,
+gamma^) for lambda != 0 the surjectivity (and thus invertibility)"; p. 136, Theorem 7.1, "provided b = (m, a)
+sufficiently close to b0"; p. 144, section 8's "Kerr parameters b = (m, a) that are close to subextremal parameters b0";
+p. 154, Proposition 8.9, "depending smoothly on b near b0", and Proposition 8.8's proof, "By [AHW24, Theorem 6.1(1)]";
+pp. 200-201, Theorem 10.1's proof, "the absence of poles of L^_b(sigma)^-1 (to handle regions of bounded |Re
+sigma|)--which is a consequence of mode stability (Proposition 8.8)"; pp. 208-209, Proposition 10.6, "By Proposition
+8.11, the map (10.27) is Fredholm of index 0. Therefore, we only need to prove its injectivity", by Lemma 8.12's
+pairings, and Proposition 10.7, "for all 0 != sigma in C with Im sigma >= 0 and |sigma| <= c, the operator L~_b(sigma)
+is invertible". [Hin26c] p. 157, Theorem 8.14 (the spacetime estimate): "This holds also when P_0 is replaced by
 sufficiently small perturbation within the class of stationary wave-type operators (including for different but nearby
-Kerr parameters)".
+Kerr parameters)"; p. 116, Remark 7.2: "The estimate (7.5) holds also when the underlying stationary operator P_0 is
+perturbed within the class of stationary wave-type operators (Definition 5.1), which in particular allows for
+perturbations of the Kerr parameters m and a". Again (D133): [Hin26] p. 119, Proposition 6.9's proof, "Since the
+Fredholm estimates in [Hin26c, Theorem 9.5] hold uniformly for small perturbations of box_(g_b) (within the class of
+stationary wave-type operators, to which box^Ups_(g_b,E^Ups) belongs by Lemma 6.1), it is again the same standard
+functional analytic argument"; p. 204, Lemma 10.4(2), "f^(|sigma| sigma^, .) is uniformly bounded in the norm of
+H^((m;k),(r+alpha_sf+1, alpha_sf+2, 0))", and (4), "f^(sigma, .) is holomorphic in Im sigma > 0 with values in
+H^(m,r+alpha_sf+1)_sc"; p. 208, Proposition 10.6's proof, "By Lemma 10.4, we then have ...", "Recall moreover that
+h*_(b,s0) has O(r^-2) decay (as do all other dual states in (7.15)), so integration by parts is justified ... (Given the
+almost boundedness of h', this in fact only requires O(r^(-1-eta))-decay of h*_(b,s0) for any eta > 0.)"; p. 214,
+(10.48), "u^_lo(sigma) = chi(|sigma|)(u^_reg,1(sigma) + F(g-dot^(Ups,aug)_b)(sigma)(b^_1(sigma)) +
+F(h^(<=1,aug)_(b,s1))(sigma)(S^_1(sigma)))"; pp. 215-216, after (10.56) and (10.59), uniform bounds for F(d_t*
+g-dot^(Ups,aug)_b)(sigma) and F(d_t*^2 h^(<=1,aug)_(b,s1))(sigma) "provided r < -1/2 at R_out".
 
 *Deduced.*
 
@@ -7160,12 +7173,14 @@ Kerr parameters)".
      perturbations of those at b0 within [Hin26c]'s stationary wave-type operators, with the same Minkowski model at
      infinity, the same indicial roots (10.12, 10.24, 10.52, 10.54: the roots see only the model, [Hin26] p. 136) and the
      same tf-normal operators (10.23, 10.25).
- (b) (high energy) The conditions [Hin26c] takes from the flow and the subprincipal symbols are strict at b0: the trapped
-     set's r-normal hyperbolicity (10.17), the strong trapping admissibility of the three operators (10.17, 10.19,
-     10.26), the threshold at the horizon (10.18, 10.54(e)). Normal hyperbolicity persists under small perturbations of
-     the flow ([HPS77], as [Hin26] Remark 1.4 cites it) and the inequalities are open, so all hold at b near b0, and with
-     [Hin26c] p. 157 the high-energy and Fredholm estimates hold uniformly there: invertibility at |sigma| >= C, Im sigma
-     >= 0.
+ (b) (high energy) The conditions [Hin26c] takes from the flow and the subprincipal symbols are strict at b0: the
+     trapped set's r-normal hyperbolicity (10.17), the strong trapping admissibility of the three operators (10.17,
+     10.19, 10.26), the threshold at the horizon (10.18, 10.54(e)). Normal hyperbolicity persists under small
+     perturbations of the flow ([HPS77], as [Hin26] Remark 1.4 cites it) and the inequalities are open, so all hold at b
+     near b0. The spectral Fredholm estimates of [Hin26c] Theorem 9.5 hold uniformly under such perturbations ([Hin26]
+     p. 119, Proposition 6.9's proof), as does the spacetime estimate (7.5) ([Hin26c] Remark 7.2, p. 116; Theorem 8.14,
+     p. 157), and the semiclassical estimates of [Hin26c] section 9.3 rest on the strict conditions just listed:
+     invertibility at |sigma| >= C, Im sigma >= 0, uniformly in b near b0 (D133).
  (c) (intermediate frequencies) At b0 the three spectral families are invertible at sigma != 0, Im sigma >= 0 (10.16,
      10.21, 10.27); invertibility is open in (b, sigma), so it holds for b near b0 on each compact subset of {Im sigma >=
      0, sigma != 0} ([HHV21] p. 90's argument).
@@ -7178,10 +7193,16 @@ Kerr parameters)".
      space is upper semicontinuous in b, the family being Fredholm of index 0 and continuous in b ([HHV21] Lemma 11.1's
      setting), and is 11 at b0 (10.32-10.33); so it is 11 near b0 and the eleven states span it: his Proposition 8.11 at
      b near b0, with [AHW24] Theorem 6.1(2) replaced by continuity. Lemma 8.12's pairings are continuous in b and
-     non-degenerate at b0 (10.32), so near it. His Proposition 10.6, whose proof uses only Proposition 8.11 and Lemma
-     8.12, then holds at b near b0, and his Proposition 10.7 gives L~_b(sigma) invertible for 0 < |sigma| <= c, Im sigma
-     >= 0; its first row makes L^_b(sigma) onto, and so invertible, as p. 122 argues for the gauge potential operator:
-     mode stability at low energy, [HHV21] Proposition 11.3's mechanism in [Hin26]'s form.
+     non-degenerate at b0 (10.32), so near it. His Proposition 10.6, whose proof uses Proposition 8.11, Lemma 8.12,
+     Lemma 10.4 and the decay of the dual states (p. 208: it needs only O(r^(-1-eta)); in five dimensions they decay
+     rapidly or from rho^3, 10.31-10.32), then holds at b near b0, Lemmas 10.3-10.4 being stated for b near b0; and his
+     Proposition 10.7 gives L~_b(sigma) invertible for 0 < |sigma| <= c, Im sigma >= 0. Its first row makes L^_b(sigma)
+     onto: at sigma != 0, F(g-dot^aug)(sigma) = i sigma^-1 F(d_t* g-dot^aug)(sigma) and F(h^aug)(sigma) = -sigma^-2
+     F(d_t*^2 h^aug)(sigma) lie in the domain of L^_b(sigma), their bounds after (10.56) and (10.59) holding with r <
+     -1/2 at the outgoing radial set (pp. 215-216), and L^_b(sigma) maps them into the target by Lemma 10.4(2), (4)
+     (p. 204) -- his own (10.48), u^_lo = u^_reg,1 + F(g-dot^aug)(sigma)(b^_1) + F(h^aug)(sigma)(S^_1) (p. 214). So
+     L^_b(sigma), of index 0, is invertible: mode stability at low energy, [HHV21] Proposition 11.3's mechanism in
+     [Hin26]'s form (D133).
  (e) (what this gives) By (b)-(d), at every b near b0 the inputs [Hin26] takes from [AHW24] and [Hin26a] hold in five
      dimensions -- mode stability of box^Ups_b, box^C_b and L_b at sigma != 0, Im sigma >= 0, and the zero energy count
      -- with constants uniform in b near b0, on the readings of 10.53-10.58 and those of [HHV21]'s perturbation arguments
@@ -7297,8 +7318,8 @@ whole obstruction space -- the fifteen Killing initial data of 4 + 1 Minkowski s
 translated, rotated and boosted Myers-Perry family, by its Poincare charges: [CD03]'s gluing, whose Remark 8.2 names the
 one element missing in higher dimensions.
 
-*READ.* [CD03] (arXiv:gr-qc/0301073v2; alphaXiv, 2026-10-24; printed page = PDF page): p. 34, Theorem 7.7 ("for all sigma
->= 2 - n"); pp. 35-37, Theorem 8.1 and its proof ("Let, as in Appendix F, K_i0 denote the set of initial data for
+*READ.* [CD03] (arXiv:gr-qc/0301073v2; alphaXiv, 2026-10-24; printed page = PDF page): p. 34, Theorem 7.7 ("for all
+sigma >= 2 - n"); pp. 35-37, Theorem 8.1 and its proof ("Let, as in Appendix F, K_i0 denote the set of initial data for
 boosted, rotated, and translated Kerr metrics", (8.7): "the maps lam F_lam converge ... to the map Q of Proposition F.1;
 that last map is a homeomorphism", "taking V in R^10 to be a ball around (Q^0_(i)) of a radius small enough so that V is
 included in the image of the map Q"); p. 36, Remark 8.2, "The argument below carries over to any dimension, the only
@@ -7307,8 +7328,8 @@ metrics"; p. 38, a reference family's condition 4, "The map which to (K_omega, g
 (p_mu(omega), J_munu(omega)) is a diffeomorphism between Omega and an open subset of R^10"; p. 72, (E.5b) "n/2 - 1 <
 alpha <= n - 2" and the parity condition (E.9) "alpha_- > alpha, alpha + alpha_- > n - 1"; pp. 75-77, (E.26)-(E.27),
 Appendix F and Proposition F.1 with (F.4)-(F.6) ("p_mu = (m, 0, 0, 0), J_munu = 2 m a delta^1_[mu delta^2_nu]", "J_0i =
--m a_i"), and its parity argument for Kerr in Boyer-Lindquist coordinates ("the coordinate components of the shift vector
-are odd").
+-m a_i"), and its parity argument for Kerr in Boyer-Lindquist coordinates ("the coordinate components of the shift
+vector are odd").
 
 **Proposition 10.47 (computed; exact; `general5.py` G2).** On the linearizations at five-dimensional Tangherlini (the
 static spatial metric of mass mu) in the mass, in the four boosts, in the six rotations W in so(4) (the shift mu (W x)_i
@@ -7322,35 +7343,181 @@ same fluxes give E = m, P = -m v, J = m a, E C = m c, [CD03]'s (F.4)-(F.6).
 degree -(n - 1) integrated exactly over the unit sphere, higher parts checked to integrate to zero, lower ones vanishing
 in the limit. Control: four dimensions as stated. Mutant: mu = 0. []
 
+*READ again (D133).* [CD03] p. 35, (8.1) as printed: "|g^-_ij| + r|d_k(g^-_ij)| + r|K^-_ij| <= C(1 + r)^-alpha_-,
+alpha_- > alpha, alpha + alpha_- > 2", "the 3 + 1 equivalent of the parity conditions (E.9)"; p. 36, Remark 8.4: "The
+ADM momentum and angular momentum of (K^_R, g^_R) converges to that of (K, g) as R tends to infinity"; p. 38, "the
+collection of initial data obtained from boosted and space-translated Kerr space-times provides an example of a
+reference family"; p. 72, (E.8), "x^mu -> -x^mu", (E.9), and "(E.5), (E.8) hold for the Kerr metric in the
+Boyer-Lindquist coordinates ... with alpha = 1 and alpha_- = 2"; p. 77, "the coordinate components of the shift vector
+are odd ... the Christoffel symbols are odd while the partial derivatives of the coordinate components of the shift
+vector are even". [ER08] p. 14, (34): "M = (d - 2) Omega_(d-2) mu/(16 pi G), J = 2 M a/(d - 2)"; p. 16: "The relation
+between mu and a_i and the mass and angular momenta is the same as (34)". [Hin26] p. 3: section 5.7.1, "Initial data at
+Boyer-Lindquist time 0"; p. 319, Remark 13.2 (the verifier's reading: b0 replaced by Kerr parameters b1 = (m1, a1)).
+
 *Deduced.*
 
  (a) ([CD03] Proposition F.1's equivalent near Tangherlini) The family -- g_A (10.36) for A in so(4), translated and
      boosted by Poincare transformations of R^(4,1) near the identity -- has 1 + 6 + 4 + 4 = 15 parameters for the
-     fifteen Poincare charges (p_mu, J_munu) of 4 + 1 dimensions. Its charge map is smooth, the charges of g_A carried by
-     the Poincare transformation ([CD03]'s transformation law (E.14), which its Appendix F uses), and by Proposition
-     10.47 its derivative at Tangherlini is invertible; by the inverse function theorem it is a diffeomorphism from a
+     fifteen Poincare charges (p_mu, J_munu) of 4 + 1 dimensions. Its charge map is smooth: g_A's charges are the exact
+     Myers-Perry ones, E = 3 pi mu/8 and J = (pi mu/4) A up to orientation ([ER08] (34), pp. 14 and 16, at d = 5 with
+     Omega_3 = 2 pi^2), polynomial in (mu, A), and the Poincare transformation carries them polynomially in its
+     parameters ([CD03]'s transformation law (E.14), p. 73, which its Appendix F uses) (D133); and by Proposition 10.47
+     its derivative at Tangherlini is invertible; by the inverse function theorem it is a diffeomorphism from a
      neighbourhood of (mu_0, 0, 0, 0) onto a neighbourhood of Tangherlini's charges (3 pi mu_0/8, 0, 0, 0): [CD03]'s
      reference family condition 4 near Tangherlini, and the homeomorphism onto a set containing a ball that its proof of
      Theorem 8.1 uses.
- (b) (decay and parity) In static coordinates the members' spatial metrics differ from the Euclidean one at order r^-2
-     (alpha = 2, inside (E.5b)'s (1, 2] at n = 4) and are even, their shifts odd and of order r^-3 (alpha_- = 3 > alpha,
-     alpha + alpha_- = 5 > n - 1 = 3), as [CD03] p. 77 argues for Kerr in Boyer-Lindquist coordinates (deduced for
-     Myers-Perry the same way). The data of g_lam after the shell are G-invariant, and G contains the antipodal map (the
-     rotation by pi in both planes), so they are even; a perturbation whose odd part decays faster than r^-2 keeps (E.9).
- (c) (C1-C2 without the class) Let (gamma', k') be the data of g_lam on 10.50's tau-slice plus any perturbation that
+ (b) (decay and parity) [CD03]'s parity condition (E.9) bounds the part of the spacetime metric odd under x^mu -> -x^mu,
+     time included ((E.8), p. 72). A metric even under (E.8) has on x^0 = 0 an even spatial metric and an odd second
+     fundamental form, k being built from d_t gamma_ij and D_(i Y_j), both odd; so the 3 + 1 form of (E.9) bounds
+     gamma^- and k^+: |gamma^-| + r |d gamma^-| + r |k^+| <= C r^(-alpha_-). As printed, (8.1) (p. 35) has K^-; with it
+     boosted Kerr, whose K is odd and of order r^-2, would fail (8.1), though p. 38 makes boosted Kerr a reference
+     family, and the Kerr value alpha_- = 2 of p. 72 is that of Kerr's even K, of order r^-3 (p. 77). We read (8.1) with
+     k^+ (deduced; D133). At n = 4, with alpha = 2 (inside (E.5b)'s (1, 2]), (E.9) asks alpha_- > 2. The members: in
+     static coordinates their spatial metrics differ from the Euclidean one at order r^-2 and are even, their shifts odd
+     and of order r^-3, so k = k^+ is O(r^-4) and alpha_- = 3; a boost maps even and odd parts to themselves and a
+     translation adds a derivative of the even part, of order r^-3 (alpha_- = 3 > alpha, alpha + alpha_- = 5 > n - 1 =
+     3), as [CD03] p. 77 argues for Kerr in Boyer-Lindquist coordinates (deduced for Myers-Perry the same way). The
+     data: on 10.50's tau-slice they are exact Tangherlini outside a compact set, but tau = v - r = t + (r* - r) = t -
+     mu/r + O(r^-3) (exterior5.py X1), so there their k is even and of order mu r^-3: alpha_- = 2, the borderline (E.9)
+     excludes. So the gluing is done on a Cauchy surface Sigma'' of their development that is the tau1-slice on a large
+     ball and a static slice {t = t1} of the exterior Tangherlini metric beyond a larger one: the development is that
+     metric there (10.50(c)), and t - t1 interpolated by a cut-off between 0 and -mu/r + O(r^-3) has a gradient of size
+     mu r^-2, so Sigma'' is spacelike. It is [Hin26]'s own initial surface near infinity (his section 5.7.1, "Initial
+     data at Boyer-Lindquist time 0"), his Remark 13.3 returning to a tau-level set. On Sigma'' the data have gamma^- =
+     0 and k = 0 outside a compact set, and a perturbation (gamma~, k~) with |gamma~^-| + r |d gamma~^-| + r |k~^+| <= C
+     r^(-alpha_-), alpha_- > 2, keeps (E.9). G-invariance, which makes gamma and k even, does not give this: it removes
+     gamma^-, not k^+. (The class's gluing, 10.50(c) and 10.59(d), needs no parity condition: its obstruction is d_t's
+     alone, and the mass converges for alpha > 1, (E.5b).)
+ (c) (C1-C2 without the class) Let (gamma', k') be the data of g_lam on (b)'s Sigma'' plus any perturbation that
      satisfies the constraints, is small in the norms of 10.62(d) and has (b)'s parity. 10.50's construction runs with
-     [CD03] Theorem 8.1's proof in five dimensions (Theorem 7.7 is stated in general n): glued on an annulus to the
-     member of the family whose charges are those of (gamma', k'), inside (a)'s neighbourhood since they are near
-     Tangherlini's, the obstruction the full fifteen-dimensional space of Killing initial data, matched by (a). The glued
-     data equal a translated, rotated and boosted Myers-Perry metric outside a compact set, and near spatial infinity
-     their development is that metric by finite speed of propagation.
- (d) (C3 without the class) 10.62(d), with b1 the glued member (his Remark 13.2): the maximal vacuum development settles
-     to a Myers-Perry metric g_b, b = (mu, A) near (mu_end, 0), at the rate O(t*^(-2-eps_K)) in spatially compact subsets
-     of the exterior, the initial slice boosted by phi_S -- on the readings of 10.49-10.50, 10.53-10.59 and 10.60-10.62.
+     [CD03] Theorem 8.1's proof in five dimensions (Theorem 7.7 is stated in general n): glued on an annulus to a member
+     of the family whose charges lie in a small ball about those of (gamma', k') -- they converge to them as R ->
+     infinity ([CD03] Remark 8.4), not equal them (D133) -- inside (a)'s neighbourhood since those are near
+     Tangherlini's, the obstruction the full fifteen-dimensional space of Killing initial data, matched by (a). The
+     glued data equal a translated, rotated and boosted Myers-Perry metric outside a compact set, and near spatial
+     infinity their development is that metric by finite speed of propagation.
+ (d) (C3 without the class) 10.62(d) with the glued member as the reference near infinity: his Remark 13.2 (p. 319)
+     replaces b0 by Kerr parameters b1 = (m1, a1), which covers the member's mass and spin; its boost and translation
+     add to gamma terms of orders r^-2 and r^-3 and to k terms of order r^-3, polyhomogeneous and small, which lie in
+     10.49's class -- there min Re E_0 > 3/2 + 2 gam_Ups, so E_0 may contain 2 + N, while in four dimensions a boost
+     changes the data at r^-1, outside his class (D133): the maximal vacuum development settles to a Myers-Perry metric
+     g_b, b = (mu, A) near (mu_end, 0), at the rate O(t*^(-2-eps_K)) in spatially compact subsets of the exterior, the
+     initial slice boosted by phi_S -- on the readings of 10.49-10.50, 10.53-10.59 and 10.60-10.62.
 
 Labels: computed (Proposition 10.47); deduced ((a)-(d)); READ; nothing proved. The equivalent of [CD03]'s Proposition F.1
 is computed and deduced here near Tangherlini only, which is the case the gluing needs; its global form for the
 Myers-Perry family is not attempted.
+
+### 10.64 [Hin23a] section 3 at n = 4 by modification: every place the dimension enters (`exterior5.py`; D134)
+
+*The setting.* [Hin23a]'s section 3 is the one reading behind Theorem 4 that is a whole proof in another dimension
+rather than estimates on symbols: [Hin26] Theorem 5.17 is solved by its energy estimates and [SR89] (10.48(c), 10.57).
+Its calculus is dimension-free (10.57 (1)); the dimension n of space enters its section 3 at six places. Each is
+computed here at n = 3, against his printed values, and at n = 4, and his proof is then run at n = 4 with the computed
+quantity in place at each.
+
+*READ.* [Hin23a] (arXiv:2302.13804v1; alphaXiv, 2026-10-24; printed page = PDF page; ASCII): pp. 3-4, (1.3)-(1.6); p. 7,
+(2.1)-(2.6) and Definition 2.2, "delta*_(g,E_C) := delta*_g + gamma_C (2 c_C (x)_s (-) - g iota_(g^-1)(c_C))",
+"delta_(g,E_Ups) = (delta*_(g,E_Ups))^* = delta_g + gamma_Ups (2 iota_(g^-1)(c_Ups) - c_Ups tr_g)", (2.7), x^0 = t + r,
+x^1 = t - r, and (2.9)'s splitting; p. 8, (2.10)-(2.11) and Remark 2.3, "G_gbar A*_(E_C,E_Ups) G_gbar = -A_(E_Ups,E_C)";
+pp. 8-9, (2.14)-(2.15b); p. 16, Proposition 3.17's proof, "mu_b = rho_0^4 rho_I^3 |dg_m| is a smooth positive
+b-density", (3.22)-(3.25); p. 17, Definitions 3.19-3.20 ("l_I < min(-gamma_Ups, l_0, 1/2)", "k >= 3"); p. 18, Notation
+3.22 ("O^(alpha,beta)_3 into rho_0^alpha x_I^(2 beta) L^inf"), Lemma 3.23; p. 20, Lemma 3.25; pp. 21-25, Definition
+3.27, Lemma 3.28, Proposition 3.29 and its proof, (3.30)-(3.46), with (3.34), (3.36), (3.39), (3.40), (3.42) and (3.43);
+p. 26, Corollary 3.31, (3.47)-(3.49); pp. 27-30, Proposition 3.32, Lemma 3.33 ("with n = 4"), Lemma 3.34; pp. 30-32,
+(3.59a)-(3.59b), Theorem 3.35, Corollary 3.36; p. 33, Remark 3.38. With 10.57's READ (1)-(4).
+
+**Proposition 10.48 (computed; `exterior5.py` X1-X6).** For n = 3 and n = 4, with k = (n - 1)/2:
+
+ (X1) r^k box r^-k = 4 d_0 d_1 + ((n - 1)(n - 3)/4) r^-2 on functions of (x^0, x^1), with no first-order term: the added
+     term 0 at n = 3 (his (3.34)) and 3/4 at n = 4. Tangherlini's r* - r = -mu/r - mu^2/(3 r^3) - mu^3/(5 r^5) - ..., a
+     series in 1/r without the logarithm of his r* = r + 2m log(r - 2m).
+ (X2) rho_0^(n+1) rho_I^n |dg| = |d rho_0/rho_0 d rho_I/rho_I dg-slash| exactly on Minkowski, rho_0 = 1/(r - t), rho_I =
+     (r - t)/r: his mu_b at n = 3, rho_0^5 rho_I^4 |dg| at n = 4 -- the density for which L = 2 rho_I rho^-(2+k) P'
+     rho^k is symmetric (rho_I^-1 rho^(2+2k) = rho_I^-1 rho^(n+1)).
+ (X3) For the model L0 = -2 rho_I d_rho_I (rho_0 d_rho_0 - rho_I d_rho_I) + x_I^2 (Lap + q_n), q_n = (n - 1)(n - 3)/4,
+     and his W = w^2 V of (3.22), the principal symbol of [L0, W] - (div W) L0 is w^2 (-4 alpha_I (xi_0 - xi_I)^2 + 4 c
+     (alpha_0 - alpha_I) xi_I^2 + (1 + 2 (alpha_0 - alpha_I) + c (1 - 2 alpha_I)) x_I^2 (lambda + q_n)), lambda the
+     angular operator's value: his (3.25) with Lap + q_n for Lap, q_n entering only with the angular operator (exactly,
+     at xi = 0).
+ (X4) A_(E_C,E_Ups) of (2.10), built from Definition 2.2's operators on S^2 T* R^(1+n) in the frame (dx^0, dx^1, r e^a),
+     c = r^-1 dt, and reduced to (2.9)'s splitting (00, 01, 0a, 11, 1a, tr, tf), tr the coefficient of r^2 g-slash: at n
+     = 3 his (2.11), with his (3.36), (3.39), (3.40), (3.42) and (3.43) as intermediates; at n = 4 (gC = gamma_C, gU =
+     gamma_Ups)
+
+          2gC      0        0       0       0       0                0
+          -gU      -3gU/2   0       0       0       3gU/8            0
+          0        0        gC      0       0       0                0
+          0        -3gU     0       -2gU    0       3gC/2 + 3gU/4    0
+          0        0        gC-gU   0       -gU     0                0
+          2gC      0        0       0       0       3gC/2            0
+          0        0        0       0       0       0                0
+
+     The dimension enters through the trace: G's (n - 1)/4 and (3 - n)/2 and (2.5)'s (n - 1)/2 c tr. At both n: pi_C's
+     block closed; A lower triangular in ran pi_CUps + ran pi-slash_0 + ran pi_11; the duality G^-1 A*_(E_C,E_Ups) G =
+     -A_(E_Ups,E_C) on all of S^2 T*, Remark 2.3's with G^-1 = G only at n = 3. Diagonal: pi_CUps's 2gC, gC, gC, -gU,
+     -gU at n = 3 (his (2.15a)-(2.15b)) and 2gC, gC, 3gC/2, -3gU/2, -gU at n = 4; pi-slash_0's 0; pi_11's -2gU.
+ (X5) For g = -dx^0 dx^1 + r^2 (g-slash + r^-k chi(x^1) T), T = d theta_1^2 - sin^2 theta_1 d theta_2^2 trace-free, the
+     chi'^2 term of R_11 is r^-2k/2 exactly: r^-2 at n = 3, r^-3 at n = 4. Against the terms of L = 2 rho_I rho^-(2+k)
+     P' rho^k, of size r^-(1+k), the ratio is r^(1-k): 1 at n = 3 -- his (3.47), where -(1/2) |d_1 pi-slash_0 h|^2
+     sources h_11's leading term (Remark 3.38's mass loss) -- and r^-(1/2) at n = 4.
+ (X6) The least integer above dim M/2 is 3 at n = 3 and at n = 4 (Notation 3.22's k >= 3, O_3 in L^inf); Lemma 3.33's
+     d_(dim M - 1) is 2 at n = 3 and 3 at n = 4.
+
+*Proof.* X1-X6 of `exterior5.py`, sympy, exact: X1 from the wave operator of g = -dx^0 dx^1 + r^2 g-slash and the series
+of r*; X2 from the Jacobian of (t, r) in (rho_0, rho_I); X3 by applying [L0, W] - (div W) L0 to e^(i (xi_0 log rho_0 +
+xi_I log rho_I)); X4 on every symmetric 2-tensor, the reduction checked against the image of each representative; X5
+from the Christoffel symbols of the stated metric on S^2 and S^3. Controls: n = 3 gives his (2.11), (3.25), (3.34), mu_b
+and the five intermediates. Mutants: conjugation by r^-((n-2)/2) (X1), div W dropped (X3), G with 1/4 for 1/2, and the
+sign of (2.4)'s g-term (X4) -- each caught. []
+
+*Deduced: [Hin23a] section 3 at n = 4, by modification.* With g_m Tangherlini of mass mu, r* as in X1, rho_0 = 1/(r* -
+t), rho_I = (r* - t)/r, x_I = rho_I^(1/2), g = g_m + r^-(3/2) h and L_g := 2 rho_I rho^(-7/2) P'_g rho^(3/2), his
+section 3 runs as follows.
+
+ (a) (Sections 3.1-3.2, Lemmas 3.6-3.16.) The calculus is dimension-free (10.57 (1)), M now with S^3 fibres. r* - r is
+     smooth in 1/r (X1), so the coordinates are Minkowski's up to smooth corrections, the logarithms of his (1.1)
+     absent.
+ (b) (Proposition 3.17.) L = -2 rho_I d_rho_I (rho_0 d_rho_0 - rho_I d_rho_I) + x_I^2 (Lap + 3/4) mod x_I Diff^2_(e,b)
+     (X1; the mass enters at r^-2 = rho_0^2 rho_I^2), symmetric on L^2(M, mu_b) with mu_b = rho_0^5 rho_I^4 |dg_m| (X2).
+     His multiplier (3.22) gives Q-bar of (3.25) with Lap + 3/4 in place of Lap, positive elliptic under his conditions,
+     the added term only increasing it (X3). His estimate (3.21) and its proof by commuting b-vector fields follow
+     unchanged: [x_I^2 3/4, X_j] lies in x_I^2 C^oo, of Lemma 3.16's form.
+ (c) (Definitions 3.19-3.20, Notation 3.22.) The projections carry (1/3) g-slash^(ab) h_(ab), the trace over S^3, for
+     his (1/2) g-slash^(ab) h_(ab); the spaces are his, k >= 3 (X6).
+ (d) (Lemmas 3.23-3.28, Corollary 3.26.) Each h-dependent order gains rho^(1/2) = (rho_0 rho_I)^(1/2), one factor
+     r^-(3/2) for r^-1, and the mass terms rho_0 rho_I (mu r^-2 for 2m r^-1); the leading Minkowski coefficients are
+     those of X4's frame. His memberships hold a fortiori.
+ (e) (Proposition 3.29.) L_g = -2 (rho_I d_rho_I - A)(rho_0 d_rho_0 - rho_I d_rho_I) + x_I^2 (Lap + 3/4) + L~_g with A
+     X4's matrix at n = 4. The h-dependent entries of his A_g and B_g are bilinear in r^-(3/2) h and r^-(3/2) u, so they
+     carry X5's r^-(1/2) and join L~_g, which stays in (x_I C^oo + H^(k-2,(l_0, 2 l_I))_b) Diff^2_(e,b) since l_I < 1/2.
+     So at n = 4 A_g = A, h-free and lower triangular with scalar diagonal (X4): the hypothesis of his sharp-weight step
+     holds outright, as 10.57(b) found, with the order count now computed for R_11's quadratic term (X5) and the same
+     bilinearity for the rest.
+ (f) (Corollary 3.31.) (3.49) holds with A; the (dx^1)^2 component's quadratic term lies r^-(1/2) below the linear one
+     (X5), in O^(l_0,l_I)_(k-2), so (3.47) at n = 4 reads 2 rho_I^-1 rho^(7/2) P(g) in rho_0^-1 (-4 gamma_Ups d_1
+     h_11)(dx^1)^2 + O^(l_0,l_I)_(k-2): no radiation term at leading order. (The five-dimensional mass aspect, at r^-2 =
+     r^-(3/2) r^-(1/2), lies below the radiation field: X5's ratio.)
+ (g) (Proposition 3.32.) The basic estimate (3.53) is (b)'s, Q-bar dominating the skew-adjoint part (L_g^* - L_g) W for
+     alpha_I large and negative, as his. The tame estimate (3.51) commutes the same b-vector fields, the Sobolev counts
+     unchanged (X6). His A^0_h term, the one use of Lemma 3.33 (with d_(dim M - 1) = 3 at n = 4), is absent: A_h = A_g -
+     A_(g_m) has no leading term at I+ (e), so all of A_h is treated as his A~_h, "like the contribution from L~_g". The
+     sharp-weight step uses (e) and alpha_I < min(alpha_0, 0), as his.
+ (h) (Theorem 3.35.) The decay recovery integrates the I+ normal operator rho_I d_rho_I - A block by block: pi_CUps by
+     its eigenvalues, whose least positive entry is -gamma_Ups in both dimensions when -gamma_Ups < gamma_C (X4), so l_I
+     < min(-gamma_Ups, l_0, 1/2) serves as his; pi-slash_0 by 0, the radiation field; pi_11 by -2 gamma_Ups, with no
+     source at leading order by (f), so at n = 4 h_11 has no leading term at I+. (For [Hin26]'s use this theorem is not
+     needed, 10.57(c).)
+ (i) (Corollary 3.36.) [SR89] with the loss of derivatives of (g)-(h), finite, which is all it needs, for data small in
+     H^(16 d^2 + 43 d + 24) (2433 at his d = 11); the gauge and Ricci flatness by the second Bianchi identity in any
+     dimension (10.57(d)).
+
+This replaces B10's reading by a proof by modification: every place n enters [Hin23a]'s section 3 is computed, and each
+step above is his with the computed quantity in place. For [Hin26] Theorem 5.17's use (10.48(c)), his later gauge's A_0
+at n = 4 is 10.38's, lower triangular with h-free diagonal; X1-X3, X5 and X6 are the same there.
+
+Labels: computed (Proposition 10.48, X1-X6); deduced ((a)-(i)); READ; nothing proved. What remains of B10 is that his
+proofs, read step by step, use n only where (a)-(i) name it: the census read at source, each replacement computed.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

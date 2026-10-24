@@ -22,30 +22,32 @@ source, with identifier and page). "Proved" means proved in this sense, and noth
 Huneau and Luk proved that every generic, small-data, polarized U(1)-symmetric solution of the Einstein–null dust system
 is a weak limit of vacuum solutions on a fixed time interval, in an elliptic gauge in which smallness is needed even for
 local existence. We prove a five-dimensional counterpart on a large background. In the class of five-dimensional vacuum
-metrics with a T² isometry and both reflections, the Einstein equations reduce exactly to 2+1 gravity coupled to two free
-waves whose target metric, (3/2) dψ² + 2 dω², is flat and positive definite; this is Huneau and Luk's reduced system with
-one scalar replaced by two. The background is five-dimensional Vaidya, a black hole of mass μ0 that grows by an ingoing
-shell, and the domain runs from before the shell reaches the hole to the surface inside the horizon where the limit's
-curvature reaches a fixed scale (spacelike when μ0 > √72 l5²). For every amplitude A > 0 and every smooth compactly
-supported envelope, with no smallness of either, we construct a family of T²-symmetric vacuum metrics g_λ on that domain,
-of wavelength λ ≤ λ0, with |g_λ − g0| ≤ Cλ, ∂g_λ bounded, and ∂g_λ → ∂g0 weakly but not strongly, where g0 is Vaidya with
-dμ/dv = (2/9) A² env²: Isaacson's flux, the null dust of one family. The proof uses the wave-map gauge relative to the
-limit itself and an approximate solution of arbitrarily high order, so that every nonlinear term is beaten by a power of
-λ rather than by the size of the data; what must be uniform in λ is then a linear estimate on the black-hole background,
-and its one large coefficient is removed by a phase-shift identity. The Cauchy data are constructed by solving the
-constraints outward in r as a parabolic–hyperbolic system from a sphere inside the shell. Part (iii) of the counterpart
-follows: on each column the outgoing expansion of the spheres {v, r = const} has one zero, converging at O(λ). So does a
-mean-mass rate: after the shell, the mass of every sphere {v, r = const} is the limit's to O(λ²), by a quarter-turn
-symmetry of the two polarizations. The same solutions are constructed from the waves' free data at past null infinity,
-where before the shell they are the black hole exactly and their radiation field is the prescribed one at every λ
-(Theorem 2). At past null infinity they admit Bondi coordinates and an expansion in r^(−1/2), and the five-dimensional
-Bondi mass law holds for them (Theorem 3): their Bondi mass is μ(v) + O(λ) while the shell passes and μ + (2/9) λ² A² ∫
-env'² + O(λ³) after it, the second-order rate the numerics measure, with its coefficient. Beyond that domain, outside the
-black hole, we deduce without proving that in the class the solutions settle at late times to five-dimensional
-Schwarzschild–Tangherlini, and that every small perturbation of them without symmetry settles to a slowly rotating
-Myers–Perry black hole: Hintz's proof of the nonlinear stability of Kerr carried into five dimensions, every input that
-depends on the dimension computed, his companion papers' arguments read at source; one kind of reading of their estimates
-in five dimensions separates this from a proof (Theorem 4). We list what is not proved, the application at physical
+metrics with a T² isometry and both reflections, the Einstein equations reduce exactly to 2+1 gravity coupled to two
+free waves whose target metric, (3/2) dψ² + 2 dω², is flat and positive definite; this is Huneau and Luk's reduced
+system with one scalar replaced by two. The background is five-dimensional Vaidya, a black hole of mass μ0 that grows by
+an ingoing shell, and the domain runs from before the shell reaches the hole to the surface inside the horizon where the
+limit's curvature reaches a fixed scale (spacelike when μ0 > √72 l5²). For every amplitude A > 0 and every smooth
+compactly supported envelope, with no smallness of either, we construct a family of T²-symmetric vacuum metrics g_λ on
+that domain, of wavelength λ ≤ λ0, with |g_λ − g0| ≤ Cλ, ∂g_λ bounded, and ∂g_λ → ∂g0 weakly but not strongly, where g0
+is Vaidya with dμ/dv = (2/9) A² env²: Isaacson's flux, the null dust of one family. The proof uses the wave-map gauge
+relative to the limit itself and an approximate solution of arbitrarily high order, so that every nonlinear term is
+beaten by a power of λ rather than by the size of the data; what must be uniform in λ is then a linear estimate on the
+black-hole background, and its one large coefficient is removed by a phase-shift identity. The Cauchy data are
+constructed by solving the constraints outward in r as a parabolic–hyperbolic system from a sphere inside the shell.
+Part (iii) of the counterpart follows: on each column the outgoing expansion of the spheres {v, r = const} has one zero,
+converging at O(λ). So does a mean-mass rate: after the shell, the mass of every sphere {v, r = const} is the limit's to
+O(λ²), by a quarter-turn symmetry of the two polarizations. The same solutions are constructed from the waves' free data
+at past null infinity, where before the shell they are the black hole exactly and their radiation field is the
+prescribed one at every λ (Theorem 2). At past null infinity they admit Bondi coordinates and an expansion in r^(−1/2),
+and the five-dimensional Bondi mass law holds for them (Theorem 3): their Bondi mass is μ(v) + O(λ) while the shell
+passes and μ + (2/9) λ² A² ∫ env'² + O(λ³) after it, the second-order rate the numerics measure, with its coefficient.
+Beyond that domain, outside the black hole, we deduce without proving that in the class the solutions settle at late
+times to five-dimensional Schwarzschild–Tangherlini, and that every small perturbation of them without symmetry settles
+to a slowly rotating Myers–Perry black hole: Hintz's proof of the nonlinear stability of Kerr carried into five
+dimensions, every input that depends on the dimension computed at Schwarzschild–Tangherlini and deduced at nearby
+Myers–Perry parameters, his companion papers' arguments read at source, and his exterior estimates in harmonic gauge
+carried to five dimensions by modification; readings of the remaining estimates in five dimensions, and deductions not
+written at proof level, separate this from a proof (Theorem 4). We list what is not proved, the application at physical
 wavelengths among it.
 
 ---
@@ -105,12 +107,14 @@ infinity they obey the five-dimensional Bondi mass law with the prescribed radia
 Beyond that domain, and outside the black hole, we deduce — we do not prove — that in the class the solutions settle at
 late times to five-dimensional Tangherlini of a nearby mass, and that their small perturbations without symmetry settle
 to slowly rotating Myers–Perry black holes (Theorem 4, section 8.8). The route is Hintz's proof of the nonlinear
-stability of Kerr [Hin26], carried into five dimensions: every input that depends on the dimension is computed, his
-arguments and those of his companion papers [Hin26a, Hin26c, Hin23a] are read at source for where the dimension enters,
-the class removes his boosts, rotations and their gauge modifications, and without it they are restored, with the inputs
-at every nearby Myers–Perry parameter deduced by the perturbative route of [HHV21] and the gluing at large radius to the
-Myers–Perry family computed. What separates the deduction from a proof is stated in section 8.8: one kind of reading, of
-those papers' estimates in five dimensions once their symbols are the ones computed here.
+stability of Kerr [Hin26], carried into five dimensions: every input that depends on the dimension is computed at
+Tangherlini, his arguments and those of his companion papers [Hin26a, Hin26c, Hin23a] are read at source for where the
+dimension enters, the class removes his boosts, rotations and their gauge modifications, and without it they are
+restored, with the inputs at every nearby Myers–Perry parameter deduced by the perturbative route of [HHV21] and the
+charges by which the gluing at large radius matches the Myers–Perry family computed, the gluing deduced. What separates
+the deduction from a proof is stated in section 8.8: readings of those papers' estimates in five dimensions once their
+symbols are the ones computed here — [Hin23a]'s, at null infinity, now carried to five dimensions by modification, each
+place the dimension enters computed — and deductions not yet written at proof level.
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
 coupled to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an
@@ -957,26 +961,36 @@ at the rate t*^(−2−ε_K) in spatially compact sets (supplement section 10.62
 
 Third, the gluing at large radius must match all fifteen Poincaré charges, which a translated, rotated and boosted
 Myers–Perry metric supplies — in [CD03]'s words, "the only element missing is an equivalent of Proposition F.1 for the
-family of translated, rotated, and boosted Myers-Perry metrics" (Remark 8.2, p. 36). Near Tangherlini it is computed: the
-Jacobian of the charges in the mass, the four boosts, the six rotations and the four translations is diagonal — energy
-3πμ/8, angular momentum πμ/4 per unit rotation, momentum −3πμ/8 per unit boost velocity and centre of mass 3πμ/8 per unit
-translation in energy-weighted form — with nonzero determinant, so the charge map is a local diffeomorphism there and
-[CD03]'s gluing applies (`general5.py` G2; computed, the gluing deduced, supplement section 10.63).
+family of translated, rotated, and boosted Myers-Perry metrics" (Remark 8.2, p. 36). Near Tangherlini it is computed:
+the Jacobian of the charges in the mass, the four boosts, the six rotations and the four translations is diagonal —
+energy 3πμ/8, angular momentum πμ/4 per unit rotation, momentum of size 3πμ/8 per unit boost velocity (|P| = E|v|) and
+centre of mass 3πμ/8 per unit translation in energy-weighted form — with nonzero determinant, so the charge map —
+polynomial in the parameters, the exact charges being E = 3πμ/8 and J = (πμ/4)A ([ER08] (34)) — is a local
+diffeomorphism there and [CD03]'s gluing applies (`general5.py` G2; computed, the gluing deduced, supplement section
+10.63).
 
 ### 8.7 The solutions of Theorem 1 after the shell
 
 After the shell, on {v > v_end}, every oscillating profile of the approximant vanishes — the waves are proportional to
 the envelope, and the transports of Lemma 5.3 run along lines of constant v — so there g_λ is Tangherlini of mass μ_end
 plus smooth means independent of λ times powers of λ (supplement section 10.50). The estimate of Theorem 1 holds at
-every order of derivatives k ≥ 6 with K ≥ 6, its bootstrap closing whatever k is (supplement section 10.51), so the
-data of g_λ on a τ-slice after the shell are small in every norm Hintz's theorem uses. Beyond Ω they are glued
+every order of derivatives k ≥ 6 with K ≥ 6, its bootstrap closing whatever k is (supplement section 10.51), so the data
+of g_λ on a τ-slice after the shell are small in every norm Hintz's theorem uses. Beyond Ω they are glued
 G-equivariantly to exact Tangherlini by [CD03]'s method: its obstruction is the Killing initial data, of which the
 G-invariant ones are ∂_t's alone, so only the mass is matched, and the glued data are G-invariant by uniqueness, as
-[CD03] obtains parity. The result is a compactly supported perturbation of Tangherlini — the case of Hintz's Theorem
-1.1 — and near spatial infinity its development is Tangherlini by finite speed of propagation (supplement sections
-10.50, 10.59; deduced). Without the class the same construction applies to every small perturbation of these data whose
-odd part decays faster than r^(−2), glued to the translated, rotated and boosted Myers–Perry metric with the perturbed
-data's charges (section 8.6; supplement section 10.63).
+[CD03] obtains parity. The result is a compactly supported perturbation of Tangherlini — the case of Hintz's Theorem 1.1
+— and near spatial infinity its development is Tangherlini by finite speed of propagation (supplement sections 10.50,
+10.59; deduced). Without the class, the gluing is done on a slice Σ″ that is the τ-slice near the hole and a static
+slice {t = const} of the exterior Tangherlini metric far out. On the τ-slice itself, where τ = t − μ/r + O(r^(−3)),
+Tangherlini's second fundamental form is even and of order r^(−3), the borderline that [CD03]'s parity condition (E.9)
+excludes. That condition is stated on the spacetime metric under x^μ → −x^μ, time included, so in 3 + 1 form it bounds
+the odd part of the spatial metric and the even part of the second fundamental form; its (8.1), as printed, bounds the
+odd part of K, which boosted Kerr — a reference family on its p. 38 — would fail, and we read it with the even part
+(supplement section 10.63(b)). On Σ″ the construction applies to every small perturbation of these data whose metric's
+odd part γ̃⁻ and second fundamental form's even part k̃⁺ satisfy |γ̃⁻| + r|∂γ̃⁻| + r|k̃⁺| ≤ C r^(−α₋) for some α₋ > 2,
+[CD03]'s condition at n = 4, which the G-invariance of the unperturbed data does not supply: it removes the metric's odd
+part, not the even part of k. The perturbed data are glued to a translated, rotated and boosted Myers–Perry metric whose
+charges lie in a small ball about theirs (section 8.6; supplement section 10.63).
 
 ### 8.8 Settling
 
@@ -986,30 +1000,39 @@ such that for λ ≤ λ1:
  (i) (in the class) the maximal vacuum development of the data of section 8.7, which contains g_λ on Ω, lies in the class
      and settles there to five-dimensional Tangherlini of a mass near μ_end: its difference from that metric is
      O(t*^(−2−ε_K)) in spatially compact subsets of the exterior;
- (ii) (without symmetry) every vacuum data set on the same slice within δ of the data of g_λ in Hintz's norms, the
-      difference's odd part decaying faster than r^(−2), has a maximal vacuum development that, its initial slice boosted
-      by a small Lorentz boost, settles at the same rate to a Myers–Perry black hole of mass near μ_end and small spin.
 
-Theorem 4 is deduced, not proved. What separates it from proved is the following. (i) One kind of reading remains, named
-wherever it is used (supplement sections 10.59–10.63; ROUTES 4.59, 4.63): that the propagation, radial point, trapping
-and energy estimates of [Hin26c]'s sections 7–9, of [Hin26a]'s section 5.2 and of [Hin23a]'s section 3 — with those
-[Hin26c] quotes from the literature — hold in five dimensions once their symbol data are the five-dimensional ones
-computed here, with the order count by which the radiation couplings fall at null infinity; and, for part (ii), that
+ (ii) (without symmetry) every vacuum data set on the slice Σ″ of section 8.7 within δ of the data of g_λ in Hintz's
+      norms, whose difference from them satisfies the parity condition of section 8.7, has a maximal vacuum development
+      that, its initial slice boosted by a small Lorentz boost, settles at the same rate to a Myers–Perry black hole of
+      mass near μ_end and small spin.
+
+Theorem 4 is deduced, not proved. Two things separate it from proved. (i) Readings, named wherever they are used
+(supplement sections 10.58–10.64; ROUTES 4.59, 4.63–4.65): that the propagation, radial point, trapping and energy
+estimates of [Hin26c]'s sections 7–9 and of [Hin26a]'s section 5.2 — with those [Hin26c] quotes from the literature —
+hold in five dimensions once their symbol data are the five-dimensional ones computed here; and, for part (ii), that
 [HHV21]'s perturbation arguments, Hintz's handling of the boost (his sections 3.4, 5.6 and 11–13) and [CD03]'s gluing
 argument hold at n = 4. The readings at source show the dimension entering those papers only through the symbols, the
-densities, (5.7)'s (n − 1)/2 and the parameter spaces, each computed here. (ii) The deductions of the supplement's
-sections 10.12–10.63 are arguments from computed and READ inputs, each read by an independent verifier, not proofs
-written out at the level of the theorem's statement. (iii) λ1, δ and the constants are not evaluated. A line-by-line
-check of those estimates and arguments at n = 4, with the deductions written out, would make Theorem 4 a theorem.
+densities, (5.7)'s (n − 1)/2 and the parameter spaces, each computed here. [Hin23a]'s section 3, a reading until now, is
+carried to n = 4 by modification (supplement section 10.64; `exterior5.py` X1–X6): each of the six places where the
+dimension enters is computed and his proof is run with the computed quantity in place. The conjugated wave operator
+gains (3/4)r^(−2), which only strengthens his energy form; the gauge endomorphism at null infinity has the diagonal
+2γ_C, γ_C, (3/2)γ_C, −(3/2)γ_Υ, −γ_Υ, 0, −2γ_Υ, lower triangular, with the same least positive entry, −γ_Υ, as in four
+dimensions; and the quadratic radiation term falls by r^(−1/2), so the coupling that four dimensions must track at
+leading order is an error term in five, and the one step of his tame estimate that needs a finer Sobolev count is
+absent. (ii) The deductions of the supplement's sections 10.12–10.64 are arguments from computed and READ inputs, each
+read by an independent verifier, not proofs written out at the level of the theorem's statement. λ1 and δ are not
+evaluated; they exist, as Hintz's smallness constant does, and that is not a gap. A line-by-line check of the remaining
+estimates at n = 4, with the deductions written out, would make Theorem 4 a theorem.
 
 ---
 
 ## 9. What is not proved
 
-- **Settling, proved.** Theorem 4 is deduced: what separates it from a theorem is stated in section 8.8 — one kind of
-  reading, of the companion papers' estimates in five dimensions given the symbols computed here; deductions not written
-  out at proof level; and constants not evaluated. The linear statements of section 8.2 are deduced too, the route of
-  Hung's sections 5–8 in five dimensions not a proof.
+- **Settling, proved.** Theorem 4 is deduced: what separates it from a theorem is stated in section 8.8 — readings of
+  the companion papers' estimates in five dimensions given the symbols computed here, [Hin23a]'s section 3 now excepted,
+  carried to five dimensions by modification; and deductions not written out at proof level. λ1 and δ are not evaluated,
+  which is not a gap. The linear statements of section 8.2 are deduced too, the route of Hung's sections 5–8 in five
+  dimensions not a proof.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1,
@@ -1079,7 +1102,11 @@ check of those estimates and arguments at n = 4, with the deductions written out
   been stated for every exponent at timelike infinity, where the class's index sets were needed for it (D121); the
   fifty-fourth, that the argument of section 8.4 had been called complete while resting on the readings of section 8.5
   (D126); the fifty-fifth, that one use of the gauge parameter had been counted among lower bounds where it is a
-  computation at two values (D129); each was repaired, with the minor findings.
+  computation at two values (D129); each was repaired, with the minor findings. Sections 10.58–10.63 and this paper's
+  Theorem 4 were read by the fifty-sixth (D133), which found the parity of the second fundamental form backwards in the
+  gluing's parity condition — repaired with [CD03]'s condition in its spacetime form and a slice static far out, on
+  which the unperturbed data meet it — with eight minor findings, seated; section 10.64 and those repairs were read by
+  the fifty-seventh (D135).
 
 ---
 
@@ -1134,7 +1161,8 @@ from the arXiv text, with the extraction's spacing.
   higher dimensions*, arXiv:hep-th/0308128v4. READ 2026-10-20: (5.20). READ 2026-10-22: (4.23), (5.17), (5.19), (5.20),
   at zero charge.
 - [ER08] R. Emparan, H. S. Reall, *Black holes in higher dimensions*, arXiv:0801.3471v2. READ 2026-10-23: section 4.1,
-  the single-spin Myers–Perry metric (32)–(33), p. 14.
+  the single-spin Myers–Perry metric (32)–(33), p. 14. READ 2026-10-24: p. 14, (34), and p. 16, the general solution's
+  charges "the same as (34)".
 - [CYDL03] V. Cardoso, S. Yoshida, O. J. C. Dias, J. P. S. Lemos, *Late-time tails of wave propagation in higher
   dimensional spacetimes*, arXiv:hep-th/0307122v3. READ 2026-10-20: (14), p. 4; p. 2; Fig. 2 and p. 5.
 - [Hun19] P.-K. Hung, *The linear stability of the Schwarzschild spacetime in the harmonic gauge: even part*,
@@ -1154,7 +1182,8 @@ from the arXiv text, with the extraction's spacing.
   sector, Theorem 1 ((1.9)–(1.10)), Proposition 4.1 ((4.4)) with its proof ((4.76)–(4.92)), Corollary 4.3, Propositions
   4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
 - [Hin23a] P. Hintz, *Exterior stability of Minkowski space in generalized harmonic gauge*, Arch. Ration. Mech. Anal.
-  247 (2023) 99, arXiv:2302.13804v1. READ 2026-10-24: pp. 1, 9, 21–22, 27–32 (section 3's exterior estimates).
+  247 (2023) 99, arXiv:2302.13804v1. READ 2026-10-24: pp. 1, 9, 21–22, 27–32 (section 3's exterior estimates). READ
+  2026-10-24 for section 3 at n = 4: pp. 1–4, 7–9, 16–18, 20–30, 32–33.
 - [Hin23b] P. Hintz, *Gluing small black holes along timelike geodesics I: formal solution*, arXiv:2306.07409v2. READ
   2026-10-23: pp. 101–110 (Lemma 9.1, Definition 9.2, Lemma 9.3, Theorem 9.6 and its proof, Lemma 9.7), 116–117.
 - [Hin24b] P. Hintz, *Gluing small black holes along timelike geodesics III: construction of true solutions and extreme
@@ -1174,22 +1203,24 @@ from the arXiv text, with the extraction's spacing.
   dimensions: pp. 85–88 ((B.1)–(B.17), Proposition B.2), 93–94 (Theorem B.4, (B.31)–(B.37)), 96–98 ((B.38)–(B.41), the
   eigenvalues of −½r²ℓ(dr/r) and Lemma 3.3's inner product, section B.4: (B.42)–(B.45)). READ 2026-10-24 for section
   5.2 at n = 4: pp. 37, 41–42, 60, 64–65, 67–69, 91.
-- [Hin26] P. Hintz, *Nonlinear stability of subextremal Kerr black holes*, arXiv:2606.28253v2. READ 2026-10-21: pp. 1, 4,
-  17, 25–26, 29 ((1.43) and the reason for its strip), 82 (Definition 4.2, (4.6)–(4.9)), 113 (section 6, (6.1)–(6.6)),
-  117–124 (Lemma 6.6, (6.17), Lemma 6.8, Proposition 6.9, Lemmas 6.10–6.11, Proposition 6.12 and its proof,
-  (6.20)–(6.28)), 134–137 (section 7.1, Theorem 7.1). READ 2026-10-22: pp. 113–116 (Lemma 6.1, footnote 60, Remark 6.2,
-  Lemma 6.3, (6.10)–(6.11), section 6.1: (6.12)–(6.16c), Lemma 6.4 and its proof, Proposition 6.5), 124 (footnote 71),
-  200 (Remark 10.2); and pp. 117–124 again (Lemmas 6.6 and 6.8, Proposition 6.12 and its proof). READ 2026-10-22 for
-  Theorem 7.1(4) in five dimensions: pp. 136–137 (Theorem 7.1 and the proof of its part (4)). READ 2026-10-23 for section
-  8 in five dimensions: pp. 25, 28, 34, 113–117, 135–137, 144–154 (section 8 through Proposition 8.8 and its proof). READ
-  2026-10-23 for sections 6.5 and 8.4: pp. 51–52, 64–67, 81, 113, 117–119, 121, 124–134, 154–157 (Lemmas 2.13, 2.15 and
-  2.29, Definition 4.1, Lemmas 6.1, 6.6, 6.13 and 6.14, Propositions 6.12, 6.15 and 6.18, Proposition 8.9, Remark 8.10,
-  Proposition 8.11, Lemma 8.12, Corollary 8.13). READ 2026-10-23 for Proposition 6.18 (4)–(7): pp. 19, 67, 113, 117–118,
-  121, 128–134 (the proof's decomposition on p. 132), 149–151, 158. READ 2026-10-23 for section 7.2: pp. 126, 134–144
-  (section 7, Lemma 7.2, Propositions 7.3–7.4, Lemma 7.5, (7.1)–(7.35)). READ 2026-10-23 for Lemma 8.12 and Proposition
-  8.11: pp. 145 ((8.1)), 154–158 (Proposition 8.9 through Corollary 8.13). READ 2026-10-24 for the s0 dual state's
-  normalization: pp. 125 ((6.29)), 138 ((7.12)); for [AHW24] Theorem 6.1(2)'s use: pp. 156–157. READ 2026-10-24 for
-  sections 2, 5, 11–13 in the class: pp. 59–61 (Proposition 2.25), 84–110, 119, 152–154, 218–323.
+- [Hin26] P. Hintz, *Nonlinear stability of subextremal Kerr black holes*, arXiv:2606.28253v2. READ 2026-10-21: pp. 1,
+  4, 17, 25–26, 29 ((1.43) and the reason for its strip), 82 (Definition 4.2, (4.6)–(4.9)), 113 (section 6,
+  (6.1)–(6.6)), 117–124 (Lemma 6.6, (6.17), Lemma 6.8, Proposition 6.9, Lemmas 6.10–6.11, Proposition 6.12 and its
+  proof, (6.20)–(6.28)), 134–137 (section 7.1, Theorem 7.1). READ 2026-10-22: pp. 113–116 (Lemma 6.1, footnote 60,
+  Remark 6.2, Lemma 6.3, (6.10)–(6.11), section 6.1: (6.12)–(6.16c), Lemma 6.4 and its proof, Proposition 6.5), 124
+  (footnote 71), 200 (Remark 10.2); and pp. 117–124 again (Lemmas 6.6 and 6.8, Proposition 6.12 and its proof). READ
+  2026-10-22 for Theorem 7.1(4) in five dimensions: pp. 136–137 (Theorem 7.1 and the proof of its part (4)). READ
+  2026-10-23 for section 8 in five dimensions: pp. 25, 28, 34, 113–117, 135–137, 144–154 (section 8 through Proposition
+  8.8 and its proof). READ 2026-10-23 for sections 6.5 and 8.4: pp. 51–52, 64–67, 81, 113, 117–119, 121, 124–134,
+  154–157 (Lemmas 2.13, 2.15 and 2.29, Definition 4.1, Lemmas 6.1, 6.6, 6.13 and 6.14, Propositions 6.12, 6.15 and 6.18,
+  Proposition 8.9, Remark 8.10, Proposition 8.11, Lemma 8.12, Corollary 8.13). READ 2026-10-23 for Proposition 6.18
+  (4)–(7): pp. 19, 67, 113, 117–118, 121, 128–134 (the proof's decomposition on p. 132), 149–151, 158. READ 2026-10-23
+  for section 7.2: pp. 126, 134–144 (section 7, Lemma 7.2, Propositions 7.3–7.4, Lemma 7.5, (7.1)–(7.35)). READ
+  2026-10-23 for Lemma 8.12 and Proposition 8.11: pp. 145 ((8.1)), 154–158 (Proposition 8.9 through Corollary 8.13).
+  READ 2026-10-24 for the s0 dual state's normalization: pp. 125 ((6.29)), 138 ((7.12)); for [AHW24] Theorem 6.1(2)'s
+  use: pp. 156–157. READ 2026-10-24 for sections 2, 5, 11–13 in the class: pp. 59–61 (Proposition 2.25), 84–110, 119,
+  152–154, 218–323. READ 2026-10-24 without the class: pp. 3, 5, 40, 76–81, 118–124, 136, 144, 154, 200–216, 233, 251,
+  318–319.
 - [Hin26c] P. Hintz, *(Non-)linear waves on asymptotically flat spacetimes. II: trapping, bound states, nonlinear
   applications*, arXiv:2606.28008v1. READ 2026-10-22: pp. 88 (Definition 4.13, Lemma 4.14), 90–91 (Proposition 4.19),
   100 ((5.1a)–(5.2)), 101–105 (Example 5.4, Remark 5.6, Definitions 5.8, 5.10–5.11, Remark 5.9, Lemma 5.12), 158–159
@@ -1219,8 +1250,10 @@ from the arXiv text, with the extraction's spacing.
 - [Hol08] G. Holzegel, *Stability and decay-rates for the five-dimensional Schwarzschild metric under biaxial
   perturbations*, arXiv:0808.3246v1. READ 2026-10-20: abstract p. 1, the model pp. 3–5, Theorem 1.1 pp. 5–6.
 - [CD03] P. T. Chruściel, E. Delay, *On mapping properties of the general relativistic constraints operator in weighted
-  function spaces, with applications*, arXiv:gr-qc/0301073v2. READ 2026-10-20: (2.1)–(2.2), p. 4. READ 2026-10-24
-  for the gluing in the class: pp. 4, 34 (Theorem 7.7), 36 (Remark 8.2), 55.
+  function spaces, with applications*, arXiv:gr-qc/0301073v2. READ 2026-10-20: (2.1)–(2.2), p. 4. READ 2026-10-24 for
+  the gluing in the class: pp. 4, 34 (Theorem 7.7), 36 (Remark 8.2), 55. READ 2026-10-24 without the class: pp. 35–38
+  (Theorem 8.1 and (8.1), Remarks 8.2–8.4, section 8.2's reference family), 72–77 ((E.5)–(E.9), Proposition E.1 with
+  (E.14) on p. 73, Appendix F).
 - [Rac16] I. Rácz, *Constraints as evolutionary systems*, Class. Quantum Grav. 33 (2016) 015014, arXiv:1508.01810v3.
   READ 2026-10-19: (3.3), p. 6.
 - [DS23] M. M. Disconzi, Y. Shao, *Strongly hyperbolic quasilinear systems revisited*, arXiv:2308.09851v1. READ
@@ -1512,6 +1545,12 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   four-dimensional lists reproduced; and the Poincaré charges of the translated, rotated and boosted Myers–Perry family
   at Tangherlini, their 15 × 15 Jacobian diagonal with determinant (3π/8)(πμ/4)⁶(3πμ/8)⁸, [CD03]'s (F.4)–(F.6)
   reproduced in four dimensions. 2/2; mutants 2/2 (a few seconds).
+- `exterior5.py` X1–X6: [Hin23a]'s section 3 at n = 4 (supplement section 10.64): every place the dimension enters, at n
+  = 3 against his printed values and at n = 4 — the conjugated wave operator's term ((n − 1)(n − 3)/4)r^(−2), 3/4 at n =
+  4; the b-density ρ0⁵ρ_I⁴|dg|; the energy form (3.25) with the angular operator ∆ + 3/4; the gauge endomorphism (2.11)
+  from his Definition 2.2's operators, his matrix and five intermediates at n = 3, the duality of his Remark 2.3 at
+  both, the diagonal 2γ_C, γ_C, (3/2)γ_C, −(3/2)γ_Υ, −γ_Υ, 0, −2γ_Υ at n = 4; the quadratic radiation term of R_11 at
+  r^(−2k), r^(−1/2) below the linear terms at n = 4; the Sobolev counts. 12/12; mutants 4/4 (about ten seconds).
 - `eind5.py` E1–E2: Hintz's Lemma 8.4 for every l (supplement section 10.52): every indicial root of the linearized
   gauge-fixed operator simple for l ≥ 2, exactly, in the scalar, vector and tensor types; his distance condition (8.13)
   by a certificate beyond l = 10⁴ and a 30-digit scan below, ε_ind ≤ 1.94137 × 10⁻⁸. 2/2; mutants 2/2 (about four
@@ -1599,7 +1638,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D133).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D135).
 
 | claim | where it is established |
 | --- | --- |
@@ -1650,10 +1689,11 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | `docket68/n1star/transfer5.py` T1–T2; `docket68/n1star/general5.py` G1–G2; [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin23a], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c], [AHW24], [CD03], [HHV21], [DLMF] |
-| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.63; the route and its |
-| | remaining reading, `docket68/n1star/ROUTES-OPEN.md` 4.44–4.63 |
+| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.64; the route and its |
+| | remaining reading, `docket68/n1star/ROUTES-OPEN.md` 4.44–4.65 |
 | the general class, section 8.6 | supplement sections 10.60–10.63; `docket68/n1star/general5.py` G1–G2; |
 | | [HHV21], [CD03] |
+| [Hin23a]'s section 3 at n = 4, section 8.8 | supplement section 10.64; `docket68/n1star/exterior5.py` X1–X6; [Hin23a] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1679,6 +1719,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the fifty-second section 10.43 (D111, D115); the fifty-third sections 10.44–10.46 (D112–D114, D121); |
 | | the fifty-fourth sections 10.47–10.52 (D116–D122, D126); the fifty-fifth sections 10.53–10.57 |
 | | (D123–D126, D129); the fifty-sixth sections 10.58–10.63 and this paper (D127, D128, D130–D133) |
+| | the fifty-seventh section 10.64 and the repairs of D133 (D134, D135) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1752,6 +1793,7 @@ others import nothing from the research tree:
                                                          # uniform5 (about twenty seconds)
                                                          # transfer5 (about four minutes)
                                                          # general5 (a few seconds)
+                                                         # exterior5 (about ten seconds)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
 The md5 of each file this paper rests on, at the commit that adds it:
@@ -1759,9 +1801,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `b448ef7b0471abd707bc4520b4d63608` |
-| `docket68/n1star/N1STAR-LOG.md` | `c93a974993272d25a04f3137aafc275a` |
-| `docket68/n1star/README.md` | `e680a8b531ff8ee9e12184ce3f85bf35` |
+| `docket68/n1star/N1STAR-PROOF.md` | `22d788360fcf30275f6ca8d1dc9ce323` |
+| `docket68/n1star/N1STAR-LOG.md` | `746fae75dd5f31da7fe04ea64bfd9bc2` |
+| `docket68/n1star/README.md` | `2ebdf813e16dbb7786701d4d7bf63523` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1822,6 +1864,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/eind5.py` | `c7dab684f8cc6ce75bf89a00b6705cec` |
 | `docket68/n1star/uniform5.py` | `cb12ee070583b3a33ab82aa5b04cf282` |
 | `docket68/n1star/transfer5.py` | `1983b9deebdae3c16bb891f4919340bc` |
-| `docket68/n1star/general5.py` | `c1d0f0e68142f7d47ad1b82ab77f4f20` |
+| `docket68/n1star/general5.py` | `13496fd0a93ea070731a78ed96123f4d` |
+| `docket68/n1star/exterior5.py` | `e7dddcb644690acf6c64a7942e1b53eb` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.
