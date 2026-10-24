@@ -1,0 +1,174 @@
+#!/usr/bin/env python3
+"""lowfreq5.py -- [Hin26] section 10.2 in five dimensions: the low-frequency part of the proof of 2-admissibility and
+its sf-loss (N1STAR-PROOF.md section 10.40; ROUTES-OPEN.md 4.41; D104).  Labels: computed (exact, sympy), deduced, READ.
+
+[Hin26] (arXiv:2606.28253v2) writes the forward solution as u = u_hi + u_reg + g-dot + h_s1 ((10.50)), the last two
+the inverse Fourier transforms of the augmentation's columns against b-hat_1, S-hat_1; "Differentiation in t* removes
+these poles" and Lemma 10.12 records "d_t* g-dot in H^((s;k),(-1/2-eps,0))_3b;b" (10.51) and "d_t*^2 h_s1 in
+H^((s;k),(1/2-eps,0))_3b;b" (10.52) (p. 215), from the iota+ orders of d_t* g-dot^Ups,aug and d_t*^2 h^(<=1),aug_s1
+through (2.25a) (tf order = iota+ order - 1, p. 60) and Lemma 2.20 (the 3b sf weight is the tf weight with the density
+|dx|, p. 55), "provided alpha' < -1/2 and s' + alpha' < -1/2 at R_out" (p. 216; Remark 10.2: s + alpha_sf < -1/2 - 1
+there, p. 200); two integrations by Lemma 10.13 from the initial weights (10.61)-(10.62) then give u in H^((s-1;k),
+(-3/2-eps,-2))_3b;b, "This proves (10.3) (since alpha_sf - delta < -3/2)" (p. 217).  In five dimensions the states
+are one order faster and the augmentation is chi_K times them (10.39):
+
+  W1 (computed, exact) The columns at zero frequency.  On 4+1 Minkowski, with aug5.py's gauged states and a piecewise
+     cubic chi (1 on [0, 1/4], 0 from 1/2): d_T(chi(r/T) g-dot) is homogeneous of degree -(k+1) and vanishes where r/T
+     is outside (1/4, 1/2), and at r = 2 its integral over T >= 1 is 1, so that the column's zero-frequency value is
+     g-dot itself; d_T^2(chi(r/T)(T h + h')), h, h' generic, integrates to h there (chi C^1 at its joints).  So the
+     zero-frequency values of the derivative columns are the states g-dot and h_s1, and their weights in L^2(r^(n-1) dr)
+     are k - n/2 and k + 1 - n/2: for the mass state, from its actual components, 0 and 1 in five dimensions; four
+     dimensions -1/2 and 1/2, his (10.51) and (10.52).  Control: the five-dimensional weight claimed to be the
+     four-dimensional -1/2.
+  W2 (computed, exact) The weights of section 10.2, over the admissible region alpha_sf + n/2 in (0, eps_ind), eps_ind
+     in (0, 1], at 598 rational points: d_t* g-dot's weight is min(tf - eps, alpha_sf + 1) (the second R_out's), d_t*^2
+     u_sing's the min with d_t*^2 h_s1's, and Lemma 10.13 twice from (10.61)-(10.62).  Four dimensions: -1/2 - eps, 1/2
+     - eps, the final -3/2 - eps, loss alpha_sf + 3/2 + eps -- his.  Five dimensions: alpha_sf + 1, alpha_sf + 2, the
+     final alpha_sf, loss 0 at every point -- the radial threshold binds, not the states' decay.  Controls: five
+     dimensions with four-dimensional state orders (a loss); four dimensions claimed lossless.
+
+Run: python3 lowfreq5.py --selftest | --mutants | --only k [--verbose]   (seconds).
+"""
+import sys
+import time
+from fractions import Fraction as Fr
+
+import sympy as sp
+
+import aug5 as A5
+from damping5 import Checklist
+from sbar5 import v, eC, gC, eU, gU
+
+HALF = Fr(1, 2)
+
+
+def chi(s):
+    """piecewise cubic step, 1 on [0, 1/4], 0 on [1/2, oo)"""
+    u = (s - sp.Rational(1, 4)) * 4
+    return sp.Piecewise((1, s <= sp.Rational(1, 4)), (1 - 3 * u**2 + 2 * u**3, s < sp.Rational(1, 2)), (0, True))
+
+
+# ------------------------------------------------------------------------------------------------- W1
+def w1(control=0, verbose=False):
+    chk = Checklist(verbose, quiet=control != 0)
+    T, R = sp.symbols("T R", positive=True)
+    h, h1 = sp.symbols("h h1")
+    col = sp.diff(chi(R / T), T)                               # d_T chi(r/T): the column's scalar factor
+    sv = sp.Symbol("s")
+    mid = 1 - 3 * (4 * sv - 1)**2 + 2 * (4 * sv - 1)**3        # chi on [1/4, 1/2]
+    c1 = [mid.subs(sv, sp.Rational(1, 4)), mid.subs(sv, sp.Rational(1, 2)),
+          sp.diff(mid, sv).subs(sv, sp.Rational(1, 4)), sp.diff(mid, sv).subs(sv, sp.Rational(1, 2))]
+    # at r = 2, chi(2/T) is 0 for T <= 4, mid(2/T) on [4, 8], 1 for T >= 8, and C^1 at the joints (c1 = 1, 0, 0, 0):
+    # the integrands vanish off [4, 8] and the second derivative carries no delta there
+    one = sp.simplify(sp.integrate(sp.diff(mid.subs(sv, 2 / T), T), (T, 4, 8)))
+    two = sp.simplify(sp.integrate(sp.diff(mid.subs(sv, 2 / T) * (T * h + h1), T, 2), (T, 4, 8)))
+    zero_tail = c1 == [1, 0, 0, 0]
+    outside = all(sp.simplify(col.subs({R: rr, T: tt})) == 0 for rr, tt in ((1, 5), (3, 5), (2, 1))) and zero_tail
+    chk(f"the zero-frequency integrals: d_T chi gives {one}, d_T^2 (chi (T h + h')) gives {two}; d_T chi vanishes "
+        f"outside the transition", one == 1 and sp.expand(two - h) == 0 and outside)
+    al = sp.Symbol("alpha", real=True)
+    for n in ((4,) if control else (4, 3)):
+        C, gauge, L, out = A5.states(n)
+        g = out["mass"][0].subs({v: sp.Rational(1, 3), eC: sp.Rational(1, 5), gC: 10, eU: sp.Rational(1, 7),
+                                  gU: sp.Rational(3, 2)})
+        pt = {C.x[0]: R, **{q: 0 for q in C.x[1:]}}
+        nrm2 = sp.simplify(sum(g[i, j].subs(pt)**2 for i in range(C.N) for j in range(C.N)))
+        k = -sp.Rational(sp.degree(sp.numer(sp.together(nrm2)), R) - sp.degree(sp.denom(sp.together(nrm2)), R), 2)
+        # the T-dependence of chi(r/T) g-dot: homogeneous of degree -(k+1) after d_T
+        lam = sp.Symbol("lam", positive=True)
+        cg = sp.diff(chi(R / T), T) * R**(-k)
+        hom = sp.simplify(cg.subs({R: lam * sp.Rational(3, 10), T: lam}) * lam**(k + 1) -
+                          cg.subs({R: sp.Rational(3, 10), T: 1}))
+        thr_g = k - sp.Rational(n, 2)                         # r^-k in r^al L^2(r^(n-1) dr) iff al < k - n/2
+        conv = sp.integrate(R**(2 * (thr_g - sp.Rational(1, 10)) - 2 * k + n - 1), (R, 1, sp.oo)).is_finite
+        div = not sp.integrate(R**(2 * thr_g - 2 * k + n - 1), (R, 1, sp.oo)).is_finite
+        want = {4: (0, 1), 3: (-sp.Rational(1, 2), sp.Rational(1, 2))}[n]
+        if control == 1:
+            want = (-sp.Rational(1, 2), sp.Rational(1, 2))
+        good = hom == 0 and conv and div and (thr_g, thr_g + 1) == want
+        chk(f"n + 1 = {n + 1}: the mass state of degree -{k}, its column of degree -{k + 1}; weights of g-dot and h_s1 "
+            f"{thr_g}, {thr_g + 1}", good)
+    return chk.ok
+
+
+# ------------------------------------------------------------------------------------------------- W2
+def chain(n, qg, qh, a, eps):
+    """section 10.2's weights: n spatial dimensions, the states' decay orders, alpha_sf a, the small eps"""
+    tf_g = qg + 1 - 1 - Fr(n, 2)                              # d_t* g-dot^aug at iota+ order qg + 1; (2.25a); |dx|
+    tf_h = qh + 1 - 1 - Fr(n, 2)                              # d_t*^2 h^aug at iota+ order qh + 1
+    w_dg = min(tf_g - eps, a + 1)                              # Lemma 2.20 and R_out: s + alpha' < -1/2, s' = s
+    w_ddh = min(tf_h - eps, a + 2)                             # s' = s - 1
+    w_dd = min(w_dg + 1, w_ddh)                                # d_t* in rho_sf V_3b
+    w_du = min(w_dd, (a + 1) + 1) - 1                          # Lemma 10.13 from (10.62)
+    w_u = min(w_du, a + 1) - 1                                 # Lemma 10.13 from (10.61)
+    return w_dg, w_ddh, min(w_u, a), a - min(w_u, a)
+
+
+def w2(control=0, verbose=False):
+    chk = Checklist(verbose, quiet=control != 0)
+    pts = [(ei, Fr(j, 11) * ei, Fr(1, 10**m)) for ei in (Fr(1, 100), Fr(1, 10), HALF, Fr(9, 10), Fr(1))
+           for j in range(1, 11) for m in (3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)]
+    for n, qg, qh in ((4, 2, 3), (3, 1, 2)):
+        if control == 1 and n == 3:
+            continue
+        if control == 1:
+            qg, qh = 1, 2
+        good, used = True, 0
+        for ei, x, eps in pts:
+            a = x - Fr(n, 2)                                   # alpha_sf + n/2 = x in (0, eps_ind)
+            if eps >= x or eps >= ei - x:
+                continue
+            used += 1
+            w_dg, w_ddh, w, loss = chain(n, qg, qh, a, eps)
+            if n == 4:
+                good &= w_dg == a + 1 and w_ddh == a + 2 and w == a and (loss == 0 if control != 2 else loss > 0)
+            else:
+                good &= w_dg == -HALF - eps and w_ddh == HALF - eps and w == -Fr(3, 2) - eps
+                good &= (loss == a + Fr(3, 2) + eps) if control != 2 else loss == 0
+        chk(f"n + 1 = {n + 1}: section 10.2's weights at {used} points of the admissible region "
+            f"({'five: alpha_sf + 1, alpha_sf + 2, alpha_sf, no loss' if n == 4 else 'four: his -1/2, 1/2, -3/2'})",
+            good)
+    return chk.ok
+
+
+CHECKS = [("W1 the columns' zero-frequency values are the states; their weights 0 and 1 (four: his -1/2, 1/2)", w1, 1),
+          ("W2 section 10.2's weights: five dimensions alpha_sf + 1, alpha_sf + 2, alpha_sf, no loss; four his", w2, 2)]
+
+
+def selftest(verbose=False):
+    ok_all = True
+    for name, fn, nc in CHECKS:
+        t0 = time.time()
+        good = fn(verbose=verbose)
+        control = any(fn(control=k) for k in range(1, nc + 1))
+        state = "PASS" if good and not control else "FAIL"
+        ok_all &= state == "PASS"
+        print(f"{name:<112} {state}  {time.time() - t0:.0f}s" + ("" if not control else "  (control passed: vacuous)"),
+              flush=True)
+    print(f"lowfreq5.py: {len(CHECKS) if ok_all else 'FAILED'}/{len(CHECKS)}")
+    return ok_all
+
+
+def mutants():
+    caught = total = 0
+    for name, fn, nc in CHECKS:
+        for k in range(1, nc + 1):
+            total += 1
+            res = fn(control=k)
+            caught += (not res)
+            print(f"mutant {k} of {name[:2]}: {'caught' if not res else 'NOT caught'}", flush=True)
+    print(f"lowfreq5.py mutants: {caught}/{total}")
+    return caught == total
+
+
+if __name__ == "__main__":
+    args = sys.argv[1:]
+    verbose = "--verbose" in args
+    if "--only" in args:
+        k = int(args[args.index("--only") + 1])
+        name, fn, nc = CHECKS[k - 1]
+        print(name, "PASS" if fn(verbose=True) else "FAIL")
+    elif "--mutants" in args:
+        sys.exit(0 if mutants() else 1)
+    else:
+        sys.exit(0 if selftest(verbose) else 1)

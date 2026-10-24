@@ -5807,6 +5807,97 @@ line in five dimensions (Lemma 10.9 onward, (10.56)-(10.59)); the boost entry an
 computation ((a) reads their orders); the readings of (e); his section 11, and the I+ asymptotics of his Lemma 10.3 if
 it needs them. Nothing of this section is proved: Proposition 10.36 is computed, and (a)-(f) are deduced.
 
+### 10.40 [Hin26] section 10.2 in five dimensions: the proof of 2-admissibility, with no sf-loss (`lowfreq5.py`; D104)
+
+*The setting.* His Theorem 10.1 demands, for a stationary-L_b-admissible order function s "with weights alpha_sf, -2 and
+margin 1", that for f in H^((s;k),(alpha_sf+2,0))_3b;b "the unique forward solution u of L_b u = f satisfies u in
+H^((s-1;k),(alpha_sf-delta,-2))_3b;b" ((10.3), p. 200), and his Remark 10.2 reads the margin at the outgoing radial set:
+"the requirement is that s + alpha_sf < -1/2 - 1 (1 being the margin) at the outgoing radial set". The proof writes u
+through the contour (10.4) and splits it ((10.50)) as u = u_hi + u_reg + g-dot + h_s1. The high frequencies are lossless
+(Lemma 10.9: "losses will only arise from the low-energy behavior ... the order 2 (or rather 2 + delta) difference of
+the sf-decay orders in (10.3) only arises in the low-energy theory", pp. 212-213), and so is the regular part (Lemma
+10.10, p. 214). For the singular part, "Differentiation in t* removes these poles": Lemma 10.12 has "d_t* g-dot in
+H^((s;k),(-1/2-eps,0))_3b;b" (10.51) and "d_t*^2 h_s1 in H^((s;k),(1/2-eps,0))_3b;b" (10.52), from the iota+ orders of
+d_t* g-dot^Ups,aug in A^(1,2,2) and of his split (10.57), through (2.25a), the Fourier transform taking iota+ order
+beta_iota to tf order beta_iota - 1 (p. 60), and Lemma 2.20, the 3b sf weight being the tf weight with the density |dt*
+dx| (p. 55), "provided alpha' < -1/2 and s' + alpha' < -1/2 at R_out" (pp. 215-216). Two integrations by Lemma 10.13,
+which needs u on {t* <= 1} in H^((s;k),(beta-1,-l)) and d_t* u in H^((s;k),(beta,-l+1)) with l > 1/2, from
+(10.61)-(10.62), then give "u in H^((s-1;k),(-3/2-eps,-2))_3b;b ... This proves (10.3) (since alpha_sf - delta < -3/2)"
+(p. 217): his sf-loss delta > alpha_sf + 3/2 comes from the singular part alone. In five dimensions 10.39 makes the
+augmentation chi_K times the states, of orders rho^2 (mass, boosts' h-breve) and rho^3 (rotations, h_s1) (section
+10.28), and alpha_sf + 2 in (0, eps_ind) stands for his alpha_sf + 3/2.
+
+**Proposition 10.37 (computed; exact).** On 4+1 Minkowski, with aug5.py's gauged states, and with four-dimensional
+Minkowski as the control:
+
+ (i) (the columns at zero frequency) For chi a piecewise cubic step, 1 on [0, 1/4] and 0 from 1/2, C^1 at its joints:
+     d_T(chi(r/T) g-dot) is homogeneous of degree -(k + 1) and vanishes where r/T is outside (1/4, 1/2); at r = 2 its
+     integral over T >= 1 is g-dot, and that of d_T^2(chi(r/T)(T h + h')) is h, for h, h' constant in T. The mass state
+     is of degree -2 (four dimensions -1), measured from its components, so the zero-frequency values of the two
+     derivative columns, the states g-dot and h_s1, lie in r^alpha L^2(r^(n-1) dr) exactly for alpha below 0 and 1 in
+     five dimensions -- in four below -1/2 and 1/2, his (10.51) and (10.52) (W1).
+ (ii) (the weights) The arithmetic of section 10.2 -- d_t* g-dot's weight the lesser of its tf weight less eps and
+     alpha_sf + 1, the most the radial threshold allows at s' = s; d_t*^2 h_s1's the lesser of its own and alpha_sf + 2
+     at s' = s - 1; d_t*^2 u_sing's the lesser of the second and the first plus 1; then Lemma 10.13 twice from the
+     initial weights alpha_sf + 1 and alpha_sf of (10.61)-(10.62) -- at the 598 rational points of the region alpha_sf +
+     n/2 in (0, eps_ind), eps_ind in (0, 1], eps below both margins that a grid of five eps_ind, ten alpha_sf and twelve
+     eps gives: four dimensions -1/2 - eps, 1/2 - eps, the final weight -3/2 - eps and the loss alpha_sf + 3/2 + eps,
+     his; five dimensions alpha_sf + 1, alpha_sf + 2, the final weight alpha_sf and the loss 0 at every point (W2).
+
+*Proof.* W1-W2 of lowfreq5.py: (i) sympy, the integrals over the transition T in [4, 8] at r = 2, chi being 0 before it
+and 1 after it, the joints checked C^1 so that the second derivative carries no delta there; the degree from the
+components of aug5.py's mass state along a ray, at the parameter point of aug5.py; the weights by the integrability of
+r^(2 (alpha - k)) r^(n-1) at infinity. (ii) exact rational arithmetic. Controls: in (i) the five-dimensional weight
+claimed to be -1/2; in (ii) five dimensions with four-dimensional state orders (a loss), and four dimensions claimed
+lossless. []
+
+*Deduced.*
+
+ (a) (Lemmas 10.9-10.11 in five dimensions) The high-frequency piece rests on [Hin26c] Theorem 9.16(5)'s high-energy
+     estimates with strong trapping admissibility (section 10.26) and on the margin of Remark 10.2, whose threshold
+     quantity is min spec S-bar = 0 in five dimensions too (section 10.25); the regular part and the coefficients
+     b-hat_1, S-hat_1 rest on Proposition 10.7 (section 10.39(e)). They are lossless as his: u_hi and u_reg lie in
+     H^((s;k),(alpha_sf,0))_3b;b -- on those readings.
+ (b) (Lemma 10.12 in five dimensions) With 10.39(c)'s augmentation, d_t* g-dot^Ups,aug = (d_t* chi_K) g-dot is supported
+     where chi_K varies, in A^(oo,3,oo) (iota+ order 2 + 1; nothing at I+ or K+), and d_t*^2 h^(<=1),aug_s1 = 2 (d_t*
+     chi_K) h_s1 + (d_t*^2 chi_K) h^(<=1)_s1 is in A^(oo,4,oo) -- his (10.57)'s h_1 alone, with no h_2 and no t*^-1 or
+     log t* term; both are integrable in t*. By (2.25a) their Fourier transforms have tf orders 2 and 3 (unweighted
+     b-density), so 0 and 1 against |dx| = r^3 dr dS^3 (Proposition 10.37(i): the zero-frequency values are the states
+     themselves, at these weights). Lemma 2.20 then places d_t* g-dot in H^((s';k),(alpha',0))_3b;b for alpha' < 0 with
+     s' + alpha' < -1/2 at R_out, and d_t*^2 h_s1 likewise for alpha' < 1. By the margin, s + alpha_sf < -3/2 at R_out,
+     so alpha' = alpha_sf + 1 at s' = s for the first and alpha' = alpha_sf + 2 at s' = s - 1 for the second qualify,
+     and they are below 0 and 1 (alpha_sf + 2 < eps_ind <= 1): in five dimensions the radial threshold binds, not the
+     states' decay; in four his -1/2 - eps binds, being below alpha_sf + 1.
+ (c) (Lemma 10.13 and the conclusion in five dimensions) Lemma 10.13 does not see the dimension -- its proof drops the
+     angular variables, removes powers of r, and estimates in L^2(|dt dr|). So d_t*^2 u_sing in
+     H^((s-1;k),(alpha_sf+2,0)), with (10.62)'s d_t* u_sing in H^((s-1;k),(alpha_sf+1,0)) on {t* <= 1}, gives d_t*
+     u_sing in H^((s-1;k),(alpha_sf+1,-1)); with (10.61)'s u_sing in H^((s;k),(alpha_sf,0)) there, u_sing in
+     H^((s-1;k),(alpha_sf, -2)) (Proposition 10.37(ii)). With (a), u = u_hi + u_reg + u_sing is in
+     H^((s-1;k),(alpha_sf,-2))_3b;b: (10.3) holds with alpha_sf in place of alpha_sf - delta. So, on the readings of (a)
+     and of 10.39, L_b is 2-admissible in five dimensions with sf-weight alpha_sf, alpha_sf + 2 in (0, eps_ind), and no
+     sf-loss -- every delta >= 0 in (10.3); if [Hin26c] Definition 5.13 (not read here) asks delta > 0, every such
+     delta. His loss is the r^-1 tail of his states, which in five dimensions is r^-2.
+ (d) (a note on (10.52)) He writes that its conditions "hold for alpha' = 1/2 - eps and s' = s (see again Remark
+     10.2)" (p. 216). As we read Remark 10.2, the margin gives s < -3/2 - alpha_sf at R_out, which is below 0 but not
+     below -1 + eps, while s' + alpha' < -1/2 at s' = s would ask the latter; at s' = s - 1 it asks s < eps, which
+     holds. His proof uses (10.52) only through (10.63), at (s - 1;k), so his conclusion is unaffected; in five
+     dimensions (b) takes s' = s - 1 for d_t*^2 h_s1 throughout. A reading of his text, recorded and not more.
+ (e) (downstream) His Corollary 11.10 and Theorem 11.12 carry the loss as delta > alpha_sf + 3/2, resp. delta > beta_+ -
+     1/2 (p. 225); in five dimensions delta may be taken 0 there -- his section 11 is not examined here.
+
+*READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed page numbers): pp. 25 (the Fourier
+transform convention, Figure 1.5), 54-55 (the 3b spaces, Definition 2.19, Lemma 2.20), 60 ((2.25a)-(2.26b)), 199-201
+(Theorem 10.1, (10.1)-(10.4), Remark 10.2), 212-217 (section 10.2: Lemma 10.9 and its proof, (10.45), Lemmas
+10.10-10.13, (10.46)-(10.64), the end of the proof of Theorem 10.1), 225 (Corollary 11.10, Theorem 11.12's opening).
+
+*What this gives, and what it does not.* In five dimensions the proof of his Theorem 10.1 closes with no loss of decay
+at spatial infinity: the derivatives that remove the poles carry the states' own weights, one order better than his, and
+the bound is then set by the radial threshold at R_out, which carries exactly the initial weights; in four dimensions
+the computation returns his -3/2 - eps and his loss. Not done, and OPEN: [Hin26c] Lemma 3.9, (13.30a) and Theorems 9.16
+and 14.2 at n = 4 (readings, with 10.19-10.20); [Hin26c] Definition 5.13's delta; Lemma 10.9 line by line in five
+dimensions; whether the boosts' columns meet (b)'s orders on Tangherlini by computation (section 10.39's OPEN); his
+section 11. Nothing of this section is proved: Proposition 10.37 is computed, and (a)-(e) are deduced.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

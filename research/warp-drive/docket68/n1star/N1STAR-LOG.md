@@ -3466,3 +3466,36 @@ s, A2 216 s, A3 313 s) and mutants 4/4; iota5 --only 4 True; response5 all pass;
 *Runs.* aug5.py --selftest 3/3 (A1 23 s, A2 316 s, A3 354 s with the controls, about eleven and a half minutes on a
 loaded machine) and --mutants 4/4 (about five minutes) after nit (1); paper/response5.py --selftest all pass; md5 rows
 refreshed.
+
+**D104 (2026-10-24): [Hin26] section 10.2 in five dimensions, 2-admissibility with no sf-loss (10.40, lowfreq5.py).**
+
+M asked to continue; after section 10.1 (D102) the proof of his Theorem 10.1 itself, his section 10.2, is the next step
+of ROUTES 4.4 route B item 2. READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 25 (the Fourier
+transform convention, Figure 1.5), 54-55 (Definition 2.19, Lemma 2.20), 60 ((2.25a)-(2.26b)), 199-201 (Theorem 10.1,
+(10.1)-(10.4), Remark 10.2), 212-217 (Lemma 10.9 and its proof, (10.45), Lemmas 10.10-10.13, (10.46)-(10.64), the end of
+the proof of Theorem 10.1), 225 (Corollary 11.10, Theorem 11.12's opening).
+
+*Computed (Proposition 10.37, lowfreq5.py W1-W2).* (W1) For a piecewise cubic chi, 1 on [0, 1/4] and 0 from 1/2, C^1 at
+its joints, the zero-frequency integrals at r = 2 of d_T(chi(r/T) g-dot) and of d_T^2(chi(r/T)(T h + h')) are g-dot and
+h exactly; aug5.py's mass state is of degree -2 (four dimensions -1), from its components, so the weights of the states
+g-dot and h_s1 in r^alpha L^2(r^(n-1) dr) are below 0 and 1 (four dimensions -1/2 and 1/2, his (10.51) and (10.52)).
+(W2) Section 10.2's weight arithmetic at 598 rational points of alpha_sf + n/2 in (0, eps_ind): five dimensions
+alpha_sf + 1, alpha_sf + 2, the final alpha_sf, loss 0; four dimensions his -1/2 - eps, 1/2 - eps, -3/2 - eps and loss
+alpha_sf + 3/2 + eps.
+
+*Deduced (10.40).* (a) His Lemmas 10.9-10.11 lossless as his, on readings. (b) Lemma 10.12 in five dimensions: d_t*
+g-dot^aug in A^(oo,3,oo) and d_t*^2 h^aug in A^(oo,4,oo), tf orders 2 and 3, weights 0 and 1 against r^3 dr; the radial
+threshold at R_out, with Remark 10.2's margin, binds -- alpha_sf + 1 at s' = s and alpha_sf + 2 at s' = s - 1. (c) Lemma
+10.13 twice gives u in H^((s-1;k),(alpha_sf,-2)): (10.3) with no loss, every delta >= 0, or every delta > 0 if [Hin26c]
+Definition 5.13 asks it. (d) His (10.52) as printed, at s' = s, would need s < -1 + eps at R_out, where Remark 10.2
+gives s < -3/2 - alpha_sf; his proof uses (10.52) only through (10.63), at s - 1, where it holds -- a reading, recorded
+and not more. (e) His Corollary 11.10 and Theorem 11.12 carry delta; his section 11 is not examined.
+
+*Notes.* (1) sympy does not integrate the piecewise chi to infinity, nor over (1, 8); W1 integrates the explicit cubic
+over the transition [4, 8] at r = 2, where chi(2/T) varies, and checks chi C^1 at its joints, so that the second
+derivative carries no delta there. (2) W2's grid is five eps_ind, ten alpha_sf and twelve eps; 598 of its 600 points
+have eps below both margins, and the two others are skipped. (3) Section 10.40 first cited 10.39 parenthesized, which
+10.39's own convention reads as his equation; it now says "section 10.39".
+
+*Runs.* lowfreq5.py --selftest 2/2 (W1 5 s, W2 under 1 s) and --mutants 3/3 (about 3 s); paper/response5.py --selftest
+all pass; md5 rows 57, lowfreq5.py added.
