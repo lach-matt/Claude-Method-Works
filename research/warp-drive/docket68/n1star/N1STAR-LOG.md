@@ -3727,3 +3727,24 @@ conditions change no count, the polynomial ansatz being regular already; the con
 dropped (two divergence-free 1-forms appear) and the eigenvalue moved by one.
 
 *Runs.* class5.py --selftest 2/2 (about thirty seconds) and --mutants 3/3.
+
+**D112 (2026-10-24): A2, [Hin26] section 11.2 in five dimensions (10.44, iplus5.py).**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 47, 49-50, 57-58, 86, 181, 224-230, 235. His b-ODE
+lemmas are stated for any compact manifold with corners and any number of parameters, so they hold with S^3.
+
+*Computed (Proposition 10.41, iplus5.py P1-P3).* The I+ normal operator's leading part -(rho_I d - (n - 1)/2)(rho_I d -
+rho_+ d), 3/2 at n = 4; the exceptional exponents 2 and 3/2 + (1 - e_Ups) gam_Ups, his reproduced at I0 = 1;
+non-resonance for gam_Ups != 1/4; the gap at the point.
+
+*Deduced (10.44(a)-(e)).* (11.26), (11.34) and the I+ index sets in five dimensions; Lemma 11.15, Propositions 11.14 and
+11.16; E_+ with min Re 3/2 + (1 - e_Ups) gam_Ups, so that 10.42 (pointer added to its (a)) no longer needs 10.38's
+readings for E_+.
+
+*Notes.* (1) P1 first compared the plain wave operator with his L_0 and found a remainder of order rho_I^-1 with a
+factor 3 for every n; his L is -box/2 to leading order, and with that normalization the remainder is rho_I R exactly.
+(2) lin5.py's point uses its own symbols (v, eC, gC, eU, gU) with no assumptions; they are mapped to sbar5.py's by name.
+(3) The first mutants of P2-P3 changed a matrix whose diagonal both dimensions share, and were not caught; the exponents
+are now functions of the leading exponent I0, and I0 = 1 is the control.
+
+*Runs.* iplus5.py --selftest 3/3 and --mutants 3/3 (seconds).

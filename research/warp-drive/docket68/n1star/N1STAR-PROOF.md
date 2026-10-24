@@ -6077,7 +6077,7 @@ claimed dimension-free; the five-dimensional mass change claimed of order 1; its
      10.39(ii)), and the iteration's slowest iota+ term is the mass aspect's t*^-2 (alpha_5 = 2, section 10.38, on
      readings). So his (11.6) becomes (2, 0) in E+, min Re E+ >= 2, jE+ subset E+: every order there one above his, on
      10.38's readings, which are also what keeps the radiative 3/2 out of E+ (his Proposition 11.16 in five dimensions,
-     10.38's OPEN).
+     10.38's OPEN; without them min Re E+ = 3/2 + (1 - e_Ups) gam_Ups, and (b)-(e) still hold: 10.44(e)).
  (b) (Lemma 11.5) With min Re E+ = 2, Sobolev embedding puts h at 2 - eps at iota+ where his is 1 - eps, so (11.14)'s
      l_+ < 1 relaxes to l_+ < 2 and [Hin26c] Definition 5.15's convenience bound l_+ <= 1 is the one that binds; l_K <=
      2 + eps_K is unchanged, and l_I rests on E^C_I and gam_Ups at I+, his section 5 at n = 4 (10.38's readings).
@@ -6193,6 +6193,79 @@ generators; two invariant divergence-free 1-forms); the eigenvalue moved by one 
 
 OPEN: everything ROUTES 4.44 lists after A1; (e)'s reading of Theorem 12.8's proof (A7). Labels: computed (class5.py
 C1-C2; exact); deduced ((a)-(e)); READ ([Hin26] pp. 63, 219, 301-302, 310, 312, 321-322); nothing proved.
+
+### 10.44 [Hin26] section 11.2 in five dimensions: the structure at I+ and its formal solutions (`iplus5.py`; D112)
+
+His Lemma 11.15 and Propositions 11.14 and 11.16 integrate the I+ normal operator component by component with b-ODE
+lemmas. This section computes the five-dimensional normal operator's leading part, exponents and exceptional terms, and
+deduces the three statements in five dimensions.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; ASCII): p. 47, b-Sobolev spaces on [0, oo)^k x
+R^(n-k) x S, "S is a closed (i.e., compact, no boundary) smooth manifold"; pp. 49-50, Lemma 2.12, "We work on [0, 1)_x x
+H where H is a compact manifold with corners"; pp. 57-58, Lemmas 2.22 and 2.23 on "[0, 2) x [0, 2) x (-2, 2)^d"; p. 86,
+Definition 5.3(3) and (5.5)-(5.8); p. 181, Lemma 9.14 and (9.47); pp. 224-226, Definition 11.3, Proposition 11.8,
+Theorem 11.12; pp. 226-230, Proposition 11.14, (11.26) "rho_I^-1 rho_+^-2 L = L_0 + L~, L_0 = -(rho_I d_rho_I - (I +
+A_h))(rho_I d_rho_I - rho_+ d_rho_+) + rho_+^-1 B_h", Lemma 11.15 and its proof (the (7, 6) term "(A_h)_7,6 = -1/2 d_1(r
+h_ab)" producing (1, 0), the (7, 4) term (1 + (1 - e_Ups) gam_Ups, 0), "using l_I <= 3 + eps_I < 1 + (1 - e_C)(1 - v_C)
+gam_C"), Proposition 11.16 with (11.33a)-(11.33b) and Steps 1-3 of its proof, (11.34) "L~ in rho_I Diff^2_b"; p. 235,
+the coordinates "rho_I = t*/r ... rho_+ = 1/t* (cf. (3.4e))".
+
+**Proposition 10.41 (computed; exact).**
+
+ (i) (the leading part) For the wave operator of R^(1,n) on u(t*, r) Y, Y a harmonic of S^(n-1) with eigenvalue -kappa,
+     in rho_I = t*/r, rho_+ = 1/t*: rho_I^-1 rho_+^-2 (-box/2) = -(rho_I d_rho_I - (n - 1)/2)(rho_I d_rho_I - rho_+
+     d_rho_+) + rho_I R, R = -(a^2 - (n - 2) a - kappa)/2 on rho_I^a rho_+^b, angular term and potential in R: his I = 1
+     at n = 3, and 3/2 at n = 4 (P1).
+ (ii) (the bookkeeping) The five-dimensional A_0 of 10.38(i) is lower triangular with his diagonal; the 11-component's
+     exceptional I+ exponents are 2 I0 - 1 and I0 + (1 - e_Ups) gam_Ups, that is 2 and 3/2 + (1 - e_Ups) gam_Ups at I0 =
+     3/2 and his 1 and 1 + (1 - e_Ups) gam_Ups at I0 = 1 from his (5.28); his Steps' coefficients are (2 - (3/2 + 2
+     gam_Ups)) = (1 - 4 gam_Ups)/2, zero only at gam_Ups = 1/4, and -(1 + e_Ups) gam_Ups; and z - 3/2 - A_0 is
+     invertible for 3/2 + 2 gam_Ups < Re z < 3/2 + (1 - e_C)(1 - v) gam_C, at the record's point (v, e_C, gam_C, e_Ups,
+     gam_Ups) = (1/2, 1/102400, 10^6, 1/100, 1/100) for 38/25 < Re z < 499997 (P2).
+ (iii) (Proposition 11.16's Steps 1-2) On chi rho_I^z u (dx^1)^2, z = 2 and 3/2 + (1 - e_Ups) gam_Ups, L_0 is (4
+     gam_Ups - 1)/2 (z - rho_+ d_rho_+) and (1 + e_Ups) gam_Ups (z - rho_+ d_rho_+), nonzero at the point (P3).
+
+*Proof.* P1-P3 of iplus5.py: sympy, exact. (i) the operator applied to rho_I^a rho_+^b Y with a, b, kappa symbolic, t* =
+t - r, and the difference from the claimed leading part shown to carry a factor rho_I with polynomial coefficients; (ii)
+scri5.py's five528() and his528() (10.38), the exponents and coefficients read from their entries, the gap at lin5.py's
+point; (iii) the 11-entry of L_0 on the ansatz. Controls: the exponent claimed n/2; I0 = 1 with the five-dimensional
+matrix (the exponents then his, not ours). []
+
+*Deduced.*
+
+ (a) ((11.26) and (11.34) in five dimensions) rho_I^-1 rho_+^-2 L_b = L_0 + L~ with L_0 = -(rho_I d_rho_I - (3/2 +
+     A_0))(rho_I d_rho_I - rho_+ d_rho_+) and L~ in rho_I Diff^2_b: the scalar part is (i), the bundle part 10.38(i)
+     with its leading 2 r^(-3/2) d_0 r^(3/2) (10.38(a)). For L_(g,g0) the coefficients carrying h enter as his A_h - A_0
+     and B_h, each linear in d_1 h and r^-1 h with a Christoffel symbol's weights (10.38(a), a scaling argument), so of
+     I+ order one below h's.
+ (b) (Definition 5.3 and (5.5)-(5.8) in five dimensions) min Re E^C_I > 3/2 + 2 gam_Ups; E^tot_I := E^C_I u (3/2, 0) u
+     (3/2 + (1 - e_Ups) gam_Ups, 0) u (3/2 + gam_Ups, 0) u (3/2 + 2 gam_Ups, 0) with his two closure conditions, j
+     E^tot_I in E^C_I (j >= 2) and E^C_I + (E^tot_I - 1) in E^C_I, met by his smallest-index-set argument (p. 86, (ii));
+     E_I,01 := E^C_I u (3/2 + (1 - e_Ups) gam_Ups, 0), E_I,1/ := E^C_I u (3/2 + gam_Ups, 0), E-slash_I,0 := E^C_I u
+     (3/2, 0), E_I,11 := E^C_I u (2, 0) u (3/2 + (1 - e_Ups) gam_Ups, 0) u (3/2 + 2 gam_Ups, 0): his with 3/2 for 1,
+     except that the (7, 6) term gives (2, 0) for his (1, 0) (ii).
+ (c) (Lemma 11.15 and Proposition 11.14 in five dimensions) His proofs run with (a)-(b), his Lemmas 2.12 and 2.23
+     holding on [0, 1) x [0, 1) x S^3 as stated: Step 1 reaches alpha_I < 3/2, every exponent of 3/2 + A_h being at
+     least 3/2; Step 2 passes 3/2 + (1 - e_Ups) gam_Ups with E-slash_I,0's (3/2, 0) and E_I,11's exceptional terms; Step
+     3 gains eta < min Re(E^C_I - 1) per pass up to l_I, which needs l_I < 3/2 + (1 - e_C)(1 - v_C) gam_C (ii). So Lemma
+     11.15 holds with min(alpha_I, 3/2, l_+) for his min(alpha_I, 1, l_+), and Proposition 11.14 as stated with (b)'s
+     index sets.
+ (d) (Proposition 11.16 in five dimensions) For l-breve_+, l_I not in Re pi_1 E^C_I u {2, 3/2 + (1 - e_Ups) gam_Ups} and
+     l_I < 3/2 + (1 - e_C)(1 - v_C) gam_C: Steps 1-2 solve away the exceptional terms at z = 2 and 3/2 + (1 - e_Ups)
+     gam_Ups by (iii) (gam_Ups != 1/4), Step 3 the rest, Lemma 2.12 adding (z, 0) at iota+; so E^#(1)_+ = E-breve_+ u
+     {(2, 0)} u {(3/2 + (1 - e_Ups) gam_Ups, 0)}, and E^#(j+1)_+ adds the z of pi_1 E^C_I with j < Re z <= j + 1 as his
+     (11.33b). The formal solutions' iota+ index set then has least real part 3/2 + (1 - e_Ups) gam_Ups, unless
+     E-breve_+ goes lower -- on (a)'s scaling argument for the (7, 6) term.
+ (e) (E_+ in five dimensions, and 10.42 without 10.38's readings) The iteration's iota+ index set E_+ must contain
+     E^#_+, so without 10.38(d)-(e)'s readings min Re E_+ = 3/2 + (1 - e_Ups) gam_Ups, with (2, 0) in E_+ for the mass
+     (Remark 11.7). 10.42's conclusions hold with it: Lemma 11.5's l_+ < min Re E_+ stays above Definition 5.15's
+     binding l_+ <= 1; Corollary 11.9's (4, 0) in E_+ + 2 needs (2, 0) in E_+ alone; Corollary 11.10 and Theorem 11.12
+     use min Re E_+ > 1 only. So 10.42 no longer rests on 10.38's readings for E_+, and alpha_5 = 2 (10.38(e)) is what
+     those readings add.
+
+OPEN: the five-dimensional weights l_I at I+ for the iteration (fixed with A3, by the Fourier transform's conditions
+(2.27)); 10.38(a)'s scaling argument; Definition 5.3's closure written out with section 5 (A8). Labels: computed
+(iplus5.py P1-P3; exact); deduced ((a)-(e)); READ ([Hin26] pp. 47, 49-50, 57-58, 86, 181, 224-230, 235); nothing proved.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

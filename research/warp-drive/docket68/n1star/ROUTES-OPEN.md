@@ -1580,3 +1580,19 @@ x O(2); N1STAR-PROOF.md 10.43 states Proposition 10.40 and deduces.
   the physical states at l = 2 the scalar and the tensor ones; and the Nash-Moser iteration runs on the G-fixed
   subspaces, on the reading that his read-off in Theorem 12.8's proof commutes with G (checked at A7).
 - Next: A2, his section 11.2 in five dimensions (Propositions 11.14-11.16), on 10.38's (5.28).
+
+### 4.46 A2: [Hin26] section 11.2 in five dimensions (computed; D112)
+
+iplus5.py computes the I+ normal operator's structure in five dimensions; N1STAR-PROOF.md 10.44 states Proposition 10.41
+and deduces his Lemma 11.15 and Propositions 11.14 and 11.16.
+
+- Computed (P1-P3): the leading part -(rho_I d - 3/2)(rho_I d - rho_+ d), his with 3/2 for 1; A_0's exponents 3/2 + his
+  diagonal; the 11-component's exceptional exponents 2 and 3/2 + (1 - e_Ups) gam_Ups (his 1 and 1 + (1 - e_Ups) gam_Ups
+  reproduced from his matrix); the Steps' coefficients nonzero for gam_Ups != 1/4; the gap 3/2 + 2 gam_Ups < Re z < 3/2
+  + (1 - e_C)(1 - v) gam_C, at the point past 5 x 10^5.
+- Deduced: the five-dimensional index sets at I+ (Definition 5.3 and (5.5)-(5.8) with 3/2 for 1 and E_I,11's (2, 0));
+  Lemma 11.15 with min(alpha_I, 3/2, l_+), Proposition 11.14 as stated, Proposition 11.16 with E^#(1)_+ = E-breve_+ u
+  {(2, 0)} u {(3/2 + (1 - e_Ups) gam_Ups, 0)}; and E_+ with min Re 3/2 + (1 - e_Ups) gam_Ups, which keeps 10.42's
+  conclusions without 10.38's readings.
+- OPEN: the weights l_I for the iteration (A3); 10.38(a)'s scaling argument; Definition 5.3's closure with section 5
+  (A8). Next: A3, his section 11.3 (Step 1, Proposition 11.17).
