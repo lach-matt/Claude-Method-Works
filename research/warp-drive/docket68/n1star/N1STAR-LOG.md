@@ -4175,3 +4175,10 @@ invertibility by the Neumann series; dim ker <= N near a Fredholm index-0 point 
 l_j; persistence of strict inequalities on compact sets -- and cites Rouche/Hurwitz and the inverse function theorem.
 Each C row is mapped to its lemma and its continuity input, READ from its source; ten rows the rule misfiled (exact,
 computed, or B steps) are listed apart.
+
+**D142 (2026-10-24): the general-n steps' hypotheses placed (10.72).** An extraction pass listed each A row's hypotheses
+and where the record establishes them: 23 of 28 complete, 5 partial, and one row (10.51 (c)) missed and misfiled. Three
+partials were closed by reading at source: [Hin26] Proposition 5.25 (pp. 110-111), a triangular frame system the same in
+any n; [Hin26] Lemma 10.13 (p. 217) and [Hin26c] Lemma 14.6 (pp. 264-265), Hardy inequalities in t with general s by the
+3b calculus. 10.41 (d)'s inputs are 10.53's and 10.67's; 10.38 (a) is X7's computation for [Hin23a]'s gauge, deduced for
+[Hin26]'s.

@@ -1965,3 +1965,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Deduced (the map): each of the 31 C rows of DEDUCTIONS.tsv rests on one of these and a continuity input READ from its
   source; ten rows were misfiled by the rule (exact, computed or B steps) and are listed as such.
 - Remaining of 8.8 (ii): the 60 B steps, the A steps' hypothesis checks, the 38 undecided rows.
+
+### 4.73 The general-n steps: every hypothesis placed (READ and deduced; D142)
+
+- READ ([Hin26] pp. 110-111, 217; [Hin26c] pp. 264-265): Proposition 5.25's gauged-data construction is a triangular
+  linear system in a frame, the same for any n; Lemmas 10.13 and 14.6 are Hardy inequalities in t at fixed (r, omega)
+  with general s through the 3b calculus.
+- Deduced (10.72): all 29 A rows of DEDUCTIONS.tsv have their hypotheses placed; 10.38 (a) with one deduced link (X7
+  computes it for [Hin23a]'s gauge); 10.51 (c) misfiled (internal).
+- Remaining of 8.8 (ii): the 60 B steps and the 38 undecided rows.

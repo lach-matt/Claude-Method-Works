@@ -7997,6 +7997,45 @@ the A steps' hypothesis checks and the 38 undecided rows.
 
 Labels: proved (Lemma 10.52 (P1)-(P3)); cited ((P4), (P5), [HPS77]); deduced (the map); READ (the continuity inputs).
 
+### 10.72 The general-n steps: every hypothesis placed (D142)
+
+*The setting.* 10.70 counts 29 deduced steps of kind A. Each applies a result printed for general n, or dimension-free,
+to computed inputs, so each is at proof level once every hypothesis of the cited result is placed. An extraction pass
+listed each A step's hypotheses and where the record establishes each. Three hypotheses rested on readings, and those
+are now READ at source here.
+
+*READ.* [Hin26] (arXiv:2606.28253v2; alphaXiv, 2026-10-24): p. 110, Proposition 5.25 (gauged Cauchy data) and its proof,
+p. 111: in a frame e_0 = nu, e_i tangent to Sigma_IVP, "The left-hand side of (5.80) for (X, Y) = (e_i, e_j) thus equals
+-(1/2)(e_0 t_IVP)(h~_1)_ij, which thus uniquely determines (h~_1)_ij"; then (5.81)'s e^lambda component "For lambda = j
+... uniquely determines (h~_1)_0j ... and for lambda = 0 one obtains -(1/2)(e_0 t_IVP)(h~_1)_00 = f_0 + (1/2)(e_0
+t_IVP)(g_0)^ij (h~_1)_ij". p. 217, Lemma 10.13: "We use the product of |dt*| with any smooth weighted b-density on X to
+define L^2(M_0)", and its proof for s = 0 "Dropping angular variables from the notation", a Hardy inequality in t at
+fixed r. [Hin26c] (arXiv:2606.28008v1): pp. 264-265, Lemma 14.6 and its proof, the same Hardy inequality in t at fixed r
+"We drop the angular variables from the notation", and general s by an elliptic A in Psi^s_3b with parametrix, the
+calculus being [Hin23d]'s in every dimension (10.65).
+
+*Placed (deduced).* Of the 29:
+
+ (i) 23 have every hypothesis placed at a computed check, a READ statement printed for general n, or an earlier section:
+     10.20 (b), 10.23 (e), 10.24 (c), 10.25 (b), 10.32 (d), 10.48 (d), 10.49 (d), 10.53 (a), (d), 10.56 (a), 10.57 (d),
+     10.58 (a), (b), 10.59 (a), (d), 10.64 (a), (i), 10.65 (a)-(c), 10.66 (a), 10.67 (c), 10.68 (a).
+ (ii) Four were partial and are placed now. 10.49 (b): Proposition 5.25's proof is a triangular linear system in a
+     frame, (h~_1)_ij from (5.80), then (h~_1)_0j and (h~_1)_00 from (5.81), each with coefficient -(1/2) e_0 t_IVP. The
+     same equations hold for i, j = 1, ..., n, so it holds at n = 4. 10.40 (c) and 10.41 (c): Lemmas 10.13 and 14.6 are
+     Hardy inequalities in t at fixed (r, omega), for any weighted density on X, with general s through the 3b calculus,
+     so they hold in any dimension. 10.41 (d): its inputs, [Hin26c] Theorems 9.41, 9.16 and 9.5 (6) at n = 4, are
+     10.53's and 10.67's.
+ (iii) 10.38 (a), that the h-dependent couplings at I+ fall by r^-(1/2) in five dimensions, is computed for [Hin23a]'s
+     operator (exterior5.py X5, X7). For [Hin26]'s gauge it is deduced: his gauge modifications are independent of h, as
+     [Hin23a]'s (3.30) shows for that gauge.
+ (iv) 10.51 (c) cites the record's own Theorem A and Proposition 6.5, not an outside general-n result. The rule misfiled
+     it; it holds as stated there.
+
+So every A step has its hypotheses placed, 10.38 (a) with one deduced link. With 10.71, the A and C steps of (ii) are at
+proof level given their READ inputs. What (ii) leaves is the 60 B steps and the 38 undecided rows.
+
+Labels: READ (the three proofs above); deduced (the placing); nothing computed or proved here.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth
