@@ -1917,3 +1917,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   10.62(d); lambda1 and delta exist by the deduction, not evaluated; P = -E v with its sign convention.
 - Remaining readings of Theorem 4: [Hin26c] sections 7-9, [HHV21]'s perturbation arguments, [Hin26]'s boost sections
   and [CD03]'s gluing at n = 4; their full-text censuses are in.
+
+### 4.68 The censuses' readings carried to n = 4 (computed and deduced; D137)
+
+- Computed (`gluing5.py` D1-D4): [CD03] Theorem 8.1's dimension-dependent numbers -- fifteen KIDs, the charges'
+  scaling under the gluing's rescaling, R^-(n-2) and R^-(n-1), the weighted indices s = t + n - 2 -- and [Hin26]'s
+  boost, a Lorentz boost of rapidity c/2 that pulls the mass term back to mu r^-2 (a^4 - 1)(dt*)^2 at n = 4, below the
+  radiation order. (`edge5.py` E1-E4): [Hin26c] sections 7-8 -- the wave operator in edge coordinates at I+, the
+  K-current (8.10) with its threshold alpha_I < -1/2 unchanged, the rotation fields of S^3, densities and counts.
+- Deduced (10.66-10.68): [CD03] Theorem 8.1 at n = 4, and with decay faster than r^-(3/2) in place of its parity
+  condition, which has no four-dimensional counterpart; [Hin26]'s boost sections at n = 4, the boost changing the data
+  inside his class; [Hin26c] sections 7-8 and Theorem 9.16 at n = 4; [HHV21]'s two arguments with N = 11. Recorded:
+  [CD03]'s printed s = t - 1 (the index (8.5) states is s = t + n - 2) and (8.7)'s R^-1 for every charge.
+- Remaining: that the censuses are complete, read at source, not re-derived line by line; and the deductions, not
+  written at proof level. Theorem 4 (ii) now admits perturbations that decay faster than r^-(3/2) without parity.

@@ -4130,3 +4130,17 @@ averaging (m5); lambda1 and delta exist by the deduction (m6); the norms of 10.6
 v's sign convention (n1); the seating renumbered D136, D135 being 10.65's (m2). exterior5 --selftest 16/16, --mutants
 6/6. The censuses of [Hin26c] sections 7-8 (122 rows), [HHV21] (205), [Hin26]'s boost sections (123) and [CD03] (126)
 came back from the alphaXiv full texts; their replacements at n = 4 follow.
+
+**D137 (2026-10-24): the censuses' readings carried to n = 4 (10.66-10.68).** From the full-text censuses: [CD03]
+Theorem 8.1's proof uses the dimension at five steps written for n = 3, through (5.2)'s weights and through Appendix E's
+exponents; gluing5.py D1-D3 computes them (fifteen KIDs; charges R^-(n-2) and R^-(n-1) under the rescaling; s = t + n -
+2), and 10.66 runs the proof at n = 4. Without parity the linear KIDs' errors are O(R^-2 alpha), so at n = 4 decay
+faster than r^-(3/2) replaces (E.9) -- impossible at n = 3, where (E.5b) caps alpha at 1 -- and Theorem 4 (ii) is
+widened accordingly. Recorded: [CD03]'s printed s = t - 1 gives a solution only in rH^(t-3) x rH^(t-2), and (8.7) prints
+R^-1 for charges D2 scales as R^-2. [Hin26]'s boost (D4): his phi_S is the Lorentz boost of rapidity c/2; the
+Kerr-Schild mass term pulls back to mu r^(2-n) a^n (dt*)^2, his 2m(a^3 - 1) at n = 3 and mu(a^4 - 1) at r^-2 at n = 4,
+inside his class. [Hin26c] sections 7-8 (edge5.py E1-E4): the edge form of the wave operator at I+, the K-current (8.10)
+reproduced at n = 3 with the threshold unchanged at n = 4, the rotation fields of S^3; 10.67 carries sections 7-8 and
+Theorem 9.16's proof to n = 4. [HHV21] (10.68): its two arguments the record uses are dimension-free, Lemma 11.1 with N
+= 11. A first run of the boost prototype exhausted memory and restarted the container; the fifty-eighth verifier,
+reading 10.65 and D136, was restarted with it.
