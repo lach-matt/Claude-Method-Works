@@ -3812,3 +3812,22 @@ sampling argument exact (the cleared numerators' trigonometric degree at most 14
   solves (12.35) with the same estimates -- recorded in 10.43's OPEN line.
 
 *Runs.* class5.py --selftest 3/3 (about forty seconds) and --mutants 5/5.
+
+**D116 (2026-10-24): A7, [Hin26] section 12 in the class (10.47); the route's labels.**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 182-186, 295-297, 301-302, 304, 310, 312, 315-317,
+321.
+
+*Deduced (10.47(a)-(e)).* The class's data space: the mass, the G-fixed iota+ data, the mass remainder and the tail; his
+conormal gauge remainders at 3 + eps_+ belong to the tail, the class's K+ threshold being 3 + eps_K. Phi is
+O(4)-equivariant on all of D^oo -- every step of his construction is canonical (the inverse of the iota+ normal
+operator, Res_iota+ of (9.56), Corollary 9.18's contour integral, the unique expansions at R = 0, the unique
+modification parameters, cut-offs in t* and r) -- so Theorem 12.3 holds in the class with K+ order 3 + eps_K, and
+Theorem 12.8's read-off, starting from Corollary 11.66's unique solution and using Proposition 9.22's explicit right
+inverse, gives a G-invariant U': 10.43(e)'s reading is deduced, and the fifty-second verifier's averaging route is not
+needed.
+
+*Notes.* (1) ROUTES 4.44's plan numbers his section 11.3-11.6 as A3-A5, sections 11.7-11.8 as A6 and section 12 as A7;
+ROUTES 4.47 and 4.48 had labelled D113 and D114 "A3" and "A4". Their headings now read A3-A5 and A6, and their "Next"
+lines follow; D113's and D114's LOG entries stand as written. (2) 10.43(e) now points to 10.47(c)-(e). (3) Nothing
+computed here: the five-dimensional inputs are Propositions 10.34 and 10.40-10.42.

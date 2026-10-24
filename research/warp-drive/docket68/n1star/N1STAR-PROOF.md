@@ -6205,7 +6205,7 @@ eigenvalue moved by one (no tensor harmonic); x.H = 0 dropped (C3's totals break
      and h_0 is G-invariant when the data are and the solution of (13.5) is unique, which A8 checks. So [Hin26]'s
      argument in five dimensions needs only the G-fixed objects of (b)-(d) -- deduced, on the readings already named for
      each step and on the reading that his read-off in Theorem 12.8's proof commutes with G, which A7 checks (ROUTES
-     4.44).
+     4.44); deduced in 10.47(c)-(e).
 
 OPEN: everything ROUTES 4.44 lists after A1; (e)'s reading of Theorem 12.8's proof (A7), for which a second route is
 noted: if his Phi is G-equivariant on all of D^oo -- each of its steps unique -- the G-average of U' solves (12.35) with
@@ -6335,9 +6335,9 @@ most singular term F(h^(<=1),aug_b,s1)(S-hat(0)) ~ |sigma|^-2 ... is absent"; pp
      at n = 4 (the low- and high-energy resolvent bounds his proofs invoke).
 
 OPEN: the weight l_I at I+ for the iteration (his 3 + eps_I; 7/2 + eps_I, two orders past the radiation field, is the
-five-dimensional candidate, to be fixed with his (2.27) at A4); [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4
-(Phase B). Labels: deduced ((a)-(e)); READ ([Hin26] pp. 23, 218-219, 221, 231-262); nothing computed here, nothing
-proved.
+five-dimensional candidate, to be fixed with his (2.27) at A6; settled in 10.46(e)); [Hin26c] Proposition 13.18 and
+Corollary 13.17 at n = 4 (Phase B). Labels: deduced ((a)-(e)); READ ([Hin26] pp. 23, 218-219, 221, 231-262); nothing
+computed here, nothing proved.
 
 ### 10.46 [Hin26] sections 11.7-11.8 in the class: Proposition 11.51, Theorem 11.59, Corollary 11.66 (`sharp5.py`; D114)
 
@@ -6432,6 +6432,71 @@ OPEN: the readings of 10.39-10.45 on which (a)-(d) rest; Lemma 11.57's lineariza
 gauge potentials (Phase B); whether the five-dimensional zf expansion of the mass's singular part carries his Part 3,
 (5) term (covered either way). Labels: computed (Proposition 10.42); deduced ((a)-(e)); READ ([Hin26] pp. 218, 221,
 263-266, 274-294, 302); nothing proved.
+
+### 10.47 [Hin26] section 12 in the class: Theorems 12.3 and 12.8 (deduced; D116)
+
+His section 12 replaces the arguments (h, p-vec, q-vec) of the augmented operator by data U: a map Phi with P(Phi(U)) in
+the source class of Corollary 11.66 (Theorem 12.3), and every forward solution of the linearized problem written as D_U
+Phi(U') (Theorem 12.8). In the class the data shrink to the mass, the iota+ data and the tail, and the read-off that
+10.43(e) took as a reading follows from the construction itself.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; ASCII): pp. 182-186, Definition 9.16 and
+(9.49) ("(1, 0) in Spec ... 1 != lam in spec ... => Re lam > 1"), Corollary 9.18 (the solution "depending linearly on
+f", given by a contour integral of N_iota+(L-bar, lam)^-1), Definition 9.19 ("the solution u in (9.51) is unique modulo
+Res"), Lemma 9.21, (9.54)-(9.56), Proposition 9.22 and its proof (an explicit right inverse: "We can furthermore
+uniquely write f = f_1 + f_2"); p. 295, the proof of Corollary 11.66; pp. 296-297, section 12's two requirements; pp.
+301-302, Definition 12.1, (12.11)-(12.16), "the parameters b - b0, S, S^(0)_1 and S_rem, b_rem will be taken over
+directly"; p. 304, h^[0], p-vec^[0], q-vec^[0] and (12.18); p. 310, the summary ("I := ceil(3 eps_ind^-1) + 1 steps
+suffice") and Theorem 12.3 with properties (1)-(3); p. 312, (12.34), "Psi(U) := (chi_-(t*) h_(-S), 0, 0) + Phi(U)",
+Lemma 12.7, Theorem 12.8 and Remark 12.9 ("the particular solution (h', p-vec', q-vec') constructed by Corollary 11.66
+... is of the form D_U Phi(U'), with a constructive procedure for the determination of U'"); pp. 315-317, the proof of
+Theorem 12.8 ("uniquely determined, given u_1 and b'"; Cases A and B; Step 3); p. 321, (13.5) and (13.6).
+
+*Deduced.*
+
+ (a) (the data in the class) Definition 12.1 in the class: U = (m - m_0, (u^0_lam, f_lam)_lam, m_rem, h-tilde), with
+     (u^0_lam, f_lam) G-fixed for lam in the five-dimensional spec^(<3+eps_+)_iota+(L-bar, E^C_I), m_rem in H-dot^(k,
+     2+eps_K) -- one order below his b_rem's 3 + eps_K (10.46(b)) -- and h-tilde G-invariant in H^(k, (<E^C_I>,
+     3+eps_I), 3+eps_+, 3+eps_K). His S, S^(0)_1, S_rem and V_1,rem vanish (10.43(b)). His S^(0)_(l,rem) (l = 0, 2) and
+     S^(-lam^Ups_s0,1+1)_(0,rem), conormal at 3 + eps_+, give terms of K+ order above 3 + eps_K (Proposition 10.42(iii))
+     and so belong to h-tilde; the q-vec components they would complete are finite polyhomogeneous sums (Definition
+     11.58 with 3 + eps_K for 4 + eps_K, since 3 + eps_+ >= 3 + eps_K).
+
+ (b) (the iota+ spectrum) The five-dimensional (9.49): the poles of (9.48) below 3 + eps_+ are the pure resonances --
+     none with real part at most 2, candidates at box^C's roots in (2, 5/2) of scalar type, above 5/2 not computed
+     (10.37(d)-(e), on its readings) -- and the incoming exponents of E^C_I (his Remark 9.17), in five dimensions those
+     of 10.44, the least 3/2 + (1 - e_Ups) gam_Ups, where Res(L-bar, lam) = {0} (Re lam <= 2). The G-fixed resonant
+     states are of scalar type at even l and of tensor type at even l >= 2 (Proposition 10.40). That finitely many lie
+     below 3 + eps_+ is his Proposition 9.2(2) in five dimensions, on 10.37(c)'s reading of its index 0 half.
+
+ (c) (equivariance of Phi) Every operation in Phi's construction is canonical and built from O(4)-invariant objects on
+     Tangherlini: N_iota+(L-bar, lam)^-1 through Lemma 9.14 and Proposition 9.4(2) with the radial cut-off chi_I(v);
+     Res_iota+(L-bar, E^C_I, lam) of (9.56); Corollary 9.18's contour integral; the expansions at R = 0 (Proposition
+     9.9), unique; the modification parameters, unique solutions of linear equations; the cut-offs chi_iota, chi_K and
+     chi_-, functions of t* and r. With O(4) acting on every component of U and of (h, p-vec, q-vec), the parameters
+     included (R^* g_(b0,b,-S) = g_(b0,R.b,-R.S), b0 Tangherlini's), Phi commutes with O(4) on all of D^oo, and so with
+     G.
+
+ (d) (Theorem 12.3 in the class) For G-invariant U small in D^d, Phi(U) = (h, p-vec, q-vec) is G-invariant, p-vec and
+     q-vec in 10.46(b)'s G-fixed lists, and P(Phi(U)) lies in F^oo_G := H^(k-2, (<E^C_I + 1>', 4+eps_I), 5+eps_+,
+     3+eps_K): his (12.31) with 3 + eps_K for 4 + eps_K -- the K+ order of P(Phi(U)) is that of h and of L_b
+     h_b,rem(q-vec), 3 + eps_K by 10.46(d) -- and his steps run until the iota+ order 5 + eps_+, each eliminating
+     sharp5.py's terms (Proposition 10.42(ii)) and recording its recorded ones. His properties (1)-(3) hold with the
+     mass for (S, b - b0, S^(0)_1) and m_rem for (S_rem, b_rem).
+
+ (e) (Theorem 12.8 in the class) For U in D_G small and G-invariant f in F^oo_G there is U' in D_G with D_Phi(U) P(D_U
+     Phi(U')) = f and his tame estimates. His proof reads U' off the forward solution of Corollary 11.66 -- G-invariant,
+     being unique (10.46(d)) -- step by step, subtracting D_U Phi of inputs it determines uniquely, and in his Case B
+     through Proposition 9.22's explicit right inverse; every step is canonical, so U' is G-invariant, which is
+     10.43(e)'s reading, now deduced from (c) and his construction as his text gives it. (D_U Phi is not injective
+     (Remark 12.9), but no choice enters: the read-off starts from Corollary 11.66's particular solution.) Psi(U) =
+     (chi_-(t*) h_0, 0, 0) + Phi(U) in the class, S = 0, with h_0 G-invariant when the data are and (13.5)'s solution is
+     unique (A8); Lemma 12.7 as his.
+
+OPEN: the five-dimensional iota+ spectrum between 5/2 and 3 + eps_+ (not computed; finitely many on 10.37(c)'s reading);
+Proposition 9.4(2), Corollary 9.18 and Propositions 9.9, 9.15 and 9.22 in five dimensions (READ at n = 3; their
+five-dimensional inputs 10.37's and 10.44's; Phase B); h_0 and (13.5) (A8). Labels: deduced ((a)-(e)); READ ([Hin26] pp.
+182-186, 295-297, 301-302, 304, 310, 312, 315-317, 321); nothing computed here, nothing proved.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

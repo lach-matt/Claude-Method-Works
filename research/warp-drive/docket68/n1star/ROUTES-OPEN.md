@@ -1599,7 +1599,7 @@ and deduces his Lemma 11.15 and Propositions 11.14 and 11.16.
 - OPEN: the weights l_I for the iteration (A3); 10.38(a)'s scaling argument; Definition 5.3's closure with section 5
   (A8). Next: A3, his section 11.3 (Step 1, Proposition 11.17).
 
-### 4.47 A3: [Hin26] sections 11.3-11.6 in the class (deduced; D113)
+### 4.47 A3-A5: [Hin26] sections 11.3-11.6 in the class (deduced; D113)
 
 N1STAR-PROOF.md 10.45 deduces his Steps 1-4 in the class as one statement.
 
@@ -1608,10 +1608,10 @@ N1STAR-PROOF.md 10.45 deduces his Steps 1-4 in the class as one statement.
   g-dot^Ups_b(m-dot) + u~, with u~ of K+ order alpha_K - 1, on f of K+ order alpha_K in (1, 1 + eps_K) where his needs
   (2, 2 + eps_K); m-dot is removed by the final mass (his Lemma 11.45 at (0, m_0)); f's iota+ requirement is 5 + 2 (1 -
   e_Ups) gam_Ups - eps against his 4 - eps.
-- OPEN: the weight l_I at I+ (A4); [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4 (Phase B). Next: A4, his
+- OPEN: the weight l_I at I+ (A6); [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4 (Phase B). Next: A6, his
   sections 11.7-11.8 (Theorem 11.59, Corollary 11.66) in the class.
 
-### 4.48 A4: [Hin26] sections 11.7-11.8 in the class (computed and deduced; D114)
+### 4.48 A6: [Hin26] sections 11.7-11.8 in the class (computed and deduced; D114)
 
 sharp5.py computes the class's late-time bookkeeping in five dimensions; N1STAR-PROOF.md 10.46 states Proposition 10.42
 and deduces Proposition 11.51, Theorem 11.59 and Corollary 11.66 in the class.
@@ -1623,5 +1623,15 @@ and deduces Proposition 11.51, Theorem 11.59 and Corollary 11.66 in the class.
 - Deduced: Proposition 11.51 with the mass alone; Theorem 11.59 with u_exp the mass change plus four pure gauge terms
   and u~ of K+ order 3 + eps_K, sources needing 3 + eps_K and h the same; Corollary 11.66 with q-vec the mass and those
   four.
-- OPEN: Lemma 11.57's linearizations in five dimensions (Phase B); the readings of 10.39-10.45. Next: A5, his section 12
+- OPEN: Lemma 11.57's linearizations in five dimensions (Phase B); the readings of 10.39-10.45. Next: A7, his section 12
   in the class (Theorems 12.3 and 12.8).
+
+### 4.49 A7: [Hin26] section 12 in the class (deduced; D116)
+
+N1STAR-PROOF.md 10.47 deduces his Theorems 12.3 and 12.8 in the class.
+
+- Deduced: the data U = (m - m_0, the G-fixed iota+ data, m_rem, h-tilde); his gauge remainders at 3 + eps_+ fall into
+  h-tilde; Phi commutes with O(4) on all of D^oo, every step of its construction being canonical; P(Phi(U)) of K+ order
+  3 + eps_K; Theorem 12.8's U' G-invariant, which discharges 10.43(e)'s reading.
+- OPEN: the five-dimensional iota+ spectrum between 5/2 and 3 + eps_+; section 9's propositions in five dimensions
+  (Phase B). Next: A8, his section 5's Theorems 5.21 and 5.23 in five dimensions.
