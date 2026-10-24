@@ -1043,7 +1043,7 @@ convention, now named (supplement section 10.69; `censusweep.py`). What is not d
 line: that the censuses found every place the dimension enters is evidenced by the two methods agreeing and read at
 source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 are arguments from
 computed inputs, inputs READ at source, and readings — statements of the companion papers at n = 4 that the modification
-steps carry, on which 31 of those steps rest — each read by an independent verifier, not proofs written out at the level
+steps carry, on which 32 of those steps rest — each read by an independent verifier, not proofs written out at the level
 of the theorem's
 statement. Inventoried by a fixed rule, the 248 deduced steps are 90 pieces of bookkeeping on computed values, 29
 applications of results printed for general n, 31 perturbation or continuity arguments, 38 other, and 60 proofs written
@@ -1056,14 +1056,15 @@ general-n results have every hypothesis placed, three of them now read at source
 others, read one by one, are twelve with no step of their own, 25 at proof level given their inputs — among them steps
 by symmetry and sums over harmonics, put there by two lemmas proved in the supplement — and one more modification step
 (supplement section 10.73; `synth5.py`). Each of the 61 modification steps lists the places where the dimension changes
-its proof — 52 name some, 9 none, the proof being the source's as it stands — and each five-dimensional value there is
+its proof — 53 name some, 8 none, the proof being the source's as it stands — and each five-dimensional value there is
 computed, deduced in an earlier section, arithmetic in n, or the record's choice (supplement section 10.74,
 `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those places, which is the census
 question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i), but for one step, which rests
-on a modification step and so on the census (supplement section 10.73). Sixteen of the 61 have source proofs of one to
-five pages, now written out step by step at n = 4, so their own steps rest on their inputs and not on a census, though
-ten take a reading among those inputs (supplement section 10.75, with a lemma at the horizon proved in section 10.76);
-the other 45 carry longer proofs, in [Hin26] sections 5–13, [Hin26c] sections 5–14, [Hin26a] sections 4–6 with
+on a modification step and so on the census (supplement section 10.73). Twenty-seven of the 61 have source proofs of one
+to five pages, now written out step by step at n = 4 (two replaced by a computation), so their own steps rest on their
+inputs and not on a census, though fifteen take a reading among those inputs (supplement section 10.75, with a lemma at
+the horizon proved in section 10.76);
+the other 34 carry longer proofs, in [Hin26] sections 5–13, [Hin26c] sections 5–14, [Hin26a] sections 4–6 with
 its appendices and [Hin23a] section 3. λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's
 estimates — and are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the
 deductions written out, would make Theorem 4 a theorem.
@@ -1801,7 +1802,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | the general-n steps' hypotheses placed, section 8.8 | supplement section 10.72; [Hin26], [Hin26c] |
 | the undecided steps placed, section 8.8 | supplement section 10.73; `docket68/n1star/synth5.py` S1–S3; [KI03] |
 | the modification steps' changes placed, section 8.8 | supplement section 10.74; `docket68/n1star/B-MAP.tsv` |
-| sixteen modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26c], [CD03] |
+| twenty-seven modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26c], [CD03] |
 | the continuation and uniqueness inside the horizon, sections 8.4, 8.5 | supplement section 10.76 |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
@@ -1914,9 +1915,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `2d7172812ca7f9259795151bfeeaff39` |
-| `docket68/n1star/N1STAR-LOG.md` | `3750d3a44df8a6efc3da204b1e1f6371` |
-| `docket68/n1star/README.md` | `5730349b87d62e093f9623a2fbfc8d04` |
+| `docket68/n1star/N1STAR-PROOF.md` | `0662423473094f03b11adbd3ff475681` |
+| `docket68/n1star/N1STAR-LOG.md` | `4530aa38906184a11331019bb7d5805b` |
+| `docket68/n1star/README.md` | `520f93397cf70c4cba07b06b3144604f` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1983,6 +1984,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/B-MAP.tsv` | `7ec8bd5e07bb8abeb3775f4e1be56d9d` |
+| `docket68/n1star/B-MAP.tsv` | `ce20902a94132fccfb97b18e8962c6e0` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

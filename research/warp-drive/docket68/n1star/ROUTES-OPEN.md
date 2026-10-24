@@ -2061,3 +2061,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   10.63 (c) their places (52 name some, 9 none; 96 placements: 32 computed, 52 section, 11 arithmetic, 1 choice; 31
   rest on a reading, ten of the sixteen written out among them); the paper names readings among the deductions'
   inputs; nine minor findings seated (10.75 (ii), (iv)-(vi), (viii), (xi)).
+
+### 4.81 Eleven more modification steps written out (READ, deduced; D150)
+
+- Deduced (10.75 (xvii)-(xxvii)), each source proof READ at source and matched step by step at n = 4: [Hin26]
+  Proposition 10.7 with Theorem 10.1 (10.39 (e)), Lemmas 10.9-10.11 (10.40 (a)), Lemma 8.15 with Proposition 7.4 and
+  Lemmas 2.15, 7.2 (10.60 (f)), Lemma 11.15 with Proposition 11.14 (10.44 (c)), Theorem 5.23 with Lemma 3.19 (10.66
+  (f)), Theorem 13.1 (10.62 (d)) and its Step 1 in the class (10.49 (a)); [Hin26c] Theorem 9.36 (10.20 (a)) and Lemma
+  13.13 (10.41 (b)); [Hin24b] Lemma 3.17, which [Hin26] Lemma 8.12 cites verbatim (10.32 (b)); and [Hin26a] Theorem 4.9,
+  replaced at n = 4 by Proposition 10.44's certificate (10.54 (a)).
+- B-MAP.tsv: the write-outs named nine places their rows lacked and one reading (10.20 (a)); 53 rows name places, 8
+  none, 105 placements (33 computed, 57 section, 14 arithmetic, 1 choice), 32 on a reading. Twenty-seven of 61 written
+  out, fifteen of them on a reading; 34 rest on the censuses.
+
