@@ -1209,8 +1209,9 @@ gauge-fixed Einstein operator in his section 8.4. dual5.py computes the adjoint'
 state and the rotations' near a = 0 in five dimensions, four-dimensional Schwarzschild and Kerr the control;
 N1STAR-PROOF.md 10.31 states Proposition 10.28 and deduces.
 
-- The adjoint's roots: 2 - conj(lam) for each root lam of box^C (four dimensions his 1 - conj(lam), (7.10)); at v1 -1 and
-  3 + 2 v gam_C, and N*_v1(2) = 3 + 6 gam_C v_C where his N*_v1(1) = 2 + 4 gam_C v_C (p. 143) (A1).
+- The adjoint's roots: 2 - conj(lam) for each root lam of box^C of these types (four dimensions his 1 - conj(lam),
+  (7.10)); at v1 -1 and 3 + 2 v gam_C, and N*_v1(2) = 3 + 6 gam_C v_C where his N*_v1(1) = 2 + 4 gam_C v_C (p. 143)
+  (A1).
 - The translations on Tangherlini: the source at rho^4, the correction at rho^2, h*_s1 at rho^3 -- one order faster than
   his (7.15) (A2).
 - The rotations at first order in a on Myers-Perry: delta* V_a = -(mu/r^4) a dt (x)_s V', zero for the planes 12 and 34;
@@ -1225,7 +1226,7 @@ N1STAR-PROOF.md 10.31 states Proposition 10.28 and deduces.
   of 10.20-10.22 line by line; how small gam_Ups must be, and h_0. Labels: computed (dual5.py A1-A3, exact); deduced;
   READ ([Hin26] pp. 126, 134-144); nothing proved.
 
-### 4.33 [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions: the zero energy pairings (computed; D88)
+### 4.33 [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions: the zero energy pairings (computed; D88, D89)
 
 His Proposition 8.11 counts the zero energy kernel of the linearized gauge-fixed Einstein operator -- the gauged
 linearized Kerr metrics and the translations' deformation tensors -- and its cokernel, section 7.2's dual states, by the
@@ -1235,14 +1236,16 @@ N1STAR-PROOF.md 10.32 states Proposition 10.29 and deduces.
 
 - Four dimensions: -8 pi m-dot, -8 pi m (q . a-dot), 4 pi m (q . c), his table exactly (P1).
 - Five dimensions: mass -3 pi^2 mu-dot, rotations -2 pi^2 mu on their planes, centres of mass (3 pi^2/2) mu (q . c), the
-  cross terms 0 or (centres of mass against the rotations of their planes) undetermined by the leading terms (P2-P3); the
-  11 x 11 matrix non-degenerate whatever those are (P4); Kerr-Schild, a pure gauge tensor and t* = t - r change nothing
-  (P5).
+  cross terms 0 or, the mass and the centres of mass against the rotations, above the critical weight and undetermined
+  by the leading terms (P2-P3; each entry classified by its weight before it is computed, D89); the 11 x 11 matrix
+  non-degenerate whatever those are (P4); Kerr-Schild, a pure gauge tensor whose cut-off source is not zero, and
+  t* = t - r change nothing (P5).
 - Deduced: -8 pi times the ADM mass and angular momentum and 4 pi M times the centre of mass in both dimensions; his
-  Lemma 8.12 in five dimensions at a = 0 for his L_b (his printed values are for 2 L_b, [Hin24b]'s L), and near it by
-  continuity; his Proposition 8.11 with dim ker = dim coker >= 11, equality up to [AHW24] Theorem 6.1(2) in five
-  dimensions; his Corollary 8.13 with eleven for seven on it.
+  Lemma 8.12 in five dimensions at a = 0 for his L_b (his printed values are for 2 L_b, [Hin24b]'s L, and his s0 dual
+  state, leading term -dt against [Hin23b]'s dt, reverses the s0 sign), and near it by continuity; his Proposition 8.11
+  with dim ker = dim coker >= 11, equality up to [AHW24] Theorem 6.1(2) in five dimensions; his Corollary 8.13 with
+  eleven for seven on it.
 - OPEN: [AHW24] Theorem 6.1(2) in five dimensions (decaying stationary solutions of D Ric(h) = 0 linearized Myers-Perry
   plus pure gauge); section 8.5 and sections 9-10; section 7.2.1 beyond first order in a; the readings of 10.20-10.22
   line by line; how small gam_Ups must be, and h_0. Labels: computed (pairing5.py P1-P5, exact); deduced; READ ([Hin26]
-  pp. 145, 154-158; [Hin24b] pp. 13, 33, 38-39, 50-53; [Hin23b] pp. 101-110, 116-117); nothing proved.
+  pp. 125, 138, 145, 154-158; [Hin24b] pp. 13, 33, 38-39, 44, 49-53; [Hin23b] pp. 101-110, 116-117); nothing proved.

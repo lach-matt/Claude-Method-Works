@@ -1,61 +1,70 @@
 #!/usr/bin/env python3
 """pairing5.py -- [Hin26] Lemma 8.12 in five dimensions: the L^2-pairings that make the zero energy kernel and cokernel
-of the linearized gauge-fixed Einstein operator exact (N1STAR-PROOF.md section 10.32; ROUTES-OPEN.md 4.33; D88).
+of the linearized gauge-fixed Einstein operator exact (N1STAR-PROOF.md section 10.32; ROUTES-OPEN.md 4.33; D88, D89).
 Labels: computed (exact, sympy), deduced, READ.
 
 [Hin26] (arXiv:2606.28253v2) Proposition 8.11 (p. 155) counts the kernel of L-hat_b(0) -- the gauged linearized Kerr
-metrics and the translations' deformation tensors, 1 + 3 + 3 = 7 -- and its cokernel, the dual states of his section 7.2,
-by the pairings of his Lemma 8.12 (p. 157), whose proof is that of [Hin24b] Lemma 3.17 (arXiv:2408.06715, p. 51). That
-proof removes the gauge terms by integration by parts and reduces each pairing to [Hin23b] Theorem 9.6 (arXiv:2306.07409,
-pp. 104-109), where it is a boundary pairing at infinity,
+metrics and the translations' deformation tensors, 1 + 3 + 3 = 7 -- and its cokernel, the dual states of his section
+7.2, by the pairings of his Lemma 8.12 (p. 157), whose proof is that of [Hin24b] Lemma 3.17 (arXiv:2408.06715, p. 51).
+That proof removes the gauge terms by integration by parts and reduces each pairing to [Hin23b] Theorem 9.6
+(arXiv:2306.07409, pp. 104-109), where it is a boundary pairing at infinity,
 
     ell(b-dot)(h*) = lim_eps < [D-hat Ric(0), chi_eps] g'_b(b-dot), G (dt (x)_s omega*) >                       (9.22)
 
-and, for the centre of mass, < [[D Ric, t]-hat(0), chi_eps] h_b,c + [D-hat Ric(0), chi_eps] h-breve_b,c,
-G (dt (x)_s omega*) >, with h_b,c = delta*_gb (c . d_x^flat) and h-breve_b,c = [delta*_gb, t](c . d_x^flat) +
-delta*_gb ((c . x) d_t^flat); only the Minkowski operators and the leading terms enter. His table: -8 pi m-dot (mass
-against dt), -8 pi m (q . a-dot) (rotation against r^2 V(q) = (q x x) . dx), 4 pi m (q . c) (centre of mass against
-d(r S(q)) = q . dx), every other entry 0 (a = 0). Here each pairing is computed directly: chi a radial cutoff, 1 near 0
-and 0 near infinity, [P, chi] u paired with v in Cartesian coordinates, the integrand chi'(R) A + chi''(R) B, A and B
-homogeneous so that R^(n-1) A is R^0 and R^(n-1) B is R^1, the sphere integrals exact, and the pairing -I_A + I_B (int
-chi' = -1, int R chi'' = 1); a pairing below the critical weight is 0.
+and, for the centre of mass, < [[D Ric, t]-hat(0), chi_eps] h_b,c + [D-hat Ric(0), chi_eps] h-breve_b,c, G (dt (x)_s
+omega*) >, with h_b,c = delta*_gb (c . d_x^flat) and h-breve_b,c = [delta*_gb, t](c . d_x^flat) + delta*_gb ((c . x)
+d_t^flat); only the Minkowski operators and the leading terms enter. His table: -8 pi m-dot (mass against dt), -8 pi m
+(q . a-dot) (rotation against r^2 V(q) = (q x x) . dx), 4 pi m (q . c) (centre of mass against d(r S(q)) = q . dx), -8
+pi (q . a) m-dot (mass against the rotations), every other entry 0. Here each pairing is computed directly: chi a radial
+cutoff, 1 near 0 and 0 near infinity, [P, chi] u paired with v in Cartesian coordinates, the integrand chi'(R) A +
+chi''(R) B, A and B homogeneous so that R^(n-1) A is R^0 and R^(n-1) B is R^1, the sphere integrals exact, and the
+pairing -I_A + I_B (int chi' = -1, int R chi'' = 1). Each entry is classified first by its weight, read from the
+homogeneity of its two tensors: below the critical weight it is 0; above it the leading terms do not determine it,
+whether or not they vanish pointwise, and it is left undetermined (D89).
 
   P1 (computed, exact) His table in four dimensions, with the metric eta + mu R^-1 (dt^2 + dr^2), mu = 2m: mass against
-     dt -4 pi mu-dot = -8 pi m-dot, against the translations and the rotations 0; the rotation g'(0, a-dot) = -(2 mu/R^3)
-     dt (x)_s ((a-dot x x) . dx) against (q x x) . dx -4 pi mu per plane = -8 pi m (q . a-dot), the planes orthogonal,
-     against dt and the translations 0; the centre of mass 2 pi mu (q . c) = 4 pi m (q . c), against dt 0, against the
-     rotations 0 except along a plane's own directions, where the pairing sits above the critical weight, the leading
-     terms vanish over the sphere and do not determine it (his value 0 at a = 0, Theorem 9.6(5)).  Control: G dropped
-     from the dual slot.
+     dt -4 pi mu-dot = -8 pi m-dot, against the translations 0; the rotation g'(0, a-dot) = -(2 mu/R^3) dt (x)_s ((a-dot
+     x x) . dx) against (q x x) . dx -4 pi mu per plane = -8 pi m (q . a-dot), the planes orthogonal, against dt and the
+     translations 0; the centre of mass 2 pi mu (q . c) = 4 pi m (q . c), against dt 0; the mass and the centres of mass
+     against the rotations above the critical weight, undetermined by the leading terms (his values there -8 pi (q . a)
+     m-dot, from subleading terms, and 0, Theorem 9.6(5); both 0 at a = 0).  Control: G dropped from the dual slot.
   P2 (computed, exact) The Kerr rows in five dimensions, eta + mu R^-2 (dt^2 + dr^2), g'(0, A) = -(2 mu/R^4) dt (x)_s
      w_A, w_A = x^i dx^j - x^j dx^i on the plane ij (d_a g = -h_A, 10.28(vi)): mass against dt -3 pi^2 mu-dot, against
-     the four translations and the six rotations 0; the rotations -2 pi^2 mu on their own plane, 0 across planes and
-     against dt and the translations.  Control: the mass perturbation's dr^2 term dropped.
-  P3 (computed, exact) The centres of mass in five dimensions: (3 pi^2/2) mu (q . c) against q . dx, 0 against dt and
-     against the rotations of the planes not containing c's direction, undetermined by the leading terms against the
-     three containing it; h-breve_b,c is O(mu), its Minkowski part the boost's Killing form.  Control: h-breve dropped.
-  P4 (computed, exact) Non-degeneracy: with the undetermined entries as symbols, the 11 x 11 matrix (rows mass, six
-     rotations, four centres of mass; columns dt, six rotations, four translations) is block triangular, its determinant
-     (-3 pi^2) (-2 pi^2 mu)^6 (3 pi^2 mu/2)^4 free of them and nonzero for mu != 0; four dimensions the 7 x 7, (-4 pi)
-     (-4 pi mu)^3 (2 pi mu)^3.  Control: the translations' first-order pairing < D Ric(t h_b,c), h* > in place of the
-     centre of mass, which [Hin23b] Theorem 9.6(6) says vanishes, claimed non-degenerate.
+     the four translations 0, against the six rotations undetermined, above the critical weight; the rotations -2 pi^2
+     mu on their own plane, 0 across planes and against dt and the translations.  Control: the mass perturbation's dr^2
+     term dropped.
+  P3 (computed, exact) The centres of mass in five dimensions: (3 pi^2/2) mu (q . c) against q . dx, 0 against dt,
+     undetermined against the six rotations, above the critical weight; h-breve_b,c is O(mu), its Minkowski part zero,
+     the boost being Killing.  Control: h-breve dropped.
+  P4 (computed, exact) Non-degeneracy: with the undetermined entries as symbols -- the mass and the centres of mass
+     against the rotations -- the 11 x 11 matrix (rows mass, six rotations, four centres of mass; columns dt, six
+     rotations, four translations) is block triangular, its determinant (-3 pi^2) (-2 pi^2 mu)^6 (3 pi^2 mu/2)^4 free of
+     them and nonzero for mu != 0; four dimensions the 7 x 7, (-4 pi) (-4 pi mu)^3 (2 pi mu)^3.  Control: the
+     translations' first-order pairing < D Ric(t h_b,c), h* > in place of the centre of mass, which [Hin23b] Theorem
+     9.6(6) says vanishes, claimed non-degenerate.
   P5 (computed, exact) Invariance, both dimensions: the Kerr-Schild mass perturbation R^-(n-2) (dt + dr)^2, a pure gauge
-     tensor delta*(log R dt), and t* = t - r in place of t give the same Kerr rows; [Hin23b] Theorem 9.6(1), (7).
-     Control: a non-gauge R^-(n-2) dx_1^2 added, claimed invariant.
+     tensor delta*(x_2 R^-(n-2) dx_1), whose cut-off source is not zero, and t* = t - r in place of t give the same Kerr
+     rows, the pure gauge tensor 0 at every determined entry; [Hin23b] Theorem 9.6(1), (7). (For delta*(f(R) alpha),
+     alpha constant, chi times it is pure gauge again, its source 0 -- D88's delta*(log R dt) among them -- and the
+     check tests nothing; D89.)  Control: a non-gauge R^-(n-2) dx_1^2 added, claimed invariant.
 
 Deduced, not computed here (N1STAR-PROOF.md 10.32): the values are -8 pi M-dot, -8 pi J-dot and 4 pi M (q . c), M and J
 the ADM mass and angular momentum (g_tt = -1 + 16 pi M/((n - 1) Omega_(n-1) r^(n-2)): M = 3 pi mu/8, J = pi mu a/4 in
-five dimensions), as in four; [Hin26] Lemma 8.12 in five dimensions at a = 0, by his reduction, for his L_b of (8.1) (his
-printed values are [Hin24b]'s, whose L, its (3.1a), is 2 (D Ric + ...)); the undetermined entries 0 at a = 0 by his
-argument for Theorem 9.6(5), the rotations being Killing on Tangherlini so that h*_v1 is compactly supported, though the
-non-degeneracy does not need them; the eleven kernel states and the eleven dual states independent, so his Proposition
-8.11 with 11 for 7, dim ker = dim coker >= 11, equality resting on [AHW24] Theorem 6.1(2) in five dimensions (OPEN), and
-his Corollary 8.13 with 11 for 7 on it.
+five dimensions), as in four; [Hin26] Lemma 8.12 in five dimensions at a = 0, by his reduction, for his L_b of (8.1)
+(his printed values are [Hin24b]'s, whose L, its (3.1a), is 2 (D Ric + ...); and his s0 dual state has leading term
+g(d_t*, .) = -dt, [Hin26] (6.29), (7.12) and [Hin24b] Lemma 3.11(2), against [Hin23b]'s dt, so under his normalization
+the s0 entries change sign; D89); the undetermined entries 0 at a = 0 -- the mass's by SO(4) symmetry, the mass state
+invariant and the rotation duals spanning so(4), which has no invariant vector; the centres of mass's by his argument
+for Theorem 9.6(5), the rotations being Killing on Tangherlini so that h*_v1 is compactly supported -- though the
+non-degeneracy does not need them; the eleven dual states independent, and the eleven kernel states, b-dot = 0 by the
+pairings and S = 0 since h_s1(S) = 0 only if S = 0 ([Hin26] p. 156), so his Proposition 8.11 with 11 for 7, dim ker =
+dim coker >= 11, equality resting on [AHW24] Theorem 6.1(2) in five dimensions (OPEN), and his Corollary 8.13 with 11
+for 7 on it.
 
-READ.  [Hin26] pp. 145 ((8.1)), 154-158 (Proposition 8.9, Remark 8.10, Proposition 8.11 and its proof, (8.22)-(8.25),
-Lemma 8.12, (8.26), Corollary 8.13 and its proof); [Hin24b] pp. 33 ((3.1a)), 38-39 (Lemma 3.8), 50-53 (Proposition 3.16,
-Lemma 3.17 and its proof); [Hin23b] pp. 101-110 (Lemma 9.1, Definition 9.2, Lemma 9.3, Theorem 9.6, Lemma 9.7, the proof
-of Theorem 9.6); alphaXiv, 2026-10-23.
+READ.  [Hin26] pp. 125 ((6.29)), 138 ((7.12)), 145 ((8.1)), 154-158 (Proposition 8.9, Remark 8.10, Proposition 8.11 and
+its proof, (8.22)-(8.25), Lemma 8.12, (8.26), Corollary 8.13 and its proof); [Hin24b] pp. 33 ((3.1a)), 38-39 (Lemma
+3.8), 44 (Lemma 3.11), 49-53 (Proposition 3.16, Lemma 3.17 and its proof); [Hin23b] pp. 101-110 (Lemma 9.1, Definition
+9.2, Lemma 9.3, Theorem 9.6, Lemma 9.7, the proof of Theorem 9.6); alphaXiv, 2026-10-23 and 2026-10-24.
 
 sympy.  python3 pairing5.py [--selftest | --mutants]   (--verbose lists every sub-check)
 """
@@ -135,26 +144,31 @@ class Mink:
             tot += c * 2 * sp.prod([sp.gamma(bb) for bb in b]) / sp.gamma(sum(b))
         return sp.simplify(tot)
 
-    def boundary(self, F):
-        """lim of int F over R^n, F = chi'(R) A + chi''(R) B: -I_A + I_B at the critical weights, 0 below them; above
-        them the leading terms do not determine the pairing: None if the sphere integral vanishes there"""
+    def hdeg(self, e):
+        """the degree of homogeneity of e in (x, R)"""
+        s = sp.Symbol("s", positive=True)
+        ratio = sp.together(sp.simplify(e.subs({**{xi: s * xi for xi in self.x}, R: s * R}, simultaneous=True) / e))
+        return sp.degree(sp.numer(ratio), s) - sp.degree(sp.denom(ratio), s)
+
+    def boundary(self, F, excess):
+        """lim of int F over R^n, F = chi'(R) A + chi''(R) B, with excess the pairing's weight over the critical one,
+        read from the homogeneity of its two tensors (weight): -I_A + I_B at excess 0, 0 below; above it the leading
+        terms do not determine the pairing whether or not they vanish pointwise: None (nan if a sphere integral is
+        nonzero there, a divergence, or if A or B disagrees with the excess)"""
         F = sp.expand(F.subs(sp.Derivative(chi, (R, 2)), c2).subs(sp.Derivative(chi, R), c1).subs(chi, 0))
-        tot, s = 0, sp.Symbol("s", positive=True)
+        tot = 0
         for c, crit in ((c1, 0), (c2, 1)):
             A = sp.together(F.coeff(c))
             if A == 0:
                 continue
-            ratio = sp.together(sp.simplify(A.subs({**{xi: s * xi for xi in self.x}, R: s * R}, simultaneous=True) / A))
-            deg = sp.degree(sp.numer(ratio), s) - sp.degree(sp.denom(ratio), s)
-            k = self.n - 1 + deg
-            if k > crit:
-                if self.sphere(sp.together(A.subs(R, 1))) != 0:
-                    return sp.nan                                       # divergent: fails every comparison
-                return None
-            if k == crit:
+            if self.n - 1 + self.hdeg(A) - crit != excess:
+                return sp.nan                                           # inhomogeneous: fails every comparison
+            if excess > 0 and self.sphere(sp.together(A.subs(R, 1))) != 0:
+                return sp.nan                                           # divergent
+            if excess == 0:
                 I = self.sphere(sp.together(A.subs(R, 1)))
                 tot += -I if c == c1 else I
-        return sp.simplify(tot)
+        return None if excess > 0 else sp.simplify(tot)
 
 
 @lru_cache(maxsize=None)
@@ -217,11 +231,27 @@ def duals(M):
         [(f"dx{j}", M.form(j)) for j in range(1, n + 1)], planes
 
 
+def weight(M, src, v):
+    """the pairing's weight over the critical one, n - 1 plus the degrees of src's chi'(R) part (chi''(R) part, less
+    one, if it has none) and of v; -1 if src vanishes"""
+    S = [sp.expand(q.subs(sp.Derivative(chi, (R, 2)), c2).subs(sp.Derivative(chi, R), c1).subs(chi, 0)) for q in src]
+    vs = [q for q in v if q != 0]
+    for c, crit in ((c1, 0), (c2, 1)):
+        parts = [sp.together(q.coeff(c)) for q in S if sp.together(q.coeff(c)) != 0]
+        if parts and vs:
+            return M.n - 1 + M.hdeg(parts[0]) + M.hdeg(vs[0]) - crit
+    return -1
+
+
 def pair_row(M, src, cols, dropG=False, tstar=False):
     dt = M.form(0)
     if tstar:
         dt = [a - b for a, b in zip(dt, M.form(rad=True))]
-    return [M.boundary(M.ip(src, M.G(M.sym(dt, w), drop=dropG))) for _, w in cols]
+    out = []
+    for _, w in cols:
+        v = M.G(M.sym(dt, w), drop=dropG)
+        out.append(M.boundary(M.ip(src, v), weight(M, src, v)))
+    return out
 
 
 @lru_cache(maxsize=None)
@@ -229,12 +259,12 @@ def matrix(n, dropG=False, tstar=False, ks=False, nobrev=False, nodr=False, gaug
     M = geo(n)
     cols, planes = duals(M)
     rows, ok0 = [], True
-    if gauge:
-        lg = sp.log(R)
-        w = [lg] + [0] * n
+    if gauge:            # delta*(x_2 R^-(n-2) dx_1), homogeneous as the mass perturbation, its coefficient not radial
+        w = [0, M.x[1] * R**-(n - 2)] + [0] * (n - 1)
         u = sp.Matrix(M.N, M.N, lambda a, b: (M.d(w[b], a) + M.d(w[a], b)) / 2)
-        rows.append(pair_row(M, comm(M.dric, u), cols, dropG, tstar))
-        return rows, ok0
+        src = comm(M.dric, u)
+        rows.append(pair_row(M, src, cols, dropG, tstar))
+        return rows, any(sp.simplify(q) != 0 for q in src)            # its cut-off source is not zero
     rows.append(pair_row(M, comm(M.dric, massg(M, ks=ks, nodr=nodr, extra=extra)), cols, dropG, tstar))
     for pl in planes:
         rows.append([None if q is None else mu * q for q in pair_row(M, comm(M.dric, rotg(M, pl)), cols, dropG, tstar)])
@@ -246,11 +276,11 @@ def matrix(n, dropG=False, tstar=False, ks=False, nobrev=False, nodr=False, gaug
 
 
 def undetermined(n):
-    """the super-critical entries: the centre of mass along x^i against the rotations of the planes containing i (his
-    0 at a = 0, Theorem 9.6(5))"""
-    planes = [(i, j) for i in range(n) for j in range(i + 1, n)]
-    k = len(planes)
-    return {(1 + k + i, 1 + b) for i in range(n) for b, pl in enumerate(planes) if i in pl}
+    """the super-critical entries: the mass and the centres of mass against the rotations, whose leading terms do not
+    determine them (his values: -8 pi (q . a) m-dot for the mass from subleading terms, 0 for the centres of mass; both 0
+    at a = 0)"""
+    k = n * (n - 1) // 2
+    return {(i, 1 + b) for i in [0] + list(range(1 + k, 1 + k + n)) for b in range(k)}
 
 
 def agree(rows, W, n, idx):
@@ -298,8 +328,8 @@ def p3(control=0, verbose=False):
     A, ok0 = matrix(4, nobrev=control == 1)
     good = agree(A, expected(4), 4, range(7, 11)) and ok0
     chk(f"n + 1 = 5: centres of mass against the translations {[A[i][i] for i in range(7, 11)]}, against dt 0, "
-        f"against the rotations undetermined by the leading terms; h-breve_b,c is O(mu) (Minkowski part the boost's "
-        f"Killing form: {ok0})", good)
+        f"against the rotations undetermined by the leading terms; h-breve_b,c is O(mu) (its Minkowski part zero, the "
+        f"boost being Killing: {ok0})", good)
     return chk.ok
 
 
@@ -331,20 +361,20 @@ def p5(control=0, verbose=False):
         k = 1 + n * (n - 1) // 2
         ks, _ = matrix(n, ks=True, extra=control == 1)
         ts, _ = matrix(n, tstar=True)
-        ga, _ = matrix(n, gauge=True)
+        ga, gnz = matrix(n, gauge=True)
         same = lambda p, q: (p is None and q is None) or (p is not None and q is not None and sp.simplify(p - q) == 0)
         good = all(same(p, q) for p, q in zip(ks[0], base[0]))
         good &= all(same(p, q) for i in range(k) for p, q in zip(ts[i], base[i]))
-        good &= all(q is None or sp.simplify(q) == 0 for q in ga[0])
+        good &= gnz and any(q is not None for q in ga[0]) and all(q is None or sp.simplify(q) == 0 for q in ga[0])
         ok &= good
-        chk(f"n + 1 = {n + 1}: Kerr-Schild mass row, t* = t - r, and delta*(log R dt) ({ga[0]}) leave the pairings "
-            f"unchanged", good)
+        chk(f"n + 1 = {n + 1}: Kerr-Schild mass row, t* = t - r, and delta*(x_2 R^-(n-2) dx_1), whose cut-off source "
+            f"is not zero ({gnz}; pairings {ga[0]}), leave the pairings unchanged", good)
     return chk.ok and ok
 
 
 CHECKS = [("P1 four dimensions: [Hin23b] Theorem 9.6's table, -8 pi m-dot, -8 pi m (q . a-dot), 4 pi m (q . c)", p1, 1),
           ("P2 five dimensions, Kerr rows: mass -3 pi^2 mu-dot against dt, rotations -2 pi^2 mu on their planes", p2, 1),
-          ("P3 five dimensions, centres of mass: (3 pi^2/2) mu (q . c) against the translations, 0 elsewhere", p3, 1),
+          ("P3 five dimensions, centres of mass: (3 pi^2/2) mu (q . c) against the translations, 0 against dt", p3, 1),
           ("P4 the 11 x 11 matrix (four dimensions 7 x 7) non-degenerate; the first-order translation pairing not", p4,
            1),
           ("P5 invariance: Kerr-Schild mass, t* = t - r, a pure gauge tensor; [Hin23b] Theorem 9.6(1), (7)", p5, 1)]

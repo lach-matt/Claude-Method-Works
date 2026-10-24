@@ -2789,3 +2789,59 @@ should. (3) sym() first divided Python integers and produced floats; it is exact
 
 *Runs.* pairing5.py 5/5 (about two minutes), mutants 5/5; response5.py all pass; md5 rows current (49). Next: the
 forty-first verifier on D87 and D88 (10.31-10.32, dual5.py, pairing5.py).
+
+**D89 (2026-10-24): the forty-first verifier's findings on D87 and D88 (10.32, pairing5.py).**
+
+The forty-first verifier read D87 and D88 with programs of its own (an explicit C^3 cutoff and Gauss-Legendre
+quadrature, three independent formulas for every pairing, all agreeing to 5e-14): no major finding; every value
+reproduces, the determinants, the ADM normalization and every quotation at its page. Five minor findings and two nits,
+seated here; READ again at source (alphaXiv, 2026-10-24): [Hin26] pp. 125 ((6.29)), 138 ((7.12)), 156-157 (the kernel
+proof, Lemma 8.12); [Hin24b] pp. 44 (Lemma 3.11), 51-53 (Lemma 3.17 and its proof).
+
+*Minor 1 (the s0 sign).* [Hin23b]'s s0 dual 1-form is dt (Definition 9.2); [Hin26]'s omega-bar_s0 = g-bar(d_t*, .) = -dt
+((6.29)) and omega*_s0 - chi g_b(d_t*, .) decays ((7.12)), as [Hin24b] Lemma 3.11(2) has omega*_s0 - chi d_t^flat. A
+pairing is linear in the dual state, so with his normalization the mass entry is +8 pi m-dot for L_b (+16 pi m-dot for
+[Hin24b]'s L = 2 L_b), +3 pi^2 mu-dot in five dimensions; he prints -16 pi m-dot, [Hin23b]'s sign, and uses it so in his
+(8.37)(1). 10.32(b), ROUTES 4.33 and pairing5.py's docstring now say the factor and the sign; no non-degeneracy changes.
+
+*Minor 2 (entries above the critical weight).* D88's boundary() skipped an integrand vanishing pointwise before it
+looked at the weight, so the mass against all six rotations and each centre of mass against the three rotations of
+planes not containing its direction (four dimensions three and one) came back 0, though they lie above the critical
+weight, where the leading terms do not determine an entry -- his four-dimensional mass-against-rotation entry, -8 pi (q
+. a) m-dot, comes from subleading terms. pairing5.py now reads each entry's weight from the homogeneity of its two
+tensors (weight()) before computing it, returns every super-critical entry undetermined, and checks A and B against that
+weight; undetermined() lists all of them, P4 takes them all as unknowns, and the determinants are unchanged: 2048 pi^7
+mu^6 and -972 pi^22 mu^10 (the mass row's unknowns sit beside a dt column whose only nonzero entry is the mass's). At a
+= 0 the mass's are 0 by SO(4) symmetry (the mass state invariant, the rotation duals spanning so(4), which has no
+invariant vector), the centres of mass's by his Theorem 9.6(5) argument; 10.32(i)-(iv) and (b) say so.
+
+*Minor 3 (Corollary 8.13).* It needs the (co)kernel exactly 11-dimensional near b_0, which is (c)'s equality, OPEN;
+10.32's closing paragraph now carries Lemma 8.12 over and Proposition 8.11 and Corollary 8.13 up to the rigidity, and
+the paper says "at zero rotation" and "near five-dimensional Tangherlini (linearised Myers-Perry plus pure gauge)".
+
+*Minor 4 (independence).* The pairings of [L, t*] u with the dual states see b-dot only, h_s1(S) pairing to 0 with each
+([Hin23b] Theorem 9.6(6)); S = 0 is his separate argument, h_s1(S) = 0 only if S = 0, d(rS) not being Killing ([Hin26]
+p. 156). 10.32(c) now argues so.
+
+*Minor 5 and the nits.* [Hin24b] Proposition 3.16 begins on p. 49: "49-53" in 10.32's READ, ROUTES 4.33, pairing5.py and
+the paper's reference entry. ROUTES 4.32's "2 - conj(lam) for each root lam of box^C" now says "of these types", as
+10.31(i) has since D87. "Its Minkowski part the boost's Killing form" (pairing5.py, 10.32(iii)) meant that the Minkowski
+part vanishes, the boost being Killing, and now says that.
+
+*A finding of D89's own (P5's pure gauge check).* D88's pure gauge tensor delta*(log R dt) has chi times it pure gauge
+again (chi delta*(F dt) = delta*(G dt), G' = chi F'), so its cut-off source is identically 0 and the invariance check
+tested nothing; the same holds for delta*(f(R) alpha) with alpha any constant 1-form, dchi (x)_s f alpha being delta*(G
+alpha). P5 now uses delta*(x_2 R^-(n-2) dx_1), homogeneous as the mass perturbation, asserts that its source is not
+zero, and finds 0 at every determined entry (dt and the translations) and the rotations undetermined, as the integration
+by parts against D Ric* h* = 0 says. The selftests did not catch it because the check was vacuously true; mutants could
+not, the control being elsewhere.
+
+*Notes.* (a) The verifier's formula C gives the centres of mass against the rotations exactly 0 at first order in mu at
+a = 0, the rotation duals exact on Tangherlini: the deduced 0, computed by it. (b) Hintz's four-dimensional shortcut "g'
+in rho^2, omega* = O(1) => 0" moves to the threshold rho^3 in five dimensions, which is why the mass against dt is
+critical there and not 0, as P2 has it. (c) The two Killing rotations are d_phi and d_psi of 10.28(vi)'s metric for
+every a, and the rotation bracket is injective on the other four, as 10.31(c) says. (d) [AHW24] Theorem 6.1(2) itself
+the verifier did not read; static5.py and 10.33 take it up (D90).
+
+*Runs.* pairing5.py 5/5 (about three and a half minutes, P5 now pairing a source that is not zero), mutants 5/5;
+response5.py all pass; md5 rows current (49).

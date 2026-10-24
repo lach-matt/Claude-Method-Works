@@ -206,12 +206,12 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   Myers-Perry, two of six Killing, h-sharp with his (7.18)'s ratios (his (7.20), (7.31) and (7.18) reproduced on Kerr)
   (A1-A3; Lemma 7.2, Proposition 7.3 and section 7.2.1's structure deduced in 10.31). `python3 dual5.py --selftest` (3/3,
   about a minute and a half), `--mutants` (3/3).
-- `pairing5.py`: [Hin26] Lemma 8.12 in five dimensions (section 10.32; D88): the pairings that make the zero energy
+- `pairing5.py`: [Hin26] Lemma 8.12 in five dimensions (section 10.32; D88, D89): the pairings that make the zero energy
   kernel and cokernel of the linearized gauge-fixed Einstein operator exact, as boundary pairings at infinity on the
   leading terms -- [Hin23b] Theorem 9.6's table reproduced in four dimensions, in five mass -3 pi^2 mu-dot, rotations -2
-  pi^2 mu, centres of mass (3 pi^2/2) mu (q . c), the 11 x 11 matrix non-degenerate (P1-P5; Proposition 8.11 and
-  Corollary 8.13 deduced in 10.32 with eleven for seven, up to [AHW24] Theorem 6.1(2)). `python3 pairing5.py --selftest`
-  (5/5, about two minutes), `--mutants` (5/5).
+  pi^2 mu, centres of mass (3 pi^2/2) mu (q . c), the 11 x 11 matrix non-degenerate, every entry classified by its
+  weight first (P1-P5; Proposition 8.11 and Corollary 8.13 deduced in 10.32 with eleven for seven, up to [AHW24] Theorem
+  6.1(2)). `python3 pairing5.py --selftest` (5/5, about two minutes), `--mutants` (5/5).
 - `data5.py`: Theorem D, the facts about the approximant's slice data that the outward evolution of the constraints
   uses (S0-S6). `python3 data5.py --selftest` (7/7, about 14 minutes), `--mutants` (6/6, about 80
   minutes), `--show` (the principal part).

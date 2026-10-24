@@ -800,22 +800,23 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   rotation two of the six rotations' stay Killing at first order, the other four carrying his (7.18) ratios (`dual5.py`;
   computed at first order in the rotation, his four-dimensional values reproduced as the control, his Lemma 7.2 and
   Proposition 7.3 deduced in supplement section 10.31). And the pairings that make his zero energy kernel and cokernel
-  exact are boundary pairings at infinity -- -8π times the ADM mass and angular momentum and 4πM times the centre of
-  mass, in five dimensions as in four -- so the eleven kernel states and the eleven dual states are independent and his
-  count holds with eleven for seven, up to the rigidity of decaying stationary linearized solutions on five-dimensional
-  Tangherlini, which is open (`pairing5.py`; the pairings computed, his four-dimensional table reproduced as the control,
-  the rest deduced in supplement section 10.32). A line-by-line check of Hintz's 3b- and edge-b-analysis and of
-  [Hin26c]'s section 9 in five dimensions, the threshold h₀, which his proof does not make explicit, and the rest of
-  their analysis are open. No growing mode appears in either type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a
-  finite-time observation), and the late-time tail of the l = 2 master fields, measured from the pulse's launch, is
-  t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the same at half the step, approaching 7 from above with
-  that origin and bracketing 7 (6.89, 7.23) when the origin is shifted by the launch radius either way (T6): [CYDL03]'s
-  t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's function's tail, which is the rate a nonlinear argument in
-  the class would carry. The least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i
-  ([CLY03b] Table 1, p. 8), which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
-  `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is 2+1-dimensional,
-  the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18]
-  p. 2); its five-dimensional counterpart is open.
+  exact are boundary pairings at infinity -- at zero rotation, -8π times the ADM mass and angular momentum and 4πM times
+  the centre of mass, in five dimensions as in four -- so the eleven kernel states and the eleven dual states are
+  independent and his count holds with eleven for seven, up to the rigidity of decaying stationary linearized solutions
+  near five-dimensional Tangherlini (linearised Myers–Perry plus pure gauge), which is open (`pairing5.py`; the pairings
+  computed, his four-dimensional table reproduced as the control, the rest deduced in supplement section 10.32). A
+  line-by-line check of Hintz's 3b- and edge-b-analysis and of [Hin26c]'s section 9 in five dimensions, the threshold
+  h₀, which his proof does not make explicit, and the rest of their analysis are open. No growing mode appears in either
+  type for l = 2, …, 10 to τ = 275 r_h (settle5.py T5; a finite-time observation), and the late-time tail of the l = 2
+  master fields, measured from the pulse's launch, is t^(−7.05) (tensor) and t^(−7.06) (scalar) on [550, 700] r_h, the
+  same at half the step, approaching 7 from above with that origin and bracketing 7 (6.89, 7.23) when the origin is
+  shifted by the launch radius either way (T6): [CYDL03]'s t^(−(2l+D−2)) for odd D, the flat five-dimensional Green's
+  function's tail, which is the rate a nonlinear argument in the class would carry. The least-damped mode of the class
+  is the scalar-type one with l = 2, ω r_h = 0.9477 + 0.2561i ([CLY03b] Table 1, p. 8), which evolving the master
+  equation in time reproduces to 1% (settle5.py T3, on the barrier of `docket68/lemmas/seed_escape.py`): an e-folding
+  time of 3.905 r_h. The reduced problem in the class is 2+1-dimensional, the dimension of Klainerman and Szeftel's
+  polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18] p. 2); its five-dimensional counterpart is
+  open.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -948,7 +949,12 @@ evolution in r with no smallness and no data imposed far out; (7) a gauge hierar
   read by a fortieth (D85, D86), which recomputed the adjoint's indicial families and both dual states with its own
   programs: no major finding; three minor findings — families read at one angle where the text said two, a factor of h
   asserted loosely, and this paper's "his coefficients" where only his ratios are meant — a formatting slip and notes,
-  seated (D87).
+  seated (D87). Section 10.32 with `pairing5.py` and those repairs were read by a forty-first (D87, D88), which
+  recomputed every pairing by three formulas of its own with an explicit cutoff and quadrature: no major finding; five
+  minor findings — entries above the critical weight returned as 0 where their leading terms vanish pointwise, the s0
+  entries' sign under Hintz's normalization of the dual state, Corollary 8.13 claimed beyond the open rigidity, the
+  independence of the translations' states argued by the wrong pairing, and one page — two nits, and notes, seated
+  (D89), with one finding of D89's own: the pure gauge invariance check had a source identically zero.
 
 ---
 
@@ -1022,8 +1028,8 @@ from the arXiv text, with the extraction's spacing.
 - [Hin23b] P. Hintz, *Gluing small black holes along timelike geodesics I: formal solution*, arXiv:2306.07409v2. READ
   2026-10-23: pp. 101–110 (Lemma 9.1, Definition 9.2, Lemma 9.3, Theorem 9.6 and its proof, Lemma 9.7), 116–117.
 - [Hin24b] P. Hintz, *Gluing small black holes along timelike geodesics III: construction of true solutions and extreme
-  mass ratio mergers*, arXiv:2408.06715v1. READ 2026-10-23: pp. 13, 33 ((3.1a)), 38–39 (Lemma 3.8 and its proof), 50–53
-  (Proposition 3.16, Lemma 3.17 and their proofs).
+  mass ratio mergers*, arXiv:2408.06715v1. READ 2026-10-23 and 2026-10-24: pp. 13, 33 ((3.1a)), 38–39 (Lemma 3.8 and its
+  proof), 44 (Lemma 3.11), 49–53 (Proposition 3.16, Lemma 3.17 and their proofs).
 - [Hin26a] P. Hintz, *Constraint damping on subextremal Kerr spacetimes*, arXiv:2606.27658v2. READ 2026-10-21: pp. 1–3
   (Theorem 1.1, (1.1)–(1.2)), 5, 7, 9–10, 25–37 (section 3: Definition 3.1, Lemmas 3.2–3.9; sections 4.1–4.3:
   (4.1)–(4.9), Lemmas 4.1–4.4 and 4.6, Corollary 4.7, (4.19), Definition 4.8, Theorem 4.9, Remarks 4.10–4.12), 38–41
@@ -1050,7 +1056,8 @@ from the arXiv text, with the extraction's spacing.
   Proposition 8.11, Lemma 8.12, Corollary 8.13). READ 2026-10-23 for Proposition 6.18 (4)–(7): pp. 19, 67, 113, 117–118,
   121, 128–134 (the proof's decomposition on p. 132), 149–151, 158. READ 2026-10-23 for section 7.2: pp. 126, 134–144
   (section 7, Lemma 7.2, Propositions 7.3–7.4, Lemma 7.5, (7.1)–(7.35)). READ 2026-10-23 for Lemma 8.12 and Proposition
-  8.11: pp. 145 ((8.1)), 154–158 (Proposition 8.9 through Corollary 8.13).
+  8.11: pp. 145 ((8.1)), 154–158 (Proposition 8.9 through Corollary 8.13). READ 2026-10-24 for the s0 dual state's
+  normalization: pp. 125 ((6.29)), 138 ((7.12)).
 - [Hin26c] P. Hintz, *(Non-)linear waves on asymptotically flat spacetimes. II: trapping, bound states, nonlinear
   applications*, arXiv:2606.28008v1. READ 2026-10-22: pp. 88 (Definition 4.13, Lemma 4.14), 90–91 (Proposition 4.19),
   100 ((5.1a)–(5.2)), 101–105 (Example 5.4, Remark 5.6, Definitions 5.8, 5.10–5.11, Remark 5.9, Lemma 5.12), 158–159
@@ -1362,7 +1369,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D88).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D89).
 
 | claim | where it is established |
 | --- | --- |
@@ -1424,7 +1431,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D8
 | | the thirty-fourth section 10.25 (D74, D76); the thirty-fifth section 10.26 (D75, D77); |
 | | the thirty-sixth section 10.27 (D78, D79); the thirty-seventh section 10.28 (D80, D82); |
 | | the thirty-eighth section 10.29 (D81, D83); the thirty-ninth section 10.30 (D84, D85); |
-| | the fortieth section 10.31 (D86, D87) |
+| | the fortieth section 10.31 (D86, D87); the forty-first section 10.32 (D88, D89) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1482,9 +1489,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `6502ed3a6e1d4cccd21c0af350d2f84b` |
-| `docket68/n1star/N1STAR-LOG.md` | `34d88aae4965cb57cbd88b58c8af654a` |
-| `docket68/n1star/README.md` | `8db6967d67a56e33d8a0f169cd804b40` |
+| `docket68/n1star/N1STAR-PROOF.md` | `fa33ee2f8e791ecf85c084387ceba28b` |
+| `docket68/n1star/N1STAR-LOG.md` | `331fca69395c1d12bfb6d1c68f69dd14` |
+| `docket68/n1star/README.md` | `8ac992527e62d26c6b64b0b5879bb509` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1529,6 +1536,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/genstates5.py` | `f2ef7478e67760e3d6ff05d0a0dd74e5` |
 | `docket68/n1star/puregauge5.py` | `6fda612d263dcfa82b79a9ff76a70000` |
 | `docket68/n1star/dual5.py` | `c85cd907bd71d3c4fb1a12be89adf783` |
-| `docket68/n1star/pairing5.py` | `d41db1b08994fda741f874268ceb1518` |
+| `docket68/n1star/pairing5.py` | `2c5ef6dea6da3a3c3e3b182d64a9c131` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

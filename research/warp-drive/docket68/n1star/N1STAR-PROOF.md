@@ -4821,7 +4821,7 @@ in five dimensions, where these dual states enter (10.32); section 8.5 and secti
 line by line; how small gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.28 is computed, and
 (a)-(c) are deduced.
 
-### 10.32 [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions: the zero energy pairings (`pairing5.py`; D88)
+### 10.32 [Hin26] Lemma 8.12 and Proposition 8.11 in five dimensions: the zero energy pairings (`pairing5.py`; D88, D89)
 
 *The setting.* [Hin26] Proposition 8.11 (pp. 155-156) gives L-hat_b(0) index 0 on the weights (0, eps_ind) and counts
 both sides: "(1) (Kernel.) The nullspace of (8.22) is 7-dimensional", spanned by the gauged linearized Kerr metrics
@@ -4842,27 +4842,35 @@ w_A (w_A = x^i dx^j - x^j dx^i on the plane ij; d_a g = -h_A, 10.28(vi)), and h_
 against G (dt (x)_s omega*), omega* = dt, the rotations w_B and the translations dx^j:
 
  (i) (four dimensions) His table, with mu = 2m: -4 pi mu-dot = -8 pi m-dot; -4 pi mu per plane = -8 pi m (q . a-dot); 2
-     pi mu (q . c) = 4 pi m (q . c); every other entry 0, except a centre of mass against the rotations of the planes
-     containing its direction, which lies above the critical weight, where the leading terms vanish over the sphere and
-     do not determine it (P1).
- (ii) (five dimensions, the Kerr rows) Mass against dt -3 pi^2 mu-dot, against the translations and the rotations 0; a
-     rotation -2 pi^2 mu against its own plane, 0 against the other planes, dt and the translations (P2).
- (iii) (five dimensions, the centres of mass) (3 pi^2/2) mu (q . c) against q . dx, 0 against dt and the rotations of the
-     planes not containing c, undetermined against the three containing it; h-breve_b,c is O(mu), its Minkowski part the
-     boost's Killing form (P3).
- (iv) (non-degeneracy) With the undetermined entries as unknowns, the 11 x 11 matrix -- rows mass, rotations, centres of
-     mass; columns dt, rotations, translations -- is block triangular with determinant (-3 pi^2) (-2 pi^2 mu)^6 (3 pi^2
-     mu/2)^4, nonzero for mu != 0 whatever the unknowns; four dimensions (-4 pi) (-4 pi mu)^3 (2 pi mu)^3 (P4).
- (v) (invariance) The Kerr-Schild mass perturbation mu-dot R^-(n-2) (dt + dr)^2, a pure gauge tensor delta*(log R dt),
-     and t* = t - r in place of t leave the Kerr rows unchanged, his Theorem 9.6(1) and (7) (P5).
+     pi mu (q . c) = 4 pi m (q . c); every other entry 0, except the mass and the centres of mass against the rotations,
+     which lie above the critical weight, where the leading terms do not determine them (his values there -8 pi (q . a)
+     m-dot, from subleading terms, and 0; both 0 at a = 0) (P1).
+ (ii) (five dimensions, the Kerr rows) Mass against dt -3 pi^2 mu-dot, against the translations 0, against the rotations
+     undetermined, above the critical weight; a rotation -2 pi^2 mu against its own plane, 0 against the other planes,
+     dt and the translations (P2).
+ (iii) (five dimensions, the centres of mass) (3 pi^2/2) mu (q . c) against q . dx, 0 against dt, undetermined against
+     the six rotations, above the critical weight; h-breve_b,c is O(mu), its Minkowski part zero, the boost being
+     Killing (P3).
+ (iv) (non-degeneracy) With the undetermined entries (the mass and the centres of mass against the rotations) as
+     unknowns, the 11 x 11 matrix -- rows mass, rotations, centres of mass; columns dt, rotations, translations -- is
+     block triangular with determinant (-3 pi^2) (-2 pi^2 mu)^6 (3 pi^2 mu/2)^4, nonzero for mu != 0 whatever the
+     unknowns; four dimensions (-4 pi) (-4 pi mu)^3 (2 pi mu)^3 (P4).
+ (v) (invariance) The Kerr-Schild mass perturbation mu-dot R^-(n-2) (dt + dr)^2, a pure gauge tensor delta*(x_2 R^-(n-2)
+     dx_1), whose cut-off source is not zero, and t* = t - r in place of t leave the Kerr rows unchanged, his Theorem
+     9.6(1) and (7) (P5).
 
 *Proof.* P1-P5 of pairing5.py, exact. Each pairing is < [P, chi] u, v > with chi a radial cutoff, 1 near 0 and 0 near
-infinity: the integrand is chi'(R) A + chi''(R) B with A and B homogeneous, the sphere integrals are exact, and the
-pairing is -I_A + I_B at the critical weights (int chi' = -1, int R chi'' = 1), 0 below them, undetermined above them
-when the sphere integral of the leading term vanishes; a nonzero one would be a divergence, and none occurs. Controls: in
-(i) G dropped from the dual slot; in (ii) the mass perturbation's dr^2 term dropped; in (iii) h-breve_b,c dropped; in
-(iv) the translations' first-order pairing < D Ric(t h_b,c), h* >, which [Hin23b] Theorem 9.6(6) says vanishes, in place
-of the centre of mass; in (v) a non-gauge R^-(n-2) dx_1^2 added. []
+infinity: the integrand is chi'(R) A + chi''(R) B with A and B homogeneous, the sphere integrals are exact, and each
+entry is classified by its weight, read from the homogeneity of its two tensors, before it is computed: -I_A + I_B at
+the critical weight (int chi' = -1, int R chi'' = 1), 0 below it, undetermined above it whether or not the leading terms
+vanish pointwise there -- D88 classified only the entries with a nonzero leading integrand and returned 0 for the mass's
+six and each centre of mass's other three entries against the rotations (four dimensions three and one), corrected in
+D89; a nonzero sphere integral above it would be a divergence, and none occurs. P5's pure gauge tensor has a nonzero
+cut-off source: for delta*(f(R) alpha), alpha constant -- D88's delta*(log R dt) among them -- chi times it is pure
+gauge again, the source 0 and the check empty (D89). Controls: in (i) G dropped from the dual slot; in (ii) the mass
+perturbation's dr^2 term dropped; in (iii) h-breve_b,c dropped; in (iv) the translations' first-order pairing < D Ric(t
+h_b,c), h* >, which [Hin23b] Theorem 9.6(6) says vanishes, in place of the centre of mass; in (v) a non-gauge R^-(n-2)
+dx_1^2 added. []
 
 *Deduced.*
 
@@ -4874,35 +4882,42 @@ of the centre of mass; in (v) a non-gauge R^-(n-2) dx_1^2 added. []
      by integration by parts, the dual states vanishing inside the horizon and decaying at infinity, faster in five
      dimensions (10.31(b)), and the pairings rewritten as [Hin23b]'s boundary pairings -- uses only integration by parts
      and decay, so his Lemma 8.12 for his L_b of (8.1) has (ii)-(iii)'s values in five dimensions at a = 0. The
-     undetermined entries are 0 there by his argument for Theorem 9.6(5): by its part (1) omega* may be the cut-off
-     Killing form, the rotations being Killing on Tangherlini, so h* is compactly supported and the centre of mass's
-     pairing < D-hat Ric(0) h-ring, h* > vanishes by integration by parts; (c) does not need them. His printed values,
-     -16 pi m-dot and so on, are [Hin24b]'s, whose L ((3.1a), p. 33) is 2 (D Ric + delta* delta G), twice his L_b of
-     (8.1) (p. 145); for L_b they halve, which changes no non-degeneracy. For b near Tangherlini's parameters the matrix
-     stays non-degenerate by continuity.
+     undetermined entries are 0 there: the mass's by SO(4) symmetry -- at a = 0 the pairing is SO(4)-equivariant, the
+     mass state invariant, and the rotation duals span so(4), which has no invariant vector; the centres of mass's by
+     his argument for Theorem 9.6(5): by its part (1) omega* may be the cut-off Killing form, the rotations being
+     Killing on Tangherlini, so h* is compactly supported and the centre of mass's pairing < D-hat Ric(0) h-ring, h* >
+     vanishes by integration by parts; (c) does not need them. His printed values, -16 pi m-dot and so on, are
+     [Hin24b]'s, whose L ((3.1a), p. 33) is 2 (D Ric + delta* delta G), twice his L_b of (8.1) (p. 145); for L_b they
+     halve. And the s0 entries change sign with the s0 dual state's normalization: [Hin23b]'s is dt (Definition 9.2),
+     his omega-bar_s0 = g-bar(d_t*, .) = -dt ((6.29), p. 125; (7.12), p. 138; [Hin24b] Lemma 3.11(2), p. 44, omega*_s0 -
+     chi d_t^flat), so with his dual state the mass entry is +8 pi m-dot for L_b, +3 pi^2 mu-dot in five dimensions,
+     where he prints -16 pi m-dot with [Hin23b]'s sign (the forty-first verifier; D89). Neither the factor nor the sign
+     changes any non-degeneracy. For b near Tangherlini's parameters the matrix stays non-degenerate by continuity.
  (c) ([Hin26] Proposition 8.11 in five dimensions) The eleven tensors g-dot^Ups(mu-dot), g-dot^Ups(0, A) (A in so(4)) and
-     h_s1(S) (S in S_1) lie in ker L-hat(0) (10.28-10.29) and are independent, a combination of them pairing to zero with
-     all eleven dual states having zero coefficients by (b); the eleven dual states lie in ker L-hat(0)* (10.31(b) and
-     his (8.25)) and are independent by the same matrix. With his index 0 (his Propositions 8.3 and 8.6, deduced in 10.26
-     and 10.25, and [Hin26c] Corollary 9.43 at n = 4, 10.20(d)), dim ker = dim coker >= 11. Equality is his kernel
-     argument, which runs as his with 10.21(e) for Theorem 7.1(2), 10.28 for Proposition 8.9, 10.15 for Lemma 6.6 and
-     10.20 for Proposition 6.12, but needs [AHW24] Theorem 6.1(2) -- every decaying stationary solution of D Ric(h) = 0 a
-     linearized Kerr metric plus a pure gauge term -- in five dimensions, for linearized Myers-Perry: OPEN.
+     h_s1(S) (S in S_1) lie in ker L-hat(0) (10.28-10.29) and are independent: for u = g-dot^Ups(b-dot) + h_s1(S) = 0
+     the pairings of [L, t*] u with the dual states see b-dot alone, h_s1(S) pairing to 0 with each ([Hin23b] Theorem
+     9.6(6)), so b-dot = 0 by (b); and then S = 0, since h_s1(S) = 0 only if S = 0, d(rS) not being Killing for
+     Tangherlini ([Hin26] p. 156); the eleven dual states lie in ker L-hat(0)* (10.31(b) and his (8.25)) and are
+     independent by the same matrix. With his index 0 (his Propositions 8.3 and 8.6, deduced in 10.26 and 10.25, and
+     [Hin26c] Corollary 9.43 at n = 4, 10.20(d)), dim ker = dim coker >= 11. Equality is his kernel argument, which runs
+     as his with 10.21(e) for Theorem 7.1(2), 10.28 for Proposition 8.9, 10.15 for Lemma 6.6 and 10.20 for Proposition
+     6.12, but needs [AHW24] Theorem 6.1(2) -- every decaying stationary solution of D Ric(h) = 0 a linearized Kerr
+     metric plus a pure gauge term -- in five dimensions, for linearized Myers-Perry: OPEN.
  (d) ([Hin26] Corollary 8.13 in five dimensions) With 11 for 7, on (c): his construction of the linear right inverse uses
      only the (co)kernel's dimension and the pairings.
 
-*READ.* [Hin26] (alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 145 ((8.1)), 154-158 (Proposition 8.9,
-Remark 8.10, Proposition 8.11 and its proof, (8.22)-(8.25), Lemma 8.12, (8.26), Corollary 8.13 and its proof); [Hin24b]
-(arXiv:2408.06715v1): pp. 13, 33 ((3.1a)), 38-39 (Lemma 3.8 and its proof), 50-53 (Proposition 3.16 and its proof, Lemma
-3.17 and its proof); [Hin23b] (arXiv:2306.07409v2): pp. 101-110 (Lemma 9.1, Definition 9.2, Lemma 9.3, Theorem 9.6, Lemma
-9.7, the proof of Theorem 9.6), 116-117.
+*READ.* [Hin26] (alphaXiv, 2026-10-23; quotations transliterated to ASCII): pp. 125 ((6.29)), 138 ((7.12)), 145 ((8.1)),
+154-158 (Proposition 8.9, Remark 8.10, Proposition 8.11 and its proof, (8.22)-(8.25), Lemma 8.12, (8.26), Corollary 8.13
+and its proof); [Hin24b] (arXiv:2408.06715v1): pp. 13, 33 ((3.1a)), 38-39 (Lemma 3.8 and its proof), 44 (Lemma 3.11),
+49-53 (Proposition 3.16 and its proof, Lemma 3.17 and its proof); [Hin23b] (arXiv:2306.07409v2): pp. 101-110 (Lemma 9.1,
+Definition 9.2, Lemma 9.3, Theorem 9.6, Lemma 9.7, the proof of Theorem 9.6), 116-117.
 
 *What this gives, and what it does not.* The non-degeneracy his zero energy analysis turns on holds in five dimensions:
 the eleven kernel states and the eleven dual states pair through -8 pi times the ADM mass and angular momentum and 4 pi M
-times the centre of mass, as in four, so his Lemma 8.12 and Corollary 8.13 carry over at and near Tangherlini, and his
-Proposition 8.11 up to the five-dimensional [AHW24] Theorem 6.1(2). Not done, and OPEN: that rigidity statement in five
-dimensions; the a-dependent entries beyond continuity; his section 8.5 (Proposition 8.14, Lemma 8.15's pairings) and
-sections 9-10; section 7.2.1 beyond first order in the rotation; the readings of 10.20-10.22 line by line; how small
+times the centre of mass, as in four, so his Lemma 8.12 carries over at and near Tangherlini, and his Proposition 8.11
+and Corollary 8.13 up to the five-dimensional [AHW24] Theorem 6.1(2). Not done, and OPEN: that rigidity statement in
+five dimensions; the a-dependent entries beyond continuity; his section 8.5 (Proposition 8.14, Lemma 8.15's pairings)
+and sections 9-10; section 7.2.1 beyond first order in the rotation; the readings of 10.20-10.22 line by line; how small
 gam_Ups must be, and h_0. Nothing of this section is proved: Proposition 10.29 is computed, and (a)-(d) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
