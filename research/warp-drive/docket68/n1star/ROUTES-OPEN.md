@@ -1635,3 +1635,29 @@ N1STAR-PROOF.md 10.47 deduces his Theorems 12.3 and 12.8 in the class.
   3 + eps_K; Theorem 12.8's U' G-invariant, which discharges 10.43(e)'s reading.
 - OPEN: the five-dimensional iota+ spectrum between 5/2 and 3 + eps_+; section 9's propositions in five dimensions
   (Phase B). Next: A8, his section 5's Theorems 5.21 and 5.23 in five dimensions.
+
+### 4.50 A8: [Hin26] section 5 in five dimensions, in the class (deduced; D117)
+
+N1STAR-PROOF.md 10.48 deduces his Theorems 5.17, 5.21 and 5.23 in five dimensions in the class.
+
+- Deduced: every I+ exponent is at least 3/2, so Theorem 5.17's iteration carries no radiation-field term for 1 <
+  l-flat_I < 3/2; Theorem 5.21's hypothesis becomes min Re E_0 > 3/2 + 2 gam_Ups, which a mass change (r^-2) meets
+  exactly when gam_Ups < 1/4; in the class only S = 0 is used, h_0 = h, G-invariant by uniqueness.
+- OPEN: [Hin23a]'s energy estimates at n = 4, added to Phase B as B10; section 5.7's gauged data (A9); the record's data
+  near I0 (C2).
+
+### 4.51 A9: [Hin26] Theorem 13.1 in five dimensions, in the class; Phase A complete (deduced; D117)
+
+N1STAR-PROOF.md 10.49 states his Theorem 13.1 in five dimensions in the T^2-mirror class -- G-invariant data near
+five-dimensional Tangherlini of mass m_0, partially polyhomogeneous with min Re E_0 > 3/2 + 2 gam_Ups, settle to
+Tangherlini of a nearby mass m at t*^(-2-eps_K) in spatially compact sets -- deduced from 10.13-10.48.
+
+- Deduced: his Steps 1-4 in the class: the parameters (10.14-10.25), the gauged data (Proposition 5.25, a reading), the
+  exterior solution at S = 0 (10.48), [SR89]'s four assumptions from 10.47, the gauge and Ricci flatness by the Bianchi
+  identity; the weakest K+ term the mass remainder's, at his order 2 + eps_K.
+- Phase A of 4.44 is complete on its readings. Phase B now has ten items: B1-B9 as listed in 4.44 and B10, [Hin23a]'s
+  exterior estimates at n = 4 (10.48(c)); with them the iota+ spectrum between 5/2 and 3 + eps_+ (10.47(b)) and section
+  9's propositions in five dimensions (10.47's OPEN). Phase C applies 10.49 to the record's solution; C2 decides whether
+  its data lie in 10.49's hypotheses (compact support near I0 would make 10.48's Step 1 empty).
+- Next: Phase B, the readings discharged, starting with those the class leans on most -- B9's transfers and B2/B3's
+  [Hin26c] theorems at n = 4.

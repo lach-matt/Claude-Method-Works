@@ -6498,6 +6498,125 @@ Proposition 9.4(2), Corollary 9.18 and Propositions 9.9, 9.15 and 9.22 in five d
 five-dimensional inputs 10.37's and 10.44's; Phase B); h_0 and (13.5) (A8). Labels: deduced ((a)-(e)); READ ([Hin26] pp.
 182-186, 295-297, 301-302, 304, 310, 312, 315-317, 321); nothing computed here, nothing proved.
 
+### 10.48 [Hin26] section 5 in five dimensions, in the class: Theorems 5.17, 5.21 and 5.23 (deduced; D117)
+
+His section 5 solves the gauge-fixed equation in the exterior region t* <= 1, near spatial and null infinity, from small
+data (Theorem 5.17, by [Hin23a]'s estimates and [SR89]), proves the solution partially polyhomogeneous (Theorem 5.21),
+and pulls it back along boosts (Theorem 5.23); his section 13 starts from its family h_S. The five-dimensional structure
+at I+ is 10.38's and 10.44's; here the theorems themselves.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; ASCII): p. 84 ("The setup, estimates, and
+arguments are very similar to those in [Hin23a]"); pp. 85-87, Definitions 5.2-5.4, (5.5)-(5.9); pp. 92-97, Proposition
+5.11 with (5.25), "2 l-flat_I <= 3", and (5.40)-(5.42); pp. 97-99, Definition 5.13, Proposition 5.14, Corollary 5.15;
+pp. 99-102, (5.49), "l-flat_0 > 1, 1 < l-flat_I < min(l-flat_0, 1 + (1 - e_Ups) gam_Ups, 3/2)", Lemma 5.16, Theorem 5.17
+and its proof ("the same (with minor, only notational, modifications) as that of [Hin23a, Corollary 3.36]"; the tame
+estimate (5.52) "proved (for d = 11) in [Hin23a, Theorem 3.35]"), Remarks 5.18-5.20 (5.19: decay r^-1 or weaker at I0
+"would need to revisit the exterior stability argument"), (5.53); pp. 102-108, Theorem 5.21 ("min Re E_0 > 1 + 2
+gam_Ups"; "E^C,#_I := E^C_I u (E_0 n {Re z >= alpha_I})") and its proof, Steps 1-2; pp. 108-109, (5.75)-(5.77b), Theorem
+5.23 ("h_0 = h on all of Omega_ext,r1") and Remark 5.24 (trivial data: "h_S = 0 ... by finite speed of propagation").
+
+*Deduced.*
+
+ (a) (the class of perturbations) Definition 5.3 in five dimensions is 10.44(a)'s: 3/2 for 1 in (5.5)-(5.8), E_I,11 with
+     the exceptional (2, 0), and min Re E^C_I > 3/2 + 2 gam_Ups. Every exponent of E^tot_I is then at least 3/2 -- the
+     diagonal of 3/2 + A_0 (10.44(i), iplus5.py P2) and (2, 0) -- where in four dimensions pi-slash_0 h and pi_11 h
+     start at 1. So in five dimensions his simplest space, for 1 < l-flat_I < 3/2, is H^(k, l-flat_0, l-flat_I) for
+     every component: no radiation-field term is carried in Theorem 5.17's iteration, and (5.25)'s 2 l-flat_I <= 3
+     holds.
+
+ (b) (the operator) Proposition 5.11's (5.26a) and (5.27)-(5.28), Proposition 5.14 and Corollary 5.15 in five dimensions
+     are 10.38's (scri5.py; the leading part with 3/2 for 1, A_0 lower triangular), with (5.46)'s orders unchanged: L in
+     rho_0^2 rho_I Diff_b in both dimensions.
+
+ (c) (Theorem 5.17) His proof is [Hin23a]'s: a first-order energy estimate with weight l-flat_0 at I0 and a weight below
+     the radiative order at I+, commuted with rho_0 d_rho_0, rho_I d_rho_I and the rotations into the tame (5.52), then
+     [SR89]. In five dimensions, on the reading that [Hin23a]'s estimates hold at n = 4 with the radiative order 3/2 for
+     1 (as 10.42 reads [Hin26c]'s), the weights l-flat_0 > l-flat_I and 1 < l-flat_I < 3/2 serve (Lemma 5.16 needs
+     rho_0^(l-flat_0)/rho_0^(l-flat_I) -> 0, as his), and Theorem 5.17 holds: a unique small h in H^(oo, l-flat_0,
+     l-flat_I). The radiation fields are at r^(-3/2), so quadratic terms are half an order smaller at I+ than in four
+     dimensions; nothing here uses that.
+ (d) (Theorem 5.21) Step 1, at I0, commutes rho_0 d_rho_0 - z through (5.58)-(5.60) and does not see the dimension once
+     (5.59) holds, which is (b). Step 2, at I+, integrates the I+ normal operator with the error on the right, as
+     10.44's Propositions 11.14-11.16 do for the linear problem. With E^C_I's lower bound 3/2 + 2 gam_Ups, his
+     hypothesis min Re E_0 > 1 + 2 gam_Ups becomes min Re E_0 > 3/2 + 2 gam_Ups; a mass change, r^-2 in five dimensions
+     ((2, 0) in E_0), meets it exactly when gam_Ups < 1/4, the non-resonance 10.44 already needs, and does at the
+     record's point (gam_Ups = 1/100). With l_I < 3/2 + (1 - e_C)(1 - v) gam_C (the gap of 10.46(iii)), Theorem 5.21
+     holds in five dimensions on (c)'s reading.
+
+ (e) (Theorem 5.23 in the class) S = 0 throughout the class (10.43(b)), so only h_0 = h is used ("h_0 = h on all of
+     Omega_ext,r1"), the solution of (13.5) at S = 0, which is Theorem 5.17's problem with the cut-off gauge
+     Upsilon^(chi_0 E^Ups), chi_0 a function of t_IVP/r. Its data G-invariant, h_0 is G-invariant by uniqueness and the
+     equivariance of 10.43(a) -- 10.47(e)'s open item. The smooth dependence on S (Theorem 5.23(2)) is not needed. If
+     the data equal Tangherlini's outside a compact set, h_0 vanishes near I0 by finite speed of propagation (Remark
+     5.24), and Step 1 of (d) is empty; whether the record's data do is Phase C's (C2).
+
+OPEN: [Hin23a]'s energy estimates (its Proposition 3.32, Theorem 3.35, Corollary 3.36) at n = 4 -- a reading not in
+ROUTES 4.44's Phase B list, added as B10; section 5.7's construction of gauged Cauchy data from geometric data in five
+dimensions (A9 meets it); the record's data near I0 (C2). Labels: deduced ((a)-(e)); READ ([Hin26] pp. 84-109); nothing
+computed here, nothing proved.
+
+### 10.49 [Hin26] section 13 in five dimensions, in the class: Theorem 13.1 (deduced; D117)
+
+His Theorem 13.1 concatenates the exterior solution (Theorem 5.23) with [SR89]'s Nash-Moser iteration for P o Psi, whose
+linearized solvability is Theorem 12.8. This section carries it into the class in five dimensions, on the readings of
+10.13-10.48, and so completes Phase A of ROUTES 4.44.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24; printed pages; ASCII): pp. 2-3, Theorem 1.1 and Remark 1.3
+("initial data (gamma, k) that are exactly Kerrian outside of a compact set", [CD03]); p. 110, Proposition 5.25 and its
+proof ("very similar to [HV18b, Proposition 3.10] and [HV24, Theorem 4.2]"); pp. 318-319, Theorem 13.1, (13.1a)-(13.3),
+"(1) O(t*^(-2-eps_K)) in spatially compact subsets"; pp. 319-320, Remarks 13.2-13.4; pp. 320-323, its proof: Step 1 ("we
+moreover require gam_Ups to be so small that 1 + 2 gam_Ups < min Re E_0"), Step 2 ((13.5)), Step 3 ((13.6), [SR89]'s
+assumptions (1)-(4): "the construction of Phi ... only involves the inversion of model operators ... with smooth
+coefficients"; "D_U Psi(U') = D_S(h_-.)(S') + D_U Phi(U')"; smoothing operators from [Hin24a]), Step 4 (the metric g,
+the gauge 1-form eta, "Applying the second Bianchi identity to (13.7) gives the homogeneous wave equation ... and thus
+eta = 0 and therefore also Ric(g) = 0"; "the weakest decay at K+ arises from the term chi_K h^(<=1)_b,s1(S_rem)").
+
+**Statement (deduced; Theorem 13.1 in the class).**
+
+Let m_0 > 0 and Sigma_IVP be his Cauchy surface of {t_IVP >= 0, r >= r_0} in five-dimensional Tangherlini of mass m_0
+(r_0 inside the horizon), eps_0 > 0, and E_0 an index set with jE_0 in E_0 and min Re E_0 > 3/2 + 2 gam_Ups. There are
+eps, d, 0 < eps_K < eps_+ < eps_I < eps_0 and index sets E^C_I (Definition 5.3 in five dimensions, 10.44) and E_+
+(10.44(e), 10.47(b)) such that: for G-invariant data (gamma, k) on Sigma_IVP satisfying the constraint equations, with
+gamma - gamma_(m_0) in H^(oo, (E_0, 3+eps_0)), k - k_(m_0) in H^(oo, (E_0 + 1, 4+eps_0)) and both smaller than eps in
+H^d, there are a mass m near m_0 and a G-invariant h in H^(oo, (E_0, 3+eps_0), (<E^C_I>, 3+eps_I), (E_+, 3+eps_+),
+2+eps_K)(Omega) such that g = (1 - chi_K) g_(m_0) + chi_K g_m + h attains (gamma, k) and Ric(g) = 0. In particular g -
+g_m = O(t*^(-2-eps_K)) in spatially compact subsets of {r >= r_0}.
+
+*Deduced.*
+
+ (a) (Step 1) The constraint damping is [Hin26a]'s Theorem 7.1 in five dimensions (10.21-10.23, Phase B's B4), E^Ups
+     with c_Ups and c_H from 10.14-10.15, gam_Ups small with the conclusions of Proposition 6.12 (10.15-10.18) and
+     Proposition 8.6 (10.24-10.25) and with 3/2 + 2 gam_Ups < min Re E_0 (10.48(d)); the record's point has gam_Ups =
+     1/100.
+ (b) (Step 2) Proposition 5.25's gauged Cauchy data: frame linear algebra on Sigma_IVP (5.80)-(5.81), with three spatial
+     frame vectors replaced by four -- dimension-free on its face, a reading; the data G-invariant, so are h_0 and h_1,
+     the construction being natural. Theorem 5.21 in five dimensions (10.48(d)) gives the exterior solution, local
+     well-posedness the interior one, and (13.5) is needed at S = 0 only (10.48(e)): h_0 = h, G-invariant.
+
+ (c) (Step 3) [SR89]'s assumptions for P o Psi from D_G to B^oo_G := H^(oo, (<E^C_I + 1>', 4+eps_I), 5+eps_+, 3+eps_K):
+     (1) by Theorem 12.3 in the class (10.47(d)), C^2; (2) tame estimates of Phi as his, its construction inverting only
+     model operators with smooth coefficients; (3) by Theorem 12.8 in the class (10.47(e)), with D_U Psi(U') = D_U
+     Phi(U') since S' = 0, and his finite speed of propagation for supports; (4) smoothing operators on the G-fixed
+     spaces, Pi S_theta Pi (10.43(e)): m - m_0 and u^0_lam finite-dimensional, f_lam and h-tilde term by term and on the
+     remainder, m_rem on a weighted b-Sobolev space. [SR89]'s theorem, abstract, gives a small U in D_G with P(Psi(U)) =
+     0 when P(Psi(0)), supported in t*^-1([7/4, 2]), is small in B^oo_G, which (13.1b)'s smallness gives.
+
+ (d) (Step 4) The metric g, the gauge 1-form eta and the conclusion eta = 0, Ric(g) = 0 by the second Bianchi identity
+     and the constraints are dimension-free. The weakest K+ decay in the class is chi_K g-dot^Ups_m(m-dot_rem), m_rem in
+     H-dot^(oo, 2+eps_K) (10.46(b)), where his is chi_K h^(<=1)_b,s1(S_rem): the same order 2 + eps_K, so the same rate
+     in spatially compact sets. The other rates of his Theorem 13.1, (2)-(4), are not carried: their five- dimensional
+     exponents (the mass patch's at iota+, among them) are not computed.
+
+*What this gives.* Phase A of ROUTES 4.44 is complete: Hintz's argument has been carried, step by step, into five
+dimensions in the T^2-mirror class, with the class's simplifications computed (10.43, 10.46) and every five-dimensional
+input either computed (10.13-10.46's propositions) or named as a reading. The statement above is deduced, not proved: it
+rests on the readings of [Hin26] at n = 4 recorded in 10.13-10.48, of [Hin26a] (B4), of [Hin26c] (B1-B3) and of [Hin23a]
+(B10), and on the open computations those sections list. Phase B discharges the readings; Phase C applies the statement
+to the record's solution, whose data must be shown to lie in its hypotheses (C2).
+
+OPEN: Phase B (B1-B10); Phase C; the rates (2)-(4) in five dimensions. Labels: deduced (the statement, (a)-(d)); READ
+([Hin26] pp. 2-3, 110, 318-323); nothing computed here, nothing proved.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

@@ -3831,3 +3831,25 @@ needed.
 ROUTES 4.47 and 4.48 had labelled D113 and D114 "A3" and "A4". Their headings now read A3-A5 and A6, and their "Next"
 lines follow; D113's and D114's LOG entries stand as written. (2) 10.43(e) now points to 10.47(c)-(e). (3) Nothing
 computed here: the five-dimensional inputs are Propositions 10.34 and 10.40-10.42.
+
+**D117 (2026-10-24): A8 and A9, [Hin26] sections 5 and 13 in five dimensions in the class (10.48, 10.49); Phase A
+complete.**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 2-3, 84-110, 318-323. His section 5 builds on [Hin23a]
+(p. 84: "The setup, estimates, and arguments are very similar to those in [Hin23a]"; Theorem 5.17's proof "the same ...
+as that of [Hin23a, Corollary 3.36]"), a reading ROUTES 4.44 had not listed; it is B10.
+
+*Deduced (10.48(a)-(e)).* In five dimensions every I+ exponent is at least 3/2, so the simplest space of Theorem 5.17
+carries no radiation-field term for 1 < l-flat_I < 3/2 ((5.25)'s 2 l-flat_I <= 3 holds); Theorem 5.21 needs min Re E_0 >
+3/2 + 2 gam_Ups, which admits the r^-2 mass change exactly when gam_Ups < 1/4; in the class S = 0, h_0 = h, G-invariant
+-- closing 10.47(e)'s open item.
+
+*Deduced (10.49).* Theorem 13.1 in five dimensions in the class: G-invariant partially polyhomogeneous data near
+Tangherlini of mass m_0 settle to Tangherlini of a nearby mass at t*^(-2-eps_K) in spatially compact sets, on the
+readings of 10.13-10.48, [Hin26a], [Hin26c] and [Hin23a]. This completes Phase A of ROUTES 4.44.
+
+*Notes.* (1) 10.48(c) first said that no weak null structure enters in five dimensions and cited 10.38(a) for it;
+neither was checked, and the sentence now says only that the radiation fields sit at r^(-3/2) and that nothing uses it.
+(2) 10.49(a)'s cross-references are 10.15-10.18 for Proposition 6.12's inputs and 10.24-10.25 for Proposition 8.6's,
+checked against the section headings. (3) Nothing computed in D116-D117; the fifty-third verifier, on D112-D115, is
+still running.
