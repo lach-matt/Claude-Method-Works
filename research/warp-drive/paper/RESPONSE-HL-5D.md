@@ -1027,15 +1027,15 @@ entry, −γ_Υ, as in four dimensions. The quadratic radiation term and the met
 the coupling that four dimensions must track at leading order is an error term in five. The energy current at null
 infinity keeps its threshold α_I < −1/2. The boost changes the data at r^(−2), inside Hintz's class, where in four
 dimensions it changes them at the radiation order. [CD03]'s gluing needs its parity condition only for decay below
-r^(−3/2). [Hin26a]'s calculus is constructed in every dimension [Hin23d], and each positive commutator in its section
-5.2 is an identity of symbols whose sign is a positivity computed in five dimensions. A second census by another method
-agrees: a sweep of every marker of the dimension on every page of the carried passages finds 270, all accounted for but
-one norm convention, now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive those
-papers line by line: that the censuses found every place the dimension enters is evidenced by the two methods agreeing
-and read at source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.69 are arguments
-from computed and READ inputs, each read by an independent verifier, not proofs written out at the level of the
-theorem's statement. λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and
-are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the deductions
+r^(−3/2). [Hin26a]'s calculus is constructed in every dimension [Hin23d, Hin26d], and each positive commutator in its
+section 5.2 is an identity of symbols whose sign is a positivity computed in five dimensions. A second census by another
+method agrees: a sweep of every marker of the dimension on every page of the carried passages finds 270, all accounted
+for but one norm convention, now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive
+those papers line by line: that the censuses found every place the dimension enters is evidenced by the two methods
+agreeing and read at source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.69 are
+arguments from computed and READ inputs, each read by an independent verifier, not proofs written out at the level of
+the theorem's statement. λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates —
+and are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the deductions
 written out, would make Theorem 4 a theorem.
 
 ---
@@ -1122,7 +1122,10 @@ written out, would make Theorem 4 a theorem.
   which the unperturbed data meet it — with eight minor findings, seated; section 10.64 and those repairs were read by
   the fifty-seventh, which found the order of the metric-dependent entries of the gauge endomorphism at null infinity
   stated rather than computed — now computed, with the compactification, `exterior5.py` X7–X8 — and the base of the
-  perturbed data in Theorem 4 (ii) left unnamed, with seven minor findings, all seated (D136).
+  perturbed data in Theorem 4 (ii) left unnamed, with seven minor findings, all seated (D136); section 10.65 and those
+  repairs were read by the fifty-eighth, which found one of Hintz's four printed entries matched only under an unstated
+  reading — the reading now stated, the alternative value recorded — and the bounded-geometry calculus of [Hin26d] cited
+  unread — now read at source, set on a manifold of any dimension — with six minor findings, all seated (D138).
 
 ---
 
@@ -1259,6 +1262,9 @@ from the arXiv text, with the extraction's spacing.
   106–109, 114–116, 156–158, 163, 168, 174, 193–201, 211, 228, 255. READ 2026-10-24 in full text for sections 7–8 and
   9.3 at n = 4 (supplement section 10.67): pp. 101 (Remark 5.6), 114–157 (sections 7–8; (8.3), Lemma 8.1 and
   (8.9)–(8.14) on pp. 142–145), 175, 179, 182, 188, 191 (section 9.3).
+- [Hin26d] P. Hintz, *Pseudodifferential operators on manifolds with scaled bounded geometry*, Commun. Am. Math. Soc.
+  6 (2026) 153–243, arXiv:2408.06651. READ 2026-10-24 (supplement section 10.65): pp. 4 (Definition 1.3), 8 (Definition
+  1.9), 14 (example (10), the 3b-algebra, (1.15)), 26 (section 3).
 - [AHW24] L. Andersson, D. Häfner, B. F. Whiting, *Mode analysis for the linearized Einstein equations on the Kerr
   metric: the large a case*, arXiv:2207.12952v1. READ 2026-10-23 and 2026-10-24: pp. 1 (the abstract), 35 (Theorem 6.1),
   41 (section 6.4, the proof of Theorem 6.1).
@@ -1578,7 +1584,7 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   both, the diagonal 2γ_C, γ_C, (3/2)γ_C, −(3/2)γ_Υ, −γ_Υ, 0, −2γ_Υ at n = 4; the quadratic radiation term of R_11 at
   r^(−2k), r^(−1/2) below the linear terms at n = 4; the Sobolev counts; the metric-dependent entries of Proposition
   3.29, his four printed ones at n = 3 and r^(−1/2) times them at n = 4; Lemma 3.6's compactification, x̄_I = min(√3/2,
-  1/(2μ^(1/4))) and (3.8) negative. 16/16; mutants 6/6 (about thirty seconds).
+  1/(2μ^(1/4))) and (3.8) negative. 16/16; mutants 6/6 (about forty-five seconds).
 - `gluing5.py` D1–D4: [CD03]'s gluing and Hintz's boost at n = 4 (supplement section 10.66): the Killing fields of
   R^(1,n), ten and fifteen; the charges carried to the gluing annulus, R^(−(n−2)) for energy and momentum and R^(−(n−1))
   for angular momentum and centre of mass, so that the errors' conditions are [CD03]'s (E.5b) and (E.9) and, at n = 4
@@ -1840,7 +1846,7 @@ others import nothing from the research tree:
                                                          # uniform5 (about twenty seconds)
                                                          # transfer5 (about four minutes)
                                                          # general5 (a few seconds)
-                                                         # exterior5 (about thirty seconds)
+                                                         # exterior5 (about forty-five seconds)
                                                          # gluing5 (about fifteen seconds)
                                                          # edge5 (a few seconds)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
@@ -1850,9 +1856,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `c47d38e28e4a6528529bb7caa0280ce1` |
+| `docket68/n1star/N1STAR-PROOF.md` | `c1c58100e14930f8dfd430e75b92128a` |
 | `docket68/n1star/N1STAR-LOG.md` | `691a8930fc5ebb932e708dd614700777` |
-| `docket68/n1star/README.md` | `760ad14412e1ddbd310e7d21f20a1693` |
+| `docket68/n1star/README.md` | `f58e2a5c1e24dd2c8c10db60353aae85` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1914,7 +1920,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/uniform5.py` | `cb12ee070583b3a33ab82aa5b04cf282` |
 | `docket68/n1star/transfer5.py` | `1983b9deebdae3c16bb891f4919340bc` |
 | `docket68/n1star/general5.py` | `13496fd0a93ea070731a78ed96123f4d` |
-| `docket68/n1star/exterior5.py` | `527346a3a8b0f1f7d5852b0082ca1fb2` |
+| `docket68/n1star/exterior5.py` | `dd978b8bee559d76cd22b3e449e7579b` |
 | `docket68/n1star/gluing5.py` | `94c387dfc0b6651ae65a0c3d73536a85` |
 | `docket68/n1star/edge5.py` | `f1cd2403c483c0d6631c3b9a7d574c9f` |
 | `docket68/n1star/censusweep.py` | `c4866366bb69a45f350cdc1c9bb43fe6` |

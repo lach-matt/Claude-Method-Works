@@ -24,16 +24,19 @@ X5  the order of the quadratic radiation term in R_11 for g = -dx0 dx1 + r^2 (g_
     critical at n = 3 (his (3.47)) and down by r^-1/2 at n = 4.
 X6  the Sobolev counts: the least integer above dim M / 2 = (n + 1)/2 (Notation 3.22's k >= 3)
     and Lemma 3.33's d_(n-1) with his n = dim M.
-X7  the h-dependent entries of A_g and B_g (Proposition 3.29): the h u part of
+X7  the h-dependent entries of A_g and B_g (Proposition 3.29): the principal h u part (the four
+    derivative-squared monomials) of
     L_2 = 2 r^(k+1) P r^-k, P(g) = Ric(g) - delta*_(gb,E_C) Upsilon(g; gb), for g = gb + r^-k h,
     h a frame component of size 1, in the three cases A(7,1), A(4,7), B(4,1) (B(7,1) with A(7,1)).
     Each entry is linear in h (the product with u is bilinear). At n = 3 the frame coefficients are
-    r-independent, 2 times his printed entries (A on d_1 u, B on u); at n = 4 they are the same
-    numbers times r^(1-k) = r^-1/2, exactly.
+    r-independent, 2 times his printed entries (A on d_1 u, B on u), A(4,7) -- tf block to scalar --
+    acting by contraction with |T|^2 = 2 (read as a coordinate on a unit tf basis it would give -1,
+    HIN329_ALT); at n = 4 they are the same numbers times r^(1-k) = r^-1/2, exactly.
 X8  Lemma 3.6 at n = 4: with f = 1 - mu/r^2 and Tangherlini's r*, the identity (3.8)
     g^-1(r d rho_I, r d rho_I) = (2 x1/r)(1 + x1 f/(2r)) and d rho_0 null; xbar_I = min(sqrt3/2,
     1/(2 mu^(1/4))) keeps r > 2 sqrt(mu), twice the horizon radius (his 1/sqrt(8m): r > 4m), so r*
-    is defined, f > 3/4, and (3.8) is negative.
+    is defined, f > 3/4, and (3.8) is negative.  (The cap sqrt3/2 only tightens xbar_I and is not
+    computed.)
 
 Usage: exterior5.py [--selftest] [--mutants] [--only N]
 """
@@ -333,6 +336,7 @@ def x6(n):
 HIN329 = {"A71": {(2, 2): {"C1F1": 4, "C2F0": 4}, (3, 3): {"C1F1": -4, "C2F0": -4}},
           "A47": {(1, 1): {"C1F1": -2}},
           "B41": {(1, 1): {"E2F0": 4}}}   # 2 x his A(7,1) = 2 d_1 h, B(7,1), A(4,7) = -(1/2) d_1 h, B(4,1)
+HIN329_ALT = {"A47": {(1, 1): {"C1F1": -1}}}  # A(4,7) read as a coordinate on a unit tf basis, not a contraction
 
 
 def x7(n, case, mut=None):

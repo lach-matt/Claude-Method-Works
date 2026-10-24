@@ -286,7 +286,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   gC, gC, 3gC/2, -3gU/2, -gU, 0, -2gU; his Remark 2.3's duality checked), the quadratic radiation term r^-(1/2) below
   the linear terms, the Sobolev counts (X1-X6); his Proposition 3.29's metric-dependent entries, r^-(1/2) times his
   values at n = 4, and Lemma 3.6's compactification, xbar_I = min(sqrt3/2, 1/(2 mu^(1/4))) (X7-X8; D136). `python3
-  exterior5.py --selftest` (16/16, about thirty seconds), `--mutants` (6/6).
+  exterior5.py --selftest` (16/16, about forty-five seconds), `--mutants` (6/6).
 - `gluing5.py`: [CD03]'s gluing and [Hin26]'s boost at n = 4 by modification (section 10.66; D137): the Killing fields
   of R^(1,n); the charges under the gluing's rescaling, R^-(n-2) and R^-(n-1), so that the errors' conditions are (E.5b)
   and (E.9), and at n = 4 only decay faster than r^-(3/2) replaces parity; the weighted indices of the proof, s = t +

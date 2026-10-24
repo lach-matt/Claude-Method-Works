@@ -1940,3 +1940,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   10.69 (f).
 - Remaining: completeness of the censuses is evidenced by two methods agreeing, not proved; a dimension entering
   through a bare numeral is found only by reading.
+
+### 4.70 The 58th verifier on 10.65 and D136 (READ and deduced; D138)
+
+- READ ([Hin26d], arXiv:2408.06651, pp. 4, 8, 14, 26): the scaled bounded-geometry calculus [Hin26a] section 2.3.1
+  cites is set on a smooth n-dimensional manifold, with the 3b-algebra in every dimension among its examples: 10.56's
+  OPEN item on [Hin26d] section 3 closes at source.
+- Stated: X7's (4,7) identification uses the contraction reading (the coordinate reading would give -1); the computed
+  coefficients and the n = 4 power are unchanged, reproduced independently by the verifier.

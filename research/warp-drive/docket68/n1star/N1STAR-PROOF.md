@@ -7389,11 +7389,11 @@ Boyer-Lindquist time 0"; p. 319, Remark 13.2 (the verifier's reading: b0 replace
      0 and k = 0 outside a compact set, and a perturbation (gamma~, k~) with |gamma~^-| + r |d gamma~^-| + r |k~^+| <= C
      r^(-alpha_-), alpha_- > 2, keeps (E.9). G-invariance, which makes gamma and k even, does not give this: it removes
      gamma^-, not k^+. (The class's gluing, 10.50(c) and 10.59(d), needs no parity condition. [CD03] uses (E.9) only for
-     the convergence of the charges other than the mass, (E.19)-(E.20b)'s O(R_0^(n - 1 - alpha - alpha_-)) (Proposition
-     E.1, p. 73). The charge of a KID Y on a sphere about the origin is linear in Y and equivariant, so on G-invariant
-     data it is the charge of Y's average over the compact G, a multiple of d_t (10.50): the pairings with the other
-     KIDs vanish at every radius, and the mass converges for alpha > n/2 - 1 = 1, (E.17)'s O(R_0^(n - 2 - 2 alpha))
-     (deduced; D136).)
+     the convergence of the charges J^munu, angular momentum and centre of mass ((E.19), (E.20b), O(R_0^(n - 1 - alpha -
+     alpha_-)); Proposition E.1, p. 73); the energy-momentum p^mu converges without it ((E.17), (E.20a); D138). The
+     charge of a KID Y on a sphere about the origin is linear in Y and equivariant, so on G-invariant data it is the
+     charge of Y's average over the compact G, a multiple of d_t (10.50): the pairings with the other KIDs vanish at
+     every radius, and the mass converges for alpha > n/2 - 1 = 1, (E.17)'s O(R_0^(n - 2 - 2 alpha)) (deduced; D136).)
  (c) (C1-C2 without the class) Let (gamma', k') be the data on (b)'s Sigma'' of the glued development of 10.50(c)-(d) --
      which contains g_lam on Omega and is exact Tangherlini outside a compact set of Sigma'' (D136) -- plus any
      perturbation that satisfies the constraints, is small in the norms of 10.62(d) and has (b)'s parity. 10.50's
@@ -7475,12 +7475,16 @@ rho_0^alpha x_I^(2 beta) L^inf"), Lemma 3.23; p. 20, Lemma 3.25; pp. 21-25, Defi
  (X6) The least integer above dim M/2 is 3 at n = 3 and at n = 4 (Notation 3.22's k >= 3, O_3 in L^inf); Lemma 3.33's
      d_(dim M - 1) is 2 at n = 3 and 3 at n = 4.
  (X7) For g = g-bar + r^-k h, h a frame component of size 1 -- h_ab = chi(x^1) T_ab or h_11 = eta(x^1) -- and u = r^-k
-     f(x^1) U, the h u part of L_2 = 2 r^(k+1) P r^-k, P(g) = Ric(g) - delta*_(g-bar,E_C) Upsilon(g; g-bar), in the
-     frame: in (7,1) (U = (dx^0)^2, angular output) chi' f' and chi'' f with coefficient 4 T-hat each; in (4,7) (U = T,
-     output (dx^1)^2) chi' f' with -2 and no chi'' f; in (4,1) (h_11, U = (dx^0)^2) eta'' f with 4. At n = 3 these are
-     r-independent and are his printed entries in L_2's normalization: twice A(7,1) = 2 d_1 h_ab on d_1 u and twice
-     B(7,1) = 2 rho_0^-1 d_1^2 h_ab on u, 4 and 4; twice A(4,7) = -(1/2) d_1 h_ab contracted with T (|T|^2 = 2), -2, B
-     having no (4,7) entry; twice B(4,1) = 2 rho_0^-1 d_1^2 h_11, 4. At n = 4 they are the same numbers times r^-(1/2) =
+     f(x^1) U, the principal h u part of L_2 = 2 r^(k+1) P r^-k -- the four derivative-squared monomials -- for P(g) =
+     Ric(g) - delta*_(g-bar,E_C) Upsilon(g; g-bar), which is his (3.30)'s operator 2P'_g but for the gamma_Ups term,
+     which carries G_(g_m) and does not enter the h u part, in the frame: in (7,1) (U = (dx^0)^2, angular output) chi'
+     f' and chi'' f with coefficient 4 T-hat each; in (4,7) (U = T, output (dx^1)^2) chi' f' with -2 and no chi'' f; in
+     (4,1) (h_11, U = (dx^0)^2) eta'' f with 4. At n = 3 these are r-independent and are his printed entries in L_2's
+     normalization: twice A(7,1) = 2 d_1 h_ab on d_1 u and twice B(7,1) = 2 rho_0^-1 d_1^2 h_ab on u, 4 and 4; twice
+     A(4,7) = -(1/2) d_1 h_ab, -2, B having no (4,7) entry, when the entry -- which maps the tf block to the scalar
+     (dx^1)^2 block -- acts by contraction, -(1/2) d_1 h_ab u^ab with |T|^2 = 2. Read instead as a coordinate on a unit
+     tf basis, the printed entry would give -1: the identification of this one entry rests on the reading (D138), the
+     computed -2 does not; twice B(4,1) = 2 rho_0^-1 d_1^2 h_11, 4. At n = 4 they are the same numbers times r^-(1/2) =
      r^(1-k), exactly. Each entry is linear in h.
  (X8) Lemma 3.6 at n = 4: with f = 1 - mu/r^2, r* = r + (sqrt(mu)/2) log((r - sqrt(mu))/(r + sqrt(mu))) (dr*/dr = 1/f),
      x^0 = t + r*, x^1 = t - r*, rho_0 = 1/(r* - t) and rho_I = (r* - t)/r, d rho_0 = rho_0^2 dx^1 is null and g^-1(r d
@@ -7494,9 +7498,10 @@ of r*; X2 from the Jacobian of (t, r) in (rho_0, rho_I); X3 by applying [L0, W] 
 xi_I log rho_I)); X4 on every symmetric 2-tensor, the reduction checked against the image of each representative; X5
 from the Christoffel symbols of the stated metric on S^2 and S^3; X7 likewise, P's h u part as the mixed derivative in
 two parameters; X8 from the null form of g_m and the bound at r = 2 r_h. Controls: n = 3 gives his (2.11), (3.25),
-(3.34), mu_b, the five intermediates, Proposition 3.29's four h-dependent entries and Lemma 3.6's 4m. Mutants:
-conjugation by r^-((n-2)/2) (X1), div W dropped (X3), G with 1/4 for 1/2, and the sign of (2.4)'s g-term (X4), h scaled
-by r^-((n-2)/2) (X7), and his 1/sqrt(8m) at n = 4 (X8) -- each caught. []
+(3.34), mu_b, the five intermediates, Proposition 3.29's h-dependent entries -- three as printed, the fourth under the
+contraction reading of X7 -- and Lemma 3.6's 4m. Mutants: conjugation by r^-((n-2)/2) (X1), div W dropped (X3), G with
+1/4 for 1/2, and the sign of (2.4)'s g-term (X4), h scaled by r^-((n-2)/2) (X7), and his 1/sqrt(8m) at n = 4 (X8) --
+each caught. []
 
 
 *Deduced: [Hin23a] section 3 at n = 4, by modification.* With g_m Tangherlini of mass mu, r* as in X1, rho_0 = 1/(r* -
@@ -7544,8 +7549,9 @@ This replaces B10's reading by a proof by modification: every place n enters [Hi
 step above is his with the computed quantity in place. For [Hin26] Theorem 5.17's use (10.48(c)), his later gauge's A_0
 at n = 4 is 10.38's, lower triangular with h-free diagonal; X1-X3, X5 and X6 are the same there.
 
-Labels: computed (Proposition 10.48, X1-X8); deduced ((a)-(i)); READ; nothing proved. What remains of B10 is that his
-proofs, read step by step, use n only where (a)-(i) name it: the census read at source, each replacement computed.
+Labels: computed (Proposition 10.48, X1-X8; X7's identification with his (3.29) READ, one entry under a stated reading);
+deduced ((a)-(i)); READ; nothing proved. What remains of B10 is that his proofs, read step by step, use n only where
+(a)-(i) name it: the census read at source, each replacement computed.
 
 
 ### 10.65 [Hin26a] section 5.2 at n = 4: the calculus and the commutators (B4; D135)
@@ -7557,26 +7563,34 @@ semiclassical symbols in which the dimension does not appear, on a calculus cons
 
 *READ.* [Hin23d] (arXiv:2302.13803v1; alphaXiv, 2026-10-24; printed page = PDF page): p. 3, "(t, x) in R x R^(n-1) =
 R^n"; p. 7, "polar coordinates r = |x|, omega = x/|x| in S^(n-2)", the 3b-vector fields "r d_t, r d_r, d_omega" (1.7)
-and Diff^m_3b(M) (1.9); pp. 10-11, section 1.1.1, "3b-analysis on R^n = R_t x R^(n-1)_x takes on a particularly clean
-form on an appropriate compactification of R^n"; p. 12, "One can also define 3b-ps.d.o.s (modulo the space Psi^-oo_3b(M)
-of residual operators) as bounded geometry pseudodifferential operators [Shu92] on M^o ... this perspective immediately
-gives a composition law and suffices for the purposes of symbolic analysis"; p. 109, Proposition 5.10, the composition
-law, stated for every n. [Hin26a] (arXiv:2606.27658v2; alphaXiv, 2026-10-24): p. 10, the sink's weight from "(the
-eigenvalues of) the subprincipal term E", "cf. Lemma 4.2 and Proposition 5.11"; p. 38, Proposition 5.1 (3)-(6); p. 47,
-(5.31)-(5.32), J = h^2 J_0 + h^3 J_1; pp. 51 and 53, the commutants of Propositions 5.8(2) and 5.9 and their principal
-symbol identity "a H_(-l+j) a + S a^2 = c_0 a^2 + b_0^2 + b_K^2 - e^2 + f", b_0 at the corner "(rho_sf^-2 [-l(dw/w)] +
-S + w^-1 H_j w - c_0)^(1/2)", "By Proposition 5.1(4) and the observation that rho_sf^-2 j vanishes cubically at o ...,
-the square root in the definition of b_0 is indeed well-defined", and b_sf's and e's square roots from "Proposition
-5.1(6)"; p. 54, Proposition 5.11 and its commutant "a = (w')^-1 chi_sf chi_R chi_0, w' = rho_sf^(alpha_sf + 1)"; p. 58,
-Lemma 5.14, "Let (T*, <., .>_G) be a time-oriented Lorentzian vector space". With 10.22's READ (pp. 19, 38, 41-60,
-64-66) and 10.56's.
+and Diff^m_3b(M) (1.9); pp. 10-11, section 1.1.1, "3b-analysis on R^n takes on a particularly clean form on an
+appropriate compactification of R^n = R_t x R^(n-1)_x"; p. 12, "One can also define 3b-ps.d.o.s (modulo the space
+Psi^-oo_3b(M) of residual operators) as bounded geometry pseudodifferential operators [Shu92] on M^o ... this
+perspective immediately gives a composition law and suffices for the purposes of symbolic analysis"; p. 109, Proposition
+5.10, the composition law, stated for every n. [Hin26a] (arXiv:2606.27658v2; alphaXiv, 2026-10-24): p. 10, the sink's
+weight from "(the eigenvalues of) the subprincipal term E", "cf. Lemma 4.2 and Proposition 5.11"; p. 38, Proposition 5.1
+(3)-(6); p. 47, (5.31)-(5.32), J = h^2 J_0 + h^3 J_1; pp. 51 and 53, the commutants of Propositions 5.8(2) and 5.9 and
+their principal symbol identity "a H_(-l+j) a + S a^2 = c_0 a^2 + b_0^2 + b_K^2 - e^2 + f", b_0 at the corner
+"(rho_sf^-2 [-l(dw/w)] + S + w^-1 H_j w - c_0)^(1/2)", "By Proposition 5.1(4) and the observation that rho_sf^-2 j
+vanishes cubically at o ..., the square root in the definition of b_0 is indeed well-defined", and b_sf's and e's square
+roots from "Proposition 5.1(6)"; p. 54, Proposition 5.11 and its commutant "a = (w')^-1 chi_sf chi_R chi_0, w' =
+rho_sf^(alpha_sf + 1)"; p. 58, Lemma 5.14, "Let (T*, <., .>_G) be a time-oriented Lorentzian vector space". [Hin26d]
+(arXiv:2408.06651; alphaXiv, 2026-10-24), the general construction [Hin26a]'s section 2.3.1 cites (his p. 19), which
+10.56 left OPEN: p. 4, Definition 1.3, "Let M be a smooth n-dimensional manifold. Then a scaled bounded geometry
+structure ... on M is"; p. 8, Definition 1.9, the parameterized version, "Let M be a smooth n-dimensional manifold, and
+let P be a set"; p. 14, example (10), "3b-algebra, defined in [Hin23c] ... the vector fields are r d_t, r d_r, d_omega_m
+(vector fields on S^(n-2))", with unit cells (2^(j-2), 2^(j+2))_t x (2^(k-2), 2^(k+2))_r x (l + (-4, 4)^(n-2))_omega
+(1.15); p. 26, section 3, "We now develop the theory of (parameterized) scaled b.g. structures (Definitions 1.3 and
+1.9)" (D138). With 10.22's READ (pp. 19, 38, 41-60, 64-66) and 10.56's.
 
 *Deduced.*
 
  (a) (The calculus) [Hin26a]'s semiclassical 3b-calculus, his section 2.3 from [Hin23d] and the bounded-geometry
      calculus (his section 2.3.1, 10.22's READ p. 19), is constructed on R_t x R^(n-1)_x for every n, [Hin23d]'s n the
-     spacetime dimension (pp. 3, 7, 10-12, 109): at n = 5 it is the calculus of five-dimensional Tangherlini's
-     compactification, with fibres S^3.
+     spacetime dimension (pp. 3, 7, 10-12, 109), and its bounded-geometry construction is [Hin26d]'s, for a smooth
+     manifold of any dimension n, with the 3b-algebra among its examples in every dimension ([Hin26d] pp. 4, 8, 14, 26;
+     10.56's OPEN item, read here): at n = 5 it is the calculus of five-dimensional Tangherlini's compactification, with
+     fibres S^3.
  (b) (The commutators: Propositions 5.8, 5.9, 5.11, 5.12) Each proof takes the semiclassical principal symbol of
      (i/2h)[-L_h + J, A^2] + h^-1 (Im L_h) A^2, or its adjoint form, as a H_(-l+j) a + S a^2 (pp. 51, 53-54) and splits
      it, a being a power of the weight w times cut-offs, into c_0 a^2 + b_0^2 + b^2 - e^2 + f. These are identities of
@@ -7591,8 +7605,10 @@ Lemma 5.14, "Let (T*, <., .>_G) be a time-oriented Lorentzian vector space". Wit
      J_1 with h^-2 Im box_h and L_h* rho_sf^-2 box_h, and does not see the dimension.
  (c) (Propositions 5.5-5.6, 5.16, 5.17) The elliptic and fibre-infinity estimates use Lemmas 3.5 and 3.7, which hold at
      n = 4 (10.13(i)); the energy estimates use Lemma 5.14, stated for a Lorentzian vector space, and Corollary 5.15,
-     stated for n-dimensional manifolds of bounded geometry (p. 60), with 10.22(d)'s hypotheses computed; Proposition
-     5.17's combination and the duality argument for existence (pp. 64-66) do not see the dimension.
+     stated for n-dimensional manifolds of bounded geometry (p. 60; there n is spatial, R^(1+n) the spacetime, where
+     [Hin23d]'s n is the spacetime dimension), with 10.22(d)'s hypotheses computed; Proposition 5.17's combination and
+     the duality argument for existence (pp. 64-66) do not see the dimension.
+
 
 So B4's reading is discharged at source: [Hin26a] Theorem 5.2 holds in five dimensions, for h below its h_0, with every
 sign its proof uses computed there, on a calculus constructed in every dimension; 10.21's Theorem 6.2 and 10.23's

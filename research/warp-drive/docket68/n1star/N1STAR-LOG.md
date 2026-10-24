@@ -4151,3 +4151,14 @@ for but one: [Hin26a] p. 62's density on level sets of tau, r^3 |dr dgslash|, ch
 metric density -- at n = 4, r^4 |dr dgslash_S3|. It is a norm convention and changes no estimate. Also: the 58th
 verifier's brief had named [Hin26c]'s full text for [Hin26a]; corrected by message, 10.65's quotes being from the right
 paper.
+
+**D138 (2026-10-24): the fifty-eighth verifier on 10.65 and D136, seated.** Majors: M1, X7's (4,7) entry -2 matched
+Hintz's printed -(1/2) d_1 h_ab only by contraction with T, a reading not stated; the entry maps the tf block to a
+scalar, so contraction is the natural reading, now stated in exterior5.py, 10.64 and the control, with the coordinate
+reading's -1 recorded (HIN329_ALT) -- the computed -2 and the n = 4 power are unaffected. M2, 10.65's calculus rested on
+[Hin26d], unread (10.56's OPEN item); read at source (arXiv:2408.06651): Definitions 1.3 and 1.9 are for a smooth
+n-dimensional manifold and example (10) builds the 3b-algebra with S^(n-2) fibres, so the item closes. Minors: (E.9) is
+used only for J^munu (m1); [Hin23d] p. 10 quoted verbatim (m2); both n conventions stated (m3); X7 is the principal part
+(m4); X7's operator is (3.30)'s but for the h-free gamma_Ups term (m5); the label of 10.64 now names the reading (m6).
+Nits: xbar_I's cap not computed, stated; timings. The verifier's independent jet-based recomputation reproduced every X7
+coefficient at n = 3 and n = 4 at two radii.
