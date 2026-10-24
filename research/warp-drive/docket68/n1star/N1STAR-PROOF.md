@@ -7519,6 +7519,59 @@ at n = 4 is 10.38's, lower triangular with h-free diagonal; X1-X3, X5 and X6 are
 Labels: computed (Proposition 10.48, X1-X6); deduced ((a)-(i)); READ; nothing proved. What remains of B10 is that his
 proofs, read step by step, use n only where (a)-(i) name it: the census read at source, each replacement computed.
 
+### 10.65 [Hin26a] section 5.2 at n = 4: the calculus and the commutators (B4; D135)
+
+*The setting.* 10.22 computed in five dimensions every input [Hin26a] section 5.2 takes from the metric and from c, and
+10.56 narrowed B4 to one reading: that the commutator computations of his sections 5.2.1-5.2.6, not redone at n = 4,
+give the signs of the computed five-dimensional symbols. Here they are redone at source. Each is an identity of
+semiclassical symbols in which the dimension does not appear, on a calculus constructed in every dimension.
+
+*READ.* [Hin23d] (arXiv:2302.13803v1; alphaXiv, 2026-10-24; printed page = PDF page): p. 3, "(t, x) in R x R^(n-1) =
+R^n"; p. 7, "polar coordinates r = |x|, omega = x/|x| in S^(n-2)", the 3b-vector fields "r d_t, r d_r, d_omega" (1.7)
+and Diff^m_3b(M) (1.9); pp. 10-11, section 1.1.1, "3b-analysis on R^n = R_t x R^(n-1)_x takes on a particularly clean
+form on an appropriate compactification of R^n"; p. 12, "One can also define 3b-ps.d.o.s (modulo the space Psi^-oo_3b(M)
+of residual operators) as bounded geometry pseudodifferential operators [Shu92] on M^o ... this perspective immediately
+gives a composition law and suffices for the purposes of symbolic analysis"; p. 109, Proposition 5.10, the composition
+law, stated for every n. [Hin26a] (arXiv:2606.27658v2; alphaXiv, 2026-10-24): p. 10, the sink's weight from "(the
+eigenvalues of) the subprincipal term E", "cf. Lemma 4.2 and Proposition 5.11"; p. 38, Proposition 5.1 (3)-(6); p. 47,
+(5.31)-(5.32), J = h^2 J_0 + h^3 J_1; pp. 51 and 53, the commutants of Propositions 5.8(2) and 5.9 and their principal
+symbol identity "a H_(-l+j) a + S a^2 = c_0 a^2 + b_0^2 + b_K^2 - e^2 + f", b_0 at the corner "(rho_sf^-2 [-l(dw/w)] +
+S + w^-1 H_j w - c_0)^(1/2)", "By Proposition 5.1(4) and the observation that rho_sf^-2 j vanishes cubically at o ...,
+the square root in the definition of b_0 is indeed well-defined", and b_sf's and e's square roots from "Proposition
+5.1(6)"; p. 54, Proposition 5.11 and its commutant "a = (w')^-1 chi_sf chi_R chi_0, w' = rho_sf^(alpha_sf + 1)"; p. 58,
+Lemma 5.14, "Let (T*, <., .>_G) be a time-oriented Lorentzian vector space". With 10.22's READ (pp. 19, 38, 41-60,
+64-66) and 10.56's.
+
+*Deduced.*
+
+ (a) (The calculus) [Hin26a]'s semiclassical 3b-calculus, his section 2.3 from [Hin23d] and the bounded-geometry
+     calculus (his section 2.3.1, 10.22's READ p. 19), is constructed on R_t x R^(n-1)_x for every n, [Hin23d]'s n the
+     spacetime dimension (pp. 3, 7, 10-12, 109): at n = 5 it is the calculus of five-dimensional Tangherlini's
+     compactification, with fibres S^3.
+ (b) (The commutators: Propositions 5.8, 5.9, 5.11, 5.12) Each proof takes the semiclassical principal symbol of
+     (i/2h)[-L_h + J, A^2] + h^-1 (Im L_h) A^2, or its adjoint form, as a H_(-l+j) a + S a^2 (pp. 51, 53-54) and splits
+     it, a being a power of the weight w times cut-offs, into c_0 a^2 + b_0^2 + b^2 - e^2 + f. These are identities of
+     symbols: the commutator's principal symbol is the Hamilton derivative, and on a = w^(-1) chi it is w^(-2) chi^2
+     (-H_(-l+j) log w) + w^(-2) chi H_(-l+j) chi, with -H_(-l) log w = -l(dw/w). The dimension enters only through l, j,
+     S and w, and through the density |dg| in the adjoint that defines S = h^-1 Im L_h. At n = 4 these are 10.13's, with
+     the density r^3 |dr dg-slash| (10.56 READ (3)), and the quantity under each square root is one of his Proposition
+     5.1 (3)-(6), computed in five dimensions (10.14, 10.22(c), (iv)): (3) for b_0 near r = r_0 (Proposition 5.8), (4)
+     for b_0 at dK+ (Proposition 5.9), (5) for b_0 at the sink (Proposition 5.11), (6) for b_K, b_sf and e and for the
+     real principal type propagation between the critical sets (Propositions 5.8, 5.9, 5.12). The cubic vanishing of
+     rho_sf^-2 j at the zero section, which lets b_0's square root exist, comes from J's form (5.32), J = h^2 J_0 + h^3
+     J_1 with h^-2 Im box_h and L_h* rho_sf^-2 box_h, and does not see the dimension.
+ (c) (Propositions 5.5-5.6, 5.16, 5.17) The elliptic and fibre-infinity estimates use Lemmas 3.5 and 3.7, which hold at
+     n = 4 (10.13(i)); the energy estimates use Lemma 5.14, stated for a Lorentzian vector space, and Corollary 5.15,
+     stated for n-dimensional manifolds of bounded geometry (p. 60), with 10.22(d)'s hypotheses computed; Proposition
+     5.17's combination and the duality argument for existence (pp. 64-66) do not see the dimension.
+
+So B4's reading is discharged at source: [Hin26a] Theorem 5.2 holds in five dimensions, for h below its h_0, with every
+sign its proof uses computed there, on a calculus constructed in every dimension; 10.21's Theorem 6.2 and 10.23's
+Theorem B.1 follow with it (10.56(b)-(c)). What remains is the census's own claim, that his section 5.2 uses the
+dimension only where (a)-(c) name it, read at source (10.56 READ (1)-(4)) -- as for [Hin23a]'s section 3 in 10.64.
+
+Labels: READ; deduced ((a)-(c)); nothing computed here (the inputs are 10.13, 10.14 and 10.22's); nothing proved.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth

@@ -1893,3 +1893,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - B10 is discharged by modification rather than by reading. Remaining readings of Theorem 4: [Hin26c] sections 7-9 and
   [Hin26a] section 5.2 (Phase B's B1-B4), and for part (ii) [HHV21], his boost sections and [CD03]'s argument at n = 4.
   Next: the same census for [Hin26a] section 5.2.
+
+### 4.66 [Hin26a] section 5.2 at n = 4: the calculus and the commutators (READ and deduced; D135)
+
+- READ ([Hin23d] pp. 3, 7, 10-12, 109; [Hin26a] pp. 10, 38, 47, 51, 53-54, 58): the 3b-calculus is built on R_t x
+  R^(n-1)_x for every n; each commutator of Propositions 5.8, 5.9 and 5.11 is a principal symbol identity whose square
+  roots are Proposition 5.1 (3)-(6); Lemma 5.14 is stated for a Lorentzian vector space.
+- Deduced (10.65(a)-(c)): B4's last reading, that the commutator computations give the computed five-dimensional signs,
+  is discharged at source: the identities do not see the dimension, and their positivity inputs are 10.13, 10.14 and
+  10.22's computations. [Hin26a] Theorem 5.2 holds at n = 4 with every sign computed; Theorems 6.2 and B.1 with it.
+  Remaining readings of Theorem 4: [Hin26c] sections 7-9, and for part (ii) [HHV21], his boost sections and [CD03]'s
+  argument at n = 4; their censuses are being taken in full text through the alphaXiv connector.

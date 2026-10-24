@@ -4105,3 +4105,15 @@ r^(1-k) against the linear (critical at n = 3, r^-(1/2) at n = 4), the Sobolev c
 the computed quantity in place (10.64(a)-(i)). exterior5.py: selftest 12/12 (about ten seconds), mutants 4/4. Remaining
 of item (i): [Hin26c] sections 7-9, [Hin26a] section 5.2, and for part (ii) [HHV21]'s perturbation arguments, Hintz's
 boost sections and [CD03]'s argument at n = 4.
+
+**D135 (2026-10-24): [Hin26a] section 5.2 at n = 4 -- the calculus and the commutators (10.65).**
+
+10.56 had narrowed B4 to one reading, that the commutator computations of [Hin26a] sections 5.2.1-5.2.6, not redone at n
+= 4, give the signs of the computed five-dimensional symbols. Redone at source (alphaXiv, 2026-10-24): each is the
+principal symbol identity a H_(-l+j) a + S a^2 = c_0 a^2 + b_0^2 + b^2 - e^2 + f, in which the dimension enters only
+through l, j, S, w and the density defining S, all 10.13's at n = 4; the square roots are Proposition 5.1 (3)-(6),
+computed (10.14, 10.22); Lemma 5.14 and Corollary 5.15 are stated in every dimension; and the 3b-calculus is constructed
+on R_t x R^(n-1)_x for every n ([Hin23d] pp. 3, 7, 10-12, 109). B4 discharged at source; nothing new computed. The user
+noted that arXiv has a connector: it is alphaXiv, through which every READ of the record was taken; its full-text mode
+now carries the censuses of [Hin26c] sections 7-9, [HHV21]'s perturbation arguments, [Hin26]'s boost sections and
+[CD03]'s gluing.

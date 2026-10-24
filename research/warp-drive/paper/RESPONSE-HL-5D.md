@@ -45,10 +45,10 @@ Beyond that domain, outside the black hole, we deduce without proving that in th
 times to five-dimensional Schwarzschild–Tangherlini, and that every small perturbation of them without symmetry settles
 to a slowly rotating Myers–Perry black hole: Hintz's proof of the nonlinear stability of Kerr carried into five
 dimensions, every input that depends on the dimension computed at Schwarzschild–Tangherlini and deduced at nearby
-Myers–Perry parameters, his companion papers' arguments read at source, and his exterior estimates in harmonic gauge
-carried to five dimensions by modification; readings of the remaining estimates in five dimensions, and deductions not
-written at proof level, separate this from a proof (Theorem 4). We list what is not proved, the application at physical
-wavelengths among it.
+Myers–Perry parameters, his companion papers' arguments read at source, and his exterior estimates in harmonic gauge and
+his constraint-damping estimates carried to five dimensions by modification; readings of the remaining estimates in five
+dimensions, and deductions not written at proof level, separate this from a proof (Theorem 4). We list what is not
+proved, the application at physical wavelengths among it.
 
 ---
 
@@ -113,8 +113,9 @@ dimension enters, the class removes his boosts, rotations and their gauge modifi
 restored, with the inputs at every nearby Myers–Perry parameter deduced by the perturbative route of [HHV21] and the
 charges by which the gluing at large radius matches the Myers–Perry family computed, the gluing deduced. What separates
 the deduction from a proof is stated in section 8.8: readings of those papers' estimates in five dimensions once their
-symbols are the ones computed here — [Hin23a]'s, at null infinity, now carried to five dimensions by modification, each
-place the dimension enters computed — and deductions not yet written at proof level.
+symbols are the ones computed here — [Hin23a]'s at null infinity and [Hin26a]'s constraint damping now carried to five
+dimensions by modification, each place the dimension enters computed or computed already — and deductions not yet
+written at proof level.
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
 coupled to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an
@@ -1007,32 +1008,34 @@ such that for λ ≤ λ1:
       mass near μ_end and small spin.
 
 Theorem 4 is deduced, not proved. Two things separate it from proved. (i) Readings, named wherever they are used
-(supplement sections 10.58–10.64; ROUTES 4.59, 4.63–4.65): that the propagation, radial point, trapping and energy
-estimates of [Hin26c]'s sections 7–9 and of [Hin26a]'s section 5.2 — with those [Hin26c] quotes from the literature —
-hold in five dimensions once their symbol data are the five-dimensional ones computed here; and, for part (ii), that
-[HHV21]'s perturbation arguments, Hintz's handling of the boost (his sections 3.4, 5.6 and 11–13) and [CD03]'s gluing
-argument hold at n = 4. The readings at source show the dimension entering those papers only through the symbols, the
-densities, (5.7)'s (n − 1)/2 and the parameter spaces, each computed here. [Hin23a]'s section 3, a reading until now, is
-carried to n = 4 by modification (supplement section 10.64; `exterior5.py` X1–X6): each of the six places where the
-dimension enters is computed and his proof is run with the computed quantity in place. The conjugated wave operator
-gains (3/4)r^(−2), which only strengthens his energy form; the gauge endomorphism at null infinity has the diagonal
-2γ_C, γ_C, (3/2)γ_C, −(3/2)γ_Υ, −γ_Υ, 0, −2γ_Υ, lower triangular, with the same least positive entry, −γ_Υ, as in four
-dimensions; and the quadratic radiation term falls by r^(−1/2), so the coupling that four dimensions must track at
-leading order is an error term in five, and the one step of his tame estimate that needs a finer Sobolev count is
-absent. (ii) The deductions of the supplement's sections 10.12–10.64 are arguments from computed and READ inputs, each
-read by an independent verifier, not proofs written out at the level of the theorem's statement. λ1 and δ are not
-evaluated; they exist, as Hintz's smallness constant does, and that is not a gap. A line-by-line check of the remaining
-estimates at n = 4, with the deductions written out, would make Theorem 4 a theorem.
+(supplement sections 10.58–10.65; ROUTES 4.59, 4.63–4.66): that the propagation, radial point, trapping and energy
+estimates of [Hin26c]'s sections 7–9 — with those it quotes from the literature — hold in five dimensions once their
+symbol data are the five-dimensional ones computed here; and, for part (ii), that [HHV21]'s perturbation arguments,
+Hintz's handling of the boost (his sections 3.4, 5.6 and 11–13) and [CD03]'s gluing argument hold at n = 4. The readings
+at source show the dimension entering those papers only through the symbols, the densities, (5.7)'s (n − 1)/2 and the
+parameter spaces, each computed here. [Hin23a]'s section 3, a reading until now, is carried to n = 4 by modification
+(supplement section 10.64; `exterior5.py` X1–X6): each of the six places where the dimension enters is computed and his
+proof is run with the computed quantity in place. The conjugated wave operator gains (3/4)r^(−2), which only strengthens
+his energy form; the gauge endomorphism at null infinity has the diagonal 2γ_C, γ_C, (3/2)γ_C, −(3/2)γ_Υ, −γ_Υ, 0,
+−2γ_Υ, lower triangular, with the same least positive entry, −γ_Υ, as in four dimensions; and the quadratic radiation
+term falls by r^(−1/2), so the coupling that four dimensions must track at leading order is an error term in five, and
+the one step of his tame estimate that needs a finer Sobolev count is absent. [Hin26a]'s section 5.2 is no longer a
+reading either (supplement section 10.65): its calculus is constructed in every dimension [Hin23d], each positive
+commutator in its proof is an identity of symbols whose sign is a positivity computed in five dimensions, and its energy
+estimates are stated in every dimension. (ii) The deductions of the supplement's sections 10.12–10.65 are arguments from
+computed and READ inputs, each read by an independent verifier, not proofs written out at the level of the theorem's
+statement. λ1 and δ are not evaluated; they exist, as Hintz's smallness constant does, and that is not a gap. A
+line-by-line check of the remaining estimates at n = 4, with the deductions written out, would make Theorem 4 a theorem.
 
 ---
 
 ## 9. What is not proved
 
 - **Settling, proved.** Theorem 4 is deduced: what separates it from a theorem is stated in section 8.8 — readings of
-  the companion papers' estimates in five dimensions given the symbols computed here, [Hin23a]'s section 3 now excepted,
-  carried to five dimensions by modification; and deductions not written out at proof level. λ1 and δ are not evaluated,
-  which is not a gap. The linear statements of section 8.2 are deduced too, the route of Hung's sections 5–8 in five
-  dimensions not a proof.
+  the companion papers' estimates in five dimensions given the symbols computed here, [Hin23a]'s section 3 and
+  [Hin26a]'s section 5.2 now excepted, carried to five dimensions by modification; and deductions not written out at
+  proof level. λ1 and δ are not evaluated, which is not a gap. The linear statements of section 8.2 are deduced too, the
+  route of Hung's sections 5–8 in five dimensions not a proof.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1,
@@ -1186,6 +1189,9 @@ from the arXiv text, with the extraction's spacing.
   2026-10-24 for section 3 at n = 4: pp. 1–4, 7–9, 16–18, 20–30, 32–33.
 - [Hin23b] P. Hintz, *Gluing small black holes along timelike geodesics I: formal solution*, arXiv:2306.07409v2. READ
   2026-10-23: pp. 101–110 (Lemma 9.1, Definition 9.2, Lemma 9.3, Theorem 9.6 and its proof, Lemma 9.7), 116–117.
+- [Hin23d] P. Hintz, *Microlocal analysis of operators with asymptotic translation- and dilation-invariances*,
+  arXiv:2302.13803v1. READ 2026-10-24: pp. 3, 7, 10–12 (the 3b-calculus on R_t × R^(n−1)_x), 109 (Proposition 5.10,
+  composition).
 - [Hin24b] P. Hintz, *Gluing small black holes along timelike geodesics III: construction of true solutions and extreme
   mass ratio mergers*, arXiv:2408.06715v1. READ 2026-10-23 and 2026-10-24: pp. 13, 33 ((3.1a)), 38–39 (Lemma 3.8 and its
   proof), 44 (Lemma 3.11), 49–53 (Proposition 3.16, Lemma 3.17 and their proofs).
@@ -1201,8 +1207,8 @@ from the arXiv text, with the extraction's spacing.
   (2.4)–(2.14)), 25–27, 38, 41–44 (Lemma 5.3, Propositions 5.5–5.6), 47–48, 51–52, 54, 56 (Propositions 5.8, 5.9, 5.11,
   5.12), 58–60 (Lemma 5.14, Corollary 5.15, Proposition 5.16), 64, 66. READ 2026-10-22 for Theorem B.1 in five
   dimensions: pp. 85–88 ((B.1)–(B.17), Proposition B.2), 93–94 (Theorem B.4, (B.31)–(B.37)), 96–98 ((B.38)–(B.41), the
-  eigenvalues of −½r²ℓ(dr/r) and Lemma 3.3's inner product, section B.4: (B.42)–(B.45)). READ 2026-10-24 for section
-  5.2 at n = 4: pp. 37, 41–42, 60, 64–65, 67–69, 91.
+  eigenvalues of −½r²ℓ(dr/r) and Lemma 3.3's inner product, section B.4: (B.42)–(B.45)). READ 2026-10-24 for section 5.2
+  at n = 4: pp. 37, 41–42, 60, 64–65, 67–69, 91. READ 2026-10-24 for the commutators: pp. 10, 38, 47, 51, 53–54, 58.
 - [Hin26] P. Hintz, *Nonlinear stability of subextremal Kerr black holes*, arXiv:2606.28253v2. READ 2026-10-21: pp. 1,
   4, 17, 25–26, 29 ((1.43) and the reason for its strip), 82 (Definition 4.2, (4.6)–(4.9)), 113 (section 6,
   (6.1)–(6.6)), 117–124 (Lemma 6.6, (6.17), Lemma 6.8, Proposition 6.9, Lemmas 6.10–6.11, Proposition 6.12 and its
@@ -1689,11 +1695,12 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | `docket68/n1star/transfer5.py` T1–T2; `docket68/n1star/general5.py` G1–G2; [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin23a], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c], [AHW24], [CD03], [HHV21], [DLMF] |
-| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.64; the route and its |
-| | remaining reading, `docket68/n1star/ROUTES-OPEN.md` 4.44–4.65 |
+| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.65; the route and its |
+| | remaining reading, `docket68/n1star/ROUTES-OPEN.md` 4.44–4.66 |
 | the general class, section 8.6 | supplement sections 10.60–10.63; `docket68/n1star/general5.py` G1–G2; |
 | | [HHV21], [CD03] |
 | [Hin23a]'s section 3 at n = 4, section 8.8 | supplement section 10.64; `docket68/n1star/exterior5.py` X1–X6; [Hin23a] |
+| [Hin26a]'s section 5.2 at n = 4, section 8.8 | supplement section 10.65; [Hin26a], [Hin23d] |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -1719,7 +1726,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the fifty-second section 10.43 (D111, D115); the fifty-third sections 10.44–10.46 (D112–D114, D121); |
 | | the fifty-fourth sections 10.47–10.52 (D116–D122, D126); the fifty-fifth sections 10.53–10.57 |
 | | (D123–D126, D129); the fifty-sixth sections 10.58–10.63 and this paper (D127, D128, D130–D133) |
-| | the fifty-seventh section 10.64 and the repairs of D133 (D134, D135) |
+| | the fifty-seventh section 10.64 and the repairs of D133 (D134, D136) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1801,8 +1808,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `22d788360fcf30275f6ca8d1dc9ce323` |
-| `docket68/n1star/N1STAR-LOG.md` | `746fae75dd5f31da7fe04ea64bfd9bc2` |
+| `docket68/n1star/N1STAR-PROOF.md` | `176587427a7e201481588248259a6b67` |
+| `docket68/n1star/N1STAR-LOG.md` | `b00ac68c785e2c72ac0eef3a5aafae50` |
 | `docket68/n1star/README.md` | `2ebdf813e16dbb7786701d4d7bf63523` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
