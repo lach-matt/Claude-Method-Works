@@ -3703,3 +3703,370 @@ surface of the exterior. ROUTES 4.44 orders the work that removes them, the clas
 
 No five-dimensional nonlinear stability theorem for Tangherlini exists to shorten the route: a search of the literature
 (alphaXiv, 2026-10-24, recency first) returned linear, Riemannian and numerical work only.
+
+**D111 (2026-10-24): A1, the class in [Hin26]'s construction (10.43, class5.py).**
+
+M asked to continue, with as few PRs as possible and in record time; the title is to be reconsidered when the work is
+finished. ROUTES 4.44's A1 first: what of Hintz's states, parameters and steps survives in the T^2-mirror class. READ at
+source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 63, 219, 301-302, 310, 312, 321-322.
+
+*Computed (Proposition 10.40, class5.py C1-C2).* Of the fifteen Killing fields of 4+1 Minkowski only d_t is G-invariant
+(T^2 alone: three); the mass change is invariant; one invariant scalar and one invariant TT tensor harmonic at each even
+l, none at odd l, no invariant divergence-free 1-form (l <= 8).
+
+*Deduced (10.43(a)-(e)).* Equivariance of P with the radial modifications of 10.14-10.15; b = (m, 0), S = 0, no S_1 or
+V_l component; Steps 2 and 5 absent, Step 4 the mass alone; only the mass's kernel state and the time translation's dual
+state, the s0 generalized state, the even scalar pure gauge classes, and the s2 and t2 physical states remain; the
+iteration on the G-fixed subspaces, on a reading of Theorem 12.8's proof checked at A7.
+
+*Notes.* (1) The tensor count first ran by substituting the polynomial ansatz into the symbolic Laplacian and clearing
+denominators through the rational parameterization; it took minutes per degree. It now imposes each equation exactly at
+48 rational points of the circle, more than twice its degree as a trigonometric polynomial: seconds. (2) A kill of the
+slow run by pattern matched its own shell and ended it; processes are killed by exact PID only. (3) The axis smoothness
+conditions change no count, the polynomial ansatz being regular already; the controls that bite are the reflections
+dropped (two divergence-free 1-forms appear) and the eigenvalue moved by one.
+
+*Runs.* class5.py --selftest 2/2 (about thirty seconds) and --mutants 3/3.
+
+**D112 (2026-10-24): A2, [Hin26] section 11.2 in five dimensions (10.44, iplus5.py).**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 47, 49-50, 57-58, 86, 181, 224-230, 235. His b-ODE
+lemmas are stated for any compact manifold with corners and any number of parameters, so they hold with S^3.
+
+*Computed (Proposition 10.41, iplus5.py P1-P3).* The I+ normal operator's leading part -(rho_I d - (n - 1)/2)(rho_I d -
+rho_+ d), 3/2 at n = 4; the exceptional exponents 2 and 3/2 + (1 - e_Ups) gam_Ups, his reproduced at I0 = 1;
+non-resonance for gam_Ups != 1/4; the gap at the point.
+
+*Deduced (10.44(a)-(e)).* (11.26), (11.34) and the I+ index sets in five dimensions; Lemma 11.15, Propositions 11.14 and
+11.16; E_+ with min Re 3/2 + (1 - e_Ups) gam_Ups, so that 10.42 (pointer added to its (a)) no longer needs 10.38's
+readings for E_+.
+
+*Notes.* (1) P1 first compared the plain wave operator with his L_0 and found a remainder of order rho_I^-1 with a
+factor 3 for every n; his L is -box/2 to leading order, and with that normalization the remainder is rho_I R exactly.
+(2) lin5.py's point uses its own symbols (v, eC, gC, eU, gU) with no assumptions; they are mapped to sbar5.py's by name.
+(3) The first mutants of P2-P3 changed a matrix whose diagonal both dimensions share, and were not caught; the exponents
+are now functions of the leading exponent I0, and I0 = 1 is the control.
+
+*Runs.* iplus5.py --selftest 3/3 and --mutants 3/3 (seconds).
+
+**D113 (2026-10-24): A3, [Hin26] sections 11.3-11.6 in the class (10.45).**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 23, 218-219, 221, 231-262. His Steps 1-4 build the
+low-energy part u_reg + g-dot + h_s1 and integrate twice because of the boost's second order pole; in the class the
+boosts and translations have no G-fixed element (10.43), so h_s1 = 0 and the four steps are one.
+
+*Deduced (10.45(a)-(e)).* Propositions 11.17 and 11.32 with one integration; Step 2 void; Proposition 11.34 and
+Corollary 11.46 with u~ of K+ order alpha_K - 1 on f of K+ order in (1, 1 + eps_K); h needed to K+ order 1 + eps_K + eps;
+the iota+ orders 3/2 + (1 - e_Ups) gam_Ups - eps for u~ and 5 + 2 (1 - e_Ups) gam_Ups - eps for f.
+
+*Notes.* Nothing computed: the reduction is the equivariance of 10.43 applied to his proofs. iplus5.py's three lines
+over 121 characters are wrapped.
+
+**D114 (2026-10-24): A4, [Hin26] sections 11.7-11.8 in the class (10.46, sharp5.py).**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 218, 221, 263-266, 274-294, 302. His Step 6 eliminates
+the pure gauge terms of K+ order at most 2 (p. 289, "(so <= 2)") and records every term below 4 + eps_K; a root mu fed
+by t*^-alpha at iota+ gives K+ order alpha - mu (footnote 124).
+
+*Computed (Proposition 10.42, sharp5.py K1-K4).* The class's types and roots; for every iota+ exponent in [3/2 + (1 -
+e_Ups) gam_Ups, 3] the eliminated terms within s0 e0, s0 c0, s2 e0, the recorded within these and s2 c-1, no physical
+state; his eight parameters and his physical s2, v2, s3, v3 reproduced at alpha = 1 in four dimensions; his weights in
+the five-dimensional gaps.
+
+*Deduced (10.46(a)-(e)).* Proposition 11.51 with the mass alone; Theorem 11.59 with u_exp the mass change and four pure
+gauge terms, u~ of K+ order 3 + eps_K; h needing K+ order 3 + eps_K; Corollary 11.66 with q-vec the mass and those four;
+10.45's OPEN weight l_I settled as his 3 + eps_I.
+
+*Notes.* (1) The elimination rule is his "(so <= 2)": eps_K lies below every class root's distance (about 10^-6 here),
+so a class root at alpha = 2, of order 2 + 10^-6, is recorded rather than eliminated; window5.py's W2 at alpha = 2 lists
+s0's and s1's class roots among the eliminated, labelled "at 2 + eps" -- a difference of convention, his p. 289
+deciding. (2) K2's run is about eight minutes, nearly all in lin5.py's scalar-type determinant; caching it across l did
+not shorten it, and the cache was removed. (3) In the class no physical state is recorded at any iota+ exponent above 1,
+so the late-time expansion below K+ order 3 + eps_K is pure gauge apart from the mass.
+
+*Runs.* sharp5.py --selftest 4/4 and --mutants 4/4 (about nine minutes each).
+
+**D115 (2026-10-24): the fifty-second verifier's findings on D111 seated.**
+
+The fifty-second verifier confirmed C1 and C2 by an independent count (ambient polynomials on R^4, exact ranks), the
+sampling argument exact (the cleared numerators' trigonometric degree at most 14 at l = 8, against 48 points), and (a),
+(b)'s A = 0, (d) and (e)'s labelling at source. Seated:
+
+- Major: 10.43(c) said Steps 2 and 5 are absent; only their modifications vanish. Step 2 now reduces to Proposition
+  11.20 with S-dot = 0 and no augmentation #1, Step 5 to Proposition 11.51 with no S_1 shifts and no modifications
+  (10.46(a)); 10.45(b), ROUTES 4.45 and 4.47 and the README follow. D111's LOG entry stands as written.
+- 10.43(b): b - b0 and b_rem keep their mass component, (u^0_lam, f_lam) and h-tilde their G-fixed parts; the S_l-even
+  statement is now about the S_l and V_l components.
+- The tensor count's completeness: class5.py C3 (new, stdlib) counts the harmonics a second way, as homogeneous
+  polynomials on R^4 with ranks modulo 2^31 - 1, whose nullities bound the counts from above; the totals are SO(4)'s and
+  the G-invariant counts meet C2's lower bounds, which are therefore exact.
+- T^2 alone is now counted, not exhibited: two divergence-free 1-forms at each odd l, and two TT tensors at every even l
+  from 2 on (C3's control, which sees more than one solution); x.H = 0 dropped is a second control.
+- 10.43(e): the scheme runs for P o Psi, Psi(U) = (chi_-(t*) h_(-S), 0, 0) + Phi(U), with D_S(h_(-.))(S') in its
+  assumption (3): absent in the class, S = S' = 0; h_0's invariance needs (13.5)'s uniqueness (A8); (12.34) and (13.6)
+  to be READ at A7.
+- Pages: Definition 2.27 spans pp. 63-64; chi_K = chi_0(t*) chi_1(r/t*) is p. 318 (both READ at source today). Nits: Pi
+  is a bounded projection, of norm 1 for G-invariant norms; tensors "at each even l >= 2" in ROUTES 4.45 and the README;
+  the ansatz degree floor(l/2) + 1; chi_- and chi_+ named in (a).
+- Noted, not adopted: the verifier's second route for A7 -- if Phi is G-equivariant on all of D^oo, the G-average of U'
+  solves (12.35) with the same estimates -- recorded in 10.43's OPEN line.
+
+*Runs.* class5.py --selftest 3/3 (about forty seconds) and --mutants 5/5.
+
+**D116 (2026-10-24): A7, [Hin26] section 12 in the class (10.47); the route's labels.**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 182-186, 295-297, 301-302, 304, 310, 312, 315-317,
+321.
+
+*Deduced (10.47(a)-(e)).* The class's data space: the mass, the G-fixed iota+ data, the mass remainder and the tail; his
+conormal gauge remainders at 3 + eps_+ belong to the tail, the class's K+ threshold being 3 + eps_K. Phi is
+O(4)-equivariant on all of D^oo -- every step of his construction is canonical (the inverse of the iota+ normal
+operator, Res_iota+ of (9.56), Corollary 9.18's contour integral, the unique expansions at R = 0, the unique
+modification parameters, cut-offs in t* and r) -- so Theorem 12.3 holds in the class with K+ order 3 + eps_K, and
+Theorem 12.8's read-off, starting from Corollary 11.66's unique solution and using Proposition 9.22's explicit right
+inverse, gives a G-invariant U': 10.43(e)'s reading is deduced, and the fifty-second verifier's averaging route is not
+needed.
+
+*Notes.* (1) ROUTES 4.44's plan numbers his section 11.3-11.6 as A3-A5, sections 11.7-11.8 as A6 and section 12 as A7;
+ROUTES 4.47 and 4.48 had labelled D113 and D114 "A3" and "A4". Their headings now read A3-A5 and A6, and their "Next"
+lines follow; D113's and D114's LOG entries stand as written. (2) 10.43(e) now points to 10.47(c)-(e). (3) Nothing
+computed here: the five-dimensional inputs are Propositions 10.34 and 10.40-10.42.
+
+**D117 (2026-10-24): A8 and A9, [Hin26] sections 5 and 13 in five dimensions in the class (10.48, 10.49); Phase A
+complete.**
+
+READ at source (alphaXiv, 2026-10-24; printed pages): [Hin26] pp. 2-3, 84-110, 318-323. His section 5 builds on [Hin23a]
+(p. 84: "The setup, estimates, and arguments are very similar to those in [Hin23a]"; Theorem 5.17's proof "the same ...
+as that of [Hin23a, Corollary 3.36]"), a reading ROUTES 4.44 had not listed; it is B10.
+
+*Deduced (10.48(a)-(e)).* In five dimensions every I+ exponent is at least 3/2, so the simplest space of Theorem 5.17
+carries no radiation-field term for 1 < l-flat_I < 3/2 ((5.25)'s 2 l-flat_I <= 3 holds); Theorem 5.21 needs min Re E_0 >
+3/2 + 2 gam_Ups, which admits the r^-2 mass change exactly when gam_Ups < 1/4; in the class S = 0, h_0 = h, G-invariant
+-- closing 10.47(e)'s open item.
+
+*Deduced (10.49).* Theorem 13.1 in five dimensions in the class: G-invariant partially polyhomogeneous data near
+Tangherlini of mass m_0 settle to Tangherlini of a nearby mass at t*^(-2-eps_K) in spatially compact sets, on the
+readings of 10.13-10.48, [Hin26a], [Hin26c] and [Hin23a]. This completes Phase A of ROUTES 4.44.
+
+*Notes.* (1) 10.48(c) first said that no weak null structure enters in five dimensions and cited 10.38(a) for it;
+neither was checked, and the sentence now says only that the radiation fields sit at r^(-3/2) and that nothing uses it.
+(2) 10.49(a)'s cross-references are 10.15-10.18 for Proposition 6.12's inputs and 10.24-10.25 for Proposition 8.6's,
+checked against the section headings. (3) Nothing computed in D116-D117; the fifty-third verifier, on D112-D115, is
+still running.
+
+**D118 (2026-10-24): Phase C deduced (10.50).**
+
+Phase C was taken before Phase B because it decides whether the route connects to the record's own solution at all. It
+does, on readings: after the shell, {v > v_end}, every oscillating profile vanishes -- W is proportional to env, env = 0
+there (mu' = (2/9) A^2 env^2, mu constant for v >= v_end), Lemma 6.2's oscillating stage data are built from W and
+earlier oscillating parts, and Lemma 5.3(c)'s transports run along ell, on which v is constant -- so the approximant
+there is Tangherlini(mu_end) plus smooth lam-independent means times powers of lam, and its data on a tau-slice after
+the shell are small in every unscaled norm Theorem E controls. Beyond the bounded Omega the data are glued
+G-equivariantly to exact Tangherlini; the result is a compactly supported perturbation, Hintz's Theorem 1.1 case, inside
+10.49's hypotheses.
+
+*Notes.* (1) Theorem E is stated at k = 6, which is [DS23]'s lower bound k > 4/2 + 1 (section 4); Hintz's iteration
+needs H^d smallness for a large d, so Theorem E must be rerun at higher order (C-i). (2) The gluing's obstruction space
+is the G-invariant Killing initial data; Proposition 10.40(i) leaves d_t alone, matched by the mass (C-ii). (3) Nothing
+computed here.
+
+**D119 (2026-10-24): Phase B begun; C-i discharged (10.51).**
+
+Theorem E at every order: the record's section 4 uses k = 6 only through Lemma 2.1's scaled L^inf bounds, the L^inf/L^2
+split of Step 4's commutator terms and [DS23]'s condition k > 4/2 + 1, all of which hold at every k >= 6 with
+k-dependent constants; the bootstrap closes when 2K - 5 >= K + 1, whatever k is. The inputs at order k come from Theorem
+A (5.4) and from Proposition 6.5, whose bound sup_r ||d_r^j U||_{H^s} <= C_(j,s) lam^(N-2-j) holds at every order with
+lam0 independent of it. So 10.50(d)'s H^d smallness holds once k >= d and K >= d + 1.
+
+*Notes.* (1) [Hin26c] states (Remark 5.6, printed p. 101) that it works in 3 + 1 dimensions for concreteness and refers
+to [Hin23c] section 3.1.2 for general dimension; some of its results (Corollary 9.39, Proposition 9.40) are stated for
+general n. Its audit, and one of [Hin26a] and [Hin23a], are running as background reads; their reports are claims to be
+checked at source, not discharges. (2) The fifty-third verifier, on D112-D115, is still running.
+
+**D120 (2026-10-24): B8 discharged (10.52).**
+
+eind5.py E1-E2 computes, at the record's point, that every indicial root of L is simple for every l >= 2 -- exactly, the
+scalar, vector and tensor types -- and that his (8.13) holds for every l with eps_ind at most 1.94137 x 10^-8: an exact
+certificate puts box^C's upper scalar and vector roots right of Re lam = 51 for every l >= 10^4, and a 30-digit scan
+over l < 10^4 finds the least distance from Z, at l = 50, box^Ups's root near 1 - l. Section 10.52 (Proposition 10.43)
+deduces [Hin26] Lemma 8.4 in five dimensions at the point for every l.
+
+*Notes.* (1) The first run covered the scalar and tensor types only; 10.24's vector type carries box^C's quadratic,
+which was added to E1 and E2 before anything was written, with the same bound. (2) The bound is attained at the edge of
+(8.13)'s |lam| <= 50 and so depends on that cutoff; he uses (8.13) only for |lam| <= 4. (3) Selftest 2/2 (about four
+minutes), mutants 2/2.
+
+**D121 (2026-10-24): the fifty-third verifier's findings on D112-D115 seated.**
+
+One major finding: sharp5.py K3's bookkeeping rule was stated for every iota+ exponent, and at his alpha = 1 it would
+record the physical s2, t2 and s4 e-2. Repaired by deducing the class's iota+ index sets (10.46, new paragraph): his
+E_+'s (1, 0) is the Kerr parameter change and E-tilde_+'s (1, 0) u (1 + E_ind) the boost, both absent in the class,
+where the mass change enters at rho_+^2; so every iota+ exponent the class's sources carry is at least alpha_min, K3's
+hypothesis, now stated in sharp5.py and 10.46(ii). Minor findings, all seated: 10.44's READ page for Definition 11.3 (p.
+220); Proposition 10.41's exponent 2 = 2 I0 - 1 rests on 10.38(a)'s scaling, a reading, and is so labelled (iplus5.py
+P2, ROUTES 4.46); the gap's upper end is 63999567/128, checked exactly (P2); P3 now applies L_0 with the full A_0 to the
+seven-component ansatz, with a control; 10.45(d)'s iota+ requirement on f is 3 + min Re E_+ - eps = 9/2 + (1 - e_Ups)
+gam_Ups - eps, D113's figure having been (L - L_b) u's order (ROUTES 4.47); 10.43's C3 upper bound justified (a TT
+eigentensor extends to a harmonic homogeneous polynomial, G-equivariantly) and its doubled end mark removed.
+
+*Notes.* (1) sharp5.py K3 and K4 and iplus5.py rerun after the repairs: pass; mutants unchanged. (2) The response
+paper's "(D1-D108)" is stale; it is rebuilt in Phase D.
+
+**D122 (2026-10-24): the companion papers audited for their dimension; the plan for B1-B4 and B10 (ROUTES 4.55).**
+
+Two background readers audited [Hin26c], and [Hin26a] with [Hin23a], for where the dimension enters. Neither paper is
+written for general dimension, but the analysis under each is, and the items split three ways: by citation, by a short
+argument at n = 4 from the record's computed inputs, and real work (ROUTES 4.55). One finding was applied at once:
+[Hin26a] has no Theorem 7.1, and 10.49(a)'s label now reads [Hin26] Theorem 7.1, his summary of [Hin26a]. One finding
+shortens B10: [Hin23a] Theorem 3.35 peels off the radiation field, which five dimensions does not carry, so [Hin26] p.
+102's first step suffices there. The readers' claims are not discharges; each is to be checked at source.
+
+**D123 (2026-10-24): B1-B2 at source -- [Hin26c] section 9 at n = 4 (10.53); B5 restated.**
+
+Read at source: [Hin26c] section 9 is written for general n (Definitions 9.3-9.4; Theorem 9.38, Corollary 9.39 and
+Proposition 9.40 carry n), and the n = 3 numerals elsewhere in it (Theorems 9.36 and 9.41, Corollary 9.43, Definition
+5.13(2), Theorems 10.1 and 11.1) come from the b-density alone, so at n = 4 they become the record's alpha + 2.
+Bundles are "purely notational" at source. Section 10.53 records this; B1-B2 are discharged but for Theorem 9.16's
+proof at n = 4. [Hin26a]'s h_0 is itself non-explicit (Theorems 4.9, 6.2; Remark 6.3), so B5 is restated (ROUTES
+4.56): the record's point computations are to be made uniform in h at its e_C.
+
+*Notes.* (1) The fifty-fourth verifier is running on D116-D122; 10.53 is outside its range. (2) Nothing computed here.
+
+**D124 (2026-10-24): B5 discharged, B6 deduced -- every small h, not one point (uniform5.py, 10.54).**
+
+[Hin26a]'s h_0 is not explicit (D123), so the five-dimensional statement wanted is his: at the record's e, every
+sufficiently small h. uniform5.py H1-H2 proves exactly that box^C's indicial roots avoid [-100, 2] but for the simple
+Coulomb root at l = 0, 1, for every h in (0, 10^-6] and every type and degree: damping5.py U4's line-crossing
+certificate with h a second parameter, the crossing polynomials' critical values in h (leading coefficient in kappa,
+value at kappa_0, discriminant in kappa) having no root in (0, 10^-6]. Section 10.54 (Proposition 10.44) deduces his
+Theorem 4.9 in five dimensions for every such h, sorts the record's other point computations into those that inherit,
+those free of h or improving as h falls, and those holding off a countable set, and deduces the horizon threshold for
+every small h.
+
+*Notes.* (1) The certificate's counts are reported right | between | left, 10.12's convention. (2) The deduction in
+10.54(c) rests on the record's own statements of which quantities grow with gam_C; the fifty-fifth verifier is to check
+it. (3) Selftest 2/2 (about twenty seconds), mutants 2/2.
+
+**D125 (2026-10-24): B9 discharged; B4, B7, B10 deduced at source (transfer5.py, 10.55-10.57).**
+
+transfer5.py computes five-dimensional Tangherlini in Kerr-Schild form, exactly: its connection is two orders below
+Minkowski's (mu G_3 + mu^2 G_5), g^00 = -4 mu rho^2 with t* = t - r, and the damping 1-forms with the static time differ
+from Minkowski's at r^-3. Section 10.55 deduces the transfer (B9) -- every operator differs from its model in rho^4
+Diff_b, one order better than four dimensions -- and B7: the kernel class (10.53(c)), the interior uniqueness by the
+radial systems' regular singular point at the horizon, the index 0 at nonzero frequency on Theorem 9.16's reading.
+Sections 10.56 and 10.57 read [Hin26a] section 5.2 and [Hin23a] section 3 at source: the first takes only symbol data
+from the metric, all computed in five dimensions, leaving the commutators' signs as the one reading; the second is
+needed only near a piece of I+ for compactly supported data, its h-dependent couplings drop into the error term at
+r^-(3/2), and its peeling theorem is not needed.
+
+*Notes.* (1) transfer5.py: selftest 2/2 (about four minutes), mutants 2/2. (2) The fifty-fourth verifier's report
+arrived while this was written; D126 seats it.
+
+**D126 (2026-10-24): the fifty-fourth verifier's findings on D116-D122 seated.**
+
+Verdict PASS with one major finding: Phase A was called "complete" while 10.45(e) and 10.48(c) rest on Phase B readings.
+Repaired in 10.49 and ROUTES 4.51 ("10.48" named here in error; D129): complete conditional on its readings, B1-B4, B10
+and 10.45(e)'s [Hin26c] Proposition 13.18 and Corollary 13.17 at n = 4 (D117's wording stands in its entry as written
+then). Minor findings, all seated: k = 6 is Step 4's floor, not [DS23]'s, which asks k > 3 (ROUTES 4.53; D119's wording
+likewise stands); 10.46's quotation of [Hin26] p. 221 made verbatim; the trace weight 2/(D - 2) cited as the record's own
+derivation (damping5.py U2), [Hin26a] (3.2) having weight 1 (ROUTES 4.55); eind5.py and 10.52 state that l = 0 and 1 are
+10.24(iv)'s; the --only summaries of eind5.py, sharp5.py, uniform5.py and transfer5.py count the checks run. Nits: ROUTES
+4.55's -n + 2 + beta attributed to Corollary 9.39, its Theorem 11.1 clause made grammatical; 10.50(f)'s K >= d + 1.
+
+*Notes.* (1) The verifier recomputed 1.94137 x 10^-8 from the closed form z l/(2 (l + 1)(2 l + 1)) at l = 50 and checked
+E2's certificate numerically at 61 kappa up to 10^15 kappa*. (2) It did not check C-ii's gluing or Lemma 6.2's
+oscillating data, nor anything after d479898.
+
+**D127 (2026-10-24): B3 deduced at source; (2.27), the iota+ spectrum, 10.38(a) and C-ii closed (10.58-10.59).**
+
+[Hin26c] sections 5, 7, 8, 10, 11 and 13 read at source: section 7's estimates use the principal symbol and the
+thresholds only, (2.27) is Minkowski algebra, (5.7)'s "1" is (n - 1)/2, and every other n = 3 numeral is a density
+shift, rho_I^n rho_+^(n+1) rho_K at n = 4. [Hin26] Proposition 2.25 is stated on R^n, which discharges 10.46(e)'s
+(2.27). The iota+ resonances between 5/2 and 3 + eps_+ need no location (sharp5.py K3 sweeps the interval); 10.38(a)'s
+exponent is at least 2 > alpha_min under either reading; and [CD03] is dimension-free, so the gluing of C-ii needs only
+the Tangherlini mass family and is G-equivariant by uniqueness. Phase B now leaves one kind of reading, named in ROUTES
+4.59: the analytic estimates of the companion papers at n = 4 given five-dimensional symbols.
+
+*Notes.* (1) Nothing computed here. (2) The fifty-fifth verifier is running on D123-D126.
+
+**2026-10-24, after the paper was rebuilt (d13d9a3), verbatim:**
+
+> Settling only has to hold within your symmetry class. - the warp session asks that we include the asymmetry class as
+> well
+
+**D128 (2026-10-24): the general class planned (ROUTES 4.60).**
+
+Theorem 4 is stated in the T^2-mirror class, which is what settling needs. M relays the request to include the general
+class as well: perturbations with no symmetry, whose development should settle to a boosted, centred, slowly rotating
+Myers-Perry black hole near Tangherlini. Read against the record: sections 10.13-10.42 and Phase B used no symmetry (the
+states, pairings, rigidity, window and Lemma 7.5 were computed for all of so(4) and S_1); the class entered at 10.43,
+where it removed his boost, rotations and centre-of-mass motions, made the zero energy pole first order, and fixed the
+final parameter to the mass. What it left is ROUTES 4.60's Phase E: the inputs at every b near b0 in the Myers-Perry
+family (where [Hin26] takes them at each b from [AHW24] and [Hin26a]), his Lemma 8.15 on the non-Killing rotations, the
+low-energy structure with the boosts, his sections 11.3-11.8, 12, 5 and 13 with the full parameters and two orders of
+loss at K+, and the gluing to the boosted Myers-Perry family ([CD03] Remark 8.2 names the one missing element). READ for
+the plan ([Hin26], alphaXiv, 2026-10-24; printed pages): p. 5, Remark 1.4, "The mode stability result of
+Andersson-Hafner-Whiting [AHW24] for linearized gravity holds in the full subextremal range and is used here as a black
+box"; p. 25, the zero energy nullspace "is 7-dimensional ... spanned by (i) linearized Kerr metrics ... (ii) deformation
+tensors ... of asymptotic translations", with the boosts' generalized states, "a second order pole at sigma = 0, and thus
+forward solutions of L_b lose two powers of t*-decay"; p. 144, section 8's parameters "b = (m, a) that are close to
+subextremal parameters b0"; p. 154, Proposition 8.8's proof, "By [AHW24, Theorem 6.1(1)], we obtain u = delta*(sigma)
+omega", at each b.
+
+**D129 (2026-10-24): the fifty-fifth verifier's findings on D123-D126 seated.**
+
+Verdict: PASS on the computed claims -- uniform5.py 2/2 and mutants 2/2, with an independent 150-digit spot check at h
+= 10^-6, 10^-9, 10^-12, 10^-15 and l up to 10^4 (no non-Coulomb root in (-100, 2], the counts at all 34 sampled l);
+transfer5.py 2/2 and mutants 2/2, Ricci flatness at four more random rational points -- and PARTIAL on the deductions.
+One major finding: 10.54(c) listed 10.38 among the uses of gam_C-proportional quantities through lower bounds only,
+where 10.38(iii) is a non-resonance computed at gam_C = 10 and 100 and OPEN at the record's gam_C; repaired (10.38
+dropped from the list, its status stated; B5 does not rest on it). Minor findings, all seated: the top-weight parts
+are h^3 (kappa - lam^2)^3 and h (kappa - lam^2), only their roots free of h (10.54(a), damping5.py U3's docstring);
+the scalar type 0 quartic's leading coefficient h^2 added to -h^3, -h (10.54's proof, uniform5.py); (8.13) holds at
+each h with its own eps_ind(h) > 0, the record using only eps_ind > 0 (10.54(d)); transfer5.py T2's homogeneity,
+tested at one point, is now exact, G_j(s x) = s^-j G_j(x) as rational functions of x, r and a scale s (10.55's proof);
+"10.44(i)" for the lower-triangular A_0 and its gap corrected to 10.44(ii) at two sites (the proposition numbers are
+the record's sequential ones: 10.44's section holds Proposition 10.41, 10.54's Proposition 10.44); [Hin26c] p. 168's
+quotation given its qualifier "when S = 0 and Q = 0"; D126's "10.48" corrected in place to 10.49 and ROUTES 4.51;
+eind5.py's docstring on l = 0 and 1 reworded (simplicity at l = 0 and 1 and (8.13) at l = 1 from 10.24(iv), the scan
+covering l = 0 and l >= 2). The quotations the verifier could not retrieve were retrieved here at source (alphaXiv,
+2026-10-24): [Hin26c] (5.10) and (5.13) (p. 103) carry "rho d_rho - 1 - S", Definition 5.13(2) (p. 106) "tf-admissible
+with weight alpha_sf + 3/2", Corollary 9.43 (p. 200) as quoted, proved through Theorem 9.41 and the index of (9.18);
+[Hin26a] p. 60 ("M is an n-dimensional manifold of bounded geometry") and p. 65 (the density identity) as quoted; and
+[Hin23a]'s "a radiation field" is p. 9's, Theorem 3.35's improvements being (3.63)-(3.64), 10.57's READ (4) restated
+so. Nits: 10.46's paragraph reflowed so that no line opens with "0)". Not checked by it, and not by this entry:
+10.54(b) line by line, 10.55(c)'s pole orders at r_h, commits 634eb63 and d13d9a3 (the fifty-sixth reads those).
+
+**D130 (2026-10-24): E1-E2, the inputs at every b near b0 (10.60).**
+
+[Hin26] takes mode stability and the zero energy count at each Kerr parameter from [AHW24]; the record had them at
+Tangherlini alone. READ at source (alphaXiv, 2026-10-24): [HHV21] (arXiv:1906.00860v2) pp. 6, 14, 90, 92-98 -- the
+perturbative route from Schwarzschild to slowly rotating Kerr, and its p. 14, "we expect the linear stability of
+higher-dimensional Schwarzschild black holes ... and their perturbations, slowly rotating Myers-Perry black holes [MP86],
+to follow by similar arguments"; [Hin26] pp. 5, 122-124, 136, 144, 153-154, 200-201, 208-209; [Hin26c] p. 157. Deduced:
+high energy uniformly near b0 (the conditions at b0 strict, normal hyperbolicity stable), intermediate frequencies by
+continuity, low energy by the eleven states against the kernel's upper semicontinuity and his Propositions 10.6-10.7,
+whose proofs use only Proposition 8.11 and Lemma 8.12; E2 by 10.34(b) and 10.36. Nothing computed.
+
+**D131 (2026-10-24): E3-E6, [Hin26] sections 11-13 and 5 without the class (general5.py G1, 10.61-10.62).**
+
+READ again for the boosts (printed pages): [Hin26] pp. 25, 40, 76-81, 108-110, 218-221, 231-294, 296-323, Theorem 13.1's
+"(1, 0), (1, 1) in E_+" and its proof's weakest terms. Computed (Proposition 10.46): the bookkeeping over every type with
+threshold 4 -- six classes eliminated, fourteen recorded, the physical s2, v2, t2 at -2 with no companion and only while
+alpha <= 2; his four-dimensional lists reproduced. Deduced: his six steps with the boosts and rotations (the index sets
+at iota+ with min Re alpha_min, the boost's logarithms absent by 10.28), Definition 12.1's full U, Theorems 12.3, 12.8,
+5.23 and 13.1 in five dimensions without the class. The tensor type's physical state t2 is the one new kind, recorded by
+a parameter beside his S_2, V_2. OPEN: the logarithms at (2, 1) and K+, covered either way.
+
+**D132 (2026-10-24): E7, the gluing to the Myers-Perry family; Phase E complete on its readings (general5.py G2,
+10.63).**
+
+[CD03] Remark 8.2 (p. 36): "The argument below carries over to any dimension, the only element missing is an equivalent
+of Proposition F.1 for the family of translated, rotated, and boosted Myers-Perry metrics". READ (alphaXiv, 2026-10-24):
+pp. 34-38, 72, 75-77 (Theorem 7.7, Theorem 8.1 and its proof, the reference family's condition 4, (E.5b), (E.9), Appendix
+F, Proposition F.1, (F.4)-(F.6)). Computed (Proposition 10.47): the charges' Jacobian at Tangherlini, diagonal, E = 3 pi
+mu/8, J = (pi mu/4) W, P = -E v, E C = E c, determinant (3 pi/8)(pi mu/4)^6 (3 pi mu/8)^8; four dimensions reproduces
+(F.4)-(F.6). Deduced: Proposition F.1's equivalent near Tangherlini (inverse function theorem), the gluing of the data of
+g_lam after the shell, perturbed without symmetry and with (E.9)'s parity, to a translated, rotated and boosted
+Myers-Perry metric, and its development settling to Myers-Perry at O(t*^(-2-eps_K)). general5.py: selftest 2/2 (seconds),
+mutants 2/2.
