@@ -1493,6 +1493,6 @@ Paley-Wiener argument and section 14.1 that [Hin26]'s proof of Theorem 10.1 foll
 - Lemma 14.6 at s = 0 is in t at each fixed r, so it holds at every n; general s rests on the 3b-calculus. The
   Paley-Wiener argument (p. 235) is in t* alone. In section 14.1, the template, the loss comes from the zero energy
   state's decay through (14.16).
-- OPEN: [Hin26c] Lemma 3.9, the microlocal part of Lemma 13.13, the 3b-calculus ([Hin23d]) and Theorems 9.5, 9.16 and
-  9.41 at n = 4; his section 11. Labels: computed (lowfreq5.py W3; exact); deduced; READ ([Hin26c] pp. 8, 20-21, 56-59,
-  106-107, 233, 235, 252, 255, 262-267); nothing proved.
+- OPEN: [Hin26c] Lemma 3.9, the microlocal part of Lemma 13.13, the 3b-calculus (his scaled bounded geometry paper, not
+  read) and Theorems 9.5, 9.16 and 9.41 at n = 4; his section 11. Labels: computed (lowfreq5.py W3; exact); deduced;
+  READ ([Hin26c] pp. 8, 20-21, 56-59, 106-107, 233, 235, 252, 255, 262-267); nothing proved.

@@ -3569,3 +3569,38 @@ Theorems 9.5, 9.16 and 9.41; 10.40's OPEN list now says so.
 
 *Runs.* lowfreq5.py --selftest 3/3 (W1 5 s, W2 and W3 under 1 s) and --mutants 7/7 (about 4 s); paper/response5.py
 --selftest all pass; md5 rows refreshed.
+
+**D107 (2026-10-24): the fiftieth verifier's findings on D106, seated.**
+
+One independent verifier read D106 (5d0a56c against 541e310) with its own checks: every quotation in 10.41's READ
+re-read at source in [Hin26c] (pp. 8, 20-21, 45-46, 55-60, 106-107, 158, 172-173, 198, 200-201, 227-228, 233, 235,
+247-248, 252-253, 255, 260-267, 277) and [Hin26] (pp. 199-200, 206, 208, 210, 212, 215-217); the density identity at n =
+3, 4, 5, the thresholds, the rule's instances and (14.16) at n = 3 and 4 by its own sympy script; md5 rows 57 of 57.
+Verdict: D106 stands; no major finding; two minor findings, five nits, notes.
+
+*Minor.* (1) 10.41(c), its OPEN list, ROUTES 4.42 and LOG D106 put Lemma 14.6's general-s step on [Hin23d]
+(arXiv:2302.13803); the class Psi-tilde_3b of (3.27) is built on the scaled bounded geometry calculus, "the scaled
+bounded geometry perspective introduced by the author in [Hin26c]" (pp. 45-46) -- in [Hin26c]'s own references P. Hintz,
+*Pseudodifferential operators on manifolds with scaled bounded geometry*, CAMS 6 (2026) 153-243 (p. 277) -- with
+[Hin23d] named only for "the proof of the boundedness of a 3b-ps.d.o. on 3b-Sobolev spaces" with smooth coefficients (p.
+46). Checked here at source. Repaired: 10.41's READ (c), (c), closing paragraph and ROUTES 4.42 name the paper and its
+key; its section 3.1 is set "on an n-dimensional manifold". (2) Proposition 10.38's first sentence held only near
+infinity: on all of R^n no power of r is in either space. Repaired: "near infinity (|x| >= 1)", there and in
+lowfreq5.py's docstring.
+
+*Nits.* (1) "three printed instances" now "four printed instances, at three places". (2) (14.16)'s quotation had
+"s|_(R_out)" inside the quote marks; it now transliterates his subscript. (3) The rule's r < -1/2 - eps for every eps is
+his r < -1/2; said so in Proposition 10.38, and W3's shift() comment says it brackets the threshold. (4) The paper
+grouped p. 8 with "the setting"; it is the sf-loss, and 10.41's READ now quotes pp. 8 and 106-107. (5) The shift
+alpha_sf + 3/2 -> alpha_sf + 2 is 10.23(ii)'s, as applied in 10.24(d).
+
+*Notes, accepted.* (1) Parts of [Hin26c] are written in general n -- section 3.1 (p. 46), section 13.1's b-spaces (p.
+247), Definition 9.4 (p. 158) -- so "written on Kerr in 3 + 1" is its subject, not every section; 10.41's setting now
+says so. (2) The Paley-Wiener argument also needs the spectral family invertible for Im sigma >= 0, mode stability
+(10.27); 10.41(d) now says so. (3) Theorem 14.2's loss passes through one t*-integration (m = 1); 10.41(d) says so. Not
+checked by the verifier: 10.40 and W1-W2 beyond the pointer edits; whether [Hin26]'s section 11 needs delta > 0 for
+other reasons; the calculi at n = 4; Theorems 9.5, 9.16 and 9.41 at n = 4; 10.27. Its runs: lowfreq5.py 3/3, mutants
+7/7; response5.py all pass.
+
+*Runs.* lowfreq5.py --selftest 3/3 (W1 5 s, W2 and W3 under 1 s) and --mutants 7/7 (about 4 s); paper/response5.py
+--selftest all pass; md5 rows refreshed.

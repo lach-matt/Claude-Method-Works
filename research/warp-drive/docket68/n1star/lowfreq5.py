@@ -37,15 +37,15 @@ states are one order faster and the augmentation is chi_K times them, with no I+
      loss eps.  Controls: five dimensions with four-dimensional orders and I+ order 1 (a loss); four dimensions
      claimed lossless; five dimensions claimed at alpha_sf + 1 and alpha_sf + 2, the radial threshold binding (D104's
      reading, corrected in D105).
-  W3 (computed, exact) [Hin26c] (13.30a)'s shift at n = 4 (D106).  On R^n, r^-a lies in L^2(|dx|) iff a > n/2 and in
-     L^2(mu_b), mu_b = |dx|/|x|^n, iff a > 0: L^2(|dx|) = rho^(n/2) L^2(mu_b), the shift his (13.30a) calls "due to the
-     passage from mu to mu_b" (p. 255), 3/2 at n = 3 (his p. 252) and 2 at n = 4.  (13.30a)'s rule -- the target's
-     scf order at R_out below the source's less the shift, its tf order the source's less the shift -- reproduces his
-     printed instances at n = 3: p. 206's "r + alpha_sf + 1 < 3/2 - eps" for scf order 3 - eps and "r + alpha_sf <
-     -1/2" for 2 - eps; p. 216's "r < -1/2" for (10.56)'s (1 - eps, 1 - 2eps), tf -1/2 - 2eps (his -1/2 - eps, eps
-     renamed); and (10.59)'s (1 - eps, 2 - eps), r < -1/2 and 1/2 - eps.  At n = 4 it gives 10.40(b)'s requirements r <
-     1 - eps and r < 2 - eps and tf weights -eps and 1 - eps.  Controls: the shift taken as 3/2 at n = 4; the rule
-     without the shift.
+  W3 (computed, exact) [Hin26c] (13.30a)'s shift at n = 4 (D106, D107). On R^n near infinity (|x| >= 1), r^-a lies in
+     L^2(|dx|) iff a > n/2 and in L^2(mu_b), mu_b = |dx|/|x|^n, iff a > 0: L^2(|dx|) = rho^(n/2) L^2(mu_b), the shift
+     his (13.30a) calls "due to the passage from mu to mu_b" (p. 255), 3/2 at n = 3 (his p. 252) and 2 at n = 4.
+     (13.30a)'s rule -- the target's scf order at R_out below the source's less the shift, its tf order the source's
+     less the shift -- reproduces his printed instances at n = 3: p. 206's "r + alpha_sf + 1 < 3/2 - eps" for scf order
+     3 - eps and "r + alpha_sf < -1/2" for 2 - eps; p. 216's "r < -1/2" for (10.56)'s (1 - eps, 1 - 2eps), tf -1/2 -
+     2eps (his -1/2 - eps, eps renamed); and (10.59)'s (1 - eps, 2 - eps), r < -1/2 and 1/2 - eps. At n = 4 it gives
+     10.40(b)'s requirements r < 1 - eps and r < 2 - eps and tf weights -eps and 1 - eps. Controls: the shift taken as
+     3/2 at n = 4; the rule without the shift.
 
 Run: python3 lowfreq5.py --selftest | --mutants | --only k [--verbose]   (seconds).
 """
@@ -173,7 +173,7 @@ def shift(n):
     R = sp.Symbol("R", positive=True)
     tenth = sp.Rational(1, 10)
 
-    def enters(a0, power):                                     # r^-a in L^2(r^power dr) at infinity iff a > a0
+    def enters(a0, power):                      # r^-a over r >= 1: in L^2(r^power dr) at a0 + 1/10, not at a0
         return (sp.integrate(R**(-2 * (a0 + tenth) + power), (R, 1, sp.oo)).is_finite and
                 not sp.integrate(R**(-2 * a0 + power), (R, 1, sp.oo)).is_finite)
     a_mu, a_mub = sp.Rational(n, 2), 0

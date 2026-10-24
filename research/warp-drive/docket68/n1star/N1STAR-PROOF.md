@@ -5929,21 +5929,24 @@ Nothing of this section is proved: Proposition 10.37 is computed, and (a)-(e) ar
 the scf order of a Fourier transform into the requirement at R_out; Lemma 14.6, which [Hin26]'s Lemma 10.13 cites for
 variable orders; Lemma 3.9; and the Paley-Wiener argument of Theorem 12.2's proof and section 14.1, which [Hin26]'s
 proof of Theorem 10.1 follows ("Following essentially the same strategy as in [Hin26c, section 14.1]", his p. 200).
-[Hin26c] is written on Kerr in 3 + 1 dimensions -- "a blow-up of (-1, 1)_sigma x R^3" (p. 21), "r^-(alpha_sf+2) L^2(R^3,
-|dx|)" with "alpha_sf := beta_sf - 3/2" (p. 20) -- so each is READ here at n = 3, and what this section adds is where n
-enters each. [Hin26c] cites our [Hin26] as [Hin26b].
+[Hin26c]'s subject is Kerr in 3 + 1 dimensions -- "a blow-up of (-1, 1)_sigma x R^3" (p. 21), "r^-(alpha_sf+2) L^2(R^3,
+|dx|)" with "alpha_sf := beta_sf - 3/2" (p. 20) -- though parts are written in general n: the scaled bounded geometry of
+his section 3.1 is set "on an n-dimensional manifold" (p. 46), and the b-spaces of section 13.1 use "|dsigma/|sigma|
+dx/<x>^n|" and S^(n-1) (p. 247). So each item is READ here at n = 3, and what this section adds is where n enters each.
+[Hin26c] cites our [Hin26] as [Hin26b].
 
-**Proposition 10.38 (computed; exact).** On R^n, n = 3 and 4, r^-a lies in L^2(|dx|) iff a > n/2 and in L^2(mu_b), mu_b
-= |dx|/|x|^n, iff a > 0: L^2(|dx|) = rho^(n/2) L^2(mu_b), rho = |x|^-1, the shift 3/2 at n = 3 and 2 at n = 4.
-(13.30a)'s rule -- the target's scf order at R_out below the source's less the shift, its tf order the source's less
-the shift -- reproduces his printed instances at n = 3: p. 206's "r + alpha_sf + 1 < 3/2 - eps" for the scf order 3 -
-eps and "r + alpha_sf < -1/2" for 2 - eps; p. 216's "r < -1/2" for (10.56)'s orders (1 - eps, 1 - 2eps), the tf weight
--1/2 - 2eps (his -1/2 - eps, eps renamed); and (10.59)'s (1 - eps, 2 - eps), r < -1/2 and 1/2 - eps. At n = 4 it gives
-section 10.40(b)'s requirements r < 1 - eps and r < 2 - eps and its tf weights -eps and 1 - eps (W3).
+**Proposition 10.38 (computed; exact).** On R^n, n = 3 and 4, near infinity (|x| >= 1), r^-a lies in L^2(|dx|) iff a >
+n/2 and in L^2(mu_b), mu_b = |dx|/|x|^n, iff a > 0: L^2(|dx|) = rho^(n/2) L^2(mu_b), rho = |x|^-1, the shift 3/2 at n =
+3 and 2 at n = 4. (13.30a)'s rule -- the target's scf order at R_out below the source's less the shift, its tf order the
+source's less the shift -- reproduces his printed instances at n = 3: p. 206's "r + alpha_sf + 1 < 3/2 - eps" for the
+scf order 3 - eps and "r + alpha_sf < -1/2" for 2 - eps; p. 216's "r < -1/2" for (10.56)'s orders (1 - eps, 1 - 2eps),
+the tf weight -1/2 - 2eps (his -1/2 - eps, eps renamed); and (10.59)'s (1 - eps, 2 - eps), r < -1/2 and 1/2 - eps -- the
+rule's r < -1/2 - eps for every eps > 0 being his r < -1/2, eps arbitrary (p. 206). At n = 4 it gives section 10.40(b)'s
+requirements r < 1 - eps and r < 2 - eps and its tf weights -eps and 1 - eps (W3).
 
-*Proof.* W3 of lowfreq5.py: sympy, the integrals of r^(-2a) r^(n-1) and r^(-2a) r^(-1) at infinity at a and a + 1/10 for
-the two thresholds; exact arithmetic for the rule, eps symbolic. Controls: the shift taken as 3/2 at n = 4; the rule
-without the shift. []
+*Proof.* W3 of lowfreq5.py: sympy, the integrals of r^(-2a) r^(n-1) and r^(-2a) r^(-1) over r >= 1 at a and a + 1/10,
+bracketing the two thresholds; exact arithmetic for the rule, eps symbolic. Controls: the shift taken as 3/2 at n = 4;
+the rule without the shift. []
 
 *READ.* [Hin26c] (arXiv:2606.28008v1; alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed pages):
 
@@ -5955,7 +5958,10 @@ without the shift. []
      relaxed version of Definition 5.13 is easier to verify in some settings (such as [Hin26b, Theorem 10.1]) ... we say
      that P_0 is aleph-admissible with sf-weight alpha_sf, sf-loss delta, and margin d_aleph >= 0 if for all
      stationary-P_0-admissible orders s with weights alpha_sf, -aleph and margin d_aleph, conditions (1)-(2) hold as
-     stated, while (5.22) is replaced by u in H^((s-d_aleph;k),(alpha_sf-delta,-aleph))_3b;b".
+     stated, while (5.22) is replaced by u in H^((s-d_aleph;k),(alpha_sf-delta,-aleph))_3b;b". His p. 8: "The general
+     assumption is that P_0 be aleph-admissible with sf-loss delta (Definition 5.13)"; pp. 106-107: "a suitable version
+     of the linearized gauge-fixed Einstein operator is 2-admissible with sf-weight alpha_sf in (-3/2, -1/2) and any
+     sf-loss delta > alpha_sf + 3/2".
  (b) ((13.30a), pp. 252, 255) "L^2(X, mu) = rho^(3/2) L^2(X, mu_b), rho = |x|^-1" for mu = |dx| and "mu_b := |dx|/|x|^3"
      (p. 252), with Lemma 13.13's r-bar_o := sup_(R_out) r; (13.30a) bounds the H^((s-1;k),(r+alpha_++1,
      alpha_tf+2,0))_(sc-b,|sigma|);b(X, mu) norm by the H^(k+l,(r-bar_o+alpha_++5/2+eps, alpha_tf+7/2,
@@ -5965,7 +5971,12 @@ without the shift. []
      in H^(s,(beta,-l+1))_3b(M_0), t* >= 1 on supp u ==> u in H^(s,(beta-1,-l))_3b(M_0)" with "the Minkowskian volume
      density |dt dx|"; the case s = 0 "drop[s] the angular variables" and estimates in t at each r, "For general s, let
      A in Psi-tilde^s_3b(M_0) (see (3.27)) be elliptic with parametrix B ... we may arrange for A, B (and thus R and B')
-     to be t*-translation-invariant". Lemma 3.9 (p. 59) is on X-tilde = R^3 with |dx| (p. 56).
+     to be t*-translation-invariant". Lemma 3.9 (p. 59) is on X-tilde = R^3 with |dx| (p. 56). The class Psi-tilde_3b of
+     (3.27) (p. 55) is built on the scaled bounded geometry structures of his section 3.1, "the scaled bounded geometry
+     perspective introduced by the author in [Hin26c]" (pp. 45-46) -- his key for P. Hintz, *Pseudodifferential
+     operators on manifolds with scaled bounded geometry*, Commun. Am. Math. Soc. 6 (2026) 153-243 (p. 277), not this
+     record's [Hin26c] -- as against "the proof of the boundedness of a 3b-ps.d.o. on 3b-Sobolev spaces as proved in
+     [Hin23d]" (p. 46), arXiv:2302.13803 (p. 277).
  (d) (Theorems 12.2 and 14.2) "box_g is 0-admissible with any sf-weight alpha_sf in (-3/2, -1/2) and sf-loss 0" (p.
      233), its Paley-Wiener argument pairing u-hat(sigma) with phi in C_c^oo(X^o) and shifting the contour from gamma =
      0 to gamma > 0, "For t* <= 1 < t_+, this tends to 0 as gamma -> oo" (p. 235), from the bounds of Theorems 9.41 and
@@ -5973,34 +5984,41 @@ without the shift. []
      Hodge d'Alembertian (or tensor wave operator) box_g on 1-forms is 1-admissible with sf-weight alpha_sf and sf-loss
      delta" (p. 262), whose proof (pp. 265-267) takes the contour (14.19), the augmentation (14.13) with its entry in
      rho^3 C^oo (Lemma 14.3), the singular part a(t*) u_0 with u_0 in rho C^oo, and Lemma 14.5 "(with alpha = 1, m = 1,
-     and beta_sf = -3/2 - eps, eps > 0)", whose condition (14.16), "max(beta_sf, s|_(R_out) + beta_sf) < (-m) + (-3/2 +
-     alpha)" (p. 263), gives (14.29), "chi_T a u_0 in H^((s;k),(-3/2-eps,0))_3b;b", and the loss.
+     and beta_sf = -3/2 - eps, eps > 0)", whose condition (14.16), "max(beta_sf, s|_(partial R_(partial K^+,out)) +
+     beta_sf) < (-m) + (-3/2 + alpha)" (p. 263), s at the outgoing radial set, gives (14.29), "chi_T a u_0 in
+     H^((s;k),(-3/2-eps,0))_3b;b", and the loss; his p. 8: "The delta-loss at iota+ is more subtle; it arises for the
+     1-form wave operator P = P_0 = box_(g_m,a) from the lack of decay of a term a(t*)u_0".
 
 *Deduced.*
 
  (a) (Definition 5.13's delta) delta = 0 is admitted, so section 10.40(c)'s hedge goes: on the readings of 10.40, L_b in
      five dimensions is 2-admissible with sf-weight alpha_sf, sf-loss 0 and margin 1 in Remark 5.14's sense -- the form
      of [Hin26]'s (10.3), margin 1 and s - 1 -- for alpha_sf + 2 in (0, eps_ind). Definition 5.13(2)'s weight alpha_sf +
-     3/2 is alpha_sf + n/2 at n = 3; in five dimensions it is alpha_sf + 2, the shift of section 10.24(d).
+     3/2 is alpha_sf + n/2 at n = 3; in five dimensions it is alpha_sf + 2, the shift n/2 = 2 of section 10.23(ii) as
+     applied in 10.24(d).
  (b) ((13.30a) at n = 4) Its statement sees the dimension through the density, as he says: at n = 4 the shift is 2
-     (Proposition 10.38), which is what section 10.40(b) used, and the rule reproduces his three printed instances at n
-     = 3. The rest of Lemma 13.13's proof -- b-regularity giving scattering decay away from R_out, an elliptic
-     parametrix in the scattering calculus (p. 252) -- is, at n = 4, a reading.
+     (Proposition 10.38), which is what section 10.40(b) used, and the rule reproduces his four printed instances, at
+     three places, at n = 3. The rest of Lemma 13.13's proof -- b-regularity giving scattering decay away from R_out, an
+     elliptic parametrix in the scattering calculus (p. 252) -- is, at n = 4, a reading.
  (c) (Lemmas 14.6 and 10.13 at n = 4) For s = 0 the estimate is in t at each fixed (r, omega), so the density on X --
      r^(n-1) dr dS^(n-1), or [Hin26]'s "any smooth weighted b-density on X" -- passes through, and the lemma holds at
-     every n; for general s it rests on an elliptic t*-translation-invariant parametrix in the 3b-calculus, at n = 4 a
-     reading of [Hin23d] (not read here).
+     every n; for general s it rests on an elliptic t*-translation-invariant parametrix in the class Psi-tilde_3b of
+     (3.27), built on the calculus of his *Pseudodifferential operators on manifolds with scaled bounded geometry* (READ
+     (c)), which his section 3.1 recalls "on an n-dimensional manifold" (p. 46); at n = 4 its 3b instance is a reading
+     of that paper (not read here).
  (d) (the Paley-Wiener argument and section 14.1 at n = 4) The Paley-Wiener argument is in t* alone; at n = 4 it rests
-     on Theorems 9.41, 9.16 and 9.5(6) at n = 4, the readings of 10.19-10.20. Section 14.1 is the template section 10.40
-     follows: in it the loss comes from the zero energy state's decay through (14.16) -- u_0 in rho^1 against -3/2 =
-     -n/2 at n = 3 -- as 10.40(c) found the loss of [Hin26] section 10.2 to come from his states' decay.
+     on Theorems 9.41, 9.16 and 9.5(6) there, the readings of 10.19-10.20, and on the invertibility of the spectral
+     family for Im sigma >= 0, mode stability (section 10.27). Section 14.1 is the template section 10.40 follows: in it
+     the loss comes from the zero energy state's decay through (14.16) -- u_0 in rho^1 against -3/2 = -n/2 at n = 3,
+     after one integration in t* (m = 1) -- as 10.40(c) found the loss of [Hin26] section 10.2 to come from his states'
+     decay.
  (e) (what remains) Of 10.40's [Hin26c] readings, these stay readings at n = 4: Lemma 3.9, the microlocal part of Lemma
      13.13, the 3b-calculus behind Lemma 14.6, and Theorems 9.5, 9.16 and 9.41 (10.19-10.20).
 
-*What this gives, and what it does not.* Every [Hin26c] item section 10.40 cites is now READ at source at n = 3, with
-where n enters it: 10.40's hedge on delta is gone, delta = 0 being admitted, and the shift in (13.30a) at n = 4 is
-computed. Not done, and OPEN: the readings of (e) at n = 4; [Hin23d]; his section 11. Nothing of this section is proved:
-Proposition 10.38 is computed, and (a)-(e) are deduced.
+*What this gives, and what it does not.* Every [Hin26c] item section 10.40 cites is now READ at source at n = 3,
+with where n enters it: 10.40's hedge on delta is gone, delta = 0 being admitted, and the shift in (13.30a) at n = 4
+is computed. Not done, and OPEN: the readings of (e) at n = 4; his scaled bounded geometry paper (READ (c)); his
+section 11. Nothing of this section is proved: Proposition 10.38 is computed, and (a)-(e) are deduced.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
