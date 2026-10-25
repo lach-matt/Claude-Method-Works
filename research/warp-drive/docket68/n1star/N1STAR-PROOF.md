@@ -8214,11 +8214,11 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 55 name the places where the dimension changes the proof, 155 places in all, and 6 name
-none: the step is the source proof as it stands. The 162 placements of the five-dimensional values are: 59 at a computed
-check, 80 at an earlier section where they are computed or deduced, 22 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 55 name the places where the dimension changes the proof, 167 places in all, and 6 name
+none: the step is the source proof as it stands. The 174 placements of the five-dimensional values are: 60 at a computed
+check, 88 at an earlier section where they are computed or deduced, 25 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
-R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 37 rows say they rest on a reading -- of a source
+R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 39 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
@@ -8236,7 +8236,9 @@ inputs. D156's (10.75 (xl)-(xliii)) named eight more places, for 10.21 (a) and 1
 named six more places, for 10.23 (b)-(d), from tface5.py and cpmodes5.py. D159's (10.75 (xlvii)-(xlviii)) named three
 more places, for 10.19 (a) and 10.55 (b). D160's (10.75 (xlix)-(lii)) named fourteen more places, for 10.43 (c), 10.45
 (b), 10.45 (e) and 10.61 (b), 10.43 (c) having had none, and marked 10.45 (b) and 10.61 (b) as resting on readings:
-[Hin26c] Proposition 13.18 and Corollary 13.17 and [Hin26] section 9's solution theory at n = 4.
+[Hin26c] Proposition 13.18 and Corollary 13.17 and [Hin26] section 9's solution theory at n = 4. D161's (10.75
+(liii)-(lv)) named twelve more places, for 10.46 (a), 10.46 (b) and 10.61 (c), and marked 10.46 (b) and 10.61 (c) as
+resting on readings, as (xlix)-(l) found.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8253,7 +8255,7 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Fifty-two modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D160)
+### 10.75 Fifty-five modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D161)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
@@ -8929,20 +8931,70 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      solution chi_K g-dot^Ups_b(m-dot) + u~, u~ decaying at K+, the mass change removed by the final mass. At n = 4 the
      iota+ cap is 3/2 + (1 - e_Ups) gam_Ups (10.45 (d)), the weight at I+ 10.46 (e)'s, and the readings (xlix)'s.
 
-So fifty-two of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Thirty-two of the fifty-two take a reading among their inputs (B-MAP.tsv's
+ (liii) 10.46 (a), [Hin26] Proposition 11.51 in the class (pp. 262-272; D161). His proof inducts on the K+ order alpha_K
+     in eps_K steps from Corollary 11.46. Part 1 takes u at K+ order alpha'_K - 2 from the hypothesis, (11.19) for L -
+     L_b, Proposition 11.16 at I+ (11.159), and the leading iota+ term by (11.119a)-(11.119b), its logarithmically
+     divergent part absent since u decays; the zero energy piece by Proposition 2.25 (1) and Proposition 10.6 (11.162),
+     the parameter components vanishing; the tf expansion of sigma^-1 f-hat_2 removed term by term by Proposition 9.30,
+     whose most singular output (11.165a) transforms to t*^(-lam+1)(log t*)^k h_b,s1(S-dot^(lam-1,k)_1) (11.167) -- zero
+     below the hypothesis's order, new in the next eps_K window, a remainder above it -- and the conormal tf error by
+     Proposition 9.35; the sub-leading zero energy piece (11.172); Proposition 9.35 again, [Hin26c] Proposition 13.18,
+     (2.26a) and Proposition 2.25 (2) for (11.178). Part 2 removes each new term by S^(lam-1,k)_1 through the corrected
+     equation (11.182), the map from the parameter to the total coefficient being the identity plus o(1); E~'_++ is
+     built by (11.186). In the class, at n = 4: every term Part 1 uncovers below K+ order 1 + alpha_min is a
+     centre-of-mass motion t*^(-lam+1)(log t*)^k h_b,s1(S-dot), S-dot in S_1, which has no G-fixed element (Proposition
+     10.40 (ii)), so S-dot = 0 for G-invariant f, each coefficient being unique and so G-equivariant in f; the G-fixed
+     pure gauge types of Proposition 10.42 (ii) first enter at K+ order alpha_min, so no gauge parameter is needed below
+     it; the final parameters are the mass (10.43 (b)); the induction runs from 10.45 (c)'s base, K+ order in (1, 1 +
+     eps_K), with one order of loss (10.45); and the inputs are (xlix)'s -- Propositions 11.14 and 11.16 at n = 4, the
+     iota+ cap and E-sharp_+'s least elements (10.44 (d), 10.45 (d)), Proposition 2.25 on R^n, Proposition 10.6 with the
+     mass alone, 10.24's roots, d mu_b = |dx|/|x|^4 -- the leading iota+ terms taken in increasing order, the radiative
+     ones from 3/2 + (1 - e_Ups) gam_Ups before the mass's at 4. It rests on (xlix)'s readings, with Proposition 9.35 as
+     in (l).
+
+ (liv) 10.46 (b), [Hin26] Theorem 11.59 in the class (pp. 273-292; D161). His proof: Part 1 sharpens Proposition 11.51,
+     allowing the later modification terms and recording the iota+ expansion (11.204) through Proposition 9.30 (2) and
+     Proposition 2.25 (2); Part 2 extracts the t*^-1 (log t*)^k terms -- Proposition 11.16 at I+ (11.207), Proposition
+     9.11 at lam = 1 for the leading iota+ term, whose pure gauge outputs (11.208) are kept, the zero energy pieces
+     through the augmentation L~'_b of (10.41), Propositions 9.30 and 9.35 at tf, [Hin26c] Proposition 13.18 and the
+     singular parts (10.38)-(10.39), giving (11.219) -- and removes them by the parameters (11.205) through (11.220),
+     the map the identity plus o(1); Part 3 repeats this to K+ order 2 + eps_K, the terms of (9.39b) of order at most 2
+     being pure gauge, and the logarithmic zf term of Remark 10.8 removed by S^(0),(2,0)_0; Part 4 records every term
+     below K+ order 4 + eps_K -- (11.223) from Proposition 9.11, the polyhomogeneous terms of the tf inversions, the
+     conormal ones of Proposition 9.35 and of L~'_b(sigma)^-1 -- which make u_exp (11.196b). In the class, at n = 4
+     (10.46 (b)): the lists are the G-fixed ones of Proposition 10.42 (ii) -- S^(0)_0, S^(c0)_0 and S^(0)_2 eliminated
+     at K+ order at most 2, the rest recorded below 3 + eps_K -- with one order of loss and the target 3 + eps_K for his
+     4 + eps_K, so Parts 3-4 stop one order earlier; the v1, s1 and boost terms are absent, S_1, V_1 and so(4) having no
+     G-fixed element (10.43 (b), Proposition 10.40 (ii)); no physical state enters below 3 + eps_K (10.46 (b)); and the
+     inputs are (liii)'s. Whether the mass state's borderline decay, r^-2 in four space dimensions, brings Remark 10.8's
+     sigma log |sigma| term at n = 4 is 10.35 (b)'s reading; if it does, S^(0),(2,0)_0, G-fixed, removes its t*^-2
+     h^(0)_b,s0 as his. It rests on (liii)'s readings and 10.35 (b)'s.
+
+ (lv) 10.61 (c), [Hin26] Proposition 11.51, Theorem 11.59 and Corollary 11.66 without the class (pp. 262-295; D161).
+     (liii)'s and (liv)'s proofs without the class's restrictions, and Corollary 11.66's: Definition 11.63's
+     augmentation #5 with q-vec (11.227), Lemma 11.65 -- L_b h_b,rem(q-vec) of K+ order 4 + eps_K by (9.37), each t*
+     derivative gaining an order -- and Theorem 11.59 rephrased through (11.231), with tame estimates. At n = 4 (10.61
+     (c)): the centre-of-mass motions of Proposition 11.51 have S-dot^(lam-1,k)_1 in S_1 = R^4 (10.66 (g)); the lists of
+     Theorem 11.59 are Proposition 10.46's -- six pure gauge classes eliminated at K+ order at most 2, fourteen
+     recorded, the physical s2, v2 and t2 at -2 with T_2 added (10.34 (a), (c)) -- in place of (9.39b)'s at lam = 1 and
+     his (11.196b), at the threshold 4 + eps_K, every recorded term's L_b-image of K+ order above 4 (Proposition 10.46),
+     which is Lemma 11.65's (11.232); his rotations of the axis, V_1, are so(4)'s (10.36); the logarithmic time
+     reparameterization (11.188) and the identities (11.187) and (11.189) are pure gauge identities free of n; Remark
+     10.8's logarithm is 10.35 (b)'s question; and the inputs are (l)'s. It rests on (l)'s readings.
+
+So fifty-five of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Thirty-five of the fifty-five take a reading among their inputs (B-MAP.tsv's
 column `reading`: 10.15 (a), 10.19 (a), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b), 10.28 (a),
 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e),
-10.45 (b), 10.45 (e), 10.46 (e), 10.47 (d), 10.47 (e), 10.55 (b), 10.56 (b), 10.61 (b), 10.62 (b), 10.62 (c), 10.62 (d),
-10.40 (a)), and rest on the census through that input, not through their own steps (the sixty-first verifier; D149).
-Where an item cites a row still on the census as an input ((iii) cites 10.19 (d); (xviii) cites 10.53 (e); (xxiv) cites
-10.62 (b), on 10.61 (c); (xxxvii) cites 10.61 (c); (xxxviii) cites 10.46 (b); (xxxix) cites 10.46 (b); (xl) cites 10.58
-(c); (xlv) cites 10.22 (e); (xlvii) cites 10.19 (d); (xlviii) cites 10.19 (d), 10.53 (e); (xlix) cites 10.58 (c); (li)
-cites 10.46 (a), 10.46 (b)), it rests on the census through that row in the same way. Two, (iii) and (xxvi), replace the
-source proof by a computation rather than carry it. The other 9 carry proofs of several pages each, in [Hin26] sections
-11.7-11.8, [Hin26c] sections 5, 7-11 and 13, and [Hin26a] section 5; writing those out is what remains of 8.8.
+10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.55 (b), 10.56 (b), 10.61 (b), 10.61 (c),
+10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the census through that input, not through their own steps (the
+sixty-first verifier; D149). Where an item cites a row still on the census as an input ((iii) cites 10.19 (d); (xviii)
+cites 10.53 (e); (xl) cites 10.58 (c); (xlv) cites 10.22 (e); (xlvii) cites 10.19 (d); (xlviii) cites 10.19 (d), 10.53
+(e); (xlix) cites 10.58 (c)), it rests on the census through that row in the same way. Two, (iii) and (xxvi), replace
+the source proof by a computation rather than carry it. The other 6 carry proofs of several pages each, in [Hin26c]
+sections 5, 7-11 and 13, and [Hin26a] section 5; writing those out is what remains of 8.8.
 
-Labels: READ (the fifty-two source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+Labels: READ (the fifty-five source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)

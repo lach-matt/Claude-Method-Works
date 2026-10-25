@@ -2121,3 +2121,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   read at source (pp. 231-262). Section 9's iota+ and tf solution theory (Corollary 9.12, Propositions 9.11, 9.30 and
   9.35) enters at n = 4 as a reading, beside [Hin26c] Proposition 13.18 and Corollary 13.17 (10.58 (c)).
   Fifty-two of 61 written out, thirty-two on a reading; 9 rest on the censuses.
+- D161 (10.75 (liii)-(lv)): [Hin26] sections 11.7-11.8 -- Proposition 11.51, Theorem 11.59 and Corollary 11.66 -- in
+  the class (10.46 (a)-(b)) and without it (10.61 (c)), read at source (pp. 262-295): the centre-of-mass motions in S_1
+  = R^4, absent in the class; Proposition 10.46's lists (10.42 (ii)'s in the class) for (9.39b)'s; Lemma 11.65 by
+  Proposition 10.46's L_b-images. Fifty-five of 61 written out, thirty-five on a reading;
+  6 rest on the censuses, none in [Hin26].

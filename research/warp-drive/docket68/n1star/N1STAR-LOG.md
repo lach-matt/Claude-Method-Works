@@ -4363,3 +4363,10 @@ R^4, b in R + so(4), the boost's iota+ order 2, the unweighted density |dx|/|x|^
 (Corollary 9.12, Propositions 9.11, 9.30, 9.35) is a reading at n = 4, as (xxxvii) found for Corollary 9.18; so is
 [Hin26c] Proposition 13.18. Fourteen places named. Fifty-two of 61 written out, thirty-two on a reading; 9 rest on the
 censuses.
+
+**D161 (2026-10-25): [Hin26] sections 11.7-11.8 written out.** Proposition 11.51's induction, Theorem 11.59's
+four parts and Corollary 11.66 with Lemma 11.65, read at source (pp. 262-295) and matched in the class (10.46 (a)-(b))
+and without it (10.61 (c)): S_1 = R^4 and so(4), absent in the class; Proposition 10.46's lists, or 10.42 (ii)'s, in
+place of (9.39b)'s; one order of loss in the class; Remark 10.8's logarithm 10.35 (b)'s question. Twelve places named.
+Fifty-five of 61 written out, thirty-five on a reading; 6 rest on the censuses, none
+in [Hin26]: [Hin26c]'s sections 5 and 7-13 and [Hin26a]'s Theorem 5.2.
