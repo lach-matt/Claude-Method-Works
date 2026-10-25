@@ -4895,3 +4895,18 @@ the backward window factor counted once, q_1 >= beta_0 on O_0, relative compactn
 of [Hin21] quoted verbatim. On the D200 repairs to Part II.C all correct; one nit, C'(1 + C/2) <= 1/2 (as C^l <= 2 + C),
 stated. All seated. The verifier did not check [HPS77]'s numbering of definitions. Status: Parts I.A-I.C, II.A, II.A'
 proved; II.B, II.C and II.C' verified. Next: Part II.D ([Hin26c] section 7.1), in writing (D202).
+
+**D202 (2026-10-25): Part II.D written.** `proof5/PART-II-D-REGULARITY.md`, [Hin26c] section 7.1 at n = 4 (pp. 114-127):
+Theorem 1.2, the source's Proposition 7.1, with Pu in H^s, one derivative lost at the trapped set. Section 2: Lemma 2.1
+(the term JL), 2.2 (iteration), 2.3 (symbol identity to commutator inequality), 2.4-2.5 (norms through symbols; they
+replace a Garding lemma with margin and its corollary). Section 3: the horizon, the two radial sets over dK+, Lemma 3.4
+((7.22) at n = 4), the two radial sets at I+. Section 4: Lemma 4.1 makes the hypersurfaces of Part II.C' defining
+functions, H phi^u = -w_u phi^u + r_u rho^2 G and H phi^s = w_s phi^s + r_s rho^2 G, by Hadamard's lemma; Proposition 4.2
+([Hin26c] 7.10) by a damped equation for Phi_u u (no threshold), a commutator with Phi_u that bounds u near {phi^s = 0}
+by sqrt(delta), a propagation estimate with the weight |phi^s|^(-beta), beta < 1/2, and their combination, which closes
+as delta^(1/2 - beta) -> 0; one regulariser, kappa = 2, half steps in the order. Section 5: the assembly in six steps,
+finite times controlled away from dR_I+,out, which Step 6 controls at once with t_+ = infinity. Section 6: findings
+(D1)-(D8), among them three faults of the source's Proposition 7.9 (reversed time cut-offs, statement (4), the sign of H
+t_* off the characteristic set for finite t_+) and two factor-2 slips. The draft's (1.4) had Pu in H^(s-1); the source's
+(7.5) has H^s, and so does Theorem 1.2. Not yet read by a verifier. Next: the eighty-fourth verifier on Part II.D; then
+Part II.D' ([Hin26c] section 7.2).

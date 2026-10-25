@@ -23,7 +23,9 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
 | II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200) |
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
-| II.D-F | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
+| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | written (D202) |
+| II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | to do |
+| II.E-F | [Hin26c] 8, 10-13 | energy estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -258,3 +260,20 @@ $\partial_{t_*},\partial_x$; and the smallness of $\epsilon_0$ for the unstable 
 formula in the proof of (S3), the chart constant, $\tau$-derivatives in (T2), a doubled window factor, $q_1\ge\beta_0$
 near $\Gamma$, relative compactness of $Y$, $T_0 = 1$, a quotation of [Hin21]) are seated, and one nit on the D200
 repairs to Part II.C as well (D201); they await the next reader.
+
+## Part II.D
+
+`PART-II-D-REGULARITY.md`. [Hin26c] section 7.1 at $n = 4$: the global edge-3b regularity estimate (Theorem 1.2, the
+source's Proposition 7.1), which loses one derivative at the trapped set. Section 2 adds two tools to the commutator
+machinery of Part II.A$'$: a term $JL$ produced by a cut-off to the characteristic set (Lemma 2.1), and bounds of
+microlocal norms through symbols (Lemmas 2.4-2.5). Section 3 proves the six radial estimates as computations of symbols
+at the radial sets of Part II.B, the weights and fibre inner products entering through the subprincipal symbol of a
+conjugated operator (Lemma 1.1); at $\mathscr I^+$ that symbol is the source's (7.22) at $n = 4$ (Lemma 3.4). Section 4
+proves the estimate at the trapped set, which the source quotes from [Hin21] Theorem 3.9, from the hypersurfaces of Part
+II.C$'$: it is the positive commutator form of the defect-measure proof of Part I.B, with an equation with damping, a
+commutator that gains $\sqrt\delta$ near the stable hypersurface, a propagation estimate with the weight
+$|\phi^s|^{-\beta}$, $\beta<\frac12$, one regulariser and an induction on the order in half steps (finding (D1)). Section
+5 assembles the estimate. Findings (D2)-(D3): in the source's Proposition 7.9 the time cut-offs are reversed, its
+statement (4) fails near the initial time, and the case of a finite final time rests on a sign that fails off the
+characteristic set; the proof here does without that case. Two slips by a factor 2 at $\mathscr I^+$ do not affect the
+inequalities. Written (D202); not yet read by a verifier.

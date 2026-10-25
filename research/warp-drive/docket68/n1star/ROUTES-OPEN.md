@@ -2503,3 +2503,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   W-hat_0 t_*, a citation, epsilon_0 for the unstable hypersurface) and nits, all seated; the D200 repairs confirmed.
 - Open: the D197, D200 and D201 repairs; Parts II.D-II.F and III-VII.
 - Next: Part II.D, [Hin26c] section 7.1 at n = 4.
+
+### 4.125 Part II.D written (D202)
+
+- Part II.D, [Hin26c] section 7.1 at n = 4: the global e3b-estimate, the radial estimates and the estimate at the
+  trapped set, the last proved in full in the present calculus rather than quoted from [Hin21]; findings (D1)-(D8).
+- Open: the D197, D200 and D201 repairs; Part II.D unread; Parts II.D', II.E-II.F and III-VII.
+- Next: the eighty-fourth verifier on Part II.D; Part II.D', [Hin26c] section 7.2.
