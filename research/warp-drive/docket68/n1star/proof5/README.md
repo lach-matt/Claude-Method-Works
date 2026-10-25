@@ -16,7 +16,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | Part | Source | Content | Status |
 |---|---|---|---|
 | I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | seated (D187) |
-| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | in progress |
+| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | written (D188) |
 | I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf-normal operators (9.38), low energy (9.41), 9.39, 9.43 | to do |
 | II | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
@@ -47,3 +47,17 @@ Remark 3.3 that Proposition 5.2 (ii) uses: the limit of the main term was taken 
 now by weak lower semicontinuity of the norm on a bounded sequence; and Step 1 used a commutator with $T_t$ it had not
 bounded, now avoided by splitting $\check A_\epsilon P w_t$ into three terms each bounded directly. Six nits were seated
 with them. Part I.A is labelled proved once the next reader, who reads Part I.B, has checked these two repairs.
+
+## Part I.B
+
+`PART-I-B-HIGHENERGY.md`. [Hin26c] Theorem 9.16 at n = 4, for operators on a trivial bundle of any rank and uniformly in
+the operator. Section 2 proves the semiclassical scattering calculus with matrix-valued symbols and variable orders, for
+which no text could be READ. The estimates follow one positive commutator scheme without regularisation (section 3):
+elliptic and propagation estimates with flow boxes depending on $z$ (section 4); one radial lemma for the horizon and for
+the incoming and outgoing radial sets, with b-regularity at the outgoing one (section 5); the trapped set, through
+matrix-valued defect measures, an entire complex absorption and a three lines lemma (section 6); and an energy estimate
+at the artificial boundary for every $\mathrm{Im}\,z\ge0$ (section 7). Section 8 assembles Theorem 1.3 and section 10
+lists what the write-out found: three slips of the pen in [Hin26c] section 9.3, the diagonal sign of (9.45) again in
+(9.77), and a threshold: [Hin26c]'s $\gamma_-$ divides by the least value of $q$ on the trapped set, which justifies the
+interpolation only when $q$ is constant there, so Part I.B defines $\gamma_\pm$ as the exact thresholds the proof uses
+and assumes $\gamma_-<0$, which Theorem 9.16 (1) needs at real frequencies. Not yet read by a verifier.

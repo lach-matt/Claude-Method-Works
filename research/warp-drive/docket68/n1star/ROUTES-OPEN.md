@@ -2392,3 +2392,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - The D186 repairs read by the seventy-fifth verifier: each confirmed; two minors in Remark 3.3's variant (the limit by
   weak lower semicontinuity; Step 1 without [A_eps, T_t]) and six nits, all seated; no statement changed.
 - Next: Part I.B written in full (`proof5/PART-I-B-HIGHENERGY.md`), then one reader for it and for the two D187 repairs.
+
+### 4.111 Part I.B of the write-out written (D188)
+
+- `proof5/PART-I-B-HIGHENERGY.md` written: [Hin26c] Theorem 9.16 at n = 4 on bundles, uniformly in the operator, with the
+  semiclassical calculus proved in its section 2; nine findings, among them the threshold gamma_- (F4) and the assumption
+  gamma_- < 0 that Theorem 9.16 (1) needs at real frequencies (F5).
+- Next: the seventy-sixth verifier on Part I.B and on the two D187 repairs of Part I.A; then Part I.C.
