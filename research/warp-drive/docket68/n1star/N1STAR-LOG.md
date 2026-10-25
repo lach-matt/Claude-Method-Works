@@ -4924,3 +4924,176 @@ estimate. Section 8: findings (D'1)-(D'8), among them (7.57) and its analogue in
 as inclusions that are false (a counterexample is given; the reverse holds and is what the arguments use), the weights of
 (7.28), and the source's multi-indices for fields that do not commute. Not yet read by a verifier; the eighty-fourth
 verifier is reading Part II.D. Next: seat it; the eighty-fifth verifier on Part II.D'; Part II.E ([Hin26c] section 8).
+
+**D204 (2026-10-25): the eighty-fourth verifier seated; Part II.D verified.** The verifier read Part II.D in full
+against [Hin26c] pp. 114-127 and re-derived every Q_eps, sign and threshold ((7.6), (7.13), (7.17)-(7.19), (7.23)), the
+n = 4 density and adjoint algebra of Lemma 3.4, the arithmetic of (4.3) and (4.8)-(4.13), the half-step induction, the
+covering and section 5's dynamics against Part II.B; (D1)-(D4) confirmed at source and in [Hin21]. No major finding.
+Minor: (1) Step 3 of Proposition 4.2 used the particular case of Lemma 2.5, whose hypothesis fails, as x_1 = Psi_3
+(Q_eps + 2 beta w_s)^(1/2) vanishes where z = F chi_3 does; now the general case, with q_1 = zeta |phi^s|^beta (Q_eps +
+2 beta w_s)^(-1/2) and sup |q_1| <= (2R_3)^beta c_0^(-1/2); (2) in Proposition 3.6, with eta_t = 1 on [0, oo) the e_-
+set could touch the set where B is elliptic, which Lemma 2.2 excludes; now eta_t = 1 on [-1/4, oo) and (4) reads t_* <=
+t_*,- - 1/4. Nits: interiors of the sets U(.) and epsilon' = 2^(J_0+3-j) delta_2 at step j; Lemma 4.1 (d)'s bracket
+formula used only at rho_K = 0; c_us > 0 over dSigma^- by (Gamma.3), so no change of sign; F extended off W; Theta
+constructed. All seated. Taken as stated, not re-proved by the verifier: II.A' Proposition 2.4, Lemmas 4.1-4.2, Theorem
+5.4, II.C' Theorem 1.1. Status: Parts I.A-I.C, II.A, II.A' proved; II.B, II.C, II.C' and II.D verified; II.D' written.
+Next: the eighty-fifth verifier on Part II.D'; Part II.E ([Hin26c] section 8), in writing.
+
+**D205 (2026-10-25): Part II.E written.** `proof5/PART-II-E-ENERGY.md`, [Hin26c] section 8 at n = 4 (pp. 141-157).
+Section 1: slabs {T_0 <= t-flat <= T_1} with initial face t-flat = T_0 and final faces t-flat = T_1, r = r_0; the normal
+form near I+ at n = 4 (Lemma 1.1, the source's (8.3)); the extension of P across r = r_0 and below t-flat = 1 (Lemma
+1.2); pairing, duality and density on slab spaces (Lemma 1.3). Section 2: the energy identity, dominant energy, a
+Poincare inequality with an exponential weight; the K-current of X_0 = x_I^(-4b-2)(d_t* - x_I d_x_I) at n = 4 (Lemma
+2.4: cross term -3, angular -(2b+3), the dt*^2 coefficient -(2b+1) as at n = 3); the estimates near I+ for P with e^(-2
+Phi t*) X_0^(alpha) and for P* with -e^(2 Phi t*) X_0^(-alpha-1), both with the coefficient 12 delta' on zeta_t*^2;
+Proposition 2.7. Section 3: a time function F = t* - kappa x_I'^(2 l_I) whose derivative along the flow is a sum of
+squares modulo the principal symbol near the outgoing radial set over I+ (Lemma 3.1), the localised sink estimate for P
+and source estimate for P* (Proposition 3.2), regularity on nested slabs (Lemma 3.3), and solvability by duality at all
+orders (Proposition 3.4). Section 4: b-regularity on slabs and the tame estimate, on nested slabs with room (Lemma 4.1,
+Propositions 4.3-4.4). Section 5: r-slabs in the interior, energy estimates with e^(2 Phi r) t*^(2 alpha_K) grad r
+(Lemma 5.1), the flow (Lemma 5.2), regularity, solvability and continuation (Lemma 5.3, Proposition 5.4), b-regularity
+with (t* d_t*, d_x, I) and tame (Lemma 5.5, Proposition 5.6). Section 6: Theorem 6.1, the source's Theorem 8.14, from
+the slab Omega_{1,5}, Part II.D' Theorem 1.1 and the interior. Section 7: findings (E1)-(E13), among them the case of
+Proposition 7.9 the source's slab argument uses, the adjoint estimate it leaves to the reader, Theorem 8.14 applying the
+slab results at T_0 = 1 below their range T_0 >= 2, the weights on Pu in (8.46), constant orders in 8.11-8.13 applied
+with variable ones, and the condition alpha_+ < alpha_I - 1/2 omitted from Theorem 8.14. Not yet read by a verifier. The
+eighty-fifth verifier is reading Part II.D'. Next: seat it; Part II.F ([Hin26c] sections 10-13).
+
+**D206 (2026-10-25): the eighty-fifth verifier seated; Part II.D' verified.** The verifier read Part II.D' in full
+against [Hin26c] pp. 127-141, re-derived Lemmas 2.1-2.5, the commutators of sections 3-6 (including the so(4) Casimir
+identity) and the assembly, and confirmed (D'1) (the counterexample) and (D'2) at source. Major: Lemma 4.1 (c), (4.1),
+was false for k >= 2: in the system (2.2) the letter-1 coupling of a word alpha goes to the word 1.(alpha\i), which
+differs from alpha unless i = 1, so the coupling matrix at the horizon is -qN with N not diagonal, and the Hermitian
+part of N is indefinite (eigenvalue -0.207 at k = 2, J = 3, computed by the verifier), so (2.8) fails and the threshold
+rises. Repair: for a letter j commuting with the family, X_j X^(alpha\i) = X^(alpha[i->j]), so the coupling may be
+written into the component alpha[i->j] (2.2'); Lemma 2.1 holds for that form, Lemmas 2.3-2.5 use only its structure, and
+at the horizon, where d_r and t* d_t* commute, the coupling through letter 1 is diag(j_alpha) Q_11, giving (4.1) as
+printed. Minor: (C2) now allows R^(2) = R' + R''X_j (Lemma 6.1 produces D'R_K X_1), with the bound in Lemma 2.3
+unchanged; the tame assembly bounds the terms at d by Steps 1-6 run at k = d, not by (1.1); in (D'3) the source's
+expansion (7.37) is exact, only X_j X^gamma != X^(gamma + e_j) is a gap. Nits: the sign of the double commutator, a term
+of the form Q^(2) X_1 X_1, finite-order parametrix remainders, the citation II.A Lemma 8.5 (b), the sign on dSigma^-,
+the global extension of the families as commutator fields, C_k' vs C_k. All seated. Status: Parts I.A-I.C, II.A, II.A'
+proved; II.B, II.C, II.C', II.D and II.D' verified; II.E written. Next: the eighty-sixth verifier on Part II.E; Part
+II.F ([Hin26c] sections 10-13), in writing.
+
+**D207 (2026-10-25): the eighty-sixth verifier seated; Part II.E verified.** The verifier read Part II.E in full against
+[Hin26c] pp. 141-157, recomputed Lemma 2.4 (the K-current and T-term near I+) with sympy at n = 4 and at n = 3 (where it
+reproduces the source's (8.10), confirming (E9)), re-derived Lemma 2.5's coefficient, Propositions 3.2 and 3.4, sections
+4-6 and Theorem 6.1, and confirmed (E1)-(E13) at source. No major finding. Minor: (M1) admissible orders are slab orders
+only over Omega_*, while Lemma 3.3 (a) at T_0 = 1 propagates below t* = 1 and over [r#, r_0]; the order is extended by
+its own formula II.C (5.3), whose iota+ term is absent there and whose I+ term depends on the eb fibre variables only,
+and its monotonicity there is II.C's computation with Lemma 1.2 (ii); (M2) the collar flow is defined only near
+Omega^-_* at bounded times, so it is applied after a cut-off in t-flat, which changes neither the pairings nor the
+restrictions; (M3) the tame inductions of Propositions 4.4 and 5.6 (b) mixed norms on one slab with words on the next,
+so they now use two nested slabs per step; (M4) WF'(E_+) in {t* >= t_+} does not by itself give t-flat > T_1, which
+holds once the neighbourhood K of I+ is small; (M5) the extended t-flat is defined by the gluing formulae of II.C Lemma
+3.2 with C >= 4(r'_0 + 1), not by Seeley's extension; (M6) Proposition 3.2 assumes t_- - omega_0 >= 1/2. Nits N1-N9
+seated (the null case of Lemma 2.2, the coefficient 8 delta' on extended slabs, p_0 of the commuted system, the
+dependence of d_0, the range of T_0 in Lemma 3.3 (a), b < r-natural + delta_0 in Lemma 5.3, the faces in Lemma 2.3,
+epsilon_{P,2}, the density step in Proposition 3.4). Status: Parts I.A-I.C, II.A, II.A' proved; II.B, II.C, II.C', II.D,
+II.D' and II.E verified. Next: Part II.F ([Hin26c] sections 10-13), in writing as D208.
+
+**D208 (2026-10-25): Part II.F written, [Hin26c] section 10 at n = 4.** proof5/PART-II-F-IOTA.md: the normal operator of
+the stationary model at iota+ (with the factor t*^-2, (F1)) and its Mellin family; the semiclassical 0- and cone
+calculus on iota+ with I.B's positive commutator scheme carried to it; high frequencies without and with b-regularity
+(Proposition 10.6 (2), on families of parameters that keep Re z = +-1, (F2)), every threshold at the four radial sets
+recomputed at n = 4 (the R_cf,out sign, (F4)); bounded frequencies (Proposition 10.6 (1)): Fredholm of index 0 for Im
+sigma > -gamma_I and invertible for Im sigma > -1 - beta_+, through the elliptic estimate, I.C's normal-operator
+estimate at K+, and at I+ the Fredholm property of a compact model from [0C] Theorem 3.4 (READ; the parametrix with
+bounds, constancy of the boundary spectrum not needed), proved by the Schur test; the reduced normal operator inverted
+with modified Bessel functions (DLMF 10.28.2, 10.30.2, 10.40.1-2, READ); the kernel by the Fourier transform in v, a
+conormal Fourier bound proved here, and I.C's tf-admissibility (the source's 1 + Im sigma, (F6)). Forward solutions of
+the normal operator (Proposition 10.12, with the source order s - 1, (F7)); strong uniqueness by a Paley-Wiener-Schwartz
+support lemma at a constant order (Lemma 6.4), the source's comparison needing a variable order it does not have near I+
+(G3), and the extension's control at I+ by rescaling and an auxiliary operator in II.E's class (Lemma 6.3). The modified
+operator P_+ (Proposition 10.14): orders with dilation-invariant error orders and a slack eta_1 (G4), finite-time
+solvability through an auxiliary operator (G5), the radial estimates at cf with a time cut-off (G6), the uniform
+estimate for the approximations and the weak limit. Theorem 10.1 at n = 4 in four steps. Findings (F1)-(F9), gaps
+(G1)-(G7). Status: Parts I.A-I.C, II.A, II.A' proved; II.B, II.C, II.C', II.D, II.D' and II.E verified; II.F written.
+Next: the eighty-seventh verifier on Part II.F; Part II.F' ([Hin26c] section 11).
+
+**D209 (2026-10-25): the eighty-seventh verifier on Part II.F seated; II.F verified.** No major finding; seven minor and
+eight nits, all seated in proof5/PART-II-F-IOTA.md (section 9.4). Minor: Theorem 8.1 Step 0 solves the early part at the
+slab order s + 1 (one order was lost in the cut-off error); Lemma 5.8's weight at I+ is the bounded rho_0f; Lemma 2.2's
+density carries rho_0f^3 near 0f (a weight; conclusions unchanged); Lemmas 7.2 (c) and 7.3 (b): the relative decay
+rho_+^2 of g_0 - gbar at iota+ is the n = 4 value, now cited to II.B Lemma 1.1 (1.2) (the verifier's rho_+ is the
+source's n = 3 Kerr value; (F11)); the absorption step takes T = 2/delta; finite speed of propagation is now Lemma 1.3,
+proved from [BGP] = Bar-Ginoux-Pfaffle, arXiv:0806.1036 (READ: Theorem 3.1.1 p. 68, Remark 3.1.3 p. 72, Definitions
+1.3.5 and 1.3.8, Lemmas A.5.6 and A.5.9), with the monotone functions of Lemma 1.4 (t_*, B = t_* + R~(r), r on the band,
+t-flat, t-flat_+ and the Minkowski t and t -+ r), and used in Lemmas 6.3 and 7.5, Propositions 6.2 (2) and 7.4 (2) and
+Theorem 8.1; [Ho85] remains only for the existence of the Cauchy solution in Lemma 6.3 (cited, not read); the five [0C]
+statements were re-read at source. Nits: (F10) the sign in Theorem 10.1's last display, (F12) cf and tf interchanged,
+(F14) the symbol (10.7); Lemma 1.2's term (i) was misprinted rho.rho for rho (its form tau R^-2 stands); Lemma 6.3's
+smallness lambda^-(1 - l_+) in the e3b class; Proposition 7.4 (2)'s assumptions ordered. Four repairs found while
+seating: Lemma 6.3's slab starts at C' T' and the comparison is made on a region where both solutions live, with no loss
+of time range; Proposition 7.4 (2) runs at the scale mu = min(1, R_0/(3 tau_0)), its hypothesis giving vanishing only
+before 1/tau_0; Lemma 7.3 (b)'s modified metric is localised to R >= 1/2 (it was gbar near K+); Theorem 8.1 is stated
+and proved on Omega_*, where II.F' uses it ((F13)), with tau_0 < C' tau_1 / 2. Part II.E gains (E14): its tame
+Propositions 4.4 and 5.6 (b) use the simultaneous extension of II.F' Lemma 2.5. Status: Parts I.A-I.C, II.A, II.A'
+proved; II.B, II.C, II.C', II.D, II.D', II.E and II.F verified.
+
+**D210 (2026-10-25): Part II.F' written, [Hin26c] section 11 at n = 4.** proof5/PART-II-F2-TAME.md: Theorem 11.1 on
+Omega_*, forward solutions of admissible wave-type operators on b-Sobolev spaces with decay at I+, iota+ and K+, tame in
+the b-regularity, as the weak limit of the forward solutions of P_epsilon (equal to P up to time ~1/epsilon, to P_0
+after), with the estimate for P_epsilon uniform in epsilon from II.E Theorem 6.1, II.F Theorem 8.1 and the slabs of
+II.E; Corollary 1.2 (unweighted b-densities); Remarks 11.2-11.4. Written out where the source passes over them: the
+order margin 3 + delta + aleph (the source's 2 + delta + max(1, aleph) misses II.F Theorem 8.1's hypotheses two orders
+down when aleph >= 1); cut-offs in t-flat, whose level sets carry the slabs; and a simultaneous Seeley extension across
+r = r_0, bounded at every order of b-regularity, where the order is a constant integer. Findings (F'1)-(F'12). Not
+carried: the statement on Omega (principal part that of Kerr); uniformity in P_0, open until a later part needs it.
+Status: Parts I.A-I.C, II.A, II.A' proved; II.B-II.F verified; II.F' written. Next: the eighty-eighth verifier on the
+D209 repairs and Part II.F'; Part II.G ([Hin26c] section 12, the Nash-Moser iteration, with the (12.7) finding).
+
+**D211 (2026-10-25): Part II.G written, [Hin26c] section 12's tools.** proof5/PART-II-G-NASHMOSER.md: Theorem 2.1, the
+Nash-Moser theorem in the form of [Hin26c] Theorem 12.4 (supports tracked by subspaces B^k_eta), proved by the iteration
+u_{j+1} = u_j - S_{theta_j} Psi(u_j) Phi(u_j), theta_j = theta_0^{(3/2)^j}, with ||Phi(u_j)||_2d <= theta_j^-(8d+2),
+|u_j|_N <= theta_j^(4d+2), N = 21d + 6, convergence in every B^k by interpolation through the smoothing operators, and
+the support in B_{eta_0/2} from the closedness of the subspaces ([SR89] and [Hin24a] not read, not used). Proposition
+3.1 (Proposition 12.6): smoothing operators on w H_b^k(Omega_eta)^{bullet,-}, from a Fourier smoothing with a spatial
+localiser, Seeley extension at the extendible faces, charts at {|t| <= c_1} in which t is a coordinate (b-cells near
+I+), and a cut-off in t that leaves the rest without support control; Example 3.2 checks the hypotheses on Omega_* with
+t = t-flat - 1. Lemma 4.1 (Lemma 12.8): Sobolev, products and nonlinear functions, tame, from Gagliardo-Nirenberg read
+off the Fourier transform. Section 5: the section 12.1 weights at n = 4, 0 < eps_I < eps_+ < 1, pointwise decay
+rho_I^(3/2 - eps_I) rho_+^(3/2 - eps_+) rho_K^(1/2); Theorems 12.2-12.3 and the model problems not carried (12.3 due in
+Part III with aleph > 0). Findings (H1)-(H9): (12.7) and Theorems 12.9, 12.11 reverse eps_+ vs eps_I against Theorem
+11.1's beta_+ < beta_I; Theorem 12.4 needs closed subspaces for the support of its solution, and its support hypothesis
+on Phi is over-stated; Theorem 12.12's beta_+ sign; Proposition 12.6's localiser support, its charts in {t > 0}, and
+Example 12.7's global t-bar; the Nash-Moser loss; Lemma 12.8 (3)'s space. Status: Parts I.A-I.C, II.A, II.A' proved;
+II.B-II.F verified; II.F' and II.G written. Next: seat the eighty-eighth verifier; Part II.G' ([Hin26c] section 13,
+improving decay).
+
+**D212 (2026-10-25): the eighty-eighth verifier seated.** It read the D209 repairs to Part II.F and Part II.F' in full,
+with sympy checks (density, the (F14) symbol, Lemma 2.3's margins, Theta's bounds, Lemma 6.3's inequality). Verdict:
+the II.F repairs pass; II.F' passes with one statement repair. Major 1 (II.F' Theorem 1.1): uniqueness was claimed in
+H^{s'} for every s', but Lemma 2.2 needs the smallness of II.E Proposition 3.4 (i), whose d_0 depends on s'; the class
+is restricted to s' >= s_u = inf s - 2, and that smallness joins section 3.1 (d^U_0 in D_0). Minor 1 (II.F Lemma 6.3):
+the time cut-off is scaled, psi~(t_*/lambda). Minor 2 (II.F Lemma 6.4, Proposition 6.2 (1)): the bound on Im sigma >=
+max(0, -gamma_+) by the invertibility, in the strip below by the support; the contour moves to gamma >= max(2,
+-gamma_+). Minor 3 ((E14)): II.E's tame bounds (4.4), (5.6) (b) and (6.2) are stated for orders constant and in N_0 near
+the extension face; II.F' 8.2 (b) amended. Nits: Lemma 1.3's tangent sign and its [BGP] citation (A.5.9), Lemma 6.3's
+open cover, a vacuous clause of Lemma 7.5, (F'4)'s addendum, Lemma 2.2's forward reference. Recorded in II.F section 9.5
+and II.F' section 8.4. Status: Parts I.A-I.C, II.A, II.A' proved; II.B-II.F' verified; II.G written. Next: Part II.G'
+([Hin26c] section 13); the eighty-ninth verifier on the D212 repairs and Part II.G.
+
+**D213 (2026-10-25): the eighty-ninth verifier seated.** It read Part II.G line by line and the D212 repairs, with a
+sympy script of 24 exponent identities and inequalities for the Nash-Moser iteration (all hold). Verdict: Theorem 2.1 a
+complete proof; Proposition 3.1 and Lemma 4.1 correct up to presentation; the D212 repairs correct and complete, the
+restricted uniqueness class consistent with every later use. No major. Minors: (H2) and (H7) withdrawn as misreadings
+of the source (its B^k_0 is the whole space; its rho_H^eps hypothesis holds in Example 12.7); (T3)'s first clause, false
+in Example 3.2 and unused, deleted; the orthant norm equivalence of Step 4 and the identification of B^k_0 with II.F'
+(1.2) written out (Seeley; II.F' Lemma 2.5). Nits: citations (Seeley, r'_0, (1.4)), t on all of M', the covers, (H3)'s
+description of the applications, (H9), the closure in (T2), and how P acts in II.F' Theorem 1.1's uniqueness class.
+Recorded in II.G section 6.3. Status: Parts I.A-I.C, II.A, II.A' proved; II.B-II.G verified. Next: Part II.G'
+([Hin26c] section 13), then one verifier on it with the D213 repairs.
+
+**D214 (2026-10-25): Part II.G' written.** `proof5/PART-II-G2-DECAY.md`, [Hin26c] section 13 at n = 4, in seven
+sections: the Fourier transform on the line (Definition 2.1 to Proposition 2.8, the lossy transform of Corollary 13.7
+proved directly, with the Taylor terms indexed by the weight), on the resolved product spaces (Lemma 3.1 to Proposition
+3.5, the zf expansion extracted by Taylor's formula in sigma at fixed x), the resolvent bounds (Lemma 4.1 to Proposition
+4.7, shifts 3 and 2, threshold 3/2 + S-bar, the high-energy bound proved from I.B Theorem 1.3 through a semiclassical
+comparison lemma, radii c_k), the radiation field (Lemma 5.1 to Proposition 5.4: the normal form with indicial root 3/2,
+transport along W, the coefficient of r^(-3/2)), what is not carried (Theorem 13.21, Remarks 13.1, 13.15, 13.22, the
+figures) with uniformity reduced to Part I's, and findings (J1)-(J13) with the sources. The source's [Tay11a], complex
+interpolation and [Hin26b] Lemmas 2.12 and 2.23 are replaced by lemmas proved here. Status: Parts I.A-I.C, II.A, II.A'
+proved; II.B-II.G verified; II.G' written. Next: the ninetieth verifier on Part II.G' and the D213 repairs; then Part
+III.

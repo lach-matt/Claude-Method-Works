@@ -1041,56 +1041,65 @@ dimensions it changes them at the radiation order. [CD03]'s gluing needs its par
 below r^(−3/2); its other uses of it fall on the Myers–Perry metrics glued to, which meet it. [Hin26a]'s calculus is
 constructed in every dimension [Hin23d, Hin26d], and each positive commutator in its section 5.2 is an identity of
 symbols whose sign is a positivity computed in five dimensions. A second census by another method agrees: a sweep of
-every marker of the dimension on every page of the carried passages finds 278, all accounted for but one norm convention,
-now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive those papers line by line: that
-the censuses found every place the dimension enters is evidenced by the two methods agreeing and read at source, page by
-page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 are arguments from computed inputs, inputs
-READ at source, and readings — statements of the companion papers at n = 4 that the modification steps carry, on which 34
-of those steps rested until each was settled, written out or READ — each read by an independent verifier, not proofs
-written out at the level of the theorem's statement. Inventoried by a fixed rule, the 248 deduced steps are 90 pieces of
-bookkeeping on computed values, 29 applications of results printed for general n, 31 perturbation or continuity
-arguments, 38 other, and 60 proofs written in 3 + 1 dimensions and carried to five by modification, 61 with one undecided
-step that supplement section 10.73 reads so. Those 61 are the core of what a line-by-line check would write out
-(supplement sections 10.70 and 10.74, `DEDUCTIONS.tsv`, `B-MAP.tsv`). The perturbation steps are now at proof level given
-their continuity inputs. They rest on five lemmas — openness of invertibility, semicontinuity of the kernel, persistence
-of strict inequalities, Rouché and the inverse function theorem — of which the first three are proved in the supplement
-and the last two are cited, and on continuity statements read from the sources (supplement section 10.71). The
-applications of general-n results have every hypothesis placed, three of them now read at source (supplement section
+every marker of the dimension on every page of the carried passages finds 278, all accounted for but one norm
+convention, now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive those papers line by
+line: that the censuses found every place the dimension enters is evidenced by the two methods agreeing and read at
+source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 are arguments from
+computed inputs, inputs READ at source, and readings — statements of the companion papers at n = 4 that the modification
+steps carry, on which 34 of those steps rested until each was settled, written out or READ — each read by an independent
+verifier, not proofs written out at the level of the theorem's statement. Inventoried by a fixed rule, the 248 deduced
+steps are 90 pieces of bookkeeping on computed values, 29 applications of results printed for general n, 31 perturbation
+or continuity arguments, 38 other, and 60 proofs written in 3 + 1 dimensions and carried to five by modification, 61
+with one undecided step that supplement section 10.73 reads so. Those 61 are the core of what a line-by-line check would
+write out (supplement sections 10.70 and 10.74, `DEDUCTIONS.tsv`, `B-MAP.tsv`). The perturbation steps are now at proof
+level given their continuity inputs. They rest on five lemmas — openness of invertibility, semicontinuity of the kernel,
+persistence of strict inequalities, Rouché and the inverse function theorem — of which the first three are proved in the
+supplement and the last two are cited, and on continuity statements read from the sources (supplement section 10.71).
+The applications of general-n results have every hypothesis placed, three of them now read at source (supplement section
 10.72). The 38 others, read one by one, are twelve with no step of their own, 25 at proof level given their inputs —
 among them steps by symmetry and sums over harmonics, put there by two lemmas proved in the supplement — and one more
 modification step (supplement section 10.73; `synth5.py`). Each of the 61 modification steps lists the places where the
-dimension changes its proof — 57 name some, 4 none, the proof being the source's as it stands — and each five-dimensional
-value there is computed, deduced in an earlier section, arithmetic in n, or the record's choice (supplement section
-10.74, `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those places, which is the
-census question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i), but for one step, which
-rests on a modification step and so on the census (supplement section 10.73). All 61 are now written out step by step at
-n = 4 — forty-five with source proofs of at most about seven pages (two replaced by a computation), sixteen on longer
-runs of proof, [Hin26] sections 11 and 12, [Hin26c] sections 5, 7–11 and 13 and [Hin26a] section 5.2 — so their own steps
-rest on their inputs and not on a census, though thirty-four took a reading among those inputs, a statement at n = 4
-whose proof was not written out. Traced to their roots, the readings were ten statements, and each is now settled,
-written out or READ: the record's own five, among them the damped operator's threshold at the horizon, by computation,
-and what the rows use of the zero energy pole, by deduction; two groups of companion results, written out at n = 4; one
-READ for general n; and two steps the source takes at every n without writing them out, on which his own theorem in 3 + 1
-dimensions rests too -- the passage from scalar operators to operators on bundles, which he leaves to the reader, and the
-uniformity of the estimates under small perturbations, which he asserts -- both written out site by site, the sites
-checked by a second census, and each proof of his spectral theory that the route uses re-run on bundles with the changes
-in -- a re-run that found one sign slip in the source, in the commutator behind the b-regularity at the outgoing radial
-set, repaired without change to the statement (supplement sections 10.75 and 10.77–10.86, `READINGS.tsv`, `hthresh5.py`,
-`tfnorm5.py`, `iotasol5.py`, `bundlesweep.py`, `bundle5.py`, with a lemma at the horizon proved in section 10.76). λ1 and
-δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not
-a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a
-theorem. That write-out has begun: the proof written in full at n = 4, self-contained, part by part. Its first three
-parts -- Hintz's spectral theory at bounded nonzero, at high and at low frequencies, on bundles and uniformly in the
-operator -- are written, read line by line, their repairs read again, and proved. So are the fourth, the setup of his
-spacetime analysis, and the fifth, which proves the two standard estimates that the fourth takes as inputs; one finding
-of the fourth corrects the hypothesis of his real principal type estimate on the variable order, which as printed admits
-a counterexample. The sixth, the dynamics of light rays in the stationary model, the seventh, the classes of operators,
-the time function and the order functions of his spacetime analysis, and the eighth, the trapped sets of the perturbed
-metrics, proved here without the theorem on normally hyperbolic trapping that he cites, have been read line by line and
-their findings seated (supplement `proof5/`). The ninth, his microlocal regularity estimate on spacetime, with the radial
-estimates and the estimate at the trapped set, which he quotes from his earlier paper and which is proved here in the
-present calculus, is written, and so is the tenth, that estimate with b-regularity and in the tame form his iteration
-uses. Theorem 4 stays deduced until the last part is proved.
+dimension changes its proof — 57 name some, 4 none, the proof being the source's as it stands — and each
+five-dimensional value there is computed, deduced in an earlier section, arithmetic in n, or the record's choice
+(supplement section 10.74, `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those
+places, which is the census question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i),
+but for one step, which rests on a modification step and so on the census (supplement section 10.73). All 61 are now
+written out step by step at n = 4 — forty-five with source proofs of at most about seven pages (two replaced by a
+computation), sixteen on longer runs of proof, [Hin26] sections 11 and 12, [Hin26c] sections 5, 7–11 and 13 and [Hin26a]
+section 5.2 — so their own steps rest on their inputs and not on a census, though thirty-four took a reading among those
+inputs, a statement at n = 4 whose proof was not written out. Traced to their roots, the readings were ten statements,
+and each is now settled, written out or READ: the record's own five, among them the damped operator's threshold at the
+horizon, by computation, and what the rows use of the zero energy pole, by deduction; two groups of companion results,
+written out at n = 4; one READ for general n; and two steps the source takes at every n without writing them out, on
+which his own theorem in 3 + 1 dimensions rests too -- the passage from scalar operators to operators on bundles, which
+he leaves to the reader, and the uniformity of the estimates under small perturbations, which he asserts -- both written
+out site by site, the sites checked by a second census, and each proof of his spectral theory that the route uses re-run
+on bundles with the changes in -- a re-run that found one sign slip in the source, in the commutator behind the
+b-regularity at the outgoing radial set, repaired without change to the statement (supplement sections 10.75 and
+10.77–10.86, `READINGS.tsv`, `hthresh5.py`, `tfnorm5.py`, `iotasol5.py`, `bundlesweep.py`, `bundle5.py`, with a lemma at
+the horizon proved in section 10.76). λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's
+estimates — and are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the
+deductions written out, would make Theorem 4 a theorem. That write-out has begun: the proof written in full at n = 4,
+self-contained, part by part. Its first three parts -- Hintz's spectral theory at bounded nonzero, at high and at low
+frequencies, on bundles and uniformly in the operator -- are written, read line by line, their repairs read again, and
+proved. So are the fourth, the setup of his spacetime analysis, and the fifth, which proves the two standard estimates
+that the fourth takes as inputs; one finding of the fourth corrects the hypothesis of his real principal type estimate
+on the variable order, which as printed admits a counterexample. The sixth, the dynamics of light rays in the stationary
+model, the seventh, the classes of operators, the time function and the order functions of his spacetime analysis, and
+the eighth, the trapped sets of the perturbed metrics, proved here without the theorem on normally hyperbolic trapping
+that he cites, have been read line by line and their findings seated (supplement `proof5/`). The ninth, his microlocal
+regularity estimate on spacetime, with the radial estimates and the estimate at the trapped set, which he quotes from
+his earlier paper and which is proved here in the present calculus, the tenth, that estimate with b-regularity and in
+the tame form his iteration uses, and the eleventh, his energy estimates on bounded time slabs and in the black hole
+interior, with the global estimate at high frequencies they give, have been read line by line too and their findings
+seated. The twelfth, his analysis at future timelike infinity -- the normal operator there, its spectral family at
+bounded and high frequencies, its forward solutions, and the forward solutions of the stationary model on the spaces his
+iteration uses -- has been read line by line and its findings seated. The thirteenth, the forward solutions of the
+perturbed wave operators with estimates tame in the regularity, and the
+fourteenth, the Nash-Moser theorem with the smoothing operators and tame bounds it needs, proved here rather than quoted,
+have been read line by line and their findings seated. The fifteenth, the Fourier transform in time on the weighted
+spaces, his resolvent bounds translated into them and the radiation field at null infinity, by which forward solutions
+are shown to decay faster, is written. Theorem 4 stays deduced until the last part is proved.
 
 ---
 
@@ -1919,6 +1928,9 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the eighty-first Part II.B and the D196 repairs (D197) |
 | | the eighty-second Part II.C (D200) |
 | | the eighty-third Part II.C′ and the D200 repairs (D201) |
+| | the eighty-fourth Part II.D (D204) |
+| | the eighty-fifth Part II.D′ (D206) |
+| | the eighty-sixth Part II.E (D207) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -2004,7 +2016,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `f5111e31efdaecb103d5c5cd348a4c14` |
+| `docket68/n1star/N1STAR-LOG.md` | `e2dc1d2c3d67a0e548035ceaa8178692` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2080,5 +2092,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |
+| `docket68/n1star/proof5/PART-II-F-IOTA.md` | `58afe762b8bc571772529dd37ebae2cd` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

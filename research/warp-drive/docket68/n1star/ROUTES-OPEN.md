@@ -2518,3 +2518,106 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (D'1)-(D'8).
 - Open: the D197, D200 and D201 repairs; Parts II.D and II.D' unread; Parts II.E-II.F and III-VII.
 - Next: seat the eighty-fourth verifier on Part II.D; the eighty-fifth on Part II.D'; Part II.E, [Hin26c] section 8.
+
+### 4.127 Part II.D verified (D204)
+
+- The eighty-fourth verifier on Part II.D: no major finding; two minor (Lemma 2.5 in its general form in Step 3 of
+  Proposition 4.2; the support of the time cut-off's term in Proposition 3.6) and six nits, all seated; (D1)-(D4)
+  confirmed at source.
+- Open: the D197, D200, D201 and D204 repairs; Part II.D' unread; Parts II.E-II.F and III-VII.
+- Next: the eighty-fifth verifier on Part II.D'; Part II.E, [Hin26c] section 8, in writing.
+
+### 4.128 Part II.E written (D205)
+
+- Part II.E, [Hin26c] section 8 at n = 4: solvability with energy estimates on time slabs and in the black hole interior,
+  with b-regularity and tame, and the global estimate at high frequencies (Theorem 8.14); findings (E1)-(E13).
+- Open: the D197, D200, D201 and D204 repairs; Parts II.D' and II.E unread; Parts II.F and III-VII.
+- Next: seat the eighty-fifth verifier on Part II.D'; Part II.F, [Hin26c] sections 10-13.
+
+### 4.129 Part II.D' verified (D206)
+
+- The eighty-fifth verifier on Part II.D': one major finding (the horizon coupling of the word system, indefinite for
+  k >= 2), repaired by writing the system with commuting letters replaced in place; three minor (the form of R^(2) in
+  (C2), the tame assembly, half of (D'3)) and seven nits, all seated; (D'1)-(D'2) confirmed at source.
+- Open: the D197, D200, D201, D204 and D206 repairs; Part II.E unread; Parts II.F and III-VII.
+- Next: the eighty-sixth verifier on Part II.E; Part II.F, [Hin26c] sections 10-13, in writing.
+
+### 4.130 Part II.E verified (D207)
+
+- The eighty-sixth verifier on Part II.E: no major finding; six minor (the order on the extension region below t* = 1,
+  the domain of the collar flow, the nested-slab bookkeeping of the tame inductions, the support of E_+, the definition
+  of the extended time function, a hypothesis of Proposition 3.2) and nine nits, all seated; (E1)-(E13) confirmed.
+- Open: the D197, D200, D201, D204, D206 and D207 repairs; Parts II.F and III-VII.
+- Next: Part II.F, [Hin26c] sections 10-13, in writing (D208); then its verifier.
+
+### 4.131 Part II.F written (D208)
+
+- Part II.F, [Hin26c] section 10 at n = 4: the normal operator at iota+ and its Mellin family at high and bounded
+  frequencies (Proposition 10.6), forward solutions of the normal operator (Proposition 10.12) and of the modified
+  operator P_+ (Proposition 10.14), and Theorem 10.1; findings (F1)-(F9) and gaps (G1)-(G7), all closed in the text.
+- Open: the D197, D200, D201, D204, D206 and D207 repairs; Part II.F unread; Parts II.F', II.G, II.G' and III-VII.
+- Next: the eighty-seventh verifier on Part II.F; Part II.F', [Hin26c] section 11.
+
+### 4.132 Part II.F verified (D209)
+
+- The eighty-seventh verifier on Part II.F: no major finding; seven minor (Step 0 of Theorem 10.1 at order s + 1, the
+  bounded weight at I+ in Lemma 5.8, the density factor near 0f, the n = 4 decay rho_+^2 of the metric at iota+, the
+  absorption time, finite speed of propagation, the [0C] statements) and eight nits, all seated; finite speed of
+  propagation is now Lemma 1.3, from [BGP] Theorem 3.1.1 (READ); four further repairs found while seating (Lemma 6.3's
+  slab, Proposition 7.4 (2)'s starting time, Lemma 7.3 (b)'s metric near K+, Theorem 10.1 on Omega_*); (F10)-(F14)
+  added; II.E (E14) records the extension its tame estimates use.
+- Open: the D197, D200, D201, D204, D206, D207 and D209 repairs; Parts II.F'-II.G' and III-VII.
+- Next: Part II.F', [Hin26c] section 11, in writing (D210).
+
+### 4.133 Part II.F' written (D210)
+
+- Part II.F', [Hin26c] section 11 at n = 4: Theorem 11.1 (forward solutions of admissible wave-type operators on
+  b-Sobolev spaces with decay at I+, iota+ and K+, tame in the b-regularity, on Omega_*), its form with unweighted
+  b-densities and Remarks 11.2-11.4; the order margin 3 + delta + aleph, cut-offs in t-flat, and a simultaneous
+  extension across r = r_0; findings (F'1)-(F'12). Not carried: the statement on Omega; uniformity in P_0.
+- Open: the D197, D200, D201, D204, D206, D207 and D209 repairs; Part II.F' unread; Parts II.G, II.G' and III-VII;
+  uniformity in P_0 (II.F' (F'11)).
+- Next: the eighty-eighth verifier on the D209 repairs and Part II.F'; Part II.G, [Hin26c] section 12.
+
+### 4.134 Part II.G written (D211)
+
+- Part II.G, [Hin26c] section 12's tools: the Nash-Moser theorem (Theorem 12.4) proved here, with loss 21d + 6;
+  smoothing operators on supported b-Sobolev spaces (Proposition 12.6), checked on Omega_*; tame bounds (Lemma 12.8);
+  the section 12.1 weights at n = 4; findings (H1)-(H9). Not carried: Theorems 12.2-12.3 (12.3 due in Part III with
+  aleph > 0) and the model problems 12.9-12.12.
+- Open: the D197, D200, D201, D204, D206, D207 and D209 repairs; Parts II.F' and II.G unread; Parts II.G' and III-VII;
+  uniformity in P_0 (II.F' (F'11)).
+- Next: seat the eighty-eighth verifier (D209 repairs, II.F'); Part II.G', [Hin26c] section 13.
+
+### 4.135 The eighty-eighth verifier seated (D212)
+
+- Part II.F's D209 repairs confirmed; two further minor gaps (Lemma 6.3's time cut-off, Lemma 6.4's strip
+  0 <= Im sigma < -gamma_+) and four notes repaired. Part II.F' read: one major (the uniqueness class of Theorem 1.1,
+  restricted to s' >= inf s - 2), one minor ((E14) narrowed: II.E's tame bounds stated for orders constant and integer
+  near the extension face), two notes; repaired. Part II.F' is verified.
+- Open: the D197, D200, D201, D204, D206, D207 and D212 repairs; Part II.G unread; Parts II.G' and III-VII; uniformity
+  in P_0 (II.F' (F'11)).
+- Next: Part II.G', [Hin26c] section 13; the eighty-ninth verifier on the D212 repairs and Part II.G.
+
+### 4.136 The eighty-ninth verifier seated (D213)
+
+- Part II.G read: the Nash-Moser proof complete (24 exponent checks by machine), Proposition 3.1 and Lemma 4.1 correct up
+  to presentation. Five minors (two findings against the source withdrawn, (H2) and (H7); (T3)'s first clause deleted;
+  the orthant norm equivalence and the quotient-norm identification written out) and nine nits seated. The D212 repairs
+  confirmed. Part II.G is verified.
+- Open: the D197, D200, D201, D204, D206, D207, D212 and D213 repairs; Parts II.G' and III-VII; uniformity in P_0 (II.F'
+  (F'11)).
+- Next: Part II.G', [Hin26c] section 13; then one verifier on it with the D213 repairs.
+
+### 4.137 Part II.G' written (D214)
+
+- `proof5/PART-II-G2-DECAY.md`: [Hin26c] section 13 at n = 4. The Fourier transform on the line and on the resolved
+  product spaces (sections 2-3), proved without [Tay11a] or complex interpolation; the resolvent bounds in b-Sobolev
+  spaces with losses independent of the order (section 4), Proposition 13.16 proved from I.B; the radiation field at
+  null infinity, the coefficient of r^(-3/2) (section 5), with [Hin26b]'s two ODE lemmas replaced. Findings (J1)-(J13):
+  Lemma 13.4 and Corollary 13.5 fail at sigma = infinity; (13.7)-(13.8) as printed carry no Taylor terms; Proposition
+  13.11 (2)'s first step needs l' >= 1 - delta; nonintegral losses, a combination step, the interval in Corollary 13.14
+  (2), and k-dependent radii in Proposition 13.18.
+- Open: the D197, D200, D201, D204, D206, D207, D212 and D213 repairs; Part II.G' unread; Parts III-VII; uniformity in
+  P_0 (II.F' (F'11)), to which II.G' adds no condition.
+- Next: one verifier on Part II.G' with the D213 repairs; then Part III, [Hin26] at n = 4.

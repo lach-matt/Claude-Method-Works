@@ -23,9 +23,13 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
 | II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200) |
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
-| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | written (D202) |
-| II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | written (D203) |
-| II.E-F | [Hin26c] 8, 10-13 | energy estimates, decay at iota+ and K+, the iteration | to do |
+| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
+| II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
+| II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
+| II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | verified (D212) |
+| II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | verified (D212) |
+| II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | verified (D213) |
+| II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | written (D214) |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -272,11 +276,17 @@ conjugated operator (Lemma 1.1); at $\mathscr I^+$ that symbol is the source's (
 proves the estimate at the trapped set, which the source quotes from [Hin21] Theorem 3.9, from the hypersurfaces of Part
 II.C$'$: it is the positive commutator form of the defect-measure proof of Part I.B, with an equation with damping, a
 commutator that gains $\sqrt\delta$ near the stable hypersurface, a propagation estimate with the weight
-$|\phi^s|^{-\beta}$, $\beta<\frac12$, one regulariser and an induction on the order in half steps (finding (D1)). Section
-5 assembles the estimate. Findings (D2)-(D3): in the source's Proposition 7.9 the time cut-offs are reversed, its
-statement (4) fails near the initial time, and the case of a finite final time rests on a sign that fails off the
+$|\phi^s|^{-\beta}$, $\beta<\frac12$, one regulariser and an induction on the order in half steps (finding (D1)).
+Section 5 assembles the estimate. Findings (D2)-(D3): in the source's Proposition 7.9 the time cut-offs are reversed,
+its statement (4) fails near the initial time, and the case of a finite final time rests on a sign that fails off the
 characteristic set; the proof here does without that case. Two slips by a factor 2 at $\mathscr I^+$ do not affect the
-inequalities. Written (D202); not yet read by a verifier.
+inequalities. Written (D202). The eighty-fourth verifier re-derived every threshold, sign and dynamical claim and
+confirmed (D1)-(D4) at source. Its two minor findings: in Step 3 of Proposition 4.2 Lemma 2.5 is needed in its general
+form, as the symbol of the propagated operator vanishes where the compared one does; and in Proposition 3.6 the term of
+the time cut-off could touch the set where $B$ is elliptic, and is now kept a quarter unit earlier. Its nits (open sets
+and the regulariser's parameter in the iteration, where the bracket formula of Lemma 4.1 (d) is used, the sign of
+$c_{us}$ over $\partial\Sigma^-$, the extension of $F$ at the horizon, a construction of $\Theta$) are seated (D204);
+they await the next reader.
 
 ## Part II.D'
 
@@ -288,7 +298,123 @@ and that the estimates of Part II.D hold for such systems under a sign condition
 families: near $\mathscr I^+$, two dilations and the six rotations of $\mathbb S^3$ (Lemma 3.1, the source's Lemma 7.12
 at $n = 4$); at the horizon, where the commutator with $\partial_r$ lowers the threshold (the red shift); over $\partial
 K^+$; and at the trapped set, where double commutators join the system. Section 7 proves Theorem 1.1 by the six steps of
-Part II.D. Findings (D$'$1)-(D$'$8): two inclusions printed reversed, the weights of the tame estimate, multi-indices for
-fields that do not commute, the systems to which the source applies its estimates without stating them for systems, and
-the sign at the horizon, from Part II.B's constant $\beta_0$ rather than the Kerr formula. Written (D203); not yet read
-by a verifier.
+Part II.D. Findings (D$'$1)-(D$'$8): two inclusions printed reversed, the weights of the tame estimate, multi-indices
+for fields that do not commute, the systems to which the source applies its estimates without stating them for systems,
+and the sign at the horizon, from Part II.B's constant $\beta_0$ rather than the Kerr formula. Written (D203). The
+eighty-fifth verifier re-derived Lemmas 2.1-2.5, the commutators of sections 3-6 and the assembly, and confirmed
+(D$'$1)-(D$'$2) at source. Its major finding: with the words of the system as first written, the coupling at the horizon
+is not diagonal and its Hermitian part is indefinite for $k\ge2$, so the sign condition failed; as $\partial_r$ and
+$t_*\partial_{t_*}$ commute, the system may be written with the letter replaced in place (2.2$'$), which makes the
+coupling diagonal and the threshold that of Part II.D. Its minor findings (the remainder of the double commutator at the
+trapped set, the bound used in the tame assembly, and half of (D$'$3), which it found mistaken: the source's expansion
+is exact, only the reading of the components is not) and its nits are seated (D206); they await the next reader.
+
+## Part II.E
+
+`PART-II-E-ENERGY.md`. [Hin26c] section 8 at $n = 4$: solvability of forward problems on bounded time slabs, with energy
+estimates, on edge-Sobolev spaces with and without b-regularity and tame in it (Propositions 3.4, 4.3, 4.4, the source's
+Lemma 8.1 and Propositions 8.3, 8.6, 8.9); the same in the black hole interior, where the radius is the time function
+(section 5, the source's Lemma 8.10 and Propositions 8.11-8.13); and the global estimate at high frequencies (Theorem
+6.1, the source's Theorem 8.14), which joins them to Part II.D$'$. The energy estimate near $\mathscr I^+$ is computed
+at $n = 4$ (Lemma 2.4): the term that carries the threshold is the same as at $n = 3$. Every first-order term is kept as
+a quadratic form and absorbed by an exponential weight in time, and zeroth-order terms by a Poincaré inequality, so the
+fibre inner product need only make $\mathrm{Re}\,p_1$ large. Solutions are constructed by duality from the energy
+estimates for the operator and its adjoint, and their regularity comes from the microlocal estimates on slabs, with
+radial estimates at the outgoing radial set over $\mathscr I^+$ localised in time by a function whose derivative along
+the flow is a sum of squares (section 3). Findings (E1)-(E13), among them: the source's slab argument rests on the case
+of its Proposition 7.9 that Part II.D found to fail, and leaves the estimate for the adjoint to the reader; its Theorem
+8.14 applies its slab results at an initial time below their stated range, prints the tame estimate with the wrong
+weights on $Pu$, and omits the condition $\alpha_+<\alpha_I-\frac12$ that the estimate it invokes assumes. Written
+(D205). The eighty-sixth verifier re-derived Lemma 2.4 at $n = 4$ by machine (and at $n = 3$, reproducing the source's
+(8.10)), Lemma 2.5, Propositions 3.2 and 3.4 and sections 4-6, and confirmed (E1)-(E13) at source. No major finding. Its
+six minor findings are seated (D207): the admissible order is extended below $t_* = 1$ and over $\{r^\sharp\le r\le
+r_0\}$ by its own formula, monotone there by the same computation; the collar flow is applied after a cut-off; the tame
+inductions use two nested slabs per step; the support of $E_+$ needs a smaller neighbourhood of $\mathscr I^+$; the
+extended $t^\flat$ is defined by its formulae, not by Seeley's extension; and Proposition 3.2 states
+$t_--\omega_0\ge\frac12$. Its nine nits are seated too; they await the next reader.
+
+## Part II.F
+
+`PART-II-F-IOTA.md`. [Hin26c] section 10 at $n = 4$: the normal operator of the stationary model at future timelike
+infinity and its Mellin-transformed family (sections 1-2); that family's invertibility at high frequencies, without and
+with b-regularity, by the positive commutator scheme of Part I.B carried to the semiclassical 0- and cone calculus on
+$\iota^+$ (sections 3-4, the source's Proposition 10.6 (2)); its Fredholm property and invertibility at bounded
+frequencies (section 5, Proposition 10.6 (1) and Lemmas 10.9-10.10); forward solutions of the normal operator (section
+6, Proposition 10.12); the modified operator $P_+$ and its forward solutions (section 7, Definition 10.13 and
+Proposition 10.14); and Theorem 10.1 (section 8), forward solutions of the stationary model on e3b-spaces with decay at
+$\iota^+$ and the loss $\aleph$ at $K^+$. The dimension enters through $c = \frac32$ and the density shifts; every
+threshold is recomputed, and they agree with `iplusnorm5.py`. At bounded frequencies the 0-calculus parametrix is that
+of [0C] Theorem 3.4 (with bounds), used only through the Fredholm property, proved here by the Schur test; the reduced
+normal operator is inverted with modified Bessel functions; the Fourier transform bound the source quotes is proved.
+Strong uniqueness for the normal operator is proved by a Paley-Wiener-Schwartz argument at a constant order (Lemma 6.4),
+which the source's comparison argument needs and does not have. Findings (F1)-(F9), among them: the normal operator's
+factor $t_*^{-2}$, the high-energy statement's range of parameters, a sign at the outgoing radial set, the Plancherel
+factor $|\sigma|^{2j}$, and the source order $\mathsf s-1$ (not $\mathsf s-2$) in Proposition 10.12; and gaps (G1)-(G7)
+closed, among them the constancy hypothesis of [0C] Theorem 1.5, the dilation invariance of the orders at which
+Proposition 10.12 is applied, and the auxiliary operators needed to use Part II.E's slab estimates near $\mathscr I^+$.
+Written (D208). The eighty-seventh verifier re-derived the constants at $n = 4$, the four threshold sums, the symbols
+and Hamilton fields, the Bessel reduction, the Schur-test integrals, the Fourier bound and the order and weight
+bookkeeping of sections 6-8, by machine where it could, and confirmed (F1)-(F9) at source. No major finding. Its seven
+minor findings are seated (D209): Step 0 of Theorem 10.1 at the order $\mathsf s+1$; the bounded weight at $\mathscr
+I^+$ in Lemma 5.8; the density factor near 0f in Lemma 2.2; the decay $\rho_+^2$ of the metric at $\iota^+$, the $n = 4$
+value, now cited to Part II.B ((F11)); the absorption time; finite speed of propagation, now Lemma 1.3, proved from the
+uniqueness theorem of Bär, Ginoux and Pfäffle (READ) with explicit monotone functions, wherever it is used; and the five
+[0C] statements, re-read at source. Seating them brought out four more, repaired: the slab and the comparison region of
+Lemma 6.3, the starting time of the iteration in Proposition 7.4 (2), a modified metric in Lemma 7.3 (b) that was not
+close to $g_0$ near $K^+$, and Theorem 10.1 itself, now stated and proved on $\Omega_*$, where the next part uses it
+((F13)). Findings (F10)-(F14) are added. The eight nits are seated too. The eighty-eighth verifier read those repairs
+and confirmed each (D212); its two further minor findings, a time cut-off in Lemma 6.3 that was not scaled and the strip
+$0\le\mathrm{Im}\,\sigma< -\gamma_+$ in Lemma 6.4, and four notes are repaired, and await the next reader.
+
+## Part II.F'
+
+`PART-II-F2-TAME.md`. [Hin26c] section 11 at $n = 4$: Theorem 11.1, forward solutions of admissible wave-type operators
+$P$ on b-Sobolev spaces with decay at $\mathscr I^+$, $\iota^+$ and $K^+$, with estimates tame in the b-regularity, its
+form with unweighted b-densities, and Remarks 11.2-11.4. The forward solution is the weak limit of those of operators
+$P_\epsilon$ equal to $P$ up to a time of order $\epsilon^{-1}$ and to the stationary model after it; the estimate for
+$P_\epsilon$, uniform in $\epsilon$, joins Part II.E's global estimate to Part II.F's Theorem 8.1, the error being small
+near $\iota^+\cup K^+$ and controlled at bounded times on slabs. Three points the source passes over are written out:
+the order function needs the margin $3+\delta+\aleph$, not $2+\delta+\max(1,\aleph)$; the cut-offs must be functions of
+the time function $t^\flat$, whose level sets carry the slabs, not of $t_*$; and the tame bound needs one extension
+across $\{r = r_0\}$ that is bounded at every order of b-regularity at once, constructed where the order is a constant
+integer (recorded in Part II.E as (E14)). Findings (F'1)-(F'12), among them that the source's statement on $\Omega$, for
+operators whose principal part is that of the Kerr wave operator, is not proved here, and that uniformity in $P_0$ stays
+open until a later part needs it. Written (D210). Read by the eighty-eighth verifier, which confirmed (F'1)-(F'12) and
+the constants by machine; its one major finding, a uniqueness class too large for the smallness assumed, is repaired by
+restricting the class to $s'\ge\inf\mathsf s-2$, and one minor finding and two notes are seated (D212). Verified; the
+repairs await the next reader.
+
+## Part II.G
+
+`PART-II-G-NASHMOSER.md`. The tools of [Hin26c] section 12 on which the nonlinear step rests, none of them dependent on
+the dimension. The Nash-Moser theorem in the form of the source's Theorem 12.4, which the source quotes from Saint
+Raymond and from an earlier paper of its author, neither read, is proved here by Saint Raymond's iteration with a
+smoothing step at each stage and the supports tracked; it needs the hypotheses' constants up to order $21d+6$ (the
+source quotes $16d^2+43d+24$; nothing later depends on the number). Smoothing operators on spaces of supported b-Sobolev
+functions (Proposition 12.6) are constructed with charts in which the time function is a coordinate, and checked on the
+domain $\Omega_*$ of Part II.F$'$ (Example 12.7); tame bounds for products and nonlinear functions (Lemma 12.8) are
+proved from the Gagliardo-Nirenberg inequality. The weights of the source's section 12.1 are recorded at $n = 4$
+($0<\epsilon_I<\epsilon_+<1$, decay nearly $r^{-3/2}$ at $\mathscr I^+$); its Theorems 12.2-12.3 and the model problems
+12.9-12.12 are not carried, Theorem 12.3 being due in Part III with a loss $\aleph>0$. Findings (H1)-(H9), among them
+that (12.7) and Theorems 12.9 and 12.11 reverse the inequality between $\epsilon_+$ and $\epsilon_I$ that Theorem 11.1
+needs, and that the smoothing construction's charts and its time function need more care near $\mathscr I^+$ and
+$\iota^+$ than the source gives. Written (D211). The eighty-ninth verifier redid the iteration's exponent algebra by
+machine and found the three theorems sound; its five minor findings, two of which withdraw (H2) and (H7) as misreadings
+of the source, and its nits are seated (D213). Verified; the repairs await the next reader.
+
+## Part II.G'
+
+`PART-II-G2-DECAY.md`. [Hin26c] section 13 at $n = 4$: the tools by which forward solutions are shown to decay faster
+than Theorem 11.1 alone gives. The Fourier transform in time on weighted b-Sobolev spaces, on the line and on the
+resolved product spaces, is proved from the Gagliardo seminorm and two dyadic Hardy inequalities, in place of the
+source's appeal to a textbook and to complex interpolation. Part I's resolvent estimates at bounded nonzero, high and
+low frequencies are translated into b-Sobolev spaces with a loss of b-regularity that does not grow with the order; the
+high-energy bound, which the source states without proof, is proved from Part I.B through a comparison of b-spaces with
+I.B's semiclassical spaces. The radiation field at null infinity is the coefficient of $r^{-3/2}$, extracted by two
+ordinary differential equation lemmas proved here in place of those the source cites. At $n = 4$ the density shifts
+weights by 2 where the source has $\frac32$, the threshold at the outgoing radial set is $\frac32+\bar S$, and the
+indicial root at null infinity is $\frac32$. Findings (J1)-(J13), among them that the source's Lemma 13.4 and Corollary
+13.5 fail at $\sigma = \infty$, that its spaces (13.7)-(13.8) as printed carry no Taylor terms, so that Corollary 13.7
+as printed fails for $\beta>1$, and that the first step of its Proposition 13.11 (2) needs $\ell'\ge1-\delta$; none
+changes what later parts use, in the forms proved here. Uniformity in the operator is reduced to that of Part I's
+estimates (section 6.2). Written (D214).
