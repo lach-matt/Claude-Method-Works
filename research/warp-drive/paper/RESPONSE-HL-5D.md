@@ -1074,10 +1074,12 @@ READ for general n; and two steps the source takes at every n without writing th
 dimensions rests too -- the passage from scalar operators to operators on bundles, which he leaves to the reader, and the
 uniformity of the estimates under small perturbations, which he asserts -- both written out site by site, the sites
 checked by a second census, and each proof of his spectral theory that the route uses re-run on bundles with the changes
-in (supplement sections 10.75 and 10.77–10.86, `READINGS.tsv`, `hthresh5.py`, `tfnorm5.py`, `iotasol5.py`,
-`bundlesweep.py`, `bundle5.py`, with a lemma at the horizon proved in section 10.76). λ1 and δ exist by the deduction —
-from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A
-line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
+in -- a re-run that found one sign slip in the source, in the commutator behind the b-regularity at the outgoing radial
+set, repaired without change to the statement (supplement sections 10.75 and 10.77–10.86, `READINGS.tsv`, `hthresh5.py`,
+`tfnorm5.py`, `iotasol5.py`, `bundlesweep.py`, `bundle5.py`, with a lemma at the horizon proved in section 10.76). λ1 and
+δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not
+a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a
+theorem.
 
 ---
 
@@ -1693,10 +1695,11 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
 - `bundlesweep.py` W1–W4: a second census, by token sweep of the full text, of every step of Hintz's spectral theory
   ([Hin26c] section 9) that uses a scalar operator, each of the 38 items, proofs and subsections with a marker placed
   (supplement section 10.85). 4/4; mutants 4/4 (seconds).
-- `bundle5.py` E1–E6: the calculus facts behind that section's proofs re-run on bundles (supplement section 10.86),
-  exactly: a scalar commutant keeps a commutator's principal part scalar, the imaginary part is first order and
-  self-adjoint in the fibre inner product, positive square roots, the trace bound for matrix-valued defect measures, the
-  energy identity with a connection, and sums of squares in a fibre inner product. 6/6; mutants 6/6 (a few minutes).
+- `bundle5.py` E1–E6: the calculus facts behind that section's proofs re-run on bundles (supplement section 10.86), in
+  model cases (2 × 2 operators on the line; the energy identity on R^(1+1) with X Killing, u real and h constant): a
+  scalar commutant keeps a commutator's principal part scalar, the imaginary part is first order and self-adjoint in the
+  fibre inner product, positive square roots, the trace bound for matrix-valued defect measures, the energy identity with
+  a connection, and sums of squares in a fibre inner product. 6/6; mutants 6/6 (seconds).
 - `eind5.py` E1–E2: Hintz's Lemma 8.4 for every l (supplement section 10.52): every indicial root of the linearized
   gauge-fixed operator simple for l ≥ 2, exactly, in the scalar, vector and tensor types; his distance condition (8.13)
   by a certificate beyond l = 10⁴ and a 30-digit scan below, ε_ind ≤ 1.94137 × 10⁻⁸. 2/2; mutants 2/2 (about four
@@ -1895,7 +1898,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | (D162); the sixty-fifth 10.75 (xliv)–(lv) and D162 (D165); the sixty-sixth 10.75 (lvi)–(lix) and |
 | | D165 (D168); the sixty-seventh 10.75 (lx)–(lxi) and D168 (D172); the sixty-eighth D169–D172 (D175); |
 | | the sixty-ninth D173–D175 (D177); the seventieth D176–D177 (D179); the seventy-first D178–D179 (D180); |
-| | the seventy-second D180–D181 (D182) |
+| | the seventy-second D180–D181 (D182); the seventy-third D182–D183 (D184) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1980,9 +1983,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `c1cd7d512b5b21076877dabcd8f1f991` |
-| `docket68/n1star/N1STAR-LOG.md` | `bcacbc9e196e5e7a118481ff5596a169` |
-| `docket68/n1star/README.md` | `27db06dfc07a27813d24ee455e1ff804` |
+| `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
+| `docket68/n1star/N1STAR-LOG.md` | `87dbe3d4ec9a13b9cef4775550bfde87` |
+| `docket68/n1star/README.md` | `81092dfcfb67a9a139b53c26a9a15f47` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -2052,7 +2055,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/hthresh5.py` | `dc476b28d2bd87f0be6e1bcc88361bb6` |
 | `docket68/n1star/tfnorm5.py` | `7a80137c05c54689832006a42c989c22` |
 | `docket68/n1star/iotasol5.py` | `6b5e1dcdf9aaff9f60c07570c88cc83f` |
-| `docket68/n1star/bundlesweep.py` | `5a3b7d6836b23c61acd5e42219e24ec3` |
+| `docket68/n1star/bundlesweep.py` | `a1b1831bb6023782629e2a2eac4ffc76` |
 | `docket68/n1star/bundle5.py` | `60755692ad9a4d2aaf6b94b8ad1e11f1` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |

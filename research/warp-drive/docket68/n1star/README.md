@@ -315,12 +315,14 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `bundlesweep.py`: a second census of [Hin26c] section 9 for RB (section 10.85; D183): a token sweep of its full text,
   item by item, for every marker of scalarity or of bundles, each of the 38 items, proofs and subsections with a marker
   placed by 10.84 or 10.86 (W1-W4); it reads alphaXiv's full text, not stored here, from the directory censusweep.py
-  takes. `python3 bundlesweep.py --texts DIR` (4/4, seconds), `--mutants` (4/4).
+  takes. `python3 bundlesweep.py --texts DIR` (4/4, seconds), `--mutants` (4/4); without `--texts` it prints its
+  docstring and exits 2 (D184).
 - `bundle5.py`: the calculus facts behind section 10.86's re-run of [Hin26c] section 9 on bundles (D183), exactly, on
   differential operators on R with 2 x 2 matrix coefficients: a scalar commutant keeps the commutator's top coefficient
   scalar, Im P first order and h-self-adjoint, positive square roots, the trace bound for matrix-valued defect measures,
   the energy identity with a connection, sums of squares in a fibre inner product (E1-E6). `python3 bundle5.py
-  --selftest` (6/6, a few minutes), `--mutants` (6/6).
+  --selftest` (6/6, seconds), `--mutants` (6/6). Model cases, as above: E3 is 2 x 2 and E5 is R^(1+1) with X Killing
+  (D184).
 - `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
   the passages carried to n = 4 -- 278 hits on the 205 pages swept (D143; 270 before its [CD03] window was set right),
   every one accounted for by 10.53-10.58 and 10.63-10.68 but one norm convention of [Hin26a] p. 62, named in 10.69. Runs

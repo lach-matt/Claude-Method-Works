@@ -2358,3 +2358,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   identities, and each proof's uniformity in b; at the trapped set the run is for Q P Q^-, (5.9)'s conjugation. What
   remains is the general caveat: deductions at proof level, read by independent verifiers, not proofs checked at the
   level of the theorem's statement.
+
+### 4.107 The seventy-third verifier seated; a sign slip in the source repaired; the full write-out begun (D184)
+
+- On D182-D183: one major, nine minors; 10.84-10.86's conclusion stands. Major: the energy estimate's weight in 10.86
+  (r), now e^(lambda r) for the direct estimate and e^(-lambda r) for the adjoint, with a Poincare inequality along r for
+  |u|^2 at bounded sigma; (e) and (t) follow. Minors in (F4), (F6), (F8), (k), (m), (n), (q), (u), (e) Part (5) (the n =
+  4 exponents 3/2 + S-bar and 3/2 + S), the paper and bundlesweep.py.
+- [Hin26c] (9.45)'s diagonal term has the wrong sign in the source (+ 2 i k sigma rho, not - 2 i k sigma rho), and with
+  it Proposition 9.11's Step 2 as printed; 10.86 (c)-(d) rewrite the term through the equation, so the diagonal is
+  P-hat_0(sigma) itself and (9.44) stands.
+- M asked that the deductions and the censuses be closed by proof. The route: `proof5/`, the five-dimensional proof
+  written in full, self-contained, from [Hin26c] section 9 on (Part I.A first: sections 9.1-9.2 on bundles at n = 4).
+  Theorem 4 stays deduced until the write-out is complete.

@@ -4575,3 +4575,25 @@ localised in t - t' as Q_3's so the family stays holomorphic, which is where the
 what the seventy-second verifier asked: the readings are settled, written out or READ, the census is evidenced by two
 methods and not proved, and the deductions are written out at proof level, not proofs checked at the level of the
 theorem's statement.
+
+**D184 (2026-10-25): the seventy-third verifier seated; the full write-out begun.** M, after D183: "What stays open.
+These are still deductions at proof level, read by independent verifiers, not proofs checked at the level of the
+theorem's statement. The completeness of each census is evidenced by two methods, not proved. - this needs to be closed,
+it needs to be proved". Asked how, M chose "Start the full write-out": the five-dimensional proof written in full,
+self-contained, section by section, from [Hin26c] section 9 on, in a new directory `proof5/`, each finished section
+proved at n = 4 and leaving the census behind; Theorem 4 stays deduced until the last section is done. The seventy-third
+verifier, on D182-D183: one major, nine minors, a note on the source; the conclusion of 10.84-10.86 stands. Major: (r)'s
+energy weight had the wrong sign -- e^(-lambda r) with X = nabla r future timelike gives -lambda T[u](X, X) <= 0 in the
+direct estimate, nothing absorbing it; the direct estimate takes e^(lambda r), the adjoint e^(-lambda r), and at bounded
+sigma |u|^2 comes from a Poincare inequality along r from the support; (e) and (t) follow. Minors: (F6)'s box_nabla :=
+-g^(mu nu) nabla nabla, the divergence's signs and curvature term, E5's model scope; (F8) and (u), the adjoint's indicial
+family lambda -> N(-lambda-bar)* and its roots -n + 2 + lambda-bar as printed; (m)'s sign and the kernel cut-off stated
+as a choice; (n)'s (9.84a) for P' modulo (Im z) h Psi^1_h; (q)'s (Q_3)_h,z; (k)'s attribution; (e) Part (5) at n = 4,
+A^(3/2 + S-bar - eps) and rho^(3/2 + S), the n = 3 numbers having been carried; the paper's stale md5, its "exactly" for
+bundle5.py's model cases and the timings; bundlesweep.py's exit without `--texts`. The verifier's note on page 169 --
+[V^alpha, 2 i sigma rho^2 d_rho] = 2 i alpha_1 sigma rho V^alpha for mixed alpha -- led, on reading Lemma 9.13 for the
+write-out, to a sign slip in the source: V^alpha (P-hat_0 u) = P-hat_0 V^alpha u + [V^alpha, P-hat_0] u makes (9.45)'s
+diagonal term + 2 i k sigma rho, not - 2 i k sigma rho, and with the true sign the Step 2 claim of Proposition 9.11 --
+that the term enters with the sign of -b* b -- fails, the threshold moving by k. The repair: that term is rewritten
+through P-hat_0 u = f, so the diagonal is P-hat_0 itself and the rest are of the classes the proof already handles;
+(9.44) and Theorem 9.5 (4) stand as stated ((c), (d)).
