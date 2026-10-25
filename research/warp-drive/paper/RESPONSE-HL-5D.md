@@ -1094,9 +1094,10 @@ the tame form his iteration uses, and the eleventh, his energy estimates on boun
 interior, with the global estimate at high frequencies they give, have been read line by line too and their findings
 seated. The twelfth, his analysis at future timelike infinity -- the normal operator there, its spectral family at
 bounded and high frequencies, its forward solutions, and the forward solutions of the stationary model on the spaces his
-iteration uses -- has been read line by line and its findings seated, and the thirteenth, the forward solutions of the
-perturbed wave operators with estimates tame in the regularity, is written. Theorem 4 stays deduced until the last part
-is proved.
+iteration uses -- has been read line by line and its findings seated. The thirteenth, the forward solutions of the
+perturbed wave operators with estimates tame in the regularity, and the fourteenth, the Nash-Moser theorem with the
+smoothing operators and tame bounds it needs, proved here rather than quoted, are written. Theorem 4 stays deduced until
+the last part is proved.
 
 ---
 

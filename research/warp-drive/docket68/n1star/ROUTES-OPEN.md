@@ -2578,3 +2578,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: the D197, D200, D201, D204, D206, D207 and D209 repairs; Part II.F' unread; Parts II.G, II.G' and III-VII;
   uniformity in P_0 (II.F' (F'11)).
 - Next: the eighty-eighth verifier on the D209 repairs and Part II.F'; Part II.G, [Hin26c] section 12.
+
+### 4.134 Part II.G written (D211)
+
+- Part II.G, [Hin26c] section 12's tools: the Nash-Moser theorem (Theorem 12.4) proved here, with loss 21d + 6;
+  smoothing operators on supported b-Sobolev spaces (Proposition 12.6), checked on Omega_*; tame bounds (Lemma 12.8);
+  the section 12.1 weights at n = 4; findings (H1)-(H9). Not carried: Theorems 12.2-12.3 (12.3 due in Part III with
+  aleph > 0) and the model problems 12.9-12.12.
+- Open: the D197, D200, D201, D204, D206, D207 and D209 repairs; Parts II.F' and II.G unread; Parts II.G' and III-VII;
+  uniformity in P_0 (II.F' (F'11)).
+- Next: seat the eighty-eighth verifier (D209 repairs, II.F'); Part II.G', [Hin26c] section 13.

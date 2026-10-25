@@ -28,7 +28,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
 | II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | verified (D209) |
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | written (D210) |
-| II.G | [Hin26c] 12 | the Nash-Moser iteration | to do |
+| II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | written (D211) |
 | II.G' | [Hin26c] 13 | improving decay at iota+ and K+ | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -378,3 +378,19 @@ across $\{r = r_0\}$ that is bounded at every order of b-regularity at once, con
 integer (recorded in Part II.E as (E14)). Findings (F'1)-(F'12), among them that the source's statement on $\Omega$, for
 operators whose principal part is that of the Kerr wave operator, is not proved here, and that uniformity in $P_0$ stays
 open until a later part needs it. Written (D210); not yet read by a verifier.
+
+## Part II.G
+
+`PART-II-G-NASHMOSER.md`. The tools of [Hin26c] section 12 on which the nonlinear step rests, none of them dependent on
+the dimension. The Nash-Moser theorem in the form of the source's Theorem 12.4, which the source quotes from Saint
+Raymond and from an earlier paper of its author, neither read, is proved here by Saint Raymond's iteration with a
+smoothing step at each stage and the supports tracked; it needs the hypotheses' constants up to order $21d+6$ (the
+source quotes $16d^2+43d+24$; nothing later depends on the number). Smoothing operators on spaces of supported b-Sobolev
+functions (Proposition 12.6) are constructed with charts in which the time function is a coordinate, and checked on the
+domain $\Omega_*$ of Part II.F$'$ (Example 12.7); tame bounds for products and nonlinear functions (Lemma 12.8) are
+proved from the Gagliardo-Nirenberg inequality. The weights of the source's section 12.1 are recorded at $n = 4$
+($0<\epsilon_I<\epsilon_+<1$, decay nearly $r^{-3/2}$ at $\mathscr I^+$); its Theorems 12.2-12.3 and the model problems
+12.9-12.12 are not carried, Theorem 12.3 being due in Part III with a loss $\aleph>0$. Findings (H1)-(H9), among them
+that (12.7) and Theorems 12.9 and 12.11 reverse the inequality between $\epsilon_+$ and $\epsilon_I$ that Theorem 11.1
+needs, and that the smoothing construction's charts and its time function need more care near $\mathscr I^+$ and
+$\iota^+$ than the source gives. Written (D211); not yet read by a verifier.

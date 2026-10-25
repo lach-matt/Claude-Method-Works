@@ -5043,3 +5043,21 @@ r = r_0, bounded at every order of b-regularity, where the order is a constant i
 carried: the statement on Omega (principal part that of Kerr); uniformity in P_0, open until a later part needs it.
 Status: Parts I.A-I.C, II.A, II.A' proved; II.B-II.F verified; II.F' written. Next: the eighty-eighth verifier on the
 D209 repairs and Part II.F'; Part II.G ([Hin26c] section 12, the Nash-Moser iteration, with the (12.7) finding).
+
+**D211 (2026-10-25): Part II.G written, [Hin26c] section 12's tools.** proof5/PART-II-G-NASHMOSER.md: Theorem 2.1, the
+Nash-Moser theorem in the form of [Hin26c] Theorem 12.4 (supports tracked by subspaces B^k_eta), proved by the iteration
+u_{j+1} = u_j - S_{theta_j} Psi(u_j) Phi(u_j), theta_j = theta_0^{(3/2)^j}, with ||Phi(u_j)||_2d <= theta_j^-(8d+2),
+|u_j|_N <= theta_j^(4d+2), N = 21d + 6, convergence in every B^k by interpolation through the smoothing operators, and
+the support in B_{eta_0/2} from the closedness of the subspaces ([SR89] and [Hin24a] not read, not used). Proposition
+3.1 (Proposition 12.6): smoothing operators on w H_b^k(Omega_eta)^{bullet,-}, from a Fourier smoothing with a spatial
+localiser, Seeley extension at the extendible faces, charts at {|t| <= c_1} in which t is a coordinate (b-cells near
+I+), and a cut-off in t that leaves the rest without support control; Example 3.2 checks the hypotheses on Omega_* with
+t = t-flat - 1. Lemma 4.1 (Lemma 12.8): Sobolev, products and nonlinear functions, tame, from Gagliardo-Nirenberg read
+off the Fourier transform. Section 5: the section 12.1 weights at n = 4, 0 < eps_I < eps_+ < 1, pointwise decay
+rho_I^(3/2 - eps_I) rho_+^(3/2 - eps_+) rho_K^(1/2); Theorems 12.2-12.3 and the model problems not carried (12.3 due in
+Part III with aleph > 0). Findings (H1)-(H9): (12.7) and Theorems 12.9, 12.11 reverse eps_+ vs eps_I against Theorem
+11.1's beta_+ < beta_I; Theorem 12.4 needs closed subspaces for the support of its solution, and its support hypothesis
+on Phi is over-stated; Theorem 12.12's beta_+ sign; Proposition 12.6's localiser support, its charts in {t > 0}, and
+Example 12.7's global t-bar; the Nash-Moser loss; Lemma 12.8 (3)'s space. Status: Parts I.A-I.C, II.A, II.A' proved;
+II.B-II.F verified; II.F' and II.G written. Next: seat the eighty-eighth verifier; Part II.G' ([Hin26c] section 13,
+improving decay).
