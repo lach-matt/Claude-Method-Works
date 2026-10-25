@@ -4910,3 +4910,17 @@ finite times controlled away from dR_I+,out, which Step 6 controls at once with 
 t_* off the characteristic set for finite t_+) and two factor-2 slips. The draft's (1.4) had Pu in H^(s-1); the source's
 (7.5) has H^s, and so does Theorem 1.2. Not yet read by a verifier. Next: the eighty-fourth verifier on Part II.D; then
 Part II.D' ([Hin26c] section 7.2).
+
+**D203 (2026-10-25): Part II.D' written.** `proof5/PART-II-D2-BREGULARITY.md`, [Hin26c] section 7.2 at n = 4 (pp.
+127-141): Theorem 1.1, the source's Proposition 7.11, the global estimate with k degrees of b-regularity, and its tame
+version. Section 2: the commuted system for a family X_1..X_J (X_J = I) of commutator fields, indexed by words;
+hypotheses (C), (C2) at the trapped set, and (M); Lemma 2.1 (the system L^(k)), 2.2 (mixed norms), 2.3 (the induction,
+which needs q - 1 >= 1 + lambda for a forcing term with q commutators), 2.4 (tame), 2.5 (the estimates of Part II.D for
+systems L (x) Id - Q under the sign condition (2.8)). Sections 3-6: the families near I+ (2t d_t, -2r d_r and the six
+rotations of S^3; Lemma 3.1, [Hin26c] Lemma 7.12 at n = 4), at the horizon (d_r and t d_t; the commutator with d_r
+contributes -j beta_0 <= 0, the red shift), over dK+ (t d_t, with r d_t elliptic) and at the trapped set (t d_t, with
+(C2) through a parametrix of d_t^2). Section 7: the six steps of Part II.D section 5 with the b-versions, and the tame
+estimate. Section 8: findings (D'1)-(D'8), among them (7.57) and its analogue in the proof of Proposition 7.22, printed
+as inclusions that are false (a counterexample is given; the reverse holds and is what the arguments use), the weights of
+(7.28), and the source's multi-indices for fields that do not commute. Not yet read by a verifier; the eighty-fourth
+verifier is reading Part II.D. Next: seat it; the eighty-fifth verifier on Part II.D'; Part II.E ([Hin26c] section 8).

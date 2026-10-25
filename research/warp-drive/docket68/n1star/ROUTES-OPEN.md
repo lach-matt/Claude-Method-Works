@@ -2510,3 +2510,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   trapped set, the last proved in full in the present calculus rather than quoted from [Hin21]; findings (D1)-(D8).
 - Open: the D197, D200 and D201 repairs; Part II.D unread; Parts II.D', II.E-II.F and III-VII.
 - Next: the eighty-fourth verifier on Part II.D; Part II.D', [Hin26c] section 7.2.
+
+### 4.126 Part II.D' written (D203)
+
+- Part II.D', [Hin26c] section 7.2 at n = 4: the global estimate with b-regularity and its tame version, by commuted
+  systems indexed by words, with families near I+, at the horizon, over dK+ and at the trapped set; findings
+  (D'1)-(D'8).
+- Open: the D197, D200 and D201 repairs; Parts II.D and II.D' unread; Parts II.E-II.F and III-VII.
+- Next: seat the eighty-fourth verifier on Part II.D; the eighty-fifth on Part II.D'; Part II.E, [Hin26c] section 8.

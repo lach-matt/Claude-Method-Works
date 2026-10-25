@@ -24,7 +24,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200) |
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | written (D202) |
-| II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | to do |
+| II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | written (D203) |
 | II.E-F | [Hin26c] 8, 10-13 | energy estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -277,3 +277,18 @@ $|\phi^s|^{-\beta}$, $\beta<\frac12$, one regulariser and an induction on the or
 statement (4) fails near the initial time, and the case of a finite final time rests on a sign that fails off the
 characteristic set; the proof here does without that case. Two slips by a factor 2 at $\mathscr I^+$ do not affect the
 inequalities. Written (D202); not yet read by a verifier.
+
+## Part II.D'
+
+`PART-II-D2-BREGULARITY.md`. [Hin26c] section 7.2 at $n = 4$: the global estimate of Part II.D with $k$ degrees of
+b-regularity (Theorem 1.1, the source's Proposition 7.11) and its version tame in $k$. Section 2 writes the commuted
+system for a family of commutator fields, indexed by words so that fields that do not commute need no reordering, and
+proves once that the estimate for the system gives the estimate with b-regularity and its tame version (Lemmas 2.1-2.4),
+and that the estimates of Part II.D hold for such systems under a sign condition (Lemma 2.5). Sections 3-6 supply the
+families: near $\mathscr I^+$, two dilations and the six rotations of $\mathbb S^3$ (Lemma 3.1, the source's Lemma 7.12
+at $n = 4$); at the horizon, where the commutator with $\partial_r$ lowers the threshold (the red shift); over $\partial
+K^+$; and at the trapped set, where double commutators join the system. Section 7 proves Theorem 1.1 by the six steps of
+Part II.D. Findings (D$'$1)-(D$'$8): two inclusions printed reversed, the weights of the tame estimate, multi-indices for
+fields that do not commute, the systems to which the source applies its estimates without stating them for systems, and
+the sign at the horizon, from Part II.B's constant $\beta_0$ rather than the Kerr formula. Written (D203); not yet read
+by a verifier.
