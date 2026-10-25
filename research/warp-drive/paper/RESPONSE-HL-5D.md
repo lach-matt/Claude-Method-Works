@@ -1065,25 +1065,28 @@ deduces rather than proves, (ii) reduces to (i), but for one step, which rests o
 census (supplement section 10.73). All 61 are now written out step by step at n = 4 — forty-five with source proofs of at
 most about seven pages (two replaced by a computation), sixteen on longer runs of proof, [Hin26] sections 11 and 12,
 [Hin26c] sections 5, 7–11 and 13 and [Hin26a] section 5.2 — so their own steps rest on their inputs and not on a census,
-though thirty-four take a reading among those inputs, a statement at n = 4 whose proof is not written out; traced to
-their roots, they rest on two statements, steps the source leaves to the reader at every n; the record's own five are
-settled, the damped operator's threshold at the horizon by computation and the zero energy pole's form by deduction, two
-groups of companion results are written out at n = 4 and one is READ for general n (supplement sections 10.75 and
-10.77–10.83, `READINGS.tsv`, `hthresh5.py`, `tfnorm5.py`, `iotasol5.py`, with a lemma at the horizon proved in section
-10.76). λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not
-evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out,
-would make Theorem 4 a theorem.
+though thirty-four took a reading among those inputs, a statement at n = 4 whose proof was not written out. Traced to
+their roots, the readings were ten statements, and each is now settled, written out or READ: the record's own five, among
+them the damped operator's threshold at the horizon, by computation, and what the rows use of the zero energy pole, by
+deduction; two groups of companion results, written out at n = 4; one READ for general n; and two steps the source takes
+at every n without writing them out, on which his own theorem in 3 + 1 dimensions rests too -- the passage from scalar
+operators to operators on bundles, which he leaves to the reader, and the uniformity of the estimates under small
+perturbations, which he asserts -- both written out site by site (supplement sections 10.75 and 10.77–10.84,
+`READINGS.tsv`, `hthresh5.py`, `tfnorm5.py`, `iotasol5.py`, with a lemma at the horizon proved in section 10.76). λ1 and
+δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not
+a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a
+theorem.
 
 ---
 
 ## 9. What is not proved
 
 - **Settling as a theorem.** Theorem 4 is deduced: what separates it from a theorem is stated in section 8.8 — the
-  completeness of the censuses that carry the companion papers' proofs to five dimensions, and the readings thirty-four
-  of the written-out modification steps take, read at source rather than re-derived. The other deductions are placed on
-  their inputs, at proof level but for one named in section 8.8. λ1 and δ exist by the deduction and are not evaluated,
-  which is not a separate gap. The linear statements of section 8.2 are deduced too, the route of Hung's sections 5–8 in
-  five dimensions not a proof.
+  completeness of the censuses that carry the companion papers' proofs to five dimensions, and the deductions, written
+  out step by step but not re-derived line by line; the readings thirty-four of the modification steps took are each
+  settled, written out or READ. The other deductions are placed on their inputs, at proof level but for one named in
+  section 8.8. λ1 and δ exist by the deduction and are not evaluated, which is not a separate gap. The linear statements
+  of section 8.2 are deduced too, the route of Hung's sections 5–8 in five dimensions not a proof.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1,
@@ -1669,11 +1672,12 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   normal operator at future timelike infinity with the constant (n − 1)/2, every radial point threshold of
   its high-energy estimates, the densities and their shifts n/2 and (n + 1)/2, the Fourier step to the
   transition face, and the counts. 9/9; mutants 9/9 (seconds).
-- `hthresh5.py` T1–T6: the damped operator's threshold at the horizon, [Hin26c] (5.17), at the record's point (supplement
+- `hthresh5.py` T1–T7: the damped operator's threshold at the horizon, [Hin26c] (5.17), at the record's point (supplement
   section 10.79): the normalisation r_h/2, the adjoint from the operators' definitions with the metric pairing as its
   control, the undamped part in Lemma 3.3's inner product with spectrum ±(e^(1/2) + e^(−1/2))/r_h, the damping's
-  −h⁻¹ℓ(dr), and 1/2 + ϑ = −4995.33… at h = 10⁻⁶, below −100 for every h under 2.62 × 10⁻⁵. 6/6; mutants 6/6 (about half
-  a minute).
+  −h⁻¹ℓ(dr), and 1/2 + ϑ = −4995.33… at h = 10⁻⁶, below −100 for every h under 2.62 × 10⁻⁵; in other fibre inner products
+  of the same family it can fail (positive at e′ = 10, crossing −100 at e′ ≈ 7.76), so it holds in the one the record
+  fixes. 7/7; mutants 7/7 (about half a minute).
 - `tfnorm5.py` R1–R4: Hintz's transition face normal operator and uniform low-energy estimates ([Hin26c] Theorems 9.38
   and 9.41, Corollary 9.39) at n = 4 (supplement section 10.80): the conjugated adjoint (9.117) at every n, with one
   misprint of an intermediate line named, the indicial roots −λ and −n + 2 + λ̄, the densities' shift n/2 in the
@@ -1837,9 +1841,12 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | the undecided steps placed, section 8.8 | supplement section 10.73; `docket68/n1star/synth5.py` S1–S3; [KI03] |
 | the modification steps' changes placed, section 8.8 | supplement section 10.74; `docket68/n1star/B-MAP.tsv` |
 | the readings traced to their roots, section 8.8 | supplement section 10.77; `docket68/n1star/READINGS.tsv` |
-| the horizon threshold, section 8.8 | supplement section 10.79; `docket68/n1star/hthresh5.py` T1–T6 |
+| the horizon threshold, section 8.8 | supplement section 10.79; `docket68/n1star/hthresh5.py` T1–T7 |
 | Hintz's sections 9.5–9.6 at n = 4, section 8.8 | supplement section 10.80; `docket68/n1star/tfnorm5.py` |
 | Hintz's section 9 at n = 4, section 8.8 | supplement section 10.82; `docket68/n1star/iotasol5.py` |
+| the zero energy pole at n = 4, section 8.8 | supplement section 10.83; [Hin26] |
+| Hintz's section 9 on bundles and uniformly in the operator, section 8.8 | supplement section 10.84; [Hin26c], |
+| | [Hin26] |
 | sixty-one modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26a], [Hin26c], |
 | | [Hin21], [Hin23a], [Hin23e], [Hin24b], [CD03]; `docket68/n1star/iplusnorm5.py` N1–N9 |
 | the continuation and uniqueness inside the horizon, sections 8.4, 8.5 | supplement section 10.76 |
@@ -1873,7 +1880,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the sixty-third 10.75 (xvii)–(xxxiv) (D157); the sixty-fourth 10.75 (xxxv)–(xliii) and D157's repairs |
 | | (D162); the sixty-fifth 10.75 (xliv)–(lv) and D162 (D165); the sixty-sixth 10.75 (lvi)–(lix) and |
 | | D165 (D168); the sixty-seventh 10.75 (lx)–(lxi) and D168 (D172); the sixty-eighth D169–D172 (D175); |
-| | the sixty-ninth D173–D175 (D177) |
+| | the sixty-ninth D173–D175 (D177); the seventieth D176–D177 (D179); the seventy-first D178–D179 (D180) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1958,9 +1965,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `b463b1886516b10236707c7c56349d3a` |
-| `docket68/n1star/N1STAR-LOG.md` | `a7c37c0f4110fb9a7837ed3f58828630` |
-| `docket68/n1star/README.md` | `f7639edc2c2b201cda6737e0b68e0424` |
+| `docket68/n1star/N1STAR-PROOF.md` | `a37c3743de296df35a5c8548cacbdd66` |
+| `docket68/n1star/N1STAR-LOG.md` | `847a82de33edbb71dfd9237786e272e3` |
+| `docket68/n1star/README.md` | `7873c377e519671f96e448f2a12834b8` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -2027,11 +2034,11 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/iplusnorm5.py` | `1f7fb424e6bb7109eecbc9b75ec0b682` |
-| `docket68/n1star/hthresh5.py` | `4b0b9c3ea52a615a7f397a91b9747e8b` |
-| `docket68/n1star/tfnorm5.py` | `581f44448af7149eb15223f9f90f81cc` |
-| `docket68/n1star/iotasol5.py` | `9fec3b39e640236dc90a4ac5ef6a52bb` |
+| `docket68/n1star/hthresh5.py` | `b0f97fa92ecc40c8ec7c2fed07917e6a` |
+| `docket68/n1star/tfnorm5.py` | `7a80137c05c54689832006a42c989c22` |
+| `docket68/n1star/iotasol5.py` | `0c4e3d12602b5be59311c90bd4fc0a5b` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/READINGS.tsv` | `d064884d56ed99d8bccc9f5725592b10` |
-| `docket68/n1star/B-MAP.tsv` | `cdc276d252ffd022273be84e4edc6696` |
+| `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
+| `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

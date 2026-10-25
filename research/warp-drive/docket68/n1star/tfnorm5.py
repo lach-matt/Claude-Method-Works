@@ -132,11 +132,12 @@ def r3(control=0, verbose=False):
         chk(f"n = {n}: r^^{n - 1} |dr^| = rho^^-{n} |drho^/rho^|", sp.simplify(mue - rho**(-n) / rho) == 0)
         shift = sp.Rational(3, 2) if (control and n == 4) else sp.Rational(n, 2)
         # at ztf: int_0^1 r^^(2(a - q)) r^^(n-1) dr^ converges iff 2(a - q) + n > 0
-        e_ = sp.Symbol("e_")
-        conv = sp.integrate(rh**e_, (rh, 0, 1), conds="piecewise")
-        crit = sp.solve(sp.Eq(2 * (a_ - q_) + n - 1, -1), a_)[0]           # the borderline exponent e_ = -1
-        chk(f"n = {n}: at ztf r^^a in r^^q L^2(r^^(n-1) |dr^|) iff a > q - {sp.Rational(n, 2)}: the embedding loses n/2",
-            sp.simplify(crit - (q_ - shift)) == 0 and conv.args[0][1] != True)
+        # r^^a in L^2(r^^(n-1) |dr^|) near 0 (q = 0): integrate |r^^a|^2 r^^(n-1) on (0, 1) just above and below the
+        # claimed borderline a = -shift; it must converge above and diverge below
+        above = sp.integrate(rh**(2 * (-shift + sp.Rational(1, 10)) + n - 1), (rh, 0, 1))
+        below = sp.integrate(rh**(2 * (-shift - sp.Rational(1, 10)) + n - 1), (rh, 0, 1))
+        chk(f"n = {n}: at ztf r^^a in r^^q L^2(r^^(n-1) |dr^|) iff a > q - {shift}: the embedding loses n/2 "
+            f"(integrals {above}, {below})", above.is_finite and below == sp.oo)
         dmeas = sp.simplify((rh / s_)**(n - 1) / s_)                       # r^(n-1) dr with r = r^/|sigma|
         ratio = sp.simplify(dmeas / rh**(n - 1))
         e_norm = sp.simplify(sp.log(ratio) / sp.log(s_) / 2)

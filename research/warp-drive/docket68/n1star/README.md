@@ -303,8 +303,8 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `hthresh5.py`: box^C's threshold quantity at the conormal bundle of the horizon, [Hin26c] (5.17), at the record's
   point (section 10.79; D171): the normalisation r_h/2, the adjoint from the operators' definitions with the g-pairing
   as control, the undamped part in Lemma 3.3's B with spectrum +-(e^(1/2) + e^(-1/2))/r_h, the damping -h^-1 l(dr), and
-  1/2 + vartheta_H+ = -4995.33... at h = 10^-6, below -100 for every h under 2.6197... x 10^-5 (T1-T6). `python3
-  hthresh5.py --selftest` (6/6, under a minute), `--mutants` (6/6).
+  1/2 + vartheta_H+ = -4995.33... at h = 10^-6, below -100 for every h under 2.6197... x 10^-5, in the inner product the
+  record fixes and not in every one (T1-T7). `python3 hthresh5.py --selftest` (7/7, under a minute), `--mutants` (7/7).
 - `tfnorm5.py`: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (section 10.80; D173): (9.117) at every n
   with one misprint named, the indicial roots -lambda and -n + 2 + lambda-bar, the densities' n/2 in the embedding and in
   (3.46), and (9.122)'s leading part (R1-R4). `python3 tfnorm5.py --selftest` (4/4, seconds), `--mutants` (4/4).
@@ -332,7 +332,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   D158-D161, D163-D164, D166-D167). `READINGS.tsv` traces the rows that rest on a reading to ten roots, the statements at
   the foot of each chain (section 10.77; D169); RK, RG and RE are settled in 10.78 (D170), RH by `hthresh5.py` in 10.79
   (D171); RL is written out in 10.80 (D173); RC is READ for general n in 10.81 (D174); RI is written out in 10.82 (D176);
-  RP is settled in 10.83 (D178).
+  RP is settled in 10.83 (D178); RB and RU are written out in 10.84 (D181), and no row rests on a reading.
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).

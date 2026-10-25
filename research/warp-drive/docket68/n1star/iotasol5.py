@@ -11,11 +11,11 @@ d_t*.  The checks below run at n = 3 and n = 4 (c = (n - 1)/2) with S a complex 
 of S-bar, on a scalar harmonic of S^(n-1) with eigenvalue kappa of his slashed Delta, the positive Laplacian
 (Remark 9.5).
 
-  J1 (computed, exact) The model.  -box of R^(1+n) in (t*, rho), t* = t - r, rho = 1/r, has no d_t*^2 term and is
-     rho^2 L~(0)(rho d_rho) + rho L~_1(rho d_rho) d_t* with L~(0)(x) = -x^2 + (n - 2) x + kappa and L~_1(x) = -2(x -
-     c): his -2(x - 1) at n = 3, -2(x - 3/2) at n = 4.  For L-bar = rho^2 L~(0) + rho L~_1 d_t* with L~_1(x) = -2(x - c -
-     S), t*^lam t*^2 L-bar t*^-lam on functions of (v, omega) is -2 v (v d_v - lam)(v d_v - c - S) + v^2 L~(0)(v d_v):
-     (9.11) at every n, with c for his 1.  Control: c = 1 at n = 4.
+  J1 (computed, exact) The model. -box of R^(1+n) in (t*, rho), t* = t - r, rho = 1/r, has no d_t*^2 term (exactly, on
+     t*^2 r^-y) and is rho^2 L~(0)(rho d_rho) + rho L~_1(rho d_rho) d_t* with L~(0)(x) = -x^2 + (n - 2) x + kappa and
+     L~_1(x) = -2(x - c): his -2(x - 1) at n = 3, -2(x - 3/2) at n = 4. For L-bar = rho^2 L~(0) + rho L~_1 d_t* with
+     L~_1(x) = -2(x - c - S), t*^lam t*^2 L-bar t*^-lam on functions of (v, omega) is -2 v (v d_v - lam)(v d_v - c - S) +
+     v^2 L~(0)(v d_v): (9.11) at every n, with c for his 1. Control: c = 1 at n = 4.
   J2 (computed, exact) N_sf and its exponents at v = 0 (Proposition 9.2 (1)).  N_sf(lam) = v^(-2-lam) N_iota+ v^lam is
      -2 d_v (v d_v + lam - c - S) + L~(0)(v d_v + lam); the b-normal operator of v N_sf(lam) at v = 0 has the
      characteristic exponents 0 and c + S - lam: his 0 and 1 + alpha - lam at n = 3, 3/2 + alpha - lam at n = 4.  So
@@ -23,24 +23,24 @@ of S-bar, on a scalar harmonic of S^(n-1) with eigenvalue kappa of his slashed D
      his 3/2 + min spec S-bar - Re lam and 2 - Re lam at n = 4 (min spec S-bar = 0, 10.25); (9.5) needs s > -1/2,
      possible iff Re lam < c + 1 (his 2; 5/2); the extension by zero of (9.6)'s v^(c + min S - Re lam - eps) is in
      L^1_loc iff Re lam < c + 1.  Control: the exponent c - lam with c = 1 at n = 4.
-  J3 (computed, exact) The Fourier transform in v and the tf operator (the injectivity step).  With u-hat(rhat) = int
-     e^(i rhat v) u dv (d_v -> -i rhat, v d_v -> -d_rhat rhat), N_sf(lam) becomes 2 i rhat (-d_rhat rhat + lam - c - S)
-     + L~(0)(-d_rhat rhat + lam), his bracket with c for 1; conjugation by rhat^(lam - 1) -- the exponent free of c --
-     gives -2 i rhat (rhat d_rhat + c + S) + L~(0)(-rhat d_rhat) = rhat^2 N_tf(L-bar, +1) of (9.58) (the other sign
-     with rhat -> -rhat).  So the weight condition of Proposition 8.6 on w-flat, Re(-lam + 1) > -eps_ind, is Re lam < 1
-     + eps_ind at every n.  ((9.7) prints the bracket as rhat^-2 N_tf; against (9.58) it is rhat^2 N_tf, a
-     normalisation that does not touch the kernel.)  Control: conjugation by rhat^(lam - c).
-  J4 (computed, exact) The outgoing end of tf (Lemma 9.26, Propositions 9.30, 9.35).  On e^(i theta rhat) rhat^-a,
+  J3 (computed, exact) The Fourier transform in v and the tf operator (the injectivity step). With u-hat(rhat) = int e^(i
+     rhat v) u dv (d_v -> -i rhat, v d_v -> -d_rhat rhat), N_sf(lam) becomes 2 i rhat (-d_rhat rhat + lam - c - S) +
+     L~(0)(-d_rhat rhat + lam), his bracket with c for 1; conjugation by rhat^(lam - 1) -- the exponent free of c --
+     gives -2 i rhat (rhat d_rhat + c + S) + L~(0)(-rhat d_rhat) = rhat^2 N_tf(L-bar, +1) of (9.58) (the other sign with
+     rhat -> -rhat). So the weight condition of Proposition 8.6 on w-flat, Re(-lam + 1) > -eps_ind, is Re lam < 1 +
+     eps_ind at every n. ((9.7) prints the bracket as rhat^-2 N_tf; against (9.58) it is rhat^2 N_tf, a normalisation
+     that does not touch the kernel.) Control: conjugation by rhat^(lam - c).
+  J4 (computed, exact) The outgoing end of tf (Lemma 9.26, Propositions 9.30, 9.35). On e^(i theta rhat) rhat^-a,
      N_tf(L-bar, +1)'s rhat^0 coefficient is theta (theta + 2): the non-oscillating (outgoing) phase theta = 0 and the
-     incoming e^(-2 i rhat); at theta = 0 the rhat^-1 coefficient vanishes iff a = c + S.  Outgoing solutions are
+     incoming e^(-2 i rhat); at theta = 0 the rhat^-1 coefficient vanishes iff a = c + S. Outgoing solutions are
      rhat^-(c + S) (1 + O(rhat^-1)), in H^(oo, l)_b(|d rhat / rhat|) near scf iff l < c + Re S: the condition l_scf <
-     c + min spec S-bar, his l_scf < 1 and l_scf < 3/2 at n = 4.  Control: c = 1 at n = 4.
-  J5 (computed, exact; arithmetic where said) Proposition 9.4's weights at I+.  From (9.11), N_iota+ h = f is (v d_v -
+     c + min spec S-bar, his l_scf < 1 and l_scf < 3/2 at n = 4. Control: c = 1 at n = 4.
+  J5 (computed, exact; arithmetic where said) Proposition 9.4's weights at I+. From (9.11), N_iota+ h = f is (v d_v -
      lam)(v d_v - c - S) h = -f/(2v) + (v/2) L~(0)(v d_v) h, (9.22); with J2's s = c + 1/2 - Re lam - eps and (9.5)
-     (H-dot^s(|dv|) = H^(s, s - 1/2)_b(|dv/v|)), h = v^lam h~ has the I+ b-weight c - eps (arithmetic: his 1 - eps, 3/2
-     - eps at n = 4), so (9.22)'s right side has order c + 1 - eps (his 2 - eps, 5/2 - eps); (9.5) holds for Re lam < c
-     + 1 and (9.21) for Re lam > c, which overlap; and v^lam is excluded from h's expansion by the bound h = O(v^(c -
-     eps)) iff Re lam < c (his 'Re lam < 1', 3/2 at n = 4).  Control: the weight 1 - eps claimed at n = 4.
+     (H-dot^s(|dv|) = H^(s, s - 1/2)_b(|dv/v|)), h = v^lam h~ has the I+ b-weight c - eps (arithmetic: his 1 - eps, 3/2 -
+     eps at n = 4), so (9.22)'s right side has order c + 1 - eps (his 2 - eps, 5/2 - eps); (9.5) holds for Re lam < c + 1
+     and (9.21) for Re lam > c, which overlap; and v^lam is excluded from h's expansion by the bound h = O(v^(c - eps))
+     iff Re lam < c (his 'Re lam < 1', 3/2 at n = 4). Control: the weight 1 - eps claimed at n = 4.
 """
 import sys
 import time
@@ -84,7 +84,10 @@ def j1(control=0, verbose=False):
         target = sp.expand(r**-2 * L0(y, n) + r**-1 * (-2) * (y - c) * (-lam / ts))
         chk(f"n = {n}: -box = rho^2 L~(0)(rho d_rho) + rho L~_1(rho d_rho) d_t*, L~_1(x) = -2(x - {c})",
             sp.simplify(mb - target) == 0)
-        chk(f"n = {n}: no d_t*^2 term (-box t*^2 -> 0 as r -> oo)", sp.limit(minus_box(ts**2, n), r, sp.oo) == 0)
+        U2 = ts**2 * r**(-y)                                                  # a d_t*^2 term would add 2 coeff
+        exact = sp.expand(r**-2 * L0(y, n) * U2 + r**-1 * (-2) * (y - c) * 2 * ts * r**(-y))
+        chk(f"n = {n}: no d_t*^2 term (-box on t*^2 r^-y is exactly rho^2 L~(0) + rho L~_1 d_t*)",
+            sp.simplify(sp.expand(minus_box(U2, n)) - exact) == 0)
         # (9.11): t*^lam t*^2 Lbar t*^-lam on v^z, v = t* rho, Lbar = rho^2 L~(0)(rho d_rho) + rho L~_1(rho d_rho) d_t*;
         # on G = (t* rho)^z t*^-lam, rho d_rho is z and d_t* is (z - lam)/t*
         E1 = sp.expand(ts**2 * (rho**2 * L0(z, n) + rho * L1(z, n) * (z - lam) / ts))
@@ -111,8 +114,10 @@ def j2(control=0, verbose=False):
         Re_lam = sp.Symbol("Re_lam")
         s_top = c + sp.Rational(1, 2)
         lam_max = sp.solve(sp.Eq(s_top - Re_lam, -sp.Rational(1, 2)), Re_lam)[0]
-        printed = {3: (sp.Rational(3, 2), 2), 4: (2, sp.Rational(5, 2))}[n]
-        chk(f"n = {n}: s < {s_top} - Re lam; s > -1/2 possible iff Re lam < {lam_max} (arithmetic)",
+        printed = {3: (sp.Rational(3, 2), 2), 4: (2, sp.Rational(5, 2))}[n]      # his print; the record's 10.37 (c)
+        lam_lo = sp.solve(sp.Eq(s_top - Re_lam, sp.Rational(1, 2)), Re_lam)[0]   # (9.21) needs s < 1/2
+        chk(f"n = {n}: s < {s_top} - Re lam; s > -1/2 iff Re lam < {lam_max} (arithmetic; his print at n = 3, "
+            f"the record's 10.37 (c) at n = 4); s < 1/2 iff Re lam > {lam_lo}, computed",
             (s_top, lam_max) == printed)
     return chk.ok
 
@@ -154,7 +159,8 @@ def j4(control=0, verbose=False):
         chk(f"n = {n}: outgoing (theta = 0) decay rhat^-a, a = {asol}; l_scf < c + min spec S-bar = {c}",
             len(asol) == 1 and sp.simplify(asol[0] - (c + S)) == 0)
         ain = sp.solve(sp.Eq(c1.subs(th, -2), 0), a)
-        chk(f"n = {n}: incoming e^(-2 i rhat) rhat^-a, a = {ain}", len(ain) == 1)
+        chk(f"n = {n}: incoming e^(-2 i rhat) rhat^-a, a = {ain} = c - S",
+            len(ain) == 1 and sp.simplify(ain[0] - (c_of(n) - S)) == 0)
     return chk.ok
 
 

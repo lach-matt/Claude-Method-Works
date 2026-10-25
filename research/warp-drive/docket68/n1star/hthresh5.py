@@ -49,8 +49,11 @@ Kerr's area-radius factor, r^2 at a = 0; e is e_C, not Euler's number.)
      definite fibre inner product, and B is one.  With e' for B's e (the operator's e kept), B is positive definite at
      e' = 10^-5, 1/10 and 3, and (r_h/2) lambda_max of the B-symmetric part of 2 Gamma_t - h^-1 l(dr) -- l(dr) is
      B-self-adjoint only at e' = e -- gives 1/2 + vartheta_H+ = -4995.44..., -4877.97... and -2500.47... at h =
-     10^-6: below -C_0 in each.  The value depends on the inner product: at e' = 10 it is positive, B' still positive
-     definite, and it crosses -C_0 at e' = 7.76... (D177; the sixty-ninth verifier).  Control: h = 10^-3.
+     10^-6: below -C_0 in each.  Control: h = 10^-3.
+  T7 (computed, numerical, mpmath at 30 digits; D177, D179) The dependence on the inner product: at e' = 10, B' still
+     positive definite, 1/2 + vartheta_H+ = +790.428..., and bisection on [3, 10] puts the crossing of -C_0 at e' =
+     7.7638634... (the sixty-ninth verifier's finding).  Control: e' = 3 claimed above -C_0, and the crossing claimed
+     in (7, 7.5).
 """
 import sys
 import time
@@ -324,12 +327,11 @@ def t5(control=0, verbose=False):
     return chk.ok
 
 
-def t6(control=0, verbose=False):
-    """T6: the threshold in other fibre inner products, B with e' for e, the operator's e kept."""
+def _other_inner(hv):
+    """(r_h/2) lambda_max of the B'-symmetric part of 2 Gamma_t - h^-1 l(dr), B' = B at e' for e (the operator's e
+    kept)."""
     import mpmath as mp
     mp.mp.dps = 30
-    chk = Checklist(verbose, quiet=control != 0)
-    hv = sp.Rational(1, 1000) if control else H
     g, f = metric(1)
     gi = g.inv().applyfunc(sp.simplify)
     Gam = christoffel(g, gi)
@@ -344,24 +346,39 @@ def t6(control=0, verbose=False):
         T = (X + adj(X, Bp)) / 4                      # (r_h/2) times the B-symmetric part, r_h = 1
         w = mp.eig(mp.matrix(T.evalf(30).tolist()))[0]
         return min(wB), max(mp.re(z) for z in w) + mp.mpf(1) / 2, max(abs(mp.im(z)) for z in w)
+    return thr
 
+
+def t6(control=0, verbose=False):
+    """T6: below -C_0 in other fibre inner products, B with e' for e."""
+    import mpmath as mp
+    chk = Checklist(verbose, quiet=control != 0)
+    thr = _other_inner(sp.Rational(1, 1000) if control else H)
     for ep in (sp.Rational(1, 10**5), sp.Rational(1, 10), sp.Integer(3)):
         b0, val, im = thr(ep)
         chk(f"e' = {ep}: B positive definite (least eigenvalue {mp.nstr(b0, 4)}), real spectrum, "
             f"1/2 + vartheta_H+ = {mp.nstr(val, 9)} < -C_0", bool(b0 > 0 and im < mp.mpf(10)**-20 and val < -C0))
-    if not control:
-        b0, val, im = thr(sp.Integer(10))
-        chk(f"e' = 10: B positive definite ({mp.nstr(b0, 4)}), 1/2 + vartheta_H+ = {mp.nstr(val, 9)} > -C_0: the "
-            "threshold depends on the inner product", bool(b0 > 0 and val > -C0))
-        lo, hi = sp.Integer(3), sp.Integer(10)
-        for _ in range(30):
-            mid = (lo + hi) / 2
-            if thr(mid)[1] < -C0:
-                lo = mid
-            else:
-                hi = mid
-        chk(f"the crossing of -C_0 lies at e' = {sp.N(lo, 8)}, in (7.7, 7.8)",
-            sp.Rational(77, 10) < lo < sp.Rational(78, 10))
+    return chk.ok
+
+
+def t7(control=0, verbose=False):
+    """T7: the threshold depends on the inner product: above -C_0 at e' = 10, the crossing near 7.76."""
+    import mpmath as mp
+    chk = Checklist(verbose, quiet=control != 0)
+    thr = _other_inner(H)
+    ep = sp.Integer(3) if control else sp.Integer(10)
+    b0, val, im = thr(ep)
+    chk(f"e' = {ep}: B positive definite ({mp.nstr(b0, 4)}), 1/2 + vartheta_H+ = {mp.nstr(val, 9)} > -C_0",
+        bool(b0 > 0 and im < mp.mpf(10)**-20 and val > -C0))
+    lo, hi = sp.Integer(3), sp.Integer(10)
+    for _ in range(30):
+        mid = (lo + hi) / 2
+        if thr(mid)[1] < -C0:
+            lo = mid
+        else:
+            hi = mid
+    window = (sp.Rational(70, 10), sp.Rational(75, 10)) if control else (sp.Rational(77, 10), sp.Rational(78, 10))
+    chk(f"the crossing of -C_0 lies at e' = {sp.N(lo, 8)}, in {window}", window[0] < lo < window[1])
     return chk.ok
 
 
@@ -370,7 +387,8 @@ CHECKS = [("T1 the normalisation 1/beta_0 = r_h/2; R+ = {xi > 0}, dr future null
           ("T3 the box part in B: spectrum +-(e^(1/2) + e^(-1/2))/r_h, 0 (x3); vartheta_0 = 102401/640", t3),
           ("T4 the damping: -h^-1 l(dr), B-self-adjoint, 2a (x3), 4a, 2(1 - e) a", t4),
           ("T5 at (1/2, 1/102400, 10^-6): 1/2 + vartheta_H+ < -100; every h in (0, h_2), 10^-6 < h_2", t5),
-          ("T6 other fibre inner products: below -100 at e' = 10^-5, 1/10, 3; above at 10; crossing near 7.76", t6)]
+          ("T6 other fibre inner products: 1/2 + vartheta_H+ below -100 at e' = 10^-5, 1/10 and 3", t6),
+          ("T7 the dependence on the inner product: above -100 at e' = 10, the crossing at e' = 7.7638...", t7)]
 
 
 def run(only=None, verbose=False):
