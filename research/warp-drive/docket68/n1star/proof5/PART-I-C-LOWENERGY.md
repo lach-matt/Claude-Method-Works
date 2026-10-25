@@ -1,6 +1,7 @@
 # Part I.C. The spectral family at zero and low frequencies, at n = 4, on bundles
 
-*Status.* Written out in full (D190). Not yet read by an independent verifier; nothing here is labelled proved. This
+*Status.* Written out in full (D190). Read line by line by the seventy-seventh verifier, whose one statement gap, nine
+minor findings and nits are seated in place (D191); nothing here is labelled proved until the repairs are read. This
 part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.20 (a), (b) and (d) and the use
 of [Hin26c] Theorem 9.41 in 10.20 (e), which read [Hin26c] sections 9.4-9.6 at n = 4 with $\alpha+2$ for
 $\alpha+\frac32$ and cited the proofs. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page
@@ -102,9 +103,10 @@ $\Omega'$ of a compact set $K\subset\mathbb R^4$, with $\mathrm{End}\,\mathbb C^
 $C^\infty(\bar\Omega')$ and principal symbols $p\,\mathrm{Id}$ with $|p(x,\zeta)|\ge c|\zeta|^2$. For $\varphi\in
 C_c^\infty( \mathrm{int}\,K)$, $\tilde\varphi\in C_c^\infty(\Omega')$ equal to 1 near $K$, all $s$ and $N$, there is $C$
 with $\|\varphi u\|_{H^s}\le C(\|\tilde\varphi Lu\|_{H^{s-2}}+\|\tilde\varphi u\|_{H^{-N}})$ for all $L\in\mathcal F$.
-This is I.A Proposition 5.1 over a compact set, where the scattering calculus is the classical one (I.A section 2.1, last
-paragraph), with I.A Theorem 8.1 for the uniformity: by Arzelà-Ascoli the closure of $\mathcal F$ in the coefficient
-topology is compact, the coefficients depend continuously on its points, and the ellipticity bound persists.
+This is I.A Proposition 5.1 over a compact set, where the scattering calculus is the classical one (I.A section 2.1,
+last paragraph). The uniformity comes from the proof of I.A Proposition 5.1, whose construction depends continuously on
+the symbol (D191): by Arzelà-Ascoli the closure of $\mathcal F$ in the coefficient topology is compact, the coefficients
+depend continuously on its points, and the ellipticity bound persists.
 
 (K3) *Rellich.* [HJS] Proposition 3.13 (I.A (C4)): for distributions supported in a fixed compact set and $s'>s$, the
 inclusion $H^{s'}\hookrightarrow H^s$ is compact.
@@ -292,11 +294,14 @@ $\|\chi v\|_{H^s_{b,c}}\le C(\|\tilde\chi Lv\|_{H^{s-2}_{b,c}}+\|\tilde\chi v\|_
 
 *Proof.* Under $\Phi_k$ the operator $L$ becomes $L^{(k)}$ on a neighbourhood of $\bar A$, with coefficients bounded in
 $C^\infty$ uniformly in $k$ and principal symbols elliptic with a uniform bound, as $\varrho\partial_\varrho$ and $Z_i$
-are dilation invariant and on $A$ they are combinations of $\partial_{y_j}$ with fixed smooth coefficients. (K2) applied
-to the family $\{L^{(k)}\}$, with $\varphi := \psi_k\circ\Phi_k$ (supported in $\bar A$) and $\tilde\varphi$ equal to 1
-near $\bar A$, bounds $\|(\psi_k\chi v)\circ\Phi_k\|_{H^s}$ by the corresponding pieces of $Lv$ and of $v$ on the
-neighbouring $k$, uniformly. Multiply by $e^{2ck}$ and sum; the commutators of $L$ with $\chi$ are absorbed into the
-$\tilde\chi$ terms, as $\tilde\chi = 1$ near $\mathrm{supp}\,\chi$ and Lemma 2.2 (a)-(c) holds. $\square$
+are dilation invariant and on $A$ they are combinations of $\partial_{y_j}$ with fixed smooth coefficients. Apply (K2)
+to the family $\{L^{(k)}\}$ and to $v\circ\Phi_k$ itself, with $\varphi := (\psi_k\chi)\circ\Phi_k$ and $\tilde\varphi$
+equal to 1 near a compact neighbourhood of $\mathrm{supp}\,\varphi$ and supported in a fixed neighbourhood of $\bar A$
+where $\tilde\chi\circ\Phi_k = 1$. This is possible as $\tilde\chi = 1$ near $\mathrm{supp}\,\chi$, and only finitely
+many distinct pairs $(\varphi,\tilde\varphi)$ are needed, $\chi$ being constant outside a compact set of $t$. Then
+$\tilde\varphi\,(Lv)\circ\Phi_k = \tilde\varphi\,(\tilde\chi Lv)\circ\Phi_k$, so $\|(\psi_k\chi v)\circ\Phi_k\|_{H^s}$
+is bounded by the pieces of $\tilde\chi Lv$ and of $\tilde\chi v$ on the neighbouring $k$, uniformly, and no commutator
+with $\chi$ arises (D191). Multiply by $e^{2ck}$ and sum, using Lemma 2.2 (a)-(c). $\square$
 
 **Lemma 2.6 (the normal operator estimate, [Hin26c] (3.47)).** Let $c\notin\mathrm{Re}\,\mathrm{spec}_J$ and $m\in\mathbb
 Z$. Then $\|v\|_{H^m_{b,c}}\le C\|N(L)v\|_{H^{m-2}_{b,c}}$ for $v$ supported in $\{t>t_0\}$, and
@@ -305,7 +310,10 @@ $$\|\chi v\|_{H^m_{b,c}}\le C\big(\|\tilde\chi Lv\|_{H^{m-2}_{b,c}}+\|\tilde\chi
 *Proof.* By (2.2), Lemma 2.2 (h) and $\mathcal M(N(L)v)(c+i\tau) = J(c+i\tau)\mathcal Mv(c+i\tau)$, the first estimate is
 Lemma 2.4 (c) with $x_0 = x_1 = c$. For (2.3) apply it to $\chi v$: $N(L)\chi v = \chi Lv+[L,\chi]v+(N(L)-L)\chi v$. The
 commutator has coefficients supported in $\mathrm{supp}\,d\chi$, a compact set of $t$, where all weights are equivalent;
-$N(L)-L\in\varrho\,\mathrm{Diff}^2_b$ maps $H^m_{b,c-1}$ to $H^{m-2}_{b,c}$ by Lemma 2.2 (b)-(c). $\square$
+$N(L)-L\in\varrho\,\mathrm{Diff}^2_b$ maps $H^m_{b,c-1}$ to $H^{m-2}_{b,c}$ by Lemma 2.2 (b)-(c). The transform of
+section 2.3 is defined for $e^{c_0t}v\in L^2$; so the first estimate is proved for $v\in C_c^\infty$, whose transform is
+entire, and extends by density (Lemma 2.2 (d)) to every $v\in H^m_{b,c}$ supported in $\{t>t_0\}$, both sides being
+continuous on $H^m_{b,c}$. This covers $m<0$, where it is used (D191). $\square$
 
 **Lemma 2.7 (improving the weight).** Let $(c_-,c_+)$ contain no real part of a point of $\mathrm{spec}_J$, $c\in
 (c_-,c_+)$, and suppose $\tilde\chi v\in H^\infty_{b,c}$ and $\tilde\chi Lv\in H^\infty_{b,c'}$ for every $c'<c_+$. Then
@@ -559,7 +567,7 @@ Near ztf, $\rho_{\mathrm{ztf}}^qL^2(|d\hat x|) = \hat r^{q-2}L^2(\mu_b)$ as $|d\
 is $q-2$, and the norm is that of $\rho_{\mathrm{sctf}}^{\mathsf r}\rho_{\mathrm{ztf}}^qH^s_{\mathrm{sc},b}(\mathrm{tf})$
 for the Euclidean density, as in [Hin26c]. By (C3)-(C4), (C6) of I.A and Lemma 2.2: the $L^2(|d\hat x|)$ pairing
 identifies the dual of $H^{s,(\mathsf r,q)}_{\mathrm{sc},b}$ with $H^{-s,(-\mathsf r,-q)}_{\mathrm{sc},b}$ (near ztf,
-$\hat r^{-4}$ maps b-weight $-q+2-2$ to $-q-2-2$... precisely: the pairing is $\langle w,\hat r^4v\rangle_{\mu_b}$, and
+the pairing is $\langle w,\hat r^4v\rangle_{\mu_b}$, and
 $v\mapsto\hat r^4v$ maps the b-weight $-q-2$ of the second space onto $-(q-2)$, the dual of $q-2$); the inclusion is
 compact when all three orders drop, the decay order by a positive constant; and $N_{\mathrm{tf}}(\hat\sigma)$ maps
 $H^{(s;k),(\mathsf r,q)}_{\mathrm{sc},b}$ to $H^{(s-2;k),(\mathsf r,q-2)}_{\mathrm{sc},b}$, by (a) and (c) of section 4.1
@@ -612,6 +620,8 @@ and
 $$\|w\|_{H^{(s;k),(\mathsf r+\alpha_+,q)}_{\mathrm{sc},b;b}}\le C\big(\|N_{\mathrm{tf}}(e^{i\theta})w\|_{H^{(s-2;k),
 (\mathsf r+\alpha_++1,q-2)}_{\mathrm{sc},b;b}}+\|w\|_{H^{s,(\mathsf r+\alpha_+,q)}_{\mathrm{sc},b}}\big).\tag{4.5}$$
 
+In the settings of (1) and (2), $C$ is uniform in $\theta$ (D191).
+
 (5) (*Kernel.*) In the settings of (1) and (2), every $w\in\ker_{\mathcal X_{\mathrm{tf},\theta}}N_{\mathrm{tf}}
 (e^{i\theta})$ lies in $\mathcal A^{\frac32+\bar S-\epsilon,-\beta}(\mathrm{tf})$ for every $\epsilon>0$ and $\beta\in
 (\beta_-,\beta_+)$. Conversely $\bigcap_{\epsilon>0}\mathcal A^{\frac32+\bar S-\epsilon,-\beta_--\epsilon}(\mathrm{tf})
@@ -646,11 +656,12 @@ $\|N_{\mathrm{tf}} w\|$ there plus $\|w\|_{H^{-N}}$ there.
 *Near ztf.* Lemma 2.5 for $L = \hat r^2N_{\mathrm{tf}}(e^{i\theta})$ at the b-weight $q-2$ (with $\hat r^{-2}$ moved by
 Lemma 2.2 (b), so that $N_{\mathrm{tf}}w\in H^{s-2}_{b,q-4}$ is the target's weight $q-2$) bounds
 $\|(1-\varphi_\infty)w\|_{H^s_{b,q-2}}$ by $\|N_{\mathrm{tf}}w\|_{\mathcal Y_{\mathrm{tf},\theta}}$ plus $\|\tilde\chi
-w\|_{H^{-N}_{b,q-2}}$, $\tilde\chi$ a cut-off to $\{\hat r<3\}$. Then Lemma 2.6 at $c = q-2$, which is not a real part of
-a root of $J$ because $-(q-2)$ lies in the gap, and Lemma 2.2 (g) give $\|\tilde\chi w\|_{H^{-N}_{b,q-2}}\le
-C\|N_{\mathrm{tf}}w\|+Ce^{-K}\|\tilde\chi'w\|_{H^{-N}_{b,q-2}}+C_K\|w\|_{H^{-N,(-N,-N)}_{\mathrm{sc},b}}$, and the middle
-term is absorbed as in section 3.1. This is [Hin26c]'s improvement of the error term from $(-N,q)$ to $(-N,q-1)$ and then
-to $(-N,-N)$. Summing gives (4.3).
+w\|_{H^{-N}_{b,q-2}}$, $\tilde\chi$ a cut-off to $\{\hat r<3\}$. Then Lemma 2.6 at $c = q-2$ ($N$ integer), which is not
+a real part of a root of $J$ because $-(q-2)$ lies in the gap, and Lemma 2.2 (g) give $\|\tilde\chi
+w\|_{H^{-N}_{b,q-2}}\le
+C\|N_{\mathrm{tf}}w\|+Ce^{-K}\|\tilde\chi'w\|_{H^{-N}_{b,q-2}}+C_K\|w\|_{H^{-N,(-N,-N)}_{\mathrm{sc},b}}$, and the
+middle term is absorbed as in section 3.1. This is [Hin26c]'s improvement of the error term from $(-N,q)$ to $(-N,q-1)$
+and then to $(-N,-N)$. Summing gives (4.3).
 
 *The adjoint.* The same, with the adjoint chain of I.A section 7.1 at the boundary face ((E*), (D*), (C*) and (F),
 the a priori term at $R_{\mathrm{out}}$ absorbed as there), (K2) in the interior, and near ztf Lemmas 2.5-2.6 for the
@@ -675,6 +686,7 @@ index is locally constant, the kernels and annihilators do not depend on the all
 
 *(4).* Near sctf, the proof of I.A Theorem 7.2 (4), with Proposition 4.9 (3) and Lemma 4.10, applies to $N^\flat$; near
 ztf, b-regularity is regularity in $H_{b,q-2}$, and Lemma 2.5 at the order $s+k$ gives it; in the interior, (K2).
+These steps depend on $\theta$ only through the constants of (1)-(2), so $C$ is uniform in $\theta$ as there.
 
 *(5).* Let $w$ be in the kernel. Near sctf, the first paragraph of the proof of I.A Theorem 7.2 (5) (Remark 7.3, (4) with
 $f = 0$, and Lemma 7.4 (b)) gives $\varphi_\infty w\in\rho_{\mathrm{sctf}}^{\frac32+\bar S-\epsilon}C^\infty_b$. In the
@@ -748,7 +760,9 @@ with $\omega = z-\frac12\nu\pi-\frac14\pi$ (10.17.2), $a_0 = 1$, as $|z|\to\inft
 and $H^{(2)}_\nu$ are solutions of Bessel's equation $z^2w''+zw'+(z^2-\nu^2)w = 0$, holomorphic in $\mathbb
 C\setminus(-\infty,0]$ (their definition, [DLMF] section 10.2 (ii)).
 
-**Lemma 5.4.** Let $\ell\in\mathbb N_0$, $\nu := \ell+1$, $\hat\sigma = e^{i\theta}$, $\theta\in[0,\pi]$.
+**Lemma 5.4.** Let $\ell\in\mathbb N_0$, $\nu := \ell+1$, $\hat\sigma = e^{i\theta}$, $\theta\in[0,\pi)$. (At $\theta =
+\pi$, $\hat\sigma^2 = 1$ as at $\theta = 0$, so the equation in (a) is that of $\theta = 0$, and $f_j$ denotes the
+function defined at $\theta = 0$; D191.)
 (a) The solutions on $(0,\infty)$ of $-u''-\frac3{\hat r}u'+\frac{\ell(\ell+2)}{\hat r^2}u-\hat\sigma^2u = 0$ are the
 combinations of $f_j(\hat r) := \hat r^{-1}H^{(j)}_\nu(\hat\sigma\hat r)$, $j = 1,2$, which are linearly independent.
 (b) For $\theta = 0$, $g_1 := e^{-i\hat r}f_1$ and $g_2 := e^{i\hat r}f_2$ satisfy, for $\hat r\ge1$ and every $k$,
@@ -826,13 +840,15 @@ orthonormal basis of $\mathcal H_\ell$ and $w_m$ distributions on $(0,\infty)$.
 *(ii).* Let $w\in\ker_{\mathcal X_{\mathrm{tf},\theta}}N_{\mathrm{tf}}(e^{i\theta})$, $\beta\in(0,2)$. By Theorem 4.3 (5)
 (with $\bar S = 0$), $w\in\mathcal A^{\frac32-\epsilon,-\beta'}(\mathrm{tf})$ for all $\epsilon>0$, $\beta'\in(0,2)$; so
 are its components $w_m$, and $u_m := e^{i\hat\sigma\hat r}w_m$ solves the equation of Lemma 5.4 (a), weakly and hence
-classically, so $u_m = c_1f_1+c_2f_2$. If $\theta\in(0,\pi)$, $|u_m|\le Ce^{-\hat r\sin\theta}\hat r^{-1}$, so $c_2 = 0$
-by Lemma 5.4 (c). If $\theta = 0$, $w_m = c_1g_1+c_2e^{-2i\hat r}g_2$ with $g_1,g_2\in\mathcal A^{3/2}$ (Lemma 5.4 (b));
-then $c_2e^{-2i\hat r}g_2 = w_m-c_1g_1$ is conormal, while $\hat r\partial_{\hat r}(e^{-2i\hat r}g_2) = e^{-2i\hat
-r}(-2i\hat rg_2+\hat r\partial_{\hat r}g_2)$ has size $2|c_2|\hat r^{-1/2}(1+o(1))$, not $O(\hat r^{-3/2+\epsilon})$; so
-$c_2 = 0$. If $\theta = \pi$, $\hat\sigma^2 = 1$ again and $w_m = e^{i\hat r}u_m = c_1e^{2i\hat r}g_1+c_2g_2$, and the
-same argument gives $c_1 = 0$. In each case one coefficient remains, and by Lemma 5.4 (d) $|w_m|\ge c\,\hat r^{-2-\ell}$
-as $\hat r\to0$ unless it vanishes, while $w_m = O(\hat r^{-\beta'})$ with $\beta'<2\le2+\ell$. So $w = 0$.
+classically, so $u_m = a_1f_1+a_2f_2$ (D191: the coefficients are $a_j$, the $c_j$ being Lemma 5.4 (b)'s constants). If
+$\theta\in(0,\pi)$, $|u_m|\le Ce^{-\hat r\sin\theta}\hat r^{-1}$, so $a_2 = 0$ by Lemma 5.4 (c). If $\theta = 0$, $w_m =
+a_1g_1+a_2e^{-2i\hat r}g_2$ with $g_1,g_2\in\mathcal A^{3/2}$ (Lemma 5.4 (b)); then $a_2e^{-2i\hat r}g_2 = w_m-a_1g_1$
+is conormal, while $\hat r\partial_{\hat r}(e^{-2i\hat r}g_2) = e^{-2i\hat r}(-2i\hat rg_2+\hat r\partial_{\hat r}g_2)$
+has size $2|c_2|\hat r^{-1/2}(1+o(1))$, with $|c_2| = (\frac2\pi)^{1/2}$, not $O(\hat r^{-3/2+\epsilon})$; so $a_2 = 0$.
+If $\theta = \pi$, $\hat\sigma^2 = 1$ again, $u_m = a_1f_1+a_2f_2$ with the $f_j$ of $\theta = 0$ (Lemma 5.4), and $w_m
+= e^{i\hat r}u_m = a_1e^{2i\hat r}g_1+a_2g_2$; the same argument gives $a_1 = 0$. In each case one coefficient remains,
+and by Lemma 5.4 (d) $|w_m|\ge c\,\hat r^{-2-\ell}$ as $\hat r\to0$ unless it vanishes, while $w_m = O(\hat
+r^{-\beta'})$ with $\beta'<2\le2+\ell$. So $w = 0$.
 
 *(iii).* Take $s := 2$ (allowed by Theorem 4.3 (3)), so that $\mathcal X^*_{\mathrm{tf},0}\subset H^{0,(-\mathsf r_+-
 \alpha_+-1,-q+2)}_{\mathrm{sc},b}$, $q = 2-\beta\in(0,2)$. Here $N_{\mathrm{tf}}(1)^{*h} = N_{\mathrm{tf}}(1)$, because
@@ -923,12 +939,14 @@ C_{\rho_*}\varsigma^\eta \|u\|_{(s;k),(\mathsf r,l,q),\varsigma}$;
 (a) $S_\varsigma(\chi_\partial u)$ is supported in $\{\hat\rho\ge1\}$, where $\varphi_\infty = 0$, so the second term of
 (6.1) is $\varsigma^{-(l+2)}\|S_\varsigma(\chi_\partial u)\|_{H^{s+k}_{b,q-l-2}}$, with the b-space of Definition 2.1 at
 the end at 0 of tf, $\varrho = \hat r$ (Definition 4.1; b-regularity is regularity there). Both this space and the
-b-space at the end at $\infty$ of $\bar X$ ($\varrho = \rho$) are spaces of functions on the cylinder $(0,\infty)_r\times
-\mathbb S^3$, and $S_\varsigma$ is $r\mapsto\varsigma r$. In $t := \log r$ the two ends use $-\log\hat r = -\log\varsigma
--t$ and $-\log\rho = t$: the dyadic pieces of one are translates of reflections of the pieces of the other, and the
-charts differ by the inversion $y\mapsto y/|y|^2$ of a fixed neighbourhood of $\bar A$, which is bounded on $H^{s+k}$ of
-functions supported there. By Lemma 2.2 (a), whose constants depend only on finitely many derivatives of the cut-offs and
-on their overlap and are therefore uniform over translates, the two norms agree up to constants independent of
+b-space at the end at $\infty$ of $\bar X$ ($\varrho = \rho$) are spaces of functions on the cylinder
+$(0,\infty)_r\times \mathbb S^3$, and $S_\varsigma$ is $r\mapsto\varsigma r$. In $t := \log r$ the two ends use
+$-\log\hat r = -\log\varsigma -t$ and $-\log\rho = t$: both families of charts $\Phi_k$ are dilations of $\mathbb R^4$
+(section 2), so with $\varsigma = e^{-K}$ the $k$-th piece of $S_\varsigma(\chi_\partial u)$ at the end at 0 and the
+$(K-k)$-th piece of $\chi_\partial u$ at the end at $\infty$ are the same function on $A$, up to the cut-off
+$\psi(-\log|y|)$ in place of $\psi(\log|y|)$ and a translate by the fractional part of $K$ (D191; no inversion of charts
+occurs). By Lemma 2.2 (a), whose proof allows such reflected and translated cut-offs and whose constants depend only on
+finitely many derivatives of the cut-offs and on their overlap, the two norms agree up to constants independent of
 $\varsigma$ once the weights match. At order 0 they do:
 $\|\hat r^{-(q-l-2)}S_\varsigma w\|_{L^2(\mu_b)} = \varsigma^{-(q-l-2)}\|\rho^{q-l-2}w\|_{L^2(\mu_b)}$, as $\mu_b$ is
 dilation invariant. So the second term is equivalent to $\varsigma^{-(l+2)}\varsigma^{-(q-l-2)}\|\chi_\partial
@@ -1013,11 +1031,11 @@ $$\varsigma^{-2}S_\varsigma E_\sigma S_\varsigma^{-1} = \hat\rho^2\rho B_1-2i\ha
 \hat\rho\,\rho^2\tilde Q+\varsigma^2\hat\sigma^2\hat\rho^2\tilde g,$$
 
 where $\rho$ stands for $\varsigma\hat\rho$ and every coefficient is a smooth function of $(\varsigma\hat\rho,\omega)$.
-Such a function has $(\hat\rho\partial_{\hat\rho})^j\partial_\omega^\gamma f(\varsigma\hat\rho,\omega) = ((\rho\partial
-_\rho)^j\partial^\gamma_\omega f)(\varsigma\hat\rho,\omega)$, bounded independently of $\varsigma$, and on $\{\hat\rho
-\le2\}$ its $\hat\rho$-derivatives carry powers of $\varsigma$; so the operators $B_1$, $\tilde Q$, $S_1$, $\tilde g$ lie
-in bounded sets of their classes, both near ztf (b-operators) and near sctf (smooth up to $\hat\rho = 0$). Split
-$S_\varsigma u = \varphi_\infty S_\varsigma u+(1-\varphi_\infty)S_\varsigma u$, and note that the operator is
+Such a function has $(\hat\rho\partial_{\hat\rho})^j\partial_\omega^\gamma f(\varsigma\hat\rho,\omega) = ((\rho
+\partial_\rho)^j\partial^\gamma_\omega f)(\varsigma\hat\rho,\omega)$, bounded independently of $\varsigma$, and on
+$\{\hat\rho \le2\}$ its $\hat\rho$-derivatives carry powers of $\varsigma$; so the operators $B_1$, $\tilde Q$, $S_1$,
+$\tilde g$ lie in bounded sets of their classes, both near ztf (b-operators) and near sctf (smooth up to $\hat\rho =
+0$). Split $S_\varsigma u = \varphi_\infty S_\varsigma u+(1-\varphi_\infty)S_\varsigma u$, and note that the operator is
 differential.
 
 *Near sctf*, on $\{\hat\rho\le2\}$, write $\rho = \varsigma\hat\rho$: the four terms are $\varsigma\hat\rho\cdot\hat
@@ -1254,7 +1272,10 @@ ztf, $\alpha-\eta$, is that of $\dot{\mathcal H}^{-s,(-\mathsf r- \alpha_+,-\alp
 $\varsigma^2N_{\mathrm{tf}}(\hat\sigma)^{*h}w^* = S_\varsigma(\chi_{\mathrm{tf}}g+[\hat
 P(\sigma)^{*h},\chi_{\mathrm{tf}}]v -E^*_\sigma\chi_{\mathrm{tf}}v)$ (section 6.2; $\chi_{\mathrm{tf}}\phi_j = 0$). The
 term with $E^*_\sigma$ is absorbed at the regularity $2-s$, by the adjoint form of Lemma 6.3, before passing to $1-s$.
-This gives (6.7).
+The absorption needs the $H^{-s+2}$-norm of $w^*$ to be finite, and it is: on a neighbourhood of
+$\mathrm{supp}\,\chi_{\mathrm{tf}}$, $\hat P(\sigma)^{*h}v = g$, as the $\phi_j$ vanish there, and $\hat P(\sigma)^{*h}$
+is elliptic at fibre infinity there, so I.A Proposition 5.1 in its strong form (the left side is finite when the right
+side is) gives $v$ the regularity $2-s$ there, with its decay orders (D191). This gives (6.7).
 
 *(3).* $\mathcal P(\sigma)$ is $\hat P(\sigma)\oplus0$ plus an operator of finite rank, so it is Fredholm by I.A Theorem
 7.2 (3), and by (6.6) at $k = 0$ it is injective. Let $(v,d)\in\mathcal Y^*_\sigma\oplus\mathbb C^{m_2}$ annihilate its
@@ -1315,8 +1336,7 @@ $$\|(\sigma\partial_\sigma)^iR(\sigma_*)f\|_{(s+i;k+j-i),(\mathsf r+\alpha_+,\al
 
 $i = 0$ is (1) at the regularity $s$ and b-order $k+j$. For $i\ge1$, by the induction hypothesis and Lemma 6.5 the term
 $i'$ of the sum lies in $\mathcal H^{(s+i';k+j-i'-1),(\mathsf r+\alpha_++1,\alpha+2,0)}_{\varsigma_*}$, which by Lemma
-6.2
-(e) lies in $\mathcal H^{(s+i-1;k+j-i),(\mathsf r+\alpha_++1,\alpha+2,0)}_{\varsigma_*}$, as $i'\le i-1$; (1) at the
+6.2 (e) lies in $\mathcal H^{(s+i-1;k+j-i),(\mathsf r+\alpha_++1,\alpha+2,0)}_{\varsigma_*}$, as $i'\le i-1$; (1) at the
 regularity $s+i$ and b-order $k+j-i$ then gives the bound. At $i = j$ this is (6.8) for $f\in D$. $D$ contains
 $C_c^\infty(\mathbb R^4)|_X$, which is dense in $\bar H^{(s-1;k+j),\mathsf r_{\varsigma_*}+\alpha_++1}$, and by (6.11)
 and the bounds the derivatives extend continuously; this is the extension in (4), and it agrees with that of I.A
@@ -1384,8 +1404,8 @@ part. A Neumann series gives that $I^b(\lambda)$ is invertible on the strip, so 
 
 (2) for the estimates with error terms ((3.2)-(3.3), (4.3)-(4.5)): their constants are produced by finitely many
 seminorms of the coefficients and by positivity margins, as in I.A Theorem 8.1, and by the bounds of $J(\lambda)^{-1}$ on
-the lines used in Lemmas 2.6-2.7, which are uniform near $b_*$ by the Neumann series above; the coefficients depend
-continuously on $b$ by (H5).
+the lines used in Lemma 2.6 (Lemma 2.7 is qualitative), which are uniform near $b_*$ by the Neumann series above; the
+coefficients depend continuously on $b$ by (H5).
 
 (Z$_{\mathcal P}$) and the estimates without error terms: suppose $b_j\to b_*$ and $(u_j,c_j)$ have $\|u_j\|_{\bar H^{s,
 \alpha}_b}+|c_j| = 1$ and $\mathcal P^{b_j}(0)(u_j,c_j)\to0$. By (3.2), uniformly in $j$, $\|u_j\|_{\bar H^{s,\alpha}_b}

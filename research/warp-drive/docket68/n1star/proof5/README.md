@@ -16,8 +16,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | Part | Source | Content | Status |
 |---|---|---|---|
 | I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D189) |
-| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | seated (D189) |
-| I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | written (D190) |
+| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | verified (D191) |
+| I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | verified (D191) |
 | II | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -74,6 +74,10 @@ which no flow satisfies, now with the global ones and a no-return clause that ke
 the auxiliary absorption of Theorem 6.8, whose sign was wrong for $z_0 = -1$. All are seated, with (F10), a range in
 [Hin26c] Theorem 9.28 (2). Its repairs are read with Part I.C.
 
+The seventy-seventh verifier, reading Part I.C, read these repairs and confirmed each (D191). It asked for one more
+clause, in Proposition 6.4, Step 2: $\delta_1$ is chosen so that $\Gamma(\delta_1)$ lies in $\mathrm{Ell}_h(B_1)$ too,
+as the step needs; seated (D191). Part I.B is labelled proved once the next reader has checked that clause.
+
 ## Part I.C
 
 `PART-I-C-LOWENERGY.md`. [Hin26c] sections 9.4-9.6 at n = 4, for operators on a trivial bundle of any rank and uniformly
@@ -89,5 +93,11 @@ source, and with an adjoint estimate that the source does not state. Section 8 l
 None changes a statement; one (F6) is a gap: the proof of Corollary 9.43 infers the invertibility of an augmented
 operator from an estimate that gives only injectivity, and the adjoint estimate of Theorem 6.4 closes it. Weaker than the
 source, and said so in Remark 6.7: the smallness in Theorem 6.4 may depend on the b-regularity order, and uniformity in
-the weight is not proved. The gap hypothesis is labelled (G), since (H6)-(H8) are Part I.B's. Part I.C is written; the
-seventy-seventh verifier reads it, with the D189 repairs of Part I.B.
+the weight is not proved. The gap hypothesis is labelled (G), since (H6)-(H8) are Part I.B's.
+
+The seventy-seventh verifier read Part I.C line by line (D191). No major finding. One statement gap: Theorem 4.3 (4) was
+not stated uniform in $\theta$, which Corollary 5.2 (b) and Theorem 6.4 use; it is now stated and proved. Nine minor
+findings, all seated, among them the Mellin transform at negative orders (now by density), the charts of Lemma 6.2 (a)
+(dilations, not an inversion), the a priori regularity behind the adjoint absorption of Theorem 6.4 (2), Lemma 5.4 at
+$\theta = \pi$, and the reworded proof of Lemma 2.5, in which no commutator arises. It confirmed (F1)-(F7), recomputing
+(F4) and the conjugation of the tf operator at $n = 3,4,5$. Part I.C is labelled proved once these repairs are read.

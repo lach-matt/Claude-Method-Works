@@ -1,10 +1,11 @@
 # Part I.B. The spectral family at high frequencies, at n = 4, on bundles
 
 *Status.* Written out in full (D188). Read line by line by the seventy-sixth verifier, whose one major and nine minor
-findings and nits are seated in place (D189); nothing here is labelled proved until the repairs are read. This part
-replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 and 10.86 that re-ran [Hin26c]
-section 9.3 on bundles at proof level. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1. Part I.A is
-`PART-I-SPECTRAL.md`; its sections are cited as I.A section 4.5, I.A Theorem 7.2, and so on.
+findings and nits are seated in place (D189). The seventy-seventh verifier read those repairs and confirmed each, and
+asked for one further clause in Proposition 6.4, Step 2, seated (D191); nothing here is labelled proved until that
+clause is read. This part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 and 10.86
+that re-ran [Hin26c] section 9.3 on bundles at proof level. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1. Part
+I.A is `PART-I-SPECTRAL.md`; its sections are cited as I.A section 4.5, I.A Theorem 7.2, and so on.
 
 *What is proved here.* Theorem 1.3: [Hin26c] Theorem 9.16 at $n = 4$, for operators on a trivial bundle of any rank,
 with constants uniform in the operator (section 9). As in Part I.A the regularity order is constant (I.A Remark 1.1);
@@ -1465,10 +1466,11 @@ right side for $\Phi u$: $h^{-1}\|G_1(\ldots)\| = O(h)$ by (6.7) and $\sup\|G_1u
 C\|E_1'u\|+O(h^\infty)$ with $E'_1$ microsupported off $\Gamma^\natural_u$ near $\mathrm{WF}'_h(E_1)$, and $\|E'_1u\| =
 o(h)$ by Corollary 4.6 as in the localisation; the last term is $O(h^\infty)$. So $\|B_1\Phi u\| = O(h)$.
 
-*Step 2.* Fix $\delta_1\in(0,\delta_0)$ with $\Gamma(\delta_1)\subset U_1 = \mathrm{Ell}_h(B)$, possible as $B$ is
-elliptic at $\Gamma$. In Steps 2-4, and in the definition of $\mathsf m$, $\delta_0$ is replaced by $\delta_1$, so that
-every function $a$ below is supported in $U_1$, where $\mu$ lives (D189, the seventy-sixth verifier's m9). Lemma 6.3
-(c) with $\Phi$ and $Y := B_1$-elliptic cut-off gives, for real $a\in
+*Step 2.* Fix $\delta_1\in(0,\delta_0)$ with $\Gamma(\delta_1)\subset U_1\cap\mathrm{Ell}_h(B_1)$, $U_1 =
+\mathrm{Ell}_h(B)$, possible as $B$ and $B_1$ are elliptic at $\Gamma$ (D191). In Steps 2-4, and in the definition of
+$\mathsf m$, $\delta_0$ is replaced by $\delta_1$, so that every function $a$ below is supported in
+$U_1\cap\mathrm{Ell}_h(B_1)$, where $\mu$ lives and Lemma 6.3 (c) applies (D189, the seventy-sixth verifier's m9). Lemma
+6.3 (c) with $\Phi$ and $Y := B_1$-elliptic cut-off gives, for real $a\in
 C_c^\infty(\mathrm{Ell}_h(B_1))$, $|\int H_{\phi^\natural_u}a\,d\nu|\le C_1\sup|a|$, $C_1$ independent of $a$. Take $a :=
 a_0(\phi^\natural_u)a_1(\phi^\natural_s)\psi(G_{z_0})$ with $a_0,\psi\in C_c^\infty((-\delta_0,\delta_0))$ equal to 1
 near 0, $0\le a_0,\psi\le1$ (so that $a\ge0$ in Step 3), and $a_1(t) := \theta(t/\delta)\chi_c(t)$, where $\theta$ is

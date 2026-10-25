@@ -4707,3 +4707,21 @@ augmented operator from injectivity alone, closed by Theorem 6.4 (2)-(3); (F7) s
 in 9.38 (3). Weaker than the source (Remark 6.7): the smallness c_k may depend on k, the other weights are taken one at a
 time, and (9.120) is proved for the plain operator only. The gap hypothesis is labelled (G), as (H6)-(H8) are Part I.B's.
 Next: the seventy-seventh verifier reads Part I.C, with the D189 repairs of Part I.B.
+
+**D191 (2026-10-25): the seventy-seventh verifier on Part I.C and on the D189 repairs of Part I.B, seated.** Part I.C:
+no major finding. One statement gap: Theorem 4.3 (4) (higher b-regularity at the transition face) was not stated uniform
+in theta, while Corollary 5.2 (b) at k >= 1 and Theorem 6.4 (1) use that uniformity; now stated, with the proof noting
+that its steps depend on theta only through the constants of (1)-(2). Nine minor findings, seated: the Mellin transform
+is defined only for e^(c0 t) v in L^2, so Lemma 2.6 at negative orders is proved on C_c^infty and extended by density;
+the charts of Lemma 6.2 (a) are dilations at both ends, not related by an inversion; the absorption in the adjoint
+estimate of Theorem 6.4 (2) needed v in H^(2-s) near tf, which ellipticity at fibre infinity gives; Lemma 2.5's proof
+reworded so that no commutator with the cut-off arises; Lemma 5.4 stated for theta in [0, pi), the functions at theta =
+pi being those of theta = 0; the kernel coefficients in Proposition 5.3 renamed a_j, apart from Lemma 5.4's constants
+c_j; (K2)'s uniformity cited to the proof of I.A Proposition 5.1; a draft fragment deleted from section 4.1; and one
+clause in Part I.B, Proposition 6.4, Step 2, choosing delta_1 with Gamma(delta_1) inside Ell_h(B_1) as well. Nits seated
+(a split reference, integer N in Lemma 2.6, Lemma 2.7 qualitative). The verifier confirmed (F1)-(F7), recomputing (F4)
+with sympy and the conjugation of the tf operator at n = 3, 4, 5, and confirmed each of the thirteen D189 repairs of
+Part I.B. Parts I.B and I.C are verified; each is labelled proved once its D191 repairs are read, by the reader of Part
+II.A. Part II.A is being written: [Hin26c] sections 2-3 at n = 4, with the scaled bounded geometry calculus of [SBG]
+READ; its k = 0 elliptic and real principal type estimates with coefficients of finite regularity and variable orders,
+which the source calls standard and no text here states, are set apart as Part II.A' (to be written).

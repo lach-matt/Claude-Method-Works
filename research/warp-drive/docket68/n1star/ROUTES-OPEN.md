@@ -2416,3 +2416,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Not proved and not used: (9.115), Remark 9.37, a k-independent smallness and uniformity in alpha in Theorem 9.41
   (Remark 6.7).
 - Next: the seventy-seventh verifier on Part I.C and the D189 repairs of Part I.B; then Part II.
+
+### 4.114 The seventy-seventh verifier on Part I.C and the Part I.B repairs (D191)
+
+- Part I.C: no major finding; one statement gap (Theorem 4.3 (4) uniform in theta, used by Corollary 5.2 (b) and
+  Theorem 6.4) and nine minor findings, all seated; (F1)-(F7) confirmed.
+- Part I.B: the thirteen D189 repairs confirmed; one further clause in Proposition 6.4, Step 2, seated.
+- Status: Parts I.B and I.C verified; each is labelled proved once its D191 repairs are read.
+- Next: Part II.A (in writing), whose reader also reads the D191 repairs.
