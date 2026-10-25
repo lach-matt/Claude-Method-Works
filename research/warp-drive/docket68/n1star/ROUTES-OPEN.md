@@ -2348,3 +2348,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   heading; `hthresh5.py` T7 split into T7-T8 and `iotasol5.py` J2 into J2 and J6, each with its own control; 10.83
   (c)'s wording. The paper's three standing descriptions of the readings and section 9's list are revised with
   10.85-10.86 (D183).
+
+### 4.106 Section 9 re-run on bundles; the census by a second method (deduced and computed; D183)
+
+- 10.85: `bundlesweep.py` (W1-W4) sweeps [Hin26c] section 9's full text for every marker of scalarity or bundles: 341
+  markers in 38 of 62 items, proofs and subsections, each placed; it found the energy estimates near r = m (also the
+  seventy-second verifier's) and Proposition 9.19, now placed. 10.86: each section 9 proof the record uses re-run on
+  E_X, display by display, with a frame (F1)-(F8) of calculus facts, `bundle5.py` (E1-E6) computing those that are
+  identities, and each proof's uniformity in b; at the trapped set the run is for Q P Q^-, (5.9)'s conjugation. What
+  remains is the general caveat: deductions at proof level, read by independent verifiers, not proofs checked at the
+  level of the theorem's statement.

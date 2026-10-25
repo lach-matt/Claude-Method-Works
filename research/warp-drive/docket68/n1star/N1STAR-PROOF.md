@@ -10033,11 +10033,342 @@ the range is closed and dense. []
 *What this gives, and what it does not.* RB and RU are written out site by site and leave their rows: every scalar site
 of section 9 is placed with its bundle form and every constant with the way it is uniform in b, at proof level given
 section 5's definitions, the bundle treatments of sections 7-8 and two elementary facts (square roots of positive
-definite matrices, Riesz's theorem entrywise) and, at the trapped set, (5.9)'s conjugation. Not re-run line by line: the
-scalar proofs with these substitutions, which change nothing outside the sites the census names; that the census found
-every site is read at source, as the censuses of 10.64-10.68 are, not proved. Each of 10.77's ten roots is now settled,
-written out or READ, and no row of READINGS.tsv rests on a reading. Labels: READ ((1)-(6)); deduced at proof level
-((a)-(i), Lemma 10.59); nothing computed or proved here.
+definite matrices, Riesz's theorem entrywise) and, at the trapped set, (5.9)'s conjugation. Not re-run line by line here:
+the scalar proofs with these substitutions, which change nothing outside the sites the census names (since re-run, 10.86;
+D183); that the census found every site is read at source, as the censuses of 10.64-10.68 are, not proved. Each of
+10.77's ten roots is now settled, written out or READ, and no row of READINGS.tsv rests on a reading. Labels: READ
+((1)-(6)); deduced at proof level ((a)-(i), Lemma 10.59); nothing computed or proved here.
+
+
+### 10.85 RB's census by a second method (`bundlesweep.py` W1-W4; D183)
+
+*The setting.* 10.84's census of section 9 -- every step at which a proof uses that the operator is scalar -- was taken
+by reading. As 10.69 did for 10.64-10.68, a second census takes another route: a token sweep of section 9's full text,
+item by item, for every marker of scalarity or of bundles, held against the placements.
+
+*Computed.* `bundlesweep.py` (W1-W4, 4/4, mutants 4/4), on alphaXiv's full text of [Hin26c] as censusweep.py reads it
+(md5 351da4396c664174b662708e9fb18705; not stored here): section 9 runs over printed pp. 157-200 with each of its 43
+numbered items headed once (W1); 341 markers -- real and imaginary parts and subprincipal symbols, thresholds and
+spectra, square roots and sums of squares, Garding and positivity, signs, defect measures, scalar spaces, energy
+estimates and complex absorption, bundle words -- fall in 38 of its 62 items, proofs and subsections, and each of the 38
+is placed (W2); E_X occurs only on p. 163 and "fiber inner" only on p. 182 (W3); within section 9, "perturb" only on p.
+184 (W4).
+
+*Read and deduced.* The placements are read from each hit's context (the instrument's ACCOUNT). The sweep found three
+things the reading had not written: the energy estimates that Theorems 9.5 and 9.36 cite or use near r = m, now in 10.84
+(f) (D182, where the seventy-second verifier found them too); Proposition 9.19's real principal type propagation, re-run
+in 10.86 (f); and the p. 157 sentence, which precedes section 9's heading (10.84 READ (4), D182). Every other marker
+falls at a site of 10.84 or is marked as none with its reason: literature, headings, the b-cotangent bundle and the
+normal bundle of the horizon, the signs of sigma and Im z, scalar weights and cut-offs. So two methods agree on the
+sites; that they found every one is, as for 10.69, evidenced and not proved.
+
+Labels: computed (W1-W4, a token search); READ (the placements); nothing proved here.
+
+### 10.86 Section 9's proofs re-run on bundles (`bundle5.py` E1-E6; D183)
+
+*The setting.* 10.84 placed each change section 9's proofs need on E_X and said it did not re-run the proofs with the
+changes in. Here each proof the record uses is re-run on E_X, in the source's order: every display of the proof with its
+bundle form, and with each proof the way its constants are uniform in b. Where a proof takes a step from a standard
+argument it does not write ([Vas13], [Mel94], [Hin25a], [DZ19], [Zwo12], [Dya16], [HV16]), the re-run writes the bundle
+form of that step. E_X is the restriction to X of T*M or S^2 T*M (ranks 5 and 15 at n = 4) and P-hat_0(sigma) the
+spectral family of box^Ups, box^C or L at b near b_0. The re-run keeps the source's level of detail: where a proof omits
+regularisation and quantisation ("We only recall the symbolic computations and omit their regularization ... and
+quantization", p. 165), the bundle ones are the scalar ones with scalar regularisers, Op(phi) Id, and (F2)'s
+quantisation; where it leaves a case to the reader (the adjoint estimates, sigma_0 < 0), the bundle changes are those of
+the case written.
+
+*The frame (deduced at proof level; E1-E6 computed).*
+
+ (F1) (inner products) A stationary positive definite fibre inner product h on E_X; L^2 = L^2(X; E_X) with h and the
+      density each estimate names, and adjoints with respect to these. Near each radial set h is the one 10.84 (b)
+      chooses there -- B of 10.79 at the horizon, Lemma 5.12's near R_out, any near R_in (10.19 (a)) -- patched by a
+      partition of unity; any two inner products on E_X are uniformly equivalent on X-bar, so an estimate proved in one
+      holds in the patch with a constant. Near dX the trivialisation is that of dt*, dx^i and their symmetric products,
+      in which the leading parts at infinity act componentwise (Proposition 9.40's proof). At the trapped set the inner
+      product is Definition 5.8's, on pi*E_X over phase space, carried to E_X by (5.9)'s conjugation ((m)).
+ (F2) (operators) Psi(X; E_X), and its scattering, b, semiclassical and sc-b versions, are the scalar algebras with
+      End(E_X)-valued symbols in local trivialisations, patched by a partition of unity: principal symbols are sections
+      of End(pi*E_X), sigma(AB) = sigma(A) sigma(B) and sigma(A*) = sigma(A)*, the h-adjoint. For a scalar symbol a,
+      Op(a) is Op(a) Id in each chart; a change of chart or of partition changes it by an operator of one order lower,
+      which enters every commutator below one order under its principal part.
+ (F3) (commutators and imaginary parts) For P with principal symbol G Id and A = Op(a) Id, i[P, A] has principal symbol
+      (H_G a) Id, the first-order matrix part of P entering it one order lower (E1; with a matrix commutant it enters at
+      principal order, E1's control). Im P = (P - P*)/2i has no part of P's order, and its principal symbol is
+      h-self-adjoint (E2). So each C = i[P, A] + 2 (Im P) A of section 9, or its symmetrised form i[Re P, A] + 2 A-check
+      (Im P) A-check + [[Im P, A-check], A-check], has principal symbol (H_G a) Id + 2 a p_1 with p_1 h-self-adjoint; the
+      double commutator is one order lower, as for scalars, [Im P, A-check] having top symbol [p_1, a-check Id] = 0; and
+      the rest of C, one order lower, is absorbed as the scalar proofs absorb subprincipal terms -- by the a priori term
+      and the half-step iteration behind the strong estimates (Remark 9.6).
+ (F4) (square roots and Garding) An h-self-adjoint symbol q of order m with q >= c rho^-m Id, c > 0, has a positive
+      square root of order m/2 (E3: on positive definite matrices the square root is algebraic and real-analytic), so
+      Op(q) - Op((c/2) rho^-m) = Op(b)* Op(b) + (one order lower) with b = (q - (c/2) rho^-m)^(1/2): Garding's inequality
+      in each calculus, as for scalars.
+ (F5) (defect measures) The defect measure of an h-tempered E_X-valued sequence is a Radon measure mu valued in positive
+      semidefinite h-self-adjoint endomorphisms, with lim <B u, u> = int tr(b d mu) for endomorphism-valued b; tau = tr
+      mu, m = d mu / d tau, m >= 0, tr m = 1; and tr(p m) <= lambda_max(p) for h-self-adjoint p (E4).
+ (F6) (energies) With nabla an h-compatible connection on E_X, pulled back to M, box_nabla = g^(mu nu) nabla_mu nabla_nu
+      differs from P_0 by a first-order operator, and T[u](X, Y) = Re (h(nabla_X u, nabla_Y u) - (1/2) g(X, Y)
+      g^-1(h(nabla u, nabla u))) has divergence div T[u](., X) = Re h(box_nabla u, nabla_X u) + (X)K[u] + Re h(F(X, .) u,
+      nabla u), (X)K[u] = (1/2) (L_X g) . T[u] and F the curvature of nabla, zeroth order in u (E5 in 1 + 1 dimensions
+      with X Killing); T[u](X, Y) >= 0 for X, Y future causal and is a positive definite form in nabla u when one is
+      timelike, h being positive definite.
+ (F7) (sums of squares) A b-vector field V acting componentwise has h-adjoint the componentwise adjoint plus a
+      zeroth-order endomorphism, so V*^h V and V* V differ by a first-order operator (E6).
+ (F8) (indicial families) The b-normal operators of P-hat_0(0) and of N_tf and their indicial families N(lambda) are
+      End(E_X|dX)-valued; N(lambda)^-1 is meromorphic, with poles at the indicial roots, where det N(lambda) = 0; the
+      Mellin-transform arguments behind (3.47) and (9.109) run on components; and since the determinant of an h-adjoint
+      is the conjugate, the indicial roots of an adjoint family are the conjugates of the family's.
+
+*The re-runs (deduced at proof level).* Section 9.2, bounded nonzero frequencies:
+
+ (a) (Proposition 9.9, pp. 165-166) With (9.25)-(9.26)'s cut-offs, A-check = Op(a-check) Id, a-check = rho_oo^(-s + 1/2)
+     psi_Sigma psi_R, and 2 Im <A-check P-hat_0(sigma) u, A-check u> = <C u, u> with (9.27)'s C, an identity in L^2(X;
+     E_X). By (F3) C has principal symbol H_G0(a-check^2) Id + 2 rho_oo^-1 p_1(sigma) a-check^2, (9.28)'s p_1(sigma) an
+     h-self-adjoint endomorphism, equal to -delta rho_oo^-1 a-check^2 Id - b* b - b_R^2 Id + j G_0 Id with b_R and j
+     scalar as printed and b = rho_oo^-s psi_Sigma psi_R ((rho_oo^-1 H_G0 rho_oo)(2s - 1) - delta - 2 p_1(sigma))^(1/2)
+     by (F4), defined where the endomorphism under the root is positive definite. At R_+ and delta = 0 that endomorphism
+     is 2 beta_0 times s - 1/2 - beta_0^-1 p_1(0) - beta_0^-1 (p_1(sigma) - p_1(0)) ((9.29)); (9.30) holds on E_X, t
+     being a function, so sigma_1(d_sigma P-hat_0(0)) = -(H_G0 t) Id and p_1(sigma) - p_1(0) = -(Im sigma)(rho_oo H_G0
+     t) Id is scalar, with -beta_0^-1 (p_1(sigma) - p_1(0)) >= beta Im sigma Id. So the endomorphism is >= 2 beta_0 (s -
+     1/2 - beta_1 + beta Im sigma) Id, beta_1 now the supremum over R_+ of the top of the spectrum of beta_0^-1 p_1(0),
+     (5.17)'s vartheta_H+: positive definite when s > s_0 > 1/2 - beta Im sigma + beta_1. Quantising, Op(b)* Op(b)
+     controls B u as in the scalar proof; the adjoint estimate takes -s + 1 for s, with the relative sign of b and b_R
+     switched, as printed. Uniform in b: the commutant is built from b's H, R_+, q, rho_oo and beta_0, continuous in b,
+     and (9.24)'s inequalities and the positivity under the root hold at b_0 with a margin, so near it ((P3)); the
+     constants are seminorm bounds.
+ (b) (Proposition 9.10, pp. 167-168) For sigma in sigma_0 + i[nu', nu] P-hat_0(sigma) is elliptic at R_sigma0,in, its
+     principal symbol G_sigma Id scalar and invertible there, and (9.33) is an elliptic estimate with a matrix
+     parametrix. Otherwise (9.34) holds on E_X with A-check = Op(a-check) Id, (9.35)'s scalar a-check, q = (xi_sc + 2 Re
+     sigma)^2 + |eta_sc|^2: i[Re P-hat_0(sigma), A] has principal symbol (H_ReG_sigma a-check^2) Id, the computation of
+     H_ReG_sigma q scalar; the double commutator is of class Psi^(-oo, 2r - 1)_sc by (F3); and (9.36)-(9.37) decompose
+     Im P-hat_0(sigma) as printed, the last summand in rho^2 C^oo(End). d_sigma P-hat_0(0) = 2i rho (rho d_rho - (n -
+     1)/2 - S) - iQ is h-symmetric to leading order but for S, h being smooth on X-bar (rho d_rho h = O(rho), one order
+     of decay lower) and Q in rho^2 Diff^1_sc; so (9.38a) reads sigma^1_sc(rho^-1 Re(sigma) Im d_sigma P-hat_0(0)) =
+     -Re(sigma) (S + S*) at R_sigma,in, and (9.38b)'s p_1 is an h-self-adjoint endomorphism, fibre-linear. (9.39) holds
+     with b = rho^-r psi_d psi_R ((rho^-1 H rho)(2r + 1) - delta + Re(sigma)(2 (S + S*) - 2 p_1))^(1/2) by (F4) and b_R
+     scalar: at R_Re sigma,in, where rho^-1 H rho = 2 Re sigma, the threshold is 4 r + 2 - 2 lambda_max(p_1 - (S + S*))
+     > 0, that is r > (1/2)(-1 + vartheta_in) with vartheta_in the supremum over dX of the top of the spectrum of p_1 -
+     (S + S*) (10.84 (b), 10.19 (a)). (9.40): sigma^1_sc(-Re d_sigma P-hat_0(0)) = -2 xi_sc Id = 4 Re sigma Id at R_in,
+     scalar and positive on supp a-check, the endomorphism parts carrying a factor rho, so A-check Re(-d_sigma
+     P-hat_0(0)) A-check = F* F + R' by (F4). For sigma_0 < 0, the scalar sign changes. Uniform in b: as (a), the data
+     at dX being the operator's leading parts there, continuous in b.
+ (c) (Lemma 9.13, pp. 169-170) On E_X, V^alpha acts componentwise in (F1)'s trivialisation near dX, and P^(k)_sigma acts
+     on E_X-valued vectors (V^alpha u)_(alpha in A_k). The proof counts commutator classes: contributions to
+     P-hat_0(sigma) of class rho C^oo(End), rho^2 Diff^1_b(End) and rho^3 Diff^2_b(End) give rho Diff^(k-1)_b, rho^2
+     Diff^k_b and rho^3 Diff^(k+1)_b, [V, M] = V(M) keeping an endomorphism coefficient's class; [V^alpha, 2 i sigma
+     rho^2 d_rho] = 0 unless alpha = (k, 0, ..., 0), where it is 2 i k sigma rho (rho d_rho)^k Id mod rho Diff^(k-1)_b;
+     and [V^alpha, rho^2 ((rho D_rho)^2 + Delta-slash)] is taken with the componentwise operator, the leading part of
+     P^(0) in that trivialisation, the rest of P^(0) falling under the first rule. So (9.45) holds with Id on the
+     diagonal term and P~_alpha alpha' in rho Diff^1_sc(End), its rescaled symbol 0 at R_out. There are no constants.
+ (d) (Proposition 9.11, pp. 170-171) Step 1: A-check = Op_sc(a-check) Id with (9.46)'s scalar a-check, q = xi_sc^2 +
+     |eta_sc|^2, and (9.47) on E_X, its double commutator of class Psi^(-oo, 2r - 1)_sc by (F3). (1.1): (9.48) is
+     scalar. (9.49) on E_X: rho^-1 Re P-hat_0(0) rho^-1 is (rho D_rho)^2 + Delta-slash, componentwise in (F1)'s
+     trivialisation, mod Diff^1_b(End) + rho Diff^2_b(End), so Re P-hat_0(0) = sum (rho V_j)*^h (rho V_j) + R_1 + R_2
+     with V_j componentwise, the change to h-adjoints lying in rho^2 Diff^1_b by (F7) and put into R_1, and R_1, R_2
+     taken h-symmetric, as their sum is; r_1, r_2 are h-self-adjoint, homogeneous of degree 1 and 2 in the fibres and so
+     0 at R_out, and r_3 = sigma(rho^-1 Im P-hat_0(0)) is 0 at the zero section. (9.42) on E_X reads Im P~_0(sigma) =
+     -rho (S + S*) + (Re sigma)|sigma|^-2 Im P-hat_0(0) - (Im sigma)|sigma|^-2 Re P-hat_0(0) mod rho^2 Diff^1_sc(End),
+     so (9.50) holds with e_R scalar and b = rho^-r psi_d psi_R ((rho^-1 H rho)(2r + 1) + 2 (S + S*) + (Im
+     sigma)|sigma|^-2 (r_1 + r_2) - (Re sigma)|sigma|^-2 r_3 - delta)^(1/2) by (F4): at R_out rho^-1 H rho = -2, so the
+     endomorphism is -4 r - 2 + 2 (S + S*) plus terms vanishing at R_out, positive definite near R_out when r < -1/2 +
+     (1/2) lambda_min(S + S*), which r < -1/2 + S-bar gives in Lemma 5.12's inner product (10.84 (b)). (9.52): -2 (Im
+     sigma)|sigma|^-2 sum ||rho V_j A-check u||^2_h <= 0, as printed. (1.2): for Im sigma >= nu, P~_0(sigma) is elliptic
+     off R_out (a scalar principal symbol), and Op_sc(j) P~_0(sigma), j scalar, replaces Op_sc(e_R^2). Step 2: (9.43)
+     for sigma^-1 P^(k)_sigma u^(k) = sigma^-1 f^(k) with (c)'s P^(k): P~_alpha alpha' contributes 0 to C's principal
+     symbol at R_out; -2 k i rho delta enters 2 A-check (Im P^(k)) A-check as -2 k A-check rho delta A-check Id <= 0,
+     the sign of -b* b; and the terms R_alpha beta V^beta u, R_alpha beta in rho Diff^2_sc(End), are bounded by
+     induction on k as printed, commutators of b-vector fields with scattering operators with b-regular End-valued
+     coefficients being scattering operators of the same order ((3.7)). Uniform in b: as (b).
+ (e) (Theorem 9.5, pp. 172-174) Parts (1)-(2): (a)-(b) at the sources, real principal type propagation between ((f), the
+     same commutator argument at bounded sigma), (d) at the sink, and elliptic estimates where P-hat_0(sigma) is elliptic
+     (a matrix parametrix, the principal symbol scalar) give the estimate of chi u; control on r^-1([m, r_+1]) is the
+     energy estimate the proof cites ([Hin25a] Corollary 9.38), on E_X (F6)'s identity with (r)'s multiplier at bounded
+     sigma, X = nabla r timelike there, the first-order and curvature terms of P_0 - box_nabla absorbed by a weight
+     e^(-lambda r), lambda large (10.84 (f)). Part (3): the compact inclusions; (9.54) with E_01 : C^(dim R) -> R, R in
+     C_c^oo(X°; E_X), and E_10 a tuple of <., v>_(L^2) with v in C_c^oo(X°; E_X); the contradiction argument --
+     normalised (u_j, c_j), a uniform bound from (9.17), a weak limit and, by compactness, a norm limit -- is one about
+     Hilbert spaces and runs as printed, so the index is constant in sigma. Part (4): (9.53) holds componentwise (Remark
+     9.14's rho^-1 V elliptic away from the zero section), so only (d)'s Step 2 is new. Part (5): u lies in H-bar^(oo,
+     r)_b for r < -1/2 + S-bar and in C^(oo, 1 + S-bar - eps)_b by (3.72) componentwise; (9.55) on E_X is an ODE in rho
+     with End(E_X)-valued coefficient S, and integrating from rho = delta gives u = rho^(1 + S(0, .)) u_0 + u~ with u_0
+     in C^oo(dX; E_X), rho^S = exp(S log rho) and ||rho^S|| <= C_eps rho^(S-bar - eps) for rho < 1 (Jordan blocks giving
+     powers of log rho); when no two elements of spec S(p) differ by an integer the successive integrations give (9.21),
+     footnote 74's logarithms otherwise; the parenthetical part is Lemma 13.13's (10.81). Part (6): (9.56)-(9.57) are
+     statements of orders and weights, and the injectivity near sigma_0 by contradiction, the continuity of u(sigma) by
+     weak limits and uniqueness, and the difference quotients are Hilbert-space arguments that run as printed. Uniform in
+     b: (1)-(2)'s constants are those of (a)-(d), (f) and (r); (3)'s index is constant along the continuous Fredholm
+     family in (sigma, b); (6)'s inverse bounds near (sigma_0, b_0) are Lemma 10.59's, in (sigma, b) jointly.
+
+Section 9.3, high energies:
+
+ (f) (Proposition 9.19, p. 176) For z = +-1 + O(h) P_h,z has semiclassical principal symbol G_+-1 Id, and h^-1 Im P_h,z =
+     (h Im P-hat_0(0) + Re(z) Q_0) - h^-1 Im(z) Q_1,h ((g)) is bounded, with h-self-adjoint principal symbol p_1(z). The
+     standard positive commutator argument ([Hin25a] section 8.7; [DZ19] Appendix E.4) runs on E_X with A =
+     Op_h(a-check^2) Id, a-check a cut-off along gamma times e^(-K s'), s' the flow parameter, so that H_G a-check^2 = -2
+     K a-check^2 plus terms supported near gamma(0), controlled by E, or where the cut-offs off gamma vary, where P is
+     elliptic or which are controlled likewise: by (F3) C has principal symbol (H_G a-check^2) Id + 2 a-check^2 p_1 <=
+     (-2 K + 2 sup ||p_1||) a-check^2 Id plus those terms, negative definite on supp a-check for K > sup ||p_1|| over the
+     segment, and (F4) turns this into (9.63). The adjoint estimate is the same with the direction reversed. Uniform in
+     b: K, the neighbourhoods and h_0 are chosen at b_0 with a margin, the flow and sup ||p_1|| being continuous in b.
+ (g) (Lemmas 9.20-9.21, pp. 176-177) Lemma 9.20 concerns G alone and holds as printed. Lemma 9.21 on E_X: P-hat_0(sigma)
+     = P-hat_0(0) + sigma d_sigma P-hat_0(0) + (sigma^2/2) d_sigma^2 P-hat_0(0), with d_sigma P-hat_0(0) in Diff^1(X;
+     E_X) of principal symbol -(H_G t) Id by (9.30), so Q_1 := Re d_sigma P-hat_0(0) has that principal symbol and Q_0 :=
+     Im d_sigma P-hat_0(0) is of order zero, an h-self-adjoint endomorphism where the scalar case has a real function;
+     d_sigma^2 P-hat_0(0) = 2 G(dt) Id; and the proof's combination gives (9.65), Q_1,h = -(h Re d_sigma P-hat_0(0) + 2
+     Re(z) G(dt)) with principal symbol 2 g^-1(-(Re z) dt + xi, dt) Id, scalar, and h Im P-hat_0(0) + Re(z) Q_0
+     h-self-adjoint, of class Diff^1_h.
+ (h) (Proposition 9.22, pp. 177-178) For Im z in [h nu, h nu'] this is (f). Otherwise (9.66a)-(9.66b) hold on E_X with
+     A-check = Op_h(a-check) Id: i/h [Re P_h,z, A] has principal symbol (H_sigma2(Re P) a-check^2) Id, and [Hin25a]
+     (8.104a)-(8.104b)'s scalar a-check gives (9.67) with b and e scalar; the double commutator is in h Psi^(2s - 1)_h by
+     (F3). (9.68): Q~_1,z,h = Q_1,h - (Im z/h)^-1 (h Im P-hat_0(0) + Re(z) Q_0) has principal symbol 2 g^-1(-(Re z) dt +
+     xi, dt) Id minus (Im z/h)^-1 times a bounded h-self-adjoint endomorphism, so it is >= 2 c rho_oo^-1 Id near gamma
+     for Im z/h >= nu with nu large, and (F4)'s Garding gives (9.69). Uniform in b: nu, c and h_0 at b_0 with a margin,
+     the endomorphism's norm bounded near b_0.
+ (i) (Proposition 9.23 and Remark 9.24, p. 178) As (h): the second term of (9.66b) has its sign by (9.68)-(9.69) on E_X,
+     the third is subprincipal, and the first has the z-independent scalar principal symbol rho_oo^2 G at fibre infinity.
+ (j) (Proposition 9.25, pp. 178-179) For Re z = +-1 and h nu <= Im z <= h nu', (a)'s argument with the cut-off psi_oo: C
+     = i/h [P_h,z, A] + 2 ((P_h,z - P_h,z*)/2ih) A has principal symbol (H_G+-1 a) Id + 2 rho_oo^-1 p_1(z) a, so (9.71)
+     holds with b = rho_oo^-s psi_Sigma psi_oo psi_R ((2s - 1) rho_oo^-1 H_G+-1 rho_oo - delta - 2 p_1(z))^(1/2) by (F4)
+     and b_R, b_oo and j scalar; the threshold is s > s_0 > 1/2 - beta nu + beta_1. For h << Im z, (9.72): its bracket,
+     i/h [Re P_h,z, A] - 2 Op_h(C rho_oo^-1 a-check^2), is scalar at principal level -- (9.71) with -2 C for 2 p_1, its
+     threshold below any real number for C large -- and the endomorphism enters only through Q~_1,z,h - (Im z/h)^-1
+     Op_h(C rho_oo^-1) Id in the second line, positive for Im z/h large ((h)). Uniform in b: as (a) and (h).
+ (k) (Proposition 9.26, p. 180) (b)'s argument with (9.66a)-(9.66b): the derivative of psi_d gives -b_d^2 Id, scalar, of
+     the sign of -b* b; h Im P-hat_0(0) + Re(z) Q_0 lies in rho Diff^1_sc,h(End) with principal symbol rho (Re z)(p_1 -
+     (S + S*)), an h-self-adjoint endomorphism, which enters b under the root as in (b) and gives (b)'s threshold
+     vartheta_in; and -h^-1 Im(z) Q_1,h has principal symbol 2 g^-1(-dt - 2 dr, dt) Id = 4 Id > 0 at R_+1,in, so (F4)'s
+     Garding gives (9.75). Uniform in b: as (b).
+ (l) (Proposition 9.27, pp. 181-182) (d)'s argument for P~_h,z = z^-1 P_h,z: e_d is scalar, from psi_d's derivative; h^-1
+     Im P~_h,z = -rho (S + S*) + (Re z)|z|^-2 h Im P-hat_0(0) - (Im z)|z|^-2 h^2 Re P-hat_0(0) - Re Q + h^-1 (Im z) g_00
+     Id on E_X, whose first term gives (d)'s threshold r < -1/2 + S-bar, second vanishes at R_out, third gives r_1 and
+     r_2, small near R_out, and the good-sign sum of (9.49) on E_X ((d)); Q's principal symbol is i times a real scalar,
+     so Re Q is in rho^3 C^oo(End) and enters the root with decay to spare; and <2 A-check h^-1 (Im z) g_00 A-check u, u>
+     <= 0, g_00 = G(dt) <= 0 a function. (1.2): P_h,z is elliptic on supp(psi_R d psi_d) by Lemma 9.20 (1), its principal
+     symbol scalar. Step 2: (c)'s commuted system times h^2, 2 k i h z rho delta Id with imaginary part of the right sign
+     for Im z >= 0, and the R_alpha beta,h terms by induction as printed. Uniform in b: as (d).
+ (m) (Theorem 9.28 at Gamma: the conjugation) Let Q be (5.9)'s, time-translation-invariant and elliptic with rho_oo
+     sigma_1((1/2i)(Q P_0 Q^- - (Q P_0 Q^-)*)) < (1/2) nu_min at Gamma_0 in a fixed inner product on E_X -- for the
+     record (5.8) with right side as small as wished, by 10.17 (a)'s B_eta -- its Schwartz kernel localised in t - t' as
+     Q_3's is (p. 188), so that Q-hat(sigma) = e^(i sigma t*) Q e^(-i sigma t*) is entire in sigma and, for Im sigma in a
+     bounded set, Q_h,z := Q-hat(h^-1 z) is a semiclassical operator of order 0 elliptic near Gamma, with the same
+     principal symbol (Hintz's remark on Q_3). Then P'_h,z := Q_h,z P_h,z Q_h,z^- has principal symbol G_1 Id near Gamma,
+     and by (5.9) h^-1 Im P'_h,1 has principal symbol p_1' whose spectrum over Gamma lies below (1/2) nu_min, below any
+     eps > 0 for the record. Where Im(h^-1 z) is at least gamma_+ computed in h on E_X, (n) needs no conjugation;
+     elsewhere Im(h^-1 z) is bounded and (n)-(q) run for P' and u' := Q_h,z u, with P' u' = Q_h,z f + Q_h,z P_h,z (I -
+     Q_h,z^- Q_h,z) u, the last term O(h^oo) microlocally near Gamma (Q^- a parametrix there); estimates for u' near
+     Gamma give those for u by the ellipticity of Q_h,z. (Gamma.1)-(Gamma.3) concern G_1 and are unchanged; (Gamma.4)'s
+     p_1 is p_1', its sup the top of its spectrum. P' is holomorphic in sigma = h^-1 z as P is, which (q)'s three-line
+     theorem needs. Uniform in b: Q chosen at b_0 with (5.8)'s strict inequality serves near b_0 by (P3).
+ (n) (Theorem 9.28 for Im(h^-1 z) > gamma_+, pp. 183-184) For P' of (m): A-check = Op_h(a-check) Id, a-check = psi_Sigma
+     psi_u psi_s built from b's phi_u and phi_s, scalar; the computations of H_ReG_z (psi_u)^2 and H_ReG_z (psi_s)^2 are
+     of G alone; (9.84a)-(9.84b) give sigma(h^-1 Im P'_h,1) = p_1', h-self-adjoint, and sigma(Q_1,h) >= 2 beta_0 Id,
+     Q_1,h's scalar principal symbol unchanged by the conjugation. So with gamma_0 in (sup_Gamma lambda_max(p_1')/(2
+     beta_0), gamma), C = Op_h(-b* b - b_u^2 + e_s^2 + j G_z) - 2 h^-1 Im(z) A-check (Q_1,h - 2 beta_0 gamma_0 (Im
+     z/h)^-1) A-check mod h Psi_h with b = psi_Sigma psi_u psi_s (4 beta_0 gamma_0 Id - 2 p_1')^(1/2) by (F4) and b_u,
+     e_s, j scalar; the Im z term is negative modulo h^N by (F4), Q_1,h - 2 beta_0 gamma_0 (Im z/h)^-1 having principal
+     symbol >= (2 beta_0 - 2 beta_0 gamma_0/gamma) Id > 0. Uniform in b: gamma_0, the large constants and nu' at b_0 with
+     a margin, Gamma_b's defining functions continuous in b ((P3), [HPS77]).
+ (o) (Lemmas 9.30-9.32, pp. 185-186) (9.87) for endomorphism-valued a: ||A u|| <= 2 ||a||_oo ||chi u|| + C h^(1/2) ||chi
+     u||_(H^-N_h), ||a||_oo the supremum of the operator norms, by (F4)'s square root of 2 ||a||_oo^2 Id - a* a. Lemma
+     9.30 with test operators of End-valued symbol b: the parametrix Q G = B + R with G scalar-principal and elliptic on
+     U, (9.88) with sup ||b||, the diagonal argument over a countable dense set of C_c^oo(U; End E_X), and Riesz's
+     theorem entrywise give mu with lim <B u, u> = int tr(b d mu); for b >= 0, b_eps = b + eps |j|^2 Id > 0 on K has the
+     square root q_eps of (F4), so lim inf <B u, u> >= -C eps and mu >= 0 ((F5)). Lemma 9.31: for scalar b supported off
+     p^-1(0), int |b|^2 d tau = lim ||B u||^2 = 0, so supp tau is in p^-1(0). Lemma 9.32 for scalar real a: C = i/h [Re
+     P, A] + h^-1 ((Im P) A + A (Im P)) has principal symbol (H_p a) Id + 2 a p_1 ((F3)), so int (H_p a) d tau + 2 int a
+     tr(p_1 d mu) <= 4 ||a||_oo lim sup h^-1 ||Y P u|| ||Y u||; if ||Y P u|| = o(h) it vanishes for every real a, and
+     supp tau is invariant: a >= 0 near a segment of gamma with H_p a <= -2 (sup ||p_1||) a outside V, strictly on gamma
+     \ V, makes (H_p a) + 2 a tr(p_1 m) <= 0 there, strictly on gamma \ V, so tau(gamma \ V) = 0.
+ (p) (Theorem 9.28 with loss 1, pp. 186-188) For P' and u': the sequences (9.90) are E_X-valued; mu is (o)'s, tau its
+     trace, and supp tau lies in Gamma_u by (o) and (f), ||E' u||^2 -> int |e'|^2 d tau for scalar e', (9.91) for tau.
+     Step 1: Phi_u, N_u and J_u are quantisations of phi_u, nu_u and j_u, times Id, Phi_u taken h-symmetric; i/h [P',
+     Phi_u] = -N_u Phi_u + J_u P' + h R + R_away with R now End-valued, from P''s matrix subprincipal part; (9.92) as
+     printed; sigma(h^-1 Im(P' - i h N_u)) <= (lambda_max(p_1') + 2 beta_0 beta - nu_u) Id < 0 at Gamma, so (n) applies
+     to P' - i h N_u and Phi_u u', giving (9.93). Step 2: (9.89) for Phi_u, h-symmetric with p_1 = 0, gives (9.94) for
+     tau, and (9.95)-(9.96) with scalar a. Step 3: (9.89) for P' u' = o(h^2) gives int (H_G1 a) d tau + 2 int a tr(p_z d
+     mu) = 0; with (9.95)'s a and a_1 = |phi_s|^(-2 lambda) f(|phi_s|), lambda in (sup_Gamma lambda_max(p_z)/nu_s, 1/2),
+     (H_G1 + 2 tr(p_z m)) a = nu_s |phi_s|^(-2 lambda) (-2 (lambda - tr(p_z m)/nu_s) f + |phi_s| f') with lambda - tr(p_z
+     m)/nu_s >= lambda - lambda_max(p_z)/nu_s > 0 near Gamma by (F5), non-positive for |phi_s| >= delta, below a negative
+     constant on Gamma_u and {delta <= |phi_s| <= delta_0}, and bounded by C delta^(-2 lambda) on [delta/2, delta]:
+     (9.97) for tau. Step 4 as printed. Uniform in b: 10.84 (h)'s contradiction with b_j -> b_0, run for P'_b_j with
+     Phi_u from b_j's phi_u.
+ (q) (Lemma 9.33 and the precise loss, pp. 188-190) P'' := chi(Q P_0 Q^- - i Q_3) - i (1 - chi)(D_t^2 + nabla* nabla),
+     with Q_3 Id and nabla* nabla on an extension of E_X to the closed X', has scalar principal symbols and is
+     semiclassically elliptic outside Gamma(3 delta_0/4), fibre infinity included. Lemma 9.33's proof: elliptic estimates
+     on the absorbing set (matrix parametrices), (p) near Gamma, the adjoint problem the same way, and invertibility for
+     small h; the three-line theorem [DZ19, Lemma D.1] for F(sigma) = P''-hat(sigma + i eta)^-1 f, holomorphic and valued
+     in L^2(X'; E_X'), footnote 83's subharmonicity holding for Hilbert-space-valued F. (9.99)-(9.101) are operator
+     identities and wave front set statements: Q_h,z B^#, B (I - B^#) are in h^oo Psi^-oo; (I - X_u) [P', B^#] u is
+     controlled by (f); and with Q~ = Op_h(q~) Id, q~ >= 0, ||u|| <= h^-1 ||(P'' - i Q~) u|| by (f) and the absorption,
+     and v has trivial wave front set by propagation ((f)). Uniform in b: 10.84 (g)'s -- M, M_+-, h_0 from (f), (p) and
+     the elliptic estimates, Q_3 fixed at b_0 with a delta_0 margin, the loss delta_Gamma,b0(Im sigma - 2 eps).
+ (r) (Proposition 9.35, pp. 191-193) For h nu <= Im z <= h nu' the proof cites [Hin25a] Theorem 9.44; on E_X it is (F6)'s
+     identity with the multiplier e^(-lambda r) X, X = nabla r, lambda large: the bulk term gains lambda times a positive
+     definite form in nabla u, X being timelike on r^-1([r_-, r_+]), which absorbs |Im z|/h <= nu' and the first-order
+     and curvature terms of P_0 - box_nabla. For Im z/h >= nu': the printed argument with (F6)'s T[u], u' = e^(-izt/h) u,
+     X' = e^(-2 (Im z) t/h) X, the energy identity [Hin25a] Theorem 9.16 on E_X being the divergence theorem for (F6)'s
+     current -- int (X')K[u'] + B(1) + int T[u'](X', nu_r) = int Re h(box_nabla u', X' u') + B(0) + int Re h(F(X', .) u',
+     nabla u') -- with B(t) constant as printed, the integrands t-independent; T[u](X, nu_r) >= 0 is dropped; (9.106)
+     holds with h(nabla u, nabla u) for g^-1(du, d u-bar), (X')K[u'] >= c (Im z/h)(|h^-1 u|^2 + |nabla^X u|^2_R) for Im
+     z/h large; and on the right, P_0 = box_nabla + V + a with V in Diff^1(M; E) and a in C^oo(M; End E) gives |V-hat u|
+     |X-hat u| <= C (|h^-1 u|^2 + |nabla^X u|^2) and |a u| |X-hat u| <= C h (|h^-1 u|^2 + |nabla^X u|^2), and the
+     curvature term is bounded as the a term, all absorbed for Im z/h large; the dualisation and propagation of [Hin25a]
+     Chapter 9.5 are Hilbert-space duality and (f). Uniform in b: nu' and the constants from the bounds on V, a and F and
+     the positivity of T[u](X, .) over a compact set on which dr stays timelike, continuous in b.
+ (s) (Theorem 9.16, p. 193) (j), (k), (m)-(q) and (l), with (f) between, give microlocal control everywhere by
+     Proposition 4.24's dynamics, a statement about the flow of G (at n = 4, 10.19 (c)); (r) near r^-1(m); and the error
+     C_N h^N ||chi u|| is absorbed for h small. (3): the nullspaces are trivial by (9.59). (4): Remark 9.14 componentwise
+     and (l)'s (9.77). (9.61): (9.56)'s sigma d_sigma P-hat_0(sigma) in sigma rho Diff^1_b(End) + sigma^2 rho^2 C^oo, and
+     the iteration of mapping properties, orders only. Uniform in b: h_0, C_0 and C from (f)-(r).
+
+Sections 9.4-9.6, zero and low energies:
+
+ (t) (Theorem 9.36, pp. 193-194) Proposition 9.9 at sigma = 0 ((a)), real principal type propagation in the ergoregion
+     ((f) at sigma = 0), the energy estimate near r = m ((r) at bounded sigma, 10.84 (f)) and elliptic regularity give
+     the first estimate; (3.47), with (F8)'s matrix indicial family -- alpha + 3/2, alpha + 2 at n = 4 (10.53 (b)), in an
+     indicial gap meaning no root of det N(lambda) on the line -- and the interpolation inequality, which concerns
+     weights, give (9.107). Part (2): the strong estimates give H-bar^(oo, alpha)_b; (9.109) and the Mellin transform on
+     components, with N(rho^-2 P-hat_0(0), lambda)^-1 free of poles in the strip ((F8)), improve the weight; (3.72)
+     componentwise. Uniform in b: the constants from (a), (f) and (r), and (3.47)'s from the indicial family's inverse on
+     the line, continuous in b.
+ (u) (Theorem 9.38, pp. 195-197) N_tf(P_0, sigma-hat) = 2i sigma-hat rho-hat (rho-hat d_rho-hat - (n - 1)/2 - S) +
+     rho-hat^2 P^(0)(0, omega, rho-hat d_rho-hat, d_omega) acts on pi_tf* E_X, S = S(0, omega) an endomorphism and P^(0)
+     with End-valued lower-order terms. Over sctf: (b), (d) and (f), with error ||u||_(H^(-N,(-N,q))); at ztf the
+     b-normal operator r-hat^-2 P^(0)(0, r-hat^-1, -r-hat d_r-hat, d_omega), with indicial roots -lambda for those lambda
+     of P-hat_0(0) ((F8)), and (3.47); the interpolation as in (t). (2): r + alpha_+ < -1/2 + S-bar at R_out, S-bar
+     (5.2)'s ((d)). (3): (9.54)'s augmentation with E_10, E_01 built from C_c^oo(tf°; pi_tf* E_X). (4): (d)'s b-regular
+     estimate. (5): near sctf (e)'s matrix ODE, near ztf (t)'s Mellin argument, Sobolev embedding componentwise; for the
+     adjoint, the adjoint for mu_e is rho-hat^n N_tf(P_0, 1)^(*, mu_b) rho-hat^-n, and by (F8) its indicial roots are
+     -lambda-bar - n + 2 for those lambda of P^(0), as printed; (9.117) on E_X: the conjugation by e^(2i/rho-hat) takes
+     the End-valued first-order terms rho-hat^2 (rho-hat d_rho-hat, d_omega, 1)^(<=1) to rho-hat^2 (rho-hat d_rho-hat +
+     2i rho-hat^-1, d_omega, 1)^(<=1), the term 2i rho-hat c(omega) going into S~ in C^oo(dX; End E_X), the componentwise
+     (rho-hat D_rho-hat)^2 and Delta-slash as printed, and (2i rho-hat (rho-hat d - (n - 1)/2 - S))^(*, mu_e) with S* for
+     S-bar: the structure of N_tf(P_0, -1), so (9.116) follows from (d)'s b-regular estimate. Uniform in b: N_tf is built
+     from S|dX and P^(0)(0, .) alone ((9.110)), the operator's leading part at infinity, continuous in b (10.12).
+ (v) (Corollary 9.39, p. 197) The proof is about nullspaces, the index of (u)'s Theorem 9.38 (3) and the compact
+     inclusion H^(s,(r + alpha_+, q))_sc,b -> H^(-N,(-N,-N))_sc,b, and runs as printed on E_X-valued spaces;
+     tf-admissibility at n = 4 is Proposition 8.6's (10.24). Uniform in b: C_k by Lemma 10.59, or N_tf's continuity.
+ (w) (Theorem 9.41, pp. 198-199) chi_zf and chi_tf are scalar cut-offs; (3.46)'s equivalences concern weights;
+     [P-hat_0(0), chi_zf] is in rho^oo_scf rho^2_tf rho^oo_zf Diff^1_sc-b(End) and P-hat_0(sigma) - P-hat_0(0) in
+     rho^2_tf rho_zf Diff^1_sc-b(End), the principal symbol over X° being sigma-independent and scalar; the zero energy
+     bound is (t) with invertibility, the tf bound (9.118) is (v)'s, (9.122)'s memberships carry End-valued coefficients,
+     the error is <= C varsigma^eta times the left side and absorbed for varsigma small; k > 0 by (e)'s Theorem 9.5 (4);
+     and (9.120) from sigma d_sigma P-hat_0(sigma) in sigma rho Diff^1_b(End) + sigma^2 rho^2 C^oo. Uniform in b: c from
+     the absorption with C uniform, the zero energy inverse uniform by Lemma 10.59 ([Hin26] p. 124), and (9.118) by (v).
+ (x) (Remark 9.42 and Corollary 9.43, pp. 199-200) The augmentations (9.123) have E_01, E_10 of finite rank, built from
+     C_c^oo(X°; E_X), and Corollary 9.43's index argument -- Theorem 9.41 for the augmented operator, invertible at sigma
+     = i eps, and (9.18)'s index 0 -- runs as printed. Uniform in b: (w)'s.
+
+*What this gives, and what it does not.* Each proof of [Hin26c] section 9 the record uses is now re-run on E_X with the
+changes in: every display with its bundle form, every standard step it takes from a cited source written in its bundle
+form, and every constant with how it is uniform in b. The bundle changes are those 10.84 placed, now carried through each
+line -- with one place where they are more than notation, the trapped set, where Hintz's own conjugation (5.9) carries
+Definition 5.8's inner product to E_X ((m)). The re-run is at the source's level of detail, the omitted regularisations
+and quantisations and the cases left to the reader being the scalar ones with (F1)-(F8)'s changes; and it rests on the
+frame's calculus facts, E1-E6 computing those that are identities. So RB and RU are no longer steps placed but not run.
+What remains of section 8.8's (ii) is the general one: these are deductions written out at proof level and read by
+independent verifiers, not proofs checked at the level of the theorem's statement. Labels: computed (E1-E6); deduced at
+proof level ((F1)-(F8), (a)-(x)); READ (the pages named, as in 10.84); nothing proved here.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
