@@ -4848,3 +4848,19 @@ iota+ with f_T = rho^-1(1 - xi-hat), for which H-bar f_T = 2 rho^-1 exactly; the
 localisation chi_t of [Hin23c] is not needed, the error near scri+ carrying x_I^(2 l_I). Findings (C0)-(C8); (C1)-(C3)
 are slips of the source. Next: the eighty-second verifier on Part II.C; Part II.C' (Proposition 6.3, a self-contained
 persistence theorem for the stable and unstable hypersurfaces of a decaying non-autonomous perturbation).
+
+**D199 (2026-10-25): Part II.C' written ([Hin26c] Proposition 6.3 at n = 4).** `proof5/PART-II-C2-TRAPPING.md`. Section
+1: Theorem 1.1, a quantitative persistence theorem: a flow V_0 on [T_0, inf) x O with a compact invariant manifold Gamma
+cut out by phi_u = phi_s = 0, with exact normal equations V_0 phi_u = -nu_u phi_u, V_0 phi_s = nu_s phi_s (nu_u, nu_s >=
+nu > 0) and tangential growth C_eps e^(eps |tau|), perturbed by V-tilde with |V-tilde|_(C^k) <= eps t^(-l) on unit
+windows, has hypersurfaces W^u = {phi_u + psi_u = 0}, W^s = {phi_s + psi_s = 0} tangent to d_t + V_0 + V-tilde, with
+psi_u in C^k, psi_s in C^(k-1), both O(eps t^(-l)) with their derivatives. Section 2: the proof by the graph transform.
+Coordinates (y, a, b) = (pi, phi_u, phi_s); time-T maps with exact multipliers m^u <= e^(-nu tau), m^s >= e^(nu tau); eps
+= nu/(2k) and T with e^(-nu T)(2 Lambda_T)^k (1 + 2T)^l <= 1/4; each transform a one-dimensional shooting problem; the
+stable graph by a contraction in a weighted sup norm and Arzela-Ascoli (C^(k-1)), the unstable by forward iteration from
+alpha_0 = 0 (C^k). Section 3: Lemma 3.1, the hypotheses from Part I's (Gamma.1)-(Gamma.3) and (K3), the independence of
+the restricted differentials by Poisson brackets; Lemma 3.2, the projected field; Lemma 3.3, the characteristic set
+graphed over the stationary one; Proposition 3.4 = Proposition 6.3 with phi-tilde^u in C^(d0-1), phi-tilde^s in C^(d0-2),
+d0 >= 3, near the trapped set. Findings (C'1)-(C'3): [Hin21] Theorem 2.6 is replaced, not used; the stable hypersurface
+loses a derivative; the source's R^5 is R^7 at n = 4. Next: the eighty-third verifier on Part II.C' once the
+eighty-second has reported; Part II.D ([Hin26c] section 7).

@@ -22,7 +22,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
 | II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | written (D198) |
-| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | in writing |
+| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | written (D199) |
 | II.D-F | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -230,3 +230,19 @@ cites, in this class; one localisation of that construction is not needed here. 
 source: a power $x_I^{-2}\rho_+^{-2}$ for $x_I^2\rho_+^2$, "non-decreasing" for non-increasing in its Definition 5.11
 (1), and the sign in its characterisation (6.5) of the future characteristic set. Written (D198); the eighty-second
 verifier reads it.
+
+## Part II.C$'$
+
+`PART-II-C2-TRAPPING.md`. [Hin26c] Proposition 6.3 at $n = 4$: for a metric decaying in time to the stationary model,
+hypersurfaces close to the stable and unstable manifolds of the trapped set, converging to them, to which the
+null-bicharacteristic flow is tangent. The source reads it from [Hin21] Theorem 2.6, which is stated for closed
+manifolds, smooth invariant splittings and a fixed perturbation, and takes the uniformity in the perturbation from that
+theorem's proof. Here Theorem 1.1 proves what is needed directly and quantitatively (section 2), by the graph transform:
+the hypersurfaces have codimension one and the normal dynamics is linear in the defining functions, so each graph
+transform is a one-dimensional shooting problem, solved for the stable hypersurface by a contraction in a weighted norm
+and for the unstable one by forward iteration. Its hypotheses are Part I's (Γ.1)-(Γ.3) and the tangential growth bound of
+(K3); the invariant splitting is not used. Section 3 graphs the characteristic set near the trapped set over the
+stationary one, computes the projected field, and proves Proposition 6.3 (Proposition 3.4). Finding (C$'$2) changes the
+statement: the stable hypersurface loses one derivative, $\tilde\phi^s\in C^{d_0-2}$, and both are constructed on a
+neighbourhood of the trapped set, which is all the trapping estimates use. Written (D199); the eighty-third verifier
+reads it.

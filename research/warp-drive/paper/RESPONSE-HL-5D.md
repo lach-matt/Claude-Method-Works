@@ -1086,7 +1086,9 @@ spacetime analysis, and the fifth, which proves the two standard estimates that 
 of the fourth corrects the hypothesis of his real principal type estimate on the variable order, which as printed admits
 a counterexample. The sixth, the dynamics of light rays in the stationary model, has been read line by line and its
 findings seated. The seventh, the classes of operators, the time function and the order functions of his spacetime
-analysis, is written and awaits its reader (supplement `proof5/`). Theorem 4 stays deduced until the last part is proved.
+analysis, and the eighth, the trapped sets of the perturbed metrics, proved here without the theorem on normally
+hyperbolic trapping that he cites, are written and await their readers (supplement `proof5/`). Theorem 4 stays deduced
+until the last part is proved.
 
 ---
 
@@ -1998,7 +2000,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `da1d9a7a57102ae673c7a19e5a480918` |
+| `docket68/n1star/N1STAR-LOG.md` | `e7bdc298aa483fa8df01020195dc5302` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

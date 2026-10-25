@@ -2482,3 +2482,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   three slips of the source recorded.
 - Open: Part II.C unread; Part II.C' (Proposition 6.3); Parts II.D-II.F and III-VII; the D197 repairs to Part II.B.
 - Next: the eighty-second verifier on Part II.C; Part II.C'.
+
+### 4.122 Part II.C' written (D199)
+
+- Part II.C': [Hin26c] Proposition 6.3 at n = 4, by a self-contained quantitative persistence theorem in place of
+  [Hin21] Theorem 2.6; the stable hypersurface loses one derivative.
+- Open: Parts II.C and II.C' unread; Parts II.D-II.F and III-VII; the D197 repairs to Part II.B.
+- Next: the eighty-second verifier's report on Part II.C; the eighty-third on Part II.C'; Part II.D.
