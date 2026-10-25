@@ -656,10 +656,11 @@ $$\|u\|_{H^{k,(\alpha_I,\alpha_+-\delta,-\aleph)}_b}\le C\|u\|_{X(\mathsf s;k+d'
 \big),$$
 the b-norms with the weights of (1.5), by (5.1) ($D_1+d''\le d$) and (3.1) ($k+d'+D_0\le k+d$). Uniqueness in the stated
 class is Lemma 2.2 at $s' = s_{\mathrm u}$, whose smallness is among those fixing $\epsilon_0$ (section 3.1): an element
-of the class lies in the space with $s' = s_{\mathrm u}$, on which $P$ acts, as $s_{\mathrm u}\ge-d'-2\ge-d$ ($D_0\ge2$,
-II.E section 1.1). Below $s_{\mathrm u}$ the smallness of II.E Proposition 3.4 (i), whose $d_0$ depends on $s'$, is not
-implied by that of $\|P-P_0\|_{(0;d)}$, and $Pu$ need not be defined; the source's "the unique forward solution" names
-no class (D212: the eighty-eighth verifier's Major 1). The continuity is section 6. $\square$
+of the class lies in the space with $s' = s_{\mathrm u}$, and $P$, of class $((d^U_0;0),\cdot)$ by (3.1) as $k+d\ge
+D_0\ge d^U_0$, acts on it as II.E Proposition 3.4 (i) at $s' = s_{\mathrm u}$ requires (D213). Below $s_{\mathrm u}$ the
+smallness of II.E Proposition 3.4 (i), whose $d_0$ depends on $s'$, is not implied by that of $\|P-P_0\|_{(0;d)}$, and
+$Pu$ need not be defined; the source's "the unique forward solution" names no class (D212: the eighty-eighth verifier's
+Major 1). The continuity is section 6. $\square$
 
 *Proof of Corollary 1.2.* By II.A Lemma 8.8's proof, $|dt\,dx| = c\,x_I^{-8}\rho_+^{-5}\rho_K^{-1}\mu_b$ near $\Omega$
 with $c$ smooth and positive, so $L^2(|dt\,dx|) = \rho_I^2\rho_+^{5/2}\rho_K^{1/2}L^2(\mu_b)$ and

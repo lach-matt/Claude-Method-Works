@@ -28,7 +28,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
 | II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | verified (D212) |
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | verified (D212) |
-| II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | written (D211) |
+| II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | verified (D213) |
 | II.G' | [Hin26c] 13 | improving decay at iota+ and K+ | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -398,4 +398,6 @@ proved from the Gagliardo-Nirenberg inequality. The weights of the source's sect
 12.9-12.12 are not carried, Theorem 12.3 being due in Part III with a loss $\aleph>0$. Findings (H1)-(H9), among them
 that (12.7) and Theorems 12.9 and 12.11 reverse the inequality between $\epsilon_+$ and $\epsilon_I$ that Theorem 11.1
 needs, and that the smoothing construction's charts and its time function need more care near $\mathscr I^+$ and
-$\iota^+$ than the source gives. Written (D211); not yet read by a verifier.
+$\iota^+$ than the source gives. Written (D211). The eighty-ninth verifier redid the iteration's exponent algebra by
+machine and found the three theorems sound; its five minor findings, two of which withdraw (H2) and (H7) as misreadings
+of the source, and its nits are seated (D213). Verified; the repairs await the next reader.

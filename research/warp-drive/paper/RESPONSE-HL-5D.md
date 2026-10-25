@@ -1095,9 +1095,9 @@ interior, with the global estimate at high frequencies they give, have been read
 seated. The twelfth, his analysis at future timelike infinity -- the normal operator there, its spectral family at
 bounded and high frequencies, its forward solutions, and the forward solutions of the stationary model on the spaces his
 iteration uses -- has been read line by line and its findings seated. The thirteenth, the forward solutions of the
-perturbed wave operators with estimates tame in the regularity, has been read line by line and its findings seated; the
+perturbed wave operators with estimates tame in the regularity, and the
 fourteenth, the Nash-Moser theorem with the smoothing operators and tame bounds it needs, proved here rather than quoted,
-is written. Theorem 4 stays deduced until
+have been read line by line and their findings seated. Theorem 4 stays deduced until
 the last part is proved.
 
 ---

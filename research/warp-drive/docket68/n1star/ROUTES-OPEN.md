@@ -2598,3 +2598,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: the D197, D200, D201, D204, D206, D207 and D212 repairs; Part II.G unread; Parts II.G' and III-VII; uniformity
   in P_0 (II.F' (F'11)).
 - Next: Part II.G', [Hin26c] section 13; the eighty-ninth verifier on the D212 repairs and Part II.G.
+
+### 4.136 The eighty-ninth verifier seated (D213)
+
+- Part II.G read: the Nash-Moser proof complete (24 exponent checks by machine), Proposition 3.1 and Lemma 4.1 correct up
+  to presentation. Five minors (two findings against the source withdrawn, (H2) and (H7); (T3)'s first clause deleted;
+  the orthant norm equivalence and the quotient-norm identification written out) and nine nits seated. The D212 repairs
+  confirmed. Part II.G is verified.
+- Open: the D197, D200, D201, D204, D206, D207, D212 and D213 repairs; Parts II.G' and III-VII; uniformity in P_0 (II.F'
+  (F'11)).
+- Next: Part II.G', [Hin26c] section 13; then one verifier on it with the D213 repairs.

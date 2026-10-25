@@ -1,6 +1,9 @@
 # Part II.G. The Nash-Moser theorem, smoothing operators and tame bounds, at n = 4
 
-*Status.* Written out in full (D211). Not yet read by an independent verifier; nothing here is labelled proved. This part
+*Status.* Verified. Written out in full (D211) and read line by line by the eighty-ninth verifier (D213), which redid
+the exponent algebra of the Nash-Moser iteration by machine: no major finding; its five minor findings, two of which
+withdraw findings (H2) and (H7) as misreadings of the source, and its nits are seated (section 6.3). The part is labelled
+proved once the next reader has confirmed the repairs. This part
 proves, at spatial dimension $n = 4$, the tools of [Hin26c] section 12 (pp. 233-243) on which the nonlinear step of the
 route rests: the Nash-Moser theorem in the form of its Theorem 12.4, the smoothing operators of its Proposition 12.6 and
 Example 12.7 on the spaces of its Theorem 11.1, and the tame bounds of its Lemma 12.8. The source is [Hin26c] = P. Hintz,
@@ -80,11 +83,11 @@ $C_{s,t}$ with $k,s,t\le N$, such that if $\|\Phi(0)\|_{2d}<\epsilon$, then ther
 $|u|_{3d}<\delta$ and $\Phi(u) = 0$.
 
 The source states (ii) for all $\eta\in[0,1]$, together with $\Phi(0)\in F^\infty_{\eta_0}$; as $0\in B^\infty_{\eta}$
-for every $\eta$, the hypothesis for all $\eta\in[0,1]$ would force $\Phi(0)\in F^\infty_1$, and the form above, which is
-what the applications provide, gives $\Phi(0)\in F^\infty_{\eta_0}$. The source's conclusion is $u\in B^\infty$; its
-applications use that $u$ is supported where the subspaces say ("Theorem 12.4 produces a solution of (12.19) with support
-in $t_*\ge1$", p. 240), which is the conclusion $u\in B^\infty_{\eta_0/2}$, and needs the closedness of $B^k_\eta$
-(section 6, (H2)-(H3)).
+for every $\eta$, the hypothesis for all $\eta\in[0,1]$ would force $\Phi(0)\in F^\infty_1$. The form above asks (ii)
+only for $\eta\le\eta_0$; in the source's applications both forms hold, with $\eta_0 = 1$. The source's conclusion is
+$u\in B^\infty$; as its $B^k_0$ is the whole space ((12.21)), that is the support $t_*\ge1$ its applications use (p.
+240). Theorem 2.1 strengthens the conclusion to $u\in B^\infty_{\eta_0/2}$, which costs the closedness of the $B^k_\eta$,
+available for the spaces of Proposition 3.1 (section 6, (H2)-(H3), as amended in D213).
 
 **Remark 2.2 ([Hin26c] Remark 12.5).** The monotonicity of the norms costs nothing: if the inclusions are continuous,
 $|v|'_s := \max_{t\le s}|v|_t$ is an equivalent norm on $B^s$ and is non-decreasing in $s$, and likewise for $F^s$. (2.1)
@@ -191,14 +194,13 @@ Let $t$ be a real function on $M'\setminus\bigcup_{H\in\mathcal H_b}H$, and $c_1
 (T1) $t$ is smooth with $dt\ne0$ on $\{|t|<2c_1\}$, and this set meets each $H\in\bar{\mathcal H}$ only in $H^\circ$
 (away from all other faces), with $dt|_{TH}\ne0$ there;
 
-(T2) every point $p$ of $\{|t|\le c_1\}\cap H$, $H\in\mathcal H_b$, lies on no other boundary hypersurface, and has a
-neighbourhood $V$ in $M'$ with a function $\bar t\in C^\infty(V)$ such that $d\bar t|_{TH}\ne0$ on $V\cap H$ and $t-\bar
-t\in\rho_H^\epsilon C^\infty_b(V)$ for some $\epsilon>0$, $C^\infty_b$ denoting the functions bounded with all their
-derivatives along $\mathcal V_b$;
+(T2) every point $p$ of $\overline{\{|t|\le c_1\}}\cap H$, $H\in\mathcal H_b$, lies on no other boundary hypersurface,
+and has a neighbourhood $V$ in $M'$ with a function $\bar t\in C^\infty(V)$ such that $d\bar t|_{TH}\ne0$ on $V\cap H$
+and $t-\bar t\in\rho_H^\epsilon C^\infty_b(V)$ for some $\epsilon>0$, $C^\infty_b$ denoting the functions bounded with
+all their derivatives along $\mathcal V_b$;
 
-(T3) $\{t\le c_1\}$ meets the faces of $\mathcal H_b$ only in points as in (T2), and the functions of $t$ used below,
-$\psi(t)$ with $\psi\in C^\infty(\mathbb R)$ constant on $(-\infty,-c_1]$ and on $[c_1,\infty)$, are smooth on $M'$ with
-all derivatives along $\mathcal V_b$ bounded (that is, $\psi(t)\in C^\infty_b$).
+(T3) the functions of $t$ used below, $\psi(t)$ with $\psi\in C^\infty(\mathbb R)$ constant on $(-\infty,-c_1]$ and on
+$[c_1,\infty)$, are smooth on $M'$ with all derivatives along $\mathcal V_b$ bounded (that is, $\psi(t)\in C^\infty_b$).
 
 For $\eta\in\mathbb R$ let $\Omega_\eta := M\cap\{t\ge\eta\}$ and $w\bar H^k_b(\Omega_\eta)^{\bullet,-} := \{u\in w\bar
 H^k_b(M):\mathrm{supp}\,u\subset\Omega_\eta\}$, a closed subspace, with the norm of $w\bar H^k_b(M)$.
@@ -218,23 +220,27 @@ hypersurfaces $\mathscr I^+$, $\iota^+$, $K^+$ (forming $\mathcal H_b$) and $\{r
 $\bar{\mathcal H}$), and $M'$ the closure of $\{t_*>\frac14,\ r>r^\sharp\}$ less its faces at $t_* = \frac14$ and $r =
 r^\sharp$; $\mu := |dt_*\,dx|/(t_*\langle x\rangle^4)$, a smooth positive b-density (II.F$'$ Corollary 1.2, II.A Lemma
 8.8); $w := \rho_I^{a_I}\rho_+^{a_+}\rho_K^{a_K}$ with the defining functions of II.F$'$ (1.1); $t := t^\flat-1$, with
-$t^\flat$ the time function of II.C Lemma 3.2, defined on $M'$ by II.E Lemma 1.2 (iv). The spaces $B^k_0$ of Proposition
+$t^\flat$ the time function of II.C Lemma 3.2, defined on $M'\cap\{t_*\ge\frac12\}$ by II.E Lemma 1.2 (iv), and $t :=
+-1$ on $M'\cap\{t_*<\frac12\}$. As $t^\flat\le t_*$ (II.C Lemma 3.2 (b)), $t<-c_1$ on $\{t_*<\frac78\}$, so every
+function $\psi(t)$ of (T3) is constant there, and $t$ is smooth wherever (T1) asks. The spaces $B^k_0$ of Proposition
 3.1 are then the spaces $H^{k,(\alpha_I,\alpha_+,\alpha_K)}_b(\Omega_*;E)^{\bullet,-}$ of II.F$'$ (1.2), componentwise
 and with $w$ adjusted by the factor relating $|dt\,dx|$ to $\mu$, which is a product of powers of $\rho_I$, $\rho_+$,
-$\rho_K$ (II.F$'$ Corollary 1.2); and $B^k_\eta$ consists of their elements supported in $\{t^\flat\ge1+c_0\eta\}$. The
+$\rho_K$ (II.F$'$ Corollary 1.2), with equivalent norms: there the quotient is over extensions supported in
+$\{t^\flat\ge1\}$, here over all extensions to $M'$, and the extension of II.F$'$ Lemma 2.5 preserves that support and
+is bounded at every order; and $B^k_\eta$ consists of their elements supported in $\{t^\flat\ge1+c_0\eta\}$. The
 hypotheses hold with $c_1 := \frac18$:
 
-(T1): $dt^\flat$ is past timelike, so non-zero. On $\{|t^\flat-1|<\frac14\}$, $t_*\le\frac54/C'$ (II.C Lemma 3.2 (b)), so
-this set stays away from $\iota^+$ and $K^+$, and $t_*\ge t^\flat>\frac34$, so it does not meet $\{t_* = \frac12\}$; it
-meets $\{r = r_0\}$ only away from the other faces, and there $dt^\flat = C'dt_*$ (II.C Lemma 3.2 (c), $r_0<r'_0-1$),
-whose restriction to $\{r = r_0\}$ is non-zero.
+(T1): $dt^\flat$ is past timelike, so non-zero. On $\{|t^\flat-1|<\frac14\}$, $t_*\le\frac54/C'$ (II.C Lemma 3.2 (b)),
+so this set stays away from $\iota^+$ and $K^+$, and $t_*\ge t^\flat>\frac34$, so it does not meet $\{t_* = \frac12\}$;
+it meets $\{r = r_0\}$ only away from the other faces, and there $dt^\flat = C'dt_*$ (II.C Lemma 3.2 (c); its proof
+takes $r'_0$ large, so $r'_0-1>r_2>r_0$), whose restriction to $\{r = r_0\}$ is non-zero.
 
 (T2): as $t^\flat\ge C't_*$, $\{t^\flat\le\frac98\}$ meets $\mathcal H_b$ only in $\mathscr I^+\cap\{t_*\le\frac98/C'\}$,
 away from $\iota^+$, and on $\mathscr I^+$, $t^\flat = t_*$, so the points concerned have $t_*\in[\frac78,\frac98]$, on
 no other face. Near them $\bar t := t_*-1$ is smooth, $t_*$ is a coordinate along $\mathscr I^+$, and $t-\bar t =
 -t_*(t_*/r)^{\ell_I}$ (II.C Lemma 3.2 (a)), with $t_*/r = \rho_I/(1-\rho_I)$, lies in $\rho_I^{\ell_I}C^\infty_b$.
 
-(T3): the first part is (T2). For the second, near $\mathscr I^+$ at bounded $t_*$, $t^\flat = t_*(1-(t_*/r)^{\ell_I})$
+(T3): near $\mathscr I^+$ at bounded $t_*$, $t^\flat = t_*(1-(t_*/r)^{\ell_I})$
 or a smooth function of $t_*$ and $r$ glued to it (II.C Lemma 3.2), with derivatives along $t_*\partial_{t_*}$,
 $r\partial_r$, $\partial_\omega$ bounded; and $\psi(t)$ is constant on $\{t^\flat\ge1+c_1\}$, which contains a
 neighbourhood of $\iota^+\cup K^+$ in $M'$.
@@ -266,7 +272,8 @@ $I-S^{(0)}_\lambda = (I-M_\lambda)+R_\lambda$.
 
 *Step 2: orthants.* For $\mathbb R^m_l := [0,\infty)^l\times\mathbb R^{m-l}$, $\bar H^s(\mathbb R^m_l)$ is the space of
 restrictions of $H^s(\mathbb R^m)$, with the quotient norm. Let $E$ be the composition of Seeley's extension operators
-across the hyperplanes $\{x_i = 0\}$, $i\le l$ ([Hin26c] Lemma 8.5, reproduced in II.E Lemma 1.3 (b)): each acts in $x_i$
+across the hyperplanes $\{x_i = 0\}$, $i\le l$ ([Hin26c] Lemma 8.5, after Seeley; the operator, with infinitely many
+reflections, is written out in the proof of II.E Lemma 1.3 (b) and is the one of II.F$'$ Lemma 2.5): each acts in $x_i$
 with the other variables as parameters, is bounded $\bar H^s\to\bar H^s$ (one orthant face fewer) for every $s\in\mathbb
 N_0$, and is the identity on $\{x_i\ge0\}$; so $E:\bar H^s(\mathbb R^m_l)\to H^s(\mathbb R^m)$ is bounded for every $s$,
 $Ev = v$ on $\mathbb R^m_l$, and if $\mathrm{supp}\,v\subset\{x_m\ge a\}$ with $m>l$, then
@@ -300,8 +307,9 @@ $\chi_\alpha$ within the cells if necessary).
 *Step 4: the operators.* Let $\psi,\psi_3\in C^\infty(\mathbb R)$ with $\psi = 1$ on $(-\infty,\frac12c_1]$, $\psi = 0$
 on $[\frac34c_1,\infty)$, $\psi_3 = 0$ on $(-\infty,\frac18c_1]$ and $\psi_3 = 1$ on $[\frac14c_1,\infty)$; by (T3),
 $\psi(t),\psi_3(t)\in C^\infty_b$, so multiplication by them is bounded on every $w\bar H^k_b(M)$. Let $\tilde S_\theta$
-be a smoothing operator on all of $w\bar H^0_b(M)$, built in the same way from a bounded geometry cover of $M'$ by
-b-cells and, at the faces of $\bar{\mathcal H}$, charts onto orthants $\mathbb R^m_l$, with no condition on supports:
+be a smoothing operator on all of $w\bar H^0_b(M)$, built in the same way from a bounded geometry cover of a
+neighbourhood of $M$ in $M'$ by b-cells and, at the faces of $\bar{\mathcal H}$ and their corners with those of
+$\mathcal H_b$, charts onto orthants $\mathbb R^m_l$, with no condition on supports:
 $\tilde S_\theta v := \sum_\beta\tilde\chi_\beta\phi_\beta^*S^{(l_\beta)}_\theta((\phi_\beta)_*(\chi_\beta v))$. With
 $\lambda := 4\theta/c_0^2$ ($\ge16$), put
 $$S_\theta u := \sum_\alpha\tilde\chi_\alpha\phi_\alpha^*S^{(l_\alpha)}_\lambda\big((\phi_\alpha)_*(\chi_\alpha\psi(t)u)
@@ -317,18 +325,23 @@ u\subset\Omega_{-c_0\theta^{-1/2}}$, within the domain of the charts.
 *Estimates.* By II.A (S3), on the bounded geometry structure of Step 3 (and on that of $\tilde S_\theta$), the norm of
 $w\bar H^k_b(M)$ on functions supported in $W$ is equivalent to $\big(\sum_\alpha
 w_\alpha^{-2}\|(\phi_\alpha)_*(\chi_\alpha u)\|^2_{\bar H^k(\mathbb R^m_{l_\alpha})}\big)^{1/2}$, $w_\alpha :=
-\sup_{U_\alpha}w$, the weight $w$ being bounded above and below by a fixed multiple of $w_\alpha$ on each cell (b-weights
-vary by bounded factors on b-cells), with constants independent of the choice of the uniform family $\chi_\alpha$; and
-multiplication by $\tilde\chi_\alpha$ and the maps $\phi_\alpha^*$ are uniformly bounded. Hence, with (3.2) for
-$S^{(l_\alpha)}_\lambda$, $\lambda\le C\theta$, and the finite multiplicity,
+\sup_{U_\alpha}w$, the weight $w$ being bounded above and below by a fixed multiple of $w_\alpha$ on each cell
+(b-weights vary by bounded factors on b-cells), with constants independent of the choice of the uniform family
+$\chi_\alpha$. (S3) is stated for charts onto cubes in a manifold without boundary, and the norm of $w\bar H^k_b(M)$ is
+a quotient norm, so at the faces of $\bar{\mathcal H}$ two lines are added: the bound of the sum by the norm follows
+from (S3) on $M'$ applied to an extension of $u$ with almost minimal norm, and the converse because
+$\sum_\alpha\tilde\chi_\alpha\phi_\alpha^*E((\phi_\alpha)_*(\chi_\alpha u))$, with the Seeley operator $E$ of Step 2, is
+an extension of $u$ whose norm (S3) bounds by the sum (D213); and multiplication by $\tilde\chi_\alpha$ and the maps
+$\phi_\alpha^*$ are uniformly bounded. Hence, with (3.2) for $S^{(l_\alpha)}_\lambda$, $\lambda\le C\theta$, and the
+finite multiplicity,
 $$\Big|\sum_\alpha\tilde\chi_\alpha\phi_\alpha^*S^{(l_\alpha)}_\lambda((\phi_\alpha)_*(\chi_\alpha\psi u))\Big|_s^2\le C
 \sum_\alpha w_\alpha^{-2}\theta^{2(s-t)}\|(\phi_\alpha)_*(\chi_\alpha\psi u)\|^2_{\bar H^t}\le C\theta^{2(s-t)}|
 \psi u|_t^2\le C\theta^{2(s-t)}|u|_t^2$$
 for $s\ge t$, and the same for $\tilde S_\theta$ and for the product with $\psi_3(t)$. For $s\le t$: $\psi u$ is
 supported in $\{0\le t\le\frac34c_1\}$, where $\sum_\alpha\chi_\alpha = 1$, and $\tilde\chi_\alpha\chi_\alpha =
 \chi_\alpha$; so $\psi u-\sum_\alpha\tilde\chi_\alpha\phi_\alpha^*S^{(l_\alpha)}_\lambda(\cdots) =
-\sum_\alpha\tilde\chi_\alpha\phi_\alpha^*(I-S^{(l_\alpha)}_\lambda)((\phi_\alpha)_*(\chi_\alpha\psi u))$. As $\psi_3 = 1$
-on $\mathrm{supp}(1-\psi(t))$, $(1-\psi)u-\psi_3\tilde S_\theta((1-\psi)u) = \psi_3(I-\tilde S_\theta)((1-\psi)u)$.
+\sum_\alpha\tilde\chi_\alpha\phi_\alpha^*(I-S^{(l_\alpha)}_\lambda)((\phi_\alpha)_*(\chi_\alpha\psi u))$. As $\psi_3 =
+1$ on $\mathrm{supp}(1-\psi(t))$, $(1-\psi)u-\psi_3\tilde S_\theta((1-\psi)u) = \psi_3(I-\tilde S_\theta)((1-\psi)u)$.
 Adding, and estimating as before with the second inequality of (3.2), $|u-S_\theta u|_s\le C\theta^{s-t}|u|_t$. Finally
 $S_\theta u\in\bigcap_kw\bar H^k_b(M)$, every term being smooth with all norms bounded by (3.2) with $t = 0$. $\square$
 
@@ -414,7 +427,7 @@ At $n = 3$ the same reasoning, with the gap shifted to $(-\frac32,-\frac12)$ for
 $0<\epsilon_I<\epsilon_+<\frac12$; the source's (12.7) prints $0<\epsilon_+<\epsilon_I<\frac12$ (section 6, (H1)). In the
 b-weights of II.F$'$ Corollary 1.2, $b_I = \alpha_I+2 = \frac32-\epsilon_I$ and $b_+ = \alpha_++\frac52 =
 \frac32-\epsilon_+$, and II.F$'$ (1.8) gives, for $k\ge3$ and forward solutions of $Pu = f$ with $P$ as in II.F$'$
-Theorem 1.1 and $f$ in the space of II.F$'$ (1.7),
+Theorem 1.1 and $f$ in the space (1.4) of II.F$'$, with the density $\mu_b$ of its (1.7),
 $$\big|(t_*\partial_{t_*},r\partial_x)^{\le k-3}u\big|\le C\rho_I^{\frac32-\epsilon_I}\rho_+^{\frac32-\epsilon_+}\rho_K^{
 \frac12},\tag{5.2}$$
 the form at $n = 4$ of the source's (12.8a), whose exponents at $n = 3$ are $1-\epsilon_I$ and $1-\epsilon_+$: at
@@ -448,14 +461,16 @@ is $\epsilon_+>\epsilon_I$ ((11.5), p. 228). In Theorem 12.9 the proof's own con
 $(p-1)(1-\epsilon_I)\ge1$ and $(p-1)(1-\epsilon_+)\ge2$, hold for $p\ge4$ and $\epsilon_I<\epsilon_+\le\frac13$.
 (Recorded in II.F$'$ as (F'12).)
 
-(H2) Theorem 12.4 concludes $u\in B^\infty$, while its applications use that $u$ is supported where the subspaces say
-("Theorem 12.4 produces a solution of (12.19) with support in $t_*\ge1$", p. 240). The iteration gives this when the
-subspaces $B^k_\eta$ are closed, which the source does not state and the spaces of Proposition 12.6 satisfy; Theorem 2.1
-concludes $u\in B^\infty_{\eta_0/2}$.
+(H2) *Withdrawn (D213).* An earlier version said that the source's applications need the support of the solution that
+the subspaces $B^k_\eta$ give, which Theorem 12.4 does not state. In the source's (12.21) $B^k_0$ is the whole space, so
+the support $t_*\ge1$ used on p. 240 is $u\in B^\infty_0$, which Theorem 12.4 gives, and the better support $t_*\ge2$ is
+obtained there by local uniqueness. Theorem 2.1's conclusion $u\in B^\infty_{\eta_0/2}$ is a strengthening, which costs
+the closedness of the $B^k_\eta$ (the eighty-ninth verifier's M1).
 
 (H3) Theorem 12.4 asks that $u\in B^\infty_\eta$ imply $\Phi(u)\in F^\infty_\eta$ for all $\eta\in[0,1]$, and separately
-that $\Phi(0)\in F^\infty_{\eta_0}$; the first, applied to $u = 0\in B^\infty_1$, forces $\Phi(0)\in F^\infty_1$. The
-applications provide the first for $\eta\le\eta_0$ only, which is the form of Theorem 2.1 (ii).
+that $\Phi(0)\in F^\infty_{\eta_0}$; the first, applied to $u = 0\in B^\infty_1$, forces $\Phi(0)\in F^\infty_1$. Theorem
+2.1 (ii) asks the first for $\eta\le\eta_0$ only. In the source's applications $f$ is supported in $\{t_*\ge2\}$, so both
+forms hold there, with $\eta_0 = 1$ (D213).
 
 (H4) Theorem 12.12 prints $\beta_+ = -1-\epsilon_+$; its proof uses $\beta_+ = 1-\epsilon_+$ ("$\ell_+\le\beta_+ =
 1-\epsilon_+$", p. 243).
@@ -471,18 +486,20 @@ requires charts small in $t$; and towards $\iota^+$ the function $t^\flat$ is no
 ($t_*\partial_{t_*}t^\flat\sim t^\flat$). Section 3.2 splits by a cut-off $\psi(t)$ and smooths the part in
 $\{t\ge\frac12c_1\}$ without support control, multiplying back by $\psi_3(t)$.
 
-(H7) Example 12.7 takes $\bar t := t_*-1$ and $t := \bar t_*-1$ (the time function of Lemma 5.16, here $t^\flat$) and
-Proposition 12.6 asks for $(t-\bar t)\chi\in\prod_H\rho_H^\epsilon C^\infty_b$ with $\chi = 1$ near $\bar t^{-1}(0)$.
-Away from $\mathscr I^+$, $t^\flat-t_*$ is not small ($t^\flat = C'(t_*+r'_0)$ near the black hole), so the condition
-holds only near $\mathscr I^+$; (T2) asks for $\bar t$ locally, near the points of $t^{-1}(0)$ on the faces of $\mathcal
-H_b$, which is what the proof uses.
+(H7) *Withdrawn (D213).* Example 12.7 takes $\bar t := t_*-1$ and $t := \bar t_*-1$ (the time function of Lemma 5.16,
+here $t^\flat$), and Proposition 12.6 asks for $(t-\bar t)\chi\in\prod_H\rho_H^\epsilon C^\infty_b$ with $\chi = 1$ near
+$\bar t^{-1}(0)$. An earlier version said this holds only near $\mathscr I^+$. As $\rho_H^\epsilon$ is bounded below
+away from the faces of $\mathcal H_b$, the condition imposes no smallness there, and it holds in Example 12.7 (the
+eighty-ninth verifier's M2). (T2) asks for $\bar t$ only near the points of $t^{-1}(0)$ on the faces of $\mathcal H_b$,
+which is what the proof uses.
 
 (H8) The proof of Theorem 2.1 needs the constants up to the order $N = 21d+6$; the source quotes $16d^2+43d+24$ from
 [SR89] in the form of [Hin24a] Theorem 6.11 (neither read). No later part uses the number; they use Theorem 2.1 only
 through the existence of some finite order.
 
 (H9) Lemma 12.8 (3) is stated for $u\in\bar H^k_b(M)$; its bound by $\|u\|_{k+d}$ is finite only for $u\in\bar
-H^{k+d}_b(M)$, as in Lemma 4.1 (3).
+H^{k+d}_b(M)$, as in Lemma 4.1 (3). Lemma 12.8 (2) has the same feature, and Lemma 4.1 (2) states $u\in\bar
+H^{k+d}_b(M)$.
 
 ### 6.2 Sources
 
@@ -497,5 +514,25 @@ Proposition 12.6; not read, and not used.
 
 [Hin23b] P. Hintz, Lemma 3.33: cited by the source for the proof of Lemma 12.8; not read, and not used.
 
-Seeley's extension enters through II.E Lemma 1.3 (b), which reproduces it from [Hin26c] Lemma 8.5; the bounded geometry
+Seeley's extension enters through the operator written out in the proof of II.E Lemma 1.3 (b) (from [Hin26c] Lemma
+8.5), as in II.F$'$ Lemma 2.5; the bounded geometry
 Sobolev spaces through II.A (S1)-(S3), READ in [SBG].
+
+### 6.3 The verifier's findings, and the repairs (D213)
+
+The eighty-ninth verifier read this part line by line and redid the exponent algebra of section 2 by machine (24
+identities and inequalities, all holding): Theorem 2.1 is a complete proof, and Proposition 3.1 and Lemma 4.1 are correct
+up to presentational gaps. No major finding; five minor findings and nine nits, seated here. (1) (H2) misread the
+source: its $B^k_0$ is the whole space, so the support it uses is the conclusion $u\in B^\infty$ of Theorem 12.4;
+withdrawn, and Theorem 2.1's conclusion is described as a strengthening. (2) (H7) misread the source: its hypothesis
+imposes no smallness away from the faces of $\mathcal H_b$ and holds in Example 12.7; withdrawn. (3) The first clause of
+(T3) was false in Example 3.2 (the corner of $\mathscr I^+$ with $\{t_* = \frac12\}$) and unused; deleted. (4) The norm
+equivalence in Step 4 of the proof of Proposition 3.1 was attributed to II.A (S3), which covers no orthant charts; the
+two lines it needs are added, with the Seeley operator. (5) Example 3.2 asserted that its spaces are those of II.F$'$
+(1.2); the equivalence of the two quotient norms is now argued, with II.F$'$ Lemma 2.5. Of the nits: the Seeley operator
+is cited to the proof of II.E Lemma 1.3 (b) and to II.F$'$ Lemma 2.5; $t$ is defined on all of $M'$ in Example 3.2;
+the covers of Step 4 are of a neighbourhood of $M$; $r'_0-1>r_0$ is cited to the proof of II.C Lemma 3.2; (5.2)'s
+source space is (1.4) of II.F$'$; (H3) no longer says that the source's applications provide (ii) only for
+$\eta\le\eta_0$ (they have $\eta_0 = 1$); (H9) notes Lemma 12.8 (2); (T2) takes the closure of $\{|t|\le c_1\}$; and
+II.F$'$ names how $P$ acts on its uniqueness class. The verifier also confirmed the D212 repairs to Parts II.E, II.F
+and II.F$'$.

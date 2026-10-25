@@ -5074,3 +5074,14 @@ the extension face; II.F' 8.2 (b) amended. Nits: Lemma 1.3's tangent sign and it
 open cover, a vacuous clause of Lemma 7.5, (F'4)'s addendum, Lemma 2.2's forward reference. Recorded in II.F section 9.5
 and II.F' section 8.4. Status: Parts I.A-I.C, II.A, II.A' proved; II.B-II.F' verified; II.G written. Next: Part II.G'
 ([Hin26c] section 13); the eighty-ninth verifier on the D212 repairs and Part II.G.
+
+**D213 (2026-10-25): the eighty-ninth verifier seated.** It read Part II.G line by line and the D212 repairs, with a
+sympy script of 24 exponent identities and inequalities for the Nash-Moser iteration (all hold). Verdict: Theorem 2.1 a
+complete proof; Proposition 3.1 and Lemma 4.1 correct up to presentation; the D212 repairs correct and complete, the
+restricted uniqueness class consistent with every later use. No major. Minors: (H2) and (H7) withdrawn as misreadings
+of the source (its B^k_0 is the whole space; its rho_H^eps hypothesis holds in Example 12.7); (T3)'s first clause, false
+in Example 3.2 and unused, deleted; the orthant norm equivalence of Step 4 and the identification of B^k_0 with II.F'
+(1.2) written out (Seeley; II.F' Lemma 2.5). Nits: citations (Seeley, r'_0, (1.4)), t on all of M', the covers, (H3)'s
+description of the applications, (H9), the closure in (T2), and how P acts in II.F' Theorem 1.1's uniqueness class.
+Recorded in II.G section 6.3. Status: Parts I.A-I.C, II.A, II.A' proved; II.B-II.G verified. Next: Part II.G'
+([Hin26c] section 13), then one verifier on it with the D213 repairs.
