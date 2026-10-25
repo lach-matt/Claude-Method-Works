@@ -1089,7 +1089,8 @@ the time function and the order functions of his spacetime analysis, and the eig
 metrics, proved here without the theorem on normally hyperbolic trapping that he cites, have been read line by line and
 their findings seated (supplement `proof5/`). The ninth, his microlocal regularity estimate on spacetime, with the radial
 estimates and the estimate at the trapped set, which he quotes from his earlier paper and which is proved here in the
-present calculus, is written. Theorem 4 stays deduced until the last part is proved.
+present calculus, is written, and so is the tenth, that estimate with b-regularity and in the tame form his iteration
+uses. Theorem 4 stays deduced until the last part is proved.
 
 ---
 
@@ -2003,7 +2004,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `98bd5c137da6f1b85ca18e7fdbcf5a07` |
+| `docket68/n1star/N1STAR-LOG.md` | `f5111e31efdaecb103d5c5cd348a4c14` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
