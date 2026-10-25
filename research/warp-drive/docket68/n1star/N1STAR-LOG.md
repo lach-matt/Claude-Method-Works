@@ -4646,3 +4646,25 @@ Remark 1.1 defines r_Gamma > r_e and makes Part I.B a forward reference; Lemma 4
 b_0), 2 C_2); Proposition 4.6's Q^(0) with r_0 and z_eps := rho^(-1/2) Q~^(-1/2) in S^(-inf, 1/2); Propositions 4.6 and
 4.9 with their lower bounds epsilon-free; Proposition 5.2 and section 7.1 (E) with E elliptic on K_E^*. No statement
 changed. The two repairs are read by the next verifier, with Part I.B.
+
+**D188 (2026-10-25): Part I.B of the write-out written ([Hin26c] Theorem 9.16 at n = 4 on bundles, uniformly in the
+operator).** `proof5/PART-I-B-HIGHENERGY.md`, ten sections. (1) The setting: (H6) the Lorentzian structure, (H7) normally
+hyperbolic trapping on bundles, (H8) the global dynamics; the trapping thresholds gamma_+- defined as the exact
+thresholds sup_Gamma lambda_max(p_1 - eta q) = 0, resp. nu_min/2, with gamma_- < 0 assumed. (2) The semiclassical
+scattering calculus with matrix-valued symbols and variable orders, proved from Fourier analysis and Schur's test, as no
+text of it could be READ. (3) One positive commutator scheme, estimates proved for Schwartz functions and extended by
+density. (4) Elliptic and propagation estimates, with flow boxes depending on z and the difference H_z - H_(Re z)
+absorbed by the term lambda Q. (5) One radial lemma for the horizon, R_in and R_out; at R_out the large imaginary part of
+z^(-1) P is W* M W - g_00, non-negative exactly; b-regularity there through the corrected commutator system of I.A Lemma
+4.8, read semiclassically. (6) The trapped set: a lossless estimate, matrix-valued defect measures (through tr and
+lambda_max), the loss-one estimate after [Dya16], an entire complex absorption Q(conj sigma)* Q(sigma) of exact sign, a
+three lines lemma with proof, and the precise loss after [HV16]. (7) The energy estimate at the artificial boundary for
+every Im z >= 0, through the weight e^(lambda r). (8) Theorem 1.3 (1)-(5) assembled; (9) uniformity; (10) findings.
+Findings: (F1) [Hin26c] Theorem 9.28 says B elliptic 'at dR_+' for 'at Gamma'; (F2) inf for sup in the proof of (9.83);
+(F3) the range -beta <= h^(-1) Im z in the loss-one proof against Im(h^(-1) z) >= beta in the theorem; (F4) (9.80)
+divides by min q, which justifies the interpolation's lower line (Im sigma < 0) only when q is constant on Gamma; (F5)
+Theorem 9.16 (1) at Im z = 0 needs gamma_- < 0, which [Hin26c] notes holds in its applications and which is now part of
+(H7); (F6) (9.77) carries (9.45)'s diagonal sign slip again, avoided by moving the term to the right side (Lemma 5.6);
+(F7) the printed norm after (3.35) has <x>^(-r) for <x>^r; (F8)-(F9) the changes of statement (constant s, monotonicity
+on neighbourhoods, exact thresholds) and of method. Nothing is labelled proved: the next verifier reads Part I.B, with
+the two D187 repairs of Part I.A.
