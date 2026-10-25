@@ -15,11 +15,11 @@ independent reader has checked it line by line and every finding is seated; **pr
 
 | Part | Source | Content | Status |
 |---|---|---|---|
-| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D189) |
+| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | verified (D195) |
 | I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | **proved** (D194) |
 | I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | **proved** (D194) |
-| II.A | [Hin26c] 2-3 | compactifications, Lie algebras, the e3b-calculus, Sobolev embedding, tame estimates | verified (D194) |
-| II.A' | [Hin26c] 3.23-3.24 at k = 0 | elliptic and propagation estimates, finite regularity, variable orders | written (D193) |
+| II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | verified (D194) |
+| II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | verified (D195) |
 | II.B-F | [Hin26c] 5-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -50,8 +50,13 @@ now by weak lower semicontinuity of the norm on a bounded sequence; and Step 1 u
 bounded, now avoided by splitting $\check A_\epsilon P w_t$ into three terms each bounded directly. Six nits were seated
 with them. Part I.A is labelled proved once the next reader, who reads Part I.B, has checked these two repairs.
 
-The seventy-sixth verifier, reading Part I.B, checked both repairs and confirmed them (D189). Part I.A is **proved**:
-written, read line by line, every finding seated and every repair read.
+The seventy-sixth verifier, reading Part I.B, checked both repairs and confirmed them (D189). Part I.A was then
+**proved**: written, read line by line, every finding seated and every repair read.
+
+The seventy-ninth verifier, reading Part II.A$'$, which copied them, found that the cut-offs of Proposition 5.2 are not
+equal to 1 on the curve: $\psi$ is even, so $\psi(-z/\delta)$ vanishes for $z\ge\delta$. They are now one-sided, and the
+self-adjointness of the commutant, which the identity (3.4) needs, is stated in Proposition 5.2 (D195). Part I.A returns
+to verified until the eightieth verifier has read the repair.
 
 ## Part I.B
 
@@ -157,4 +162,15 @@ estimate is a positive commutator argument along the exact Hamilton field of the
 finite regularity, so that every positivity is an exact square and no sharp Gårding inequality is used. The imaginary
 part is absorbed by the large constant of the commutant (sections 4-5). Section 6 records (G6), the source's hypothesis
 on the order, too weak, and (G7), classical principal symbols and the faces where the Hamilton field is continuous.
-Written (D193) and aligned with the D194 repairs of Part II.A; the seventy-ninth verifier reads it.
+Written (D193) and aligned with the D194 repairs of Part II.A.
+
+The seventy-ninth verifier read Part II.A$'$ line by line (D195) and confirmed every D194 repair of Part II.A and
+(G6)-(G7) at source. One major finding: the class of symbols of finite regularity was too narrow, and the square-root
+lemma false in it, so that the factor $z_\epsilon$ of the commutant and the parametrix of Lemma 4.2 were used with exact
+orders that were not proved. The class now counts the logarithmic factor each derivative may carry, inside the class of
+[SBG] Definition 4.6, whose operators act without loss. The square-root lemma is restated with one such factor per
+derivative, proved by resolvent integrals, and shown sharp. Seven minor findings are seated: the identity (4.1) for a
+commutant that is not self-adjoint, one-sided cut-offs, the regularity of the approximants in the pairing, nested sets in
+Lemma 4.2, smooth operators in the patching, the injectivity of the perturbed flow box, and the convergence of the
+factors in Proposition 2.4. So are the nits, among them the wording of (S8) in Part II.A. The repairs await the eightieth
+verifier.

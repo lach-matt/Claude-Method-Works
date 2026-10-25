@@ -1,11 +1,13 @@
 # Part II.A$'$. The standard estimates on e3b-spaces: coefficients of finite regularity, variable orders, at n = 4
 
-*Status.* Written out in full (D193). Not yet read by an independent verifier; nothing here is labelled proved. This part
-proves the two standing inputs (L3) and (L4) of Part II.A (`PART-II-A-SETUP.md`, section 9.1): the elliptic and the real
-principal type estimates on e3b-spaces without b-regularity, for operators whose coefficients have finite regularity,
-with variable orders and constants locally uniform in the operator. They are [Hin26c] Propositions 3.23 and 3.24 at $k =
-0$ (pp. 69-71), which the source proves by citation to the standard arguments. The hypotheses of the latter are corrected
-(section 6, (G6)-(G7)). Part II.A is cited as II.A, Part I.A (`PART-I-SPECTRAL.md`) as I.A.
+*Status.* Written out in full (D193). Read line by line by the seventy-ninth verifier, whose major finding (the class of
+symbols of finite regularity, and with it the square-root lemma) and seven minor findings and nits are seated (D195); the
+repairs await the eightieth. Nothing here is labelled proved. This part proves the two standing inputs (L3) and (L4) of
+Part II.A (`PART-II-A-SETUP.md`, section 9.1): the elliptic and the real principal type estimates on e3b-spaces without
+b-regularity, for operators whose coefficients have finite regularity, with variable orders and constants locally uniform
+in the operator. They are [Hin26c] Propositions 3.23 and 3.24 at $k = 0$ (pp. 69-71), which the source proves by citation
+to the standard arguments. The hypotheses of the latter are corrected (section 6, (G6)-(G7)). Part II.A is cited as II.A,
+Part I.A (`PART-I-SPECTRAL.md`) as I.A.
 
 *Method.* Nothing here depends on the dimension. The smooth calculus is the one READ in II.A section 3: (S1)-(S11) of
 [SBG] = P. Hintz, *Pseudodifferential operators on manifolds with scaled bounded geometry*, arXiv:2408.06651v1. Its
@@ -29,9 +31,12 @@ is (L4). Section 6: findings.
 $\tilde M$ is the compactified spacetime of II.A section 1, with its scaled bounded geometry structure $\mathcal
 B^\times$ of II.A section 4.1 and the secondary bounded geometry structure $\rho\mathcal B$ obtained by subdividing the
 unit cells into $\rho$-cuboids ([Hin26c] (3.26); [SBG] section 3.2). $\rho\mathcal B$ is a scaled bounded geometry
-structure with all scalings equal to 1. So everything READ in II.A section 3 holds for it, and its operator Lie algebra
-is that of $\mathcal B^\times$, namely $\mathcal V = C^\infty_b\mathcal V_{e3b}$ ([SBG] Remark 3.33, READ as (S6)). We
-write:
+structure with all scalings equal to 1. So everything READ in II.A section 3 holds for it. Its operator Lie algebra,
+which is also its coefficient Lie algebra, is the large operator Lie algebra $\mathcal V' = C^\infty_{e3b}\mathcal
+V_{e3b}$ of $\mathcal B^\times$ ([SBG] Proposition 3.3 and Remark 3.48). It defines the same Sobolev spaces as $\mathcal
+V = C^\infty_b\mathcal V_{e3b}$: an elliptic element of $\Psi^{\mathsf s}_{\mathcal V}$ lies in $\Psi^{\mathsf
+s}_{\mathcal V'}$ ([SBG] Remark 3.48) and is elliptic there, and each space is the set of $u$ that a fixed elliptic
+operator maps into $L^2$. We write:
 
 $\tilde S^m$ for the symbols of $\rho\mathcal B$ of order $m$. In each chart of $\rho\mathcal B$, with fibre coordinates
 dual to the coordinate frame, these are the functions with $|\partial_x^\beta\partial_\xi^\gamma a|\le C_{\beta\gamma}
@@ -41,7 +46,7 @@ of these constants over $|\beta|+|\gamma|\le M$. By (S1)-(S4), $\tilde S^m$ is t
 
 $\tilde\Psi^m := \Psi^m_{\rho\mathcal B}$, $\mathrm{Op} := \mathrm{Op}_{\rho\mathcal B}$, and $\tilde\Psi^{-\infty}$ for
 its residual operators ((S4)). $C^\infty_b\Psi^m_{e3b}\subset\tilde\Psi^m$ ([SBG] Remark 3.48; II.A section 4.2). The
-Sobolev spaces of $\rho\mathcal B$ are the $H^{\mathsf s}_{e3b}$ of II.A, as both are defined by $\mathcal V$.
+Sobolev spaces of $\rho\mathcal B$ are therefore the $H^{\mathsf s}_{e3b}$ of II.A.
 
 The properties used, all READ: (S5) mapping properties, with operator norms bounded by a seminorm; compositions,
 adjoints, principal symbols and commutators; the continuity of $\mathrm{Op}:\tilde S^m\to\tilde\Psi^m$, of composition
@@ -50,19 +55,25 @@ as a bilinear map and of the adjoint ([SBG] Remark 3.47, READ in (S5)); and the 
 commutators with $\mathcal V_{b,[e3b]}$, and (S11) for weights.
 
 *Left quantization.* In [SBG] (3.26) the local quantization is $(\mathrm{Op}_\beta(b)u)(x) = (2\pi)^{-n}\int e^{i(x-x')
-\cdot\xi}\psi(x-x')b(x,\xi)u(x')\,dx'\,d\xi$. The symbol is evaluated at the left variable, so for every function $f$ of
-the base
+\cdot\xi}\psi(x-x')b(x,\xi)u(x')\,dx'\,d\xi$. Since $\psi = 1$ near 0 ([SBG] p. 43) and the partition $\chi_\alpha$ of
+[SBG] (3.28) sums to 1, $\mathrm{Op}(f)$ is multiplication by $f$ for a function $f$ of the base alone; in particular
+$\mathrm{Op}(1) = I$. The symbol is evaluated at the left variable, so for every function $f$ of the base
 $$f\cdot\mathrm{Op}(a) = \mathrm{Op}(fa).\tag{1.1}$$
 
 *Variable orders.* Fix $\rho_\infty\in\tilde S^{-1}$, positive, equal to $(\sum_j\xi(V_{0,j})^2)^{-1/2}$ for $|\xi|\ge1$
 (the $V_{0,j}$ of II.A Lemma 2.9), so $\rho_\infty$ is a defining function of fibre infinity ${}^{e3b}S^*\tilde M$.
-Variable orders are functions $\mathsf k\in C^\infty({}^{e3b}S^*\tilde M)$, extended homogeneously of degree 0 near
-fibre infinity. By (S8), $\rho_\infty^{-\mathsf k}$ is a symbol of the class $\tilde S^{\mathsf k}$ of (S8). That class
-consists of symbols $\rho_\infty^{-\mathsf k}a_0$, $a_0\in\tilde S^0$, contained in $\bigcap_{\delta>0}\tilde S^{\sup
-\mathsf k}_{1-\delta,\delta}$. In it, compositions have principal symbols modulo $\bigcap_\delta\tilde S^{\mathsf
-k_1+\mathsf k_2-1+2\delta}$. Derivatives of $\rho_\infty^{-\mathsf k}$ carry factors $\log\rho_\infty$, as in I.A Remark
-3.3. We write "of order $\mathsf k-1+$" for "of order $\mathsf k-1+\delta$ for every $\delta>0$", with constants
-depending on $\delta$.
+Variable orders are functions $\mathsf k\in C^\infty({}^{e3b}S^*\tilde M)$, extended homogeneously of degree 0 near fibre
+infinity. The class of (S8) is that of [SBG] Definition 4.6 (p. 66): for variable $\mathsf k$, $\tilde S^{\mathsf k}
+:=\rho_\infty^{-\mathsf k}\bigcap_{\delta\in(0,\frac12)}\tilde S^0_{1-\delta,\delta}$, contained in $\bigcap_\delta\tilde
+S^{\sup\mathsf k}_{1-\delta,\delta}$; the defining function of fibre infinity used there may be replaced by
+$\rho_\infty$, their quotient being a positive symbol of order 0. Its operators map $H^{\mathsf t}_{e3b}$ to $H^{\mathsf
+t-\mathsf k}_{e3b}$ for every variable order $\mathsf t$, without loss, and [SBG] Theorem 3.44 holds for them mutatis
+mutandis, with the principal symbols of compositions taken modulo $\bigcap_\delta\tilde S^{\mathsf k_1+\mathsf
+k_2-1+2\delta}$ (READ there). Derivatives of $\rho_\infty^{-\mathsf k}$ carry factors $\log\rho_\infty$, as in I.A Remark
+3.3, and the symbols of finite regularity below carry a counted number of such factors (Definition 1.3). The class
+$\rho_\infty^{-\mathsf k}\tilde S^0$, with bounded derivatives, is too small for them: the seventy-ninth verifier (D195)
+found symbols outside it used as if inside. We write "of order $\mathsf k-1+$" for "of order $\mathsf k-1+\delta$ for
+every $\delta>0$", with constants depending on $\delta$.
 
 ### 1.2 Classical symbols and the locus of microlocalisation
 
@@ -116,13 +127,23 @@ continuous on these Fréchet spaces. $\square$
 
 ### 1.3 The operators and the statements
 
-**Definition 1.3.** For $M\in\mathbb N_0$ and a variable order $\mathsf m$, $C^{(M)}\tilde S^{\mathsf m}$ is the space of
-$\rho_\infty^{-\mathsf m}a_0$ with $a_0$ a function on ${}^{e3b}T^*\tilde M$ whose derivatives of order at most $M$
-satisfy the estimates of $\tilde S^0$ uniformly in the charts of $\rho\mathcal B$. The norm $\|a\|_{(M);\mathsf m}$ is
-the corresponding constant for $a_0$. For a finite set $\mathcal P = \{P_1,\dots,P_J\}\subset C^\infty_b\Psi^m_{e3b}$ of
-operators localized near the diagonal (II.A section 8.3), with $P_j = \mathrm{Op}(p_j)+R_j$, $p_j\in C^\infty_bS^m$,
-$R_j\in\tilde\Psi^{-\infty}$, and $a_j\in C^{d_0}_{e3b}$ (II.A Definition 8.1), the operator $L = \sum a_jP_j$ satisfies,
-by (1.1),
+**Definition 1.3.** Derivatives are taken in the coordinates $(x,\omega,\tau)$ of Lemma 2.2 in the charts of
+$\rho\mathcal B$, and $\langle\log\rho_\infty\rangle := (1+(\log\rho_\infty)^2)^{1/2}$. For $M,\nu\in\mathbb N_0$ and a
+variable order $\mathsf m$, $C^{(M)}_\nu\tilde S^{\mathsf m}$ is the space of $a = \rho_\infty^{-\mathsf m}a_0$ with
+$a_0$ a function on ${}^{e3b}T^*\tilde M$ whose derivatives of order $j\le M$ are bounded by
+$C\langle\log\rho_\infty\rangle^{\nu j}$, uniformly in the charts; the norm $\|a\|_{(M);\nu,\mathsf m}$ is the least such
+$C$. $\tilde S^{\mathsf m}_\nu$ is the space of smooth $a$ with $\|a\|_{(M);\nu,\mathsf m}<\infty$ for every $M$, a
+Fréchet space with these seminorms. The index $\nu$ is dropped when $\nu = 0$. A class of index $\nu$ lies in those of
+larger index; products satisfy $\|ab\|_{(M);\nu,\mathsf m_1+\mathsf m_2}\le C\|a\|_{(M);\nu,\mathsf
+m_1}\|b\|_{(M);\nu,\mathsf m_2}$ by Leibniz's rule. As $\partial_\zeta$ is $e^{-\tau}$ times bounded combinations of
+$\partial_\omega$, $\partial_\tau$ (Lemma 2.2) and $\langle\log\rho_\infty\rangle^{\nu j}\le C_\delta\rho_\infty^{-\delta
+j}$, $\tilde S^{\mathsf m}_\nu$ is contained, continuously, in the class $\rho_\infty^{-\mathsf m}\bigcap_\delta\tilde
+S^0_{1-\delta,\delta}$ of (S8), also when $\mathsf m$ is constant; for constant $\mathsf m = m$, $\tilde S^m_0$ is the
+class $\tilde S^m$ of (S4). The derivatives of $\log\rho_\infty$ of positive order are bounded, as $\log\rho_\infty =
+-\tau$ near fibre infinity. For a finite set $\mathcal P = \{P_1,\dots,P_J\}\subset
+C^\infty_b\Psi^m_{e3b}$ of operators localized near the diagonal (II.A section 8.3), with $P_j = \mathrm{Op}(p_j)+R_j$,
+$p_j\in C^\infty_bS^m$, $R_j\in\tilde\Psi^{-\infty}$, and $a_j\in C^{d_0}_{e3b}$ (II.A Definition 8.1), the operator $L =
+\sum a_jP_j$ satisfies, by (1.1),
 $$L = \mathrm{Op}(\ell_f)+\sum_ja_jR_j,\qquad\ell_f := \sum_ja_jp_j\in C^{(d_0)}\tilde S^m,\tag{1.2}$$
 with $\|\ell_f\|_{(d_0);m}\le C\max_j\|a_j\|_{C^{d_0}_{e3b}}$, as e3b-derivatives of the $a_j$ are the rescaled
 coordinate derivatives in the charts. Its principal symbol is $\ell := \sum_ja_j\sigma(P_j)$, with $\sigma(P_j)$ a
@@ -165,22 +186,28 @@ such a bound has the form $C\|x\|_{M;m}$.
 
 ### 2.2 Mollification
 
-**Lemma 2.2.** Let $a\in C^{(M)}\tilde S^{\mathsf m}$, $M\ge1$. There are $a_\epsilon\in\tilde S^{\mathsf m}$, $\epsilon
-\in(0,1]$, such that (i) $\|a_\epsilon\|_{(M');\mathsf m}\le C\|a\|_{(M');\mathsf m}$ for $M'\le M$; (ii) $a_\epsilon\to
-a$ pointwise, with $|a_\epsilon-a|\le C\epsilon\|a\|_{(1);\mathsf m}\rho_\infty^{-\mathsf m}$; (iii) if $a$ is supported
-in a closed set $K$ of the compactified bundle, then $a_\epsilon$ is supported in the $\epsilon$-neighbourhood of $K$ in
-the coordinates of Lemma 1.2.
+**Lemma 2.2.** Let $a\in C^{(M)}_\nu\tilde S^{\mathsf m}$, $M\ge1$. There are $a_\epsilon\in\tilde S^{\mathsf m}_\nu$,
+$\epsilon\in(0,1]$, such that (i) $\|a_\epsilon\|_{(M');\nu,\mathsf m}\le C\|a\|_{(M');\nu,\mathsf m}$ for $M'\le M$;
+(ii) $a_\epsilon\to a$ pointwise, with $|a_\epsilon-a|\le C\epsilon\|a\|_{(1);\nu,\mathsf
+m}\langle\log\rho_\infty\rangle^\nu\rho_\infty^{-\mathsf m}$, and $\|a_\epsilon-a\|_{(M-1);\nu,\mathsf m+\delta}\le
+C_\delta\epsilon\|a\|_{(M);\nu,\mathsf m}$ for every $\delta>0$; (iii) if $a$ is supported in a closed set $K$ of the
+compactified bundle, then $a_\epsilon$ is supported in the $\epsilon$-neighbourhood of $K$ in the coordinates of Lemma
+1.2.
 
 *Proof.* Write $a = \rho_\infty^{-\mathsf m}a_0$ and mollify $a_0$. In each chart $\psi_\beta$ of $\rho\mathcal B$, with
 a uniformly smooth partition of unity $\theta_\beta$ (II.A Lemma 8.5), use coordinates $(x,\omega,\tau) :=
 (x,\zeta/ |\zeta|,\log|\zeta|)$ for $|\zeta|\ge1$, and $(x,\zeta)$ near the zero section, glued by a fixed partition of
 unity in $\zeta$. The estimates of $\tilde S^0$ for $a_0$ are equivalent, uniformly, to bounded derivatives in
-$(x,\omega,\tau)$: $\partial_\zeta$ is $e^{-\tau}$ times a combination of $\partial_\omega$, $\partial_\tau$ with
-bounded coefficients. Put $a_{0,\epsilon} := \sum_\beta(\theta_\beta a_0)*\eta_\epsilon$, the convolution taken in
+$(x,\omega,\tau)$: $\partial_\zeta$ is $e^{-\tau}$ times a combination of $\partial_\omega$, $\partial_\tau$ with bounded
+coefficients. Put $a_{0,\epsilon} := \sum_\beta(\theta_\beta a_0)*\eta_\epsilon$, the convolution taken in
 $(x,\omega,\tau)$ (on the sphere, in a fixed finite atlas). Derivatives commute with convolution; the charts have
-uniformly bounded transitions and finite multiplicity. Hence (i), with $a_{0,\epsilon}$ smooth with all derivatives
-bounded (constants depending on $\epsilon$), that is $a_\epsilon\in\tilde S^{\mathsf m}$ by (S8). (ii) is the mean value
-theorem, and (iii) is the support of $\eta_\epsilon$. $\square$
+uniformly bounded transitions and finite multiplicity; and $\langle\log\rho_\infty\rangle$ changes by at most a bounded
+factor over a unit ball in these coordinates, as $\log\rho_\infty = -\tau$. Hence (i). A derivative of $a_{0,\epsilon}$
+of order $j>M$ puts $j-M$ derivatives on $\eta_\epsilon$, so $a_{0,\epsilon}$ satisfies the bounds of every order, with
+constants depending on $\epsilon$: $a_\epsilon\in\tilde S^{\mathsf m}_\nu$. (ii) is the mean value theorem: a derivative
+of order $j\le M-1$ of $a_{0,\epsilon}-a_0$ is bounded by $C\epsilon\langle\log\rho_\infty\rangle^{\nu(j+1)}$, the factor
+$\rho_\infty^\delta\langle\log\rho_\infty\rangle^\nu$ is bounded, and the derivatives of $\rho_\infty^\delta$ are
+$\rho_\infty^\delta$ times bounded functions. (iii) is the support of $\eta_\epsilon$. $\square$
 
 ### 2.3 Quantization and remainders
 
@@ -198,90 +225,117 @@ $\tau_t\to1$ in $\tilde S^\delta$ for every $\delta>0$. So $\|(T_t-I)v\|_{H^{\ma
 s+\delta}$, by (S5). $T_t$ is uniformly bounded on $H^{\mathsf s}$, and $C_c^\infty\subset H^{\mathsf s+\delta}$ is
 dense by (a), so the convergence holds on all of $H^{\mathsf s}$. $\square$
 
-For $a\in C^{(M)}\tilde S^{\mathsf m}$ and $u\in C_c^\infty(\tilde M^\circ)$, $\mathrm{Op}(a)u$ is defined by [SBG]
+For $a\in C^{(M)}_\nu\tilde S^{\mathsf m}$ and $u\in C_c^\infty(\tilde M^\circ)$, $\mathrm{Op}(a)u$ is defined by [SBG]
 (3.26)-(3.28). The local quantization is $(2\pi)^{-n}\int e^{ix\cdot\xi}b(x,\xi)\mathcal F(\psi(x-\cdot)u)(\xi)\,d\xi$,
 where the Fourier transform is rapidly decreasing in $\xi$, locally uniformly in $x$. So the integral converges
 absolutely for any $b$ of polynomial growth, and only finitely many charts meet the support of $u$.
 
-**Proposition 2.4 (finite regularity).** Let $\mathsf t$ be a variable order and $\mathsf m,\mathsf m_1,\mathsf m_2$
-orders, constant or variable. There are $M$ and $C$, depending on these orders and on $\delta>0$, with the following,
-for symbols in $C^{(M+1)}\tilde S$ of the stated orders. Throughout, "order $r$" means bounded from $H^{\mathsf t}$ to
-$H^{\mathsf t-r}$.
+**Proposition 2.4 (finite regularity).** Let $\mathsf t$ be a variable order, $\nu\in\mathbb N_0$, and $\mathsf m,\mathsf
+m_1,\mathsf m_2$ orders, constant or variable. There are $M$ and $C$, depending on these orders, on $\nu$ and on
+$\delta>0$, with the following, for symbols in $C^{(M+2)}_\nu\tilde S$ of the stated orders (symbols of different indices
+are taken in the largest). Throughout, "order $r$" means bounded from $H^{\mathsf t}$ to $H^{\mathsf t-r}$.
 
-(a) $\mathrm{Op}(a)$ extends from $C_c^\infty$ to a bounded operator of order $\mathsf m$, with norm at most
-$C\|a\|_{(M);\mathsf m}$.
+(a) $\mathrm{Op}(a)$ extends from $C_c^\infty$ to a bounded operator of order $\mathsf m$, without loss, with norm at
+most $C\|a\|_{(M);\nu,\mathsf m}$.
 
 (b) $\mathrm{Op}(a_1)\mathrm{Op}(a_2)-\mathrm{Op}(a_1a_2)$ has order $\mathsf m_1+\mathsf m_2-1+\delta$, with norm at
-most $C\|a_1\|_{(M);\mathsf m_1}\|a_2\|_{(M);\mathsf m_2}$.
+most $C\|a_1\|_{(M);\nu,\mathsf m_1}\|a_2\|_{(M);\nu,\mathsf m_2}$.
 
-(c) $\mathrm{Op}(a)^*-\mathrm{Op}(\bar a)$ has order $\mathsf m-1+\delta$, with norm at most $C\|a\|_{(M);\mathsf m}$.
-Here the adjoint is with respect to $L^2(|dt\,dx|)$, and matrix-valued symbols use the conjugate transpose.
+(c) $\mathrm{Op}(a)^*-\mathrm{Op}(\bar a)$ has order $\mathsf m-1+\delta$, with norm at most $C\|a\|_{(M);\nu,\mathsf
+m}$. Here the adjoint is with respect to $L^2(|dt\,dx|)$, and matrix-valued symbols use the conjugate transpose.
+$|dt\,dx|$ is a weight $w$ times an e3b-density, so this adjoint is $w^{-1}A^\star w$ with $A^\star$ the adjoint for that
+density, and conjugation by a weight preserves the classes ((S11)).
 
 (d) $i[\mathrm{Op}(a_1),\mathrm{Op}(a_2)]-\mathrm{Op}(H_{a_1}a_2)$ has order $\mathsf m_1+\mathsf m_2-2+\delta$, with
-norm at most $C\|a_1\|_{(M+1);\mathsf m_1}\|a_2\|_{(M+1);\mathsf m_2}$. If one of $a_1$, $a_2$ is scalar and the other
-matrix-valued, $H_{a_1}a_2$ is taken entrywise.
+norm at most $C\|a_1\|_{(M+1);\nu,\mathsf m_1}\|a_2\|_{(M+1);\nu,\mathsf m_2}$. If one of $a_1$, $a_2$ is scalar and the
+other matrix-valued, $H_{a_1}a_2$ is taken entrywise.
 
-(e) If $a_1$, $a_3$ are supported in disjoint closed sets of the compactified bundle, then $\mathrm{Op}(a_1)\mathrm{Op}
-(a_2)\mathrm{Op}(a_3)$ and $\mathrm{Op}(a_1)\mathrm{Op}(a_3)$ have order $-N$ for every $N$. Their norms are at most
-$C_N$ times the product of the $(M)$-norms, $M = M(N)$.
+(e) If two of $a_1,\dots,a_r$ ($r\ge2$) are supported in disjoint closed sets of the compactified bundle, then
+$\mathrm{Op}(a_1)\cdots\mathrm{Op}(a_r)$ has order $-N$ for every $N$, with norm at most $C_N$ times the product of the
+$(M)$-norms, $M = M(N,r)$.
 
 (f) (General principle.) Let $T(a_1,\dots,a_r)$ be a finite expression in the operators $\mathrm{Op}(a_i)$ and their
 adjoints, formed by sums and compositions. Suppose that for smooth symbols it lies in the class of order $\mu$, by (S5)
 and (S8): a difference of operators with the same principal symbol is one order lower, and a commutator is one order
 lower than the product. Then for symbols of finite regularity the operator given by the same expression has order
-$\mu+\delta$, or $\mu$ when all orders are constant. Its norm is at most $C\prod_i\|a_i\|_{(M);\mathsf m_i}$. In
-particular, for $a$ of constant order $m$ and a real symbol $\check a$ of order $\mathsf k$: $D_a :=
-\mathrm{Op}(a)^*-\mathrm{Op}(a^*)$ has order $m-1$, and $[D_a,\mathrm{Op}(\check a)]$ and $[[D_a,\mathrm{Op}(\check
-a)],\mathrm{Op}(\check a)]$ have orders $m+\mathsf k-2+\delta$ and $m+2\mathsf k-3+\delta$.
+$\mu+\delta$, or $\mu$ when all orders are constant and $\nu = 0$. Its norm is at most $C\prod_i\|a_i\|_{(M);\nu,\mathsf
+m_i}$. In particular, for $a$ of constant order $m$ with $\nu = 0$ and a real symbol $\check a$ of order $\mathsf k$ and
+any index: $D_a := \mathrm{Op}(a)^*-\mathrm{Op}(a^*)$ has order $m-1$, and $[D_a,\mathrm{Op}(\check a)]$ and
+$[[D_a,\mathrm{Op}(\check a)],\mathrm{Op}(\check a)]$ have orders $m+\mathsf k-2+\delta$ and $m+2\mathsf k-3+\delta$.
 
 The constants are uniform for symbols bounded in the stated norms. For (e) the supports are fixed, or vary within fixed
 disjoint closed sets.
 
-*Proof.* *Smooth symbols.* (a) $a\mapsto\mathrm{Op}(a)$ is continuous $\tilde S^{\mathsf m}\to\tilde\Psi^{\mathsf m}$,
-and operator norms are bounded by seminorms ((S5), (S8)). Lemma 2.1 gives the bound. (b) By (S5) and (S8),
-$\mathrm{Op}(a_1)\mathrm{Op}(a_2)$ has principal symbol $a_1a_2$, as does $\mathrm{Op}(a_1a_2)$, so the difference lies
-in the class of order $\mathsf m_1+\mathsf m_2-1+\delta$. The bilinear map into that class is separately continuous by
-the closed graph argument of Lemma 1.2, using the continuity of composition into the class of order $\mathsf m_1+\mathsf
-m_2+\delta$. Lemma 2.1 then applies. (c) is the same, with $\sigma(A^*) = \overline{\sigma(A)}$. (d) By (S5),
-$i[\mathrm{Op}(a_1),\mathrm{Op}(a_2)]$ has order $\mathsf m_1+\mathsf m_2-1+\delta$ and principal symbol $H_{a_1}a_2$.
-Then $H_{a_1}a_2$ is a symbol of that order, and $\mathrm{Op}(H_{a_1}a_2)$ has full symbol $H_{a_1}a_2$. So the
-difference has order one lower; continuity is as in (b). Its norm involves one more derivative of each symbol, through
-$H_{a_1}a_2$. (e) Lemma 1.2, and its three-factor analogue, with the same proof: the wave front set of the product is
-empty.
+*Proof.* *Smooth symbols.* (a) For smooth $a\in\tilde S^{\mathsf m}_\nu$, $\mathrm{Op}(a)$ is bounded of order $\mathsf
+m$, without loss ((S8) and Definition 1.3). The linear map $a\mapsto\mathrm{Op}(a)$ from the Fréchet space $\tilde
+S^{\mathsf m}_\nu$ to the bounded operators $H^{\mathsf t}\to H^{\mathsf t-\mathsf m}$ has closed graph: if $a_j\to a$
+and $\mathrm{Op}(a_j)\to T$, then $\mathrm{Op}(a_j)u\to\mathrm{Op}(a)u$ pointwise for $u\in C_c^\infty$, by the integral
+above, so $T = \mathrm{Op}(a)$ on the dense set $C_c^\infty$ (Lemma 2.3 (a)). So it is continuous, and bounded by
+$C\|a\|_{(M);\nu,\mathsf m}$ (section 2.1). (b) By (S5) and (S8), $\mathrm{Op}(a_1)\mathrm{Op}(a_2)$ has principal symbol
+$a_1a_2$, as does $\mathrm{Op}(a_1a_2)$, so the difference lies in the class of order $\mathsf m_1+\mathsf m_2-1+\delta$.
+The bilinear map into that class is separately continuous by the closed graph argument of Lemma 1.2, using the continuity
+of composition into the class of order $\mathsf m_1+\mathsf m_2+\delta$. Lemma 2.1 then applies. (c) is the same, with
+$\sigma(A^*) = \overline{\sigma(A)}$. (d) By (S5), $i[\mathrm{Op}(a_1),\mathrm{Op}(a_2)]$ has order $\mathsf m_1+\mathsf
+m_2-1+\delta$ and principal symbol $H_{a_1}a_2$. Then $H_{a_1}a_2$ is a symbol of that order, and
+$\mathrm{Op}(H_{a_1}a_2)$ has full symbol $H_{a_1}a_2$. So the difference has order one lower; continuity is as in (b).
+Its norm involves one more derivative of each symbol, through $H_{a_1}a_2$. (e) Lemma 1.2, and its analogue for $r$
+factors, with the same proof: the wave front set of the product is empty ((S5)).
 
 *Finite regularity.* For each item, let $a_{i,\epsilon}$ be the mollifications of Lemma 2.2, with uniformly bounded
-norms. For $u\in C_c^\infty$, $\mathrm{Op}(a_{i,\epsilon})u\to\mathrm{Op}(a_i)u$ pointwise and boundedly on compact
-sets, by dominated convergence in the integral above. In (b)-(e) the composite operators applied to $u$ converge in
-$\mathcal D'$: inner factors converge strongly on the relevant spaces by (a) and the uniform bounds, and outer factors
-are then weakly continuous. The smooth bounds hold uniformly in $\epsilon$. A bounded sequence in the Hilbert space
-$H^{\mathsf t-r}$ has weakly convergent subsequences, whose limits are identified in $\mathcal D'$, and the norm is
+norms. For $u\in C_c^\infty$, $\mathrm{Op}(a_{i,\epsilon})u\to\mathrm{Op}(a_i)u$ pointwise and boundedly on compact sets,
+by dominated convergence in the integral above; this is all (a) needs. In (b)-(f), (a) is available: as $a_i\in
+C^{(M+2)}_\nu$, Lemma 2.2 (ii) gives $a_{i,\epsilon}\to a_i$ in $C^{(M+1)}_\nu\tilde S^{\mathsf m_i+\delta}$, so
+$a_{1,\epsilon}a_{2,\epsilon}$, $\bar a_{i,\epsilon}$ and $H_{a_{1,\epsilon}}a_{2,\epsilon}$ converge in the $(M)$-norms
+at orders raised by $2\delta$, and by (a) every factor of every item converges in operator norm, with a loss of $2\delta$
+in the order (the seventy-ninth verifier: the factors vary with $\epsilon$, so convergence of the outer factors is needed
+and is given by this). So for $u\in C_c^\infty$ the composite operators applied to $u$ converge in a Sobolev space of
+lower order, hence in $\mathcal D'$. The smooth bounds hold uniformly in $\epsilon$. A bounded sequence in the Hilbert
+space $H^{\mathsf t-r}$ has weakly convergent subsequences, whose limits are identified in $\mathcal D'$, and the norm is
 weakly lower semicontinuous. So the bounds hold for $u\in C_c^\infty$ with the limit operators, and extend by density
 (Lemma 2.3 (a)). In (a) this defines the extension. In (e), the supports of the mollified symbols stay in fixed disjoint
 closed neighbourhoods for small $\epsilon$, by Lemma 2.2 (iii) and Lemma 1.2. (f) is proved as (b): for smooth symbols
 the multilinear map is continuous into the class of order $\mu+\delta$. It is continuous into a larger class because
-compositions and adjoints are continuous, and its graph in the smaller class is closed. Then Lemma 2.1 and the passage
-to finite regularity apply. When all orders are constant, the classes are those of (S5) without loss, and the same
-argument gives order $\mu$. $\square$
+compositions and adjoints are continuous, and its graph in the smaller class is closed. Then Lemma 2.1 and the passage to
+finite regularity apply. When all orders are constant and $\nu = 0$, the classes are those of (S5) without loss, and the
+same argument gives order $\mu$. $\square$
 
-**Lemma 2.6 (the supremum bound).** Let $z\in C^{(M)}\tilde S^0$, possibly matrix-valued, and $\eta>0$. Then $\|\mathrm
-{Op}(z)v\|^2\le(\sup|z|^2+\eta)\|v\|^2+C_\eta\|v\|^2_{-\frac12}$, where $\sup|z|$ is the supremum of the operator norm
-of $z$ over phase space.
+**Lemma 2.5 (square roots).** Let $Q$ be a Hermitian matrix-valued function on a set $W$ of phase space with $Q\ge
+c\,\mathrm{Id}$, $c>0$. Derivatives are in the coordinates of Lemma 2.2. (i) If $|\partial^\beta Q|\le
+C_0\langle\log\rho_\infty\rangle^{\nu|\beta|}$ for $|\beta|\le M$, then $Q^{1/2}$ and $Q^{-1/2}$ satisfy the same bounds,
+with constants depending on $c$, $C_0$, $M$, $\nu$. (ii) Let $Q = Q_0+\lambda\,\mathrm{Id}$, where $Q_0\ge c$ satisfies
+the bounds of (i) and $\lambda\ge0$ is scalar with $|\partial^\beta\lambda|\le
+C_0\langle\log\rho_\infty\rangle^{1+\nu|\beta|}$ for $|\beta|\le M$. Then for $|\beta|\le M$, with $C$ depending on $c$,
+$C_0$, $M$, $\nu$,
+$$|\partial^\beta Q^{-1/2}|\le C\langle\log\rho_\infty\rangle^{(\nu+1)|\beta|},\qquad|Q^{1/2}|\le C\langle\log\rho_\infty
+\rangle^{\frac12},\qquad|\partial^\beta Q^{1/2}|\le C\langle\log\rho_\infty\rangle^{(\nu+1)|\beta|}\ (\beta\ne0).$$
+So $Q^{-1/2}$ is in the class of index $\nu+1$ and order 0, and $Q^{1/2}$ in that of index $\nu+1$ and order $\delta$ for
+every $\delta>0$. The index $\nu+1$ cannot be lowered to $\nu$: for $Q = c+x^2\langle\log\rho_\infty\rangle$,
+$\partial_x^2Q^{1/2} = c^{-1/2}\langle\log\rho_\infty\rangle$ at $x = 0$ (the seventy-ninth verifier, D195, against an
+earlier statement with bounded derivatives of $Q^{-1/2}$).
 
-*Proof.* Let $r := (\sup|z|^2+\eta-z^*z)^{1/2}$, a Hermitian symbol in $C^{(M)}\tilde S^0$ by Lemma 2.5, as $\sup|z|^2+
-\eta-z^*z\ge\eta$. By Proposition 2.4 (b), (c) (constant orders), $\mathrm{Op}(z)^*\mathrm{Op}(z)+\mathrm{Op}(r)^*
-\mathrm{Op}(r) = \sup|z|^2+\eta+R$ with $R$ of order $-1$. Pair with $v$. $\square$
+*Proof.* (i) $Q^{\pm1/2} = \frac1{2\pi i}\oint_\gamma z^{\pm1/2}(z-Q)^{-1}dz$ for a fixed contour $\gamma$ in
+$\{\mathrm{Re}\,z>0\}$ around $[c,C_0]$, at distance at least $c/2$ from it. A derivative $\partial^\beta(z-Q)^{-1}$ is a
+sum of products $(z-Q)^{-1}\partial^{\beta_1}Q(z-Q)^{-1}\cdots\partial^{\beta_k}Q(z-Q)^{-1}$ with $\beta_1+\dots+\beta_k
+= \beta$ and $|\beta_i|\ge1$, each bounded on $\gamma$ by $C\langle\log\rho_\infty\rangle^{\nu|\beta|}$. (ii) By the
+spectral theorem, $Q^{-1/2} = \frac1\pi\int_0^\infty s^{-1/2}(s+Q)^{-1}ds$ and $Q^{1/2} = \frac1\pi\int_0^\infty
+s^{-1/2}Q(s+Q)^{-1}ds$. As $Q(s+Q)^{-1} = I-s(s+Q)^{-1}$, for $\beta\ne0$ this gives $\partial^\beta Q^{1/2} =
+-\frac1\pi\int_0^\infty s^{1/2}\partial^\beta(s+Q)^{-1}ds$. Now $Q\ge(c+\lambda)\mathrm{Id}$, so
+$\|(s+Q)^{-1}\|\le(s+c+\lambda)^{-1}$, and $|\partial^{\beta_i}Q|\le2C_0\langle\log\rho_\infty\rangle^{1+\nu|\beta_i|}$.
+Expanding $\partial^\beta(s+Q)^{-1}$ as in (i), a product with $k$ factors $\partial^{\beta_i}Q$ is bounded by
+$C(s+c+\lambda)^{-k-1}\langle\log\rho_\infty\rangle^{k+\nu|\beta|}$, with $1\le k\le|\beta|$. Since $\int_0^\infty
+s^{\mp\frac12}(s+c+\lambda)^{-k-1}ds = C_k(c+\lambda)^{\pm\frac12-k}\le C_kc^{\pm\frac12-k}$ for $k\ge1$, both derivative
+bounds follow. Finally $|Q^{-1/2}|\le c^{-1/2}$ and
+$|Q^{1/2}|\le|Q|^{1/2}\le(C_0+C_0\langle\log\rho_\infty\rangle)^{1/2}$. $\square$
 
-**Lemma 2.5 (square roots).** Let $Q$ be a Hermitian matrix-valued function on a set $W$ of phase space, with $Q\ge
-c\,\mathrm{Id}$, $c>0$, and with derivatives up to order $M$ in the coordinates of Lemma 2.2 bounded by $C_0$. Then
-$Q^{1/2}$ has derivatives up to order $M$ bounded by a constant depending on $c$, $C_0$, $M$. If $Q = Q_0+\lambda\,
-\mathrm{Id}$ with $Q_0\ge c$ bounded and $\lambda\ge0$ scalar with $\lambda$ and its derivatives bounded by
-$C_0(1+ |\log\rho_\infty|)$, then $Q^{1/2}$ and $Q^{-1/2}$ have derivatives bounded by $C(1+|\log\rho_\infty|)^{1/2}$
-and $C$ respectively.
+**Lemma 2.6 (the supremum bound).** Let $z\in C^{(M)}_\nu\tilde S^0$, possibly matrix-valued, with $M$ large, and
+$\eta>0$. Then for every $\delta>0$,
+$\|\mathrm{Op}(z)v\|^2\le(\sup|z|^2+\eta)\|v\|^2+C_{\eta,\delta}\|v\|^2_{-\frac12+\delta}$, where $\sup|z|$ is the
+supremum of the operator norm of $z$ over phase space.
 
-*Proof.* As in I.A Lemma 2.2: $Q^{1/2} = \frac1{2\pi i}\oint_\gamma z^{1/2}(z-Q)^{-1}dz$ for a contour $\gamma$ in
-$\{\mathrm{ Re}\,z>0\}$ around the spectrum. The chain rule gives the derivatives. For the second statement,
-$\partial^j_\lambda (Q_0+\lambda)^{\pm1/2} = O((c+\lambda)^{\pm\frac12-j})$ by the same formula with a contour around
-$[c/2,C+\lambda]$, and the chain rule applies (I.A Proposition 5.2, *Commutant*). $\square$
+*Proof.* Let $r := (\sup|z|^2+\eta-z^*z)^{1/2}$, a Hermitian symbol in $C^{(M)}_\nu\tilde S^0$ by Lemma 2.5 (i), as
+$\sup|z|^2+\eta-z^*z\ge\eta$. By Proposition 2.4 (b), (c), $\mathrm{Op}(z)^*\mathrm{Op}(z)+\mathrm{Op}(r)^*\mathrm{Op}(r)
+= \mathrm{Op}(z^*z+r^*r)+R = (\sup|z|^2+\eta)I+R$, with $R$ of order $-1+2\delta$ and $\mathrm{Op}(1) = I$ (section 1.1).
+Pair with $v$: $|\langle Rv,v\rangle|\le C\|v\|^2_{-\frac12+\delta}$. $\square$
 
 *The regulariser.* For $\kappa\in(0,\frac12]$ put $\varphi_\epsilon := (1+\epsilon\rho_\infty^{-1})^{-\kappa}$ and
 $\theta_\epsilon := \epsilon\rho_\infty^{-1}(1+\epsilon\rho_\infty^{-1})^{-1}$, $\epsilon\in(0,1]$. For any vector field
@@ -308,9 +362,9 @@ $G_i := \mathrm{Op}(\tilde\chi_i)$, $i\ge1$. By section 1.2, $B$ is microsupport
 with $\mathrm{supp}\,b\subset K_0$.
 
 *One step.* Let $A$ be of order $\mathsf r$, microsupported in $K_i$, $A = \mathrm{Op}(a)+R_A$, $a\in\tilde S^{\mathsf
-r}$ supported in $K_i$, and $i\le J$. Put $q := \tilde\chi_{i+1}a\,\ell^{-1}\in C^{(d_0)}\tilde S^{\mathsf r-m}$,
-defined since $\ell$ is invertible on $K_{i+1}$; by Lemma 2.5's contour formula (or Cramer's rule) its norms are bounded
-by those of $\ell$ and $C_\ell$. By (1.2),
+r}$ supported in $K_i$, and $i\le J$. Put $q := \tilde\chi_{i+1}a\,\ell^{-1}\in C^{(d_0)}\tilde S^{\mathsf r-m}$, defined
+since $\ell$ is invertible on $K_{i+1}$; writing $\ell = \rho_\infty^{-m}\ell_0$, its norms are bounded by those of
+$\ell$ and $C_\ell$, by $\partial(\ell_0^{-1}) = -\ell_0^{-1}(\partial\ell_0)\ell_0^{-1}$. By (1.2),
 $$\mathrm{Op}(q)L = \mathrm{Op}(q)\mathrm{Op}(\ell_f)+\mathrm{Op}(q)\textstyle\sum_ja_jR_j = \mathrm{Op}(q\ell_f)+D_1+
 \mathrm{Op}(q)\sum_ja_jR_j,$$
 where $D_1$ has order $\mathsf r-1+\delta$ by Proposition 2.4 (b). Next, $q\ell_f =
@@ -326,7 +380,7 @@ make sense once $d_0$ is large for the finitely many orders involved.
 $\mathrm{Op}(q)Lu$: write $\mathrm{Op}(q) = \mathrm{Op}(q)G_{i+2}+\mathrm{Op}(q)(I-G_{i+2})$. By Proposition 2.4 (e),
 the second term has every order, its symbols being supported in $K_{i+1}$ and in the support of $1-\tilde\chi_{i+2}$,
 which are disjoint. So
-$$\|\mathrm{Op}(q)Lu\|_{\mathsf r'}\le C\|G_{i+2}Lu\|_{\mathsf r'-\mathsf r+m}+C\|\chi Lu\|_{-N-m},$$
+$$\|\mathrm{Op}(q)Lu\|_{\mathsf r'}\le C\|G_{i+2}Lu\|_{\mathsf r'+\mathsf r-m}+C\|\chi Lu\|_{-N-m},$$
 for every order $\mathsf r'$. Further, $\|G_{i+2}Lu\|\le C(\|GLu\|+\|\chi Lu\|_{-N-m})$ by II.A Lemma 8.4 (c), as
 $K_{i+2} \cap{}^{e3b}S^*\tilde M\subset\mathrm{Ell}(G)$. Finally $\|\chi Lu\|_{-N-m}\le C\|\chi u\|_{-N}$ by II.A Lemma
 8.6 (a).
@@ -336,8 +390,8 @@ three factors bounds the remainder. So $\|E_Au\|_{\mathsf r'}\le C\|G_{i+2}u\|_{
 u\|_{-N}$.
 
 *Iteration.* Take $\delta = \frac12$, $\mathsf r = 0$ and $\mathsf r' = \mathsf s$ for $A = B$; then $A = G_{i+2}$,
-$\mathsf r' = \mathsf s-\frac j2$ at step $j$, with $i = 2j$. After $J'$ steps the remaining term is $\|G_{2J'+2}u\|_{
-\mathsf s-J'/2}\le C\|\chi u\|_{-N}$ once $J'/2\ge\sup\mathsf s+N$. Take $J := 2J'+2$. Summing,
+$\mathsf r' = \mathsf s-\frac j2$ at step $j$, with $i = 2j$. After $J'$ steps the remaining term is
+$\|G_{2J'}u\|_{\mathsf s-J'/2}\le C\|\chi u\|_{-N}$ once $J'/2\ge\sup\mathsf s+N$. Take $J := 2J'$. Summing,
 $$\|Bu\|_{\mathsf s}\le C\big(\|GLu\|_{\mathsf s-m}+\|\chi u\|_{-N}\big).$$
 The identities (3.1) hold for every $u$ with $\chi u\in H^{-N}$, and each term on the right is finite when the right
 side of the estimate is. So the estimate holds in the strong sense. The constants depend on finitely many norms of the
@@ -349,31 +403,33 @@ operators of constant order act by Proposition 2.4 (a). $\square$
 ## 4. The positive commutator lemma
 
 Let $L$ be of the form (1.2), possibly on $\mathbb C^{N'}$, with real scalar principal symbol $\ell$, so that
-$\ell_f-\ell \in C^{(d_0)}\tilde S^{m-1}$ (matrix-valued). Put $L_R := \frac12(L+L^*)$ and $L_I := \frac1{2i}(L-L^*)$.
-By Proposition 2.4 (c), $L_I$ has order $m-1+\delta$. For a real scalar symbol $\check a$ and $\check A :=
-\mathrm{Op}(\check a)$,
-$$C_{\check a} := i(L^*\check A^2-\check A^2L) = i[L_R,\check A^2]+L_I\check A^2+\check A^2L_I,\qquad\langle C_{\check
-a}w,w\rangle = 2\,\mathrm{Im}\langle\check ALw,\check Aw\rangle\tag{4.1}$$
-for $w\in H^\infty$ (algebra, as in I.A (3.4)). Let $\mathsf s$ be a variable order and $\mathsf k := \mathsf s-\frac12
-(m-1)$.
+$\ell_f-\ell \in C^{(d_0)}\tilde S^{m-1}$ (matrix-valued). Put $L_R := \frac12(L+L^*)$ and $L_I := \frac1{2i}(L-L^*)$. By
+Proposition 2.4 (c), $L_I$ has order $m-1+\delta$. For a real scalar symbol $\check a$ and $\check A :=
+\mathrm{Op}(\check a)$, which need not be self-adjoint,
+$$C_{\check a} := i(L^*\check A^*\check A-\check A^*\check AL) = i[L_R,\check A^*\check A]+L_I\check A^*\check A
++\check A^*\check AL_I,\qquad\langle C_{\check a}w,w\rangle = 2\,\mathrm{Im}\langle\check ALw,\check Aw\rangle\tag{4.1}$$
+for $w\in H^{K'}_{e3b}$ with $K'$ as in Lemma 4.1 (iii) (algebra: $L = L_R+iL_I$ with $L_R$, $L_I$ formally
+self-adjoint). In I.A (3.4) the commutant is self-adjoint and $\check A^*\check A = \check A^2$; here it is not, and
+$\check A^2$ in place of $\check A^*\check A$ would make the identity false (the seventy-ninth verifier, D195). Let
+$\mathsf s$ be a variable order and $\mathsf k := \mathsf s-\frac12 (m-1)$.
 
 **Lemma 4.1 (one step).** Let $\kappa\in(0,\frac14]$, $\delta_0\in(0,\frac14]$, $\varsigma\in\{1,-1\}$, and let $G,E$ be
 carried by $\chi$. Suppose that for $\epsilon\in(0,1]$ there are real scalar symbols $\check a_\epsilon$ and symbols
 $b_\epsilon$, $e_\epsilon$, $z_\epsilon$, with the following properties.
 
-(i) $\check a_\epsilon$ is bounded in $C^{(M)}\tilde S^{\mathsf k}$, lies in $C^{(M)}\tilde S^{\mathsf k-\kappa}$ for
-each $\epsilon$, and is supported in a closed set $K_1$ with $K_1\cap{}^{e3b}S^*\tilde M\subset\mathrm{Ell}(G)$. Here
-$M$ is large for the orders involved.
+(i) $\check a_\epsilon$ is bounded in $C^{(M)}_\nu\tilde S^{\mathsf k}$, lies in $C^{(M)}_\nu\tilde S^{\mathsf k-\kappa}$
+for each $\epsilon$, and is supported in a closed set $K_1$ with $K_1\cap{}^{e3b}S^*\tilde M\subset\mathrm{Ell}(G)$. Here
+$\nu\in\mathbb N_0$ is fixed, all classes below have index $\nu$, and $M$ is large for the orders involved.
 
-(ii) $b_\epsilon$ is bounded in $C^{(M)}\tilde S^{\mathsf s+\delta}$ for every $\delta>0$, lies in $C^{(M)}\tilde
-S^{\mathsf s-\kappa+\delta}$ for each $\epsilon$, and tends to $b_0$ pointwise with these bounds. $e_\epsilon$ is
-bounded in $C^{(M)}\tilde S^{\mathsf s}$, lies in $C^{(M)}\tilde S^{\mathsf s-\kappa}$ for each $\epsilon$, and is
-supported in a closed set $K_E$ with $K_E\cap{}^{e3b}S^*\tilde M\subset\mathrm{Ell}(E)$. $z_\epsilon$ is bounded in
-$C^{(M)}\tilde S^{-\frac12(m-1)}$, and $\check a_\epsilon = z_\epsilon b_\epsilon$.
+(ii) $b_\epsilon$ is bounded in $C^{(M)}_\nu\tilde S^{\mathsf s+\delta}$ for every $\delta>0$, lies in $C^{(M)}_\nu\tilde
+S^{\mathsf s-\kappa+\delta}$ for each $\epsilon$, and tends to $b_0$ pointwise with these bounds. $e_\epsilon$ is bounded
+in $C^{(M)}_\nu\tilde S^{\mathsf s}$, lies in $C^{(M)}_\nu\tilde S^{\mathsf s-\kappa}$ for each $\epsilon$, and is
+supported in a closed set $K_E\subset K_1$ with $K_E\cap{}^{e3b}S^*\tilde M\subset\mathrm{Ell}(E)$. $z_\epsilon$ is
+bounded in $C^{(M)}_\nu\tilde S^{-\frac12(m-1)}$, and $\check a_\epsilon = z_\epsilon b_\epsilon$.
 
-(iii) For every $w\in H^\infty_{e3b}$ carried by $\chi$, with $B_\epsilon := \mathrm{Op}(b_\epsilon)$, $E_\epsilon :=
-\mathrm{Op}(e_\epsilon)$, $\check A_\epsilon := \mathrm{Op}(\check a_\epsilon)$ and a $G'$ carried by $\chi$ with
-$\mathrm{WF}'(G')\subset\mathrm{Ell}(G)$,
+(iii) For every $w\in H^{K'}_{e3b}$ carried by $\chi$, where $K'\ge\sup|\mathsf s|+m+2$ is a fixed integer, with
+$B_\epsilon := \mathrm{Op}(b_\epsilon)$, $E_\epsilon := \mathrm{Op}(e_\epsilon)$, $\check A_\epsilon :=
+\mathrm{Op}(\check a_\epsilon)$ and a $G'$ carried by $\chi$ with $\mathrm{WF}'(G')\subset\mathrm{Ell}(G)$,
 $$\varsigma\langle C_{\check a_\epsilon}w,w\rangle\le-\|B_\epsilon w\|^2+\|E_\epsilon w\|^2+C_0\big(\|G'w\|^2_{\mathsf
 s-\frac12+\delta_0}+\|\chi w\|^2_{-N}\big),\tag{4.2}$$
 with $C_0$ independent of $\epsilon$.
@@ -387,30 +443,30 @@ $$\|B_0u\|^2\le C\big(\|GLu\|^2_{\mathsf s-m+1}+\|Eu\|^2_{\mathsf s}+
 *Proof.* Norms are of $L^2$ and of $H^{\mathsf t}_{e3b}$; $C$ changes from line to line and does not depend on
 $\epsilon$ or $t$.
 
-*Step 0: microlocalisation.* Choose $\Phi = \mathrm{Op}(\phi)$, carried by $\chi$, with $\phi = 1$ near $K_1\cup K_E$
-and $\mathrm{supp}\,\phi$ in a closed set whose intersection with fibre infinity lies in $\mathrm{Ell}(G)$. Put $v :=
-\Phi u$. By II.A Lemma 8.4 (c), $\|v\|_{\mathsf t}\le C(\|Gu\|_{\mathsf t}+\|\chi u\|_{-N})$ for $\mathsf t\le\mathsf
+*Step 0: microlocalisation.* Choose $\Phi = \mathrm{Op}(\phi)$, carried by $\chi$, with $\phi = 1$ near $K_1\cup K_E$ and
+$\mathrm{supp}\,\phi$ in a closed set whose intersection with fibre infinity lies in $\mathrm{Ell}(G)$. Put $v := \Phi
+u$. By II.A Lemma 8.4 (c), $\|v\|_{\mathsf t}\le C(\|Gu\|_{\mathsf t}+\|\chi u\|_{-N})$ for $\mathsf t\le\mathsf
 s-\kappa$, and $\|\Phi Lu\|_{\mathsf s-m+1}\le C(\|GLu\|_{\mathsf s-m+1}+\|\chi u\|_{-N})$ (with II.A Lemma 8.6 (a) for
 the error term). Now $Lv = \Phi Lu+[L,\Phi]u$, and $\check A_\epsilon[L,\Phi] = \check A_\epsilon(I-\Phi)L-\check
 A_\epsilon L(I-\Phi)$. Both terms have every order, uniformly in $\epsilon$, by Proposition 2.4 (e) with $L =
-\mathrm{Op}(\ell_f)+$ residual, since $\check a_\epsilon$ and $1-\phi$ have disjoint supports. Hence, as $\check
-A_\epsilon$ is bounded of order $\mathsf k$ (Proposition 2.4 (a)),
+\mathrm{Op}(\ell_f)+$ residual and $I-\Phi = \mathrm{Op}(1-\phi)$ (section 1.1), since $\check a_\epsilon$ and $1-\phi$
+have disjoint supports. Hence, as $\check A_\epsilon$ is bounded of order $\mathsf k$ (Proposition 2.4 (a)),
 $$\|\check A_\epsilon Lv\|_{\frac12(1-m)}\le C\big(\|GLu\|_{\mathsf s-m+1}+\|\chi u\|_{-N}\big).\tag{4.4}$$
 
-*Step 1: the pairing at $v$.* Let $w_t := T_tv$, with $T_t$ from Lemma 2.3 (b) and $K\ge\sup\mathsf s+N+m$, so that
-$w_t\in H^\infty$ for $t>0$ (carried by $\chi$ by the support convention, the kernels of $T_t$ being supported near the
-diagonal). We show $\langle\check A_\epsilon Lw_t,\check A_\epsilon w_t\rangle\to\langle\check A_\epsilon Lv,\check
-A_\epsilon v\rangle$ as $t\to0$, for fixed $\epsilon>0$. Symbols of the form $\rho_\infty^{-\mathsf k}a_0$, $a_0\in
-C^{(M)}\tilde S^0$, act with exact orders (Proposition 2.4 (a)), and only remainders lose $\delta$. So $\check
-A_\epsilon$ has order $\mathsf k-\kappa$ for this $\epsilon$, and as $v\in H^{\mathsf s-\kappa}$, $\check A_\epsilon
-w_t\to\check A_\epsilon v$ strongly in $H^{\frac12(m-1)}$. Next, $\check A_\epsilon Lw_t = \check A_\epsilon
+*Step 1: the pairing at $v$.* Let $w_t := T_tv$, with $T_t$ from Lemma 2.3 (b) and $K\ge K'+\sup|\mathsf s|+1$, so that
+$w_t\in H^{\mathsf s-\kappa+K}\subset H^{K'}$ for $t>0$ (carried by $\chi$ by the support convention, the kernels of
+$T_t$ being supported near the diagonal). We show $\langle\check A_\epsilon Lw_t,\check A_\epsilon
+w_t\rangle\to\langle\check A_\epsilon Lv,\check A_\epsilon v\rangle$ as $t\to0$, for fixed $\epsilon>0$. Symbols of
+$C^{(M)}_\nu\tilde S^{\mathsf k}$ act with exact orders (Proposition 2.4 (a)), and only remainders lose $\delta$. So
+$\check A_\epsilon$ has order $\mathsf k-\kappa$ for this $\epsilon$, and as $v\in H^{\mathsf s-\kappa}$, $\check
+A_\epsilon w_t\to\check A_\epsilon v$ strongly in $H^{\frac12(m-1)}$. Next, $\check A_\epsilon Lw_t = \check A_\epsilon
 T_tLv+\check A_\epsilon [L,T_t]v$. The first term tends to $\check A_\epsilon Lv$ in $H^{\frac12(1-m)}$: $T_t\to I$
 strongly on $H^{\mathsf s-m+1}$, applied to $\Phi Lu$; the part with $[L,\Phi]u$ is handled as in Step 0, uniformly in
-$t$. For the second, $L$ and $T_t$ have constant orders $m$ and 0. So Proposition 2.4 (d), with $a_1 = \ell_f$ and $a_2
-= \tau_t$ bounded in $\tilde S^0$, shows that $[L,T_t]$ is bounded of order $m-1$, uniformly in $t$; and it tends to 0
-as an operator of order $m-1+\delta$, since $\tau_t\to1$ in $\tilde S^\delta$. Hence $\check A_\epsilon[L,T_t]v$ is
-bounded in $H^{\frac12(1-m)}$ uniformly in $t$ and tends to 0 in $\mathcal D'$, so weakly in $H^{\frac12(1-m)}$. A
-weakly null sequence paired with a strongly convergent one tends to 0.
+$t$. For the second, $L$ and $T_t$ have constant orders $m$ and 0. So Proposition 2.4 (d), with $a_1 = \ell_f$ and $a_2 =
+\tau_t$ bounded in $\tilde S^0$, shows that $[L,T_t]$ is bounded of order $m-1$, uniformly in $t$; and it tends to 0 as
+an operator of order $m-1+\delta$, since $\tau_t\to1$ in $\tilde S^\delta$. Hence $\check A_\epsilon[L,T_t]v$ is bounded
+in $H^{\frac12(1-m)}$ uniformly in $t$ and tends to 0 in $\mathcal D'$, so weakly in $H^{\frac12(1-m)}$. A weakly null
+sequence paired with a strongly convergent one tends to 0.
 
 *Step 2: the inequality at $v$.* Apply (4.2) at $w = w_t$ and let $t\to0$. The pairing converges by Step 1. The other
 terms converge: $E_\epsilon$ and $G'$ have orders at most $\mathsf s-\kappa$ and $\mathsf s-\frac12+\delta_0\le\mathsf
@@ -420,8 +476,9 @@ $B_\epsilon v\in L^2$, and by weak lower semicontinuity
 $$\|B_\epsilon v\|^2\le-2\varsigma\,\mathrm{Im}\langle\check A_\epsilon Lv,\check A_\epsilon v\rangle+\|E_\epsilon v\|^2+
 C_0\big(\|G'v\|^2_{\mathsf s-\frac12+\delta_0}+\|\chi v\|^2_{-N}\big).$$
 (a) By Proposition 2.4 (b), $\check A_\epsilon = \mathrm{Op}(z_\epsilon)B_\epsilon+D_\epsilon$ with $D_\epsilon$ bounded
-of order $\mathsf k-1+2\delta$. So $\|\check A_\epsilon v\|_{\frac12(m-1)}\le C\|B_\epsilon v\|+C\|v\|_{\mathsf
-s-1+2\delta}$. With (4.4),
+of order $\mathsf k-1+2\delta$. As $\mathrm{Op}(z_\epsilon)$ is bounded of order $-\frac12(m-1)$ without loss
+(Proposition 2.4 (a)), $\|\check A_\epsilon v\|_{\frac12(m-1)}\le C\|B_\epsilon v\|+C\|v\|_{\mathsf s-1+2\delta}$. With
+(4.4),
 $$2|\langle\check A_\epsilon Lv,\check A_\epsilon v\rangle|\le\tfrac12\|B_\epsilon v\|^2+C\big(\|GLu\|^2_{\mathsf s-m+1}+
 \|v\|^2_{\mathsf s-\frac12}+\|\chi u\|^2_{-N}\big).$$
 (b) $E_\epsilon v = E_\epsilon u-E_\epsilon(I-\Phi)u$. The second term has every order, uniformly (Proposition 2.4 (e)).
@@ -445,27 +502,33 @@ $\|Gu\|_{\mathsf s-\frac12+\delta_0}$.
 that for every $\kappa\in(0,\frac14]$, every order $\mathsf s' = \mathsf s-\tau'$ with $0\le\tau'\le\tau$ ($\tau>0$ a
 constant), and every open $U$ with $\Gamma\subset U\subset U_0$, the hypotheses of Lemma 4.1 hold for $(\mathsf
 s',\kappa)$ with $K_1$ inside $U$ (near fibre infinity), with $E$-symbols supported in a closed set $K_E(U)$ whose
-intersection with fibre infinity lies in $\bar U_0\setminus\Gamma$, and with $b_0$ elliptic of order $\mathsf s'$ on an
-open neighbourhood $U'$ of $\Gamma$. Let $G$ be elliptic on $\bar U_0$. Then there are a neighbourhood $U_*$ of $\Gamma$
-and a closed set $K_E^*$ missing $\Gamma$ such that, for $E$ elliptic on $K_E^*$ and $B$ microsupported in $U_*$, in the
+intersection with fibre infinity lies in $U\setminus\Gamma$, and with $b_0$ elliptic of order $\mathsf s'$ on an open
+neighbourhood $U'$ of $\Gamma$: $b_0^{-1}\in C^{(M)}_\nu\tilde S^{-\mathsf s'}$ on $U'$ near fibre infinity. Let $G$ be
+elliptic on $\bar U_0$. Then there are a neighbourhood $U_*$ of $\Gamma$ and a closed set $K_E^*$ missing $\Gamma$ such
+that, for $E$ elliptic on $K_E^*$ and $B\in C^\infty_b\Psi^0_{e3b}$ carried by $\chi$ and microsupported in $U_*$, in the
 strong sense,
 $$\|Bu\|_{\mathsf s}\le C\big(\|GLu\|_{\mathsf s-m+1}+\|Eu\|_{\mathsf s}+\|Gu\|_{\mathsf s-\tau}+\|\chi u\|_{-N}\big).
 \tag{4.5}$$
 
-*Proof.* As I.A Lemma 3.2. Take $J\ge4\tau$, $\kappa := \tau/J$, and $\mathsf s_j := \mathsf s-\tau+j\kappa$. Construct
-$U_0\supset U_1\supset\dots\supset U_J\supset\Gamma$, $U_j$ the $U'$ for $(\mathsf s_j,\kappa,U_{j-1})$, and let $K_E^*
-:= \bigcup_jK_E(U_{j-1})$. Let $G_0 := G$ and $G_j$ be elliptic on $\bar U_j$ with $\mathrm{WF}'(G_j)\subset
-\mathrm{Ell}(B_0^{(j)})$. Then $\|G_ju\|_{\mathsf s_j}\le C(\|B_0^{(j)}u\|+\|\chi u\|_{-N})$. This is the parametrix
-argument of Theorem 3.1 with $B_0^{(j)}$ in place of $L$ and $q := \tilde\chi(b_0^{(j)})^{-1}$. On $\bar U_j$,
-$b_0^{(j)}$ is bounded below by $c\rho_\infty^{-\mathsf s_j}$ (its logarithmic factor is at least a positive constant,
-as $Q\ge M$ in section 5), so $q$ is of order $-\mathsf s_j$ with logarithmic bounds, and the remainders lose $\delta$,
-which is harmless. Lemma 4.1 at step $j$ needs $G_{j-1}u\in H^{\mathsf s_{j-1}}$, the conclusion of step $j-1$, and
-gives
+*Proof.* As I.A Lemma 3.2. Take an integer $J>4\tau$, $\kappa := \tau/J<\frac14$, and $\mathsf s_j := \mathsf
+s-\tau+j\kappa$. Construct open sets $U_0\supset U_1\supset\dots\supset U_J\supset\Gamma$ with $\bar U_j\subset U'_j$,
+where $U'_j$ is the $U'$ for $(\mathsf s_j,\kappa,U_{j-1})$, and let $K_E^* := \bigcup_jK_E(U_{j-1})$. Let $G_0 := G$ and
+$G_j := \mathrm{Op}(g_j)$, carried by $\chi$, with $g_j$ smooth on the compactified bundle, equal to 1 near $\bar U_j$
+and supported where $b_0^{(j)}$ is elliptic. Then $\|G_ju\|_{\mathsf s_j}\le C(\|B_0^{(j)}u\|+\|\chi u\|_{-N})$. This is
+the parametrix argument of Theorem 3.1 with $B_0^{(j)}$, of order $\mathsf s_j+\delta$, in place of $L$, and $\tilde\chi
+a(b_0^{(j)})^{-1}$ in place of $\tilde\chi a\ell^{-1}$. $\mathrm{Op}(\tilde\chi a(b_0^{(j)})^{-1})$ has order $\mathsf
+r-\mathsf s_j$ without loss (Proposition 2.4 (a)), and the remainders have order $\mathsf r-1+2\delta$, so with $\delta =
+\frac14$ the iteration closes as there; $B_0^{(j)}u\in L^2$ enters without localization. (With an operator of order
+$-\mathsf s_j+\delta$ in place of the parametrix, the conclusion would be $H^{\mathsf s_j-\delta}$ only; the
+seventy-ninth verifier, D195.) Lemma 4.1 at step $j$ needs $G_{j-1}u\in H^{\mathsf s_{j-1}}$, the conclusion of step
+$j-1$, and gives
 $$\|B_0^{(j)}u\|\le C\big(\|G_{j-1}Lu\|_{\mathsf s_j-m+1}+\|Eu\|_{\mathsf s_j}+
 \|G_{j-1}u\|_{\mathsf s_j-\frac12+\delta_0}+
 \|\chi u\|_{-N}\big).$$
-Take $\delta_0\le\frac14-\kappa$, so that $\mathsf s_j-\frac12+\delta_0\le\mathsf s_{j-1}$. Inducting on $j$ gives
-(4.5), with $U_* := U_J$. $\square$
+Take $\delta_0\le\frac14-\kappa$, which is positive as $J>4\tau$, so that $\mathsf s_j-\frac12+\delta_0\le\mathsf
+s_{j-1}$. Lemma 4.1 at step $j$ applies with $G_{j-1}$ in the role of $G$, which is elliptic on $\bar U_{j-1}\supset
+K_1\cup K_E$ near fibre infinity. Inducting on $j$ bounds $\|G_Ju\|_{\mathsf s}$, and (4.5) follows for $B$
+microsupported in $U_* := U_J$ by II.A Lemma 8.4 (c). $\square$
 
 ## 5. Real principal type propagation
 
@@ -537,34 +600,37 @@ the slice once. $\mathsf Hz = 1$ and $\mathsf Hy = 0$ hold by construction. $\sq
 ### 5.2 Propagation along one curve
 
 **Proposition 5.3.** Let $\varsigma\in\{1,-1\}$ and $\mathsf H_f := \varsigma\mathsf H$ (the forward field). Let
-$\gamma:[0,T]\to\mathrm{Char}(L)$ be an injective integral curve of $\mathsf H_f$ with $\mathsf H_f\ne0$ on it. Let
-$\mathsf s$ be a variable order with $\mathsf H_f\mathsf s\le0$ on a neighbourhood of $\gamma([0,T])$ in ${}^{e3b}S^*
-\tilde M$, and let $E$ be elliptic at $\gamma(0)$. Then there are $B$, elliptic on $\gamma([0,T])$, and $G$, both
-microsupported in any given neighbourhood of $\gamma([0,T])$ (near fibre infinity, and carried by $\chi$), such that in
-the strong sense
+$\gamma:[0,T]\to{}^{e3b}S^*\tilde M$ be an injective integral curve of $\mathsf H_f$ with $\mathsf H_f\ne0$ on it (it
+need not lie in $\mathrm{Char}(L)$; the proof does not use it). Let $\mathsf s$ be a variable order with $\mathsf
+H_f\mathsf s\le0$ on a neighbourhood of $\gamma([0,T])$ in ${}^{e3b}S^* \tilde M$, and let $E$ be elliptic at
+$\gamma(0)$. Then there are $B\in C^\infty_b\Psi^0_{e3b}$, elliptic on $\gamma([0,T])$, and $G$, both microsupported in
+any given neighbourhood of $\gamma([0,T])$ (near fibre infinity, and carried by $\chi$), such that in the strong sense
 $$\|Bu\|_{\mathsf s}\le C\big(\|GLu\|_{\mathsf s-m+1}+\|Eu\|_{\mathsf s}+\|\chi u\|_{-N}\big).\tag{5.1}$$
 $C$ depends on $L$ only through finitely many norms of its coefficients and the geometry of the flow near $\gamma$. It
 is uniform for perturbations of $L$ small in those norms, for which the hypotheses hold with the same
 $\gamma$-neighbourhood.
 
 *Proof.* Apply Lemma 5.2 to the curve $t\mapsto\gamma(\varsigma t)$ of $\mathsf H$, or equivalently use coordinates with
-$\mathsf H_f = \partial_z$, $\gamma(t) = (t,0)$, on a neighbourhood $O$ of $\gamma([-4\delta',T+4\delta'])$. Extend
-$z,y$ to a conic neighbourhood in ${}^{e3b}T^*\tilde M$, homogeneously of degree 0. With the cut-off $\psi$ of I.A
-section 3 ($\psi$ even, supported in $(-1,1)$, equal to 1 on $[-\frac12,\frac12]$, $-\psi\psi' = (\nu\psi)^2$ on
-$[0,\infty)$ with $\nu\psi$ smooth), put $\chi_s(z) := \psi(-z/\delta)$ and $\chi_e(z) := \psi((z-T)/\delta)$. So
-$\partial_z(\chi_s^2)\ge0$ is supported in $[-\delta,-\frac\delta2]$, and $-\partial_z(\chi_e^2)\ge0$ in
-$[T+\frac\delta2,T+\delta]$. Both are squares of smooth functions of $z$. Put $\psi_y := \psi(|y|^2/\delta_1^2)$. Choose
-$\delta\le\delta'$ and $\delta_1$ so small that $\{z\in[-\delta,T+\delta],|y|\le\delta_1\}$ lies in the given
-neighbourhood, in $O$ and in the set where $\mathsf H_f\mathsf s\le0$, and that
-$\{z\in[-\delta,0],|y|\le\delta_1\}\subset\mathrm{Ell}(E)$. Let $\chi_\infty$ be a function of $\rho_\infty$ equal to 1
-near fibre infinity and supported where $(z,y)$ are defined. Its derivatives are supported in a set compact in the
-fibres, where every symbol has order $-\infty$.
+$\mathsf H_f = \partial_z$, $\gamma(t) = (t,0)$, on a neighbourhood $O$ of $\gamma([-4\delta',T+4\delta'])$. Extend $z,y$
+to a conic neighbourhood in ${}^{e3b}T^*\tilde M$, homogeneously of degree 0. With the cut-off $\psi$ of I.A section 3
+($\psi$ even, supported in $(-1,1)$, equal to 1 on $[-\frac12,\frac12]$, nonincreasing on $[0,\infty)$, with $-\psi\psi'$
+the square of a smooth function on $[0,\infty)$), put $\chi_s(z) := \psi(-z/\delta)$ for $z\le0$ and $\chi_s(z) := 1$ for
+$z\ge0$, and $\chi_e(z) := \psi((z-T)/\delta)$ for $z\ge T$ and $\chi_e(z) := 1$ for $z\le T$. These are smooth, as $\psi
+= 1$ near 0, and $\chi_s = \chi_e = 1$ on $[0,T]$. So $\partial_z(\chi_s^2) = \frac2\delta(-\psi\psi')(-z/\delta)\ge0$ is
+supported in $[-\delta,-\frac\delta2]$, and $-\partial_z(\chi_e^2)\ge0$ in $[T+\frac\delta2,T+\delta]$; both are squares
+of smooth functions of $z$. (With $\psi$ even, $\psi(-z/\delta)$ alone vanishes for $z\ge\delta$, and neither statement
+would hold; the seventy-ninth verifier, D195.) Put $\psi_y := \psi(|y|^2/\delta_1^2)$. Choose $\delta\le\delta'/2$ and
+$\delta_1$ so small that $\{z\in[-2\delta,T+2\delta],|y|\le2\delta_1\}$ lies in the given neighbourhood, in $O$ and in
+the set where $\mathsf H_f\mathsf s\le0$, and that $\{z\in[-2\delta,0],|y|\le2\delta_1\}\subset\mathrm{Ell}(E)$ (the
+margin serves the uniformity below). Let $\chi_\infty$ be a function of $\rho_\infty$ equal to 1 near fibre infinity and
+supported where $(z,y)$ are defined. Its derivatives are supported in a set compact in the fibres, where every symbol has
+order $-\infty$.
 
 *Commutant.* With $\mathsf k := \mathsf s-\frac12(m-1)$ (the restriction to fibre infinity), the regulariser
 $\varphi_\epsilon$ of section 2.3 with exponent $\kappa$, and a large constant $M$,
 $$\check a_\epsilon := \chi_\infty\rho_\infty^{-\mathsf k}\varphi_\epsilon e^{-Mz}\chi_s(z)\chi_e(z)\psi_y.$$
 Its factors other than $\rho_\infty^{-\mathsf k}\varphi_\epsilon$ have $d_0-1$ bounded derivatives (Lemma 5.2), so
-$\check a_\epsilon$ is bounded in $C^{(d_0-1)}\tilde S^{\mathsf k}$, and lies in $C^{(d_0-1)}\tilde S^{\mathsf
+$\check a_\epsilon$ is bounded in $C^{(d_0-1)}\tilde S^{\mathsf k}$ (index 0), and lies in $C^{(d_0-1)}\tilde S^{\mathsf
 k-\kappa}$ for each $\epsilon$. Since $\mathsf H_fz = 1$ and $\mathsf H_f\psi_y = 0$, (2.1) gives, where $\chi_\infty =
 1$,
 $$\mathsf H_f(\check a_\epsilon^2) = \rho_\infty^{-2\mathsf k}\varphi_\epsilon^2\psi_y^2e^{-2Mz}
@@ -574,10 +640,13 @@ $$Q_\epsilon := 2M+2\mathsf k_\epsilon\rho_\infty^{-1}\mathsf H_f\rho_\infty+
 2(\mathsf H_f\mathsf k)\log\rho_\infty,\qquad
 \mathsf k_\epsilon := \mathsf k-\kappa\theta_\epsilon.$$
 On the support, $\mathsf H_f\mathsf k = \mathsf H_f\mathsf s\le0$ and $\log\rho_\infty<0$, so the last term of
-$Q_\epsilon$ is nonnegative. Choose $M\ge1+\sup|2\mathsf k_\epsilon\rho_\infty^{-1}\mathsf H_f\rho_\infty|$, uniformly
-in $\epsilon$ as $\mathsf k_\epsilon\in(\mathsf k-\kappa,\mathsf k]$. Then $Q_\epsilon\ge M$; $M$ will be enlarged once
-more below. By Lemma 2.5 (second part), $Q_\epsilon^{1/2}$ and $Q_\epsilon^{-1/2}$ are symbols of order 0 with
-logarithmic bounds, with $d_0-2$ derivatives. Put
+$Q_\epsilon$ is nonnegative. Choose $M\ge1+\sup|2\mathsf k_\epsilon\rho_\infty^{-1}\mathsf H_f\rho_\infty|$, uniformly in
+$\epsilon$ as $\mathsf k_\epsilon\in(\mathsf k-\kappa,\mathsf k]$. Then $Q_\epsilon\ge M$; $M$ will be enlarged once more
+below. Write $Q_\epsilon = Q_{0,\epsilon}+\lambda$ with $Q_{0,\epsilon} := 2M+2\mathsf k_\epsilon\rho_\infty^{-1}\mathsf
+H_f\rho_\infty\ge M$ and $\lambda := 2(\mathsf H_f\mathsf k)\log\rho_\infty\ge0$. $Q_{0,\epsilon}$ has $d_0-2$ bounded
+derivatives, and $\lambda$ has $d_0-2$ derivatives bounded by $C\langle\log\rho_\infty\rangle$, uniformly in $\epsilon$
+(Lemma 5.1 (b) and Definition 1.3). By Lemma 2.5 (ii) with $\nu = 0$, $Q_\epsilon^{-1/2}$ is bounded in
+$C^{(d_0-2)}_1\tilde S^0$ and $Q_\epsilon^{1/2}$ in $C^{(d_0-2)}_1\tilde S^\delta$ for every $\delta>0$. Put
 $$b_\epsilon := \mu^{\frac12}\rho_\infty^{-\mathsf k}\varphi_\epsilon\psi_ye^{-Mz}\chi_s\chi_e
 Q_\epsilon^{1/2}\chi_\infty,
 \qquad b_{e,\epsilon} := \mu^{\frac12}\rho_\infty^{-\mathsf k}\varphi_\epsilon\psi_ye^{-Mz}
@@ -588,28 +657,32 @@ $$e_\epsilon := \mu^{\frac12}\rho_\infty^{-\mathsf k}\varphi_\epsilon\psi_ye^{-M
 \chi_\infty,\qquad z_\epsilon := \mu^{-\frac12}Q_\epsilon^{-1/2}.$$
 Then $\varsigma H_\ell(\check a_\epsilon^2) = \mu\mathsf H_f(\check a_\epsilon^2) =
 -b_\epsilon^2-b_{e,\epsilon}^2+e_\epsilon^2$ modulo symbols of order $-\infty$ (from $\chi_\infty$), and $\check
-a_\epsilon = z_\epsilon b_\epsilon$. $\mu\rho_\infty^ {-2\mathsf k}$ has order $2\mathsf s$. So $b_\epsilon$ is bounded
-in the class of order $\mathsf s+\delta$ for every $\delta>0$ (the factor $Q_\epsilon^{1/2}$), $e_\epsilon$ and
-$b_{e,\epsilon}$ in that of order $\mathsf s$, and $z_\epsilon$ in that of order $-\frac12(m-1)$. $e_\epsilon$ is
-supported in $\{z\in[-\delta,-\frac\delta2]\}$, inside $\mathrm{Ell}(E)$ and away from $\gamma([0,T])$. $b_0$ is
-elliptic on $\gamma([0,T])$, where $\chi_s = \chi_e = \psi_y = 1$ and $Q_0\ge M$.
+a_\epsilon = z_\epsilon b_\epsilon$. $\mu\rho_\infty^ {-2\mathsf k}$ has order $2\mathsf s$. So, all with index 1 and
+$d_0-2$ derivatives, $b_\epsilon$ is bounded in the class of order $\mathsf s+\delta$ for every $\delta>0$ (the factor
+$Q_\epsilon^{1/2}$), $e_\epsilon$ and $b_{e,\epsilon}$ in that of order $\mathsf s$, and $z_\epsilon$ in that of order
+$-\frac12(m-1)$, on which it acts without loss (Proposition 2.4 (a)). $e_\epsilon$ is supported in
+$\{z\in[-\delta,-\frac\delta2]\}$, inside $\mathrm{Ell}(E)$ and away from $\gamma([0,T])$. $b_0$ is elliptic on
+$\gamma([0,T])$, where $\chi_s = \chi_e = \psi_y = 1$ and $Q_0\ge M$: on the open set $U' :=
+\{z\in(-\frac\delta2,T+\frac\delta2),|y|^2<\frac12\delta_1^2\}$, near fibre infinity, $b_0^{-1} = \rho_\infty^{\mathsf
+s}e^{Mz}Q_0^{-1/2}$ lies in $C^{(d_0-2)}_1\tilde S^{-\mathsf s}$.
 
-*The commutator.* Write $L = \mathrm{Op}(\ell_f)+R_L$ by (1.2), with $R_L$ of every order. Let $\ell_R :=
-\frac12(\ell_f+ \ell_f^*)$ and $\ell_I := \frac1{2i}(\ell_f-\ell_f^*)$. Since $\ell$ is real and scalar,
-$\ell_R-\ell\,\mathrm{Id}$ and $\ell_I$ have order $m-1$. Then $L_R = \mathrm{Op}(\ell_R)+D_R$ and $L_I =
-\mathrm{Op}(\ell_I)+D_I$, where $D_R$ and $D_I$ are $\pm\frac12$, resp. $\pm\frac1{2i}$, times $D_{\ell_f}$ of
-Proposition 2.4 (f), plus the parts of $R_L$. So $L_I$ has exact order $m-1$, and $[D_R,\check A]$, $[D_I,\check A]$
-have order $m+\mathsf k-2+\delta$, with $\check A := \check A_\epsilon := \mathrm{Op}(\check a_\epsilon)$, uniformly in
-$\epsilon$. Now $i[L_R,\check A^2] = i[L_R,\check A]\check A+\check A\,i[L_R,\check A]$, and by Proposition 2.4 (d) and
-the above, $i[L_R,\check A] = \mathrm{Op}(H_{\ell_R}\check a)$ plus order $m+\mathsf k-2+\delta$. Next,
-$H_{\ell_R}\check a = H_\ell\check a\,\mathrm{Id}+H_{\ell_R-\ell}\check a$, where the second term has order $m+\mathsf
-k-2$. With Proposition 2.4 (b),
-$$i[L_R,\check A^2] = \mathrm{Op}(H_\ell(\check a^2))+R_1,\qquad R_1\text{ of order }2\mathsf s-1+\delta.$$
-For $L_I$: $L_I\check A^2+\check A^2L_I = 2\check AL_I\check A+[[L_I,\check A],\check A]$. The double commutator has
-order $2\mathsf s-2+\delta$, by Proposition 2.4 (d) for $\mathrm{Op}(\ell_I)$ and (f) for $D_I$. And $\langle2\check
-AL_I\check Aw,w\rangle = 2\langle L_I\check Aw,\check Aw\rangle+2\langle L_I\check Aw,(\check A^*-\check A)w\rangle$,
-where $\check A^*-\check A$ has order $\mathsf k-1+\delta$ (Proposition 2.4 (c)). Collecting, by (4.1), for $w\in
-H^\infty$,
+*The commutator.* Write $L = \mathrm{Op}(\ell_f)+R_L$ by (1.2), with $R_L$ of every order. Let $\ell_R := \frac12(\ell_f+
+\ell_f^*)$ and $\ell_I := \frac1{2i}(\ell_f-\ell_f^*)$. Since $\ell$ is real and scalar, $\ell_R-\ell\,\mathrm{Id}$ and
+$\ell_I$ have order $m-1$. Then $L_R = \mathrm{Op}(\ell_R)+D_R$ and $L_I = \mathrm{Op}(\ell_I)+D_I$, where $D_R$ and
+$D_I$ are $\pm\frac12$, resp. $\pm\frac1{2i}$, times $D_{\ell_f}$ of Proposition 2.4 (f), plus the parts of $R_L$. So
+$L_I$ has exact order $m-1$, and $[D_R,\check A]$, $[D_I,\check A]$ have order $m+\mathsf k-2+\delta$, with $\check A :=
+\check A_\epsilon := \mathrm{Op}(\check a_\epsilon)$, uniformly in $\epsilon$. Now $i[L_R,\check A^2] = i[L_R,\check
+A]\check A+\check A\,i[L_R,\check A]$, and by Proposition 2.4 (d) and the above, $i[L_R,\check A] =
+\mathrm{Op}(H_{\ell_R}\check a)$ plus order $m+\mathsf k-2+\delta$. Next, $H_{\ell_R}\check a = H_\ell\check
+a\,\mathrm{Id}+H_{\ell_R-\ell}\check a$, where the second term has order $m+\mathsf k-2$. With Proposition 2.4 (b),
+$i[L_R,\check A^2]$ is $\mathrm{Op}(H_\ell(\check a^2))$ plus order $2\mathsf s-1+\delta$. Further, $\check A^*\check A =
+\check A^2+D_{\check a}\check A$ with $D_{\check a} := \check A^*-\check A$ of order $\mathsf k-1+\delta$ (Proposition
+2.4 (c), $\check a$ real), and $i[L_R,D_{\check a}\check A]$ has order $2\mathsf s-1+\delta$ by Proposition 2.4 (f). So
+$$i[L_R,\check A^*\check A] = \mathrm{Op}(H_\ell(\check a^2))+R_1,\qquad R_1\text{ of order }2\mathsf s-1+\delta.$$
+For $L_I$, formally self-adjoint: $\langle(L_I\check A^*\check A+\check A^*\check AL_I)w,w\rangle =
+2\,\mathrm{Re}\langle\check AL_Iw,\check Aw\rangle = 2\,\mathrm{Re}\langle L_I\check Aw,\check
+Aw\rangle+2\,\mathrm{Re}\langle\check A^*[\check A,L_I]w,w\rangle$, and $\check A^*[\check A,L_I]$ has order $2\mathsf
+s-1+\delta$, by Proposition 2.4 (d) for $\mathrm{Op}(\ell_I)$ and (f) for $D_I$. Collecting, by (4.1), for $w\in H^{K'}$,
 $$\varsigma\langle C_{\check a}w,w\rangle =
 \mathrm{Re}\langle\mathrm{Op}(\varsigma H_\ell(\check a^2))w,w\rangle+2\varsigma\,
 \mathrm{Re}\langle L_I\check Aw,\check Aw\rangle+\mathrm{Re}\langle R_2w,w\rangle,$$
@@ -621,29 +694,41 @@ remainders is by Proposition 2.4 (e), all of them having a factor supported in t
 2\delta$, with $B_\epsilon := \mathrm{Op}(b_\epsilon)$; likewise for $b_{e,\epsilon}$ and $e_\epsilon$. So
 $\mathrm{Re}\langle\mathrm{Op}(\varsigma H_\ell(\check a^2))w,w\rangle\le-\|B_\epsilon w\|^2+\|E_\epsilon
 w\|^2+C(\|G'w\|^2 _{\mathsf s-\frac12+\delta}+\|\chi w\|^2_{-N})$, dropping $-\|B_{e,\epsilon}w\|^2\le0$. For the $L_I$
-term, fix elliptic operators $\Lambda_{\pm}$ of orders $\pm\frac12(m-1)$ defining the norms of $H^{\pm\frac12(m-1)}$,
-and let $C_I$ be the norm of $L_I$ between these spaces. It depends on finitely many norms of the coefficients and not
-on $M$ or $\epsilon$. $\Lambda_+\check A = \mathrm{Op}(\lambda_+z_\epsilon)B_\epsilon+$ order $\mathsf s-1+2\delta$,
-where $\lambda_+z_\epsilon$ is a symbol of order 0. Its supremum is at most $C_\Lambda M^{-1/2}$, as $Q_\epsilon\ge M$.
-Lemma 2.6 with $\eta := M^{-1}$ then gives $\|\check Aw\|^2_{\frac12(m-1)}\le2C_\Lambda^2M^{-1}\|B_\epsilon
-w\|^2+C\|G'w\|^2_{\mathsf s-\frac12+ \delta}+C\|\chi w\|^2_{-N}$. Enlarge $M$ so that $4C_IC_\Lambda^2M^{-1}\le\frac12$.
-Then
+term, fix elliptic operators $\Lambda_{\pm}$ of orders $\pm\frac12(m-1)$ defining the norms of $H^{\pm\frac12(m-1)}$, and
+let $C_I$ be the norm of $L_I$ between these spaces. It depends on finitely many norms of the coefficients and not on $M$
+or $\epsilon$. Take $\Lambda_+ := \mathrm{Op}(\lambda_+)$ with $\lambda_+$ classical. Then $\Lambda_+\check A =
+\mathrm{Op}(\lambda_+z_\epsilon)B_\epsilon+$ order $\mathsf s-1+2\delta$ (Proposition 2.4 (b)), where
+$\lambda_+z_\epsilon\in C^{(d_0-2)}_1\tilde S^0$. Its supremum is at most $C_\Lambda M^{-1/2}$, with $C_\Lambda :=
+\sup|\lambda_+\mu^{-1/2}|$, as $Q_\epsilon\ge M$. Lemma 2.6 with $\eta := M^{-1}$, applied to $B_\epsilon w$, and
+$(a+b)^2\le2a^2+2b^2$ give $\|\check Aw\|^2_{\frac12(m-1)}\le2(C_\Lambda^2+1)M^{-1}\|B_\epsilon w\|^2+C\|G'w\|^2_{\mathsf
+s-\frac12+\delta}+C\|\chi w\|^2_{-N}$, where $\|B_\epsilon w\|_{-\frac12+\delta}$ is bounded by the last two norms,
+$b_\epsilon$ being supported in the support of $\check a$ (Proposition 2.4 (e)). Enlarge $M$ so that
+$4C_I(C_\Lambda^2+1)M^{-1}\le\frac12$. Then
 $$\varsigma\langle C_{\check a_\epsilon}w,w\rangle\le-\tfrac12\|B_\epsilon w\|^2+
 \|E_\epsilon w\|^2+C\big(\|G'w\|^2_{\mathsf
 s-\frac12+\delta}+\|\chi w\|^2_{-N}\big).$$
 This is (4.2) for $2^{-1/2}b_\epsilon$, $e_\epsilon$ and $2^{\frac12}z_\epsilon$, with $\delta_0 := \delta$. The other
 hypotheses of Lemma 4.1 hold by the construction, with $d_0$ large enough that the norms used are among those available:
-$d_0-2\ge M_{2.4}+1$ for the $M_{2.4}$ of Proposition 2.4 at the orders involved.
+$d_0-2\ge M_{2.4}+2$ for the $M_{2.4}$ of Proposition 2.4 at the orders involved and index 1.
 
-*Conclusion.* The hypotheses of Lemma 4.2 hold with $\Gamma := \gamma([0,T])$. For each $U\supset\Gamma$ shrink
-$\delta$, $\delta_1$ so that the support lies in $U$. The $E$-sets lie in
-$\{z\in[-\delta,-\frac\delta2],|y|\le\delta_1\}\subset \mathrm{Ell}(E)$, which misses $\Gamma$. There is no threshold,
-so $\tau$ is arbitrary. Take $\tau\ge\sup\mathsf s+N$; then $\|Gu\|_{\mathsf s-\tau}\le C\|\chi u\|_{-N}$, and (4.5) is
-(5.1), with $B$ microsupported in $U_*$ and elliptic on $\Gamma$. On $\mathbb C^{N'}$ the commutant is scalar and $L_I$
-is matrix-valued. Nothing above used a scalar $L_I$. The uniformity: all constants are bounded by finitely many norms of
-the coefficients, by the bounds of Lemma 5.2, and by $M$, $\delta$, $\delta_1$. For perturbations small in $C^{d_0}$,
-the flow and the coordinates of Lemma 5.2 depend continuously on the field in these norms (Gronwall), so the same
-$\delta$, $\delta_1$, $M$ serve. $\square$
+*Conclusion.* The hypotheses of Lemma 4.2 hold with $\Gamma := \gamma([0,T])$. For each $U\supset\Gamma$ shrink $\delta$,
+$\delta_1$ so that the support lies in $U$. The $E$-sets lie in $\{z\in[-\delta,-\frac\delta2],|y|\le\delta_1\}\subset
+\mathrm{Ell}(E)$, which misses $\Gamma$. There is no threshold, so $\tau$ is arbitrary. Take $\tau\ge\sup\mathsf s+N$;
+then $\|Gu\|_{\mathsf s-\tau}\le C\|\chi u\|_{-N}$, and (4.5) is (5.1), with any $B\in C^\infty_b\Psi^0_{e3b}$ carried by
+$\chi$, microsupported in $U_*$ and elliptic on $\Gamma$. On $\mathbb C^{N'}$ the commutant is scalar and $L_I$ is
+matrix-valued. Nothing above used a scalar $L_I$. The uniformity: all constants are bounded by finitely many norms of the
+coefficients, by the bounds of Lemma 5.2, and by $M$, $\delta$, $\delta_1$. Let $L'$ be a perturbation small in
+$C^{d_0}$, with field $\mathsf H'$, let $\gamma'$ be the integral curve of $\mathsf H'_f$ with $\gamma'(T) = \gamma(T)$,
+and build the coordinates $(z',y')$ of Lemma 5.2 for $\mathsf H'$ with the same slice $\{\sigma = 0\}$ and the same
+$\tilde y$, shifted so that $\gamma'(t) = (t,0)$. As $\mathsf H'\to\mathsf H$, the integral curves of $\mathsf H'$ from
+points of the slice near $p_0$ converge to those of $\mathsf H$ uniformly on the compact time interval (Lemma 5.1 (c)).
+So the compactness argument for the injectivity in Lemma 5.2 (a curve meets the slice once) holds uniformly: for $\mathsf
+H'$ close to $\mathsf H$, $(z',y')$ is defined and injective on a fixed neighbourhood of
+$\gamma([-3\delta',T+3\delta'])$, with the derivative bounds of Lemma 5.2 uniform, and $(z',y')\to(z,y)$ uniformly there.
+The box $\{z'\in[-\delta,T+\delta],|y'|\le\delta_1\}$ then lies in the box of $\mathsf H$ with $2\delta$, $2\delta_1$,
+which has the properties required above by the choice of the margin, given that $\mathsf H'_f\mathsf s\le0$ on the same
+neighbourhood. With $M$ chosen with a margin too, as the bounds it must exceed depend continuously on the coefficients,
+the same $\delta$, $\delta_1$, $M$ serve (the seventy-ninth verifier asked for the injectivity; D195). $\square$
 
 ### 5.3 The global estimate
 
@@ -667,19 +752,25 @@ injective, with $t'_\alpha$ taken below the infimum of periods if the orbit is p
 would make the orbit periodic with period at most $t'_\alpha$, and then the backward curve would have entered
 $\mathrm{Ell}(E)$ at an earlier time. It lies in $\mathrm{Char}(L)$, as $\ell$ is constant along the flow, and in
 $\mathrm{Ell}(G)$. As the neighbourhood in (B) is open, $t'_\alpha$ can be chosen so that (B) holds on a neighbourhood of
-$\gamma_\alpha([0,t'_\alpha])$. Proposition 5.3 with $\varsigma = 1$ gives $B_\alpha$ elliptic on $\gamma_\alpha([0,
-t'_\alpha])$, in particular near $\alpha$, and $G_\alpha$ microsupported in a neighbourhood inside $\mathrm{Ell}(G)$. It
-also gives $\|B_\alpha u\|_{\mathsf s}\le C(\|G_\alpha Lu\|_{\mathsf s-m+1}+\|Eu\|_{\mathsf s}+\|\chi u\|_{-N})$, and
-$\|G_\alpha Lu\|\le C(\|GLu\|+\|\chi u\|_{-N})$ by II.A Lemma 8.4 (c) and Lemma 8.6 (a). For
-$\alpha\in\mathrm{WF}'(B)\setminus \mathrm{Char}(L)$, Theorem 3.1 gives $B_\alpha$ elliptic near $\alpha$ with
-$\|B_\alpha u\|_{\mathsf s}\le C(\|GLu\|_{\mathsf s-m}+\|\chi u\|_{-N})$. By compactness of $\mathrm{WF}'(B)$, finitely
-many $B_{\alpha_i}$ are jointly elliptic on it: $\sum_iB_{\alpha_i}^*B_{\alpha_i}$ is elliptic of order $2\mathsf s$
-there. The elliptic estimate (II.A Lemma 8.4 (c), or Theorem 3.1) bounds $\|Bu\|_{\mathsf s}$ by
-$C\sum_i\|B_{\alpha_i}u\|_{\mathsf s}+C\|\chi u\|_{-N}$. The strong sense and the uniformity are those of Proposition 5.3
-and Theorem 3.1. For a small perturbation $L'$ the same $\alpha_i$ serve. By Lemma 5.1 (c) its integral curves from the
-$\alpha_i$ stay close to the $\gamma_{\alpha_i}$, so Proposition 5.3 applies to them with the same $\delta$, $\delta_1$,
-$M$ (its proof, last paragraph). The resulting operators remain jointly elliptic on $\mathrm{WF}'(B)$, once the
-$B_{\alpha_i}$ are chosen elliptic on open sets that still cover $\mathrm{WF}'(B)$ when shrunk slightly. $\square$
+$\gamma_\alpha([0,t'_\alpha])$. Proposition 5.3 with $\varsigma = 1$ gives $B_\alpha\in C^\infty_b\Psi^0_{e3b}$ elliptic
+on $\gamma_\alpha([0,t'_\alpha])$, in particular near $\alpha$, and $G_\alpha$ microsupported in a neighbourhood inside
+$\mathrm{Ell}(G)$. It also gives $\|B_\alpha u\|_{\mathsf s}\le C(\|G_\alpha Lu\|_{\mathsf s-m+1}+\|Eu\|_{\mathsf
+s}+\|\chi u\|_{-N})$, and $\|G_\alpha Lu\|\le C(\|GLu\|+\|\chi u\|_{-N})$ by II.A Lemma 8.4 (c) and Lemma 8.6 (a). For
+$\alpha\in\mathrm{WF}'(B)\setminus\mathrm{Char}(L)$, Theorem 3.1 gives any $B_\alpha\in C^\infty_b\Psi^0_{e3b}$ elliptic
+near $\alpha$ and microsupported in $\mathrm{Ell}(G)\cap\mathrm{Ell}(L)$ with $\|B_\alpha u\|_{\mathsf s}\le
+C(\|GLu\|_{\mathsf s-m}+\|\chi u\|_{-N})$. By compactness of $\mathrm{WF}'(B)$, finitely many $B_{\alpha_i}$ are jointly
+elliptic on it: $\sum_iB_{\alpha_i}^*B_{\alpha_i}\in C^\infty_b\Psi^0_{e3b}$ is elliptic of order 0 there, the
+$B_{\alpha_i}$ being smooth (the seventy-ninth verifier: II.A Lemma 8.4 (c) needs smooth operators). The elliptic
+estimate (II.A Lemma 8.4 (c), or Theorem 3.1) bounds $\|Bu\|_{\mathsf s}$ by $C\sum_i\|B_{\alpha_i}u\|_{\mathsf
+s}+C\|\chi u\|_{-N}$. The strong sense and the uniformity are those of Proposition 5.3 and Theorem 3.1. For a small
+perturbation $L'$ the same $\alpha_i$ serve. If $\alpha_i\notin\mathrm{Char}(L)$, it lies in $\mathrm{Ell}(L')$ with a
+comparable bound. If $\alpha_i\in\mathrm{Char}(L)$, Proposition 5.3, which does not ask its curve to be characteristic,
+applies to the integral curve of $\mathsf H'$ ending at $\alpha_i$, with the same $\delta$, $\delta_1$, $M$ and the same
+shrinkings in Lemma 4.2 (its proof, last paragraph). By Lemma 5.1 (c) that curve stays close to $\gamma_{\alpha_i}$, and
+the sets on which its $b_0^{(j)}$ are elliptic contain fixed neighbourhoods of $\gamma_{\alpha_i}([0,t'_{\alpha_i}])$; a
+$B_{\alpha_i}$ microsupported in these serves for $L'$ too. The resulting operators remain jointly elliptic on
+$\mathrm{WF}'(B)$, once the $B_{\alpha_i}$ are chosen elliptic on open sets that still cover $\mathrm{WF}'(B)$ when
+shrunk slightly. $\square$
 
 ## 6. What this part found
 
@@ -707,10 +798,12 @@ $K^-$. (L4) is therefore stated for $\chi$ supported away from these, as near $\
 only continuous there (D194).
 
 *Changes of method, not of statement.* The finite-regularity calculus is proved from the smooth one by the closed graph
-theorem and mollification (section 2). The source cites the standard arguments and its Lemma 3.5. The positive
-commutator uses the exact Hamilton field of the operator with finite regularity, through flow-box coordinates of that
-regularity, so every positivity is an exact square. No sharp Gårding inequality is used. The imaginary part is absorbed
-through the large constant $M$, by the supremum bound of Lemma 2.6.
+theorem and mollification (section 2), in classes that count the logarithmic factors each derivative may carry
+(Definition 1.3). Square roots of the commutant's symbol cost one such factor per derivative (Lemma 2.5), and the classes
+of [SBG] Definition 4.6 admit them without loss in the mapping order. The source cites the standard arguments and its
+Lemma 3.5. The positive commutator uses the exact Hamilton field of the operator with finite regularity, through flow-box
+coordinates of that regularity, so every positivity is an exact square. No sharp Gårding inequality is used. The
+imaginary part is absorbed through the large constant $M$, by the supremum bound of Lemma 2.6.
 
 ## Sources
 
@@ -718,15 +811,16 @@ through the large constant $M$, by the supremum bound of Lemma 2.6.
 of microlocalisation, variable orders), 68-71 (Definitions 3.19-3.20, Propositions 3.23-3.24 and their proofs, footnotes
 36-38).
 
-[SBG] as in Part II.A: (S1)-(S11); Remarks 3.33, 3.47, 3.48; (3.26)-(3.28); the paragraph before Definition 3.34.
+[SBG] as in Part II.A: (S1)-(S11); Proposition 3.3; Remarks 3.33, 3.47, 3.48; (3.26)-(3.28) and the cut-off $\psi$ before
+them (p. 43); the paragraph before Definition 3.34; Definition 4.6 and the paragraph after it (p. 66).
 
-Part I.A: Lemma 2.2 (square roots), Lemmas 3.1-3.2 and Proposition 5.2 (the structure of the commutator argument, here
-redone with operators of finite regularity), section 3 (the cut-off $\psi$ and the regulariser). Part II.A: section 8.3
-(cut-offs), Lemmas 8.2, 8.4-8.6.
+Part I.A: Lemmas 3.1-3.2 and Proposition 5.2 (the structure of the commutator argument, here redone with operators of
+finite regularity), section 3 (the cut-off $\psi$ and the regulariser). Part II.A: section 8.3 (cut-offs), Lemmas 8.2,
+8.4-8.6.
 
 Standard theorems used by name: the closed graph theorem and the theorem of Banach and Steinhaus (Fréchet spaces), Hahn
-and Banach, Gronwall's inequality, the implicit function theorem, and existence, uniqueness and differentiable
-dependence for ordinary differential equations with $C^r$ right side.
+and Banach, the spectral theorem for Hermitian matrices, Gronwall's inequality, the implicit function theorem, and
+existence, uniqueness and differentiable dependence for ordinary differential equations with $C^r$ right side.
 
 [Vas18] A. Vasy, *A minicourse on microlocal analysis for wave propagation*, in: Asymptotic analysis in general
 relativity, LMS Lecture Note Ser. 443 (2018). Cited in (G6) for the standard form of the hypothesis, as the source cites

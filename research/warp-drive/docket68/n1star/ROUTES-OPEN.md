@@ -2449,3 +2449,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   operators of Proposition 9.9 chosen by the openness statement (O) (M2); seven minor findings and the nits seated.
 - Open: Part II.A' and the D194 repairs, unread; Parts II.B-II.F and III-VII.
 - Next: the seventy-ninth verifier on Part II.A' and the D194 repairs; then Part II.B.
+
+### 4.118 The seventy-ninth verifier seated; Part I.A returned to verified (D195)
+
+- Part II.A': the class of symbols of finite regularity counts logarithmic factors (Definition 1.3); square roots cost
+  one factor per derivative (Lemma 2.5, restated, proved and shown sharp); exact orders for z_eps and the parametrix of
+  Lemma 4.2; seven minor findings and the nits seated.
+- Part I.A: the one-sided cut-offs of Proposition 5.2 repaired; verified until the repair is read.
+- Open: the D195 repairs, unread; Parts II.B-II.F and III-VII.
+- Next: the eightieth verifier on the D195 repairs; Part II.B.

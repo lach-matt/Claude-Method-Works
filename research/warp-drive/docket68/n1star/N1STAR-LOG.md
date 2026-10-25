@@ -4774,3 +4774,24 @@ where the coefficients need not vanish; the threshold of Lemma 8.5 (b); parametr
 silent repairs, the constant of Proposition 9.8, the page of (S10). II.A' aligned: the quantifiers, Lemma 5.1 (a) and
 (c), the statement and uniformity of Theorem 5.4, (G6)-(G7). Next: the seventy-ninth verifier reads Part II.A' and the
 D194 repairs.
+
+**D195 (2026-10-25): the seventy-ninth verifier on Part II.A' and the D194 repairs, seated; Part I.A returned to
+verified.** It confirmed every D194 repair of Part II.A (M1 with (L4) and the openness statement (O), M2, m1-m7, the
+nits) and the I.C rename, and confirmed (G6)-(G7) at source. On Part II.A', one major finding: the class of symbols of
+finite regularity was copied too narrowly from [SBG] Definition 4.6 (bounded derivatives in place of the intersection
+over delta of the (1 - delta, delta) classes), and the second part of the square-root lemma was false in it (for Q = c +
+x^2 L the second derivative of Q^(1/2) at 0 is L/sqrt(c)); so z_eps and the parametrix of Lemma 4.2 were used as
+operators of exact order without proof. Repaired: Definition 1.3 counts the logarithmic factors, C^(M)_nu with
+derivatives of order j bounded by <log rho_inf>^(nu j), inside [SBG]'s class, whose operators act without loss; Lemma 2.2
+(mollification) and Proposition 2.4 carry the index; Lemma 2.5 is restated and proved by the resolvent integrals Q^(-1/2)
+= pi^(-1) int s^(-1/2) (s + Q)^(-1) ds and its companion for Q^(1/2), with index nu + 1, and the counterexample shows the
+index cannot be kept; Lemma 2.6 loses delta; z_eps has index 1 and exact order, and the parametrix of Lemma 4.2 exact
+order. Seven minor: (4.1) holds only for a self-adjoint commutant, now C := i(L* A*A - A*A L); the cut-offs chi_s, chi_e
+were not 1 on [0, T] with psi even, now one-sided; the pairing hypothesis on H^K' in place of H^infty; Lemma 4.2's nested
+sets with closures inside the ellipticity sets, and J > 4 tau; smooth B_alpha in the patching of Theorem 5.4; the
+injectivity of the perturbed flow box, by the slice argument made uniform; the convergence of the outer factors in
+Proposition 2.4. Nits: two indices in Theorem 3.1, the constant of the positivity, the operator Lie algebra of rho B
+([SBG] Proposition 3.3), the density of the adjoint, Proposition 2.4 (e) for r factors, Op(1) = I, and the wording of
+(S8) in Part II.A. The cut-off slip is also in Part I.A (Proposition 5.2), repaired the same way, and the
+self-adjointness of its commutant, which (3.4) needs, is now stated there; Part I.A returns from proved to verified until
+the eightieth verifier reads the repair. Next: the eightieth verifier on the D195 repairs; Part II.B.
