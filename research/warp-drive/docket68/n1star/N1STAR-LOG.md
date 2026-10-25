@@ -4864,3 +4864,20 @@ graphed over the stationary one; Proposition 3.4 = Proposition 6.3 with phi-tild
 d0 >= 3, near the trapped set. Findings (C'1)-(C'3): [Hin21] Theorem 2.6 is replaced, not used; the stable hypersurface
 loses a derivative; the source's R^5 is R^7 at n = 4. Next: the eighty-third verifier on Part II.C' once the
 eighty-second has reported; Part II.D ([Hin26c] section 7).
+
+**D200 (2026-10-25): the eighty-second verifier seated; Part II.C verified.** The verifier read Part II.C in full against
+the cited parts and the source pp. 100-114, re-derived every computation by hand, and confirmed (C1)-(C3) at source (p.
+107, Definition 5.11 (1) on p. 104, (6.5) on p. 111). No major finding. M1: the proof of Lemma 1.3 printed g-bar =
+-dt_*^2 - 2 omega_i dt_* dx^i + delta_ij dx^i dx^j, while the correct last coefficient is delta_ij - omega_i omega_j
+(from dt = dt_* + omega_i dx^i); the argument for omega^mu Gamma-bar_{kappa mu nu} = 0 used the wrong form. The claim
+holds: omega^mu g-bar_{kappa mu} = -delta_{kappa 0} is constant, so the two derivative terms are -T_{kappa nu} and -T_{nu
+kappa} with T_{kappa nu} = (d_nu omega^mu) g-bar_{kappa mu} = r^-1 (delta - omega omega) symmetric, and they cancel; the
+first term vanishes by homogeneity. Repaired. Nits: N1 the smoothed minimum F of Lemma 3.2 satisfies e^(-kappa/2)
+min(F_1,F_2) <= F <= min(F_1,F_2) (not 'between F_1 and F_2'), and (b) follows from min >= C'(1+C/2) on the transition;
+N2 the cut-offs of section 5.2 take values in [0,1]; N3 Lemma 4.1 (a) at d_0 = 1 over Omega; N4 epsilon_I^2 < 1/10
+recorded among the constraints; N5 Lemma 5.5 (c) by H-bar f_W = 2(2 - xi)xi >= delta/2; N6 Proposition 4.2's backward
+half says why the curve cannot leave through {r = r_0}; N7 (K1)'s {r > R} costs nothing on the compact annulus. All
+seated. The verifier accepted Lemma 3.7 and the closure in Lemma 4.1 (b) at the level of the write-up and did not compare
+[Hin23c] Appendix C, checking section 5.2 on its own terms. Status: Parts I.A-I.C, II.A, II.A' proved; II.B and II.C
+verified; II.C' written. Next: the eighty-third verifier on Part II.C' and the D200 repairs; Part II.D ([Hin26c] section
+7.1), in writing.

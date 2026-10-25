@@ -1,11 +1,14 @@
 # Part II.C. Wave-type operators, the time function and the order functions, at n = 4
 
-*Status.* Written out in full (D198). Not yet read by an independent verifier; nothing here is labelled proved. This part
-proves, at spatial dimension $n = 4$, [Hin26c] section 5 (pp. 100-110) and section 6 (pp. 110-114) except its Proposition
-6.3, the stable and unstable trapped sets of perturbed metrics, which is the subject of Part II.C$'$ (in writing). The
-source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as
-I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part I.C (`PART-I-C-LOWENERGY.md`) as I.C, Part II.A
-(`PART-II-A-SETUP.md`) as II.A and Part II.B (`PART-II-B-DYNAMICS.md`) as II.B.
+*Status.* Verified. Written out in full (D198). Read line by line by the eighty-second verifier, which re-derived every
+computation and confirmed (C1)-(C3) at source; its one minor finding (the form of the Minkowski metric stated in the
+proof of Lemma 1.3, on which the argument for $\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ rested; the claim holds) and
+seven nits are seated (D200). The part is labelled proved once the next reader has confirmed them. This part proves, at
+spatial dimension $n = 4$, [Hin26c] section 5 (pp. 100-110) and section 6 (pp. 110-114) except its Proposition 6.3, the
+stable and unstable trapped sets of perturbed metrics, which is the subject of Part II.C$'$ (in writing). The source is
+[Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B
+(`PART-I-B-HIGHENERGY.md`) as I.B, Part I.C (`PART-I-C-LOWENERGY.md`) as I.C, Part II.A (`PART-II-A-SETUP.md`) as II.A
+and Part II.B (`PART-II-B-DYNAMICS.md`) as II.B.
 
 *Method.* Section 5 of the source consists of definitions and three lemmas. The definitions are restated at $n = 4$: the
 constant 1 of its form (5.1a) becomes $\frac32 = \frac{n-1}2$, the weight $\alpha_{\mathrm{sf}}+\frac32$ of its
@@ -95,20 +98,28 @@ $\partial_r = -\rho(\rho\partial_\rho)$, $2\partial_{t_*}\partial_r+3\rho\partia
 -2\partial_{t_*}\rho(\rho\partial_\rho-\frac32)$, and $-\partial_r^2-3r^{-1}\partial_r =
 -r^{-2}((r\partial_r)^2+2r\partial_r) = \rho^2(-(\rho\partial_\rho)^2+2\rho\partial_\rho)$.
 
-In the coordinates $z = (t_*,x)$, $\bar g = -dt_*^2-2\omega_i\,dt_*\,dx^i+\delta_{ij}dx^idx^j$, $\omega := x/|x|$. Write
-$D_j := \partial_{x^j}|_{t_*}$; as $D_j = \omega_j\partial_r+r^{-1}Y_j$ with $Y_j$ smooth vector fields on $\mathbb S^3$,
-$D_j\in\rho\mathcal V_b(\bar X)$, and $D_j$ maps $\rho^kC^\infty(\bar X)$ into $\rho^{k+1}C^\infty(\bar X)$. The metric
-components of $\bar g$ are functions of $\omega$ (homogeneous of degree 0), so the Christoffel symbols $\bar\Gamma$ lie
-in $\rho C^\infty(\bar X)$, and by (K1) and II.B Lemma 1.1 those of $g$ satisfy $\Gamma-\bar\Gamma\in\rho^3C^\infty$,
-$g^{\mu\nu}-\bar g^{\mu\nu}\in\rho^2C^\infty$. In the frame, $\nabla_\mu = \partial_\mu+A_\mu$ on the tensor indices,
-$A_\mu$ linear in $\Gamma$, and
+In the coordinates $z = (t_*,x)$, $\bar g = -dt_*^2-2\omega_i\,dt_*\,dx^i+(\delta_{ij}-\omega_i\omega_j)dx^idx^j$,
+$\omega := x/|x|$, from $dt = dt_*+\omega_i\,dx^i$ (D200; an earlier version printed $\delta_{ij}$ for the last
+coefficient). Write $D_j := \partial_{x^j}|_{t_*}$; as $D_j = \omega_j\partial_r+r^{-1}Y_j$ with $Y_j$ smooth vector
+fields on $\mathbb S^3$, $D_j\in\rho\mathcal V_b(\bar X)$, and $D_j$ maps $\rho^kC^\infty(\bar X)$ into
+$\rho^{k+1}C^\infty(\bar X)$. The metric components of $\bar g$ are functions of $\omega$ (homogeneous of degree 0), so
+the Christoffel symbols $\bar\Gamma$ lie in $\rho C^\infty(\bar X)$, and by (K1) and II.B Lemma 1.1 those of $g$ satisfy
+$\Gamma-\bar\Gamma\in\rho^3C^\infty$ on $\{\rho<\rho_1\}$ (on the compact set $\{R^{-1}\le\rho\le\rho_1\}$, if it is
+non-empty, every smooth function lies in $\rho^kC^\infty$ for every $k$, so the restriction $r>R$ in (K1) costs nothing;
+D200), $g^{\mu\nu}-\bar g^{\mu\nu}\in\rho^2C^\infty$. In the frame, $\nabla_\mu = \partial_\mu+A_\mu$ on the tensor
+indices, $A_\mu$ linear in $\Gamma$, and
 $$\square^{(p,q)}_g = -g^{\mu\nu}\big((\partial_\mu+A_\mu)(\partial_\nu+A_\nu)-\Gamma^\lambda_{\mu\nu}(\partial_\lambda+
 A_\lambda)\big).$$
 The terms without $A$ form the scalar operator $\square_g$ acting componentwise. *The model.* For $\bar g$,
-$\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ for all $\kappa,\nu$, where $\omega^\mu\partial_\mu = \partial_r$: in
-$\bar\Gamma_{\kappa\mu\nu} = \frac12(\partial_\mu\bar g_{\kappa\nu}+\partial_\nu\bar g_{\kappa\mu}-\partial_\kappa\bar
-g_{\mu\nu})$ only spatial derivatives of $\omega$ occur, $\omega^\mu\partial_\mu$ annihilates functions of $\omega$, and
-$\omega^i\partial_\nu\omega_i = \frac12\partial_\nu|\omega|^2 = 0$. Hence $\omega^\mu\bar A_\mu = 0$. The
+$\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ for all $\kappa,\nu$, where $\omega^\mu\partial_\mu = \partial_r$ ($\omega^0 :=
+0$). In $\bar\Gamma_{\kappa\mu\nu} = \frac12(\partial_\mu\bar g_{\kappa\nu}+\partial_\nu\bar
+g_{\kappa\mu}-\partial_\kappa\bar g_{\mu\nu})$, the first term gives $\omega^\mu\partial_\mu\bar g_{\kappa\nu} = 0$, the
+components being homogeneous of degree 0 in $x$. For the others, $\omega^\mu\bar g_{\kappa\mu} = -\delta_{\kappa0}$ is
+constant, so $\omega^\mu\partial_\nu\bar g_{\kappa\mu} = -T_{\kappa\nu}$ with $T_{\kappa\nu} :=
+(\partial_\nu\omega^\mu)\bar g_{\kappa\mu}$, which is $r^{-1}(\delta_{\kappa\nu}-\omega_\kappa\omega_\nu)$ for spatial
+$\kappa,\nu$ and 0 otherwise, as $\partial_\nu\omega^\mu = r^{-1}(\delta^\mu_\nu-\omega_\nu\omega^\mu)$; likewise
+$\omega^\mu\partial_\kappa\bar g_{\mu\nu} = -T_{\nu\kappa}$. $T$ is symmetric, so $\omega^\mu\bar\Gamma_{\kappa\mu\nu} =
+\frac12(-T_{\kappa\nu}+T_{\nu\kappa}) = 0$ (the eighty-second verifier's M1, D200). Hence $\omega^\mu\bar A_\mu = 0$. The
 $\partial_{t_*}$-coefficient of $-2\bar g^{\mu\nu}\bar A_\mu\partial_\nu$ is $-2\bar g^{\mu t_*}\bar A_\mu =
 2\omega^i\bar A_i = 0$, since $\bar g^{-1}(dt_*,dt_*) = 0$ and $\bar g^{-1}(dt_*,dx^i) = -\omega^i$. The remaining terms
 with $\bar A$ are $-2\bar g^{\mu j}\bar A_\mu D_j\in\rho^2\mathrm{Diff}^1_b$ and zeroth-order terms in $\rho^2C^\infty$.
@@ -433,11 +444,14 @@ $C'(t_*+r)$, as $\rho_I\ge2/C$ gives $F = F_2$. On $\{r\le Ct_*/2\}$, $dt^\flat_
 a positive combination of $dt_*$ (past timelike for $r\le r'_0+1$) and $dt$ (past timelike for $r\ge r'_0-1$, $x_I\ge c$,
 as $\rho_I\ge2/C$ there). On $\{r\ge r'_0+1\}$ the previous paragraph applies. This proves (2), and (a), (c) hold by
 construction. (b): $t_*F_1\in[(1-C^{-\ell})t_*,t_*]$ for $\rho\le1/C$, $t_*F_2 =
-C't_*(1+\rho^{-1})\in[C't_*,(1-C^{-\ell})t_*]$ for $\rho\ge1/C$, $F$ lies between $F_1$ and $F_2$, and $C'(t_*+\tilde
-R)\le C'(t_*+r'_0+r)\le t_*$ where $r\le Ct_*/2$ and $r'_0\le C/2$. (1): $g_0^{-1}(dr,dr) = G_0(dr)<0$ on
-$\{r_0-2\delta_0<r<r_2\}$ by (H4), so $\le-c_1<0$ on the compact $\{r_0\le r\le r^\natural\}$; the perturbation is
-$O(\epsilon_G)$ there, and $dr$ is future timelike for $g_0$ ($\nabla r$ is future timelike, I.B section 1.2) and for $g$
-by continuity. $\square$
+C't_*(1+\rho^{-1})\in[C't_*,(1-C^{-\ell})t_*]$ for $\rho\ge1/C$. A smooth convex even $m_\kappa$ equal to $|y|$ for
+$|y|\ge\kappa$ satisfies $|y|\le m_\kappa\le\kappa$ on $[-\kappa,\kappa]$, so $e^{-\kappa/2}\min(F_1,F_2)\le
+F\le\min(F_1,F_2)$; on the transition interval $\min(F_1,F_2)\ge C'(1+C/2)$ (for $C$ large, $F_1\ge\frac12$ there), and
+$e^{-1/8}(1+C/2)\ge1$, so $C'\le F\le1$ (D200; an earlier version said that $F$ lies between $F_1$ and $F_2$, which is
+false inside the transition). And $C'(t_*+\tilde R)\le C'(t_*+r'_0+r)\le t_*$ where $r\le Ct_*/2$ and $r'_0\le C/2$. (1):
+$g_0^{-1}(dr,dr) = G_0(dr)<0$ on $\{r_0-2\delta_0<r<r_2\}$ by (H4), so $\le-c_1<0$ on the compact $\{r_0\le r\le
+r^\natural\}$; the perturbation is $O(\epsilon_G)$ there, and $dr$ is future timelike for $g_0$ ($\nabla r$ is future
+timelike, I.B section 1.2) and for $g$ by continuity. $\square$
 
 The source takes "a smoothing" of the piecewise function; the gluing above makes it explicit (section 6, (C5)). By (b),
 $\Omega_* := \mathrm{cl}_M\{t^\flat_*\ge1\}\subset\Omega$ ([Hin26c] (6.2)).
@@ -540,12 +554,13 @@ r_0\}$, or $\sup I = \infty$ and a limit point over $M^\circ$ would be visited i
 small neighbourhood lasting a parameter time bounded below and raising $t^\flat_*$ by a fixed amount, so
 $t^\flat_*\to\infty$; hence the limit points lie over $\partial M$ at bounded $t_*$, which in $\Omega_*$ is $\mathscr
 I^+$. At $\{r = r_0\}$, $H_Gr = 2g^{-1}(\nu,dr)<0$ for future null $\nu$, as $dr$ is future timelike there (Lemma 3.2
-(1)), so $\gamma$ leaves $\{r\ge r_0\}$ there. *Backward.* Suppose $\gamma$ does not reach $\{t^\flat_* = 1\}$. Then
-$\inf I = -\infty$ and $t^\flat_*\circ\gamma\downarrow L\ge1$, and as before the $\alpha$-limit set $\mathcal A$ lies
-over $\mathscr I^+\cap\{t^\flat_* = L\}$. Over $\mathscr I^+$, $t^\flat_* = t_*$ by Lemma 3.2 (a), so $\rho_+ = L^{-1}$
-on $\mathcal A$. $\mathcal A$ is non-empty, compact and invariant under $\mathsf H_{G_0}$, and every curve in it has
-$\rho_+$ constant, so by II.B (7.5) $\hat\xi = 0$ and then $\hat\eta = 0$: $\mathcal A\subset\partial R_{\mathscr
-I^+,\mathrm{out}}$. Near $\partial R_{\mathscr I^+,\mathrm{out}}$, by II.B (7.4) and Lemma 4.1 (a),
+(1)), so $\gamma$ leaves $\{r\ge r_0\}$ there. *Backward.* Suppose $\gamma$ does not reach $\{t^\flat_* = 1\}$. As
+$\mathsf H_Gr<0$ at $\{r = r_0\}$, $r$ increases backward there, so $\gamma$ does not leave through $\{r = r_0\}$
+backward (D200). Then $\inf I = -\infty$ and $t^\flat_*\circ\gamma\downarrow L\ge1$, and as before the $\alpha$-limit set
+$\mathcal A$ lies over $\mathscr I^+\cap\{t^\flat_* = L\}$. Over $\mathscr I^+$, $t^\flat_* = t_*$ by Lemma 3.2 (a), so
+$\rho_+ = L^{-1}$ on $\mathcal A$. $\mathcal A$ is non-empty, compact and invariant under $\mathsf H_{G_0}$, and every
+curve in it has $\rho_+$ constant, so by II.B (7.5) $\hat\xi = 0$ and then $\hat\eta = 0$: $\mathcal A\subset\partial
+R_{\mathscr I^+,\mathrm{out}}$. Near $\partial R_{\mathscr I^+,\mathrm{out}}$, by II.B (7.4) and Lemma 4.1 (a),
 $\sigma_{eb}^{-1}H_{G_{eb}}x_I = (\hat\xi-1)x_I+O(x_I^{1+2\ell_I})\le-\frac12x_I$ for $x_I$ small (with $\sigma_{eb}>0$
 on $\Sigma^+$ there, Lemma 5.3 below, for $\epsilon_G$ small). So on a tail $(-\infty,s_1]$, $x_I\circ\gamma>0$ increases
 as $s$ decreases and cannot tend to 0, a contradiction. $\square$
@@ -589,7 +604,8 @@ t_*^{-1}\in(0,1]$, $x_I = (t_*/r)^{1/2}$, covectors $\nu =
 \sigma_{eb}\frac{d\rho_+}{\rho_+}+\xi_{eb}\frac{dx_I}{x_I}+\eta_{eb}\frac{d\omega}{x_I}$, $|\nu|_{eb}^2 :=
 \sigma_{eb}^2+\xi_{eb}^2+|\eta_{eb}|^2$, $G_{eb} := x_I^{-2}\rho_+^{-2}G$. Let $\bar G_{eb}$ be II.B (7.1) and $G^0_{eb}
 := \frac12\xi_{eb}(\xi_{eb}-2\sigma_{eb})+|\eta_{eb}|^2$. For $g$ as in Proposition 5.1 (2), with $\epsilon_G\le1$, II.B
-section 7 and Lemma 4.1 (a) at $d_0 = 1$ give
+section 7 and Lemma 4.1 (a) at $d_0 = 1$ (its first assertion holds verbatim at $d_0 = 1$ and over $\Omega$, its proof
+being the Neumann series; D200) give
 $$G_{eb}-G^0_{eb} = \tfrac14x_I^2\xi_{eb}^2+(G_{eb}-\bar G_{eb})\in x_I^{2\ell_I}C^1P^{[2]},\tag{5.1}$$
 with norm bounded independently of $g$, as $x_I^2\le x_I^{2\ell_I}$ and $\rho_+\le1$.
 
@@ -663,19 +679,20 @@ C\epsilon_\iota^{\ell_+}\le\frac\delta{16}$. For $\hat\xi\in[-\frac\delta2,-\fra
 $\hat\xi(2-\hat\xi)\le2\hat\xi<-\frac\delta4$, impossible. For $\hat\xi\in[0,\frac\delta2]$,
 $\hat\xi(2-\hat\xi)\ge\hat\xi$; for $\hat\xi\in[-\frac\delta8,0)$, $|\hat\eta|^2\ge0\ge|\hat\xi|-\frac\delta8$. And
 $\hat\xi(2-\hat\xi)\le3|\hat\xi|$ for $|\hat\xi|\le\frac12$, so $|\hat\eta|^2\le3|\hat\xi|+\frac\delta{16}\le3\delta$.
-(c) $\bar{\mathsf H}f_W = 2(2-\hat\xi)\hat\xi = 2|\hat\eta|^2-2E$, so $\mathsf
-H^{3b}f_W\ge2(\frac\delta4-\frac\delta8)-C\epsilon_\iota^{\ell_+}\ge\frac\delta8$. $\square$
+(c) For $\hat\xi\in[\frac\delta4,\frac\delta2]$, $\bar{\mathsf H}f_W = 2(2-\hat\xi)\hat\xi\ge2\hat\xi\ge\frac\delta2$, so
+$\mathsf H^{3b}f_W\ge\frac\delta2-C\epsilon_\iota^{\ell_+}\ge\frac\delta8$ (D200). $\square$
 
 ### 5.2 The construction
 
-Fix: $\phi\in C^\infty_c((-\frac12,\frac12))$ even, $\phi = 1$ on $[-\frac14,\frac14]$, $\phi'\le0$ on $[0,\infty)$;
-$\psi\in C^\infty_c((-3,3))$ with $\psi = 1$ on $[-2,2]$; $\tilde\psi\in C^\infty(\mathbb R)$ with $\tilde\psi = 0$ on
-$(-\infty,4]$, $\tilde\psi = 1$ on $[5,\infty)$, $\tilde\psi'\ge0$; $\psi_0\in C^\infty([0,\infty))$ with $\psi_0 = 1$ on
-$[0,\frac12\epsilon_I]$, $\psi_0 = 0$ on $[\epsilon_I,\infty)$, $\psi_0'\le0$; and $\Psi\in C^\infty(\mathbb R)$ with
-$\Psi = 0$ on $(-\infty,0.04]$ and $\Psi = 1$ on $[0.09,\infty)$. Choose, in this order: $\epsilon_I$ (Lemmas 5.3-5.4),
-$C_\iota := 8\epsilon_I^{-2}$, $\delta := \epsilon_I^2/32$, and $\epsilon_\iota$ (Lemmas 5.3, 5.5) so small that also
-$1/(\epsilon_\iota\delta)>r_\Gamma$ for some $r_\Gamma$ as in Definition 2.4 (3), and $1/(\epsilon_\iota\delta)>r_h+1$.
-Define
+Fix, all with values in $[0,1]$ (D200): $\phi\in C^\infty_c((-\frac12,\frac12))$ even, $\phi = 1$ on
+$[-\frac14,\frac14]$, $\phi'\le0$ on $[0,\infty)$; $\psi\in C^\infty_c((-3,3))$ with $\psi = 1$ on $[-2,2]$;
+$\tilde\psi\in C^\infty(\mathbb R)$ with $\tilde\psi = 0$ on $(-\infty,4]$, $\tilde\psi = 1$ on $[5,\infty)$,
+$\tilde\psi'\ge0$; $\psi_0\in C^\infty([0,\infty))$ with $\psi_0 = 1$ on $[0,\frac12\epsilon_I]$, $\psi_0 = 0$ on
+$[\epsilon_I,\infty)$, $\psi_0'\le0$; and $\Psi\in C^\infty(\mathbb R)$ with $\Psi = 0$ on $(-\infty,0.04]$ and $\Psi =
+1$ on $[0.09,\infty)$. Choose, in this order: $\epsilon_I$ (Lemmas 5.3-5.4, and $\epsilon_I^2<\frac1{10}$, used in (3);
+D200), $C_\iota := 8\epsilon_I^{-2}$, $\delta := \epsilon_I^2/32$, and $\epsilon_\iota$ (Lemmas 5.3, 5.5) so small that
+also $1/(\epsilon_\iota\delta)>r_\Gamma$ for some $r_\Gamma$ as in Definition 2.4 (3), and
+$1/(\epsilon_\iota\delta)>r_h+1$. Define
 $$\chi_I := \phi(\hat\xi)\,\psi(|\hat\eta|^2)\,\Psi(\sigma_{eb}^2/|\nu|_{eb}^2),\qquad\chi_\iota := \phi(f_W/\delta)\,
 \tilde\psi(\epsilon_\iota\delta f_T)\,\psi\big(|\hat\eta_{3b}|^2/(2\delta)\big)\,\Psi(\sigma_{3b}^2/|\nu|_{3b}^2),$$
 $$\chi := \psi_0(x_I)\chi_I+(1-\psi_0(x_I))\chi_\iota,\qquad\mathsf s :=

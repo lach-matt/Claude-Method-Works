@@ -2489,3 +2489,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   [Hin21] Theorem 2.6; the stable hypersurface loses one derivative.
 - Open: Parts II.C and II.C' unread; Parts II.D-II.F and III-VII; the D197 repairs to Part II.B.
 - Next: the eighty-second verifier's report on Part II.C; the eighty-third on Part II.C'; Part II.D.
+
+### 4.123 Part II.C verified (D200)
+
+- The eighty-second verifier on Part II.C: no major finding; one minor (Lemma 1.3's stated Minkowski metric, the claim
+  holding) and seven nits, all seated; (C1)-(C3) confirmed at source.
+- Open: Part II.C' unread; the D200 repairs; Parts II.D-II.F and III-VII; the D197 repairs to Part II.B.
+- Next: the eighty-third verifier on Part II.C' and the D200 repairs; Part II.D.

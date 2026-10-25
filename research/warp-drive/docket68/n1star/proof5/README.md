@@ -21,7 +21,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | **proved** (D197) |
 | II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
-| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | written (D198) |
+| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200) |
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | written (D199) |
 | II.D-F | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
@@ -228,8 +228,14 @@ Proposition 6.1 for perturbed metrics, including its backward half, which the so
 proves Proposition 6.4, the order functions, by writing out the construction of [Hin23c] Appendix C that the source
 cites, in this class; one localisation of that construction is not needed here. Findings (C1)-(C3) are slips of the
 source: a power $x_I^{-2}\rho_+^{-2}$ for $x_I^2\rho_+^2$, "non-decreasing" for non-increasing in its Definition 5.11
-(1), and the sign in its characterisation (6.5) of the future characteristic set. Written (D198); the eighty-second
-verifier reads it.
+(1), and the sign in its characterisation (6.5) of the future characteristic set. Written (D198). The eighty-second
+verifier re-derived every computation and confirmed (C1)-(C3) at source. Its one minor finding: the proof of Lemma 1.3
+stated the Minkowski metric in $(t_*,x)$ with $\delta_{ij}$ for $\delta_{ij}-\omega_i\omega_j$, and the argument for
+$\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ rested on that form; the claim holds by the symmetry of
+$(\partial_\nu\omega^\mu)\bar g_{\kappa\mu}$. Seven nits: the bounds of the smoothed minimum in Lemma 3.2 (it lies below
+both functions, not between them), values in $[0,1]$ for the cut-offs of section 5.2, Lemma 4.1 (a) at $d_0 = 1$, the
+bound $\epsilon_I^2<\frac1{10}$, Lemma 5.5 (c), the backward exit at $\{r = r_0\}$ in Proposition 4.2, and the region
+$\{r\le R\}$ in (K1). All are seated (D200); they await the next reader.
 
 ## Part II.C$'$
 
