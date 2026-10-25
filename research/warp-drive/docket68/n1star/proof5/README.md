@@ -18,7 +18,9 @@ independent reader has checked it line by line and every finding is seated; **pr
 | I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D189) |
 | I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | verified (D191) |
 | I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | verified (D191) |
-| II | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
+| II.A | [Hin26c] 2-3 | compactifications, Lie algebras, the e3b-calculus, Sobolev embedding, tame estimates | written (D192) |
+| II.A' | [Hin26c] 3.23-3.24 at k = 0 | elliptic and propagation estimates, finite regularity, variable orders | to do |
+| II.B-F | [Hin26c] 5-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -101,3 +103,28 @@ findings, all seated, among them the Mellin transform at negative orders (now by
 (dilations, not an inversion), the a priori regularity behind the adjoint absorption of Theorem 6.4 (2), Lemma 5.4 at
 $\theta = \pi$, and the reworded proof of Lemma 2.5, in which no commutator arises. It confirmed (F1)-(F7), recomputing
 (F4) and the conjugation of the tf operator at $n = 3,4,5$. Part I.C is labelled proved once these repairs are read.
+
+## Part II.A
+
+`PART-II-A-SETUP.md`. [Hin26c] sections 2-3 at n = 4: the compactified spacetime and its b-, 3b-, eb- and e3b-structures
+with the commutator lemmas behind b-regularity (sections 1-2); the scaled bounded geometry calculus of [SBG] (Hintz,
+Commun. AMS 6 (2026), arXiv:2408.06651), READ in eleven statements that hold in every dimension (section 3); the
+e3b-calculus, its unit cells on $\mathbb S^3$ and its spaces (section 4); the Fourier transform near $K^+$ and the
+Mellin transform at $\iota^+$, with the weights of $n = 4$ (sections 5-6); supported and extendible spaces (section 7);
+functions and operators of finite regularity, multiplication and pseudolocality, and Sobolev embedding (section 8); and
+the elliptic and real principal type estimates with b-regularity and their tame versions (section 9). The dimension
+enters through the density only: the weights $(2(\alpha_I+2),\alpha_++\frac52,\alpha_K+\frac12)$ replace
+$(2(\alpha_I+\frac32),\alpha_++2,\alpha_K+\frac12)$, and no regularity threshold changes, as $3>\frac52$. Section 10
+lists the findings: two signs and a weight printed without its class (G1)-(G2), the tame estimates stated with an
+infimum norm their proofs do not support (G3), now stated per representation, and slips in section 3.4 of the source,
+among them $\mathsf s-m$ for $\mathsf s-m+1$ in (3.85) (G4).
+
+Two statements are standing inputs of this part: the elliptic and the real principal type estimates without
+b-regularity, for coefficients of finite regularity and variable orders ((L3)-(L4), [Hin26c] Propositions 3.23-3.24 at
+$k = 0$). The source cites them as standard. No text READ here states them: [SBG] does not treat propagation, [HJS] has
+constant differential orders and no sharp Gårding inequality, and Hintz's paper with Sobolev coefficients
+(arXiv:1311.6859) has constant orders. They are Part II.A$'$, to be written. Part II.A is labelled proved only with it.
+The two further inputs the source uses in the same way, multiplication by functions of finite regularity on
+variable-order spaces and its pseudolocality, are proved in Part II.A itself (Lemma 8.5), from the calculus and the
+closed graph theorem. Part II.A is written; the seventy-eighth verifier reads it, with the D191 repairs of Parts I.B and
+I.C.

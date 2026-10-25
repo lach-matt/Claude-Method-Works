@@ -2424,3 +2424,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Part I.B: the thirteen D189 repairs confirmed; one further clause in Proposition 6.4, Step 2, seated.
 - Status: Parts I.B and I.C verified; each is labelled proved once its D191 repairs are read.
 - Next: Part II.A (in writing), whose reader also reads the D191 repairs.
+
+### 4.115 Part II.A of the write-out written (D192)
+
+- Part II.A (`proof5/PART-II-A-SETUP.md`): [Hin26c] sections 2-3 at n = 4, with [SBG] READ as the calculus; the weights
+  of n = 4 at iota+ and in (3.72); Sobolev embedding on R^5 with the source's thresholds.
+- Findings (G1)-(G5): two signs, a missing weight class, the tame estimates per representation, slips in section 3.4
+  ((3.85) carries s-m+1), and the standard k = 0 estimates (L3)-(L4) set apart.
+- Open: Part II.A' (the k = 0 elliptic and real principal type estimates with finite regularity and variable orders).
+- Next: the seventy-eighth verifier on Part II.A and the D191 repairs; then Part II.A'.

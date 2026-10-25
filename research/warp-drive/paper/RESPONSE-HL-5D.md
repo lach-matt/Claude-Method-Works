@@ -1082,7 +1082,8 @@ a separate gap. A line-by-line check of those papers at n = 4, with the deductio
 theorem. That write-out has begun: the proof written in full at n = 4, self-contained, part by part. Its first three
 parts -- Hintz's spectral theory at bounded nonzero, at high and at low frequencies, on bundles and uniformly in the
 operator -- are written; the first has been read three times and is proved, and the second and third have been read line
-by line, their findings seated and their last repairs awaiting a reader (supplement `proof5/`). Theorem 4 stays deduced
+by line, their findings seated and their last repairs awaiting a reader. The fourth, the setup of his spacetime
+analysis, is written and awaits its reader (supplement `proof5/`). Theorem 4 stays deduced
 until the last part is proved.
 
 ---
@@ -1990,7 +1991,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `649548e678cefb6860813270c99ffeec` |
+| `docket68/n1star/N1STAR-LOG.md` | `7302141c1476da1c05f3fc5d640b3f57` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

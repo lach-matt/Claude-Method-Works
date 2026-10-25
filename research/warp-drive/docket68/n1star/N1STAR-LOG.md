@@ -4725,3 +4725,21 @@ Part I.B. Parts I.B and I.C are verified; each is labelled proved once its D191 
 II.A. Part II.A is being written: [Hin26c] sections 2-3 at n = 4, with the scaled bounded geometry calculus of [SBG]
 READ; its k = 0 elliptic and real principal type estimates with coefficients of finite regularity and variable orders,
 which the source calls standard and no text here states, are set apart as Part II.A' (to be written).
+
+**D192 (2026-10-25): Part II.A of the write-out written ([Hin26c] sections 2-3 at n = 4).** `proof5/PART-II-A-SETUP.md`:
+the compactifications and the b-, 3b-, eb- and e3b-structures with the commutator lemmas (Lemmas 2.2-2.11 = [Hin26c]
+Lemmas 2.11-2.20); the scaled bounded geometry calculus READ in [SBG] as (S1)-(S11); the e3b-calculus on unit cells with
+S^3 charts; Lemmas 5.1-5.3 (Fourier near K+, the norms of Part I.C) and 6.1-6.2 (Mellin at iota+, line Im sigma =
+alpha_+ + 5/2, 0,b weights (2(alpha_I + 2), alpha_K - alpha_+ - 2)); Lemma 7.1, Proposition 7.4 (supported and
+extendible spaces); Definitions 8.1, 8.3, Lemmas 8.2-8.8 (finite regularity, a microlocal parametrix to finite order,
+multiplication and pseudolocality proved by the closed graph theorem and mollification in the secondary charts, Lemma
+3.21, Lemma 3.22 at n = 4 with x_I^8 rho_+^5 rho_K = 1/(t_* r^4) exactly on Omega, (3.72) with alpha + 2); Propositions
+9.1-9.2 (b-regularity), Lemma 9.3 (commutator identities, re-proved), Lemma 9.5 (the product estimate by Sobolev
+embedding and interpolation in place of Moser, three derivatives dearer), Proposition 9.6 (tame multiplication),
+Corollary 9.7, Propositions 9.8-9.9 (tame elliptic and propagation estimates). Findings (section 10): (G1) Lemma 2.11's
+weighted class; (G2) the Mellin line of Lemma 3.14, the same reversal as I.C (F1); (G3) the tame estimates (3.84)-(3.85)
+use an infimum norm their proofs do not support, now stated per representation; (G4) slips in section 3.4, among them
+s-m printed for s-m+1 in (3.85); (G5) [Hin26c] Propositions 3.23-3.24 at k = 0, cited by the source as standard, are not
+stated in any text READ here for finite regularity and variable orders ([SBG] has no propagation, [HJS] constant
+differential orders, arXiv:1311.6859 constant orders), so they are standing inputs (L3)-(L4), to be proved in Part
+II.A'. Next: the seventy-eighth verifier reads Part II.A, with the D191 repairs of Parts I.B and I.C.
