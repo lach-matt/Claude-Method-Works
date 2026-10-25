@@ -2399,3 +2399,100 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   semiclassical calculus proved in its section 2; nine findings, among them the threshold gamma_- (F4) and the assumption
   gamma_- < 0 that Theorem 9.16 (1) needs at real frequencies (F5).
 - Next: the seventy-sixth verifier on Part I.B and on the two D187 repairs of Part I.A; then Part I.C.
+
+### 4.112 The seventy-sixth verifier seated on Part I.B; Part I.A proved (D189)
+
+- Part I.A: the seventy-sixth verifier confirmed both D187 repairs; Part I.A is proved.
+- Part I.B: one major finding (Proposition 7.2's regularity step, closed by Corollary 4.6') and nine minor ones, all
+  seated in place; (F10) added, the range of [Hin26c] Theorem 9.28 (2).
+- Next: Part I.C; its verifier also reads the D189 repairs of Part I.B.
+
+### 4.113 Part I.C of the write-out written (D190)
+
+- Part I.C (`proof5/PART-I-C-LOWENERGY.md`): [Hin26c] Theorems 9.36, 9.38 and 9.41, Corollaries 9.39 and 9.43 and
+  Proposition 9.40 at n = 4, on bundles and uniformly in the operator; tf-admissibility stated on the Fredholm spaces; an
+  adjoint low-energy estimate added.
+- Seven source findings (F1)-(F7); (F6), a gap in the proof of Corollary 9.43, is closed by Theorem 6.4 (2)-(3).
+- Not proved and not used: (9.115), Remark 9.37, a k-independent smallness and uniformity in alpha in Theorem 9.41
+  (Remark 6.7).
+- Next: the seventy-seventh verifier on Part I.C and the D189 repairs of Part I.B; then Part II.
+
+### 4.114 The seventy-seventh verifier on Part I.C and the Part I.B repairs (D191)
+
+- Part I.C: no major finding; one statement gap (Theorem 4.3 (4) uniform in theta, used by Corollary 5.2 (b) and
+  Theorem 6.4) and nine minor findings, all seated; (F1)-(F7) confirmed.
+- Part I.B: the thirteen D189 repairs confirmed; one further clause in Proposition 6.4, Step 2, seated.
+- Status: Parts I.B and I.C verified; each is labelled proved once its D191 repairs are read.
+- Next: Part II.A (in writing), whose reader also reads the D191 repairs.
+
+### 4.115 Part II.A of the write-out written (D192)
+
+- Part II.A (`proof5/PART-II-A-SETUP.md`): [Hin26c] sections 2-3 at n = 4, with [SBG] READ as the calculus; the weights
+  of n = 4 at iota+ and in (3.72); Sobolev embedding on R^5 with the source's thresholds.
+- Findings (G1)-(G5): two signs, a missing weight class, the tame estimates per representation, slips in section 3.4
+  ((3.85) carries s-m+1), and the standard k = 0 estimates (L3)-(L4) set apart.
+- Open: Part II.A' (the k = 0 elliptic and real principal type estimates with finite regularity and variable orders).
+- Next: the seventy-eighth verifier on Part II.A and the D191 repairs; then Part II.A'.
+
+### 4.116 Part II.A' of the write-out written (D193)
+
+- Part II.A' (`proof5/PART-II-A2-STANDARD.md`): (L3)-(L4), [Hin26c] Propositions 3.23-3.24 at k = 0, proved for finite
+  regularity, variable orders and locally uniform constants, without a sharp Gårding inequality.
+- Findings (G6)-(G7): the source's hypothesis on the order is too weak; classical principal symbols.
+- Open: the verifier of Part II.A'.
+- Next: seat the seventy-eighth verifier's findings on Part II.A (D194).
+
+### 4.117 The seventy-eighth verifier seated; Parts I.B and I.C proved (D194)
+
+- Parts I.B and I.C: the D191 repairs confirmed; both proved.
+- Part II.A: the hypothesis of (L4) on the order corrected (M1, the gap of II.A' (G6), found independently); the
+  operators of Proposition 9.9 chosen by the openness statement (O) (M2); seven minor findings and the nits seated.
+- Open: Part II.A' and the D194 repairs, unread; Parts II.B-II.F and III-VII.
+- Next: the seventy-ninth verifier on Part II.A' and the D194 repairs; then Part II.B.
+
+### 4.118 The seventy-ninth verifier seated; Part I.A returned to verified (D195)
+
+- Part II.A': the class of symbols of finite regularity counts logarithmic factors (Definition 1.3); square roots cost
+  one factor per derivative (Lemma 2.5, restated, proved and shown sharp); exact orders for z_eps and the parametrix of
+  Lemma 4.2; seven minor findings and the nits seated.
+- Part I.A: the one-sided cut-offs of Proposition 5.2 repaired; verified until the repair is read.
+- Open: the D195 repairs, unread; Parts II.B-II.F and III-VII.
+- Next: the eightieth verifier on the D195 repairs; Part II.B.
+
+### 4.119 The eightieth verifier seated; Part II.B written (D196)
+
+- Part II.A': every D195 repair confirmed; two minor findings (the support of g_j in Lemma 4.2, the seminorm count of
+  Proposition 2.4) and six nits seated, among them the Theorem 3.51 reading as a READ decision.
+- Part I.A: the repaired cut-offs confirmed; the h-symmetrised commutant of Proposition 4.9 stated.
+- Part II.B written: [Hin26c] section 4 at n = 4 under (K1)-(K4); four slips of the source recorded.
+- Open: the D196 repairs and Part II.B, unread; Parts II.C-II.F and III-VII.
+- Next: the eighty-first verifier on Part II.B and the D196 repairs; Part II.C.
+
+### 4.120 The eighty-first verifier seated; Parts I.A, II.A and II.A' proved (D197)
+
+- Part II.B: computations confirmed; one minor finding (the statement of Lemma 3.3 (4)) and four nits seated; verified
+  until the repairs are read.
+- Parts I.A, II.A and II.A': every repair read and confirmed; proved.
+- Open: the D197 repairs to Part II.B; Parts II.C-II.F and III-VII.
+- Next: Part II.C, [Hin26c] sections 5-6 at n = 4.
+
+### 4.121 Part II.C written (D198)
+
+- Part II.C: [Hin26c] section 5 and Propositions 6.1, 6.4 at n = 4, with the order functions constructed in full and
+  three slips of the source recorded.
+- Open: Part II.C unread; Part II.C' (Proposition 6.3); Parts II.D-II.F and III-VII; the D197 repairs to Part II.B.
+- Next: the eighty-second verifier on Part II.C; Part II.C'.
+
+### 4.122 Part II.C' written (D199)
+
+- Part II.C': [Hin26c] Proposition 6.3 at n = 4, by a self-contained quantitative persistence theorem in place of
+  [Hin21] Theorem 2.6; the stable hypersurface loses one derivative.
+- Open: Parts II.C and II.C' unread; Parts II.D-II.F and III-VII; the D197 repairs to Part II.B.
+- Next: the eighty-second verifier's report on Part II.C; the eighty-third on Part II.C'; Part II.D.
+
+### 4.123 Part II.C verified (D200)
+
+- The eighty-second verifier on Part II.C: no major finding; one minor (Lemma 1.3's stated Minkowski metric, the claim
+  holding) and seven nits, all seated; (C1)-(C3) confirmed at source.
+- Open: Part II.C' unread; the D200 repairs; Parts II.D-II.F and III-VII; the D197 repairs to Part II.B.
+- Next: the eighty-third verifier on Part II.C' and the D200 repairs; Part II.D.

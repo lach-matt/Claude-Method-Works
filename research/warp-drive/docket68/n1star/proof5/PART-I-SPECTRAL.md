@@ -1,13 +1,18 @@
 # Part I.A. The spectral family at bounded nonzero frequencies, at n = 4, on bundles
 
-*Status.* Written out in full (D185). Read line by line by the seventy-fourth verifier, whose two major and seven minor
-findings and nits are seated (D186); the seventy-fifth confirmed those repairs and found two minor gaps and six nits, now
-seated (D187). The two D187 repairs, both in Remark 3.3's variant, are read with Part I.B; until then nothing here is
-labelled proved. This part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e)
-and 10.86 (a)-(e), which re-ran [Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard steps. Here
-those steps are proved, from the calculus statements listed in section 2, each READ at source in a text that states it
-for every dimension. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The calculus is
-that of [HJS] = A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1.
+*Status.* **Proved** (D197). Proved at D189; returned to verified at D195, when the seventy-ninth verifier, reading Part
+II.A$'$, which copied them, found that the cut-offs of Proposition 5.2 are not equal to 1 where the proof needs them.
+They are repaired (D195). The eightieth verifier read the repair and confirmed it (D196), and found, pre-existing, that
+the commutant of Proposition 4.9 was not stated to be $h$-symmetrised, as Lemma 3.1 (i) requires; that is now stated
+(D196). The eighty-first verifier confirmed it (D197), and the part is proved again. Written out in full (D185). Read
+line by line by the seventy-fourth verifier, whose two major and seven minor findings and nits are seated (D186); the
+seventy-fifth confirmed those repairs and found two minor gaps and six nits, seated (D187); the seventy-sixth, reading
+Part I.B, confirmed both D187 repairs (D189). Every earlier finding is seated and its repair read. This part replaces,
+for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e) and 10.86 (a)-(e), which re-ran
+[Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard steps. Here those steps are proved, from the
+calculus statements listed in section 2, each READ at source in a text that states it for every dimension. The source is
+[Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The calculus is that of [HJS] = A. Hassell, Q.
+Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1.
 
 *What is proved here.* Theorem 7.2: [Hin26c] Theorem 9.5 at n = 4, for operators on a trivial bundle of any rank, with
 two changes forced by n = 4 and one forced by a sign slip in the source, for a constant regularity order (Remark 1.1).
@@ -1058,8 +1063,10 @@ $\kappa_\sigma$ in $\psi_\Sigma$, with bounds and constants uniform on $\mathcal
 
 *Proof.* (1) $\hat P(\sigma)u = f$ is equivalent to $\tilde Pu = \sigma^{-1}f$, and $|\sigma|^{-1}$ is bounded on
 $\mathcal D$. Commutant: $\check a_\epsilon := \rho^{-\mathsf r'-\frac12}\varphi_\epsilon\psi_\partial\psi_\Sigma\psi_R$
-with $\psi_\Sigma := \psi(\varsigma_\Sigma\tilde g^2)$, $\psi_R := \psi(\varsigma_Rq)$ and $q := \xi^2 + |\eta|^2$.
-Using (4.12), and with $R'_\epsilon$ (double commutators) bounded in $\Psi^{-\infty,2\mathsf r'-1}$,
+with $\psi_\Sigma := \psi(\varsigma_\Sigma\tilde g^2)$, $\psi_R := \psi(\varsigma_Rq)$ and $q := \xi^2 + |\eta|^2$, and
+$\check A_\epsilon$ the $h$-symmetrisation of $\mathrm{Op}(\check a_\epsilon)\mathrm{Id}$, as in section 4.3, so that
+Lemma 3.1 (i) holds (D196). Using (4.12), and with $R'_\epsilon$ (double commutators) bounded in $\Psi^{-\infty,2\mathsf
+r'-1}$,
 
 $$C_\epsilon = i[\tilde P_R,\check A_\epsilon^2] + 2\check A_\epsilon\tilde P_I^{(0)}\check A_\epsilon - 2\iota_\sigma
 \sum_j(W_j\check A_\epsilon)^{*h}(W_j\check A_\epsilon) + R'_\epsilon.$$
@@ -1182,19 +1189,24 @@ $\mathsf H_f = \partial_z$ and $\gamma(t) = (t,0)$ (flow out a small transversal
 $z,y$ off $F$ independently of $\varrho$. Choose $\delta,\delta_1$ so small that $O\subset W$ and
 $\{z\in[-\delta,0], |y|\le\delta_1\}\subset \mathrm{Ell}(E)$.
 
-*Cut-offs.* Let $\chi_s(z) := \psi(-z/\delta)$, so $\chi_s = 1$ for $z\ge0$ and $\chi_s = 0$ for $z\le-\delta$, and
-$\partial_z(\chi_s^2) = \frac2\delta(-\psi\psi')(-z/\delta)\ge0$. Let $\chi_e(z) := \psi((z - T)/\delta)$, so
-$\chi_e = 1$ for $z\le T$, and $-\partial_z(\chi_e^2) = \frac2\delta(-\psi\psi')((z - T)/\delta)\ge0$. Since
-$-\psi\psi' = (\nu\psi)^2$ on $[0,\infty)$ (section 3), both derivatives are squares of smooth functions. Let
-$\psi_y := \psi(|y|^2/\delta_1^2)$.
+*Cut-offs.* Let $\chi_s(z) := \psi(-z/\delta)$ for $z\le0$ and $\chi_s(z) := 1$ for $z\ge0$, smooth as $\psi = 1$ on
+$[-\frac12,\frac12]$. So $\chi_s = 1$ for $z\ge0$ and $\chi_s = 0$ for $z\le-\delta$, and $\partial_z(\chi_s^2) =
+\frac2\delta(-\psi\psi')(-z/\delta)\ge0$, supported in $[-\delta,-\frac\delta2]$. Let $\chi_e(z) := \psi((z - T)/\delta)$
+for $z\ge T$ and $\chi_e(z) := 1$ for $z\le T$. So $\chi_e = 1$ for $z\le T$, and $-\partial_z(\chi_e^2) =
+\frac2\delta(-\psi\psi')((z - T)/\delta)\ge0$, supported in $[T+\frac\delta2,T+\delta]$. ($\psi$ is even, so
+$\psi(-z/\delta)$ alone would vanish for $z\ge\delta$, and $\partial_z(\chi_s^2)$ would be negative on
+$[\frac\delta2,\delta]$; D195.) Since $-\psi\psi' = (\nu\psi)^2$ on $[0,\infty)$ (section 3), both derivatives are
+squares of smooth functions. Let $\psi_y := \psi(|y|^2/\delta_1^2)$.
 
 *Commutant.* With $\mathbf k = \mathbf s - \frac12(\mathbf m - \mathbf 1)$, its component $\mathsf k := \mathsf k_F$, a
 regulariser $\varphi_\epsilon(\varrho)$ of exponent $\kappa$ and a large constant $M$, let
 
 $$\check a_\epsilon := \varrho^{-\mathsf k}\varphi_\epsilon\,e^{-Mz}\chi_s(z)\chi_e(z)\psi_y,$$
 
-multiplied by a cut-off to a neighbourhood of $F$ whose derivatives are residual. At $F$, by (3.6) and since $\mathsf
-H_f\psi_y = 0$ there,
+multiplied by a cut-off to a neighbourhood of $F$ whose derivatives are residual. As in section 4, the operator is
+$\check A_\epsilon := \frac12(\mathrm{Op}(\check a_\epsilon)\mathrm{Id}+(\mathrm{Op}(\check
+a_\epsilon)\mathrm{Id})^{*h})$, $h$-self-adjoint as Lemma 3.1 (i) requires, so that the identity (3.4) holds (D195). At
+$F$, by (3.6) and since $\mathsf H_f\psi_y = 0$ there,
 
 $$\mathsf H_f(\check a_\epsilon^2) = \varrho^{-2\mathsf
 k}\varphi_\epsilon^2\psi_y^2e^{-2Mz}\Big[\chi_s^2\chi_e^2\big(-2M -

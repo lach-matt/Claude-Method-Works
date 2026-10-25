@@ -15,10 +15,15 @@ independent reader has checked it line by line and every finding is seated; **pr
 
 | Part | Source | Content | Status |
 |---|---|---|---|
-| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | seated (D187) |
-| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | written (D188) |
-| I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf-normal operators (9.38), low energy (9.41), 9.39, 9.43 | to do |
-| II | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
+| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D197) |
+| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | **proved** (D194) |
+| I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | **proved** (D194) |
+| II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | **proved** (D197) |
+| II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
+| II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
+| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200) |
+| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | written (D199) |
+| II.D-F | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -48,6 +53,18 @@ now by weak lower semicontinuity of the norm on a bounded sequence; and Step 1 u
 bounded, now avoided by splitting $\check A_\epsilon P w_t$ into three terms each bounded directly. Six nits were seated
 with them. Part I.A is labelled proved once the next reader, who reads Part I.B, has checked these two repairs.
 
+The seventy-sixth verifier, reading Part I.B, checked both repairs and confirmed them (D189). Part I.A was then
+**proved**: written, read line by line, every finding seated and every repair read.
+
+The seventy-ninth verifier, reading Part II.A$'$, which copied them, found that the cut-offs of Proposition 5.2 are not
+equal to 1 on the curve: $\psi$ is even, so $\psi(-z/\delta)$ vanishes for $z\ge\delta$. They are now one-sided, and the
+self-adjointness of the commutant, which the identity (3.4) needs, is stated in Proposition 5.2 (D195). Part I.A returns
+to verified until the eightieth verifier has read the repair.
+
+The eightieth verifier read the repair and confirmed it (D196). It found, pre-existing, that the commutant of Proposition
+4.9 was not stated to be $h$-symmetrised, as Lemma 3.1 (i) requires; Proposition 4.9 now says so, as section 4.3 does
+(D196). The eighty-first verifier confirmed it (D197), and Part I.A is **proved** again.
+
 ## Part I.B
 
 `PART-I-B-HIGHENERGY.md`. [Hin26c] Theorem 9.16 at n = 4, for operators on a trivial bundle of any rank and uniformly in
@@ -60,4 +77,178 @@ at the artificial boundary for every $\mathrm{Im}\,z\ge0$ (section 7). Section 8
 lists what the write-out found: three slips of the pen in [Hin26c] section 9.3, the diagonal sign of (9.45) again in
 (9.77), and a threshold: [Hin26c]'s $\gamma_-$ divides by the least value of $q$ on the trapped set, which justifies the
 interpolation only when $q$ is constant there, so Part I.B defines $\gamma_\pm$ as the exact thresholds the proof uses
-and assumes $\gamma_-<0$, which Theorem 9.16 (1) needs at real frequencies. Not yet read by a verifier.
+and assumes $\gamma_-<0$, which Theorem 9.16 (1) needs at real frequencies.
+
+The seventy-sixth verifier read Part I.B line by line (D189). It found the architecture sound and every computation it
+recomputed correct, and confirmed (F1)-(F9). One major finding: the regularity step at the artificial boundary
+(Proposition 7.2) left an error term on a larger set than the left side controls, at the same regularity, and used $W\in
+H^s$ before proving it; now $W\in H^s$ at each $h$ by uniqueness, and the new Corollary 4.6$'$ lowers all orders in the
+iteration, so the error term is $\|W\|_{L^2}$. Nine minor ones, among them (H8), stated with the local trapped sets,
+which no flow satisfies, now with the global ones and a no-return clause that keeps the chain of section 8.2 acyclic; and
+the auxiliary absorption of Theorem 6.8, whose sign was wrong for $z_0 = -1$. All are seated, with (F10), a range in
+[Hin26c] Theorem 9.28 (2). Its repairs are read with Part I.C.
+
+The seventy-seventh verifier, reading Part I.C, read these repairs and confirmed each (D191). It asked for one more
+clause, in Proposition 6.4, Step 2: $\delta_1$ is chosen so that $\Gamma(\delta_1)$ lies in $\mathrm{Ell}_h(B_1)$ too, as
+the step needs; seated (D191). The seventy-eighth verifier, reading Part II.A, checked that clause and confirmed it
+(D194). Part I.B is **proved**.
+
+## Part I.C
+
+`PART-I-C-LOWENERGY.md`. [Hin26c] sections 9.4-9.6 at n = 4, for operators on a trivial bundle of any rank and uniformly
+in the operator: the zero energy operator (Theorem 3.1, [Hin26c] Theorem 9.36), the transition face normal operator
+(Theorem 4.3, Theorem 9.38), tf-admissibility and its consequences (Corollary 5.2, Corollary 9.39), the asymptotically
+Minkowski case (Proposition 5.3, Proposition 9.40, with the weights $(0,2)$), the uniform low-energy estimates (Theorem
+6.4, Theorem 9.41 with Remark 9.42's augmentations) and the index 0 of the zero energy operator (Corollary 6.6, Corollary
+9.43). Section 2 proves the b-analysis used at the two conic ends. tf-admissibility is stated on the Fredholm problem of
+the transition face (Definition 5.1), which the source's definition implies given its (9.115); the asymptotically
+Minkowski case is verified directly, with Hankel functions READ in [DLMF]. The low-energy theorem is proved on a norm
+glued from the zero energy and transition face norms (Definition 6.1), from the two model estimates alone, as in the
+source, and with an adjoint estimate that the source does not state. Section 8 lists seven findings against the source.
+None changes a statement; one (F6) is a gap: the proof of Corollary 9.43 infers the invertibility of an augmented
+operator from an estimate that gives only injectivity, and the adjoint estimate of Theorem 6.4 closes it. Weaker than the
+source, and said so in Remark 6.7: the smallness in Theorem 6.4 may depend on the b-regularity order, and uniformity in
+the weight is not proved. The gap hypothesis is labelled (G), since (H6)-(H8) are Part I.B's.
+
+The seventy-seventh verifier read Part I.C line by line (D191). No major finding. One statement gap: Theorem 4.3 (4) was
+not stated uniform in $\theta$, which Corollary 5.2 (b) and Theorem 6.4 use; it is now stated and proved. Nine minor
+findings, all seated, among them the Mellin transform at negative orders (now by density), the charts of Lemma 6.2 (a)
+(dilations, not an inversion), the a priori regularity behind the adjoint absorption of Theorem 6.4 (2), Lemma 5.4 at
+$\theta = \pi$, and the reworded proof of Lemma 2.5, in which no commutator arises. It confirmed (F1)-(F7), recomputing
+(F4) and the conjugation of the tf operator at $n = 3,4,5$. The seventy-eighth verifier, reading Part II.A, read all ten
+repairs and confirmed each (D194); the notation of Proposition 5.3 (iii) was then aligned with (ii). Part I.C is
+**proved**.
+
+## Part II.A
+
+`PART-II-A-SETUP.md`. [Hin26c] sections 2-3 at n = 4: the compactified spacetime and its b-, 3b-, eb- and e3b-structures
+with the commutator lemmas behind b-regularity (sections 1-2); the scaled bounded geometry calculus of [SBG] (Hintz,
+Commun. AMS 6 (2026), arXiv:2408.06651), READ in eleven statements that hold in every dimension (section 3); the
+e3b-calculus, its unit cells on $\mathbb S^3$ and its spaces (section 4); the Fourier transform near $K^+$ and the Mellin
+transform at $\iota^+$, with the weights of $n = 4$ (sections 5-6); supported and extendible spaces (section 7);
+functions and operators of finite regularity, multiplication and pseudolocality, and Sobolev embedding (section 8); and
+the elliptic and real principal type estimates with b-regularity and their tame versions (section 9). The dimension
+enters through the density only: the weights $(2(\alpha_I+2),\alpha_++\frac52,\alpha_K+\frac12)$ replace
+$(2(\alpha_I+\frac32),\alpha_++2,\alpha_K+\frac12)$, and no regularity threshold changes, as $3>\frac52$. Section 10
+lists the findings: two signs and a weight printed without its class (G1)-(G2), the tame estimates stated with an infimum
+norm their proofs do not support (G3), now stated per representation, and slips in section 3.4 of the source, among them
+$\mathsf s-m$ for $\mathsf s-m+1$ in (3.85) (G4), and the hypotheses of the real principal type estimate, too weak as the
+source states them (G6)-(G7).
+
+Two statements are standing inputs of this part: the elliptic and the real principal type estimates without b-regularity,
+for coefficients of finite regularity and variable orders ((L3)-(L4), [Hin26c] Propositions 3.23-3.24 at $k = 0$). The
+source cites them as standard. No text READ here states them: [SBG] does not treat propagation, [HJS] has constant
+differential orders and no sharp Gårding inequality, and Hintz's paper with Sobolev coefficients (arXiv:1311.6859) has
+constant orders. They are proved in Part II.A$'$. Part II.A is labelled proved only with it. The two further inputs the
+source uses in the same way, multiplication by functions of finite regularity on variable-order spaces and its
+pseudolocality, are proved in Part II.A itself (Lemma 8.5), from the calculus and the closed graph theorem.
+
+The seventy-eighth verifier read Part II.A line by line (D194) and confirmed the D191 repairs of Parts I.B and I.C. Two
+major findings, both in the propagation chain, are seated. The hypothesis of (L4) on the order, $\mathsf H\mathsf s\le0$
+near $\mathrm{WF}'(B)\cap\mathrm{Char}(L)$ within $\mathrm{Char}(L)$ as the source states it, is too weak: $L = D_t$ in
+one unit cell, with an order rising along the backward curve away from $\mathrm{WF}'(B)$, is a counterexample. It is the
+gap Part II.A$'$ records as (G6), found independently, and (L4) and Propositions 9.2 and 9.9 now ask $\mathsf H\mathsf
+s\le0$ on a neighbourhood of the backward segments. And the proof of Proposition 9.9 chose an operator near
+$\mathrm{WF}'(B)$ whose wave front set must contain the segments; its operators are now chosen by an openness statement
+(O), applied twice. Seven minor findings are seated: the quantifier order of (L3)-(L4), the localization of the operators
+near the diagonal, the variable-order Plancherel theorem, READ in [SBG] (4.24a-b) as part of (S9), a false commutator
+inclusion in the source's proof of its Lemma 2.11, the uniqueness of integral curves at the boundary faces and the
+cut-offs away from $I^0\cup K^-$, a threshold in Lemma 8.5, and parametrices to finite order. So are the nits, among them
+the angular term of (2.27). The verifier confirmed (G1)-(G5) and recomputed the metric, the weights of $n = 4$, the
+Hankel asymptotics and the thresholds of Propositions 9.6 and 9.9. The wording of (S8) was aligned with [SBG] Definition
+4.6 (D195), its reading of the theorem it cites stated (D196), and both confirmed by the eightieth and eighty-first
+verifiers. With Part II.A$'$ proved, Part II.A is **proved** (D197).
+
+## Part II.A$'$
+
+`PART-II-A2-STANDARD.md`. The two standing inputs of Part II.A, proved: (L3) as Theorem 3.1 and (L4) as Theorem 5.4,
+[Hin26c] Propositions 3.23-3.24 at $k = 0$, for operators whose coefficients have finite regularity, with variable orders
+and constants locally uniform in the operator. The smooth calculus is (S1)-(S11) of Part II.A. Its operations are
+continuous on Fréchet spaces of symbols, so each is bounded by finitely many seminorms, and the bounds pass to finite
+regularity by mollification in the charts of the secondary structure and weak lower semicontinuity (section 2,
+Proposition 2.4). The elliptic estimate follows from a parametrix of finite regularity (section 3). The propagation
+estimate is a positive commutator argument along the exact Hamilton field of the operator, in flow-box coordinates of
+finite regularity, so that every positivity is an exact square and no sharp Gårding inequality is used. The imaginary
+part is absorbed by the large constant of the commutant (sections 4-5). Section 6 records (G6), the source's hypothesis
+on the order, too weak, and (G7), classical principal symbols and the faces where the Hamilton field is continuous.
+Written (D193) and aligned with the D194 repairs of Part II.A.
+
+The seventy-ninth verifier read Part II.A$'$ line by line (D195) and confirmed every D194 repair of Part II.A and
+(G6)-(G7) at source. One major finding: the class of symbols of finite regularity was too narrow, and the square-root
+lemma false in it, so that the factor $z_\epsilon$ of the commutant and the parametrix of Lemma 4.2 were used with exact
+orders that were not proved. The class now counts the logarithmic factor each derivative may carry, inside the class of
+[SBG] Definition 4.6, whose operators act without loss. The square-root lemma is restated with one such factor per
+derivative, proved by resolvent integrals, and shown sharp. Seven minor findings are seated: the identity (4.1) for a
+commutant that is not self-adjoint, one-sided cut-offs, the regularity of the approximants in the pairing, nested sets in
+Lemma 4.2, smooth operators in the patching, the injectivity of the perturbed flow box, and the convergence of the
+factors in Proposition 2.4. So are the nits, among them the wording of (S8) in Part II.A.
+
+The eightieth verifier read the D195 repairs line by line and confirmed each (D196): the class $C^{(M)}_\nu$ inside
+[SBG]'s, the resolvent integrals of Lemma 2.5 and its sharpness, the exact orders of $z_\epsilon$ and of the parametrix,
+and the seven minor repairs. No major finding. Two minor findings are seated: the support of $g_j$ in Lemma 4.2, now in
+$U'_j\cap U_{j-1}$ with $\bar U_j\subset U'_j\cap U_{j-1}$, and the number $M$ of seminorms in Proposition 2.4, taken at
+the orders raised by $2\delta$. So are six nits: the reading of [SBG] Theorem 3.44 as its Theorem 3.51 is stated as a
+READ decision, in section 1.1 and in (S8) of Part II.A; Definition 1.3 names its coordinates; Lemma 2.5's counterexample
+is given for every $\nu$; $\chi_\infty$ is supported in $\{\rho_\infty<1\}$; Lemma 2.6 is applied with $\delta/2$. The
+eighty-first verifier read these repairs and confirmed each (D197); its one nit, on the example after Lemma 2.5, is
+seated. Part II.A$'$ is **proved**.
+
+## Part II.B
+
+`PART-II-B-DYNAMICS.md`. [Hin26c] section 4 at $n = 4$: the radial sets, the horizon, the trapped set and the global
+null-bicharacteristic dynamics of the stationary model in e3b-phase space. The source computes them from the Kerr metric.
+Here the stationary model is any metric satisfying the hypotheses of Part I and (K1)-(K4): the metric is Minkowski to
+order $r^{-2}$ outside a compact set (K1), and the trapped set is $r$-normally hyperbolic (K3). Over the interior of the
+Kerr face the 3b-phase space is the stationary phase space with $\sigma$ conserved, and the map $\Phi_{z_0}$ carries the
+semiclassical phase space of I.B at frequency sign $z_0$, flows included, onto the part of the 3b-cosphere bundle over
+$K^+$ where $z_0\sigma\ge0$ (section 2), so that (H3), (H4), (H7) and (H8) of Part I give the dynamics there (Proposition
+6.1, the source's 4.21). Near $\iota^+$, $\mathscr I^+$ and the corner the flows are solved in closed form (sections 3
+and 7). Section 8 assembles the global dynamics (Proposition 8.1, the source's (4.72)) and the curves over the interior
+(Proposition 8.2, the form of the source's Proposition 6.1). Section 9 records four slips of the source, none affecting a
+statement: a word in the proof of Lemma 4.6 (2), the conic extension of $\partial W^+_{\mathrm{in}}$ and its vector field
+in Lemma 4.6 (4), a constant in (4.18), and a gap in the proof of Lemma 4.20, which is not used here. Written (D196). The
+eighty-first verifier read it line by line (D197), recomputed the Minkowski symbols, every closed-form flow, the
+linearisations, the map $\Phi_{z_0}$ and the 3b-eb conversion, and confirmed (B1)-(B4) at source. One minor finding: the
+statement of Lemma 3.3 (4) printed the source's vector field $r\partial_{t_*}-2r\partial_r$, which its proof corrects to
+$2r\partial_{t_*}-r\partial_r$. Four nits: a citation of Lemma 2.1 for the Leibniz rule, $dr$ future (not past) timelike
+inside the horizon, "within $\Sigma$" for the characteristic sets, and the two meanings each of $\rho_K$ and $\rho_+$.
+All are seated (D197); they await the next reader.
+
+## Part II.C
+
+`PART-II-C-OPERATORS.md`. [Hin26c] section 5 and section 6 except Proposition 6.3, at $n = 4$. The stationary wave-type
+operators are exactly the operators whose spectral families satisfy (H1), (H2) and (H6) of Part I (Lemma 1.2), with the
+constant $\frac32 = \frac{n-1}2$ in place of the source's 1; for the tensor wave operators $S = 0$ in the coordinate
+frame (Lemma 1.3). Lemma 1.4 places $P_0$ in the 3b- and e3b-calculi and gives its normal form at $\mathscr I^+$, with
+$3+2S$ for the source's $2(1+S)$. Section 2 defines trapping and tf-admissibility through Part I's hypotheses, the
+admissible orders, and $\aleph$-admissibility with the weight $\alpha_{\mathrm{sf}}+2$; the thresholds at $\partial K^+$
+are those of Part I written in 3b-terms (Lemmas 2.5-2.6). Section 3 proves the time function $t^\flat_*$ with an explicit
+gluing, and states the admissible wave-type operators and their normal form at $\mathscr I^+$. Section 4 proves
+Proposition 6.1 for perturbed metrics, including its backward half, which the source states without proof. Section 5
+proves Proposition 6.4, the order functions, by writing out the construction of [Hin23c] Appendix C that the source
+cites, in this class; one localisation of that construction is not needed here. Findings (C1)-(C3) are slips of the
+source: a power $x_I^{-2}\rho_+^{-2}$ for $x_I^2\rho_+^2$, "non-decreasing" for non-increasing in its Definition 5.11
+(1), and the sign in its characterisation (6.5) of the future characteristic set. Written (D198). The eighty-second
+verifier re-derived every computation and confirmed (C1)-(C3) at source. Its one minor finding: the proof of Lemma 1.3
+stated the Minkowski metric in $(t_*,x)$ with $\delta_{ij}$ for $\delta_{ij}-\omega_i\omega_j$, and the argument for
+$\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ rested on that form; the claim holds by the symmetry of
+$(\partial_\nu\omega^\mu)\bar g_{\kappa\mu}$. Seven nits: the bounds of the smoothed minimum in Lemma 3.2 (it lies below
+both functions, not between them), values in $[0,1]$ for the cut-offs of section 5.2, Lemma 4.1 (a) at $d_0 = 1$, the
+bound $\epsilon_I^2<\frac1{10}$, Lemma 5.5 (c), the backward exit at $\{r = r_0\}$ in Proposition 4.2, and the region
+$\{r\le R\}$ in (K1). All are seated (D200); they await the next reader.
+
+## Part II.C$'$
+
+`PART-II-C2-TRAPPING.md`. [Hin26c] Proposition 6.3 at $n = 4$: for a metric decaying in time to the stationary model,
+hypersurfaces close to the stable and unstable manifolds of the trapped set, converging to them, to which the
+null-bicharacteristic flow is tangent. The source reads it from [Hin21] Theorem 2.6, which is stated for closed
+manifolds, smooth invariant splittings and a fixed perturbation, and takes the uniformity in the perturbation from that
+theorem's proof. Here Theorem 1.1 proves what is needed directly and quantitatively (section 2), by the graph transform:
+the hypersurfaces have codimension one and the normal dynamics is linear in the defining functions, so each graph
+transform is a one-dimensional shooting problem, solved for the stable hypersurface by a contraction in a weighted norm
+and for the unstable one by forward iteration. Its hypotheses are Part I's (Γ.1)-(Γ.3) and the tangential growth bound of
+(K3); the invariant splitting is not used. Section 3 graphs the characteristic set near the trapped set over the
+stationary one, computes the projected field, and proves Proposition 6.3 (Proposition 3.4). Finding (C$'$2) changes the
+statement: the stable hypersurface loses one derivative, $\tilde\phi^s\in C^{d_0-2}$, and both are constructed on a
+neighbourhood of the trapped set, which is all the trapping estimates use. Written (D199); the eighty-third verifier
+reads it.

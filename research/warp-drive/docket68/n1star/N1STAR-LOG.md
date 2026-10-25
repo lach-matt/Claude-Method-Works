@@ -4668,3 +4668,216 @@ Theorem 9.16 (1) at Im z = 0 needs gamma_- < 0, which [Hin26c] notes holds in it
 (F7) the printed norm after (3.35) has <x>^(-r) for <x>^r; (F8)-(F9) the changes of statement (constant s, monotonicity
 on neighbourhoods, exact thresholds) and of method. Nothing is labelled proved: the next verifier reads Part I.B, with
 the two D187 repairs of Part I.A.
+
+**D189 (2026-10-25): the seventy-sixth verifier seated on Part I.B; Part I.A proved.** The seventy-sixth verifier read
+`proof5/PART-I-B-HIGHENERGY.md` line by line, with the two D187 repairs of Part I.A. Part I.A: both repairs correct (the
+variant of Remark 3.3 by weak lower semicontinuity; Lemma 3.1 Step 1 split into three terms), so Part I.A is labelled
+proved. Part I.B: the architecture sound, every computation recomputed correct (sympy for I.A (4.4), the radial
+thresholds for P and P*, Lemma 1.1, (5.7), Lemma 5.4, the cut-off of Lemma 4.3), (F1)-(F9) correct. One major finding,
+nine minor, nits; all seated in place. (M1) Proposition 7.2: Corollary 4.6 leaves h^N ||GW||_(H^s) on a set larger than
+the left side controls, and W was known only in L^2; now W in H^s at each h by I.A Proposition 6.4 (iii) and uniqueness,
+and Corollary 4.6' (new) iterates Lemma 3.3 lowering all orders, leaving ||W||_(L^2). (m1) (H8) used the local sets
+Gamma_(u/s), which no flow satisfies; now the global trapped sets, with a no-return clause (H8) (b) that keeps section
+8.2 acyclic. (m2) Theorem 6.8 (ii): the auxiliary absorption -i Q~ had the wrong sign for z_0 = -1; now -i z_0 W~* W~, W~
+scalar. (m3) section 8.1: points over r >= b'_2, operators over r > b'_1, (1 - chi) u bounded. (m4) Theorem 1.3 (5) with
+h as in (3). (m5) Lemma 6.2 (a): B = G* Q G + R with Theorem 2.7, the factor |g|^(-2) restored. (m6) section 9: every
+operator of the contradiction arguments built from b_j's data. (m7) Proposition 6.1: nu' independent of U by ellipticity;
+M in [M_0, 2M_0]. (m8) Theorem 2.4: omega := sum (sup o + sup o' - inf (o + o')). (m9) Proposition 6.4 Steps 2-4 at
+delta_1 with Gamma(delta_1) in Ell(B), a_0, psi >= 0. Nits: Lemma 6.9 needs varpi not in K; Lemma 5.1's iteration
+parameter 2 4^(-j) delta; the signs in Propositions 5.2 and 5.5; typos in section 2.2 and (2.5); (F7)-(F8) for (F3)-(F4);
+the 'two changes' sentence; section 4.1; section 8.4 cites I.A Theorem 7.2 (2) for part (2); a notation paragraph (h,
+lambda, H_(z_0)); Lemma 1.1 (e) at every real z by homogeneity; Lemma 4.3's product image left as it is. A new source
+finding (F10): [Hin26c] Theorem 9.28 (2) states the adjoint estimate for z in 1 + i[-h beta, nu], which for beta < 0
+misses the real axis that (9.59) needs; Part I.B's range z_0 + i[h beta, nu'] is the correct one. Part I.B's repairs are
+read by the next verifier, with Part I.C.
+
+**D190 (2026-10-25): Part I.C of the write-out written ([Hin26c] sections 9.4-9.6 at n = 4 on bundles, uniformly in the
+operator).** `proof5/PART-I-C-LOWENERGY.md`: Theorem 3.1 = [Hin26c] Theorem 9.36 (the zero energy operator, Fredholm on
+b-spaces of weight alpha + 2); Theorem 4.3 = Theorem 9.38 (the tf normal operator on the sc-b spaces of tf); Definition
+5.1 (tf-admissibility on the Fredholm spaces, implied by the source's Definition 5.10 given its (9.115), which is neither
+proved nor used); Corollary 5.2 = Corollary 9.39; Proposition 5.3 = Proposition 9.40 (asymptotically Minkowski, weights
+(0, 2), Bessel order l + 1, DLMF READ); Theorem 6.4 = Theorem 9.41 with Remark 9.42 (uniform low-energy estimates on the
+glued norm of Definition 6.1, from the two model estimates; an adjoint estimate added); Corollary 6.6 = Corollary 9.43;
+Theorem 7.1 (uniformity in b; (G), (Z) and (TF) are open). Seven findings (section 8): (F1) the Mellin line of Lemma 3.11
+and the line in the proof of (3.47) both carry a reversed sign, and the two cancel; (F2) the power |sigma|^(3/2 - l) in
+(3.46) is |sigma|^(-3/2 - l), and it cancels in the proof of 9.41; (F3) the adjoint weight in (9.107) is -alpha, not
+-alpha - 2; (F4) the proof of (9.117) drops one cross term, and the conclusion holds; (F5) the condition |e^(i theta) +-
+1| <= 1/2 in Theorem 9.38 (1) has the wrong sign; (F6) the proof of Corollary 9.43 infers the invertibility of the
+augmented operator from injectivity alone, closed by Theorem 6.4 (2)-(3); (F7) slips of the pen in the proof of 9.41 and
+in 9.38 (3). Weaker than the source (Remark 6.7): the smallness c_k may depend on k, the other weights are taken one at a
+time, and (9.120) is proved for the plain operator only. The gap hypothesis is labelled (G), as (H6)-(H8) are Part I.B's.
+Next: the seventy-seventh verifier reads Part I.C, with the D189 repairs of Part I.B.
+
+**D191 (2026-10-25): the seventy-seventh verifier on Part I.C and on the D189 repairs of Part I.B, seated.** Part I.C:
+no major finding. One statement gap: Theorem 4.3 (4) (higher b-regularity at the transition face) was not stated uniform
+in theta, while Corollary 5.2 (b) at k >= 1 and Theorem 6.4 (1) use that uniformity; now stated, with the proof noting
+that its steps depend on theta only through the constants of (1)-(2). Nine minor findings, seated: the Mellin transform
+is defined only for e^(c0 t) v in L^2, so Lemma 2.6 at negative orders is proved on C_c^infty and extended by density;
+the charts of Lemma 6.2 (a) are dilations at both ends, not related by an inversion; the absorption in the adjoint
+estimate of Theorem 6.4 (2) needed v in H^(2-s) near tf, which ellipticity at fibre infinity gives; Lemma 2.5's proof
+reworded so that no commutator with the cut-off arises; Lemma 5.4 stated for theta in [0, pi), the functions at theta =
+pi being those of theta = 0; the kernel coefficients in Proposition 5.3 renamed a_j, apart from Lemma 5.4's constants
+c_j; (K2)'s uniformity cited to the proof of I.A Proposition 5.1; a draft fragment deleted from section 4.1; and one
+clause in Part I.B, Proposition 6.4, Step 2, choosing delta_1 with Gamma(delta_1) inside Ell_h(B_1) as well. Nits seated
+(a split reference, integer N in Lemma 2.6, Lemma 2.7 qualitative). The verifier confirmed (F1)-(F7), recomputing (F4)
+with sympy and the conjugation of the tf operator at n = 3, 4, 5, and confirmed each of the thirteen D189 repairs of
+Part I.B. Parts I.B and I.C are verified; each is labelled proved once its D191 repairs are read, by the reader of Part
+II.A. Part II.A is being written: [Hin26c] sections 2-3 at n = 4, with the scaled bounded geometry calculus of [SBG]
+READ; its k = 0 elliptic and real principal type estimates with coefficients of finite regularity and variable orders,
+which the source calls standard and no text here states, are set apart as Part II.A' (to be written).
+
+**D192 (2026-10-25): Part II.A of the write-out written ([Hin26c] sections 2-3 at n = 4).** `proof5/PART-II-A-SETUP.md`:
+the compactifications and the b-, 3b-, eb- and e3b-structures with the commutator lemmas (Lemmas 2.2-2.11 = [Hin26c]
+Lemmas 2.11-2.20); the scaled bounded geometry calculus READ in [SBG] as (S1)-(S11); the e3b-calculus on unit cells with
+S^3 charts; Lemmas 5.1-5.3 (Fourier near K+, the norms of Part I.C) and 6.1-6.2 (Mellin at iota+, line Im sigma =
+alpha_+ + 5/2, 0,b weights (2(alpha_I + 2), alpha_K - alpha_+ - 2)); Lemma 7.1, Proposition 7.4 (supported and
+extendible spaces); Definitions 8.1, 8.3, Lemmas 8.2-8.8 (finite regularity, a microlocal parametrix to finite order,
+multiplication and pseudolocality proved by the closed graph theorem and mollification in the secondary charts, Lemma
+3.21, Lemma 3.22 at n = 4 with x_I^8 rho_+^5 rho_K = 1/(t_* r^4) exactly on Omega, (3.72) with alpha + 2); Propositions
+9.1-9.2 (b-regularity), Lemma 9.3 (commutator identities, re-proved), Lemma 9.5 (the product estimate by Sobolev
+embedding and interpolation in place of Moser, three derivatives dearer), Proposition 9.6 (tame multiplication),
+Corollary 9.7, Propositions 9.8-9.9 (tame elliptic and propagation estimates). Findings (section 10): (G1) Lemma 2.11's
+weighted class; (G2) the Mellin line of Lemma 3.14, the same reversal as I.C (F1); (G3) the tame estimates (3.84)-(3.85)
+use an infimum norm their proofs do not support, now stated per representation; (G4) slips in section 3.4, among them
+s-m printed for s-m+1 in (3.85); (G5) [Hin26c] Propositions 3.23-3.24 at k = 0, cited by the source as standard, are not
+stated in any text READ here for finite regularity and variable orders ([SBG] has no propagation, [HJS] constant
+differential orders, arXiv:1311.6859 constant orders), so they are standing inputs (L3)-(L4), to be proved in Part
+II.A'. Next: the seventy-eighth verifier reads Part II.A, with the D191 repairs of Parts I.B and I.C.
+
+**D193 (2026-10-25): Part II.A' of the write-out written; the standing inputs (L3)-(L4) of Part II.A proved.**
+`proof5/PART-II-A2-STANDARD.md`: [Hin26c] Propositions 3.23-3.24 at k = 0 on e3b-spaces, for coefficients of finite
+regularity, variable orders and constants locally uniform in the operator. Section 2: the calculus of finite regularity;
+every operation of the smooth calculus is bounded by finitely many seminorms (Banach-Steinhaus on Fréchet symbol spaces)
+and passes to finite regularity by the closed graph theorem, mollification in the charts of the secondary structure and
+weak lower semicontinuity (Proposition 2.4 (a)-(f); the regulariser, square roots, a supremum bound). Section 3: Theorem
+3.1 = (L3), by a parametrix of finite regularity and a half-step iteration. Sections 4-5: the positive commutator lemma
+and its iteration; the exact Hamilton field of the operator of finite regularity, flow-box coordinates of regularity
+d_0 - 1, and a commutant whose every positivity is an exact square, so no sharp Gårding inequality is used; the imaginary
+part is absorbed by the large constant M; Theorem 5.4 = (L4). Findings (section 6): (G6) the source's hypothesis H s <= 0
+near WF'(B) cap Char(L) within Char(L) does not suffice, and (L4) asks it on a neighbourhood of the backward segments;
+(G7) classical principal symbols for P_m. Next: seat the seventy-eighth verifier on Part II.A (D194), then the
+seventy-ninth verifier on Part II.A'.
+
+**D194 (2026-10-25): the seventy-eighth verifier on Part II.A and the D191 repairs, seated; Parts I.B and I.C proved.**
+It confirmed all ten D191 repairs of Parts I.C and I.B, so both parts are proved; the notation of I.C Proposition 5.3
+(iii) was aligned with (ii), as it asked. On Part II.A, two major findings. M1: (L4) as the source states it is false, by
+L = D_t in one unit cell with an order rising along the backward curve away from WF'(B); it is the gap II.A' records as
+(G6), found independently, and (L4) and Propositions 9.2 and 9.9 now ask H s <= 0 on a neighbourhood of the backward
+segments. M2: the proof of Proposition 9.9 chose G_3 near WF'(B), impossible as WF'(G_3) contains the segments; its
+operators are now chosen by the openness statement (O) of section 9, applied twice. Seven minor: d_0 chosen before the
+finite set P in (L3)-(L4), and systems stated; the operators localized near the diagonal ([SBG] Definition 3.34 makes it
+optional, Remark 3.48); the variable-order Plancherel theorem READ in [SBG] (4.24a-b), pp. 73-74, into (S9); a false
+commutator inclusion in the source's proof of its Lemma 2.11, replaced by an argument; the uniqueness of integral curves
+at the boundary faces and the continuity of the flow (II.A' Lemma 5.1 (c)), with chi supported away from I^0 cup K^-,
+where the coefficients need not vanish; the threshold of Lemma 8.5 (b); parametrices to finite order in Lemmas 4.1 and
+7.1. Nits: the angular term of (2.27), the coefficients in Lemma 2.5, the multiplier -i sigma in Lemma 6.2, section 10's
+silent repairs, the constant of Proposition 9.8, the page of (S10). II.A' aligned: the quantifiers, Lemma 5.1 (a) and
+(c), the statement and uniformity of Theorem 5.4, (G6)-(G7). Next: the seventy-ninth verifier reads Part II.A' and the
+D194 repairs.
+
+**D195 (2026-10-25): the seventy-ninth verifier on Part II.A' and the D194 repairs, seated; Part I.A returned to
+verified.** It confirmed every D194 repair of Part II.A (M1 with (L4) and the openness statement (O), M2, m1-m7, the
+nits) and the I.C rename, and confirmed (G6)-(G7) at source. On Part II.A', one major finding: the class of symbols of
+finite regularity was copied too narrowly from [SBG] Definition 4.6 (bounded derivatives in place of the intersection
+over delta of the (1 - delta, delta) classes), and the second part of the square-root lemma was false in it (for Q = c +
+x^2 L the second derivative of Q^(1/2) at 0 is L/sqrt(c)); so z_eps and the parametrix of Lemma 4.2 were used as
+operators of exact order without proof. Repaired: Definition 1.3 counts the logarithmic factors, C^(M)_nu with
+derivatives of order j bounded by <log rho_inf>^(nu j), inside [SBG]'s class, whose operators act without loss; Lemma 2.2
+(mollification) and Proposition 2.4 carry the index; Lemma 2.5 is restated and proved by the resolvent integrals Q^(-1/2)
+= pi^(-1) int s^(-1/2) (s + Q)^(-1) ds and its companion for Q^(1/2), with index nu + 1, and the counterexample shows the
+index cannot be kept; Lemma 2.6 loses delta; z_eps has index 1 and exact order, and the parametrix of Lemma 4.2 exact
+order. Seven minor: (4.1) holds only for a self-adjoint commutant, now C := i(L* A*A - A*A L); the cut-offs chi_s, chi_e
+were not 1 on [0, T] with psi even, now one-sided; the pairing hypothesis on H^K' in place of H^infty; Lemma 4.2's nested
+sets with closures inside the ellipticity sets, and J > 4 tau; smooth B_alpha in the patching of Theorem 5.4; the
+injectivity of the perturbed flow box, by the slice argument made uniform; the convergence of the outer factors in
+Proposition 2.4. Nits: two indices in Theorem 3.1, the constant of the positivity, the operator Lie algebra of rho B
+([SBG] Proposition 3.3), the density of the adjoint, Proposition 2.4 (e) for r factors, Op(1) = I, and the wording of
+(S8) in Part II.A. The cut-off slip is also in Part I.A (Proposition 5.2), repaired the same way, and the
+self-adjointness of its commutant, which (3.4) needs, is now stated there; Part I.A returns from proved to verified until
+the eightieth verifier reads the repair. Next: the eightieth verifier on the D195 repairs; Part II.B.
+
+**D196 (2026-10-25): the eightieth verifier on the D195 repairs, seated; Part II.B written.** It confirmed every D195
+repair: the class C^(M)_nu of Definition 1.3 inside [SBG] Definition 4.6, whose operators act without loss; Lemma 2.5 by
+the resolvent integrals, with index nu + 1, and its sharpness; the exact orders of z_eps and of the parametrix of Lemma
+4.2; the seven minor repairs; the one-sided cut-offs of Part I.A Proposition 5.2. No major finding. Two minor: g_j in
+Lemma 4.2 must be supported in U'_j cap U_(j-1), with the closure of U_j inside it; the number M of seminorms in
+Proposition 2.4 is taken at the orders raised by 2 delta. Six nits: the source's 'Theorem 3.44 remains valid' is read as
+its composition calculus, Theorem 3.51 (a READ decision, stated in Part II.A' section 1.1 and in (S8)); Definition 1.3
+names its coordinates (x, omega, tau = log|zeta|); the counterexample of Lemma 2.5 for every nu; chi_inf supported in
+{rho_inf < 1}; Lemma 2.6 applied with delta/2; and, pre-existing in Part I.A, the commutant of Proposition 4.9 stated to
+be h-symmetrised, as Lemma 3.1 (i) requires. All seated. Part II.B written (PART-II-B-DYNAMICS.md): [Hin26c] section 4 at
+n = 4, with the Kerr computations replaced by (K1) (Minkowski to order r^-2 in the frame dt_*, dx), (K2) = (H1)-(H8),
+(K3) (r-normal hyperbolicity of the trapped set) and (K4); the map Phi_z0 identifies I.B's semiclassical phase space with
+the 3b-cosphere bundle over K+ where z0 sigma >= 0; closed forms over iota+ and near I+; Propositions 6.1, 8.1, 8.2.
+Findings (B1)-(B4), slips of the source: 'increasing' for decreasing in the proof of Lemma 4.6 (2); the conic extension
+xi_3b = 2 sigma_3b and the field 2r d_t* - r d_r in Lemma 4.6 (4); -4 for -2 in (4.18); a gap in the proof of Lemma 4.20,
+not used. (B5) the rate r^-2, (B6) (4.67) consistent with the corrected (2.27), (B7) the changes of statement. Next: the
+eighty-first verifier on Part II.B and the D196 repairs; Part II.C.
+
+**D197 (2026-10-25): the eighty-first verifier on Part II.B and the D196 repairs, seated; Parts I.A, II.A and II.A'
+proved.** It read Part II.B line by line and recomputed the Minkowski 3b-symbol (3.2), H_{G_3b} from II.A (2.1), all six
+lines of (3.4), the error class rho_+^2 V_b, both linearisations, the closed forms of Lemma 3.2 (logistic xi-hat,
+homogeneous solution 1/cosh 2s, particular solution -e^{-2s}/cosh 2s), Lemma 3.3 (1)-(3), the map Phi_z0 and (Phi_z0)_*
+H_z0 = (<x>/r) rho-tilde_inf H_{G_3b}, Lemma 4.2, Lemma 5.2 (d), the eb-symbol (7.1) with its angular coefficient 1,
+(7.2), (7.4), Lemma 7.2, the 3b-eb conversion of Lemma 7.3, and Propositions 6.1, 8.1, 8.2 against (H3), (H4), (H7),
+(H8), (Gamma.4) and the source's (4.72). It confirmed (B1)-(B4) at source (pp. 82-83, 91-93). One minor finding: the
+statement of Lemma 3.3 (4) printed the source's r d_t* - 2r d_r, which the proof corrects to 2r d_t* - r d_r. Four nits:
+the Leibniz rule cited as Lemma 2.1; dr is future timelike inside the horizon, not past; 'within Sigma' for the
+characteristic sets of r d_r and 2r d_t* - r d_r; the two meanings of rho_K and of rho_+ declared. All seated. It
+confirmed all nine D196 repairs (Lemma 4.2's supports, Proposition 2.4's M, the sharpness example for every nu,
+Definition 1.3's coordinates, chi_inf, Lemma 2.6 with delta/2, the Theorem 3.51 READ decision in II.A' section 1.1 and in
+(S8), and Part I.A Proposition 4.9's h-symmetrised commutant); one nit, f' compactly supported in the sharpness example,
+seated. Status: Parts I.A, I.B, I.C, II.A and II.A' proved; Part II.B verified. Next: Part II.C ([Hin26c] sections 5-6),
+in writing.
+
+**D198 (2026-10-25): Part II.C written ([Hin26c] section 5 and section 6 but 6.3, at n = 4).**
+`proof5/PART-II-C-OPERATORS.md`. Section 1: stationary wave-type operators (Definition 1.1, (5.1a) with 3/2); Lemma 1.2,
+the stationary wave-type operators are the stationary operators whose spectral families satisfy (H1), (H2), (H6); Lemma
+1.3, tensor wave operators in the coordinate frame of (t_*, x) have S = 0 and spectral difference in rho^4 Diff^2_b (the
+source: S in rho C^inf, rho^3, from Kerr's rate); Lemma 1.4 = Lemma 5.7 with the normal form -(x_I d_xI - 3 - 2S)(x_I
+d_xI - 2 rho_+ d_rho+) + 2 x_I^2 Delta at scri+. Section 2: trapping admissibility from I.B's (Gamma.4); tf-admissibility
+from I.C Definition 5.1; Definition 2.4 the admissible orders; Lemma 2.5 ([Hin23c] Proposition B.1, Jordan scaling and a
+partition of unity); Lemma 2.6 = Lemma 5.12, the symmetry of -2 d_t* rho(rho d_rho - c) for rho^-5 d rho forcing c = 3/2,
+theta_out = 2 inf lambda_min((S+S*)/2) and theta_in^3b = theta_in of I.A; Definition 2.7, aleph-admissibility with
+tf-weight alpha_sf + 2. Section 3: Definition 3.1; Lemma 3.2 = Lemma 5.16, the time function, with an explicit gluing (a
+smooth minimum in log F and a smooth maximum in r, whose differentials are convex combinations); Definition 3.3 and Lemma
+3.4 ((5.27) with exponents 3 + 2 mu); Lemma 3.7. Section 4: Lemma 4.1, the perturbed field differs by a b-vector field in
+eps w C^(d0-1) V_b; Proposition 4.2 = Proposition 6.1, including the backward half. Section 5: Proposition 5.1 =
+Proposition 6.4 by the construction of [Hin23c] Appendix C written out (Lemmas 5.3-5.5; chi_I near scri+, chi_iota near
+iota+ with f_T = rho^-1(1 - xi-hat), for which H-bar f_T = 2 rho^-1 exactly; the gluing by psi_0(x_I)); the time
+localisation chi_t of [Hin23c] is not needed, the error near scri+ carrying x_I^(2 l_I). Findings (C0)-(C8); (C1)-(C3)
+are slips of the source. Next: the eighty-second verifier on Part II.C; Part II.C' (Proposition 6.3, a self-contained
+persistence theorem for the stable and unstable hypersurfaces of a decaying non-autonomous perturbation).
+
+**D199 (2026-10-25): Part II.C' written ([Hin26c] Proposition 6.3 at n = 4).** `proof5/PART-II-C2-TRAPPING.md`. Section
+1: Theorem 1.1, a quantitative persistence theorem: a flow V_0 on [T_0, inf) x O with a compact invariant manifold Gamma
+cut out by phi_u = phi_s = 0, with exact normal equations V_0 phi_u = -nu_u phi_u, V_0 phi_s = nu_s phi_s (nu_u, nu_s >=
+nu > 0) and tangential growth C_eps e^(eps |tau|), perturbed by V-tilde with |V-tilde|_(C^k) <= eps t^(-l) on unit
+windows, has hypersurfaces W^u = {phi_u + psi_u = 0}, W^s = {phi_s + psi_s = 0} tangent to d_t + V_0 + V-tilde, with
+psi_u in C^k, psi_s in C^(k-1), both O(eps t^(-l)) with their derivatives. Section 2: the proof by the graph transform.
+Coordinates (y, a, b) = (pi, phi_u, phi_s); time-T maps with exact multipliers m^u <= e^(-nu tau), m^s >= e^(nu tau); eps
+= nu/(2k) and T with e^(-nu T)(2 Lambda_T)^k (1 + 2T)^l <= 1/4; each transform a one-dimensional shooting problem; the
+stable graph by a contraction in a weighted sup norm and Arzela-Ascoli (C^(k-1)), the unstable by forward iteration from
+alpha_0 = 0 (C^k). Section 3: Lemma 3.1, the hypotheses from Part I's (Gamma.1)-(Gamma.3) and (K3), the independence of
+the restricted differentials by Poisson brackets; Lemma 3.2, the projected field; Lemma 3.3, the characteristic set
+graphed over the stationary one; Proposition 3.4 = Proposition 6.3 with phi-tilde^u in C^(d0-1), phi-tilde^s in C^(d0-2),
+d0 >= 3, near the trapped set. Findings (C'1)-(C'3): [Hin21] Theorem 2.6 is replaced, not used; the stable hypersurface
+loses a derivative; the source's R^5 is R^7 at n = 4. Next: the eighty-third verifier on Part II.C' once the
+eighty-second has reported; Part II.D ([Hin26c] section 7).
+
+**D200 (2026-10-25): the eighty-second verifier seated; Part II.C verified.** The verifier read Part II.C in full against
+the cited parts and the source pp. 100-114, re-derived every computation by hand, and confirmed (C1)-(C3) at source (p.
+107, Definition 5.11 (1) on p. 104, (6.5) on p. 111). No major finding. M1: the proof of Lemma 1.3 printed g-bar =
+-dt_*^2 - 2 omega_i dt_* dx^i + delta_ij dx^i dx^j, while the correct last coefficient is delta_ij - omega_i omega_j
+(from dt = dt_* + omega_i dx^i); the argument for omega^mu Gamma-bar_{kappa mu nu} = 0 used the wrong form. The claim
+holds: omega^mu g-bar_{kappa mu} = -delta_{kappa 0} is constant, so the two derivative terms are -T_{kappa nu} and -T_{nu
+kappa} with T_{kappa nu} = (d_nu omega^mu) g-bar_{kappa mu} = r^-1 (delta - omega omega) symmetric, and they cancel; the
+first term vanishes by homogeneity. Repaired. Nits: N1 the smoothed minimum F of Lemma 3.2 satisfies e^(-kappa/2)
+min(F_1,F_2) <= F <= min(F_1,F_2) (not 'between F_1 and F_2'), and (b) follows from min >= C'(1+C/2) on the transition;
+N2 the cut-offs of section 5.2 take values in [0,1]; N3 Lemma 4.1 (a) at d_0 = 1 over Omega; N4 epsilon_I^2 < 1/10
+recorded among the constraints; N5 Lemma 5.5 (c) by H-bar f_W = 2(2 - xi)xi >= delta/2; N6 Proposition 4.2's backward
+half says why the curve cannot leave through {r = r_0}; N7 (K1)'s {r > R} costs nothing on the compact annulus. All
+seated. The verifier accepted Lemma 3.7 and the closure in Lemma 4.1 (b) at the level of the write-up and did not compare
+[Hin23c] Appendix C, checking section 5.2 on its own terms. Status: Parts I.A-I.C, II.A, II.A' proved; II.B and II.C
+verified; II.C' written. Next: the eighty-third verifier on Part II.C' and the D200 repairs; Part II.D ([Hin26c] section
+7.1), in writing.
