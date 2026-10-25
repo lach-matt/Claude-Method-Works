@@ -4317,3 +4317,11 @@ and Theorem 12.8's peeling of Corollary 11.66's solution (pp. 304-318), matched 
 S^3, the parameters at (2, 0), the source at t*^-4, the induction from alpha_min, Res(L-bar, 2) = {0}, the lists, Case
 A's K+ order in the class); section 9's iota+ solution theory marked as the reading it is on 10.47 (d) and 10.62 (b)
 (33 rows on a reading). Thirty-nine of 61 written out, twenty-one on a reading; 22 rest on the censuses.
+
+**D156 (2026-10-25): [Hin26] Theorem 11.12 and [Hin26a] Theorem 6.2 written out.** Theorem 11.12 has no proof
+of its own -- [Hin26c] Theorem 11.1 applied through Corollary 11.10 in the unweighted densities, at n = 4 with the
+shifts (2, 5/2, 1/2) (10.42 (e)). [Hin26a] Theorem 6.2's proof (pp. 67-69): (6.4) with the shift 3/2 and three angular
+copies (10.21 (a)), Part (2)'s injectivity (10.21 (c)) and the whole (10.56 (b)), each step matched to cpmodes5.py,
+solv5.py, Proposition 10.9 or a named section. Eight places named; 10.21 (c) and 10.56 (b) marked as resting on 10.56
+(a)'s reading (35 rows on a reading). Forty-three of 61 written out, twenty-four on a
+reading; 18 rest on the censuses.

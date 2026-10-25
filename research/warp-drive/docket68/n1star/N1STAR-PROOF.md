@@ -8213,23 +8213,23 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 54 name the places where the dimension changes the proof, 121 places in all, and 7 name
-none: the step is the source proof as it stands. The 125 placements of the five-dimensional values are: 41 at a computed
-check, 66 at an earlier section where they are computed or deduced, 17 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 54 name the places where the dimension changes the proof, 129 places in all, and 7 name
+none: the step is the source proof as it stands. The 133 placements of the five-dimensional values are: 48 at a computed
+check, 66 at an earlier section where they are computed or deduced, 18 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
-R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 33 rows say they rest on a reading -- of a source
-theorem
-at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
+R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 35 rows say they rest on a reading -- of a source
+theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
-reading was unmarked, and
-10.31 (b)'s placement naming zstates5.py Z4 was counted arithmetic (the sixty-first verifier). D150-D151's write-outs
-(10.75 (xvii)-(xxx)) named eleven more places their rows lacked -- 10.60 (f) had none -- and one more reading (10.20
-(a)); n/2 = 2 is now an arithmetic placement (10.20 (a), 10.39 (e)), where before its one occurrence was placed at a
-section (the sixty-second verifier). D154 cleared 10.48 (c)'s reading, [Hin23a]'s estimates at n = 4, which 10.75
-(xxxi)-(xxxiv) now write out. D155's write-outs (10.75 (xxxvii)-(xxxix)) named seventeen more places for 10.47 (d),
-10.47 (e) and 10.62 (b) -- 10.47 (e) had none -- and found [Hin26] section 9's iota+ solution theory, a reading at n = 4
-(10.47's OPEN), among 10.47 (d)'s and 10.62 (b)'s inputs.
+reading was unmarked, and 10.31 (b)'s placement naming zstates5.py Z4 was counted arithmetic (the sixty-first verifier).
+D150-D151's write-outs (10.75 (xvii)-(xxx)) named eleven more places their rows lacked -- 10.60 (f) had none -- and one
+more reading (10.20 (a)); n/2 = 2 is now an arithmetic placement (10.20 (a), 10.39 (e)), where before its one occurrence
+was placed at a section (the sixty-second verifier). D154 cleared 10.48 (c)'s reading, [Hin23a]'s estimates at n = 4,
+which 10.75 (xxxi)-(xxxiv) now write out. D155's write-outs (10.75 (xxxvii)-(xxxix)) named seventeen more places for
+10.47 (d), 10.47 (e) and 10.62 (b) -- 10.47 (e) had none -- and found [Hin26] section 9's iota+ solution theory, a
+reading at n = 4 (10.47's OPEN), among 10.47 (d)'s and 10.62 (b)'s inputs. D156's (10.75 (xl)-(xliii)) named eight more
+places, for 10.21 (a) and 10.56 (b), and marked the readings 10.21 (c) and 10.56 (b) rest on, [Hin26a] Theorem 5.2 at n
+= 4 (10.56 (a)).
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8246,17 +8246,16 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Thirty-nine modification steps written out at n = 4 (D146, D148, D150-D152, D154-D155)
+### 10.75 Forty-three modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. The first thirty-six below are those whose
-source proofs are at most about five pages and are already matched step by step in the sections named, or short enough
-to match
+step so written out rests on its inputs, not on a census of its source. All but three below are those whose source
+proofs are at most about five pages and are already matched step by step in the sections named, or short enough to match
 here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
-arXiv:2408.06715v1 for (xxvii)). Three more, (xxxvii)-(xxxix), carry one longer pair of proofs, [Hin26] Theorems 12.3
-and 12.8 (fifteen pages), matched step by step the same way.
+arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer pair of proofs, [Hin26] Theorems 12.3 and
+12.8 (fifteen pages), matched step by step the same way.
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
      Fredholm of index 0 on [Hin26c] (9.18)'s spaces, by Proposition 8.3 (10.26) and [Hin26c] Theorem 9.5 (10.19, 10.53,
@@ -8686,19 +8685,66 @@ and 12.8 (fifteen pages), matched step by step the same way.
      G-invariant objects, so U' lies in D^oo_G -- 10.43 (e)'s reading, as 10.47 (e) has it; Psi for Phi is Lemma 12.7's,
      with S = 0. It rests on (xxxvii)'s reading.
 
-So thirty-nine of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Twenty-one of the thirty-nine take a reading among their inputs (B-MAP.tsv's
-column `reading`: 10.15 (a), 10.20 (a), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c),
-10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.62 (b), 10.62 (c), 10.62 (d),
-10.40 (a)), and rest on the census through that input, not through their own steps (the sixty-first verifier; D149).
-Where an item cites a row still on the census as an input ((iii) cites 10.19 (d); (xviii) cites 10.53 (e); (xxxvii)
-cites 10.61 (b)-(c); (xxxviii) and (xxxix) cite 10.46 (b); and (xxiv) cites 10.62 (b), on 10.61), it rests on the census
-through that row in the same way. Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it.
-The other 22
-carry proofs of several pages each, in [Hin26] section 11, [Hin26c] sections 5 and 7-14, and [Hin26a] sections 4-6 with
-its appendices A-B; writing those out is what remains of 8.8.
+ (xl) 10.42 (e), [Hin26] Theorem 11.12 (pp. 225-226; D156). It has no proof of its own: it states [Hin26c] Theorem 11.1
+     for L_(g,g0), which Corollary 11.10 makes admissible relative to L_b in [Hin26c] Definition 5.18's sense, in the
+     unweighted b-densities of [Hin26c] (11.4)-(11.6a); Remark 11.13's tameness is that theorem's. At n = 4: Corollary
+     11.10 is 10.42 (d); the densities shift the weights at (I+, iota+, K+) by (n/2, (n + 1)/2, 1/2) = (2, 5/2, 1/2) for
+     his (3/2, 2, 1/2) (Proposition 10.39 (i), cone5.py C1), so (11.21)-(11.23) read as 10.42 (e) states them, beta_+ in
+     (1/2, 1/2 + eps_ind) in both dimensions; the top of beta_I is the radiation order (n - 1)/2 = 3/2 for his 1 (C1,
+     [Hin26c] (10.2)'s threshold at n = 4 being a reading); and the sf-loss is 10.41 (a)'s. It rests on the reading of
+     [Hin26c] Theorem 11.1 and Definitions 5.15 and 5.18 at n = 4 (10.42's OPEN; 10.58 (c)).
 
-Labels: READ (the thirty-nine source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+ (xli) 10.21 (a), [Hin26a] (6.4) (p. 68; D156). His derivation replaces g_(m,a) by the Minkowski metric g-bar, with
+     g-bar^-1 = -2 d_t* (x)_s d_r + d_r^2 + r^-2 g-slash^-1, recalls (4.16), and estimates the errors by (2.9) and by
+     comparison with (2.8), which gives the order of Q's principal part, its subprincipal rho^2 Diff^0_b part absorbed
+     into S~; the zero energy operator is rho^2 times (4.18) plus rho^3 Diff^2_b. At n = 4: on 4+1 Minkowski with c =
+     r^-1 (dt - v dr) the leading term is -2 d_t* rho (rho d_rho - 3/2 - S-bar^C), with no d_t* times a tangential
+     derivative and no d_t*^2 term, and S-bar^C is his matrix with three angular copies, its spectrum positive
+     (Proposition 10.18 (i), cpmodes5.py K1) -- the shift (n - 1)/2 for his 1, g-slash that of S^3; c is 10.14's, equal
+     to r^-1 (dt - v dr) for large r; and Tangherlini differs from Minkowski at O(rho^2) (thresh5.py U4), one power
+     below Kerr, so the errors are at most his orders: Q in rho^3 Diff^1_b, R in rho^2 C^oo, the zero energy operator in
+     rho^2 Diff^2_b.
+
+ (xlii) 10.21 (c), [Hin26a] Theorem 6.2 (2), injectivity (p. 68; D156). His proof: for s >= 1 a kernel element omega_0
+     of (6.1) is a stationary solution with data (omega_0, 0), in H-bar_b^(s,l) with l >= alpha_sf + 1/2, so Theorem
+     5.2 gives (6.3), omega in rho_sf^(alpha_sf) L^2, which a nonzero stationary omega is not over [0, oo) times an
+     annulus; for general s, chi(tau) omega_0 solves the forward problem with source [box^C, chi] omega_0 in
+     rho_sf^(alpha_sf + 2) rho_K^(alpha_K) H^(s-1)_3b, and Theorem 5.2 again applies. At n = 4: the density r^3 |dr
+     dg/|, so alpha_sf = -C_0 - 5/2 and l >= -C_0 - 2 = alpha_sf + 1/2 (Proposition 10.18 (iii), cpmodes5.py K3); the
+     annulus and the cut-off are free of n; and Theorem 5.2 at n = 4 is 10.56 (a)'s, a reading.
+
+ (xliii) 10.56 (b), [Hin26a] Theorem 6.2 (pp. 67-69; D156). His proof fixes alpha_K = 1 and alpha_sf = -C_0 - 2, which
+     satisfy (5.14), and applies Theorem 5.2 with C_0 + 1, the indicial roots being Theorem 4.9's with C_0 + 4. Part
+     (1): by (6.4) an outgoing mode's omega_1 satisfies a regular-singular ODE gaining an order while gamma + 1 < 1 +
+     min spec S-bar^C, so lies in A^1, every eigenvalue being positive; its data are then O(r^-1) and O(1), in
+     rho^(-3/2-eps) H-bar_b, inside rho^(alpha_sf + 1/2); Theorem 5.2 puts omega in rho_sf^(alpha_sf) L^2, which a
+     nonzero mode, e^((Im sigma) t) |omega_0|, is not over an annulus. Part (2): injectivity as (xlii); Fredholm by the
+     citations of p. 68; index 0 by Theorem B.1 with [Hin26b] Corollary 9.43, or by deforming to Schwarzschild, where
+     the radial operators over the spherical harmonics have index 0 by Theorem 4.9 (3), or through the adjoint,
+     injective on H-dot^(s',l')_b with l' = -l - 2 > -3/2 since its indicial roots 1 - lam-bar have real part <= 0 or >
+     C_0 + 3 and the L^oo to L^2 shift is -3/2. At n = 4: (5.14) is alpha_sf < b* - 1, alpha_K > alpha_sf + 1 - b*
+     (10.22 (c), solv5.py Q4), met by alpha_K = 1 and alpha_sf = -C_0 - 5/2 (10.21 (b)); Theorem 5.2 is 10.56 (a)'s
+     reading; the roots are Proposition 10.9's, Theorem 4.9 at n = 4 for h in (0, 10^-6] (10.54 (a)), the top of (6.1)'s
+     range 2 for his 1; (6.4) is (xli), the ODE gaining while gamma + 1 < 3/2 + min spec S-bar^C, positive (Proposition
+     10.18 (i)); r_* - r = O(r^-1) (10.21 (b)); the data lie in rho^(-2-eps) H-bar_b (r^3 |dr dg/|) (Proposition 10.18
+     (iii)); the direct route's radial operators are over the scalar and vector harmonics of S^3, each of index 0 by
+     10.12's even split of the roots (10.21 (d)), Fredholm by [Hin26c] Theorem 9.36 at n = 4 (10.20, a reading) given
+     10.21 (d)'s horizon threshold, OPEN there; and the shift is n/2 = 2 (10.21 (e)). It rests on the readings 10.21 and
+     10.56 (a) name.
+
+So forty-three of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Twenty-four of the forty-three take a reading among their inputs (B-MAP.tsv's
+column `reading`: 10.15 (a), 10.20 (a), 10.21 (c), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c),
+10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e), 10.46 (e), 10.47 (d), 10.47 (e), 10.56 (b),
+10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the census through that input, not through their own steps (the
+sixty-first verifier; D149). Where an item cites a row still on the census as an input ((iii) cites 10.19 (d); (xviii)
+cites 10.53 (e); (xxiv) cites 10.62 (b), on 10.61; (xxxvii) cites 10.61 (b), 10.61 (c); (xxxviii) cites 10.46 (b);
+(xxxix) cites 10.46 (b); (xl) cites 10.58 (c)), it rests on the census through that row in the same way. Two, (iii) and
+(xxvi), replace the source proof by a computation rather than carry it. The other 18 carry proofs of several pages each,
+in [Hin26] section 11, [Hin26c] sections 5 and 7-14, and [Hin26a] section 5 with its appendix B; writing those out is
+what remains of 8.8.
+
+Labels: READ (the forty-three source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)

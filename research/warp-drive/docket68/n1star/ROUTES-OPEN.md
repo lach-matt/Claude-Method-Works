@@ -2099,3 +2099,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   t*^-3 in Step 1, the induction from alpha_min, Proposition 10.46's lists (10.42 (ii)'s in the class), Res(L-bar, 2)
   = {0}. Section 9's iota+ solution theory is a reading at n = 4 (10.47's OPEN), now marked on 10.47 (d) and 10.62 (b).
   Thirty-nine of 61 written out, twenty-one on a reading; 22 rest on the censuses, eight of them [Hin26] section 11's.
+- D156 (10.75 (xl)-(xliii)): [Hin26] Theorem 11.12 (10.42 (e)), [Hin26c] Theorem 11.1 applied through Corollary
+  11.10 in the shifted densities; [Hin26a] (6.4) and Theorem 6.2 with its Part (2) injectivity (10.21 (a), 10.21 (c),
+  10.56 (b)), matched at source (pp. 67-69). Forty-three of 61 written out, twenty-four on a reading;
+  18 rest on the censuses.
