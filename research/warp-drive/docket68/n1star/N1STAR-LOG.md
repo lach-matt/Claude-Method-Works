@@ -4268,3 +4268,21 @@ hypothesis placed; (ii) E5 for l <= 12, 10.24 (a) for every l; (vi) the Killing 
 and 'justifies it in one line'; (v) Lemma 2.13 on b-manifolds; paper 1.3 adds the record's choice. The verifier did not
 read D148.
 
+**D150 (2026-10-25): eleven more modification steps written out.** Read at source and matched step by step at n =
+4 (10.75 (xvii)-(xxvii)): [Hin26] Proposition 10.7 and Theorem 10.1, whose proof is 10.40 (a)-(c) (10.39 (e)); Lemmas
+10.9-10.11 (10.40 (a)); Lemma 8.15 with Proposition 7.4 and Lemmas 2.15, 7.2 (10.60 (f)); Lemma 11.15 and Proposition
+11.14 (10.44 (c)); Theorem 5.23 and Lemma 3.19 (10.66 (f)); Theorem 13.1 (10.62 (d)) and its Step 1 in the class (10.49
+(a)); [Hin26c] Theorem 9.36 (10.20 (a)) and Lemma 13.13 (10.41 (b)); [Hin24b] Lemma 3.17 (pp. 51-53, fetched in full
+text), which [Hin26] Lemma 8.12's proof cites verbatim (10.32 (b)); and [Hin26a] Theorem 4.9, whose appendix proof is
+replaced at n = 4 by Proposition 10.44's certificate (10.54 (a)). Writing them out found nine places of the dimension
+their B-MAP rows did not name -- the tf norm's |sigma|^(n/2) and alpha_0's -n/2 in Proposition 10.7, the embedding
+(3.72), Lemma 13.13's 5/2 and 3/2, Lemma 11.15's Step 2 index sets and Step 3 condition, so(4)'s bracket in Lemma 8.15
+(2), the boost pullback's a^4, and the boundary terms of Lemma 3.17 -- and one reading (Theorem 9.36's radial estimate,
+10.19). Counts: 53 rows name places, 8 none; 105 placements (33 computed, 57 section, 14 arithmetic, 1 choice); 32
+rows on a reading; twenty-seven written out, fifteen on a reading; 34 rest on the censuses.
+
+**D151 (2026-10-25): three more written out.** [Hin26] Proposition 8.14 (10.34 (c); Steps 0-5 at n = 4, Step 0 not
+used, Step 2 the record's modification), (2.27) with Proposition 2.25's proof, b-analysis free of n (10.46 (e)), and
+section 5.6's boost pullback (10.62 (c)). Two more places named ((8.33)'s vector in so(4); the boost pullback at r^-2).
+Thirty of 61 written out, eighteen on a reading; 31 rest on the censuses.
+
