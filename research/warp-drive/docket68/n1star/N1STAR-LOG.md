@@ -4387,3 +4387,11 @@ computation is (7.22)'s density, 2 rho_+^-5 x_I^-8 for his 2 rho_+^-4 x_I^-6, wi
 - 3), and (8.14)'s skewness, checked exactly with the constant n - 2 as a failing control. Eleven places named, two
 corrected. Fifty-seven of 61 written out, thirty-seven on a reading; 4 rest on the
 censuses: 10.19 (d), 10.22 (e), 10.53 (e) and 10.58 (c).
+
+**D164 (2026-10-25): [Hin26c] Theorems 9.5 and 9.16 written out.** Theorem 9.5's proof (section 9.2.3, with
+Propositions 9.9 and 9.11 and Lemma 9.13) and Theorem 9.16's (section 9.3) read at source (pp. 161-193) and matched at
+n = 4 as (lviii)-(lix). Section 9.3 is written for a general stationary wave operator on R_t x X, and Lemma 9.13 for
+fields spanning V(S^(n-1)); the n = 4 inputs are the horizon (10.18), the trapped set and loss (10.19 (b)) and the
+dynamics (10.19 (c)). Both rows keep one reading, his scalar-to-bundle remark. Eight places named.
+Fifty-nine of 61 written out, thirty-nine on a reading; 2 rest on the censuses: 10.22
+(e) and 10.58 (c).

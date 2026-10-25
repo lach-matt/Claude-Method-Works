@@ -2152,3 +2152,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   nine commuted operators, E2's K-current, the fifteen monomials. Fifty-seven of 61 written out,
   thirty-seven on a reading; 4 rest on the censuses: [Hin26c]'s sections 5, 9-11 and 13 and
   [Hin26a]'s Theorem 5.2.
+- D164 (10.75 (lviii)-(lix)): [Hin26c] Theorem 9.5 -- Propositions 9.9 and 9.11, Lemma 9.13, parts (1), (2), (4) and
+  (6) -- and Theorem 9.16 with section 9.3's proof, read at source (pp. 161-193) and matched at n = 4 (10.19 (d), 10.53
+  (e)). Section 9.3 is written for a general stationary operator on R_t x X; its places are T*S^3, the five-dimensional
+  horizon (10.18), the trapped set and loss (10.19 (b)) and the dynamics and timelike dr (10.19 (c)). Both keep one
+  reading, his scalar-to-bundle remark (10.53 (d)), and 10.19 (d) the uniformity under small perturbations.
+  Fifty-nine of 61 written out, thirty-nine on a reading; 2 rest on the censuses:
+  10.58 (c), [Hin26c]'s sections 5, 10-11 and 13, and 10.22 (e), [Hin26a]'s Theorem 5.2.

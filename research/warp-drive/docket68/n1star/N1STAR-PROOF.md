@@ -3530,26 +3530,27 @@ every weight and in every dimension; V1 checks it. []
      Proposition 4.24, which his section 9.3.6 uses. There is no ergoregion, so at bounded sigma the characteristic set
      over the interior of X lies over r <= r_h (his p. 159); and dr is future timelike inside the horizon ((iv)), his
      Proposition 9.35's hypothesis.
- (d) With 10.18, the inputs of [Hin26c] Theorems 9.5 and 9.16 that the operator supplies are in hand in five dimensions:
-     computed -- A_w + S-bar = D S-bar D, nu, beta_0, the spectrum of p_1 at a point, W, the time orientation inside --
-     or deduced -- vartheta_H+, vartheta_in and its threshold, (Gamma.1)-(Gamma.4); the horizon's radial point structure
-     ((9.24): beta_0 > 0, beta > 0, a quadratic defining function; his p. 165, for a non-degenerate red-shift) and a
-     global t* with dt* past timelike (his Definition 9.3) are those of a non-degenerate static horizon, f'(r_h) > 0 by
-     (iv), stated and not computed here. The reading is (i) that his scalar estimates hold for operators on bundles with
-     the notational modifications he leaves to the reader, and (ii) that his Theorems 9.5 and 9.16 hold restated for n =
-     4 -- (9.20) and (9.55) with 3/2 for 1 (10.18(b)), his Proposition 4.24 replaced by (c) -- neither verified here
-     line by line. On it, Theorem 9.16 gives the spectral family of box^Upsilon invertible for Im sigma >= 0, |sigma| >=
-     C_0, between the spaces (9.18), with the bound |sigma|^(-1 + delta_Gamma(Im sigma - eps)) on its inverse (p. 193):
-     [Hin26] Proposition 6.5 in five dimensions, whose uniformity over a compact set of parameters is that of his
-     estimates under small perturbations, part of the reading. Theorem 9.5 gives it Fredholm at bounded sigma != 0, of
-     index 0 (constant in sigma, and 0 by the invertibility at large |sigma|), with kernel elements in A^(3/2 + S-bar -
-     eps) (10.18(b)). For the unmodified box (S-bar = 0) a kernel element is A^(3/2 - eps) at infinity and smooth on X:
-     in the t-family it is e^(i sigma r) times a conormal function, smooth across the horizon -- 10.16's class -- so it
-     vanishes for r > r_h by 10.16, and inside, dr being timelike (c), by uniqueness for the Cauchy problem in r with
-     vanishing data at r_h. Injective of index 0, the spectral family of box is invertible at every sigma != 0, Im
-     sigma >= 0; the Fredholm estimates hold uniformly under small perturbations within the class, so that of
-     box^Upsilon is invertible at Im sigma >= 0, |sigma| >= c_0, for small e, gamma and gamma_H (E^Upsilon vanishing
-     near the trapped set, (6.1)): his Proposition 6.9 in five dimensions.
+ (d) With 10.18, the inputs of [Hin26c] Theorems 9.5 and 9.16 that the operator supplies are in hand in five
+     dimensions: computed -- A_w + S-bar = D S-bar D, nu, beta_0, the spectrum of p_1 at a point, W, the time
+     orientation inside -- or deduced -- vartheta_H+, vartheta_in and its threshold, (Gamma.1)-(Gamma.4); the horizon's
+     radial point structure ((9.24): beta_0 > 0, beta > 0, a quadratic defining function; his p. 165, for a
+     non-degenerate red-shift) and a global t* with dt* past timelike (his Definition 9.3) are those of a
+     non-degenerate static horizon, f'(r_h) > 0 by (iv), stated and not computed here. The reading is (i) that his
+     scalar estimates hold for operators on bundles with the notational modifications he leaves to the reader, and (ii)
+     that his Theorems 9.5 and 9.16 hold restated for n = 4 -- (9.20) and (9.55) with 3/2 for 1 (10.18(b)), his
+     Proposition 4.24 replaced by (c) -- neither verified here line by line (since written out, (ii) as 10.75
+     (lviii)-(lix); D164). On it, Theorem 9.16 gives the spectral family of box^Upsilon invertible for Im sigma >= 0,
+     |sigma| >= C_0, between the spaces (9.18), with the bound |sigma|^(-1 + delta_Gamma(Im sigma - eps)) on its
+     inverse (p. 193): [Hin26] Proposition 6.5 in five dimensions, whose uniformity over a compact set of parameters is
+     that of his estimates under small perturbations, part of the reading. Theorem 9.5 gives it Fredholm at bounded
+     sigma != 0, of index 0 (constant in sigma, and 0 by the invertibility at large |sigma|), with kernel elements in
+     A^(3/2 + S-bar - eps) (10.18(b)). For the unmodified box (S-bar = 0) a kernel element is A^(3/2 - eps) at infinity
+     and smooth on X: in the t-family it is e^(i sigma r) times a conormal function, smooth across the horizon --
+     10.16's class -- so it vanishes for r > r_h by 10.16, and inside, dr being timelike (c), by uniqueness for the
+     Cauchy problem in r with vanishing data at r_h. Injective of index 0, the spectral family of box is invertible at
+     every sigma != 0, Im sigma >= 0; the Fredholm estimates hold uniformly under small perturbations within the class,
+     so that of box^Upsilon is invertible at Im sigma >= 0, |sigma| >= c_0, for small e, gamma and gamma_H (E^Upsilon
+     vanishing near the trapped set, (6.1)): his Proposition 6.9 in five dimensions.
 
 *READ.* [Hin26c] (alphaXiv, 2026-10-22): pp. 81 (Definition 4.5), 98 (Proposition 4.24), 100 ((5.2)), 104-105
 (Definition 5.11, Lemma 5.12), 157-159 (Notation 9.2, Definitions 9.3-9.4 and the sentence after, (9.4)-(9.6)), 161, 163
@@ -6830,7 +6831,8 @@ ASCII):
      10.17-10.18 supply in five dimensions; sections 9.3.1-9.3.5 were not checked line by line at n = 4. Definition 5.18
      and Theorems 10.1 and 11.1 at n = 4 are 10.42's reading, unchanged here.
 
-B1 and B2 are discharged at source but for Theorem 9.16's proof at n = 4, which (e) leaves as a reading. Labels: READ
+B1 and B2 are discharged at source but for Theorem 9.16's proof at n = 4, which (e) leaves as a reading (written out as
+10.75 (lix); D164). Labels: READ
 (1)-(5); deduced (a)-(e); nothing computed or proved here.
 
 ### 10.54 Every small h, not one point: B5 and B6 (`uniform5.py` H1-H2; D124)
@@ -8219,9 +8221,9 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 55 name the places where the dimension changes the proof, 179 places in all, and 6 name
-none: the step is the source proof as it stands. The 186 placements of the five-dimensional values are: 68 at a computed
-check, 91 at an earlier section where they are computed or deduced, 26 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 56 name the places where the dimension changes the proof, 187 places in all, and 5 name
+none: the step is the source proof as it stands. The 194 placements of the five-dimensional values are: 68 at a computed
+check, 97 at an earlier section where they are computed or deduced, 28 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
 R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 41 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
@@ -8247,7 +8249,9 @@ resting on readings, as (xlix)-(l) found. D162 (the sixty-fourth verifier) narro
 and the boost and named S^(0)_1's source order beside it, marked 10.15 (b) and 10.49 (a) as resting on readings, as
 their items (iv) and (xxv) say, and counts a whole section's citation as citing its census rows. D163's (10.75
 (lvi)-(lvii)) named eleven more places, for 10.67 (a)-(b), and corrected their two census-era places: his values for
-'?', Lemma 7.12 for 'Lemmas 7.12-7.21', and the extension across r = m (p. 148) for 'near K+'.
+'?', Lemma 7.12 for 'Lemmas 7.12-7.21', and the extension across r = m (p. 148) for 'near K+'. D164's (10.75
+(lviii)-(lix)) named eight more places, for 10.19 (d) and 10.53 (e), the latter's first, and gave 10.19 (d)'s '?' his
+A^(1 - eps); both keep a reading, the scalar-to-bundle step.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8264,17 +8268,17 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Fifty-seven modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D161, D163)
+### 10.75 Fifty-nine modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D161, D163-D164)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. All but twelve below are those whose source
+step so written out rests on its inputs, not on a census of its source. All but fourteen below are those whose source
 proofs are at most about seven pages and are already matched step by step in the sections named, or short enough to
 match here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
-arXiv:2408.06715v1 for (xxvii)). The twelve carry longer runs of proof, matched step by step the same way:
-(xxxvii)-(xxxix) [Hin26] Theorems 12.3 and 12.8 (fifteen pages), (xlix)-(lv) his section 11 (pp. 231-295), and
-(lvi)-(lvii) [Hin26c] sections 7-8 (pp. 114-157).
+arXiv:2408.06715v1 for (xxvii)). The fourteen carry longer runs of proof, matched step by step the same way:
+(xxxvii)-(xxxix) [Hin26] Theorems 12.3 and 12.8 (fifteen pages), (xlix)-(lv) his section 11 (pp. 231-295), (lvi)-(lvii)
+[Hin26c] sections 7-8 (pp. 114-157), and (lviii)-(lix) its sections 9.2-9.3 (pp. 161-193).
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
      Fredholm of index 0 on [Hin26c] (9.18)'s spaces, by Proposition 8.3 (10.26) and [Hin26c] Theorem 9.5 (10.19, 10.53,
@@ -9099,22 +9103,72 @@ arXiv:2408.06715v1 for (xxvii)). The twelve carry longer runs of proof, matched 
      N_0^6 (E4), Lemma 2.11's commutator identities being free of n; and Theorem 8.14 combines these with (lvi)'s
      Proposition 7.11. It rests on no reading: its inputs are (lvi)'s, E1-E4, 10.19 (c) and 10.58 (a).
 
-So fifty-seven of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Thirty-seven of the fifty-seven take a reading among their inputs (B-MAP.tsv's
-column `reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b),
-10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b),
-10.42 (e), 10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.49 (a), 10.55 (b), 10.56 (b),
-10.61 (b), 10.61 (c), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the census through that input, not
-through their own steps (the sixty-first verifier; D149). Where an item cites a row still on the census as an input, by
-name or by citing its whole section (the sixty-fourth verifier; (i) cites 10.19 (d), 10.22 (e), 10.53 (e); (iii) cites
-10.19 (d); (iv) cites 10.19 (d), 10.53 (e); (xv) cites 10.53 (e); (xvii) cites 10.19 (d); (xviii) cites 10.19 (d), 10.53
-(e); (xx) cites 10.19 (d); (xxv) cites 10.22 (e); (xl) cites 10.58 (c); (xlv) cites 10.22 (e); (xlvii) cites 10.19 (d);
-(xlviii) cites 10.19 (d), 10.53 (e); (xlix) cites 10.58 (c)), it rests on the census through that row in the same way.
-Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it. The other 4 carry proofs of
-several pages each, in [Hin26c] sections 5, 9-11 and 13, and [Hin26a] section 5; writing those out is what remains of
-8.8.
+ (lviii) 10.19 (d), [Hin26c] Theorem 9.5 (pp. 161-174) and Theorem 9.16 (pp. 174-175) at n = 4 (D164). Theorem 9.5's
+     proof (section 9.2.3): parts (1)-(2) concatenate Propositions 9.9 (the horizon), 9.10 (R_sigma,in) and 9.11 (R_out)
+     with real principal type propagation, then a standard energy estimate ([Hin25a] Corollary 9.38) down to r = m.
+     Proposition 9.9's positive commutator ((9.26)-(9.29)) uses (9.24)'s structure -- beta_0 = rho_inf^-1 (rho_inf H_G)
+     rho_inf > 0, beta > 0, and q with rho_inf H_G q >= c q -- the bracket being 2 beta_0 times s - 1/2 - beta_0^-1
+     p_1(0) - beta_0^-1 (p_1(sigma) - p_1(0)), with p_1(sigma) - p_1(0) = -(Im sigma)(rho_inf H_G0 t) from (9.30).
+     Proposition 9.11's ((9.46)-(9.52)): q = xi_sc^2 + |eta_sc|^2 with H q <= -2q (9.48), Re P-hat_0(0) a sum of squares
+     to leading order (9.49), rho^-1 H rho = -2 at R_out and the bracket -4r - 2 + 4 Re S > 0, that is r < -1/2 + S-bar,
+     the Im sigma term (9.52) of the main term's sign, and (9.44) by induction on k with Lemma 9.13's commuted equation,
+     whose extra term -2 k i sigma rho has that sign too. Part (4) is (9.53) away from R_out and (9.44) at it. Part (6)
+     is (9.56)-(9.57) with the weak-limit continuity argument ([Vas13] section 2.7). Parts (3) and (5) are (xlviii)'s,
+     Proposition 9.10 is (xlvii)'s, and Theorem 9.16 is (lix)'s. At n = 4 (10.19 (d)): (9.24) is the five-dimensional
+     horizon's -- beta_0 = f'(r_h) = 2/r_h in (7.11)'s normalization and q Lemma 4.9's with T*S^3 (10.18; (lvi)), beta_1
+     = vartheta_H+ (10.18 (a)) -- so Proposition 9.9's threshold s_0 > 1/2 - beta Im sigma + beta_1 is (9.16a).
+     Proposition 9.11 is written for Definition 9.4's operator, with eta_sc in T*S^3 and S^3's Laplacian in (9.49), and
+     its threshold -1/2 + S-bar, on the Euclidean density, is 10.18 (b)'s. Lemma 9.13 is printed for fields spanning
+     V(S^(n-1)). (9.56) reads 2 i sigma rho(rho d_rho - 3/2 - S) - i sigma Q + 2 sigma^2 g_00, still in rho Diff^1_b
+     (10.18 (b)), so (9.57) stands. The energy estimate needs dr timelike inside r_h (10.19 (c)), and the dynamics
+     ordering the concatenation are 10.19 (c)'s. The kernel class at S-bar = 0 is A^(3/2 - eps) for his A^(1 - eps)
+     ((xlviii)). It rests on the reading that his scalar estimates hold for operators on bundles (his p. 158; 10.53
+     (d)), and on the uniformity of these estimates under small perturbations of the operator, which 10.19 (d) uses for
+     [Hin26] Propositions 6.5 and 6.9: his Remark 7.2 states it for section 7, by the openness of each symbolic
+     positivity, and it is taken here for section 9.
 
-Labels: READ (the fifty-seven source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+ (lix) 10.53 (e), [Hin26c] section 9.3, Theorem 9.16's proof (pp. 174-193; D164). His proof (section 9.3.6) concatenates
+     real principal type propagation in three regimes of z -- Propositions 9.19 (|Im z| = O(h), standard), 9.22 (h << Im
+     z << 1) and 9.23 (Im z >~ 1), positive commutators in which h^-1 Im P_h,z = -h^-1 Im(z) Q~_1,z,h (Lemma 9.21,
+     (9.68)) has the main term's sign, Q_1,h's symbol 2 g^-1(-(Re z) dt + xi, dt) being positive on the future
+     characteristic set (Lemma 9.20) -- with Proposition 9.25 at the horizon, Proposition 9.9's computation localized
+     also at fiber infinity, (9.72) borrowing positivity from Q~_1,z,h when Im z/h is large; Propositions 9.26 and 9.27
+     at R_(+-1,in) and R_out, Propositions 9.10's and 9.11's computations with the cutoff psi_d's terms -b_d^2 and e_d^2
+     (rho^-1 H rho = 2 at R_in, -2 at R_out), Q_1,h's symbol 4 > 0 at R_in, g^00 <= 0, and (9.77) from Lemma 9.13's
+     commuted equation; Theorem 9.28 at the trapped set under (Gamma.1)-(Gamma.4) -- the lossless estimate for Im(h^-1
+     z) > gamma_+ by a commutator in phi_u, phi_s with Q_1,h's lower bound 2 beta_0 ((9.84b)), the estimate with loss 1
+     by semiclassical defect measures (Lemmas 9.30-9.32 and Steps 1-4, after [Dya16]), and the loss delta_Gamma by
+     complex absorption Q_3, Lemma 9.33's three-line interpolation and [HV16] Theorem 4.7's conversion ((9.99)-(9.101));
+     and Proposition 9.35's energy estimate near r = m, X = grad r with dr future timelike on [r_-, r_+] and the
+     K-current bound (9.106) for large Im z/h. Proposition 4.24's dynamics, through section 9.1.2, order the
+     concatenation. Part (3) follows from (9.59)'s injectivity, part (4) from Remark 9.14 away from R_out and (9.77) at
+     it, and part (5) from (9.60) through (9.56)-(9.57). At n = 4 (10.53 (e)): sections 9.3.1, 9.3.4 and 9.3.5 are
+     written for a general stationary wave operator on R_t x X (Definition 9.3, X n-dimensional), and Lemmas 9.20-9.21
+     and 9.30-9.33 and Propositions 9.19, 9.22, 9.23 and 9.35 are dimension-free as printed, Q_3's kernel normalization
+     (2 pi)^(-n-1) included. Section 9.3.3 is written for Definition 9.4's operator, with (9.73)'s (n - 1)/2; its
+     covectors eta_sc,h in T*S^2 are in T*S^3, and its radial sets, rho^-1 H rho = +-2 and Q_1,h's 4 are Minkowski's in
+     (t, r) (10.58 (a)). Proposition 9.25's beta, beta_1 and q are the five-dimensional horizon's (10.18: f'(r_h) =
+     2/r_h, vartheta_H+); Propositions 9.26 and 9.27 carry (xlvii)'s vartheta_in = -2 S-bar and 10.18 (b)'s -1/2 +
+     S-bar; Theorem 9.28's hypotheses (Gamma.1)-(Gamma.4) and its loss are 10.19 (b)'s, gamma_+ = (2 eta)^(1/2)/4 and
+     delta_Gamma(0) = (mu eta)^(1/2); Proposition 9.35's hypothesis is dr future timelike inside r_h on Tangherlini
+     (10.19 (c)); and Proposition 4.24's role is taken by 10.19 (c)'s classification. 10.53 (e)'s second sentence,
+     Definition 5.18 and Theorems 10.1 and 11.1 at n = 4, is 10.58 (c)'s, still on the census. It rests on the reading
+     that his scalar estimates hold for operators on bundles (10.53 (d)), his section 9 leaving that step to the reader.
+
+So fifty-nine of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Thirty-nine of the fifty-nine take a reading among their inputs (B-MAP.tsv's
+column `reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.19 (d), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d),
+10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e),
+10.41 (b), 10.42 (e), 10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.49 (a), 10.53 (e),
+10.55 (b), 10.56 (b), 10.61 (b), 10.61 (c), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the census through
+that input, not through their own steps (the sixty-first verifier; D149). Where an item cites a row still on the census
+as an input, by name or by citing its whole section (the sixty-fourth verifier; (i) cites 10.22 (e); (xxv) cites 10.22
+(e); (xl) cites 10.58 (c); (xlv) cites 10.22 (e); (xlix) cites 10.58 (c); (lix) cites 10.58 (c)), it rests on the census
+through that row in the same way. Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it.
+The other 2 carry proofs of several pages each, in [Hin26c] sections 5, 10-11 and 13, and [Hin26a] section 5; writing
+those out is what remains of 8.8.
+
+Labels: READ (the fifty-nine source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)
