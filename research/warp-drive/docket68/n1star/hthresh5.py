@@ -52,7 +52,8 @@ Kerr's area-radius factor, r^2 at a = 0; e is e_C, not Euler's number.)
      10^-6: below -C_0 in each.  Control: h = 10^-3.
   T7 (computed, numerical, mpmath at 30 digits; D177, D179) The dependence on the inner product: at e' = 10, B' still
      positive definite, 1/2 + vartheta_H+ = +790.428..., and bisection on [3, 10] puts the crossing of -C_0 at e' =
-     7.7638634... (the sixty-ninth verifier's finding).  Control: the crossing claimed in (7, 7.5).
+     7.7638634... (the sixty-ninth verifier's finding).  Control: e' = 3 claimed above -C_0, and the crossing claimed
+     in (7, 7.5).
 """
 import sys
 import time
@@ -365,8 +366,9 @@ def t7(control=0, verbose=False):
     import mpmath as mp
     chk = Checklist(verbose, quiet=control != 0)
     thr = _other_inner(H)
-    b0, val, im = thr(sp.Integer(10))
-    chk(f"e' = 10: B positive definite ({mp.nstr(b0, 4)}), 1/2 + vartheta_H+ = {mp.nstr(val, 9)} > -C_0",
+    ep = sp.Integer(3) if control else sp.Integer(10)
+    b0, val, im = thr(ep)
+    chk(f"e' = {ep}: B positive definite ({mp.nstr(b0, 4)}), 1/2 + vartheta_H+ = {mp.nstr(val, 9)} > -C_0",
         bool(b0 > 0 and im < mp.mpf(10)**-20 and val > -C0))
     lo, hi = sp.Integer(3), sp.Integer(10)
     for _ in range(30):

@@ -4496,13 +4496,13 @@ counts 34 rows on a reading. The fibre inner product: the threshold is not inner
 finds 1/2 + vartheta_H+ = +790.43 at e' = 10 and the crossing of -100 at e' = 7.764, B' positive definite throughout --
 so 10.79 states the existential reading on Proposition 7.4 alone, Lemma 5.12 cited for the like choice at
 vartheta_dK+,out, and drops 'any one'. 10.81 no longer calls [Hin23d] the source of every class [Hin26c] uses (Psi~_3b
-comes from the scaled bounded geometry paper, p. 46, not fetched) and names the numerals (d) places; Theorem 2.9 is p.
-27. READINGS.tsv keeps 10.41 (b) with '-' as it keeps the four D169 rows. The paper's `hthresh5.py` bullet reads 6/6. A
-wrapped LOG line from D163 that began with a list marker is rewrapped.
+comes from the scaled bounded geometry paper, p. 46, not fetched) and names the numerals (d) places; Theorem 2.9 is
+p. 27. READINGS.tsv keeps 10.41 (b) with '-' as it keeps the four D169 rows. The paper's `hthresh5.py` bullet reads
+6/6. A wrapped LOG line from D163 that began with a list marker is rewrapped.
 
 **D178 (2026-10-25): RP settled.** 10.83, deduced: the six rows that took 10.35 (b)'s second reading use of the zero
 energy pole only Hintz's structure -- L~'_b(sigma)^-1 uniformly bounded with sigma d_sigma-regularity (Proposition 10.7,
-written out at n = 4 in (xviii)) and the augmentation's explicit columns with sigma^-1 and sigma^-2 -- and at n = 4 those
+written out at n = 4 in (xvii)) and the augmentation's explicit columns with sigma^-1 and sigma^-2 -- and at n = 4 those
 columns carry no logarithm, the naive entries being of degree -3 inside the target space (10.39). Remark 10.8's sigma log
 |sigma| terms do not arise at n = 4; S^(0),(2,0)_0 removes an absent term. RP leaves six rows. Thirty-four rows take a
 reading and rest on RB and RU alone; none of the record's own roots remains. Logarithms inside the augmented inverse at n
@@ -4514,6 +4514,21 @@ returned without the borderline; it now integrates just above and below a = q - 
 inner product dependence, unexercised by T6's control, is T7 with its own (7/7, mutants 7/7). `iotasol5.py`: J1's d_t*^2
 check is exact, J4 compares the incoming exponent with c - S, J2 checks the ranges of (9.5) and (9.21) and names its n =
 4 values as the record's (5/5, mutants 5/5). 10.82: READ from p. 164; (e) names E^C_I,sharp's 2 as 10.59 (c)'s reading.
-The marker guard now also refuses a wrapped line that begins with a number and a full stop, and four such lines are
-rewrapped. The paper's `hthresh5.py` bullet states that the threshold holds in the inner product fixed, and its section
-8.8 that Hintz's own theorem rests on RB and RU too.
+The marker guard now also refuses a wrapped line that begins with a number and a full stop, and one such line, with four
+that began with + or -, is rewrapped. The paper's `hthresh5.py` bullet states that the threshold holds in the inner
+product fixed, and its section 8.8 that Hintz's own theorem rests on RB and RU too.
+
+**D180 (2026-10-25): the seventy-first verifier seated.** On D178-D179: no majors; eight minors, every page claim
+checked at source where the record holds the page (p. 211's (10.37)-(10.38a) and "used only in section 11.8", p. 212's
+(10.41)). 10.83 (a) said section 11 uses two things of the pole; it uses three -- the uniform bound, the explicit
+columns, and the coefficients' structure at zf, a value at 0 plus a remainder of positive order, through L~(0)^-1 on
+Taylor coefficients, Lemmas 11.21 and 11.33, [Hin26c] Proposition 13.18 and (10.40), all written out at n = 4 in
+(xlix), (l), (liii) and (liv) -- and sections 11.3-11.7 invert (10.26)'s L~, not (10.41)'s L~'. 10.83 (c)'s Jensen
+clause was wrong: a 1/log |sigma| coefficient does not fit that structure; what excludes it is Proposition 10.6, Lemma
+11.21 and Proposition 13.18 at n = 4, now the argument. Proposition 10.7's write-out is (xvii), 10.39 (e); D178 and the
+earlier 10.80 (c) and B-MAP 10.39 (e) said (xviii), corrected in place there and in ROUTES 4.101 and LOG D178. 10.83
+(d): 10.43 (c) reaches RP through 10.46 (b). D179's marker count was wrong -- one line with a number and a full stop,
+four with + or - -- corrected in place; the four numbered lines left (PROOF section 10.21, ROUTES 4.99 and 4.101, LOG
+D177) are rewrapped. `iotasol5.py` J2 drops a conjunct true by construction ((9.21)'s end is computed, not checked);
+`hthresh5.py` T7's control now moves the e' = 10 check to e' = 3 as well. The paper says what the rows use of the pole,
+not its form. No row of READINGS.tsv changes.

@@ -2279,12 +2279,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 
 ### 4.99 RI written out at n = 4 (computed, deduced; D176)
 
-- 10.82 and `iotasol5.py` J1-J5 (5/5, mutants 5/5): [Hin26] section 9 read at source (pp. 165-199) and written out at n =
-  4. The dimension enters through c = (n - 1)/2 (the thresholds at v = 0, at I+ and at tf's outgoing end, l_scf < 3/2),
-  the five-dimensional roots and eps_ind (10.24, 10.35, 10.52; t2 and t3 join the expansions), the I+ index sets (10.44)
-  and the states (10.28-10.30, 10.34). The index 0 half of Proposition 9.2 is written out through [Hin26c] section 10.1.2
-  at n = 4 ((lx)), Proposition 8.6 and Corollary 9.39 at n = 4. RI leaves its twelve rows; 10.47 (d)-(e) now rest on RB.
-  Thirty-four rows take a reading. Three roots remain: RB and RU, the source's kind; RP, a computation. OPEN: RP.
+- 10.82 and `iotasol5.py` J1-J5 (5/5, mutants 5/5): [Hin26] section 9 read at source (pp. 165-199) and written out at n
+  = 4. The dimension enters through c = (n - 1)/2 (the thresholds at v = 0, at I+ and at tf's outgoing end, l_scf <
+  3/2), the five-dimensional roots and eps_ind (10.24, 10.35, 10.52; t2 and t3 join the expansions), the I+ index sets
+  (10.44) and the states (10.28-10.30, 10.34). The index 0 half of Proposition 9.2 is written out through [Hin26c]
+  section 10.1.2 at n = 4 ((lx)), Proposition 8.6 and Corollary 9.39 at n = 4. RI leaves its twelve rows; 10.47 (d)-(e)
+  now rest on RB. Thirty-four rows take a reading. Three roots remain: RB and RU, the source's kind; RP, a computation.
+  OPEN: RP.
 
 ### 4.100 The sixty-ninth verifier seated (D177)
 
@@ -2297,11 +2298,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 ### 4.101 RP settled (deduced; D178)
 
 - 10.83: what the six rows use of the zero energy pole is Hintz's structure -- the augmented inverse uniformly bounded
-  near 0 (Proposition 10.7, at n = 4 by (xviii)) and the augmentation's explicit sigma^-1 and sigma^-2 columns, which at
-  n = 4 carry no logarithm (10.39) -- not a Laurent expansion; Remark 10.8's sigma log |sigma| terms do not arise at n =
-  4. RP leaves its six rows. Thirty-four rows take a reading; they rest on RB and RU alone, the source's own steps at
-  every n. None of the record's roots is open. Not used and not settled: logarithms inside the augmented inverse at n = 4
-  (the five-dimensional tails).
+  near 0 (Proposition 10.7, at n = 4 by (xvii)) and the augmentation's explicit sigma^-1 and sigma^-2 columns, which at n
+  = 4 carry no logarithm (10.39) -- not a Laurent expansion; Remark 10.8's sigma log |sigma| terms do not arise at n = 4.
+  RP leaves its six rows. Thirty-four rows take a reading; they rest on RB and RU alone, the source's own steps at every
+  n. None of the record's roots is open. Not used and not settled: logarithms inside the augmented inverse at n = 4 (the
+  five-dimensional tails).
 
 ### 4.102 The seventieth verifier seated (D179)
 
@@ -2310,5 +2311,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   side of the borderline; `hthresh5.py` splits T6 so that the inner product dependence is T7, with its own control (7/7,
   mutants 7/7); `iotasol5.py`'s J1 excludes a d_t*^2 term exactly, J4 checks the incoming exponent c - S, J2 the ranges
   of (9.5) and (9.21); 10.82's READ list from p. 164; 10.82 (e) names the exponent 2 as 10.59 (c)'s reading, on which
-  nothing depends; four wrapped lines that began with a number and a full stop rewrapped; the paper's `hthresh5.py`
-  bullet states the dependence.
+  nothing depends; one wrapped line that began with a number and a full stop, and four that began with + or -, rewrapped;
+  the paper's `hthresh5.py` bullet states the dependence.
+
+### 4.103 The seventy-first verifier seated (D180)
+
+- On D178-D179: no majors; 10.83's conclusion holds, three parts of its argument corrected. 10.83 (a): his sections
+  11.3-11.7 invert (10.26)'s L~, section 11.8 alone (10.41)'s L~'; section 11 also uses the coefficients' structure at
+  zf (a value at 0 and a remainder of positive order: L~(0)^-1, Lemmas 11.21 and 11.33, [Hin26c] Proposition 13.18,
+  (10.40)), all written out at n = 4 in (xlix), (l), (liii), (liv); Proposition 9.30's log r-hat term is RI's. 10.83
+  (c): a Jensen term would not fit that structure, and the record's chain at n = 4 excludes it (Proposition 10.6,
+  Lemma 11.21, Proposition 13.18). Proposition 10.7 is written out in (xvii), not (xviii) (10.83, 10.80 (c), B-MAP,
+  4.101, LOG D178). 10.83 (d)'s routes; p. 211. Four wrapped lines with a numbered marker rewrapped. `iotasol5.py` J2's
+  conjunct true by construction dropped; `hthresh5.py` T7's control now changes the e' = 10 check too. The paper's
+  pole wording narrowed. No row of READINGS.tsv changes.

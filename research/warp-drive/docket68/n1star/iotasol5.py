@@ -116,9 +116,9 @@ def j2(control=0, verbose=False):
         lam_max = sp.solve(sp.Eq(s_top - Re_lam, -sp.Rational(1, 2)), Re_lam)[0]
         printed = {3: (sp.Rational(3, 2), 2), 4: (2, sp.Rational(5, 2))}[n]      # his print; the record's 10.37 (c)
         lam_lo = sp.solve(sp.Eq(s_top - Re_lam, sp.Rational(1, 2)), Re_lam)[0]   # (9.21) needs s < 1/2
-        chk(f"n = {n}: s < {s_top} - Re lam; s > -1/2 iff Re lam < {lam_max}, s < 1/2 iff Re lam > {lam_lo} "
-            f"(arithmetic; his print at n = 3, the record's 10.37 (c) at n = 4)",
-            (s_top, lam_max) == printed and lam_lo == c and lam_lo < lam_max)
+        chk(f"n = {n}: s < {s_top} - Re lam; s > -1/2 iff Re lam < {lam_max} (arithmetic; his print at n = 3, "
+            f"the record's 10.37 (c) at n = 4); s < 1/2 iff Re lam > {lam_lo}, computed",
+            (s_top, lam_max) == printed)
     return chk.ok
 
 

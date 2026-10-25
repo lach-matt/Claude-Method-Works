@@ -2977,8 +2977,8 @@ not certified as one of his construction: that also asks e below the bounds of h
 side, which 10.14 meets on Tangherlini at this e, and h below the h_0(e) of his Theorem 5.2, which his proof does not
 make explicit (the twenty-third verifier, D56). Which strip the five-dimensional argument needs: [Hin26] p. 29 asks for
 no root in [-C_0, 1) because a root lam of box^C gives the root lam - 1 of the linearized gauge-fixed operator (the
-order of decay gained under delta*), and that operator's large roots are those below its indicial gap, which begins at
-0. The shift does not depend on the dimension, so the strip needed in five dimensions is his literal [-C_0, 1), provided
+order of decay gained under delta*), and that operator's large roots are those below its indicial gap, which begins at 0.
+The shift does not depend on the dimension, so the strip needed in five dimensions is his literal [-C_0, 1), provided
 the five-dimensional operator's gap also begins at 0 -- not computed here; 10.24 computes that it does, at this point.
 Both strips are clear at the point: [-100, 19/10] with nine tenths to spare, and [-100, 2] but for the Coulomb root. Not
 done, and OPEN (10.21 deduces (1)-(2) from [Hin26a] Theorem 5.2): [Hin26] Theorem 7.1's other parts on five-dimensional
@@ -9603,7 +9603,7 @@ n = 4.
      equivalence with |sigma|^(3/2 - alpha) and (9.118); then (9.122)'s memberships, absorption for small |sigma|, for k
      > 0 the b-regular estimates and Theorem 9.5 (4) ((lix)), and (9.120) as (9.23). At n = 4: (3.46)'s factor, printed
      |sigma|^(3/2 - alpha), is |sigma|^(-n/2 - alpha) = |sigma|^(-2 - alpha) by r^3 |dr| = |sigma|^-4 r^^3 |dr^| (R3)
-     -- the print reverses the sign of n/2, as its density line does ((xviii); the sixty-ninth verifier), harmless, the
+     -- the print reverses the sign of n/2, as its density line does ((xvii); the sixty-ninth verifier), harmless, the
      factor standing on both sides of the chain -- so tf-admissibility with weight alpha + 2 and the window alpha in
      (-2 + beta_-, -2 + beta_+); (9.122): |sigma|^2 N_tf(P_0, e^(i theta)) is (9.4)'s leading part at every n (R4), and
      the remainder rho^2 (P^(0)(rho, .) - P^(0)(0, .)) + 2i sigma rho (S(0, omega) - S(rho, omega)) - i sigma Q + g00
@@ -9804,25 +9804,30 @@ since written out.
 
 *READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24 and 2026-10-25; printed pages): pp. 201-203 ((10.5)-(10.9b),
 "these entries only have r^-2 decay", the tf order 2 "(borderline) unacceptable", Lemma 10.3 with (10.13)'s t*^-1
-h^(0)_b,s0 and log t* terms), 208-209 (Propositions 10.6 and 10.7), 212 ((10.38a)-(10.41) and Remark 10.8: "The
-logarithmic terms at zf ... are sigma (log |sigma|) h^(0)_b,s0(sigma) and -sigma (log |sigma|) h^(<=1)_b,s1(S^(-1)_1) ...
-corresponding to the t*^-1- and log t*-terms in (10.13)", and of (10.41)'s L~'_b(sigma) "the conclusions of Proposition
-10.7 apply to it"), 291 (the proof of Theorem 11.59, Step 4.5: "we apply the true (augmented) resolvent L~'_b(sigma)^-1,
-which upon multiplication by sigma^3 produces elements of H^(oo, 1-eps, 3+eps_ind-eps, 3+eps_K)_b ... as well as the
-singular contribution" (11.224)).
+h^(0)_b,s0 and log t* terms), 208-209 (Propositions 10.6 and 10.7), 211-212 ((10.38a)-(10.41), with p. 211's "The
+following material will be used only in section 11.8 below", and Remark 10.8: "The logarithmic terms at zf ... are sigma
+(log |sigma|) h^(0)_b,s0(sigma) and -sigma (log |sigma|) h^(<=1)_b,s1(S^(-1)_1) ... corresponding to the t*^-1- and log
+t*-terms in (10.13)", and of (10.41)'s L~'_b(sigma) "the conclusions of Proposition 10.7 apply to it"), 291 (the proof of
+Theorem 11.59, Step 4.5: "we apply the true (augmented) resolvent L~'_b(sigma)^-1, which upon multiplication by sigma^3
+produces elements of H^(oo, 1-eps, 3+eps_ind-eps, 3+eps_K)_b ... as well as the singular contribution" (11.224)).
 
 *Deduced.*
 
- (a) (what the rows use) Hintz never expands L-hat_b(sigma)^-1 at 0. He inverts the augmented operator L~'_b(sigma) of
-     (10.41) -- the spectral family with columns L-hat_b(sigma) g-dot^Ups,sing_b(sigma) and L-hat_b(sigma)
-     h^(<=1),sing_b,s1(sigma), which carry sigma^-1 and sigma^-2 times the states, and rows pairing with the dual states
-     -- and every step of his section 11 uses two things only: that L~'_b(sigma)^-1 is bounded near sigma = 0, uniformly
-     and with sigma d_sigma-regularity, on its weighted spaces (Proposition 10.7; p. 291's Step 4.5), and the explicit
-     form of the columns, whose coefficients are components of L~'_b(sigma)^-1 applied to the source -- conormal
-     functions of sigma, which his Lemmas 11.18-11.19 integrate in t* ((xlix)). 'A pole of order 2' is that structure:
-     sigma^-2 the highest power the columns carry. A logarithm could enter it in two places: in the columns, explicitly,
-     as Remark 10.8's sigma (log |sigma|) terms at n = 3; or inside L~'_b(sigma)^-1's bounded components, which no step
-     of his expands.
+ (a) (what the rows use) Hintz never expands L-hat_b(sigma)^-1 at 0. He inverts augmented operators: (10.26)'s
+     L~_b(sigma) in sections 11.3-11.7 ((10.47); pp. 240, 251) and, in section 11.8 alone (p. 211), (10.41)'s
+     L~'_b(sigma) -- the spectral family with columns L-hat_b(sigma) g-dot^Ups,sing_b(sigma) and L-hat_b(sigma)
+     h^(<=1),sing_b,s1(sigma), which carry sigma^-1 and sigma^-2 times the states, and rows pairing with the dual states.
+     What his section 11 uses of the pole is three things: the augmented inverses bounded near sigma = 0, uniformly and
+     with sigma d_sigma-regularity, on their weighted spaces (Proposition 10.7; p. 291's Step 4.5); the explicit form of
+     the columns, whose coefficients are components of the inverse applied to the source; and, for his Lemmas 11.18-11.19
+     to integrate those coefficients in t*, their structure at zf -- a value at sigma = 0, L~(0)^-1 applied to the
+     source's Taylor coefficients ((11.68); Steps 2.A.7, 4.4 and 4.5), and a remainder of positive order, by Lemmas 11.21
+     and 11.33 through Lemma 10.5, [Hin26c] Proposition 13.18 and the partial polyhomogeneity of (10.40) (pp. 240, 251,
+     287). All are named and written out at n = 4 in (xlix), (l), (liii) and (liv) (the seventy-first verifier). 'A pole
+     of order 2' is that structure: sigma^-2 the highest power the columns carry. A logarithm could enter it in two
+     places: in the columns, explicitly, as Remark 10.8's sigma (log |sigma|) terms at n = 3; or inside the inverses'
+     bounded components, which no step of his expands. (Proposition 9.30's log r-hat term at iota+, p. 290's Step 4.2
+     (2), belongs to the iota+ solution theory, RI, written out in 10.82.)
  (b) (the columns at n = 4) At n = 3 the columns' logarithms come from Lemma 10.3's improved states, which he needs
      because the naive entries [L_b, t*] g-dot and their kin decay like r^-2, the tf order 2 that is borderline
      unacceptable -- the n = 3 form of the borderline 10.35 (b) names. At n = 4 the gauged mass state needs no logarithm
@@ -9833,23 +9838,29 @@ singular contribution" (11.224)).
      the boosts vanish (10.45 (a)), with no logarithm in the columns.
  (c) (the augmented inverse at n = 4) L~'_b(0) is invertible at n = 4 -- Proposition 10.6 on 10.32's pairings, the chain
      ended by Proposition 10.29 (iii)'s (3 pi^2/2) mu (q . c) (10.39 (e), 10.43 (d)) -- and Proposition 10.7's uniform
-     bounds hold at n = 4 as (xviii) writes them out (10.40 (a)), on (lix), (xx) and 10.80's [Hin26c] Theorem 9.41. So
-     the structure (a) asks for holds at n = 4. Whether L~'_b(sigma)^-1's bounded components carry logarithms of their
-     own -- as the free resolvent of R^4 has sigma^2 log sigma, the source of the five-dimensional tails -- is a finer
-     question his proofs never ask, at n = 3 or at n = 4: those components enter only through the uniform conormal
-     bounds, which hold whatever they contain, and a (sigma^2 log sigma)^-1 behaviour of L-hat_b(sigma)^-1 would be
-     sigma^-2 times a bounded conormal coefficient, inside (a)'s structure too.
+     bounds hold at n = 4 as (xvii) writes them out (10.39 (e)), on Proposition 10.6, [Hin26c] Corollary 9.39 (written
+     out in 10.80) and Theorem 9.5 (4). So the structure (a) asks for holds at n = 4. Whether L~'_b(sigma)^-1's bounded
+     components carry logarithms of their own -- as the free resolvent of R^4 has sigma^2 log sigma, the source of the
+     five-dimensional tails -- is a finer question his proofs never ask, at n = 3 or at n = 4: those components enter
+     through the uniform conormal bounds and the structure at zf of (a), which hold whatever lower-order logarithms they
+     contain. A (sigma^2 log sigma)^-1 behaviour of the inverse would not fit that structure: a coefficient 1/log |sigma|
+     has no value at 0 and no remainder of positive order, and its transform is t*/log t* times a state, not t*
+     h_s1(S-dot) and lower order ((11.71), (11.75), Lemma 11.19's (11.57), p. 251, (11.133) with footnote 118; READ by
+     the seventy-first verifier). None arises: L~(0) is invertible (Proposition 10.6, (vii)) and L~(sigma) - L~(0) lies
+     in rho_tf^2 rho_zf Diff^1 (Lemma 11.21, from (10.31); (xvii)), so L~(sigma)^-1 - L~(0)^-1 = L~(sigma)^-1 (L~(0) -
+     L~(sigma)) L~(0)^-1 gains a power of rho_zf, and [Hin26c] Proposition 13.18 at n = 4 ((lx)) places the result in the
+     class Lemma 11.19 integrates.
  (d) (the six rows) (l)'s second order pole is (a)-(c)'s, at n = 4 as his. (liv)-(lv)'s question has its answer in (b):
      Remark 10.8's sigma log |sigma| terms do not arise at n = 4, so his S^(0),(2,0)_0, kept in the class's lists,
-     removes a term that is absent -- a branch the rows' proofs had covered either way. 10.43 (c), 10.62 (b) and (d)
-     reach RP only through (l) and (lv).
+     removes a term that is absent -- a branch the rows' proofs had covered either way. 10.43 (c) ((li)) reaches RP
+     through 10.46 (b) ((liv)), 10.62 (b) through 10.61's (l) and (lv), and 10.62 (d) through 10.62 (b).
 
 *What this gives, and what it does not.* RP is settled by deduction and leaves its six rows, each of which keeps RB and
-RU. Thirty-four rows take a reading, and they rest on two statements only, RB and RU: steps the source leaves to the
-reader -- bundles in place of scalars, and the uniformity of the estimates under small perturbations -- the same at every
-n. None of the record's own roots remains. Not settled, and not used: whether L~'_b(sigma)^-1 itself carries logarithms
-at n = 4 (the five-dimensional tails); a Laurent expansion of L-hat_b(sigma)^-1 at 0. Labels: deduced ((a)-(d)); READ
-(the pages named); nothing computed or proved here.
+RU. Thirty-four rows take a reading, and they rest on two statements only, RB and RU: a step the source leaves to the
+reader, bundles in place of scalars, and one it asserts without proof, the uniformity of the estimates under small
+perturbations (10.84) -- the same at every n. None of the record's own roots remains. Not settled, and not used: whether
+L~'_b(sigma)^-1 itself carries logarithms at n = 4 (the five-dimensional tails); a Laurent expansion of L-hat_b(sigma)^-1
+at 0. Labels: deduced ((a)-(d)); READ (the pages named); nothing computed or proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

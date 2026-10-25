@@ -1068,11 +1068,11 @@ most about seven pages (two replaced by a computation), sixteen on longer runs o
 though thirty-four take a reading among those inputs, a statement at n = 4 whose proof is not written out; traced to
 their roots, they rest on two statements, steps the source leaves to the reader at every n, on which his own theorem in
 3 + 1 dimensions rests too; the record's own five are settled, the damped operator's threshold at the horizon by
-computation and the zero energy pole's form by deduction, two groups of companion results are written out at n = 4 and
-one is READ for general n (supplement sections 10.75 and 10.77–10.83, `READINGS.tsv`, `hthresh5.py`, `tfnorm5.py`,
-`iotasol5.py`, with a lemma at the horizon proved in section 10.76). λ1 and δ exist by the deduction — from Hintz's
-smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A line-by-line check
-of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
+computation and what the rows use of the zero energy pole by deduction, two groups of companion results are written out
+at n = 4 and one is READ for general n (supplement sections 10.75 and 10.77–10.83, `READINGS.tsv`, `hthresh5.py`,
+`tfnorm5.py`, `iotasol5.py`, with a lemma at the horizon proved in section 10.76). λ1 and δ exist by the deduction — from
+Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A line-by-line
+check of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
 
 ---
 
@@ -1959,8 +1959,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `eccd60d92d27830f5521958eea8d22e7` |
-| `docket68/n1star/N1STAR-LOG.md` | `de74e688455c2454dfc503fed150cdbb` |
+| `docket68/n1star/N1STAR-PROOF.md` | `27e242d44db1e333fdd6f12d94ea48b4` |
+| `docket68/n1star/N1STAR-LOG.md` | `0d5af40766ea8b6bb7c6532438af656a` |
 | `docket68/n1star/README.md` | `38c4e43297691e562d52b488a37220b9` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2028,11 +2028,11 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/iplusnorm5.py` | `1f7fb424e6bb7109eecbc9b75ec0b682` |
-| `docket68/n1star/hthresh5.py` | `a8be4288bcf45f22f205ccb181bd79c2` |
+| `docket68/n1star/hthresh5.py` | `b0f97fa92ecc40c8ec7c2fed07917e6a` |
 | `docket68/n1star/tfnorm5.py` | `7a80137c05c54689832006a42c989c22` |
-| `docket68/n1star/iotasol5.py` | `fc0e33fe521a97627fd601c4ecb1e655` |
+| `docket68/n1star/iotasol5.py` | `0c4e3d12602b5be59311c90bd4fc0a5b` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
 | `docket68/n1star/READINGS.tsv` | `d064884d56ed99d8bccc9f5725592b10` |
-| `docket68/n1star/B-MAP.tsv` | `cdc276d252ffd022273be84e4edc6696` |
+| `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.
