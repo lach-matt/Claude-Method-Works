@@ -2399,3 +2399,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   semiclassical calculus proved in its section 2; nine findings, among them the threshold gamma_- (F4) and the assumption
   gamma_- < 0 that Theorem 9.16 (1) needs at real frequencies (F5).
 - Next: the seventy-sixth verifier on Part I.B and on the two D187 repairs of Part I.A; then Part I.C.
+
+### 4.112 The seventy-sixth verifier seated on Part I.B; Part I.A proved (D189)
+
+- Part I.A: the seventy-sixth verifier confirmed both D187 repairs; Part I.A is proved.
+- Part I.B: one major finding (Proposition 7.2's regularity step, closed by Corollary 4.6') and nine minor ones, all
+  seated in place; (F10) added, the range of [Hin26c] Theorem 9.28 (2).
+- Next: Part I.C; its verifier also reads the D189 repairs of Part I.B.

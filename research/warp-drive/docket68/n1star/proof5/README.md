@@ -15,8 +15,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 
 | Part | Source | Content | Status |
 |---|---|---|---|
-| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | seated (D187) |
-| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | written (D188) |
+| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D189) |
+| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | seated (D189) |
 | I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf-normal operators (9.38), low energy (9.41), 9.39, 9.43 | to do |
 | II | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
@@ -48,6 +48,9 @@ now by weak lower semicontinuity of the norm on a bounded sequence; and Step 1 u
 bounded, now avoided by splitting $\check A_\epsilon P w_t$ into three terms each bounded directly. Six nits were seated
 with them. Part I.A is labelled proved once the next reader, who reads Part I.B, has checked these two repairs.
 
+The seventy-sixth verifier, reading Part I.B, checked both repairs and confirmed them (D189). Part I.A is **proved**:
+written, read line by line, every finding seated and every repair read.
+
 ## Part I.B
 
 `PART-I-B-HIGHENERGY.md`. [Hin26c] Theorem 9.16 at n = 4, for operators on a trivial bundle of any rank and uniformly in
@@ -60,4 +63,13 @@ at the artificial boundary for every $\mathrm{Im}\,z\ge0$ (section 7). Section 8
 lists what the write-out found: three slips of the pen in [Hin26c] section 9.3, the diagonal sign of (9.45) again in
 (9.77), and a threshold: [Hin26c]'s $\gamma_-$ divides by the least value of $q$ on the trapped set, which justifies the
 interpolation only when $q$ is constant there, so Part I.B defines $\gamma_\pm$ as the exact thresholds the proof uses
-and assumes $\gamma_-<0$, which Theorem 9.16 (1) needs at real frequencies. Not yet read by a verifier.
+and assumes $\gamma_-<0$, which Theorem 9.16 (1) needs at real frequencies.
+
+The seventy-sixth verifier read Part I.B line by line (D189). It found the architecture sound and every computation it
+recomputed correct, and confirmed (F1)-(F9). One major finding: the regularity step at the artificial boundary
+(Proposition 7.2) left an error term on a larger set than the left side controls, at the same regularity, and used $W\in
+H^s$ before proving it; now $W\in H^s$ at each $h$ by uniqueness, and the new Corollary 4.6$'$ lowers all orders in the
+iteration, so the error term is $\|W\|_{L^2}$. Nine minor ones, among them (H8), stated with the local trapped sets,
+which no flow satisfies, now with the global ones and a no-return clause that keeps the chain of section 8.2 acyclic; and
+the auxiliary absorption of Theorem 6.8, whose sign was wrong for $z_0 = -1$. All are seated, with (F10), a range in
+[Hin26c] Theorem 9.28 (2). Its repairs are read with Part I.C.

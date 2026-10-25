@@ -1,13 +1,14 @@
 # Part I.A. The spectral family at bounded nonzero frequencies, at n = 4, on bundles
 
-*Status.* Written out in full (D185). Read line by line by the seventy-fourth verifier, whose two major and seven minor
-findings and nits are seated (D186); the seventy-fifth confirmed those repairs and found two minor gaps and six nits, now
-seated (D187). The two D187 repairs, both in Remark 3.3's variant, are read with Part I.B; until then nothing here is
-labelled proved. This part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e)
-and 10.86 (a)-(e), which re-ran [Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard steps. Here
-those steps are proved, from the calculus statements listed in section 2, each READ at source in a text that states it
-for every dimension. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The calculus is
-that of [HJS] = A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1.
+*Status.* **Proved** (D189). Written out in full (D185). Read line by line by the seventy-fourth verifier, whose two
+major and seven minor findings and nits are seated (D186); the seventy-fifth confirmed those repairs and found two minor
+gaps and six nits, seated (D187); the seventy-sixth, reading Part I.B, confirmed both D187 repairs (D189). Every finding
+is seated and its repair read. This part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md`
+10.84 (a)-(e) and 10.86 (a)-(e), which re-ran [Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard
+steps. Here those steps are proved, from the calculus statements listed in section 2, each READ at source in a text that
+states it for every dimension. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The
+calculus is that of [HJS] = A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*,
+arXiv:2604.18956v1.
 
 *What is proved here.* Theorem 7.2: [Hin26c] Theorem 9.5 at n = 4, for operators on a trivial bundle of any rank, with
 two changes forced by n = 4 and one forced by a sign slip in the source, for a constant regularity order (Remark 1.1).

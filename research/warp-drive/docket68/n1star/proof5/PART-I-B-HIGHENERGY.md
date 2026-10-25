@@ -1,8 +1,9 @@
 # Part I.B. The spectral family at high frequencies, at n = 4, on bundles
 
-*Status.* Written out in full (D188). Not yet read by an independent verifier; nothing here is labelled proved. This
-part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 and 10.86 that re-ran
-[Hin26c] section 9.3 on bundles at proof level. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1. Part I.A is
+*Status.* Written out in full (D188). Read line by line by the seventy-sixth verifier, whose one major and nine minor
+findings and nits are seated in place (D189); nothing here is labelled proved until the repairs are read. This part
+replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 and 10.86 that re-ran [Hin26c]
+section 9.3 on bundles at proof level. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1. Part I.A is
 `PART-I-SPECTRAL.md`; its sections are cited as I.A section 4.5, I.A Theorem 7.2, and so on.
 
 *What is proved here.* Theorem 1.3: [Hin26c] Theorem 9.16 at $n = 4$, for operators on a trivial bundle of any rank,
@@ -139,18 +140,31 @@ section 6 works with $z_0p_1$ and $z_0q$ throughout. For $z_0 = 1$, scalar opera
 (1.4) is [Hin26c] (9.79)-(9.81); in general $\gamma_\pm$ are the exact thresholds that the proof uses, and $\gamma_-<0$
 is what Theorem 1.3 (1) needs at $\mathrm{Im}\,z = 0$ (section 10, (F4)-(F5)).
 
-(H8) (*Global dynamics, [Hin26c] section 9.1.2.*) For $z_0\in\{1,-1\}$ and every maximal integral curve $\gamma$ of the
-future field in $\Sigma_{z_0}\cap T^*\{r>r_0-2\delta_0\}$ (finite covectors): if $\gamma\not\subset\Gamma_u$, then
-$\gamma(t)$ tends, as $t\to-\infty$, to $\partial\mathcal R_+\cup\partial\mathcal R_-$ (at fibre infinity) or to
-$R_{z_0,\mathrm{in}}$ (over $\partial X$); and if $\gamma\not\subset\Gamma_s$, then as $t$ increases $\gamma$ either
+(H8) (*Global dynamics, [Hin26c] section 9.1.2.*) For $z_0\in\{1,-1\}$ let $\bar\Gamma_u$ (resp. $\bar\Gamma_s$) be the
+set of points of $\Sigma_{z_0}$ whose maximal integral curve of the future field tends to $\Gamma$ as $t\to-\infty$
+(resp. $t\to+\infty$): the *global* backward and forward trapped sets. They are invariant under the flow, so a maximal
+curve lies in $\bar\Gamma_{u/s}$ or does not meet it. (a) For every maximal integral curve $\gamma$ of the future field
+in $\Sigma_{z_0}\cap T^*\{r>r_0-2\delta_0\}$ (finite covectors): if $\gamma\not\subset\bar\Gamma_u$, then $\gamma(t)$
+tends, as $t\to-\infty$, to $\partial\mathcal R_+\cup\partial\mathcal R_-$ (at fibre infinity) or to
+$R_{z_0,\mathrm{in}}$ (over $\partial X$); and if $\gamma\not\subset\bar\Gamma_s$, then as $t$ increases $\gamma$ either
 tends to $R_{\mathrm{out}}$ or reaches $\{r<r_0-\delta_0\}$ in finite time. Here "tends to" is in $\mathcal P$, and the
-convergence is uniform on compact sets of initial points away from $\Gamma_u$ (resp. $\Gamma_s$). Together with (H4) at
-fibre infinity and I.A Lemma 4.5 over $\partial X$, this describes the flow on the whole characteristic set.
+convergence is uniform on compact sets of initial points away from $\bar\Gamma_u$ (resp. $\bar\Gamma_s$). (b) (*No
+return.*) After shrinking $O$, $\bar\Gamma_u\cap O = \Gamma_u$ and $\bar\Gamma_s\cap O = \Gamma_s$: a curve that leaves
+$O$ does not come back to tend to $\Gamma$. (b) is what makes the chain of section 8.2 acyclic; Part VI checks it with
+the rest. Together with (H4) at fibre infinity and I.A Lemma 4.5 over $\partial X$, (a) describes the flow on the whole
+characteristic set. (D189: an earlier version stated (a) with the local sets $\Gamma_{u/s}$; a point of
+$\Gamma_u\setminus\Gamma$ leaves $O$ forward, so its curve is not contained in $\Gamma_u$, and that version would force
+it to tend backward to the radial sets, against (D2). The seventy-sixth verifier's m1.)
 
 (H5) is extended to (H6)-(H8): $g$, $\Gamma$, $\phi_{u/s}$, $\nu_{u/s}$ and $h_\Gamma$ may depend continuously on the
 parameter $b\in\mathcal B$ (into $C^\infty$), with $\nu_{\min}$, $\beta_0$, $\gamma_\pm$ and the convergence in (H8)
 uniform. For the record's operators these hypotheses are checked in Part VI from the record's computed items (10.19,
 10.36, 10.60); they are not checked here.
+
+*Notation.* $h$ is the semiclassical parameter; as an index ($^{*h}$, $\mathrm{Re}_h$, $\mathrm{Im}_h$, $h_\Gamma$) it
+denotes a fibre inner product, as in Part I.A. $\lambda$ is $\mathrm{Im}\,z/h$, except in Proposition 7.1, where it is
+the exponent of the weight $e^{\lambda r}$. $\mathsf H_{z_0} = z_0H_{G_{z_0}}$ in (H7) is the future field; the field
+$\mathsf H_z$ of (4.1) is a positive multiple of $H_{G_z}$, and the future field is $\varsigma\mathsf H_z$ (Remark 1.4).
 
 ### 1.6 The spaces and the theorem
 
@@ -192,15 +206,16 @@ $$\|u\|_{(s;k),\mathsf r+\alpha_+,\mathsf b;+}\le Ch^{-1-\delta_\Gamma(\mathrm{I
 \|P_{h,z}u\|_{(s-1;k),\mathsf r+\alpha_++1,\mathsf b;+}.\tag{1.7}$$
 
 (5) (*Regularity in the spectral parameter.*) For $\sigma$ as in (3) and $j,k\in\mathbb N_0$, $\epsilon>0$, the inverse
-$\hat P(\sigma)^{-1}$ is $j$ times differentiable along $\sigma\partial_\sigma$, and with $h := |\sigma|^{-1}$ and
-$\delta := \delta_\Gamma(\mathrm{Im}\,\sigma-\epsilon)$,
+$\hat P(\sigma)^{-1}$ is $j$ times differentiable along $\sigma\partial_\sigma$, and with $h$ as in (3) ($h :=
+|\mathrm{Re}\,\sigma|^{-1}$ if $\mathrm{Im}\,\sigma<\nu'|\sigma|$, $h := |\sigma|^{-1}$ otherwise; D189) and $\delta :=
+\delta_\Gamma(\mathrm{Im}\,\sigma-\epsilon)$,
 
 $$\|(\sigma\partial_\sigma)^j\hat P(\sigma)^{-1}f\|_{(s+j;k),\mathsf r+\alpha_+,\mathsf b;+}\le
 C|\sigma|^{-1+(j+1)\delta}
 \|f\|_{(s-1;k+j),\mathsf r+\alpha_++1,\mathsf b;+}.\tag{1.8}$$
 
-This is [Hin26c] Theorem 9.16 with $n = 4$; the two changes from the source are that the regularity order is constant
-and that the hypotheses are stated for the spectral family on $E$. For $\mathrm{Im}(z/h)$ large, $\delta_\Gamma = 0$.
+This is [Hin26c] Theorem 9.16 with $n = 4$, with the changes of statement listed in section 10 (F8) and the hypotheses
+stated for the spectral family on $E$. For $\mathrm{Im}(z/h)$ large, $\delta_\Gamma = 0$.
 
 *Remark 1.4.* In (1), $h^{-2}$ is the case $k = 0$ of (1.7) with $\delta_\Gamma\le1$; we prove (4) and the adjoint half
 of (1), and (1)-(2) follow. Both signs of $z_0$ are treated together: estimates for $P$ propagate along $\varsigma\mathsf
@@ -263,11 +278,11 @@ $a^{-1}$ are sums of products $a^{-1}(\partial^{\gamma_1}a)a^{-1}\cdots(\partial
 For $a\in S^{\mathbf o}$ and $u\in\mathcal S(\mathbb R^n;\mathbb C^N)$,
 
 $$\mathrm{Op}_h(a)u(x) := (2\pi h)^{-n}\int\!\!\int e^{i(x-x')\cdot\zeta/h}a_h(x,\zeta)u(x')\,dx'\,d\zeta = (2\pi h)^{-n}
-\int e^{iz\cdot\zeta/h}a_h(x,\zeta)\,\mathcal F_hu(\zeta)\,d\zeta,$$
+\int e^{ix\cdot\zeta/h}a_h(x,\zeta)\,\mathcal F_hu(\zeta)\,d\zeta,$$
 
-with $\mathcal F_hu(\zeta) := \int e^{-iz'\cdot\zeta/h}u(x')\,dx'$, Schwartz. $\Psi^{\mathbf o} :=
-\mathrm{Op}_h(S^{\mathbf o})$. $\mathrm{Op}_h(a)$ maps $\mathcal S$ to itself: $x^\gamma e^{iz\cdot\zeta/h} =
-(-ih\partial_\zeta)^\gamma e^{iz\cdot\zeta/h}$, and integrating by parts gives
+with $\mathcal F_hu(\zeta) := \int e^{-ix'\cdot\zeta/h}u(x')\,dx'$, Schwartz. $\Psi^{\mathbf o} :=
+\mathrm{Op}_h(S^{\mathbf o})$. $\mathrm{Op}_h(a)$ maps $\mathcal S$ to itself: $x^\gamma e^{ix\cdot\zeta/h} =
+(-ih\partial_\zeta)^\gamma e^{ix\cdot\zeta/h}$, and integrating by parts gives
 $|x^\gamma\partial_x^\kappa\mathrm{Op}_h(a)u(x)|\le C_{\gamma\kappa}\langle x\rangle^{\sup\mathsf
 r+|\kappa|}L_h(x,0)^\mu$ for some $\mu$ and every $\gamma$.
 
@@ -337,7 +352,7 @@ or $\langle\zeta\rangle^{-1}$ up to a factor $L_h\langle w\rangle\langle\eta\ran
 $k$. So $R_K\in S^{\mathbf o_++\mathbf o'_+-K\mathbf 1+\epsilon\mathbf 1}$ for every $\epsilon>0$, the factor $h^K$
 being the gain in the semiclassical order.
 
-*Variable orders.* Let $\omega$ be the sum over the three components of $\sup(\mathbf o+\mathbf o')-\inf(\mathbf
+*Variable orders.* Let $\omega$ be the sum over the three components of $\sup\mathbf o+\sup\mathbf o'- \inf(\mathbf
 o+\mathbf o')$. For $K\ge2\omega+2$, $\mathbf o_++\mathbf o'_+-K\mathbf 1+\epsilon\mathbf 1\le\mathbf o+\mathbf o'-\frac
 K2\mathbf 1$ pointwise, so $R_K\in S^{\mathbf o+\mathbf o'-\frac K2\mathbf 1}$ by Lemma 2.2 (c). The terms with
 $|\alpha|<K$ lie in $S^{\mathbf o+\mathbf o'-|\alpha|\mathbf 1+\epsilon\mathbf 1}$ by Lemma 2.2 (b), (d). Applying this
@@ -363,11 +378,11 @@ o'
 
 with $\{a,b\} := \sum_j(\partial_{\zeta_j}a\,\partial_{x_j}b-\partial_{\zeta_j}b\,\partial_{x_j}a)$ (products in the
 written order). If $a = p\,\mathrm{Id}$ is scalar, the symbol is $H_pb$, $H_p := \partial_\zeta p\cdot\partial_x-
-\partial_zp\cdot\partial_\zeta$. If $a$ is scalar only modulo $S^{\mathbf o-\mathbf 1}$, the left side of (2.5) is still
-in $\Psi^{\mathbf o+\mathbf o'-(1,1,0)+\epsilon\mathbf 1}$. (iii) If $\mathrm{Op}_h(a)$ is self-adjoint, then
-$a-a^*\in S^{\mathbf o-\mathbf 1+\epsilon\mathbf 1}$. (iv) If $a$ vanishes on an open set $U$, then $a\#b$ and $b\#a$,
-restricted to any open $U'$ with $\overline{U'}\subset U$, obey the bounds of $S^{-K\mathbf 1}$ for every $K$: every term
-of (2.4) vanishes there, and the remainder lies in $S^{\mathbf o+\mathbf o'-\frac K2\mathbf 1}$ for every $K$.
+\partial_xp\cdot\partial_\zeta$. If $a$ is scalar only modulo $S^{\mathbf o-\mathbf 1}$, the left side of (2.5) is still
+in $\Psi^{\mathbf o+\mathbf o'-(1,1,0)+\epsilon\mathbf 1}$. (iii) If $\mathrm{Op}_h(a)$ is self-adjoint, then $a-a^*\in
+S^{\mathbf o-\mathbf 1+\epsilon\mathbf 1}$. (iv) If $a$ vanishes on an open set $U$, then $a\#b$ and $b\#a$, restricted
+to any open $U'$ with $\overline{U'}\subset U$, obey the bounds of $S^{-K\mathbf 1}$ for every $K$: every term of (2.4)
+vanishes there, and the remainder lies in $S^{\mathbf o+\mathbf o'-\frac K2\mathbf 1}$ for every $K$.
 
 *Fibre inner products.* For a fibre inner product $h = \langle H\cdot,\cdot\rangle$ ($H$ smooth on the compactification,
 so $H^{\pm1/2}\in S^0$), $u\mapsto H^{1/2}u$ is unitary from $L^2_h$ to $L^2$, and $A\mapsto H^{1/2}AH^{-1/2}$ preserves
@@ -896,6 +911,21 @@ bounded term of the class of $\mathcal P_1$, provided $\varsigma\theta = 1$: the
 $-2h^{-1}\check AW^{*h}W\check A$ plus a double commutator in $h\Psi$, a term $-F$ with $\langle Fw,w\rangle\ge0$
 exactly, as in Lemma 5.1 (B), and the second is part of $\beta$. Both are used in section 6 only.
 
+**Corollary 4.6$'$ (all orders lowered; D189).** In the setting of Corollary 4.6, for every $J\in\mathbb N$ the estimate
+(4.5) holds with $h^N\|Gu\|_{\mathbf o}$ replaced by $\|Gu\|_{\mathbf o-\frac J4\mathbf 1}$.
+
+*Proof.* In the proof of Lemma 3.4 apply Lemma 3.3 at the orders $\mathbf o-\frac{J-j}4\mathbf 1$, $j = 1,\dots,J$, in
+place of $\mathbf o-(0,0,\frac{J-j}4)$. This needs a decomposition (3.3) at each of these orders, with the same sets: in
+Proposition 4.5 the order enters the commutant only through the constant $\beta$ of its Step 1, which $M$ absorbs, so the
+commutants exist at every order, on sets that do not depend on it. The error term of Lemma 3.3 at the $j$-th step,
+$\|G_{j-1}u\|_{\mathbf o-\frac{J-j+1}4\mathbf 1}$, is the left side of the step before, and after $J$ steps what is left
+is $\|Gu\|_{\mathbf o-\frac J4\mathbf 1}$; the terms $h^{-1}\|GPu\|$ and $\|E'u\|$ at lowered orders are bounded by those
+at $\mathbf o$. The chaining along the segment is that of Corollary 4.6. $\square$
+
+For $\mathbf o = (s,0,0)$, $s\ge0$, $J\ge4s$ and $G$ microsupported over a compact subset of $\tilde X^\circ$,
+$\|Gu\|_{\mathbf o-\frac J4\mathbf 1}\le C\|u\|_{L^2}$: the regularity order is at most 0, the decay order is immaterial
+over a compact set, and the semiclassical weight is $h^{J/4}\le1$.
+
 The admissibility of section 1.4 is used through (4.4): it requires the monotonicity on a *neighbourhood* $U_0$ of the
 curves along which we propagate (for $\mathsf r$, a neighbourhood within the face over $\partial X$), not only on the
 characteristic set. A logarithmic weight $\log\frac1h$ multiplies $\mathsf H\mathsf b$, so a positive value of $\mathsf
@@ -1013,10 +1043,11 @@ no $F_i$, $E$ from $e_1,e_2$, with $E^{*h}E$ read as the sum), we get $\varsigma
 with $R\in\Psi^{2\mathbf o-\frac12\mathbf 1}$, since all principal symbols agree. $\check A = ZB+Y$ with $Z :=
 \mathrm{Op}_h(w_{\mathbf k-\mathbf o}\tilde\chi Q_0^{-1/2})$, and $B$ is elliptic on $\{\varphi_\delta\ne0\}\supset
 K_{\delta/2}$. The sets $\mathrm{supp}\,e_i$ lie in $\{\varrho\ge\delta_1\}\cup\{\phi\ge\delta_2\}$, closed and disjoint
-from $\Lambda$. Lemma 3.3 applies, and Lemma 3.4 with $U_j := K_{4^{-j}\delta}^\circ$ (the hypothesis being used only for
-these sets, as in Proposition 4.5) gives (5.3) with $U_* := K^\circ_{4^{-J}\delta}$ and $K_E := \bar
-U_0\cap\bigcup_j\mathrm{supp}(e_1+e_2)$ at the $j$-th step. Uniformity in $z\in Z'$ holds because every symbol above, and
-every lower bound used, is uniform. $\square$
+from $\Lambda$. Lemma 3.3 applies, and Lemma 3.4 with $U_j := K^\circ_{2\cdot4^{-j}\delta}$ and, at the $j$-th step, the
+commutant above with $\delta$ replaced by $4^{1-j}\delta$, supported in $K_{4^{1-j}\delta}\subset U_{j-1}$ with $B$
+elliptic on $K_{4^{1-j}\delta/2}\supset\bar U_j$ (the hypothesis being used only for these sets, as in Proposition 4.5),
+gives (5.3) with $U_* := K^\circ_{2\cdot4^{-J}\delta}$ and $K_E := \bar U_0\cap\bigcup_j\mathrm{supp}(e_1+e_2)$ at the
+$j$-th step. Uniformity in $z\in Z'$ holds because every symbol above, and every lower bound used, is uniform. $\square$
 
 ### 5.2 The horizon
 
@@ -1051,7 +1082,7 @@ $\mathsf H_z\phi(\varpi) = dq_\pm(\pi_*\mathsf H_z(\varpi))$ and $\pi_*\mathsf H
 H_z(\pi\varpi)+O(|\hat G_0(\varpi)|+\rho_\infty(\varpi))$; and $|dq_\pm|\le C\sqrt{q_\pm}$, as $q_\pm\ge0$ is smooth (for
 a non-negative $C^2$ function, $|\nabla f|^2\le2f\sup|\nabla^2f|$). With $\pm\mathsf H q_\pm\ge c\,q_\pm$ on
 $\partial\Sigma_0$ (H3),
-$$\varsigma\mathsf H_z\phi\ \gtrless\ \pm\epsilon_\flat\big(c\,\rho^{-1}\phi-C(|g|+\rho_\infty)\sqrt\phi\big),$$
+$$\varsigma\mathsf H_z\phi\ \gtrless\ \epsilon_\flat\big(c\,\rho^{-1}\phi-C(|g|+\rho_\infty)\sqrt\phi\big),$$
 and $C|g|\sqrt\phi\le\frac c4\rho^{-1}\phi+C'g^2$, $C\rho_\infty\sqrt\phi\le C'\rho_\infty$ on $U_0$; this is (5.1),
 source for $\epsilon_\flat = 1$, sink for $\epsilon_\flat = -1$. (iv) holds by assumption. For (v): $\mu^{-1}p_1 =
 \rho^{-1}\rho_\infty p_1$ and, at fibre infinity, $\rho_\infty p_1(z) = \rho_\infty\sigma_1(\mathrm{Im}_h\hat P(0))$, the
@@ -1159,7 +1190,7 @@ $\{\rho<\rho_1\}$, and the identity (5.7) used only near the base projection of 
 \mathrm{Re}(z^{-1})$, and (I.A (4.11)) $\rho^{-1}\mathsf V_{\tilde g}\rho = -2(1+\kappa\xi)$, $\mathsf V_{\tilde
 g}(\xi^2+|\eta|^2) = -4|\eta|^2$, $\mathsf V_{\tilde g}\tilde g = 0$; $\mathsf V_{\tilde g}$ vanishes at
 $R_{\mathrm{out}}$ as a vector field on $\mathcal P$. So $\beta_\varrho = -2\epsilon_\flat$ at $R_{\mathrm{out}}$, and
-$\le-\epsilon_\flat$ near it: a sink for $P$, a source for $P^{*h}$.
+$\epsilon_\flat\beta_\varrho\le-1$ near it: a sink for $P$, a source for $P^{*h}$.
 
 For (iii), $g := \tilde g$ and $\phi := \xi^2+|\eta|^2$, extended in a collar.
 $|\rho_\infty^2z^{-1}G_z|\ge|\mathrm{Re}(z^{-1}\hat G_z)|\ge|\tilde g|-C\rho$. On $\{\phi\le\kappa^{-2}\}$, $2\xi =
@@ -1281,8 +1312,8 @@ $\Gamma(\delta_0)$ in finite backward time; (D2) if $\gamma(0)\in\Gamma^\natural
 $\Gamma(\delta_0)$ backward in time it stays in $\Gamma^\natural_u$, $|\phi^\natural_s|$ decreases exponentially, and
 $\gamma(t)\to\Gamma$ as $t\to-\infty$ (the $\omega$-limit points lie in $\Gamma^\natural_u\cap\Gamma^\natural_s =
 \Gamma$); (D3) if $\gamma(0)\in\Gamma^\natural_u\setminus\Gamma$, then $\gamma$ leaves $\Gamma(\delta_0)$ in finite
-forward time. Combined with (H8): every backward $V$-curve from a point of $\Sigma_{z_0}$ near $\Gamma$ not on
-$\Gamma^\natural_u$ leaves $\Gamma(\delta_0)$ and is then a curve of (H8), which tends to the radial sets.
+forward time. Combined with (H8) (a)-(b): a point of $\Sigma_{z_0}$ near $\Gamma$ not on $\Gamma^\natural_u$ is not on
+the corresponding global set, so its backward $V$-curve leaves $\Gamma(\delta_0)$ and tends to the radial sets.
 
 ### 6.2 The lossless estimate
 
@@ -1321,9 +1352,13 @@ A+R,\qquad R\in h^{\frac12}\Psi^0,$$
 where $\varsigma\epsilon_\flat\mathcal Q = z_0\mathcal Q$ has principal symbol $q^\natural\ge\beta_0$ on
 $\mathrm{supp}\,\check a$; since $0\le\lambda-\gamma\le3h^{-1}$, the paragraph *Positivity of absorbing terms* of section
 3.3 makes $2(\lambda-\gamma)\check Az_0\mathcal Q\check A$ a term $F$ of Lemma 3.3, with the double commutator in $R$.
-Lemma 3.3 and Lemma 3.4, with $\Lambda := \Gamma$ and the sets $\Gamma(\sqrt{2/M})$ for an increasing sequence of $M$
-(and $M_\Sigma := CM$), give (6.4) with $E$ elliptic on the union of the sets $\mathrm{supp}\,e_u$, which lie in
-$\{(\phi^\natural_u)^2\ge M_0^{-1}\cdot\frac12\}$ and so avoid $\Gamma^\natural_u$. $\square$
+Lemma 3.3 and Lemma 3.4, with $\Lambda := \Gamma$ and the sets $\Gamma(\sqrt{2/M})$ for an increasing sequence of $M$ in
+$[M_0,2M_0]$ (and $M_\Sigma := CM$), give (6.4) with $E$ elliptic on the union of the sets $\mathrm{supp}\,e_u$, which
+lie in
+$\{(\phi^\natural_u)^2\ge M_0^{-1}\cdot\frac12\}$ (as $M\le2M_0$) and so avoid $\Gamma^\natural_u$. Here $\nu'$
+was chosen depending on $M$, hence on $U$; for $\nu'(U)\le\mathrm{Im}\,z\le\nu'$, $\nu'$ the constant of section 6.1,
+$\mathbf P'$ is elliptic near $\Gamma$ (Lemma 1.1 (d)) and Proposition 4.2 gives (6.4) with the same operators, so the
+$\nu'$ of the statement does not depend on $U$ (D189, the seventy-sixth verifier's m7). $\square$
 
 ### 6.3 Defect measures with values in matrices
 
@@ -1338,21 +1373,24 @@ principal symbol $b\in C_c^\infty(U;\mathrm{End}\,\mathbb C^N)$. Write $\nu := \
 M\,d\nu$ with $M\ge0$, $\mathrm{tr}\,M = 1$, $\nu$-a.e., and for every Hermitian continuous $p$,
 $\mathrm{tr}(p\,d\mu)\le\lambda_{\max}(p)\,d\nu$.
 
-*Proof.* (a) For $B$ as stated, $|\langle Bu,u\rangle|\le C_b+o(1)$ with $C_b := 2\sup|b\,g^{-1}|\cdot\sup\|Gu\|^2$: as
-in [Hin26c] (9.87), $B = QG+R$ with $Q$ of principal symbol $bg^{-1}$ (Proposition 2.10's construction) and $R\in
-h^\infty\Psi^{-\infty}$ near $\mathrm{WF}'_h(B)$, and $\|Q^*w\|\le(2\sup|q|)\|w\|+Ch^{\frac12}\|w\|_{-N}$ for $w$
-microlocalised near $U$, by the square root construction: $4\sup|q|^2\mathrm{Id}-q^*q = s^*s$ with $s$ smooth (a positive
-definite square root, as $4\sup|q|^2-q^*q\ge3\sup|q|^2$), so $4\sup|q|^2-QQ^*$ is a square plus $h\Psi^0$. (b) The value
-depends only on $b$: two such $B$ with the same $b$ differ by $h\Psi^0$ plus residual terms, whose pairings tend to 0 by
-(a). (c) A diagonal argument over a countable dense subset of $C_c^\infty(U;\mathrm{End}\,\mathbb C^N)$ (dense in $C_c$
-in the supremum norm on each compact set) gives a subsequence along which $L(b) := \lim\langle\mathrm{Op}_h(b)u,u\rangle$
-exists for all $b$ in that set, and by (a) $L$ extends to a linear functional on $C_c(U;\mathrm{End}\,\mathbb C^N)$,
-continuous for the supremum norm on each compact set. By the Riesz representation theorem applied to each matrix entry,
-$L(b) = \int\mathrm{tr}(b\,d\mu)$ for a matrix of complex Radon measures. (d) Positivity: let $b\ge0$ with
-$\mathrm{supp}\,b\subset K\Subset U$, and $j\in C_c^\infty(U)$ scalar equal to 1 on $K$. For $\epsilon>0$, $b+\epsilon
-j^2\mathrm{Id}$ is positive definite on $K$ and equal to $\epsilon j^2\mathrm{Id}$ off $K$, so it is
-$q_\epsilon^*q_\epsilon$ with $q_\epsilon\in C_c^\infty(U)$ (on $K$ the positive square root; off $K$, $\sqrt\epsilon
-j$); then $\mathrm{Op}_h(b)+\epsilon\mathrm{Op}_h(j)^*\mathrm{Op}_h(j) =
+*Proof.* (a) For $B$ as stated, $\limsup|\langle Bu,u\rangle|\le C_b := \sup|b|\cdot\sup_{\bar U}|g|^{-2}\cdot
+\sup\|Gu\|^2$, where the $G$ of the definition is taken scalar with principal symbol $g$, $|g|\ge c>0$ on $\bar U$. As in
+[Hin26c] (9.87)-(9.88), $B = G^*QG+R$ with $Q\in\Psi^0$ of principal symbol $q := b|g|^{-2}\in C_c^\infty(U)$
+(Proposition 2.10's construction), so that $R\in h\Psi^0$ is microsupported in $\mathrm{Ell}_h(G)$ up to a term in
+$h^\infty\Psi^{-\infty}$; then $R = G^*R'G+R''$ with $R'\in h\Psi^0$ and $R''$ residual. By Theorem 2.7, $|\langle
+QGu,Gu\rangle|\le(\sup|q|+\epsilon+Ch^{1/4})\|Gu\|^2$ for every $\epsilon>0$, and $|\langle Ru,u\rangle|\le
+Ch\sup\|Gu\|^2+C_Nh^N\|u\|^2_{-N_0} = o(1)$ by temperedness. (D189: an earlier version bounded $\|Q^*u\|$ by estimates
+for microlocalised functions, which do not apply to $u$, and lacked the factor $|g|^{-2}$; the seventy-sixth verifier's
+m5.) (b) The value depends only on $b$: two such $B$ with the same $b$ differ by $h\Psi^0$ plus residual terms, whose
+pairings tend to 0 by (a). (c) A diagonal argument over a countable dense subset of $C_c^\infty(U;\mathrm{End}\,\mathbb
+C^N)$ (dense in $C_c$ in the supremum norm on each compact set) gives a subsequence along which $L(b) :=
+\lim\langle\mathrm{Op}_h(b)u,u\rangle$ exists for all $b$ in that set, and by (a) $L$ extends to a linear functional on
+$C_c(U;\mathrm{End}\,\mathbb C^N)$, continuous for the supremum norm on each compact set. By the Riesz representation
+theorem applied to each matrix entry, $L(b) = \int\mathrm{tr}(b\,d\mu)$ for a matrix of complex Radon measures. (d)
+Positivity: let $b\ge0$ with $\mathrm{supp}\,b\subset K\Subset U$, and $j\in C_c^\infty(U)$ scalar equal to 1 on $K$. For
+$\epsilon>0$, $b+\epsilon j^2\mathrm{Id}$ is positive definite on $K$ and equal to $\epsilon j^2\mathrm{Id}$ off $K$, so
+it is $q_\epsilon^*q_\epsilon$ with $q_\epsilon\in C_c^\infty(U)$ (on $K$ the positive square root; off $K$,
+$\sqrt\epsilon j$); then $\mathrm{Op}_h(b)+\epsilon\mathrm{Op}_h(j)^*\mathrm{Op}_h(j) =
 \mathrm{Op}_h(q_\epsilon)^*\mathrm{Op}_h(q_\epsilon)+hR'$, so
 $\liminf\langle\mathrm{Op}_h(b)u,u\rangle\ge-\epsilon\limsup\|\mathrm{Op}_h(j)u\|^2\ge-C\epsilon$. Hence $L(b)\ge0$ for
 $b\ge0$; taking $b = \phi\,vv^*$ with $\phi\ge0$ scalar and $v\in\mathbb C^N$ shows $v^*\mu v\ge0$, so $\mu$ is Hermitian
@@ -1378,8 +1416,8 @@ is $Va+2a(p^\natural-\lambda_jq^\natural)+O((\mathrm{Im}\,z_j)^2)$, which conver
 $Va+2a(p^\natural-\eta q^\natural)$; as $\langle\mathrm{Op}_h(c_j-c)u,u\rangle\to0$ when $c_j\to c$ uniformly (Lemma 6.2
 (a)), $\langle\varsigma Cu,u\rangle\to\int\mathrm{tr}((Va+2a(p^\natural-\eta q^\natural))d\mu)$, and
 $\mathrm{tr}(Va\,d\mu) = Va\,d\nu$ for scalar $a$. The left side is bounded by $\frac2h(\|Y\mathbf
-Pu\|+O(h^\infty))(\|AYu\|+O(h^\infty))$ and $\|AYu\|\le2\sup|a|\,\|Yu\|+Ch^{\frac12}$ by the argument of Lemma 6.2 (a).
-(c) is the same computation with $\mathrm{Im}\,\Phi = 0$. $\square$
+Pu\|+O(h^\infty))(\|AYu\|+O(h^\infty))$ and $\|AYu\|\le(\sup|a|+\epsilon+Ch^{1/4})\|Yu\|$ by Theorem 2.7, with
+$\epsilon\le\sup|a|$. (c) is the same computation with $\mathrm{Im}\,\Phi = 0$. $\square$
 
 ### 6.4 The estimate with loss one
 
@@ -1427,10 +1465,14 @@ right side for $\Phi u$: $h^{-1}\|G_1(\ldots)\| = O(h)$ by (6.7) and $\sup\|G_1u
 C\|E_1'u\|+O(h^\infty)$ with $E'_1$ microsupported off $\Gamma^\natural_u$ near $\mathrm{WF}'_h(E_1)$, and $\|E'_1u\| =
 o(h)$ by Corollary 4.6 as in the localisation; the last term is $O(h^\infty)$. So $\|B_1\Phi u\| = O(h)$.
 
-*Step 2.* Lemma 6.3 (c) with $\Phi$ and $Y := B_1$-elliptic cut-off gives, for real $a\in
+*Step 2.* Fix $\delta_1\in(0,\delta_0)$ with $\Gamma(\delta_1)\subset U_1 = \mathrm{Ell}_h(B)$, possible as $B$ is
+elliptic at $\Gamma$. In Steps 2-4, and in the definition of $\mathsf m$, $\delta_0$ is replaced by $\delta_1$, so that
+every function $a$ below is supported in $U_1$, where $\mu$ lives (D189, the seventy-sixth verifier's m9). Lemma 6.3
+(c) with $\Phi$ and $Y := B_1$-elliptic cut-off gives, for real $a\in
 C_c^\infty(\mathrm{Ell}_h(B_1))$, $|\int H_{\phi^\natural_u}a\,d\nu|\le C_1\sup|a|$, $C_1$ independent of $a$. Take $a :=
 a_0(\phi^\natural_u)a_1(\phi^\natural_s)\psi(G_{z_0})$ with $a_0,\psi\in C_c^\infty((-\delta_0,\delta_0))$ equal to 1
-near 0, $|a_0|,|\psi|\le1$, and $a_1(t) := \theta(t/\delta)\chi_c(t)$, where $\theta$ is smooth, non-decreasing,
+near 0, $0\le a_0,\psi\le1$ (so that $a\ge0$ in Step 3), and $a_1(t) := \theta(t/\delta)\chi_c(t)$, where $\theta$ is
+smooth, non-decreasing,
 $\theta(s) = \mp1$ for $\pm s\le-2$, $\theta'\ge\frac12$ on $[-1,1]$, and $\chi_c\in C_c^\infty((-\delta_0,\delta_0))$
 equals 1 on $[-\frac{\delta_0}2,\frac{\delta_0}2]$ with $|\chi_c'|\le4/\delta_0$. On
 $\mathrm{supp}\,\nu\subset\Gamma^\natural_u\cap\Sigma_{z_0}$, $H_{\phi^\natural_u}a =
@@ -1467,7 +1509,7 @@ theorem is stated for $\mathrm{Im}(h^{-1}z)\ge\beta$. With the range $\eta\ge\be
 $p_\eta\le\lambda_{\max}(p^\natural-\beta q^\natural)$, and Steps 1 and 3 need exactly
 $\sup_\Gamma\lambda_{\max}(p^\Gamma_1-\beta q^\natural)<\frac12\nu_{\min}$, which is the definition of $\beta>\gamma_-$
 in (1.4). When $\beta<0$ this involves the largest value of $q^\natural$ on $\Gamma$, not the smallest, which is why
-(1.4) defines $\gamma_\pm$ as these thresholds and not through $\beta_0$ alone (section 10, (F7)-(F8)). The steps and the
+(1.4) defines $\gamma_\pm$ as these thresholds and not through $\beta_0$ alone (section 10, (F3)-(F4)). The steps and the
 use of $\{\phi_u,\phi_s\}$ follow [Hin26c], which follows [Dya16]; the matrix-valued measure enters only through
 $\mathrm{tr}$ and $\lambda_{\max}$ (Lemma 6.2).
 
@@ -1602,22 +1644,28 @@ Corollary 4.6, $\|(I-X_u)[\mathbf P,B^\sharp]u\|\le Ch(h^{-1}\|G\mathbf Pu\|+\|E
 turns this into a bound $C_\epsilon h^{-\delta}(h^{-1}\|G\mathbf Pu\|+\|Eu\|+h^N\|u\|_{-N})$ for
 $B(P')^{-1}(I-X_u)[\mathbf P,B^\sharp]u$. (ii) $f_u := X_u[\mathbf P,B^\sharp]u$ is microsupported in $K_f :=
 \Gamma(c)\setminus\Gamma(\frac{3c}4)\cap\{|\phi^\natural_u|<\frac c8\}$, where $|\phi^\natural_s|\ge\frac{3c}4$ or
-$|G_1|\ge\frac{3c}4$. Let $\tilde Q\in\Psi^0$ be self-adjoint with non-negative principal symbol, elliptic on
-$\Gamma(\frac c4)$ and microsupported in $\Gamma(\frac c2)$. Then every backward bicharacteristic of the characteristic
+$|G_1|\ge\frac{3c}4$. Let $\tilde W := \mathrm{Op}_h(\tilde w)\mathrm{Id}$ with $\tilde w\in C_c^\infty$ real and scalar,
+$\tilde w\ne0$ on $\Gamma(\frac c4)$ and $\mathrm{supp}\,\tilde w\subset\Gamma(\frac c2)$, and $\tilde Q := \tilde
+W^*\tilde W$. Then every backward bicharacteristic of the characteristic
 set in $\Gamma(\delta_0)$ reaches $\mathrm{Ell}_h(\tilde Q)$ (if on $\Gamma^\natural_u$, by (D2)) or the region $\tilde
-q_0 = 1$, so the argument of (a) above (with $-i\tilde Q$ as a further absorbing term) gives $\|(P'-i\tilde Q)^{-1}\|\le
-Ch^{-1}$, and Lemma 6.9 below applies to $P'-i\tilde Q$. The forward $V$-flowout of $K_f\cap\Sigma_{z_0}$ stays in
+q_0 = 1$, so the argument of (a) above (with $-iz_0\tilde Q$ as a further absorbing term: Remark 4.7 (b) with $\theta :=
+z_0$ for $P'$, and with
+$\theta := -z_0$ for the adjoint $P'^*+iz_0\tilde Q$, so $\varsigma\theta = 1$ as in section 6.5) gives
+$\|(P'-iz_0\tilde Q)^{-1}\|\le Ch^{-1}$, and Lemma 6.9 below applies to $P'-iz_0\tilde Q$ (D189: without the factor
+$z_0$ the absorbing sign is wrong for $z_0 = -1$; the seventy-sixth verifier's m2). The forward $V$-flowout of
+$K_f\cap\Sigma_{z_0}$ stays in
 $\{|\phi^\natural_s|\ge\frac{3c}4\}$ while it remains in $\Gamma(\delta_0)$ (as $|\phi^\natural_s|$ increases forward),
 and the part of $K_f$ off $\Sigma_{z_0}$ is elliptic; so the flowout misses $\mathrm{WF}'_h(\tilde
-Q)\cup\mathrm{WF}'_h(B)\subset\Gamma(\frac c2)$. By Lemma 6.9, $\tilde Q(P'-i\tilde Q)^{-1}f_u$ and $B(P'-i\tilde
-Q)^{-1}f_u$ are $O(h^\infty)\|u\|_{-N}$. Since $v := (P')^{-1}f_u-(P'-i\tilde Q)^{-1}f_u$ satisfies $P'v = -i\tilde
-Q(P'-i\tilde Q)^{-1}f_u$, Proposition 6.7 gives $\|v\|\le C_Nh^N\|u\|_{-N}$; so $\|B(P')^{-1}f_u\|\le C_Nh^N\|u\|_{-N}$.
+Q)\cup\mathrm{WF}'_h(B)\subset\Gamma(\frac c2)$. By Lemma 6.9, $\tilde Q(P'-iz_0\tilde Q)^{-1}f_u$ and $B(P'-iz_0\tilde
+Q)^{-1}f_u$ are $O(h^\infty)\|u\|_{-N}$. Since $v := (P')^{-1}f_u-(P'-iz_0\tilde Q)^{-1}f_u$ satisfies $P'v = -iz_0\tilde
+Q(P'-iz_0\tilde Q)^{-1}f_u$, Proposition 6.7 gives $\|v\|\le C_Nh^N\|u\|_{-N}$; so $\|B(P')^{-1}f_u\|\le
+C_Nh^N\|u\|_{-N}$.
 Summing (i) and (ii) gives (6.12). $\square$
 
-**Lemma 6.9 (direction of propagation).** Let $\mathbf P''$ be $P'-i\tilde Q$ (or its adjoint, with forward replaced by
-backward) with $\|(\mathbf P'')^{-1}\|\le Ch^{-1}$. Let $X\in\Psi^0$ be microsupported in a compact $K\subset T^*\tilde
-X^\circ$, and let $\varpi$ not lie in the closure of the forward $V$-flowout of $K\cap\Sigma_{z_0}$ inside
-$\Gamma(\delta_0)$. Then there is $B_\varpi$ elliptic at $\varpi$ with $\|B_\varpi(\mathbf P'')^{-1}Xf\|\le
+**Lemma 6.9 (direction of propagation).** Let $\mathbf P''$ be $P'-iz_0\tilde Q$ (or its adjoint, with forward replaced
+by backward) with $\|(\mathbf P'')^{-1}\|\le Ch^{-1}$. Let $X\in\Psi^0$ be microsupported in a compact $K\subset
+T^*\tilde X^\circ$, and let $\varpi\notin K$ not lie in the closure of the forward $V$-flowout of $K\cap\Sigma_{z_0}$
+inside $\Gamma(\delta_0)$. Then there is $B_\varpi$ elliptic at $\varpi$ with $\|B_\varpi(\mathbf P'')^{-1}Xf\|\le
 C_Nh^N\|f\|_{-N\mathbf 1}$.
 
 *Proof.* If $\varpi$ is in the elliptic set of $\mathbf P''$, Proposition 2.10 gives $\|B_\varpi w\|\le C(\|G\mathbf
@@ -1698,14 +1746,21 @@ H^{-1}_h(\Omega')^{\bullet,-} = (H^1_h(\Omega')^{-,\bullet})^*$, the functional 
 f,\varphi\rangle$ on $\{P^{*h}_{h,z}\varphi:\varphi\in H^2(\Omega')^{-,\bullet}\}\subset L^2$ is bounded by
 $Ch^{-1}\|f\|_{H^{-1}_h}\|P^{*h}_{h,z}\varphi\|$, by Proposition 7.1 for the adjoint. Hahn-Banach and Riesz give $w\in
 L^2(\Omega')$ with $\|w\|\le Ch^{-1}\|f\|_{H^{-1}_h}$ and $P_{h,z}w = f$, the extension $W$ of $w$ by 0 beyond $b$
-satisfying $P_{h,z}W = F$ ($f$'s supported extension) on $\{r>a'\}$. *Regularity.* Over $\{a'<r<b+\delta_0\}$ every
-characteristic point of $P_{h,z}$, at finite frequencies or at fibre infinity, lies on a bicharacteristic along which $r$
-is strictly monotone: $H_Gr = 2g^{-1}(\nu,dr)\ne0$ for null $\nu\ne0$, $dr$ being timelike; and for $\mathrm{Im}\,z>0$
-there is no characteristic point at finite frequencies there (Lemma 1.1 (d)). Its backward direction (in the sense of
-Proposition 4.5 for $P$) increases $r$ and reaches $\{r>b\}$, where $W = 0$. Corollary 4.6 at the order $(s,0,0)$,
-finitely many times (compactness), with Proposition 4.2 off the characteristic set, gives $\|W\|_{H^s_h(\{r>a\})}\le
-C(h^{-1}\|F\|_{H^{s-1}_h}+\|W\|_{L^2})$, the terms $h^N\|GW\|_{H^s_h}$ being absorbed for $h$ small after enlarging the
-cover once. So $\|w\|_{H^s_h(\Omega_{a,b})}\le Ch^{-1}\|f\|_{H^{s-1}_h(\Omega')}$. *Conclusion for $s\ge0$.* For $u\in
+satisfying $P_{h,z}W = F$ ($f$'s supported extension) on $\{r>a'\}$. *Regularity.* (α) *At each $h$.* $W$ is in
+$L^2(\Omega')^{\bullet,-}$ and solves $P_{h,z}W = f$; by I.A Proposition 6.4 (iii) at $\sigma = z/h$, at the orders $s$
+and $0$, the solution in $H^s(\Omega')^{\bullet,-}\subset L^2(\Omega')^{\bullet,-}$ is the unique one in
+$L^2(\Omega')^{\bullet,-}$, so $W\in H^s(\Omega')^{\bullet,-}$, and the estimates of sections 3-4 apply to its cut-offs
+by Lemma 3.1. (β) *Uniformly in $h$.* Over $\{a'<r<b+\delta_0\}$ every characteristic point of $P_{h,z}$, at finite
+frequencies or at fibre infinity, lies on a bicharacteristic along which $r$ is strictly monotone: $H_Gr =
+2g^{-1}(\nu,dr)\ne0$ for null $\nu\ne0$, $dr$ being timelike; and for $\mathrm{Im}\,z>0$ there is no characteristic point
+at finite frequencies there (Lemma 1.1 (d); Lemma 1.1 (e), stated for $z_0 = \pm1$, holds for every real $z\ne0$ by
+homogeneity). Its backward direction (in the sense of Proposition 4.5 for $P$) increases $r$ and reaches $\{r>b\}$, where
+$W = 0$. Fix $a''\in(a',a)$. Corollary 4.6$'$ at the order $(s,0,0)$ with $J\ge4s$, finitely many times (compactness),
+with all its operators microsupported over $\{r>a''\}$, and Proposition 4.2 off the characteristic set, give
+$\|W\|_{H^s_h(\{r>a\})}\le C(h^{-1}\|F\|_{H^{s-1}_h}+\|W\|_{L^2})$. (Corollary 4.6 itself would leave $h^N\|GW\|_{H^s_h}$
+with $G$ elliptic on a neighbourhood of the curves, which reaches below $r = a$, a term on a larger set than the left
+side controls, and no enlargement of the cover absorbs it; D189, the seventy-sixth verifier's M1.) So
+$\|w\|_{H^s_h(\Omega_{a,b})}\le Ch^{-1}\|f\|_{H^{s-1}_h(\Omega')}$. *Conclusion for $s\ge0$.* For $u\in
 H^s(\Omega_{a,b})^{\bullet,-}$ extend $Pu$ to $f\in H^{s-1}_h(\Omega')^{\bullet,-}$ with at most twice its norm, solve as
 above, and use uniqueness on $\Omega_{a,b}$: $w|_{\Omega_{a,b}} = u$. *$s<0$.* By (ii) for $P^{*h}$ at the order $1-s>0$,
 the duality argument of I.A Proposition 6.4 with $(H^{1-s}_h(\Omega')^{-,\bullet})^* = H^{s-1}_h(\Omega')^{\bullet,-}$
@@ -1732,14 +1787,16 @@ $\mathsf r+\alpha_+$, and the thresholds of section 1.4 are conditions on it.
 
 ### 8.1 Splitting off the artificial boundary
 
-Choose $r_0<b'_0<b'_1<b'<b''<r_2-\delta_0$ and $\chi,\chi_1$ as in Corollary 7.3 for $b',b''$, and $\psi\in C^\infty$
-with $\psi = 0$ on $\{r\le b'_0\}$ and $\psi = 1$ on $\{r\ge b'_1\}$. Over $\{r_0-2\delta_0<r<r_2\}$ the
+Choose $r_0<b'_0<b'_1<b'_2<b'<b''<r_2-\delta_0$ and $\chi,\chi_1$ as in Corollary 7.3 for $b',b''$, and $\psi\in
+C^\infty$ with $\psi = 0$ on $\{r\le b'_0\}$ and $\psi = 1$ on $\{r\ge b'_1\}$. Over $\{r_0-2\delta_0<r<r_2\}$ the
 bicharacteristics move strictly monotonically in $r$, the future direction decreasing it (section 7.2). So a backward
-bicharacteristic from a point over $\{r\ge b'_1\}$ stays over $\{r\ge b'_1\}$: it increases $r$ while $r<r_2$, and it
+bicharacteristic from a point over $\{r\ge b'_2\}$ stays over $\{r\ge b'_2\}$: it increases $r$ while $r<r_2$, and it
 cannot re-enter $\{r<r_2\}$, which it could only do with $r$ decreasing backward. Every estimate of sections 4-6 used
-below at points over $\{r\ge b'_1\}$ for the direct problem therefore involves only operators microsupported over
-$\{r>b'_0\}$, where $\psi = 1$; applied to $\psi u$, extended by 0 to $\mathbb R^4$, it has $G P\psi u = GPu$ modulo a
-residual term.
+below at points over $\{r\ge b'_2\}$ for the direct problem is therefore taken with all its operators microsupported over
+$\{r>b'_1\}$, where $\psi = 1$ (each estimate is local near its curves, and its neighbourhoods are chosen inside
+$\{r>b'_1\}$); applied to $\psi u$, extended by 0 to $\mathbb R^4$, it has $GP\psi u = GPu$ modulo a residual term.
+(D189: an earlier version covered the points over $\{r\ge b'_1\}$, whose estimates reach below $b'_1$; the seventy-sixth
+verifier's m3.)
 
 ### 8.2 The direct estimate at $k = 0$
 
@@ -1753,22 +1810,23 @@ $$\|u\|_{\bar H^{\mathbf o}_h}\le Ch^{-1-\delta}\|P_{h,z}u\|_{\bar H^{\mathbf o'
 *Proof.* By Lemma 3.1 (applied to $\psi u$, and on the slab by I.A Lemma 6.1) it suffices to take $u$ smooth up to
 $\partial_\sharp X$ and Schwartz at $\partial X$, the constants being independent of the approximation.
 
-(a) *The cover.* Let $K_\Sigma := \Sigma_{z_0}\cap\{r\ge b'_1\}\subset\mathcal P$, compact. Each $\varpi\in K_\Sigma$ is
+(a) *The cover.* Let $K_\Sigma := \Sigma_{z_0}\cap\{r\ge b'_2\}\subset\mathcal P$, compact. Each $\varpi\in K_\Sigma$ is
 of one of the following kinds, by (H8), (H4) at fibre infinity and I.A Lemma 4.5 over $\partial X$.
 (R) $\varpi\in\partial\mathcal R_+\cup\partial\mathcal R_-\cup R_{z_0,\mathrm{in}}$: Propositions 5.2 and 5.3 give a
 neighbourhood $U_\varpi$ and $\|B_*u\|_{\mathbf o}\le C(h^{-1}\|GPu\|_{\mathbf o'}+h^N\|Gu\|_{\mathbf o}+\|u\|_{-K\mathbf
 1})$ for $B_*$ microsupported in $U_\varpi$, with no a priori term; here $s>\frac12+\vartheta_{\mathcal H}$ and $\mathsf
 r+\alpha_+>\frac12(-1+\vartheta_{\mathrm{in}})$ at $R_{z_0,\mathrm{in}}$ are used.
-(A) $\varpi$ is not of kind (R), not in $\Gamma_u$ and not $R_{\mathrm{out}}$: its backward curve tends to a set of kind
-(R) (H8), so after finite time enters a neighbourhood $U_*$ given by (R); on the segment, $\mathsf H_{z_0}\ne0$, $\hat
-q_{z_0}\ne0$ (Lemma 1.1 (e), and section 4.2 over $\partial X$ away from $R_{\mathrm{out}}$), and (4.4) holds by
+(A) $\varpi$ is not of kind (R), not in $\bar\Gamma_u$ and not $R_{\mathrm{out}}$: its backward curve tends to a set of
+kind (R) (H8) (a), so after finite time enters a neighbourhood $U_*$ given by (R); on the segment, $\mathsf
+H_{z_0}\ne0$, $\hat
+q_{z_0}\ne0$ (Lemma 1.1 (e), and section 4.1 over $\partial X$ away from $R_{\mathrm{out}}$), and (4.4) holds by
 admissibility. Corollary 4.6 gives an estimate at $\varpi$ with a priori term on a compact subset of $U_*$, which (R)
 bounds.
 (Γ) $\varpi\in\Gamma$: Theorem 6.8 (with $\beta := \frac12\gamma_-<0$, so that $\mathrm{Im}\,z\ge0\ge h\beta$) gives an
 estimate near $\Gamma$ with loss $h^{-1-\delta}$ and a priori term $h^{-\delta}\|Eu\|$, $E$ microsupported off $\Gamma_u$
-near $\Gamma$; the points of $\mathrm{WF}'_h(E)$ are of kind (A) or elliptic.
-(U) $\varpi\in\Gamma_u\setminus\Gamma$: its backward curve tends to $\Gamma$ (D2), so Corollary 4.6 from a neighbourhood
-given by (Γ).
+near $\Gamma$; the points of $\mathrm{WF}'_h(E)$ are off $\bar\Gamma_u$ by (H8) (b), so of kind (A), or elliptic.
+(U) $\varpi\in\bar\Gamma_u\setminus\Gamma$: its backward curve tends to $\Gamma$, so for large negative times it lies on
+$\Gamma_u$ ((H8) (b)) inside the neighbourhood given by (Γ); Corollary 4.6 from there.
 (O) $\varpi = R_{\mathrm{out}}$: Proposition 5.5 with a priori term on a compact $K_E\subset\bar U_0\setminus
 R_{\mathrm{out}}$, whose points are of kinds (A), (U) or elliptic (a backward curve from near $R_{\mathrm{out}}$ leaves
 every small neighbourhood of it, $R_{\mathrm{out}}$ being a sink); here $\mathsf
@@ -1776,23 +1834,26 @@ r+\alpha_+<-\frac12+\frac12\inf\lambda_{\min}(S+S^{*h})$ is used.
 Each kind is used only after the kinds its a priori terms need, and the order (R), (A), (Γ), (U), (O) is acyclic. By
 compactness, finitely many of these neighbourhoods cover $K_\Sigma$, and each estimate holds for $z$ in a neighbourhood
 of $z_0$ (Corollary 4.6; Propositions 5.2, 5.3, 5.5 for all $z$ in the sets stated; Theorem 6.8 for $z\in
-z_0+i[h\beta,\nu']$). The complement in $\mathcal P|_{\{r\ge b'_1\}}$ of the union of the neighbourhoods is compact and
+z_0+i[h\beta,\nu']$). The complement in $\mathcal P|_{\{r\ge b'_2\}}$ of the union of the neighbourhoods is compact and
 elliptic for $P_{h,z_0}$, hence for $P_{h,z}$, $|z-z_0|$ small (Proposition 4.2). Take $\nu_1$ so small that all of this
-holds for $z\in z_0+i[0,\nu_1]$. A microlocal partition of unity $\sum_jB_j = I$ over $\{r\ge b'_1\}$, modulo a residual
-operator, subordinate to the cover, and the chain of estimates give, with $\delta\le1$ and $h^{-\delta}\cdot h^{-1}\le
+holds for $z\in z_0+i[0,\nu_1]$. For $\varphi\in\{1-\chi,\chi_1\}$, both supported in $\{r>b'_2\}$, a microlocal
+partition of unity $\sum_jB_j =
+\varphi$, modulo a residual operator, subordinate to the cover, and the chain of estimates give, with $\delta\le1$ and
+$h^{-\delta}\cdot h^{-1}\le
 h^{-1-\delta}$,
-$$\|\psi u\|_{H^{\mathbf o}_h}\le C\big(h^{-1-\delta}\|Pu\|_{\bar H^{\mathbf o'}_h}+h^N\|u\|_{\bar H^{\mathbf
+$$\|\varphi u\|_{H^{\mathbf o}_h}\le C\big(h^{-1-\delta}\|Pu\|_{\bar H^{\mathbf o'}_h}+h^N\|u\|_{\bar H^{\mathbf
 o}_h}+\|u\|_{\bar H^{-K\mathbf 1}_h}\big).$$
 *The artificial boundary.* By (7.2), $\|\chi u\|_{\bar H^{\mathbf o}_h}\le C(h^{-1}\|Pu\|_{\bar H^{\mathbf
 o'}_h}+\|\chi_1u\|_{H^{\mathbf o}_h})$, the orders being constant there apart from $s$;
-$\mathrm{supp}\,\chi_1\subset\{b'<r<b''\}$, where $\psi = 1$, so the last term is bounded by the previous display.
+the last term is the previous display with $\varphi = \chi_1$, and $\|u\|\le\|\chi u\|+\|(1-\chi)u\|$, the second
+by the previous display with $\varphi = 1-\chi$.
 *Absorption.* $\|u\|_{\bar H^{-K\mathbf 1}_h}\le Ch\|u\|_{\bar H^{\mathbf o}_h}$ for $K\ge\max(-s,-\min(\mathsf
 r+\alpha_+),1-\min\mathsf b)$, since $w_{-K\mathbf 1}/w_{\mathbf o}\le Ch$; so for $h<h_0$ the last two terms are
 absorbed, which is (8.1).
 
 (b) For $\mathrm{Im}\,z\ge\nu_1$, $P_{h,z}$ is elliptic at finite frequencies over $\tilde X^\circ$ (Lemma 1.1 (d)) and
 over $\partial X$ except at $R_{\mathrm{out}}$ (section 4.1), uniformly for $\mathrm{Im}\,z\in[\nu_1,\nu]$ by
-compactness. The characteristic set over $\{r\ge b'_1\}$ is $\partial\Sigma_0\cup R_{\mathrm{out}}$. On
+compactness. The characteristic set over $\{r\ge b'_2\}$ is $\partial\Sigma_0\cup R_{\mathrm{out}}$. On
 $\partial\Sigma_0$, kinds (R) at $\partial\mathcal R_\pm$ and (A) along the curves of (H4); at $R_{\mathrm{out}}$, kind
 (O), whose a priori set $K_E$ is now elliptic. No trapping estimate enters, so $\delta = 0$.
 
@@ -1811,7 +1872,7 @@ priori term are now $R_{\mathrm{out}}$ (the adjoint half of Proposition 5.5, abo
 r-\alpha_+-1$) and the artificial boundary ((7.3), with nothing on the right but $P^{*h}v$); $\Gamma$ is handled by
 Theorem 6.8 for $P^*$, with a priori term off $\Gamma^\natural_u = \Gamma_s$; $\partial\mathcal R_\pm$ and
 $R_{z_0,\mathrm{in}}$ are sinks for the past field, handled by (5.5) and Proposition 5.3 with a priori terms on punctured
-neighbourhoods. By (H8), the forward (future) curve of a characteristic point not on $\Gamma_s$ tends to
+neighbourhoods. By (H8), the forward (future) curve of a characteristic point not on $\bar\Gamma_s$ tends to
 $R_{\mathrm{out}}$ or reaches $\{r<r_0-\delta_0\}$, and at fibre infinity reaches $\{r<r_0-\delta_0\}$ (H4); so the
 chains start at the sets without a priori term. The orders $-\mathbf o'$ satisfy the reversed monotonicity, $-\mathsf r$
 and $-\mathsf b$ being non-increasing along the past field. Near $\partial_\sharp X$, $v$ restricted to
@@ -1830,11 +1891,13 @@ $\mathrm{Im}\,\sigma<\nu'|\sigma|\le2\nu'|\mathrm{Re}\,\sigma|$; put $h := |\mat
 z_0+i[0,2\nu']$ with $z_0 = \mathrm{sgn}\,\mathrm{Re}\,\sigma$ (part (1) with $\nu := 2\nu'$). In both cases $h<h_0$ for
 $C_0$ large. At this fixed $h$, $H^{\mathbf o}_h$ is the space $H^{s,(\mathsf r+\alpha_+)_h}$ of I.A with $\mathsf
 r_h(x,\xi) := \mathsf r(x,h\xi)$, up to an equivalent norm (section 2.3; $h^{-\mathsf b(x,h\xi)}$ is a symbol of order 0
-at fixed $h$), and $\mathsf r_h$ is admissible for $\mathrm{Re}\,\sigma$ in the sense of I.A (O2)-(O3): the
-characteristic set over $\partial X$ at $\sigma$ in the variable $\xi$ is that at $z$ in $\zeta = h\xi$, and section 1.4
-asks more than (O2). So $\mathcal X_\sigma$ and $\mathcal Y_\sigma$ of I.A Theorem 7.2 are the spaces of (1.6), and (1.6)
-shows that $\hat P(\sigma) = h^{-2}P_{h,z}$ is injective on $\mathcal X_\sigma$ and $\hat P(\sigma)^{*h}$ injective on
-$\mathcal Y_\sigma^*$. By I.A Theorem 7.2 (3), $\hat P(\sigma)$ is Fredholm, so it is invertible. $\square$
+at fixed $h$), and in the case of part (1) $\mathsf r_h$ is admissible for $\mathrm{Re}\,\sigma$ in the sense of I.A
+(O2)-(O3) (the characteristic set over $\partial X$ at $\sigma$ in the variable $\xi$ is that at $z$ in $\zeta = h\xi$,
+and section 1.4 asks more than (O2)); in the case of part (2) it is constant near $R_{\mathrm{out}}$ with the threshold
+there, which is what I.A Theorem 7.2 (2) asks, for every real part including 0. So $\mathcal X_\sigma$ and $\mathcal
+Y_\sigma$ of I.A Theorem 7.2 are the spaces of (1.6), and (1.6) shows that $\hat P(\sigma) = h^{-2}P_{h,z}$ is injective
+on $\mathcal X_\sigma$ and $\hat P(\sigma)^{*h}$ injective on $\mathcal Y_\sigma^*$. By I.A Theorem 7.2 (3), $\hat
+P(\sigma)$ is Fredholm, so it is invertible. $\square$
 
 ### 8.5 b-regularity
 
@@ -1873,7 +1936,8 @@ $$\hat P^{-1}\,\mathcal T_{i_1}\,\hat P^{-1}\cdots\mathcal T_{i_l}\,\hat P^{-1},
 By (H2), $\sigma T = 2i\sigma\rho(V_1-\frac32-S)-i\sigma Q$, so $\mathcal T_i = \sigma\rho\,\mathcal
 V+\sigma\rho\,c+\sigma\rho^3\mathrm{Diff}^1_b+2^i\sigma^2g_{00}$ with $\mathcal V = 2iV_1$ and $c$ a matrix function.
 Write $\|\cdot\|_{(s;k),\mathsf r;+}$ for (1.5) at decay order $\mathsf r$ (and $\mathsf b$ fixed), so that
-$\|u\|_{(s;k),\mathsf r;+}\asymp h^{-k}\|u\|_{(s,\mathsf r,\mathsf b);k}$, $h := |\sigma|^{-1}$. Then:
+$\|u\|_{(s;k),\mathsf r;+}\asymp h^{-k}\|u\|_{(s,\mathsf r,\mathsf b);k}$, with $h$ as in Theorem 1.3 (3), so that
+$\frac12|\sigma|\le h^{-1}\le|\sigma|$ (D189, the seventy-sixth verifier's m4). Then:
 (a) $\mathcal T_i$ maps $(s';k'+1),\mathsf r'$ to $(s';k'),\mathsf r'+1$ with norm $\le C|\sigma|$, for all $s',k'$ and
 decay orders $\mathsf r'$: with $\sigma = zh^{-1}$, $\sigma\rho V_1 = h^{-2}z\,\rho\,(hV_1)$, and
 $\|h^{-2}\rho(hV_1)u\|_{(s',\mathsf r'+1,\mathsf b);k'}\le Ch^{-2}\|u\|_{(s',\mathsf r',\mathsf b);k'+1}$ ($hV_1$ is one
@@ -1903,10 +1967,13 @@ Each depends continuously on $b$, by (H5)-(H8), and the constructions (flow boxe
 parameters; the commutants; the absorbing operator of section 6.5, with $\Gamma(\delta)$ defined through $\phi_{u/s}$,
 which depend continuously on $b$) can be made with $b$ in a neighbourhood of each $b_0$; by compactness of $\mathcal B$,
 finitely many suffice. The two arguments by contradiction (Proposition 6.4 and the absorption in Proposition 6.7 (a)) are
-run with sequences $(h_j,z_j,b_j)$, $b_j\to b_\infty$ after passing to a subsequence: the defect measure is then that of
-the limit operator, Lemma 6.3 holds with the limit symbols, and the dynamics (D1)-(D3) of $b_\infty$ give the
-contradiction. Hence Theorem 1.3 holds with constants uniform in $b\in\mathcal B$. As in I.A section 8, Part VI checks
-(H5)-(H8) for the record's operators; it is not done here.
+run with sequences $(h_j,z_j,b_j)$, $b_j\to b_\infty$ after passing to a subsequence, every operator of the argument (the
+$B$, $E$, $G$, the quantisations $\Phi$, $N_u$, $J_u$ of Step 1 of Proposition 6.4, and the cut-offs) being built from
+the data of $b_j$, which converge in $C^\infty$ to those of $b_\infty$ by (H5)-(H8). So (6.8) holds with remainders
+$O(h)$ uniformly in $j$, Lemma 6.3 holds with the limit symbols (its proof uses only their convergence in $C_c^\infty$),
+and the dynamics (D1)-(D3) of $b_\infty$ give the contradiction. (D189: quantising the limit's symbols instead makes
+(6.8) exact only up to $o(1)$; the seventy-sixth verifier's m6.) Hence Theorem 1.3 holds with constants uniform in
+$b\in\mathcal B$. As in I.A section 8, Part VI checks (H5)-(H8) for the record's operators; it is not done here.
 
 ## 10. What the write-out found
 
@@ -1959,6 +2026,19 @@ $\mathrm{tr}$ and $\lambda_{\max}$ (Lemma 6.2); the complex absorption written a
 Q_\flat(\sigma)$, entire and of exact sign (section 6.5); a three lines lemma with its proof (Lemma 6.6) in place of
 [DZ19] Lemma D.1; and the energy estimate at the artificial boundary for every $\mathrm{Im}\,z\ge0$ through the weight
 $e^{\lambda r}$ (Proposition 7.1), in place of [Hin25a] Theorem 9.44 for bounded $h^{-1}\mathrm{Im}\,z$.
+
+(F10) [Hin26c] Theorem 9.28 (2) states the adjoint estimate for $z\in1+i[-h\beta,\nu]$. For $\beta<0$ that range misses
+the real axis, which the adjoint estimate at $\mathrm{Im}\,z = 0$ in (9.59) needs. The symbol computation gives the same
+threshold for $P^*$ as for $P$ (section 6.1 defines $p^\natural$, $q^\natural$ with the field of each, and (1.4) reads
+the same), so the range $z_0+i[h\beta,\nu']$ of Theorem 6.8 is the correct one for both. Found by the seventy-sixth
+verifier (D189).
+
+The seventy-sixth verifier's findings on this part are seated in place (D189): Proposition 7.2 with Corollary 4.6$'$
+(M1); (H8) with the global trapped sets and the no-return clause (m1); the absorbing term $z_0\tilde W^*\tilde W$ in
+Theorem 6.8 (m2); the cut-offs of section 8.1 (m3); the $h$ of Theorem 1.3 (5) (m4); Lemma 6.2 (a) (m5); the sequences of
+section 9 (m6); the quantifiers of Proposition 6.1 (m7); the $\omega$ of Theorem 2.4 (m8); the $\delta_1$ of Proposition
+6.4 (m9); and the nits. One nit is left as it is: in Lemma 4.3 the neighbourhood cannot be independent of the base point
+with a product image, which no argument uses.
 
 ## Sources
 

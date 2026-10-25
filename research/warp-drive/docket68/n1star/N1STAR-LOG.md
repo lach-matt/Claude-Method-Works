@@ -4668,3 +4668,25 @@ Theorem 9.16 (1) at Im z = 0 needs gamma_- < 0, which [Hin26c] notes holds in it
 (F7) the printed norm after (3.35) has <x>^(-r) for <x>^r; (F8)-(F9) the changes of statement (constant s, monotonicity
 on neighbourhoods, exact thresholds) and of method. Nothing is labelled proved: the next verifier reads Part I.B, with
 the two D187 repairs of Part I.A.
+
+**D189 (2026-10-25): the seventy-sixth verifier seated on Part I.B; Part I.A proved.** The seventy-sixth verifier read
+`proof5/PART-I-B-HIGHENERGY.md` line by line, with the two D187 repairs of Part I.A. Part I.A: both repairs correct (the
+variant of Remark 3.3 by weak lower semicontinuity; Lemma 3.1 Step 1 split into three terms), so Part I.A is labelled
+proved. Part I.B: the architecture sound, every computation recomputed correct (sympy for I.A (4.4), the radial
+thresholds for P and P*, Lemma 1.1, (5.7), Lemma 5.4, the cut-off of Lemma 4.3), (F1)-(F9) correct. One major finding,
+nine minor, nits; all seated in place. (M1) Proposition 7.2: Corollary 4.6 leaves h^N ||GW||_(H^s) on a set larger than
+the left side controls, and W was known only in L^2; now W in H^s at each h by I.A Proposition 6.4 (iii) and uniqueness,
+and Corollary 4.6' (new) iterates Lemma 3.3 lowering all orders, leaving ||W||_(L^2). (m1) (H8) used the local sets
+Gamma_(u/s), which no flow satisfies; now the global trapped sets, with a no-return clause (H8) (b) that keeps section
+8.2 acyclic. (m2) Theorem 6.8 (ii): the auxiliary absorption -i Q~ had the wrong sign for z_0 = -1; now -i z_0 W~* W~, W~
+scalar. (m3) section 8.1: points over r >= b'_2, operators over r > b'_1, (1 - chi) u bounded. (m4) Theorem 1.3 (5) with
+h as in (3). (m5) Lemma 6.2 (a): B = G* Q G + R with Theorem 2.7, the factor |g|^(-2) restored. (m6) section 9: every
+operator of the contradiction arguments built from b_j's data. (m7) Proposition 6.1: nu' independent of U by ellipticity;
+M in [M_0, 2M_0]. (m8) Theorem 2.4: omega := sum (sup o + sup o' - inf (o + o')). (m9) Proposition 6.4 Steps 2-4 at
+delta_1 with Gamma(delta_1) in Ell(B), a_0, psi >= 0. Nits: Lemma 6.9 needs varpi not in K; Lemma 5.1's iteration
+parameter 2 4^(-j) delta; the signs in Propositions 5.2 and 5.5; typos in section 2.2 and (2.5); (F7)-(F8) for (F3)-(F4);
+the 'two changes' sentence; section 4.1; section 8.4 cites I.A Theorem 7.2 (2) for part (2); a notation paragraph (h,
+lambda, H_(z_0)); Lemma 1.1 (e) at every real z by homogeneity; Lemma 4.3's product image left as it is. A new source
+finding (F10): [Hin26c] Theorem 9.28 (2) states the adjoint estimate for z in 1 + i[-h beta, nu], which for beta < 0
+misses the real axis that (9.59) needs; Part I.B's range z_0 + i[h beta, nu'] is the correct one. Part I.B's repairs are
+read by the next verifier, with Part I.C.
