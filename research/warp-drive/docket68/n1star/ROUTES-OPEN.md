@@ -2302,3 +2302,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   4. RP leaves its six rows. Thirty-four rows take a reading; they rest on RB and RU alone, the source's own steps at
   every n. None of the record's roots is open. Not used and not settled: logarithms inside the augmented inverse at n = 4
   (the five-dimensional tails).
+
+### 4.102 The seventieth verifier seated (D179)
+
+- On D176-D177: no majors; the index 0 half of Proposition 9.2 found placed, every n = 4 numeral of 10.82 checked against
+  the source. Seated: 10.80 (c)'s remainder gains the S term; `tfnorm5.py` R3's embedding check now integrates on either
+  side of the borderline; `hthresh5.py` splits T6 so that the inner product dependence is T7, with its own control (7/7,
+  mutants 7/7); `iotasol5.py`'s J1 excludes a d_t*^2 term exactly, J4 checks the incoming exponent c - S, J2 the ranges
+  of (9.5) and (9.21); 10.82's READ list from p. 164; 10.82 (e) names the exponent 2 as 10.59 (c)'s reading, on which
+  nothing depends; four wrapped lines that began with a number and a full stop rewrapped; the paper's `hthresh5.py`
+  bullet states the dependence.

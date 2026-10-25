@@ -4507,3 +4507,13 @@ columns carry no logarithm, the naive entries being of degree -3 inside the targ
 |sigma| terms do not arise at n = 4; S^(0),(2,0)_0 removes an absent term. RP leaves six rows. Thirty-four rows take a
 reading and rest on RB and RU alone; none of the record's own roots remains. Logarithms inside the augmented inverse at n
 = 4 are not settled and not used.
+
+**D179 (2026-10-25): the seventieth verifier seated.** On D176-D177: no majors; eight minors. 10.80 (c)'s remainder
+carries the S term R4 gained in D177. `tfnorm5.py` R3's embedding check integrated a symbolic power whose condition sympy
+returned without the borderline; it now integrates just above and below a = q - n/2 (4/4, mutants 4/4). `hthresh5.py`'s
+inner product dependence, unexercised by T6's control, is T7 with its own (7/7, mutants 7/7). `iotasol5.py`: J1's d_t*^2
+check is exact, J4 compares the incoming exponent with c - S, J2 checks the ranges of (9.5) and (9.21) and names its n =
+4 values as the record's (5/5, mutants 5/5). 10.82: READ from p. 164; (e) names E^C_I,sharp's 2 as 10.59 (c)'s reading.
+The marker guard now also refuses a wrapped line that begins with a number and a full stop, and four such lines are
+rewrapped. The paper's `hthresh5.py` bullet states that the threshold holds in the inner product fixed, and its section
+8.8 that Hintz's own theorem rests on RB and RU too.
