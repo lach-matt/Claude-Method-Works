@@ -4813,3 +4813,19 @@ Findings (B1)-(B4), slips of the source: 'increasing' for decreasing in the proo
 xi_3b = 2 sigma_3b and the field 2r d_t* - r d_r in Lemma 4.6 (4); -4 for -2 in (4.18); a gap in the proof of Lemma 4.20,
 not used. (B5) the rate r^-2, (B6) (4.67) consistent with the corrected (2.27), (B7) the changes of statement. Next: the
 eighty-first verifier on Part II.B and the D196 repairs; Part II.C.
+
+**D197 (2026-10-25): the eighty-first verifier on Part II.B and the D196 repairs, seated; Parts I.A, II.A and II.A'
+proved.** It read Part II.B line by line and recomputed the Minkowski 3b-symbol (3.2), H_{G_3b} from II.A (2.1), all six
+lines of (3.4), the error class rho_+^2 V_b, both linearisations, the closed forms of Lemma 3.2 (logistic xi-hat,
+homogeneous solution 1/cosh 2s, particular solution -e^{-2s}/cosh 2s), Lemma 3.3 (1)-(3), the map Phi_z0 and (Phi_z0)_*
+H_z0 = (<x>/r) rho-tilde_inf H_{G_3b}, Lemma 4.2, Lemma 5.2 (d), the eb-symbol (7.1) with its angular coefficient 1,
+(7.2), (7.4), Lemma 7.2, the 3b-eb conversion of Lemma 7.3, and Propositions 6.1, 8.1, 8.2 against (H3), (H4), (H7),
+(H8), (Gamma.4) and the source's (4.72). It confirmed (B1)-(B4) at source (pp. 82-83, 91-93). One minor finding: the
+statement of Lemma 3.3 (4) printed the source's r d_t* - 2r d_r, which the proof corrects to 2r d_t* - r d_r. Four nits:
+the Leibniz rule cited as Lemma 2.1; dr is future timelike inside the horizon, not past; 'within Sigma' for the
+characteristic sets of r d_r and 2r d_t* - r d_r; the two meanings of rho_K and of rho_+ declared. All seated. It
+confirmed all nine D196 repairs (Lemma 4.2's supports, Proposition 2.4's M, the sharpness example for every nu,
+Definition 1.3's coordinates, chi_inf, Lemma 2.6 with delta/2, the Theorem 3.51 READ decision in II.A' section 1.1 and in
+(S8), and Part I.A Proposition 4.9's h-symmetrised commutant); one nit, f' compactly supported in the sharpness example,
+seated. Status: Parts I.A, I.B, I.C, II.A and II.A' proved; Part II.B verified. Next: Part II.C ([Hin26c] sections 5-6),
+in writing.

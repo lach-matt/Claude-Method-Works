@@ -1,11 +1,11 @@
 # Part I.A. The spectral family at bounded nonzero frequencies, at n = 4, on bundles
 
-*Status.* Verified. Proved at D189; returned to verified at D195, when the seventy-ninth verifier, reading Part II.A$'$,
-which copied them, found that the cut-offs of Proposition 5.2 are not equal to 1 where the proof needs them. They are
-repaired (D195). The eightieth verifier read the repair and confirmed it (D196), and found, pre-existing, that the
-commutant of Proposition 4.9 was not stated to be $h$-symmetrised, as Lemma 3.1 (i) requires; that is now stated (D196),
-and the part is labelled proved again once the next reader has confirmed it. Written out in full (D185). Read line by
-line by the seventy-fourth verifier, whose two major and seven minor findings and nits are seated (D186); the
+*Status.* **Proved** (D197). Proved at D189; returned to verified at D195, when the seventy-ninth verifier, reading Part
+II.A$'$, which copied them, found that the cut-offs of Proposition 5.2 are not equal to 1 where the proof needs them.
+They are repaired (D195). The eightieth verifier read the repair and confirmed it (D196), and found, pre-existing, that
+the commutant of Proposition 4.9 was not stated to be $h$-symmetrised, as Lemma 3.1 (i) requires; that is now stated
+(D196). The eighty-first verifier confirmed it (D197), and the part is proved again. Written out in full (D185). Read
+line by line by the seventy-fourth verifier, whose two major and seven minor findings and nits are seated (D186); the
 seventy-fifth confirmed those repairs and found two minor gaps and six nits, seated (D187); the seventy-sixth, reading
 Part I.B, confirmed both D187 repairs (D189). Every earlier finding is seated and its repair read. This part replaces,
 for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e) and 10.86 (a)-(e), which re-ran

@@ -1,10 +1,11 @@
 # Part II.A$'$. The standard estimates on e3b-spaces: coefficients of finite regularity, variable orders, at n = 4
 
-*Status.* Written out in full (D193). Read line by line by the seventy-ninth verifier, whose major finding (the class of
-symbols of finite regularity, and with it the square-root lemma) and seven minor findings and nits are seated (D195); the
-eightieth verifier read those repairs and confirmed each, and its two minor findings and six nits are seated (D196); they
-await the next reader. Nothing here is labelled proved. This part proves the two standing inputs (L3) and (L4) of Part
-II.A (`PART-II-A-SETUP.md`, section 9.1): the elliptic and the real principal type estimates on e3b-spaces without
+*Status.* **Proved** (D197). Written out in full (D193). Read line by line by the seventy-ninth verifier, whose major
+finding (the class of symbols of finite regularity, and with it the square-root lemma) and seven minor findings and nits
+are seated (D195); the eightieth verifier read those repairs and confirmed each, and its two minor findings and six nits
+are seated (D196); the eighty-first read those and confirmed each (D197). Its one nit, on the example after Lemma 2.5,
+which no proof uses, is seated (D197). This part proves the two standing inputs (L3) and (L4) of Part II.A
+(`PART-II-A-SETUP.md`, section 9.1): the elliptic and the real principal type estimates on e3b-spaces without
 b-regularity, for operators whose coefficients have finite regularity, with variable orders and constants locally uniform
 in the operator. They are [Hin26c] Propositions 3.23 and 3.24 at $k = 0$ (pp. 69-71), which the source proves by citation
 to the standard arguments. The hypotheses of the latter are corrected (section 6, (G6)-(G7)). Part II.A is cited as II.A,
@@ -314,11 +315,12 @@ $C_0$, $M$, $\nu$,
 $$|\partial^\beta Q^{-1/2}|\le C\langle\log\rho_\infty\rangle^{(\nu+1)|\beta|},\qquad|Q^{1/2}|\le C\langle\log\rho_\infty
 \rangle^{\frac12},\qquad|\partial^\beta Q^{1/2}|\le C\langle\log\rho_\infty\rangle^{(\nu+1)|\beta|}\ (\beta\ne0).$$
 So $Q^{-1/2}$ is in the class of index $\nu+1$ and order 0, and $Q^{1/2}$ in that of index $\nu+1$ and order $\delta$ for
-every $\delta>0$. The index $\nu+1$ cannot be lowered to $\nu$: let $f\ge0$ be smooth, bounded with all derivatives, with
-$f(y) = y^2$ near 0, and $Q := c+\langle\log\rho_\infty\rangle f(x\langle\log\rho_\infty\rangle^\nu)$, which satisfies
-(ii) with index $\nu$; then $\partial_x^2Q^{1/2} = c^{-1/2}\langle\log\rho_\infty\rangle^{1+2\nu}$ at $x = 0$, beyond the
-bound $\langle\log\rho_\infty\rangle^{2\nu}$ of index $\nu$ (the seventy-ninth verifier, D195, at $\nu = 0$, against an
-earlier statement with bounded derivatives of $Q^{-1/2}$; the eightieth, D196, for every $\nu$).
+every $\delta>0$. The index $\nu+1$ cannot be lowered to $\nu$: let $f\ge0$ be smooth with $f'$ compactly supported (so
+that $yf'(y)$ is bounded and the $\tau$-derivatives of $Q$ stay in the class; D197) and $f(y) = y^2$ near 0, and $Q :=
+c+\langle\log\rho_\infty\rangle f(x\langle\log\rho_\infty\rangle^\nu)$, which satisfies (ii) with index $\nu$; then
+$\partial_x^2Q^{1/2} = c^{-1/2}\langle\log\rho_\infty\rangle^{1+2\nu}$ at $x = 0$, beyond the bound
+$\langle\log\rho_\infty\rangle^{2\nu}$ of index $\nu$ (the seventy-ninth verifier, D195, at $\nu = 0$, against an earlier
+statement with bounded derivatives of $Q^{-1/2}$; the eightieth, D196, for every $\nu$).
 
 *Proof.* (i) $Q^{\pm1/2} = \frac1{2\pi i}\oint_\gamma z^{\pm1/2}(z-Q)^{-1}dz$ for a fixed contour $\gamma$ in
 $\{\mathrm{Re}\,z>0\}$ around $[c,C_0]$, at distance at least $c/2$ from it. A derivative $\partial^\beta(z-Q)^{-1}$ is a

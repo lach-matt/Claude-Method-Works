@@ -4,18 +4,18 @@
 minor findings and nits are seated in place (D194): the hypothesis of (L4) on the order, and the choice of operators in
 the proof of Proposition 9.9. The seventy-ninth verifier read those repairs and confirmed each (D195), and the wording of
 (S8) was then aligned with [SBG] Definition 4.6 (D195). The eightieth verifier confirmed the rewording and asked for the
-reading of the theorem it cites to be stated, which (S8) now does (D196). Nothing here is labelled proved until Part
-II.A$'$, which proves two of its inputs, is proved; the D196 wording of (S8) is read with it. This part proves, at
-spatial dimension $n = 4$, the geometric and analytic setup of [Hin26c] sections 2 and 3, on which its sections 7, 8, 10,
-11 and 13 rest. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page $-4$). The
-pseudodifferential calculus is that of [SBG] = P. Hintz, *Pseudodifferential operators on manifolds with scaled bounded
-geometry*, Commun. Amer. Math. Soc. 6 (2026), 153-243, arXiv:2408.06651v1, whose statements are READ here (section 3) and
-hold on manifolds of every dimension; inside [Hin26c] that paper is cited as "[Hin26c]", and below it is always [SBG].
-Two statements are standing inputs, not proved here: the elliptic and real principal type estimates without b-regularity,
-for coefficients of finite regularity and variable orders ((L3)-(L4) of section 9.1), which the source cites as standard
-and no text READ here states. They are proved in Part II.A$'$ (`PART-II-A2-STANDARD.md`, written, D193), with the
-hypotheses of (L4) corrected ((G6)-(G7) there and in section 10); Part II.A is labelled proved only with it. Parts
-I.A-I.C are `PART-I-SPECTRAL.md`, `PART-I-B-HIGHENERGY.md` and `PART-I-C-LOWENERGY.md`.
+reading of the theorem it cites to be stated, which (S8) now does (D196); the eighty-first verifier confirmed it (D197).
+Part II.A$'$, which proves the two inputs (L3)-(L4), is proved (D197), and with it this part is **proved** (D197). This
+part proves, at spatial dimension $n = 4$, the geometric and analytic setup of [Hin26c] sections 2 and 3, on which its
+sections 7, 8, 10, 11 and 13 rest. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page $-4$).
+The pseudodifferential calculus is that of [SBG] = P. Hintz, *Pseudodifferential operators on manifolds with scaled
+bounded geometry*, Commun. Amer. Math. Soc. 6 (2026), 153-243, arXiv:2408.06651v1, whose statements are READ here
+(section 3) and hold on manifolds of every dimension; inside [Hin26c] that paper is cited as "[Hin26c]", and below it is
+always [SBG]. Two statements are standing inputs, not proved here: the elliptic and real principal type estimates without
+b-regularity, for coefficients of finite regularity and variable orders ((L3)-(L4) of section 9.1), which the source
+cites as standard and no text READ here states. They are proved in Part II.A$'$ (`PART-II-A2-STANDARD.md`, written,
+D193), with the hypotheses of (L4) corrected ((G6)-(G7) there and in section 10); Part II.A is labelled proved only with
+it. Parts I.A-I.C are `PART-I-SPECTRAL.md`, `PART-I-B-HIGHENERGY.md` and `PART-I-C-LOWENERGY.md`.
 
 *What changes at n = 4.* The spacetime is $\mathbb R^{1+4}$ and the sphere of directions is $\mathbb S^3$, so every
 construction of [Hin26c] section 2 is repeated with $\mathbb S^3$ for $\mathbb S^2$, and the proofs are unchanged (none

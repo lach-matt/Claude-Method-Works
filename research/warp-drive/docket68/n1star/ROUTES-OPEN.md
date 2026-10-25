@@ -2467,3 +2467,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Part II.B written: [Hin26c] section 4 at n = 4 under (K1)-(K4); four slips of the source recorded.
 - Open: the D196 repairs and Part II.B, unread; Parts II.C-II.F and III-VII.
 - Next: the eighty-first verifier on Part II.B and the D196 repairs; Part II.C.
+
+### 4.120 The eighty-first verifier seated; Parts I.A, II.A and II.A' proved (D197)
+
+- Part II.B: computations confirmed; one minor finding (the statement of Lemma 3.3 (4)) and four nits seated; verified
+  until the repairs are read.
+- Parts I.A, II.A and II.A': every repair read and confirmed; proved.
+- Open: the D197 repairs to Part II.B; Parts II.C-II.F and III-VII.
+- Next: Part II.C, [Hin26c] sections 5-6 at n = 4.

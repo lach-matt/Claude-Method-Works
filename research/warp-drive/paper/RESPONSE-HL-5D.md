@@ -1081,13 +1081,11 @@ set, repaired without change to the statement (supplement sections 10.75 and 10.
 a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a
 theorem. That write-out has begun: the proof written in full at n = 4, self-contained, part by part. Its first three
 parts -- Hintz's spectral theory at bounded nonzero, at high and at low frequencies, on bundles and uniformly in the
-operator -- are written and read line by line, and their repairs read again; the second and third are proved, and the
-first, proved earlier, awaits the reading of one repaired slip in a cut-off. The fourth, the setup of his spacetime
-analysis, has been read line by line and its findings seated; one corrects the hypothesis of his real principal type
-estimate on the variable order, which as printed admits a counterexample. The fifth proves the two standard estimates
-that the fourth takes as inputs; it has been read line by line, its findings seated, and its repairs read and confirmed,
-with two small gaps then closed. The sixth, the dynamics of light rays in the stationary model, is written and awaits its
-reader (supplement `proof5/`). Theorem 4 stays deduced until the last part is proved.
+operator -- are written, read line by line, their repairs read again, and proved. So are the fourth, the setup of his
+spacetime analysis, and the fifth, which proves the two standard estimates that the fourth takes as inputs; one finding
+of the fourth corrects the hypothesis of his real principal type estimate on the variable order, which as printed admits
+a counterexample. The sixth, the dynamics of light rays in the stationary model, has been read line by line and its
+findings seated (supplement `proof5/`). Theorem 4 stays deduced until the last part is proved.
 
 ---
 
@@ -1913,6 +1911,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the seventy-eighth Part II.A and the Part I.B and I.C repairs (D194) |
 | | the seventy-ninth Part II.A′ and the D194 repairs (D195) |
 | | the eightieth the D195 repairs (D196) |
+| | the eighty-first Part II.B and the D196 repairs (D197) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1998,7 +1997,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `c8cbd3628e52c16afb12db7a9fc51e70` |
+| `docket68/n1star/N1STAR-LOG.md` | `9b7365657d132fb904f89fc7bca96fc8` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

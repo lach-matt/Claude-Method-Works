@@ -15,12 +15,12 @@ independent reader has checked it line by line and every finding is seated; **pr
 
 | Part | Source | Content | Status |
 |---|---|---|---|
-| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | verified (D195) |
+| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D197) |
 | I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | **proved** (D194) |
 | I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | **proved** (D194) |
-| II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | verified (D194) |
-| II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | verified (D196) |
-| II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | written (D196) |
+| II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | **proved** (D197) |
+| II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
+| II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
 | II.C-F | [Hin26c] 5-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -61,7 +61,7 @@ to verified until the eightieth verifier has read the repair.
 
 The eightieth verifier read the repair and confirmed it (D196). It found, pre-existing, that the commutant of Proposition
 4.9 was not stated to be $h$-symmetrised, as Lemma 3.1 (i) requires; Proposition 4.9 now says so, as section 4.3 does
-(D196). Part I.A is labelled proved again once the next reader has confirmed it.
+(D196). The eighty-first verifier confirmed it (D197), and Part I.A is **proved** again.
 
 ## Part I.B
 
@@ -153,7 +153,9 @@ near the diagonal, the variable-order Plancherel theorem, READ in [SBG] (4.24a-b
 inclusion in the source's proof of its Lemma 2.11, the uniqueness of integral curves at the boundary faces and the
 cut-offs away from $I^0\cup K^-$, a threshold in Lemma 8.5, and parametrices to finite order. So are the nits, among them
 the angular term of (2.27). The verifier confirmed (G1)-(G5) and recomputed the metric, the weights of $n = 4$, the
-Hankel asymptotics and the thresholds of Propositions 9.6 and 9.9.
+Hankel asymptotics and the thresholds of Propositions 9.6 and 9.9. The wording of (S8) was aligned with [SBG] Definition
+4.6 (D195), its reading of the theorem it cites stated (D196), and both confirmed by the eightieth and eighty-first
+verifiers. With Part II.A$'$ proved, Part II.A is **proved** (D197).
 
 ## Part II.A$'$
 
@@ -186,7 +188,8 @@ $U'_j\cap U_{j-1}$ with $\bar U_j\subset U'_j\cap U_{j-1}$, and the number $M$ o
 the orders raised by $2\delta$. So are six nits: the reading of [SBG] Theorem 3.44 as its Theorem 3.51 is stated as a
 READ decision, in section 1.1 and in (S8) of Part II.A; Definition 1.3 names its coordinates; Lemma 2.5's counterexample
 is given for every $\nu$; $\chi_\infty$ is supported in $\{\rho_\infty<1\}$; Lemma 2.6 is applied with $\delta/2$. The
-repairs await the next reader.
+eighty-first verifier read these repairs and confirmed each (D197); its one nit, on the example after Lemma 2.5, is
+seated. Part II.A$'$ is **proved**.
 
 ## Part II.B
 
@@ -201,5 +204,10 @@ $K^+$ where $z_0\sigma\ge0$ (section 2), so that (H3), (H4), (H7) and (H8) of Pa
 and 7). Section 8 assembles the global dynamics (Proposition 8.1, the source's (4.72)) and the curves over the interior
 (Proposition 8.2, the form of the source's Proposition 6.1). Section 9 records four slips of the source, none affecting a
 statement: a word in the proof of Lemma 4.6 (2), the conic extension of $\partial W^+_{\mathrm{in}}$ and its vector field
-in Lemma 4.6 (4), a constant in (4.18), and a gap in the proof of Lemma 4.20, which is not used here. Written (D196); the
-eighty-first verifier reads it.
+in Lemma 4.6 (4), a constant in (4.18), and a gap in the proof of Lemma 4.20, which is not used here. Written (D196). The
+eighty-first verifier read it line by line (D197), recomputed the Minkowski symbols, every closed-form flow, the
+linearisations, the map $\Phi_{z_0}$ and the 3b-eb conversion, and confirmed (B1)-(B4) at source. One minor finding: the
+statement of Lemma 3.3 (4) printed the source's vector field $r\partial_{t_*}-2r\partial_r$, which its proof corrects to
+$2r\partial_{t_*}-r\partial_r$. Four nits: a citation of Lemma 2.1 for the Leibniz rule, $dr$ future (not past) timelike
+inside the horizon, "within $\Sigma$" for the characteristic sets, and the two meanings each of $\rho_K$ and $\rho_+$.
+All are seated (D197); they await the next reader.
