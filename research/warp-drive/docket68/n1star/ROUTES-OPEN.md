@@ -2256,3 +2256,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   takes alpha + 2 and the window (-2 + beta_-, -2 + beta_+); (9.122)'s leading part. RL leaves the twenty-two rows, each
   keeping RB. Five roots remain: RB and RU, the source's kind; RC and RI, companion results at n = 4; RP, a computation.
   OPEN, in this order: RC; RP; RI.
+
+### 4.97 RC READ for general n (READ, deduced; D174)
+
+- 10.81: [Hin23d] constructs the b-, scattering, scattering-b-transition and 3b-calculi on compact n-dimensional
+  manifolds (pp. 22, 28-31, 37, 59) and characterizes 3b-Sobolev spaces by the Fourier transform with X in R^(n-1)
+  (Propositions 4.24 and 4.29, pp. 96-101), which [Hin26c] Lemma 3.7 follows; Lemma 3.9's b-regularity, Lemma 13.13's
+  microlocal parametrix and Lemma 14.6's integration in t carry no numeral of the dimension. RC is settled; 10.41 (b)
+  leaves the readings, thirty-four rows remain. Four roots remain: RB and RU, the source's kind; RI, companion results at
+  n = 4; RP, a computation. OPEN, in this order: RP; RI.

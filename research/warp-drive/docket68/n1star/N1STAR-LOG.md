@@ -4463,3 +4463,8 @@ Corollary 9.39, stated and proved for every n, and Theorem 9.41, written at n = 
 4 on (xx), (xlvii), (xlviii), (lix) and 10.20-10.21. The proof of (9.117) misprints one intermediate line at every n; the
 identity itself holds, with S~ = S-bar for the Minkowskian model. RL leaves the twenty-two rows it touched; each keeps
 RB, so thirty-five rows still take a reading. Five roots remain: RB, RU, RC, RI and RP.
+
+**D174 (2026-10-25): RC READ for general n.** 10.81: the calculi behind [Hin26c] Lemmas 3.9, 13.13 and 14.6 are
+constructed for every n in [Hin23d] (pp. 22-37, 59, 96-101), read at source; the three lemmas carry no numeral of the
+dimension. 10.41 (b), whose one root it was, leaves the readings: thirty-four rows take one. Four roots remain: RB, RU,
+RI and RP. D173 re-wrapped five lines that began with a list marker, three of D172's rewrap of (lx) and two of 10.80's.

@@ -9603,6 +9603,51 @@ its other roots, so the thirty-five rows keep a reading. The calculi are used as
 RB's. Two roots of the companion papers remain, RC and RI, with RP the record's own. Labels: computed (R1-R4); READ (the
 pages named); deduced ((a)-(c), at proof level given the inputs named); nothing proved here.
 
+### 10.81 RC READ for general n: the calculi behind Lemmas 3.9, 13.13 and 14.6 at n = 4 (D174)
+
+*The setting.* RC (10.77) is [Hin26c] Lemma 3.9 and the 3b- and scattering-calculus statements behind Lemmas 13.13 and
+14.6 at n = 4 (10.41 (e)): statements that carry no numeral of the dimension but are written on R^4 = R_t x R^3 and
+R^3-bar, not READ for general n; three rows rest on it, 10.41 (b) on it alone. Read here at source, with the paper that
+constructs the calculi.
+
+*READ.*
+
+ (a) [Hin23d] (arXiv:2302.13803v1, alphaXiv, 2026-10-25), the paper [Hin26c] takes its calculi from: section 2.2, p. 22,
+     "Let M be a compact n-dimensional manifold with (embedded, non-empty) boundary" -- the b-algebra, its elliptic
+     parametrix and Mellin theory (Theorem 2.9); section 2.3, pp. 28-29, the scattering algebra on a compact manifold
+     with boundary, local coordinates y in R^(n-1), with "Parametrices ... of elliptic elements of Psi^(s,r)_sc(M) are
+     elements of Psi^(-s,-r)_sc(M)"; section 2.4, p. 31, the scattering-b-transition algebra on "a compact n-dimensional
+     manifold", and Proposition 2.21, p. 37, the relations to Sobolev spaces at tf and zf behind [Hin26c] (3.46); section
+     3, p. 59, the 3b-single space of "a smooth compact connected n-dimensional manifold" M_0; Proposition 4.24, pp.
+     96-97, the Fourier characterization of 3b-Sobolev spaces near T with X in R^(n-1) and the proof by Plancherel and
+     the ellipticity of the normal operators, and Proposition 4.29, p. 101, its variable order form.
+ (b) [Hin26c] (arXiv:2606.28008v1, alphaXiv, 2026-10-25): p. 20, Lemma 3.7 "following [Hin23d, section 4.4]"; p. 46,
+     section 3.1, the scaled bounded geometry structures of his scaled b.g. paper on "an n-dimensional manifold"; pp.
+     55-59, the cells U_i, U_(i, +-jkl) on R_t x R^3_x of product form relative to the b-structure, Lemmas 3.7 and 3.9, F
+     o t d_t = -d_sigma sigma o F; pp. 252-253, Lemma 13.13's proof, (13.24)-(13.26); pp. 264-265, Lemma 14.6 and its
+     proof.
+
+*Deduced.*
+
+ (c) Lemma 3.9 at n = 4. Lemma 3.7 is [Hin23d] Proposition 4.29 for the spacetime of dimension 5, the spatial chart X in
+     R^4; the cells are those of the b-structure on R^4-bar times t-translates, of the same product form; Lemma 3.9 adds
+     b-regularity, which commutes with the spatial Fourier variable and becomes sigma d_sigma in t by F o t d_t =
+     -d_sigma sigma o F -- free of n. So Lemma 3.9 holds on R_t x R^4 with |dt dx| and |dx|, as written.
+ (d) Lemma 13.13's microlocal part at n = 4. (13.24)-(13.26) are a microlocal elliptic parametrix in the scattering
+     algebra, with the b-vector fields' ellipticity off R_out, and the persistence of b-regularity: statements of section
+     2.3's algebra on a compact manifold of any dimension. The numerals of (13.23a)-(13.23b) are (xxi)'s, at n = 4 3 +
+     eps and 2 - eps.
+ (e) Lemma 14.6 at n = 4. Its s = 0 case is an estimate in t at each fixed r, after dropping the angular variables, with
+     constants free of r, so the density r^(n-1) |dt dr domega| rides along; its general s passes through an elliptic
+     t*-translation-invariant 3b-parametrix, section 3's calculus at any n (and the scaled b.g. version of [Hin26c]
+     section 3.1).
+
+*What this gives, and what it does not.* RC is settled by reading at source: the calculi are constructed for every n by
+the paper that constructs them, and the three lemmas use them with no numeral of the dimension. 10.41 (b) rested on RC
+alone and now rests on no reading; 10.39 (e) and 10.40 (a) keep RB. Thirty-four rows take a reading. The roots left are
+RB and RU, the source's kind, RI, companion results at n = 4, and RP, the record's own. Labels: READ (the pages named);
+deduced ((c)-(e)); nothing proved here.
+
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
 **Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth
