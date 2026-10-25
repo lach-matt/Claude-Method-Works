@@ -4340,3 +4340,11 @@ m5, D149's entry here says the interior uniqueness is deduced; m6, ROUTES 4.81's
 verifier record, and [Hin23a]'s p. 15; m8, "at most about seven pages" ((xvii)'s section 10.2) and (xxx)'s pp. 108-109;
 m9, (xxxiv)'s B_g; m10, (xviii)'s Paley-Wiener representation, (xxiii)'s (5.46) and (xxviii)'s Part (2) and Step 5
 range named; m11, 10.74's n/2 sentence corrected.
+
+**D158 (2026-10-25): [Hin26a] Appendix B written out.** Proposition B.2's microlocal Fredholm argument and
+relative index count (10.23 (b)), Theorem B.4's energy, radial-point and propagation estimates on edge-b spaces (10.23
+(c)) and section B.4's conclusion (10.23 (d)), read at source (pp. 87-98) and matched step by step: the scalar part's
+shift 3/2 and its symmetry for r^3 dr, the thresholds from K1-K2 and F4, the Mellin weight -2 + beta, the index counts
+2, 3, 1 and F5's free roots, the cf positivity and characteristic polynomial (F3, C7), the density r^4 and the data
+weights (F4). Six places named. Forty-six of 61 written out, twenty-seven on a reading;
+15 rest on the censuses.

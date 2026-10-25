@@ -2109,3 +2109,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D150-D153 (10.75 (xvii)-(xxxiv)) read against the sources: no major, eleven minors, all seated -- two source misprints
   no longer carried ([Hin23a] (3.47)'s normalization, [Hin26c] p. 60's density factor), one step of [Hin24b]'s proof
   named, three places added to B-MAP, (xxii)'s (2, 0) moved to Step 3, wording and pages.
+- D158 (10.75 (xliv)-(xlvi)): [Hin26a] Appendix B -- Proposition B.2 (10.23 (b)), Theorem B.4 (10.23 (c)) and section
+  B.4 (10.23 (d)) -- matched at source (pp. 87-98) to tface5.py F2-F5, cpmodes5.py K1-K2 and cform5.py C7.
+  Forty-six of 61 written out, twenty-seven on a reading; 15 rest on the censuses,
+  [Hin26a]'s only in Theorem 5.2 (10.22 (e)).

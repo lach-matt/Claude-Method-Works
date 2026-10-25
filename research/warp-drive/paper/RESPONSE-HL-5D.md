@@ -1060,13 +1060,13 @@ its proof — 54 name some, 7 none, the proof being the source's as it stands �
 computed, deduced in an earlier section, arithmetic in n, or the record's choice (supplement section 10.74,
 `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those places, which is the census
 question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i), but for one step, which rests
-on a modification step and so on the census (supplement section 10.73). Forty-three of the 61 are now written out step
-by step at n = 4 — forty with source proofs of at most seven pages (two replaced by a computation), three on one longer
-pair of proofs — so their own steps rest on their inputs and not on a census, though twenty-four take a reading among
-those inputs and seven cite a step still on the census (supplement section 10.75, with a lemma at
+on a modification step and so on the census (supplement section 10.73). Forty-six of the 61 are now written out step by
+step at n = 4 — forty-three with source proofs of at most seven pages (two replaced by a computation), three on one
+longer pair of proofs — so their own steps rest on their inputs and not on a census, though twenty-seven take a reading
+among those inputs and eight cite a step still on the census (supplement section 10.75, with a lemma at
 the horizon proved in section 10.76);
-the other 18 carry longer proofs, in [Hin26] section 11, [Hin26c] sections 5 and 7–14 and [Hin26a] section 5 with its
-appendix B. λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's
+the other 15 carry longer proofs, in [Hin26] section 11, [Hin26c] sections 5 and 7–14 and [Hin26a] section 5. λ1 and δ
+exist by the deduction — from Hintz's smallness constant and Theorem 1's
 estimates — and are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the
 deductions written out, would make Theorem 4 a theorem.
 
@@ -1809,7 +1809,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | the general-n steps' hypotheses placed, section 8.8 | supplement section 10.72; [Hin26], [Hin26c] |
 | the undecided steps placed, section 8.8 | supplement section 10.73; `docket68/n1star/synth5.py` S1–S3; [KI03] |
 | the modification steps' changes placed, section 8.8 | supplement section 10.74; `docket68/n1star/B-MAP.tsv` |
-| forty-three modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26a], [Hin26c], |
+| forty-six modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26a], [Hin26c], |
 | | [Hin23a], [Hin24b], [CD03] |
 | the continuation and uniqueness inside the horizon, sections 8.4, 8.5 | supplement section 10.76 |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
@@ -1924,9 +1924,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `b579f6bf4b96d318168e0bf45fe0f644` |
-| `docket68/n1star/N1STAR-LOG.md` | `051d1a0c8870985556eae1a3947e70b1` |
-| `docket68/n1star/README.md` | `4c6ebde9131195b97f326f97dbb67d3e` |
+| `docket68/n1star/N1STAR-PROOF.md` | `eaa82bdb12b2e817531fe35b728dbff3` |
+| `docket68/n1star/N1STAR-LOG.md` | `acfda4713065b3f71d6afbb44d7a80cb` |
+| `docket68/n1star/README.md` | `a31cf1f6490c908fc5743c496887898f` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1993,6 +1993,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/B-MAP.tsv` | `e0c37a47b9c220b85880157776438403` |
+| `docket68/n1star/B-MAP.tsv` | `687722365bb2212f2c4d02ae49e7d8ad` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.
