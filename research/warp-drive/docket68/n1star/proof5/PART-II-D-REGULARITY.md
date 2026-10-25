@@ -1,13 +1,16 @@
 # Part II.D. Microlocal regularity on spacetime: radial sets, trapping and the global estimate, at n = 4
 
-*Status.* Written out in full (D202). Not yet read by an independent verifier; nothing here is labelled proved. This part
-proves, at spatial dimension $n = 4$, [Hin26c] section 7.1 (pp. 114-127): the global edge-3b regularity estimate, its
-Proposition 7.1, with the ingredients it combines, the radial point estimates (Propositions 7.4 and 7.6-7.9, Remark 7.5)
-and the estimate at the trapped set (Proposition 7.10). Section 7.2 of the source, b-regularity and estimates tame in it,
-is Part II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A
-(`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A (`PART-II-A-SETUP.md`) as
-II.A, Part II.A$'$ (`PART-II-A2-STANDARD.md`) as II.A$'$, Part II.B (`PART-II-B-DYNAMICS.md`) as II.B, Part II.C
-(`PART-II-C-OPERATORS.md`) as II.C and Part II.C$'$ (`PART-II-C2-TRAPPING.md`) as II.C$'$.
+*Status.* Verified. Written out in full (D202). Read line by line by the eighty-fourth verifier, which re-derived every
+threshold, sign and dynamical claim and confirmed (D1)-(D4) at source; its two minor findings (the comparison of norms
+in Step 3 of Proposition 4.2, and the support of the time cut-off's term in Proposition 3.6) and its nits are seated
+(D204). The part is labelled proved once the next reader has confirmed them. This part proves, at spatial dimension $n =
+4$, [Hin26c] section 7.1 (pp. 114-127): the global edge-3b regularity estimate, its Proposition 7.1, with the
+ingredients it combines, the radial point estimates (Propositions 7.4 and 7.6-7.9, Remark 7.5) and the estimate at the
+trapped set (Proposition 7.10). Section 7.2 of the source, b-regularity and estimates tame in it, is Part II.D$'$. The
+source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as
+I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part II.A$'$
+(`PART-II-A2-STANDARD.md`) as II.A$'$, Part II.B (`PART-II-B-DYNAMICS.md`) as II.B, Part II.C (`PART-II-C-OPERATORS.md`)
+as II.C and Part II.C$'$ (`PART-II-C2-TRAPPING.md`) as II.C$'$.
 
 *Method.* Every estimate here is a positive commutator estimate. II.A$'$ section 4 provides the machinery with
 coefficients of finite regularity: one step with a regulariser (its Lemma 4.1) and the iteration in the order (its Lemma
@@ -321,7 +324,10 @@ neighbourhood $W$ of $\partial R_{\mathcal H^+}$ in ${}^{3b}S^*_{(K^+)^\circ}M_0
 field of $P_0$ is invariant under $t_*$-translations, so $\mathsf H_{P_0}F\ge c_FF$ on $W\times\{\rho_K\le\rho_0\}$. For
 $P$, $\mathsf H-\mathsf H_{P_0} = O(\epsilon_P\rho_K^{\ell_K})$ in $C^{d_0-1}$, and $|dF|\le CF^{1/2}$, so $\mathsf
 HF\ge\frac12c_FF$ where $F\ge(2\mathfrak M_R)^{-1}$ and $\rho_K\le\mathfrak M^{-1}$, for $\mathfrak M$ large given
-$\mathfrak M_R$. Put $\Psi := \psi(\mathfrak M_RF)\psi(\mathfrak M\rho_K)$. Then
+$\mathfrak M_R$. As $F$ is defined only on $W$, extend it to a smooth $t_*$-independent function bounded below by a
+positive constant outside a smaller $t_*$-invariant neighbourhood $W'$ of $\partial R_{\mathcal H^+}$ with closure in
+$W$; for $\mathfrak M_R$ large, $\psi(\mathfrak M_RF)$ is then a symbol supported in $W'$ (the eighty-fourth verifier,
+D204). Put $\Psi := \psi(\mathfrak M_RF)\psi(\mathfrak M\rho_K)$. Then
 $$\mathsf H(\Psi^2) = 2\mathfrak M_R(\psi\psi')(\mathfrak M_RF)\,\mathsf HF\,\psi(\mathfrak M\rho_K)^2+
 2\mathfrak M(\psi\psi')(\mathfrak M\rho_K)\,\mathsf H\rho_K\,\psi(\mathfrak M_RF)^2.$$
 The first term is $\le0$ and is $-b'^*b'$ with $b' := \rho^{-s}\varphi_\epsilon\theta(\mathfrak M_RF)(2\mathfrak
@@ -481,7 +487,8 @@ $t_{*,-}\in\mathbb R$. There are $B,E,G$ with (1) operator wave front sets in an
 R_{\mathscr I^+,\mathrm{out}}\cap\{t^\flat_*\ge t_{*,-}\}$; (2) Schwartz kernels in $K\times K$ for any fixed compact
 neighbourhood $K\subset\tilde M$ of $\mathrm{cl}(\mathscr I^+\cap\{t_*\ge t_{*,-}\})$; (3) $B$ elliptic at $\partial
 R_{\mathscr I^+,\mathrm{out}}\cap\{t^\flat_*\ge t_{*,-}\}$; (4) $\mathrm{WF}'(E)\cap\partial R_{\mathscr
-I^+,\mathrm{out}}\subset\{t^\flat_*\le t_{*,-}\}$; such that for all constants $s>s_0$ and $\alpha_I,\alpha_+$ with
+I^+,\mathrm{out}}\subset\{t^\flat_*\le t_{*,-}-\frac14\}$; such that for all constants $s>s_0$ and $\alpha_I,\alpha_+$
+with
 $$\alpha_I<-\tfrac12+\bar p_1\tag{3.9}$$
 ($\bar p_1$ of II.C Definition 3.5, for $P$), (3.8) holds in the strong sense, for $P = P_0$ and every $P$ with
 $\epsilon_P$ small.
@@ -498,25 +505,28 @@ $$Q_\epsilon = 4A^{-1}(\mathrm{Re}_{h_I}p_1)A-2+2\cdot2\alpha_I\cdot(-1)
 \ge4\big(\bar p_1-\delta'-\tfrac12-\alpha_I\big) = 12\delta' =: 2c>0,$$
 by (3.9), independently of $s_\epsilon$; near $R$, $\rho^{-1}\mathsf H\rho$ is small as before.
 
-Put $q := \hat\xi^2+|\hat\eta|^2$, fix $\eta_t\in C^\infty(\mathbb R)$ with $\eta_t = 0$ on $(-\infty,-\frac12]$, $\eta_t
-= 1$ on $[0,\infty)$, $\eta_t'\ge0$ and $(\eta_t\eta_t')^{1/2}$ smooth, and $\psi_- := \eta_t(t^\flat_*-t_{*,-})$, which
-equals 1 for $t^\flat_*\ge t_{*,-}$. Put $\Psi := \psi(\mathfrak M_\Sigma\rho^2\ell)\psi(\mathfrak M_Rq)\psi(\mathfrak
-Mx_I)\psi_-$. On the characteristic set over $\mathscr I^+$, with $|\hat\eta|^2 = \frac12\hat\xi(2-\hat\xi)$,
+Put $q := \hat\xi^2+|\hat\eta|^2$, fix $\eta_t\in C^\infty(\mathbb R)$ with $\eta_t = 0$ on $(-\infty,-\frac12]$,
+$\eta_t = 1$ on $[-\frac14,\infty)$, $\eta_t'\ge0$ and $(\eta_t\eta_t')^{1/2}$ smooth, and $\psi_- :=
+\eta_t(t^\flat_*-t_{*,-})$, which equals 1 for $t^\flat_*\ge t_{*,-}-\frac14$. Put $\Psi := \psi(\mathfrak
+M_\Sigma\rho^2\ell)\psi(\mathfrak M_Rq)\psi(\mathfrak Mx_I)\psi_-$. On the characteristic set over $\mathscr I^+$, with
+$|\hat\eta|^2 = \frac12\hat\xi(2-\hat\xi)$,
 $$\mathsf H^0q = -4\hat\xi|\hat\eta|^2+2(\hat\xi-1)|\hat\eta|^2 = -2(2-\hat\xi)\hat\xi^2-2(1-\hat\xi)|\hat\eta|^2
 \le-q\quad\text{for }|\hat\xi|\le\tfrac12,$$
-and off it, as in Proposition 3.5, $\mathsf Hq\le-(4\mathfrak M_R)^{-1}$ on $\mathrm{supp}\,\psi'(\mathfrak M_Rq)$ within
-the support of the other factors. (The source prints $-4(2-\hat\xi)\hat\xi^2$ for the first term; section 6, (D3).) Near
-$R$, $x_I^{-1}\mathsf Hx_I\le-\frac12$. So $\psi(\mathfrak M_Rq)$ and $\psi(\mathfrak Mx_I)$ give $+e^*e$ terms,
-supported in $\{q\ge(2\mathfrak M_R)^{-1}\}$ and $\{x_I\ge(2\mathfrak M)^{-1}\}$, both disjoint from $R$; $\psi(\mathfrak
-M_\Sigma\rho^2\ell)$ gives $j_\epsilon\ell$. The factor $\psi_-$ gives $2\eta_t\eta_t'\,\mathsf
+and off it, as in Proposition 3.5, $\mathsf Hq\le-(4\mathfrak M_R)^{-1}$ on $\mathrm{supp}\,\psi'(\mathfrak M_Rq)$
+within the support of the other factors. (The source prints $-4(2-\hat\xi)\hat\xi^2$ for the first term; section 6,
+(D3).) Near $R$, $x_I^{-1}\mathsf Hx_I\le-\frac12$. So $\psi(\mathfrak M_Rq)$ and $\psi(\mathfrak Mx_I)$ give $+e^*e$
+terms, supported in $\{q\ge(2\mathfrak M_R)^{-1}\}$ and $\{x_I\ge(2\mathfrak M)^{-1}\}$, both disjoint from $R$;
+$\psi(\mathfrak M_\Sigma\rho^2\ell)$ gives $j_\epsilon\ell$. The factor $\psi_-$ gives $2\eta_t\eta_t'\,\mathsf
 Ht^\flat_*\cdot(\text{other factors})^2$. Whatever its sign, with $C_t := 1+\sup|\mathsf Ht^\flat_*|$ over the support,
 it is $e_-^*e_--b_-'^*b'_-$ with $e_-^2 := 2C_t\eta_t\eta_t'(\cdots)^2$ and $b_-'^2 := 2(C_t-\mathsf
 Ht^\flat_*)\eta_t\eta_t'(\cdots)^2$, both smooth squares. Its support lies in
-$\{t^\flat_*\in[t_{*,-}-\frac12,t_{*,-}]\}$, which gives (4). On the characteristic set over $\Omega^\circ$, $\mathsf
-Ht^\flat_*>0$ (II.C Lemma 3.2 (2)), and $e_-$ is the a priori term at earlier times; off it the sign of $\mathsf
-Ht^\flat_*$ is not used. The other $E$-sets are disjoint from $R$. The pattern gives (3.8). Here $\mathrm{supp}\,\Psi$ is
-not compact in $t^\flat_*$, but it is compact in $\tilde M$, its closure meeting $\mathscr I^+\cap\iota^+$, where II.B
-(7.4) holds uniformly. $\square$
+$\{t^\flat_*\in[t_{*,-}-\frac12,t_{*,-}-\frac14]\}$, which gives (4); so it misses $\partial R_{\mathscr
+I^+,\mathrm{out}}\cap\{t^\flat_*\ge t_{*,-}\}$, where $B$ is to be elliptic, as Lemma 2.2 requires of the $E$-sets.
+(With $\eta_t = 1$ only on $[0,\infty)$ the two could touch at $t^\flat_* = t_{*,-}$; the eighty-fourth verifier, D204.)
+On the characteristic set over $\Omega^\circ$, $\mathsf Ht^\flat_*>0$ (II.C Lemma 3.2 (2)), and $e_-$ is the a priori
+term at earlier times; off it the sign of $\mathsf Ht^\flat_*$ is not used. The other $E$-sets are disjoint from $R$.
+The pattern gives (3.8). Here $\mathrm{supp}\,\Psi$ is not compact in $t^\flat_*$, but it is compact in $\tilde M$, its
+closure meeting $\mathscr I^+\cap\iota^+$, where II.B (7.4) holds uniformly. $\square$
 
 In both uses below, $t_{*,-}\le\frac12$. The kernel of $E$ near its $e_-$-set can then be supported in
 $\{t^\flat_*<1\}^2$, where the $u$ of Theorem 1.2 vanishes, so that this part of $\|Eu\|$ is zero. The source states the
@@ -610,8 +620,10 @@ the same argument loses one more derivative.
 and $\phi^u = \phi_u$, so $f = H_{G_1}\phi_u = -\nu_u\phi_u$ by (Γ.2). Thus $w_u = \nu_u$ on $\{y_2 = 0\}$ where
 $\phi_u\ne0$, hence on all of it by continuity, as $d\phi_u\ne0$ there. Likewise $w_s = \nu_s$.
 
-(d) For functions $F,F'$ of $(x,z) = (x,\zeta/\sigma)$ alone, $\{F,F'\} = \sigma^{-1}\{F,F'\}_{(x,z)}$, the terms with
-$t_*$ vanishing; so at $\rho_K = 0$, $c_{us} = \{\phi_0^u,\phi_0^s\}_{(x,z)}$. At $\Gamma$, by the formula for
+(d) For functions $F,F'$ of $(x,z) = (x,\zeta/\sigma)$ alone, not depending on $t_*$, $\{F,F'\} =
+\sigma^{-1}\{F,F'\}_{(x,z)}$, the terms with $t_*$ vanishing. $\phi^u$ and $\phi^s$ depend on $t_*$ off $\rho_K = 0$,
+through $\tilde\phi^{u/s}$, and the formula is used only at $\rho_K = 0$, where $\tilde\phi^{u/s}$ and its derivatives
+vanish; so there $c_{us} = \{\phi_0^u,\phi_0^s\}_{(x,z)}$. At $\Gamma$, by the formula for
 $d(\phi\circ w)$, this is $\{\phi_u,\phi_s\}-(N\phi_s)\{\phi_u,G_1\}-(N\phi_u)\{G_1,\phi_s\}$, and $\{\phi_u,G_1\} =
 -H_{G_1}\phi_u = \nu_u\phi_u = 0$, $\{G_1,\phi_s\} = \nu_s\phi_s = 0$ on $\Gamma$. Continuity up to $\rho_K = 0$ is as in
 (b). $\square$
@@ -637,9 +649,10 @@ estimate with the weight $|\phi^s|^{-\beta}$ (Step 3, I.B's Step 3), and their c
 $\beta<\frac12$ (Step 4).
 
 *Proof.* We prove the estimate at the component over $\partial\Sigma^+$; over $\partial\Sigma^-$ the proof is the same
-with $z_0 = -1$, $\varsigma = -1$ and the future field $-\mathsf H$ (section 3), and with $\phi^s$ replaced by $-\phi^s$
-if $c_{us}<0$ there. After Step 0 (a) norms are those of $H^{\mathsf t}_{e3b}$ without weights. $C$ denotes constants
-independent of $\epsilon$ and, from Step 2 on, of $\delta$; $C_\delta$ may depend on $\delta$. Neither depends on $u$.
+with $z_0 = -1$, $\varsigma = -1$ and the future field $-\mathsf H$ (section 3); $c_{us}>0$ there too, as (Γ.3) of I.B
+holds for both $z_0 = \pm1$. After Step 0 (a) norms are those of $H^{\mathsf t}_{e3b}$ without weights. $C$ denotes
+constants independent of $\epsilon$ and, from Step 2 on, of $\delta$; $C_\delta$ may depend on $\delta$. Neither depends
+on $u$.
 
 *Step 0: reductions and choices.* (a) As in section 1.2 with $W' = 1$, $w := \rho_K^{\alpha_K}$ and $A$ the frame of
 $h_\Gamma$, we replace $P$ by $L'' = A^{-1}w^{-1}PwA$ and $u$ by $A^{-1}w^{-1}u$, and keep the names $P$, $u$. The
@@ -726,8 +739,11 @@ factor in $\rho^2G$ gives a multiple of $G$, as $\mathsf H(\rho^2G) = 2(\rho^{-1
 $\rho_K$ gives $2\theta(\rho_K/\epsilon')^2(-\mathsf H\rho_K)/\epsilon'$ times the same, $\ge0$ by (T1): a term $+e^*e$,
 supported in $\{\rho_K\ge\epsilon'/2\}$. Multiples of $G$ are $j_\epsilon\ell$. So (2.2) holds with $b_\epsilon :=
 \rho^{-\mathsf t}\varphi_\epsilon\Psi_{\epsilon'}Q'^{1/2}_\epsilon$ and $E$-symbols supported in
-$\{|\phi^u|\ge\epsilon'/2\}\cup\{\rho_K\ge\epsilon'/2\}$. Lemmas 2.1-2.3, and Lemma 2.2 with the sets
-$U(2^{-j}\cdot2^{J_0+2}\delta_2)$, $0\le j\le J_0$, in the proof of II.A$'$ Lemma 4.2, give, in the strong sense,
+$\{|\phi^u|\ge\epsilon'/2\}\cup\{\rho_K\ge\epsilon'/2\}$. Lemmas 2.1-2.3, and Lemma 2.2 with the interiors of the sets
+$U(2^{-j}\cdot2^{J_0+2}\delta_2)$, $0\le j\le J_0$, in the proof of II.A$'$ Lemma 4.2 (which needs open sets), and with
+$\epsilon' := 2^{J_0+3-j}\delta_2$ at its step $j\ge1$, so that the commutant is supported in the $(j-1)$st set and
+equals 1 on the $j$th while its $E$-sets, in $\{|\phi^u|\ge4\delta_2\}\cup\{\rho_K\ge4\delta_2\}$, miss $U(2\delta_2)$,
+give, in the strong sense,
 $$\|B_1v\|_{\mathsf t}\le C\big(\|G_1P'v\|_{\mathsf t-1}+\|E_1v\|_{\mathsf t}+\|G_1v\|_{\mathsf t-1}+
 \|\chi v\|_{-N}\big),$$
 with $B_1$ elliptic on $U(2\delta_2)$, $G_1$ elliptic on $U(2^{J_0+2}\delta_2)$ and microsupported in
@@ -767,8 +783,11 @@ $$\|B_\epsilon\Phi_uu\|\le C(X_\epsilon+\mathcal K)\qquad\text{for all }\epsilon
 *Step 2: concentration at $\{\phi^s = 0\}$.* Let $\delta_4 := \delta_2/4$ and $\delta\in(0,\delta_4/16]$, fixed in
 Step 4. Let $\Theta\in C^\infty(\mathbb R)$ be non-decreasing, with $\Theta = 0$ on $(-\infty,-8]$, $\Theta = 1$ on
 $[8,\infty)$, $\Theta'>0$ on $(-8,8)$, $\Theta(y) = c_1e^{-1/(y+8)}$ near $-8$ and $1-\Theta(y) = c_2e^{-1/(8-y)}$ near
-$8$; such $\Theta$ exist for $c_1,c_2>0$ small, and $\check\Theta := \Theta^{1/2}$ and $\theta_\Theta := \Theta'^{1/2}$
-are smooth. Let $c_\Theta := \min_{[-4,4]}\Theta'>0$. Put
+$8$; such $\Theta$ exist for $c_1+c_2<e$: with $T_\mp$ the two prescribed tails, put $\Theta' :=
+\varkappa_-T_-'+m\varkappa_0+\varkappa_+T_+'$ on $(-8,8)$, for a partition of unity $\varkappa_-+\varkappa_0+\varkappa_+
+= 1$ there with $\varkappa_\mp = 1$ near $\mp8$ and supported within distance 1 of $\mp8$, and $m>0$ fixed by
+$\int\Theta' = 1$, possible as the two tail terms contribute at most $(c_1+c_2)e^{-1}<1$; and $\check\Theta :=
+\Theta^{1/2}$ and $\theta_\Theta := \Theta'^{1/2}$ are smooth. Let $c_\Theta := \min_{[-4,4]}\Theta'>0$. Put
 $$\psi_\delta(y) := \Theta(y/\delta)\,\psi(y/\delta_4)^2,\qquad\bar\chi :=
 \psi(\phi^u/\delta_4)\psi(\rho^2G/\delta_4)\psi(\rho_K/\delta_4),$$
 $\tilde a := \rho^{-2s'-1}\psi_\delta(\phi^s)\bar\chi^2$, $\tilde A := \frac12(\mathrm{Op}(\tilde a)+\mathrm{Op}(\tilde
@@ -857,9 +876,15 @@ of order $2s'-2$. The $e$-terms in $\{|\phi^u|\ge\delta_3/2\}\cup\{\rho_K\ge\del
 and are at most $C_\delta(\|E'u\|_{s'}+\|\chi u\|_{-N})$. So, with $B_3^\epsilon := \mathrm{Op}(b_\epsilon)$ and
 $E_3^\epsilon := \mathrm{Op}(\rho^{-s'}\varphi_\epsilon|\phi^s|^{-\beta}\bar\chi_3e_3(|\phi^s|))$,
 $$\|B_3^\epsilon u\|^2\le\|E_3^\epsilon u\|^2+C_\delta\mathcal K^2.\tag{4.12}$$
-Let $M^\epsilon := \mathrm{Op}(\rho^{-s'}\varphi_\epsilon F(|\phi^s|)\bar\chi_3)$. As $|\phi^s|\le R_3$ on
-$\mathrm{supp}\,F$, $b_\epsilon^*b_\epsilon\ge2c_0R_3^{-2\beta}|\rho^{-s'}\varphi_\epsilon F\bar\chi_3|^2$, so Lemma 2.5
-gives $\|M^\epsilon u\|\le CR_3^\beta\|B_3^\epsilon u\|+C_\delta\mathcal K$. The symbol of $E_3^\epsilon$ is supported in
+Let $M^\epsilon := \mathrm{Op}(\rho^{-s'}\varphi_\epsilon F(|\phi^s|)\bar\chi_3)$. After the factor
+$\rho^{-s'}\varphi_\epsilon$ its symbol is $z := F(|\phi^s|)\bar\chi_3$, and that of $B_3^\epsilon$ is $x_1 :=
+\Psi_3(Q_\epsilon+2\beta w_s)^{1/2}$. Let $\zeta$ be a cut-off equal to 1 near $\mathrm{supp}\,z$ and supported in
+$\{\frac\delta4<|\phi^s|<2R_3\}$, where also $Q_\epsilon+2\beta w_s\ge c_0$, and $q_1 :=
+\zeta|\phi^s|^\beta(Q_\epsilon+2\beta w_s)^{-1/2}$. Then $z = q_1x_1$ near $\mathrm{supp}\,z$, and $\sup|q_1|\le
+(2R_3)^\beta c_0^{-1/2}$, independently of $\delta$ and $\epsilon$; so Lemma 2.5 in its general form gives $\|M^\epsilon
+u\|\le CR_3^\beta\|B_3^\epsilon u\|+C_\delta\mathcal K$, $\delta$ entering through the derivatives of $|\phi^s|^\beta$
+near $|\phi^s| = \frac\delta4$. Its particular case does not apply, as $x_1$ vanishes where $z$ does (the eighty-fourth
+verifier, D204). The symbol of $E_3^\epsilon$ is supported in
 $\{\frac\delta2\le|\phi^s|\le\delta\}\cap\mathrm{supp}\,\bar\chi_3$, where $|\phi^s|^{-\beta}e_3\le C\delta^{-\beta}$:
 the propagation runs from the shell $|\phi^s|\sim\delta$ outward, along which $|\phi^s|$ grows, and the weight
 $|\phi^s|^{-\beta}$ costs $\delta^{-\beta}$.
@@ -1024,12 +1049,12 @@ functions with the equations (4.1) by Lemma 4.1.
 \eta(\mathfrak M(t_*-t_{*,+}))$ have their arguments reversed: with $\eta = 0$ on $(-\infty,-\frac12]$ and $\eta = 1$ on
 $[0,\infty)$ they equal 1 before $t_{*,-}$ and after $t_{*,+}$. (b) Its statement (4), $\mathrm{WF}'(E)\cap\partial
 R_{\mathscr I^+,\mathrm{out}} = \emptyset$, fails, as the term $e_-$ lies on $\partial R_{\mathscr I^+,\mathrm{out}}$
-near $t_* = t_{*,-}$; Proposition 3.6 (4) restricts it to $\{t^\flat_*\le t_{*,-}\}$. (c) For finite $t_{*,+}$ the proof
-needs $H_Gt_*\ge0$ on the support of the commutant, for the symbol $b_+$ to be real. The cut-off $\psi_\Sigma$ localises
-only to a neighbourhood of the characteristic set, and off it, at $x_I = 0$, $\mathsf Ht^\flat_* = t_*\hat\xi$ takes
-negative values, as $\hat\xi<0$ occurs there. Proposition 3.6 is stated for $t_{*,+} = \infty$ only. The case of finite
-$t_{*,+}$ served in the source's Step 1, and section 5 does without it: finite times are controlled away from $\partial
-R_{\mathscr I^+,\mathrm{out}}$, and Step 6 controls all of it at once.
+near $t_* = t_{*,-}$; Proposition 3.6 (4) restricts it to $\{t^\flat_*\le t_{*,-}-\frac14\}$. (c) For finite $t_{*,+}$
+the proof needs $H_Gt_*\ge0$ on the support of the commutant, for the symbol $b_+$ to be real. The cut-off $\psi_\Sigma$
+localises only to a neighbourhood of the characteristic set, and off it, at $x_I = 0$, $\mathsf Ht^\flat_* = t_*\hat\xi$
+takes negative values, as $\hat\xi<0$ occurs there. Proposition 3.6 is stated for $t_{*,+} = \infty$ only. The case of
+finite $t_{*,+}$ served in the source's Step 1, and section 5 does without it: finite times are controlled away from
+$\partial R_{\mathscr I^+,\mathrm{out}}$, and Step 6 controls all of it at once.
 
 (D3) *Two slips at $\mathscr I^+$.* In the proof of [Hin26c] Proposition 7.9 the equality $-4|\hat\eta|^2\hat\xi =
 -4(2-\hat\xi)\hat\xi^2$ should read $-2(2-\hat\xi)\hat\xi^2$, as $|\hat\eta|^2 = \frac12\hat\xi(2-\hat\xi)$ on the

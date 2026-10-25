@@ -2518,3 +2518,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (D'1)-(D'8).
 - Open: the D197, D200 and D201 repairs; Parts II.D and II.D' unread; Parts II.E-II.F and III-VII.
 - Next: seat the eighty-fourth verifier on Part II.D; the eighty-fifth on Part II.D'; Part II.E, [Hin26c] section 8.
+
+### 4.127 Part II.D verified (D204)
+
+- The eighty-fourth verifier on Part II.D: no major finding; two minor (Lemma 2.5 in its general form in Step 3 of
+  Proposition 4.2; the support of the time cut-off's term in Proposition 3.6) and six nits, all seated; (D1)-(D4)
+  confirmed at source.
+- Open: the D197, D200, D201 and D204 repairs; Part II.D' unread; Parts II.E-II.F and III-VII.
+- Next: the eighty-fifth verifier on Part II.D'; Part II.E, [Hin26c] section 8, in writing.

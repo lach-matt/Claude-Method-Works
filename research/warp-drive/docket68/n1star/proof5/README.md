@@ -23,7 +23,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
 | II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200) |
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
-| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | written (D202) |
+| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | written (D203) |
 | II.E-F | [Hin26c] 8, 10-13 | energy estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
@@ -272,11 +272,17 @@ conjugated operator (Lemma 1.1); at $\mathscr I^+$ that symbol is the source's (
 proves the estimate at the trapped set, which the source quotes from [Hin21] Theorem 3.9, from the hypersurfaces of Part
 II.C$'$: it is the positive commutator form of the defect-measure proof of Part I.B, with an equation with damping, a
 commutator that gains $\sqrt\delta$ near the stable hypersurface, a propagation estimate with the weight
-$|\phi^s|^{-\beta}$, $\beta<\frac12$, one regulariser and an induction on the order in half steps (finding (D1)). Section
-5 assembles the estimate. Findings (D2)-(D3): in the source's Proposition 7.9 the time cut-offs are reversed, its
-statement (4) fails near the initial time, and the case of a finite final time rests on a sign that fails off the
+$|\phi^s|^{-\beta}$, $\beta<\frac12$, one regulariser and an induction on the order in half steps (finding (D1)).
+Section 5 assembles the estimate. Findings (D2)-(D3): in the source's Proposition 7.9 the time cut-offs are reversed,
+its statement (4) fails near the initial time, and the case of a finite final time rests on a sign that fails off the
 characteristic set; the proof here does without that case. Two slips by a factor 2 at $\mathscr I^+$ do not affect the
-inequalities. Written (D202); not yet read by a verifier.
+inequalities. Written (D202). The eighty-fourth verifier re-derived every threshold, sign and dynamical claim and
+confirmed (D1)-(D4) at source. Its two minor findings: in Step 3 of Proposition 4.2 Lemma 2.5 is needed in its general
+form, as the symbol of the propagated operator vanishes where the compared one does; and in Proposition 3.6 the term of
+the time cut-off could touch the set where $B$ is elliptic, and is now kept a quarter unit earlier. Its nits (open sets
+and the regulariser's parameter in the iteration, where the bracket formula of Lemma 4.1 (d) is used, the sign of
+$c_{us}$ over $\partial\Sigma^-$, the extension of $F$ at the horizon, a construction of $\Theta$) are seated (D204);
+they await the next reader.
 
 ## Part II.D'
 

@@ -4924,3 +4924,17 @@ estimate. Section 8: findings (D'1)-(D'8), among them (7.57) and its analogue in
 as inclusions that are false (a counterexample is given; the reverse holds and is what the arguments use), the weights of
 (7.28), and the source's multi-indices for fields that do not commute. Not yet read by a verifier; the eighty-fourth
 verifier is reading Part II.D. Next: seat it; the eighty-fifth verifier on Part II.D'; Part II.E ([Hin26c] section 8).
+
+**D204 (2026-10-25): the eighty-fourth verifier seated; Part II.D verified.** The verifier read Part II.D in full
+against [Hin26c] pp. 114-127 and re-derived every Q_eps, sign and threshold ((7.6), (7.13), (7.17)-(7.19), (7.23)), the
+n = 4 density and adjoint algebra of Lemma 3.4, the arithmetic of (4.3) and (4.8)-(4.13), the half-step induction, the
+covering and section 5's dynamics against Part II.B; (D1)-(D4) confirmed at source and in [Hin21]. No major finding.
+Minor: (1) Step 3 of Proposition 4.2 used the particular case of Lemma 2.5, whose hypothesis fails, as x_1 = Psi_3
+(Q_eps + 2 beta w_s)^(1/2) vanishes where z = F chi_3 does; now the general case, with q_1 = zeta |phi^s|^beta (Q_eps +
+2 beta w_s)^(-1/2) and sup |q_1| <= (2R_3)^beta c_0^(-1/2); (2) in Proposition 3.6, with eta_t = 1 on [0, oo) the e_-
+set could touch the set where B is elliptic, which Lemma 2.2 excludes; now eta_t = 1 on [-1/4, oo) and (4) reads t_* <=
+t_*,- - 1/4. Nits: interiors of the sets U(.) and epsilon' = 2^(J_0+3-j) delta_2 at step j; Lemma 4.1 (d)'s bracket
+formula used only at rho_K = 0; c_us > 0 over dSigma^- by (Gamma.3), so no change of sign; F extended off W; Theta
+constructed. All seated. Taken as stated, not re-proved by the verifier: II.A' Proposition 2.4, Lemmas 4.1-4.2, Theorem
+5.4, II.C' Theorem 1.1. Status: Parts I.A-I.C, II.A, II.A' proved; II.B, II.C, II.C' and II.D verified; II.D' written.
+Next: the eighty-fifth verifier on Part II.D'; Part II.E ([Hin26c] section 8), in writing.
