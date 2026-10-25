@@ -1901,7 +1901,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | D165 (D168); the sixty-seventh 10.75 (lx)–(lxi) and D168 (D172); the sixty-eighth D169–D172 (D175); |
 | | the sixty-ninth D173–D175 (D177); the seventieth D176–D177 (D179); the seventy-first D178–D179 (D180); |
 | | the seventy-second D180–D181 (D182); the seventy-third D182–D183 (D184) |
-| | the seventy-fourth Part I.A of the write-out (D186) |
+| | the seventy-fourth Part I.A of the write-out (D186); the seventy-fifth its repairs (D187) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1987,7 +1987,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `610a8a67f03c0041dfb663e097d8939f` |
+| `docket68/n1star/N1STAR-LOG.md` | `f6871b2f6c3349aeff574fcd44b24fef` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

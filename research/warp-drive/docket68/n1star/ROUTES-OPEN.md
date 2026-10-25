@@ -2386,3 +2386,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   constant s.
 - Next: a reader for the D186 repairs; Part I.B continues (`proof5/` section 2, the semiclassical calculus, written in
   draft).
+
+### 4.110 The seventy-fifth verifier seated on the D186 repairs (D187)
+
+- The D186 repairs read by the seventy-fifth verifier: each confirmed; two minors in Remark 3.3's variant (the limit by
+  weak lower semicontinuity; Step 1 without [A_eps, T_t]) and six nits, all seated; no statement changed.
+- Next: Part I.B written in full (`proof5/PART-I-B-HIGHENERGY.md`), then one reader for it and for the two D187 repairs.

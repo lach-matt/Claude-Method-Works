@@ -15,7 +15,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 
 | Part | Source | Content | Status |
 |---|---|---|---|
-| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | written (D185); seated (D186) |
+| I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | seated (D187) |
 | I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | in progress |
 | I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf-normal operators (9.38), low energy (9.41), 9.39, 9.43 | to do |
 | II | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
@@ -41,3 +41,9 @@ The seventy-fourth verifier read Part I.A line by line (D186): two major finding
 $u$ where an absorbing term of top order makes the pairing undefined, now paired only with Schwartz approximants; and
 variable regularity orders lay outside the calculus READ, so Theorem 7.2 is now stated for a constant regularity order --
 and seven minor ones, all seated. Its repairs are read next; Part I.A is labelled proved only then.
+
+The seventy-fifth verifier read those repairs (D187) and confirmed each. It found two minor gaps, both in the variant of
+Remark 3.3 that Proposition 5.2 (ii) uses: the limit of the main term was taken without saying why the bound survives it,
+now by weak lower semicontinuity of the norm on a bounded sequence; and Step 1 used a commutator with $T_t$ it had not
+bounded, now avoided by splitting $\check A_\epsilon P w_t$ into three terms each bounded directly. Six nits were seated
+with them. Part I.A is labelled proved once the next reader, who reads Part I.B, has checked these two repairs.

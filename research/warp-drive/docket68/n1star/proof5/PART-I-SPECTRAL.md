@@ -1,12 +1,13 @@
 # Part I.A. The spectral family at bounded nonzero frequencies, at n = 4, on bundles
 
-*Status.* Written out in full (D185). Read line by line by the seventy-fourth verifier; its two major and seven minor
-findings, and its nits, are seated (D186). The repairs have not yet been read, so nothing here is labelled proved. This
-part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e) and 10.86 (a)-(e),
-which re-ran [Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard steps. Here those steps are
-proved, from the calculus statements listed in section 2, each READ at source in a text that states it for every
-dimension. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The calculus is that of
-[HJS] = A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1.
+*Status.* Written out in full (D185). Read line by line by the seventy-fourth verifier, whose two major and seven minor
+findings and nits are seated (D186); the seventy-fifth confirmed those repairs and found two minor gaps and six nits, now
+seated (D187). The two D187 repairs, both in Remark 3.3's variant, are read with Part I.B; until then nothing here is
+labelled proved. This part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e)
+and 10.86 (a)-(e), which re-ran [Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard steps. Here
+those steps are proved, from the calculus statements listed in section 2, each READ at source in a text that states it
+for every dimension. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The calculus is
+that of [HJS] = A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1.
 
 *What is proved here.* Theorem 7.2: [Hin26c] Theorem 9.5 at n = 4, for operators on a trivial bundle of any rank, with
 two changes forced by n = 4 and one forced by a sign slip in the source, for a constant regularity order (Remark 1.1).
@@ -94,15 +95,14 @@ boundary at fibre infinity, viewed in $S^*\tilde X^\circ$. For the record's spec
 $\mp\rho_\infty\tau_1 = \mathsf H t_*$ by $\tau_1 = -H_{G}t_*$ ([Hin26c] (9.30)), so the second condition is his
 $\beta > 0$.
 
-(H4) (*Dynamics at fibre infinity.*) $\partial\Sigma_0 = \partial\Sigma_0^+\sqcup\partial\Sigma_0^-$ lies over
-$\{r\le r_e\}$ for some $r_e\in(r_h, r_\Gamma)$. Every maximal integral curve of $\mathsf H$ in
-$\partial\Sigma_0\setminus (\partial\mathcal R_+\cup\partial\mathcal R_-)$ tends to
-$\partial\mathcal R_+\cup\partial\mathcal R_-$ as its parameter tends to $-\infty$, and reaches $\{r < r_0-\delta_0\}$ at
-a finite positive parameter. On $\{r_0 - 2\delta_0 < r < r_2\}$, $G_0$ is a Lorentzian form (signature $(1,3)$) on each
-fibre of $T^*\tilde X$, $dr$ is timelike for it ($G_0(dr) < 0$), and $\mathsf H r < 0$ on $\partial\Sigma_0$ there: the
-future direction decreases $r$. (For a spectral family, $G_0$ is $g^{-1}$ restricted to the annihilator of
-$\partial_{t_*}$, and such a restriction of a Lorentzian form is Lorentzian wherever it contains a timelike covector, as
-$dr$ is inside the horizon.)
+(H4) (*Dynamics at fibre infinity.*) $\partial\Sigma_0 = \partial\Sigma_0^+\sqcup\partial\Sigma_0^-$ lies over $\{r\le
+r_e\}$ for some $r_e > r_h$. Every maximal integral curve of $\mathsf H$ in $\partial\Sigma_0\setminus (\partial\mathcal
+R_+\cup\partial\mathcal R_-)$ tends to $\partial\mathcal R_+\cup\partial\mathcal R_-$ as its parameter tends to
+$-\infty$, and reaches $\{r < r_0-\delta_0\}$ at a finite positive parameter. On $\{r_0 - 2\delta_0 < r < r_2\}$, $G_0$
+is a Lorentzian form (signature $(1,3)$) on each fibre of $T^*\tilde X$, $dr$ is timelike for it ($G_0(dr) < 0$), and
+$\mathsf H r < 0$ on $\partial\Sigma_0$ there: the future direction decreases $r$. (For a spectral family, $G_0$ is
+$g^{-1}$ restricted to the annihilator of $\partial_{t_*}$, and such a restriction of a Lorentzian form is Lorentzian
+wherever it contains a timelike covector, as $dr$ is inside the horizon.)
 
 (H5) (*Uniformity data.*) $\hat P$ may depend on a parameter $b$ in a compact metric space $\mathcal B$, continuously
 into the coefficient topology (every coefficient continuous in $b$ into $C^\infty$, and in the classes of (H2)). The
@@ -176,12 +176,13 @@ r}_
 extendible, resp. supported, at $\partial_\sharp X$ (section 6.1), with the scattering Sobolev spaces of [HJS] Definition
 10.2 on $\mathbb R^4$ (constant regularity order, variable decay order), componentwise.
 
-*Remark 1.1 (constant regularity order; D186).* [Hin26c] lets the regularity order vary over $\{r > r_\Gamma\}$ at fibre
-infinity, where $\hat P(\sigma)$ is elliptic. The calculus READ here takes the differential order constant ([HJS] p. 77:
-"we will take the differential order to be constant, and the spatial order to be variable"), and every proof below uses
-only $s\equiv s_c$, so Theorem 7.2 is proved for constant $s$. Part I.B section 2 proves a calculus with variable orders
-in all three senses; at $h = 1$ it supplies the elliptic estimate at a variable $s$ over $\{r > r_\Gamma\}$, should a
-later part need it. Whether one does is recorded where Theorem 7.2 is used.
+*Remark 1.1 (constant regularity order; D186).* [Hin26c] lets the regularity order vary at fibre infinity over a region
+$\{r > r_\Gamma\}$, $r_\Gamma > r_e$, where $\hat P(\sigma)$ is elliptic. The calculus READ here takes the differential
+order constant ([HJS] p. 77: "we will take the differential order to be constant, and the spatial order to be variable"),
+and every proof below uses only $s\equiv s_c$, so Theorem 7.2 is proved for constant $s$. Part I.B (in preparation)
+proves in its section 2 a calculus with variable orders in all three senses; at $h = 1$ it would supply the elliptic
+estimate at a variable $s$ over $\{r > r_\Gamma\}$, should a later part need it. Whether one does is recorded where
+Theorem 7.2 is used.
 
 ## 2. The calculus
 
@@ -401,15 +402,17 @@ act on $H^{\mathbf s - \kappa\mathbf 1}$ (D186). As $t\to0$:
 $w_t\to v$ in $H^{\mathbf s - \kappa\mathbf 1}$, and $\check A_\epsilon w_t\to\check A_\epsilon v$ in $H^{\frac12(\mathbf
 m - \mathbf 1)}$.
 
-$\check A_\epsilon Pw_t = T_t\check A_\epsilon Pv + [\check A_\epsilon,T_t]Pv + \check A_\epsilon[P,T_t]v$. The first
-term tends to $\check A_\epsilon Pv$ in $H^{\frac12(\mathbf 1 - \mathbf m) + \kappa\mathbf 1}$. Since $T_t$ is bounded in
-$\Psi^{0,0}$ and tends to $\mathrm{Id}$ in $\Psi^{\delta,\delta}$, the commutators $[\check A_\epsilon,T_t]$ and
-$[P,T_t]$ are bounded in $\Psi^{\mathbf k - \kappa\mathbf 1 - \mathbf 1}$ and $\Psi^{\mathbf m - \mathbf 1}$ (Lemma 2.1
-(c)) and tend to 0 in $\Psi^{\mathbf k - \kappa\mathbf 1 - \mathbf 1 + \delta\mathbf 1}$, resp. $\Psi^{\mathbf m -
-\mathbf 1 + \delta\mathbf 1}$. Hence the second and third terms are bounded in $H^{\frac12(\mathbf 1 - \mathbf m)}$
-(because $Pv\in H^{\mathbf s - \kappa\mathbf 1 - \mathbf m}$, $v\in H^{\mathbf s - \kappa\mathbf 1}$ and $\check
-A_\epsilon\in\Psi^{\mathbf k - \kappa\mathbf 1}$ for the fixed $\epsilon$) and tend to 0 as distributions, hence weakly
-in $H^{\frac12(\mathbf 1 - \mathbf m)}$.
+Write $Pv = \Phi Pu + [P,\Phi]u$ (Step 0), so that $\check A_\epsilon Pw_t = \check A_\epsilon T_t\Phi Pu + \check
+A_\epsilon T_t[P,\Phi]u + \check A_\epsilon[P,T_t]v$. (This avoids $[\check A_\epsilon,T_t]$, which for a variable decay
+order is bounded only in $\bigcap_\delta\Psi^{\mathbf k - \kappa\mathbf 1 - \mathbf 1 + (0,\delta)}$, [HJS] p. 79; D187.)
+The first term tends to $\check A_\epsilon\Phi Pu$ in $H^{\frac12(\mathbf 1 - \mathbf m) + \kappa\mathbf 1}$, since
+$T_t\to\mathrm{Id}$ strongly on $H^{\mathbf s - \mathbf m + \mathbf 1}$ and $\check A_\epsilon\in\Psi^{\mathbf k -
+\kappa\mathbf 1}$ for the fixed $\epsilon$. The second is bounded in $\Psi^{-\infty,-\infty}$ uniformly in $t$, as
+$\check A_\epsilon$ and $[P,\Phi]$ have disjoint microsupports and $T_t$ is bounded in $\Psi^{0,0}$, and it tends to
+$\check A_\epsilon[P,\Phi]u$. In the third, $[P,T_t]$ is bounded in $\Psi^{\mathbf m - \mathbf 1}$ and tends to 0 in
+$\Psi^{\mathbf m - \mathbf 1 + \delta\mathbf 1}$ (Lemma 2.1 (c); $P$ has constant orders), so the term is bounded in
+$H^{\frac12(\mathbf 1 - \mathbf m)}$, since $v\in H^{\mathbf s - \kappa\mathbf 1}$, and tends to 0 as distributions,
+hence weakly in $H^{\frac12(\mathbf 1 - \mathbf m)}$.
 
 A weakly null sequence paired with a strongly convergent one tends to 0. So $\langle\check A_\epsilon Pw_t,\check
 A_\epsilon w_t\rangle\to\langle\check A_\epsilon Pv,\check A_\epsilon v\rangle$.
@@ -512,13 +515,17 @@ H^{\mathbf s_{j-1}}$, is the previous step's conclusion. $\square$
 **Remark 3.3 (logarithmic losses).** With variable orders, symbols of the commutants carry factors $\log\varrho$ (C6).
 Suppose, in Lemma 3.1, that $B_\epsilon$ is only bounded in $\Psi^{\mathbf s + \delta\mathbf 1}$ for every $\delta > 0$,
 and $R_\epsilon$ only in $\Psi^{2\mathbf s - \mathbf 1 + \delta\mathbf 1}$, while the other hypotheses hold as stated,
-$\kappa < \frac12$, and $B_0$ has principal symbol bounded below by $c > 0$ times an elliptic weight of order
-$\mathbf s$. Then the conclusion holds with the a priori term $\|Gu\|_{\mathbf s - \kappa\mathbf 1}$. The proof is
-unchanged, except that (e) is bounded by
-$C\|v\|^2_{\mathbf s - \frac12\mathbf 1 + \delta\mathbf 1}\le C\|v\|^2_{\mathbf s - \kappa\mathbf 1}$ for
-$\delta\le\frac12 - \kappa$, and $\|Bu\|_{\mathbf s}\le C(\|B_0u\| + \|u\|_{-\mathbf N})$ for $B$ microsupported in
-$\mathrm{Ell}(B_0)$: $b_0^{-1}$ is bounded by the inverse weight, so it is a symbol of order $-\mathbf s$ in (C6)'s
-class. Lemma 3.2 holds with this variant, since its steps have $\kappa\le\frac14$.
+$\kappa < \frac12$, and $B_0$ has principal symbol bounded below by $c > 0$ times an elliptic weight of order $\mathbf
+s$. Then the conclusion holds with the a priori term $\|Gu\|_{\mathbf s - \kappa\mathbf 1}$. The proof is unchanged,
+except that (e) is bounded by $C\|v\|^2_{\mathbf s - \frac12\mathbf 1 + \delta\mathbf 1}\le C\|v\|^2_{\mathbf s -
+\kappa\mathbf 1}$ for $\delta\le\frac12 - \kappa$, and $\|Bu\|_{\mathbf s}\le C(\|B_0u\| + \|u\|_{-\mathbf N})$ for $B$
+microsupported in $\mathrm{Ell}(B_0)$: $b_0^{-1}$ is bounded by the inverse weight, so it is a symbol of order $-\mathbf
+s$ in (C6)'s class. Lemma 3.2 holds with this variant, since its steps have $\kappa\le\frac14$. For fixed $\epsilon$,
+$B_\epsilon$ now lies only in $\Psi^{\mathbf s - \kappa\mathbf 1 + \delta\mathbf 1}$, so in Step 2 the left side is not
+known to converge. Instead, $B_\epsilon w_t\to B_\epsilon v$ in $H^{-\delta\mathbf 1}$, and $\|B_\epsilon w_t\|^2$ is
+bounded by the right side at $w_t$, which converges to the right side at $v$; so $B_\epsilon v\in L^2$ and, by weak lower
+semicontinuity, $\|B_\epsilon v\|^2\le\liminf\|B_\epsilon w_t\|^2$ is bounded by the right side at $v$ (D187). Likewise
+$Y_\epsilon$ is bounded only in $\Psi^{\mathbf k - \mathbf 1 + 2\delta\mathbf 1}$, which is harmless in (a).
 
 *The cut-off.* Fix once and for all $\psi\in C_c^\infty((-1,1))$, even, with $\psi = 1$ on $[-\frac12,\frac12]$,
 $\psi'\le 0$ on $[0,\infty)$ and $\sqrt{-x\psi(x)\psi'(x)}\in C^\infty([0,\infty))$ ([Hin26c] (9.25)). For example,
@@ -576,8 +583,11 @@ since $\partial_yZ(0,0,w) = 0$; so $Z\ge c_1|z|^2 - C|y||z| - Cy^2\ge\frac{c_1}2
 
 $$\mathsf H\tilde q = Z + \tfrac c2q_{\mathrm{ext}} + 4M\beta_0y^2\ge\tfrac{c_1}2|z|^2 + (4Mb_0 - C')y^2,$$
 
-while $\tilde q\le C''(|z|^2 + y^2) + My^2$ and $\tilde q\ge c''(|z|^2 + y^2)$ near $\partial\mathcal R$. Take $M\ge
-C'/(2b_0)$ and $c'$ small; finitely many coordinate patches cover the compact set $\partial\mathcal R$. $\square$
+while $\tilde q\le C''(|z|^2 + y^2) + My^2$ and $\tilde q\ge c''(|z|^2 + y^2)$ near $\partial\mathcal R$. Take
+$M\ge\max(C'/(2b_0), 2C_2)$, where by Taylor's formula $q_{\mathrm{ext}}\ge c_1|z|^2 - C|y||z| -
+Cy^2\ge\frac{c_1}2|z|^2 - C_2y^2$, because $q_{\mathrm{ext}} = q_\pm$ on $\{y = 0\}$ and $dq_{\mathrm{ext}} = 0$ on
+$\partial\mathcal R$; so $\tilde q\ge\frac{c_1}2|z|^2 + \frac M2y^2$ (D187). Take $c'$ small; finitely many coordinate
+patches cover the compact set $\partial\mathcal R$. $\square$
 
 **Proposition 4.2 (radial estimate at the horizon).** Let $\mathcal D\subset\{\mathrm{Im}\,\sigma\ge0\}$ be compact, $U$
 a neighbourhood of $\partial\mathcal R$ in ${}^{\mathrm{sc}}S^*\overline{\mathbb R^4}$, and $N\in\mathbb R$.
@@ -858,10 +868,12 @@ $\varepsilon_0\hat p = |\sigma_0|(p_{\mathrm{in}} - (S + S^{*h}))$. So
 $$Q_\epsilon = 2|\sigma_0|\big[(2\mathsf r'_\epsilon + 1)\mathrm{Id} - (p_{\mathrm{in}} - S - S^{*h})\big]\ge2|\sigma_0|
 (2\mathsf r_0 + 1 - \vartheta_{\mathrm{in}})\,\mathrm{Id} > 0\quad\text{at }R_{\sigma_0,\mathrm{in}},$$
 
-for $\mathsf r'_\epsilon\ge\mathsf r_0$. In Lemma 3.2 the orders are $\mathsf r_j\in[\mathsf r_0,\mathsf r]$ and
-$\mathsf r'_\epsilon\in(\mathsf r_{j-1},\mathsf r_j]$. By continuity, uniformly in $\epsilon$, $\sigma_0\in I$ and
-$\sigma_1\in[0,\nu]$ ($Q_\epsilon$ does not involve $\sigma_1$), there are a neighbourhood $W\subset U$ and $c_Q > 0$
-with $Q_\epsilon\ge c_Q$ and $K$'s symbol $\ge2|\sigma_0|$ on $W$.
+for $\mathsf r'_\epsilon\ge\mathsf r_0$. In Lemma 3.2 the orders are $\mathsf r_j\in[\mathsf r_0,\mathsf r]$ and $\mathsf
+r'_\epsilon\in(\mathsf r_{j-1},\mathsf r_j]$. Near $R_{\sigma_0,\mathrm{in}}$, where $\varepsilon_0\rho^{-1}\mathsf
+H_{\sigma_0}\rho > 0$, $Q_\epsilon\ge Q^{(0)} := \varepsilon_0\big[(2\mathsf r_0 + 1)(\rho^{-1}\mathsf
+H_{\sigma_0}\rho)\mathrm{Id} - 2\hat p\big]$, which does not involve $\epsilon$ (D187). By continuity of $Q^{(0)}$,
+uniformly in $\sigma_0\in I$ and $\sigma_1\in[0,\nu]$ ($Q^{(0)}$ does not involve $\sigma_1$), there are a neighbourhood
+$W\subset U$ and $c_Q > 0$ with $Q_\epsilon\ge c_Q$ and $K$'s symbol $\ge2|\sigma_0|$ on $W$.
 
 *The cut-off term.* On $\mathrm{supp}\,\psi_\Sigma\psi_R'$ at $\rho = 0$, write $\xi = -2\sigma_0 + x$. Then $q = x^2 +
 |\eta|^2\in[(2\varsigma_R)^{-1},\varsigma_R^{-1}]$, and $|g_{\sigma_0}|\le\gamma := \varsigma_\Sigma^{-1/2}$ with
@@ -895,8 +907,9 @@ $$F_\epsilon := B_{R,\epsilon}^{*h}B_{R,\epsilon} + 2\sigma_1\check A_\epsilon K
 
 satisfies $\langle F_\epsilon w,w\rangle\ge-C\|w\|^2_{-\mathbf N}$ for Schwartz $w$, as $\sigma_1\ge0$. This is (3.1)
 with $\varsigma = \varepsilon_0$. The remaining hypotheses ($Z_\epsilon$, $Y_\epsilon$, convergence) are verified as in
-Proposition 4.2, with $z_\epsilon := \rho^{1/2}\tilde Q_\epsilon^{-1/2}$, bounded in $S^{-\infty,-1/2} =
-S^{-\frac12(\mathbf m - \mathbf 1)}$. Lemma 3.2 in the decay component gives (4.8).
+Proposition 4.2, with $z_\epsilon := \rho^{-1/2}\tilde Q_\epsilon^{-1/2}$, bounded in $S^{-\infty,1/2} =
+S^{-\frac12(\mathbf m - \mathbf 1)}$, as $\mathbf m - \mathbf 1 = (1,-1)$ (D187). Lemma 3.2 in the decay component gives
+(4.8).
 
 (2) For $P^{*h}$ the imaginary part is $-P_I$. With target decay order $\tilde{\mathsf r} := -\mathsf r' - 1$, the same
 commutant and computation give, at $R_{\sigma_0,\mathrm{in}}$,
@@ -1059,12 +1072,14 @@ $$\rho^{2\mathsf r'}\big[\rho\tilde{\mathsf H}(\check a_\epsilon^2) + 2\rho\chec
 Q_\epsilon := (2\mathsf r'_\epsilon + 1)(\rho^{-1}\tilde{\mathsf H}\rho)\mathrm{Id} - 2\tilde p.$$
 
 At $R_{\mathrm{out}}$, $Q_\epsilon = -2(2\mathsf r'_\epsilon + 1)\mathrm{Id} + 2(S + S^{*h})\ge2(\lambda_{\min}(S +
-S^{*h}) - 2\mathsf r' - 1) > 0$, since $\mathsf r'_\epsilon\le\mathsf r'\le\mathsf r$. Every other term of $Q_\epsilon$
-vanishes at $R_{\mathrm{out}}$ and is bounded uniformly in $\sigma\in\mathcal D$. So $Q_\epsilon\ge c_Q$ on a
+S^{*h}) - 2\mathsf r' - 1) > 0$, since $\mathsf r'_\epsilon\le\mathsf r'\le\mathsf r$. Near $R_{\mathrm{out}}$,
+$\rho^{-1}\tilde{\mathsf H}\rho = -2(1 + \kappa_\sigma\xi) < 0$, so $Q_\epsilon\ge(2\mathsf r' +
+1)(\rho^{-1}\tilde{\mathsf H}\rho)\mathrm{Id} - 2\tilde p$, which does not involve $\epsilon$ and whose remaining terms
+vanish at $R_{\mathrm{out}}$ and are bounded uniformly in $\sigma\in\mathcal D$ (D187). So $Q_\epsilon\ge c_Q$ on a
 neighbourhood $W$ of $R_{\mathrm{out}}$, uniformly. The cut-off term is now $+8\varsigma_R|\eta|^2(-\psi_R\psi_R')\ge0$.
 On $\mathrm{supp}\,\psi_\Sigma\psi_R'$ we have $2\xi = \tilde g - \kappa_\sigma q$, so $|\xi|\le\frac12(\gamma +
-|\kappa_\sigma|q)\le\frac12(1 + |\kappa_\sigma|)q$ when $\gamma\le q$. Then $\xi^2\le q/2$ for $\varsigma_R\ge
-(1 + \sup_{\mathcal D}|\kappa_\sigma|)^2$, hence $|\eta|^2\ge q/2$, and
+|\kappa_\sigma|q)\le\frac12(1 + |\kappa_\sigma|)q$ when $\gamma\le q$. Then $\xi^2\le q/2$ for $\varsigma_R\ge (1 +
+\sup_{\mathcal D}|\kappa_\sigma|)^2$, hence $|\eta|^2\ge q/2$, and
 
 $$e_{R,\epsilon} := \rho^{-\mathsf r'}\varphi_\epsilon\psi_\partial\psi_\Sigma\big(8|\eta|^2/q\big)^{1/2}\sqrt{-x\psi(x)
 \psi'(x)}\big|_{x = \varsigma_Rq}$$
@@ -1223,18 +1238,19 @@ $$e_\epsilon := \mu^{\frac12}\varrho^{-\mathsf
 k}\varphi_\epsilon\psi_ye^{-Mz}\chi_e\big(\partial_z(\chi_s^2)\big)^{1/2}.$$
 
 $\tilde Q_\epsilon$ is $Q_\epsilon$ cut off as in Proposition 4.2. $e_\epsilon$ is supported in $\{z\in[-\delta,0]\}$,
-inside $\mathrm{Ell}(E)$. By (b) and Lemma 2.3,
-$\varepsilon(\check A^2P_I^{\mathrm{abs}} + P_I^{\mathrm{abs}}\check A^2) = -2c(L\check A)^{*h}(L\check A)$ plus a double
-commutator in $\Psi^{2\mathbf s - \mathbf 1}$ plus a residual term. So
-$\varepsilon C_\epsilon = -B_\epsilon^{*h}B_\epsilon - F_\epsilon + E_\epsilon^{*h}E_\epsilon + R_\epsilon$, with
-$F_\epsilon := B_{e,\epsilon}^{*h}B_{e,\epsilon} + 2c(L\check A_\epsilon)^{*h}(L\check A_\epsilon)$ and $R_\epsilon$
-bounded in $\Psi^{2\mathbf s - \mathbf 1}$. The orders are right: $\mu\varrho^{-2\mathsf k}$ is the weight of order
-$2\mathbf s$ on $F$. $\check a_\epsilon = z_\epsilon b_\epsilon$ with $z_\epsilon := \mu^{-1/2}\tilde Q_\epsilon^{-1/2}$,
-of order $-\frac12(\mathbf m - \mathbf 1)$. $B_0$ is elliptic on $\gamma([0,T])$, where $\chi_s = \chi_e = \psi_y = 1$.
-The factor $(\mathsf H_f\mathsf k)\log\varrho$ makes $b_\epsilon$ bounded only in $\Psi^{\mathbf s + \delta\mathbf 1}$
-for every $\delta > 0$, while $z_\epsilon$ stays bounded since $Q_\epsilon\ge M$; this is Remark 3.3's case. There is no
-threshold, so Lemma 3.2 runs from $\mathbf s_0 = \mathbf s - \tau\mathbf 1$ with $\tau$ large, giving (5.1) with
-$\|Gu\|_{\mathbf s_0}\le\|u\|_{-\mathbf N}$. $\square$
+inside $\mathrm{Ell}(E)$. As $U$ shrinks in Lemma 3.2, $\delta$ and $\delta_1$ shrink with it, and every step's $E$-set
+lies in $\{z\in[-\delta,-\delta/2], |y|\le\delta_1\}\subset\mathrm{Ell}(E)$, which misses $\gamma([0,T])$; so the given
+$E$ is elliptic on $K_E^*$ (D187). By (b) and Lemma 2.3, $\varepsilon(\check A^2P_I^{\mathrm{abs}} +
+P_I^{\mathrm{abs}}\check A^2) = -2c(L\check A)^{*h}(L\check A)$ plus a double commutator in $\Psi^{2\mathbf s - \mathbf
+1}$ plus a residual term. So $\varepsilon C_\epsilon = -B_\epsilon^{*h}B_\epsilon - F_\epsilon +
+E_\epsilon^{*h}E_\epsilon + R_\epsilon$, with $F_\epsilon := B_{e,\epsilon}^{*h}B_{e,\epsilon} + 2c(L\check
+A_\epsilon)^{*h}(L\check A_\epsilon)$ and $R_\epsilon$ bounded in $\Psi^{2\mathbf s - \mathbf 1}$. The orders are right:
+$\mu\varrho^{-2\mathsf k}$ is the weight of order $2\mathbf s$ on $F$. $\check a_\epsilon = z_\epsilon b_\epsilon$ with
+$z_\epsilon := \mu^{-1/2}\tilde Q_\epsilon^{-1/2}$, of order $-\frac12(\mathbf m - \mathbf 1)$. $B_0$ is elliptic on
+$\gamma([0,T])$, where $\chi_s = \chi_e = \psi_y = 1$. The factor $(\mathsf H_f\mathsf k)\log\varrho$ makes $b_\epsilon$
+bounded only in $\Psi^{\mathbf s + \delta\mathbf 1}$ for every $\delta > 0$, while $z_\epsilon$ stays bounded since
+$Q_\epsilon\ge M$; this is Remark 3.3's case. There is no threshold, so Lemma 3.2 runs from $\mathbf s_0 = \mathbf s -
+\tau\mathbf 1$ with $\tau$ large, giving (5.1) with $\|Gu\|_{\mathbf s_0}\le\|u\|_{-\mathbf N}$. $\square$
 
 *The two uses.* (i) At fibre infinity over $\tilde X^\circ$: $P = \hat P(\sigma)$, $p = G_0$,
 $\mathsf V = \rho_\infty H_{G_0}$, $\varepsilon = \pm$ on $\partial\Sigma_0^\pm$, $P_I = P_I^{\mathrm{sub}}\in\Psi^1$,
@@ -1576,12 +1592,13 @@ it. By compactness finitely many curves suffice. (Near $r = b'$ such a curve sta
 increases backward.) (C): Proposition 4.6 (1), with $\mathsf r_0 := \mathsf r - \frac\eta2$ at $R_{\mathrm{in}}$. (D): by
 Lemma 4.5 every point of $\Sigma^\partial_{\sigma_0}$ outside $U'_{\mathrm{in}}\cup U'_{\mathrm{out}}$ lies on a curve of
 $\varepsilon_0\mathsf H_{\sigma_0}$ whose backward continuation enters $U'_{\mathrm{in}}$. Proposition 5.2, use (ii),
-applies, with $E$ in $\mathrm{Ell}(B_C)$ and the order monotone by (O2). (E): Proposition 4.9 (1), with $E$
-microsupported in $\mathrm{supp}\,\psi'(\varsigma_Rq)$; its part on $\Sigma^\partial_{\sigma_0}$ lies in the region (D),
-and its part off it lies in (F). (F): Proposition 5.1. Each $E$-term is bounded by the estimates of earlier pieces. Each
-$\|G\hat P(\sigma)u\|$ is at most $C\|\hat P(\sigma)u\|_{\bar H^{\mathbf s'}}$, since $G$ has kernel supported in
-$\bar X^\circ$. The orders used are those of $\mathbf s$, through (O1)-(O3): at fibre infinity over the compact region
-only $s_c$ matters, at the boundary face only $\mathsf r + \alpha_+$, and at the corner both, by ellipticity.
+applies, with $E$ in $\mathrm{Ell}(B_C)$ and the order monotone by (O2). (E): Proposition 4.9 (1), with $E$ elliptic on
+the set $K_E^*$ of Lemma 3.2 and microsupported near it, $U'_{\mathrm{out}}$ being chosen disjoint from $K_E^*$ (D187);
+its part on $\Sigma^\partial_{\sigma_0}$ lies in the region (D), and its part off it lies in (F). (F): Proposition 5.1.
+Each $E$-term is bounded by the estimates of earlier pieces. Each $\|G\hat P(\sigma)u\|$ is at most $C\|\hat
+P(\sigma)u\|_{\bar H^{\mathbf s'}}$, since $G$ has kernel supported in $\bar X^\circ$. The orders used are those of
+$\mathbf s$, through (O1)-(O3): at fibre infinity over the compact region only $s_c$ matters, at the boundary face only
+$\mathsf r + \alpha_+$, and at the corner both, by ellipticity.
 
 *The artificial boundary.* By (6.1),
 $\|\chi u\|_{\bar H^s}\le C(\|\hat P(\sigma)u\|_{\bar H^{s-1}} + \|\chi_1u\|_{H^s})$. $\chi_1u$ is compactly supported in

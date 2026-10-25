@@ -4632,3 +4632,17 @@ Phi), Phi_J microlocally the identity, Lemma 2.1 (c) for operators of scalar pri
 infinite-order vanishing in Proposition 6.4, the h-pairing in Green's formula, (9.56) for (9.57), sigma-dependence of B
 and G in Propositions 4.6 and 4.9, flow boxes rebuilt for each b in section 8, the letter N. No statement of Theorem 7.2
 changed but the restriction to constant s. Part I.A is labelled proved once a reader has checked these repairs.
+
+**D187 (2026-10-25): the seventy-fifth verifier seated (the D186 repairs).** It read every D186 repair in
+`proof5/PART-I-SPECTRAL.md` against the findings it answers and confirmed each: Lemma 3.1 now paired only with Schwartz
+approximants w_t = T_t v, Theorem 7.2 at constant s, Lemma 4.1's extension, Proposition 5.2's square root through Q_0 +
+lambda, Theorem 7.2 (6) by Cauchy's formula, Lemma 3.2's finite union, Proposition 4.2's epsilon-free bound. Two minor
+findings, both in the variant of Remark 3.3 that Proposition 5.2 (ii) uses. Minor 1: the main term was passed to the
+limit t -> 0 without a reason for the bound to survive; it survives because the sequence is bounded in the target space,
+so a subsequence converges weakly and the norm is weakly lower semicontinuous. Minor 2: Step 1 bounded A_eps P w_t
+through [A_eps, T_t], which no lemma bounds uniformly in t; it now splits A_eps P w_t = A_eps T_t Phi P u + A_eps T_t [P,
+Phi] u + A_eps [P, T_t] v and bounds each term directly, the last by Lemma 2.1 (c). Six nits: (H4) states r_e > r_h;
+Remark 1.1 defines r_Gamma > r_e and makes Part I.B a forward reference; Lemma 4.1's Taylor bound with M >= max(C'/(2
+b_0), 2 C_2); Proposition 4.6's Q^(0) with r_0 and z_eps := rho^(-1/2) Q~^(-1/2) in S^(-inf, 1/2); Propositions 4.6 and
+4.9 with their lower bounds epsilon-free; Proposition 5.2 and section 7.1 (E) with E elliptic on K_E^*. No statement
+changed. The two repairs are read by the next verifier, with Part I.B.
