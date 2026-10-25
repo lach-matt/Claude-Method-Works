@@ -30,7 +30,9 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | verified (D212) |
 | II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | verified (D213) |
 | II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | written (D214) |
-| III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
+| III.A | [Hin26] 2 | technical prerequisites: partial polyhomogeneity, integration along b-fields, harmonics on S^3 | to do |
+| III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed Einstein equation | written (D215) |
+| III.C-III.J | [Hin26] 5-12 | exterior stability; gauge potential, constraint and linearised operators; spectral theory; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -418,3 +420,20 @@ indicial root at null infinity is $\frac32$. Findings (J1)-(J13), among them tha
 as printed fails for $\beta>1$, and that the first step of its Proposition 13.11 (2) needs $\ell'\ge1-\delta$; none
 changes what later parts use, in the forms proved here. Uniformity in the operator is reduced to that of Part I's
 estimates (section 6.2). Written (D214).
+
+## Part III.B
+
+`PART-III-B-FAMILY.md`. [Hin26] sections 3-4 at $n = 4$: the compactified spacetime and its charts with $\mathbb S^3$ at
+infinity; the Myers-Perry family $g_b$, $b = (\mu,A)\in\mathbb R\times\mathfrak{so}(4)$, in Kerr-Schild form for every
+spin at once, smooth on the compactification with its mass at $|x|^{-2}$ and its spin at $|x|^{-3}$; the time functions;
+the linearised metrics (seven parameters); the initial data and their decay; null coordinates near null infinity; the
+cut-off Lorentz boosts and the pullback of the family by them; and the gauge-fixed Einstein equation with its
+linearisation. Five dimensions simplify the source's section 3: the ingoing and outgoing times differ by a function in
+$|x|^{-1}C^\infty$, not by a logarithm, so the Kerr-Schild coordinates are smooth on the compactification, a smooth
+change of time puts the family into the source's outgoing form at null infinity, and every causal statement reduces to
+one inequality of the Kerr-Schild algebra. The boosted mass term has the exponent 4 and the constant $\frac2{\pi^2}$;
+the gauge modifications take the trace weight $\frac23$, which makes them act on trace-reversed tensors exactly as at $D
+= 4$. Checked symbolically: the Kerr-Schild identities, the change of time, the boost's action at null infinity, and the
+Ricci-flatness of Tangherlini; the Ricci-flatness of the spinning family is READ. One finding (K1): the source's
+Definition 3.17 is inconsistent and its Lemma 3.18 claims the boost field vanishes near the black hole at early times,
+which the cut-offs do not give; repaired by a radial cut-off, with nothing changed at infinity. Written (D215).

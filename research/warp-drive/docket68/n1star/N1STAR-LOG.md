@@ -5097,3 +5097,16 @@ figures) with uniformity reduced to Part I's, and findings (J1)-(J13) with the s
 interpolation and [Hin26b] Lemmas 2.12 and 2.23 are replaced by lemmas proved here. Status: Parts I.A-I.C, II.A, II.A'
 proved; II.B-II.G verified; II.G' written. Next: the ninetieth verifier on Part II.G' and the D213 repairs; then Part
 III.
+
+**D215 (2026-10-25): Part III planned; Part III.B written.** PR #126 merged at D203 before the D204-D214 pushes; PR #127
+opened for them (draft), CI green. Part III follows [Hin26]'s sections 2-12 as III.A-III.J (section 13 to Part V); three
+extractors took digests of sections 2, 3-4 and 5 (scratchpad). `proof5/PART-III-B-FAMILY.md`: [Hin26] sections 3-4 at n
+= 4 -- the compactification with S^3; Myers-Perry in Kerr-Schild form for every A in so(4), the radial function and the
+Kerr-Schild algebra (k null, <l, x> = r, F in (0, 1], H > 0, dt - beta d|x| timelike for beta in (-1, 1]); the outgoing
+form by t -> t - T_mu(|x|), T_mu = 2 sqrt(mu) artanh(sqrt(mu)/|x|), no logarithm; Proposition 3.6 (g_b - g_mu in |x|^-3,
+g_mu - gbar = mu |x|^-2 (dt - d|x|)^2); explicit t_* and t_IVP; seven linearised parameters; initial data gamma_mu =
+(1+mu/|x|^2) d|x|^2 + |x|^2 gslash, k in |x|^-3; null coordinates; boosts (h_S = mu (a^4 - 1), c^2 = (2/pi^2)||S||^2,
+remainder rho_0^2 rho_I^3 rho_+^2); the gauge-fixed equation with trace weight 2/3 and Lemma 4.4 at D = 5. Symbolic
+checks: chk3b.py, chkboost.py, chkric.py (Tangherlini Ricci-flat). Finding (K1): Definition 3.17 inconsistent, Lemma
+3.18's vanishing for r <= 5m_0 not given by the cut-offs; repaired by a radial cut-off. Next: seat the ninetieth
+verifier; Part III.A or III.C.

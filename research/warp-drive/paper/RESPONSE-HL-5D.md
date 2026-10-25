@@ -1099,7 +1099,9 @@ perturbed wave operators with estimates tame in the regularity, and the
 fourteenth, the Nash-Moser theorem with the smoothing operators and tame bounds it needs, proved here rather than quoted,
 have been read line by line and their findings seated. The fifteenth, the Fourier transform in time on the weighted
 spaces, his resolvent bounds translated into them and the radiation field at null infinity, by which forward solutions
-are shown to decay faster, is written. Theorem 4 stays deduced until the last part is proved.
+are shown to decay faster, is written. So is the sixteenth, the first of the parts on his stability paper: the
+five-dimensional black hole family on the compactified spacetime, its time functions, initial data and boosts, and the
+gauge-fixed Einstein equation. Theorem 4 stays deduced until the last part is proved.
 
 ---
 
