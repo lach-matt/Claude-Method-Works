@@ -1,19 +1,19 @@
 # Part I.A. The spectral family at bounded nonzero frequencies, at n = 4, on bundles
 
-*Status.* Written out in full (D185). Not yet read by an independent verifier; until one has, nothing here is labelled
-proved. This part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e) and
-10.86 (a)-(e), which re-ran [Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard steps. Here those
-steps are proved, from the calculus statements listed in section 2, each READ at source in a text that states it for
-every dimension. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The calculus is
-that of [HJS] = A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1.
+*Status.* Written out in full (D185). Read line by line by the seventy-fourth verifier; its two major and seven minor
+findings, and its nits, are seated (D186). The repairs have not yet been read, so nothing here is labelled proved. This
+part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e) and 10.86 (a)-(e),
+which re-ran [Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard steps. Here those steps are
+proved, from the calculus statements listed in section 2, each READ at source in a text that states it for every
+dimension. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The calculus is that of
+[HJS] = A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1.
 
 *What is proved here.* Theorem 7.2: [Hin26c] Theorem 9.5 at n = 4, for operators on a trivial bundle of any rank, with
-two changes forced by n = 4 and one forced by a sign slip in the source. The n = 4 changes are that (9.20) and (9.21)
-read $A^{3/2+\bar S-\epsilon}$ and $\rho^{3/2+S}$ (his $1+\bar S$ and $1+S$ are the values at n = 3), and that
-the term $-\tfrac{n-1}{2}$ in the operator is $-\tfrac32$. The sign slip is in (9.45) and its repair is Lemma 4.8. The
-constants are uniform under continuous perturbations of the operator (section 8). The full expansion (9.21) is
-proved in its first step only (Theorem 7.2
-(5)), which is what the record uses.
+two changes forced by n = 4 and one forced by a sign slip in the source, for a constant regularity order (Remark 1.1).
+The n = 4 changes are that (9.20) and (9.21) read $A^{3/2+\bar S-\epsilon}$ and $\rho^{3/2+S}$ (his $1+\bar S$ and $1+S$
+are the values at n = 3), and that the term $-\tfrac{n-1}{2}$ in the operator is $-\tfrac32$. The sign slip is in (9.45)
+and its repair is Lemma 4.8. The constants are uniform under continuous perturbations of the operator (section 8). The
+full expansion (9.21) is proved in its first step only (Theorem 7.2 (5)), which is what the record uses.
 
 *How it is organised.* Section 1 fixes the setting and the hypotheses (H1)-(H5), stated for the spectral family alone.
 Section 2 lists the calculus. Section 3 proves the one positive commutator lemma used throughout, with its
@@ -42,14 +42,14 @@ $\mathbb S^3$.
 
 ### 1.2 The bundle
 
-$E := \tilde X\times\mathbb C^N$, $N\ge 1$. The record's bundles are the restrictions to $X$ of $T^*M$ and
-$S^2T^*M$, trivialised by $dt_*, dx^1,\dots,dx^4$ and their symmetric products, with $N = 5$ and $N = 15$; nothing
-below uses more than that $E$ is trivial. A *fibre inner product* is $h(x)(v,w) = \langle H(x)v, w\rangle_{\mathbb C^N}$,
-where $H\in C^\infty(\overline{\mathbb R^4};\mathrm{End}\,\mathbb C^N)$ is Hermitian, smooth on the compactification
-(that is, smooth in $(\rho,\omega)$ up to $\rho = 0$), and satisfies $c\,\mathrm{Id}\le H\le C\,\mathrm{Id}$ with $c>0$.
-$L^2_h := L^2(\mathbb R^4;\mathbb C^N)$ with the norm $\|u\|_h^2 = \int h(u,u)\,|dx|$, which is equivalent to the
-standard one. For an operator $A$, $A^{*h} = H^{-1}A^*H$ is its formal adjoint in $L^2_h$, and $A^*$ its adjoint in the
-standard $L^2$.
+$E := \tilde X\times\mathbb C^N$, $N\ge 1$. The record's bundles are the restrictions to $X$ of $T^*M$ and $S^2T^*M$,
+trivialised by $dt_*, dx^1,\dots,dx^4$ and their symmetric products, with $N = 5$ and $N = 15$; nothing below uses more
+than that $E$ is trivial. (The letter $N$ also denotes Sobolev orders, as in $H^{-N}$, and in section 7.5 a nilpotency
+index; the context separates them.) A *fibre inner product* is $h(x)(v,w) = \langle H(x)v, w\rangle_{\mathbb C^N}$, where
+$H\in C^\infty(\overline{\mathbb R^4};\mathrm{End}\,\mathbb C^N)$ is Hermitian, smooth on the compactification (that is,
+smooth in $(\rho,\omega)$ up to $\rho = 0$), and satisfies $c\,\mathrm{Id}\le H\le C\,\mathrm{Id}$ with $c>0$. $L^2_h :=
+L^2(\mathbb R^4;\mathbb C^N)$ with the norm $\|u\|_h^2 = \int h(u,u)\,|dx|$, which is equivalent to the standard one. For
+an operator $A$, $A^{*h} = H^{-1}A^*H$ is its formal adjoint in $L^2_h$, and $A^*$ its adjoint in the standard $L^2$.
 
 ### 1.3 The operator
 
@@ -141,12 +141,12 @@ $\partial X$ we write scattering covectors as $\xi\,dr + r\,\eta$, $\xi\in\mathb
 $(\rho,\omega,\xi,\eta)$ are coordinates ([Hin26c] section 9.2.2; $\xi,\eta$ are his
 $\xi_{\mathrm{sc}},\eta_{\mathrm{sc}}$).
 
-An *order pair* is $(s,\mathsf r)$ with $s\in C^\infty({}^{\mathrm{sc}}S^*\overline{\mathbb R^4})$ (regularity) and
-$\mathsf r\in C^\infty({}^{\mathrm{sc}}\overline T^*_{\partial X}\overline{\mathbb R^4})$ (decay), each extended smoothly
-to a neighbourhood of its face. For $\sigma_0\ne 0$ real it is *admissible for* $\sigma_0$ with weight $\alpha_+\in
-\mathbb R$ if:
+An *order pair* is $(s,\mathsf r)$ with $s\in\mathbb R$ a constant (regularity; Remark 1.1) and $\mathsf r\in
+C^\infty({}^{\mathrm{sc}}\overline T^*_{\partial X}\overline{\mathbb R^4})$ (decay), each extended smoothly to a
+neighbourhood of its face. For $\sigma_0\ne 0$ real it is *admissible for* $\sigma_0$ with weight $\alpha_+\in \mathbb R$
+if:
 
-(O1) $s$ is constant, $s\equiv s_c$, over $\{r\le r_\Gamma\}$;
+(O1) $s = s_c$, a constant (Remark 1.1);
 
 (O2) $\mathsf r$ is constant near $R_{\sigma_0,\mathrm{in}}$ and near $R_{\mathrm{out}}$ (defined in (4.6)), and on the
 characteristic set $\Sigma_{\sigma_0}^\partial$ of (4.7) it is monotone non-increasing along the future-directed flow
@@ -173,8 +173,15 @@ $$\bar H^{s,\mathsf r} := \bar H^{s,\mathsf r}_{\mathrm{sc}}(\bar X;E),\quad \do
 r}_
 {\mathrm{sc}}(\bar X;E),$$
 
-extendible, resp. supported, at $\partial_\sharp X$ (section 6.1), with the variable-order scattering Sobolev spaces of
-[HJS] Definition 10.2 on $\mathbb R^4$, componentwise.
+extendible, resp. supported, at $\partial_\sharp X$ (section 6.1), with the scattering Sobolev spaces of [HJS] Definition
+10.2 on $\mathbb R^4$ (constant regularity order, variable decay order), componentwise.
+
+*Remark 1.1 (constant regularity order; D186).* [Hin26c] lets the regularity order vary over $\{r > r_\Gamma\}$ at fibre
+infinity, where $\hat P(\sigma)$ is elliptic. The calculus READ here takes the differential order constant ([HJS] p. 77:
+"we will take the differential order to be constant, and the spatial order to be variable"), and every proof below uses
+only $s\equiv s_c$, so Theorem 7.2 is proved for constant $s$. Part I.B section 2 proves a calculus with variable orders
+in all three senses; at $h = 1$ it supplies the elliptic estimate at a variable $s$ over $\{r > r_\Gamma\}$, should a
+later part need it. Whether one does is recorded where Theorem 7.2 is used.
 
 ## 2. The calculus
 
@@ -226,7 +233,10 @@ uniformly bounded in $\Psi^{0,0}_{\mathrm{sc}}$ and $T_r\to\mathrm{Id}$ in the o
 $\Psi^{\delta,\delta}_{\mathrm{sc}}$".
 
 In the interior, at fibre infinity, the scattering calculus restricted to kernels supported in a compact set is the
-classical calculus ([HJS] Proposition 4.1), and the scattering principal symbol there is the classical one.
+classical calculus, and the scattering principal symbol there is the classical one: over a compact set $\langle x\rangle$
+is bounded above and below, so the scattering estimates of order $(m,\ell)$ for symbols supported over it are the
+Kohn-Nirenberg estimates of order $m$. ([HJS] Proposition 4.1, cited here before D186, is a statement about wave front
+sets.)
 
 ### 2.2 Matrix-valued operators
 
@@ -235,15 +245,18 @@ $\Psi^{m,\ell} := \Psi^{m,\ell}_{\mathrm{sc}}(\mathbb R^4;\mathbb C^N) = M_N(\Ps
 by (C7), and $H^{s,\mathsf r} := (H^{s,\mathsf r}_{\mathrm{sc}})^N$. The principal symbol of $A = (A_{ij})$ is the matrix
 $(\sigma(A_{ij}))$.
 
-**Lemma 2.1.** (a) $\Psi^{m,\ell}\circ\Psi^{m',\ell'}\subset\Psi^{m+m',\ell+\ell'}$ and
-$\sigma(AB) = \sigma(A)\sigma(B)$, a matrix product. (b) For a fibre inner product $h$, $A^{*h}\in\Psi^{m,\ell}$ and
-$\sigma(A^{*h}) = \sigma(A)^{*h} := H^{-1}\sigma(A)^\dagger H$. (c) If $A = \tilde a\,\mathrm{Id}$ with
-$\tilde a\in\Psi^{m,\ell}_{\mathrm{sc}}$ scalar, and $B\in\Psi^{m',\ell'}$, then $[A,B]\in\Psi^{m+m'-1,\ell+\ell'-1}$ and
+**Lemma 2.1.** (a) $\Psi^{m,\ell}\circ\Psi^{m',\ell'}\subset\Psi^{m+m',\ell+\ell'}$ and $\sigma(AB) =
+\sigma(A)\sigma(B)$, a matrix product. (b) For a fibre inner product $h$, $A^{*h}\in\Psi^{m,\ell}$ and $\sigma(A^{*h}) =
+\sigma(A)^{*h} := H^{-1}\sigma(A)^\dagger H$. (c) If $A = \tilde a\,\mathrm{Id}$ with $\tilde
+a\in\Psi^{m,\ell}_{\mathrm{sc}}$ scalar, and $B\in\Psi^{m',\ell'}$, then $[A,B]\in\Psi^{m+m'-1,\ell+\ell'-1}$ and
 $\sigma(i[A,B]) = H_a\sigma(B)$, entrywise. If $A\in\Psi^{m,\ell}$ has scalar principal symbol $a\,\mathrm{Id}$, and $B$
-has scalar principal symbol $b\,\mathrm{Id}$, then $[A,B]\in\Psi^{m+m'-1,\ell+\ell'-1}$ and
-$\sigma(i[A,B]) = (H_ab)\,\mathrm{Id}$. (d) The statements (C3)-(C6) and (C8) hold for $\Psi^{m,\ell}$ and
-$H^{s,\mathsf r}$, with $T_t\,\mathrm{Id}$ in (C8), and ellipticity meaning that the principal symbol is invertible with
-inverse bounded in the inverse orders.
+has scalar principal symbol $b\,\mathrm{Id}$, then $[A,B]\in\Psi^{m+m'-1,\ell+\ell'-1}$ and $\sigma(i[A,B]) =
+(H_ab)\,\mathrm{Id}$. More generally, if $A$ has scalar principal symbol, then $[A,B]\in\Psi^{m+m'-1,\ell+\ell'-1}$ for
+every $B\in\Psi^{m',\ell'}$: write $A = \tilde a\,\mathrm{Id} + A'$ with $A'\in\Psi^{m-1,\ell-1}$ and use the first
+statement and (a). This is what is meant below when a commutator with an operator of scalar principal symbol lowers both
+orders (D186). (d) The statements (C3)-(C6) and (C8) hold for $\Psi^{m,\ell}$ and $H^{s,\mathsf r}$, with
+$T_t\,\mathrm{Id}$ in (C8), and ellipticity meaning that the principal symbol is invertible with inverse bounded in the
+inverse orders.
 
 *Proof.* (a) $(AB)_{ij} = \sum_kA_{ik}B_{kj}$, with (C1) entrywise. (b) $(A^*)_{ij} = (A_{ji})^*$, so
 $\sigma(A^*) = \sigma(A)^\dagger$ by (C1). Multiplication by $H$ or $H^{-1}$ lies in $\Psi^{0,0}$: a function smooth on
@@ -307,7 +320,7 @@ radial sets.
 
 ## 3. The positive commutator lemma
 
-Orders are pairs, $\mathbf s = (s,\mathsf r)$, possibly variable (C6), with $\mathbf 1 := (1,1)$ and
+Orders are pairs, $\mathbf s = (s,\mathsf r)$, the decay order possibly variable (C6), with $\mathbf 1 := (1,1)$ and
 $\mathbf N := (N,N)$. Inequalities between orders hold componentwise and pointwise. For an operator family,
 *microsupported in $K$ uniformly* means that the full symbols are supported in the closed set $K$, modulo a family
 bounded in $\Psi^{-\infty,-\infty}$. For a fibre inner product $h$ and $P\in\Psi^{\mathbf m}$, write
@@ -331,11 +344,12 @@ $$\varsigma C_\epsilon = -B_\epsilon^{*h}B_\epsilon - F_\epsilon + E_\epsilon^{*
 The operators in (3.1) are as follows. $B_\epsilon$ is bounded in $\Psi^{\mathbf s}$, lies in $\Psi^{\mathbf s - \kappa
 \mathbf 1}$ for each $\epsilon$, and converges to $B_0$ in $\Psi^{\mathbf s + \delta\mathbf 1}$ for every $\delta > 0$.
 $\check A_\epsilon = Z_\epsilon B_\epsilon + Y_\epsilon$, with $Z_\epsilon$ bounded in $\Psi^{-\frac12(\mathbf m -
-\mathbf 1)}$ and $Y_\epsilon$ bounded in $\Psi^{\mathbf k - \mathbf 1}$. $\langle F_\epsilon v, v\rangle_h\ge -C_F
-\|v\|^2_{-\mathbf N}$ for every $v\in H^{\mathbf s - \kappa\mathbf 1}$. $E_\epsilon$ is bounded in $\Psi^{\mathbf s}$,
-$J_\epsilon$ in $\Psi^{2\mathbf s - \mathbf m}$, and $R_\epsilon$ in $\Psi^{2\mathbf s - \mathbf 1}$. All of these are
-microsupported in $K_1$ uniformly, $E_\epsilon$ in a closed set $K_E$, and $J_\epsilon$ in a closed set $K_J\subset
-\mathrm{Ell}(P)$.
+\mathbf 1)}$ and $Y_\epsilon$ bounded in $\Psi^{\mathbf k - \mathbf 1}$. $\langle F_\epsilon w, w\rangle_h\ge
+-C_F\|w\|^2_{-\mathbf N}$ for every Schwartz $w$ ($F_\epsilon$ is never paired with $u$ itself, so it may have any order;
+D186). $E_\epsilon$ is bounded in $\Psi^{\mathbf s}$ and lies in $\Psi^{\mathbf s - \kappa\mathbf 1}$ for each
+$\epsilon$, $J_\epsilon$ in $\Psi^{2\mathbf s - \mathbf m}$, and $R_\epsilon$ in $\Psi^{2\mathbf s - \mathbf 1}$. All of
+these are microsupported in $K_1$ uniformly, $E_\epsilon$ in a closed set $K_E$, and $J_\epsilon$ in a closed set
+$K_J\subset \mathrm{Ell}(P)$.
 
 Let $E\in\Psi^{0,0}$ be elliptic on $K_E$. Then there is $C$ such that for every $u\in H^{-\mathbf N}$ with $Gu\in
 H^{\mathbf s - \kappa\mathbf 1}$, $GPu\in H^{\mathbf s - \mathbf m + \mathbf 1}$ and $Eu\in H^{\mathbf s}$, we have
@@ -374,37 +388,42 @@ $\check A_\epsilon v\in H^{\frac12(\mathbf m - \mathbf 1)}$ for each $\epsilon >
 $v\in H^{\mathbf s - \kappa\mathbf 1}$. Both pairings below are therefore of $H^{\mathbf t}$ with $H^{\mathbf t'}$,
 $\mathbf t + \mathbf t'\ge 0$, and are defined by (C4).
 
-*Step 1: the identity.* For $\epsilon > 0$ we claim
+*Step 1: the pairing.* For $\epsilon > 0$ and Schwartz $w$,
 
-$$\langle C_\epsilon v, v\rangle = 2\,\mathrm{Im}\,\langle\check A_\epsilon Pv,\check A_\epsilon v\rangle.\tag{3.4}$$
+$$\langle C_\epsilon w, w\rangle = 2\,\mathrm{Im}\,\langle\check A_\epsilon Pw,\check A_\epsilon w\rangle.\tag{3.4}$$
 
-For $w$ Schwartz this is algebra: $2\,\mathrm{Im}\langle\check A_\epsilon Pw,\check A_\epsilon w\rangle = \frac1i\langle
-(\check A_\epsilon^2P - P^{*h}\check A_\epsilon^2)w, w\rangle$, and $\check A^2P - P^{*h}\check A^2 = [\check A^2,P_R] +
-i(\check A^2P_I + P_I\check A^2)$. Let $w_t := T_tv$ with $T_t$ from (C8). As $t\to0$:
+This is algebra: $2\,\mathrm{Im}\langle\check A_\epsilon Pw,\check A_\epsilon w\rangle = \frac1i\langle (\check
+A_\epsilon^2P - P^{*h}\check A_\epsilon^2)w, w\rangle$, and $\check A^2P - P^{*h}\check A^2 = [\check A^2,P_R] + i(\check
+A^2P_I + P_I\check A^2)$. Let $w_t := T_tv$ with $T_t$ from (C8). We show that the right side of (3.4) at $w = w_t$ tends
+to its value at $v$; $C_\epsilon$ itself is never applied to $v$, since with an absorbing term of top order it need not
+act on $H^{\mathbf s - \kappa\mathbf 1}$ (D186). As $t\to0$:
 
-$w_t\to v$ in $H^{\mathbf s - \kappa\mathbf 1}$, so $\langle C_\epsilon w_t,w_t\rangle\to\langle C_\epsilon v, v\rangle$,
-since $C_\epsilon\in\Psi^{2\mathbf s - 2\kappa\mathbf 1}$ for $\epsilon > 0$. Also
-$\check A_\epsilon w_t\to\check A_\epsilon v$ in $H^{\frac12(\mathbf m - \mathbf 1)}$.
+$w_t\to v$ in $H^{\mathbf s - \kappa\mathbf 1}$, and $\check A_\epsilon w_t\to\check A_\epsilon v$ in $H^{\frac12(\mathbf
+m - \mathbf 1)}$.
 
 $\check A_\epsilon Pw_t = T_t\check A_\epsilon Pv + [\check A_\epsilon,T_t]Pv + \check A_\epsilon[P,T_t]v$. The first
 term tends to $\check A_\epsilon Pv$ in $H^{\frac12(\mathbf 1 - \mathbf m) + \kappa\mathbf 1}$. Since $T_t$ is bounded in
 $\Psi^{0,0}$ and tends to $\mathrm{Id}$ in $\Psi^{\delta,\delta}$, the commutators $[\check A_\epsilon,T_t]$ and
 $[P,T_t]$ are bounded in $\Psi^{\mathbf k - \kappa\mathbf 1 - \mathbf 1}$ and $\Psi^{\mathbf m - \mathbf 1}$ (Lemma 2.1
-(c)) and tend to 0 in $\Psi^{\mathbf k - \kappa\mathbf 1 - \mathbf 1 + \delta\mathbf 1}$, resp.
-$\Psi^{\mathbf m - \mathbf 1 + \delta\mathbf 1}$. Hence the second and third terms are bounded in
-$H^{\frac12(\mathbf 1 - \mathbf m)}$ (because $Pv\in H^{\mathbf s - \kappa\mathbf 1 - \mathbf m}$,
-$v\in H^{\mathbf s - \kappa\mathbf 1}$ and $\check A_\epsilon$ is bounded in $\Psi^{\mathbf k}$) and tend to 0 as
-distributions, hence weakly in $H^{\frac12(\mathbf 1 - \mathbf m)}$.
+(c)) and tend to 0 in $\Psi^{\mathbf k - \kappa\mathbf 1 - \mathbf 1 + \delta\mathbf 1}$, resp. $\Psi^{\mathbf m -
+\mathbf 1 + \delta\mathbf 1}$. Hence the second and third terms are bounded in $H^{\frac12(\mathbf 1 - \mathbf m)}$
+(because $Pv\in H^{\mathbf s - \kappa\mathbf 1 - \mathbf m}$, $v\in H^{\mathbf s - \kappa\mathbf 1}$ and $\check
+A_\epsilon\in\Psi^{\mathbf k - \kappa\mathbf 1}$ for the fixed $\epsilon$) and tend to 0 as distributions, hence weakly
+in $H^{\frac12(\mathbf 1 - \mathbf m)}$.
 
 A weakly null sequence paired with a strongly convergent one tends to 0. So $\langle\check A_\epsilon Pw_t,\check
-A_\epsilon w_t\rangle\to\langle\check A_\epsilon Pv,\check A_\epsilon v\rangle$, and (3.4) follows.
+A_\epsilon w_t\rangle\to\langle\check A_\epsilon Pv,\check A_\epsilon v\rangle$.
 
-*Step 2: the estimate.* By (3.1) and (3.4),
+*Step 2: the estimate.* By (3.1) and (3.4), for Schwartz $w$,
 
-$$\|B_\epsilon v\|^2 = -\varsigma\cdot2\,\mathrm{Im}\langle\check A_\epsilon Pv,\check A_\epsilon v\rangle -
-\langle F_\epsilon v,v\rangle + \|E_\epsilon v\|^2 + \langle J_\epsilon Pv, v\rangle + \langle R_\epsilon v,v\rangle.$$
+$$\|B_\epsilon w\|^2\le-\varsigma\cdot2\,\mathrm{Im}\langle\check A_\epsilon Pw,\check A_\epsilon w\rangle +
+C_F\|w\|^2_{-\mathbf N} + \|E_\epsilon w\|^2 + \langle J_\epsilon Pw, w\rangle + \langle R_\epsilon w,w\rangle.$$
 
-We bound each term uniformly in $\epsilon\in(0,1]$. (a)
+Take $w = w_t := T_tv$ and let $t\to0$, with $\epsilon > 0$ fixed. The left side tends to $\|B_\epsilon v\|^2$ and
+$\|E_\epsilon w_t\|^2$ to $\|E_\epsilon v\|^2$, as $B_\epsilon, E_\epsilon\in\Psi^{\mathbf s - \kappa\mathbf 1}$;
+$\langle R_\epsilon w_t,w_t\rangle\to\langle R_\epsilon v,v\rangle$, as $R_\epsilon\in\Psi^{2\mathbf s - \mathbf 1}$ and
+$2\kappa\le1$; the first term converges by Step 1 and the $J$-term by the splitting in (d). So the inequality holds with
+$v$ in place of $w$, and $F_\epsilon$ has dropped out. We bound each term uniformly in $\epsilon\in(0,1]$. (a)
 
 $$|\langle\check A_\epsilon Pv,\check A_\epsilon v\rangle|\le \|\check A_\epsilon Pv\|_{-\frac12(\mathbf m - \mathbf
 1)}\|\check A_\epsilon v\|_{\frac12(\mathbf m - \mathbf 1)}$$
@@ -424,11 +443,16 @@ $$\|\check A_\epsilon v\|_ {\frac12(\mathbf m - \mathbf 1)}\le\|Z_\epsilon B_\ep
 $$\frac12\|B_\epsilon v\|^2 + C(\|GPu\|^2_{\mathbf s - \mathbf m + \mathbf 1} + \|v\|^2_{\mathbf s - \frac12\mathbf
 1} + \|u\|^2_{-\mathbf N})$$
 
-. (b) $-\langle F_\epsilon v,v\rangle\le C_F\|v\|^2_{-\mathbf N}$. (c)
-$\|E_\epsilon v\|\le C(\|Ev\|_{\mathbf s} + \|v\|_{-\mathbf N})$, by the microlocal parametrix of $E$ on $K_E$; and
-$\|Ev\|_{\mathbf s}\le C(\|Eu\|_{\mathbf s} + \|u\|_{-\mathbf N})$. (d) Choose $\Phi_J\in\Psi^{0,0}$ elliptic on $K_J$
-with $\mathrm{WF}' (\Phi_J)\subset\mathrm{Ell}(P)$, so that
-$\langle J_\epsilon Pv,v\rangle = \langle J_\epsilon Pv,\Phi_Jv\rangle$ plus a term bounded by $C\|u\|^2_{-\mathbf N}$.
+. (b) $C_F\|v\|^2_{-\mathbf N}\le C\|u\|^2_{-\mathbf N}$. (c) $E_\epsilon v = E_\epsilon u - E_\epsilon(\mathrm{Id} -
+\Phi)u$, and $E_\epsilon(\mathrm{Id} - \Phi)$ is bounded in $\Psi^{-\infty,-\infty}$ (Step 0), so $\|E_\epsilon v\|\le
+C(\|E_\epsilon u\| + \|u\|_{-\mathbf N})\le C(\|Eu\|_{\mathbf s} + \|u\|_{-\mathbf N})$, the last by the microlocal
+parametrix of $E$ on $K_E$ (D186; $[E,\Phi]$ is not residual). (d) Choose $\Phi_J\in\Psi^{0,0}$ microlocally the identity
+near $K_J$, with $\mathrm{WF}'(\Phi_J)\subset\mathrm{Ell}(P)$ and $\mathrm{WF}'(\Phi_J)\cap\mathrm{WF}'(\mathrm{Id} -
+\Phi) = \emptyset$; this is possible as $K_J$ is closed, lies in the open set $\mathrm{Ell}(P)$ and misses
+$\mathrm{WF}'(\mathrm{Id} - \Phi)$. Then $\langle J_\epsilon Pv,v\rangle = \langle J_\epsilon Pv,\Phi_Jv\rangle$ plus a
+term bounded by $C\|u\|^2_{-\mathbf N}$, since $(\mathrm{Id} - \Phi_J)^{*h}J_\epsilon$ is residual; the same splitting at
+$w_t$ gives the convergence used above, as $\Phi_JT_tv\to\Phi_Jv$ in $H^{\mathbf s + \kappa\mathbf 1}$ (the bound below
+puts $\Phi_Jv$ in $H^{\mathbf s + \mathbf 1}$, and $[\Phi_J,T_t]$ is bounded in $\Psi^{-1,-1}$ and tends to 0 strongly).
 Then
 
 $$|\langle J_\epsilon Pv,\Phi_Jv\rangle|\le\|J_\epsilon Pv\|_{-\mathbf s}\|\Phi_Jv\|_{\mathbf s}$$
@@ -444,22 +468,24 @@ $$\|v\|_{\mathbf s - \frac12\mathbf 1}\le C(\|Gu\|_{\mathbf s - \frac12\mathbf 1
 $$\|B_\epsilon v\|^2\le C\big(\|GPu\|^2_{\mathbf s - \mathbf m + \mathbf 1} + \|Eu\|^2_{\mathbf s} + \|Gu\|^2_{\mathbf
 s - \frac12\mathbf 1} + \|u\|^2_{-\mathbf N}\big)\quad\text{for all }\epsilon\in(0,1].$$
 
-The left side is finite for each $\epsilon > 0$ (as $B_\epsilon\in\Psi^{\mathbf s - \kappa\mathbf 1}$), so nothing
-is assumed about $B_0v$. The qualitative hypothesis $Gu\in H^{\mathbf s - \kappa\mathbf 1}$ is used only in Step 1; the
-bound uses $\|Gu\|_{\mathbf s - \frac12\mathbf 1}$.
+The left side is finite for each $\epsilon > 0$ (as $B_\epsilon\in\Psi^{\mathbf s - \kappa\mathbf 1}$), so nothing is
+assumed about $B_0v$. The qualitative hypothesis $Gu\in H^{\mathbf s - \kappa\mathbf 1}$ is used only for the limits
+$t\to0$ in Steps 1 and 2; the bound uses $\|Gu\|_{\mathbf s - \frac12\mathbf 1}$.
 
 *Step 3: the limit.* $B_\epsilon v$ is bounded in $L^2$ and tends to $B_0v$ as distributions, since $B_\epsilon\to B_0$
 in $\Psi^{\mathbf s + \delta\mathbf 1}$. A weak limit point in $L^2$ is therefore $B_0v$, with $\|B_0v\|\le
 \liminf\|B_\epsilon v\|$. Finally $B_0u = B_0v + B_0(\mathrm{Id} - \Phi)u$, where $B_0(\mathrm{Id} - \Phi)\in
 \Psi^{-\infty,-\infty}$. $\square$
 
-**Lemma 3.2 (iteration).** Let $\Gamma$ be a closed subset of the boundary of phase space, $U_0$ an open neighbourhood
-of it, and $\mathbf s_0 = \mathbf s - \tau\mathbf 1$ with $\tau > 0$ a constant. Suppose that for every $\kappa\in(0,
+**Lemma 3.2 (iteration).** Let $\Gamma$ be a closed subset of the boundary of phase space, $U_0$ an open neighbourhood of
+it, and $\mathbf s_0 = \mathbf s - \tau\mathbf 1$ with $\tau > 0$ a constant. Suppose that for every $\kappa\in(0,
 \frac12]$, every order $\mathbf s' = \mathbf s_0 + \tau'\mathbf 1$ with $\kappa\le\tau'\le\tau$, and every open $U$ with
 $\Gamma\subset U\subset U_0$, the hypotheses of Lemma 3.1 hold with $(\mathbf s',\kappa, U)$ for some closed $K_1\subset
-U$. Suppose this holds with the same $K_E$ (or no $E$ term) and with $B_0$ elliptic on the closure of an open
-neighbourhood $U'$ of $\Gamma$. Let $G$ be elliptic on $\bar U_0$ and $E$ elliptic on $K_E$. Then there is a
-neighbourhood $U_*$ of $\Gamma$ such that for every $B\in\Psi^{0,0}$ microsupported in $U_*$ and every $\mathbf N$,
+U$. Suppose this holds with the $E$-terms microsupported in a closed set $K_E(U)\subset\bar U_0\setminus\Gamma$ (or with
+no $E$ term), and with $B_0$ elliptic on the closure of an open neighbourhood $U'$ of $\Gamma$. Let $G$ be elliptic on
+$\bar U_0$. Then there are a neighbourhood $U_*$ of $\Gamma$ and a closed set $K_E^*\subset\bar U_0\setminus\Gamma$ such
+that for every $E\in\Psi^{0,0}$ elliptic on $K_E^*$, every $B\in\Psi^{0,0}$ microsupported in $U_*$ and every $\mathbf
+N$,
 
 $$\|Bu\|_{\mathbf s}\le C\big(\|GPu\|_{\mathbf s - \mathbf m + \mathbf 1} + \|Eu\|_{\mathbf s} + \|Gu\|_{\mathbf s_0} +
 \|u\|_{-\mathbf N}\big),\tag{3.5}$$
@@ -469,10 +495,11 @@ in the strong sense: if the right side is finite, so is the left.
 *Proof.* Let $J$ be an integer with $J\ge4\tau$, $\kappa := \tau/J\le\frac14$, and $\mathbf s_j := \mathbf s_0 +
 j\kappa\mathbf 1$, so that $\mathbf s_j - \kappa\mathbf 1 = \mathbf s_{j-1}$. Construct $U_0\supset U_1\supset\dots
 \supset U_J\supset\Gamma$ inductively, $U_j$ being the $U'$ of the hypothesis for $(\mathbf s_j,\kappa, U_{j-1})$, with
-$B_0^{(j)}$ elliptic on $\bar U_j$. Let $G_0 := G$ and, for $j\ge1$, let $G_j\in\Psi^{0,0}$ be elliptic on $\bar U_j$
-with $\mathrm{WF}'(G_j)\subset\mathrm{Ell}(B_0^{(j)})$, so that $\|G_ju\|_{\mathbf s_j}\le C(\|B_0^{(j)}u\| +
-\|u\|_{-\mathbf N})$ by (C5). Lemma 3.1 with $(\mathbf s_j,\kappa, U_{j-1}, G_{j-1})$ needs $G_{j-1}u\in H^{\mathbf s_j -
-\kappa\mathbf 1} = H^{\mathbf s_{j-1}}$ and gives
+$B_0^{(j)}$ elliptic on $\bar U_j$, and let $K_E^* := \bigcup_{j=1}^JK_E(U_{j-1})$, a finite union of closed sets missing
+$\Gamma$ (the sets move with $U$, so one $K_E$ need not serve every step; D186). Let $G_0 := G$ and, for $j\ge1$, let
+$G_j\in\Psi^{0,0}$ be elliptic on $\bar U_j$ with $\mathrm{WF}'(G_j)\subset\mathrm{Ell}(B_0^{(j)})$, so that
+$\|G_ju\|_{\mathbf s_j}\le C(\|B_0^{(j)}u\| + \|u\|_{-\mathbf N})$ by (C5). Lemma 3.1 with $(\mathbf s_j,\kappa, U_{j-1},
+G_{j-1})$ needs $G_{j-1}u\in H^{\mathbf s_j - \kappa\mathbf 1} = H^{\mathbf s_{j-1}}$ and gives
 
 $$\|B_0^{(j)}u\|\le C\big(\|G_{j-1}Pu\|_{\mathbf s_j - \mathbf m + \mathbf 1} + \|Eu\|_{\mathbf s_j} +
 \|G_{j-1}u\|_{\mathbf s_{j-1}} + \|u\|_{-\mathbf N}\big).$$
@@ -533,8 +560,10 @@ R.\tag{4.1}$$
 **Lemma 4.1 (a defining function in $S^*\tilde X^\circ$).** There are $M$, $c' > 0$ and a neighbourhood $W$ of
 $\partial\mathcal R$ in $S^*\tilde X^\circ$ such that $\tilde q := q_{\mathrm{ext}} + M(\rho_\infty^2G_0)^2$ is a
 quadratic defining function of $\partial\mathcal R$ in $S^*\tilde X^\circ$ and $\mathsf H\tilde q\ge c'\tilde q$ on $W$.
-Here $q_{\mathrm{ext}}$ is any smooth extension of $q_\pm$ off $\partial\Sigma_0$, and $\mathsf H$ is given near
-$\partial \mathcal R$ by the same formula off $\Sigma_0$.
+Here $q_{\mathrm{ext}} := q_\pm\circ\pi$ for a smooth retraction $\pi$ of a neighbourhood of $\partial\mathcal R$ onto
+$\partial\Sigma_0$, an extension with $dq_{\mathrm{ext}} = 0$ on $\partial\mathcal R$ (an arbitrary extension may carry a
+term linear in $\rho_\infty^2G_0$, and then $\tilde q$ need not be a defining function; D186), and $\mathsf H$ is given
+near $\partial \mathcal R$ by the same formula off $\Sigma_0$.
 
 *Proof.* At $\partial\mathcal R$, $\mathsf H\rho_\infty = \beta_0\rho_\infty\ne0$, so $H_{G_0}\ne0$ and $dG_0\ne0$; hence
 $y := \rho_\infty^2G_0$ defines $\partial\Sigma_0$ near $\partial\mathcal R$. Since $\mathsf HG_0 = 0$, $\mathsf Hy =
@@ -604,12 +633,15 @@ set, so $r_\epsilon$ is bounded in $S^{-\infty}$. Let $Q_\epsilon := \beta_0(2s'
 $$Q_\epsilon\ge2\beta_0\big(s'_\epsilon - \tfrac12 - \vartheta + \beta\,\mathrm{Im}\,\sigma\big)\mathrm{Id}\ge2\beta_0
 \big(s_0 - \tfrac12 - \vartheta\big)\mathrm{Id}.$$
 
-$Q_\epsilon$ is continuous in the base point, uniformly in $\epsilon\in(0,1]$ and $\sigma\in\mathcal D$, since it
-depends on $\epsilon$ only through $s'_\epsilon\in[s_0,s]$. So there is a neighbourhood $W'\subset W\cap U$ of
-$\partial\mathcal R$ and $c_Q > 0$ with $Q_\epsilon\ge c_Q\,\mathrm{Id}$ on $W'$. Choose $\varsigma_R$ so large that
-$\mathrm{supp}\,\psi_R\subset W'$, so that also $\mathsf H\tilde q\ge c'\tilde q\ge0$ on $\mathrm{supp}\,\psi_R$ by
-Lemma 4.1. Let $\tilde\chi$ equal 1 on $\mathrm{supp}\,\psi_R$ with support in $W'$, and set $\tilde Q_\epsilon :=
-\tilde\chi Q_\epsilon + (1 - \tilde\chi)c_Q\,\mathrm{Id}\ge c_Q\,\mathrm{Id}$. Define
+Since $\beta_0 > 0$ near $\partial\mathcal R$ and $s'_\epsilon\ge s_0$, $Q_\epsilon\ge Q^{(0)} := \beta_0(2s_0 -
+1)\mathrm{Id} - 2p_1(\sigma)$ there, for every $\epsilon$. $Q^{(0)}$ does not depend on $\epsilon$, is continuous in the
+base point and in $\sigma\in\mathcal D$, and is at least $2\beta_0(s_0 - \frac12 - \vartheta)\mathrm{Id}$ at
+$\partial\mathcal R$ by (4.1). ($Q_\epsilon$ itself is not equicontinuous in $\epsilon$ at $\rho_\infty = 0$, since
+$\theta_\epsilon$ is not; D186.) So there is a neighbourhood $W'\subset W\cap U$ of $\partial\mathcal R$ and $c_Q > 0$
+with $Q_\epsilon\ge c_Q\,\mathrm{Id}$ on $W'$. Choose $\varsigma_R$ so large that $\mathrm{supp}\,\psi_R\subset W'$, so
+that also $\mathsf H\tilde q\ge c'\tilde q\ge0$ on $\mathrm{supp}\,\psi_R$ by Lemma 4.1. Let $\tilde\chi$ equal 1 on
+$\mathrm{supp}\,\psi_R$ with support in $W'$, and set $\tilde Q_\epsilon := \tilde\chi Q_\epsilon + (1 -
+\tilde\chi)c_Q\,\mathrm{Id}\ge c_Q\,\mathrm{Id}$. Define
 
 $$b_\epsilon := \rho_\infty^{-s'}\varphi_\epsilon\chi_\infty\psi_R\,\tilde Q_\epsilon^{1/2},\qquad b_{R,\epsilon} :=
 \rho_\infty^{-s'}\varphi_\epsilon\chi_\infty\Big(\frac{2\,\mathsf H\tilde q}{\tilde q}\Big)^{1/2}\sqrt{-x\psi(x)\psi'(x)}
@@ -650,8 +682,8 @@ B_\epsilon + B_{R,\epsilon}^{*h}B_{R,\epsilon} + R_\epsilon$ with $b_\epsilon :=
 \chi_\infty\psi_R(\tilde Q^\flat_\epsilon)^{1/2}$ and $b_{R,\epsilon}$ as before. This is (3.1) with $\varsigma = \mp$
 and $E_\epsilon := B_{R,\epsilon}$, which is microsupported in $\mathrm{supp}\,\psi'(\varsigma_R\tilde q)$, a closed set
 disjoint from $\partial\mathcal R$. The regulariser only lowers $\tilde s_\epsilon$, which increases $Q^\flat_\epsilon$,
-so the iteration of Lemma 3.2 runs from $\mathbf s_0 = -N$ with no threshold. Choose $E$ elliptic on
-$\mathrm{supp}\,\psi'(\varsigma_R\tilde q)\cap\mathrm{supp}\,\chi_\infty$. $\square$
+so the iteration of Lemma 3.2 runs from $\mathbf s_0 = -N$ with no threshold. Choose $E$ elliptic on the set $K_E^*$ of
+Lemma 3.2, a finite union of such sets, closed and disjoint from $\partial\mathcal R$. $\square$
 
 *Remark 4.3 (the threshold is [Hin26c]'s).* His (5.17) takes $\vartheta_{\mathcal H^+} := \sup_{N^*\mathcal H^+
 \setminus o}\mathrm{spec}\,\big[\beta_0^{-1}\rho_\infty\sigma_1\big(\frac1{2i}(P_0 - P_0^*)\big)\big]$ with $\rho_\infty
@@ -764,7 +796,9 @@ $$\|Bu\|_{-s+2,-\mathsf r-1}\le C\big(\|G\hat P(\sigma)^{*h}u\|_{-s,-\mathsf r} 
 \|u\|_{-N,-N}\big).\tag{4.9}$$
 
 The regularity orders are immaterial, the operators being microsupported at finite frequencies. As with Proposition 4.2,
-the adjoint may be taken in any fibre inner product.
+the adjoint may be taken in any fibre inner product. $B$, $G$ and $E$ depend on $\sigma_0$, the commutant being centred
+at $R_{\sigma_0,\mathrm{in}}$; their bounds in $\Psi^{0,0}$, the ellipticity of $B$ at $R_{\sigma_0,\mathrm{in}}$ and $C$
+are uniform in $\sigma\in I + i[0,\nu]$ (D186).
 
 *Proof.* Write $P := \hat P(\sigma)$ and fix $h$, the inner product in which $\vartheta_{\mathrm{in}}$ is computed.
 Then
@@ -859,10 +893,10 @@ $$2\sigma_1\check A_\epsilon K\check A_\epsilon = 2\sigma_1(L\check A_\epsilon)^
 
 $$F_\epsilon := B_{R,\epsilon}^{*h}B_{R,\epsilon} + 2\sigma_1\check A_\epsilon K\check A_\epsilon$$
 
-satisfies $\langle F_\epsilon v,v\rangle\ge-C\|v\|^2_{-\mathbf N}$, as $\sigma_1\ge0$. This is (3.1) with
-$\varsigma = \varepsilon_0$. The remaining hypotheses ($Z_\epsilon$, $Y_\epsilon$, convergence) are verified as in
-Proposition 4.2, with $z_\epsilon := \rho^{1/2}\tilde Q_\epsilon^{-1/2}$, bounded in
-$S^{-\infty,-1/2} = S^{-\frac12(\mathbf m - \mathbf 1)}$. Lemma 3.2 in the decay component gives (4.8).
+satisfies $\langle F_\epsilon w,w\rangle\ge-C\|w\|^2_{-\mathbf N}$ for Schwartz $w$, as $\sigma_1\ge0$. This is (3.1)
+with $\varsigma = \varepsilon_0$. The remaining hypotheses ($Z_\epsilon$, $Y_\epsilon$, convergence) are verified as in
+Proposition 4.2, with $z_\epsilon := \rho^{1/2}\tilde Q_\epsilon^{-1/2}$, bounded in $S^{-\infty,-1/2} =
+S^{-\frac12(\mathbf m - \mathbf 1)}$. Lemma 3.2 in the decay component gives (4.8).
 
 (2) For $P^{*h}$ the imaginary part is $-P_I$. With target decay order $\tilde{\mathsf r} := -\mathsf r' - 1$, the same
 commutant and computation give, at $R_{\sigma_0,\mathrm{in}}$,
@@ -872,12 +906,12 @@ $$\varepsilon_0\rho^{2\tilde{\mathsf r}}\sigma(C^\flat_\epsilon) =
 r}_\epsilon + 1)\mathrm{Id} - (p_{\mathrm{in}} - S - S^{*h})\big] + (\text{cut-off term}).$$
 
 Since $-(2\tilde{\mathsf r}_\epsilon + 1)\ge2\mathsf r' + 1$ and $2\mathsf r' + 1 - \vartheta_{\mathrm{in}} > 0$, the
-bracket is positive definite. The cut-off term is $-b_{R,\epsilon}^2$. The $\sigma_1$ term is now
-$+2\sigma_1\check A K\check A$, of the sign of the bracket. So $-\varepsilon_0C^\flat_\epsilon = -B_\epsilon^{*h}
-B_\epsilon - 2\sigma_1\check A_\epsilon K\check A_\epsilon + B_{R,\epsilon}^{*h}B_{R,\epsilon} + R_\epsilon$: (3.1) with
-$\varsigma = -\varepsilon_0$ and $E_\epsilon := B_{R,\epsilon}$, microsupported in $\mathrm{supp}\,\psi'(\varsigma_R q)$,
-which is disjoint from $R_{\sigma_0,\mathrm{in}}$. The regulariser lowers $\tilde{\mathsf r}_\epsilon$, which keeps the
-bracket positive, so Lemma 3.2 runs from $-N$. $\square$
+bracket is positive definite. The cut-off term is $-b_{R,\epsilon}^2$. The $\sigma_1$ term is now $+2\sigma_1\check A
+K\check A$, of the sign of the bracket. So $-\varepsilon_0C^\flat_\epsilon = -B_\epsilon^{*h} B_\epsilon -
+2\sigma_1\check A_\epsilon K\check A_\epsilon + B_{R,\epsilon}^{*h}B_{R,\epsilon} + R_\epsilon$: (3.1) with $\varsigma =
+-\varepsilon_0$ and $E_\epsilon := B_{R,\epsilon}$, microsupported in $\mathrm{supp}\,\psi'(\varsigma_R q)$, which is
+disjoint from $R_{\sigma_0,\mathrm{in}}$; $E$ is taken elliptic on the set $K_E^*$ of Lemma 3.2. The regulariser lowers
+$\tilde{\mathsf r}_\epsilon$, which keeps the bracket positive, so Lemma 3.2 runs from $-N$. $\square$
 
 ### 4.4 Sums of squares, and commutators with b-vector fields ([Hin26c] (9.49), Lemma 9.13)
 
@@ -1006,7 +1040,8 @@ $$\|Bu\|_{(s;k),\mathsf r}\le C\big(\|G\hat P(\sigma)u\|_{(s-2;k),\mathsf r+1} +
 
 With Lemma 2.4, $\frac12\inf\lambda_{\min}(S + S^{*h})$ can be taken within any $\epsilon > 0$ of $\bar S$. So every
 $\mathsf r < -\frac12 + \bar S$ is admissible in (1) and (3), and every $\mathsf r_0 < -\frac12 + \bar S$ in (2), for a
-suitable $h$, which is [Hin26c]'s threshold (9.16c).
+suitable $h$, which is [Hin26c]'s threshold (9.16c). As in Proposition 4.6, $B$, $E$ and $G$ depend on $\sigma$, through
+$\kappa_\sigma$ in $\psi_\Sigma$, with bounds and constants uniform on $\mathcal D$ (D186).
 
 *Proof.* (1) $\hat P(\sigma)u = f$ is equivalent to $\tilde Pu = \sigma^{-1}f$, and $|\sigma|^{-1}$ is bounded on
 $\mathcal D$. Commutant: $\check a_\epsilon := \rho^{-\mathsf r'-\frac12}\varphi_\epsilon\psi_\partial\psi_\Sigma\psi_R$
@@ -1035,12 +1070,12 @@ $$e_{R,\epsilon} := \rho^{-\mathsf r'}\varphi_\epsilon\psi_\partial\psi_\Sigma\b
 \psi'(x)}\big|_{x = \varsigma_Rq}$$
 
 is smooth. So $C_\epsilon = -B_\epsilon^{*h}B_\epsilon + E_\epsilon^{*h}E_\epsilon - F_\epsilon + R_\epsilon$, with
-$b_\epsilon := \rho^{-\mathsf r'}\varphi_\epsilon\psi_\partial\psi_\Sigma\psi_R\tilde Q_\epsilon^{1/2}$,
-$E_\epsilon := \mathrm{Op} (e_{R,\epsilon})\mathrm{Id}$,
-$F_\epsilon := 2\iota_\sigma\sum_j(W_j\check A_\epsilon)^{*h}(W_j\check A_\epsilon)\ge0$, and $R_\epsilon$ bounded in
-$\Psi^{-\infty,2\mathsf r'-1}$. $E_\epsilon$ is microsupported in $\mathrm{supp}\,\psi'( \varsigma_Rq)$, a closed set
-disjoint from $R_{\mathrm{out}}$; let $E$ be elliptic there. This is (3.1) with $\varsigma = 1$. Regularising lowers
-$\mathsf r'_\epsilon$ and keeps $Q_\epsilon > 0$, so Lemma 3.2 runs from $-N$.
+$b_\epsilon := \rho^{-\mathsf r'}\varphi_\epsilon\psi_\partial\psi_\Sigma\psi_R\tilde Q_\epsilon^{1/2}$, $E_\epsilon :=
+\mathrm{Op} (e_{R,\epsilon})\mathrm{Id}$, $F_\epsilon := 2\iota_\sigma\sum_j(W_j\check A_\epsilon)^{*h}(W_j\check
+A_\epsilon)\ge0$, and $R_\epsilon$ bounded in $\Psi^{-\infty,2\mathsf r'-1}$. $E_\epsilon$ is microsupported in
+$\mathrm{supp}\,\psi'( \varsigma_Rq)$, a closed set disjoint from $R_{\mathrm{out}}$; let $E$ be elliptic on the union
+$K_E^*$ of these sets over the steps of Lemma 3.2, closed and disjoint from $R_{\mathrm{out}}$. This is (3.1) with
+$\varsigma = 1$. Regularising lowers $\mathsf r'_\epsilon$ and keeps $Q_\epsilon > 0$, so Lemma 3.2 runs from $-N$.
 
 (2) For $\tilde P^{*h}$ the imaginary part is $-\mathrm{Im}_h\tilde P$. With target
 $\tilde{\mathsf r} := -\mathsf r' - 1$ and a priori order $-\mathsf r_0 - 1$, the bracket at $R_{\mathrm{out}}$ is
@@ -1164,8 +1199,13 @@ H_f\mathsf k)
 
 Choose $M\ge1 + \sup_O(2|\mathsf k_\epsilon\varrho^{-1}\mathsf H_f\varrho| + 2\|p'\|)$, uniformly in $\epsilon$ since
 $\mathsf k_\epsilon\in(\mathsf k - \kappa,\mathsf k]$. Then $Q_\epsilon\ge M\,\mathrm{Id}$. It is a symbol of the
-logarithmic class of (C6), and $Q_\epsilon^{1/2}$ is a symbol in the same class, with bounded derivatives in the sense of
-(C6), by Lemma 2.2 applied to $Q_\epsilon/(1 + |\log\varrho|)$, whose values lie in a compact set of positive matrices.
+logarithmic class of (C6). So is $Q_\epsilon^{1/2}$: write $Q_\epsilon = Q_0 + \lambda\,\mathrm{Id}$ with $Q_0 := (2M +
+2\mathsf k_\epsilon\varrho^{-1}\mathsf H_f\varrho)\mathrm{Id} - 2p'\ge M\,\mathrm{Id}$, bounded, and $\lambda :=
+2(\mathsf H_f\mathsf k)\log\varrho\ge0$, scalar. By Cauchy's formula as in Lemma 2.2, $\partial_\lambda^j(Q_0 +
+\lambda)^{1/2} = O((M + \lambda)^{\frac12 - j})$, and the derivatives of $Q_0$ and of $\lambda$ along the vector fields
+$\langle x\rangle^{-\delta}\mathcal V_b$ of (C6) are bounded; by the chain rule $Q_\epsilon^{1/2}$ lies in the class for
+every $\delta > 0$. (Lemma 2.2 does not apply to $Q_\epsilon/(1 + |\log\varrho|)$, which is not bounded below where
+$\mathsf H_f\mathsf k = 0$; [HJS] p. 81 notes the point; D186.)
 
 *Decomposition.* As in section 4, $\sigma(\varepsilon C_\epsilon) = \mu[\mathsf H_f(\check a_\epsilon^2)\mathrm{Id} +
 2\check a_\epsilon^2p'] + \varepsilon\sigma(\check A^2P_I^{\mathrm{abs}} + P_I^{\mathrm{abs}}\check A^2)$, and
@@ -1232,27 +1272,26 @@ of order $s - m$. For $u\in\bar H^{s,\mathsf r}$ and $v\in\dot H^{-s+m,-\mathsf 
 $\langle Lu, v\rangle$ is well defined, and it equals $\langle u, L^*v\rangle$ for
 $u\in C_c^\infty(\mathbb R^4)|_\Omega$.
 
-*Proof.* (a) Let $u\in\dot H^{s,\mathsf r}$, and write $u = \chi u + (1 - \chi)u$, with
-$\chi\in C_c^\infty(\{|x| < 2r_0\})$ equal to 1 near $\partial_\sharp X$. Then $(1 - \chi)u$ is supported in
-$\{|x|\ge\frac32r_0\}$. Let $\tilde\chi\in C_c^\infty(\{|x| < \frac54r_0\})$ equal 1 on $\{|x|\le\frac98r_0\}$. Then
-$(1 - \tilde\chi)(1 - \chi) = 1 - \chi$, multiplication by $1 - \tilde\chi$ is bounded on $H^{s,\mathsf r}$, and
-$T_t\to\mathrm{Id}$ strongly (C8). So the Schwartz functions $(1 - \tilde\chi)T_t(1 - \chi)u$, which are supported in
-$\Omega$, tend to $(1 - \chi)u$. A Schwartz function supported in $\Omega$ is approximated by its products with
-$\chi_0(t|x|)$, $\chi_0\in C_c^\infty$ equal to 1 near 0, as $t\to0$. The function $\chi u$ has compact support, so only
-the constant regularity order $s$ matters. For $\lambda > 1$ let $(D_\lambda w)(x) := w(x/\lambda)$. Then
-$\mathrm{supp}\,D_\lambda(\chi u)\subset\{|x|\ge\lambda r_0\} \subset\Omega$. $D_\lambda$ is bounded on $H^s$ uniformly
-for $\lambda\in[1,2]$: $\|D_\lambda w\|_{L^2} = \lambda^2\|w\|_{L^2}$, and $D_\lambda f(D)D_\lambda^{-1} = f(\lambda D)$,
-so $\langle D\rangle^sD_\lambda\langle D\rangle^{-s}D_\lambda^{-1}$ is the Fourier multiplier
+*Proof.* (a) Let $u\in\dot H^{s,\mathsf r}$, and write $u = \chi u + (1 - \chi)u$, with $\chi\in C_c^\infty(\{|x| <
+2r_0\})$ equal to 1 on $\{|x|\le\frac32r_0\}$. Then $(1 - \chi)u$ is supported in $\{|x|\ge\frac32r_0\}$. Let
+$\tilde\chi\in C_c^\infty(\{|x| < \frac54r_0\})$ equal 1 on $\{|x|\le\frac98r_0\}$. Then $(1 - \tilde\chi)(1 - \chi) =
+1 - \chi$, multiplication by $1 - \tilde\chi$ is bounded on $H^{s,\mathsf r}$, and $T_t\to\mathrm{Id}$ strongly (C8).
+So the Schwartz functions $(1 - \tilde\chi)T_t(1 - \chi)u$, which are supported in $\Omega$, tend to $(1 - \chi)u$. A
+Schwartz function supported in $\Omega$ is approximated by its products with $\chi_0(t|x|)$, $\chi_0\in C_c^\infty$
+equal to 1 near 0, as $t\to0$. The function $\chi u$ has compact support, so only the constant regularity order $s$
+matters. For $\lambda > 1$ let $(D_\lambda w)(x) := w(x/\lambda)$. Then $\mathrm{supp}\,D_\lambda(\chi
+u)\subset\{|x|\ge\lambda r_0\} \subset\Omega$. $D_\lambda$ is bounded on $H^s$ uniformly for $\lambda\in[1,2]$:
+$\|D_\lambda w\|_{L^2} = \lambda^2\|w\|_{L^2}$, and $D_\lambda f(D)D_\lambda^{-1} = f(\lambda D)$, so $\langle
+D\rangle^sD_\lambda\langle D\rangle^{-s}D_\lambda^{-1}$ is the Fourier multiplier
 $\langle\zeta\rangle^s\langle\lambda\zeta\rangle^{-s}$, bounded uniformly. Also $D_\lambda\to\mathrm{Id}$ strongly as
 $\lambda\to1$: this holds on $C_c^\infty$, which is dense, and $D_\lambda$ is uniformly bounded. Finally mollify with a
-mollifier of radius $< (\lambda - 1)r_0$. (b) $\bar H^{s,\mathsf r} = H^{s, \mathsf r}/Z$ with
-$Z := \{u : \mathrm{supp}\,u\subset\mathbb R^4\setminus\Omega\}$, so
-$(\bar H^{s,\mathsf r})^* = Z^\perp \subset H^{-s,-\mathsf r}$ (C4). If $f\in Z^\perp$, then $f$ annihilates
-$C_c^\infty(\{|x| < r_0\})\subset Z$, so $\mathrm{supp}\,f\subset\bar\Omega$. Conversely, if
-$\mathrm{supp}\,f\subset\bar\Omega$ and $z\in Z$, approximate $z$ in $H^{s,\mathsf r}$ by elements of
-$C_c^\infty(\{|x| < r_0\})$, which is (a) for the ball, with $\lambda < 1$; each pairs to 0 with $f$, so
-$\langle f,z\rangle = 0$. (c) Separate the two boundary spheres by a partition of unity and apply (a) and (b) at each.
-(d) Locality of $L$ and (b). $\square$
+mollifier of radius $< (\lambda - 1)r_0$. (b) $\bar H^{s,\mathsf r} = H^{s, \mathsf r}/Z$ with $Z := \{u :
+\mathrm{supp}\,u\subset\mathbb R^4\setminus\Omega\}$, so $(\bar H^{s,\mathsf r})^* = Z^\perp \subset H^{-s,-\mathsf r}$
+(C4). If $f\in Z^\perp$, then $f$ annihilates $C_c^\infty(\{|x| < r_0\})\subset Z$, so
+$\mathrm{supp}\,f\subset\bar\Omega$. Conversely, if $\mathrm{supp}\,f\subset\bar\Omega$ and $z\in Z$, approximate $z$
+in $H^{s,\mathsf r}$ by elements of $C_c^\infty(\{|x| < r_0\})$, which is (a) for the ball, with $\lambda < 1$; each
+pairs to 0 with $f$, so $\langle f,z\rangle = 0$. (c) Separate the two boundary spheres by a partition of unity and
+apply (a) and (b) at each. (d) Locality of $L$ and (b). $\square$
 
 ### 6.2 The energy estimate
 
@@ -1345,8 +1384,9 @@ supported in $\{r\le b\}$ with $D|_{\{r>a\}} = d$. Then $LD = 0$ on $\{r > a\}$ 
 section 6.2, every null bicharacteristic of $G_0$ over $\{a < r < b + \delta_0\}$ moves monotonically in $r$, and its
 backward direction (increasing $r$) reaches $\{r > b\}$, where $D$ vanishes. Proposition 5.2 (i) at every order gives
 $D\in C^\infty(\{r > a\})$, as $D$ is smooth off the characteristic set by Proposition 5.1. So $d|_{[a+\epsilon,b]}$ is
-smooth and vanishes near $b$, and Proposition 6.3 on $\Omega_{a+\epsilon,b}$ gives $d = 0$ there, for every
-$\epsilon > 0$.
+smooth up to $r = b$ and vanishes to infinite order there; extended by 0 it lies in
+$H^2(\Omega_{a+\epsilon,b})^{\bullet,-}$, and Proposition 6.3 on $\Omega_{a+\epsilon,b}$ gives $d = 0$ there, for every
+$\epsilon > 0$ (D186).
 
 *Existence for $s\ge0$.* Let
 $f\in H^{s-1}(\Omega')^{\bullet,-}\subset H^{-1}(\Omega')^{\bullet,-} = (H^1(\Omega')^{-,\bullet})^*$. On
@@ -1582,17 +1622,18 @@ the artificial boundary are as in (1). No condition on $\mathsf r$ is used excep
 so (7.1) gives a finite-dimensional kernel and closed range (Peetre's lemma). Likewise (7.2) for $\hat P^{*h}$ on
 $\mathcal X^*_\sigma$.
 
-*Green's formula.* For $u\in\mathcal X_\sigma$ and $v\in\mathcal X^*_\sigma$, $\langle\hat P(\sigma)u,v\rangle =
-\langle u,\hat P(\sigma)^{*h}v\rangle$, with the pairings of Lemma 6.1 (b). *Proof.* Let $f := \hat Pu$, and extend
-$\chi u$ beyond $r_0$ as a solution. With $a'\in(r_0 - \delta_0, r_0)$, let $f'$ extend $\hat P(\chi u)$ to $\Omega_{a',
-b''}$, and let $w$ solve $\hat Pw = f'$ there (Proposition 6.4 (iii)); by uniqueness $w = \chi u$ on $\Omega_{r_0,b''}$.
-Then $\tilde u := \chi'(w + (1 - \chi)u)$, with $\chi'$ a cut-off equal to 1 on $\{r\ge r_0 - \frac12(r_0 - a')\}$ and
+*Green's formula.* For $u\in\mathcal X_\sigma$ and $v\in\mathcal X^*_\sigma$, $\langle\hat P(\sigma)u,v\rangle = \langle
+u,\hat P(\sigma)^{*h}v\rangle$, with the $h$-pairings $\langle\cdot,\cdot\rangle_h$: the pairings of Lemma 6.1 (b) with
+the weight $H$ inserted, for which $\hat P^{*h}$ is the adjoint (D186). *Proof.* Let $f := \hat Pu$, and extend $\chi u$
+beyond $r_0$ as a solution. With $a'\in(r_0 - \delta_0, r_0)$, let $f'$ extend $\hat P(\chi u)$ to $\Omega_{a', b''}$,
+and let $w$ solve $\hat Pw = f'$ there (Proposition 6.4 (iii)); by uniqueness $w = \chi u$ on $\Omega_{r_0,b''}$. Then
+$\tilde u := \chi'(w + (1 - \chi)u)$, with $\chi'$ a cut-off equal to 1 on $\{r\ge r_0 - \frac12(r_0 - a')\}$ and
 supported in $\{r > a'\}$, lies in $H^{\mathbf s}(\mathbb R^4)$, restricts to $u$, and has $\hat P\tilde u\in H^{\mathbf
 s'}(\mathbb R^4)$. With $T_t$ from (C8), $u_t := T_t\tilde u$ is Schwartz, $u_t\to\tilde u$ in $H^{\mathbf s}$, and $\hat
 Pu_t = T_t\hat P\tilde u + [\hat P,T_t]\tilde u\to\hat P\tilde u$ in $H^{\mathbf s'}$. This uses that $[\hat P,T_t]$ is
 bounded in $\Psi^{1,-1}$, maps $H^{\mathbf s}\to H^{\mathbf s'}$, and tends to 0 strongly (as in Lemma 3.1, Step 1). For
-Schwartz $u_t$ the identity is the definition of $\hat P^{*h}v$ as a distribution. Pass to the limit, using that $v$
-and $\hat P^{*h}v$ are supported in $\bar X$, so the pairings see only $u$ and $\hat Pu$. $\square$
+Schwartz $u_t$ the identity is the definition of $\hat P^{*h}v$ as a distribution. Pass to the limit, using that $v$ and
+$\hat P^{*h}v$ are supported in $\bar X$, so the pairings see only $u$ and $\hat Pu$. $\square$
 
 *Cokernel.* $v\in\dot H^{1-s,-\mathsf r - \alpha_+ - 1} = \mathcal Y_\sigma^*$ annihilates the range if and only if
 $v\in \ker_{\mathcal X^*_\sigma}\hat P^{*h}$. Indeed, $C_c^\infty(\mathbb R^4)|_{\bar X}\subset\mathcal X_\sigma$, so an
@@ -1747,35 +1788,53 @@ $$\frac{\hat P(\sigma)^{-1} - \hat P(\sigma_*)^{-1}}{\sigma - \sigma_*} = -\hat 
 \sigma_*)
 P_2\big)\hat P(\sigma_*)^{-1}.$$
 
-$T\in\rho\mathrm{Diff}^1_b$ near $\partial X$ (by (1.2)) and $P_2\in\rho^2C^\infty$. So $T$ maps
-$\bar H^{(t;q),\mathsf t}\to\bar H^{(t;q-1),\mathsf t + 1}$, trading one b-derivative for one order of decay; away from
-$\partial X$ it is a first-order operator, and $(t;q)$-regularity is $H^{t+q}$ there. Hence
-$f\in\bar H^{(s + \epsilon - 1;1),\mathsf r + \epsilon + \alpha_+ + 1}$ maps under $\hat P(\sigma_*)^{-1}$ to
-$\bar H^{(s+\epsilon;1),\mathsf r + \epsilon + \alpha_+}$ by (4), then under $T + \dots$ to
-$\bar H^{s+\epsilon,\mathsf r + \epsilon + \alpha_+ + 1}$. By continuity, $\hat P(\sigma)^{-1}$ of that tends to
-$\hat P(\sigma_*)^{-1}$ of it in $\bar H^{\mathbf s - \epsilon\mathbf 1}$. So the difference quotients converge strongly,
-to $-\hat P^{-1}(T + 2\sigma_*P_2)\hat P^{-1}$. Induction on $j$, with one b-derivative spent per derivative, gives the
-$C^j$ statement.
+$T\in\rho\mathrm{Diff}^1_b$ near $\partial X$ (by (1.2)) and $P_2\in\rho^2C^\infty$. So $T$ maps $\bar H^{(t;q),\mathsf
+t}\to\bar H^{(t;q-1),\mathsf t + 1}$, trading one b-derivative for one order of decay; away from $\partial X$ it is a
+first-order operator, and $(t;q)$-regularity is $H^{t+q}$ there. Hence $f\in\bar H^{(s + \epsilon - 1;1),\mathsf r +
+\epsilon + \alpha_+ + 1}$ maps under $\hat P(\sigma_*)^{-1}$ to $\bar H^{(s+\epsilon;1),\mathsf r + \epsilon + \alpha_+}$
+by (4), then under $T + \dots$ to $\bar H^{s+\epsilon,\mathsf r + \epsilon + \alpha_+ + 1}$. By continuity, $\hat
+P(\sigma)^{-1}$ of that tends to $\hat P(\sigma_*)^{-1}$ of it in $\bar H^{\mathbf s - \epsilon\mathbf 1}$. So the
+difference quotients converge strongly, to $-\hat P^{-1}(T + 2\sigma_*P_2)\hat P^{-1}$. For $j\ge2$ the same argument
+runs at b-regular levels. First, for $q\in\mathbb N_0$ and $f\in\bar H^{(s+\epsilon-1;q),\mathsf r+\epsilon+\alpha_++1}$,
+$\sigma\mapsto\hat P(\sigma)^{-1}f$ is continuous into $\bar H^{(s-\epsilon;q),\mathsf r-\epsilon+\alpha_+}$: the proof
+of *Continuity* applies with (7.3), uniform near $\sigma_*$ by the first paragraph, in place of (7.1), since $\bar
+H^{(t;q),\mathsf t}\hookrightarrow\bar H^{(t';q),\mathsf t'}$ is compact for $t'<t$, $\mathsf t'<\mathsf t$ ((C4) for
+each b-derivative up to order $q$). Then $\partial^j_\sigma\hat P^{-1}$, a finite sum of products as in (7.6), is
+obtained from $\partial^{j-1}_\sigma\hat P^{-1}$ as $\partial_\sigma\hat P^{-1}$ was from $\hat P^{-1}$: the difference
+quotient of a product splits into terms in which one factor $\hat P^{-1}$ is differenced, handled by the case $j = 1$ at
+a b-regular level, and terms in which a factor $D_i$ is differenced, polynomial in $\sigma$. Every factor is uniformly
+bounded and strongly continuous between the spaces of (7.6) with $\epsilon$-losses, so the products are strongly
+continuous. This spends $j$ b-derivatives and $j\epsilon$ in orders; renaming $\epsilon$ gives the $C^j$ statement
+(D186).
 
 *Holomorphy.* For $\mathrm{Im}\,\sigma_* > 0$ the orders in (2) may have any decay order below the threshold at
-$R_{\mathrm{out}}$, so $\mathsf r - 1$ is admissible. $T + (\sigma + \sigma_*)P_2\in\Psi^{1,0}$ maps
-$\bar H^{s,\mathsf r + \alpha_+}\to\bar H^{s-1,\mathsf r + \alpha_+}$, and $\hat P(\sigma)^{-1}$ maps that to
-$\bar H^{s,\mathsf r + \alpha_+ - 1}$, uniformly near $\sigma_*$. So
-$\|\hat P(\sigma)^{-1} - \hat P(\sigma_*)^{-1}\|\le C|\sigma - \sigma_*|$ as maps
-$\bar H^{s-1,\mathsf r + \alpha_+ + 1}\to\bar H^{s,\mathsf r + \alpha_+ - 1}$. The difference quotients therefore
-converge in norm, which is holomorphy.
+$R_{\mathrm{out}}$, so $\mathsf r - 1$ is admissible. $T + (\sigma + \sigma_*)P_2\in\Psi^{1,0}$ maps $\bar H^{s,\mathsf
+r + \alpha_+}\to\bar H^{s-1,\mathsf r + \alpha_+}$, and $\hat P(\sigma)^{-1}$ maps that to $\bar H^{s,\mathsf r +
+\alpha_+ - 1}$, uniformly near $\sigma_*$. So $\|\hat P(\sigma)^{-1} - \hat P(\sigma')^{-1}\|\le C|\sigma - \sigma'|$
+for $\sigma,\sigma'$ near $\sigma_*$, as maps $\mathcal A := \bar H^{s-1,\mathsf r + \alpha_+ + 1}\to\mathcal B := \bar
+H^{s,\mathsf r + \alpha_+ - 1}$, and likewise at the orders $(s,\mathsf r - 1)$. A Lipschitz bound does not by itself
+make difference quotients converge (D186), so we argue as follows. The difference quotient is $D(\sigma) := -\hat
+P(\sigma)^{-1}M(\sigma)\hat P(\sigma_*)^{-1}$, $M(\sigma) := T + (\sigma + \sigma_*)P_2$, and $D(\sigma) - D(\sigma') =
+-(\hat P(\sigma)^{-1} - \hat P(\sigma')^{-1})M(\sigma)\hat P(\sigma_*)^{-1} - (\sigma - \sigma')\hat
+P(\sigma')^{-1}P_2\hat P(\sigma_*)^{-1}$. By the Lipschitz bound at the orders $(s,\mathsf r - 1)$, both terms are
+$O(|\sigma - \sigma'|)$ as maps $\mathcal A\to\mathcal B' := \bar H^{s,\mathsf r + \alpha_+ - 2}$. So $D(\sigma)$ is
+Cauchy in $L(\mathcal A,\mathcal B')$ as $\sigma\to\sigma_*$, and the same holds at every point near $\sigma_*$: $\hat
+P^{-1}$ is holomorphic into $L(\mathcal A,\mathcal B')$. It is norm-continuous into $L(\mathcal A,\mathcal B)$ by the
+Lipschitz bound. Cauchy's integral formula over a small circle holds in $L(\mathcal A,\mathcal B')$, and its integrand
+is continuous into $L(\mathcal A,\mathcal B)$; so it represents $\hat P^{-1}$ as a holomorphic $L(\mathcal A,\mathcal
+B)$-valued function.
 
 *(7.6).* $\partial_\sigma^j(\hat P^{-1})$ is a sum of products $\hat P^{-1}D_1\hat P^{-1}D_2\cdots D_m\hat P^{-1}$ with
-$D_i\in\{\partial_\sigma\hat P,\partial^2_\sigma\hat P\} = \{T + 2\sigma P_2, 2P_2\}$ and
-$\sum(\text{order of }\partial) = j$. Each $D_i$ maps $\bar H^{(t;q),\mathsf t}\to\bar H^{(t;q-1),\mathsf t + 1}$ (and
-$2P_2$ even to $\bar H^{(t;q), \mathsf t + 2}$). Each $\hat P^{-1}$ maps
-$\bar H^{(t-1;q),\mathsf r + \alpha_+ + 1}\to\bar H^{(t;q),\mathsf r + \alpha_+}$ for $t = s + \ell$, $\ell\ge0$. That is
-(4) and invertibility at the orders $(s + \ell,\mathsf r)$, which are admissible since raising $s$ by a constant
-preserves (O1)-(O3). Starting from $\bar H^{(s-1;k+j),\mathsf r + \alpha_+ + 1}$, each pair $D_i\hat P^{-1}$ raises $t$
-by one and spends one b-derivative, which ends in $\bar H^{(s+j;k),\mathsf r + \alpha_+}$. This is [Hin26c] (9.57) at
-$n = 4$, where
-$\sigma\partial_\sigma\hat P(\sigma) = 2i\sigma\rho(\rho\partial_\rho - \frac32 - S) - i\sigma Q + 2\sigma^2g_{00}$.
-$\square$
+$D_i\in\{\partial_\sigma\hat P,\partial^2_\sigma\hat P\} = \{T + 2\sigma P_2, 2P_2\}$ and $\sum(\text{order of }\partial)
+= j$. Each $D_i$ maps $\bar H^{(t;q),\mathsf t}\to\bar H^{(t;q-1),\mathsf t + 1}$ (and $2P_2$ even to $\bar H^{(t;q),
+\mathsf t + 2}$). Each $\hat P^{-1}$ maps $\bar H^{(t-1;q),\mathsf r + \alpha_+ + 1}\to\bar H^{(t;q),\mathsf r +
+\alpha_+}$ for $t = s + \ell$, $\ell\ge0$. That is (4) and invertibility at the orders $(s + \ell,\mathsf r)$, which are
+admissible since raising $s$ by a constant preserves (O1)-(O3). Starting from $\bar H^{(s-1;k+j),\mathsf r + \alpha_+ +
+1}$, each pair $D_i\hat P^{-1}$ raises $t$ by one and spends one b-derivative, which ends in $\bar H^{(s+j;k),\mathsf r +
+\alpha_+}$. This is [Hin26c] (9.57) at $n = 4$; the formula $\sigma\partial_\sigma\hat P(\sigma) =
+2i\sigma\rho(\rho\partial_\rho - \frac32 - S) - i\sigma Q + 2\sigma^2g_{00}$ is his (9.56) at $n = 4$. The count treats
+every $D_i$ as spending one b-derivative; the factors $2P_2$ spend none, which only helps, since $\bar H^{(t;q+1),\mathsf
+t}\subset\bar H^{(t+1;q),\mathsf t}$ (D186). $\square$
 
 ## 8. Uniformity in the operator
 
@@ -1790,13 +1849,15 @@ hold jointly in $(\sigma,b)$.
 continuously on $b$ by (H5). It is also produced by positivity margins: $c_Q$ in each radial estimate, $M$ in Proposition
 5.2, $c_0$ and $C_P$ in Proposition 6.3. These margins depend continuously on the data $\mathcal H$, $\rho_\infty$,
 $q_\pm$ and on the order functions, so a choice made at $b_1$ serves for $b$ near $b_1$ with halved margins. So does the
-finite covering of the characteristic sets by flow boxes in section 7.1: the flows are continuous in $b$ in $C^\infty$,
-and the backward entry times into the neighbourhoods of the radial sets are bounded by (H5), so the same covering serves
-nearby. The commutants are built from these data and are bounded in their symbol classes uniformly in $b$ near $b_1$.
-Compactness of $\mathcal B$ gives finitely many $b_1$. The index and invertibility statements follow by the arguments of
-sections 7.3 and 7.6, run with sequences $(\sigma_j,b_j)\to(\sigma_*,b_*)$ in place of $\sigma_j\to\sigma_*$: the uniform
-estimates supply the bounds, and $\hat P^{b_j}(\sigma_j)u_j\to\hat P^{b_*}(\sigma_*)u$ as distributions supplies the
-limit. This is `../N1STAR-PROOF.md` Lemma 10.59 in the present setting. $\square$
+finite covering of the characteristic sets by flow boxes in section 7.1, with the flow-box coordinates of Proposition 5.2
+rebuilt at each $b$ from the flow of $\mathsf H_f^b$ through the same transversals, so that $\mathsf H_f^b = \partial_z$
+exactly (D186): the flows are continuous in $b$ in $C^\infty$, and the backward entry times into the neighbourhoods of
+the radial sets are bounded by (H5), so the same covering serves nearby. The commutants are built from these data and are
+bounded in their symbol classes uniformly in $b$ near $b_1$. Compactness of $\mathcal B$ gives finitely many $b_1$. The
+index and invertibility statements follow by the arguments of sections 7.3 and 7.6, run with sequences
+$(\sigma_j,b_j)\to(\sigma_*,b_*)$ in place of $\sigma_j\to\sigma_*$: the uniform estimates supply the bounds, and $\hat
+P^{b_j}(\sigma_j)u_j\to\hat P^{b_*}(\sigma_*)u$ as distributions supplies the limit. This is `../N1STAR-PROOF.md` Lemma
+10.59 in the present setting. $\square$
 
 ## 9. What this part found against the record and the source
 
@@ -1828,6 +1889,11 @@ Corollary 9.38.
 $H_{\mathrm{Re} G_\sigma}q$ over $\partial X$ is printed as
 $2|\eta|^2(\xi + 2\mathrm{Re}\,\sigma) - 2(\xi + \mathrm{Re}\,\sigma)|\eta|^2$, that is $2\sigma_0|\eta|^2$. The value is
 $4\sigma_0|\eta|^2$ (section 4.3). Only its sign is used.
+
+(F6) *A formal step in the source.* [Hin26c] (9.39) and (9.50) pair the commutator with $u$ itself. Where the absorbing
+term has top decay order ($\sigma_1\mathrm{Re}_hT$ at $R_{\mathrm{in}}$, $-\iota\sum W^*W$ at $R_{\mathrm{out}}$), that
+pairing is undefined for $u$ in the a priori space. Lemma 3.1 pairs only Schwartz approximants and passes to the limit in
+the other terms (D186, on the seventy-fourth verifier's report).
 
 ## Sources
 

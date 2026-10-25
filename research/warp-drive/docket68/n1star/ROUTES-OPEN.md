@@ -2378,3 +2378,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   [HJS]'s calculus READ at source; written, not yet verified. Five findings (F1-F5): three already seated in D184, one
   filling four steps the source leaves implicit, one a harmless misprint.
 - Next: the seventy-fourth verifier on Part I.A; Part I.B ([Hin26c] section 9.3, Theorem 9.16).
+
+### 4.109 The seventy-fourth verifier seated on Part I.A (D186)
+
+- Part I.A read by the seventy-fourth verifier: two majors (Lemma 3.1's pairing with an absorbing term of top order;
+  variable regularity orders outside the calculus READ), seven minors, all seated; F1-F5 confirmed; Theorem 7.2 now for
+  constant s.
+- Next: a reader for the D186 repairs; Part I.B continues (`proof5/` section 2, the semiclassical calculus, written in
+  draft).

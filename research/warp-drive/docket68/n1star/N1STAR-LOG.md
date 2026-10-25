@@ -4613,3 +4613,22 @@ harmless misprint on p. 167 (H_(Re G_sigma) q over the boundary is 4 sigma_0 |et
 its sign is used). `proof5/README.md` holds the plan: I.B ([Hin26c] 9.3) next, then I.C (9.4-9.6), II ([Hin26c] 7-8 and
 10-13), III ([Hin26]), IV ([Hin26a] 5.2 and 6, [Hin23a] 3), V ([CD03], [HHV21]), VI (that the record's operators satisfy
 each part's hypotheses) and VII (the assembly). The seventy-fourth verifier reads Part I.A.
+
+**D186 (2026-10-25): the seventy-fourth verifier seated (Part I.A of the write-out).** It read
+`proof5/PART-I-SPECTRAL.md` line by line against [Hin26c] sections 9.1-9.2 and [HJS]: two major findings, seven minor,
+nits; F1-F5 confirmed (it recomputed [V^alpha, rho V_1] = alpha_1 rho V^alpha in sympy for seven words), every other step
+checked sound. Major 1: Lemma 3.1 asked for <F_eps v, v> >= -C |v|^2 on H^(s - kappa) and claimed C_eps in Psi^(2s - 2
+kappa), false where the absorbing term has top order (sigma_1 Re_h T at R_in, -iota sum W*W at R_out, Proposition 5.2
+(b)); the identity is now proved for Schwartz w only, applied to w_t = T_t v, and every term but F's passes to the limit,
+so F_eps is never applied to u -- the source's (9.39) and (9.50) take the same formal step (F6). Major 2: [HJS] p. 77
+takes the differential order constant, and Part I.A allowed a variable regularity order; every proof uses only s = s_c,
+so Theorem 7.2 is now stated for constant s (Remark 1.1), and Part I.B's calculus, with variable orders in all three
+senses, supplies the elliptic estimate at variable s should a later part need it. Minors: Lemma 4.1's extension q_ext = q
+o pi with dq_ext = 0 on the radial set; Proposition 5.2's square root through Q_0 + lambda, not Lemma 2.2; Theorem 7.2
+(6)'s holomorphy by Cauchy's formula from a Cauchy difference quotient in a weaker space, and its C^j step at b-regular
+levels; Lemma 3.2's K_E as a finite union over the steps; Proposition 4.2's positivity from an epsilon-free lower bound;
+the citation of [HJS] Proposition 4.1 replaced by a one-line proof. Nits: orders in Step 1, step (c) through E_eps(Id -
+Phi), Phi_J microlocally the identity, Lemma 2.1 (c) for operators of scalar principal symbol, the cut-off in Lemma 6.1,
+infinite-order vanishing in Proposition 6.4, the h-pairing in Green's formula, (9.56) for (9.57), sigma-dependence of B
+and G in Propositions 4.6 and 4.9, flow boxes rebuilt for each b in section 8, the letter N. No statement of Theorem 7.2
+changed but the restriction to constant s. Part I.A is labelled proved once a reader has checked these repairs.
