@@ -4395,3 +4395,14 @@ fields spanning V(S^(n-1)); the n = 4 inputs are the horizon (10.18), the trappe
 dynamics (10.19 (c)). Both rows keep one reading, his scalar-to-bundle remark. Eight places named.
 Fifty-nine of 61 written out, thirty-nine on a reading; 2 rest on the censuses: 10.22
 (e) and 10.58 (c).
+
+**D165 (2026-10-25): the sixty-fifth verifier seated.** It read D158-D162 at source and found three majors and
+eight minors. M1: (li), 10.43 (c), rests on (xlix)'s readings and 10.46 (a)-(b)'s and did not say so; it now does, B-MAP
+marks it, and the counts of D162-D164 on a reading were one short. M2: (xxviii) credited the source with the root gap;
+the source's Step 5 uses Theorem 7.1 (2) and passes over the endpoint A^(-C_0), and the root gap is now the record's own
+route, with A^(2-) checked inside 10.21 (e)'s range. M3 is answered at source: the subtraction of D_U Phi(b', S',
+S^(0)'_1, (0, f'_1), 0, ...) is his Step 1.3's general case (p. 315), now quoted; only its placement at lam_0 = 2 is the
+record's, now marked. Minors seated: (11.135a)'s gauge 1-form, the commutator's +2, three kinds relabelled computed,
+10.32 (b)'s placed column, 10.45 (e)'s weight, (11.107b), (11.66a)-(11.66b), (11.227a), the closing paragraph's ranges,
+10.62 (b)'s inputs. The note on D163's counts was already repaired in D164. Fifty-nine of 61 written out,
+forty on a reading; 2 rest on the censuses.

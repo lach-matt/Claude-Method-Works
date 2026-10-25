@@ -1043,7 +1043,7 @@ convention, now named (supplement section 10.69; `censusweep.py`). What is not d
 line: that the censuses found every place the dimension enters is evidenced by the two methods agreeing and read at
 source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 are arguments from
 computed inputs, inputs READ at source, and readings — statements of the companion papers at n = 4 that the modification
-steps carry, on which 41 of those steps rest — each read by an independent verifier, not proofs written out at the level
+steps carry, on which 42 of those steps rest — each read by an independent verifier, not proofs written out at the level
 of the theorem's statement. Inventoried by a fixed rule, the 248 deduced steps are 90 pieces of bookkeeping on computed
 values, 29 applications of results printed for general n, 31 perturbation or continuity arguments, 38 other, and 60
 proofs written in 3 + 1 dimensions and carried to five by modification. Those 60 are the core of what a line-by-line
@@ -1062,9 +1062,9 @@ places, which is the census question of (i): by a rule the supplement deduces ra
 but for one step, which rests on a modification step and so on the census (supplement section 10.73). Fifty-nine of the
 61 are now written out step by step at n = 4 — forty-five with source proofs of at most about seven pages (two replaced
 by a computation), fourteen on longer runs of proof, [Hin26] sections 11 and 12 and [Hin26c] sections 7–9 — so their own
-steps rest on their inputs and not on a census, though thirty-nine take a reading among those inputs and six cite a step
-still on the census (supplement section 10.75, with a lemma at the horizon proved in section 10.76); the other 2 carry
-longer proofs, in [Hin26c] sections 5, 10–11 and 13 and [Hin26a] section 5. λ1 and δ exist by the deduction — from
+steps rest on their inputs and not on a census, though forty take a reading among those inputs and six cite a step still
+on the census (supplement section 10.75, with a lemma at the horizon proved in section 10.76); the other 2 carry longer
+proofs, in [Hin26c] sections 5, 10–11 and 13 and [Hin26a] section 5. λ1 and δ exist by the deduction — from
 Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A line-by-line
 check of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
 
@@ -1839,9 +1839,9 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the fifty-fourth sections 10.47–10.52 (D116–D122, D126); the fifty-fifth sections 10.53–10.57 |
 | | (D123–D126, D129); the fifty-sixth sections 10.58–10.63 and this paper (D127, D128, D130–D133) |
 | | the fifty-seventh section 10.64 and the repairs of D133 (D134, D136); the fifty-eighth to |
-| | sixty-second sections 10.65–10.76, 10.75 (xvii)–(xliii) excepted (D138, D143, D147, D149, D153); |
+| | sixty-second sections 10.65–10.76, 10.75 (xvii)–(lix) excepted (D138, D143, D147, D149, D153); |
 | | the sixty-third 10.75 (xvii)–(xxxiv) (D157); the sixty-fourth 10.75 (xxxv)–(xliii) and D157's repairs |
-| | (D162) |
+| | (D162); the sixty-fifth 10.75 (xliv)–(lv) and D162 (D165) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1926,8 +1926,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `57a3ac4541a8a4c9125d84888f7e6e69` |
-| `docket68/n1star/N1STAR-LOG.md` | `354991a0201a29b01ea4134a67aa5f76` |
+| `docket68/n1star/N1STAR-PROOF.md` | `965174eb9a27f4ce4920d83eac1e26df` |
+| `docket68/n1star/N1STAR-LOG.md` | `a275ac9e0e783e5e846f07eaa4bd8a10` |
 | `docket68/n1star/README.md` | `9bb6eabf57fcc44dea93889d3b4eb746` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -1995,6 +1995,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/B-MAP.tsv` | `c2cb8265c6536cf85e1a0d079d25453b` |
+| `docket68/n1star/B-MAP.tsv` | `77c734f5ac13dae4fdb68c532e8098e7` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

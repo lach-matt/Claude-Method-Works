@@ -2159,3 +2159,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   reading, his scalar-to-bundle remark (10.53 (d)), and 10.19 (d) the uniformity under small perturbations.
   Fifty-nine of 61 written out, thirty-nine on a reading; 2 rest on the censuses:
   10.58 (c), [Hin26c]'s sections 5, 10-11 and 13, and 10.22 (e), [Hin26a]'s Theorem 5.2.
+
+### 4.88 The sixty-fifth verifier seated (D165)
+
+- D158-D162 (10.75 (xliv)-(lv) and D162's repairs) read against the sources: three majors, eight minors and a note on
+  D163, all seated or answered. (li), 10.43 (c), takes its steps from (xlix) and 10.46 (a)-(b), which rest on readings,
+  and now says so; B-MAP marks it. (xxviii)'s Step 5: the source concludes eta = 0 from Theorem 7.1 (2) at mu + 1 >=
+  -C_0, whose range meets A^(-C_0) only below its left end, and passes over that endpoint; the root gap that closes it
+  at n = 4 is the record's own route, and is now said to be, with its check that A^(2-) lies in 10.21 (e)'s range.
+  (xxxvii)'s subtraction of D_U Phi(b', S', S^(0)'_1, (0, f'_1), 0, ...) is the source's own, the general case of his
+  Step 1.3 (p. 315), which the verifier had not found below the simplified display; it is now quoted, with
+  Res_iota+(L-bar, 1) = {0} (p. 315) and Phi's direct use of S^(0)_1 (p. 302), and placing it at lam_0 = 2 is marked
+  as the record's step. The minors: (11.135a)'s gauge 1-form, the commutator's two orders, three placements relabelled
+  computed, 10.32 (b)'s placements, 10.45 (e)'s settled weight, three equation suffixes, the closing paragraph's ranges
+  and 10.62 (b)'s inputs. Fifty-nine of 61 written out, forty on a reading (D162-D164 counted
+  one fewer); 2 rest on the censuses.
