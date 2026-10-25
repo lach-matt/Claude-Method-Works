@@ -1055,16 +1055,17 @@ applications of general-n results have every hypothesis placed, three of them no
 10.72). The 38 others, read one by one, are twelve with no step of their own, 25 at proof level given their inputs —
 among them steps by symmetry and sums over harmonics, put there by two lemmas proved in the supplement — and one more
 modification step (supplement section 10.73; `synth5.py`). Each of the 61 modification steps lists the places where the
-dimension changes its proof — 56 name some, 5 none, the proof being the source's as it stands — and each
+dimension changes its proof — 57 name some, 4 none, the proof being the source's as it stands — and each
 five-dimensional value there is computed, deduced in an earlier section, arithmetic in n, or the record's choice
 (supplement section 10.74, `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those
 places, which is the census question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i),
-but for one step, which rests on a modification step and so on the census (supplement section 10.73). Fifty-nine of the
-61 are now written out step by step at n = 4 — forty-five with source proofs of at most about seven pages (two replaced
-by a computation), fourteen on longer runs of proof, [Hin26] sections 11 and 12 and [Hin26c] sections 7–9 — so their own
-steps rest on their inputs and not on a census, though forty take a reading among those inputs and six cite a step still
-on the census (supplement section 10.75, with a lemma at the horizon proved in section 10.76); the other 2 carry longer
-proofs, in [Hin26c] sections 5, 10–11 and 13 and [Hin26a] section 5. λ1 and δ exist by the deduction — from
+but for one step, which rests on a modification step and so on the census (supplement section 10.73). Sixty of the 61
+are now written out step by step at n = 4 — forty-five with source proofs of at most about seven pages (two replaced by
+a computation), fifteen on longer runs of proof, [Hin26] sections 11 and 12 and [Hin26c] sections 5, 7–11 and 13 — so
+their
+own steps rest on their inputs and not on a census, though forty-one take a reading among those inputs and three cite a
+step still on the census (supplement section 10.75, with a lemma at the horizon proved in section 10.76); the other one
+carries a longer proof, in [Hin26a] section 5. λ1 and δ exist by the deduction — from
 Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A line-by-line
 check of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
 
@@ -1262,6 +1263,9 @@ from the arXiv text, with the extraction's spacing.
 - [Hin23d] P. Hintz, *Microlocal analysis of operators with asymptotic translation- and dilation-invariances*,
   arXiv:2302.13803v1. READ 2026-10-24: pp. 3, 7, 10–12 (the 3b-calculus on R_t × R^(n−1)_x), 109 (Proposition 5.10,
   composition).
+- [Hin23e] P. Hintz, *Elliptic parametrices in the 0-calculus of Mazzeo and Melrose*, Pure Appl. Anal. 5
+  (2023) 729–766, arXiv:2112.08130. READ 2026-10-25: pp. 1 (the setting, an n-dimensional manifold with
+  boundary, n ≥ 1), 5–6 (Definition 1.2, Theorem 1.5).
 - [Hin24b] P. Hintz, *Gluing small black holes along timelike geodesics III: construction of true solutions and extreme
   mass ratio mergers*, arXiv:2408.06715v1. READ 2026-10-23 and 2026-10-24: pp. 13, 33 ((3.1a)), 38–39 (Lemma 3.8 and its
   proof), 44 (Lemma 3.11), 49–53 (Proposition 3.16, Lemma 3.17 and their proofs).
@@ -1656,6 +1660,10 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
 - `synth5.py` S1–S3: the harmonic sums of the gauge 1-forms (supplement section 10.73): on five-dimensional
   Tangherlini the scalar and vector gauge 1-forms have coefficients r/k, r²/k², 1/k and 1/k_V, and k² = l(l + 2) ≥ 8 for
   l ≥ 2, so the sums over harmonics converge. 3/3; mutants 3/3 (about forty seconds).
+- `iplusnorm5.py` N1–N9: [Hin26c]'s Theorem 10.1 at n = 4 (supplement sections 10.58 and 10.75): the
+  normal operator at future timelike infinity with the constant (n − 1)/2, every radial point threshold of
+  its high-energy estimates, the densities and their shifts n/2 and (n + 1)/2, the Fourier step to the
+  transition face, and the counts. 9/9; mutants 9/9 (seconds).
 - `eind5.py` E1–E2: Hintz's Lemma 8.4 for every l (supplement section 10.52): every indicial root of the linearized
   gauge-fixed operator simple for l ≥ 2, exactly, in the scalar, vector and tensor types; his distance condition (8.13)
   by a certificate beyond l = 10⁴ and a 30-digit scan below, ε_ind ≤ 1.94137 × 10⁻⁸. 2/2; mutants 2/2 (about four
@@ -1810,8 +1818,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | the general-n steps' hypotheses placed, section 8.8 | supplement section 10.72; [Hin26], [Hin26c] |
 | the undecided steps placed, section 8.8 | supplement section 10.73; `docket68/n1star/synth5.py` S1–S3; [KI03] |
 | the modification steps' changes placed, section 8.8 | supplement section 10.74; `docket68/n1star/B-MAP.tsv` |
-| fifty-nine modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26a], [Hin26c], |
-| | [Hin21], [Hin23a], [Hin24b], [CD03] |
+| sixty modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26a], [Hin26c], |
+| | [Hin21], [Hin23a], [Hin23e], [Hin24b], [CD03]; `docket68/n1star/iplusnorm5.py` N1–N9 |
 | the continuation and uniqueness inside the horizon, sections 8.4, 8.5 | supplement section 10.76 |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
@@ -1926,9 +1934,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `965174eb9a27f4ce4920d83eac1e26df` |
-| `docket68/n1star/N1STAR-LOG.md` | `a275ac9e0e783e5e846f07eaa4bd8a10` |
-| `docket68/n1star/README.md` | `9bb6eabf57fcc44dea93889d3b4eb746` |
+| `docket68/n1star/N1STAR-PROOF.md` | `30438b46d1af9b34d2a9062747ac0c85` |
+| `docket68/n1star/N1STAR-LOG.md` | `9635925fb999ee1b0a1dbfd0c6bdd6ed` |
+| `docket68/n1star/README.md` | `a9a6eebd5d0ab6898c2a4eec5dcec78e` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -1994,7 +2002,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/gluing5.py` | `f95d805e595c5ff690c46c793177fd36` |
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
+| `docket68/n1star/iplusnorm5.py` | `7d64b7787b8e6e7cf11b7ec16ef4b983` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/B-MAP.tsv` | `77c734f5ac13dae4fdb68c532e8098e7` |
+| `docket68/n1star/B-MAP.tsv` | `f9437715ec722bc2f6455215e2a7ddf8` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

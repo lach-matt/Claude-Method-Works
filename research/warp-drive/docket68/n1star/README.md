@@ -296,6 +296,10 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   coordinates at I+, first-order term x_I d_x_I - (n - 1); the K-current of Lemma 8.1, his (8.10) at n = 3 and the
   threshold alpha_I < -1/2 at n = 4; the rotation fields of S^(n-1); densities and counts (E1-E4). `python3 edge5.py
   --selftest` (4/4, a few seconds), `--mutants` (4/4).
+- `iplusnorm5.py`: [Hin26c] Theorem 10.1, Theorem 11.1 and section 13.2 at n = 4 (sections 10.58 and 10.75 (lx);
+  D166): the iota+ normal operator with c = (n - 1)/2, Q_0, the four radial point thresholds of its high-energy
+  estimates, the densities and shifts, the Fourier step to tf, the counts (N1-N9). `python3 iplusnorm5.py
+  --selftest` (9/9, seconds), `--mutants` (9/9).
 - `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
   the passages carried to n = 4 -- 278 hits on the 205 pages swept (D143; 270 before its [CD03] window was set right),
   every one accounted for by 10.53-10.58 and 10.63-10.68 but one norm convention of [Hin26a] p. 62, named in 10.69. Runs
@@ -312,8 +316,8 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   proof, where it says each five-dimensional value comes from, the column `placed` with the stated values placed by hand
   (computed, an earlier section, arithmetic in n, or the record's choice), its inputs, its residual wording and whether
   it rests on a reading; the column `kind` classes each placement (an instrument or check named counts as computed;
-  D147); the column `written` marks the fifty-nine written out at n = 4 (section 10.75; D146, D148, D150-D152,
-D154-D156, D158-D161, D163-D164).
+  D147); the column `written` marks the sixty written out at n = 4 (section 10.75; D146, D148, D150-D152, D154-D156,
+D158-D161, D163-D164, D166).
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).

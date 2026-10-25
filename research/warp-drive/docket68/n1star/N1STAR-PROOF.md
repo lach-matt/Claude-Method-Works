@@ -7038,7 +7038,7 @@ needed only for a piece of null infinity.
 B10 is deduced at source, with (b)'s order count and (c)'s gain read, not computed. Labels: READ (1)-(4); deduced
 (a)-(d); nothing computed or proved here.
 
-### 10.58 [Hin26c] sections 5-8, 10, 11 and 13 at n = 4, at source (B3; D127)
+### 10.58 [Hin26c] sections 5-8, 10, 11 and 13 at n = 4, at source (B3; D127; `iplusnorm5.py`, D166)
 
 *The setting.* 10.40-10.42 and 10.45(e) took [Hin26c]'s Definitions 5.13, 5.15 and 5.18, Theorems 8.14, 10.1 and 11.1,
 and Proposition 13.18 and Corollary 13.17 "at n = 4" (B3). 10.53 read section 9 at source. Here the rest.
@@ -7082,10 +7082,45 @@ and Proposition 13.18 and Corollary 13.17 "at n = 4" (B3). 10.53 read section 9 
  (c) (what is left) Definitions 5.13, 5.15, 5.18, Theorems 10.1 and 11.1, Proposition 13.18 and Corollary 13.17 hold at
      n = 4 with (a)'s numerals, on one reading: that the propagation, radial point and energy estimates of sections 7-8,
      quoted in part from [HV26], [Hin23c], [Hin24a] and [Hin21], hold at n = 4 once their symbols are five-dimensional
-     -- the same reading as 10.53(e)'s for Theorem 9.16 and 10.56(a)'s for [Hin26a] section 5.2.
+     -- the same reading as 10.53(e)'s for Theorem 9.16 and 10.56(a)'s for [Hin26a] section 5.2. (Since written out as
+     10.75 (lx), with Proposition 10.57 below; D166.)
 
-B3 is deduced at source, its numerals all accounted for; the one reading left is (c)'s. Labels: READ (1)-(5); deduced
-(a)-(c); nothing computed or proved here.
+**Proposition 10.57 (computed; `iplusnorm5.py` N1-N9; exact).** For n = 3 and n = 4, with c = (n - 1)/2 and S a
+complex constant:
+
+ (N1) t*^2 times -box on R^(1+n), on r^b t*^(-a-b) = tau^a R^b (tau = 1/t*, R = r/t*), is -2 R^-1 (tau d_tau + R
+      d_R)(R d_R + c) + R^-2 P^(0)(0, omega, -R d_R) with P^(0)(rho d_rho) = -(rho d_rho)^2 + (n - 2) rho d_rho, and
+      [Hin26c] (10.7)'s second line in x_I = R^-(1/2) is the same operator: c = 1 (his) and 3/2.
+ (N2) Im d_sigma N^0(P_0, 0) for |dx_I/x_I| is -x_I^2 (n + 2 Re S) (his (10.25) at n = 3).
+ (N3) The symbol of h Im(-(1/2) x_I^2 X (X - 2(c + S))), X = x_I d_x_I, is x_I^2 (c + 1 + Re S) xi; with (N2) it is
+      x_I^2 ((c + 1) xi - (2c + 1) + Re S (xi - 2)), his 2 xi - 3 + Re S (xi - 2) at n = 3, and x_I^2 at xi = 2 for both
+      n; Q_1's symbol is x_I^2 xi; the total of (10.27) at R_I+,+1,in is -4(gam_I + h^-1 Im z) for both n.
+ (N4) At R_I+,out, (4 gam_I + 2) - 4(c + Re S) - 2 < 0 iff gam_I < c + Re S.
+ (N5) |dt dx| = R^n tau^-(n+1) |dtau/tau dR/R domega| = 2 x_I^-2n tau^-(n+1) |dtau/tau dx_I/x_I domega|, whence -Im sigma
+      = alpha~_+ + (n + 1)/2, gam_cf = alpha~_K - alpha~_+ - n/2, gam_I = alpha_I + n/2, gam_+ = alpha_+ + (n + 1)/2;
+      with [Hin26c] (11.4)'s functions rho_I^n rho_+^(n+1) rho_K = 1/(t* r^n), and |dt dx|/(t* r^n) is |dt*/t* dr/r
+      domega|; L^2(|dx|) = rho^(n/2) L^2(|dx|/|x|^n); -1/2 + n/2 = c.
+ (N6) At R_cf,+1,in, Im(R^-2 P^(0)) vanishes for R^n |dR/R| and gives -n hhat xi for |dR/R|; sigma(Q_0,h) = -hhat (n + 2
+      Re S); with gam_cf = -(alpha_+ + n/2) the total at xi = -2 is -4b - 4 alpha_+ - 2 + 2 vartheta - 4 Re S for both n,
+      and the n = 3 sum as printed, without Re S, gives (10.28).
+ (N7) At R_cf,out, twice Im(2h D_R) is -2 hhat and twice Im(-2(c + S) i R^-1 h) is -4 hhat (c + Re S); with gam_cf =
+      -(alpha_+ + n/2) the total is 4b + 4 alpha_+ + 2 - 4 Re S for both n, negative iff b + alpha_+ < -1/2 + Re S.
+ (N8) R^(i sigma) R^2 N^0(P_0, sigma) R^(-i sigma) = -2 d_v (v d_v + i sigma - c - S) + P^(0)(v d_v + i sigma), v =
+      1/R; on F(v_+^lam) = Gamma(lam + 1)(-i rhat)^(-lam-1) its Fourier transform is 2i rhat(-rhat d_rhat + i sigma -
+      (c + 1) - S) + P^(0)(-rhat d_rhat - 1 + i sigma); and conjugation by rhat^(1 - i sigma) with rho-hat = 1/rhat gives
+      N_tf(P_0, 1) = 2i rho-hat(rho-hat d_rho-hat - c - S) + rho-hat^2 P^(0)(rho-hat d_rho-hat).
+ (N9) The C(n, 2) rotation fields span T S^(n-1) at a point; (gam_cf + n/2, b - gam_cf - n/2) for Rhat^n |dRhat/Rhat| is
+      (gam_cf, b - gam_cf) for |dRhat/Rhat|, and (q - 2, r + 1) from there is (gam_cf - 2, b - gam_cf + 1).
+
+*Proof.* N1-N9 of `iplusnorm5.py`, sympy, exact. Operators sum_a x^a p_a(X) are composed and adjoined exactly, the
+adjoint for x^m |dx/x| being x^a p-bar(-X - a - m), Im A = (A - A*)/(2i), and principal symbols are read by h X -> i
+xi; N1 acts on tau^a R^b, N8 on v^lam, F(v_+^lam) and rhat^mu, N5 computes the Jacobians. 9/9; each check's mutant (c
+= 1 at n = 4, the density x_I |dx_I/x_I|, Q_0 at n = 3 beside the n = 4 symbol, r^(n-2), gam_cf = -(alpha_+ + 3/2) at n
+= 4, his numeral 2 at n = 4, n - 1 rotation fields) is caught, 9/9.
+
+B3 is deduced at source, its numerals all accounted for and computed in Proposition 10.57 (D166); the one reading left
+is (c)'s, now (lvi)-(lix)'s and 10.20's. Labels: READ (1)-(5); deduced (a)-(c); computed (Proposition 10.57); nothing
+proved here.
 
 ### 10.59 The remaining items: (2.27), the iota+ spectrum, 10.38(a), and the gluing (D127)
 
@@ -8221,9 +8256,9 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 56 name the places where the dimension changes the proof, 187 places in all, and 5 name
-none: the step is the source proof as it stands. The 194 placements of the five-dimensional values are: 71 at a computed
-check, 94 at an earlier section where they are computed or deduced, 28 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 57 name the places where the dimension changes the proof, 206 places in all, and 4 name
+none: the step is the source proof as it stands. The 213 placements of the five-dimensional values are: 88 at a computed
+check, 94 at an earlier section where they are computed or deduced, 30 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
 R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 42 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
@@ -8253,7 +8288,9 @@ their items (iv) and (xxv) say, and counts a whole section's citation as citing 
 (lviii)-(lix)) named eight more places, for 10.19 (d) and 10.53 (e), the latter's first, and gave 10.19 (d)'s '?' his
 A^(1 - eps); both keep a reading, the scalar-to-bundle step. D165 (the sixty-fifth verifier) marked 10.43 (c) as resting
 on readings, as its item (li) now says, labelled three placements at an instrument computed, joined 10.32 (b)'s two
-placements of one place, recorded 10.45 (e)'s weight as settled and gave 10.62 (b) its section 9 inputs.
+placements of one place, recorded 10.45 (e)'s weight as settled and gave 10.62 (b) its section 9 inputs. D166's (10.75
+(lx)) named nineteen places for 10.58 (c), its first, seventeen at a computed check (iplusnorm5.py N1-N9, Proposition
+10.57, and iplus5.py P1) and two arithmetic in n; the row keeps a reading, now (lvi)-(lix)'s and 10.20's.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8270,17 +8307,18 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Fifty-nine modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D161, D163-D164)
+### 10.75 Sixty modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D161, D163-D164, D166)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. All but fourteen below are those whose source
+step so written out rests on its inputs, not on a census of its source. All but fifteen below are those whose source
 proofs are at most about seven pages and are already matched step by step in the sections named, or short enough to
 match here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
-arXiv:2408.06715v1 for (xxvii)). The fourteen carry longer runs of proof, matched step by step the same way:
+arXiv:2408.06715v1 for (xxvii)). The fifteen carry longer runs of proof, matched step by step the same way:
 (xxxvii)-(xxxix) [Hin26] Theorems 12.3 and 12.8 (fifteen pages), (xlix)-(lv) his section 11 (pp. 231-295), (lvi)-(lvii)
-[Hin26c] sections 7-8 (pp. 114-157), and (lviii)-(lix) its sections 9.2-9.3 (pp. 161-193).
+[Hin26c] sections 7-8 (pp. 114-157), and (lviii)-(lix) its sections 9.2-9.3 (pp. 161-193), and (lx) its Definitions
+5.13-5.18 with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255).
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
      Fredholm of index 0 on [Hin26c] (9.18)'s spaces, by Proposition 8.3 (10.26) and [Hin26c] Theorem 9.5 (10.19, 10.53,
@@ -9167,20 +9205,76 @@ arXiv:2408.06715v1 for (xxvii)). The fourteen carry longer runs of proof, matche
      Definition 5.18 and Theorems 10.1 and 11.1 at n = 4, is 10.58 (c)'s, still on the census. It rests on the reading
      that his scalar estimates hold for operators on bundles (10.53 (d)), his section 9 leaving that step to the reader.
 
-So fifty-nine of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Forty of the fifty-nine take a reading among their inputs (B-MAP.tsv's column
+ (lx) 10.58 (c), [Hin26c] Definitions 5.13, 5.15 and 5.18 (pp. 106-109), Theorem 10.1 (pp. 201-227), Theorem 11.1
+     (pp. 228-233), Corollary 13.17 and Proposition 13.18 (pp. 247-255) at n = 4 (D166). The definitions: Definition
+     5.13 asks trapping admissibility (Definition 5.8), tf-admissibility with weight alpha_sf + 3/2, n/2 = 2 at n =
+     4 (Proposition 10.57 (N5)), and (5.22)'s bound, whose weights alpha_sf + 2 and alpha_sf - delta are the
+     operator's order and the loss, free of n; Definition 5.15's class x_I^-2 rho_+^-2 C^((d_0;k),(2 l_I, l_+, l_K))
+     weighs the metric's coefficients, free of n, and Tangherlini's mass term m/r^2 is x_I^2 rho_+ times Kerr's m/r,
+     so Remark 5.17's membership holds a fortiori; Definition 5.18's (5.23)-(5.26) are free of n, and its (5.27)
+     reads -(x_I d_x_I - 2(3/2 + p_1))(x_I d_x_I - 2 rho_+ d_rho_+) (10.58 (a)), with characteristic exponents 3 + 2
+     mu. Theorem 10.1's hypotheses (10.2)-(10.3), alpha_I < -1/2 + S-bar and alpha_+ < alpha_I - 1/2, are in the
+     metric density and free of n; in section 10.1's b-densities they are gam_I < c + S-bar and gam_+ < gam_I, gam_I
+     = alpha_I + n/2 and gam_+ = alpha_+ + (n + 1)/2, c = (n - 1)/2 (N5). His proof, section by section.
+     10.1.1-10.1.2 (Proposition 10.6 (2)): N^0 of (10.6)-(10.7) with c = 3/2 (N1), elliptic, its principal symbol
+     (10.21) free of n but for |eta|^2 on T*S^3, so the radial sets (10.18) and the flow are his. Step 1's radial
+     point estimates: at R_I+,+1,in Q_0 = -x_I^2 (4 + 2 Re S) and the symbol of h Im's first-order term x_I^2 (5/2 +
+     Re S) xi, summing to x_I^2 at xi = 2 as his do, so the total -4(gam_I + h^-1 Im z) and Im sigma > -gam_I are
+     his (N2-N3); at R_I+,out gam_I < 3/2 + Re S (N4); at R_cf,+1,in the density R^4 |dR/R| gives the correction -4
+     hhat xi and sigma(Q_0,h) = -hhat (4 + 2 Re S), and with gam_cf = -(alpha_+ + 2) the threshold is (10.28)
+     unchanged (N5-N6) -- his sum omits the Re S that sigma(Q_0,h) carries, which enters alike at n = 3 and n = 4;
+     at R_cf,out the total is 4b + 4 alpha_+ + 2 - 4 Re S, negative iff b + alpha_+ < -1/2 + Re S, his threshold,
+     his printed '+ 4 Re S' a misprint by that threshold (N7); the real principal type estimates and the large Im z
+     arguments are free of n. Step 2 passes to the Euclidean density Rhat^4 |dRhat/Rhat dgslash| and applies
+     Corollary 9.39 with n = 4 and q = gam_cf + 2 = -alpha_+, the weights returning to (gam_cf - 2, b - gam_cf + 1)
+     as his (N9), the tf-normal operator being N_tf(P_0, z) at n = 4. Step 3 commutes Lemma 10.7's V = (R d_R, the
+     six rotation fields of S^3, I) for his five entries (N9), V_shift = (V_1 + 2, ...) free of n, with Lemma 7.12's
+     commuted structure ((lvi)). 10.1.3 (Proposition 10.6 (1)): Lemma 10.9's 0-normal operator has indicial roots 2i
+     sigma and 2(3/2 + S), the invertibility of N-hat' is a positivity argument free of n, and the left parametrix
+     is Hintz's in the 0-calculus ([Hin26c]'s [Hin23a], arXiv:2112.08130, Theorem 1.5, stated for an n-dimensional
+     manifold with boundary, p. 1: READ), its right b-density shift dim(iota+) - 1 = 3 for his 2 and alpha_lb =
+     2(3/2 + S-bar) - eps (N9). Lemma 10.10 forms N^1 and its Fourier transform (10.40) with i sigma - 5/2 - S for
+     his i sigma - 2 - S, the shifts by 1 being the one-dimensional transform's in v, and w-flat = rhat^(1 - i
+     sigma) w solves N_tf(P_0, +-1) (N8); w-flat lies in A^(alpha, -beta) with beta in (beta_-, beta_+), since
+     -gam_cf = alpha_+ + 2 is in that gap and Im sigma > -1 - beta_+ (his '1 + Im sigma < beta_+' is -1 - Im sigma <
+     beta_+), so tf-admissibility at n = 4 gives w-flat = 0. 10.1.4 (Proposition 10.12): the Mellin transform in
+     tau, the contour Im sigma = -gam_+, a Paley-Wiener argument in one variable and finite speed of propagation for
+     uniqueness, free of n, with gam_I = alpha_I + 2 for his alpha_I + 3/2 (p. 219). Section 10.2 (Proposition
+     10.14): P_+ = chi N_iota+(P_0) + (1 - chi) P_0, its metric g_chi with dt* past causal, Tangherlini's g - g-bar
+     = O(m r^-2) one order better at iota+ than Kerr's, the estimates section 7's ((lvi)) and the normal operator's
+     inversion Proposition 10.12's. Section 10.3 combines them with the shifts n/2 = 2 and (n + 1)/2 = 5/2 for his
+     3/2 and 2 (N5), gam_+ - 1/2 = alpha_+ + 2 in (beta_-, beta_+) (Definition 5.13 (2) at n = 4), footnote 100's
+     buffer 1/2 free of n -- Sobolev embedding in n spatial variables gives n/2 = 2 orders, alpha_+ + 2 pointwise
+     and alpha_+ + 5/2 with t* regularity -- and (5.22) near K+. Theorem 11.1's proof (pp. 229-232): P_eps = chi_eps
+     P_0 + (1 - chi_eps) P, Theorem 8.14's estimates (8.45)-(8.46) ((lvii)), Theorem 10.1 for P_0, the absorption
+     with delta' = min(l_+ - delta, l_K - aleph), Propositions 8.6 and 8.9 at finite times, weak compactness, the
+     passage from (e3b; b)- to b-spaces and continuous dependence: free of n. Its b-density form (11.4)-(11.6a) has
+     mu_b = rho_I^4 rho_+^5 rho_K |dt dx| = |dt dx|/(t* r^4), beta_I = alpha_I + 2, beta_+ = alpha_+ + 5/2, beta_I <
+     3/2 + S-bar and P_1 of sf-weight beta_+ - 5/2 (N5); Remark 11.4's condition is beta_- < 1 + S-bar for his 1/2 +
+     S-bar (N9). Section 13.2: mu_b = |dx|/|x|^4 and L^2(mu) = rho^2 L^2(mu_b) (N5), so Lemma 13.13's
+     (13.23a)-(13.23b) carry 3 and 2 for his 5/2 and 3/2, (13.26) beta - 2, and Corollary 13.14, through Theorem 9.5
+     ((lviii)), beta_scf < 3/2 + S-bar; Corollary 13.17 joins Propositions 13.9 (2) and 13.11 (2), the Fourier
+     transform in t* and free of n, with Proposition 13.16, through Theorem 9.16 ((lix)), so gam = min(beta_I, 3/2 +
+     S-bar) for his 1 + S-bar; Proposition 13.18 is Corollary 13.14's proof with sigma d_sigma, on Theorem 9.41,
+     tf-admissibility with weight alpha + 2, beta_scf < 3/2 + S-bar, (13.30a)'s alpha_+ + 3 and alpha_tf + 4 for his
+     5/2 and 7/2 and (13.30b)'s 2 for his 3/2, beta_tf - beta_zf in (beta_-, beta_+) free of n. It rests on
+     (lvi)-(lix)'s readings, Theorems 8.14, 9.5 and 9.16 at n = 4, and on Corollary 9.39 and Theorem 9.41 at n = 4
+     (10.20's reading); its own places are computed (Proposition 10.57).
+
+So sixty of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Forty-one of the sixty take a reading among their inputs (B-MAP.tsv's column
 `reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.19 (d), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b),
 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b),
 10.42 (e), 10.43 (c), 10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.49 (a), 10.53 (e),
-10.55 (b), 10.56 (b), 10.61 (b), 10.61 (c), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the census through
-that input, not through their own steps (the sixty-first verifier; D149). Where an item cites a row still on the census
-as an input, by name or by citing its whole section, alone or within a range of sections (10.N-10.M; the sixty-fourth
-and sixty-fifth verifiers; (i) cites 10.22 (e); (xxv) cites 10.22 (e); (xl) cites 10.58 (c); (xlv) cites 10.22 (e);
-(xlix) cites 10.58 (c); (lix) cites 10.58 (c)), it rests on the census through that row in the same way. Two, (iii) and
-(xxvi), replace the source proof by a computation rather than carry it. The other 2 carry proofs of several pages each,
-in [Hin26c] sections 5, 10-11 and 13, and [Hin26a] section 5; writing those out is what remains of 8.8.
+10.55 (b), 10.56 (b), 10.58 (c), 10.61 (b), 10.61 (c), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the
+census through that input, not through their own steps (the sixty-first verifier; D149). Where an item cites a row still
+on the census as an input, by name or by citing its whole section, alone or within a range of sections (10.N-10.M; the
+sixty-fourth and sixty-fifth verifiers; (i) cites 10.22 (e); (xxv) cites 10.22 (e); (xlv) cites 10.22 (e)), it rests on
+the census through that row in the same way. Two, (iii) and (xxvi), replace the source proof by a computation rather
+than carry it. The last, 10.22 (e), carries a proof of several pages, in [Hin26a] section 5; writing it out is what
+remains of 8.8.
 
-Labels: READ (the fifty-nine source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+Labels: READ (the sixty source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)

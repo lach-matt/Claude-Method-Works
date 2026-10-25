@@ -4406,3 +4406,13 @@ record's, now marked. Minors seated: (11.135a)'s gauge 1-form, the commutator's 
 10.32 (b)'s placed column, 10.45 (e)'s weight, (11.107b), (11.66a)-(11.66b), (11.227a), the closing paragraph's ranges,
 10.62 (b)'s inputs. The note on D163's counts was already repaired in D164. Fifty-nine of 61 written out,
 forty on a reading; 2 rest on the censuses.
+
+**D166 (2026-10-25): [Hin26c] Theorem 10.1, Theorem 11.1 and section 13.2 written out.** The second-last census row,
+10.58 (c), as 10.75 (lx): Definitions 5.13, 5.15 and 5.18, section 10's normal operator analysis (Propositions 10.6,
+10.12 and 10.14 with Lemmas 10.7-10.10) and its proof of Theorem 10.1, Theorem 11.1's approximation argument, and
+section 13.2's Corollary 13.17 and Proposition 13.18, read at source and matched at n = 4. New instrument iplusnorm5.py
+(N1-N9, 9/9, mutants 9/9; Proposition 10.57) computes each place at n = 3 against print and at n = 4; nineteen places
+named. His (1.3.1) sum omits Re S and his (1.3.2) sum prints +4 Re S where -4 Re S gives his stated threshold; both are
+the same at n = 3 and n = 4. Lemma 10.9's parametrix, Hintz's 0-calculus Theorem 1.5 (arXiv:2112.08130), is stated for an
+n-dimensional manifold with boundary: READ. The row keeps a reading, now (lvi)-(lix)'s and 10.20's.
+Sixty of 61 written out, forty-one on a reading; one rests on its census: 10.22 (e).

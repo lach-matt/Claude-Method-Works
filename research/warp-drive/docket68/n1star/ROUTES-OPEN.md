@@ -2174,3 +2174,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   computed, 10.32 (b)'s placements, 10.45 (e)'s settled weight, three equation suffixes, the closing paragraph's ranges
   and 10.62 (b)'s inputs. Fifty-nine of 61 written out, forty on a reading (D162-D164 counted
   one fewer); 2 rest on the censuses.
+
+### 4.89 [Hin26c] Theorem 10.1, Theorem 11.1 and section 13.2 written out (READ, computed, deduced; D166)
+
+- D166 (10.75 (lx)): [Hin26c] Definitions 5.13-5.18, Theorem 10.1 (section 10), Theorem 11.1 and Corollary 13.17 with
+  Proposition 13.18 (section 13.2), read at source (pp. 106-109, 201-233, 247-255) and matched at n = 4 (10.58 (c)).
+  iplusnorm5.py N1-N9 computes every place the dimension enters, at n = 3 against print and at n = 4 (Proposition
+  10.57): the constant 3/2 in N^0, Q_0, the four radial point thresholds, the densities R^4, x_I^-8, mu_b = |dt dx|/(t*
+  r^4) and |dx|/|x|^4 with their shifts, (10.40)'s 5/2, Lemma 10.7's eight fields and Lemma 10.9's shift 3. Two of his
+  printed sums are off at n = 3 alike: (1.3.1)'s omits Re S, (1.3.2)'s has +4 Re S for -4 Re S, and his stated
+  thresholds are the right ones. Lemma 10.9's 0-calculus parametrix is READ for every dimension. Sixty
+  of 61 written out, forty-one on a reading; one rests on its census: 10.22 (e), [Hin26a]'s Theorem 5.2.
