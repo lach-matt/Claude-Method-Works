@@ -4370,3 +4370,12 @@ and without it (10.61 (c)): S_1 = R^4 and so(4), absent in the class; Propositio
 place of (9.39b)'s; one order of loss in the class; Remark 10.8's logarithm 10.35 (b)'s question. Twelve places named.
 Fifty-five of 61 written out, thirty-five on a reading; 6 rest on the censuses, none
 in [Hin26]: [Hin26c]'s sections 5 and 7-13 and [Hin26a]'s Theorem 5.2.
+
+**D162 (2026-10-25): the sixty-fourth verifier seated.** It read D154-D157 at source and found one major and ten
+minors. The major (M1): (xxxvii) did not place S^(0)_1, whose patch -d chi_K (x)_s omega^(0)_b,s1 has iota+ order 1 in
+every dimension. Read at source ((1.39), footnote 143, (11.135a), Step 1.3), the patch is pure gauge for g-bar to leading
+order, the gauge 1-form omits it, and its source [L_b, chi_K] h_b,s1 has order 5 at n = 4 (10.28's A^(3,0)). Its
+quadratic terms have order 4, so Theorem 12.8 subtracts S^(0)'_1 at lam_0 = 2. Placed in (xxxvii) and 10.61 (a); B-MAP
+gains one place. The minors are seated: two reading marks, whole-section citations of census rows counted (thirteen
+items now), wording and pages; 10.75's page-count sentence, stale since D160, corrected. Fifty-five of 61
+written out, thirty-seven on a reading; 6 rest on the censuses.

@@ -7256,10 +7256,13 @@ dimensions as stated. Mutant: the class's threshold 3, where no physical state i
      parameter changes enter at (2, 0) (the mass) and (3, 0) (the rotation), and the boost's linearization at order 2,
      g_0's part (Proposition 10.39(ii)) and h^(-1)'s, the boost's generalized state, whose four-dimensional logarithms
      ((6.31), (8.19)) five dimensions do not carry (10.28: "without his two logarithms"); his (1, 0) and (1, 1) become
-     (2, 0), with a logarithm at (2, 1) only if the mass patch or the s0 and s1 parameters carry one, which is not
-     computed (10.46). Either way min Re is 2, above alpha_min = min Re E^#_+ (10.44(e)), so the least iota+ exponent the
-     sources carry is alpha_min, as in the class: Proposition 10.46's hypothesis. A logarithm changes only the log power
-     of the K+ terms it feeds, which his parameters S^(lam,k) index.
+     (2, 0) for these, with a logarithm at (2, 1) only if the mass patch or the s0 and s1 parameters carry one, which is
+     not computed (10.46). The centre-of-mass patch h^(0)_s1(S^(0)_1) stays at (1, 0) in every dimension, but its
+     leading part is pure gauge for g-bar, and what it feeds the equation -- [L_b, chi_K] h_b,s1 linearly and the
+     quadratic terms along it -- has iota+ order 5 and 4 at n = 4 (10.75 (xxxvii); the sixty-fourth verifier). The patch
+     aside, min Re is 2 either way, above alpha_min = min Re E^#_+ (10.44(e)), so the least iota+ exponent the sources
+     carry is alpha_min, as in the class: Proposition 10.46's hypothesis. A logarithm changes only the log power of the
+     K+ terms it feeds, which his parameters S^(lam,k) index.
  (b) (Steps 1-4 with the boosts) His Propositions 11.17, 11.20, 11.30, 11.32 and 11.34, Lemma 11.45 and Corollary 11.46
      run with the five-dimensional states -- h_s1 for the four translations and h^(<=1)_s1 for the four boosts
      (10.28-10.29), the second order pole that the chain to Proposition 10.29(iii)'s pairing (3 pi^2/2) mu ends
@@ -8214,11 +8217,11 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 55 name the places where the dimension changes the proof, 167 places in all, and 6 name
-none: the step is the source proof as it stands. The 174 placements of the five-dimensional values are: 60 at a computed
-check, 88 at an earlier section where they are computed or deduced, 25 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 55 name the places where the dimension changes the proof, 168 places in all, and 6 name
+none: the step is the source proof as it stands. The 175 placements of the five-dimensional values are: 60 at a computed
+check, 89 at an earlier section where they are computed or deduced, 25 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
-R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 39 rows say they rest on a reading -- of a source
+R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 41 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
@@ -8238,7 +8241,9 @@ more places, for 10.19 (a) and 10.55 (b). D160's (10.75 (xlix)-(lii)) named four
 (b), 10.45 (e) and 10.61 (b), 10.43 (c) having had none, and marked 10.45 (b) and 10.61 (b) as resting on readings:
 [Hin26c] Proposition 13.18 and Corollary 13.17 and [Hin26] section 9's solution theory at n = 4. D161's (10.75
 (liii)-(lv)) named twelve more places, for 10.46 (a), 10.46 (b) and 10.61 (c), and marked 10.46 (b) and 10.61 (c) as
-resting on readings, as (xlix)-(l) found.
+resting on readings, as (xlix)-(l) found. D162 (the sixty-fourth verifier) narrowed 10.62 (b)'s order place to the mass
+and the boost and named S^(0)_1's source order beside it, marked 10.15 (b) and 10.49 (a) as resting on readings, as
+their items (iv) and (xxv) say, and counts a whole section's citation as citing its census rows.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8260,12 +8265,11 @@ Labels: measured (the table's counts); deduced (the placing, the rule); nothing 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. All but three below are those whose source
-proofs are at most about seven pages and are already matched step by step in the sections named, or short enough to
-match
-here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
-arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer pair of proofs, [Hin26] Theorems 12.3 and
-12.8 (fifteen pages), matched step by step the same way.
+step so written out rests on its inputs, not on a census of its source. All but ten below are those whose source proofs
+are at most about seven pages and are already matched step by step in the sections named, or short enough to match here;
+each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b] arXiv:2408.06715v1
+for (xxvii)). The ten carry longer runs of proof, matched step by step the same way: (xxxvii)-(xxxix) [Hin26] Theorems
+12.3 and 12.8 (fifteen pages), and (xlix)-(lv) his section 11 (pp. 231-295).
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
      Fredholm of index 0 on [Hin26c] (9.18)'s spaces, by Proposition 8.3 (10.26) and [Hin26c] Theorem 9.5 (10.19, 10.53,
@@ -8329,11 +8333,10 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      (10.63 (a)); the scale-down (8.2) and the cut-off on R^4; (8.3) with beta = min(alpha, n - 2) = 2; t = k + 6 (D3);
      (8.4) from (8.3), the constraint maps being smooth in the data and vanishing at flat data; Theorem 5.6 with s = t +
      n - 2, giving (8.5) (D3), where [CD03] prints s = t - 1 (p. 37; its index taken as s = t + n - 2, 10.66 (c)); the
-     pairing
-     with the KIDs and (E.27)'s boundary form, (8.6); the charges on S(0, 1) and S(0, 4) at D2's powers with (E.20)'s
-     errors, (8.7) componentwise rescaled, where [CD03] prints R^-1 for every charge (read as a misprint, 10.66 (d));
-     the charge map's local diffeomorphism (10.63 (a), Proposition 10.47); Theorem 3.19's conclusion with V a ball about
-     the data's charges (10.66 (e)); and the smooth case by Proposition 5.10 and Corollary 5.11 (10.66 (a)).
+     pairing with the KIDs and (E.27)'s boundary form, (8.6); the charges on S(0, 1) and S(0, 4) at D2's powers with
+     (E.20)'s errors, (8.7) componentwise rescaled, where [CD03] prints R^-1 for every charge (read as a misprint, 10.66
+     (d)); the charge map's local diffeomorphism (10.63 (a), Proposition 10.47); Theorem 3.19's conclusion with V a ball
+     about the data's charges (10.66 (e)); and the smooth case by Proposition 5.10 and Corollary 5.11 (10.66 (a)).
 
  (ix) 10.31 (a), [Hin26] Lemma 7.2 (pp. 137-138). His proof has two parts: (1) duality with the target space of (7.7),
      the unweighted b-density shifting the weight by n/2; (2) (7.10), the adjoint's indicial family through the density
@@ -8415,16 +8418,18 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      by the compact support of f*_1, f*_2 (10.39 (d)); near tf, (3.46)'s second equivalence, whose |sigma|^(3/2) comes
      from the density relation, printed r^2 |dr dg/| = (|sigma|^(3/2))^2 r-hat^2 |dr-hat dg/| (p. 60), which with r-hat
      = r |sigma| is r^2 |dr dg/| = (|sigma|^(-3/2))^2 r-hat^2 |dr-hat dg/| (the sixty-third verifier), at n = 4 r^3 |dr
-     dg/| = (|sigma|^-2)^2 r-hat^3 |dr-hat dg/|: the exponent's size n/2 moves from 3/2 to 2, so |sigma|^(2 - alpha_sf)
-     for his |sigma|^(3/2 - alpha_sf), arithmetic;
-     tf-admissibility (Proposition 8.6; 10.24 (c)-(d), 10.25) through [Hin26c] Corollary 9.39 (10.20's reading);
-     |sigma|^2 N_tf against L-hat(sigma) with an error one order better at tf (10.55 (a)); the absorptions with
-     |sigma|^delta, delta < -2 + eps_ind - alpha_sf; higher b-regularity by [Hin26c] Theorem 9.5 (4) (10.19's reading);
-     and (10.29) by the resolvent identity, an identity, with sigma d_sigma L-hat(sigma) in sigma rho Diff^1_b + sigma
-     rho^3 Diff^1_b + sigma^2 rho^2 C^oo by (10.32) and Lemma 10.4 (2). The threshold at the outgoing radial set in its
-     statement is [Hin26c]'s at n = 4 (10.41, a reading). Theorem 10.1's proof is 10.40 (a)-(c): Lemmas 10.9-10.11
-     ((xviii)), Lemma 10.12 with the five-dimensional orders (10.40 (b)), and Lemma 10.13 and the integration in t*
-     (10.40 (c), Lemma 14.6's variable orders a reading).
+     dg/| = (|sigma|^-2)^2 r-hat^3 |dr-hat dg/|: the exponent's size n/2 moves from 3/2 to 2, so the norm factor,
+     printed |sigma|^(3/2 - alpha_sf) and by the corrected relation |sigma|^(-3/2 - alpha_sf), is |sigma|^(2 -
+     alpha_sf), or |sigma|^(-2 - alpha_sf), at n = 4, arithmetic; it stands on both sides of Proposition 10.7's chain
+     and cancels, so its sign does not matter (the sixty-fourth verifier); tf-admissibility (Proposition 8.6; 10.24
+     (c)-(d), 10.25) through [Hin26c] Corollary 9.39 (10.20's reading); |sigma|^2 N_tf against L-hat(sigma) with an
+     error one order better at tf (10.55 (a)); the absorptions with |sigma|^delta, delta < -2 + eps_ind - alpha_sf;
+     higher b-regularity by [Hin26c] Theorem 9.5 (4) (10.19's reading); and (10.29) by the resolvent identity, an
+     identity, with sigma d_sigma L-hat(sigma) in sigma rho Diff^1_b + sigma rho^3 Diff^1_b + sigma^2 rho^2 C^oo by
+     (10.32) and Lemma 10.4 (2). The threshold at the outgoing radial set in its statement is [Hin26c]'s at n = 4
+     (10.41, a reading). Theorem 10.1's proof is 10.40 (a)-(c): Lemmas 10.9-10.11 ((xviii)), Lemma 10.12 with the
+     five-dimensional orders (10.40 (b)), and Lemma 10.13 and the integration in t* (10.40 (c), Lemma 14.6's variable
+     orders a reading).
 
  (xviii) 10.40 (a), [Hin26] Lemmas 10.9-10.11 (pp. 212-214; D150). Lemma 10.9's proof: the high-energy estimates of
      [Hin26c] Theorem 9.16 (5) (10.19, 10.53 (e); a reading), with the semiclassical loss function below any positive
@@ -8498,10 +8503,9 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      from the boost axis on S^3, the same ODEs; and g_mu - g-bar = mu rho^2 (dt*)^2 pulls back to mu rho^2 a^4 (dt*)^2
      (gluing5.py D4), of order r^-2, inside the class (10.66 (f)); and (3.43)'s normalization c^2 = (3/(4 pi))
      ||S||^2_(L^2(S^2)), S = c cos theta, is c^2 = (2/pi^2) ||S||^2_(L^2(S^3)), the mean of cos^2 over S^(n-1) being
-     1/n, arithmetic. Theorem 5.23's proof: the data smooth in S by
-     differentiating (5.77b), the linearized equation, its right side in (5.46)'s space (10.48 (b)'s error classes),
-     solved by (5.52) and Theorem 5.21's proof (10.48 (c)-(d)), finite
-     difference quotients for the derivative; free of n given those inputs.
+     1/n, arithmetic. Theorem 5.23's proof: the data smooth in S by differentiating (5.77b), the linearized equation,
+     its right side in (5.46)'s space (10.48 (b)'s error classes), solved by (5.52) and Theorem 5.21's proof (10.48
+     (c)-(d)), finite difference quotients for the derivative; free of n given those inputs.
 
  (xxiv) 10.62 (d), [Hin26] Theorem 13.1 (pp. 318-323; D150). His proof: Step 1 fixes E^C from Theorem 7.1 with v_C =
      1/2, C_0 = 100 and (1 - e_C)(1 - v_C) gam_C > 100, and E^Ups with c_Ups, c_H and gam_Ups small for Propositions
@@ -8541,17 +8545,16 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      dual state; then g-dot^Ups is replaced by g-dot: by his Lemma 3.14 the difference is delta* omega, omega in A^(0-),
      and <[D Ric, t] delta* omega, h*> = -<D Ric(0)(dt (x)_s omega), h*> vanishes by integration by parts, h* lying in
      the kernel of D Ric(0)* = G D Ric(0) G (the sixty-third verifier); the rest is twice the pairings of D Ric,
-     [Hin23b] Theorem 9.6's boundary pairings. (3): the gauge term
-     vanishes again, by commutator identities ([delta_(E^Ups) G, t] is of order zero) and the same integration by parts;
-     h_s1 and h-breve_s1 are replaced by h_(b,c) and h-breve_(b,c), the differences in A^(1-) and A^(0-) contributing 0
-     by identities and integration by parts; and [Hin23b] Theorem 9.6 finishes. At n = 4: g-dot^Ups in A^2 and the dual
-     states O(r^-3) (10.28, 10.31 (b)), so the boundary terms at infinity, eta h* times the area, are O(r^-2 r^-3 r^3) =
-     O(r^-2) where his are O(r^-1 r^-2 r^2) = O(r^-1) -- both vanish -- and h* still vanishes inside the horizon; the
-     replacement of g-dot^Ups by g-dot holds the same way, the difference being pure gauge by the gauge-fixed
-     derivative's construction (10.28) and its boundary terms against h* = O(r^-3) vanishing as above; the commutator
-     identities hold in every dimension; and Theorem 9.6's pairings are computed at n = 4 as boundary
-     pairings (pairing5.py), with the normalization and the s0 dual state's sign 10.32 (b) records, his L being half of
-     [Hin24b]'s.
+     [Hin23b] Theorem 9.6's boundary pairings. (3): the gauge term vanishes again, by commutator identities
+     ([delta_(E^Ups) G, t] is of order zero) and the same integration by parts; h_s1 and h-breve_s1 are replaced by
+     h_(b,c) and h-breve_(b,c), the differences in A^(1-) and A^(0-) contributing 0 by identities and integration by
+     parts; and [Hin23b] Theorem 9.6 finishes. At n = 4: g-dot^Ups in A^2 and the dual states O(r^-3) (10.28, 10.31
+     (b)), so the boundary terms at infinity, eta h* times the area, are O(r^-2 r^-3 r^3) = O(r^-2) where his are O(r^-1
+     r^-2 r^2) = O(r^-1) -- both vanish -- and h* still vanishes inside the horizon; the replacement of g-dot^Ups by
+     g-dot holds the same way, the difference being pure gauge by the gauge-fixed derivative's construction (10.28) and
+     its boundary terms against h* = O(r^-3) vanishing as above; the commutator identities hold in every dimension; and
+     Theorem 9.6's pairings are computed at n = 4 as boundary pairings (pairing5.py), with the normalization and the s0
+     dual state's sign 10.32 (b) records, his L being half of [Hin24b]'s.
 
  (xxviii) 10.34 (c), [Hin26] Proposition 8.14 (pp. 158-163; D151). His proof, for the scalar type (the vector type the
      same): Step 0, a first solution of L-hat_b(0) h' = -f_b by Fredholm theory ([Hin26c] Theorem 9.36) against the
@@ -8567,11 +8570,13 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      states one order faster (10.29), the dual states O(r^-3) (10.31 (b)) and Corollary 8.13 (10.33 (f), a reading);
      Step 4 with -3 no root at s2 and v2 (10.34 (iii)) and Lemma 8.12's pairings at n = 4 ((xxvii), 10.32), whose
      determinant does not vanish; Step 5 with Theorem 7.1 (2) (10.21 (e)) and the Bianchi identity, an identity: h in
-     A^mu, mu >= -C_0 - 1, gives eta in A^(mu+1) with mu + 1 >= -C_0, inside 10.21 (e)'s range. His Part (2), the s3 and
-     v3 states at the root -3, has at n = 4 the root -3 simple at s3, v3 and t3 (10.34 (iii)) and the states of 10.34
-     (a). The
-     tensor types, which four dimensions lacks, have their states at Tangherlini from 10.34's Gauss functions and near
-     it by the same steps.
+     A^mu, mu >= -C_0 - 1, gives eta in A^(mu+1), mu + 1 >= -C_0; that is not inside 10.21 (e)'s range l >= -C_0 - 2 at
+     its end, A^(-C_0) lying in H-bar_b^l only for l < -C_0 - 2 with the density r^3 dr, but eta is a zero energy
+     solution of box^C and no indicial root has real part in [-100, 2) (Proposition 10.9), so for C_0 <= 100 eta lies in
+     A^(2-), inside the range, as the source closes the same borderline by its root gap (the sixty-fourth verifier). His
+     Part (2), the s3 and v3 states at the root -3, has at n = 4 the root -3 simple at s3, v3 and t3 (10.34 (iii)) and
+     the states of 10.34 (a). The tensor types, which four dimensions lacks, have their states at Tangherlini from
+     10.34's Gauss functions and near it by the same steps.
 
  (xxix) 10.46 (e), [Hin26] (2.27) and Proposition 2.25 (pp. 61-63; D151). (2.27) is the hypothesis of Proposition 2.25
      (1), the Fourier transform of a partially polyhomogeneous tensor on M. Its proof -- (2.25a), and Lemmas 2.11, 2.12,
@@ -8632,25 +8637,26 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      the five-dimensional b-manifold (exterior5.py X6); A_h has no leading term at I+ ((xxxii), X7), so A^0_h = 0 and
      Lemma 3.33 is not used (it would be, on R^5, with d_4 = 3); B_g's h-dependent entries, which he estimates through
      Lemma 3.33, lie in L~_g at n = 4 (10.64 (e)) and are Moser-estimated with its coefficients; the commutator set over
-     S^3 is (xxxi)'s; and the sharp-weight step holds with A
-     h-free, lower triangular with scalar diagonal (X4), and alpha_I < min(alpha_0, 0) as his.
+     S^3 is (xxxi)'s; and the sharp-weight step holds with A h-free, lower triangular with scalar diagonal (X4), and
+     alpha_I < min(alpha_0, 0) as his.
 
  (xxxv) 10.48 (b), [Hin26] Proposition 5.11 (pp. 92-97), Proposition 5.14 and Corollary 5.15 (pp. 98-99; D154).
      Proposition 5.11's proof computes (4.13) term by term in the splittings (3.34) and (3.37): Corollary 5.10 for the
      first term; E^C_(g_0) (5.29) from c_C, g_0 and g_0^-1 at infinity; delta_g by Corollary 5.9 and G_g by Lemma 5.6
-     with tr g (5.30); the curvature term R_g (5.32) by Lemmas 5.6 and 5.8; delta*_(g_0,E^C) (5.33), C(g, g_0) (5.34)
-     and (delta*_(g_0) - delta*_g) delta_g G_g (5.36) by Lemma 5.7; Upsilon_0 an error term; E^Ups (5.37)-(5.38); and
-     the change to the splitting (5.27). Proposition 5.14's: the error term mapped by min Re(E^tot_I \ {(1, 0)}) > 1 and
-     Definition 5.3 (3), B_h acting through its first column, and the diagonal entries of I + A_h annihilating the
-     leading terms -- (4, 4) 1 + (1 - e_Ups) gam_Ups, (5, 5) 1 + gam_Ups, (6, 6) 1, (7, 7) 1 + 2 gam_Ups -- with integer
-     powers for its second claim. Corollary 5.15's: P(g_0, g_0) = 0 and the fundamental theorem of calculus with
-     Proposition 5.14. At n = 4: the h-free part of every term, and so A_0 -- the leading part with 3/2 for 1, the trace
-     entries of G_g and E^Ups taken over S^3 -- is computed (scri5.py, 10.38 (i)); the h-dependent terms are [Hin23a]'s
-     (3.30) term by term (10.72 (iii), READ), of orders r^(-1/2) below his (exterior5.py X7, (xxxii)); the error classes
-     keep (5.46)'s orders (10.48 (b)); the diagonal entries of 3/2 + A_h annihilate the leading terms of 10.44 (b)'s
-     index sets, at 3/2, 3/2 + (1 - e_Ups) gam_Ups, 3/2 + gam_Ups and 3/2 + 2 gam_Ups, with min Re(E^tot_I \ {(3/2, 0)})
-     > 3/2 (10.44 (b)); the second claim's integer powers hold as Tangherlini's coefficients and c, c_Ups expand in
-     integer powers of r^-1 (10.55 (a)), on his one-line argument; and Corollary 5.15 is free of n.
+     with tr g (5.30); the curvature term R_g (5.32) by Lemmas 5.6 and 5.8; delta*_(g_0,E^C) (5.33) by Corollary 5.9
+     with g = g_0, C(g, g_0) (5.34) and (delta*_(g_0) - delta*_g) delta_g G_g (5.36) by Lemma 5.7; Upsilon_0 an error
+     term; E^Ups (5.37)-(5.38); and the change to the splitting (5.27). Proposition 5.14's: the error term mapped by min
+     Re(E^tot_I \ {(1, 0)}) > 1 and Definition 5.3 (3), B_h acting through its first column, and the diagonal entries of
+     I + A_h annihilating the leading terms -- (4, 4) 1 + (1 - e_Ups) gam_Ups, (5, 5) 1 + gam_Ups, (6, 6) 1, (7, 7) 1 +
+     2 gam_Ups -- with integer powers for its second claim. Corollary 5.15's: P(g_0, g_0) = 0 and the fundamental
+     theorem of calculus with Proposition 5.14. At n = 4: the h-free part of every term, and so A_0 -- the leading part
+     with 3/2 for 1, the trace entries of G_g and E^Ups taken over S^3 -- is computed (scri5.py, 10.38 (i)); the
+     h-dependent terms are [Hin23a]'s (3.30) term by term (10.72 (iii), READ), of orders r^(-1/2) below his
+     (exterior5.py X7, (xxxii)); the error classes keep (5.46)'s orders (10.48 (b)); the diagonal entries of 3/2 + A_h
+     annihilate the leading terms of 10.44 (b)'s index sets, at 3/2, 3/2 + (1 - e_Ups) gam_Ups, 3/2 + gam_Ups and 3/2 +
+     2 gam_Ups, with min Re(E^tot_I \ {(3/2, 0)}) > 3/2 (10.44 (b)); the second claim's integer powers hold as
+     Tangherlini's coefficients and c, c_Ups expand in integer powers of r^-1 (10.55 (a)), on his one-line argument; and
+     Corollary 5.15 is free of n.
 
  (xxxvi) 10.48 (c), [Hin26] Theorem 5.17 (pp. 101-102; D154). His proof is [Hin23a] Corollary 3.36's with notational
      changes: the tame estimates (5.52) for the linearized problem -- a first-order energy estimate from the structure
@@ -8688,16 +8694,30 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      varies (Proposition 10.39 (iii)), and Res(L-bar, 2) = {0} (10.47 (b)) stands for his Res(L-bar, 1) = {0}. The
      induction starts below it, at alpha_min = 3/2 + (1 - e_Ups) gam_Ups, the least incoming exponent (10.44 (e)); the
      terms below 2 are Step 2's, the parameters of order 2 entering P only at order 4, and his count of steps suffices
-     since alpha_min > 1. (9.32)'s lists are Proposition 10.46's: six pure gauge classes eliminated at K+ order at
-     most 2 and fourteen recorded, among them the physical s2, v2 and t2, with T_2 added (10.61 (c)); every recorded
-     term's L_b-image has K+ order above 4, which is Lemma 12.2's input, and every recorded term's own K+ order is
-     below 4 + eps_K, which is Case A's. Whether five dimensions carry the s1 logarithm, and so S^(0,1)_1, is 10.61
-     (b)'s question, the parameter zero if not; the boost's logarithms, which his Step 1 notes D_g-bar Ric
-     annihilates, are absent (10.61 (a)). The orders 3 + eps_+, 5 + eps_+, 4 + eps_I and 4 + eps_K stand (10.61 (d));
-     Corollary 11.66 is 10.61 (c)'s; and Corollary 5.15 is free of n ((xxxv)). The iota+ solution theory --
-     Proposition 9.4 (2), Corollary 9.18 with its expansion, Proposition 9.9, and (9.54)-(9.56) with Proposition
-     9.22's right inverse -- enters at n = 4 as 10.47's OPEN has it, READ at n = 3 with its five-dimensional inputs
-     10.37's and 10.44's: a reading.
+     since alpha_min > 1. The centre-of-mass shift S^(0)_1 is the exception (the sixty-fourth verifier). Its patch
+     h^(0)_s1 = -[delta*_g_b, chi_K] omega^(0)_b,s1 = -d chi_K (x)_s omega^(0)_b,s1 ((1.39b), p. 26) has iota+ order 1
+     at every n, chi_K varying where r ~ t*; but its leading part -delta-bar*(chi_K omega-bar^(0)_s1) is pure gauge
+     for g-bar, omega-bar^(0)_s1 = dx^i being Killing (his footnote 143, p. 314), and the gauge 1-form of (11.135a)
+     omits the patch. So S^(0)_1 enters P linearly only through D Ric(h^(0)_s1) + delta* theta^(0)_s1 = L_b(chi_K
+     h_b,s1) = [L_b, chi_K] h_b,s1 ((1.39a)), of iota+ order 5 at n = 4, h_b,s1 lying in A^((3,0) u (3 + E_ind))
+     (10.28) where his (6.32a) has (2, 0) (order 4 at n = 3), and quadratically, along the pure gauge patch, at order
+     4 in every dimension; both are compactly supported in (iota+)^o, the second in f^(4,0) beside the mass's and the
+     boost's, the first cleared by Step 2 at lam_0 = 3. In Theorem 12.8 S^(0)'_1 is the parameter Corollary 11.66
+     gives, and D_U Phi(b', S', S^(0)'_1, (0, f'), 0, ...) is subtracted at lam_0 = 2 as his Step 1.3 subtracts it:
+     the patch is h_tot's one term of order 1, and its linearized output has order at least 4, so no step below lam_0
+     = 2 reads it. (9.32)'s lists are Proposition 10.46's: six pure gauge classes eliminated at K+ order at most 2 and
+     fourteen recorded, and the physical s2, v2 and t2 recorded beside them, with T_2 added (10.61 (c)); every
+     recorded term's L_b-image has K+ order above 4, which is Lemma 12.2's input, and every recorded term's own K+
+     order is below 4 + eps_K, which is Case A's. Whether five dimensions carry the s1 logarithm, and so S^(0,1)_1, is
+     10.61 (b)'s question, the parameter zero if not; the metric terms of size t*^-1 log t* (his Lemmas 11.24 and
+     11.38 and (11.191)) are annihilated to leading order by D_g-bar Ric, his remark after (12.18) (p. 304), because
+     the iota+ model is Minkowski's, which holds at every n; so whichever are present at n = 4 are annihilated, the
+     boost's being absent and the mass patch's and s0's not computed (10.61 (a)). The orders 3 + eps_+, 5 + eps_+, 4 +
+     eps_I and 4 + eps_K stand (10.61 (d)); Corollary 11.66 is 10.61 (c)'s; and Corollary 5.15 is free of n ((xxxv)).
+     The iota+ solution theory -- Proposition 9.4 (2), Corollary 9.18 with its expansion, Proposition 9.9, and
+     (9.54)-(9.56) with Proposition 9.22's right inverse -- enters at n = 4 as 10.47's OPEN has it, READ at n = 3 with
+     its five-dimensional inputs 10.37's and 10.44's: a reading; and Res(L-bar, 2) = {0} is 10.47 (b)'s, which rests
+     on 10.37 (c)-(e)'s readings.
 
  (xxxviii) 10.47 (d), [Hin26] Theorem 12.3 in the class (D155). (xxxvii)'s construction with the class's data and lists:
      p-vec^[0] carries the mass alone, S, S^(0)_1, S_rem and V_1,rem vanishing (10.43 (b)), so Step 1 is the step at
@@ -8983,16 +9003,19 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      10.8's logarithm is 10.35 (b)'s question; and the inputs are (l)'s. It rests on (l)'s readings.
 
 So fifty-five of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Thirty-five of the fifty-five take a reading among their inputs (B-MAP.tsv's
-column `reading`: 10.15 (a), 10.19 (a), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b), 10.28 (a),
-10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e),
-10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.55 (b), 10.56 (b), 10.61 (b), 10.61 (c),
-10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the census through that input, not through their own steps (the
-sixty-first verifier; D149). Where an item cites a row still on the census as an input ((iii) cites 10.19 (d); (xviii)
-cites 10.53 (e); (xl) cites 10.58 (c); (xlv) cites 10.22 (e); (xlvii) cites 10.19 (d); (xlviii) cites 10.19 (d), 10.53
-(e); (xlix) cites 10.58 (c)), it rests on the census through that row in the same way. Two, (iii) and (xxvi), replace
-the source proof by a computation rather than carry it. The other 6 carry proofs of several pages each, in [Hin26c]
-sections 5, 7-11 and 13, and [Hin26a] section 5; writing those out is what remains of 8.8.
+B-MAP.tsv's column `written` marks them. Thirty-seven of the fifty-five take a reading among their inputs (B-MAP.tsv's
+column `reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b),
+10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b),
+10.42 (e), 10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.49 (a), 10.55 (b), 10.56 (b),
+10.61 (b), 10.61 (c), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the census through that input, not
+through their own steps (the sixty-first verifier; D149). Where an item cites a row still on the census as an input, by
+name or by citing its whole section (the sixty-fourth verifier; (i) cites 10.19 (d), 10.22 (e), 10.53 (e), 10.67 (a),
+10.67 (b); (iii) cites 10.19 (d); (iv) cites 10.19 (d), 10.53 (e); (xv) cites 10.53 (e); (xvii) cites 10.19 (d); (xviii)
+cites 10.19 (d), 10.53 (e); (xx) cites 10.19 (d); (xxv) cites 10.22 (e); (xl) cites 10.58 (c); (xlv) cites 10.22 (e);
+(xlvii) cites 10.19 (d); (xlviii) cites 10.19 (d), 10.53 (e); (xlix) cites 10.58 (c)), it rests on the census through
+that row in the same way. Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it. The
+other 6 carry proofs of several pages each, in [Hin26c] sections 5, 7-11 and 13, and [Hin26a] section 5; writing those
+out is what remains of 8.8.
 
 Labels: READ (the fifty-five source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.

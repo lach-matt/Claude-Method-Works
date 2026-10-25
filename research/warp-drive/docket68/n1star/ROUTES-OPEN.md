@@ -2092,7 +2092,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Theorem 5.17 (10.48 (c)), the latter clearing its reading of [Hin23a] at n = 4. Thirty-six of 61 written out,
   eighteen on a reading; 25 rest on the censuses.
 
-### 4.83 [Hin26] section 12 written out (D155)
+### 4.83 [Hin26] section 12, and [Hin26] Theorem 11.12 with [Hin26a] section 6, written out (D155-D156)
 
 - 10.75 (xxxvii)-(xxxix): Theorems 12.3 and 12.8, read at source (pp. 304-318) and matched step by step at n = 4 --
   without the class (10.62 (b)) and in it (10.47 (d)-(e)): the leading iota+ order (2, 0) for his (1, 0), t*^-4 for
@@ -2109,6 +2109,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D150-D153 (10.75 (xvii)-(xxxiv)) read against the sources: no major, eleven minors, all seated -- two source misprints
   no longer carried ([Hin23a] (3.47)'s normalization, [Hin26c] p. 60's density factor), one step of [Hin24b]'s proof
   named, three places added to B-MAP, (xxii)'s (2, 0) moved to Step 3, wording and pages.
+
+### 4.85 Fourteen more modification steps written out (READ, deduced; D158-D161)
+
 - D158 (10.75 (xliv)-(xlvi)): [Hin26a] Appendix B -- Proposition B.2 (10.23 (b)), Theorem B.4 (10.23 (c)) and section
   B.4 (10.23 (d)) -- matched at source (pp. 87-98) to tface5.py F2-F5, cpmodes5.py K1-K2 and cform5.py C7.
   Forty-six of 61 written out, twenty-seven on a reading; 15 rest on the censuses,
@@ -2126,3 +2129,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   = R^4, absent in the class; Proposition 10.46's lists (10.42 (ii)'s in the class) for (9.39b)'s; Lemma 11.65 by
   Proposition 10.46's L_b-images. Fifty-five of 61 written out, thirty-five on a reading;
   6 rest on the censuses, none in [Hin26].
+
+### 4.86 The sixty-fourth verifier seated (D162)
+
+- D154-D157 (10.75 (xxxv)-(xliii) and D157's repairs) read against the sources: one major, ten minors, all seated. The
+  major: Theorem 12.3's centre-of-mass shift S^(0)_1 was not placed at n = 4. Its patch h^(0)_s1 keeps iota+ order 1 in
+  every dimension, but is pure gauge for g-bar to leading order; what it feeds P is [L_b, chi_K] h_b,s1, of order 5 at
+  n = 4 by 10.28's h_b,s1, and quadratic terms of order 4. So Step 2 clears the first and Step 1 the second, and
+  Theorem 12.8 subtracts S^(0)'_1 with b' and S' (10.75 (xxxvii), 10.61 (a), B-MAP). The minors: (xxxvii)'s
+  physical states and logarithm remark, (xxxv)'s Corollary 5.9, (xvii)'s sign, which cancels, (xxviii)'s endpoint
+  closed by the root gap, whole-section citations of census rows counted, two reading marks, (xxxvii)'s reading
+  clause, the paper's verifier record, headings and wording. Fifty-five of 61 written out,
+  thirty-seven on a reading; thirteen cite a census row; 6 rest on the censuses.
