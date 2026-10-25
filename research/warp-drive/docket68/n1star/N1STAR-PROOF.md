@@ -7547,7 +7547,8 @@ section 3 runs as follows.
      step holds outright, as 10.57(b) found, with the orders computed for R_11's quadratic term (X5) and for the
      h-dependent entries (X7) (D136).
  (f) (Corollary 3.31.) (3.49) holds with A; the (dx^1)^2 component's quadratic term lies r^-(1/2) below the linear one
-     (X5), in O^(l_0,l_I)_(k-2), so (3.47) at n = 4 reads 2 rho_I^-1 rho^(7/2) P(g) in rho_0^-1 (-4 gamma_Ups d_1
+     (X5), in O^(l_0,l_I)_(k-2), so (3.47) at n = 4 reads 2 rho_I rho^(-7/2) P(g) (his printed 2 rho_I^-1 rho^3 a
+     misprint for 2 rho_I rho^-3, by Definition 3.27; D157) in rho_0^-1 (-4 gamma_Ups d_1
      h_11)(dx^1)^2 + O^(l_0,l_I)_(k-2): no radiation term at leading order. (The five-dimensional mass aspect, at r^-2 =
      r^-(3/2) r^-(1/2), lies below the radiation field: X5's ratio.)
  (g) (Proposition 3.32.) The basic estimate (3.53) is (b)'s, Q-bar dominating the skew-adjoint part (L_g^* - L_g) W for
@@ -8213,9 +8214,9 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 54 name the places where the dimension changes the proof, 129 places in all, and 7 name
-none: the step is the source proof as it stands. The 133 placements of the five-dimensional values are: 48 at a computed
-check, 66 at an earlier section where they are computed or deduced, 18 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 54 name the places where the dimension changes the proof, 132 places in all, and 7 name
+none: the step is the source proof as it stands. The 136 placements of the five-dimensional values are: 48 at a computed
+check, 68 at an earlier section where they are computed or deduced, 19 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
 R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 35 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
@@ -8223,13 +8224,16 @@ dimension-dependent places by census and modification (D147). Before D149, 10.15
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
 reading was unmarked, and 10.31 (b)'s placement naming zstates5.py Z4 was counted arithmetic (the sixty-first verifier).
 D150-D151's write-outs (10.75 (xvii)-(xxx)) named eleven more places their rows lacked -- 10.60 (f) had none -- and one
-more reading (10.20 (a)); n/2 = 2 is now an arithmetic placement (10.20 (a), 10.39 (e)), where before its one occurrence
-was placed at a section (the sixty-second verifier). D154 cleared 10.48 (c)'s reading, [Hin23a]'s estimates at n = 4,
+more reading (10.20 (a)); n/2 = 2 is now an arithmetic placement at 10.20 (a) and 10.39 (e) (the sixty-second verifier);
+the same shift, the b-density's, is placed at a section at 10.29 (a), 10.31 (a), 10.41 (b) and 10.56 (b), where an
+earlier section computes it (the sixty-third verifier, which found the earlier wording's 'one occurrence' wrong). D154
+cleared 10.48 (c)'s reading, [Hin23a]'s estimates at n = 4,
 which 10.75 (xxxi)-(xxxiv) now write out. D155's write-outs (10.75 (xxxvii)-(xxxix)) named seventeen more places for
 10.47 (d), 10.47 (e) and 10.62 (b) -- 10.47 (e) had none -- and found [Hin26] section 9's iota+ solution theory, a
 reading at n = 4 (10.47's OPEN), among 10.47 (d)'s and 10.62 (b)'s inputs. D156's (10.75 (xl)-(xliii)) named eight more
 places, for 10.21 (a) and 10.56 (b), and marked the readings 10.21 (c) and 10.56 (b) rest on, [Hin26a] Theorem 5.2 at n
-= 4 (10.56 (a)).
+= 4 (10.56 (a)). D157 added three places the write-outs (xxiii) and (xxv) named and their rows lacked (the sixty-third
+verifier), so D150's nine was a floor.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8252,7 +8256,8 @@ Labels: measured (the table's counts); deduced (the placing, the rule); nothing 
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
 step so written out rests on its inputs, not on a census of its source. All but three below are those whose source
-proofs are at most about five pages and are already matched step by step in the sections named, or short enough to match
+proofs are at most about seven pages and are already matched step by step in the sections named, or short enough to
+match
 here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
 arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer pair of proofs, [Hin26] Theorems 12.3 and
 12.8 (fifteen pages), matched step by step the same way.
@@ -8402,9 +8407,11 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      augmentation columns (10.39 (c)); the conditions -N <= r_0 + alpha_0 + 1 and alpha_0 + 2 >= alpha_sf + 2 + eps_0
      with alpha_0 near -2 + eps_ind, his -3/2 replaced by -n/2, arithmetic on the record's alpha_sf + 2 in (0, eps_ind);
      the commutator with chi_zf in rho^oo_scf rho^2_tf rho^oo_zf Diff^1, from (10.32), and the augmentation rows removed
-     by the compact support of f*_1, f*_2 (10.39 (d)); near tf, (3.46)'s second equivalence, whose |sigma|^(3/2) is the
-     density relation r^2 |dr dg/| = (|sigma|^(3/2))^2 r-hat^2 |dr-hat dg/| (p. 60), at n = 4 r^3 |dr dg/| =
-     (|sigma|^2)^2 r-hat^3 |dr-hat dg/|, so |sigma|^(2 - alpha_sf) for his |sigma|^(3/2 - alpha_sf), arithmetic;
+     by the compact support of f*_1, f*_2 (10.39 (d)); near tf, (3.46)'s second equivalence, whose |sigma|^(3/2) comes
+     from the density relation, printed r^2 |dr dg/| = (|sigma|^(3/2))^2 r-hat^2 |dr-hat dg/| (p. 60), which with r-hat
+     = r |sigma| is r^2 |dr dg/| = (|sigma|^(-3/2))^2 r-hat^2 |dr-hat dg/| (the sixty-third verifier), at n = 4 r^3 |dr
+     dg/| = (|sigma|^-2)^2 r-hat^3 |dr-hat dg/|: the exponent's size n/2 moves from 3/2 to 2, so |sigma|^(2 - alpha_sf)
+     for his |sigma|^(3/2 - alpha_sf), arithmetic;
      tf-admissibility (Proposition 8.6; 10.24 (c)-(d), 10.25) through [Hin26c] Corollary 9.39 (10.20's reading);
      |sigma|^2 N_tf against L-hat(sigma) with an error one order better at tf (10.55 (a)); the absorptions with
      |sigma|^delta, delta < -2 + eps_ind - alpha_sf; higher b-regularity by [Hin26c] Theorem 9.5 (4) (10.19's reading);
@@ -8421,8 +8428,10 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      1) is arithmetic free of n. Lemma 10.10's: the contour shifted to [-c, c] by the holomorphy of u-hat_reg,1 recorded
      after (10.47), from Proposition 10.7 ((xvii)); Lemma 2.20, Plancherel in t* with the sf-weight setting the tf and
      scf weights (no numeral), with [Hin26c] Lemma 3.9 for b-derivatives; and (10.29) ((xvii)). Lemma 10.11's:
-     Proposition 10.7's bounds for b-hat_1 and S-hat_1, the same way. The threshold enters only through Remark 10.2's
-     margin, min spec S-bar = 0 at n = 4 (10.25).
+     Proposition 10.7's bounds for b-hat_1 and S-hat_1, the same way. The Fourier representation the lemmas use is the
+     Paley-Wiener argument of [Hin26c] Theorem 12.2's proof, with his Theorem 14.2, as his section 10.2 cites them:
+     contour arguments free of n given Theorem 9.16's bounds (10.19, a reading). The threshold enters only through
+     Remark 10.2's margin, min spec S-bar = 0 at n = 4 (10.25).
 
  (xix) 10.60 (f), [Hin26] Lemma 8.15 (pp. 158-160) at b near b_0, with Proposition 7.4 and Lemmas 2.15 and 7.2 (D150).
      His proof of (1): the expansion of 0 = L_b h^(<=2)_b,s1 in powers of t*, an identity in every dimension, gives
@@ -8466,8 +8475,11 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      iota+ excluding new exponents. At n = 4 (10.44 (a)-(c)): L_0 has 3/2 + A_0 for 1 + A_0 (10.44 (a), iplus5.py),
      so each threshold 1 becomes 3/2 -- alpha_I below 3/2, the eigenvalues of 3/2 + A_h at least 3/2, the case split
      at 3/2, and rho_I^-1 rho_+^-2 f in H^(oo, 3/2 - eps) at I+; eta <= 2 gam_Ups still meets eta < min Re E^C_I -
-     1, as min Re E^C_I > 3/2 + 2 gam_Ups (10.44 (b)); Step 2's terms are (3/2, 0) for pi-slash_0 u and (2, 0) from
-     (A_h)_(7,6) (10.44 (b)); Step 3 needs l_I < 3/2 + (1 - e_C)(1 - v_C) gam_C; and Lemmas 2.12 and 2.23 hold on
+     1, as min Re E^C_I > 3/2 + 2 gam_Ups (10.44 (b)); Step 2's term is (3/2, 0) for pi-slash_0 u, while (A_h)_(7,6)'s
+     product 2 E-slash_I,0 - 1 is (2, 0), above Step 2's reach 3/2 + eta, eta < (1 - e_Ups) gam_Ups, and so enters at
+     Step 3 (10.44 (b); the sixty-third verifier); Step 3's min Re E^C_I > 1, which gives (2 + eps_I) + min Re E^C_I >
+     l_I, holds as min Re E^C_I > 3/2 + 2 gam_Ups, and (11.26)'s remainder class takes 10.44 (a)-(b)'s index sets; Step
+     3 needs l_I < 3/2 + (1 - e_C)(1 - v_C) gam_C; and Lemmas 2.12 and 2.23 hold on
      [0, 1) x [0, 1) x S^3, stated for a closed manifold S (p. 47). So Lemma 11.15 holds with min(alpha_I, 3/2,
      l_+), and Proposition 11.14 as stated with 10.44 (b)'s index sets.
 
@@ -8479,8 +8491,11 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      = 4: the spin enters the Myers-Perry family one order below the mass (its Kerr-Schild form, 10.36), so g_(mu,A) -
      g_mu is in r^-3 C^oo; Lorentz boosts are isometries of 4+1 Minkowski; the flow equations see only the polar angle
      from the boost axis on S^3, the same ODEs; and g_mu - g-bar = mu rho^2 (dt*)^2 pulls back to mu rho^2 a^4 (dt*)^2
-     (gluing5.py D4), of order r^-2, inside the class (10.66 (f)). Theorem 5.23's proof: the data smooth in S by
-     differentiating (5.77b), the linearized equation solved by (5.52) and Theorem 5.21's proof (10.48 (c)-(d)), finite
+     (gluing5.py D4), of order r^-2, inside the class (10.66 (f)); and (3.43)'s normalization c^2 = (3/(4 pi))
+     ||S||^2_(L^2(S^2)), S = c cos theta, is c^2 = (2/pi^2) ||S||^2_(L^2(S^3)), the mean of cos^2 over S^(n-1) being
+     1/n, arithmetic. Theorem 5.23's proof: the data smooth in S by
+     differentiating (5.77b), the linearized equation, its right side in (5.46)'s space (10.48 (b)'s error classes),
+     solved by (5.52) and Theorem 5.21's proof (10.48 (c)-(d)), finite
      difference quotients for the derivative; free of n given those inputs.
 
  (xxiv) 10.62 (d), [Hin26] Theorem 13.1 (pp. 318-323; D150). His proof: Step 1 fixes E^C from Theorem 7.1 with v_C =
@@ -8518,13 +8533,18 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      That proof: (1)-(2) the gauge term's contribution is <delta*_(E^C)(0) eta, h*> with eta := [delta_(E^Ups) G, t]
      g-dot^Ups in A^1, since delta_(E^Ups) G g-dot^Ups = 0; h* vanishes inside the horizon and is O(r^-2) at infinity,
      so integration by parts moves delta*_(E^C)(0) onto h*, which annihilates it, h* being G delta* omega* with omega* a
-     dual state; the rest is twice the pairings of D Ric, [Hin23b] Theorem 9.6's boundary pairings. (3): the gauge term
+     dual state; then g-dot^Ups is replaced by g-dot: by his Lemma 3.14 the difference is delta* omega, omega in A^(0-),
+     and <[D Ric, t] delta* omega, h*> = -<D Ric(0)(dt (x)_s omega), h*> vanishes by integration by parts, h* lying in
+     the kernel of D Ric(0)* = G D Ric(0) G (the sixty-third verifier); the rest is twice the pairings of D Ric,
+     [Hin23b] Theorem 9.6's boundary pairings. (3): the gauge term
      vanishes again, by commutator identities ([delta_(E^Ups) G, t] is of order zero) and the same integration by parts;
      h_s1 and h-breve_s1 are replaced by h_(b,c) and h-breve_(b,c), the differences in A^(1-) and A^(0-) contributing 0
      by identities and integration by parts; and [Hin23b] Theorem 9.6 finishes. At n = 4: g-dot^Ups in A^2 and the dual
      states O(r^-3) (10.28, 10.31 (b)), so the boundary terms at infinity, eta h* times the area, are O(r^-2 r^-3 r^3) =
      O(r^-2) where his are O(r^-1 r^-2 r^2) = O(r^-1) -- both vanish -- and h* still vanishes inside the horizon; the
-     commutator identities hold in every dimension; and Theorem 9.6's pairings are computed at n = 4 as boundary
+     replacement of g-dot^Ups by g-dot holds the same way, the difference being pure gauge by the gauge-fixed
+     derivative's construction (10.28) and its boundary terms against h* = O(r^-3) vanishing as above; the commutator
+     identities hold in every dimension; and Theorem 9.6's pairings are computed at n = 4 as boundary
      pairings (pairing5.py), with the normalization and the s0 dual state's sign 10.32 (b) records, his L being half of
      [Hin24b]'s.
 
@@ -8541,7 +8561,10 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      Lemma 8.15 ((xix)), the modification the record's own and solvable by continuity; Step 3 with the generalized
      states one order faster (10.29), the dual states O(r^-3) (10.31 (b)) and Corollary 8.13 (10.33 (f), a reading);
      Step 4 with -3 no root at s2 and v2 (10.34 (iii)) and Lemma 8.12's pairings at n = 4 ((xxvii), 10.32), whose
-     determinant does not vanish; Step 5 with Theorem 7.1 (2) (10.21 (e)) and the Bianchi identity, an identity. The
+     determinant does not vanish; Step 5 with Theorem 7.1 (2) (10.21 (e)) and the Bianchi identity, an identity: h in
+     A^mu, mu >= -C_0 - 1, gives eta in A^(mu+1) with mu + 1 >= -C_0, inside 10.21 (e)'s range. His Part (2), the s3 and
+     v3 states at the root -3, has at n = 4 the root -3 simple at s3, v3 and t3 (10.34 (iii)) and the states of 10.34
+     (a). The
      tensor types, which four dimensions lacks, have their states at Tangherlini from 10.34's Gauss functions and near
      it by the same steps.
 
@@ -8552,7 +8575,7 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      beta_I > beta_iota - min(1, min Re E_K), and 10.46 (iii)'s five-dimensional weights -- 3 + eps_I at I+, 3 + eps_+
      for h and 5 + eps_+ for f at iota+ -- meet it as his do.
 
- (xxx) 10.62 (c), [Hin26] section 5.6's boost pullback (pp. 107-109) with Theorem 5.23 (D151). His argument: Theorems
+ (xxx) 10.62 (c), [Hin26] section 5.6's boost pullback (pp. 108-109) with Theorem 5.23 (D151). His argument: Theorems
      5.17 and 5.21 hold for any Ricci-flat background g_0 with g_0 - g_(m_0) in his class, which by Lemma 3.19 includes
      phi_S^* g_(b_0); Ric commutes with pullback; Upsilon_0 is natural under pullback (5.75), and the cut-off gauge
      (5.76) passes from Upsilon_0 near Sigma_IVP to Upsilon_(E^Ups) near I+; so phi_S^* h solves the initial value
@@ -8588,8 +8611,10 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      rho_I d_rho_I annihilating h's leading terms at I+), leaving 2 int_0^1 A(rho_0^-1 d_1 h) ds, whose only non-error
      component is the (dx^1)^2 one, through A's (4, 4) and (4, 7) entries: (3.47). At n = 4 (10.64 (f)): the same steps
      with (xxxii)'s A, h-free (X4), so no h enters A's (4, 7) entry at leading order; the quadratic term enters through
-     R_11 at r^(-1/2) below the linear one (X5), in O^(l_0, l_I)_(k-2); so 2 rho_I^-1 rho^(7/2) P(g) is rho_0^-1 (-4
-     gam_Ups d_1 h_11)(dx^1)^2 + O^(l_0, l_I)_(k-2). The integration and the error classes are free of n.
+     R_11 at r^(-1/2) below the linear one (X5), in O^(l_0, l_I)_(k-2); so 2 rho_I rho^(-7/2) P(g) -- his printed 2
+     rho_I^-1 rho^3 being, by Definition 3.27 and the proof's integral of L, 2 rho_I rho^-3 (the sixty-third verifier)
+     -- is rho_0^-1 (-4 gam_Ups d_1 h_11)(dx^1)^2 + O^(l_0, l_I)_(k-2). The integration and the error classes are free
+     of n.
 
  (xxxiv) 10.64 (g), [Hin23a] Proposition 3.32 with Lemma 3.33 (pp. 27-30; D152). His proof: the basic estimate (3.53) by
      Proposition 3.17's multiplier, Q-bar dominating the skew-adjoint part (L_g^* - L_g) W for alpha_I large and
@@ -8600,7 +8625,9 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      h-free scalar diagonal (3.59a), with a fiber inner product making its skew part small. At n = 4 (10.64 (g)): the
      basic estimate is (xxxi)'s; the algebra property and the embeddings into L^oo hold at the regularities he uses on
      the five-dimensional b-manifold (exterior5.py X6); A_h has no leading term at I+ ((xxxii), X7), so A^0_h = 0 and
-     Lemma 3.33 is not used (it would be, on R^5, with d_4 = 3); B_g as his; and the sharp-weight step holds with A
+     Lemma 3.33 is not used (it would be, on R^5, with d_4 = 3); B_g's h-dependent entries, which he estimates through
+     Lemma 3.33, lie in L~_g at n = 4 (10.64 (e)) and are Moser-estimated with its coefficients; the commutator set over
+     S^3 is (xxxi)'s; and the sharp-weight step holds with A
      h-free, lower triangular with scalar diagonal (X4), and alpha_I < min(alpha_0, 0) as his.
 
  (xxxv) 10.48 (b), [Hin26] Proposition 5.11 (pp. 92-97), Proposition 5.14 and Corollary 5.15 (pp. 98-99; D154).

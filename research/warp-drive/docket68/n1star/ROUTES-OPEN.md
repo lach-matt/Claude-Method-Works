@@ -2078,7 +2078,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   censuses. B-MAP: 104 places, 107 placements (34 computed, 58 section, 14 arithmetic, 1 choice).
 - D152 (10.75 (xxxi)-(xxxiv)): [Hin23a] Propositions 3.17, 3.29 and 3.32 with Lemma 3.33, and Corollary 3.31 (10.64 (b),
   (e), (g), (f)), each matched to exterior5.py X1-X7. Thirty-four of 61 written out, eighteen on a reading; 27 rest on
-  the censuses, none of them in [Hin23a].
+  the censuses, one of them, 10.48 (c), on [Hin23a] Corollary 3.36 (written out in D154; the sixty-third verifier).
 
 ### 4.82 The sixty-second verifier seated (D153)
 
@@ -2103,3 +2103,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   11.10 in the shifted densities; [Hin26a] (6.4) and Theorem 6.2 with its Part (2) injectivity (10.21 (a), 10.21 (c),
   10.56 (b)), matched at source (pp. 67-69). Forty-three of 61 written out, twenty-four on a reading;
   18 rest on the censuses.
+
+### 4.84 The sixty-third verifier seated (D157)
+
+- D150-D153 (10.75 (xvii)-(xxxiv)) read against the sources: no major, eleven minors, all seated -- two source misprints
+  no longer carried ([Hin23a] (3.47)'s normalization, [Hin26c] p. 60's density factor), one step of [Hin24b]'s proof
+  named, three places added to B-MAP, (xxii)'s (2, 0) moved to Step 3, wording and pages.

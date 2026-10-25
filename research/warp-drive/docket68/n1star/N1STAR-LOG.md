@@ -4257,7 +4257,8 @@ smooth up to 0 from one side extends as a smooth solution (Borel's lemma and var
 error); the same for f phi'' + Q phi' + R phi = 0 with f's zero simple. With it, deduced at proof level: every
 operator's radial system has f = g^-1(dr, dr); omega is smooth up to r_h by the radial components of delta* omega = u, a
 regular system; it continues as a solution of box^Ups omega = 0, so Proposition 6.12 applies on X; and the interior
-uniqueness (10.15 (a), 10.16, 10.55 (c)) is proved in place of 'its Frobenius exponents are finitely many'. M2: 10.75
+uniqueness (10.15 (a), 10.16, 10.55 (c)) is deduced at proof level (10.76 (b); D157) in place of 'its Frobenius
+exponents are finitely many'. M2: 10.75
 (iii) rests on 10.19 (d)'s reading; marked, and B-MAP.tsv's row says so. M3: 10.15 (a) and 10.63 (c) named no place;
 given their places (the replaced citation; 10.66's seven), so 52 name some and 9 none, 96 placements (32 computed, 52
 section, 11 arithmetic, 1 choice; 10.31 (b)'s Z4 token counted computed, m6), 31 rows on a reading. M4: the paper called
@@ -4325,3 +4326,17 @@ copies (10.21 (a)), Part (2)'s injectivity (10.21 (c)) and the whole (10.56 (b))
 solv5.py, Proposition 10.9 or a named section. Eight places named; 10.21 (c) and 10.56 (b) marked as resting on 10.56
 (a)'s reading (35 rows on a reading). Forty-three of 61 written out, twenty-four on a
 reading; 18 rest on the censuses.
+
+**D157 (2026-10-25): the sixty-third verifier seated.** It read D150-D153 (10.75 (xvii)-(xxxiv)) against the
+sources: no major; (xxii), (xxiii), (xxvii) and (xxxiii) partial; B-MAP's counts, D153's repairs, the paper's counts and
+the hygiene passed. Minors seated: m1, (xxvii) now names [Hin24b]'s step replacing g-dot^Ups by g-dot (Lemma 3.14 and
+integration by parts against h*); m2, at n = 4 (A_h)_(7,6)'s (2, 0) enters at Step 3, not Step 2, and Step 3's min Re
+E^C_I > 1 and (11.26)'s remainder class are named; m3, two source misprints no longer carried -- [Hin23a] (3.47)'s 2
+rho_I^-1 rho^3 is 2 rho_I rho^-3 (2 rho_I rho^(-7/2) at n = 4, (xxxiii) and 10.64 (f)), and [Hin26c] p. 60's
+(|sigma|^(3/2))^2 is (|sigma|^(-3/2))^2 with r-hat = r |sigma| ((xvii)); m4, three places added to B-MAP (10.49 (a)'s
+I+ threshold 3/2, 10.66 (f)'s spin order r^-3 and (3.43)'s normalization 2/pi^2 over S^3), so D150's nine was a floor;
+m5, D149's entry here says the interior uniqueness is deduced; m6, ROUTES 4.81's "none of them in [Hin23a]" corrected
+(10.48 (c), written out in D154), the paper's [Hin26] sections already section 11 (D155); m7, Appendix C's sources and
+verifier record, and [Hin23a]'s p. 15; m8, "at most about seven pages" ((xvii)'s section 10.2) and (xxx)'s pp. 108-109;
+m9, (xxxiv)'s B_g; m10, (xviii)'s Paley-Wiener representation, (xxiii)'s (5.46) and (xxviii)'s Part (2) and Step 5
+range named; m11, 10.74's n/2 sentence corrected.

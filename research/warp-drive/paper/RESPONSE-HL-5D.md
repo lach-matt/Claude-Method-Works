@@ -1061,7 +1061,7 @@ computed, deduced in an earlier section, arithmetic in n, or the record's choice
 `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those places, which is the census
 question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i), but for one step, which rests
 on a modification step and so on the census (supplement section 10.73). Forty-three of the 61 are now written out step
-by step at n = 4 — forty with source proofs of at most five pages (two replaced by a computation), three on one longer
+by step at n = 4 — forty with source proofs of at most seven pages (two replaced by a computation), three on one longer
 pair of proofs — so their own steps rest on their inputs and not on a census, though twenty-four take a reading among
 those inputs and seven cite a step still on the census (supplement section 10.75, with a lemma at
 the horizon proved in section 10.76);
@@ -1174,7 +1174,10 @@ deductions written out, would make Theorem 4 a theorem.
   and this paper's account of the deductions' inputs silent on readings, now stated, with nine minor findings, all
   seated (D149); D148–D149, with sections 10.75 (xii)–(xvi) and 10.76, were read by the sixty-second, which found the
   lemma and its use sound and this record calling the continuation itself proved, now worded as the supplement has it,
-  with twelve minor findings, all seated (D153).
+  with twelve minor findings, all seated (D153); D150–D153, with sections 10.75 (xvii)–(xxxiv), were read by the
+  sixty-third, which found no major fault and eleven minor ones — among them two misprints of the sources carried to n =
+  4, a step of [Hin24b]'s proof left unnamed, and places the write-outs named that their rows lacked — all seated
+  (D157).
 
 ---
 
@@ -1252,7 +1255,7 @@ from the arXiv text, with the extraction's spacing.
   4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
 - [Hin23a] P. Hintz, *Exterior stability of Minkowski space in generalized harmonic gauge*, Arch. Ration. Mech. Anal.
   247 (2023) 99, arXiv:2302.13804v1. READ 2026-10-24: pp. 1, 9, 21–22, 27–32 (section 3's exterior estimates). READ
-  2026-10-24 for section 3 at n = 4: pp. 1–4, 7–9, 16–18, 20–30, 32–33.
+2026-10-24 for section 3 at n = 4: pp. 1–4, 7–9, 15–18, 20–30, 32–33.
 - [Hin23b] P. Hintz, *Gluing small black holes along timelike geodesics I: formal solution*, arXiv:2306.07409v2. READ
   2026-10-23: pp. 101–110 (Lemma 9.1, Definition 9.2, Lemma 9.3, Theorem 9.6 and its proof, Lemma 9.7), 116–117.
 - [Hin23d] P. Hintz, *Microlocal analysis of operators with asymptotic translation- and dilation-invariances*,
@@ -1806,7 +1809,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | the general-n steps' hypotheses placed, section 8.8 | supplement section 10.72; [Hin26], [Hin26c] |
 | the undecided steps placed, section 8.8 | supplement section 10.73; `docket68/n1star/synth5.py` S1–S3; [KI03] |
 | the modification steps' changes placed, section 8.8 | supplement section 10.74; `docket68/n1star/B-MAP.tsv` |
-| forty-three modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26c], [CD03] |
+| forty-three modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26a], [Hin26c], |
+| | [Hin23a], [Hin24b], [CD03] |
 | the continuation and uniqueness inside the horizon, sections 8.4, 8.5 | supplement section 10.76 |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
@@ -1834,7 +1838,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the fifty-fourth sections 10.47–10.52 (D116–D122, D126); the fifty-fifth sections 10.53–10.57 |
 | | (D123–D126, D129); the fifty-sixth sections 10.58–10.63 and this paper (D127, D128, D130–D133) |
 | | the fifty-seventh section 10.64 and the repairs of D133 (D134, D136); the fifty-eighth to |
-| | sixty-second sections 10.65–10.76 (D138, D143, D147, D149, D153) |
+| | sixty-second sections 10.65–10.76, 10.75 (xvii)–(xxxvi) excepted (D138, D143, D147, D149, D153); |
+| | the sixty-third 10.75 (xvii)–(xxxiv) (D157) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1919,8 +1924,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `7f21d3c14bf617694f14006ccb2cf9bc` |
-| `docket68/n1star/N1STAR-LOG.md` | `489116be615b509c13be035a31a72e10` |
+| `docket68/n1star/N1STAR-PROOF.md` | `b579f6bf4b96d318168e0bf45fe0f644` |
+| `docket68/n1star/N1STAR-LOG.md` | `051d1a0c8870985556eae1a3947e70b1` |
 | `docket68/n1star/README.md` | `4c6ebde9131195b97f326f97dbb67d3e` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -1988,6 +1993,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/B-MAP.tsv` | `e2c4c0dc1017f9b8d3b33a8e959cf854` |
+| `docket68/n1star/B-MAP.tsv` | `e0c37a47b9c220b85880157776438403` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.
