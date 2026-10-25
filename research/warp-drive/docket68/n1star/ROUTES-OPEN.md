@@ -2293,3 +2293,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   on the fibre inner product (`hthresh5.py` T6: positive at e' = 10, crossing at 7.764), with 10.79 resting on the
   existential reading of Proposition 7.4; 10.81's wording on [Hin23d], the scaled bounded geometry paper and Lemma
   13.13's numerals; 10.41 (b) kept in READINGS.tsv with '-'; the paper's 6/6.
+
+### 4.101 RP settled (deduced; D178)
+
+- 10.83: what the six rows use of the zero energy pole is Hintz's structure -- the augmented inverse uniformly bounded
+  near 0 (Proposition 10.7, at n = 4 by (xviii)) and the augmentation's explicit sigma^-1 and sigma^-2 columns, which at
+  n = 4 carry no logarithm (10.39) -- not a Laurent expansion; Remark 10.8's sigma log |sigma| terms do not arise at n =
+  4. RP leaves its six rows. Thirty-four rows take a reading; they rest on RB and RU alone, the source's own steps at
+  every n. None of the record's roots is open. Not used and not settled: logarithms inside the augmented inverse at n = 4
+  (the five-dimensional tails).

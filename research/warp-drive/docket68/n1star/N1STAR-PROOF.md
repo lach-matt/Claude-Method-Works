@@ -5278,7 +5278,7 @@ needed at alpha = 1; in (iii) the radiative order claimed to leave the a' term. 
      this: in four spatial dimensions the mass state, decaying like r^-2, lies just outside L^2, the borderline case in
      which, for Schroedinger operators, logarithmic terms enter the low-energy resolvent; whether they enter here, and
      so whether the pole is exactly of order 2 with no logarithm, is not examined (ROUTES-OPEN.md 4.4, item 3, asks the
-     same of the pole's order in the class).
+     same of the pole's order in the class). (Since settled for what the rows use, 10.83; D178.)
  (c) (the window) Hence five dimensions needs [alpha_5 - 4, 0]: [-2, 0] at alpha_5 = 2, [-5/2, 0] at alpha_5 = 3/2 +
      O(gam). By (ii), for every alpha_5 in (1, 2], its physical states are s2, v2 and t2 at -2 without generalized
      companions: of 10.34's states those at l = 2 -- at a = 0 Y2's, near it by his Steps 0-3 and 5 on 10.34(c)'s
@@ -5802,7 +5802,7 @@ entry claimed of degree -2; in (iii) the five-dimensional mass state claimed of 
  (f) (no logarithm in the augmentation) In five dimensions the augmentation tensors are chi_K times the states: no t*^-1
      h^(0)_s0 and no t* log t* term ((10.13)), so no sigma (log |sigma|) in the augmentation's columns ((10.40), Remark
      10.8), and his section 10.1.3 is not needed. Whether L-tilde_b(sigma)^-1 itself has logarithmic terms at sigma = 0
-     is his section 11's question, not examined here.
+     is his section 11's question, not examined here. (What section 11 uses of it holds at n = 4: 10.83; D178.)
 
 *READ.* [Hin26] (alphaXiv, 2026-10-24; quotations transliterated to ASCII; printed page numbers): pp. 145 (Lemma 8.1,
 (8.2a)-(8.2b), (8.5)), 199-205 (Theorem 10.1, (10.1)-(10.4), Remark 10.2, (10.5)-(10.9b), footnotes 96-97, Lemma 10.3
@@ -9019,7 +9019,7 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      terms of Step 2 are taken in increasing order, the radiative ones from 3/2 + (1 - e_Ups) gam_Ups (10.44 (d)) before
      the parameters' at 2 + 2 = 4, whose Proposition 9.11 at lam = 2 carries S-dot^(0,1)_1 only if five dimensions carry
      his log t* h_b,s1 of (9.39b) -- 10.61 (b)'s question, the parameter zero if not. It rests on (xlix)'s readings,
-     with Proposition 9.35 added to section 9's, and on 10.35 (b)'s.
+     with Proposition 9.35 added to section 9's, and on 10.35 (b)'s. (Since settled, 10.83; D178.)
 
  (li) 10.43 (c), [Hin26] section 11's steps in the class (pp. 231-295; D160). His sections 11.3-11.8 extract, in turn,
      the boost S-dot (11.4), the Kerr parameters and centre-of-mass shifts (11.6), the S_1 shifts and final parameters
@@ -9076,7 +9076,7 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      G-fixed element (10.43 (b), Proposition 10.40 (ii)); no physical state enters below 3 + eps_K (10.46 (b)); and the
      inputs are (liii)'s. Whether the mass state's borderline decay, r^-2 in four space dimensions, brings Remark 10.8's
      sigma log |sigma| term at n = 4 is 10.35 (b)'s reading; if it does, S^(0),(2,0)_0, G-fixed, removes its t*^-2
-     h^(0)_b,s0 as his. It rests on (liii)'s readings and 10.35 (b)'s.
+     h^(0)_b,s0 as his. It rests on (liii)'s readings and 10.35 (b)'s. (It does not: 10.83 (b); D178.)
 
  (lv) 10.61 (c), [Hin26] Proposition 11.51, Theorem 11.59 and Corollary 11.66 without the class (pp. 262-295; D161).
      (liii)'s and (liv)'s proofs without the class's restrictions, and Corollary 11.66's: Definition 11.63's
@@ -9089,6 +9089,7 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      which is Lemma 11.65's (11.232); his rotations of the axis, V_1, are so(4)'s (10.36); the logarithmic time
      reparameterization (11.188) and the identities (11.187) and (11.189) are pure gauge identities free of n; Remark
      10.8's logarithm is 10.35 (b)'s question; and the inputs are (l)'s. It rests on (l)'s readings.
+     (Since answered, 10.83 (b); D178.)
 
  (lvi) 10.67 (a), [Hin26c] section 7 (pp. 114-141; D163). His Proposition 7.1, under (7.3) -- alpha_I < -1/2 + p-bar_1,
      alpha_+ < alpha_I - 1/2 -- concatenates elliptic regularity and real principal type propagation (Propositions
@@ -9786,6 +9787,65 @@ a reading. The roots left are RB and RU, the source's kind, the same at every n,
 discharged, and so is the finiteness of the iota+ spectrum below 3 + eps_+; where it lies between 5/2 and 3 + eps_+ stays
 uncomputed, which 10.59 (b) found not needed. Not retrieved: printed p. 173. Labels: computed (J1-J5); READ (the pages
 named); deduced ((a)-(g)); nothing proved here.
+
+### 10.83 RP settled: what the six rows use of the zero energy pole holds at n = 4 (deduced; D178)
+
+*The setting.* RP (10.77) is 10.35 (b)'s second reading: in four space dimensions the mass state decays like r^-2, just
+outside L^2, the borderline at which logarithms enter a Schroedinger operator's low-energy resolvent (in R^4 a zero
+resonance gives (sigma^2 log sigma)^-1 in place of a pole); whether they enter here, so that L-hat_b(sigma)^-1's pole at
+0 is not exactly of order 2 (1 in the class), was not examined. Six rows take it: (l)'s second order pole, and
+(liv)-(lv)'s question whether Remark 10.8's sigma log |sigma| term arises at n = 4; 10.43 (c), 10.62 (b) and (d) reach it
+through these. 10.39 (f) left the same question for the augmented inverse. Here it is settled from what the record has
+since written out.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24 and 2026-10-25; printed pages): pp. 201-203 ((10.5)-(10.9b),
+"these entries only have r^-2 decay", the tf order 2 "(borderline) unacceptable", Lemma 10.3 with (10.13)'s t*^-1
+h^(0)_b,s0 and log t* terms), 208-209 (Propositions 10.6 and 10.7), 212 ((10.38a)-(10.41) and Remark 10.8: "The
+logarithmic terms at zf ... are sigma (log |sigma|) h^(0)_b,s0(sigma) and -sigma (log |sigma|) h^(<=1)_b,s1(S^(-1)_1) ...
+corresponding to the t*^-1- and log t*-terms in (10.13)", and of (10.41)'s L~'_b(sigma) "the conclusions of Proposition
+10.7 apply to it"), 291 (the proof of Theorem 11.59, Step 4.5: "we apply the true (augmented) resolvent L~'_b(sigma)^-1,
+which upon multiplication by sigma^3 produces elements of H^(oo, 1-eps, 3+eps_ind-eps, 3+eps_K)_b ... as well as the
+singular contribution" (11.224)).
+
+*Deduced.*
+
+ (a) (what the rows use) Hintz never expands L-hat_b(sigma)^-1 at 0. He inverts the augmented operator L~'_b(sigma) of
+     (10.41) -- the spectral family with columns L-hat_b(sigma) g-dot^Ups,sing_b(sigma) and L-hat_b(sigma)
+     h^(<=1),sing_b,s1(sigma), which carry sigma^-1 and sigma^-2 times the states, and rows pairing with the dual states
+     -- and every step of his section 11 uses two things only: that L~'_b(sigma)^-1 is bounded near sigma = 0, uniformly
+     and with sigma d_sigma-regularity, on its weighted spaces (Proposition 10.7; p. 291's Step 4.5), and the explicit
+     form of the columns, whose coefficients are components of L~'_b(sigma)^-1 applied to the source -- conormal
+     functions of sigma, which his Lemmas 11.18-11.19 integrate in t* ((xlix)). 'A pole of order 2' is that structure:
+     sigma^-2 the highest power the columns carry. A logarithm could enter it in two places: in the columns, explicitly,
+     as Remark 10.8's sigma (log |sigma|) terms at n = 3; or inside L~'_b(sigma)^-1's bounded components, which no step
+     of his expands.
+ (b) (the columns at n = 4) At n = 3 the columns' logarithms come from Lemma 10.3's improved states, which he needs
+     because the naive entries [L_b, t*] g-dot and their kin decay like r^-2, the tf order 2 that is borderline
+     unacceptable -- the n = 3 form of the borderline 10.35 (b) names. At n = 4 the gauged mass state needs no logarithm
+     and the naive entries are of degree -3, inside the target space with margin (10.39 (a)-(b), aug5.py A1-A2); the
+     augmentation tensors are chi_K times the states, with no t*^-1 h^(0)_s0 and no log t* term, and so no sigma (log
+     |sigma|) in the columns (10.39 (c), (f)). The columns at n = 4 carry sigma^-1 and sigma^-2 times polynomials in
+     sigma with the states as coefficients: the structure of (a) with order 2, and order 1 in the class, where h_s1 and
+     the boosts vanish (10.45 (a)), with no logarithm in the columns.
+ (c) (the augmented inverse at n = 4) L~'_b(0) is invertible at n = 4 -- Proposition 10.6 on 10.32's pairings, the chain
+     ended by Proposition 10.29 (iii)'s (3 pi^2/2) mu (q . c) (10.39 (e), 10.43 (d)) -- and Proposition 10.7's uniform
+     bounds hold at n = 4 as (xviii) writes them out (10.40 (a)), on (lix), (xx) and 10.80's [Hin26c] Theorem 9.41. So
+     the structure (a) asks for holds at n = 4. Whether L~'_b(sigma)^-1's bounded components carry logarithms of their
+     own -- as the free resolvent of R^4 has sigma^2 log sigma, the source of the five-dimensional tails -- is a finer
+     question his proofs never ask, at n = 3 or at n = 4: those components enter only through the uniform conormal
+     bounds, which hold whatever they contain, and a (sigma^2 log sigma)^-1 behaviour of L-hat_b(sigma)^-1 would be
+     sigma^-2 times a bounded conormal coefficient, inside (a)'s structure too.
+ (d) (the six rows) (l)'s second order pole is (a)-(c)'s, at n = 4 as his. (liv)-(lv)'s question has its answer in (b):
+     Remark 10.8's sigma log |sigma| terms do not arise at n = 4, so his S^(0),(2,0)_0, kept in the class's lists,
+     removes a term that is absent -- a branch the rows' proofs had covered either way. 10.43 (c), 10.62 (b) and (d)
+     reach RP only through (l) and (lv).
+
+*What this gives, and what it does not.* RP is settled by deduction and leaves its six rows, each of which keeps RB and
+RU. Thirty-four rows take a reading, and they rest on two statements only, RB and RU: steps the source leaves to the
+reader -- bundles in place of scalars, and the uniformity of the estimates under small perturbations -- the same at every
+n. None of the record's own roots remains. Not settled, and not used: whether L~'_b(sigma)^-1 itself carries logarithms
+at n = 4 (the five-dimensional tails); a Laurent expansion of L-hat_b(sigma)^-1 at 0. Labels: deduced ((a)-(d)); READ
+(the pages named); nothing computed or proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

@@ -4499,3 +4499,11 @@ vartheta_dK+,out, and drops 'any one'. 10.81 no longer calls [Hin23d] the source
 comes from the scaled bounded geometry paper, p. 46, not fetched) and names the numerals (d) places; Theorem 2.9 is p.
 27. READINGS.tsv keeps 10.41 (b) with '-' as it keeps the four D169 rows. The paper's `hthresh5.py` bullet reads 6/6. A
 wrapped LOG line from D163 that began with a list marker is rewrapped.
+
+**D178 (2026-10-25): RP settled.** 10.83, deduced: the six rows that took 10.35 (b)'s second reading use of the zero
+energy pole only Hintz's structure -- L~'_b(sigma)^-1 uniformly bounded with sigma d_sigma-regularity (Proposition 10.7,
+written out at n = 4 in (xviii)) and the augmentation's explicit columns with sigma^-1 and sigma^-2 -- and at n = 4 those
+columns carry no logarithm, the naive entries being of degree -3 inside the target space (10.39). Remark 10.8's sigma log
+|sigma| terms do not arise at n = 4; S^(0),(2,0)_0 removes an absent term. RP leaves six rows. Thirty-four rows take a
+reading and rest on RB and RU alone; none of the record's own roots remains. Logarithms inside the augmented inverse at n
+= 4 are not settled and not used.

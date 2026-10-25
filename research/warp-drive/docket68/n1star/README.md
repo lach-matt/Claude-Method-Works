@@ -331,7 +331,8 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   D147); the column `written` marks the sixty-one written out at n = 4 (section 10.75; D146, D148, D150-D152, D154-D156,
   D158-D161, D163-D164, D166-D167). `READINGS.tsv` traces the rows that rest on a reading to ten roots, the statements at
   the foot of each chain (section 10.77; D169); RK, RG and RE are settled in 10.78 (D170), RH by `hthresh5.py` in 10.79
-  (D171); RL is written out in 10.80 (D173); RC is READ for general n in 10.81 (D174); RI is written out in 10.82 (D176).
+  (D171); RL is written out in 10.80 (D173); RC is READ for general n in 10.81 (D174); RI is written out in 10.82 (D176);
+  RP is settled in 10.83 (D178).
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).

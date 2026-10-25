@@ -1066,13 +1066,13 @@ census (supplement section 10.73). All 61 are now written out step by step at n 
 most about seven pages (two replaced by a computation), sixteen on longer runs of proof, [Hin26] sections 11 and 12,
 [Hin26c] sections 5, 7–11 and 13 and [Hin26a] section 5.2 — so their own steps rest on their inputs and not on a census,
 though thirty-four take a reading among those inputs, a statement at n = 4 whose proof is not written out; traced to
-their roots, they rest on three statements — two steps the source leaves to the reader at every n, and one question of
-the record's own, a computation; four more of the record's own are settled, the damped operator's threshold at the
-horizon by computation, two groups of companion results are written out at n = 4 and one is READ for general n
-(supplement sections 10.75 and 10.77–10.82, `READINGS.tsv`, `hthresh5.py`, `tfnorm5.py`, `iotasol5.py`, with a lemma at
-the horizon proved in section 10.76). λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's
-estimates — and are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the
-deductions written out, would make Theorem 4 a theorem.
+their roots, they rest on two statements, steps the source leaves to the reader at every n; the record's own five are
+settled, the damped operator's threshold at the horizon by computation and the zero energy pole's form by deduction, two
+groups of companion results are written out at n = 4 and one is READ for general n (supplement sections 10.75 and
+10.77–10.83, `READINGS.tsv`, `hthresh5.py`, `tfnorm5.py`, `iotasol5.py`, with a lemma at the horizon proved in section
+10.76). λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not
+evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out,
+would make Theorem 4 a theorem.
 
 ---
 
@@ -1958,9 +1958,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `821f4388110f0e9583b4b044fb30c20c` |
-| `docket68/n1star/N1STAR-LOG.md` | `91032bb21f47051390ac1eb6c4976671` |
-| `docket68/n1star/README.md` | `5219cc1e2081ea4b937f15eb443c5be8` |
+| `docket68/n1star/N1STAR-PROOF.md` | `b463b1886516b10236707c7c56349d3a` |
+| `docket68/n1star/N1STAR-LOG.md` | `a7c37c0f4110fb9a7837ed3f58828630` |
+| `docket68/n1star/README.md` | `f7639edc2c2b201cda6737e0b68e0424` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -2031,7 +2031,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/tfnorm5.py` | `581f44448af7149eb15223f9f90f81cc` |
 | `docket68/n1star/iotasol5.py` | `9fec3b39e640236dc90a4ac5ef6a52bb` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/READINGS.tsv` | `91a305a3bdfe9f414ad38b59a5f91d16` |
+| `docket68/n1star/READINGS.tsv` | `d064884d56ed99d8bccc9f5725592b10` |
 | `docket68/n1star/B-MAP.tsv` | `cdc276d252ffd022273be84e4edc6696` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.
