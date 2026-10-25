@@ -1763,7 +1763,7 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
   Minkowski model in rho^4 Diff^2_b and the indicial families, tf-normal operators and S-bar are the model's; g^00 = -4
   mu rho^2.
 - B7 deduced (10.55(b)-(c)): the kernel class from 10.53(c); the interior uniqueness by the radial systems' regular
-  singular point at the horizon (its last step proved as Lemma 10.56 (a): 4.80); the index 0 at nonzero frequency on
+  singular point at the horizon (its last step proved as Lemma 10.56 (c): 4.80); the index 0 at nonzero frequency on
   Theorem 9.16's reading (10.53(e)).
 - B4 deduced at source (10.56): [Hin26a] section 5.2's estimates take from the metric and c only symbol data, all
   computed in five dimensions (10.13, 10.14, 10.22), on a general calculus; one reading left, the sign of each
@@ -2045,7 +2045,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and 10.37 (c), the regularity in b added. With [Hin26] Propositions 8.11 and 7.4 (10.32 (c), 10.36 (b); pp. 155-156,
   140-144), sixteen of 61 are written out; 45 rest on the censuses.
 
-### 4.80 The sixty-first verifier seated; the continuation across the horizon proved (proved, deduced; D149)
+### 4.80 The sixty-first verifier seated; a lemma at the horizon proved, the continuation deduced (D149)
 
 - Proved (10.76, Lemma 10.56): for z X' = A(z) X with A smooth, a solution on one side of 0 vanishing to infinite
   order vanishes, by a Gronwall bound |X(z)| >= |X(z_1)| (z/z_1)^M; and one smooth up to 0 from one side is the
@@ -2076,3 +2076,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D151 (10.75 (xxviii)-(xxx)): [Hin26] Proposition 8.14 (10.34 (c)), (2.27) with Proposition 2.25 (10.46 (e)) and
   section 5.6's boost pullback (10.62 (c)). Thirty of 61 written out, eighteen of them on a reading; 31 rest on the
   censuses. B-MAP: 104 places, 107 placements (34 computed, 58 section, 14 arithmetic, 1 choice).
+- D152 (10.75 (xxxi)-(xxxiv)): [Hin23a] Propositions 3.17, 3.29 and 3.32 with Lemma 3.33, and Corollary 3.31 (10.64 (b),
+  (e), (g), (f)), each matched to exterior5.py X1-X7. Thirty-four of 61 written out, eighteen on a reading; 27 rest on
+  the censuses, none of them in [Hin23a].
+
+### 4.82 The sixty-second verifier seated (D153)
+
+- Lemma 10.56 and 10.76 (a)-(c) checked line by line and passed; 10.75 (xii)-(xvi) and the D149 repairs matched at
+  source; B-MAP's counts reproduced. M1: "proved" was said of the continuation, which 10.76 deduces at proof level from
+  the lemma; the paper's record, the log's D149 heading and 4.80's heading now say so. Minors seated: the phi''
+  coefficient a constant multiple of f; "flat" in Lemma 10.56 (c); the sigma = 0 remark's source and subtraction; the
+  interior is Lemma 10.56 (c); [CD03]'s s = t - 1 on p. 37; cross-references in 10.75 (xii)-(xiii); (xv)'s cokernel
+  argument; wrapped lines that began with a list marker; the paper's md5 and verifier-record scope.
+

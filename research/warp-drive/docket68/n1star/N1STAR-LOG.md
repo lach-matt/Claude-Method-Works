@@ -4249,24 +4249,24 @@ modification steps matched step by step against their source proofs, read at sou
 Proposition 9.2 (2) (10.37 (c)). And [Hin26] Propositions 8.11 (10.32 (c)) and 7.4 (10.36 (b)). Sixteen of 61 written
 out (10.75); 45 rest on the censuses. Paper: "but for one".
 
-**D149 (2026-10-24): the sixty-first verifier seated; the continuation across the horizon proved.** The verifier read
-D146-D147 (10.73-10.75 (i)-(xi)) and found four majors. M1: 10.75 (i)'s step (7) used omega's continuation inside the
-horizon, which 10.27 (b) had left OPEN and 10.55 (c) does not give. Repaired by proof: Lemma 10.56 (10.76) -- for z X'
-= A(z) X with A smooth, a solution vanishing to infinite order on one side vanishes (a Gronwall bound), and one smooth
-up to 0 from one side extends as a smooth solution (Borel's lemma and variation of constants against a flat error); the
-same for f phi'' + Q phi' + R phi = 0 with f's zero simple. With it, deduced at proof level: every operator's radial
-system has f = g^-1(dr, dr); omega is smooth up to r_h by the radial components of delta* omega = u, a regular system;
-it continues as a solution of box^Ups omega = 0, so Proposition 6.12 applies on X; and the interior uniqueness (10.15
-(a), 10.16, 10.55 (c)) is proved in place of 'its Frobenius exponents are finitely many'. M2: 10.75 (iii) rests on 10.19
-(d)'s reading; marked, and B-MAP.tsv's row says so. M3: 10.15 (a) and 10.63 (c) named no place; given their places
-(the replaced citation; 10.66's seven), so 52 name some and 9 none, 96 placements (32 computed, 52 section, 11
-arithmetic, 1 choice; 10.31 (b)'s Z4 token counted computed, m6), 31 rows on a reading. M4: the paper called the
-deductions' inputs computed and READ; it now names readings, the modification steps' conclusions, among them (31 of 61;
-ten of the sixteen written out), in the abstract, 1.3 and 8.8. Minors: (xi) Proposition 10.15, with Q's order deduced
-from Proposition 10.45; (viii) [CD03]'s printed s = t - 1 and (8.7) noted; (iv) Corollary 9.43's tf-admissibility
-hypothesis placed; (ii) E5 for l <= 12, 10.24 (a) for every l; (vi) the Killing lift from R x (R^n \ 0), a superset,
-and 'justifies it in one line'; (v) Lemma 2.13 on b-manifolds; paper 1.3 adds the record's choice. The verifier did not
-read D148.
+**D149 (2026-10-24): the sixty-first verifier seated; a lemma at the horizon proved, the continuation deduced.** The
+verifier read D146-D147 (10.73-10.75 (i)-(xi)) and found four majors. M1: 10.75 (i)'s step (7) used omega's continuation
+inside the horizon, which 10.27 (b) had left OPEN and 10.55 (c) does not give. Repaired by proof: Lemma 10.56 (10.76) --
+for z X' = A(z) X with A smooth, a solution vanishing to infinite order on one side vanishes (a Gronwall bound), and one
+smooth up to 0 from one side extends as a smooth solution (Borel's lemma and variation of constants against a flat
+error); the same for f phi'' + Q phi' + R phi = 0 with f's zero simple. With it, deduced at proof level: every
+operator's radial system has f = g^-1(dr, dr); omega is smooth up to r_h by the radial components of delta* omega = u, a
+regular system; it continues as a solution of box^Ups omega = 0, so Proposition 6.12 applies on X; and the interior
+uniqueness (10.15 (a), 10.16, 10.55 (c)) is proved in place of 'its Frobenius exponents are finitely many'. M2: 10.75
+(iii) rests on 10.19 (d)'s reading; marked, and B-MAP.tsv's row says so. M3: 10.15 (a) and 10.63 (c) named no place;
+given their places (the replaced citation; 10.66's seven), so 52 name some and 9 none, 96 placements (32 computed, 52
+section, 11 arithmetic, 1 choice; 10.31 (b)'s Z4 token counted computed, m6), 31 rows on a reading. M4: the paper called
+the deductions' inputs computed and READ; it now names readings, the modification steps' conclusions, among them (31 of
+61; ten of the sixteen written out), in the abstract, 1.3 and 8.8. Minors: (xi) Proposition 10.15, with Q's order
+deduced from Proposition 10.45; (viii) [CD03]'s printed s = t - 1 and (8.7) noted; (iv) Corollary 9.43's
+tf-admissibility hypothesis placed; (ii) E5 for l <= 12, 10.24 (a) for every l; (vi) the Killing lift from R x (R^n \
+0), a superset, and 'justifies it in one line'; (v) Lemma 2.13 on b-manifolds; paper 1.3 adds the record's choice. The
+verifier did not read D148.
 
 **D150 (2026-10-25): eleven more modification steps written out.** Read at source and matched step by step at n =
 4 (10.75 (xvii)-(xxvii)): [Hin26] Proposition 10.7 and Theorem 10.1, whose proof is 10.40 (a)-(c) (10.39 (e)); Lemmas
@@ -4285,4 +4285,22 @@ rows on a reading; twenty-seven written out, fifteen on a reading; 34 rest on th
 used, Step 2 the record's modification), (2.27) with Proposition 2.25's proof, b-analysis free of n (10.46 (e)), and
 section 5.6's boost pullback (10.62 (c)). Two more places named ((8.33)'s vector in so(4); the boost pullback at r^-2).
 Thirty of 61 written out, eighteen on a reading; 31 rest on the censuses.
+
+**D152 (2026-10-25): [Hin23a] section 3's four steps written out.** Propositions 3.17 (10.64 (b)), 3.29 (10.64 (e))
+and 3.32 with Lemma 3.33 (10.64 (g)), and Corollary 3.31 (10.64 (f)), read at source (pp. 15-30) and matched step by
+step to exterior5.py X1-X7: the leading operator with Lap + 3/4, the symmetric density, Q-bar, the h-free lower
+triangular A, the h-entries r^(-1/2) below his, the quadratic term in the error, the Sobolev counts, and Lemma 3.33 not
+used since A^0_h = 0. Thirty-four of 61 written out, eighteen on a reading; 27 rest on the censuses.
+
+**D153 (2026-10-25): the sixty-second verifier seated.** It read D148-D149: Lemma 10.56 and 10.76 passed line by
+line, 10.75 (xii)-(xvi) and the D149 repairs matched their sources, and B-MAP's counts reproduced. M1: the paper's
+verifier record, D149's heading here and ROUTES 4.80's heading said the continuation was proved; only Lemma 10.56 is,
+the continuation deduced at proof level from it -- now worded so (10.27's notes too). Minors: 10.76 (a)'s phi''
+coefficient is a constant multiple of f (-f, -f/2 in his convention); Lemma 10.56 (c) says flat; the sigma = 0 remark
+names its source (u - g-dot^Ups(b-dot))_(r nu) and the subtraction of the Killing and s1 states; the interior is
+Lemma 10.56 (c) (B-MAP, 10.55 (c), ROUTES); 10.74's "seven places 10.66 computes" is "places (four computed)"; [CD03]'s
+s = t - 1 is on p. 37 (10.75 (viii), 10.66's READ), and (viii) no longer calls it a reading; 10.75 (xii)-(xiii)'s item
+references name Propositions 10.25 and 10.27; (xv)'s cokernel argument names (7.13), (7.15) and the pairings; three
+wrapped lines that began with a list marker rewrapped, and the wrapping now avoids them; "READ at source since"
+dropped; the paper's md5 rows refreshed and its record scoped to (i)-(xi).
 
