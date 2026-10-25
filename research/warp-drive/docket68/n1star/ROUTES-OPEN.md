@@ -2276,3 +2276,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the record's statement numbers are a counter apart from its section numbers (Lemma 10.58 in section 10.78, as
   Proposition 10.57 in section 10.58), and 10.74 says 10.21 (c)'s and 10.23 (c)'s one reading was Theorem 5.2's, not that
   it was their one input.
+
+### 4.99 RI written out at n = 4 (computed, deduced; D176)
+
+- 10.82 and `iotasol5.py` J1-J5 (5/5, mutants 5/5): [Hin26] section 9 read at source (pp. 165-199) and written out at n =
+  4. The dimension enters through c = (n - 1)/2 (the thresholds at v = 0, at I+ and at tf's outgoing end, l_scf < 3/2),
+  the five-dimensional roots and eps_ind (10.24, 10.35, 10.52; t2 and t3 join the expansions), the I+ index sets (10.44)
+  and the states (10.28-10.30, 10.34). The index 0 half of Proposition 9.2 is written out through [Hin26c] section 10.1.2
+  at n = 4 ((lx)), Proposition 8.6 and Corollary 9.39 at n = 4. RI leaves its twelve rows; 10.47 (d)-(e) now rest on RB.
+  Thirty-four rows take a reading. Three roots remain: RB and RU, the source's kind; RP, a computation. OPEN: RP.

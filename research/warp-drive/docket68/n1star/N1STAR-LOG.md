@@ -4477,3 +4477,12 @@ product, 10.79 states the reading that (5.17) asks for one fixed in advance, and
 computes 1/2 + vartheta_H+ = -4995.44, -4877.97 and -2500.47 for B with e' = 10^-5, 1/10 and 3; the verifier's own
 construction gave other values in the same direction. Two minors stand as written: the statement counter (Lemma 10.58
 sits in section 10.78) and 10.74's 'one reading' for 10.21 (c) and 10.23 (c).
+
+**D176 (2026-10-25): RI written out.** 10.82 and `iotasol5.py` J1-J5 (5/5, mutants 5/5): [Hin26] section 9 --
+Propositions 9.2 (both halves), 9.4, 9.9, 9.11, 9.15, 9.22, 9.30 and 9.35, Corollaries 9.12 and 9.18, Lemmas 9.14, 9.21
+and 9.26, (9.54)-(9.56) -- read at source and written out at n = 4. The model from -box gives c = (n - 1)/2 for his 1 at
+every place it moves a threshold (s < 2 - Re lam, Re lam < 5/2, the I+ weight 3/2 - eps, Re lam < 3/2 for the expansion,
+l_scf < 3/2); the conjugation that carries the Fourier side to N_tf is rhat^(lam - 1) at every n, so the injectivity
+bound 1 + eps_ind stands; the index 0 half runs on (lx), Proposition 8.6 and Corollary 9.39 at n = 4; the expansions gain
+t2 at -2 and t3 at -3; Lemma 9.26's residue has rank 10 on S^3. (9.7) prints rhat^-2 N_tf for the bracket that (9.58)
+makes rhat^2 N_tf. RI leaves twelve rows; 10.47 (d)-(e) rest on RB. Three roots remain: RB, RU and RP.

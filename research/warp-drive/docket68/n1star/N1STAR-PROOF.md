@@ -5512,7 +5512,7 @@ degree-p harmonics is lost; in (ii) the outgoing exponent moved by 1/10; in (iii
      (pp. 167-168); it turns injectivity into invertibility and makes the inverse exist and be meromorphic. In five
      dimensions it is a reading. (d) needs only the kernel half -- a resonant state is a kernel element, and a pole of
      the inverse, where there is one, gives one -- while the converse, a kernel element being a pole, which Proposition
-     10.34(v) and (e) use, rests on that reading (the forty-sixth verifier, D99).
+     10.34(v) and (e) use, rests on that reading (the forty-sixth verifier, D99). (Since written out, 10.82 (a); D176.)
  (d) (below 5/2) For L-bar the outgoing exponents are 3/2 + spec S-bar >= 3/2 and E_K's are the roots with real part <=
      0, as many as K (10.24), so (b) applies whenever 1 < Re lam < 5/2. A pure resonance with real part in [1 + eps_ind,
      5/2) has lam - 1 a root of det N_L with real part in [eps_ind, 3/2), or is the time derivative of one at lam - 1;
@@ -6533,6 +6533,8 @@ OPEN: the five-dimensional iota+ spectrum between 5/2 and 3 + eps_+ (not compute
 Proposition 9.4(2), Corollary 9.18 and Propositions 9.9, 9.15 and 9.22 in five dimensions (READ at n = 3; their
 five-dimensional inputs 10.37's and 10.44's; Phase B); h_0 and (13.5) (A8). Labels: deduced ((a)-(e)); READ ([Hin26] pp.
 182-186, 295-297, 301-302, 304, 310, 312, 315-317, 321); nothing computed here, nothing proved.
+(Since: the finiteness, Proposition 9.4(2), Corollary 9.18 and Propositions 9.9, 9.15 and 9.22 written out in 10.82;
+D176.)
 
 ### 10.48 [Hin26] section 5 in five dimensions, in the class: Theorems 5.17, 5.21 and 5.23 (deduced; D117)
 
@@ -8453,7 +8455,7 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      4: the threshold s < 2 + min spec S-bar - Re lam and the exponent shifted by 1/2 with v d_v - 3/2 - S-bar, the
      extension in L^1_loc for Re lam < 5/2 (min spec S-bar = 0, 10.25), the Fourier transform, the polynomial argument
      and the conjugation free of the dimension, and Proposition 8.6 at n = 4 (10.24 (c)-(d), 10.25 (b)). Its other half,
-     the index 0 property, is not carried, as 10.37 (c) says.
+     the index 0 property, is not carried, as 10.37 (c) says. (Since written out, 10.82 (a); D176.)
 
 
  (xv) 10.32 (c), [Hin26] Proposition 8.11 (pp. 155-156; D148). His kernel argument: a normal operator argument puts u in
@@ -8799,7 +8801,7 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      The iota+ solution theory -- Proposition 9.4 (2), Corollary 9.18 with its expansion, Proposition 9.9, and
      (9.54)-(9.56) with Proposition 9.22's right inverse -- enters at n = 4 as 10.47's OPEN has it, READ at n = 3 with
      its five-dimensional inputs 10.37's and 10.44's: a reading; and Res(L-bar, 2) = {0} is 10.47 (b)'s, which rests
-     on 10.37 (c)-(e)'s readings.
+     on 10.37 (c)-(e)'s readings. (RI since written out, 10.82; D176.)
 
  (xxxviii) 10.47 (d), [Hin26] Theorem 12.3 in the class (D155). (xxxvii)'s construction with the class's data and lists:
      p-vec^[0] carries the mass alone, S, S^(0)_1, S_rem and V_1,rem vanishing (10.43 (b)), so Step 1 is the step at
@@ -8989,6 +8991,7 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      |dx|/|x|^4 for his |dx|/|x|^3, the moment argument free of n. It rests on [Hin26c] Proposition 13.18 and Corollary
      13.17 at n = 4 (10.58 (c), a reading) and on Corollary 9.12 and Propositions 9.11 and 9.30 at n = 4, section 9's
      iota+ and tf solution theory, READ at n = 3: the reading (xxxvii) names, extended to these.
+     (Since written out, 10.82; D176.)
 
  (l) 10.61 (b), [Hin26] Propositions 11.17, 11.20, 11.30, 11.32 and 11.34, Lemma 11.45 and Corollary 11.46 (pp. 232-262;
      D160), without the class. Propositions 11.17 and 11.32 are (xlix)'s schemes with h_s1 and S-hat_1 present: two
@@ -9658,6 +9661,123 @@ the paper that constructs them, and the three lemmas use them with no numeral of
 alone and now rests on no reading; 10.39 (e) and 10.40 (a) keep RB. Thirty-four rows take a reading. The roots left are
 RB and RU, the source's kind, RI, companion results at n = 4, and RP, the record's own. Labels: READ (the pages named);
 deduced ((c)-(e)); nothing proved here.
+
+### 10.82 RI written out: [Hin26] section 9's iota+ and tf solution theory at n = 4 (`iotasol5.py` J1-J5; D176)
+
+*The setting.* RI (10.77) is [Hin26] section 9's iota+ and tf solution theory at n = 4: the index 0 half of Proposition
+9.2 (10.37 (c)), Propositions 9.4 (2), 9.9, 9.11, 9.15, 9.22, 9.30 and 9.35, Corollaries 9.12 and 9.18 and (9.54)-(9.56),
+READ at n = 3 with their five-dimensional inputs and not written out; twelve rows rest on it. Here each proof is read at
+source and every place the dimension enters it is placed at n = 4. It enters in four ways only: the model operators'
+radiative constant c = (n - 1)/2, his 1, through which the thresholds at I+, at v = 0 and at the outgoing end of tf move;
+the indicial roots of b-L-bar(0) and eps_ind; the index sets at I+; and the lists of zero energy states the expansions
+carry.
+
+*READ.* [Hin26] (arXiv:2606.28253v2, alphaXiv, 2026-10-24 and 2026-10-25; printed pages): pp. 165-168 (Proposition 9.2
+and its proof: the semi-Fredholm estimate, part (3), the injectivity step with (9.5)-(9.7), the index 0 step with
+(9.8)-(9.9) and footnote 86), 168-172 ((9.10)-(9.14), Definition 9.3, Proposition 9.4 with (9.15)-(9.18), Remark 9.5, its
+proof with (9.19)-(9.24) and Figure 9.1, Definition 9.6, Remark 9.7), 174-176 ((9.29)-(9.32), Definition 9.8's close,
+Proposition 9.9 and its proof with (9.33)-(9.36)), 176-179 (Definition 9.10, (9.37)-(9.38), Proposition 9.11 with
+(9.39a)-(9.41) and its proof, (9.42a)-(9.42b), Corollary 9.12 and its proof), 180-186 ((9.44)-(9.45), Lemmas 9.13 and
+9.14 with (9.46)-(9.47) and their proofs, Proposition 9.15 with (9.48) and its proof, Definition 9.16, (9.49), Remark
+9.17, Corollary 9.18 with (9.50)-(9.51) and its proof, Definition 9.19 with (9.52), Remark 9.20, Lemma 9.21 with (9.53)
+and its proof, (9.54)-(9.55), Proposition 9.22 with (9.56) and its proof, Remarks 9.23-9.24), 186-199 (section 9.2:
+(9.57)-(9.61), Definition 9.25, Lemma 9.26 with (9.62a)-(9.62c), footnotes 92-93, Remarks 9.27-9.28, its proof with
+(9.63)-(9.70), Definition 9.29, (9.71)-(9.72), Proposition 9.30 with (9.73)-(9.75b), Remarks 9.31-9.33, its proof with
+(9.76)-(9.84) and footnote 94, Remark 9.34, Proposition 9.35 with (9.85)-(9.88b) and its proof with (9.89)-(9.92)).
+Printed p. 173, the opening of Definition 9.8 with (9.25)-(9.28), was not retrieved; its objects are the Minkowski states
+and generalized states, at n = 4 those of 10.28-10.30 and 10.34.
+
+*Computed (`iotasol5.py` J1-J5; exact, sympy; at n = 3 and n = 4, S a constant for an eigenvalue of S-bar).*
+
+ (i) (J1) -box of R^(1+n) in (t*, rho), t* = t - r, rho = 1/r, has no d_t*^2 term and is rho^2 L~(0)(rho d_rho) + rho
+     L~_1(rho d_rho) d_t*, L~(0)(x) = -x^2 + (n - 2) x + kappa (his slashed Delta the positive Laplacian) and L~_1(x) =
+     -2(x - c); and t*^lam t*^2 L-bar t*^-lam is (9.11) with c for his 1 -- c = 3/2 at n = 4, as iota5.py I1 and
+     puregauge5.py J1 found for L-bar's and box^Ups's transport.
+ (ii) (J2) N_sf(lam) = -2 d_v (v d_v + lam - c - S) + L~(0)(v d_v + lam); v N_sf(lam) has at v = 0 the exponents 0 and
+     c + S - lam. With chi^w_+ in H^(Re w + 1/2 - eps)_loc (arithmetic) the below-threshold condition is s < c + 1/2 +
+     min spec S-bar - Re lam, 2 - Re lam at n = 4 (min spec S-bar = 0, 10.25), and s > -1/2, which (9.5) needs, is
+     available iff Re lam < c + 1 = 5/2.
+ (iii) (J3) The Fourier transform in v carries N_sf(lam) to 2 i rhat (-d_rhat rhat + lam - c - S) + L~(0)(-d_rhat rhat +
+     lam), and conjugation by rhat^(lam - 1) -- the only power that lands on (9.58)'s operator, the same at every n -- to
+     -2 i rhat (rhat d_rhat + c + S) + L~(0)(-rhat d_rhat) = rhat^2 N_tf(L-bar, +1). ((9.7) prints this bracket as
+     rhat^-2 N_tf; against (9.58) it is rhat^2 N_tf, a normalisation that does not touch the kernel.)
+ (iv) (J4) On e^(i theta rhat) rhat^-a, N_tf(L-bar, +1)'s leading coefficient is theta (theta + 2): the outgoing end is
+     non-oscillating, with solutions rhat^-(c + S)(1 + O(rhat^-1)), in H^(oo, l)_b(|d rhat/rhat|) near the scattering end
+     iff l < c + Re S; the incoming phase is e^(-2 i rhat).
+ (v) (J5) (9.22) is (9.11) at every c; h = v^lam h~ has the I+ b-weight c - eps (his 1 - eps; arithmetic from (ii) and
+     (9.5)) and (9.22)'s right side the order c + 1 - eps; (9.5) serves Re lam < c + 1 and (9.21) Re lam > c; the a
+     priori bound excludes v^lam from h's expansion iff Re lam < c.
+
+*Deduced: each statement at n = 4.*
+
+ (a) (Proposition 9.2, both halves.) The semi-Fredholm estimate: principal part 2 D_v v D_v + (v D_v)^2 + the Laplacian
+     of S^3, radial points at N*{v = 0}, real principal type propagation and b-ellipticity at R = 0 -- [Vas13]'s and
+     [Hin25a]'s general estimates, free of n -- with (ii)'s threshold; the error weakened by the normal operator argument
+     at R = 0 for mu in (Re lam - eps_ind, Re lam), eps_ind 10.52's. Part (3) is Haber-Vasy's module regularity, free of
+     n. The injectivity half is (xiv) with (ii)-(iii): no kernel for Re lam < 1 + eps_ind, through Proposition 8.6 at n =
+     4 (10.24 (c)-(d), 10.25 (b)). The index 0 half: the Fredholm property from (9.4) and its dual, free of n; the index
+     constant along lam_0 + i varsigma; (9.8)'s conjugated operator N_h near R = 0 is [Hin26c] (10.7)'s N^0_iota+(P_0, -i
+     lam) with c = 3/2 (iplusnorm5.py N1); the semiclassical estimate (9.9) is [Hin26c] section 10.1.2's at n = 4 -- the
+     energy estimate near v = -1 and the propagation across v = 0 free of n, the cone point radial estimates
+     (10.27)-(10.28) with their n = 4 densities and thresholds (iplusnorm5.py N2-N7; (lx)), the tf step's inversion of
+     N_tf(L-bar, 1), Proposition 8.6 at n = 4, and for the adjoint [Hin26c] Corollary 9.39 at n = 4 (10.80); footnote 86
+     -- the one lower bound on Re lam_0 in [Hin26c] section 10.1.2 comes from the 0-end, absent here -- does not see n;
+     for fixed h the cone norm is the b-norm. So N_sf(lam) is invertible for large Im lam, of index 0 throughout,
+     invertible for Re lam < 1 + eps_ind, with a finite-meromorphic inverse with finitely many poles in each half-plane
+     Re lam <= C (with lam_0 - i h^-1 as well): the half 10.37 (c) left, and spec_iota+(L-bar) at n = 4 is discrete and
+     finite in each such half-plane, as 10.37 (d)-(e) and 10.47 (b) used.
+ (b) (Proposition 9.4.) h~ in H-dot^((2 - Re lam - eps; oo)) by (a); (9.5) for Re lam < 5/2 and (9.21) for Re lam > 3/2
+     give h = v^lam h~ in A^(3/2 - eps, -eps) ((v)); b-ellipticity at R = 0 with E_K from the five-dimensional roots of
+     non-positive real part (10.24, 10.35 (i)), every one but 0 negative, so min Re(E_K \ {(0, 0)}) > 0; the expansion at
+     I+ for Re lam < 3/2, the roots spec(3/2 + S-bar) solved component by component as at n = 3 -- E^tot, E^C and the
+     E_bullet of (9.12)-(9.14) at n = 4 being 10.44's (Proposition 10.41, iplus5.py P1-P2), the expansion stopped at l_I
+     < 3/2 + (1 - e_C)(1 - v) gam_C, the n = 4 window (10.44 (ii), 10.46 (iii)); the continuation (9.23)-(9.24) from Re
+     mu < 3/2 along a path avoiding pi_1 E^tot, his 'lam = 1 for concreteness' being 3/2, the least element of the n = 4
+     E^tot; (9.17) at n = 4, (v d_v - 3/2 - S-bar) h in A^(E^tot + 1), by unique continuation from Re mu < 3/2; and
+     (9.18) with Re lam < l_I, the extension by zero in L^1_loc when l_I - 1 - Re lam > -1, free of n.
+ (c) (Proposition 9.9.) A_0 = L~(0)(omega, -R d_R, d_omega), A_1 = -2(R d_R + lam)(R d_R + 3/2 + S-bar) ((i)); Lemma
+     2.13's Mellin argument, free of n; the roots of b-L-bar(0) with real parts in [-3, 0] at n = 4 are his and the
+     tensor types' t2 at -2 and t3 at -3 (10.35 (i)), so (9.32) at n = 4 is his list with t*^lam h-bar^(-2),<=1_t2
+     (t*^(-lam-2) T_2) and t*^lam h-bar^(-3)_t3(t*^(-lam-3) T_3) added, each carried to an order k with -mu + k + 1 >=
+     3 + eps_ind as his are (4 for both); the formal solutions (9.29)-(9.31) are free of n given the states, and the
+     states and generalized states at n = 4 are 10.28-10.30's and 10.34's (the tensor types' by 10.34 (iii), -3 not a
+     root at the tensor type); the expansion stops below 3 + eps_ind because no root has real part in (-3 - eps_ind,
+     -3), 10.52's (8.13).
+ (d) (Proposition 9.11, Corollary 9.12.) (9.39a) and its matching with (9.32)'s first term are free of n; at I+ his Lemma
+     8.1 step acts as (i)'s -2 v (v d_v - lam)(v d_v - 3/2 - S-bar) on u~, which with (b)'s (9.17) gives (9.41)'s index
+     set E^tot + 2; at K+ the order of L_b(h^(mu),<=k_b(t*^(-lam+mu))) is lam - mu + k + 1 by (9.37), free of n, at least
+     lam + 3 + eps_ind by (c)'s orders, the t2 and t3 terms included; the Kerr states and identities he cites ((6.39b)
+     among them) are at n = 4 those of 10.28-10.30 and 10.34, as (xxxvii) took them. Corollary 9.12's contour integral is
+     free of n.
+ (e) (Lemma 9.14, Proposition 9.15, (9.49).) The exceptional (dx^1)^2 terms at n = 4 are 10.44 (ii)'s, at 2 (a
+     reading, 10.59 (c)) and 3/2 + (1 - e_Ups) gam_Ups, so E^C_I,sharp = (2, 0) u (3/2 + (1 - e_Ups) gam_Ups, 0) u
+     E^C_I; z - 3/2 - S-bar is invertible for 3/2 + 2 gam_Ups < Re z < 3/2 + (1 - e_C)(1 - v) gam_C (10.44 (ii));
+     Lemma 9.13 is one-dimensional. Proposition 9.15 extends from Re lam < 3/2 -- Proposition 9.4 (2) on inputs of I+
+     order 5/2 - eps for Re lam < 3/2 - eps -- with poles in spec_iota+ u pi_1 E^C_I,sharp. (9.49) at n = 4: the least
+     pole is 3/2 + (1 - e_Ups) gam_Ups, a pure resonance having real part above 2 (10.37 (d)).
+ (f) (Corollary 9.18, Definition 9.19, Lemma 9.21, (9.54)-(9.56), Proposition 9.22.) Contour integrals, residues and the
+     splitting f = f_1 + f_2, free of n given (e); in Lemma 9.21's proof -2 v (v d_v - z)(v d_v - 3/2 - S-bar) maps
+     <E^C_I> to <E^C_I + 1>' by 10.44's index sets; (9.55) at n = 4 carries v^3 and v^(5/2 + (1 - e_Ups) gam_Ups) on
+     (dx^1)^2, (e)'s exceptional exponents plus 1; Res_iota+(L-bar, lam) is finite-dimensional by (a).
+ (g) (Lemma 9.26, Propositions 9.30 and 9.35.) N_tf at n = 4 is (9.58) with L~_1 = -2(x - 3/2 - S-bar) ((i), (iii);
+     iplusnorm5.py N8), inverted by Corollary 8.7 at n = 4 (10.24-10.25); its expansion at ztf runs over (c)'s roots,
+     so (9.62c), (9.75b) and (9.88b) gain the t2 and t3 terms, and Remark 9.27 (1)'s exceptional alpha are those with
+     -alpha + 2 congruent mod 1 to a negative of an n = 4 root; the residue Pi^(0) of N_0(lam)^-1 at 0 in Case 2 has
+     rank dim S_0 + dim S_2 = 1 + 9 = 10 on S^3 (his 6 = 1 + 5; arithmetic); the scattering end's l_scf < 1 is l_scf <
+     c + min spec S-bar = 3/2 at n = 4 ((iv), and iplusnorm5.py N5's b-density threshold c + S-bar), so the statements
+     hold with l_scf < 1 as printed and up to 3/2; L-hat_b(sigma) - |sigma|^2 N_tf lies in rho_scf^2 rho_tf^3 Diff^2_b
+     a fortiori, Tangherlini differing from Minkowski at rho^2 (10.28 (i)); footnote 94's powers of |sigma|,
+     floor(lam^Ups) - 1, are non-negative integers for the listed lam^Ups in [1, 4]; and Proposition 9.35's Step 1 asks
+     alpha - 2 not to be a root, which its hypothesis gives with the n = 4 roots.
+
+*What this gives, and what it does not.* RI is written out, and leaves the twelve rows it touched. Ten keep RB and their
+other roots; 10.47 (d) and (e), whose one root it was, now rest on RB alone, through (a)'s index 0 half, whose estimates
+are [Hin26c]'s applied to symmetric 2-tensors (Proposition 8.6, Corollary 9.39 and section 10.1.2). Thirty-four rows take
+a reading. The roots left are RB and RU, the source's kind, the same at every n, and RP, the record's own computation.
+10.37 (c)'s index 0 half and 10.47's OPEN on Propositions 9.4 (2), 9.9, 9.15 and 9.22 and Corollary 9.18 at n = 4 are
+discharged, and so is the finiteness of the iota+ spectrum below 3 + eps_+; where it lies between 5/2 and 3 + eps_+ stays
+uncomputed, which 10.59 (b) found not needed. Not retrieved: printed p. 173. Labels: computed (J1-J5); READ (the pages
+named); deduced ((a)-(g)); nothing proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

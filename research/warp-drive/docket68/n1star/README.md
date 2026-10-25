@@ -308,6 +308,10 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `tfnorm5.py`: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (section 10.80; D173): (9.117) at every n
   with one misprint named, the indicial roots -lambda and -n + 2 + lambda-bar, the densities' n/2 in the embedding and in
   (3.46), and (9.122)'s leading part (R1-R4). `python3 tfnorm5.py --selftest` (4/4, seconds), `--mutants` (4/4).
+- `iotasol5.py`: the numerals of [Hin26] section 9's iota+ and tf solution theory at n = 4 (section 10.82; D176): the
+  model from -box with c = (n - 1)/2 for his 1, N_sf's exponents at v = 0 and its thresholds, the Fourier step to the tf
+  operator, the outgoing end of tf (l_scf < c), and Proposition 9.4's weights at I+ (J1-J5). `python3 iotasol5.py
+  --selftest` (5/5, seconds), `--mutants` (5/5).
 - `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
   the passages carried to n = 4 -- 278 hits on the 205 pages swept (D143; 270 before its [CD03] window was set right),
   every one accounted for by 10.53-10.58 and 10.63-10.68 but one norm convention of [Hin26a] p. 62, named in 10.69. Runs
@@ -327,7 +331,7 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   D147); the column `written` marks the sixty-one written out at n = 4 (section 10.75; D146, D148, D150-D152, D154-D156,
   D158-D161, D163-D164, D166-D167). `READINGS.tsv` traces the rows that rest on a reading to ten roots, the statements at
   the foot of each chain (section 10.77; D169); RK, RG and RE are settled in 10.78 (D170), RH by `hthresh5.py` in 10.79
-  (D171); RL is written out in 10.80 (D173); RC is READ for general n in 10.81 (D174).
+  (D171); RL is written out in 10.80 (D173); RC is READ for general n in 10.81 (D174); RI is written out in 10.82 (D176).
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).
