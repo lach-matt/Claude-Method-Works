@@ -5110,3 +5110,15 @@ remainder rho_0^2 rho_I^3 rho_+^2); the gauge-fixed equation with trace weight 2
 checks: chk3b.py, chkboost.py, chkric.py (Tangherlini Ricci-flat). Finding (K1): Definition 3.17 inconsistent, Lemma
 3.18's vanishing for r <= 5m_0 not given by the cut-offs; repaired by a radial cut-off. Next: seat the ninetieth
 verifier; Part III.A or III.C.
+
+**D216 (2026-10-25): the ninetieth verifier seated; Parts II.F, II.F' and II.G proved.** It read Part II.G' line by line
+with sympy checks of (5.1), the remainder of (5.2), (J1), (J2), (J6), Lemma 2.3's Hardy chains and Proposition 5.4's
+identities, and the D213 repairs of II.G. Verdict: sections 2-5 complete proofs at n = 4, every cited statement of
+I.A-I.C, II.A, II.C, II.E, II.F' as used, (J1)-(J13) correct readings with the three claimed failures real; the D213
+repairs correct. No major. Minor 1: Lemma 3.4's proof had dt_*/<t_*> <= dT/T reversed; the bound now splits at T = 2.
+Minor 2: the order of Q_alpha,beta in (4.1b) is (-N, r - r_out + eps). Nits: (1+j) in Proposition 2.8 (1); ell
+independent of eps; Re sigma_0 = 0 in Corollary 4.2 (1); C_0 >= 1; density for Leibniz' rule; Proposition 4.7 at every
+weight of the gap and (J10)(b); (J6)'s scope; rho_+ after Definition 5.2; a scratch reference; Lemma 13.6 fails too
+((J1)). Recorded in II.G' section 7.3. With the D212 repairs confirmed at D213, Parts II.F, II.F' and II.G are proved;
+II.G' is verified. Status: Parts I.A-I.C, II.A, II.A', II.F, II.F', II.G proved; II.B-II.E and II.G' verified; III.B
+written. Next: Part III.A' (harmonics on S^3) and III.A; the ninety-first verifier on III.B and the D216 repairs.

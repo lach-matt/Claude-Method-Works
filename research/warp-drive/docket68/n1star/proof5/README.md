@@ -26,10 +26,10 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
-| II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | verified (D212) |
-| II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | verified (D212) |
-| II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | verified (D213) |
-| II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | written (D214) |
+| II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | **proved** (D216) |
+| II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | **proved** (D216) |
+| II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | **proved** (D216) |
+| II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | verified (D216) |
 | III.A | [Hin26] 2 | technical prerequisites: partial polyhomogeneity, integration along b-fields, harmonics on S^3 | to do |
 | III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed Einstein equation | written (D215) |
 | III.C-III.J | [Hin26] 5-12 | exterior stability; gauge potential, constraint and linearised operators; spectral theory; decay | to do |
@@ -419,7 +419,9 @@ indicial root at null infinity is $\frac32$. Findings (J1)-(J13), among them tha
 13.5 fail at $\sigma = \infty$, that its spaces (13.7)-(13.8) as printed carry no Taylor terms, so that Corollary 13.7
 as printed fails for $\beta>1$, and that the first step of its Proposition 13.11 (2) needs $\ell'\ge1-\delta$; none
 changes what later parts use, in the forms proved here. Uniformity in the operator is reduced to that of Part I's
-estimates (section 6.2). Written (D214).
+estimates (section 6.2). Written (D214). Read by the ninetieth verifier: no major finding; two minor findings (a
+reversed inequality in a proof, a sign in a symbol order) and eleven nits seated (D216). Verified; the repairs await the
+next reader.
 
 ## Part III.B
 
@@ -437,3 +439,7 @@ the gauge modifications take the trace weight $\frac23$, which makes them act on
 Ricci-flatness of Tangherlini; the Ricci-flatness of the spinning family is READ. One finding (K1): the source's
 Definition 3.17 is inconsistent and its Lemma 3.18 claims the boost field vanishes near the black hole at early times,
 which the cut-offs do not give; repaired by a radial cut-off, with nothing changed at infinity. Written (D215).
+
+*Proved (D216).* The ninetieth verifier confirmed the D213 repairs of Part II.G, and the eighty-ninth had confirmed the
+D212 repairs of Parts II.F and II.F' (D213, recorded there as confirmed but not yet marked): Parts II.F, II.F' and II.G
+are proved.

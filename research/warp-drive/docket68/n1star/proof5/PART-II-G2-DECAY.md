@@ -1,14 +1,15 @@
 # Part II.G$'$. Improving decay: Fourier transforms, resolvent bounds and the radiation field, at n = 4
 
-*Status.* Written out in full (D214). Not yet read by an independent verifier; nothing here is labelled proved. This
-part proves, at spatial dimension $n = 4$, the tools of [Hin26c] section 13 (pp. 243-260) by which forward solutions are
-shown to decay faster than Theorem 11.1 alone gives: the Fourier transform in time on weighted b-Sobolev spaces, on the
-line and on the resolved product spaces (the source's 13.1); the translation of Part I's resolvent estimates at nonzero,
-high and low frequencies into b-Sobolev spaces with a loss of b-regularity independent of the order (13.2); and the
-radiation field at null infinity (13.3). The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers).
-Parts I.A (`PART-I-SPECTRAL.md`), I.B (`PART-I-B-HIGHENERGY.md`), I.C (`PART-I-C-LOWENERGY.md`), II.A
-(`PART-II-A-SETUP.md`), II.C (`PART-II-C-OPERATORS.md`) and II.F$'$ (`PART-II-F2-TAME.md`) are cited as I.A, I.B, I.C,
-II.A, II.C and II.F$'$.
+*Status.* Verified (D216). Written out in full (D214) and read line by line by the ninetieth verifier, which found no
+major gap; its two minor findings and eleven nits are seated (section 7.3). Nothing here is labelled proved until a
+reader has read those repairs. This part proves, at spatial dimension $n = 4$, the tools of [Hin26c] section 13 (pp.
+243-260) by which forward solutions are shown to decay faster than Theorem 11.1 alone gives: the Fourier transform in
+time on weighted b-Sobolev spaces, on the line and on the resolved product spaces (the source's 13.1); the translation
+of Part I's resolvent estimates at nonzero, high and low frequencies into b-Sobolev spaces with a loss of b-regularity
+independent of the order (13.2); and the radiation field at null infinity (13.3). The source is [Hin26c] = P. Hintz,
+arXiv:2606.28008v1 (printed page numbers). Parts I.A (`PART-I-SPECTRAL.md`), I.B (`PART-I-B-HIGHENERGY.md`), I.C
+(`PART-I-C-LOWENERGY.md`), II.A (`PART-II-A-SETUP.md`), II.C (`PART-II-C-OPERATORS.md`) and II.F$'$
+(`PART-II-F2-TAME.md`) are cited as I.A, I.B, I.C, II.A, II.C and II.F$'$.
 
 *Method.* The source's section 13.1 states its results for every $n$; they are proved here, at $n = 4$, with one change
 of route. The facts on the line that the source draws from [Tay11a] and from complex interpolation are proved instead
@@ -270,7 +271,7 @@ $a = \beta-1$ ($|\sigma|^{a+\frac12} = |\sigma|^\gamma$).
 *Case $\gamma = 0$*: $P = 0$ ($a = -\frac12$), and $F_{jl}\in L^2$.
 
 *Case $\gamma\in(-\frac12,0)$*, so $\ell_- = 1$ and $P = 0$. Fix $j+l\le k$ and let $F := F_{jl}$, $G := \sigma F =
-F_{j+1,l}\in H^\gamma$. Then $\partial_\sigma G = F+F_{j,l+1}\in H^\gamma$, so $G\in H^{\gamma+1}$ with norm $\le
+F_{j+1,l}\in H^\gamma$. Then $\partial_\sigma G = (1+j)F+F_{j,l+1}\in H^\gamma$, so $G\in H^{\gamma+1}$ with norm $\le
 C\|u\|$. By Lemma 2.4 at $\gamma+1\in(\frac12,1)$, $G$ is continuous and $G-G(0)\in|\sigma|^{\gamma+1}L^2(-1,1)$. We
 show $G(0) = 0$. Let $\psi\in C_c^\infty((1,2))$ with $\int\psi(s)\frac{ds}s = 1$ and $\psi_\varepsilon :=
 \psi(\cdot/\varepsilon)$. On $(0,\infty)$, $F = G/\sigma$, so $\int F\psi_\varepsilon =
@@ -516,9 +517,10 @@ suffices to show $\|w_\beta^{-1}f\|_{L^2(\mu_M)}\le C_\epsilon\|\rho^{-\gamma}f\
 $f$, $\beta = (\gamma-\epsilon,\gamma,-\epsilon)$. By (3.1), $w_\beta = \langle
 x\rangle^{-\gamma}(\rho_I\rho_K)^{-\epsilon}$, and $\rho_I\rho_K = T\langle x\rangle/(T+\langle x\rangle)^2$ with $T :=
 \langle t_*\rangle$. As $\int(T\langle x\rangle/(T+\langle x\rangle)^2)^{2\epsilon}\frac{dt_*}{\langle
-t_*\rangle}\le2\int_0^\infty(\frac\varsigma{(1+\varsigma)^2})^{2\epsilon}\frac{d\varsigma}\varsigma =:
-C_\epsilon<\infty$ (substitute $T = \langle x\rangle\varsigma$; $dt_*/\langle t_*\rangle\le dT/T$ on each half-line, as
-$T\,dT = |t_*|dt_*$ and $|t_*|\le T$), uniformly in $x$, the claim follows by Fubini. $\square$
+t_*\rangle}\le2\sqrt3+\frac4{\sqrt3}\int_0^\infty(\frac\varsigma{(1+\varsigma)^2})^{2\epsilon}\frac{d\varsigma}\varsigma
+=: C_\epsilon<\infty$ (the integrand is at most 1, and $\{T\le2\}$ has $t_*$-length $2\sqrt3$; on $\{T\ge2\}$, $T\,dT
+= |t_*|dt_*$ gives $\frac{dt_*}{\langle t_*\rangle} = \frac{dT}{(T^2-1)^{1/2}}\le\frac2{\sqrt3}\frac{dT}T$ on each
+half-line, and $T = \langle x\rangle\varsigma$), uniformly in $x$, the claim follows by Fubini. $\square$
 
 **Proposition 3.5 ([Hin26c] Proposition 13.11).** Let $\beta_K\in(0,\infty)\setminus\mathbb N$,
 $\beta_\iota,\beta_{\mathrm{scf}},\beta_I,\delta\in\mathbb R$, $\epsilon\in(0,1)$, and $\chi\in C_c^\infty((-1,1))$
@@ -648,8 +650,8 @@ x\rangle D_{x_j}\in\Psi^{1,1}$ and commutators with elements of $\Psi^{0,0}$ lie
 
 (4.1b): put $k' := k-\tilde\ell$. On $\mathrm{WF}'(Q_{\alpha\beta})\subset U$ the frequencies are finite and $\mathsf
 r+\alpha\ge\mathsf r_{\mathrm{out}}+\alpha-\epsilon$, so $Q_{\alpha\beta}$ maps $H^{s,\mathsf r+\alpha}$ to
-$H^{0,\mathsf r_{\mathrm{out}}+\alpha-\epsilon}$ (its symbol lies in the class of order $(-N,\mathsf
-r_{\mathrm{out}}-\mathsf r-\epsilon)$ for every $N$), and $\|Q_0u\|_{(0;k'),\mathsf r_{\mathrm{out}}+\alpha-\epsilon}\le
+$H^{0,\mathsf r_{\mathrm{out}}+\alpha-\epsilon}$ (its symbol lies in the class of order $(-N,\mathsf r-\mathsf
+r_{\mathrm{out}}+\epsilon)$ for every $N$), and $\|Q_0u\|_{(0;k'),\mathsf r_{\mathrm{out}}+\alpha-\epsilon}\le
 C\|u\|_{(s;k'),\mathsf r+\alpha}$. For $Q_1$, I.A Lemma 4.10 and its converse give
 $$\|Q_1u\|_{(0;k'),\mathsf r_{\mathrm{out}}+\alpha-\epsilon}\le
 C\big(\|Q_1u\|_{k',\mathsf r_{\mathrm{out}}+\alpha-\epsilon+k'}+\|u\|_{-N,-N}\big)\le
@@ -692,16 +694,19 @@ $(s,\mathsf r)$ admissible for every real part near $\sigma_*$, with $\mathsf r 
 r_{\mathrm{in}}-\mathsf r_{\mathrm{out}})\Theta\chi_c$ taking values in $[\mathsf r_{\mathrm{out}},\mathsf
 r_{\mathrm{in}}]$ and equal to $\mathsf r_{\mathrm{out}}$ near $R_{\mathrm{out}}$ ($\Theta = 0$ near $\xi = 0$). If
 $\mathrm{Re}\,\sigma_0 = 0$, then $\mathrm{Im}\,\sigma_0>0$ and the constant order $\mathsf r\equiv\mathsf
-r_{\mathrm{out}}$ is allowed by I.A Theorem 7.2 (2). In both cases Lemma 4.1 applies with $\ell_a := \max(\lceil\mathsf
-r_{\mathrm{in}}-\mathsf r_{\mathrm{out}}\rceil,\lceil(s-1)_+\rceil)$ and $\tilde\ell := \lceil(-s)_+\rceil$; put $\ell
-:= \ell_a+\tilde\ell$.
+r_{\mathrm{out}}$ is allowed by I.A Theorem 7.2 (2). In both cases Lemma 4.1 applies with $\ell_a :=
+\max(\lceil(\frac12(-1+\vartheta_{\mathrm{in}})+\frac72-\beta_{\mathrm{scf}})_+\rceil,\lceil(s-1)_+\rceil)$, which is at
+least $\lceil\mathsf r_{\mathrm{in}}-\mathsf r_{\mathrm{out}}\rceil$ for every $\epsilon\in(0,1)$ (Lemma 4.1 holds with
+any larger loss), so that $\ell$ does not depend on $\epsilon$ and $\tilde\ell := \lceil(-s)_+\rceil$; put $\ell :=
+\ell_a+\tilde\ell$.
 
-(1) By I.A Theorem 7.2 (6), (7.6), with $\alpha_+ = 0$: $\partial^j_\sigma\hat P(\sigma_0)^{-1}:\bar
-H^{(s-1;k+\tilde\ell+j),\mathsf r+1}\to\bar H^{(s+j;k+\tilde\ell),\mathsf r}\subset\bar H^{(s;k+\tilde\ell),\mathsf r}$.
-Precompose with (4.1a) at $\alpha = 0$, $\frac\epsilon2$ and order $k+\tilde\ell+j$, whose source space is $\bar
-H^{k+j+\ell,\beta_{\mathrm{scf}}+1}_b$ as $\mathsf r_{\mathrm{out}}+3+\frac\epsilon2 = \beta_{\mathrm{scf}}+1$, and
-compose with (4.1b) at $\frac\epsilon2$ and order $k+\tilde\ell$, whose target is $\bar
-H^{k,\beta_{\mathrm{scf}}-\epsilon}_b$.
+(1) By I.A Theorem 7.2 (6), (7.6), with $\alpha_+ = 0$ (at $\mathrm{Re}\,\sigma_0 = 0$ the proof of (7.6) in I.A uses
+only Theorem 7.2 (4) and the invertibility at the orders $(s+\ell,\mathsf r)$, which hold with the constant order):
+$\partial^j_\sigma\hat P(\sigma_0)^{-1}:\bar H^{(s-1;k+\tilde\ell+j),\mathsf r+1}\to\bar H^{(s+j;k+\tilde\ell),\mathsf
+r}\subset\bar H^{(s;k+\tilde\ell),\mathsf r}$. Precompose with (4.1a) at $\alpha = 0$, $\frac\epsilon2$ and order
+$k+\tilde\ell+j$, whose source space is $\bar H^{k+j+\ell,\beta_{\mathrm{scf}}+1}_b$ as $\mathsf
+r_{\mathrm{out}}+3+\frac\epsilon2 = \beta_{\mathrm{scf}}+1$, and compose with (4.1b) at $\frac\epsilon2$ and order
+$k+\tilde\ell$, whose target is $\bar H^{k,\beta_{\mathrm{scf}}-\epsilon}_b$.
 
 (2) For $\sigma_*\in\bar I$, the orders chosen at $\sigma_*$ serve for all $\sigma$ near $\sigma_*$ (I.A Lemma 7.1,
 resp. Theorem 7.2 (2)), and by I.A Theorem 7.2 (6) the estimates (7.1), (7.3) hold there without their last terms
@@ -806,7 +811,8 @@ C|\sigma|^{-1+(j+1)\delta}\|g\|_{(s-1;m+j),\mathsf r+1,0;+}.$$
 By (4.2) at $h = |\sigma|^{-1}$, the norm of $v := \hat P^{-1}\hat f$ in the target of (4.4) is equivalent to
 $(\sum_{l\le k}\int|\sigma|^{2\delta_2}\|(\sigma\partial_\sigma)^lv\|^2_{(0;k-l),\mathsf
 r_{\mathrm{out}}-\frac\epsilon2,0;+}\,|d\sigma/\sigma|)^{1/2}$, as $\beta_{\mathrm{scf}}-\epsilon-2 = \mathsf
-r_{\mathrm{out}}-\frac\epsilon2$. By Leibniz' rule, $(\sigma\partial_\sigma)^lv$ is a combination of
+r_{\mathrm{out}}-\frac\epsilon2$. By Leibniz' rule (first for $\hat f$ in the dense subspace of functions smooth in
+$\sigma$, as in Corollary 4.2 (2), then by continuity), $(\sigma\partial_\sigma)^lv$ is a combination of
 $((\sigma\partial_\sigma)^{l'}\hat P^{-1})g_{l'}$, $g_{l'} := (\sigma\partial_\sigma)^{l-l'}\hat f$, $l'\le l$ (I.B
 Theorem 1.3 (5) gives the differentiability), and by (4.3b), (1.8) and (4.3a), at fixed $\sigma$,
 $$\|((\sigma\partial_\sigma)^{l'}\hat P^{-1})g\|_{(0;k-l),\mathsf r_{\mathrm{out}}-\frac\epsilon2,0;+}\le
@@ -821,12 +827,13 @@ the norm of $\hat f$ in $H^{k',\beta_{\mathrm{scf}}+1,\delta_1}_{b+}$ with $k' =
 k+M+\ell_1+\ell_2$. So (4.4) holds with $\ell := \ell_1+\ell_2+2N+\lceil(\delta_2-\delta_1)_+\rceil$. $\square$
 
 **Corollary 4.5 ([Hin26c] Corollary 13.17 at $n = 4$).** Assume (H1)-(H8) of I.B for the spectral family $\hat P$ of a
-stationary wave-type operator $P_0$ (II.C Lemma 1.2), let $C_0$ be as in I.B Theorem 1.3 (3), $\chi\in
-C_c^\infty(\mathbb R)$ equal to 1 on $[-C_0,C_0]$, and $\chi_T\in C^\infty(\mathbb R)$ equal to 0 on $(-\infty,1]$ and
-to 1 on $[2,\infty)$. Let $\beta_I,\beta_\iota,\beta_K,\beta'_\iota,\beta'_K\in\mathbb R$,
-$\beta'_I<\min(\beta_I,\frac32+\bar S)$, $\eta>0$ and $\delta := \delta_\Gamma(-\eta)$. There is $\ell\in\mathbb N_0$
-such that for every $k$ and every $f\in H^{k+\lceil k\delta\rceil+\ell,(\beta_I+1,\beta_\iota+2,\beta_K)}_b(M;E)$ ($M$
-over $\bar X$, Remark 3.7), $u := \mathcal F^{-1}\big((1-\chi(\sigma))\hat P(\sigma)^{-1}\hat f(\sigma)\big)$ lies in
+stationary wave-type operator $P_0$ (II.C Lemma 1.2), let $C_0\ge1$ be as in I.B Theorem 1.3 (3) (enlarged if necessary,
+which preserves invertibility), $\chi\in C_c^\infty(\mathbb R)$ equal to 1 on $[-C_0,C_0]$, and $\chi_T\in
+C^\infty(\mathbb R)$ equal to 0 on $(-\infty,1]$ and to 1 on $[2,\infty)$. Let
+$\beta_I,\beta_\iota,\beta_K,\beta'_\iota,\beta'_K\in\mathbb R$, $\beta'_I<\min(\beta_I,\frac32+\bar S)$, $\eta>0$ and
+$\delta := \delta_\Gamma(-\eta)$. There is $\ell\in\mathbb N_0$ such that for every $k$ and every $f\in H^{k+\lceil
+k\delta\rceil+\ell,(\beta_I+1,\beta_\iota+2,\beta_K)}_b(M;E)$ ($M$ over $\bar X$, Remark 3.7), $u := \mathcal
+F^{-1}\big((1-\chi(\sigma))\hat P(\sigma)^{-1}\hat f(\sigma)\big)$ lies in
 $H^{k,(\beta'_I,\beta'_\iota,\beta'_K)}_b(M;E)$, with norm $\le C_k\|f\|$. If $f\in H^{k+\lceil
 k\delta\rceil+\ell,(\beta_I+1,\beta_\iota+2,\beta_K)}_b(\Omega;E)^{\bullet,-}$ (extended by 0 to $t_*<1$), then
 $\chi_T(t_*)u\in H^{k,(\beta'_I,\beta'_\iota,\beta'_K)}_b(\Omega;E)^{\bullet,-}$.
@@ -917,7 +924,11 @@ H^{k,(\beta_{\mathrm{scf}}-\epsilon,\ \beta_{\mathrm{tf}},\ \beta_{\mathrm{zf}})
 \ \text{is bounded}.\tag{4.6}$$
 
 The source fixes one $c$ for all $k$; I.C Theorem 6.4 (4) gives $c_{j,k}$ depending on $j,k$ (I.C Remark 6.7 (a)), so
-here $c_k$ depends on $k$ (section 7, (J10)). The gap condition is on the b-weight for $\mu_b$, as in I.C (G).
+here $c_k$ depends on $k$ (section 7, (J10)). The gap condition is on the b-weight for $\mu_b$, as in I.C (G). As I.C
+Theorem 6.4 (5) gives its conclusions at every weight of the gap ((Z) by I.C Theorem 3.1 (4), (TF) by I.C Corollary 5.2
+(c)), and $\ell = \ell_a+\tilde\ell$ does not depend on $\alpha$, the proposition holds for every
+$\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}}$ in the gap with one $\ell$, as the source's (13.31) states; only $c_k$ and the
+constants depend on the weight.
 
 *Proof.* As $|\sigma|^{\beta_{\mathrm{zf}}} =
 \rho_{\mathrm{tf}}^{\beta_{\mathrm{zf}}}\rho_{\mathrm{zf}}^{\beta_{\mathrm{zf}}}$ is scalar in $\sigma$, commutes with
@@ -931,7 +942,8 @@ r_{\mathrm{out}}$ near the zero section over sctf; let $\ell_a$, $\tilde\ell$ be
 c_{j,m}$, $\mathrm{Im}\,\sigma\ge0$,
 $$\|(\sigma\partial_\sigma)^j\hat P(\sigma)^{-1}g\|_{(s+j;m),(\mathsf r,\alpha,0),\varsigma}\le
 C\|g\|_{(s-1;m+j),(\mathsf r+1,\alpha+2,0),\varsigma},\qquad\varsigma = |\sigma|.$$
-Let $c_k := \min(\varsigma_1,\min\{c_{j,m}:j\le k,\ m\le k+\tilde\ell\})$. For $k'\le k$, Leibniz' rule writes
+Let $c_k := \min(\varsigma_1,\min\{c_{j,m}:j\le k,\ m\le k+\tilde\ell\})$. For $k'\le k$, Leibniz' rule (first for $\hat
+f$ in the dense subspace of functions smooth in $\sigma$, as in Corollary 4.2 (2), then by continuity) writes
 $(\sigma\partial_\sigma)^{k'}(\hat P^{-1}\hat f)$ as a combination of $((\sigma\partial_\sigma)^{k''}\hat P^{-1})g$, $g
 := (\sigma\partial_\sigma)^{k'-k''}\hat f$, and at fixed $\sigma$, by (4.5b) with $l = \alpha$ and $\frac\epsilon2$, the
 estimate above with $m = k-k'+\tilde\ell$, and (4.5a) with $l = \alpha$ and $\frac\epsilon2$,
@@ -966,7 +978,7 @@ $$t_*\partial_{t_*}|_r = (1-\rho_I)\mathsf W,\qquad\rho\partial_\rho|_{t_*} = \r
 \qquad\rho\,t_*^{-1} = \rho_I\rho_+^2(1-\rho_I).\tag{5.1}$$
 (Direct computation: $t_*\partial_{t_*}\rho_I = \rho_I(1-\rho_I)$, $t_*\partial_{t_*}\rho_+ = -\rho_+(1-\rho_I)$,
 $\rho\partial_\rho\rho_I = \rho_I(1-\rho_I)$, $\rho\partial_\rho\rho_+ = \rho_I\rho_+$; checked by machine, scratchpad
-`d213/chk_nf.py`.)
+a sympy check run with D214 (a scratch script, not kept; the identities are derived in the text).)
 
 **Lemma 5.1 (the normal form at $n = 4$; [Hin26c] (13.32)).** Let $P_0$ be a stationary wave-type operator (II.C
 Definition 1.1) with $S\in\rho C^\infty(\bar X;\mathrm{End}\,\mathbb C^N)$, that is $S|_{\partial X} = 0$. If $c_0$ is
@@ -1009,8 +1021,8 @@ H^{k,b_+}_b(\mathscr I^+),\ \tilde u\in H^{k,(b_I,b_+)}_b(\mathcal C_a)\big\},$$
 normed by $\|u_0\|+\|\tilde u\|$, where $H^{k,b_+}_b(\mathscr I^+) := \rho_+^{b_+}H^k_b([0,4)\times\mathbb
 S^3,|\frac{d\rho_+}{\rho_+}d\omega|)$ and $u_0(\rho_+,\omega)$ is extended to $\mathcal C_a$ as a function independent
 of $\rho_I$. If $\zeta\ge b_I$, the space is $H^{k,(b_I,b_+)}_b(\mathcal C_a)$ (take $u_0 = 0$). For $\zeta = \frac32$
-and bounded $t_*$, $\rho_I^{3/2}u_0 = (t_*/r)^{3/2}(1+O(t_*/r))u_0(1/t_*,\omega)$: the leading term is $r^{-\frac32}$
-times a function of $(t_*,\omega)$, the radiation field.
+and bounded $t_*$, $\rho_I^{3/2}u_0 = (t_*/r)^{3/2}(1+O(t_*/r))u_0(\rho_+,\omega)$ with $\rho_+ = t_*^{-1}+O(r^{-1})$:
+the leading term is $r^{-\frac32}$ times a function of $(t_*,\omega)$, the radiation field.
 
 The decomposition is unique when $\zeta<b_I$, as $\rho_I^\zeta\notin\rho_I^{b_I}L^2(d\rho_I/\rho_I)$ near 0. The source
 leaves the extension of $u_{(1,0)}$ off $\mathscr I^+$ unstated (section 7, (J13)).
@@ -1202,7 +1214,8 @@ $H^{s,s}_b([0,\infty),|d\sigma|)\hookrightarrow\dot H^s$ from $\partial_\sigma =
 controls the derivatives but not $u$ itself, whose weight $\sigma^s$ is weaker than $L^2$ at $\infty$. The same $u$ lies
 in $H^{1,((0,0),\frac12)}_b([0,\infty))$ and not in $\bar H^1((0,\infty))$, so Corollary 13.5 fails as printed as well.
 The example concerns $\sigma = \infty$ only; what is used, at $\sigma = 0$, is carried by Lemma 2.4. Lemma 13.6 is
-stated with these spaces; it is not used later, not carried, and whether it holds as printed is not decided here.
+stated with these spaces and fails at $\sigma = \infty$ for the same reason (take the inverse transform of the same
+example, extended by 0); it is not used later and not carried.
 
 (J2) *The Taylor terms of (13.7)-(13.8).* (13.7) defines $H^{s,((0,0),\beta)}_b([0,\infty))$ with the sum
 $\sum_{\ell=0}^{\lfloor s-\frac12\rfloor}$, indexed by the regularity $s$ ("the sum is empty for $s<\frac12$"), and
@@ -1240,7 +1253,8 @@ $|\sigma|^{1-\delta-\ell'}L^2$ near $\infty$, which is contained in $|\sigma|^{\
 $\ell'\ge1-\delta$. For $\delta = -\frac12$, $\beta_\iota-\beta_I\le\frac12$ and $\beta_K\le\frac12$, the printed
 $\ell'$ is 1, less than $1-\delta = \frac32$, and the step fails: from $\sigma^{k+\ell}v\in|\sigma|^{\frac32}L^2$ it
 asks $\sigma^{k+\ell-1}v\in|\sigma|^{-\frac12}L^2$. Proposition 3.5 (2) is proved directly from Lemma 2.2, with the loss
-$\lceil(\frac32-\delta)_+\rceil+\lceil(\beta'-\frac12)_+\rceil$, $\beta' := \max(\beta_K,\beta_\iota-\beta_I)$.
+$\lceil(\frac32-\delta)_+\rceil+\lceil(\beta'-\frac12)_+\rceil$, $\beta' := \max(\beta_K,\beta_\iota-\beta_I)$, which is
+not sharp. The source's final loss is not shown insufficient; only its intermediate step is.
 
 (J7) *The numerals of Lemma 13.13 and (13.30) at $n = 4$.* With $\mu_b = |dx|/\langle x\rangle^4$, $L^2(\mu) =
 \rho^2L^2(\mu_b)$, so a scattering decay order $\mathsf r$ is the b-weight $\mathsf r+2$. The source's shifts $\frac52$
@@ -1260,9 +1274,9 @@ $k(1+\delta_\Gamma(-\epsilon))+\ell$ need not be an integer. Proposition 4.4 pro
 (J10) *Proposition 13.18.* (a) The source fixes one $c>0$ for all $k$. I.C Theorem 6.4 (4) gives radii $c_{j,k}$
 depending on $j$ and $k$ (I.C Remark 6.7 (a)), so Proposition 4.7 has $c_k$ depending on $k$. (b) The source assumes
 tf-admissibility at the one weight $\alpha+\frac32$ in the gap $(\beta_-,\beta_+)$ and states (13.31) for every
-$\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}}$ in the gap with one $\ell$. Proposition 4.7 is stated at the weight for which
-(G), (Z) and (TF) of I.C are assumed; at another weight of the gap it applies when those hypotheses hold there, with its
-own $\ell$ and $c_k$.
+$\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}}$ in the gap with one $\ell$. This holds here too: I.C Theorem 6.4 (5) gives the
+hypotheses at every weight of the gap and $\ell$ does not depend on the weight (the remark after Proposition 4.7); only
+$c_k$ and the constants do.
 
 (J11) *Proposition 13.20, the integration.* The source integrates by [Hin26b] Lemmas 2.12 and 2.23, which were not read;
 Lemmas 3.2 and 5.3 replace them. The source's $h$ carries a term in
@@ -1279,6 +1293,20 @@ the proof of Proposition 5.4.
 (J13) *Definition 13.19.* $u_{(1,0)}\in H^{k,\beta_+}_b(\mathscr I^+\cap\{t_*\ge1\})$ is a function on $\mathscr I^+$,
 and $\chi_I\rho_I^\zeta u_{(1,0)}$ requires an extension of it off $\mathscr I^+$, which the source leaves unstated.
 Definition 5.2 extends it independently of $\rho_I$ in the coordinates of $\mathcal C$.
+
+### 7.3 The ninetieth verifier (D216)
+
+The ninetieth verifier read sections 2-7 line by line with sympy checks ((5.1), the remainder of (5.2), (J1), (J2),
+(J6), the Hardy chains of Lemma 2.3, Proposition 5.4's identities, Lemma 2.2). No major finding. Minor 1: in the proof
+of Lemma 3.4 the inequality $dt_*/\langle t_*\rangle\le dT/T$ was reversed; replaced by the bound on $\{T\le2\}$ and
+$\{T\ge2\}$, the conclusion unchanged. Minor 2: in the proof of (4.1b) the order of $Q_{\alpha\beta}$ is $(-N,\mathsf
+r-\mathsf r_{\mathrm{out}}+\epsilon)$. Nits seated: the factor $1+j$ in Proposition 2.8 (1); $\ell$ in Corollary 4.2
+made independent of $\epsilon$; the case $\mathrm{Re}\,\sigma_0 = 0$ of Corollary 4.2 (1); $C_0\ge1$ in Corollary 4.5;
+the density step for Leibniz' rule; Proposition 4.7 at every weight of the gap, and (J10) (b) accordingly; (J6)'s scope
+and the loss of Proposition 3.5 (2) not sharp; $\rho_+$ in the remark after Definition 5.2; the reference to a scratch
+script; and (J1)'s last sentence (Lemma 13.6 fails at $\sigma = \infty$ as well). Nit 10, on the $\epsilon$ of
+Proposition 3.3 (1)'s first case, needs no change: the case is invoked with the same $\epsilon$. The D213 repairs of
+Part II.G were confirmed.
 
 ### 7.2 Sources
 
