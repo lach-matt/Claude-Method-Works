@@ -1,11 +1,12 @@
 # Part I.B. The spectral family at high frequencies, at n = 4, on bundles
 
-*Status.* Written out in full (D188). Read line by line by the seventy-sixth verifier, whose one major and nine minor
-findings and nits are seated in place (D189). The seventy-seventh verifier read those repairs and confirmed each, and
-asked for one further clause in Proposition 6.4, Step 2, seated (D191); nothing here is labelled proved until that
-clause is read. This part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 and 10.86
-that re-ran [Hin26c] section 9.3 on bundles at proof level. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1. Part
-I.A is `PART-I-SPECTRAL.md`; its sections are cited as I.A section 4.5, I.A Theorem 7.2, and so on.
+*Status.* **Proved** (D194). Written out in full (D188). Read line by line by the seventy-sixth verifier, whose one major
+and nine minor findings and nits are seated in place (D189). The seventy-seventh verifier read those repairs and
+confirmed each, and asked for one further clause in Proposition 6.4, Step 2, seated (D191); the seventy-eighth verifier
+read that clause and confirmed it (D194). Every finding is seated and its repair read. This part replaces, for the
+statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 and 10.86 that re-ran [Hin26c] section 9.3 on bundles
+at proof level. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1. Part I.A is `PART-I-SPECTRAL.md`; its sections are
+cited as I.A section 4.5, I.A Theorem 7.2, and so on.
 
 *What is proved here.* Theorem 1.3: [Hin26c] Theorem 9.16 at $n = 4$, for operators on a trivial bundle of any rank,
 with constants uniform in the operator (section 9). As in Part I.A the regularity order is constant (I.A Remark 1.1);

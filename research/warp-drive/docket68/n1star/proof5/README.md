@@ -16,10 +16,10 @@ independent reader has checked it line by line and every finding is seated; **pr
 | Part | Source | Content | Status |
 |---|---|---|---|
 | I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D189) |
-| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | verified (D191) |
-| I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | verified (D191) |
-| II.A | [Hin26c] 2-3 | compactifications, Lie algebras, the e3b-calculus, Sobolev embedding, tame estimates | written (D192) |
-| II.A' | [Hin26c] 3.23-3.24 at k = 0 | elliptic and propagation estimates, finite regularity, variable orders | to do |
+| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | **proved** (D194) |
+| I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | **proved** (D194) |
+| II.A | [Hin26c] 2-3 | compactifications, Lie algebras, the e3b-calculus, Sobolev embedding, tame estimates | verified (D194) |
+| II.A' | [Hin26c] 3.23-3.24 at k = 0 | elliptic and propagation estimates, finite regularity, variable orders | written (D193) |
 | II.B-F | [Hin26c] 5-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -77,8 +77,9 @@ the auxiliary absorption of Theorem 6.8, whose sign was wrong for $z_0 = -1$. Al
 [Hin26c] Theorem 9.28 (2). Its repairs are read with Part I.C.
 
 The seventy-seventh verifier, reading Part I.C, read these repairs and confirmed each (D191). It asked for one more
-clause, in Proposition 6.4, Step 2: $\delta_1$ is chosen so that $\Gamma(\delta_1)$ lies in $\mathrm{Ell}_h(B_1)$ too,
-as the step needs; seated (D191). Part I.B is labelled proved once the next reader has checked that clause.
+clause, in Proposition 6.4, Step 2: $\delta_1$ is chosen so that $\Gamma(\delta_1)$ lies in $\mathrm{Ell}_h(B_1)$ too, as
+the step needs; seated (D191). The seventy-eighth verifier, reading Part II.A, checked that clause and confirmed it
+(D194). Part I.B is **proved**.
 
 ## Part I.C
 
@@ -102,29 +103,58 @@ not stated uniform in $\theta$, which Corollary 5.2 (b) and Theorem 6.4 use; it 
 findings, all seated, among them the Mellin transform at negative orders (now by density), the charts of Lemma 6.2 (a)
 (dilations, not an inversion), the a priori regularity behind the adjoint absorption of Theorem 6.4 (2), Lemma 5.4 at
 $\theta = \pi$, and the reworded proof of Lemma 2.5, in which no commutator arises. It confirmed (F1)-(F7), recomputing
-(F4) and the conjugation of the tf operator at $n = 3,4,5$. Part I.C is labelled proved once these repairs are read.
+(F4) and the conjugation of the tf operator at $n = 3,4,5$. The seventy-eighth verifier, reading Part II.A, read all ten
+repairs and confirmed each (D194); the notation of Proposition 5.3 (iii) was then aligned with (ii). Part I.C is
+**proved**.
 
 ## Part II.A
 
 `PART-II-A-SETUP.md`. [Hin26c] sections 2-3 at n = 4: the compactified spacetime and its b-, 3b-, eb- and e3b-structures
 with the commutator lemmas behind b-regularity (sections 1-2); the scaled bounded geometry calculus of [SBG] (Hintz,
 Commun. AMS 6 (2026), arXiv:2408.06651), READ in eleven statements that hold in every dimension (section 3); the
-e3b-calculus, its unit cells on $\mathbb S^3$ and its spaces (section 4); the Fourier transform near $K^+$ and the
-Mellin transform at $\iota^+$, with the weights of $n = 4$ (sections 5-6); supported and extendible spaces (section 7);
+e3b-calculus, its unit cells on $\mathbb S^3$ and its spaces (section 4); the Fourier transform near $K^+$ and the Mellin
+transform at $\iota^+$, with the weights of $n = 4$ (sections 5-6); supported and extendible spaces (section 7);
 functions and operators of finite regularity, multiplication and pseudolocality, and Sobolev embedding (section 8); and
 the elliptic and real principal type estimates with b-regularity and their tame versions (section 9). The dimension
 enters through the density only: the weights $(2(\alpha_I+2),\alpha_++\frac52,\alpha_K+\frac12)$ replace
 $(2(\alpha_I+\frac32),\alpha_++2,\alpha_K+\frac12)$, and no regularity threshold changes, as $3>\frac52$. Section 10
-lists the findings: two signs and a weight printed without its class (G1)-(G2), the tame estimates stated with an
-infimum norm their proofs do not support (G3), now stated per representation, and slips in section 3.4 of the source,
-among them $\mathsf s-m$ for $\mathsf s-m+1$ in (3.85) (G4).
+lists the findings: two signs and a weight printed without its class (G1)-(G2), the tame estimates stated with an infimum
+norm their proofs do not support (G3), now stated per representation, and slips in section 3.4 of the source, among them
+$\mathsf s-m$ for $\mathsf s-m+1$ in (3.85) (G4), and the hypotheses of the real principal type estimate, too weak as the
+source states them (G6)-(G7).
 
-Two statements are standing inputs of this part: the elliptic and the real principal type estimates without
-b-regularity, for coefficients of finite regularity and variable orders ((L3)-(L4), [Hin26c] Propositions 3.23-3.24 at
-$k = 0$). The source cites them as standard. No text READ here states them: [SBG] does not treat propagation, [HJS] has
-constant differential orders and no sharp Gårding inequality, and Hintz's paper with Sobolev coefficients
-(arXiv:1311.6859) has constant orders. They are Part II.A$'$, to be written. Part II.A is labelled proved only with it.
-The two further inputs the source uses in the same way, multiplication by functions of finite regularity on
-variable-order spaces and its pseudolocality, are proved in Part II.A itself (Lemma 8.5), from the calculus and the
-closed graph theorem. Part II.A is written; the seventy-eighth verifier reads it, with the D191 repairs of Parts I.B and
-I.C.
+Two statements are standing inputs of this part: the elliptic and the real principal type estimates without b-regularity,
+for coefficients of finite regularity and variable orders ((L3)-(L4), [Hin26c] Propositions 3.23-3.24 at $k = 0$). The
+source cites them as standard. No text READ here states them: [SBG] does not treat propagation, [HJS] has constant
+differential orders and no sharp Gårding inequality, and Hintz's paper with Sobolev coefficients (arXiv:1311.6859) has
+constant orders. They are proved in Part II.A$'$. Part II.A is labelled proved only with it. The two further inputs the
+source uses in the same way, multiplication by functions of finite regularity on variable-order spaces and its
+pseudolocality, are proved in Part II.A itself (Lemma 8.5), from the calculus and the closed graph theorem.
+
+The seventy-eighth verifier read Part II.A line by line (D194) and confirmed the D191 repairs of Parts I.B and I.C. Two
+major findings, both in the propagation chain, are seated. The hypothesis of (L4) on the order, $\mathsf H\mathsf s\le0$
+near $\mathrm{WF}'(B)\cap\mathrm{Char}(L)$ within $\mathrm{Char}(L)$ as the source states it, is too weak: $L = D_t$ in
+one unit cell, with an order rising along the backward curve away from $\mathrm{WF}'(B)$, is a counterexample. It is the
+gap Part II.A$'$ records as (G6), found independently, and (L4) and Propositions 9.2 and 9.9 now ask $\mathsf H\mathsf
+s\le0$ on a neighbourhood of the backward segments. And the proof of Proposition 9.9 chose an operator near
+$\mathrm{WF}'(B)$ whose wave front set must contain the segments; its operators are now chosen by an openness statement
+(O), applied twice. Seven minor findings are seated: the quantifier order of (L3)-(L4), the localization of the operators
+near the diagonal, the variable-order Plancherel theorem, READ in [SBG] (4.24a-b) as part of (S9), a false commutator
+inclusion in the source's proof of its Lemma 2.11, the uniqueness of integral curves at the boundary faces and the
+cut-offs away from $I^0\cup K^-$, a threshold in Lemma 8.5, and parametrices to finite order. So are the nits, among them
+the angular term of (2.27). The verifier confirmed (G1)-(G5) and recomputed the metric, the weights of $n = 4$, the
+Hankel asymptotics and the thresholds of Propositions 9.6 and 9.9.
+
+## Part II.A$'$
+
+`PART-II-A2-STANDARD.md`. The two standing inputs of Part II.A, proved: (L3) as Theorem 3.1 and (L4) as Theorem 5.4,
+[Hin26c] Propositions 3.23-3.24 at $k = 0$, for operators whose coefficients have finite regularity, with variable orders
+and constants locally uniform in the operator. The smooth calculus is (S1)-(S11) of Part II.A. Its operations are
+continuous on Fréchet spaces of symbols, so each is bounded by finitely many seminorms, and the bounds pass to finite
+regularity by mollification in the charts of the secondary structure and weak lower semicontinuity (section 2,
+Proposition 2.4). The elliptic estimate follows from a parametrix of finite regularity (section 3). The propagation
+estimate is a positive commutator argument along the exact Hamilton field of the operator, in flow-box coordinates of
+finite regularity, so that every positivity is an exact square and no sharp Gårding inequality is used. The imaginary
+part is absorbed by the large constant of the commutant (sections 4-5). Section 6 records (G6), the source's hypothesis
+on the order, too weak, and (G7), classical principal symbols and the faces where the Hamilton field is continuous.
+Written (D193) and aligned with the D194 repairs of Part II.A; the seventy-ninth verifier reads it.

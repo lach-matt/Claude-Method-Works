@@ -1,11 +1,13 @@
 # Part I.C. The spectral family at zero and low frequencies, at n = 4, on bundles
 
-*Status.* Written out in full (D190). Read line by line by the seventy-seventh verifier, whose one statement gap, nine
-minor findings and nits are seated in place (D191); nothing here is labelled proved until the repairs are read. This
-part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.20 (a), (b) and (d) and the use
-of [Hin26c] Theorem 9.41 in 10.20 (e), which read [Hin26c] sections 9.4-9.6 at n = 4 with $\alpha+2$ for
-$\alpha+\frac32$ and cited the proofs. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page
-$-4$). Parts I.A and I.B are `PART-I-SPECTRAL.md` and `PART-I-B-HIGHENERGY.md`, cited as I.A and I.B.
+*Status.* **Proved** (D194). Written out in full (D190). Read line by line by the seventy-seventh verifier, whose one
+statement gap, nine minor findings and nits are seated in place (D191); the seventy-eighth verifier read those repairs
+and confirmed each (D194), and the notation of Proposition 5.3 (iii) was then aligned with (ii), as it asked. Every
+finding is seated and its repair read. This part replaces, for the statements it covers, the deductions of
+`../N1STAR-PROOF.md` 10.20 (a), (b) and (d) and the use of [Hin26c] Theorem 9.41 in 10.20 (e), which read [Hin26c]
+sections 9.4-9.6 at n = 4 with $\alpha+2$ for $\alpha+\frac32$ and cited the proofs. The source is [Hin26c] = P. Hintz,
+arXiv:2606.28008v1 (printed page = PDF page $-4$). Parts I.A and I.B are `PART-I-SPECTRAL.md` and
+`PART-I-B-HIGHENERGY.md`, cited as I.A and I.B.
 
 *What is proved here.* Theorem 3.1: [Hin26c] Theorem 9.36 at $n = 4$ on $E$ (the zero energy operator). Theorem 4.3:
 Theorem 9.38 (the transition face normal operator). Corollary 5.2 and Proposition 5.3: Corollary 9.39 and Proposition
@@ -853,19 +855,19 @@ r^{-\beta'})$ with $\beta'<2\le2+\ell$. So $w = 0$.
 *(iii).* Take $s := 2$ (allowed by Theorem 4.3 (3)), so that $\mathcal X^*_{\mathrm{tf},0}\subset H^{0,(-\mathsf r_+-
 \alpha_+-1,-q+2)}_{\mathrm{sc},b}$, $q = 2-\beta\in(0,2)$. Here $N_{\mathrm{tf}}(1)^{*h} = N_{\mathrm{tf}}(1)$, because
 $e^{\mp i\hat r}$ are adjoint to each other and $\Delta_e-1$ is symmetric for $|d\hat x|$. Let $v$ be in the kernel; then
-$u := e^{i\hat r}v$ solves $(\Delta_e-1)u = 0$, so $\Pi_\ell v = \sum_m(c_{1m}e^{-i\hat r}f_1+c_{2m}e^{-i\hat r}f_2)Y_m =
-\sum_m(c_{1m}g_1+c_{2m}e^{-2i\hat r}g_2)Y_m$, with $f_j$ at $\theta = 0$. *At sctf.* Near $R_{\mathrm{out}}$, the zero
+$u := e^{i\hat r}v$ solves $(\Delta_e-1)u = 0$, so $\Pi_\ell v = \sum_m(a_{1m}e^{-i\hat r}f_1+a_{2m}e^{-i\hat r}f_2)Y_m =
+\sum_m(a_{1m}g_1+a_{2m}e^{-2i\hat r}g_2)Y_m$, with $f_j$ at $\theta = 0$. *At sctf.* Near $R_{\mathrm{out}}$, the zero
 section, the decay order of $\mathcal X^*_{\mathrm{tf},0}$ is the constant $\mathsf r'_0 := -(\mathsf r_++\alpha_+)
 (R_{\mathrm{out}})-1>-\frac12$, as $\mathsf r_++\alpha_+<-\frac12$ there ($\bar S = 0$). Let
 $Q\in\Psi^{0,0}_{\mathrm{sc}}$ be the identity microlocally near the zero section over sctf and microsupported where that
 order is constant. By Lemma 5.5 with $\kappa = -2$, $Q(\chi_\infty e^{-2i\hat r}g_2Y_m)\in H^{\infty,\infty}$; with
 $\kappa = 0$, $(I-Q)(\chi_\infty g_1Y_m) \in H^{\infty,\infty}$. Since $Q\chi_\infty\Pi_\ell v\in H^{0,\mathsf r'_0}$, it
-follows that $\chi_\infty\sum_mc_{1m} g_1Y_m\in H^{0,\mathsf r'_0}$, that is, $\int^\infty|g_1|^2\hat r^{2\mathsf
-r'_0}\hat r^3\,d\hat r\cdot\sum_m|c_{1m}|^2< \infty$. By Lemma 5.4 (b), $|g_1|\ge\frac12|c_1|\hat r^{-3/2}$ for $\hat r$
-large, and $\int^\infty\hat r^{2\mathsf r'_0} d\hat r = \infty$ as $\mathsf r'_0>-\frac12$. So all $c_{1m} = 0$. *At
-ztf.* Then $\Pi_\ell v = \sum_mc_{2m}e^{-i\hat r} f_2Y_m$, which by Lemma 5.4 (d) has size at least
-$c\,(\sum_m|c_{2m}|^2)^{1/2}\hat r^{-2-\ell}$ as $\hat r\to0$, while $\mathcal X^*_{\mathrm{tf},0}$ has b-weight $-q$ at
-ztf: $\int_0\hat r^{2(q-2-\ell)}\frac{d\hat r}{\hat r}<\infty$ would need $q>2+\ell$, false as $q<2$. So $c_{2m} = 0$,
+follows that $\chi_\infty\sum_ma_{1m} g_1Y_m\in H^{0,\mathsf r'_0}$, that is, $\int^\infty|g_1|^2\hat r^{2\mathsf
+r'_0}\hat r^3\,d\hat r\cdot\sum_m|a_{1m}|^2< \infty$. By Lemma 5.4 (b), $|g_1|\ge\frac12|c_1|\hat r^{-3/2}$ for $\hat r$
+large, and $\int^\infty\hat r^{2\mathsf r'_0} d\hat r = \infty$ as $\mathsf r'_0>-\frac12$. So all $a_{1m} = 0$. *At
+ztf.* Then $\Pi_\ell v = \sum_ma_{2m}e^{-i\hat r} f_2Y_m$, which by Lemma 5.4 (d) has size at least
+$c\,(\sum_m|a_{2m}|^2)^{1/2}\hat r^{-2-\ell}$ as $\hat r\to0$, while $\mathcal X^*_{\mathrm{tf},0}$ has b-weight $-q$ at
+ztf: $\int_0\hat r^{2(q-2-\ell)}\frac{d\hat r}{\hat r}<\infty$ would need $q>2+\ell$, false as $q<2$. So $a_{2m} = 0$,
 and $v = 0$. $\square$
 
 The proof is [Hin26c]'s, run on the spaces of Theorem 4.3 for (iii); his (iii), on $e^{-2i/\rho_{\mathrm{sctf}}}\mathcal

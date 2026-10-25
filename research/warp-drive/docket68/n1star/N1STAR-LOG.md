@@ -4743,3 +4743,34 @@ s-m printed for s-m+1 in (3.85); (G5) [Hin26c] Propositions 3.23-3.24 at k = 0, 
 stated in any text READ here for finite regularity and variable orders ([SBG] has no propagation, [HJS] constant
 differential orders, arXiv:1311.6859 constant orders), so they are standing inputs (L3)-(L4), to be proved in Part
 II.A'. Next: the seventy-eighth verifier reads Part II.A, with the D191 repairs of Parts I.B and I.C.
+
+**D193 (2026-10-25): Part II.A' of the write-out written; the standing inputs (L3)-(L4) of Part II.A proved.**
+`proof5/PART-II-A2-STANDARD.md`: [Hin26c] Propositions 3.23-3.24 at k = 0 on e3b-spaces, for coefficients of finite
+regularity, variable orders and constants locally uniform in the operator. Section 2: the calculus of finite regularity;
+every operation of the smooth calculus is bounded by finitely many seminorms (Banach-Steinhaus on Fréchet symbol spaces)
+and passes to finite regularity by the closed graph theorem, mollification in the charts of the secondary structure and
+weak lower semicontinuity (Proposition 2.4 (a)-(f); the regulariser, square roots, a supremum bound). Section 3: Theorem
+3.1 = (L3), by a parametrix of finite regularity and a half-step iteration. Sections 4-5: the positive commutator lemma
+and its iteration; the exact Hamilton field of the operator of finite regularity, flow-box coordinates of regularity
+d_0 - 1, and a commutant whose every positivity is an exact square, so no sharp Gårding inequality is used; the imaginary
+part is absorbed by the large constant M; Theorem 5.4 = (L4). Findings (section 6): (G6) the source's hypothesis H s <= 0
+near WF'(B) cap Char(L) within Char(L) does not suffice, and (L4) asks it on a neighbourhood of the backward segments;
+(G7) classical principal symbols for P_m. Next: seat the seventy-eighth verifier on Part II.A (D194), then the
+seventy-ninth verifier on Part II.A'.
+
+**D194 (2026-10-25): the seventy-eighth verifier on Part II.A and the D191 repairs, seated; Parts I.B and I.C proved.**
+It confirmed all ten D191 repairs of Parts I.C and I.B, so both parts are proved; the notation of I.C Proposition 5.3
+(iii) was aligned with (ii), as it asked. On Part II.A, two major findings. M1: (L4) as the source states it is false, by
+L = D_t in one unit cell with an order rising along the backward curve away from WF'(B); it is the gap II.A' records as
+(G6), found independently, and (L4) and Propositions 9.2 and 9.9 now ask H s <= 0 on a neighbourhood of the backward
+segments. M2: the proof of Proposition 9.9 chose G_3 near WF'(B), impossible as WF'(G_3) contains the segments; its
+operators are now chosen by the openness statement (O) of section 9, applied twice. Seven minor: d_0 chosen before the
+finite set P in (L3)-(L4), and systems stated; the operators localized near the diagonal ([SBG] Definition 3.34 makes it
+optional, Remark 3.48); the variable-order Plancherel theorem READ in [SBG] (4.24a-b), pp. 73-74, into (S9); a false
+commutator inclusion in the source's proof of its Lemma 2.11, replaced by an argument; the uniqueness of integral curves
+at the boundary faces and the continuity of the flow (II.A' Lemma 5.1 (c)), with chi supported away from I^0 cup K^-,
+where the coefficients need not vanish; the threshold of Lemma 8.5 (b); parametrices to finite order in Lemmas 4.1 and
+7.1. Nits: the angular term of (2.27), the coefficients in Lemma 2.5, the multiplier -i sigma in Lemma 6.2, section 10's
+silent repairs, the constant of Proposition 9.8, the page of (S10). II.A' aligned: the quantifiers, Lemma 5.1 (a) and
+(c), the statement and uniformity of Theorem 5.4, (G6)-(G7). Next: the seventy-ninth verifier reads Part II.A' and the
+D194 repairs.

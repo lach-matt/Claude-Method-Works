@@ -2433,3 +2433,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   ((3.85) carries s-m+1), and the standard k = 0 estimates (L3)-(L4) set apart.
 - Open: Part II.A' (the k = 0 elliptic and real principal type estimates with finite regularity and variable orders).
 - Next: the seventy-eighth verifier on Part II.A and the D191 repairs; then Part II.A'.
+
+### 4.116 Part II.A' of the write-out written (D193)
+
+- Part II.A' (`proof5/PART-II-A2-STANDARD.md`): (L3)-(L4), [Hin26c] Propositions 3.23-3.24 at k = 0, proved for finite
+  regularity, variable orders and locally uniform constants, without a sharp Gårding inequality.
+- Findings (G6)-(G7): the source's hypothesis on the order is too weak; classical principal symbols.
+- Open: the verifier of Part II.A'.
+- Next: seat the seventy-eighth verifier's findings on Part II.A (D194).
+
+### 4.117 The seventy-eighth verifier seated; Parts I.B and I.C proved (D194)
+
+- Parts I.B and I.C: the D191 repairs confirmed; both proved.
+- Part II.A: the hypothesis of (L4) on the order corrected (M1, the gap of II.A' (G6), found independently); the
+  operators of Proposition 9.9 chosen by the openness statement (O) (M2); seven minor findings and the nits seated.
+- Open: Part II.A' and the D194 repairs, unread; Parts II.B-II.F and III-VII.
+- Next: the seventy-ninth verifier on Part II.A' and the D194 repairs; then Part II.B.

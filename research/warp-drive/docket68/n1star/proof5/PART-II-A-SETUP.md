@@ -1,15 +1,18 @@
 # Part II.A. Compactifications, Lie algebras and the microlocal toolkit on spacetime, at n = 4
 
-*Status.* Written out in full (D192). Not yet read by an independent verifier; nothing here is labelled proved. This
-part proves, at spatial dimension $n = 4$, the geometric and analytic setup of [Hin26c] sections 2 and 3, on which its
-sections 7, 8, 10, 11 and 13 rest. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page $-4$).
-The pseudodifferential calculus is that of [SBG] = P. Hintz, *Pseudodifferential operators on manifolds with scaled
-bounded geometry*, Commun. Amer. Math. Soc. 6 (2026), 153-243, arXiv:2408.06651v1, whose statements are READ here
-(section 3) and hold on manifolds of every dimension; inside [Hin26c] that paper is cited as "[Hin26c]", and below it is
-always [SBG]. Two statements are standing inputs, not proved here: the elliptic and real principal type estimates
-without b-regularity, for coefficients of finite regularity and variable orders ((L3)-(L4) of section 9.1), which the
-source cites as standard and no text READ here states. They are proved in Part II.A$'$, and Part II.A is labelled proved
-only with it. Parts I.A-I.C are `PART-I-SPECTRAL.md`, `PART-I-B-HIGHENERGY.md` and `PART-I-C-LOWENERGY.md`.
+*Status.* Written out in full (D192). Read line by line by the seventy-eighth verifier, whose two major findings, seven
+minor findings and nits are seated in place (D194): the hypothesis of (L4) on the order, and the choice of operators in
+the proof of Proposition 9.9. Nothing here is labelled proved until the repairs are read. This part proves, at spatial
+dimension $n = 4$, the geometric and analytic setup of [Hin26c] sections 2 and 3, on which its sections 7, 8, 10, 11 and
+13 rest. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page $-4$). The pseudodifferential
+calculus is that of [SBG] = P. Hintz, *Pseudodifferential operators on manifolds with scaled bounded geometry*, Commun.
+Amer. Math. Soc. 6 (2026), 153-243, arXiv:2408.06651v1, whose statements are READ here (section 3) and hold on manifolds
+of every dimension; inside [Hin26c] that paper is cited as "[Hin26c]", and below it is always [SBG]. Two statements are
+standing inputs, not proved here: the elliptic and real principal type estimates without b-regularity, for coefficients
+of finite regularity and variable orders ((L3)-(L4) of section 9.1), which the source cites as standard and no text READ
+here states. They are proved in Part II.A$'$ (`PART-II-A2-STANDARD.md`, written, D193), with the hypotheses of (L4)
+corrected ((G6)-(G7) there and in section 10); Part II.A is labelled proved only with it. Parts I.A-I.C are
+`PART-I-SPECTRAL.md`, `PART-I-B-HIGHENERGY.md` and `PART-I-C-LOWENERGY.md`.
 
 *What changes at n = 4.* The spacetime is $\mathbb R^{1+4}$ and the sphere of directions is $\mathbb S^3$, so every
 construction of [Hin26c] section 2 is repeated with $\mathbb S^3$ for $\mathbb S^2$, and the proofs are unchanged (none
@@ -161,17 +164,21 @@ which $W$ is tangent). The middle term is $\rho_Kft\partial_t$ with $f\in C^\inf
 $\rho_K^2 \mathcal V_b\subset\rho_K\mathcal V_{3b}$. The first is $(1+\rho_Ka)(\rho_Kw^\flat
 t\partial_t+\rho_KW^\sharp)$, and replacing $t\partial_t$ by $V$ costs $\rho_K^2\mathcal V_b\subset\rho_K\mathcal
 V_{3b}$. For operators, write $W = wW_0$, $w = \rho_{\mathrm{sf}}^{-\alpha_{\mathrm{sf}}}\rho_K^{-\alpha_K}$,
-$W_0\in\mathrm{Diff}^m_{3b}$; $[V,W_0]\in \mathrm{Diff}^m_{3b}$ by expanding $W_0$ into products of 3b-vector fields,
-and $[V,w]\in wC^\infty$ for every b-vector field $V$, so $[V,W] = w[V,W_0]+[V,w]W_0\in w\mathrm{Diff}^m_{3b}$. If
-$\alpha_K = 0$, take $\rho_{\mathrm{sf}} = \langle x\rangle^{-1}$ and $V = t\partial_t$ (other $V$ differ by
-$\rho_K\mathcal V_b$, whose commutators with $w\mathrm{Diff}^m_{3b}$ lie in $\rho_Kw\mathrm{Diff}^m_{3b}$ since
-$\rho_K\mathcal V_b\subset\mathcal V_{3b}$ and $[\rho_K\mathcal V_b,w]\subset\rho_KwC^\infty$); then $V$ commutes with
+$W_0\in\mathrm{Diff}^m_{3b}$; $[V,W_0]\in \mathrm{Diff}^m_{3b}$ by expanding $W_0$ into products of 3b-vector fields, and
+$[V,w]\in wC^\infty$ for every b-vector field $V$, so $[V,W] = w[V,W_0]+[V,w]W_0\in w\mathrm{Diff}^m_{3b}$. If $\alpha_K
+= 0$, take $\rho_{\mathrm{sf}} = \langle x\rangle^{-1}$, and first $V = t\partial_t$; then $V$ commutes with
 $\rho_{\mathrm{sf}}$, so $[V,W] = w[V,W_0]$, and commuting $V$ through each product of 3b-vector fields to the right,
 using the vector field case and $[V,f]\in\rho_K C^\infty$, gives the form claimed, with $W^\flat\in
-w\mathrm{Diff}^{m-1}_{3b}$ and $W^\sharp\in w\mathrm{Diff}^m_{3b}$. For bundles, in a local trivialisation
-$\nabla_{t\partial_t}$ is $t\partial_t$ componentwise plus a term in $\rho_KC^ \infty(\mathrm{End}E)$ (as $t\partial_t =
--\rho_K\partial_{\rho_K}$), whose commutators with $w\mathrm{Diff}^m_{3b}$ lie in $\rho_Kw\mathrm{Diff}^{m-1}_{3b}$.
-$\square$
+w\mathrm{Diff}^{m-1}_{3b}$ and $W^\sharp\in w\mathrm{Diff}^m_{3b}$. For general $V = (1+\rho_Ka)t\partial_t+\rho_KV'$ as
+above, $[V,W] = (1+\rho_Ka)[t\partial_t,W]-[W,\rho_Ka]\,t\partial_t+[\rho_KV',W]$. Here
+$[W,\rho_Ka]\in\rho_Kw\mathrm{Diff}^{m-1}_{3b}$, as 3b-vector fields map $\rho_KC^\infty$ to itself, and $[\rho_KV',W] =
+\rho_K[V',W]-[W,\rho_K]V'\in\rho_Kw\mathrm{Diff}^m_{3b}$, as $\mathcal V_{3b}$ is a Lie algebra and $V'w\in wC^\infty$.
+Substituting $t\partial_t = (1+\rho_Ka)^{-1}(V-\rho_KV')$ in the first two terms, with the case $V = t\partial_t$ for
+$[t\partial_t,W]$, gives the form claimed. (The source's proof asserts instead $[\rho_K\mathcal
+V_b,w\mathrm{Diff}^m_{3b}]\subset\rho_Kw\mathrm{Diff}^m_{3b}$, which is false: $[r\partial_t,r\partial_r] = -r\partial_t
+= -\rho_Kt\partial_t$; section 10.) For bundles, in a local trivialisation $\nabla_{t\partial_t}$ is $t\partial_t$
+componentwise plus a term in $\rho_KC^ \infty(\mathrm{End}E)$ (as $t\partial_t = -\rho_K\partial_{\rho_K}$), whose
+commutators with $w\mathrm{Diff}^m_{3b}$ lie in $\rho_Kw\mathrm{Diff}^{m-1}_{3b}$. $\square$
 
 $V$ in Lemma 2.2 can be taken to be $t_*\partial_{t_*}$ in the coordinates $(t_*,r)$, which equals $(1-\rho_K)t
 \partial_t$.
@@ -193,8 +200,9 @@ $$dt_* = -\rho_+^{-1}\tfrac{d\rho_+}{\rho_+},\quad dr = -\rho_+^{-1}x_I^{-2}\big
 -\tfrac12\rho_+x_I^2\cdot x_I\partial_{x_I},$$
 
 and $\bar g = -dt_*^2-2dt_*dr+r^2\slashed g$ becomes $2x_I^{-2}\rho_+^{-2}(-\frac{d\rho_+}{\rho_+}\otimes_s[(1+\frac12
-x_I^2)\frac{d\rho_+}{\rho_+}+2\frac{dx_I}{x_I}]+\frac{\slashed g}{x_I^2})$ ([Hin26c] (2.26)-(2.27)); these are
-dimension-free computations, $\slashed g$ the round metric on $\mathbb S^3$.
+x_I^2)\frac{d\rho_+}{\rho_+}+2\frac{dx_I}{x_I}]+\frac{\slashed g}{2x_I^2})$, as $r = \rho_+^{-1}x_I^{-2}$ ([Hin26c]
+(2.26)-(2.27), whose bracket prints $\frac{\slashed g}{x_I^2}$; section 10); these are dimension-free computations,
+$\slashed g$ the round metric on $\mathbb S^3$.
 
 **Definition 2.4 ([Hin26c] Definition 2.13).** $\mathcal V_{eb}(\tilde M)$ is the space of b-vector fields on $\tilde M$
 tangent to the fibres of the fibration of $\mathscr I^+$ (section 1); ${}^{eb}T\tilde M$ is the bundle with $\mathcal
@@ -212,7 +220,7 @@ $x_I^{-1}dx^1\otimes_sr\,d\omega$, $r\,d\omega\otimes_sr\,d\omega$.
 
 *Proof.* By the formulas above, $x_I^{-1}dt_*$, $x_Idr$, $r\,d\omega$ span $\rho_+^{-1}x_I^{-1}C^\infty(U;{}^{eb}T^*
 \tilde M)$ on a neighbourhood $U$ of $\mathscr I^+$ away from $K^+$ and $r = 0$, as do $x_Idx^0$, $x_I^{-1}dx^1$, $r\,d
-\omega$ (using $dx^0 = dt_*+2dr$: $x_Idx^0 = -\rho_+^{-1}x_I^{-1}((1+2x_I^2)\frac{d\rho_+}{\rho_+}+2\frac{dx_I}{x_I})$,
+\omega$ (using $dx^0 = dt_*+2dr$: $x_Idx^0 = -\rho_+^{-1}x_I^{-1}((2+x_I^2)\frac{d\rho_+}{\rho_+}+4\frac{dx_I}{x_I})$,
 $x_I^{-1}dx^1 = -\rho_+^{-1}x_I^{-1}\frac{d\rho_+}{\rho_+}$, $r\,d\omega = \rho_+^{-1}x_I^{-1}\cdot x_I^{-1}d\omega$);
 take symmetric products. Near $\mathscr I^+\cap I^0$ the same computation applies with $\rho_0$ in place of $\rho_+$.
 $\square$
@@ -392,31 +400,40 @@ S^{\sup\mathsf m}_{1-\delta,\delta}$ of the form $\lambda^{-\mathsf m}a_0$, and 
 spaces (variable decay orders when the scaling weight tends to 0); Theorem 3.51 holds for them, the principal symbol
 being taken modulo $\bigcap_\delta S^{\mathsf m-1+2\delta}$.
 
-(S9) ([SBG] Definitions 4.11, 4.14; Propositions 4.15, 4.17, 4.18.) On $M = \mathbb R_t\times X$ with the product
-structure built from a scaled b.g. structure on $X$ and weight families $\rho_{\alpha,0}\le1$, $\tau_\alpha$ (unit cells
-$((j-2)\frac{\tau_\alpha}{\rho_{\alpha,0}},(j+2)\frac{\tau_\alpha}{\rho_{\alpha,0}})\times U_\alpha$, scalings $(\rho
-_{\alpha,0},\rho_\alpha)$), the Fourier transform in $t$ is an isomorphism $wH^s_{\mathcal V}(\mathbb R\times X)\to L^2(
-\mathbb R_\sigma;w\langle\tau\sigma\rangle^{-s}H^s_{\hat{\mathcal V}_\sigma}(X))$, with $\hat{\mathcal V}_\sigma$ the
-operator Lie algebra of the scalings $\rho_{\alpha,i}/\langle\tau_\alpha\sigma\rangle$. The spectral family $\hat
-A(\sigma) u = e^{-i\sigma t}A(e^{i\sigma t}u)|_{t = 0}$ of a translation-invariant $A\in w\mathrm{Diff}^m_{\mathcal V}$
-lies in $w\langle\tau\sigma\rangle^m\mathrm{Diff}^m_{\hat{\mathcal V}}$ with principal symbol $a(\sigma\,dt+\cdot)$; for
-pseudodifferential $A$, $\hat A(\sigma) = \mathrm{Op}_{\hat{\mathcal V}_\sigma}(a|_{\sigma dt+T^*X})$ plus a residual
-family. (The sign convention of [SBG] (4.15) is $e^{-i\sigma t}A e^{i\sigma t}$; [Hin26c] (3.17) and the spectral
-families of Part I use $e^{i\sigma t}Ae^{-i\sigma t}$, i.e. $\sigma\mapsto-\sigma$.)
+(S9) ([SBG] Definitions 4.11, 4.14; Propositions 4.15, 4.17, 4.18; (4.24a-b).) On $M = \mathbb R_t\times X$ with the
+product structure built from a scaled b.g. structure on $X$ and weight families $\rho_{\alpha,0}\le1$, $\tau_\alpha$
+(unit cells $((j-2)\frac{\tau_\alpha}{\rho_{\alpha,0}},(j+2)\frac{\tau_\alpha}{\rho_{\alpha,0}})\times U_\alpha$,
+scalings $(\rho _{\alpha,0},\rho_\alpha)$), the Fourier transform in $t$ is an isomorphism $wH^s_{\mathcal V}(\mathbb
+R\times X)\to L^2( \mathbb R_\sigma;w\langle\tau\sigma\rangle^{-s}H^s_{\hat{\mathcal V}_\sigma}(X))$, with $\hat{\mathcal
+V}_\sigma$ the operator Lie algebra of the scalings $\rho_{\alpha,i}/\langle\tau_\alpha\sigma\rangle$. The spectral
+family $\hat A(\sigma) u = e^{-i\sigma t}A(e^{i\sigma t}u)|_{t = 0}$ of a translation-invariant $A\in
+w\mathrm{Diff}^m_{\mathcal V}$ lies in $w\langle\tau\sigma\rangle^m\mathrm{Diff}^m_{\hat{\mathcal V}}$ with principal
+symbol $a(\sigma\,dt+\cdot)$; for pseudodifferential $A$, $\hat A(\sigma) = \mathrm{Op}_{\hat{\mathcal
+V}_\sigma}(a|_{\sigma dt+T^*X})$ plus a residual family. (The sign convention of [SBG] (4.15) is $e^{-i\sigma t}A
+e^{i\sigma t}$; [Hin26c] (3.17) and the spectral families of Part I use $e^{i\sigma t}Ae^{-i\sigma t}$, i.e.
+$\sigma\mapsto-\sigma$.) For variable orders $\mathsf s,\mathsf l$ invariant under translations in $t$, the Fourier
+transform is an isomorphism from $w\rho_X^{\mathsf l}H^{\mathsf s}_{\mathcal V}(\mathbb R\times X)$ onto the space of
+$L^2$ functions of $\sigma$ with values in $w\rho_X^{\hat{\mathsf l}_\sigma}\langle\tau\sigma\rangle^{-\hat{\mathsf
+s}_\sigma}H^{\hat{\mathsf s}_\sigma}_{\hat{\mathcal V}_\sigma}(X)$, with the restricted orders $\hat{\mathsf s}_\sigma :=
+\mathsf s|_{\sigma\,dt+T^*X}$, $\hat{\mathsf l}_\sigma := \mathsf l|_{\sigma\,dt+T^*X}$; that space is the set of
+elements of $L^2(\mathbb R_\sigma;w\rho_X^{l_0}\langle\tau\sigma\rangle^{-s_0}H^{s_0}_{\hat{\mathcal V}_0}(X))$,
+$l_0\le\inf\mathsf l$, $s_0\le\inf\mathsf s$, whose image under a fixed elliptic operator of the spectral class of orders
+$(\hat{\mathsf s},\hat{\mathsf l})$ lies in $L^2(\mathbb R_\sigma;L^2(X))$ ([SBG] (4.24a-b), pp. 73-74, stated there with
+the remark that the proof is that of Proposition 4.18; [Hin26c] cites it as (4.25a-b)). Sections 5-7 use it in this form
+for variable orders.
 
 (S10) ([SBG] Definition 4.20, Proposition 4.22.) $\mathcal W_{[\mathcal V]}$ is the set of $W\in\mathcal W$ with
-$[W,V]\in \mathcal V$ for all $V\in\mathcal V$. If it spans $\mathcal W$ over $C^\infty_{\mathrm{uni},\mathcal B}$,
-there is a subalgebra $\Psi_{\mathcal V,[\,]}\subset\Psi_{\mathcal V}$, closed under compositions and adjoints and
-containing all quantizations $\mathrm{Op}_{\mathcal V}(a)$, with
-$\mathrm{ad}_{W_1}\cdots\mathrm{ad}_{W_k}A\in\Psi_{\mathcal V,[\,]}$ for $W_i\in\mathcal W_{[\mathcal V]}$; likewise
-with weights and variable orders. The operators of [Hin26c] are taken in this subalgebra (its footnote 26), and so are
-those here.
+$[W,V]\in \mathcal V$ for all $V\in\mathcal V$. If it spans $\mathcal W$ over $C^\infty_{\mathrm{uni},\mathcal B}$, there
+is a subalgebra $\Psi_{\mathcal V,[\,]}\subset\Psi_{\mathcal V}$, closed under compositions and adjoints and containing
+all quantizations $\mathrm{Op}_{\mathcal V}(a)$, with $\mathrm{ad}_{W_1}\cdots\mathrm{ad}_{W_k}A\in\Psi_{\mathcal
+V,[\,]}$ for $W_i\in\mathcal W_{[\mathcal V]}$; likewise with weights and variable orders. The operators of [Hin26c] are
+taken in this subalgebra ([Hin26c] p. 48, in the text), and so are those here.
 
 (S11) ([SBG] Proposition 4.2.) For phase space weights $w$, $w'$: $\Psi^w_{\mathcal V}$ maps $H^{w'}_{\mathcal V}\to
 H^{ww'}_{\mathcal V}$, and $(H^w_{\mathcal V})^* = H^{w^{-1}}_{\mathcal V}$.
 
-The sharp Gårding inequality is used in section 9 on each unit cell, in the form READ in I.A (the calculus of [HJS] on
-$\mathbb R^n$ with uniform bounds), as stated there.
+The sharp Gårding inequality, by which the source proves (L4) on each unit cell, is not used: Part II.A$'$ proves (L4)
+without it.
 
 ## 4. The e3b-calculus at n = 4
 
@@ -475,9 +492,12 @@ with $V_{0,j} := w_jV_j\in\mathcal V_{e3b}$ spanning $\mathcal V_{e3b}$ over $C^
 $A\in C^\infty_b\Psi^{\mathsf s}_{e3b}$ is $\sum_{j=0}^NA_jV_j$ with $A_j\in C^\infty_b\Psi^{\mathsf s-1}_{e3b}$.
 
 *Proof.* $B := \sum_jV_{0,j}^*V_{0,j}\in\mathrm{Diff}^2_{e3b}$ is elliptic, so $I = QB+R$ with $Q\in
-C^\infty_b\Psi^{-2}_{e3b} $, $R\in C^\infty_b\Psi^{-\infty}_{e3b}$ (elliptic parametrix, (S5)). Then $A =
-\sum_jAQV_{0,j}^*w_jV_j+ARV_0$, and $A_j := AQV_{0,j}^*w_j\in C^\infty_b\Psi^{\mathsf s-1}_{e3b}$, $A_0 := AR$.
-$\square$
+C^\infty_b\Psi^{-2}_{e3b}$ and $R\in C^\infty_b\Psi^{-1}_{e3b}$: take $Q := \mathrm{Op}(q)$ with $q\in S^{-2}$ equal to
+$\sigma(B)^{-1}$ outside a compact subset of each fibre, uniformly; then $R := I-QB$ has principal symbol 0 at order 0,
+so it has order $-1$ by the principal symbol sequence (S5). This is the first step of Lemma 8.4 (b), which does not use
+the present lemma. (The source takes a full parametrix, which (S5) does not READ.) Then $A =
+\sum_jAQV_{0,j}^*w_jV_j+ARV_0$, and $A_j := AQV_{0,j}^*w_j\in C^\infty_b\Psi^{\mathsf s-1}_{e3b}$, $A_0 := AR\in
+C^\infty_b\Psi^{\mathsf s-1}_{e3b}$. $\square$
 
 Passing to the secondary structure (subdividing cells into $\rho$-cuboids) gives the larger classes $\tilde\Psi_{e3b} =
 C^\infty_{e3b}\Psi_{e3b}$ with e3b-regular coefficients (Remark 3.48 of [SBG]: $\Psi_{\mathcal V}\subset\Psi_{\mathcal
@@ -683,20 +703,20 @@ The source prints the line as $\sigma-i(\alpha_++2)$ (at $n = 3$); with its tran
 $\int\tau^{i\sigma}u\frac{d\tau}\tau$ the Plancherel line of the weight $\tau^{\beta}$ is $\mathrm{Im}\,\sigma = +\beta$
 (section 10, (G2); compare I.C (F1)).
 
-*Proof.* By Lemma 6.1 the left side is the norm with the b-density and weights
-$(2(\alpha_I+2),\alpha_++\frac52,\alpha_K+ \frac12)$. Near $\iota^+$, $\tau\sim\rho_+\rho_K$ (Lemma 2.11), so
-$\rho_+^{\beta_+}\rho_K^{\alpha_K+\frac12} = \tau^{\beta _+}\rho_K^{\alpha_K+\frac12-\beta_+} =
-\tau^{\beta_+}\rho_K^{\alpha_K-\alpha_+-2}$. With $t = -\log_2\tau$, the factor $\tau^{\beta_+}$ is
-$e^{-\beta_+t\log2}$, and for $u = \tau^{\beta_+}v$, $(\mathcal Mu)(\zeta+i\beta_+) = \int\tau^{i\zeta}
-\tau^{-\beta_+}u\frac{d\tau}\tau = (\mathcal Mv)(\zeta)$, $\zeta\in\mathbb R$. Now apply (S9) to $v$ (unweighted in
-$t$). The b-regularity splits: the b-field $\tau\partial_\tau = -(\log2)^{-1}\partial_t$ becomes multiplication by
-$-i(\log2)^{-1} \sigma$ on the transform side, which is bounded for $|\sigma|\le1$ and gives the factors $|\sigma|^{2j}$
-for $|\sigma|\ge1$; the spatial b-fields of $\iota^+$ commute with $\mathcal M$ and give the $k-j$ b-derivatives of the
-spectral spaces. (For the conjugation by $\tau^{\beta_+}$, $\tau\partial_\tau$ changes by the constant $\beta_+$,
-harmless.) The identification of the spectral spaces with the 0,b- and $0\hbar,c\hbar$-spaces is by their definition as
-the spaces of the spectral scaled b.g. structure ([Hin26c] (3.50)-(3.56)), and the weights $x_I^{2(\alpha_I+2)}$,
-$\rho_K^{\alpha_K-\alpha_+-2}$ are functions on $\iota^+$, hence pass through. For $|\sigma|\ge1$, the factor
-$\langle\tau\sigma\rangle^{-\mathsf s}$ of (S9) is $\rho_{\mathrm{sf}}^{\mathsf s_\sigma}$, the last index. $\square$
+*Proof.* By Lemma 6.1 the left side is the norm with the b-density and weights $(2(\alpha_I+2),\alpha_++\frac52,\alpha_K+
+\frac12)$. Near $\iota^+$, $\tau\sim\rho_+\rho_K$ (Lemma 2.11), so $\rho_+^{\beta_+}\rho_K^{\alpha_K+\frac12} =
+\tau^{\beta _+}\rho_K^{\alpha_K+\frac12-\beta_+} = \tau^{\beta_+}\rho_K^{\alpha_K-\alpha_+-2}$. With $t = -\log_2\tau$,
+the factor $\tau^{\beta_+}$ is $e^{-\beta_+t\log2}$, and for $u = \tau^{\beta_+}v$, $(\mathcal Mu)(\zeta+i\beta_+) =
+\int\tau^{i\zeta} \tau^{-\beta_+}u\frac{d\tau}\tau = (\mathcal Mv)(\zeta)$, $\zeta\in\mathbb R$. Now apply (S9) to $v$
+(unweighted in $t$). The b-regularity splits: the b-field $\tau\partial_\tau = -(\log2)^{-1}\partial_t$ becomes
+multiplication by $-i\sigma$ on the transform side, as $\mathcal M(\tau\partial_\tau u) = -i\sigma\mathcal Mu$, which is
+bounded for $|\sigma|\le1$ and gives the factors $|\sigma|^{2j}$ for $|\sigma|\ge1$; the spatial b-fields of $\iota^+$
+commute with $\mathcal M$ and give the $k-j$ b-derivatives of the spectral spaces. (For the conjugation by
+$\tau^{\beta_+}$, $\tau\partial_\tau$ changes by the constant $\beta_+$, harmless.) The identification of the spectral
+spaces with the 0,b- and $0\hbar,c\hbar$-spaces is by their definition as the spaces of the spectral scaled b.g.
+structure ([Hin26c] (3.50)-(3.56)), and the weights $x_I^{2(\alpha_I+2)}$, $\rho_K^{\alpha_K-\alpha_+-2}$ are functions
+on $\iota^+$, hence pass through. For $|\sigma|\ge1$, the factor $\langle\tau\sigma\rangle^{-\mathsf s}$ of (S9) is
+$\rho_{\mathrm{sf}}^{\mathsf s_\sigma}$, the last index. $\square$
 
 *The tf-normal operator at $\iota^+$* ([Hin26c] (3.58)-(3.60)). Near $\iota^+\cap K^+$, with $\hat\rho_K := \rho_K/h$,
 the $0\hbar,c\hbar$-fields $\frac h{h+\rho_K}\rho_K\partial_{\rho_K}$, $\frac h{h+\rho_K}\partial_\omega$ become
@@ -720,8 +740,13 @@ $|\langle u,v \rangle|\le C\|u\|_{H^{\mathsf s}}\|v\|_{H^{-\mathsf s}}$, $C$ ind
 $c\|u\|_{H^{\mathsf s}}\le\sup_{\|v \|_{H^{-\mathsf s}} = 1}|\langle u,v\rangle|\le C\|u\|_{H^{\mathsf s}}$ uniformly.
 
 *Proof.* For $\mathsf s = 0$, Cauchy-Schwarz and Riesz. In general take an elliptic $A\in\Psi^{\mathsf s}_{\mathcal V}$
-and a two-sided parametrix $B\in\Psi^{-\mathsf s}_{\mathcal V}$: $BA = I-R_1$, $AB = I-R_2$, $R_1,R_2$ residual, all
-uniformly in $\sigma$ ((S5), (S7), (S8)). (1) For $u,v\in C_c^\infty$, $\langle u,v\rangle = \langle
+and a two-sided parametrix to finite order: $B\in\Psi^{-\mathsf s}_{\mathcal V}$ with $BA = I-R_1$, $AB = I-R_2$ and
+$R_1,R_2\in\Psi^{-J}_{\mathcal V}$, $J\ge\sup|\mathsf s|$, all uniformly in $\sigma$. It is built as in Lemma 8.4 (b),
+with $I$ in place of $B$ there, by (S5), (S7) and (S8). That gives $B_LA = I-R_1$, and the same for $A^*$ gives $AB_R =
+I-R'_2$. Then $B_L-B_R = B_LR'_2-R_1B_R$ has order $-\mathsf s-J$, so $B := B_L$ satisfies $AB = I-R_2$ with $R_2$ of
+order $-J$. (The source takes residual remainders, which need a full parametrix that (S5) does not READ.) As
+$J\ge\sup|\mathsf s|$, $R_1$ maps $H^{\mathsf s}$ and $R_1^*$ maps $H^{-\mathsf s}$ into $L^2$, and $R_2$, $R_2^*$ map
+$L^2$ into $H^{-\mathsf s}$, resp. $H^{\mathsf s}$. (1) For $u,v\in C_c^\infty$, $\langle u,v\rangle = \langle
 Au,B^*v\rangle+\langle R_1u,v\rangle$, and, as $v = A^*B^*v+R_1^*v$, $\langle R_1u,v\rangle = \langle
 AR_1u,B^*v\rangle+\langle R_1u,R_1^*v\rangle$; so $\langle u,v \rangle = \langle A(I+R_1)u,B^*v\rangle+\langle
 R_1u,R_1^*v\rangle$, each factor bounded into $L^2$ from $H^{\mathsf s}$, resp. $H^{-\mathsf s}$. (2) Given
@@ -841,14 +866,19 @@ attained by different representations, and the argument does not combine them (s
 
 ### 8.3 Smooth operators on mixed spaces
 
-*Cut-offs.* Operators in $C^\infty_b\Psi_{e3b}$ have Schwartz kernels supported within a finite $d_{\mathcal
-B}$-distance of the diagonal ([SBG], the paragraph before Definition 3.34, and Definition 3.34). For $\chi\in
-C^\infty(\tilde M)$, an operator $A$ is *carried by* $\chi$ if $A = \chi'A\chi'$ for some $\chi'\in C^\infty(\tilde M)$
-such that $\chi = 1$ within $d_{\mathcal B}$-distance $D$ of $\mathrm{supp}\,\chi'$. Here $D$ bounds the kernel ranges
-of the finitely many operators of the statement at hand; for differential operators $\chi = 1$ on $\mathrm{supp}\,\chi'$
-suffices. Then $A\chi = A = \chi A$, and $AP = AP\chi$ for each operator $P$ of the statement. The source writes $B =
-\chi B\chi$, and its estimates are read with this convention. Auxiliary operators chosen in a proof are carried by
-cut-offs nested between $\chi'$ and $\chi$.
+*Cut-offs.* [SBG] Definition 3.34 calls an operator *localized near the diagonal* when its Schwartz kernel is supported
+within a finite $d_{\mathcal B}$-distance of the diagonal. This is a property an operator of the calculus may or may not
+have, and residual operators need not have it ([SBG] Remark 3.48). Here the operators of $\mathcal P$ and all auxiliary
+operators are taken localized near the diagonal. Quantizations are, by the cut-off $\psi(x-x')$ of [SBG] (3.26) and the
+chart cut-offs of Definition 3.31. The class is closed under compositions and adjoints, since kernel supports add, resp.
+are reflected, and under commutators with vector fields, and it contains the finite-order parametrices of Lemma 8.4 (b),
+which are quantizations. For $\chi\in C^\infty(\tilde M)$, an operator $A$ is *carried by* $\chi$ if $A = \chi'A\chi'$
+for some $\chi'\in C^\infty(\tilde M)$ such that $\chi = 1$ within $d_{\mathcal B}$-distance $D$ of
+$\mathrm{supp}\,\chi'$. Here $D$ bounds the kernel ranges of the finitely many operators of the statement at hand; for
+differential operators $\chi = 1$ on $\mathrm{supp}\,\chi'$ suffices. Then $A\chi = A = \chi A$, and $AP = AP\chi$ for
+each operator $P$ of the statement. The source writes $B = \chi B\chi$, and its estimates are read with this convention.
+The source does not require the localization ([Hin26c] p. 48); the restriction is recorded in section 10. Auxiliary
+operators chosen in a proof are carried by cut-offs nested between $\chi'$ and $\chi$.
 
 **Lemma 8.4.** Let $A\in C^\infty_b\Psi^{m'}_{e3b}$, $m'\in\mathbb R$, and let $\mathsf s$ be a variable order.
 
@@ -923,20 +953,20 @@ s_0}_{e3b},H^{\mathsf s}_{e3b})$ is well defined, as $B\ell(I-B^\sharp)\in\tilde
 ((S5)) and so lies in $\tilde\Psi^{-\infty}_{e3b}$. Its graph is closed by the same argument, the convergence holding in
 $\mathcal L(H^{\mathsf s_0},H^{\mathsf s_0})$. So it is bounded by $C\|\ell\|_{C^{d_0}_{e3b}}$.
 
-*Finite regularity.* Let $d_*$ be the larger of the two numbers just found, $K := \max(0,\lceil-\inf\mathsf s\rceil,
-\lceil-\inf\mathsf s_0\rceil)$, and put $d_0 := d_*+K+1$. Let $\ell\in C^{d_0}_{e3b}$. In the charts $\psi_\beta$ of
-$\rho\mathcal B$, with a uniformly smooth partition of unity $\theta_\beta$ and a mollifier $\eta_\epsilon$, put
-$\ell_\epsilon := \sum_\beta((\theta_\beta\ell)\circ\psi_\beta^{-1}*\eta_\epsilon)\circ\psi_\beta$. Derivatives commute
-with convolution, the charts have uniformly bounded transitions and finite multiplicity, and e3b-derivatives are
-uniformly equivalent to coordinate derivatives in these charts. Hence $\|\ell_\epsilon\|_{C^{d}_{e3b}}\le
-C\|\ell\|_{C^{d}_{e3b}}$ for $d\le d_0$, and $\ell_\epsilon\in C^\infty_{e3b}$. Moreover $\ell_\epsilon\to\ell$ in
-$C^{K}$ on compact sets. For $u\in H^{\mathsf s}_{e3b}$, $\ell_\epsilon u\to\ell u$ in $\mathcal D'$, while
-$\|\ell_\epsilon u\|_{H^{\mathsf s}}\le C\| \ell\|_{C^{d_*}_{e3b}}\|u\|_{H^{\mathsf s}}$. A subsequence converges weakly
-in the Hilbert space $H^{\mathsf s}_{e3b}$, which embeds continuously in $\mathcal D'$, so its limit is $\ell u$. The
-norm is weakly lower semicontinuous, which gives the first claim of (a). For (b),
-$\ell_\epsilon(I-B^\sharp)u\to\ell(I-B^\sharp)u$ weakly in $H^{\mathsf s_0}$, by the first claim and the same argument.
-$B$ is weakly continuous on $H^{\mathsf s_0}$, and the bound holds uniformly in $\epsilon$. So the limit
-$B\ell(I-B^\sharp)u$ lies in $H^{\mathsf s}$ with the bound.
+*Finite regularity.* Let $d_*$ be the largest of the numbers just found, for (a) at the orders $\mathsf s$ and $\mathsf
+s_0$ and for (b), $K := \max(0,\lceil-\inf\mathsf s\rceil, \lceil-\inf\mathsf s_0\rceil)$, and put $d_0 := d_*+K+1$. Let
+$\ell\in C^{d_0}_{e3b}$. In the charts $\psi_\beta$ of $\rho\mathcal B$, with a uniformly smooth partition of unity
+$\theta_\beta$ and a mollifier $\eta_\epsilon$, put $\ell_\epsilon :=
+\sum_\beta((\theta_\beta\ell)\circ\psi_\beta^{-1}*\eta_\epsilon)\circ\psi_\beta$. Derivatives commute with convolution,
+the charts have uniformly bounded transitions and finite multiplicity, and e3b-derivatives are uniformly equivalent to
+coordinate derivatives in these charts. Hence $\|\ell_\epsilon\|_{C^{d}_{e3b}}\le C\|\ell\|_{C^{d}_{e3b}}$ for $d\le
+d_0$, and $\ell_\epsilon\in C^\infty_{e3b}$. Moreover $\ell_\epsilon\to\ell$ in $C^{K}$ on compact sets. For $u\in
+H^{\mathsf s}_{e3b}$, $\ell_\epsilon u\to\ell u$ in $\mathcal D'$, while $\|\ell_\epsilon u\|_{H^{\mathsf s}}\le C\|
+\ell\|_{C^{d_*}_{e3b}}\|u\|_{H^{\mathsf s}}$. A subsequence converges weakly in the Hilbert space $H^{\mathsf s}_{e3b}$,
+which embeds continuously in $\mathcal D'$, so its limit is $\ell u$. The norm is weakly lower semicontinuous, which
+gives the first claim of (a). For (b), $\ell_\epsilon(I-B^\sharp)u\to\ell(I-B^\sharp)u$ weakly in $H^{\mathsf s_0}$, by
+the first claim and the same argument. $B$ is weakly continuous on $H^{\mathsf s_0}$, and the bound holds uniformly in
+$\epsilon$. So the limit $B\ell(I-B^\sharp)u$ lies in $H^{\mathsf s}$ with the bound.
 
 *b-regularity.* By (8.1) and the Leibniz rule, $V^J(\ell u) = \sum(V^{J_1}\ell)(V^{J_2}u)$ over splittings of $J$, and
 $\|V^{J_1}\ell\|_{C^{d_0}_{e3b}}\le C\|\ell\|_{C^{(d_0;|J_1|)}_{e3b;b}}$ by Lemma 8.2 (a). $\square$
@@ -1050,55 +1080,80 @@ bounded by a constant times $\lambda^{m}$, $\lambda$ the elliptic weight of (S8)
 $\sigma(P_j)$ is matrix-valued (section 4.3).
 
 *Choosing auxiliary operators.* Let $K\subset{}^{e3b}S^*\tilde M$ be compact and $O\supset K$ open, over the interior of
-$\{\chi = 1\}$. Then there are $B_1,B_2,\ldots\in C^\infty_b\Psi^0_{e3b}$, carried by nested cut-offs between $\chi'$
-and $\chi$, with $K\subset\mathrm{Ell}(B_1)$, $\mathrm{WF}'(B_i)\subset\mathrm{Ell}(B_{i+1})$ and all wave front sets in
-$O$. Some $B_i$ may be chosen microlocally equal to $I$ near $K$, that is, with $\mathrm{WF}'(I-B_i)\cap K = \emptyset$.
+$\{\chi = 1\}$. Then there are $B_1,B_2,\ldots\in C^\infty_b\Psi^0_{e3b}$, carried by nested cut-offs between $\chi'$ and
+$\chi$, with $K\subset\mathrm{Ell}(B_1)$, $\mathrm{WF}'(B_i)\subset\mathrm{Ell}(B_{i+1})$ and all wave front sets in $O$.
+Some $B_i$ may be chosen microlocally equal to $I$ near $K$, that is, with $\mathrm{WF}'(I-B_i)\cap K = \emptyset$.
 Quantize symbols $\tilde\chi_i\in S^0$ with $\tilde\chi_i = 1$ near the support of $\tilde\chi_{i-1}$, and multiply by
-cut-offs. The hypotheses of the propagation estimates are open: if backward integral curves of $\mathsf H$ from
-$\mathrm{WF}'(B)$ reach $\mathrm{Ell}(E)$ in uniformly finite time within $\mathrm{Ell}(G)$, the same holds from a
-compact neighbourhood of $\mathrm{WF}'(B)$, reaching a compact subset of $\mathrm{Ell}(E)$ and staying in a compact
-subset of $\mathrm{Ell}(G)$. This follows by compactness of $\mathrm{WF}'(B)$ and continuity of the flow. Below,
-"slightly larger" and "slightly smaller" operators refer to such choices.
+cut-offs. The hypotheses of the propagation estimates are open. Let $T$ be the union of the backward segments of the
+integral curves of $\mathsf H$ from $\mathrm{WF}'(B)\cap\mathrm{Char}(L)$ up to their first entry into $\mathrm{Ell}(E)$,
+and suppose that they reach $\mathrm{Ell}(E)$ within a time $T_0$, remaining in $\mathrm{Ell}(G)$. Then
+$T\subset\mathrm{Ell}(G)$ is compact: it is the image under the flow of the set of $(\alpha,t)$ with $0\le t\le
+t_\alpha$, $t_\alpha$ the first entry time, and this set is closed because $\alpha\mapsto t_\alpha$ is upper
+semicontinuous, $\mathrm{Ell}(E)$ being open. Moreover:
+
+(O) For every neighbourhood $U\subset\mathrm{Ell}(G)$ of $T$ there are a neighbourhood $U_T\subset\mathrm{Ell}(G)$ of
+$T\cup\mathrm{WF}'(B)$, with $U_T\cap\mathrm{Char}(L)\subset U$, and compact sets $K_E\subset\mathrm{Ell}(E)$ and
+$K_U\subset U$, such that the backward curve from every point of $U_T\cap\mathrm{Char}(L)$ reaches $K_E$ within time
+$T_0+1$ and stays in $K_U$ until then. $U_T$ may be replaced by any smaller neighbourhood of $T\cup\mathrm{WF}'(B)$.
+
+For $\alpha\in\mathrm{WF}'(B)\cap\mathrm{Char}(L)$ choose $t'_\alpha\in(t_\alpha,t_\alpha+1)$ with
+$\exp(-t'_\alpha\mathsf H)\alpha\in\mathrm{Ell}(E)$ and the curve on $[0,t'_\alpha]$ in $U$, which is possible as $U$ is
+open. By the continuity of the flow, every point near $\exp(-t\mathsf H)\alpha$, $0\le t\le t_\alpha$, has a backward
+curve that stays in a fixed compact neighbourhood in $U$ of $\exp(-[t,t'_\alpha]\mathsf H)\alpha$ up to the time
+$t'_\alpha-t$, and then lies in a fixed compact neighbourhood of $\exp(-t'_\alpha\mathsf H)\alpha$ in $\mathrm{Ell}(E)$.
+Finitely many such neighbourhoods cover the compact set $T$. Their union, together with a neighbourhood in
+$\mathrm{Ell}(G)$ of the compact set $\mathrm{WF}'(B)\setminus U$ disjoint from $\mathrm{Char}(L)$, is $U_T$. The flow is
+continuous although $\mathsf H$ is only continuous at $\partial\tilde M$: its integral curves are unique, and limits of
+integral curves are integral curves (II.A$'$ Lemma 5.1 (c)). When $\mathsf H\mathsf s\le0$ on $U$, the hypotheses of (L4)
+therefore hold for $(B',E',G')$ whenever $\mathrm{WF}'(B')\subset U_T$, $E'$ is elliptic on $K_E$ and $G'$ is elliptic on
+$K_U\cup\mathrm{WF}'(B')$. Below, "slightly larger" and "slightly smaller" operators refer to such choices.
 
 ### 9.1 The standard estimates
 
 The two statements below are [Hin26c] Propositions 3.23 and 3.24 for $k = 0$ (pp. 69-71), at $n = 4$. Their statements
-and the source's proofs do not use the dimension. The source proves them by the standard elliptic parametrix and
-positive commutator arguments. For variable orders it cites [Vas18] Theorem 5.3, with the sharp Gårding inequality on
-each unit cell and a commutant as in [dHUV15]. It takes the coefficient regularity $d_0$ finite because the arguments
-use the boundedness of finitely many operators on a fixed range of spaces. No text READ in this write-out states them on
+and the source's proofs do not use the dimension. The source proves them by the standard elliptic parametrix and positive
+commutator arguments. For variable orders it cites [Vas18] Theorem 5.3, with the sharp Gårding inequality on each unit
+cell and a commutant as in [dHUV15]. It takes the coefficient regularity $d_0$ finite because the arguments use the
+boundedness of finitely many operators on a fixed range of spaces. No text READ in this write-out states them on
 e3b-spaces with coefficients of finite regularity and variable orders. [SBG] does not treat propagation (its section 3.6
-says so). [HJS] has constant differential orders and no sharp Gårding inequality. Hintz's paper with Sobolev
-coefficients (arXiv:1311.6859) has constant orders. They are therefore **standing inputs of this part, (L3) and (L4)**,
-to be proved in Part II.A$'$ (section 10, (G5)). Everything else in sections 8 and 9 is proved here, from them and from
-the calculus READ in section 3.
+says so). [HJS] has constant differential orders and no sharp Gårding inequality. Hintz's paper with Sobolev coefficients
+(arXiv:1311.6859) has constant orders. They are therefore **standing inputs of this part, (L3) and (L4)**, proved in Part
+II.A$'$ (section 10, (G5)-(G7)), with the hypotheses of (L4) corrected there. Everything else in sections 8 and 9 is
+proved here, from them and from the calculus READ in section 3.
 
-(L3) *(Elliptic estimate, $k = 0$.)* Let $\mathcal P\subset C^\infty_b\Psi^m_{e3b}$ be finite. There is $d_0 =
-d_0(m,\mathsf s,N)$ such that the following holds for $L\in C^{d_0}_{e3b}\mathcal P$, possibly on $\mathbb C^{N'}$. Let
-$B,G\in C^\infty_b\Psi^0_{e3b}$ be carried by $\chi$, with $\mathrm{WF}'(B)\subset\mathrm{Ell}(G)\cap\mathrm{Ell}(L)$.
-If $\chi u\in H^{-N}_{e3b}$ and $GLu\in H^{\mathsf s-m}_{e3b}$, then $Bu\in H^{\mathsf s}_{e3b}$ and
+(L3) *(Elliptic estimate, $k = 0$.)* There is $d_0 = d_0(m,\mathsf s,N)$ such that the following holds for every finite
+$\mathcal P\subset C^\infty_b\Psi^m_{e3b}$, every $N'$ and every $L\in C^{d_0}_{e3b}\mathcal P$ on $\mathbb
+C^{N'}$-valued functions. (The source states the scalar case; with matrix-valued principal symbols the proof is the same,
+II.A$'$ Theorem 3.1.) Let $B,G\in C^\infty_b\Psi^0_{e3b}$ be carried by $\chi$, with
+$\mathrm{WF}'(B)\subset\mathrm{Ell}(G)\cap\mathrm{Ell}(L)$. If $\chi u\in H^{-N}_{e3b}$ and $GLu\in H^{\mathsf
+s-m}_{e3b}$, then $Bu\in H^{\mathsf s}_{e3b}$ and
 $$\|Bu\|_{H^{\mathsf s}_{e3b}}\le C\big(\|GLu\|_{H^{\mathsf s-m}_{e3b}}+\|\chi u\|_{H^{-N}_{e3b}}\big),$$
 with $C$ uniform for $L$ in a neighbourhood in $C^{d_0}_{e3b}\mathcal P$ on which
 $\mathrm{WF}'(B)\subset\mathrm{Ell}(L)$ holds with a uniform bound.
 
-(L4) *(Real principal type propagation, $k = 0$.)* Let $m\in\mathbb N_0$ and let $\mathcal P_{m-j}\subset C^\infty_b
-\Psi^{m-j}_{e3b}$, $j = 0,1$, be finite. There is $d_0 = d_0(m,\mathsf s,N)$ such that the following holds for
-$\delta>0$ and operators on $\mathbb C^{N'}$ of the form
+(L4) *(Real principal type propagation, $k = 0$; hypotheses corrected, section 10, (G6)-(G7).)* Let $m\in\mathbb N_0$.
+There is $d_0 = d_0(m,\mathsf s,N)$ such that the following holds for every $\delta>0$, all finite sets $\mathcal
+P_{m-j}\subset C^\infty_b\Psi^{m-j}_{e3b}$, $j = 0,1$, the elements of $\mathcal P_m$ having classical principal symbols,
+every $N'$, and operators on $\mathbb C^{N'}$ of the form
 $$L = L_0+L_1+L_2,\quad L_0\in\mathrm{Diff}^m_{e3b}\otimes\mathrm{Id},\ L_1\in C^{d_0,(2\delta,\delta,\delta)}_{e3b}
 \mathcal P_m\otimes\mathrm{Id},\ L_2\in C^{d_0}_{e3b}\mathcal P_{m-1}\otimes\mathrm{End}\,\mathbb C^{N'},$$
-with $L_1$ of homogeneous principal symbol and the scalar principal symbol $\ell$ of $L$ real. Let $\rho_\infty\in
-S^{-1} _{\mathrm{hom}}$ be a fixed positive elliptic symbol and $\mathsf H := \rho_\infty^{m-1}H_\ell$; it is a
-continuous vector field on ${}^{e3b}S^*\tilde M$, as the coefficients of $L_1$ vanish at $\partial\tilde M$ ([Hin26c] p.
-71). Let $B,E,G\in C^\infty_b\Psi^0_{e3b}$ be carried by $\chi$. Suppose that all backward integral curves of $\mathsf
-H$ from $\mathrm{WF}'(B)$ reach $\mathrm{Ell}(E)$ in uniformly finite time while remaining in $\mathrm{Ell}(G)$. Suppose
-that $\mathsf H\mathsf s\le0$ near $\mathrm{WF}'(B)\cap\mathrm{Char}(L)$ within $\mathrm{Char}(L)$, and that
-$\mathrm{WF}'(B)\subset\mathrm{Ell}(G)$. If $\chi u\in H^{-N}$, $GLu\in H^{\mathsf s-m+1}$ and $Eu\in H^{\mathsf s}$,
-then $Bu\in H^{\mathsf s}$ and
+with the scalar principal symbol $\ell$ of $L$ real. Let $\rho_\infty\in S^{-1}_{\mathrm{hom}}$ be a fixed positive
+elliptic symbol and $\mathsf H := \rho_\infty^{m-1}H_\ell$. Let $B,E,G\in C^\infty_b\Psi^0_{e3b}$ be carried by $\chi$,
+with $\mathrm{supp}\,\chi$ disjoint from $I^0\cup K^-$, as on a neighbourhood of $\bar\Omega$, which meets
+$\partial\tilde M$ only in $\mathscr I^+$, $\iota^+$ and $K^+$ (section 1). Over $\tilde M\setminus(I^0\cup K^-)$,
+$\mathsf H$ is a continuous vector field on ${}^{e3b}S^*\tilde M$, as the coefficients of $L_1$ vanish at $\mathscr I^+$,
+$\iota^+$ and $K^+$ ([Hin26c] p. 71; II.A$'$ Lemma 5.1). Suppose that $\mathrm{WF}'(B)\subset\mathrm{Ell}(G)$, that the
+backward integral curves of $\mathsf H$ from $\mathrm{WF}'(B)\cap\mathrm{Char}(L)$ reach $\mathrm{Ell}(E)$ in uniformly
+finite time while remaining in $\mathrm{Ell}(G)$, and that $\mathsf H\mathsf s\le0$ on a neighbourhood in
+${}^{e3b}S^*\tilde M$ of the union $T$ of these backward segments, up to their first entry into $\mathrm{Ell}(E)$. If
+$\chi u\in H^{-N}$, $GLu\in H^{\mathsf s-m+1}$ and $Eu\in H^{\mathsf s}$, then $Bu\in H^{\mathsf s}$ and
 $$\|Bu\|_{H^{\mathsf s}_{e3b}}\le C\big(\|GLu\|_{H^{\mathsf s-m+1}_{e3b}}+\|Eu\|_{H^{\mathsf s}_{e3b}}+\|\chi u\|_{H^{-N}
 _{e3b}}\big),$$
 with $C$ locally uniform for perturbations of $L_0,L_1,L_2$ in $\mathrm{Diff}^m_{e3b}$, $C^{d_0,(2\delta,\delta,\delta)}
-_{e3b}\mathcal P_m$ and $C^{d_0}_{e3b}\mathcal P_{m-1}$ with real principal symbols and $\mathsf H'\mathsf s\le0$ on
-their characteristic sets near $\mathrm{WF}'(B)$.
+_{e3b}\mathcal P_m$ and $C^{d_0}_{e3b}\mathcal P_{m-1}$ with real principal symbols, for which $\mathsf H'\mathsf s\le0$
+on the same neighbourhood of $T$; the other hypotheses persist under small perturbations, by the continuity of the flow
+in the field (II.A$'$ Lemma 5.1 (c)). The source asks $\mathsf H\mathsf s\le0$ only near
+$\mathrm{WF}'(B)\cap\mathrm{Char}(L)$ within $\mathrm{Char}(L)$, which does not suffice (section 10, (G6)).
 
 ### 9.2 Estimates with b-regularity
 
@@ -1316,8 +1371,8 @@ representation $\mathbf L$. Let $B,G$ be carried by $\chi$ with
 $\mathrm{WF}'(B)\subset\mathrm{Ell}(G)\cap\mathrm{Ell}(L)$. If $\mathbf L$ is a representation at $(d_0;k)$, then
 $$\|Bu\|_{(\mathsf s;k)}\le C_k\Big(\|GLu\|_{(\mathsf s-m;k)}+\|\chi u\|_{(-N;k)}+\|\mathbf L\|_{(d_0;k)}\big(\|GLu\|
 _{(\mathsf s-m;d)}+\|\chi u\|_{(-N;d)}\big)\Big),\tag{9.10}$$
-with the finiteness statement of Proposition 9.1. $C_k$ depends on $L$ only through a bound for $\|\mathbf
-L\|_{(d_0;d)}$, and so is locally uniform in $C^{(d_0;d)}_{e3b;b}\mathcal P$ for all $k$ at once.
+with the finiteness statement of Proposition 9.1. $C_k$ depends on $L$ only through a bound for $\|\mathbf L\|_{(d_0;d)}$
+and the ellipticity margin of (L3), and so is locally uniform in $C^{(d_0;d)}_{e3b;b}\mathcal P$ for all $k$ at once.
 
 *Proof.* Take $d := \tilde d+1$, with $d_0$ and $\tilde d$ those of Proposition 9.6 for $(\mathsf s-m,-N-m)$, enlarged
 to serve also Proposition 9.1 and Corollary 9.7. For $k\le d$, (9.10) is Proposition 9.1, whose constant depends on
@@ -1394,8 +1449,15 @@ $$L^{(k)}u^{(k)} = f^{(k)}+\tilde f^{(k)},\qquad f^{(k)} := (V^\alpha Lu)_\alpha
 where $(L^{(k)}w)_\alpha := Lw_\alpha+\sum_i\sum_\nu L_{\alpha_i,\nu}w_{\nu\cdot(\alpha\setminus\{i\})}$. $L^{(k)}$ is a
 system of the form of (L4), built from commutators of the fixed operators with the $V_j$. Its principal symbol is
 $\ell\,\mathrm{Id}$ and its coefficients have $C^{d_0}$-norms bounded by $C\|\mathbf L\|_{(d_0;1)}$. Apply (L4) to it,
-with $B_1$ slightly larger and $E_1$, $G_1$ slightly smaller than $B$, $E$, $G$. The constant depends on $k$ through the
-size of the system, and on $L$ only through low norms:
+with operators chosen as follows. Let $T$ be as in section 9 (beginning), and $U\subset\mathrm{Ell}(G)$ a neighbourhood
+of $T$ on which $\mathsf H\mathsf s\le0$. Apply (O) to $U$, giving $U_T$, $K_E$, $K_U$, and again to $U_T\cap U$ in place
+of $U$, giving $U'_T\subset U_T$, $K'_E$ and $K'_U\subset U_T$. Take $B_1$ with $\mathrm{WF}'(B)\subset\mathrm{Ell}(B_1)$
+and $\mathrm{WF}'(B_1)\subset U'_T$, $E_1$ elliptic on $K'_E$ with $\mathrm{WF}'(E_1)\subset\mathrm{Ell}(E)$, and
+$G_1,G_2,G_3$ microsupported in $U_T$, with $G_1$ elliptic on $K'_U\cup\mathrm{WF}'(B_1)$,
+$\mathrm{WF}'(G_1)\subset\mathrm{Ell}(G_2)$ and $\mathrm{WF}'(G_2)\subset\mathrm{Ell}(G_3)$. By (O) the hypotheses of
+(L4) hold for $(B_1,E_1,G_1)$, and for $(G_2,E,G)$ and $(G_3,E,G)$. (The source shrinks $G$ in the same way. Taking $G_1$
+slightly smaller than $G$ would not do: then $\mathrm{WF}'(G_3)$ contains $T$ and may reach where the hypotheses fail;
+D194.) The constant depends on $k$ through the size of the system, and on $L$ only through low norms:
 $$\|B_1u^{(k)}\|_{H^{\mathsf s}}\le C_k\big(\|G_1f^{(k)}\|_{H^{\mathsf s-m+1}}+\|G_1\tilde f^{(k)}\|_{H^{\mathsf s-m+1}}
 +\|
 E_1u^{(k)}\|_{H^{\mathsf s}}+\|\chi_1u^{(k)}\|_{H^{-N}}\big).$$
@@ -1417,21 +1479,21 @@ $\|\ell\|_{(d_0;\tilde d+2)} \le C\|\mathbf L\|_{(d_0;d)}$ and $\|\ell\|_{(d_0;k
 $\|G_2A'u\|_{(\mathsf s-m+1;k-2)}\le C(\|G_3u\| _{(\mathsf s+1;k-2)}+\ldots)\le C(\|G_3u\|_{(\mathsf s;k-1)}+\ldots)$
 (Lemma 8.4 (c), (d)), and the same at $\tilde d$. If $j'\le1$, the coefficient carries at most one derivative, and (9.7)
 with $\ell$ replaced by $V_{S'}\ell$ and $(0,\cdot)$ gives the same bounds, with $\|V_{S'}\ell\|_{(d_0;\tilde d)}\le
-C\|\mathbf L\|_{(d_0;d)}$. Here $\|G_3u\|_{(\mathsf s;k-1)}$ is bounded by (9.12) at $k-1$, provided $G_3$ is chosen
-with wave front set in a small neighbourhood of $\mathrm{WF}'(B)$, so that the hypotheses of (L4) hold for it. And
-$\|G_3u\|_{(\mathsf s;\tilde d+1)}$ is bounded by Proposition 9.2 at the order $\tilde d+1<d$, with constant depending
-on $\|\mathbf L\|_{(d_0;d)}$. This gives (9.12). The local uniformity follows from that of (L4) and Proposition 9.2.
+C\|\mathbf L\|_{(d_0;d)}$. Here $\|G_3u\|_{(\mathsf s;k-1)}$, and $\|G_2u\|_{(\mathsf s;k-1)}$ in (9.13), are bounded by
+(9.12) at $k-1$ with $G_3$, resp. $G_2$, in place of $B$, for which the hypotheses hold by the choice above. And
+$\|G_3u\|_{(\mathsf s;\tilde d+1)}$ is bounded by Proposition 9.2 at the order $\tilde d+1<d$, with constant depending on
+$\|\mathbf L\|_{(d_0;d)}$. This gives (9.12). The local uniformity follows from that of (L4) and Proposition 9.2.
 $\square$
 
 ## 10. What the write-out found
 
-The write-out of sections 2-3 of [Hin26c] at $n = 4$ changes the following, and nothing else. The changes forced by the
-dimension are $\mathbb S^3$ for $\mathbb S^2$ throughout and three sets of numbers. The weights become $(2(\alpha_I+2),
-\alpha_++\frac52,\alpha_K+\frac12)$ in place of $(2(\alpha_I+\frac32),\alpha_++2,\alpha_K+\frac12)$, in [Hin26c] (3.57),
-Lemma 3.14 and Lemma 3.22 (here Lemmas 6.1, 6.2 and 8.8). The weight in (3.72) becomes $\alpha+2$ in place of
-$\alpha+\frac32$ (here (8.4)). The Mellin line becomes $\mathrm{Im}\,\sigma = \alpha_++\frac52$ (Lemma 6.2). The Sobolev
-embeddings $H^{d+3}\subset C^d$ and $H^3\subset L^\infty$ hold on $\mathbb R^5$ as on $\mathbb R^4$, so no regularity
-threshold changes.
+The write-out of sections 2-3 of [Hin26c] at $n = 4$ changes the following, and nothing else besides the silent repairs
+listed at the end of this section. The changes forced by the dimension are $\mathbb S^3$ for $\mathbb S^2$ throughout and
+three sets of numbers. The weights become $(2(\alpha_I+2), \alpha_++\frac52,\alpha_K+\frac12)$ in place of
+$(2(\alpha_I+\frac32),\alpha_++2,\alpha_K+\frac12)$, in [Hin26c] (3.57), Lemma 3.14 and Lemma 3.22 (here Lemmas 6.1, 6.2
+and 8.8). The weight in (3.72) becomes $\alpha+2$ in place of $\alpha+\frac32$ (here (8.4)). The Mellin line becomes
+$\mathrm{Im}\,\sigma = \alpha_++\frac52$ (Lemma 6.2). The Sobolev embeddings $H^{d+3}\subset C^d$ and $H^3\subset
+L^\infty$ hold on $\mathbb R^5$ as on $\mathbb R^4$, so no regularity threshold changes.
 
 (G1) *Lemma 2.11 of the source, weighted case.* The source prints $W^\sharp\in\mathrm{Diff}^m_{3b}$ where the weighted
 statement needs $W^\sharp\in\rho_{\mathrm{sf}}^{-\alpha_{\mathrm{sf}}}\mathrm{Diff}^m_{3b}$ (Lemma 2.2). A slip of the
@@ -1458,19 +1520,47 @@ $\mathrm{Ell}_{3b}$ for $\mathrm{Ell}_{e3b}$, and the proof of Proposition 3.24 
 changes a statement once corrected.
 
 (G5) *The standard estimates.* The source proves its Propositions 3.23 and 3.24 for $k = 0$ by citation to the standard
-arguments. They are the standing inputs (L3) and (L4) of this part (section 9.1), to be proved in Part II.A$'$: the
-elliptic parametrix with coefficients of finite regularity, and the positive commutator argument with variable orders,
-the sharp Gårding inequality on unit cells, and local uniformity. Part II.A is labelled proved only with Part II.A$'$.
-Two further inputs used by the source in the same way, the boundedness of multiplication by functions of finite
-regularity on variable-order spaces and the pseudolocality of such multiplication, are proved here (Lemma 8.5), from
-(S5), (S6), (S8) and the closed graph theorem.
+arguments. They are the standing inputs (L3) and (L4) of this part (section 9.1), proved in Part II.A$'$ (written, D193):
+the elliptic parametrix with coefficients of finite regularity, and the positive commutator argument with variable orders
+and local uniformity, without the sharp Gårding inequality. Part II.A is labelled proved only with Part II.A$'$. Two
+further inputs used by the source in the same way, the boundedness of multiplication by functions of finite regularity on
+variable-order spaces and the pseudolocality of such multiplication, are proved here (Lemma 8.5), from (S5), (S6), (S8)
+and the closed graph theorem.
+
+(G6)-(G7) *The hypotheses of the real principal type estimate (D194).* Recorded in Part II.A$'$ section 6, and found
+independently by the verifier of this part. The source's hypothesis $\mathsf H\mathsf s\le0$ near
+$\mathrm{WF}'(B)\cap\mathrm{Char}(L)$ within $\mathrm{Char}(L)$ (p. 70) does not suffice. Take $L = D_t$ in one unit
+cell, so $\mathsf H = \partial_t$, and $\mathsf s = \mathsf s(t)$ equal to $s_0$ near $\mathrm{Ell}(E)$ at $t\approx-2$
+and to $s_0+10$ near $\mathrm{WF}'(B)$ at $t\approx0$, so that $\mathsf H\mathsf s = 0$ near $\mathrm{WF}'(B)$. Let $u =
+\chi(t)v(x)$, with $\chi = 1$ near the segments and $v\in H^{s_0}\setminus H^{s_0+\epsilon}$ microlocally at a point of
+$\{\tau = 0\}$. Every hypothesis holds and the right side is finite, but $Bu\notin H^{\mathsf s}$. (L4) asks $\mathsf
+H\mathsf s\le0$ on a neighbourhood of the segments, and classical principal symbols for $\mathcal P_m$, so that $\mathsf
+H$ is continuous at fibre infinity. It takes $\chi$ supported away from $I^0\cup K^-$: the source's reason for the
+continuity of $\mathsf H$, that the coefficients of $L_1$ vanish at $\partial\tilde M$ (p. 71), holds at the weighted
+faces $\mathscr I^+$, $\iota^+$, $K^+$ only. Propositions 9.2 and 9.9 inherit the corrected hypotheses. The proof of the
+source's Proposition 3.30 shrinks $G$ to a neighbourhood of the segments before applying its Proposition 3.28 at $k-1$.
+The first version of Proposition 9.9 here took $G_1$ slightly smaller than $G$ and asked $G_3$ to lie near
+$\mathrm{WF}'(B)$, which is impossible, as $\mathrm{WF}'(G_3)$ contains the segments. Whether every application of these
+estimates in [Hin26c] meets the corrected hypotheses is checked where the applications are written out (Parts II.B-II.F).
 
 *Changes of method, not of statement.* Lemma 9.5 replaces the Moser estimate by Sobolev embedding and interpolation, at
 the cost of three b-derivatives on the coefficient. The thresholds of Proposition 9.6 absorb them. Lemma 8.4 (b)
 constructs the microlocal parametrix to finite order from the principal symbol sequence, where the source cites it. The
 cut-off convention of section 8.3 makes precise the source's $B = \chi B\chi$ for operators whose kernels are not local.
 The lower-order terms of Propositions 9.8-9.9, which the source passes over in favour of the top-order term, are bounded
-explicitly.
+explicitly. Lemmas 4.1 and 7.1 use parametrices to finite order, where the source uses full ones, which (S5) does not
+READ. The operators are taken localized near the diagonal (section 8.3), which the source does not require (p. 48); the
+class is closed under every operation used here.
+
+*Silent repairs and copied slips (D194).* The write-out also repairs without comment: in [Hin26c] Lemma 3.14,
+$|\sigma|^j$ to $|\sigma|^{2j}$ and the $k-j$ left undefined in its first integral (here Lemma 6.2); in Lemma 3.15, the
+single remainder $R$, where the duality argument needs one on each side (here Lemma 7.1). Two slips of the source were
+first copied and are now repaired. The angular term of (2.27) is $\frac{\slashed g}{2x_I^2}$ inside the bracket, as $r =
+\rho_+^{-1}x_I^{-2}$, and the inverse metric correspondingly carries $2x_I^2\slashed g^{-1}$ (section 2.3). The proof of
+Lemma 2.11 asserts $[\rho_K\mathcal V_b,w\mathrm{Diff}^m_{3b}]\subset\rho_Kw\mathrm{Diff}^m_{3b}$, which is false, as
+$[r\partial_t,r\partial_r] = -\rho_Kt\partial_t$; Lemma 2.2 replaces it by an argument, and the statement stands. Two
+slips of this write-out, in the coefficients of $x_Idx^0$ (Lemma 2.5) and in the transform of $\tau\partial_\tau$ (Lemma
+6.2), are repaired; neither changes a conclusion.
 
 ## Sources
 
@@ -1482,9 +1572,9 @@ Notation 3.26; Propositions 3.18, 3.23, 3.24, 3.28-3.30; (2.1)-(2.13), (3.19)-(3
 
 [SBG] P. Hintz, *Pseudodifferential operators on manifolds with scaled bounded geometry*, Commun. Amer. Math. Soc. 6
 (2026), 153-243, arXiv:2408.06651v1. READ: Definitions 1.1, 1.3, 3.4, 3.6-3.8, 3.14, 3.17, 3.31, 3.34, 3.43, 3.58, 3.59,
-4.6, 4.11, 4.14, 4.20; Propositions 3.19, 3.22, 3.32, 3.55, 4.2, 4.15, 4.17, 4.18, 4.22; Theorems 3.21, 3.44, 3.51,
-3.52; Remarks 3.33, 3.47, 3.48; (3.26)-(3.28) and the paragraph before Definition 3.34; section 3.6, its last paragraph
-(no propagation results).
+4.6, 4.11, 4.14, 4.20; Propositions 3.19, 3.22, 3.32, 3.55, 4.2, 4.15, 4.17, 4.18, 4.22; Theorems 3.21, 3.44, 3.51, 3.52;
+Remarks 3.33, 3.47, 3.48; (3.26)-(3.28) and the paragraph before Definition 3.34; (4.24a-b) and the paragraph containing
+them (pp. 73-74); section 3.6, its last paragraph (no propagation results).
 
 [HJS] A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1, as READ in
 Part I.A; consulted for (L3)-(L4): Theorems 5.2, 5.3, 5.5, 10.3 and Definition 10.2 (constant differential orders; no
