@@ -8214,9 +8214,9 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 54 name the places where the dimension changes the proof, 138 places in all, and 7 name
-none: the step is the source proof as it stands. The 142 placements of the five-dimensional values are: 54 at a computed
-check, 68 at an earlier section where they are computed or deduced, 19 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 54 name the places where the dimension changes the proof, 141 places in all, and 7 name
+none: the step is the source proof as it stands. The 145 placements of the five-dimensional values are: 55 at a computed
+check, 69 at an earlier section where they are computed or deduced, 20 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
 R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 35 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
@@ -8233,7 +8233,8 @@ found [Hin26] section 9's iota+ solution theory, a reading at n = 4 (10.47's OPE
 inputs. D156's (10.75 (xl)-(xliii)) named eight more places, for 10.21 (a) and 10.56 (b), and marked the readings 10.21
 (c) and 10.56 (b) rest on, [Hin26a] Theorem 5.2 at n = 4 (10.56 (a)). D157 added three places the write-outs (xxiii) and
 (xxv) named and their rows lacked (the sixty-third verifier), so D150's nine was a floor. D158's (10.75 (xliv)-(xlvi))
-named six more places, for 10.23 (b)-(d), from tface5.py and cpmodes5.py.
+named six more places, for 10.23 (b)-(d), from tface5.py and cpmodes5.py. D159's (10.75 (xlvii)-(xlviii)) named three
+more places, for 10.19 (a) and 10.55 (b).
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8250,7 +8251,7 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Forty-six modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158)
+### 10.75 Forty-eight modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D159)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
@@ -8820,19 +8821,48 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      (B.44)'s data lie in them; U is open in R^4 \ {0}; and the closing integral diverges, its t-power free of n.
      Proposition B.2 is (xliv) and Theorem B.4 (xlv); it rests on their readings.
 
-So forty-six of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Twenty-seven of the forty-six take a reading among their inputs (B-MAP.tsv's
-column `reading`: 10.15 (a), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b), 10.28 (a), 10.29 (a),
-10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e), 10.46 (e),
-10.47 (d), 10.47 (e), 10.56 (b), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the census through that input,
-not through their own steps (the sixty-first verifier; D149). Where an item cites a row still on the census as an input
-((iii) cites 10.19 (d); (xviii) cites 10.53 (e); (xxiv) cites 10.62 (b), on 10.61; (xxxvii) cites 10.61 (b), 10.61 (c);
-(xxxviii) cites 10.46 (b); (xxxix) cites 10.46 (b); (xl) cites 10.58 (c); (xlv) cites 10.22 (e)), it rests on the census
-through that row in the same way. Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it.
-The other 15 carry proofs of several pages each, in [Hin26] section 11, [Hin26c] sections 5 and 7-14, and [Hin26a]
-section 5; writing those out is what remains of 8.8.
+ (xlvii) 10.19 (a), [Hin26c] Proposition 9.10 (pp. 167-168; D159). His proof of the direct estimate at R_in: for Im
+     sigma > 0 an elliptic estimate; for sigma near real, the commutant of symbol rho^(-r-1/2) psi_d psi_R, q =
+     (xi_sc + 2 Re sigma)^2 + |eta_sc|^2 (9.35), and (9.34)'s three terms -- H_(Re G) q >= (Re sigma) q near R_in,
+     the double commutator subprincipal, and Im P-hat_0(sigma) expanded by (9.36), its sigma^2 term subprincipal,
+     d_sigma P-hat_0(0) = 2 i rho(rho d_rho - (n - 1)/2 - S) - i Q symmetric for r^(n-1) |dr dg/| when S = Q = 0, so
+     that only S enters, (9.38a), and Im P-hat_0(0) in rho^2 Diff^1_b fibre-linear, (9.38b) -- give the threshold 4
+     r + 2 + 4 Re S - 2 p_1 > 0, r > (1/2)(-1 + vartheta_in) (9.32); the Im sigma term has a sign, sigma^1(-Re
+     d_sigma P-hat_0(0)) = 4 Re sigma > 0 at R_in. At n = 4: his proof is written with (n - 1)/2 and the density
+     r^(n-1) (p. 168), and rho(rho d_rho - 3/2) is skew for rho^-5 d rho exactly (Proposition 10.16 (i),
+     hienergy5.py V1); so (9.38a)-(9.38b) give p_1 - 2 Re S = -2 Re(A_w + S-bar) in any fibre inner product, A_w +
+     S-bar = D S-bar D similar to S-bar (V1), vartheta_in = -2 S-bar to within eps, exactly when S-bar is
+     diagonalisable (Lemma 5.12, Remark 10.2), and (9.16b) reads r + alpha_+ > -1/2 - S-bar, the mirror of 10.18's
+     -1/2 + S-bar at R_out; H_(Re G) q and the Im sigma term's sign are free of n; and admissible order functions
+     exist at every weight (Definition 5.11; 10.18). The operators are on bundles, the scalar-to-bundle step being
+     the author's notational remark (10.53 (d)), part of 10.19 (d)'s reading.
 
-Labels: READ (the forty-six source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+ (xlviii) 10.55 (b), [Hin26c] Theorem 9.5 (3) and (5) (pp. 163, 172-173; D159). His proof of (3): Fredholm by the
+     compact inclusions in (9.17); at sigma_0 in {sigma != 0, Im sigma >= 0} the augmented operator (9.54) -- E_01 onto
+     a complement of the range, E_10 an isomorphism on the kernel -- is invertible, and by the uniform estimates (9.17)
+     and a weak-limit argument ([Vas13] section 2.7) invertible nearby, so the index is locally, hence globally,
+     constant on that connected set; it is 0 by Theorem 9.16 (3)'s invertibility at large |sigma| (his footnote 72,
+     section 9.3). His proof of (5): a kernel element lies in H-bar^(oo,r)_b for r < -1/2 + S-bar, by Sobolev embedding
+     (3.72) in C^(oo,1+S-bar-eps)_b, and integrating (9.55), (rho d_rho - 1 - S) u = -(2 i sigma rho)^-1 (P-hat_0(0) - i
+     sigma Q + g^00 sigma^2) u, from rho = delta to 0 gives A^(1 + S-bar - eps). At n = 4: (9.17) is Theorem 9.5 (1)-(2)
+     at n = 4, 10.19 (d)'s reading; the compactness and the augmentation are free of n; Theorem 9.16 (3) at n = 4 is
+     10.53 (e)'s reading; the embedding shifts by n/2 = 2 for his 3/2, and (9.55) carries (n - 1)/2 = 3/2 for his 1
+     (10.53 (c)), so kernel elements lie in A^(3/2 + S-bar - eps). It rests on the readings of 10.19 (d) and 10.53 (e).
+
+So forty-eight of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Twenty-nine of the forty-eight take a reading among their inputs (B-MAP.tsv's
+column `reading`: 10.15 (a), 10.19 (a), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b), 10.28 (a),
+10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e),
+10.46 (e), 10.47 (d), 10.47 (e), 10.55 (b), 10.56 (b), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the
+census through that input, not through their own steps (the sixty-first verifier; D149). Where an item cites a row still
+on the census as an input ((iii) cites 10.19 (d); (xviii) cites 10.53 (e); (xxiv) cites 10.62 (b), on 10.61; (xxxvii)
+cites 10.61 (b), 10.61 (c); (xxxviii) cites 10.46 (b); (xxxix) cites 10.46 (b); (xl) cites 10.58 (c); (xlv) cites 10.22
+(e); (xlvii) cites 10.19 (d); (xlviii) cites 10.19 (d), 10.53 (e)), it rests on the census through that row in the same
+way. Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it. The other 13 carry proofs of
+several pages each, in [Hin26] section 11, [Hin26c] sections 5, 7-11 and 13, and [Hin26a] section 5; writing those out
+is what remains of 8.8.
+
+Labels: READ (the forty-eight source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)

@@ -4348,3 +4348,9 @@ shift 3/2 and its symmetry for r^3 dr, the thresholds from K1-K2 and F4, the Mel
 2, 3, 1 and F5's free roots, the cf positivity and characteristic polynomial (F3, C7), the density r^4 and the data
 weights (F4). Six places named. Forty-six of 61 written out, twenty-seven on a reading;
 15 rest on the censuses.
+
+**D159 (2026-10-25): [Hin26c] Proposition 9.10 and Theorem 9.5 (3), (5) written out.** Proposition 9.10's
+proof (pp. 167-168) is written with (n - 1)/2 and r^(n-1) at source; at n = 4 V1's skewness and A_w + S-bar = D S-bar D
+give 10.19 (a)'s threshold. Theorem 9.5 (3)'s augmentation argument and (5)'s embedding and ODE (pp. 172-173) give
+10.55 (b) on 10.19 (d)'s and 10.53 (e)'s readings. Three places named. Forty-eight of 61 written out,
+twenty-nine on a reading; 13 rest on the censuses.

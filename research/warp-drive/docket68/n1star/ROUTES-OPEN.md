@@ -2113,3 +2113,6 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   B.4 (10.23 (d)) -- matched at source (pp. 87-98) to tface5.py F2-F5, cpmodes5.py K1-K2 and cform5.py C7.
   Forty-six of 61 written out, twenty-seven on a reading; 15 rest on the censuses,
   [Hin26a]'s only in Theorem 5.2 (10.22 (e)).
+- D159 (10.75 (xlvii)-(xlviii)): [Hin26c] Proposition 9.10, the incoming radial estimate, written for general n at
+  source (10.19 (a)), and Theorem 9.5 (3) and (5), the index's constancy and the kernel's class (10.55 (b)).
+  Forty-eight of 61 written out, twenty-nine on a reading; 13 rest on the censuses.
