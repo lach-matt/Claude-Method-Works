@@ -2,15 +2,17 @@
 
 *Status.* Verified. Proved at D189; returned to verified at D195, when the seventy-ninth verifier, reading Part II.A$'$,
 which copied them, found that the cut-offs of Proposition 5.2 are not equal to 1 where the proof needs them. They are
-repaired (D195), and the part is labelled proved again once the eightieth verifier has read the repair. Written out in
-full (D185). Read line by line by the seventy-fourth verifier, whose two major and seven minor findings and nits are
-seated (D186); the seventy-fifth confirmed those repairs and found two minor gaps and six nits, seated (D187); the
-seventy-sixth, reading Part I.B, confirmed both D187 repairs (D189). Every earlier finding is seated and its repair read.
-This part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e) and 10.86 (a)-(e),
-which re-ran [Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard steps. Here those steps are
-proved, from the calculus statements listed in section 2, each READ at source in a text that states it for every
-dimension. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The calculus is that of
-[HJS] = A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1.
+repaired (D195). The eightieth verifier read the repair and confirmed it (D196), and found, pre-existing, that the
+commutant of Proposition 4.9 was not stated to be $h$-symmetrised, as Lemma 3.1 (i) requires; that is now stated (D196),
+and the part is labelled proved again once the next reader has confirmed it. Written out in full (D185). Read line by
+line by the seventy-fourth verifier, whose two major and seven minor findings and nits are seated (D186); the
+seventy-fifth confirmed those repairs and found two minor gaps and six nits, seated (D187); the seventy-sixth, reading
+Part I.B, confirmed both D187 repairs (D189). Every earlier finding is seated and its repair read. This part replaces,
+for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 (a)-(e) and 10.86 (a)-(e), which re-ran
+[Hin26c] sections 9.1-9.2 on bundles at proof level and cited the standard steps. Here those steps are proved, from the
+calculus statements listed in section 2, each READ at source in a text that states it for every dimension. The source is
+[Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page - 4). The calculus is that of [HJS] = A. Hassell, Q.
+Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, arXiv:2604.18956v1.
 
 *What is proved here.* Theorem 7.2: [Hin26c] Theorem 9.5 at n = 4, for operators on a trivial bundle of any rank, with
 two changes forced by n = 4 and one forced by a sign slip in the source, for a constant regularity order (Remark 1.1).
@@ -1061,8 +1063,10 @@ $\kappa_\sigma$ in $\psi_\Sigma$, with bounds and constants uniform on $\mathcal
 
 *Proof.* (1) $\hat P(\sigma)u = f$ is equivalent to $\tilde Pu = \sigma^{-1}f$, and $|\sigma|^{-1}$ is bounded on
 $\mathcal D$. Commutant: $\check a_\epsilon := \rho^{-\mathsf r'-\frac12}\varphi_\epsilon\psi_\partial\psi_\Sigma\psi_R$
-with $\psi_\Sigma := \psi(\varsigma_\Sigma\tilde g^2)$, $\psi_R := \psi(\varsigma_Rq)$ and $q := \xi^2 + |\eta|^2$.
-Using (4.12), and with $R'_\epsilon$ (double commutators) bounded in $\Psi^{-\infty,2\mathsf r'-1}$,
+with $\psi_\Sigma := \psi(\varsigma_\Sigma\tilde g^2)$, $\psi_R := \psi(\varsigma_Rq)$ and $q := \xi^2 + |\eta|^2$, and
+$\check A_\epsilon$ the $h$-symmetrisation of $\mathrm{Op}(\check a_\epsilon)\mathrm{Id}$, as in section 4.3, so that
+Lemma 3.1 (i) holds (D196). Using (4.12), and with $R'_\epsilon$ (double commutators) bounded in $\Psi^{-\infty,2\mathsf
+r'-1}$,
 
 $$C_\epsilon = i[\tilde P_R,\check A_\epsilon^2] + 2\check A_\epsilon\tilde P_I^{(0)}\check A_\epsilon - 2\iota_\sigma
 \sum_j(W_j\check A_\epsilon)^{*h}(W_j\check A_\epsilon) + R'_\epsilon.$$

@@ -3,18 +3,19 @@
 *Status.* Written out in full (D192). Read line by line by the seventy-eighth verifier, whose two major findings, seven
 minor findings and nits are seated in place (D194): the hypothesis of (L4) on the order, and the choice of operators in
 the proof of Proposition 9.9. The seventy-ninth verifier read those repairs and confirmed each (D195), and the wording of
-(S8) was then aligned with [SBG] Definition 4.6 (D195). Nothing here is labelled proved until Part II.A$'$, which proves
-two of its inputs, is proved and the (S8) rewording is read. This part proves, at spatial dimension $n = 4$, the
-geometric and analytic setup of [Hin26c] sections 2 and 3, on which its sections 7, 8, 10, 11 and 13 rest. The source is
-[Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page $-4$). The pseudodifferential calculus is that of [SBG]
-= P. Hintz, *Pseudodifferential operators on manifolds with scaled bounded geometry*, Commun. Amer. Math. Soc. 6 (2026),
-153-243, arXiv:2408.06651v1, whose statements are READ here (section 3) and hold on manifolds of every dimension; inside
-[Hin26c] that paper is cited as "[Hin26c]", and below it is always [SBG]. Two statements are standing inputs, not proved
-here: the elliptic and real principal type estimates without b-regularity, for coefficients of finite regularity and
-variable orders ((L3)-(L4) of section 9.1), which the source cites as standard and no text READ here states. They are
-proved in Part II.A$'$ (`PART-II-A2-STANDARD.md`, written, D193), with the hypotheses of (L4) corrected ((G6)-(G7) there
-and in section 10); Part II.A is labelled proved only with it. Parts I.A-I.C are `PART-I-SPECTRAL.md`,
-`PART-I-B-HIGHENERGY.md` and `PART-I-C-LOWENERGY.md`.
+(S8) was then aligned with [SBG] Definition 4.6 (D195). The eightieth verifier confirmed the rewording and asked for the
+reading of the theorem it cites to be stated, which (S8) now does (D196). Nothing here is labelled proved until Part
+II.A$'$, which proves two of its inputs, is proved; the D196 wording of (S8) is read with it. This part proves, at
+spatial dimension $n = 4$, the geometric and analytic setup of [Hin26c] sections 2 and 3, on which its sections 7, 8, 10,
+11 and 13 rest. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page = PDF page $-4$). The
+pseudodifferential calculus is that of [SBG] = P. Hintz, *Pseudodifferential operators on manifolds with scaled bounded
+geometry*, Commun. Amer. Math. Soc. 6 (2026), 153-243, arXiv:2408.06651v1, whose statements are READ here (section 3) and
+hold on manifolds of every dimension; inside [Hin26c] that paper is cited as "[Hin26c]", and below it is always [SBG].
+Two statements are standing inputs, not proved here: the elliptic and real principal type estimates without b-regularity,
+for coefficients of finite regularity and variable orders ((L3)-(L4) of section 9.1), which the source cites as standard
+and no text READ here states. They are proved in Part II.A$'$ (`PART-II-A2-STANDARD.md`, written, D193), with the
+hypotheses of (L4) corrected ((G6)-(G7) there and in section 10); Part II.A is labelled proved only with it. Parts
+I.A-I.C are `PART-I-SPECTRAL.md`, `PART-I-B-HIGHENERGY.md` and `PART-I-C-LOWENERGY.md`.
 
 *What changes at n = 4.* The spacetime is $\mathbb R^{1+4}$ and the sphere of directions is $\mathbb S^3$, so every
 construction of [Hin26c] section 2 is repeated with $\mathbb S^3$ for $\mathbb S^2$, and the proofs are unchanged (none
@@ -401,12 +402,13 @@ residual parts, bounded uniformly on the $p$-dependent spaces.
 S^0$: the symbols $\rho^{-\mathsf l}\lambda^{-\mathsf m}a_0$ with
 $a_0\in\bigcap_{\delta\in(0,\frac12)}S^0_{1-\delta,\delta}$, contained in $\bigcap_\delta\rho^{-\sup\mathsf
 l}S^{\sup\mathsf m}_{1-\delta,\delta}$, and the corresponding operators and Sobolev spaces (variable decay orders when
-the scaling weight tends to 0). The source states that its Theorem 3.44 remains valid for them mutatis mutandis, the
-principal symbol being taken modulo $\bigcap_\delta\rho^{-\mathsf l+1-2\delta}S^{\mathsf m-1+2\delta}$, and that their
-operators map $H^{\mathsf m',\mathsf l'}$ to $H^{\mathsf m'-\mathsf m,\mathsf l'-\mathsf l}$, by the proof of its
-Proposition 4.2. The factor $a_0$ need not lie in $S^0$: its derivatives may carry logarithmic factors, as those of
-$\lambda^{-\mathsf m}$ do (D195; this item earlier summarised the class with $a_0$ in $S^0$ and cited Theorem 3.51 for
-the calculus).
+the scaling weight tends to 0). The source states that orders are additive under composition and that its Theorem 3.44
+"remains valid, mutatis mutandis", the principal symbol being taken modulo $\bigcap_\delta\rho^{-\mathsf
+l+1-2\delta}S^{\mathsf m-1+2\delta}$; Theorem 3.44 there is the boundedness theorem, and the composition context shows
+that the calculus of its Theorem 3.51 is meant as well (a READ decision, D196). It also states that their operators map
+$H^{\mathsf m',\mathsf l'}$ to $H^{\mathsf m'-\mathsf m,\mathsf l'-\mathsf l}$, by the proof of its Proposition 4.2. The
+factor $a_0$ need not lie in $S^0$: its derivatives may carry logarithmic factors, as those of $\lambda^{-\mathsf m}$ do
+(D195; this item earlier summarised the class with $a_0$ in $S^0$ and cited Theorem 3.51 for the calculus).
 
 (S9) ([SBG] Definitions 4.11, 4.14; Propositions 4.15, 4.17, 4.18; (4.24a-b).) On $M = \mathbb R_t\times X$ with the
 product structure built from a scaled b.g. structure on $X$ and weight families $\rho_{\alpha,0}\le1$, $\tau_\alpha$

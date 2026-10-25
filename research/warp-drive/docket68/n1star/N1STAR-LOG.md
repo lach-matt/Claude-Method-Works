@@ -4795,3 +4795,21 @@ Proposition 2.4. Nits: two indices in Theorem 3.1, the constant of the positivit
 (S8) in Part II.A. The cut-off slip is also in Part I.A (Proposition 5.2), repaired the same way, and the
 self-adjointness of its commutant, which (3.4) needs, is now stated there; Part I.A returns from proved to verified until
 the eightieth verifier reads the repair. Next: the eightieth verifier on the D195 repairs; Part II.B.
+
+**D196 (2026-10-25): the eightieth verifier on the D195 repairs, seated; Part II.B written.** It confirmed every D195
+repair: the class C^(M)_nu of Definition 1.3 inside [SBG] Definition 4.6, whose operators act without loss; Lemma 2.5 by
+the resolvent integrals, with index nu + 1, and its sharpness; the exact orders of z_eps and of the parametrix of Lemma
+4.2; the seven minor repairs; the one-sided cut-offs of Part I.A Proposition 5.2. No major finding. Two minor: g_j in
+Lemma 4.2 must be supported in U'_j cap U_(j-1), with the closure of U_j inside it; the number M of seminorms in
+Proposition 2.4 is taken at the orders raised by 2 delta. Six nits: the source's 'Theorem 3.44 remains valid' is read as
+its composition calculus, Theorem 3.51 (a READ decision, stated in Part II.A' section 1.1 and in (S8)); Definition 1.3
+names its coordinates (x, omega, tau = log|zeta|); the counterexample of Lemma 2.5 for every nu; chi_inf supported in
+{rho_inf < 1}; Lemma 2.6 applied with delta/2; and, pre-existing in Part I.A, the commutant of Proposition 4.9 stated to
+be h-symmetrised, as Lemma 3.1 (i) requires. All seated. Part II.B written (PART-II-B-DYNAMICS.md): [Hin26c] section 4 at
+n = 4, with the Kerr computations replaced by (K1) (Minkowski to order r^-2 in the frame dt_*, dx), (K2) = (H1)-(H8),
+(K3) (r-normal hyperbolicity of the trapped set) and (K4); the map Phi_z0 identifies I.B's semiclassical phase space with
+the 3b-cosphere bundle over K+ where z0 sigma >= 0; closed forms over iota+ and near I+; Propositions 6.1, 8.1, 8.2.
+Findings (B1)-(B4), slips of the source: 'increasing' for decreasing in the proof of Lemma 4.6 (2); the conic extension
+xi_3b = 2 sigma_3b and the field 2r d_t* - r d_r in Lemma 4.6 (4); -4 for -2 in (4.18); a gap in the proof of Lemma 4.20,
+not used. (B5) the rate r^-2, (B6) (4.67) consistent with the corrected (2.27), (B7) the changes of statement. Next: the
+eighty-first verifier on Part II.B and the D196 repairs; Part II.C.

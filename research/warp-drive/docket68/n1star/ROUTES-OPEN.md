@@ -2458,3 +2458,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Part I.A: the one-sided cut-offs of Proposition 5.2 repaired; verified until the repair is read.
 - Open: the D195 repairs, unread; Parts II.B-II.F and III-VII.
 - Next: the eightieth verifier on the D195 repairs; Part II.B.
+
+### 4.119 The eightieth verifier seated; Part II.B written (D196)
+
+- Part II.A': every D195 repair confirmed; two minor findings (the support of g_j in Lemma 4.2, the seminorm count of
+  Proposition 2.4) and six nits seated, among them the Theorem 3.51 reading as a READ decision.
+- Part I.A: the repaired cut-offs confirmed; the h-symmetrised commutant of Proposition 4.9 stated.
+- Part II.B written: [Hin26c] section 4 at n = 4 under (K1)-(K4); four slips of the source recorded.
+- Open: the D196 repairs and Part II.B, unread; Parts II.C-II.F and III-VII.
+- Next: the eighty-first verifier on Part II.B and the D196 repairs; Part II.C.

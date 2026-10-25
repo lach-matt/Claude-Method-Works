@@ -2,8 +2,9 @@
 
 *Status.* Written out in full (D193). Read line by line by the seventy-ninth verifier, whose major finding (the class of
 symbols of finite regularity, and with it the square-root lemma) and seven minor findings and nits are seated (D195); the
-repairs await the eightieth. Nothing here is labelled proved. This part proves the two standing inputs (L3) and (L4) of
-Part II.A (`PART-II-A-SETUP.md`, section 9.1): the elliptic and the real principal type estimates on e3b-spaces without
+eightieth verifier read those repairs and confirmed each, and its two minor findings and six nits are seated (D196); they
+await the next reader. Nothing here is labelled proved. This part proves the two standing inputs (L3) and (L4) of Part
+II.A (`PART-II-A-SETUP.md`, section 9.1): the elliptic and the real principal type estimates on e3b-spaces without
 b-regularity, for operators whose coefficients have finite regularity, with variable orders and constants locally uniform
 in the operator. They are [Hin26c] Propositions 3.23 and 3.24 at $k = 0$ (pp. 69-71), which the source proves by citation
 to the standard arguments. The hypotheses of the latter are corrected (section 6, (G6)-(G7)). Part II.A is cited as II.A,
@@ -67,13 +68,16 @@ infinity. The class of (S8) is that of [SBG] Definition 4.6 (p. 66): for variabl
 :=\rho_\infty^{-\mathsf k}\bigcap_{\delta\in(0,\frac12)}\tilde S^0_{1-\delta,\delta}$, contained in $\bigcap_\delta\tilde
 S^{\sup\mathsf k}_{1-\delta,\delta}$; the defining function of fibre infinity used there may be replaced by
 $\rho_\infty$, their quotient being a positive symbol of order 0. Its operators map $H^{\mathsf t}_{e3b}$ to $H^{\mathsf
-t-\mathsf k}_{e3b}$ for every variable order $\mathsf t$, without loss, and [SBG] Theorem 3.44 holds for them mutatis
-mutandis, with the principal symbols of compositions taken modulo $\bigcap_\delta\tilde S^{\mathsf k_1+\mathsf
-k_2-1+2\delta}$ (READ there). Derivatives of $\rho_\infty^{-\mathsf k}$ carry factors $\log\rho_\infty$, as in I.A Remark
-3.3, and the symbols of finite regularity below carry a counted number of such factors (Definition 1.3). The class
-$\rho_\infty^{-\mathsf k}\tilde S^0$, with bounded derivatives, is too small for them: the seventy-ninth verifier (D195)
-found symbols outside it used as if inside. We write "of order $\mathsf k-1+$" for "of order $\mathsf k-1+\delta$ for
-every $\delta>0$", with constants depending on $\delta$.
+t-\mathsf k}_{e3b}$ for every variable order $\mathsf t$, without loss, and the calculus of [SBG] Theorem 3.51 (adjoints,
+compositions, commutators) holds for them, with the principal symbols of compositions taken modulo $\bigcap_\delta\tilde
+S^{\mathsf k_1+\mathsf k_2-1+2\delta}$. The source states that orders are additive under composition, gives this class of
+principal symbols in its (4.10), and says that "Theorem 3.44 remains valid, mutatis mutandis". Its Theorem 3.44 is the
+boundedness theorem; the context, composition, shows that the calculus of its Theorem 3.51 is meant as well. That reading
+is a READ decision, recorded here (the eightieth verifier, D196). Derivatives of $\rho_\infty^{-\mathsf k}$ carry factors
+$\log\rho_\infty$, as in I.A Remark 3.3, and the symbols of finite regularity below carry a counted number of such
+factors (Definition 1.3). The class $\rho_\infty^{-\mathsf k}\tilde S^0$, with bounded derivatives, is too small for
+them: the seventy-ninth verifier (D195) found symbols outside it used as if inside. We write "of order $\mathsf k-1+$"
+for "of order $\mathsf k-1+\delta$ for every $\delta>0$", with constants depending on $\delta$.
 
 ### 1.2 Classical symbols and the locus of microlocalisation
 
@@ -127,23 +131,23 @@ continuous on these Fréchet spaces. $\square$
 
 ### 1.3 The operators and the statements
 
-**Definition 1.3.** Derivatives are taken in the coordinates $(x,\omega,\tau)$ of Lemma 2.2 in the charts of
-$\rho\mathcal B$, and $\langle\log\rho_\infty\rangle := (1+(\log\rho_\infty)^2)^{1/2}$. For $M,\nu\in\mathbb N_0$ and a
-variable order $\mathsf m$, $C^{(M)}_\nu\tilde S^{\mathsf m}$ is the space of $a = \rho_\infty^{-\mathsf m}a_0$ with
-$a_0$ a function on ${}^{e3b}T^*\tilde M$ whose derivatives of order $j\le M$ are bounded by
-$C\langle\log\rho_\infty\rangle^{\nu j}$, uniformly in the charts; the norm $\|a\|_{(M);\nu,\mathsf m}$ is the least such
-$C$. $\tilde S^{\mathsf m}_\nu$ is the space of smooth $a$ with $\|a\|_{(M);\nu,\mathsf m}<\infty$ for every $M$, a
-Fréchet space with these seminorms. The index $\nu$ is dropped when $\nu = 0$. A class of index $\nu$ lies in those of
-larger index; products satisfy $\|ab\|_{(M);\nu,\mathsf m_1+\mathsf m_2}\le C\|a\|_{(M);\nu,\mathsf
-m_1}\|b\|_{(M);\nu,\mathsf m_2}$ by Leibniz's rule. As $\partial_\zeta$ is $e^{-\tau}$ times bounded combinations of
-$\partial_\omega$, $\partial_\tau$ (Lemma 2.2) and $\langle\log\rho_\infty\rangle^{\nu j}\le C_\delta\rho_\infty^{-\delta
-j}$, $\tilde S^{\mathsf m}_\nu$ is contained, continuously, in the class $\rho_\infty^{-\mathsf m}\bigcap_\delta\tilde
-S^0_{1-\delta,\delta}$ of (S8), also when $\mathsf m$ is constant; for constant $\mathsf m = m$, $\tilde S^m_0$ is the
-class $\tilde S^m$ of (S4). The derivatives of $\log\rho_\infty$ of positive order are bounded, as $\log\rho_\infty =
--\tau$ near fibre infinity. For a finite set $\mathcal P = \{P_1,\dots,P_J\}\subset
-C^\infty_b\Psi^m_{e3b}$ of operators localized near the diagonal (II.A section 8.3), with $P_j = \mathrm{Op}(p_j)+R_j$,
-$p_j\in C^\infty_bS^m$, $R_j\in\tilde\Psi^{-\infty}$, and $a_j\in C^{d_0}_{e3b}$ (II.A Definition 8.1), the operator $L =
-\sum a_jP_j$ satisfies, by (1.1),
+**Definition 1.3.** Derivatives are taken in the coordinates $(x,\omega,\tau) = (x,\zeta/|\zeta|,\log|\zeta|)$ of Lemma
+2.2 (for $|\zeta|\ge1$, and $(x,\zeta)$ near the zero section) in the charts of $\rho\mathcal B$, and
+$\langle\log\rho_\infty\rangle := (1+(\log\rho_\infty)^2)^{1/2}$. For $M,\nu\in\mathbb N_0$ and a variable order $\mathsf
+m$, $C^{(M)}_\nu\tilde S^{\mathsf m}$ is the space of $a = \rho_\infty^{-\mathsf m}a_0$ with $a_0$ a function on
+${}^{e3b}T^*\tilde M$ whose derivatives of order $j\le M$ are bounded by $C\langle\log\rho_\infty\rangle^{\nu j}$,
+uniformly in the charts; the norm $\|a\|_{(M);\nu,\mathsf m}$ is the least such $C$. $\tilde S^{\mathsf m}_\nu$ is the
+space of smooth $a$ with $\|a\|_{(M);\nu,\mathsf m}<\infty$ for every $M$, a Fréchet space with these seminorms. The
+index $\nu$ is dropped when $\nu = 0$. A class of index $\nu$ lies in those of larger index; products satisfy
+$\|ab\|_{(M);\nu,\mathsf m_1+\mathsf m_2}\le C\|a\|_{(M);\nu,\mathsf m_1}\|b\|_{(M);\nu,\mathsf m_2}$ by Leibniz's rule.
+As $\partial_\zeta$ is $e^{-\tau}$ times bounded combinations of $\partial_\omega$, $\partial_\tau$ (Lemma 2.2) and
+$\langle\log\rho_\infty\rangle^{\nu j}\le C_\delta\rho_\infty^{-\delta j}$, $\tilde S^{\mathsf m}_\nu$ is contained,
+continuously, in the class $\rho_\infty^{-\mathsf m}\bigcap_\delta\tilde S^0_{1-\delta,\delta}$ of (S8), also when
+$\mathsf m$ is constant; for constant $\mathsf m = m$, $\tilde S^m_0$ is the class $\tilde S^m$ of (S4). The derivatives
+of $\log\rho_\infty$ of positive order are bounded, as $\log\rho_\infty = -\tau$ near fibre infinity. For a finite set
+$\mathcal P = \{P_1,\dots,P_J\}\subset C^\infty_b\Psi^m_{e3b}$ of operators localized near the diagonal (II.A section
+8.3), with $P_j = \mathrm{Op}(p_j)+R_j$, $p_j\in C^\infty_bS^m$, $R_j\in\tilde\Psi^{-\infty}$, and $a_j\in C^{d_0}_{e3b}$
+(II.A Definition 8.1), the operator $L = \sum a_jP_j$ satisfies, by (1.1),
 $$L = \mathrm{Op}(\ell_f)+\sum_ja_jR_j,\qquad\ell_f := \sum_ja_jp_j\in C^{(d_0)}\tilde S^m,\tag{1.2}$$
 with $\|\ell_f\|_{(d_0);m}\le C\max_j\|a_j\|_{C^{d_0}_{e3b}}$, as e3b-derivatives of the $a_j$ are the rescaled
 coordinate derivatives in the charts. Its principal symbol is $\ell := \sum_ja_j\sigma(P_j)$, with $\sigma(P_j)$ a
@@ -283,21 +287,22 @@ factors, with the same proof: the wave front set of the product is empty ((S5)).
 
 *Finite regularity.* For each item, let $a_{i,\epsilon}$ be the mollifications of Lemma 2.2, with uniformly bounded
 norms. For $u\in C_c^\infty$, $\mathrm{Op}(a_{i,\epsilon})u\to\mathrm{Op}(a_i)u$ pointwise and boundedly on compact sets,
-by dominated convergence in the integral above; this is all (a) needs. In (b)-(f), (a) is available: as $a_i\in
-C^{(M+2)}_\nu$, Lemma 2.2 (ii) gives $a_{i,\epsilon}\to a_i$ in $C^{(M+1)}_\nu\tilde S^{\mathsf m_i+\delta}$, so
-$a_{1,\epsilon}a_{2,\epsilon}$, $\bar a_{i,\epsilon}$ and $H_{a_{1,\epsilon}}a_{2,\epsilon}$ converge in the $(M)$-norms
-at orders raised by $2\delta$, and by (a) every factor of every item converges in operator norm, with a loss of $2\delta$
-in the order (the seventy-ninth verifier: the factors vary with $\epsilon$, so convergence of the outer factors is needed
-and is given by this). So for $u\in C_c^\infty$ the composite operators applied to $u$ converge in a Sobolev space of
-lower order, hence in $\mathcal D'$. The smooth bounds hold uniformly in $\epsilon$. A bounded sequence in the Hilbert
-space $H^{\mathsf t-r}$ has weakly convergent subsequences, whose limits are identified in $\mathcal D'$, and the norm is
-weakly lower semicontinuous. So the bounds hold for $u\in C_c^\infty$ with the limit operators, and extend by density
-(Lemma 2.3 (a)). In (a) this defines the extension. In (e), the supports of the mollified symbols stay in fixed disjoint
-closed neighbourhoods for small $\epsilon$, by Lemma 2.2 (iii) and Lemma 1.2. (f) is proved as (b): for smooth symbols
-the multilinear map is continuous into the class of order $\mu+\delta$. It is continuous into a larger class because
-compositions and adjoints are continuous, and its graph in the smaller class is closed. Then Lemma 2.1 and the passage to
-finite regularity apply. When all orders are constant and $\nu = 0$, the classes are those of (S5) without loss, and the
-same argument gives order $\mu$. $\square$
+by dominated convergence in the integral above; this is all (a) needs. In (b)-(f), (a) is available, $M$ being taken
+large enough that (a) applies at the finitely many orders raised by $2\delta$: as $a_i\in C^{(M+2)}_\nu$, Lemma 2.2 (ii)
+gives $a_{i,\epsilon}\to a_i$ in $C^{(M+1)}_\nu\tilde S^{\mathsf m_i+\delta}$, so $a_{1,\epsilon}a_{2,\epsilon}$, $\bar
+a_{i,\epsilon}$ and $H_{a_{1,\epsilon}}a_{2,\epsilon}$ converge in the $(M)$-norms at orders raised by $2\delta$, and by
+(a) every factor of every item converges in operator norm, with a loss of $2\delta$ in the order (the seventy-ninth
+verifier: the factors vary with $\epsilon$, so convergence of the outer factors is needed and is given by this). So for
+$u\in C_c^\infty$ the composite operators applied to $u$ converge in a Sobolev space of lower order, hence in $\mathcal
+D'$. The smooth bounds hold uniformly in $\epsilon$. A bounded sequence in the Hilbert space $H^{\mathsf t-r}$ has weakly
+convergent subsequences, whose limits are identified in $\mathcal D'$, and the norm is weakly lower semicontinuous. So
+the bounds hold for $u\in C_c^\infty$ with the limit operators, and extend by density (Lemma 2.3 (a)). In (a) this
+defines the extension. In (e), the supports of the mollified symbols stay in fixed disjoint closed neighbourhoods for
+small $\epsilon$, by Lemma 2.2 (iii) and Lemma 1.2. (f) is proved as (b): for smooth symbols the multilinear map is
+continuous into the class of order $\mu+\delta$. It is continuous into a larger class because compositions and adjoints
+are continuous, and its graph in the smaller class is closed. Then Lemma 2.1 and the passage to finite regularity apply.
+When all orders are constant and $\nu = 0$, the classes are those of (S5) without loss, and the same argument gives order
+$\mu$. $\square$
 
 **Lemma 2.5 (square roots).** Let $Q$ be a Hermitian matrix-valued function on a set $W$ of phase space with $Q\ge
 c\,\mathrm{Id}$, $c>0$. Derivatives are in the coordinates of Lemma 2.2. (i) If $|\partial^\beta Q|\le
@@ -309,9 +314,11 @@ $C_0$, $M$, $\nu$,
 $$|\partial^\beta Q^{-1/2}|\le C\langle\log\rho_\infty\rangle^{(\nu+1)|\beta|},\qquad|Q^{1/2}|\le C\langle\log\rho_\infty
 \rangle^{\frac12},\qquad|\partial^\beta Q^{1/2}|\le C\langle\log\rho_\infty\rangle^{(\nu+1)|\beta|}\ (\beta\ne0).$$
 So $Q^{-1/2}$ is in the class of index $\nu+1$ and order 0, and $Q^{1/2}$ in that of index $\nu+1$ and order $\delta$ for
-every $\delta>0$. The index $\nu+1$ cannot be lowered to $\nu$: for $Q = c+x^2\langle\log\rho_\infty\rangle$,
-$\partial_x^2Q^{1/2} = c^{-1/2}\langle\log\rho_\infty\rangle$ at $x = 0$ (the seventy-ninth verifier, D195, against an
-earlier statement with bounded derivatives of $Q^{-1/2}$).
+every $\delta>0$. The index $\nu+1$ cannot be lowered to $\nu$: let $f\ge0$ be smooth, bounded with all derivatives, with
+$f(y) = y^2$ near 0, and $Q := c+\langle\log\rho_\infty\rangle f(x\langle\log\rho_\infty\rangle^\nu)$, which satisfies
+(ii) with index $\nu$; then $\partial_x^2Q^{1/2} = c^{-1/2}\langle\log\rho_\infty\rangle^{1+2\nu}$ at $x = 0$, beyond the
+bound $\langle\log\rho_\infty\rangle^{2\nu}$ of index $\nu$ (the seventy-ninth verifier, D195, at $\nu = 0$, against an
+earlier statement with bounded derivatives of $Q^{-1/2}$; the eightieth, D196, for every $\nu$).
 
 *Proof.* (i) $Q^{\pm1/2} = \frac1{2\pi i}\oint_\gamma z^{\pm1/2}(z-Q)^{-1}dz$ for a fixed contour $\gamma$ in
 $\{\mathrm{Re}\,z>0\}$ around $[c,C_0]$, at distance at least $c/2$ from it. A derivative $\partial^\beta(z-Q)^{-1}$ is a
@@ -511,17 +518,18 @@ $$\|Bu\|_{\mathsf s}\le C\big(\|GLu\|_{\mathsf s-m+1}+\|Eu\|_{\mathsf s}+\|Gu\|_
 \tag{4.5}$$
 
 *Proof.* As I.A Lemma 3.2. Take an integer $J>4\tau$, $\kappa := \tau/J<\frac14$, and $\mathsf s_j := \mathsf
-s-\tau+j\kappa$. Construct open sets $U_0\supset U_1\supset\dots\supset U_J\supset\Gamma$ with $\bar U_j\subset U'_j$,
-where $U'_j$ is the $U'$ for $(\mathsf s_j,\kappa,U_{j-1})$, and let $K_E^* := \bigcup_jK_E(U_{j-1})$. Let $G_0 := G$ and
-$G_j := \mathrm{Op}(g_j)$, carried by $\chi$, with $g_j$ smooth on the compactified bundle, equal to 1 near $\bar U_j$
-and supported where $b_0^{(j)}$ is elliptic. Then $\|G_ju\|_{\mathsf s_j}\le C(\|B_0^{(j)}u\|+\|\chi u\|_{-N})$. This is
-the parametrix argument of Theorem 3.1 with $B_0^{(j)}$, of order $\mathsf s_j+\delta$, in place of $L$, and $\tilde\chi
-a(b_0^{(j)})^{-1}$ in place of $\tilde\chi a\ell^{-1}$. $\mathrm{Op}(\tilde\chi a(b_0^{(j)})^{-1})$ has order $\mathsf
-r-\mathsf s_j$ without loss (Proposition 2.4 (a)), and the remainders have order $\mathsf r-1+2\delta$, so with $\delta =
-\frac14$ the iteration closes as there; $B_0^{(j)}u\in L^2$ enters without localization. (With an operator of order
-$-\mathsf s_j+\delta$ in place of the parametrix, the conclusion would be $H^{\mathsf s_j-\delta}$ only; the
-seventy-ninth verifier, D195.) Lemma 4.1 at step $j$ needs $G_{j-1}u\in H^{\mathsf s_{j-1}}$, the conclusion of step
-$j-1$, and gives
+s-\tau+j\kappa$. Construct open sets $U_0\supset U_1\supset\dots\supset U_J\supset\Gamma$ with $\bar U_j\subset U'_j\cap
+U_{j-1}$, where $U'_j$ is the $U'$ for $(\mathsf s_j,\kappa,U_{j-1})$, and let $K_E^* := \bigcup_jK_E(U_{j-1})$. Let $G_0
+:= G$ and $G_j := \mathrm{Op}(g_j)$, carried by $\chi$, with $g_j$ smooth on the compactified bundle, equal to 1 near
+$\bar U_j$ and supported in $U'_j\cap U_{j-1}$, where $b_0^{(j)}$ is elliptic and $G_{j-1}$ is elliptic (the eightieth
+verifier: so $\mathrm{WF}'(G_j)\subset U_0\subset\mathrm{Ell}(G)$, which the step from $\|G_{j-1}Lu\|$ to $\|GLu\|$ and
+the next step need). Then $\|G_ju\|_{\mathsf s_j}\le C(\|B_0^{(j)}u\|+\|\chi u\|_{-N})$. This is the parametrix argument
+of Theorem 3.1 with $B_0^{(j)}$, of order $\mathsf s_j+\delta$, in place of $L$, and $\tilde\chi a(b_0^{(j)})^{-1}$ in
+place of $\tilde\chi a\ell^{-1}$. $\mathrm{Op}(\tilde\chi a(b_0^{(j)})^{-1})$ has order $\mathsf r-\mathsf s_j$ without
+loss (Proposition 2.4 (a)), and the remainders have order $\mathsf r-1+2\delta$, so with $\delta = \frac14$ the iteration
+closes as there; $B_0^{(j)}u\in L^2$ enters without localization. (With an operator of order $-\mathsf s_j+\delta$ in
+place of the parametrix, the conclusion would be $H^{\mathsf s_j-\delta}$ only; the seventy-ninth verifier, D195.) Lemma
+4.1 at step $j$ needs $G_{j-1}u\in H^{\mathsf s_{j-1}}$, the conclusion of step $j-1$, and gives
 $$\|B_0^{(j)}u\|\le C\big(\|G_{j-1}Lu\|_{\mathsf s_j-m+1}+\|Eu\|_{\mathsf s_j}+
 \|G_{j-1}u\|_{\mathsf s_j-\frac12+\delta_0}+
 \|\chi u\|_{-N}\big).$$
@@ -623,8 +631,8 @@ would hold; the seventy-ninth verifier, D195.) Put $\psi_y := \psi(|y|^2/\delta_
 $\delta_1$ so small that $\{z\in[-2\delta,T+2\delta],|y|\le2\delta_1\}$ lies in the given neighbourhood, in $O$ and in
 the set where $\mathsf H_f\mathsf s\le0$, and that $\{z\in[-2\delta,0],|y|\le2\delta_1\}\subset\mathrm{Ell}(E)$ (the
 margin serves the uniformity below). Let $\chi_\infty$ be a function of $\rho_\infty$ equal to 1 near fibre infinity and
-supported where $(z,y)$ are defined. Its derivatives are supported in a set compact in the fibres, where every symbol has
-order $-\infty$.
+supported where $(z,y)$ are defined and in $\{\rho_\infty<1\}$, so that $\log\rho_\infty<0$ on its support. Its
+derivatives are supported in a set compact in the fibres, where every symbol has order $-\infty$.
 
 *Commutant.* With $\mathsf k := \mathsf s-\frac12(m-1)$ (the restriction to fibre infinity), the regulariser
 $\varphi_\epsilon$ of section 2.3 with exponent $\kappa$, and a large constant $M$,
@@ -699,11 +707,12 @@ let $C_I$ be the norm of $L_I$ between these spaces. It depends on finitely many
 or $\epsilon$. Take $\Lambda_+ := \mathrm{Op}(\lambda_+)$ with $\lambda_+$ classical. Then $\Lambda_+\check A =
 \mathrm{Op}(\lambda_+z_\epsilon)B_\epsilon+$ order $\mathsf s-1+2\delta$ (Proposition 2.4 (b)), where
 $\lambda_+z_\epsilon\in C^{(d_0-2)}_1\tilde S^0$. Its supremum is at most $C_\Lambda M^{-1/2}$, with $C_\Lambda :=
-\sup|\lambda_+\mu^{-1/2}|$, as $Q_\epsilon\ge M$. Lemma 2.6 with $\eta := M^{-1}$, applied to $B_\epsilon w$, and
-$(a+b)^2\le2a^2+2b^2$ give $\|\check Aw\|^2_{\frac12(m-1)}\le2(C_\Lambda^2+1)M^{-1}\|B_\epsilon w\|^2+C\|G'w\|^2_{\mathsf
-s-\frac12+\delta}+C\|\chi w\|^2_{-N}$, where $\|B_\epsilon w\|_{-\frac12+\delta}$ is bounded by the last two norms,
-$b_\epsilon$ being supported in the support of $\check a$ (Proposition 2.4 (e)). Enlarge $M$ so that
-$4C_I(C_\Lambda^2+1)M^{-1}\le\frac12$. Then
+\sup|\lambda_+\mu^{-1/2}|$, as $Q_\epsilon\ge M$. Lemma 2.6 with $\eta := M^{-1}$ and $\frac\delta2$ in place of
+$\delta$, applied to $B_\epsilon w$, and $(a+b)^2\le2a^2+2b^2$ give $\|\check
+Aw\|^2_{\frac12(m-1)}\le2(C_\Lambda^2+1)M^{-1}\|B_\epsilon w\|^2+C\|G'w\|^2_{\mathsf s-\frac12+\delta}+C\|\chi
+w\|^2_{-N}$, where $\|B_\epsilon w\|_{-\frac12+\frac\delta2}$, with $b_\epsilon$ bounded in the class of order $\mathsf
+s+\frac\delta2$, is bounded by the last two norms, $b_\epsilon$ being supported in the support of $\check a$ (Proposition
+2.4 (e)). Enlarge $M$ so that $4C_I(C_\Lambda^2+1)M^{-1}\le\frac12$. Then
 $$\varsigma\langle C_{\check a_\epsilon}w,w\rangle\le-\tfrac12\|B_\epsilon w\|^2+
 \|E_\epsilon w\|^2+C\big(\|G'w\|^2_{\mathsf
 s-\frac12+\delta}+\|\chi w\|^2_{-N}\big).$$

@@ -19,8 +19,9 @@ independent reader has checked it line by line and every finding is seated; **pr
 | I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | **proved** (D194) |
 | I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | **proved** (D194) |
 | II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | verified (D194) |
-| II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | verified (D195) |
-| II.B-F | [Hin26c] 5-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
+| II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | verified (D196) |
+| II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | written (D196) |
+| II.C-F | [Hin26c] 5-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -57,6 +58,10 @@ The seventy-ninth verifier, reading Part II.A$'$, which copied them, found that 
 equal to 1 on the curve: $\psi$ is even, so $\psi(-z/\delta)$ vanishes for $z\ge\delta$. They are now one-sided, and the
 self-adjointness of the commutant, which the identity (3.4) needs, is stated in Proposition 5.2 (D195). Part I.A returns
 to verified until the eightieth verifier has read the repair.
+
+The eightieth verifier read the repair and confirmed it (D196). It found, pre-existing, that the commutant of Proposition
+4.9 was not stated to be $h$-symmetrised, as Lemma 3.1 (i) requires; Proposition 4.9 now says so, as section 4.3 does
+(D196). Part I.A is labelled proved again once the next reader has confirmed it.
 
 ## Part I.B
 
@@ -172,5 +177,29 @@ orders that were not proved. The class now counts the logarithmic factor each de
 derivative, proved by resolvent integrals, and shown sharp. Seven minor findings are seated: the identity (4.1) for a
 commutant that is not self-adjoint, one-sided cut-offs, the regularity of the approximants in the pairing, nested sets in
 Lemma 4.2, smooth operators in the patching, the injectivity of the perturbed flow box, and the convergence of the
-factors in Proposition 2.4. So are the nits, among them the wording of (S8) in Part II.A. The repairs await the eightieth
-verifier.
+factors in Proposition 2.4. So are the nits, among them the wording of (S8) in Part II.A.
+
+The eightieth verifier read the D195 repairs line by line and confirmed each (D196): the class $C^{(M)}_\nu$ inside
+[SBG]'s, the resolvent integrals of Lemma 2.5 and its sharpness, the exact orders of $z_\epsilon$ and of the parametrix,
+and the seven minor repairs. No major finding. Two minor findings are seated: the support of $g_j$ in Lemma 4.2, now in
+$U'_j\cap U_{j-1}$ with $\bar U_j\subset U'_j\cap U_{j-1}$, and the number $M$ of seminorms in Proposition 2.4, taken at
+the orders raised by $2\delta$. So are six nits: the reading of [SBG] Theorem 3.44 as its Theorem 3.51 is stated as a
+READ decision, in section 1.1 and in (S8) of Part II.A; Definition 1.3 names its coordinates; Lemma 2.5's counterexample
+is given for every $\nu$; $\chi_\infty$ is supported in $\{\rho_\infty<1\}$; Lemma 2.6 is applied with $\delta/2$. The
+repairs await the next reader.
+
+## Part II.B
+
+`PART-II-B-DYNAMICS.md`. [Hin26c] section 4 at $n = 4$: the radial sets, the horizon, the trapped set and the global
+null-bicharacteristic dynamics of the stationary model in e3b-phase space. The source computes them from the Kerr metric.
+Here the stationary model is any metric satisfying the hypotheses of Part I and (K1)-(K4): the metric is Minkowski to
+order $r^{-2}$ outside a compact set (K1), and the trapped set is $r$-normally hyperbolic (K3). Over the interior of the
+Kerr face the 3b-phase space is the stationary phase space with $\sigma$ conserved, and the map $\Phi_{z_0}$ carries the
+semiclassical phase space of I.B at frequency sign $z_0$, flows included, onto the part of the 3b-cosphere bundle over
+$K^+$ where $z_0\sigma\ge0$ (section 2), so that (H3), (H4), (H7) and (H8) of Part I give the dynamics there (Proposition
+6.1, the source's 4.21). Near $\iota^+$, $\mathscr I^+$ and the corner the flows are solved in closed form (sections 3
+and 7). Section 8 assembles the global dynamics (Proposition 8.1, the source's (4.72)) and the curves over the interior
+(Proposition 8.2, the form of the source's Proposition 6.1). Section 9 records four slips of the source, none affecting a
+statement: a word in the proof of Lemma 4.6 (2), the conic extension of $\partial W^+_{\mathrm{in}}$ and its vector field
+in Lemma 4.6 (4), a constant in (4.18), and a gap in the proof of Lemma 4.20, which is not used here. Written (D196); the
+eighty-first verifier reads it.
