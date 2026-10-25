@@ -304,14 +304,14 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   point (section 10.79; D171): the normalisation r_h/2, the adjoint from the operators' definitions with the g-pairing
   as control, the undamped part in Lemma 3.3's B with spectrum +-(e^(1/2) + e^(-1/2))/r_h, the damping -h^-1 l(dr), and
   1/2 + vartheta_H+ = -4995.33... at h = 10^-6, below -100 for every h under 2.6197... x 10^-5, in the inner product the
-  record fixes and not in every one (T1-T7). `python3 hthresh5.py --selftest` (7/7, under a minute), `--mutants` (7/7).
+  record fixes and not in every one (T1-T8). `python3 hthresh5.py --selftest` (8/8, under a minute), `--mutants` (8/8).
 - `tfnorm5.py`: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (section 10.80; D173): (9.117) at every n
   with one misprint named, the indicial roots -lambda and -n + 2 + lambda-bar, the densities' n/2 in the embedding and in
   (3.46), and (9.122)'s leading part (R1-R4). `python3 tfnorm5.py --selftest` (4/4, seconds), `--mutants` (4/4).
 - `iotasol5.py`: the numerals of [Hin26] section 9's iota+ and tf solution theory at n = 4 (section 10.82; D176): the
   model from -box with c = (n - 1)/2 for his 1, N_sf's exponents at v = 0 and its thresholds, the Fourier step to the tf
-  operator, the outgoing end of tf (l_scf < c), and Proposition 9.4's weights at I+ (J1-J5). `python3 iotasol5.py
-  --selftest` (5/5, seconds), `--mutants` (5/5).
+  operator, the outgoing end of tf (l_scf < c), and Proposition 9.4's weights at I+, and the thresholds (J1-J6). `python3
+  iotasol5.py --selftest` (6/6, seconds), `--mutants` (6/6).
 - `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
   the passages carried to n = 4 -- 278 hits on the 205 pages swept (D143; 270 before its [CD03] window was set right),
   every one accounted for by 10.53-10.58 and 10.63-10.68 but one norm convention of [Hin26a] p. 62, named in 10.69. Runs

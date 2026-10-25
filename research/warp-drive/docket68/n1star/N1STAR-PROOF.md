@@ -9564,7 +9564,7 @@ sixty-ninth verifiers read them (D175, D177). The value does depend on it: with 
 vartheta_H+ at h = 10^-6 is -4995.44 at e' = 10^-5, -4877.98 at 1/10 and -2500.48 at 3, crosses -100 at e' = 7.764 and is
 +790.43 at 10, B' positive definite throughout (T6-T7; the sixty-ninth verifier): the threshold holds in the inner
 product the record fixes, not in every one, which is what the existential reading asks. What remains of the record's own
-roots is RP. Labels: computed (T1-T7); READ (the pages named); deduced (10.21 (d)-(e) as stated); nothing proved here.
+roots is RP. Labels: computed (T1-T8); READ (the pages named); deduced (10.21 (d)-(e) as stated); nothing proved here.
 
 ### 10.80 RL written out: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (`tfnorm5.py`; D173)
 
@@ -9673,7 +9673,7 @@ reading; 10.39 (e) and 10.40 (a) keep RB. Thirty-four rows take a reading. The r
 kind, RI, companion results at n = 4, and RP, the record's own. Labels: READ (the pages named); deduced ((c)-(e));
 nothing proved here.
 
-### 10.82 RI written out: [Hin26] section 9's iota+ and tf solution theory at n = 4 (`iotasol5.py` J1-J5; D176)
+### 10.82 RI written out: [Hin26] section 9's iota+ and tf solution theory at n = 4 (`iotasol5.py` J1-J6; D176)
 
 *The setting.* RI (10.77) is [Hin26] section 9's iota+ and tf solution theory at n = 4: the index 0 half of Proposition
 9.2 (10.37 (c)), Propositions 9.4 (2), 9.9, 9.11, 9.15, 9.22, 9.30 and 9.35, Corollaries 9.12 and 9.18 and (9.54)-(9.56),
@@ -9698,7 +9698,7 @@ and its proof, (9.54)-(9.55), Proposition 9.22 with (9.56) and its proof, Remark
 Printed p. 173, the opening of Definition 9.8 with (9.25)-(9.28), was not retrieved; its objects are the Minkowski states
 and generalized states, at n = 4 those of 10.28-10.30 and 10.34.
 
-*Computed (`iotasol5.py` J1-J5; exact, sympy; at n = 3 and n = 4, S a constant for an eigenvalue of S-bar).*
+*Computed (`iotasol5.py` J1-J6; exact, sympy; at n = 3 and n = 4, S a constant for an eigenvalue of S-bar).*
 
  (i) (J1) -box of R^(1+n) in (t*, rho), t* = t - r, rho = 1/r, has no d_t*^2 term and is rho^2 L~(0)(rho d_rho) + rho
      L~_1(rho d_rho) d_t*, L~(0)(x) = -x^2 + (n - 2) x + kappa (his slashed Delta the positive Laplacian) and L~_1(x) =
@@ -9789,7 +9789,7 @@ are [Hin26c]'s applied to symmetric 2-tensors (Proposition 8.6, Corollary 9.39 a
 a reading. The roots left are RB and RU, the source's kind, the same at every n, and RP, the record's own computation.
 10.37 (c)'s index 0 half and 10.47's OPEN on Propositions 9.4 (2), 9.9, 9.15 and 9.22 and Corollary 9.18 at n = 4 are
 discharged, and so is the finiteness of the iota+ spectrum below 3 + eps_+; where it lies between 5/2 and 3 + eps_+ stays
-uncomputed, which 10.59 (b) found not needed. Not retrieved: printed p. 173. Labels: computed (J1-J5); READ (the pages
+uncomputed, which 10.59 (b) found not needed. Not retrieved: printed p. 173. Labels: computed (J1-J6); READ (the pages
 named); deduced ((a)-(g)); nothing proved here.
 
 ### 10.83 RP settled: what the six rows use of the zero energy pole holds at n = 4 (deduced; D178)
@@ -9844,12 +9844,12 @@ produces elements of H^(oo, 1-eps, 3+eps_ind-eps, 3+eps_K)_b ... as well as the 
      five-dimensional tails -- is a finer question his proofs never ask, at n = 3 or at n = 4: those components enter
      through the uniform conormal bounds and the structure at zf of (a), which hold whatever lower-order logarithms they
      contain. A (sigma^2 log sigma)^-1 behaviour of the inverse would not fit that structure: a coefficient 1/log |sigma|
-     has no value at 0 and no remainder of positive order, and its transform is t*/log t* times a state, not t*
-     h_s1(S-dot) and lower order ((11.71), (11.75), Lemma 11.19's (11.57), p. 251, (11.133) with footnote 118; READ by
-     the seventy-first verifier). None arises: L~(0) is invertible (Proposition 10.6, (vii)) and L~(sigma) - L~(0) lies
-     in rho_tf^2 rho_zf Diff^1 (Lemma 11.21, from (10.31); (xvii)), so L~(sigma)^-1 - L~(0)^-1 = L~(sigma)^-1 (L~(0) -
-     L~(sigma)) L~(0)^-1 gains a power of rho_zf, and [Hin26c] Proposition 13.18 at n = 4 ((lx)) places the result in the
-     class Lemma 11.19 integrates.
+     tends to 0 at sigma = 0 but its remainder is not of positive order, and its transform is t*/log t* times a state,
+     not t* h_s1(S-dot) and lower order ((11.71), (11.75), Lemma 11.19's (11.57), p. 251, (11.133) with footnote 118;
+     READ by the seventy-first verifier). None arises: L~(0) is invertible (Proposition 10.6, (vii)) and L~(sigma) -
+     L~(0) lies in rho_tf^2 rho_zf Diff^1 (Lemma 11.21, from (10.31); (xvii)), so L~(sigma)^-1 - L~(0)^-1 = L~(sigma)^-1
+     (L~(0) - L~(sigma)) L~(0)^-1 gains a power of rho_zf, and [Hin26c] Proposition 13.18 at n = 4 ((lx)) places the
+     result in the class Lemma 11.19 integrates.
  (d) (the six rows) (l)'s second order pole is (a)-(c)'s, at n = 4 as his. (liv)-(lv)'s question has its answer in (b):
      Remark 10.8's sigma log |sigma| terms do not arise at n = 4, so his S^(0),(2,0)_0, kept in the class's lists,
      removes a term that is absent -- a branch the rows' proofs had covered either way. 10.43 (c) ((li)) reaches RP
@@ -9896,8 +9896,8 @@ b.
      openness of the positivity of symbols in the symbolic (positive commutator) arguments, and likewise for the
      propagation estimate at the trapped set which, in view of its continuous (in fact, smooth) dependence on the Kerr
      parameters (cf. Remark 4.25 and the last part of Proposition 6.3)". Section 9 states its uniformity in sigma, h,
-     theta and alpha, never in P_0; "perturb" occurs in it only on p. 157, of Theorem 8.14, and in footnote 82 (p. 184),
-     of Im z.
+     theta and alpha, never in P_0; within it "perturb" occurs only in footnote 82 (p. 184), of Im z, the sentence of p.
+     157 on Theorem 8.14 closing section 8 before section 9's heading.
  (5) Theorem 9.28's loss-1 proof (pp. 186-188): the contradiction sequences (9.90); Step 1, "sigma_h(h^-1 Im(P_h,z - ih
      N_u)) <= (p_1 + 2 beta_0 beta) - nu_u < 0 at Gamma"; Step 3, "(H_G1 + 2 p_z) a = nu_s |phi_s|^(-2 lambda) (-2
      (lambda - p_z/nu_s) f + |phi_s| f'(|phi_s|)) is non-positive for |phi_s| >= delta", lambda in (sup_Gamma p_z/nu_s,
@@ -9927,13 +9927,22 @@ adjoints, real and imaginary parts with respect to h and the density each estima
      Propositions 9.9 and 9.25 becomes the supremum over R_+ of the top of the spectrum of the same symbol, (5.17)'s
      vartheta_H+, the form Theorems 9.5 and 9.36 state ((9.16a)). vartheta_in of (9.32) becomes the supremum over dX of
      the top of the spectrum of sigma^1_b(Im P-hat_0(0))(-2 dr/r) - (S + S*), which 10.19 (a) computes as -2 Re (A_w +
-     S-bar) in any fibre inner product. The 4 Re S of Propositions 9.11 and 9.27 becomes 2 (S + S*), whose bottom
-     eigenvalue is at most 2 S-bar and, for an inner product Lemma 5.12 provides, at least 2 S-bar - eps: the S-bar "from
-     (5.2)" they state. Theorem 9.38's S-bar = inf over dX of S is (5.2)'s. The sup_Gamma p_1 of (9.80) becomes the top
-     of the spectrum of p_1 over Gamma, Definition 5.8's form, which 10.19 (b) computes (spectrum 0, +-(2 eta)^(1/2)).
-     Each threshold is strict, so the inner product may be chosen per radial set, as Definition 5.11 allows: any two are
-     uniformly equivalent on X-bar, and an estimate microlocalised near one set passes to the fixed h with a constant.
-     The horizon threshold holds in the inner product the record fixes (10.79).
+     S-bar) in any fibre inner product. The 4 Re S of Propositions 9.11 and 9.27 becomes 2 (S + S*); the bottom
+     eigenvalue of S + S* is at most 2 S-bar and, for an inner product Lemma 5.12 provides, at least 2 S-bar - eps, so
+     the threshold is r < -1/2 + S-bar: the S-bar "from (5.2)" they state. Theorem 9.38's S-bar = inf over dX of S is
+     (5.2)'s. The radial-set thresholds are taken in inner products on E_X, chosen per radial set, as Definition 5.11
+     allows: each threshold is strict, any two inner products on E_X are uniformly equivalent on X-bar, and an estimate
+     microlocalised near one set passes to the fixed h with a constant. The trapped set's is not of this kind. The
+     sup_Gamma p_1 of (9.80) becomes the top of the spectrum of p_1 over Gamma in Definition 5.8's inner product, which
+     lives on the pullback bundle pi*E_X over phase space and is homogeneous of degree 0 in the fibres -- 10.17 (a)'s
+     B_eta, in the frame e_0, e_1, e_2, in which 10.19 (b) computes the spectrum 0, +-(2 eta)^(1/2) -- not on E_X: in an
+     inner product on E_X, sup_Gamma p_1 need not be small (10.19's control with a diagonal connection entry; the
+     seventy-second verifier). Hintz realises it on E_X by (5.9): an elliptic Q with Q P_0 Q^- having, in a fixed inner
+     product on E_X, the subprincipal part (5.8) bounds at Gamma_0. Its spectral family Q-hat(h^-1 z) is a semiclassical
+     operator elliptic near Gamma, and Theorem 9.28's arguments run for Q-hat P_h,z Q-hat^- on Q-hat u, whose p_1 at
+     Gamma is (5.9)'s, returning to u by Q-hat's ellipticity near Gamma, the error Q-hat P_h,z (I - Q-hat^- Q-hat) u
+     trivial there -- as the record's Proposition 7.10 does in spacetime ((5.9) at 10.17's trapped set, 10.75). The
+     horizon threshold holds in the inner product the record fixes (10.79).
  (c) (square roots and Garding) The b of each commutator argument ((9.29), (9.51), Proposition 9.25's, the lossless part
      of Theorem 9.28) is a-check times the square root of a symbol the threshold makes positive: on E_X a positive
      definite self-adjoint endomorphism-valued symbol, whose positive square root is a symbol of the same class, the
@@ -9955,16 +9964,20 @@ adjoints, real and imaginary parts with respect to h and the density each estima
      mu / d tau (m >= 0, tr m = 1), (H_G1 + 2 p_z) a becomes nu_s |phi_s|^(-2 lambda) (-2 (lambda - tr(p_z m)/nu_s) f +
      |phi_s| f'), and lambda above the top of spec p_z / nu_s over Gamma gives lambda - tr(p_z m)/nu_s > 0 near Gamma,
      the sign Step 3 uses. So (9.96)-(9.97) and Step 4 hold for tau, (Gamma.4)'s sup_Gamma p_1 read as the top of the
-     spectrum.
+     spectrum. At Gamma all of this, and the lossless part of Theorem 9.28, runs for Q-hat P_h,z Q-hat^- and Q-hat u
+     ((b)), whose p_1 is (5.9)'s.
  (f) (scalar models) Proposition 9.35's energy estimate takes P_0 = box_nabla + V + a with nabla an h-compatible
      connection on E_X (P_0 - box_nabla first order for any connection) and T[u](X, Y) = Re (h(nabla_X u, nabla_Y u) -
      (1/2) g(X, Y) g^-1(h(nabla u, nabla u))), as his section 8's bundle energy estimates ((3)); the curvature of nabla
      adds zeroth-order terms, bounded as the term in a is, so the pointwise bounds and the absorption for large Im z/h
-     stand. Theorem 9.28's complex absorption Q_3 and model D_t^2 + Delta_X' become Q_3 Id and D_t^2 + nabla* nabla on an
-     extension of E_X to X', with scalar principal symbols; Lemma 9.33's three-line theorem is for holomorphic families
-     valued in Hilbert spaces. Theorem 9.5 (5)'s ODE (9.55) gives rho^(1 + S) u_0 with u_0 in C^oo(dX; E_X), the form
-     (9.21) states; Theorem 9.38's adjoint carries S* and conjugate indicial roots; Theorem 9.41's cut-offs are scalar;
-     Corollaries 9.39 and 9.43 and Remark 9.42 are functional analytic.
+     stand. So do the energy estimates the proofs cite without writing them -- [Hin25a] Corollary 9.38 in Theorem 9.5
+     (1)-(2) (p. 172), [Hin25a] Theorem 9.44 in Proposition 9.35's proof for Im z = O(h) (p. 191) and Theorem 9.36's
+     "standard energy estimate near r = m" (p. 194): the same current, its curvature terms of zeroth order (the
+     seventy-second verifier). Theorem 9.28's complex absorption Q_3 and model D_t^2 + Delta_X' become Q_3 Id and D_t^2 +
+     nabla* nabla on an extension of E_X to X', with scalar principal symbols; Lemma 9.33's three-line theorem is for
+     holomorphic families valued in Hilbert spaces. Theorem 9.5 (5)'s ODE (9.55) gives rho^(1 + S) u_0 with u_0 in
+     C^oo(dX; E_X), the form (9.21) states; Theorem 9.38's adjoint carries S* and conjugate indicial roots; Theorem
+     9.41's cut-offs are scalar; Corollaries 9.39 and 9.43 and Remark 9.42 are functional analytic.
 
 So the bundle form of each section 9 statement the record uses -- Theorems 9.5, 9.16, 9.36, 9.38 and 9.41, Corollaries
 9.39 and 9.43 -- is its printed form with section 5's thresholds, the form Theorems 9.5 and 9.36 already state.
@@ -9980,28 +9993,37 @@ So the bundle form of each section 9 statement the record uses -- Theorems 9.5, 
      depend on finitely many symbol seminorms of P_b, bounded near b_0: Remark 7.2's "openness of the positivity of
      symbols", with his Propositions 3.23, 3.24, 3.29 and 3.30 for the elliptic and real principal type estimates. At the
      trapped set (Gamma.1)-(Gamma.4) hold near b_0 with Gamma_b and its defining functions continuous in b ([HPS77],
-     10.71 (iii)) and (Gamma.4)'s margin kept by (P3): Remark 7.2's last clause.
+     10.71 (iii)) and (Gamma.4)'s margin kept by (P3): Remark 7.2's last clause; (b)'s Q, chosen at b_0 with (5.8)'s
+     strict inequality, serves near b_0 by (P3). The energy estimates of (f) are uniform the same way, their constants
+     bounds on V, a and the curvature over a compact set on which dr stays timelike. The delta_Gamma-loss step, Lemma
+     9.33 and (9.99)-(9.101), uses the loss-1 estimate ((h)), elliptic and real principal type estimates and the
+     three-line theorem, whose M and M_+-, and Lemma 9.33's h_0, are uniform by (g)-(h); Q_3 is fixed at b_0 with a
+     delta_0 margin, Gamma_b lying in Gamma_b0(delta_0/2) near b_0; and delta_Gamma depends on b through gamma_+-,
+     continuous in b, so near b_0 the loss is taken as delta_Gamma,b0(Im sigma - 2 eps) (the seventy-second verifier).
  (h) (by contradiction) Theorem 9.28's loss-1 constant: were it not uniform, there would be b_j -> b_0 and sequences
      (9.90) for P_b_j. The defect measure of (u_j) sees only limits of symbols -- <C_j u_j, u_j> - <C_0 u_j, u_j> -> 0
      when the symbols of C_j converge to those of C_0 in their seminorms, the u_j being bounded -- so Lemmas 9.31-9.32
      hold with b_0's p and p_1, and Steps 1-4, run with Phi_u built from b_j's defining functions (convergent by (g)),
-     reach mu(delta) = 0 as at b_0. The inverse bounds -- Theorem 9.5 (3) and (6), Theorem 9.16 (3), Theorem 9.36's
-     invertibility on the record's spaces, the tf-normal operators' (Corollary 9.39), and Theorem 9.41's use of the zero
-     energy inverse -- come from a Fredholm estimate, uniform by (g), and injectivity at b_0, and are uniform by Lemma
-     10.59. Theorem 9.41's c, from the absorption <= C varsigma^eta with C uniform by (g), is uniform with them.
+     reach mu(delta) = 0 as at b_0. The inverse bounds -- Theorem 9.5 (3) and (6), Theorem 9.36's invertibility on the
+     record's spaces, the tf-normal operators' (Corollary 9.39), and Theorem 9.41's use of the zero energy inverse --
+     come from a Fredholm estimate, uniform by (g), and injectivity at b_0, and are uniform by Lemma 10.59. Theorem
+     9.41's c, from the absorption <= C varsigma^eta with C uniform by (g), is uniform with them.
 
 **Lemma 10.59 (deduced at proof level).** Let X, Z be Hilbert spaces with X compactly included in Z, Y a Banach space
 included continuously in a Banach space Y', and b -> T_b in L(X, Y') continuous in operator norm near b_0. Suppose
 ||u||_X <= C (||T_b u||_Y + ||u||_Z) for b near b_0 and every u in X with T_b u in Y, and T_b0 is injective on {u in X :
-T_b0 u in Y}. Then there are C' and a neighbourhood of b_0 on which ||u||_X <= C' ||T_b u||_Y for every such u. If the
-adjoint family satisfies the same hypotheses on the dual spaces, T_b is invertible near b_0 with inverse bounded by C'.
+T_b0 u in Y}. Then there are C' and a neighbourhood of b_0 on which ||u||_X <= C' ||T_b u||_Y for every such u. If
+moreover Y is a Hilbert space and a family T_b^# : Y* -> X*, with <T_b u, v> = <u, T_b^# v> for u in a subspace dense in
+X and every v in Y*, satisfies the same hypotheses on the dual spaces, then for b near b_0, T_b maps {u in X : T_b u in
+Y} onto Y, with inverse bounded by C'.
 
 *Proof.* If not, there are b_j -> b_0 and u_j with ||u_j||_X = 1 and ||T_bj u_j||_Y -> 0. A subsequence converges weakly
 in X and, by the compact inclusion, strongly in Z, to some u; the estimate gives ||u_j||_Z >= 1/C - ||T_bj u_j||_Y, so
 ||u||_Z >= 1/C and u != 0. In Y', T_b0 u is the weak limit of T_b0 u_j = (T_b0 - T_bj) u_j + T_bj u_j, and both terms
-tend to 0 in norm; so T_b0 u = 0, and u lies in the domain and the kernel. For the second part, the first applied to both
-families makes T_b and its adjoint injective near b_0, T_b with closed range by the estimate (a sequence with T_b u_k
-convergent in Y is Cauchy in X), so T_b is onto. []
+tend to 0 in norm; so T_b0 u = 0, and u lies in the domain and the kernel. For the second part, T_b has closed range by
+the estimate (if T_b u_k converges in Y, (u_k) is Cauchy in X and its limit lies in the domain), and a v in Y*
+annihilating the range has <u, T_b^# v> = 0 on the dense subspace, so T_b^# v = 0 and v = 0 by the first part for T_b^#:
+the range is closed and dense. []
 
  (i) ([Hin26]'s uses) With (g)-(h) and Lemma 10.59, Theorem 9.5's Fredholm estimates hold uniformly for b near b_0, as
      [Hin26] p. 119 asserts and 10.19 (d) ((lviii)) takes; (9.107) and the zero energy invertibility do, by Lemma 10.59
@@ -10011,11 +10033,11 @@ convergent in Y is Cauchy in X), so T_b is onto. []
 *What this gives, and what it does not.* RB and RU are written out site by site and leave their rows: every scalar site
 of section 9 is placed with its bundle form and every constant with the way it is uniform in b, at proof level given
 section 5's definitions, the bundle treatments of sections 7-8 and two elementary facts (square roots of positive
-definite matrices, Riesz's theorem entrywise). Not re-run line by line: the scalar proofs with these substitutions, which
-change nothing outside the sites the census names; that the census found every site is read at source, as the censuses of
-10.64-10.68 are, not proved. Each of 10.77's ten roots is now settled, written out or READ, and no row of READINGS.tsv
-rests on a reading. Labels: READ ((1)-(6)); deduced at proof level ((a)-(i), Lemma 10.59); nothing computed or proved
-here.
+definite matrices, Riesz's theorem entrywise) and, at the trapped set, (5.9)'s conjugation. Not re-run line by line: the
+scalar proofs with these substitutions, which change nothing outside the sites the census names; that the census found
+every site is read at source, as the censuses of 10.64-10.68 are, not proved. Each of 10.77's ten roots is now settled,
+written out or READ, and no row of READINGS.tsv rests on a reading. Labels: READ ((1)-(6)); deduced at proof level
+((a)-(i), Lemma 10.59); nothing computed or proved here.
 
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)

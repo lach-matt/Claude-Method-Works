@@ -2336,3 +2336,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   10.59). [Hin26] asserts RU for section 9 (pp. 119, 124). RB and RU leave their thirty-four rows; each of the ten
   roots is settled, written out or READ, and no row rests on a reading. Not re-run line by line: the scalar proofs
   with the substitutions placed.
+
+### 4.105 The seventy-second verifier seated (D182)
+
+- On D180-D181: one major, nine minors; the conclusion of 10.84 stands. Major: the trapped set's inner product is
+  Definition 5.8's, on the pullback bundle over phase space (10.17 (a)'s B_eta), not one on E_X; 10.84 (b), (e) and (g)
+  now run Theorem 9.28's arguments for Q-hat P_h,z Q-hat^-, (5.9)'s conjugation, as Proposition 7.10 does in spacetime,
+  Q fixed at b_0 serving near b_0. Minors: (b)'s factor 2; the cited scalar energy estimates placed in (f) and (g); the
+  delta_Gamma-loss step's uniformity in (g); Theorem 9.16 (3) off Lemma 10.59's list; Lemma 10.59's second part with
+  its hypotheses (Y Hilbert, the duality on a dense subspace); the p. 157 "perturb" sentence before section 9's
+  heading; `hthresh5.py` T7 split into T7-T8 and `iotasol5.py` J2 into J2 and J6, each with its own control; 10.83
+  (c)'s wording. The paper's three standing descriptions of the readings and section 9's list are revised with
+  10.85-10.86 (D183).

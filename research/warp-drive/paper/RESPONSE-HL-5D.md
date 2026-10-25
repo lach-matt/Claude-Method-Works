@@ -1672,20 +1672,20 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   normal operator at future timelike infinity with the constant (n − 1)/2, every radial point threshold of
   its high-energy estimates, the densities and their shifts n/2 and (n + 1)/2, the Fourier step to the
   transition face, and the counts. 9/9; mutants 9/9 (seconds).
-- `hthresh5.py` T1–T7: the damped operator's threshold at the horizon, [Hin26c] (5.17), at the record's point (supplement
+- `hthresh5.py` T1–T8: the damped operator's threshold at the horizon, [Hin26c] (5.17), at the record's point (supplement
   section 10.79): the normalisation r_h/2, the adjoint from the operators' definitions with the metric pairing as its
   control, the undamped part in Lemma 3.3's inner product with spectrum ±(e^(1/2) + e^(−1/2))/r_h, the damping's
   −h⁻¹ℓ(dr), and 1/2 + ϑ = −4995.33… at h = 10⁻⁶, below −100 for every h under 2.62 × 10⁻⁵; in other fibre inner products
   of the same family it can fail (positive at e′ = 10, crossing −100 at e′ ≈ 7.76), so it holds in the one the record
-  fixes. 7/7; mutants 7/7 (about half a minute).
+  fixes. 8/8; mutants 8/8 (about half a minute).
 - `tfnorm5.py` R1–R4: Hintz's transition face normal operator and uniform low-energy estimates ([Hin26c] Theorems 9.38
   and 9.41, Corollary 9.39) at n = 4 (supplement section 10.80): the conjugated adjoint (9.117) at every n, with one
   misprint of an intermediate line named, the indicial roots −λ and −n + 2 + λ̄, the densities' shift n/2 in the
   embedding and in (3.46), and (9.122)'s leading part. 4/4; mutants 4/4 (seconds).
-- `iotasol5.py` J1–J5: Hintz's solution theory at future timelike infinity and at the transition face ([Hin26] section 9)
+- `iotasol5.py` J1–J6: Hintz's solution theory at future timelike infinity and at the transition face ([Hin26] section 9)
   at n = 4 (supplement section 10.82): the model from the wave operator with (n − 1)/2 for his 1, the exponents and
   thresholds at v = 0, the Fourier step to the transition face operator, the outgoing end of that face, and the weights
-  at null infinity. 5/5; mutants 5/5 (seconds).
+  at null infinity. 6/6; mutants 6/6 (seconds).
 - `eind5.py` E1–E2: Hintz's Lemma 8.4 for every l (supplement section 10.52): every indicial root of the linearized
   gauge-fixed operator simple for l ≥ 2, exactly, in the scalar, vector and tensor types; his distance condition (8.13)
   by a certificate beyond l = 10⁴ and a 30-digit scan below, ε_ind ≤ 1.94137 × 10⁻⁸. 2/2; mutants 2/2 (about four
@@ -1841,7 +1841,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | the undecided steps placed, section 8.8 | supplement section 10.73; `docket68/n1star/synth5.py` S1–S3; [KI03] |
 | the modification steps' changes placed, section 8.8 | supplement section 10.74; `docket68/n1star/B-MAP.tsv` |
 | the readings traced to their roots, section 8.8 | supplement section 10.77; `docket68/n1star/READINGS.tsv` |
-| the horizon threshold, section 8.8 | supplement section 10.79; `docket68/n1star/hthresh5.py` T1–T7 |
+| the horizon threshold, section 8.8 | supplement section 10.79; `docket68/n1star/hthresh5.py` T1–T8 |
 | Hintz's sections 9.5–9.6 at n = 4, section 8.8 | supplement section 10.80; `docket68/n1star/tfnorm5.py` |
 | Hintz's section 9 at n = 4, section 8.8 | supplement section 10.82; `docket68/n1star/iotasol5.py` |
 | the zero energy pole at n = 4, section 8.8 | supplement section 10.83; [Hin26] |
@@ -1965,9 +1965,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `a37c3743de296df35a5c8548cacbdd66` |
-| `docket68/n1star/N1STAR-LOG.md` | `847a82de33edbb71dfd9237786e272e3` |
-| `docket68/n1star/README.md` | `7873c377e519671f96e448f2a12834b8` |
+| `docket68/n1star/N1STAR-PROOF.md` | `c9dfc36eca6bcccc8526fa783a3a42ec` |
+| `docket68/n1star/N1STAR-LOG.md` | `05b2fee78b1bde0862aa1f076b932870` |
+| `docket68/n1star/README.md` | `472c53ae06874113f9dc8c50369bd5e4` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -2034,9 +2034,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/iplusnorm5.py` | `1f7fb424e6bb7109eecbc9b75ec0b682` |
-| `docket68/n1star/hthresh5.py` | `b0f97fa92ecc40c8ec7c2fed07917e6a` |
+| `docket68/n1star/hthresh5.py` | `dc476b28d2bd87f0be6e1bcc88361bb6` |
 | `docket68/n1star/tfnorm5.py` | `7a80137c05c54689832006a42c989c22` |
-| `docket68/n1star/iotasol5.py` | `0c4e3d12602b5be59311c90bd4fc0a5b` |
+| `docket68/n1star/iotasol5.py` | `6b5e1dcdf9aaff9f60c07570c88cc83f` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |

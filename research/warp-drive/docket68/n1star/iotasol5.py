@@ -22,7 +22,7 @@ of S-bar, on a scalar harmonic of S^(n-1) with eigenvalue kappa of his slashed D
      (arithmetic, chi^w_+ in H^(Re w + 1/2 - eps)_loc) the below-threshold condition is s < c + 1/2 + min Re S - Re lam,
      his 3/2 + min spec S-bar - Re lam and 2 - Re lam at n = 4 (min spec S-bar = 0, 10.25); (9.5) needs s > -1/2,
      possible iff Re lam < c + 1 (his 2; 5/2); the extension by zero of (9.6)'s v^(c + min S - Re lam - eps) is in
-     L^1_loc iff Re lam < c + 1.  Control: the exponent c - lam with c = 1 at n = 4.
+     L^1_loc iff Re lam < c + 1 (the arithmetic is J6's).  Control: the exponent c - lam with c = 1 at n = 4.
   J3 (computed, exact) The Fourier transform in v and the tf operator (the injectivity step). With u-hat(rhat) = int e^(i
      rhat v) u dv (d_v -> -i rhat, v d_v -> -d_rhat rhat), N_sf(lam) becomes 2 i rhat (-d_rhat rhat + lam - c - S) +
      L~(0)(-d_rhat rhat + lam), his bracket with c for 1; conjugation by rhat^(lam - 1) -- the exponent free of c --
@@ -41,6 +41,9 @@ of S-bar, on a scalar harmonic of S^(n-1) with eigenvalue kappa of his slashed D
      eps at n = 4), so (9.22)'s right side has order c + 1 - eps (his 2 - eps, 5/2 - eps); (9.5) holds for Re lam < c + 1
      and (9.21) for Re lam > c, which overlap; and v^lam is excluded from h's expansion by the bound h = O(v^(c - eps))
      iff Re lam < c (his 'Re lam < 1', 3/2 at n = 4). Control: the weight 1 - eps claimed at n = 4.
+  J6 (arithmetic; D182) J2's thresholds at min spec S-bar = 0: s < c + 1/2 - Re lam, and (9.5)'s s > -1/2 iff Re lam
+     < c + 1 -- his (3/2, 2) at n = 3, the record's (2, 5/2) at n = 4 (10.37 (c)); (9.21)'s s < 1/2 iff Re lam > c,
+     computed, not checked (the seventy-first verifier).  Control: s_top = c at n = 4.
 """
 import sys
 import time
@@ -110,9 +113,16 @@ def j2(control=0, verbose=False):
         claim = {sp.Integer(0), (1 if (control and n == 4) else c) + S - lam}
         chk(f"n = {n}: exponents of v N_sf at v = 0: {sorted(map(str, roots))}",
             {sp.simplify(q) for q in roots} == {sp.simplify(q) for q in claim})
-        # arithmetic: the thresholds at min spec S-bar = 0
+    return chk.ok
+
+
+def j6(control=0, verbose=False):
+    chk = Checklist(verbose, quiet=control != 0)
+    for n in (3, 4):
+        c = c_of(n)
+        # arithmetic: the thresholds at min spec S-bar = 0, from J2's exponent c + S - lam
         Re_lam = sp.Symbol("Re_lam")
-        s_top = c + sp.Rational(1, 2)
+        s_top = c + (0 if (control and n == 4) else sp.Rational(1, 2))
         lam_max = sp.solve(sp.Eq(s_top - Re_lam, -sp.Rational(1, 2)), Re_lam)[0]
         printed = {3: (sp.Rational(3, 2), 2), 4: (2, sp.Rational(5, 2))}[n]      # his print; the record's 10.37 (c)
         lam_lo = sp.solve(sp.Eq(s_top - Re_lam, sp.Rational(1, 2)), Re_lam)[0]   # (9.21) needs s < 1/2
@@ -185,10 +195,11 @@ def j5(control=0, verbose=False):
 
 
 CHECKS = [("J1 -box = rho^2 L~(0) + rho L~_1 d_t*, L~_1 = -2(x - c); (9.11) with c for 1 (n = 3, 4)", j1),
-          ("J2 N_sf at v = 0: exponents 0, c + S - lam; s < c + 1/2 - Re lam, Re lam < c + 1", j2),
+          ("J2 N_sf at v = 0: exponents 0 and c + S - lam", j2),
           ("J3 Fourier in v: conjugation by rhat^(lam - 1) gives rhat^2 N_tf(L-bar, +1) at every c", j3),
           ("J4 N_tf at scf: phases 0 and -2; outgoing rhat^-(c + S); l_scf < c + min spec S-bar", j4),
-          ("J5 (9.22) at every c; h's I+ weight c - eps; Re lam < c for the expansion", j5)]
+          ("J5 (9.22) at every c; h's I+ weight c - eps; Re lam < c for the expansion", j5),
+          ("J6 J2's thresholds: s < c + 1/2 - Re lam, Re lam < c + 1; (9.21)'s Re lam > c computed", j6)]
 
 
 def run(only=None, verbose=False):
