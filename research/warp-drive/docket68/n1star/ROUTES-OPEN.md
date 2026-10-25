@@ -2549,3 +2549,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   of the extended time function, a hypothesis of Proposition 3.2) and nine nits, all seated; (E1)-(E13) confirmed.
 - Open: the D197, D200, D201, D204, D206 and D207 repairs; Parts II.F and III-VII.
 - Next: Part II.F, [Hin26c] sections 10-13, in writing (D208); then its verifier.
+
+### 4.131 Part II.F written (D208)
+
+- Part II.F, [Hin26c] section 10 at n = 4: the normal operator at iota+ and its Mellin family at high and bounded
+  frequencies (Proposition 10.6), forward solutions of the normal operator (Proposition 10.12) and of the modified
+  operator P_+ (Proposition 10.14), and Theorem 10.1; findings (F1)-(F9) and gaps (G1)-(G7), all closed in the text.
+- Open: the D197, D200, D201, D204, D206 and D207 repairs; Part II.F unread; Parts II.F', II.G, II.G' and III-VII.
+- Next: the eighty-seventh verifier on Part II.F; Part II.F', [Hin26c] section 11.

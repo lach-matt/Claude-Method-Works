@@ -26,7 +26,10 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
-| II.F | [Hin26c] 10-13 | decay at iota+ and K+, the iteration | to do |
+| II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | written (D208) |
+| II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | to do |
+| II.G | [Hin26c] 12 | the Nash-Moser iteration | to do |
+| II.G' | [Hin26c] 13 | improving decay at iota+ and K+ | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -329,3 +332,24 @@ r_0\}$ by its own formula, monotone there by the same computation; the collar fl
 inductions use two nested slabs per step; the support of $E_+$ needs a smaller neighbourhood of $\mathscr I^+$; the
 extended $t^\flat$ is defined by its formulae, not by Seeley's extension; and Proposition 3.2 states
 $t_--\omega_0\ge\frac12$. Its nine nits are seated too; they await the next reader.
+
+## Part II.F
+
+`PART-II-F-IOTA.md`. [Hin26c] section 10 at $n = 4$: the normal operator of the stationary model at future timelike
+infinity and its Mellin-transformed family (sections 1-2); that family's invertibility at high frequencies, without and
+with b-regularity, by the positive commutator scheme of Part I.B carried to the semiclassical 0- and cone calculus on
+$\iota^+$ (sections 3-4, the source's Proposition 10.6 (2)); its Fredholm property and invertibility at bounded
+frequencies (section 5, Proposition 10.6 (1) and Lemmas 10.9-10.10); forward solutions of the normal operator (section
+6, Proposition 10.12); the modified operator $P_+$ and its forward solutions (section 7, Definition 10.13 and
+Proposition 10.14); and Theorem 10.1 (section 8), forward solutions of the stationary model on e3b-spaces with decay at
+$\iota^+$ and the loss $\aleph$ at $K^+$. The dimension enters through $c = \frac32$ and the density shifts; every
+threshold is recomputed, and they agree with `iplusnorm5.py`. At bounded frequencies the 0-calculus parametrix is that
+of [0C] Theorem 3.4 (with bounds), used only through the Fredholm property, proved here by the Schur test; the reduced
+normal operator is inverted with modified Bessel functions; the Fourier transform bound the source quotes is proved.
+Strong uniqueness for the normal operator is proved by a Paley-Wiener-Schwartz argument at a constant order (Lemma 6.4),
+which the source's comparison argument needs and does not have. Findings (F1)-(F9), among them: the normal operator's
+factor $t_*^{-2}$, the high-energy statement's range of parameters, a sign at the outgoing radial set, the Plancherel
+factor $|\sigma|^{2j}$, and the source order $\mathsf s-1$ (not $\mathsf s-2$) in Proposition 10.12; and gaps (G1)-(G7)
+closed, among them the constancy hypothesis of [0C] Theorem 1.5, the dilation invariance of the orders at which
+Proposition 10.12 is applied, and the auxiliary operators needed to use Part II.E's slab estimates near $\mathscr I^+$.
+Written (D208); not yet read by a verifier.

@@ -4992,3 +4992,22 @@ seated (the null case of Lemma 2.2, the coefficient 8 delta' on extended slabs, 
 dependence of d_0, the range of T_0 in Lemma 3.3 (a), b < r-natural + delta_0 in Lemma 5.3, the faces in Lemma 2.3,
 epsilon_{P,2}, the density step in Proposition 3.4). Status: Parts I.A-I.C, II.A, II.A' proved; II.B, II.C, II.C', II.D,
 II.D' and II.E verified. Next: Part II.F ([Hin26c] sections 10-13), in writing as D208.
+
+**D208 (2026-10-25): Part II.F written, [Hin26c] section 10 at n = 4.** proof5/PART-II-F-IOTA.md: the normal operator of
+the stationary model at iota+ (with the factor t*^-2, (F1)) and its Mellin family; the semiclassical 0- and cone
+calculus on iota+ with I.B's positive commutator scheme carried to it; high frequencies without and with b-regularity
+(Proposition 10.6 (2), on families of parameters that keep Re z = +-1, (F2)), every threshold at the four radial sets
+recomputed at n = 4 (the R_cf,out sign, (F4)); bounded frequencies (Proposition 10.6 (1)): Fredholm of index 0 for Im
+sigma > -gamma_I and invertible for Im sigma > -1 - beta_+, through the elliptic estimate, I.C's normal-operator
+estimate at K+, and at I+ the Fredholm property of a compact model from [0C] Theorem 3.4 (READ; the parametrix with
+bounds, constancy of the boundary spectrum not needed), proved by the Schur test; the reduced normal operator inverted
+with modified Bessel functions (DLMF 10.28.2, 10.30.2, 10.40.1-2, READ); the kernel by the Fourier transform in v, a
+conormal Fourier bound proved here, and I.C's tf-admissibility (the source's 1 + Im sigma, (F6)). Forward solutions of
+the normal operator (Proposition 10.12, with the source order s - 1, (F7)); strong uniqueness by a Paley-Wiener-Schwartz
+support lemma at a constant order (Lemma 6.4), the source's comparison needing a variable order it does not have near I+
+(G3), and the extension's control at I+ by rescaling and an auxiliary operator in II.E's class (Lemma 6.3). The modified
+operator P_+ (Proposition 10.14): orders with dilation-invariant error orders and a slack eta_1 (G4), finite-time
+solvability through an auxiliary operator (G5), the radial estimates at cf with a time cut-off (G6), the uniform
+estimate for the approximations and the weak limit. Theorem 10.1 at n = 4 in four steps. Findings (F1)-(F9), gaps
+(G1)-(G7). Status: Parts I.A-I.C, II.A, II.A' proved; II.B, II.C, II.C', II.D, II.D' and II.E verified; II.F written.
+Next: the eighty-seventh verifier on Part II.F; Part II.F' ([Hin26c] section 11).
