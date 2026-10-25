@@ -1,12 +1,16 @@
 # Part II.D$'$. Microlocal regularity with b-regularity, and estimates tame in it, at n = 4
 
-*Status.* Written out in full (D203). Not yet read by an independent verifier; nothing here is labelled proved. This part
-proves, at spatial dimension $n = 4$, [Hin26c] section 7.2 (pp. 127-141): the global estimate of Part II.D with $k$
-additional degrees of b-regularity (the source's Proposition 7.11), its version tame in $k$, and the ingredients:
-commutators with b-vector fields near $\mathscr I^+$ (Lemma 7.12), and the radial point and trapping estimates with
-b-regularity (Propositions 7.17 and 7.22, Lemmas 7.15-7.16 and 7.19-7.21). The source is [Hin26c] = P. Hintz,
-arXiv:2606.28008v1 (printed page numbers). Part II.A (`PART-II-A-SETUP.md`) is cited as II.A, Part II.B as II.B, Part
-II.C as II.C, Part II.C$'$ as II.C$'$ and Part II.D (`PART-II-D-REGULARITY.md`) as II.D.
+*Status.* Verified. Written out in full (D203). Read line by line by the eighty-fifth verifier, which re-derived Lemmas
+2.1-2.5, the commutators of sections 3-6 and the assembly, and confirmed (D$'$1)-(D$'$2) at source. Its major finding,
+that with the words of (2.2) the coupling at the horizon is not diagonal and its Hermitian part is indefinite for
+$k\ge2$, is repaired by the form (2.2$'$) for commuting letters; its three minor findings (the form of $R^{(2)}$ in
+(C2), the bound used in the tame assembly, half of (D$'$3)) and its nits are seated (D206). The part is labelled proved
+once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$, [Hin26c] section 7.2 (pp.
+127-141): the global estimate of Part II.D with $k$ additional degrees of b-regularity (the source's Proposition 7.11),
+its version tame in $k$, and the ingredients: commutators with b-vector fields near $\mathscr I^+$ (Lemma 7.12), and the
+radial point and trapping estimates with b-regularity (Propositions 7.17 and 7.22, Lemmas 7.15-7.16 and 7.19-7.21). The
+source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part II.A (`PART-II-A-SETUP.md`) is cited as
+II.A, Part II.B as II.B, Part II.C as II.C, Part II.C$'$ as II.C$'$ and Part II.D (`PART-II-D-REGULARITY.md`) as II.D.
 
 *Method.* b-regularity is tested by commuting b-vector fields through $P$. For the elliptic and real principal type
 estimates, II.A section 9 commutes a spanning set of b-vector fields; the commutators enter the commuted system below
@@ -78,14 +82,22 @@ defining function $\rho_\Gamma$ of that face and some $\ell>0$. The hypotheses o
 $\mathcal Q^2_1$ with $\mathrm{WF}'(A_l)\cap\bar U_0 = \emptyset$ for all its terms.
 
 (C2) (Only if $\lambda = 1$.) For $i,i'<J$, $[X_{i'},[X_i,L]] = \sum_{j,j' =
-1}^JQ^{(2)}_{i'i,jj'}X_jX_{j'}+R^{(2)}_{i'i}$, with $Q^{(2)}_{i'i,jj'}$ of class $\mathcal Q^0_2$ and $R^{(2)}_{i'i}$ of
-class $\mathcal Q^2_2$ microsupported off $\bar U_0$ as in (C).
+1}^JQ^{(2)}_{i'i,jj'}X_jX_{j'}+R^{(2)}_{i'i}$, with $Q^{(2)}_{i'i,jj'}$ of class $\mathcal Q^0_2$ and $R^{(2)}_{i'i} =
+R'+\sum_jR''_jX_j$ with $R'$ of class $\mathcal Q^2_2$ and $R''_j$ of class $\mathcal Q^1_2$, all microsupported off
+$\bar U_0$ as in (C) (the eighty-fifth verifier, D206).
 
 (M) Over a neighbourhood of the base projection of $\bar U_0$, the $X_i$ together with $\mathcal V_{e3b}$ span $\mathcal
 V_b$ over $C^\infty$; and either the $X_i$ alone span $\mathcal V_b$ there, or there are $i_0<J$ and a bounded weight
 $w$, a product of non-negative powers of boundary defining functions, with $wX_{i_0}\in\mathrm{Diff}^1_{e3b}$ elliptic on
 $\bar U_0$. Each $X_i$, $i<J$, is a commutator field there: $[X_i,\mathcal V_{e3b}]\subset\mathcal V_{e3b}$ (II.A Lemmas
-2.2 and 2.6, Corollary 2.3).
+2.2 and 2.6, Corollary 2.3). The four families of sections 3-6 extend to global elements of $\mathcal V_b$ that are
+commutator fields everywhere ($\partial_r$ and $r\partial_r$ are e3b-fields, $t_*\partial_{t_*}$ is a commutator field
+everywhere, and the $\Omega_{ab}$ are 3b-fields near $K^+$ and eb-commutator fields near $\mathscr I^+$), which is what
+the global statements of II.A Lemma 2.2 and Lemma 8.4 (a) use.
+
+*Parametrix remainders.* II.A Lemma 8.4 (b) gives microlocal parametrices of a finite order $J'$; a remainder said below
+to be microsupported off $\bar U_0$ is the sum of such a term and of one of order $-J'$ near $\bar U_0$. Every use needs
+only $J'$ large, depending on the orders, and we write as if the second term were absent.
 
 **Lemma 2.1 (the commuted system; [Hin26c] (7.32), (7.43), (7.61)).** Assume (C), and (C2) if $\lambda = 1$. For $k\ge1$
 put $u^{(k)} := (X^\alpha u)_{\alpha\in\mathcal W_k}$ and $f := Lu$. Then
@@ -105,6 +117,16 @@ $X_jX^{\alpha\setminus i} = X^{j\cdot(\alpha\setminus i)}$. So $-(\mathrm{ad}_{X
 \{i,i'\}$, $i<i'$, (F2) gives $\mathrm{ad}_{X_{\alpha_i}}\mathrm{ad}_{X_{\alpha_{i'}}}L =
 [X_{\alpha_i},[X_{\alpha_{i'}},L]]$, which (C2) writes as $\sum Q^{(2)}X_jX_{j'}+R^{(2)}$, with the indices of (2.2)
 after relabelling; its contribution is moved to the left in the same way. $\square$
+
+*Commuting letters.* If a letter $j<J$ commutes with every $X_i$, then for a word $\alpha$ and a position $i$,
+$X_jX^{\alpha\setminus i} = X^{\alpha[i\to j]}$, where $\alpha[i\to j]$ is $\alpha$ with its $i$-th letter replaced by
+$j$. So in (2.2) the term $Q_{\alpha_ij}w_{j\cdot(\alpha\setminus i)}$ may be replaced by $Q_{\alpha_ij}w_{\alpha[i\to
+j]}$; call the operator so modified (2.2$'$). (2.1) holds for it with the same proof, since only $L^{(k)}u^{(k)}$ enters,
+and Lemmas 2.3-2.5 use of $L^{(k)}$ only that it is $L\otimes\mathrm{Id}$ minus a coupling whose coefficients carry at
+most $1+\lambda$ b-derivatives of those of $P$, so they hold for (2.2$'$). For a letter $1$ with $\alpha_i = 1$,
+$\alpha[i\to1] = \alpha$: the coupling through that letter is diagonal. This is what the horizon needs (Lemma 4.1 (c));
+with (2.2) the word $1\cdot(\alpha\setminus i)$ differs from $\alpha$ unless $i = 1$, and for $k\ge2$ the Hermitian part
+of the coupling is indefinite (the eighty-fifth verifier, D206).
 
 The coefficients of $L^{(k)}-L\otimes\mathrm{Id}$ carry at most $1+\lambda$ b-derivatives of those of $P$, whatever $k$
 is; this is what makes the tame estimate possible.
@@ -191,9 +213,10 @@ L\tilde\chi'u\|_{(\mathsf t_0-2;k)}\le C\|\tilde\chi'u\|_{(\mathsf t_0;k)}$, as 
 coefficients of class $(d_0;k)$ (II.A Lemma 8.6 (a)), and $\|G^\sharp_1f\|\le C(\|GLu\|_{(\mathsf
 t-1+\lambda;k)}+\|\tilde\chi f\|_{(\mathsf t_0-2;k)})$ for $G$ elliptic on $\mathrm{WF}'(G^\sharp_1)$.
 
-*$\tilde f^{(k)}_\flat$.* $G_kR_i$ and $G_kR^{(2)}$ have every order, the wave front sets being disjoint (II.A Lemma 8.6,
-with the coefficient regularity $(d_0;k-2)$); so $\|G_k\tilde f^{(k)}_\flat\|_{\mathsf t-1+\lambda}\le C\|\tilde\chi
-u\|_{(\mathsf t_0;k-1)}$.
+*$\tilde f^{(k)}_\flat$.* $G_kR_i$ and $G_kR^{(2)}$ have every order, the wave front sets being disjoint (II.A Lemma 8.5
+(b), with the coefficient regularity $(d_0;k-2)$); for the terms $R''_jX_jX^{\alpha\setminus\{i,i'\}}u$ of (C2) the word
+$X_jX^{\alpha\setminus\{i,i'\}}$ has $k-1$ letters. So $\|G_k\tilde f^{(k)}_\flat\|_{\mathsf t-1+\lambda}\le
+C\|\tilde\chi u\|_{(\mathsf t_0;k-1)}$.
 
 *$\tilde f^{(k)}$.* Let $|S| = q\ge2+\lambda$. $\mathrm{ad}_{X_S}L$ is a second-order operator of class $\mathcal Q^2_q$:
 each commutator with a b-vector field preserves $\mathrm{Diff}^2_{e3b}$ up to the coefficients (II.A Lemma 4.1 and Lemma
@@ -234,7 +257,7 @@ $q'\ge3+\lambda$, commute the second-order factor to the front and $G_k$ through
 remains to bound $\|\tilde G(D^{q'}_{[b]}D^{\le2}_{e3b}p)(D^{k-q}_{[b]}u)\|_{\mathsf t+1+\lambda}$ with $\tilde G$
 microsupported in $U_{k-1}$. II.A Proposition 9.6, with $D^{2+\lambda}_{[b]}D^{\le2}_{e3b}p$ for $\ell$ and
 $(q'-2-\lambda,k')$ for $(j,k)$, $k' := k-q+q'-2-\lambda\le k-2-\lambda$, bounds it, after enlarging $k'$ to
-$k-2-\lambda$ in the norms of $u$, by
+$k-2-\lambda$ in the norms of $u$ (and the constant $C_{k'}$ to $C_k$), by
 $$C_k\Big(\|p\|_{(d_1+2;\tilde d+2+\lambda)}\big(\|G^\sharp u\|_{(\mathsf t+1+\lambda;k-2-\lambda)}+
 \|\tilde\chi u\|_{(\mathsf t_0;k)}\big)+\|p\|_{(d_1+2;k)}\big(\|G^\sharp u\|_{(\mathsf t+1+\lambda;\tilde d)}+
 \|\tilde\chi u\|_{(\mathsf t_0;\tilde d)}\big)\Big),$$
@@ -343,7 +366,8 @@ R_{\mathcal H^+}$. The family is $\mathcal X_{\mathcal H} := (\partial_r,t_*\par
 **Lemma 4.1 ([Hin26c] Lemmas 7.15-7.16 at $n = 4$).** (a) (M) holds: $\mathcal V_b$ near $\mathcal H^+\cap K^+$ is
 spanned by $\mathcal V_{3b}$ and $t_*\partial_{t_*}$ (II.A Corollary 2.3); $\partial_r\in\mathcal V_{3b}$ is elliptic on
 $\bar U_0$ (with $w = 1$); both are e3b-commutator fields (II.A Lemma 2.2). (b) (C) holds on $U_0$. (c) The system
-$L^{(k)} = P\otimes\mathrm{Id}-Q$ of Lemma 2.1 satisfies, at $\partial R_{\mathcal H^+}$,
+$L^{(k)} = P\otimes\mathrm{Id}-Q$ of Lemma 2.1 in the form (2.2$'$), both letters commuting ($[\partial_r,
+t_*\partial_{t_*}] = 0$), satisfies, at $\partial R_{\mathcal H^+}$,
 $$\varsigma\rho\,\sigma_1(\mathrm{Im}(-Q)) = -\mathrm{diag}\big(j_\alpha\big)_{\alpha\in\mathcal W_k}\,\beta_0\le0,
 \tag{4.1}$$
 with $j_\alpha$ the number of letters 1 (that is, of factors $\partial_r$) in $\alpha$, $\rho$ the function of (H3) and
@@ -372,15 +396,17 @@ and with $I = Q_r\partial_r+R_r$ on the second-order terms, $Q_{22} := -\sum_lp_
 coefficients carry a factor $\rho_K$ or $\rho_K^{\ell_K}$ ($X_2\tilde p_l\in\rho_K^{\ell_K}C^{(d_0;k-1)}_{3b;b}$), so
 they decay at $K^+$.
 
-(c) By (b), $-Q$ has, at $\partial R_{\mathcal H^+}\subset\{\rho_K = 0\}$, first-order principal symbol
-$\mathrm{diag}(j_\alpha)\,i(H_{G_0}\xi_0)/\xi_0$, the decaying terms vanishing there and $G = G_0$ there. Let $\tilde\rho
-:= |\xi_0|^{-1}$ on $U_0$ and $\mathsf H := \rho H_G$. Then $\rho(H_G\xi_0)/\xi_0 = -\rho\tilde\rho^{-1}H_G\tilde\rho =
--\tilde\rho^{-1}\mathsf H\tilde\rho$. At the radial set $\partial R_{\mathcal H^+}$ the vector field $\mathsf H$ on the
-cosphere bundle vanishes, so $\tilde\rho^{-1}\mathsf H\tilde\rho = \rho^{-1}\mathsf H\rho+(\tilde\rho/\rho)^{-1}\mathsf
-H(\tilde\rho/\rho) = \rho^{-1}\mathsf H\rho = \beta_0$ there (II.B (4.1), as in the proof of II.D Proposition 3.1),
-$\tilde\rho/\rho$ being homogeneous of degree 0. This gives (4.1) on $\partial\Sigma^+$, where $\varsigma = 1$; on
-$\partial\Sigma^-$ the antipodal map changes the signs of $\xi_0$ and of $\varsigma$ together. The threshold of II.D
-Proposition 3.1 for $L^{(k)}$ is then $\sup\lambda_{\max}(\beta_0^{-1}(\mathfrak
+(c) By (b) and (2.2$'$), $-Q$ has, at $\partial R_{\mathcal H^+}\subset\{\rho_K = 0\}$, first-order principal symbol
+$\mathrm{diag}(j_\alpha)\,i(H_{G_0}\xi_0)/\xi_0$: each letter 1 of $\alpha$ couples the component $\alpha$ to itself
+through $Q_{11}$, as $\alpha[i\to1] = \alpha$, and the couplings through $Q_{21}$, $Q_{22}$ decay; $G = G_0$ there. Let
+$\tilde\rho := |\xi_0|^{-1}$ on $U_0$ and $\mathsf H := \rho H_G$. Then $\rho(H_G\xi_0)/\xi_0 =
+-\rho\tilde\rho^{-1}H_G\tilde\rho = -\tilde\rho^{-1}\mathsf H\tilde\rho$. At the radial set $\partial R_{\mathcal H^+}$
+the vector field $\mathsf H$ on the cosphere bundle vanishes, so $\tilde\rho^{-1}\mathsf H\tilde\rho = \rho^{-1}\mathsf
+H\rho+(\tilde\rho/\rho)^{-1}\mathsf H(\tilde\rho/\rho) = \rho^{-1}\mathsf H\rho = \beta_0$ there (II.B (4.1), as in the
+proof of II.D Proposition 3.1), $\tilde\rho/\rho$ being homogeneous of degree 0. This gives (4.1) on $\partial\Sigma^+$,
+where $\varsigma = 1$; on $\partial\Sigma^-$ the quantity $(H_G\xi_0)/\xi_0$ is even, the future field is $-\mathsf H$,
+whose $\rho^{-1}(-\mathsf H)\rho$ is $\beta_0$, so $\rho^{-1}\mathsf H\rho = -\beta_0$ there, and $\varsigma = -1$
+restores (4.1). The threshold of II.D Proposition 3.1 for $L^{(k)}$ is then $\sup\lambda_{\max}(\beta_0^{-1}(\mathfrak
 p-j_\alpha\beta_0))\le\vartheta_{\mathcal H}$, in the inner product $h^{\oplus\mathcal W_k}$. $\square$
 
 The non-positive sign in (4.1) is the red shift: commuting with $\partial_r$ lowers the threshold, so the minimal
@@ -443,17 +469,19 @@ $Q^{(2)}$ of order 0. So (2.8) holds with equality at $\partial\Gamma_{K^+}$.
 *Proof.* (b) (C): as in Lemma 5.1, with $L = P = \sum_lp_lA_l$, $A_l\in\mathrm{Diff}^2_{3b}$ (cusp operators over $D$)
 independent of $t_*$, $p^\sharp_l$ independent of $t_*$ and $\tilde p_l\in\rho_K^{\ell_K}C^{(d_0;k)}_{3b;b}$, and $Q_K$ a
 microlocal parametrix of $\partial_{t_*}$ on $\bar U_0$. (C2): from the formula for $[L,X_1]$,
-$$[X_1,[X_1,L]] = -\sum_l\Big((X_1^2\tilde p_l)A_l+(X_1\tilde p_l)[X_1,A_l]+(X_1p_l)\rho_K\big(A^\flat_lX_1+
+$$[X_1,[X_1,L]] = \sum_l\Big((X_1^2\tilde p_l)A_l+(X_1\tilde p_l)[X_1,A_l]+(X_1p_l)\rho_K\big(A^\flat_lX_1+
 A^\sharp_l\big)-p_l\rho_K\big(A^\flat_lX_1+A^\sharp_l\big)+p_l\rho_K\big([X_1,A^\flat_l]X_1+[X_1,A^\sharp_l]\big)\Big),$$
 using $X_1\rho_K = -\rho_K$. By II.A Lemma 2.2 again, $[X_1,A^\flat_l]$ and $[X_1,A^\sharp_l]$ are of the form
 $\rho_K(\cdot)X_1+\rho_K(\cdot)$, and $[X_1,A_l] = \rho_KA^\flat_lX_1+\rho_KA^\sharp_l$. So every term is a second-order
-operator $D$, or a first-order operator $D'$ followed by $X_1$, with coefficients in
+operator $D$, or a first-order operator $D'$ followed by $X_1$ (the terms $p_l\rho_K^2cX_1X_1$, $c$ smooth, from
+$p_l\rho_K[X_1,A^\flat_l]X_1$ are already of the form $Q^{(2)}X_1X_1$ with $Q^{(2)}$ of order 0), with coefficients in
 $\rho_KC^\infty+\rho_K^{\ell_K}C^{(d_0;k-2)}_{3b;b}$. Let $Q'\in C^\infty_b\Psi^{-2}_{3b}$ be a microlocal parametrix of
 $(\rho_KX_1)^2 = \partial_{t_*}^2$ on $\bar U_0$, $I = Q'(\rho_KX_1)^2+R'$, and note $(\rho_KX_1)^2 =
 \rho_K^2X_1^2-\rho_K^2X_1$. Then
 $$D = (DQ'\rho_K^2)X_1X_1-(DQ'\rho_K^2)X_1X_J+DR',\qquad D'X_1 = (D'Q_K\rho_K)X_1X_1+D'R_KX_1,$$
-with $DQ'\rho_K^2$ and $D'Q_K\rho_K$ of order 0 and class $\mathcal Q^0_2$, and $DR'$, $D'R_KX_1$ microsupported off
-$\bar U_0$. This is (C2). $\square$
+with $DQ'\rho_K^2$ and $D'Q_K\rho_K$ of order 0 and class $\mathcal Q^0_2$, $DR'$ of class $\mathcal Q^2_2$, and
+$D'R_KX_1$ of the form $R''X_1$ with $R'' := D'R_K$ of class $\mathcal Q^1_2$, both microsupported off $\bar U_0$. This
+is (C2). $\square$
 
 **Proposition 6.2 ([Hin26c] Proposition 7.22 at $n = 4$).** There are $B,E,G$ with the properties (1)-(4) of II.D
 Proposition 4.2 such that for all $s>s_0$, $k\in\mathbb N_0$, $\alpha_K\in\mathbb R$ and $\tilde\chi$ as there
@@ -561,20 +589,21 @@ through finitely many norms of its coefficients and through the dynamical consta
 proves (1.1).
 
 *The tame estimate (1.2).* Let $d$ be the largest of the numbers $d$ of Lemma 2.4 for the families and orders of Steps
-2-6 and of II.A Propositions 9.8-9.9 at the orders $\mathsf s+1$ and $\mathsf s$. A tame estimate proved with some $d'\le
-d$ holds with $d$, as $\mathcal R_{d'}\le\mathcal R_d$ and $\epsilon_{P,d'}\le\epsilon_{P,d}$. If $\epsilon_{P,d}$ is
-small, then $P$ is of class $((d_0;d),\ldots)$ and $\epsilon_{P,q}\le\epsilon_{P,d}$ for $q\le d$, so for $k\le d$ (1.2)
-follows from (1.1). Let $k>d$. Run Steps 1-6 and the conclusion with the tame versions: (P0$_k$) and (P1$_k$) with II.A
-Propositions 9.8 and 9.9, and (R$_k$) with (2.7). Each turns tame control on the sets where its $E$ lies into tame
-control on a neighbourhood of its own set. In its right side, the terms at $k$ are at most $C_k(\mathcal
-R_k+\epsilon_{P,k}\mathcal R_d)$, by tame control, and those at $d$ at most $C_d\mathcal R_d$, by (1.1) at $d$, whose
-constant depends on $P$ only through $\epsilon_{P,d}$. The coefficient norm that multiplies the terms at $d$ is
-$\epsilon_{P,k}$ in (2.7); in II.A Propositions 9.8-9.9 it is $\|\mathbf L\|_{(d_0;k)}$, which is at most
-$C'_k+C\epsilon_{P,k}$ with $C'_k$ depending only on $P_0$, and the part $C'_kC_d\mathcal R_d\le C'_kC_d\mathcal R_k$
-joins the terms at $k$. The constants of those propositions depend on $L$ only through bounds at $(d_0;d)$, that is,
-through $\epsilon_{P,d}$. II.A Lemma 8.4 (c) has no coefficients of limited regularity, so the conclusion is linear in
-the bounds of the steps. This gives (1.2), with $C_k$ depending on $P$ only through a bound for $\epsilon_{P,d}$.
-$\square$
+2-6 and of II.A Propositions 9.8-9.9 at the orders $\mathsf s+1$ and $\mathsf s$. A tame estimate proved with some
+$d'\le d$ holds with $d$, as $\mathcal R_{d'}\le\mathcal R_d$ and $\epsilon_{P,d'}\le\epsilon_{P,d}$. If
+$\epsilon_{P,d}$ is small, then $P$ is of class $((d_0;d),\ldots)$ and $\epsilon_{P,q}\le\epsilon_{P,d}$ for $q\le d$,
+so for $k\le d$ (1.2) follows from (1.1). Let $k>d$. Run Steps 1-6 and the conclusion with the tame versions: (P0$_k$)
+and (P1$_k$) with II.A Propositions 9.8 and 9.9, and (R$_k$) with (2.7). Each turns tame control on the sets where its
+$E$ lies into tame control on a neighbourhood of its own set. In its right side, the terms at $k$ are at most
+$C_k(\mathcal R_k+\epsilon_{P,k}\mathcal R_d)$, by tame control, and those at $d$ at most $C_d\mathcal R_d$, by Steps
+1-6 run at $k = d$ without the tame versions, which control $u$ on each $E$-set at the orders used there (among them
+$(\mathsf s+1;d)$), with a constant depending on $P$ only through $\epsilon_{P,d}$ ((1.1) at $d$ bounds only the order
+$\mathsf s$; the eighty-fifth verifier, D206). The coefficient norm that multiplies the terms at $d$ is $\epsilon_{P,k}$
+in (2.7); in II.A Propositions 9.8-9.9 it is $\|\mathbf L\|_{(d_0;k)}$, which is at most $C'_k+C\epsilon_{P,k}$ with
+$C'_k$ depending only on $P_0$, and the part $C'_kC_d\mathcal R_d\le C'_kC_d\mathcal R_k$ joins the terms at $k$. The
+constants of those propositions depend on $L$ only through bounds at $(d_0;d)$, that is, through $\epsilon_{P,d}$. II.A
+Lemma 8.4 (c) has no coefficients of limited regularity, so the conclusion is linear in the bounds of the steps. This
+gives (1.2), with $C_k$ depending on $P$ only through a bound for $\epsilon_{P,d}$. $\square$
 
 ## 8. What this part found
 
@@ -597,9 +626,11 @@ does not supply.
 (D$'$3) *Words, not multi-indices.* The source writes $\vec X^\alpha = X_1^{\alpha_1}\cdots X_N^{\alpha_N}$ for
 $\alpha\in\mathbb N_0^N$ and expands $[\vec X^\alpha,P]$ by its Lemma 3.25 (II.A Lemma 9.3) as $\sum_{\beta+\gamma =
 \alpha}c_{\beta\gamma}(\mathrm{ad}^\beta_{\vec X}P)\vec X^\gamma$ ((7.37), (7.43), (7.61)). Near $\mathscr I^+$ the
-fields do not commute: the rotation fields, and at $n = 3$ also $[X_1,X_2]\in x_IC^\infty$ ((7.31)). There the factors
-left by a commutator are not in the order of $\vec X^\gamma$, and $X_j\vec X^\gamma$ is not $\vec X^{\gamma+e_j}$. So the
-expansion holds only modulo reordering commutators, which the source does not track; they lie in the span of the family
+fields do not commute: the rotation fields, and at $n = 3$ also $[X_1,X_2]\in x_IC^\infty$ ((7.31)). The expansion
+(7.37) is exact even so, as deleting positions from an ordered power leaves an ordered power. But $X_j\vec X^\gamma$ is
+not $\vec X^{\gamma+e_j}$, and the source needs it to read $Q_{ij}X_j\vec X^\gamma u$ as a component of $u^{(k)}$. So the
+system closes only modulo reordering commutators, which the source does not track (an earlier version of this finding
+also called (7.37) inexact; the eighty-fifth verifier, D206); they lie in the span of the family
 and could be absorbed, so the gap is one of bookkeeping. With words (section 2) the expansion (F2) is exact and the
 commuted system closes without reordering. At the horizon, over $\partial K^+$ and at the trapped set the fields commute
 ($[\partial_r,t_*\partial_{t_*}] = 0$, or a single field besides $I$), and words and multi-indices agree up to counting.

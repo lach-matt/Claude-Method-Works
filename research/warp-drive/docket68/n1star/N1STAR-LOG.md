@@ -4958,3 +4958,20 @@ Proposition 7.9 the source's slab argument uses, the adjoint estimate it leaves 
 slab results at T_0 = 1 below their range T_0 >= 2, the weights on Pu in (8.46), constant orders in 8.11-8.13 applied
 with variable ones, and the condition alpha_+ < alpha_I - 1/2 omitted from Theorem 8.14. Not yet read by a verifier. The
 eighty-fifth verifier is reading Part II.D'. Next: seat it; Part II.F ([Hin26c] sections 10-13).
+
+**D206 (2026-10-25): the eighty-fifth verifier seated; Part II.D' verified.** The verifier read Part II.D' in full
+against [Hin26c] pp. 127-141, re-derived Lemmas 2.1-2.5, the commutators of sections 3-6 (including the so(4) Casimir
+identity) and the assembly, and confirmed (D'1) (the counterexample) and (D'2) at source. Major: Lemma 4.1 (c), (4.1),
+was false for k >= 2: in the system (2.2) the letter-1 coupling of a word alpha goes to the word 1.(alpha\i), which
+differs from alpha unless i = 1, so the coupling matrix at the horizon is -qN with N not diagonal, and the Hermitian
+part of N is indefinite (eigenvalue -0.207 at k = 2, J = 3, computed by the verifier), so (2.8) fails and the threshold
+rises. Repair: for a letter j commuting with the family, X_j X^(alpha\i) = X^(alpha[i->j]), so the coupling may be
+written into the component alpha[i->j] (2.2'); Lemma 2.1 holds for that form, Lemmas 2.3-2.5 use only its structure, and
+at the horizon, where d_r and t* d_t* commute, the coupling through letter 1 is diag(j_alpha) Q_11, giving (4.1) as
+printed. Minor: (C2) now allows R^(2) = R' + R''X_j (Lemma 6.1 produces D'R_K X_1), with the bound in Lemma 2.3
+unchanged; the tame assembly bounds the terms at d by Steps 1-6 run at k = d, not by (1.1); in (D'3) the source's
+expansion (7.37) is exact, only X_j X^gamma != X^(gamma + e_j) is a gap. Nits: the sign of the double commutator, a term
+of the form Q^(2) X_1 X_1, finite-order parametrix remainders, the citation II.A Lemma 8.5 (b), the sign on dSigma^-,
+the global extension of the families as commutator fields, C_k' vs C_k. All seated. Status: Parts I.A-I.C, II.A, II.A'
+proved; II.B, II.C, II.C', II.D and II.D' verified; II.E written. Next: the eighty-sixth verifier on Part II.E; Part
+II.F ([Hin26c] sections 10-13), in writing.

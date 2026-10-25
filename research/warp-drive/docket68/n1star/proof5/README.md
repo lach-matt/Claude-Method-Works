@@ -24,7 +24,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200) |
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
-| II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | written (D203) |
+| II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | written (D205) |
 | II.F | [Hin26c] 10-13 | decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
@@ -295,10 +295,16 @@ and that the estimates of Part II.D hold for such systems under a sign condition
 families: near $\mathscr I^+$, two dilations and the six rotations of $\mathbb S^3$ (Lemma 3.1, the source's Lemma 7.12
 at $n = 4$); at the horizon, where the commutator with $\partial_r$ lowers the threshold (the red shift); over $\partial
 K^+$; and at the trapped set, where double commutators join the system. Section 7 proves Theorem 1.1 by the six steps of
-Part II.D. Findings (D$'$1)-(D$'$8): two inclusions printed reversed, the weights of the tame estimate, multi-indices for
-fields that do not commute, the systems to which the source applies its estimates without stating them for systems, and
-the sign at the horizon, from Part II.B's constant $\beta_0$ rather than the Kerr formula. Written (D203); not yet read
-by a verifier.
+Part II.D. Findings (D$'$1)-(D$'$8): two inclusions printed reversed, the weights of the tame estimate, multi-indices
+for fields that do not commute, the systems to which the source applies its estimates without stating them for systems,
+and the sign at the horizon, from Part II.B's constant $\beta_0$ rather than the Kerr formula. Written (D203). The
+eighty-fifth verifier re-derived Lemmas 2.1-2.5, the commutators of sections 3-6 and the assembly, and confirmed
+(D$'$1)-(D$'$2) at source. Its major finding: with the words of the system as first written, the coupling at the horizon
+is not diagonal and its Hermitian part is indefinite for $k\ge2$, so the sign condition failed; as $\partial_r$ and
+$t_*\partial_{t_*}$ commute, the system may be written with the letter replaced in place (2.2$'$), which makes the
+coupling diagonal and the threshold that of Part II.D. Its minor findings (the remainder of the double commutator at the
+trapped set, the bound used in the tame assembly, and half of (D$'$3), which it found mistaken: the source's expansion
+is exact, only the reading of the components is not) and its nits are seated (D206); they await the next reader.
 
 ## Part II.E
 

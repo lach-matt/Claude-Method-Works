@@ -2533,3 +2533,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   with b-regularity and tame, and the global estimate at high frequencies (Theorem 8.14); findings (E1)-(E13).
 - Open: the D197, D200, D201 and D204 repairs; Parts II.D' and II.E unread; Parts II.F and III-VII.
 - Next: seat the eighty-fifth verifier on Part II.D'; Part II.F, [Hin26c] sections 10-13.
+
+### 4.129 Part II.D' verified (D206)
+
+- The eighty-fifth verifier on Part II.D': one major finding (the horizon coupling of the word system, indefinite for
+  k >= 2), repaired by writing the system with commuting letters replaced in place; three minor (the form of R^(2) in
+  (C2), the tame assembly, half of (D'3)) and seven nits, all seated; (D'1)-(D'2) confirmed at source.
+- Open: the D197, D200, D201, D204 and D206 repairs; Part II.E unread; Parts II.F and III-VII.
+- Next: the eighty-sixth verifier on Part II.E; Part II.F, [Hin26c] sections 10-13, in writing.
