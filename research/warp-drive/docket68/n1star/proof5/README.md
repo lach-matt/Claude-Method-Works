@@ -29,7 +29,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | verified (D212) |
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | verified (D212) |
 | II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | verified (D213) |
-| II.G' | [Hin26c] 13 | improving decay at iota+ and K+ | to do |
+| II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | written (D214) |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -401,3 +401,20 @@ needs, and that the smoothing construction's charts and its time function need m
 $\iota^+$ than the source gives. Written (D211). The eighty-ninth verifier redid the iteration's exponent algebra by
 machine and found the three theorems sound; its five minor findings, two of which withdraw (H2) and (H7) as misreadings
 of the source, and its nits are seated (D213). Verified; the repairs await the next reader.
+
+## Part II.G'
+
+`PART-II-G2-DECAY.md`. [Hin26c] section 13 at $n = 4$: the tools by which forward solutions are shown to decay faster
+than Theorem 11.1 alone gives. The Fourier transform in time on weighted b-Sobolev spaces, on the line and on the
+resolved product spaces, is proved from the Gagliardo seminorm and two dyadic Hardy inequalities, in place of the
+source's appeal to a textbook and to complex interpolation. Part I's resolvent estimates at bounded nonzero, high and
+low frequencies are translated into b-Sobolev spaces with a loss of b-regularity that does not grow with the order; the
+high-energy bound, which the source states without proof, is proved from Part I.B through a comparison of b-spaces with
+I.B's semiclassical spaces. The radiation field at null infinity is the coefficient of $r^{-3/2}$, extracted by two
+ordinary differential equation lemmas proved here in place of those the source cites. At $n = 4$ the density shifts
+weights by 2 where the source has $\frac32$, the threshold at the outgoing radial set is $\frac32+\bar S$, and the
+indicial root at null infinity is $\frac32$. Findings (J1)-(J13), among them that the source's Lemma 13.4 and Corollary
+13.5 fail at $\sigma = \infty$, that its spaces (13.7)-(13.8) as printed carry no Taylor terms, so that Corollary 13.7
+as printed fails for $\beta>1$, and that the first step of its Proposition 13.11 (2) needs $\ell'\ge1-\delta$; none
+changes what later parts use, in the forms proved here. Uniformity in the operator is reduced to that of Part I's
+estimates (section 6.2). Written (D214).

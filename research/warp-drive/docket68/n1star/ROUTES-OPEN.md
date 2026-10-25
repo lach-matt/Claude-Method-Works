@@ -2608,3 +2608,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: the D197, D200, D201, D204, D206, D207, D212 and D213 repairs; Parts II.G' and III-VII; uniformity in P_0 (II.F'
   (F'11)).
 - Next: Part II.G', [Hin26c] section 13; then one verifier on it with the D213 repairs.
+
+### 4.137 Part II.G' written (D214)
+
+- `proof5/PART-II-G2-DECAY.md`: [Hin26c] section 13 at n = 4. The Fourier transform on the line and on the resolved
+  product spaces (sections 2-3), proved without [Tay11a] or complex interpolation; the resolvent bounds in b-Sobolev
+  spaces with losses independent of the order (section 4), Proposition 13.16 proved from I.B; the radiation field at
+  null infinity, the coefficient of r^(-3/2) (section 5), with [Hin26b]'s two ODE lemmas replaced. Findings (J1)-(J13):
+  Lemma 13.4 and Corollary 13.5 fail at sigma = infinity; (13.7)-(13.8) as printed carry no Taylor terms; Proposition
+  13.11 (2)'s first step needs l' >= 1 - delta; nonintegral losses, a combination step, the interval in Corollary 13.14
+  (2), and k-dependent radii in Proposition 13.18.
+- Open: the D197, D200, D201, D204, D206, D207, D212 and D213 repairs; Part II.G' unread; Parts III-VII; uniformity in
+  P_0 (II.F' (F'11)), to which II.G' adds no condition.
+- Next: one verifier on Part II.G' with the D213 repairs; then Part III, [Hin26] at n = 4.

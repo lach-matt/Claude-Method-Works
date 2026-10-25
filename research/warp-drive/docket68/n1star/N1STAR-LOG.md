@@ -5085,3 +5085,15 @@ in Example 3.2 and unused, deleted; the orthant norm equivalence of Step 4 and t
 description of the applications, (H9), the closure in (T2), and how P acts in II.F' Theorem 1.1's uniqueness class.
 Recorded in II.G section 6.3. Status: Parts I.A-I.C, II.A, II.A' proved; II.B-II.G verified. Next: Part II.G'
 ([Hin26c] section 13), then one verifier on it with the D213 repairs.
+
+**D214 (2026-10-25): Part II.G' written.** `proof5/PART-II-G2-DECAY.md`, [Hin26c] section 13 at n = 4, in seven
+sections: the Fourier transform on the line (Definition 2.1 to Proposition 2.8, the lossy transform of Corollary 13.7
+proved directly, with the Taylor terms indexed by the weight), on the resolved product spaces (Lemma 3.1 to Proposition
+3.5, the zf expansion extracted by Taylor's formula in sigma at fixed x), the resolvent bounds (Lemma 4.1 to Proposition
+4.7, shifts 3 and 2, threshold 3/2 + S-bar, the high-energy bound proved from I.B Theorem 1.3 through a semiclassical
+comparison lemma, radii c_k), the radiation field (Lemma 5.1 to Proposition 5.4: the normal form with indicial root 3/2,
+transport along W, the coefficient of r^(-3/2)), what is not carried (Theorem 13.21, Remarks 13.1, 13.15, 13.22, the
+figures) with uniformity reduced to Part I's, and findings (J1)-(J13) with the sources. The source's [Tay11a], complex
+interpolation and [Hin26b] Lemmas 2.12 and 2.23 are replaced by lemmas proved here. Status: Parts I.A-I.C, II.A, II.A'
+proved; II.B-II.G verified; II.G' written. Next: the ninetieth verifier on Part II.G' and the D213 repairs; then Part
+III.
