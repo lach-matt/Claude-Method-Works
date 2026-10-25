@@ -4468,3 +4468,12 @@ RB, so thirty-five rows still take a reading. Five roots remain: RB, RU, RC, RI 
 constructed for every n in [Hin23d] (pp. 22-37, 59, 96-101), read at source; the three lemmas carry no numeral of the
 dimension. 10.41 (b), whose one root it was, leaves the readings: thirty-four rows take one. Four roots remain: RB, RU,
 RI and RP. D173 re-wrapped five lines that began with a list marker, three of D172's rewrap of (lx) and two of 10.80's.
+
+**D175 (2026-10-25): the sixty-eighth verifier seated.** On D169-D172 (47e3f62): no majors; nine minors. Two semicolons
+inside B-MAP.tsv entries made commas (10.15 (a), 10.58 (c)), so either separator counts 214 places and 221 placements;
+(5.17)'s prefactor written with his varrho^2 in 10.18, 10.79 and `hthresh5.py`; 10.22 (e)'s r = m named as his inner
+bound r_h/2; e named e_C in 10.79; 10.77's counts marked D169's; iplusnorm5.py N5's label narrowed. On the fibre inner
+product, 10.79 states the reading that (5.17) asks for one fixed in advance, and `hthresh5.py` T6 (6/6, mutants 6/6)
+computes 1/2 + vartheta_H+ = -4995.44, -4877.97 and -2500.47 for B with e' = 10^-5, 1/10 and 3; the verifier's own
+construction gave other values in the same direction. Two minors stand as written: the statement counter (Lemma 10.58
+sits in section 10.78) and 10.74's 'one reading' for 10.21 (c) and 10.23 (c).

@@ -1,22 +1,23 @@
 #!/usr/bin/env python3
 """hthresh5.py -- box^C's threshold quantity at the conormal bundle of the horizon of five-dimensional Tangherlini,
 computed from its definition at the record's point (N1STAR-PROOF.md 10.79; the readings census's root RH; D171).
-Labels: computed (exact, sympy), READ.
+Labels: computed (exact, sympy; T6 numerical, mpmath), READ.
 
 [Hin26c] (Hintz, arXiv:2606.28008) asks of a stationary operator P_0 on a bundle, at the radial set over the event
 horizon, s_0 > 1/2 + vartheta_H+ (Proposition 7.4, p. 116; Proposition 9.9, p. 165; section 9.4, p. 193), with
 
-    vartheta_H+ := sup_{N*H+ \\ o} spec [ rho^2/(2(r_+ - m)) rho_oo sigma_1((P_0 - P_0^*)/(2i)) ],  rho_oo := xi_0^-1,
+    vartheta_H+ := sup_{N*H+ \\ o} spec [ varrho^2/(2(r_+ - m)) rho_oo sigma_1((P_0 - P_0^*)/(2i)) ],  rho_oo := xi_0^-1,
 
 "with respect to a positive definite fiber inner product" ((5.17), Definition 5.11(4), p. 104); R+_H+ is the component
 xi_0 > 0 of N*H+ (Definition 4.8, p. 84), in the future characteristic set, where g^-1(zeta, .) is future causal (p. 81),
-and rho_oo^-1 H_G rho_oo = 2(r_+ - m) there for G = rho^2 g^-1 ((4.28)), so the factor is 1/beta_0 of (9.24) for G =
+and rho_oo^-1 H_G rho_oo = 2(r_+ - m) there for G = varrho^2 g^-1 ((4.28)), so the factor is 1/beta_0 of (9.24) for G =
 g^-1.  The record (10.21 (d)) needs 1/2 + vartheta_H+ < -C_0 = -100 for box^C = 2 delta G (delta* + C_h), C_h omega =
 h^-1 (2 c (x)_s omega - (2/3)(1 - e) g iota_{c#} omega), at (v, e, h) = (1/2, 1/102400, 10^-6), with cform5.py's c,
 which near the horizon is (2 r_0)^-1 (dt + (v/2) dr), r_0 = 100, on g = -f dt^2 + 2(1 - f) dt dr + (2 - f) dr^2 + r^2
 dOmega_3^2, f = 1 - mu/r^2, r_h = mu^(1/2); delta* omega = (1/2)(omega_{a;b} + omega_{b;a}), G = Id - (1/2) g tr_g,
 (delta k)_a = -g^{bc} k_{ab;c}.  The fibre inner product is [Hin26a] Lemma 3.3's B = g^-1 - (1 + e) G(c)^-1 c# (x) c#
-(semiclass5.py W1), positive definite for e > 0 and conditioned like 1/e.
+(semiclass5.py W1), positive definite for e > 0 and conditioned like 1/e.  (varrho^2 = r^2 + a^2 cos^2 theta,
+Kerr's area-radius factor, r^2 at a = 0; e is e_C, not Euler's number.)
 
   T1 (computed, exact) The normalisation.  At zeta = xi dr over r = r_h, H_G's base component in the spatial slice
      vanishes (g^rr = f = 0) and rho_oo^-1 H_G rho_oo = f'(r_h) = 2/r_h for rho_oo = xi^-1: the factor is r_h/2 (at
@@ -44,6 +45,11 @@ dOmega_3^2, f = 1 - mu/r^2, r_h = mu^(1/2); delta* omega = (1/2)(omega_{a;b} + o
      the threshold holds for every h in (0, h_2), h_2 = 2.61974726...e-5 the positive root of 31744512005000 h^2 +
      3077109850 h - 102399 (the (t, r) block binds; the angular eigenvalue alone allows 1/20100), and 10^-6 < h_2.
      Control: h = 10^-3, where it fails.
+  T6 (computed, numerical, mpmath at 30 digits; D175) Other fibre inner products.  (5.17) asks for one positive
+     definite fibre inner product, and B is one.  With e' for B's e (the operator's e kept), B is positive definite at
+     e' = 10^-5, 1/10 and 3, and (r_h/2) lambda_max of the B-symmetric part of 2 Gamma_t - h^-1 l(dr) -- l(dr) is
+     B-self-adjoint only at e' = e -- gives 1/2 + vartheta_H+ = -4995.44..., -4877.97... and -2500.47... at h =
+     10^-6: below -C_0 in each.  Control: h = 10^-3.
 """
 import sys
 import time
@@ -317,11 +323,38 @@ def t5(control=0, verbose=False):
     return chk.ok
 
 
+def t6(control=0, verbose=False):
+    """T6: the threshold in other fibre inner products, B with e' for e, the operator's e kept."""
+    import mpmath as mp
+    mp.mp.dps = 30
+    chk = Checklist(verbose, quiet=control != 0)
+    hv = sp.Rational(1, 1000) if control else H
+    g, f = metric(1)
+    gi = g.inv().applyfunc(sp.simplify)
+    Gam = christoffel(g, gi)
+    c = K * sp.Matrix([1, V / 2, 0, 0, 0])
+    gi1 = gi.subs(r, 1).subs(th, sp.Rational(1, 3))
+    Gt = sp.Matrix(N, N, lambda a, q: Gam[q][0][a]).subs(r, 1)
+    X = 2 * Gt - ell(gi1, c, sp.Matrix([0, 1, 0, 0, 0]), E) / hv
+    for ep in (sp.Rational(1, 10**5), sp.Rational(1, 10), sp.Integer(3)):
+        Bp = fibre_B(gi, c, ep)[0].subs(r, 1).subs(th, sp.Rational(1, 3))
+        wB = mp.eigsy(mp.matrix(Bp.evalf(30).tolist()))[0]
+        T = (X + adj(X, Bp)) / 4                      # (r_h/2) times the B-symmetric part, r_h = 1
+        w = mp.eig(mp.matrix(T.evalf(30).tolist()))[0]
+        top = max(mp.re(z) for z in w)
+        im = max(abs(mp.im(z)) for z in w)
+        chk(f"e' = {ep}: B positive definite (least eigenvalue {mp.nstr(min(wB), 4)}), real spectrum, "
+            f"1/2 + vartheta_H+ = {mp.nstr(top + mp.mpf(1) / 2, 9)} < -C_0",
+            bool(min(wB) > 0 and im < mp.mpf(10)**-20 and top + mp.mpf(1) / 2 < -C0))
+    return chk.ok
+
+
 CHECKS = [("T1 the normalisation 1/beta_0 = r_h/2; R+ = {xi > 0}, dr future null, a = c_t(r_h) = 1/200", t1),
           ("T2 P_0, L from the definitions; P_0 g-symmetric: the adjoint for |dg| taken right", t2),
           ("T3 the box part in B: spectrum +-(e^(1/2) + e^(-1/2))/r_h, 0 (x3); vartheta_0 = 102401/640", t3),
           ("T4 the damping: -h^-1 l(dr), B-self-adjoint, 2a (x3), 4a, 2(1 - e) a", t4),
-          ("T5 at (1/2, 1/102400, 10^-6): 1/2 + vartheta_H+ < -100; every h in (0, h_2), 10^-6 < h_2", t5)]
+          ("T5 at (1/2, 1/102400, 10^-6): 1/2 + vartheta_H+ < -100; every h in (0, h_2), 10^-6 < h_2", t5),
+          ("T6 other fibre inner products, e' = 10^-5, 1/10, 3: 1/2 + vartheta_H+ < -100 in each", t6)]
 
 
 def run(only=None, verbose=False):

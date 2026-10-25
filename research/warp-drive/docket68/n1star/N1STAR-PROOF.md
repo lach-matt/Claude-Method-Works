@@ -3392,14 +3392,15 @@ Proposition 6.5, on the reading stated there.
 *The setting.* [Hin26c]'s estimates for a stationary wave-type operator P_0 = -2 d_t* rho (rho d_rho - (n - 1)/2 - S) +
 P_0^(0) + Q d_t* - g00 d_t*^2 (its Definition 9.4, n the spatial dimension; (5.1a), with 1 at n = 3, Remark 5.6) need
 threshold conditions on the orders: at the event horizon s > 1/2 + vartheta_H+, vartheta_H+ the supremum over N^*H+ of
-the spectrum of (rho^2/(2 (r_+ - m))) xi^-1 sigma_1((P_0 - P_0^*)/2i) (Definition 5.11(4)); at infinity, through S-bar,
-the bottom of the spectrum of S over the boundary ((5.2), (9.16c), (9.20), Lemma 5.12). S-bar names two things here, as
-in the sources, whose difference [Hin26]'s footnote 60 points out: the endomorphism of Proposition 10.15 (i)-(ii), his
-S-bar_{E-bar^Upsilon} of (6.6), and, in a threshold or a weight, the number min Re spec of it ([Hin26c] (5.2)). [Hin26]
-Lemma 6.1 puts box^Upsilon in this class, his Lemma 6.3 computes S-bar for E^Upsilon on Minkowski ((6.11)), and his
-footnote 71 gives the horizon threshold 3/2 for the unmodified 1-form operator. 10.15 named Lemma 6.1's structure and
-this regularity as OPEN in five dimensions; this section computes them, with the trace weight 2/3 at infinity and at the
-horizon, f = 1 - mu/r^2, r_h = mu^(1/2). At a = 0, rho^2/(2 (r_+ - m)) is 1/f'(r_+).
+the spectrum of (varrho^2/(2 (r_+ - m))) xi^-1 sigma_1((P_0 - P_0^*)/2i) (Definition 5.11(4)); at infinity, through
+S-bar, the bottom of the spectrum of S over the boundary ((5.2), (9.16c), (9.20), Lemma 5.12). S-bar names two things
+here, as in the sources, whose difference [Hin26]'s footnote 60 points out: the endomorphism of Proposition 10.15
+(i)-(ii), his S-bar_{E-bar^Upsilon} of (6.6), and, in a threshold or a weight, the number min Re spec of it ([Hin26c]
+(5.2)). [Hin26] Lemma 6.1 puts box^Upsilon in this class, his Lemma 6.3 computes S-bar for E^Upsilon on Minkowski
+((6.11)), and his footnote 71 gives the horizon threshold 3/2 for the unmodified 1-form operator. 10.15 named Lemma 6.1's
+structure and this regularity as OPEN in five dimensions; this section computes them, with the trace weight 2/3 at
+infinity and at the horizon, f = 1 - mu/r^2, r_h = mu^(1/2). At a = 0, varrho^2/(2 (r_+ - m)) is 1/f'(r_+) (varrho^2 =
+r^2 + a^2 cos^2 theta, his area-radius factor).
 
 **Proposition 10.15 (computed; exact).**
  (i) On 4+1 Minkowski, in t* = t - r and the Cartesian frame (dt, dx^i), box^Upsilon = 2 (delta + E-bar) G delta*, with
@@ -8266,11 +8267,11 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 57 name the places where the dimension changes the proof, 214 places in all, and 4 name
-none: the step is the source proof as it stands. The 221 placements of the five-dimensional values are: 88 at a computed
-check, 94 at an earlier section where they are computed or deduced, 38 arithmetic in n (an entry naming an instrument or
-a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
-R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 35 rows say they rest on a reading -- of a source
+*Measured.* Of the 61 rows, 57 name the places where the dimension changes the proof, 214 places in all, and 4 name none:
+the step is the source proof as it stands. The 221 placements of the five-dimensional values are: 88 at a computed check,
+94 at an earlier section where they are computed or deduced, 38 arithmetic in n (an entry naming an instrument or a check
+counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n, R^n,
+R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 35 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
@@ -8291,24 +8292,26 @@ more places, for 10.19 (a) and 10.55 (b). D160's (10.75 (xlix)-(lii)) named four
 [Hin26c] Proposition 13.18 and Corollary 13.17 and [Hin26] section 9's solution theory at n = 4. D161's (10.75
 (liii)-(lv)) named twelve more places, for 10.46 (a), 10.46 (b) and 10.61 (c), and marked 10.46 (b) and 10.61 (c) as
 resting on readings, as (xlix)-(l) found. D162 (the sixty-fourth verifier) narrowed 10.62 (b)'s order place to the mass
-and the boost and named S^(0)_1's source order beside it, marked 10.15 (b) and 10.49 (a) as resting on readings, as
-their items (iv) and (xxv) say, and counts a whole section's citation as citing its census rows. D163's (10.75
-(lvi)-(lvii)) named eleven more places, for 10.67 (a)-(b), and corrected their two census-era places: his values for
-'?', Lemma 7.12 for 'Lemmas 7.12-7.21', and the extension across r = m (p. 148) for 'near K+'. D164's (10.75
-(lviii)-(lix)) named eight more places, for 10.19 (d) and 10.53 (e), the latter's first, and gave 10.19 (d)'s '?' his
-A^(1 - eps); both keep a reading, the scalar-to-bundle step. D165 (the sixty-fifth verifier) marked 10.43 (c) as resting
-on readings, as its item (li) now says, labelled three placements at an instrument computed, joined 10.32 (b)'s two
-placements of one place, recorded 10.45 (e)'s weight as settled and gave 10.62 (b) its section 9 inputs. D166's (10.75
-(lx)) named nineteen places for 10.58 (c), its first, seventeen at a computed check (iplusnorm5.py N1-N9, Proposition
-10.57, and iplus5.py P1) and two arithmetic in n; the row keeps a reading, now (lvi)-(lix)'s and 10.20's. D167's (10.75
-(lxi)) named nine more places for 10.22 (e), the last census row, and marked 10.22 (e), 10.21 (c) and 10.23 (c) as
-resting on no reading: the one reading of each was [Hin26a] Theorem 5.2 at n = 4, now written out. D168 (the sixty-sixth
-verifier) dropped 10.45 (e)'s place for the weight at I+, which the dimension does not change, and labelled 10.67 (a)'s
-radial rate by (7.11b). D169 traced the readings to their roots (10.77, READINGS.tsv) and marked four rows, 10.23 (b),
-10.23 (d), 10.46 (e) and 10.62 (c), as resting on none, their readings READ or written out since. D172 re-kinded five of
-10.58 (c)'s placements -- Lemma 10.7's count, Lemma 10.9's shift, Step 2's density, Remark 11.4 and section 13.2's mu_b
--- from computed to arithmetic: iplusnorm5.py N5 and N9 had checked them by comparisons typed by hand (93 and 33 before;
-the sixty-seventh verifier).
+and the boost and named S^(0)_1's source order beside it, marked 10.15 (b) and 10.49 (a) as resting on readings, as their
+items (iv) and (xxv) say, and counts a whole section's citation as citing its census rows. D163's (10.75 (lvi)-(lvii))
+named eleven more places, for 10.67 (a)-(b), and corrected their two census-era places: his values for '?', Lemma 7.12
+for 'Lemmas 7.12-7.21', and the extension across r = m (p. 148) for 'near K+'. D164's (10.75 (lviii)-(lix)) named eight
+more places, for 10.19 (d) and 10.53 (e), the latter's first, and gave 10.19 (d)'s '?' his A^(1 - eps); both keep a
+reading, the scalar-to-bundle step. D165 (the sixty-fifth verifier) marked 10.43 (c) as resting on readings, as its item
+(li) now says, labelled three placements at an instrument computed, joined 10.32 (b)'s two placements of one place,
+recorded 10.45 (e)'s weight as settled and gave 10.62 (b) its section 9 inputs. D166's (10.75 (lx)) named nineteen places
+for 10.58 (c), its first, seventeen at a computed check (iplusnorm5.py N1-N9, Proposition 10.57, and iplus5.py P1) and
+two arithmetic in n; the row keeps a reading, now (lvi)-(lix)'s and 10.20's. D167's (10.75 (lxi)) named nine more places
+for 10.22 (e), the last census row, and marked 10.22 (e), 10.21 (c) and 10.23 (c) as resting on no reading: the one
+reading of each was [Hin26a] Theorem 5.2 at n = 4, now written out. D168 (the sixty-sixth verifier) dropped 10.45 (e)'s
+place for the weight at I+, which the dimension does not change, and labelled 10.67 (a)'s radial rate by (7.11b). D169
+traced the readings to their roots (10.77, READINGS.tsv) and marked four rows, 10.23 (b), 10.23 (d), 10.46 (e) and 10.62
+(c), as resting on none, their readings READ or written out since. D172 re-kinded five of 10.58 (c)'s placements -- Lemma
+10.7's count, Lemma 10.9's shift, Step 2's density, Remark 11.4 and section 13.2's mu_b -- from computed to arithmetic:
+iplusnorm5.py N5 and N9 had checked them by comparisons typed by hand (93 and 33 before; the sixty-seventh verifier).
+D175 (the sixty-eighth verifier) replaced two semicolons inside entries, in 10.15 (a)'s placement and 10.58 (c)'s place
+for section 11's mu_b, by commas, so that either separator counts 214 places and 221 placements, and named 10.22 (e)'s r
+= m as his inner bound.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -9116,31 +9119,31 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      second order, against the trapping estimate's lost derivative. The tame bounds are Proposition 3.28's. At n = 4
      (10.67 (a)): Proposition 4.24's order stands, the dynamics over K+ being 10.19 (c)'s on five-dimensional
      Tangherlini, and over I+ and iota+ (2.27)'s and (4.67)'s, free of n (10.58 (a)-(b)). At dR+H+ rho^-2 mu'(r+) is
-     f'(r_h) = 2/r_h > 0 (10.18: rho^2/(2 (r+ - m)) is 1/f'(r+)), so Lemma 4.9 holds with T*S^3, the threshold is s_0 >
-     1/2 + vartheta_H+ with 10.18's vartheta_H+, and (7.48)'s p#_alpha = j f'(r_h) >= 0. At dK+ and I+, (4.15), (4.67),
-     (7.18) and (7.21) are functions of the Minkowski principal symbol in which S^3's |eta|^2 replaces S^2's (E1), so
-     every value and bracket is his. In (7.22) the symmetric operator is (1/2) x_I^2 rho_+^2 (x_I d_x_I - 3)(x_I d_x_I -
-     2 rho_+ d_rho_+) (E1; 10.58 (a)'s (5.27) with 3/2 for 1) and the density r^3 |dt* dr dg/| = 2 rho_+^-5 x_I^-8 |d
-     rho_+/rho_+ dx_I/x_I dg/|, for which that operator is symmetric as his is for 2 rho_+^-4 x_I^-6 (checked exactly
-     here, the constant n - 2 failing); so p_sub = (Re p_1)(xi-hat - 2) with p_1 measured from 3/2 (10.58 (a)), and
-     (7.19) and (7.23) are his. (7.13) and (7.17) are Definition 5.11 (5)-(6)'s, stated in p_sub for the metric density
-     and so free of n (10.58 (a)), and admissible order functions exist at every weight (10.18). Proposition 7.10's
-     trapped set is 10.17 (ii)'s: {r^2 = 2 mu, xi = 0}, of codimension 2 in the characteristic set, with xi, H_G xi and
-     G independent and normal rate (2 mu)^(-1/2), the flow along it S^3's geodesic flow and so r-normally hyperbolic for
-     every r. [Hin21] Theorem 3.9 (p. 36) is stated on the partial compactification (3.10) of R_t x X (p. 31), X a
-     manifold of any dimension, its dynamical input, Theorem 2.6 (p. 25), for R_t x X with X closed (p. 7); so
-     (P.1)-(P.5) hold by 10.17 (ii) and H_G sigma = 0, (P.6') by Proposition 6.3, which is that theorem after [Hin21]
-     section 4's reduction (the proof of Theorem 4.3, p. 47), and (7.25) is [Hin21] (3-24) for QPQ^-, which Definition
-     5.8's (5.9) gives at the trapped set -- for P itself it is 'almost the content of Definition 5.8' (pp. 124-125) --
-     so the n = 4 check is (5.9) at 10.17's trapped set, which 10.17's deduced (a) meets. Lemma 7.12 commutes the six
-     rotation fields of S^3 (E3): X_3, ..., X_8, with X_9 = I and alpha in N_0^9 (E4). They commute with r d_r and t*
-     d_t* as his do ((7.31)) and close under brackets (so(4)), and Lap-slash on S^3 is the sum of their squares (E3), so
-     (7.38)-(7.39) hold with a, b, c in {3, ..., 8}; P' = -(X_2 - 2(3/2 + p_1)) X_1 + 2 x_I^2 Lap-slash + p_0 + P~'
-     (E1), the constant 3 commuting with every X_i, and X-vec_shift = (X_1 + 2, X_2 - 2, X_3, ..., X_9), the weight
-     x_I^2 rho_+^2 being free of n (E1). Lemmas 7.15-7.21 use no angular field: d_r is elliptic at dR+H+, and t d_t at
-     the trapped set, where 10.17 (ii)'s C = 4 mu sigma^2 > 0 makes sigma nonzero. Section 3's calculus is set on an
-     n-dimensional manifold (p. 46), Lemma 3.27's H^3_b index being 3 at both n (E4). It rests on no reading: its inputs
-     are E1-E4, 10.17-10.18, 10.19 (c), 10.58 (a)-(b) and [Hin21]'s statements, read at source.
+     f'(r_h) = 2/r_h > 0 (10.18: varrho^2/(2 (r+ - m)) is 1/f'(r+)), so Lemma 4.9 holds with T*S^3, the threshold is s_0
+     > 1/2 + vartheta_H+ with 10.18's vartheta_H+, and (7.48)'s p#_alpha = j f'(r_h) >= 0. At dK+ and I+, (4.15),
+     (4.67), (7.18) and (7.21) are functions of the Minkowski principal symbol in which S^3's |eta|^2 replaces S^2's
+     (E1), so every value and bracket is his. In (7.22) the symmetric operator is (1/2) x_I^2 rho_+^2 (x_I d_x_I -
+     3)(x_I d_x_I - 2 rho_+ d_rho_+) (E1; 10.58 (a)'s (5.27) with 3/2 for 1) and the density r^3 |dt* dr dg/| = 2
+     rho_+^-5 x_I^-8 |d rho_+/rho_+ dx_I/x_I dg/|, for which that operator is symmetric as his is for 2 rho_+^-4 x_I^-6
+     (checked exactly here, the constant n - 2 failing); so p_sub = (Re p_1)(xi-hat - 2) with p_1 measured from 3/2
+     (10.58 (a)), and (7.19) and (7.23) are his. (7.13) and (7.17) are Definition 5.11 (5)-(6)'s, stated in p_sub for
+     the metric density and so free of n (10.58 (a)), and admissible order functions exist at every weight (10.18).
+     Proposition 7.10's trapped set is 10.17 (ii)'s: {r^2 = 2 mu, xi = 0}, of codimension 2 in the characteristic set,
+     with xi, H_G xi and G independent and normal rate (2 mu)^(-1/2), the flow along it S^3's geodesic flow and so
+     r-normally hyperbolic for every r. [Hin21] Theorem 3.9 (p. 36) is stated on the partial compactification (3.10) of
+     R_t x X (p. 31), X a manifold of any dimension, its dynamical input, Theorem 2.6 (p. 25), for R_t x X with X closed
+     (p. 7); so (P.1)-(P.5) hold by 10.17 (ii) and H_G sigma = 0, (P.6') by Proposition 6.3, which is that theorem after
+     [Hin21] section 4's reduction (the proof of Theorem 4.3, p. 47), and (7.25) is [Hin21] (3-24) for QPQ^-, which
+     Definition 5.8's (5.9) gives at the trapped set -- for P itself it is 'almost the content of Definition 5.8' (pp.
+     124-125) -- so the n = 4 check is (5.9) at 10.17's trapped set, which 10.17's deduced (a) meets. Lemma 7.12
+     commutes the six rotation fields of S^3 (E3): X_3, ..., X_8, with X_9 = I and alpha in N_0^9 (E4). They commute
+     with r d_r and t* d_t* as his do ((7.31)) and close under brackets (so(4)), and Lap-slash on S^3 is the sum of
+     their squares (E3), so (7.38)-(7.39) hold with a, b, c in {3, ..., 8}; P' = -(X_2 - 2(3/2 + p_1)) X_1 + 2 x_I^2
+     Lap-slash + p_0 + P~' (E1), the constant 3 commuting with every X_i, and X-vec_shift = (X_1 + 2, X_2 - 2, X_3, ...,
+     X_9), the weight x_I^2 rho_+^2 being free of n (E1). Lemmas 7.15-7.21 use no angular field: d_r is elliptic at
+     dR+H+, and t d_t at the trapped set, where 10.17 (ii)'s C = 4 mu sigma^2 > 0 makes sigma nonzero. Section 3's
+     calculus is set on an n-dimensional manifold (p. 46), Lemma 3.27's H^3_b index being 3 at both n (E4). It rests on
+     no reading: its inputs are E1-E4, 10.17-10.18, 10.19 (c), 10.58 (a)-(b) and [Hin21]'s statements, read at source.
 
  (lvii) 10.67 (b), [Hin26c] section 8 (pp. 141-157; D163). His Lemma 8.1 (pp. 142-146): localize near I+ by the level
      sets of t*~ = t* + r^alpha, spacelike for alpha in (0, ell_I) by Lemma 5.16's computation ((8.6)-(8.8)); for P =
@@ -9450,6 +9453,9 @@ So thirty-five rows rest on readings, and they rest on ten statements:
     10^-6], it is all that remains of 10.21 (e)'s condition 10^-6 < h_0: h is taken below both. (7 rows.)
  RE that the five-dimensional g_b is chosen SO(4)-equivariantly (10.36 (a)). (1 row.)
 
+(The row counts above are D169's. READINGS.tsv carries the current ones, and the sections after this one settle, write
+out or READ the roots they name.)
+
 *What they are.* RB is a step the source leaves to the reader and RU the record's extension of a remark the source makes
 for section 7; both are the same at every n. Three, RL, RC and RI, are results of the companion papers at n = 4, READ at
 n = 3 with every five-dimensional input computed, whose proofs are not written out -- the kind of step 10.75 wrote out
@@ -9503,13 +9509,13 @@ What remains of the record's own roots is RP and RH; RK now rests on RU. Labels:
 
 *The setting.* 10.21 (d) asks of box^C's zero energy operator, for [Hin26c] Theorem 9.36's Fredholm property on the
 weights s >= -C_0, that 1/2 + vartheta_H+ < -C_0 = -100, and left the quantity uncomputed: the record's root RH (10.77).
-His definition (5.17) takes, over the conormal bundle of the horizon, the top of the spectrum of rho^2/(2(r_+ - m))
-rho_oo sigma_1((P_0 - P_0^*)/(2i)), rho_oo = xi_0^-1, "with respect to a positive definite fiber inner product" -- any
-one. The record takes [Hin26a] Lemma 3.3's B = g^-1 - (1 + e) G(c)^-1 c# (x) c#, in which the damping symbol l(dr) is
-self-adjoint, at the price of B's conditioning, about 1/e = 102400, set against h^-1 = 10^6, with 10.14's c, which at the
-horizon is (1/200)(dt + (1/4) dr).
+His definition (5.17) takes, over the conormal bundle of the horizon, the top of the spectrum of varrho^2/(2(r_+ - m))
+rho_oo (varrho^2 = r^2 + a^2 cos^2 theta) sigma_1((P_0 - P_0^*)/(2i)), rho_oo = xi_0^-1, "with respect to a positive
+definite fiber inner product" -- any one. The record takes [Hin26a] Lemma 3.3's B = g^-1 - (1 + e) G(c)^-1 c# (x) c#, in
+which the damping symbol l(dr) is self-adjoint, at the price of B's conditioning, about 1/e = 102400, set against h^-1 =
+10^6, with 10.14's c, which at the horizon is (1/200)(dt + (1/4) dr).
 
-*What is computed (`hthresh5.py` T1-T5, exact, sympy).*
+*What is computed (`hthresh5.py` T1-T5, exact, sympy; T6, numerical, D175).*
 
  (i) (T1) At zeta = xi dr over r = r_h the base component of H_G vanishes and rho_oo^-1 H_G rho_oo = f'(r_h) = 2/r_h for
      rho_oo = xi^-1, so (5.17)'s factor, 1/beta_0 by (4.28), is r_h/2; at n = 3, a = 0 the same formula gives his
@@ -9521,8 +9527,9 @@ horizon is (1/200)(dt + (1/4) dr).
      g-symmetric -- which checks the adjoint; the density r^2 cos th sin th, the control, fails it.
  (iii) (T3) In B, at r_h, rho_oo sigma_1((P_0 - P_0^*)/(2i)) is the B-symmetric part of 2 Gamma_t, (Gamma_t)_a^c =
      Gamma^c_{ta}, the connection along (dr)# = d_t -- the two routes agree -- with spectrum +-(e^(1/2) + e^(-1/2))/r_h
-     and 0 three times, free of v and of c's factor. So vartheta_0 := (r_h/2) lambda_max = (e^(1/2) + e^(-1/2))/2 =
-     102401/640, about 160.0: B's conditioning enters as e^(-1/2), not 1/e. In g^-1 the part is 0.
+     (e = e_C = 1/102400, not Euler's number) and 0 three times, free of v and of c's factor. So vartheta_0 := (r_h/2)
+     lambda_max = (e^(1/2) + e^(-1/2))/2 = 102401/640, about 160.0: B's conditioning enters as e^(-1/2), not 1/e. In g^-1
+     the part is 0.
  (iv) (T4) The damping's part is -h^-1 l(dr), l(dr) B-self-adjoint with spectrum 2a (three times), 4a and 2(1 - e) a:
      B-negative definite, [Hin26a] Remark 5.7's mechanism with his Lemma 3.5 in five dimensions. The trace weight 1, the
      control, breaks the spectrum.
@@ -9544,9 +9551,13 @@ every h in (0, 10^-6], where 10.54 (a) has the roots: 1/2 + vartheta_H+ < -C_0 w
 horizon threshold of (d)" is discharged, and its "provided 10^-6 lies below h_0" is met by taking h in (0, min(h_0,
 10^-6)): h_0 need not be explicit. RH is settled and leaves READINGS.tsv's rows, each of which keeps RB -- 10.21 (d)'s
 Fredholm property is [Hin26c] Theorem 9.36 for an operator on 1-forms -- and its other roots, so the thirty-five rows
-keep a reading. vartheta_H+ is computed in one inner product, which is what (5.17) asks; another might give a lower
-value. What remains of the record's own roots is RP. Labels: computed (T1-T5); READ (the pages named); deduced (10.21
-(d)-(e) as stated); nothing proved here.
+keep a reading. vartheta_H+ is computed in one inner product, B, which is what (5.17) asks on the reading that the
+threshold holds in some positive definite fibre inner product fixed in advance: [Hin26c] Lemma 5.12 (p. 105) has 'there
+exists', and Proposition 7.4 (p. 117) fixes 'the positive definite fiber inner product used in the definition of
+vartheta_H+ in (5.17)', as the sixty-eighth verifier reads them (D175). Nor does the conclusion lean on B's conditioning:
+with e' for B's e, the operator's kept, 1/2 + vartheta_H+ at h = 10^-6 is -4995.44 at e' = 10^-5, -4877.97 at 1/10 and
+-2500.47 at 3, B positive definite in each (T6). What remains of the record's own roots is RP. Labels: computed (T1-T5);
+READ (the pages named); deduced (10.21 (d)-(e) as stated); nothing proved here.
 
 ### 10.80 RL written out: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (`tfnorm5.py`; D173)
 

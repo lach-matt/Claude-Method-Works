@@ -303,8 +303,8 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
 - `hthresh5.py`: box^C's threshold quantity at the conormal bundle of the horizon, [Hin26c] (5.17), at the record's
   point (section 10.79; D171): the normalisation r_h/2, the adjoint from the operators' definitions with the g-pairing
   as control, the undamped part in Lemma 3.3's B with spectrum +-(e^(1/2) + e^(-1/2))/r_h, the damping -h^-1 l(dr), and
-  1/2 + vartheta_H+ = -4995.33... at h = 10^-6, below -100 for every h under 2.6197... x 10^-5 (T1-T5). `python3
-  hthresh5.py --selftest` (5/5, about half a minute), `--mutants` (5/5).
+  1/2 + vartheta_H+ = -4995.33... at h = 10^-6, below -100 for every h under 2.6197... x 10^-5 (T1-T6). `python3
+  hthresh5.py --selftest` (6/6, under a minute), `--mutants` (6/6).
 - `tfnorm5.py`: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (section 10.80; D173): (9.117) at every n
   with one misprint named, the indicial roots -lambda and -n + 2 + lambda-bar, the densities' n/2 in the embedding and in
   (3.46), and (9.122)'s leading part (R1-R4). `python3 tfnorm5.py --selftest` (4/4, seconds), `--mutants` (4/4).

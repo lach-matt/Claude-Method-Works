@@ -2265,3 +2265,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   microlocal parametrix and Lemma 14.6's integration in t carry no numeral of the dimension. RC is settled; 10.41 (b)
   leaves the readings, thirty-four rows remain. Four roots remain: RB and RU, the source's kind; RI, companion results at
   n = 4; RP, a computation. OPEN, in this order: RP; RI.
+
+### 4.98 The sixty-eighth verifier seated (D175)
+
+- On D169-D172: no majors. Seated: two semicolons inside B-MAP.tsv entries made commas, so that either separator counts
+  214 places and 221 placements; his varrho^2 (Kerr's area-radius factor) for the record's rho^2 in (5.17)'s prefactor,
+  in 10.18, 10.79 and `hthresh5.py`; 10.22 (e)'s r = m named as his inner bound; e named e_C beside e^(1/2); 10.77's
+  counts marked D169's; N5's label; and, on the fibre inner product, the reading that (5.17) asks for one fixed in
+  advance, with `hthresh5.py` T6 computing the threshold for B with e' = 10^-5, 1/10 and 3, each below -100. Not changed:
+  the record's statement numbers are a counter apart from its section numbers (Lemma 10.58 in section 10.78, as
+  Proposition 10.57 in section 10.58), and 10.74 says 10.21 (c)'s and 10.23 (c)'s one reading was Theorem 5.2's, not that
+  it was their one input.

@@ -20,15 +20,15 @@ x d_x, are composed exactly, with adjoints for the density x^m |dx/x| given by (
      z) and the condition Im sigma > -gam_I are free of n.
   N4 (computed, exact) (1.2.2) at R_(I+,out): (4 gam_I + 2) - 4(c + Re S) - 2 < 0, i.e. gam_I < c + Re S: his 1 + Re
      S, and 3/2 + Re S at n = 4.
-  N5 (computed, exact) the densities: |dt dx| = R^n tau^-(n+1) |dtau/tau dR/R domega| = 2 x_I^-2n tau^-(n+1)
-     |dtau/tau dx_I/x_I domega|, so -Im sigma = alpha~_+ + (n + 1)/2, gam_cf = alpha~_K - alpha~_+ - n/2 (his + 2 and -
-     3/2) and gam_I = alpha_I + n/2, gam_+ = alpha_+ + (n + 1)/2 (his 3/2 and 2, section 10.3); section 11's mu_b =
-     rho_I^n rho_+^(n+1) rho_K |dt dx| = |dt dx|/(t* r^n) with (11.4)'s functions, a b-density (his rho_I^3 rho_+^4
-     rho_K = 1/(t* r^3)), so beta_I = alpha_I + n/2, beta_+ = alpha_+ + (n + 1)/2, the K+ shift 1/2; section 13.2's
-     mu_b = |dx|/|x|^n, L^2(mu) = rho^(n/2) L^2(mu_b) (that exponent, and -1/2 + n/2 = c below, arithmetic checked
-     by hand, not computed; D172).  The metric-density threshold alpha_I < -1/2 + S-bar ((10.2),
-     Theorem 11.1) is gam_I, beta_I < c + S-bar at every n: his 1 + S-bar in Proposition 10.6, (11.5), Corollary 13.17
-     and Proposition 13.18.
+  N5 (computed, exact, but for the parenthesis's arithmetic) the densities: |dt dx| = R^n tau^-(n+1) |dtau/tau dR/R
+     domega| = 2 x_I^-2n tau^-(n+1) |dtau/tau dx_I/x_I domega|, so -Im sigma = alpha~_+ + (n + 1)/2, gam_cf = alpha~_K -
+     alpha~_+ - n/2 (his + 2 and - 3/2) and gam_I = alpha_I + n/2, gam_+ = alpha_+ + (n + 1)/2 (his 3/2 and 2, section
+     10.3); section 11's mu_b = rho_I^n rho_+^(n+1) rho_K |dt dx| = |dt dx|/(t* r^n) with (11.4)'s functions, a b-density
+     (his rho_I^3 rho_+^4 rho_K = 1/(t* r^3)), so beta_I = alpha_I + n/2, beta_+ = alpha_+ + (n + 1)/2, the K+ shift 1/2;
+     section 13.2's mu_b = |dx|/|x|^n, L^2(mu) = rho^(n/2) L^2(mu_b) (that exponent, and -1/2 + n/2 = c below, arithmetic
+     checked by hand, not computed; D172). The metric-density threshold alpha_I < -1/2 + S-bar ((10.2), Theorem 11.1) is
+     gam_I, beta_I < c + S-bar at every n: his 1 + S-bar in Proposition 10.6, (11.5), Corollary 13.17 and Proposition
+     13.18.
   N6 (computed, exact) (1.3.1) at R_(cf,+1,in): the density correction of Im(h^2 R^-2 P^(0)) from R^n |dR/R| to |dR/R|
      is -n h-hat xi (his -3 h-hat xi); sigma(Q_0,h) = -h-hat (n + 2 Re S) (his 3), whose -2 Re S is vartheta_dK+,in's
      S part -(S + S^*) at his prefactor -xi/2 = 1 ((5.20) takes the whole imaginary part; Lemma 5.12's term 2 rho
