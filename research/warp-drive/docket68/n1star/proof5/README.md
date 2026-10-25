@@ -22,7 +22,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
 | II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200) |
-| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | written (D199) |
+| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
 | II.D-F | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -250,5 +250,11 @@ and for the unstable one by forward iteration. Its hypotheses are Part I's (Γ.1
 (K3); the invariant splitting is not used. Section 3 graphs the characteristic set near the trapped set over the
 stationary one, computes the projected field, and proves Proposition 6.3 (Proposition 3.4). Finding (C$'$2) changes the
 statement: the stable hypersurface loses one derivative, $\tilde\phi^s\in C^{d_0-2}$, and both are constructed on a
-neighbourhood of the trapped set, which is all the trapping estimates use. Written (D199); the eighty-third verifier
-reads it.
+neighbourhood of the trapped set, which is all the trapping estimates use. Written (D199). The eighty-third verifier
+re-derived every step and confirmed (C$'$1)-(C$'$3) at source. Its five minor findings: in Lemma 2.1 the Lipschitz bound
+$(4C_T)^{-1}$ on the graphs made a term of size $\frac14$ where $O(\delta)$ was claimed (the bound is now $\delta$), and
+(S3) needs the bound on $\beta$ itself; $\hat W_0t_* = q_1$ exactly, not $q_1-2G_1$; a citation for the frame
+$\partial_{t_*},\partial_x$; and the smallness of $\epsilon_0$ for the unstable hypersurface. Its nits (the derivative
+formula in the proof of (S3), the chart constant, $\tau$-derivatives in (T2), a doubled window factor, $q_1\ge\beta_0$
+near $\Gamma$, relative compactness of $Y$, $T_0 = 1$, a quotation of [Hin21]) are seated, and one nit on the D200
+repairs to Part II.C as well (D201); they await the next reader.

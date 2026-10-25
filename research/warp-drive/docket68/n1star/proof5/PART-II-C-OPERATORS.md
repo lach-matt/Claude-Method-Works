@@ -446,12 +446,13 @@ as $\rho_I\ge2/C$ there). On $\{r\ge r'_0+1\}$ the previous paragraph applies. T
 construction. (b): $t_*F_1\in[(1-C^{-\ell})t_*,t_*]$ for $\rho\le1/C$, $t_*F_2 =
 C't_*(1+\rho^{-1})\in[C't_*,(1-C^{-\ell})t_*]$ for $\rho\ge1/C$. A smooth convex even $m_\kappa$ equal to $|y|$ for
 $|y|\ge\kappa$ satisfies $|y|\le m_\kappa\le\kappa$ on $[-\kappa,\kappa]$, so $e^{-\kappa/2}\min(F_1,F_2)\le
-F\le\min(F_1,F_2)$; on the transition interval $\min(F_1,F_2)\ge C'(1+C/2)$ (for $C$ large, $F_1\ge\frac12$ there), and
-$e^{-1/8}(1+C/2)\ge1$, so $C'\le F\le1$ (D200; an earlier version said that $F$ lies between $F_1$ and $F_2$, which is
-false inside the transition). And $C'(t_*+\tilde R)\le C'(t_*+r'_0+r)\le t_*$ where $r\le Ct_*/2$ and $r'_0\le C/2$. (1):
-$g_0^{-1}(dr,dr) = G_0(dr)<0$ on $\{r_0-2\delta_0<r<r_2\}$ by (H4), so $\le-c_1<0$ on the compact $\{r_0\le r\le
-r^\natural\}$; the perturbation is $O(\epsilon_G)$ there, and $dr$ is future timelike for $g_0$ ($\nabla r$ is future
-timelike, I.B section 1.2) and for $g$ by continuity. $\square$
+F\le\min(F_1,F_2)$; on the transition interval $\min(F_1,F_2)\ge C'(1+C/2)$ (for $C$ large, $F_1\ge\frac12$ there, and
+$C'(1+C/2)\le\frac12$ as $C^\ell\le2+C$ for $\ell\le1$; D201), and $e^{-1/8}(1+C/2)\ge1$, so $C'\le F\le1$ (D200; an
+earlier version said that $F$ lies between $F_1$ and $F_2$, which is false inside the transition). And $C'(t_*+\tilde
+R)\le C'(t_*+r'_0+r)\le t_*$ where $r\le Ct_*/2$ and $r'_0\le C/2$. (1): $g_0^{-1}(dr,dr) = G_0(dr)<0$ on
+$\{r_0-2\delta_0<r<r_2\}$ by (H4), so $\le-c_1<0$ on the compact $\{r_0\le r\le r^\natural\}$; the perturbation is
+$O(\epsilon_G)$ there, and $dr$ is future timelike for $g_0$ ($\nabla r$ is future timelike, I.B section 1.2) and for $g$
+by continuity. $\square$
 
 The source takes "a smoothing" of the piecewise function; the gluing above makes it explicit (section 6, (C5)). By (b),
 $\Omega_* := \mathrm{cl}_M\{t^\flat_*\ge1\}\subset\Omega$ ([Hin26c] (6.2)).
