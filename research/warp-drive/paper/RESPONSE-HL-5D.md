@@ -1079,10 +1079,11 @@ set, repaired without change to the statement (supplement sections 10.75 and 10.
 `tfnorm5.py`, `iotasol5.py`, `bundlesweep.py`, `bundle5.py`, with a lemma at the horizon proved in section 10.76). λ1 and
 δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not
 a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a
-theorem. That write-out has begun: the proof written in full at n = 4, self-contained, part by part. Its first two
-parts -- Hintz's spectral theory at bounded nonzero and at high frequencies, on bundles and uniformly in the operator --
-are written; the first has been read three times and is proved, the second has been read once and its findings
-seated (supplement `proof5/`). Theorem 4 stays deduced until the last part is proved.
+theorem. That write-out has begun: the proof written in full at n = 4, self-contained, part by part. Its first three
+parts -- Hintz's spectral theory at bounded nonzero, at high and at low frequencies, on bundles and uniformly in the
+operator -- are written; the first has been read three times and is proved, the second has been read once and its
+findings seated, and the third awaits its reader (supplement `proof5/`). Theorem 4 stays deduced until the last part is
+proved.
 
 ---
 
@@ -1988,7 +1989,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `144dbd0b9a1098118d4c79aeb745cd72` |
+| `docket68/n1star/N1STAR-LOG.md` | `952a0b07a17cccb86300467270a56566` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

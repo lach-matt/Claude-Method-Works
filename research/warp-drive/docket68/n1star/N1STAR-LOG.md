@@ -4690,3 +4690,20 @@ lambda, H_(z_0)); Lemma 1.1 (e) at every real z by homogeneity; Lemma 4.3's prod
 finding (F10): [Hin26c] Theorem 9.28 (2) states the adjoint estimate for z in 1 + i[-h beta, nu], which for beta < 0
 misses the real axis that (9.59) needs; Part I.B's range z_0 + i[h beta, nu'] is the correct one. Part I.B's repairs are
 read by the next verifier, with Part I.C.
+
+**D190 (2026-10-25): Part I.C of the write-out written ([Hin26c] sections 9.4-9.6 at n = 4 on bundles, uniformly in the
+operator).** `proof5/PART-I-C-LOWENERGY.md`: Theorem 3.1 = [Hin26c] Theorem 9.36 (the zero energy operator, Fredholm on
+b-spaces of weight alpha + 2); Theorem 4.3 = Theorem 9.38 (the tf normal operator on the sc-b spaces of tf); Definition
+5.1 (tf-admissibility on the Fredholm spaces, implied by the source's Definition 5.10 given its (9.115), which is neither
+proved nor used); Corollary 5.2 = Corollary 9.39; Proposition 5.3 = Proposition 9.40 (asymptotically Minkowski, weights
+(0, 2), Bessel order l + 1, DLMF READ); Theorem 6.4 = Theorem 9.41 with Remark 9.42 (uniform low-energy estimates on the
+glued norm of Definition 6.1, from the two model estimates; an adjoint estimate added); Corollary 6.6 = Corollary 9.43;
+Theorem 7.1 (uniformity in b; (G), (Z) and (TF) are open). Seven findings (section 8): (F1) the Mellin line of Lemma 3.11
+and the line in the proof of (3.47) both carry a reversed sign, and the two cancel; (F2) the power |sigma|^(3/2 - l) in
+(3.46) is |sigma|^(-3/2 - l), and it cancels in the proof of 9.41; (F3) the adjoint weight in (9.107) is -alpha, not
+-alpha - 2; (F4) the proof of (9.117) drops one cross term, and the conclusion holds; (F5) the condition |e^(i theta) +-
+1| <= 1/2 in Theorem 9.38 (1) has the wrong sign; (F6) the proof of Corollary 9.43 infers the invertibility of the
+augmented operator from injectivity alone, closed by Theorem 6.4 (2)-(3); (F7) slips of the pen in the proof of 9.41 and
+in 9.38 (3). Weaker than the source (Remark 6.7): the smallness c_k may depend on k, the other weights are taken one at a
+time, and (9.120) is proved for the plain operator only. The gap hypothesis is labelled (G), as (H6)-(H8) are Part I.B's.
+Next: the seventy-seventh verifier reads Part I.C, with the D189 repairs of Part I.B.

@@ -17,7 +17,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 |---|---|---|---|
 | I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D189) |
 | I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | seated (D189) |
-| I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf-normal operators (9.38), low energy (9.41), 9.39, 9.43 | to do |
+| I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | written (D190) |
 | II | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -73,3 +73,21 @@ iteration, so the error term is $\|W\|_{L^2}$. Nine minor ones, among them (H8),
 which no flow satisfies, now with the global ones and a no-return clause that keeps the chain of section 8.2 acyclic; and
 the auxiliary absorption of Theorem 6.8, whose sign was wrong for $z_0 = -1$. All are seated, with (F10), a range in
 [Hin26c] Theorem 9.28 (2). Its repairs are read with Part I.C.
+
+## Part I.C
+
+`PART-I-C-LOWENERGY.md`. [Hin26c] sections 9.4-9.6 at n = 4, for operators on a trivial bundle of any rank and uniformly
+in the operator: the zero energy operator (Theorem 3.1, [Hin26c] Theorem 9.36), the transition face normal operator
+(Theorem 4.3, Theorem 9.38), tf-admissibility and its consequences (Corollary 5.2, Corollary 9.39), the asymptotically
+Minkowski case (Proposition 5.3, Proposition 9.40, with the weights $(0,2)$), the uniform low-energy estimates (Theorem
+6.4, Theorem 9.41 with Remark 9.42's augmentations) and the index 0 of the zero energy operator (Corollary 6.6, Corollary
+9.43). Section 2 proves the b-analysis used at the two conic ends. tf-admissibility is stated on the Fredholm problem of
+the transition face (Definition 5.1), which the source's definition implies given its (9.115); the asymptotically
+Minkowski case is verified directly, with Hankel functions READ in [DLMF]. The low-energy theorem is proved on a norm
+glued from the zero energy and transition face norms (Definition 6.1), from the two model estimates alone, as in the
+source, and with an adjoint estimate that the source does not state. Section 8 lists seven findings against the source.
+None changes a statement; one (F6) is a gap: the proof of Corollary 9.43 infers the invertibility of an augmented
+operator from an estimate that gives only injectivity, and the adjoint estimate of Theorem 6.4 closes it. Weaker than the
+source, and said so in Remark 6.7: the smallness in Theorem 6.4 may depend on the b-regularity order, and uniformity in
+the weight is not proved. The gap hypothesis is labelled (G), since (H6)-(H8) are Part I.B's. Part I.C is written; the
+seventy-seventh verifier reads it, with the D189 repairs of Part I.B.

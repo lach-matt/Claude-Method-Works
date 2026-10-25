@@ -2406,3 +2406,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Part I.B: one major finding (Proposition 7.2's regularity step, closed by Corollary 4.6') and nine minor ones, all
   seated in place; (F10) added, the range of [Hin26c] Theorem 9.28 (2).
 - Next: Part I.C; its verifier also reads the D189 repairs of Part I.B.
+
+### 4.113 Part I.C of the write-out written (D190)
+
+- Part I.C (`proof5/PART-I-C-LOWENERGY.md`): [Hin26c] Theorems 9.36, 9.38 and 9.41, Corollaries 9.39 and 9.43 and
+  Proposition 9.40 at n = 4, on bundles and uniformly in the operator; tf-admissibility stated on the Fredholm spaces; an
+  adjoint low-energy estimate added.
+- Seven source findings (F1)-(F7); (F6), a gap in the proof of Corollary 9.43, is closed by Theorem 6.4 (2)-(3).
+- Not proved and not used: (9.115), Remark 9.37, a k-independent smallness and uniformity in alpha in Theorem 9.41
+  (Remark 6.7).
+- Next: the seventy-seventh verifier on Part I.C and the D189 repairs of Part I.B; then Part II.
