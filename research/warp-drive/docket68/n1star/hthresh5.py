@@ -49,7 +49,8 @@ Kerr's area-radius factor, r^2 at a = 0; e is e_C, not Euler's number.)
      definite fibre inner product, and B is one.  With e' for B's e (the operator's e kept), B is positive definite at
      e' = 10^-5, 1/10 and 3, and (r_h/2) lambda_max of the B-symmetric part of 2 Gamma_t - h^-1 l(dr) -- l(dr) is
      B-self-adjoint only at e' = e -- gives 1/2 + vartheta_H+ = -4995.44..., -4877.97... and -2500.47... at h =
-     10^-6: below -C_0 in each.  Control: h = 10^-3.
+     10^-6: below -C_0 in each.  The value depends on the inner product: at e' = 10 it is positive, B' still positive
+     definite, and it crosses -C_0 at e' = 7.76... (D177; the sixty-ninth verifier).  Control: h = 10^-3.
 """
 import sys
 import time
@@ -336,16 +337,31 @@ def t6(control=0, verbose=False):
     gi1 = gi.subs(r, 1).subs(th, sp.Rational(1, 3))
     Gt = sp.Matrix(N, N, lambda a, q: Gam[q][0][a]).subs(r, 1)
     X = 2 * Gt - ell(gi1, c, sp.Matrix([0, 1, 0, 0, 0]), E) / hv
-    for ep in (sp.Rational(1, 10**5), sp.Rational(1, 10), sp.Integer(3)):
+
+    def thr(ep):
         Bp = fibre_B(gi, c, ep)[0].subs(r, 1).subs(th, sp.Rational(1, 3))
         wB = mp.eigsy(mp.matrix(Bp.evalf(30).tolist()))[0]
         T = (X + adj(X, Bp)) / 4                      # (r_h/2) times the B-symmetric part, r_h = 1
         w = mp.eig(mp.matrix(T.evalf(30).tolist()))[0]
-        top = max(mp.re(z) for z in w)
-        im = max(abs(mp.im(z)) for z in w)
-        chk(f"e' = {ep}: B positive definite (least eigenvalue {mp.nstr(min(wB), 4)}), real spectrum, "
-            f"1/2 + vartheta_H+ = {mp.nstr(top + mp.mpf(1) / 2, 9)} < -C_0",
-            bool(min(wB) > 0 and im < mp.mpf(10)**-20 and top + mp.mpf(1) / 2 < -C0))
+        return min(wB), max(mp.re(z) for z in w) + mp.mpf(1) / 2, max(abs(mp.im(z)) for z in w)
+
+    for ep in (sp.Rational(1, 10**5), sp.Rational(1, 10), sp.Integer(3)):
+        b0, val, im = thr(ep)
+        chk(f"e' = {ep}: B positive definite (least eigenvalue {mp.nstr(b0, 4)}), real spectrum, "
+            f"1/2 + vartheta_H+ = {mp.nstr(val, 9)} < -C_0", bool(b0 > 0 and im < mp.mpf(10)**-20 and val < -C0))
+    if not control:
+        b0, val, im = thr(sp.Integer(10))
+        chk(f"e' = 10: B positive definite ({mp.nstr(b0, 4)}), 1/2 + vartheta_H+ = {mp.nstr(val, 9)} > -C_0: the "
+            "threshold depends on the inner product", bool(b0 > 0 and val > -C0))
+        lo, hi = sp.Integer(3), sp.Integer(10)
+        for _ in range(30):
+            mid = (lo + hi) / 2
+            if thr(mid)[1] < -C0:
+                lo = mid
+            else:
+                hi = mid
+        chk(f"the crossing of -C_0 lies at e' = {sp.N(lo, 8)}, in (7.7, 7.8)",
+            sp.Rational(77, 10) < lo < sp.Rational(78, 10))
     return chk.ok
 
 
@@ -354,7 +370,7 @@ CHECKS = [("T1 the normalisation 1/beta_0 = r_h/2; R+ = {xi > 0}, dr future null
           ("T3 the box part in B: spectrum +-(e^(1/2) + e^(-1/2))/r_h, 0 (x3); vartheta_0 = 102401/640", t3),
           ("T4 the damping: -h^-1 l(dr), B-self-adjoint, 2a (x3), 4a, 2(1 - e) a", t4),
           ("T5 at (1/2, 1/102400, 10^-6): 1/2 + vartheta_H+ < -100; every h in (0, h_2), 10^-6 < h_2", t5),
-          ("T6 other fibre inner products, e' = 10^-5, 1/10, 3: 1/2 + vartheta_H+ < -100 in each", t6)]
+          ("T6 other fibre inner products: below -100 at e' = 10^-5, 1/10, 3; above at 10; crossing near 7.76", t6)]
 
 
 def run(only=None, verbose=False):

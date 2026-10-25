@@ -1672,7 +1672,7 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
 - `hthresh5.py` T1–T6: the damped operator's threshold at the horizon, [Hin26c] (5.17), at the record's point (supplement
   section 10.79): the normalisation r_h/2, the adjoint from the operators' definitions with the metric pairing as its
   control, the undamped part in Lemma 3.3's inner product with spectrum ±(e^(1/2) + e^(−1/2))/r_h, the damping's
-  −h⁻¹ℓ(dr), and 1/2 + ϑ = −4995.33… at h = 10⁻⁶, below −100 for every h under 2.62 × 10⁻⁵. 5/5; mutants 5/5 (about half
+  −h⁻¹ℓ(dr), and 1/2 + ϑ = −4995.33… at h = 10⁻⁶, below −100 for every h under 2.62 × 10⁻⁵. 6/6; mutants 6/6 (about half
   a minute).
 - `tfnorm5.py` R1–R4: Hintz's transition face normal operator and uniform low-energy estimates ([Hin26c] Theorems 9.38
   and 9.41, Corollary 9.39) at n = 4 (supplement section 10.80): the conjugated adjoint (9.117) at every n, with one
@@ -1872,7 +1872,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | sixty-second sections 10.65–10.76, 10.75 (xvii)–(lix) excepted (D138, D143, D147, D149, D153); |
 | | the sixty-third 10.75 (xvii)–(xxxiv) (D157); the sixty-fourth 10.75 (xxxv)–(xliii) and D157's repairs |
 | | (D162); the sixty-fifth 10.75 (xliv)–(lv) and D162 (D165); the sixty-sixth 10.75 (lvi)–(lix) and |
-| | D165 (D168); the sixty-seventh 10.75 (lx)–(lxi) and D168 (D172); the sixty-eighth D169–D172 (D175) |
+| | D165 (D168); the sixty-seventh 10.75 (lx)–(lxi) and D168 (D172); the sixty-eighth D169–D172 (D175); |
+| | the sixty-ninth D173–D175 (D177) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1957,8 +1958,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `5097ce458466a8f3de227c0c54fb0c3d` |
-| `docket68/n1star/N1STAR-LOG.md` | `3bb001e9c44431273209ccb8ae5545dd` |
+| `docket68/n1star/N1STAR-PROOF.md` | `821f4388110f0e9583b4b044fb30c20c` |
+| `docket68/n1star/N1STAR-LOG.md` | `91032bb21f47051390ac1eb6c4976671` |
 | `docket68/n1star/README.md` | `5219cc1e2081ea4b937f15eb443c5be8` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2026,11 +2027,11 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/iplusnorm5.py` | `1f7fb424e6bb7109eecbc9b75ec0b682` |
-| `docket68/n1star/hthresh5.py` | `4c563196e24598b58ac1c2511aa7e8f9` |
-| `docket68/n1star/tfnorm5.py` | `e232ad7e85108aa4d84f43be39905e21` |
+| `docket68/n1star/hthresh5.py` | `4b0b9c3ea52a615a7f397a91b9747e8b` |
+| `docket68/n1star/tfnorm5.py` | `581f44448af7149eb15223f9f90f81cc` |
 | `docket68/n1star/iotasol5.py` | `9fec3b39e640236dc90a4ac5ef6a52bb` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/READINGS.tsv` | `fa1e17df12b509ab55ef01f2ec47639a` |
-| `docket68/n1star/B-MAP.tsv` | `9dc2459dc6c0855f812f6b8a20117bb9` |
+| `docket68/n1star/READINGS.tsv` | `91a305a3bdfe9f414ad38b59a5f91d16` |
+| `docket68/n1star/B-MAP.tsv` | `cdc276d252ffd022273be84e4edc6696` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

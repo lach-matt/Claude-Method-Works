@@ -2285,3 +2285,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and the states (10.28-10.30, 10.34). The index 0 half of Proposition 9.2 is written out through [Hin26c] section 10.1.2
   at n = 4 ((lx)), Proposition 8.6 and Corollary 9.39 at n = 4. RI leaves its twelve rows; 10.47 (d)-(e) now rest on RB.
   Thirty-four rows take a reading. Three roots remain: RB and RU, the source's kind; RP, a computation. OPEN: RP.
+
+### 4.100 The sixty-ninth verifier seated (D177)
+
+- On D173-D175: no majors. Seated: (3.46)'s factor |sigma|^(-n/2 - alpha), the print's sign of n/2 reversed (10.80,
+  `tfnorm5.py` R3, B-MAP 10.39 (e)); R3's embedding at ztf; R4's S term; 10.74's 34; the horizon threshold's dependence
+  on the fibre inner product (`hthresh5.py` T6: positive at e' = 10, crossing at 7.764), with 10.79 resting on the
+  existential reading of Proposition 7.4; 10.81's wording on [Hin23d], the scaled bounded geometry paper and Lemma
+  13.13's numerals; 10.41 (b) kept in READINGS.tsv with '-'; the paper's 6/6.

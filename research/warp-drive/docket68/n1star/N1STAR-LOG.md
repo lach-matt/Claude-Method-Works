@@ -762,34 +762,34 @@ instead of by its PID; it killed the issuing shell and the selftest it named, no
 in part by the thirteenth verifier (D44). [D45 withdraws this entry's causal reading: the stored samples do not give the
 direction of the untrapping, the zero of W moves inward, and nothing is said of the event horizon.]
 
-**D44 (2026-10-20): the thirteenth verifier -- D38-D41, the repairs of D40, sections 10.2 and 10.3.** Two major
-findings. (1) Lemma 11.0 ran Lemma 9.5's identity on the region between {v = v_start} and Sigma_tau, which is unbounded
-toward past null infinity, where the flux of d^gamma u_1 is known to vanish only at the orders Theorem P controls (k =
-6): the twelfth verifier's gap was moved, not closed. Repaired by running the identity for each approximating solution
-g_n of Proposition 9.8 on P cap {tau_n <= tau' <= tau}, the region of (9.8)'s own identity, where the data on
-Sigma_tau_n are the approximant's residual, explicit, with constants independent of n, and passing the bounds to the
-limit by Arzela-Ascoli; the sup-against-L^2 bookkeeping is written (floor((N + 2)/2) <= max(4, N - 3)). The verifier
-proposed a finite derivative budget instead; k = 6 is fixed in Theorem P, so that route would re-run section 9 at a
-higher k, and the one taken keeps every order. (2) Section 10.2's break time at the first seed, 1.4516 / 1.4508, was a
-single step of the root count on both grids, and the amplification 1.00 was sampled before the field had grown: the grid
-agreement supported a transient, not a persistent second zero -- as D43's criterion had found the same day. Nine minor
-findings and notes, all seated: Proposition 11.2(i)'s nullity argument used the transverse Jacobi field d_{v0} gamma
-with the false g0(ell, d_v) = 0 (now gamma' and d_{xhat0} gamma only, with the limits in E_1) and called -(2/r) xi' a
-Lipschitz perturbation (it is the unperturbed angular operator); Proposition 11.2(iv) had e^{-2b} = 1 + 2 d_v ů (the
-factor is 1, as B2 computes); "an order" is one power of r, two of s, in Theorem M(a) and Proposition 11.3's hypothesis;
-Proposition 10.1(iii)-(iv) hid a factor H ~ l^2 in Phi~ (the two derivatives lost are orbit-space for F_ab and angular
-for F) and left the l = 0 gauge unfixed (h_0 = c K, now stated); the even-l claim for the tensor type is not needed and
-no longer made; T5's region r* in [-20, 50] was covered by the computed slice only to tau = 175 at T = 120 (now T = 170,
-covered to 275, the checks restricted to the covered range, the figures unchanged to two digits), and its verdict is a
-finite-time observation (rates above 0.08/r_h excluded); T6's "approaching 7 from above" is origin-dependent at that
-level (the origin shifted by the launch radius gives 6.89 and 7.23; that the pair brackets 7 is now checked); 10.2's
-"ceases to be trapped" and "ceases to be outflow" are given one meaning each, and the amplification is called the lower
-bound it is. Open: the literature identifications ([KI03] (3.13)-(3.14), [HKW18] (169)-(186), [CYDL03] (14)) could not
-be re-fetched by the verifier (403) and stand as READ by this session. Attacks that held: Lemma 11.2's coefficient 2/(k
-- 3) and G_4 = 2 int S_3, the induction at J = 3, Proposition 11.3(0) with its controls, the ODE classes of 11.2(i),
-10.3's regularity at the horizon and the absence of l = 1, settle5 6/6 with mutants 6/6, growth5's fields against
-hf_mirror5's form and every figure of 10.2 from the pinned data, no line over 121 characters, no model identifier. The
-repairs of this entry, D42's section 10.4 and D43's deeper excisions have not been read by a verifier.
+**D44 (2026-10-20): the thirteenth verifier -- D38-D41, the repairs of D40, sections 10.2 and 10.3.** Two major findings.
+(1) Lemma 11.0 ran Lemma 9.5's identity on the region between {v = v_start} and Sigma_tau, which is unbounded toward past
+null infinity, where the flux of d^gamma u_1 is known to vanish only at the orders Theorem P controls (k = 6): the
+twelfth verifier's gap was moved, not closed. Repaired by running the identity for each approximating solution g_n of
+Proposition 9.8 on P cap {tau_n <= tau' <= tau}, the region of (9.8)'s own identity, where the data on Sigma_tau_n are
+the approximant's residual, explicit, with constants independent of n, and passing the bounds to the limit by
+Arzela-Ascoli; the sup-against-L^2 bookkeeping is written (floor((N + 2)/2) <= max(4, N - 3)). The verifier proposed a
+finite derivative budget instead; k = 6 is fixed in Theorem P, so that route would re-run section 9 at a higher k, and
+the one taken keeps every order. (2) Section 10.2's break time at the first seed, 1.4516 / 1.4508, was a single step of
+the root count on both grids, and the amplification 1.00 was sampled before the field had grown: the grid agreement
+supported a transient, not a persistent second zero -- as D43's criterion had found the same day. Nine minor findings and
+notes, all seated: Proposition 11.2(i)'s nullity argument used the transverse Jacobi field d_{v0} gamma with the false
+g0(ell, d_v) = 0 (now gamma' and d_{xhat0} gamma only, with the limits in E_1) and called -(2/r) xi' a Lipschitz
+perturbation (it is the unperturbed angular operator); Proposition 11.2(iv) had e^{-2b} = 1 + 2 d_v ů (the factor is 1,
+as B2 computes); "an order" is one power of r, two of s, in Theorem M(a) and Proposition 11.3's hypothesis; Proposition
+10.1(iii)-(iv) hid a factor H ~ l^2 in Phi~ (the two derivatives lost are orbit-space for F_ab and angular for F) and
+left the l = 0 gauge unfixed (h_0 = c K, now stated); the even-l claim for the tensor type is not needed and no longer
+made; T5's region r* in [-20, 50] was covered by the computed slice only to tau = 175 at T = 120 (now T = 170, covered to
+275, the checks restricted to the covered range, the figures unchanged to two digits), and its verdict is a finite-time
+observation (rates above 0.08/r_h excluded); T6's "approaching 7 from above" is origin-dependent at that level (the
+origin shifted by the launch radius gives 6.89 and 7.23; that the pair brackets 7 is now checked); 10.2's "ceases to be
+trapped" and "ceases to be outflow" are given one meaning each, and the amplification is called the lower bound it is.
+Open: the literature identifications ([KI03] (3.13)-(3.14), [HKW18] (169)-(186), [CYDL03] (14)) could not be re-fetched
+by the verifier (403) and stand as READ by this session. Attacks that held: Lemma 11.2's coefficient 2/(k - 3) and G_4 =
+2 int S_3, the induction at J = 3, Proposition 11.3(0) with its controls, the ODE classes of 11.2(i), 10.3's regularity
+at the horizon and the absence of l = 1, settle5 6/6 with mutants 6/6, growth5's fields against hf_mirror5's form and
+every figure of 10.2 from the pinned data, no line over 121 characters, no model identifier. The repairs of this entry,
+D42's section 10.4 and D43's deeper excisions have not been read by a verifier.
 
 **D45 (2026-10-20): the fourteenth verifier -- D42-D44, the repairs of D44, sections 10.2-10.4.** Verdict: the
 mathematics repaired in D44 holds. Lemma 11.0's new argument closes the thirteenth verifier's gap rather than moving it
@@ -1167,25 +1167,27 @@ delta and the step E^{2,(j)}_L <~ E^{0,(j+1)}_L by Lemma 3.2; Lemma 5.3 with its
 lim r^2 V^(1) = -2, lim V_Z = -8 M/r^3, the polynomial Q_1 and R_Z); Propositions 5.2 and 5.4, Lemma 5.5 re-read; (2.4)
 Phi^(j) := (1 - 2M/r)^-1 M s^2 nabla_L Phi^(j-1), (2.19)-(2.23); Proposition 8.2 and Lemma 8.3.
 
-*What was computed.* hierarchy5.py (H1) the commuted equation of Psi_1 := f^-1 r^2 nabla_L Psi for a symbolic potential:
-L Lbar Psi_1 = -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V) Psi, Vcal_1 = Vcal
-- 2/r^2 + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2); in four dimensions the same computation gives Vcal_1 =
-l(l + 1)/r^2 + V^(1), his V^(1) exactly (his 14 M/r^3 counts the radiation field's 2M/r^3 from V; this entry first
-compared shifts from different baselines and called them different, repaired on the nineteenth verifier's finding), with
-the first-order term -(2/r)(1 - 3M/r), which his remark does not print, and the Psi term f (2M/r^2 - r^2 V' - 2 r V); the
-normalisation without f^-1 was tried and leaves a Psi term -2 k^2 mu f/r^5, not uniform in l (the control). (H2) the
-p-current identity for Psi_1: the first-order term adds 2(1 - 2 mu/r^2) to the |nabla_L Psi_1|^2 bulk, positive beyond
-r^2 = (10 + p) mu/(4 + p); the Psi_1 nabla_L Psi_1 term integrated by parts to the bulk r^(p-6) B_1. (H3) B_1 = ((2 -
-p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2 for Sigma, positive everywhere for l >= 1; for phi, B_1 >= (1/4)(2 - p)(k^2 -
-5/4) for r >= R_1 = 8.14 r_h at k^2 = 8 and everywhere at k^2 = 24, 48, 80 (p in [1/10, 19/10], a grid of 21, the first
-root in mu/r^2 found numerically to thirty digits); the base bulk B_0 = ((2 - p)/2)(k^2 + 3/4) + (9/8)(4 - p) mu/r^2 for
-Sigma and R_0 = 10.56, 4.61, 3.04, 2.29 r_h for phi; (A.9): r^4 |V_phi|/mu <= 12 (k^2 + 3)/(k^2 - 3) = 26.40, 15.43,
-13.60, 12.94 and r^3 |d_r(r^2 V_phi)|/mu <= 24 (k^2 + 3)/(k^2 - 3) = 52.80, 30.86, 27.20, 25.87, the suprema at infinity
-(this entry first gave grid values over r <= 6.3 r_h, 25.13 and 47.84 at k^2 = 8, repaired on the nineteenth verifier's
-finding), with V_phi -> -12 mu/r^4; (A.3): min r^2 (k^2/r^2 + V_phi) = 4/11, 124/9, 628/17, 5692/83, at the horizon, and
--1 at k^2 = 3 (the control). (H4) l = 0: V_inf = 3/4, V^(1)_inf = -5/4; the base bulk (3/8)(2 - p) + (9/8)(4 - p) mu/r^2
-is negative for p > 2 once r^2 > 3(4 - p) mu/(p - 2); in four dimensions the l = 0 bulk is (3 - p) M r^(p-6), positive to
-p = 3 (the control asserts the five-dimensional sign of it). Selftest 4/4 (about a minute), mutants 5/5.
+*What was computed.* hierarchy5.py (H1) the commuted equation of Psi_1 := f^-1 r^2 nabla_L Psi for a symbolic
+potential: L Lbar Psi_1 = -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V)
+Psi, Vcal_1 = Vcal - 2/r^2 + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2); in four dimensions the same
+computation gives Vcal_1 = l(l + 1)/r^2 + V^(1), his V^(1) exactly (his 14 M/r^3 counts the radiation field's 2M/r^3
+from V; this entry first compared shifts from different baselines and called them different, repaired on the
+nineteenth verifier's finding), with the first-order term -(2/r)(1 - 3M/r), which his remark does not print, and the
+Psi term f (2M/r^2 - r^2 V' - 2 r V); the normalisation without f^-1 was tried and leaves a Psi term -2 k^2 mu
+f/r^5, not uniform in l (the control). (H2) the p-current identity for Psi_1: the first-order term adds 2(1 - 2
+mu/r^2) to the |nabla_L Psi_1|^2 bulk, positive beyond r^2 = (10 + p) mu/(4 + p); the Psi_1 nabla_L Psi_1 term
+integrated by parts to the bulk r^(p-6) B_1. (H3) B_1 = ((2 - p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2 for Sigma,
+positive everywhere for l >= 1; for phi, B_1 >= (1/4)(2 - p)(k^2 - 5/4) for r >= R_1 = 8.14 r_h at k^2 = 8 and
+everywhere at k^2 = 24, 48, 80 (p in [1/10, 19/10], a grid of 21, the first root in mu/r^2 found numerically to
+thirty digits); the base bulk B_0 = ((2 - p)/2)(k^2 + 3/4) + (9/8)(4 - p) mu/r^2 for Sigma and R_0 = 10.56, 4.61,
+3.04, 2.29 r_h for phi; (A.9): r^4 |V_phi|/mu <= 12 (k^2 + 3)/(k^2 - 3) = 26.40, 15.43, 13.60, 12.94 and r^3
+|d_r(r^2 V_phi)|/mu <= 24 (k^2 + 3)/(k^2 - 3) = 52.80, 30.86, 27.20, 25.87, the suprema at infinity (this entry
+first gave grid values over r <= 6.3 r_h, 25.13 and 47.84 at k^2 = 8, repaired on the nineteenth verifier's
+finding), with V_phi -> -12 mu/r^4; (A.3): min r^2 (k^2/r^2 + V_phi) = 4/11, 124/9, 628/17, 5692/83, at the horizon,
+and -1 at k^2 = 3 (the control). (H4) l = 0: V_inf = 3/4, V^(1)_inf = -5/4; the base bulk (3/8)(2 - p) + (9/8)(4 -
+p) mu/r^2 is negative for p > 2 once r^2 > 3(4 - p) mu/(p - 2); in four dimensions the l = 0 bulk is (3 - p) M
+r^(p-6), positive to p = 3 (the control asserts the five-dimensional sign of it). Selftest 4/4 (about a minute),
+mutants 5/5.
 
 *What was deduced.* Proposition 10.6, the rate (1 + tau/sqrt mu)^(-4+p+3 delta) for Sigma and phi at l >= 2 against
 I^(1)[u], by his Proposition A.5's argument on (10.34)-(10.35) and H3: the base hierarchy, the commuted one with the bad
@@ -4380,13 +4382,12 @@ gains one place. The minors are seated: two reading marks, whole-section citatio
 items now), wording and pages; 10.75's page-count sentence, stale since D160, corrected. Fifty-five of 61
 written out, thirty-seven on a reading; 6 rest on the censuses.
 
-**D163 (2026-10-25): [Hin26c] sections 7-8 written out.** Section 7's radial point, trapping and commutator
-estimates and section 8's energy estimates, read at source (pp. 114-157), matched at n = 4 as (lvi)-(lvii). The
-trapping estimate is [Hin21] Theorem 3.9, read at source and stated for a manifold of any dimension (p. 36). The one new
-computation is (7.22)'s density, 2 rho_+^-5 x_I^-8 for his 2 rho_+^-4 x_I^-6, with its symmetric operator (x_I d_x_I
-- 3), and (8.14)'s skewness, checked exactly with the constant n - 2 as a failing control. Eleven places named, two
-corrected. Fifty-seven of 61 written out, thirty-seven on a reading; 4 rest on the
-censuses: 10.19 (d), 10.22 (e), 10.53 (e) and 10.58 (c).
+**D163 (2026-10-25): [Hin26c] sections 7-8 written out.** Section 7's radial point, trapping and commutator estimates and
+section 8's energy estimates, read at source (pp. 114-157), matched at n = 4 as (lvi)-(lvii). The trapping estimate is
+[Hin21] Theorem 3.9, read at source and stated for a manifold of any dimension (p. 36). The one new computation is
+(7.22)'s density, 2 rho_+^-5 x_I^-8 for his 2 rho_+^-4 x_I^-6, with its symmetric operator (x_I d_x_I - 3), and (8.14)'s
+skewness, checked exactly with the constant n - 2 as a failing control. Eleven places named, two corrected. Fifty-seven
+of 61 written out, thirty-seven on a reading; 4 rest on the censuses: 10.19 (d), 10.22 (e), 10.53 (e) and 10.58 (c).
 
 **D164 (2026-10-25): [Hin26c] Theorems 9.5 and 9.16 written out.** Theorem 9.5's proof (section 9.2.3, with
 Propositions 9.9 and 9.11 and Lemma 9.13) and Theorem 9.16's (section 9.3) read at source (pp. 161-193) and matched at
@@ -4486,3 +4487,15 @@ l_scf < 3/2); the conjugation that carries the Fourier side to N_tf is rhat^(lam
 bound 1 + eps_ind stands; the index 0 half runs on (lx), Proposition 8.6 and Corollary 9.39 at n = 4; the expansions gain
 t2 at -2 and t3 at -3; Lemma 9.26's residue has rank 10 on S^3. (9.7) prints rhat^-2 N_tf for the bracket that (9.58)
 makes rhat^2 N_tf. RI leaves twelve rows; 10.47 (d)-(e) rest on RB. Three roots remain: RB, RU and RP.
+
+**D177 (2026-10-25): the sixty-ninth verifier seated.** On D173-D175: no majors; nine minors. (3.46)'s norm factor at n
+= 4 is |sigma|^(-2 - alpha), the print reversing the sign of n/2 as its density line does ((xviii) named that line;
+10.80 and `tfnorm5.py` R3 now say so), harmless, the factor on both sides of the chain; R3's embedding check moved to
+ztf in r-hat, where the loss n/2 lives, and its factor check now tests the sign; R4's remainder gains the S term. 10.74
+counts 34 rows on a reading. The fibre inner product: the threshold is not inner-product-free -- `hthresh5.py` T6 now
+finds 1/2 + vartheta_H+ = +790.43 at e' = 10 and the crossing of -100 at e' = 7.764, B' positive definite throughout --
+so 10.79 states the existential reading on Proposition 7.4 alone, Lemma 5.12 cited for the like choice at
+vartheta_dK+,out, and drops 'any one'. 10.81 no longer calls [Hin23d] the source of every class [Hin26c] uses (Psi~_3b
+comes from the scaled bounded geometry paper, p. 46, not fetched) and names the numerals (d) places; Theorem 2.9 is p.
+27. READINGS.tsv keeps 10.41 (b) with '-' as it keeps the four D169 rows. The paper's `hthresh5.py` bullet reads 6/6. A
+wrapped LOG line from D163 that began with a list marker is rewrapped.

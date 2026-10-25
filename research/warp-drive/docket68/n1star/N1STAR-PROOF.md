@@ -8273,47 +8273,47 @@ by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 the step is the source proof as it stands. The 221 placements of the five-dimensional values are: 88 at a computed check,
 94 at an earlier section where they are computed or deduced, 38 arithmetic in n (an entry naming an instrument or a check
 counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n, R^n,
-R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 35 rows say they rest on a reading -- of a source
-theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
-dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
-replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
-reading was unmarked, and 10.31 (b)'s placement naming zstates5.py Z4 was counted arithmetic (the sixty-first verifier).
-D150-D151's write-outs (10.75 (xvii)-(xxx)) named eleven more places their rows lacked -- 10.60 (f) had none -- and one
-more reading (10.20 (a)); n/2 = 2 is now an arithmetic placement at 10.20 (a) and 10.39 (e) (the sixty-second verifier);
-the same shift, the b-density's, is placed at a section at 10.29 (a), 10.31 (a), 10.41 (b) and 10.56 (b), where an
-earlier section computes it (the sixty-third verifier, which found the earlier wording's 'one occurrence' wrong). D154
-cleared 10.48 (c)'s reading, [Hin23a]'s estimates at n = 4, which 10.75 (xxxi)-(xxxiv) now write out. D155's write-outs
-(10.75 (xxxvii)-(xxxix)) named seventeen more places for 10.47 (d), 10.47 (e) and 10.62 (b) -- 10.47 (e) had none -- and
-found [Hin26] section 9's iota+ solution theory, a reading at n = 4 (10.47's OPEN), among 10.47 (d)'s and 10.62 (b)'s
-inputs. D156's (10.75 (xl)-(xliii)) named eight more places, for 10.21 (a) and 10.56 (b), and marked the readings 10.21
-(c) and 10.56 (b) rest on, [Hin26a] Theorem 5.2 at n = 4 (10.56 (a)). D157 added three places the write-outs (xxiii) and
-(xxv) named and their rows lacked (the sixty-third verifier), so D150's nine was a floor. D158's (10.75 (xliv)-(xlvi))
-named six more places, for 10.23 (b)-(d), from tface5.py and cpmodes5.py. D159's (10.75 (xlvii)-(xlviii)) named three
-more places, for 10.19 (a) and 10.55 (b). D160's (10.75 (xlix)-(lii)) named fourteen more places, for 10.43 (c), 10.45
-(b), 10.45 (e) and 10.61 (b), 10.43 (c) having had none, and marked 10.45 (b) and 10.61 (b) as resting on readings:
-[Hin26c] Proposition 13.18 and Corollary 13.17 and [Hin26] section 9's solution theory at n = 4. D161's (10.75
-(liii)-(lv)) named twelve more places, for 10.46 (a), 10.46 (b) and 10.61 (c), and marked 10.46 (b) and 10.61 (c) as
-resting on readings, as (xlix)-(l) found. D162 (the sixty-fourth verifier) narrowed 10.62 (b)'s order place to the mass
-and the boost and named S^(0)_1's source order beside it, marked 10.15 (b) and 10.49 (a) as resting on readings, as their
-items (iv) and (xxv) say, and counts a whole section's citation as citing its census rows. D163's (10.75 (lvi)-(lvii))
-named eleven more places, for 10.67 (a)-(b), and corrected their two census-era places: his values for '?', Lemma 7.12
-for 'Lemmas 7.12-7.21', and the extension across r = m (p. 148) for 'near K+'. D164's (10.75 (lviii)-(lix)) named eight
-more places, for 10.19 (d) and 10.53 (e), the latter's first, and gave 10.19 (d)'s '?' his A^(1 - eps); both keep a
-reading, the scalar-to-bundle step. D165 (the sixty-fifth verifier) marked 10.43 (c) as resting on readings, as its item
-(li) now says, labelled three placements at an instrument computed, joined 10.32 (b)'s two placements of one place,
-recorded 10.45 (e)'s weight as settled and gave 10.62 (b) its section 9 inputs. D166's (10.75 (lx)) named nineteen places
-for 10.58 (c), its first, seventeen at a computed check (iplusnorm5.py N1-N9, Proposition 10.57, and iplus5.py P1) and
-two arithmetic in n; the row keeps a reading, now (lvi)-(lix)'s and 10.20's. D167's (10.75 (lxi)) named nine more places
-for 10.22 (e), the last census row, and marked 10.22 (e), 10.21 (c) and 10.23 (c) as resting on no reading: the one
-reading of each was [Hin26a] Theorem 5.2 at n = 4, now written out. D168 (the sixty-sixth verifier) dropped 10.45 (e)'s
-place for the weight at I+, which the dimension does not change, and labelled 10.67 (a)'s radial rate by (7.11b). D169
-traced the readings to their roots (10.77, READINGS.tsv) and marked four rows, 10.23 (b), 10.23 (d), 10.46 (e) and 10.62
-(c), as resting on none, their readings READ or written out since. D172 re-kinded five of 10.58 (c)'s placements -- Lemma
-10.7's count, Lemma 10.9's shift, Step 2's density, Remark 11.4 and section 13.2's mu_b -- from computed to arithmetic:
-iplusnorm5.py N5 and N9 had checked them by comparisons typed by hand (93 and 33 before; the sixty-seventh verifier).
-D175 (the sixty-eighth verifier) replaced two semicolons inside entries, in 10.15 (a)'s placement and 10.58 (c)'s place
-for section 11's mu_b, by commas, so that either separator counts 214 places and 221 placements, and named 10.22 (e)'s r
-= m as his inner bound.
+R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 34 rows say they rest on a reading (35 until D174 left
+10.41 (b) on none) -- of a source theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since
+carried the source papers' dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose
+source proof is a citation replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in
+gluing5.py), named none, 10.15 (a)'s reading was unmarked, and 10.31 (b)'s placement naming zstates5.py Z4 was counted
+arithmetic (the sixty-first verifier). D150-D151's write-outs (10.75 (xvii)-(xxx)) named eleven more places their rows
+lacked -- 10.60 (f) had none -- and one more reading (10.20 (a)); n/2 = 2 is now an arithmetic placement at 10.20 (a) and
+10.39 (e) (the sixty-second verifier); the same shift, the b-density's, is placed at a section at 10.29 (a), 10.31 (a),
+10.41 (b) and 10.56 (b), where an earlier section computes it (the sixty-third verifier, which found the earlier
+wording's 'one occurrence' wrong). D154 cleared 10.48 (c)'s reading, [Hin23a]'s estimates at n = 4, which 10.75
+(xxxi)-(xxxiv) now write out. D155's write-outs (10.75 (xxxvii)-(xxxix)) named seventeen more places for 10.47 (d), 10.47
+(e) and 10.62 (b) -- 10.47 (e) had none -- and found [Hin26] section 9's iota+ solution theory, a reading at n = 4
+(10.47's OPEN), among 10.47 (d)'s and 10.62 (b)'s inputs. D156's (10.75 (xl)-(xliii)) named eight more places, for 10.21
+(a) and 10.56 (b), and marked the readings 10.21 (c) and 10.56 (b) rest on, [Hin26a] Theorem 5.2 at n = 4 (10.56 (a)).
+D157 added three places the write-outs (xxiii) and (xxv) named and their rows lacked (the sixty-third verifier), so
+D150's nine was a floor. D158's (10.75 (xliv)-(xlvi)) named six more places, for 10.23 (b)-(d), from tface5.py and
+cpmodes5.py. D159's (10.75 (xlvii)-(xlviii)) named three more places, for 10.19 (a) and 10.55 (b). D160's (10.75
+(xlix)-(lii)) named fourteen more places, for 10.43 (c), 10.45 (b), 10.45 (e) and 10.61 (b), 10.43 (c) having had none,
+and marked 10.45 (b) and 10.61 (b) as resting on readings: [Hin26c] Proposition 13.18 and Corollary 13.17 and [Hin26]
+section 9's solution theory at n = 4. D161's (10.75 (liii)-(lv)) named twelve more places, for 10.46 (a), 10.46 (b) and
+10.61 (c), and marked 10.46 (b) and 10.61 (c) as resting on readings, as (xlix)-(l) found. D162 (the sixty-fourth
+verifier) narrowed 10.62 (b)'s order place to the mass and the boost and named S^(0)_1's source order beside it, marked
+10.15 (b) and 10.49 (a) as resting on readings, as their items (iv) and (xxv) say, and counts a whole section's citation
+as citing its census rows. D163's (10.75 (lvi)-(lvii)) named eleven more places, for 10.67 (a)-(b), and corrected their
+two census-era places: his values for '?', Lemma 7.12 for 'Lemmas 7.12-7.21', and the extension across r = m (p. 148) for
+'near K+'. D164's (10.75 (lviii)-(lix)) named eight more places, for 10.19 (d) and 10.53 (e), the latter's first, and
+gave 10.19 (d)'s '?' his A^(1 - eps); both keep a reading, the scalar-to-bundle step. D165 (the sixty-fifth verifier)
+marked 10.43 (c) as resting on readings, as its item (li) now says, labelled three placements at an instrument computed,
+joined 10.32 (b)'s two placements of one place, recorded 10.45 (e)'s weight as settled and gave 10.62 (b) its section 9
+inputs. D166's (10.75 (lx)) named nineteen places for 10.58 (c), its first, seventeen at a computed check (iplusnorm5.py
+N1-N9, Proposition 10.57, and iplus5.py P1) and two arithmetic in n; the row keeps a reading, now (lvi)-(lix)'s and
+10.20's. D167's (10.75 (lxi)) named nine more places for 10.22 (e), the last census row, and marked 10.22 (e), 10.21 (c)
+and 10.23 (c) as resting on no reading: the one reading of each was [Hin26a] Theorem 5.2 at n = 4, now written out. D168
+(the sixty-sixth verifier) dropped 10.45 (e)'s place for the weight at I+, which the dimension does not change, and
+labelled 10.67 (a)'s radial rate by (7.11b). D169 traced the readings to their roots (10.77, READINGS.tsv) and marked
+four rows, 10.23 (b), 10.23 (d), 10.46 (e) and 10.62 (c), as resting on none, their readings READ or written out since.
+D172 re-kinded five of 10.58 (c)'s placements -- Lemma 10.7's count, Lemma 10.9's shift, Step 2's density, Remark 11.4
+and section 13.2's mu_b -- from computed to arithmetic: iplusnorm5.py N5 and N9 had checked them by comparisons typed by
+hand (93 and 33 before; the sixty-seventh verifier). D175 (the sixty-eighth verifier) replaced two semicolons inside
+entries, in 10.15 (a)'s placement and 10.58 (c)'s place for section 11's mu_b, by commas, so that either separator counts
+214 places and 221 placements, and named 10.22 (e)'s r = m as his inner bound.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -9514,9 +9514,9 @@ What remains of the record's own roots is RP and RH; RK now rests on RU. Labels:
 weights s >= -C_0, that 1/2 + vartheta_H+ < -C_0 = -100, and left the quantity uncomputed: the record's root RH (10.77).
 His definition (5.17) takes, over the conormal bundle of the horizon, the top of the spectrum of varrho^2/(2(r_+ - m))
 rho_oo (varrho^2 = r^2 + a^2 cos^2 theta) sigma_1((P_0 - P_0^*)/(2i)), rho_oo = xi_0^-1, "with respect to a positive
-definite fiber inner product" -- any one. The record takes [Hin26a] Lemma 3.3's B = g^-1 - (1 + e) G(c)^-1 c# (x) c#, in
-which the damping symbol l(dr) is self-adjoint, at the price of B's conditioning, about 1/e = 102400, set against h^-1 =
-10^6, with 10.14's c, which at the horizon is (1/200)(dt + (1/4) dr).
+definite fiber inner product" -- one fixed in advance (Proposition 7.4). The record takes [Hin26a] Lemma 3.3's B = g^-1 -
+(1 + e) G(c)^-1 c# (x) c#, in which the damping symbol l(dr) is self-adjoint, at the price of B's conditioning, about 1/e
+= 102400, set against h^-1 = 10^6, with 10.14's c, which at the horizon is (1/200)(dt + (1/4) dr).
 
 *What is computed (`hthresh5.py` T1-T5, exact, sympy; T6, numerical, D175).*
 
@@ -9555,12 +9555,14 @@ horizon threshold of (d)" is discharged, and its "provided 10^-6 lies below h_0"
 10^-6)): h_0 need not be explicit. RH is settled and leaves READINGS.tsv's rows, each of which keeps RB -- 10.21 (d)'s
 Fredholm property is [Hin26c] Theorem 9.36 for an operator on 1-forms -- and its other roots, so the thirty-five rows
 keep a reading. vartheta_H+ is computed in one inner product, B, which is what (5.17) asks on the reading that the
-threshold holds in some positive definite fibre inner product fixed in advance: [Hin26c] Lemma 5.12 (p. 105) has 'there
-exists', and Proposition 7.4 (p. 117) fixes 'the positive definite fiber inner product used in the definition of
-vartheta_H+ in (5.17)', as the sixty-eighth verifier reads them (D175). Nor does the conclusion lean on B's conditioning:
-with e' for B's e, the operator's kept, 1/2 + vartheta_H+ at h = 10^-6 is -4995.44 at e' = 10^-5, -4877.97 at 1/10 and
--2500.47 at 3, B positive definite in each (T6). What remains of the record's own roots is RP. Labels: computed (T1-T5);
-READ (the pages named); deduced (10.21 (d)-(e) as stated); nothing proved here.
+threshold holds in some positive definite fibre inner product fixed in advance: Proposition 7.4 (p. 117) fixes 'the
+positive definite fiber inner product on E_X used in the definition of vartheta_H+ in (5.17)', and Lemma 5.12 (p. 105)
+chooses one the same way for vartheta_dK+,out ('there exists a fiber inner product on E_X'), as the sixty-eighth and
+sixty-ninth verifiers read them (D175, D177). The value does depend on it: with e' for B's e, the operator's kept, 1/2 +
+vartheta_H+ at h = 10^-6 is -4995.44 at e' = 10^-5, -4877.98 at 1/10 and -2500.48 at 3, crosses -100 at e' = 7.764 and is
++790.43 at 10, B' positive definite throughout (T6; the sixty-ninth verifier): the threshold holds in the inner product
+the record fixes, not in every one, which is what the existential reading asks. What remains of the record's own roots is
+RP. Labels: computed (T1-T6); READ (the pages named); deduced (10.21 (d)-(e) as stated); nothing proved here.
 
 ### 10.80 RL written out: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (`tfnorm5.py`; D173)
 
@@ -9597,12 +9599,14 @@ n = 4.
  (c) (Theorem 9.41, pp. 198-199) His proof: near zf, the first norm equivalence of (3.46), the zero energy estimate
      (9.107) (Theorem 9.36, (xx)) and the commutator and difference memberships give (9.121); near tf, the second norm
      equivalence with |sigma|^(3/2 - alpha) and (9.118); then (9.122)'s memberships, absorption for small |sigma|, for k
-     > 0 the b-regular estimates and Theorem 9.5 (4) ((lix)), and (9.120) as (9.23). At n = 4: (3.46)'s factor is
-     |sigma|^(n/2 - alpha) = |sigma|^(2 - alpha), from r^3 |dr| = |sigma|^-4 r^^3 |dr^| (R3), so tf-admissibility with
-     weight alpha + 2 and the window alpha in (-2 + beta_-, -2 + beta_+); (9.122): |sigma|^2 N_tf(P_0, e^(i theta)) is
-     (9.4)'s leading part at every n (R4), and the remainder rho^2 (P^(0)(rho, .) - P^(0)(0, .)) - i sigma Q + g00
-     sigma^2 lies in rho_scf rho_tf^3 Diff^2_sc-b by Definition 9.4's memberships, which 10.21 (a) computes for
-     five-dimensional Tangherlini; the absorption, the commutators and the conormal derivatives are free of n.
+     > 0 the b-regular estimates and Theorem 9.5 (4) ((lix)), and (9.120) as (9.23). At n = 4: (3.46)'s factor, printed
+     |sigma|^(3/2 - alpha), is |sigma|^(-n/2 - alpha) = |sigma|^(-2 - alpha) by r^3 |dr| = |sigma|^-4 r^^3 |dr^| (R3)
+     -- the print reverses the sign of n/2, as its density line does ((xviii); the sixty-ninth verifier), harmless, the
+     factor standing on both sides of the chain -- so tf-admissibility with weight alpha + 2 and the window alpha in
+     (-2 + beta_-, -2 + beta_+); (9.122): |sigma|^2 N_tf(P_0, e^(i theta)) is (9.4)'s leading part at every n (R4), and
+     the remainder rho^2 (P^(0)(rho, .) - P^(0)(0, .)) - i sigma Q + g00 sigma^2 lies in rho_scf rho_tf^3 Diff^2_sc-b
+     by Definition 9.4's memberships, which 10.21 (a) computes for five-dimensional Tangherlini; the absorption, the
+     commutators and the conormal derivatives are free of n.
 
 *READ.* [Hin26c] (arXiv:2606.28008v1, alphaXiv, 2026-10-25): pp. 60-61 ((3.46), Lemma 3.11, Definition 3.12, (3.47)),
 157-158 (Notation 9.2, Definitions 9.3-9.4 and the sentence after), 193-200 (Theorem 9.36 and its proof, section 9.5,
@@ -9626,15 +9630,18 @@ constructs the calculi.
 
 *READ.*
 
- (a) [Hin23d] (arXiv:2302.13803v1, alphaXiv, 2026-10-25), the paper [Hin26c] takes its calculi from: section 2.2, p. 22,
-     "Let M be a compact n-dimensional manifold with (embedded, non-empty) boundary" -- the b-algebra, its elliptic
-     parametrix and Mellin theory (Theorem 2.9); section 2.3, pp. 28-29, the scattering algebra on a compact manifold
-     with boundary, local coordinates y in R^(n-1), with "Parametrices ... of elliptic elements of Psi^(s,r)_sc(M) are
-     elements of Psi^(-s,-r)_sc(M)"; section 2.4, p. 31, the scattering-b-transition algebra on "a compact n-dimensional
-     manifold", and Proposition 2.21, p. 37, the relations to Sobolev spaces at tf and zf behind [Hin26c] (3.46); section
-     3, p. 59, the 3b-single space of "a smooth compact connected n-dimensional manifold" M_0; Proposition 4.24, pp.
-     96-97, the Fourier characterization of 3b-Sobolev spaces near T with X in R^(n-1) and the proof by Plancherel and
-     the ellipticity of the normal operators, and Proposition 4.29, p. 101, its variable order form.
+ (a) [Hin23d] (arXiv:2302.13803v1, alphaXiv, 2026-10-25), the paper that constructs the calculi [Hin26c] uses with smooth
+     coefficients (its classes with 3b-regular coefficients, Psi~_3b of (3.27), which Lemma 14.6's general-s step uses,
+     come from his scaled bounded geometry paper, stated on an n-dimensional manifold (p. 46) and not fetched; the
+     sixty-ninth verifier): section 2.2, p. 22, "Let M be a compact n-dimensional manifold with (embedded, non-empty)
+     boundary" -- the b-algebra, its elliptic parametrix and Mellin theory (Theorem 2.9, p. 27); section 2.3, pp. 28-29,
+     the scattering algebra on a compact manifold with boundary, local coordinates y in R^(n-1), with "Parametrices ...
+     of elliptic elements of Psi^(s,r)_sc(M) are elements of Psi^(-s,-r)_sc(M)"; section 2.4, p. 31, the
+     scattering-b-transition algebra on "a compact n-dimensional manifold", and Proposition 2.21, p. 37, the relations to
+     Sobolev spaces at tf and zf behind [Hin26c] (3.46); section 3, p. 59, the 3b-single space of "a smooth compact
+     connected n-dimensional manifold" M_0; Proposition 4.24, pp. 96-97, the Fourier characterization of 3b-Sobolev
+     spaces near T with X in R^(n-1) and the proof by Plancherel and the ellipticity of the normal operators, and
+     Proposition 4.29, p. 101, its variable order form.
  (b) [Hin26c] (arXiv:2606.28008v1, alphaXiv, 2026-10-25): p. 20, Lemma 3.7 "following [Hin23d, section 4.4]"; p. 46,
      section 3.1, the scaled bounded geometry structures of his scaled b.g. paper on "an n-dimensional manifold"; pp.
      55-59, the cells U_i, U_(i, +-jkl) on R_t x R^3_x of product form relative to the b-structure, Lemmas 3.7 and 3.9, F
@@ -9657,10 +9664,11 @@ constructs the calculi.
      section 3.1).
 
 *What this gives, and what it does not.* RC is settled by reading at source: the calculi are constructed for every n by
-the paper that constructs them, and the three lemmas use them with no numeral of the dimension. 10.41 (b) rested on RC
-alone and now rests on no reading; 10.39 (e) and 10.40 (a) keep RB. Thirty-four rows take a reading. The roots left are
-RB and RU, the source's kind, RI, companion results at n = 4, and RP, the record's own. Labels: READ (the pages named);
-deduced ((c)-(e)); nothing proved here.
+the paper that constructs them, and the three lemmas use them with no numeral of the dimension but those (d) places,
+(xxi)'s orders and section 13.2's mu_b = |dx|/|x|^n (iplusnorm5.py N5). 10.41 (b) rested on RC alone and now rests on no
+reading; 10.39 (e) and 10.40 (a) keep RB. Thirty-four rows take a reading. The roots left are RB and RU, the source's
+kind, RI, companion results at n = 4, and RP, the record's own. Labels: READ (the pages named); deduced ((c)-(e));
+nothing proved here.
 
 ### 10.82 RI written out: [Hin26] section 9's iota+ and tf solution theory at n = 4 (`iotasol5.py` J1-J5; D176)
 

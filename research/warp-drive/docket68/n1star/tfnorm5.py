@@ -20,14 +20,17 @@ iplusnorm5.py's algebra, adjoints for x^m |dx/x|.
      lambda-bar, as he concludes: {l, -(l + n - 2)}, at n = 4 {l, -(l + 2)}.  The gap of P^(0) at l = 0 is (0, n - 2),
      so q = -beta + n/2 runs over (n/2 - beta_+, n/2 - beta_-) = (0, 2) at n = 4, and Corollary 9.39's adjoint space
      carries -n + 2 + beta = -2 + beta.  Control: the adjoint for rho^^-(n-1) mu_b.
-  R3 (computed, exact) the densities: mu_e = r^^(n-1) |dr^| = rho^^-n |drho^/rho^|, so the Sobolev embedding loses n/2
-     = 2; (3.46)'s factor |sigma|^(3/2 - alpha) is |sigma|^(n/2 - alpha) from r^(n-1) |dr| = |sigma|^-n r^^(n-1) |dr^|,
-     r^ = r |sigma|, so at n = 4 |sigma|^(2 - alpha), Theorem 9.41's window (-2 + beta_-, -2 + beta_+) and weight
-     alpha + 2.  Control: 3/2 at n = 4.
+  R3 (computed, exact) the densities: mu_e = r^^(n-1) |dr^| = rho^^-n |drho^/rho^|; at ztf, r^^a lies in r^^q
+     L^2(r^^(n-1) |dr^|) near r^ = 0 iff a > q - n/2, so the Sobolev embedding loses n/2 = 2 (the source's '[0, 1)_rho^'
+     in that sentence read as r^, the sixty-ninth verifier); r^(n-1) |dr| = |sigma|^-n r^^(n-1) |dr^|, r^ = r |sigma|, so
+     the norm factor of (3.46) is |sigma|^(-n/2 - alpha): the print's |sigma|^(3/2 - alpha) reverses the sign of n/2, as
+     its density line does ((xviii)), harmless, the factor standing on both sides of Theorem 9.41's chain; at n = 4 the
+     window (-2 + beta_-, -2 + beta_+) and the weight alpha + 2. Control: 3/2 at n = 4.
   R4 (computed, exact) (9.122): with rho = |sigma| rho^, |sigma|^2 N_tf(P_0, e^(i theta)) is 2i sigma rho(rho d_rho -
      (n - 1)/2 - S) + rho^2 P^(0)(0, omega, rho d_rho, d_omega), (9.4)'s leading part, at every n, so P-hat_0(sigma)
-     minus it is rho^2 (P^(0)(rho, .) - P^(0)(0, .)) - i sigma Q + g00 sigma^2, in rho_scf rho_tf^3 Diff^2_sc-b by
-     Definition 9.4's memberships, which five-dimensional Tangherlini satisfies (10.21 (a)).  Control: rho = rho^.
+     minus it is rho^2 (P^(0)(rho, .) - P^(0)(0, .)) + 2i sigma rho (S(0, omega) - S(rho, omega)) - i sigma Q + g00
+     sigma^2 (the S term the sixty-ninth verifier added, of the same class), in rho_scf rho_tf^3 Diff^2_sc-b by
+     Definition 9.4's memberships, which five-dimensional Tangherlini satisfies (10.21 (a)). Control: rho = rho^.
 
 Mutants: R1 with e^(-2i/rho^); R2 with the density rho^^-(n-1) mu_b; R3 with 3/2 at n = 4; R4 with no rescaling.
 sympy.  python3 tfnorm5.py [--selftest | --mutants]   (seconds)
@@ -122,21 +125,24 @@ def r2(control=0, verbose=False):
 def r3(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
     rh, s_, a_ = sp.symbols("rhat sigma a", positive=True)
+    q_ = sp.Symbol("q")
     for n in (3, 4):
         rho = sp.Symbol("rho", positive=True)
         mue = sp.simplify((1 / rho)**(n - 1) * sp.Abs(sp.diff(1 / rho, rho)))
         chk(f"n = {n}: r^^{n - 1} |dr^| = rho^^-{n} |drho^/rho^|", sp.simplify(mue - rho**(-n) / rho) == 0)
-        # rho^a in rho^q L^2(rho^-n |drho/rho|) near 0 iff 2(a - q) - n > 0: the embedding loses n/2
-        q_ = sp.Symbol("q")
-        crit = sp.solve(sp.Eq(2 * (a_ - q_) - n, 0), a_)[0]
         shift = sp.Rational(3, 2) if (control and n == 4) else sp.Rational(n, 2)
-        chk(f"n = {n}: the Sobolev shift n/2 = {sp.Rational(n, 2)}", sp.simplify(crit - q_ - shift) == 0)
+        # at ztf: int_0^1 r^^(2(a - q)) r^^(n-1) dr^ converges iff 2(a - q) + n > 0
+        e_ = sp.Symbol("e_")
+        conv = sp.integrate(rh**e_, (rh, 0, 1), conds="piecewise")
+        crit = sp.solve(sp.Eq(2 * (a_ - q_) + n - 1, -1), a_)[0]           # the borderline exponent e_ = -1
+        chk(f"n = {n}: at ztf r^^a in r^^q L^2(r^^(n-1) |dr^|) iff a > q - {sp.Rational(n, 2)}: the embedding loses n/2",
+            sp.simplify(crit - (q_ - shift)) == 0 and conv.args[0][1] != True)
         dmeas = sp.simplify((rh / s_)**(n - 1) / s_)                       # r^(n-1) dr with r = r^/|sigma|
         ratio = sp.simplify(dmeas / rh**(n - 1))
-        chk(f"n = {n}: r^{n - 1} |dr| = |sigma|^-{n} r^^{n - 1} |dr^|: (3.46)'s |sigma|^({shift} - alpha)",
-            sp.simplify(ratio - s_**(-2 * shift)) == 0)
+        e_norm = sp.simplify(sp.log(ratio) / sp.log(s_) / 2)
+        chk(f"n = {n}: r^{n - 1} |dr| = |sigma|^{sp.log(ratio) / sp.log(s_)} r^^{n - 1} |dr^|: (3.46)'s norm factor "
+            f"|sigma|^({e_norm} - alpha)", sp.simplify(e_norm + shift) == 0)
     return chk.ok
-
 
 # ------------------------------------------------------------------ R4
 def r4(control=0, verbose=False):
@@ -157,7 +163,7 @@ def r4(control=0, verbose=False):
 
 CHECKS = [("R1 (9.117) at every n: S~ = S-bar; his first line; the (rho D)^2 line's misprint", r1),
           ("R2 the indicial roots -lambda and -n + 2 + lambda-bar; the gap (0, n - 2); q in (0, 2) at n = 4", r2),
-          ("R3 the densities: mu_e = rho^^-n mu_b, the embedding's n/2, (3.46)'s |sigma|^(n/2 - alpha)", r3),
+          ("R3 the densities: mu_e = rho^^-n mu_b, the embedding's n/2 at ztf, (3.46)'s |sigma|^(-n/2 - alpha)", r3),
           ("R4 (9.122): |sigma|^2 N_tf is (9.4)'s leading part at every n", r4)]
 
 
