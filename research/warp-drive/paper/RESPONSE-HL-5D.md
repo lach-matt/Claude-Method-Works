@@ -1095,11 +1095,14 @@ interior, with the global estimate at high frequencies they give, have been read
 seated. The twelfth, his analysis at future timelike infinity -- the normal operator there, its spectral family at
 bounded and high frequencies, its forward solutions, and the forward solutions of the stationary model on the spaces his
 iteration uses -- has been read line by line and its findings seated. The thirteenth, the forward solutions of the
-perturbed wave operators with estimates tame in the regularity, and the
-fourteenth, the Nash-Moser theorem with the smoothing operators and tame bounds it needs, proved here rather than quoted,
-have been read line by line and their findings seated. The fifteenth, the Fourier transform in time on the weighted
-spaces, his resolvent bounds translated into them and the radiation field at null infinity, by which forward solutions
-are shown to decay faster, is written. Theorem 4 stays deduced until the last part is proved.
+perturbed wave operators with estimates tame in the regularity, and the fourteenth, the Nash-Moser theorem with the
+smoothing operators and tame bounds it needs, proved here rather than quoted, have been read line by line and their
+findings seated, and with the twelfth their repairs have been read again, which proves the three. The fifteenth, the
+Fourier transform in time on the weighted spaces, his resolvent bounds translated into them and the radiation field at
+null infinity, by which forward solutions are shown to decay faster, has been read line by line and its findings seated.
+So is the sixteenth, the first of the parts on his stability paper: the five-dimensional black hole family on the
+compactified spacetime, its time functions, initial data and boosts, and the gauge-fixed Einstein equation. Theorem 4
+stays deduced until the last part is proved.
 
 ---
 

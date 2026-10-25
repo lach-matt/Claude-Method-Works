@@ -2621,3 +2621,29 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: the D197, D200, D201, D204, D206, D207, D212 and D213 repairs; Part II.G' unread; Parts III-VII; uniformity in
   P_0 (II.F' (F'11)), to which II.G' adds no condition.
 - Next: one verifier on Part II.G' with the D213 repairs; then Part III, [Hin26] at n = 4.
+
+### 4.138 Part III planned; Part III.B written (D215)
+
+- Part III planned by [Hin26]'s sections: III.A section 2, III.B sections 3-4, III.C section 5, III.D section 6, III.E
+  section 7, III.F section 8, III.G section 9, III.H section 10 with [Hin26c] Theorem 12.3 at a loss aleph > 0, III.I
+  section 11, III.J section 12; section 13 goes to Part V. Digests of sections 2, 3-4 and 5 taken by extractors.
+- `proof5/PART-III-B-FAMILY.md`: [Hin26] sections 3-4 at n = 4. Myers-Perry in Kerr-Schild form for every A in so(4); no
+  logarithm between ingoing and outgoing times, so the family is smooth on M and t_* is explicit; mass at |x|^-2, spin
+  at |x|^-3; boosts with a(omega)^4 and c^2 = (2/pi^2)||S||^2; trace weight 2/3 in E^Ups and E^C. Finding (K1):
+  Definition 3.17's cut-offs inconsistent and Lemma 3.18's vanishing near the black hole not given; repaired by a radial
+  cut-off.
+- Open: the D197, D200, D201, D204, D206, D207, D212 and D213 repairs; Parts II.G' and III.B unread; Parts III.A,
+  III.C-III.J and IV-VII; uniformity in P_0 (II.F' (F'11)).
+- Next: seat the ninetieth verifier (II.G', D213 repairs); Part III.A or III.C from the digests.
+
+### 4.139 The ninetieth verifier seated; Parts II.F, II.F' and II.G proved (D216)
+
+- Part II.G' read by the ninetieth verifier: no major finding; Minor 1 (Lemma 3.4's proof, a reversed inequality, bound
+  replaced) and Minor 2 (the order of Q_alpha,beta in (4.1b)) and eleven nits seated (II.G' section 7.3); Proposition
+  4.7 now at every weight of the gap with one ell. Part II.G' is verified.
+- The D213 repairs of II.G confirmed, and the D212 repairs of II.F and II.F' had been confirmed by the eighty-ninth
+  verifier: Parts II.F, II.F' and II.G are proved.
+- Open: the D197, D200, D201, D204, D206, D207 and D216 repairs; Part III.B unread; Parts III.A, III.C-III.J and IV-VII;
+  uniformity in P_0 (II.F' (F'11)).
+- Next: Part III.A' (harmonics on S^3, [Hin26] section 2.4; checks d216/harm.py under way) and III.A; the ninety-first
+  verifier on Part III.B with the D216 repairs.
