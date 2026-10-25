@@ -1,6 +1,9 @@
 # Part II.F$'$. Forward solutions of admissible wave-type operators, and tame estimates, at n = 4
 
-*Status.* Written out in full (D210). Not yet read by an independent verifier; nothing here is labelled proved. This part
+*Status.* Verified. Written out in full (D210) and read line by line by the eighty-eighth verifier (D212): one major
+finding, that the uniqueness class of Theorem 1.1 was too large for the smallness assumed, repaired by restricting it;
+one minor finding and two notes, seated (section 8.4). The part is labelled proved once the next reader has confirmed
+the repairs. This part
 proves, at spatial dimension $n = 4$, [Hin26c] section 11 (pp. 227-233): Theorem 11.1, which solves forward problems for
 admissible wave-type operators $P$ on b-Sobolev spaces with decay at $\mathscr I^+$, $\iota^+$ and $K^+$, with estimates
 tame in the b-regularity, and its Remarks 11.2-11.4. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page
@@ -66,8 +69,10 @@ that the following holds for every $k\in\mathbb N_0$ and every $P$ admissible re
 $((0;k+d),(2\ell_I,\ell_+,\ell_K))$ (II.C Definition 3.3) with $\|P-P_0\|_{(0;d),(2\ell_I,\ell_+,\ell_K)}<\epsilon_0$
 (II.C Definition 3.6, over $\Omega_*$). For every
 $$f\in H^{k+d,(\alpha_I+1,\alpha_++2,0)}_b(\Omega_*;E)^{\bullet,-}\tag{1.4}$$
-there is exactly one $u$ in $\bigcup_{s',\beta_+,\beta_K\in\mathbb
-R}H^{s',(2\alpha_I,\beta_+,\beta_K)}_{e3b}(\Omega_*;E)^{\bullet,-}$ with $Pu = f$, the *forward solution*. It lies in
+there is exactly one $u$ in $\bigcup_{s'\ge s_{\mathrm u},\ \beta_+,\beta_K\in
+\mathbb R}H^{s',(2\alpha_I,\beta_+,\beta_K)}_{e3b}(\Omega_*;E)^{\bullet,-}$ with $Pu = f$, the *forward solution*; here
+$s_{\mathrm u} := \inf\mathsf s-2$ for the order $\mathsf s$ of section 3.1, which depends only on $P_0$ and the
+weights (D212). It lies in
 $H^{k,(\alpha_I,\alpha_+-\delta,-\aleph)}_b(\Omega_*;E)^{\bullet,-}$, and
 $$\|u\|_{H^{k,(\alpha_I,\alpha_+-\delta,-\aleph)}_b}\le C_k\Big(\|f\|_{H^{k+d,(\alpha_I+1,\alpha_++2,0)}_b}+\|P-P_0
 \|_{(0;k+d),(2\ell_I,\ell_+,\ell_K)}\|f\|_{H^{d,(\alpha_I+1,\alpha_++2,0)}_b}\Big),\tag{1.5}$$
@@ -183,10 +188,10 @@ then $u = 0$. The same holds on a slab $\Omega_{1,T}$ for $u$ in its space $H^{s
 *Proof.* The second claim is II.E Proposition 3.4 (i), with Lemma 2.1 (b). For the first, let $T>2$ and $\phi =
 \phi(t^\flat)\in C^\infty(\mathbb R)$ equal to 1 on $(-\infty,T+1]$ and to 0 on $[T+2,\infty)$; $\phi(t^\flat) =
 \tilde\phi(1/t^\flat)$ with $\tilde\phi(y) := \phi(1/y)$, $\tilde\phi'\in C^\infty_c((0,\infty))$, so $\phi(t^\flat)\in
-C^\infty_b$ by Lemma 2.6 (a) below (with $\epsilon = 1$); the same holds for every function of $t^\flat$ used below. If
-$\tilde u$ extends $u$ with support in $\{t^\flat\ge1\}$, then $\phi\tilde u$ is supported in $\{1\le t^\flat\le T+2\}$,
-where $t_*\le(T+2)/C'$, so $\rho_+$, $\rho_K$ are bounded below there by (1.1), and $\phi\tilde u\in
-H^{s',(2\alpha,0,0)}_{e3b}$. It extends $u|_{\Omega_{1,T}}$, which therefore lies in
+C^\infty_b$ by Lemma 2.6 (a) below (with $\epsilon = 1$; its proof uses nothing from this section); the same holds for
+every function of $t^\flat$ used below. If $\tilde u$ extends $u$ with support in $\{t^\flat\ge1\}$, then $\phi\tilde u$
+is supported in $\{1\le t^\flat\le T+2\}$, where $t_*\le(T+2)/C'$, so $\rho_+$, $\rho_K$ are bounded below there by
+(1.1), and $\phi\tilde u\in H^{s',(2\alpha,0,0)}_{e3b}$. It extends $u|_{\Omega_{1,T}}$, which therefore lies in
 $H^{s',2\alpha}(\Omega_{1,T})^{\bullet,-}$ and solves $Pu = 0$ there. So $u = 0$ on $\{t^\flat<T,\ r>r_0\}$, for every
 $T$. $\square$
 
@@ -507,22 +512,24 @@ and $u_\epsilon := (1-\chi')u_{\mathrm{ini}}+v\in X(\mathsf s;k)$ satisfies $P_\
 
 ### 3.1 The constants
 
-b-regularity controls e3b-regularity: as $\mathrm{Diff}^{d_0}_{e3b}\subset C^\infty(\tilde M)\mathrm{Diff}^{d_0}_b$ (II.A
-Lemma 2.9) and by II.A Lemma 8.2 (a), $\|a\|_{C^{(d_0;j)}_{e3b;b}}\le C\|a\|_{C^{(0;j+d_0)}_{e3b;b}}$, with weights; the
-data $p_0$, $\tilde p_1$ carry $j+d_0$ b-derivatives in both classes. Hence, for $P$ of class $((0;j+d_0),\cdot)$,
+b-regularity controls e3b-regularity: as $\mathrm{Diff}^{d_0}_{e3b}\subset C^\infty(\tilde M)\mathrm{Diff}^{d_0}_b$
+(II.A Lemma 2.9) and by II.A Lemma 8.2 (a), $\|a\|_{C^{(d_0;j)}_{e3b;b}}\le C\|a\|_{C^{(0;j+d_0)}_{e3b;b}}$, with
+weights; the data $p_0$, $\tilde p_1$ carry $j+d_0$ b-derivatives in both classes. Hence, for $P$ of class
+$((0;j+d_0),\cdot)$,
 $$e_j = \|P-P_0\|_{(d_0;j),(2\ell_I,\ell_+,\ell_K)}\le C\|P-P_0\|_{(0;j+d_0),(2\ell_I,\ell_+,\ell_K)}.\tag{3.1}$$
 Let $d^E_0$, $d^E$ be the $d_0$ and $d$ of II.E Theorem 6.1 for $(\mathsf s_0,\mathsf s)$ at the weights
 $\alpha_+-\delta$, $-\aleph$; $d^S_0$, $d^S$ the largest of those of II.E Propositions 3.4, 4.3 and 4.4 for the slab
-orders $\mathsf s$ and $\mathsf s+1$; and $d^T_0$, $\tilde d$ those of Lemma 2.8 for $\mathsf t = \mathsf s$. Put
-$$D_0 := \max(d^E_0,d^S_0,d^T_0),\qquad D_1 := \max(d^E,d^S,\tilde d),\qquad e_j := \|P-P_0\|_{(D_0;j),(2\ell_I,\ell_+,
-\ell_K)},\tag{3.2}$$
+orders $\mathsf s$ and $\mathsf s+1$; $d^T_0$, $\tilde d$ those of Lemma 2.8 for $\mathsf t = \mathsf s$; and $d^U_0$
+the $d_0$ of II.E Proposition 3.4 (i) at $s' = s_{\mathrm u} := \inf\mathsf s-2$. Put
+$$D_0 := \max(d^E_0,d^S_0,d^T_0,d^U_0),\qquad D_1 := \max(d^E,d^S,\tilde d),\qquad e_j := \|P-P_0\|_{(D_0;j),
+(2\ell_I,\ell_+,\ell_K)},\tag{3.2}$$
 $$d := D_0+D_1+d'+d'',\qquad d' := \max(0,\lceil-\inf\mathsf s\rceil),\qquad d'' := s_{\mathrm{in}}\ (= \max(0,\lceil\sup
 \mathsf s\rceil)).\tag{3.3}$$
 Choose $\epsilon_0>0$ so small that $\|P-P_0\|_{(0;d)}<\epsilon_0$ makes $e_j$, $j\le D_1$, and hence (by (2.9)) the
 corresponding norms of every $P_\epsilon$, smaller than the thresholds of Lemma 2.1, of II.C Lemma 3.2 (through II.C
-Lemma 3.7), of II.E Theorem 6.1 at $k\le D_1$ and at $d^E$, and of II.E Propositions 3.4, 4.3 at $k\le D_1$ and 4.4 at
-$d^S$. Then $e_{D_1}\le C\epsilon_0\le1$ for every such $P$. All constants below depend on $P$ only through $\epsilon_0$,
-unless $e_k$ appears explicitly.
+Lemma 3.7), of II.E Theorem 6.1 at $k\le D_1$ and at $d^E$, of II.E Propositions 3.4, 4.3 at $k\le D_1$ and 4.4 at
+$d^S$, and of II.E Proposition 3.4 (i) at $s' = s_{\mathrm u}$ (Lemma 2.2). Then $e_{D_1}\le C\epsilon_0\le1$ for every
+such $P$. All constants below depend on $P$ only through $\epsilon_0$, unless $e_k$ appears explicitly.
 
 ### 3.2 The uniform a priori estimate
 
@@ -648,7 +655,11 @@ $$\|u\|_{H^{k,(\alpha_I,\alpha_+-\delta,-\aleph)}_b}\le C\|u\|_{X(\mathsf s;k+d'
 \mathsf s;k+d')}+e_{k+d'}\|f\|_{Y(\mathsf s;D_1)}\big)\le C_k\big(\|f\|_{H^{k+d}_b}+\|P-P_0\|_{(0;k+d)}\|f\|_{H^d_b}
 \big),$$
 the b-norms with the weights of (1.5), by (5.1) ($D_1+d''\le d$) and (3.1) ($k+d'+D_0\le k+d$). Uniqueness in the stated
-class is Lemma 2.2. The continuity is section 6. $\square$
+class is Lemma 2.2 at $s' = s_{\mathrm u}$, whose smallness is among those fixing $\epsilon_0$ (section 3.1): an element
+of the class lies in the space with $s' = s_{\mathrm u}$, on which $P$ acts, as $s_{\mathrm u}\ge-d'-2\ge-d$ ($D_0\ge2$,
+II.E section 1.1). Below $s_{\mathrm u}$ the smallness of II.E Proposition 3.4 (i), whose $d_0$ depends on $s'$, is not
+implied by that of $\|P-P_0\|_{(0;d)}$, and $Pu$ need not be defined; the source's "the unique forward solution" names
+no class (D212: the eighty-eighth verifier's Major 1). The continuity is section 6. $\square$
 
 *Proof of Corollary 1.2.* By II.A Lemma 8.8's proof, $|dt\,dx| = c\,x_I^{-8}\rho_+^{-5}\rho_K^{-1}\mu_b$ near $\Omega$
 with $c$ smooth and positive, so $L^2(|dt\,dx|) = \rho_I^2\rho_+^{5/2}\rho_K^{1/2}L^2(\mu_b)$ and
@@ -750,7 +761,9 @@ $-\aleph$.
 (1-\chi_{\epsilon/2})u^\epsilon_{\mathrm{ini}}+P_0^{-1}(\cdots)$ need $P_\epsilon = P_0$ on the support of the second
 term. That support is controlled by uniqueness on the slabs, whose faces are level sets of $t^\flat$, not of $t_*$
 ($t^\flat\ge C't_*$ only), and $\chi_0 = 1$ only on $[0,1]$ leaves no room at the edge. Here the cut-offs are functions
-of $t^\flat$ with $\chi_0 = 1$ on $[0,\frac32]$ (sections 2.6, 2.9).
+of $t^\flat$ with $\chi_0 = 1$ on $[0,\frac32]$ (sections 2.6, 2.9). The identity can also be rescued as II.F Theorem
+8.1, Step 2, does, by the domain of dependence for $P_0$ from $\{t_*>1/\epsilon\}$; the finding concerns the argument as
+written, which rests on slab uniqueness alone.
 
 (F'5) *The domain of Theorem 10.1.* The source applies Theorem 10.1, stated on $\Omega = \{t_*\ge1\}$, to functions on
 $\Omega_*$, noting $\Omega_*\subset\Omega$. The norms on $\Omega$ and $\Omega_*$ are quotient norms over different sets
@@ -796,8 +809,10 @@ $\alpha_+<\alpha_I-\frac12$ needs $\epsilon_+>\epsilon_I$ (Remark 7.3; for Part 
 
 (b) II.E Propositions 4.4 and 5.6 (b) are tame estimates whose proofs extend the source term across the final face $\{r =
 r_0\}$, resp. $\{r = a\}$, by "the minimal extension", which is minimal for one norm only. With the order constant and a
-nonnegative integer near $\{r\le r_0\}$, which is the case for the orders used in Theorem 6.1 and here (Lemma 2.3), the
-extension $E$ of Lemma 2.5 serves at every level at once, and the proofs go through with it; the source term's extension
+nonnegative integer near $\{r\le r_0\}$, which is the case for the orders used here (Lemma 2.3), the extension $E$ of
+Lemma 2.5 serves at every level at once, and the proofs go through with it; for other admissible or slab orders the
+tame bounds are not proved, and II.E now states (6.2), (4.4) and (5.6) under that hypothesis (D212: the eighty-eighth
+verifier's Minor 3); the source term's extension
 across the time-final face of a slab is a restriction from a larger slab wherever the propositions are applied (II.E
 Theorem 6.1 (A), section 4 here, II.F Step 0). This is recorded in II.E (D209).
 
@@ -810,3 +825,16 @@ Theorem 6.1 (A), section 4 here, II.F Step 0). This is recorded in II.E (D209).
 and (S10) for Lemma 2.4.
 
 The earlier parts are cited as in the header.
+
+### 8.4 The verifier's findings, and the repairs (D212)
+
+The eighty-eighth verifier read this part line by line, re-derived the density identity of Corollary 1.2, the margins of
+Lemma 2.3 and the constants of section 5 by machine, and confirmed (F'1)-(F'12) at source. One major finding: Theorem 1.1
+claimed uniqueness in $H^{s',(2\alpha_I,\beta_+,\beta_K)}_{e3b}$ for every $s'$, while Lemma 2.2 needs the smallness of
+II.E Proposition 3.4 (i), whose $d_0$ depends on $s'$ and is not implied by $\|P-P_0\|_{(0;d)}<\epsilon_0$, and for $s'$
+far below $-d$ the product $Pu$ is not defined. The class is restricted to $s'\ge s_{\mathrm u} = \inf\mathsf s-2$,
+which is all the proof uses, and that smallness is added to section 3.1. One minor finding, on (E14): the extension of
+Lemma 2.5 needs the order constant and integer near $\{r\le r_0\}$, which holds for the orders used here and not for
+every admissible order; II.E now states its tame bounds under that hypothesis, and section 8.2 (b) says so. Two notes:
+(F'4) records that the source's identity can also be rescued by the domain of dependence, and Lemma 2.2's reference to
+Lemma 2.6 (a) is marked as not circular.

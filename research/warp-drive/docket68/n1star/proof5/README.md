@@ -26,8 +26,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
-| II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | verified (D209) |
-| II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | written (D210) |
+| II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | verified (D212) |
+| II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | verified (D212) |
 | II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | written (D211) |
 | II.G' | [Hin26c] 13 | improving decay at iota+ and K+ | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
@@ -362,7 +362,9 @@ uniqueness theorem of Bär, Ginoux and Pfäffle (READ) with explicit monotone fu
 [0C] statements, re-read at source. Seating them brought out four more, repaired: the slab and the comparison region of
 Lemma 6.3, the starting time of the iteration in Proposition 7.4 (2), a modified metric in Lemma 7.3 (b) that was not
 close to $g_0$ near $K^+$, and Theorem 10.1 itself, now stated and proved on $\Omega_*$, where the next part uses it
-((F13)). Findings (F10)-(F14) are added. The eight nits are seated too; the repairs await the next reader.
+((F13)). Findings (F10)-(F14) are added. The eight nits are seated too. The eighty-eighth verifier read those repairs
+and confirmed each (D212); its two further minor findings, a time cut-off in Lemma 6.3 that was not scaled and the strip
+$0\le\mathrm{Im}\,\sigma< -\gamma_+$ in Lemma 6.4, and four notes are repaired, and await the next reader.
 
 ## Part II.F'
 
@@ -377,7 +379,10 @@ the time function $t^\flat$, whose level sets carry the slabs, not of $t_*$; and
 across $\{r = r_0\}$ that is bounded at every order of b-regularity at once, constructed where the order is a constant
 integer (recorded in Part II.E as (E14)). Findings (F'1)-(F'12), among them that the source's statement on $\Omega$, for
 operators whose principal part is that of the Kerr wave operator, is not proved here, and that uniformity in $P_0$ stays
-open until a later part needs it. Written (D210); not yet read by a verifier.
+open until a later part needs it. Written (D210). Read by the eighty-eighth verifier, which confirmed (F'1)-(F'12) and
+the constants by machine; its one major finding, a uniqueness class too large for the smallness assumed, is repaired by
+restricting the class to $s'\ge\inf\mathsf s-2$, and one minor finding and two notes are seated (D212). Verified; the
+repairs await the next reader.
 
 ## Part II.G
 

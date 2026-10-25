@@ -1,17 +1,18 @@
 # Part II.F. The normal operator at future timelike infinity, and forward solutions on e3b-spaces, at n = 4
 
-*Status.* Written out in full (D208) and read by an independent verifier (verifier 87, D209): no major finding; its seven
-minor findings and eight notes are repaired here (section 9.4), and Theorem 8.1 is now stated and proved on $\Omega_*$,
-the domain on which the later parts use it. The part is labelled verified; it is not labelled proved until a verifier has
-read the repairs. This part proves, at spatial dimension $n = 4$, [Hin26c] section 10 (pp. 200-227): Theorem 10.1, which
-solves forward problems for the stationary model $P_0$ on edge-3b-Sobolev spaces with decay at $\iota^+$ and the loss
-$\aleph$ at $K^+$, and the ingredients: the normal operator $N_{\iota^+}(P_0)$ at $\iota^+$ and its Mellin-transformed
-family (Definition 10.3, Lemma 10.5, Proposition 10.6, Lemmas 10.7-10.10), forward solutions of $N_{\iota^+}(P_0)$
-(Proposition 10.12), and forward solutions of the modified operator $P_+$ (Definition 10.13, Proposition 10.14). The
-source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.B (`PART-I-B-HIGHENERGY.md`) is cited as
-I.B, Part I.C (`PART-I-C-LOWENERGY.md`) as I.C, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part II.A$'$ as II.A$'$, Part
-II.B as II.B, Part II.C as II.C, Part II.D as II.D, Part II.D$'$ as II.D$'$ and Part II.E (`PART-II-E-ENERGY.md`) as
-II.E.
+*Status.* Written out in full (D208) and read by an independent verifier (verifier 87, D209): no major finding; its
+seven minor findings and eight notes are repaired here (section 9.4), and Theorem 8.1 is now stated and proved on
+$\Omega_*$, the domain on which the later parts use it. The eighty-eighth verifier read those repairs and confirmed each
+(D212); it found two further minor gaps, in Lemmas 6.3 and 6.4, and four notes, repaired here (section 9.5). The part is
+labelled verified; it is not labelled proved until a verifier has read the D212 repairs. This part proves, at spatial
+dimension $n = 4$, [Hin26c] section 10 (pp. 200-227): Theorem 10.1, which solves forward problems for the stationary
+model $P_0$ on edge-3b-Sobolev spaces with decay at $\iota^+$ and the loss $\aleph$ at $K^+$, and the ingredients: the
+normal operator $N_{\iota^+}(P_0)$ at $\iota^+$ and its Mellin-transformed family (Definition 10.3, Lemma 10.5,
+Proposition 10.6, Lemmas 10.7-10.10), forward solutions of $N_{\iota^+}(P_0)$ (Proposition 10.12), and forward solutions
+of the modified operator $P_+$ (Definition 10.13, Proposition 10.14). The source is [Hin26c] = P. Hintz,
+arXiv:2606.28008v1 (printed page numbers). Part I.B (`PART-I-B-HIGHENERGY.md`) is cited as I.B, Part I.C
+(`PART-I-C-LOWENERGY.md`) as I.C, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part II.A$'$ as II.A$'$, Part II.B as II.B,
+Part II.C as II.C, Part II.D as II.D, Part II.D$'$ as II.D$'$ and Part II.E (`PART-II-E-ENERGY.md`) as II.E.
 
 *Method.* The dimension enters the source's argument through the constant $c := \frac{n-1}2$ of the stationary model's
 normal form, $\frac32$ here (II.C (1.1)), and through the densities, which shift weights by $\frac n2 = 2$ and
@@ -243,21 +244,21 @@ $p,q$; a set $A$ is past compact if $A\cap J^-(p)$ is compact for every $p$, and
 $C^1$ reparametrisation extends continuously to an end point (p. 18); the Cauchy development $D(S)$ of $S$ is the set of
 points through which every inextendible causal curve meets $S$ (Definition 1.3.5, p. 22), and the causal future of a
 Cauchy hypersurface is past compact (p. 22); Lemma A.5.9 (p. 176): for an acausal hypersurface $S$, $D(S)$ is an open,
-causally compatible, globally hyperbolic subset; and $S$ is a Cauchy hypersurface of $D(S)$ (proof of Lemma A.5.6, p.
-174). $P$ or $-P$ is normally hyperbolic in the sense of [BGP] section 1.5, its principal part being $\mp$ the
+causally compatible, globally hyperbolic subset; and $S$ is a Cauchy hypersurface of $D(S)$ (end of the proof of Lemma
+A.5.9, p. 176). $P$ or $-P$ is normally hyperbolic in the sense of [BGP] section 1.5, its principal part being $\mp$ the
 d'Alembertian of $g$, and $Pw = 0$ if and only if $-Pw = 0$. Working on each connected component, we may assume $X$
 connected.
 
 If $\{\tau>c\}$ is empty there is nothing to prove. Let $p\in X$ with $\tau(p)>c$, and $\gamma$ a past directed causal
 curve from $p$, past inextendible in $X$, along which $\tau>c$. Then $\gamma\subset L_p$. $\tau$ is strictly monotone
-along $\gamma$, so it is a piecewise $C^1$ parameter on $\gamma$, in which the tangent lies in $\{V\
-\text{causal}:d\tau(V) = -1\}$ over $L_p$; this set is compact, as a sequence in it with $|V_j|_h\to\infty$, $h$ a
-Riemannian metric, would have a normalised limit $V$, causal with $|V|_h = 1$ and $d\tau(V) = 0$. So $\gamma$ is
-Lipschitz in $\tau$ for the distance of $h$, and as $\tau$ decreases to $\inf_\gamma\tau$ it converges in the compact set
-$L_p$: $\gamma$ extends continuously to its past end point, a contradiction. Hence $\tau$ reaches $c$ along every past
-inextendible causal curve from $p$, and every inextendible causal curve through $p$ meets $S := \{\tau = c\}$, a smooth
-hypersurface ($d\tau\ne0$) which is acausal ($\tau$ is strictly increasing along causal curves). So $\{\tau>c\}\subset D
-:= D(S)$.
+along $\gamma$, so it is a piecewise $C^1$ parameter on $\gamma$, in which, the curve being run towards the future, the
+tangent lies in $\{V\ \text{causal}:d\tau(V) = 1\}$ over $L_p$; this set is compact, as a sequence in it with
+$|V_j|_h\to\infty$, $h$ a Riemannian metric, would have a normalised limit $V$, causal with $|V|_h = 1$ and $d\tau(V) =
+0$. So $\gamma$ is Lipschitz in $\tau$ for the distance of $h$, and as $\tau$ decreases to $\inf_\gamma\tau$ it
+converges in the compact set $L_p$: $\gamma$ extends continuously to its past end point, a contradiction. Hence $\tau$
+reaches $c$ along every past inextendible causal curve from $p$, and every inextendible causal curve through $p$ meets
+$S := \{\tau = c\}$, a smooth hypersurface ($d\tau\ne0$) which is acausal ($\tau$ is strictly increasing along causal
+curves). So $\{\tau>c\}\subset D := D(S)$.
 
 $D$ is globally hyperbolic with Cauchy hypersurface $S$. A point $q\in D$ with $\tau(q)>c$ lies in $J^+_D(S)$: an
 inextendible timelike curve in $D$ through $q$ (the maximal integral curve of $-\nabla\tau$, which has no zeros) meets
@@ -1892,10 +1893,14 @@ $\lambda^{\gamma}x_I^{2\gamma}$). So we may replace $g$ by $D_\lambda g$, suppor
 $\tilde N$ by its rescaling $\tilde N_\lambda$, equal to $N_{\iota^+}(P_0)$ on $\{r>\frac\lambda2\}$. By the support
 argument above, $\tilde u$ vanishes on $\{t_*<T'\}$ and on $\{t_*+2r<T'+4\lambda\}$. Let $\psi\in C^\infty(\mathbb R)$
 vanish on $(-\infty,\frac12]$ and equal 1 on $[1,\infty)$, $\tilde\psi\in C^\infty(\mathbb R)$ equal 1 on
-$(-\infty,T'+2\lambda]$ and 0 on $[T'+2\lambda+1,\infty)$, and on $\Omega$ put
-$$P_\lambda := P_0+\psi(r/\lambda)\tilde\psi(t_*)\big(N_{\iota^+}(P_0)-P_0\big).$$
-The second term is supported in $\{r\ge\frac\lambda2,\ t_*\le T'+2\lambda+1\}$, where $\rho_K = r/(t_*+r)$ is bounded
-below uniformly in $\lambda\ge1$ ($T$ being fixed): near $\mathscr I^+\cup(\iota^+)^\circ$, away from $K^+$. There the
+$(-\infty,T+2]$ and 0 on $[T+3,\infty)$, and on $\Omega$ put
+$$P_\lambda := P_0+\psi(r/\lambda)\tilde\psi(t_*/\lambda)\big(N_{\iota^+}(P_0)-P_0\big).$$
+Both cut-offs are scaled with $\lambda$, so their b-derivatives are bounded uniformly in $\lambda$: $t_*\partial_{t_*}
+\tilde\psi(t_*/\lambda) = (t_*/\lambda)\tilde\psi'(t_*/\lambda)$ with $t_*/\lambda\le T+3$ on the support of
+$\tilde\psi'$, and likewise for $\psi(r/\lambda)$ (D212: the eighty-eighth verifier's Minor 1; an unscaled $\tilde
+\psi(t_*)$ has b-derivatives of size $\lambda$). The second term is supported in $\{r\ge\frac\lambda2,\ t_*\le
+(T+3)\lambda\}$, where $\rho_K = r/(t_*+r)\ge(2T+7)^{-1}$, uniformly in $\lambda\ge1$ ($T$ being fixed): near $\mathscr
+I^+\cup(\iota^+)^\circ$, away from $K^+$. There the
 terms (i)-(iv) of the proof of Lemma 1.2, times $t_*^{-2}$, are $\tau^3R^{-2}$ times polynomials of degree at most 2 in
 the e3b-fields $\tau\partial_\tau$, $x_I\partial_{x_I}$, $x_I\partial_\omega$ (II.A section 2.4) with coefficients
 bounded with all their b-derivatives, uniformly in $\lambda$; and $\tau^3R^{-2} = x_I^2\rho_+^2(t_*+r)^{-1}$ for the e3b
@@ -1908,16 +1913,17 @@ class $((d_0;0),(2\ell_I,\ell_+,\ell_K))$ for every $d_0$, with $\|P_\lambda-P_0
 its metric $g_\lambda$ is in $\mathcal G$ with $\|g_\lambda-g_0\|\le C\lambda^{-(1-\ell_+)}$. Fix $\lambda$ so large that
 $\frac\lambda2\ge r'_0+1$ and $P_\lambda$ satisfies the smallness hypotheses of II.E section 1.1. Then $t^\flat$ is a
 time function for $g_\lambda$ (II.C Lemma 3.2 (2)), and Lemma 1.4 (a) applies to $g_\lambda$, whose dual metric is
-$G_0+\psi(r/\lambda)\tilde\psi(t_*)(\bar G-G_0)$.
+$G_0+\psi(r/\lambda)\tilde\psi(t_*/\lambda)(\bar G-G_0)$.
 
 Let $T_0 := C'T'\ge8$ and $T_1 := T'+2\lambda$. $D_\lambda g$ is supported in $\{t_*\ge T'\}\subset\{t^\flat\ge T_0\}$
 (II.C Lemma 3.2 (b)) and compactly in $M^\circ$, so it lies in every weighted space on the slab $\Omega' :=
 \Omega_{T_0,T_1}$, and II.E Proposition 3.4 (ii), with the constant (slab) order $s'$ and $\alpha :=
 \gamma-2<-\frac12+\bar S$, gives the forward solution $u_\lambda\in H^{s',2\alpha}(\Omega')^{\bullet,-}$ of $P_\lambda
 u_\lambda = D_\lambda g$. Let $X := \Omega^\circ\cap\{t_*<T_1,\ t^\flat<T_1,\ r>r_0\}$, on which $u_\lambda$ is defined,
-and $w := \tilde u-u_\lambda$ on $X$. On $X$, $P_\lambda\tilde u = D_\lambda g$: where $r\ge\lambda$, $P_\lambda =
-N_{\iota^+}(P_0) = \tilde N_\lambda$, as $t_*<T'+2\lambda$; where $r<\lambda$, $t_*+2r<T'+4\lambda$, so that $\tilde u =
-0 = D_\lambda g$. So $P_\lambda w = 0$ on $X$, and $\mathrm{supp}\,w\subset\{t^\flat\ge T_0\}$ ($\tilde u$ vanishes on
+and $w := \tilde u-u_\lambda$ on $X$. On $X$, $P_\lambda\tilde u = D_\lambda g$: the open sets $X\cap\{r>\lambda\}$
+and $X\cap\{t_*+2r<T'+4\lambda\}$ cover $X$, as $t_*<T'+2\lambda$ on $X$; on the first, $P_\lambda = N_{\iota^+}(P_0) =
+\tilde N_\lambda$ ($\tilde\psi(t_*/\lambda) = 1$ there), and on the second $\tilde u$ and $D_\lambda g$ both vanish. So
+$P_\lambda w = 0$ on $X$, and $\mathrm{supp}\,w\subset\{t^\flat\ge T_0\}$ ($\tilde u$ vanishes on
 $\{t_*<T'\}\supset\{t^\flat<T_0\}$, and $u_\lambda$ by its space). For $p\in X$ with $t^\flat(p)>c := \frac12T_0$,
 $J^-_X(p)\cap\{t^\flat\ge c\}$ lies in
 $$L_p := \{c\le t^\flat\le t^\flat(p),\ t_*\le t_*(p),\ B\le B(p),\ r\ge\min(r(p),r^\natural)\}$$
@@ -1961,10 +1967,10 @@ the uniqueness.
 
 *Support (Paley-Wiener).* The solution map $f\mapsto u$ is bounded by (6.5). The functions $f\in
 C^\infty_c((0,\tau_0)\times(\iota^+)^\circ)$ are dense in the space of (6.5) on $[0,\tau_0]\times\iota^+$: the dilations
-$f\mapsto f(\lambda\cdot,\cdot)$, $\lambda\downarrow1$, are translations in $t$, strongly continuous on (6.3) as $\mathsf
-s$ is dilation-invariant, and move the support into $\{\tau\le\tau_0/\lambda\}$; then multiply approximations in
-$C^\infty_c((0,\infty)\times(\iota^+)^\circ)$ by a cut-off in $\tau$ equal to 1 on $[0,\tau_0/\lambda]$ and supported in
-$[0,\tau_0)$. As $\{\mathrm{supp}\,u\subset\{\tau\le\tau_0\}\}$ is a closed condition, it suffices to take $f\in
+$f\mapsto f(\lambda\cdot,\cdot)$, $\lambda\downarrow1$, are translations in $t$, strongly continuous on (6.3) as
+$\mathsf s$ is dilation-invariant, and move the support into $\{\tau\le\tau_0/\lambda\}$; then multiply approximations
+in $C^\infty_c((0,\infty)\times(\iota^+)^\circ)$ by a cut-off in $\tau$ equal to 1 on $[0,\tau_0/\lambda]$ and supported
+in $[0,\tau_0)$. As $\{\mathrm{supp}\,u\subset\{\tau\le\tau_0\}\}$ is a closed condition, it suffices to take $f\in
 C^\infty_c$, $\mathrm{supp}\,f\subset[\tau_1,\tau_-]\times K$ with $0<\tau_1<\tau_-<\tau_0$, $K\subset(\iota^+)^\circ$
 compact. Then $F(\sigma) := \mathcal M(\tau^{-2}f)(\sigma)\in C^\infty_c(K)$ is entire, and for
 $\mathrm{Im}\,\sigma\ge-\gamma_+$ and $L\in\mathbb N_0$, as $\mathcal M((1+(\tau D_\tau)^2)^Lg) = (1+\sigma^2)^L\mathcal
@@ -1976,19 +1982,20 @@ defined by (6.6) with $N^0(\sigma)^{-1}$, is holomorphic on
 $\{\mathrm{Im}\,\sigma>\max(-\gamma_I,-1-\beta_+)\}\supset\{\mathrm{Im}\,\sigma\ge-\gamma_+\}$. There is $N_1$ with
 $$|\langle(\mathcal Mu)(\sigma),\phi\rangle|\le C\langle\sigma\rangle^{N_1}\|F(\sigma)\|_{H^{N_1}},\qquad\mathrm{Im}\,
 \sigma\ge-\gamma_+:$$
-for $|\sigma|\ge\sqrt2h_0^{-1}$, $\sigma = h^{-1}z$ with $z$ in one of the families (3.2) (section 3.1), and (3.4) bounds
-$(\mathcal Mu)(\sigma)$ in $H^{\mathbf o}$ by $h^2F(\sigma)$ in $Y_{\mathbf o}$; on compact subsets of $(\iota^+)^\circ$
-the semiclassical norms of $H^{\mathbf o}$ and $Y_{\mathbf o}$ are bounded above and below by standard Sobolev norms
-times powers of $h$ (the orders are bounded, and the weights are bounded above and below there), and $\langle(\mathcal
-Mu)(\sigma),\phi\rangle$ only sees $\mathrm{supp}\,\phi$; for $|\sigma|\le\sqrt2h_0^{-1}$,
+for $|\sigma|\ge\sqrt2h_0^{-1}$, $\sigma = h^{-1}z$ with $z$ in one of the families (3.2) (section 3.1), and (3.4)
+bounds $(\mathcal Mu)(\sigma)$ in $H^{\mathbf o}$ by $h^2F(\sigma)$ in $Y_{\mathbf o}$; on compact subsets of
+$(\iota^+)^\circ$ the semiclassical norms of $H^{\mathbf o}$ and $Y_{\mathbf o}$ are bounded above and below by standard
+Sobolev norms times powers of $h$ (the orders are bounded, and the weights are bounded above and below there), and
+$\langle(\mathcal Mu)(\sigma),\phi\rangle$ only sees $\mathrm{supp}\,\phi$; for $|\sigma|\le\sqrt2h_0^{-1}$,
 $\mathrm{Im}\,\sigma\ge-\gamma_+$, a compact set, use the continuity of Corollary 5.9. Fix $L$ with $N_1-2L<-1$. By
 Mellin inversion, $\langle u(\tau,\cdot),\phi\rangle = \frac1{2\pi}\int_{\mathrm{Im}\,\sigma =
 -\gamma}\tau^{i\sigma}\langle(\mathcal Mu)(\sigma),\phi\rangle d\sigma$ for $\gamma = \gamma_+$; the integrand is
 holomorphic on $\{\mathrm{Im}\,\sigma\ge-\gamma_+\}$ and $O(\langle\sigma\rangle^{N_1-2L})$ uniformly on
 $\{|\mathrm{Re}\,\sigma|\ge2\}$ in each horizontal strip ($|1+\sigma^2|\ge\frac12|\sigma|^2$ there), so the contour may
-be moved to $\mathrm{Im}\,\sigma = \gamma$ for every $\gamma\ge2$. There $|\tau^{i\sigma}| = \tau^{-\gamma}$, and for
-$\tau>\tau_-$ the integral is at most $C(\tau_-/\tau)^\gamma\to0$ as $\gamma\to\infty$. So $\langle
-u(\tau,\cdot),\phi\rangle = 0$ for $\tau>\tau_-$, for every $\phi$: $\mathrm{supp}\,u\subset\{\tau\le\tau_-\}$. $\square$
+be moved to $\mathrm{Im}\,\sigma = \gamma$ for every $\gamma\ge\max(2,-\gamma_+)$ (D212). There $|\tau^{i\sigma}| =
+\tau^{-\gamma}$, and for $\tau>\tau_-$ the integral is at most $C(\tau_-/\tau)^\gamma\to0$ as $\gamma\to\infty$. So
+$\langle u(\tau,\cdot),\phi\rangle = 0$ for $\tau>\tau_-$, for every $\phi$: $\mathrm{supp}\,u\subset\{\tau\le\tau_-\}$.
+$\square$
 
 ### 6.5 A support lemma, and the proof of Proposition 6.2 (2)
 
@@ -2026,23 +2033,29 @@ $\mathrm{supp}\,f$,
 $$\|F(\sigma)\|_{H^{m-1,(2\gamma_I+2,\gamma_{\mathrm{cf}}-2)}_{0,b}}\le C\langle\sigma\rangle^{|m-1|}T^{-\mathrm{Im}\,
 \sigma},\qquad\mathrm{Im}\,\sigma\ge0.$$
 For $\mathrm{Im}\,\sigma\ge-\gamma_+$, $W(\sigma)\in\mathcal X^m$, and Proposition 5.1 (invertibility on $\mathcal X^m$;
-any order) gives $W(\sigma) = N^0(\sigma)^{-1}F(\sigma)$. Let $\phi\in C^\infty_c((\iota^+)^\circ)$. For
-$|\sigma|\ge\sqrt2h_0^{-1}$, $\mathrm{Im}\,\sigma\ge0$, write $\sigma = h^{-1}z$ with $z$ in one of the families (3.2)
-(section 3.1). At this fixed $h$, $W(\sigma)\in H^{\mathbf o}$ with the fibre order $m$ (any order is allowed there) and
-the sf-orders of section 3.1, and (3.4) gives $\|W(\sigma)\|_{\mathbf o}\le C\|h^2F(\sigma)\|_{Y_{\mathbf o}}$; with the
-comparison of norms and the compact support of $\phi$ in $(\iota^+)^\circ$, $|\langle W(\sigma),\phi\rangle|\le
-Ch^{-K}\|F(\sigma)\|_{H^{m-1,(2\gamma_I+2,\gamma_{\mathrm{cf}}-2)}_{0,b}}$. On the compact set
-$\{|\sigma|\le\sqrt2h_0^{-1},\ \mathrm{Im}\,\sigma\ge0\}$ use the continuity of Corollary 5.9. Hence
-$$|\langle W(\sigma),\phi\rangle|\le C\langle\sigma\rangle^{N_1}T^{-\mathrm{Im}\,\sigma},\qquad\mathrm{Im}\,\sigma\ge0.$$
-In $t := -\log\tau$, the Mellin transform (1.3) of the compactly supported distribution $\tau\mapsto\langle
-w(\tau,\cdot),\phi\rangle$ is its Fourier transform $\int e^{i\sigma t}\langle w,\phi\rangle\,dt$, as $\tau^{-i\sigma} =
-e^{i\sigma t}$; it is entire and, the support lying in $t\in[-\log\tau_2,-\log\tau_1]$, bounded by
-$C\langle\sigma\rangle^{N_1}e^{(\log\tau_1)\mathrm{Im}\,\sigma}$ for $\mathrm{Im}\,\sigma\le0$ ($|e^{i\sigma t}| =
-e^{-t\,\mathrm{Im}\,\sigma}$, largest at $t = -\log\tau_1$). With the last bound for $\mathrm{Im}\,\sigma\ge0$ it is
-bounded by $C\langle\sigma\rangle^{N_1}e^{H(\mathrm{Im}\,\sigma)}$, $H(\eta) := \sup\{-t\eta:t\in[\log T,-\log\tau_1]\}$;
-this is [Hö83]'s supporting function of that interval for the transform $\sigma\mapsto\hat u(-\sigma)$, $\hat u(\zeta) =
-\int e^{-it\zeta}u\,dt$. By the Paley-Wiener-Schwartz theorem ([Hö83] Theorem 7.3.1) the support lies in $\{t\ge\log T\}
-= \{t_*\ge T\}$. As $\phi$ is arbitrary, $\mathrm{supp}\,w\subset\{t_*\ge T\}$. $\square$
+any order) gives $W(\sigma) = N^0(\sigma)^{-1}F(\sigma)$. Let $\phi\in C^\infty_c((\iota^+)^\circ)$ and $\eta_0 :=
+\max(0,-\gamma_+)$. For $|\sigma|\ge\sqrt2h_0^{-1}$, $\mathrm{Im}\,\sigma\ge\eta_0$, write $\sigma = h^{-1}z$ with $z$
+in one of the families (3.2) (section 3.1). At this fixed $h$, $W(\sigma)\in H^{\mathbf o}$ with the fibre order $m$
+(any order is allowed there) and the sf-orders of section 3.1, and (3.4) gives $\|W(\sigma)\|_{\mathbf o}\le
+C\|h^2F(\sigma)\|_{Y_{\mathbf o}}$; with the comparison of norms and the compact support of $\phi$ in $(\iota^+)^\circ$,
+$|\langle W(\sigma),\phi\rangle|\le Ch^{-K}\|F(\sigma)\|_{H^{m-1,(2\gamma_I+2,\gamma_{\mathrm{cf}}-2)}_{0,b}}$. On the
+compact set $\{|\sigma|\le\sqrt2h_0^{-1},\ \mathrm{Im}\,\sigma\ge\eta_0\}$ use the continuity of Corollary 5.9. Hence
+$|\langle W(\sigma),\phi\rangle|\le C\langle\sigma\rangle^{N_1}T^{-\mathrm{Im}\,\sigma}$ for $\mathrm{Im}\,\sigma\ge
+\eta_0$. In the strip $0\le\mathrm{Im}\,\sigma\le\eta_0$, empty unless $\gamma_+<0$, where the families (3.2) and the
+invertibility are not available, (6.7) alone gives $|\langle W(\sigma),\phi\rangle|\le C\langle\sigma\rangle^{|m|}
+\tau_2^{\mathrm{Im}\,\sigma}$, and $\tau_2^{\mathrm{Im}\,\sigma}$ and $T^{-\mathrm{Im}\,\sigma}$ are bounded above and
+below there. Taking $N_1\ge|m|$,
+$$|\langle W(\sigma),\phi\rangle|\le C\langle\sigma\rangle^{N_1}T^{-\mathrm{Im}\,\sigma},\qquad\mathrm{Im}\,\sigma\ge0$$
+(D212: the eighty-eighth verifier's Minor 2). In $t := -\log\tau$, the Mellin transform (1.3) of the compactly supported
+distribution $\tau\mapsto\langle w(\tau,\cdot),\phi\rangle$ is its Fourier transform $\int e^{i\sigma t}\langle
+w,\phi\rangle\,dt$, as $\tau^{-i\sigma} = e^{i\sigma t}$; it is entire and, the support lying in
+$t\in[-\log\tau_2,-\log\tau_1]$, bounded by $C\langle\sigma\rangle^{N_1}e^{(\log\tau_1)\mathrm{Im}\,\sigma}$ for
+$\mathrm{Im}\,\sigma\le0$ ($|e^{i\sigma t}| = e^{-t\,\mathrm{Im}\,\sigma}$, largest at $t = -\log\tau_1$). With the last
+bound for $\mathrm{Im}\,\sigma\ge0$ it is bounded by $C\langle\sigma\rangle^{N_1}e^{H(\mathrm{Im}\,\sigma)}$, $H(\eta)
+:= \sup\{-t\eta:t\in[\log T,-\log\tau_1]\}$; this is [Hö83]'s supporting function of that interval for the transform
+$\sigma\mapsto\hat u(-\sigma)$, $\hat u(\zeta) = \int e^{-it\zeta}u\,dt$. By the Paley-Wiener-Schwartz theorem ([Hö83]
+Theorem 7.3.1) the support lies in $\{t\ge\log T\} = \{t_*\ge T\}$. As $\phi$ is arbitrary,
+$\mathrm{supp}\,w\subset\{t_*\ge T\}$. $\square$
 
 *Proof of Proposition 6.2 (2).* The proof uses only the integer order $s'' := \lfloor\inf\mathsf s\rfloor$, and not part
 (1).
@@ -2301,9 +2314,9 @@ $$\Theta := t_*+h(r),\qquad h(r) := \tfrac{19}{10}\int_0^r\psi_h(r'/t_{*,0})\,dr
 $\Theta$ is non-decreasing along future causal curves of $g_{\mathrm{aux}}$ for $t_{*,0}$ large. Where $\psi_h = 0$,
 $d\Theta = dt_*$ (Lemma 1.4 (a)). Where $r\ge t_{*,0}/32$, $d\Theta = dt_*+h'dr$ with $h'\in[0,\frac{19}{10}]$, so $\bar
 G(d\Theta) = -h'(2-h')\le-\frac1{10}h'$, while $G_0(d\Theta)\le G_0(dt_*)-h'(2-h')+Cr^{-2}h'(2+h')<0$ for $r$ large, by
-II.B Lemma 1.1 ($dt_*$ is past timelike, and $g_0^{-1}-\bar g^{-1}\in r^{-2}C^\infty(M;S^2\mathcal T)$); $d\Theta$, which
-deforms continuously to $dt_*$ through such covectors, is past causal for $G_0$ and $\bar G$, hence for $G_\theta$ (the
-cone argument of Lemma 1.4). For $r\ge t_{*,0}/16$, $h(r) = \frac{19}{10}r-\kappa t_{*,0}$ with $\kappa :=
+II.B Lemma 1.1 ($dt_*$ is past timelike, and $g_0^{-1}-\bar g^{-1}\in r^{-2}C^\infty(M;S^2\mathcal T)$); $d\Theta$,
+which deforms continuously to $dt_*$ through such covectors, is past causal for $G_0$ and $\bar G$, hence for $G_\theta$
+(the cone argument of Lemma 1.4). For $r\ge t_{*,0}/16$, $h(r) = \frac{19}{10}r-\kappa t_{*,0}$ with $\kappa :=
 \frac{19}{10}\int_0^{1/16}(1-\psi_h)\in[0,\frac{19}{160}]$. On $\mathrm{supp}\,f_1\subset\{R\ge1,\ t_*\ge t_{*,0}\}$,
 $r\ge t_*\ge t_{*,0}$, so $\Theta\ge(\frac{29}{10}-\kappa)t_{*,0} =: a$; on $\{t_*<2t_{*,0},\ r<t_{*,0}/4\}$,
 $\Theta<(2+\frac{19}{40}-\kappa)t_{*,0}<a$. Let $U'$ be the interior of the slab $\Omega'$ (II.E section 1.1), on which
@@ -2312,18 +2325,17 @@ and $\mathrm{supp}\,u_{\mathrm{aux}}\subset\{t^\flat\ge T_0\}$, with $T_0>2$ (en
 $t^\flat(p)>c := \frac12T_0$, $J^-_X(p)\cap\{t^\flat\ge c\}$ lies in
 $$L_p := \{c\le t^\flat\le t^\flat(p),\ \Theta\le\Theta(p),\ B\le B(p),\ r\ge\min(r(p),r^\natural)\},$$
 compact ($B$ bounds $t_*$ and $r$) and contained in $X$ ($t_*\ge t^\flat\ge c>1$). By Lemma 1.3, $u_{\mathrm{aux}} = 0$
-on $X$, which contains $U'\cap\{t_*<2t_{*,0},\ r<t_{*,0}/4\}$; on the rest of that set $t^\flat<T_0$, and
-$u_{\mathrm{aux}} = 0$ by its support. So on $\{t_*<2t_{*,0}\}$, $u_{\mathrm{aux}}$ solves $P_+u_{\mathrm{aux}} = f_1$,
-as $P_{\mathrm{aux}} = P_+$ on $\{t_*\le2t_{*,0},\ r\ge t_{*,0}/8\}$. Its order is $\mathsf s$; on $\{R\ge1\}$ that is
-$\mathsf s'$. On $\{t_{*,0}/4\le r,\ R\le1,\ t_*\le2t_{*,0}\}$, an interior region where $P_+ = N$ has smooth
-coefficients, we upgrade to the order $\mathsf s'$ by real principal type propagation (II.A$'$; in the interior
-b-regularity is regularity, and the $k$ b-derivatives are handled by the commuted systems of II.D$'$ Lemmas 2.1 and 2.5):
-$\mathsf s'$ is non-increasing along the future flow (Lemma 7.3 (b)), $P_+u_{\mathrm{aux}} = f_1\in H^{(\mathsf
-s'-1;k)}$, there are no radial points over the interior, and every backward null bicharacteristic from a point of this
-region reaches, within $\{t_*\le2t_{*,0}\}$, either $\{r<t_{*,0}/4\}$ (where $u_{\mathrm{aux}} = 0$) or $\{R\ge1\}$
-(where it is of order $\mathsf s = \mathsf s'$): radially outgoing ones keep $t_*$ and decrease $r$ backward, the others
-leave every compact subset of $\{t_*\ge t_{*,0}\}$ backward. With $\chi_{t_*}$ equal to 1 for $t_*\le\frac32t_{*,0}$ and
-0 for $t_*\ge2t_{*,0}$, $u_{\mathrm{mid}} := \chi_{t_*}u_{\mathrm{aux}}\in\dot H^{(\mathsf
+on $X$, which contains $U'\cap\{t_*<2t_{*,0},\ r<t_{*,0}/4\}$. So on $\{t_*<2t_{*,0}\}$, $u_{\mathrm{aux}}$ solves
+$P_+u_{\mathrm{aux}} = f_1$, as $P_{\mathrm{aux}} = P_+$ on $\{t_*\le2t_{*,0},\ r\ge t_{*,0}/8\}$. Its order is $\mathsf
+s$; on $\{R\ge1\}$ that is $\mathsf s'$. On $\{t_{*,0}/4\le r,\ R\le1,\ t_*\le2t_{*,0}\}$, an interior region where $P_+
+= N$ has smooth coefficients, we upgrade to the order $\mathsf s'$ by real principal type propagation (II.A$'$; in the
+interior b-regularity is regularity, and the $k$ b-derivatives are handled by the commuted systems of II.D$'$ Lemmas 2.1
+and 2.5): $\mathsf s'$ is non-increasing along the future flow (Lemma 7.3 (b)), $P_+u_{\mathrm{aux}} = f_1\in
+H^{(\mathsf s'-1;k)}$, there are no radial points over the interior, and every backward null bicharacteristic from a
+point of this region reaches, within $\{t_*\le2t_{*,0}\}$, either $\{r<t_{*,0}/4\}$ (where $u_{\mathrm{aux}} = 0$) or
+$\{R\ge1\}$ (where it is of order $\mathsf s = \mathsf s'$): radially outgoing ones keep $t_*$ and decrease $r$
+backward, the others leave every compact subset of $\{t_*\ge t_{*,0}\}$ backward. With $\chi_{t_*}$ equal to 1 for
+$t_*\le\frac32t_{*,0}$ and 0 for $t_*\ge2t_{*,0}$, $u_{\mathrm{mid}} := \chi_{t_*}u_{\mathrm{aux}}\in\dot H^{(\mathsf
 s';k),(2\gamma_I,\infty,\infty)}_{\mathrm{ebe};b}$ with norm $\le C_{t_{*,0}}\|f_0\|$ (near $\mathscr I^+$ by II.A Lemma
 6.1 and the identification of e3b- and ebe-spaces there), and
 $$f_2 := f_1-P_+u_{\mathrm{mid}} = -[P_+,\chi_{t_*}]u_{\mathrm{aux}}$$
@@ -2758,3 +2770,18 @@ the hypothesis gives only for $t_{*,0} = \tau_0^{-1}$; the construction is run a
 where it is not close to $g_0^{-1}$; it is localised to $\{R\ge\frac12\}$. (iv) Theorem 8.1 was stated on $\Omega$ but
 proved with the slabs of $\Omega_*$; it is stated and proved on $\Omega_*$, where Part II.F$'$ uses it, with
 $\tau_0<\frac12C'\tau_1$ ((F13)).
+
+### 9.5 The eighty-eighth verifier's findings, and the repairs (D212)
+
+The eighty-eighth verifier read the D209 repairs and confirmed each: Lemma 1.3 is a complete proof from the [BGP]
+statements it cites, Lemma 1.4 and its cone argument hold, and Theorem 8.1 on $\Omega_*$ and (F10)-(F14) check against
+the source. It found two further minor gaps and four notes. (1) Lemma 6.3 cut $P_\lambda$ off in time by $\tilde
+\psi(t_*)$, whose b-derivatives are of size $\lambda$, so the class bound $C_{d_0}\lambda^{-(1-\ell_+)}$ failed for
+$d_0\ge1$; the cut-off is now $\tilde\psi(t_*/\lambda)$, scaled as the spatial one is, and $\rho_K\ge(2T+7)^{-1}$ on the
+support. (2) Lemma 6.4 bounded $\langle W(\sigma),\phi\rangle$ on $\{\mathrm{Im}\,\sigma\ge0\}$ through the invertibility
+and the families (3.2), which are available on $\{\mathrm{Im}\,\sigma\ge-\gamma_+\}$ only, and nothing excludes
+$\gamma_+<0$. The bound is now proved that way on $\{\mathrm{Im}\,\sigma\ge\max(0,-\gamma_+)\}$ and from the support
+alone in the remaining strip, and in Proposition 6.2 (1) the contour is moved to $\mathrm{Im}\,\sigma = \gamma\ge\max(2,
+-\gamma_+)$. Of the notes: in Lemma 1.3 the tangent, with $\tau$ as parameter, has $d\tau(V) = 1$, and the Cauchy
+property of $S$ in $D(S)$ is cited to the end of the proof of [BGP] Lemma A.5.9; Lemma 6.3's comparison covers $X$ by two
+open sets; and a vacuous clause in Lemma 7.5 is deleted. Its reading of Part II.E's (E14) is recorded there.

@@ -4,14 +4,15 @@
 2.4 at $n = 4$ by machine (and at $n = 3$, reproducing the source's (8.10)), Lemma 2.5, Propositions 3.2 and 3.4 and
 sections 4-6, and confirmed (E1)-(E13) at source. Its six minor findings (the order on the extension region, the domain
 of the collar flow, the slab bookkeeping in the tame inductions, the support of $E_+$, the definition of the extended
-$t^lat$, and a hypothesis of Proposition 3.2) and its nits are seated (D207). The part is labelled proved once the next
-reader has confirmed them. This part
-proves, at spatial dimension $n = 4$, [Hin26c] section 8 (pp. 141-157): solvability of forward problems on bounded time
-slabs, with energy estimates, on edge-Sobolev spaces with and without b-regularity and tame in it (the source's Lemma 8.1
-and Propositions 8.3, 8.6, 8.9); the same in the black hole interior with $r$ as the time function (Lemma 8.10,
-Propositions 8.11-8.13); and the global estimate (Theorem 8.14), which joins these to the microlocal estimate of Part
-II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Parts II.A, II.A$'$, II.B, II.C,
-II.C$'$, II.D and II.D$'$ are cited as in Part II.D$'$.
+$t^\flat$, and a hypothesis of Proposition 3.2) and its nits are seated (D207). The part is labelled proved once the
+next reader has confirmed them. (E14) was narrowed on the eighty-eighth verifier's reading (D212): the tame bounds
+(4.4), (5.6) and (6.2) are proved, and now stated, for orders constant and in $\mathbb N_0$ near the face across which
+the source term is extended. This part proves, at spatial dimension $n = 4$, [Hin26c] section 8 (pp. 141-157):
+solvability of forward problems on bounded time slabs, with energy estimates, on edge-Sobolev spaces with and without
+b-regularity and tame in it (the source's Lemma 8.1 and Propositions 8.3, 8.6, 8.9); the same in the black hole interior
+with $r$ as the time function (Lemma 8.10, Propositions 8.11-8.13); and the global estimate (Theorem 8.14), which joins
+these to the microlocal estimate of Part II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page
+numbers). Parts II.A, II.A$'$, II.B, II.C, II.C$'$, II.D and II.D$'$ are cited as in Part II.D$'$.
 
 *Method.* The energy estimates are proved with a vector field multiplier, as in the source, at $n = 4$. Near $\mathscr
 I^+$ the multiplier is a weighted edge vector field whose deformation tensor is positive in the time derivative only
@@ -831,7 +832,8 @@ $\mathsf s$, so that $d_0$ depends only on $\mathsf s$. Finally, by Lemma 4.1 (c
 s;k)}(\Omega')}\le C_k\sum_{|\alpha|\le k}\|X^\alpha u''\|_{H^{\mathsf s}(\Omega'')}\le C_k\|f''\|\le C_k\|f\|$.
 $\square$
 
-**Proposition 4.4 ([Hin26c] Proposition 8.9 at $n = 4$; tame).** In the setting of Proposition 4.3 there is $d\in\mathbb
+**Proposition 4.4 ([Hin26c] Proposition 8.9 at $n = 4$; tame).** In the setting of Proposition 4.3, with $\mathsf s$
+constant and in $\mathbb N_0$ near $\{r\le r_0\}$ ((E14)), there is $d\in\mathbb
 N$, depending only on $\mathsf s$, such that for all $k$ and $P$ of class $((d_0;k),(2\ell_I,\ell_+,\ell_K))$ with
 $\|P-P_0\|_{(d_0;d),\ldots}$ small,
 $$\|u\|_{H^{(\mathsf s;k),2\alpha}(\Omega')^{\bullet,-}}
@@ -1085,8 +1087,8 @@ $$\|u\|_{H^{(\mathsf s;k),\alpha_K}(\Omega^K_{[a,b]})^\bullet}
 \le C_k\big(\|f\|_{H^{(\mathsf s-1;k),\alpha_K}(\Omega^K_{[a,b]})^\bullet}+
 \|u\|_{H^{(\mathsf s;k),\alpha_K}(\Omega^K_{[a^+,b]})^\bullet}\big).\tag{5.5}$$
 
-(b) There is $d\in\mathbb N$, depending only on $\mathsf s$, such that for all $k$ and $P$ of that class with
-$\epsilon_{P,d}$ small,
+(b) If $\mathsf s$ is constant and in $\mathbb N_0$ near $\{r = a\}$ ((E14)), there is $d\in\mathbb N$, depending
+only on $\mathsf s$, such that for all $k$ and $P$ of that class with $\epsilon_{P,d}$ small,
 $$\|u\|_{(\mathsf s;k)}\le C_k\Big(\|f\|_{(\mathsf s-1;k)}+\|u\|^{[a^+,b]}_{(\mathsf s;k)}+
 \epsilon_{P,k}\big(\|f\|_{(\mathsf s-1;d)}+\|u\|^{[a^+,b]}_{(\mathsf s;d)}\big)\Big),\tag{5.6}$$
 with the spaces of (5.5), the superscript marking the norm on $\Omega^K_{[a^+,b]}$, and $C_k$ depending on $P$ only
@@ -1143,8 +1145,9 @@ $$\|u\|_{H^{(\mathsf s;k),(2\alpha_I,\alpha_+,\alpha_K)}_{e3b;b}(\Omega_*)^{\bul
 \le C_k\Big(\|Pu\|_{H^{(\mathsf s;k),(2\alpha_I+2,\alpha_++2,\alpha_K)}_{e3b;b}(\Omega_*)^{\bullet,-}}+
 \|u\|_{H^{(\mathsf s_0;k),(2\alpha_I,\alpha_+,\alpha_K)}_{e3b;b}(\Omega_*)^{\bullet,-}}\Big)\tag{6.1}$$
 for $P = P_0$, in the strong sense, and for every weakly admissible $P$ of class $((d_0;k),(2\ell_I,\ell_+,\ell_K))$ with
-$\epsilon_{P,k}$ small, with $C_k$ uniform; $d_0$ depends only on $\mathsf s_0$ and $\mathsf s$. Moreover there is
-$d\in\mathbb N$ such that for every $k$ and every $P$ of that class with $\epsilon_{P,d}$ small,
+$\epsilon_{P,k}$ small, with $C_k$ uniform; $d_0$ depends only on $\mathsf s_0$ and $\mathsf s$. Moreover, if $\mathsf s$
+and $\mathsf s_0$ are constant and in $\mathbb N_0$ near $\{r\le r_0\}$ ((E14)), there is $d\in\mathbb N$ such that for
+every $k$ and every $P$ of that class with $\epsilon_{P,d}$ small,
 $$\|u\|_{(\mathsf s;k)}\le C_k\Big(\|Pu\|_{(\mathsf s;k)}+\|u\|_{(\mathsf s_0;k)}+
 \epsilon_{P,k}\big(\|Pu\|_{(\mathsf s;d)}+\|u\|_{(\mathsf s_0;d)}\big)\Big),\tag{6.2}$$
 with the spaces and weights of (6.1), $\epsilon_{P,k} := \|P-P_0\|_{(d_0;k),(2\ell_I,\ell_+,\ell_K)}$ over $\Omega_*$,
@@ -1268,12 +1271,14 @@ I^+\cap\iota^+$, where the quantity $4(\alpha_I-\alpha_+-\frac12)$ must be posit
 
 (E14) *The extension in the tame estimates (D209).* Propositions 4.4 and 5.6 (b), and through them the tame bound (6.2),
 extend the source term across the final face $\{r = r_0\}$, resp. $\{r = a\}$, by the minimal extension, which is
-minimal for one norm only, while a tame bound needs control at the low and the high b-regularity at once. Where they are
-applied (Theorem 6.1 (A), and Part II.F$'$ sections 3-4) the order is a constant nonnegative integer near $\{r\le
-r_0\}$, and the extension $E$ of Part II.F$'$ Lemma 2.5, a Seeley extension in $r$ at fixed $(t^\flat,\omega)$ glued to
-any extension away from $\{r = r_0\}$, is bounded at every order of b-regularity at once; the proofs go through with it
-in place of the minimal extension. Across the time-final face of a slab the source term is, wherever the propositions
-are applied, the restriction of one given on a larger slab. Recorded from Part II.F$'$ section 8.2 (b).
+minimal for one norm only, while a tame bound needs control at the low and the high b-regularity at once. They are
+therefore proved here only for orders that are constant and in $\mathbb N_0$ near $\{r\le r_0\}$ (for (5.6), near $\{r =
+a\}$), and are so stated (D212: the eighty-eighth verifier's Minor 3); where they are applied (Part II.F$'$ sections
+3-4, with the orders of its Lemma 2.3) the orders are such, and the extension $E$ of Part II.F$'$ Lemma 2.5, a Seeley
+extension in $r$ at fixed $(t^\flat,\omega)$ glued to any extension away from $\{r = r_0\}$, is bounded at every order
+of b-regularity at once; the proofs go through with it in place of the minimal extension. Across the time-final face of
+a slab the source term is, wherever the propositions are applied, the restriction of one given on a larger slab.
+Recorded from Part II.F$'$ section 8.2 (b).
 
 ## Sources
 

@@ -2588,3 +2588,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: the D197, D200, D201, D204, D206, D207 and D209 repairs; Parts II.F' and II.G unread; Parts II.G' and III-VII;
   uniformity in P_0 (II.F' (F'11)).
 - Next: seat the eighty-eighth verifier (D209 repairs, II.F'); Part II.G', [Hin26c] section 13.
+
+### 4.135 The eighty-eighth verifier seated (D212)
+
+- Part II.F's D209 repairs confirmed; two further minor gaps (Lemma 6.3's time cut-off, Lemma 6.4's strip
+  0 <= Im sigma < -gamma_+) and four notes repaired. Part II.F' read: one major (the uniqueness class of Theorem 1.1,
+  restricted to s' >= inf s - 2), one minor ((E14) narrowed: II.E's tame bounds stated for orders constant and integer
+  near the extension face), two notes; repaired. Part II.F' is verified.
+- Open: the D197, D200, D201, D204, D206, D207 and D212 repairs; Part II.G unread; Parts II.G' and III-VII; uniformity
+  in P_0 (II.F' (F'11)).
+- Next: Part II.G', [Hin26c] section 13; the eighty-ninth verifier on the D212 repairs and Part II.G.

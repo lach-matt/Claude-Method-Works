@@ -5061,3 +5061,16 @@ on Phi is over-stated; Theorem 12.12's beta_+ sign; Proposition 12.6's localiser
 Example 12.7's global t-bar; the Nash-Moser loss; Lemma 12.8 (3)'s space. Status: Parts I.A-I.C, II.A, II.A' proved;
 II.B-II.F verified; II.F' and II.G written. Next: seat the eighty-eighth verifier; Part II.G' ([Hin26c] section 13,
 improving decay).
+
+**D212 (2026-10-25): the eighty-eighth verifier seated.** It read the D209 repairs to Part II.F and Part II.F' in full,
+with sympy checks (density, the (F14) symbol, Lemma 2.3's margins, Theta's bounds, Lemma 6.3's inequality). Verdict:
+the II.F repairs pass; II.F' passes with one statement repair. Major 1 (II.F' Theorem 1.1): uniqueness was claimed in
+H^{s'} for every s', but Lemma 2.2 needs the smallness of II.E Proposition 3.4 (i), whose d_0 depends on s'; the class
+is restricted to s' >= s_u = inf s - 2, and that smallness joins section 3.1 (d^U_0 in D_0). Minor 1 (II.F Lemma 6.3):
+the time cut-off is scaled, psi~(t_*/lambda). Minor 2 (II.F Lemma 6.4, Proposition 6.2 (1)): the bound on Im sigma >=
+max(0, -gamma_+) by the invertibility, in the strip below by the support; the contour moves to gamma >= max(2,
+-gamma_+). Minor 3 ((E14)): II.E's tame bounds (4.4), (5.6) (b) and (6.2) are stated for orders constant and in N_0 near
+the extension face; II.F' 8.2 (b) amended. Nits: Lemma 1.3's tangent sign and its [BGP] citation (A.5.9), Lemma 6.3's
+open cover, a vacuous clause of Lemma 7.5, (F'4)'s addendum, Lemma 2.2's forward reference. Recorded in II.F section 9.5
+and II.F' section 8.4. Status: Parts I.A-I.C, II.A, II.A' proved; II.B-II.F' verified; II.G written. Next: Part II.G'
+([Hin26c] section 13); the eighty-ninth verifier on the D212 repairs and Part II.G.
