@@ -4311,3 +4311,9 @@ Theorem 5.17 (10.48 (c)), whose proof is [Hin23a] Corollary 3.36's, now on 10.75
 of [Hin23a] at n = 4, so 10.48 (c)'s reading is cleared (31 rows on a reading). Thirty-six of 61 written out, eighteen
 on a reading; 25 rest on the censuses.
 
+**D155 (2026-10-25): [Hin26] section 12 written out.** Theorem 12.3, the construction of Phi in section 12.2.1,
+and Theorem 12.8's peeling of Corollary 11.66's solution (pp. 304-318), matched step by step at n = 4 without the class
+(10.62 (b), 10.75 (xxxvii)) and in it (10.47 (d)-(e), (xxxviii)-(xxxix)). Seventeen places named in B-MAP (iota+ over
+S^3, the parameters at (2, 0), the source at t*^-4, the induction from alpha_min, Res(L-bar, 2) = {0}, the lists, Case
+A's K+ order in the class); section 9's iota+ solution theory marked as the reading it is on 10.47 (d) and 10.62 (b)
+(33 rows on a reading). Thirty-nine of 61 written out, twenty-one on a reading; 22 rest on the censuses.

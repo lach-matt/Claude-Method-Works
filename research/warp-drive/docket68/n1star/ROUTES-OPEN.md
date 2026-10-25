@@ -2091,3 +2091,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D154 (10.75 (xxxv)-(xxxvi)): [Hin26] Proposition 5.11 with Proposition 5.14 and Corollary 5.15 (10.48 (b)) and
   Theorem 5.17 (10.48 (c)), the latter clearing its reading of [Hin23a] at n = 4. Thirty-six of 61 written out,
   eighteen on a reading; 25 rest on the censuses.
+
+### 4.83 [Hin26] section 12 written out (D155)
+
+- 10.75 (xxxvii)-(xxxix): Theorems 12.3 and 12.8, read at source (pp. 304-318) and matched step by step at n = 4 --
+  without the class (10.62 (b)) and in it (10.47 (d)-(e)): the leading iota+ order (2, 0) for his (1, 0), t*^-4 for
+  t*^-3 in Step 1, the induction from alpha_min, Proposition 10.46's lists (10.42 (ii)'s in the class), Res(L-bar, 2)
+  = {0}. Section 9's iota+ solution theory is a reading at n = 4 (10.47's OPEN), now marked on 10.47 (d) and 10.62 (b).
+  Thirty-nine of 61 written out, twenty-one on a reading; 22 rest on the censuses, eight of them [Hin26] section 11's.

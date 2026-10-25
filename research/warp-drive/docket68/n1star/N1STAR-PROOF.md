@@ -8213,11 +8213,12 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 53 name the places where the dimension changes the proof, 104 places in all, and 8 name
-none: the step is the source proof as it stands. The 107 placements of the five-dimensional values are: 34 at a computed
-check, 58 at an earlier section where they are computed or deduced, 14 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 54 name the places where the dimension changes the proof, 121 places in all, and 7 name
+none: the step is the source proof as it stands. The 125 placements of the five-dimensional values are: 41 at a computed
+check, 66 at an earlier section where they are computed or deduced, 17 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
-R^n, R^(n,1)) and 1 the record's choice (gamma_Ups = 1/100). 31 rows say they rest on a reading -- of a source theorem
+R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 33 rows say they rest on a reading -- of a source
+theorem
 at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
@@ -8226,7 +8227,9 @@ reading was unmarked, and
 (10.75 (xvii)-(xxx)) named eleven more places their rows lacked -- 10.60 (f) had none -- and one more reading (10.20
 (a)); n/2 = 2 is now an arithmetic placement (10.20 (a), 10.39 (e)), where before its one occurrence was placed at a
 section (the sixty-second verifier). D154 cleared 10.48 (c)'s reading, [Hin23a]'s estimates at n = 4, which 10.75
-(xxxi)-(xxxiv) now write out.
+(xxxi)-(xxxiv) now write out. D155's write-outs (10.75 (xxxvii)-(xxxix)) named seventeen more places for 10.47 (d),
+10.47 (e) and 10.62 (b) -- 10.47 (e) had none -- and found [Hin26] section 9's iota+ solution theory, a reading at n = 4
+(10.47's OPEN), among 10.47 (d)'s and 10.62 (b)'s inputs.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8243,15 +8246,17 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Thirty-six modification steps written out at n = 4 (D146, D148, D150-D152, D154)
+### 10.75 Thirty-nine modification steps written out at n = 4 (D146, D148, D150-D152, D154-D155)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. The thirty-six below are those whose source
-proofs are at most about five pages and are already matched step by step in the sections named, or short enough to match
+step so written out rests on its inputs, not on a census of its source. The first thirty-six below are those whose
+source proofs are at most about five pages and are already matched step by step in the sections named, or short enough
+to match
 here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
-arXiv:2408.06715v1 for (xxvii)).
+arXiv:2408.06715v1 for (xxvii)). Three more, (xxxvii)-(xxxix), carry one longer pair of proofs, [Hin26] Theorems 12.3
+and 12.8 (fifteen pages), matched step by step the same way.
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
      Fredholm of index 0 on [Hin26c] (9.18)'s spaces, by Proposition 8.3 (10.26) and [Hin26c] Theorem 9.5 (10.19, 10.53,
@@ -8628,16 +8633,72 @@ arXiv:2408.06715v1 for (xxvii)).
      radiative order 3/2 for his 1 (10.48 (c)).
 
 
-So thirty-six of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Eighteen of the thirty-six take a reading among their inputs (B-MAP.tsv's
-column `reading`: 10.15 (a), 10.20 (a), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c),
-10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.46 (e), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the
-census through that input, not through their own steps (the sixty-first verifier; D149). Two, (iii) and (xxvi), replace
-the source proof by a computation rather than carry it. The other 25 carry proofs of several pages each, in [Hin26]
-sections 9-13, [Hin26c] sections 5 and 7-14, and [Hin26a] sections 4-6 with its appendices A-B; writing those out is
-what remains of 8.8.
+ (xxxvii) 10.62 (b), [Hin26] Theorem 12.3 (pp. 304-311) and Theorem 12.8 (pp. 312-318; D155). Theorem 12.3's proof is
+     the construction of Phi in his section 12.2.1. It sets h^[0], p-vec^[0] and q-vec^[0] from the data, P of them
+     having the orders (12.18) by a variant of Corollary 11.9. Step 1 takes P's t*^-3 coefficient f^(3,0) at iota+,
+     compactly supported in the interior of iota+ since Ric(g_0) vanishes off supp d chi_K and u_1 lies in ker L-bar
+     ((12.19)-(12.20)), sets h^(1,0) := -N_iota+(L-bar, 1)^-1 f^(3,0) (Proposition 9.4), and clears the R -> 0
+     expansion (9.32) of t*(u_1 + t*^-1 h^(1,0)) (Proposition 9.9): its s1 logarithm by S^(0,1)_1 through (12.22), its
+     other terms of K+ order at most 2, all pure gauge, by p-vec's parameters, and the rest, of K+ order in [2 +
+     eps_K, 4 + eps_K], absorbed into q-vec. Step 2 does the same at each iota+ order lam_0 in turn, in steps of
+     eps_ind up to 3 + eps_+: the source's orders are Lemma 12.2's (Remark 11.39, Lemma 11.65), L-bar h^(lam_0) =
+     -f^(lam_0 + 2) is solved by Corollary 9.18, and (12.29)'s expansion is cleared the same three ways, the threshold
+     Re(lam_0 + mu) <= 2. After ceil(3/eps_ind) + 1 steps P(Phi(U)) has (12.31)'s orders; (1)-(3) are read off the
+     construction, and Lemma 12.7 adds Corollary 5.15 (1). Theorem 12.8's proof peels Corollary 11.66's solution at
+     iota+ in increasing order. P's leading term vanishing reads L-bar(h^(lam_0) + h^(lam_0)') = 0, so the sum lies in
+     Res^oo(L-bar, E^C_I, lam_0). Off the spectrum that space is zero, and since h^(lam_0) vanishes at R = 0 to the
+     order its K+ order 4 + eps_K gives while every parameter's term in h^(lam_0)' decays more slowly, the parameters
+     vanish (Case A); on the spectrum the sum is Res(L-bar, E^C_I, lam_0)(u^0, f) of (9.56), and D_U Phi of those data
+     is subtracted (Case B, by Theorem 12.3 (3) and Remark 12.4). At the leading order b', S', S^(0)'_1 and the
+     incoming data f'_1 are subtracted together, Res(L-bar, 1) being {0}; what remains is conormal and is D_U Phi of
+     the remainders of (12.11) (Step 3). At n = 4: iota+ is [0, oo]_R x S^3. The mass and the boost enter at (2, 0)
+     for his (1, 0) (10.61 (a); Proposition 10.39 (ii)), so Step 1 is the step at lam_0 = 2, with t*^-4 for t*^-3:
+     f^(4,0) is compactly supported for the same reason, the patched curvature being of order 4 where the cut-off
+     varies (Proposition 10.39 (iii)), and Res(L-bar, 2) = {0} (10.47 (b)) stands for his Res(L-bar, 1) = {0}. The
+     induction starts below it, at alpha_min = 3/2 + (1 - e_Ups) gam_Ups, the least incoming exponent (10.44 (e)); the
+     terms below 2 are Step 2's, the parameters of order 2 entering P only at order 4, and his count of steps suffices
+     since alpha_min > 1. (9.32)'s lists are Proposition 10.46's: six pure gauge classes eliminated at K+ order at
+     most 2 and fourteen recorded, among them the physical s2, v2 and t2, with T_2 added (10.61 (c)); every recorded
+     term's L_b-image has K+ order above 4, which is Lemma 12.2's input, and every recorded term's own K+ order is
+     below 4 + eps_K, which is Case A's. Whether five dimensions carry the s1 logarithm, and so S^(0,1)_1, is 10.61
+     (b)'s question, the parameter zero if not; the boost's logarithms, which his Step 1 notes D_g-bar Ric
+     annihilates, are absent (10.61 (a)). The orders 3 + eps_+, 5 + eps_+, 4 + eps_I and 4 + eps_K stand (10.61 (d));
+     Corollary 11.66 is 10.61 (c)'s; and Corollary 5.15 is free of n ((xxxv)). The iota+ solution theory --
+     Proposition 9.4 (2), Corollary 9.18 with its expansion, Proposition 9.9, and (9.54)-(9.56) with Proposition
+     9.22's right inverse -- enters at n = 4 as 10.47's OPEN has it, READ at n = 3 with its five-dimensional inputs
+     10.37's and 10.44's: a reading.
 
-Labels: READ (the thirty-six source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+ (xxxviii) 10.47 (d), [Hin26] Theorem 12.3 in the class (D155). (xxxvii)'s construction with the class's data and lists:
+     p-vec^[0] carries the mass alone, S, S^(0)_1, S_rem and V_1,rem vanishing (10.43 (b)), so Step 1 is the step at
+     lam_0 = 2 where m - m_0 enters (Proposition 10.39 (ii)); each step eliminates the G-fixed pure gauge types S^(0)_0,
+     S^(c0)_0 and S^(0)_2 at K+ order at most 2 (Proposition 10.42 (ii); 10.46 (b)) and records the rest below K+ order
+     3 + eps_K in q-vec's G-fixed list (10.46 (d)), whose L_b-images have that order (10.46 (d), through his (9.37));
+     the target's K+ order is 3 + eps_K for his 4 + eps_K, that of h and of L_b h_b,rem(q-vec); there is no s1 term to
+     clear, the G-fixed S_l vanishing at odd l (10.43 (b)); and each step's solution is G-invariant when its inputs are,
+     every operation commuting with O(4) (10.47 (c)). It rests on (xxxvii)'s reading of the iota+ solution theory.
+
+ (xxxix) 10.47 (e), [Hin26] Theorem 12.8 in the class (D155). (xxxvii)'s peeling of the forward solution of Corollary
+     11.66 in the class (10.46 (d)), G-invariant being unique. At lam_0 = 2 the mass m' (b' = (m', 0)) and the incoming
+     data f'_2 are subtracted together, Res(L-bar, 2) being {0} (10.47 (b)). In Case A every G-fixed parameter at lam_0
+     vanishes, its term having K+ order below 3 + eps_K, which is h^(lam_0)'s in the class (10.46 (b), (d)); in Case B
+     D_U Phi of G-fixed data (u^0, f) is subtracted, (9.56) through Proposition 9.22's right inverse; Step 3's
+     remainders are m'_rem and h-tilde'. Each subtraction is D_U Phi at data the step determines uniquely from
+     G-invariant objects, so U' lies in D^oo_G -- 10.43 (e)'s reading, as 10.47 (e) has it; Psi for Phi is Lemma 12.7's,
+     with S = 0. It rests on (xxxvii)'s reading.
+
+So thirty-nine of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Twenty-one of the thirty-nine take a reading among their inputs (B-MAP.tsv's
+column `reading`: 10.15 (a), 10.20 (a), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c),
+10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.62 (b), 10.62 (c), 10.62 (d),
+10.40 (a)), and rest on the census through that input, not through their own steps (the sixty-first verifier; D149).
+Where an item cites a row still on the census as an input ((iii) cites 10.19 (d); (xviii) cites 10.53 (e); (xxxvii)
+cites 10.61 (b)-(c); (xxxviii) and (xxxix) cite 10.46 (b); and (xxiv) cites 10.62 (b), on 10.61), it rests on the census
+through that row in the same way. Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it.
+The other 22
+carry proofs of several pages each, in [Hin26] section 11, [Hin26c] sections 5 and 7-14, and [Hin26a] sections 4-6 with
+its appendices A-B; writing those out is what remains of 8.8.
+
+Labels: READ (the thirty-nine source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)
