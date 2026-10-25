@@ -1,6 +1,11 @@
 # Part II.E. Energy estimates, and the global estimate at high frequencies, at n = 4
 
-*Status.* Written out in full (D205). Not yet read by an independent verifier; nothing here is labelled proved. This part
+*Status.* Verified. Written out in full (D205). Read line by line by the eighty-sixth verifier, which re-derived Lemma
+2.4 at $n = 4$ by machine (and at $n = 3$, reproducing the source's (8.10)), Lemma 2.5, Propositions 3.2 and 3.4 and
+sections 4-6, and confirmed (E1)-(E13) at source. Its six minor findings (the order on the extension region, the domain
+of the collar flow, the slab bookkeeping in the tame inductions, the support of $E_+$, the definition of the extended
+$t^lat$, and a hypothesis of Proposition 3.2) and its nits are seated (D207). The part is labelled proved once the next
+reader has confirmed them. This part
 proves, at spatial dimension $n = 4$, [Hin26c] section 8 (pp. 141-157): solvability of forward problems on bounded time
 slabs, with energy estimates, on edge-Sobolev spaces with and without b-regularity and tame in it (the source's Lemma 8.1
 and Propositions 8.3, 8.6, 8.9); the same in the black hole interior with $r$ as the time function (Lemma 8.10,
@@ -125,10 +130,13 @@ those of $P_0$ are independent of $t_*$. Extend each coefficient across $\{r = r
 near $\mathscr I^+$, as parameters). Seeley's operator preserves $C^{(d_0;k)}$-regularity and weights in the parameters,
 which gives (ii), and acts on the data $p_0$, $\tilde p_1$ of (3.1)-(3.2) of II.C Definition 3.3 in the same way, which
 gives the form in (iii). The extended $p_1$ is continuous in $t_*$ and equals $p_1$ at $t_* = 1$, so (1.2) persists with
-$2\delta'$ on $[1-\eta_0,1]$. The extension of $P_0$ in $r$ keeps it stationary. (iv) Extend $t^\flat$ across $\{t_* =
-1\}$ by $E_0$ in $t_*$, as the coefficients; near $\mathscr I^+$ it is $t_*(1-(t_*/r)^{\ell_I})$ (II.C Lemma 3.2 (a)),
-which is defined for $t_*\ge\frac12$, and for $r\le r'_0-1$ it is $C'(t_*+r'_0)$ (II.C Lemma 3.2 (c)), extended by the
-same formulae. *$dr$.* By II.C Lemma 3.2 (1) with $h = 0$, $dr$ is future timelike for $g_0$ on $\{r_0\le r\le
+$2\delta'$ on $[1-\eta_0,1]$. The extension of $P_0$ in $r$ keeps it stationary. (iv) $t^\flat$ is not extended by $E_0$
+(Seeley's extension of a function is not given by the function's own formula, which is what is used below). On
+$\{t_*\ge\frac12\}$ it is defined by the gluing formulae of the proof of II.C Lemma 3.2, with the constant $C$ there
+taken $\ge4(r'_0+1)$, so that the overlap $\{r'_0+1\le r\le\frac12Ct_*\}$ of the regions being glued is non-empty for
+every $t_*\ge\frac12$; the formulae make sense for $t_*>0$. In particular $t^\flat = t_*(1-(t_*/r)^{\ell_I})$ near
+$\mathscr I^+$ (II.C Lemma 3.2 (a)) and $t^\flat = C'(t_*+r'_0)$ for $r\le r'_0-1$ (II.C Lemma 3.2 (c)), on all of
+$\{t_*\ge\frac12\}$. *$dr$.* By II.C Lemma 3.2 (1) with $h = 0$, $dr$ is future timelike for $g_0$ on $\{r_0\le r\le
 r^\natural\}$; $g_0$ is stationary and the range of $x$ is compact, so by continuity this holds on $\{r^\sharp\le r\le
 r^\natural+\delta_0\}$ for $r^\sharp$ close to $r_0$ and $\delta_0$ small, and for the extended metric, which differs
 from $g_0$ by $O(\epsilon_P)$ there. *$dt^\flat$.* For $r\le r'_0-1$, $dt^\flat = C'dt_*$, and $dt_*$ is past timelike
@@ -139,25 +147,30 @@ $t_*\ge\frac12$, $\rho_+\le2$, and the argument applies with larger constants. O
 $\{x_I\ge c,\ r\ge r'_0-1\}$, which is compact at bounded $t_*$ (and $t_*\le T/C'$ on $\{t^\flat\le T\}\cap\Omega$ by
 II.C Lemma 3.2 (b)), $dt^\flat$ is past timelike on $\Omega_*$ with a margin, hence on a neighbourhood, by continuity.
 *The collar.* Near the face $\{t^\flat = 1\}$, which lies in $\{t_*\ge1\}$ by II.C Lemma 3.2 (b), $dt^\flat$ is past
-timelike, so the field $Z/(-Zt^\flat)$ of section 1.5 is defined there; its flow from the face for times at most $\eta_0$
-sweeps the collar, which for $\eta_0$ small lies in the neighbourhood just found and in $\{t_*>\frac12\}$: near $\mathscr
-I^+$ the flow is translation in $t_*$ by at most $2\eta_0$, and elsewhere at bounded times by compactness. $\square$
+timelike, so the field $Z/(-Zt^\flat)$ of section 1.5 is defined there; its flow from the face for times at most
+$\eta_0$ sweeps the collar, which for $\eta_0$ small lies in the neighbourhood just found and in $\{t_*>\frac12\}$: near
+$\mathscr I^+$ the flow is translation in $t_*$ by at most $2\eta_0$, and elsewhere at bounded times by compactness.
+$\square$
 
 ### 1.5 Duality
 
-*A collar.* There is a vector field $Z$ on a neighbourhood of $\Omega^-_*\cap\{t^\flat\le T_1+2\}$, an edge vector field,
-equal to $-\partial_{t_*}$ near $\mathscr I^+$, with $Zt^\flat\le-c<0$ and, near $\{r = r_0\}$, $Zr\ge c$. Take $Z :=
--\chi_I\partial_{t_*}+(1-\chi_I)\nabla t^\flat$ with $\chi_I = \chi_I(r)$ equal to 1 for $r\ge R$ and 0 for $r\le R-1$,
-$R$ large. Near $\mathscr I^+$, $\partial_{t_*}t^\flat = 1-(1+\ell_I)(t_*/r)^{\ell_I}\ge\frac12$ by II.C Lemma 3.2 (a).
-On $\{r\le R\}$, $\nabla t^\flat$ is past timelike (II.C Lemma 3.2 (2) and Lemma 1.2 (iv)), so $Zt^\flat =
+*A collar.* There is a vector field $Z$ on a neighbourhood of $\Omega^-_*\cap\{t^\flat\le T_1+2\}$, an edge vector
+field, equal to $-\partial_{t_*}$ near $\mathscr I^+$, with $Zt^\flat\le-c<0$ and, near $\{r = r_0\}$, $Zr\ge c$. Take
+$Z := -\chi_I\partial_{t_*}+(1-\chi_I)\nabla t^\flat$ with $\chi_I = \chi_I(r)$ equal to 1 for $r\ge R$ and 0 for $r\le
+R-1$, $R$ large. Near $\mathscr I^+$, $\partial_{t_*}t^\flat = 1-(1+\ell_I)(t_*/r)^{\ell_I}\ge\frac12$ by II.C Lemma 3.2
+(a). On $\{r\le R\}$, $\nabla t^\flat$ is past timelike (II.C Lemma 3.2 (2) and Lemma 1.2 (iv)), so $Zt^\flat =
 g^{-1}(dt^\flat,dt^\flat)<0$ there, with a negative bound on the compact part at bounded times, and $\nabla t^\flat\,r =
 g^{-1}(dt^\flat,dr)>0$ near $r = r_0$, $dr$ being future timelike. Near $\mathscr I^+$ the flow $\Phi_\tau$ of $Z$ is
 translation in $t_*$, which preserves the edge structure, the weight and the density; elsewhere it is a smooth flow on a
 compact set. So $(\Phi_\tau)_*$ is bounded on $H^{m,2\alpha}_e$, $m\in\mathbb N_0$, uniformly for $|\tau|\le\tau_0$, and
-strongly continuous at $\tau = 0$, by the chain rule and the density of $C^\infty_c$. The level sets of $t^\flat$ near
-$\{t^\flat = T\}$, with the flow lines of $Z/(-Zt^\flat)$, give collar coordinates $(t^\flat,y)$ in which $Z/(-Zt^\flat)
-= -\partial_{t^\flat}$; near $\mathscr I^+$, $y = (x_I,\omega)$, and in $(t^\flat,x_I,\omega)$ the edge vector fields are
-spanned by $\partial_{t^\flat}$, $x_I\partial_{x_I}$, $x_I\partial_\omega$, as $t^\flat-t_* =
+strongly continuous at $\tau = 0$, by the chain rule and the density of $C^\infty_c$. As $Z$ and $\Phi_\tau$ are defined
+only near $\Omega^-_*\cap\{t^\flat\le T_1+2\}$, in Lemma 1.3 below $(\Phi_{\pm\tau})_*$ is applied only after
+multiplication by a cut-off $\chi_Z$, a function of $t^\flat$ equal to 1 on $\{T_0-\frac14\eta_0\le t^\flat\le T_1+1\}$
+and supported in $\{T_0-\frac12\eta_0\le t^\flat\le T_1+2\}$ (there $T_0\ge1-\frac12\eta_0$). This changes neither the
+pairings, the other factor being supported where $\chi_Z = 1$, nor the restrictions to $U'$ and $V'$. The level sets of
+$t^\flat$ near $\{t^\flat = T\}$, with the flow lines of $Z/(-Zt^\flat)$, give collar coordinates $(t^\flat,y)$ in which
+$Z/(-Zt^\flat) = -\partial_{t^\flat}$; near $\mathscr I^+$, $y = (x_I,\omega)$, and in $(t^\flat,x_I,\omega)$ the edge
+vector fields are spanned by $\partial_{t^\flat}$, $x_I\partial_{x_I}$, $x_I\partial_\omega$, as $t^\flat-t_* =
 -t_*^{1+\ell_I}x_I^{2\ell_I}$ has bounded edge derivatives.
 
 **Lemma 1.3 (pairing, duality and density).** Let $\Omega' = \Omega_{T_0,T_1}$ with $T_0\ge1-\frac12\eta_0$,
@@ -251,13 +264,15 @@ Riemannian norm.
 g(Z,V)Z-\frac12g(Z,Z)V$. Then $T(V,W)(\zeta) = g(Y,W)$, $g(Y,Y) = \frac14g(Z,Z)^2g(V,V)\le0$, and $g(Y,V) =
 T(V,V)(\zeta)$. In an orthonormal frame with $V$ a positive multiple of $e_0$ (if $V$ is timelike), $T(V,V)(\zeta) =
 \frac12|V|^2(Z_0^2+|Z_\perp|^2)$, which is the second claim; if $V$ is null, $T(V,V)(\zeta) = g(Z,V)^2\ge0$. So $Y$ is
-causal or zero, with $g(Y,V)\ge0$, hence past causal or zero (or null and orthogonal to $V$, hence parallel to it), and
-$g(Y,W)\ge0$ for $W$ future causal. $\square$
+causal or zero, with $g(Y,V)\ge0$, hence past causal or zero, and $g(Y,W)\ge0$ for $W$ future causal. In the remaining
+case, $g(Y,V) = 0$ with $V$ null, $g(Z,V)^2 = T(V,V)(\zeta) = 0$, so $Y = -\frac12g(Z,Z)V$; and $Z\perp V$ with $V$ null
+forces $Z$ spacelike or parallel to $V$, so $g(Z,Z)\ge0$ and $Y$ is a non-positive multiple of $V$, again past causal or
+zero. $\square$
 
 **Lemma 2.3 (Poincaré inequality with an exponential weight).** Let $O$ be as in Lemma 2.1, $N$ a $C^1$ vector field and
 $\tau$ a $C^1$ function with $N\tau = 1$, $|\mathrm{div}_gN|\le C_0$ on $O$, $w>0$ a $C^1$ weight with $|N\log w|\le
-C_1$, and $\Phi\ge C_0+C_1$. Let $u\in C^1(\bar O)$ have compact support in $\bar O$ and vanish near every boundary face
-$\{\varphi_j = 0\}$ with $N\varphi_j>0$. Then
+C_1$, and $\Phi\ge C_0+C_1$. Let $u\in C^1(\bar O)$ have compact support in $\bar O$ and vanish near the part of every
+boundary face $\{\varphi_j = 0\}$ where $N\varphi_j>0$. Then
 $$\int_Oe^{-2\Phi\tau}w|u|^2|dg|\le4\Phi^{-2}\int_Oe^{-2\Phi\tau}w|Nu|^2|dg|.\tag{2.2}$$
 
 *Proof.* With $Y := e^{-2\Phi\tau}wN$, $\mathrm{div}(|u|^2Y) = Y|u|^2+e^{-2\Phi\tau}w(\mathrm{div}N+N\log w-2\Phi)|u|^2$.
@@ -416,7 +431,8 @@ supported in $\{x_I\le\delta_0\}$, so by Lemma 2.5 (i) $\|(1-\chi)u\|_{H^{1,2\al
 C(\|Pu\|+\|[P,\chi]u\|_{H^{0,2\alpha+2}})$, and $[P,\chi]u$ is supported in $O_{T_2+1}$ with norm at most
 $C\|u\|_{H^1(O_{T_2+1})}$. For $v$, in the reverse order: Lemma 2.5 (ii) bounds $v$ on $\Omega'\cap\{t'\ge T_2\}$, which
 contains the support of $[P^*,\chi]v$; then Lemma 2.6 applied to $\chi v$, which vanishes near $\{t' = T_2+1\}$, bounds
-$\chi v$. On the extended slabs the proofs apply verbatim, by Lemma 1.2 (iii)-(iv). $\square$
+$\chi v$. On the extended slabs the proofs apply verbatim, by Lemma 1.2 (iii)-(iv), with (1.2) holding at $2\delta'$, so
+that the coefficient of Lemma 2.5 is $a = 8\delta'$ in place of $12\delta'$. $\square$
 
 ## 3. Solvability on slabs
 
@@ -463,7 +479,8 @@ $t_*^{1/2}\hat\eta_j$, $\frac12t_*^{1/2}x'_I\hat\xi$, $x_I'^{\ell_I}\tilde h_F^{
 fails: at $x_I = 0$, $\mathsf Ht^\flat = t_*\hat\xi$, which is negative off the characteristic set near $R$ (II.D, the
 paragraph after Proposition 3.6).
 
-**Proposition 3.2 (localised radial estimates at $R$).** Let $\frac12\le t_-<t_+$, $\omega_0\in(0,1]$, constants $s>s_0$,
+**Proposition 3.2 (localised radial estimates at $R$).** Let $t_-<t_+$ and $\omega_0\in(0,1]$ with
+$t_--\omega_0\ge\frac12$, constants $s>s_0$,
 and suppose (1.2) holds with $2\delta'$ in place of $\delta'$ on $R_{[t_--\omega_0,t_++\omega_0]}$ (for
 $P^{\mathrm{ext}}$ below $t_* = 1$, Lemma 1.2 (iii)). There are $B,E,E_\pm,G\in C^\infty_b\Psi^0_{e3b}$ such that (1)
 their operator wave front sets lie in any given neighbourhood of $R_{[t_--\omega_0,t_++\omega_0]}$; (2) their Schwartz
@@ -533,15 +550,35 @@ small. $\square$
 
 Below, $\mathsf s$ is a *slab order*: $\mathsf s\in C^\infty({}^{e3b}S^*M)$ with $\pm\mathsf H\mathsf s\le0$ on
 $\partial\Sigma^\pm$ over the region considered, and constant near $R$. Admissible order functions (II.C Definition 5.2)
-are slab orders, by II.C Proposition 5.1 (2) and (5); so are constants. Two slabs $\Omega_1\subset\Omega_2$ are *nested
-with room $\delta>0$* if they have the same initial face and each final face of $\Omega_1$ lies at distance at least
-$\delta$ (in $t^\flat$, resp. $r$) inside $\Omega_2$. Typical choices: $\Omega_1 = \Omega_{T_0,T_1}$ and $\Omega_2 =
-\Omega^\sharp_{T_0,T_1} := \{T_0\le t^\flat\le T_1+1,\ r\ge r^\sharp\}$ with $P^{\mathrm{ext}}$; or $\Omega_1 =
-\Omega_{T_0,T_1-\delta}\cap\{r\ge r_0+\delta\}$ and $\Omega_2 = \Omega_{T_0,T_1}$. The spaces and Lemmas 1.3 and 2.5-2.7
-hold for these domains with the same proofs, $\{r = r_0+\delta\}$ and $\{r = r^\sharp\}$ being spacelike final faces
-(Lemma 1.2 (iv)).
+are slab orders over $\Omega_*$, by II.C Proposition 5.1 (2) and (5); so are constants.
 
-**Lemma 3.3 (regularity on slabs).** (a) Let $\Omega_1\subset\Omega_2$ be nested with room $\delta$, $\mathsf s_0<\mathsf
+*The order on the extension region.* II.C Proposition 5.1 (2) concerns $\Omega_*$ only, while Lemma 3.3 (a) at $T_0 = 1$
+propagates through the collar $\{1-\frac12\eta_0<t^\flat<1\}$, part of which lies in $\{t_*<1\}$, and over
+$\{r^\sharp\le r\le r_0\}$. There the admissible order is extended by its own formula, II.C (5.3): $\mathsf s =
+s_{\mathrm{in}}-(s_{\mathrm{in}}-s_{\mathrm{out}})\chi$, $\chi = \psi_0(x_I)\chi_I+(1-\psi_0(x_I))\chi_\iota$. The
+second term is supported in $\Omega_\iota\cap\{\varrho<\epsilon_\iota\delta\}\subset\{r>(\epsilon_\iota\delta)^{-1},\
+t_*\ge r/C_\iota\}$ (II.C section 5.2, $\varrho = r^{-1}$, $\rho_K = r/t_*\le C_\iota$ on $\Omega_\iota$), which, after
+decreasing $\epsilon_\iota$ so that $(C_\iota\epsilon_\iota\delta)^{-1}>1$, meets neither $\{t_*\le1\}$ nor $\{r\le
+r_0\}$ (as $(\epsilon_\iota\delta)^{-1}>r_h+1$). The factor $\chi_I$ is a function of the eb-fibre variables $\hat\xi$,
+$|\hat\eta|^2$, $\sigma_{eb}^2/|\nu|^2_{eb}$ alone, defined and $t_*$-translation invariant for $t_*\ge\frac12$. So on
+$\{t_*\ge\frac12\}$ outside $\Omega_*$, $\mathsf s = s_{\mathrm{in}}-(s_{\mathrm{in}}-
+s_{\mathrm{out}})\psi_0(x_I)\chi_I$, which is $s_{\mathrm{in}}$ where $x_I\ge\epsilon_I$ (in particular over
+$\{r^\sharp\le r\le r_0\}$ at these times). It is a slab order there: where it is constant, trivially; near $\mathscr
+I^+$, $\pm\mathsf H(\psi_0(x_I)\chi_I)\ge0$ on $\partial\Sigma^\pm$ by the computation of II.C section 5.2,
+*Monotonicity* ($\psi_0'\le0$ with $\mathsf Hx_I\le-\frac14x_I$, and $\phi'(\hat\xi)\mathsf H\hat\xi\ge0$), which uses
+only II.C Lemmas 5.3-5.4 near $\mathscr I^+$; their proofs use only the bound $\mathsf H^{eb}-\mathsf H^0 =
+O(x_I^{2\ell_I})$ on $\hat\xi$ and $O(x_I^{1+2\ell_I})$ on $x_I$, uniformly in $t_*$, which Lemma 1.2 (ii) provides for
+$P^{\mathrm{ext}}$ on $\{t_*\ge\frac12\}$, the coefficients of $P^{\mathrm{ext}}-P_0$ being small there in the norms of
+II.C Definition 3.3. "Slab order" in Propositions 3.4, 4.3, 4.4 and Theorem 6.1 (A) refers to this extension. Two slabs
+$\Omega_1\subset\Omega_2$ are *nested with room $\delta>0$* if they have the same initial face and each final face of
+$\Omega_1$ lies at distance at least $\delta$ (in $t^\flat$, resp. $r$) inside $\Omega_2$. Typical choices: $\Omega_1 =
+\Omega_{T_0,T_1}$ and $\Omega_2 = \Omega^\sharp_{T_0,T_1} := \{T_0\le t^\flat\le T_1+1,\ r\ge r^\sharp\}$ with
+$P^{\mathrm{ext}}$; or $\Omega_1 = \Omega_{T_0,T_1-\delta}\cap\{r\ge r_0+\delta\}$ and $\Omega_2 = \Omega_{T_0,T_1}$.
+The spaces and Lemmas 1.3 and 2.5-2.7 hold for these domains with the same proofs, $\{r = r_0+\delta\}$ and $\{r =
+r^\sharp\}$ being spacelike final faces (Lemma 1.2 (iv)).
+
+**Lemma 3.3 (regularity on slabs).** (a) Let $\Omega_1\subset\Omega_2$ be nested with room $\delta$, with initial face
+$\{t^\flat = T_0\}$, $T_0\ge1-\frac12\eta_0$, $\mathsf s_0<\mathsf
 s$ slab orders, and $u\in H^{\mathsf s_0,2\alpha}(\Omega_2)^{\bullet,-}$ with $Pu\in H^{\mathsf
 s-1,2\alpha+2}(\Omega_2)^{\bullet,-}$ ($P^{\mathrm{ext}}$ where defined). Then $u|_{\Omega_1}\in H^{\mathsf
 s,2\alpha}(\Omega_1)^{\bullet,-}$ and
@@ -585,23 +622,27 @@ r_0\}$; $P^*\tilde v$ is controlled on $N_3 :=$ the interior of $\Omega_3$ relat
 $\{t^\flat>T_1\}\cup\{r<r_0\}$, where $\tilde v = 0$. Propagation for the backward problem is propagation for $-P^*$,
 whose rescaled Hamilton field is $-\mathsf H$; it applies to constant orders. Every forward curve from a point of the
 characteristic set over $\Omega_1$ either reaches $\{t^\flat>T_1\}\cup\{r<r_0\}$ in finite time, or enters any given
-neighbourhood of $R_{[T_0,T_1]}$. Indeed $t^\flat$ increases along it; if it stays in the slab, its $\omega$-limit set is
-non-empty, compact and invariant; a point of it over $M^\circ$ would have its orbit in the limit set with $t^\flat$
+neighbourhood of $R_{[T_0,T_1]}$. Indeed $t^\flat$ increases along it; if it stays in the slab, its $\omega$-limit set
+is non-empty, compact and invariant; a point of it over $M^\circ$ would have its orbit in the limit set with $t^\flat$
 strictly increasing there, against $t^\flat$ being constant ($=\lim t^\flat$) on the limit set; so the limit set lies
 over $\mathscr I^+$ at the time $t_\infty := \lim t^\flat\in[T_0,T_1]$, where $\mathsf Ht_* = t_*\hat\xi = 0$, so
-$\hat\xi = 0$ and $|\hat\eta|^2 = \frac12\hat\xi(2-\hat\xi) = 0$: it lies in $R$. Over $\mathscr I^+$ the curves (iii) of
-II.B Lemma 7.2 reach $\{t_*>T_1\}$ and the curves (i) tend to $R$. At $R_{[T_0-\delta/2,T_1]}$ use (3.3) with $t_- :=
-T_0-\frac12\delta$, $t_+ := T_1+\frac12\omega_0$ ($\omega_0$ as in (a)); its $E_+$ lies in $\{t_*\ge t_+\}$, where
-$\tilde v = 0$. Conclude as in (a). $\square$
+$\hat\xi = 0$ and $|\hat\eta|^2 = \frac12\hat\xi(2-\hat\xi) = 0$: it lies in $R$. Over $\mathscr I^+$ the curves (iii)
+of II.B Lemma 7.2 reach $\{t_*>T_1\}$ and the curves (i) tend to $R$. At $R_{[T_0-\delta/2,T_1]}$ use (3.3) with $t_- :=
+T_0-\frac12\delta$, $t_+ := T_1+\frac12\omega_0$ ($\omega_0$ as in (a)); its $E_+$ has $\mathrm{WF}'(E_+)\subset\{t_*\ge
+t_+\}$ and Schwartz kernel in $K\times K$. Since $t^\flat\le t_*$, the first alone does not place it in
+$\{t^\flat>T_1\}$; but $K$ is any compact neighbourhood of a compact part of $\mathscr I^+$, where $x_I = 0$, so we take
+it so small that $t_*^{1+\ell_I}x_I^{2\ell_I}<\frac14\omega_0$ on $K$. Then on $K\cap\{t_*\ge t_+\}$, $t^\flat = t_*-
+t_*^{1+\ell_I}x_I^{2\ell_I}>T_1+\frac14\omega_0$, where $\tilde v = 0$, so $E_+\tilde v = 0$. Conclude as in (a).
+$\square$
 
 ### 3.3 Solvability
 
 **Proposition 3.4 ([Hin26c] Corollary 8.2 and Proposition 8.3 at $n = 4$).** Let $\alpha<-\frac12+\bar p_1$, $\Omega' =
-\Omega_{T_0,T_1}$ with $T_0\ge1$ ($P^{\mathrm{ext}}$ below $t^\flat = 1$), and $\mathsf s$ a slab order. There are $d_0$,
-depending only on $\mathsf s$, and $C$, uniform for $\epsilon_P$ small, such that: (i) (*uniqueness*) if $u\in
-H^{s',2\alpha}(\Omega')^{\bullet,-}$ for some $s'\in\mathbb R$ and $Pu = 0$, then $u = 0$; (ii) (*existence*) for every
-$f\in H^{\mathsf s-1,2\alpha+2}(\Omega')^{\bullet,-}$ there is $u\in H^{\mathsf s,2\alpha}(\Omega')^{\bullet,-}$ with $Pu
-= f$ and
+\Omega_{T_0,T_1}$ with $T_0\ge1$ ($P^{\mathrm{ext}}$ below $t^\flat = 1$), and $\mathsf s$ a slab order. There are
+$d_0$, depending only on $\mathsf s$ (and, in (i), on $s'$), and $C$, uniform for $\epsilon_P$ small, such that: (i)
+(*uniqueness*) if $u\in H^{s',2\alpha}(\Omega')^{\bullet,-}$ for some $s'\in\mathbb R$ and $Pu = 0$, then $u = 0$; (ii)
+(*existence*) for every $f\in H^{\mathsf s-1,2\alpha+2}(\Omega')^{\bullet,-}$ there is $u\in H^{\mathsf
+s,2\alpha}(\Omega')^{\bullet,-}$ with $Pu = f$ and
 $$\|u\|_{H^{\mathsf s,2\alpha}(\Omega')^{\bullet,-}}
 \le C\|f\|_{H^{\mathsf s-1,2\alpha+2}(\Omega')^{\bullet,-}}.\tag{3.4}$$
 The same holds for $P^*$ and backward problems on $H^{s,-2\alpha-2}(\Omega')^{-,\bullet}$, $s$ constant, and for the
@@ -626,9 +667,8 @@ $P^*D_*(\Omega^\sharp)$ in the $L^2$-norm. By Hahn-Banach and the Riesz theorem 
 H^{0,2\alpha}(\Omega^\sharp)$, with $\|u^\sharp\|\le C\|f\|$ and $\langle u^\sharp,P^*v\rangle = \langle
 f^\sharp,v\rangle$ for $v\in D_*(\Omega^\sharp)$. Extended by zero, $u^\sharp$ is supported in $\{t^\flat\ge T_0\}$, and
 for $v\in D_*$ (a test function on $M$) $\langle Pu^\sharp,v\rangle = \langle u^\sharp,P^*v\rangle$. So $Pu^\sharp$ and
-$f^\sharp$ agree as functionals on $D_*(\Omega^\sharp)$, which is dense in $H^{2,-2\alpha-2}(\Omega^\sharp)^{-,\bullet}$
-(Lemma 1.3 (c)); both are bounded on it (Lemma 1.3 (a)), so they agree on it, and testing with $C^\infty_c$-functions
-supported in $\{t^\flat<T_1+1,r>r^\sharp\}$, which lie in that space, $Pu^\sharp = f^\sharp$ on $\Omega^\sharp$.
+$f^\sharp$ agree on $D_*(\Omega^\sharp)$, which contains the $C^\infty_c$-functions supported in
+$\{t^\flat<T_1+1,r>r^\sharp\}$: $Pu^\sharp = f^\sharp$ on $\Omega^\sharp$.
 
 *Step 2: regularity.* Lemma 3.3 (a) with $\Omega' \subset\Omega^\sharp$ (room 1, resp. $r_0-r^\sharp$) and $\mathsf s_0
 := \min(0,\inf\mathsf s)-1$ gives $u := u^\sharp|_{\Omega'}\in H^{\mathsf s,2\alpha}(\Omega')^{\bullet,-}$ and (3.4). By
@@ -751,7 +791,8 @@ P\otimes\mathrm{Id}-WQ^{(j)},\tag{4.1}$$
 with $Q^{(j)}$ the coupling of II.D$'$ (2.2) and $\tilde f^{(j)}_\alpha =
 -\sum_{|S|\ge2}(\mathrm{ad}_{X_S}L)X^{\alpha\setminus S}u$. $P^{(j)}$ acts on $\mathbb C^{N|\mathcal W_j|}$. It has the
 principal symbol of $P$; its first-order coupling $WQ^{(j)}$ has coefficients $O(x_I^{2+\min(1,2\ell_I)})$ near $\mathscr
-I^+$, so its normal form at $\mathscr I^+$, (1.1), has the same $p_1$ and $p_0$ as $P\otimes\mathrm{Id}$, and its
+I^+$, so its normal form at $\mathscr I^+$, (1.1), has the same $p_1$ as $P\otimes\mathrm{Id}$ (its zeroth-order part, of
+size $O(x_I^2)$, changes $p_0$, which is never used), and its
 principal symbol of order 1 vanishes at $R$. So $P^{(j)}$ satisfies everything sections 2-3 use, with the same margins,
 and Proposition 3.4 holds for it (its last paragraph), with constants depending on finitely many coefficient norms of
 $WQ^{(j)}$, which carry at most one b-derivative of those of $P$ (II.D$'$ Lemma 2.1). As $X^\alpha(W^{-1}f) =
@@ -802,25 +843,25 @@ $\Omega'$, and $C_k$ depending on $P$ only through a bound for $\epsilon_{P,d}$.
 *Proof.* Let $\tilde d$ and the regularity of II.A Proposition 9.6 be those of Lemma 4.1 (b) at the orders $\mathsf s+1$
 and $\mathsf s-1$, and $d := \tilde d+3$. For $k\le d$, (4.4) is (4.2), whose constant depends on
 $\epsilon_{P,k}\le\epsilon_{P,d}$. For $k>d$ run the induction of Proposition 4.3 on nested slabs
-$\Omega'\subset\Omega_{(k)}\subset\Omega_{(k-1)}\subset\dots\subset\Omega_{(0)} = \Omega''$, with room
-$2^{-j-2}\min(1,r_0-r^\sharp)$ between consecutive ones, proving at step $j$ the bound (4.3) on $\Omega_{(j)}$ in the
-tame form $C_j(\|f''\|_{(\mathsf s-1;j)}+\epsilon_{P,j}\|f''\|_{(\mathsf s-1;d)})$. The coefficients of $P^{(j)}$ carry
-at most one b-derivative of those of $P$, so the constant of Proposition 3.4 for $P^{(j)}$ depends on $\epsilon_{P,d}$
-only. In $\tilde f^{(j)}$ write $L = L_0+(L-L_0)$, $L_0$ the operator of $P_0$. The terms of $L_0$, and those of $L-L_0$
-in which at most $2$ b-derivatives fall on the coefficients, are bounded as in Proposition 4.3 by norms of $u''$ with at
-most $j-1$ words, on $\Omega_{(j-1)}$, with constants depending on $\epsilon_{P,3}$; by the induction hypothesis they are
-tame. In the others, $q'\ge3$ b-derivatives fall on a coefficient $p$ of $P-P_0$. As in II.D$'$ Lemma 2.4 (b) and
-[Hin26c] (7.55)-(7.56), commute the second-order factor to the front; it remains to bound
-$\|(D^{q'}_{[b]}D^{\le2}_ep)(D^{j-q}_{[b]}u'')\|_{H^{\mathsf s+1}(\Omega_{(j)})}$, $q'\le q$. Lemma 4.1 (b) on
-$\Omega_{(j)}\subset\Omega_{(j-1)}$ with $D^{2}_{[b]}D^{\le2}_ep$ for $\ell$ and $(q'-2,j-q+q'-2)$ for $(j,k)$ bounds it
-by
+$\Omega'\subset\Omega_{(2k)}\subset\Omega_{(2k-1)}\subset\dots\subset\Omega_{(0)} = \Omega''$, with room
+$2^{-i-2}\min(1,r_0-r^\sharp)$ between $\Omega_{(i)}$ and $\Omega_{(i-1)}$, two slabs per step: step $j$ proves the
+bound (4.3) on $\Omega_{(2j)}$ in the tame form $C_j(\|f''\|_{(\mathsf s-1;j)}+\epsilon_{P,j}\|f''\|_{(\mathsf
+s-1;d)})$. The coefficients of $P^{(j)}$ carry at most one b-derivative of those of $P$, so the constant of Proposition
+3.4 for $P^{(j)}$ depends on $\epsilon_{P,d}$ only. In $\tilde f^{(j)}$ write $L = L_0+(L-L_0)$, $L_0$ the operator of
+$P_0$. The terms of $L_0$, and those of $L-L_0$ in which at most $2$ b-derivatives fall on the coefficients, are bounded
+as in Proposition 4.3 by norms of $u''$ with at most $j-1$ words, on $\Omega_{(2j-2)}$, with constants depending on
+$\epsilon_{P,2}$; by the induction hypothesis they are tame. In the others, $q'\ge3$ b-derivatives fall on a coefficient
+$p$ of $P-P_0$. As in II.D$'$ Lemma 2.4 (b) and [Hin26c] (7.55)-(7.56), commute the second-order factor to the front; it
+remains to bound $\|(D^{q'}_{[b]}D^{\le2}_ep)(D^{j-q}_{[b]}u'')\|_{H^{\mathsf s+1}(\Omega_{(2j)})}$, $q'\le q$. Lemma
+4.1 (b) on $\Omega_{(2j)}\subset\Omega_{(2j-1)}$ with $D^{2}_{[b]}D^{\le2}_ep$ for $\ell$ and $(q'-2,j-q+q'-2)$ for
+$(j,k)$ bounds it by
 $$C_j\Big(\|p\|_{(d_1+2;\tilde d+2)}\|u''\|_{(\mathsf s+1;j-2)}+\|p\|_{(d_1+2;j)}\|u''\|_{(\mathsf s+1;\tilde d)}\Big)$$
-on $\Omega_{(j-1)}$, $d_1$ the regularity of Lemma 4.1 (b) and $d_0\ge d_1+2$. Here $\|u''\|_{(\mathsf s+1;j-2)}\le
-C\|u''\|_{(\mathsf s;j-1)}$ (II.A Lemma 8.4 (d), on slab spaces by taking extensions), which by Lemma 4.1 (c) and the
-induction is tame; $\|u''\|_{(\mathsf s+1;\tilde d)}\le C\|u''\|_{(\mathsf s;\tilde d+1)}\le C\|f''\|_{(\mathsf
-s-1;\tilde d+1)}$ by (4.2) at $\tilde d+1<d$; $\|p\|_{(d_1+2;\tilde d+2)}\le C\epsilon_{P,d}$ and $\|p\|_{(d_1+2;j)}\le
-C\epsilon_{P,j}$. The finitely many nested slabs used for a given $k$ make $C_k$ depend on $k$ only. Conclude with Lemma
-4.1 (c). $\square$
+on $\Omega_{(2j-1)}$, $d_1$ the regularity of Lemma 4.1 (b) and $d_0\ge d_1+2$. Here $\|u''\|_{(\mathsf s+1;j-2)}\le
+C\|u''\|_{(\mathsf s;j-1)}$ on $\Omega_{(2j-1)}$ (II.A Lemma 8.4 (d), on slab spaces by taking extensions), which Lemma
+4.1 (c) bounds by the words of length at most $j-1$ on the larger slab $\Omega_{(2j-2)}$, tame by step $j-1$;
+$\|u''\|_{(\mathsf s+1;\tilde d)}\le C\|u''\|_{(\mathsf s;\tilde d+1)}\le C\|f''\|_{(\mathsf s-1;\tilde d+1)}$ by (4.2)
+at $\tilde d+1<d$; $\|p\|_{(d_1+2;\tilde d+2)}\le C\epsilon_{P,d}$ and $\|p\|_{(d_1+2;j)}\le C\epsilon_{P,j}$. The
+finitely many nested slabs used for a given $k$ make $C_k$ depend on $k$ only. Conclude with Lemma 4.1 (c). $\square$
 
 The source states Proposition 8.9 for "$s\in\mathbb N$ an admissible order function"; the proof uses only what
 Proposition 8.6 uses, and (4.4) holds for slab orders.
@@ -935,10 +976,10 @@ being future timelike. On $\partial\Sigma^-$ the signs reverse. $\rho\,g^{-1}(\z
 continuous on the compactified cosphere bundle over the closure of the region, up to $K^+$, where it is that of the
 stationary metric $g_0$; it does not vanish on the characteristic set, which is compact. $\square$
 
-**Lemma 5.3 (regularity on r-slabs).** (a) Let $r^\sharp\le a'<a<b$, $\Omega_1 := \Omega^K_{[a,b]}\subset\Omega_2 :=
-\Omega^K_{[a',b]}$, $\mathsf s_0<\mathsf s$ slab orders, and $u\in H^{\mathsf s_0,\alpha_K}(\Omega_2)^{\bullet,-}$ with
-$Pu\in H^{\mathsf s-1,\alpha_K}(\Omega_2)^{\bullet,-}$. Then $u|_{\Omega_1}\in H^{\mathsf
-s,\alpha_K}(\Omega_1)^{\bullet,-}$ and
+**Lemma 5.3 (regularity on r-slabs).** (a) Let $r^\sharp\le a'<a<b<r^\natural+\delta_0$, $\Omega_1 :=
+\Omega^K_{[a,b]}\subset\Omega_2 := \Omega^K_{[a',b]}$, $\mathsf s_0<\mathsf s$ slab orders, and $u\in H^{\mathsf
+s_0,\alpha_K}(\Omega_2)^{\bullet,-}$ with $Pu\in H^{\mathsf s-1,\alpha_K}(\Omega_2)^{\bullet,-}$. Then $u|_{\Omega_1}\in
+H^{\mathsf s,\alpha_K}(\Omega_1)^{\bullet,-}$ and
 $$\|u\|_{H^{\mathsf s,\alpha_K}(\Omega_1)^{\bullet,-}}\le C\big(\|Pu\|_{H^{\mathsf s-1,\alpha_K}(\Omega_2)^{\bullet,-}}+
 \|u\|_{H^{\mathsf s_0,\alpha_K}(\Omega_2)^{\bullet,-}}\big).$$
 (b) Let $\delta>0$ with $T_0-\delta\ge1-\eta_0$ and $b+\delta\le r^\natural+\delta_0$, let $\Omega_3$ be the r-slab
@@ -1080,11 +1121,11 @@ bounded by (5.8) at $j-1$. This proves (5.8). By Lemma 4.1 (c) with room, $\|v\|
 k}\|X^\alpha v''\|_{\mathsf s}\le C_k\|g\|_{(\mathsf s-1;k)}$. Each step holds in the strong sense, so (5.5) does.
 
 (b) As in Proposition 4.4, with $\mathcal X_K$, $W = 1$, nested r-slabs
-$\Omega^K_{[a,b]}\subset\Omega_{(k)}\subset\dots\subset\Omega_{(0)} = \Omega''$ with room $2^{-j-2}\delta_1$ at the final
-face, and $d := \tilde d+3$. The one new term is $[P,\chi]u$ in (5.7). Its coefficients are $\chi'$ times those of $P$,
-which are stationary smooth ones plus $O(\epsilon_{P,k})$ in $C^{(d_0;k)}$; by Lemma 4.1 (b), whose proof applies
-verbatim to the spaces $H(\cdot)^\bullet$ with room at both $r$-faces, here $\{a^++\delta_2\le r\le b-\delta_2\}$ inside
-$\Omega^K_{[a^+,b]}$, $\|[P,\chi]u\|_{(\mathsf s-1;k)}\le C_k(\|u\|^{[a^+,b]}_{(\mathsf
+$\Omega^K_{[a,b]}\subset\Omega_{(2k)}\subset\dots\subset\Omega_{(0)} = \Omega''$ with room $2^{-i-2}\delta_1$ at the
+final face, two per step as there, and $d := \tilde d+3$. The one new term is $[P,\chi]u$ in (5.7). Its coefficients are
+$\chi'$ times those of $P$, which are stationary smooth ones plus $O(\epsilon_{P,k})$ in $C^{(d_0;k)}$; by Lemma 4.1
+(b), whose proof applies verbatim to the spaces $H(\cdot)^\bullet$ with room at both $r$-faces, here $\{a^++\delta_2\le
+r\le b-\delta_2\}$ inside $\Omega^K_{[a^+,b]}$, $\|[P,\chi]u\|_{(\mathsf s-1;k)}\le C_k(\|u\|^{[a^+,b]}_{(\mathsf
 s;k)}+\epsilon_{P,k}\|u\|^{[a^+,b]}_{(\mathsf s;\tilde d)})$, the stationary part contributing $\|u\|_{(\mathsf s;\tilde
 d)}\le\|u\|_{(\mathsf s;k)}$ for $k\ge\tilde d$. The induction then gives (5.6), the norms of $g$ at order $(\mathsf
 s-1;d)$ being bounded by (5.7) at $k = d$. $\square$

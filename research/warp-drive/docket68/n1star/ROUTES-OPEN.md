@@ -2541,3 +2541,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (C2), the tame assembly, half of (D'3)) and seven nits, all seated; (D'1)-(D'2) confirmed at source.
 - Open: the D197, D200, D201, D204 and D206 repairs; Part II.E unread; Parts II.F and III-VII.
 - Next: the eighty-sixth verifier on Part II.E; Part II.F, [Hin26c] sections 10-13, in writing.
+
+### 4.130 Part II.E verified (D207)
+
+- The eighty-sixth verifier on Part II.E: no major finding; six minor (the order on the extension region below t* = 1,
+  the domain of the collar flow, the nested-slab bookkeeping of the tame inductions, the support of E_+, the definition
+  of the extended time function, a hypothesis of Proposition 3.2) and nine nits, all seated; (E1)-(E13) confirmed.
+- Open: the D197, D200, D201, D204, D206 and D207 repairs; Parts II.F and III-VII.
+- Next: Part II.F, [Hin26c] sections 10-13, in writing (D208); then its verifier.

@@ -1089,10 +1089,10 @@ model, the seventh, the classes of operators, the time function and the order fu
 the eighth, the trapped sets of the perturbed metrics, proved here without the theorem on normally hyperbolic trapping
 that he cites, have been read line by line and their findings seated (supplement `proof5/`). The ninth, his microlocal
 regularity estimate on spacetime, with the radial estimates and the estimate at the trapped set, which he quotes from
-his earlier paper and which is proved here in the present calculus, and the tenth, that estimate with b-regularity and
-in the tame form his iteration uses, have been read line by line too and their findings seated; the eleventh, his energy
-estimates on bounded time slabs and in the black hole interior, with the global estimate at high frequencies they give,
-is written. Theorem 4 stays deduced until the last part is proved.
+his earlier paper and which is proved here in the present calculus, the tenth, that estimate with b-regularity and in
+the tame form his iteration uses, and the eleventh, his energy estimates on bounded time slabs and in the black hole
+interior, with the global estimate at high frequencies they give, have been read line by line too and their findings
+seated. Theorem 4 stays deduced until the last part is proved.
 
 ---
 
@@ -1923,6 +1923,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the eighty-third Part II.C′ and the D200 repairs (D201) |
 | | the eighty-fourth Part II.D (D204) |
 | | the eighty-fifth Part II.D′ (D206) |
+| | the eighty-sixth Part II.E (D207) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -2008,7 +2009,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `ab3320b89eaebeeb36709f98df6a1c9a` |
+| `docket68/n1star/N1STAR-LOG.md` | `8afe2aa97ebc4105f59b6d842d6f2b7d` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

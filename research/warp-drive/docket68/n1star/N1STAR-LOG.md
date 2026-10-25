@@ -4975,3 +4975,20 @@ of the form Q^(2) X_1 X_1, finite-order parametrix remainders, the citation II.A
 the global extension of the families as commutator fields, C_k' vs C_k. All seated. Status: Parts I.A-I.C, II.A, II.A'
 proved; II.B, II.C, II.C', II.D and II.D' verified; II.E written. Next: the eighty-sixth verifier on Part II.E; Part
 II.F ([Hin26c] sections 10-13), in writing.
+
+**D207 (2026-10-25): the eighty-sixth verifier seated; Part II.E verified.** The verifier read Part II.E in full against
+[Hin26c] pp. 141-157, recomputed Lemma 2.4 (the K-current and T-term near I+) with sympy at n = 4 and at n = 3 (where it
+reproduces the source's (8.10), confirming (E9)), re-derived Lemma 2.5's coefficient, Propositions 3.2 and 3.4, sections
+4-6 and Theorem 6.1, and confirmed (E1)-(E13) at source. No major finding. Minor: (M1) admissible orders are slab orders
+only over Omega_*, while Lemma 3.3 (a) at T_0 = 1 propagates below t* = 1 and over [r#, r_0]; the order is extended by
+its own formula II.C (5.3), whose iota+ term is absent there and whose I+ term depends on the eb fibre variables only,
+and its monotonicity there is II.C's computation with Lemma 1.2 (ii); (M2) the collar flow is defined only near
+Omega^-_* at bounded times, so it is applied after a cut-off in t-flat, which changes neither the pairings nor the
+restrictions; (M3) the tame inductions of Propositions 4.4 and 5.6 (b) mixed norms on one slab with words on the next,
+so they now use two nested slabs per step; (M4) WF'(E_+) in {t* >= t_+} does not by itself give t-flat > T_1, which
+holds once the neighbourhood K of I+ is small; (M5) the extended t-flat is defined by the gluing formulae of II.C Lemma
+3.2 with C >= 4(r'_0 + 1), not by Seeley's extension; (M6) Proposition 3.2 assumes t_- - omega_0 >= 1/2. Nits N1-N9
+seated (the null case of Lemma 2.2, the coefficient 8 delta' on extended slabs, p_0 of the commuted system, the
+dependence of d_0, the range of T_0 in Lemma 3.3 (a), b < r-natural + delta_0 in Lemma 5.3, the faces in Lemma 2.3,
+epsilon_{P,2}, the density step in Proposition 3.4). Status: Parts I.A-I.C, II.A, II.A' proved; II.B, II.C, II.C', II.D,
+II.D' and II.E verified. Next: Part II.F ([Hin26c] sections 10-13), in writing as D208.

@@ -25,7 +25,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
-| II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | written (D205) |
+| II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
 | II.F | [Hin26c] 10-13 | decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -322,4 +322,10 @@ the flow is a sum of squares (section 3). Findings (E1)-(E13), among them: the s
 of its Proposition 7.9 that Part II.D found to fail, and leaves the estimate for the adjoint to the reader; its Theorem
 8.14 applies its slab results at an initial time below their stated range, prints the tame estimate with the wrong
 weights on $Pu$, and omits the condition $\alpha_+<\alpha_I-\frac12$ that the estimate it invokes assumes. Written
-(D205); not yet read by a verifier.
+(D205). The eighty-sixth verifier re-derived Lemma 2.4 at $n = 4$ by machine (and at $n = 3$, reproducing the source's
+(8.10)), Lemma 2.5, Propositions 3.2 and 3.4 and sections 4-6, and confirmed (E1)-(E13) at source. No major finding. Its
+six minor findings are seated (D207): the admissible order is extended below $t_* = 1$ and over $\{r^\sharp\le r\le
+r_0\}$ by its own formula, monotone there by the same computation; the collar flow is applied after a cut-off; the tame
+inductions use two nested slabs per step; the support of $E_+$ needs a smaller neighbourhood of $\mathscr I^+$; the
+extended $t^\flat$ is defined by its formulae, not by Seeley's extension; and Proposition 3.2 states
+$t_--\omega_0\ge\frac12$. Its nine nits are seated too; they await the next reader.
