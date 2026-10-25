@@ -4457,3 +4457,9 @@ the record's own roots RP remains.
 the error; iplusnorm5.py N6 derives the S part now (9/9, mutants 9/9). M2 accepted and repaired by re-scoping 10.22 (e)'s
 row to Theorem 5.2; its second sentence's inputs are 10.21's and carry RB. Minors seated: five placements re-kinded
 arithmetic (88/94/38/1), 10.22's stale sentences, the paper's 61, [Hin23e].
+
+**D173 (2026-10-25): RL written out.** 10.80 and `tfnorm5.py` R1-R4 (4/4, mutants 4/4): [Hin26c] Theorem 9.38 and
+Corollary 9.39, stated and proved for every n, and Theorem 9.41, written at n = 3, read at source and written out at n =
+4 on (xx), (xlvii), (xlviii), (lix) and 10.20-10.21. The proof of (9.117) misprints one intermediate line at every n; the
+identity itself holds, with S~ = S-bar for the Minkowskian model. RL leaves the twenty-two rows it touched; each keeps
+RB, so thirty-five rows still take a reading. Five roots remain: RB, RU, RC, RI and RP.

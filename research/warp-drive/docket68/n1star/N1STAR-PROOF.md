@@ -9263,30 +9263,30 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      p. 1: READ), its right b-density shift dim(iota+) - 1 = 3 for his 2 and alpha_lb = 2(3/2 + S-bar) - eps (N9). Lemma
      10.10 forms N^1 and its Fourier transform (10.40) with i sigma - 5/2 - S for his i sigma - 2 - S, the shifts by 1
      being the one-dimensional transform's in v, and w-flat = rhat^(1 - i sigma) w solves N_tf(P_0, +-1) (N8); w-flat
-     lies in A^(alpha, -beta) with beta in (beta_-, beta_+), since -gam_cf = alpha_+ + 2 is in that gap and Im sigma > -1
-     - beta_+ (his '1 + Im sigma < beta_+' is -1 - Im sigma < beta_+), so tf-admissibility at n = 4 gives w-flat = 0.
-     10.1.4 (Proposition 10.12): the Mellin transform in tau, the contour Im sigma = -gam_+, a Paley-Wiener argument in
-     one variable and finite speed of propagation for uniqueness, free of n, with gam_I = alpha_I + 2 for his alpha_I +
-     3/2 (p. 219). Section 10.2 (Proposition 10.14): P_+ = chi N_iota+(P_0) + (1 - chi) P_0, its metric g_chi with dt*
-     past causal, Tangherlini's g - g-bar = O(m r^-2) one order better at iota+ than Kerr's, the estimates section 7's
-     ((lvi)) and the normal operator's inversion Proposition 10.12's. Section 10.3 combines them with the shifts n/2 = 2
-     and (n + 1)/2 = 5/2 for his 3/2 and 2 (N5), gam_+ - 1/2 = alpha_+ + 2 in (beta_-, beta_+) (Definition 5.13 (2) at n
-     = 4), footnote 100's buffer 1/2 free of n -- Sobolev embedding in n spatial variables gives n/2 = 2 orders, alpha_+
-     + 2 pointwise and alpha_+ + 5/2 with t* regularity -- and (5.22) near K+. Theorem 11.1's proof (pp. 229-232): P_eps
-     = chi_eps P_0 + (1 - chi_eps) P, Theorem 8.14's estimates (8.45)-(8.46) ((lvii)), Theorem 10.1 for P_0, the
-     absorption with delta' = min(l_+ - delta, l_K - aleph), Propositions 8.6 and 8.9 at finite times, weak compactness,
-     the passage from (e3b; b)- to b-spaces and continuous dependence: free of n. Its b-density form (11.4)-(11.6a) has
-     mu_b = rho_I^4 rho_+^5 rho_K |dt dx| = |dt dx|/(t* r^4), beta_I = alpha_I + 2, beta_+ = alpha_+ + 5/2, beta_I < 3/2
-     + S-bar and P_1 of sf-weight beta_+ - 5/2 (N5); Remark 11.4's condition is beta_- < 1 + S-bar for his 1/2 + S-bar
-     (N9). Section 13.2: mu_b = |dx|/|x|^4 and L^2(mu) = rho^2 L^2(mu_b) (N5), so Lemma 13.13's (13.23a)-(13.23b) carry 3
-     and 2 for his 5/2 and 3/2, (13.26) beta - 2, and Corollary 13.14, through Theorem 9.5 ((lviii)), beta_scf < 3/2 +
-     S-bar; Corollary 13.17 joins Propositions 13.9 (2) and 13.11 (2), the Fourier transform in t* and free of n, with
-     Proposition 13.16, through Theorem 9.16 ((lix)), so gam = min(beta_I, 3/2 + S-bar) for his 1 + S-bar; Proposition
-     13.18 is Corollary 13.14's proof with sigma d_sigma, on Theorem 9.41, tf-admissibility with weight alpha + 2,
-     beta_scf < 3/2 + S-bar, (13.30a)'s alpha_+ + 3 and alpha_tf + 4 for his 5/2 and 7/2 and (13.30b)'s 2 for his 3/2,
-     beta_tf - beta_zf in (beta_-, beta_+) free of n. It rests on (lvi)-(lix)'s readings, Theorems 8.14, 9.5 and 9.16 at
-     n = 4, and on Corollary 9.39 and Theorem 9.41 at n = 4 (10.20's reading); its own places are computed (Proposition
-     10.57).
+     lies in A^(alpha, -beta) with beta in (beta_-, beta_+), since -gam_cf = alpha_+ + 2 is in that gap and Im sigma >
+     -1 - beta_+ (his '1 + Im sigma < beta_+' is -1 - Im sigma < beta_+), so tf-admissibility at n = 4 gives w-flat =
+     0. 10.1.4 (Proposition 10.12): the Mellin transform in tau, the contour Im sigma = -gam_+, a Paley-Wiener
+     argument in one variable and finite speed of propagation for uniqueness, free of n, with gam_I = alpha_I + 2 for
+     his alpha_I + 3/2 (p. 219). Section 10.2 (Proposition 10.14): P_+ = chi N_iota+(P_0) + (1 - chi) P_0, its metric
+     g_chi with dt* past causal, Tangherlini's g - g-bar = O(m r^-2) one order better at iota+ than Kerr's, the
+     estimates section 7's ((lvi)) and the normal operator's inversion Proposition 10.12's. Section 10.3 combines them
+     with the shifts n/2 = 2 and (n + 1)/2 = 5/2 for his 3/2 and 2 (N5), gam_+ - 1/2 = alpha_+ + 2 in (beta_-, beta_+)
+     (Definition 5.13 (2) at n = 4), footnote 100's buffer 1/2 free of n -- Sobolev embedding in n spatial variables
+     gives n/2 = 2 orders, alpha_+ + 2 pointwise and alpha_+ + 5/2 with t* regularity -- and (5.22) near K+. Theorem
+     11.1's proof (pp. 229-232): P_eps = chi_eps P_0 + (1 - chi_eps) P, Theorem 8.14's estimates (8.45)-(8.46)
+     ((lvii)), Theorem 10.1 for P_0, the absorption with delta' = min(l_+ - delta, l_K - aleph), Propositions 8.6 and
+     8.9 at finite times, weak compactness, the passage from (e3b; b)- to b-spaces and continuous dependence: free of
+     n. Its b-density form (11.4)-(11.6a) has mu_b = rho_I^4 rho_+^5 rho_K |dt dx| = |dt dx|/(t* r^4), beta_I =
+     alpha_I + 2, beta_+ = alpha_+ + 5/2, beta_I < 3/2 + S-bar and P_1 of sf-weight beta_+ - 5/2 (N5); Remark 11.4's
+     condition is beta_- < 1 + S-bar for his 1/2 + S-bar (N9). Section 13.2: mu_b = |dx|/|x|^4 and L^2(mu) = rho^2
+     L^2(mu_b) (N5), so Lemma 13.13's (13.23a)-(13.23b) carry 3 and 2 for his 5/2 and 3/2, (13.26) beta - 2, and
+     Corollary 13.14, through Theorem 9.5 ((lviii)), beta_scf < 3/2 + S-bar; Corollary 13.17 joins Propositions 13.9
+     (2) and 13.11 (2), the Fourier transform in t* and free of n, with Proposition 13.16, through Theorem 9.16
+     ((lix)), so gam = min(beta_I, 3/2 + S-bar) for his 1 + S-bar; Proposition 13.18 is Corollary 13.14's proof with
+     sigma d_sigma, on Theorem 9.41, tf-admissibility with weight alpha + 2, beta_scf < 3/2 + S-bar, (13.30a)'s
+     alpha_+ + 3 and alpha_tf + 4 for his 5/2 and 7/2 and (13.30b)'s 2 for his 3/2, beta_tf - beta_zf in (beta_-,
+     beta_+) free of n. It rests on (lvi)-(lix)'s readings, Theorems 8.14, 9.5 and 9.16 at n = 4, and on Corollary
+     9.39 and Theorem 9.41 at n = 4 (10.20's reading); its own places are computed (Proposition 10.57).
 
  (lxi) 10.22 (e), [Hin26a] Theorem 5.2 (pp. 41-66; D167). His proof, section 5.2. Lemma 5.3 puts h^2 box_g in h^2
      rho_sf^2 Diff^2_3b and L in h rho_sf^2 Diff^1_3b ((5.17)), from (2.14) and c in rho_sf C^oo, and Lemma 5.4 makes
@@ -9547,6 +9547,61 @@ Fredholm property is [Hin26c] Theorem 9.36 for an operator on 1-forms -- and its
 keep a reading. vartheta_H+ is computed in one inner product, which is what (5.17) asks; another might give a lower
 value. What remains of the record's own roots is RP. Labels: computed (T1-T5); READ (the pages named); deduced (10.21
 (d)-(e) as stated); nothing proved here.
+
+### 10.80 RL written out: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (`tfnorm5.py`; D173)
+
+*The setting.* RL (10.77) is section 9.5's Theorem 9.38 (p. 195) and Corollary 9.39 (p. 197) and section 9.6's Theorem
+9.41 (p. 198) at n = 4, on which twenty-two of READINGS.tsv's rows rest, their five-dimensional inputs computed in 10.20
+and their proofs not written out. Section 9.5 is stated and proved for X in R^n -- Definition 9.4 on R^n-bar, (9.110)
+with (n - 1)/2, the proof with r^^(n-1), rho^^-n and -n + 2 -- and section 9.6 writes Lemma 3.11's shift at n = 3. Read
+at source here (pp. 193-200), every place n enters computed by tfnorm5.py at general n, against his printed lines, and at
+n = 4.
+
+*Written out.*
+
+ (a) (Theorem 9.38, pp. 195-197) Parts (1)-(2): N_tf(P_0, e^(i theta)) fails to be elliptic only over sctf, and there the
+     radial point estimates of Propositions 9.10 and 9.11 -- (xlvii) and (xlviii) at n = 4 -- with real principal type
+     propagation give (9.111) with an error in H^(-N,(-N,q))_sc,b, the threshold at R_out (9.16c)'s, (xlviii). At ztf the
+     b-normal operator is r^^-2 P^(0)(0, r^^-1, -r^ d_r^, d_omega), whose indicial roots are minus those of P-hat_0(0)
+     (R2), so for -q + n/2 = -q + 2 in a gap (3.47), with the shift n/2 = 2 (10.20 (iii), (xx)), improves the error to
+     q - 1, and interpolation finishes. Part (3) is the argument around (9.54), free of n, the q-independence from (5).
+     Part (4) is Proposition 9.11's b-regular version, (xlviii). Part (5): the infinite b-regularity and the normal
+     operator arguments near sctf ((9.55)) and ztf ((9.109)); the embedding H^(oo,q)_b(r^^(n-1) |dr^|) in A^(q - n/2)
+     loses n/2 = 2 (R3), so (9.114) reads A^(3/2 + S-bar - eps, -beta). For the adjoint, mu_e = r^^(n-1) |dr^ dgslash|
+     = rho^^-n mu_b (R3), so its roots at ztf are -n + 2 + lambda-bar (R2) -- for the wave operator's scalar model {l,
+     -(l + 2)} at n = 4 -- and u^* lies in A^(-2 + beta) there. Near sctf, (9.117): e^(2i/rho^) N_tf(P_0, 1)^(*, mu_e)
+     e^(-2i/rho^) is -2i rho^(rho^ d - 3/2 - S~) + rho^^2 P~^(0), N_tf(P_0, -1)'s structure -- for the asymptotically
+     Minkowski model S~ = S-bar and P~^(0) = P^(0) at every n (R1) -- and Proposition 9.11 (1) with b-regularity,
+     (xlviii), gives (9.116). His second intermediate line prints -2i rho^(rho^ d - n + 1) for the conjugated (rho^
+     D)^2 term, where the conjugation gives -2i rho^(2 rho^ d - 2n + 3) at every n (R1), which (9.117) needs -- the
+     printed term would cancel its rho^ rho^ d: a misprint, carried to n = 4 with the line corrected.
+ (b) (Corollary 9.39, p. 197) Stated for every n: tf-admissibility at one weight of the gap gives it on the gap by
+     (9.114)-(9.115), Theorem 9.38 (3)'s index 0 and the injectivity give invertibility for every theta, and the compact
+     inclusion of H^(s,(r + alpha_+, q))_sc,b in H^(-N,(-N,-N))_sc,b removes the error term, (9.118). At n = 4 the weight
+     is beta = -q + 2 and the adjoint condition reads -n + 2 + beta = -2 + beta (R2); the functional analysis is free of
+     n.
+ (c) (Theorem 9.41, pp. 198-199) His proof: near zf, the first norm equivalence of (3.46), the zero energy estimate
+     (9.107) (Theorem 9.36, (xx)) and the commutator and difference memberships give (9.121); near tf, the second norm
+     equivalence with |sigma|^(3/2 - alpha) and (9.118); then (9.122)'s memberships, absorption for small |sigma|, for k
+     > 0 the b-regular estimates and Theorem 9.5 (4) ((lix)), and (9.120) as (9.23). At n = 4: (3.46)'s factor is
+     |sigma|^(n/2 - alpha) = |sigma|^(2 - alpha), from r^3 |dr| = |sigma|^-4 r^^3 |dr^| (R3), so tf-admissibility with
+     weight alpha + 2 and the window alpha in (-2 + beta_-, -2 + beta_+); (9.122): |sigma|^2 N_tf(P_0, e^(i theta)) is
+     (9.4)'s leading part at every n (R4), and the remainder rho^2 (P^(0)(rho, .) - P^(0)(0, .)) - i sigma Q + g00
+     sigma^2 lies in rho_scf rho_tf^3 Diff^2_sc-b by Definition 9.4's memberships, which 10.21 (a) computes for
+     five-dimensional Tangherlini; the absorption, the commutators and the conormal derivatives are free of n.
+
+*READ.* [Hin26c] (arXiv:2606.28008v1, alphaXiv, 2026-10-25): pp. 60-61 ((3.46), Lemma 3.11, Definition 3.12, (3.47)),
+157-158 (Notation 9.2, Definitions 9.3-9.4 and the sentence after), 193-200 (Theorem 9.36 and its proof, section 9.5,
+(9.110), Theorem 9.38 and its proof with (9.116)-(9.117), Corollary 9.39, Proposition 9.40, section 9.6, Theorem 9.41 and
+its proof with (9.121)-(9.122), Remark 9.42, Corollary 9.43).
+
+*What this gives, and what it does not.* Theorem 9.38, Corollary 9.39 and Theorem 9.41 hold at n = 4 as written out, on
+their inputs: (xx), (xlvii), (xlviii), (lix) and 10.20-10.21's computed values. RL is settled and leaves READINGS.tsv's
+twenty-two rows; each keeps RB -- section 9 treats scalar operators only and leaves bundles to the reader (p. 158) -- and
+its other roots, so the thirty-five rows keep a reading. The calculi are used as (xx), (xlvii) and (xlviii) use them. S~
+= S-bar is computed for the scalar model without angular lower-order terms; for box^C on 1-forms (9.117)'s structure is
+RB's. Two roots of the companion papers remain, RC and RI, with RP the record's own. Labels: computed (R1-R4); READ (the
+pages named); deduced ((a)-(c), at proof level given the inputs named); nothing proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

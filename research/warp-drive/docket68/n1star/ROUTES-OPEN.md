@@ -2246,3 +2246,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   placements re-kinded arithmetic, iplusnorm5.py N5 and N9 having checked them by comparisons typed by hand (88 computed,
   38 arithmetic); 10.22's stale sentences marked; the paper's 60 modification proofs are 61 with 10.73's reading;
   [Hin23e] for the 0-calculus paper in 10.75 (lx); 10.23 (d) had been re-marked in D169.
+
+### 4.96 RL written out: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (READ, computed, deduced; D173)
+
+- 10.80, `tfnorm5.py` R1-R4: section 9.5 is stated and proved for every n, section 9.6 at n = 3; read at source (pp.
+  193-200) and written out at n = 4. The places n enters are computed: (9.117) at every n, S~ = S-bar for the Minkowskian
+  model, with one misprint named in his intermediate line (-2i rho^(rho^ d - n + 1) for -2i rho^(2 rho^ d - 2n + 3)); the
+  indicial roots -lambda and -n + 2 + lambda-bar; the densities' n/2 = 2 in the embedding and in (3.46), so Theorem 9.41
+  takes alpha + 2 and the window (-2 + beta_-, -2 + beta_+); (9.122)'s leading part. RL leaves the twenty-two rows, each
+  keeping RB. Five roots remain: RB and RU, the source's kind; RC and RI, companion results at n = 4; RP, a computation.
+  OPEN, in this order: RC; RP; RI.
