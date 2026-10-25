@@ -1065,12 +1065,12 @@ but for one step, which rests on a modification step and so on the census (suppl
 written out step by step at n = 4 — forty-five with source proofs of at most about seven pages (two replaced by a
 computation), sixteen on longer runs of proof, [Hin26] sections 11 and 12, [Hin26c] sections 5, 7–11 and 13 and [Hin26a]
 section 5.2 — so their own steps rest on their inputs and not on a census, though thirty-five take a reading among those
-inputs, a statement at n = 4 whose proof is not written out; traced to their roots, they rest on ten statements -- two
-steps the source leaves to the reader at every n, three groups of companion results at n = 4 READ at n = 3, and five
-questions of the record's own, two computations, two short arguments and a choice (supplement sections 10.75 and 10.77,
-`READINGS.tsv`, with a lemma at the horizon proved in section 10.76). λ1 and δ exist by the deduction — from Hintz's
-smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A line-by-line check
-of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
+inputs, a statement at n = 4 whose proof is not written out; traced to their roots, they rest on seven statements -- two
+steps the source leaves to the reader at every n, three groups of companion results at n = 4 READ at n = 3, and two
+questions of the record's own, both computations; three more of the record's own are settled (supplement sections 10.75,
+10.77 and 10.78, `READINGS.tsv`, with a lemma at the horizon proved in section 10.76). λ1 and δ exist by the deduction —
+from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A
+line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
 
 ---
 
@@ -1939,8 +1939,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `1a31cc5b201e574dd52dabd23e325195` |
-| `docket68/n1star/N1STAR-LOG.md` | `65e4072c2bcc104de9ca4340535cd55d` |
+| `docket68/n1star/N1STAR-PROOF.md` | `705abccba319f7a56d08fed271341913` |
+| `docket68/n1star/N1STAR-LOG.md` | `c8d9fbdaeeace6341c6c140ec8504ca1` |
 | `docket68/n1star/README.md` | `dcd95d385076f4ac74b13a14420ba532` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2009,7 +2009,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/iplusnorm5.py` | `7d64b7787b8e6e7cf11b7ec16ef4b983` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/READINGS.tsv` | `9fb3ba37173ca2baa2662f55b1eb63cf` |
+| `docket68/n1star/READINGS.tsv` | `71c610c24c0f94ecd7e8ee0260d2c8ca` |
 | `docket68/n1star/B-MAP.tsv` | `9b4c7c9eefafc418366fb03ce6798955` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

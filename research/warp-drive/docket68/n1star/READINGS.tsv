@@ -11,11 +11,11 @@ row	item	roots	through
 10.29 (a)	(v)	RB RL	Proposition 6.12 (10.20 (e))
 10.30 (a)	(xiii)	RB RL	10.29 (a)
 10.31 (a)	(ix)	RB RH	10.21 (e); 10.21 (d)
-10.32 (c)	(xv)	RB RL RK RH	10.33 (f); Proposition 6.12 (10.20); 10.21 (e)
-10.34 (c)	(xxviii)	RB RL RK RH	Corollary 8.13 (10.33 (f)); Theorem 7.1 (2) (10.21 (e)); Proposition 8.6 (10.24)
-10.36 (b)	(xvi)	RB RH RE	10.31 (a); 10.36 (a)
+10.32 (c)	(xv)	RB RU RL RH	10.33 (f); Proposition 6.12 (10.20); 10.21 (e); RK settled through RU (10.78 (a))
+10.34 (c)	(xxviii)	RB RU RL RH	Corollary 8.13 (10.33 (f)); Theorem 7.1 (2) (10.21 (e)); Proposition 8.6 (10.24); RK settled through RU (10.78 (a))
+10.36 (b)	(xvi)	RB RH	10.31 (a); 10.36 (a); RE settled (10.78 (c))
 10.37 (c)	(xiv)	RB RL RI	Proposition 9.2 (1)'s index 0; Proposition 8.6 (10.24-10.25)
-10.39 (d)	(vii)	RB RL RK RH	10.32 (c); 10.33
+10.39 (d)	(vii)	RB RU RL RH	10.32 (c); 10.33; RK settled through RU (10.78 (a))
 10.39 (e)	(xvii)	RB RL RC	Corollary 9.39; Theorem 9.5 (4); Lemma 14.6
 10.40 (a)	(xviii)	RB RC	Lemma 3.9; Theorem 9.16
 10.41 (b)	(xxi)	RC	the sc- and b-calculi behind Lemma 13.13
@@ -27,7 +27,7 @@ row	item	roots	through
 10.46 (b)	(liv)	RB RU RL RI RP	(liii); 10.35 (b)
 10.46 (e)	(xxix)	-	Proposition 2.25 stated on R^n (10.59 (a))
 10.47 (d)	(xxxviii)	RI	(xxxvii)
-10.47 (e)	(xxxix)	RI RG	(xxxvii); 10.43 (e)
+10.47 (e)	(xxxix)	RI	(xxxvii); 10.43 (e); RG settled (10.78 (b))
 10.49 (a)	(xxv)	RB RL RH	Theorem 7.1 (10.21-10.23); Proposition 6.12; Proposition 8.6
 10.53 (e)	(lix)	RB	10.53 (d)
 10.55 (b)	(xlviii)	RB RU	10.19 (d); 10.53 (e)

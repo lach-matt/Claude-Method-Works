@@ -2213,3 +2213,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   section 9); RP, RK, RG, RH and RE, the record's own (the pole's logarithm; Corollary 8.13's semicontinuity; the
   G-equivariant read-off; box^C's horizon threshold at small h; the equivariant g_b). OPEN, in this order: RH, RK and
   RG; RL; RC; RP; RE; RI.
+
+### 4.93 Three of the record's roots settled (deduced; D170)
+
+- 10.78: RK (Corollary 8.13's semicontinuity) by Lemma 10.58 from the uniform estimates, so it rests on RU; RG (the
+  G-equivariant read-off) by the uniqueness of each step's data, which Hintz states (p. 315); RE (the equivariant g_b)
+  by mp5.py M2's covariance, a choice made. Seven roots remain: RB and RU, the source's kind; RL, RC and RI, companion
+  results at n = 4; RP and RH, computations. OPEN, in this order: RH at the record's point (box^C's horizon threshold
+  in the fibre inner product B, whose conditioning at e = 1/102400 must be measured against h^-1 = 10^6); RL; RC; RP;
+  RI.

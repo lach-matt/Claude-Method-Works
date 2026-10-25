@@ -9444,10 +9444,49 @@ for section 7; both are the same at every n. Three, RL, RC and RI, are results o
 n = 3 with every five-dimensional input computed, whose proofs are not written out -- the kind of step 10.75 wrote out
 for the 61. Five are the record's own: two computations (RH, RP), two short arguments from statements already in hand
 (RK from the semicontinuity 10.71 proves, RG from the uniqueness of each step's data), and a choice of presentation
-(RE). Writing out RL (six pages) and RI, READing RC, computing RH and RP, arguing RK and RG and fixing RE would leave
-the thirty-five rows on RB and RU alone, steps of the source's kind at every n.
+(RE). Writing out RL (six pages) and RI, READing RC, computing RH and RP, arguing RK and RG and fixing RE (the last
+three done in 10.78; D170) would leave the thirty-five rows on RB and RU alone, steps of the source's kind at every n.
 
 Labels: deduced (the tracing); READ (the quotations); nothing computed or proved here.
+
+### 10.78 Three of the record's roots settled: RK, RG and RE (D170)
+
+*The setting.* 10.77 traced the readings to ten roots, five of them the record's own. Three are settled here: one by a
+lemma that reduces it to a root of the source's kind, one by the uniqueness the source states, one by a computation
+already made.
+
+**Lemma 10.58 (deduced at proof level).** Let X, Z be Hilbert spaces with X compactly included in Z, Y a Banach space,
+and b -> T_b, for b in a neighbourhood of b_0, bounded maps X -> Y such that b -> T_b is continuous in the operator norm
+of L(X, Y') for some Banach space Y' into which Y includes continuously, and with a uniform estimate ||u||_X <= C
+(||T_b u||_Y + ||u||_Z) for u in X. Then dim ker T_b <= dim ker T_b0 for b near b_0.
+
+*Proof.* If not, with N = dim ker T_b0 finite (the estimate and the compact inclusion make it so), there are b_j ->
+b_0 and u_j^1, ..., u_j^(N+1) in ker T_bj orthonormal in Z. By the estimate ||u_j^i||_X <= C, so a subsequence
+converges weakly in X and, by the compact inclusion, strongly in Z, to u^i, orthonormal in Z. In Y', T_b0 u^i is the
+weak limit of T_b0 u_j^i, and T_b0 u_j^i = (T_b0 - T_bj) u_j^i -> 0 in norm; so T_b0 u^i = 0, and ker T_b0 holds N + 1
+orthonormal elements. []
+
+ (a) (RK) [Hin26] Corollary 8.13's semicontinuity for b near b_0 (10.33 (f)) is Lemma 10.58 for (8.22)'s operators,
+     with X, Y, Z the b-Sobolev spaces of [Hin26c] (9.18) at two orders, the inclusion compact by the gain in order and
+     weight, the operators continuous in b in L(X, Y') since their coefficients are smooth in b (Myers-Perry's, 10.36
+     (a)), and the uniform estimate that of [Hin26c] Theorem 9.36's proof for b near b_0 -- RU, the uniformity of
+     section 9's estimates under small perturbations of the operator. So RK rests on RU and RB.
+ (b) (RG) In the class, Theorem 12.8's read-off U' lies in D^oo_G. [Hin26]'s Step 1.3 determines the subtracted data
+     uniquely: "h^(1,0), (S^(0,1)'_1, S^(0),(1,0)'_2), and (S^(-2)',(3)_4 t*^-3) are uniquely determined, given u_1 and
+     b'" (p. 315), b', S' and S^(0)'_1 are components of p', and u_1, in ker L-bar by (12.46), fixes f'_1 through
+     Res_iota+(L-bar, E^C_I, 1) and Res_iota+(L-bar, 1) = {0}; each later step likewise, Case A by vanishing and Case B
+     by D_U Phi at data the step fixes. G acts by isometries of g_b0 commuting with L-bar, with P and, on D^oo_G, with
+     Phi (10.43 (e)'s G-average). For G-invariant (h', p', q') and g in G, g applied to a step's data solves the same
+     identities, so by uniqueness equals it: every subtracted datum is G-fixed, and U' is in D^oo_G. So 10.43 (e)'s
+     second route holds and RG is not a reading.
+ (c) (RE) The family g_A of mp5.py, A in so(4), is covariant: Q, P and x^T A^2 M^2 x invariant and M (r I + A) x
+     covariant under so(4) acting on (x, A) at fixed r (M2, computed), so g_(O A O^T)(O x) = O g_A(x) O^T for O in
+     SO(4), the group being connected. Route B's g_b is taken to be this family, its passage to outgoing coordinates and
+     cut-offs made through functions of t and of the invariant r, which keep the covariance; so RE is a choice made, not
+     a reading.
+
+What remains of the record's own roots is RP and RH; RK now rests on RU. Labels: deduced at proof level (Lemma 10.58,
+(a)-(c), given the inputs named); computed (M2, quoted); READ (p. 315); nothing proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

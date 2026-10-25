@@ -4435,3 +4435,10 @@ sections they cite (10.77, READINGS.tsv): four rested on statements since READ o
 (10.23 (b), 10.23 (d), 10.46 (e), 10.62 (c)); the thirty-five others rest on ten roots, two of them the source's own
 steps at every n, three groups of companion results at n = 4 READ at n = 3, five the record's own questions. The
 paper's section 8.8 names them.
+
+**D170 (2026-10-25): three of the record's roots settled.** 10.78: Lemma 10.58 (deduced at proof level) gives
+Corollary 8.13's semicontinuity from uniform estimates, so RK rests on RU; RG follows from the uniqueness of each
+step's data in Theorem 12.8's proof (p. 315) and G-equivariance; RE is mp5.py M2's covariance, the family taken as
+route B's g_b. Seven roots remain. RH at the record's point needs a computation: at the horizon's null conormal dr,
+l(dr) has eigenvalues 2a (three times), 4a and 2(1 - e) a with a = c_t(r_h) > 0, so the damping is not small in e, but
+the undamped part in B's inner product carries B's conditioning, about 1/e.
