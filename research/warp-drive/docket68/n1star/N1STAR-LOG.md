@@ -4575,3 +4575,74 @@ localised in t - t' as Q_3's so the family stays holomorphic, which is where the
 what the seventy-second verifier asked: the readings are settled, written out or READ, the census is evidenced by two
 methods and not proved, and the deductions are written out at proof level, not proofs checked at the level of the
 theorem's statement.
+
+**D184 (2026-10-25): the seventy-third verifier seated; the full write-out begun.** M, after D183: "What stays open.
+These are still deductions at proof level, read by independent verifiers, not proofs checked at the level of the
+theorem's statement. The completeness of each census is evidenced by two methods, not proved. - this needs to be closed,
+it needs to be proved". Asked how, M chose "Start the full write-out": the five-dimensional proof written in full,
+self-contained, section by section, from [Hin26c] section 9 on, in a new directory `proof5/`, each finished section
+proved at n = 4 and leaving the census behind; Theorem 4 stays deduced until the last section is done. The seventy-third
+verifier, on D182-D183: one major, nine minors, a note on the source; the conclusion of 10.84-10.86 stands. Major: (r)'s
+energy weight had the wrong sign -- e^(-lambda r) with X = nabla r future timelike gives -lambda T[u](X, X) <= 0 in the
+direct estimate, nothing absorbing it; the direct estimate takes e^(lambda r), the adjoint e^(-lambda r), and at bounded
+sigma |u|^2 comes from a Poincare inequality along r from the support; (e) and (t) follow. Minors: (F6)'s box_nabla :=
+-g^(mu nu) nabla nabla, the divergence's signs and curvature term, E5's model scope; (F8) and (u), the adjoint's indicial
+family lambda -> N(-lambda-bar)* and its roots -n + 2 + lambda-bar as printed; (m)'s sign and the kernel cut-off stated
+as a choice; (n)'s (9.84a) for P' modulo (Im z) h Psi^1_h; (q)'s (Q_3)_h,z; (k)'s attribution; (e) Part (5) at n = 4,
+A^(3/2 + S-bar - eps) and rho^(3/2 + S), the n = 3 numbers having been carried; the paper's stale md5, its "exactly" for
+bundle5.py's model cases and the timings; bundlesweep.py's exit without `--texts`. The verifier's note on page 169 --
+[V^alpha, 2 i sigma rho^2 d_rho] = 2 i alpha_1 sigma rho V^alpha for mixed alpha -- led, on reading Lemma 9.13 for the
+write-out, to a sign slip in the source: V^alpha (P-hat_0 u) = P-hat_0 V^alpha u + [V^alpha, P-hat_0] u makes (9.45)'s
+diagonal term + 2 i k sigma rho, not - 2 i k sigma rho, and with the true sign the Step 2 claim of Proposition 9.11 --
+that the term enters with the sign of -b* b -- fails, the threshold moving by k. The repair: that term is rewritten
+through P-hat_0 u = f, so the diagonal is P-hat_0 itself and the rest are of the classes the proof already handles;
+(9.44) and Theorem 9.5 (4) stand as stated ((c), (d)).
+
+**D185 (2026-10-25): the full write-out, Part I.A written.** `proof5/PART-I-SPECTRAL.md` proves [Hin26c] Theorem 9.5 at n
+= 4 for operators on a trivial bundle of any rank with a fibre inner product, with constants uniform in the operator (its
+Theorem 8.1), self-contained from the scattering calculus of [HJS] (arXiv:2604.18956, stated for every n, with bundles
+and variable orders), READ at source: a regularised positive commutator lemma iterated in steps of at most 1/4 (section
+3), the radial estimates at the horizon, R_in and R_out (section 4), propagation and elliptic estimates (section 5),
+Hormander's extendible and supported spaces and the energy estimate at the artificial boundary at every order (section
+6), and parts (1)-(6) of the theorem (section 7). Its status is written: not yet verified, so not proved, and Theorem 4
+stays deduced. It found five things (its section 9): F1, the sign slip in [Hin26c] (9.45), seated in D184; F2-F3, the n =
+3 exponents and the energy weight in 10.86, repaired in D184; F4, four steps the source leaves implicit, filled -- the
+cut-off to the characteristic set at R_in and R_out, a defining function in S*X at the horizon, the regularisation and
+iteration the source omits (p. 165), and the energy estimate at every order, which the source cites from [Hin25a]; F5, a
+harmless misprint on p. 167 (H_(Re G_sigma) q over the boundary is 4 sigma_0 |eta|^2, printed as 2 sigma_0 |eta|^2; only
+its sign is used). `proof5/README.md` holds the plan: I.B ([Hin26c] 9.3) next, then I.C (9.4-9.6), II ([Hin26c] 7-8 and
+10-13), III ([Hin26]), IV ([Hin26a] 5.2 and 6, [Hin23a] 3), V ([CD03], [HHV21]), VI (that the record's operators satisfy
+each part's hypotheses) and VII (the assembly). The seventy-fourth verifier reads Part I.A.
+
+**D186 (2026-10-25): the seventy-fourth verifier seated (Part I.A of the write-out).** It read
+`proof5/PART-I-SPECTRAL.md` line by line against [Hin26c] sections 9.1-9.2 and [HJS]: two major findings, seven minor,
+nits; F1-F5 confirmed (it recomputed [V^alpha, rho V_1] = alpha_1 rho V^alpha in sympy for seven words), every other step
+checked sound. Major 1: Lemma 3.1 asked for <F_eps v, v> >= -C |v|^2 on H^(s - kappa) and claimed C_eps in Psi^(2s - 2
+kappa), false where the absorbing term has top order (sigma_1 Re_h T at R_in, -iota sum W*W at R_out, Proposition 5.2
+(b)); the identity is now proved for Schwartz w only, applied to w_t = T_t v, and every term but F's passes to the limit,
+so F_eps is never applied to u -- the source's (9.39) and (9.50) take the same formal step (F6). Major 2: [HJS] p. 77
+takes the differential order constant, and Part I.A allowed a variable regularity order; every proof uses only s = s_c,
+so Theorem 7.2 is now stated for constant s (Remark 1.1), and Part I.B's calculus, with variable orders in all three
+senses, supplies the elliptic estimate at variable s should a later part need it. Minors: Lemma 4.1's extension q_ext = q
+o pi with dq_ext = 0 on the radial set; Proposition 5.2's square root through Q_0 + lambda, not Lemma 2.2; Theorem 7.2
+(6)'s holomorphy by Cauchy's formula from a Cauchy difference quotient in a weaker space, and its C^j step at b-regular
+levels; Lemma 3.2's K_E as a finite union over the steps; Proposition 4.2's positivity from an epsilon-free lower bound;
+the citation of [HJS] Proposition 4.1 replaced by a one-line proof. Nits: orders in Step 1, step (c) through E_eps(Id -
+Phi), Phi_J microlocally the identity, Lemma 2.1 (c) for operators of scalar principal symbol, the cut-off in Lemma 6.1,
+infinite-order vanishing in Proposition 6.4, the h-pairing in Green's formula, (9.56) for (9.57), sigma-dependence of B
+and G in Propositions 4.6 and 4.9, flow boxes rebuilt for each b in section 8, the letter N. No statement of Theorem 7.2
+changed but the restriction to constant s. Part I.A is labelled proved once a reader has checked these repairs.
+
+**D187 (2026-10-25): the seventy-fifth verifier seated (the D186 repairs).** It read every D186 repair in
+`proof5/PART-I-SPECTRAL.md` against the findings it answers and confirmed each: Lemma 3.1 now paired only with Schwartz
+approximants w_t = T_t v, Theorem 7.2 at constant s, Lemma 4.1's extension, Proposition 5.2's square root through Q_0 +
+lambda, Theorem 7.2 (6) by Cauchy's formula, Lemma 3.2's finite union, Proposition 4.2's epsilon-free bound. Two minor
+findings, both in the variant of Remark 3.3 that Proposition 5.2 (ii) uses. Minor 1: the main term was passed to the
+limit t -> 0 without a reason for the bound to survive; it survives because the sequence is bounded in the target space,
+so a subsequence converges weakly and the norm is weakly lower semicontinuous. Minor 2: Step 1 bounded A_eps P w_t
+through [A_eps, T_t], which no lemma bounds uniformly in t; it now splits A_eps P w_t = A_eps T_t Phi P u + A_eps T_t [P,
+Phi] u + A_eps [P, T_t] v and bounds each term directly, the last by Lemma 2.1 (c). Six nits: (H4) states r_e > r_h;
+Remark 1.1 defines r_Gamma > r_e and makes Part I.B a forward reference; Lemma 4.1's Taylor bound with M >= max(C'/(2
+b_0), 2 C_2); Proposition 4.6's Q^(0) with r_0 and z_eps := rho^(-1/2) Q~^(-1/2) in S^(-inf, 1/2); Propositions 4.6 and
+4.9 with their lower bounds epsilon-free; Proposition 5.2 and section 7.1 (E) with E elliptic on K_E^*. No statement
+changed. The two repairs are read by the next verifier, with Part I.B.

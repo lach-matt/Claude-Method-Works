@@ -206,7 +206,7 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if "--texts" not in a:
         print(__doc__)
-        sys.exit(0)
+        sys.exit(2 if a else 0)                      # asked to run without the full text: not a pass (D184)
     cw.B = a[a.index("--texts") + 1].rstrip("/") + "/mcp-alphaXiv-get_paper_content-"
     if "--out" in a:
         rows = sweep()[4]
