@@ -8209,16 +8209,17 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 53 name the places where the dimension changes the proof, 102 places in all, and 8 name
-none: the step is the source proof as it stands. The 105 placements of the five-dimensional values are: 33 at a computed
-check, 57 at an earlier section where they are computed or deduced, 14 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 53 name the places where the dimension changes the proof, 104 places in all, and 8 name
+none: the step is the source proof as it stands. The 107 placements of the five-dimensional values are: 34 at a computed
+check, 58 at an earlier section where they are computed or deduced, 14 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
 R^n, R^(n,1)) and 1 the record's choice (gamma_Ups = 1/100). 32 rows say they rest on a reading -- of a source theorem
 at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 computes, named none, 10.15 (a)'s reading was unmarked, and
-10.31 (b)'s placement naming zstates5.py Z4 was counted arithmetic (the sixty-first verifier). D150's write-outs (10.75
-(xvii)-(xxvii)) named nine more places their rows lacked -- 10.60 (f) had none -- and one more reading (10.20 (a)).
+10.31 (b)'s placement naming zstates5.py Z4 was counted arithmetic (the sixty-first verifier). D150-D151's write-outs
+(10.75 (xvii)-(xxx)) named eleven more places their rows lacked -- 10.60 (f) had none -- and one more reading (10.20
+(a)).
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8235,12 +8236,12 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Twenty-seven modification steps written out at n = 4 (D146, D148, D150)
+### 10.75 Thirty modification steps written out at n = 4 (D146, D148, D150, D151)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. The twenty-seven below are those whose source
+step so written out rests on its inputs, not on a census of its source. The thirty below are those whose source
 proofs are at most about five pages and are already matched step by step in the sections named, or short enough to match
 here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
 arXiv:2408.06715v1 for (xxvii)).
@@ -8512,17 +8513,51 @@ arXiv:2408.06715v1 for (xxvii)).
      pairings (pairing5.py), with the normalization and the s0 dual state's sign 10.32 (b) records, his L being half of
      [Hin24b]'s.
 
+ (xxviii) 10.34 (c), [Hin26] Proposition 8.14 (pp. 158-163; D151). His proof, for the scalar type (the vector type the
+     same): Step 0, a first solution of L-hat_b(0) h' = -f_b by Fredholm theory ([Hin26c] Theorem 9.36) against the
+     cokernel, not smooth in b near a = 0, which Steps 1-3 replace; Step 1, a formal solution by Lemma 2.15 and the
+     obstructions lambda_b,s1, lambda_b,v1, the latter through Proposition 7.4's h-sharp_b,v1, (8.33) giving a vector
+     v_b in R^3; Step 2, S_1 and V_1 solving (8.34)-(8.35) by Lemma 8.15; Step 3, L-hat_b(0) mapping h-breve^2_s1 and
+     h-breve^1_v1 into rho^2 C^oo, Lemma 2.15, the integration by parts against the dual states' decay, and Corollary
+     8.13 (2); Step 4, -3 no s2 root (Lemma 8.4), Lemma 2.15, and m-dot, S_1, a-dot from (8.37) by Lemmas 8.12 and 8.15;
+     Step 5, the second Bianchi identity and Theorem 7.1 (2) for the gauge condition and the linearized Einstein
+     equation. At n = 4 (10.34 (c)): Step 0 is not used for the conclusion; Step 1 by Lemma 2.15, free of n, and
+     Proposition 7.4 at n = 4 ((xvi)), (8.33)'s v_b in so(4) for R^3 (10.34 (b)); Step 2 as 10.34 (b) modifies it, with
+     Lemma 8.15 ((xix)), the modification the record's own and solvable by continuity; Step 3 with the generalized
+     states one order faster (10.29), the dual states O(r^-3) (10.31 (b)) and Corollary 8.13 (10.33 (f), a reading);
+     Step 4 with -3 no root at s2 and v2 (10.34 (iii)) and Lemma 8.12's pairings at n = 4 ((xxvii), 10.32), whose
+     determinant does not vanish; Step 5 with Theorem 7.1 (2) (10.21 (e)) and the Bianchi identity, an identity. The
+     tensor types, which four dimensions lacks, have their states at Tangherlini from 10.34's Gauss functions and near
+     it by the same steps.
 
-So twenty-seven of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Fifteen of the twenty-seven take a reading among their inputs (B-MAP.tsv's
-column `reading`: 10.15 (a), 10.20 (a), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.36 (b),
-10.37 (c), 10.39 (d), 10.39 (e), 10.40 (a), 10.41 (b), 10.62 (d)), and rest on the census through that input, not
-through their own steps (the sixty-first verifier; D149). Two, (iii) and (xxvi), replace the source proof by a
-computation rather than carry it. The other 34 carry proofs of several pages each, in [Hin26] sections 5-13, [Hin26c]
-sections 5-14, [Hin26a] sections 4-6 with its appendices A-B, and [Hin23a] section 3; writing those out is what remains
-of 8.8.
+ (xxix) 10.46 (e), [Hin26] (2.27) and Proposition 2.25 (pp. 61-63; D151). (2.27) is the hypothesis of Proposition 2.25
+     (1), the Fourier transform of a partially polyhomogeneous tensor on M. Its proof -- (2.25a), and Lemmas 2.11, 2.12,
+     2.23 and 2.24, b-analysis on M with b-weights -- carries no numeral of the dimension, and the proposition is stated
+     on X = R^n (10.59 (a)); so at n = 4 (2.27) is the same inequality of b-weights, beta_I >= beta_iota - beta_K and
+     beta_I > beta_iota - min(1, min Re E_K), and 10.46 (iii)'s five-dimensional weights -- 3 + eps_I at I+, 3 + eps_+
+     for h and 5 + eps_+ for f at iota+ -- meet it as his do.
 
-Labels: READ (the twenty-seven source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+ (xxx) 10.62 (c), [Hin26] section 5.6's boost pullback (pp. 107-109) with Theorem 5.23 (D151). His argument: Theorems
+     5.17 and 5.21 hold for any Ricci-flat background g_0 with g_0 - g_(m_0) in his class, which by Lemma 3.19 includes
+     phi_S^* g_(b_0); Ric commutes with pullback; Upsilon_0 is natural under pullback (5.75), and the cut-off gauge
+     (5.76) passes from Upsilon_0 near Sigma_IVP to Upsilon_(E^Ups) near I+; so phi_S^* h solves the initial value
+     problem (5.77a) with the pulled-back data (5.77b), whose weights the pullback by the time-1 flow of a b-vector
+     field preserves. At n = 4: phi_S is a boost of R^(4,1) (gluing5.py D1, D4); phi_S^* g_(b_0) - g_(b_0) is of order
+     r^-2 at infinity ((xxiii)) and of order 2 at iota+ (Proposition 10.39 (ii)), inside 10.48's class and E_+ (10.61
+     (a)); Theorems 5.17 and 5.21 are 10.48 (c)-(d), on 10.48's readings; and the invariance of Ric, (5.75), the cut-off
+     and the flow hold in every dimension.
+
+
+So thirty of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Eighteen of the thirty take a reading among their inputs (B-MAP.tsv's column
+`reading`: 10.15 (a), 10.20 (a), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b),
+10.37 (c), 10.39 (d), 10.39 (e), 10.40 (a), 10.41 (b), 10.46 (e), 10.62 (c), 10.62 (d)), and rest on the census through
+that input, not through their own steps (the sixty-first verifier; D149). Two, (iii) and (xxvi), replace the source
+proof by a computation rather than carry it. The other 31 carry proofs of several pages each, in [Hin26] sections 5-13,
+[Hin26c] sections 5-14, [Hin26a] sections 4-6 with its appendices A-B, and [Hin23a] section 3; writing those out is what
+remains of 8.8.
+
+Labels: READ (the thirty source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)

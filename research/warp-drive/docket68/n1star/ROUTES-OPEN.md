@@ -2073,4 +2073,6 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - B-MAP.tsv: the write-outs named nine places their rows lacked and one reading (10.20 (a)); 53 rows name places, 8
   none, 105 placements (33 computed, 57 section, 14 arithmetic, 1 choice), 32 on a reading. Twenty-seven of 61 written
   out, fifteen of them on a reading; 34 rest on the censuses.
-
+- D151 (10.75 (xxviii)-(xxx)): [Hin26] Proposition 8.14 (10.34 (c)), (2.27) with Proposition 2.25 (10.46 (e)) and
+  section 5.6's boost pullback (10.62 (c)). Thirty of 61 written out, eighteen of them on a reading; 31 rest on the
+  censuses. B-MAP: 104 places, 107 placements (34 computed, 58 section, 14 arithmetic, 1 choice).

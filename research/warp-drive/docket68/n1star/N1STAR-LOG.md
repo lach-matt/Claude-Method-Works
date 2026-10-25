@@ -4281,3 +4281,8 @@ their B-MAP rows did not name -- the tf norm's |sigma|^(n/2) and alpha_0's -n/2 
 10.19). Counts: 53 rows name places, 8 none; 105 placements (33 computed, 57 section, 14 arithmetic, 1 choice); 32
 rows on a reading; twenty-seven written out, fifteen on a reading; 34 rest on the censuses.
 
+**D151 (2026-10-25): three more written out.** [Hin26] Proposition 8.14 (10.34 (c); Steps 0-5 at n = 4, Step 0 not
+used, Step 2 the record's modification), (2.27) with Proposition 2.25's proof, b-analysis free of n (10.46 (e)), and
+section 5.6's boost pullback (10.62 (c)). Two more places named ((8.33)'s vector in so(4); the boost pullback at r^-2).
+Thirty of 61 written out, eighteen on a reading; 31 rest on the censuses.
+
