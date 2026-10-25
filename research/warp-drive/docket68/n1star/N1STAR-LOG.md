@@ -4416,3 +4416,10 @@ named. His (1.3.1) sum omits Re S and his (1.3.2) sum prints +4 Re S where -4 Re
 the same at n = 3 and n = 4. Lemma 10.9's parametrix, Hintz's 0-calculus Theorem 1.5 (arXiv:2112.08130), is stated for an
 n-dimensional manifold with boundary: READ. The row keeps a reading, now (lvi)-(lix)'s and 10.20's.
 Sixty of 61 written out, forty-one on a reading; one rests on its census: 10.22 (e).
+
+**D167 (2026-10-25): [Hin26a] Theorem 5.2 written out; no census row left.** The last census row, 10.22 (e), as
+10.75 (lxi): his section 5.2 read at source (pp. 41-66) and matched at n = 4, every five-dimensional place computed in
+10.13, 10.14 and 10.22 or READ in 10.65; nine places named. It rests on no reading; 10.21 (c) and 10.23 (c), whose one
+reading was Theorem 5.2's, are re-marked with it, and (xlii), (xliii) and (xlv) say so. All 61 modification steps are
+written out at n = 4; thirty-nine take a reading among their inputs. The paper's abstract, introduction,
+section 8.8 and section 9 now name the readings beside the censuses.

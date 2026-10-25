@@ -3861,7 +3861,8 @@ outside the horizon; and alpha_K = alpha_sf in (iv), below the threshold at dK+.
      value problem (5.16), with the density r^3 |dr dg/| for r^2 |dr dg/|, have solutions with the weights of his
      Theorem 5.2. With 10.21, [Hin26a] Theorem 6.2 holds on five-dimensional Tangherlini on the same reading: (1) and
      the injectivity of (2) for every h in (0, h_0); the invertibility of (2) at h = 10^-6, Proposition 10.9's point,
-     for C_0 <= 100, provided 10^-6 < h_0 and given 10.21(d)'s horizon threshold.
+     for C_0 <= 100, provided 10^-6 < h_0 and given 10.21(d)'s horizon threshold. (Since written out as 10.75 (lxi), on
+     no reading; D167.)
 
 *READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-22): pp. 9 (section 1.2.2), 12-16 (Definition 2.1, its charts,
 (2.4), (2.7)-(2.10), Definitions 2.2 and 2.5, (2.11)-(2.14)), 25-27 (Lemmas 3.3, 3.5, 3.7 and 3.8, Remark 3.4, Corollary
@@ -6993,7 +6994,8 @@ reading that his arguments hold at n = 4 (Phase B's B4). Here his section 5.2, r
      -l - 2 | l (10.23).
 
 B4 is deduced at source with one reading left, (a)'s: the sign of each commutator in his section 5.2 as computed in five
-dimensions. Labels: READ (1)-(4); deduced (a)-(c); nothing computed or proved here.
+dimensions. (Since discharged at source in 10.65 and written out as 10.75 (lxi); D167.) Labels: READ (1)-(4); deduced
+(a)-(c); nothing computed or proved here.
 
 ### 10.57 [Hin23a] in five dimensions, at source (B10; D125)
 
@@ -8256,11 +8258,11 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 57 name the places where the dimension changes the proof, 206 places in all, and 4 name
-none: the step is the source proof as it stands. The 213 placements of the five-dimensional values are: 88 at a computed
-check, 94 at an earlier section where they are computed or deduced, 30 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 57 name the places where the dimension changes the proof, 215 places in all, and 4 name
+none: the step is the source proof as it stands. The 222 placements of the five-dimensional values are: 93 at a computed
+check, 95 at an earlier section where they are computed or deduced, 33 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
-R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 42 rows say they rest on a reading -- of a source
+R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 39 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
@@ -8290,7 +8292,9 @@ A^(1 - eps); both keep a reading, the scalar-to-bundle step. D165 (the sixty-fif
 on readings, as its item (li) now says, labelled three placements at an instrument computed, joined 10.32 (b)'s two
 placements of one place, recorded 10.45 (e)'s weight as settled and gave 10.62 (b) its section 9 inputs. D166's (10.75
 (lx)) named nineteen places for 10.58 (c), its first, seventeen at a computed check (iplusnorm5.py N1-N9, Proposition
-10.57, and iplus5.py P1) and two arithmetic in n; the row keeps a reading, now (lvi)-(lix)'s and 10.20's.
+10.57, and iplus5.py P1) and two arithmetic in n; the row keeps a reading, now (lvi)-(lix)'s and 10.20's. D167's (10.75
+(lxi)) named nine more places for 10.22 (e), the last census row, and marked 10.22 (e), 10.21 (c) and 10.23 (c) as
+resting on no reading: the one reading of each was [Hin26a] Theorem 5.2 at n = 4, now written out.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8307,18 +8311,18 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Sixty modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D161, D163-D164, D166)
+### 10.75 Sixty-one modification steps written out at n = 4 (D146-D167)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. All but fifteen below are those whose source
+step so written out rests on its inputs, not on a census of its source. All but sixteen below are those whose source
 proofs are at most about seven pages and are already matched step by step in the sections named, or short enough to
 match here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
-arXiv:2408.06715v1 for (xxvii)). The fifteen carry longer runs of proof, matched step by step the same way:
+arXiv:2408.06715v1 for (xxvii)). The sixteen carry longer runs of proof, matched step by step the same way:
 (xxxvii)-(xxxix) [Hin26] Theorems 12.3 and 12.8 (fifteen pages), (xlix)-(lv) his section 11 (pp. 231-295), (lvi)-(lvii)
-[Hin26c] sections 7-8 (pp. 114-157), and (lviii)-(lix) its sections 9.2-9.3 (pp. 161-193), and (lx) its Definitions
-5.13-5.18 with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255).
+[Hin26c] sections 7-8 (pp. 114-157), (lviii)-(lix) its sections 9.2-9.3 (pp. 161-193), (lx) its Definitions 5.13-5.18
+with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a] section 5.2 (pp. 41-66).
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
      Fredholm of index 0 on [Hin26c] (9.18)'s spaces, by Proposition 8.3 (10.26) and [Hin26c] Theorem 9.5 (10.19, 10.53,
@@ -8822,7 +8826,8 @@ arXiv:2408.06715v1 for (xxvii)). The fifteen carry longer runs of proof, matched
      annulus; for general s, chi(tau) omega_0 solves the forward problem with source [box^C, chi] omega_0 in
      rho_sf^(alpha_sf + 2) rho_K^(alpha_K) H^(s-1)_3b, and Theorem 5.2 again applies. At n = 4: the density r^3 |dr
      dg/|, so alpha_sf = -C_0 - 5/2 and l >= -C_0 - 2 = alpha_sf + 1/2 (Proposition 10.18 (iii), cpmodes5.py K3); the
-     annulus and the cut-off are free of n; and Theorem 5.2 at n = 4 is 10.56 (a)'s, a reading.
+     annulus and the cut-off are free of n; and Theorem 5.2 at n = 4 is (lxi)'s, written out on no reading (D167), so
+     this item rests on none.
 
  (xliii) 10.56 (b), [Hin26a] Theorem 6.2 (pp. 67-69; D156). His proof fixes alpha_K = 1 and alpha_sf = -C_0 - 2, which
      satisfy (5.14), and applies Theorem 5.2 with C_0 + 1, the indicial roots being Theorem 4.9's with C_0 + 4. Part
@@ -8834,14 +8839,14 @@ arXiv:2408.06715v1 for (xxvii)). The fifteen carry longer runs of proof, matched
      the radial operators over the spherical harmonics have index 0 by Theorem 4.9 (3), or through the adjoint,
      injective on H-dot^(s',l')_b with l' = -l - 2 > -3/2 since its indicial roots 1 - lam-bar have real part <= 0 or >
      C_0 + 3 and the L^oo to L^2 shift is -3/2. At n = 4: (5.14) is alpha_sf < b* - 1, alpha_K > alpha_sf + 1 - b*
-     (10.22 (c), solv5.py Q4), met by alpha_K = 1 and alpha_sf = -C_0 - 5/2 (10.21 (b)); Theorem 5.2 is 10.56 (a)'s
-     reading; the roots are Proposition 10.9's, Theorem 4.9 at n = 4 for h in (0, 10^-6] (10.54 (a)), the top of (6.1)'s
-     range 2 for his 1; (6.4) is (xli), the ODE gaining while gamma + 1 < 3/2 + min spec S-bar^C, positive (Proposition
-     10.18 (i)); r_* - r = O(r^-1) (10.21 (b)); the data lie in rho^(-2-eps) H-bar_b (r^3 |dr dg/|) (Proposition 10.18
-     (iii)); the direct route's radial operators are over the scalar and vector harmonics of S^3, each of index 0 by
-     10.12's even split of the roots (10.21 (d)), Fredholm by [Hin26c] Theorem 9.36 at n = 4 (10.20, a reading) given
-     10.21 (d)'s horizon threshold, OPEN there; and the shift is n/2 = 2 (10.21 (e)). It rests on the readings 10.21 and
-     10.56 (a) name.
+     (10.22 (c), solv5.py Q4), met by alpha_K = 1 and alpha_sf = -C_0 - 5/2 (10.21 (b)); Theorem 5.2 is (lxi)'s, written
+     out (D167); the roots are Proposition 10.9's, Theorem 4.9 at n = 4 for h in (0, 10^-6] (10.54 (a)), the top of
+     (6.1)'s range 2 for his 1; (6.4) is (xli), the ODE gaining while gamma + 1 < 3/2 + min spec S-bar^C, positive
+     (Proposition 10.18 (i)); r_* - r = O(r^-1) (10.21 (b)); the data lie in rho^(-2-eps) H-bar_b (r^3 |dr dg/|)
+     (Proposition 10.18 (iii)); the direct route's radial operators are over the scalar and vector harmonics of S^3,
+     each of index 0 by 10.12's even split of the roots (10.21 (d)), Fredholm by [Hin26c] Theorem 9.36 at n = 4 (10.20,
+     a reading) given 10.21 (d)'s horizon threshold, OPEN there; and the shift is n/2 = 2 (10.21 (e)). It rests on the
+     readings 10.21 names, Theorem 5.2 no longer adding one (D167).
 
  (xliv) 10.23 (b), [Hin26a] Proposition B.2 (pp. 87-91; D158). His proof: r^2 box^C(sigma) is b-elliptic in r < 2,
      symbol xi_b^2 + |eta_b|^2; its scattering symbol G_sigma = -2 sigma xi + xi^2 + |eta|^2 is characteristic over rho
@@ -8887,8 +8892,9 @@ arXiv:2408.06715v1 for (xxvii)). The fifteen carry longer runs of proof, matched
      (10.13 (i)); Proposition 5.11 at the sink holds for alpha_sf < b* - 1 (10.22 (c)); the energy estimates are
      Minkowski geometry, Lemma 5.14 and Corollary 5.15 stated in any dimension (10.22 (d)); finite speed of
      propagation is free of n; and the semiclassical edge-b calculus is stated for every dimension ([Hin23d]; 10.65
-     (a)). It rests on 10.22 (e)'s reading in its edge-b version, now 10.56 (a)'s: that each commutator's sign is the
-     computed five-dimensional symbol's.
+     (a)). It rested on 10.22 (e)'s reading in its edge-b version, that each commutator's sign is the computed
+     five-dimensional symbol's; the section 5.2 proofs it borrows are written out at n = 4 in (lxi) with those signs
+     computed, and its own cf estimate's are F3's, so it rests on no reading (D167).
 
  (xlvi) 10.23 (d), [Hin26a] section B.4 (p. 98; D158). His proof: without loss C_0 >= 2; l = -1/2 and beta = 7/2 (B.42);
      by Proposition B.2 it suffices that a kernel element omega_0 vanishes (B.43); Theorem B.4 with (alpha_sf, alpha_cf)
@@ -9261,20 +9267,53 @@ arXiv:2408.06715v1 for (xxvii)). The fifteen carry longer runs of proof, matched
      (lvi)-(lix)'s readings, Theorems 8.14, 9.5 and 9.16 at n = 4, and on Corollary 9.39 and Theorem 9.41 at n = 4
      (10.20's reading); its own places are computed (Proposition 10.57).
 
-So sixty of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Forty-one of the sixty take a reading among their inputs (B-MAP.tsv's column
-`reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.19 (d), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b),
-10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b),
-10.42 (e), 10.43 (c), 10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.49 (a), 10.53 (e),
-10.55 (b), 10.56 (b), 10.58 (c), 10.61 (b), 10.61 (c), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the
-census through that input, not through their own steps (the sixty-first verifier; D149). Where an item cites a row still
-on the census as an input, by name or by citing its whole section, alone or within a range of sections (10.N-10.M; the
-sixty-fourth and sixty-fifth verifiers; (i) cites 10.22 (e); (xxv) cites 10.22 (e); (xlv) cites 10.22 (e)), it rests on
-the census through that row in the same way. Two, (iii) and (xxvi), replace the source proof by a computation rather
-than carry it. The last, 10.22 (e), carries a proof of several pages, in [Hin26a] section 5; writing it out is what
-remains of 8.8.
+ (lxi) 10.22 (e), [Hin26a] Theorem 5.2 (pp. 41-66; D167). His proof, section 5.2. Lemma 5.3 puts h^2 box_g in h^2
+     rho_sf^2 Diff^2_3b and L in h rho_sf^2 Diff^1_3b ((5.17)), from (2.14) and c in rho_sf C^oo, and Lemma 5.4 makes
+     the characteristic set of rho_sf^-2 P_h dSigma u o by Lemma 3.7. Section 5.2.1: Proposition 5.5, elliptic estimates
+     off o u dSigma; Proposition 5.6 at fibre infinity, a pairing argument ((5.24)-(5.30)) in which Re L_h is positive
+     by Lemma 3.5 and the commutator (5.29) is symbolic, using only that d tau and dr are timelike where the cut-offs
+     (5.20) vary. Near o, the elliptic multiple (5.31)-(5.32), C from Corollary 3.6, and positive commutators at the
+     three critical sets of -r c#: Proposition 5.8 at r = r_0 in (K+)^o (section 5.2.2), whose symbol identity
+     (5.39)-(5.43) needs S positive definite (Proposition 5.1 (3)) and -l(+-dr) positive on supp psi' (Proposition 5.1
+     (6)), j = sigma(J) vanishing cubically at o, then the absorptions (5.44)-(5.47) and an iteration in h^(1/2);
+     Proposition 5.9 at dK+ (section 5.2.3), with w = rho_sf^(alpha_sf + 1) rho_K^(alpha_K) in (5.53)-(5.54), b_0's
+     square root from Proposition 5.1 (4) and b_sf's and e's from (6); Proposition 5.11 at the sink (section 5.2.4),
+     with w' = rho_sf^(alpha_sf + 1) in (5.57), b_0's from Proposition 5.1 (5), e_1's from (6) and e_2's from the sign
+     of -r^2 l(d(r/t)); and Proposition 5.12 with the propagations after it (section 5.2.5), the escape functions r and
+     r/t and Proposition 5.1 (6). Section 5.2.6: Proposition 5.16's energy estimates near X and Sigma#, from Lemma 5.14
+     and Corollary 5.15 with the multiplier a^2 L_h ((5.70)-(5.71)), the weights of (5.72)-(5.73), and the fundamental
+     theorem of calculus for L_h ((5.77)-(5.78)). Section 5.2.7: Proposition 5.17's a priori estimate along the flow of
+     -r c#, the adjoint estimate (5.81) the other way, duality for solvability, extension and restriction for
+     regularity, and the initial value problem by short-time theory or by cutting off at tau = 0, the source then in
+     H^(s'-1) for s' - 1 < -3/2, a differentiated delta in one variable. At n = 4: Lemma 5.3 is 10.22 (a) (Proposition
+     10.19 (i)); Lemmas 3.5 and 3.7 and Corollary 3.6 hold (10.13 (i)); Proposition 5.1 (1)-(6) are 10.14's c at (v, e)
+     = (1/2, 1/102400) and r_0 = 100, (3) and (6) computed there, (4)-(5) positive at dK+ and at the sink exactly when
+     b_K > b_sf - b* and b_sf < b* (10.14 (iv)), near those sets by continuity as in his proof (p. 39), and (5) on |r/(t
+     v) - 1| <= 2 delta_sf (10.22 (c)), so his (5.14) reads alpha_sf < b* - 1 and alpha_K > alpha_sf + 1 - b*; each
+     commutator above is an identity of symbols free of n whose signs are these (10.65 (b)); the pairings are in L^2(M,
+     |dg|), with |dg| = r^3 |dt dr dgslash| on five-dimensional Tangherlini, Kerr-Schild metrics having eta's
+     determinant, and S = h^-1 Im L_h is formed with it (10.13); the causal facts Propositions 5.6 and 5.16 use -- d tau
+     past timelike on tau^-1([0, T]) for every T < 1, dr future timelike inside r_h, m = r_h/2 -- are Proposition 10.19
+     (ii)-(iii) (10.22 (d)); Lemma 5.14 is stated for a Lorentzian vector space and Corollary 5.15 on R^(1+n) and on
+     n-dimensional manifolds of bounded geometry, here n = 4 with charts on S^3 times dyadic intervals, its uniformity
+     10.22 (d)'s; the level-set density in (5.74) is r^4 |dr dgslash| for his r^3, |dt dr| being r |d tau dr|, and the
+     data space of (5.16) is rho_sf^(alpha_sf + 1/2) H-bar_b(X, r^3 |dr dgslash|) = rho_sf^(alpha_sf) H-bar_b(X, r^4 dr
+     |dgslash|), the shift 1/2 free of n; and the semiclassical 3b-calculus is constructed in every dimension (10.65
+     (a), READ). So every place where five dimensions enter is computed or READ, and his h_0 exists at n = 4 as at n =
+     3, not made explicit; it rests on no reading, and 10.56 (a)'s, already discharged at source in 10.65, is here
+     written out.
 
-Labels: READ (the sixty source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+So all of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Thirty-nine of the sixty-one take a reading among their inputs (B-MAP.tsv's
+column `reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.19 (d), 10.20 (a), 10.23 (b), 10.23 (d), 10.27 (b), 10.28 (a),
+10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e),
+10.43 (c), 10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.49 (a), 10.53 (e), 10.55 (b),
+10.56 (b), 10.58 (c), 10.61 (b), 10.61 (c), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on that reading
+through that input, not through their own steps (the sixty-first verifier; D149). Two, (iii) and (xxvi), replace the
+source proof by a computation rather than carry it. No row is left on the census; what remains of 8.8 is the readings
+those thirty-nine take.
+
+Labels: READ (the sixty-one source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)

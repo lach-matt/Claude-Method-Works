@@ -2185,3 +2185,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   printed sums are off at n = 3 alike: (1.3.1)'s omits Re S, (1.3.2)'s has +4 Re S for -4 Re S, and his stated
   thresholds are the right ones. Lemma 10.9's 0-calculus parametrix is READ for every dimension. Sixty
   of 61 written out, forty-one on a reading; one rests on its census: 10.22 (e), [Hin26a]'s Theorem 5.2.
+
+### 4.90 [Hin26a] Theorem 5.2 written out: no census row left (READ, deduced; D167)
+
+- D167 (10.75 (lxi)): [Hin26a] section 5.2 -- Lemmas 5.3-5.4, Propositions 5.5-5.6, 5.8, 5.9, 5.11, 5.12, 5.16 and 5.17,
+  Lemma 5.14, Corollary 5.15 and the duality and initial value arguments -- read at source (pp. 41-66) and matched at n =
+  4 (10.22 (e)). Every place five dimensions enter is computed (10.13, 10.14, 10.22's solv5.py Q1-Q4, cform5.py) or READ
+  (10.65 (a)); the commutators are identities of symbols with those signs. It rests on no reading, and with it 10.21 (c)
+  and 10.23 (c), whose one reading was Theorem 5.2's. All 61 rows of B-MAP.tsv are written out; thirty-nine
+  take a reading among their inputs. What remains between Theorem 4 and a theorem is those readings and the census of
+  section 8.8 (i).
