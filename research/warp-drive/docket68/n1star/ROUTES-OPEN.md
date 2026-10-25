@@ -2475,3 +2475,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Parts I.A, II.A and II.A': every repair read and confirmed; proved.
 - Open: the D197 repairs to Part II.B; Parts II.C-II.F and III-VII.
 - Next: Part II.C, [Hin26c] sections 5-6 at n = 4.
+
+### 4.121 Part II.C written (D198)
+
+- Part II.C: [Hin26c] section 5 and Propositions 6.1, 6.4 at n = 4, with the order functions constructed in full and
+  three slips of the source recorded.
+- Open: Part II.C unread; Part II.C' (Proposition 6.3); Parts II.D-II.F and III-VII; the D197 repairs to Part II.B.
+- Next: the eighty-second verifier on Part II.C; Part II.C'.

@@ -4829,3 +4829,22 @@ Definition 1.3's coordinates, chi_inf, Lemma 2.6 with delta/2, the Theorem 3.51 
 (S8), and Part I.A Proposition 4.9's h-symmetrised commutant); one nit, f' compactly supported in the sharpness example,
 seated. Status: Parts I.A, I.B, I.C, II.A and II.A' proved; Part II.B verified. Next: Part II.C ([Hin26c] sections 5-6),
 in writing.
+
+**D198 (2026-10-25): Part II.C written ([Hin26c] section 5 and section 6 but 6.3, at n = 4).**
+`proof5/PART-II-C-OPERATORS.md`. Section 1: stationary wave-type operators (Definition 1.1, (5.1a) with 3/2); Lemma 1.2,
+the stationary wave-type operators are the stationary operators whose spectral families satisfy (H1), (H2), (H6); Lemma
+1.3, tensor wave operators in the coordinate frame of (t_*, x) have S = 0 and spectral difference in rho^4 Diff^2_b (the
+source: S in rho C^inf, rho^3, from Kerr's rate); Lemma 1.4 = Lemma 5.7 with the normal form -(x_I d_xI - 3 - 2S)(x_I
+d_xI - 2 rho_+ d_rho+) + 2 x_I^2 Delta at scri+. Section 2: trapping admissibility from I.B's (Gamma.4); tf-admissibility
+from I.C Definition 5.1; Definition 2.4 the admissible orders; Lemma 2.5 ([Hin23c] Proposition B.1, Jordan scaling and a
+partition of unity); Lemma 2.6 = Lemma 5.12, the symmetry of -2 d_t* rho(rho d_rho - c) for rho^-5 d rho forcing c = 3/2,
+theta_out = 2 inf lambda_min((S+S*)/2) and theta_in^3b = theta_in of I.A; Definition 2.7, aleph-admissibility with
+tf-weight alpha_sf + 2. Section 3: Definition 3.1; Lemma 3.2 = Lemma 5.16, the time function, with an explicit gluing (a
+smooth minimum in log F and a smooth maximum in r, whose differentials are convex combinations); Definition 3.3 and Lemma
+3.4 ((5.27) with exponents 3 + 2 mu); Lemma 3.7. Section 4: Lemma 4.1, the perturbed field differs by a b-vector field in
+eps w C^(d0-1) V_b; Proposition 4.2 = Proposition 6.1, including the backward half. Section 5: Proposition 5.1 =
+Proposition 6.4 by the construction of [Hin23c] Appendix C written out (Lemmas 5.3-5.5; chi_I near scri+, chi_iota near
+iota+ with f_T = rho^-1(1 - xi-hat), for which H-bar f_T = 2 rho^-1 exactly; the gluing by psi_0(x_I)); the time
+localisation chi_t of [Hin23c] is not needed, the error near scri+ carrying x_I^(2 l_I). Findings (C0)-(C8); (C1)-(C3)
+are slips of the source. Next: the eighty-second verifier on Part II.C; Part II.C' (Proposition 6.3, a self-contained
+persistence theorem for the stable and unstable hypersurfaces of a decaying non-autonomous perturbation).

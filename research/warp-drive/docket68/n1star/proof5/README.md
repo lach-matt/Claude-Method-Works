@@ -21,7 +21,9 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | **proved** (D197) |
 | II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
-| II.C-F | [Hin26c] 5-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
+| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | written (D198) |
+| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | in writing |
+| II.D-F | [Hin26c] 7-8, 10-13 | spacetime estimates, decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -211,3 +213,20 @@ statement of Lemma 3.3 (4) printed the source's vector field $r\partial_{t_*}-2r
 $2r\partial_{t_*}-r\partial_r$. Four nits: a citation of Lemma 2.1 for the Leibniz rule, $dr$ future (not past) timelike
 inside the horizon, "within $\Sigma$" for the characteristic sets, and the two meanings each of $\rho_K$ and $\rho_+$.
 All are seated (D197); they await the next reader.
+
+## Part II.C
+
+`PART-II-C-OPERATORS.md`. [Hin26c] section 5 and section 6 except Proposition 6.3, at $n = 4$. The stationary wave-type
+operators are exactly the operators whose spectral families satisfy (H1), (H2) and (H6) of Part I (Lemma 1.2), with the
+constant $\frac32 = \frac{n-1}2$ in place of the source's 1; for the tensor wave operators $S = 0$ in the coordinate
+frame (Lemma 1.3). Lemma 1.4 places $P_0$ in the 3b- and e3b-calculi and gives its normal form at $\mathscr I^+$, with
+$3+2S$ for the source's $2(1+S)$. Section 2 defines trapping and tf-admissibility through Part I's hypotheses, the
+admissible orders, and $\aleph$-admissibility with the weight $\alpha_{\mathrm{sf}}+2$; the thresholds at $\partial K^+$
+are those of Part I written in 3b-terms (Lemmas 2.5-2.6). Section 3 proves the time function $t^\flat_*$ with an explicit
+gluing, and states the admissible wave-type operators and their normal form at $\mathscr I^+$. Section 4 proves
+Proposition 6.1 for perturbed metrics, including its backward half, which the source states without proof. Section 5
+proves Proposition 6.4, the order functions, by writing out the construction of [Hin23c] Appendix C that the source
+cites, in this class; one localisation of that construction is not needed here. Findings (C1)-(C3) are slips of the
+source: a power $x_I^{-2}\rho_+^{-2}$ for $x_I^2\rho_+^2$, "non-decreasing" for non-increasing in its Definition 5.11
+(1), and the sign in its characterisation (6.5) of the future characteristic set. Written (D198); the eighty-second
+verifier reads it.

@@ -1085,7 +1085,8 @@ operator -- are written, read line by line, their repairs read again, and proved
 spacetime analysis, and the fifth, which proves the two standard estimates that the fourth takes as inputs; one finding
 of the fourth corrects the hypothesis of his real principal type estimate on the variable order, which as printed admits
 a counterexample. The sixth, the dynamics of light rays in the stationary model, has been read line by line and its
-findings seated (supplement `proof5/`). Theorem 4 stays deduced until the last part is proved.
+findings seated. The seventh, the classes of operators, the time function and the order functions of his spacetime
+analysis, is written and awaits its reader (supplement `proof5/`). Theorem 4 stays deduced until the last part is proved.
 
 ---
 
@@ -1997,7 +1998,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `9b7365657d132fb904f89fc7bca96fc8` |
+| `docket68/n1star/N1STAR-LOG.md` | `da1d9a7a57102ae673c7a19e5a480918` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
