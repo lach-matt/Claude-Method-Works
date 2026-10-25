@@ -4597,3 +4597,19 @@ diagonal term + 2 i k sigma rho, not - 2 i k sigma rho, and with the true sign t
 that the term enters with the sign of -b* b -- fails, the threshold moving by k. The repair: that term is rewritten
 through P-hat_0 u = f, so the diagonal is P-hat_0 itself and the rest are of the classes the proof already handles;
 (9.44) and Theorem 9.5 (4) stand as stated ((c), (d)).
+
+**D185 (2026-10-25): the full write-out, Part I.A written.** `proof5/PART-I-SPECTRAL.md` proves [Hin26c] Theorem 9.5 at n
+= 4 for operators on a trivial bundle of any rank with a fibre inner product, with constants uniform in the operator (its
+Theorem 8.1), self-contained from the scattering calculus of [HJS] (arXiv:2604.18956, stated for every n, with bundles
+and variable orders), READ at source: a regularised positive commutator lemma iterated in steps of at most 1/4 (section
+3), the radial estimates at the horizon, R_in and R_out (section 4), propagation and elliptic estimates (section 5),
+Hormander's extendible and supported spaces and the energy estimate at the artificial boundary at every order (section
+6), and parts (1)-(6) of the theorem (section 7). Its status is written: not yet verified, so not proved, and Theorem 4
+stays deduced. It found five things (its section 9): F1, the sign slip in [Hin26c] (9.45), seated in D184; F2-F3, the n =
+3 exponents and the energy weight in 10.86, repaired in D184; F4, four steps the source leaves implicit, filled -- the
+cut-off to the characteristic set at R_in and R_out, a defining function in S*X at the horizon, the regularisation and
+iteration the source omits (p. 165), and the energy estimate at every order, which the source cites from [Hin25a]; F5, a
+harmless misprint on p. 167 (H_(Re G_sigma) q over the boundary is 4 sigma_0 |eta|^2, printed as 2 sigma_0 |eta|^2; only
+its sign is used). `proof5/README.md` holds the plan: I.B ([Hin26c] 9.3) next, then I.C (9.4-9.6), II ([Hin26c] 7-8 and
+10-13), III ([Hin26]), IV ([Hin26a] 5.2 and 6, [Hin23a] 3), V ([CD03], [HHV21]), VI (that the record's operators satisfy
+each part's hypotheses) and VII (the assembly). The seventy-fourth verifier reads Part I.A.

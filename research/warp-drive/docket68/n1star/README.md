@@ -323,6 +323,10 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   the energy identity with a connection, sums of squares in a fibre inner product (E1-E6). `python3 bundle5.py
   --selftest` (6/6, seconds), `--mutants` (6/6). Model cases, as above: E3 is 2 x 2 and E5 is R^(1+1) with X Killing
   (D184).
+- `proof5/`: the five-dimensional proof written out in full, self-contained, part by part (D185), to replace the
+  deductions and censuses behind Theorem 4; `proof5/README.md` holds the plan and each part's status (written, verified,
+  proved). Part I.A, `PART-I-SPECTRAL.md`, is [Hin26c] Theorem 9.5 at n = 4 on bundles and uniformly in the operator:
+  written.
 - `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
   the passages carried to n = 4 -- 278 hits on the 205 pages swept (D143; 270 before its [CD03] window was set right),
   every one accounted for by 10.53-10.58 and 10.63-10.68 but one norm convention of [Hin26a] p. 62, named in 10.69. Runs

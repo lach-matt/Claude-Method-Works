@@ -1041,20 +1041,20 @@ dimensions it changes them at the radiation order. [CD03]'s gluing needs its par
 below r^(−3/2); its other uses of it fall on the Myers–Perry metrics glued to, which meet it. [Hin26a]'s calculus is
 constructed in every dimension [Hin23d, Hin26d], and each positive commutator in its section 5.2 is an identity of
 symbols whose sign is a positivity computed in five dimensions. A second census by another method agrees: a sweep of
-every marker of the dimension on every page of the carried passages finds 278, all accounted for but one norm
-convention, now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive those papers line by
-line: that the censuses found every place the dimension enters is evidenced by the two methods agreeing and read at
-source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 are arguments from
-computed inputs, inputs READ at source, and readings — statements of the companion papers at n = 4 that the modification
-steps carry, on which 34 of those steps rested until each was settled, written out or READ — each read by an independent
-verifier, not proofs written out at the level of the theorem's statement. Inventoried by a fixed rule, the 248 deduced
-steps are 90 pieces of bookkeeping on computed values, 29 applications of results printed for general n, 31 perturbation
-or continuity arguments, 38 other, and 60 proofs written in 3 + 1 dimensions and carried to five by modification, 61 with
-one undecided step that supplement section 10.73 reads so. Those 61 are the core of what a line-by-line check would write
-out (supplement sections 10.70 and 10.74, `DEDUCTIONS.tsv`, `B-MAP.tsv`). The perturbation steps are now at proof level
-given their continuity inputs. They rest on five lemmas — openness of invertibility, semicontinuity of the kernel,
-persistence of strict inequalities, Rouché and the inverse function theorem — of which the first three are proved in the
-supplement and the last two are cited, and on continuity statements read from the sources (supplement section 10.71). The
+every marker of the dimension on every page of the carried passages finds 278, all accounted for but one norm convention,
+now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive those papers line by line: that
+the censuses found every place the dimension enters is evidenced by the two methods agreeing and read at source, page by
+page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 are arguments from computed inputs, inputs
+READ at source, and readings — statements of the companion papers at n = 4 that the modification steps carry, on which 34
+of those steps rested until each was settled, written out or READ — each read by an independent verifier, not proofs
+written out at the level of the theorem's statement. Inventoried by a fixed rule, the 248 deduced steps are 90 pieces of
+bookkeeping on computed values, 29 applications of results printed for general n, 31 perturbation or continuity
+arguments, 38 other, and 60 proofs written in 3 + 1 dimensions and carried to five by modification, 61 with one undecided
+step that supplement section 10.73 reads so. Those 61 are the core of what a line-by-line check would write out
+(supplement sections 10.70 and 10.74, `DEDUCTIONS.tsv`, `B-MAP.tsv`). The perturbation steps are now at proof level given
+their continuity inputs. They rest on five lemmas — openness of invertibility, semicontinuity of the kernel, persistence
+of strict inequalities, Rouché and the inverse function theorem — of which the first three are proved in the supplement
+and the last two are cited, and on continuity statements read from the sources (supplement section 10.71). The
 applications of general-n results have every hypothesis placed, three of them now read at source (supplement section
 10.72). The 38 others, read one by one, are twelve with no step of their own, 25 at proof level given their inputs —
 among them steps by symmetry and sums over harmonics, put there by two lemmas proved in the supplement — and one more
@@ -1079,7 +1079,9 @@ set, repaired without change to the statement (supplement sections 10.75 and 10.
 `tfnorm5.py`, `iotasol5.py`, `bundlesweep.py`, `bundle5.py`, with a lemma at the horizon proved in section 10.76). λ1 and
 δ exist by the deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not
 a separate gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a
-theorem.
+theorem. That write-out has begun: the proof written in full at n = 4, self-contained, part by part, its first part --
+Hintz's spectral theory at bounded nonzero frequencies, on bundles and uniformly in the operator -- written and awaiting
+its reader (supplement `proof5/`); Theorem 4 stays deduced until the last part is proved.
 
 ---
 
@@ -1984,8 +1986,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `87dbe3d4ec9a13b9cef4775550bfde87` |
-| `docket68/n1star/README.md` | `81092dfcfb67a9a139b53c26a9a15f47` |
+| `docket68/n1star/N1STAR-LOG.md` | `2c3329e5650d229ff4d10420a856aed8` |
+| `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
