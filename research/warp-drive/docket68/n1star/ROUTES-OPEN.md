@@ -2116,3 +2116,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D159 (10.75 (xlvii)-(xlviii)): [Hin26c] Proposition 9.10, the incoming radial estimate, written for general n at
   source (10.19 (a)), and Theorem 9.5 (3) and (5), the index's constancy and the kernel's class (10.55 (b)).
   Forty-eight of 61 written out, twenty-nine on a reading; 13 rest on the censuses.
+- D160 (10.75 (xlix)-(lii)): [Hin26] sections 11.3-11.6 -- Propositions 11.17, 11.20, 11.30, 11.32 and 11.34, Lemmas
+  11.18, 11.19 and 11.45 and Corollary 11.46 -- in the class (10.45 (b), (e); 10.43 (c)) and without it (10.61 (b)),
+  read at source (pp. 231-262). Section 9's iota+ and tf solution theory (Corollary 9.12, Propositions 9.11, 9.30 and
+  9.35) enters at n = 4 as a reading, beside [Hin26c] Proposition 13.18 and Corollary 13.17 (10.58 (c)).
+  Fifty-two of 61 written out, thirty-two on a reading; 9 rest on the censuses.

@@ -8214,11 +8214,11 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 54 name the places where the dimension changes the proof, 141 places in all, and 7 name
-none: the step is the source proof as it stands. The 145 placements of the five-dimensional values are: 55 at a computed
-check, 69 at an earlier section where they are computed or deduced, 20 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 55 name the places where the dimension changes the proof, 155 places in all, and 6 name
+none: the step is the source proof as it stands. The 162 placements of the five-dimensional values are: 59 at a computed
+check, 80 at an earlier section where they are computed or deduced, 22 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
-R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 35 rows say they rest on a reading -- of a source
+R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 37 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
@@ -8234,7 +8234,9 @@ inputs. D156's (10.75 (xl)-(xliii)) named eight more places, for 10.21 (a) and 1
 (c) and 10.56 (b) rest on, [Hin26a] Theorem 5.2 at n = 4 (10.56 (a)). D157 added three places the write-outs (xxiii) and
 (xxv) named and their rows lacked (the sixty-third verifier), so D150's nine was a floor. D158's (10.75 (xliv)-(xlvi))
 named six more places, for 10.23 (b)-(d), from tface5.py and cpmodes5.py. D159's (10.75 (xlvii)-(xlviii)) named three
-more places, for 10.19 (a) and 10.55 (b).
+more places, for 10.19 (a) and 10.55 (b). D160's (10.75 (xlix)-(lii)) named fourteen more places, for 10.43 (c), 10.45
+(b), 10.45 (e) and 10.61 (b), 10.43 (c) having had none, and marked 10.45 (b) and 10.61 (b) as resting on readings:
+[Hin26c] Proposition 13.18 and Corollary 13.17 and [Hin26] section 9's solution theory at n = 4.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8251,7 +8253,7 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Forty-eight modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D159)
+### 10.75 Fifty-two modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D160)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
@@ -8849,20 +8851,98 @@ arXiv:2408.06715v1 for (xxvii)). The three, (xxxvii)-(xxxix), carry one longer p
      10.53 (e)'s reading; the embedding shifts by n/2 = 2 for his 3/2, and (9.55) carries (n - 1)/2 = 3/2 for his 1
      (10.53 (c)), so kernel elements lie in A^(3/2 + S-bar - eps). It rests on the readings of 10.19 (d) and 10.53 (e).
 
-So forty-eight of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Twenty-nine of the forty-eight take a reading among their inputs (B-MAP.tsv's
+ (xlix) 10.45 (b), [Hin26] Propositions 11.17 and 11.32 with Lemmas 11.18-11.19 (pp. 232-237, 247-252; D160), in the
+     class. Proposition 11.17's proof: Theorem 11.12 and Proposition 11.14 give (11.40); iterating, (11.19) puts (L -
+     L_b) u one step better, so L_b u = f' (11.41) with iota+ weight alpha~_+ below the cap that transport from I+ sets
+     and K+ weight alpha~_K; Step 1 solves at I+ by Proposition 11.16; Step 2 splits by the Fourier transform in t*,
+     u_hi decaying arbitrarily ([Hin26c] Corollary 13.17), f-hat's orders by (2.25a), the low-energy part by [Hin26c]
+     Proposition 13.18 in the indicial gap of L-hat_b(0) (11.45), u_reg by a contour shift and (2.26a), and u_sing =
+     g-dot + h_s1 through (10.56), (10.59) and (11.47)-(11.49), Lemma 11.19's moment condition and Lemma 11.18 (1): two
+     integrations of d_t*; Step 3 Proposition 11.14 again. Lemma 11.18's proof integrates the hyperbolic field t* d_t*
+     by Lemma 2.23 and the b-normal field at K+ by Lemma 2.12; Lemma 11.19's splits d_t* u near scf and zf, the scf
+     part's total t*-integral vanishing (11.62) by its continuity across sigma = 0 in rho^beta_I |sigma|^(beta_iota -
+     beta_I) H^k_b(|d sigma/sigma| d mu_b). Proposition 11.32's proof is the same scheme from (11.98): Step 1
+     Proposition 11.16, with E-sharp_+; Step 2 removes the iota+ expansion by Corollary 9.12 (Proposition 9.11 at lam =
+     1); Step 3.1 inverts the augmented zero energy operator (Proposition 10.6), S-hat_1(0) vanishing with (11.93)'s
+     leading term, u-hat_reg,1(0) in H^(oo,(E_ind,+, alpha_+ - 1))_b by a normal operator argument (11.107), and Lemma
+     11.33 bounds the augmentation's terms; Step 3.2 removes the tf error by Proposition 9.30; Step 3.3 applies [Hin26c]
+     Proposition 13.18, and one integration of d_t* bounds u_sing ((11.114)- (11.115), footnote 116); Step 4 Proposition
+     11.14. In the class, at n = 4: h_s1 = 0 and S-hat_1 = 0 at every sigma (10.45 (a); S_1 has no G-fixed element,
+     Proposition 10.40 (ii)), so (11.47)-(11.49) and (11.114) keep only F(d_t* g-dot), regular at zf with 10.40 (b)'s
+     weights, and one integration of d_t* suffices in both propositions, u_sing = g-dot of K+ order alpha~_K - 1 for his
+     alpha~_K - 2; Proposition 11.20 reduces to S-dot = 0 and Proposition 11.30 is not needed ((li)). The inputs:
+     Theorem 11.12 is (xl), Proposition 11.14 (xxii) and Proposition 11.16 10.44 (d), whose E-sharp_+ has least elements
+     3/2 + (1 - e_Ups) gam_Ups and 2 for his 1 and 1 + (1 - e_Ups) gam_Ups; (11.19) gains 2 + min Re E_+ at iota+ (10.42
+     (c), 10.44 (e)), at least his; the cap, his 1, is 3/2 + (1 - e_Ups) gam_Ups, and h's K+ order is the class's (10.45
+     (d)); (2.25a) and (2.26a) are Proposition 2.25's, stated on R^n ((xxix)); the indicial gap is 10.24's; the
+     augmented zero energy operator is invertible with the mass state alone (10.43 (d), 10.45 (a)); Lemma 11.33's
+     entries, from Lemma 10.5, are one order better at iota+ (10.39 (a), Proposition 10.36 (iii)); E_ind,+ is drawn from
+     10.24's roots on G-invariant tensors; and Lemmas 11.18 and 11.19 hold as stated, their proofs using Lemmas 2.12 and
+     2.23 on [0, 1) x [0, 1) x S^3, stated for a closed manifold ((xxii)), the Fourier transform in t* and d mu_b =
+     |dx|/|x|^4 for his |dx|/|x|^3, the moment argument free of n. It rests on [Hin26c] Proposition 13.18 and Corollary
+     13.17 at n = 4 (10.58 (c), a reading) and on Corollary 9.12 and Propositions 9.11 and 9.30 at n = 4, section 9's
+     iota+ and tf solution theory, READ at n = 3: the reading (xxxvii) names, extended to these.
+
+ (l) 10.61 (b), [Hin26] Propositions 11.17, 11.20, 11.30, 11.32 and 11.34, Lemma 11.45 and Corollary 11.46 (pp. 232-262;
+     D160), without the class. Propositions 11.17 and 11.32 are (xlix)'s schemes with h_s1 and S-hat_1 present: two
+     integrations of d_t* in 11.17 ((11.48)-(11.51), footnote 106), one in 11.32 (footnote 116). Proposition 11.20's
+     proof: Proposition 11.17 and (11.19) give (11.65); Step 1 Proposition 11.16, leaving an iota+ term off K+ (11.66);
+     Step 2 removes it by Proposition 9.11; Step 3 inverts the augmented operator at sigma = 0 (Proposition 10.6),
+     compares near zero energy by Lemma 11.21 ((10.31), Lemma 10.5), applies [Hin26c] Proposition 13.18 (11.71),
+     integrates d_t* twice by Lemmas 11.19 and 11.18 ((11.73)-(11.74)), and identifies the t* term as h_b,s1(S-hat_1(0))
+     through (10.13) (11.75); Step 4 Proposition 11.14. Proposition 11.30's: Definition 11.25's P, whose linearization
+     has Proposition 11.6's structure, so 11.17 and 11.20 hold for it; (1) on Lemma 11.28's source classes; (2) S^(-1)
+     is the identity at (0, b0, 0) by (11.76)-(11.78b) and continuous in (h, b, S). Proposition 11.34's: Proposition
+     11.32 and (11.19); Step 1 Proposition 11.16; Step 2 Proposition 9.11 for the leading iota+ term, giving
+     S-dot^(0,1)_1, and Corollary 9.12 with Proposition 11.16 for the rest; Step 3 the high-energy part, (2.25a),
+     Proposition 10.6 at zero energy, Propositions 9.30 and 9.35 at tf; Step 4 the sub-leading zero energy piece
+     (11.127); Step 5 [Hin26c] Proposition 13.18; Step 6 the constant term through (10.13), (11.133). Lemma 11.45: by
+     (11.134b), (11.135b) and the argument after (11.137) the map is the identity at (h, p) = 0, and continuous;
+     Corollary 11.46 solves the resulting linear equation. At n = 4 (10.61 (a)-(b)): (xlix)'s inputs without the class's
+     restrictions; the states and their transforms are 10.28-10.29's and 10.40 (b)'s, one order faster than his and with
+     no logarithm (10.39); S_1 is R^4 and b = (mu, A) lies in R + so(4) (10.36, 10.66 (g)); the second order pole is
+     10.35 (b)'s, a reading, ended by Proposition 10.29 (iii)'s pairing (3 pi^2/2) mu; (10.13)'s total integrals and the
+     identities (11.76)-(11.78b), (11.134b) and (11.135b) are free of n; Definition 11.25's h^(-1) and theta^(-1) and
+     Lemma 11.24's classes take the boost's iota+ order 2 for his (1, 1), with no logarithm (10.61 (a)), so (11.80)'s
+     (3, 1) question does not arise; Lemmas 11.28 and 11.41's classes shift as E_+ does (10.42 (c)); S^(-1)_(h,b,S) is
+     the identity plus o(1) on R^4 (10.66 (g)); the K+ orders and the two orders of loss are his (10.61); and the iota+
+     terms of Step 2 are taken in increasing order, the radiative ones from 3/2 + (1 - e_Ups) gam_Ups (10.44 (d)) before
+     the parameters' at 2 + 2 = 4, whose Proposition 9.11 at lam = 2 carries S-dot^(0,1)_1 only if five dimensions carry
+     his log t* h_b,s1 of (9.39b) -- 10.61 (b)'s question, the parameter zero if not. It rests on (xlix)'s readings,
+     with Proposition 9.35 added to section 9's, and on 10.35 (b)'s.
+
+ (li) 10.43 (c), [Hin26] section 11's steps in the class (pp. 231-295; D160). His sections 11.3-11.8 extract, in turn,
+     the boost S-dot (11.4), the Kerr parameters and centre-of-mass shifts (11.6), the S_1 shifts and final parameters
+     (11.7) and the pure gauge and physical terms (11.8), each as the unique solution of a linear problem built from G-
+     equivariant objects (10.47 (c)). At n = 4 in the class: S_1 has no G-fixed element (Proposition 10.40 (ii)), so
+     every S_1-valued parameter of a G-invariant solution vanishes -- S-dot = S-hat_1(0) of (11.75), S^(0)_1 and
+     S^(0,1)_1 of (11.133) and Step 2.1, and the S^(lam-1,k)_1 shifts of Proposition 11.51 -- by uniqueness, each being
+     G-equivariant in f; the rotation A in so(4) has no G-fixed element (10.43 (b)), so b = (m, 0); and Definition
+     11.25's augmentation #1 enters with S = 0. So Step 2 reduces to Proposition 11.20 with S-dot = 0, whose improved
+     remainder is still used ((xlix)); Step 4 to the mass change; Step 5 to Proposition 11.51 with no S_1 shifts (10.46
+     (a)); Step 6 to the gauge modifications of (b)'s G-fixed components (10.46 (b)); Steps 1 and 3 are his, (xlix)'s at
+     n = 4.
+
+ (lii) 10.45 (e), [Hin26] Steps 1-4 in the class (pp. 231-262; D160). (xlix) and 10.45 (c) -- Proposition 11.34 and
+     Corollary 11.46 in the class, the mass the only parameter and m' -> m-dot the identity at (h, m) = (0, m_0) by
+     Lemma 11.45's identity (11.134b), continuous -- give for G-invariant f with 10.45 (c)-(d)'s orders a forward
+     solution chi_K g-dot^Ups_b(m-dot) + u~, u~ decaying at K+, the mass change removed by the final mass. At n = 4 the
+     iota+ cap is 3/2 + (1 - e_Ups) gam_Ups (10.45 (d)), the weight at I+ 10.46 (e)'s, and the readings (xlix)'s.
+
+So fifty-two of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Thirty-two of the fifty-two take a reading among their inputs (B-MAP.tsv's
 column `reading`: 10.15 (a), 10.19 (a), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b), 10.28 (a),
 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e),
-10.46 (e), 10.47 (d), 10.47 (e), 10.55 (b), 10.56 (b), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the
-census through that input, not through their own steps (the sixty-first verifier; D149). Where an item cites a row still
-on the census as an input ((iii) cites 10.19 (d); (xviii) cites 10.53 (e); (xxiv) cites 10.62 (b), on 10.61; (xxxvii)
-cites 10.61 (b), 10.61 (c); (xxxviii) cites 10.46 (b); (xxxix) cites 10.46 (b); (xl) cites 10.58 (c); (xlv) cites 10.22
-(e); (xlvii) cites 10.19 (d); (xlviii) cites 10.19 (d), 10.53 (e)), it rests on the census through that row in the same
-way. Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it. The other 13 carry proofs of
-several pages each, in [Hin26] section 11, [Hin26c] sections 5, 7-11 and 13, and [Hin26a] section 5; writing those out
-is what remains of 8.8.
+10.45 (b), 10.45 (e), 10.46 (e), 10.47 (d), 10.47 (e), 10.55 (b), 10.56 (b), 10.61 (b), 10.62 (b), 10.62 (c), 10.62 (d),
+10.40 (a)), and rest on the census through that input, not through their own steps (the sixty-first verifier; D149).
+Where an item cites a row still on the census as an input ((iii) cites 10.19 (d); (xviii) cites 10.53 (e); (xxiv) cites
+10.62 (b), on 10.61 (c); (xxxvii) cites 10.61 (c); (xxxviii) cites 10.46 (b); (xxxix) cites 10.46 (b); (xl) cites 10.58
+(c); (xlv) cites 10.22 (e); (xlvii) cites 10.19 (d); (xlviii) cites 10.19 (d), 10.53 (e); (xlix) cites 10.58 (c); (li)
+cites 10.46 (a), 10.46 (b)), it rests on the census through that row in the same way. Two, (iii) and (xxvi), replace the
+source proof by a computation rather than carry it. The other 9 carry proofs of several pages each, in [Hin26] sections
+11.7-11.8, [Hin26c] sections 5, 7-11 and 13, and [Hin26a] section 5; writing those out is what remains of 8.8.
 
-Labels: READ (the forty-eight source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+Labels: READ (the fifty-two source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)

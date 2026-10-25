@@ -4354,3 +4354,12 @@ proof (pp. 167-168) is written with (n - 1)/2 and r^(n-1) at source; at n = 4 V1
 give 10.19 (a)'s threshold. Theorem 9.5 (3)'s augmentation argument and (5)'s embedding and ODE (pp. 172-173) give
 10.55 (b) on 10.19 (d)'s and 10.53 (e)'s readings. Three places named. Forty-eight of 61 written out,
 twenty-nine on a reading; 13 rest on the censuses.
+
+**D160 (2026-10-25): [Hin26] sections 11.3-11.6 written out.** Propositions 11.17 and 11.32 with Lemmas 11.18-11.19 in
+the class (10.45 (b)), Steps 1-4 without it (10.61 (b)), the class's reductions of his steps (10.43 (c)) and their
+conclusion (10.45 (e)), read at source (pp. 231-262) and matched step by step: Theorem 11.12, Propositions 11.14 and
+11.16 at n = 4 ((xl), (xxii), 10.44 (d)), the iota+ cap 3/2 + (1 - e_Ups) gam_Ups, the states one order faster, S_1 =
+R^4, b in R + so(4), the boost's iota+ order 2, the unweighted density |dx|/|x|^4. Section 9's solution theory
+(Corollary 9.12, Propositions 9.11, 9.30, 9.35) is a reading at n = 4, as (xxxvii) found for Corollary 9.18; so is
+[Hin26c] Proposition 13.18. Fourteen places named. Fifty-two of 61 written out, thirty-two on a reading; 9 rest on the
+censuses.
