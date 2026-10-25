@@ -1,0 +1,40 @@
+row	item	roots	through
+10.15 (a)	(iii)	RB	10.19 (d)
+10.15 (b)	(iv)	RB RL	Theorem 9.41; (9.18)'s index (10.19, 10.53); 10.20
+10.19 (a)	(xlvii)	RB	10.53 (d)
+10.19 (d)	(lviii)	RB RU	10.53 (d); [Hin26c] Remark 7.2
+10.20 (a)	(xx)	RB	Proposition 9.9 ((lviii))
+10.23 (b)	(xliv)	-	Proposition 9.40 READ for n >= 3 (p. 197)
+10.23 (d)	(xlvi)	-	(xliv), (xlv)
+10.27 (b)	(i)	RB RL	Proposition 6.12 (10.20)
+10.28 (a)	(xii)	RB RL	Lemma 6.13; Proposition 6.12 (10.20 (e))
+10.29 (a)	(v)	RB RL	Proposition 6.12 (10.20 (e))
+10.30 (a)	(xiii)	RB RL	10.29 (a)
+10.31 (a)	(ix)	RB RH	10.21 (e); 10.21 (d)
+10.32 (c)	(xv)	RB RL RK RH	10.33 (f); Proposition 6.12 (10.20); 10.21 (e)
+10.34 (c)	(xxviii)	RB RL RK RH	Corollary 8.13 (10.33 (f)); Theorem 7.1 (2) (10.21 (e)); Proposition 8.6 (10.24)
+10.36 (b)	(xvi)	RB RH RE	10.31 (a); 10.36 (a)
+10.37 (c)	(xiv)	RB RL RI	Proposition 9.2 (1)'s index 0; Proposition 8.6 (10.24-10.25)
+10.39 (d)	(vii)	RB RL RK RH	10.32 (c); 10.33
+10.39 (e)	(xvii)	RB RL RC	Corollary 9.39; Theorem 9.5 (4); Lemma 14.6
+10.40 (a)	(xviii)	RB RC	Lemma 3.9; Theorem 9.16
+10.41 (b)	(xxi)	RC	the sc- and b-calculi behind Lemma 13.13
+10.42 (e)	(xl)	RB RU RL	[Hin26c] Theorem 11.1 ((lx))
+10.43 (c)	(li)	RB RU RL RI RP	(xlix); 10.46 (a)-(b)
+10.45 (b)	(xlix)	RB RU RL RI	[Hin26c] Proposition 13.18, Corollary 13.17 ((lx)); [Hin26] section 9
+10.45 (e)	(lii)	RB RU RL RI	(xlix)
+10.46 (a)	(liii)	RB RU RL RI	(xlix); Proposition 9.35
+10.46 (b)	(liv)	RB RU RL RI RP	(liii); 10.35 (b)
+10.46 (e)	(xxix)	-	Proposition 2.25 stated on R^n (10.59 (a))
+10.47 (d)	(xxxviii)	RI	(xxxvii)
+10.47 (e)	(xxxix)	RI RG	(xxxvii); 10.43 (e)
+10.49 (a)	(xxv)	RB RL RH	Theorem 7.1 (10.21-10.23); Proposition 6.12; Proposition 8.6
+10.53 (e)	(lix)	RB	10.53 (d)
+10.55 (b)	(xlviii)	RB RU	10.19 (d); 10.53 (e)
+10.56 (b)	(xliii)	RB RH	Theorem 9.36 ((xx)); 10.21 (d)
+10.58 (c)	(lx)	RB RU RL	(lvi)-(lix); Corollary 9.39; Theorem 9.41
+10.61 (b)	(l)	RB RU RL RI RP	(xlix); Proposition 9.35; 10.35 (b)
+10.61 (c)	(lv)	RB RU RL RI RP	(l)
+10.62 (b)	(xxxvii)	RB RU RL RI RP	[Hin26] section 9; 10.37 (c)-(e); 10.61
+10.62 (c)	(xxx)	-	10.48 (c)-(d), written out in 10.64 and (xxxvi); Theorem 5.23 ((xxiii))
+10.62 (d)	(xxiv)	RB RU RL RI RP	10.62 (b)

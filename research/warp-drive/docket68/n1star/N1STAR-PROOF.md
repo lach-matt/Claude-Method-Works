@@ -8262,7 +8262,7 @@ by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 none: the step is the source proof as it stands. The 221 placements of the five-dimensional values are: 93 at a computed
 check, 94 at an earlier section where they are computed or deduced, 33 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
-R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 39 rows say they rest on a reading -- of a source
+R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 35 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
@@ -8296,7 +8296,8 @@ placements of one place, recorded 10.45 (e)'s weight as settled and gave 10.62 (
 (lxi)) named nine more places for 10.22 (e), the last census row, and marked 10.22 (e), 10.21 (c) and 10.23 (c) as
 resting on no reading: the one reading of each was [Hin26a] Theorem 5.2 at n = 4, now written out. D168 (the sixty-sixth
 verifier) dropped 10.45 (e)'s place for the weight at I+, which the dimension does not change, and labelled 10.67 (a)'s
-radial rate by (7.11b).
+radial rate by (7.11b). D169 traced the readings to their roots (10.77, READINGS.tsv) and marked four rows, 10.23 (b),
+10.23 (d), 10.46 (e) and 10.62 (c), as resting on none, their readings READ or written out since.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8642,7 +8643,8 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      2.23 and 2.24, b-analysis on M with b-weights -- carries no numeral of the dimension, and the proposition is stated
      on X = R^n (10.59 (a)); so at n = 4 (2.27) is the same inequality of b-weights, beta_I >= beta_iota - beta_K and
      beta_I > beta_iota - min(1, min Re E_K), and 10.46 (iii)'s five-dimensional weights -- 3 + eps_I at I+, 3 + eps_+
-     for h and 5 + eps_+ for f at iota+ -- meet it as his do.
+     for h and 5 + eps_+ for f at iota+ -- meet it as his do. It rests on no reading, 10.46 (e)'s 'reading' of
+     Proposition 2.25 being its statement on R^n (D169).
 
  (xxx) 10.62 (c), [Hin26] section 5.6's boost pullback (pp. 108-109) with Theorem 5.23 (D151). His argument: Theorems
      5.17 and 5.21 hold for any Ricci-flat background g_0 with g_0 - g_(m_0) in his class, which by Lemma 3.19 includes
@@ -8651,8 +8653,9 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      problem (5.77a) with the pulled-back data (5.77b), whose weights the pullback by the time-1 flow of a b-vector
      field preserves. At n = 4: phi_S is a boost of R^(4,1) (gluing5.py D1, D4); phi_S^* g_(b_0) - g_(b_0) is of order
      r^-2 at infinity ((xxiii)) and of order 2 at iota+ (Proposition 10.39 (ii)), inside 10.48's class and E_+ (10.61
-     (a)); Theorems 5.17 and 5.21 are 10.48 (c)-(d), on 10.48's readings; and the invariance of Ric, (5.75), the cut-off
-     and the flow hold in every dimension.
+     (a)); Theorems 5.17 and 5.21 are 10.48 (c)-(d), whose one reading, [Hin23a]'s estimates at n = 4, 10.64 and (xxxvi)
+     write out, so that it rests on no reading (D169); and the invariance of Ric, (5.75), the cut-off and the flow hold
+     in every dimension.
 
  (xxxi) 10.64 (b), [Hin23a] Proposition 3.17 (pp. 15-17; D152). His proof: away from I+, L is a b-operator with x_I a
      time function, and the energy estimate is the vector field argument of [HV20] Proposition 4.3; near I+, the
@@ -8875,7 +8878,8 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      the index count is 3 at scalar type l >= 1, 2 at l = 0 and 1 at vector type, by 10.12's roots (Theorem 4.9 (3) at n
      = 4, 10.54 (a)), and the free operator's roots are -3, -2 | 0, 1 at l = 0, -l - 3, -l - 2, -l - 1 | l - 1, l, l + 1
      and -l - 2 | l, with the window (-2, 0) for beta - 2 (Proposition 10.20 (v), F5), its invertibility there [Hin26c]
-     Proposition 9.40 at n = 4 (10.20, a reading).
+     Proposition 9.40, stated for every spatial dimension n >= 3 and every tensor bundle with the weights (0, n - 2), at
+     n = 4 the window (0, 2) (p. 197; READ; 10.20 (b)), so it rests on no reading (D169).
 
  (xlv) 10.23 (c), [Hin26a] Theorem B.4 (pp. 93-98; D158). His proof, by Theorem 5.2's: energy estimates near X in tau
      = t/r, d tau past timelike for |tau| < 1, the metric a weighted b-metric, (B.34)-(B.35) by Proposition 5.16's
@@ -8910,7 +8914,7 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      alpha_cf > 1 - b*; l = -1/2 lies in the l-window for every h > 0; beta = 7/2 lies in (0, 2 + C_0] iff C_0 >= 3/2,
      his "without loss" C_0 >= 2 sufficing; with r^3 |dr dg/| the data weights are alpha_sf + 1/2 and alpha_cf - 1/2 and
      (B.44)'s data lie in them; U is open in R^4 \ {0}; and the closing integral diverges, its t-power free of n.
-     Proposition B.2 is (xliv) and Theorem B.4 (xlv); it rests on their readings.
+     Proposition B.2 is (xliv) and Theorem B.4 (xlv); neither rests on a reading (D167, D169), so it rests on none.
 
  (xlvii) 10.19 (a), [Hin26c] Proposition 9.10 (pp. 167-168; D159). His proof of the direct estimate at R_in: for Im
      sigma > 0 an elliptic estimate; for sigma near real, the commutant of symbol rho^(-r-1/2) psi_d psi_R, q =
@@ -9310,14 +9314,13 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      written out.
 
 So all of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Thirty-nine of the sixty-one take a reading among their inputs (B-MAP.tsv's
-column `reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.19 (d), 10.20 (a), 10.23 (b), 10.23 (d), 10.27 (b), 10.28 (a),
-10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e),
-10.43 (c), 10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.49 (a), 10.53 (e), 10.55 (b),
-10.56 (b), 10.58 (c), 10.61 (b), 10.61 (c), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on that reading
-through that input, not through their own steps (the sixty-first verifier; D149). Two, (iii) and (xxvi), replace the
-source proof by a computation rather than carry it. No row is left on the census; what remains of 8.8 is the readings
-those thirty-nine take.
+B-MAP.tsv's column `written` marks them. Thirty-five of the sixty-one take a reading among their inputs (B-MAP.tsv's
+column `reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.19 (d), 10.20 (a), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a),
+10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e), 10.43 (c), 10.45 (b),
+10.45 (e), 10.46 (a), 10.46 (b), 10.47 (d), 10.47 (e), 10.49 (a), 10.53 (e), 10.55 (b), 10.56 (b), 10.58 (c), 10.61 (b),
+10.61 (c), 10.62 (b), 10.62 (d), 10.40 (a)), and rest on that reading through that input, not through their own steps
+(the sixty-first verifier; D149). Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it.
+No row is left on the census; what remains of 8.8 is the readings those thirty-five take.
 
 Labels: READ (the sixty-one source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
@@ -9391,6 +9394,60 @@ What this closes: omega's continuation inside the horizon (10.27 (b), 10.33) and
 10.53 (c)'s reading) and Proposition 6.12 at n = 4 (10.20 (e), on the readings of 10.19-10.20) stay as they were.
 
 Labels: proved (Lemma 10.56); deduced at proof level ((a)-(c)), given the inputs named; nothing computed here.
+
+### 10.77 The readings: what the written-out steps rest on (`READINGS.tsv`; D169)
+
+*The setting.* With 10.75 every row of 10.74 is written out at n = 4, and 39 took a reading among their inputs: a
+statement at n = 4 the record takes without a written-out proof. Here each is traced through the sections it cites to
+the statements at the foot of the chain, its roots. `READINGS.tsv` gives each row's roots and the sections it reaches
+them through.
+
+*Four rows rest on no reading.* Traced again, four rested on statements since READ or written out:
+
+ (a) 10.23 (b) ((xliv)), and with it 10.23 (d) ((xlvi)): the free operator's invertibility in its window is [Hin26c]
+     Proposition 9.40, stated "for the spatial dimension n >= 3 ... [for] the tensor wave operator acting on sections of
+     any tensor bundle ... with all weights beta in (0, n - 2)" (p. 197; READ), at n = 4 the window (0, 2) (10.20 (b)).
+ (b) 10.46 (e) ((xxix)): [Hin26] Proposition 2.25 is stated on X = R^n (10.59 (a)), so (2.27) is the same inequality
+     of b-weights at n = 4.
+ (c) 10.62 (c) ((xxx)): Theorems 5.17 and 5.21 at n = 4 are 10.48 (c)-(d), whose one reading, [Hin23a]'s estimates at
+     n = 4, is written out in 10.64 and (xxxvi); Theorem 5.23 is (xxiii), on none.
+
+So thirty-five rows rest on readings, and they rest on ten statements:
+
+ RB [Hin26c] section 9 proves its estimates for scalar operators and leaves bundles to the reader as "purely
+    notational" (p. 158); the record's operators act on 1-forms and symmetric 2-tensors (10.53 (d)). His own theorems
+    in four dimensions rest on the same step. (32 rows.)
+ RU the uniformity of section 9's estimates under small perturbations of the operator, which his Remark 7.2 states for
+    section 7, by the openness of each symbolic positivity, and which 10.19 (d) takes for section 9 at b near b_0
+    ((lviii)). (13 rows.)
+ RL [Hin26c] section 9.5 at n = 4 beyond Theorem 9.36 ((xx)) and Proposition 9.40 (READ): Theorem 9.38 (p. 195),
+    Corollary 9.39 (p. 197) and Theorem 9.41 (p. 198), READ at n = 3 with their five-dimensional inputs computed
+    (10.20), not written out. (22 rows.)
+ RC [Hin26c] Lemma 3.9 and the 3b- and scattering-calculus statements behind Lemmas 13.13 and 14.6 at n = 4 (10.41
+    (e)): statements of calculi that carry no numeral of the dimension, not READ for general n. (3 rows.)
+ RI [Hin26] section 9's iota+ and tf solution theory at n = 4: the index 0 half of Proposition 9.2 (10.37 (c)),
+    Propositions 9.4 (2), 9.9, 9.11, 9.15, 9.22, 9.30 and 9.35, Corollaries 9.12 and 9.18, and (9.54)-(9.56) (10.47's
+    OPEN, (xxxvii), (xlix)), READ at n = 3 with their five-dimensional inputs from 10.37 and 10.44, not written out.
+    (12 rows.)
+ RP whether a logarithm enters the zero energy pole at n = 4, the mass state decaying like r^-2 in four space
+    dimensions (10.35 (b)). (6 rows.)
+ RK [Hin26] Corollary 8.13 for b near b_0: the kernel's dimension upper semicontinuous along (8.22) (10.33 (f)).
+    (3 rows.)
+ RG in the class, Theorem 12.8's read-off commuting with G (10.43 (e), A7). (1 row.)
+ RH box^C's threshold at the horizon, 1/2 + vartheta_H+ < -C_0, at small h in five dimensions, which [Hin26a] Remark
+    5.7's mechanism gives and the record has not computed (10.21 (d)). With 10.54 (a)'s roots for every h in (0,
+    10^-6], it is all that remains of 10.21 (e)'s condition 10^-6 < h_0: h is taken below both. (7 rows.)
+ RE that the five-dimensional g_b is chosen SO(4)-equivariantly (10.36 (a)). (1 row.)
+
+*What they are.* RB is a step the source leaves to the reader and RU the record's extension of a remark the source makes
+for section 7; both are the same at every n. Three, RL, RC and RI, are results of the companion papers at n = 4, READ at
+n = 3 with every five-dimensional input computed, whose proofs are not written out -- the kind of step 10.75 wrote out
+for the 61. Five are the record's own: two computations (RH, RP), two short arguments from statements already in hand
+(RK from the semicontinuity 10.71 proves, RG from the uniqueness of each step's data), and a choice of presentation
+(RE). Writing out RL (six pages) and RI, READing RC, computing RH and RP, arguing RK and RG and fixing RE would leave
+the thirty-five rows on RB and RU alone, steps of the source's kind at every n.
+
+Labels: deduced (the tracing); READ (the quotations); nothing computed or proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

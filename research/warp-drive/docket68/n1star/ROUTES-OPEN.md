@@ -2202,3 +2202,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   is (7.11a)-(7.11b) (pp. 117-118); (7.25) is [Hin21] (3-24) for QPQ^-, "almost the content of Definition 5.8" for P
   (pp. 124-125), so the n = 4 check is (5.9) at the trapped set; 10.45 (e)'s place for the weight at I+ is no dimension
   change and is dropped; (lvii)'s two z's are told apart, Seeley's |x| - m and the monomials' (t*, x).
+
+### 4.92 The readings traced to their roots (deduced; D169)
+
+- 10.77 and READINGS.tsv trace the 39 rows that took a reading. Four rested on statements since READ or written out
+  (10.23 (b) and (d) on Proposition 9.40, stated for every n >= 3; 10.46 (e) on Proposition 2.25, stated on R^n; 10.62
+  (c) on 10.48 (c)-(d), written out) and are re-marked. The thirty-five others rest on ten roots: RB and RU, the
+  source's own steps at every n (bundles; uniformity under perturbation); RL, RC and RI, companion results at n = 4
+  READ at n = 3 ([Hin26c] section 9.5; [Hin26c] Lemma 3.9 and the calculi behind Lemmas 13.13 and 14.6; [Hin26]
+  section 9); RP, RK, RG, RH and RE, the record's own (the pole's logarithm; Corollary 8.13's semicontinuity; the
+  G-equivariant read-off; box^C's horizon threshold at small h; the equivariant g_b). OPEN, in this order: RH, RK and
+  RG; RL; RC; RP; RE; RI.

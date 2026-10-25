@@ -4429,3 +4429,9 @@ section 8.8 and section 9 now name the readings beside the censuses.
 the n = 4 check is (5.9) at the trapped set; 10.45 (e)'s non-change place dropped from B-MAP; (lvii)'s two z's told
 apart. Its other checks passed, among them the counts at each commit, (7.22)'s density and (8.10)'s K-current recomputed
 at both n, and D165's quotations verbatim.
+
+**D169 (2026-10-25): the readings traced to their roots.** The 39 rows that took a reading, traced through the
+sections they cite (10.77, READINGS.tsv): four rested on statements since READ or written out and are re-marked
+(10.23 (b), 10.23 (d), 10.46 (e), 10.62 (c)); the thirty-five others rest on ten roots, two of them the source's own
+steps at every n, three groups of companion results at n = 4 READ at n = 3, five the record's own questions. The
+paper's section 8.8 names them.
