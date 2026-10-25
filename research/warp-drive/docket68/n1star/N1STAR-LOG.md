@@ -4379,3 +4379,11 @@ quadratic terms have order 4, so Theorem 12.8 subtracts S^(0)'_1 at lam_0 = 2. P
 gains one place. The minors are seated: two reading marks, whole-section citations of census rows counted (thirteen
 items now), wording and pages; 10.75's page-count sentence, stale since D160, corrected. Fifty-five of 61
 written out, thirty-seven on a reading; 6 rest on the censuses.
+
+**D163 (2026-10-25): [Hin26c] sections 7-8 written out.** Section 7's radial point, trapping and commutator
+estimates and section 8's energy estimates, read at source (pp. 114-157), matched at n = 4 as (lvi)-(lvii). The
+trapping estimate is [Hin21] Theorem 3.9, read at source and stated for a manifold of any dimension (p. 36). The one new
+computation is (7.22)'s density, 2 rho_+^-5 x_I^-8 for his 2 rho_+^-4 x_I^-6, with its symmetric operator (x_I d_x_I
+- 3), and (8.14)'s skewness, checked exactly with the constant n - 2 as a failing control. Eleven places named, two
+corrected. Fifty-seven of 61 written out, thirty-seven on a reading; 4 rest on the
+censuses: 10.19 (d), 10.22 (e), 10.53 (e) and 10.58 (c).

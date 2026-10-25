@@ -7823,15 +7823,17 @@ are each caught. []
      n-free but for the sphere). It enters through the dynamics at the horizon and the trapped set, which are
      five-dimensional Tangherlini's (10.17-10.18), and through the thresholds. Those are stated in p-bar_1 and S-bar,
      the imaginary part of the subprincipal symbol relative to the metric density, so they are dimension-free once p_1
-     is measured from the symmetric Minkowski part x_I d_x_I - (n - 1) (E1; 10.58(a)). Lemmas 7.12-7.21 commute the
-     fields V_1, V_2 and the rotation fields, 6 of them at n = 4 (E3); every commutator identity they use ([V_1, V_2] =
-     [V_i, V_a] = 0, Lap-slash as a sum of X_a X_b) holds on S^3 (E3); and the counts change as E4 states.
+     is measured from the symmetric Minkowski part x_I d_x_I - (n - 1) (E1; 10.58(a)). Lemma 7.12 commutes the fields
+     V_1, V_2 and the rotation fields, 6 of them at n = 4 (E3), and Lemmas 7.15-7.21 commute d_r, t* d_t* and t d_t,
+     free of n; every commutator identity they use ([V_1, V_2] = [V_i, V_a] = 0, Lap-slash as a sum of X_a X_b) holds on
+     S^3 (E3); and the counts change as E4 states.
  (b) (Section 8.) Lemma 8.1's proof is the energy identity with X = e^(-2 w t*) X_0. Its one computation, (8.10), is E2:
      at n = 4 the d_t*^2 coefficient, which gives the threshold alpha_I < -1/2 + p-bar_1, is his. The cross and angular
      coefficients change, but his proof bounds them by the 2 w T(X_0, -grad t*) term, which is his at both n and gives
-     arbitrary positivity on dx_I/x_I and x_I^-1 T*S^3. Propositions 8.3 and 8.6, Lemma 8.7 and Proposition 8.9 commute
-     the same fields (a) and use the densities of E4. Section 8.2 near K+ runs on R^4 with X_1, ..., X_5 and fifteen
-     second-order monomials (E4). Lemma 8.8's Sobolev index 3 is unchanged (E4). Theorem 8.14 follows at n = 4.
+     arbitrary positivity on dx_I/x_I and x_I^-1 T*S^3. Propositions 8.6 and 8.9 commute the same fields (a), Lemma 8.7
+     extends in omega in S^3, and Proposition 8.3 extends P across the inner sphere in fifteen second-order monomials
+     (E4). Section 8.2, near that sphere, commutes X_1, ..., X_5 on R^4 (E4). Lemma 8.8's Sobolev index 3 is unchanged
+     (E4). Theorem 8.14 follows at n = 4.
  (c) (Section 9.3, Theorem 9.16's proof.) Sections 9.3.1, 9.3.4 and 9.3.5 are stated for a general stationary wave
      operator on R_t x X. The one numeral is (9.73)'s (n - 1)/2, which is 3/2 at n = 4 (E1, as in 10.53(a)). The
      cotangent sphere of section 9.3.3 is X's, T*S^3. Theorem 9.28's normalization is (2 pi)^(-n-1). The dynamics are
@@ -8217,9 +8219,9 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 55 name the places where the dimension changes the proof, 168 places in all, and 6 name
-none: the step is the source proof as it stands. The 175 placements of the five-dimensional values are: 60 at a computed
-check, 89 at an earlier section where they are computed or deduced, 25 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 55 name the places where the dimension changes the proof, 179 places in all, and 6 name
+none: the step is the source proof as it stands. The 186 placements of the five-dimensional values are: 68 at a computed
+check, 91 at an earlier section where they are computed or deduced, 26 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
 R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 41 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
@@ -8243,7 +8245,9 @@ more places, for 10.19 (a) and 10.55 (b). D160's (10.75 (xlix)-(lii)) named four
 (liii)-(lv)) named twelve more places, for 10.46 (a), 10.46 (b) and 10.61 (c), and marked 10.46 (b) and 10.61 (c) as
 resting on readings, as (xlix)-(l) found. D162 (the sixty-fourth verifier) narrowed 10.62 (b)'s order place to the mass
 and the boost and named S^(0)_1's source order beside it, marked 10.15 (b) and 10.49 (a) as resting on readings, as
-their items (iv) and (xxv) say, and counts a whole section's citation as citing its census rows.
+their items (iv) and (xxv) say, and counts a whole section's citation as citing its census rows. D163's (10.75
+(lvi)-(lvii)) named eleven more places, for 10.67 (a)-(b), and corrected their two census-era places: his values for
+'?', Lemma 7.12 for 'Lemmas 7.12-7.21', and the extension across r = m (p. 148) for 'near K+'.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8260,16 +8264,17 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Fifty-five modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D161)
+### 10.75 Fifty-seven modification steps written out at n = 4 (D146, D148, D150-D152, D154-D156, D158-D161, D163)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. All but ten below are those whose source proofs
-are at most about seven pages and are already matched step by step in the sections named, or short enough to match here;
-each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b] arXiv:2408.06715v1
-for (xxvii)). The ten carry longer runs of proof, matched step by step the same way: (xxxvii)-(xxxix) [Hin26] Theorems
-12.3 and 12.8 (fifteen pages), and (xlix)-(lv) his section 11 (pp. 231-295).
+step so written out rests on its inputs, not on a census of its source. All but twelve below are those whose source
+proofs are at most about seven pages and are already matched step by step in the sections named, or short enough to
+match here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
+arXiv:2408.06715v1 for (xxvii)). The twelve carry longer runs of proof, matched step by step the same way:
+(xxxvii)-(xxxix) [Hin26] Theorems 12.3 and 12.8 (fifteen pages), (xlix)-(lv) his section 11 (pp. 231-295), and
+(lvi)-(lvii) [Hin26c] sections 7-8 (pp. 114-157).
 
  (i) 10.27 (b), [Hin26] Proposition 8.8 (pp. 153-154). His proof, step by step at n = 4: (1) the spectral family is
      Fredholm of index 0 on [Hin26c] (9.18)'s spaces, by Proposition 8.3 (10.26) and [Hin26c] Theorem 9.5 (10.19, 10.53,
@@ -9002,22 +9007,114 @@ for (xxvii)). The ten carry longer runs of proof, matched step by step the same 
      reparameterization (11.188) and the identities (11.187) and (11.189) are pure gauge identities free of n; Remark
      10.8's logarithm is 10.35 (b)'s question; and the inputs are (l)'s. It rests on (l)'s readings.
 
-So fifty-five of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Thirty-seven of the fifty-five take a reading among their inputs (B-MAP.tsv's
+ (lvi) 10.67 (a), [Hin26c] section 7 (pp. 114-141; D163). His Proposition 7.1, under (7.3) -- alpha_I < -1/2 + p-bar_1,
+     alpha_+ < alpha_I - 1/2 -- concatenates elliptic regularity and real principal type propagation (Propositions
+     3.23-3.24) with five radial point estimates and one trapping estimate in the order of Proposition 4.24 (Figure 4.3;
+     pp. 125-127): Step 1 reaches every finite t* through Proposition 7.9 with t*,+ = t*#; Step 2 the radial sets dR+H+
+     and dR+I+,in,+, whose a priori terms are supported at finite t*; Step 3 dR+dK+,in, every backward bicharacteristic
+     from its a priori region tending to dR+I+,in,+ or crossing t* = 1 (Lemma 4.6 (3)); Step 4 the trapped set, every
+     backward bicharacteristic off Gamma-bar^u entering what Steps 1-3 control; Steps 5-6 dR+dK+,out and dR+I+,out; then
+     into r > m. Each radial estimate is a positive commutator: a = a-check^2, a-check = rho_inf^(-s+1/2) times weights
+     and the cutoffs (7.8), regularized as in Proposition 7.4, and H_G a + 2 p_sub a split as -delta rho_inf^-1
+     a-check^2 - b^2 - ... + e^2 + j G, b real once its bracket is positive. At dR+H+ ((7.11)) rho_inf^-1 H_G rho_inf =
+     rho^-2 mu'(r+), rho_K^-2 H_G rho_K < 0 and H_G q >= 2c (Lemma 4.9), the bracket positive for s_0 > 1/2 +
+     vartheta_H+ ((7.10)). At dR+dK+,in and dR+dK+,out ((7.15)-(7.18), (4.15)) rho_K^-1 H_G rho_K = -/+2, rho_+^-1 H_G
+     rho_+ = +/-2, H_G q >= 2q or <= -2q, and the bracket +/-(2(2s - 1) + 2(2 alpha_+ + 2) - 4 alpha_K) - delta - 2
+     p_sub gives (7.13) and (7.17). At dR+I+,in,+ ((7.21), (4.67)) x_I^-1 H_G x_I = 1, rho_+^-1 H_G rho_+ = -2,
+     rho_inf^-1 H_G rho_inf = 0 and H_G q >= q; the bracket is 4 alpha_I - 4 alpha_+ - 2 - delta, positive under (7.19),
+     and p_sub = (Re p_1)(xi-hat - 2) (7.22), zero there, because (1/2) x_I^2 rho_+^2 (x_I d_x_I - 2)(x_I d_x_I - 2
+     rho_+ d_rho_+) is symmetric for r^2 |dt* dr dg/| = 2 rho_+^-4 x_I^-6 |...| and Lap-slash's imaginary part lies in
+     x_I^4 Diff^1(S^2). At dR+I+,out, with Lemma 5.16's t* and H_G t* >= 0, x_I^-1 H_G x_I = -1, H_G q <= -q and p_sub =
+     -2 Re p_1; a fibre inner product with Re p_1 > p-bar_1 - delta' (Definition 5.18 (3)) makes the bracket at least -4
+     alpha_I - 2 - delta + 4(p-bar_1 - delta'), positive under (7.23). Proposition 7.10 is [Hin21] Theorem 3.9, with
+     (P.1)-(P.5) from section 4.2.3 and H_G sigma = 0, (P.6') from Proposition 6.3, and (7.25) from Definition 5.8.
+     Proposition 7.11 repeats Proposition 7.1 with b-regularity. Lemma 7.12 commutes X_1 = nabla 2t* d_t*, X_2 =
+     nabla(-2 r d_r), X_3-X_5 spanning V(S^2) and X_6 = I through P near I+; every commutator ((7.31), (7.37)-(7.39),
+     Lap-slash a sum of X_a X_b) is sum_j Q_j X_j with Q_j in x_I Diff^1_eb, so P^(k) is P plus terms lower in order and
+     in decay (7.33), and p-bar_1 is unchanged. Lemmas 7.15-7.16 and Proposition 7.17 commute d_r, elliptic at dR+H+,
+     and t* d_t*, the commutator's symbol -i j rho^-2 mu'(r+) xi_0 ((7.48)) having the sign that leaves vartheta_H+
+     unchanged. Lemmas 7.19-7.20 commute t* d_t*, rho_K X_1 being elliptic at dR+dK+,in/out ((7.59)). Lemma 7.21 and
+     Proposition 7.22 commute t d_t at the trapped set to second order, against the trapping estimate's lost derivative.
+     The tame bounds are Proposition 3.28's. At n = 4 (10.67 (a)): Proposition 4.24's order stands, the dynamics over K+
+     being 10.19 (c)'s on five-dimensional Tangherlini, and over I+ and iota+ (2.27)'s and (4.67)'s, free of n (10.58
+     (a)-(b)). At dR+H+ rho^-2 mu'(r+) is f'(r_h) = 2/r_h > 0 (10.18: rho^2/(2 (r+ - m)) is 1/f'(r+)), so Lemma 4.9
+     holds with T*S^3, the threshold is s_0 > 1/2 + vartheta_H+ with 10.18's vartheta_H+, and (7.48)'s p#_alpha = j
+     f'(r_h) >= 0. At dK+ and I+, (4.15), (4.67), (7.18) and (7.21) are functions of the Minkowski principal symbol in
+     which S^3's |eta|^2 replaces S^2's (E1), so every value and bracket is his. In (7.22) the symmetric operator is
+     (1/2) x_I^2 rho_+^2 (x_I d_x_I - 3)(x_I d_x_I - 2 rho_+ d_rho_+) (E1; 10.58 (a)'s (5.27) with 3/2 for 1) and the
+     density r^3 |dt* dr dg/| = 2 rho_+^-5 x_I^-8 |d rho_+/rho_+ dx_I/x_I dg/|, for which that operator is symmetric as
+     his is for 2 rho_+^-4 x_I^-6 (checked exactly here, the constant n - 2 failing); so p_sub = (Re p_1)(xi-hat - 2)
+     with p_1 measured from 3/2 (10.58 (a)), and (7.19) and (7.23) are his. (7.13) and (7.17) are Definition 5.11
+     (5)-(6)'s, stated in p_sub for the metric density and so free of n (10.58 (a)), and admissible order functions
+     exist at every weight (10.18). Proposition 7.10's trapped set is 10.17 (ii)'s: {r^2 = 2 mu, xi = 0}, of codimension
+     2 in the characteristic set, with xi, H_G xi and G independent and normal rate (2 mu)^(-1/2), the flow along it
+     S^3's geodesic flow and so r-normally hyperbolic for every r. [Hin21] Theorem 3.9 (p. 36) is stated on the partial
+     compactification (3.10) of R_t x X (p. 31), X a manifold of any dimension, its dynamical input, Theorem 2.6 (p.
+     25), for R_t x X with X closed (p. 7); so (P.1)-(P.5) hold by 10.17 (ii) and H_G sigma = 0, (P.6') by Proposition
+     6.3, which is that theorem after [Hin21] section 4's reduction (the proof of Theorem 4.3, p. 47), and (7.25) is
+     Definition 5.8's hypothesis, which 10.17's deduced (a) meets at n = 4. Lemma 7.12 commutes the six rotation fields
+     of S^3 (E3): X_3, ..., X_8, with X_9 = I and alpha in N_0^9 (E4). They commute with r d_r and t* d_t* as his do
+     ((7.31)) and close under brackets (so(4)), and Lap-slash on S^3 is the sum of their squares (E3), so (7.38)-(7.39)
+     hold with a, b, c in {3, ..., 8}; P' = -(X_2 - 2(3/2 + p_1)) X_1 + 2 x_I^2 Lap-slash + p_0 + P~' (E1), the constant
+     3 commuting with every X_i, and X-vec_shift = (X_1 + 2, X_2 - 2, X_3, ..., X_9), the weight x_I^2 rho_+^2 being
+     free of n (E1). Lemmas 7.15-7.21 use no angular field: d_r is elliptic at dR+H+, and t d_t at the trapped set,
+     where 10.17 (ii)'s C = 4 mu sigma^2 > 0 makes sigma nonzero. Section 3's calculus is set on an n-dimensional
+     manifold (p. 46), Lemma 3.27's H^3_b index being 3 at both n (E4). It rests on no reading: its inputs are E1-E4,
+     10.17-10.18, 10.19 (c), 10.58 (a)-(b) and [Hin21]'s statements, read at source.
+
+ (lvii) 10.67 (b), [Hin26c] section 8 (pp. 141-157; D163). His Lemma 8.1 (pp. 142-146): localize near I+ by the level
+     sets of t*~ = t* + r^alpha, spacelike for alpha in (0, ell_I) by Lemma 5.16's computation ((8.6)-(8.8)); for P =
+     box_g, the multiplier X = e^(-2 w t*) X_0, X_0 = x_I^(-4 alpha_I - 2)(-x_I d_x_I + d_t*) (8.9), future timelike,
+     whose K-current (X)K = e^(-2 w t*)((X_0)K + 2 w T(X_0, -grad t*)) has (8.10); for general P, X = nabla^E X_0
+     (8.20), the identity (8.13), the symbol H_G(X^mu zeta_mu) - (div X) G = 2 (X)K(zeta, zeta) ([Hin25a]
+     (9.60)-(9.63)), P - P^* from (8.3) and the density 2 x_I^-6 |dt* dx_I/x_I dg/| ((8.14)), and (8.15)-(8.18); the
+     d_t*^2 entry x_I^(-4 alpha_I)(-2 alpha_I - 1 + p_1 + p_1^*), positive for alpha_I < -1/2 + p-bar_1 - eps, and w
+     large for the rest, give (8.19) with c_0 = (1/4)(-2 alpha_I - 1 + 2 p-bar_1); then (8.21) with its first- and
+     zeroth-order corrections, Case II's boundary term T(X, -grad t*) of the good sign, and the zeroth order term by
+     integrating in t*. Corollary 8.2 follows by smoothing and a weak limit. Proposition 8.3 extends P across r = m
+     (Lemma 8.5: Seeley's extension in z = |x| - m, and P written in the monomials I, d_z^mu, d_z^mu d_z^nu, 0 <= mu <=
+     nu <= 3, p. 148), then uses propagation of edge regularity, Proposition 7.9, duality, and for P^* the radial source
+     estimate at dR+I+,out that he leaves to the reader, Proposition 7.9's computation with the signs reversed.
+     Propositions 8.6 and 8.9 induct on k with Lemma 7.12's commuted equation, whose p-bar_1 is P's, Lemma 8.7's
+     extension in (t*, x_I, omega in S^2), and Lemma 8.8, whose part (3) rests on Lemma 3.27's H^(0;3)_b. Section 8.2:
+     Lemma 8.10 with X = e^(2 w r) rho_K^(-2 alpha_K) grad r, dr timelike for r <= r-natural (Lemma 5.16 (1)), positive
+     through the 2 w T(grad r, grad r) term at every alpha_K, the zeroth order term by a divergence identity;
+     Propositions 8.11-8.13 by elliptic and real principal type estimates, commuting X_1, ..., X_4 (V_1 = t* d_t*,
+     V_(1+j) = d_x^j) and X_5 = I ((8.41)-(8.42)), with (8.44). Theorem 8.14 combines Propositions 8.6 and 8.9 on t* in
+     [1, 4], Proposition 7.11 on {t* >= 3, r >= r_1^+} and Propositions 8.12-8.13 down to r = m. At n = 4 (10.67 (b)):
+     (8.10) is E2's, its d_t*^2 coefficient -(2 alpha_I + 1) his, so the threshold alpha_I < -1/2 + p-bar_1 and c_0 are
+     his; the cross term -3 d_t* (x)_s x_I d_x_I, his -2, and the angular term -(2 alpha_I + 3) x_I^2 gslash^-1, his
+     -2(alpha_I + 1), are dominated, as his are, by 2 w T(X_0, -grad t*) = w x_I^(-4 alpha_I)((x_I d_x_I)^2 + x_I^2
+     gslash^-1), his at both n, for w large (E2), so (8.19) holds. The density is 2 x_I^-8 |dt* dx_I/x_I dg/| (E4), for
+     which x_I^2 (x_I d_x_I - 3) is skew as x_I^2 (x_I d_x_I - 2) is for x_I^-6, the adjoint of x_I d_x_I for x_I^(-2n)
+     |dx_I/x_I| being -x_I d_x_I + 2n (checked exactly here, the constant n - 2 failing); so (8.14) reads as his with
+     p_1 measured from 3/2 (E1; 10.58 (a)). (8.13), (8.15)-(8.18), (8.21), [Hin25a]'s symbol identity and the boundary
+     terms hold in every dimension, and the localization (8.6) is the Minkowski algebra of (2.25)-(2.27) with the
+     class's weights (10.58 (a)). The extension across the inner sphere, his r = m, runs on R^4 with I, five first-order
+     and fifteen second-order monomials (0 <= mu <= nu <= 4; E4), Seeley's construction acting in the one variable z; dr
+     is timelike inside r_h on five-dimensional Tangherlini, g^-1(dr, dr) = f < 0 (10.19 (c)), so Lemma 5.16 (1)'s
+     r-natural lies between that sphere and r_h. Propositions 8.6 and 8.9 commute (lvi)'s nine operators (E4), p-bar_1
+     unchanged; Lemma 8.7's extension is in omega in S^3; Lemma 8.8's index 3 is Lemma 3.27's, the least integer above
+     (n + 1)/2 at both n (E4); section 8.2 commutes X_1, ..., X_5 (V_(1+j) = d_x^j, j = 1, ..., 4) and X_6 = I, alpha in
+     N_0^6 (E4), Lemma 2.11's commutator identities being free of n; and Theorem 8.14 combines these with (lvi)'s
+     Proposition 7.11. It rests on no reading: its inputs are (lvi)'s, E1-E4, 10.19 (c) and 10.58 (a).
+
+So fifty-seven of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Thirty-seven of the fifty-seven take a reading among their inputs (B-MAP.tsv's
 column `reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.20 (a), 10.21 (c), 10.23 (b), 10.23 (c), 10.23 (d), 10.27 (b),
 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b),
 10.42 (e), 10.45 (b), 10.45 (e), 10.46 (a), 10.46 (b), 10.46 (e), 10.47 (d), 10.47 (e), 10.49 (a), 10.55 (b), 10.56 (b),
 10.61 (b), 10.61 (c), 10.62 (b), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the census through that input, not
 through their own steps (the sixty-first verifier; D149). Where an item cites a row still on the census as an input, by
-name or by citing its whole section (the sixty-fourth verifier; (i) cites 10.19 (d), 10.22 (e), 10.53 (e), 10.67 (a),
-10.67 (b); (iii) cites 10.19 (d); (iv) cites 10.19 (d), 10.53 (e); (xv) cites 10.53 (e); (xvii) cites 10.19 (d); (xviii)
-cites 10.19 (d), 10.53 (e); (xx) cites 10.19 (d); (xxv) cites 10.22 (e); (xl) cites 10.58 (c); (xlv) cites 10.22 (e);
-(xlvii) cites 10.19 (d); (xlviii) cites 10.19 (d), 10.53 (e); (xlix) cites 10.58 (c)), it rests on the census through
-that row in the same way. Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it. The
-other 6 carry proofs of several pages each, in [Hin26c] sections 5, 7-11 and 13, and [Hin26a] section 5; writing those
-out is what remains of 8.8.
+name or by citing its whole section (the sixty-fourth verifier; (i) cites 10.19 (d), 10.22 (e), 10.53 (e); (iii) cites
+10.19 (d); (iv) cites 10.19 (d), 10.53 (e); (xv) cites 10.53 (e); (xvii) cites 10.19 (d); (xviii) cites 10.19 (d), 10.53
+(e); (xx) cites 10.19 (d); (xxv) cites 10.22 (e); (xl) cites 10.58 (c); (xlv) cites 10.22 (e); (xlvii) cites 10.19 (d);
+(xlviii) cites 10.19 (d), 10.53 (e); (xlix) cites 10.58 (c)), it rests on the census through that row in the same way.
+Two, (iii) and (xxvi), replace the source proof by a computation rather than carry it. The other 4 carry proofs of
+several pages each, in [Hin26c] sections 5, 9-11 and 13, and [Hin26a] section 5; writing those out is what remains of
+8.8.
 
-Labels: READ (the fifty-five source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+Labels: READ (the fifty-seven source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)

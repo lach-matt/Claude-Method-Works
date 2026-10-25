@@ -2141,3 +2141,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   closed by the root gap, whole-section citations of census rows counted, two reading marks, (xxxvii)'s reading
   clause, the paper's verifier record, headings and wording. Fifty-five of 61 written out,
   thirty-seven on a reading; thirteen cite a census row; 6 rest on the censuses.
+
+### 4.87 [Hin26c] sections 7-8 written out (READ, deduced; D163)
+
+- D163 (10.75 (lvi)-(lvii)): [Hin26c] section 7 -- Proposition 7.1's concatenation, the five radial point estimates,
+  the trapping estimate through [Hin21] Theorem 3.9 (stated for a manifold of any dimension), Proposition 7.11 with
+  Lemmas 7.12-7.21 -- and section 8 -- Lemma 8.1's energy estimate, the extension across the inner sphere, Propositions
+  8.3-8.13 and Theorem 8.14 -- read at source (pp. 114-157) and matched at n = 4 (10.67 (a)-(b)). Places: the horizon's
+  rate f'(r_h), 10.17's trapped set, (7.22)'s symmetric operator and density 2 rho_+^-5 x_I^-8 (checked exactly), the
+  nine commuted operators, E2's K-current, the fifteen monomials. Fifty-seven of 61 written out,
+  thirty-seven on a reading; 4 rest on the censuses: [Hin26c]'s sections 5, 9-11 and 13 and
+  [Hin26a]'s Theorem 5.2.
