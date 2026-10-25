@@ -2088,4 +2088,6 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   coefficient a constant multiple of f; "flat" in Lemma 10.56 (c); the sigma = 0 remark's source and subtraction; the
   interior is Lemma 10.56 (c); [CD03]'s s = t - 1 on p. 37; cross-references in 10.75 (xii)-(xiii); (xv)'s cokernel
   argument; wrapped lines that began with a list marker; the paper's md5 and verifier-record scope.
-
+- D154 (10.75 (xxxv)-(xxxvi)): [Hin26] Proposition 5.11 with Proposition 5.14 and Corollary 5.15 (10.48 (b)) and
+  Theorem 5.17 (10.48 (c)), the latter clearing its reading of [Hin23a] at n = 4. Thirty-six of 61 written out,
+  eighteen on a reading; 25 rest on the censuses.

@@ -8217,7 +8217,7 @@ by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 none: the step is the source proof as it stands. The 107 placements of the five-dimensional values are: 34 at a computed
 check, 58 at an earlier section where they are computed or deduced, 14 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
-R^n, R^(n,1)) and 1 the record's choice (gamma_Ups = 1/100). 32 rows say they rest on a reading -- of a source theorem
+R^n, R^(n,1)) and 1 the record's choice (gamma_Ups = 1/100). 31 rows say they rest on a reading -- of a source theorem
 at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
 dimension-dependent places by census and modification (D147). Before D149, 10.15 (a), whose source proof is a citation
 replaced at n = 4, and 10.63 (c), whose seven places 10.66 places (four computed in gluing5.py), named none, 10.15 (a)'s
@@ -8225,7 +8225,8 @@ reading was unmarked, and
 10.31 (b)'s placement naming zstates5.py Z4 was counted arithmetic (the sixty-first verifier). D150-D151's write-outs
 (10.75 (xvii)-(xxx)) named eleven more places their rows lacked -- 10.60 (f) had none -- and one more reading (10.20
 (a)); n/2 = 2 is now an arithmetic placement (10.20 (a), 10.39 (e)), where before its one occurrence was placed at a
-section (the sixty-second verifier).
+section (the sixty-second verifier). D154 cleared 10.48 (c)'s reading, [Hin23a]'s estimates at n = 4, which 10.75
+(xxxi)-(xxxiv) now write out.
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -8242,12 +8243,12 @@ would replace the censuses' evidence by proof.
 
 Labels: measured (the table's counts); deduced (the placing, the rule); nothing proved here.
 
-### 10.75 Thirty-four modification steps written out at n = 4 (D146, D148, D150-D152)
+### 10.75 Thirty-six modification steps written out at n = 4 (D146, D148, D150-D152, D154)
 
 *The setting.* 10.74 reduces each modification step to the census of its source proof. Where that proof is short and
 held in full text here, the census can be replaced by the proof itself: each of its steps, read at source, is matched to
 its five-dimensional justification -- an identity true in every dimension, a computed check, or an earlier section. A
-step so written out rests on its inputs, not on a census of its source. The thirty-four below are those whose source
+step so written out rests on its inputs, not on a census of its source. The thirty-six below are those whose source
 proofs are at most about five pages and are already matched step by step in the sections named, or short enough to match
 here; each is READ at source (alphaXiv full texts, 2026-10-24; [CD03] the arXiv v2 text of 10.69; [Hin24b]
 arXiv:2408.06715v1 for (xxvii)).
@@ -8598,17 +8599,45 @@ arXiv:2408.06715v1 for (xxvii)).
      Lemma 3.33 is not used (it would be, on R^5, with d_4 = 3); B_g as his; and the sharp-weight step holds with A
      h-free, lower triangular with scalar diagonal (X4), and alpha_I < min(alpha_0, 0) as his.
 
+ (xxxv) 10.48 (b), [Hin26] Proposition 5.11 (pp. 92-97), Proposition 5.14 and Corollary 5.15 (pp. 98-99; D154).
+     Proposition 5.11's proof computes (4.13) term by term in the splittings (3.34) and (3.37): Corollary 5.10 for the
+     first term; E^C_(g_0) (5.29) from c_C, g_0 and g_0^-1 at infinity; delta_g by Corollary 5.9 and G_g by Lemma 5.6
+     with tr g (5.30); the curvature term R_g (5.32) by Lemmas 5.6 and 5.8; delta*_(g_0,E^C) (5.33), C(g, g_0) (5.34)
+     and (delta*_(g_0) - delta*_g) delta_g G_g (5.36) by Lemma 5.7; Upsilon_0 an error term; E^Ups (5.37)-(5.38); and
+     the change to the splitting (5.27). Proposition 5.14's: the error term mapped by min Re(E^tot_I \ {(1, 0)}) > 1 and
+     Definition 5.3 (3), B_h acting through its first column, and the diagonal entries of I + A_h annihilating the
+     leading terms -- (4, 4) 1 + (1 - e_Ups) gam_Ups, (5, 5) 1 + gam_Ups, (6, 6) 1, (7, 7) 1 + 2 gam_Ups -- with integer
+     powers for its second claim. Corollary 5.15's: P(g_0, g_0) = 0 and the fundamental theorem of calculus with
+     Proposition 5.14. At n = 4: the h-free part of every term, and so A_0 -- the leading part with 3/2 for 1, the trace
+     entries of G_g and E^Ups taken over S^3 -- is computed (scri5.py, 10.38 (i)); the h-dependent terms are [Hin23a]'s
+     (3.30) term by term (10.72 (iii), READ), of orders r^(-1/2) below his (exterior5.py X7, (xxxii)); the error classes
+     keep (5.46)'s orders (10.48 (b)); the diagonal entries of 3/2 + A_h annihilate the leading terms of 10.44 (b)'s
+     index sets, at 3/2, 3/2 + (1 - e_Ups) gam_Ups, 3/2 + gam_Ups and 3/2 + 2 gam_Ups, with min Re(E^tot_I \ {(3/2, 0)})
+     > 3/2 (10.44 (b)); the second claim's integer powers hold as Tangherlini's coefficients and c, c_Ups expand in
+     integer powers of r^-1 (10.55 (a)), on his one-line argument; and Corollary 5.15 is free of n.
 
-So thirty-four of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Eighteen of the thirty-four take a reading among their inputs (B-MAP.tsv's
+ (xxxvi) 10.48 (c), [Hin26] Theorem 5.17 (pp. 101-102; D154). His proof is [Hin23a] Corollary 3.36's with notational
+     changes: the tame estimates (5.52) for the linearized problem -- a first-order energy estimate from the structure
+     (5.41b), which is [Hin23a] Proposition 3.29's, commuted with rho_0 d_rho_0, rho_I d_rho_I and the spherical fields
+     as in [Hin23a] Proposition 3.32, then the partial expansion at I+ by integrating the leading term ([Hin23a] Theorem
+     3.35, and in detail his Theorem 5.21's proof) -- and [SR89]'s Nash-Moser theorem; the region -r/4 <= t_IVP <= 0 is
+     treated as the one away from I+. At n = 4: [Hin23a] Propositions 3.17, 3.29 and 3.32 are (xxxi), (xxxii) and
+     (xxxiv), (5.41b) is (xxxv)'s; Theorem 3.35's decay recovery has its least positive entry -gam_Ups in both
+     dimensions (10.64 (h)); the partial expansion is 10.48 (d)'s, with min Re E_0 > 3/2 + 2 gam_Ups; Corollary 3.36's
+     finite loss and [SR89] are free of n (10.64 (i)); and the weights l-flat_0 > l-flat_I, 1 < l-flat_I < 3/2, the
+     radiative order 3/2 for his 1 (10.48 (c)).
+
+
+So thirty-six of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
+B-MAP.tsv's column `written` marks them. Eighteen of the thirty-six take a reading among their inputs (B-MAP.tsv's
 column `reading`: 10.15 (a), 10.20 (a), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a), 10.31 (a), 10.32 (c), 10.34 (c),
-10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.40 (a), 10.41 (b), 10.46 (e), 10.62 (c), 10.62 (d)), and rest on the
+10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.46 (e), 10.62 (c), 10.62 (d), 10.40 (a)), and rest on the
 census through that input, not through their own steps (the sixty-first verifier; D149). Two, (iii) and (xxvi), replace
-the source proof by a computation rather than carry it. The other 27 carry proofs of several pages each, in [Hin26]
-sections 5 and 9-13, [Hin26c] sections 5 and 7-14, and [Hin26a] sections 4-6 with its appendices A-B; writing those out
-is what remains of 8.8.
+the source proof by a computation rather than carry it. The other 25 carry proofs of several pages each, in [Hin26]
+sections 9-13, [Hin26c] sections 5 and 7-14, and [Hin26a] sections 4-6 with its appendices A-B; writing those out is
+what remains of 8.8.
 
-Labels: READ (the thirty-four source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
+Labels: READ (the thirty-six source proofs); deduced (the matching); nothing computed or proved here, Lemma 10.56,
 which (i) uses, being proved in 10.76.
 
 ### 10.76 Across the horizon: the continuation and the interior uniqueness (D149)

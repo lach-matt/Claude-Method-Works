@@ -4304,3 +4304,10 @@ references name Propositions 10.25 and 10.27; (xv)'s cokernel argument names (7.
 wrapped lines that began with a list marker rewrapped, and the wrapping now avoids them; "READ at source since"
 dropped; the paper's md5 rows refreshed and its record scoped to (i)-(xi).
 
+**D154 (2026-10-25): [Hin26] section 5's exterior steps written out.** Proposition 5.11 with Proposition 5.14 and
+Corollary 5.15 (10.48 (b)): (4.13) term by term, the h-free parts computed (scri5.py), the h-dependent ones [Hin23a]'s
+(3.30) (READ) at r^(-1/2) below his (X7), the annihilating diagonal entries at 10.44 (b)'s five-dimensional exponents.
+Theorem 5.17 (10.48 (c)), whose proof is [Hin23a] Corollary 3.36's, now on 10.75 (xxxi)-(xxxiv) instead of a reading
+of [Hin23a] at n = 4, so 10.48 (c)'s reading is cleared (31 rows on a reading). Thirty-six of 61 written out, eighteen
+on a reading; 25 rest on the censuses.
+
