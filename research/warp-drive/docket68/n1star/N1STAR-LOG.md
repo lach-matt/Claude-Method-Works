@@ -5011,3 +5011,35 @@ solvability through an auxiliary operator (G5), the radial estimates at cf with 
 estimate for the approximations and the weak limit. Theorem 10.1 at n = 4 in four steps. Findings (F1)-(F9), gaps
 (G1)-(G7). Status: Parts I.A-I.C, II.A, II.A' proved; II.B, II.C, II.C', II.D, II.D' and II.E verified; II.F written.
 Next: the eighty-seventh verifier on Part II.F; Part II.F' ([Hin26c] section 11).
+
+**D209 (2026-10-25): the eighty-seventh verifier on Part II.F seated; II.F verified.** No major finding; seven minor and
+eight nits, all seated in proof5/PART-II-F-IOTA.md (section 9.4). Minor: Theorem 8.1 Step 0 solves the early part at the
+slab order s + 1 (one order was lost in the cut-off error); Lemma 5.8's weight at I+ is the bounded rho_0f; Lemma 2.2's
+density carries rho_0f^3 near 0f (a weight; conclusions unchanged); Lemmas 7.2 (c) and 7.3 (b): the relative decay
+rho_+^2 of g_0 - gbar at iota+ is the n = 4 value, now cited to II.B Lemma 1.1 (1.2) (the verifier's rho_+ is the
+source's n = 3 Kerr value; (F11)); the absorption step takes T = 2/delta; finite speed of propagation is now Lemma 1.3,
+proved from [BGP] = Bar-Ginoux-Pfaffle, arXiv:0806.1036 (READ: Theorem 3.1.1 p. 68, Remark 3.1.3 p. 72, Definitions
+1.3.5 and 1.3.8, Lemmas A.5.6 and A.5.9), with the monotone functions of Lemma 1.4 (t_*, B = t_* + R~(r), r on the band,
+t-flat, t-flat_+ and the Minkowski t and t -+ r), and used in Lemmas 6.3 and 7.5, Propositions 6.2 (2) and 7.4 (2) and
+Theorem 8.1; [Ho85] remains only for the existence of the Cauchy solution in Lemma 6.3 (cited, not read); the five [0C]
+statements were re-read at source. Nits: (F10) the sign in Theorem 10.1's last display, (F12) cf and tf interchanged,
+(F14) the symbol (10.7); Lemma 1.2's term (i) was misprinted rho.rho for rho (its form tau R^-2 stands); Lemma 6.3's
+smallness lambda^-(1 - l_+) in the e3b class; Proposition 7.4 (2)'s assumptions ordered. Four repairs found while
+seating: Lemma 6.3's slab starts at C' T' and the comparison is made on a region where both solutions live, with no loss
+of time range; Proposition 7.4 (2) runs at the scale mu = min(1, R_0/(3 tau_0)), its hypothesis giving vanishing only
+before 1/tau_0; Lemma 7.3 (b)'s modified metric is localised to R >= 1/2 (it was gbar near K+); Theorem 8.1 is stated
+and proved on Omega_*, where II.F' uses it ((F13)), with tau_0 < C' tau_1 / 2. Part II.E gains (E14): its tame
+Propositions 4.4 and 5.6 (b) use the simultaneous extension of II.F' Lemma 2.5. Status: Parts I.A-I.C, II.A, II.A'
+proved; II.B, II.C, II.C', II.D, II.D', II.E and II.F verified.
+
+**D210 (2026-10-25): Part II.F' written, [Hin26c] section 11 at n = 4.** proof5/PART-II-F2-TAME.md: Theorem 11.1 on
+Omega_*, forward solutions of admissible wave-type operators on b-Sobolev spaces with decay at I+, iota+ and K+, tame in
+the b-regularity, as the weak limit of the forward solutions of P_epsilon (equal to P up to time ~1/epsilon, to P_0
+after), with the estimate for P_epsilon uniform in epsilon from II.E Theorem 6.1, II.F Theorem 8.1 and the slabs of
+II.E; Corollary 1.2 (unweighted b-densities); Remarks 11.2-11.4. Written out where the source passes over them: the
+order margin 3 + delta + aleph (the source's 2 + delta + max(1, aleph) misses II.F Theorem 8.1's hypotheses two orders
+down when aleph >= 1); cut-offs in t-flat, whose level sets carry the slabs; and a simultaneous Seeley extension across
+r = r_0, bounded at every order of b-regularity, where the order is a constant integer. Findings (F'1)-(F'12). Not
+carried: the statement on Omega (principal part that of Kerr); uniformity in P_0, open until a later part needs it.
+Status: Parts I.A-I.C, II.A, II.A' proved; II.B-II.F verified; II.F' written. Next: the eighty-eighth verifier on the
+D209 repairs and Part II.F'; Part II.G ([Hin26c] section 12, the Nash-Moser iteration, with the (12.7) finding).

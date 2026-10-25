@@ -2557,3 +2557,24 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   operator P_+ (Proposition 10.14), and Theorem 10.1; findings (F1)-(F9) and gaps (G1)-(G7), all closed in the text.
 - Open: the D197, D200, D201, D204, D206 and D207 repairs; Part II.F unread; Parts II.F', II.G, II.G' and III-VII.
 - Next: the eighty-seventh verifier on Part II.F; Part II.F', [Hin26c] section 11.
+
+### 4.132 Part II.F verified (D209)
+
+- The eighty-seventh verifier on Part II.F: no major finding; seven minor (Step 0 of Theorem 10.1 at order s + 1, the
+  bounded weight at I+ in Lemma 5.8, the density factor near 0f, the n = 4 decay rho_+^2 of the metric at iota+, the
+  absorption time, finite speed of propagation, the [0C] statements) and eight nits, all seated; finite speed of
+  propagation is now Lemma 1.3, from [BGP] Theorem 3.1.1 (READ); four further repairs found while seating (Lemma 6.3's
+  slab, Proposition 7.4 (2)'s starting time, Lemma 7.3 (b)'s metric near K+, Theorem 10.1 on Omega_*); (F10)-(F14)
+  added; II.E (E14) records the extension its tame estimates use.
+- Open: the D197, D200, D201, D204, D206, D207 and D209 repairs; Parts II.F'-II.G' and III-VII.
+- Next: Part II.F', [Hin26c] section 11, in writing (D210).
+
+### 4.133 Part II.F' written (D210)
+
+- Part II.F', [Hin26c] section 11 at n = 4: Theorem 11.1 (forward solutions of admissible wave-type operators on
+  b-Sobolev spaces with decay at I+, iota+ and K+, tame in the b-regularity, on Omega_*), its form with unweighted
+  b-densities and Remarks 11.2-11.4; the order margin 3 + delta + aleph, cut-offs in t-flat, and a simultaneous
+  extension across r = r_0; findings (F'1)-(F'12). Not carried: the statement on Omega; uniformity in P_0.
+- Open: the D197, D200, D201, D204, D206, D207 and D209 repairs; Part II.F' unread; Parts II.G, II.G' and III-VII;
+  uniformity in P_0 (II.F' (F'11)).
+- Next: the eighty-eighth verifier on the D209 repairs and Part II.F'; Part II.G, [Hin26c] section 12.

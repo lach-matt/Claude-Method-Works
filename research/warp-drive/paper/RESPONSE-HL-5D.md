@@ -1094,7 +1094,9 @@ the tame form his iteration uses, and the eleventh, his energy estimates on boun
 interior, with the global estimate at high frequencies they give, have been read line by line too and their findings
 seated. The twelfth, his analysis at future timelike infinity -- the normal operator there, its spectral family at
 bounded and high frequencies, its forward solutions, and the forward solutions of the stationary model on the spaces his
-iteration uses -- is written. Theorem 4 stays deduced until the last part is proved.
+iteration uses -- has been read line by line and its findings seated, and the thirteenth, the forward solutions of the
+perturbed wave operators with estimates tame in the regularity, is written. Theorem 4 stays deduced until the last part
+is proved.
 
 ---
 
@@ -2087,6 +2089,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |
-| `docket68/n1star/proof5/PART-II-F-IOTA.md` | `ba2e90182951a9763ab100dd21ba4592` |
+| `docket68/n1star/proof5/PART-II-F-IOTA.md` | `52f2e56bfd97d1e6cb77f6ac31e0d2d2` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

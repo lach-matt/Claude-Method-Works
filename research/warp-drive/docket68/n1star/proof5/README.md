@@ -26,8 +26,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
-| II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | written (D208) |
-| II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | to do |
+| II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | verified (D209) |
+| II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | written (D210) |
 | II.G | [Hin26c] 12 | the Nash-Moser iteration | to do |
 | II.G' | [Hin26c] 13 | improving decay at iota+ and K+ | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
@@ -352,4 +352,29 @@ factor $t_*^{-2}$, the high-energy statement's range of parameters, a sign at th
 factor $|\sigma|^{2j}$, and the source order $\mathsf s-1$ (not $\mathsf s-2$) in Proposition 10.12; and gaps (G1)-(G7)
 closed, among them the constancy hypothesis of [0C] Theorem 1.5, the dilation invariance of the orders at which
 Proposition 10.12 is applied, and the auxiliary operators needed to use Part II.E's slab estimates near $\mathscr I^+$.
-Written (D208); not yet read by a verifier.
+Written (D208). The eighty-seventh verifier re-derived the constants at $n = 4$, the four threshold sums, the symbols
+and Hamilton fields, the Bessel reduction, the Schur-test integrals, the Fourier bound and the order and weight
+bookkeeping of sections 6-8, by machine where it could, and confirmed (F1)-(F9) at source. No major finding. Its seven
+minor findings are seated (D209): Step 0 of Theorem 10.1 at the order $\mathsf s+1$; the bounded weight at $\mathscr
+I^+$ in Lemma 5.8; the density factor near 0f in Lemma 2.2; the decay $\rho_+^2$ of the metric at $\iota^+$, the $n = 4$
+value, now cited to Part II.B ((F11)); the absorption time; finite speed of propagation, now Lemma 1.3, proved from the
+uniqueness theorem of Bär, Ginoux and Pfäffle (READ) with explicit monotone functions, wherever it is used; and the five
+[0C] statements, re-read at source. Seating them brought out four more, repaired: the slab and the comparison region of
+Lemma 6.3, the starting time of the iteration in Proposition 7.4 (2), a modified metric in Lemma 7.3 (b) that was not
+close to $g_0$ near $K^+$, and Theorem 10.1 itself, now stated and proved on $\Omega_*$, where the next part uses it
+((F13)). Findings (F10)-(F14) are added. The eight nits are seated too; the repairs await the next reader.
+
+## Part II.F'
+
+`PART-II-F2-TAME.md`. [Hin26c] section 11 at $n = 4$: Theorem 11.1, forward solutions of admissible wave-type operators
+$P$ on b-Sobolev spaces with decay at $\mathscr I^+$, $\iota^+$ and $K^+$, with estimates tame in the b-regularity, its
+form with unweighted b-densities, and Remarks 11.2-11.4. The forward solution is the weak limit of those of operators
+$P_\epsilon$ equal to $P$ up to a time of order $\epsilon^{-1}$ and to the stationary model after it; the estimate for
+$P_\epsilon$, uniform in $\epsilon$, joins Part II.E's global estimate to Part II.F's Theorem 8.1, the error being small
+near $\iota^+\cup K^+$ and controlled at bounded times on slabs. Three points the source passes over are written out:
+the order function needs the margin $3+\delta+\aleph$, not $2+\delta+\max(1,\aleph)$; the cut-offs must be functions of
+the time function $t^\flat$, whose level sets carry the slabs, not of $t_*$; and the tame bound needs one extension
+across $\{r = r_0\}$ that is bounded at every order of b-regularity at once, constructed where the order is a constant
+integer (recorded in Part II.E as (E14)). Findings (F'1)-(F'12), among them that the source's statement on $\Omega$, for
+operators whose principal part is that of the Kerr wave operator, is not proved here, and that uniformity in $P_0$ stays
+open until a later part needs it. Written (D210); not yet read by a verifier.

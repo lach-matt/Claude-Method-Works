@@ -1266,6 +1266,15 @@ Proposition 7.11, invoked in its proof, assumes: it is the threshold at the inco
 I^+\cap\iota^+$, where the quantity $4(\alpha_I-\alpha_+-\frac12)$ must be positive (II.D Proposition 3.5, the source's
 (7.19)), and it does not involve the orders. Theorem 6.1 assumes all of II.D (1.3).
 
+(E14) *The extension in the tame estimates (D209).* Propositions 4.4 and 5.6 (b), and through them the tame bound (6.2),
+extend the source term across the final face $\{r = r_0\}$, resp. $\{r = a\}$, by the minimal extension, which is
+minimal for one norm only, while a tame bound needs control at the low and the high b-regularity at once. Where they are
+applied (Theorem 6.1 (A), and Part II.F$'$ sections 3-4) the order is a constant nonnegative integer near $\{r\le
+r_0\}$, and the extension $E$ of Part II.F$'$ Lemma 2.5, a Seeley extension in $r$ at fixed $(t^\flat,\omega)$ glued to
+any extension away from $\{r = r_0\}$, is bounded at every order of b-regularity at once; the proofs go through with it
+in place of the minimal extension. Across the time-final face of a slab the source term is, wherever the propositions
+are applied, the restriction of one given on a larger slab. Recorded from Part II.F$'$ section 8.2 (b).
+
 ## Sources
 
 [Hin26c] P. Hintz, arXiv:2606.28008v1. READ: pp. 141-157 (section 8: (8.1)-(8.4), Lemma 8.1 with (8.5)-(8.23), Corollary
