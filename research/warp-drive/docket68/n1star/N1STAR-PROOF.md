@@ -3747,19 +3747,21 @@ its sign flipped (at R_out A_w does not enter); and the four-dimensional data we
      of the horizon, vartheta_H+ < -C_0 - 1/2 ([Hin26c] p. 193 asks s_0 > 1/2 + vartheta_H+, and s >= -C_0), that is the
      threshold 1/2 + vartheta_H+ of 10.18's convention below -C_0, which is not computed here: by the mechanism of his
      Remark 5.7, stated there for the spacetime estimate (5.21), the damping h^-1 l, positive on future causal covectors
-     (Lemma 3.5), pushes the threshold below any fixed number for small h, and in five dimensions it is OPEN. (He takes
-     C_0 + 4 in Theorem 4.9 for his adjoint route, p. 69, which the direct route does not need.) Its indicial roots have
-     Re lam >= 2 or Re lam < -C_0, the only one with Re lam = 2 being lam = 2, simple of scalar type 0 and of scalar
-     type 1. His other route, through his Theorem B.1, has by (i)-(ii) the l-window of (B.13), -1/2 - h^-1 (1 - e)(1 +
-     v) < l < -1/2 + h^-1 (1 - e)(1 - v), in five dimensions, on the reading of 10.19(d) ([Hin26c] (9.16b)-(9.16c),
-     (9.32)); Theorem B.1 itself is not deduced here (10.23 deduces it on readings).
+     (Lemma 3.5), pushes the threshold below any fixed number for small h, and in five dimensions it is OPEN. (Since
+     computed, 10.79: 1/2 + vartheta_H+ = -4995.33... at h = 10^-6, and below -C_0 for every h in (0, h_2), h_2 =
+     2.6197... x 10^-5; D171.) (He takes C_0 + 4 in Theorem 4.9 for his adjoint route, p. 69, which the direct route does
+     not need.) Its indicial roots have Re lam >= 2 or Re lam < -C_0, the only one with Re lam = 2 being lam = 2, simple
+     of scalar type 0 and of scalar type 1. His other route, through his Theorem B.1, has by (i)-(ii) the l-window of
+     (B.13), -1/2 - h^-1 (1 - e)(1 + v) < l < -1/2 + h^-1 (1 - e)(1 - v), in five dimensions, on the reading of 10.19(d)
+     ([Hin26c] (9.16b)-(9.16c), (9.32)); Theorem B.1 itself is not deduced here (10.23 deduces it on readings).
  (e) ([Hin26a] Theorem 6.2 in five dimensions, on his Theorem 5.2) So, with Theorem 5.2 applied for C_0 + 1 as in his
      proof (p. 67): for every h in (0, h_0), h_0 = h_0(e, C_0) that of Theorem 5.2 in five dimensions, depending also on
      the weights, box^C on five-dimensional Tangherlini has no outgoing mode at sigma != 0, Im sigma >= 0, and its zero
      energy operator is injective on the weights l >= -C_0 - 2; and at h = 10^-6, the one point at which the roots are
      known (Proposition 10.9), for C_0 <= 100 and given the horizon threshold of (d), it is invertible from
      H-bar_b^(s,l) to H-bar_b^(s-1,l+2) for l in [-C_0 - 2, 0) and s >= -C_0, with the density r^3 |dr dg/| -- provided
-     10^-6 lies below the five-dimensional h_0(e, C_0), which is not certified (10.12, 10.14): [Hin26] Theorem 7.1
+     10^-6 lies below the five-dimensional h_0(e, C_0), which is not certified (10.12, 10.14), or, as 10.79 takes it, for
+     every h in (0, min(h_0, 10^-6)), where 10.54 (a) has the roots and 10.79 the threshold (D171): [Hin26] Theorem 7.1
      (1)-(2) in five dimensions, conditional on [Hin26a] Theorem 5.2 there (10.22 deduces it on a reading). His Theorem
      1.1(2) follows as his does, with C_0 + 2 for C_0, so for C_0 <= 98 at that point: a stationary solution with
      |omega_mu| <= C r^(C_0) lies in r^(C_0 + 2 + eps) L^2(r^3 dr), the shift being n/2 = 2, so by the roots in r^eps
@@ -3778,14 +3780,14 @@ volume r^3, which puts a mode's data in rho^(-2-eps), half an order below his, a
 shift (n - 1)/2 = 3/2 of (6.4), above which S-bar^C, his matrix with three angular copies, stays positive; and through
 the indicial roots of 10.12, which put the top of the range at the Coulomb root 2 where his is at 1. His argument is
 otherwise unchanged. Not done, and OPEN: his Theorem 5.2 in five dimensions -- the 3b-estimates of his section 5 and
-their h_0 -- on which (b)-(e) rest (10.22 computes its remaining inputs and deduces it on a reading); his Theorem B.1 in
-five dimensions and the tf-admissibility of box^C ([Hin26] Theorem 7.1(4)) (10.23 deduces both on the same reading);
-[Hin26] section 6.5 and Lemma 6.13; and [Hin26] sections 7 and 8 in five dimensions. Nothing of this section is proved:
-Proposition 10.18 is computed, and (a)-(e) are deduced, (b)-(e) on [Hin26a] Theorem 5.2, which 10.22 deduces on the
-reading that his 3b-analysis holds in five dimensions.
+their h_0 -- on which (b)-(e) rest (10.22 computes its remaining inputs and deduces it on a reading; written out since,
+10.75 (lxi)); his Theorem B.1 in five dimensions and the tf-admissibility of box^C ([Hin26] Theorem 7.1(4)) (10.23
+deduces both on the same reading); [Hin26] section 6.5 and Lemma 6.13; and [Hin26] sections 7 and 8 in five dimensions.
+Nothing of this section is proved: Proposition 10.18 is computed, and (a)-(e) are deduced, (b)-(e) on [Hin26a] Theorem
+5.2, which 10.22 deduces on the reading that his 3b-analysis holds in five dimensions.
 
 
-### 10.22 [Hin26a] Theorem 5.2 in five dimensions: the inputs, and the reading (`solv5.py` Q1-Q4; D67)
+### 10.22 [Hin26a] Theorem 5.2 in five dimensions: the inputs, and the reading, since written out (`solv5.py` Q1-Q4; D67)
 
 *The setting.* 10.21 deduced [Hin26a] Theorem 6.2 on five-dimensional Tangherlini from his Theorem 5.2 there, which it
 left OPEN. His proof of Theorem 5.2 (section 5.2, pp. 41-66) is a chain of semiclassical estimates on weighted
@@ -3804,7 +3806,8 @@ Proposition 5.1 (4)-(5). In five dimensions 10.13 computed his section 3's quant
 verbatim at the trace weight 2/(D - 2), and section 4's symbols, and 10.14 wrote a c on Tangherlini in Kerr-Schild time
 ((10.48)) with his Proposition 5.1 (1)-(6) at (v, e) = (1/2, 1/102400) and r_0 = 100, (4)-(5) at the four-dimensional
 weights (1, -102) and with the thresholds b_sf < b* and b_K > b_sf - b* at that e, b* = 0.99340731.... Not computed: the
-3sc structure of Tangherlini, the geometry of the energy estimates, and (4)-(5) at the weights 10.21 uses.
+3sc structure of Tangherlini, the geometry of the energy estimates, and (4)-(5) at the weights 10.21 uses (10.22 (iv) and
+(c) compute the last, solv5.py Q4, and 10.75 (lxi) writes the theorem out; D172).
 
 **Proposition 10.19 (computed; exact).** On five-dimensional Tangherlini in Kerr-Schild time, g = eta + mu r^-2 k (x) k
 with k = dt + dr:
@@ -3862,7 +3865,9 @@ outside the horizon; and alpha_K = alpha_sf in (iv), below the threshold at dK+.
      Theorem 5.2. With 10.21, [Hin26a] Theorem 6.2 holds on five-dimensional Tangherlini on the same reading: (1) and
      the injectivity of (2) for every h in (0, h_0); the invertibility of (2) at h = 10^-6, Proposition 10.9's point,
      for C_0 <= 100, provided 10^-6 < h_0 and given 10.21(d)'s horizon threshold. (Since written out as 10.75 (lxi), on
-     no reading; D167.)
+     no reading; D167.) Its second sentence is 10.21's deduction, not Theorem 5.2's: it rests on 10.21 (d), whose horizon
+     threshold 10.79 computes and whose Fredholm property is [Hin26c] Theorem 9.36 for an operator on 1-forms (RB), and
+     on h below h_0 (10.79); B-MAP.tsv's row for (e) is Theorem 5.2's alone (the sixty-seventh verifier; D172).
 
 *READ.* [Hin26a] (arXiv:2606.27658v2, alphaXiv, 2026-10-22): pp. 9 (section 1.2.2), 12-16 (Definition 2.1, its charts,
 (2.4), (2.7)-(2.10), Definitions 2.2 and 2.5, (2.11)-(2.14)), 25-27 (Lemmas 3.3, 3.5, 3.7 and 3.8, Remark 3.4, Corollary
@@ -6897,8 +6902,10 @@ the cofactors are treated the same way. Mutant: 10^-3 in place of 10^-6, above e
      3.2), even in the covector, which his Lemma 3.5 -- computed in five dimensions in 10.13 -- makes definite on future
      causal covectors with respect to Lemma 3.3's fiber inner product, with the sign that damps (his Remark 5.7's
      mechanism, as 10.21(d) reads it); the horizon's conormal covectors are null and its cosphere bundle is compact, so
-     vartheta_H+ <= vartheta_0 - c h^-1 with c > 0 and vartheta_0 free of h, neither computed, and the threshold holds
-     for every h below some h_2 > 0. With (d), any h in (0, min(10^-6, h_0, h_2)) off a countable set serves.
+     vartheta_H+ <= vartheta_0 - c h^-1 with c > 0 and vartheta_0 free of h, neither computed here, and the threshold
+     holds for every h below some h_2 > 0 (all computed since, 10.79: vartheta_0 = 102401/640 in B, c = (1 - e) r_h a =
+     102399/20480000, h_2 = 2.6197... x 10^-5; D171). With (d), any h in (0, min(10^-6, h_0, h_2)) off a countable set
+     serves.
 
 B5 is discharged: the record's point was a sample, and its conclusions hold for every h in (0, 10^-6] or off a countable
 set there. B6 is deduced, the threshold holding for every small h with its bound h_2 not computed, which his own
@@ -7103,8 +7110,9 @@ complex constant:
       with [Hin26c] (11.4)'s functions rho_I^n rho_+^(n+1) rho_K = 1/(t* r^n), and |dt dx|/(t* r^n) is |dt*/t* dr/r
       domega|; L^2(|dx|) = rho^(n/2) L^2(|dx|/|x|^n); -1/2 + n/2 = c.
  (N6) At R_cf,+1,in, Im(R^-2 P^(0)) vanishes for R^n |dR/R| and gives -n hhat xi for |dR/R|; sigma(Q_0,h) = -hhat (n + 2
-      Re S); with gam_cf = -(alpha_+ + n/2) the total at xi = -2 is -4b - 4 alpha_+ - 2 + 2 vartheta - 4 Re S for both n,
-      and the n = 3 sum as printed, without Re S, gives (10.28).
+      Re S); with gam_cf = -(alpha_+ + n/2) the total at xi = -2 is -4b - 4 alpha_+ - 2 + 2 vartheta for both n,
+      sigma(Q_0,h)'s -2 Re S being vartheta's S part -(S + S^*) at the prefactor -xi/2 = 1 ((5.20); Lemma 5.12): (10.28)
+      as printed (D172).
  (N7) At R_cf,out, twice Im(2h D_R) is -2 hhat and twice Im(-2(c + S) i R^-1 h) is -4 hhat (c + Re S); with gam_cf =
       -(alpha_+ + n/2) the total is 4b + 4 alpha_+ + 2 - 4 Re S for both n, negative iff b + alpha_+ < -1/2 + Re S.
  (N8) R^(i sigma) R^2 N^0(P_0, sigma) R^(-i sigma) = -2 d_v (v d_v + i sigma - c - S) + P^(0)(v d_v + i sigma), v =
@@ -8259,8 +8267,8 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
 *Measured.* Of the 61 rows, 57 name the places where the dimension changes the proof, 214 places in all, and 4 name
-none: the step is the source proof as it stands. The 221 placements of the five-dimensional values are: 93 at a computed
-check, 94 at an earlier section where they are computed or deduced, 33 arithmetic in n (an entry naming an instrument or
+none: the step is the source proof as it stands. The 221 placements of the five-dimensional values are: 88 at a computed
+check, 94 at an earlier section where they are computed or deduced, 38 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
 R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 35 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
@@ -8297,7 +8305,10 @@ placements of one place, recorded 10.45 (e)'s weight as settled and gave 10.62 (
 resting on no reading: the one reading of each was [Hin26a] Theorem 5.2 at n = 4, now written out. D168 (the sixty-sixth
 verifier) dropped 10.45 (e)'s place for the weight at I+, which the dimension does not change, and labelled 10.67 (a)'s
 radial rate by (7.11b). D169 traced the readings to their roots (10.77, READINGS.tsv) and marked four rows, 10.23 (b),
-10.23 (d), 10.46 (e) and 10.62 (c), as resting on none, their readings READ or written out since.
+10.23 (d), 10.46 (e) and 10.62 (c), as resting on none, their readings READ or written out since. D172 re-kinded five of
+10.58 (c)'s placements -- Lemma 10.7's count, Lemma 10.9's shift, Step 2's density, Remark 11.4 and section 13.2's mu_b
+-- from computed to arithmetic: iplusnorm5.py N5 and N9 had checked them by comparisons typed by hand (93 and 33 before;
+the sixty-seventh verifier).
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -9238,44 +9249,44 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      Re S) xi, summing to x_I^2 at xi = 2 as his do, so the total -4(gam_I + h^-1 Im z) and Im sigma > -gam_I are
      his (N2-N3); at R_I+,out gam_I < 3/2 + Re S (N4); at R_cf,+1,in the density R^4 |dR/R| gives the correction -4
      hhat xi and sigma(Q_0,h) = -hhat (4 + 2 Re S), and with gam_cf = -(alpha_+ + 2) the threshold is (10.28)
-     unchanged (N5-N6) -- his sum omits the Re S that sigma(Q_0,h) carries, which enters alike at n = 3 and n = 4;
-     at R_cf,out the total is 4b + 4 alpha_+ + 2 - 4 Re S, negative iff b + alpha_+ < -1/2 + Re S, his threshold,
-     his printed '+ 4 Re S' a misprint by that threshold (N7); the real principal type estimates and the large Im z
-     arguments are free of n. Step 2 passes to the Euclidean density Rhat^4 |dRhat/Rhat dgslash| and applies
-     Corollary 9.39 with n = 4 and q = gam_cf + 2 = -alpha_+, the weights returning to (gam_cf - 2, b - gam_cf + 1)
-     as his (N9), the tf-normal operator being N_tf(P_0, z) at n = 4. Step 3 commutes Lemma 10.7's V = (R d_R, the
-     six rotation fields of S^3, I) for his five entries (N9), V_shift = (V_1 + 2, ...) free of n, with Lemma 7.12's
-     commuted structure ((lvi)). 10.1.3 (Proposition 10.6 (1)): Lemma 10.9's 0-normal operator has indicial roots 2i
-     sigma and 2(3/2 + S), the invertibility of N-hat' is a positivity argument free of n, and the left parametrix
-     is Hintz's in the 0-calculus ([Hin26c]'s [Hin23a], arXiv:2112.08130, Theorem 1.5, stated for an n-dimensional
-     manifold with boundary, p. 1: READ), its right b-density shift dim(iota+) - 1 = 3 for his 2 and alpha_lb =
-     2(3/2 + S-bar) - eps (N9). Lemma 10.10 forms N^1 and its Fourier transform (10.40) with i sigma - 5/2 - S for
-     his i sigma - 2 - S, the shifts by 1 being the one-dimensional transform's in v, and w-flat = rhat^(1 - i
-     sigma) w solves N_tf(P_0, +-1) (N8); w-flat lies in A^(alpha, -beta) with beta in (beta_-, beta_+), since
-     -gam_cf = alpha_+ + 2 is in that gap and Im sigma > -1 - beta_+ (his '1 + Im sigma < beta_+' is -1 - Im sigma <
-     beta_+), so tf-admissibility at n = 4 gives w-flat = 0. 10.1.4 (Proposition 10.12): the Mellin transform in
-     tau, the contour Im sigma = -gam_+, a Paley-Wiener argument in one variable and finite speed of propagation for
-     uniqueness, free of n, with gam_I = alpha_I + 2 for his alpha_I + 3/2 (p. 219). Section 10.2 (Proposition
-     10.14): P_+ = chi N_iota+(P_0) + (1 - chi) P_0, its metric g_chi with dt* past causal, Tangherlini's g - g-bar
-     = O(m r^-2) one order better at iota+ than Kerr's, the estimates section 7's ((lvi)) and the normal operator's
-     inversion Proposition 10.12's. Section 10.3 combines them with the shifts n/2 = 2 and (n + 1)/2 = 5/2 for his
-     3/2 and 2 (N5), gam_+ - 1/2 = alpha_+ + 2 in (beta_-, beta_+) (Definition 5.13 (2) at n = 4), footnote 100's
-     buffer 1/2 free of n -- Sobolev embedding in n spatial variables gives n/2 = 2 orders, alpha_+ + 2 pointwise
-     and alpha_+ + 5/2 with t* regularity -- and (5.22) near K+. Theorem 11.1's proof (pp. 229-232): P_eps = chi_eps
-     P_0 + (1 - chi_eps) P, Theorem 8.14's estimates (8.45)-(8.46) ((lvii)), Theorem 10.1 for P_0, the absorption
-     with delta' = min(l_+ - delta, l_K - aleph), Propositions 8.6 and 8.9 at finite times, weak compactness, the
-     passage from (e3b; b)- to b-spaces and continuous dependence: free of n. Its b-density form (11.4)-(11.6a) has
-     mu_b = rho_I^4 rho_+^5 rho_K |dt dx| = |dt dx|/(t* r^4), beta_I = alpha_I + 2, beta_+ = alpha_+ + 5/2, beta_I <
-     3/2 + S-bar and P_1 of sf-weight beta_+ - 5/2 (N5); Remark 11.4's condition is beta_- < 1 + S-bar for his 1/2 +
-     S-bar (N9). Section 13.2: mu_b = |dx|/|x|^4 and L^2(mu) = rho^2 L^2(mu_b) (N5), so Lemma 13.13's
-     (13.23a)-(13.23b) carry 3 and 2 for his 5/2 and 3/2, (13.26) beta - 2, and Corollary 13.14, through Theorem 9.5
-     ((lviii)), beta_scf < 3/2 + S-bar; Corollary 13.17 joins Propositions 13.9 (2) and 13.11 (2), the Fourier
-     transform in t* and free of n, with Proposition 13.16, through Theorem 9.16 ((lix)), so gam = min(beta_I, 3/2 +
-     S-bar) for his 1 + S-bar; Proposition 13.18 is Corollary 13.14's proof with sigma d_sigma, on Theorem 9.41,
-     tf-admissibility with weight alpha + 2, beta_scf < 3/2 + S-bar, (13.30a)'s alpha_+ + 3 and alpha_tf + 4 for his
-     5/2 and 7/2 and (13.30b)'s 2 for his 3/2, beta_tf - beta_zf in (beta_-, beta_+) free of n. It rests on
-     (lvi)-(lix)'s readings, Theorems 8.14, 9.5 and 9.16 at n = 4, and on Corollary 9.39 and Theorem 9.41 at n = 4
-     (10.20's reading); its own places are computed (Proposition 10.57).
+     unchanged (N5-N6) -- sigma(Q_0,h)'s -2 Re S is vartheta_dK+,in's S part, which (5.20) includes (Lemma 5.12's -(S +
+     S^*)), at his prefactor -xi/2 = 1 (p. 209), so his sum omits nothing (D172; D166 read it as omitted); at R_cf,out
+     the total is 4b + 4 alpha_+ + 2 - 4 Re S, negative iff b + alpha_+ < -1/2 + Re S, his threshold, his printed '+ 4 Re
+     S' a misprint by that threshold (N7); the real principal type estimates and the large Im z arguments are free of n.
+     Step 2 passes to the Euclidean density Rhat^4 |dRhat/Rhat dgslash| and applies Corollary 9.39 with n = 4 and q =
+     gam_cf + 2 = -alpha_+, the weights returning to (gam_cf - 2, b - gam_cf + 1) as his (N9), the tf-normal operator
+     being N_tf(P_0, z) at n = 4. Step 3 commutes Lemma 10.7's V = (R d_R, the six rotation fields of S^3, I) for his
+     five entries (N9), V_shift = (V_1 + 2, ...) free of n, with Lemma 7.12's commuted structure ((lvi)). 10.1.3
+     (Proposition 10.6 (1)): Lemma 10.9's 0-normal operator has indicial roots 2i sigma and 2(3/2 + S), the invertibility
+     of N-hat' is a positivity argument free of n, and the left parametrix is Hintz's in the 0-calculus ([Hin23e],
+     arXiv:2112.08130, which [Hin26c] cites as [Hin23a]: Theorem 1.5, stated for an n-dimensional manifold with boundary,
+     p. 1: READ), its right b-density shift dim(iota+) - 1 = 3 for his 2 and alpha_lb = 2(3/2 + S-bar) - eps (N9). Lemma
+     10.10 forms N^1 and its Fourier transform (10.40) with i sigma - 5/2 - S for his i sigma - 2 - S, the shifts by 1
+     being the one-dimensional transform's in v, and w-flat = rhat^(1 - i sigma) w solves N_tf(P_0, +-1) (N8); w-flat
+     lies in A^(alpha, -beta) with beta in (beta_-, beta_+), since -gam_cf = alpha_+ + 2 is in that gap and Im sigma > -1
+     - beta_+ (his '1 + Im sigma < beta_+' is -1 - Im sigma < beta_+), so tf-admissibility at n = 4 gives w-flat = 0.
+     10.1.4 (Proposition 10.12): the Mellin transform in tau, the contour Im sigma = -gam_+, a Paley-Wiener argument in
+     one variable and finite speed of propagation for uniqueness, free of n, with gam_I = alpha_I + 2 for his alpha_I +
+     3/2 (p. 219). Section 10.2 (Proposition 10.14): P_+ = chi N_iota+(P_0) + (1 - chi) P_0, its metric g_chi with dt*
+     past causal, Tangherlini's g - g-bar = O(m r^-2) one order better at iota+ than Kerr's, the estimates section 7's
+     ((lvi)) and the normal operator's inversion Proposition 10.12's. Section 10.3 combines them with the shifts n/2 = 2
+     and (n + 1)/2 = 5/2 for his 3/2 and 2 (N5), gam_+ - 1/2 = alpha_+ + 2 in (beta_-, beta_+) (Definition 5.13 (2) at n
+     = 4), footnote 100's buffer 1/2 free of n -- Sobolev embedding in n spatial variables gives n/2 = 2 orders, alpha_+
+     + 2 pointwise and alpha_+ + 5/2 with t* regularity -- and (5.22) near K+. Theorem 11.1's proof (pp. 229-232): P_eps
+     = chi_eps P_0 + (1 - chi_eps) P, Theorem 8.14's estimates (8.45)-(8.46) ((lvii)), Theorem 10.1 for P_0, the
+     absorption with delta' = min(l_+ - delta, l_K - aleph), Propositions 8.6 and 8.9 at finite times, weak compactness,
+     the passage from (e3b; b)- to b-spaces and continuous dependence: free of n. Its b-density form (11.4)-(11.6a) has
+     mu_b = rho_I^4 rho_+^5 rho_K |dt dx| = |dt dx|/(t* r^4), beta_I = alpha_I + 2, beta_+ = alpha_+ + 5/2, beta_I < 3/2
+     + S-bar and P_1 of sf-weight beta_+ - 5/2 (N5); Remark 11.4's condition is beta_- < 1 + S-bar for his 1/2 + S-bar
+     (N9). Section 13.2: mu_b = |dx|/|x|^4 and L^2(mu) = rho^2 L^2(mu_b) (N5), so Lemma 13.13's (13.23a)-(13.23b) carry 3
+     and 2 for his 5/2 and 3/2, (13.26) beta - 2, and Corollary 13.14, through Theorem 9.5 ((lviii)), beta_scf < 3/2 +
+     S-bar; Corollary 13.17 joins Propositions 13.9 (2) and 13.11 (2), the Fourier transform in t* and free of n, with
+     Proposition 13.16, through Theorem 9.16 ((lix)), so gam = min(beta_I, 3/2 + S-bar) for his 1 + S-bar; Proposition
+     13.18 is Corollary 13.14's proof with sigma d_sigma, on Theorem 9.41, tf-admissibility with weight alpha + 2,
+     beta_scf < 3/2 + S-bar, (13.30a)'s alpha_+ + 3 and alpha_tf + 4 for his 5/2 and 7/2 and (13.30b)'s 2 for his 3/2,
+     beta_tf - beta_zf in (beta_-, beta_+) free of n. It rests on (lvi)-(lix)'s readings, Theorems 8.14, 9.5 and 9.16 at
+     n = 4, and on Corollary 9.39 and Theorem 9.41 at n = 4 (10.20's reading); its own places are computed (Proposition
+     10.57).
 
  (lxi) 10.22 (e), [Hin26a] Theorem 5.2 (pp. 41-66; D167). His proof, section 5.2. Lemma 5.3 puts h^2 box_g in h^2
      rho_sf^2 Diff^2_3b and L in h rho_sf^2 Diff^1_3b ((5.17)), from (2.14) and c in rho_sf C^oo, and Lemma 5.4 makes
@@ -9487,6 +9498,55 @@ orthonormal elements. []
 
 What remains of the record's own roots is RP and RH; RK now rests on RU. Labels: deduced at proof level (Lemma 10.58,
 (a)-(c), given the inputs named); computed (M2, quoted); READ (p. 315); nothing proved here.
+
+### 10.79 The record's root RH computed: box^C's horizon threshold at the record's point (`hthresh5.py` T1-T5; D171)
+
+*The setting.* 10.21 (d) asks of box^C's zero energy operator, for [Hin26c] Theorem 9.36's Fredholm property on the
+weights s >= -C_0, that 1/2 + vartheta_H+ < -C_0 = -100, and left the quantity uncomputed: the record's root RH (10.77).
+His definition (5.17) takes, over the conormal bundle of the horizon, the top of the spectrum of rho^2/(2(r_+ - m))
+rho_oo sigma_1((P_0 - P_0^*)/(2i)), rho_oo = xi_0^-1, "with respect to a positive definite fiber inner product" -- any
+one. The record takes [Hin26a] Lemma 3.3's B = g^-1 - (1 + e) G(c)^-1 c# (x) c#, in which the damping symbol l(dr) is
+self-adjoint, at the price of B's conditioning, about 1/e = 102400, set against h^-1 = 10^6, with 10.14's c, which at the
+horizon is (1/200)(dt + (1/4) dr).
+
+*What is computed (`hthresh5.py` T1-T5, exact, sympy).*
+
+ (i) (T1) At zeta = xi dr over r = r_h the base component of H_G vanishes and rho_oo^-1 H_G rho_oo = f'(r_h) = 2/r_h for
+     rho_oo = xi^-1, so (5.17)'s factor, 1/beta_0 by (4.28), is r_h/2; at n = 3, a = 0 the same formula gives his
+     r_+^2/(2(r_+ - m)) = r_+. (dr)# = d_t at r_h, so dr is future null and xi > 0 is R+_H+; a = <c, dr> = c_t(r_h) =
+     1/200.
+ (ii) (T2) box^C's two parts, P_0 = 2 delta G delta* and L = 2 delta G C_1 (C_1 = h C_h), are built from their
+     definitions with g's Christoffel symbols and their coefficient matrices read off, and the formal adjoint for |dg|
+     and a fibre form M is taken from those. For M = g^-1, P_0 - P_0^* has no first-order term anywhere -- P_0 is
+     g-symmetric -- which checks the adjoint; the density r^2 cos th sin th, the control, fails it.
+ (iii) (T3) In B, at r_h, rho_oo sigma_1((P_0 - P_0^*)/(2i)) is the B-symmetric part of 2 Gamma_t, (Gamma_t)_a^c =
+     Gamma^c_{ta}, the connection along (dr)# = d_t -- the two routes agree -- with spectrum +-(e^(1/2) + e^(-1/2))/r_h
+     and 0 three times, free of v and of c's factor. So vartheta_0 := (r_h/2) lambda_max = (e^(1/2) + e^(-1/2))/2 =
+     102401/640, about 160.0: B's conditioning enters as e^(-1/2), not 1/e. In g^-1 the part is 0.
+ (iv) (T4) The damping's part is -h^-1 l(dr), l(dr) B-self-adjoint with spectrum 2a (three times), 4a and 2(1 - e) a:
+     B-negative definite, [Hin26a] Remark 5.7's mechanism with his Lemma 3.5 in five dimensions. The trace weight 1, the
+     control, breaks the spectrum.
+ (v) (T5) So vartheta_H+ is r_h/2 times the top eigenvalue of 2 Gamma_t's B-symmetric part minus h^-1 l(dr): the angular
+     eigenvalue -a r_h/h and the larger root of the (t, r) block's quadratic. At h = 10^-6, vartheta_H+ = -4995.83..., so
+     1/2 + vartheta_H+ = -4995.33... < -100, certified by the quadratic's value and vertex at -201/2; it lies below 10.21
+     (d)'s form vartheta_0 - h^-1 (1 - e) r_h a = -4839.95.... The top eigenvalue decreases in h^-1, l(dr) being
+     B-positive, so the threshold holds for every h in (0, h_2), h_2 = 2.6197... x 10^-5 the positive root of
+     31744512005000 h^2 + 3077109850 h - 102399 (the block binds; the angular eigenvalue alone allows 1/20100). At h =
+     10^-3, the control, it fails.
+
+*READ.* [Hin26c] (arXiv:2606.28008v1, alphaXiv, 2026-10-25): p. 81 (Sigma+: g^-1(zeta, .) future timelike), pp. 83-84
+((4.19)-(4.28), Definition 4.8: R+_H+ = {r = r_+, sigma_0 = 0, xi_0 > 0, eta_0 = 0}; (4.28): rho_oo^-1 H rho_oo = 2(r_+ -
+m)), p. 104 (Definition 5.11 (4), (5.17)), pp. 116-117 (Proposition 7.4, s > s_0 > 1/2 + vartheta_H+; (7.10)), p. 165
+(section 9.2.1, (9.24), Proposition 9.9), p. 193 (section 9.4: s_0 > 1/2 + vartheta_H+ at the horizon).
+
+*What this gives, and what it does not.* 10.21 (d)'s threshold holds for every h in (0, h_2), so at h = 10^-6 and at
+every h in (0, 10^-6], where 10.54 (a) has the roots: 1/2 + vartheta_H+ < -C_0 with C_0 = 100. 10.21 (e)'s "given the
+horizon threshold of (d)" is discharged, and its "provided 10^-6 lies below h_0" is met by taking h in (0, min(h_0,
+10^-6)): h_0 need not be explicit. RH is settled and leaves READINGS.tsv's rows, each of which keeps RB -- 10.21 (d)'s
+Fredholm property is [Hin26c] Theorem 9.36 for an operator on 1-forms -- and its other roots, so the thirty-five rows
+keep a reading. vartheta_H+ is computed in one inner product, which is what (5.17) asks; another might give a lower
+value. What remains of the record's own roots is RP. Labels: computed (T1-T5); READ (the pages named); deduced (10.21
+(d)-(e) as stated); nothing proved here.
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

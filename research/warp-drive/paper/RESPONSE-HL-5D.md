@@ -1048,29 +1048,30 @@ computed inputs, inputs READ at source, and readings — statements of the compa
 steps carry, on which 35 of those steps rest — each read by an independent verifier, not proofs written out at the level
 of the theorem's statement. Inventoried by a fixed rule, the 248 deduced steps are 90 pieces of bookkeeping on computed
 values, 29 applications of results printed for general n, 31 perturbation or continuity arguments, 38 other, and 60
-proofs written in 3 + 1 dimensions and carried to five by modification. Those 60 are the core of what a line-by-line
-check would write out (supplement section 10.70, `DEDUCTIONS.tsv`). The perturbation steps are now at proof level given
-their continuity inputs. They rest on five lemmas — openness of invertibility, semicontinuity of the kernel, persistence
-of strict inequalities, Rouché and the inverse function theorem — of which the first three are proved in the supplement
-and the last two are cited, and on continuity statements read from the sources (supplement section 10.71). The
-applications of general-n results have every hypothesis placed, three of them now read at source (supplement section
-10.72). The 38 others, read one by one, are twelve with no step of their own, 25 at proof level given their inputs —
-among them steps by symmetry and sums over harmonics, put there by two lemmas proved in the supplement — and one more
-modification step (supplement section 10.73; `synth5.py`). Each of the 61 modification steps lists the places where the
-dimension changes its proof — 57 name some, 4 none, the proof being the source's as it stands — and each
-five-dimensional value there is computed, deduced in an earlier section, arithmetic in n, or the record's choice
-(supplement section 10.74, `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those
-places, which is the census question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i),
-but for one step, which rests on a modification step and so on the census (supplement section 10.73). All 61 are now
-written out step by step at n = 4 — forty-five with source proofs of at most about seven pages (two replaced by a
-computation), sixteen on longer runs of proof, [Hin26] sections 11 and 12, [Hin26c] sections 5, 7–11 and 13 and [Hin26a]
-section 5.2 — so their own steps rest on their inputs and not on a census, though thirty-five take a reading among those
-inputs, a statement at n = 4 whose proof is not written out; traced to their roots, they rest on seven statements -- two
-steps the source leaves to the reader at every n, three groups of companion results at n = 4 READ at n = 3, and two
-questions of the record's own, both computations; three more of the record's own are settled (supplement sections 10.75,
-10.77 and 10.78, `READINGS.tsv`, with a lemma at the horizon proved in section 10.76). λ1 and δ exist by the deduction —
-from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate gap. A
-line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
+proofs written in 3 + 1 dimensions and carried to five by modification, 61 with one undecided step that supplement
+section 10.73 reads so. Those 61 are the core of what a line-by-line check would write out (supplement sections 10.70 and
+10.74, `DEDUCTIONS.tsv`, `B-MAP.tsv`). The perturbation steps are now at proof level given their continuity inputs. They
+rest on five lemmas — openness of invertibility, semicontinuity of the kernel, persistence of strict inequalities, Rouché
+and the inverse function theorem — of which the first three are proved in the supplement and the last two are cited, and
+on continuity statements read from the sources (supplement section 10.71). The applications of general-n results have
+every hypothesis placed, three of them now read at source (supplement section 10.72). The 38 others, read one by one, are
+twelve with no step of their own, 25 at proof level given their inputs — among them steps by symmetry and sums over
+harmonics, put there by two lemmas proved in the supplement — and one more modification step (supplement section 10.73;
+`synth5.py`). Each of the 61 modification steps lists the places where the dimension changes its proof — 57 name some, 4
+none, the proof being the source's as it stands — and each five-dimensional value there is computed, deduced in an
+earlier section, arithmetic in n, or the record's choice (supplement section 10.74, `B-MAP.tsv`). What they leave is that
+the source proofs use the dimension only at those places, which is the census question of (i): by a rule the supplement
+deduces rather than proves, (ii) reduces to (i), but for one step, which rests on a modification step and so on the
+census (supplement section 10.73). All 61 are now written out step by step at n = 4 — forty-five with source proofs of at
+most about seven pages (two replaced by a computation), sixteen on longer runs of proof, [Hin26] sections 11 and 12,
+[Hin26c] sections 5, 7–11 and 13 and [Hin26a] section 5.2 — so their own steps rest on their inputs and not on a census,
+though thirty-five take a reading among those inputs, a statement at n = 4 whose proof is not written out; traced to
+their roots, they rest on six statements — two steps the source leaves to the reader at every n, three groups of
+companion results at n = 4 READ at n = 3, and one question of the record's own, a computation; four more of the record's
+own are settled, the damped operator's threshold at the horizon by computation (supplement sections 10.75 and
+10.77–10.79, `READINGS.tsv`, `hthresh5.py`, with a lemma at the horizon proved in section 10.76). λ1 and δ exist by the
+deduction — from Hintz's smallness constant and Theorem 1's estimates — and are not evaluated; that is not a separate
+gap. A line-by-line check of those papers at n = 4, with the deductions written out, would make Theorem 4 a theorem.
 
 ---
 
@@ -1667,6 +1668,11 @@ All seven pass and every control is rejected (about 30 seconds). The proof's pro
   normal operator at future timelike infinity with the constant (n − 1)/2, every radial point threshold of
   its high-energy estimates, the densities and their shifts n/2 and (n + 1)/2, the Fourier step to the
   transition face, and the counts. 9/9; mutants 9/9 (seconds).
+- `hthresh5.py` T1–T5: the damped operator's threshold at the horizon, [Hin26c] (5.17), at the record's point (supplement
+  section 10.79): the normalisation r_h/2, the adjoint from the operators' definitions with the metric pairing as its
+  control, the undamped part in Lemma 3.3's inner product with spectrum ±(e^(1/2) + e^(−1/2))/r_h, the damping's
+  −h⁻¹ℓ(dr), and 1/2 + ϑ = −4995.33… at h = 10⁻⁶, below −100 for every h under 2.62 × 10⁻⁵. 5/5; mutants 5/5 (about half
+  a minute).
 - `eind5.py` E1–E2: Hintz's Lemma 8.4 for every l (supplement section 10.52): every indicial root of the linearized
   gauge-fixed operator simple for l ≥ 2, exactly, in the scalar, vector and tensor types; his distance condition (8.13)
   by a certificate beyond l = 10⁴ and a 30-digit scan below, ε_ind ≤ 1.94137 × 10⁻⁸. 2/2; mutants 2/2 (about four
@@ -1822,6 +1828,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | the undecided steps placed, section 8.8 | supplement section 10.73; `docket68/n1star/synth5.py` S1–S3; [KI03] |
 | the modification steps' changes placed, section 8.8 | supplement section 10.74; `docket68/n1star/B-MAP.tsv` |
 | the readings traced to their roots, section 8.8 | supplement section 10.77; `docket68/n1star/READINGS.tsv` |
+| the horizon threshold, section 8.8 | supplement section 10.79; `docket68/n1star/hthresh5.py` T1–T5 |
 | sixty-one modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26a], [Hin26c], |
 | | [Hin21], [Hin23a], [Hin23e], [Hin24b], [CD03]; `docket68/n1star/iplusnorm5.py` N1–N9 |
 | the continuation and uniqueness inside the horizon, sections 8.4, 8.5 | supplement section 10.76 |
@@ -1854,7 +1861,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | sixty-second sections 10.65–10.76, 10.75 (xvii)–(lix) excepted (D138, D143, D147, D149, D153); |
 | | the sixty-third 10.75 (xvii)–(xxxiv) (D157); the sixty-fourth 10.75 (xxxv)–(xliii) and D157's repairs |
 | | (D162); the sixty-fifth 10.75 (xliv)–(lv) and D162 (D165); the sixty-sixth 10.75 (lvi)–(lix) and |
-| | D165 (D168) |
+| | D165 (D168); the sixty-seventh 10.75 (lx)–(lxi) and D168 (D172) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1939,9 +1946,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `705abccba319f7a56d08fed271341913` |
-| `docket68/n1star/N1STAR-LOG.md` | `c8d9fbdaeeace6341c6c140ec8504ca1` |
-| `docket68/n1star/README.md` | `dcd95d385076f4ac74b13a14420ba532` |
+| `docket68/n1star/N1STAR-PROOF.md` | `9240e31eb19deb1e491335b04688f3bd` |
+| `docket68/n1star/N1STAR-LOG.md` | `fc6c8c06040e3a40a4959c52dedc9b02` |
+| `docket68/n1star/README.md` | `c85855d9b7cf2ba4964574d05c5e4e73` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
 | `docket68/n1star/ansatz5.py` | `e0f4a8fbf191effb4115aff1e4a655ac` |
@@ -2007,9 +2014,10 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/gluing5.py` | `f95d805e595c5ff690c46c793177fd36` |
 | `docket68/n1star/edge5.py` | `946af1dd2106301526e999c1db064096` |
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
-| `docket68/n1star/iplusnorm5.py` | `7d64b7787b8e6e7cf11b7ec16ef4b983` |
+| `docket68/n1star/iplusnorm5.py` | `4b86d36a3140867c2bafa3a9f833431f` |
+| `docket68/n1star/hthresh5.py` | `0de5986eaaff99b3d529781b62e7d55c` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/READINGS.tsv` | `71c610c24c0f94ecd7e8ee0260d2c8ca` |
-| `docket68/n1star/B-MAP.tsv` | `9b4c7c9eefafc418366fb03ce6798955` |
+| `docket68/n1star/READINGS.tsv` | `379d43429734ee969c383c959738aad2` |
+| `docket68/n1star/B-MAP.tsv` | `ad7ee4fe470f8a85126e2a48536be217` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

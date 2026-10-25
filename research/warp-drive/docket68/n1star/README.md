@@ -300,6 +300,11 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   D166): the iota+ normal operator with c = (n - 1)/2, Q_0, the four radial point thresholds of its high-energy
   estimates, the densities and shifts, the Fourier step to tf, the counts (N1-N9). `python3 iplusnorm5.py
   --selftest` (9/9, seconds), `--mutants` (9/9).
+- `hthresh5.py`: box^C's threshold quantity at the conormal bundle of the horizon, [Hin26c] (5.17), at the record's point
+  (section 10.79; D171): the normalisation r_h/2, the adjoint from the operators' definitions with the g-pairing as
+  control, the undamped part in Lemma 3.3's B with spectrum +-(e^(1/2) + e^(-1/2))/r_h, the damping -h^-1 l(dr), and 1/2
+  + vartheta_H+ = -4995.33... at h = 10^-6, below -100 for every h under 2.6197... x 10^-5 (T1-T5). `python3 hthresh5.py
+  --selftest` (5/5, about half a minute), `--mutants` (5/5).
 - `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
   the passages carried to n = 4 -- 278 hits on the 205 pages swept (D143; 270 before its [CD03] window was set right),
   every one accounted for by 10.53-10.58 and 10.63-10.68 but one norm convention of [Hin26a] p. 62, named in 10.69. Runs
@@ -318,7 +323,8 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   it rests on a reading; the column `kind` classes each placement (an instrument or check named counts as computed;
   D147); the column `written` marks the sixty-one written out at n = 4 (section 10.75; D146, D148, D150-D152, D154-D156,
   D158-D161, D163-D164, D166-D167). `READINGS.tsv` traces the rows that rest on a reading to ten roots, the statements
-  at the foot of each chain (section 10.77; D169).
+  at the foot of each chain (section 10.77; D169); RK, RG and RE are settled in 10.78 (D170), RH by
+  `hthresh5.py` in 10.79 (D171).
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).

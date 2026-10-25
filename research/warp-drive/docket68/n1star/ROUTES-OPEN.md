@@ -2222,3 +2222,27 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   results at n = 4; RP and RH, computations. OPEN, in this order: RH at the record's point (box^C's horizon threshold
   in the fibre inner product B, whose conditioning at e = 1/102400 must be measured against h^-1 = 10^6); RL; RC; RP;
   RI.
+
+### 4.94 RH computed: box^C's horizon threshold at the record's point (computed, READ; D171)
+
+- 10.79, `hthresh5.py` T1-T5: [Hin26c] (5.17)'s quantity for box^C over the conormal bundle of the horizon, in [Hin26a]
+  Lemma 3.3's B, from the operators' definitions with the g-pairing as the adjoint's control. The undamped part has
+  spectrum +-(e^(1/2) + e^(-1/2))/r_h and 0, B's conditioning entering as e^(-1/2); the damping's is -h^-1 l(dr). At (v,
+  e, h) = (1/2, 1/102400, 10^-6), 1/2 + vartheta_H+ = -4995.33..., below -C_0 = -100 for every h in (0, h_2), h_2 =
+  2.6197... x 10^-5. 10.21 (d)'s threshold holds, and 10.21 (e)'s h is any h in (0, min(h_0, 10^-6)). Six roots remain:
+  RB and RU, the source's kind; RL, RC and RI, companion results at n = 4; RP, a computation. OPEN, in this order: RL;
+  RC; RP; RI.
+
+### 4.95 The sixty-seventh verifier seated (READ, computed; D172)
+
+- It read D166-D168 at source: two majors, five minors. M1 answered at source: (5.20) defines vartheta_dK+,in by the
+  whole imaginary part, S's -(S + S^*) among it (Lemma 5.12's term), and his prefactor at R_cf,+1,in is printed -xi/2,
+  equal to 1 there (p. 209), so sigma(Q_0,h)'s Re S is inside vartheta and his (1.3.1) sum omits nothing. D166's 'omits
+  Re S' (4.89, 10.75 (lx), 10.57 (N6)) is withdrawn; iplusnorm5.py N6 now derives it, and (10.28) stands as printed at n
+  = 3 and n = 4. M2 accepted: 10.22 (e)'s row listed the inputs of its second sentence, Theorem 6.2 by 10.21, which rests
+  on 10.21 (d) -- RB through Theorem 9.36 on 1-forms, and RH until 10.79. The row is re-scoped to Theorem 5.2, whose
+  proof precedes Theorem 6.2 (p. 67) and uses neither Proposition 10.9's roots nor the zero energy threshold, so its mark
+  stands, and with it 10.21 (c)'s and 10.23 (c)'s, which use Theorem 5.2's estimates. Minors: five of 10.58 (c)'s
+  placements re-kinded arithmetic, iplusnorm5.py N5 and N9 having checked them by comparisons typed by hand (88 computed,
+  38 arithmetic); 10.22's stale sentences marked; the paper's 60 modification proofs are 61 with 10.73's reading;
+  [Hin23e] for the 0-calculus paper in 10.75 (lx); 10.23 (d) had been re-marked in D169.

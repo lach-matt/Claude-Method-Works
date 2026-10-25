@@ -4442,3 +4442,18 @@ step's data in Theorem 12.8's proof (p. 315) and G-equivariance; RE is mp5.py M2
 route B's g_b. Seven roots remain. RH at the record's point needs a computation: at the horizon's null conormal dr,
 l(dr) has eigenvalues 2a (three times), 4a and 2(1 - e) a with a = c_t(r_h) > 0, so the damping is not small in e, but
 the undamped part in B's inner product carries B's conditioning, about 1/e.
+
+**D171 (2026-10-25): RH computed.** 10.79 and `hthresh5.py` T1-T5: [Hin26c] (5.17)'s horizon quantity for box^C, READ at
+source with its normalisation (4.28) and the component R+_H+ = {xi_0 > 0} (Definition 4.8), computed at the record's
+point in [Hin26a] Lemma 3.3's B. The undamped part, from the operators' definitions, is the B-symmetric part of 2
+Gamma_t, spectrum +-(e^(1/2) + e^(-1/2))/r_h: vartheta_0 = 102401/640, not the 1/e the conditioning suggested. With the
+damping, vartheta_H+ = -4995.83... at h = 10^-6, and the threshold 1/2 + vartheta_H+ < -100 holds for every h below h_2 =
+2.6197... x 10^-5. RH leaves READINGS.tsv; every row it touched keeps RB, so thirty-five rows still take a reading. Of
+the record's own roots RP remains.
+
+**D172 (2026-10-25): the sixty-seventh verifier seated.** It read D166-D168 at source: two majors, five minors. M1, that
+(1.3.1)'s threshold is not (10.28) unchanged, is answered at source the other way: vartheta_dK+,in by (5.20) contains S's
+-(S + S^*), the printed prefactor is -xi/2 (the report read -xi^2), and so D166's own claim that his sum omits Re S was
+the error; iplusnorm5.py N6 derives the S part now (9/9, mutants 9/9). M2 accepted and repaired by re-scoping 10.22 (e)'s
+row to Theorem 5.2; its second sentence's inputs are 10.21's and carry RB. Minors seated: five placements re-kinded
+arithmetic (88/94/38/1), 10.22's stale sentences, the paper's 61, [Hin23e].

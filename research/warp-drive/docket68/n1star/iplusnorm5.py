@@ -25,13 +25,15 @@ x d_x, are composed exactly, with adjoints for the density x^m |dx/x| given by (
      3/2) and gam_I = alpha_I + n/2, gam_+ = alpha_+ + (n + 1)/2 (his 3/2 and 2, section 10.3); section 11's mu_b =
      rho_I^n rho_+^(n+1) rho_K |dt dx| = |dt dx|/(t* r^n) with (11.4)'s functions, a b-density (his rho_I^3 rho_+^4
      rho_K = 1/(t* r^3)), so beta_I = alpha_I + n/2, beta_+ = alpha_+ + (n + 1)/2, the K+ shift 1/2; section 13.2's
-     mu_b = |dx|/|x|^n, L^2(mu) = rho^(n/2) L^2(mu_b).  The metric-density threshold alpha_I < -1/2 + S-bar ((10.2),
+     mu_b = |dx|/|x|^n, L^2(mu) = rho^(n/2) L^2(mu_b) (that exponent, and -1/2 + n/2 = c below, arithmetic checked
+     by hand, not computed; D172).  The metric-density threshold alpha_I < -1/2 + S-bar ((10.2),
      Theorem 11.1) is gam_I, beta_I < c + S-bar at every n: his 1 + S-bar in Proposition 10.6, (11.5), Corollary 13.17
      and Proposition 13.18.
   N6 (computed, exact) (1.3.1) at R_(cf,+1,in): the density correction of Im(h^2 R^-2 P^(0)) from R^n |dR/R| to |dR/R|
-     is -n h-hat xi (his -3 h-hat xi); sigma(Q_0,h) = -h-hat (n + 2 Re S) (his 3); with gam_cf = -(alpha_+ + n/2) the
-     total at xi = -2 is the same at n = 3 and n = 4, and his printed sum, which carries no Re S, gives (10.28), b +
-     alpha_+ > (1/2)(-1 + vartheta), unchanged.
+     is -n h-hat xi (his -3 h-hat xi); sigma(Q_0,h) = -h-hat (n + 2 Re S) (his 3), whose -2 Re S is vartheta_dK+,in's
+     S part -(S + S^*) at his prefactor -xi/2 = 1 ((5.20) takes the whole imaginary part; Lemma 5.12's term 2 rho
+     d_t* S); with gam_cf = -(alpha_+ + n/2) the total at xi = -2 is -4b - 4 alpha_+ - 2 + 2 vartheta at n = 3 and n =
+     4, his printed sum: (10.28), b + alpha_+ > (1/2)(-1 + vartheta), unchanged (D172; D166 read the Re S as omitted).
   N7 (computed, exact) (1.3.2) at R_(cf,out): twice Im(2h D_R) is -2 h-hat and twice Im(-2(c + S) i R^-1 h) is -4 h-hat
      (c + Re S), so with gam_cf = -(alpha_+ + n/2) the total is 4b + 4 alpha_+ + 2 - 4 Re S at every n: negative iff b +
      alpha_+ < -1/2 + Re S, his threshold; his printed "+ 4 Re S" gives the opposite sign of Re S, a misprint.
@@ -46,6 +48,8 @@ x d_x, are composed exactly, with adjoints for the density x^m |dx/x| given by (
      indicial roots 2 i sigma, 2(c + S); Step 2's Euclidean density Rhat^n: (gam_cf + n/2, b - gam_cf - n/2) there is
      (gam_cf, b - gam_cf) in |dRhat/Rhat|, Corollary 9.39's (q, r) -> (q - 2, r + 1) returning (gam_cf - 2, b - gam_cf
      + 1) at every n, q = gam_cf + n/2 = -alpha_+; Remark 11.4's beta_- < -1 + S-bar + n/2 (his 1/2 + S-bar; 1 + S-bar).
+     The span and the rank are computed; the counts, the shifts and the weights are arithmetic in n checked against
+     print at n = 3, not computed (D172).
 
 Mutants: N1 with c = 1 at n = 4; N2 with the density x_I |dx_I/x_I|; N3 with Q_0 at n = 3 beside the n = 4 symbol; N4
 with c = 1 at n = 4; N5 with r^(n-2); N6 with gam_cf = -(alpha_+ + 3/2) at n = 4; N7 with c = 1 at n = 4; N8 with his
@@ -257,15 +261,23 @@ def n6(control=0, verbose=False):
         dN = op({-1: -2 * I * (X + c + S)})
         Q0 = im(dN, 0)
         chk(f"n = {n}: sigma(Q_0,h) = -hhat ({n} + 2 Re S)", set(Q0) == {-1} and sp.simplify(Q0[-1] + n + 2 * sr) == 0)
-        gcf = -(alp + (sp.Rational(3, 2) if (control and n == 4) else sp.Rational(n, 2)))
+        # (5.20): vartheta_dK+,in is the top of the spectrum of all of rho_oo sigma_1(r^2 Im P_0) at R_in, rho_oo =
+        # -1/sigma_3b; P_0's term 2 rho d_t* S, d_t* -> i sigma_3b / r, gives -(S + S^*) (Lemma 5.12's proof)
+        s3 = sp.Symbol("sigma_3b", negative=True)
+        sym = 2 * I * s3 * S
+        thS = sp.expand(-(sym - sp.conjugate(sym)) / (2 * I) / s3)
         x0 = -2
-        tot = -(4 * b - 4 * gcf + 2) + 2 * (Q0[-1] + corr * x0 - sp.Rational(x0, 2) * th)
+        q0S = sp.expand(Q0[-1] - Q0[-1].subs(sr, 0))
+        chk(f"n = {n}: vartheta's S part -(S + S^*) = -2 Re S is sigma(Q_0,h)'s at -xi/2 = 1",
+            sp.simplify(thS + 2 * sr) == 0 and sp.simplify(q0S + sp.Rational(x0, 2) * thS) == 0)
+        gcf = -(alp + (sp.Rational(3, 2) if (control and n == 4) else sp.Rational(n, 2)))
+        tot = -(4 * b - 4 * gcf + 2) + 2 * (Q0[-1].subs(sr, 0) + corr * x0 - sp.Rational(x0, 2) * th)
         T[n] = sp.expand(tot)
     chk("total at R_(cf,+1,in) the same at n = 3 and 4", sp.simplify(T[3] - T[4]) == 0)
-    chk("= -4b - 4 alpha_+ - 2 + 2 vartheta - 4 Re S", sp.simplify(T[3] - (-4 * b - 4 * alp - 2 + 2 * th - 4 * sr)) == 0)
+    chk("= -4b - 4 alpha_+ - 2 + 2 vartheta, Re S inside vartheta: (10.28)",
+        sp.simplify(T[3] - (-4 * b - 4 * alp - 2 + 2 * th)) == 0)
     his = -(4 * b + 4 * (alp + sp.Rational(3, 2)) + 2) + 2 * (-3 - 3 * x0 - sp.Rational(x0, 2) * th)
-    chk("his printed sum (no Re S) gives (10.28): b + alpha_+ > (1/2)(-1 + vartheta)",
-        sp.simplify(his - (-4 * (b + alp) - 2 + 2 * th)) == 0)
+    chk("his printed sum is that total: (10.28), b + alpha_+ > (1/2)(-1 + vartheta)", sp.simplify(his - T[3]) == 0)
     return chk.ok
 
 
@@ -360,7 +372,7 @@ CHECKS = [("N1 (10.6)-(10.7): t*^2 (-box) is N^0 with c = (n - 1)/2 (1; 3/2)", n
           ("N3 (10.27) at R_I+,in: the symbol (c + 1 + Re S) xi; total -4(gam_I + h^-1 Im z) at every n", n3),
           ("N4 R_I+,out: gam_I < (n - 1)/2 + Re S (1; 3/2)", n4),
           ("N5 densities: R^n tau^-(n+1), the shifts n/2 and (n + 1)/2, mu_b = |dt dx|/(t* r^n), |dx|/|x|^n", n5),
-          ("N6 R_cf,in: correction -n hhat xi, Q_0,h -(n + 2 Re S); (10.28) unchanged", n6),
+          ("N6 R_cf,in: correction -n hhat xi, Q_0,h -(n + 2 Re S), its Re S in vartheta; (10.28) unchanged", n6),
           ("N7 R_cf,out: 4b + 4 alpha_+ + 2 - 4 Re S at every n; his '+ 4 Re S' a sign misprint", n7),
           ("N8 Lemma 10.10: N^1, (10.40) with i sigma - (c + 1) - S (2; 5/2), N_tf by rhat^(1 - i sigma)", n8),
           ("N9 counts and shifts: C(n,2) fields, n - 1, Rhat^n, Corollary 9.39, Remark 11.4", n9)]
