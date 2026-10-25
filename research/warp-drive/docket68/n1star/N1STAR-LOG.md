@@ -4532,3 +4532,14 @@ four with + or - -- corrected in place; the four numbered lines left (PROOF sect
 D177) are rewrapped. `iotasol5.py` J2 drops a conjunct true by construction ((9.21)'s end is computed, not checked);
 `hthresh5.py` T7's control now moves the e' = 10 check to e' = 3 as well. The paper says what the rows use of the pole,
 not its form. No row of READINGS.tsv changes.
+
+**D181 (2026-10-25): RB and RU written out.** 10.84, deduced at proof level from a census of [Hin26c] section 9
+read at source in full text (pp. 157-200, every numbered item; bundle notation occurs in it only in Theorem 9.5 and after
+(9.81)). RB: six kinds of site use scalarity -- Im P and p_1 become self-adjoint endomorphisms with scalar commutants
+(P's principal symbol G Id); each threshold the top or bottom of their spectra, section 5's definitions, an inner product
+per radial set; the square roots of positive definite endomorphism symbols are symbols, so b and Garding stand; signs
+keep; the defect measure is endomorphism-valued and its trace carries Steps 1-4 with tr(p_z m) at most the top of spec
+p_z; the energy estimate takes a connection. RU: symbolic constants are uniform by the openness of strict inequalities
+(Remark 7.2's mechanism, the trapped set by [HPS77]); Theorem 9.28's contradiction admits b_j -> b_0; the inverse bounds
+are uniform by Lemma 10.59. [Hin26] pp. 119 and 124 assert RU for section 9, so his theorem in 3 + 1 dimensions rests on
+it as on RB. READINGS.tsv: no row rests on a reading. Not re-run line by line: the scalar proofs with the substitutions.

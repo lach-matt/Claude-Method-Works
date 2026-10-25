@@ -3531,27 +3531,27 @@ every weight and in every dimension; V1 checks it. []
      Proposition 4.24, which his section 9.3.6 uses. There is no ergoregion, so at bounded sigma the characteristic set
      over the interior of X lies over r <= r_h (his p. 159); and dr is future timelike inside the horizon ((iv)), his
      Proposition 9.35's hypothesis.
- (d) With 10.18, the inputs of [Hin26c] Theorems 9.5 and 9.16 that the operator supplies are in hand in five
-     dimensions: computed -- A_w + S-bar = D S-bar D, nu, beta_0, the spectrum of p_1 at a point, W, the time
-     orientation inside -- or deduced -- vartheta_H+, vartheta_in and its threshold, (Gamma.1)-(Gamma.4); the horizon's
-     radial point structure ((9.24): beta_0 > 0, beta > 0, a quadratic defining function; his p. 165, for a
-     non-degenerate red-shift) and a global t* with dt* past timelike (his Definition 9.3) are those of a
-     non-degenerate static horizon, f'(r_h) > 0 by (iv), stated and not computed here. The reading is (i) that his
-     scalar estimates hold for operators on bundles with the notational modifications he leaves to the reader, and (ii)
-     that his Theorems 9.5 and 9.16 hold restated for n = 4 -- (9.20) and (9.55) with 3/2 for 1 (10.18(b)), his
-     Proposition 4.24 replaced by (c) -- neither verified here line by line (since written out, (ii) as 10.75
-     (lviii)-(lix); D164). On it, Theorem 9.16 gives the spectral family of box^Upsilon invertible for Im sigma >= 0,
-     |sigma| >= C_0, between the spaces (9.18), with the bound |sigma|^(-1 + delta_Gamma(Im sigma - eps)) on its
-     inverse (p. 193): [Hin26] Proposition 6.5 in five dimensions, whose uniformity over a compact set of parameters is
-     that of his estimates under small perturbations, part of the reading. Theorem 9.5 gives it Fredholm at bounded
-     sigma != 0, of index 0 (constant in sigma, and 0 by the invertibility at large |sigma|), with kernel elements in
-     A^(3/2 + S-bar - eps) (10.18(b)). For the unmodified box (S-bar = 0) a kernel element is A^(3/2 - eps) at infinity
-     and smooth on X: in the t-family it is e^(i sigma r) times a conormal function, smooth across the horizon --
-     10.16's class -- so it vanishes for r > r_h by 10.16, and inside, dr being timelike (c), by uniqueness for the
-     Cauchy problem in r with vanishing data at r_h. Injective of index 0, the spectral family of box is invertible at
-     every sigma != 0, Im sigma >= 0; the Fredholm estimates hold uniformly under small perturbations within the class,
-     so that of box^Upsilon is invertible at Im sigma >= 0, |sigma| >= c_0, for small e, gamma and gamma_H (E^Upsilon
-     vanishing near the trapped set, (6.1)): his Proposition 6.9 in five dimensions.
+ (d) With 10.18, the inputs of [Hin26c] Theorems 9.5 and 9.16 that the operator supplies are in hand in five dimensions:
+     computed -- A_w + S-bar = D S-bar D, nu, beta_0, the spectrum of p_1 at a point, W, the time orientation inside --
+     or deduced -- vartheta_H+, vartheta_in and its threshold, (Gamma.1)-(Gamma.4); the horizon's radial point structure
+     ((9.24): beta_0 > 0, beta > 0, a quadratic defining function; his p. 165, for a non-degenerate red-shift) and a
+     global t* with dt* past timelike (his Definition 9.3) are those of a non-degenerate static horizon, f'(r_h) > 0 by
+     (iv), stated and not computed here. The reading is (i) that his scalar estimates hold for operators on bundles with
+     the notational modifications he leaves to the reader, and (ii) that his Theorems 9.5 and 9.16 hold restated for n =
+     4 -- (9.20) and (9.55) with 3/2 for 1 (10.18(b)), his Proposition 4.24 replaced by (c) -- neither verified here line
+     by line (since written out, (ii) as 10.75 (lviii)-(lix), D164, and (i) as 10.84, D181). On it, Theorem 9.16 gives
+     the spectral family of box^Upsilon invertible for Im sigma >= 0, |sigma| >= C_0, between the spaces (9.18), with the
+     bound |sigma|^(-1 + delta_Gamma(Im sigma - eps)) on its inverse (p. 193): [Hin26] Proposition 6.5 in five
+     dimensions, whose uniformity over a compact set of parameters is that of his estimates under small perturbations,
+     part of the reading (since written out, 10.84 (g)-(i)). Theorem 9.5 gives it Fredholm at bounded sigma != 0, of
+     index 0 (constant in sigma, and 0 by the invertibility at large |sigma|), with kernel elements in A^(3/2 + S-bar -
+     eps) (10.18(b)). For the unmodified box (S-bar = 0) a kernel element is A^(3/2 - eps) at infinity and smooth on X:
+     in the t-family it is e^(i sigma r) times a conormal function, smooth across the horizon -- 10.16's class -- so it
+     vanishes for r > r_h by 10.16, and inside, dr being timelike (c), by uniqueness for the Cauchy problem in r with
+     vanishing data at r_h. Injective of index 0, the spectral family of box is invertible at every sigma != 0, Im sigma
+     >= 0; the Fredholm estimates hold uniformly under small perturbations within the class, so that of box^Upsilon is
+     invertible at Im sigma >= 0, |sigma| >= c_0, for small e, gamma and gamma_H (E^Upsilon vanishing near the trapped
+     set, (6.1)): his Proposition 6.9 in five dimensions.
 
 *READ.* [Hin26c] (alphaXiv, 2026-10-22): pp. 81 (Definition 4.5), 98 (Proposition 4.24), 100 ((5.2)), 104-105
 (Definition 5.11, Lemma 5.12), 157-159 (Notation 9.2, Definitions 9.3-9.4 and the sentence after, (9.4)-(9.6)), 161, 163
@@ -6834,7 +6834,7 @@ ASCII):
  (d) (bundles) Section 9 is written for scalar operators and leaves bundles to the reader as "purely notational", while
      Proposition 9.40 states the tensor case; so B1's scalar-to-bundle step is, at source, the author's remark, the same
      at n = 3 as at n = 4, and the record's operators (box^Ups on 1-forms, box^C, L on symmetric 2-tensors) are the kind
-     he applies it to.
+     he applies it to. (Since written out, 10.84 (a)-(f).)
  (e) (what remains) Theorem 9.16 at n = 4: its statement carries no n, but its proof (pp. 174-193: Propositions
      9.25-9.28 and 9.35, Theorem 9.28 at the trapped set) rests on Proposition 4.24's dynamics at the Kerr face, which
      10.17-10.18 supply in five dimensions; sections 9.3.1-9.3.5 were not checked line by line at n = 4. Definition 5.18
@@ -9433,12 +9433,12 @@ them through.
 
 So thirty-five rows rest on readings, and they rest on ten statements:
 
- RB [Hin26c] section 9 proves its estimates for scalar operators and leaves bundles to the reader as "purely
-    notational" (p. 158); the record's operators act on 1-forms and symmetric 2-tensors (10.53 (d)). His own theorems
-    in four dimensions rest on the same step. (32 rows.)
+ RB [Hin26c] section 9 proves its estimates for scalar operators and leaves bundles to the reader as "purely notational"
+    (p. 158); the record's operators act on 1-forms and symmetric 2-tensors (10.53 (d)). His own theorems in four
+    dimensions rest on the same step. (32 rows.) (Since written out, 10.84 (a)-(f).)
  RU the uniformity of section 9's estimates under small perturbations of the operator, which his Remark 7.2 states for
     section 7, by the openness of each symbolic positivity, and which 10.19 (d) takes for section 9 at b near b_0
-    ((lviii)). (13 rows.)
+    ((lviii)). (13 rows.) (Since written out, 10.84 (g)-(i); [Hin26] asserts it for section 9 on pp. 119 and 124.)
  RL [Hin26c] section 9.5 at n = 4 beyond Theorem 9.36 ((xx)) and Proposition 9.40 (READ): Theorem 9.38 (p. 195),
     Corollary 9.39 (p. 197) and Theorem 9.41 (p. 198), READ at n = 3 with their five-dimensional inputs computed
     (10.20), not written out. (22 rows.)
@@ -9861,6 +9861,162 @@ reader, bundles in place of scalars, and one it asserts without proof, the unifo
 perturbations (10.84) -- the same at every n. None of the record's own roots remains. Not settled, and not used: whether
 L~'_b(sigma)^-1 itself carries logarithms at n = 4 (the five-dimensional tails); a Laurent expansion of L-hat_b(sigma)^-1
 at 0. Labels: deduced ((a)-(d)); READ (the pages named); nothing computed or proved here.
+
+### 10.84 RB and RU written out: [Hin26c] section 9 on bundles, and uniformly in the operator (D181)
+
+*The setting.* After 10.83 thirty-four rows rest on two statements. RB: [Hin26c] section 9 proves its estimates for
+scalar operators and leaves bundles to the reader; the record's operators act on 1-forms and symmetric 2-tensors. RU:
+those estimates hold uniformly under small perturbations of the operator, which section 9 does not state. Here a census
+of section 9 (pp. 157-200, every numbered item, read at source in full text) finds every step at which a proof uses that
+the operator is scalar and every constant a proof produces, and each is placed: its bundle form, and how it is uniform in
+b.
+
+*READ.* [Hin26c] (arXiv:2606.28008v1; alphaXiv full text, 2026-10-25; printed page = PDF page - 4):
+
+ (1) p. 158: "We will only consider scalar wave operators; the purely notational modifications required to treat
+     operators acting on vector bundles are left to the reader." Definition 9.4 writes "S in C^oo(X)" where (5.1b) has S
+     in C^oo(X; End(E_X)), its footnote 68 reading "These conditions are the same as in (5.1a)-(5.1b)". E_X occurs in
+     section 9 only in Theorem 9.5 (p. 163, with "spec S(p)" and footnote 74), "fiber inner product" only after (9.81)
+     (p. 182: "for tensor-valued wave equations, less than any specified positive number for a suitable choice of fiber
+     inner product"). Proposition 9.40 is stated for "the tensor wave operator acting on sections of any tensor bundle"
+     and reduced to "the scalar case" (p. 197).
+ (2) Section 5 states the thresholds for bundles (pp. 100-105): Definition 5.1, P_0 in Diff^2(M; E) with sigma_2(P_0) =
+     G; (5.2), S-bar the infimum of Re spec S(p) over p in dX; Definition 5.8, "a stationary positive definite fiber
+     inner product ... (The left-hand side is a self-adjoint bundle endomorphism of pi*E_X.)"; Definition 5.11 (4)-(6),
+     vartheta_H+ "With respect to a positive definite fiber inner product on E_X ... (Here 'spec' denotes the spectrum of
+     a self-adjoint map on a fiber of E_X.)", vartheta_dK+,out and vartheta_dK+,in each "With respect to a (possibly
+     different) positive definite fiber inner product"; Lemma 5.12, "For all eps > 0, there exists a fiber inner product
+     on E_X such that 2 S-bar - eps <= vartheta_dK+,out <= 2 S-bar", its proof computing the symbol as S + S*.
+ (3) Sections 7-8 on bundles: p. 124, "let us choose a fiber inner product on E_X such that Re p_1 > p-bar_1 - delta'
+     where we fix any delta' > 0"; p. 154, "an arbitrary but fixed positive definite fiber inner product h_E on E".
+ (4) Remark 7.2 (p. 116): "The estimate (7.5) holds also when the underlying stationary operator P_0 is perturbed within
+     the class of stationary wave-type operators (Definition 5.1) ... This follows from the uniformity of all microlocal
+     estimates entering in its proof below: for elliptic and real principal type estimates, this is shown for more
+     general perturbations in Propositions 3.23, 3.24, 3.29, and 3.30, for radial point estimates this follows from the
+     openness of the positivity of symbols in the symbolic (positive commutator) arguments, and likewise for the
+     propagation estimate at the trapped set which, in view of its continuous (in fact, smooth) dependence on the Kerr
+     parameters (cf. Remark 4.25 and the last part of Proposition 6.3)". Section 9 states its uniformity in sigma, h,
+     theta and alpha, never in P_0; "perturb" occurs in it only on p. 157, of Theorem 8.14, and in footnote 82 (p. 184),
+     of Im z.
+ (5) Theorem 9.28's loss-1 proof (pp. 186-188): the contradiction sequences (9.90); Step 1, "sigma_h(h^-1 Im(P_h,z - ih
+     N_u)) <= (p_1 + 2 beta_0 beta) - nu_u < 0 at Gamma"; Step 3, "(H_G1 + 2 p_z) a = nu_s |phi_s|^(-2 lambda) (-2
+     (lambda - p_z/nu_s) f + |phi_s| f'(|phi_s|)) is non-positive for |phi_s| >= delta", lambda in (sup_Gamma p_z/nu_s,
+     1/2).
+ (6) [Hin26] (arXiv:2606.28253v2; printed pages): p. 119, Proposition 6.9's proof, "Since the Fredholm estimates in
+     [Hin26c, Theorem 9.5] hold uniformly for small perturbations of box_g_b (within the class of stationary wave-type
+     operators ...), it is again the same standard functional analytic argument"; p. 124, "since the Fredholm estimates
+     [Hin26c, (9.107)] hold uniformly also for small perturbations ..., the usual functional analytic argument (now using
+     the compactness of the inclusion ...) implies the invertibility also of such small perturbations ... Therefore, the
+     low-energy estimate in [Hin26c, Theorem 9.41] holds uniformly as well". RU, like RB, is a step his theorem in 3 + 1
+     dimensions takes: asserted there, not proved.
+
+*RB written out (deduced at proof level).* Fix a stationary positive definite fibre inner product h on E_X, and take
+adjoints, real and imaginary parts with respect to h and the density each estimate names. P_0's principal symbol is G Id
+(Definition 5.1 (1)); the census finds six kinds of site where a scalar proof uses more, and at each the bundle form is:
+
+ (a) (subprincipal parts and commutators) Where a proof writes Im P, (P - P*)/2i or p_1 as a real function
+     ((9.27)-(9.28), (9.34)-(9.38b), (9.42), (9.65), (9.79), Lemma 9.32), on E_X it is a self-adjoint endomorphism,
+     Definition 5.8's. Commutants are scalar, Op(a) Id in local trivialisations patched by a partition of unity. Since G
+     Id commutes with a Id, i[P, A] has principal symbol (H_G a) Id; the matrix part of P's first-order terms enters C at
+     principal level through Im P, and otherwise through i[Re P_1, A], one order lower, absorbed as the scalar proofs
+     absorb subprincipal terms. So each C of the section ((9.27), (9.34), (9.47), (9.66b), (9.72), Lemma 9.32's) has
+     principal symbol (H a) Id + 2 a p_1 with the printed weights, p_1 self-adjoint. Lemma 9.13 counts commutators by
+     coefficient class, which matrix coefficients keep: V^alpha acts componentwise in a trivialisation near dX, and [V,
+     M] = V(M) for an endomorphism M stays in M's class.
+ (b) (thresholds) Each scalar threshold becomes an extreme of the spectrum of that endomorphism. The beta_1 of
+     Propositions 9.9 and 9.25 becomes the supremum over R_+ of the top of the spectrum of the same symbol, (5.17)'s
+     vartheta_H+, the form Theorems 9.5 and 9.36 state ((9.16a)). vartheta_in of (9.32) becomes the supremum over dX of
+     the top of the spectrum of sigma^1_b(Im P-hat_0(0))(-2 dr/r) - (S + S*), which 10.19 (a) computes as -2 Re (A_w +
+     S-bar) in any fibre inner product. The 4 Re S of Propositions 9.11 and 9.27 becomes 2 (S + S*), whose bottom
+     eigenvalue is at most 2 S-bar and, for an inner product Lemma 5.12 provides, at least 2 S-bar - eps: the S-bar "from
+     (5.2)" they state. Theorem 9.38's S-bar = inf over dX of S is (5.2)'s. The sup_Gamma p_1 of (9.80) becomes the top
+     of the spectrum of p_1 over Gamma, Definition 5.8's form, which 10.19 (b) computes (spectrum 0, +-(2 eta)^(1/2)).
+     Each threshold is strict, so the inner product may be chosen per radial set, as Definition 5.11 allows: any two are
+     uniformly equivalent on X-bar, and an estimate microlocalised near one set passes to the fixed h with a constant.
+     The horizon threshold holds in the inner product the record fixes (10.79).
+ (c) (square roots and Garding) The b of each commutator argument ((9.29), (9.51), Proposition 9.25's, the lossless part
+     of Theorem 9.28) is a-check times the square root of a symbol the threshold makes positive: on E_X a positive
+     definite self-adjoint endomorphism-valued symbol, whose positive square root is a symbol of the same class, the
+     square root being real-analytic on positive definite matrices. The Garding steps ((9.69), (9.75), the lossless part
+     of Theorem 9.28) need a principal symbol q >= c rho_oo^-1 Id with c > 0: Q_1,h's is 2 g^-1(-(Re z) dt + xi, dt) Id,
+     scalar, and the endomorphism terms of Q~_1,z,h carry the factor (Im z / h)^-1 <= 1/nu, so for nu large q >= c
+     rho_oo^-1 Id, q - (c/2) rho_oo^-1 = b* b with b the square root, and Op(q) - Op((c/2) rho_oo^-1) = Op(b)* Op(b) +
+     O(h): Garding as for scalars.
+ (d) (signs and norms) Terms with a sign keep it. (9.52)'s -2 (Im sigma) |sigma|^-2 sum ||rho V_j A-check u||^2 rests on
+     (9.49) on E_X: (rho D_rho)^2 + Delta-slash componentwise near dX, the difference from the h-adjoint form and the
+     first-order matrix terms lying in R_1, in rho^2 Diff^1_b, taken symmetric, whose symbol vanishes at R_out as there.
+     g_00 = G(dt) Id <= 0, and the b-regularity terms -2k A-check rho delta A-check and 2 k i h z rho delta come from the
+     scalar principal part. |u|^2 is h(u, u).
+ (e) (defect measures) In Lemmas 9.30-9.32 and the loss-1 proof ((5)) the defect measure on E_X is a Radon measure mu
+     valued in positive semidefinite self-adjoint endomorphisms -- the same construction, with (9.87)'s square root for
+     endomorphism-valued a and Riesz's theorem entrywise -- and its trace tau replaces mu in (9.91)-(9.97). Lemma 9.32
+     reads int (H_p a) d tau + 2 int a tr(p_1 d mu) for scalar a, and tr(p_1 d mu) <= (top of spec p_1) d tau. Step 1's
+     inequality holds as one of endomorphisms with the top of spec p_1; Step 2's (9.94) has no p_1; in Step 3, with m = d
+     mu / d tau (m >= 0, tr m = 1), (H_G1 + 2 p_z) a becomes nu_s |phi_s|^(-2 lambda) (-2 (lambda - tr(p_z m)/nu_s) f +
+     |phi_s| f'), and lambda above the top of spec p_z / nu_s over Gamma gives lambda - tr(p_z m)/nu_s > 0 near Gamma,
+     the sign Step 3 uses. So (9.96)-(9.97) and Step 4 hold for tau, (Gamma.4)'s sup_Gamma p_1 read as the top of the
+     spectrum.
+ (f) (scalar models) Proposition 9.35's energy estimate takes P_0 = box_nabla + V + a with nabla an h-compatible
+     connection on E_X (P_0 - box_nabla first order for any connection) and T[u](X, Y) = Re (h(nabla_X u, nabla_Y u) -
+     (1/2) g(X, Y) g^-1(h(nabla u, nabla u))), as his section 8's bundle energy estimates ((3)); the curvature of nabla
+     adds zeroth-order terms, bounded as the term in a is, so the pointwise bounds and the absorption for large Im z/h
+     stand. Theorem 9.28's complex absorption Q_3 and model D_t^2 + Delta_X' become Q_3 Id and D_t^2 + nabla* nabla on an
+     extension of E_X to X', with scalar principal symbols; Lemma 9.33's three-line theorem is for holomorphic families
+     valued in Hilbert spaces. Theorem 9.5 (5)'s ODE (9.55) gives rho^(1 + S) u_0 with u_0 in C^oo(dX; E_X), the form
+     (9.21) states; Theorem 9.38's adjoint carries S* and conjugate indicial roots; Theorem 9.41's cut-offs are scalar;
+     Corollaries 9.39 and 9.43 and Remark 9.42 are functional analytic.
+
+So the bundle form of each section 9 statement the record uses -- Theorems 9.5, 9.16, 9.36, 9.38 and 9.41, Corollaries
+9.39 and 9.43 -- is its printed form with section 5's thresholds, the form Theorems 9.5 and 9.36 already state.
+
+*RU written out (deduced at proof level).* The record's operators P_b have coefficients smooth in b (Myers-Perry's, 10.36
+(a)), so P-hat_b(sigma) is continuous in b between the fixed spaces of each estimate (10.71 (i), READ in 10.60). Section
+9's constants arise in two ways:
+
+ (g) (symbolic) In every positive commutator and Garding argument -- Propositions 9.9-9.11, 9.19, 9.22-9.27 and 9.35, and
+     the lossless part of Theorem 9.28 -- the commutant and the parameters (delta, the large constants, nu, nu', h_0) are
+     chosen so that strict inequalities hold on compact sets: (b)'s thresholds, (c)'s positivity, the ellipticity of each
+     b. Each is continuous in b, so chosen at b_0 with a margin they hold near b_0 (Lemma 10.52 (P3)), and the constants
+     depend on finitely many symbol seminorms of P_b, bounded near b_0: Remark 7.2's "openness of the positivity of
+     symbols", with his Propositions 3.23, 3.24, 3.29 and 3.30 for the elliptic and real principal type estimates. At the
+     trapped set (Gamma.1)-(Gamma.4) hold near b_0 with Gamma_b and its defining functions continuous in b ([HPS77],
+     10.71 (iii)) and (Gamma.4)'s margin kept by (P3): Remark 7.2's last clause.
+ (h) (by contradiction) Theorem 9.28's loss-1 constant: were it not uniform, there would be b_j -> b_0 and sequences
+     (9.90) for P_b_j. The defect measure of (u_j) sees only limits of symbols -- <C_j u_j, u_j> - <C_0 u_j, u_j> -> 0
+     when the symbols of C_j converge to those of C_0 in their seminorms, the u_j being bounded -- so Lemmas 9.31-9.32
+     hold with b_0's p and p_1, and Steps 1-4, run with Phi_u built from b_j's defining functions (convergent by (g)),
+     reach mu(delta) = 0 as at b_0. The inverse bounds -- Theorem 9.5 (3) and (6), Theorem 9.16 (3), Theorem 9.36's
+     invertibility on the record's spaces, the tf-normal operators' (Corollary 9.39), and Theorem 9.41's use of the zero
+     energy inverse -- come from a Fredholm estimate, uniform by (g), and injectivity at b_0, and are uniform by Lemma
+     10.59. Theorem 9.41's c, from the absorption <= C varsigma^eta with C uniform by (g), is uniform with them.
+
+**Lemma 10.59 (deduced at proof level).** Let X, Z be Hilbert spaces with X compactly included in Z, Y a Banach space
+included continuously in a Banach space Y', and b -> T_b in L(X, Y') continuous in operator norm near b_0. Suppose
+||u||_X <= C (||T_b u||_Y + ||u||_Z) for b near b_0 and every u in X with T_b u in Y, and T_b0 is injective on {u in X :
+T_b0 u in Y}. Then there are C' and a neighbourhood of b_0 on which ||u||_X <= C' ||T_b u||_Y for every such u. If the
+adjoint family satisfies the same hypotheses on the dual spaces, T_b is invertible near b_0 with inverse bounded by C'.
+
+*Proof.* If not, there are b_j -> b_0 and u_j with ||u_j||_X = 1 and ||T_bj u_j||_Y -> 0. A subsequence converges weakly
+in X and, by the compact inclusion, strongly in Z, to some u; the estimate gives ||u_j||_Z >= 1/C - ||T_bj u_j||_Y, so
+||u||_Z >= 1/C and u != 0. In Y', T_b0 u is the weak limit of T_b0 u_j = (T_b0 - T_bj) u_j + T_bj u_j, and both terms
+tend to 0 in norm; so T_b0 u = 0, and u lies in the domain and the kernel. For the second part, the first applied to both
+families makes T_b and its adjoint injective near b_0, T_b with closed range by the estimate (a sequence with T_b u_k
+convergent in Y is Cauchy in X), so T_b is onto. []
+
+ (i) ([Hin26]'s uses) With (g)-(h) and Lemma 10.59, Theorem 9.5's Fredholm estimates hold uniformly for b near b_0, as
+     [Hin26] p. 119 asserts and 10.19 (d) ((lviii)) takes; (9.107) and the zero energy invertibility do, by Lemma 10.59
+     with his p. 124's compact inclusions; and so does Theorem 9.41, as p. 124 says. Theorem 9.16's h_0 and C_0 are (g)'s
+     and (h)'s.
+
+*What this gives, and what it does not.* RB and RU are written out site by site and leave their rows: every scalar site
+of section 9 is placed with its bundle form and every constant with the way it is uniform in b, at proof level given
+section 5's definitions, the bundle treatments of sections 7-8 and two elementary facts (square roots of positive
+definite matrices, Riesz's theorem entrywise). Not re-run line by line: the scalar proofs with these substitutions, which
+change nothing outside the sites the census names; that the census found every site is read at source, as the censuses of
+10.64-10.68 are, not proved. Each of 10.77's ten roots is now settled, written out or READ, and no row of READINGS.tsv
+rests on a reading. Labels: READ ((1)-(6)); deduced at proof level ((a)-(i), Lemma 10.59); nothing computed or proved
+here.
+
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 

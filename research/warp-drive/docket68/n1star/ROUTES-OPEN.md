@@ -2325,3 +2325,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   4.101, LOG D178). 10.83 (d)'s routes; p. 211. Four wrapped lines with a numbered marker rewrapped. `iotasol5.py` J2's
   conjunct true by construction dropped; `hthresh5.py` T7's control now changes the e' = 10 check too. The paper's
   pole wording narrowed. No row of READINGS.tsv changes.
+
+### 4.104 RB and RU written out (deduced; D181)
+
+- 10.84: a census of [Hin26c] section 9 (pp. 157-200, every numbered item) places every step at which a proof uses
+  that the operator is scalar -- subprincipal parts and commutators, thresholds, square roots and Garding, signs and
+  norms, defect measures, scalar models -- each with its bundle form, the thresholds being section 5's spectra in a
+  fibre inner product; and every constant, symbolic (uniform in b by the openness of strict inequalities, Remark 7.2's
+  mechanism) or by contradiction (Theorem 9.28's loss-1 constant with b_j -> b_0 added, the inverse bounds by Lemma
+  10.59). [Hin26] asserts RU for section 9 (pp. 119, 124). RB and RU leave their thirty-four rows; each of the ten
+  roots is settled, written out or READ, and no row rests on a reading. Not re-run line by line: the scalar proofs
+  with the substitutions placed.
