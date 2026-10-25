@@ -1763,7 +1763,7 @@ N1STAR-PROOF.md 10.50 deduces C1-C3 from the record's own sections 1, 5 and 6, w
   Minkowski model in rho^4 Diff^2_b and the indicial families, tf-normal operators and S-bar are the model's; g^00 = -4
   mu rho^2.
 - B7 deduced (10.55(b)-(c)): the kernel class from 10.53(c); the interior uniqueness by the radial systems' regular
-  singular point at the horizon (its last step proved as Lemma 10.56 (a): 4.80); the index 0 at nonzero frequency on
+  singular point at the horizon (its last step proved as Lemma 10.56 (c): 4.80); the index 0 at nonzero frequency on
   Theorem 9.16's reading (10.53(e)).
 - B4 deduced at source (10.56): [Hin26a] section 5.2's estimates take from the metric and c only symbol data, all
   computed in five dimensions (10.13, 10.14, 10.22), on a general calculus; one reading left, the sign of each
@@ -2045,7 +2045,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and 10.37 (c), the regularity in b added. With [Hin26] Propositions 8.11 and 7.4 (10.32 (c), 10.36 (b); pp. 155-156,
   140-144), sixteen of 61 are written out; 45 rest on the censuses.
 
-### 4.80 The sixty-first verifier seated; the continuation across the horizon proved (proved, deduced; D149)
+### 4.80 The sixty-first verifier seated; a lemma at the horizon proved, the continuation deduced (D149)
 
 - Proved (10.76, Lemma 10.56): for z X' = A(z) X with A smooth, a solution on one side of 0 vanishing to infinite
   order vanishes, by a Gronwall bound |X(z)| >= |X(z_1)| (z/z_1)^M; and one smooth up to 0 from one side is the
@@ -2076,3 +2076,229 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D151 (10.75 (xxviii)-(xxx)): [Hin26] Proposition 8.14 (10.34 (c)), (2.27) with Proposition 2.25 (10.46 (e)) and
   section 5.6's boost pullback (10.62 (c)). Thirty of 61 written out, eighteen of them on a reading; 31 rest on the
   censuses. B-MAP: 104 places, 107 placements (34 computed, 58 section, 14 arithmetic, 1 choice).
+- D152 (10.75 (xxxi)-(xxxiv)): [Hin23a] Propositions 3.17, 3.29 and 3.32 with Lemma 3.33, and Corollary 3.31 (10.64 (b),
+  (e), (g), (f)), each matched to exterior5.py X1-X7. Thirty-four of 61 written out, eighteen on a reading; 27 rest on
+  the censuses, one of them, 10.48 (c), on [Hin23a] Corollary 3.36 (written out in D154; the sixty-third verifier).
+
+### 4.82 The sixty-second verifier seated (D153)
+
+- Lemma 10.56 and 10.76 (a)-(c) checked line by line and passed; 10.75 (xii)-(xvi) and the D149 repairs matched at
+  source; B-MAP's counts reproduced. M1: "proved" was said of the continuation, which 10.76 deduces at proof level from
+  the lemma; the paper's record, the log's D149 heading and 4.80's heading now say so. Minors seated: the phi''
+  coefficient a constant multiple of f; "flat" in Lemma 10.56 (c); the sigma = 0 remark's source and subtraction; the
+  interior is Lemma 10.56 (c); [CD03]'s s = t - 1 on p. 37; cross-references in 10.75 (xii)-(xiii); (xv)'s cokernel
+  argument; wrapped lines that began with a list marker; the paper's md5 and verifier-record scope.
+- D154 (10.75 (xxxv)-(xxxvi)): [Hin26] Proposition 5.11 with Proposition 5.14 and Corollary 5.15 (10.48 (b)) and
+  Theorem 5.17 (10.48 (c)), the latter clearing its reading of [Hin23a] at n = 4. Thirty-six of 61 written out,
+  eighteen on a reading; 25 rest on the censuses.
+
+### 4.83 [Hin26] section 12, and [Hin26] Theorem 11.12 with [Hin26a] section 6, written out (D155-D156)
+
+- 10.75 (xxxvii)-(xxxix): Theorems 12.3 and 12.8, read at source (pp. 304-318) and matched step by step at n = 4 --
+  without the class (10.62 (b)) and in it (10.47 (d)-(e)): the leading iota+ order (2, 0) for his (1, 0), t*^-4 for
+  t*^-3 in Step 1, the induction from alpha_min, Proposition 10.46's lists (10.42 (ii)'s in the class), Res(L-bar, 2)
+  = {0}. Section 9's iota+ solution theory is a reading at n = 4 (10.47's OPEN), now marked on 10.47 (d) and 10.62 (b).
+  Thirty-nine of 61 written out, twenty-one on a reading; 22 rest on the censuses, eight of them [Hin26] section 11's.
+- D156 (10.75 (xl)-(xliii)): [Hin26] Theorem 11.12 (10.42 (e)), [Hin26c] Theorem 11.1 applied through Corollary
+  11.10 in the shifted densities; [Hin26a] (6.4) and Theorem 6.2 with its Part (2) injectivity (10.21 (a), 10.21 (c),
+  10.56 (b)), matched at source (pp. 67-69). Forty-three of 61 written out, twenty-four on a reading;
+  18 rest on the censuses.
+
+### 4.84 The sixty-third verifier seated (D157)
+
+- D150-D153 (10.75 (xvii)-(xxxiv)) read against the sources: no major, eleven minors, all seated -- two source misprints
+  no longer carried ([Hin23a] (3.47)'s normalization, [Hin26c] p. 60's density factor), one step of [Hin24b]'s proof
+  named, three places added to B-MAP, (xxii)'s (2, 0) moved to Step 3, wording and pages.
+
+### 4.85 Fourteen more modification steps written out (READ, deduced; D158-D161)
+
+- D158 (10.75 (xliv)-(xlvi)): [Hin26a] Appendix B -- Proposition B.2 (10.23 (b)), Theorem B.4 (10.23 (c)) and section
+  B.4 (10.23 (d)) -- matched at source (pp. 87-98) to tface5.py F2-F5, cpmodes5.py K1-K2 and cform5.py C7.
+  Forty-six of 61 written out, twenty-seven on a reading; 15 rest on the censuses,
+  [Hin26a]'s only in Theorem 5.2 (10.22 (e)).
+- D159 (10.75 (xlvii)-(xlviii)): [Hin26c] Proposition 9.10, the incoming radial estimate, written for general n at
+  source (10.19 (a)), and Theorem 9.5 (3) and (5), the index's constancy and the kernel's class (10.55 (b)).
+  Forty-eight of 61 written out, twenty-nine on a reading; 13 rest on the censuses.
+- D160 (10.75 (xlix)-(lii)): [Hin26] sections 11.3-11.6 -- Propositions 11.17, 11.20, 11.30, 11.32 and 11.34, Lemmas
+  11.18, 11.19 and 11.45 and Corollary 11.46 -- in the class (10.45 (b), (e); 10.43 (c)) and without it (10.61 (b)),
+  read at source (pp. 231-262). Section 9's iota+ and tf solution theory (Corollary 9.12, Propositions 9.11, 9.30 and
+  9.35) enters at n = 4 as a reading, beside [Hin26c] Proposition 13.18 and Corollary 13.17 (10.58 (c)).
+  Fifty-two of 61 written out, thirty-two on a reading; 9 rest on the censuses.
+- D161 (10.75 (liii)-(lv)): [Hin26] sections 11.7-11.8 -- Proposition 11.51, Theorem 11.59 and Corollary 11.66 -- in
+  the class (10.46 (a)-(b)) and without it (10.61 (c)), read at source (pp. 262-295): the centre-of-mass motions in S_1
+  = R^4, absent in the class; Proposition 10.46's lists (10.42 (ii)'s in the class) for (9.39b)'s; Lemma 11.65 by
+  Proposition 10.46's L_b-images. Fifty-five of 61 written out, thirty-five on a reading;
+  6 rest on the censuses, none in [Hin26].
+
+### 4.86 The sixty-fourth verifier seated (D162)
+
+- D154-D157 (10.75 (xxxv)-(xliii) and D157's repairs) read against the sources: one major, ten minors, all seated. The
+  major: Theorem 12.3's centre-of-mass shift S^(0)_1 was not placed at n = 4. Its patch h^(0)_s1 keeps iota+ order 1 in
+  every dimension, but is pure gauge for g-bar to leading order; what it feeds P is [L_b, chi_K] h_b,s1, of order 5 at
+  n = 4 by 10.28's h_b,s1, and quadratic terms of order 4. So Step 2 clears the first and Step 1 the second, and
+  Theorem 12.8 subtracts S^(0)'_1 with b' and S' (10.75 (xxxvii), 10.61 (a), B-MAP). The minors: (xxxvii)'s
+  physical states and logarithm remark, (xxxv)'s Corollary 5.9, (xvii)'s sign, which cancels, (xxviii)'s endpoint
+  closed by the root gap, whole-section citations of census rows counted, two reading marks, (xxxvii)'s reading
+  clause, the paper's verifier record, headings and wording. Fifty-five of 61 written out,
+  thirty-seven on a reading; thirteen cite a census row; 6 rest on the censuses.
+
+### 4.87 [Hin26c] sections 7-8 written out (READ, deduced; D163)
+
+- D163 (10.75 (lvi)-(lvii)): [Hin26c] section 7 -- Proposition 7.1's concatenation, the five radial point estimates,
+  the trapping estimate through [Hin21] Theorem 3.9 (stated for a manifold of any dimension), Proposition 7.11 with
+  Lemmas 7.12-7.21 -- and section 8 -- Lemma 8.1's energy estimate, the extension across the inner sphere, Propositions
+  8.3-8.13 and Theorem 8.14 -- read at source (pp. 114-157) and matched at n = 4 (10.67 (a)-(b)). Places: the horizon's
+  rate f'(r_h), 10.17's trapped set, (7.22)'s symmetric operator and density 2 rho_+^-5 x_I^-8 (checked exactly), the
+  nine commuted operators, E2's K-current, the fifteen monomials. Fifty-seven of 61 written out,
+  thirty-seven on a reading; 4 rest on the censuses: [Hin26c]'s sections 5, 9-11 and 13 and
+  [Hin26a]'s Theorem 5.2.
+- D164 (10.75 (lviii)-(lix)): [Hin26c] Theorem 9.5 -- Propositions 9.9 and 9.11, Lemma 9.13, parts (1), (2), (4) and
+  (6) -- and Theorem 9.16 with section 9.3's proof, read at source (pp. 161-193) and matched at n = 4 (10.19 (d), 10.53
+  (e)). Section 9.3 is written for a general stationary operator on R_t x X; its places are T*S^3, the five-dimensional
+  horizon (10.18), the trapped set and loss (10.19 (b)) and the dynamics and timelike dr (10.19 (c)). Both keep one
+  reading, his scalar-to-bundle remark (10.53 (d)), and 10.19 (d) the uniformity under small perturbations.
+  Fifty-nine of 61 written out, thirty-nine on a reading; 2 rest on the censuses:
+  10.58 (c), [Hin26c]'s sections 5, 10-11 and 13, and 10.22 (e), [Hin26a]'s Theorem 5.2.
+
+### 4.88 The sixty-fifth verifier seated (D165)
+
+- D158-D162 (10.75 (xliv)-(lv) and D162's repairs) read against the sources: three majors, eight minors and a note on
+  D163, all seated or answered. (li), 10.43 (c), takes its steps from (xlix) and 10.46 (a)-(b), which rest on readings,
+  and now says so; B-MAP marks it. (xxviii)'s Step 5: the source concludes eta = 0 from Theorem 7.1 (2) at mu + 1 >=
+  -C_0, whose range meets A^(-C_0) only below its left end, and passes over that endpoint; the root gap that closes it
+  at n = 4 is the record's own route, and is now said to be, with its check that A^(2-) lies in 10.21 (e)'s range.
+  (xxxvii)'s subtraction of D_U Phi(b', S', S^(0)'_1, (0, f'_1), 0, ...) is the source's own, the general case of his
+  Step 1.3 (p. 315), which the verifier had not found below the simplified display; it is now quoted, with
+  Res_iota+(L-bar, 1) = {0} (p. 315) and Phi's direct use of S^(0)_1 (p. 302), and placing it at lam_0 = 2 is marked
+  as the record's step. The minors: (11.135a)'s gauge 1-form, the commutator's two orders, three placements relabelled
+  computed, 10.32 (b)'s placements, 10.45 (e)'s settled weight, three equation suffixes, the closing paragraph's ranges
+  and 10.62 (b)'s inputs. Fifty-nine of 61 written out, forty on a reading (D162-D164 counted
+  one fewer); 2 rest on the censuses.
+
+### 4.89 [Hin26c] Theorem 10.1, Theorem 11.1 and section 13.2 written out (READ, computed, deduced; D166)
+
+- D166 (10.75 (lx)): [Hin26c] Definitions 5.13-5.18, Theorem 10.1 (section 10), Theorem 11.1 and Corollary 13.17 with
+  Proposition 13.18 (section 13.2), read at source (pp. 106-109, 201-233, 247-255) and matched at n = 4 (10.58 (c)).
+  iplusnorm5.py N1-N9 computes every place the dimension enters, at n = 3 against print and at n = 4 (Proposition
+  10.57): the constant 3/2 in N^0, Q_0, the four radial point thresholds, the densities R^4, x_I^-8, mu_b = |dt dx|/(t*
+  r^4) and |dx|/|x|^4 with their shifts, (10.40)'s 5/2, Lemma 10.7's eight fields and Lemma 10.9's shift 3. Two of his
+  printed sums are off at n = 3 alike: (1.3.1)'s omits Re S, (1.3.2)'s has +4 Re S for -4 Re S, and his stated
+  thresholds are the right ones. Lemma 10.9's 0-calculus parametrix is READ for every dimension. Sixty
+  of 61 written out, forty-one on a reading; one rests on its census: 10.22 (e), [Hin26a]'s Theorem 5.2.
+
+### 4.90 [Hin26a] Theorem 5.2 written out: no census row left (READ, deduced; D167)
+
+- D167 (10.75 (lxi)): [Hin26a] section 5.2 -- Lemmas 5.3-5.4, Propositions 5.5-5.6, 5.8, 5.9, 5.11, 5.12, 5.16 and 5.17,
+  Lemma 5.14, Corollary 5.15 and the duality and initial value arguments -- read at source (pp. 41-66) and matched at n =
+  4 (10.22 (e)). Every place five dimensions enter is computed (10.13, 10.14, 10.22's solv5.py Q1-Q4, cform5.py) or READ
+  (10.65 (a)); the commutators are identities of symbols with those signs. It rests on no reading, and with it 10.21 (c)
+  and 10.23 (c), whose one reading was Theorem 5.2's. All 61 rows of B-MAP.tsv are written out; thirty-nine
+  take a reading among their inputs. What remains between Theorem 4 and a theorem is those readings and the census of
+  section 8.8 (i).
+
+### 4.91 The sixty-sixth verifier seated (D168)
+
+- D163-D165 (10.75 (lvi)-(lix) and D165's repairs) read against the sources: no major, four minors, all seated. (7.11)
+  is (7.11a)-(7.11b) (pp. 117-118); (7.25) is [Hin21] (3-24) for QPQ^-, "almost the content of Definition 5.8" for P
+  (pp. 124-125), so the n = 4 check is (5.9) at the trapped set; 10.45 (e)'s place for the weight at I+ is no dimension
+  change and is dropped; (lvii)'s two z's are told apart, Seeley's |x| - m and the monomials' (t*, x).
+
+### 4.92 The readings traced to their roots (deduced; D169)
+
+- 10.77 and READINGS.tsv trace the 39 rows that took a reading. Four rested on statements since READ or written out
+  (10.23 (b) and (d) on Proposition 9.40, stated for every n >= 3; 10.46 (e) on Proposition 2.25, stated on R^n; 10.62
+  (c) on 10.48 (c)-(d), written out) and are re-marked. The thirty-five others rest on ten roots: RB and RU, the
+  source's own steps at every n (bundles; uniformity under perturbation); RL, RC and RI, companion results at n = 4
+  READ at n = 3 ([Hin26c] section 9.5; [Hin26c] Lemma 3.9 and the calculi behind Lemmas 13.13 and 14.6; [Hin26]
+  section 9); RP, RK, RG, RH and RE, the record's own (the pole's logarithm; Corollary 8.13's semicontinuity; the
+  G-equivariant read-off; box^C's horizon threshold at small h; the equivariant g_b). OPEN, in this order: RH, RK and
+  RG; RL; RC; RP; RE; RI.
+
+### 4.93 Three of the record's roots settled (deduced; D170)
+
+- 10.78: RK (Corollary 8.13's semicontinuity) by Lemma 10.58 from the uniform estimates, so it rests on RU; RG (the
+  G-equivariant read-off) by the uniqueness of each step's data, which Hintz states (p. 315); RE (the equivariant g_b)
+  by mp5.py M2's covariance, a choice made. Seven roots remain: RB and RU, the source's kind; RL, RC and RI, companion
+  results at n = 4; RP and RH, computations. OPEN, in this order: RH at the record's point (box^C's horizon threshold
+  in the fibre inner product B, whose conditioning at e = 1/102400 must be measured against h^-1 = 10^6); RL; RC; RP;
+  RI.
+
+### 4.94 RH computed: box^C's horizon threshold at the record's point (computed, READ; D171)
+
+- 10.79, `hthresh5.py` T1-T5: [Hin26c] (5.17)'s quantity for box^C over the conormal bundle of the horizon, in [Hin26a]
+  Lemma 3.3's B, from the operators' definitions with the g-pairing as the adjoint's control. The undamped part has
+  spectrum +-(e^(1/2) + e^(-1/2))/r_h and 0, B's conditioning entering as e^(-1/2); the damping's is -h^-1 l(dr). At (v,
+  e, h) = (1/2, 1/102400, 10^-6), 1/2 + vartheta_H+ = -4995.33..., below -C_0 = -100 for every h in (0, h_2), h_2 =
+  2.6197... x 10^-5. 10.21 (d)'s threshold holds, and 10.21 (e)'s h is any h in (0, min(h_0, 10^-6)). Six roots remain:
+  RB and RU, the source's kind; RL, RC and RI, companion results at n = 4; RP, a computation. OPEN, in this order: RL;
+  RC; RP; RI.
+
+### 4.95 The sixty-seventh verifier seated (READ, computed; D172)
+
+- It read D166-D168 at source: two majors, five minors. M1 answered at source: (5.20) defines vartheta_dK+,in by the
+  whole imaginary part, S's -(S + S^*) among it (Lemma 5.12's term), and his prefactor at R_cf,+1,in is printed -xi/2,
+  equal to 1 there (p. 209), so sigma(Q_0,h)'s Re S is inside vartheta and his (1.3.1) sum omits nothing. D166's 'omits
+  Re S' (4.89, 10.75 (lx), 10.57 (N6)) is withdrawn; iplusnorm5.py N6 now derives it, and (10.28) stands as printed at n
+  = 3 and n = 4. M2 accepted: 10.22 (e)'s row listed the inputs of its second sentence, Theorem 6.2 by 10.21, which rests
+  on 10.21 (d) -- RB through Theorem 9.36 on 1-forms, and RH until 10.79. The row is re-scoped to Theorem 5.2, whose
+  proof precedes Theorem 6.2 (p. 67) and uses neither Proposition 10.9's roots nor the zero energy threshold, so its mark
+  stands, and with it 10.21 (c)'s and 10.23 (c)'s, which use Theorem 5.2's estimates. Minors: five of 10.58 (c)'s
+  placements re-kinded arithmetic, iplusnorm5.py N5 and N9 having checked them by comparisons typed by hand (88 computed,
+  38 arithmetic); 10.22's stale sentences marked; the paper's 60 modification proofs are 61 with 10.73's reading;
+  [Hin23e] for the 0-calculus paper in 10.75 (lx); 10.23 (d) had been re-marked in D169.
+
+### 4.96 RL written out: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (READ, computed, deduced; D173)
+
+- 10.80, `tfnorm5.py` R1-R4: section 9.5 is stated and proved for every n, section 9.6 at n = 3; read at source (pp.
+  193-200) and written out at n = 4. The places n enters are computed: (9.117) at every n, S~ = S-bar for the Minkowskian
+  model, with one misprint named in his intermediate line (-2i rho^(rho^ d - n + 1) for -2i rho^(2 rho^ d - 2n + 3)); the
+  indicial roots -lambda and -n + 2 + lambda-bar; the densities' n/2 = 2 in the embedding and in (3.46), so Theorem 9.41
+  takes alpha + 2 and the window (-2 + beta_-, -2 + beta_+); (9.122)'s leading part. RL leaves the twenty-two rows, each
+  keeping RB. Five roots remain: RB and RU, the source's kind; RC and RI, companion results at n = 4; RP, a computation.
+  OPEN, in this order: RC; RP; RI.
+
+### 4.97 RC READ for general n (READ, deduced; D174)
+
+- 10.81: [Hin23d] constructs the b-, scattering, scattering-b-transition and 3b-calculi on compact n-dimensional
+  manifolds (pp. 22, 28-31, 37, 59) and characterizes 3b-Sobolev spaces by the Fourier transform with X in R^(n-1)
+  (Propositions 4.24 and 4.29, pp. 96-101), which [Hin26c] Lemma 3.7 follows; Lemma 3.9's b-regularity, Lemma 13.13's
+  microlocal parametrix and Lemma 14.6's integration in t carry no numeral of the dimension. RC is settled; 10.41 (b)
+  leaves the readings, thirty-four rows remain. Four roots remain: RB and RU, the source's kind; RI, companion results at
+  n = 4; RP, a computation. OPEN, in this order: RP; RI.
+
+### 4.98 The sixty-eighth verifier seated (D175)
+
+- On D169-D172: no majors. Seated: two semicolons inside B-MAP.tsv entries made commas, so that either separator counts
+  214 places and 221 placements; his varrho^2 (Kerr's area-radius factor) for the record's rho^2 in (5.17)'s prefactor,
+  in 10.18, 10.79 and `hthresh5.py`; 10.22 (e)'s r = m named as his inner bound; e named e_C beside e^(1/2); 10.77's
+  counts marked D169's; N5's label; and, on the fibre inner product, the reading that (5.17) asks for one fixed in
+  advance, with `hthresh5.py` T6 computing the threshold for B with e' = 10^-5, 1/10 and 3, each below -100. Not changed:
+  the record's statement numbers are a counter apart from its section numbers (Lemma 10.58 in section 10.78, as
+  Proposition 10.57 in section 10.58), and 10.74 says 10.21 (c)'s and 10.23 (c)'s one reading was Theorem 5.2's, not that
+  it was their one input.
+
+### 4.99 RI written out at n = 4 (computed, deduced; D176)
+
+- 10.82 and `iotasol5.py` J1-J5 (5/5, mutants 5/5): [Hin26] section 9 read at source (pp. 165-199) and written out at n =
+  4. The dimension enters through c = (n - 1)/2 (the thresholds at v = 0, at I+ and at tf's outgoing end, l_scf < 3/2),
+  the five-dimensional roots and eps_ind (10.24, 10.35, 10.52; t2 and t3 join the expansions), the I+ index sets (10.44)
+  and the states (10.28-10.30, 10.34). The index 0 half of Proposition 9.2 is written out through [Hin26c] section 10.1.2
+  at n = 4 ((lx)), Proposition 8.6 and Corollary 9.39 at n = 4. RI leaves its twelve rows; 10.47 (d)-(e) now rest on RB.
+  Thirty-four rows take a reading. Three roots remain: RB and RU, the source's kind; RP, a computation. OPEN: RP.
+
+### 4.100 The sixty-ninth verifier seated (D177)
+
+- On D173-D175: no majors. Seated: (3.46)'s factor |sigma|^(-n/2 - alpha), the print's sign of n/2 reversed (10.80,
+  `tfnorm5.py` R3, B-MAP 10.39 (e)); R3's embedding at ztf; R4's S term; 10.74's 34; the horizon threshold's dependence
+  on the fibre inner product (`hthresh5.py` T6: positive at e' = 10, crossing at 7.764), with 10.79 resting on the
+  existential reading of Proposition 7.4; 10.81's wording on [Hin23d], the scaled bounded geometry paper and Lemma
+  13.13's numerals; 10.41 (b) kept in READINGS.tsv with '-'; the paper's 6/6.
+
+### 4.101 RP settled (deduced; D178)
+
+- 10.83: what the six rows use of the zero energy pole is Hintz's structure -- the augmented inverse uniformly bounded
+  near 0 (Proposition 10.7, at n = 4 by (xviii)) and the augmentation's explicit sigma^-1 and sigma^-2 columns, which at
+  n = 4 carry no logarithm (10.39) -- not a Laurent expansion; Remark 10.8's sigma log |sigma| terms do not arise at n =
+  4. RP leaves its six rows. Thirty-four rows take a reading; they rest on RB and RU alone, the source's own steps at
+  every n. None of the record's roots is open. Not used and not settled: logarithms inside the augmented inverse at n = 4
+  (the five-dimensional tails).

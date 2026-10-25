@@ -762,34 +762,34 @@ instead of by its PID; it killed the issuing shell and the selftest it named, no
 in part by the thirteenth verifier (D44). [D45 withdraws this entry's causal reading: the stored samples do not give the
 direction of the untrapping, the zero of W moves inward, and nothing is said of the event horizon.]
 
-**D44 (2026-10-20): the thirteenth verifier -- D38-D41, the repairs of D40, sections 10.2 and 10.3.** Two major
-findings. (1) Lemma 11.0 ran Lemma 9.5's identity on the region between {v = v_start} and Sigma_tau, which is unbounded
-toward past null infinity, where the flux of d^gamma u_1 is known to vanish only at the orders Theorem P controls (k =
-6): the twelfth verifier's gap was moved, not closed. Repaired by running the identity for each approximating solution
-g_n of Proposition 9.8 on P cap {tau_n <= tau' <= tau}, the region of (9.8)'s own identity, where the data on
-Sigma_tau_n are the approximant's residual, explicit, with constants independent of n, and passing the bounds to the
-limit by Arzela-Ascoli; the sup-against-L^2 bookkeeping is written (floor((N + 2)/2) <= max(4, N - 3)). The verifier
-proposed a finite derivative budget instead; k = 6 is fixed in Theorem P, so that route would re-run section 9 at a
-higher k, and the one taken keeps every order. (2) Section 10.2's break time at the first seed, 1.4516 / 1.4508, was a
-single step of the root count on both grids, and the amplification 1.00 was sampled before the field had grown: the grid
-agreement supported a transient, not a persistent second zero -- as D43's criterion had found the same day. Nine minor
-findings and notes, all seated: Proposition 11.2(i)'s nullity argument used the transverse Jacobi field d_{v0} gamma
-with the false g0(ell, d_v) = 0 (now gamma' and d_{xhat0} gamma only, with the limits in E_1) and called -(2/r) xi' a
-Lipschitz perturbation (it is the unperturbed angular operator); Proposition 11.2(iv) had e^{-2b} = 1 + 2 d_v ů (the
-factor is 1, as B2 computes); "an order" is one power of r, two of s, in Theorem M(a) and Proposition 11.3's hypothesis;
-Proposition 10.1(iii)-(iv) hid a factor H ~ l^2 in Phi~ (the two derivatives lost are orbit-space for F_ab and angular
-for F) and left the l = 0 gauge unfixed (h_0 = c K, now stated); the even-l claim for the tensor type is not needed and
-no longer made; T5's region r* in [-20, 50] was covered by the computed slice only to tau = 175 at T = 120 (now T = 170,
-covered to 275, the checks restricted to the covered range, the figures unchanged to two digits), and its verdict is a
-finite-time observation (rates above 0.08/r_h excluded); T6's "approaching 7 from above" is origin-dependent at that
-level (the origin shifted by the launch radius gives 6.89 and 7.23; that the pair brackets 7 is now checked); 10.2's
-"ceases to be trapped" and "ceases to be outflow" are given one meaning each, and the amplification is called the lower
-bound it is. Open: the literature identifications ([KI03] (3.13)-(3.14), [HKW18] (169)-(186), [CYDL03] (14)) could not
-be re-fetched by the verifier (403) and stand as READ by this session. Attacks that held: Lemma 11.2's coefficient 2/(k
-- 3) and G_4 = 2 int S_3, the induction at J = 3, Proposition 11.3(0) with its controls, the ODE classes of 11.2(i),
-10.3's regularity at the horizon and the absence of l = 1, settle5 6/6 with mutants 6/6, growth5's fields against
-hf_mirror5's form and every figure of 10.2 from the pinned data, no line over 121 characters, no model identifier. The
-repairs of this entry, D42's section 10.4 and D43's deeper excisions have not been read by a verifier.
+**D44 (2026-10-20): the thirteenth verifier -- D38-D41, the repairs of D40, sections 10.2 and 10.3.** Two major findings.
+(1) Lemma 11.0 ran Lemma 9.5's identity on the region between {v = v_start} and Sigma_tau, which is unbounded toward past
+null infinity, where the flux of d^gamma u_1 is known to vanish only at the orders Theorem P controls (k = 6): the
+twelfth verifier's gap was moved, not closed. Repaired by running the identity for each approximating solution g_n of
+Proposition 9.8 on P cap {tau_n <= tau' <= tau}, the region of (9.8)'s own identity, where the data on Sigma_tau_n are
+the approximant's residual, explicit, with constants independent of n, and passing the bounds to the limit by
+Arzela-Ascoli; the sup-against-L^2 bookkeeping is written (floor((N + 2)/2) <= max(4, N - 3)). The verifier proposed a
+finite derivative budget instead; k = 6 is fixed in Theorem P, so that route would re-run section 9 at a higher k, and
+the one taken keeps every order. (2) Section 10.2's break time at the first seed, 1.4516 / 1.4508, was a single step of
+the root count on both grids, and the amplification 1.00 was sampled before the field had grown: the grid agreement
+supported a transient, not a persistent second zero -- as D43's criterion had found the same day. Nine minor findings and
+notes, all seated: Proposition 11.2(i)'s nullity argument used the transverse Jacobi field d_{v0} gamma with the false
+g0(ell, d_v) = 0 (now gamma' and d_{xhat0} gamma only, with the limits in E_1) and called -(2/r) xi' a Lipschitz
+perturbation (it is the unperturbed angular operator); Proposition 11.2(iv) had e^{-2b} = 1 + 2 d_v ů (the factor is 1,
+as B2 computes); "an order" is one power of r, two of s, in Theorem M(a) and Proposition 11.3's hypothesis; Proposition
+10.1(iii)-(iv) hid a factor H ~ l^2 in Phi~ (the two derivatives lost are orbit-space for F_ab and angular for F) and
+left the l = 0 gauge unfixed (h_0 = c K, now stated); the even-l claim for the tensor type is not needed and no longer
+made; T5's region r* in [-20, 50] was covered by the computed slice only to tau = 175 at T = 120 (now T = 170, covered to
+275, the checks restricted to the covered range, the figures unchanged to two digits), and its verdict is a finite-time
+observation (rates above 0.08/r_h excluded); T6's "approaching 7 from above" is origin-dependent at that level (the
+origin shifted by the launch radius gives 6.89 and 7.23; that the pair brackets 7 is now checked); 10.2's "ceases to be
+trapped" and "ceases to be outflow" are given one meaning each, and the amplification is called the lower bound it is.
+Open: the literature identifications ([KI03] (3.13)-(3.14), [HKW18] (169)-(186), [CYDL03] (14)) could not be re-fetched
+by the verifier (403) and stand as READ by this session. Attacks that held: Lemma 11.2's coefficient 2/(k - 3) and G_4 =
+2 int S_3, the induction at J = 3, Proposition 11.3(0) with its controls, the ODE classes of 11.2(i), 10.3's regularity
+at the horizon and the absence of l = 1, settle5 6/6 with mutants 6/6, growth5's fields against hf_mirror5's form and
+every figure of 10.2 from the pinned data, no line over 121 characters, no model identifier. The repairs of this entry,
+D42's section 10.4 and D43's deeper excisions have not been read by a verifier.
 
 **D45 (2026-10-20): the fourteenth verifier -- D42-D44, the repairs of D44, sections 10.2-10.4.** Verdict: the
 mathematics repaired in D44 holds. Lemma 11.0's new argument closes the thirteenth verifier's gap rather than moving it
@@ -1167,25 +1167,27 @@ delta and the step E^{2,(j)}_L <~ E^{0,(j+1)}_L by Lemma 3.2; Lemma 5.3 with its
 lim r^2 V^(1) = -2, lim V_Z = -8 M/r^3, the polynomial Q_1 and R_Z); Propositions 5.2 and 5.4, Lemma 5.5 re-read; (2.4)
 Phi^(j) := (1 - 2M/r)^-1 M s^2 nabla_L Phi^(j-1), (2.19)-(2.23); Proposition 8.2 and Lemma 8.3.
 
-*What was computed.* hierarchy5.py (H1) the commuted equation of Psi_1 := f^-1 r^2 nabla_L Psi for a symbolic potential:
-L Lbar Psi_1 = -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V) Psi, Vcal_1 = Vcal
-- 2/r^2 + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2); in four dimensions the same computation gives Vcal_1 =
-l(l + 1)/r^2 + V^(1), his V^(1) exactly (his 14 M/r^3 counts the radiation field's 2M/r^3 from V; this entry first
-compared shifts from different baselines and called them different, repaired on the nineteenth verifier's finding), with
-the first-order term -(2/r)(1 - 3M/r), which his remark does not print, and the Psi term f (2M/r^2 - r^2 V' - 2 r V); the
-normalisation without f^-1 was tried and leaves a Psi term -2 k^2 mu f/r^5, not uniform in l (the control). (H2) the
-p-current identity for Psi_1: the first-order term adds 2(1 - 2 mu/r^2) to the |nabla_L Psi_1|^2 bulk, positive beyond
-r^2 = (10 + p) mu/(4 + p); the Psi_1 nabla_L Psi_1 term integrated by parts to the bulk r^(p-6) B_1. (H3) B_1 = ((2 -
-p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2 for Sigma, positive everywhere for l >= 1; for phi, B_1 >= (1/4)(2 - p)(k^2 -
-5/4) for r >= R_1 = 8.14 r_h at k^2 = 8 and everywhere at k^2 = 24, 48, 80 (p in [1/10, 19/10], a grid of 21, the first
-root in mu/r^2 found numerically to thirty digits); the base bulk B_0 = ((2 - p)/2)(k^2 + 3/4) + (9/8)(4 - p) mu/r^2 for
-Sigma and R_0 = 10.56, 4.61, 3.04, 2.29 r_h for phi; (A.9): r^4 |V_phi|/mu <= 12 (k^2 + 3)/(k^2 - 3) = 26.40, 15.43,
-13.60, 12.94 and r^3 |d_r(r^2 V_phi)|/mu <= 24 (k^2 + 3)/(k^2 - 3) = 52.80, 30.86, 27.20, 25.87, the suprema at infinity
-(this entry first gave grid values over r <= 6.3 r_h, 25.13 and 47.84 at k^2 = 8, repaired on the nineteenth verifier's
-finding), with V_phi -> -12 mu/r^4; (A.3): min r^2 (k^2/r^2 + V_phi) = 4/11, 124/9, 628/17, 5692/83, at the horizon, and
--1 at k^2 = 3 (the control). (H4) l = 0: V_inf = 3/4, V^(1)_inf = -5/4; the base bulk (3/8)(2 - p) + (9/8)(4 - p) mu/r^2
-is negative for p > 2 once r^2 > 3(4 - p) mu/(p - 2); in four dimensions the l = 0 bulk is (3 - p) M r^(p-6), positive to
-p = 3 (the control asserts the five-dimensional sign of it). Selftest 4/4 (about a minute), mutants 5/5.
+*What was computed.* hierarchy5.py (H1) the commuted equation of Psi_1 := f^-1 r^2 nabla_L Psi for a symbolic
+potential: L Lbar Psi_1 = -(2/r)(1 - 2 mu/r^2) nabla_L Psi_1 - f Vcal_1 Psi_1 + f (9 mu/(2 r^3) - r^2 V' - 2 r V)
+Psi, Vcal_1 = Vcal - 2/r^2 + 12 mu/r^4, V^(1)_inf = k^2 - 5/4 = (l - 1/2)(l + 5/2); in four dimensions the same
+computation gives Vcal_1 = l(l + 1)/r^2 + V^(1), his V^(1) exactly (his 14 M/r^3 counts the radiation field's 2M/r^3
+from V; this entry first compared shifts from different baselines and called them different, repaired on the
+nineteenth verifier's finding), with the first-order term -(2/r)(1 - 3M/r), which his remark does not print, and the
+Psi term f (2M/r^2 - r^2 V' - 2 r V); the normalisation without f^-1 was tried and leaves a Psi term -2 k^2 mu
+f/r^5, not uniform in l (the control). (H2) the p-current identity for Psi_1: the first-order term adds 2(1 - 2
+mu/r^2) to the |nabla_L Psi_1|^2 bulk, positive beyond r^2 = (10 + p) mu/(4 + p); the Psi_1 nabla_L Psi_1 term
+integrated by parts to the bulk r^(p-6) B_1. (H3) B_1 = ((2 - p)/2)(k^2 - 5/4) + (57/8)(4 - p) mu/r^2 for Sigma,
+positive everywhere for l >= 1; for phi, B_1 >= (1/4)(2 - p)(k^2 - 5/4) for r >= R_1 = 8.14 r_h at k^2 = 8 and
+everywhere at k^2 = 24, 48, 80 (p in [1/10, 19/10], a grid of 21, the first root in mu/r^2 found numerically to
+thirty digits); the base bulk B_0 = ((2 - p)/2)(k^2 + 3/4) + (9/8)(4 - p) mu/r^2 for Sigma and R_0 = 10.56, 4.61,
+3.04, 2.29 r_h for phi; (A.9): r^4 |V_phi|/mu <= 12 (k^2 + 3)/(k^2 - 3) = 26.40, 15.43, 13.60, 12.94 and r^3
+|d_r(r^2 V_phi)|/mu <= 24 (k^2 + 3)/(k^2 - 3) = 52.80, 30.86, 27.20, 25.87, the suprema at infinity (this entry
+first gave grid values over r <= 6.3 r_h, 25.13 and 47.84 at k^2 = 8, repaired on the nineteenth verifier's
+finding), with V_phi -> -12 mu/r^4; (A.3): min r^2 (k^2/r^2 + V_phi) = 4/11, 124/9, 628/17, 5692/83, at the horizon,
+and -1 at k^2 = 3 (the control). (H4) l = 0: V_inf = 3/4, V^(1)_inf = -5/4; the base bulk (3/8)(2 - p) + (9/8)(4 -
+p) mu/r^2 is negative for p > 2 once r^2 > 3(4 - p) mu/(p - 2); in four dimensions the l = 0 bulk is (3 - p) M
+r^(p-6), positive to p = 3 (the control asserts the five-dimensional sign of it). Selftest 4/4 (about a minute),
+mutants 5/5.
 
 *What was deduced.* Proposition 10.6, the rate (1 + tau/sqrt mu)^(-4+p+3 delta) for Sigma and phi at l >= 2 against
 I^(1)[u], by his Proposition A.5's argument on (10.34)-(10.35) and H3: the base hierarchy, the commuted one with the bad
@@ -4249,24 +4251,25 @@ modification steps matched step by step against their source proofs, read at sou
 Proposition 9.2 (2) (10.37 (c)). And [Hin26] Propositions 8.11 (10.32 (c)) and 7.4 (10.36 (b)). Sixteen of 61 written
 out (10.75); 45 rest on the censuses. Paper: "but for one".
 
-**D149 (2026-10-24): the sixty-first verifier seated; the continuation across the horizon proved.** The verifier read
-D146-D147 (10.73-10.75 (i)-(xi)) and found four majors. M1: 10.75 (i)'s step (7) used omega's continuation inside the
-horizon, which 10.27 (b) had left OPEN and 10.55 (c) does not give. Repaired by proof: Lemma 10.56 (10.76) -- for z X'
-= A(z) X with A smooth, a solution vanishing to infinite order on one side vanishes (a Gronwall bound), and one smooth
-up to 0 from one side extends as a smooth solution (Borel's lemma and variation of constants against a flat error); the
-same for f phi'' + Q phi' + R phi = 0 with f's zero simple. With it, deduced at proof level: every operator's radial
-system has f = g^-1(dr, dr); omega is smooth up to r_h by the radial components of delta* omega = u, a regular system;
-it continues as a solution of box^Ups omega = 0, so Proposition 6.12 applies on X; and the interior uniqueness (10.15
-(a), 10.16, 10.55 (c)) is proved in place of 'its Frobenius exponents are finitely many'. M2: 10.75 (iii) rests on 10.19
-(d)'s reading; marked, and B-MAP.tsv's row says so. M3: 10.15 (a) and 10.63 (c) named no place; given their places
-(the replaced citation; 10.66's seven), so 52 name some and 9 none, 96 placements (32 computed, 52 section, 11
-arithmetic, 1 choice; 10.31 (b)'s Z4 token counted computed, m6), 31 rows on a reading. M4: the paper called the
-deductions' inputs computed and READ; it now names readings, the modification steps' conclusions, among them (31 of 61;
-ten of the sixteen written out), in the abstract, 1.3 and 8.8. Minors: (xi) Proposition 10.15, with Q's order deduced
-from Proposition 10.45; (viii) [CD03]'s printed s = t - 1 and (8.7) noted; (iv) Corollary 9.43's tf-admissibility
-hypothesis placed; (ii) E5 for l <= 12, 10.24 (a) for every l; (vi) the Killing lift from R x (R^n \ 0), a superset,
-and 'justifies it in one line'; (v) Lemma 2.13 on b-manifolds; paper 1.3 adds the record's choice. The verifier did not
-read D148.
+**D149 (2026-10-24): the sixty-first verifier seated; a lemma at the horizon proved, the continuation deduced.** The
+verifier read D146-D147 (10.73-10.75 (i)-(xi)) and found four majors. M1: 10.75 (i)'s step (7) used omega's continuation
+inside the horizon, which 10.27 (b) had left OPEN and 10.55 (c) does not give. Repaired by proof: Lemma 10.56 (10.76) --
+for z X' = A(z) X with A smooth, a solution vanishing to infinite order on one side vanishes (a Gronwall bound), and one
+smooth up to 0 from one side extends as a smooth solution (Borel's lemma and variation of constants against a flat
+error); the same for f phi'' + Q phi' + R phi = 0 with f's zero simple. With it, deduced at proof level: every
+operator's radial system has f = g^-1(dr, dr); omega is smooth up to r_h by the radial components of delta* omega = u, a
+regular system; it continues as a solution of box^Ups omega = 0, so Proposition 6.12 applies on X; and the interior
+uniqueness (10.15 (a), 10.16, 10.55 (c)) is deduced at proof level (10.76 (b); D157) in place of 'its Frobenius
+exponents are finitely many'. M2: 10.75
+(iii) rests on 10.19 (d)'s reading; marked, and B-MAP.tsv's row says so. M3: 10.15 (a) and 10.63 (c) named no place;
+given their places (the replaced citation; 10.66's seven), so 52 name some and 9 none, 96 placements (32 computed, 52
+section, 11 arithmetic, 1 choice; 10.31 (b)'s Z4 token counted computed, m6), 31 rows on a reading. M4: the paper called
+the deductions' inputs computed and READ; it now names readings, the modification steps' conclusions, among them (31 of
+61; ten of the sixteen written out), in the abstract, 1.3 and 8.8. Minors: (xi) Proposition 10.15, with Q's order
+deduced from Proposition 10.45; (viii) [CD03]'s printed s = t - 1 and (8.7) noted; (iv) Corollary 9.43's
+tf-admissibility hypothesis placed; (ii) E5 for l <= 12, 10.24 (a) for every l; (vi) the Killing lift from R x (R^n \
+0), a superset, and 'justifies it in one line'; (v) Lemma 2.13 on b-manifolds; paper 1.3 adds the record's choice. The
+verifier did not read D148.
 
 **D150 (2026-10-25): eleven more modification steps written out.** Read at source and matched step by step at n =
 4 (10.75 (xvii)-(xxvii)): [Hin26] Proposition 10.7 and Theorem 10.1, whose proof is 10.40 (a)-(c) (10.39 (e)); Lemmas
@@ -4286,3 +4289,221 @@ used, Step 2 the record's modification), (2.27) with Proposition 2.25's proof, b
 section 5.6's boost pullback (10.62 (c)). Two more places named ((8.33)'s vector in so(4); the boost pullback at r^-2).
 Thirty of 61 written out, eighteen on a reading; 31 rest on the censuses.
 
+**D152 (2026-10-25): [Hin23a] section 3's four steps written out.** Propositions 3.17 (10.64 (b)), 3.29 (10.64 (e))
+and 3.32 with Lemma 3.33 (10.64 (g)), and Corollary 3.31 (10.64 (f)), read at source (pp. 15-30) and matched step by
+step to exterior5.py X1-X7: the leading operator with Lap + 3/4, the symmetric density, Q-bar, the h-free lower
+triangular A, the h-entries r^(-1/2) below his, the quadratic term in the error, the Sobolev counts, and Lemma 3.33 not
+used since A^0_h = 0. Thirty-four of 61 written out, eighteen on a reading; 27 rest on the censuses.
+
+**D153 (2026-10-25): the sixty-second verifier seated.** It read D148-D149: Lemma 10.56 and 10.76 passed line by
+line, 10.75 (xii)-(xvi) and the D149 repairs matched their sources, and B-MAP's counts reproduced. M1: the paper's
+verifier record, D149's heading here and ROUTES 4.80's heading said the continuation was proved; only Lemma 10.56 is,
+the continuation deduced at proof level from it -- now worded so (10.27's notes too). Minors: 10.76 (a)'s phi''
+coefficient is a constant multiple of f (-f, -f/2 in his convention); Lemma 10.56 (c) says flat; the sigma = 0 remark
+names its source (u - g-dot^Ups(b-dot))_(r nu) and the subtraction of the Killing and s1 states; the interior is
+Lemma 10.56 (c) (B-MAP, 10.55 (c), ROUTES); 10.74's "seven places 10.66 computes" is "places (four computed)"; [CD03]'s
+s = t - 1 is on p. 37 (10.75 (viii), 10.66's READ), and (viii) no longer calls it a reading; 10.75 (xii)-(xiii)'s item
+references name Propositions 10.25 and 10.27; (xv)'s cokernel argument names (7.13), (7.15) and the pairings; three
+wrapped lines that began with a list marker rewrapped, and the wrapping now avoids them; "READ at source since"
+dropped; the paper's md5 rows refreshed and its record scoped to (i)-(xi).
+
+**D154 (2026-10-25): [Hin26] section 5's exterior steps written out.** Proposition 5.11 with Proposition 5.14 and
+Corollary 5.15 (10.48 (b)): (4.13) term by term, the h-free parts computed (scri5.py), the h-dependent ones [Hin23a]'s
+(3.30) (READ) at r^(-1/2) below his (X7), the annihilating diagonal entries at 10.44 (b)'s five-dimensional exponents.
+Theorem 5.17 (10.48 (c)), whose proof is [Hin23a] Corollary 3.36's, now on 10.75 (xxxi)-(xxxiv) instead of a reading
+of [Hin23a] at n = 4, so 10.48 (c)'s reading is cleared (31 rows on a reading). Thirty-six of 61 written out, eighteen
+on a reading; 25 rest on the censuses.
+
+**D155 (2026-10-25): [Hin26] section 12 written out.** Theorem 12.3, the construction of Phi in section 12.2.1,
+and Theorem 12.8's peeling of Corollary 11.66's solution (pp. 304-318), matched step by step at n = 4 without the class
+(10.62 (b), 10.75 (xxxvii)) and in it (10.47 (d)-(e), (xxxviii)-(xxxix)). Seventeen places named in B-MAP (iota+ over
+S^3, the parameters at (2, 0), the source at t*^-4, the induction from alpha_min, Res(L-bar, 2) = {0}, the lists, Case
+A's K+ order in the class); section 9's iota+ solution theory marked as the reading it is on 10.47 (d) and 10.62 (b)
+(33 rows on a reading). Thirty-nine of 61 written out, twenty-one on a reading; 22 rest on the censuses.
+
+**D156 (2026-10-25): [Hin26] Theorem 11.12 and [Hin26a] Theorem 6.2 written out.** Theorem 11.12 has no proof
+of its own -- [Hin26c] Theorem 11.1 applied through Corollary 11.10 in the unweighted densities, at n = 4 with the
+shifts (2, 5/2, 1/2) (10.42 (e)). [Hin26a] Theorem 6.2's proof (pp. 67-69): (6.4) with the shift 3/2 and three angular
+copies (10.21 (a)), Part (2)'s injectivity (10.21 (c)) and the whole (10.56 (b)), each step matched to cpmodes5.py,
+solv5.py, Proposition 10.9 or a named section. Eight places named; 10.21 (c) and 10.56 (b) marked as resting on 10.56
+(a)'s reading (35 rows on a reading). Forty-three of 61 written out, twenty-four on a
+reading; 18 rest on the censuses.
+
+**D157 (2026-10-25): the sixty-third verifier seated.** It read D150-D153 (10.75 (xvii)-(xxxiv)) against the
+sources: no major; (xxii), (xxiii), (xxvii) and (xxxiii) partial; B-MAP's counts, D153's repairs, the paper's counts and
+the hygiene passed. Minors seated: m1, (xxvii) now names [Hin24b]'s step replacing g-dot^Ups by g-dot (Lemma 3.14 and
+integration by parts against h*); m2, at n = 4 (A_h)_(7,6)'s (2, 0) enters at Step 3, not Step 2, and Step 3's min Re
+E^C_I > 1 and (11.26)'s remainder class are named; m3, two source misprints no longer carried -- [Hin23a] (3.47)'s 2
+rho_I^-1 rho^3 is 2 rho_I rho^-3 (2 rho_I rho^(-7/2) at n = 4, (xxxiii) and 10.64 (f)), and [Hin26c] p. 60's
+(|sigma|^(3/2))^2 is (|sigma|^(-3/2))^2 with r-hat = r |sigma| ((xvii)); m4, three places added to B-MAP (10.49 (a)'s
+I+ threshold 3/2, 10.66 (f)'s spin order r^-3 and (3.43)'s normalization 2/pi^2 over S^3), so D150's nine was a floor;
+m5, D149's entry here says the interior uniqueness is deduced; m6, ROUTES 4.81's "none of them in [Hin23a]" corrected
+(10.48 (c), written out in D154), the paper's [Hin26] sections already section 11 (D155); m7, Appendix C's sources and
+verifier record, and [Hin23a]'s p. 15; m8, "at most about seven pages" ((xvii)'s section 10.2) and (xxx)'s pp. 108-109;
+m9, (xxxiv)'s B_g; m10, (xviii)'s Paley-Wiener representation, (xxiii)'s (5.46) and (xxviii)'s Part (2) and Step 5
+range named; m11, 10.74's n/2 sentence corrected.
+
+**D158 (2026-10-25): [Hin26a] Appendix B written out.** Proposition B.2's microlocal Fredholm argument and
+relative index count (10.23 (b)), Theorem B.4's energy, radial-point and propagation estimates on edge-b spaces (10.23
+(c)) and section B.4's conclusion (10.23 (d)), read at source (pp. 87-98) and matched step by step: the scalar part's
+shift 3/2 and its symmetry for r^3 dr, the thresholds from K1-K2 and F4, the Mellin weight -2 + beta, the index counts
+2, 3, 1 and F5's free roots, the cf positivity and characteristic polynomial (F3, C7), the density r^4 and the data
+weights (F4). Six places named. Forty-six of 61 written out, twenty-seven on a reading;
+15 rest on the censuses.
+
+**D159 (2026-10-25): [Hin26c] Proposition 9.10 and Theorem 9.5 (3), (5) written out.** Proposition 9.10's
+proof (pp. 167-168) is written with (n - 1)/2 and r^(n-1) at source; at n = 4 V1's skewness and A_w + S-bar = D S-bar D
+give 10.19 (a)'s threshold. Theorem 9.5 (3)'s augmentation argument and (5)'s embedding and ODE (pp. 172-173) give
+10.55 (b) on 10.19 (d)'s and 10.53 (e)'s readings. Three places named. Forty-eight of 61 written out,
+twenty-nine on a reading; 13 rest on the censuses.
+
+**D160 (2026-10-25): [Hin26] sections 11.3-11.6 written out.** Propositions 11.17 and 11.32 with Lemmas 11.18-11.19 in
+the class (10.45 (b)), Steps 1-4 without it (10.61 (b)), the class's reductions of his steps (10.43 (c)) and their
+conclusion (10.45 (e)), read at source (pp. 231-262) and matched step by step: Theorem 11.12, Propositions 11.14 and
+11.16 at n = 4 ((xl), (xxii), 10.44 (d)), the iota+ cap 3/2 + (1 - e_Ups) gam_Ups, the states one order faster, S_1 =
+R^4, b in R + so(4), the boost's iota+ order 2, the unweighted density |dx|/|x|^4. Section 9's solution theory
+(Corollary 9.12, Propositions 9.11, 9.30, 9.35) is a reading at n = 4, as (xxxvii) found for Corollary 9.18; so is
+[Hin26c] Proposition 13.18. Fourteen places named. Fifty-two of 61 written out, thirty-two on a reading; 9 rest on the
+censuses.
+
+**D161 (2026-10-25): [Hin26] sections 11.7-11.8 written out.** Proposition 11.51's induction, Theorem 11.59's
+four parts and Corollary 11.66 with Lemma 11.65, read at source (pp. 262-295) and matched in the class (10.46 (a)-(b))
+and without it (10.61 (c)): S_1 = R^4 and so(4), absent in the class; Proposition 10.46's lists, or 10.42 (ii)'s, in
+place of (9.39b)'s; one order of loss in the class; Remark 10.8's logarithm 10.35 (b)'s question. Twelve places named.
+Fifty-five of 61 written out, thirty-five on a reading; 6 rest on the censuses, none
+in [Hin26]: [Hin26c]'s sections 5 and 7-13 and [Hin26a]'s Theorem 5.2.
+
+**D162 (2026-10-25): the sixty-fourth verifier seated.** It read D154-D157 at source and found one major and ten
+minors. The major (M1): (xxxvii) did not place S^(0)_1, whose patch -d chi_K (x)_s omega^(0)_b,s1 has iota+ order 1 in
+every dimension. Read at source ((1.39), footnote 143, (11.135a), Step 1.3), the patch is pure gauge for g-bar to leading
+order, the gauge 1-form omits it, and its source [L_b, chi_K] h_b,s1 has order 5 at n = 4 (10.28's A^(3,0)). Its
+quadratic terms have order 4, so Theorem 12.8 subtracts S^(0)'_1 at lam_0 = 2. Placed in (xxxvii) and 10.61 (a); B-MAP
+gains one place. The minors are seated: two reading marks, whole-section citations of census rows counted (thirteen
+items now), wording and pages; 10.75's page-count sentence, stale since D160, corrected. Fifty-five of 61
+written out, thirty-seven on a reading; 6 rest on the censuses.
+
+**D163 (2026-10-25): [Hin26c] sections 7-8 written out.** Section 7's radial point, trapping and commutator estimates and
+section 8's energy estimates, read at source (pp. 114-157), matched at n = 4 as (lvi)-(lvii). The trapping estimate is
+[Hin21] Theorem 3.9, read at source and stated for a manifold of any dimension (p. 36). The one new computation is
+(7.22)'s density, 2 rho_+^-5 x_I^-8 for his 2 rho_+^-4 x_I^-6, with its symmetric operator (x_I d_x_I - 3), and (8.14)'s
+skewness, checked exactly with the constant n - 2 as a failing control. Eleven places named, two corrected. Fifty-seven
+of 61 written out, thirty-seven on a reading; 4 rest on the censuses: 10.19 (d), 10.22 (e), 10.53 (e) and 10.58 (c).
+
+**D164 (2026-10-25): [Hin26c] Theorems 9.5 and 9.16 written out.** Theorem 9.5's proof (section 9.2.3, with
+Propositions 9.9 and 9.11 and Lemma 9.13) and Theorem 9.16's (section 9.3) read at source (pp. 161-193) and matched at
+n = 4 as (lviii)-(lix). Section 9.3 is written for a general stationary wave operator on R_t x X, and Lemma 9.13 for
+fields spanning V(S^(n-1)); the n = 4 inputs are the horizon (10.18), the trapped set and loss (10.19 (b)) and the
+dynamics (10.19 (c)). Both rows keep one reading, his scalar-to-bundle remark. Eight places named.
+Fifty-nine of 61 written out, thirty-nine on a reading; 2 rest on the censuses: 10.22
+(e) and 10.58 (c).
+
+**D165 (2026-10-25): the sixty-fifth verifier seated.** It read D158-D162 at source and found three majors and
+eight minors. M1: (li), 10.43 (c), rests on (xlix)'s readings and 10.46 (a)-(b)'s and did not say so; it now does, B-MAP
+marks it, and the counts of D162-D164 on a reading were one short. M2: (xxviii) credited the source with the root gap;
+the source's Step 5 uses Theorem 7.1 (2) and passes over the endpoint A^(-C_0), and the root gap is now the record's own
+route, with A^(2-) checked inside 10.21 (e)'s range. M3 is answered at source: the subtraction of D_U Phi(b', S',
+S^(0)'_1, (0, f'_1), 0, ...) is his Step 1.3's general case (p. 315), now quoted; only its placement at lam_0 = 2 is the
+record's, now marked. Minors seated: (11.135a)'s gauge 1-form, the commutator's +2, three kinds relabelled computed,
+10.32 (b)'s placed column, 10.45 (e)'s weight, (11.107b), (11.66a)-(11.66b), (11.227a), the closing paragraph's ranges,
+10.62 (b)'s inputs. The note on D163's counts was already repaired in D164. Fifty-nine of 61 written out,
+forty on a reading; 2 rest on the censuses.
+
+**D166 (2026-10-25): [Hin26c] Theorem 10.1, Theorem 11.1 and section 13.2 written out.** The second-last census row,
+10.58 (c), as 10.75 (lx): Definitions 5.13, 5.15 and 5.18, section 10's normal operator analysis (Propositions 10.6,
+10.12 and 10.14 with Lemmas 10.7-10.10) and its proof of Theorem 10.1, Theorem 11.1's approximation argument, and
+section 13.2's Corollary 13.17 and Proposition 13.18, read at source and matched at n = 4. New instrument iplusnorm5.py
+(N1-N9, 9/9, mutants 9/9; Proposition 10.57) computes each place at n = 3 against print and at n = 4; nineteen places
+named. His (1.3.1) sum omits Re S and his (1.3.2) sum prints +4 Re S where -4 Re S gives his stated threshold; both are
+the same at n = 3 and n = 4. Lemma 10.9's parametrix, Hintz's 0-calculus Theorem 1.5 (arXiv:2112.08130), is stated for an
+n-dimensional manifold with boundary: READ. The row keeps a reading, now (lvi)-(lix)'s and 10.20's.
+Sixty of 61 written out, forty-one on a reading; one rests on its census: 10.22 (e).
+
+**D167 (2026-10-25): [Hin26a] Theorem 5.2 written out; no census row left.** The last census row, 10.22 (e), as
+10.75 (lxi): his section 5.2 read at source (pp. 41-66) and matched at n = 4, every five-dimensional place computed in
+10.13, 10.14 and 10.22 or READ in 10.65; nine places named. It rests on no reading; 10.21 (c) and 10.23 (c), whose one
+reading was Theorem 5.2's, are re-marked with it, and (xlii), (xliii) and (xlv) say so. All 61 modification steps are
+written out at n = 4; thirty-nine take a reading among their inputs. The paper's abstract, introduction,
+section 8.8 and section 9 now name the readings beside the censuses.
+
+**D168 (2026-10-25): the sixty-sixth verifier seated.** It read D163-D165 at source: no major, four minors. Seated:
+(7.11a)-(7.11b) for (7.11); Proposition 7.10's (7.25) is [Hin21] (3-24) for QPQ^-, "almost" Definition 5.8 for P, and
+the n = 4 check is (5.9) at the trapped set; 10.45 (e)'s non-change place dropped from B-MAP; (lvii)'s two z's told
+apart. Its other checks passed, among them the counts at each commit, (7.22)'s density and (8.10)'s K-current recomputed
+at both n, and D165's quotations verbatim.
+
+**D169 (2026-10-25): the readings traced to their roots.** The 39 rows that took a reading, traced through the
+sections they cite (10.77, READINGS.tsv): four rested on statements since READ or written out and are re-marked
+(10.23 (b), 10.23 (d), 10.46 (e), 10.62 (c)); the thirty-five others rest on ten roots, two of them the source's own
+steps at every n, three groups of companion results at n = 4 READ at n = 3, five the record's own questions. The
+paper's section 8.8 names them.
+
+**D170 (2026-10-25): three of the record's roots settled.** 10.78: Lemma 10.58 (deduced at proof level) gives
+Corollary 8.13's semicontinuity from uniform estimates, so RK rests on RU; RG follows from the uniqueness of each
+step's data in Theorem 12.8's proof (p. 315) and G-equivariance; RE is mp5.py M2's covariance, the family taken as
+route B's g_b. Seven roots remain. RH at the record's point needs a computation: at the horizon's null conormal dr,
+l(dr) has eigenvalues 2a (three times), 4a and 2(1 - e) a with a = c_t(r_h) > 0, so the damping is not small in e, but
+the undamped part in B's inner product carries B's conditioning, about 1/e.
+
+**D171 (2026-10-25): RH computed.** 10.79 and `hthresh5.py` T1-T5: [Hin26c] (5.17)'s horizon quantity for box^C, READ at
+source with its normalisation (4.28) and the component R+_H+ = {xi_0 > 0} (Definition 4.8), computed at the record's
+point in [Hin26a] Lemma 3.3's B. The undamped part, from the operators' definitions, is the B-symmetric part of 2
+Gamma_t, spectrum +-(e^(1/2) + e^(-1/2))/r_h: vartheta_0 = 102401/640, not the 1/e the conditioning suggested. With the
+damping, vartheta_H+ = -4995.83... at h = 10^-6, and the threshold 1/2 + vartheta_H+ < -100 holds for every h below h_2 =
+2.6197... x 10^-5. RH leaves READINGS.tsv; every row it touched keeps RB, so thirty-five rows still take a reading. Of
+the record's own roots RP remains.
+
+**D172 (2026-10-25): the sixty-seventh verifier seated.** It read D166-D168 at source: two majors, five minors. M1, that
+(1.3.1)'s threshold is not (10.28) unchanged, is answered at source the other way: vartheta_dK+,in by (5.20) contains S's
+-(S + S^*), the printed prefactor is -xi/2 (the report read -xi^2), and so D166's own claim that his sum omits Re S was
+the error; iplusnorm5.py N6 derives the S part now (9/9, mutants 9/9). M2 accepted and repaired by re-scoping 10.22 (e)'s
+row to Theorem 5.2; its second sentence's inputs are 10.21's and carry RB. Minors seated: five placements re-kinded
+arithmetic (88/94/38/1), 10.22's stale sentences, the paper's 61, [Hin23e].
+
+**D173 (2026-10-25): RL written out.** 10.80 and `tfnorm5.py` R1-R4 (4/4, mutants 4/4): [Hin26c] Theorem 9.38 and
+Corollary 9.39, stated and proved for every n, and Theorem 9.41, written at n = 3, read at source and written out at n =
+4 on (xx), (xlvii), (xlviii), (lix) and 10.20-10.21. The proof of (9.117) misprints one intermediate line at every n; the
+identity itself holds, with S~ = S-bar for the Minkowskian model. RL leaves the twenty-two rows it touched; each keeps
+RB, so thirty-five rows still take a reading. Five roots remain: RB, RU, RC, RI and RP.
+
+**D174 (2026-10-25): RC READ for general n.** 10.81: the calculi behind [Hin26c] Lemmas 3.9, 13.13 and 14.6 are
+constructed for every n in [Hin23d] (pp. 22-37, 59, 96-101), read at source; the three lemmas carry no numeral of the
+dimension. 10.41 (b), whose one root it was, leaves the readings: thirty-four rows take one. Four roots remain: RB, RU,
+RI and RP. D173 re-wrapped five lines that began with a list marker, three of D172's rewrap of (lx) and two of 10.80's.
+
+**D175 (2026-10-25): the sixty-eighth verifier seated.** On D169-D172 (47e3f62): no majors; nine minors. Two semicolons
+inside B-MAP.tsv entries made commas (10.15 (a), 10.58 (c)), so either separator counts 214 places and 221 placements;
+(5.17)'s prefactor written with his varrho^2 in 10.18, 10.79 and `hthresh5.py`; 10.22 (e)'s r = m named as his inner
+bound r_h/2; e named e_C in 10.79; 10.77's counts marked D169's; iplusnorm5.py N5's label narrowed. On the fibre inner
+product, 10.79 states the reading that (5.17) asks for one fixed in advance, and `hthresh5.py` T6 (6/6, mutants 6/6)
+computes 1/2 + vartheta_H+ = -4995.44, -4877.97 and -2500.47 for B with e' = 10^-5, 1/10 and 3; the verifier's own
+construction gave other values in the same direction. Two minors stand as written: the statement counter (Lemma 10.58
+sits in section 10.78) and 10.74's 'one reading' for 10.21 (c) and 10.23 (c).
+
+**D176 (2026-10-25): RI written out.** 10.82 and `iotasol5.py` J1-J5 (5/5, mutants 5/5): [Hin26] section 9 --
+Propositions 9.2 (both halves), 9.4, 9.9, 9.11, 9.15, 9.22, 9.30 and 9.35, Corollaries 9.12 and 9.18, Lemmas 9.14, 9.21
+and 9.26, (9.54)-(9.56) -- read at source and written out at n = 4. The model from -box gives c = (n - 1)/2 for his 1 at
+every place it moves a threshold (s < 2 - Re lam, Re lam < 5/2, the I+ weight 3/2 - eps, Re lam < 3/2 for the expansion,
+l_scf < 3/2); the conjugation that carries the Fourier side to N_tf is rhat^(lam - 1) at every n, so the injectivity
+bound 1 + eps_ind stands; the index 0 half runs on (lx), Proposition 8.6 and Corollary 9.39 at n = 4; the expansions gain
+t2 at -2 and t3 at -3; Lemma 9.26's residue has rank 10 on S^3. (9.7) prints rhat^-2 N_tf for the bracket that (9.58)
+makes rhat^2 N_tf. RI leaves twelve rows; 10.47 (d)-(e) rest on RB. Three roots remain: RB, RU and RP.
+
+**D177 (2026-10-25): the sixty-ninth verifier seated.** On D173-D175: no majors; nine minors. (3.46)'s norm factor at n
+= 4 is |sigma|^(-2 - alpha), the print reversing the sign of n/2 as its density line does ((xviii) named that line;
+10.80 and `tfnorm5.py` R3 now say so), harmless, the factor on both sides of the chain; R3's embedding check moved to
+ztf in r-hat, where the loss n/2 lives, and its factor check now tests the sign; R4's remainder gains the S term. 10.74
+counts 34 rows on a reading. The fibre inner product: the threshold is not inner-product-free -- `hthresh5.py` T6 now
+finds 1/2 + vartheta_H+ = +790.43 at e' = 10 and the crossing of -100 at e' = 7.764, B' positive definite throughout --
+so 10.79 states the existential reading on Proposition 7.4 alone, Lemma 5.12 cited for the like choice at
+vartheta_dK+,out, and drops 'any one'. 10.81 no longer calls [Hin23d] the source of every class [Hin26c] uses (Psi~_3b
+comes from the scaled bounded geometry paper, p. 46, not fetched) and names the numerals (d) places; Theorem 2.9 is p.
+27. READINGS.tsv keeps 10.41 (b) with '-' as it keeps the four D169 rows. The paper's `hthresh5.py` bullet reads 6/6. A
+wrapped LOG line from D163 that began with a list marker is rewrapped.
+
+**D178 (2026-10-25): RP settled.** 10.83, deduced: the six rows that took 10.35 (b)'s second reading use of the zero
+energy pole only Hintz's structure -- L~'_b(sigma)^-1 uniformly bounded with sigma d_sigma-regularity (Proposition 10.7,
+written out at n = 4 in (xviii)) and the augmentation's explicit columns with sigma^-1 and sigma^-2 -- and at n = 4 those
+columns carry no logarithm, the naive entries being of degree -3 inside the target space (10.39). Remark 10.8's sigma log
+|sigma| terms do not arise at n = 4; S^(0),(2,0)_0 removes an absent term. RP leaves six rows. Thirty-four rows take a
+reading and rest on RB and RU alone; none of the record's own roots remains. Logarithms inside the augmented inverse at n
+= 4 are not settled and not used.
