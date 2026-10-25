@@ -4938,3 +4938,23 @@ formula used only at rho_K = 0; c_us > 0 over dSigma^- by (Gamma.3), so no chang
 constructed. All seated. Taken as stated, not re-proved by the verifier: II.A' Proposition 2.4, Lemmas 4.1-4.2, Theorem
 5.4, II.C' Theorem 1.1. Status: Parts I.A-I.C, II.A, II.A' proved; II.B, II.C, II.C' and II.D verified; II.D' written.
 Next: the eighty-fifth verifier on Part II.D'; Part II.E ([Hin26c] section 8), in writing.
+
+**D205 (2026-10-25): Part II.E written.** `proof5/PART-II-E-ENERGY.md`, [Hin26c] section 8 at n = 4 (pp. 141-157).
+Section 1: slabs {T_0 <= t-flat <= T_1} with initial face t-flat = T_0 and final faces t-flat = T_1, r = r_0; the normal
+form near I+ at n = 4 (Lemma 1.1, the source's (8.3)); the extension of P across r = r_0 and below t-flat = 1 (Lemma
+1.2); pairing, duality and density on slab spaces (Lemma 1.3). Section 2: the energy identity, dominant energy, a
+Poincare inequality with an exponential weight; the K-current of X_0 = x_I^(-4b-2)(d_t* - x_I d_x_I) at n = 4 (Lemma
+2.4: cross term -3, angular -(2b+3), the dt*^2 coefficient -(2b+1) as at n = 3); the estimates near I+ for P with e^(-2
+Phi t*) X_0^(alpha) and for P* with -e^(2 Phi t*) X_0^(-alpha-1), both with the coefficient 12 delta' on zeta_t*^2;
+Proposition 2.7. Section 3: a time function F = t* - kappa x_I'^(2 l_I) whose derivative along the flow is a sum of
+squares modulo the principal symbol near the outgoing radial set over I+ (Lemma 3.1), the localised sink estimate for P
+and source estimate for P* (Proposition 3.2), regularity on nested slabs (Lemma 3.3), and solvability by duality at all
+orders (Proposition 3.4). Section 4: b-regularity on slabs and the tame estimate, on nested slabs with room (Lemma 4.1,
+Propositions 4.3-4.4). Section 5: r-slabs in the interior, energy estimates with e^(2 Phi r) t*^(2 alpha_K) grad r
+(Lemma 5.1), the flow (Lemma 5.2), regularity, solvability and continuation (Lemma 5.3, Proposition 5.4), b-regularity
+with (t* d_t*, d_x, I) and tame (Lemma 5.5, Proposition 5.6). Section 6: Theorem 6.1, the source's Theorem 8.14, from
+the slab Omega_{1,5}, Part II.D' Theorem 1.1 and the interior. Section 7: findings (E1)-(E13), among them the case of
+Proposition 7.9 the source's slab argument uses, the adjoint estimate it leaves to the reader, Theorem 8.14 applying the
+slab results at T_0 = 1 below their range T_0 >= 2, the weights on Pu in (8.46), constant orders in 8.11-8.13 applied
+with variable ones, and the condition alpha_+ < alpha_I - 1/2 omitted from Theorem 8.14. Not yet read by a verifier. The
+eighty-fifth verifier is reading Part II.D'. Next: seat it; Part II.F ([Hin26c] sections 10-13).

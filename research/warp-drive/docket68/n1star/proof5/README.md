@@ -25,7 +25,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | written (D203) |
-| II.E-F | [Hin26c] 8, 10-13 | energy estimates, decay at iota+ and K+, the iteration | to do |
+| II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | written (D205) |
+| II.F | [Hin26c] 10-13 | decay at iota+ and K+, the iteration | to do |
 | III | [Hin26] | the gauge-fixed linearised Einstein operator at n = 4 | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -298,3 +299,21 @@ Part II.D. Findings (D$'$1)-(D$'$8): two inclusions printed reversed, the weight
 fields that do not commute, the systems to which the source applies its estimates without stating them for systems, and
 the sign at the horizon, from Part II.B's constant $\beta_0$ rather than the Kerr formula. Written (D203); not yet read
 by a verifier.
+
+## Part II.E
+
+`PART-II-E-ENERGY.md`. [Hin26c] section 8 at $n = 4$: solvability of forward problems on bounded time slabs, with energy
+estimates, on edge-Sobolev spaces with and without b-regularity and tame in it (Propositions 3.4, 4.3, 4.4, the source's
+Lemma 8.1 and Propositions 8.3, 8.6, 8.9); the same in the black hole interior, where the radius is the time function
+(section 5, the source's Lemma 8.10 and Propositions 8.11-8.13); and the global estimate at high frequencies (Theorem
+6.1, the source's Theorem 8.14), which joins them to Part II.D$'$. The energy estimate near $\mathscr I^+$ is computed
+at $n = 4$ (Lemma 2.4): the term that carries the threshold is the same as at $n = 3$. Every first-order term is kept as
+a quadratic form and absorbed by an exponential weight in time, and zeroth-order terms by a Poincaré inequality, so the
+fibre inner product need only make $\mathrm{Re}\,p_1$ large. Solutions are constructed by duality from the energy
+estimates for the operator and its adjoint, and their regularity comes from the microlocal estimates on slabs, with
+radial estimates at the outgoing radial set over $\mathscr I^+$ localised in time by a function whose derivative along
+the flow is a sum of squares (section 3). Findings (E1)-(E13), among them: the source's slab argument rests on the case
+of its Proposition 7.9 that Part II.D found to fail, and leaves the estimate for the adjoint to the reader; its Theorem
+8.14 applies its slab results at an initial time below their stated range, prints the tame estimate with the wrong
+weights on $Pu$, and omits the condition $\alpha_+<\alpha_I-\frac12$ that the estimate it invokes assumes. Written
+(D205); not yet read by a verifier.

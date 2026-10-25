@@ -2526,3 +2526,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   confirmed at source.
 - Open: the D197, D200, D201 and D204 repairs; Part II.D' unread; Parts II.E-II.F and III-VII.
 - Next: the eighty-fifth verifier on Part II.D'; Part II.E, [Hin26c] section 8, in writing.
+
+### 4.128 Part II.E written (D205)
+
+- Part II.E, [Hin26c] section 8 at n = 4: solvability with energy estimates on time slabs and in the black hole interior,
+  with b-regularity and tame, and the global estimate at high frequencies (Theorem 8.14); findings (E1)-(E13).
+- Open: the D197, D200, D201 and D204 repairs; Parts II.D' and II.E unread; Parts II.F and III-VII.
+- Next: seat the eighty-fifth verifier on Part II.D'; Part II.F, [Hin26c] sections 10-13.
