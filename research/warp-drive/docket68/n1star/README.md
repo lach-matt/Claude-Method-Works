@@ -304,14 +304,23 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   point (section 10.79; D171): the normalisation r_h/2, the adjoint from the operators' definitions with the g-pairing
   as control, the undamped part in Lemma 3.3's B with spectrum +-(e^(1/2) + e^(-1/2))/r_h, the damping -h^-1 l(dr), and
   1/2 + vartheta_H+ = -4995.33... at h = 10^-6, below -100 for every h under 2.6197... x 10^-5, in the inner product the
-  record fixes and not in every one (T1-T7). `python3 hthresh5.py --selftest` (7/7, under a minute), `--mutants` (7/7).
+  record fixes and not in every one (T1-T8). `python3 hthresh5.py --selftest` (8/8, under a minute), `--mutants` (8/8).
 - `tfnorm5.py`: [Hin26c] Theorem 9.38, Corollary 9.39 and Theorem 9.41 at n = 4 (section 10.80; D173): (9.117) at every n
   with one misprint named, the indicial roots -lambda and -n + 2 + lambda-bar, the densities' n/2 in the embedding and in
   (3.46), and (9.122)'s leading part (R1-R4). `python3 tfnorm5.py --selftest` (4/4, seconds), `--mutants` (4/4).
 - `iotasol5.py`: the numerals of [Hin26] section 9's iota+ and tf solution theory at n = 4 (section 10.82; D176): the
   model from -box with c = (n - 1)/2 for his 1, N_sf's exponents at v = 0 and its thresholds, the Fourier step to the tf
-  operator, the outgoing end of tf (l_scf < c), and Proposition 9.4's weights at I+ (J1-J5). `python3 iotasol5.py
-  --selftest` (5/5, seconds), `--mutants` (5/5).
+  operator, the outgoing end of tf (l_scf < c), and Proposition 9.4's weights at I+, and the thresholds (J1-J6). `python3
+  iotasol5.py --selftest` (6/6, seconds), `--mutants` (6/6).
+- `bundlesweep.py`: a second census of [Hin26c] section 9 for RB (section 10.85; D183): a token sweep of its full text,
+  item by item, for every marker of scalarity or of bundles, each of the 38 items, proofs and subsections with a marker
+  placed by 10.84 or 10.86 (W1-W4); it reads alphaXiv's full text, not stored here, from the directory censusweep.py
+  takes. `python3 bundlesweep.py --texts DIR` (4/4, seconds), `--mutants` (4/4).
+- `bundle5.py`: the calculus facts behind section 10.86's re-run of [Hin26c] section 9 on bundles (D183), exactly, on
+  differential operators on R with 2 x 2 matrix coefficients: a scalar commutant keeps the commutator's top coefficient
+  scalar, Im P first order and h-self-adjoint, positive square roots, the trace bound for matrix-valued defect measures,
+  the energy identity with a connection, sums of squares in a fibre inner product (E1-E6). `python3 bundle5.py
+  --selftest` (6/6, a few minutes), `--mutants` (6/6).
 - `censusweep.py`: a second census by token sweep (section 10.69; D139): every marker of the dimension on every page of
   the passages carried to n = 4 -- 278 hits on the 205 pages swept (D143; 270 before its [CD03] window was set right),
   every one accounted for by 10.53-10.58 and 10.63-10.68 but one norm convention of [Hin26a] p. 62, named in 10.69. Runs
@@ -332,7 +341,8 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   D158-D161, D163-D164, D166-D167). `READINGS.tsv` traces the rows that rest on a reading to ten roots, the statements at
   the foot of each chain (section 10.77; D169); RK, RG and RE are settled in 10.78 (D170), RH by `hthresh5.py` in 10.79
   (D171); RL is written out in 10.80 (D173); RC is READ for general n in 10.81 (D174); RI is written out in 10.82 (D176);
-  RP is settled in 10.83 (D178); RB and RU are written out in 10.84 (D181), and no row rests on a reading.
+  RP is settled in 10.83 (D178); RB and RU are written out in 10.84 (D181), their census checked by a second method in
+  10.85 and the section 9 proofs re-run on bundles in 10.86 (D183), and no row rests on a reading.
 - `eind5.py`: [Hin26] Lemma 8.4's simplicity and (8.13) for every l (section 10.52; D120): every indicial root of L
   simple for l >= 2, exact, in the scalar, vector and tensor types; (8.13) by a certificate beyond l = 10^4 and a scan
   below, eps_ind at most 1.94137 x 10^-8. `python3 eind5.py --selftest` (2/2, about four minutes), `--mutants` (2/2).

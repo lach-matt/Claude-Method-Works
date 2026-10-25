@@ -4543,3 +4543,35 @@ p_z; the energy estimate takes a connection. RU: symbolic constants are uniform 
 (Remark 7.2's mechanism, the trapped set by [HPS77]); Theorem 9.28's contradiction admits b_j -> b_0; the inverse bounds
 are uniform by Lemma 10.59. [Hin26] pp. 119 and 124 assert RU for section 9, so his theorem in 3 + 1 dimensions rests on
 it as on RB. READINGS.tsv: no row rests on a reading. Not re-run line by line: the scalar proofs with the substitutions.
+
+**D182 (2026-10-25): the seventy-second verifier seated.** On D180-D181: one major, nine minors; 10.84's
+conclusion stands. The major: 10.84 (b) put the trapped set's threshold in an inner product on E_X, but the record's
+(10.17 (a)'s B_eta) is Definition 5.8's, on the pullback bundle over phase space, homogeneous of degree 0; in an inner
+product on E_X sup_Gamma p_1 need not be small. Hintz's own device carries it to E_X: (5.9)'s elliptic Q, Q P_0 Q^-
+having the subprincipal part (5.8) bounds in a fixed inner product. 10.84 (b), (e) and (g) now run Theorem 9.28's
+arguments for Q-hat P_h,z Q-hat^- on Q-hat u and return by Q-hat's ellipticity near Gamma, as Proposition 7.10 does in
+spacetime, Q fixed at b_0 serving near b_0 by (P3). Minors: the bottom eigenvalue of S + S*, not of 2 (S + S*), lies in
+[2 S-bar - eps, 2 S-bar]; [Hin25a] Corollary 9.38 and Theorem 9.44 and Theorem 9.36's energy estimate near r = m take
+(f)'s connection current; the delta_Gamma-loss step is uniform with Q_3 fixed at b_0 and the loss delta_Gamma,b0(Im
+sigma - 2 eps); Theorem 9.16 (3) comes from (9.59), not Lemma 10.59; Lemma 10.59's second part now states Y Hilbert and
+the duality on a dense subspace; the p. 157 "perturb" sentence precedes section 9's heading; T7 of `hthresh5.py` is T7
+and T8 (8/8, mutants 8/8), J2 of `iotasol5.py` is J2 and J6 (6/6, mutants 6/6), so each conjunct has its own control;
+10.83 (c)'s 1/log |sigma| tends to 0, its remainder not of positive order. The paper's passages that still described the
+readings as standing, and section 9's list, are revised with 10.85-10.86 (D183). LOG D181's bundle-notation list omitted
+p. 158's sentence and Proposition 9.40; noted, not changed.
+
+**D183 (2026-10-25): section 9 re-run on bundles; RB's census by a second method.** M asked that 10.84's caveat -- that
+it placed each change but did not re-run Hintz's scalar proofs with the changes in -- be addressed. 10.86 re-runs each
+proof of [Hin26c] section 9 the record uses on E_X in the source's order, (a)-(x): every display with its bundle form,
+every standard step taken from a cited source ([Vas13], [Mel94], [Hin25a], [DZ19], [Zwo12], [Dya16], [HV16]) written in
+its bundle form, and each proof's uniformity in b, on a frame (F1)-(F8): inner products, the End-valued calculus,
+commutators with scalar commutants, square roots and Garding, matrix-valued defect measures, the energy identity with a
+connection, sums of squares and matrix indicial families. `bundle5.py` (E1-E6, 6/6, mutants 6/6) computes the frame's
+identities exactly. At the trapped set the run is for Q P Q^- with (5.9)'s time-translation-invariant Q, its kernel
+localised in t - t' as Q_3's so the family stays holomorphic, which is where the bundle case is more than notation.
+10.85: `bundlesweep.py` (W1-W4, 4/4, mutants 4/4) sweeps section 9's full text for every marker of scalarity or bundles,
+341 in 38 of its 62 items, proofs and subsections, each placed; it found the energy estimates near r = m and Proposition
+9.19, now placed, and the p. 157 sentence's place. The paper's abstract, introduction, section 8.8 and section 9 now say
+what the seventy-second verifier asked: the readings are settled, written out or READ, the census is evidenced by two
+methods and not proved, and the deductions are written out at proof level, not proofs checked at the level of the
+theorem's statement.
