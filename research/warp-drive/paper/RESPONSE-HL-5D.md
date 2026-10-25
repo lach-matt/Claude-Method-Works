@@ -1850,7 +1850,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the fifty-seventh section 10.64 and the repairs of D133 (D134, D136); the fifty-eighth to |
 | | sixty-second sections 10.65–10.76, 10.75 (xvii)–(lix) excepted (D138, D143, D147, D149, D153); |
 | | the sixty-third 10.75 (xvii)–(xxxiv) (D157); the sixty-fourth 10.75 (xxxv)–(xliii) and D157's repairs |
-| | (D162); the sixty-fifth 10.75 (xliv)–(lv) and D162 (D165) |
+| | (D162); the sixty-fifth 10.75 (xliv)–(lv) and D162 (D165); the sixty-sixth 10.75 (lvi)–(lix) and |
+| | D165 (D168) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -1935,8 +1936,8 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
-| `docket68/n1star/N1STAR-PROOF.md` | `4e1383759772c911c1a916ee53a74c4e` |
-| `docket68/n1star/N1STAR-LOG.md` | `aa58f4922773abeb293eabb644fd4cb0` |
+| `docket68/n1star/N1STAR-PROOF.md` | `e9404bc8fc9a9ca3a8f66ebf37ba563f` |
+| `docket68/n1star/N1STAR-LOG.md` | `21cf04e38b4de232f24e29526c5818f1` |
 | `docket68/n1star/README.md` | `05f3150f04833cb1f64392df2d068cd0` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2005,6 +2006,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/censusweep.py` | `ce45d94e55923b6c19577ab5668afba0` |
 | `docket68/n1star/iplusnorm5.py` | `7d64b7787b8e6e7cf11b7ec16ef4b983` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
-| `docket68/n1star/B-MAP.tsv` | `3844ad26af627b9e823d31efefb6d314` |
+| `docket68/n1star/B-MAP.tsv` | `0e053cf5b6e25a3ce47567a374b9c22e` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

@@ -4423,3 +4423,9 @@ Sixty of 61 written out, forty-one on a reading; one rests on its census: 10.22 
 reading was Theorem 5.2's, are re-marked with it, and (xlii), (xliii) and (xlv) say so. All 61 modification steps are
 written out at n = 4; thirty-nine take a reading among their inputs. The paper's abstract, introduction,
 section 8.8 and section 9 now name the readings beside the censuses.
+
+**D168 (2026-10-25): the sixty-sixth verifier seated.** It read D163-D165 at source: no major, four minors. Seated:
+(7.11a)-(7.11b) for (7.11); Proposition 7.10's (7.25) is [Hin21] (3-24) for QPQ^-, "almost" Definition 5.8 for P, and
+the n = 4 check is (5.9) at the trapped set; 10.45 (e)'s non-change place dropped from B-MAP; (lvii)'s two z's told
+apart. Its other checks passed, among them the counts at each commit, (7.22)'s density and (8.10)'s K-current recomputed
+at both n, and D165's quotations verbatim.

@@ -2195,3 +2195,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and 10.23 (c), whose one reading was Theorem 5.2's. All 61 rows of B-MAP.tsv are written out; thirty-nine
   take a reading among their inputs. What remains between Theorem 4 and a theorem is those readings and the census of
   section 8.8 (i).
+
+### 4.91 The sixty-sixth verifier seated (D168)
+
+- D163-D165 (10.75 (lvi)-(lix) and D165's repairs) read against the sources: no major, four minors, all seated. (7.11)
+  is (7.11a)-(7.11b) (pp. 117-118); (7.25) is [Hin21] (3-24) for QPQ^-, "almost the content of Definition 5.8" for P
+  (pp. 124-125), so the n = 4 check is (5.9) at the trapped set; 10.45 (e)'s place for the weight at I+ is no dimension
+  change and is dropped; (lvii)'s two z's are told apart, Seeley's |x| - m and the monomials' (t*, x).

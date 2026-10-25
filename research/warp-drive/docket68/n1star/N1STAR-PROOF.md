@@ -8258,9 +8258,9 @@ between n = 3 and n = 4, where it says each five-dimensional value comes from, i
 ('carries over', 'as in his proof') and whether it rests on a reading; the values the rows only state were then placed
 by hand. `B-MAP.tsv` holds the table, a column `placed` giving the result.
 
-*Measured.* Of the 61 rows, 57 name the places where the dimension changes the proof, 215 places in all, and 4 name
-none: the step is the source proof as it stands. The 222 placements of the five-dimensional values are: 93 at a computed
-check, 95 at an earlier section where they are computed or deduced, 33 arithmetic in n (an entry naming an instrument or
+*Measured.* Of the 61 rows, 57 name the places where the dimension changes the proof, 214 places in all, and 4 name
+none: the step is the source proof as it stands. The 221 placements of the five-dimensional values are: 93 at a computed
+check, 94 at an earlier section where they are computed or deduced, 33 arithmetic in n (an entry naming an instrument or
 a check counts as computed; B-MAP.tsv's column `kind`, D147) (n/2 = 2, (n - 1)/2 = 3/2, r^(n-1) dr = r^3 dr, rho^-n,
 R^n, R^(n,1), S^(n-1)) and 1 the record's choice (gamma_Ups = 1/100). 39 rows say they rest on a reading -- of a source
 theorem at n = 4, or of an earlier section that does -- and 10.64-10.68 have since carried the source papers'
@@ -8294,7 +8294,9 @@ placements of one place, recorded 10.45 (e)'s weight as settled and gave 10.62 (
 (lx)) named nineteen places for 10.58 (c), its first, seventeen at a computed check (iplusnorm5.py N1-N9, Proposition
 10.57, and iplus5.py P1) and two arithmetic in n; the row keeps a reading, now (lvi)-(lix)'s and 10.20's. D167's (10.75
 (lxi)) named nine more places for 10.22 (e), the last census row, and marked 10.22 (e), 10.21 (c) and 10.23 (c) as
-resting on no reading: the one reading of each was [Hin26a] Theorem 5.2 at n = 4, now written out.
+resting on no reading: the one reading of each was [Hin26a] Theorem 5.2 at n = 4, now written out. D168 (the sixty-sixth
+verifier) dropped 10.45 (e)'s place for the weight at I+, which the dimension does not change, and labelled 10.67 (a)'s
+radial rate by (7.11b).
 
 *The rule (deduced, not proved).* A row's proof is the source's with its listed places changed. It holds at n = 4 if (a)
 the source proof uses n only at the listed places, and (b) each changed value meets every inequality or identity the
@@ -9076,51 +9078,54 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      backward bicharacteristic off Gamma-bar^u entering what Steps 1-3 control; Steps 5-6 dR+dK+,out and dR+I+,out; then
      into r > m. Each radial estimate is a positive commutator: a = a-check^2, a-check = rho_inf^(-s+1/2) times weights
      and the cutoffs (7.8), regularized as in Proposition 7.4, and H_G a + 2 p_sub a split as -delta rho_inf^-1
-     a-check^2 - b^2 - ... + e^2 + j G, b real once its bracket is positive. At dR+H+ ((7.11)) rho_inf^-1 H_G rho_inf =
-     rho^-2 mu'(r+), rho_K^-2 H_G rho_K < 0 and H_G q >= 2c (Lemma 4.9), the bracket positive for s_0 > 1/2 +
-     vartheta_H+ ((7.10)). At dR+dK+,in and dR+dK+,out ((7.15)-(7.18), (4.15)) rho_K^-1 H_G rho_K = -/+2, rho_+^-1 H_G
-     rho_+ = +/-2, H_G q >= 2q or <= -2q, and the bracket +/-(2(2s - 1) + 2(2 alpha_+ + 2) - 4 alpha_K) - delta - 2
-     p_sub gives (7.13) and (7.17). At dR+I+,in,+ ((7.21), (4.67)) x_I^-1 H_G x_I = 1, rho_+^-1 H_G rho_+ = -2,
-     rho_inf^-1 H_G rho_inf = 0 and H_G q >= q; the bracket is 4 alpha_I - 4 alpha_+ - 2 - delta, positive under (7.19),
-     and p_sub = (Re p_1)(xi-hat - 2) (7.22), zero there, because (1/2) x_I^2 rho_+^2 (x_I d_x_I - 2)(x_I d_x_I - 2
-     rho_+ d_rho_+) is symmetric for r^2 |dt* dr dg/| = 2 rho_+^-4 x_I^-6 |...| and Lap-slash's imaginary part lies in
-     x_I^4 Diff^1(S^2). At dR+I+,out, with Lemma 5.16's t* and H_G t* >= 0, x_I^-1 H_G x_I = -1, H_G q <= -q and p_sub =
-     -2 Re p_1; a fibre inner product with Re p_1 > p-bar_1 - delta' (Definition 5.18 (3)) makes the bracket at least -4
-     alpha_I - 2 - delta + 4(p-bar_1 - delta'), positive under (7.23). Proposition 7.10 is [Hin21] Theorem 3.9, with
-     (P.1)-(P.5) from section 4.2.3 and H_G sigma = 0, (P.6') from Proposition 6.3, and (7.25) from Definition 5.8.
-     Proposition 7.11 repeats Proposition 7.1 with b-regularity. Lemma 7.12 commutes X_1 = nabla 2t* d_t*, X_2 =
-     nabla(-2 r d_r), X_3-X_5 spanning V(S^2) and X_6 = I through P near I+; every commutator ((7.31), (7.37)-(7.39),
-     Lap-slash a sum of X_a X_b) is sum_j Q_j X_j with Q_j in x_I Diff^1_eb, so P^(k) is P plus terms lower in order and
-     in decay (7.33), and p-bar_1 is unchanged. Lemmas 7.15-7.16 and Proposition 7.17 commute d_r, elliptic at dR+H+,
-     and t* d_t*, the commutator's symbol -i j rho^-2 mu'(r+) xi_0 ((7.48)) having the sign that leaves vartheta_H+
-     unchanged. Lemmas 7.19-7.20 commute t* d_t*, rho_K X_1 being elliptic at dR+dK+,in/out ((7.59)). Lemma 7.21 and
-     Proposition 7.22 commute t d_t at the trapped set to second order, against the trapping estimate's lost derivative.
-     The tame bounds are Proposition 3.28's. At n = 4 (10.67 (a)): Proposition 4.24's order stands, the dynamics over K+
-     being 10.19 (c)'s on five-dimensional Tangherlini, and over I+ and iota+ (2.27)'s and (4.67)'s, free of n (10.58
-     (a)-(b)). At dR+H+ rho^-2 mu'(r+) is f'(r_h) = 2/r_h > 0 (10.18: rho^2/(2 (r+ - m)) is 1/f'(r+)), so Lemma 4.9
-     holds with T*S^3, the threshold is s_0 > 1/2 + vartheta_H+ with 10.18's vartheta_H+, and (7.48)'s p#_alpha = j
-     f'(r_h) >= 0. At dK+ and I+, (4.15), (4.67), (7.18) and (7.21) are functions of the Minkowski principal symbol in
-     which S^3's |eta|^2 replaces S^2's (E1), so every value and bracket is his. In (7.22) the symmetric operator is
-     (1/2) x_I^2 rho_+^2 (x_I d_x_I - 3)(x_I d_x_I - 2 rho_+ d_rho_+) (E1; 10.58 (a)'s (5.27) with 3/2 for 1) and the
-     density r^3 |dt* dr dg/| = 2 rho_+^-5 x_I^-8 |d rho_+/rho_+ dx_I/x_I dg/|, for which that operator is symmetric as
-     his is for 2 rho_+^-4 x_I^-6 (checked exactly here, the constant n - 2 failing); so p_sub = (Re p_1)(xi-hat - 2)
-     with p_1 measured from 3/2 (10.58 (a)), and (7.19) and (7.23) are his. (7.13) and (7.17) are Definition 5.11
-     (5)-(6)'s, stated in p_sub for the metric density and so free of n (10.58 (a)), and admissible order functions
-     exist at every weight (10.18). Proposition 7.10's trapped set is 10.17 (ii)'s: {r^2 = 2 mu, xi = 0}, of codimension
-     2 in the characteristic set, with xi, H_G xi and G independent and normal rate (2 mu)^(-1/2), the flow along it
-     S^3's geodesic flow and so r-normally hyperbolic for every r. [Hin21] Theorem 3.9 (p. 36) is stated on the partial
-     compactification (3.10) of R_t x X (p. 31), X a manifold of any dimension, its dynamical input, Theorem 2.6 (p.
-     25), for R_t x X with X closed (p. 7); so (P.1)-(P.5) hold by 10.17 (ii) and H_G sigma = 0, (P.6') by Proposition
-     6.3, which is that theorem after [Hin21] section 4's reduction (the proof of Theorem 4.3, p. 47), and (7.25) is
-     Definition 5.8's hypothesis, which 10.17's deduced (a) meets at n = 4. Lemma 7.12 commutes the six rotation fields
-     of S^3 (E3): X_3, ..., X_8, with X_9 = I and alpha in N_0^9 (E4). They commute with r d_r and t* d_t* as his do
-     ((7.31)) and close under brackets (so(4)), and Lap-slash on S^3 is the sum of their squares (E3), so (7.38)-(7.39)
-     hold with a, b, c in {3, ..., 8}; P' = -(X_2 - 2(3/2 + p_1)) X_1 + 2 x_I^2 Lap-slash + p_0 + P~' (E1), the constant
-     3 commuting with every X_i, and X-vec_shift = (X_1 + 2, X_2 - 2, X_3, ..., X_9), the weight x_I^2 rho_+^2 being
-     free of n (E1). Lemmas 7.15-7.21 use no angular field: d_r is elliptic at dR+H+, and t d_t at the trapped set,
-     where 10.17 (ii)'s C = 4 mu sigma^2 > 0 makes sigma nonzero. Section 3's calculus is set on an n-dimensional
-     manifold (p. 46), Lemma 3.27's H^3_b index being 3 at both n (E4). It rests on no reading: its inputs are E1-E4,
-     10.17-10.18, 10.19 (c), 10.58 (a)-(b) and [Hin21]'s statements, read at source.
+     a-check^2 - b^2 - ... + e^2 + j G, b real once its bracket is positive. At dR+H+ ((7.11a)-(7.11b), pp. 117-118)
+     rho_inf^-1 H_G rho_inf = rho^-2 mu'(r+), rho_K^-2 H_G rho_K < 0 and H_G q >= 2c (Lemma 4.9), the bracket positive
+     for s_0 > 1/2 + vartheta_H+ ((7.10)). At dR+dK+,in and dR+dK+,out ((7.15)-(7.18), (4.15)) rho_K^-1 H_G rho_K =
+     -/+2, rho_+^-1 H_G rho_+ = +/-2, H_G q >= 2q or <= -2q, and the bracket +/-(2(2s - 1) + 2(2 alpha_+ + 2) - 4
+     alpha_K) - delta - 2 p_sub gives (7.13) and (7.17). At dR+I+,in,+ ((7.21), (4.67)) x_I^-1 H_G x_I = 1, rho_+^-1 H_G
+     rho_+ = -2, rho_inf^-1 H_G rho_inf = 0 and H_G q >= q; the bracket is 4 alpha_I - 4 alpha_+ - 2 - delta, positive
+     under (7.19), and p_sub = (Re p_1)(xi-hat - 2) (7.22), zero there, because (1/2) x_I^2 rho_+^2 (x_I d_x_I - 2)(x_I
+     d_x_I - 2 rho_+ d_rho_+) is symmetric for r^2 |dt* dr dg/| = 2 rho_+^-4 x_I^-6 |...| and Lap-slash's imaginary part
+     lies in x_I^4 Diff^1(S^2). At dR+I+,out, with Lemma 5.16's t* and H_G t* >= 0, x_I^-1 H_G x_I = -1, H_G q <= -q and
+     p_sub = -2 Re p_1; a fibre inner product with Re p_1 > p-bar_1 - delta' (Definition 5.18 (3)) makes the bracket at
+     least -4 alpha_I - 2 - delta + 4(p-bar_1 - delta'), positive under (7.23). Proposition 7.10 is [Hin21] Theorem 3.9,
+     with (P.1)-(P.5) from section 4.2.3 and H_G sigma = 0, (P.6') from Proposition 6.3, and the subprincipal condition
+     [Hin21] (3-24), 'almost the content of Definition 5.8' (p. 124), met by QPQ^- in place of P, where it reads (7.25)
+     (p. 125); (7.24) is then [Hin21] (3-25) for QPQ^- and Qu. Proposition 7.11 repeats Proposition 7.1 with
+     b-regularity. Lemma 7.12 commutes X_1 = nabla 2t* d_t*, X_2 = nabla(-2 r d_r), X_3-X_5 spanning V(S^2) and X_6 = I
+     through P near I+; every commutator ((7.31), (7.37)-(7.39), Lap-slash a sum of X_a X_b) is sum_j Q_j X_j with Q_j
+     in x_I Diff^1_eb, so P^(k) is P plus terms lower in order and in decay (7.33), and p-bar_1 is unchanged. Lemmas
+     7.15-7.16 and Proposition 7.17 commute d_r, elliptic at dR+H+, and t* d_t*, the commutator's symbol -i j rho^-2
+     mu'(r+) xi_0 ((7.48)) having the sign that leaves vartheta_H+ unchanged. Lemmas 7.19-7.20 commute t* d_t*, rho_K
+     X_1 being elliptic at dR+dK+,in/out ((7.59)). Lemma 7.21 and Proposition 7.22 commute t d_t at the trapped set to
+     second order, against the trapping estimate's lost derivative. The tame bounds are Proposition 3.28's. At n = 4
+     (10.67 (a)): Proposition 4.24's order stands, the dynamics over K+ being 10.19 (c)'s on five-dimensional
+     Tangherlini, and over I+ and iota+ (2.27)'s and (4.67)'s, free of n (10.58 (a)-(b)). At dR+H+ rho^-2 mu'(r+) is
+     f'(r_h) = 2/r_h > 0 (10.18: rho^2/(2 (r+ - m)) is 1/f'(r+)), so Lemma 4.9 holds with T*S^3, the threshold is s_0 >
+     1/2 + vartheta_H+ with 10.18's vartheta_H+, and (7.48)'s p#_alpha = j f'(r_h) >= 0. At dK+ and I+, (4.15), (4.67),
+     (7.18) and (7.21) are functions of the Minkowski principal symbol in which S^3's |eta|^2 replaces S^2's (E1), so
+     every value and bracket is his. In (7.22) the symmetric operator is (1/2) x_I^2 rho_+^2 (x_I d_x_I - 3)(x_I d_x_I -
+     2 rho_+ d_rho_+) (E1; 10.58 (a)'s (5.27) with 3/2 for 1) and the density r^3 |dt* dr dg/| = 2 rho_+^-5 x_I^-8 |d
+     rho_+/rho_+ dx_I/x_I dg/|, for which that operator is symmetric as his is for 2 rho_+^-4 x_I^-6 (checked exactly
+     here, the constant n - 2 failing); so p_sub = (Re p_1)(xi-hat - 2) with p_1 measured from 3/2 (10.58 (a)), and
+     (7.19) and (7.23) are his. (7.13) and (7.17) are Definition 5.11 (5)-(6)'s, stated in p_sub for the metric density
+     and so free of n (10.58 (a)), and admissible order functions exist at every weight (10.18). Proposition 7.10's
+     trapped set is 10.17 (ii)'s: {r^2 = 2 mu, xi = 0}, of codimension 2 in the characteristic set, with xi, H_G xi and
+     G independent and normal rate (2 mu)^(-1/2), the flow along it S^3's geodesic flow and so r-normally hyperbolic for
+     every r. [Hin21] Theorem 3.9 (p. 36) is stated on the partial compactification (3.10) of R_t x X (p. 31), X a
+     manifold of any dimension, its dynamical input, Theorem 2.6 (p. 25), for R_t x X with X closed (p. 7); so
+     (P.1)-(P.5) hold by 10.17 (ii) and H_G sigma = 0, (P.6') by Proposition 6.3, which is that theorem after [Hin21]
+     section 4's reduction (the proof of Theorem 4.3, p. 47), and (7.25) is [Hin21] (3-24) for QPQ^-, which Definition
+     5.8's (5.9) gives at the trapped set -- for P itself it is 'almost the content of Definition 5.8' (pp. 124-125) --
+     so the n = 4 check is (5.9) at 10.17's trapped set, which 10.17's deduced (a) meets. Lemma 7.12 commutes the six
+     rotation fields of S^3 (E3): X_3, ..., X_8, with X_9 = I and alpha in N_0^9 (E4). They commute with r d_r and t*
+     d_t* as his do ((7.31)) and close under brackets (so(4)), and Lap-slash on S^3 is the sum of their squares (E3), so
+     (7.38)-(7.39) hold with a, b, c in {3, ..., 8}; P' = -(X_2 - 2(3/2 + p_1)) X_1 + 2 x_I^2 Lap-slash + p_0 + P~'
+     (E1), the constant 3 commuting with every X_i, and X-vec_shift = (X_1 + 2, X_2 - 2, X_3, ..., X_9), the weight
+     x_I^2 rho_+^2 being free of n (E1). Lemmas 7.15-7.21 use no angular field: d_r is elliptic at dR+H+, and t d_t at
+     the trapped set, where 10.17 (ii)'s C = 4 mu sigma^2 > 0 makes sigma nonzero. Section 3's calculus is set on an
+     n-dimensional manifold (p. 46), Lemma 3.27's H^3_b index being 3 at both n (E4). It rests on no reading: its inputs
+     are E1-E4, 10.17-10.18, 10.19 (c), 10.58 (a)-(b) and [Hin21]'s statements, read at source.
 
  (lvii) 10.67 (b), [Hin26c] section 8 (pp. 141-157; D163). His Lemma 8.1 (pp. 142-146): localize near I+ by the level
      sets of t*~ = t* + r^alpha, spacelike for alpha in (0, ell_I) by Lemma 5.16's computation ((8.6)-(8.8)); for P =
@@ -9132,32 +9137,33 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      large for the rest, give (8.19) with c_0 = (1/4)(-2 alpha_I - 1 + 2 p-bar_1); then (8.21) with its first- and
      zeroth-order corrections, Case II's boundary term T(X, -grad t*) of the good sign, and the zeroth order term by
      integrating in t*. Corollary 8.2 follows by smoothing and a weak limit. Proposition 8.3 extends P across r = m
-     (Lemma 8.5: Seeley's extension in z = |x| - m, and P written in the monomials I, d_z^mu, d_z^mu d_z^nu, 0 <= mu <=
-     nu <= 3, p. 148), then uses propagation of edge regularity, Proposition 7.9, duality, and for P^* the radial source
-     estimate at dR+I+,out that he leaves to the reader, Proposition 7.9's computation with the signs reversed.
-     Propositions 8.6 and 8.9 induct on k with Lemma 7.12's commuted equation, whose p-bar_1 is P's, Lemma 8.7's
-     extension in (t*, x_I, omega in S^2), and Lemma 8.8, whose part (3) rests on Lemma 3.27's H^(0;3)_b. Section 8.2:
-     Lemma 8.10 with X = e^(2 w r) rho_K^(-2 alpha_K) grad r, dr timelike for r <= r-natural (Lemma 5.16 (1)), positive
-     through the 2 w T(grad r, grad r) term at every alpha_K, the zeroth order term by a divergence identity;
-     Propositions 8.11-8.13 by elliptic and real principal type estimates, commuting X_1, ..., X_4 (V_1 = t* d_t*,
-     V_(1+j) = d_x^j) and X_5 = I ((8.41)-(8.42)), with (8.44). Theorem 8.14 combines Propositions 8.6 and 8.9 on t* in
-     [1, 4], Proposition 7.11 on {t* >= 3, r >= r_1^+} and Propositions 8.12-8.13 down to r = m. At n = 4 (10.67 (b)):
-     (8.10) is E2's, its d_t*^2 coefficient -(2 alpha_I + 1) his, so the threshold alpha_I < -1/2 + p-bar_1 and c_0 are
-     his; the cross term -3 d_t* (x)_s x_I d_x_I, his -2, and the angular term -(2 alpha_I + 3) x_I^2 gslash^-1, his
-     -2(alpha_I + 1), are dominated, as his are, by 2 w T(X_0, -grad t*) = w x_I^(-4 alpha_I)((x_I d_x_I)^2 + x_I^2
-     gslash^-1), his at both n, for w large (E2), so (8.19) holds. The density is 2 x_I^-8 |dt* dx_I/x_I dg/| (E4), for
-     which x_I^2 (x_I d_x_I - 3) is skew as x_I^2 (x_I d_x_I - 2) is for x_I^-6, the adjoint of x_I d_x_I for x_I^(-2n)
-     |dx_I/x_I| being -x_I d_x_I + 2n (checked exactly here, the constant n - 2 failing); so (8.14) reads as his with
-     p_1 measured from 3/2 (E1; 10.58 (a)). (8.13), (8.15)-(8.18), (8.21), [Hin25a]'s symbol identity and the boundary
-     terms hold in every dimension, and the localization (8.6) is the Minkowski algebra of (2.25)-(2.27) with the
-     class's weights (10.58 (a)). The extension across the inner sphere, his r = m, runs on R^4 with I, five first-order
-     and fifteen second-order monomials (0 <= mu <= nu <= 4; E4), Seeley's construction acting in the one variable z; dr
-     is timelike inside r_h on five-dimensional Tangherlini, g^-1(dr, dr) = f < 0 (10.19 (c)), so Lemma 5.16 (1)'s
-     r-natural lies between that sphere and r_h. Propositions 8.6 and 8.9 commute (lvi)'s nine operators (E4), p-bar_1
-     unchanged; Lemma 8.7's extension is in omega in S^3; Lemma 8.8's index 3 is Lemma 3.27's, the least integer above
-     (n + 1)/2 at both n (E4); section 8.2 commutes X_1, ..., X_5 (V_(1+j) = d_x^j, j = 1, ..., 4) and X_6 = I, alpha in
-     N_0^6 (E4), Lemma 2.11's commutator identities being free of n; and Theorem 8.14 combines these with (lvi)'s
-     Proposition 7.11. It rests on no reading: its inputs are (lvi)'s, E1-E4, 10.19 (c) and 10.58 (a).
+     (Lemma 8.5: Seeley's extension in |x| - m, and P written, in the coordinates z = (t*, x) with x in R^3, in the
+     monomials I, d_z^mu, d_z^mu d_z^nu, 0 <= mu <= nu <= 3, p. 148), then uses propagation of edge regularity,
+     Proposition 7.9, duality, and for P^* the radial source estimate at dR+I+,out that he leaves to the reader,
+     Proposition 7.9's computation with the signs reversed. Propositions 8.6 and 8.9 induct on k with Lemma 7.12's
+     commuted equation, whose p-bar_1 is P's, Lemma 8.7's extension in (t*, x_I, omega in S^2), and Lemma 8.8, whose
+     part (3) rests on Lemma 3.27's H^(0;3)_b. Section 8.2: Lemma 8.10 with X = e^(2 w r) rho_K^(-2 alpha_K) grad r, dr
+     timelike for r <= r-natural (Lemma 5.16 (1)), positive through the 2 w T(grad r, grad r) term at every alpha_K, the
+     zeroth order term by a divergence identity; Propositions 8.11-8.13 by elliptic and real principal type estimates,
+     commuting X_1, ..., X_4 (V_1 = t* d_t*, V_(1+j) = d_x^j) and X_5 = I ((8.41)-(8.42)), with (8.44). Theorem 8.14
+     combines Propositions 8.6 and 8.9 on t* in [1, 4], Proposition 7.11 on {t* >= 3, r >= r_1^+} and Propositions
+     8.12-8.13 down to r = m. At n = 4 (10.67 (b)): (8.10) is E2's, its d_t*^2 coefficient -(2 alpha_I + 1) his, so the
+     threshold alpha_I < -1/2 + p-bar_1 and c_0 are his; the cross term -3 d_t* (x)_s x_I d_x_I, his -2, and the angular
+     term -(2 alpha_I + 3) x_I^2 gslash^-1, his -2(alpha_I + 1), are dominated, as his are, by 2 w T(X_0, -grad t*) = w
+     x_I^(-4 alpha_I)((x_I d_x_I)^2 + x_I^2 gslash^-1), his at both n, for w large (E2), so (8.19) holds. The density is
+     2 x_I^-8 |dt* dx_I/x_I dg/| (E4), for which x_I^2 (x_I d_x_I - 3) is skew as x_I^2 (x_I d_x_I - 2) is for x_I^-6,
+     the adjoint of x_I d_x_I for x_I^(-2n) |dx_I/x_I| being -x_I d_x_I + 2n (checked exactly here, the constant n - 2
+     failing); so (8.14) reads as his with p_1 measured from 3/2 (E1; 10.58 (a)). (8.13), (8.15)-(8.18), (8.21),
+     [Hin25a]'s symbol identity and the boundary terms hold in every dimension, and the localization (8.6) is the
+     Minkowski algebra of (2.25)-(2.27) with the class's weights (10.58 (a)). The extension across the inner sphere, his
+     r = m, runs on R^4 with I, five first-order and fifteen second-order monomials in z = (t*, x), x in R^4 (0 <= mu <=
+     nu <= 4; E4), Seeley's construction acting in the one variable |x| - m; dr is timelike inside r_h on
+     five-dimensional Tangherlini, g^-1(dr, dr) = f < 0 (10.19 (c)), so Lemma 5.16 (1)'s r-natural lies between that
+     sphere and r_h. Propositions 8.6 and 8.9 commute (lvi)'s nine operators (E4), p-bar_1 unchanged; Lemma 8.7's
+     extension is in omega in S^3; Lemma 8.8's index 3 is Lemma 3.27's, the least integer above (n + 1)/2 at both n
+     (E4); section 8.2 commutes X_1, ..., X_5 (V_(1+j) = d_x^j, j = 1, ..., 4) and X_6 = I, alpha in N_0^6 (E4), Lemma
+     2.11's commutator identities being free of n; and Theorem 8.14 combines these with (lvi)'s Proposition 7.11. It
+     rests on no reading: its inputs are (lvi)'s, E1-E4, 10.19 (c) and 10.58 (a).
 
  (lviii) 10.19 (d), [Hin26c] Theorem 9.5 (pp. 161-174) and Theorem 9.16 (pp. 174-175) at n = 4 (D164). Theorem 9.5's
      proof (section 9.2.3): parts (1)-(2) concatenate Propositions 9.9 (the horizon), 9.10 (R_sigma,in) and 9.11 (R_out)
@@ -9171,8 +9177,8 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      whose extra term -2 k i sigma rho has that sign too. Part (4) is (9.53) away from R_out and (9.44) at it. Part (6)
      is (9.56)-(9.57) with the weak-limit continuity argument ([Vas13] section 2.7). Parts (3) and (5) are (xlviii)'s,
      Proposition 9.10 is (xlvii)'s, and Theorem 9.16 is (lix)'s. At n = 4 (10.19 (d)): (9.24) is the five-dimensional
-     horizon's -- beta_0 = f'(r_h) = 2/r_h in (7.11)'s normalization and q Lemma 4.9's with T*S^3 (10.18; (lvi)), beta_1
-     = vartheta_H+ (10.18 (a)) -- so Proposition 9.9's threshold s_0 > 1/2 - beta Im sigma + beta_1 is (9.16a).
+     horizon's -- beta_0 = f'(r_h) = 2/r_h in (7.11b)'s normalization and q Lemma 4.9's with T*S^3 (10.18; (lvi)),
+     beta_1 = vartheta_H+ (10.18 (a)) -- so Proposition 9.9's threshold s_0 > 1/2 - beta Im sigma + beta_1 is (9.16a).
      Proposition 9.11 is written for Definition 9.4's operator, with eta_sc in T*S^3 and S^3's Laplacian in (9.49), and
      its threshold -1/2 + S-bar, on the Euclidean density, is 10.18 (b)'s. Lemma 9.13 is printed for fields spanning
      V(S^(n-1)). (9.56) reads 2 i sigma rho(rho d_rho - 3/2 - S) - i sigma Q + 2 sigma^2 g_00, still in rho Diff^1_b
