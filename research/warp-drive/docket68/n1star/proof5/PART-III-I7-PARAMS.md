@@ -1,9 +1,10 @@
 # Part III.I$''''''$. Black hole parameters and centre-of-mass shift, n = 4 ([Hin26] section 11.6.1)
 
-*Status.* Verified (D266: the hundred-and-twelfth verifier; no major finding, three minor ones and eight nits seated, to
-be read). Written (D264). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.6.1 (pp. 252-256): for
-sources with a little more than $t_*^{-2}$-decay at $K^+$, a forward solution with no boost term is a cut-off linearised
-Myers-Perry metric, a cut-off constant centre-of-mass shift, and a remainder that decays at $K^+$ (Proposition 11.34).
+*Status.* Proved (D268: verifier 113 read the D266 repairs). Verified (D266: the hundred-and-twelfth verifier; no major
+finding, three minor ones and eight nits seated, to be read). Written (D264). This part proves, at spatial dimension $n
+= 4$, [Hin26] section 11.6.1 (pp. 252-256): for sources with a little more than $t_*^{-2}$-decay at $K^+$, a forward
+solution with no boost term is a cut-off linearised Myers-Perry metric, a cut-off constant centre-of-mass shift, and a
+remainder that decays at $K^+$ (Proposition 11.34).
 
 *What n = 4 changes.* The scheme is the source's: the step at null infinity and at $\iota^+$, the zero energy inversion,
 a sub-leading zero energy inversion after one order is gained at tf, the rest by the low-energy estimate, and one
@@ -265,15 +266,14 @@ S_5)\Big]-(U_r,B_r,\Sigma_r).\tag{2.8}$$
 Indeed, apply $\tilde L_b(\sigma)$ to the right side. The first components add up, by the definitions of $\hat f_2$,
 $\tilde g$, $\hat f_4$, $\hat f_5$, (2.6) and the first component of $\tilde L_b(\sigma)(\hat u_5,\hat b_5,\hat S_5) =
 (\hat f_5,0,0)$, to $(\hat f^\flat-\hat f_2)+(\hat f_2-\sigma\hat f_4)+\sigma(\hat f_4-\hat f_5)+\sigma\hat f_5 = \hat
-f^\flat$; the rows are $0+\sigma(r(\hat u'_3)+0+0)-\sigma r(\hat u'_3) = 0$. Every first component lies in $\mathcal
-X_\sigma$ for an admissible order family: $\chi_{\mathrm{zf}}\hat u_0$, $\chi_{\mathrm{zf}}\hat u_4$ and
-$\chi_{\mathrm{zf}}u_b$ have compact support for $\sigma\ne0$; $\hat h^{\mathrm{aug}}$ by III.H Lemma 2.5 (b); $\hat
-u_5$ and $U_r$ by construction; and $\chi^\sharp_{\mathrm{tf}}\tilde u$ by Lemma 1.2, being b-conormal of weight
-$\frac32-2\epsilon$ at $\partial X$ with $\widehat{L_b}(\sigma)$ of it b-conormal of the same weight (by (2.5) and the
-other terms). So (2.8) follows from the injectivity of $\tilde L_b(\sigma)$ (Lemma 1.2). By Lemma 1.3, $B_r,\Sigma_r =
-O(|\sigma|^{1-\epsilon})\cdot O(|\sigma|^{1-\epsilon}) = O(|\sigma|^{2-2\epsilon})$ and $U_r\in
-H^{\infty,(\frac32-\epsilon,2-2\epsilon,1-2\epsilon)}_{\mathrm b}$ (with $\sigma r(\hat u'_3) =
-O(|\sigma|^{1-\epsilon})$ and $\sigma\partial_\sigma$-regular).
+f^\flat$; the rows are $0+\sigma(r(\hat u'_3)+0+0)-\sigma r(\hat u'_3) = 0$. Every first component lies in the space
+$\mathcal X'_\sigma$ of Lemma 1.2 (which contains $\mathcal X_\sigma$): $\chi_{\mathrm{zf}}\hat u_0$,
+$\chi_{\mathrm{zf}}\hat u_4$ and $\chi_{\mathrm{zf}}u_b$ have compact support for $\sigma\ne0$; $\hat h^{\mathrm{aug}}$
+by III.H Lemma 2.5 (b); $\hat u_5$ and $U_r$ by construction; and $\chi^\sharp_{\mathrm{tf}}\tilde u$ by Lemma 1.2,
+being b-conormal of weight $\frac32-2\epsilon$ at $\partial X$. So (2.8) follows from the injectivity of $\tilde
+L_b(\sigma)$ (Lemma 1.2). By Lemma 1.3, $B_r,\Sigma_r = O(|\sigma|^{1-\epsilon})\cdot O(|\sigma|^{1-\epsilon}) =
+O(|\sigma|^{2-2\epsilon})$ and $U_r\in H^{\infty,(\frac32-\epsilon,2-2\epsilon,1-2\epsilon)}_{\mathrm b}$ (with $\sigma
+r(\hat u'_3) = O(|\sigma|^{1-\epsilon})$ and $\sigma\partial_\sigma$-regular).
 
 Consequently, with all weights for $\epsilon$ small:
 $$\hat u_1\in H^{\infty,(\frac32-3\epsilon,1-2\epsilon,((0,0),\alpha_K-2))}_{\mathrm b},\ \text{zf-coefficient }\hat

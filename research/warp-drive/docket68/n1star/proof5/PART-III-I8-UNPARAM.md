@@ -1,6 +1,7 @@
 # Part III.I$'''''''$. Undoing the parameter changes, n = 4 ([Hin26] section 11.6.2)
 
-*Status.* Written (D265). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.6.2 (pp. 256-262): the
+*Status.* Verified (D268: the hundred-and-thirteenth verifier; no major finding, two minor ones and seven nits seated,
+to be read). Written (D265). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.6.2 (pp. 256-262): the
 correction terms that let a source generate the change of the black hole parameters and the centre-of-mass shift of Part
 III.I$''''''$ (the source's (11.134a)-(11.135b), Definition 11.37, Lemma 11.38), the gauge-fixed Einstein operator with
 all modification parameters (Definition 11.40), its linearisation in them (Lemma 11.41), and their elimination
@@ -108,17 +109,15 @@ is the exact boost near $p$, and $\phi_{-S}(p)\in\mathcal N$ for $|S|$ small (th
 Lemma 1.1 (b) $\psi_{-S^{(0)}_1}$ is the translation $\tau := \tau_{-w/2}$ ($S^{(0)}_1 = S_w$) near $\phi_{-S}(p)$, or
 $p$ lies in a fixed compact set away from the faces at infinity, where everything is smooth. On the former,
 $$(\psi_{-S^{(0)}_1}\circ\phi_{-S})^*g_b = \phi^*_{-S}g_b+\phi^*_{-S}(\tau^*g_b-g_b).$$
-On $\mathrm{supp}(1-\chi_K)\cap\Omega_*$ near the faces at infinity, $|x|\ge c|(t,x)|$ for some $c>0$ ($\chi_K = 1$ on
-$\mathrm{supp}\,\chi^\flat_K\supset\{|x|<t/10,\ t>60R_1\}$, and $t\le|x|+C$ on $\Omega_*$ near $\mathscr I^+$), so
-$|x|^{-1}$ is there a boundary defining function of the radial compactification of $\mathbb R^{1+4}$ and $C^\infty(\bar
-X)$-functions are smooth on it; on $M$ the boundary defining function is $\rho_0\rho_I\rho_+$ times a smooth positive
-function (III.B section 2). So by Lemma 1.1 (c), $\tau^*g_b-g_b\in\rho_0^3\rho_I^3\rho_+^3C^\infty$ there, which
-$\phi^*_{-S}$ preserves (III.B Lemma 5.1) and which lies in (5.3)'s remainder class $\rho_0^2\rho_I^3\rho_+^2C^\infty$.
-This is (5.3) for the composite. III.I Lemma 3.6's proof uses (5.3) on the first alternative, smoothness on the second
-and III.B Proposition 3.6, so it applies verbatim; the dependence on $(S,S^{(0)}_1)$ is smooth as the flows and
-$h_{S_w}$ are, and the parameter derivatives vanish near $K^+$ (where $g_{\vec p} = g_b$), so they lie in $\mathcal K$,
-as III.I$''''$ section 3 states for $S$. III.I Lemma 4.3's proof uses that the exterior metric is Ricci flat (it is a
-pullback of $g_{b_0}$) and Lemma 3.6.
+By Lemma 1.1 (c), $\tau^*g_b-g_b\in|x|^{-3}C^\infty(\bar X)$ there, and on that region $|x|^{-3}C^\infty(\bar
+X)\subset\rho_0^3\rho_I^3\rho_+^3C^\infty$ ($C^\infty(\bar X)$ lifts to $C^\infty(M)$ there, III.B section 2; as in
+III.B Lemma 5.2's proof), a class which $\phi^*_{-S}$ preserves (III.B Lemma 5.1) and which lies in (5.3)'s remainder
+class $\rho_0^2\rho_I^3\rho_+^2C^\infty$. This is (5.3) for the composite. III.I Lemma 3.6's proof uses (5.3) on the
+first alternative, smoothness on the second and III.B Proposition 3.6, so it applies verbatim; the dependence on
+$(S,S^{(0)}_1)$ is smooth as the flows and $h_{S_w}$ are, and the parameter derivatives vanish near $K^+$ (where
+$g_{\vec p} = g_b$), so they lie in $\mathcal K$, as III.I$''''$ section 3 states for $S$. III.I Lemma 4.3's proof uses
+that the exterior metric is Ricci flat (it is a pullback of $g_{b_0}$), Lemma 3.6, and that the exterior metric minus
+$\eta$ lies in $\rho_+^2C^\infty$ near $(\iota^+)^\circ$, which is (c).
 
 (b) III.I Propositions 3.3, 3.4 and 4.1 and Corollary 5.2 are stated for $g_0\in\mathcal G^+$ with III.I (3.5)
 (Proposition 3.4: "or more generally"), which (a) gives; Corollary 4.2 rests on Proposition 4.1 and Lemma 4.3; Theorem
@@ -174,9 +173,9 @@ $\rho_+C^\infty$, $D_{g_0}\mathrm{Ric}\in\rho_+^2\mathrm{Diff}^2_{\mathrm b}$ an
 $\delta_{g_{b_0},E_\Upsilon}G_{g_{b_0}}\in\rho_+\mathrm{Diff}^1_{\mathrm b}$ there (III.I$''''$ Lemma 2.2's proof),
 (2.1) follows. $\square$
 
-The source's (11.140)-(11.141) have $(1,1)\cup(1+\mathcal E_{\mathrm{ind}})$, $(1,0)\cup(1+\mathcal E_{\mathrm{ind}})$
-for the metric terms and need the vanishing of a $(3,1)$-coefficient ((11.82)); at $n = 4$ there is no logarithm, and
-the translation raises $h^{(0)}_{\mathrm s1}$ from order 1 to order 3 ((I$'''''''$1)).
+The source's Lemma 11.38 has $(1,1)\cup(1+\mathcal E_{\mathrm{ind}})$, $(1,0)\cup(1+\mathcal E_{\mathrm{ind}})$ for the
+metric terms, and its (11.140) needs the vanishing of a $(3,1)$-coefficient ((11.82)); at $n = 4$ there is no logarithm,
+and the translation raises $h^{(0)}_{\mathrm s1}$ from order 1 to order 3 ((I$'''''''$1)).
 
 **Definition 2.3 ([Hin26] Definition 11.40 at n = 4, in the form of its Remark 11.27).** For $\vec p =
 (S,b-b_0,S^{(0)}_1)$ small and $h\in\mathcal X^\infty$ with small $\mathcal X^d$-norm, with $g_0 := g_{\vec p}$,
@@ -188,8 +187,8 @@ $$P_2(h,\vec p) := \mathrm{Ric}(g')-\delta^*_{g_0,E_C}\Big(\Upsilon^{E_\Upsilon}
 p)\Big),\qquad L_{h,\vec p} := D_hP_2(\cdot,\vec p)\text{ at }h.\tag{2.2}$$
 $P_2(h,(S,0,0)) = P_1(h,S,b_0)$ (III.I$''''$ (2.2)) and $P_2(0,0) = 0$.
 
-*Sizes.* The source's Remark 11.36 asks metric terms of size $O(\rho_+)$ and gauge terms of size $O(\rho_+^2)$; at $n =
-4$ the metric terms lie in $\mathcal A^{\mathcal G}\subset\mathcal X$ (by (1.2)) and the gauge terms in $\mathcal
+*Sizes.* The source's Remark 11.36 accepts metric terms of size $O(\rho_+)$ and gauge terms of size $O(\rho_+^2)$; at $n
+= 4$ the metric terms lie in $\mathcal A^{\mathcal G}\subset\mathcal X$ (by (1.2)) and the gauge terms in $\mathcal
 A^{\mathcal G+1}$, which $\delta^*_{g_0,E_C}\in\rho_+\mathrm{Diff}^1_{\mathrm b}$ maps to $\iota^+$-order 4, the order
 of the sources from III.I$''''$ section 3 on.
 
@@ -255,8 +254,11 @@ III.I$''''$ Lemma 3.2, through the two properties of Lemma 1.3 (c); and they use
 with small norm. Lemma 1.3 and (a) provide these for $g_{\vec p}$ and $h'$, and Lemma 3.1 (a) below is III.I$''''$ Lemma
 3.2 for $P_2$. (c) In the proofs of these propositions every map is fixed by $L_{b_0}$, or is $L-L_{b_0}$, bounded by
 III.I Proposition 4.1 (4.2) with the coefficient bounds of III.I Proposition 3.4, uniform for small $(h',\vec p)$ (Lemma
-1.3 (b)), or is the solution map of III.I$''$ Proposition 5.1, whose constant is locally uniform (its continuity
-paragraph); III.I$''''$ Lemma 4.2 (a) is this argument for $\dot S$. $\square$
+1.3 (b)), or is the solution map of III.I$''$ Proposition 5.1, or III.I$'$ Proposition 2.1 applied to $L$ itself
+(III.I$'''$ Step 4, III.I$''''''$ Step 6), whose bounds are locally uniform: III.I$''$ Proposition 5.1's continuity
+paragraph shows this for both, III.I$'$ Proposition 2.1's proof being constructive with bounds depending on $L$ only
+through coefficient norms, locally uniform by III.I Proposition 3.4; III.I$''''$ Lemma 4.2 (a) is this argument for
+$\dot S$. $\square$
 
 ## 3. The linearisation in the parameters ([Hin26] Lemma 11.41 at n = 4)
 
@@ -353,10 +355,12 @@ and $\tilde u_j\in H^{\infty,(\langle\mathcal E^C_I\rangle,\ell_I),\beta_+,\alph
 coefficients of class III.I (3.6) with norms $O(\|h_j\|_{\mathcal X^d}+|\vec p_j|)$ (Lemma 2.5 (a), Lemma 1.3 (b)), so
 by III.I Proposition 4.1 (4.2) ($\frac32<\ell_I<a_I+\frac12$) $(L_j-L_{b_0})u_j\to0$ in III.I$''''$ Proposition 4.1
 (1)'s source space for $(\alpha,\alpha_+)$: the $K^+$-weights $-1-\epsilon+a_K$ and $\alpha-2+a_K$ exceed $\alpha$
-($\alpha<a_K-1$), the $\iota^+$-weights $2-\epsilon+2+m_+-\epsilon$ and $\beta_++2+m_+-\epsilon$ exceed $\alpha_++2$
-($m_+>1$, $\beta_+>1$, $\alpha_+<2$), and the $\mathscr I^+$-data are $(\langle\mathcal E^C_I+1\rangle',\ell_I+1)$. So
-$R_j\to0$ there. By III.I$''''$ Proposition 4.1 (1) for $L_{b_0}$, $u_j-u = \chi_Kh^{\le1}_\natural(\dot
-S_{0,0}(R_j))+\tilde u_{R_j}$ with $\tilde u_{R_j}$ of $K^+$-weight $\alpha-2>-1$; also $u_j-u =
+($\alpha<a_K-1$), the $\iota^+$-weights $\ell_++2+m_+-\epsilon$ and $\beta_++2+m_+-\epsilon$ exceed $\alpha_++2$, the
+order-2 term being counted at $\ell_+ := \min(2-\epsilon,\max(a_+,\min\mathrm{Re}\,\mathcal E_+))>1$ to meet (4.2)'s
+hypothesis $\ell_+\le\max(a_+,\min\mathrm{Re}\,\mathcal E_+)$ ($m_+>1$, $\beta_+>1$, $\alpha_+<2$), and the $\mathscr
+I^+$-data are $(\langle\mathcal E^C_I+1\rangle',\ell_I+1)$. So $R_j\to0$ there. By III.I$''''$ Proposition 4.1 (1) for
+$L_{b_0}$, $u_j-u = \chi_Kh^{\le1}_\natural(\dot S_{0,0}(R_j))+\tilde u_{R_j}$ with $\tilde u_{R_j}$ of $K^+$-weight
+$\alpha-2>-1$; also $u_j-u =
 \chi_Kh^{\le1}_\natural(\dot S_j-\dot S_{0,0}(F))+(\tilde u_j-\tilde u)$. A $K^+$-weight above $-1$ forces the
 coefficient of $t_*$ to vanish, and $S\mapsto h(S)$ is injective (III.F$'''$ Proposition 4.1 (1)), so $\dot S_j-\dot
 S_{0,0}(F) = \dot S_{0,0}(R_j)\to0$.
@@ -365,14 +369,14 @@ S_{0,0}(F) = \dot S_{0,0}(R_j)\to0$.
 bounded uniformly (Lemma 2.5 (c)), with $K^+$-weight $-\epsilon$, $\iota^+$-order 2 for the first two terms ((1.1)) and
 $\tilde u_j\in H^{\infty,(\langle\mathcal E^C_I\rangle,\ell_I),\beta_+,\alpha_K-2}_{\mathrm b}$,
 $\beta_+\in(1,\min(\frac32,\min\mathrm{Re}\,\mathcal E_+))$. As in (a), $(L_j-L_{b_0})u_j\to0$ in $\mathcal Y$:
-$K^+$-weight $a_K-\epsilon\ge\alpha_K$ for $\epsilon\le a_K-\alpha_K$, $\iota^+$-weights $4+m_+-2\epsilon$ and
-$\beta_++2+m_+-\epsilon$, both above $4-\epsilon$. So $R_j\to0$ in $\mathcal Y$, and $R_j$ is real. $u_j-u$ has
-$K^+$-weight $-\epsilon>-1$, so $\dot S_{0,0}(R_j) = 0$ (by the uniqueness used in (a)), and III.I$''''''$ Proposition
-2.1 for $L_{b_0}$ gives $u_j-u = \chi_K\dot g(\dot b_{R_j})+\chi_Kh(\dot S_{R_j})+\tilde u_{R_j}$ with $(\dot
-b_{R_j},\dot S_{R_j}) = Q_{0,0}(R_j)\to0$. Comparing with $u_j-u = \chi_K\dot g(\dot b_j-\dot b)+\chi_Kh(\dot
-S^{(0)}_j-\dot S^{(0)})+(\tilde u_j-\tilde u)$: the stationary tensor $\dot g(\dot b_j-\dot b-\dot b_{R_j})+h(\dot
-S^{(0)}_j-\dot S^{(0)}-\dot S_{R_j})$ times $\chi_K$ has $K^+$-weight $\alpha_K-2>0$, so it vanishes on $X^\circ$, and
-by injectivity $Q_{h_j,\vec p_j}(F_j)-Q_{0,0}(F) = Q_{0,0}(R_j)\to0$. $\square$
+$K^+$-weight $a_K-\epsilon\ge\alpha_K$ for $\epsilon\le a_K-\alpha_K$, $\iota^+$-weights $\ell_++2+m_+-\epsilon$
+($\ell_+$ as in (a)) and $\beta_++2+m_+-\epsilon$, both above $4-\epsilon$ as $\ell_++m_+>2$. So $R_j\to0$ in $\mathcal
+Y$, and $R_j$ is real. $u_j-u$ has $K^+$-weight $-\epsilon>-1$, so $\dot S_{0,0}(R_j) = 0$ (by the uniqueness used in
+(a)), and III.I$''''''$ Proposition 2.1 for $L_{b_0}$ gives $u_j-u = \chi_K\dot g(\dot b_{R_j})+\chi_Kh(\dot
+S_{R_j})+\tilde u_{R_j}$ with $(\dot b_{R_j},\dot S_{R_j}) = Q_{0,0}(R_j)\to0$. Comparing with $u_j-u = \chi_K\dot
+g(\dot b_j-\dot b)+\chi_Kh(\dot S^{(0)}_j-\dot S^{(0)})+(\tilde u_j-\tilde u)$: the stationary tensor $\dot g(\dot
+b_j-\dot b-\dot b_{R_j})+h(\dot S^{(0)}_j-\dot S^{(0)}-\dot S_{R_j})$ times $\chi_K$ has $K^+$-weight $\alpha_K-2>0$, so
+it vanishes on $X^\circ$, and by injectivity $Q_{h_j,\vec p_j}(F_j)-Q_{0,0}(F) = Q_{0,0}(R_j)\to0$. $\square$
 
 **Definition 4.2 ([Hin26] Definition 11.42 at n = 4).** For $\vec p\,' = (S',b',S'')$ write $\vec p\,'^{,<0} := S'$ and
 $\vec p\,'^{,=0} := (b',S'')\in\mathfrak b\oplus\mathcal S_1$. The first eliminates the asymptotic term of $K^+$-order
@@ -421,12 +425,16 @@ p\,'^{,=0}) = o(1)\vec p\,'^{,=0}\to0$ by Lemma 4.3), and $\dot S_{h,\vec p}(F_{
 (b) gives $\dot{\vec p}^{,=0}_{h,\vec p}(0,\vec p\,'^{,=0})\to-\vec p\,'^{,=0}$, uniformly on bounded sets by linearity
 on the finite-dimensional space. $\square$
 
+The source's Lemma 11.45 says "close to the identity": its proof solves with $+D_{(h,\vec p)}P(0,0,\vec p\,'^{,=0})$,
+while its Definition 11.44 has the source $f-D_{(h,\vec p)}P(0,\vec p\,')$, for which the map is close to
+$-\mathrm{id}$, as here; either is invertible.
+
 **Corollary 4.6 ([Hin26] Corollary 11.46 at n = 4).** For $(h,\vec p)$ small (as in Lemma 2.5, $b = b_0$) and
 $f\in\mathcal Y$ there is a unique $\vec p\,'_{h,\vec p}(f)\in\mathcal S_1\oplus\mathfrak b\oplus\mathcal S_1$ such that
 the forward solution of
 $$L_{h,\vec p}u = f-D_{\vec p}P_2(h,\vec p)\big(\vec p\,'_{h,\vec p}(f)\big)\tag{4.3}$$
 has neither a boost term nor the parameters of III.I$''''''$ (2.1); therefore
-$$u\in\bigcap_{\epsilon>0}H^{\infty,(\langle\mathcal E^C_I\rangle,\ell_I),\beta_+,\alpha_K-2}_{\mathrm
+$$u\in H^{\infty,(\langle\mathcal E^C_I\rangle,\ell_I),\beta_+,\alpha_K-2}_{\mathrm
 b}(\Omega_*;S^2T^*)^{\bullet,-}\quad\text{for every }\beta_+<\min(\tfrac32,\min\mathrm{Re}\,\mathcal E_+),\tag{4.4}$$
 and $u$ decays at $K^+$ ($\alpha_K>2$). $\vec p\,'_{h,\vec p}(f)$ and $u$ are linear and continuous in $f$.
 
@@ -451,13 +459,13 @@ E_+)-\epsilon$ (III.I$''''''$ (I$''''''$1)), and the base points have $b = b_0$ 
 (I$'''''''$1) *The centre of mass needs a translated exterior.* The source undoes the centre-of-mass shift by the metric
 term $-d\chi_K\otimes_s\omega^{(0)}_{b_0,\mathrm s1}$ in the transition region, of size $O(\rho_+)$, acceptable at $n =
 3$ (its Remark 11.36). At $n = 4$ that term has $\iota^+$-order 1 and lies outside $\mathcal X$
-($\min\mathrm{Re}\,\mathcal E_+>1$, III.I (1.3)), and with it the analysis of Parts III.I-III.I$''''''$ (which needs
-$m_+>1$) would fail; it cannot be moved into the solution either, which must vanish at early times. The exterior
-background is translated instead ((1.3), Lemmas 1.1-1.3), as the source already boosts it: the correction becomes
-$-d\chi_K\otimes_s(\omega_{\mathrm s1}-\Theta w^0)$, of order 3 (Lemma 2.2), the identity (2.3) stays exact, and the
-translated background satisfies everything Parts III.I-III.I$''''''$ use (Lemma 1.3, Lemma 2.5). The parts that write
-the source's (11.90), Definition 11.63 and Corollary 11.66 must carry the translation in the initial data as they carry
-the boost.
+($\min\mathrm{Re}\,\mathcal E_+>1$, III.I (1.3)), and with it the analysis of Parts III.I-III.I$''''''$ would not apply
+as stated (it needs $m_+>1$); it cannot be moved into the solution either, which must vanish at early times. The
+exterior background is translated instead ((1.3), Lemmas 1.1-1.3), as the source already boosts it: the correction
+becomes $-d\chi_K\otimes_s(\omega_{\mathrm s1}-\Theta w^0)$, of order 3 (Lemma 2.2), the identity (2.3) stays exact, and
+the translated background satisfies everything Parts III.I-III.I$''''''$ use (Lemma 1.3, Lemma 2.5). The parts that
+write the source's (11.90), Definition 11.63 and Corollary 11.66 must carry the translation in the initial data as they
+carry the boost.
 
 (I$'''''''$2) *Three parameters, no logarithm.* As there is no logarithmic centre-of-mass term (III.I$''''''$
 (I$''''''$1)), the parameters are $(S,b-b_0,S^{(0)}_1)$; the source's $h^{(0,1)}_{\mathrm s1}$,

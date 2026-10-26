@@ -3426,3 +3426,34 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   set real and discrete; the distributional identity (2.10) before the matching; the source's second class f_2; c from
   III.I''' section 1; the sign of a_s1 dropped.
 - Next: verifier 113 on III.I''''''' and these repairs; then [Hin26] section 11.7 as III.I''''''''.
+
+### 4.190 Part III.I'''''''' written: [Hin26] section 11.7 at n = 4 (D267)
+
+- PART-III-I9-COMMOTION.md: decaying centre-of-mass motions chi_K t_*^(-lam+1) (log t_*)^k h(S), (lam, k) in the
+  index set M = E_++ cap {Re < 2}, Re lam in [lam_sharp, 2); E_++ fixed in advance (contains E#_+ below 2, closed under
+  + E^iota_ind, E_ind, E_+, inside E_+).
+- Corrections #3: h^(lam-1,k)_s1 = -dchi_K x omega^{<=4}(a S), theta^(lam-1,k)_s1 = delta G (chi_K delta^* omega^{<=4}),
+  omega^{<=4}(a S) = sum a^(i) omega-breve^i with the generalised gauge 1-forms of III.D''' to order 4; the gauge term
+  decays to K+-order Re lam + 4; the identity D P_3(0,0)(S) = L_b0(m(S)) is exact.
+- Expansion at a level (Lemma 3.2): Steps 1-2 of III.I''''' with c_K = alpha, so the s1 row of III.G'' Corollary 4.3
+  appears exactly when Re lam - 1 < alpha - 2 and gives the motions; zero energy as III.I'''''' with a tf-iteration
+  (III.G'''' Proposition 5.1 repeated, the s1 terms moved into the S_1-column) for alpha >= 2 + eps_ind.
+- Proposition 4.1 (= 11.51): induction over admissible levels; each level a finite-dimensional map close to the
+  identity; u has K+-weight alpha - 2 - eps for every admissible alpha < min(a_K, 3).
+- Findings (I''''''''1)-(I''''''''5): motions extracted on spacetime (no zero-energy motions at n = 4); no logarithm
+  proliferation, no u_Sigma; the tf-iteration; assumptions on E_+; origin at lam_sharp.
+- Next: verifier 114 on III.I'''''''' and the D268 repairs.
+
+### 4.191 Verifier 113 seated: III.I''''''' verified; III.I'''''' proved (D268)
+
+- Verifier 113 on III.I''''''' (PART-III-I8-UNPARAM.md) and the D266 repairs: 0 major, 2 minor, 7 nits; the D266 repairs
+  correct and complete but for a stale sentence at Lemma 1.2's use site (now X'_sigma). Confirmed: the iota+-order 1 of
+  the source's centre-of-mass correction, the translated background, Lemma 2.2's orders, (2.3) sign by sign, f^b near K+,
+  Lemmas 4.3, 4.5 (close to -id), Corollary 4.6.
+- m1: Lemma 2.5 (c)'s uniformity now also covers III.I' Proposition 2.1 applied to L (constructive, bounds through
+  coefficient norms, III.I'' Proposition 5.1's continuity paragraph).
+- m2: Lemma 4.1 counted order-2 terms at iota+-weight 2 - eps, beyond (4.2)'s hypothesis; now at min(2 - eps,
+  max(a_+, min Re E_+)) > 1, which still suffices as l_+ + m_+ > 2.
+- Nits: Lemma 11.38 vs (11.140); "accepts"; the |x|^-3 inclusion cited from III.B; Lemma 4.3 also uses (c); the sign
+  of Lemma 11.45 recorded; a vacuous intersection dropped; "would not apply as stated".
+- Next: verifier 114 on III.I'''''''' and these repairs; then [Hin26] section 11.8 as III.I'''''''''.

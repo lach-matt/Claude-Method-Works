@@ -5548,3 +5548,16 @@ sections now lowers the order at the outgoing radial set (the zero section, not 
 depend on the order; reality comes from the real solution's K+-limit; and the decomposition is for one fixed eps, the
 parameters being intrinsic. Eight nits. The D263 repairs are correct (a literal line break and a doubled label fixed),
 so III.I''''' is proved.
+
+**D267 (2026-10-26): Part III.I'''''''' written.** [Hin26] section 11.7 at n = 4 (PART-III-I9-COMMOTION.md): decaying
+centre-of-mass motions and almost t_*^-1 decay. At n = 4 the motions come only from the s1 row of the iota+ step, at
+exponents in [lam_sharp, 2), so they are read off on spacetime; there is no proliferation of logarithms, the motion
+index set is fixed in advance, and each level of the induction is a finite-dimensional map close to the identity. The
+zero energy analysis gains a tf-iteration. Proposition 11.51: K+-weight alpha - 2 for every admissible alpha < min(a_K,
+3).
+
+**D268 (2026-10-26): verifier 113 seated; III.I''''''' verified, III.I'''''' proved.** The hundred-and-thirteenth
+verifier found no major finding in Part III.I''''''' and confirmed the translated-background repair of the
+centre-of-mass correction. Two minor findings are seated: the uniformity of the bounds now covers the null-infinity map
+applied to L, and the continuity lemma counts order-2 terms at an admissible iota+-weight. Seven nits. The D266 repairs
+are correct (one stale sentence fixed), so III.I'''''' is proved.
