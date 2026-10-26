@@ -110,10 +110,13 @@ $O(r^{-3})$, $\Gamma^{t_*}_{rA} = \Gamma^r_{rA} = \Gamma^A_{rr} = \Gamma^A_{rt_*
 $\Gamma^B_{rA} = r^{-1}\delta^B_A$: the one entry of $A$ that does not decay is $i\sigma$, coupling $w_r$ into the
 $w_{t_*}$ row. In $\tilde W := (w_r,r^{-1}w_{t_*},r^{-1}w_A)$ the system is
 $r\partial_r\tilde W = \tilde A\tilde W+\tilde H$ with $\tilde A$ bounded with all b-derivatives (the entry $i\sigma$ in
-the second row, $O(r^{-1})$ and $O(r^{-2})$ entries elsewhere, and $-\tilde W_A$ from the scaling) and $\tilde H$
-conormal with a polynomial bound; for this b-system variation of constants gives polynomial bounds and propagates
-b-regularity. (A bound $A = O(r^{-1})$ in the frame $(dt_*,dr,r\,dz)$, stated here before D235, is false because of the
-entry $i\sigma$; the ninety-seventh verifier.) (c) The static Tangherlini metric is analytic in $r>r_h$. $\square$
+the second row; in the angular row $r\partial_r\tilde W_A = \tilde W_A-\partial_A\tilde W_r+2h_{rA}$, from
+$\Gamma^B_{rA} = r^{-1}\delta^B_A$ and the scaling, a diagonal $+1$ and an $O(1)$ coupling $-\partial_A$ to
+$\tilde W_r$, bounded on each type and degree; $O(r^{-1})$ and $O(r^{-2})$ entries elsewhere; corrected at D238) and
+$\tilde H$ conormal with a polynomial bound; for this b-system variation of constants gives polynomial bounds and
+propagates b-regularity. (A bound $A = O(r^{-1})$ in the frame $(dt_*,dr,r\,dz)$, stated here before D235, is false
+because of the entry $i\sigma$; the ninety-seventh verifier.) (c) The static Tangherlini metric is analytic in $r>r_h$.
+$\square$
 
 **Theorem 2.2 ([AHW24] Theorem 6.1 (1) on five-dimensional Tangherlini).** Let $\sigma\ne0$, $\mathrm{Im}\,\sigma\ge0$,
 and let $h$ be a mode of one type and degree with $D_{g_{b_0}}\mathrm{Ric}(h) = 0$ on $\{r>r_h\}$. Then there is a mode
@@ -191,9 +194,10 @@ $l\ge2$, vector $l\ge1$, scalar $l\ge0$.
 
 **Lemma 2.3 (continuing a solution inside the horizon).** Let $Q$ be a stationary operator on $\{r>r_0-\delta_0\}$ whose
 principal part is a positive multiple of $\Box_{g_{b_0}}$, commuting with the rotations, $\sigma\ne0$ with
-$\mathrm{Im}\,\sigma\ge0$, and $w$ of one type and degree, smooth on $\{r>r_0-\delta_0\}$, with $\hat Q(\sigma)w = 0$ on
-$\{r>r_h\}$. Then there is $\tilde w$ of that type and degree, smooth on $\{r>r_0-\delta_0\}$ (so up to $\{r = r_0\}$),
-with $\hat Q(\sigma)\tilde w = 0$ on $\{r>r_0-\delta_0\}$ and $\tilde w = w$ on $\{r\ge r_h\}$.
+$\mathrm{Im}\,\sigma\ge0$, and $w$ of one type and degree, smooth on $\{r\ge r_h\}$ (up to the horizon; D238, the proof
+uses $w$ there only), with $\hat Q(\sigma)w = 0$ on $\{r>r_h\}$. Then there is $\tilde w$ of that type and degree,
+smooth on $\{r>r_0-\delta_0\}$ (so up to $\{r = r_0\}$), with $\hat Q(\sigma)\tilde w = 0$ on $\{r>r_0-\delta_0\}$ and
+$\tilde w = w$ on $\{r\ge r_h\}$.
 
 *Proof.* As in III.D Proposition 6.2 (d), in the ingoing chart the equation on the coefficients $U(r)$ of the type and
 degree is $-fU''+AU'+BU = 0$ with $A$, $B$ smooth on $(r_0-\delta_0,\infty)$, and with $Y := (U,(r-r_h)U')$ it is

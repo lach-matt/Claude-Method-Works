@@ -40,12 +40,34 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.E | [Hin26] 7-7.2 (to Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the large dual states | **proved** (D235) |
 | III.E' | [Hin26] 7.2.1 | the vector type 1 dual states: the deformation tensor of a rotation (exact, by equivariance) and the states' dependence on the bracket with the spin | proved (D231: read in full, no findings) |
 | III.F | [Hin26] 8 to 8.1 | the linearised gauge-fixed Einstein operator: structure, the spectrum of the model's endomorphism, the bound at the trapped set | **proved** (D235) |
-| III.F' | [Hin26] 8.2-8.3 | the linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal operator on b-spaces | verified (D235; one minor finding and two nits seated, to be read) |
-| III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | verified (D235; one minor finding and four nits seated, to be read) |
-| III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | verified (D235; three nits seated, to be read) |
-| III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | verified (D235; one minor finding and two nits seated, to be read) |
-| III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 3/2, finite meromorphy | written (D236) |
-| III.C, III.G'-III.J | [Hin26] 5, 9 (from Proposition 9.4)-12 | exterior stability; the rest of the spectral theory at the transition faces; decay | to do |
+| III.F' | [Hin26] 8.2-8.3 | the linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal operator on b-spaces | **proved** (D238: the ninety-eighth verifier read the D235 repairs, correct) |
+| III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | **proved** (D238: the D235 repairs read, correct; two nits seated) |
+| III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | **proved** (D238: the D235 repairs read, correct) |
+| III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | **proved** (D238: the D235 repairs read, correct; two nits seated) |
+| III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 2, finite meromorphy | **proved** (D240: the ninety-ninth verifier read the D238 repairs, correct) |
+| III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | **proved** (D241: the hundredth verifier read the D240 repairs, correct; one nit seated) |
+| III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | proved (D244; verifier 100's repairs read by verifier 101, one nit seated) |
+| III.C | [Hin26] 5.1-5.3 | metric perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an order lower; forward mapping | proved (D245; verifier 101's repairs read by verifier 102, three nits seated) |
+| III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | proved (D247; verified D245 with four minor findings and eleven nits) |
+| III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | proved (D249; verified D247 with three minor findings and eight nits) |
+| III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | proved (D252; verified D249 with two minor findings and six nits) |
+| III.H' | [Hin26] 10.2 (Theorem 10.1, Lemmas 10.9-10.13) | 2-admissibility of L_b: the contour representation, high and low frequencies, the zero energy contributions integrated twice in t_*; sf-loss 0 at n = 4 | proved (D256; verified D252, D254) |
+| III.I | [Hin26] 11 opening, 11.1 (Definition 11.3, Lemma 11.5, Propositions 11.6, 11.8, Corollaries 11.9-11.10, Theorem 11.12) | the dynamical linearised operator: perturbation classes, the e3b class, structure in the forward cone, forward mapping, admissibility with p_0 = p~_1 = 0, forward solutions at b0 with sf-loss 0; the orders of II.F' in O_c | proved (D258: verifier 108 read the D256 repairs; verified D254, D256) |
+| III.I' | [Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future timelike infinity; formal solutions at null infinity, one exceptional term | proved (D258: verifier 108 read the D256 repairs; verified D256) |
+| III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | proved (D259: verifier 109 read the D258 repairs; verified D258) |
+| III.I''' | [Hin26] 11.4.1 (Proposition 11.20, Lemma 11.21) | the boost parameter: the forward solution is a cut-off generalised boost state plus a remainder of K+-weight alpha_K - 2; zero energy inverted by the augmented operator, no iota+ step at n = 4 | proved (D261: verifier 110 read the D259 repairs; verified D259) |
+| III.I'''' | [Hin26] 11.4.2 (Definitions 11.23, 11.25, Lemmas 11.24, 11.28, Proposition 11.30, (11.95)) | undoing the boost: correction terms, the boost identity (11.78b), the augmented operator, its parameter derivative, the boost parameter map invertible; no logarithms, no splitting of the source, the generalised state re-centred at n = 4 | proved (D263: verifier 111 read the D261 repairs; verified D261) |
+| III.I''''' | [Hin26] 11.5 (Proposition 11.32) | almost boundedness: with the boost eliminated, K+-weight alpha_K - 2 for every alpha_K < 2, by rounds of III.I''''s argument with a step at iota+ from 3/2 + (1 - e_Ups) gam_Ups; no Lemma 11.33, no Step 3.2 at n = 4 | proved (D266: verifier 112 read the D263 repairs; verified D263) |
+| III.I'''''' | [Hin26] 11.6.1 (Proposition 11.34) | extraction of the parameters: for sources of K+-weight alpha_K in (2, 5/2), u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + a remainder decaying at K+; no logarithmic centre-of-mass term at n = 4; the tf-improvement by III.G'''' Proposition 5.1 | proved (D268: verifier 113 read the D266 repairs; verified D266) |
+| III.I''''''' | [Hin26] 11.6.2 (Definitions 11.37, 11.40, 11.42, 11.44, Lemmas 11.38, 11.41, 11.43, 11.45, Corollary 11.46) | undoing the parameter changes: corrections, the operator P_2 with parameters (S, b - b_0, S^(0)_1), their elimination; the centre-of-mass shift needs a translated exterior background at n = 4 | proved (D269: verifier 114 read the D268 repairs; verified D268) |
+| III.I'''''''' | [Hin26] 11.7 (Definitions 11.47-11.48, Lemma 11.49, Proposition 11.51) | decaying centre-of-mass motions: corrections #3 with generalised gauge 1-forms to order 4; the motions read off from the s1 row of the iota+ step; K+-weight alpha - 2 for alpha < min(a_K, 3), almost t_*^-1 | proved (D271: verifier 115 read the D269 repairs; verified D269) |
+| III.I''''''''' | [Hin26] 11.8 to Lemma 11.57 (Definitions 11.55-11.56, Lemma 11.57) | correction terms #4 for six row types (s1, v1, s0, s2 and the class roots c0, c1; gauge towers of length 4, 3, 4, 3, 2, 2), the operator P_4 with every modification parameter, and its exact linearisation f^nu = L m_nu + r^nu with a remainder of iota+-weight above 5 + eps_+ and no index set | proved (D274: verifier 116 read the D271 repairs; verified D271) |
+| III.I'''''''''' | [Hin26] Theorem 11.59, Parts 1-3, first half (with Remark 11.62) | the parameter exponents fixed (an exponent set Lambda, log orders growing with the real part, the gap (G)), the towers of III.G'' as delta*-images and the uniqueness of row expansions, forward Fourier tails, and the spacetime phase: the iota+-terms of u-exponent below 2 solved up to the K+-order alpha <= 4 + eps_K under (C5), their K+-terms the rows | proved (D275: verifier 117 read the D274 repairs; verified D274) |
+| III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | proved (D277: verifier 118 read the repairs) |
+| III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | verified (D277; one major, six minor findings and eleven nits seated, to be read) |
+| III.I''''''''''''' | [Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative produces; the source's routine repetition, which section 11.8.3 needs | written (D278) |
+| III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | written (D279) |
+| III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -271,8 +293,8 @@ manifolds, smooth invariant splittings and a fixed perturbation, and takes the u
 theorem's proof. Here Theorem 1.1 proves what is needed directly and quantitatively (section 2), by the graph transform:
 the hypersurfaces have codimension one and the normal dynamics is linear in the defining functions, so each graph
 transform is a one-dimensional shooting problem, solved for the stable hypersurface by a contraction in a weighted norm
-and for the unstable one by forward iteration. Its hypotheses are Part I's (Γ.1)-(Γ.3) and the tangential growth bound of
-(K3); the invariant splitting is not used. Section 3 graphs the characteristic set near the trapped set over the
+and for the unstable one by forward iteration. Its hypotheses are Part I's (Γ.1)-(Γ.3) and the tangential growth bound
+of (K3); the invariant splitting is not used. Section 3 graphs the characteristic set near the trapped set over the
 stationary one, computes the projected field, and proves Proposition 6.3 (Proposition 3.4). Finding (C$'$2) changes the
 statement: the stable hypersurface loses one derivative, $\tilde\phi^s\in C^{d_0-2}$, and both are constructed on a
 neighbourhood of the trapped set, which is all the trapping estimates use. Written (D199). The eighty-third verifier
@@ -374,16 +396,20 @@ Proposition 10.12 is applied, and the auxiliary operators needed to use Part II.
 Written (D208). The eighty-seventh verifier re-derived the constants at $n = 4$, the four threshold sums, the symbols
 and Hamilton fields, the Bessel reduction, the Schur-test integrals, the Fourier bound and the order and weight
 bookkeeping of sections 6-8, by machine where it could, and confirmed (F1)-(F9) at source. No major finding. Its seven
-minor findings are seated (D209): Step 0 of Theorem 10.1 at the order $\mathsf s+1$; the bounded weight at $\mathscr
-I^+$ in Lemma 5.8; the density factor near 0f in Lemma 2.2; the decay $\rho_+^2$ of the metric at $\iota^+$, the $n = 4$
-value, now cited to Part II.B ((F11)); the absorption time; finite speed of propagation, now Lemma 1.3, proved from the
-uniqueness theorem of Bär, Ginoux and Pfäffle (READ) with explicit monotone functions, wherever it is used; and the five
-[0C] statements, re-read at source. Seating them brought out four more, repaired: the slab and the comparison region of
-Lemma 6.3, the starting time of the iteration in Proposition 7.4 (2), a modified metric in Lemma 7.3 (b) that was not
-close to $g_0$ near $K^+$, and Theorem 10.1 itself, now stated and proved on $\Omega_*$, where the next part uses it
-((F13)). Findings (F10)-(F14) are added. The eight nits are seated too. The eighty-eighth verifier read those repairs
-and confirmed each (D212); its two further minor findings, a time cut-off in Lemma 6.3 that was not scaled and the strip
-$0\le\mathrm{Im}\,\sigma< -\gamma_+$ in Lemma 6.4, and four notes are repaired, and await the next reader.
+minor findings are seated (D209): Step 0 of Theorem 10.1 at the order $\mathsf s+1$; the bounded weight at
+$\mathscr I^+$ in Lemma 5.8; the density factor near 0f in Lemma 2.2; the decay $\rho_+^2$ of the metric at $\iota^+$,
+the $n = 4$ value, now cited to Part II.B ((F11)); the absorption time; finite speed of propagation, now Lemma 1.3,
+proved from the uniqueness theorem of Bär, Ginoux and Pfäffle (READ) with explicit monotone functions, wherever it is
+used; and the five [0C] statements, re-read at source. Seating them brought out four more, repaired: the slab and the
+comparison region of Lemma 6.3, the starting time of the iteration in Proposition 7.4 (2), a modified metric in Lemma
+7.3 (b) that was not close to $g_0$ near $K^+$, and Theorem 10.1 itself, now stated and proved on $\Omega_*$, where the
+next part uses it ((F13)). Findings (F10)-(F14) are added. The eight nits are seated too. The eighty-eighth verifier
+read those repairs and confirmed each (D212); its two further minor findings, a time cut-off in Lemma 6.3 that was not
+scaled and the strip $0\le\mathrm{Im}\,\sigma< -\gamma_+$ in Lemma 6.4, and four notes are repaired, and await the next
+reader.
+
+Amended (D238): Lemma 5.7 is stated for $a>-1$, which is all its proof uses, as III.G Proposition 3.2 needs; to be
+read.
 
 ## Part II.F'
 
@@ -636,6 +662,9 @@ the ninety-seventh verifier; one minor finding ($C_0 = 100$ of III.F, against $C
 is for 100) and two nits ((C1) needs $\gamma_C$ large against $e_C^{-1}$, and $\epsilon_{\mathrm{ind}}<3\times10^{-6}$
 at the record's point; the cancelled root at s1) seated, to be read.
 
+Proved (D238): the ninety-eighth verifier read the D235 repairs (m1, $C_0 = 100$; n1, n2) and found them correct and
+complete.
+
 ## Part III.F''
 
 `PART-III-F3-MODES.md`. [Hin26] Proposition 8.8 at $n = 4$. Lemma 1.1: the horizon threshold of $L_b$, which III.F did
@@ -659,6 +688,10 @@ $i\sigma$; the conclusion holds through the b-system in $(w_r,r^{-1}w_{t_*},r^{-
 2.3's correction, the reason $x>0$, the high-frequency constant renamed $C_{\mathrm{hf}}$, a citation) seated, to be
 read.
 
+Proved (D238): the D235 repairs read and correct. Two nits seated: the angular row of the b-system in Lemma 2.1
+(b), $r\partial_r\tilde W_A = \tilde W_A-\partial_A\tilde W_r+2h_{rA}$; and Lemma 2.3 assumes $w$ smooth on
+$\{r\ge r_h\}$, which is all its proof uses.
+
 ## Part III.F'''
 
 `PART-III-F4-ZERO.md`. [Hin26] section 8.4 from Proposition 8.9 to Corollary 8.13 at $n = 4$. Lemma 1.1: the linearised
@@ -678,6 +711,8 @@ leading terms. Corollary 4.2 ([Hin26] Corollary 8.13): the linear right inverse 
 the next part; and (F$'''$5): the source's adjoint (8.25) uses $G^2 = \mathrm{Id}$, false in five dimensions. Written
 (D233). Verified (D235): read in full by the ninety-seventh verifier, three nits (the two $\epsilon_{\mathrm{ind}}$ told
 apart, the energy identities for complex solutions, Lemma 2.3 up to $r = r_0$) seated, to be read.
+
+Proved (D238): the D235 repairs read and correct.
 
 ## Part III.F''''
 
@@ -700,6 +735,9 @@ conormal space only, so (5.1)'s index set was not reached; now $u_b$ is polyhomo
 (a weight, the spin-independence at spinning $b$) seated, to be read; the four pairing values the brief named were
 recomputed or confirmed.
 
+Proved (D238): the D235 repairs read and correct. Two nits seated: the leading term of $\dot g^\Upsilon_b(0,\dot A)$
+is $2\mu\rho^3(dt_*+2\,d|x|)\otimes_s\rho V(\dot A)$, and the index set of $u_b$ carries no subscript $b$.
+
 ## Part III.G
 
 `PART-III-G-SPECTRAL.md`. [Hin26] Proposition 9.2 at $n = 4$: the spectral family $N_{\mathrm{sf}}(\lambda)$ of the
@@ -711,10 +749,387 @@ $\sigma = -i\lambda$; the commutators; the dilation metric, for which $dT$ is sp
 these, each with a failing control. Section 2: the light cone is a radial source with $\beta_0 = 2(1+v)$ and threshold
 $s<2-\mathrm{Re}\,\lambda$; the slab estimates at $v = -1$; the Fredholm property for admissible $(s,\mu)$ (Proposition
 2.4); b-regularity through the Lie derivatives along the rotations and the dilation, whose commuted system keeps the
-threshold (Propositions 2.6-2.7). Section 3: injectivity for $\mathrm{Re}\,\lambda<\frac32$ through II.F Lemma 5.8,
-III.F$'$'s tf-admissibility on $(0,1]$ and conormality at the light cone (Lemma 3.1). Section 4: the semiclassical
-estimate in vertical strips (the source's (9.9)), with the escape function $\tilde\xi = -(v+2)(v\xi+1)$, II.F's
-estimates at the cone point for $|\mathrm{Im}\,z|\le Ch$ and I.B's at the light cone and on the slabs (Proposition 4.6).
-Theorem 5.1: Proposition 9.2 (1)-(3) at $n = 4$, index 0, invertibility for $\mathrm{Re}\,\lambda<\frac32$ (the source
-has $1+\epsilon_{\mathrm{ind}}$ at $n = 3$) and finite meromorphy. Findings (G1)-(G6); (G6): Proposition 9.4 and the
-rest of section 9 are the next part. Written (D236).
+threshold (Propositions 2.6-2.7). Section 3: injectivity for $\mathrm{Re}\,\lambda<2$ through II.F Lemma 5.8, III.F$'$'s
+tf-admissibility on $(0,1]$ and conormality at the light cone (Lemma 3.1). Section 4: the semiclassical estimate in
+vertical strips (the source's (9.9)), with the escape function $\tilde\xi = -(v+2)(v\xi+1)$, II.F's estimates at the
+cone point for $|\mathrm{Im}\,z|\le Ch$ and I.B's at the light cone and on the slabs (Proposition 4.6). Theorem 5.1:
+Proposition 9.2 (1)-(3) at $n = 4$, index 0, invertibility for $\mathrm{Re}\,\lambda<2$ (the source has
+$1+\epsilon_{\mathrm{ind}}$ at $n = 3$) and finite meromorphy. Findings (G1)-(G6); (G6): Proposition 9.4 and the rest of
+section 9 are the next part. Written (D236). Verified (D238): read in full by the ninety-eighth verifier. One major
+finding: Proposition 4.6 used Lemma 4.4's constant-order slab estimate where Lemma 4.2's semiclassical order varied. It
+is repaired by a factor $g(v)$, which makes the order the constant $b_{\mathrm{in}}$ over $\{v\le-\frac14\}$ and
+non-increasing in the direction of propagation. One minor finding: injectivity stopped at $\mathrm{Re}\,\lambda<\frac32$
+by the method only. Lemma 3.1 now holds for every $s\notin\frac12+\mathbb Z$ and II.F Lemma 5.7 for $a>-1$, so the
+operator is invertible for $\mathrm{Re}\,\lambda<2$. Four nits are seated, among them the uniqueness of the turning
+point by $H_p^2v<0$ (`sf5.py` S11, new). The repairs are to be read. Proved (D240): the ninety-ninth verifier read the
+D238 repairs (A1-A6, B1-B3) and found them correct and complete; nothing in III.G still relies on the bound $\frac32$.
+
+## Part III.G'
+
+`PART-III-G2-IOTA.md`. [Hin26] Proposition 9.4 at $n = 4$, with Definitions 9.3, 9.6 and Remark 9.7: the inverse of the
+$\iota^+$-normal operator $N_{\iota^+}(\lambda) = R^{-2-\lambda}N_{\mathrm{sf}}(\lambda)R^\lambda$ given by III.G's
+inverse. Lemma 1.1: $\bar S$ is semisimple at $n = 4$, with constant eigenvalues and smooth spectral projections, by
+$\rho\bar S = UV$ and the block structure of $VU$ (`sbar5.py` S4, new). So the expansion at $\mathscr I^+\cap\iota^+$
+has one small exponent $\frac32+s$ per eigencomponent
+($s\in\{0,(1-e_\Upsilon)\gamma_\Upsilon,\gamma_\Upsilon,2\gamma_\Upsilon\}$), with the index sets of Definition 1.2.
+Lemma 1.3: the index set at $K^+\cap\iota^+$ is generated by the roots of III.F$'$ with real part $\le0$; its only
+exponent with real part 0 is $(0,0)$. Lemma 2.1: conormality at the light cone for every Sobolev order
+$s\notin\frac12+\mathbb Z$, by integrating in $v$; it replaces the source's (9.5) and (9.21). Theorem 3.1:
+polyhomogeneity at $K^+$ and the partial expansion at $\mathscr I^+$ up to $\frac32+\gamma_C(1-e_C)(1-v_C)$. The
+source's analytic continuation, which excludes $v^\lambda$-terms and their logarithms, is carried out through a Mellin
+recursion. The finite-regularity map (3.3) is finite-meromorphic. Lemmas 4.2-4.3: the boundary spectrum. The source's
+Remark 9.7 becomes a lemma: poles of $N_{\mathrm{sf}}^{-1}$ invisible on $\iota^+$ lie in
+$\frac52+\mathrm{spec}\,\bar S+\mathbb N_0$ (`sf5.py` S9-S10, new). Findings (G$'$1)-(G$'$8); the source's (9.17) holds
+to a finite order. Written (D237). Verified (D240): read in full by the ninety-ninth verifier. One major finding: the
+finite-regularity order of $(v\partial_v-\frac32-\bar S)h$ is $\ell_I$, not $\ell_I+1$, as the source prints. Two minor
+findings: the smallness $\gamma_\Upsilon<\frac38$ and the non-coincidence choices were not secured; and the holomorphy
+in $\lambda$ of the expansion coefficients, now by fixed-circle Mellin integrals. Seven nits are seated; one withdraws
+the finding of a misprint in the source's (9.22), which the normalised text cannot show. Proved (D241): the hundredth
+verifier read the repairs, correct and complete; its one nit, holomorphy of the remainder in the $\ell_I$-weighted
+space, is seated.
+
+## Part III.G''
+
+`PART-III-G3-GRAFT.md`. [Hin26] Definitions 9.8, 9.10, Proposition 9.9, Proposition 9.11 and Corollary 9.12 at $n = 4$.
+*The window.* If every $\iota^+$-order grafted at $n = 4$ exceeds $1+\max(\epsilon_K,\epsilon_{\mathrm{ind}})$ (for the
+source's direct grafts at $\lambda = 1$, the record's open reading $\alpha_5$), the expansion at $R = 0$ is needed only
+below $R^3$: $\ell_K<\ell_K^{\max} = \min(3,2+2\gamma_Cv_C)$. That needs no state at $-3$ and no companion of the
+physical states at $-2$. Table 1.1 lists the roots in $(-3,0]$ with their states (III.D$''$, III.D$'''$, III.F$''''$),
+the companions constructed and those used ($k_\mu\ge2+\mu$). Lemma 1.2: their leading terms span the indicial kernels,
+which closes III.D$'''$'s deferred item for the window. Lemmas 2.1-2.6: towers, the Minkowski and Myers-Perry formal
+solutions, their errors (the source's (9.28)-(9.31), (9.37)). Theorem 3.1 (Proposition 9.9): the expansion of
+$N_{\iota^+}(\lambda)u = f$ at $R = 0$ is a sum of formal solutions, log-free, by induction on the least exponent;
+Corollary 3.2 is the $K^+$ index set of III.G$'$ made precise. Theorem 4.2 (Proposition 9.11): grafting, with $2\bar L$
+as the $\iota^+$-normal operator of $2L_b$ by the exact identity (4.1) and $\chi_\iota$ a function of $t_*$; Corollary
+4.3 (Corollary 9.12). (C5) $\gamma_Cv_C\ge\frac12$ is an obligation for Part VI. Findings (G$''$1)-(G$''$7). Written
+(D239). Verified (D241): the hundredth verifier read it in full. One major finding: the $\iota^+$-normal operator is
+that of $2\bar L$, so (4.4) failed by a factor 2, repaired by $u_+ := N_{\iota^+}(\lambda)^{-1}(2f_+)$. Two minor: the
+window is conditional on the least grafted order, and Corollary 4.3's hypothesis is now a finite quasi-homogeneous sum.
+Seven nits are seated. The repairs are to be read.
+
+## Part III.C
+
+`PART-III-C-EXTERIOR.md`. [Hin26] Definitions 5.1-5.4 and 5.13, Remark 5.5, Proposition 5.11 with (5.40)-(5.41a),
+Proposition 5.14 and Corollary 5.15 at $n = 4$. Lemma 1.1: on the exterior region near infinity,
+$(\rho_0,\rho_I,\omega)$ are global coordinates, and $\partial_{t_*} = \rho_0(X_0-X_I)$,
+$\rho\partial_\rho = X_I+8\mu_0\rho_0^2\rho_I(X_0-X_I)$ exactly. Lemma 2.1: products of partially polyhomogeneous
+b-Sobolev functions. Definition 3.1: the index sets at $\mathscr I^+$ start at $\frac32$, with the source's last
+condition strengthened to $\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1) \subset\mathcal E^C_I$ (needing
+$\gamma_\Upsilon<\frac14$); $\pi_{11}h$ carries no radiation field. Lemma 4.1: from III.F Lemma 2.1,
+$L_b = -\rho_0^2\rho_I(X_I-\frac32-\bar S)(X_0-X_I)$ modulo $\rho_0^2\rho_I^2\mathrm{Diff}^2_{\mathrm b}$. Lemma 4.2:
+$\bar S$ in the splitting is a constant lower-triangular matrix (Schur's lemma, `scri5.py` C1). Proposition 4.4: the
+perturbation's part of the operator has coefficients of $\mathscr I^+$-index $\mathcal E^{\mathrm{tot}}_I$, half an
+order below the leading part, so the source's $A^h-A_0$ and $B^h$ are error terms at $n = 4$. Proposition 5.2 and
+Corollary 5.3: the forward mapping into $\langle\mathcal E^C_I+1\rangle'$, with
+$\mathcal F_{I,11} = 1+(\mathcal E^C_I\cup(\frac32+(1-e_\Upsilon)\gamma_\Upsilon,0))$. `ext5.py` E1-E5 (new): the
+coordinate identities, the scalar leading part, $\bar A$'s support, Definition 3.1's closure properties and Proposition
+5.2's bookkeeping, each with controls. Findings (C1)-(C7). Written (D242). Verified (D244): verifier 101's four minor
+findings and six nits seated -- the radiation allowance of $\slashed\pi_0$ stated with obligation (C7), Lemma 4.2 in
+$\bar g$'s and $\eta$'s frames, E5's third control (the source's analogue condition fails Proposition 5.2), and the
+index condition's relation to the source's. Proved (D245): verifier 102 read the repairs; three nits seated.
+
+## Part III.G'''
+
+`PART-III-G4-RESONANT.md`. [Hin26] section 9.1.3 at $n = 4$: Lemmas 9.13-9.14, Proposition 9.15, Definition 9.16 with
+(9.49), Remark 9.17, Corollary 9.18, Definition 9.19, Remark 9.20, Lemma 9.21, (9.54)-(9.55), Proposition 9.22 and
+Remarks 9.23-9.24. The sources' class (III.C) has one exceptional exponent in its $(dx^1)^2$-component,
+$1+\lambda_\sharp$, $\lambda_\sharp = \frac32+(1-e_\Upsilon)\gamma_\Upsilon$, where the source has two. So the least
+incoming pole of $N_{\iota^+}(\lambda)^{-1}$ on partially polyhomogeneous inputs is $\lambda_\sharp$, simple (Corollary
+2.6), and every other pole has real part above $\frac32+2\gamma_\Upsilon$. Lemma 1.2: III.G$'$'s eigen-spaces lie in the
+slot-wise spaces. Lemma 2.3 and Proposition 2.4: the continuation is identified with III.G$'$'s inverse below
+$\lambda_\sharp$ by uniqueness in III.G's admissible spaces, a step the source asserts; at $\lambda_\sharp$ itself the
+extension by zero creates $\delta(v)$ at the light cone. Lemma 3.4: the left inverse used in the source's Lemma 9.21.
+`ext5.py` E6-E7 (new): the eigenvector supports of $\bar A$ and Lemma 2.2's exponent bookkeeping. Findings
+(G$'''$1)-(G$'''$5); (G$'''$1) records that the pole at $\lambda_\sharp<2$ is excited only by a $v^{\lambda_\sharp}$
+term of $\Pi_{2\gamma_\Upsilon}h$; the record's 10.38 (d) closes it on its readings, and whether section 12's linear
+grafting errors reach it is for Part III.J. Written (D243). Proved (D247): verifier 103 read the D245 repairs.
+Verified (D245): verifier 102's four minor findings (the
+frames on $\iota^+$, finite regularity on strips, the mechanism and the record's account in (G$'''$1)) and eleven nits
+seated.
+
+## Part III.G''''
+
+`PART-III-G5-TF.md`. [Hin26] section 9.2 at $n = 4$: (9.57)-(9.61), Definition 9.25, Lemma 9.26, Remarks 9.27-9.28,
+Definition 9.29 with (9.72), Proposition 9.30, Remarks 9.31-9.34 and Proposition 9.35. Lemma 1.1: the tf-normal operator
+$N_{\mathrm{tf}} = \hat r^{-2}\mathcal N(-\hat r\partial_{\hat r})\pm i\hat r^{-1}(-\hat r\partial_{\hat r}-\frac32-\bar
+S)$ is the spectral family of $\bar L$ rescaled; Lemma 1.2: the Myers-Perry family differs from it by
+$\rho_{\mathrm{scf}}^2\rho_{\mathrm{tf}}^4\mathrm{Diff}^2_{\mathrm b}$. Lemma 2.2: the formal solutions at ztf satisfy
+$N_{\mathrm{tf}}\bar h^{(\mu),\le k} = (\mp i)^{k+1}\hat r^{k-1-\mu}\psi_k$ exactly. Theorem 3.1 (the source's Lemma
+9.26): the inverse on $\rho_{\mathrm{ztf}}^{-\alpha}f_0$ expands at $\hat r = 0$ over every row of III.G$''$ Table 1.1
+in the window, each with $c_\mu = 2-\lfloor-\mu\rfloor$ companions and the factor $l_{\beta_\mu}$, holomorphically in
+$\alpha$ across coincidences, by a merged-residue Mellin argument (Lemmas 3.2-3.4). Proposition 4.4 (the source's 9.30):
+grafting with the Myers-Perry states, tf-error $\alpha_0+\mathcal E_{\mathrm{ind}}$, zf-class kept. Proposition 5.1
+(9.35): conormal sources. `tfgraft5.py` T1-T4 (new). Findings (G$''''$1)-(G$''''$6): the source's (9.58) is $2\bar L$'s
+and its (9.59) misprints $\rho^{-\lambda-j}$; at $n = 4$ Theorem 3.1 needs the window $w_0<\ell_K^{\max}$, where the
+source has $3+\epsilon_{\mathrm{ind}}$ (whether sections 11.5-12 need more of the window is for III.I-III.J); the first
+step of the source's proof of Proposition 9.35 fails for conormal coefficients and is repaired by a dilation-invariant
+inverse. Written (D246). Verified (D247): verifier 103's three minor findings seated -- the bound
+$\ell_{\mathrm{zf}}<3$ of D246's (3.1) is not needed (Lemma 3.3 splits as the source's Case 1), the exceptional s1 term
+adds tf-exponents at 4 to (4.3) ((G$''''$7), the source's imprecision too), and $\ell_{\mathrm{zf}}\notin\mathbb N_0$
+is now assumed ((G$''''$8)) -- with eight nits.
+
+## Part III.H
+
+`PART-III-H-AUGMENT.md`. [Hin26] section 10.1 at $n = 4$: the states cut off near $I^+$, $\chi_K\dot g$ and
+$\chi_K(t_*h_{b,\mathrm s1}+\breve h)$, need no improvement at $\iota^+$ (the source's Lemma 10.3 is not needed): their
+source terms are $O(r^{-4})$ in a cone inside $\iota^+$ (Lemma 2.2), with zero-frequency values $[L_b,t_*]\dot g$, resp.
+$\frac12[[L_b,t_*],t_*]h+[L_b,t_*]\breve h$, modulo $\widehat{L_b}(0)\mathcal A^1$ (Lemma 2.3), and Fourier transforms
+$r^{-3}G(\sigma r,x)$, rapidly decaying at scf (Lemma 2.4). Proposition 3.2 (the source's 10.6): the augmented zero
+energy operator is invertible, by III.F$''''$ Lemma 3.1's pairings. Theorem 4.1 extends I.C Theorem 6.4 to columns
+depending on $\sigma$; Corollary 4.2 is the source's Proposition 10.7, for every weight with $\alpha+2\in(0,1)$ (the
+source's $(0,\epsilon_{\mathrm{ind}})$). Corollaries 4.3-4.4: $\widehat{L_b}(\sigma)$ is invertible for small
+$\sigma\ne0$ and $b$ near $b_0$, uniformly, which closes III.F$''$ section 5 (the source's Proposition 8.8 at $n = 4$
+near $b_0$). Section 5: the spectral-side augmentation, with no correction and no logarithm. Findings (H1)-(H5), among
+them (H2): the source's (10.6b) does not give the injectivity its proof of Proposition 10.6 uses, and under
+(10.6a)-(10.6b) alone that proposition is false (an explicit choice of rows has a kernel). Written (D248). Verified
+(D249): verifier 104's two minor findings seated -- the uniformity in $b$ loses $\delta$ (the states are continuous in
+$b$ only below their weights; Remark 2.6, $\epsilon_0 = \frac14(1-(\alpha+2))$) and the differentiability in $\sigma$ of
+the Schur complement is written out (Theorem 4.1 (3)) -- with six nits. Proved (D252): verifier 105 read the
+repairs; one citation nit seated.
+
+## Part III.H$'$
+
+`PART-III-H2-ADMISS.md`. [Hin26] Theorem 10.1 at $n = 4$ by the argument of its section 10.2: the forward solution is a
+contour integral of $\widehat{L_b}(\sigma)^{-1}$ (Lemma 2.1), split into high frequencies (Lemma 3.1), the regular part
+of the augmented low-energy inverse (Lemmas 4.1-4.2) and the contributions of the zero energy states, whose
+$t_*$-derivatives have transforms bounded at sf-weights below 0 and 1 with rapid decay at scf (Lemma 5.1), and which are
+recovered by integrating twice in $t_*$ (Lemma 6.2, with the translation-invariant parametrix of Lemma 6.1). Theorem
+1.3: for $\alpha_{\mathrm{sf}}+2\in(0,1)$, $L_b$ is 2-admissible with margin 1 and sf-loss 0 (the source: $\delta>
+\alpha_{\mathrm{sf}}+\frac32$ at $n = 3$), for orders of a class $\mathcal O_c$ (II.C Definition 2.4 with three
+conditions that Part I needs), at $b_0$ for every $k$ and on neighbourhoods $\mathcal B_K$ for $k\le K$. Findings
+(H$'$1)-(H$'$7), among them (H$'$2): with $\alpha_K = -2$ and margin 1 the incoming threshold is one short of what the
+source's Lemmas 10.9-10.10 use; the high frequencies are measured at $\alpha_{\mathrm{sf}}+1$ and the regular part at
+regularity $\mathsf s+1$ instead, which the margin allows. Written (D250). Verified (D252): verifier 105's three minor
+findings seated -- the bounded frequencies freeze the induced orders on finitely many intervals (I.A's estimates are
+uniform only for fixed orders), at a cost $2\epsilon$ in the weight of the high-frequency part; Lemma 6.1 is stated
+without b-regularity (for variable orders commutators carry logarithms); and Lemma 6.2 handles the boundary $\{r =
+r_0\}$ by a cut-off and an extension in $x$ -- with nine nits. D254: verifier 106 found that a frozen order need not be
+admissible at nearby frequencies ((C3) is not quantitative); the bounded frequencies now use the induced orders
+themselves, uniform by I.A Theorem 7.2 (1) for continuous families, with the inverse bound by a contradiction argument;
+and two nits. Proved (D256): verifier 107 read the D254 repairs and found them correct; one nit.
+
+## Part III.I
+
+`PART-III-I-CONE.md`. [Hin26] section 11's setting and section 11.1 at $n = 4$: the perturbation classes with
+$(2,0)\in\mathcal E_+$ at $\iota^+$ (the background differences are of order 2 there), the edge-3b class of
+perturbations for $\ell_I\le\frac12$, $\ell_+\le1$ with no $\gamma_\Upsilon$ restriction (Lemma 2.2), the structure of
+$L^{g,g_0}$ in the forward cone with the constant matrix $\bar A$ and no $h$-dependent leading part (Propositions
+3.3-3.4), the forward mapping (Proposition 4.1), the patched background's curvature at $\rho_+^4$ (Lemma 4.3, Corollary
+4.2), admissibility relative to $L_b$ with $p_0 = \tilde p_1 = 0$ (Corollary 5.2), and the forward solutions of [Hin26]
+Theorem 11.12 at $b_0$ with sf-loss 0, $\beta_+\in(\frac12,\frac32)$, $\beta_I\in(\beta_+,\frac32)$ (Theorem 5.3). Lemma
+5.1 shows II.C's construction of orders gives III.H$'$'s class $\mathcal O_c$, which meets III.H$'$'s obligation
+(H$'$7). Open ((I3)): Theorem 11.12 for $b\ne b_0$ needs 2-admissibility for all $k$ near $b_0$ and II.F$'$ uniformly in
+the stationary model. Written (D251). Verified (D254): verifier 106's major finding seated -- Proposition 4.1's weights
+must stay below $a_I+\frac12$ at $\mathscr I^+$ and $a_++\min\mathrm{Re}\,\mathcal E_+$ at $\iota^+$ (and (4.2) needs
+$\ell_+\le\max(a_+,\min\mathrm{Re}\,\mathcal E_+)$), a restriction the source's Proposition 11.8 also needs ((I6)) --
+with two minor findings (the inverse metric by a finite Taylor expansion and Moser's estimate under $H^3$-smallness;
+Lemma 3.1 away from $K^+$) and eight nits. D256: verifier 107 read the repairs, correct but one reason in Lemma 3.6 (now
+III.B Lemma 5.2's second alternative) and two nits.
+Proved (D258: verifier 108 read the D256 repairs).
+
+## Part III.I$'$
+
+`PART-III-I2-SCRI.md`. [Hin26] section 11.2 at $n = 4$: the structure of $L^{g,g_0}$ at $\mathscr I^+$ with leading part
+$(X_+-X_I)(X_I-\frac32-\bar A)$, the same constant $\bar A$ for the dynamical operator as for $L_b$ (Lemma 1.1); partial
+polyhomogeneity at $\mathscr I^+$ without loss at $\iota^+$ for $\ell_+<\ell_I<\ell_I^{\max} =
+\frac32+(1-e_C)(1-v_C)\gamma_C$, $\ell_I\notin\frac32+\sigma_\Upsilon$ (Proposition 2.1, Lemma 2.2), with the radiation
+field at $\frac32$ in $\slashed\pi_0$ only and no $\frac32$-term in $\pi_{11}u$; and formal solutions of $L_bu = f$ at
+$\mathscr I^+$ with one exceptional term $\frac52+(1-e_\Upsilon)\gamma_\Upsilon$ where the source has two (Proposition
+3.1). Findings (I$'$1)-(I$'$3): the $h$-dependent radiation coupling is half an order lower at $n = 4$; the upper weight
+is $\ell_I^{\max}$ where the source writes $3+\epsilon_I$, and the exclusion of $\frac32+\sigma_\Upsilon$ is stated; the
+windows of (3.2) start at $\min\mathrm{Re}\,\mathcal E^C_I$. Written (D253). Verified (D256): verifier 107's three major
+findings seated -- Proposition 2.1 reaches only $\ell_I<a_I+\frac12$ and $\ell_+<a_++\min\mathrm{Re}\,\mathcal E_+$ (the
+products, as III.I (I6); the source's $3+\epsilon_I$ is this bound, not the $\pi_C$-root bound, so (I$'$2) is
+rewritten), Lemma 2.2's $\alpha_+$ below $\min\mathrm{Re}\,\mathcal E_+$, and (3.2) with III.A's extended unions
+((I$'$4), the source has the same slip) -- with two minor ($\ell_I>\frac32$; $\ell_+\notin\mathrm{Re}\,\pi_1\mathcal
+E^{\mathrm{tot}}_I$) and eight nits.
+Proved (D258: verifier 108 read the D256 repairs).
+
+## Part III.I$''$
+
+`PART-III-I3-ALMOST.md`. [Hin26] section 11.3 at $n = 4$: the integration of $\partial_{t_*}$ from $t_* = 1$ and from
+$t_* = -Cr$ (Lemma 2.1, the source's Lemma 11.18) and with a moment condition (Lemma 3.1, Lemma 11.19, which also needs
+$\beta_K>-1$); the high and bounded frequencies (Lemma 4.1, from II.G$'$ Corollaries 4.2 and 4.5), the low frequencies
+of the augmented operator in b-spaces (Lemma 4.2, II.G$'$ Proposition 4.7's proof with III.H's estimates) and the
+transforms of the cut-off states (Lemma 4.3: rapid decay at scf, tf-orders $a+2$, $a+3$); and Proposition 5.1 ([Hin26]
+Proposition 11.17): for sources of $K^+$-weight $\alpha_K\in[\frac12,1)$ the forward solutions have $K^+$-weight
+$\alpha_K-2$ and keep the $\iota^+$-weight $\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal E_+)-\epsilon$, where the
+source's falls to $\alpha_K-\epsilon$ ((I$''$1)); the iteration's window is $(0,1)$, III.H (1.1)'s, inside the gap
+((I$''$2)), and the
+null infinity weight needs $2\le\ell_I<a_I+\frac12$ ((I$''$4)). At $b_0$. Written (D255).
+Verified (D258: verifier 108; Lemma 3.1's support now in $[-c_0,c_0]$, $c_0<\frac12$ ((I$''$5), a gap the source
+shares), $c$ fixed per order $k$ with $H^\infty$ recovered from the $c$-independence of $u$, and the continuity in
+$(S,h)$ locally uniform through III.I$'$ Proposition 2.1's constructive bound; nine nits).
+Proved (D259: verifier 109 read the D258 repairs).
+
+## Part III.I$'''$
+
+`PART-III-I4-BOOST.md`. [Hin26] section 11.4.1 at $n = 4$: profiles independent of $\sigma$ on
+$X^\pm_{\mathrm{sc}\text-\mathrm b}$ (Lemma 1.1, by Fubini), the augmented operator near zero energy (Lemma 1.2, the
+source's Lemma 11.21: $\widehat{L_b}(\sigma)-\widehat{L_b}(0)$ and the columns, these of tf-order $3-\epsilon$), the
+cut-off states near zero energy (Lemma 1.3), and Proposition 2.1 ([Hin26] Proposition 11.20): for sources of
+$K^+$-weight $\alpha_K\in(1,\min(a_K-1,\frac32))$ the forward solution is $\chi_Kh^{\le1}(\dot S)+\tilde u$, $\dot S =
+\hat S_1(0)$, $\tilde u$ of $K^+$-weight $\alpha_K-2$ and $\iota^+$-weight
+$\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal E_+)-\epsilon$. Findings: no $\iota^+$ step (the source's Step 2), as
+the formal solution's $\iota^+$-index set starts at $\frac32+(1-e_\Upsilon)\gamma_\Upsilon$ ((I$'''$1)); the
+$\iota^+$-weight ((I$'''$2)); the window $(0,1)$ ((I$'''$3)); the $K^+$-range ((I$'''$4)). At $b_0$. Written (D257).
+Verified (D259: verifier 109; Step 4's a priori weight lowered below $\min\mathrm{Re}\,\mathcal E_+$, the support of
+$\mathcal Fv$ in a compact subset of $(-c,c)$, $c$ fixed per order $k$; seven nits).
+Proved (D261: verifier 110 read the D259 repairs).
+
+## Part III.I$''''$
+
+`PART-III-I5-UNBOOST.md`. [Hin26] section 11.4.2 at $n = 4$: the re-centred boost state $h^{\le1}_\natural =
+h^{\le1}-C'h$ (Lemma 1.2: III.B's boosts are centred at $t = 0$, III.D$''$'s model states at $\bar t = 0$), the
+correction terms (Definition 2.1, Lemma 2.2: index set $(2,0)\cup(2+\mathcal E_{\mathrm{ind}})$ at $\iota^+$, no
+logarithm), the augmented operator $P_1$ in the form of the source's Remark 11.27 (Definition 2.3, Lemma 2.5: its
+linearisation is III.I's operator with a shifted perturbation), the boost identity (Lemma 2.4, the source's (11.78b)),
+the derivative of the operator family (Lemma 3.1), the parameter derivative (Lemma 3.2, the source's Lemma 11.28:
+$\iota^+$-order 4, no splitting), the continuity of the boost parameter in the operator (Lemma 4.2), Proposition 4.1
+(the source's Proposition 11.30: asymptotics, and the boost parameter map invertible) and Corollary 4.3 ((11.95)).
+Findings (I$''''$1)-(I$''''$6). At $b_0$. Written (D260).
+Verified (D261: verifier 110; the boost identity, the re-centring and the invertibility confirmed; Lemma 4.2 (b) stated
+for $\ell_I>2$ or sources vanishing near $\mathscr I^+$, Lemma 3.1's count with the background difference as a
+perturbation; nine nits).
+Proved (D263: verifier 111 read the D261 repairs).
+
+## Part III.I$'''''$
+
+`PART-III-I6-ALMOSTBDD.md`. [Hin26] section 11.5 at $n = 4$: Proposition 2.1 (the source's Proposition 11.32): if the
+boost parameter of the source vanishes, the forward solution has $K^+$-weight $\alpha_K-2$ for every $\alpha_K<2$ and
+$\iota^+$-weight $\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal E_+)-\epsilon$; Corollary 2.2 (the solutions of
+III.I$''''$ Corollary 4.3). The proof raises the $K^+$-weight in rounds of Part III.I$'''$'s argument, with a step at
+$\iota^+$ (III.G$''$ Corollary 4.3, no pole below 2) once the weight passes $\lambda_\sharp =
+\frac32+(1-e_\Upsilon)\gamma_\Upsilon$; re-solving at null infinity creates no exponent below $\frac52$, so the rounds
+end. Findings (I$'''''$1)-(I$'''''$3). At $b_0$. Written (D262).
+Verified (D263: verifier 111; the iteration at $\iota^+$, the re-solving at null infinity and $S_0 = 0$ confirmed; the
+$K^+$-order fixed rather than $\ell_K$, as in the source's (11.102), and $\alpha^\sharp_+$ kept off the exponents the
+iteration creates; nine nits).
+Proved (D266: verifier 112 read the D263 repairs).
+
+## Part III.I$''''''$
+
+`PART-III-I7-PARAMS.md`. [Hin26] section 11.6.1 at $n = 4$: Proposition 2.1 (the source's Proposition 11.34): for real
+sources with $\dot S(f) = 0$ and $K^+$-weight $\alpha_K\in(2,\min(a_K,2+\epsilon_{\mathrm{ind}},\frac52))$, the forward
+solution is $\chi_K\dot g(\dot b)+\chi_Kh(\dot S^{(0)}_1)$ plus a remainder of $K^+$-weight $\alpha_K-2>0$. Lemmas
+1.1-1.4: first-order zf expansions, conormal sections admissible at $\sigma\ne0$, the rows answered by the nullspace,
+and the boost-type term $|\sigma|^{\alpha-3}h(S)$ of III.G$''''$ Proposition 5.1 moved into the $\mathcal S_1$-column
+exactly. No logarithmic centre-of-mass term ($\iota^+$-exponents begin at $\lambda_\sharp>\frac32$). Findings
+(I$''''''$1)-(I$''''''$4). At $b_0$. Written (D264).
+Verified (D266: verifier 112; Steps 0-6, the matching and the new Steps 1-2 confirmed; Lemma 1.2 now lowers the order at
+$R_{\mathrm{out}}$, the zero section, which is a radial set and not elliptic, with the kernels independent of the order;
+reality from the $K^+$-limit of the real solution; $\epsilon$ fixed in (2.2); eight nits).
+Proved (D268: verifier 113 read the D266 repairs).
+
+## Part III.I$'''''''$
+
+`PART-III-I8-UNPARAM.md`. [Hin26] section 11.6.2 at $n = 4$: the translated background (Definition 1.2, Lemmas 1.1,
+1.3), the correction terms (Definition 2.1, Lemma 2.2, the source's 11.37-11.38), the operator $P_2$ (Definition 2.3,
+11.40), the identities (2.3) (the source's (11.78b), (11.134b), (11.135b)), the parameter derivatives (Lemma 3.1,
+11.41), and the elimination of the parameters (Lemmas 4.1, 4.3, 4.5, Corollary 4.6, the source's 11.42-11.46): for every
+source in the class (11.116) there is a unique $(S',b',S'')$ for which the forward solution decays at $K^+$. The
+source's centre-of-mass correction has $\iota^+$-order 1, outside $\mathcal X$ at $n = 4$, so the exterior background is
+translated as it is boosted. Findings (I$'''''''$1)-(I$'''''''$4). At $b_0$. Written (D265).
+Verified (D268: verifier 113; the order-1 obstruction, the translated background and the identities (2.3) confirmed sign
+by sign; the uniformity now also covers III.I$'$ Proposition 2.1 applied to $L$, and Lemma 4.1 counts the order-2 terms
+at an admissible $\iota^+$-weight; seven nits).
+Proved (D269: verifier 114 read the D268 repairs).
+
+## Part III.I$''''''''$
+
+`PART-III-I9-COMMOTION.md`. [Hin26] section 11.7 at $n = 4$: the motion index set $\mathcal E_{++}$ fixed in advance
+((1.1)), the corrections #3 and the operator $P_3$ (Definitions 2.1, 2.3, the source's 11.47-11.48) with the exact
+identity of Lemma 2.4, the parameter derivatives (Lemma 2.6, 11.49), the expansion at one level (Lemmas 3.1-3.3: the
+motions from the s1 row of III.G$''$ Corollary 4.3, the zero energy analysis with a tf-iteration), and Proposition 4.1
+(= 11.51): a unique choice of all parameters gives $K^+$-weight $\alpha-2-\epsilon$ for every admissible
+$\alpha<\min(a_K,3)$. No proliferation of logarithms, so no device $u_\Sigma$. Findings (I$''''''''$1)-(I$''''''''$5).
+At $b_0$. Written (D267).
+Verified (D269: verifier 114; the design claims, Lemmas 2.2, 2.4, 3.2, 3.3 and the induction of Proposition 4.1
+confirmed; Lemma 3.1's Step 0 now extracts the iota+-terms of the second source class first, Lemma 2.6 (a) counts the
+derivative of delta*_{g_0,E_C} on the motion gauge terms; seven nits).
+Proved (D271: verifier 115 read the D269 repairs; one residue, $S\in\mathcal S_{1,\mathbb C}$ in Lemma 2.4, seated).
+
+`PART-III-I10-CORR4.md`. [Hin26] section 11.8 to Lemma 11.57 at $n = 4$: the hypotheses (H1)-(H3) on $\mathcal X$,
+the parameter exponents $\mathcal E_{\mathrm{par}}$, the rows $\mathcal N$ of six types and the source classes
+$\mathcal Y(\alpha)$, $\alpha\le4+\epsilon_K$ (section 1); the correction terms #4 (Definition 2.1, the source's 11.55)
+with their orders (Lemma 2.2), the operator $P_4$ (Definition 2.3, 11.56), the row identity (Lemma 2.4), and the
+linearisation (Lemma 2.6, 11.57) in the exact form $f^\nu = L_{h,\vec p}m_\nu+r^\nu$, $r^\nu$ of $\iota^+$-weight
+$2\lambda_\sharp+2-\epsilon>5+\epsilon_+$. No exponent 1 at $n = 4$, so no logarithmic reparametrisation; the v1
+parameters avoid the Killing rotations. Findings (I$'''''''''$1)-(I$'''''''''$6). At $b_0$. Written (D270).
+Verified (D271: verifier 115; the rows, towers, (2.1), Lemmas 2.2, 2.4 and the formula (2.4) for $r^\nu$
+confirmed; $\mathcal E_{\mathrm{ind}}$ now also holds the towers' index sets, the strong $K^+$-decay of $h$ is
+recorded as needed also for $r^\nu$, and at the non-rotating $b_0$ the v1 coefficient space is 0; seven nits).
+Proved (D274: verifier 116 read the D271 repairs; all made and correct).
+
+`PART-III-I11-SPACETIME.md`. [Hin26] Theorem 11.59, Parts 1-3, first half, at $n = 4$: (C5) and (H4)
+$\ell_I>3+\epsilon_+$; the parameter exponents $\mathcal E_{\mathrm{par}}$ fixed (Definition 1.1, an exponent set
+$\Lambda$ with log orders growing with the real part; Lemma 1.2, the $n = 4$ form of Remark 11.62), the gap (G) and
+the admissible orders; the towers of III.G$''$ as $\delta^*$-images of the 1-form towers and their comparison with
+$m_\nu$ (Lemma 2.1), joint injectivity of the states and uniqueness of row expansions (Lemma 2.2, Corollary 2.3),
+forward Fourier tails (Lemma 2.4); and the spacetime phase (Proposition 3.1): every $\iota^+$-term of
+$u$-exponent below 2 solved up to the $K^+$-order $\alpha\le4+\epsilon_K$, its $K^+$-terms below $\alpha-2$ the
+rows $\mathcal N_\iota$. The spectral half and the elimination are III.I$'''''''''''$. Findings
+(I$''''''''''$1)-(I$''''''''''$6). At $b_0$. Written (D272).
+Verified (D274: verifier 116; one major finding, the log bound $L_0$ taken up to the real part 5, which made (H3)
+circular, repaired by bounding the log orders only below $2\lambda_\sharp$, where nothing involves $\mathcal E_+$;
+$\mathcal E_{\mathrm{par}}$ closed under $+1$; (H4) asks $a_I>3+\epsilon_+$; a sign $(-1)^z$ in Lemma 2.4's proof;
+seven nits; and the column exponents $2+\mathcal E_{\mathrm{col}}$ added to $\Lambda$).
+Proved (D275: verifier 117 read the D274 repairs; all made and correct, and the new generator breaks nothing).
+
+`PART-III-I12-SPECTRAL.md`. [Hin26] Theorem 11.59, Parts 1-3, second half, at $n = 4$: zero-energy solves with
+expansions at $\partial X$ (Lemma 2.1), one Taylor level (Lemma 2.2), III.G$''''$ Proposition 4.4's pieces in
+compact sets as homogeneous functions of $\sigma$ times the spectral towers (Lemma 2.3), the column pieces
+(Lemma 2.4) and a physical decomposition of the low-energy resolvent that needs no assembly of the augmented
+components (Lemma 2.5); the spectral phase (Proposition 3.1: Taylor levels 0-3, the $K^+$-terms below
+$\alpha-2$ the rows $\mathcal N_\sigma$, the stationary columns vanishing by decay), the expansion (Lemma 3.2)
+and its continuity (Lemma 3.3), and the elimination (Theorem 4.1, the source's (11.222) at $K^+$), one step from
+an admissible $\alpha'\in(2,3)$ by a perturbation of the identity. The $\iota^+$-index set of (11.222), Part 4
+and section 11.8.3 are the next part. Findings (I$'''''''''''$1)-(I$'''''''''''$7). At $b_0$. Written (D273).
+Amended before its verification (D274): Lemma 1.1, the column terms at $b_0$ polyhomogeneous at tf (III.H and
+III.I$''''''$ had them only conormally, which would have capped the level-2 source below the order the cascade needs);
+$\eta_1,\eta_2<\epsilon_+$; Lemmas 2.1-2.2 carried to the full remainder order.
+Verified (D275: verifier 117; one major finding, the level-1 data found for each sign of $\sigma$, repaired by a
+matching step on $\partial_{t_*}v$ that makes $S_1$ sign-independent; Step 4's loop kept inside Proposition 5.1's
+range; the s1 degree in Step 5; III.I$''''''''$ Proposition 4.1 transferred to $P_4$; twelve nits).
+Proved (D277: verifier 118 found the repairs correct; its nits seated: Lemma 2.3's tf cut-off for large $R$, the class
+rows' critical orders, $\delta$ off a finite set and the remainder's excess in Step 4, constants in the matching step).
+
+`PART-III-I13-EXPANSION.md`. [Hin26] Theorem 11.59, Part 4, at $n = 4$: the forward solution of III.I$'''''''''''$
+Theorem 4.1 is $\chi_Ku_{\exp}+\tilde u$ with $\tilde u$ of $K^+$-order $\alpha-\epsilon$ and partially
+polyhomogeneous at $\iota^+$ to the order $3+\eta_2-2\epsilon$ (Theorem 3.1, the $n = 4$ (11.196) and the
+$\iota^+$-part of (11.222)), $u_{\exp}$ a sum of towers of the states of III.G$''$ Table 1.1 with partially
+polyhomogeneous coefficients, a conormal boost coefficient $\dot S_{\mathrm{rem}}$ and a conormal parameter
+$\dot b_{\mathrm{rem}}$. Lemma 2.1 (the cut-off $\chi_{\mathrm{zf}}(|\sigma|r)$ is an approximate identity with
+vanishing moments), Lemma 2.2 (the columns at the last level), Lemma 2.3 (stationary solutions of moderate growth: no
+growing boost state, no early $\dot g$, by the invertibility of $\tilde L_{b_0}(0)$) and Lemma 2.4 (formal solutions at
+$K^+$: below the order $\alpha$ the polyhomogeneous part is a sum of towers, by the equation). Findings
+(I$''''''''''''$1)-(I$''''''''''''$4). At $b_0$. Written (D276).
+Verified (D277: verifier 118; one major finding, two tf-cut-off pieces with $K^+$-terms below $\alpha$, the tf-part of
+III.G$''''$ Proposition 4.4 at zf and Proposition 5.1's $v_0$, now expanded at zf and entered as pieces of zero-energy
+type; six minor findings: profiles conormal, with Lemma 2.3 on conormal sections through III.A Lemma 1.4, Lemma 2.1 on
+$\{r\le t_*/8\}$ by integration by parts in $\sigma$, Lemma 2.2's $\iota^+$-order by scaling, the constant-data columns'
+$\iota^+$-exponents, Step 0's row orders, and the exponents of Lemma 2.4 in $\mathcal E_\sharp$; eleven nits; and
+$w_\rho := 3+\eta_2-2\epsilon-d_\rho$ for every row, as in the source's (11.227b)).
+
+`PART-III-I14-LEVELS.md`. [Hin26] Theorem 11.59, Parts 2-3, at $n = 4$, at every level: III.I$'''''''''''$ reached the
+order $\alpha>4$ in one step from a level below 3, which needs the background's $K^+$-order $a_K\ge4+\epsilon_K$; section
+11.8.3 linearises at a background of $K^+$-order $\alpha-2-\epsilon$ and must pass through every level, as the source's
+Remark 11.61 and Part 3 do. Definition 1.1 (admissible levels in $(3,4+\epsilon_K]$, dense), Definition 1.2 and Lemma
+1.3 (the enlarged sources $\mathcal Y^\natural$: $\iota^+$-exponents of $\mathcal E_\sharp$ shifted by the increments of
+$\Lambda$, within the log count), Proposition 2.1 (the spectral phase at every level: below the order 4 the last Taylor
+level has a negative zf-weight, no zero-energy solve, and III.G$''''$ Proposition 5.1 and III.I$''$ Lemma 4.2 as they
+stand), Lemmas 2.2-2.3 (the expansion and its continuity at every level) and Proposition 2.4 (III.I$'''''''''''$
+Theorem 4.1 and III.I$''''''''''''$ Theorem 3.1 for the enlarged sources). Findings
+(I$'''''''''''''$1)-(I$'''''''''''''$3). At $b_0$. Written (D278).
+
+`PART-III-I15-AUGMENT5.md`. [Hin26] section 11.8.3 at $n = 4$: Definition 1.1 (the coefficients $q$, with orders
+$w-$), Definition 1.2 (augmentation #5, $P_5(h,\vec p,q) = P_4(h+h_{b,\mathrm{rem}}(q),\vec p)$, towers for $L_b$, and
+(11.231)), Lemma 2.1 (towers near $b_0$, smooth in $b$, leading terms independent of $b$), Lemma 2.2 (the source's Remark
+11.64), Lemma 2.3 (the perturbation $R_q$), Lemma 2.4 (the parameter derivatives; (c) the source's Lemma 11.65), Lemma
+2.5 (sources of $K^+$-order $\alpha-$, constructions independent of the loss), Theorem 3.1 (the source's Corollary
+11.66: the forward solution at $h+h_{\mathrm{rem}}(q)$, existing and smooth, has its decay raised level by level by the
+theory at $h$ (III.I$'''''''''''''$), each level's new coefficients being minus the new parameters up to a small error;
+then III.I$''''''''''''$ Theorem 3.1 splits it as $h_{\mathrm{rem}}(q')+h'$) and Remark 3.2 (the class of $h'$ is
+that of $h$). The source's verbatim route (Theorem 11.59 at $h+h_{\mathrm{rem}}(q)$) fails at $n = 4$ in three places,
+recorded in (I$''''''''''''''$1). $h_{-S} = 0$; Corollary 11.67 deferred to after III.C$'$. Findings
+(I$''''''''''''''$1)-(I$''''''''''''''$4). At $b_0$. Written (D279).

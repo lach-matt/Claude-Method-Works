@@ -1,22 +1,23 @@
 # Part III.G. The spectral family at future timelike infinity at n = 4 ([Hin26] section 9.1, Proposition 9.2)
 
-*Status.* Written (D236). This part proves, at spatial dimension $n = 4$, [Hin26] Proposition 9.2 (pp. 164-168): the
-spectral family $N_{\mathrm{sf}}(\lambda)$ of the Minkowski model $\bar L$ of the linearised gauge-fixed Einstein
+*Status.* Written (D236); verified (D238: one major finding, one minor and four nits of the ninety-eighth verifier
+seated, the repairs to be read). This part proves, at spatial dimension $n = 4$, [Hin26] Proposition 9.2 (pp. 164-168):
+the spectral family $N_{\mathrm{sf}}(\lambda)$ of the Minkowski model $\bar L$ of the linearised gauge-fixed Einstein
 operator, on spaces of distributions on the front face sf supported in $\{v\ge-1\}$, is Fredholm of index 0 for every
-$\lambda\in\mathbb C$, invertible for $\mathrm{Re}\,\lambda<\frac32$, invertible for all but finitely many $\lambda$ in
-every half plane $\{\mathrm{Re}\,\lambda\le C\}$, with a finite-meromorphic inverse; and solutions gain b-regularity at
-the light cone $\{v = 0\}$ with their right sides. The rest of the source's section 9 (Proposition 9.4 and after) is the
-next part. Parts are cited as before (I.A-I.C, II.A-II.G$'$, III.A-III.F$''''$, README.md); the source is [Hin26] = P.
-Hintz, arXiv:2606.28253v2 (printed page numbers). Computations cited as *computed* are exact (sympy) and rerun by
-`../sf5.py` S1-S8 (new, D236), each with a failing control.
+$\lambda\in\mathbb C$, invertible for $\mathrm{Re}\,\lambda<2$ (raised from $\frac32$ at D238), invertible for all but
+finitely many $\lambda$ in every half plane $\{\mathrm{Re}\,\lambda\le C\}$, with a finite-meromorphic inverse; and
+solutions gain b-regularity at the light cone $\{v = 0\}$ with their right sides. The rest of the source's section 9
+(Proposition 9.4 and after) is the next part. Parts are cited as before (I.A-I.C, II.A-II.G$'$, III.A-III.F$''''$,
+README.md); the source is [Hin26] = P. Hintz, arXiv:2606.28253v2 (printed page numbers). Computations cited as
+*computed* are exact (sympy) and rerun by `../sf5.py` S1-S8 (new, D236) and S11 (D238), each with a failing control.
 
 *What n = 4 changes.* The radiative constant is $c = \frac32$ (his 1), so the operator is
 $-2\partial_v(v\partial_v+\lambda-\frac32-\bar S)+\tilde L(0)(v\partial_v+\lambda)$, the regularity threshold at the
 light cone is $s<2-\mathrm{Re}\,\lambda$ (his $\frac32-\mathrm{Re}\,\lambda$), and the operator is invertible for
-$\mathrm{Re}\,\lambda<\frac32$ (his $1+\epsilon_{\mathrm{ind}}$): at $n = 4$ the indicial gap of $\tilde L(0)$ contains
+$\mathrm{Re}\,\lambda<2$ (his $1+\epsilon_{\mathrm{ind}}$): at $n = 4$ the indicial gap of $\tilde L(0)$ contains
 $(0,1]$ (III.F$'$ Proposition 2.3 (a)) and tf-admissibility holds for every weight in $(0,1]$ (III.F$'$ Proposition
-3.3), so the weights of the injectivity argument fit for every $\mathrm{Re}\,\lambda<\frac32$. The other two numbers
-that change are the density shifts, which do not occur here: sf carries a b-density at its one end.
+3.3), so the weights of the injectivity argument fit for every $\mathrm{Re}\,\lambda<2$. The other two numbers that
+change are the density shifts, which do not occur here: sf carries a b-density at its one end.
 
 *Method.* For fixed $\lambda$ the source cites [Vas13], [Hin25a] and [HV15]; here the estimates are those of Parts I.A
 and I.C, whose proofs use of their operators only facts that we verify for $N_{\mathrm{sf}}(\lambda)$: it is the
@@ -34,8 +35,8 @@ $\mathrm{Im}\,\sigma$ there (the source's footnote 86); across $v = 0$ it is wri
 that the source does not state (Lemma 4.1 (b)) and which serves also as the variable semiclassical order (Lemma 4.2).
 
 *Organisation.* Section 1: the operator, its structure, the spaces. Section 2: fixed $\lambda$, the Fredholm property
-and the b-regularity (the source's parts (1) and (3)). Section 3: injectivity for $\mathrm{Re}\,\lambda<\frac32$.
-Section 4: the semiclassical estimate. Section 5: Proposition 9.2 at $n = 4$. Section 6: findings.
+and the b-regularity (the source's parts (1) and (3)). Section 3: injectivity for $\mathrm{Re}\,\lambda<2$. Section 4:
+the semiclassical estimate. Section 5: Proposition 9.2 at $n = 4$. Section 6: findings.
 
 ## 1. Setting
 
@@ -273,8 +274,8 @@ number (the record's `iotasol5.py` J2).
 **Lemma 2.3 (slab estimates).** On slabs $\Omega_{a,b} := \{a<-v<b\}\times\mathbb S^3$ with $0<a<b<2$, the statements of
 I.A Propositions 6.3, 6.4 and Corollary 6.5 hold for $L = N_{\mathrm{sf}}(\lambda)$ and for
 $L = N_{\mathrm{sf}}(\lambda)^{*h}$, uniformly for $\lambda$ in compact sets, with $r := -v$ (so that the spaces
-$H^s(\Omega_{a,b})^{\bullet,-}$, supported at $r = b$, are supported at $v = -b$). In particular, with $b'' := \frac12$,
-$b' := \frac14$ (in $r$; that is $v = -\frac12$, $v = -\frac14$) and the cut-offs of I.A Corollary 6.5:
+$H^s(\Omega_{a,b})^{\bullet,-}$, supported at $r = b$, are supported at $v = -b$). In particular, with the cut-offs of
+I.A Corollary 6.5 placed at $r = \frac12$ and $r = \frac14$ (that is $v = -\frac12$ and $v = -\frac14$):
 $$\|u|_{\{-1<v<-1/4\}}\|_{H^s}\le C\|N_{\mathrm{sf}}(\lambda)u|_{\{-1<v<-1/4\}}\|_{H^{s-1}},
  \qquad u\in\dot H^s\ \text{near}\ \{v = -1\},\tag{2.4}$$
 $$\|\chi w\|_{\bar H^{1-s}}\le C\big(\|N_{\mathrm{sf}}(\lambda)^{*h}w\|_{\bar H^{-s}(\{-1<v<-1/4\})}
@@ -470,9 +471,9 @@ $P_I^{\mathrm{sub}}$, on which no sign is imposed), with control from $\{v<-\fra
 step; and it is elliptic elsewhere over $\mathrm{supp}\,u_0$. The estimates in the strong sense, as in Proposition 2.4
 (1), give $U\in H^s$. $\square$
 
-## 3. Injectivity for $\mathrm{Re}\,\lambda<\frac32$ ([Hin26] Proposition 9.2 (2), first half)
+## 3. Injectivity for $\mathrm{Re}\,\lambda<2$ ([Hin26] Proposition 9.2 (2), first half)
 
-**Lemma 3.1 (conormality at the light cone).** Let $s>\frac12$ with $s-\frac12\notin\mathbb N_0$, and let
+**Lemma 3.1 (conormality at the light cone).** Let $s\in\mathbb R$ with $s-\frac12\notin\mathbb Z$, and let
 $u\in H^s(\mathbb R\times\mathbb S^3)$ be supported in $\{v\ge0\}$ near $\{v = 0\}$, with $W^\alpha u\in H^s$ near
 $\{v = 0\}$ for every word $W^\alpha$. Then for every $\alpha$ there is $C$ with
 $|W^\alpha u(v,\omega)|\le Cv^{s-\frac12}$ on $(0,1)\times\mathbb S^3$.
@@ -485,21 +486,27 @@ each $W^\alpha u$. Let $\mathcal H := H^m(\mathbb S^3)$ with $m\ge2$, so $\mathc
 $s = k_0+\frac12+\theta$, $k_0\in\mathbb N_0$, $\theta\in(0,1)$. For $g\in H^s(\mathbb R;\mathcal H)$:
 $g^{(k_0)}\in H^{\frac12+\theta}(\mathbb R;\mathcal H)$, and
 $\|g^{(k_0)}(x)-g^{(k_0)}(y)\|_{\mathcal H}\le C|x-y|^\theta\|g\|_{H^s}$, since by Fourier inversion and Cauchy-Schwarz
-this difference is at most
-$(2\pi)^{-1}\|\langle\tau\rangle^{\frac12+\theta}\widehat{g^{(k_0)}}\|_{L^2}$
-times $\big(\int\min(4,|x-y|^2\tau^2)\langle\tau\rangle^{-1-2\theta}d\tau\big)^{1/2}$,
-and the integral is at most $C|x-y|^{2\theta}$ (split at $|\tau| = |x-y|^{-1}$; $0<\theta<1$); and $g^{(i)}$,
-$i\le k_0$, are continuous. If $g$ is supported in $\{v\ge0\}$, then $g^{(i)}(0) = 0$ for $i\le k_0$, and Taylor's
-formula gives $\|g(v)\|_{\mathcal H}\le Cv^{k_0+\theta} = Cv^{s-\frac12}$ for $v\in(0,1)$. Apply this to
-$g = W^\alpha u$. $\square$
+this difference is at most $(2\pi)^{-1}\|\langle\tau\rangle^{\frac12+\theta}\widehat{g^{(k_0)}}\|_{L^2}$ times
+$\big(\int\min(4,|x-y|^2\tau^2)\langle\tau\rangle^{-1-2\theta}d\tau\big)^{1/2}$, and the integral is at most
+$C|x-y|^{2\theta}$ (split at $|\tau| = |x-y|^{-1}$; $0<\theta<1$); and $g^{(i)}$, $i\le k_0$, are continuous. If $g$ is
+supported in $\{v\ge0\}$, then $g^{(i)}(0) = 0$ for $i\le k_0$, and Taylor's formula gives
+$\|g(v)\|_{\mathcal H}\le Cv^{k_0+\theta} = Cv^{s-\frac12}$ for $v\in(0,1)$. Apply this to $g = W^\alpha u$; this proves
+the case $s>\frac12$. For $s<0$ the first step uses $(1+\xi^2)^s\le(1+\xi^2+\kappa_k)^s(1+\kappa_k)^{-s}$ instead, at
+the cost of $\lceil-s\rceil$ more rotations. *The case $s<\frac12$.* Let $j\in\mathbb N$ with $s+j>\frac12$, and let $I$
+be the primitive in $v$ vanishing on $\{v<0\}$, cut off beyond the support. It maps $H^\sigma(\mathbb R;\mathcal H)$ to
+$H^{\sigma+1}(\mathbb R;\mathcal H)$ for compactly supported elements, satisfies $v\partial_vI = I(v\partial_v+1)$, and
+commutes with the rotations. So $U := I^ju$ satisfies the hypotheses at order $s+j$, and the case $s>\frac12$ gives
+$|W^\alpha U|\le Cv^{s+j-\frac12}$. On $(0,1)$, $u = \partial_v^jU = v^{-j}\prod_{i=0}^{j-1}(v\partial_v-i)U$, and
+$W^\alpha v^{-j} = v^{-j}W^\alpha_{(-j)}$, so $|W^\alpha u|\le Cv^{s-\frac12}$. (Written out, with the number of words
+counted, in III.G$'$ Lemma 2.1; for $s>\frac12$ only before D238.) $\square$
 
-**Proposition 3.2 (injectivity).** Let $\mathrm{Re}\,\lambda<\frac32$ and $(s,\mu)$ admissible. Then
+**Proposition 3.2 (injectivity).** Let $\mathrm{Re}\,\lambda<2$ and $(s,\mu)$ admissible. Then
 $N_{\mathrm{sf}}(\lambda):\mathcal X\to\mathcal Y$ is injective.
 
 *Proof.* Let $u\in\mathcal X$, $N_{\mathrm{sf}}(\lambda)u = 0$. By Proposition 2.4 (3) we may change $(s,\mu)$: take
-$s\in(\max(\frac12,\frac12-\mathrm{Re}\,\lambda),2-\mathrm{Re}\,\lambda)$, possible as $\mathrm{Re}\,\lambda<\frac32$,
-with $s-\frac12\notin\mathbb N_0$, and $\mu\in(\mathrm{Re}\,\lambda-1,\mathrm{Re}\,\lambda)$. Put $a_0 := s-\frac12>0$,
-so $a_0+\mathrm{Re}\,\lambda>0$.
+$s\in(\max(-\frac12,\frac12-\mathrm{Re}\,\lambda),2-\mathrm{Re}\,\lambda)$, possible as $\mathrm{Re}\,\lambda<2$, with
+$s-\frac12\notin\mathbb Z$, and $\mu\in(\mathrm{Re}\,\lambda-1,\mathrm{Re}\,\lambda)$. Put $a_0 := s-\frac12>-1$, so
+$a_0+\mathrm{Re}\,\lambda>0$.
 
 *Step 1: support and regularity.* By Proposition 2.7, $u\in\dot H^{(s;\infty),\mu}_{\mathrm b;\mathrm b}$. On
 $\{-1<v<0\}$, $u$ solves $N_{\mathrm{sf}}(\lambda)u = 0$, is supported in $\{v\ge-1\}$, and $v$ is a time function
@@ -510,9 +517,13 @@ $|W^\alpha u|\le Cv^{-(\mathrm{Re}\,\lambda-\epsilon)}$ on $\{v\ge\frac12\}$ for
 (3) ($u\in\mathcal A^{\mathrm{Re}\,\lambda-\epsilon}$ near $R = 0$, $R = v^{-1}$, the b-fields being
 $v\partial_v = -R\partial_R$ and the rotations).
 
-*Step 2: the Fourier transform.* II.F Lemma 5.7 applies to $f := u$ with $a := a_0$ and its exponent $\lambda$ there
-equal to $\mathrm{Re}\,\lambda-\epsilon$ ($u$ is its own extension by zero, being supported in $\{v\ge0\}$; and the
-equation holds across $v = 0$ by hypothesis, so the Green's formula step of II.F Lemma 5.8 is not needed). So
+*Step 2: the Fourier transform.* $u$ is the extension by zero of $u|_{\{v>0\}}$. Let $\varphi$ be smooth with compact
+support and $\chi\in C^\infty_c(\mathbb R)$ equal to 1 near 0. Then $\langle u,\varphi\chi(\cdot/\epsilon)\rangle\to0$
+as $\epsilon\to0$, since $\|\varphi\chi(\cdot/\epsilon)\|_{H^{-s}} = O(\epsilon^{\min(\frac12,\frac12+s)})$ and
+$s>-\frac12$; and $\langle u,\varphi(1-\chi(\cdot/\epsilon))\rangle\to\int_{v>0}u\varphi$ by dominated convergence
+($|u|\le Cv^{a_0}$, $a_0>-1$). So II.F Lemma 5.7 (for $a>-1$, as amended at D238) applies to $f := u|_{\{v>0\}}$, with
+$a := a_0$ and its exponent $\lambda$ there equal to $\mathrm{Re}\,\lambda-\epsilon$. The equation holds across $v = 0$
+by hypothesis, so the Green's formula step of II.F Lemma 5.8 is not needed. So
 $\hat u(\hat r,\omega) := \int e^{i\hat rv}u\,dv$ is smooth on $\{\hat r\ne0\}$ with
 $$|(\hat r\partial_{\hat r})^j\partial^\alpha_\omega\hat u|\le C(1
 +|\hat r|)^{-1-a_0}\Big(\frac{|\hat r|}{1+|\hat r|}\Big)^{\min(\mathrm{Re}\,\lambda-1-\epsilon,0)-\epsilon}.$$
@@ -545,7 +556,8 @@ $v<0$; so $u = 0$. $\square$
 
 At $n = 3$ the source obtains this for $\mathrm{Re}\,\lambda<1+\epsilon_{\mathrm{ind}}$; its bound comes from the
 tf-weights, which there must lie in $(0,\epsilon_{\mathrm{ind}})$. At $n = 4$ the gap $(0,1]$ and the tf-admissibility
-on all of it leave as the one constraint $s>\frac12$ in Lemma 3.1, i.e. $\mathrm{Re}\,\lambda<\frac32$ (finding (G2)).
+on all of it leave as the one constraint the tf weight $\beta<1$ of Step 3, i.e. $\mathrm{Re}\,\lambda<2$ (finding
+(G2)).
 
 ## 4. High frequencies: the semiclassical estimate ([Hin26] (9.9) at $n = 4$)
 
@@ -643,16 +655,17 @@ of $\{v>0\}$ at bounded $t$ for all time (on it $H_p\tilde\xi\ge c>0$, and $\til
 through $v\to0$; there the only points of $\Sigma_-$ are at $t\le\frac1v\to\infty$ with $a = 1-vt\to0$ (the branch
 $t\ge\frac1{v+2}$ near $t = \frac1{v+2}$ lies over $v<0$ backwards, by the sign of $H_pv$ there, and is the incoming
 part); in rescaled coordinates $(\rho_\infty,v,\hat\eta) = (t^{-1},v,\eta/t)\to(0,0,0)$, i.e. to $\partial\mathcal R_-$.
-The turning point is unique since $\tilde\xi$ increases while $H_pv$ changes sign once ($H_pv = 2(wk+t)$ and $k$
-decreases). (iii) On $\{\eta = 0\}$, $\Sigma$ is the two curves named; on the first $H_pv = 2$ and on the second
-$H_pv = -2$; II.F section 1.3 identifies their limits at $R = 0$. (e) `sf5.py` S7 (with a failing control): the
-identities under $\xi_{c\hbar} = -v(v\xi+1)$, $\eta_{c\hbar} = v\eta$, and the computation of $\mathsf H\tilde\xi$ from
-II.F (3.12) on $\{G_{\iota,1} = 0\}$. The correspondence is the conjugation of section 4.1 on $\{R<\frac12\}$
-($\tilde R = R$, $\phi = \log R$, $d\phi = -dv/v$, the translation by $d\log R$ at $z = 1$: the covector $\zeta$ of
-$h^2N^0$ corresponds to $\xi = \zeta_v-\frac1v$ of $P$, so $\zeta_v = \xi+\frac1v$, whose $dR$-component is
-$-v^2\zeta_v = -v(v\xi+1) = \xi_{c\hbar}$, and $\eta_{c\hbar} = R^{-1}\eta = v\eta$): it carries $p$ to $R^{-2}\cdot$
-(the symbol of $h^2N^0$), i.e. $v^2p = G_{\iota,1}$, and preserves $H_p$ up to the factor $v^2>0$ on $\Sigma$. (f)
-Complex conjugation of the coefficients exchanges $z_0 = 1$ and $z_0 = -1$; the symbol identity is immediate. $\square$
+The turning point is unique: at a critical point of $v$ on $\Sigma$ over $\{v>0\}$, $H_p^2v = -4(v+1)/(v(v+2))<0$
+(`sf5.py` S11), so every critical point is a strict maximum, and there is at most one. (iii) On $\{\eta = 0\}$, $\Sigma$
+is the two curves named; on the first $H_pv = 2$ and on the second $H_pv = -2$; II.F section 1.3 identifies their limits
+at $R = 0$. (e) `sf5.py` S7 (with a failing control): the identities under $\xi_{c\hbar} = -v(v\xi+1)$,
+$\eta_{c\hbar} = v\eta$, and the computation of $\mathsf H\tilde\xi$ from II.F (3.12) on $\{G_{\iota,1} = 0\}$. The
+correspondence is the conjugation of section 4.1 on $\{R<\frac12\}$ ($\tilde R = R$, $\phi = \log R$, $d\phi = -dv/v$,
+the translation by $d\log R$ at $z = 1$: the covector $\zeta$ of $h^2N^0$ corresponds to $\xi = \zeta_v-\frac1v$ of $P$,
+so $\zeta_v = \xi+\frac1v$, whose $dR$-component is $-v^2\zeta_v = -v(v\xi+1) = \xi_{c\hbar}$, and
+$\eta_{c\hbar} = R^{-1}\eta = v\eta$): it carries $p$ to $R^{-2}\cdot$ (the symbol of $h^2N^0$), i.e.
+$v^2p = G_{\iota,1}$, and preserves $H_p$ up to the factor $v^2>0$ on $\Sigma$. (f) Complex conjugation of the
+coefficients exchanges $z_0 = 1$ and $z_0 = -1$; the symbol identity is immediate. $\square$
 
 The function $\tilde\xi$ is the escape function of the problem: it increases along every bicharacteristic that is not
 one of the two rays through the cone point, and on those it is $-2$ and $0$; through the cone point it rises from $-2$
@@ -665,15 +678,23 @@ the thresholds (1.17) of II.F at $R_{\mathrm{cf},1,\mathrm{in}}$ and $R_{\mathrm
 $f_1\in C^\infty(\mathbb R)$ be non-increasing, $f_1 = 1$ on $(-\infty,-2+\delta']$, $f_1 = 0$ on $[-\delta',\infty)$;
 $f_2\in C^\infty_c(\mathbb R)$, $0\le f_2\le1$, $f_2 = 1$ on $[0,L_0^2]$, $f_2 = 0$ on $[4L_0^2,\infty)$; and $\psi$ a
 smooth compactly supported function on the finite-frequency semiclassical phase space over sf (including II.F's faces
-over $R = 0$), equal to 1 on a neighbourhood of $K := \Sigma\cap\mathrm{supp}(f_1(\tilde\xi)f_2(|\eta|^2))$, which is
-compact. Put
-$$\mathsf b := b_{\mathrm{out}}+(b_{\mathrm{in}}-b_{\mathrm{out}})\,\psi\,f_1(\tilde\xi)\,f_2(|\eta|^2)\qquad(z_0
- = 1),\tag{4.2}$$
-and the reflection for $z_0 = -1$. Then $\mathsf b$ is smooth, equal to $b_{\mathrm{out}}$ near fibre infinity and near
-$R_{\mathrm{cf},\mathrm{out}}$, equal to $b_{\mathrm{in}}$ near $R_{\mathrm{cf},1,\mathrm{in}}$, and non-increasing
-along $H_p$ (II.F's future flow) on a neighbourhood of $\Sigma$. Its restriction to II.F's face $F_K$ is a decay order
-admissible at $\sigma_0 = \pm1$ with weight $\alpha_+$ in the sense of I.A section 1.4, as II.F Lemma 3.5 requires of
-$\mathsf b_\flat|_{F_K}$.
+over $R = 0$), with $0\le\psi\le1$, equal to 1 on a neighbourhood of
+$K := \Sigma\cap\mathrm{supp}(f_1(\tilde\xi)f_2(|\eta|^2))$, which is compact; and $g\in C^\infty(\mathbb R)$
+non-increasing, $g = 1$ on $(-\infty,-\frac14]$, $g = 0$ on $[-\frac18,\infty)$. Here $\tilde\xi$, $|\eta|^2$ and the
+functions below are defined in $N_{\mathrm{sf}}$'s frame over $\{v<4\}$, pulled back to the frame of $P$ on
+$\{\frac12\le R\le1\}$ by the fibre translation of section 4.1, and over $\{R<\frac12\}$ expressed in II.F's variables
+(Lemma 4.1 (e)). Put
+$$\mathsf b := b_{\mathrm{out}}+(b_{\mathrm{in}}-b_{\mathrm{out}})\big(1-(1-g(v))(1-\Phi)\big),\qquad
+\Phi := \psi\,f_1(\tilde\xi)\,f_2(|\eta|^2)\qquad(z_0 = 1),\tag{4.2}$$
+and the reflection for $z_0 = -1$. Then $\mathsf b$ is smooth; equal to the constant $b_{\mathrm{in}}$ over
+$\{v\le-\frac14\}$ at all frequencies; equal to $b_{\mathrm{out}}$ near fibre infinity over $\{v\ge-\frac18\}$ and near
+$R_{\mathrm{cf},\mathrm{out}}$; equal to $b_{\mathrm{in}}$ near $R_{\mathrm{cf},1,\mathrm{in}}$; and, on a neighbourhood
+of $\Sigma$, non-increasing in the directions of propagation of Proposition 4.6. These are: along $H_p$ (II.F's future
+flow) on $\Sigma_-$ and over $\{v>0\}$; and in the direction of increasing $v$ on $\Sigma_+$ over $\{v\le0\}$ (backward
+along $H_p$) and at fibre infinity over $\{-1<v<0\}$. (Before D238, (4.2) had no factor $g$, and $\mathsf b$ varied over
+the slab where Lemma 4.4's constant-order estimate is used; the ninety-eighth verifier's A1.) Its restriction to II.F's
+face $F_K$ is a decay order admissible at $\sigma_0 = \pm1$ with weight $\alpha_+$ in the sense of I.A section 1.4, as
+II.F Lemma 3.5 requires of $\mathsf b_\flat|_{F_K}$.
 
 *Proof.* *Compactness of $K$.* In the cone region $\Sigma$ is compact over sf (II.F section 1.3:
 $|\xi_{c\hbar}|,|\eta_{c\hbar}|$ bounded on $G_{\iota,1} = 0$). Over $\{v\le0\}$, $f_1\ne0$ excludes $\Sigma_+$ (there
@@ -682,21 +703,31 @@ $\Sigma_-$ write $c := vt\in[0,1]$, so $a = 1-c$ and $|\eta|^2 = t^2-(1-t-c)^2 =
 gives $(v+2)(1-c)\ge\delta'$, so $1-c\ge\delta'/3$ and $|\eta|^2\ge\frac{\delta'}3(2t-1)$, and $f_2\ne0$ bounds $t$.
 Over $\{1\le v<4\}$, $t\le\frac1v\le1$. *Values.* Near fibre infinity $\psi = 0$. Near $R_{\mathrm{cf},\mathrm{out}}$,
 $\tilde\xi = (1+2R)\xi_{c\hbar}$ is near 0, so $f_1 = 0$. Near $R_{\mathrm{cf},1,\mathrm{in}}$, $\tilde\xi$ is near $-2$
-and $|\eta|^2 = R^2|\eta_{c\hbar}|^2$ near 0, and $\psi = 1$, so $\mathsf b = b_{\mathrm{in}}$. *Monotonicity.*
-$H_p\mathsf b = (b_{\mathrm{in}}-b_{\mathrm{out}})\big(\psi f_2f_1'(\tilde\xi)H_p\tilde\xi+f_1f_2H_p\psi\big)$, as
-$H_p|\eta|^2 = 0$ identically on $\{v<4\}$ (Lemma 4.1 (b)) and, in the cone region,
-$\{G_{\iota,1},R^2|\eta_{c\hbar}|^2\} = \{v^2p,|\eta|^2\} = 0$ likewise. On a neighbourhood of $\Sigma$ the second term
-vanishes where $f_1f_2\ne0$, since $\psi = 1$ near $K$. For the first, $f_1'\le0$, and $H_p\tilde\xi>0$ on
+and $|\eta|^2 = R^2|\eta_{c\hbar}|^2$ near 0, and $\psi = 1$, so $\mathsf b = b_{\mathrm{in}}$. *The factor $g$.* Over
+$\{v\le-\frac14\}$, $g = 1$ and $\mathsf b = b_{\mathrm{in}}$. Over $\{v\ge-\frac18\}$, $g = 0$ and
+$\mathsf b = b_{\mathrm{out}}+(b_{\mathrm{in}}-b_{\mathrm{out}})\Phi$, treated below. Near fibre infinity $\Phi = 0$
+($\psi = 0$), and on a neighbourhood of $\Sigma_+\cap\{v\le0\}$, $\Phi = 0$ ($\tilde\xi\ge0$ there, so $f_1 = 0$ on
+$\{\tilde\xi>-\delta'\}$). There $\mathsf b = b_{\mathrm{out}}+(b_{\mathrm{in}}-b_{\mathrm{out}})g(v)$ is non-increasing
+in $v$. On a neighbourhood of $\Sigma_-$ over $\{-\frac14<v<-\frac18\}$, $H_pv>0$ (Lemma 4.1 (c)), and
+$H_p\big(1-(1-g)(1-\Phi)\big) = g'(v)(H_pv)(1-\Phi)+(1-g)H_p\Phi\le0$, as $g'\le0$, $0\le\Phi\le1$, and $H_p\Phi\le0$
+(below). *Monotonicity of $\Phi$.* $H_p\Phi = \psi f_2f_1'(\tilde\xi)H_p\tilde\xi+f_1f_2H_p\psi$, as $H_p|\eta|^2 = 0$
+identically on $\{v<4\}$ (Lemma 4.1 (b)) and, in the cone region,
+$\{G_{\iota,1},R^2|\eta_{c\hbar}|^2\} = \{v^2p,|\eta|^2\} = 0$ likewise. The second term vanishes on a neighbourhood of
+$\Sigma$: $\mathrm{supp}\,d\psi\cap\mathrm{supp}(f_1(\tilde\xi)f_2(|\eta|^2))$ is compact, as $\psi$ has compact
+support, and does not meet $\Sigma$, as $\psi = 1$ near $K$. For the first, $f_1'\le0$, and $H_p\tilde\xi>0$ on
 $K' := \Sigma\cap\mathrm{supp}\,f_1'(\tilde\xi)\cap\mathrm{supp}\,f_2(|\eta|^2)$, compact: over $\{v<4\}$ by Lemma 4.1
 (b), as $\eta\ne0$ on $K'$ ($\tilde\xi\in[-2+\delta',-\delta']$ there, and $\tilde\xi\in\{-2,0\}$ where $\eta = 0$,
 Lemma 4.1 (b)); over the cone region by Lemma 4.1 (e), as $-\xi_{c\hbar} = -\tilde\xi/(1+2R)\ge\delta'/(1+2R)$ and
 $\tilde\xi+2\ge\delta'$, so $\mathsf H\tilde\xi\ge2\delta'^2/(1+2R)$. By continuity $H_p\tilde\xi>0$ on a neighbourhood
-of $K'$, and $f_1'(\tilde\xi)f_2 = 0$ on a neighbourhood of $\Sigma\setminus K'$. *The face $F_K$.* At $R = 0$,
-$|\eta|^2 = 0$, and on a neighbourhood of $\Sigma\cap F_K$, $\psi = 1$, so
+$O'$ of $K'$. The compact set
+$\mathrm{supp}\,\psi\cap\mathrm{supp}\,f_1'(\tilde\xi)\cap\mathrm{supp}\,f_2(|\eta|^2)\setminus O'$ does not meet
+$\Sigma$, so on a neighbourhood of $\Sigma$ the first term is $\le0$. *The face $F_K$.* At $R = 0$, $|\eta|^2 = 0$, and
+on a neighbourhood of $\Sigma\cap F_K$, $\psi = 1$, so
 $\mathsf b = b_{\mathrm{out}}+(b_{\mathrm{in}}-b_{\mathrm{out}})f_1(\xi_{c\hbar})$: non-increasing along the boundary
-flow (Lemma 4.1 (e) at $R = 0$) and constant near $R_{\mathrm{in}}$ ($\xi_{c\hbar} = -2$) and $R_{\mathrm{out}}$
-($\xi_{c\hbar} = 0$), with the thresholds there, which are those of (1.17) at $F_K$ (II.F Lemma 3.5, *The order*).
-$\square$
+flow on a neighbourhood of $\Sigma\cap F_K$, since at $R = 0$, $\mathsf H\xi_{c\hbar} = 2|\eta_{c\hbar}|^2\ge0$
+everywhere (II.F (3.12)), as I.B (4.4) requires ($g = 0$ there) and constant near $R_{\mathrm{in}}$
+($\xi_{c\hbar} = -2$) and $R_{\mathrm{out}}$ ($\xi_{c\hbar} = 0$), with the thresholds there, which are those of (1.17)
+at $F_K$ (II.F Lemma 3.5, *The order*). $\square$
 
 ### 4.3 The estimates
 
@@ -747,13 +778,13 @@ $|h^{-1}\mathrm{Im}\,z|\le C_\lambda$ and $|T[u'](\nabla T,X)|\le C|du'|^2_R$, s
 and absorbed by $\lambda T[u'](X,X)\ge\lambda c_0|du'|^2_R$ for $\lambda$ large. The flux identity $E(1) = E(0)$ uses
 only the $T$-independence. Second, the adjoint estimate is obtained there by $t\mapsto-t$ to keep $\mathrm{Im}\,z\ge0$;
 here the first argument applies directly to $P^{*h}$, the spectral family at $\bar z/h$ of the formal adjoint of $P_c$
-($|\mathrm{Im}\,\bar z|\le C_\lambda h$), with $X$ replaced by $-\nabla v$ and the ends exchanged. The proof of I.B
-Proposition 7.2 uses I.A Proposition 6.4 (iii) at fixed $h$ (Lemma 2.3), the monotonicity of $v$ along every
-characteristic point over the slab, at finite frequencies and at fibre infinity
-($H_{\hat G}v = 2\hat g^{-1}(\nu,dv)\ne0$ for $\hat g$-null $\nu\ne0$, $dv$ being timelike), and I.B Corollary 4.6$'$,
-valid here by I.B Remark 4.7 (a) (Lemma 4.1 (a)); it does not use the statement for $\mathrm{Im}\,z>0$ that there is no
-characteristic point at finite frequencies, which serves only as an alternative there. Corollary 7.3 follows as there.
-$\square$
+($|\mathrm{Im}\,\bar z|\le C_\lambda h$), with the ends of the slab exchanged (I.A Proposition 6.3's backward case, with
+the weight $e^{-\lambda r}$), $X$ unchanged. The proof of I.B Proposition 7.2 uses I.A Proposition 6.4 (iii) at fixed
+$h$ (Lemma 2.3), the monotonicity of $v$ along every characteristic point over the slab, at finite frequencies and at
+fibre infinity ($H_{\hat G}v = 2\hat g^{-1}(\nu,dv)\ne0$ for $\hat g$-null $\nu\ne0$, $dv$ being timelike), and I.B
+Corollary 4.6$'$, valid here by I.B Remark 4.7 (a) (Lemma 4.1 (a)); it does not use the statement for $\mathrm{Im}\,z>0$
+that there is no characteristic point at finite frequencies, which serves only as an alternative there. Corollary 7.3
+follows as there. $\square$
 
 **Lemma 4.5 (the cone point).** On $\{R<\frac12\}$, II.F Propositions 2.4-2.6 and Lemma 3.3 (R3)-(R4) hold for $P$ with
 $z\in\mathcal Z_h$ and the order $\mathsf b$ of Lemma 4.2, and II.F Lemmas 3.5-3.6 hold for $u$ supported in
@@ -787,19 +818,19 @@ in $\{v<4\}$, II.F Lemma 2.2 (g) near the cone, I.A Lemma 6.1 (a) at $v = -1$). 
 frequencies over sf and at fibre infinity, by finitely many open sets on which one of the following holds, in this order
 (for $z_0 = 1$; $z_0 = -1$ by Lemma 4.1 (f)).
 
-(1) $\{v<-\frac14\}$: Lemma 4.4, which controls $u$ there in $H^s_h$ by $h^{-1}\|Pu\|$, at all frequencies, with no
-error term.
+(1) $\{v<-\frac14\}$: Lemma 4.4 at the constant semiclassical order $\mathsf b = b_{\mathrm{in}}$ there (Lemma 4.2),
+which controls $u$ there in $h^{-b_{\mathrm{in}}}H^s_h$ by $h^{-1-b_{\mathrm{in}}}\|Pu\|_{H^{s-1}_h}$, at all
+frequencies, with no error term.
 
-(2) Points of $\Sigma$, at finite frequencies or at fibre infinity, over $\{-\frac12<v<4\}$, whose curve in the
-direction of propagation reaches $\{v<-\frac14\}$: forward along $H_p$ on $\Sigma_-$ and on the fibre-infinity part of
+(2) Points of $\Sigma$, at finite frequencies or at fibre infinity, over $\{-\frac12<v<4\}$, that are reached from
+$\{v<-\frac14\}$ along the direction of propagation: forward along $H_p$ on $\Sigma_-$ and on the fibre-infinity part of
 $\Sigma$ over $\{-1<v<0\}$ with $\xi<0$; backward along $H_p$ on $\Sigma_+$ and on the part with $\xi>0$. I.B
-Proposition 4.5 with Corollary 4.6$'$ and Remark 4.7 (a) (in either direction, as $\lambda = 0$), from (1); $\mathsf b$
-is non-increasing along $H_p$ near $\Sigma$ (Lemma 4.2), so it is non-increasing in the direction of propagation on
-$\Sigma_-$; on $\Sigma_+$ and at fibre infinity $\mathsf b = b_{\mathrm{out}}$ is constant
-($\Sigma_+\cap K = \emptyset$, Lemma 4.2's proof). This covers, by Lemma 4.1 (d): $\Sigma_+$ outside a neighbourhood of
-$\partial\mathcal R_+$; the curves (ii) up to neighbourhoods of the cone saddles and of $\partial\mathcal R_-$; the
-incoming ray (iii) up to a neighbourhood of $R_{\mathrm{cf},1,\mathrm{in}}$; and fibre infinity over $\{-1<v<0\}$
-outside neighbourhoods of $\partial\mathcal R_\pm$.
+Proposition 4.5 with Corollary 4.6$'$ and Remark 4.7 (a) (in either direction, as $\lambda = 0$) over $\{v<4\}$, and
+II.F Proposition 2.5 over $\{R<\frac14\}$ away from the cone saddles, from (1). $\mathsf b$ is non-increasing in these
+directions of propagation on a neighbourhood of $\Sigma$ (Lemma 4.2). This covers, by Lemma 4.1 (d): $\Sigma_+$ outside
+a neighbourhood of $\partial\mathcal R_+$; the curves (ii) up to neighbourhoods of the cone saddles and of
+$\partial\mathcal R_-$; the incoming ray (iii) up to a neighbourhood of $R_{\mathrm{cf},1,\mathrm{in}}$; and fibre
+infinity over $\{-1<v<0\}$ outside neighbourhoods of $\partial\mathcal R_\pm$.
 
 (3) Neighbourhoods of $\partial\mathcal R_+$ and $\partial\mathcal R_-$: (4.3), whose control sets $K_E$ consist of
 elliptic points and of points of $\Sigma$ near $\partial\mathcal R_\pm$ off it, covered by (2) (on the curves (i) and
@@ -847,8 +878,9 @@ sources and sinks interchanged: (4.4) at $\partial\mathcal R_\pm$, now with no c
 the curves (ii)-(iii) to the cone point and through it (II.F section 3.6, *The adjoint*, for (R3)-(R4) and $F_K$); on
 $\Sigma_+$ and at fibre infinity, propagation from $\partial\mathcal R_\pm$ to $\{v<-\frac14\}$; and near $v = -1$ the
 second estimate of (4.5), whose term $\|\chi_1v\|$ lies over $\{-\frac12<v<-\frac14\}$, controlled by the propagation
-just described. The dual semiclassical order $-\mathsf b-1$ is non-increasing along $-H_p$. Step 2 with the second
-estimate of II.F (3.15).
+just described. The dual semiclassical order $-\mathsf b-1$ is non-increasing in these reversed directions, and is the
+constant $-b_{\mathrm{in}}-1$ over $\{v\le-\frac14\}$, where the second estimate of (4.5) is used. Step 2 with the
+second estimate of II.F (3.15).
 
 *Step 4: invertibility.* For fixed $h<h_0$, (4.6) gives injectivity and closed range, and the dual estimate the
 triviality of the annihilator of the range (the pairing $\langle Pu,v\rangle = \langle u,P^{*h}v\rangle$ for $u$ in a
@@ -862,7 +894,7 @@ dense set, as in II.F section 3.6). $\square$
 (1) (*Fredholm property.*) $N_{\mathrm{sf}}(\lambda):\mathcal X\to\mathcal Y$ of (2.7) is Fredholm of index 0, with
 kernel and cokernel independent of the admissible pair.
 
-(2) (*Invertibility.*) It is invertible for $\mathrm{Re}\,\lambda<\frac32$. For every $C$ it is invertible for all but
+(2) (*Invertibility.*) It is invertible for $\mathrm{Re}\,\lambda<2$. For every $C$ it is invertible for all but
 finitely many $\lambda$ with $\mathrm{Re}\,\lambda\le C$, and the inverse is finite-meromorphic: in every vertical strip
 on which one admissible pair serves, $\lambda\mapsto N_{\mathrm{sf}}(\lambda)^{-1}\in\mathcal L(\mathcal Y,\mathcal X)$
 is meromorphic with finite-rank principal parts, and for $f$ in the targets of two admissible pairs the two inverses
@@ -884,17 +916,17 @@ H^{s'-1,\gamma_{\mathrm{cf}}+\mathrm{Re}\,\lambda}_{\mathrm b}\}$, an admissible
 ($s'<2-\delta-C_\lambda\le2-\mathrm{Re}\,\lambda$,
 $\gamma_{\mathrm{cf}}+\mathrm{Re}\,\lambda\in(\mathrm{Re}\,\lambda-1,\mathrm{Re}\,\lambda)$). So $\mathrm{ind} = 0$.
 
-(2): For $\mathrm{Re}\,\lambda<\frac32$ the kernel is trivial (Proposition 3.2) and the index 0, so the operator is
-invertible. *Finiteness.* For $\frac32\le\mathrm{Re}\,\lambda\le C$, Proposition 4.6 with $C_\lambda := C$ gives
-invertibility for $|\mathrm{Im}\,\lambda|\ge M$; the set of $\lambda$ where $N_{\mathrm{sf}}(\lambda)$ is not invertible
-is discrete (below), so it meets the compact set $\{\frac32\le\mathrm{Re}\,\lambda\le C,|\mathrm{Im}\,\lambda|\le M\}$
-in finitely many points. *Meromorphy.* On a disc $D_1$ as above the family is holomorphic, Fredholm of index 0 and,
-$D_1$ being contained in a vertical strip, in which it is invertible at points of large $|\mathrm{Im}\,\lambda|$ joined
-to $D_1$ by a chain of such discs, invertible at some point of each connected component; the analytic Fredholm theorem
-(I.C (K5)) gives a meromorphic inverse with finite-rank principal parts and discrete poles. *Agreement.* If
-$f\in\mathcal Y\cap\mathcal Y'$ for two admissible pairs and $\lambda$ is not a pole, the two solutions $u$, $u'$ both
-lie in the larger domain (the spaces are nested in $s$ and $\mu$, as in (2.6) one may pass to the minimum of the two $s$
-and of the two $\mu$), where the kernel is trivial (Proposition 2.4 (3)); so $u = u'$. $\square$
+(2): For $\mathrm{Re}\,\lambda<2$ the kernel is trivial (Proposition 3.2) and the index 0, so the operator is
+invertible. *Finiteness.* For $2\le\mathrm{Re}\,\lambda\le C$, Proposition 4.6 with $C_\lambda := C$ gives invertibility
+for $|\mathrm{Im}\,\lambda|\ge M$; the set of $\lambda$ where $N_{\mathrm{sf}}(\lambda)$ is not invertible is discrete
+(below), so it meets the compact set $\{2\le\mathrm{Re}\,\lambda\le C,|\mathrm{Im}\,\lambda|\le M\}$ in finitely many
+points. *Meromorphy.* On a disc $D_1$ as above the family is holomorphic, Fredholm of index 0 and, $D_1$ being contained
+in a vertical strip, in which it is invertible at points of large $|\mathrm{Im}\,\lambda|$ joined to $D_1$ by a chain of
+such discs, invertible at some point of each connected component; the analytic Fredholm theorem (I.C (K5)) gives a
+meromorphic inverse with finite-rank principal parts and discrete poles. *Agreement.* If $f\in\mathcal Y\cap\mathcal Y'$
+for two admissible pairs and $\lambda$ is not a pole, the two solutions $u$, $u'$ both lie in the larger domain (the
+spaces are nested in $s$ and $\mu$, as in (2.6) one may pass to the minimum of the two $s$ and of the two $\mu$), where
+the kernel is trivial (Proposition 2.4 (3)); so $u = u'$. $\square$
 
 ## 6. Findings
 
@@ -902,16 +934,18 @@ and of the two $\mu$), where the kernel is trivial (Proposition 2.4 (3)); so $u 
 $s<2+\min\mathrm{spec}\,\bar S-\mathrm{Re}\,\lambda = 2-\mathrm{Re}\,\lambda$, from $\beta_0 = 2$ and
 $p_1 = 3+2\,\mathrm{Re}_h\bar S-2\,\mathrm{Re}\,\lambda$ at $N^*\{v = 0\}$ (Lemma 2.2, (2.3)), against the source's
 $\frac32+\min\mathrm{spec}\,\bar S-\mathrm{Re}\,\lambda$ at $n = 3$, where the constant of (1.3) is 1 rather than
-$\frac32$; the record's `iotasol5.py` J2 had it
-by the characteristic exponents.
+$\frac32$; the record's `iotasol5.py` J2 had it by the characteristic exponents.
 
-(G2) *Invertibility for $\mathrm{Re}\,\lambda<\frac32$*, against the source's $1+\epsilon_{\mathrm{ind}}$ at $n = 3$.
-The source's bound comes from the weights of the tf-problem, which must lie in its indicial gap
-$(0,\epsilon_{\mathrm{ind}})$; at $n = 4$ that gap contains $(0,1]$ and tf-admissibility holds on all of it (III.F$'$),
-and the binding condition is $s>\frac12$ in Lemma 3.1. So the pure $\iota^+$ resonances of $\bar L$ at $n = 4$ have real
-part at least $\frac32$ (the record's 10.37 (c) had $1+\epsilon_{\mathrm{ind}}$, read from the source); 10.37 (d) puts
-those below $\frac52$ at the constraint candidates in $(2,\frac52)$. The ε of III.F$'$ (2.2) is $<3\times10^{-6}$ at the
-record's point and plays no role here.
+(G2) *Invertibility for $\mathrm{Re}\,\lambda<2$*, against the source's $1+\epsilon_{\mathrm{ind}}$ at $n = 3$. The
+source's bound comes from the weights of the tf-problem, which must lie in its indicial gap
+$(0,\epsilon_{\mathrm{ind}})$. At $n = 4$ that gap contains $(0,1]$ and tf-admissibility holds on all of it (III.F$'$),
+so the bound is the tf weight $\beta<1$ of Proposition 3.2, that is $\mathrm{Re}\,\lambda<2$. Written at D236 with
+$\mathrm{Re}\,\lambda<\frac32$, the limit of Lemma 3.1 as then stated ($s>\frac12$). The ninety-eighth verifier's A2
+showed that this limit came from the method. Lemma 3.1 for every $s\notin\frac12+\mathbb Z$ and II.F Lemma 5.7 for
+$a>-1$ remove it (D238). So the pure $\iota^+$ resonances of $\bar L$ at $n = 4$ have real part at least 2 (the record's
+10.37 (c) had $1+\epsilon_{\mathrm{ind}}$, read from the source), and 10.37 (d) puts those below $\frac52$ at the
+constraint candidates in $(2,\frac52)$. The $\epsilon$ of III.F$'$ (2.2) is $<3\times10^{-6}$ at the record's point and
+plays no role here.
 
 (G3) *The b-regularity* ([HV15] Theorem 6.3 in the source) is proved by the commutators of Lemma 2.5: the rotations
 commute with $N_{\mathrm{sf}}(\lambda)$ through their Lie derivatives, and the dilation $v\partial_v$ produces

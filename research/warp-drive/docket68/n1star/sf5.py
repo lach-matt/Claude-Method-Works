@@ -33,6 +33,15 @@ symbols (the identities are pointwise in the fibre, and the S^3-operators are sp
       N_sf(lam) becomes rhat^2 N_tf(+1) with N_tf(sh) = 2 i sh rhohat (rhohat d_rhohat - 3/2 - S) + rhohat^2 Lt(rhohat
       d_rhohat), rhohat = 1/rhat (I.C (4.1); II.F (5.11)-(5.13) with i sigma = lam).  Control: the conjugation by
       rhat^(-lam) fails.
+  S9  The iota+ normal operator: N_iota(lam) := v^(2+lam) N_sf(lam) v^(-lam) (R = 1/v) equals
+      -2 v (v d_v - lam)(v d_v - 3/2 - S) + v^2 Lt(v d_v) on a general u(v) (III.G' (1.1)).  Control: v^(2-lam)
+      N_sf(lam) v^lam fails.
+  S10 Kernels supported at the light cone: by the transpose, N_sf(lam) delta^(j) = -2 (lam - j - 5/2 - S)
+      delta^(j+1) + Lt(lam - j - 1) delta^(j), j = 0..4, tested on a general polynomial (III.G' Lemma 4.3).
+      Control: the top factor lam - j - 3/2 - S fails.
+  S11 The turning point of Lemma 4.1 (d): with p = (v xi + 1)((v + 2) xi + 1) + q (z = 1, q = |eta|^2 conserved), at a
+      critical point of v on {p = 0} (H_p v = d_xi p = 0), H_p^2 v = -4(v + 1)/(v(v + 2)), negative for v > 0, so every
+      critical point over v > 0 is a strict maximum (III.G Lemma 4.1 (d), D238).  Control: the opposite sign fails.
 """
 import sys
 import sympy as sp
@@ -253,9 +262,62 @@ def s8():
     return ok and ctrl
 
 
+def s9():
+    u = f(v)
+    lhs = v**(2 + lam) * N_sf(lam, v**(-lam) * u)
+    Y = lambda w: v * sp.diff(w, v)
+    W1 = v * sp.diff(u, v) - (c32 + S) * u
+    target = -2 * v * (v * sp.diff(W1, v) - lam * W1) + v**2 * Lt(Y, u)
+    vp = sp.Symbol('vp', positive=True)
+    z9 = lambda e: sp.simplify(sp.expand(sp.powsimp(sp.expand(e.subs(v, vp)), force=True))) == 0
+    ok = z9(lhs - target)
+    ctrl = not z9(v**(2 - lam) * N_sf(lam, v**lam * u) - target)
+    print('S9 iota+ normal operator -2v(v d_v - lam)(v d_v - 3/2 - S) + v^2 Lt(v d_v):', 'PASS' if ok else 'FAIL',
+          '(control v^(2-lam) N v^lam:', 'fails' if ctrl else 'PASSES', ')')
+    return ok and ctrl
+
+
+def s10():
+    p = sp.symbols('p0:8')
+    phi = sum(p[k] * v**k for k in range(8))
+    # transpose of N_sf: d_v^t = -d_v, (v d_v)^t = -1 - v d_v
+    Xt = lambda w: -w - v * sp.diff(w, v) + (lam - c32 - S) * w
+    Yt = lambda w: -w - v * sp.diff(w, v) + lam * w
+    Nt = Xt(2 * sp.diff(phi, v)) + Lt(Yt, phi)
+    pair = lambda j, g: (-1)**j * sp.diff(g, v, j).subs(v, 0)        # <delta^(j), g>
+    ok, ctrl = True, True
+    for j in range(5):
+        lhs = pair(j, Nt)
+        L1 = lam - j - 1
+        want = (-2 * (lam - j - sp.Rational(5, 2) - S) * pair(j + 1, phi)
+                + (-L1**2 + a * L1 + kap + b) * pair(j, phi))
+        bad = (-2 * (lam - j - c32 - S) * pair(j + 1, phi) + (-L1**2 + a * L1 + kap + b) * pair(j, phi))
+        ok &= zero(lhs - want)
+        ctrl &= not zero(lhs - bad)
+    print('S10 N_sf delta^(j) = -2(lam - j - 5/2 - S) delta^(j+1) + Lt(lam - j - 1) delta^(j):',
+          'PASS' if ok else 'FAIL', '(control lam - j - 3/2 - S:', 'fails' if ctrl else 'PASSES', ')')
+    return ok and ctrl
+
+
+def s11():
+    vv, x, q = sp.symbols('v xi q', real=True)
+    p = (vv * x + 1) * ((vv + 2) * x + 1) + q
+    H = lambda F: sp.diff(p, x) * sp.diff(F, vv) - sp.diff(p, vv) * sp.diff(F, x) + 0 * q
+    Hv = H(vv)
+    xs = sp.solve(sp.Eq(Hv, 0), x)[0]
+    qs = sp.solve(sp.Eq(p.subs(x, xs), 0), q)[0]
+    H2 = sp.simplify(H(Hv).subs(x, xs).subs(q, qs))
+    want = -4 * (vv + 1) / (vv * (vv + 2))
+    ok = sp.simplify(H2 - want) == 0
+    ctrl = sp.simplify(H2 + want) != 0
+    print('S11 H_p^2 v = -4(v+1)/(v(v+2)) at critical points of v on Sigma:', 'PASS' if ok else 'FAIL',
+          '(control opposite sign:', 'fails' if ctrl else 'PASSES', ')')
+    return ok and ctrl
+
+
 def run():
     ok = True
-    for fn in (s1, s2, s3, s4, s5, s6, s7, s8):
+    for fn in (s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11):
         ok &= fn()
     print('sf5.py:', 'all checks pass' if ok else 'FAILURES')
     return ok

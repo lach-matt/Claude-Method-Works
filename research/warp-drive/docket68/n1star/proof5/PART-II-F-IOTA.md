@@ -1644,7 +1644,7 @@ just proved puts $W^\alpha u$ in $\mathcal X^{\mathsf s'}$. $\square$
 
 ### 5.5 The kernel ([Hin26c] Lemma 10.10)
 
-**Lemma 5.7 (the Fourier transform of conormal functions).** Let $a>0$, $\lambda\in\mathbb R$, and let $f\in
+**Lemma 5.7 (the Fourier transform of conormal functions).** Let $a>-1$, $\lambda\in\mathbb R$, and let $f\in
 C^\infty((0,\infty)_v\times\mathbb S^3;\mathbb C^N)$ satisfy, for all $j$ and $\alpha$,
 $|(v\partial_v)^j\partial_\omega^\alpha f|\le C_{j\alpha}v^a$ on $\{v\le2\}$ and $\le C_{j\alpha}v^{-\lambda}$ on
 $\{v\ge\frac12\}$. Let $f^\sharp$ be its extension by 0 to $v\le0$, a tempered distribution on $\mathbb R\times\mathbb
@@ -1654,7 +1654,7 @@ $$|(\hat r\partial_{\hat r})^j\partial^\alpha_\omega\hat f(\hat r,\omega)|\le C(
 \hat r|}{1+|\hat r|}\Big)^{\min(\lambda-1,0)-\epsilon},\qquad\hat r\ne0.\tag{5.9}$$
 
 *Proof.* Let $\psi\in C^\infty_c((\frac12,2))$ with $\sum_{l\in\mathbb Z}\psi(2^{-l}v) = 1$ for $v>0$, and $f_l :=
-\psi(2^{-l}v)f$. Then $f^\sharp = \sum_lf_l$ in $\mathcal S'$ ($f^\sharp$ is locally integrable, as $a>0$, and
+\psi(2^{-l}v)f$. Then $f^\sharp = \sum_lf_l$ in $\mathcal S'$ ($f^\sharp$ is locally integrable, as $a>-1$, and
 polynomially bounded; dominated convergence). On $\mathrm{supp}\,f_l$, $v\sim2^l$, and as $\partial_v^m =
 v^{-m}p_m(v\partial_v)$ for a polynomial $p_m$, $|\partial_v^m\partial^\alpha_\omega f_l|\le C2^{-lm}M_l$ with $M_l :=
 2^{la}$ for $l\le0$ and $2^{-l\lambda}$ for $l\ge0$. Hence $|\partial^\alpha_\omega\mathcal Ff_l(\hat
@@ -1673,8 +1673,10 @@ C|\hat r|^{\lambda-1}$, which is $\le C|\hat r|^{\min(\lambda-1,0)}$. So $\sum_l
 derivatives locally uniformly on $\{\hat r\ne0\}$, to a smooth function satisfying (5.9), which is $\hat f$ there because
 $\mathcal F$ is continuous on $\mathcal S'$. $\square$
 
-This is the bound (10.41) the source quotes from [Hin23d] Lemma 2.25; it is one-dimensional in $v$, the sphere being a
-parameter, so free of $n$.
+(Stated for $a>0$ before D238; the proof uses $a>-1$ only, for the local integrability of $f^\sharp$ and the sums
+$\sum_{l\le K}2^{l(1+a)}$, and III.G Proposition 3.2 uses it so; the ninety-eighth verifier's A2.) This is the bound
+(10.41) the source quotes from [Hin23d] Lemma 2.25; it is one-dimensional in $v$, the sphere being a parameter, so free
+of $n$.
 
 **Lemma 5.8 ([Hin26c] Lemma 10.10 at $n = 4$).** Let $\mathrm{Im}\,\sigma>-\gamma_I$ and
 $\mathrm{Im}\,\sigma>-1-\beta_+$. Then $N^0(\sigma)$ has trivial kernel on $\mathcal X^{\mathsf s}$.

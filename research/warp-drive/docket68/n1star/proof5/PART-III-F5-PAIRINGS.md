@@ -243,8 +243,8 @@ $\bar h^\sharp(W) = \mu\rho^3(dt_*+\kappa_C\,d|x|)\otimes_s\rho V(W)$ of III.E$'
 through $\mu$; and the model operator. So $\lambda^\sharp_{\breve h^1_{b,\mathrm v1}(V)}(W) = \mu\,c(V,W)$ with $c$ a
 bilinear form independent of $b$. For $b = (\mu,A)$ in the parameter neighbourhood,
 $c(V,W) = \pi^2\langle A_V,W\rangle_F$ on $\mathrm{im}\,\mathrm{ad}_A$ (Lemma 3.1 (2) holds at every such $b$, spinning
-or not, with the same value, as the leading term $2\mu\rho^3(dt_*+d|x|)\otimes_s\rho V(\dot A)$ of
-$\dot g^\Upsilon_b(0,\dot A)$, III.E$'$ (2.2), does not depend on $A$); and these images, for $A$ small, span
+or not, with the same value, as the leading term $2\mu\rho^3(dt_*+2\,d|x|)\otimes_s\rho V(\dot A)$ (corrected at D238)
+of $\dot g^\Upsilon_b(0,\dot A)$, III.E$'$ (2.2), does not depend on $A$); and these images, for $A$ small, span
 $\mathfrak{so}(4)$ ($\mathrm{im}\,\mathrm{ad}_{\epsilon E_{12}} = \mathrm{span}\{E_{13},E_{14},E_{23},E_{24}\}$,
 $\mathrm{im}\,\mathrm{ad}_{\epsilon E_{13}}\ni E_{12},E_{34}$). So $c(V,\cdot) = \pi^2\langle A_V,\cdot\rangle_F$ on
 $\mathfrak{so}(4)$. $\square$
@@ -314,7 +314,7 @@ indicial roots of $\widehat{L_b}(0)$ with real part $>\alpha-\epsilon$ and from 
 1, harmless here, which the low-energy parts must carry; the ninety-seventh verifier.) Then
 $$h^{(-2)}_b := h^{\approx,2}_b+h_{b,(0)}+u_b\in\ker\widehat{L_b}(0),\tag{5.3}$$
 with leading term $\bar h$ and $h^{(-2)}_b-\chi\bar h\in\mathcal A^{(-1,0)\cup(-1+\mathcal E_{\mathrm{ind}})}+\mathcal
-A^{\mathcal F}+\mathcal A^{(0,k)}+\mathcal A^{\mathcal E'_b}\subset\mathcal A^{-2+\mathcal E_{\mathrm{ind}}}$,
+A^{\mathcal F}+\mathcal A^{(0,k)}+\mathcal A^{\mathcal E'}\subset\mathcal A^{-2+\mathcal E_{\mathrm{ind}}}$,
 $\mathcal E'$ the index set of $u_b$ just found; its index set is that of (5.1), independent of $b$. (Before D235 this
 step placed $u_b$ in the conormal space $\mathcal A^{\alpha-\epsilon}$ only, which no polyhomogeneous space contains;
 the ninety-seventh verifier.)
