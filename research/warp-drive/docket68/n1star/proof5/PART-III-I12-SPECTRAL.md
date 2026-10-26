@@ -2,13 +2,13 @@
 
 *Status.* Written (D273); amended before its verification (D274: Lemma 1.1, the column terms are polyhomogeneous at tf;
 $\eta_1,\eta_2<\epsilon_+$; Lemmas 2.1-2.2 carried to the full remainder order); verified (D275: verifier 117's findings
-seated, to be read). This part completes, at spatial dimension $n = 4$, Parts 1-3 of the proof of [Hin26] Theorem 11.59
-(pp. 278-289), begun in III.I$''''''''''$: the forward solution of the linearised gauge-fixed Einstein equation with the
-correction terms of III.I$'''''''''$, for a source of $K^+$-order $\alpha\le4+\epsilon_K$, has a $K^+$-expansion below
-the order $\alpha-2$ consisting of rows (Lemma 3.2), and a unique choice of the modification parameters removes it
-(Theorem 4.1, the source's (11.222)). III.I$''''''''''$ Proposition 3.1 reduced the expansion to a forward problem
-$L_{b_0}v = f^\flat$ whose source is partially polyhomogeneous at $\iota^+$ from the order 4 on; here $v$ is expanded on
-the spectral side (Proposition 3.1).
+seated); proved (D277: verifier 118 read the repairs and found them correct; its nits seated). This part completes, at
+spatial dimension $n = 4$, Parts 1-3 of the proof of [Hin26] Theorem 11.59 (pp. 278-289), begun in III.I$''''''''''$:
+the forward solution of the linearised gauge-fixed Einstein equation with the correction terms of III.I$'''''''''$, for
+a source of $K^+$-order $\alpha\le4+\epsilon_K$, has a $K^+$-expansion below the order $\alpha-2$ consisting of rows
+(Lemma 3.2), and a unique choice of the modification parameters removes it (Theorem 4.1, the source's (11.222)).
+III.I$''''''''''$ Proposition 3.1 reduced the expansion to a forward problem $L_{b_0}v = f^\flat$ whose source is
+partially polyhomogeneous at $\iota^+$ from the order 4 on; here $v$ is expanded on the spectral side (Proposition 3.1).
 
 *What n = 4 changes.* (1) *The cascade.* The source reaches the order $\alpha_K = 4+\epsilon_K$ through zero-energy
 solves (its Steps 2.A.3, 2.A.5, 2.A.7) and tf-model inversions between them, its Part 3 (5) calling the rest analogous.
@@ -162,17 +162,20 @@ columns are polyhomogeneous. $\square$
 **Lemma 2.3 (III.G$''''$ Proposition 4.4's pieces in compact sets).** Let $u$ be the solution of III.G$''''$ Proposition
 4.4 for a source with tf-leading term at $(\alpha_0,k)$, $k = 0$ (for $k>0$ apply the following to the
 $\alpha_0$-derivatives). On $\{r\le R\}$ and for $0<\pm\sigma\le c_R$, $u = |\sigma|^{\alpha_0-2}u_b$ (there
-$\chi_{\mathrm{zf}} = 1$, $\chi_{\mathrm{tf}} = 0$), and
+$\chi_{\mathrm{zf}} = 1$, and $\chi_{\mathrm{tf}} = \chi_2(\rho+|\sigma|) = 0$ if $R<2/\rho_0$, III.G$''''$ section 1;
+for larger $R$ the tf-part adds integer-degree, log-free terms $\sigma^j|\sigma|^kc(x)$, which leave no $K^+$-tail by
+III.I$''''''''''$ Lemma 2.4 (b), so the conclusions below are unchanged), and
 $$|\sigma|^{\alpha_0-2}u_b = \sum_\tau c_\tau(\sigma)\,T_\tau(\sigma)+P_{\mathrm{int}}(\sigma),\tag{2.2}$$
 where: $T_{\mathrm s1}(\sigma) := h^{\le3}_{b_0,\mathrm s1}(\sigma,S^{(-1)}_1) = \sum_{i\le3}(-i\sigma)^i\breve
 h^i_{\mathrm s1}(S^{(-1)}_1)$ and $c_{\mathrm s1}(\sigma) := |\sigma|^{\alpha_0-1}\sigma^{-2}/(2-\alpha_0)$
 ($-|\sigma|^{-1}\log|\sigma|$ at $\alpha_0 = 2$); for the other rows $(\mu,\tau)$ of III.G$''$ Table 1.1,
 $T_\tau(\sigma) := h^{(\mu),\le c_\mu}_{b_0,\tau}(\sigma,Y^{(\mu)}_\tau)$ and $c_\tau(\sigma) :=
 -|\sigma|^{\alpha_0-2-\mu}/\beta_\mu(\alpha_0)$ ($|\sigma|^{\lfloor-\mu\rfloor}\log|\sigma|$ if $\beta_\mu(\alpha_0) =
-0$, which for c0, c1 happens at $\alpha_0 = 2+\mu\in(1,2)$), $\beta_\mu(\alpha_0) = 2-\alpha_0-\{-\mu\}$ (III.G$''''$
-(3.2)); the v1 term has $h_{b_0,\mathrm v1}(V) = 0$ (every $V$ Killing at $b_0$), so it carries $\sigma$ at least once;
-and $P_{\mathrm{int}}$ is a finite sum of terms $|\sigma|^m\,\mathrm{sgn}(\sigma)^{\delta}q(\sigma,x)$ with $m\in\mathbb
-Z$, $\delta\in\{0,1\}$, $q$ polynomial in $\sigma$ (and $\log r$), without $\log|\sigma|$: namely
+0$, which for c0, c1 happens at $\alpha_0 = 2+\mu\in(1,2)$, and for the class rows in $(-\frac54,-1)$ and
+$(-\frac94,-2)$ at $\alpha_0 = 3+\mu$ and $4+\mu$), $\beta_\mu(\alpha_0) = 2-\alpha_0-\{-\mu\}$ (III.G$''''$ (3.2)); the
+v1 term has $h_{b_0,\mathrm v1}(V) = 0$ (every $V$ Killing at $b_0$), so it carries $\sigma$ at least once; and
+$P_{\mathrm{int}}$ is a finite sum of terms $|\sigma|^m\,\mathrm{sgn}(\sigma)^{\delta}q(\sigma,x)$ with $m\in\mathbb Z$,
+$\delta\in\{0,1\}$, $q$ polynomial in $\sigma$ (and $\log r$), without $\log|\sigma|$: namely
 $-|\sigma|^{-1}h(S^{(-1)}_1)/(2-\alpha_0)$ (for $\alpha_0\ne2$; at $\alpha_0 = 2$ it is part of $c_{\mathrm s1}$),
 $i\,\mathrm{sgn}(\sigma)r^{2-\alpha_0}\breve h^{\le3}_{b_0,\mathrm s1}(\sigma,S^{(-1)}_1)/(2-\alpha_0)$ (with $\log r$
 in place of $r^{2-\alpha_0}/(2-\alpha_0)$ at $\alpha_0 = 2$), and
@@ -282,15 +285,17 @@ $g_3$, of tf-weight $\tau_3 := 1+\eta_2-2\epsilon$ (conormal; its expansion is n
 the tf-weight $\tau$ of the current level-3 source is at most $2+\ell_3+\epsilon$, apply III.G$''''$ Proposition 5.1
 with $\alpha_\tau := \min(\tau,2-\delta)\in(1,2)$ (the source has tf-weight $\alpha_\tau$), $\ell_{\mathrm{zf}} :=
 \ell_3$, $k_0 := 0$, $w = \ell_3-\alpha_\tau+2\in(0,1)$ ($\alpha_\tau\ge\tau_3>1+\ell_3$ as $\eta_2>\epsilon_K>\ell_3$);
-its conditions $w\ne-\mu$, $2-\alpha_\tau+j\ne-\mu$ hold for $\epsilon$ off a finite set (admissibility). It gives $u =
+its conditions $w\ne-\mu$, $2-\alpha_\tau+j\ne-\mu$ hold for $\epsilon$ off a finite set (admissibility) and, when
+$\alpha_\tau = 2-\delta$, for $\delta$ off the finite set $\{-\mu-j\}$, which we impose on $\delta$. It gives $u =
 \chi_{\mathrm{zf}}u_b+\chi^\sharp_{\mathrm{tf}}\tilde u\in
 H^{\infty,(\frac32-2\epsilon,\alpha_\tau-2,\alpha_\tau-3)}_{\mathrm b}$ with remainder of tf-weight
-$\alpha_\tau+\epsilon_{\mathrm{ind}}-\epsilon$, which exceeds $\tau$ by at least
-$\min(\epsilon_{\mathrm{ind}}-\epsilon,\epsilon)$ and, when $\alpha_\tau = 2-\delta$, exceeds $2+\ell_3+\epsilon$;
-pieces $\sigma^3u$. After finitely many rounds $\tau>2+\ell_3+\epsilon$; lowering $\tau$ if necessary (a source of
-tf-weight $\tau$ has every smaller tf-weight), $\tau\in(2+\ell_3+\epsilon,3)$. Lemma 2.1 with $\mu_3 := \tau-\epsilon$,
-$\mu' := \tau$ and $E = \emptyset$ gives $(\hat u_3,\dot b_3,S_3)^\pm$ and pieces $\sigma^3(\chi_{\mathrm{zf}}\hat
-u_3+\hat g^{\mathrm{aug}}(\dot b_3)+\hat h^{\mathrm{aug}}(S_3))$; the rest,
+$\alpha_\tau+\epsilon_{\mathrm{ind}}-\epsilon$, which exceeds $\tau$ by $\epsilon_{\mathrm{ind}}-\epsilon$ when
+$\alpha_\tau = \tau$, and, when $\alpha_\tau = 2-\delta<\tau$, exceeds $2+\ell_3+\epsilon$ (as
+$\delta+\ell_3+2\epsilon<\epsilon_{\mathrm{ind}}$), after which the loop ends; pieces $\sigma^3u$. After finitely many
+rounds $\tau>2+\ell_3+\epsilon$; lowering $\tau$ if necessary (a source of tf-weight $\tau$ has every smaller
+tf-weight), $\tau\in(2+\ell_3+\epsilon,3)$. Lemma 2.1 with $\mu_3 := \tau-\epsilon$, $\mu' := \tau$ and $E = \emptyset$
+gives $(\hat u_3,\dot b_3,S_3)^\pm$ and pieces $\sigma^3(\chi_{\mathrm{zf}}\hat u_3+\hat g^{\mathrm{aug}}(\dot b_3)+\hat
+h^{\mathrm{aug}}(S_3))$; the rest,
 $$g_J := \text{the level-3 source}-\widehat{L_{b_0}}(\sigma)(\chi_{\mathrm{zf}}\hat u_3)-\hat f_{\dot b_3}-\hat
 f_{S_3}\in H^{\infty,(\frac52-\epsilon,\tau-\epsilon,\ell_3)}_{\mathrm b}$$
 (zf-coefficient removed, the next Taylor order being 1; tf by Lemma 2.2's computation without the division), is inverted
@@ -312,9 +317,10 @@ supported at 0, whose inverse transform, a polynomial, tends to 0 as $t_*\to-\in
 -\partial_{t_*}v_{\mathrm{hi}} = O(|t_*|^{-\infty})$ there, $v = 0$ for $t_*<1$; the other by the Riemann-Lebesgue
 lemma) and so vanishes. Near $\sigma = 0$, $-i\sigma\chi$ times the sum is $i\chi\,\mathrm{sgn}(\sigma)h(S_o)$ ($G_2(0)
 = h$, III.H Lemma 2.5 (b)) plus terms whose inverse transforms have $K^-$-weight $>1$ in $\{r\le R\}$: the sign-even
-part of $-G_2(\sigma)(S_1^\pm)$ and $i\Psi\dot g(\dot b_0)$ are smooth in $\sigma$; every other piece times $\sigma$ is,
-in $\{r\le R\}$, a sum of $\mathrm{sgn}(\sigma)^\delta|\sigma|^z(\log|\sigma|)^m$ times smooth sections with
-$\mathrm{Re}\,z>0$ (Lemma 2.3, with $\chi_{\mathrm{zf}} = 1$ there for $|\sigma|\le c_R$), whose inverse transforms are
+part of $iG_2(\sigma)(S_1^\pm)$ and $\Psi\dot g(\dot b_0)$ (the $-i\sigma$-multiples of the terms above) are smooth in
+$\sigma$; every other piece times $\sigma$ is, in $\{r\le R\}$, a sum of
+$\mathrm{sgn}(\sigma)^\delta|\sigma|^z(\log|\sigma|)^m$ times smooth sections with $\mathrm{Re}\,z>0$ (Lemma 2.3, with
+$\chi_{\mathrm{zf}} = 1$ there for $|\sigma|\le c_R$), whose inverse transforms are
 $O(|t_*|^{-1-\mathrm{Re}\,z}\log^m)$, or of zf-weight $>0$ (II.G$'$ (2.26a)). The inverse transform of
 $\chi\,\mathrm{sgn}(\sigma)$ is $c\,t_*^{-1}(1+o(1))$ as $t_*\to-\infty$, $c\ne0$. Hence $h(S_o) = 0$ on $\{r\le R\}$,
 $S_o = 0$ (III.H (3.1)), and $S_1$ is the same for both signs. We then read the pieces of $\hat v$ itself, the column
@@ -405,7 +411,7 @@ in $G$, with bounds uniform for $(h,\vec p)$ small.
 *Proof.* *Step 0.* $f' := G-(L-L_{b_0})u$: by III.I Proposition 4.1 (4.2) (for $L = L_{h,\vec p}$, III.I$'''''''''$
 Lemma 2.5), $(L-L_{b_0})u$ has the $\mathscr I^+$-data $(\langle\mathcal E^C_I+1\rangle',\ell_I+1)$, the plain
 $\iota^+$-weight $\beta'_++2+\lambda_\sharp-\epsilon>w_+$ (as $\beta'_+>\frac32-\delta_\sharp+\epsilon_+$; $m_+ =
-\lambda_\sharp$ by (H1)) and the $K^+$-weight $w_0-\epsilon+a_K\ge\alpha-\epsilon$. So $f'\in\mathcal Y^0(\alpha)$  for
+\lambda_\sharp$ by (H1)) and the $K^+$-weight $w_0-\epsilon+a_K\ge\alpha-\epsilon$. So $f'\in\mathcal Y^0(\alpha)$ for
 $\epsilon<w_0+a_K-\alpha$ and $L_{b_0}u = f'$. *Steps 1-2.* III.I$''''''''''$ Proposition 3.1 gives $u_I$, $u_\iota$,
 $(S_\nu)_{\mathcal N_\iota}$ and $f^\flat$; $v := u-u_I-u_\iota$ is the forward solution of $L_{b_0}v = f^\flat$ and has
 $K^+$-weight $\min(w_0,\lambda_\sharp-1)-\epsilon>0$. *Step 3.* Proposition 3.1 gives $(S_\nu)_{\mathcal N_\sigma}$.

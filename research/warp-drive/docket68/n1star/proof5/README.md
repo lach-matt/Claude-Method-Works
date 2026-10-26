@@ -63,8 +63,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''''' | [Hin26] 11.7 (Definitions 11.47-11.48, Lemma 11.49, Proposition 11.51) | decaying centre-of-mass motions: corrections #3 with generalised gauge 1-forms to order 4; the motions read off from the s1 row of the iota+ step; K+-weight alpha - 2 for alpha < min(a_K, 3), almost t_*^-1 | proved (D271: verifier 115 read the D269 repairs; verified D269) |
 | III.I''''''''' | [Hin26] 11.8 to Lemma 11.57 (Definitions 11.55-11.56, Lemma 11.57) | correction terms #4 for six row types (s1, v1, s0, s2 and the class roots c0, c1; gauge towers of length 4, 3, 4, 3, 2, 2), the operator P_4 with every modification parameter, and its exact linearisation f^nu = L m_nu + r^nu with a remainder of iota+-weight above 5 + eps_+ and no index set | proved (D274: verifier 116 read the D271 repairs; verified D271) |
 | III.I'''''''''' | [Hin26] Theorem 11.59, Parts 1-3, first half (with Remark 11.62) | the parameter exponents fixed (an exponent set Lambda, log orders growing with the real part, the gap (G)), the towers of III.G'' as delta*-images and the uniqueness of row expansions, forward Fourier tails, and the spacetime phase: the iota+-terms of u-exponent below 2 solved up to the K+-order alpha <= 4 + eps_K under (C5), their K+-terms the rows | proved (D275: verifier 117 read the D274 repairs; verified D274) |
-| III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | verified (D275; one major, three minor findings and twelve nits seated, to be read) |
-| III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | written (D276) |
+| III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | proved (D277: verifier 118 read the repairs) |
+| III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | verified (D277; one major, six minor findings and eleven nits seated, to be read) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -1089,6 +1089,8 @@ $\eta_1,\eta_2<\epsilon_+$; Lemmas 2.1-2.2 carried to the full remainder order.
 Verified (D275: verifier 117; one major finding, the level-1 data found for each sign of $\sigma$, repaired by a
 matching step on $\partial_{t_*}v$ that makes $S_1$ sign-independent; Step 4's loop kept inside Proposition 5.1's
 range; the s1 degree in Step 5; III.I$''''''''$ Proposition 4.1 transferred to $P_4$; twelve nits).
+Proved (D277: verifier 118 found the repairs correct; its nits seated: Lemma 2.3's tf cut-off for large $R$, the class
+rows' critical orders, $\delta$ off a finite set and the remainder's excess in Step 4, constants in the matching step).
 
 `PART-III-I13-EXPANSION.md`. [Hin26] Theorem 11.59, Part 4, at $n = 4$: the forward solution of III.I$'''''''''''$
 Theorem 4.1 is $\chi_Ku_{\exp}+\tilde u$ with $\tilde u$ of $K^+$-order $\alpha-\epsilon$ and partially
@@ -1100,3 +1102,9 @@ vanishing moments), Lemma 2.2 (the columns at the last level), Lemma 2.3 (statio
 growing boost state, no early $\dot g$, by the invertibility of $\tilde L_{b_0}(0)$) and Lemma 2.4 (formal solutions at
 $K^+$: below the order $\alpha$ the polyhomogeneous part is a sum of towers, by the equation). Findings
 (I$''''''''''''$1)-(I$''''''''''''$4). At $b_0$. Written (D276).
+Verified (D277: verifier 118; one major finding, two tf-cut-off pieces with $K^+$-terms below $\alpha$, the tf-part of
+III.G$''''$ Proposition 4.4 at zf and Proposition 5.1's $v_0$, now expanded at zf and entered as pieces of zero-energy
+type; six minor findings: profiles conormal, with Lemma 2.3 on conormal sections through III.A Lemma 1.4, Lemma 2.1 on
+$\{r\le t_*/8\}$ by integration by parts in $\sigma$, Lemma 2.2's $\iota^+$-order by scaling, the constant-data columns'
+$\iota^+$-exponents, Step 0's row orders, and the exponents of Lemma 2.4 in $\mathcal E_\sharp$; eleven nits; and
+$w_\rho := 3+\eta_2-2\epsilon-d_\rho$ for every row, as in the source's (11.227b)).

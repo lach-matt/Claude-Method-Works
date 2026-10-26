@@ -5615,3 +5615,13 @@ conormal black hole parameter, modulo a remainder two orders better at K+, and i
 of the parameter exponents. The identification uses the equation rather than forward Fourier tails: below the order
 alpha every K+ coefficient is a stationary solution of moderate growth, and those are exactly the Table 1.1 states,
 the black hole parameters and the boosts, with no growing boost state and no early parameter term.
+
+**D277 (2026-10-26): verifier 118 seated; III.I'''''''''''' verified, III.I''''''''''' proved.** The
+hundred-and-eighteenth verifier found one major finding in Part III.I'''''''''''': two pieces cut off at the transition
+face were filed as decaying fast at K+, and they carry zero-energy terms of orders 2 to 4; they are now expanded and
+treated like the other zero-energy pieces. Six minor findings (profiles only conormal, two estimates in Lemmas 2.1-2.2,
+the iota+ exponents of the columns, Step 0's row orders, and where the coefficients' exponents lie) and eleven nits
+are seated, with three nits in III.I''''''''''', whose D275 repairs are correct. Preparing section 11.8.3 showed that
+the source's Corollary 11.66 does not transfer verbatim at n = 4: its proof applies Theorem 11.59 at a background
+with only 2 + eps_K orders of K+-decay, and the n = 4 argument reaches the order 4 + eps_K in one step that needs the
+background to decay to that order. The route is recorded (ROUTES-OPEN 4.201).

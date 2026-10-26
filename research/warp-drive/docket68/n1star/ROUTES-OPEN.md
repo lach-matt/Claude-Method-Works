@@ -3590,3 +3590,37 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   conormal coefficients have K- tails of order alpha - 2 that could mask terms of order 3, 4, so the identification
   uses the equation instead of forward tails.
 - Next: verifier 118 on III.I'''''''''''' and the D275 repairs; then III.I''''''''''''' (section 11.8.3).
+
+### 4.200 D277: verifier 118 seated; III.I'''''''''''' verified, III.I''''''''''' proved
+
+- M1: two tf-cut-off pieces were filed as K+-order alpha - eps: chi_tf rho_tf^{alpha_0 - 2} u_tf of III.G''''
+  Proposition 4.4 (chi_tf = chi_2(rho + |sigma|) is 1 at tf cap zf, and u_tf has a zf (0,0) term) and sigma^3
+  chi_tf^sharp u~ of Proposition 5.1 (its proof puts chi_zf chi_tf v_0 into u~). Repaired: both are expanded at zf and
+  their zf-terms sigma^j |sigma|^k c(x) enter as pieces of type (v); the zf-remainders have K+-order alpha - eps.
+- m1: the profiles (u-hat_2, u-hat_3, v_0) are only conormal: profiles are now conormal of a degree, Lemma 2.3 works on
+  conormal sections of order > -3 (III.A Lemma 1.4 first), Lemma 2.1 (b) records iota+ polyhomogeneity for the
+  polyhomogeneous part only. m2: Lemma 2.2's iota+ order by the scaling sigma = zeta/r. m3: Lemma 2.1 on {r <= t/8}
+  by integration by parts in sigma (the symbol vanishes for |sigma| <= c_0/r). m4: the constant-data columns are
+  polyhomogeneous at iota+ with exponents in Lambda (Psi = Phi(sigma r)), not of order alpha. m5: Step 0 row by row.
+  m6: Lemma 2.4 now records the exponents (z + d_rho in the pieces' iota+ exponents plus E_ind), and Step 4 places
+  them in E_sharp by III.I'''''''''' Lemma 1.2 (c).
+- Eleven nits seated in III.I'''''''''''', and three in III.I''''''''''' (its D275 repairs are correct: proved).
+- w_rho := 3 + eta_2 - 2 eps - d_rho for every row (v1 and the rows with mu <= -1 have finite-sum coefficients), so
+  the iota+ order of every chi_K T_rho(Y_rho) is at least 3 + eta_2 - 2 eps, the source's (11.227b).
+
+### 4.201 Section 11.8.3 at n = 4: the source's Corollary 11.66 does not transfer verbatim
+
+- The source proves Corollary 11.66 by applying Theorem 11.59 at the background h + h_rem(q), whose K+-order is only
+  2 + eps_K, "the iterative procedure applying verbatim". At n = 4 the background h + h_rem(q) has K+-order
+  alpha - 2 - eps, and three steps fail there: III.I''''''''''' Lemma 3.2 jumps from an admissible alpha' < 3 to alpha > 4
+  in one step using w_0 + a_K > alpha (w_0 < 1), and III.I'''''''''' Definition 1.3 has no admissible levels in
+  [3, 4 + eps_K - eps'_0] for a slower iteration; III.I''''''''' Lemma 2.6 (c)'s r^nu needs a_K > alpha + 1 -
+  lambda_sharp; and a Neumann series in q around III.I''''''''''' Theorem 4.1 at h loses derivatives (R_q is of order 2).
+- The b-derivative with towers for L_b (the source's Lemma 11.65) has K+-order alpha - eps, but iota+ exponents
+  (E_sharp + E_ind) + 2 from the b-derivative of the towers' profile corrections, which are not in E^0_src + 2;
+  III.I'''''''''' Lemma 1.2 (c)'s induction admits such contributions, so an enlarged source class appears possible.
+- Classes: the output's K+-order alpha - eps against (H2)'s 4 + eps_K is consistent if the classes are read as
+  intersections over eps and the theorems run at admissible alpha'' < alpha (every use of a_K is strict there).
+- Next: III.I''''''''''''' needs either the theory of III.I''''''''''' at intermediate levels beta in (3, 4 + eps_K]
+  (fewer Taylor levels) with a finite bootstrap in steps alpha - 4 - 2 eps, or K+ formal solutions for products of
+  towers. Design notes in the D276 scratchpad.
