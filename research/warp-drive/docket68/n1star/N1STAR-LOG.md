@@ -5713,3 +5713,13 @@ that domain was made steeper so that it stays where the initial-value cut-off is
 left open. The exterior solution is pulled back by boosts in a gauge that is cut off near the initial surface, and
 gauged Cauchy data are built. At n = 4, data in Boyer-Lindquist form need no logarithmic terms. One misprint in the
 source's support condition is recorded. Next: verifier 125.
+
+**D290 (2026-10-26): verifier 124 seated on Part III.J''.** Two major findings. The spaces of the linear theory are
+defined with every decay rate read 'minus an arbitrarily small loss', so at a fixed order they are not Banach spaces,
+which the Nash-Moser theorem of II.G needs; and the cited statements did not name the norm in which the background is
+small. The second is settled: every part's 'small' is smallness in one fixed norm. The first is repaired as far as it
+goes: the spaces are taken at a fixed loss and the estimates stated so. That exposes a real gap. The solution maps are
+shown to take a source at one loss to a solution at a larger loss, while the forward map gains nothing in the decay
+rates; Nash-Moser needs both on one pair of scales. The source states its linear estimate with no loss in the rates. At
+n = 4 this is now open as (J''4), and the next part proposes to remove the loss after the fact, face by face. Six minor
+findings and seven nits seated.

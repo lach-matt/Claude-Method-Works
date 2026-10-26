@@ -3825,3 +3825,25 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Findings: (C''1) a misprint in the source, {chi_0 = 1} for {chi_0 = 0} and [-1/8, -1/8] for [-1/8, 1/8]; (C''2) Part
   IV must deliver III.C' Theorem 2.1 in the cut-off gauge; (C''3) C4 settled; (C''4) no logarithms at n = 4.
 - Next: verifier 125 on III.C' and III.C''; seat verifier 124 on III.J''.
+
+### 4.214 Verifier 124 seated on III.J'' (D290): fixed losses, one norm, (J''4) found
+
+- Verifier 124 on III.J'' (PART-III-J3-TAME.md): 2 major, 6 minor, 7 nits, seated.
+- M1: the spaces of III.I(14) and III.J carry orders read 'w-', intersections over a loss, so their order-k spaces are
+  Frechet. Section 1 now takes each at a fixed loss eps (Banach); a statement maps the input at a loss eps' <= eps
+  (closed graph theorem) to the output at eps, and Theorems 4.1-4.2 and Proposition 4.3 are stated so. Found (J''4):
+  Proposition 4.3 maps D_eps to F_eps and gains nothing in the weights, so II.G Theorem 2.1 needs eps' = eps, an
+  inverse without loss in the weights. The source states exactly that (Theorem 12.8, p. 312: f at (4+eps_I, 5+eps_+,
+  4+eps_K), h' at (3+eps_I, 3+eps_+, 4+eps_K)). Open; the route proposed is an improvement to exact weights after the
+  fact, face by face (N_{iota+} on a line free of its spectrum with the gap of (G+); III.A Lemma 1.2 at I+; the
+  low-energy estimates at K+).
+- M2: Lemma 2.3 names the one norm: every 'small' of III.I-III.I(14) is smallness of ||h||_{X^{d_*}} + |S| + |p| +
+  ||q||_{Q^{d_*}} (III.I Theorem 5.3, II.F' Theorem 1.1, III.I(4) Lemma 4.2 (b), III.I(7)'s and III.I(8)'s convention,
+  III.I(14)'s seminorm for q); the d_k of III.J' Theorem 2.1 are not needed ((J''5)).
+- Minors: (f) now derives (k+1) delta_Gamma <= 1 from I.B (1.4) and III.F Proposition 4.1, with ell depending only on
+  orders and weights (m1); the inventory rows completed and relabelled (m2); III.I' Proposition 2.1 and III.A Lemma 3.2
+  as regularity statements, Lemma 1.2 (f) (m3, n7); Case B and the conormal components of q' routed (m4); Lemma 2.4,
+  tame products in partially polyhomogeneous spaces, and Proposition 4.3's use of the cancellation (m5); Remark 4.4
+  lists II.G's support conditions (m6). Nits n1-n7 seated.
+- Next: verifier 126 reads the D290 repairs together with D291 (verifier 125 on III.C', III.C''); then the exact-weight
+  part for (J''4).
