@@ -1,12 +1,12 @@
 # Part III.I$''''''''$. Decaying centre-of-mass motions, n = 4 ([Hin26] section 11.7)
 
-*Status.* Verified (D269: the hundred-and-fourteenth verifier; no major finding, two minor ones and seven nits seated,
-to be read). Written (D267). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.7 (pp. 262-273): the
-correction terms for decaying centre-of-mass motions (Definition 11.47), the operator with these parameters (Definition
-11.48), its linearisation in them (Lemma 11.49), and Proposition 11.51: for sources with almost three orders of decay at
-$K^+$ there is a unique choice of all modification parameters for which the forward solution has $K^+$-weight
-$\alpha_K-2$ for every $\alpha_K<\min(a_K,3)$, that is, decays like $t_*^{-\alpha_K+2}$, almost like $t_*^{-1}$, in
-compact spatial sets.
+*Status.* Proved (D271: the hundred-and-fifteenth verifier read the D269 repairs; one residue seated). Verified (D269:
+the hundred-and-fourteenth verifier; no major finding, two minor ones and seven nits seated, to be read). Written
+(D267). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.7 (pp. 262-273): the correction terms for
+decaying centre-of-mass motions (Definition 11.47), the operator with these parameters (Definition 11.48), its
+linearisation in them (Lemma 11.49), and Proposition 11.51: for sources with almost three orders of decay at $K^+$ there
+is a unique choice of all modification parameters for which the forward solution has $K^+$-weight $\alpha_K-2$ for every
+$\alpha_K<\min(a_K,3)$, that is, decays like $t_*^{-\alpha_K+2}$, almost like $t_*^{-1}$, in compact spatial sets.
 
 *What n = 4 changes.* The scheme is the source's: induction on $\alpha_K$, at each level an expansion of the solution
 into finitely many decaying centre-of-mass motions $\chi_Kt_*^{-\lambda+1}(\log t_*)^kh_{b_0,\mathrm s1}(S)$ plus a
@@ -135,9 +135,9 @@ p)\Big),\quad g' := g_0+h_{\mathrm{tot}}(\vec p)+h,\qquad L_{h,\vec p} := D_hP_3
 $P_3 = P_2$ where the motion parameters vanish.
 
 **Lemma 2.4 (the motion identity; [Hin26] (11.137), (11.154) at n = 4).** For $(\lambda,k)\in\mathcal M$ and
-$S\in\mathcal S_1$, $D_{\vec p}P_3(0,0)(S^{(\lambda-1,k)}_1 = S) = L_{b_0}(m_{\lambda,k}(S))$, and $m_{\lambda,k}(S)$,
-vanishing for $t^\flat_*<10$, is its forward solution (II.E Proposition 3.4). The identities III.I$'''''''$ (2.3) hold
-for $P_3$.
+$S\in\mathcal S_{1,\mathbb C}$, $D_{\vec p}P_3(0,0)(S^{(\lambda-1,k)}_1 = S) = L_{b_0}(m_{\lambda,k}(S))$, and
+$m_{\lambda,k}(S)$, vanishing for $t^\flat_*<10$, is its forward solution (II.E Proposition 3.4). The identities
+III.I$'''''''$ (2.3) hold for $P_3$.
 
 *Proof.* At $\vec p = 0$, $g' = g_0 = g_{b_0}$ and $\Upsilon^{E_\Upsilon}(g_{b_0},g_{b_0})-\vartheta_{\mathrm{tot}}(0) =
 0$; $g_0$ does not depend on $S^{(\lambda-1,k)}_1$, and $\dot g' = h^{(\lambda-1,k)}_{\mathrm s1}(S) =

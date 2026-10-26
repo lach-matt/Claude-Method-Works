@@ -1,6 +1,7 @@
 # Part III.I$'''''''''$. Correction terms #4 and the operator, n = 4 ([Hin26] section 11.8 to Lemma 11.57)
 
-*Status.* Written (D270). This part proves, at spatial dimension $n = 4$, the opening of [Hin26] section 11.8 and its
+*Status.* Verified (D271: the hundred-and-fifteenth verifier; no major finding, two minor ones and seven nits seated, to
+be read). Written (D270). This part proves, at spatial dimension $n = 4$, the opening of [Hin26] section 11.8 and its
 section 11.8.1 (pp. 273-277): the correction terms that undo the pure gauge terms of the $K^+$-expansion which decay no
 faster than $t_*^{-2}$ (Definition 11.55), the gauge-fixed Einstein operator with all modification parameters
 (Definition 11.56), and its linearisation in the new parameters (Lemma 11.57). Theorem 11.59, which uses them, is the
@@ -17,12 +18,13 @@ $S^{(-\lambda^\Upsilon_{\mathrm sl,1}+1),(\lambda^\Upsilon_{\mathrm sl,1},0)}_l$
 $\lambda-1$), the rotations v1, the time translation s0 and the s2 row at the root 0 (rate $\lambda$), and the class
 roots of types s0 and s1 in $(-1,0)$ (rate $\lambda+d$, $0<d<1$); the rows at the root $-1$ of types s3 and v2, which
 the source keeps at $\lambda = 1$, have rate above $\frac52$. (2) *Killing rotations.* The v1 parameters lie in a
-complement of the rotations whose state vanishes ((I$'''''''''$2)). (3) *An exact linearisation.* $f^\nu = L_{h,\vec
-p}m_\nu+r^\nu$ with a remainder $r^\nu$ that vanishes at $(h,\vec p) = (0,0)$ and has $\iota^+$-weight above
-$5+\epsilon_+$ with no index set (Lemma 2.6 (c)); this replaces the source's (11.194) and makes the elimination of Part
-III.I$''''''''''$ a perturbation of the identity, as in III.I$''''''''$. (4) *The source classes* record $\iota^+$-index
-sets up to weight $5+\epsilon_+$ (section 1), the analogue of the source's (11.195). Everything is at $b = b_0$.
-Notation: Parts III.D$''$, III.D$'''$, III.G$''$, III.H, III.I-III.I$''''''''$; no instrument is used.
+complement of the rotations whose state vanishes, which at the non-rotating $b_0$ is 0 ((I$'''''''''$2)). (3) *An exact
+linearisation.* $f^\nu = L_{h,\vec p}m_\nu+r^\nu$ with a remainder $r^\nu$ that vanishes at $(h,\vec p) = (0,0)$ and has
+$\iota^+$-weight above $5+\epsilon_+$ with no index set (Lemma 2.6 (c)); this replaces the source's (11.194) and makes
+the elimination of Part III.I$''''''''''$ a perturbation of the identity, as in III.I$''''''''$. (4) *The source
+classes* record $\iota^+$-index sets up to weight $5+\epsilon_+$ (section 1), the analogue of the source's (11.195).
+Everything is at $b = b_0$. Notation: Parts II.E, III.B, III.D$''$, III.D$'''$, III.G$''$, III.G$''''$, III.H,
+III.I-III.I$''''''''$; no instrument is used.
 
 ## 1. Setting
 
@@ -31,11 +33,15 @@ $\mathcal E^\iota_{\mathrm{ind}}$, $\mathcal E^\sharp_+$ and $\lambda_\sharp = \
 \min\mathrm{Re}\,\mathcal E^\sharp_+$, the index set $\mathcal E_{++}$ with (1.1) there and $\mathcal M =
 \{(\lambda,k)\in\mathcal E_{++}:\mathrm{Re}\,\lambda<2\}$ of (1.2) there, $\mathcal G = (2,0)\cup(2+\mathcal
 E_{\mathrm{ind}})$, $\ell_I\le a_I$, the translated background III.I$'''''''$ (1.3), and III.I$''''$'s cut-offs,
-$\mathcal C$, $\Theta$, conventions (1.2) and identities (i)-(iii). Put $\mathcal F := (0,0)\cup\mathcal
-E_{\mathrm{ind}}$, $\tilde{\mathcal E}_+ := \mathcal G\cup(\mathcal E_++\mathcal G)$ (III.I$''''$ (3.2)), $2\mathcal E_+
-:= \mathcal E_++\mathcal E_+$ (the product index set of III.I Proposition 4.1 (4.2)), and
+$\mathcal C$, $\Theta$, conventions (1.2) and identities (i)-(iii). $\mathcal E_{\mathrm{ind}}$ is enlarged once more,
+to contain also the index sets of III.D$'''$ Proposition 3.1 (1), (3) and (4)-(7) at $b_0$ (those of the towers of
+section 2; there $\mathcal E_{\mathrm{ind}}$ changes from line to line) and $(2,0)$ (III.D$''$ (3.2)); III.I$''''''''$
+(1.1), $\mathcal E_{++}$ and the conditions on $\mathcal E_+$ there are taken with the enlarged set, which only
+strengthens them. Put $\mathcal F := (0,0)\cup\mathcal E_{\mathrm{ind}}$, $\tilde{\mathcal E}_+ := \mathcal
+G\cup(\mathcal E_++\mathcal G)$ (III.I$''''$ (3.2)), $2\mathcal E_+ := \mathcal E_++\mathcal E_+$ (the product index set
+of III.I Proposition 4.1 (4.2)), and
 $$\delta_\sharp := \lambda_\sharp-\tfrac32>0,$$
-positive as III.I$'''''$-III.I$''''''''$ use ($\lambda_\sharp>\frac32$). Fix constants
+in $(0,\frac14)$, as $0<e_\Upsilon<1$ and $0<\gamma_\Upsilon<\frac14$ (III.C (1.1)). Fix constants
 $$0<\epsilon_K<\epsilon_+<\min(\delta_\sharp,\epsilon_{\mathrm{ind}}),\qquad w_+ := 5+\epsilon_+,\tag{1.1}$$
 the source's (11.9) with $\delta_\sharp$ in place of $\epsilon_I$ ($\epsilon_{\mathrm{ind}}$ III.G$''''$ Proposition
 5.1's). Part III.I$''''''''''$ may decrease them; every statement here holds for all smaller values.
@@ -71,9 +77,9 @@ $$\mathcal N := \{\nu = (\tau,\lambda,k):\tau\in\mathcal T,\ (\lambda,k)\in\math
 a finite set, with $\mathrm{Re}\,\lambda\le3$ on it. The row $\nu$ records the term $t_*^{-e_\nu}(\log t_*)^kh_\tau$
 (Definition 2.1) that the $\iota^+$-exponent $(\lambda,k)$ produces at $K^+$ through III.G$''$ (4.3): the s1 and v1
 terms through $a_{\mathrm s1}\sim t_*^{-\lambda+1}$ and $a_{\mathrm v1}\sim t_*^{-\lambda}$ of (4.2), the others through
-$t_*^{-\lambda+\mu}$. The rows of Table 1.1 outside $\mathcal T$ have $\mu\le-1$ and are not s1 or v1, so
-$\mathrm{Re}(\lambda-\mu)\ge\lambda_\sharp+1>\frac52$, and need no correction. The s1 rows with $\mathrm{Re}\,\lambda<2$
-are III.I$''''''''$'s motions: $\{(\mathrm{s1},\lambda,k):(\lambda,k)\in\mathcal M\}$.
+$t_*^{-\lambda+\mu}$. The rows of Table 1.1 outside $\mathcal T$ have $\mu\le-1$ and are not the boost or rotation rows
+(whose rates come from (4.2)), so $\mathrm{Re}(\lambda-\mu)\ge\lambda_\sharp+1>\frac52$, and need no correction. The s1
+rows with $\mathrm{Re}\,\lambda<2$ are III.I$''''''''$'s motions: $\{(\mathrm{s1},\lambda,k):(\lambda,k)\in\mathcal M\}$.
 
 (H3) $(\lambda,k)+\mathcal F\subset\mathcal E_+$ for every $(\tau,\lambda,k)\in\mathcal N$. For $\mathrm{Re}\,\lambda<2$
 this holds by III.I$''''''''$ (1.1), as $\mathcal E_{++}+\mathcal E_{\mathrm{ind}}\subset\mathcal E_{++}\subset\mathcal
@@ -84,13 +90,14 @@ E_+$.
 \mathcal V'$, a fixed complement in $\mathcal V_1$ of
 $$\mathcal V_K := \{V\in\mathcal V_1:\delta^*_{g_{b_0}}\omega^{(-1)}_{b_0,\mathrm v1}(V) = 0\},$$
 the kernel of the state $h_{b_0,\mathrm v1}$ of III.D$''$ (3.4), which contains every $V$ whose rotation $R_V$ is
-Killing for $g_{b_0}$ (III.D$''$ Proposition 3.1 (3)). $\mathcal W_{\tau,\mathbb C}$ is the complexification. The
-parameters are $\vec p = (\vec p_{\le0},(W_\nu)_{\nu\in\mathcal N})$ with $\vec p_{\le0} = (S,b-b_0,S^{(0)}_1)$ as in
-III.I$'''''''$ and $W_\nu\in\mathcal W_{\tau,\mathbb C}$, conjugation-symmetric: $W_{\bar\nu} = \overline{W_\nu}$ for
-$\bar\nu := (\tau,\bar\lambda,k)$, which lies in $\mathcal N$ ($\mathcal E_{\mathrm{par}}$ is closed under conjugation,
-$d_\tau$ is real); so $W_\nu\in\mathcal W_\tau$ for real $\lambda$. $\mathcal P$ is the real vector space of these
-tuples. For $\nu = (\mathrm{s1},\lambda,k)$ with $(\lambda,k)\in\mathcal M$, $W_\nu$ is III.I$''''''''$'s
-$S^{(\lambda-1,k)}_1$.
+Killing for $g_{b_0}$ (III.D$''$ Proposition 3.1 (3)). At $b_0 = (\mu_0,0)$, the non-rotating member (III.B Proposition
+3.4), every rotation is Killing, so $\mathcal V_K = \mathcal V_1$ and $\mathcal V' = 0$: the v1 rows are kept in the
+notation and carry no parameter. $\mathcal W_{\tau,\mathbb C}$ is the complexification. The parameters are $\vec p =
+(\vec p_{\le0},(W_\nu)_{\nu\in\mathcal N})$ with $\vec p_{\le0} = (S,b-b_0,S^{(0)}_1)$ as in III.I$'''''''$ and
+$W_\nu\in\mathcal W_{\tau,\mathbb C}$, conjugation-symmetric: $W_{\bar\nu} = \overline{W_\nu}$ for $\bar\nu :=
+(\tau,\bar\lambda,k)$, which lies in $\mathcal N$ ($\mathcal E_{\mathrm{par}}$ is closed under conjugation, $d_\tau$ is
+real); so $W_\nu\in\mathcal W_\tau$ for real $\lambda$. $\mathcal P$ is the real vector space of these tuples. For $\nu
+= (\mathrm{s1},\lambda,k)$ with $(\lambda,k)\in\mathcal M$, $W_\nu$ is III.I$''''''''$'s $S^{(\lambda-1,k)}_1$.
 
 *Sources.* Let $\mathcal E_{\mathrm{rows}} := \bigcup_{(\tau,\lambda,k)\in\mathcal N}\big((\lambda,k)+\mathcal
 F+((0,0)\cup\mathcal E_+)\big)$, and fix an index set $\mathcal E_{\mathrm{src}}$, closed under conjugation, with
@@ -109,7 +116,9 @@ H^{\infty,\infty,(\mathcal E_{\mathrm{src}}+2,\,w_+-\epsilon),\alpha}_{\mathrm b
 Y_1(\alpha)+\mathcal Y_2(\alpha)$, real sections: the analogue of the source's (11.195). For $\alpha\in(2,3)$, $\mathcal
 Y(\alpha)$ lies in III.I$''''''''$'s class of the same name: $\mathcal Y_1(\alpha)$ has plain $\iota^+$-weight
 $4-\epsilon$, and the exponents of $\mathcal E_{\mathrm{src}}+2$ below 4 lie in $\mathcal E_{++}+2$ by (1.3). "$h$
-small" means as in III.I$''''''''$.
+small" means as in III.I$''''''''$. For complex $W$, $f^\nu(W)$ and $r^\nu(W)$ of Lemma 2.6 lie in $\mathcal
+Y_2(\alpha)+i\mathcal Y_2(\alpha)$; the conjugation-symmetric sums over $\mathcal N$ are real and lie in $\mathcal
+Y_2(\alpha)$.
 
 ## 2. Correction terms #4 and the operator ([Hin26] Definitions 11.55-11.56, Lemma 11.57 at n = 4)
 
@@ -142,7 +151,7 @@ $$\breve\omega^i_\tau\in\mathcal A^{(\sigma_\tau-i,0)+\mathcal F},\qquad\sigma_{
 0,\quad\sigma_{\mathrm v1} = \sigma_{\mathrm s2} := -1,\quad\sigma_{\mathrm c0} := \mu_{\mathrm
 c0}-1,\quad\sigma_{\mathrm c1} := \mu_{\mathrm c1}-1:\tag{2.1}$$
 for s1 by III.I$''''$ section 1 and III.D$'''$ (2) (as in III.I$''''''''$ Lemma 2.2's proof); for v1 by III.D$''$ (3.2)
-($\omega^{(-1)}_{b_0,\mathrm v1}(V)-V\in\mathcal A^{(2,0)+\mathcal E_{\mathrm{ind}}}$, the rotation 1-form $V$
+($\omega^{(-1)}_{b_0,\mathrm v1}(V)-V\in\mathcal A^{(2,0)+\mathcal F}$, the rotation 1-form $V$
 homogeneous of degree 1) and III.D$'''$ (3); for s0 as $\omega^{(0)}_{b_0,\mathrm s0} = g_{b_0}(\partial_{t_*},\cdot)$
 differs from a form with constant Cartesian components by $\rho^2C^\infty$ (III.D$''$ (3.1)-(3.2)),
 $\breve\omega^{(0),1}_{b_0,\mathrm s0}-\chi_\partial\bar W\in\mathcal A^{(1,0)+\mathcal E_{\mathrm{ind}}}$ with $\bar W$
@@ -386,13 +395,14 @@ $(h,\vec p)$ (III.I$'''''''$ Lemma 1.3 (a), Lemma 2.5); the values at $(0,0)$ ar
 
 *Comparison with the source.* The source's Lemma 11.57 records the classes of the linearisations (the $K^+$-order
 $\lambda+\mu+1+j-\epsilon$ of its footnote 125, which is $\kappa_\nu$ here: $j = K_\tau$ terms below the leading one,
-with $A_\nu$ in place of $a$ for s0) and, in (11.194), that the leading $\iota^+$-part of $f^\nu$ is $\chi_\iota\bar L$
-applied to the model of $m_\nu$. Lemma 2.6 (b)-(c) give the classes and the exact form $f^\nu = L_{h,\vec
-p}m_\nu+r^\nu$, from which (11.194) at $n = 4$ follows: $f^\nu-L_{b_0}m_\nu = (L_{h,\vec p}-L_{b_0})m_\nu+r^\nu$ has
-$\iota^+$-weight $\mathrm{Re}\,\lambda+2+\lambda_\sharp-\epsilon$. The source's index set
-$(\lambda+2,k)+((0,0)\cup\mathcal E_{\mathrm{ind}}\cup\mathcal E_+\cup\tilde{\mathcal E}'_{++})$ has here no
-$\tilde{\mathcal E}'_{++}$-term, the new corrections lying in $\mathcal X$ by (H3) (the source's Remark 11.62). The
-source's (11.191), for the logarithmic s0 correction at $\lambda = 1$, has no analogue ((I$'''''''''$1)).
+except $j = K_{\mathrm s0}-1 = 3$ for s0, whose leading term is the $A_\nu'$-term) and, in (11.194), that the leading
+$\iota^+$-part of $f^\nu$ is $\chi_\iota\bar L$ applied to the model of $m_\nu$. Lemma 2.6 (b)-(c) give the classes and
+the exact form $f^\nu = L_{h,\vec p}m_\nu+r^\nu$, from which the $n = 4$ analogue of (11.194) in its $L_b$ form follows,
+at a plain $\iota^+$-weight: $f^\nu-L_{b_0}m_\nu = (L_{h,\vec p}-L_{b_0})m_\nu+r^\nu$ has $\iota^+$-weight
+$\mathrm{Re}\,\lambda+2+\lambda_\sharp-\epsilon$. The source's index set $(\lambda+2,k)+((0,0)\cup\mathcal
+E_{\mathrm{ind}}\cup\mathcal E_+\cup\tilde{\mathcal E}'_{++})$ has here no $\tilde{\mathcal E}'_{++}$-term, the new
+corrections lying in $\mathcal X$ by (H3) (the source's Remark 11.62). The source's (11.191), for the logarithmic s0
+correction at $\lambda = 1$, has no analogue ((I$'''''''''$1)).
 
 ## 3. Findings, labels and sources
 
@@ -408,8 +418,10 @@ c0, c1). No row needs a logarithm in its gauge function beyond those of $(\lambd
 at $K^+$: as $\delta^*\breve\omega^0_{\mathrm v1}(V) = 0$, its leading term carries $a_{\mathrm v1}'$, of rate
 $\lambda+1>\frac52$. A parameter in $\mathcal V_K$ would correct nothing that needs correcting and would make the
 finite-dimensional map of the elimination singular, so $\mathcal W_{\mathrm v1}$ is a complement $\mathcal V'$ of
-$\mathcal V_K$; at $b_0$ with every rotation Killing (the non-rotating member) there are no v1 rows. How the source
-treats the axis of a rotating $b_0$ in its $\mathcal V_1$ is not needed here and was not read.
+$\mathcal V_K$. Here $b_0 = (\mu_0,0)$ is the non-rotating member (III.B Proposition 3.4), at which every rotation is
+Killing (III.D$''$ Proposition 3.1 (3)), so $\mathcal V_K = \mathcal V_1$ and the v1 coefficient space $\mathcal V'$ is
+0: the v1 rows carry no parameter. How the source treats the axis of a rotating $b_0$ in its $\mathcal V_1$ is not
+needed here and was not read.
 
 (I$'''''''''$3) *An exact linearisation with a conormal remainder.* $f^\nu = L_{h,\vec p}m_\nu+r^\nu$ holds exactly,
 and $r^\nu$ carries a factor of $\iota^+$-order at least $\lambda_\sharp$ (from $h$, $h_{\mathrm{tot}}$ or
@@ -424,9 +436,11 @@ $\vartheta_\nu$ has $K^+$-order $\kappa_\nu>\frac92+\delta_\sharp$, above the $4
 sources carry; the shortest towers (length 2, the class roots) are compensated by their larger rate $\lambda+d_\tau$.
 
 (I$'''''''''$5) *Hypotheses on $\mathcal X$.* (H1)-(H3) are the $n = 4$ form of the source's (11.148) and Remarks
-11.61-11.62: the strong $K^+$-decay of $h$ is needed only for the $b$-derivative (Lemma 2.6 (a)); the new corrections
-must lie in $\mathcal X$, which asks $\mathcal E_+$ to contain their index sets; and $a_+>\lambda_\sharp$ with
-$\min\mathrm{Re}\,\mathcal E_+ = \lambda_\sharp$ gives the gain $m_+ = \lambda_\sharp$ behind (I$'''''''''$3).
+11.61-11.62: the strong $K^+$-decay of $h$ is needed for the $b$-derivative (Lemma 2.6 (a)) and for the $K^+$-weight of
+$r^\nu$ (Lemma 2.6 (c), which needs $a_K>\alpha+1-\lambda_\sharp$; the source's $f^\nu$ has no such term, so its Remark
+11.61 does not transfer verbatim); the new corrections must lie in $\mathcal X$, which asks $\mathcal E_+$ to contain
+their index sets; and $a_+>\lambda_\sharp$ with $\min\mathrm{Re}\,\mathcal E_+ = \lambda_\sharp$ gives the gain $m_+ =
+\lambda_\sharp$ behind (I$'''''''''$3).
 
 (I$'''''''''$6) *The parameter derivatives of the counterterms.* The term $(\partial\delta^*_{g_0,E_C})\vartheta$
 recorded by the D269 repair of III.I$''''''''$ Lemma 2.6 (a) is present for every row; its $K^+$-order $\kappa_\nu$
@@ -436,9 +450,10 @@ keeps the $b$-derivative in $\mathcal Y_2(\alpha)$ up to $\alpha = 4+\epsilon_K$
 
 Proved: Lemmas 2.2, 2.4, 2.5 and 2.6, given the parts cited. Comparisons with the source are commentary. READ: the
 source's statements quoted from pp. 273-277. Inputs: II.E Proposition 3.4; III.B Definition 6.1; III.D$''$ Proposition
-3.1 (3.1)-(3.4), (2)-(3); III.D$'''$ (R4), Proposition 3.1 (1)-(7), (3.1); III.G$''$ Table 1.1, (4.2), (4.3); III.H
-(3.1); III.I (1.2), Proposition 4.1 (4.2); III.I$''''$ section 1, (1.2), (3.2), (3.3), Lemma 2.2; III.I$'''''''$ section
-1, (1.1), (1.3), Lemma 1.3, Definition 2.3, (2.3), Lemmas 2.5, 3.1; III.I$''''''''$ section 1, (1.1), (1.2), section 2.
+3.1 (3.1)-(3.4), (2)-(3); III.D$'''$ (R4), Proposition 3.1 (1)-(7), (3.1); III.G$''$ Table 1.1, (4.2), (4.3);
+III.G$''''$ Proposition 5.1 ($\epsilon_{\mathrm{ind}}$); III.B Proposition 3.4; III.H (3.1); III.I (1.2), Proposition
+4.1 (4.2); III.I$''''$ section 1, (1.2), (3.2), (3.3), Lemma 2.2; III.I$'''''''$ section 1, (1.1), (1.3), Lemma 1.3,
+Definition 2.3, (2.3), Lemmas 2.5, 3.1; III.I$''''''''$ section 1, (1.1), (1.2), section 2.
 
 ### 3.3 Sources
 

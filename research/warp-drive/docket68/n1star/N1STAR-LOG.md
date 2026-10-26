@@ -5572,3 +5572,9 @@ parameters) and seven nits are seated. The D268 repairs to III.I''''''' are corr
 11.57 at n = 4: six row types, gauge towers from III.D''', the operator with every modification parameter, and its
 linearisation in the exact form f = L m + r, the remainder of iota+-weight above 5 + eps_+ with no index set to track.
 Theorem 11.59 is the next part; verifier 115 reads this part and the D269 repairs.
+
+**D271 (2026-10-26): verifier 115 seated; III.I''''''''' verified, III.I'''''''' proved.** The hundred-and-fifteenth
+verifier found no major finding in Part III.I''''''''' and re-derived its rows, towers, the row identity and the exact
+linearisation f = L m + r with both weights of the remainder; two minor findings (the towers' index sets in E_ind, and
+the strong K+-decay of h being needed also for the remainder) and seven nits are seated. At the non-rotating b_0 the
+v1 coefficient space is 0. The D269 repairs to III.I'''''''' are correct (one residue seated), so it is proved.

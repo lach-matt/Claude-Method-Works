@@ -3484,3 +3484,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Hypotheses: (H1) a_+ > lambda_sharp and E_+ in {Re >= lambda_sharp}; (H2) a_K >= 4 + eps_K; (H3) the index sets of
   the corrections in E_+. E_par and E_src are fixed by Part III.I'''''''''' within (1.2)-(1.3).
 - Next: Part III.I'''''''''' (Theorem 11.59 at n = 4); verifier 115 on III.I''''''''' and the D269 repairs.
+
+### 4.194 Verifier 115 seated: III.I''''''''' verified; III.I'''''''' proved (D271)
+
+- Verifier 115 on III.I''''''''' (PART-III-I10-CORR4.md) and the D269 repairs: 0 major, 2 minor, 7 nits; the D269
+  repairs correct except one residue (S in S_{1,C} in III.I'''''''' Lemma 2.4), now seated. Confirmed: the six rows and
+  the exclusions; the tower lengths and (2.1); Lemma 2.2 (a)-(f) with kappa_nu and the antiderivative A_nu (whose
+  (-1)^k the source's (11.190) omits); Lemma 2.4; (2.4) and both weights of (2.5); the source classes.
+- m1: E_ind now also holds the index sets of III.D''' Proposition 3.1 (1), (3), (4)-(7) at b_0 and (2,0).
+- m2: finding (I'''''''''5) now says the strong K+-decay of h is needed also for r^nu (a_K > alpha + 1 - lambda_sharp).
+- Nits: the excluded rows worded by their rates; (2,0)+F in (2.1); footnote 125's j = 3 for s0; at b_0 = (mu_0,0)
+  every rotation is Killing, so V' = 0 and the v1 rows carry no parameter; complex W; the (11.194) comparison worded
+  as its L_b form; III.G'''' Proposition 5.1, III.B and II.E in the lists; delta_sharp in (0,1/4) from III.C (1.1).
+- Next: Part III.I'''''''''' (Theorem 11.59 at n = 4, the spectral cascade); design notes in the D270 scratchpad.
