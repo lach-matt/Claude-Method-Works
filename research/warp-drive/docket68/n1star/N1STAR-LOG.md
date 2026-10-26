@@ -5484,3 +5484,9 @@ the source's 3 + eps_I is this bound), Lemma 2.2 needs alpha_+ < min Re E_+, and
 (the source's (11.33) has the same slip) -- two minor and eight nits, all seated: III.I' is verified. The D254 repairs
 are correct but for one reason in III.I Lemma 3.6 and three nits, seated; III.H' is proved. Next: verifier 108 on
 III.I'' and these repairs; Part III.I''' ([Hin26] section 11.4).
+
+**D257 (2026-10-26): Part III.I''' written.** [Hin26] section 11.4.1 at n = 4 (PART-III-I4-BOOST.md): Lemma 11.21 (the
+augmented operator and its columns near zero energy, by Fubini on X_sc-b) and Proposition 11.20 at b_0: for sources of
+K+-weight alpha_K in (1, min(a_K - 1, 3/2)) the forward solution is chi_K h^(<=1)(S-dot) plus a remainder of K+-weight
+alpha_K - 2, S-dot = S-hat_1(0), the iota+-weight kept at min(alpha_+, 3/2, min Re E_+). At n = 4 the source's iota+
+step is not needed and the zero energy window is (0, 1). Next: verifier 108's report.

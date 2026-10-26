@@ -3280,3 +3280,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   raised orders of the product formula): III.H' is proved. III.I'' (written D255) uses Proposition 2.1 inside the new
   range (l_I in [2, min(a_I + 1/2, l_I^max)), iota+ weights below 3/2); its two citations now say so.
 - Next: verifier 108 on III.I'' and the D256 repairs; Part III.I''' ([Hin26] section 11.4 at n = 4).
+
+### 4.180 Part III.I''' written: [Hin26] section 11.4.1 at n = 4 (D257)
+
+- PART-III-I4-BOOST.md: Lemma 1.1 (sigma-independent profiles on X_sc-b, by Fubini), Lemma 1.2 ([Hin26] Lemma 11.21:
+  L-hat_b(sigma) - L-hat_b(0) on chi_zf u_0, and the columns f-hat(sigma) - chi_zf f-hat(0) of tf-order 3 - eps), Lemma
+  1.3 (the cut-off states near zero energy), Proposition 2.1 ([Hin26] Proposition 11.20 at b_0): u = chi_K
+  h^(<=1)(S-dot) + u~, S-dot = S-hat_1(0), u~ of K+-weight alpha_K - 2, for alpha_K in (1, min(a_K - 1, 3/2)).
+- (I'''1): no iota+ step (the source's Step 2, its Proposition 9.11 at lam = 1): the formal solution's iota+-index set
+  starts at 3/2 + (1 - e_Ups) gam_Ups, above the weight. (I'''2): the iota+-weight min(alpha_+, 3/2, min Re E_+) - eps
+  (the source's 1 - eps). (I'''3): the zero energy window (0, 1) (the source's (0, eps_ind)); the columns have
+  tf-order 3 - eps (the source's 2 + eps_ind - eps). (I'''4): alpha_K < a_K - 1 from (4.2).
+- Noted for verifier 108's seat: III.I'' Step 2b's scf-weight of f-hat^flat is min(l_I + 1, gamma_+ + 2) - eps, not
+  gamma_+ + 2 - eps (at least 3 - eps either way, which is all Lemma 4.2 needs).
+- Next: seat verifier 108; verifier 109 on III.I'''; Part III.I'''' ([Hin26] section 11.4.2, undoing the boost).

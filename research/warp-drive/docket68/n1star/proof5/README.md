@@ -55,7 +55,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I | [Hin26] 11 opening, 11.1 (Definition 11.3, Lemma 11.5, Propositions 11.6, 11.8, Corollaries 11.9-11.10, Theorem 11.12) | the dynamical linearised operator: perturbation classes, the e3b class, structure in the forward cone, forward mapping, admissibility with p_0 = p~_1 = 0, forward solutions at b0 with sf-loss 0; the orders of II.F' in O_c | verified (D254, D256; the residual minor finding and two nits seated, to be read) |
 | III.I' | [Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future timelike infinity; formal solutions at null infinity, one exceptional term | verified (D256; three major and two minor findings and eight nits seated, to be read) |
 | III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | written (D255) |
-| III.C', III.I'''-III.J | [Hin26] 5.4-5.7, 11.4-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| III.I''' | [Hin26] 11.4.1 (Proposition 11.20, Lemma 11.21) | the boost parameter: the forward solution is a cut-off generalised boost state plus a remainder of K+-weight alpha_K - 2; zero energy inverted by the augmented operator, no iota+ step at n = 4 | written (D257) |
+| III.C', III.I''''-III.J | [Hin26] 5.4-5.7, 11.4.2-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -942,3 +943,15 @@ Proposition 11.17): for sources of $K^+$-weight $\alpha_K\in[\frac12,1)$ the for
 $\alpha_K-2$ and keep the $\iota^+$-weight $\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal E_+)-\epsilon$, where the
 source's falls to $\alpha_K-\epsilon$ ((I$''$1)); the iteration's window is the exact gap $(0,1)$ ((I$''$2)), and the
 null infinity weight needs $2\le\ell_I<a_I+\frac12$ ((I$''$4)). At $b_0$. Written (D255).
+
+## Part III.I$'''$
+
+`PART-III-I4-BOOST.md`. [Hin26] section 11.4.1 at $n = 4$: profiles independent of $\sigma$ on
+$X^\pm_{\mathrm{sc}\text-\mathrm b}$ (Lemma 1.1, by Fubini), the augmented operator near zero energy (Lemma 1.2, the
+source's Lemma 11.21: $\widehat{L_b}(\sigma)-\widehat{L_b}(0)$ and the columns, these of tf-order $3-\epsilon$), the
+cut-off states near zero energy (Lemma 1.3), and Proposition 2.1 ([Hin26] Proposition 11.20): for sources of
+$K^+$-weight $\alpha_K\in(1,\min(a_K-1,\frac32))$ the forward solution is $\chi_Kh^{\le1}(\dot S)+\tilde u$, $\dot S =
+\hat S_1(0)$, $\tilde u$ of $K^+$-weight $\alpha_K-2$ and $\iota^+$-weight
+$\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal E_+)-\epsilon$. Findings: no $\iota^+$ step (the source's Step 2), as
+the formal solution's $\iota^+$-index set starts at $\frac32+(1-e_\Upsilon)\gamma_\Upsilon$ ((I$'''$1)); the
+$\iota^+$-weight ((I$'''$2)); the window $(0,1)$ ((I$'''$3)); the $K^+$-range ((I$'''$4)). At $b_0$. Written (D257).
