@@ -3352,3 +3352,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   of (2.4) fixed; Corollary 4.2 dropped from Lemma 2.5's list; (3.3) without the bullet; "polynomial" qualified; d's
   size in Lemma 4.2 (b); t^flat_* in the closing remark; III.I''' Step 4's "eps chosen" made automatic.
 - Next: Part III.I''''' ([Hin26] section 11.5) is written (D262); verifier 111 on it and these repairs.
+
+### 4.185 Part III.I''''' written: [Hin26] section 11.5 at n = 4 (D262)
+
+- PART-III-I6-ALMOSTBDD.md: Proposition 2.1 (= 11.32): with S-dot(f) = 0, u has K+-weight alpha_K - 2 for every
+  alpha_K < 2 and iota+-weight min(alpha_+, 3/2, min Re E_+) - eps. Corollary 2.2: the solutions of (11.95).
+- Proof: rounds raising the K+-weight by a_K - 2; each round is III.I''''s Steps 0-4 with S_0 = 0 (forced, as u has
+  K+-weight > -1), plus a step at iota+ when alpha#_+ >= lam_sharp = 3/2 + (1 - e_Ups) gam_Ups: III.G'' Corollary 4.3
+  (l_0 = 0, spec_iota+ in Re >= 2) on the finitely many exponents of E^sharp_+ below alpha#_+, the I+-errors re-solved by
+  III.I' Proposition 3.1 with no exponent below 5/2 created (its last sentence), so each round raises the least
+  exponent by eps_ind and finitely many end it.
+- (I'''''1) the weights; (I'''''2) the step at iota+ starts at lam_sharp, not at 1, with no pole and no logarithm;
+  (I'''''3) no Lemma 11.33, no expansion (11.107b), no Step 3.2 (Proposition 9.30): no indicial root in (0, 1], columns
+  of tf-order 3 - eps.
+- Next: verifier 111; then [Hin26] section 11.6 (black hole parameters) as III.I''''''.

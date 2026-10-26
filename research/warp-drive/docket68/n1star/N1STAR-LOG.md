@@ -5515,3 +5515,9 @@ major finding in Part III.I'''' and confirmed the boost identity (11.78b) exactl
 the linearisation of P_1 and the invertibility of the boost parameter map; two minor findings (room for the I+-weight in
 the continuity lemma, the S-dependence of the C^infinity error in Lemma 3.1's count) and nine nits are seated. The D259
 repairs to III.I''' are correct, so III.I''' is proved.
+
+**D262 (2026-10-26): Part III.I''''' written.** [Hin26] section 11.5 at n = 4 (PART-III-I6-ALMOSTBDD.md): Proposition
+11.32, almost boundedness: once the boost is eliminated, forward solutions grow at most like t_*^(2 - alpha_K) for every
+alpha_K < 2, with iota+-weight min(alpha_+, 3/2, min Re E_+). The proof runs Part III.I''''s argument in rounds, adding
+a step at iota+ from the exponent 3/2 + (1 - e_Ups) gam_Ups (no pole of the iota+-normal operator below 2); the source's
+Lemma 11.33 and its Step 3.2 are not needed at n = 4. Next: verifier 111.
