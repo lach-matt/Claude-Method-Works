@@ -1,22 +1,24 @@
 # Part III.I$'''''''''''''$. The expansion at every level, n = 4 ([Hin26] Theorem 11.59, Parts 2-3)
 
-*Status.* Written (D278). This part extends, at spatial dimension $n = 4$, the expansion of forward solutions at $K^+$
-(III.I$'''''''''''$ Proposition 3.1 and Lemma 3.2) from the levels $\alpha\in(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$ to
-every level $\beta\in(3,4+\epsilon_K]$, and, together with III.I$'''''''''''$ Theorem 4.1 and III.I$''''''''''''$
-Theorem 3.1, to sources whose $\iota^+$-index set carries the further exponents that the linearisation in the black hole
-parameters of section 11.8.3 produces. The source reaches the order $4+\epsilon_K$ level by level (Parts 2 and 3 of the
-proof of Theorem 11.59, the latter "a routine repetition"), and its Remark 11.61 records that only $2+\epsilon_K$ orders
-of $K^+$-decay of $h$ are used. III.I$'''''''''''$ instead reached the order $\alpha>4$ in one step from an admissible
-$\alpha'\in(2,3)$, which needs $a_K\ge4+\epsilon_K$ (III.I$'''''''''''$ (I$'''''''''''$5)). Section 11.8.3 at $n = 4$
-linearises at a background of $K^+$-order only $\alpha-2-\epsilon$ and has to pass through every level in steps shorter
-than $\alpha-4$ (ROUTES-OPEN 4.201); this part supplies those levels.
+*Status.* Written (D278); verified (D280: verifier 119's findings seated, to be read). This part extends, at spatial
+dimension $n = 4$, the expansion of forward solutions at $K^+$ (III.I$'''''''''''$ Proposition 3.1 and Lemma 3.2) from
+the levels $\alpha\in(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$ to every level $\beta\in(3,4+\epsilon_K]$, and, together
+with III.I$'''''''''''$ Theorem 4.1 and III.I$''''''''''''$ Theorem 3.1, to sources whose $\iota^+$-index set carries
+the further exponents that the linearisation in the black hole parameters of section 11.8.3 produces. The source reaches
+the order $4+\epsilon_K$ level by level (Parts 2 and 3 of the proof of Theorem 11.59, the latter "a routine
+repetition"), and its Remark 11.61 records that only $2+\epsilon_K$ orders of $K^+$-decay of $h$ are used.
+III.I$'''''''''''$ instead reached the order $\alpha>4$ in one step from an admissible $\alpha'\in(2,3)$, which needs
+$a_K\ge4+\epsilon_K$ (III.I$'''''''''''$ (I$'''''''''''$5)). Section 11.8.3 at $n = 4$ linearises at $h$ and carries the
+difference to the background $h+h_{b,\mathrm{rem}}(q)$, of $K^+$-order only $\alpha-2-\epsilon$, as a source, so it has
+to pass through every level in steps shorter than $\alpha-4$ (III.I$''''''''''''''$ Theorem 3.1, ROUTES-OPEN
+4.201-4.203); this part supplies those levels.
 
-*What n = 4 changes.* (1) *The last Taylor level below the order 4.* At a level $\beta<4+\epsilon$ the level-3 source
-has the zf-weight $\ell_3 = \beta-4-\epsilon\in(-1,0)$: it has no zf-coefficient to remove, so there is no zero-energy
-solve at level 3; III.G$''''$ Proposition 5.1 applies with $w = \ell_3-\alpha_\tau+2>-\epsilon_{\mathrm{ind}}$, which it
-allows, and III.I$''$ Lemma 4.2 with the zf-weight $\ell_3$, which it allows. (2) *The rows.* At the level $\beta$ the
-rows to be extracted are those of $K^+$-rate below $\beta-2$, a subset $\mathcal N_\beta$ of $\mathcal N$; the others
-join the remainder. (3) *Sources.* The class $\mathcal Y^\natural(\beta)$ (Definition 1.2) admits $\iota^+$-exponents of
+*What n = 4 changes.* (1) *The last Taylor level below the order 4.* At a level $\beta<4$ the level-3 source has the
+zf-weight $\ell_3 = \beta-4-\epsilon\in(-1,0)$: it has no zf-coefficient to remove, so there is no zero-energy solve at
+level 3; III.G$''''$ Proposition 5.1 applies with $w = \ell_3-\alpha_\tau+2>-\epsilon_{\mathrm{ind}}$, which it allows,
+and III.I$''$ Lemma 4.2 with the zf-weight $\ell_3$, which it allows. (2) *The rows.* At the level $\beta$ the rows to
+be extracted are those of $K^+$-rate below $\beta-2$, a subset $\mathcal N_\beta$ of $\mathcal N$; the others join the
+remainder. (3) *Sources.* The class $\mathcal Y^\natural(\beta)$ (Definition 1.2) admits $\iota^+$-exponents of
 $\mathcal E_\sharp$ shifted by the increments of $\Lambda$; the log count of III.I$''''''''''$ Lemma 1.2 (c) admits them
 (Lemma 1.3). Notation: Parts III.A, III.G$''$, III.G$''''$, III.H, III.I$''$, III.I$''''''''$, III.I$'''''''''$,
 III.I$''''''''''$, III.I$'''''''''''$, III.I$''''''''''''$; no instrument is used.
@@ -36,14 +38,16 @@ $\beta-\mathrm{Re}\,\lambda_0$, $\lambda_0\in\Lambda$, $\mathrm{Re}\,\lambda_0<2
 $\mu$ of $\widehat{L_{b_0}}(0)$ or lies in $\mathrm{Re}\,\pi_1\mathcal E_K$; and (c) $\beta$ avoids the exclusion set of
 III.I$'''''''''''$ section 1 with $\beta$ in place of $\alpha$: the values for which a condition (4.2) of III.G$''''$
 Proposition 4.4 fails at the levels 1 and 2 with $\ell_{\mathrm{zf}} = \beta-1-j-\epsilon$, a condition of its
-Proposition 5.1 fails at level 3, or $\beta-4-\epsilon$ is a real part excluded in III.I$''$ Lemma 4.2 or III.H (1.1),
-with $\epsilon$ taken small and off a finite set as there. The small $\epsilon$ is moreover taken with
-$\epsilon<\beta-3$ and with no rate of real part in $[\beta-2-3\epsilon,\beta-2)$. For $\beta\in(2,3)$, admissibility is
-III.I$''''''''$'s. The excluded values near any level are finitely many, so the admissible levels are dense in
-$(3,4+\epsilon_K]$; and every admissible $\alpha\ge3$ of III.I$''''''''''$ Definition 1.3 is admissible here, as by (G)
-no rate has real part in $(2+\epsilon_K-\epsilon'_0,2+\epsilon_K]$. Put $\mathcal N_\beta := \{\nu\in\mathcal
-N:\mathrm{Re}\,e_\nu<\beta-2\}$; $\mathcal N_\beta = \mathcal N$ for $\beta>4$, as every row of $\mathcal N$ has rate at
-most 2.
+Proposition 5.1 fails at level 3, or a value excluded in III.I$''$ Lemma 4.2 or III.H (1.1) is met at level 3 (for
+$\beta>4$ as in III.I$'''''''''''$; for $\beta<4$ by $\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}} = \tau-\beta+2+\epsilon$,
+$\tau$ the final tf-weight of Proposition 2.1's Step 4), with $\epsilon$ taken small and off a finite set as there. In
+particular $\beta\ne4$, by (a), as $2\in\Lambda$ is the rate of $(\mathrm{s0},2,0)$. The small $\epsilon$ is moreover
+taken with $\epsilon<\beta-3$, with $\epsilon<\beta-4$ if $\beta>4$, and with no rate of real part in
+$[\beta-2-3\epsilon,\beta-2)$. For $\beta\in(2,3)$, admissibility is III.I$''''''''$'s. The excluded values near any
+level are finitely many, so the admissible levels are dense in $(3,4+\epsilon_K]$; and every admissible $\alpha\ge3$ of
+III.I$''''''''''$ Definition 1.3 is admissible here, as by (G) no rate has real part in
+$(2+\epsilon_K-\epsilon'_0,2+\epsilon_K]$. Put $\mathcal N_\beta := \{\nu\in\mathcal N:\mathrm{Re}\,e_\nu<\beta-2\}$;
+$\mathcal N_\beta = \mathcal N$ for $\beta>4$, as every row of $\mathcal N$ has rate at most 2.
 
 **Definition 1.2 (the enlarged sources).** Let $\mathcal E^\natural$ be the set of the pairs
 $(\lambda+w_1+\dots+w_m,\,k+l_1+\dots+l_m)$ with $m\ge1$, $(\lambda,k)\in\mathcal E_\sharp$ and $(w_i,l_i)\in\mathcal
@@ -66,8 +70,10 @@ E_\sharp\subset\Lambda\cup\pi_1\mathcal M\subset\Lambda$ (III.I$''''''''''$ Lemm
 part $\ge\eta_0>0$, so $\lambda,\lambda+w_1,\dots,\lambda'$ are $m+1$ elements of $\Lambda$ with increasing real parts
 and $n(\lambda')\ge n(\lambda)+m$; hence $K(\lambda')-K(\lambda)\ge m(N_*+1)(l_*+1)$, while $k\le K(\lambda)$ (for
 $(\lambda,k)\in\mathcal M$, $k\le L_0\le K(\lambda)$) and $l_i\le l_*$; so $k+\sum l_i\le K(\lambda')-m(N_*(l_*+1)+1)$.
-Below 2: $\mathcal E_\sharp\cap\{\mathrm{Re}<2\} = \mathcal M\subset\mathcal E_{++}$, $\mathcal E_{++}$ is closed under
-$+(\mathcal E_{\mathrm{ind}}\cup\mathcal E^\iota_{\mathrm{ind}})$ below 2 (III.I$''''''''$ (1.1)), and $+1$ leaves
+Below 2: $\mathcal E_\sharp\cap\{\mathrm{Re}<2\} = \mathcal M\subset\mathcal E_{++}$ (III.I$''''''''''''$ section 1,
+where $\mathcal E_\sharp$ is $\mathcal M$ below 2, with the log orders of $\mathcal E_{++}$), the pairs from $\mathcal
+E_\sharp\cap\{\mathrm{Re}\ge2\}$ stay above 2, $\mathcal E_{++}$ is closed under $+(\mathcal
+E_{\mathrm{ind}}\cup\mathcal E^\iota_{\mathrm{ind}})$ below 2 (III.I$''''''''$ (1.1)), and $+1$ leaves
 $\{\mathrm{Re}<2\}$ ($\lambda_\sharp+1>2$).
 
 (b) In the induction of III.I$''''''''''$ Lemma 1.2 (c)'s proof the log order at $\lambda$ is the largest over its
@@ -110,21 +116,20 @@ $\ell_2-\mathrm{Re}\,\alpha_0+2>\beta-3-\eta_2-\epsilon>-\epsilon_{\mathrm{ind}}
 remainder exponents $\alpha_0+\mathcal E_{\mathrm{ind}}$ are treated in turn as there. III.I$'''''''''''$ Lemma 2.2 at
 level 2 needs only the zf-weight $\ell_2>0$ of $g_2$, and gives $g_3$ the zf-weight $\ell_3$.
 
-*Step 4 for $\ell_3>0$* ($\beta>4+\epsilon$) is III.I$'''''''''''$'s. *For $\ell_3<0$* ($\beta<4+\epsilon$), $g_3$ has
-no zf-term to remove, and the zero-energy solve of level 3 (III.I$'''''''''''$ Lemma 2.1 with $\mu_3$) is omitted. Take
-$\delta\in(0,4-\beta)$, so that $2-\delta>\beta-2$, off the finite set $\{-\mu-j\}$. While the tf-weight $\tau$ of the
-current level-3 source is at most $\beta-2 = 2+\ell_3+\epsilon$, apply III.G$''''$ Proposition 5.1 with $\alpha_\tau :=
-\tau\in(1,2)$ ($\tau\ge\tau_3 = 1+\eta_2-2\epsilon>1$ and $\tau\le\beta-2<2$), $\ell_{\mathrm{zf}} :=
-\ell_3\notin\mathbb N_0$, $k_0 := 0$ and $w =
+*Step 4 for $\ell_3>0$* ($\beta>4$, where $\ell_3 = \beta-4-\epsilon>0$ by Definition 1.1) is III.I$'''''''''''$'s. *For
+$\ell_3<0$* ($\beta<4$), $g_3$ has no zf-term to remove, and the zero-energy solve of level 3 (III.I$'''''''''''$ Lemma
+2.1 with $\mu_3$) is omitted.  While the tf-weight $\tau$ of the current level-3 source is at most $\beta-2 =
+2+\ell_3+\epsilon$, apply III.G$''''$ Proposition 5.1 with $\alpha_\tau := \tau\in(1,2)$ ($\tau\ge\tau_3 =
+1+\eta_2-2\epsilon>1$ and $\tau\le\beta-2<2$), $\ell_{\mathrm{zf}} := \ell_3\notin\mathbb N_0$, $k_0 := 0$ and $w =
 \ell_3-\tau+2\in[-\epsilon,1)\subset(-\epsilon_{\mathrm{ind}},\ell^{\max}_K)$; its conditions $w\ne-\mu$,
 $2-\tau+j\ne-\mu$ hold for $\epsilon$ off a finite set, the values of $\tau$ being
-$\tau_3+i(\epsilon_{\mathrm{ind}}-\epsilon)$ (and $\delta$ is not needed while $\alpha_\tau = \tau$). Each round leaves
-a remainder of tf-weight $\tau+\epsilon_{\mathrm{ind}}-\epsilon$ and pieces $\sigma^3u$; after finitely many rounds
-$\tau>\beta-2$, and, lowering $\tau$ if necessary, $\tau\in(\beta-2,\beta-1-\epsilon)$. The rest, $g_J$ (the level-3
-source after the rounds), lies in $H^{\infty,(\frac52-\epsilon,\tau,\ell_3)}_{\mathrm b}$ and is inverted by III.I$''$
-Lemma 4.2 with $\beta_{\mathrm{scf}} := \frac32-2\epsilon$, $\beta_{\mathrm{tf}} := \tau-2$, $\beta_{\mathrm{zf}} :=
-\ell_3$, $\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}} = \tau-\beta+2+\epsilon\in(0,1)$ ($\epsilon$ off a finite set,
-Definition 1.1 (c)): $\hat u_f\in H^{\infty,(\frac32-3\epsilon,\tau-2,\ell_3)}_{\mathrm b}$, $\dot b_f,S_f\in
+$\tau_3+i(\epsilon_{\mathrm{ind}}-\epsilon)$ . Each round leaves a remainder of tf-weight
+$\tau+\epsilon_{\mathrm{ind}}-\epsilon$ and pieces $\sigma^3u$; after finitely many rounds $\tau>\beta-2$, and, lowering
+$\tau$ if necessary, $\tau\in(\beta-2,\beta-1-\epsilon)$. The rest, $g_J$ (the level-3 source after the rounds), lies in
+$H^{\infty,(\frac52-\epsilon,\tau,\ell_3)}_{\mathrm b}$ and is inverted by III.I$''$ Lemma 4.2 with
+$\beta_{\mathrm{scf}} := \frac32-2\epsilon$, $\beta_{\mathrm{tf}} := \tau-2$, $\beta_{\mathrm{zf}} := \ell_3$,
+$\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}} = \tau-\beta+2+\epsilon\in(0,1)$ ($\epsilon$ off a finite set, Definition 1.1
+(c)): $\hat u_f\in H^{\infty,(\frac32-3\epsilon,\tau-2,\ell_3)}_{\mathrm b}$, $\dot b_f,S_f\in
 H^{\infty,\ell_3}_{\mathrm b}(\pm(0,c],|\frac{d\sigma}\sigma|)$, with $\ell_3>-1$.
 
 *Step 5.* The matching and the sorting are unchanged. In (iii), $\sigma^3\hat u_f$ has zf-weight $\ell_3+3 =
@@ -184,8 +189,9 @@ $\mathcal Y^\natural(\alpha')$ (Lemma 2.2's last sentence). $\square$
 
 (I$'''''''''''''$1) *Every level is needed.* III.I$'''''''''''$ reaches the order $\alpha>4$ in one step from a level
 below 3, which needs the background's $K^+$-order $a_K\ge4+\epsilon_K$. The source's Remark 11.61 uses only
-$2+\epsilon_K$, at the price of passing through every level (its Parts 2-3), and section 11.8.3 at $n = 4$ linearises at
-such a background. The levels $(3,4+\epsilon_K]$ that III.I$''''''''''$ Definition 1.3 set aside are supplied here.
+$2+\epsilon_K$, at the price of passing through every level (its Parts 2-3), and section 11.8.3 at $n = 4$ meets a
+background of $K^+$-order $\alpha-2-\epsilon$, which III.I$''''''''''''''$ carries as a source at $h$. The levels
+$(3,4+\epsilon_K]$ that III.I$''''''''''$ Definition 1.3 set aside are supplied here.
 
 (I$'''''''''''''$2) *A negative zf-weight at the last level.* Below the order 4 the level-3 source has the zf-weight
 $\beta-4-\epsilon\in(-1,0)$; the zero-energy solve of level 3 drops out, and III.G$''''$ Proposition 5.1 and III.I$''$
@@ -199,8 +205,9 @@ $\iota^+$-exponents $\mathcal E_\sharp$ plus the increments of $\Lambda$; they f
 *Labels.* Proposition 2.1 and Lemmas 2.2-2.3 are III.I$'''''''''''$ Proposition 3.1 and Lemmas 3.2-3.3 at every level,
 the source's Parts 2-3; Definitions 1.1-1.2, Lemma 1.3 and Proposition 2.4 are new at $n = 4$.
 
-*Sources.* [Hin26] pp. 278-289 (Theorem 11.59 and the plan of its proof, Remark 11.61), read at source. Inputs: III.A
-Proposition 4.2; III.G$''''$ Propositions 4.4 (with (4.2)), 5.1; III.H (1.1); III.I (1.2); III.I$''$ Lemma 4.2;
-III.I$''''''''$ (1.1), Lemma 3.2, Proposition 4.1; III.I$'''''''''$ section 1, Lemma 2.2; III.I$''''''''''$ Definitions
-1.1, 1.3, Lemma 1.2, Corollary 2.3, Lemma 2.4, Proposition 3.1; III.I$'''''''''''$ section 1, Lemmas 2.1-2.4,
-Proposition 3.1, Lemmas 3.2-3.3, Theorem 4.1; III.I$''''''''''''$ Theorem 3.1.
+*Sources.* [Hin26] pp. 278-289 (Theorem 11.59 and the plan of its proof, Remark 11.61) and pp. 292-295 (section 11.8.3:
+Definition 11.63, Lemma 11.65, Corollary 11.66, on which Definition 1.2 and (I$'''''''''''''$3) rest), read at source.
+Inputs: III.A Proposition 4.2; III.G$''''$ Propositions 4.4 (with (4.2)), 5.1; III.H (1.1); III.I (1.2); III.I$''$ Lemma
+4.2; III.I$''''''''$ (1.1), Lemma 3.2, Proposition 4.1; III.I$'''''''''$ section 1, Lemma 2.2; III.I$''''''''''$
+Definitions 1.1, 1.3, Lemma 1.2, Corollary 2.3, Lemma 2.4, Proposition 3.1; III.I$'''''''''''$ section 1, Lemmas
+2.1-2.4, Proposition 3.1, Lemmas 3.2-3.3, Theorem 4.1; III.I$''''''''''''$ Theorem 3.1.

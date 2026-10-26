@@ -64,8 +64,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I''''''''' | [Hin26] 11.8 to Lemma 11.57 (Definitions 11.55-11.56, Lemma 11.57) | correction terms #4 for six row types (s1, v1, s0, s2 and the class roots c0, c1; gauge towers of length 4, 3, 4, 3, 2, 2), the operator P_4 with every modification parameter, and its exact linearisation f^nu = L m_nu + r^nu with a remainder of iota+-weight above 5 + eps_+ and no index set | proved (D274: verifier 116 read the D271 repairs; verified D271) |
 | III.I'''''''''' | [Hin26] Theorem 11.59, Parts 1-3, first half (with Remark 11.62) | the parameter exponents fixed (an exponent set Lambda, log orders growing with the real part, the gap (G)), the towers of III.G'' as delta*-images and the uniqueness of row expansions, forward Fourier tails, and the spacetime phase: the iota+-terms of u-exponent below 2 solved up to the K+-order alpha <= 4 + eps_K under (C5), their K+-terms the rows | proved (D275: verifier 117 read the D274 repairs; verified D274) |
 | III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | proved (D277: verifier 118 read the repairs) |
-| III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | verified (D277; one major, six minor findings and eleven nits seated, to be read) |
-| III.I''''''''''''' | [Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative produces; the source's routine repetition, which section 11.8.3 needs | written (D278) |
+| III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | proved (D280) |
+| III.I''''''''''''' | [Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative produces; the source's routine repetition, which section 11.8.3 needs | verified (D280) |
 | III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | written (D279) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -1110,6 +1110,7 @@ type; six minor findings: profiles conormal, with Lemma 2.3 on conormal sections
 $\{r\le t_*/8\}$ by integration by parts in $\sigma$, Lemma 2.2's $\iota^+$-order by scaling, the constant-data columns'
 $\iota^+$-exponents, Step 0's row orders, and the exponents of Lemma 2.4 in $\mathcal E_\sharp$; eleven nits; and
 $w_\rho := 3+\eta_2-2\epsilon-d_\rho$ for every row, as in the source's (11.227b)).
+Proved (D280: verifier 119 read the repairs and found them correct).
 
 `PART-III-I14-LEVELS.md`. [Hin26] Theorem 11.59, Parts 2-3, at $n = 4$, at every level: III.I$'''''''''''$ reached the
 order $\alpha>4$ in one step from a level below 3, which needs the background's $K^+$-order $a_K\ge4+\epsilon_K$; section
@@ -1120,7 +1121,7 @@ $\Lambda$, within the log count), Proposition 2.1 (the spectral phase at every l
 level has a negative zf-weight, no zero-energy solve, and III.G$''''$ Proposition 5.1 and III.I$''$ Lemma 4.2 as they
 stand), Lemmas 2.2-2.3 (the expansion and its continuity at every level) and Proposition 2.4 (III.I$'''''''''''$
 Theorem 4.1 and III.I$''''''''''''$ Theorem 3.1 for the enlarged sources). Findings
-(I$'''''''''''''$1)-(I$'''''''''''''$3). At $b_0$. Written (D278).
+(I$'''''''''''''$1)-(I$'''''''''''''$3). At $b_0$. Written (D278); verified (D280).
 
 `PART-III-I15-AUGMENT5.md`. [Hin26] section 11.8.3 at $n = 4$: Definition 1.1 (the coefficients $q$, with orders
 $w-$), Definition 1.2 (augmentation #5, $P_5(h,\vec p,q) = P_4(h+h_{b,\mathrm{rem}}(q),\vec p)$, towers for $L_b$, and

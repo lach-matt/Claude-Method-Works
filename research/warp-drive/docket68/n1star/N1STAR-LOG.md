@@ -5643,3 +5643,10 @@ its earlier theorem at the augmented background. At n = 4 that background decays
 the earlier parts, so the forward solution there is taken as it is, and its decay is raised level by level with the
 theory at the original background, the intermediate levels written in D278. The linearisation in the black hole
 parameters needs the zero-energy states at nearby parameters, normalised by their leading terms.
+
+**D280 (2026-10-26): verifier 119 seated; III.I''''''''''''' verified, III.I'''''''''''' proved.** Verifier 119 read the
+expansion at every level and the repairs to the expansion at K+, and found one major gap. The index set E_sharp allowed,
+below 2, log orders larger than those of E_++, so the enlarged sources below 2 could fall outside the class that the
+spacetime phase indexes. E_sharp is now M below 2 and keeps the count K only from 2 up; every use was rechecked. A minor
+gap above the order 4 is closed by taking eps < beta - 4. The two gaps it found in the plan for section 11.8.3 are
+closed by III.I'''''''''''''' as written. All nits are seated. Next: verifier 120 on III.I''''''''''''''.

@@ -3655,3 +3655,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   b by III.D''' Proposition 3.1 and III.F'''' Proposition 5.1, normalised by the Minkowski-model leading terms).
 - Classes: read with orders w- and constructions independent of the loss (Lemma 2.5), the class of h' is that of h.
 - Next: seat verifier 119; verifier 120 on III.I''''''''''''''; then [Hin26] section 12 (efficient parameterization).
+
+### 4.204 Verifier 119 seated (D280): III.I''''''''''''' verified, III.I'''''''''''' proved
+
+- Verifier 119 read III.I''''''''''''' and the D277 repairs: 1 major, 3 minor, 11 nits; the D277 repairs correct.
+- M1: E_sharp (III.I'''''''''''' section 1) admitted, below 2, the log orders K(lambda) > L_0 at the points of pi_1 M, so
+  E^natural below 2 did not lie in E_++. Repaired: E_sharp := {(lambda, k): lambda in Lambda, Re lambda >= 2,
+  k <= K(lambda)} together with M; below 2 it is M, which the increments keep below 2 (E_++ is closed under them).
+  The uses in III.I'''''''''''' Steps 2, 4, 5 and in III.I'''''''''''''' Lemma 2.4 (c) were checked against it.
+- m1: for beta in (4, 4 + eps) the step "tau <= beta - 2 < 2" failed; eps < beta - 4 is now required above 4, and
+  beta = 4 is excluded by Definition 1.1 (a).
+- m2 (the base of the bootstrap) and m3 (the row defect at h + h_rem(q)) were gaps in the plan of 4.202. III.I'''''''''''''' as
+  written closes both. Its Step 1 is the base, III.I'''''''' Proposition 4.1 at h + h_rem(q), which asks for K+-order above
+  alpha_1 < 3 only. The rows enter at h, and the difference at h + h_rem(q) is exactly R_q(h_nu(W)) (its Lemma
+  2.4 (a)), supported in C.
+- Nits: n1-n4 on III.I''''''''''''', n5-n10 on III.I'''''''''''' and n11 on III.I''''''''''' are seated.
+- Next: verifier 120 on III.I'''''''''''''' and the D280 repairs; then [Hin26] section 12.

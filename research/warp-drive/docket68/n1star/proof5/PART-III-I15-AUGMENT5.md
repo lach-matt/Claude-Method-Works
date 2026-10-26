@@ -177,10 +177,11 @@ $\int_0^1\big((\partial_bL)(b')h_{b_0,\mathrm{rem}}(q)+L(\partial_bh_{b,\mathrm{
 quadratic in $h_{\mathrm{rem}}$: $\partial_bL$ has coefficients of $\iota^+$-order $\ge2$ ($\partial_bg_b$, of weight 2,
 III.H section 1; $h^{(0)}(\dot b)\in\mathcal A^{\mathcal G}$, III.I$'''''''$ Lemma 2.2), giving the plain weight
 $\ge2+\lambda_\sharp+2-\epsilon>w_+$; and $\partial_bh_{b,\mathrm{rem}}(q)$ has the $\iota^+$-exponents of Lemma 2.1, in
-$\mathcal E^\natural$, and the conormal order $(3+\eta_2)-$, which $L$ maps to the exponents $\mathcal E^\natural+2$
-(the expansion of $L$ at $\iota^+$ adding elements of $\mathcal E^\iota_{\mathrm{ind}}$, increments of $\Lambda$) and
-the weight $(5+\eta_2)-$, above $w_+$ up to $(\mathcal E^\natural+2)$-terms. The terms quadratic in $h_{\mathrm{rem}}$
-are as in Lemma 2.3. $\square$
+$\mathcal E^\natural$ (below 2 in $\mathcal M$: there $\mathcal E_\sharp$ is $\mathcal M$, III.I$''''''''''''$ section
+1, and $\mathcal M+\mathcal E_{\mathrm{ind}}$ stays in $\mathcal M$ below 2), and the conormal order $(3+\eta_2)-$,
+which $L$ maps to the exponents $\mathcal E^\natural+2$ (the expansion of $L$ at $\iota^+$ adding elements of $\mathcal
+E^\iota_{\mathrm{ind}}$, increments of $\Lambda$) and the weight $(5+\eta_2)-$, above $w_+$ up to $(\mathcal
+E^\natural+2)$-terms. The terms quadratic in $h_{\mathrm{rem}}$ are as in Lemma 2.3. $\square$
 
 **Lemma 2.5 (sources of order $\alpha-$; the losses).** III.I$'''''''''''$ Proposition 3.1, Lemma 3.2 and Theorem 4.1,
 III.I$''''''''''''$ Theorem 3.1, and III.I$'''''''''''''$ Proposition 2.1 and Lemma 2.2 at the level $\alpha$, hold for
@@ -248,9 +249,12 @@ Z_{\beta_k}$. By (3.1),
 $$L_{h,\vec p}u = \tilde G-D_{\vec p}P_4(h,\vec p)(\vec p\,'),\qquad\tilde G := F-\Delta_q(\vec p\,')-R_qu,\tag{3.3}$$
 and $\tilde G\in\mathcal Y^\natural(\beta_{k+1})$, resp. $\mathcal Y^\natural(\alpha-)$ for $k+1 = K$: $R_qu\in\mathcal
 Y^0_2(\beta)$ for $\beta<\beta_k+\alpha-4$ (Lemma 2.3 with $w = \beta_k-2$; for $k = K-1$,
-$\beta_{K-1}+\alpha-4>\alpha$), and $\Delta_q(\vec p\,')\in\mathcal Y^\natural(\alpha-)$ (Lemma 2.4). For
-$\beta_{k+1}>3$, $u_0 := u+\sum_{\nu\in\mathcal N}m_\nu(W'_\nu)$ ($W'_\nu$ the row components of $\vec p\,'$, the
-motions included) solves
+$\beta_{K-1}+\alpha-4>\alpha$), and $\Delta_q(\vec p\,')\in\mathcal Y^\natural(\alpha-)$ (Lemma 2.4). The rows enter
+(3.3) through $D_{\vec p}P_4$ at $h$, whose defects $r^\nu_{h,\vec p}$ have the orders of III.I$'''''''''$ Lemma 2.6
+(c), as $a_K\ge4+\epsilon_K$; at $h+h_{\mathrm{rem}}(q)$ the row directions differ from these by exactly $\Delta_q(\vec
+W) = R_q(h_\nu(\vec W))$ (Lemma 2.4 (a)), supported in $\mathcal C$, so no row defect of the background
+$h+h_{\mathrm{rem}}(q)$ enters. For $\beta_{k+1}>3$, $u_0 := u+\sum_{\nu\in\mathcal N}m_\nu(W'_\nu)$ ($W'_\nu$ the row
+components of $\vec p\,'$, the motions included) solves
 $$L_{h,\vec p}u_0 = G' := \tilde G-f^S_{h,\vec p}(S')-f^b_{h,\vec p}(b')-f^{\mathrm s1}_{h,\vec
 p}(S^{(0)\prime}_1)-\sum_{\nu\in\mathcal N}r^\nu_{h,\vec p}(W'_\nu)\in\mathcal Y^\natural(\beta_{k+1})$$
 (III.I$'''''''''$ Lemma 2.6 (a), (c); III.I$''''''''''$ section 1; resp. $\mathcal Y^\natural(\alpha-)$), and has

@@ -1,10 +1,11 @@
 # Part III.I$''''''''''''$. The expansion at $K^+$ to the order $4+\epsilon_K$, n = 4 ([Hin26] Theorem 11.59, Part 4)
 
-*Status.* Written (D276); verified (D277: verifier 118's findings seated, to be read). This part proves, at spatial
-dimension $n = 4$, Part 4 of the proof of [Hin26] Theorem 11.59 (pp. 289-292) and the $\iota^+$-part of its (11.222):
-the forward solution $u$ of III.I$'''''''''''$ Theorem 4.1, which decays at $K^+$ at the order $\alpha-2$, is a sum of
-towers of the zero-energy states of III.G$''$ Table 1.1, with coefficients that are functions of $t_*$, modulo a
-remainder of $K^+$-order $\alpha$ (Theorem 3.1, the $n = 4$ form of (11.196)); the coefficients are partially
+*Status.* Written (D276); verified (D277: verifier 118's findings seated); proved (D280: verifier 119 read the repairs
+and found them correct; its nits seated, and $\mathcal E_\sharp$ restricted below 2 to $\mathcal M$). This part proves,
+at spatial dimension $n = 4$, Part 4 of the proof of [Hin26] Theorem 11.59 (pp. 289-292) and the $\iota^+$-part of its
+(11.222): the forward solution $u$ of III.I$'''''''''''$ Theorem 4.1, which decays at $K^+$ at the order $\alpha-2$, is
+a sum of towers of the zero-energy states of III.G$''$ Table 1.1, with coefficients that are functions of $t_*$, modulo
+a remainder of $K^+$-order $\alpha$ (Theorem 3.1, the $n = 4$ form of (11.196)); the coefficients are partially
 polyhomogeneous, except for a conormal boost coefficient $\dot S_{\mathrm{rem}}$ of order $\alpha-2$ and a conormal
 parameter $\dot b_{\mathrm{rem}}$ of order $\alpha-1$; and $u$ is partially polyhomogeneous at $\iota^+$ with an index
 set $\mathcal E_\sharp$ to the order $3+\eta_2$, $\eta_2<\epsilon_+$ as close to $\epsilon_+$ as desired.
@@ -63,9 +64,15 @@ is homogeneous of degree $-z-d_\rho$ in $(t_*,r)$, so that its $K^+$-rate is $z$
 term with $a^{(j)}$ has $K^+$-order $w+j$; so the terms with $j\ge2$ of a coefficient of order $>\alpha-2$ are of order
 $>\alpha$, and the lengths $k_\mu$ are immaterial for the statements below (the source's Remark 11.60 (2)).
 
-*The index set at $\iota^+$.* Let $\mathcal E_\sharp := \{(\lambda,k):\lambda\in\Lambda,\ k\le K(\lambda)\}\cup\mathcal
-M$ (III.I$''''''''''$ Definition 1.1), an index set closed under conjugation with $\min\mathrm{Re}\,\mathcal
-E_\sharp\ge\lambda_\sharp$; by III.I$''''''''''$ Lemma 1.2 (b) its part of real part $<3+\epsilon_+$ does not depend on
+*The index set at $\iota^+$.* Let $\mathcal E_\sharp := \{(\lambda,k):\lambda\in\Lambda,\ \mathrm{Re}\,\lambda\ge2,\
+k\le K(\lambda)\}\cup\mathcal M$ (III.I$''''''''''$ Definition 1.1; $\mathcal M$ is III.I$''''''''$ (1.2), the part of
+$\mathcal E_{++}$ below 2), an index set closed under conjugation with $\min\mathrm{Re}\,\mathcal
+E_\sharp\ge\lambda_\sharp$ and $\mathcal E_\sharp\cap\{\mathrm{Re}<2\} = \mathcal M$. Below 2 it keeps the log orders of
+$\mathcal E_{++}$, which the exponents below 2 produced by III.I$''''''''''$ carry (III.I$''''''''''$ Lemma 1.2 (c));
+$K(\lambda)>L_0$ would admit more. As $\mathcal E_{++}$ is closed under $+(\mathcal E_{\mathrm{ind}}\cup\mathcal
+E^\iota_{\mathrm{ind}})$ (III.I$''''''''$ (1.1)), $\mathcal M+(\mathcal E_{\mathrm{ind}}\cup\mathcal
+E^\iota_{\mathrm{ind}})$ lies in $\mathcal M$ below 2, and above 2 its log orders are $\le L_0+l_*\le K$. By
+III.I$''''''''''$ Lemma 1.2 (b) the part of $\mathcal E_\sharp$ of real part $<3+\epsilon_+$ does not depend on
 $\mathcal E_+$, so $\mathcal E_+\supset\mathcal E_\sharp\cap\{\mathrm{Re}<3+\epsilon_+\}$ can be required with (H1)-(H3)
 (the source's Remark 11.62).
 
@@ -176,10 +183,12 @@ $L_1\dot g(\dot b)\in L_0(\mathcal G)$ only for $\dot b = 0$, and the reduction 
 G$ subtracts no growing boost section $\breve h^2(S')$, $S'\ne0$.
 
 *Proof.* *The reduction.* Let $X\in\mathcal G$ with $L_0X\in\mathcal A^3$. As $L_0 = \rho^2A$ with $A$ b-elliptic
-(III.F$'$ section 2) and $\rho^{-2}L_0X\in\mathcal A^1$, III.A Lemma 1.4 makes $X$ polyhomogeneous modulo $\mathcal
-A^1$, with exponents at the indicial roots of real part in $(a,1)$ (without logarithms, the roots being simple and the
-source conormal). Let $\mu_0$ be the least real part of an exponent of $X$, and suppose $\mu_0\le0$. As every indicial
-root is simple (III.G$''$ section 1), the argument of III.G$''$ Theorem 3.1's proof (*The lowest term*) applies: the top
+(III.F$'$ section 2) and $\rho^{-2}L_0X\in\mathcal A^1$, III.A Lemma 1.4 (stated on $H^{\infty,\alpha}_{\mathrm b}$;
+passing from $\mathcal A^a$ costs an $\epsilon$ in the weight, immaterial here) makes $X$ polyhomogeneous modulo
+$\mathcal A^{1-\epsilon}$, with exponents in the indicial roots of real part in $(a,1)$ plus $\mathbb N_0$; a logarithm
+can occur only where a root meets a lower one plus an integer, so the lowest exponent carries none, the roots being
+simple. Let $\mu_0$ be the least real part of an exponent of $X$, and suppose $\mu_0\le0$. As every indicial root is
+simple (III.G$''$ section 1), the argument of III.G$''$ Theorem 3.1's proof (*The lowest term*) applies: the top
 logarithm at $\mu_0$ vanishes, $\mu_0$ is a root in $\mathcal W$ (real), and the $\rho^{\mu_0}$-coefficient is
 $\sum_\tau\bar h_\tau(Y_\tau)$ (III.G$''$ Lemma 1.2). Subtract, for every type, the element of $\ker L_0$ listed above
 with this leading term (for v1 at $-1$, $\breve h^1_{b_0,\mathrm v1}(V)$), and for s1 at $-1$ the section $\breve
@@ -206,18 +215,21 @@ grows like $r^{-\mu}$. $\square$
 
 **Lemma 2.4 (formal solutions at $K^+$).** Let $\beta\in(\alpha-1,\alpha]$ and
 $$w = \chi_K\sum_{i\in I}y_i(t_*)p_i(x)+w',\tag{2.3}$$
-$I$ finite, with profiles $p_i\in\mathcal G$ of degrees $d_i$, $y_i\in\dot H^{\infty,\mathcal Q(E_i,\infty)}_{\mathrm
-b}$ with every $(z,k)\in E_i$ satisfying $\mathrm{Re}\,z\ge\beta-2$ and $\mathrm{Re}\,z+d_i\ge\lambda_\sharp$
-(*compatibility*), and $w'$ of $K^+$-order $\beta$. If $L_{b_0}w$ has $K^+$-order $\beta$, then
+$I$ finite, with conormal profiles $p_i$ of degrees $d_i$ (not necessarily in $\mathcal G$: the companions $\breve
+h^{(\mu),1}$ of the rows with $\mu\in(-3,-2]$ have degree $\le-3$), $y_i\in\dot H^{\infty,\mathcal
+Q(E_i,\infty)}_{\mathrm b}$ with every $(z,k)\in E_i$ satisfying $\mathrm{Re}\,z\ge\beta-2$ and
+$\mathrm{Re}\,z+d_i\ge\lambda_\sharp$ (*compatibility*), and $w'$ of $K^+$-order $\beta$. If $L_{b_0}w$ has $K^+$-order
+$\beta$, then
 $$\chi_K\sum_iy_ip_i = \chi_K\Big(\sum_{\rho\in\mathcal R'}T_\rho(a_\rho)+h^{\le1}_{b_0,\mathrm s1}(a_{\mathrm s})+\dot
 g(a_{\mathrm b})\Big)+w'',\tag{2.4}$$
 where $a_\rho,a_{\mathrm s},a_{\mathrm b}$ are finite sums of terms $\chi_+t_*^{-z}(\log t_*)^k$, with exponents in
 $\bigcup_iE_i+\mathbb N_0$ (for $a_{\mathrm v1}$, $\bigcup_iE_i+\mathbb N_0-1$), those of $a_\rho$ satisfying
 $\mathrm{Re}\,z+d_\rho\ge\lambda_\sharp$, those of $a_{\mathrm b}$ of real part $\ge\beta-1$, and $w''$ has $K^+$-order
 $\beta$; all are linear in $(y_i)$. *Exponents.* Let $\mathcal I$ be the set of $(z+e,k+l)$, $(z,k)\in E_i$, $(e,l)$ an
-exponent of the polyhomogeneous part of $p_i$ ($i\in I$). For every exponent $(z,k)$ of $a_\rho$ with
-$\mathrm{Re}(z+d_\rho)$ below the order at $\partial X$ (plus $\mathrm{Re}\,z$) of the non-polyhomogeneous parts of the
-$p_i$, $(z+d_\rho,k)$ is an element of $\mathcal I$ plus finitely many elements of $\mathcal E_{\mathrm{ind}}$.
+exponent of the polyhomogeneous part of $p_i$ ($i\in I$). For every exponent $(z,k)$ of $a_\rho$ such that $d_\rho$ is
+below the degree of the conormal (non-polyhomogeneous) part of every $p_i$ whose coefficient $c^{(i)}_{z,k}$ in the
+proof is non-zero, $(z+d_\rho,k)$ is an element of $\mathcal I$ plus finitely many elements of $\mathcal
+E_{\mathrm{ind}}$.
 
 *Proof.* We remove the pairs $(z,k)$ with $\mathrm{Re}\,z<\beta$ one at a time, in order of increasing real part and, at
 equal exponent, decreasing $k$. Let $(z_0,k_0)$ be the first pair whose coefficient section $P :=
@@ -225,9 +237,9 @@ equal exponent, decreasing $k$. Let $(z_0,k_0)$ be the first pair whose coeffici
 R\}$, for large $t_*$, $\chi_K = 1$ and $L_{b_0}(yp) = yL_0p+y'L_1p+y''L_2p$, and $y',y''$ have the exponents
 $(z+1,\cdot)$, $(z+2,\cdot)$; so the coefficient of $t_*^{-z_0}(\log t_*)^{k_0}$ in $L_{b_0}w$ is $L_0P$, which
 vanishes, $L_{b_0}w$ and $w'$ being of $K^+$-order $\beta>\mathrm{Re}\,z_0$ on every $\{r\le R\}$. By compatibility $P =
-O(r^{\mathrm{Re}\,z_0-\lambda_\sharp})$, $\mathrm{Re}\,z_0-\lambda_\sharp<\beta-\lambda_\sharp<3$, so Lemma 2.3 (a)
-gives $P = \sum_\rho\breve h^{(\mu_\rho),0}(Y_\rho)+\breve h^1_{b_0,\mathrm v1}(V)+\dot g(\dot b)+h_{b_0,\mathrm s1}(S)$
-with only rows $\mu_\rho\ge\lambda_\sharp-\mathrm{Re}\,z_0$.
+O(r^{\mathrm{Re}\,z_0-\lambda_\sharp})$, $\mathrm{Re}\,z_0-\lambda_\sharp<\beta-\lambda_\sharp<3$, so $P\in\mathcal G$
+and Lemma 2.3 (a) gives $P = \sum_\rho\breve h^{(\mu_\rho),0}(Y_\rho)+\breve h^1_{b_0,\mathrm v1}(V)+\dot g(\dot
+b)+h_{b_0,\mathrm s1}(S)$ with only rows $\mu_\rho\ge\lambda_\sharp-\mathrm{Re}\,z_0$.
 
 *If $\mathrm{Re}\,z_0+1<\beta$, then $\dot b = 0$.* The coefficient of $t_*^{-z_0-1}(\log t_*)^{k_0}$ in $L_{b_0}w$ is
 $L_0P_1-z_0L_1P$, $P_1$ the coefficient section of $(z_0+1,k_0)$ (the pairs $(z_0,k)$, $k>k_0$, have zero coefficient,
@@ -330,8 +342,10 @@ $\chi_{\mathrm{tf}}\rho^{\alpha_0-2}_{\mathrm{tf}}u_{\mathrm{tf}}$ does not vani
 section 1), $\rho_{\mathrm{tf}} = |\sigma|+\langle x\rangle^{-1}$ (III.H section 1), and $u_{\mathrm{tf}}$ has the
 zf-class $((0,0),\ell_{\mathrm{zf}})$ (III.G$''''$ Proposition 4.4). We expand
 $\sigma^j\chi_{\mathrm{tf}}\rho^{\alpha_0-2}_{\mathrm{tf}}u_{\mathrm{tf}}$ at zf to the order $\ell_{\mathrm{zf}}+j$,
-the zf-exponents being $j$ plus $\mathbb N_0$ (from $\chi_2$ and $\rho_{\mathrm{tf}}$, in $|\sigma|$): its zf-terms
-$\sigma^j|\sigma|^kc^\pm_k(x)$ are pieces of type (v) (Lemma 2.1 (b) with $c =
+the zf-exponents being $j$ plus $\mathbb N_0$ (from $\chi_2$, $\rho_{\mathrm{tf}}$ and, if the zf-index set $(0,0)$ of
+$u_{\mathrm{tf}}$ is read with its $\mathbb N_0$-shifts, $u_{\mathrm{tf}}$ itself, all in $|\sigma|$ and of the same
+form): its zf-terms $\sigma^j|\sigma|^kc^\pm_k(x)$, cut off by $\chi_{\mathrm{zf}}$, are pieces of type (v) (Lemma 2.1
+(b) with $c =
 \sigma^j|\sigma|^k\mathrm{sgn}(\sigma)^\delta$ and the single profile $c_{k,e}$ or $c_{k,o}$), and the zf-remainder, of
 weight $\ell_{\mathrm{zf}}+j = \alpha-1-\epsilon$ (the level's choice in III.I$'''''''''''$ Proposition 3.1), has
 $K^+$-order $\alpha-\epsilon$ (III.A Proposition 4.2 (2)), with $\iota^+$-exponents of the tf-index set plus 1.
@@ -359,9 +373,10 @@ $\iota^+$ is $\alpha_\tau+2\ge\tau_3+2 = 3+\eta_2-2\epsilon$. In the boost tower
 $K^+$-order $\alpha_\tau+3>\alpha$, and it is truncated to $h^{\le1}_{b_0,\mathrm s1}$.
 $\sigma^3\chi^\sharp_{\mathrm{tf}}\tilde u$: III.G$''''$ Proposition 5.1 gives $\tilde u$ the zf-class
 $((k_0,0),\ell_{\mathrm{zf}})$ with $k_0 = 0$, its proof putting $\chi_{\mathrm{zf}}\chi_{\mathrm{tf}}v_0$ into $\tilde
-u$ with $v_0$ stationary and conormal of order $\alpha_\tau-2\in(-1,0)$; so $\sigma^3\chi^\sharp_{\mathrm{tf}}\tilde u$
-is $\sigma^3\chi^\sharp_{\mathrm{tf}}\chi_{\mathrm{zf}}\chi_{\mathrm{tf}}v_0^\pm$, expanded at zf as in (vi) into pieces
-of type (v) with the single profiles $v_{0,e}$, $v_{0,o}$ (degree $\alpha_\tau-2$; their sign-odd parts reach the
+u$ with $v_0$ stationary and conormal of order $\alpha_\tau-2\in(-1,0)$ (its other part, $|\sigma|^{\alpha_\tau-2}\tilde
+u_1$, times $\sigma^3$, joins the zf-remainder of weight $\ell_3+3$); so $\sigma^3\chi^\sharp_{\mathrm{tf}}\tilde u$ is
+$\sigma^3\chi^\sharp_{\mathrm{tf}}\chi_{\mathrm{zf}}\chi_{\mathrm{tf}}v_0^\pm$, expanded at zf as in (vi) into pieces of
+type (v) with the single profiles $v_{0,e}$, $v_{0,o}$ (degree $\alpha_\tau-2$; their sign-odd parts reach the
 $K^+$-exponent 4), plus a zf-remainder of weight $\ell_3+3 = \alpha-1-\epsilon$, of $K^+$-order $\alpha-\epsilon$ (III.A
 Proposition 4.2 (2)).
 
@@ -379,10 +394,10 @@ $\alpha-\epsilon$, and the $y_ip_i$ are the polyhomogeneous terms of (ii), (iii)
 and (viii)). Every exponent $(z,k)$ of $y_i$ satisfies $\mathrm{Re}\,z+d_i\ge\lambda_\sharp$: $z+d_i$ is the leading
 $\iota^+$-exponent of the piece (Lemma 2.1 (b); III.G$''$ (4.3) for (ii)), and these lie in $\mathcal E_\sharp$
 (III.I$''''''''''$ Lemma 1.2 (c) and Proposition 3.1, III.I$'''''''''''$ Lemma 2.1: all exponents produced are
-$\Lambda$-valued with log orders $\le K$). As $u$ (III.I$'''''''''''$ Theorem 4.1) and $\chi_KC$ have $K^+$-order
-$\ge\alpha-2-\epsilon$, so has $\chi_K\sum_iy_ip_i$; in $\{r\le R\}$ its lowest term dominates, so the coefficient
-section $\sum_ic^{(i)}_{z,k}p_i$ of every exponent with $\mathrm{Re}\,z<\alpha-2-\epsilon$ vanishes, and we drop these
-exponents from the $y_i$ (the sum is unchanged).
+$\Lambda$-valued with log orders $\le K$, and those below 2 lie in $\mathcal E_{++}$, so in $\mathcal M$). As $u$
+(III.I$'''''''''''$ Theorem 4.1) and $\chi_KC$ have $K^+$-order $\ge\alpha-2-\epsilon$, so has $\chi_K\sum_iy_ip_i$; in
+$\{r\le R\}$ its lowest term dominates, so the coefficient section $\sum_ic^{(i)}_{z,k}p_i$ of every exponent with
+$\mathrm{Re}\,z<\alpha-2-\epsilon$ vanishes, and we drop these exponents from the $y_i$ (the sum is unchanged).
 
 *Step 3 (formal solutions).* Lemma 2.4 applies to $w := u-\chi_KC$ with $\beta := \alpha-\epsilon$: the hypotheses on
 the $y_i$ are those of Step 2; $L_{b_0}u$ has $K^+$-order $\alpha-\epsilon$ (Step 0); and $L_{b_0}(\chi_KC)$ has
@@ -399,24 +414,28 @@ E_\sharp-d_\rho,w_\rho)}_{\mathrm b}$: $a_\rho$ is a finite sum of terms $\chi_+
 $\mathrm{Re}\,z<w_\rho$ have $(z+d_\rho,k)\in\mathcal E_\sharp$, by Lemma 2.4 (*Exponents*), as the polyhomogeneous
 parts of the pieces have their $\iota^+$-exponents in $\mathcal E_\sharp$ (Step 2) and their conormal parts order
 $\ge3+\eta_2-2\epsilon$ ((v)), while $\Lambda+\mathcal E_{\mathrm{ind}}\subset\Lambda$ and $K(\lambda+w)\ge
-K(\lambda)+l_*$ for $(w,l)\in\mathcal E_{\mathrm{ind}}$ (III.I$''''''''''$ Lemma 1.2 (c)'s proof); those with
-$\mathrm{Re}\,z\ge w_\rho$, and $Y^c_\rho$, lie in $t_*^{-w_\rho}H^\infty_{\mathrm b}$. So $\tilde u := u-\chi_Ku_{\exp}
-= w''+w'$ has $K^+$-order $\alpha-\epsilon$.
+K(\lambda)+l_*$ for $(w,l)\in\mathcal E_{\mathrm{ind}}$ (III.I$''''''''''$ Lemma 1.2 (c)'s proof), and $\mathcal
+M+\mathcal E_{\mathrm{ind}}$ lies in $\mathcal M$ below 2 (section 1); those with $\mathrm{Re}\,z>w_\rho$, and
+$Y^c_\rho$, lie in $t_*^{-w_\rho}H^\infty_{\mathrm b}$; none has $\mathrm{Re}\,z = w_\rho$ for $\epsilon$ off a finite
+set, the exponents of $a_\rho$ lying in $\bigcup_iE_i+\mathbb N_0$, whose elements do not depend on $\epsilon$, while
+$w_\rho$ does. So $\tilde u := u-\chi_Ku_{\exp} = w''+w'$ has $K^+$-order $\alpha-\epsilon$.
 
 *Step 5 ($\mathscr I^+$ and $\iota^+$).* Near $\mathscr I^+$, $\chi_K = 0$ and $\tilde u = u$, which has the $\mathscr
 I^+$-data of III.I$'''''''''''$ (4.2). Near $\iota^+$, $u$ is partially polyhomogeneous with the index set $\mathcal
 E_\sharp$ up to the order $3+\eta_2-2\epsilon$: $u_I$, $u_\iota$ by III.I$''''''''''$ Proposition 3.1 (a)-(b) (index
-sets $\Lambda$-valued below $3+\epsilon_+$, log orders $\le K$, the term $\chi_\iota t_*^{-\lambda_0}(\log t_*)^j\tilde
-u^{(j)}$ being the $\iota^+$-term $(\lambda_0,j)$ itself, with $\mathscr I^+$-weight $\ell_I$ on $\iota^+$, III.G$''$
-Corollary 4.3); the $m_\nu$, with exponents in $\mathcal E_{\mathrm{par}}\subset\mathcal E_\sharp$; the pieces
-(v)-(vii), polyhomogeneous with exponents the tf-exponents plus 1 (Lemma 2.1 (b); (vii) as stated there) up to the order
+sets $\Lambda$-valued below $3+\epsilon_+$, log orders $\le K$, in $\mathcal M$ below 2 by III.I$''''''''''$ Proposition
+3.1's Step 2, the term $\chi_\iota t_*^{-\lambda_0}(\log t_*)^j\tilde u^{(j)}$ being the $\iota^+$-term $(\lambda_0,j)$
+itself, with $\mathscr I^+$-weight $\ell_I$ on $\iota^+$, III.G$''$ Corollary 4.3); the $m_\nu$, with exponents in
+$\mathcal E_{\mathrm{par}}\subset\mathcal E_\sharp$ ($K(\lambda+j)\ge K(\lambda)$); the pieces (v)-(vii),
+polyhomogeneous with exponents the tf-exponents plus 1 (Lemma 2.1 (b); (vii) as stated there) up to the order
 $3+\eta_2-2\epsilon$, in $\mathcal E_\sharp$; the pieces (viii)-(ix), of order $\ge3+\eta_2-2\epsilon$ (Lemma 2.1 (a),
 Lemma 2.2, and the tf-weights $\alpha_\tau+1$, $\tau+1-\epsilon$); and $v_{\mathrm{hi}}$. The same holds for
 $\chi_Ku_{\exp}$: its polyhomogeneous coefficients give the exponents $z+d_\rho\in\mathcal E_\sharp$ plus those of the
-profiles' expansions ($\Lambda$ is closed under $+\mathcal E_{\mathrm{ind}}$, and $K(\lambda+w)\ge K(\lambda)+l_*$), and
-its conormal coefficients have order $\ge3+\eta_2-2\epsilon$ at $\iota^+$ ($\alpha_\tau+2$ for (viii);
-$\ge\alpha+1-\epsilon$ for $h^{\le1}_{b_0,\mathrm s1}(\dot S_{\mathrm{rem}})$ and $\dot g(\dot b_{\mathrm{rem}})$, as
-$h_{b_0,\mathrm s1}\in\mathcal A^3$, $\breve h^1_{b_0,\mathrm s1},\dot g\in\mathcal A^2$). So $\tilde u$ satisfies (3.3).
+profiles' expansions ($\Lambda$ is closed under $+\mathcal E_{\mathrm{ind}}$, $K(\lambda+w)\ge K(\lambda)+l_*$, and
+$\mathcal M+\mathcal E_{\mathrm{ind}}$ lies in $\mathcal M$ below 2), and its conormal coefficients have order
+$\ge3+\eta_2-2\epsilon$ at $\iota^+$ ($\alpha_\tau+2$ for (viii); $\ge\alpha+1-\epsilon$ for $h^{\le1}_{b_0,\mathrm
+s1}(\dot S_{\mathrm{rem}})$ and $\dot g(\dot b_{\mathrm{rem}})$, as $h_{b_0,\mathrm s1}\in\mathcal A^3$, $\breve
+h^1_{b_0,\mathrm s1},\dot g\in\mathcal A^2$). So $\tilde u$ satisfies (3.3).
 
 *Step 6 (the rest).* Every map used is linear and bounded, uniformly for $(h,\vec p)$ small (III.I$'''''''''''$ Lemma
 3.2 and Theorem 4.1, Lemmas 2.1-2.4); reality: $u$ is real and the towers are real ($\overline{T_\rho(Y)} = T_\rho(\bar
