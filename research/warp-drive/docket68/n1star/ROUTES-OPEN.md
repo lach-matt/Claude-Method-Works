@@ -3758,3 +3758,26 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   = 4; ell_K^max = 3 under (C5); the exponent claim of Lemma 2.1; real parts at real lambda_0; and in
   III.I'''''''''''''' the unknown parameter in the original P, and 'need not vanish' in finding 5).
 - Next: verifier 123 on the D285 repairs; III.J'' (the tame estimates, (J'2)) is being written.
+
+### 4.210 Part III.J'' written (D286): tame estimates
+
+- III.J'' (PART-III-J3-TAME.md) discharges (J'2) at b_0, the tame estimates that [Hin26] asserts in Remark 11.13 and
+  states for Corollary 11.66 and Theorem 12.8 without proof.
+- Section 1: tame families (C_k(||e||_{k+d} + ||beta||_{k+d} ||e||_d)), closed under sums, composition (losses add),
+  finite rank, fixed maps and a fixed number of compositions.
+- Lemma 2.1, the elementary families: (a) the forward solutions, by III.I Theorem 5.3 with the background h + h_tot(p)
+  + h_rem(q); (b) the background coefficients, by II.A Corollary 9.7 and Lemma 9.5 and II.G Lemma 4.1; (c)
+  finite-dimensional inverses and coefficient functionals; (d)-(g) the model inverses at every finite order with a loss
+  independent of the order, nine of them stated at order infinity and proved at finite order by their own proofs
+  (III.G' Theorem 3.1 (2) at iota+, III.F' Corollary 3.4 at tf).
+- Found: II.G' Corollary 4.5 (high frequencies) loses ceil(k delta) + ell. The loss is bounded in k only through strong
+  trapping admissibility, which is proved at b_0 (III.F Proposition 4.1); near b_0 it holds on a neighbourhood
+  shrinking with k (III.H' (H'3)), so the tame form at b != b_0 joins (J'3). The order-dependent choices (that cut-off,
+  the radius c_k of III.H Corollary 4.2) cost constants only (Remark 2.2).
+- Section 3 inventories every construction of III.I-III.I(14) and III.J' by these families, each loop of a length fixed
+  by weights and orders. Theorem 4.1 is the tame form of III.I(14) Theorem 3.1 (the source's Corollary 11.66 estimate),
+  Theorem 4.2 that of III.J' Theorem 2.1 (Theorem 12.8), and Proposition 4.3 the tame forward map U -> P_5(Phi(U))
+  (section 13.1, Step 3 (2)).
+- Open for [Hin26] section 13 at n = 4: (J'3), the linear theory and its tame form at b != b_0; III.C' and the exterior
+  family h_{-S}; smoothing operators on the spaces of III.J Definition 1.1 (II.G Proposition 3.1).
+- Next: verifier 124 on III.J'' once verifier 123 (the D285 repairs) is seated.

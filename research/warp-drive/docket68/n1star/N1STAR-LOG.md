@@ -5686,3 +5686,11 @@ a slowly decaying rotation term of the expansion, at the exponent 2, would leave
 with too little decay at the horizon. Such terms are now carried by the rotation rows as well, which never enter the
 metric near the horizon, so every coefficient left in the expansion decays fast enough at every nearby black hole. Three
 minor points and ten nits are seated. Next: verifier 123 on these repairs, while the tame estimates are written.
+
+**D286 (2026-10-26): Part III.J'' written: tame estimates.** The source asserts that the tame form of its first linear
+estimate propagates through all of its section 11, and states the tame estimate of the linearised solution maps without
+proof. Here it is proved at the reference black hole: a calculus of tame families, the elementary maps (forward
+solutions, coefficients of the background, model inverses at every finite order with a fixed loss) and an inventory of
+every construction. One model map, the high-frequency part, loses derivatives in proportion to the order unless the
+trapping is strongly admissible; that is proved at the reference black hole only, so the tame form near it joins the
+open linear theory at other black holes. Next: verifier 124 on this part.

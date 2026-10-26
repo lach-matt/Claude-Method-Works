@@ -69,6 +69,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | verified (D285) |
 | III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | verified (D285) |
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | verified (D285) |
+| III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | written (D286) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -1155,3 +1156,12 @@ $\iota^+$-order $(3+\epsilon_+)-$ of the nonlinear class), Theorem 2.1 (the solu
 $D_U\Phi(U')$: the parameters first, then each exponent below $3+\epsilon_+$ by the resonant states, Cases A-B, then the
 conormal remainders), Remark 2.2. Findings (J$'$1)-(J$'$4): the tame form and $b\ne b_0$ open. Written (D283).
 Verified (D285).
+
+`PART-III-J3-TAME.md`. [Hin26] Remark 11.13 and the tame estimates of Corollary 11.66 and Theorem 12.8, at n = 4 and
+b_0. Section 1 is a calculus of tame families (closed under composition, finite rank, finite-dimensional inverses and
+fixed maps). Lemma 2.1 lists the elementary families: the forward solutions, tame by III.I Theorem 5.3; the background
+coefficients, by II.A's tame product bounds; and the model inverses at every finite order with a loss independent of the
+order. II.G' Corollary 4.5's loss ceil(k delta) + ell is bounded through strong trapping admissibility at b_0. Section 3
+inventories every construction of III.I-III.I(14) and III.J'. Theorems 4.1-4.2 give the tame forms of III.I(14) Theorem
+3.1 and III.J' Theorem 2.1, and Proposition 4.3 the tame forward map. It discharges (J'2) at b_0; (J'3) stays open.
+Written (D286).
