@@ -5608,3 +5608,10 @@ pieces at K+ ignored. A matching step on the time derivative, as in Part III.I''
 the difference vanishes. Three minor findings (Proposition 5.1's range at the last level, a degree, and the transfer of
 III.I'''''''' Proposition 4.1 to the corrections #4) and twelve nits are seated. The D274 repairs are correct, so
 III.I'''''''''' is proved.
+
+**D276 (2026-10-26): Part III.I'''''''''''' written.** Part 4 of [Hin26] Theorem 11.59 at n = 4: the forward solution
+is a sum of towers of the zero-energy states, with partially polyhomogeneous coefficients, plus a conormal boost and a
+conormal black hole parameter, modulo a remainder two orders better at K+, and its iota+ expansion has the index set
+of the parameter exponents. The identification uses the equation rather than forward Fourier tails: below the order
+alpha every K+ coefficient is a stationary solution of moderate growth, and those are exactly the Table 1.1 states,
+the black hole parameters and the boosts, with no growing boost state and no early parameter term.

@@ -3571,3 +3571,22 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   exponent beta = alpha - 3 - 2 eps; E^flat in Lambda only below 3 + eps_+ (III.I'''''''''').
 - Next: III.I'''''''''''' (Part 4: the expansion modulo K+-order 4 + eps_K and the iota+ index set of (11.222));
   verifier 118 on it and the D275 repairs. Design notes in the D274 scratchpad.
+
+### 4.199 Part III.I'''''''''''' written (D276): Theorem 11.59, Part 4, at n = 4
+
+- PART-III-I13-EXPANSION.md: u = chi_K u_exp + u~ (Theorem 3.1), u~ of K+-order alpha - eps and partially
+  polyhomogeneous at iota+ with E_sharp = {(lambda,k): lambda in Lambda, k <= K(lambda)} to 3 + eta_2 - 2 eps;
+  u_exp = h^{<=1}_{s1}(S_rem) + gdot(b_rem) + sum over the rows of III.G'' Table 1.1 of towers with coefficients in
+  Q(E_sharp - d_rho, w_rho); S_rem of order alpha - 2 - eps, b_rem of order alpha - 1 - eps, conormal.
+- The iota+ phase already reaches K+-order alpha: the graft's remainder has K+-order lambda_0 + l_K (III.G'' Theorem
+  4.2's proof; its statement records only l_K).
+- Lemma 2.1: chi_zf(|sigma| r) is an approximate identity with vanishing moments, so each tower-times-scalar piece is the
+  spacetime tower of the inverse transform of its scalar, up to terms rapidly decaying at K+. Lemma 2.2: the last-level
+  columns give h^{<=1}_{s1}(A) and gdot(B) (the first moments cancel).
+- Lemma 2.3: ker L_0 on sections of growth < r^3 is spanned by the Table 1.1 states, gdot, h_s1 and breve h^1_v1; no
+  growing boost state, and L_1 gdot(bdot) is not in the range of L_0 there unless bdot = 0 (invertibility of
+  tilde L(0) with III.H (2.2)). Lemma 2.4: formal solutions at K+ below the order alpha are towers.
+- Why Lemma 2.4: the source argues that sign-dependent singular terms cannot be cancelled; at n = 4 the last level's
+  conormal coefficients have K- tails of order alpha - 2 that could mask terms of order 3, 4, so the identification
+  uses the equation instead of forward tails.
+- Next: verifier 118 on III.I'''''''''''' and the D275 repairs; then III.I''''''''''''' (section 11.8.3).
