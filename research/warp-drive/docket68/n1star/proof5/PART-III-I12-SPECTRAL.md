@@ -2,13 +2,14 @@
 
 *Status.* Written (D273); amended before its verification (D274: Lemma 1.1, the column terms are polyhomogeneous at tf;
 $\eta_1,\eta_2<\epsilon_+$; Lemmas 2.1-2.2 carried to the full remainder order); verified (D275: verifier 117's findings
-seated); proved (D277: verifier 118 read the repairs and found them correct; its nits seated). This part completes, at
-spatial dimension $n = 4$, Parts 1-3 of the proof of [Hin26] Theorem 11.59 (pp. 278-289), begun in III.I$''''''''''$:
-the forward solution of the linearised gauge-fixed Einstein equation with the correction terms of III.I$'''''''''$, for
-a source of $K^+$-order $\alpha\le4+\epsilon_K$, has a $K^+$-expansion below the order $\alpha-2$ consisting of rows
-(Lemma 3.2), and a unique choice of the modification parameters removes it (Theorem 4.1, the source's (11.222)).
-III.I$''''''''''$ Proposition 3.1 reduced the expansion to a forward problem $L_{b_0}v = f^\flat$ whose source is
-partially polyhomogeneous at $\iota^+$ from the order 4 on; here $v$ is expanded on the spectral side (Proposition 3.1).
+seated); proved (D277: verifier 118 read the repairs and found them correct; its nits seated; D280: verifier 119's nit
+seated). This part completes, at spatial dimension $n = 4$, Parts 1-3 of the proof of [Hin26] Theorem 11.59 (pp.
+278-289), begun in III.I$''''''''''$: the forward solution of the linearised gauge-fixed Einstein equation with the
+correction terms of III.I$'''''''''$, for a source of $K^+$-order $\alpha\le4+\epsilon_K$, has a $K^+$-expansion below
+the order $\alpha-2$ consisting of rows (Lemma 3.2), and a unique choice of the modification parameters removes it
+(Theorem 4.1, the source's (11.222)). III.I$''''''''''$ Proposition 3.1 reduced the expansion to a forward problem
+$L_{b_0}v = f^\flat$ whose source is partially polyhomogeneous at $\iota^+$ from the order 4 on; here $v$ is expanded on
+the spectral side (Proposition 3.1).
 
 *What n = 4 changes.* (1) *The cascade.* The source reaches the order $\alpha_K = 4+\epsilon_K$ through zero-energy
 solves (its Steps 2.A.3, 2.A.5, 2.A.7) and tf-model inversions between them, its Part 3 (5) calling the rest analogous.
@@ -163,8 +164,10 @@ columns are polyhomogeneous. $\square$
 4.4 for a source with tf-leading term at $(\alpha_0,k)$, $k = 0$ (for $k>0$ apply the following to the
 $\alpha_0$-derivatives). On $\{r\le R\}$ and for $0<\pm\sigma\le c_R$, $u = |\sigma|^{\alpha_0-2}u_b$ (there
 $\chi_{\mathrm{zf}} = 1$, and $\chi_{\mathrm{tf}} = \chi_2(\rho+|\sigma|) = 0$ if $R<2/\rho_0$, III.G$''''$ section 1;
-for larger $R$ the tf-part adds integer-degree, log-free terms $\sigma^j|\sigma|^kc(x)$, which leave no $K^+$-tail by
-III.I$''''''''''$ Lemma 2.4 (b), so the conclusions below are unchanged), and
+for larger $R$ the tf-part adds integer-degree, log-free terms $\sigma^j|\sigma|^kc(x)$ and a zf-remainder of weight
+$\ell_{\mathrm{zf}}+j$; the total $\chi\hat v$ leaves no $K^+$-tail by III.I$''''''''''$ Lemma 2.4 (b), although a
+sign-odd term $\sigma^j|\sigma|^kc(x)$ alone has a two-sided one, which III.I$''''''''''''$ Theorem 3.1's (vi) records,
+so the conclusions below are unchanged), and
 $$|\sigma|^{\alpha_0-2}u_b = \sum_\tau c_\tau(\sigma)\,T_\tau(\sigma)+P_{\mathrm{int}}(\sigma),\tag{2.2}$$
 where: $T_{\mathrm s1}(\sigma) := h^{\le3}_{b_0,\mathrm s1}(\sigma,S^{(-1)}_1) = \sum_{i\le3}(-i\sigma)^i\breve
 h^i_{\mathrm s1}(S^{(-1)}_1)$ and $c_{\mathrm s1}(\sigma) := |\sigma|^{\alpha_0-1}\sigma^{-2}/(2-\alpha_0)$

@@ -3655,3 +3655,87 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   b by III.D''' Proposition 3.1 and III.F'''' Proposition 5.1, normalised by the Minkowski-model leading terms).
 - Classes: read with orders w- and constructions independent of the loss (Lemma 2.5), the class of h' is that of h.
 - Next: seat verifier 119; verifier 120 on III.I''''''''''''''; then [Hin26] section 12 (efficient parameterization).
+
+### 4.204 Verifier 119 seated (D280): III.I''''''''''''' verified, III.I'''''''''''' proved
+
+- Verifier 119 read III.I''''''''''''' and the D277 repairs: 1 major, 3 minor, 11 nits; the D277 repairs correct.
+- M1: E_sharp (III.I'''''''''''' section 1) admitted, below 2, the log orders K(lambda) > L_0 at the points of pi_1 M, so
+  E^natural below 2 did not lie in E_++. Repaired: E_sharp := {(lambda, k): lambda in Lambda, Re lambda >= 2,
+  k <= K(lambda)} together with M; below 2 it is M, which the increments keep below 2 (E_++ is closed under them).
+  The uses in III.I'''''''''''' Steps 2, 4, 5 and in III.I'''''''''''''' Lemma 2.4 (c) were checked against it.
+- m1: for beta in (4, 4 + eps) the step "tau <= beta - 2 < 2" failed; eps < beta - 4 is now required above 4, and
+  beta = 4 is excluded by Definition 1.1 (a).
+- m2 (the base of the bootstrap) and m3 (the row defect at h + h_rem(q)) were gaps in the plan of 4.202.
+  III.I'''''''''''''' as written closes both. Its Step 1 is the base, III.I'''''''' Proposition 4.1 at h + h_rem(q),
+  which asks for K+-order above alpha_1 < 3 only. The rows enter at h, and the difference at h + h_rem(q) is exactly
+  R_q(h_nu(W)) (its Lemma 2.4 (a)), supported in C.
+- Nits: n1-n4 on III.I''''''''''''', n5-n10 on III.I'''''''''''' and n11 on III.I''''''''''' are seated.
+- Next: verifier 120 on III.I'''''''''''''' and the D280 repairs; then [Hin26] section 12.
+
+### 4.205 Verifier 120 seated (D281): III.I'''''''''''''' verified
+
+- Verifier 120 read III.I'''''''''''''' ([Hin26] section 11.8.3 at n = 4) and the D280 repairs: 1 major, 4 minor, 7
+  nits; the D280 repairs correct.
+- M1: at a rotating b near the non-rotating b_0 the rotation state h_{b,v1} does not vanish, so a v1 coefficient of q
+  with exponent z in M (Re z < 2) has rate z, and the b-derivative of the quadratic term of P_5 has K+-order (alpha - 2
+  + z)- < alpha. Repaired by rotation rows: rows (v1, lambda, k), (lambda, k) in M, carrying all rotations (Definition
+  1.3). They enter P_5 through h_nu (supported away from K+) and theta_nu (K+-weight Re lambda + 4), q's v1 exponents
+  are restricted to Re >= 2, and Theorem 3.1 fixes the rotation coordinates by the expansion (Step 4': the derivative
+  is -id, as m_nu is the v1 tower up to K+-order Re lambda + 3 - eps).
+- m1: the b-derivative of the conormal Y^c parts gains min Re E_ind at iota+ (Lemma 2.1); delta_+ <= min Re E_ind. m2:
+  Lemma 2.1's mechanism is III.D''' Proposition 3.1 with the remark after its Lemma 2.1 (not the tower relations),
+  normalised to the identity at b_0; h_{b,v1} is b-dependent. m3: Lemma 2.5's eps_0 also stabilises the level-3 weights
+  and the switch; III.G'''' Proposition 5.1's Mellin line moves without crossing a root. m4: III.I'''''''' Lemma 3.3
+  cited.
+- Nits: Remark 11.61 is on p. 279; the admissible sense; the K+-weight of "q small"; the order of L(d_b h_rem b');
+  spacing in III.I'''''''''''''; line lengths in 4.204; 4.203 omits that the levels below 3 use III.I'''''''' Lemma 3.2
+  at h.
+- Whether the source's Lemma 11.65 meets the same rotation term at a non-rotating Kerr b_0 was not adjudicated.
+- Next: verifier 121 on the D281 repairs; [Hin26] section 12 at n = 4 (Part III.J) is being written.
+
+### 4.206 Part III.J written (D282): efficient parameterisation I
+
+- PART-III-J-PARAM.md: [Hin26] section 12 to Remark 12.6 at n = 4. Data space (Definition 1.1): b - b_0, S, S^(0)_1,
+  iota+ data (u^0_lambda, f_lambda) at the resonances in pi_1 E_sharp, S_rem, b_rem, the conormal Y_rho for the rows mu
+  in (-1, 0], and a remainder tensor.
+- At n = 4 the iota+ series below 3 + eps_+ is linear (products start at 2 lambda_sharp = 3 + 2 delta_sharp), so each
+  exponent lambda_0 is one equation Lbar G(lambda_0) = -F_0(lambda_0), solved by III.G''' Corollary 3.1; the formal
+  solutions at R = 0 go to rows (rate <= 2), rotation rows (v1 below 2) or q (rates in (2, alpha)).
+- Phi is affine in the infinite-dimensional data with coefficients smooth in (b, S, S^(0)_1): smooth and tame at once
+  (Theorem 2.4). Conditions (G+) (no Lambda in (3, 3 + eps_+]) and (A_J) (finitely many exclusions for alpha).
+- (J2) settles III.G''' (G'''1)'s reading: no step source carries the exceptional scri+ term, so the pole at
+  lambda_sharp enters only through the datum f_{lambda_sharp}.
+- Open for III.J' (Theorem 12.8): the iota+ order (3 + eta_2)- of III.I'''''''''''''' Theorem 3.1 against the (3 +
+  eps_+)- of the classes; the linear theory at b != b_0 ((I3)). Psi (Lemma 12.7) after III.C'.
+- Next: verifier 121 (D281 repairs); verifier 122 on III.J; then III.J' ([Hin26] Theorem 12.8).
+
+### 4.207 Part III.J' written (D283): efficient parameterisation II
+
+- PART-III-J2-LINEAR.md: [Hin26] Theorem 12.8 at n = 4 and b_0. Every solution (h', p', q') of III.I(14) Theorem 3.1
+  for a source in F is D_U Phi(U'): subtract D_U Phi of the parameters p'_{<=0}, then exponent by exponent the resonant
+  states (Case A: no pole, all terms vanish; Case B: III.G''' Proposition 3.7 gives the data), then the conormal
+  remainders.
+- Lemma 1.1 closes III.J (J5) (a): under (G+) the level-2 tf-exponents (u-exponents minus 1) avoid (2, 2 + eps_+], so
+  eta_2 can approach eps_+ with the same construction, and the linear solutions have iota+-order (3 + eps_+)-.
+- Open: the tame form of the estimates (III.I(8)-(14) state bounds uniform for small backgrounds, not tame); the linear
+  theory at b != b_0 ((I3)); Psi after III.C'.
+- Next: verifiers 121 (D281) and 122 (III.J, III.J'); then [Hin26] section 13 and III.C'.
+
+### 4.208 Verifier 121 seated (D284): the D281 repairs read
+
+- Verifier 121 read the D281 repairs to III.I'''''''''''''': 1 major, 2 minor, 6 nits; verifier 120's M1 and m1-m4
+  closed.
+- M1: Step 4 used the uniqueness in III.I''''''''''' Theorem 4.1, which fails on the P enlarged by the rotation rows
+  (Step 3 itself makes the solutions a graph over the rotation coordinates). Repaired: Step 4' splits p' = p'_0 +
+  W'^rot, moves the rotation-row terms f^nu(W'_nu) into the source (they lie in Y_2(alpha), III.I''''''''' Lemma 2.6
+  (b)), and applies III.I''''''''''' Theorem 4.1 and III.I'''''''''''' Theorem 3.1 with the P of III.I''''''''';
+  Definition 1.3 exempts the two from the enlarged P.
+- m1: the rotation rows are an index set (rot, lambda, k) disjoint from N, whose v1 rows keep W = 0; Lemma 2.2 (f) is
+  excluded for them. III.J and III.J' use the same notation.
+- m2: the coefficients of the expansion are determined by u through dual functionals on a compact set, from the
+  uniqueness in III.I'''''''''''' Lemma 2.3 (a); the conormal S_rem term is removed exactly. The continuity of C^rot is
+  III.I''''''''''' Lemma 3.3's argument.
+- Nits: the i = 3 and dt-terms have K+-order Re lambda + 3 - eps (also in 4.205); III.I'''''''''' Lemma 2.1 (b)'s
+  argument for v1; (H3) from that of III.I'''''''''; the non-vanishing at a rotating b is a remark; the eps-stability
+  wording; 4.204 rejoined.
+- Next: verifier 122 on III.J, III.J' and the D284 repairs.

@@ -5643,3 +5643,39 @@ its earlier theorem at the augmented background. At n = 4 that background decays
 the earlier parts, so the forward solution there is taken as it is, and its decay is raised level by level with the
 theory at the original background, the intermediate levels written in D278. The linearisation in the black hole
 parameters needs the zero-energy states at nearby parameters, normalised by their leading terms.
+
+**D280 (2026-10-26): verifier 119 seated; III.I''''''''''''' verified, III.I'''''''''''' proved.** Verifier 119 read the
+expansion at every level and the repairs to the expansion at K+, and found one major gap. The index set E_sharp allowed,
+below 2, log orders larger than those of E_++, so the enlarged sources below 2 could fall outside the class that the
+spacetime phase indexes. E_sharp is now M below 2 and keeps the count K only from 2 up; every use was rechecked. A minor
+gap above the order 4 is closed by taking eps < beta - 4. The two gaps it found in the plan for section 11.8.3 are
+closed by III.I'''''''''''''' as written. All nits are seated. Next: verifier 120 on III.I''''''''''''''.
+
+**D281 (2026-10-26): verifier 120 seated; III.I'''''''''''''' verified.** Verifier 120 read the absorption of the
+expansion into the operator, and found one major gap. Near the non-rotating black hole the rotation states vanish, so a
+slowly decaying rotation of the gauge was booked as a fast-decaying tower; at a rotating black hole nearby the same term
+decays slowly, and the derivative of the operator in the black hole parameters lost half an order at the horizon. Such
+terms are now carried as rows of all rotations, which never enter the metric near the horizon, and are fixed by the
+expansion. Four minor points (the gain of the corrections at timelike infinity, the mechanism behind the towers near
+b_0, the independence of the losses, a missing citation) and seven nits are seated.
+
+**D282 (2026-10-26): Part III.J written.** The efficient parameterisation of [Hin26] section 12 at n = 4: a tuple of
+data determines the metric perturbation and the modification parameters so that the augmented operator vanishes at
+timelike infinity to the order 5 + eps_+ and decays at the horizon to the order alpha. In five dimensions the expansion
+at timelike infinity starts above 3/2, so below 3 + eps_+ no two terms interact; each exponent is one linear model
+equation, and the map is affine in the data, which makes it smooth and tame without further work. The source's map with
+an initial solution and its Theorem 12.8 come next; two points for Theorem 12.8 are recorded.
+
+**D283 (2026-10-26): Part III.J' written.** [Hin26] Theorem 12.8 at n = 4: every solution of the linearised equation
+that the forward theory produces is the derivative of the parameterisation at suitable data, so the parameterisation
+describes the linear solutions exactly. A gap between the decay at timelike infinity of the linear solutions and that of
+the nonlinear class closes: no exponent lies between the two orders, so the spectral construction does not change as its
+threshold approaches the larger one. Still open: the tame form of the estimates, and the linear theory away from the
+reference black hole.
+
+**D284 (2026-10-26): verifier 121 seated.** Verifier 121 read the repairs of D281 and found them sound but for one step:
+the last step of the expansion theorem invoked a uniqueness that the enlarged parameter space no longer has, since the
+rotation coordinates stay free until the expansion fixes them. The rotation-row terms are now moved into the source, and
+the earlier theorems are applied with the original parameters, where their uniqueness holds. The rotation rows are made
+a separate index set, the coefficients of the expansion are shown to be determined by the solution through dual
+functionals, and six nits are seated. Next: verifier 122 on Parts III.J and III.J' and these repairs.
