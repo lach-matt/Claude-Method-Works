@@ -3612,8 +3612,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 
 - The source proves Corollary 11.66 by applying Theorem 11.59 at the background h + h_rem(q), whose K+-order is only
   2 + eps_K, "the iterative procedure applying verbatim". At n = 4 the background h + h_rem(q) has K+-order
-  alpha - 2 - eps, and three steps fail there: III.I''''''''''' Lemma 3.2 jumps from an admissible alpha' < 3 to alpha > 4
-  in one step using w_0 + a_K > alpha (w_0 < 1), and III.I'''''''''' Definition 1.3 has no admissible levels in
+  alpha - 2 - eps, and three steps fail there: III.I''''''''''' Lemma 3.2 jumps from an admissible alpha' < 3 to alpha >
+  4 in one step using w_0 + a_K > alpha (w_0 < 1), and III.I'''''''''' Definition 1.3 has no admissible levels in
   [3, 4 + eps_K - eps'_0] for a slower iteration; III.I''''''''' Lemma 2.6 (c)'s r^nu needs a_K > alpha + 1 -
   lambda_sharp; and a Neumann series in q around III.I''''''''''' Theorem 4.1 at h loses derivatives (R_q is of order 2).
 - The b-derivative with towers for L_b (the source's Lemma 11.65) has K+-order alpha - eps, but iota+ exponents
@@ -3624,3 +3624,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Next: III.I''''''''''''' needs either the theory of III.I''''''''''' at intermediate levels beta in (3, 4 + eps_K]
   (fewer Taylor levels) with a finite bootstrap in steps alpha - 4 - 2 eps, or K+ formal solutions for products of
   towers. Design notes in the D276 scratchpad.
+
+### 4.202 Part III.I''''''''''''' written (D278): the expansion at every level
+
+- PART-III-I14-LEVELS.md: III.I''''''''''' Proposition 3.1 and Lemmas 3.2-3.3 at every admissible level beta in
+  (3, 4 + eps_K] (dense), and III.I''''''''''' Theorem 4.1, III.I'''''''''''' Theorem 3.1 for sources in Y^natural.
+- Below the order 4 the level-3 source has zf-weight beta - 4 - eps in (-1, 0): no zero-energy solve at level 3; the
+  Proposition 5.1 loop with alpha_tau = tau and w in [-eps, 1); III.I'' Lemma 4.2 with the negative zf-weight.
+- Y^natural: iota+ exponents E_sharp + (m >= 1 increments of Lambda); each increment raises n(lambda) by one, so the log
+  order stays K(lambda') - N_*(l_* + 1) - 1, room for the raises (Lemma 1.3).
+- The plan for section 11.8.3 (next part): linearise at h, not at h + h_rem(q). With u the forward solution at
+  h + h_rem(q) (smooth, from the energy estimates there), L_h u = F - D_p P_5(p') - R_q u, and R_q u has K+-weight
+  (that of u) + alpha - 2 - eps and iota+ weight above w_+; bootstrap level by level with steps below alpha - 4 - 2 eps,
+  each step Lemma 2.2 at h (where a_K >= 4 + eps_K), the new rows' coefficients minus the identity small in the new
+  parameter coordinates; no derivative loss (u is known smooth), no r^nu defect (rows at h); the b-direction by towers
+  for L_b (Y^natural).
+- Next: verifier 119 on III.I''''''''''''' and the D277 repairs; then III.I'''''''''''''' (section 11.8.3).

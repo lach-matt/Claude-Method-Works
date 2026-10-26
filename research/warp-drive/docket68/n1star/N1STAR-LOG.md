@@ -5625,3 +5625,12 @@ are seated, with three nits in III.I''''''''''', whose D275 repairs are correct.
 the source's Corollary 11.66 does not transfer verbatim at n = 4: its proof applies Theorem 11.59 at a background
 with only 2 + eps_K orders of K+-decay, and the n = 4 argument reaches the order 4 + eps_K in one step that needs the
 background to decay to that order. The route is recorded (ROUTES-OPEN 4.201).
+
+**D278 (2026-10-26): Part III.I''''''''''''' written.** The expansion of forward solutions at K+ now holds at every
+level between 3 and 4 + eps_K, not only just below 4 + eps_K. The source reaches its final decay rate level by level,
+and records that the background needs only a little more than two orders of decay at K+; the n = 4 write-out had taken
+one large step that needs four. Section 11.8.3 linearises at a background with only the weaker decay, so it needs the
+intermediate levels. Below the order 4 the last level of the spectral cascade has a negative weight at zero energy,
+which removes a step rather than adding one, and the two results it calls accept that weight as they stand. Sources
+with the further iota+ exponents produced by differentiating the towers in the black hole parameters fit the existing
+count of logarithms.

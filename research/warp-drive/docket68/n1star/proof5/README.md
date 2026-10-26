@@ -65,6 +65,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''''''' | [Hin26] Theorem 11.59, Parts 1-3, first half (with Remark 11.62) | the parameter exponents fixed (an exponent set Lambda, log orders growing with the real part, the gap (G)), the towers of III.G'' as delta*-images and the uniqueness of row expansions, forward Fourier tails, and the spacetime phase: the iota+-terms of u-exponent below 2 solved up to the K+-order alpha <= 4 + eps_K under (C5), their K+-terms the rows | proved (D275: verifier 117 read the D274 repairs; verified D274) |
 | III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | proved (D277: verifier 118 read the repairs) |
 | III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | verified (D277; one major, six minor findings and eleven nits seated, to be read) |
+| III.I''''''''''''' | [Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative produces; the source's routine repetition, which section 11.8.3 needs | written (D278) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -1108,3 +1109,14 @@ type; six minor findings: profiles conormal, with Lemma 2.3 on conormal sections
 $\{r\le t_*/8\}$ by integration by parts in $\sigma$, Lemma 2.2's $\iota^+$-order by scaling, the constant-data columns'
 $\iota^+$-exponents, Step 0's row orders, and the exponents of Lemma 2.4 in $\mathcal E_\sharp$; eleven nits; and
 $w_\rho := 3+\eta_2-2\epsilon-d_\rho$ for every row, as in the source's (11.227b)).
+
+`PART-III-I14-LEVELS.md`. [Hin26] Theorem 11.59, Parts 2-3, at $n = 4$, at every level: III.I$'''''''''''$ reached the
+order $\alpha>4$ in one step from a level below 3, which needs the background's $K^+$-order $a_K\ge4+\epsilon_K$; section
+11.8.3 linearises at a background of $K^+$-order $\alpha-2-\epsilon$ and must pass through every level, as the source's
+Remark 11.61 and Part 3 do. Definition 1.1 (admissible levels in $(3,4+\epsilon_K]$, dense), Definition 1.2 and Lemma
+1.3 (the enlarged sources $\mathcal Y^\natural$: $\iota^+$-exponents of $\mathcal E_\sharp$ shifted by the increments of
+$\Lambda$, within the log count), Proposition 2.1 (the spectral phase at every level: below the order 4 the last Taylor
+level has a negative zf-weight, no zero-energy solve, and III.G$''''$ Proposition 5.1 and III.I$''$ Lemma 4.2 as they
+stand), Lemmas 2.2-2.3 (the expansion and its continuity at every level) and Proposition 2.4 (III.I$'''''''''''$
+Theorem 4.1 and III.I$''''''''''''$ Theorem 3.1 for the enlarged sources). Findings
+(I$'''''''''''''$1)-(I$'''''''''''''$3). At $b_0$. Written (D278).
