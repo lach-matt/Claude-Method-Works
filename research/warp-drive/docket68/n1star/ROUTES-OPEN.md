@@ -2992,3 +2992,31 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Next: Part III.G'' ([Hin26] Definitions 9.8, 9.10 and Proposition 9.9 at n = 4, the expansion at K+); verifier 99
   (Opus) on III.G' and the D238 repairs.
 
+### 4.162 Part III.G'' written: [Hin26] Propositions 9.9, 9.11, Corollary 9.12 at n = 4 (D239)
+
+- PART-III-G3-GRAFT.md: the window. Every iota+ order grafted exceeds 1 (pure resonances >= 2, III.G), so R^l_K with
+  l_K < 3 suffices (K+ order lam + l_K > 4); no state at -3 and no companion of the physical states at -2 is needed.
+- Table 1.1: the roots in (-3, 0] with the states constructed in III.D'', III.D''', III.F'''' and their companions;
+  Lemma 1.2: the leading terms span the indicial kernels (the item III.D''' deferred), from simplicity and (R5).
+- Towers and formal solutions (Minkowski and Myers-Perry), their errors; the expansion at K+ (Proposition 9.9) by
+  induction on the least exponent, log-free; grafting (Proposition 9.11) with L-bar the iota+-normal operator of L_b by
+  an exact identity; Corollary 9.12.
+- New obligation for Part VI: (C5) gamma_C v_C >= 1/2 (else the window is l_K < 2 + 2 gamma_C v_C).
+- Status: III.G'' written (D239).
+
+### 4.163 Verifier 99 seated: III.G proved; III.G' verified (D240)
+
+- The ninety-ninth verifier (Opus) read III.G' in full and the D238 repairs: one major finding, two minor, seven nits
+  on III.G'; the D238 repairs correct and complete.
+- M1 (major): III.G' Theorem 3.1 (2) claimed (v d_v - 3/2 - S) h in order l_I + 1 for finite-regularity f; the f-term
+  limits it to l_I, as the source prints. Repaired; III.G'''s grafting uses order l_I, which suffices.
+- m1: gamma_Ups < min(s_C / 2, 3/8) now assumed, and the choices of eps and l_I that keep exponents apart are stated.
+  m2: the expansion coefficients are holomorphic in lam by fixed-circle Mellin integrals.
+- Nits: "at most k_s" in Step 4; the v^lam log v term in Step 5; z_Ups for III.D's parameter and the root 0 in Lemma
+  1.3; the induction exponents renamed; sbar5.py S4's control tests the product alone; sf5.py's S10 reference; and
+  (G'3), the misprint read in the source's (9.22), withdrawn (the normalised text renders v/2 and v^2 alike).
+- Checks: sf5.py S1-S11 and sbar5.py S1-S4 pass, each control fails.
+- Status: III.G proved; III.G' verified (D240), the repairs to be read; III.G'' written.
+- Next: Part III.G''' ([Hin26] Lemmas 9.13-9.14, Proposition 9.15 to Proposition 9.22); verifier 100 (Opus) on III.G''
+  and the D240 repairs.
+

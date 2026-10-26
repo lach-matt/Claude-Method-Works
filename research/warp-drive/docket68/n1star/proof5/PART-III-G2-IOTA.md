@@ -31,7 +31,7 @@ $v^{2-\lambda}N_{\mathrm{sf}}(\lambda)v^\lambda$ fails). So on $\{0<v<\infty\}$,
 equivalent to
 $$(v\partial_v-\lambda)\big(v\partial_v-\tfrac32-\bar S\big)h = -\tfrac1{2v}f
 +\tfrac v2\tilde L(0)(\omega,v\partial_v,\partial_\omega)h,\tag{1.2}$$
-which is the source's (9.22) at $n = 4$ (see (G$'$3)). Near $R = 0$,
+which is the source's (9.22) at $n = 4$. Near $R = 0$,
 $$R^2N_{\iota^+}(\lambda) = A_0+RA_1,\qquad A_0 := \tilde L(0)(\omega,-R\partial_R,\partial_\omega),\quad A_1 :
  = -2(R\partial_R+\lambda)\big(R\partial_R+\tfrac32+\bar S\big).\tag{1.3}$$
 Since $R^2N_{\iota^+}(\lambda) = R^{-\lambda}N_{\mathrm{sf}}(\lambda)R^\lambda$, it is b-elliptic at $R = 0$ (III.G
@@ -43,10 +43,10 @@ ${}^{\mathrm b}\bar L(0) = \rho^2\tilde L(0)(\omega,\rho\partial_\rho,\partial_\
 
 ### 1.2 The endomorphism
 
-**Lemma 1.1 ($\bar S$ is semisimple).** Let $\gamma_\Upsilon<\frac12s_C$, $s_C := \gamma_C(1-e_C)(1-v_C)$. At every
-$\omega\in\mathbb S^3$, $\bar S(\omega)$ is diagonalisable, with the eigenvalues of III.F (3.1), which do not depend on
-$\omega$. So $\bar S = \sum_{s\in\sigma}s\,\Pi_s$, $\sigma := \mathrm{spec}\,\bar S$, where the spectral projections
-$\Pi_s$ are smooth on $\mathbb S^3$, $\Pi_s\Pi_{s'} = \delta_{ss'}\Pi_s$ and $\sum_s\Pi_s = \mathrm{Id}$.
+**Lemma 1.1 ($\bar S$ is semisimple).** Let $\gamma_\Upsilon<\min(\frac12s_C,\frac38)$, $s_C := \gamma_C(1-e_C)(1-v_C)$.
+At every $\omega\in\mathbb S^3$, $\bar S(\omega)$ is diagonalisable, with the eigenvalues of III.F (3.1), which do not
+depend on $\omega$. So $\bar S = \sum_{s\in\sigma}s\,\Pi_s$, $\sigma := \mathrm{spec}\,\bar S$, where the spectral
+projections $\Pi_s$ are smooth on $\mathbb S^3$, $\Pi_s\Pi_{s'} = \delta_{ss'}\Pi_s$ and $\sum_s\Pi_s = \mathrm{Id}$.
 
 *Proof.* III.F Lemma 3.1's proof writes $\rho\bar S = UV$, with $U:T^*\oplus T^*\to S^2T^*$, $V:S^2T^*\to T^*\oplus T^*$
 and
@@ -69,7 +69,7 @@ $\gamma_\Upsilon = \gamma_C(1-v_C)$, where the two spectra meet, $\bar S$ has a 
 We write
 $$\sigma_\Upsilon := \{0,\ (1-e_\Upsilon)\gamma_\Upsilon,\ \gamma_\Upsilon,\ 2\gamma_\Upsilon\},\qquad\sigma_C :
  = \gamma_C\{(1-e_C)(1-v_C),\ 1-v_C,\ 2(1-v_C)\},\qquad\Pi_C := \sum_{s\in\sigma_C}\Pi_s,\tag{1.4}$$
-so $\sigma = \sigma_\Upsilon\cup\sigma_C$, $\sigma_\Upsilon\subset[0,2\gamma_\Upsilon]\subset[0,1)$ and
+so $\sigma = \sigma_\Upsilon\cup\sigma_C$, $\sigma_\Upsilon\subset[0,2\gamma_\Upsilon]\subset[0,\frac34)$ and
 $\min\sigma_C = s_C$. The source works in his splitting (5.27). There $\bar S$ is lower triangular ((8.8)), and one
 component carries two small exponents (his $\mathcal E_{\iota^+,\mathscr I,11}$). In the eigenbasis each component
 carries one, and the $n = 4$ counterpart of (5.27) (Part III.C) is not needed here.
@@ -102,7 +102,7 @@ $\mathrm{Re}\,\zeta>\alpha$.
 
 **Lemma 1.3 (the index set at $K^+$).** (a) $\mathcal E_K$ depends neither on $\lambda$ nor on $\alpha\in(-1,0)$. (b)
 $\mathcal E_K\subset\{\mathrm{Re}\,z\ge0\}$ and $\mathcal E_K\cap\{\mathrm{Re}\,z = 0\} = \{(0,0)\}$. The exponents of
-$\mathcal E(\alpha)$ in $(0,1)$ are $\lambda^\Upsilon_{\mathrm s0,2}-2\in(0,\frac z3]$ and
+$\mathcal E(\alpha)$ in $(0,1)$ are $\lambda^\Upsilon_{\mathrm s0,2}-2\in(0,\frac{z_\Upsilon}3]$ and
 $\lambda^\Upsilon_{\mathrm s1,2}-2\in(0,\frac14)$, so $\min\mathrm{Re}(\mathcal E_K\setminus\{(0,0)\})>0$. (c) All
 exponents of $\mathcal E(\alpha)$ with real part $\le101$ are real.
 
@@ -110,14 +110,15 @@ exponents of $\mathcal E(\alpha)$ with real part $\le101$ are real.
 which does not depend on $\lambda$ (section 1.1). Its elements are the $(-\mu,k)$ with $\mu$ a root of III.F$'$
 Proposition 2.3, $k$ below the order of the root. No root has real part in $(0,1]$ (III.F$'$ Proposition 2.3 (a)), so
 $\mathrm{Re}(-\mu)>\alpha$ holds exactly when $\mathrm{Re}\,\mu\le0$, for every $\alpha\in(-1,0)$. (b), (c) The roots
-with $\mathrm{Re}\,\mu\le0$ are those before the semicolons in III.F$'$ Proposition 2.3. They are: the
+with $\mathrm{Re}\,\mu\le0$ are those before the semicolons in III.F$'$ Proposition 2.3. They are: $0$ at s0 and s2; the
 $\lambda^C_{\cdot,\ll,\cdot}-1$, with real part $<-101$ (there, (d)); $-l$, $1-l$ and $2-l$ at the types listed; $-1$ at
 s1 and v1; $-2-2\gamma_Cv_C$ at v1; and $2-\lambda^\Upsilon_{\mathrm sl,l+j}$ ($j = 1,2$) and
 $2-\lambda^\Upsilon_{\mathrm s0,2}$. By III.D Lemma 4.1 the last are real, with
-$\lambda^\Upsilon_{\mathrm s0,2}\in(2,2+\frac z3]$ and $\lambda^\Upsilon_{\mathrm sl,l+j}\in(l+j,l+j+\frac14)$ for
-$0<z\le\frac12$. So every root with $\mathrm{Re}\,\mu\le0$ other than $0$ has $\mathrm{Re}\,\mu<0$. The root $0$ occurs
-only at s0 and s2 and is simple there (III.F$'$ Proposition 2.3 (c)), giving $(0,0)$ only. The exponents $-\mu\in(0,1)$
-are $\lambda^\Upsilon_{\mathrm s0,2}-2$ and $\lambda^\Upsilon_{\mathrm s1,2}-2$; the next ones are $\ge1$. The iterates
+$\lambda^\Upsilon_{\mathrm s0,2}\in(2,2+\frac{z_\Upsilon}3]$ and $\lambda^\Upsilon_{\mathrm sl,l+j}\in(l+j,l+j+\frac14)$
+for $0<z_\Upsilon\le\frac12$, $z_\Upsilon := 4e_\Upsilon\gamma_\Upsilon^2$ (III.D's $z$). So every root with
+$\mathrm{Re}\,\mu\le0$ other than $0$ has $\mathrm{Re}\,\mu<0$. The root $0$ occurs only at s0 and s2 and is simple
+there (III.F$'$ Proposition 2.3 (c)), giving $(0,0)$ only. The exponents $-\mu\in(0,1)$ are
+$\lambda^\Upsilon_{\mathrm s0,2}-2$ and $\lambda^\Upsilon_{\mathrm s1,2}-2$; the next ones are $\ge1$. The iterates
 $\mathcal E_j+1$ only add points with real part $\ge1$. $\square$
 
 ## 2. Two lemmas at the light cone
@@ -203,9 +204,9 @@ $v\partial_v$, so the b-regularity is preserved. $\square$
 ## 3. The inverse of the $\iota^+$-normal operator
 
 **Theorem 3.1 ([Hin26] Proposition 9.4 at $n = 4$).** Assume the hypotheses of III.G Theorem 5.1 and
-$\gamma_\Upsilon<\frac12s_C$. Let $\lambda\in\mathbb C$ be such that $N_{\mathrm{sf}}(\lambda)$ is invertible; by III.G
-Theorem 5.1 this does not depend on the admissible pair. For $f\in\dot C^\infty(\iota^+;S^2T^*)$, extend
-$R^{2+\lambda}f$ by 0 to $\{v\le0\}$ and set
+$\gamma_\Upsilon<\min(\frac12s_C,\frac38)$ (the source's $0<\gamma_\Upsilon\ll1$; D240). Let $\lambda\in\mathbb C$ be
+such that $N_{\mathrm{sf}}(\lambda)$ is invertible; by III.G Theorem 5.1 this does not depend on the admissible pair.
+For $f\in\dot C^\infty(\iota^+;S^2T^*)$, extend $R^{2+\lambda}f$ by 0 to $\{v\le0\}$ and set
 $$h := N_{\iota^+}(\lambda)^{-1}f :
  = R^{-\lambda}N_{\mathrm{sf}}(\lambda)^{-1}(R^{2+\lambda}f)\big|_{(0,\infty)_v\times\mathbb S^3}.\tag{3.1}$$
 Then $N_{\iota^+}(\lambda)h = f$, and:
@@ -223,9 +224,10 @@ extends to a continuous linear map
 $$N_{\iota^+}(\lambda)^{-1}:H^{k+d,\ell_I+1,\ell_K-2}_{\mathrm b}(\iota^+;S^2T^*)
 \to H^{k,(\langle\mathcal E^C_{\iota^+,\mathscr I}\rangle,\ell_I),(\mathcal E_K,\ell_K)}_{\mathrm b}(\iota^+;S^2T^*),
 \tag{3.3}$$
-with $(v\partial_v-\frac32-\bar S)h\in H^{k,(\mathcal E^C_{\iota^+,\mathscr I},\ell_I+1)}_{\mathrm
-b}([0,1)_v\times\mathbb S^3)$. On $\{\mathrm{Re}\,\lambda<\ell_I\}$, (3.3) is finite-meromorphic in $\lambda$. Its
-principal parts at poles do not depend on $k$, $\ell_I$ or $\ell_K$, and their ranges lie in the space of (1).
+with $(v\partial_v-\frac32-\bar S)h\in H^{k,(\mathcal E^C_{\iota^+,\mathscr I},\ell_I)}_{\mathrm b}([0,1)_v\times\mathbb
+S^3)$ (order $\ell_I$, as the source prints; $\ell_I+1$, stated here before D240, is false, the $f$-term of (1.2) being
+of order $\ell_I$ only). On $\{\mathrm{Re}\,\lambda<\ell_I\}$, (3.3) is finite-meromorphic in $\lambda$. Its principal
+parts at poles do not depend on $k$, $\ell_I$ or $\ell_K$, and their ranges lie in the space of (1).
 
 *Proof.* *Step 0: $h$ solves.* Let $F := R^{2+\lambda}f$, extended by 0. As $f$ vanishes to infinite order at $v = 0$
 and at $R = 0$, $F$ is smooth on $\mathbb R_v\times\mathbb S^3$, supported in $\{v\ge0\}$, and $O(R^\infty)$ with all
@@ -259,25 +261,28 @@ $$(v\partial_v-\lambda)\big(v\partial_v-\tfrac32-s\big)\Pi_sh = \Pi_sg,\qquad g 
 $\tilde L(0)(\omega,v\partial_v,\partial_\omega)$ is a combination of words with smooth coefficients (III.G Lemma 2.5's
 proof). Fix $\ell_I<\frac32+s_C$ with $\ell_I\notin\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}$; it
 suffices to prove (3.2) for such $\ell_I$, since $\mathcal A^{(\mathcal E,\ell')}\subset\mathcal A^{(\mathcal E,\ell)}$
-for $\ell<\ell'$. Let $\gamma_j := \min(\frac32-\epsilon+j,\ell_I)$. We show by induction that
-$h\in\mathcal A^{(\langle\mathcal E^C\rangle,\gamma_j)}$ at $v = 0$, where
+for $\ell<\ell'$. Let $\vartheta_j := \min(\frac32-\epsilon+j,\ell_I)$. We show by induction that
+$h\in\mathcal A^{(\langle\mathcal E^C\rangle,\vartheta_j)}$ at $v = 0$, where
 $\mathcal E^C := \mathcal E^C_{\iota^+,\mathscr I}$. For $j = 0$ this is (3.4), as
-$\min\mathrm{Re}\,\mathcal E_s = \frac32>\gamma_0$.
+$\min\mathrm{Re}\,\mathcal E_s = \frac32>\vartheta_0$.
 
 For the step: $\mathcal E^C$ and the $\mathcal E_s$ lie in $\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}$, and words
-preserve $\mathcal A^{(\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I},\gamma_j)}$. So
-$g\in\mathcal A^{(\mathcal E^C,\gamma_j+1)}$, with the $f$-term vanishing to infinite order. Apply Lemma 2.2 to
+preserve $\mathcal A^{(\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I},\vartheta_j)}$. So
+$g\in\mathcal A^{(\mathcal E^C,\vartheta_j+1)}$, with the $f$-term vanishing to infinite order. Apply Lemma 2.2 to
 $w_1 := (v\partial_v-\frac32-s)\Pi_sh$, which is $O(v^{\frac32-\epsilon})$ by (3.4), with $a = \lambda$. Here
-$\mathrm{Re}\,\lambda<\gamma_0$ and $\lambda\notin\pi_1\mathcal E^C$ (whose real parts are $\ge\frac52$), so
-$w_1\in\mathcal A^{(\mathcal E^C,\gamma_{j+1})}$. Apply Lemma 2.2 again to $\Pi_sh$ with $a = \frac32+s$. For
-$s\in\sigma_\Upsilon$, $\frac32+s\notin\pi_1\mathcal E^C = \frac52+\sigma_\Upsilon+\mathbb N_0$, as
-$|s-s'|\le2\gamma_\Upsilon<1$. So $\Pi_sh\in\mathcal A^{(\mathcal E^C\cup(\frac32+s,0),\gamma_{j+1})} = \mathcal
-A^{(\mathcal E_s,\gamma_{j+1})}$. For $s\in\sigma_C$, $\mathrm{Re}(\frac32+s)\ge\frac32+s_C>\ell_I\ge\gamma_{j+1}$, so
-$\Pi_sh\in\mathcal A^{(\mathcal E^C,\gamma_{j+1})}$. (Each use has $\gamma_{j+1}\ne\mathrm{Re}\,a$ by the choice of
-$\epsilon$ and $\ell_I$.) After finitely many steps $\gamma_j = \ell_I$. At that step
-$g\in\mathcal A^{(\mathcal E^C,\ell_I+1)}$, and the first application of Lemma 2.2 gives
-$(v\partial_v-\frac32-\bar S)h = \sum_s w_1\in\mathcal A^{(\mathcal E^C,\ell_I+1)}$. With Step 1, this proves (1) for
-$\mathrm{Re}\,\lambda<\frac32-\epsilon$, and so for $\mathrm{Re}\,\lambda<\frac32$.
+$\mathrm{Re}\,\lambda<\frac32-\epsilon$ (Lemma 2.2's $\gamma_0$) and $\lambda\notin\pi_1\mathcal E^C$ (whose real parts
+are $\ge\frac52$), so $w_1\in\mathcal A^{(\mathcal E^C,\vartheta_{j+1})}$. Apply Lemma 2.2 again to $\Pi_sh$ with
+$a = \frac32+s$. For $s\in\sigma_\Upsilon$, $\frac32+s\notin\pi_1\mathcal E^C = \frac52+\sigma_\Upsilon+\mathbb N_0$, as
+$|s-s'|\le2\gamma_\Upsilon<1$. So $\Pi_sh\in\mathcal A^{(\mathcal E^C\cup(\frac32+s,0),\vartheta_{j+1})} = \mathcal
+A^{(\mathcal E_s,\vartheta_{j+1})}$. For $s\in\sigma_C$,
+$\mathrm{Re}(\frac32+s)\ge\frac32+s_C>\ell_I\ge\vartheta_{j+1}$, so
+$\Pi_sh\in\mathcal A^{(\mathcal E^C,\vartheta_{j+1})}$. (Each use has $\vartheta_{j+1}\ne\mathrm{Re}\,a$ since
+$\epsilon+s\in(0,1)$ for $s\in\sigma_\Upsilon$, and $\ell_I$ is chosen, as the monotonicity allows, with
+$\ell_I\ne\mathrm{Re}\,\lambda$, $\ell_I+1\ne\mathrm{Re}\,\lambda$ and
+$\ell_I\notin\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}$.) After finitely many steps
+$\vartheta_j = \ell_I$. At that step $g\in\mathcal A^{(\mathcal E^C,\ell_I+1)}$, and the first application of Lemma 2.2
+gives $(v\partial_v-\frac32-\bar S)h = \sum_s w_1\in\mathcal A^{(\mathcal E^C,\ell_I+1)}$. With Step 1, this proves (1)
+for $\mathrm{Re}\,\lambda<\frac32-\epsilon$, and so for $\mathrm{Re}\,\lambda<\frac32$.
 
 *Step 3: general $\lambda$, no $v^\lambda$-terms.* Let $\mathcal P$ be the set of poles of
 $N_{\mathrm{sf}}(\cdot)^{-1}$. It is closed and discrete, with finitely many points in each half plane
@@ -336,8 +341,8 @@ $\lambda\notin\frac32+\sigma+\mathbb N_0\supset\pi_1\mathcal E^C$. So (1) holds 
 *Step 4: $\lambda\in(\frac32+\sigma+\mathbb N_0)\setminus\mathcal P$, no extra logarithms.* Choose $r\in(0,\frac12)$
 such that the closed disc $\bar D_r(\lambda)$ meets $\Lambda_0$ only at $\lambda$. Let $C := \{|\kappa-\lambda| = r\}$
 and $0<|\mu-\lambda|<\frac r2$. Then $\mu\in\Omega$, and by Step 3 the only singularity of
-$\Pi_s\mathcal M(\chi h(\mu))$ inside $C$ is at $\kappa = \lambda$. Its order $k_s$ is the same for all such $\mu$: at
-$\kappa = \lambda$ the recursion (3.6) involves $\mu$ only through $(\kappa-\mu)^{-1}$, which is regular there. Its
+$\Pi_s\mathcal M(\chi h(\mu))$ inside $C$ is at $\kappa = \lambda$. Its order is at most some $k_s$ for all such $\mu$:
+at $\kappa = \lambda$ the recursion (3.6) involves $\mu$ only through $(\kappa-\mu)^{-1}$, which is regular there. Its
 Laurent coefficient of order $k_s$ is the coefficient of the generic expansion of $\Pi_sh(\mu)$, of the form found in
 Step 3. $(\mu,\kappa)\mapsto\mathcal M(\chi h(\mu))(\kappa)$ is jointly holomorphic on
 $D_{r/2}(\lambda)\times(\text{a neighbourhood of }C)$, by (a)-(b): the singular sets $\kappa = \mu$ and
@@ -375,28 +380,34 @@ $|\alpha|\le k+d-d_1-m(s)$, hence the weighted $L^2$ bound with a loss $\delta$ 
 then runs with the $L^2$ version of Lemma 2.2. Each step loses two b-derivatives (through $\tilde L(0)$), and the number
 of steps is at most $\lceil\ell_I-\mathrm{Re}\,\lambda\rceil+2$. This fixes $d$ in terms of $\mathrm{Re}\,\lambda$ and
 $\ell_I$. Here the $f$-term of $g$ stops the expansion at $\ell_I$. In the first application of Lemma 2.2, now with
-$\gamma_0 = \mathrm{Re}\,\lambda+s-\frac12-\delta<\mathrm{Re}\,\lambda$, a term $c_\lambda(f)v^\lambda$ may appear, with
-$c_\lambda$ a continuous linear functional. By Steps 3-4, $c_\lambda(f)$ vanishes (or is a coefficient permitted by
-(3.2), when $\lambda\in\pi_1\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}$) for $f\in\dot C^\infty(\iota^+)$. That
-space is dense, so the same holds for all $f$.
+$\gamma_0 = \mathrm{Re}\,\lambda+s-\frac12-\delta<\mathrm{Re}\,\lambda$, terms $c_\lambda(f)v^\lambda$ and, when
+$\lambda\in\pi_1\mathcal E^C_{\iota^+,\mathscr I}$, $c'_\lambda(f)v^\lambda\log v$ may appear, with $c_\lambda$,
+$c'_\lambda$ continuous linear functionals. By Steps 3-4, $c'_\lambda(f)$ and $c_\lambda(f)$ vanish (or $c_\lambda(f)$
+is a coefficient permitted by (3.2), when $\lambda\in\pi_1\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}$) for
+$f\in\dot C^\infty(\iota^+)$. That space is dense, so the same holds for all $f$.
 
 (iv) *At $R = 0$:* the proof of III.A Lemma 1.4 applies at finite order. b-ellipticity gains two b-derivatives, and the
 expansion terms have smooth coefficients (they come from residues of $N(A,\cdot)^{-1}$ and from $RA_1$, with
 $\mathcal F = \emptyset$). It gives $h\in H^{k+d+2,(\mathcal E_K,\ell_K)}_{\mathrm b}$ near $R = 0$, as
-$\ell_K\notin\mathrm{Re}\,\pi_1\mathcal E_K$. This proves (3.3) and the statement on $(v\partial_v-\frac32-\bar S)h$,
-for $\lambda\notin\mathcal P$.
+$\ell_K\notin\mathrm{Re}\,\pi_1\mathcal E_K$. This proves (3.3), and the statement on $(v\partial_v-\frac32-\bar S)h$ is
+the last application of Lemma 2.2 in (iii), with $\gamma = \ell_I$, for $\lambda\notin\mathcal P$.
 
 *Meromorphy.* $f\mapsto F$ is holomorphic in $\lambda$, and
 $\lambda\mapsto N_{\mathrm{sf}}(\lambda)^{-1}\in\mathcal L(\mathcal Y_k,\mathcal X_k)$ is finite-meromorphic (III.G
-Theorem 5.1 (2), and (a) above). Multiplication by $v^\lambda$ is holomorphic into weights reduced by any $\delta>0$,
-and the maps of (iii)-(iv) are holomorphic in $\lambda$. So (3.3) is finite-meromorphic on
-$\{\mathrm{Re}\,\lambda<\ell_I\}$. Its principal part at $\lambda_0$ is obtained by expanding $R^{\pm\lambda}$ about
-$\lambda_0$: its Laurent coefficients are finite combinations of
-$R^{-\lambda_0}(\log R)^iA_{-j}(\log R)^{i'}R^{2+\lambda_0}$, with $A_{-j}$ those of $N_{\mathrm{sf}}^{-1}$. These have
-finite rank and do not depend on $(s,\mu)$, as the inverses agree (III.G Theorem 5.1 (2)); so they do not depend on $k$,
-$\ell_I$ or $\ell_K$. For $f\in\dot C^\infty(\iota^+)$, the coefficient of order $j$ is
-$\frac1{2\pi i}\oint(\lambda-\lambda_0)^{j-1}N_{\iota^+}(\lambda)^{-1}f\,d\lambda$ over a small circle in $\Omega$. By
-(1), with expansion coefficients and remainders continuous in $\lambda$ on the circle, this lies in the space of (1).
+Theorem 5.1 (2), and (a) above). Multiplication by $v^\lambda$ is holomorphic into weights reduced by any $\delta>0$.
+The expansion coefficients of (iii)-(iv) are holomorphic in $\lambda$ as well, although Lemma 2.2's decomposition is not
+(its particular solutions have poles where $\lambda\in\pi_1G$). Each coefficient at an exponent $z$,
+$\mathrm{Re}\,z<\ell_I$, is $\frac1{2\pi i}\oint(\kappa-z)^j\Pi_s\mathcal M(\chi h(\lambda))(\kappa)\,d\kappa$ over a
+fixed small circle around $z$. It is holomorphic by the joint holomorphy of Step 3 (b), which for $f$ in the weighted
+space holds on $\{\mathrm{Re}\,\kappa<\ell_I\}$: there $H_s$ is the transform of
+$-\chi\Pi_sf/(2v)\in\rho_I^{\ell_I}H_{\mathrm b}$ and of terms supported in $[\frac12,1)$. The remainder is $h$ minus
+the finite expansion (D240). So (3.3) is finite-meromorphic on $\{\mathrm{Re}\,\lambda<\ell_I\}$. Its principal part at
+$\lambda_0$ is obtained by expanding $R^{\pm\lambda}$ about $\lambda_0$: its Laurent coefficients are finite
+combinations of $R^{-\lambda_0}(\log R)^iA_{-j}(\log R)^{i'}R^{2+\lambda_0}$, with $A_{-j}$ those of
+$N_{\mathrm{sf}}^{-1}$. These have finite rank and do not depend on $(s,\mu)$, as the inverses agree (III.G Theorem 5.1
+(2)); so they do not depend on $k$, $\ell_I$ or $\ell_K$. For $f\in\dot C^\infty(\iota^+)$, the coefficient of order $j$
+is $\frac1{2\pi i}\oint(\lambda-\lambda_0)^{j-1}N_{\iota^+}(\lambda)^{-1}f\,d\lambda$ over a small circle in $\Omega$.
+By (1), with expansion coefficients and remainders continuous in $\lambda$ on the circle, this lies in the space of (1).
 The coefficients have finite rank and $\dot C^\infty(\iota^+)$ is dense, so their ranges lie there for all $f$.
 $\square$
 
@@ -461,14 +472,16 @@ are the same sets regrouped. The $n = 4$ splitting is not needed here.
 
 (G$'$2) *The index set at $K^+$.* Here $\mathcal E_K$ is the a priori index set of III.A Lemma 1.4, generated by the
 roots of III.F$'$ with real part $\le0$. Its only exponent with real part 0 is $(0,0)$, and its smallest positive
-exponents are $\lambda^\Upsilon_{\mathrm s0,2}-2\in(0,\frac z3]$ and $\lambda^\Upsilon_{\mathrm s1,2}-2\in(0,\frac14)$.
-It may carry logarithms where exponents differ by integers, for instance at 1, from the roots $-1$ of types s1 and v1
-and from $0+1$. The source's log-free $\mathcal E_K$ up to $R^3$ comes from his Proposition 9.9. Its $n = 4$
-counterpart, and the order the expansion must reach at $n = 4$, are the next part's.
+exponents are $\lambda^\Upsilon_{\mathrm s0,2}-2\in(0,\frac{z_\Upsilon}3]$ and
+$\lambda^\Upsilon_{\mathrm s1,2}-2\in(0,\frac14)$. It may carry logarithms where exponents differ by integers, for
+instance at 1, from the roots $-1$ of types s1 and v1 and from $0+1$. The source's log-free $\mathcal E_K$ up to $R^3$
+comes from his Proposition 9.9. Its $n = 4$ counterpart, and the order the expansion must reach at $n = 4$, are the next
+part's.
 
-(G$'$3) *The source's (9.22)* reads $v^2\tilde{\bar L}(0)h$ where (9.11) gives $\frac v2\tilde{\bar L}(0)h$. The
-conclusion $\mathcal A^{2-\epsilon}$ drawn there from $|h|\lesssim v^{1-\epsilon}$ is that of $\frac v2$, so it is a
-misprint. (1.2) has $\frac v2$.
+(G$'$3) *Withdrawn (D240).* D237 read the source's (9.22) as printing $v^2\tilde{\bar L}(0)h$ for
+$\frac v2\tilde{\bar L}(0)h$. The ninety-ninth verifier observed that the normalised text read here renders $\frac v2$
+and $v^2$ alike. The source's own conclusion, $\mathcal A^{2-\epsilon}$ from $|h|\lesssim v^{1-\epsilon}$, is that of
+$\frac v2$. So there is no evidence of a misprint, and none is claimed. (1.2) has $\frac v2$.
 
 (G$'$4) *The source's (9.17)*, $(v\partial_v-1-\bar S)h\in\mathcal A^{\mathcal E^{\mathrm{tot}}+1}$ without an order,
 holds up to order $2+(1-e_C)(1-v_C)\gamma_C$ ($\frac52+s_C$ at $n = 4$, (3.2)). Beyond that, the large eigenvalues of

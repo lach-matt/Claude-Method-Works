@@ -41,7 +41,7 @@ Re S-bar = 1 ((8.18a)).  Here, from the definitions (lin5.py's E^Ups and E^C, wi
      its distinct eigenvalues s vanishes (seven of them in five dimensions), so S-bar is diagonalisable with constant
      eigenvalues and its spectral projections are smooth; the proof is III.G' Lemma 1.1 (proof5/PART-III-G2-IOTA.md).
      Four-dimensional control: the same at n = 3.  Control: gam_Ups = gam_C (1 - v), where the two 1-form spectra meet
-     and S-bar has a Jordan block.
+     and S-bar has a Jordan block: the product alone is tested there, and does not vanish (D240).
 
 Deduced, not computed here: (8.4) on five-dimensional Tangherlini -- S_{E^Ups, E^C} - S-bar in rho C^oo -- as 10.18
 deduces (6.7), Tangherlini differing from Minkowski by O(mu rho^2) and c, c_Ups equal to Minkowski's for large r; and
@@ -275,7 +275,9 @@ def s4(control=0, verbose=False):
             P_ = sp.eye(M.shape[0])
             for e in ev:
                 P_ = P_ * (M - e * sp.eye(M.shape[0]))
-            ok = P_.applyfunc(sp.simplify) == sp.zeros(*M.shape) and len(ev) == 7
+            ok = P_.applyfunc(sp.simplify) == sp.zeros(*M.shape)
+            if not control:
+                ok = ok and len(ev) == 7
             chk(f"n + 1 = {n + 1} at {sorted((str(k), str(q)) for k, q in pt.items())}: {len(ev)} distinct eigenvalues, "
                 f"the product of S-bar - s over them {'vanishes' if ok else 'does not vanish'}", ok)
     return chk.ok

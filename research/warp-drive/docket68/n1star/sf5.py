@@ -37,7 +37,7 @@ symbols (the identities are pointwise in the fibre, and the S^3-operators are sp
       -2 v (v d_v - lam)(v d_v - 3/2 - S) + v^2 Lt(v d_v) on a general u(v) (III.G' (1.1)).  Control: v^(2-lam)
       N_sf(lam) v^lam fails.
   S10 Kernels supported at the light cone: by the transpose, N_sf(lam) delta^(j) = -2 (lam - j - 5/2 - S)
-      delta^(j+1) + Lt(lam - j - 1) delta^(j), j = 0..4, tested on a general polynomial (III.G' Lemma 3.2).
+      delta^(j+1) + Lt(lam - j - 1) delta^(j), j = 0..4, tested on a general polynomial (III.G' Lemma 4.3).
       Control: the top factor lam - j - 3/2 - S fails.
   S11 The turning point of Lemma 4.1 (d): with p = (v xi + 1)((v + 2) xi + 1) + q (z = 1, q = |eta|^2 conserved), at a
       critical point of v on {p = 0} (H_p v = d_xi p = 0), H_p^2 v = -4(v + 1)/(v(v + 2)), negative for v > 0, so every

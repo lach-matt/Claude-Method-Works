@@ -5358,3 +5358,15 @@ Re lam < 2, with Lemma 3.1 for every s and II.F Lemma 5.7 for a > -1), and nine 
 III.F''' and III.F'''' are proved; III.G is verified, its repairs to be read. sf5.py S11 (new) passes. Next: Part
 III.G''; verifier 99 on III.G' and these repairs.
 
+**D239 (2026-10-26): Part III.G'' written.** `proof5/PART-III-G3-GRAFT.md` writes out [Hin26] Definitions 9.8 and 9.10,
+Propositions 9.9 and 9.11 and Corollary 9.12 at n = 4. The window is l_K < 3: every iota+ order grafted exceeds 1, so
+no state at -3 and no companion of the physical states at -2 is needed. The roots in (-3, 0] are tabulated with their
+states, whose leading terms span the indicial kernels. The expansion at K+ is log-free. Grafting uses an exact identity
+for L_b near iota+. New obligation (C5) gamma_C v_C >= 1/2 for Part VI.
+
+**D240 (2026-10-26): verifier 99 seated.** The ninety-ninth verifier (Opus) read III.G' and the D238 repairs. One major
+finding (the finite-regularity order of (v d_v - 3/2 - S) h is l_I, not l_I + 1), two minor (gamma_Ups < 3/8 and the
+choices of eps and l_I; holomorphy of the coefficients by Mellin integrals) and seven nits, all seated; the D237
+misprint finding on the source's (9.22) withdrawn. The D238 repairs are correct: III.G is proved; III.G' is verified,
+its repairs to be read. Next: Part III.G'''; verifier 100 on III.G'' and these repairs.
+

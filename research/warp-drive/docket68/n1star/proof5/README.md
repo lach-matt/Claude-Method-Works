@@ -44,9 +44,10 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | **proved** (D238: the D235 repairs read, correct; two nits seated) |
 | III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | **proved** (D238: the D235 repairs read, correct) |
 | III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | **proved** (D238: the D235 repairs read, correct; two nits seated) |
-| III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 2, finite meromorphy | verified (D238; one major finding, one minor and four nits seated, to be read) |
-| III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | written (D237) |
-| III.C, III.G''-III.J | [Hin26] 5, 9 (from Definition 9.8)-12 | exterior stability; the rest of the spectral theory at the transition faces; decay | to do |
+| III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 2, finite meromorphy | **proved** (D240: the ninety-ninth verifier read the D238 repairs, correct) |
+| III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | verified (D240; one major finding, two minor and seven nits seated, to be read) |
+| III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | written (D239) |
+| III.C, III.G'''-III.J | [Hin26] 5, 9 (from Lemma 9.13)-12 | exterior stability; the rest of the spectral theory at the transition faces; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -740,7 +741,8 @@ is repaired by a factor $g(v)$, which makes the order the constant $b_{\mathrm{i
 non-increasing in the direction of propagation. One minor finding: injectivity stopped at $\mathrm{Re}\,\lambda<\frac32$
 by the method only. Lemma 3.1 now holds for every $s\notin\frac12+\mathbb Z$ and II.F Lemma 5.7 for $a>-1$, so the
 operator is invertible for $\mathrm{Re}\,\lambda<2$. Four nits are seated, among them the uniqueness of the turning
-point by $H_p^2v<0$ (`sf5.py` S11, new). The repairs are to be read.
+point by $H_p^2v<0$ (`sf5.py` S11, new). The repairs are to be read. Proved (D240): the ninety-ninth verifier read the
+D238 repairs (A1-A6, B1-B3) and found them correct and complete; nothing in III.G still relies on the bound $\frac32$.
 
 ## Part III.G'
 
@@ -757,5 +759,24 @@ polyhomogeneity at $K^+$ and the partial expansion at $\mathscr I^+$ up to $\fra
 source's analytic continuation, which excludes $v^\lambda$-terms and their logarithms, is carried out through a Mellin
 recursion. The finite-regularity map (3.3) is finite-meromorphic. Lemmas 4.2-4.3: the boundary spectrum. The source's
 Remark 9.7 becomes a lemma: poles of $N_{\mathrm{sf}}^{-1}$ invisible on $\iota^+$ lie in
-$\frac52+\mathrm{spec}\,\bar S+\mathbb N_0$ (`sf5.py` S9-S10, new). Findings (G$'$1)-(G$'$8); the source's (9.22)
-misprints $v^2$ for $\frac v2$, and his (9.17) holds to a finite order. Written (D237).
+$\frac52+\mathrm{spec}\,\bar S+\mathbb N_0$ (`sf5.py` S9-S10, new). Findings (G$'$1)-(G$'$8); the source's (9.17) holds
+to a finite order. Written (D237). Verified (D240): read in full by the ninety-ninth verifier. One major finding: the
+finite-regularity order of $(v\partial_v-\frac32-\bar S)h$ is $\ell_I$, not $\ell_I+1$, as the source prints. Two minor
+findings: the smallness $\gamma_\Upsilon<\frac38$ and the non-coincidence choices were not secured; and the holomorphy
+in $\lambda$ of the expansion coefficients, now by fixed-circle Mellin integrals. Seven nits are seated; one withdraws
+the finding of a misprint in the source's (9.22), which the normalised text cannot show. The repairs are to be read.
+
+## Part III.G''
+
+`PART-III-G3-GRAFT.md`. [Hin26] Definitions 9.8, 9.10, Proposition 9.9, Proposition 9.11 and Corollary 9.12 at $n = 4$.
+*The window.* Every $\iota^+$-order grafted at $n = 4$ exceeds 1, so the expansion at $R = 0$ is needed only below
+$R^3$: $\ell_K<\ell_K^{\max} = \min(3,2+2\gamma_Cv_C)$. That needs no state at $-3$ and no companion of the physical
+states at $-2$. Table 1.1 lists the roots in $(-3,0]$ with their states (III.D$''$, III.D$'''$, III.F$''''$), the
+companions constructed and those used ($k_\mu\ge2+\mu$). Lemma 1.2: their leading terms span the indicial kernels,
+which closes III.D$'''$'s deferred item for the window. Lemmas 2.1-2.6: towers, the Minkowski and Myers-Perry formal
+solutions, their errors (the source's (9.28)-(9.31), (9.37)). Theorem 3.1 (Proposition 9.9): the expansion of
+$N_{\iota^+}(\lambda)u = f$ at $R = 0$ is a sum of formal solutions, log-free, by induction on the least exponent;
+Corollary 3.2 is the $K^+$ index set of III.G$'$ made precise. Theorem 4.2 (Proposition 9.11): grafting, with
+$\bar L$ as the $\iota^+$-normal operator of $L_b$ by the exact identity (4.1) and $\chi_\iota$ a function of $t_*$;
+Corollary 4.3 (Corollary 9.12). (C5) $\gamma_Cv_C\ge\frac12$ is an obligation for Part VI. Findings
+(G$''$1)-(G$''$7). Written (D239).
