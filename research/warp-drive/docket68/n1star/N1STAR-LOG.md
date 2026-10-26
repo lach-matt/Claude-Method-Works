@@ -5601,8 +5601,8 @@ lemma) and seven nits are seated. The D271 repairs are correct, so III.I''''''''
 gap in III.I''''''''''': the column terms were known at tf only conormally; a new lemma shows them polyhomogeneous at
 b_0, and their exponents join the parameter exponents.
 
-**D275 (2026-10-26): verifier 117 seated; III.I''''''''''' verified, III.I'''''''''' proved.** The hundred-and-seventeenth
-verifier found one major finding in Part III.I''''''''''': the zero-energy data of the spectral cascade are found for
+**D275 (2026-10-26): verifier 117 seated; III.I''''''''''' verified, III.I'''''''''' proved.** The
+hundred-and-seventeenth verifier found one major finding in Part III.I''''''''''': the zero-energy data of the spectral cascade are found for
 each sign of sigma, and the boost data at the first Taylor level can differ between the signs, which the sorting of the
 pieces at K+ ignored. A matching step on the time derivative, as in Part III.I'''''' and the source's own caveat, shows
 the difference vanishes. Three minor findings (Proposition 5.1's range at the last level, a degree, and the transfer of

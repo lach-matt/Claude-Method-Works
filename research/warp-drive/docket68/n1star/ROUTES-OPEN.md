@@ -3557,8 +3557,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   D274 repairs (M1, m1-m3, n1-n7 of verifier 116) all made and correct, and the new generator 2 + pi_1 E_col of Lambda
   breaks nothing, so III.I'''''''''' is proved.
 - M1: the zero-energy data at levels 1-3 are found for each sign of sigma, and S_1^+ != S_1^- in general (the
-  sign-dependent zf-coefficient of III.G'''' Proposition 4.4's remainder); the odd part of sigma h^aug(S_1) is not locally
-  integrable. Repaired by a matching step (as in III.I'''''' Step 5 and the source's p. 287 caveat): on d_t v the odd
+    sign-dependent zf-coefficient of III.G'''' Proposition 4.4's remainder); the odd part of sigma h^aug(S_1) is not
+  locally integrable. Repaired by a matching step (as in III.I'''''' Step 5 and the source's p. 287 caveat): on d_t v the odd
   part is i sgn(sigma) h(S_o) + o(1), whose inverse transform ~ c t^{-1} as t -> -inf, while d_t v is rapidly
   decaying there; so S_o = 0. The other sign-dependent pieces are of integer degree without log and give no tail.
 - m1: Step 4 applies Proposition 5.1 with alpha_tau = min(tau, 2 - delta), loops while tau <= 2 + l_3 + eps, and ends
