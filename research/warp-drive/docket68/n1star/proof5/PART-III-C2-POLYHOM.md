@@ -1,10 +1,11 @@
 # Part III.C$'$. The exterior solution and its partial polyhomogeneity, n = 4 ([Hin26] sections 5.4-5.5)
 
-*Status.* Written (D288); verified (D291: verifier 125's findings seated, to be read). This part proves, at spatial
-dimension $n = 4$, [Hin26] Lemma 5.16, the estimate (5.53) and Theorem 5.17 as consequences of Part IV, and Theorem 5.21
-(pp. 99-108). It settles obligation (C7) of III.C: at $n = 4$ the radiation fields need not be subtracted. Theorem 5.17
-and (5.53) rest on [Hin23a] section 3 at $n = 4$, which Part IV writes out; they are stated here as that part's output
-(finding (C$'$1)). Sections 5.6-5.7 of the source (Theorem 5.23, Proposition 5.25) are Part III.C$''$.
+*Status.* Written (D288); verified (D291: verifier 125's findings seated); proved (D292: verifier 126 read the repairs).
+This part proves, at spatial dimension $n = 4$, [Hin26] Lemma 5.16, the estimate (5.53) and Theorem 5.17 as consequences
+of Part IV, and Theorem 5.21 (pp. 99-108). It settles obligation (C7) of III.C: at $n = 4$ the radiation fields need not
+be subtracted. Theorem 5.17 and (5.53) rest on [Hin23a] section 3 at $n = 4$, which Part IV writes out; they are stated
+here as that part's output (finding (C$'$1)). Sections 5.6-5.7 of the source (Theorem 5.23, Proposition 5.25) are Part
+III.C$''$.
 
 *What n = 4 changes.* (1) *Weights.* The radiation fields decay like $|x|^{-3/2}$ (III.C (a)), so every weight at
 $\mathscr I^+$ is shifted by $\frac12$: the source's (5.49),

@@ -69,9 +69,9 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | **proved** (D287) |
 | III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | **proved** (D287) |
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
-| III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | verified (D290; the weights open as (J''4)) |
-| III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | verified (D291) |
-| III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | verified (D291) |
+| III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | verified (D292; the weights open as (J''4)) |
+| III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
+| III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -1167,12 +1167,11 @@ fixed maps). Lemma 2.1 lists the elementary families: the forward solutions, tam
 coefficients, by II.A's tame product bounds; and the model inverses at every finite order with a loss independent of the
 order. II.G' Corollary 4.5's loss ceil(k delta) + ell is bounded through strong trapping admissibility at b_0. Section 3
 inventories every construction of III.I-III.I(14) and III.J'. Theorems 4.1-4.2 give the tame forms of III.I(14) Theorem
-3.1 and III.J' Theorem 2.1, and Proposition 4.3 the tame forward map. It discharges (J'2) at b_0; (J'3) stays open.
-Written (D286).
-Verified (D290): verifier 124's findings seated. The spaces are taken at a fixed loss in the weights; the smallness is
-in one fixed norm (Lemma 2.3), with tame products in the partially polyhomogeneous spaces (Lemma 2.4). Open: (J''4), one
-pair of Banach scales, since the inverse is shown only to lose a fixed fraction of the weight margin while the forward
-map gains nothing.
+3.1 and III.J' Theorem 2.1, and Proposition 4.3 the tame forward map. It discharges (J'2) at b_0 in the b-regularity;
+the weights are (J''4), and (J'3) stays open. Written (D286). Verified (D290): verifier 124's findings seated. The
+spaces are taken at a fixed loss in the weights; the smallness is in one fixed norm (Lemma 2.3), with tame products in
+the partially polyhomogeneous spaces (Lemma 2.4). Open: (J''4), one pair of Banach scales, since the inverse is shown
+only to map a source at a loss eps' to a solution at the loss eps >= eps' while the forward map gains nothing.
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

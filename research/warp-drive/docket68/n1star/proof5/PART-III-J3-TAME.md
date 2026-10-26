@@ -1,6 +1,7 @@
 # Part III.J$''$. Tame estimates, n = 4 ([Hin26] Remark 11.13; the tame forms of Corollary 11.66 and Theorem 12.8)
 
-*Status.* Written (D286); verified (D290: verifier 124's findings seated, to be read). This part proves, at spatial
+*Status.* Written (D286); verified (D290: verifier 124's findings seated; D292: verifier 126 read the repairs, three
+minor findings seated, to be read). This part proves, at spatial
 dimension $n = 4$ and at the black hole parameters $b_0$, the tame estimates that [Hin26] asserts in Remark 11.13 (p.
 226), states for Corollary 11.66 (pp. 294-295) and Theorem 12.8 (p. 312) without proof, and uses in section 13 (pp.
 321-322, Step 3 (2)-(3)): the tame form of III.I$''''''''''''''$ Theorem 3.1 (Theorem 4.1) and of III.J$'$ Theorem 2.1
@@ -36,12 +37,16 @@ of the remainder; finite-dimensional spaces ($E^k = E$); and direct sums. Severa
 their order-$k$ spaces are Fréchet, not Banach. Such a space is taken here at a fixed loss: $E^k_\epsilon$ is the Banach
 space with every order $w-$ replaced by $w-\epsilon$, and $E^\infty_\epsilon := \bigcap_kE^k_\epsilon$. A statement of
 III.I-III.I$''''''''''''''$ or III.J$'$ from a "$w-$" space to a "$w-$" space is a continuous linear map between Fréchet
-spaces (closed graph theorem), so for every loss $\epsilon$ of the output there is a loss $\epsilon'\in(0,\epsilon]$ of
-the input at which it is bounded; its proof fixes $\epsilon'$ (each step chooses its margins from the loss its output is
-to have, the steps being finitely many; III.J$'$ Lemma 1.1 gives the $\iota^+$-order $3+\epsilon_+-5\epsilon$ from its
-level-2 margin $\epsilon$). Below, $\epsilon\in(0,\epsilon_1]$ is fixed, every output space is taken at the loss
-$\epsilon$ and every input space at the loss $\epsilon'$ that the statement assigns; whether $\epsilon' = \epsilon$ can
-be taken is (J$''$4).
+spaces (closed graph theorem), so for every loss $\epsilon$ of the output and every order $k$ there is a loss
+$\epsilon'(\epsilon,k)\in(0,\epsilon]$ of the input at which it is bounded. That $\epsilon'$ can be taken independent of
+$k$ is read off the proofs, each step choosing its margins from the loss its output is to have: in the rows read for it,
+III.I$''$ Proposition 5.1, III.I$''''''$, III.I$'''''''''''$'s level-3 loop (the margin
+$\epsilon_{\mathrm{ind}}-\epsilon$), III.I$''''''''''''''$'s levels $\beta_k$, III.J$'$ Lemma 1.1 ($\eta_2 :=
+\epsilon_+-3\epsilon$, which gives the $\iota^+$-order $3+\epsilon_+-5\epsilon$) and II.G$'$ Corollary 4.5
+($\beta_{\mathrm{scf}} := \beta'_I+\epsilon$), no margin depends on $k$; for the other rows it is part of (J$''$4), and
+it becomes moot once $\epsilon' = \epsilon$ is shown. Below, $\epsilon\in(0,\epsilon_1]$ is fixed, every output space is
+taken at the loss $\epsilon$ and every input space at the loss $\epsilon'$ that the statement assigns; whether
+$\epsilon' = \epsilon$ can be taken is (J$''$4).
 
 **Definition 1.1 (tame families).** Let $E$, $G$ be graded spaces, $d_0,d\in\mathbb N$, $\delta_0>0$, and $\mathcal B :=
 \{\beta:\|\beta\|_{d_0}<\delta_0\}$. A family $(T_\beta)_{\beta\in\mathcal B}$ of linear maps $E^\infty\to G^\infty$ is
@@ -198,7 +203,8 @@ losses (Lemma 1.2 (g)).
 III.I-III.I$''''''''''''''$ and III.J$'$ is smallness of $\|h\|_{\mathcal X^{d_*}}+|S|+|\vec p|+\|q\|_{\mathcal
 Q^{d_*}}$, and every statement there that a finite-dimensional map is close to $\pm\mathrm{id}$, or that a family is
 continuous at the background 0, holds in the topology of this norm. Hence Lemma 2.1 and section 3 hold with $d_0 :=
-d_*+d$, $d$ their largest loss, and one $d_0$ serves every order $k$.
+d_*+D$, $D$ the total loss of the compositions of section 3 (the $d$ of Theorem 4.1), and one $d_0$ serves every order
+$k$.
 
 *Proof.* III.I Theorem 5.3 asks $\|h\|_{\mathcal X^{d_T}}<\epsilon_0$, $d_T$ fixed, and II.F$'$ Theorem 1.1 asks
 $\|P-P_0\|_{(0;d),(2\ell_I,\ell_+,\ell_K)}<\epsilon_0$, which Lemma 2.1 (a) bounds by $C\|\beta\|_{d+d'+5}$. III.I$''''$
@@ -207,16 +213,27 @@ k_1+d_T+7$, whence $S^{(-1)}_{h,S}$ is close to the identity (its proof). III.I$
 $\mathcal X^d$, $d$ fixed, for its Lemmas 2.5, 3.1 (c), 4.1, 4.3, 4.5 and Corollary 4.6; III.I$''''''''$ takes the same
 convention for Proposition 4.1 and $T_{h,\vec p}$, and III.I$'''''''''''$ Theorem 4.1 takes the continuity of $T_{h,\vec
 p}$ from III.I$''''''''$ Proposition 4.1 (ii). III.I$''''''''''''''$ fixes "$q$ small" as small in one fixed seminorm of
-large order, so that $h+h_{\mathrm{rem}}(q)$ is small in III.I$'''''''$'s $\mathcal X^d$; its Steps 3 and 4' take
-$A_k\to0$ and the derivative of $C^{\mathrm{rot}}$ at 0 from the continuity statements just named. None of these orders
-depends on $k$, and $d_*$ is their maximum. For III.J$'$, $\|\Phi(U)\|_{d_*}\le C\|U\|_{\mathcal D^{d_*+d}}$ (III.J
-Theorem 2.4). $\square$
+large order, so that
+$h+h_{\mathrm{rem}}(q)$ is small in III.I$''''''''$'s $\mathcal X^d$ (equivalently III.I$'''''''$'s, III.I$''''''''$
+taking III.I$'''''''$'s convention). Its Steps 3 and 4' take $A_k\to0$ and the derivative of $C^{\mathrm{rot}}$ at 0
+also from III.I$''''''''$ Lemma 3.3, III.I$'''''''''$ Lemma 2.6, III.I$'''''''''''$ Lemma 3.3, III.I$'''''''''''''$
+Lemma 2.3 and its own Lemmas 2.3-2.4. Of these, III.I$'''''''''$ Lemma 2.6 is continuous with $h\in\mathcal X^k$,
+$k\ge5$, under III.I$''''''''$'s convention for "small"; III.I$''''''''''''''$ Lemmas 2.3-2.4 bound $R_q$ and $\Delta_q$
+by $C\|q\|$ in the one fixed seminorm of $q$; and III.I$''''''''$ Lemma 3.3, III.I$'''''''''''$ Lemma 3.3 and
+III.I$'''''''''''''$ Lemma 2.3 (by III.I$'''''''''''$ Lemma 3.3's proof) state $(h_j,\vec p_j)\to(0,0)$ without naming a
+topology, but their proofs give $S^{h_j,\vec p_j}_\nu(G_j)-S^{0,0}_\nu(G) = S^{0,0}_\nu(R_j)$, $R_j :=
+G_j-G-(L_j-L_{b_0})u_j$, with $S^{0,0}_\nu$ bounded by one fixed seminorm (Lemma 2.1 (c)), so they need $R_j\to0$ only
+in that seminorm: $G_j\to G$ there, and $(L_j-L_{b_0})u_j\to0$ there, which holds for $h_j\to0$ in $\mathcal X^{d'}$,
+$d'$ fixed (Lemma 2.1 (b) at that order), with $u_j$ bounded at a fixed order. Step 4' needs $R\to0$ only at one loss
+$\epsilon$ and one order. None of these orders depends on $k$, and $d_*$ is their maximum. For III.J$'$,
+$\|\Phi(U)\|_{d_*}\le C\|U\|_{\mathcal D^{d_*+d}}$ (III.J Theorem 2.4). $\square$
 
 **Lemma 2.4 (tame products in partially polyhomogeneous spaces).** Let $E$, $E'$ be partially polyhomogeneous spaces of
 section 1 at one or more faces, at the loss $\epsilon$, and $G$ the space that the membership statements (III.C Lemma
 2.1) give to products. There is $d_1$ with $\|uv\|_{G^k}\le
 C_k(\|u\|_{E^k}\|v\|_{E'^{d_1}}+\|u\|_{E^{d_1}}\|v\|_{E'^k})$; and if the exponents of $E$ have positive real parts, as
-those of the background do, then for a smooth $\Theta$ with $\Theta(0) = 0$ and $\|u\|_{E^{d_1}}\le1$,
+those of the background do, then for a smooth $\Theta$, depending also on the point (through $g_0$, $g_0^{-1}$ and their
+derivatives), with $\Theta(\cdot,0) = 0$ and $\|u\|_{E^{d_1}}\le1$,
 $\|\Theta(u)\|_{G^k}\le C_k\|u\|_{E^k}$, $G$ the space of $\Theta(u)$ by the same statements.
 
 *Proof.* The coefficient of $uv$ at an exponent is a finite sum of products of coefficients of $u$ and of $v$, functions
@@ -342,13 +359,17 @@ finite-order forms (Lemma 2.1 (f)-(g)) rest on the finite-order statements III.G
 intersections over a loss. At a fixed loss the solution maps are shown to take the source at a loss $\epsilon'$ to the
 solution at the loss $\epsilon\ge\epsilon'$ (section 1; III.J$'$ Lemma 1.1 records $5\epsilon$ at $\iota^+$ from its
 level-2 margin $\epsilon$). The forward map takes $\mathcal D_\epsilon$ to $\mathcal F_\epsilon$ and gains nothing in
-the weights (Proposition 4.3), so II.G Theorem 2.1, which asks one pair of Banach scales, needs $\epsilon' = \epsilon$:
-the inverse without loss in the weights. The source states exactly this: its Theorem 12.8 (p. 312) takes $f$ at the
+the weights (Proposition 4.3), so II.G Theorem 2.1, which asks one pair of Banach scales, needs
+$\epsilon' = \epsilon$ for one $\epsilon$ and every $k$ (II.G (2.1) admits no loss varying with $k$): the inverse
+without loss in the weights. The source states exactly this: its Theorem 12.8 (p. 312) takes $f$ at the
 fixed weights $(4+\epsilon_I,5+\epsilon_+,4+\epsilon_K)$, and its proof takes $h'$ from Corollary 11.66 at
 $(3+\epsilon_I,3+\epsilon_+,4+\epsilon_K)$. At $n = 4$ this is open. The route proposed for the next part is an
 improvement to exact weights after the fact: at $\iota^+$ through $N_{\iota^+}$ on a line free of
 $\mathrm{spec}_{\iota^+}$ (III.G$'$ Theorem 3.1 (2)) with the gap that (G$^+$) leaves about $3+\epsilon_+$; at $\mathscr
-I^+$ through III.A Lemma 1.2 at weights that are not exponents; at $K^+$ through the low-energy estimates.
+I^+$ through III.A Lemma 1.2 at weights that are not exponents; at $K^+$ through the low-energy estimates. Before the
+$K^+$ step each minus at $K^+$ ($\alpha-$, $(\alpha-2)-$, $(\alpha-1)-$, and the $(3+\eta_2-2\epsilon-d_\rho)$ of
+$Y_{\rho,\mathrm{rem}}$) is to be classified as a margin or a logarithm at the weight, and for a logarithm the shifted
+weight named to which the source's fixed $4+\epsilon_K$ corresponds (verifier 126).
 
 (J$''$5) *Smallness in one norm.* Every "small" of III.I-III.I$''''''''''''''$ is smallness in one fixed norm (Lemma
 2.3); the orders $d_k$ of III.J$'$ Theorem 2.1 are not needed.

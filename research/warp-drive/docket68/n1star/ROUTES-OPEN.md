@@ -3864,3 +3864,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (C''6) (m6); the cancellation from P(g_0, g_0) = 0 in Theorem 3.1 (2) (m7); (3) through (1)'s proof (m8). Nits n1-n17
   seated.
 - Next: verifier 126 reads the D290 and D291 repairs; then the exact-weight part for (J''4).
+
+### 4.216 Verifier 126 seated (D292): III.C' and III.C'' proved; III.J'' minors
+
+- Verifier 126 read the D290 repairs (III.J'') and the D291 repairs (III.C', III.C''): every finding of verifiers 124
+  and 125 resolved; (J''4) stated accurately and open; new: 0 major, 3 minor, 8 nits, seated. III.C' and III.C'' are
+  proved; III.J'' stays verified, its three minor repairs to be read.
+- m1: the closed graph theorem gives eps'(eps, k); section 1 now says so, lists the rows whose margins were read and
+  are independent of k, and puts the rest into (J''4), where eps' = eps makes it moot.
+- m2: Lemma 2.3 now names the remaining continuity inputs of III.I(14) Steps 3 and 4' and their topologies; the three
+  lemmas that state (h_j, p_j) -> (0, 0) without a topology need it only in one fixed seminorm, since the coefficient
+  functional they converge through is bounded by one (Lemma 2.1 (c)).
+- m3: before the K+ step of (J''4), each minus at K+ is to be classified as a margin or a logarithm at the weight.
+- Nits: d_0 := d_* + D; Theta may depend on the point; Ric(g_0) = 0 in the cancellation of III.C'' (two places); Remark
+  2.2 (2) and the cut-off gauge cited in III.C'' Theorem 3.1 (3); README aligned with J3's qualifiers; 'for one eps' in
+  (J''4); the K+ classification recorded in (J''4).
+- Next: Part III.J''' (exact weights), from the five-reader survey of where the losses enter (d292).

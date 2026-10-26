@@ -1,9 +1,10 @@
 # Part III.C$''$. Boosted backgrounds and gauged Cauchy data, n = 4 ([Hin26] sections 5.6-5.7)
 
-*Status.* Written (D289); verified (D291: verifier 125's findings seated, to be read). This part proves, at spatial
-dimension $n = 4$, [Hin26] Theorem 5.23 with the cut-off gauge (5.76), Remark 5.24, Proposition 5.25, and the statements
-of section 5.7.1, Remark 5.26 and Example 5.27 (pp. 108-113). It settles finding (C4) of III.C. Like III.C$'$, it rests
-on Part IV for the exterior solution (III.C$'$ Theorem 2.1), here in the cut-off gauge (finding (C$''$2)).
+*Status.* Written (D289); verified (D291: verifier 125's findings seated); proved (D292: verifier 126 read the repairs,
+two nits seated). This part proves, at spatial dimension $n = 4$, [Hin26] Theorem 5.23 with the cut-off gauge (5.76),
+Remark 5.24, Proposition 5.25, and the statements of section 5.7.1, Remark 5.26 and Example 5.27 (pp. 108-113). It
+settles finding (C4) of III.C. Like III.C$'$, it rests on Part IV for the exterior solution (III.C$'$ Theorem 2.1), here
+in the cut-off gauge (finding (C$''$2)).
 
 *What n = 4 changes.* (1) *The boosts are genuine on the whole exterior domain.* III.C (C4) found that where
 $\chi_{\mathrm{IVP}}<1$ near $I_0$ the cut-off boost changes $\eta$ at $O(1)$. III.C$'$ Lemma 1.1 takes the past slab of
@@ -73,7 +74,7 @@ homogeneous of degree $-1$, and $\delta^*$ is of degree $-1$ in $|x|$), times $1
 $\{|t_{\mathrm{IVP}}|<r/4\}$, a set on which $\rho_I$ is bounded below. So the difference lies in
 $\rho_0^2\rho_I^2C^\infty\mathrm{Diff}^1_{\mathrm b}$, the error class of III.C (4.4), and the leading part at $\mathscr
 I^+$ is unchanged ($\chi_0 = 1$ there). The proofs of Proposition 5.2 and Corollary 5.3 use only (4.4) and
-$P^{\chi_0}(g_0,g_0) = 0$, which holds as $G_{g_0}(g_0-g_0) = 0$. $\square$
+$P^{\chi_0}(g_0,g_0) = 0$, which holds as $\mathrm{Ric}(g_0) = 0$ and $G_{g_0}(g_0-g_0) = 0$. $\square$
 
 ## 3. Stability with boosted background and data ([Hin26] Theorem 5.23 at n = 4)
 
@@ -132,7 +133,8 @@ L_{\partial_{t_{\mathrm{IVP}}}}$ and $r$ are a b-vector field and a weight there
 $S(0) = S_0$, $\dot S = S'(0)$, solves
 $$L^{\chi_0}_{\phi_{S_0}^*g_{b_0}+h_{S_0},\phi_{S_0}^*g_{b_0}}\dot h =
 -\frac{d}{ds}P^{\chi_0}\big(\phi_{S(s)}^*g_{b_0}+h_{S_0},\phi_{S(s)}^*g_{b_0}\big)\Big|_{s = 0},$$
-with the differentiated data. As $P^{\chi_0}(g_0,g_0) = 0$ for every $g_0$ (Lemma 2.1's proof), with $g_0 :=
+with the differentiated data. As $P^{\chi_0}(g_0,g_0) = 0$ for every Ricci-flat $g_0$ (Lemma 2.1's proof), in particular
+along $\phi_{S(s)}^*g_{b_0}$ (Lemma 1.1), with $g_0 :=
 \phi_{S_0}^*g_{b_0}$ and $\dot g_0 := \frac{d}{ds}\phi_{S(s)}^*g_{b_0}|_{s = 0}$ the right side is
 $-\big[(D_1+D_2)P^{\chi_0}(g_0+h_{S_0},g_0)-(D_1+D_2)P^{\chi_0}(g_0,g_0)\big]\dot g_0$, which carries a factor of
 $h_{S_0}$ (III.C Lemma 4.3); without this cancellation the index set at $I_0$ would be $(4,0)$, which need not lie in
@@ -147,7 +149,8 @@ likewise, with the losses of footnote 59.
 (3) By (1), $\phi_S^*g_{b_0}+h_S = \phi_S^*(g_{b_0}+h)$ near $\Sigma_{\mathrm{IVP},r_1}$, and by (1)'s proof its
 Ricci tensor and $\Upsilon^0$ vanish on $\mathcal U\supset\Sigma_{\mathrm{IVP},r_1}$; so its data at
 $\Sigma_{\mathrm{IVP},r_1}$ satisfy the constraints and $\Upsilon^{\chi_0E_\Upsilon} = \Upsilon^0 = 0$ there ($\chi_0 =
-0$ near $\Sigma_{\mathrm{IVP},r_1}$). III.C$'$ Remark 2.2 (1) (the second Bianchi identity), applied to (3.3), gives the
+0$ near $\Sigma_{\mathrm{IVP},r_1}$). III.C$'$ Remark 2.2 (1) (the second Bianchi identity), with Remark 2.2 (2) for the
+background $\phi_S^*g_{b_0}$ and the parenthetical of (1)'s proof for the cut-off gauge, applied to (3.3), gives the
 conclusions on $\Omega_{\mathrm{ext},r_1}$. $\square$
 
 **Remark 3.2 ([Hin26] Remark 5.24 at n = 4).** If $h_0 = h_1 = 0$, then $h_S = 0$ by uniqueness, and the metric is

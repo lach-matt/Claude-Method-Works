@@ -5732,3 +5732,10 @@ same gap is recorded in the source. Eight minor findings: a commutator bound too
 uses that the leading part commutes), the last integration round, two misprints (one in the source), a corrupted
 formula, a sign in the time function, a boost size that depended on the radius (fixed by doubling the radius), and two
 steps of the boost theorem's proof made explicit. Next: verifier 126 on the repairs of D290 and D291.
+
+**D292 (2026-10-26): verifier 126 seated; the exterior parts III.C' and III.C'' are proved.** The verifier read the
+repairs to the tame estimates and to the two exterior parts and found every earlier finding resolved, the open problem
+of the weights stated accurately, and no new major finding. Three minor findings on the tame estimates are seated: the
+loss of the input may a priori depend on the order, which is now said and put into the open item; the last continuity
+inputs are traced to one fixed norm; and the decay losses at the black-hole face must be sorted into margins and
+logarithms before the next part treats them. Next: the exact-weight part.
