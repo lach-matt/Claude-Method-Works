@@ -3038,3 +3038,21 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Next: Part III.C ([Hin26] section 5 at n = 4) and III.G''' ([Hin26] Lemma 9.13 on); a verifier on them and these
   repairs.
 
+### 4.165 Part III.C written: [Hin26] sections 5.1-5.3 at n = 4 (D242)
+
+- Proved, at n = 4: the exterior region's corner coordinates (rho_0, rho_I, omega), global near infinity, with d_t* =
+  rho_0 (X_0 - X_I) exactly; Definitions 5.2-5.4 and 5.13; Remark 5.5 where phi_S is the boost; Proposition 5.11 and
+  (5.41a); Proposition 5.14; Corollary 5.15.
+- The structure: L_(g,g0) == -rho_0^2 rho_I (X_I - 3/2 - A-bar)(X_0 - X_I) modulo (rho_0^2 rho_I^2 C^oo + H^(k-2, (E_0 +
+  2, l_0 + 2), (E^tot, l_I))) Diff^2_b, A-bar constant and lower triangular (S-bar in the splitting, scri5.py C1). The
+  perturbation's entries, the source's A^h - A_0 and B^h, are half an order lower: 10.38 (a)'s scaling argument proved.
+- Index sets at I+ start at 3/2. One condition added, E^tot + (E^tot - 1) in E^C, which needs gamma_Ups < 1/4 (Part VI
+  obligation, with III.G''s bound: gamma_Ups < min(s_C/2, 1/4)). pi_11 h has no radiation field; F_I,11 = 1 + (E^C u
+  (3/2 + (1 - e_Ups) gamma_Ups, 0)): 10.38 (c)'s Coulombic coupling proved for the exterior.
+- Findings (C1)-(C6): the simpler structure; the added condition; no radiation field in pi_11; Remark 5.5 holds where
+  the cut-off boost is the boost (O(1) change elsewhere near I_0, the source's chi_0 in section 5.6); Corollary 5.15 with
+  the perturbation measured from g_0; the product lemma.
+- New instrument ext5.py E1-E5: 5/5 pass, 6/6 mutants caught.
+- Next: Part III.G''' ([Hin26] Lemma 9.13 on), then III.C' ([Hin26] 5.4-5.7, with Part IV's exterior estimates);
+  verifier 101 on III.C and the D241 repairs.
+

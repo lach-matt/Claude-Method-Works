@@ -5376,3 +5376,10 @@ window is conditional on the least grafted order exceeding 1 + max(eps_K, eps_in
 grafts at lam = 1; Corollary 4.3's hypothesis) and seven nits, all seated. The D240 repairs are correct, one nit seated:
 III.G' is proved; III.G'' is verified, its repairs to be read. Next: Parts III.C and III.G'''.
 
+**D242 (2026-10-26): Part III.C written.** [Hin26] sections 5.1-5.3 at n = 4: the exterior region's corner
+coordinates, the perturbation classes with index sets from 3/2 at null infinity, the structure of the linearised
+operator there (constant lower-triangular A-bar; the perturbation's part half an order lower, so the source's A^h - A_0
+and B^h are errors at n = 4), and the forward mapping with F_I,11 = 1 + (E^C u (3/2 + (1 - e_Ups) gamma_Ups, 0)). One
+index condition and gamma_Ups < 1/4 added. New instrument ext5.py E1-E5 (5/5; mutants 6/6). Next: III.G'''; verifier
+101.
+

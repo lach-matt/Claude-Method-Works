@@ -47,7 +47,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 2, finite meromorphy | **proved** (D240: the ninety-ninth verifier read the D238 repairs, correct) |
 | III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | **proved** (D241: the hundredth verifier read the D240 repairs, correct; one nit seated) |
 | III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | verified (D241; one major finding, two minor and seven nits seated, to be read) |
-| III.C, III.G'''-III.J | [Hin26] 5, 9 (from Lemma 9.13)-12 | exterior stability; the rest of the spectral theory at the transition faces; decay | to do |
+| III.C | [Hin26] 5.1-5.3 | metric perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an order lower; forward mapping | written (D242) |
+| III.C', III.G'''-III.J | [Hin26] 5.4-5.7, 9 (from Lemma 9.13)-12 | exterior stability and partial polyhomogeneity; the rest of the spectral theory at the transition faces; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -786,3 +787,21 @@ as the $\iota^+$-normal operator of $2L_b$ by the exact identity (4.1) and $\chi
 that of $2\bar L$, so (4.4) failed by a factor 2, repaired by $u_+ := N_{\iota^+}(\lambda)^{-1}(2f_+)$. Two minor: the
 window is conditional on the least grafted order, and Corollary 4.3's hypothesis is now a finite quasi-homogeneous sum.
 Seven nits are seated. The repairs are to be read.
+
+## Part III.C
+
+`PART-III-C-EXTERIOR.md`. [Hin26] Definitions 5.1-5.4 and 5.13, Remark 5.5, Proposition 5.11 with (5.40)-(5.41a),
+Proposition 5.14 and Corollary 5.15 at $n = 4$. Lemma 1.1: on the exterior region near infinity, $(\rho_0,\rho_I,\omega)$
+are global coordinates, and $\partial_{t_*} = \rho_0(X_0-X_I)$, $\rho\partial_\rho = X_I+8\mu_0\rho_0^2\rho_I(X_0-X_I)$
+exactly. Lemma 2.1: products of partially polyhomogeneous b-Sobolev functions. Definition 3.1: the index sets at
+$\mathscr I^+$ start at $\frac32$, with the added condition $\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1)
+\subset\mathcal E^C_I$ (needing $\gamma_\Upsilon<\frac14$); $\pi_{11}h$ carries no radiation field. Lemma 4.1: from III.F
+Lemma 2.1, $L_b = -\rho_0^2\rho_I(X_I-\frac32-\bar S)(X_0-X_I)$ modulo $\rho_0^2\rho_I^2\mathrm{Diff}^2_{\mathrm b}$.
+Lemma 4.2: $\bar S$ in the splitting is a constant lower-triangular matrix (Schur's lemma, `scri5.py` C1). Proposition
+4.4: the perturbation's part of the operator has coefficients of $\mathscr I^+$-index $\mathcal E^{\mathrm{tot}}_I$,
+half an order below the leading part, so the source's $A^h-A_0$ and $B^h$ are error terms at $n = 4$. Proposition 5.2
+and Corollary 5.3: the forward mapping into $\langle\mathcal E^C_I+1\rangle'$, with $\mathcal F_{I,11} = 1+(\mathcal
+E^C_I\cup(\frac32+(1-e_\Upsilon)\gamma_\Upsilon,0))$. `ext5.py` E1-E5 (new): the coordinate identities, the scalar
+leading part, $\bar A$'s support, Definition 3.1's closure properties and Proposition 5.2's bookkeeping, each with
+controls. Findings (C1)-(C6). Written (D242).
+
