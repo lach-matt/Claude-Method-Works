@@ -52,7 +52,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | proved (D249; verified D247 with three minor findings and eight nits) |
 | III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | verified (D249; two minor findings and six nits seated, to be read) |
 | III.H' | [Hin26] 10.2 (Theorem 10.1, Lemmas 10.9-10.13) | 2-admissibility of L_b: the contour representation, high and low frequencies, the zero energy contributions integrated twice in t_*; sf-loss 0 at n = 4 | written (D250) |
-| III.C', III.I-III.J | [Hin26] 5.4-5.7, 11-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| III.I | [Hin26] 11 opening, 11.1 (Definition 11.3, Lemma 11.5, Propositions 11.6, 11.8, Corollaries 11.9-11.10, Theorem 11.12) | the dynamical linearised operator: perturbation classes, the e3b class, structure in the forward cone, forward mapping, admissibility with p_0 = p~_1 = 0, forward solutions at b0 with sf-loss 0; the orders of II.F' in O_c | written (D251) |
+| III.C', III.I'-III.J | [Hin26] 5.4-5.7, 11.2-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -884,3 +885,16 @@ conditions that Part I needs), at $b_0$ for every $k$ and on neighbourhoods $\ma
 (H$'$1)-(H$'$7), among them (H$'$2): with $\alpha_K = -2$ and margin 1 the incoming threshold is one short of what the
 source's Lemmas 10.9-10.10 use; the high frequencies are measured at $\alpha_{\mathrm{sf}}+1$ and the regular part at
 regularity $\mathsf s+1$ instead, which the margin allows. Written (D250).
+
+## Part III.I
+
+`PART-III-I-CONE.md`. [Hin26] section 11's setting and section 11.1 at $n = 4$: the perturbation classes with
+$(2,0)\in\mathcal E_+$ at $\iota^+$ (the background differences are of order 2 there), the edge-3b class of
+perturbations for $\ell_I\le\frac12$, $\ell_+\le1$ with no $\gamma_\Upsilon$ restriction (Lemma 2.2), the structure of
+$L^{g,g_0}$ in the forward cone with the constant matrix $\bar A$ and no $h$-dependent leading part (Propositions
+3.3-3.4), the forward mapping (Proposition 4.1), the patched background's curvature at $\rho_+^4$ (Lemma 4.3, Corollary
+4.2), admissibility relative to $L_b$ with $p_0 = \tilde p_1 = 0$ (Corollary 5.2), and the forward solutions of [Hin26]
+Theorem 11.12 at $b_0$ with sf-loss 0, $\beta_+\in(\frac12,\frac32)$, $\beta_I\in(\beta_+,\frac32)$ (Theorem 5.3). Lemma
+5.1 shows II.C's construction of orders gives III.H$'$'s class $\mathcal O_c$, which meets III.H$'$'s obligation
+(H$'$7). Open ((I3)): Theorem 11.12 for $b\ne b_0$ needs 2-admissibility for all $k$ near $b_0$ and II.F$'$ uniformly in
+the stationary model. Written (D251).

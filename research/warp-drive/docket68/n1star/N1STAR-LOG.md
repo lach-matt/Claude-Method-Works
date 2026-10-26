@@ -5441,3 +5441,10 @@ Found in the source: the incoming threshold of its hypothesis is one short of wh
 measuring the high frequencies at alpha_sf + 1 and the regular part at regularity s + 1. Also the k-dependent
 neighbourhood, the conditions (C1)-(C3) on the orders, the bounded frequencies, and a translation-invariant parametrix
 for the variable-order step of Lemma 10.13. Next: verifier 105.
+
+**D251 (2026-10-26): Part III.I written.** [Hin26] section 11.1 at n = 4 (PART-III-I-CONE.md): the perturbation classes
+with (2,0) in E_+, the e3b class with no gam_Ups restriction, the structure of the dynamical operator in the forward cone
+with the constant matrix A-bar (the source's A^h, B^h half an order lower), the forward mapping, the patched background's
+curvature at rho_+^4, admissibility relative to L_b with p_0 = p~_1 = 0, and Theorem 11.12 at b_0 with sf-loss 0. II.C's
+orders lie in III.H''s class O_c, which settles III.H' (H'7). Open: Theorem 11.12 for b != b_0 (2-admissibility for all
+k near b_0; II.F' uniformly in the model) and the iteration's weights at n = 4.

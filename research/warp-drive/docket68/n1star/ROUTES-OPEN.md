@@ -3182,3 +3182,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - OPEN, for the part applying II.C Definition 2.7 ([Hin26c] Theorem 11.1, [Hin26] section 11 at n = 4): orders in O_c,
   k <= K on B_K for b != b_0 ((H'7)).
 - Next: verifier 105 on III.H' and the D249 repairs; then Part III.I ([Hin26] section 11 at n = 4).
+
+### 4.174 Part III.I written: [Hin26] section 11.1 at n = 4 (D251)
+
+- PART-III-I-CONE.md: Definition 11.3 at n = 4 ((2,0) in E_+, min Re E_+ > 1), Lemma 11.5 (no gam_Ups restriction on
+  l_I), Proposition 11.6 (constant A-bar, the h-terms in the error, as III.C (C1)), Proposition 11.8, Corollary 11.9 (the
+  patched background's curvature at rho_+^4), Corollary 11.10 with p_0 = p~_1 = 0, Theorem 11.12 at b_0 with sf-loss 0,
+  beta_+ in (1/2, 3/2), beta_I in (beta_+, 3/2).
+- III.H' (H'7) met: II.C Proposition 5.1's construction of orders lies in O_c (Lemma 5.1), once eps_iota also satisfies
+  2/(eps_iota delta) >= r_2 - delta_0; the relaxed margin enters by II.F' Remark 7.1 and II.F Remark 8.2.
+- OPEN ((I3)): Theorem 11.12 for b != b_0 needs (a) 2-admissibility of L_b for all k near b_0 (strong trapping
+  admissibility near b_0, or a finite-k Nash-Moser), and (b) II.F' Theorem 1.1 uniformly in the stationary model
+  ((F'11)). [Hin26] section 11.6 on varies b.
+- OPEN ((I5)): the weights (a_I, a_+, a_K) of the iteration at n = 4, for the parts writing sections 11.2-11.8.
+- Next: seat verifier 105 (III.H' and the D249 repairs); then Part III.I' ([Hin26] section 11.2 at n = 4).
