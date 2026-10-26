@@ -3457,3 +3457,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Nits: Lemma 11.38 vs (11.140); "accepts"; the |x|^-3 inclusion cited from III.B; Lemma 4.3 also uses (c); the sign
   of Lemma 11.45 recorded; a vacuous intersection dropped; "would not apply as stated".
 - Next: verifier 114 on III.I'''''''' and these repairs; then [Hin26] section 11.8 as III.I'''''''''.
+
+### 4.192 Verifier 114 seated: III.I'''''''' verified; III.I''''''' proved (D269)
+
+- Verifier 114 on III.I'''''''' (PART-III-I9-COMMOTION.md) and the D268 repairs: 0 major, 2 minor, 7 nits; the D268
+  repairs correct. Confirmed: motions only from the s1 row of III.G'' Corollary 4.3 when alpha - Re lambda_0 > 1, none
+  from zero energy; E_++ closed, no new logarithms; (2.1) from III.D''' (1.3); Lemma 2.4 exact; Step 3.4' and (3.3);
+  Steps 6-7; Lemma 3.3; the induction of Proposition 4.1 (T_{0,0} = id, uniqueness, continuity).
+- m1: Lemma 3.1's Step 0 needed a_K > alpha_0 + 2 - lambda_sharp; now the iota+-terms of F_2 are extracted first
+  (u_F, by Step 2), and III.I''''' Proposition 2.1 applies to u - u_F with every alpha_+ < 2.
+- m2: Lemma 2.6 (a) now counts (d delta*_{g_0,E_C}) theta_mot, of iota+-order >= Re lambda + 4 and K+-weight
+  Re lambda + 4 - eps > 3, in Y_1(alpha).
+- Nits: E_ind enlarged by III.D''' Proposition 3.1 (2)'s index sets; E_+ + (E^iota_ind u E_ind u E_+) in E_+ in (1.1)'s
+  example and (I''''''''4); the product index set in Lemma 2.6 (b); III.I' Proposition 2.1 in Step 8's list;
+  complex exponents (conjugation-symmetric motion parameters); eps_ind < 1 for the tf-iteration; Y_2 for h in X^infty.
+- Next: Part III.I''''''''' ([Hin26] section 11.8.1-11.8.2); verifier 115 on it and these repairs.

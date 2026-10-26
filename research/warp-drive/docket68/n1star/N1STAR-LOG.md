@@ -5561,3 +5561,9 @@ verifier found no major finding in Part III.I''''''' and confirmed the translate
 centre-of-mass correction. Two minor findings are seated: the uniformity of the bounds now covers the null-infinity map
 applied to L, and the continuity lemma counts order-2 terms at an admissible iota+-weight. Seven nits. The D266 repairs
 are correct (one stale sentence fixed), so III.I'''''' is proved.
+
+**D269 (2026-10-26): verifier 114 seated; III.I'''''''' verified, III.I''''''' proved.** The hundred-and-fourteenth
+verifier found no major finding in Part III.I'''''''' and confirmed its design (motions only from the s1 row at iota+, a
+closed motion index set, no new logarithms), the motion identity, the tf-iteration and the induction eliminating the
+motions; two minor findings (the a priori step of the base level, a gauge-term derivative in the linearisation in the
+parameters) and seven nits are seated. The D268 repairs to III.I''''''' are correct, so III.I''''''' is proved.

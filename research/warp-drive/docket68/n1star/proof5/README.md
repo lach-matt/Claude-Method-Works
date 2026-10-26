@@ -59,8 +59,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''' | [Hin26] 11.4.2 (Definitions 11.23, 11.25, Lemmas 11.24, 11.28, Proposition 11.30, (11.95)) | undoing the boost: correction terms, the boost identity (11.78b), the augmented operator, its parameter derivative, the boost parameter map invertible; no logarithms, no splitting of the source, the generalised state re-centred at n = 4 | proved (D263: verifier 111 read the D261 repairs; verified D261) |
 | III.I''''' | [Hin26] 11.5 (Proposition 11.32) | almost boundedness: with the boost eliminated, K+-weight alpha_K - 2 for every alpha_K < 2, by rounds of III.I''''s argument with a step at iota+ from 3/2 + (1 - e_Ups) gam_Ups; no Lemma 11.33, no Step 3.2 at n = 4 | proved (D266: verifier 112 read the D263 repairs; verified D263) |
 | III.I'''''' | [Hin26] 11.6.1 (Proposition 11.34) | extraction of the parameters: for sources of K+-weight alpha_K in (2, 5/2), u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + a remainder decaying at K+; no logarithmic centre-of-mass term at n = 4; the tf-improvement by III.G'''' Proposition 5.1 | proved (D268: verifier 113 read the D266 repairs; verified D266) |
-| III.I''''''' | [Hin26] 11.6.2 (Definitions 11.37, 11.40, 11.42, 11.44, Lemmas 11.38, 11.41, 11.43, 11.45, Corollary 11.46) | undoing the parameter changes: corrections, the operator P_2 with parameters (S, b - b_0, S^(0)_1), their elimination; the centre-of-mass shift needs a translated exterior background at n = 4 | verified (D268; no major, two minor findings and seven nits seated, to be read) |
-| III.I'''''''' | [Hin26] 11.7 (Definitions 11.47-11.48, Lemma 11.49, Proposition 11.51) | decaying centre-of-mass motions: corrections #3 with generalised gauge 1-forms to order 4; the motions read off from the s1 row of the iota+ step; K+-weight alpha - 2 for alpha < min(a_K, 3), almost t_*^-1 | written (D267) |
+| III.I''''''' | [Hin26] 11.6.2 (Definitions 11.37, 11.40, 11.42, 11.44, Lemmas 11.38, 11.41, 11.43, 11.45, Corollary 11.46) | undoing the parameter changes: corrections, the operator P_2 with parameters (S, b - b_0, S^(0)_1), their elimination; the centre-of-mass shift needs a translated exterior background at n = 4 | proved (D269: verifier 114 read the D268 repairs; verified D268) |
+| III.I'''''''' | [Hin26] 11.7 (Definitions 11.47-11.48, Lemma 11.49, Proposition 11.51) | decaying centre-of-mass motions: corrections #3 with generalised gauge 1-forms to order 4; the motions read off from the s1 row of the iota+ step; K+-weight alpha - 2 for alpha < min(a_K, 3), almost t_*^-1 | verified (D269; no major, two minor findings and seven nits seated, to be read) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -1027,6 +1027,7 @@ translated as it is boosted. Findings (I$'''''''$1)-(I$'''''''$4). At $b_0$. Wri
 Verified (D268: verifier 113; the order-1 obstruction, the translated background and the identities (2.3) confirmed sign
 by sign; the uniformity now also covers III.I$'$ Proposition 2.1 applied to $L$, and Lemma 4.1 counts the order-2 terms
 at an admissible $\iota^+$-weight; seven nits).
+Proved (D269: verifier 114 read the D268 repairs).
 
 ## Part III.I$''''''''$
 
@@ -1037,3 +1038,6 @@ motions from the s1 row of III.G$''$ Corollary 4.3, the zero energy analysis wit
 (= 11.51): a unique choice of all parameters gives $K^+$-weight $\alpha-2-\epsilon$ for every admissible
 $\alpha<\min(a_K,3)$. No proliferation of logarithms, so no device $u_\Sigma$. Findings (I$''''''''$1)-(I$''''''''$5).
 At $b_0$. Written (D267).
+Verified (D269: verifier 114; the design claims, Lemmas 2.2, 2.4, 3.2, 3.3 and the induction of Proposition 4.1
+confirmed; Lemma 3.1's Step 0 now extracts the iota+-terms of the second source class first, Lemma 2.6 (a) counts the
+derivative of delta*_{g_0,E_C} on the motion gauge terms; seven nits).

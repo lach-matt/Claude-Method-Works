@@ -1,6 +1,7 @@
 # Part III.I$''''''''$. Decaying centre-of-mass motions, n = 4 ([Hin26] section 11.7)
 
-*Status.* Written (D267). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.7 (pp. 262-273): the
+*Status.* Verified (D269: the hundred-and-fourteenth verifier; no major finding, two minor ones and seven nits seated,
+to be read). Written (D267). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.7 (pp. 262-273): the
 correction terms for decaying centre-of-mass motions (Definition 11.47), the operator with these parameters (Definition
 11.48), its linearisation in them (Lemma 11.49), and Proposition 11.51: for sources with almost three orders of decay at
 $K^+$ there is a unique choice of all modification parameters for which the forward solution has $K^+$-weight
@@ -28,20 +29,27 @@ no instrument is used.
 
 Everything of Part III.I$'''''''$ section 1 is kept: $b = b_0$, $\mathfrak b$, $\mathcal E_{\mathrm{ind}}$ and
 (1.1)-(1.2) there, $\mathcal G$, $\ell_I$ with $\ell_I\le a_I$, the translated background (1.3) there, and III.I$''''$'s
-cut-offs, $\mathcal C$, $\Theta$, conventions and identities (i)-(iii). $\mathcal E^\iota_{\mathrm{ind}}$ is III.G$''$
-(4.4)'s index set and $\mathcal E^\sharp_+$ is III.I$'$ (3.2) with $\breve{\mathcal E}_+ = \emptyset$ (as in
-III.I$'''''$); $\min\mathrm{Re}\,\mathcal E^\sharp_+ = \lambda_\sharp = \frac32+(1-e_\Upsilon)\gamma_\Upsilon$. Fix an
-index set $\mathcal E_{++}$ with
+cut-offs, $\mathcal C$, $\Theta$, conventions and identities (i)-(iii). $\mathcal E_{\mathrm{ind}}$ is enlarged to
+contain also the index sets of III.D$'''$ Proposition 3.1 (2) at $b_0$ (those of the $\breve\omega^i$ of section 2);
+everything of III.I$'''''''$ holds with the enlarged set, which only strengthens the conditions on $\mathcal E_+$ there.
+$\mathcal E^\iota_{\mathrm{ind}}$ is III.G$''$ (4.4)'s index set and $\mathcal E^\sharp_+$ is III.I$'$ (3.2) with
+$\breve{\mathcal E}_+ = \emptyset$ (as in III.I$'''''$); $\min\mathrm{Re}\,\mathcal E^\sharp_+ = \lambda_\sharp =
+\frac32+(1-e_\Upsilon)\gamma_\Upsilon$. Fix an index set $\mathcal E_{++}$ with
 $$\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}\subset\mathcal E_{++}\subset\mathcal E_+,\qquad\min\mathrm{Re}\,\mathcal
 E_{++}\ge\lambda_\sharp,\qquad\mathcal E_{++}+(\mathcal E^\iota_{\mathrm{ind}}\cup\mathcal E_{\mathrm{ind}}\cup\mathcal
 E_+)\subset\mathcal E_{++};\tag{1.1}$$
 for instance the least index set containing $\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}$ with the last property, provided
-$\mathcal E_+$ contains $\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}$ and $\mathcal E_++\mathcal
-E^\iota_{\mathrm{ind}}\subset\mathcal E_+$ (conditions on $\mathcal E_+$ alone, as $\mathcal E^\sharp_+$, $\mathcal
-E^\iota_{\mathrm{ind}}$ and $\mathcal E_{\mathrm{ind}}$ do not depend on it). Then $\mathcal E_{++}+\mathcal
-E_{++}\subset\mathcal E_{++}$, and
+$\mathcal E_+$ contains $\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}$ and $\mathcal E_++(\mathcal
+E^\iota_{\mathrm{ind}}\cup\mathcal E_{\mathrm{ind}}\cup\mathcal E_+)\subset\mathcal E_+$ (conditions on $\mathcal E_+$
+alone, as $\mathcal E^\sharp_+$, $\mathcal E^\iota_{\mathrm{ind}}$ and $\mathcal E_{\mathrm{ind}}$ do not depend on it).
+Then $\mathcal E_{++}+\mathcal E_{++}\subset\mathcal E_{++}$, and
 $$\mathcal M := \{(\lambda,k)\in\mathcal E_{++}:\mathrm{Re}\,\lambda<2\}\tag{1.2}$$
-is finite, with $\mathrm{Re}\,\lambda\in[\lambda_\sharp,2)$. For $\alpha\in(2,3)$ put $\mathcal M_\alpha :=
+is finite, with $\mathrm{Re}\,\lambda\in[\lambda_\sharp,2)$. Its exponents may be complex: $\mathcal E_{++}$ is taken
+closed under conjugation (as $\mathcal E^\sharp_+$, $\mathcal E^\iota_{\mathrm{ind}}$, $\mathcal E_{\mathrm{ind}}$ and
+$\mathcal E_+$ may be, coming from real operators), the motion parameters $S^{(\lambda-1,k)}_1$ below lie in $\mathcal
+S_{1,\mathbb C}$ with $S^{(\bar\lambda-1,k)}_1 = \overline{S^{(\lambda-1,k)}_1}$ (for real $\lambda$:
+$S^{(\lambda-1,k)}_1\in\mathcal S_1$), which makes the motion terms real, and the coefficients $S_{\lambda,k}$ of a real
+$u$ in (3.1) have the same symmetry. For $\alpha\in(2,3)$ put $\mathcal M_\alpha :=
 \{(\lambda,k)\in\mathcal M:\mathrm{Re}\,\lambda-1<\alpha-2\}$.
 
 *Admissible levels.* $\alpha\in(2,\min(a_K,3))$ is admissible if $\alpha-2\ne\mathrm{Re}\,\lambda-1$ and
@@ -69,7 +77,7 @@ $\omega^{\le4}(aS) := \sum_{i=0}^4a^{(i)}(t_*)\breve\omega^i(S)$, so that $\omeg
 for $k\le4$.
 
 **Definition 2.1 ([Hin26] Definition 11.47 at n = 4).** For $(\lambda,k)\in\mathcal M$ let $a_{\lambda,k}(t_*) :=
-t_*^{-\lambda+1}(\log t_*)^k$ (on $\Omega_*$, $t_*\ge1$), and for $S\in\mathcal S_1$
+t_*^{-\lambda+1}(\log t_*)^k$ (on $\Omega_*$, $t_*\ge1$), and for $S\in\mathcal S_{1,\mathbb C}$
 $$m_{\lambda,k}(S) := \chi_K\delta^*_{g_{b_0}}\omega^{\le4}(a_{\lambda,k}S),\qquad h^{(\lambda-1,k)}_{\mathrm s1}(S) :=
 -[\delta^*_{g_{b_0}},\chi_K]\omega^{\le4}(a_{\lambda,k}S) = -d\chi_K\otimes_s\omega^{\le4}(a_{\lambda,k}S),$$
 $$\vartheta^{(\lambda-1,k)}_{\mathrm s1}(S) :=
@@ -154,26 +162,35 @@ A^{(\lambda,k)+\mathcal F}\subset\mathcal A^{\mathcal E_{++}}\subset\mathcal A^{
 
 **Lemma 2.6 ([Hin26] Lemma 11.49 at n = 4).** Let $\vec p$ (with $b = b_0$) and $h\in\mathcal X^k$, $k\ge5$, be small.
 (a) The derivatives $f^S_{h,\vec p}$, $f^b_{h,\vec p}$, $f^{\mathrm s1}_{h,\vec p}$ of $P_3$ in $S$, $b$, $S^{(0)}_1$
-satisfy III.I$'''''''$ Lemma 3.1; in particular they lie in $\mathcal Y_1(\alpha)$ for $\alpha\le a_K$ (with $\ell_I\le
-a_I$). (b) For $(\lambda,k)\in\mathcal M$, $f^{(\lambda,k)}_{h,\vec p}(S) := D_{\vec p}P_3(h,\vec p)(S^{(\lambda-1,k)}_1
-= S)$ is supported in $\mathrm{supp}\,\chi_K$ and lies in $H^{k-2,\infty,((\lambda+2,k)+(\mathcal F\cup\mathcal
-E_+),\,4-\epsilon),\,\mathrm{Re}\,\lambda+4-\epsilon}_{\mathrm b}\subset\mathcal Y_2(\alpha)$ (at regularity $k-2$),
-with norm $O(|S|)$. (c) All are linear in the direction, continuous in $(h,\vec p)$, and at $(0,0)$ given by Lemma 2.4.
+satisfy III.I$'''''''$ Lemma 3.1 up to terms lying in $\mathcal Y_1(\alpha)$ for every $\alpha\in(2,3)$; in particular
+they lie in $\mathcal Y_1(\alpha)$ for $\alpha\le a_K$ (with $\ell_I\le a_I$). (b) For $(\lambda,k)\in\mathcal M$,
+$f^{(\lambda,k)}_{h,\vec p}(S) := D_{\vec p}P_3(h,\vec p)(S^{(\lambda-1,k)}_1 = S)$ is supported in
+$\mathrm{supp}\,\chi_K$ and lies in $H^{k-2,\infty,((\lambda+2,k)+\mathcal F+((0,0)\cup\mathcal
+E_+),\,4-\epsilon),\,\mathrm{Re}\,\lambda+4-\epsilon}_{\mathrm b}$, with norm $O(|S|)$, so in $\mathcal Y_2(\alpha)$
+when $h\in\mathcal X^\infty$ (as "$h$ small" requires). (c) All are linear in the direction, continuous in $(h,\vec p)$,
+and at $(0,0)$ given by Lemma 2.4.
 
 *Proof.* (a) III.I$'''''''$ Lemma 3.1's proof: its counts use $h_{\mathrm{tot}}$ only through $g'-\eta\in H^{k,(\mathcal
-E_+,a_+)}_{\mathrm b}$ near $(\iota^+)^\circ$, which still holds (Lemma 2.5), and the derivative in each of $S$, $b$,
-$S^{(0)}_1$ does not fall on the motion terms. (b) $P_3$ depends on $S^{(\lambda-1,k)}_1$ only through
+E_+,a_+)}_{\mathrm b}$ near $(\iota^+)^\circ$, which still holds (Lemma 2.5). The derivative in each of $S$, $b$,
+$S^{(0)}_1$ falls on the motion terms only through $\delta^*_{g_0,E_C}$, which depends on these parameters through $g_0$
+and acts on $\vartheta_{\mathrm{mot}} := \sum_{(\lambda,k)\in\mathcal M}\vartheta^{(\lambda-1,k)}_{\mathrm
+s1,\sharp}(S^{(\lambda-1,k)}_1)$, nonzero near $K^+$. The extra term
+$(\partial\delta^*_{g_0,E_C})\vartheta_{\mathrm{mot}}$ is linear in the motion parameters, supported in
+$\mathrm{supp}\,\chi_K$, of $\iota^+$-order at least $\mathrm{Re}\,\lambda+4$ (the derivative of $g_0$ has
+$\iota^+$-order 2, and $\vartheta$ order $\lambda+1$ by Lemma 2.2) and of $K^+$-weight
+$\mathrm{Re}\,\lambda+4-\epsilon\ge\lambda_\sharp+4-\epsilon>3$, and continuous in $(h,\vec p)$; so it lies in $\mathcal
+Y_1(\alpha)$ for every $\alpha\in(2,3)$. (b) $P_3$ depends on $S^{(\lambda-1,k)}_1$ only through
 $h^{(\lambda-1,k)}_{\mathrm s1}$ (in $\mathcal C$) and $\vartheta^{(\lambda-1,k)}_{\mathrm s1,\sharp}$ (in
-$\mathrm{supp}\,\chi_K$), linearly; so $f^{(\lambda,k)} =
-D_{g'}\mathrm{Ric}(h')-\delta^*_{g_0,E_C}\big( [D_1\Upsilon(g',g_0)-D_1\Upsilon(g_{b_0},g_{b_0})]h'
--\vartheta^{(\lambda-1,k)}_{\mathrm s1}(S)\big)$, $h' := h^{(\lambda-1,k)}_{\mathrm s1}(S)$, by the definition of the
-counterterm. With $D_{g'}\mathrm{Ric}\in\rho_+^2(C^\infty+H^{(\mathcal E_+,a_+)}_{\mathrm b})\mathrm{Diff}^2_{\mathrm
-b}$, $\delta^*_{g_0,E_C}\in\rho_+\mathrm{Diff}^1_{\mathrm b}$, the bracket linear in $(g'-g_{b_0},g_0-g_{b_0})\in
+$\mathrm{supp}\,\chi_K$), linearly; so $f^{(\lambda,k)} = D_{g'}\mathrm{Ric}(h')-\delta^*_{g_0,E_C}\big(
+[D_1\Upsilon(g',g_0)-D_1\Upsilon(g_{b_0},g_{b_0})]h' -\vartheta^{(\lambda-1,k)}_{\mathrm s1}(S)\big)$, $h' :=
+h^{(\lambda-1,k)}_{\mathrm s1}(S)$, by the definition of the counterterm. With
+$D_{g'}\mathrm{Ric}\in\rho_+^2(C^\infty+H^{(\mathcal E_+,a_+)}_{\mathrm b})\mathrm{Diff}^2_{\mathrm b}$,
+$\delta^*_{g_0,E_C}\in\rho_+\mathrm{Diff}^1_{\mathrm b}$, the bracket linear in $(g'-g_{b_0},g_0-g_{b_0})\in
 H^{(\mathcal E_+,a_+)}_{\mathrm b}$ and their first derivatives, and Lemma 2.2, the $\iota^+$-data are
-$((\lambda+2,k)+(\mathcal F\cup\mathcal E_+),a_++\mathrm{Re}\,\lambda+2)$, and $a_++\mathrm{Re}\,\lambda+2>4$; near
-$K^+$ only $\delta^*_{g_0,E_C}\vartheta^{(\lambda-1,k)}_{\mathrm s1}$ remains, of weight
-$\mathrm{Re}\,\lambda+4-\epsilon$. $(\lambda+2,k)+(\mathcal F\cup\mathcal E_+)\subset\mathcal E_{++}+2$ by (1.1). (c) As
-in III.I$'''''''$ Lemma 3.1 (c). $\square$
+$((\lambda+2,k)+\mathcal F+((0,0)\cup\mathcal E_+),a_++\mathrm{Re}\,\lambda+2)$, and $a_++\mathrm{Re}\,\lambda+2>4$;
+near $K^+$ only $\delta^*_{g_0,E_C}\vartheta^{(\lambda-1,k)}_{\mathrm s1}$ remains, of weight
+$\mathrm{Re}\,\lambda+4-\epsilon$. $(\lambda+2,k)+\mathcal F+((0,0)\cup\mathcal E_+)\subset\mathcal E_{++}+2$ by (1.1).
+(c) As in III.I$'''''''$ Lemma 3.1 (c). $\square$
 
 The source's (11.153) has the $K^+$-order $\lambda+4-\epsilon$ and the index set $(\lambda+2,k)+((0,0)\cup\mathcal
 E_{\mathrm{ind}}\cup\mathcal E_+\cup\tilde{\mathcal E}'_{++})$; its (11.154) is used for its device $u_\Sigma$, not
@@ -186,15 +203,26 @@ needed here ((I$''''''''$2)).
 4.1, 4.3, 4.5 and Corollary 4.6 hold with $\mathcal Y(\alpha_0)$ in place of $\mathcal Y$, at the base points of Lemma
 2.5, with the conclusions at $K^+$-weight $\alpha_0-2-\epsilon$ for every $\epsilon>0$.
 
-*Proof.* Only Steps 1-2 of III.I$''''''$ Proposition 2.1's proof change. Write the source after Step 0 as $f'_1+F_2$,
-$F_2\in\mathcal Y_2(\alpha_0)$ and $f'_1$ the rest (in $\mathcal Y_1(\alpha_0)$: III.I$'''''$ Proposition 2.1, used in
-Step 0, applies to $F_2$ with any $\alpha_+\in(\alpha'_K,\min\mathrm{Re}\,\mathcal E_{++})$, as $F_2$ has plain
-$\iota^+$-weight $\min\mathrm{Re}\,\mathcal E_{++}+2-\epsilon$). Step 1 applies III.I$'$ Proposition 3.1 to $f'_1$ alone
-($\breve{\mathcal E}_+ = \emptyset$), and $f^\flat_0 := f'_1-L_bu_I+F_2$; its $\iota^+$-terms below $\alpha^\sharp_++2$
-have exponents in $(\mathcal E^\sharp_+\cup\mathcal E_{++})+2$, with coefficients from $L_bu_I$ (vanishing near $K^+$)
-or from $F_2$ (supported in $\mathrm{supp}\,\chi^\sharp_K$, away from $\mathscr I^+$), and III.I$'''''$ (2.3) is taken
-with $\mathcal E_{++}$ added to the excluded exponents (still finite below 2). Step 2 takes $c_K := \alpha_0$, so
-$\ell_K(\lambda_0) = \alpha_0-\mathrm{Re}\,\lambda_0$; its exclusions hold by admissibility, and
+*Proof.* Steps 0-2 of III.I$''''''$ Proposition 2.1's proof change. Let the source be $F = F_1+F_2$, $F_j\in\mathcal
+Y_j(\alpha_0)$. *Step 0.* Step 2 below, applied to $F_2$ alone (with $L_b$; $F_2$ vanishes near $\mathscr I^+$), gives
+$u_F := \sum_{\lambda_0}(u_{\lambda_0}+u'_{\lambda_0})$, over the finitely many $\lambda_0\in\pi_1\mathcal E_{++}$ with
+$\mathrm{Re}\,\lambda_0<2$, with $F_2-L_bu_F$ of plain $\iota^+$-weight $4-\epsilon$, of $K^+$-weight
+$\alpha_0-\epsilon$ and with the $\mathscr I^+$-data of $\mathcal Y_1$, for every $\epsilon>0$. $u_F$ vanishes near
+$\{t^\flat_* = 1\}$ (Step 2's pieces are cut off near $\iota^+$) and has $\iota^+$-weight $\lambda_\sharp-\epsilon$ and
+$K^+$-weight $\alpha_0-2-\epsilon$ (as there: $\ell_K(\lambda_0)>\alpha_0-2$ and
+$\mathrm{Re}\,\lambda_0-1>\frac12>\alpha_0-2$), so $(L-L_b)u_F$ has $\iota^+$-weight above 4 and $K^+$-weight above
+$\alpha_0$ (III.I Proposition 4.1 (4.2), $a_K>2$). So $u-u_F$ is the forward solution of $L(u-u_F) =
+F_1+(F_2-L_bu_F)-(L-L_b)u_F$, a source of plain $\iota^+$-weight $4-\epsilon$ whose boost parameter is that of $F$
+($\dot S(Lu_F) = 0$ by the uniqueness in III.I$''''$ Proposition 4.1 (1), $u_F$ being the decaying forward solution),
+and III.I$'''''$ Proposition 2.1 applies to it with any $\alpha_+<2$: $u-u_F$ has $K^+$-weight $\alpha'_K-2$ for every
+$\alpha'_K<2$. With $\alpha'_K>\alpha_0+2-a_K$ (possible, as $a_K>\alpha_0$), $(L-L_b)u$ has $K^+$-weight above
+$\alpha_0$ and $\iota^+$-weight above $4-\epsilon$, which is III.I$''''''$ Step 0's conclusion. Write $f'_1 :=
+F_1-(L-L_b)u\in\mathcal Y_1(\alpha_0)$, so that $L_bu = f'_1+F_2$. Step 1 applies III.I$'$ Proposition 3.1 to $f'_1$
+alone ($\breve{\mathcal E}_+ = \emptyset$), and $f^\flat_0 := f'_1-L_bu_I+F_2$; its $\iota^+$-terms below
+$\alpha^\sharp_++2$ have exponents in $(\mathcal E^\sharp_+\cup\mathcal E_{++})+2$, with coefficients from $L_bu_I$
+(vanishing near $K^+$) or from $F_2$ (supported in $\mathrm{supp}\,\chi^\sharp_K$, away from $\mathscr I^+$), and
+III.I$'''''$ (2.3) is taken with $\mathcal E_{++}$ added to the excluded exponents (still finite below 2). Step 2 takes
+$c_K := \alpha_0$, so $\ell_K(\lambda_0) = \alpha_0-\mathrm{Re}\,\lambda_0$; its exclusions hold by admissibility, and
 $\ell_K(\lambda_0)\in(\alpha_0-2,1)\subset(0,1)$ as $\mathrm{Re}\,\lambda_0\in[\lambda_\sharp,2)$ and
 $\alpha_0<\frac52<\lambda_\sharp+1$. The coefficients at $\lambda_0$ of $F_2$ and of later errors (of $K^+$-weight
 $\alpha_0-\epsilon$ for every $\epsilon$) have $R$-weight $\ge\ell_K(\lambda_0)-2-\epsilon$ for every $\epsilon$, which
@@ -217,8 +245,8 @@ $$u = \sum_{(\lambda,k)\in\mathcal M_\alpha\setminus\mathcal M_{\alpha'}}\chi_Kt
 t_*)^kh(S_{\lambda,k})+\tilde u,\qquad\tilde u\in\bigcap_{\epsilon>0}H^{\infty,(\langle\mathcal
 E^C_I\rangle,\ell_I),\beta_+,\alpha-2-\epsilon}_{\mathrm b}(\Omega_*)^{\bullet,-}\tag{3.1}$$
 for every $\beta_+<\min(\frac32,\min\mathrm{Re}\,\mathcal E_+)$, with $S_{\lambda,k} =: S^{h,\vec
-p}_{\lambda,k}(F)\in\mathcal S_1$ determined by $u$ (its $K^+$-expansion), linear and continuous in $F$, with bounds
-uniform for $(h,\vec p)$ small.
+p}_{\lambda,k}(F)\in\mathcal S_{1,\mathbb C}$ determined by $u$ (its $K^+$-expansion), linear and continuous in $F$,
+with bounds uniform for $(h,\vec p)$ small.
 
 *Proof.* *Step 0.* $f' := F-(L-L_b)u = f'_1+F_2$ with $f'_1 := F_1-(L-L_b)u\in\mathcal Y_1(\alpha)$: III.I Proposition
 4.1 (4.2) (for $L = L_{h,\vec p}$, Lemma 2.5) gives the $\mathscr I^+$-data $(\langle\mathcal
@@ -271,14 +299,16 @@ $\alpha_i-2$ near zf and tf, $r(v'_i) = O(|\sigma|^{\alpha_i-2})$, and $\Sigma^{
 $$\hat f^{(i+1)} := \hat f^{(i)}-\sigma\widehat{L_b}(\sigma)v_i\in
 H^{\infty,(\frac52-\epsilon,\tau_{i+1},\alpha-2-\epsilon')}_{\mathrm b},\qquad\tau_{i+1} :=
 \tau_i+\epsilon_{\mathrm{ind}}-\epsilon.$$
-The increments are below 1, so after finitely many rounds, $i_0$ say,
-$\tau_{i_0}\in(\alpha-\epsilon',\alpha-\epsilon'+1)$ ($i_0 = 0$ if $\tau_0>\alpha-\epsilon'$, which is III.I$''''''$'s
-case $\alpha_K<2+\epsilon_{\mathrm{ind}}$). Then III.I$''$ Lemma 4.2 with $\beta_{\mathrm{scf}} := \frac32-2\epsilon$,
-$\beta_{\mathrm{tf}} := \tau_{i_0}-2$, $\beta_{\mathrm{zf}} := \alpha-2-\epsilon'$,
-$\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}}\in(0,1)$, gives $(\hat u_6,\hat b_6,\hat S_6) := \tilde L_b(\sigma)^{-1}(\hat
-f^{(i_0)},0,0)$, $\hat u_6\in H^{\infty,(\frac32-3\epsilon,\tau_{i_0}-2,\alpha-2-\epsilon')}_{\mathrm b}$, $\hat
-b_6,\hat S_6\in H^{\infty,\alpha-2-\epsilon'}_{\mathrm b}(\pm(0,c],|\frac{d\sigma}\sigma|)$. With
-$(U^{(i)},B^{(i)},\Sigma^{(i)}_r) := \tilde L_b(\sigma)^{-1}(0,\sigma r(v'_i))$,
+The increments are below 1 ($\epsilon_{\mathrm{ind}}<1$: the class roots of III.G$''$ Table 1.1 are not integers, and
+III.G$''''$ section 3 places every $\{-\mu\}$ at 0 or in $[\epsilon_{\mathrm{ind}},1-\epsilon_{\mathrm{ind}}]$), so
+after finitely many rounds, $i_0$ say, $\tau_{i_0}\in(\alpha-\epsilon',\alpha-\epsilon'+1)$ ($i_0 = 0$ if
+$\tau_0>\alpha-\epsilon'$, which is III.I$''''''$'s case $\alpha_K<2+\epsilon_{\mathrm{ind}}$). Then III.I$''$ Lemma 4.2
+with $\beta_{\mathrm{scf}} := \frac32-2\epsilon$, $\beta_{\mathrm{tf}} := \tau_{i_0}-2$, $\beta_{\mathrm{zf}} :=
+\alpha-2-\epsilon'$, $\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}}\in(0,1)$, gives $(\hat u_6,\hat b_6,\hat S_6) := \tilde
+L_b(\sigma)^{-1}(\hat f^{(i_0)},0,0)$, $\hat u_6\in
+H^{\infty,(\frac32-3\epsilon,\tau_{i_0}-2,\alpha-2-\epsilon')}_{\mathrm b}$, $\hat b_6,\hat S_6\in
+H^{\infty,\alpha-2-\epsilon'}_{\mathrm b}(\pm(0,c],|\frac{d\sigma}\sigma|)$. With $(U^{(i)},B^{(i)},\Sigma^{(i)}_r) :=
+\tilde L_b(\sigma)^{-1}(0,\sigma r(v'_i))$,
 $$(\hat u_5,\hat b_5,\hat S_5) := \sum_{i<i_0}\Big[(\sigma
 v'_i,0,\sigma\Sigma^{(i)})-(U^{(i)},B^{(i)},\Sigma^{(i)}_r)\Big]+(\hat u_6,\hat b_6,\hat S_6)\tag{3.3}$$
 equals $\tilde L_b(\sigma)^{-1}(\hat f_5,0,0)$: applying $\tilde L_b(\sigma)$, the first components give
@@ -307,8 +337,9 @@ $\epsilon$ and $\mathrm{Re}\,\lambda-1<\alpha'-2$ ($\alpha'$ admissible): a fini
 that space is zero, the functions $t_*^{-\lambda+1}(\log t_*)^j$ being independent and $h$ injective. *Step 8.* The
 $\mathscr I^+$-data of $\tilde u$ follow from III.I$'$ Proposition 2.1 as in III.I$''''''$ Step 6 ($\chi_K = 0$ near
 $\mathscr I^+$). *Determination, linearity, bounds.* The $S_{\lambda,k}$ are the coefficients of the $K^+$-expansion of
-$u$ below $\alpha-2$; every map used is linear, and fixed by $L_{b_0}$ or given by $L-L_{b_0}$, with coefficient bounds
-uniform for small $(h,\vec p)$ (Lemma 2.5, III.I$'''''''$ Lemma 2.5 (c)). $\square$
+$u$ below $\alpha-2$; every map used is linear, and fixed by $L_{b_0}$, given by $L-L_{b_0}$, or III.I$'$ Proposition
+2.1 applied to $L$ (Step 8), with coefficient bounds uniform for small $(h,\vec p)$ (Lemma 2.5, III.I$'''''''$ Lemma 2.5
+(c)). $\square$
 
 **Lemma 3.3 (the coefficients near the base point).** Let $\alpha'<\alpha$ be as in Lemma 3.2, $(h_j,\vec p_j)\to(0,0)$,
 $F_j\to F$ in $\mathcal Y(\alpha)$, and suppose that the forward solutions $u_j$ of $L_{h_j,\vec p_j}u_j = F_j$ and $u$
@@ -324,9 +355,10 @@ p_j}_{\lambda,k}(F_j)-S^{0,0}_{\lambda,k}(F) = S^{0,0}_{\lambda,k}(R_j)\to0$. $\
 ## 4. Elimination ([Hin26] Proposition 11.51 at n = 4)
 
 For an admissible $\alpha$ put $\mathcal P_\alpha := \mathcal S_1\oplus\mathfrak b\oplus\mathcal
-S_1\oplus\bigoplus_{(\lambda,k)\in\mathcal M_\alpha}\mathcal S_1$, the modification parameters with motion components
-only in $\mathcal M_\alpha$, and write $D_{\vec p}P_3(h,\vec p)(\vec p\,')$ for $\vec p\,'\in\mathcal P_\alpha$ (the
-other motion components zero). By Lemma 2.6, $D_{\vec p}P_3(h,\vec p)(\vec p\,')\in\mathcal Y(\alpha)$.
+S_1\oplus\big(\bigoplus_{(\lambda,k)\in\mathcal M_\alpha}\mathcal S_{1,\mathbb C}\big)^{\mathrm{sym}}$ (the
+conjugation-symmetric tuples of section 1), the modification parameters with motion components only in $\mathcal
+M_\alpha$, and write $D_{\vec p}P_3(h,\vec p)(\vec p\,')$ for $\vec p\,'\in\mathcal P_\alpha$ (the other motion
+components zero). By Lemma 2.6, $D_{\vec p}P_3(h,\vec p)(\vec p\,')\in\mathcal Y(\alpha)$.
 
 **Proposition 4.1 ([Hin26] Proposition 11.51 at n = 4).** Let $\alpha\in(2,\min(a_K,3))$ be admissible, and $\vec p$ ($b
 = b_0$) and $h$ small. For every $F\in\mathcal Y(\alpha)$ there is a unique $\vec p\,' = \vec p\,'_{h,\vec
@@ -351,8 +383,9 @@ sources varying with $j$).
 
 *Step.* Let the statement hold at $\alpha' := \alpha_i$, and let $\alpha'' := \alpha_{i+1}$, $\mathcal N := \mathcal
 M_{\alpha''}\setminus\mathcal M_{\alpha'}$ and $F\in\mathcal Y(\alpha'')\subset\mathcal Y(\alpha')$. For $\vec S =
-(S_\nu)_{\nu\in\mathcal N}\in\mathcal S_1^{\mathcal N}$ put $F(\vec S) := F-\sum_{\nu\in\mathcal N}f^\nu_{h,\vec
-p}(S_\nu)\in\mathcal Y(\alpha'')$ (Lemma 2.6 (b)), and let $u(\vec S)$ be the forward solution of
+(S_\nu)_{\nu\in\mathcal N}$ conjugation-symmetric (section 1; $T_{h,\vec p}$ below preserves these, $L$ and $F$ being
+real) put $F(\vec S) := F-\sum_{\nu\in\mathcal N}f^\nu_{h,\vec p}(S_\nu)\in\mathcal Y(\alpha'')$ (Lemma 2.6 (b)), and
+let $u(\vec S)$ be the forward solution of
 $$L_{h,\vec p}u(\vec S) = G(\vec S) := F(\vec S)-D_{\vec p}P_3(h,\vec p)\big(\vec p\,'_{h,\vec p,\alpha'}(F(\vec
 S))\big)\in\mathcal Y(\alpha''),$$
 which lies in (4.2) at $\alpha'$ by the hypothesis. Lemma 3.2 (with $\alpha'$, $\alpha''$) applies and gives the
@@ -410,8 +443,9 @@ source's "inherits stronger decay" for its term (ii) of p. 262.
 
 (I$''''''''$4) *Assumptions on $\mathcal E_+$.* The motion corrections have $\iota^+$-order $\lambda<2$, so $\mathcal
 X$'s index set must contain $\mathcal E_{++}$ ((1.1)), as the source's (11.149) and (11.151) enlarge its index sets; at
-$n = 4$ this means $\mathcal E_+\supset\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}$ and $\mathcal E_++\mathcal
-E^\iota_{\mathrm{ind}}\subset\mathcal E_+$, compatible with III.I (1.3) ($\lambda_\sharp>1$).
+$n = 4$ this means $\mathcal E_+\supset\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}$ and $\mathcal E_++(\mathcal
+E^\iota_{\mathrm{ind}}\cup\mathcal E_{\mathrm{ind}}\cup\mathcal E_+)\subset\mathcal E_+$, compatible with III.I (1.3)
+($\lambda_\sharp>1$).
 
 (I$''''''''$5) *Origin of the motions.* As in the source's Remark 11.54, the motions come from quasi-homogeneous
 $\iota^+$-terms that the formal solution at null infinity transports there; at $n = 4$ their least exponent is the
