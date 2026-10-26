@@ -1,12 +1,13 @@
 # Part III.G$''''$. The transition face and grafting on the spectral side at n = 4 ([Hin26] section 9.2)
 
 *Status.* Proved (D249: the hundred-and-fourth verifier read the D247 repairs and found them correct). Verified
-(D247: the hundred-and-third verifier; no major finding, three minor findings and eight nits seated). This part proves, at spatial dimension $n = 4$, [Hin26] section 9.2 (pp. 186-199): the formal
-solutions at ztf ((9.57)-(9.61), Definition 9.25), the expansion at $\hat r = 0$ of the inverse of the tf-normal
-operator (Lemma 9.26, Remarks 9.27-9.28), the grafting of tf-solutions into the low-energy space (Definition 9.29,
-(9.72), Proposition 9.30, Remarks 9.31-9.34), and its conormal version (Proposition 9.35). The source uses these results
-from its section 11.5 on. As there, only infinite b-regularity is stated; finite b-regularity loses fixed amounts. Parts
-are cited as before; the source is [Hin26] = P. Hintz, arXiv:2606.28253v2 (printed page numbers).
+(D247: the hundred-and-third verifier; no major finding, three minor findings and eight nits seated). This part proves,
+at spatial dimension $n = 4$, [Hin26] section 9.2 (pp. 186-199): the formal solutions at ztf ((9.57)-(9.61), Definition
+9.25), the expansion at $\hat r = 0$ of the inverse of the tf-normal operator (Lemma 9.26, Remarks 9.27-9.28), the
+grafting of tf-solutions into the low-energy space (Definition 9.29, (9.72), Proposition 9.30, Remarks 9.31-9.34), and
+its conormal version (Proposition 9.35). The source uses these results from its section 11.5 on. As there, only infinite
+b-regularity is stated; finite b-regularity loses fixed amounts. Parts are cited as before; the source is [Hin26] = P.
+Hintz, arXiv:2606.28253v2 (printed page numbers).
 
 *What n = 4 changes.* (a) The tf-normal operator carries $-\hat r\partial_{\hat r}-\frac32-\bar S$ in its first-order
 part, and its inverse is III.F$'$ Corollary 3.4, with the sctf weight below $\frac32$ (the source's 1) and the ztf
