@@ -1,13 +1,14 @@
 # Part III.H$'$. 2-admissibility of $L_b$ at n = 4 ([Hin26] section 10.2, Theorem 10.1)
 
-*Status.* Verified (D252: the hundred-and-fifth verifier; no major finding, three minor findings and nine nits
-seated, to be read). Written (D250). This part proves, at spatial dimension $n = 4$, [Hin26] Theorem 10.1 (pp. 199-201)
-by the argument of its section 10.2 (pp. 212-217): the forward solution of $L_bu = f$ on $\Omega$ is represented by a
-contour integral of $\widehat{L_b}(\sigma)^{-1}$ (Lemma 2.1), split into high frequencies (Lemma 3.1), a regular
-low-frequency part (Lemma 4.1) and the contribution of the zero energy states (Lemma 5.1), which is controlled by
-integrating twice in $t_*$ (Lemma 6.2). The conclusion (Theorem 1.3) is 2-admissibility with sf-weight
-$\alpha_{\mathrm{sf}}$, $\alpha_{\mathrm{sf}}+2\in(0,1)$, margin 1 and *sf-loss 0*, for orders of a class $\mathcal O_c$
-(Definition 1.1), at $b_0$ for every $k$ and, for $b\ne b_0$, for $k$ up to a bound fixed by the neighbourhood of $b_0$.
+*Status.* Verified (D252: the hundred-and-fifth verifier; no major finding, three minor findings and nine nits seated.
+D254: the hundred-and-sixth verifier read the repairs; one residual minor finding and two nits seated, to be read).
+Written (D250). This part proves, at spatial dimension $n = 4$, [Hin26] Theorem 10.1 (pp. 199-201) by the argument of
+its section 10.2 (pp. 212-217): the forward solution of $L_bu = f$ on $\Omega$ is represented by a contour integral of
+$\widehat{L_b}(\sigma)^{-1}$ (Lemma 2.1), split into high frequencies (Lemma 3.1), a regular low-frequency part (Lemma
+4.1) and the contribution of the zero energy states (Lemma 5.1), which is controlled by integrating twice in $t_*$
+(Lemma 6.2). The conclusion (Theorem 1.3) is 2-admissibility with sf-weight $\alpha_{\mathrm{sf}}$,
+$\alpha_{\mathrm{sf}}+2\in(0,1)$, margin 1 and *sf-loss 0*, for orders of a class $\mathcal O_c$ (Definition 1.1), at
+$b_0$ for every $k$ and, for $b\ne b_0$, for $k$ up to a bound fixed by the neighbourhood of $b_0$.
 
 *What n = 4 changes.* At $n = 3$ the zero energy states decay like $r^{-1}$, the derivatives $\partial_{t_*}\dot g$,
 $\partial^2_{t_*}h_{\mathrm s1}$ of their contributions have sf-weights $-\frac12-\epsilon$ and $\frac12-\epsilon$, and
@@ -84,10 +85,10 @@ section 1.4, and $\mathsf r_\sigma$ is $\mathsf r_h(x,\xi) = \mathsf r(x,h\xi)$ 
 
 (c) $\mathsf r_\sigma$ is the dilated order $\mathsf r_\varsigma$ of I.C Definition 6.1, $\varsigma = |\sigma|$; and
 $(s_c+1,
-\mathsf r+1)$ with weight $\alpha_+ := \alpha_{\mathrm{sf}}$ is admissible at $\sigma_0 = \pm1$ and, by (C3), near it,
-which is what III.H Corollary 4.2 and Theorem 4.1 (3) use on $\Sigma' = \Sigma_0\cap\mathbb R$ (I.C's orders are
-admissible on $J_\pm = \{|\sigma_0\mp1|<\frac14\}$, which enters off the real axis; there only pairings are used,
-section 4).
+\mathsf r+1)$ with weight $\alpha_+ := \alpha_{\mathrm{sf}}$ is admissible at $\sigma_0 = \pm1$, which is what III.H
+Corollary 4.2 and Theorem 4.1 (3) use on $\Sigma' = \Sigma_0\cap\mathbb R$, where the rescaled frequency
+$\sigma/|\sigma|$ is $\pm1$ (off the real axis I.C's own orders, admissible on $J_\pm = \{|\sigma_0\mp1|<\frac14\}$, are
+used, and only through pairings, section 4; D254).
 
 *Proof.* Under $\Phi_{z_0}$ the radial sets correspond: $\partial R_{\mathcal H^+}$ (at fibre infinity, inside
 $\{\sigma = 0\}$), $\partial R_{\partial K^+,\mathrm{in}}$ and $\partial R_{\partial K^+,\mathrm{out}}$ are the images of
@@ -199,20 +200,27 @@ is continuous and $\delta_\Gamma(0)<\frac1{2(k+1)}$ on $\mathcal B^{\mathrm{hi}}
 $(k+1)\delta\le1$; then $|\sigma|^{2(j_1-1+(j'+1)\delta+j_4)}\le|\sigma|^{2(j_1+j_4)}$, and the integrand is bounded by
 $C\sum|\sigma|^{2(j_1+j_4)}\|(\sigma\partial_\sigma)^{j_3}\hat f(\sigma)\|^2_{(\mathsf s_\sigma;k-j_1-j_3-j_4),\mathsf
 s_\sigma+\beta+1,\mathsf s_\sigma}$, with $j_1+j_4+j_3\le k$. *$\frac c2\le|\sigma|\le C_0$.* $\widehat{L_b}(\sigma)$ is
-invertible there (III.H Corollary 4.4). As $\sigma\mapsto
-\mathsf r_\sigma$ is continuous into $C^\infty$, the compact set is covered by finitely many intervals $I_m\ni\sigma_m$
-on which $|\mathsf r_\sigma-\mathsf r_{\sigma_m}|\le\epsilon$ and on which the fixed pair $(s_c,\mathsf r_{\sigma_m}-
-\epsilon)$ is admissible for every $\sigma\in I_m$ with weight $\beta$ (the margins of Lemma 1.2 (a) exceed $\epsilon$,
-and the constancy neighbourhoods and (C3)'s neighbourhood of the characteristic set persist for $\sigma$ near $\sigma_m$;
-I.A Lemma 7.1). With these orders held fixed, I.A Theorem 7.2 (6) gives (7.1) and (7.3) without their last terms
-uniformly for $\sigma\in I_m$, and the proof of (7.6), which uses only these, gives $\partial_\sigma^{j'}\widehat{L_b}
-(\sigma)^{-1}:\bar H^{(s_c-1;k'+j'),\mathsf r_{\sigma_m}-\epsilon+\beta+1}\to\bar H^{(s_c+j';k'),\mathsf r_{\sigma_m}-
-\epsilon+\beta}$ uniformly on $I_m$. As $\mathsf r_\sigma+\beta+1\ge\mathsf r_{\sigma_m}-\epsilon+\beta+1$ and
-$\mathsf r_\sigma+\beta-2\epsilon\le\mathsf r_{\sigma_m}-\epsilon+\beta$ on $I_m$, the output is bounded in the decay
-order $\mathsf r_\sigma+\beta-2\epsilon$ by the input in $\mathsf r_\sigma+\beta+1$: the loss $2\epsilon$ of (3.1).
-$(\sigma\partial_\sigma)^{j'}$ is a combination of $\sigma^i\partial_\sigma^i$, $i\le j'$, with bounded coefficients. The
-integrand is bounded as before, without powers of $|\sigma|$, and on $|\sigma|\ge C_0$ the bound at the weight $\beta$
-gives it at $\beta-2\epsilon$. *Conclusion.* By II.A Lemma 5.2 again, with the weight
+invertible there (III.H Corollary 4.4). The induced pairs $(s_c,\mathsf r_\sigma)$, $\sigma$ in this compact set, depend
+continuously on $\sigma$ in $C^\infty$ and are admissible at $\sigma$ with weight $\beta$ (Lemma 1.2 (a)), with margins
+and constancy neighbourhoods uniform ($\mathsf r_\sigma(x,\xi) = S_{z_0}(x,\xi/|\sigma|)$ with $|\sigma|$ in a compact
+subset of $(0,\infty)$). So I.A Theorem 7.2 (1) gives (7.1) uniformly at these orders, and (7.3) likewise (I.A section
+7.4 proves (7.3) by the chain of section 7.1, whose constants are uniform for such families). The last terms drop
+uniformly: otherwise there are $\sigma_n\to\sigma_*$ and $u_n$ of norm 1 at the orders $\mathsf r_{\sigma_n}$ with
+$\|\widehat{L_b}(\sigma_n)u_n\|\to0$; as $\mathsf r_{\sigma_n}\to\mathsf r_{\sigma_*}$ uniformly, the $u_n$ are bounded
+in the fixed space of order $\mathsf r_{\sigma_*}-\epsilon$ for $n$ large, and a subsequence converges weakly there and
+strongly in $\bar H^{-N,-N}$, to a limit that is nonzero by the uniform (7.1) and lies in the kernel of
+$\widehat{L_b}(\sigma_*)$ on a space of an admissible order ($\mathsf r_{\sigma_*}-\epsilon$, the margins exceeding
+$\epsilon$), contradicting invertibility (III.H Corollary 4.4; the kernel does not depend on the orders, I.A Theorem 7.2
+(3)); for (7.3) as in the proof of I.A Theorem 7.2 (6). Then (7.6) holds at each $\sigma$ with the orders $(s_c,\mathsf
+r_\sigma)$, uniformly: $\partial_\sigma^{j'}\widehat{L_b}^{-1}$ is a sum of products of $\widehat{L_b}^{-1}$ and
+$\sigma$-derivatives of $\widehat{L_b}$ (on test sections, $\sigma\mapsto\widehat{L_b}(\sigma)^{-1}g$ being smooth in
+the fixed spaces of I.A Lemma 7.1's orders, I.A Theorem 7.2 (6)), each factor bounded uniformly between the spaces at
+$\sigma$, a $\sigma$-derivative of $\widehat{L_b}$ costing one b-derivative. So the output is bounded in the decay order
+$\mathsf r_\sigma+\beta$, a fortiori in $\mathsf r_\sigma+\beta-2\epsilon$, by the input in $\mathsf r_\sigma+\beta+1$.
+(D252 froze the orders on intervals; a frozen order need not be admissible at nearby $\sigma$, (C3) not being
+quantitative: D254.) $(\sigma\partial_\sigma)^{j'}$ is a combination of $\sigma^i\partial_\sigma^i$, $i\le j'$, with
+bounded coefficients. The integrand is bounded as before, without powers of $|\sigma|$, and on $|\sigma|\ge C_0$ the
+bound at the weight $\beta$ gives it at $\beta-2\epsilon$. *Conclusion.* By II.A Lemma 5.2 again, with the weight
 $\beta+1 = \alpha_{\mathrm{sf}}+2$, the integral is at most $C\|f\|^2_{H^{(\mathsf
 s;k),(\alpha_{\mathrm{sf}}+2,0)}_{3b;b}}$. $\square$
 
@@ -282,7 +290,7 @@ On $\gamma_0$, $|e^{-i\sigma t_*}| = e^{t_*\mathrm{Im}\,\sigma}$, so (5.1) grows
 $\hat g^{\mathrm{aug}}$, $\hat h^{\mathrm{aug}}$ at 0 prevent moving $\gamma_0$ to the real axis. Their
 $t_*$-derivatives do not have them.
 
-**Lemma 5.1 (bounds for derivatives).** For every $m,k\in\mathbb N_0$,
+**Lemma 5.1 (bounds for derivatives).** For every $m\in\mathbb N_0$, with $k$ and $c$ as in section 2,
 $$\partial_{t_*}\dot g\in H^{(m;k),(\alpha_{\mathrm{sf}}+1,0)}_{3b;b}(M_0),\qquad\partial^2_{t_*}h_{\mathrm s1}\in
 H^{(m;k),(\alpha_{\mathrm{sf}}+2,0)}_{3b;b}(M_0),\tag{5.3}$$
 with norms at most $C_m\|f\|_{H^{(\mathsf s;k),(\alpha_{\mathrm{sf}}+2,0)}_{3b;b}(\Omega)^{\bullet,-}}$.
@@ -367,8 +375,9 @@ $w(z')/w(z)$ is smooth, bounded with bounded scaled derivatives (the logarithmic
 $\rho_{\mathrm{sf}},\rho_K$ are bounded): an operator of the same class. $\square$
 
 **Lemma 6.2 ([Hin26] Lemma 10.13 at n = 4).** Let $\mathsf s$ be a $t_*$-translation-invariant 3b order, constant over
-$\{r\le r_0+1\}$ (as orders in $\mathcal O_c$ are, by II.C Definition 2.4 (3)), $k\in\mathbb N_0$, $\beta\in\mathbb R$,
-$\ell>\frac12$. If $u$ is a distribution on $M_0^\circ$ with
+$\{r\le r_0+\delta_1\}$ for some $\delta_1\in(0,1]$ (as orders in $\mathcal O_c$ are, by II.C Definition 2.4 (3):
+constant over $\{r\le r_\Gamma\}$, $r_\Gamma>r_2>r_0$), $k\in\mathbb N_0$, $\beta\in\mathbb R$, $\ell>\frac12$. If $u$
+is a distribution on $M_0^\circ$ with
 $$u|_{\Omega_-}\in\bar H^{(\mathsf s;k),(\beta-1,-\ell)}_{3b;b}(\Omega_-),\qquad\partial_{t_*}u\in H^{(\mathsf
 s;k),(\beta,-\ell+1)}_{3b;b}(M_0),$$
 then $u\in H^{(\mathsf s;k),(\beta-1,-\ell)}_{3b;b}(M_0)$, with norm at most $C$ times the sum of those two norms. The
@@ -395,15 +404,15 @@ by Cauchy-Schwarz with $t'^{\alpha}\cdot t'^{\ell-1-\alpha}$, and exchanging the
 t^{-2\ell+2\alpha+1}dt = t'^{-2\ell+2\alpha+2}/(2\ell-2\alpha-2)$, so the right side is at most $C\|f_0\|^2_{L^2} =
 C\|f\|^2 _{H^{0,(0,1-\ell)}_{3b}}$. Nothing here depends on the dimension.
 
-*Near $r = r_0$.* Let $\chi_1 = \chi_1(r)$ equal 1 near $\{r = r_0\}$ and vanish on $\{r\ge\min(r_0+1,\frac32r_0)\}$;
-it commutes with $\partial_{t_*}$, so $\chi_1u$ and $(1-\chi_1)u$ both satisfy the hypotheses. For $(1-\chi_1)u$ the
-argument below applies with $\theta_0$ so small that the kernels stay away from $\{r = r_0\}$. Over
-$\mathrm{supp}\,\chi_1$ the order is a constant $s_0$; extend $\chi_1u$ across $\{r = r_0\}$ by an extension operator
-$E$ acting in $x$ only (Seeley's reflection in $r$, into $\{r>\frac12r_0\}$, bounded on the extendible spaces of order
-$s_0$ and on the weighted $L^2$ spaces), which commutes with $\partial_{t_*}$; $E\chi_1u$ is supported in $\{t_*\ge-C\}$
-and at bounded $r$ the weights are those of $t_*$, so the argument below applies to it with the constant order $s_0$ and
-$t := t_*+r+C'$ for a constant $C'$ making $t\ge\theta r$ on its support; restriction to $\{r\ge r_0\}$ is bounded. (The
-source has the same point.)
+*Near $r = r_0$.* Let $\chi_1 = \chi_1(r)$ equal 1 near $\{r = r_0\}$ and vanish on
+$\{r\ge\min(r_0+\delta_1,\frac32r_0)\}$; it commutes with $\partial_{t_*}$, so $\chi_1u$ and $(1-\chi_1)u$ both satisfy
+the hypotheses. For $(1-\chi_1)u$ the argument below applies with $\theta_0$ so small that the kernels stay away from
+$\{r = r_0\}$. Over $\mathrm{supp}\,\chi_1$ the order is a constant $s_0$; extend $\chi_1u$ across $\{r = r_0\}$ by an
+extension operator $E$ acting in $x$ only (Seeley's reflection in $r$, into $\{r>\frac12r_0\}$, bounded on the
+extendible spaces of order $s_0$ and on the weighted $L^2$ spaces), which commutes with $\partial_{t_*}$; $E\chi_1u$ is
+supported in $\{t_*\ge-C\}$ and at bounded $r$ the weights are those of $t_*$, so the argument below applies to it with
+the constant order $s_0$ and $t := t_*+r+C'$ for a constant $C'$ making $t\ge\theta r$ on its support; restriction to
+$\{r\ge r_0\}$ is bounded. (The source has the same point.)
 
 *General $\mathsf s$.* Take $A,B',R$ of Lemma 6.1 with $J\ge\sup|\mathsf s|+|\inf\mathsf s|$ and $\theta_0$ so small that
 $z\in\mathrm{supp}\,K_A$ or $\mathrm{supp}\,K_R$ (as a function of its first variable, its second in $\mathrm{supp}\,u

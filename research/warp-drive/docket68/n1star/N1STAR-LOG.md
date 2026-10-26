@@ -5461,3 +5461,11 @@ dynamical operator at scri+ with the constant A-bar of L_b, partial polyhomogene
 (Proposition 11.14, Lemma 11.15) for weights below l_I^max = 3/2 + (1 - e_C)(1 - v_C) gam_C and off 3/2 + sigma_Ups, the
 radiation field at 3/2 in pi-slash_0 only, and formal solutions at scri+ (Proposition 11.16) with one exceptional term
 where the source has two. Next: verifier 106 seated, then verifier 107 on III.I'.
+
+**D254 (2026-10-26): verifier 106 seated.** The hundred-and-sixth verifier (Opus) read III.I and the D252 repairs.
+III.I: one major finding (Proposition 4.1's weights must stay below a_I + 1/2 at scri+ and a_+ + min Re E_+ at iota+,
+which the source's Proposition 11.8 also needs, now (I6)), two minor (the inverse metric by a finite Taylor expansion
+and Moser's estimate under H^3-smallness; Lemma 3.1 away from K+) and eight nits, all seated: III.I is verified, its
+repairs to be read. The D252 repairs to III.H' are correct but one: a frozen order need not be admissible at nearby
+frequencies, so the bounded frequencies now use the induced orders, uniform by I.A Theorem 7.2 (1); two nits. Next:
+verifier 107 on III.I' and these repairs.

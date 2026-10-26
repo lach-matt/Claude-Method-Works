@@ -3225,3 +3225,24 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - (I'3): the windows of (3.2) start at min Re E^C_I and step by 1.
 - Next: seat verifier 106 (III.I and the D252 repairs); verifier 107 on III.I'; then Part III.I'' ([Hin26] section
   11.3 at n = 4).
+
+### 4.177 Verifier 106 seated: III.I verified, III.H' repairs re-read (D254)
+
+- Verifier 106 (Opus) read III.I and the D252 repairs. III.I: one major, two minor findings, eight nits, all seated.
+- (M1) Proposition 4.1: the products need l_I < a_I + 1/2 at scri+ (a coefficient remainder of weight a_I acting on
+  the radiation term rho_I^(3/2)) and l_+ < a_+ + min Re E_+ at iota+, and (4.2) l_+ <= max(a_+, min Re E_+). Now
+  hypotheses; Corollary 4.2 (l = a) lies inside them. The source's Proposition 11.8 has the same restriction at n = 3
+  (l_I < 3 + eps_I): recorded as (I6), carried by Remark 5.5 to the later parts.
+- (m1) smallness: III.C Proposition 4.4's Neumann series needs H^k-smallness; replaced by a finite Taylor expansion of
+  (g_b + delta)^(-1) with a Moser remainder of large weight, under H^3-smallness, constants depending on a bound for
+  ||h||_(X^k). (m2) Lemma 3.1 stated on {rho_I <= C}, K+ separately.
+- Nits: Lemma 2.2 for k >= 3 and with a_I below the index sets; the K+ frame; Lemma 3.6's second alternative; G+ in
+  Proposition 4.1; (11.17b) not carried; the footnote 103 notation; Sigma^- by evenness; Lemma 4.3's support
+  supp chi_K cap supp(1 - chi_K); the source's (11.23) K+-weights -2, 0 against (11.21)-(11.22)'s 1/2, -3/2 (read at
+  source).
+- III.H' D252 repairs: correct, except (m1) residual: a frozen order need not be admissible at nearby sigma, (C3) not
+  being quantitative. Repaired by the induced orders themselves (I.A Theorem 7.2 (1) for continuous families, (7.3) by
+  the chain of I.A section 7.1, the inverse bound by contradiction, (7.6) by the product formula). Lemma 1.2 (c)'s
+  'near it' dropped (on the real axis sigma/|sigma| = +-1). Nits: Lemma 5.1's k; Lemma 6.2's constancy over
+  {r <= r_0 + delta_1}.
+- Next: verifier 107 on III.I' and the D254 repairs; Part III.I'' ([Hin26] section 11.3 at n = 4).
