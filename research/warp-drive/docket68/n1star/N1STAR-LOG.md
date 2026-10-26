@@ -5584,3 +5584,10 @@ exponents are fixed with log orders that grow with the real part, which closes t
 Remark 11.62; towers, joint injectivity, uniqueness of row expansions and forward Fourier tails are proved; and the
 iota+-terms of u-exponent below 2 are solved in spacetime up to the K+-order 4 + eps_K, which (C5) makes possible, their
 K+-terms identified as rows. The spectral half and the elimination follow as III.I'''''''''''.
+
+**D273 (2026-10-26): Part III.I''''''''''' written.** The second half of [Hin26] Theorem 11.59 at n = 4: four Taylor
+levels, a zero-energy solve with its expansion at each, the tf-model in its polyhomogeneous form at levels 1-2 and its
+conormal form at level 3; the resolvent decomposed into physical pieces, so the augmented system is inverted only at
+zero energy and at the last level; the K+-terms below alpha - 2 identified as the rows N_sigma by forward tails, the
+mass producing the boost rows at lambda = 3; and the elimination (11.222) at K+ as one step from an admissible
+alpha' in (2,3), a perturbation of the identity.

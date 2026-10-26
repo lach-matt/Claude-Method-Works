@@ -63,6 +63,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''''' | [Hin26] 11.7 (Definitions 11.47-11.48, Lemma 11.49, Proposition 11.51) | decaying centre-of-mass motions: corrections #3 with generalised gauge 1-forms to order 4; the motions read off from the s1 row of the iota+ step; K+-weight alpha - 2 for alpha < min(a_K, 3), almost t_*^-1 | proved (D271: verifier 115 read the D269 repairs; verified D269) |
 | III.I''''''''' | [Hin26] 11.8 to Lemma 11.57 (Definitions 11.55-11.56, Lemma 11.57) | correction terms #4 for six row types (s1, v1, s0, s2 and the class roots c0, c1; gauge towers of length 4, 3, 4, 3, 2, 2), the operator P_4 with every modification parameter, and its exact linearisation f^nu = L m_nu + r^nu with a remainder of iota+-weight above 5 + eps_+ and no index set | verified (D271; no major, two minor findings and seven nits seated, to be read) |
 | III.I'''''''''' | [Hin26] Theorem 11.59, Parts 1-3, first half (with Remark 11.62) | the parameter exponents fixed (an exponent set Lambda, log orders growing with the real part, the gap (G)), the towers of III.G'' as delta*-images and the uniqueness of row expansions, forward Fourier tails, and the spacetime phase: the iota+-terms of u-exponent below 2 solved up to the K+-order alpha <= 4 + eps_K under (C5), their K+-terms the rows | written (D272) |
+| III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | written (D273) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -1065,3 +1066,13 @@ forward Fourier tails (Lemma 2.4); and the spacetime phase (Proposition 3.1): ev
 $u$-exponent below 2 solved up to the $K^+$-order $\alpha\le4+\epsilon_K$, its $K^+$-terms below $\alpha-2$ the
 rows $\mathcal N_\iota$. The spectral half and the elimination are III.I$'''''''''''$. Findings
 (I$''''''''''$1)-(I$''''''''''$6). At $b_0$. Written (D272).
+
+`PART-III-I12-SPECTRAL.md`. [Hin26] Theorem 11.59, Parts 1-3, second half, at $n = 4$: zero-energy solves with
+expansions at $\partial X$ (Lemma 2.1), one Taylor level (Lemma 2.2), III.G$''''$ Proposition 4.4's pieces in
+compact sets as homogeneous functions of $\sigma$ times the spectral towers (Lemma 2.3), the column pieces
+(Lemma 2.4) and a physical decomposition of the low-energy resolvent that needs no assembly of the augmented
+components (Lemma 2.5); the spectral phase (Proposition 3.1: Taylor levels 0-3, the $K^+$-terms below
+$\alpha-2$ the rows $\mathcal N_\sigma$, the stationary columns vanishing by decay), the expansion (Lemma 3.2)
+and its continuity (Lemma 3.3), and the elimination (Theorem 4.1, the source's (11.222) at $K^+$), one step from
+an admissible $\alpha'\in(2,3)$ by a perturbation of the identity. The $\iota^+$-index set of (11.222), Part 4
+and section 11.8.3 are the next part. Findings (I$'''''''''''$1)-(I$'''''''''''$6). At $b_0$. Written (D273).

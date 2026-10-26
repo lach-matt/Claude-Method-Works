@@ -3513,3 +3513,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   spacetime treatment would revisit); the spectral cascade (Taylor levels 0-3, zero energy at each, III.G'''' Prop 4.4
   at levels 1-2, Prop 5.1 at level 3, the s1-column moves, forward tails) and the elimination are III.I'''''''''''.
 - Next: verifier 116 on III.I'''''''''' and the D271 repairs; then III.I'''''''''''.
+
+### 4.196 Part III.I''''''''''' written (D273): Theorem 11.59 at n = 4, second half, and (11.222)
+
+- PART-III-I12-SPECTRAL.md: the spectral phase. At n = 4 the zf-Taylor expansion of the transformed source has four
+  terms (alpha - 1 > 3), so four zero-energy solves (levels 0-3), each with its expansion at dX (III.A Lemma 1.4; the
+  root 2 is the mass); III.G'''' Proposition 4.4 at levels 1-2 for the polyhomogeneous tf-terms, Proposition 5.1 at
+  level 3 for the conormal ones, and III.I'' Lemma 4.2 for the rest.
+- Lemma 2.5: the low-energy resolvent is written as a sum of physical pieces (L-hat injective on X'_sigma), so the
+  augmented system is inverted only at zero energy and at the last level; no row corrections or column moves.
+- Lemma 2.3: Proposition 4.4's output in compact sets is a homogeneous function of sigma times the spectral towers plus
+  log-free integer-degree pieces; III.I'''''''''' Lemma 2.4 turns the former into the rows N_sigma (s1 at
+  2 <= Re lambda <= 3, s0 and s2 at Re lambda = 2) and the latter into nothing. The stationary columns vanish by decay.
+- Lemma 3.2 (the expansion) and Theorem 4.1: the elimination from an admissible alpha' in (2,3), a perturbation of the
+  identity (the exact linearisation f^nu = L m_nu + r^nu), = (11.222) at K+ with the plain iota+ weight.
+- Next: verifier 117 on III.I''''''''''' (after verifier 116 is seated); then III.I'''''''''''' (Part 4, the iota+
+  index set of (11.222), section 11.8.3).
