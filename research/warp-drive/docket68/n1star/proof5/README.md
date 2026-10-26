@@ -29,9 +29,9 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | **proved** (D216) |
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | **proved** (D216) |
 | II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | **proved** (D216) |
-| II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | verified (D216) |
+| II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | **proved** (D217) |
 | III.A | [Hin26] 2 | technical prerequisites: partial polyhomogeneity, integration along b-fields, harmonics on S^3 | to do |
-| III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed Einstein equation | written (D215) |
+| III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed Einstein equation | verified (D217) |
 | III.C-III.J | [Hin26] 5-12 | exterior stability; gauge potential, constraint and linearised operators; spectral theory; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -443,3 +443,7 @@ which the cut-offs do not give; repaired by a radial cut-off, with nothing chang
 *Proved (D216).* The ninetieth verifier confirmed the D213 repairs of Part II.G, and the eighty-ninth had confirmed the
 D212 repairs of Parts II.F and II.F' (D213, recorded there as confirmed but not yet marked): Parts II.F, II.F' and II.G
 are proved.
+
+*D217.* The ninety-first verifier read Part III.B: no major finding; two minor findings (a sign in an intermediate line
+of Lemma 3.5's proof; Lemma 5.2's hypothesis made exhaustive, with strictly nested cut-offs and small boosts shown to
+satisfy it) and ten nits seated. Part III.B is verified. It confirmed the D216 repairs of Part II.G', which is proved.

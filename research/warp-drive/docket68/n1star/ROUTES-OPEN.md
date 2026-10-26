@@ -2647,3 +2647,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   uniformity in P_0 (II.F' (F'11)).
 - Next: Part III.A' (harmonics on S^3, [Hin26] section 2.4; checks d216/harm.py under way) and III.A; the ninety-first
   verifier on Part III.B with the D216 repairs.
+
+### 4.140 The ninety-first verifier seated; Part III.B verified, Part II.G' proved (D217)
+
+- Part III.B read by the ninety-first verifier: no major finding; Minor 1 (a sign slip in Lemma 3.5 (b)'s intermediate
+  line) and Minor 2 (Lemma 5.2's hypothesis exhaustive, cut-offs strictly nested, small boosts admissible) and ten nits
+  seated (III.B section 7.3). Part III.B is verified.
+- The D216 repairs of II.G' confirmed: Part II.G' is proved.
+- Open: the D197, D200, D201, D204, D206, D207 and D217 repairs; Parts III.A, III.A', III.C-III.J and IV-VII; uniformity
+  in P_0 (II.F' (F'11)).
+- Next: Part III.A' ([Hin26] section 2.4 at n = 4; harm5.py K1-K4 computed); then the ninety-second verifier on III.A'
+  with the D217 repairs.

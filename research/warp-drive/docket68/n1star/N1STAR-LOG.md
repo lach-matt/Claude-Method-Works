@@ -5122,3 +5122,11 @@ weight of the gap and (J10)(b); (J6)'s scope; rho_+ after Definition 5.2; a scra
 ((J1)). Recorded in II.G' section 7.3. With the D212 repairs confirmed at D213, Parts II.F, II.F' and II.G are proved;
 II.G' is verified. Status: Parts I.A-I.C, II.A, II.A', II.F, II.F', II.G proved; II.B-II.E and II.G' verified; III.B
 written. Next: Part III.A' (harmonics on S^3) and III.A; the ninety-first verifier on III.B and the D216 repairs.
+
+**D217 (2026-10-26): the ninety-first verifier seated; Part III.B verified, Part II.G' proved.** PR #127 merged at D214
+and PR #128 at D216. The verifier read Part III.B with sympy and numerical checks (Kerr-Schild identities for a
+non-block A, Lemma 3.7's beta range, the boost exponent, constant and remainder class, Lemma 6.2 with a failing weight-1
+control) and confirmed (K1) and the D216 repairs. No major. Minor 1: Lemma 3.5 (b)'s intermediate g_{t|x|} had a sign
+slip; corrected. Minor 2: Lemma 5.2's hypothesis now exhaustive, cut-offs strictly nested, small boosts shown
+admissible. Ten nits seated (III.B section 7.3). Status: Parts I.A-I.C, II.A, II.A', II.F, II.F', II.G, II.G' proved;
+II.B-II.E and III.B verified. Next: Part III.A' ([Hin26] section 2.4 at n = 4, harm5.py).
