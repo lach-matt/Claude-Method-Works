@@ -17,9 +17,11 @@ the proof of Proposition 9.35.  Labels: computed (exact, sympy; exact rational a
   T3 (the n = 4 bookkeeping) For sample parameters, the window roots of III.G'' Table 1.1 (class roots from III.D
      Lemma 4.1's formulas), c_mu := 2 - floor(-mu) companions with c_mu <= K_mu, floor(-mu) + c_mu + 1 = 3, and on a
      grid of (Re alpha_0, w = l_zf - Re alpha_0 + 2) with -eps_ind < w < 3 and l_zf < 3: (i) the remainder order
-     c_mu + 1 - mu + min(0, Re beta_mu) of Lemma 3.3 exceeds w; (ii) the zf-orders of Proposition 4.4's
-     Step 1.2 (iii) exceed l_zf (generic, s1 with k = 3, v1 with k = 2); (iii) those of Proposition 5.1 exceed l_zf.
-     Controls: l_zf allowed up to 3 + eps_ind/2 (the source's range); one companion fewer.
+     c_mu + 1 - mu + min(0, Re beta_mu) of Lemma 3.3 exceeds w (the uniform bound, which Lemma 3.3 needs only for
+     Re alpha_0 <= 2); (ii) the zf-orders of Proposition 4.4's Step 1.2 (iii) exceed l_zf (generic, s1 with k = 3, v1
+     with k = 2); (iii) those of Proposition 5.1 exceed l_zf.
+     Controls: l_zf allowed up to 3 + eps_ind/2 (the source's range; the uniform bound then fails, at Re alpha_0 > 2
+     only, where Lemma 3.3 splits instead: it tests this proof's bound, not a necessity); one companion fewer.
   T4 (Proposition 5.1, Step 1) Scalar model N(lam) = (lam - a)(lam - b): for f = rho^(i eta), the source's pointwise
      choice u = N(alpha - 2)^-1 f leaves rho^-alpha (rho^2 N(rho d_rho))(rho^(alpha-2) u) - f = (N(alpha - 2 + i eta) /
      N(alpha - 2) - 1) f, of the size of f (no factor rho); the dilation-invariant inverse u = N(alpha - 2 + i eta)^-1 f

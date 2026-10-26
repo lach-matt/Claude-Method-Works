@@ -3110,9 +3110,26 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Corrected in the source: (9.58) is the operator of 2 L-bar (as III.G''s N_iota+); (9.59) prints rho^(-lambda-j) for
   rho^(-lambda+j); in Proposition 9.35's proof the pointwise inverse leaves an error of the size of a conormal source
   (tfgraft5.py T4), repaired by inverting the dilation-invariant operator on the weight line.
-- OPEN, for III.I-III.J: the n = 4 statements need l_zf < 3 (the source: 3 + eps_ind); a larger l_zf would need one
-  more companion at the physical roots -2 and the class roots near 0. Whether sections 11.5-12 at n = 4 need it is the
-  spectral counterpart of (G''1).
+- OPEN, for III.I-III.J: the n = 4 statements need the window w_0 < l_K^max <= 3 (the source: 3 + eps_ind); whether
+  sections 11.5-12 at n = 4 need more of it is the spectral counterpart of (G''1). (Corrected D247: D246 said l_zf < 3
+  is needed and a larger l_zf would need one more companion; both are withdrawn, verifier 103.)
 - tfgraft5.py T1-T4 (new), each with controls.
 - Next: verifier 103 on III.G'''' and the D245 repairs; Part III.C' ([Hin26] sections 5.4-5.7).
 
+### 4.170 Verifier 103 seated: III.G'''' verified, III.G''' proved (D247)
+
+- Verifier 103 (Opus) read III.G'''' and the D245 repairs. No major finding in III.G''''; three minor and eight nits,
+  all seated. The D245 repairs answer every finding of verifier 102 and are correct; one nit (the count of nits).
+- (m1) l_zf < 3 is not needed by Theorem 3.1: for Re alpha_0 <= 2 the window gives it, for Re alpha_0 > 2 Lemma 3.3
+  splits l_beta r^(3 + {-mu}) as the source's Case 1; (3.1) drops it, (G''''2) and 4.169 are corrected, tfgraft5.py T3's
+  control is relabelled (it tests this proof's bound). Proposition 4.4 keeps (4.2), whose l_zf < 3 is used through the
+  bound 3 of its Step 1.2 (iii), removable by the same split and not removed.
+- (m2) the term l_(2 - alpha)(|sigma|) G^exc_s1 carries the tf-exponent 2 - alpha: (4.3)'s tf-index set is
+  ((alpha_0, k) + E_ind) u ((4, k + 1) + ((0, 0) u E_ind)); the weights are unchanged; the source's (9.74), (9.81) have
+  the same imprecision ((G''''7)).
+- (m3) integer l_zf: (3.1), (4.2) and Proposition 5.1 now assume l_zf not in N_0, and Lemma 3.4 b + 1 != w_0
+  ((G''''8)).
+- Nits: III.D Lemma 4.1's ranges; the s1/v1 zf-orders; the form of Proposition 4.4 (2) derived from (4.5); the factor
+  |sigma|^(alpha_0 - 2) in Remark 4.5 (2); the cut-offs chi_zf chi_tf in Proposition 5.1's Step 1 and chi^sharp_tf in
+  (5.2); Re alpha_0.
+- Next: Part III.H ([Hin26] section 10.1 at n = 4); verifier 104 on III.H and the D247 repairs.

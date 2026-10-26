@@ -48,8 +48,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | **proved** (D241: the hundredth verifier read the D240 repairs, correct; one nit seated) |
 | III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | proved (D244; verifier 100's repairs read by verifier 101, one nit seated) |
 | III.C | [Hin26] 5.1-5.3 | metric perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an order lower; forward mapping | proved (D245; verifier 101's repairs read by verifier 102, three nits seated) |
-| III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | verified (D245; four minor findings and fourteen nits seated, to be read) |
-| III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | written (D246) |
+| III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | proved (D247; verified D245 with four minor findings and eleven nits) |
+| III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | verified (D247; three minor findings and eight nits seated, to be read) |
 | III.C', III.H-III.J | [Hin26] 5.4-5.7, 10-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -825,7 +825,8 @@ extension by zero creates $\delta(v)$ at the light cone. Lemma 3.4: the left inv
 `ext5.py` E6-E7 (new): the eigenvector supports of $\bar A$ and Lemma 2.2's exponent bookkeeping. Findings
 (G$'''$1)-(G$'''$5); (G$'''$1) records that the pole at $\lambda_\sharp<2$ is excited only by a $v^{\lambda_\sharp}$
 term of $\Pi_{2\gamma_\Upsilon}h$; the record's 10.38 (d) closes it on its readings, and whether section 12's linear
-grafting errors reach it is for Part III.J. Written (D243). Verified (D245): verifier 102's four minor findings (the
+grafting errors reach it is for Part III.J. Written (D243). Proved (D247): verifier 103 read the D245 repairs.
+Verified (D245): verifier 102's four minor findings (the
 frames on $\iota^+$, finite regularity on strips, the mechanism and the record's account in (G$'''$1)) and eleven nits
 seated.
 
@@ -842,7 +843,10 @@ in the window, each with $c_\mu = 2-\lfloor-\mu\rfloor$ companions and the facto
 $\alpha$ across coincidences, by a merged-residue Mellin argument (Lemmas 3.2-3.4). Proposition 4.4 (the source's 9.30):
 grafting with the Myers-Perry states, tf-error $\alpha_0+\mathcal E_{\mathrm{ind}}$, zf-class kept. Proposition 5.1
 (9.35): conormal sources. `tfgraft5.py` T1-T4 (new). Findings (G$''''$1)-(G$''''$6): the source's (9.58) is $2\bar L$'s
-and its (9.59) misprints $\rho^{-\lambda-j}$; at $n = 4$ the window needs $\ell_{\mathrm{zf}}<3$, where the source has
-$3+\epsilon_{\mathrm{ind}}$ (whether sections 11.5-12 need more is for III.I-III.J); the first step of the source's
-proof of Proposition 9.35 fails for conormal coefficients and is repaired by a dilation-invariant inverse. Written
-(D246).
+and its (9.59) misprints $\rho^{-\lambda-j}$; at $n = 4$ Theorem 3.1 needs the window $w_0<\ell_K^{\max}$, where the
+source has $3+\epsilon_{\mathrm{ind}}$ (whether sections 11.5-12 need more of the window is for III.I-III.J); the first
+step of the source's proof of Proposition 9.35 fails for conormal coefficients and is repaired by a dilation-invariant
+inverse. Written (D246). Verified (D247): verifier 103's three minor findings seated -- the bound
+$\ell_{\mathrm{zf}}<3$ of D246's (3.1) is not needed (Lemma 3.3 splits as the source's Case 1), the exceptional s1 term
+adds tf-exponents at 4 to (4.3) ((G$''''$7), the source's imprecision too), and $\ell_{\mathrm{zf}}\notin\mathbb N_0$
+is now assumed ((G$''''$8)) -- with eight nits.

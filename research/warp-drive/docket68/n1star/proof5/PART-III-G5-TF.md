@@ -1,6 +1,7 @@
 # Part III.G$''''$. The transition face and grafting on the spectral side at n = 4 ([Hin26] section 9.2)
 
-*Status.* Written (D246). This part proves, at spatial dimension $n = 4$, [Hin26] section 9.2 (pp. 186-199): the formal
+*Status.* Verified (D247: the hundred-and-third verifier; no major finding, three minor findings and eight nits
+seated, to be read). This part proves, at spatial dimension $n = 4$, [Hin26] section 9.2 (pp. 186-199): the formal
 solutions at ztf ((9.57)-(9.61), Definition 9.25), the expansion at $\hat r = 0$ of the inverse of the tf-normal
 operator (Lemma 9.26, Remarks 9.27-9.28), the grafting of tf-solutions into the low-energy space (Definition 9.29,
 (9.72), Proposition 9.30, Remarks 9.31-9.34), and its conormal version (Proposition 9.35). The source uses these results
@@ -12,7 +13,7 @@ part, and its inverse is III.F$'$ Corollary 3.4, with the sctf weight below $\fr
 weight in $[-1,0)$ (the source's $(-\epsilon_{\mathrm{ind}},0)$). (b) The expansion at $\hat r = 0$ runs over the window
 $(-3,0]$ of III.G$''$ Table 1.1, with its states and their companions: the class roots are
 $2-\lambda^\Upsilon_{\mathrm sl,l+j}$ with $l+j\le4$, the physical roots at $-2$ include the tensor type t2, and no root
-at $-3$ enters. (c) So the condition $\ell_{\mathrm{zf}}-\min(\mathrm{Re}\,\alpha_0-2,0)<\ell_K^{\max}\le3$ replaces the
+at $-3$ enters. (c) So the window $w_0<\ell_K^{\max}\le3$ (section 3) replaces the
 source's $3+\epsilon_{\mathrm{ind}}$ ((G$''''$2)). (d) The spectral family differs from the tf model by
 $\rho_{\mathrm{scf}}^2\rho_{\mathrm{tf}}^4\mathrm{Diff}^2_{\mathrm b}$ (Lemma 1.2), the source's $\rho_{\mathrm{tf}}^3$,
 as the mass enters at $\rho^2$. (e) Three points of the source are corrected: its (9.59) prints $\rho^{-\lambda-j}$ for
@@ -115,9 +116,9 @@ $$c_\mu := 2-\lfloor-\mu\rfloor,\qquad\{-\mu\} := -\mu-\lfloor-\mu\rfloor.\tag{1
 So $c_\mu = 2+\mu$ at the integer roots, and $c_\mu = 2,1,0$ at the class roots in $(-\frac14,0)$, $(-\frac54,-1)$,
 $(-\frac94,-2)$; these are Table 1.1's $k_\mu$ (for s1 and v1, $c_{-1}+2 = 3$ and $c_{-1}+1 = 2$), so $c_\mu\le K_\mu$,
 resp. $c_{-1}+2\le4$ and $c_{-1}+1\le3$. And $\lfloor-\mu\rfloor+c_\mu+1 = 3$. The fractional part $\{-\mu\}$ is 0 at
-the integer roots. At a class root $\mu = 2-\lambda^\Upsilon_{\mathrm sl,l+j}$, $-\mu\in(l+j-2,l+j-\frac74)$ (III.F$'$
-Proposition 2.3's bounds; $(0,\frac{z_\Upsilon}3]$ for $(l,l+j) = (0,2)$), so $\{-\mu\}\in(0,\frac14)$, and
-$\{-\mu\}\ge\epsilon_{\mathrm{ind}}$ by III.F$'$ (2.2). (`tfgraft5.py` T3.)
+the integer roots. At a class root $\mu = 2-\lambda^\Upsilon_{\mathrm sl,l+j}$, $-\mu\in(l+j-2,l+j-\frac74)$ (III.D
+Lemma 4.1's ranges, as III.G$''$ cites them; $(0,\frac{z_\Upsilon}3]$ for $(l,l+j) = (0,2)$), so
+$\{-\mu\}\in(0,\frac14)$, and $\{-\mu\}\ge\epsilon_{\mathrm{ind}}$ by III.F$'$ (2.2). (`tfgraft5.py` T3.)
 
 ## 2. Formal solutions at ztf ([Hin26] (9.57)-(9.61) and Definition 9.25 at n = 4)
 
@@ -183,9 +184,13 @@ $l_\beta$ itself, as a conormal function, does not: this is the point of writing
 
 *Hypotheses.* Let $\alpha_0\in\mathbb C$ and $\ell_{\mathrm{scf}},\ell_{\mathrm{zf}}\in\mathbb R$ with
 $$\mathrm{Re}\,\alpha_0\in(1,2+\epsilon_{\mathrm{ind}}),\quad\ell_{\mathrm{scf}}<\tfrac32,\quad w_0 :=
-\ell_{\mathrm{zf}}-\mathrm{Re}\,\alpha_0+2\in(-\epsilon_{\mathrm{ind}},\ell^{\max}_K),\quad\ell_{\mathrm{zf}}<3,\quad
-w_0\ne-\mu\tag{3.1}$$
-for every root $\mu$ of $\widehat{L_b}(0)$, with $\epsilon_{\mathrm{ind}}$ of III.F$'$ Proposition 2.3 (f). For $\alpha$
+\ell_{\mathrm{zf}}-\mathrm{Re}\,\alpha_0+2\in(-\epsilon_{\mathrm{ind}},\ell^{\max}_K),\quad
+\ell_{\mathrm{zf}}\notin\mathbb N_0,\quad w_0\ne-\mu\tag{3.1}$$
+for every root $\mu$ of $\widehat{L_b}(0)$, with $\epsilon_{\mathrm{ind}}$ of III.F$'$ Proposition 2.3 (f). (D247: the
+condition $\ell_{\mathrm{zf}}<3$ printed here in D246 is not needed, Lemma 3.3; $\ell_{\mathrm{zf}}\notin\mathbb N_0$
+keeps a Taylor term $\hat r^{2-\alpha+\ell_{\mathrm{zf}}}$ of the smooth remainders below off the last contour of Lemma
+3.4. A use at an integer $\ell_{\mathrm{zf}}$ takes $\ell_{\mathrm{zf}}-\delta$, or first removes the $j =
+\ell_{\mathrm{zf}}$ term as a term of type (ii) of Lemma 3.4's proof; verifier 103.) For $\alpha$
 near $\alpha_0$ put $w(\alpha) := \ell_{\mathrm{zf}}-\mathrm{Re}\,\alpha+2$ and
 $$\beta_\mu(\alpha) := 2-\alpha-\{-\mu\},\qquad z_j(\alpha) := 2-\alpha+j,\quad j\in\mathbb N_0,\tag{3.2}$$
 so that $z_{\lfloor-\mu\rfloor}(\alpha)+\mu = \beta_\mu(\alpha)$.
@@ -238,17 +243,28 @@ holomorphic dependence (III.A (F1); the coefficient maps are polynomial in $z = 
 holomorphic. Then $P\big(l_{\beta_\mu(\alpha)}H_{\mu,\tau}(Y(\alpha))\big)\in\mathfrak F_D$ for a small disc $D$.
 
 *Proof.* $P(l_\beta H) = l_\beta PH+[P,l_\beta]H$. By Lemma 2.2 (2),
-$l_\beta PH = (\mp i)^{c_\mu+1}l_\beta\hat r^{3+\{-\mu\}}\psi_{c_\mu}$, which by Lemma 2.4 (2) is holomorphic in
-$H^{\infty,c}_{\mathrm b}$ for every
-$c<3+\{-\mu\}+\min(0,\mathrm{Re}\,\beta_\mu) = \min(3+\{-\mu\},5-\mathrm{Re}\,\alpha)$. Both exceed $w(\alpha)$, as
-$w(\alpha)<3$ and $5-\mathrm{Re}\,\alpha-w(\alpha) = 3-\ell_{\mathrm{zf}}>0$; so for $D$ small this term is
-$\hat r^{2-\alpha}$ times a holomorphic family in $H^{\infty,\ell_{\mathrm{zf}}+\delta}_{\mathrm b}$, $\delta>0$. By
+$l_\beta PH = (\mp i)^{c_\mu+1}l_\beta\hat r^{3+\{-\mu\}}\psi_{c_\mu}$. *If $\mathrm{Re}\,\alpha_0\le2$,* then
+$\ell_{\mathrm{zf}} = w_0+\mathrm{Re}\,\alpha_0-2\le w_0<\ell_K^{\max}\le3$, and by Lemma 2.4 (2) this term is
+holomorphic in $H^{\infty,c}_{\mathrm b}$ for every
+$c<3+\{-\mu\}+\min(0,\mathrm{Re}\,\beta_\mu) = \min(3+\{-\mu\},5-\mathrm{Re}\,\alpha)$. Both exceed $w(\alpha)$ for $D$
+small, as $w(\alpha)<3$ and $5-\mathrm{Re}\,\alpha-w(\alpha) = 3-\ell_{\mathrm{zf}}>0$; so for $D$ small this term is
+$\hat r^{2-\alpha}$ times a holomorphic family in $H^{\infty,\ell_{\mathrm{zf}}+\delta}_{\mathrm b}$, $\delta>0$. *If
+$\mathrm{Re}\,\alpha_0>2$,* then $\mathrm{Re}\,\beta_\mu(\alpha_0) = 2-\mathrm{Re}\,\alpha_0-\{-\mu\}<0$, so
+$\beta := \beta_\mu$ is bounded away from 0 on a small $D$ and $l_\beta = \beta^{-1}(\hat r^\beta-1)$; as
+$\beta+3+\{-\mu\} = 5-\alpha$,
+$l_\beta\hat r^{3+\{-\mu\}}\psi = \beta^{-1}\hat r^{2-\alpha}\hat r^3\psi-\beta^{-1}\hat r^{2-\alpha}\hat
+r^{1+\alpha+\{-\mu\}}\psi$. The first is $\hat r^{2-\alpha}$ times a holomorphic smooth term (a coefficient $a_3$ if
+$\ell_{\mathrm{zf}}>3$, part of $a'$ if $\ell_{\mathrm{zf}}<3$), the second $\hat r^{2-\alpha}$ times a holomorphic
+family in $H^{\infty,\ell_{\mathrm{zf}}+\delta}_{\mathrm b}$, as $1+\mathrm{Re}\,\alpha+\{-\mu\}-\ell_{\mathrm{zf}} =
+3+\{-\mu\}-w(\alpha)>0$; both lie in $\mathfrak F_D$. (This is the source's own split, its Case 1; D247, verifier 103:
+D246 used the first case's bound throughout and so needed $\ell_{\mathrm{zf}}<3$.) By
 Lemma 2.4 (1), $[P,l_\beta] = \hat r^\beta Q_\beta$ with $Q_\beta$ a b-operator of order 1 polynomial in $\beta$, and
 $H\in\hat r^{-\mu}C^\infty([0,1)\times\mathbb S^3)$ is a polynomial in $\hat r$; so
 $[P,l_\beta]H\in\hat r^{\beta_\mu- \mu}C^\infty = \hat r^{2-\alpha+\lfloor-\mu\rfloor}C^\infty$, holomorphically, which
 lies in $\mathfrak F_D$ as $\lfloor-\mu\rfloor\in\mathbb N_0$. $\square$
 
-**Lemma 3.4 (one step).** Let $b\in(-1,w_0)$, with $b$ not the real part of a root $-\mu$ or of a $z_j(\alpha_0)$. Let
+**Lemma 3.4 (one step).** Let $b\in(-1,w_0)$, with $b$ not the real part of a root $-\mu$ or of a $z_j(\alpha_0)$,
+and $b+1\ne w_0$. Let
 $R(\alpha)\in H^{\infty,b}_{\mathrm b}([0,1)\times\mathbb S^3)$ be holomorphic on a disc $D$, with $PR\in\mathfrak F_D$.
 Let $\tilde b := \min(w_0,b+1)$, decreased slightly when $\tilde b<w_0$ so that it is not the real part of a root or of
 a $z_j(\alpha_0)$. Then, after shrinking $D$,
@@ -315,7 +331,9 @@ $l_\beta\hat r^{i-\mu} = \beta^{-1}(\hat r^{2-\alpha+\lfloor-\mu\rfloor+i}-\hat 
 of $H^{\infty,c}_{\mathrm b}$ with $c<i-\mu$, and $i-\mu>b+1\ge\tilde b$. This gives (3.6) on $(0,1)$, with $U$ the sum
 of $U_0$ and these type-(ii) parts, in $\mathfrak F_D$.
 
-*The last step.* If $\tilde b = w_0$, shift the contour instead to $\{\mathrm{Re}\,\lambda = w(\alpha)\}$, which depends
+*The last step.* If $\tilde b = w_0$, then $b+1>w_0$ (as $b+1\ge w_0$ and $b+1\ne w_0$), so $\Phi$, and with it
+$\mathcal MR$, is meromorphic on $\{\mathrm{Re}\,\lambda<b+1\}$, which contains $\{\mathrm{Re}\,\lambda\le w(\alpha)\}$
+for $D$ small. Shift the contour instead to $\{\mathrm{Re}\,\lambda = w(\alpha)\}$, which depends
 on $\alpha$: for $D$ small no root lies near it ($w_0\ne-\mu$), and the $z_j$ with $j<\ell_{\mathrm{zf}}$ have
 $\mathrm{Re}\,z_j\le w(\alpha)-\delta_\ell$,
 $\delta_\ell := \ell_{\mathrm{zf}}-\max\{j\in\mathbb N_0:j<\ell_{\mathrm{zf}}\}>0$. With $\lambda = \zeta+2-\alpha$,
@@ -338,7 +356,7 @@ $(0,1)_{\hat r}$, in $H^{\infty,b_0}_{\mathrm b}([0,1)\times\mathbb S^3)$, $b_0 
 \hat r^2\rho_{\mathrm{ztf}}^{-\alpha}f_0 = \hat r^{2-\alpha}(1+\hat r)^\alpha f_0\in\mathfrak F_D$. Put $R_0 := v$,
 $T_0 := U_0 := 0$. Inductively, if $v = T_i+U_i+R_i$ with $T_i$ a sum of terms $l_{\beta_\mu}H_{\mu,\tau}(Y)$ over the
 roots with $-\mu<b_i$, $U_i\in\mathfrak F_D$ and $R_i\in H^{\infty,b_i}_{\mathrm b}$, then $PR_i\in\mathfrak F_D$ by
-Lemmas 3.2-3.3, and Lemma 3.4 (with $b_i$ decreased slightly if it is a forbidden real part,
+Lemmas 3.2-3.3, and Lemma 3.4 (with $b_i$ decreased slightly if it is a forbidden real part or if $b_i+1 = w_0$,
 $H^{\infty,b}_{\mathrm b}\subset H^{\infty,b-\delta}_{\mathrm b}$) gives the data at $b_{i+1} := \tilde b_i$. Each step
 raises the weight by almost 1, so after at most five steps $b_i = w_0$, the last step taken as in Lemma 3.4's last
 paragraph. As $b_0<0$ and no root has $-\mu\in[-1,0)$ (III.F$'$ Proposition 2.3 (a)), the roots met are exactly those
@@ -418,21 +436,29 @@ $\square$
 $k\in\mathbb N_0$, $\ell_{\mathrm{scf}}<\frac32$, and
 $$-\epsilon_{\mathrm{ind}}<\ell_{\mathrm{zf}}-\mathrm{Re}\,\alpha_0+2,\qquad\ell_{\mathrm{zf}}
 -\min(\mathrm{Re}\,\alpha_0-
-2,0)<\ell^{\max}_K,\qquad\ell_{\mathrm{zf}}-\mathrm{Re}\,\alpha_0+2\ne-\mu\tag{4.2}$$
-for every root $\mu$. These imply (3.1): if $\mathrm{Re}\,\alpha_0\ge2$, $w_0\le\ell_{\mathrm{zf}}<\ell_K^{\max}\le3$;
-if $\mathrm{Re}\,\alpha_0<2$, $w_0<\ell^{\max}_K$ and $\ell_{\mathrm{zf}}<\ell^{\max}_K+\mathrm{Re}\,\alpha_0-2<3$.
+2,0)<\ell^{\max}_K,\qquad\ell_{\mathrm{zf}}\notin\mathbb N_0,\qquad\ell_{\mathrm{zf}}-\mathrm{Re}\,\alpha_0+2\ne
+-\mu\tag{4.2}$$
+for every root $\mu$. These imply (3.1), as $w_0\le\ell_{\mathrm{zf}}-\min(\mathrm{Re}\,\alpha_0-2,0)$. They also give
+$\ell_{\mathrm{zf}}<3$ (if $\mathrm{Re}\,\alpha_0\ge2$, $\ell_{\mathrm{zf}}<\ell_K^{\max}\le3$; if
+$\mathrm{Re}\,\alpha_0<2$, $\ell_{\mathrm{zf}}<\ell^{\max}_K+\mathrm{Re}\,\alpha_0-2<3$), which Step 1.2 (iii) below
+uses through the bound 3 of its zf-orders. That use is removable by the split of Lemma 3.3's second case (the term it
+splits off carries $|\sigma|^3$, which is smooth); it is not removed here (verifier 103).
 
 **Proposition 4.4 ([Hin26] Proposition 9.30 at n = 4).** Assume (4.2) and let $f\in
 H^{\infty,\ell_{\mathrm{scf}}+1,(\alpha_0,k),((0,0),\ell_{\mathrm{zf}})}_{\mathrm b}(X^\pm_{\mathrm{sc}\text- \mathrm
 b};S^2T^*X)$.
 
-(1) There is $u\in\bigcap_{\epsilon>0}H^{\infty,\ell_{\mathrm{scf}}-\epsilon,\alpha_0-2-\epsilon,\min(-1,\alpha_0-3)-
-\epsilon}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b})$, smooth in the Myers-Perry parameters $b$ near $b_0$, with
-$$f-\widehat{L_b}(\sigma)u\in H^{\infty,\ell_{\mathrm{scf}}+1,(\alpha_0,k)+\mathcal E_{\mathrm{ind}},((0,0),
-\ell_{\mathrm{zf}})}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b}),\tag{4.3}$$
+(1) There is $u\in\bigcap_{\epsilon>0}H^{\infty,\ell_{\mathrm{scf}}-\epsilon,\mathrm{Re}\,\alpha_0-2-\epsilon,
+\min(-1,\mathrm{Re}\,\alpha_0-3)-\epsilon}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b})$, smooth in the Myers-Perry
+parameters $b$ near $b_0$, with
+$$f-\widehat{L_b}(\sigma)u\in H^{\infty,\ell_{\mathrm{scf}}+1,\mathcal E_{\alpha_0,k},((0,0),
+\ell_{\mathrm{zf}})}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b}),\quad\mathcal E_{\alpha_0,k} :=
+\big((\alpha_0,k)+\mathcal E_{\mathrm{ind}}\big)\cup\big((4,k+1)+((0,0)\cup\mathcal E_{\mathrm{ind}})\big),\tag{4.3}$$
 where $\mathcal E_{\mathrm{ind}}$, an index set with
 $\min\mathrm{Re}\,\mathcal E_{\mathrm{ind}}\ge\epsilon_{\mathrm{ind}}$ not depending on $b$, $\alpha_0$, $k$, is that of
-Lemma 4.3 together with $(1,0)$.
+Lemma 4.3 together with $(1,0)$. The exponents at 4 come from the term $l_{2-\alpha_0}(|\sigma|)G^{\mathrm{exc}}_{\mathrm
+s1}$ (Step 1.1); their real part exceeds $\mathrm{Re}\,\alpha_0+\epsilon_{\mathrm{ind}}$, and the source's (9.74) and
+(9.81) omit them (D247, verifier 103).
 
 (2) For $k = 0$ one can take $u = \chi_{\mathrm{zf}}|\sigma|^{\alpha_0-2}u_b+\chi_{\mathrm{tf}}\rho_{\mathrm{tf}}^{
 \alpha_0-2}u_{\mathrm{tf}}$ with $u_{\mathrm{tf}}\in H^{\infty,\ell_{\mathrm{scf}}-\epsilon,((0,0),\ell_{\mathrm{zf}}
@@ -464,20 +490,37 @@ in the conormal spaces of Lemma 2.4 (2), and the states do not depend on $\alpha
 $\alpha$ with values in
 $H^{\infty,\ell_{\mathrm{scf}}-\epsilon,\mathrm{Re}\,\alpha_0-2-\epsilon,\min(-1,\mathrm{Re}\,\alpha_0
 -3)-\epsilon}_{\mathrm b}$ (the zf-weight from $l_{2-\alpha}(|\sigma|)|\sigma|^{\alpha-3}h_{b,\mathrm s1}$, of order
-$\mathrm{Re}\,\alpha-3+\min(0,2-\mathrm{Re}\,\alpha)$; every other term is better, as
-$\mathrm{Re}\,\alpha-2-\mu+\min(0, \mathrm{Re}\,\beta_\mu)\ge\min(\mathrm{Re}\,\alpha-2,0)$).
+$\mathrm{Re}\,\alpha-3+\min(0,2-\mathrm{Re}\,\alpha)$; every other term is better: the generic
+rows, as $\mathrm{Re}\,\alpha-2-\mu+\min(0, \mathrm{Re}\,\beta_\mu)\ge\min(\mathrm{Re}\,\alpha-2,0)$, and the s1 and v1
+terms $G_{\mathrm s1}$, $G_{\mathrm v1}$, which carry $|\sigma|^0$, have the order
+$\mathrm{Re}\,\alpha-2+\min(0,2-\mathrm{Re}\,\alpha) = \min(\mathrm{Re}\,\alpha-2,0)$ directly).
+
+In (4.5), as $|\sigma|^{\alpha-2}\hat r^{2-\alpha} = \rho^{\alpha-2}$, $\rho = \rho_{\mathrm{scf}}\rho_{\mathrm{tf}}$
+and $|\sigma| = \rho_{\mathrm{tf}}\rho_{\mathrm{zf}}$, the second part of $u_\alpha$ is
+$\chi_{\mathrm{tf}}\rho_{\mathrm{tf}}^{\alpha-2}u_{\mathrm{tf}}$ with
+$u_{\mathrm{tf}} := \rho_{\mathrm{scf}}^{\alpha-2}\chi_1u_{\alpha,1}+\rho_{\mathrm{zf}}^{\alpha-2}(1-\chi_1)u_{\alpha,
+\infty}$, a function of $(\hat r,\omega)$ in $H^{\infty,\ell_{\mathrm{scf}}-\epsilon,((0,0),\ell_{\mathrm{zf}})}_{\mathrm
+b}(\mathrm{tf})$ ($\rho_{\mathrm{scf}}$, $\rho_{\mathrm{zf}}$ and $\chi_{\mathrm{zf}} = \chi_1(\hat r)$ being functions
+of $\hat r$); at $\alpha = \alpha_0$ this is the form of (2) (the source's paragraph after (9.80)).
 
 *Step 1.1: the restriction.* $W_\alpha$ is polyhomogeneous at tf with index set $(0,0)\cup\mathcal E_{\mathrm{ind}}$,
-and $W_\alpha|_{\mathrm{tf}} = u_{\mathrm{tf},\alpha}$. Indeed
-$\chi_{\mathrm{zf}}|_{\mathrm{tf}} = \chi_{\mathrm{ztf}}$, $\chi_{\mathrm{tf}} = 1$ near tf, the functions of
-$(\hat r,\omega)$ are smooth at tf, and by Lemma 4.3
+apart from the term $\chi_{\mathrm{zf}}l_{2-\alpha}(|\sigma|)G^{\mathrm{exc}}_{\mathrm s1}$, and $W_\alpha|_{\mathrm{tf}}
+= u_{\mathrm{tf},\alpha}$. As $l_{2-\alpha}(|\sigma|) =
+((\rho_{\mathrm{tf}}\rho_{\mathrm{zf}})^{2-\alpha}-1)/(2-\alpha)$, that term has the tf-exponents $2$ and $4-\alpha$
+(with $2+\mathcal E_{\mathrm{ind}}$, $4-\alpha+\mathcal E_{\mathrm{ind}}$), merging into a logarithm at $\alpha = 2$;
+equivalently, $|\sigma|^{\alpha-2}l_{2-\alpha}(|\sigma|)G^{\mathrm{exc}}_{\mathrm s1} =
+(2-\alpha)^{-1}(1-|\sigma|^{\alpha-2}) G^{\mathrm{exc}}_{\mathrm s1}$ has the tf-exponents $2$ and $\alpha$ (D247,
+verifier 103). Indeed $\chi_{\mathrm{zf}}|_{\mathrm{tf}} = \chi_{\mathrm{ztf}}$, $\chi_{\mathrm{tf}} = 1$ near tf, the
+functions of $(\hat r,\omega)$ are smooth at tf, and by Lemma 4.3
 $(\chi_{\mathrm{zf}}u_{b,\alpha})|_{\mathrm{tf}} = \chi_{\mathrm{ztf}}u_{\alpha,0}$: the term
 $l_{2-\alpha}(|\sigma|)G^{\mathrm{exc}}_{\mathrm s1}$ vanishes at tf, to order
 $2+\min(0,2-\mathrm{Re}\,\alpha)-\epsilon>1$.
 
 *Step 1.2: the error.* Let $F_\alpha := \chi_{\mathrm{tf}}\rho_{\mathrm{tf}}^\alpha f_0-\widehat{L_b}(\sigma)u_\alpha$.
-We show $F_\alpha\in H^{\infty,\ell_{\mathrm{scf}}+1,\alpha+\mathcal
-E_{\mathrm{ind}},((0,0),\ell_{\mathrm{zf}})}_{\mathrm b}$, holomorphically in $\alpha$ as an element of
+We show $F_\alpha\in H^{\infty,\ell_{\mathrm{scf}}+1,\mathcal E_\alpha,((0,0),\ell_{\mathrm{zf}})}_{\mathrm b}$
+with $\mathcal E_\alpha := (\alpha+\mathcal E_{\mathrm{ind}})\cup(4+((0,0)\cup\mathcal E_{\mathrm{ind}}))$ for
+$\alpha\ne2$ (the exponents 4 and $\alpha+2$ merging into a logarithm at $\alpha = 2$), holomorphically in $\alpha$ as
+an element of
 $H^{\infty,\ell_{\mathrm{scf}}+1,\mathrm{Re}\,\alpha_0+
 \epsilon_{\mathrm{ind}}-\epsilon,((0,0),\ell_{\mathrm{zf}})}_{\mathrm b}$.
 
@@ -493,7 +536,10 @@ $$F_\alpha = -|\sigma|^{\alpha-2}\widehat{\bar L}(\sigma)(W_\alpha-u_{\mathrm{tf
 By Lemma 1.2 and Step 1.1, the first term has tf-index set $\alpha-2+2+\mathcal E_{\mathrm{ind}}$ (b-operators preserve
 index sets, III.A (F1)) and the second
 $\alpha+2+((0,0)\cup\mathcal E_{\mathrm{ind}})\subset\alpha+\mathcal E_{\mathrm{ind}}$, as
-$(2,0)\in\mathcal E_{\mathrm{ind}}$. Away from tf there is nothing to show at tf.
+$(2,0)\in\mathcal E_{\mathrm{ind}}$, apart from the term of $G^{\mathrm{exc}}_{\mathrm s1}$, which by Step 1.1 gives
+the exponents $4$ and $\alpha+2$ (from $\widehat{\bar L}(\sigma)\in\rho_{\mathrm{tf}}^2\mathrm{Diff}_{\mathrm b}$) and
+$6$ and $\alpha+4$ (from Lemma 1.2), each with $\mathcal E_{\mathrm{ind}}$: in $\mathcal E_\alpha$. Away from tf there
+is nothing to show at tf.
 
 (ii) *scf.* Near scf, $\chi_{\mathrm{zf}} = 0$ and $W_\alpha = \chi_{\mathrm{tf}}u_{\alpha,\infty}$, with sctf-weight
 $\ell_{\mathrm{scf}}-\epsilon$; near sctf, $u_{\mathrm{tf},\alpha} = u_{\alpha,\infty}$. Where $\chi_{\mathrm{tf}} = 1$,
@@ -547,23 +593,25 @@ $u := \partial^k_\alpha u_\alpha|_{\alpha_0}$. By the holomorphy in Step 1.2,
 $\chi_{\mathrm{tf}}\rho_{\mathrm{tf}}^{\alpha_0}(\log\rho_{\mathrm{tf}})^kf_0-\widehat{L_b}(\sigma)u = \partial^k_\alpha
 F_\alpha|_{\alpha_0}$ lies in $H^{\infty,\ell_{\mathrm{scf}}+1,\mathrm{Re}\,\alpha_0+\epsilon_{\mathrm{ind}}-\epsilon,
 ((0,0),\ell_{\mathrm{zf}})}_{\mathrm b}$, and differentiating (4.5) term by term shows that it is polyhomogeneous at tf
-with index set $(\alpha_0,k)+\mathcal E_{\mathrm{ind}}$. The membership of $u$ is that of $u_\alpha$, with logarithmic
-factors absorbed by $\epsilon$. *Parameters.* $N_{\mathrm{tf}}$ does not depend on $b$, the states depend smoothly on
-$b$ (III.D$''$, III.D$'''$, III.F$''''$), and so does $u$. $\square$
+with index set $\mathcal E_{\alpha_0,k}$ of (4.3) (the $k$-th $\alpha$-derivative of the $G^{\mathrm{exc}}_{\mathrm s1}$
+term's exponents 4 and $\alpha+2$, which merge at $\alpha_0 = 2$, carries at most $k+1$ logarithms at 4). The membership
+of $u$ is that of $u_\alpha$, with logarithmic factors absorbed by $\epsilon$. *Parameters.* $N_{\mathrm{tf}}$ does not
+depend on $b$, the states depend smoothly on $b$ (III.D$''$, III.D$'''$, III.F$''''$), and so does $u$. $\square$
 
 **Remark 4.5 ([Hin26] Remarks 9.31-9.33 at n = 4).** (1) $u$ solves $f$ away to leading order at tf without creating
 zf-error terms worse than those of $f$. For $\mathrm{Re}\,\alpha_0\le2$ the restriction of $f$ to zf ($k = 0$) is of
 class $\mathcal A^{\alpha_0}(X)$, and the source notes that this weight lies outside the range where the zero energy
 operator (or an augmentation of it) is inverted, which is why the tf-model is inverted instead; the $n = 4$ range is
 that of Part III.F's counterpart of the source's Corollary 8.13 and is not restated here. (2) The weaker the tf-order of
-$f$, the more singular $u$ at zf: the dominant term is $l_{2-\alpha_0}(|\sigma|)G^{\mathrm{exc}}_{\mathrm s1}$, of order
-$\min(-1,\alpha_0-3)$. The time-translation term contributes $|\sigma|^{\alpha_0-2}h^{(0),\le2}_{b,\mathrm s0}$ and, for
-$\alpha_0\ne2$, a smooth term $h^{(0),\le2}_{b,\mathrm s0}$; as $\alpha_0\to2$ they combine into
-$(\log|\sigma|)h^{(0),\le2}_{b,\mathrm s0}$, and likewise $|\sigma|^2h^{(-2)}_{b,\mathrm s2,\mathrm{ph}}$. The mechanism
-is the indicial root 0 of the tf-model, as for the flat Laplacian, in any dimension. (3) A tf-order $\alpha_0$
-corresponds to an $\iota^+$-order $\alpha_0+1$ (III.A Proposition 4.2), and the term
-$t_*^{-\alpha_0+1}h^{(0)}_{b,\mathrm s0}$ of III.G$''$ Theorem 4.2 is, on the Fourier side, essentially
-$|\sigma|^{\alpha_0-2}h^{(0)}_{b,\mathrm s0}$.
+$f$, the more singular $u$ at zf: the dominant term is
+$|\sigma|^{\alpha_0-2}l_{2-\alpha_0}(|\sigma|)G^{\mathrm{exc}}_{\mathrm s1}$, of zf-order
+$\min(-1,\mathrm{Re}\,\alpha_0-3)$ (without the factor $|\sigma|^{\alpha_0-2}$, $\min(-1,1-\mathrm{Re}\,\alpha_0)$). The
+time-translation term contributes $|\sigma|^{\alpha_0-2}h^{(0),\le2}_{b,\mathrm s0}$ and, for $\alpha_0\ne2$, a smooth
+term $h^{(0),\le2}_{b,\mathrm s0}$; as $\alpha_0\to2$ they combine into $(\log|\sigma|)h^{(0),\le2}_{b,\mathrm s0}$, and
+likewise $|\sigma|^2h^{(-2)}_{b,\mathrm s2,\mathrm{ph}}$. The mechanism is the indicial root 0 of the tf-model, as for
+the flat Laplacian, in any dimension. (3) A tf-order $\alpha_0$ corresponds to an $\iota^+$-order $\alpha_0+1$ (III.A
+Proposition 4.2), and the term $t_*^{-\alpha_0+1}h^{(0)}_{b,\mathrm s0}$ of III.G$''$ Theorem 4.2 is, on the Fourier
+side, essentially $|\sigma|^{\alpha_0-2}h^{(0)}_{b,\mathrm s0}$.
 
 **Remark 4.6 ([Hin26] Remark 9.34 at n = 4).** Had $l_{2-\alpha_0}(\hat r)$ been used for the $h_{b,\mathrm s1}$-term,
 the s1 computation would gain $-|\sigma|^{\alpha_0-2}[\widehat{L_b}(\sigma),l_{2-\alpha_0}(\hat r)]|\sigma|\sigma^{-2}
@@ -573,14 +621,16 @@ $|\sigma|^{-1}C^\infty$, singular at $\sigma = 0$.
 ## 5. Conormal sources at tf ([Hin26] Proposition 9.35 at n = 4)
 
 **Proposition 5.1 ([Hin26] Proposition 9.35 at n = 4).** Let $\alpha\in(1,2)$, $\ell_{\mathrm{scf}}<\frac32$, and
-$-\epsilon_{\mathrm{ind}}<w := \ell_{\mathrm{zf}}-\alpha+2<\ell^{\max}_K$, with $2-\alpha+j\ne-\mu$ and $w\ne-\mu$ for
+$-\epsilon_{\mathrm{ind}}<w := \ell_{\mathrm{zf}}-\alpha+2<\ell^{\max}_K$, $\ell_{\mathrm{zf}}\notin\mathbb N_0$, with
+$2-\alpha+j\ne-\mu$ and $w\ne-\mu$ for
 all $j\in\mathbb N_0$ and all roots $\mu$ of $\widehat{L_b}(0)$. Let $k_0\in\mathbb N_0$ and $f\in
 H^{\infty,\ell_{\mathrm{scf}}+1,\alpha,((k_0,0),\ell_{\mathrm{zf}})}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b};
 S^2T^*X)$. Then there is $u\in\bigcap_{\epsilon>0}H^{\infty,\ell_{\mathrm{scf}}-\epsilon,\alpha-2,\alpha-3}_{\mathrm
 b}(X^\pm_{\mathrm{sc}\text-\mathrm b})$ with
 $$f-\widehat{L_b}(\sigma)u\in\bigcap_{\epsilon>0}H^{\infty,\ell_{\mathrm{scf}}+1,\alpha+\epsilon_{\mathrm{ind}}-\epsilon,
 ((k_0,0),\ell_{\mathrm{zf}})}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b}).\tag{5.1}$$
-One can take $u = \chi_{\mathrm{zf}}u_b+\chi_{\mathrm{tf}}\tilde u$, with $\tilde u\in H^{\infty,\ell_{\mathrm{scf}}-
+One can take $u = \chi_{\mathrm{zf}}u_b+\chi^\sharp_{\mathrm{tf}}\tilde u$, with $\chi^\sharp_{\mathrm{tf}}$ a
+cut-off of the kind of $\chi_{\mathrm{tf}}$ (fixed in the proof), $\tilde u\in H^{\infty,\ell_{\mathrm{scf}}-
 \epsilon,\alpha-2,((k_0,0),\ell_{\mathrm{zf}})}_{\mathrm b}$ and
 $$u_b = h^{\le3}_{b,\mathrm s1}\big(\sigma,|\sigma|^{\alpha-3}S^{(-1)}_1(\sigma)\big)+h^{\le2}_{b,\mathrm
 v1}\big(\sigma, |\sigma|^{\alpha-2}V^{(-1)}_1(\sigma)\big)+{\sum_{\mu,\tau}}'\,h^{(\mu),\le
@@ -594,7 +644,10 @@ $\ell_{\mathrm{zf}} = w+\alpha-2<3$. The point is that (5.1) vanishes to higher 
 zf-class $((k_0,0),\ell_{\mathrm{zf}})$, so it is of the form (5.1).
 
 *Step 1: the zf-expansion near the corner.* Near tf $\cap$ zf, in $(\rho,\hat r,\omega)$, the partial expansion of $f$
-at zf reads $f = \sum_{k_0\le j<\ell_{\mathrm{zf}}}|\sigma|^j\rho^{\alpha-j}f^{(j)}(\rho,\omega)+f'$ with
+at zf reads $\chi_{\mathrm{zf}}\chi_{\mathrm{tf}}f = \chi_{\mathrm{zf}}\chi_{\mathrm{tf}}(\sum_{k_0\le
+j<\ell_{\mathrm{zf}}}|\sigma|^j\rho^{\alpha-j}f^{(j)}(\rho,\omega)+f')$ (cut off by $\chi_{\mathrm{zf}}$, as its terms
+have scf-weight $\alpha-j<\ell_{\mathrm{scf}}+1$ for $j\ge1$), and $(1-\chi_{\mathrm{zf}})\chi_{\mathrm{tf}}f$, which
+vanishes near zf, is of the form of $f_1$ below; here
 $f^{(j)}\in H^{\infty,0}_{\mathrm b}([0,\rho_0)_\rho\times\mathbb S^3)$ and $f'$ of zf-weight $\ell_{\mathrm{zf}}$: the
 coefficients are functions on zf $\cong\bar X$, and $|\sigma|^j\rho^{\alpha-j} = \rho_{\mathrm{tf}}^\alpha
 \rho_{\mathrm{zf}}^j\rho_{\mathrm{scf}}^{\alpha-j}$ carries $f$'s tf-weight. Each term is $|\sigma|^j$ times a
@@ -605,7 +658,8 @@ H^{\infty,\alpha-2-j}_{\mathrm b},\tag{5.3}$$
 dilation invariant, and $\alpha-2-j$ is not the real part of a root ($2-\alpha+j\ne-\mu$, the roots being real), so its
 Mellin family is invertible on that line, with the bounds (E1), and (5.3) is solved by Mellin inversion on
 $\{\mathrm{Re}\,\lambda = \alpha-2-j\}$ (Plancherel). Then $U_j := \chi_{\mathrm{zf}}\chi_{\mathrm{tf}}|\sigma|^jv_j$
-satisfies, by (1.2) and Lemma 1.2, $\widehat{L_b}(\sigma)U_j = |\sigma|^j\rho^{\alpha-j}f^{(j)}+e_j$ on
+satisfies, by (1.2) and Lemma 1.2, $\widehat{L_b}(\sigma)U_j =
+\chi_{\mathrm{zf}}\chi_{\mathrm{tf}}|\sigma|^j\rho^{\alpha-j}f^{(j)}+e_j$ on
 $\mathrm{supp}\,\chi_{\mathrm{tf}}$ (where $\chi_3 = 1$), where $e_j$ consists of three kinds of terms. First,
 $\chi_{\mathrm{zf}}\chi_{\mathrm{tf}}|\sigma|^{j+1}\rho^{\alpha-j-1}g_{j+1}$ with $g_{j+1} := \pm
 i\rho^{j+1-\alpha}\rho(\rho\partial_\rho-\frac32-\bar S)v_j\in H^{\infty,0}_{\mathrm b}$, from the $i\sigma\rho$-term of
@@ -620,14 +674,15 @@ $$\chi_{\mathrm{tf}}f-\widehat{L_b}(\sigma)u_0 = f_1+f_2,\qquad f_1\in H^{\infty
 \ell_{\mathrm{zf}}}_{\mathrm b},\tag{5.4}$$
 with $f_2$ the sum of an element of $H^{\infty,\ell_{\mathrm{scf}}+1,\alpha+2,((k_0,0),\ell_{\mathrm{zf}})}_{\mathrm b}$
 and of terms supported away from tf of zf-class $((k_0,0),\ell_{\mathrm{zf}})$, so of the form (5.1); $f_1$ collects
-$f'$, the commutators with $\chi_{\mathrm{zf}}$, and the term of form $\lfloor\ell_{\mathrm{zf}}\rfloor+1$, of zf-order
-$>\ell_{\mathrm{zf}}$. Here the source takes instead
-$u^{(0)}_0(\rho,\cdot) := \tilde L(0)(\omega,\alpha-2,\partial_\omega)^{-1}f^{(0)}_0(\rho,\cdot)$ pointwise in $\rho$
-and asserts that the terms in which $\hat r\partial_{\hat r}$ falls on $u^{(0)}_0(|\sigma|/\hat r,\omega)$ carry a
-factor $\rho$. They carry $\rho\partial_\rho u^{(0)}_0$, which for a conormal $f^{(0)}_0$ is of the size of $u^{(0)}_0$:
-for $f^{(0)}_0 = \rho^{i\eta}\phi$ the pointwise error is
-$(\mathcal N(\alpha-2+i\eta)\mathcal N(\alpha-2)^{-1}-1)\rho^{i\eta}\phi$, with no factor $\rho$, while (5.3) leaves no
-error ((G$''''$3); `tfgraft5.py` T4). The source's version is correct for $f^{(0)}_0$ smooth in $\rho$.
+$\chi_{\mathrm{zf}}\chi_{\mathrm{tf}}f'$, $(1-\chi_{\mathrm{zf}})\chi_{\mathrm{tf}}f$, the commutators with
+$\chi_{\mathrm{zf}}$, and the term of form $\lfloor\ell_{\mathrm{zf}}\rfloor+1$, of zf-order $>\ell_{\mathrm{zf}}$. Here
+the source takes instead $u^{(0)}_0(\rho,\cdot) := \tilde
+L(0)(\omega,\alpha-2,\partial_\omega)^{-1}f^{(0)}_0(\rho,\cdot)$ pointwise in $\rho$ and asserts that the terms in which
+$\hat r\partial_{\hat r}$ falls on $u^{(0)}_0(|\sigma|/\hat r,\omega)$ carry a factor $\rho$. They carry
+$\rho\partial_\rho u^{(0)}_0$, which for a conormal $f^{(0)}_0$ is of the size of $u^{(0)}_0$: for $f^{(0)}_0 =
+\rho^{i\eta}\phi$ the pointwise error is $(\mathcal N(\alpha-2+i\eta)\mathcal N(\alpha-2)^{-1}-1)\rho^{i\eta}\phi$, with
+no factor $\rho$, while (5.3) leaves no error ((G$''''$3); `tfgraft5.py` T4). The source's version is correct for
+$f^{(0)}_0$ smooth in $\rho$.
 
 *Step 2: solving away $f_1$.* Let $\chi^\sharp_{\mathrm{tf}}$ be a cut-off of the same kind, equal to 1 on the supports
 in Step 1, so $f_1 = \chi^\sharp_{\mathrm{tf}}f_1$. In $(\sigma,\hat r,\omega)$, with
@@ -662,7 +717,9 @@ $\alpha-2+w = \ell_{\mathrm{zf}}$, preserved by $\widehat{L_b}(\sigma)$; at zf$^
 give $|\sigma|^{\alpha-2-\mu}|\sigma|^{c_\mu+1}Y(\sigma)$, of zf-weight $\alpha+1+\{-\mu\}$, and the s1 and v1 terms
 $|\sigma|^{\alpha+1}$; all exceed $\ell_{\mathrm{zf}}$, as $\ell_{\mathrm{zf}}<\alpha+1$ ($w<3$). So
 $f_1-\widehat{L_b}(\sigma)u_2$ is of the form (5.1). With $u := u_0+u_2$ and
-$\tilde u := |\sigma|^{\alpha-2}\tilde u_1+\chi_{\mathrm{zf}}\sum|\sigma|^jv_j$, (5.1)-(5.2) hold, the $|\sigma|$-powers
+$\tilde u := |\sigma|^{\alpha-2}\tilde u_1+\chi_{\mathrm{zf}}\chi_{\mathrm{tf}}\sum|\sigma|^jv_j$ (so that
+$u = \chi_{\mathrm{zf}}u_b+\chi^\sharp_{\mathrm{tf}}\tilde u$, as $\chi^\sharp_{\mathrm{tf}} = 1$ on
+$\mathrm{supp}\,\chi_{\mathrm{tf}}$), (5.1)-(5.2) hold, the $|\sigma|$-powers
 of (5.2) absorbing the signs and factors $\pm i$; the zf-weight $\alpha-3$ of (5.2) is that of
 $|\sigma|^{\alpha-3}h_{b,\mathrm s1}$. $\square$
 
@@ -678,15 +735,17 @@ $N_{\mathrm{tf}} := N_{\mathrm{tf}}(\widehat{L_b},\pm1)$ throughout (Lemma 1.1 (
 The source's (9.59) prints $\rho^{-\lambda-j}$ where its companions' degree $\lambda-j$ needs $\rho^{-\lambda+j}$.
 
 (G$''''$2) *The window.* At $n = 4$ the expansions run over $(-3,0]$ with $c_\mu = 2-\lfloor-\mu\rfloor$ companions, and
-Theorem 3.1 needs $w_0<\ell^{\max}_K$ and $\ell_{\mathrm{zf}}<3$ (Proposition 4.4:
-$\ell_{\mathrm{zf}}-\min(\mathrm{Re}\,\alpha_0-2,0)<\ell^{\max}_K$), where the source has $3+\epsilon_{\mathrm{ind}}$.
-The bound $\ell_{\mathrm{zf}}<3$ is used in Lemma 3.3: with $c_\mu$ companions the remainder
-$l_\beta\hat r^{3+\{-\mu\}}$ has weight $\min(3+\{-\mu\},5-\mathrm{Re}\,\alpha)$, and $5-\mathrm{Re}\,\alpha>w$ is
-$\ell_{\mathrm{zf}}<3$ (`tfgraft5.py` T3 fails when $\ell_{\mathrm{zf}}$ is allowed up to
-$3+\frac12\epsilon_{\mathrm{ind}}$). A larger $\ell_{\mathrm{zf}}$ would need one more companion at the physical roots
-$-2$ ($K = 0$) and at the class roots in $(-\frac14,0)$ ($K = 2$), which Table 1.1 does not provide. Whether the
-source's sections 11.5-12 at $n = 4$ need $\ell_{\mathrm{zf}}\ge3$ (a $K^+$-order $\ell_{\mathrm{zf}}+1\ge4$ of the
-remainder) is for Parts III.I-III.J; it is the spectral counterpart of III.G$''$'s conditional window ((G$''$1)).
+Theorem 3.1 needs the window $w_0<\ell^{\max}_K$, where the source has $3+\epsilon_{\mathrm{ind}}$; no bound on
+$\ell_{\mathrm{zf}}$ itself (corrected D247, verifier 103: D246 required $\ell_{\mathrm{zf}}<3$ and said a larger
+$\ell_{\mathrm{zf}}$ would need one more companion, which is false). Lemma 3.3 splits: for
+$\mathrm{Re}\,\alpha_0\le2$ the window gives $\ell_{\mathrm{zf}}\le w_0<3$ and the uniform remainder bound
+$\min(3+\{-\mu\},5-\mathrm{Re}\,\alpha)>w$ holds; for $\mathrm{Re}\,\alpha_0>2$ every $\beta_\mu$ stays away from 0 and
+$l_\beta\hat r^{3+\{-\mu\}}$ splits into a term of $\mathfrak F_D$ and one of weight $3+\{-\mu\}>w$, the source's Case 1.
+`tfgraft5.py` T3 tests the uniform bound, and its control ($\ell_{\mathrm{zf}}$ up to $3+\frac12\epsilon_{\mathrm{ind}}$)
+fails only at $\mathrm{Re}\,\alpha_0>2$, where the split is used. Proposition 4.4 keeps (4.2), which gives
+$\ell_{\mathrm{zf}}<3$ through the bound 3 of Step 1.2 (iii); that bound is removable by the same split, not done here.
+The window itself, $\ell_K^{\max}\le3$, is III.G$''$'s conditional window ((G$''$1)), and whether the source's sections
+11.5-12 at $n = 4$ need more of it is for Parts III.I-III.J.
 
 (G$''''$3) *Proposition 9.35's first step.* The source inverts the indicial operator pointwise in $\rho$ and asserts a
 factor $\rho$ in the error; for conormal coefficients the error is of the size of the source term (`tfgraft5.py` T4).
@@ -710,17 +769,33 @@ allowed.
 
 (G$''''$6) *The exceptional s1 term at $n = 4$.* $G^{\mathrm{exc}}_{\mathrm s1} = -|\sigma|\sigma^{-2}h_{b,\mathrm s1}$
 vanishes at tf to order 2 (the source's 1), as $h_{b,\mathrm s1}\in\mathcal A^3$ at $n = 4$ (III.D$'''$ (3.4)); its
-zf-order, which sets $\min(-1,\alpha_0-3)$ in Proposition 4.4 (1), is unchanged.
+zf-order, which sets $\min(-1,\mathrm{Re}\,\alpha_0-3)$ in Proposition 4.4 (1), is unchanged.
+
+(G$''''$7) *The tf-exponents of the exceptional term (D247, verifier 103).* The factor $l_{2-\alpha}(|\sigma|)$ of the
+term $l_{2-\alpha}(|\sigma|)G^{\mathrm{exc}}_{\mathrm s1}$ carries the tf-exponent $2-\alpha$, so the grafting error has
+tf-exponents at 4 (and 6) besides $\alpha_0+\mathcal E_{\mathrm{ind}}$: the index set of (4.3) is
+$\mathcal E_{\alpha_0,k}$. The weights are unaffected ($4>\mathrm{Re}\,\alpha_0+\epsilon_{\mathrm{ind}}$). The source's
+(9.74) and (9.81) state $(\alpha_0,k)+\mathcal E_{\mathrm{ind}}$; its Step 1.1 records only a conormal order for this
+term, and so did D246.
+
+(G$''''$8) *Integer $\ell_{\mathrm{zf}}$ (D247, verifier 103).* With $\ell_{\mathrm{zf}}\in\mathbb N_0$, which (3.1),
+(4.2) and Proposition 5.1 did not exclude in D246, a Taylor term $\hat r^{2-\alpha+\ell_{\mathrm{zf}}}$ of the smooth
+remainders (as $[P,l_\beta]H$ or $(1+\hat r)^\alpha f_0$) lies neither in the strict expansion of $\mathfrak F_D$ nor in
+$H^{\infty,\ell_{\mathrm{zf}}}_{\mathrm b}$, and its pole sits on the last contour. The three statements now assume
+$\ell_{\mathrm{zf}}\notin\mathbb N_0$; the source's Definition 2.8 expands over $\mathrm{Re}\,z\le\alpha$ and its
+section 9.2 meets the same point. Lemma 3.4 also asks $b+1\ne w_0$, so that $\mathcal MR(\lambda-1)$ is holomorphic up
+to the last contour.
 
 ### 6.2 Labels
 
 Proved: Lemmas 1.1-1.2, 2.2, 2.4, 3.2-3.4, 4.2-4.3, Theorem 3.1, Propositions 4.4 and 5.1, Remarks 3.5 and 4.6, given
-the parts cited. Remark 3.6 and Remark 4.5 are commentary, partly READ (Remark 4.5 (1) is the source's, with its $n = 4$
-range left to Part III.F). Computed (exact): `tfgraft5.py` T1-T4, each with controls. READ: the source's statements
-quoted from pp. 186-199. Inputs: III.A (F1), Lemma 1.4's proof with (M1)-(M2), (E1)-(E2), Proposition 4.2; III.F Lemma
-2.1; III.F$'$ (2.2), Proposition 2.3, Corollary 3.4; III.G$'$ Lemma 1.3; III.G$''$ (1.1), Table 1.1, Lemmas 1.2, 2.2,
-2.4, 2.6, Definition 2.5; III.D$''$, III.D$'''$ (3.4) and III.F$''''$ Proposition 5.1 (the states); I.C section 4.1 and
-(4.1); II.G$'$ (3.2).
+the parts cited; verified (D247): verifier 103 read the part, found no major finding, and its three minor findings
+((G$''''$2), (G$''''$7), (G$''''$8)) and eight nits are seated, to be read. Remark 3.6 and Remark 4.5 are commentary,
+partly READ (Remark 4.5 (1) is the source's, with its $n = 4$ range left to Part III.F). Computed (exact): `tfgraft5.py`
+T1-T4, each with controls. READ: the source's statements quoted from pp. 186-199. Inputs: III.A (F1), Lemma 1.4's proof
+with (M1)-(M2), (E1)-(E2), Proposition 4.2; III.F Lemma 2.1; III.F$'$ (2.2), Proposition 2.3, Corollary 3.4; III.G$'$
+Lemma 1.3; III.G$''$ (1.1), Table 1.1, Lemmas 1.2, 2.2, 2.4, 2.6, Definition 2.5; III.D$''$, III.D$'''$ (3.4) and
+III.F$''''$ Proposition 5.1 (the states); I.C section 4.1 and (4.1); II.G$'$ (3.2).
 
 ### 6.3 Sources
 

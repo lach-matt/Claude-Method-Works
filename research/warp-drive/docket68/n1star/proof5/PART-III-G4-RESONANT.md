@@ -1,6 +1,7 @@
 # Part III.G$'''$. The $\iota^+$-normal operator on partially polyhomogeneous spaces at n = 4 ([Hin26] section 9.1.3)
 
-*Status.* Verified (D245: the hundred-and-second verifier; four minor findings and fourteen nits seated, to be read).
+*Status.* Proved (D247: the hundred-and-third verifier read the D245 repairs and found them correct). Verified
+(D245: the hundred-and-second verifier; four minor findings and eleven nits seated, with three more nits on III.C).
 This part proves, at spatial dimension $n = 4$, [Hin26] Lemmas 9.13-9.14, Proposition 9.15, Definition 9.16 with (9.49),
 Remark 9.17, Corollary 9.18, Definition 9.19, Remark 9.20, Lemma 9.21, (9.54)-(9.55), Proposition 9.22 and Remarks
 9.23-9.24 (pp. 180-186). The source uses this material only in its section 12. Parts are cited as before; the source is

@@ -5409,3 +5409,10 @@ solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3,
 argument. Three corrections to the source: (9.58) is 2 L-bar's operator, (9.59)'s rho-power, and the first step of the
 proof of Proposition 9.35, which fails for conormal coefficients and is repaired. At n = 4 the window needs l_zf < 3;
 whether sections 11.5-12 need more is for III.I-III.J. New instrument tfgraft5.py T1-T4. Next: verifier 103.
+
+**D247 (2026-10-26): verifier 103 seated.** The hundred-and-third verifier (Opus) read III.G'''' and the D245 repairs.
+No major finding in III.G''''; three minor and eight nits, all seated: the bound l_zf < 3 of D246's (3.1) is not needed
+(Lemma 3.3 now splits as the source's Case 1 when Re alpha_0 > 2; D246's statement that a larger l_zf would need one
+more companion is withdrawn), the exceptional s1 term adds tf-exponents at 4 to the grafting error (4.3) (the source's
+imprecision too), and l_zf is now assumed off N_0. The D245 repairs are correct; D245's "fourteen nits" were eleven on
+III.G''' and three on III.C. III.G'''' is verified, its repairs to be read; III.G''' is proved. Next: Part III.H.
