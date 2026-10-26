@@ -1,13 +1,14 @@
 # Part III.D′. The gauge potential operator at zero energy, at n = 4 ([Hin26] section 6.4)
 
-*Status.* Written (D222). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part
-III.B with $b$ near the Tangherlini parameter $b_0$, what [Hin26] section 6.4 and Lemma 6.13 establish (pp. 119-125):
-the kernel and cokernel of the unmodified 1-form wave operator at zero energy (his Lemma 6.10, which he takes from
-[AHW24] Theorem 5.1 (2)), the two pairings at the horizon (Lemma 6.11), mode stability of the gauge potential wave
-operator at every frequency of the closed upper half plane (Proposition 6.12), and the invertibility of its zero energy
-operator with polyhomogeneous inverse images (Lemma 6.13). Part III.D is cited as III.D, Parts I.A-I.C as I.A-I.C, Part
-III.A as III.A, Part III.A$'$ as III.A$'$, Part III.B as III.B. Computations cited as *computed* are exact (sympy) and
-rerun by the instruments named (D222).
+*Status.* Verified (D229: read in full by the ninety-fourth verifier, its two nits seated and to be read); written
+(D222). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part III.B with $b$ near
+the Tangherlini parameter $b_0$, what [Hin26] section 6.4 and Lemma 6.13 establish (pp. 119-125): the kernel and
+cokernel of the unmodified 1-form wave operator at zero energy (his Lemma 6.10, which he takes from [AHW24] Theorem 5.1
+(2)), the two pairings at the horizon (Lemma 6.11), mode stability of the gauge potential wave operator at every
+frequency of the closed upper half plane (Proposition 6.12), and the invertibility of its zero energy operator with
+polyhomogeneous inverse images (Lemma 6.13). Part III.D is cited as III.D, Parts I.A-I.C as I.A-I.C, Part III.A as
+III.A, Part III.A$'$ as III.A$'$, Part III.B as III.B. Computations cited as *computed* are exact (sympy) and rerun by
+the instruments named (D222).
 
 *How it differs from the source.* Lemma 6.10 is proved here on five-dimensional Tangherlini, the kernel by energy
 identities for the mode equations and the cokernel by a distributional identity at the horizon, with the index from I.C.
@@ -37,9 +38,10 @@ after section 1.2). By III.D sections 2-5 and 7 and (Dyn), every $\hat P_{\maths
 neighbourhood $\mathcal K$ of $\mathsf p_0$ with $e_\Upsilon\ge0$, satisfies (H1)-(H5) with $\vartheta_{\mathcal H} = 1$
 (III.D Lemma 5.1), (G) for every $\alpha$ with $\alpha+2\in(0,2)$ (III.D Lemma 4.1: $(0,2)$ lies in the gap
 $(0,\lambda^\Upsilon_{\mathrm s1,2})$, which is $(0,2)$ when $e_\Upsilon\gamma_\Upsilon^2 = 0$), (TF) (III.D Lemma 7.1),
-and has index 0 at $\sigma\ne0$ (I.B Theorem 1.3 (3), as in III.D Proposition 6.1). We fix such an $\alpha$ and a
-constant $s>\frac52$; by I.C Theorem 3.1 (3)-(4) and I.A Theorem 7.2 (3), kernels, annihilators of ranges and
-invertibility do not depend on these choices.
+and has index 0 at $\sigma\ne0$ (I.B Theorem 1.3 (3) at high frequencies, as in III.D Proposition 6.1, and the constancy
+of the index, I.A Theorem 7.2 (3), at bounded ones; D229). We fix such an $\alpha$ and a constant $s>\frac52$; by I.C
+Theorem 3.1 (3)-(4) and I.A Theorem 7.2 (3), kernels, annihilators of ranges and invertibility do not depend on these
+choices.
 
 *The horizon functional.* Let $\omega^* := d\big(H(r-r_h)\big) = \delta(r-r_h)\,dr$, $H$ the Heaviside function, a
 stationary distributional 1-form supported on the horizon sphere, and
@@ -124,17 +126,19 @@ decaying constant. So $\delta\omega = 0$.
 
 *(b) The field.* $F := d\omega\in\mathcal A^{\beta+1}$ and $\delta F = \Box\omega-d\delta\omega = 0$. *Vector type.* A
 component $r^{-1/2}\Phi(r)Y$ of $\omega$, $Y\in\mathcal V_l$, $l\ge1$, has $\slashed\delta\slashed dY = \lambda Y$ with
-$\lambda = (l+1)^2\ge4$ (III.D section 6 (b)); by (M3) at $\sigma = 0$, $-\Phi_{**}+V_1\Phi = 0$ with $V_1 = \frac
-f{r^2}(\lambda-\frac14+\frac{5\mu_0}{4r^2})>0$. $\Phi$ is smooth in $r$ at $r_h$ (angular components are the same in the
-static and the ingoing chart), and since $|Y|$ is $r^{-1}$ in the Euclidean metric, $\Phi = O(r^{3/2-\beta})$, $\Phi_* =
-O(r^{1/2-\beta})$, so $\Phi_*\bar\Phi = O(r^{2-2\beta})\to0$. The energy fact gives $\Phi = 0$. *Scalar type, $l\ge1$.*
-In the notation of (M4), $W := r^3F_{tr}$ solves $R[W] = (r^2M_t)' = 0$ ($M = \delta d\omega = 0$), so $\Phi :=
-r^{-1/2}W$ solves $-\Phi_{**}+V_2\Phi = 0$ with $V_2 = \frac f{r^2}(\kappa+\frac34-\frac{7\mu_0}{4r^2})>0$
-($\kappa\ge3$, $\mu_0/r^2<1$). $F_{tr} = F_{vr}$ is smooth at $r_h$, and $\Phi = r^{5/2}F_{tr} = O(r^{3/2-\beta})$,
-$\Phi_* = O(r^{1/2-\beta})$; so $\Phi = 0$, $F_{tr} = 0$, and with $M = 0$, (M4) gives $a = b = 0$: this part of
-$\omega$ is $d(cS)$ for a function $c(r)$. *Scalar type, $l = 0$.* $\kappa = 0$ and $R[W] = (fW'/r)' = 0$, so $fW'/r$ is
-constant; it vanishes at $r_h$, as $W$ is smooth there; so $W = q$, a constant, $F_{tr} = qr^{-3}$, and the $l = 0$ part
-$a(r)\,dt+b(r)\,dr$ of $\omega$ has $-a' = F_{tr}$. Altogether $d\omega = qr^{-3}\,dt\wedge dr = \frac q2dW^*$.
+$\lambda = (l+1)^2\ge4$ (III.D section 6 (b)); by (M3) at $\sigma = 0$, $-\Phi_{**}+V_1\Phi = 0$ with
+$V_1 = \frac f{r^2}(\lambda-\frac14+\frac{5\mu_0}{4r^2})>0$. $\Phi$ is smooth in $r$ at $r_h$ (angular components are
+the same in the static and the ingoing chart), and since $|Y|$ is $r^{-1}$ in the Euclidean metric,
+$\Phi = O(r^{3/2-\beta})$, $\Phi_* = O(r^{1/2-\beta})$, so $\Phi_*\bar\Phi = O(r^{2-2\beta})\to0$. The energy fact gives
+$\Phi = 0$. *Scalar type, $l\ge1$.* In the notation of (M4), $W := r^3F_{tr}$ solves $R[W] = (r^2M_t)' = 0$
+($M = \delta d\omega = 0$), so $\Phi := r^{-1/2}W$ solves $-\Phi_{**}+V_2\Phi = 0$ with
+$V_2 = \frac f{r^2}(\kappa+\frac34-\frac{7\mu_0}{4r^2})>0$ ($\kappa\ge3$, $\mu_0/r^2<1$). $F_{tr} = F_{vr}$ is smooth at
+$r_h$, and $\Phi = r^{5/2}F_{tr} = O(r^{3/2-\beta})$, $\Phi_* = O(r^{1/2-\beta})$; so $\Phi = 0$, $F_{tr} = 0$, and with
+$M = 0$, (M4) gives $a = b = 0$ -- (M4)'s $b$ being the gauge-invariant combination of III.D (M4), defined up to adding
+$d(cSe^{-i\sigma t})$ (D229) -- so this part of $\omega$ is $d(cS)$ for a function $c(r)$. *Scalar type, $l = 0$.*
+$\kappa = 0$ and $R[W] = (fW'/r)' = 0$, so $fW'/r$ is constant; it vanishes at $r_h$, as $W$ is smooth there; so
+$W = q$, a constant, $F_{tr} = qr^{-3}$, and the $l = 0$ part $a(r)\,dt+b(r)\,dr$ of $\omega$ has $-a' = F_{tr}$.
+Altogether $d\omega = qr^{-3}\,dt\wedge dr = \frac q2dW^*$.
 
 *(c) The gauge.* $\omega' := \omega-\frac q2W^*$ is smooth across $r_h$, in $\mathcal A^\beta$ near infinity, closed on
 $\{r>r_h\}$ and has $\delta\omega' = 0$. With $T = \partial_t$, Cartan's formula and stationarity give $d(\omega'(T)) =

@@ -5258,3 +5258,14 @@ by 2, E^C raises by the weight of c's component (2 only for c_2), the rotation o
 on T and the spatial trace-free part) makes the one wt-preserving off-diagonal map T -> e_0 e_2 lowering; the
 W-preserving part is scalar plus skew on seven R-invariant pieces; inner product eta^(-2W). lgrade5.py checks it for
 every c. Next: Part III.F' ([Hin26] 8.2-8.3).
+
+**D229 (2026-10-26): verifier 94 seated.** The ninety-fourth verifier read the D226 repairs and Parts III.D' and III.D''
+in full: Major 0, Minor 4, Nit 7. m1: III.A Lemma 1.3's direct proof loses one derivative per factor; repaired by u =
+u_p + homogeneous solutions, u_p the composition of Lemma 1.2's solution operators (in rho_H alone, commuting with d_y),
+the coefficients c_(z,l) read off u - u_p on rho_H >= 3/4 (the source's Lemma 2.11 has the same gap). m2: in III.D''
+Proposition 3.1 the general-b boost difference is in H-bar^(oo, alpha'')_b for every alpha'' < 2, not O(rho^2), and
+delta*_(g_b)(0) of it is O(rho^(alpha''+1)), which is what the sentence needs. m3: I.B's paragraph after Lemma 6.0 now
+names Proposition 4.5, Corollary 4.6 and Theorem 2.4, via Remark 4.7, for P_Q. m4: I.B Proposition 6.1's b is built from
+p'-natural_z := p'-natural + varsigma sigma (Im X(z) - Im X(z_0)). Seven nits seated. The verifier's scratch checks:
+v94_pairing.py (4 pi^2 at n = 4, control 4 pi at n = 3), v94_indexsets.py, v94_sym60.py, v94_L5.py. III.D proved;
+III.D', III.D'' verified; III.A, I.B verified with repairs to be read. Next: verifier 95; Part III.F'.

@@ -1,7 +1,8 @@
 # Part III.A. Technical prerequisites at n = 4 ([Hin26] sections 2.1-2.3)
 
-*Status.* Verified (D226: the ninety-third verifier's findings are seated; the repairs are to be read). This part
-carries [Hin26] sections 2.1-2.3 (pp. 44-63) to spatial dimension $n = 4$: manifolds with corners and blow-ups,
+*Status.* Verified. The ninety-third verifier's findings are seated (D226) and the ninety-fourth read and confirmed the
+repairs; its one minor finding (Lemma 1.3's regularity count) and two nits are seated (D229) and are to be read. This
+part carries [Hin26] sections 2.1-2.3 (pp. 44-63) to spatial dimension $n = 4$: manifolds with corners and blow-ups,
 b-analysis and partial polyhomogeneity (Definitions 2.4-2.8, Lemmas 2.10-2.13, 2.15, Remark 2.14), the scattering, 3b-
 and scattering-b-transition notions (Example 2.17, Definitions 2.16, 2.18, 2.19, (2.11)-(2.15), Lemma 2.20), extendible
 and supported spaces (section 2.1.5), the integration of $x\partial_x$ and $x\partial_x-y\partial_y$ (section 2.2,
@@ -127,7 +128,13 @@ while completions reaching $z$ from $z-m$ carry at most $k(E_H,z-m)\le k(E_H,z)$
 $E_{H,\le}$ completed by (2.2), contained in $E_H$, and the expansion terms with $\mathrm{Re}\,z>\alpha_H$ are absorbed
 in the remainder. In another order a raise can meet a completion: for $V(V-1)$ with $V$ peeled first, the completion
 $(1,0)$ of $(0,0)$ is then raised to $(1,1)$ (D226; finding (L7)). The a priori hypothesis of Lemma 1.2 holds for each
-$w_i$ by (F1). $\square$
+$w_i$ by (F1), but only at the order $k-(N-i)$, so this gives the index set with $u$ of order $k-N+1$. For the order
+$k$: Lemma 1.2's solution operators act in $\rho_H$ alone, commute with derivatives along $H$ and preserve $H^k$, so
+their composition applied to the left side of (1.3) gives $u_p$ of order $k$ with the same index set; $u-u_p$ is
+annihilated by the product near $H$, so it is $\sum\rho_H^z(\log\rho_H)^\ell c_{z,\ell}$ there (the solutions of the
+ordinary differential equation in $\rho_H$), and its coefficients are read off $u-u_p$ on $\{\rho_H\ge\frac34\}$, where
+both are of order $k$, by pairing in $\rho_H$ against test functions, so $c_{z,\ell}\in H^k(H)$ (D229, the ninety-fourth
+verifier's m1; the source's Lemma 2.11 has the same count). $\square$
 
 ### 1.1 Normal operator arguments
 
@@ -469,7 +476,8 @@ $H^{k,\infty,(G,\beta)}_{\mathrm b}$ by the last remark. Hence $\tilde u := u-u_
 $P\tilde u =: \tilde f\in H^{k,\alpha,(G,\beta)}_{\mathrm b}$ ($f$ less its expansion at $x = 0$ lies in
 $H^{k,\alpha,(F,\beta)}_{\mathrm b}$, and $F\subset G$), and
 $(1-\chi(2y))\tilde u\in H^{k+N,\alpha,\infty}_{\mathrm b}$, since the $a_w$ are the coefficients of $u$ on
-$\{y\ge\frac38\}$.
+$\{y\ge\frac38\}$, and on $\{\frac14<y<\frac38\}$, where $1-\chi(2y)\ne0$ too, the coefficient of $u$ solves the same
+equation and equals $a_w$ by uniqueness (D229).
 
 *Step 2, the factors one at a time with nothing at $x = 0$.* Put $\tilde w_N := \tilde u$ and
 $\tilde w_{i-1} := (x\partial_x-y\partial_y+z_i)\tilde w_i$, so that $\tilde w_0 = \tilde f$. For $i = 1,\dots,N$, Lemma
@@ -618,7 +626,8 @@ $\beta_K-1$; then integrate one factor at a time, in decreasing order of real pa
 $\beta_K-1\ne\mathrm{Re}(z-1)$, true as $\beta_K\notin\mathrm{Re}\,\pi_1E_K$; the a priori hypothesis away from zf is
 (4.7)). The index set obtained at zf is $(0,0)\bar\cup(E_K-1)$ (below the weight $\beta_K-1$): in this order each
 exponent $c$ is raised once per factor, from $-1$ to $k((0,0),c)+k(E_K-1,c)+1$, and the completions by (2.2) stay below
-that. With (4.7) at tf and scf this is (4.3).
+that. Each one-factor step costs at most one derivative (as in Lemma 1.3), absorbed in $l$. With (4.7) at tf and scf
+this is (4.3).
 
 *Part (1), general $E_I$.* Let $\chi_K\in C^\infty(M)$ equal 1 near $K$ and 0 near $I$. $\chi_Ku$ vanishes near $I$, so
 it lies in the space with $E_I = \emptyset$ and any $I$-weight $\beta'_I\ge\beta_I$; the case just proved, with
@@ -655,7 +664,8 @@ $\rho_{\mathrm{tf}} = |\sigma|$, $\rho\partial_\rho-z = \rho_{\mathrm{scf}}\part
 1.2 at scf, one factor at a time in decreasing order of $\mathrm{Re}\,z$ as in Lemma 1.3 (with
 $\min(\beta_I,\tilde\beta_\iota)-\epsilon\ne\mathrm{Re}\,z$ by the choice of $\epsilon$; the a priori condition on
 $\rho_{\mathrm{scf}}\ge\frac12$ holds in the zf chart, and the tf index set found there is carried as the data at the
-other face), gives the index set $(E_I,\min(\beta_I,\tilde\beta_\iota)-\epsilon)$ there. This is (4.3).
+other face), gives the index set $(E_I,\min(\beta_I,\tilde\beta_\iota)-\epsilon)$ there, the derivatives lost one factor
+at a time absorbed in $l$. This is (4.3).
 
 *Part (2), $E_K = \emptyset$.* Then (4.4) is the equality of the $\sigma$-Taylor coefficients of $v^\pm$ of orders
 $\le\lfloor\beta_K-1\rfloor$ (as $\ell_j = -1$), and $v^\pm\in

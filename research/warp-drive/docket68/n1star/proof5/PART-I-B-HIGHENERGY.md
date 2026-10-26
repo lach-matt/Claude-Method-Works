@@ -1,12 +1,13 @@
 # Part I.B. The spectral family at high frequencies, at n = 4, on bundles
 
-*Status.* Verified; the D226 repair (Lemma 6.0, a fibre inner product on phase space at the trapped set) is to be read.
-It was proved at D194; the ninety-third verifier, reading Part III.D (D226), found that section 6 assumed $h_\Gamma$
-from the base, which Part III.D's is not, and Lemma 6.0 supplies the source's conjugation (5.9). Written out in full
-(D188). Read line by line by the seventy-sixth verifier, whose one major and nine minor findings and nits are seated in
-place (D189). The seventy-seventh verifier read those repairs and confirmed each, and asked for one further clause in
-Proposition 6.4, Step 2, seated (D191); the seventy-eighth verifier read that clause and confirmed it (D194). Every
-finding is seated and its repair read. This part replaces, for the statements it covers, the deductions of
+*Status.* Verified; the D226 repair (Lemma 6.0, a fibre inner product on phase space at the trapped set) was read and
+confirmed by the ninety-fourth verifier, whose two minor findings on it and two nits are seated (D229) and are to be
+read. It was proved at D194; the ninety-third verifier, reading Part III.D (D226), found that section 6 assumed
+$h_\Gamma$ from the base, which Part III.D's is not, and Lemma 6.0 supplies the source's conjugation (5.9). Written out
+in full (D188). Read line by line by the seventy-sixth verifier, whose one major and nine minor findings and nits are
+seated in place (D189). The seventy-seventh verifier read those repairs and confirmed each, and asked for one further
+clause in Proposition 6.4, Step 2, seated (D191); the seventy-eighth verifier read that clause and confirmed it (D194).
+Every finding is seated and its repair read. This part replaces, for the statements it covers, the deductions of
 `../N1STAR-PROOF.md` 10.84 and 10.86 that re-ran [Hin26c] section 9.3 on bundles at proof level. The source is [Hin26c]
 = P. Hintz, arXiv:2606.28008v1. Part I.A is `PART-I-SPECTRAL.md`; its sections are cited as I.A section 4.5, I.A Theorem
 7.2, and so on.
@@ -1297,56 +1298,55 @@ $h^{-1}(\mathrm{Re}\,P-\mathrm{Op}_h(G))$, taken in the standard inner product, 
 below). Put
 $$p_1^{h_\Gamma} := \tfrac12\big(p_1+b^{-1}p_1b\big)+\tfrac i2\,b^{-1}[r,b]+\tfrac12\,b^{-1}H_Gb,\tag{6.0}$$
 which is $h_\Gamma$-self-adjoint ($b\,p_1^{h_\Gamma}$ is Hermitian, term by term) and equals $p_1$ when
-$b = \mathrm{Id}$. Let $\chi_\Gamma\in C^\infty_c$, $0\le\chi_\Gamma\le1$, equal 1 near $\Gamma$, supported in
+$b = \mathrm{Id}$. Let $\theta_\Gamma\in C^\infty_c$, $0\le\theta_\Gamma\le1$, equal 1 near $\Gamma$, supported in
 $\Gamma(\frac{\delta_0}3)$ (section 6.5) and in the domain of $b$; let
-$\tilde b := \chi_\Gamma b+(1-\chi_\Gamma)\mathrm{Id}$, $q := \tilde b^{1/2}$ (the positive square root) and
+$\tilde b := \theta_\Gamma b+(1-\theta_\Gamma)\mathrm{Id}$, $q := \tilde b^{1/2}$ (the positive square root) and
 $Q := \mathrm{Op}_h(q)$. Then for $h<h_0$:
 
 (a) $Q$ is invertible on $L^2$ and on every $H^{\mathbf o}_h$, and $Q-I$ and $Q^{-1}-I$ lie in $\Psi^{-\infty}$,
-microsupported in $\mathrm{supp}\,\chi_\Gamma$ up to $O(h^\infty)$ smoothing terms.
+microsupported in $\mathrm{supp}\,\theta_\Gamma$ up to $O(h^\infty)$ smoothing terms.
 
 (b) $P_Q := QPQ^{-1} = P+hX$, where $X = X(z) := h^{-1}[Q,P]Q^{-1}\in\Psi^{-\infty}$ is microsupported in
-$\mathrm{supp}\,\chi_\Gamma$ and holomorphic in $z$; and $P'_Q := QP'Q^{-1} = P'+hX+O(h^\infty)$ for $P'$ of (6.10).
+$\mathrm{supp}\,\theta_\Gamma$ and holomorphic in $z$.
 
-(c) Where $\chi_\Gamma = 1$, the symbol of $h^{-1}\mathrm{Im}\,P_Q$ (standard inner product) at $z_0$ is
+(c) Where $\theta_\Gamma = 1$, the symbol of $h^{-1}\mathrm{Im}\,P_Q$ (standard inner product) at $z_0$ is
 $q\,p_1^{h_\Gamma}q^{-1}$; at $z\in z_0+i[0,\nu']$ the symbols of $h^{-1}\mathrm{Im}\,P_Q$ and $h^{-1}\mathrm{Im}\,P$
 change by the same scalar and, for $P_Q$, by $O(\mathrm{Im}\,z)$ more. As conjugation preserves eigenvalues, (1.4) is
 the same for $P$ in $h_\Gamma$ and for $P_Q$ in the standard inner product.
 
 (d) If $B_1,E_1,G_1\in\Psi^0$ and $\|B_1w\|\le C(h^{-a}\|G_1\mathbf P_Qw\|+h^{-c}\|E_1w\|+h^N\|w\|_{-N})$ for all $w$,
-where $\mathbf P_Q\in\{P_Q,P_Q^*\}$ (or $\{P'_Q,P'^*_Q\}$), then the same estimate holds for $\mathbf P\in\{P,P^*\}$
-(resp. $\{P',P'^*\}$) and all $u$, with $B_1,E_1,G_1$ replaced by $B_1Q^\flat,E_1Q^\flat,G_1Q^\flat$, $Q^\flat := Q$ for
-$P$, $P'$ and $Q^\flat := (Q^*)^{-1}$ for the adjoints; these have the elliptic sets and microsupports of $B_1,E_1,G_1$.
-And $\|(\mathbf P'_Q)^{-1}\|\le Ch^{-m}$ if and only if $\|(\mathbf P')^{-1}\|\le C'h^{-m}$.
+where $\mathbf P_Q\in\{P_Q,P_Q^*\}$, then the same estimate holds for $\mathbf P\in\{P,P^*\}$ and all $u$, with
+$B_1,E_1,G_1$ replaced by $B_1Q^\flat,E_1Q^\flat,G_1Q^\flat$, $Q^\flat := Q$ for $P$ and $Q^\flat := (Q^*)^{-1}$ for
+$P^*$; these have the elliptic sets and microsupports of $B_1,E_1,G_1$.
 
-*Proof.* (a) $q-\mathrm{Id}$ is smooth with compact support in $\mathrm{supp}\,\chi_\Gamma$, so $Q-I\in\Psi^{-\infty}$;
-as $q$ is invertible, the symbol calculus gives $Q^-$ with $Q^--I$ of the same kind and $QQ^--I =: R$, $Q^-Q-I$ in
-$h^\infty\Psi^{-\infty}$, so for $h$ small $Q$ is invertible with $Q^{-1} = Q^-(I+R)^{-1}$, which is $Q^-$ up to
-$O(h^\infty)$ smoothing terms. (b) $QPQ^{-1}-P = [Q-I,P]\,Q^{-1}$, and $[Q-I,P]$ is $h$ times an operator in
-$\Psi^{-\infty}$ microsupported in $\mathrm{supp}\,\chi_\Gamma$, since the principal symbol $G_z\mathrm{Id}$ of $P$
-commutes with $q$; $P$ is polynomial in $z$ and $Q$ does not depend on $z$. On
-$\mathrm{supp}\,\chi_\Gamma\subset\Gamma(\frac{\delta_0}3)$, $P'-P$ is microlocally $O(h^\infty)$ (Lemma 6.5 (b)), so
-$[Q,P']Q^{-1} = [Q,P]Q^{-1}+O(h^\infty)$. (c) With $B := Q^*Q$, $(QPQ^{-1})^* = (Q^*)^{-1}P^*Q^*$, so, exactly,
+*Proof.* (a) $q-\mathrm{Id}$ is smooth with compact support in $\mathrm{supp}\,\theta_\Gamma$, so
+$Q-I\in\Psi^{-\infty}$; as $q$ is invertible, the symbol calculus gives $Q^-$ with $Q^--I$ of the same kind and
+$QQ^--I =: R$, $Q^-Q-I$ in $h^\infty\Psi^{-\infty}$, so for $h$ small $Q$ is invertible with $Q^{-1} = Q^-(I+R)^{-1}$,
+which is $Q^-$ up to $O(h^\infty)$ smoothing terms. (b) $QPQ^{-1}-P = [Q-I,P]\,Q^{-1}$, and $[Q-I,P]$ is $h$ times an
+operator in $\Psi^{-\infty}$ microsupported in $\mathrm{supp}\,\theta_\Gamma$, since the principal symbol
+$G_z\mathrm{Id}$ of $P$ commutes with $q$; $P$ is polynomial in $z$ and $Q$ does not depend on $z$. (c) With
+$B := Q^*Q$, $(QPQ^{-1})^* = (Q^*)^{-1}P^*Q^*$, so, exactly,
 $$\mathrm{Im}(QPQ^{-1}) = \tfrac1{2i}\big(QPQ^{-1}-(Q^*)^{-1}P^*Q^*\big) = Q\,(\mathrm{Im}_BP)\,Q^{-1},\qquad
 \mathrm{Im}_BP := \tfrac1{2i}\big(P-B^{-1}P^*B\big).$$
-$B$ has symbol $q^*q = \tilde b$, equal to $b$ where $\chi_\Gamma = 1$. At $z_0$,
+$B$ has symbol $q^*q = \tilde b$, equal to $b$ where $\theta_\Gamma = 1$. At $z_0$,
 $P-B^{-1}P^*B = B^{-1}[B,\mathrm{Re}\,P]+i(\mathrm{Im}\,P+B^{-1}(\mathrm{Im}\,P)B)$; as $b$ commutes with
 $G\mathrm{Id}$, $h^{-1}[B,\mathrm{Re}\,P]$ has symbol $-i\{b,G\}+[b,r] = iH_Gb+[b,r]$, and dividing by $2ih$ gives
 $p_1^{h_\Gamma}$ as the symbol of $h^{-1}\mathrm{Im}_BP$ (a scalar part of $r$ drops out of $[b,r]$). For $z\ne z_0$,
 $h^{-1}\mathrm{Im}\,P$ changes by $h^{-1}\mathrm{Op}_h(\mathrm{Im}\,G_z)$, a scalar, and
-$X(z)-X(z_0) = O(\mathrm{Im}\,z)$ in $\Psi^{-\infty}$. (d) $P_QQ = QP$ and $P_Q^*(Q^*)^{-1} = (Q^*)^{-1}P^*$, and the
-same for $P'$; take $w := Q^\flat u$ and use $\|Q^\flat u\|_{-N}\le C\|u\|_{-N}$ and the ellipticity of $Q^\flat$.
-Finally $(P'_Q)^{-1} = Q(P')^{-1}Q^{-1}$, and $\|Q^{\pm1}\|$ are bounded uniformly in $h$. $\square$
+$X(z)-X(z_0) = O(\mathrm{Im}\,z)$ in $\Psi^{-\infty}$. (d) $P_QQ = QP$ and $P_Q^*(Q^*)^{-1} = (Q^*)^{-1}P^*$; take
+$w := Q^\flat u$ and use $\|Q^\flat u\|_{-N}\le C\|u\|_{-N}$ and the ellipticity of $Q^\flat$. $\square$
 
 So an inner product on phase space costs nothing. Of this section only Propositions 6.1 and 6.4 (with Lemma 6.3 behind
 6.4) use the threshold structure; we prove them for $P_Q$ and $P_Q^*$ in the standard inner product and carry them to
 $P$ and $P^*$ by (d). Their proofs use $\mathbf P$ on $\Gamma(\frac{\delta_0}3)$, where $P_Q = P+hX$, only through its
 principal symbol, which $X$ does not change, and through the symbol of $\varsigma h^{-1}\mathrm{Im}\,\mathbf P$ in (6.2)
 and (6.5), which $X$ changes as in Proposition 6.1, to $p^\natural+\varsigma\sigma(\mathrm{Im}\,X)$, that is, by (c), to
-$z_0q\,p_1^{h_\Gamma}q^{-1}$ on $\Gamma$ at $z_0$. The $O(\mathrm{Im}\,z)$ dependence of $X$ is $O(h)$ where
-$\mathrm{Im}\,z = O(h)$, so it enters the $h^{\frac12}\Psi^0$ remainders there, and for $\mathrm{Im}\,z\le\nu'$ it is
-absorbed by the continuity step of Proposition 6.1. Sections 6.5-6.6 use Propositions 6.1 and 6.4 only as microlocal
-estimates near $\Gamma$, for $P$ and for $P'$, which agree there up to $O(h^\infty)$.
+$z_0q\,p_1^{h_\Gamma}q^{-1}$ on $\Gamma$ at $z_0$. Proposition 6.4's proof also uses, for $P_Q$, Proposition 4.5,
+Corollary 4.6 and the commutator of Theorem 2.4, which hold as $hX$ is a bounded addition to the lower-order part
+(Remark 4.7) and $h[X,\Phi]\in h^2\Psi$ (D229, the ninety-fourth verifier's m3). The $O(\mathrm{Im}\,z)$ dependence of
+$X$ is $O(h)$ where $\mathrm{Im}\,z = O(h)$, so it enters the $h^{\frac12}\Psi^0$ remainders there, and for
+$\mathrm{Im}\,z\le\nu'$ it is absorbed by the continuity step of Proposition 6.1. Sections 6.5-6.6 use Propositions 6.1
+and 6.4 only as microlocal estimates near $\Gamma$, for $P$ and for $P'$, which agree there up to $O(h^\infty)$.
 
 ### 6.1 Set-up
 
@@ -1417,12 +1417,13 @@ of (6.2) changes these by at most $C(\mathrm{Im}\,z)^2M|\phi|\cdot|\chi_0\chi_0'
 for $\mathrm{Im}\,z\le\nu'$, $\nu'$ small depending on $M$. The derivative of $\psi_\Sigma$ is supported where
 $G_{z_0}^2\ge M_\Sigma^{-1}$, where $G_z$ is elliptic for $\nu'$ small; it gives a term $J\mathbf P'$ as in Lemma 5.1.
 Next, on $\mathrm{supp}\,\check a$,
-$$p'^\natural-\lambda q^\natural = (p'^\natural-\gamma q^\natural)-(\lambda-\gamma)q^\natural,$$
-and $p'^\natural-\gamma q^\natural\le-c\,\mathrm{Id}$ there for $M$ large, by the hypothesis and continuity; the
-$O(\mathrm{Im}\,z)$ change of $\sigma(\mathrm{Im}\,\mathbf X)$ keeps $-\frac c2\mathrm{Id}$ as a bound for
-$\mathrm{Im}\,z\le\nu'$, $\nu'$ small depending on $M$ (D226). So, with
-$b := \check a(-2(p'^\natural-\gamma q^\natural))^{1/2}$ (the positive square root of a positive definite smooth matrix
-function, smooth),
+$$p'^\natural_z-\lambda q^\natural = (p'^\natural_z-\gamma q^\natural)-(\lambda-\gamma)q^\natural,$$
+where $p'^\natural_z := p'^\natural+\varsigma\,\sigma(\mathrm{Im}\,\mathbf X(z)-\mathrm{Im}\,\mathbf X(z_0))$ is the
+symbol at $z$. $p'^\natural-\gamma q^\natural\le-c\,\mathrm{Id}$ there for $M$ large, by the hypothesis and continuity,
+and $p'^\natural_z-\gamma q^\natural\le-\frac c2\mathrm{Id}$ for $\mathrm{Im}\,z\le\nu'$, $\nu'$ small depending on $M$
+(D226; $b$ is built from the symbol at $z$, D229, the ninety-fourth verifier's m4). So, with
+$b := \check a(-2(p'^\natural_z-\gamma q^\natural))^{1/2}$ (the positive square root of a positive definite smooth
+matrix function, smooth),
 $$\varsigma C = -B^*B-F_s^*F_s+E_u^*E_u+J\mathbf P'-2(\lambda-\gamma)\check A\,\varsigma\epsilon_\flat\mathcal Q\,\check
 A+R,\qquad R\in h^{\frac12}\Psi^0,$$
 where $\varsigma\epsilon_\flat\mathcal Q = z_0\mathcal Q$ has principal symbol $q^\natural\ge\beta_0$ on

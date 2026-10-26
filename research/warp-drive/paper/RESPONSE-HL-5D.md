@@ -1082,26 +1082,26 @@ estimates — and are not evaluated; that is not a separate gap. A line-by-line 
 deductions written out, would make Theorem 4 a theorem. That write-out has begun: the proof written in full at n = 4,
 self-contained, part by part. Its first three parts -- Hintz's spectral theory at bounded nonzero, at high and at low
 frequencies, on bundles and uniformly in the operator -- are written, read line by line, their repairs read again, and
-proved (the second has since gained one lemma, at the trapped set, which a reader of the nineteenth asked for and which
-is to be read). So are the fourth, the setup of his spacetime analysis, and the fifth, which proves the two standard
-estimates that the fourth takes as inputs; one finding of the fourth corrects the hypothesis of his real principal type
-estimate on the variable order, which as printed admits a counterexample. The sixth, the dynamics of light rays in the
-stationary model, the seventh, the classes of operators, the time function and the order functions of his spacetime
-analysis, and the eighth, the trapped sets of the perturbed metrics, proved here without the theorem on normally
-hyperbolic trapping that he cites, have been read line by line and their findings seated (supplement `proof5/`). The
-ninth, his microlocal regularity estimate on spacetime, with the radial estimates and the estimate at the trapped set,
-which he quotes from his earlier paper and which is proved here in the present calculus, the tenth, that estimate with
-b-regularity and in the tame form his iteration uses, and the eleventh, his energy estimates on bounded time slabs and
-in the black hole interior, with the global estimate at high frequencies they give, have been read line by line too and
-their findings seated. The twelfth, his analysis at future timelike infinity -- the normal operator there, its spectral
-family at bounded and high frequencies, its forward solutions, and the forward solutions of the stationary model on the
-spaces his iteration uses -- has been read line by line and its findings seated. The thirteenth, the forward solutions
-of the perturbed wave operators with estimates tame in the regularity, and the fourteenth, the Nash-Moser theorem with
-the smoothing operators and tame bounds it needs, proved here rather than quoted, have been read line by line and their
-findings seated, and with the twelfth their repairs have been read again, which proves the three. The fifteenth, the
-Fourier transform in time on the weighted spaces, his resolvent bounds translated into them and the radiation field at
-null infinity, by which forward solutions are shown to decay faster, has been read line by line, its findings seated and
-its repairs read again, which proves it.
+proved (the second has since gained one lemma, at the trapped set, which a reader of the nineteenth asked for and the
+next reader confirmed, two smaller findings on it seated). So are the fourth, the setup of his spacetime analysis, and
+the fifth, which proves the two standard estimates that the fourth takes as inputs; one finding of the fourth corrects
+the hypothesis of his real principal type estimate on the variable order, which as printed admits a counterexample. The
+sixth, the dynamics of light rays in the stationary model, the seventh, the classes of operators, the time function and
+the order functions of his spacetime analysis, and the eighth, the trapped sets of the perturbed metrics, proved here
+without the theorem on normally hyperbolic trapping that he cites, have been read line by line and their findings seated
+(supplement `proof5/`). The ninth, his microlocal regularity estimate on spacetime, with the radial estimates and the
+estimate at the trapped set, which he quotes from his earlier paper and which is proved here in the present calculus,
+the tenth, that estimate with b-regularity and in the tame form his iteration uses, and the eleventh, his energy
+estimates on bounded time slabs and in the black hole interior, with the global estimate at high frequencies they give,
+have been read line by line too and their findings seated. The twelfth, his analysis at future timelike infinity -- the
+normal operator there, its spectral family at bounded and high frequencies, its forward solutions, and the forward
+solutions of the stationary model on the spaces his iteration uses -- has been read line by line and its findings
+seated. The thirteenth, the forward solutions of the perturbed wave operators with estimates tame in the regularity, and
+the fourteenth, the Nash-Moser theorem with the smoothing operators and tame bounds it needs, proved here rather than
+quoted, have been read line by line and their findings seated, and with the twelfth their repairs have been read again,
+which proves the three. The fifteenth, the Fourier transform in time on the weighted spaces, his resolvent bounds
+translated into them and the radiation field at null infinity, by which forward solutions are shown to decay faster, has
+been read line by line, its findings seated and its repairs read again, which proves it.
 The sixteenth, the first of the parts on his stability paper -- the five-dimensional black hole family on the
 compactified spacetime, its time functions, initial data and boosts, and the gauge-fixed Einstein equation -- has been
 read line by line, its findings seated and its repairs read again, which proves it. The seventeenth, the harmonics on
@@ -1110,19 +1110,21 @@ line and its findings seated. The eighteenth, the b-analysis and Fourier transfo
 that paper's asymptotic analysis rests, and the nineteenth, the wave operator on the gauge potential near the
 five-dimensional black hole -- its structure near infinity, its model, its indicial roots, its threshold and trapped
 set, and its mode stability away from zero frequency, proved there by ordinary differential equations -- have been read
-line by line and their findings seated. In the eighteenth, one step of his proof gives more logarithmic terms than he
-states, and the stated set is proved here another way; in the nineteenth, the inner product at the trapped set depends
-on the direction of the ray, which the second part now allows by the conjugation he uses, written out. The twentieth,
-the same operator at zero frequency: its kernel and cokernel on the black hole, the modification at the horizon that
-removes them, and mode stability at every frequency, is written, and so is the twenty-first, the stationary gauge
-potentials that begin as the translations, boosts and rotations of Minkowski space, and so is the twenty-second, the
-gauge potentials polynomial in time that carry them, and the remaining roots, to higher order, and so is the
-twenty-third, the constraint propagation operator of his gauge at zero frequency and the stationary dual states built
-from the symmetries of Minkowski space, eleven in five dimensions against his seven, and so is the twenty-fourth, the
-dual states of the rotations, whose leading term depends on a rotation only through its bracket with the spin -- in five
-dimensions an exact identity of the black hole family, and so is the twenty-fifth, the linearised gauge-fixed Einstein
-operator near infinity and at the trapped set, where in five dimensions the plane of directions orthogonal to the
-trapped rays turns along them. Theorem 4 stays deduced until the last part is proved.
+line by line, their findings seated and their repairs read again, which proves the nineteenth; the second reading of the
+eighteenth found one gap more, in the order of regularity of one lemma, now closed. In the eighteenth, one step of his
+proof gives more logarithmic terms than he states, and the stated set is proved here another way; in the nineteenth, the
+inner product at the trapped set depends on the direction of the ray, which the second part now allows by the
+conjugation he uses, written out. The twentieth, the same operator at zero frequency: its kernel and cokernel on the
+black hole, the modification at the horizon that removes them, and mode stability at every frequency, and the
+twenty-first, the stationary gauge potentials that begin as the translations, boosts and rotations of Minkowski space,
+have been read line by line and their findings seated. The twenty-second, the gauge potentials polynomial in time that
+carry them, and the remaining roots, to higher order, is written, and so is the twenty-third, the constraint propagation
+operator of his gauge at zero frequency and the stationary dual states built from the symmetries of Minkowski space,
+eleven in five dimensions against his seven, and so is the twenty-fourth, the dual states of the rotations, whose
+leading term depends on a rotation only through its bracket with the spin -- in five dimensions an exact identity of the
+black hole family, and so is the twenty-fifth, the linearised gauge-fixed Einstein operator near infinity and at the
+trapped set, where in five dimensions the plane of directions orthogonal to the trapped rays turns along them. Theorem 4
+stays deduced until the last part is proved.
 
 ---
 

@@ -1,13 +1,14 @@
 # Part III.D. The gauge potential wave operator at n = 4 ([Hin26] section 6 to 6.3, Propositions 6.5 and 6.9)
 
-*Status.* Verified (D226: the ninety-third verifier's findings are seated; the repairs are to be read). This part
-proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part III.B with $b$ near the Tangherlini
-parameter $b_0 = (\mu_0,0)$, what [Hin26] section 6 establishes up to and including section 6.3 and Proposition 6.9 (pp.
-113-119): the structure of the gauge potential wave operator as a stationary wave-type operator (his Lemma 6.1), its
-Minkowski model (Lemma 6.3), the input at the trapped set (Lemma 6.4) and the high-energy invertibility it gives
-(Proposition 6.5), the indicial roots at zero energy (Lemma 6.6 with (6.17)), tf-admissibility (Lemma 6.8), and mode
-stability away from zero frequency (Proposition 6.9), including the input he takes from [AHW24] Theorem 5.1, here proved
-on five-dimensional Tangherlini. Section 6.4's zero-energy argument (Lemmas 6.10-6.11, Proposition 6.12, Lemma 6.13) is
+*Status.* **Proved** (D229). Written (D220); the ninety-third verifier's findings are seated (D226), and the
+ninety-fourth read every repair and confirmed it, with no new finding on this part. This part proves, at spatial
+dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part III.B with $b$ near the Tangherlini parameter
+$b_0 = (\mu_0,0)$, what [Hin26] section 6 establishes up to and including section 6.3 and Proposition 6.9 (pp. 113-119):
+the structure of the gauge potential wave operator as a stationary wave-type operator (his Lemma 6.1), its Minkowski
+model (Lemma 6.3), the input at the trapped set (Lemma 6.4) and the high-energy invertibility it gives (Proposition
+6.5), the indicial roots at zero energy (Lemma 6.6 with (6.17)), tf-admissibility (Lemma 6.8), and mode stability away
+from zero frequency (Proposition 6.9), including the input he takes from [AHW24] Theorem 5.1, here proved on
+five-dimensional Tangherlini. Section 6.4's zero-energy argument (Lemmas 6.10-6.11, Proposition 6.12, Lemma 6.13) is
 Part III.D$'$, and section 6.5 (the large zero energy states) Part III.D$''$.
 
 *Division of labour.* Parts I.A, I.B and I.C prove [Hin26c] section 9 at $n = 4$ for operators on a trivial bundle

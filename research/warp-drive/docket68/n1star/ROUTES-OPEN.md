@@ -2807,3 +2807,22 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   each fixed eps.
 - `lgrade5.py` G1 (new), `sbar5.py` 3/3, `strap5.py` 3/3 pass.
 - Next: Part III.F' ([Hin26] sections 8.2-8.3: indicial roots, Lemma 8.5, tf-admissibility, Corollary 8.7).
+
+### 4.152 Verifier 94 seated: the D226 repairs confirmed, III.D proved, III.D' and III.D'' verified (D229)
+
+- The ninety-fourth verifier read the D226 repairs (III.A Lemmas 1.3-1.5, 3.2, 3.3 and Proposition 4.2; I.B Lemma 6.0
+  and section 6; II.C's remark; III.D Lemma 5.2 and Lemma 7.1) and Parts III.D' and III.D'' in full: Major 0, Minor 4,
+  Nit 7, each scratch check with a failing control (the horizon pairings computed independently, 4 pi^2 at n = 4 and 4
+  pi at n = 3; Definition 2.7's index sets on 4000 random cases, decreasing order inside the bound, increasing order
+  outside it in 2336; (6.0) derived two ways; (L5)'s counterexample).
+- Seated: m1 (III.A Lemma 1.3: the stated order by subtracting the particular solution u_p and reading the homogeneous
+  coefficients off on rho_H >= 3/4); m2 (III.D'' Proposition 3.1: the general-b difference of the boost corrections lies
+  in H-bar^(oo, alpha'') for every alpha'' < 2, enough through delta*_(g_b)(0)); m3 (I.B: Proposition 6.4 for P_Q also
+  uses Proposition 4.5, Corollary 4.6 and Theorem 2.4, which hold for P + hX by Remark 4.7); m4 (I.B Proposition 6.1: b
+  built from p'-natural at z); nits n1-n7 (chi_Gamma renamed theta_Gamma in Lemma 6.0; P'_Q dropped; Lemma 3.3's
+  coefficient on (1/4, 3/8) by uniqueness; 'absorbed in l' at zf and scf; I.A Theorem 7.2 (3) for the index at bounded
+  sigma; (M4)'s b gauge-invariant; omega_(b,v1) smooth on X).
+- Status: III.D proved; III.D' and III.D'' verified, their nits to be read; III.A and I.B verified, the D229 repairs to
+  be read; II.C's D226 remark confirmed.
+- Next: verifier 95 on the D229 repairs and Parts III.D''', III.E, III.E', III.F; Part III.F' ([Hin26] sections
+  8.2-8.3).
