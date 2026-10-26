@@ -3694,3 +3694,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   at h.
 - Whether the source's Lemma 11.65 meets the same rotation term at a non-rotating Kerr b_0 was not adjudicated.
 - Next: verifier 121 on the D281 repairs; [Hin26] section 12 at n = 4 (Part III.J) is being written.
+
+### 4.206 Part III.J written (D282): efficient parameterisation I
+
+- PART-III-J-PARAM.md: [Hin26] section 12 to Remark 12.6 at n = 4. Data space (Definition 1.1): b - b_0, S, S^(0)_1,
+  iota+ data (u^0_lambda, f_lambda) at the resonances in pi_1 E_sharp, S_rem, b_rem, the conormal Y_rho for the rows mu
+  in (-1, 0], and a remainder tensor.
+- At n = 4 the iota+ series below 3 + eps_+ is linear (products start at 2 lambda_sharp = 3 + 2 delta_sharp), so each
+  exponent lambda_0 is one equation Lbar G(lambda_0) = -F_0(lambda_0), solved by III.G''' Corollary 3.1; the formal
+  solutions at R = 0 go to rows (rate <= 2), rotation rows (v1 below 2) or q (rates in (2, alpha)).
+- Phi is affine in the infinite-dimensional data with coefficients smooth in (b, S, S^(0)_1): smooth and tame at once
+  (Theorem 2.4). Conditions (G+) (no Lambda in (3, 3 + eps_+]) and (A_J) (finitely many exclusions for alpha).
+- (J2) settles III.G''' (G'''1)'s reading: no step source carries the exceptional scri+ term, so the pole at
+  lambda_sharp enters only through the datum f_{lambda_sharp}.
+- Open for III.J' (Theorem 12.8): the iota+ order (3 + eta_2)- of III.I'''''''''''''' Theorem 3.1 against the (3 +
+  eps_+)- of the classes; the linear theory at b != b_0 ((I3)). Psi (Lemma 12.7) after III.C'.
+- Next: verifier 121 (D281 repairs); verifier 122 on III.J; then III.J' ([Hin26] Theorem 12.8).

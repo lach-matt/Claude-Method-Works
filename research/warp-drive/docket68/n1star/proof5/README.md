@@ -67,6 +67,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | proved (D280) |
 | III.I''''''''''''' | [Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative produces; the source's routine repetition, which section 11.8.3 needs | verified (D280) |
 | III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | verified (D281) |
+| III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | written (D282) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -1134,3 +1135,10 @@ then III.I$''''''''''''$ Theorem 3.1 splits it as $h_{\mathrm{rem}}(q')+h'$) and
 that of $h$). The source's verbatim route (Theorem 11.59 at $h+h_{\mathrm{rem}}(q)$) fails at $n = 4$ in three places,
 recorded in (I$''''''''''''''$1). $h_{-S} = 0$; Corollary 11.67 deferred to after III.C$'$. Findings
 (I$''''''''''''''$1)-(I$''''''''''''''$4). At $b_0$. Written (D279); verified (D281).
+
+`PART-III-J-PARAM.md`. [Hin26] section 12 to Remark 12.6 at $n = 4$: the data space (Definition 1.1, with the
+$\iota^+$-resonances in $\pi_1\mathcal E_\sharp$ only), the construction of $\Phi$ exponent by exponent below
+$3+\epsilon_+$ (Lemma 2.1: one linear model equation $\bar L\,G(\lambda_0) = -F_0(\lambda_0)$ per exponent, as products
+start at $2\lambda_\sharp>3+\epsilon_+$; Lemma 2.2: rows and towers at $\iota^+$; Lemma 2.3: the log count), and Theorem
+2.4 ($\Phi$ affine in the infinite-dimensional data, smooth and tame, $P_5(\Phi(U))$ of $\iota^+$-order
+$(5+\epsilon_+)-$ and $K^+$-order $\alpha-$). Findings (J1)-(J6); $\Psi$ and Theorem 12.8 deferred. Written (D282).

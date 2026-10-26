@@ -5658,3 +5658,10 @@ decays slowly, and the derivative of the operator in the black hole parameters l
 terms are now carried as rows of all rotations, which never enter the metric near the horizon, and are fixed by the
 expansion. Four minor points (the gain of the corrections at timelike infinity, the mechanism behind the towers near
 b_0, the independence of the losses, a missing citation) and seven nits are seated.
+
+**D282 (2026-10-26): Part III.J written.** The efficient parameterisation of [Hin26] section 12 at n = 4: a tuple of
+data determines the metric perturbation and the modification parameters so that the augmented operator vanishes at
+timelike infinity to the order 5 + eps_+ and decays at the horizon to the order alpha. In five dimensions the expansion
+at timelike infinity starts above 3/2, so below 3 + eps_+ no two terms interact; each exponent is one linear model
+equation, and the map is affine in the data, which makes it smooth and tame without further work. The source's map with
+an initial solution and its Theorem 12.8 come next; two points for Theorem 12.8 are recorded.
