@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """ext5.py -- [Hin26] section 5 at n = 4 (proof5/PART-III-C-EXTERIOR.md): the leading part of the linearised
 gauge-fixed Einstein operator at the corner I_0 cap I+, the corner coordinates, and the index-set bookkeeping of
-Definition 5.3, Proposition 5.14 and (5.43) at n = 4.  Labels: computed (exact, sympy; exact rational arithmetic).
+Definition 5.3, Proposition 5.14, (5.43) and Lemma 9.14 at n = 4.  Labels: computed (exact, sympy; exact rational
+arithmetic).
 
   E1 (the corner coordinates) With x^1 = t - |x|, rho_0 = 1/(2 - x^1), rho_I = (2 - x^1)/|x| (III.B (2.2)) and
      t_* = x^1 + C' - 8 mu_0/|x| (III.B (3.6)), exactly: d_(t_*) = rho_0 (X_0 - X_I) at fixed (rho, omega), and
@@ -26,6 +27,11 @@ Definition 5.3, Proposition 5.14 and (5.43) at n = 4.  Labels: computed (exact, 
      I+-index E^tot; the leading-order classes: <(3, 0)>_0 into <(4, 0)>' (slots 1-6 (4, 0), slot 7 (3, 0)) with
      perturbation coefficients of index (2, 0).  Controls: a (7, 6) entry; F_11 without (3/2 + (1 - e_Ups) gamma_Ups,
      0).
+  E6 (PART-III-G4 Lemma 1.1) The eigenvectors of A_0 for the eigenvalues 2 gamma_Ups, gamma_Ups, 0 and (1 - e_Ups)
+     gamma_Ups have supports {7}, {5}, {6} and {4, 7} in the slots (sample parameters).  Control: a (7, 6) entry.
+  E7 (PART-III-G4 Lemma 2.2) The exponents the iteration meets lie in E^C_sharp = E^C u (lambda_sharp, 0), lambda_sharp
+     := 3/2 + (1 - e_Ups) gamma_Ups; z - 3/2 avoids spec S-bar there; lambda_sharp is the least element and every other
+     has real part above 3/2 + 2 gamma_Ups.  Control: E^C claimed in place of E^C_sharp.
 
 sympy, fractions.  python3 ext5.py [--selftest | --mutants | --only k]
 """
@@ -249,11 +255,65 @@ def e5(control=0, verbose=False):
     return ok
 
 
+# ------------------------------------------------------------------------------------------------- E6 eigenvectors
+def e6(control=0, verbose=False):
+    "the eigenvectors of A_0 for the radiative eigenvalues: their supports in the slots (PART-III-G4, Lemma 1.1)"
+    chk = Checklist(verbose, quiet=control != 0)
+    import scri5 as S
+    from sbar5 import v, eC, gC, eU, gU
+    A = S.five528()
+    vals = {v: sp.Rational(1, 2), eC: sp.Rational(1, 10), gC: 7, eU: sp.Rational(1, 3), gU: sp.Rational(1, 5)}
+    An = A.subs(vals)
+    if control == 1:
+        An[6, 5] = sp.Rational(1, 7)
+    want = {sp.Rational(2, 5): {6}, sp.Rational(1, 5): {4}, 0: {5}, sp.Rational(2, 15): {3, 6}}
+    ok = True
+    for s, supp in want.items():
+        ns = (An - s * sp.eye(7)).nullspace()
+        good = len(ns) == 1 and {i for i in range(7) if ns[0][i] != 0} == supp
+        chk(f"eigenvalue {s}: eigenvector support {sorted(i + 1 for i in range(7) if ns and ns[0][i] != 0)}", good)
+        ok &= good
+    return ok
+
+
+# ------------------------------------------------------------------------------------------------- E7 Lemma 9.14
+def e7(control=0, verbose=False):
+    "Lemma 9.14 at n = 4 (PART-III-G4, Lemma 2.2): the exponents met lie in E^C_sharp, off spec, lambda_sharp least"
+    chk = Checklist(verbose, quiet=control != 0)
+    ok = True
+    gC, vC, eC = Fr(7), Fr(1, 2), Fr(1, 10)
+    sC = gC * (1 - eC) * (1 - vC)
+    for gU, eU, seed in SAMPLES:
+        EC, Et, sig = build(gU, eU, seed)
+        lam = Fr(3, 2) + (1 - eU) * gU
+        Esharp = EC | closure({(lam, 0)})
+        lI = Fr(3, 2) + sC - Fr(1, 3)
+        spec = set(sig) | {gC * (1 - eC) * (1 - vC), gC * (1 - vC), 2 * gC * (1 - vC)}
+        met = {(z, k) for (z, k) in EC if z <= lI} | {(lam, 0)}
+        frontier = set(met)
+        while frontier:
+            frontier = {(z + 1, k) for (z, k) in frontier if z + 1 <= lI} - met
+            met |= frontier
+        inv = all((z - Fr(3, 2)) not in spec for (z, _) in met if z != lam)
+        lam_ok = (lam - Fr(3, 2) - 2 * gU) != 0
+        sub_ok = all(p in Esharp for p in met)
+        if control == 1:
+            sub_ok = sub_ok and all(p in EC for p in met)
+        least = min(z for z, _ in Esharp) == lam and all(z > Fr(3, 2) + 2 * gU for z, _ in Esharp if z != lam)
+        good = inv and lam_ok and sub_ok and least
+        chk(f"gU = {gU}: {len(met)} exponents met up to l_I = {lI}, all in E^C_sharp; z - 3/2 off spec; "
+            f"lambda_sharp = {lam} least, the rest above 3/2 + 2 gU: {[inv, lam_ok, sub_ok, least]}", good)
+        ok &= good
+    return ok
+
+
 CHECKS = [("E1 the corner coordinates: d_t*, rho d_rho, d_0, d_1 in X_0, X_I", e1, 1),
           ("E2 (1/2) Box = -rho_0^2 rho_I (X_I - 3/2)(X_0 - X_I) mod rho_0^2 rho_I^2 Diff^2_b; n = 3 his (5.40)", e2, 1),
           ("E3 A_0: lower triangular, its off-diagonal support and diagonal", e3, 1),
           ("E4 Definition 5.3 at n = 4: the smallest E^C and its closure properties", e4, 1),
-          ("E5 Proposition 5.14 at n = 4: <E^C> -> <E^C + 1>' and <(3,0)>_0 -> <(4,0)>', slot by slot", e5, 2)]
+          ("E5 Proposition 5.14 at n = 4: <E^C> -> <E^C + 1>' and <(3,0)>_0 -> <(4,0)>', slot by slot", e5, 2),
+          ("E6 the eigenvectors of A_0 for 0, (1 - e_Ups) gam_Ups, gam_Ups, 2 gam_Ups: their slot supports", e6, 1),
+          ("E7 Lemma 9.14 at n = 4: the exponents met lie in E^C_sharp, off spec, lambda_sharp least", e7, 1)]
 
 
 def selftest(verbose=False):

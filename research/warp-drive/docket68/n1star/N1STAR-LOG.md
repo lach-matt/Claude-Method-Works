@@ -5383,3 +5383,9 @@ and B^h are errors at n = 4), and the forward mapping with F_I,11 = 1 + (E^C u (
 index condition and gamma_Ups < 1/4 added. New instrument ext5.py E1-E5 (5/5; mutants 6/6). Next: III.G'''; verifier
 101.
 
+**D243 (2026-10-26): Part III.G''' written.** [Hin26] section 9.1.3 at n = 4: the iota+-normal operator on partially
+polyhomogeneous inputs. One exceptional exponent at n = 4, so the least incoming pole is lambda_sharp = 3/2 + (1 -
+e_Ups) gam_Ups (simple); the continuation's agreement with III.G''s inverse and the left inverse behind Lemma 9.21 are
+proved where the source asserts them. Recorded for III.J: the lambda_sharp channel is one the record's alpha_5 = 2
+reading did not consider. ext5.py E6-E7 added.
+

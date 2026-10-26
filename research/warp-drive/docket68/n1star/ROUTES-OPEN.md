@@ -3056,3 +3056,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Next: Part III.G''' ([Hin26] Lemma 9.13 on), then III.C' ([Hin26] 5.4-5.7, with Part IV's exterior estimates);
   verifier 101 on III.C and the D241 repairs.
 
+### 4.166 Part III.G''' written: [Hin26] section 9.1.3 at n = 4 (D243)
+
+- Proved, at n = 4: Lemmas 9.13-9.14, Proposition 9.15, (9.49), Remark 9.17, Corollary 9.18, Definition 9.19, Lemma
+  9.21, (9.54)-(9.55), Proposition 9.22, Remarks 9.23-9.24 (PART-III-G4-RESONANT.md).
+- One exceptional exponent: F_I,11 = 1 + (E^C u (lambda_sharp, 0)), lambda_sharp = 3/2 + (1 - e_Ups) gam_Ups (III.C). The
+  least incoming pole of N_iota^-1 on partially polyhomogeneous inputs is lambda_sharp, simple; all others have real part
+  above 3/2 + 2 gam_Ups. The source's lambda = 1 pole has no counterpart.
+- New proofs of steps the source asserts: the continuation agrees with III.G''s inverse below lambda_sharp (uniqueness
+  in III.G's admissible spaces; at lambda_sharp the extension by zero creates delta(v) at the light cone, which is why it
+  is a pole); the left inverse behind Lemma 9.21.
+- OPEN, for III.J: the pole at lambda_sharp < 2 is excited only by sources with the exceptional term v^(1 + lambda_sharp)
+  in the (dx^1)^2-component at I+ cap iota+ (from A-bar's (7, 4) entry on pi_01's leading term). The record's alpha_5 = 2
+  (10.35, 10.38 (d)-(e)) considered pure resonant states, not this channel. III.G'''s window condition (least grafted
+  order above 1 + eps) holds for it.
+- ext5.py E6-E7 added: 7/7 with controls.
+- Next: Part III.G'''' ([Hin26] section 9.2, the tf-normal operator); verifier 101 is reading III.C.
+

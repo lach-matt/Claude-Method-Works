@@ -48,7 +48,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | **proved** (D241: the hundredth verifier read the D240 repairs, correct; one nit seated) |
 | III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | verified (D241; one major finding, two minor and seven nits seated, to be read) |
 | III.C | [Hin26] 5.1-5.3 | metric perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an order lower; forward mapping | written (D242) |
-| III.C', III.G'''-III.J | [Hin26] 5.4-5.7, 9 (from Lemma 9.13)-12 | exterior stability and partial polyhomogeneity; the rest of the spectral theory at the transition faces; decay | to do |
+| III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | written (D243) |
+| III.C', III.G''''-III.J | [Hin26] 5.4-5.7, 9.2-12 | exterior stability and partial polyhomogeneity; the tf-normal operator and grafting on the spectral side; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -804,4 +805,19 @@ and Corollary 5.3: the forward mapping into $\langle\mathcal E^C_I+1\rangle'$, w
 E^C_I\cup(\frac32+(1-e_\Upsilon)\gamma_\Upsilon,0))$. `ext5.py` E1-E5 (new): the coordinate identities, the scalar
 leading part, $\bar A$'s support, Definition 3.1's closure properties and Proposition 5.2's bookkeeping, each with
 controls. Findings (C1)-(C6). Written (D242).
+
+## Part III.G'''
+
+`PART-III-G4-RESONANT.md`. [Hin26] section 9.1.3 at $n = 4$: Lemmas 9.13-9.14, Proposition 9.15, Definition 9.16 with
+(9.49), Remark 9.17, Corollary 9.18, Definition 9.19, Remark 9.20, Lemma 9.21, (9.54)-(9.55), Proposition 9.22 and
+Remarks 9.23-9.24. The sources' class (III.C) has one exceptional exponent in its $(dx^1)^2$-component,
+$1+\lambda_\sharp$, $\lambda_\sharp = \frac32+(1-e_\Upsilon)\gamma_\Upsilon$, where the source has two. So the least
+incoming pole of $N_{\iota^+}(\lambda)^{-1}$ on partially polyhomogeneous inputs is $\lambda_\sharp$, simple (Corollary
+2.6), and every other pole has real part above $\frac32+2\gamma_\Upsilon$. Lemma 1.2: III.G$'$'s eigen-spaces lie in the
+slot-wise spaces. Lemma 2.3 and Proposition 2.4: the continuation is identified with III.G$'$'s inverse below
+$\lambda_\sharp$ by uniqueness in III.G's admissible spaces, a step the source asserts; at $\lambda_\sharp$ itself the
+extension by zero creates $\delta(v)$ at the light cone. Lemma 3.4: the left inverse used in the source's Lemma 9.21.
+`ext5.py` E6-E7 (new): the eigenvector supports of $\bar A$ and Lemma 2.2's exponent bookkeeping. Findings
+(G$'''$1)-(G$'''$5); (G$'''$1) records that the pole at $\lambda_\sharp<2$ is an incoming channel the record's reading
+$\alpha_5 = 2$ did not consider, for Part III.J. Written (D243).
 
