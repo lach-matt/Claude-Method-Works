@@ -1,12 +1,13 @@
 # Part III.J. Efficient parameterisation I: approximate solutions from data, n = 4 ([Hin26] section 12 to Remark 12.6)
 
-*Status.* Written (D282). This part proves, at spatial dimension $n = 4$, [Hin26] Definition 12.1, the construction of
-section 12.2.1 with Lemma 12.2, Theorem 12.3 and Remarks 12.4-12.6 (pp. 296-311): a tuple of data (the final black hole
-parameters, the boost and translation, the free $\iota^+$-data at each $\iota^+$-resonance, the conormal remainders of
-the modification parameters and a remainder tensor) determines $(h,\vec p,q)$ at which the augmented operator $P_5$ of
-III.I$''''''''''''''$ vanishes at $\iota^+$ to the order $5+\epsilon_+$ and has the $K^+$-order $\alpha$ (Theorem 2.4).
-The source's map $\Psi$ with an initial solution ((12.33)-(12.34), Lemma 12.7) needs the exterior family $h_{-S}$ of
-Part III.C$'$ and is deferred; its Theorem 12.8, the description of linearised solutions, is the next part, III.J$'$.
+*Status.* Written (D282); verified (D285: verifier 122's findings seated, to be read). This part proves, at spatial
+dimension $n = 4$, [Hin26] Definition 12.1, the construction of section 12.2.1 with Lemma 12.2, Theorem 12.3 and Remarks
+12.4-12.6 (pp. 296-311): a tuple of data (the final black hole parameters, the boost and translation, the free
+$\iota^+$-data at each $\iota^+$-resonance, the conormal remainders of the modification parameters and a remainder
+tensor) determines $(h,\vec p,q)$ at which the augmented operator $P_5$ of III.I$''''''''''''''$ vanishes at $\iota^+$
+to the order $5+\epsilon_+$ and has the $K^+$-order $\alpha$ (Theorem 2.4). The source's map $\Psi$ with an initial
+solution ((12.33)-(12.34), Lemma 12.7) needs the exterior family $h_{-S}$ of Part III.C$'$ and is deferred; its Theorem
+12.8, the description of linearised solutions, is the next part, III.J$'$.
 
 *What n = 4 changes.* (1) *No step at $t_*^{-1}$.* The source's Step 1 solves the $t_*^{-1}$-term, from the resonance at
 $\lambda = 1$ and the black hole's $t_*^{-1}$-tail. At $n = 4$ the least $\iota^+$-exponent is $\lambda_\sharp =
@@ -18,12 +19,14 @@ is one linear equation $\bar L\,G(\lambda_0) = -F_0(\lambda_0)$ with $F_0$ depen
 (Lemma 2.1), and $\Phi$ is affine in the infinite-dimensional data, which gives its tame bounds at once. (3) *The
 modification parameters* are the rows of III.I$'''''''''$ (rates at most 2) with the rotation rows of
 III.I$''''''''''''''$ Definition 1.3, and the tower coefficients of $q$ (III.I$''''''''''''''$ Definition 1.1, rates
-above 2); the formal solutions at $\iota^+\cap K^+$ are matched to them by III.I$''''''''''$ Lemma 2.1 (Lemma 2.2). (4)
-*The resonances used* are those in $\pi_1\mathcal E_\sharp$: the forward solutions of III.I$''''''''''''''$ Theorem 3.1
-excite no other, so only these carry data. (5) *Orders.* $K^+$-order $\alpha-$ with $\alpha$ as in
-III.I$''''''''''''''$, read as there ((H2) as "$\alpha-$", III.I$''''''''''''''$ Remark 3.2); $\iota^+$-order
-$(3+\epsilon_+)-$ for the metric and $(5+\epsilon_+)-$ for $P_5$. Notation: Parts II.G, III.A, III.D$'''$, III.F$'$,
-III.G$'$, III.G$''$, III.G$'''$, III.I, III.I$'$, III.I$'''''''$-III.I$''''''''''''''$; no instrument is used.
+above 2); the formal solutions at $\iota^+\cap K^+$ are matched to them by III.I$''''''''''$ Lemma 2.1 (Lemma 2.2). The
+source's conormal $V_{1,\mathrm{rem}}$ of (12.11) has no counterpart: at $n = 4$ the v1 coefficient of $q$ has no
+conormal part (III.I$''''''''''''$ Theorem 3.1). (4) *The resonances used* are those in $\pi_1\mathcal E_\sharp$: the
+forward solutions of III.I$''''''''''''''$ Theorem 3.1 excite no other, so only these carry data. (5) *Orders.*
+$K^+$-order $\alpha-$ with $\alpha$ as in III.I$''''''''''''''$, read as there ((H2) as "$\alpha-$",
+III.I$''''''''''''''$ Remark 3.2); $\iota^+$-order $(3+\epsilon_+)-$ for the metric and $(5+\epsilon_+)-$ for $P_5$.
+Notation: Parts II.G, III.A, III.D$'''$, III.F$'$, III.G$'$, III.G$''$, III.G$'''$, III.I, III.I$'$,
+III.I$'''''''$-III.I$''''''''''''''$; no instrument is used.
 
 ## 1. Setting
 
@@ -44,13 +47,14 @@ Two further conditions, each removing finitely many values:
 
 (G$^+$) No $\lambda\in\Lambda$ has real part in $(3,3+\epsilon_+]$. $\Lambda$ does not depend on the constants
 (III.I$''''''''''$ Lemma 1.2 (a)), so this holds after decreasing $\epsilon_+$ (with $\epsilon_K$, $\eta_1$, $\eta_2$);
-every statement of III.I$''''''''$-III.I$''''''''''''''$ holds for the smaller values (III.I$'''''''''$ (1.1)).
+every statement of III.I$''''''''$-III.I$''''''''''''''$ holds for the smaller values (III.I$'''''''''$ (1.1)), the
+choices of III.I$''''''''''$-III.I$''''''''''''''$ ($\eta_1$, $\eta_2$, $\delta_+$, $\alpha$) being re-made.
 
 (A$_J$) For every $\lambda_0\in\Lambda$ with $\mathrm{Re}\,\lambda_0<3+\epsilon_+$, $\ell_K(\lambda_0) :=
 \alpha-\mathrm{Re}\,\lambda_0$ is not $-\mathrm{Re}\,\mu$ for a root $\mu$ of $\widehat{L_{b_0}}(0)$ and not in
 $\mathrm{Re}\,\pi_1\mathcal E_K$. Then $\ell_K(\lambda_0)\in(\alpha-3-\epsilon_+,\alpha-\lambda_\sharp]\subset(0,3)$, as
-$\epsilon_+<\frac14$, so $\ell_K(\lambda_0)$ is admissible in III.G$'''$ section 1. The admissible $\alpha$ meeting
-(A$_J$) are dense in $(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$.
+$\epsilon_+<\frac14$, so $\ell_K(\lambda_0)$ is admissible in III.G$'''$ section 1 ($\ell^{\max}_K = 3$ under (C5),
+III.G$''$ section 1). The admissible $\alpha$ meeting (A$_J$) are dense in $(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$.
 
 *Classes.* For $k\in\mathbb N_0\cup\{\infty\}$ and orders read as "$w-$" (III.I$''''''''''''''$ section 1):
 $$\mathcal X^k_J := H^{k,(\langle\mathcal E^C_I\rangle,\ell_I),(\mathcal E_+,(3+\epsilon_+)-),\alpha-}_{\mathrm
@@ -106,11 +110,11 @@ $N_{\iota^+}(\bar L,\cdot)^{-1}$). For $\mathrm{Re}\,\lambda\ge2$: $\lambda\in\L
 E_\sharp$) and $j\le2l_*<K(\lambda)$, so $(\lambda,j)\in\mathcal E_\sharp$. For $\mathrm{Re}\,\lambda<2$:
 $\mathrm{spec}_{\iota^+}(\bar L)\subset\{\mathrm{Re}\ge2\}$ (III.G$'$ Lemma 4.2 (a)), so
 $\lambda\in\{\lambda_\sharp\}\cup\pi_1\mathcal E^C_I$ (III.G$'''$ Corollary 2.6), with $K_\iota(\lambda_\sharp) = 1$ and
-$K_\iota(z)\le k(\mathcal E^C_I,z)+1$ for $z\in\pi_1\mathcal E^C_I$, $z\ne\lambda_\sharp$ (III.G$'''$ Remark 3.8); and
-$\mathcal E^\sharp_+$ contains $(\lambda_\sharp,0)$ and, for each $z\in\pi_1\mathcal E^C_I$, the extended union taken
-$k(\mathcal E^C_I,z)+1$ times (III.I$'$ (3.2)), so $(\lambda,j)\in\mathcal
-E^\sharp_+\cap\{\mathrm{Re}<2\}\subset\mathcal M$ (III.I$''''''''$ (1.1)-(1.2)). The regularity is III.G$'''$
-Proposition 3.7. $\square$
+$K_\iota(z)\le k(\mathcal E^C_I,z)+1$ for $z\in\pi_1\mathcal E^C_I$, $z\ne\lambda_\sharp$ (the pole bound of III.G$'''$
+Proposition 2.4, with $m_\iota = 0$ below 2); and $\mathcal E^\sharp_+$ contains $(\lambda_\sharp,0)$ and, for each
+$z\in\pi_1\mathcal E^C_I$, the extended union taken $k(\mathcal E^C_I,z)+1$ times (III.I$'$ (3.2)), so
+$(\lambda,j)\in\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}\subset\mathcal M$ (III.I$''''''''$ (1.1)-(1.2)). The regularity
+is III.G$'''$ Proposition 3.7. $\square$
 
 ## 2. The construction
 
@@ -165,7 +169,8 @@ $\mathrm{supp}\,d\chi_K$ (III.I$'''''''$ (1.3)), and $h_{\mathrm{tot}}(\vec p_{\
 p_{\le0})$ are supported in $\mathrm{supp}\,d\chi_K$ (III.I$'''''''$ Definition 2.3), a set whose closure meets
 $\iota^+$ in a compact subset of $(\iota^+)^\circ$ ($\chi_K$ is a function of $R$ near $\iota^+$, equal to 1 near $R =
 0$ and to 0 near $\mathscr I^+$). Its $\iota^+$-exponents lie in $\mathcal G$ (III.I$'''''''$ Lemma 2.2,
-III.I$'''''''''$ Lemma 2.5), and those of every other term in $\Lambda$ (Lemma 2.3). $\square$
+III.I$'''''''''$ Lemma 2.5), and those of every other term lie in $\Lambda$ (Lemma 2.3, which (2.2) does not use).
+$\square$
 
 **Lemma 2.2 (rows and towers at $\iota^+$).** Let $\lambda_0\in\Lambda_*$ and $j\in\mathbb N_0$.
 
@@ -176,8 +181,8 @@ $\chi_K$ times $t_*^{-\lambda_0}$ times a finite sum $\sum_{i\le j}(\log t_*)^i\
 formal solution of III.G$''$ Theorem 3.1 of type $\tau$ at the root $\mu_\tau$ with coefficient $c_\tau(\lambda_0)W$ in
 the top log power $j$, plus formal solutions of the same type with lower log powers, plus terms of $K^+$-order
 $\ge\mathrm{Re}\,\lambda_0+3$. Here $c_{\mathrm s1}(\lambda_0) = \lambda_0(\lambda_0-1)$ and $c_\tau = 1$ otherwise. The
-same holds for the rotation rows $\nu = (\mathrm{rot},\lambda_0,j)$, $\lambda_0\in\pi_1\mathcal M$, $W\in\mathcal
-V_{1,\mathbb C}$, with the v1 formal solution and $c_{\mathrm v1} = -\lambda_0$.
+same holds for the rotation rows $\nu = (\mathrm{rot},\lambda_0,j)$, $(\lambda_0,j)\in\mathcal M_{\mathrm{rot}}$,
+$W\in\mathcal V_{1,\mathbb C}$, with the v1 formal solution and $c_{\mathrm v1} = -\lambda_0$.
 
 (b) For $\rho = (\mu,\tau)\in\mathcal R'$ and $Y\in\mathcal Y_\rho$, $[\chi_KT_{\rho,b}(t_*^{-(\lambda_0-d_\rho)}(\log
 t_*)^jY)]_{\lambda_0}$ is $\chi_K$ times the formal solution of type $\tau$ at $\mu$ with coefficient $Y$ (and, for v1,
@@ -219,25 +224,27 @@ itself): the $t_*^{-\lambda_0}$-terms of the rows and towers already chosen, whi
 corrections ($\lambda_0\in\lambda+\pi_1\mathcal E_{\mathrm{ind}}$). Put
 $$f := -F_0(\lambda_0)-\bar L\,T(\lambda_0),\qquad v := u_{\lambda_0}+\mathcal S_{\lambda_0}(f),$$
 with $u_{\lambda_0} := 0$ if $\lambda_0\notin\Sigma$, and $\mathcal S_{\lambda_0}(f)$ the solution of $\bar L\mathcal S
-= f$ given by III.G$'''$ Corollary 3.1 (1) with $\ell_K = \ell_K(\lambda_0)$. By III.G$'''$ Corollary 3.1 (2) and Remark
-3.3, $v = \chi_Kv_0+\tilde v$, with $v_0$ a sum of formal solutions of III.G$''$ Theorem 3.1 (with $(\log t_*)^i$, $i\le
-J$) at the roots $\mu\in\mathcal W(\ell_K(\lambda_0))$ and $\tilde v$ a sum of terms $t_*^{-\lambda_0}(\log
-t_*)^iH^{\infty,(\langle\mathcal E^C_I\rangle,\ell_I),\ell_K(\lambda_0)}_{\mathrm b}(\iota^+)$, so of $K^+$-order
-$\alpha-$. Each formal solution in $v_0$, of type $\tau$ at the root $\mu$, is carried below by a row or tower of
-$K^+$-rate $\mathrm{Re}(\lambda_0-\mu)$ (for the boost row s1, $\mathrm{Re}\,\lambda_0-1$; for v1 at $b_0$,
-$\mathrm{Re}\,\lambda_0+1$), which is below $\alpha$ as $-\mathrm{Re}\,\mu<\ell_K(\lambda_0)$. We assign, top log power
-first:
+= f$ that III.G$'''$ Corollary 3.1 (1), which solves $2\bar Lu = \cdot$, gives for $2f$, with $\ell_K =
+\ell_K(\lambda_0)$. By III.G$'''$ Corollary 3.1 (2) and Remark 3.3, $v = \chi_Kv_0+\tilde v$, with $v_0$ a sum of formal
+solutions of III.G$''$ Theorem 3.1 (with $(\log t_*)^i$, $i\le J$) at the roots $\mu\in\mathcal W(\ell_K(\lambda_0))$
+and $\tilde v$ a sum of terms $t_*^{-\lambda_0}(\log t_*)^iH^{\infty,(\langle\mathcal
+E^C_I\rangle,\ell_I),\ell_K(\lambda_0)}_{\mathrm b}(\iota^+)$, so of $K^+$-order $\alpha-$. Each formal solution in
+$v_0$, of type $\tau$ at the root $\mu$, has $K^+$-order $\mathrm{Re}(\lambda_0-\mu)<\alpha$, as
+$-\mathrm{Re}\,\mu<\ell_K(\lambda_0)$, and is carried below by a row or tower, of rate $\mathrm{Re}(\lambda_0-\mu)$
+except for the boost row s1 (rate $\mathrm{Re}\,\lambda_0-1$) and for v1 at $b_0$ (rate $\mathrm{Re}\,\lambda_0+1$). We
+assign, top log power first:
 
 (i) the terms of type $\tau\in\mathcal T\setminus\{\mathrm v1\}$ at $\mu_\tau$ whose row has rate
 $\mathrm{Re}\,e_\nu\le2$ to the row $\nu = (\tau,\lambda_0,i)$, with $W_\nu := c_\tau(\lambda_0)^{-1}$ times the
-coefficient; by (G) and (G$^+$) these are all the s1, s0, s2, c0, c1 terms of rate $\le2+\epsilon_+$, and the s1 terms
+coefficient; by (G) these are all the s1, s0, s2, c0, c1 terms of rate $\le2+\epsilon_K$, and the s1 terms
 have $\mathrm{Re}\,\lambda_0\le3$;
 
-(ii) the v1 terms with $\lambda_0\in\pi_1\mathcal M$ to the rotation row $(\mathrm{rot},\lambda_0,i)$, with $W :=
-c_{\mathrm v1}(\lambda_0)^{-1}$ times the coefficient;
+(ii) the v1 terms with $\mathrm{Re}\,\lambda_0\le2$, whose exponents lie in $\mathcal M_{\mathrm{rot}}$
+(III.I$''''''''''''''$ Definition 1.1), to the rotation row $(\mathrm{rot},\lambda_0,i)$, with $W := c_{\mathrm
+v1}(\lambda_0)^{-1}$ times the coefficient;
 
 (iii) every other term, of type $\tau$ at $\mu$ with rate in $(2,\alpha)$ (the s0, s2, c0, c1 terms of rate $>2$, the v1
-terms with $\mathrm{Re}\,\lambda_0\ge2$, and the rows of Table 1.1 with $\mu\le-1$ other than s1 and v1, of rate
+terms with $\mathrm{Re}\,\lambda_0>2$, and the rows of Table 1.1 with $\mu\le-1$ other than s1 and v1, of rate
 $\ge\mathrm{Re}\,\lambda_0+1>\frac52$), to the coefficient of $Y_\rho$, $\rho = (\mu,\tau)$, at the exponent
 $(\lambda_0-d_\rho,i)$: the coefficient itself (for v1, $-\lambda_0^{-1}$ times it).
 
@@ -258,14 +265,15 @@ The hypotheses of III.G$'''$ Corollary 3.1 hold: $\mathrm{Re}\,\lambda_0<3+\epsi
 admissible by (A$_J$); and $f$ has no $\mathscr I^+$-expansion (it vanishes near $\mathscr I^+\cap\iota^+$: $F_0$ is
 supported in $\mathrm{supp}\,d\chi_K$, the rows and towers in $\mathrm{supp}\,\chi_K$), and its coefficients have
 $K^+$-order $\ge\alpha$, so lie in $H^{\infty,\ell_K(\lambda_0)-2}_{\mathrm b}$ at $R = 0$: $F_0$ is compactly supported
-in $(\iota^+)^\circ$, and $\bar LT(\lambda_0) = [L_{b_0}(\sum m_\nu+\chi_K\sum T_{\rho,b})]_{\lambda_0+2}$ by Lemma
-2.1's proof, where $L_{b_0}m_\nu = f^\nu_{0,0}$ has $K^+$-weight $\kappa_\nu-\epsilon>\frac92>\alpha$ (III.I$'''''''''$
-Lemma 2.2 (d)) and $L_bT_{\rho,b}(a)$ consists of the terms with $a^{(k_\mu+1)}$, $a^{(k_\mu+2)}$, of $K^+$-order
-$\ge\mathrm{Re}\,\lambda_0+3$ (III.G$''$ Lemma 2.6), the commutators with $\chi_K$ being supported away from $K^+$. As
-$f$ has no $\mathscr I^+$-expansion, (2.2) acts on it as III.G$'$ Theorem 3.1 (2)'s inverse (III.G$'''$ Proposition
-2.4's construction with $f$ of plain $\mathscr I^+$-weight), whose poles lie in $\mathrm{spec}_{\iota^+}(\bar
-L)\subset\{\mathrm{Re}\ge2\}$: below 2, $\mathcal S_{\lambda_0}$ raises no log power, and above 2 it raises it by at
-most $l_*$.
+in $(\iota^+)^\circ$, and $\bar LT(\lambda_0) = [L_{b_0}\sum m_\nu+L_b\chi_K\sum T_{\rho,b}]_{\lambda_0+2}$ by Lemma
+2.1's proof ($[L_bw]_{\lambda+2} = \bar L[w]_\lambda$ as for $L_{b_0}$, $L_b-\bar L$ raising the $u$-exponent by 2 near
+$\iota^+$ away from $K^+$, III.G$''$ (4.1)), where $L_{b_0}m_\nu = f^\nu_{0,0}$ has $K^+$-weight
+$\kappa_\nu-\epsilon>\frac92>\alpha$ (III.I$'''''''''$ Lemma 2.2 (d)) and $L_bT_{\rho,b}(a)$ consists of the terms with
+$a^{(k_\mu+1)}$, $a^{(k_\mu+2)}$, of $K^+$-order $\ge\mathrm{Re}\,\lambda_0+3$ (III.G$''$ Lemma 2.6), the commutators
+with $\chi_K$ being supported away from $K^+$. As $f$ has no $\mathscr I^+$-expansion, (2.2) acts on it as III.G$'$
+Theorem 3.1 (2)'s inverse (III.G$'''$ Proposition 2.4's construction with $f$ of plain $\mathscr I^+$-weight), whose
+poles lie in $\mathrm{spec}_{\iota^+}(\bar L)\subset\{\mathrm{Re}\ge2\}$: below 2, $\mathcal S_{\lambda_0}$ raises no
+log power, and above 2 it raises it by at most $l_*$.
 
 **Lemma 2.3 (the log count).** Every exponent $(\lambda_0,i)$ of the construction (of $[h]_{\lambda_0}$, of the rows
 assigned and of the coefficients of $q$, shifted by $d_\rho$) lies in $\mathcal E_\sharp$; the rows assigned lie in
@@ -284,9 +292,10 @@ E_{\mathrm{ind}}$, which below 2 is in $\mathcal M$ (III.I$''''''''$ (1.1), III.
 is raised. So $(\lambda_0,i)\in\mathcal E_\sharp$. The rows: a row assigned in (i) is $(\tau,\lambda_0,i)$ with
 $(\lambda_0,i)\in\mathcal E_\sharp$ and $\mathrm{Re}\,\lambda_0\le3$ (its rate $\mathrm{Re}\,\lambda_0+d_\tau\le2$,
 $d_\tau\ge-1$), hence $(\lambda_0,i)\in\mathcal E_{\mathrm{par}}$ (III.I$''''''''''$ (1.2)) and $\nu\in\mathcal N$; the
-rotation rows of (ii) are in $\mathcal N_{\mathrm{rot}}$ by definition. The coefficients of (iii):
+rotation rows of (ii) are in $\mathcal N_{\mathrm{rot}}$, their exponents lying in $\mathcal
+E_\sharp\cap\{\mathrm{Re}\le2\} = \mathcal M_{\mathrm{rot}}$. The coefficients of (iii):
 $(\lambda_0-d_\rho,i)\in\mathcal E_\sharp-d_\rho$ with rate $>2$, which is $\mathcal E^\alpha_\rho$
-(III.I$''''''''''''''$ Definition 1.1; for v1, $\mathrm{Re}\,\lambda_0\ge2$), and
+(III.I$''''''''''''''$ Definition 1.1; for v1, $\mathrm{Re}\,\lambda_0>2$), and
 $\mathrm{Re}(\lambda_0-d_\rho)<3+\epsilon_+-d_\rho$, below the conormal order of $\mathcal Q^\infty_J$. $\square$
 
 **Theorem 2.4 ([Hin26] Theorem 12.3 at n = 4).** There are $d\in\mathbb N$ and $\epsilon_0>0$ such that for
@@ -330,24 +339,27 @@ $K^+$, $g_0 = g_b$, the rows enter only through $\vartheta_{\nu,\sharp}$, of $K^
 (III.I$'''''''''$ Lemma 2.2 (d); $h_\nu$ is supported in $\mathcal C$), and $P_5-P_4(h,\vec p) =
 L_bh_{b,\mathrm{rem}}(q)+\int_0^1(L_{h+sh_{b,\mathrm{rem}}(q),\vec p}-L_b)h_{b,\mathrm{rem}}(q)\,ds$ with
 $L_bh_{b,\mathrm{rem}}(q)$ of $K^+$-order $\alpha-$ (III.I$''''''''''''''$ Lemma 2.2 (b)) and the integral of
-$K^+$-order $(2\alpha-4)->\alpha$ (as in III.I$''''''''''''''$ Lemma 2.4 (c)'s proof); and $P_4(h,\vec p)$ near $K^+$ is
-$\mathrm{Ric}(g_b+h)-\delta^*_{g_b,E_C}(\Upsilon(g_b+h,g_b)-\vartheta_{\mathrm{tot}})$, whose linear part $L_bh$ has
-$K^+$-order $\alpha-$ ($h$ has; $L_b$ is stationary), and whose nonlinear part has $K^+$-order $\ge2(\alpha-)$.
-*Structure.* Given $U_0$, every map of the construction is linear in $U_1$: $F_0$ depends on $U_0$ only (Lemma 2.1), and
-$T(\lambda_0)$, $\mathcal S_{\lambda_0}$, the coefficient functionals of III.G$''$ Theorem 3.1 and III.G$'''$ Corollary
-3.1 (2), the assignment and $R(\lambda_0)$ are linear; the dependence on $U_0$ is through $F_0$, smooth in $\vec
-p_{\le0}$, and through the towers $T_{\rho,b}$, smooth in $b$ (III.I$''''''''''''''$ Lemma 2.1). This is (2.4),
-$\Phi_0(U_0)$ being the construction with $U_1 = 0$. *Bounds.* There are finitely many steps; each uses III.G$'''$
-Corollary 3.1 on a strip containing $\lambda_0$, with a fixed loss of b-regularity (III.G$'''$ Proposition 2.4,
-(G$'''$4)), the functionals of III.G$''$ Theorem 3.1 (continuous on $H^{k+2}_{\mathrm b}$) and III.G$'''$ Proposition
-3.7 (loss $l$); $d$ is the sum of these losses plus 2. The bounds are uniform for $|U_0|$ small, since $F_0$ and the
-towers are. As $U_0$ is finite-dimensional, $|U_0|\le C\|U\|_{\mathcal D^0}$, and the tame bound follows from (2.4).
-*(1), (2)* hold by (2.1). *(3)* By linearity in $U_1$, $\Phi(U')-\Phi(U) = A(U_0)(0,\dots,(u'^0,f'),\dots,0)$; in the
-construction with these data, every step below $\mathrm{Re}\,\lambda_0$ has $u = 0$, $F_0 = 0$ and $T = 0$, so assigns
-nothing; at $\lambda_0$, $f = 0$ and $v = u'_{\lambda_0}$, so $[h']_{\lambda_0} = u'_{\lambda_0}-R'(\lambda_0)$ with
-$R'(\lambda_0)$ removing exactly the formal solutions of $u'_{\lambda_0}$. *(4)* $\bar L$, $\chi_K$, $\chi_\iota$, the
-states and the cut-offs are real, conjugation maps the construction at $\lambda_0$ to that at $\bar\lambda_0$, and the
-data are conjugation-symmetric. $\square$
+$K^+$-order $(2\alpha-4)->\alpha$ at every $b$ near $b_0$ (as in III.I$''''''''''''''$ Lemma 2.4 (c)'s proof):
+$h_{b,\mathrm{rem}}(q)$ has $K^+$-order $(\alpha-2)-$ there, its v1 part included, whose exponents have real part $>2$,
+hence $>2+\epsilon_K\ge\alpha-2$ by (G), even where $h_{b,\mathrm v1}$ does not vanish (III.I$''''''''''''''$ Definition
+1.1; the v1 terms of real part $\le2$ are the rotation rows', which enter only through $h_\nu$ and $\vartheta_\nu$); and
+$P_4(h,\vec p)$ near $K^+$ is $\mathrm{Ric}(g_b+h)-\delta^*_{g_b,E_C}(\Upsilon(g_b+h,g_b)-\vartheta_{\mathrm{tot}})$,
+whose linear part $L_bh$ has $K^+$-order $\alpha-$ ($h$ has; $L_b$ is stationary), and whose nonlinear part has
+$K^+$-order $\ge2(\alpha-)$. *Structure.* Given $U_0$, every map of the construction is linear in $U_1$: $F_0$ depends
+on $U_0$ only (Lemma 2.1), and $T(\lambda_0)$, $\mathcal S_{\lambda_0}$, the coefficient functionals of III.G$''$
+Theorem 3.1 and III.G$'''$ Corollary 3.1 (2), the assignment and $R(\lambda_0)$ are linear; the dependence on $U_0$ is
+through $F_0$, smooth in $\vec p_{\le0}$, and through the towers $T_{\rho,b}$, smooth in $b$ (III.I$''''''''''''''$
+Lemma 2.1). This is (2.4), $\Phi_0(U_0)$ being the construction with $U_1 = 0$. *Bounds.* There are finitely many steps;
+each uses III.G$'''$ Corollary 3.1 on a strip containing $\lambda_0$, with a fixed loss of b-regularity (III.G$'''$
+Proposition 2.4, (G$'''$4)), the functionals of III.G$''$ Theorem 3.1 (continuous on $H^{k+2}_{\mathrm b}$) and
+III.G$'''$ Proposition 3.7 (loss $l$); $d$ is the sum of these losses plus 2. The bounds are uniform for $|U_0|$ small,
+since $F_0$ and the towers are. As $U_0$ is finite-dimensional, $|U_0|\le C\|U\|_{\mathcal D^0}$, and the tame bound
+follows from (2.4). *(1), (2)* hold by (2.1). *(3)* By linearity in $U_1$, $\Phi(U')-\Phi(U) =
+A(U_0)(0,\dots,(u'^0,f'),\dots,0)$; in the construction with these data, every step below $\mathrm{Re}\,\lambda_0$ has
+$u = 0$, $F_0 = 0$ and $T = 0$, so assigns nothing; at $\lambda_0$, $f = 0$ and $v = u'_{\lambda_0}$, so
+$[h']_{\lambda_0} = u'_{\lambda_0}-R'(\lambda_0)$ with $R'(\lambda_0)$ removing exactly the formal solutions of
+$u'_{\lambda_0}$. *(4)* $\bar L$, $\chi_K$, $\chi_\iota$, the states and the cut-offs are real, conjugation maps the
+construction at $\lambda_0$ to that at $\bar\lambda_0$, and the data are conjugation-symmetric. $\square$
 
 **Remark 2.5 (linearisation; the source's Remark 12.4).** Differentiating (2.5) in $U$: for $U'\in\mathcal D^\infty$,
 $D_{\Phi(U)}P_5\big(D_U\Phi(U')\big)\in\mathcal F^\infty$, and $D_U\Phi(U') =

@@ -5679,3 +5679,10 @@ rotation coordinates stay free until the expansion fixes them. The rotation-row 
 the earlier theorems are applied with the original parameters, where their uniqueness holds. The rotation rows are made
 a separate index set, the coefficients of the expansion are shown to be determined by the solution through dual
 functionals, and six nits are seated. Next: verifier 122 on Parts III.J and III.J' and these repairs.
+
+**D285 (2026-10-26): verifier 122 seated; III.J and III.J' verified.** Verifier 122 read the two parts of the efficient
+parameterisation and the repairs of D284, and found the repairs sound. Its one major finding: at a rotating black hole,
+a slowly decaying rotation term of the expansion, at the exponent 2, would leave the square of itself in the operator
+with too little decay at the horizon. Such terms are now carried by the rotation rows as well, which never enter the
+metric near the horizon, so every coefficient left in the expansion decays fast enough at every nearby black hole. Three
+minor points and ten nits are seated. Next: verifier 123 on these repairs, while the tame estimates are written.

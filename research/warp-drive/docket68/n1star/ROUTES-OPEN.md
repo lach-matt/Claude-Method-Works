@@ -3739,3 +3739,22 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   argument for v1; (H3) from that of III.I'''''''''; the non-vanishing at a rotating b is a remark; the eps-stability
   wording; 4.204 rejoined.
 - Next: verifier 122 on III.J, III.J' and the D284 repairs.
+
+### 4.209 Verifier 122 seated (D285): III.J and III.J' verified
+
+- Verifier 122 read III.J, III.J' and the D284 repairs to III.I'''''''''''''': 1 major, 3 minor, 10 nits. The D284
+  repairs close verifier 121's M1, m1 and m2; page citations and format check out.
+- M1: III.J Theorem 2.4's (2.5) at a rotating b. A v1 coefficient of q at an exponent of real part 2 (2 is in Lambda)
+  has K+-order 2 through the rotation state h_{b,v1}, so its square in P_5 has K+-order 4 < alpha. Repaired by carrying
+  these terms by rotation rows too: N_rot is indexed by M_rot := M + (E_sharp at real part 2) = E_sharp at real part <=
+  2, whose rate at b_0 is Re lambda + 1 <= 3, so they are new rows at no level; E^alpha_v1 := E_sharp at real part > 2,
+  hence > 2 + eps_K by (G), and h_{b,rem}(q) has K+-order (alpha - 2)- at every b near b_0. III.I'''''''''''''' Step 4'
+  now separates the coefficients at M_rot modulo O(t^{-3-delta'}), delta' = min(eps_K, alpha - 4)/2.
+- m1: (i) of Step lambda_0 claimed the rows up to rate 2 + eps_+; (G) clears only up to 2 + eps_K. m2: L_b, not
+  L_{b_0}, acts on the towers in the K+-order of f. m3: III.J' Case A now states that the coefficients of q' and of D_U
+  Phi have rate < alpha, so each carries a formal solution visible below ell_K.
+- Nits n1-n10 seated (the s1 and v1 rates against the K+-order of the formal solution; Corollary 3.1 applied to 2f; the
+  pole bound of III.G''' Proposition 2.4; the choices re-made after eps_+ decreases; the source's V_{1,rem} absent at n
+  = 4; ell_K^max = 3 under (C5); the exponent claim of Lemma 2.1; real parts at real lambda_0; and in
+  III.I'''''''''''''' the unknown parameter in the original P, and 'need not vanish' in finding 5).
+- Next: verifier 123 on the D285 repairs; III.J'' (the tame estimates, (J'2)) is being written.

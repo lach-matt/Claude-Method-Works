@@ -1,10 +1,11 @@
 # Part III.J$'$. Efficient parameterisation II: linear forward solutions, n = 4 ([Hin26] Theorem 12.8)
 
-*Status.* Written (D283). This part proves, at spatial dimension $n = 4$ and at the black hole parameter $b_0$, [Hin26]
-Theorem 12.8 and Remark 12.9 (pp. 312-318): every solution of the linearised equation that III.I$''''''''''''''$ Theorem
-3.1 produces, for a source of the class $\mathcal F$ of III.J, is $D_U\Phi(U')$ for data $U'$, so that the map $\Phi$ of
-III.J describes the linear forward solutions exactly (Theorem 2.1). The tame form of the estimates (the source's
-$\|U'\|_k\le C_k(\|f\|_{k+d}+\|U\|_{k+d}\|f\|_d)$) and the parameters $b\ne b_0$ are recorded as open ((J$'$2)-(J$'$3)).
+*Status.* Written (D283); verified (D285: verifier 122's findings seated, to be read). This part proves, at spatial
+dimension $n = 4$ and at the black hole parameter $b_0$, [Hin26] Theorem 12.8 and Remark 12.9 (pp. 312-318): every
+solution of the linearised equation that III.I$''''''''''''''$ Theorem 3.1 produces, for a source of the class $\mathcal
+F$ of III.J, is $D_U\Phi(U')$ for data $U'$, so that the map $\Phi$ of III.J describes the linear forward solutions
+exactly (Theorem 2.1). The tame form of the estimates (the source's $\|U'\|_k\le C_k(\|f\|_{k+d}+\|U\|_{k+d}\|f\|_d)$)
+and the parameters $b\ne b_0$ are recorded as open ((J$'$2)-(J$'$3)).
 
 *What n = 4 changes.* (1) *The $\iota^+$-order of the linear solutions.* III.I$'''''''''''$-III.I$''''''''''''''$ give
 the solutions the $\iota^+$-order $(3+\eta_2)-$ with $\eta_2<\epsilon_+$, while $\Phi$ and $\mathcal F$ use
@@ -111,23 +112,28 @@ E^C_I,\lambda_0)$ (III.G$'''$ Definition 3.2).
 
 *Case A: $\lambda_0$ is not a pole of (2.2).* Then $\mathrm{Res}^\infty_{\iota^+}(\bar L,\mathcal E^C_I,\lambda_0) = 0$
 (III.G$'''$ Lemma 3.5: its elements are residues of $t_*^{-z}N_{\iota^+}(z)^{-1}f(z)$ with $f$ polynomial), so
-$G'(\lambda_0) = 0$. Then the rows and coefficients at $\lambda_0$ vanish: the expansion of $G'(\lambda_0)$ at $R = 0$
-below $\ell_K$ is the sum of the formal solutions that the rows and coefficients at $\lambda_0$ carry (III.J Lemma 2.2),
-as $[h']_{\lambda_0} = O(R^{\ell_K})$; the coefficients of III.G$''$ Theorem 3.1 are determined by the tensor (III.G$''$
-Theorem 3.1, Lemma 1.2: distinct rows have independent, injective leading terms), and III.J Lemma 2.2 expresses them
-through the rows and coefficients triangularly in the log power, with the non-zero factors $c_\tau(\lambda_0)$; so,
-downward in the log power, every row and coefficient at $\lambda_0$ is 0. Then $[h']_{\lambda_0} = G'(\lambda_0) = 0$.
+$G'(\lambda_0) = 0$. The coefficients of $q'$ have rate $<\alpha$ (III.I$''''''''''''$ Lemma 2.4's proof removes only
+the pairs below $\beta = \alpha-\epsilon$; III.I$''''''''''''''$ Step 4), and so do those of $D_U\Phi$ (III.J Step
+$\lambda_0$ (iii)), the rows having rate $\le3$; so every row and coefficient at $\lambda_0$ carries a formal solution
+of $K^+$-order below $\mathrm{Re}\,\lambda_0+\ell_K(\lambda_0) = \alpha$, visible below $\ell_K$. Then the rows and
+coefficients at $\lambda_0$ vanish: the expansion of $G'(\lambda_0)$ at $R = 0$ below $\ell_K$ is the sum of the formal
+solutions that the rows and coefficients at $\lambda_0$ carry (III.J Lemma 2.2), as $[h']_{\lambda_0} = O(R^{\ell_K})$;
+the coefficients of III.G$''$ Theorem 3.1 are determined by the tensor (III.G$''$ Theorem 3.1, Lemma 1.2: distinct rows
+have independent, injective leading terms), and III.J Lemma 2.2 expresses them through the rows and coefficients
+triangularly in the log power, with the non-zero factors $c_\tau(\lambda_0)$; so, downward in the log power, every row
+and coefficient at $\lambda_0$ is 0. Then $[h']_{\lambda_0} = G'(\lambda_0) = 0$.
 
 *Case B: $\lambda_0$ is a pole of (2.2).* Then $\lambda_0\in\mathrm{spec}^{<3+\epsilon_+}_{\iota^+}(\bar L,\mathcal
 E^C_I)\cap\Lambda_*\subset\Sigma$. By III.G$'''$ Proposition 3.7 (its right inverse at $k = \infty$), $G'(\lambda_0) =
 u^0_{\lambda_0}+\mathrm{res}_{z=\lambda_0}(t_*^{-z}N_{\iota^+}(z)^{-1}f_{\lambda_0}(z))$ for some
 $(u^0_{\lambda_0},f_{\lambda_0})$ in the domain of (3.6), linear and continuous in $G'(\lambda_0)$
-(conjugation-symmetric, as $G'(\lambda_0)$ and $G'(\bar\lambda_0)$ are conjugate). Let $U'_{\lambda_0}\in\mathcal
-D^\infty$ have these data at $\lambda_0$ and $\bar\lambda_0$ and all else 0. By III.J Theorem 2.4 (3), linearised,
-$D_U\Phi(U'_{\lambda_0})$ has no term, row or coefficient below $\mathrm{Re}\,\lambda_0$, and its total
-$t_*^{-\lambda_0}$-term is $u_{\lambda_0}-R'(\lambda_0)+R'(\lambda_0) = G'(\lambda_0)$. Replacing $(h',\vec p\,',q')$ by
-$(h',\vec p\,',q')-D_U\Phi(U'_{\lambda_0})$ makes the new $G'(\lambda_0)$ zero and leaves the lower terms zero; Case A's
-argument then makes every term, row and coefficient at $\lambda_0$ vanish.
+(conjugation-symmetric, as $G'(\lambda_0)$ and $G'(\bar\lambda_0)$ are conjugate; at real $\lambda_0$, (3.6) being real,
+the real part of the right inverse's output is taken). Let $U'_{\lambda_0}\in\mathcal D^\infty$ have these data at
+$\lambda_0$ and $\bar\lambda_0$ and all else 0. By III.J Theorem 2.4 (3), linearised, $D_U\Phi(U'_{\lambda_0})$ has no
+term, row or coefficient below $\mathrm{Re}\,\lambda_0$, and its total $t_*^{-\lambda_0}$-term is
+$u_{\lambda_0}-R'(\lambda_0)+R'(\lambda_0) = G'(\lambda_0)$. Replacing $(h',\vec p\,',q')$ by $(h',\vec
+p\,',q')-D_U\Phi(U'_{\lambda_0})$ makes the new $G'(\lambda_0)$ zero and leaves the lower terms zero; Case A's argument
+then makes every term, row and coefficient at $\lambda_0$ vanish.
 
 Exponents of equal real part are treated together, independently. After the finitely many exponents of $\Lambda_*$:
 $\vec p\,' = 0$ (every row $(\tau,\lambda,k)$ or $(\mathrm{rot},\lambda,k)$ of $\mathcal N\sqcup\mathcal
