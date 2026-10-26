@@ -5477,3 +5477,10 @@ transforms), and Proposition 11.17 at b_0: sources with K+-weight alpha_K in [1/
 K+-weight alpha_K - 2 that keep the iota+-weight min(alpha_+, 3/2, min Re E_+) - eps, where the source's falls to
 alpha_K - eps; the iteration's window is the exact gap (0, 1). Next: verifier 107's report, then verifier 108 on
 III.I''.
+
+**D256 (2026-10-26): verifier 107 seated.** The hundred-and-seventh verifier (Opus) read III.I' and the D254 repairs.
+III.I': three major findings -- Proposition 2.1 reaches only l_I < a_I + 1/2 and l_+ < a_+ + min Re E_+ (the products;
+the source's 3 + eps_I is this bound), Lemma 2.2 needs alpha_+ < min Re E_+, and (3.2) needs III.A's extended unions
+(the source's (11.33) has the same slip) -- two minor and eight nits, all seated: III.I' is verified. The D254 repairs
+are correct but for one reason in III.I Lemma 3.6 and three nits, seated; III.H' is proved. Next: verifier 108 on
+III.I'' and these repairs; Part III.I''' ([Hin26] section 11.4).

@@ -3262,3 +3262,21 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   a_I + 1/2.
 - Next: seat verifier 107 (III.I' and D254); verifier 108 on III.I''; then Part III.I''' ([Hin26] section 11.4 at
   n = 4).
+
+### 4.179 Verifier 107 seated: III.I' verified, III.H' proved (D256)
+
+- Verifier 107 (Opus) read III.I' and the D254 repairs. III.I': three major, two minor findings, eight nits, all
+  seated.
+- (M1) Proposition 2.1 / Lemma 2.2 Step 3: the third product inequality (the coefficient's remainder at a_I - 1
+  against u's least exponent 3/2) caps l_I < a_I + 1/2, and at iota+ l_+ < a_+ + min Re E_+; both now hypotheses. The
+  source's 3 + eps_I is this product bound at n = 3, not the pi_C-root bound: (I'2) rewritten.
+- (M2) Lemma 2.2: alpha_+ < min Re E_+ added. (M3) (3.2) and Proposition 3.1's proof: III.A Lemma 1.2 gives the
+  extended union, so E^sharp is built with bar-cup taken k + 1 times; the source's (11.33) has the same slip, (I'4).
+- (m1) l_I > 3/2 in Propositions 2.1 and 3.1; (m2) l_+ not in Re pi_1 E^tot_I in Proposition 2.1. Nits: U_I closed
+  at iota+, Lemma 1.2's a priori region, the clean split at z_1, integer shifts for L_b, the windows mu_j, the source's
+  missing exclusion, alpha_I + eta off 3/2 + spec A-bar, two automatic conditions removed.
+- D254 repairs: correct, except III.I Lemma 3.6's reason (now III.B Lemma 5.2's second alternative) and two nits (the
+  inverse metric's H^k part is (g_b + delta)^(-1) - g_b^(-1); (11.23)'s pairing). III.H' repairs correct, one nit (the
+  raised orders of the product formula): III.H' is proved. III.I'' (written D255) uses Proposition 2.1 inside the new
+  range (l_I in [2, min(a_I + 1/2, l_I^max)), iota+ weights below 3/2); its two citations now say so.
+- Next: verifier 108 on III.I'' and the D256 repairs; Part III.I''' ([Hin26] section 11.4 at n = 4).
