@@ -5665,3 +5665,10 @@ timelike infinity to the order 5 + eps_+ and decays at the horizon to the order 
 at timelike infinity starts above 3/2, so below 3 + eps_+ no two terms interact; each exponent is one linear model
 equation, and the map is affine in the data, which makes it smooth and tame without further work. The source's map with
 an initial solution and its Theorem 12.8 come next; two points for Theorem 12.8 are recorded.
+
+**D283 (2026-10-26): Part III.J' written.** [Hin26] Theorem 12.8 at n = 4: every solution of the linearised equation
+that the forward theory produces is the derivative of the parameterisation at suitable data, so the parameterisation
+describes the linear solutions exactly. A gap between the decay at timelike infinity of the linear solutions and that of
+the nonlinear class closes: no exponent lies between the two orders, so the spectral construction does not change as its
+threshold approaches the larger one. Still open: the tame form of the estimates, and the linear theory away from the
+reference black hole.

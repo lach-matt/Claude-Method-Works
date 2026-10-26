@@ -3710,3 +3710,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open for III.J' (Theorem 12.8): the iota+ order (3 + eta_2)- of III.I'''''''''''''' Theorem 3.1 against the (3 +
   eps_+)- of the classes; the linear theory at b != b_0 ((I3)). Psi (Lemma 12.7) after III.C'.
 - Next: verifier 121 (D281 repairs); verifier 122 on III.J; then III.J' ([Hin26] Theorem 12.8).
+
+### 4.207 Part III.J' written (D283): efficient parameterisation II
+
+- PART-III-J2-LINEAR.md: [Hin26] Theorem 12.8 at n = 4 and b_0. Every solution (h', p', q') of III.I(14) Theorem 3.1
+  for a source in F is D_U Phi(U'): subtract D_U Phi of the parameters p'_{<=0}, then exponent by exponent the resonant
+  states (Case A: no pole, all terms vanish; Case B: III.G''' Proposition 3.7 gives the data), then the conormal
+  remainders.
+- Lemma 1.1 closes III.J (J5) (a): under (G+) the level-2 tf-exponents (u-exponents minus 1) avoid (2, 2 + eps_+], so
+  eta_2 can approach eps_+ with the same construction, and the linear solutions have iota+-order (3 + eps_+)-.
+- Open: the tame form of the estimates (III.I(8)-(14) state bounds uniform for small backgrounds, not tame); the linear
+  theory at b != b_0 ((I3)); Psi after III.C'.
+- Next: verifiers 121 (D281) and 122 (III.J, III.J'); then [Hin26] section 13 and III.C'.
