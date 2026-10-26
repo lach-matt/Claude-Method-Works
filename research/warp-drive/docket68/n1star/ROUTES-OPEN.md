@@ -2779,3 +2779,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: the D197, D200, D201, D204, D206, D207 and D226 repairs; Parts III.D', III.D'', III.D''', III.E unread; Parts
   III.C, III.E', III.F-III.J and IV-VII; uniformity in P_0 (II.F' (F'11)); (Dyn) in Part VI.
 - Next: verifier 94 on III.D'-III.E and the D226 repairs; Part III.E' ([Hin26] section 7.2.1).
+
+### 4.150 Part III.E' written: the vector type 1 dual states, [Hin26] section 7.2.1 (D227)
+
+- `proof5/PART-III-E2-V1STATES.md`: Lemma 2.1 (O(4)-equivariance of III.B's family); Lemma 2.2 ([Hin26] Lemma 7.5:
+  delta*_(g_b) V_b = (1/2) D_A g_b([A, A_V]) exactly, leading term mu rho^3 (dt_* + 2 d|x|) (x)_s rho V(W), no gauge
+  term); Lemma 2.3 (Killing rotations = ker ad_A, dimension 6, 4, 2); Proposition 3.1 ([Hin26] Proposition 7.4:
+  h* = h-sharp([A(b), A_V]) + h-flat(V), h-sharp on all of so(4), c_0 = mu (1 + 2 (1 + v) gam) / (3 (1 + 2 v gam)),
+  (delta*_E)* h-sharp in rho^(floor(C_0) + 5), D Ric(0)* h-sharp compactly supported).
+- Findings (E'1)-(E'5): the exact Lemma 7.5; the bracket for the cross product; the coefficients; the source's
+  G^2 = Id argument for D Ric* is four-dimensional, replaced by the self-adjointness of G D Ric; the source's statement
+  of h-flat's space (T*X, C_0 + 1) misprints its proof's (S^2 T*X, C_0 + 2).
+- `dualv1_5.py` V1-V4 (new) and `mp5.py` M1-M5 pass.
+- Open: the D226 repairs; Parts III.D', III.D'', III.D''', III.E, III.E' unread (verifier 94 reads III.D', III.D'' and
+  the D226 repairs); Parts III.C, III.F-III.J and IV-VII.
+- Next: Part III.F ([Hin26] section 8, the linearised gauge-fixed Einstein operator).

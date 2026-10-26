@@ -5233,3 +5233,16 @@ Q^-1) = Q Im_B(P) Q^-1 exactly for B = Q*Q, so the threshold symbol in h_Gamma i
 P_Q and carried back with B_1 Q, E_1 Q, G_1 Q. II.C's remark that (5.9) was not used is corrected. Nits n1-n8. I.B goes
 from proved to verified until a reader reads Lemma 6.0. Next: verifier 94 on III.D'-III.E and the D226 repairs; Part
 III.E'.
+
+**D227 (2026-10-26): Part III.E' written.** [Hin26] section 7.2.1 at n = 4 in proof5/PART-III-E2-V1STATES.md. III.B's
+Kerr-Schild family is O(4)-equivariant (s, p^2 invariant, M covariant, the root r_A invariant, Phi_mu radial), so for R
+= A_V x . d_x, L_R g_b = d/ds g_(mu, e^-sA_V A e^sA_V) = D_A g_b([A, A_V]): his Lemma 7.5 is an exact identity, its
+leading term mu rho^3 (dt_* + 2 d|x|) (x)_s rho V(W) read off the Kerr-Schild expansion (u = r/|x| = 1 + O(rho^2) by the
+implicit function theorem, l_A = d|x| + rho rho V(A) + O(rho^2)), with no pure gauge term. Proposition 7.4: omega-sharp
+= V_b + c_0 |x|^-3 V(W), c_0 = mu (1 + 2 (1 + v) gam) / (3 (1 + 2 v gam)) from the v1 indicial value 3 (1 + 2 v gam),
+computed by hand on Minkowski (delta-bar(f dr (x)_s V) = -(1/2)(f' + 5 f/r) V, (E-bar)*(f dt (x)_s V) = -gam f V / r,
+(E-bar)*(f dr (x)_s V) = -gam v f V / r); leading term mu rho^3 (dt_* + kappa d|x|) (x)_s rho V(W), kappa = (1 + 2 (v -
+1) gam)/(1 + 2 v gam); formal solution to rho^(floor(C_0) + 2), remainder by III.E Lemma 2.1. D Ric(0)* h-sharp is
+compactly supported: D Ric* G = G D Ric (the linearised Einstein tensor is self-adjoint) and the family is Ricci-flat;
+the source's route needs G^2 = Id, false in 4 + 1 dimensions. Killing rotations ker ad_A: 6, 4, 2 by so(4) = so(3) +
+so(3). dualv1_5.py V1-V4 new, mp5.py 5/5. Next: Part III.F ([Hin26] section 8).

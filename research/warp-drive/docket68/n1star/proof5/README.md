@@ -38,7 +38,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.D'' | [Hin26] 6.5.1 | zero energy states from the Minkowski symmetries; Lemma 6.14's comparisons | written (D223) |
 | III.D''' | [Hin26] 6.5.2 | generalized zero energy states of the gauge potential operator | written (D224) |
 | III.E | [Hin26] 7-7.2 (to Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the large dual states | written (D225) |
-| III.C, III.E', III.F-III.J | [Hin26] 5, 7.2.1, 8-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
+| III.E' | [Hin26] 7.2.1 | the vector type 1 dual states: the deformation tensor of a rotation (exact, by equivariance) and the states' dependence on the bracket with the spin | written (D227) |
+| III.C, III.F-III.J | [Hin26] 5, 8-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -560,3 +561,16 @@ Proposition 3.1 (Proposition 7.3): the large zero energy dual states built from 
 translations and the six rotations, whose trace-reversed symmetric gradients decay, eleven at zero rotation against the
 source's seven. Findings (E1)-(E4): the weights move by one (the Coulomb root is 2, the source's 1); the corrections are
 one order faster; the eleven states; the input. Section 7.2.1 is Part III.E$'$. Written (D225).
+
+## Part III.E'
+
+`PART-III-E2-V1STATES.md`. [Hin26] section 7.2.1 at $n = 4$. Lemma 2.1: Part III.B's family is $O(4)$-equivariant,
+$\varphi_O^*g_{(\mu,OAO^T)} = g_{(\mu,A)}$. Lemma 2.2 (Lemma 7.5): for a rotation $V = V(A_V)$,
+$\delta^*_{g_b}V_b = \frac12D_Ag_b([A,A_V])$ exactly, with leading term $\mu\rho^3(dt_*+2\,d|x|)\otimes_s\rho V(W)$ and
+no pure gauge term. Lemma 2.3: the Killing rotations are $\ker\mathrm{ad}_A$, of dimension 6, 4 or 2. Proposition 3.1
+(Proposition 7.4): $h^*_{b,\mathrm v1}(V) = h^\sharp_{b,\mathrm v1}([A(b),A_V])+h^\flat_{b,\mathrm v1}(V)$, $h^\sharp$
+defined on all of $\mathfrak{so}(4)$ and smooth in $b$, its $\rho^3$ leading term with the source's coefficients,
+$(\delta^*_{g_b,E_C})^*h^\sharp\in\rho^{\lfloor C_0\rfloor+5}C^\infty$ and $D_{g_b}\mathrm{Ric}(0)^*h^\sharp$ compactly
+supported. Findings (E$'$1)-(E$'$5), among them (E$'$4): the source's argument for $D\mathrm{Ric}^*h^\sharp$ uses
+$G^2 = \mathrm{Id}$, true only in $3+1$ dimensions; the statement holds by the self-adjointness of $G\,D\mathrm{Ric}$.
+`dualv1_5.py` V1-V4; `mp5.py` M1-M5. Written (D227).

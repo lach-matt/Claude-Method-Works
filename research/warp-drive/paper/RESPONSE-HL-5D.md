@@ -1118,8 +1118,9 @@ removes them, and mode stability at every frequency, is written, and so is the t
 potentials that begin as the translations, boosts and rotations of Minkowski space, and so is the twenty-second, the
 gauge potentials polynomial in time that carry them, and the remaining roots, to higher order, and so is the
 twenty-third, the constraint propagation operator of his gauge at zero frequency and the stationary dual states built
-from the symmetries of Minkowski space, eleven in five dimensions against his seven. Theorem 4 stays deduced until the
-last part is proved.
+from the symmetries of Minkowski space, eleven in five dimensions against his seven, and so is the twenty-fourth, the
+dual states of the rotations, whose leading term depends on a rotation only through its bracket with the spin -- in five
+dimensions an exact identity of the black hole family. Theorem 4 stays deduced until the last part is proved.
 
 ---
 
