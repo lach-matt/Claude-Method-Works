@@ -371,7 +371,10 @@ each argument, and $\tilde u^{(j)}\in\bigcap_\epsilon H^{\infty,(\langle\mathcal
 I}\rangle,\ell_I),\ell_K-\epsilon}_{\mathrm b}(\iota^+)$, $j = 0,\dots,k+l_0$, such that
 $u := \sum_j\chi_Ku^{(j)}_{b,0}+\chi_\iota t_*^{-\lambda_0}(\log t_*)^j\tilde u^{(j)}$ satisfies
 $$f-L_bu\in\bigcap_{\epsilon>0}H^{\infty,(\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}+2,\ell_I+1),\ \lambda_0+2
-+\mathcal E_{\mathrm{ind}},\ \lambda_0+\ell_K-\epsilon}_{\mathrm b}(\Omega_*;S^2T^*)^{\bullet,-}.\tag{4.5}$$
++\mathcal E_{\mathrm{ind}}+(0,k+l_0),\ \lambda_0+\ell_K-\epsilon}_{\mathrm b}(\Omega_*;S^2T^*)^{\bullet,-},\tag{4.5}$$
+and $u\in\bigcap_{\epsilon>0}H^{\infty,(\langle\mathcal E^C_{\iota^+,\mathscr I}\rangle,\ell_I),\ (\lambda_0,k+l_0)\cup
+(\lambda_0+\mathcal E_{\mathrm{ind}}+(0,k+l_0)),\ (\mathcal
+E^{\mathrm{gr}}_K(\lambda_0)+(0,k+l_0),\ell_K-\epsilon)}_{\mathrm b}(\Omega_*)^{\bullet,-}$ (the source's (9.43); D244).
 
 *Proof.* As in the source. The quasi-homogeneous part is $f-f' = \frac1{2\pi
 i}\oint\sum_j(-1)^jj!(\lambda-\lambda_0)^{-j-1}\chi_\iota t_*^{-\lambda-2}f^{(j)}_+\,d\lambda$, over a small circle

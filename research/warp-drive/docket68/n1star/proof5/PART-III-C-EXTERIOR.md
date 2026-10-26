@@ -1,10 +1,11 @@
 # Part III.C. The exterior region at n = 4: perturbations and the operator at null infinity ([Hin26] 5.1-5.3)
 
-*Status.* Written (D242). This part proves, at spatial dimension $n = 4$, [Hin26] Definitions 5.1-5.4 and 5.13, Remark
-5.5, Proposition 5.11 with (5.40)-(5.41a), Proposition 5.14 and Corollary 5.15 (pp. 84-99), and the parts of Lemmas
-5.6-5.8 and Corollaries 5.9-5.10 that these use. Sections 5.4-5.7 of the source (Lemma 5.16, Theorems 5.17, 5.21 and
-5.23, Proposition 5.25) and the edge-b form (5.26b) that their energy estimates use are Part III.C$'$. Parts are cited
-as before; the source is [Hin26] = P. Hintz, arXiv:2606.28253v2 (printed page numbers).
+*Status.* Verified (D244: the hundred-and-first verifier; no major finding, four minor and six nits seated, to be read).
+This part proves, at spatial dimension $n = 4$, [Hin26] Definitions 5.1-5.4 and 5.13, Remark 5.5, Proposition 5.11 with
+(5.40)-(5.41a), Proposition 5.14 and Corollary 5.15 (pp. 84-99), and the parts of Lemmas 5.6-5.8 and Corollaries
+5.9-5.10 that these use. Sections 5.4-5.7 of the source (Lemma 5.16, Theorems 5.17, 5.21 and 5.23, Proposition 5.25) and
+the edge-b form (5.26b) that their energy estimates use are Part III.C$'$. Parts are cited as before; the source is
+[Hin26] = P. Hintz, arXiv:2606.28253v2 (printed page numbers).
 
 *What n = 4 changes.* Three things, and together they make the structure simpler than the source's.
 
@@ -20,9 +21,9 @@ $\rho_I^{1/2}$ relative to the constant matrix $A_0$, where the source's are of 
 the cost of the index set $\mathcal E^{\mathrm{tot}}_I$ in place of $\mathcal E^C_I$ in its perturbation part. So the
 structure theorem (Proposition 4.3) has a constant lower-triangular matrix $\bar A$ and no $h$-dependent leading part.
 The source's (7,6) coupling of $\slashed\pi_0h$'s radiation field into $\pi_{11}h$ is half an order lower and lands in
-$\mathcal E^C_I$, so $\pi_{11}h$ carries no radiation field (Definition 3.1, finding (C3)). One index condition is
-added, $\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1)\subset\mathcal E^C_I$. It needs
-$\gamma_\Upsilon<\frac14$.
+$\mathcal E^C_I$, so $\pi_{11}h$ carries no radiation field (Definition 3.1, finding (C3)). The source's last index
+condition is strengthened to $\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1)\subset\mathcal E^C_I$, which
+needs $\gamma_\Upsilon<\frac14$.
 
 ## 1. Hypotheses, the exterior region, and its coordinates
 
@@ -34,13 +35,15 @@ $$0<\gamma_\Upsilon<\tfrac14,\qquad0<e_\Upsilon<1.\tag{1.1}$$
 (The source's conditions (5.42), $v_C<1$, $0<e_C<1$, $\gamma_C>0$, $0<e_\Upsilon<1$, $\gamma_\Upsilon>0$, hold under
 III.F's choices.) Let $\eta := -dt^2+dx^2$ in the coordinates of III.B, and
 $$x^0 := t+|x|,\qquad x^1 := t-|x|,\qquad\rho_0 := \frac1{2-x^1},\qquad\rho_I := \frac{2-x^1}{|x|},\tag{1.2}$$
-the last two being III.B (2.2)'s coordinates near $I_0\cap\mathscr I^+$. Fix $T_0 := C'+1-2R_1$ and set
+the last two being III.B (2.2)'s coordinates near $I_0\cap\mathscr I^+$. ($x^0$ here is Minkowski's; III.B (4.1)'s $x^0$
+for $g_\mu$ is $t+|x|-T_\mu(|x|)$, and the two null frames differ by $I+\rho^2C^\infty$, Lemma 1.3.) Fix
+$T_0 := C'+1-2R_1$ and set
 $$\Omega_{\mathrm{ext}} := \mathrm{cl}_M\{t_*\le T_0\},\qquad U := \Omega_{\mathrm{ext}}\cap\{|x|\ge4R_1\}.\tag{1.3}$$
 (The source fixes $T$ and shifts it to 1, (5.1); the choice of $T_0$ only makes (1.2) global on $U$.) On $U$,
 $x^1 = t_*-C'+8\mu_0|x|^{-1}\le T_0-C'+2R_1 = 1$, since $\mu_0 = R_1^2$.
 
 **Lemma 1.1 (the corner coordinates).** (1) $(\rho_0,\rho_I,\omega)$, $\omega = x/|x|$, are coordinates on all of $U$,
-smooth up to $I_0$ and $\mathscr I^+$: $\rho_0\in(0,1]$, $\rho_0 = 0$ exactly at $I_0$, $\rho_I = 0$ exactly at
+smooth up to $I_0$ and $\mathscr I^+$: $\rho_0\in[0,1]$, $\rho_0 = 0$ exactly at $I_0$, $\rho_I = 0$ exactly at
 $\mathscr I^+$, and $\rho_0\rho_I = |x|^{-1}$. (2) With $X_0 := \rho_0\partial_{\rho_0}$,
 $X_I := \rho_I\partial_{\rho_I}$ (at fixed $\omega$ and the other coordinate), exactly on $U$,
 $$\partial_{t_*}|_{\rho,\omega} = \rho_0(X_0-X_I),\qquad
@@ -57,7 +60,8 @@ there $\rho_I = 1-\tau+2\rho$ and $\rho_0 = \rho/\rho_I$, smooth with smooth inv
 $\tau = 1-\rho_I+2\rho_0\rho_I$, as $\rho_I\ge\delta$. Near the interior of $\mathscr I^+$, III.B uses
 $(t_0,\rho) = (x^1, |x|^{-1})$; there $\rho_0 = (2-t_0)^{-1}$ and $\rho_I = (2-t_0)\rho$, smooth with smooth inverse for
 $t_0\le1$. These charts cover a neighbourhood of $(I_0\cup\mathscr I^+)\cap\Omega_{\mathrm{ext}}$, and $U$ meets no
-other face. (2) A vector field $aX_0+bX_I$ is determined by its action on two functions of $(\rho_0,\rho_I)$. With
+other face at infinity (it meets $\Sigma^{\mathrm{past}}$ and $\{t_* = T_0\}$, where the spaces are extendible). (2) A
+vector field $aX_0+bX_I$ is determined by its action on two functions of $(\rho_0,\rho_I)$. With
 $t_* = 2-\rho_0^{-1}+C' -8\mu_0\rho_0\rho_I$ and $\rho = \rho_0\rho_I$: $X_0t_* = \rho_0^{-1}-8\mu_0\rho$,
 $X_It_* = -8\mu_0\rho$, $X_0\rho = X_I\rho = \rho$. So $\rho_0(X_0-X_I)$ maps $t_*\mapsto1$, $\rho\mapsto0$; and
 $X_I+\alpha(X_0-X_I)$ with $\alpha := 8\mu_0\rho_0^2\rho_I$ maps $\rho\mapsto\rho$ and
@@ -124,13 +128,14 @@ H^k_{\mathrm b}\cdot\rho^\beta H^{k'}_{\mathrm b}\subset\rho^{\alpha+\beta}H^k_{
 on the number of pairs (face, factor) at which a factor carries an expansion. Pick such a face $H$ and write, in a
 collar, $u = \chi\sum\rho_H^z(\log\rho_H)^lu_{(z,l)}+u'$ ((2.3) of the source's Definition 2.8), and the same for $v$
 (with no sum if $v$ has none at $H$). The products of the sums give
-$\chi^2\rho_H^{z+w}(\log\rho_H)^{l+m}u_{(z,l)}v_{(w,m)}$ with $(z+w,l+m)\in\mathcal E_H+\mathcal F_H$. The coefficient
-$u_{(z,l)}v_{(w,m)}$ lies in the space of $H$ required by Definition 2.8, by the lemma on $H$ (dimension $d-1$,
-$k>\frac{d-1}2$). Terms with $\mathrm{Re}(z+w)\le\gamma_H$ are kept; the others are $\rho_H^{\gamma_H}$ times
-$\rho_H^{\epsilon}(\log\rho_H)^{l+m}$, $\epsilon>0$, and go to the remainder. A cross term
-$\chi\rho_H^z(\log \rho_H)^lu_{(z,l)}v'$ has weight $\mathrm{Re}\,z+\beta_H-\epsilon'$ at $H$ for every $\epsilon'>0$,
-which exceeds $\gamma_H$ by hypothesis, and fewer expansions, so the induction applies to it. The same holds for $u'v$
-and $u'v'$, the last of weight $\alpha_H+\beta_H\ge\gamma_H$. Continuity follows from the same bounds. $\square$
+$\chi^2\rho_H^{z+w}(\log\rho_H)^{l+m}u_{(z,l)}v_{(w,m)}$ ($\chi^2-\chi$ is supported where $\rho_H\ge\frac\epsilon2$ and
+goes to the remainder) with $(z+w,l+m)\in\mathcal E_H+\mathcal F_H$. The coefficient $u_{(z,l)}v_{(w,m)}$ lies in the
+space of $H$ required by Definition 2.8, by the lemma on $H$ (dimension $d-1$, $k>\frac{d-1}2$). Terms with
+$\mathrm{Re}(z+w)\le\gamma_H$ are kept; the others are $\rho_H^{\gamma_H}$ times $\rho_H^{\epsilon}(\log\rho_H)^{l+m}$,
+$\epsilon>0$, and go to the remainder. A cross term $\chi\rho_H^z(\log \rho_H)^lu_{(z,l)}v'$ has weight
+$\mathrm{Re}\,z+\beta_H-\epsilon'$ at $H$ for every $\epsilon'>0$, which exceeds $\gamma_H$ by hypothesis, and fewer
+expansions, so the induction applies to it. The same holds for $u'v$ and $u'v'$, the last of weight
+$\alpha_H+\beta_H\ge\gamma_H$. Continuity follows from the same bounds. $\square$
 
 We use with it (F1) of III.A: a b-vector field maps $H^{k,(\vec{\mathcal E},\vec\alpha)}_{\mathrm b}$ to
 $H^{k-1,(\vec{\mathcal E},\vec\alpha)}_{\mathrm b}$. Multiplication by $C^\infty$ preserves the spaces, as index sets
@@ -150,8 +155,12 @@ be index sets such that
 
 (3) with
 $$\mathcal E^{\mathrm{tot}}_I := \mathcal E^C_I\cup\bigcup_{s\in\sigma_\Upsilon}(\tfrac32+s,0),\tag{3.1}$$
-$j\mathcal E^{\mathrm{tot}}_I\subset\mathcal E^C_I$ for all $j\ge2$, and
 $\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1)\subset\mathcal E^C_I$.
+
+This strengthens the source's $\mathcal E^C_I+(\mathcal E^{\mathrm{tot}}_I-1)\subset\mathcal E^C_I$, and it implies the
+source's $j\mathcal E^{\mathrm{tot}}_I\subset\mathcal E^C_I$, $j\ge2$ (Lemma 3.2 (b)). It is needed for Proposition 5.2:
+built under the $n = 4$ analogue of the source's conditions instead, $\mathcal E^C_I$ misses $(2,0)$ and
+$2\mathcal E^{\mathrm{tot}}_I\not\subset\mathcal E^C_I+1$ (`ext5.py` E5, third control).
 
 Set
 $$\mathcal E_{I,01} := \mathcal E^C_I\cup(\tfrac32+(1-e_\Upsilon)\gamma_\Upsilon,0),\quad
@@ -198,20 +207,19 @@ is a smallest $\mathcal E^C_I\supseteq\tilde{\mathcal E}$ satisfying (2)-(3) (th
 gives $\mathcal E^C_I+\frac12\subset\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1)\subset\mathcal E^C_I$,
 and likewise $\mathcal E^{\mathrm{tot}}_I+\frac12\subset\mathcal E^C_I$. Iterating, $+1$.
 $(2,0) = (\frac32,0)+ (\frac12,0)$ and $(3,0) = 2(\frac32,0)$. (b) $2\mathcal E^{\mathrm{tot}}_I = (\mathcal
-E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1))+1\subset\mathcal E^C_I+1$; and $(j+1)\mathcal
+E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1))+1\subset\mathcal E^C_I+1$, using only (3); and $(j+1)\mathcal
 E^{\mathrm{tot}}_I\subset\mathcal E^C_I+(j-1)+ \mathcal E^{\mathrm{tot}}_I = (\mathcal E^C_I+(\mathcal
 E^{\mathrm{tot}}_I-1))+j\subset\mathcal E^C_I+j$. (c) From (a): $\mathcal E^{\mathrm{tot}}_I+1\subset\mathcal E^C_I$;
 the component sets are unions of $\mathcal E^C_I$ with some $(\frac32+s,0)$. (d) The added sets are $\{\frac32+s+j\}$;
 for $j = 0$, $\frac32+s\le\frac32+2\gamma_\Upsilon$; for $j\ge1$,
 $\frac32+s+j\in\mathcal E^{\mathrm{tot}}_I+1\subset\mathcal E^C_I$ by (a). (e) Put $\Sigma := \bigcup_s(\frac32+s,0)$,
-$\mathcal E_{(0)} := \tilde{\mathcal E}$, and $\mathcal E_{(m+1)}$ the smallest index set containing $\mathcal E_{(m)}$,
-$\mathcal E'_m+(\mathcal E'_m-1)$ and $j\mathcal E'_m$ ($j\ge2$), $\mathcal E'_m := \mathcal E_{(m)}\cup\Sigma$. Each
-new element has real part at least $\frac12$ more than an element it is built from, and the generators in
-$\{\mathrm{Re}\,z<C\}$ are finitely many; so in each half plane $\{\mathrm{Re}\,z<C\}$ only finitely many elements
-arise, after at most $2C$ steps, with bounded logarithmic orders. The union $\mathcal E^C_I$ is an index set; it
-satisfies (3) by construction, and (2) since new elements have real part at least
-$\frac32+\frac12 = 2> \frac32+2\gamma_\Upsilon$ by (1.1). Every set satisfying (2)-(3) and containing
-$\tilde{\mathcal E}$ contains each $\mathcal E_{(m)}$. $\square$
+$\mathcal E_{(0)} := \tilde{\mathcal E}$, and $\mathcal E_{(m+1)}$ the smallest index set containing $\mathcal E_{(m)}$
+and $\mathcal E'_m+(\mathcal E'_m-1)$, $\mathcal E'_m := \mathcal E_{(m)}\cup\Sigma$. Each new element has real part at
+least $\frac12$ more than an element it is built from, and the generators in $\{\mathrm{Re}\,z<C\}$ are finitely many;
+so in each half plane $\{\mathrm{Re}\,z<C\}$ only finitely many elements arise, after at most $2C$ steps, with bounded
+logarithmic orders. The union $\mathcal E^C_I$ is an index set; it satisfies (3) by construction, and (2) since new
+elements have real part at least $\frac32+\frac12 = 2> \frac32+2\gamma_\Upsilon$ by (1.1). Every set satisfying (2)-(3)
+and containing $\tilde{\mathcal E}$ contains each $\mathcal E_{(m)}$. $\square$
 
 (`ext5.py` E4 builds the smallest $\mathcal E^C_I$ for four samples, with exact arithmetic up to real part 9, and checks
 (a)-(d); with $\gamma_\Upsilon = \frac3{10}$ the minimality fails (2), as (1.1) predicts.)
@@ -221,14 +229,19 @@ $\ell_I>\frac32$, $H^{k,(\mathcal E_0,\ell_0),\langle(3,0)\rangle_0,\ell_I}_{\ma
 space of $h$ with $\pi_Ch,\pi_{01}h,\pi_{1/}h,\slashed\pi_0h\in H^{k,(\mathcal E_0,\ell_0),((3,0),\ell_I)}_{\mathrm b}$
 and $\pi_{11}h\in H^{k,(\mathcal E_0,\ell_0),((2,0),\ell_I)}_{\mathrm b}$ on $U$. By Lemma 3.2 (a) it lies in
 $H^{k,(\mathcal E_0,\ell_0),\langle\mathcal E^C_I\rangle,\ell_I}_{\mathrm b}$ for every $\mathcal E^C_I$ of Definition
-3.1. (The source's $\langle(2,0)\rangle_0$, with $(1,0)$ for $\slashed\pi_0$ and $\pi_{11}$.)
+3.1. (The source's $\langle(2,0)\rangle_0$ has $(1,0)$ for $\slashed\pi_0$ and $\pi_{11}$. For $\pi_{11}$ that is the
+mass order, $(2,0)$ here. For $\slashed\pi_0$ it is the radiation order; this class contains no radiation field of
+$\slashed\pi_0$, and with $(\frac32,0)$ in slot 6, (5.3) below would fail. The source uses $\langle(2,0)\rangle_0$ to
+subtract the radiation fields in its Theorem 5.21, Step 2 ((5.64), p. 104). III.C$'$ must either show the subtraction
+unnecessary at $n = 4$, by (C1), or use a class with $(\frac32,0)$ in slot 6 and a weaker target: an obligation, (C7).)
 
 **Definition 3.4 (the background class).** $\mathcal G$ is the set of Lorentzian metrics $g_0$ on
 $\Omega_{\mathrm{ext}}$, smooth on $M$, with
 $$g_0-\eta\in\rho_0^2\rho_I^2C^\infty(U;S^2T^*),\qquad\pi(g_0-\eta)\in\rho_0^2\rho_I^3C^\infty(U)\quad(\pi\in\{\pi_C,
 \pi_{01},\pi_{1/},\slashed\pi_0\}),\tag{3.4}$$
 equivalently $g_0-\eta\in H^{\infty,(2,0),\langle(3,0)\rangle_0,\infty}_{\mathrm b}(U)$ (the source's footnote 55, at
-$n = 4$ and with $\eta$ for $g_m$).
+$n = 4$ and with $\eta$ for $g_m$). Proposition 4.4 uses only the first condition; the second matters for perturbations
+measured from $g_b$ ((C5)).
 
 **Lemma 3.5 ([Hin26] Remark 5.5 at n = 4).** (1) $g_b\in\mathcal G$ for every $b\in\mathcal B$. (2) For
 $S\in\mathcal S_1$ small as in III.B Lemma 5.2,
@@ -277,8 +290,9 @@ $-\rho_0^2\rho_I(X_I-\frac32)(X_0-X_I)$ modulo $\rho_0^2\rho_I^2\mathrm{Diff}^2_
 coefficients (`ext5.py` E2; with $|x|^{-1}$ for $\frac32|x|^{-1}$ and 1 for $\frac32$, the source's (5.40), as its
 four-dimensional control).
 
-**Lemma 4.2 (the matrix $\bar A$).** In the rescaled null frame of (1.6), $\bar S$ has a constant matrix $\bar A$. It is
-lower triangular, with diagonal
+**Lemma 4.2 (the matrix $\bar A$).** In $\bar g$'s rescaled null frame $(dt_*+2d|x|,dt_*,|x|e^a)$, the image of the
+products of $(dt_*,dx^i)$ under $F_0(\omega)$, $\bar S$ has a constant matrix $\bar A$; in $\eta$'s frame of (1.6) its
+matrix is $\bar A$ modulo $\rho_0^2\rho_I^2C^\infty$ (Lemma 1.3). It is lower triangular, with diagonal
 $$2(1-v_C)\gamma_C,\ (1-v_C)\gamma_C,\ (1-e_C)(1-v_C)\gamma_C,\ (1-e_\Upsilon)\gamma_\Upsilon,\ \gamma_\Upsilon,\ 0,\
 2\gamma_\Upsilon,\tag{4.3}$$
 and off-diagonal entries exactly at $(3,1)$, $(4,1)$, $(4,3)$, $(5,2)$, $(7,3)$, $(7,4)$, with
@@ -293,16 +307,17 @@ the summands of the same type by scalars, and the scalars do not depend on $\ome
 $\mathbb S^3$. They are computed by `scri5.py` C1, which applies $\bar S$ (`sbar5.py`'s, built from (2.2) of III.F on
 $4+1$ Minkowski) to an element of each summand at two points, finds the same matrix at both, lower triangular, each
 summand mapped to its own type; its four-dimensional control reproduces the source's (5.28) at $h = 0$, all 49 entries.
-`ext5.py` E3 reads off the support and the diagonal. The diagonal is (3.1) of III.F, as the triangular structure
-requires. $\square$
+`ext5.py` E3 reads off the support and the diagonal from `scri5.py`'s table, which C1 checks against the computation;
+`scri5.py --only 1` is the check to run for the matrix itself. The diagonal is (3.1) of III.F, as the triangular
+structure requires. $\square$
 
 The trace couplings $(3,1)$, $(4,1)$, $(4,3)$, $(7,3)$ differ from the source's four-dimensional values (N1STAR-PROOF.md
 10.38 (i)); only the support enters below.
 
 **Lemma 4.3 (counting coefficients).** Let $g,g',g_0,g_0'$ be Lorentzian metrics on $U$ whose Cartesian components are
 bounded with bounded inverses. In the Cartesian frame, $L^{g,g_0}-L^{g',g_0'}$ is a second-order operator
-$\sum a^{\mu\nu}\partial_\mu\partial_\nu+\sum b^\mu\partial_\mu+c$ whose coefficients are sums of products of: smooth
-functions of the components of $g,g',g_0,g_0'$ and their inverses; at most two factors from
+$\sum a^{\mu\nu}\partial_\mu\partial_\nu+\sum b^\mu\partial_\mu+c$ whose coefficients are sums of products of:
+polynomials in the components of $g,g',g_0,g_0'$ and their inverses; at most two factors from
 $\{\partial g,\partial g', \partial g_0,\partial g_0',c_C,c_\Upsilon,c_{\Upsilon,H}\}$, or one second derivative of one
 of the metrics or one derivative of a $c$; and at least one factor $\delta$ from $\{g-g',g_0-g_0'\}$ or a Cartesian
 derivative of it of order at most 2. Second-order coefficients contain no derivative; first-order ones at most one
@@ -313,7 +328,8 @@ principal part $-g^{\mu\nu}\partial_\mu\partial_\nu$, first-order part with one 
 with one derivative of a Christoffel symbol or two of them; $E^C_{g_0}$ and $E^\Upsilon_{g_0}$ contain one $c$ and no
 derivative (III.B (6.1)-(6.2)); $\delta_g$, $\delta^*_g$, $\delta^*_{g_0}$ are first order with one Christoffel symbol
 in the zeroth-order part; $C_{g,g_0}$ and $Y_{g,g_0}$ are zeroth order with one first derivative of $g$ or $g_0$ (III.B
-Lemma 6.3); $R_g$ is zeroth order with one second derivative or two first derivatives. The difference of a polynomial
+Lemma 6.3); $R_g$ is zeroth order with one second derivative or two first derivatives. Each coefficient of (4.1) is a
+polynomial in $g$, $g^{-1}$, $g_0$, $g_0^{-1}$, their derivatives and the $c$'s. The difference of a polynomial
 expression at two arguments is a sum of terms each with one difference factor, by $ab-a'b' = (a-a')b+a'(b-b')$ and
 $g^{-1}-g'^{-1} = -g^{-1}(g-g')g'^{-1}$. $\square$
 
@@ -379,7 +395,12 @@ $g^{-1}-g_1^{-1}\equiv-g_1^{-1}hg_1^{-1}$ modulo $H^{k,(2\mathcal E_0,\ell_0),(2
 source's (5.11)); Cartesian Christoffel symbols
 $\Gamma(g)-\Gamma(g_1)\in\rho_0H^{k-1,(\mathcal E_0,\ell_0),(\mathcal F,\ell_I)}_{\mathrm b}$ (its (5.12)); and
 $\mathrm{Riem}(g)-\mathrm{Riem}(g_1)\in\rho_0^2H^{k-2,(\mathcal E_0,\ell_0), (\mathcal F,\ell_I)}_{\mathrm b}$ (its
-Lemma 5.8). The edge-b form (5.26b) is in III.C$'$.
+Lemma 5.8). The edge-b form (5.26b) is in III.C$'$. Taking $\mathcal F = \mathcal E^{\mathrm{tot}}_I$ for every
+component discards the component structure (e.g. the $\partial_1^2$ coefficient $g^{11}$ is tied to $h_{00}$, of index
+$\mathcal E^C_I$); the b-form does not need it, but (5.26b) and III.C$'$'s energy estimates will. At tensor level the
+half-order drop is consistent with `exterior5.py` X7 (N1STAR-PROOF.md 10.64), which computes the $h$-dependent entries
+of [Hin23a]'s closely related operator at $n = 3$ and $n = 4$ and finds them $r^{-1/2}$ times the four-dimensional ones;
+that operator omits the $\gamma_\Upsilon$ term, which carries one $c$ and obeys the same counting.
 
 ## 5. Forward mapping ([Hin26] Definition 5.13, Proposition 5.14, Corollary 5.15 at n = 4)
 
@@ -483,12 +504,13 @@ the memberships of Remark 4.5. The structure is proved here from III.F Lemma 2.1
 (1.4), not by recomputing the Christoffel symbols. N1STAR-PROOF.md 10.38 (a) deduced the half-order drop by a scaling
 argument; it is proved here.
 
-(C2) *One index condition is added:* $\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1)\subset\mathcal E^C_I$.
-It absorbs the perturbation part of (4.4) acting on the radiation fields, $\frac32+\frac12 = 2$. It forces
-$(2,0)\subset\mathcal E^C_I$ (the source's (5.9) has $(2,0)$ from $2(1,0)$) and needs $\gamma_\Upsilon<\frac14$, so that
-$2>\frac32+2\gamma_\Upsilon$. At $n = 3$ the same condition would put $(1,0)$ into $\mathcal E^C_I$, which is why the
-source carries $A^h$ instead. The smallness (1.1) joins III.G$'$'s $\gamma_\Upsilon<\min(\frac12s_C,\frac38)$ as an
-obligation for Part VI: $\gamma_\Upsilon<\min(\frac12s_C,\frac14)$.
+(C2) *The source's last index condition is strengthened* to
+$\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1)\subset\mathcal E^C_I$, which implies its
+$j\mathcal E^{\mathrm{tot}}_I$ condition. It absorbs the perturbation part of (4.4) acting on the radiation fields,
+$\frac32+\frac12 = 2$. It forces $(2,0)\subset\mathcal E^C_I$ (the source's (5.9) has $(2,0)$ from $2(1,0)$) and needs
+$\gamma_\Upsilon<\frac14$, so that $2>\frac32+2\gamma_\Upsilon$. At $n = 3$ the same condition would put $(1,0)$ into
+$\mathcal E^C_I$, which is why the source carries $A^h$ instead. The smallness (1.1) joins III.G$'$'s
+$\gamma_\Upsilon<\min(\frac12s_C,\frac38)$ as an obligation for Part VI: $\gamma_\Upsilon<\min(\frac12s_C,\frac14)$.
 
 (C3) *$\pi_{11}h$ carries no radiation field at $n = 4$.* The source's $\mathcal E_{I,11}$ and $\mathcal F_{I,11}$
 contain $(1,0)$, from the coupling of $\slashed\pi_0h$'s radiation field into the 11-component by the $h$-dependent
@@ -526,3 +548,22 @@ quoted from pp. 84-99 and 169. Inputs from other parts: III.A (F1)-(F2) and the 
 pp. 84-99 (Definitions 5.1-5.4, Remark 5.5, Lemmas 5.6-5.8, Corollaries 5.9-5.10, Proposition 5.11 with (5.25)-(5.28)
 and (5.40)-(5.42), Definition 5.13 with (5.43), Proposition 5.14, Corollary 5.15 with (5.48)) and p. 169.
 N1STAR-PROOF.md 10.38 and 10.64. `ext5.py` (this part), `scri5.py` C1, `sbar5.py`.
+
+(C7) *An obligation for III.C$'$* (Definition 3.3): the source's Theorem 5.21, Step 2, subtracts the radiation fields of
+$\slashed\pi_0h$ and $\pi_{11}h$ through $g_0' = g_b+h_0$, $h_0\in\langle(2,0)\rangle_0$, and uses Corollary 5.15 (2)
+for $P(g_0',g_b)$. At $n = 4$ the class $\langle(3,0)\rangle_0$ carries no radiation field of $\slashed\pi_0$. III.C$'$
+must either show the subtraction unnecessary, as (C1) suggests, or use a class with $(\frac32,0)$ in slot 6.
+
+### 6.4 The hundred-and-first verifier (D244)
+
+The hundred-and-first verifier (Opus) read this part in full: no major finding, four minor, six nits, all seated. (m1)
+Definition 3.3 dropped the radiation allowance of the source's $\langle(2,0)\rangle_0$ for $\slashed\pi_0$ silently: now
+stated, with the obligation (C7). (m2) $\bar A$ is exactly constant in $\bar g$'s null frame, and in $\eta$'s only
+modulo $\rho_0^2\rho_I^2C^\infty$: Lemma 4.2 restated (Proposition 4.4's proof already handled it). (m3) `ext5.py` E3
+reads `scri5.py`'s table: said so, with `scri5.py --only 1` as the check; a third control of E5 shows the strengthened
+index condition is needed; the tensor-level half-order drop is cross-checked against `exterior5.py` X7 (Remark 4.5).
+(m4) The index condition strengthens the source's and implies its $j\mathcal E^{\mathrm{tot}}_I$ condition: Definition
+3.1 (3), Lemma 3.2 (b), (e) and (C2) say so. Nits: $U$ meets $\Sigma^{\mathrm{past}}$; $\rho_0\in[0,1]$; $x^0$ against
+III.B (4.1); polynomials, not smooth functions, in Lemma 4.3; $\chi^2-\chi$ in Lemma 2.1; the discarded component
+structure (Remark 4.5); the second condition of Definition 3.4. The verifier found the counting of Proposition 4.4
+right, including the terms the source puts in $A^h$, so N1STAR-PROOF.md 10.38 (a)'s scaling deduction is proved.

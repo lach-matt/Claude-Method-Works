@@ -3073,3 +3073,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - ext5.py E6-E7 added: 7/7 with controls.
 - Next: Part III.G'''' ([Hin26] section 9.2, the tf-normal operator); verifier 101 is reading III.C.
 
+### 4.167 Verifier 101 seated: III.C verified, III.G'' proved (D244)
+
+- Verifier 101 (Opus) read III.C and the D241 repairs to III.G''. No major finding in III.C; four minor and six nits,
+  all seated: (m1) Definition 3.3's radiation allowance for pi-slash_0, with a new obligation (C7) for III.C'; (m2)
+  A-bar constant in g-bar's null frame, modulo rho_0^2 rho_I^2 C^oo in eta's; (m3) E3's source table named, E5's third
+  control (E^C built under the source's analogue condition misses (2, 0), and Proposition 5.2 fails), X7 cross-check;
+  (m4) the index condition strengthens the source's and implies its j E^tot condition.
+- III.G'': the D241 repairs are correct; one nit, (4.5)'s index set and u's membership, seated. III.G'' is proved.
+- III.G''' gains the agreement of the null frames of eta, g_mu and g-bar on iota+.
+- ext5.py: 7/7; E5 has three controls.
+- Next: verifier 102 on III.G''' and these repairs; Part III.G''''.
+

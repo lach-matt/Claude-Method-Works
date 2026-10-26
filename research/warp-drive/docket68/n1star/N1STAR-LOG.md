@@ -5389,3 +5389,8 @@ e_Ups) gam_Ups (simple); the continuation's agreement with III.G''s inverse and 
 proved where the source asserts them. Recorded for III.J: the lambda_sharp channel is one the record's alpha_5 = 2
 reading did not consider. ext5.py E6-E7 added.
 
+**D244 (2026-10-26): verifier 101 seated.** The hundred-and-first verifier (Opus) read III.C and the D241 repairs to
+III.G''. No major finding; four minor (pi-slash_0's radiation allowance, now with obligation (C7); A-bar's frame; E3's
+source and a third control of E5 showing the strengthened index condition is needed; the condition's relation to the
+source's) and six nits, all seated, and one nit on III.G'''s (4.5). III.C is verified, its repairs to be read; III.G''
+is proved. Next: verifier 102 on III.G''' and these repairs; Part III.G''''.

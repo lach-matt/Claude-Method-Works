@@ -25,8 +25,9 @@ arithmetic).
      <E^C + 1>' -- slots 1-6 into E^C + 1, slot 7 into F_11 = 1 + (E^C u (3/2 + (1 - e_Ups) gamma_Ups, 0)) -- and so do
      the C-infinity error rho_0^2 rho_I^2 Diff^2_b (all slots into all) and the perturbation part, coefficients of
      I+-index E^tot; the leading-order classes: <(3, 0)>_0 into <(4, 0)>' (slots 1-6 (4, 0), slot 7 (3, 0)) with
-     perturbation coefficients of index (2, 0).  Controls: a (7, 6) entry; F_11 without (3/2 + (1 - e_Ups) gamma_Ups,
-     0).
+     perturbation coefficients of index (2, 0).  Under the n = 4 analogue of the source's condition, E^C + (E^tot - 1)
+     and 2 E^tot in E^C, the smallest E^C misses (2, 0) and 2 E^tot is not in E^C + 1.  Controls: a (7, 6) entry;
+     F_11 without (3/2 + (1 - e_Ups) gamma_Ups, 0); E^C built under that analogue condition.
   E6 (PART-III-G4 Lemma 1.1) The eigenvectors of A_0 for the eigenvalues 2 gamma_Ups, gamma_Ups, 0 and (1 - e_Ups)
      gamma_Ups have supports {7}, {5}, {6} and {4, 7} in the slots (sample parameters).  Control: a (7, 6) entry.
   E7 (PART-III-G4 Lemma 2.2) The exponents the iteration meets lie in E^C_sharp = E^C u (lambda_sharp, 0), lambda_sharp
@@ -143,13 +144,14 @@ def shift(S, c):
     return {(z + c, k) for (z, k) in S if z + c <= ZMAX}
 
 
-def build(gU, eU, seed):
+def build(gU, eU, seed, source=False):
+    """source=True: the n = 4 analogue of the source's condition, E^C + (E^tot - 1) and 2 E^tot in E^C"""
     sig = [Fr(0), (1 - eU) * gU, gU, 2 * gU]
     radiative = closure({(Fr(3, 2) + s, 0) for s in sig})
     EC = closure(seed)
     for _ in range(60):
         Et = EC | radiative
-        new = EC | plus(Et, shift(Et, -1)) | plus(Et, Et)
+        new = EC | plus(EC if source else Et, shift(Et, -1)) | plus(Et, Et)
         if new == EC:
             return EC, Et, sig
         EC = new
@@ -221,7 +223,12 @@ def e5(control=0, verbose=False):
     chk = Checklist(verbose, quiet=control != 0)
     ok = True
     for gU, eU, seed in SAMPLES:
-        EC, Et, sig = build(gU, eU, seed)
+        ECs, Ets, _ = build(gU, eU, seed, source=True)
+        good = (2, 0) not in ECs and not sub(plus(Ets, Ets), shift(ECs, 1), ZMAX - 3)
+        if control == 0:
+            chk(f"gU = {gU}: under the source's analogue condition E^C misses (2,0), 2E^tot not in E^C + 1", good)
+            ok &= good
+        EC, Et, sig = build(gU, eU, seed, source=control == 3)
         gC, vC, eC = Fr(7), Fr(1, 2), Fr(1, 10)
         diag = [2 * (1 - vC) * gC, (1 - vC) * gC, (1 - eC) * (1 - vC) * gC, (1 - eU) * gU, gU, Fr(0), 2 * gU]
         offd = {(0, 2), (0, 3), (2, 3), (1, 4), (2, 6), (3, 6)}            # (column, row), 0-based: (i, j) = A[j, i]
@@ -311,7 +318,7 @@ CHECKS = [("E1 the corner coordinates: d_t*, rho d_rho, d_0, d_1 in X_0, X_I", e
           ("E2 (1/2) Box = -rho_0^2 rho_I (X_I - 3/2)(X_0 - X_I) mod rho_0^2 rho_I^2 Diff^2_b; n = 3 his (5.40)", e2, 1),
           ("E3 A_0: lower triangular, its off-diagonal support and diagonal", e3, 1),
           ("E4 Definition 5.3 at n = 4: the smallest E^C and its closure properties", e4, 1),
-          ("E5 Proposition 5.14 at n = 4: <E^C> -> <E^C + 1>' and <(3,0)>_0 -> <(4,0)>', slot by slot", e5, 2),
+          ("E5 Proposition 5.14 at n = 4: <E^C> -> <E^C + 1>' and <(3,0)>_0 -> <(4,0)>', slot by slot", e5, 3),
           ("E6 the eigenvectors of A_0 for 0, (1 - e_Ups) gam_Ups, gam_Ups, 2 gam_Ups: their slot supports", e6, 1),
           ("E7 Lemma 9.14 at n = 4: the exponents met lie in E^C_sharp, off spec, lambda_sharp least", e7, 1)]
 

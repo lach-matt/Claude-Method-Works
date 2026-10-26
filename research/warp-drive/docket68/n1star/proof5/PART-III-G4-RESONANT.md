@@ -42,7 +42,9 @@ Proposition 2.3.
 *Slots on $\iota^+$.* Near $v = 0$, $\iota^+$ lies in $\{|x|\ge3R_1\}$, where the rescaled null frame of III.C (1.6) is
 a smooth frame of $S^2T^*$. Its slots, with the slot coordinates III.C (1.7) and projections
 $\pi_C,\pi_{01}, \pi_{1/},\slashed\pi_0,\pi_{11}$ (III.C Definition 1.2), are used on $\iota^+$ near $v = 0$. In this
-frame $\bar S$ has the constant matrix $\bar A$ of III.C Lemma 4.2. Let $e_7$ be the basis section of
+frame $\bar S$ has the constant matrix $\bar A$ of III.C Lemma 4.2. The null frames of $\eta$, $g_\mu$ and $\bar g$
+agree on $\iota^+$: by III.C Lemma 1.3 they differ by $I+\rho_0^2\rho_I^2C^\infty$, which is $I$ at $\rho_0 = 0$; so the
+restrictions to $\iota^+$ below, and $\bar A$, are the same in each. Let $e_7$ be the basis section of
 $\langle(dx^1)^2\rangle$.
 
 **Definition 1.1 ([Hin26] (9.45) at n = 4).**
