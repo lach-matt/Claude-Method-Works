@@ -2752,3 +2752,30 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: the D197, D200, D201, D204, D206, D207 repairs; Parts III.A, III.D, III.D', III.D'', III.D''' unread; Parts
   III.C, III.E-III.J and IV-VII; uniformity in P_0 (II.F' (F'11)); (Dyn) in Part VI.
 - Next: verifier 93's report; Part III.E ([Hin26] section 7, the constraint propagation operator).
+
+### 4.148 Part III.E written: the constraint propagation operator at zero energy, [Hin26] 7 to Proposition 7.3 (D225)
+
+- `proof5/PART-III-E-CONSTRAINT.md`: Theorem 1.1 ([Hin26] Theorem 7.1 at n = 4, the input, proved in Part IV); Lemma 2.1
+  (Lemma 7.2: the adjoint at zero energy invertible for b-weights in (0, C_0 + 2], s <= C_0 + 1, indicial roots
+  2 - conj(lambda); partial polyhomogeneity; vanishing inside the horizon); Proposition 3.1 (Proposition 7.3: the large
+  zero energy dual states of the time translation, the translations and the rotations, eleven at zero rotation).
+- Findings (E1)-(E4): the weights move by one (Coulomb root 2 for 1); the corrections one order faster; eleven dual
+  states against seven; the input Theorem 7.1.
+- Deferred: section 7.2.1 (Proposition 7.4, Lemma 7.5) to Part III.E'; Theorem 7.1 at n = 4 to Part IV.
+
+### 4.149 Verifier 93 seated: Parts III.A and III.D verified; I.B gains Lemma 6.0 (D226)
+
+- III.A: M1 (Proposition 2.25 (1): the one-factor iteration gives a spurious logarithm at tf) repaired by a new Lemma
+  3.3, the product operator solved coefficient by coefficient at zf; found while repairing, [Hin26] Lemma 2.23 needs
+  alpha + Re z > beta, not alpha > beta (counterexample x^-z chi(xy) (xy)^c), repaired in Lemma 3.2 and by a larger
+  free weight beta_K; m1 (the boundary weight in Lemmas 1.4-1.5) and m2 (integrate in decreasing real part) repaired;
+  nits n1-n3. Findings (L5)-(L7).
+- III.D: m3 (the trapped set's inner product depends on the covector; I.B section 6 assumed one from the base) repaired
+  in I.B by Lemma 6.0 ([Hin26c] (5.9)): conjugation by Q = Op(b-tilde^(1/2)), Im(Q P Q^-1) = Q Im_B(P) Q^-1 exactly
+  with B = Q*Q, the threshold symbol (6.0) = (1/2)(p_1 + b^-1 p_1 b) + (i/2) b^-1 [r, b] + (1/2) b^-1 H_G b, and the
+  estimates carried back; Proposition 6.1 allows X to depend on z. II.C's remark corrected; Lemma 5.2 cites Lemma 6.0
+  and names its density. Nits n5-n8 (a doubled gamma_{Ups,H}, the pairing centres, a sign, a Gronwall step).
+- Status: III.A and III.D verified; I.B verified, Lemma 6.0 to be read (was proved); II.C's remark to be read.
+- Open: the D197, D200, D201, D204, D206, D207 and D226 repairs; Parts III.D', III.D'', III.D''', III.E unread; Parts
+  III.C, III.E', III.F-III.J and IV-VII; uniformity in P_0 (II.F' (F'11)); (Dyn) in Part VI.
+- Next: verifier 94 on III.D'-III.E and the D226 repairs; Part III.E' ([Hin26] section 7.2.1).

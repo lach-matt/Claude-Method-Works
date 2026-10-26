@@ -1,14 +1,14 @@
 # Part III.D. The gauge potential wave operator at n = 4 ([Hin26] section 6 to 6.3, Propositions 6.5 and 6.9)
 
-*Status.* Written (D220). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part
-III.B with $b$ near the Tangherlini parameter $b_0 = (\mu_0,0)$, what [Hin26] section 6 establishes up to and including
-section 6.3 and Proposition 6.9 (pp. 113-119): the structure of the gauge potential wave operator as a stationary
-wave-type operator (his Lemma 6.1), its Minkowski model (Lemma 6.3), the input at the trapped set (Lemma 6.4) and the
-high-energy invertibility it gives (Proposition 6.5), the indicial roots at zero energy (Lemma 6.6 with (6.17)),
-tf-admissibility (Lemma 6.8), and mode stability away from zero frequency (Proposition 6.9), including the input he
-takes from [AHW24] Theorem 5.1, here proved on five-dimensional Tangherlini. Section 6.4's zero-energy argument (Lemmas
-6.10-6.11, Proposition 6.12, Lemma 6.13) is Part III.D$'$, and section 6.5 (the large zero energy states) Part
-III.D$''$.
+*Status.* Verified (D226: the ninety-third verifier's findings are seated; the repairs are to be read). This part
+proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part III.B with $b$ near the Tangherlini
+parameter $b_0 = (\mu_0,0)$, what [Hin26] section 6 establishes up to and including section 6.3 and Proposition 6.9 (pp.
+113-119): the structure of the gauge potential wave operator as a stationary wave-type operator (his Lemma 6.1), its
+Minkowski model (Lemma 6.3), the input at the trapped set (Lemma 6.4) and the high-energy invertibility it gives
+(Proposition 6.5), the indicial roots at zero energy (Lemma 6.6 with (6.17)), tf-admissibility (Lemma 6.8), and mode
+stability away from zero frequency (Proposition 6.9), including the input he takes from [AHW24] Theorem 5.1, here proved
+on five-dimensional Tangherlini. Section 6.4's zero-energy argument (Lemmas 6.10-6.11, Proposition 6.12, Lemma 6.13) is
+Part III.D$'$, and section 6.5 (the large zero energy states) Part III.D$''$.
 
 *Division of labour.* Parts I.A, I.B and I.C prove [Hin26c] section 9 at $n = 4$ for operators on a trivial bundle
 satisfying hypotheses (H1)-(H8), (G), (Z), (TF), uniformly under (H5). Those hypotheses are of two kinds. The
@@ -226,9 +226,11 @@ G\bar\delta^*$ annihilates them, and they are stationary, so they solve the indi
 being simple, they span. $\square$
 
 Compared with the source, where the s0 pair is $\pm(1+4e\gamma^2)^{1/2}$ about 0 and the gap is
-$(0,\lambda^\Upsilon_{\mathrm{s}1,1})$, at $n = 4$ the roots pair about $\frac12$ (the indicial roots of the free
-operator being $-d$ and $d+2$, III.A$'$ Lemma 2.3), the index of $\lambda^\Upsilon_{\mathrm{s}l,\cdot}$ is shifted by
-one, and the gap is $(0,\lambda^\Upsilon_{\mathrm{s}1,2})$ with $\lambda^\Upsilon_{\mathrm{s}1,2}$ just above 2.
+$(0,\lambda^\Upsilon_{\mathrm{s}1,1})$, at $n = 4$ the roots do not pair about one point (D226; this sentence said
+$\frac12$ before): the roots of $\lambda^2-\lambda = s$, the s0 pair and the $\lambda^\Upsilon_{\mathrm{s}l,\cdot}$ with
+their partners $1-\lambda$, pair about $\frac12$, the vl roots $-l$, $l+2$ about 1, the s0 roots $0$, $3$ about
+$\frac32$ and the sl roots $1-l$, $l+3$ about 2; the index of $\lambda^\Upsilon_{\mathrm{s}l,\cdot}$ is shifted by one,
+and the gap is $(0,\lambda^\Upsilon_{\mathrm{s}1,2})$ with $\lambda^\Upsilon_{\mathrm{s}1,2}$ just above 2.
 
 ## 5. The subprincipal data
 
@@ -236,10 +238,12 @@ one, and the gap is $(0,\lambda^\Upsilon_{\mathrm{s}1,2})$ with $\lambda^\Upsilo
 
 On five-dimensional Tangherlini, $f = 1-\mu_0/r^2$, $r_h = \mu_0^{1/2}$, in the ingoing chart $(v,r,\omega)$, let
 $c_{\Upsilon,H} = c_v\,dv+c_r\,dr$ near $r_h$. *Computed* (`thresh5.py` U3; supplement Proposition 10.15 (iii)): at
-$N^*\mathcal H$, $\zeta = \xi\,dr$, the subprincipal symbol of
-$\Box_{g_{b_0}}+2\gamma_{\Upsilon,H}E^\Upsilon_{g_{b_0},H}G\delta^*$, on half-densities by $|dg|$, is $i\xi f'(r_h)K$
-with $K$ lower triangular, its diagonal $1+c_v\gamma_{\Upsilon,H}r_h$, $-1+2c_v\gamma_{\Upsilon,H}r_h$ and
-$c_v\gamma_{\Upsilon,H}r_h$ (three times), its angular block diagonal.
+$N^*\mathcal H$, $\zeta = \xi\,dr$, the subprincipal symbol of $\Box_{g_{b_0}}+2E^\Upsilon_{g_{b_0},H}G\delta^*$ (III.B
+(6.1), whose $E^\Upsilon_H$ carries the factor $\gamma_{\Upsilon,H}$: $E^\Upsilon_HGh = 2\gamma_{\Upsilon,H}\iota h$ by
+III.B Lemma 6.2; `thresh5` U3's $E_H$ is $E^\Upsilon_H/\gamma_{\Upsilon,H}$, and a second factor $\gamma_{\Upsilon,H}$
+printed here before D226 was a double count), on half-densities by $|dg|$, is $i\xi f'(r_h)K$ with $K$ lower triangular,
+its diagonal $1+c_v\gamma_{\Upsilon,H}r_h$, $-1+2c_v\gamma_{\Upsilon,H}r_h$ and $c_v\gamma_{\Upsilon,H}r_h$ (three
+times), its angular block diagonal.
 
 **Lemma 5.1 (the threshold).** Let $c_{\Upsilon,H} = -\frac12\chi(r)\,dr$ near $r_h$, $\chi = 1$ near $r_h$ (the choice
 of Part III.D$'$). Then at $b_0$ the threshold quantity $\vartheta_{\mathcal H}$ of I.A (1.5), computed in a suitable
@@ -283,26 +287,34 @@ $\mathrm{diag}(1,\epsilon_1^{-1},\epsilon_1^{-2})$ on $\mathrm{span}\{e_0,e_1,e_
 
 **Lemma 5.2.** Assume (Dyn), with the trapped sets $\Gamma_b$ (at $z_0 = \pm1$) depending continuously on $b$ and
 $\Gamma_{b_0}$ as in (b). For every $\epsilon>0$ there are a stationary fibre inner product $h_\Gamma$ on $\pi^*T^*$
-near $\Gamma_{b_0}$, homogeneous of degree 0, and a neighbourhood $\mathcal B_\epsilon$ of $b_0$, such that for
-$b\in\mathcal B_\epsilon$ and every $E_\Upsilon$ as in section 1, $\sup_{\Gamma_b}\lambda_{\max}(p_1^\Gamma)<\epsilon$.
-In particular (Γ.4) holds with $\gamma_-<0$ (take $\epsilon<\frac12\nu_{\min}$), and $\delta_\Gamma(0)$, which by (1.4)
-of I.B tends to 0 with $\gamma_+$, is as small as wished.
+over a neighbourhood of $\Gamma_{b_0}$ in phase space, homogeneous of degree 0 (it depends on the covector, as I.B (H7)
+and II.C Definition 2.1 allow, I.B Lemma 6.0 reducing it to a standard one), and a neighbourhood $\mathcal B_\epsilon$
+of $b_0$, such that for $b\in\mathcal B_\epsilon$ and every $E_\Upsilon$ as in section 1,
+$\sup_{\Gamma_b}\lambda_{\max}(p_1^\Gamma)<\epsilon$. In particular (Γ.4) holds with $\gamma_-<0$ (take
+$\epsilon<\frac12\nu_{\min}$), and $\delta_\Gamma(0)$, which by (1.4) of I.B tends to 0 with $\gamma_+$, is as small as
+wished.
 
 *Proof.* $E^\Upsilon$ vanishes over $U_\Gamma\supset\pi(\Gamma_b)$ (section 1), so $p_1^\Gamma$ is that of $\Box_{g_b}$.
-*At $b_0$.* Near $\Gamma_{b_0}$, where $C>0$, split $\pi^*T^* = P\oplus V_\perp$ with $P :=
-\mathrm{span}\{e_0,e_1,e_2\}$ and $V_\perp$ its $g$-orthogonal complement, the angular covectors orthogonal to $\eta$
-(by (c)); $g$ is positive definite on $V_\perp$. $P$ is $\nabla_{H_G}$-invariant by (c), and as $\nabla$ is metric, so
-is $V_\perp$, on which $\nabla_{H_G}$ is $g$-skew. Take $h_\Gamma := \mathrm{diag}(1,\epsilon_1^{-1},\epsilon_1^{-2})$
-on $P$ in the frame $e_j/C^{1/2}$ and $g$ on $V_\perp$; it is stationary and homogeneous of degree 0, as $H_GC = 0$ and
-$C$ has degree 2. In these frames $h_\Gamma$ is constant, $-iH_G$ is symmetric for the symplectic volume, and $H_G\sigma
-= 0$, so by (a) $p_1^\Gamma$ is $-\frac12(M+M^*)$ on $P$ and $0$ on $V_\perp$, with largest eigenvalue
-$(2\epsilon_1)^{1/2}$ by (d) at the point computed. The isometries of Tangherlini (time translations and $SO(4)$) act
-transitively on $\Gamma_{b_0}$ and preserve the frame's construction, so this holds at every point. Choose $\epsilon_1$
-with $(2\epsilon_1)^{1/2}<\epsilon/2$. *Near $b_0$.* Extend $h_\Gamma$ to a stationary inner product on a neighbourhood
-of $\Gamma_{b_0}$. The endomorphism $p_1$ is built from the subprincipal symbol of $\Box_{g_b}$ and $h_\Gamma$,
-continuous in $b$ uniformly near $\Gamma_{b_0}$, and $\Gamma_b\to\Gamma_{b_0}$ by (Dyn); so
-$\sup_{\Gamma_b}\lambda_{\max}(p_1^\Gamma)<\epsilon$ for $b$ near $b_0$. $\nu_{\min}$ and $\beta_0$ are continuous in
-$b$ by (Dyn) and positive at $b_0$. $\square$
+*At $b_0$.* Near $\Gamma_{b_0}$, where $C>0$, split $\pi^*T^* = P\oplus V_\perp$ with
+$P := \mathrm{span}\{e_0,e_1,e_2\}$ and $V_\perp$ its $g$-orthogonal complement, the angular covectors orthogonal to
+$\eta$ (by (c)); $g$ is positive definite on $V_\perp$. $P$ is $\nabla_{H_G}$-invariant by (c), and as $\nabla$ is
+metric, so is $V_\perp$, on which $\nabla_{H_G}$ is $g$-skew. Take
+$h_\Gamma := \mathrm{diag}(1,\epsilon_1^{-1},\epsilon_1^{-2})$ on $P$ in the frame $e_j/C^{1/2}$ and $g$ on $V_\perp$;
+it is stationary and homogeneous of degree 0, as $H_GC = 0$ and $C$ has degree 2. In these frames $h_\Gamma$ is
+constant, $-iH_G$ is symmetric for the symplectic volume, and $H_G\sigma = 0$, so by (a) $p_1^\Gamma$ is
+$-\frac12(M+M^*)$ on $P$ and $0$ on $V_\perp$, with largest eigenvalue $(2\epsilon_1)^{1/2}$ by (d) at the point
+computed. The isometries of Tangherlini (time translations and $SO(4)$) act transitively on $\Gamma_{b_0}$ and preserve
+the frame's construction, so this holds at every point. Choose $\epsilon_1$ with $(2\epsilon_1)^{1/2}<\epsilon/2$. *Near
+$b_0$.* Extend $h_\Gamma$ to a stationary inner product on a neighbourhood of $\Gamma_{b_0}$. The endomorphism $p_1$ is
+built from the subprincipal symbol of $\Box_{g_b}$ and $h_\Gamma$, continuous in $b$ uniformly near $\Gamma_{b_0}$, and
+$\Gamma_b\to\Gamma_{b_0}$ by (Dyn); so $\sup_{\Gamma_b}\lambda_{\max}(p_1^\Gamma)<\epsilon$ for $b$ near $b_0$.
+$\nu_{\min}$ and $\beta_0$ are continuous in $b$ by (Dyn) and positive at $b_0$. Two conventions, stated at D226:
+$p_1^\Gamma$ is (6.0) of I.B Lemma 6.0 for this $h_\Gamma$, which in the frame $e_j/C^{1/2}$, where $h_\Gamma$ is
+constant, is the $h_\Gamma$-imaginary part of the subprincipal operator, as computed; and (a) uses half-densities by
+$|dg|$ while I.A's adjoints are for $|dx| = r^3dr\,d\omega$ and $dt_*$. On Tangherlini $|dg| = |dt_*|\,r^3dr\,d\omega$,
+so the two agree at $b_0$; near $b_0$ the change of density by $f_b := |dg_b|/|dg_{b_0}|$ adds the scalar
+$\frac12f_b^{-1}H_Gf_b = O(|b-b_0|)$ to $p_1$ (II.C, the remark after Lemma 2.2), which the continuity step absorbs.
+$\square$
 
 ## 6. High energies and bounded frequencies ([Hin26] Propositions 6.5 and 6.9 at n = 4)
 
@@ -356,21 +368,24 @@ $\omega := e^{-i\sigma t_*}u$, so $\Box\omega = 0$.
 
 *The class.* III.B's $t_*$ is regular across the future horizon and outgoing at infinity: $t_* = v+F_H(r)$ near $r_h$
 with $F_H$ smooth across $r_h$ in the ingoing chart ($v = t+r_*$), and $t_* = t-r_*+c_0+O(r^{-1})$, with all
-derivatives, as $r\to\infty$ (III.B (3.6) and Lemma 3.5 at $A = 0$). So in the static chart $\omega = e^{-i\sigma
-t}\omega_0$ with $\omega_0 = e^{-i\sigma r_*}\times$(smooth across $r_h$ in $(v,r)$) near $r_h$ and $\omega_0 =
-e^{i\sigma r_*}\times$(conormal, $O(r^{-3/2+\epsilon})$) near infinity. Expanding in spherical harmonics on $\mathbb
-S^3$ (III.A$'$ Lemma 1.6; the projections act in the angles and preserve both properties, with bounds), every component
+derivatives, as $r\to\infty$ (III.B (3.6) and Lemma 3.5 at $A = 0$). So in the static chart
+$\omega = e^{-i\sigma t}\omega_0$ with $\omega_0 = e^{-i\sigma r_*}\times$(smooth across $r_h$ in $(v,r)$) near $r_h$
+and $\omega_0 = e^{i\sigma r_*}\times$(conormal, $O(r^{-3/2+\epsilon})$) near infinity. (In the static frame the
+coefficients $a$, $b$ of (M4) are singular at $r_h$, $b = A_r+A_v/f$; the argument below uses only $F_{tr} = F_{vr}$ and
+$\omega(T) = \omega(\partial_v)$, which are smooth across $r_h$.) Expanding in spherical harmonics on $\mathbb S^3$
+(III.A$'$ Lemma 1.6; the projections act in the angles and preserve both properties, with bounds), every component
 inherits them. We use repeatedly the following ODE fact: if $-\Phi_{**}+V\Phi = \sigma^2\Phi$ on $(r_h,\infty)$ with $V$
 real, $V = O(r^{-2})$ with all derivatives at infinity and $V = O(f)$ near $r_h$, $\Phi = e^{-i\sigma r_*}h$ with $h$
-smooth at $r_h$, and $\Phi = e^{i\sigma r_*}k$ with $k$ conormal and $O(r^{N})$ at infinity for some $N$, then $\Phi =
-0$, provided $V>0$. Indeed the solutions at infinity are $e^{\pm i\sigma r_*}(1+O(r^{-1}))$ (Volterra iteration, $V\in
-L^1(dr_*)$ at infinity); the given form excludes $e^{-i\sigma r_*}$, which is $e^{i\sigma r_*}e^{-2i\sigma r_*}$ and
-$e^{-2i\sigma r_*}$ grows exponentially if $\mathrm{Im}\,\sigma>0$ and is not conormal if $\sigma\in\mathbb
-R\setminus0$; so $\Phi = c\,e^{i\sigma r_*}(1+O(r^{-1}))$. If $\mathrm{Im}\,\sigma>0$, $\Phi$ and $\Phi_*$ decay
-exponentially at both ends ($r_*\to\mp\infty$), and pairing with $\bar\Phi$ gives $\int(|\Phi_*|^2+V|\Phi|^2)dr_* =
-\sigma^2\int|\Phi|^2dr_*$; if $\Phi\ne0$ the left side is positive, forcing $\sigma^2>0$, i.e. $\sigma$ real: a
-contradiction. If $\sigma$ is real, the Wronskian $\mathrm{Im}(\bar\Phi\Phi_*)$ is constant; at $r_h$, $\Phi_* =
--i\sigma\Phi+e^{-i\sigma r_*}fh'$ gives $-\sigma|h(r_h)|^2$, and at infinity $\sigma|c|^2$; so $c = 0$ and $\Phi = 0$.
+smooth at $r_h$, and $\Phi = e^{i\sigma r_*}k$ with $k$ conormal and $O(r^{N})$ at infinity for some $N$, then
+$\Phi = 0$, provided $V>0$. Indeed the solutions at infinity are $e^{\pm i\sigma r_*}(1+O(r^{-1}))$ (Volterra iteration,
+$V\in L^1(dr_*)$ at infinity); the given form excludes $e^{-i\sigma r_*}$, which is $e^{i\sigma r_*}e^{-2i\sigma r_*}$
+and $e^{-2i\sigma r_*}$ grows exponentially if $\mathrm{Im}\,\sigma>0$ and is not conormal if
+$\sigma\in\mathbb R\setminus0$; so $\Phi = c\,e^{i\sigma r_*}(1+O(r^{-1}))$. If $\mathrm{Im}\,\sigma>0$, $\Phi$ and
+$\Phi_*$ decay exponentially at both ends ($r_*\to\mp\infty$), and pairing with $\bar\Phi$ gives
+$\int(|\Phi_*|^2+V|\Phi|^2)dr_* = \sigma^2\int|\Phi|^2dr_*$; if $\Phi\ne0$ the left side is positive, forcing
+$\sigma^2>0$, i.e. $\sigma$ real: a contradiction. If $\sigma$ is real, the Wronskian $\mathrm{Im}(\bar\Phi\Phi_*)$ is
+constant; at $r_h$, $\Phi_* = -i\sigma\Phi+e^{-i\sigma r_*}fh'$ gives $-\sigma|h(r_h)|^2$, and at infinity
+$\sigma|c|^2$; so $c = 0$ and $\Phi = 0$.
 
 *(a) The scalar step.* $\delta\omega$ solves $\delta d(\delta\omega) = \delta\Box\omega = 0$ by (M1). For each component
 $r^{-3/2}\Phi S$ of $\delta\omega$, (M2) gives $-\Phi_{**}+V_0\Phi = \sigma^2\Phi$ (multiply by $f$), and the class
@@ -400,9 +415,10 @@ derivatives are algebraic. Put $Y := (U,(r-r_h)U')$. Since $(r-r_h)/f = r^2/(r+r
 $$(r-r_h)Y' = MY,\qquad M = \begin{pmatrix}0&1\\ \frac{r^2(r-r_h)}{r+r_h}B&1+\frac{r^2}{r+r_h}A\end{pmatrix},$$
 with $M$ smooth on $(0,\infty)$. For $r_0<r_1<r<r_h$ and $m := \max_{[r_1,r_h]}\|M\|$, wherever $Y\ne0$,
 $\frac d{dr}\log|Y|^2 = \frac{2\mathrm{Re}\langle Y,MY\rangle}{(r-r_h)|Y|^2}\ge-\frac{2m}{r_h-r}$, so if $Y(r_1)\ne0$
-then $|Y(r)|\ge|Y(r_1)|\big(\frac{r_h-r}{r_h-r_1}\big)^m$ on $[r_1,r_h)$, which contradicts the vanishing of $Y$ to
-infinite order at $r_h$. So $Y(r_1) = 0$ for every $r_1\in(r_0,r_h)$, every component vanishes, and $u = 0$.
-$\square$
+then $|Y(r)|\ge|Y(r_1)|\big(\frac{r_h-r}{r_h-r_1}\big)^m$ on $[r_1,r_h)$ (the bound holds up to the first zero of $Y$
+after $r_1$, if there is one, and by continuity keeps $|Y|$ positive there, so there is none), which contradicts the
+vanishing of $Y$ to infinite order at $r_h$. So $Y(r_1) = 0$ for every $r_1\in(r_0,r_h)$, every component vanishes, and
+$u = 0$. $\square$
 
 **Proposition 6.3 ([Hin26] Proposition 6.9).** Assume (Dyn). Let $c_0>0$. There are $\epsilon>0$ and a neighbourhood
 $\mathcal B''$ of $b_0$ such that if $|e_\Upsilon|,|\gamma_\Upsilon|,|\gamma_{\Upsilon,H}|<\epsilon$ and $b\in\mathcal
@@ -433,7 +449,7 @@ inner product, $H_0 = \mathrm{Id}$: by I.C Proposition 5.3 it is tf-admissible w
 $\gamma_\Upsilon$.* Fix the weight $\beta = 1$, which lies in the gap for all small parameters (Lemma 4.1), and $q =
 2-\beta$, and orders $s$, $\alpha_+$, $\mathsf r_\pm$ as in I.C Theorem 4.3, admissible with margins at $\gamma_\Upsilon
 = 0$; as $\bar S = O(\gamma_\Upsilon)$ (Lemma 3.1) and the thresholds of I.A (1.5) move continuously, they remain
-admissible for small parameters. The perturbation $N^\gamma_{\mathrm{tf}}-N^0_{\mathrm{tf}} = 2ie^{i\theta}\hat\rho\bar
+admissible for small parameters. The perturbation $N^\gamma_{\mathrm{tf}}-N^0_{\mathrm{tf}} = -2ie^{i\theta}\hat\rho\bar
 S+\gamma_\Upsilon\hat\rho^2M_E(\hat\rho\partial_{\hat\rho},\partial_\omega)$ (the source's (6.18a) with Lemma 3.1) is
 bounded from the space $H^{s,(\mathsf r+\alpha_+,q)}_{\mathrm{sc},b}$ of $\mathcal X_{\mathrm{tf},\theta}$ into that of
 $\mathcal Y_{\mathrm{tf},\theta}$ with norm $O(|\gamma_\Upsilon|)$, uniformly in $\theta$: near the end $\hat\rho\to0$,
@@ -461,10 +477,12 @@ III.B's $t$; the two differ by $8\mu_0|x|^{-1}$ plus a constant, which is harmle
 $\bar S$ is the source's in every dimension; $\bar E$ itself carries $m = \frac2N$, and $\widehat{\bar\Box^\Upsilon}(0)$
 the constants $\pm Ne$ ($\pm3e$ at $n = 4$, $\pm2e$ in the source).
 
-(D3) *The indicial roots.* At $n = 4$ the roots of $\widehat{\Box^\Upsilon}(0)$ pair about $\frac12$; the modified s0
-pair is $\frac12\pm(\frac94+4e\gamma^2)^{1/2}$, the sl roots move from $l+1$, $l+2$ (and their mirrors), the vl roots do
-not move, and the gap is $(0,\lambda^\Upsilon_{\mathrm{s}1,2})$, $\lambda^\Upsilon_{\mathrm{s}1,2} =
-2+\frac{4e\gamma^2}{12}+O(e^2\gamma^4)$. The source's $z = e\gamma^2$ appears here as $4e\gamma^2$.
+(D3) *The indicial roots.* At $n = 4$ the roots of $\widehat{\Box^\Upsilon}(0)$ pair about four centres, $\frac12$, 1,
+$\frac32$ and 2 by family (section 4; this said $\frac12$ before D226); the modified s0 pair is
+$\frac12\pm(\frac94+4e\gamma^2)^{1/2}$, the sl roots move from $l+1$, $l+2$ (and their mirrors), the vl roots do not
+move, and the gap is $(0,\lambda^\Upsilon_{\mathrm{s}1,2})$,
+$\lambda^\Upsilon_{\mathrm{s}1,2} = 2+\frac{4e\gamma^2}{12}+O(e^2\gamma^4)$. The source's $z = e\gamma^2$ appears here
+as $4e\gamma^2$.
 
 (D4) *Trapping.* The source's Lemma 6.4 (strong trapping admissibility for every $\epsilon$) is not what Part I.B uses,
 and it is not an open condition; what I.B uses, $\gamma_-<0$ with $\delta_\Gamma$ small, is open, and Lemma 5.2 proves

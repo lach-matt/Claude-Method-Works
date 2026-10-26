@@ -1,19 +1,22 @@
 # Part III.A. Technical prerequisites at n = 4 ([Hin26] sections 2.1-2.3)
 
-*Status.* Written (D219). This part carries [Hin26] sections 2.1-2.3 (pp. 44-63) to spatial dimension $n = 4$: manifolds
-with corners and blow-ups, b-analysis and partial polyhomogeneity (Definitions 2.4-2.8, Lemmas 2.10-2.13, 2.15, Remark
-2.14), the scattering, 3b- and scattering-b-transition notions (Example 2.17, Definitions 2.16, 2.18, 2.19,
-(2.11)-(2.15), Lemma 2.20), extendible and supported spaces (section 2.1.5), the integration of $x\partial_x$ and
-$x\partial_x-y\partial_y$ (section 2.2, Lemmas 2.22-2.23), and the Fourier transform with partial expansions (section
-2.3, Lemma 2.24, Proposition 2.25). Section 2.4 is Part III.A$'$.
+*Status.* Verified (D226: the ninety-third verifier's findings are seated; the repairs are to be read). This part
+carries [Hin26] sections 2.1-2.3 (pp. 44-63) to spatial dimension $n = 4$: manifolds with corners and blow-ups,
+b-analysis and partial polyhomogeneity (Definitions 2.4-2.8, Lemmas 2.10-2.13, 2.15, Remark 2.14), the scattering, 3b-
+and scattering-b-transition notions (Example 2.17, Definitions 2.16, 2.18, 2.19, (2.11)-(2.15), Lemma 2.20), extendible
+and supported spaces (section 2.1.5), the integration of $x\partial_x$ and $x\partial_x-y\partial_y$ (section 2.2,
+Lemmas 2.22-2.23), and the Fourier transform with partial expansions (section 2.3, Lemma 2.24, Proposition 2.25).
+Section 2.4 is Part III.A$'$.
 
 *What n = 4 changes.* Sections 2.1.1-2.1.2, 2.1.5 and 2.2 are stated by the source for manifolds with corners of any
 dimension and carry over verbatim; their proofs are given here in full, because the source sketches two of them (Lemmas
 2.13 and 2.15) and the others are short. Sections 2.1.3-2.1.4 are stated on $\mathbb R^{1+3}$ and are restated on
 $\mathbb R^{1+4}$. Section 2.3 is stated for $X = \mathbb R^n_x$ with general $n$, but its inputs (2.25a)-(2.26b) are
 [Hin26c] Propositions 13.9 and 13.11, which Part II.G$'$ proves at $n = 4$ (its Propositions 3.3 and 3.5, in
-b-densities, so with the source's weights); Proposition 2.25 is proved here from them. Findings (L1)-(L4) are in section
-7: two misprints in Proposition 2.25 that would make it false as printed, and two harmless ones.
+b-densities, so with the source's weights); Proposition 2.25 is proved here from them. Findings (L1)-(L7) are in section
+7: two misprints in Proposition 2.25 that would make it false as printed, two harmless ones, a hypothesis of Lemma 2.23
+that must be strengthened (L5), a step of Proposition 2.25's proof that gives a larger index set than stated (L6), and
+two conventions the source leaves implicit (L7).
 
 ## 1. Manifolds with corners, blow-ups, b-analysis
 
@@ -30,14 +33,15 @@ sums, the extended unions $E\bar\cup F$ and $E\bar\cup\{(z,k)\}$, and the specia
 E,\vec\alpha)}(M)$ (Definition 2.8, (2.3); Notation 2.9). None of these mentions the dimension except as the generic $n$
 of the model $[0,\infty)^k\times\mathbb R^{n-k}$.
 
-Two facts used throughout are immediate from the definitions. (F1) A b-vector field $V$ maps $H^{k,(\vec
-E,\vec\alpha)}_{\mathrm b}(M)$ to $H^{k-1,(\vec E,\vec\alpha)}_{\mathrm b}(M)$: in a collar of $H$, $V =
-a\rho_H\partial_{\rho_H}+W$ with $W$ tangent to the slices, and $V(\rho_H^z(\log\rho_H)^\ell u) =
-\rho_H^z(\log\rho_H)^\ell(az+W)u+\ell
-a\rho_H^z(\log\rho_H)^{\ell-1}u+\rho_H^z(\log\rho_H)^\ell\rho_H(\partial_{\rho_H}\text{-terms})$, the last term being
-re-expanded in the Taylor series of $a$ at $\rho_H = 0$, which (2.2) allows. (F2) Two memberships of the same function
-in spaces with the same data at a face $H$ and different data elsewhere combine by a partition of unity subordinate to
-neighbourhoods of the faces, as in Part II.G$'$ Proposition 3.3's first paragraph.
+Two facts used throughout are immediate from the definitions. (F1) A b-vector field $V$ maps
+$H^{k,(\vec E,\vec\alpha)}_{\mathrm b}(M)$ to $H^{k-1,(\vec E,\vec\alpha)}_{\mathrm b}(M)$: in a collar of $H$,
+$V = a\rho_H\partial_{\rho_H}+W$ with $W$ tangent to the slices, and
+$V(\rho_H^z(\log\rho_H)^\ell u) = \rho_H^z(\log\rho_H)^\ell(az+W)u+\ell a\rho_H^z(\log\rho_H)^{\ell-1}u$ for $u$
+independent of $\rho_H$ in the collar (as expansion coefficients are), and $a$ and $W$, which depend on $\rho_H$, are
+re-expanded in their Taylor series at $\rho_H = 0$, adding terms at $z+1+\mathbb N_0$ with the same powers of
+$\log\rho_H$, which (2.2) allows. (F2) Two memberships of the same function in spaces with the same data at a face $H$
+and different data elsewhere combine by a partition of unity subordinate to neighbourhoods of the faces, as in Part
+II.G$'$ Proposition 3.3's first paragraph.
 
 A b-vector field $V$ is *b-normal at $H$* if $V-\chi(\rho_H)\rho_H\partial_{\rho_H}\in\rho_H\mathcal V_{\mathrm b}(M)$
 for a collar $[0,\epsilon)_{\rho_H}\times H$ and $\chi\in C^\infty_c([0,\epsilon))$ equal to 1 near 0; the source's
@@ -112,12 +116,18 @@ then $u\in H^{k,(\vec E,\vec\alpha)}_{\mathrm b}(M)$. Conversely, $u\in H^{k,(\v
 smooth positive factor, which by Definition 2.8's remark does not change the spaces). Conversely: by (1.1) the product
 annihilates $\sum_{(z,\ell)\in E_{H,\le}}\rho_H^z(\log\rho_H)^\ell u^{(z,\ell)}$, the factor $V-z$ being taken once for
 each $(z,\ell)$, $\ell\le k(E_H,z)$, so $k(E_H,z)+1$ times; derivatives falling on the cut-off are supported away from
-$H$; and each factor costs one derivative (F1). Directly: apply Lemma 1.2 to one factor at a time, starting from the
-innermost: if $w := \prod_{\text{rest}}(V-z')u$ then $(V-z)w$ is known, and Lemma 1.2 (whose hypothesis
-$\alpha_H\ne\mathrm{Re}\,z$ is ours) adds $\{(z,0)\}$ to the index set; after all factors the index set at $H$ is
-$\bar\cup$ of the $\{(z,0)\}$ over the factors, which is $E_{H,\le}$ completed by (2.2), and the expansion terms with
-$\mathrm{Re}\,z>\alpha_H$ are absorbed in the remainder. The a priori hypothesis of Lemma 1.2 holds for each
-intermediate $w$ by (F1). $\square$
+$H$; and each factor costs one derivative (F1). Directly: order the factors as $(z_1,\ell_1),\dots,(z_N,\ell_N)$ with
+$\mathrm{Re}\,z_1\ge\dots\ge\mathrm{Re}\,z_N$ and put $w_i := \prod_{j>i}(V-z_j)u$, so that $w_0$ is the left side of
+(1.3), $w_N = u$ and $(V-z_i)w_i = w_{i-1}$. Apply Lemma 1.2 for $i = 1,\dots,N$, peeling the outermost factor first
+(its hypothesis $\alpha_H\ne\mathrm{Re}\,z_i$ is ours): by Definition 2.7 (6) it raises the logarithmic order at $z_i$
+by one and completes by (2.2), which adds pairs only at $z_i+m$, $m\ge1$. In this order those points have real part
+above that of every later factor, so no later raise meets a completion; the count at each $z\in\pi_1E_{H,\le}$ starts at
+$-1$ (the index set of $w_0$ at $H$, that of $\vec E'$, being empty) and is raised $k(E_H,z)+1$ times, to $k(E_H,z)$,
+while completions reaching $z$ from $z-m$ carry at most $k(E_H,z-m)\le k(E_H,z)$. So the index set of $u$ at $H$ is
+$E_{H,\le}$ completed by (2.2), contained in $E_H$, and the expansion terms with $\mathrm{Re}\,z>\alpha_H$ are absorbed
+in the remainder. In another order a raise can meet a completion: for $V(V-1)$ with $V$ peeled first, the completion
+$(1,0)$ of $(0,0)$ is then raised to $(1,1)$ (D226; finding (L7)). The a priori hypothesis of Lemma 1.2 holds for each
+$w_i$ by (F1). $\square$
 
 ### 1.1 Normal operator arguments
 
@@ -163,30 +173,45 @@ set containing the $(\lambda,k)\in\mathrm{Spec}_{\mathrm b}(A)$ with $\mathrm{Re
 E(\alpha)\bar\cup F$, $E_{k+1} := E(\alpha)\bar\cup(F\bar\cup(E_k+1))$, $E := \bigcup_kE_k$. Then $\tilde\chi u\in
 H^{\infty,(E,\beta)}_{\mathrm b}(M)$.
 
-*Proof.* Write $v := \tilde\chi u$ and $N(A) = \sum_jA_j(0)(\rho\partial_\rho)^j$ in the collar. Then $N(A)v = f'$ with
+*Proof.* If $\beta\le\alpha$ there is nothing to prove
+($H^{\infty,\alpha}_{\mathrm b}\subset H^{\infty,(E,\beta)}_{\mathrm b}$), so let $\beta>\alpha$. If some exponent of
+$F$ has real part $\beta$, remove those finitely many terms $\chi\rho^z(\log\rho)^jf_{z,j}$ of $\chi Au$ first:
+$N(A,\cdot)^{-1}$ is holomorphic on $\mathrm{Re}\,\lambda = \beta$, so the circle integral (1.4) of Lemma 1.5 (whose
+proof does not use the present lemma) gives $u_{z,j} = \rho^z\sum_{i\le j}(\log\rho)^iu_i$,
+$u_i\in C^\infty(\partial M)$, with $N(A)u_{z,j} = \rho^z(\log\rho)^jf_{z,j}$; then $A(\chi u_{z,j})$ is that term up to
+$(A-N(A))(\chi u_{z,j})$, whose exponents lie in $z+1+\mathbb N_0$, above $\beta$, and up to terms supported in
+$\rho\ge\frac14\rho_0$. Replacing $u$ by $u-\sum\chi u_{z,j}$ keeps the hypotheses ($\mathrm{Re}\,z = \beta>\alpha$) and
+the conclusion ($(z,j)\in F\subset E$) and removes these terms, so we may assume $\beta\notin\mathrm{Re}\,\pi_1F$ (D226;
+the source leaves this case implicit, finding (L7)). Write $v := \tilde\chi u$ and
+$N(A) = \sum_jA_j(0)(\rho\partial_\rho)^j$ in the collar. Then $N(A)v = f'$ with
 $f' := \chi Au+(\tilde\chi-\chi)Au+[A,\tilde\chi]u-(A-N(A))v$; the second and third terms are supported in
 $\rho\ge\frac14\rho_0$ (where $\tilde\chi u$ is all of the information: there $u$ is of class $H^\infty_{\mathrm{loc}}$
 by ellipticity, so these terms are smooth with compact support in $(0,\rho_0)$ and have entire Mellin transforms
-decaying on vertical lines), and $A-N(A)\in\rho\,\mathrm{Diff}^m_{\mathrm b}$ near $\rho = 0$, so $f'\in
-H^{\infty,(F,\beta)}_{\mathrm b}+H^{\infty,\alpha+1}_{\mathrm b}$ after cutting off. Let $\gamma :=
-\min(\beta,\alpha+1)$, decreased slightly if necessary so that no $\mathrm{Re}\,\lambda$,
+decaying on vertical lines), and $A-N(A)\in\rho\,\mathrm{Diff}^m_{\mathrm b}$ near $\rho = 0$, so
+$f'\in H^{\infty,(F,\beta)}_{\mathrm b}+H^{\infty,\alpha+1}_{\mathrm b}$ after cutting off. Let
+$\gamma := \min(\beta,\alpha+1)$, decreased slightly if necessary so that no $\mathrm{Re}\,\lambda$,
 $\lambda\in\mathrm{spec}_{\mathrm b}(A)\cup\pi_1F$, equals $\gamma$ (possible as these are discrete in every strip;
-$\beta$ itself is excluded by hypothesis when $\gamma = \beta$). By (M1), $\mathcal Mv$ is holomorphic in
-$\mathrm{Re}\,\lambda<\alpha$ and $N(A,\lambda)\mathcal Mv = \mathcal Mf'$ there; by (M2) and (E2),
+$\beta$ itself is excluded, by the hypothesis and the reduction above, when $\gamma = \beta$). By (M1), $\mathcal Mv$ is
+holomorphic in $\mathrm{Re}\,\lambda<\alpha$ and $N(A,\lambda)\mathcal Mv = \mathcal Mf'$ there; by (M2) and (E2),
 $N(A,\lambda)^{-1}\mathcal Mf'$ is meromorphic in $\mathrm{Re}\,\lambda<\gamma$ and continues $\mathcal Mv$. Its poles
-with $\mathrm{Re}\,\lambda\le\alpha$ cancel (as $\mathcal Mv$ is holomorphic there); at $\lambda$ with
-$\alpha<\mathrm{Re}\,\lambda<\gamma$ the pole order is at most the order of $N(A,\cdot)^{-1}$ plus that of $\mathcal
-Mf'$. Now $v = \frac1{2\pi i}\int_{\mathrm{Re}\,\lambda = c}\rho^\lambda\mathcal Mv\,d\lambda$ for $c<\alpha$, and we
-move the contour to $\mathrm{Re}\,\lambda = \gamma$. This is justified by (E1) and (M2): on the horizontal segments
-$\{c\le\mathrm{Re}\,\lambda\le\gamma,\ \mathrm{Im}\,\lambda = \pm T\}$, along a sequence $T\to\infty$,
-$\|N(A,\lambda)^{-1}\mathcal Mf'(\lambda)\|_{H^N}\to0$ for every $N$ (square-integrability in $\mathrm{Im}\,\lambda$ of
-$|\lambda|^{N'}\|\mathcal Mf'\|_{H^{N'}}$ uniformly in the strip gives such a sequence). The residues at the finitely
-many poles in $\alpha<\mathrm{Re}\,\lambda<\gamma$ are of the form $\rho^\lambda\sum_{j\le p}(\log\rho)^ja_j$, $a_j\in
-C^\infty(\partial M)$, with $p+1$ the pole order: by the order count these lie in $H^{\infty,(E(\alpha)\bar\cup
-F,\gamma')}$ for every $\gamma'<\gamma$ (the extended union $\bar\cup$ of (5) of Definition 2.7 is precisely the
-addition of pole orders, $(z,k+l+1)$ from orders $k+1$ and $l+1$). The integral on $\mathrm{Re}\,\lambda = \gamma$ lies
-in $H^{\infty,\gamma}_{\mathrm b}$ by (M1), using (E1) for all $|\lambda|$-weighted norms. So $v\in
-H^{\infty,(E_0,\gamma)}$ near $\rho = 0$. If $\gamma = \beta$ we are done. Otherwise $\gamma<\beta$ (and
+with $\mathrm{Re}\,\lambda<\alpha$ cancel (as $\mathcal Mv$ is holomorphic there), and there are none on
+$\mathrm{Re}\,\lambda = \alpha$: a pole $\lambda_0$ there would make $\int|\mathcal Mv(c+i\eta)|^2d\eta$ grow at least
+like $(\alpha-c)^{-1}$ as $c\uparrow\alpha$, against the uniform bound of (M1); at $\lambda$ with
+$\alpha<\mathrm{Re}\,\lambda<\gamma$ the pole order is at most the order of $N(A,\cdot)^{-1}$ plus that of
+$\mathcal Mf'$. Now $v = \frac1{2\pi i}\int_{\mathrm{Re}\,\lambda = c}\rho^\lambda\mathcal Mv\,d\lambda$ for $c<\alpha$,
+and we move the contour to $\mathrm{Re}\,\lambda = \gamma$. This is justified by (E1) and (M2): on the horizontal
+segments $\{c\le\mathrm{Re}\,\lambda\le\gamma,\ \mathrm{Im}\,\lambda = \pm T\}$, along a sequence $T\to\infty$,
+$\int_c^\gamma\|N(A,s\pm iT)^{-1}\mathcal Mf'(s\pm iT)\|^2_{H^N}ds\to0$ for every $N$ (by Fubini, the
+square-integrability in $\mathrm{Im}\,\lambda$ of $|\lambda|^{N'}\|\mathcal Mf'\|_{H^{N'}}$, uniform in the strip, makes
+$T\mapsto\int_c^\gamma\|\mathcal Mf'(s\pm iT)\|^2_{H^{N'}}ds$ integrable, hence small along a sequence, which a diagonal
+choice makes one for all $N$; (E1) bounds $N(A,\cdot)^{-1}$ there). This is a statement in $L^2$ on the segments, not a
+pointwise one, and it is what the contour shift uses. The residues at the finitely many poles in
+$\alpha<\mathrm{Re}\,\lambda<\gamma$ are of the form $\rho^\lambda\sum_{j\le p}(\log\rho)^ja_j$,
+$a_j\in C^\infty(\partial M)$, with $p+1$ the pole order: by the order count these lie in
+$H^{\infty,(E(\alpha)\bar\cup F,\gamma')}$ for every $\gamma'<\gamma$ (the extended union $\bar\cup$ of (5) of
+Definition 2.7 is precisely the addition of pole orders, $(z,k+l+1)$ from orders $k+1$ and $l+1$). The integral on
+$\mathrm{Re}\,\lambda = \gamma$ lies in $H^{\infty,\gamma}_{\mathrm b}$ by (M1), using (E1) for all $|\lambda|$-weighted
+norms. So $v\in H^{\infty,(E_0,\gamma)}$ near $\rho = 0$. If $\gamma = \beta$ we are done. Otherwise $\gamma<\beta$ (and
 $\gamma\le\alpha+1$); repeat with $\alpha$ replaced by $\gamma-\delta'$ for small $\delta'>0$ and the expansion found so
 far moved into the right side: $(A-N(A))$ applied to $\rho^\lambda(\log\rho)^ja$ is, by Taylor expansion of the
 coefficients $A_j(\rho)$ at $\rho = 0$, an expansion with exponents in $\lambda+1+\mathbb N_0$ and the same log powers,
@@ -215,11 +240,12 @@ $N(A,\cdot)^{-1}$ gain $m$ derivatives), $p = \mathrm{ord}(\lambda)$. Then $\chi
 $f-A(\chi u)$ has the term removed, up to $(A-N(A))(\chi u)$, an expansion with exponents in $\lambda+1+\mathbb N_0$ and
 log powers $\le\ell+p$ (Taylor expansion of the coefficients; this term depends smoothly on $b$ when $A$ does), and up
 to commutator terms supported away from $\rho = 0$, which are $\mathcal A^\infty$ near $\partial M$. Iterating over the
-finitely many terms with $\mathrm{Re}\,\lambda<\beta$ (new terms with exponents $\lambda+j$ and log powers raised by the
-pole orders met, which is the definition of $E$) gives $u$ with $f-Au\in H^{k,\beta}_{\mathrm b}$ resp. $\mathcal A^G$;
-for $\beta = \infty$, take an asymptotic (Borel) sum of the infinitely many terms, which is continuous but not linear.
-Each step is a fixed linear operation, the circle integral (1.4) involving no choice (adding an indicial solution
-$\rho^\lambda u_0\in\ker N(A)$ would be a choice); hence $S$ is linear, continuous, and smooth in $b$. $\square$
+finitely many terms with $\mathrm{Re}\,\lambda\le\beta$ (new terms with exponents $\lambda+j$ and log powers raised by
+the pole orders met, which is the definition of $E$) gives $u$ with $f-Au\in H^{k,\beta}_{\mathrm b}$ resp.
+$\mathcal A^G$; for $\beta = \infty$, take an asymptotic (Borel) sum of the infinitely many terms, which is continuous
+but not linear. Each step is a fixed linear operation, the circle integral (1.4) involving no choice (adding an indicial
+solution $\rho^\lambda u_0\in\ker N(A)$ would be a choice); hence $S$ is linear, continuous, and smooth in $b$.
+$\square$
 
 ## 2. Scattering and 3b-notions at n = 4
 
@@ -350,12 +376,14 @@ and (1.2) with $u$ in place of $u-u(0)$ shows $u\in H^{k,\alpha,(F,\beta)}$ ($y$
 at $y = 0$ preserved as in Lemma 1.2). Uniqueness: a solution of $x\partial_xu = 0$ is a function $c(y,q)$ of the other
 variables, which lies in $H^{k,(E,\alpha)}$ at $x = 0$ only if $c = 0$, as $\alpha>0$ and $(0,0)\notin E$. $\square$
 
-**Lemma 3.2 ([Hin26] Lemma 2.23).** Let $z\in\mathbb C$, $\alpha>\beta$, and $\mathrm{Re}(w+z)\ne\beta$ for all
-$(w,0)\in E$. If $(x\partial_x-y\partial_y+z)u = f\in H^{k,(E,\alpha),(F,\beta)}_{\mathrm b}$ and $(1-\chi(y))u\in
-H^{k,(E,\alpha),\infty}_{\mathrm b}$, then $u\in H^{k,(E,\alpha),((E+z)\bar\cup F,\beta)}_{\mathrm b}$.
+**Lemma 3.2 ([Hin26] Lemma 2.23, with (L5) repaired).** Let $z\in\mathbb C$, $\alpha+\mathrm{Re}\,z>\beta$, and
+$\mathrm{Re}(w+z)\ne\beta$ for all $(w,0)\in E$. If
+$(x\partial_x-y\partial_y+z)u = f\in H^{k,(E,\alpha),(F,\beta)}_{\mathrm b}$ and
+$(1-\chi(y))u\in H^{k,(E,\alpha),\infty}_{\mathrm b}$, then $u\in H^{k,(E,\alpha),((E+z)\bar\cup F,\beta)}_{\mathrm b}$.
 
 *Proof.* $(x\partial_x-y\partial_y)(x^zu) = x^zf$; replacing $(u,f,E,\alpha)$ by $(x^zu,x^zf,E+z,\alpha+\mathrm{Re}\,z)$
-reduces to $z = 0$.
+reduces to $z = 0$ with $\alpha>\beta$, which is where $\alpha+\mathrm{Re}\,z>\beta$ is used (the source assumes
+$\alpha>\beta$; finding (L5)).
 
 *Step 1, at $x = 0$.* Let $(w,\ell)$, $\ell = k(E,w)$, with $\mathrm{Re}\,w = \min\mathrm{Re}\,E\le\alpha$, and
 $x^w(\log x)^\ell v(y,q)$, $v\in H^{k,(F,\beta)}_{\mathrm b}([0,2)\times(-2,2)^d)$, the corresponding term of $f$. By
@@ -401,6 +429,55 @@ $$= |\beta|^{-1}\iint s^{-2\beta}\int_0^xt^{-\beta}x^\beta|f^\flat(t,s)|^2\frac{
 \le|\beta|^{-2}\iint s^{-2\beta}|f^\flat(t,s)|^2\frac{dt}t\frac{ds}s,$$
 with $x$ ranging over $(0,2)$ (the source writes $(0,1)$; nothing changes). $\square$
 
+**Lemma 3.3 (a product of such operators; D226).** Let $z_1,\dots,z_N\in\mathbb C$, repetitions allowed, and let $Z$ be
+the smallest index set with $k(Z,z)\ge\#\{j:z_j = z\}-1$ for every $z$. Let $E$ be an index set without logarithms
+($k(E,w) = 0$ for $w\in\pi_1E$), and suppose $\alpha+\mathrm{Re}\,z_j>\beta$ and $\mathrm{Re}(w+z_j)\ne\beta$ for all
+$w\in\pi_1E$ and all $j$. If
+$$Pu = f\in H^{k,(E,\alpha),(F,\beta)}_{\mathrm b},\qquad(1-\chi(2y))u\in H^{k+N,(E,\alpha),\infty}_{\mathrm b},\qquad
+P := \prod_{j=1}^N(x\partial_x-y\partial_y+z_j),\tag{3.4}$$
+then $u\in H^{k,(E,\alpha),((E+Z)\bar\cup F,\beta)}_{\mathrm b}$, with $E+Z$ the sum of Definition 2.7 (4).
+
+For $N = 1$ this is Lemma 3.2 for log-free $E$ ($Z = \{(z_1+m,0):m\in\mathbb N_0\}$ and $E+Z = E+z_1$). Iterating Lemma
+3.2 instead loses: once $z$ and $z+1$ both occur, the factor $z+1$ meets the pair $(z+1,0)$ that $E+z$ has put into the
+index set at $y = 0$ and returns $(z+1,1)$, which $(E+Z)\bar\cup F$ need not contain. The cure is to solve for each
+coefficient in $x$ at once.
+
+*Proof.* Order the factors so that $\mathrm{Re}\,z_1\ge\dots\ge\mathrm{Re}\,z_N$, and let $G := (E+Z)\bar\cup F$.
+
+*Step 1, at $x = 0$, one coefficient at a time.* As $E$ has no logarithms, (3.1) gives
+$P(x^wa(y,q)) = x^w\prod_j(w+z_j-y\partial_y)a$ exactly. For $w\in\pi_1E$ with $\mathrm{Re}\,w\le\alpha$, let
+$v_w\in H^{k,(F,\beta)}_{\mathrm b}$ be the coefficient of $x^w$ in $f$, and $a_w$ that of $u$ on $\{y\ge\frac38\}$,
+which lies in $H^{k+N}$ there by (3.4) and solves $\prod_j(w+z_j-y\partial_y)a_w = v_w$ there. Extend $a_w$ to
+$y\in(0,2)$ as the solution of this ordinary differential equation (with constant coefficients in $\log y$, $q$ a
+parameter). Put $b_N := a_w$ and $b_{i-1} := (w+z_i-y\partial_y)b_i$, so that $b_0 = v_w$ and
+$(y\partial_y-(w+z_i))b_i = -b_{i-1}$. Apply Lemma 1.2 in $y$ for $i = 1,\dots,N$ in this order: its hypothesis
+$\beta\ne\mathrm{Re}(w+z_i)$ is ours, and $(1-\chi(y))b_i\in H^k$ because $b_i$ is $N-i$ derivatives of $a_w$ on
+$\{y\ge\frac38\}$. It gives $b_i\in H^{k,(G_i,\beta)}_{\mathrm b}$ with $G_0 := F$ and
+$G_i := G_{i-1}\bar\cup\{(w+z_i,0)\}$ (Definition 2.7 (6)). The completion by (2.2) at step $i$ adds pairs only at
+$w+z_i+m$, $m\ge1$, whose real parts exceed those of every later $w+z_{i'}$. So no later raise meets a completion: the
+count at $c$ is raised from $k(F,c)$ once for each $j$ with $w+z_j = c$, to at most
+$k(F,c)+k(Z+w,c)+1 = k((Z+w)\bar\cup F,c)$, and a completion reaching $c$ from $c-m$ carries at most the final count at
+$c-m$. By induction on $\mathrm{Re}\,c$, $G_N\subset(Z+w)\bar\cup F\subset G$, the extended union being monotone in each
+argument and $Z+w\subset E+Z$. Moreover $(y\partial_y)^ma_w$, $m\le N$, is a linear combination of $b_N,\dots,b_{N-m}$,
+so it too lies in $H^{k,(G,\beta)}_{\mathrm b}$.
+
+Let $u_0 := \sum_w\chi(x)x^wa_w$, summed over $w\in\pi_1E$ with $\mathrm{Re}\,w\le\alpha$; then
+$u_0\in H^{k,(E,\alpha),(G,\beta)}_{\mathrm b}$ near $x = 0$, and
+$Pu_0 = \sum_w\chi(x)x^wv_w+\sum_w[P,\chi(x)](x^wa_w)$. Each commutator term is supported in $x\in[\frac12,\frac34]$ and
+applies at most $N-1$ of the fields $x\partial_x$, $y\partial_y$ to $x^wa_w$, so it lies in
+$H^{k,\infty,(G,\beta)}_{\mathrm b}$ by the last remark. Hence $\tilde u := u-u_0$ satisfies
+$P\tilde u =: \tilde f\in H^{k,\alpha,(G,\beta)}_{\mathrm b}$ ($f$ less its expansion at $x = 0$ lies in
+$H^{k,\alpha,(F,\beta)}_{\mathrm b}$, and $F\subset G$), and
+$(1-\chi(2y))\tilde u\in H^{k+N,\alpha,\infty}_{\mathrm b}$, since the $a_w$ are the coefficients of $u$ on
+$\{y\ge\frac38\}$.
+
+*Step 2, the factors one at a time with nothing at $x = 0$.* Put $\tilde w_N := \tilde u$ and
+$\tilde w_{i-1} := (x\partial_x-y\partial_y+z_i)\tilde w_i$, so that $\tilde w_0 = \tilde f$. For $i = 1,\dots,N$, Lemma
+3.2 with the empty index set at $x = 0$ (its hypothesis on $E$ is then void, $\alpha+\mathrm{Re}\,z_i>\beta$ is ours,
+and $(1-\chi(y))\tilde w_i\in H^{k,\alpha,\infty}_{\mathrm b}$ by the order $k+N$ in (3.4)) gives
+$\tilde w_i\in H^{k,\alpha,(\emptyset\bar\cup G,\beta)}_{\mathrm b} = H^{k,\alpha,(G,\beta)}_{\mathrm b}$. So
+$u = u_0+\tilde w_N\in H^{k,(E,\alpha),(G,\beta)}_{\mathrm b}$. $\square$
+
 ## 4. The Fourier transform with partial expansions ([Hin26] section 2.3 at n = 4)
 
 Let $X := \mathbb R^4_x$ (radially compactified), $M := [\overline{\mathbb R}_{t_*}\times\bar
@@ -441,11 +518,12 @@ $\partial_\sigma\mathcal Fu = \mathcal F(it_*u)$), and that $\mathcal F$ commute
 $\sigma\partial_\sigma$ commutes with $1_{\pm\sigma>0}$ and $[\sigma\partial_\sigma,\chi(\sigma)] = \sigma\chi'(\sigma)$
 is supported in $\frac12\le|\sigma|\le1$, we have, for $v$ as in (2.26a) and any $z$,
 $$\mathcal F^{-1}\big((\sigma\partial_\sigma-(z-1))w\big) = (-t_*\partial_{t_*}-z)\mathcal F^{-1}w\tag{4.1}$$
-for every tempered $w$, and $(\sigma\partial_\sigma-(z-1))v =
-\chi(\sigma)\sum_\pm1_{\pm\sigma>0}(\sigma\partial_\sigma-(z-1))v^\pm+r$ with $r$ supported in $\frac12\le|\sigma|\le1$.
-Such an $r$, if of class $H^{k',\beta_{\mathrm{scf}}}$ there, has $\mathcal F^{-1}r\in
-H^{k'-\ell',(\beta_{\mathrm{scf}}-\epsilon,N,N)}_{\mathrm b}(M)$ for every $N$, by (2.26a) with the tf- and zf-weights
-taken arbitrarily large (it vanishes near tf and zf); we call such terms *harmless*.
+for every tempered $w$, and
+$(\sigma\partial_\sigma-(z-1))v = \chi(\sigma)\sum_\pm1_{\pm\sigma>0}(\sigma\partial_\sigma-(z-1))v^\pm+r$ with $r$
+supported in $\frac12\le|\sigma|\le1$. Such an $r$, if of class $H^{k',\beta_{\mathrm{scf}}}$ there, has
+$\mathcal F^{-1}r\in H^{k'-\ell',(\beta_{\mathrm{scf}}-\epsilon,N,N)}_{\mathrm b}(M)$ for every $N$, with a loss
+$\ell' = \ell'(N)$ that grows with $N$ (II.G$'$ Proposition 3.5 (1)) and is finite for the finitely many $N$ used, by
+(2.26a) with the tf- and zf-weights taken arbitrarily large (it vanishes near tf and zf); we call such terms *harmless*.
 
 **Lemma 4.1 ([Hin26] Lemma 2.24).** Let $\chi\in C^\infty_c((-1,1))$ equal 1 near 0. The following are b-normal vector
 fields: (1) $-t_*\partial_{t_*}$ at $K$; (2) $-t_*\partial_{t_*}-\chi(r^{-1})r\partial_r$ at $\iota$ (defined as
@@ -535,38 +613,49 @@ $$\prod_{(z,m)\in E_{K,\le}}(\sigma\partial_\sigma-(z-1))\,\mathcal Fu = \mathca
 H^{k,(\min(\beta_I,\tilde\beta_\iota)-\epsilon,\ (E_\iota-1,\beta_\iota-1),\ ((0,0),\beta_K-1))}_{\mathrm b}.$$
 Apply in addition $\prod_{j\le\lfloor\beta_K-1\rfloor}(\sigma\partial_\sigma-j)$, which annihilates the zf-terms of
 index set $(0,0)$ with real part $\le\beta_K-1$, so that the right side has empty index set at zf and weight
-$\beta_K-1$; then integrate one factor at a time by Lemma 1.2 at zf (Lemma 4.1 (4); its hypotheses are $\beta_K-1\ne j$,
-true as $\beta_K\notin\mathbb N$, and $\beta_K-1\ne\mathrm{Re}(z-1)$, true as $\beta_K\notin\mathrm{Re}\,\pi_1E_K$; the
-a priori hypothesis away from zf is (4.7)). The index set obtained at zf is $(0,0)\bar\cup(E_K-1)$ (below the weight
-$\beta_K-1$), which with (4.7) at tf and scf is (4.3).
+$\beta_K-1$; then integrate one factor at a time, in decreasing order of real part as in Lemma 1.3, by Lemma 1.2 at zf
+(Lemma 4.1 (4); its hypotheses are $\beta_K-1\ne j$, true as $\beta_K\notin\mathbb N$, and
+$\beta_K-1\ne\mathrm{Re}(z-1)$, true as $\beta_K\notin\mathrm{Re}\,\pi_1E_K$; the a priori hypothesis away from zf is
+(4.7)). The index set obtained at zf is $(0,0)\bar\cup(E_K-1)$ (below the weight $\beta_K-1$): in this order each
+exponent $c$ is raised once per factor, from $-1$ to $k((0,0),c)+k(E_K-1,c)+1$, and the completions by (2.2) stay below
+that. With (4.7) at tf and scf this is (4.3).
 
 *Part (1), general $E_I$.* Let $\chi_K\in C^\infty(M)$ equal 1 near $K$ and 0 near $I$. $\chi_Ku$ vanishes near $I$, so
 it lies in the space with $E_I = \emptyset$ and any $I$-weight $\beta'_I\ge\beta_I$; the case just proved, with
 $\beta'_I$ so large that $\min(\beta'_I,\tilde\beta_\iota) = \tilde\beta_\iota$, gives (4.3) for it (its tf index set
 $E_\iota-1$ lies in $(E_\iota-1)\bar\cup E_I$). So assume $u$ vanishes near $K$; then $E_K = \emptyset$ and the
-$K$-weight is arbitrary: fix $\beta_K>\beta_\iota$, $\beta_K\notin\mathbb N$. Let $\tilde\chi\in C^\infty_c(X)$ equal 1
-on $\{|x|\le4\}$. As $u$ vanishes near $K$, $\tilde\chi u$ has compact support in $(t_*,x)$, so $\mathcal F(\tilde\chi
-u)$ is entire in $\sigma$ with values in $H^{k+l}_{\mathrm b}$ of compact support in $x$: it lies in
-$H^{k+l,(\infty,\infty,((0,0),\beta_K-1))}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b})$. Let $R_I := \prod_{(z,m)\in
-E_{I,\le}}(-\chi(r^{-1})r\partial_r-z)$; by Lemma 1.3's converse at $I$ (Lemma 4.1 (3)) and (F1), $R_Iu\in
-H^{k+l-|E_{I,\le}|,(\beta_I,(E_\iota,\beta_\iota),\beta_K)}_{\mathrm b}$, and the case $E_I = \emptyset$ gives
+$K$-weight is arbitrary: fix $\beta_K\notin\mathbb N$, at least its given value (so (4.2) persists), with
+$\beta_K>\beta_\iota+\max(0,-\min\mathrm{Re}\,E_I)$, so that $\beta_K-1+\mathrm{Re}\,z>\beta_\iota-1$ for every
+$z\in\pi_1E_I$, as Lemma 3.3 needs. Let $\tilde\chi\in C^\infty_c(X)$ equal 1 on $\{|x|\le8\}$. As $u$ vanishes near
+$K$, $\tilde\chi u$ has compact support in $(t_*,x)$, so $\mathcal F(\tilde\chi u)$ is entire in $\sigma$ with values in
+$H^{k+l}_{\mathrm b}$ of compact support in $x$: it lies in
+$H^{k+l,(\infty,\infty,((0,0),\beta_K-1))}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b})$. Let
+$R_I := \prod_{(z,m)\in E_{I,\le}}(-\chi(r^{-1})r\partial_r-z)$; by Lemma 1.3's converse at $I$ (Lemma 4.1 (3)) and
+(F1), $R_Iu\in H^{k+l-|E_{I,\le}|,(\beta_I,(E_\iota,\beta_\iota),\beta_K)}_{\mathrm b}$, and the case $E_I = \emptyset$
+gives
 $$\prod_{(z,m)\in E_{I,\le}}(\chi(\rho)\rho\partial_\rho-z)\,\mathcal Fu
 = \mathcal F(R_Iu)\in H^{k+l',\ (\min(\beta_I,\tilde\beta_\iota)-\epsilon,\ (E_\iota-1,\beta_\iota-1),\ ((0,0),
 \beta_K-1))}_{\mathrm b},
 \quad l' := l-|E_{I,\le}|-l_0,$$
-$l_0$ the loss of the case $E_I = \emptyset$. Integrate from $\rho\ge\frac12$ (where $\mathcal Fu = \mathcal
-F(\tilde\chi u)$) towards $\rho = 0$, one factor at a time. Near zf, in $\rho_{\mathrm{zf}} = |\sigma|/\rho$,
-$\rho_{\mathrm{tf}} = \rho$, we have $\rho\partial_\rho-z =
--(\rho_{\mathrm{zf}}\partial_{\rho_{\mathrm{zf}}}-\rho_{\mathrm{tf}}\partial_{\rho_{\mathrm{tf}}}+z)$, the operator of
-Lemma 3.2 with $x = \rho_{\mathrm{zf}}$, $y = \rho_{\mathrm{tf}}$, $(E,\alpha) = ((0,0),\beta_K-1)$ and $(F,\beta) =
-(E_\iota-1,\beta_\iota-1)$ (enlarged by the steps already done): $\alpha>\beta$ as $\beta_K>\beta_\iota$, and
-$\mathrm{Re}(w+z)\ne\beta_\iota-1$ for $w\in\mathbb N_0$, as $\beta_\iota-1\notin\mathrm{Re}\,\pi_1E_I$ and index sets
-are closed under adding $\mathbb N_0$. So the index sets of $\mathcal Fu$ at zf and tf are $((0,0),\beta_K-1)$ and
-$(E_I\bar\cup(E_\iota-1),\beta_\iota-1)$ (each factor adds $((0,0)+z)$, and over the factors these generate $E_{I,\le}$,
-completed by (2.2), below the weight). Near scf, in $\rho_{\mathrm{scf}} = \rho/|\sigma|$, $\rho_{\mathrm{tf}}
-= |\sigma|$, $\rho\partial_\rho-z = \rho_{\mathrm{scf}}\partial_{\rho_{\mathrm{scf}}}-z$, and Lemma 1.2 at scf (with
-$\min(\beta_I,\tilde\beta_\iota)-\epsilon\ne\mathrm{Re}\,z$ by the choice of $\epsilon$) gives the index set
-$(E_I,\min(\beta_I,\tilde\beta_\iota)-\epsilon)$ there. This is (4.3).
+$l_0$ the loss of the case $E_I = \emptyset$. Integrate from $\rho\ge\frac18$, where
+$\mathcal Fu = \mathcal F(\tilde\chi u)$, towards $\rho = 0$. Near zf, in $\rho_{\mathrm{zf}} = |\sigma|/\rho$,
+$\rho_{\mathrm{tf}} = \rho$, each factor $\rho\partial_\rho-z$ equals
+$-(\rho_{\mathrm{zf}}\partial_{\rho_{\mathrm{zf}}}-\rho_{\mathrm{tf}}\partial_{\rho_{\mathrm{tf}}}+z)$, so the product
+is $\pm$ the operator of Lemma 3.3 with $x = \rho_{\mathrm{zf}}$, $y = \rho_{\mathrm{tf}}$, one $z_j$ for each
+$(z,m)\in E_{I,\le}$ (so $z$ occurs $k(E_I,z)+1$ times and $Z$ is $E_{I,\le}$ completed by (2.2), contained in $E_I$),
+$(E,\alpha) = ((0,0),\beta_K-1)$, which has no logarithms, and $(F,\beta) = (E_\iota-1,\beta_\iota-1)$. Its hypotheses
+hold: $\beta_K-1+\mathrm{Re}\,z>\beta_\iota-1$ by the choice of $\beta_K$; $\mathrm{Re}(w+z)\ne\beta_\iota-1$ for
+$w\in\mathbb N_0$, as $\beta_\iota-1\notin\mathrm{Re}\,\pi_1E_I$ and index sets are closed under adding $\mathbb N_0$;
+and on $\rho\ge\frac14$, where $1-\chi(2\rho)\ne0$, the a priori condition is $\mathcal Fu = \mathcal F(\tilde\chi u)$,
+of order $k+l\ge k+l'+|E_{I,\le}|$. As $(0,0)+Z = Z$, Lemma 3.3 gives the index sets $((0,0),\beta_K-1)$ at zf and
+$(Z\bar\cup(E_\iota-1),\beta_\iota-1)\subset(E_I\bar\cup(E_\iota-1),\beta_\iota-1)$ at tf. (Integrating one factor at a
+time by Lemma 3.2, as the source does and as this proof did before D226, returns $(z+1,1)$ at tf whenever $z$ and $z+1$
+both occur, a logarithm (4.3) does not contain; finding (L6).) Near scf, in $\rho_{\mathrm{scf}} = \rho/|\sigma|$,
+$\rho_{\mathrm{tf}} = |\sigma|$, $\rho\partial_\rho-z = \rho_{\mathrm{scf}}\partial_{\rho_{\mathrm{scf}}}-z$, and Lemma
+1.2 at scf, one factor at a time in decreasing order of $\mathrm{Re}\,z$ as in Lemma 1.3 (with
+$\min(\beta_I,\tilde\beta_\iota)-\epsilon\ne\mathrm{Re}\,z$ by the choice of $\epsilon$; the a priori condition on
+$\rho_{\mathrm{scf}}\ge\frac12$ holds in the zf chart, and the tf index set found there is carried as the data at the
+other face), gives the index set $(E_I,\min(\beta_I,\tilde\beta_\iota)-\epsilon)$ there. This is (4.3).
 
 *Part (2), $E_K = \emptyset$.* Then (4.4) is the equality of the $\sigma$-Taylor coefficients of $v^\pm$ of orders
 $\le\lfloor\beta_K-1\rfloor$ (as $\ell_j = -1$), and $v^\pm\in
@@ -608,14 +697,14 @@ With $l$ the sum of the losses met, this is (4.5). $\square$
 Part III's later sections use: Lemma 1.3 (testing) and Lemma 1.2 (integration) to prove partial expansions at the faces
 of $M$ and $X_{\mathrm{sc}\text-\mathrm b}$; Lemma 1.4 and Lemma 1.5 for normal-operator expansions at sf, where the
 indicial roots are those of Part III.A$'$; Lemma 2.4 and (2.4)-(2.5) for the spectral families and the normal operator
-at sf of the stationary operators of Part III.B at $n = 4$; Lemmas 3.1-3.2 for the integration of the transport
+at sf of the stationary operators of Part III.B at $n = 4$; Lemmas 3.1-3.3 for the integration of the transport
 operators at $\iota$ and $I$; and Proposition 4.2 for the passage between the time and frequency sides. Every statement
 here is in b-densities, so the numbers in the hypotheses ($\beta_\iota-1$, $\beta_K-1$, the conditions (4.2)) are those
 of the source; the dimension enters only through the inputs from Part II.G$'$, which are proved at $n = 4$.
 
 ## 6. Labels
 
-Proved here: Lemmas 1.1-1.5, 2.4, 3.1, 3.2, 4.1 and Proposition 4.2, the identities in Definitions 2.1-2.3 and
+Proved here: Lemmas 1.1-1.5, 2.4, 3.1-3.3, 4.1 and Proposition 4.2, the identities in Definitions 2.1-2.3 and
 (2.4)-(2.5). Proved in Part II.G$'$ at $n = 4$: the inputs (2.25a)-(2.26b). Standard facts used without proof, and
 named: Plancherel's theorem; the elliptic estimate with a large parameter and analytic Fredholm theory for
 $N(A,\lambda)$ (E1)-(E2); elliptic regularity in the interior; Cauchy's integral formula. Definitions are the source's,
@@ -645,6 +734,26 @@ supported in $\frac12\le|\sigma|\le1$ and its inverse transform is harmless ((4.
 
 (L4) *Cauchy's formula in Lemma 2.15.* The source prints $\rho^\lambda(\log\rho)^\ell = \frac1{2\pi
 i\,\ell!}\oint\rho^\zeta(\zeta-\lambda)^{-\ell-1}d\zeta$; the constant is $\frac{\ell!}{2\pi i}$. Harmless (a constant).
+
+(L5) *The hypothesis of Lemma 2.23.* The source assumes $\alpha>\beta$ and reduces to $z = 0$ by $u\mapsto x^zu$, which
+turns $\alpha$ into $\alpha+\mathrm{Re}\,z$; the case $z = 0$ needs $\alpha+\mathrm{Re}\,z>\beta$, and the condition is
+necessary: for $\alpha+\mathrm{Re}\,z<c<\beta$, $u := x^{-z}\chi(xy)(xy)^c$ solves $(x\partial_x-y\partial_y+z)u = 0$,
+satisfies the a priori condition with $E = \emptyset$, and is not in $H^{k,\alpha,\beta}_{\mathrm b}$, being $y^c$ times
+a smooth nonvanishing function near $y = 0$, $x = \frac12$. Repaired in Lemma 3.2. In Proposition 2.25 the weight
+$\beta_K$ is free in the case where the condition is used (the function vanishes near $K$) and is taken large enough
+(D226).
+
+(L6) *The iteration in the proof of Proposition 2.25 (1).* For general $E_I$ the source integrates the factors of $R_I$
+one at a time by Lemma 2.23 and states the tf index set $E_I\bar\cup(E_\iota-1)$. Each step adds $E+z = z+\mathbb N_0$
+at tf ($E = (0,0)$ at zf), so once $z$ and $z+1$ both occur in $E_{I,\le}$, in either order of integration, the extended
+union returns $(z+1,1)$, a logarithm the stated set need not contain; the proof as printed gives a strictly larger index
+set. The stated set is right: it follows coefficient by coefficient in the zf variable (Lemma 3.3), which this part now
+uses. Found by the ninety-third verifier (D226).
+
+(L7) *Two conventions left implicit.* The source's Lemma 2.11 integrates one factor at a time in no stated order; by
+Definition 2.7 (6) the result depends on the order (for $V(V-1)$, integrating $V$ first gives $(1,1)$), and decreasing
+real part gives the stated set (Lemma 1.3). Its Lemmas 2.13 and 2.15 reach the weight $\beta$ only if no exponent of $F$
+has real part $\beta$ or those terms are solved first (Lemmas 1.4, 1.5). Found by the ninety-third verifier (D226).
 
 ### 7.2 Sources
 

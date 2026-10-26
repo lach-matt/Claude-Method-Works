@@ -1,14 +1,15 @@
 # Part II.C. Wave-type operators, the time function and the order functions, at n = 4
 
-*Status.* Verified. Written out in full (D198). Read line by line by the eighty-second verifier, which re-derived every
+*Status.* Verified; a D226 correction (the remark after Lemma 2.2: the source's conjugation (5.9) is I.B Lemma 6.0) is
+to be read. Written out in full (D198). Read line by line by the eighty-second verifier, which re-derived every
 computation and confirmed (C1)-(C3) at source; its one minor finding (the form of the Minkowski metric stated in the
 proof of Lemma 1.3, on which the argument for $\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ rested; the claim holds) and
 seven nits are seated (D200). The part is labelled proved once the next reader has confirmed them. This part proves, at
 spatial dimension $n = 4$, [Hin26c] section 5 (pp. 100-110) and section 6 (pp. 110-114) except its Proposition 6.3, the
 stable and unstable trapped sets of perturbed metrics, which is the subject of Part II.C$'$ (in writing). The source is
-[Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B
-(`PART-I-B-HIGHENERGY.md`) as I.B, Part I.C (`PART-I-C-LOWENERGY.md`) as I.C, Part II.A (`PART-II-A-SETUP.md`) as II.A
-and Part II.B (`PART-II-B-DYNAMICS.md`) as II.B.
+[Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part
+I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part I.C (`PART-I-C-LOWENERGY.md`) as I.C, Part II.A (`PART-II-A-SETUP.md`) as
+II.A and Part II.B (`PART-II-B-DYNAMICS.md`) as II.B.
 
 *Method.* Section 5 of the source consists of definitions and three lemmas. The definitions are restated at $n = 4$: the
 constant 1 of its form (5.1a) becomes $\frac32 = \frac{n-1}2$, the weight $\alpha_{\mathrm{sf}}+\frac32$ of its
@@ -204,10 +205,12 @@ P(0))(\zeta)+\sigma\,\sigma_0(\mathrm{Im}_hT)$, homogeneous of degree 1 in $(\si
 $p_1(1)(\zeta)$ by I.B Lemma 1.1 (b). $\square$
 
 The source's [Hin26c] (5.9), a conjugation by an elliptic operator realising (5.8) for a fixed inner product ([Hin17]
-Proposition 3.12), is not used here; the inner product $h_\Gamma$ enters the trapping estimates directly, as in I.B
-section 6. The source's (5.8) uses the density $|dg|$. A change of density by a smooth factor $f$ changes
-$\mathrm{Im}\,P_0$ by a first-order term with principal symbol $\frac12f^{-1}H_Gf$, so the two conditions need not
-coincide pointwise; Definition 2.1 is the one I.B's trapping estimate uses.
+Proposition 3.12), is I.B Lemma 6.0: for $h_\Gamma$ on phase space, I.B section 6 conjugates by
+$Q = \mathrm{Op}_h(\tilde b^{1/2})$ near $\Gamma$ and carries its estimates back (D226; this remark said before that the
+conjugation was not used, which is true only for $h_\Gamma$ from the base). The source's (5.8) uses the density $|dg|$.
+A change of density by a smooth factor $f$ changes $\mathrm{Im}\,P_0$ by a first-order term with principal symbol
+$\frac12f^{-1}H_Gf$, so the two conditions need not coincide pointwise; Definition 2.1 is the one I.B's trapping
+estimate uses.
 
 ### 2.2 The transition face
 

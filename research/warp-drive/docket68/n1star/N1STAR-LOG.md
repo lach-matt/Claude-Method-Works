@@ -5208,3 +5208,28 @@ degrees, each correction two orders below its leading term. h^(0),<=k normalised
 omits the factor). The spanning of ker N(L-bar(0), lambda) is deferred to section 8's part. harm5 selftest passes in
 full after the D221 edits (169 checks); zstates5, genstates5, puregauge5 rerun, all pass. Next: verifier 93; Part
 III.E.
+
+**D225 (2026-10-26): Part III.E written.** [Hin26] section 7 to Proposition 7.3 at n = 4 in
+proof5/PART-III-E-CONSTRAINT.md. Theorem 7.1 at n = 4 is stated as Theorem 1.1 and left to Part IV ([Hin26a] at n = 4).
+Lemma 7.2: the adjoint of the constraint propagation operator at zero energy is invertible for b-weights alpha in (0,
+C_0 + 2] and s <= C_0 + 1 (the source's (0, C_0 + 1]: the Coulomb root is 2 at n = 4), indicial roots 2 - conj(lambda);
+inverse images partially polyhomogeneous and vanishing inside the horizon. Proposition 7.3: the large zero energy dual
+states of the time translation, the four translations and the six rotations, their trace-reversed symmetric gradients
+one order faster; eleven at zero rotation against the source's seven. Findings (E1)-(E4). Section 7.2.1 is Part III.E'.
+Next: seat verifier 93.
+
+**D226 (2026-10-26): verifier 93 seated; Parts III.A and III.D verified.** III.A M1: the source's Proposition 2.25 (1)
+integrates R_I one factor at a time by Lemma 2.23, and once z and z + 1 both occur the extended union returns (z + 1, 1)
+at tf; the stated set is right and now follows from a new Lemma 3.3 (the product of the transport operators, solved for
+each zf coefficient by an ordinary differential equation in y, Lemma 1.2 applied in decreasing real part, then Lemma 3.2
+with nothing at x = 0). Found while repairing: Lemma 2.23 assumes alpha > beta and reduces by x^z u, which needs alpha +
+Re z > beta; u = x^-z chi(xy) (xy)^c with alpha + Re z < c < beta is a counterexample (L5); in Proposition 2.25 the
+weight beta_K is free there and is taken large. m1: Lemma 1.4 first solves the terms of F on Re = beta (no pole of
+N(A)^-1 there), Lemma 1.5 iterates over Re <= beta; m2: decreasing real part in Lemma 1.3 and Proposition 4.2. III.D m3,
+a fault in I.B: section 6 took h_Gamma from the base, while Lemma 5.2's depends on the covector. I.B Lemma 6.0 is the
+source's conjugation (5.9): Q = Op(b-tilde^(1/2)), P_Q = Q P Q^-1 = P + hX with X microsupported near Gamma, Im(Q P
+Q^-1) = Q Im_B(P) Q^-1 exactly for B = Q*Q, so the threshold symbol in h_Gamma is (6.0) = (1/2)(p_1 + b^-1 p_1 b) +
+(i/2) b^-1 [r, b] + (1/2) b^-1 H_G b, which is what III.D computes in its frame; Propositions 6.1 and 6.4 are proved for
+P_Q and carried back with B_1 Q, E_1 Q, G_1 Q. II.C's remark that (5.9) was not used is corrected. Nits n1-n8. I.B goes
+from proved to verified until a reader reads Lemma 6.0. Next: verifier 94 on III.D'-III.E and the D226 repairs; Part
+III.E'.

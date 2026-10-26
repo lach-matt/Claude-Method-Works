@@ -1,12 +1,15 @@
 # Part I.B. The spectral family at high frequencies, at n = 4, on bundles
 
-*Status.* **Proved** (D194). Written out in full (D188). Read line by line by the seventy-sixth verifier, whose one major
-and nine minor findings and nits are seated in place (D189). The seventy-seventh verifier read those repairs and
-confirmed each, and asked for one further clause in Proposition 6.4, Step 2, seated (D191); the seventy-eighth verifier
-read that clause and confirmed it (D194). Every finding is seated and its repair read. This part replaces, for the
-statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 and 10.86 that re-ran [Hin26c] section 9.3 on bundles
-at proof level. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1. Part I.A is `PART-I-SPECTRAL.md`; its sections are
-cited as I.A section 4.5, I.A Theorem 7.2, and so on.
+*Status.* Verified; the D226 repair (Lemma 6.0, a fibre inner product on phase space at the trapped set) is to be read.
+It was proved at D194; the ninety-third verifier, reading Part III.D (D226), found that section 6 assumed $h_\Gamma$
+from the base, which Part III.D's is not, and Lemma 6.0 supplies the source's conjugation (5.9). Written out in full
+(D188). Read line by line by the seventy-sixth verifier, whose one major and nine minor findings and nits are seated in
+place (D189). The seventy-seventh verifier read those repairs and confirmed each, and asked for one further clause in
+Proposition 6.4, Step 2, seated (D191); the seventy-eighth verifier read that clause and confirmed it (D194). Every
+finding is seated and its repair read. This part replaces, for the statements it covers, the deductions of
+`../N1STAR-PROOF.md` 10.84 and 10.86 that re-ran [Hin26c] section 9.3 on bundles at proof level. The source is [Hin26c]
+= P. Hintz, arXiv:2606.28008v1. Part I.A is `PART-I-SPECTRAL.md`; its sections are cited as I.A section 4.5, I.A Theorem
+7.2, and so on.
 
 *What is proved here.* Theorem 1.3: [Hin26c] Theorem 9.16 at $n = 4$, for operators on a trivial bundle of any rank,
 with constants uniform in the operator (section 9). As in Part I.A the regularity order is constant (I.A Remark 1.1);
@@ -120,17 +123,21 @@ fibre inner product chosen for its radial set. The regularity order satisfies $s
 
 ### 1.5 The trapped set and the global dynamics
 
-(H7) (*Normally hyperbolic trapping, [Hin26c] (Γ.1)-(Γ.4) on $E$.*) For $z_0\in\{1,-1\}$ write $\Sigma^\flat_{z_0} :=
-\Sigma^{z_0}_{z_0}$ and $\mathsf H_{z_0} := z_0H_{G_{z_0}}$, the future field on it. There are a compact set $\Gamma =
-\Gamma_{z_0}\subset\Sigma^\flat_{z_0}\cap T^*\{r_2<r<\rho_1^{-1}\}$, a neighbourhood $O$ of $\Gamma$ and real functions
-$\phi_u,\phi_s\in C^\infty(O)$ such that, with $\Gamma_{u/s} := \{\phi_{u/s} = 0\}\cap\Sigma^\flat_{z_0}\cap O$: (Γ.1)
-$\Gamma_u$, $\Gamma_s$ are smooth hypersurfaces of $\Sigma^\flat_{z_0}$ meeting transversally in $\Gamma$, and $\mathsf
-H_{z_0}$ is tangent to both; (Γ.2) $\mathsf H_{z_0}\phi_u = -\nu_u\phi_u$ and $\mathsf H_{z_0}\phi_s = \nu_s\phi_s$ on
-$\Sigma^\flat_{z_0}\cap O$, with $\nu_{\min} := \min(\inf_\Gamma\nu_u,\inf_\Gamma\nu_s)>0$; (Γ.3) $\{\phi_u,\phi_s\}>0$
-and $dG_{z_0}\ne0$ on $\Gamma$; (Γ.4) with $\beta_0 := \frac12\min_\Gamma|q_{z_0}|>0$, a fibre inner product $h_\Gamma$,
-$p_1^\Gamma := z_0\,p_1(z_0)|_\Gamma$ (an $h_\Gamma$-self-adjoint endomorphism) and $q^\Gamma :=
-z_0q_{z_0}|_\Gamma\ge2\beta_0$, the function $f(\eta) := \sup_{\varpi\in\Gamma}\lambda_{\max}(p_1^\Gamma(\varpi)-\eta
-q^\Gamma(\varpi))$ is continuous and decreases at least at the rate $2\beta_0$; let
+(H7) (*Normally hyperbolic trapping, [Hin26c] (Γ.1)-(Γ.4) on $E$.*) For $z_0\in\{1,-1\}$ write
+$\Sigma^\flat_{z_0} := \Sigma^{z_0}_{z_0}$ and $\mathsf H_{z_0} := z_0H_{G_{z_0}}$, the future field on it. There are a
+compact set $\Gamma = \Gamma_{z_0}\subset\Sigma^\flat_{z_0}\cap T^*\{r_2<r<\rho_1^{-1}\}$, a neighbourhood $O$ of
+$\Gamma$ and real functions $\phi_u,\phi_s\in C^\infty(O)$ such that, with
+$\Gamma_{u/s} := \{\phi_{u/s} = 0\}\cap\Sigma^\flat_{z_0}\cap O$: (Γ.1) $\Gamma_u$, $\Gamma_s$ are smooth hypersurfaces
+of $\Sigma^\flat_{z_0}$ meeting transversally in $\Gamma$, and $\mathsf H_{z_0}$ is tangent to both; (Γ.2)
+$\mathsf H_{z_0}\phi_u = -\nu_u\phi_u$ and $\mathsf H_{z_0}\phi_s = \nu_s\phi_s$ on $\Sigma^\flat_{z_0}\cap O$, with
+$\nu_{\min} := \min(\inf_\Gamma\nu_u,\inf_\Gamma\nu_s)>0$; (Γ.3) $\{\phi_u,\phi_s\}>0$ and $dG_{z_0}\ne0$ on $\Gamma$;
+(Γ.4) with $\beta_0 := \frac12\min_\Gamma|q_{z_0}|>0$, a fibre inner product $h_\Gamma$ on $\pi^*E$ over a neighbourhood
+of $\Gamma$ (it may depend on the covector; one from the base is a special case),
+$p_1^\Gamma := z_0\,p_1^{h_\Gamma}(z_0)|_\Gamma$ with $p_1^{h_\Gamma}$ of (6.0) in Lemma 6.0 (an $h_\Gamma$-self-adjoint
+endomorphism, the symbol of $h^{-1}\mathrm{Im}\,P$ computed in $h_\Gamma$, and $p_1$ when $h_\Gamma$ is the standard
+inner product; D226) and $q^\Gamma := z_0q_{z_0}|_\Gamma\ge2\beta_0$, the function
+$f(\eta) := \sup_{\varpi\in\Gamma}\lambda_{\max}(p_1^\Gamma(\varpi)-\eta q^\Gamma(\varpi))$ is continuous and decreases
+at least at the rate $2\beta_0$; let
 
 $$f(\gamma_+) = 0,\qquad f(\gamma_-) = \tfrac12\nu_{\min},\qquad\delta_\Gamma(\eta) :=
 \min\Big(1,\max\Big(\frac{\gamma_+-\eta}{\gamma_+-\gamma_-},0\Big)\Big)\in[0,1],\tag{1.4}$$
@@ -1269,14 +1276,77 @@ $[B'_*,hV]\in\Psi^{(0,0,-1)}$ by Theorem 2.4. $\square$
 ## 6. The trapped set
 
 This section is [Hin26c] section 9.3.4 on $E$. Fix $z_0\in\{1,-1\}$ and $\Gamma = \Gamma_{z_0}$ of (H7). Near $\Gamma$
-everything happens at finite frequencies over a compact set $K_\Gamma\subset\{r_2<r<\rho_1^{-1}\}$, where $\langle
-x\rangle$ and $\langle\zeta\rangle$ are bounded above and below and an admissible $\mathsf b$ is constant (section 1.4).
-So for operators microsupported there, every norm $\|\cdot\|_{\mathbf o}$ is $h^{-\mathsf b}$ times a norm equivalent to
-that of $L^2$, and we state the estimates of this section in $L^2$ (that is, with $\mathbf o = 0$). $\chi_\Gamma\in
-C_c^\infty$ equals 1 near $K_\Gamma$, and $\|u\|_{-N} := \|\chi_\Gamma u\|_{H^{-N}_h}$. Choosing an
-$h_\Gamma$-orthonormal frame near $K_\Gamma$ we take $h_\Gamma$ to be the standard inner product there; adjoints are then
-ordinary adjoints, and the adjoint in another fibre inner product is conjugate to this one by a matrix function (I.A
-Proposition 4.2), which does not affect microlocal estimates.
+everything happens at finite frequencies over a compact set $K_\Gamma\subset\{r_2<r<\rho_1^{-1}\}$, where
+$\langle x\rangle$ and $\langle\zeta\rangle$ are bounded above and below and an admissible $\mathsf b$ is constant
+(section 1.4). So for operators microsupported there, every norm $\|\cdot\|_{\mathbf o}$ is $h^{-\mathsf b}$ times a
+norm equivalent to that of $L^2$, and we state the estimates of this section in $L^2$ (that is, with $\mathbf o = 0$).
+$\chi_\Gamma\in C_c^\infty$ equals 1 near $K_\Gamma$, and $\|u\|_{-N} := \|\chi_\Gamma u\|_{H^{-N}_h}$. By Lemma 6.0
+below we take $h_\Gamma$ to be the standard inner product of a trivialisation of $E$ over $K_\Gamma$. For $h_\Gamma$
+from the base this is the choice of an $h_\Gamma$-orthonormal frame, the adjoint in another fibre inner product being
+conjugate to this one by a matrix function (I.A Proposition 4.2); for $h_\Gamma$ on phase space it is the replacement of
+$P$ by $P_Q$, every estimate being carried back by Lemma 6.0 (d) (D226: this sentence assumed before that $h_\Gamma$
+comes from the base, which Part III.D's does not; the ninety-third verifier's m3). Adjoints are then ordinary adjoints.
+
+### 6.0 Inner products on phase space
+
+**Lemma 6.0 ([Hin26c] (5.9), [Hin17] Proposition 3.12; D226).** Let $h_\Gamma$ be a smooth fibre inner product on
+$\pi^*E$ over a neighbourhood of $\Gamma$, given in the trivialisation of $E$ over $K_\Gamma$ by a positive definite
+Hermitian matrix function $b(x,\zeta)$. At $z = z_0$, $G := G_{z_0}$ is real, and $h^{-1}\mathrm{Im}\,P$ and
+$h^{-1}(\mathrm{Re}\,P-\mathrm{Op}_h(G))$, taken in the standard inner product, are of order 0 near $\Gamma$; let $p_1$
+(as in (6.1)) and $r$ be their symbols ($r$ is Hermitian up to a scalar that depends on the quantisation and drops out
+below). Put
+$$p_1^{h_\Gamma} := \tfrac12\big(p_1+b^{-1}p_1b\big)+\tfrac i2\,b^{-1}[r,b]+\tfrac12\,b^{-1}H_Gb,\tag{6.0}$$
+which is $h_\Gamma$-self-adjoint ($b\,p_1^{h_\Gamma}$ is Hermitian, term by term) and equals $p_1$ when
+$b = \mathrm{Id}$. Let $\chi_\Gamma\in C^\infty_c$, $0\le\chi_\Gamma\le1$, equal 1 near $\Gamma$, supported in
+$\Gamma(\frac{\delta_0}3)$ (section 6.5) and in the domain of $b$; let
+$\tilde b := \chi_\Gamma b+(1-\chi_\Gamma)\mathrm{Id}$, $q := \tilde b^{1/2}$ (the positive square root) and
+$Q := \mathrm{Op}_h(q)$. Then for $h<h_0$:
+
+(a) $Q$ is invertible on $L^2$ and on every $H^{\mathbf o}_h$, and $Q-I$ and $Q^{-1}-I$ lie in $\Psi^{-\infty}$,
+microsupported in $\mathrm{supp}\,\chi_\Gamma$ up to $O(h^\infty)$ smoothing terms.
+
+(b) $P_Q := QPQ^{-1} = P+hX$, where $X = X(z) := h^{-1}[Q,P]Q^{-1}\in\Psi^{-\infty}$ is microsupported in
+$\mathrm{supp}\,\chi_\Gamma$ and holomorphic in $z$; and $P'_Q := QP'Q^{-1} = P'+hX+O(h^\infty)$ for $P'$ of (6.10).
+
+(c) Where $\chi_\Gamma = 1$, the symbol of $h^{-1}\mathrm{Im}\,P_Q$ (standard inner product) at $z_0$ is
+$q\,p_1^{h_\Gamma}q^{-1}$; at $z\in z_0+i[0,\nu']$ the symbols of $h^{-1}\mathrm{Im}\,P_Q$ and $h^{-1}\mathrm{Im}\,P$
+change by the same scalar and, for $P_Q$, by $O(\mathrm{Im}\,z)$ more. As conjugation preserves eigenvalues, (1.4) is
+the same for $P$ in $h_\Gamma$ and for $P_Q$ in the standard inner product.
+
+(d) If $B_1,E_1,G_1\in\Psi^0$ and $\|B_1w\|\le C(h^{-a}\|G_1\mathbf P_Qw\|+h^{-c}\|E_1w\|+h^N\|w\|_{-N})$ for all $w$,
+where $\mathbf P_Q\in\{P_Q,P_Q^*\}$ (or $\{P'_Q,P'^*_Q\}$), then the same estimate holds for $\mathbf P\in\{P,P^*\}$
+(resp. $\{P',P'^*\}$) and all $u$, with $B_1,E_1,G_1$ replaced by $B_1Q^\flat,E_1Q^\flat,G_1Q^\flat$, $Q^\flat := Q$ for
+$P$, $P'$ and $Q^\flat := (Q^*)^{-1}$ for the adjoints; these have the elliptic sets and microsupports of $B_1,E_1,G_1$.
+And $\|(\mathbf P'_Q)^{-1}\|\le Ch^{-m}$ if and only if $\|(\mathbf P')^{-1}\|\le C'h^{-m}$.
+
+*Proof.* (a) $q-\mathrm{Id}$ is smooth with compact support in $\mathrm{supp}\,\chi_\Gamma$, so $Q-I\in\Psi^{-\infty}$;
+as $q$ is invertible, the symbol calculus gives $Q^-$ with $Q^--I$ of the same kind and $QQ^--I =: R$, $Q^-Q-I$ in
+$h^\infty\Psi^{-\infty}$, so for $h$ small $Q$ is invertible with $Q^{-1} = Q^-(I+R)^{-1}$, which is $Q^-$ up to
+$O(h^\infty)$ smoothing terms. (b) $QPQ^{-1}-P = [Q-I,P]\,Q^{-1}$, and $[Q-I,P]$ is $h$ times an operator in
+$\Psi^{-\infty}$ microsupported in $\mathrm{supp}\,\chi_\Gamma$, since the principal symbol $G_z\mathrm{Id}$ of $P$
+commutes with $q$; $P$ is polynomial in $z$ and $Q$ does not depend on $z$. On
+$\mathrm{supp}\,\chi_\Gamma\subset\Gamma(\frac{\delta_0}3)$, $P'-P$ is microlocally $O(h^\infty)$ (Lemma 6.5 (b)), so
+$[Q,P']Q^{-1} = [Q,P]Q^{-1}+O(h^\infty)$. (c) With $B := Q^*Q$, $(QPQ^{-1})^* = (Q^*)^{-1}P^*Q^*$, so, exactly,
+$$\mathrm{Im}(QPQ^{-1}) = \tfrac1{2i}\big(QPQ^{-1}-(Q^*)^{-1}P^*Q^*\big) = Q\,(\mathrm{Im}_BP)\,Q^{-1},\qquad
+\mathrm{Im}_BP := \tfrac1{2i}\big(P-B^{-1}P^*B\big).$$
+$B$ has symbol $q^*q = \tilde b$, equal to $b$ where $\chi_\Gamma = 1$. At $z_0$,
+$P-B^{-1}P^*B = B^{-1}[B,\mathrm{Re}\,P]+i(\mathrm{Im}\,P+B^{-1}(\mathrm{Im}\,P)B)$; as $b$ commutes with
+$G\mathrm{Id}$, $h^{-1}[B,\mathrm{Re}\,P]$ has symbol $-i\{b,G\}+[b,r] = iH_Gb+[b,r]$, and dividing by $2ih$ gives
+$p_1^{h_\Gamma}$ as the symbol of $h^{-1}\mathrm{Im}_BP$ (a scalar part of $r$ drops out of $[b,r]$). For $z\ne z_0$,
+$h^{-1}\mathrm{Im}\,P$ changes by $h^{-1}\mathrm{Op}_h(\mathrm{Im}\,G_z)$, a scalar, and
+$X(z)-X(z_0) = O(\mathrm{Im}\,z)$ in $\Psi^{-\infty}$. (d) $P_QQ = QP$ and $P_Q^*(Q^*)^{-1} = (Q^*)^{-1}P^*$, and the
+same for $P'$; take $w := Q^\flat u$ and use $\|Q^\flat u\|_{-N}\le C\|u\|_{-N}$ and the ellipticity of $Q^\flat$.
+Finally $(P'_Q)^{-1} = Q(P')^{-1}Q^{-1}$, and $\|Q^{\pm1}\|$ are bounded uniformly in $h$. $\square$
+
+So an inner product on phase space costs nothing. Of this section only Propositions 6.1 and 6.4 (with Lemma 6.3 behind
+6.4) use the threshold structure; we prove them for $P_Q$ and $P_Q^*$ in the standard inner product and carry them to
+$P$ and $P^*$ by (d). Their proofs use $\mathbf P$ on $\Gamma(\frac{\delta_0}3)$, where $P_Q = P+hX$, only through its
+principal symbol, which $X$ does not change, and through the symbol of $\varsigma h^{-1}\mathrm{Im}\,\mathbf P$ in (6.2)
+and (6.5), which $X$ changes as in Proposition 6.1, to $p^\natural+\varsigma\sigma(\mathrm{Im}\,X)$, that is, by (c), to
+$z_0q\,p_1^{h_\Gamma}q^{-1}$ on $\Gamma$ at $z_0$. The $O(\mathrm{Im}\,z)$ dependence of $X$ is $O(h)$ where
+$\mathrm{Im}\,z = O(h)$, so it enters the $h^{\frac12}\Psi^0$ remainders there, and for $\mathrm{Im}\,z\le\nu'$ it is
+absorbed by the continuity step of Proposition 6.1. Sections 6.5-6.6 use Propositions 6.1 and 6.4 only as microlocal
+estimates near $\Gamma$, for $P$ and for $P'$, which agree there up to $O(h^\infty)$.
 
 ### 6.1 Set-up
 
@@ -1319,9 +1389,11 @@ the corresponding global set, so its backward $V$-curve leaves $\Gamma(\delta_0)
 
 ### 6.2 The lossless estimate
 
-**Proposition 6.1 ([Hin26c] (9.83)).** Let $\mathbf P' := \mathbf P+h\mathbf X$ with $\mathbf X\in\Psi^0$ microsupported
-near $\Gamma$, and let $p'^\natural := p^\natural+\varsigma\,\sigma(\mathrm{Im}\,\mathbf X)$ (so that $\varsigma
-h^{-1}\mathrm{Im}\,\mathbf P'$ has symbol $p'^\natural-\lambda q^\natural$). Let $\gamma\in\mathbb R$ with
+**Proposition 6.1 ([Hin26c] (9.83)).** Let $\mathbf P' := \mathbf P+h\mathbf X$ with $\mathbf X = \mathbf X(z)\in\Psi^0$
+microsupported near $\Gamma$ and continuous in $z$ (as Lemma 6.0's $X$), and let
+$p'^\natural := p^\natural+\varsigma\,\sigma(\mathrm{Im}\,\mathbf X(z_0))$ (so that
+$\varsigma h^{-1}\mathrm{Im}\,\mathbf P'$ has symbol $p'^\natural-\lambda q^\natural$ up to $O(\mathrm{Im}\,z)$). Let
+$\gamma\in\mathbb R$ with
 $\sup_{\varpi\in\Gamma}\lambda_{\max}\big(p'^\natural(\varpi)-\gamma q^\natural(\varpi)\big)<0$. There are $\nu'>0$ and,
 for every neighbourhood $U$ of $\Gamma$, operators $B,E,G\in\Psi^0$ microsupported in $U$, $B$ elliptic at $\Gamma$,
 $\mathrm{WF}'_h(E)\cap\Gamma^\natural_u = \emptyset$, such that for $z\in z_0+i[h\gamma,\nu']$ with
@@ -1346,8 +1418,10 @@ for $\mathrm{Im}\,z\le\nu'$, $\nu'$ small depending on $M$. The derivative of $\
 $G_{z_0}^2\ge M_\Sigma^{-1}$, where $G_z$ is elliptic for $\nu'$ small; it gives a term $J\mathbf P'$ as in Lemma 5.1.
 Next, on $\mathrm{supp}\,\check a$,
 $$p'^\natural-\lambda q^\natural = (p'^\natural-\gamma q^\natural)-(\lambda-\gamma)q^\natural,$$
-and $p'^\natural-\gamma q^\natural\le-c\,\mathrm{Id}$ there for $M$ large, by the hypothesis and continuity. So, with $b
-:= \check a(-2(p'^\natural-\gamma q^\natural))^{1/2}$ (the positive square root of a positive definite smooth matrix
+and $p'^\natural-\gamma q^\natural\le-c\,\mathrm{Id}$ there for $M$ large, by the hypothesis and continuity; the
+$O(\mathrm{Im}\,z)$ change of $\sigma(\mathrm{Im}\,\mathbf X)$ keeps $-\frac c2\mathrm{Id}$ as a bound for
+$\mathrm{Im}\,z\le\nu'$, $\nu'$ small depending on $M$ (D226). So, with
+$b := \check a(-2(p'^\natural-\gamma q^\natural))^{1/2}$ (the positive square root of a positive definite smooth matrix
 function, smooth),
 $$\varsigma C = -B^*B-F_s^*F_s+E_u^*E_u+J\mathbf P'-2(\lambda-\gamma)\check A\,\varsigma\epsilon_\flat\mathcal Q\,\check
 A+R,\qquad R\in h^{\frac12}\Psi^0,$$
