@@ -5416,3 +5416,11 @@ No major finding in III.G''''; three minor and eight nits, all seated: the bound
 more companion is withdrawn), the exceptional s1 term adds tf-exponents at 4 to the grafting error (4.3) (the source's
 imprecision too), and l_zf is now assumed off N_0. The D245 repairs are correct; D245's "fourteen nits" were eleven on
 III.G''' and three on III.C. III.G'''' is verified, its repairs to be read; III.G''' is proved. Next: Part III.H.
+
+**D248 (2026-10-26): Part III.H written.** [Hin26] section 10.1 at n = 4. The zero energy states cut off near I+ need
+no improvement at iota+ in five dimensions: their source terms are O(r^-4) in a cone inside iota+, and the naive
+columns, O(r^-3), lie in the target for every sf-weight with alpha + 2 in (0, 1). The augmented zero energy operator
+is invertible by the pairings of III.F''''; Theorem 4.1 extends I.C Theorem 6.4 to columns depending on sigma, giving
+the source's Proposition 10.7. From it, L-hat_b(sigma) is invertible for small sigma != 0 and b near b_0 with a uniform
+radius, which closes the range III.F'' section 5 left open: [Hin26] Proposition 8.8 at n = 4 near b_0. One correction
+to the source: its (10.6b) does not give the injectivity its proof of Proposition 10.6 uses. Next: verifier 104.

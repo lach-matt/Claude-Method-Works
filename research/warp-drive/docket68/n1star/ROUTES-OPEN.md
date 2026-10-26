@@ -3133,3 +3133,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   |sigma|^(alpha_0 - 2) in Remark 4.5 (2); the cut-offs chi_zf chi_tf in Proposition 5.1's Step 1 and chi^sharp_tf in
   (5.2); Re alpha_0.
 - Next: Part III.H ([Hin26] section 10.1 at n = 4); verifier 104 on III.H and the D247 repairs.
+
+### 4.171 Part III.H written: [Hin26] section 10.1 at n = 4 (D248)
+
+- Proved, at n = 4: the cut-off states and their source terms (Lemma 10.4, (10.24)), the augmented zero energy operator
+  (Proposition 10.6), the uniform low-energy estimates (Proposition 10.7, through Theorem 4.1, I.C Theorem 6.4 with
+  columns depending on sigma), the spectral-side augmentation (section 10.1.3) (PART-III-H-AUGMENT.md).
+- At n = 4 the states chi_K g-dot, chi_K (t_* h_s1 + h-breve) need no improvement at iota+ (the source's Lemma 10.3):
+  their source terms are O(r^-4) in a cone inside iota+, the naive columns A^3 lie in the target for alpha + 2 in
+  (0, 1), and no logarithm enters. The window of weights is (0, 1), not (0, eps_ind).
+- Closed: III.F'' section 5's open range. L-hat_b(sigma) is invertible for 0 < |sigma| <= c_0, b near b_0, with c_0
+  uniform in b (Corollary 4.3), so [Hin26] Proposition 8.8 holds at n = 4 on a fixed neighbourhood of b_0 (Corollary
+  4.4); the source takes this range from [AHW24] Theorem 6.1 (1).
+- Corrected in the source: (10.6b) does not give the injectivity of u -> (<u, f*_1>, <u, f*_2>) on the nullspace that
+  its proof of Proposition 10.6 uses; a biorthogonal choice of f* gives both ((H2)).
+- Next: verifier 104 on III.H and the D247 repairs; Part III.H' ([Hin26] section 10.2, Theorem 10.1 at n = 4).

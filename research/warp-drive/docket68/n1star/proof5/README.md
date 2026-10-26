@@ -50,7 +50,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.C | [Hin26] 5.1-5.3 | metric perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an order lower; forward mapping | proved (D245; verifier 101's repairs read by verifier 102, three nits seated) |
 | III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | proved (D247; verified D245 with four minor findings and eleven nits) |
 | III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | verified (D247; three minor findings and eight nits seated, to be read) |
-| III.C', III.H-III.J | [Hin26] 5.4-5.7, 10-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | written (D248) |
+| III.C', III.H'-III.J | [Hin26] 5.4-5.7, 10.2-12 | exterior stability and partial polyhomogeneity; 2-admissibility; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -850,3 +851,17 @@ inverse. Written (D246). Verified (D247): verifier 103's three minor findings se
 $\ell_{\mathrm{zf}}<3$ of D246's (3.1) is not needed (Lemma 3.3 splits as the source's Case 1), the exceptional s1 term
 adds tf-exponents at 4 to (4.3) ((G$''''$7), the source's imprecision too), and $\ell_{\mathrm{zf}}\notin\mathbb N_0$
 is now assumed ((G$''''$8)) -- with eight nits.
+
+## Part III.H
+
+`PART-III-H-AUGMENT.md`. [Hin26] section 10.1 at $n = 4$: the states cut off near $I^+$, $\chi_K\dot g$ and
+$\chi_K(t_*h_{b,\mathrm s1}+\breve h)$, need no improvement at $\iota^+$ (the source's Lemma 10.3 is not needed): their
+source terms are $O(r^{-4})$ in a cone inside $\iota^+$ (Lemma 2.2), with zero-frequency values $[L_b,t_*]\dot g$, resp.
+$\frac12[[L_b,t_*],t_*]h+[L_b,t_*]\breve h$, modulo $\widehat{L_b}(0)\mathcal A^1$ (Lemma 2.3), and Fourier transforms
+$r^{-3}G(\sigma r,x)$, rapidly decaying at scf (Lemma 2.4). Proposition 3.2 (the source's 10.6): the augmented zero
+energy operator is invertible, by III.F$''''$ Lemma 3.1's pairings. Theorem 4.1 extends I.C Theorem 6.4 to columns
+depending on $\sigma$; Corollary 4.2 is the source's Proposition 10.7, for every weight with $\alpha+2\in(0,1)$ (the
+source's $(0,\epsilon_{\mathrm{ind}})$). Corollaries 4.3-4.4: $\widehat{L_b}(\sigma)$ is invertible for small
+$\sigma\ne0$ and $b$ near $b_0$, uniformly, which closes III.F$''$ section 5 (the source's Proposition 8.8 at $n = 4$
+near $b_0$). Section 5: the spectral-side augmentation, with no correction and no logarithm. Findings (H1)-(H5), among
+them (H2): the source's (10.6b) does not give the injectivity its proof of Proposition 10.6 uses. Written (D248).
