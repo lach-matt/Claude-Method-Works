@@ -3100,3 +3100,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   redundant 2 E^tot generator; E4-E7 pass.
 - Next: Part III.G'''' ([Hin26] section 9.2).
 
+### 4.169 Part III.G'''' written: [Hin26] section 9.2 at n = 4 (D246)
+
+- Proved, at n = 4: (9.57)-(9.61), Definition 9.25, Lemma 9.26, Remarks 9.27-9.28, Definition 9.29, (9.72),
+  Proposition 9.30, Remarks 9.31-9.34, Proposition 9.35 (PART-III-G5-TF.md).
+- The expansion at r-hat = 0 runs over III.G'' Table 1.1's window (-3, 0] with c_mu = 2 - floor(-mu) companions; the
+  functions l_beta come from a merged residue, uniformly across coincidences. The source treats two summands of each
+  expansion and calls the rest analogous; here every row is treated.
+- Corrected in the source: (9.58) is the operator of 2 L-bar (as III.G''s N_iota+); (9.59) prints rho^(-lambda-j) for
+  rho^(-lambda+j); in Proposition 9.35's proof the pointwise inverse leaves an error of the size of a conormal source
+  (tfgraft5.py T4), repaired by inverting the dilation-invariant operator on the weight line.
+- OPEN, for III.I-III.J: the n = 4 statements need l_zf < 3 (the source: 3 + eps_ind); a larger l_zf would need one
+  more companion at the physical roots -2 and the class roots near 0. Whether sections 11.5-12 at n = 4 need it is the
+  spectral counterpart of (G''1).
+- tfgraft5.py T1-T4 (new), each with controls.
+- Next: verifier 103 on III.G'''' and the D245 repairs; Part III.C' ([Hin26] sections 5.4-5.7).
+

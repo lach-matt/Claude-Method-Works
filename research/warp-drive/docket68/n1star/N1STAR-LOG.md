@@ -5402,3 +5402,10 @@ a v^lambda_sharp term of Pi_(2 gam_Ups) h; the record's account) and fourteen ni
 the record's alpha_5 = 2 reading "did not consider" the lambda_sharp channel is withdrawn: N1STAR-PROOF.md 10.38 (d)
 treats incoming terms below 2 and closes it on its readings; open for III.J is whether section 12's linear grafting
 errors reach it. III.G''' is verified, its repairs to be read; III.C is proved. Next: Part III.G''''.
+
+**D246 (2026-10-26): Part III.G'''' written.** [Hin26] section 9.2 at n = 4: the tf-normal operator, its formal
+solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space
+(Proposition 9.30) and conormal sources (Proposition 9.35). Every row of the window is treated by one merged-residue
+argument. Three corrections to the source: (9.58) is 2 L-bar's operator, (9.59)'s rho-power, and the first step of the
+proof of Proposition 9.35, which fails for conormal coefficients and is repaired. At n = 4 the window needs l_zf < 3;
+whether sections 11.5-12 need more is for III.I-III.J. New instrument tfgraft5.py T1-T4. Next: verifier 103.
