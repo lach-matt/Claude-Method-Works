@@ -5448,3 +5448,10 @@ with the constant matrix A-bar (the source's A^h, B^h half an order lower), the 
 curvature at rho_+^4, admissibility relative to L_b with p_0 = p~_1 = 0, and Theorem 11.12 at b_0 with sf-loss 0. II.C's
 orders lie in III.H''s class O_c, which settles III.H' (H'7). Open: Theorem 11.12 for b != b_0 (2-admissibility for all
 k near b_0; II.F' uniformly in the model) and the iteration's weights at n = 4.
+
+**D252 (2026-10-26): verifier 105 seated.** The hundred-and-fifth verifier (Opus) read III.H' and the D249 repairs. No
+major finding in III.H'; three minor and nine nits, all seated: the bounded-frequency range now freezes the induced
+orders on finitely many intervals (cost 2 eps in the high-frequency weight, unfelt in the conclusion), Lemma 6.1 is
+stated without b-regularity, and Lemma 6.2 treats the boundary r = r_0 by a cut-off and an extension. The source's
+incoming-threshold gap (H'2) is confirmed real. The D249 repairs are correct. III.H' is verified, its repairs to be read;
+III.H is proved. III.I's Lemma 5.1 drops a redundant condition. Next: verifier 106 on III.I.

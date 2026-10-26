@@ -1,13 +1,14 @@
 # Part III.H. The augmented low-energy resolvent at n = 4 ([Hin26] section 10.1)
 
-*Status.* Verified (D249: the hundred-and-fourth verifier; no major finding, two minor findings and six nits seated,
-to be read). Written (D248). This part proves, at spatial dimension $n = 4$, [Hin26] section 10.1 (pp. 200-212): the
-augmentation of $\widehat{L_b}(\sigma)$ by the zero energy states cut off near $I^+$, the Fourier transforms of the
-resulting source terms (the source's Lemma 10.4 and (10.24)), the invertibility of the augmented zero energy operator
-(Proposition 10.6), the uniform low-energy estimates (Proposition 10.7) and the augmentation built on the spectral side
-(section 10.1.3). It also proves what III.F$''$ section 5 left open: $\widehat{L_b}(\sigma)$ is invertible for
-$0<|\sigma|<c_0$ and $b\ne b_0$ near $b_0$, so that the source's Proposition 8.8 holds at $n = 4$ on a fixed
-neighbourhood of $b_0$ (Corollaries 4.3-4.4).
+*Status.* Proved (D252: the hundred-and-fifth verifier read the D249 repairs and found them correct; one citation
+nit seated). Verified (D249: the hundred-and-fourth verifier; no major finding, two minor findings and six nits seated).
+Written (D248). This part proves, at spatial dimension $n = 4$, [Hin26] section 10.1 (pp. 200-212): the augmentation of
+$\widehat{L_b}(\sigma)$ by the zero energy states cut off near $I^+$, the Fourier transforms of the resulting source
+terms (the source's Lemma 10.4 and (10.24)), the invertibility of the augmented zero energy operator (Proposition 10.6),
+the uniform low-energy estimates (Proposition 10.7) and the augmentation built on the spectral side (section 10.1.3). It
+also proves what III.F$''$ section 5 left open: $\widehat{L_b}(\sigma)$ is invertible for $0<|\sigma|<c_0$ and $b\ne
+b_0$ near $b_0$, so that the source's Proposition 8.8 holds at $n = 4$ on a fixed neighbourhood of $b_0$ (Corollaries
+4.3-4.4).
 
 *What n = 4 changes.* At $n = 3$ the mass and boost states decay like $r^{-1}$, the naive columns
 $[L_b,t_*]\dot g^\Upsilon_b$ only like $r^{-2}$, which is not in the target space, and the source must first improve its
@@ -262,18 +263,19 @@ $H(t_*)\dot g$ and $H(t_*)(t_*h+\breve h)$.
 
 **Remark 2.6 (uniformity in $b$).** Lemmas 2.2-2.4 are stated at fixed $b$; near $b_0$ their bounds hold uniformly with
 a loss $\delta>0$. The states depend continuously on $b$ with values in $\bar H^{m,a}_{\mathrm b}$ for every $m$ and
-every $a$ below their weights minus 2 (III.F$'''$ Proposition 2.2 (3) and Proposition 4.1, Step 5, at every
-regularity; III.D$''$ Proposition 3.1), and $\bar H^{\infty,a}_{\mathrm b}\subset\mathcal A^{a+2}$ (b-Sobolev
-embedding, as $\bar H^{m,a}_{\mathrm b} = \rho^{a+2}\bar H^m_{\mathrm b}(\mu_{\mathrm b})$). So for every $\delta>0$
-the states are bounded in $\mathcal A^{2-\delta}$ ($\dot g(1,0)$, $\breve h(S)$), resp. $\mathcal A^{3-\delta}$
-($\dot g(0,\dot A)$, $h(S)$), and in $C^\infty$ on compact subsets of $X$, locally uniformly in $b$; the coefficients
-of $L_b$ depend smoothly on $b$. The proofs then give, uniformly for $b$ near $b_0$: (2.1) with $r^{-4+\delta}$;
-$\hat f(0)$ bounded in $\mathcal A^{3-\delta}$ and $w$ in $\mathcal A^{1-\delta}$; (2.3) with
-$|G|\le Cr^\delta\langle\zeta\rangle^{-N}$ (with its derivatives); Lemma 2.4 (b) for $\beta_{\mathrm{tf}}<3-\delta$;
-(2.5) with $|\sigma|^{1-a-\delta}$; and the bounds in the proof of Lemma 5.2 (b) with $\rho^{3-\delta}$. By (2.2),
-$\hat f(0)$ depends continuously on $b$ in $\bar H^{\infty,a}_{\mathrm b}$ for every $a<1$. Where uniformity in $b$ is
-used (the bound of Proposition 3.2, Corollaries 4.2-4.3, Lemma 5.2) the weights leave room for the loss: with
-$\delta := \epsilon_0 := \frac14(1-(\alpha+2))$, $\alpha+2+\epsilon_0<1-\delta$ and
+every $a$ below their weights minus 2 (for $\dot g(\dot b)$: III.F$'''$ Proposition 2.2 (3), at every regularity; for
+$h(S)$, $\breve h(S)$: III.D$''$ Lemma 2.2, the continuity of the 1-forms $\omega'_b$, $\breve\omega'_b$ in $\bar
+H^{s,\alpha}_{\mathrm b}$ below their weight, $\delta^*_{g_b}$ gaining one order of decay), and $\bar
+H^{\infty,a}_{\mathrm b}\subset\mathcal A^{a+2}$ (b-Sobolev embedding, as $\bar H^{m,a}_{\mathrm b} = \rho^{a+2}\bar
+H^m_{\mathrm b}(\mu_{\mathrm b})$). So for every $\delta>0$ the states are bounded in $\mathcal A^{2-\delta}$ ($\dot
+g(1,0)$, $\breve h(S)$), resp. $\mathcal A^{3-\delta}$ ($\dot g(0,\dot A)$, $h(S)$), and in $C^\infty$ on compact
+subsets of $X$, locally uniformly in $b$; the coefficients of $L_b$ depend smoothly on $b$. The proofs then give,
+uniformly for $b$ near $b_0$: (2.1) with $r^{-4+\delta}$; $\hat f(0)$ bounded in $\mathcal A^{3-\delta}$ and $w$ in
+$\mathcal A^{1-\delta}$; (2.3) with $|G|\le Cr^\delta\langle\zeta\rangle^{-N}$ (with its derivatives); Lemma 2.4 (b) for
+$\beta_{\mathrm{tf}}<3-\delta$; (2.5) with $|\sigma|^{1-a-\delta}$; and the bounds in the proof of Lemma 5.2 (b) with
+$\rho^{3-\delta}$. By (2.2), $\hat f(0)$ depends continuously on $b$ in $\bar H^{\infty,a}_{\mathrm b}$ for every $a<1$.
+Where uniformity in $b$ is used (the bound of Proposition 3.2, Corollaries 4.2-4.3, Lemma 5.2) the weights leave room
+for the loss: with $\delta := \epsilon_0 := \frac14(1-(\alpha+2))$, $\alpha+2+\epsilon_0<1-\delta$ and
 $1-(\alpha+2)-\delta\ge\epsilon_0$.
 
 ## 3. The augmented zero energy operator ([Hin26] Proposition 10.6 at n = 4)

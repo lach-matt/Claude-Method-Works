@@ -301,8 +301,7 @@ there. The orders of Part II.F$'$ are built by II.C Proposition 5.1's constructi
 $\mathsf s = s_{\mathrm{in}}-(s_{\mathrm{in}}-s_{\mathrm{out}})\chi$), shifted by constants (II.F$'$ Lemma 2.3 and Remark
 7.1). III.H$'$ (H$'$7) asked that these be checked.
 
-**Lemma 5.1 (the orders lie in $\mathcal O_c$).** In II.C section 5.2's construction, let $\epsilon_\iota$ be so small
-that in addition $2/(\epsilon_\iota\delta)\ge r_2-\delta_0$ (with I.B's $r_2,\delta_0$). Then the order $\mathsf s$ of
+**Lemma 5.1 (the orders lie in $\mathcal O_c$).** The order $\mathsf s$ of
 II.C Proposition 5.1, read over $K^+$ as a $t_*$-translation-invariant function (its (1)), satisfies (C1)-(C3) of
 III.H$'$ Definition 1.1, with $s_c = s_{\mathrm{in}}$; and so does $\mathsf s+c$ for every constant $c$.
 
@@ -313,11 +312,12 @@ f_T)\psi(|\hat\eta_{3b}|^2/( 2\delta))\Psi(\sigma_{3b}^2/|\nu|^2_{3b})$ on $\Ome
 $\Omega_\iota$). (C1): $\Psi = 0$ on $(-\infty,0.04]$, so $\chi_\iota = 0$ on
 $\{\sigma_{3b}^2\le0.04|\nu|^2_{3b}\}\supset\{\sigma = 0\}$, and $\mathsf s = s_{\mathrm{in}}$ there. (C2): on
 $\mathrm{supp}\,\phi(f_W/\delta)$, $|\hat\xi_{3b}|<\frac\delta2$, so $f_T = r(1-\hat\xi_{3b})<2r$, and
-$\tilde\psi(\epsilon_\iota\delta f_T) = 0$ for $r\le2/(\epsilon_\iota\delta)$; so $\mathsf s = s_{\mathrm{in}}$ over
-$\{r\le r_2-\delta_0\}$. Shrinking $\epsilon_\iota$ keeps II.C's choices valid, each asking $\epsilon_\iota$ small.
-(C3): $-\mathsf H\mathsf s = (s_{\mathrm{in}}-s_{\mathrm{out}})\mathsf H\chi_\iota$ for the stationary $G_0$ ($\mathsf H
-= \mathsf H^{3b}$ on $\Sigma^+$, a positive multiple of $\mathsf H_{G_0}$). On $\Sigma^+$ over $\Omega_\iota$ the
-factors $\psi$ and $\Psi$ equal 1 (II.C Lemmas 5.3 and 5.5 (b): $\sigma_{3b}^2\ge0.09|\nu|^2$ and
+$\tilde\psi(\epsilon_\iota\delta f_T) = 0$ for $r\le2/(\epsilon_\iota\delta)$; so $\mathsf s =
+s_{\mathrm{in}}$ over $\{r\le2/(\epsilon_\iota\delta)\}\supset\{r\le r_\Gamma\}$, II.C having chosen
+$1/(\epsilon_\iota\delta) >r_\Gamma$; (C2) is in any case implied by II.C Definition 2.4 (3) (III.H$'$ Definition 1.1,
+D252). (C3): $-\mathsf H\mathsf s = (s_{\mathrm{in}}-s_{\mathrm{out}})\mathsf H\chi_\iota$ for the stationary $G_0$
+($\mathsf H = \mathsf H^{3b}$ on $\Sigma^+$, a positive multiple of $\mathsf H_{G_0}$). On $\Sigma^+$ over
+$\Omega_\iota$ the factors $\psi$ and $\Psi$ equal 1 (II.C Lemmas 5.3 and 5.5 (b): $\sigma_{3b}^2\ge0.09|\nu|^2$ and
 $|\hat\eta_{3b}|^2\le3\delta<4\delta$), and $\mathsf H$ applied to the other two is $\ge0$ (Lemma 5.5 (a), (c) with
 $\tilde\psi'\ge0$, and $\phi'(f_W/\delta)\ge0$ where $f_W\in[-\frac\delta2,-\frac\delta4]$, $\phi$ being even with
 $\phi'\le0$ on $[0,\infty)$; by Lemma 5.5 (b) the other branch $\hat\xi_{3b}<-\frac\delta8$ does not meet $\Sigma$).
@@ -416,9 +416,9 @@ infinity are half an order lower than the constant $\bar A$ (III.C (C1)), in the
 A$ (Corollary 5.2); the source's restrictions $\ell_I<2\gamma_\Upsilon$ and $\ell_+<1$ become $\ell_I\le\frac12$ and
 $\ell_+\le1$ (Lemma 2.2).
 
-(I2) *Orders.* II.C Proposition 5.1's construction gives orders in III.H$'$'s class $\mathcal O_c$ once $\epsilon_\iota$
-also satisfies $2/(\epsilon_\iota\delta)\ge r_2-\delta_0$ (Lemma 5.1); with this, III.H$'$'s obligation (H$'$7) is met
-for Part II.F$'$'s use, and the relaxed (margin 1) admissibility enters through II.F$'$ Remark 7.1 and II.F Remark 8.2.
+(I2) *Orders.* II.C Proposition 5.1's construction gives orders in III.H$'$'s class $\mathcal O_c$ (Lemma 5.1); with
+this, III.H$'$'s obligation (H$'$7) is met for Part II.F$'$'s use, and the relaxed (margin 1) admissibility enters
+through II.F$'$ Remark 7.1 and II.F Remark 8.2.
 
 (I3) *$b\ne b_0$ (open).* Theorem 11.12 is proved at $b_0$. For $b\ne b_0$ near $b_0$ it needs (a) 2-admissibility of
 $L_b$ for all $k$, which needs strong trapping admissibility near $b_0$ or a finite-$k$ version of the later Nash-Moser

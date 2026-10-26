@@ -3196,3 +3196,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   ((F'11)). [Hin26] section 11.6 on varies b.
 - OPEN ((I5)): the weights (a_I, a_+, a_K) of the iteration at n = 4, for the parts writing sections 11.2-11.8.
 - Next: seat verifier 105 (III.H' and the D249 repairs); then Part III.I' ([Hin26] section 11.2 at n = 4).
+
+### 4.175 Verifier 105 seated: III.H' verified, III.H proved (D252)
+
+- Verifier 105 (Opus) read III.H' and the D249 repairs. No major finding in III.H'; three minor and nine nits, all
+  seated. (H'2), the incoming-threshold gap in the source, confirmed against [Hin26c] (5.20): real. The D249 repairs are
+  correct; one citation nit (III.H Remark 2.6 now cites III.D'' Lemma 2.2 for h, h-breve).
+- (m1) bounded frequencies: I.A Theorem 7.2 (6) is uniform only for orders fixed near each point; the induced orders are
+  frozen on finitely many intervals, at a cost 2 eps in the weight of u_hi ((3.1) at alpha_sf + 1 - 2 eps).
+- (m2) Lemma 6.1 without b-regularity (variable-order commutators carry log factors); Lemma 6.2 reduces to k = 0 first.
+- (m3) Lemma 6.2 near r = r_0: cut-off in r, constant order there (II.C Definition 2.4 (3)), Seeley extension in x.
+- Nits: (C2) implied by Definition 2.4 (3) (so III.I Lemma 5.1 needs no extra condition on eps_iota, corrected there);
+  the transfer of (C3) to P; I.C's J_pm used off the real axis only; c <= varsigma_1 fixed in section 2; III.H Lemma 2.5
+  (d)'s proof for higher derivatives; II.A (S7) for the uniform equivalence; the kernel-range count; O_c a restriction.
+- Next: verifier 106 on III.I and the D252 repairs; then Part III.I' ([Hin26] section 11.2 at n = 4).
