@@ -1120,7 +1120,9 @@ gauge potentials polynomial in time that carry them, and the remaining roots, to
 twenty-third, the constraint propagation operator of his gauge at zero frequency and the stationary dual states built
 from the symmetries of Minkowski space, eleven in five dimensions against his seven, and so is the twenty-fourth, the
 dual states of the rotations, whose leading term depends on a rotation only through its bracket with the spin -- in five
-dimensions an exact identity of the black hole family. Theorem 4 stays deduced until the last part is proved.
+dimensions an exact identity of the black hole family, and so is the twenty-fifth, the linearised gauge-fixed Einstein
+operator near infinity and at the trapped set, where in five dimensions the plane of directions orthogonal to the
+trapped rays turns along them. Theorem 4 stays deduced until the last part is proved.
 
 ---
 

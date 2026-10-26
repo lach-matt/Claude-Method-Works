@@ -2794,3 +2794,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: the D226 repairs; Parts III.D', III.D'', III.D''', III.E, III.E' unread (verifier 94 reads III.D', III.D'' and
   the D226 repairs); Parts III.C, III.F-III.J and IV-VII.
 - Next: Part III.F ([Hin26] section 8, the linearised gauge-fixed Einstein operator).
+
+### 4.151 Part III.F written: L_b's structure, S-bar, the trapped set, [Hin26] section 8 to 8.1 (D228)
+
+- `proof5/PART-III-F-LINEARISED.md`: Lemma 2.1 ([Hin26] Lemma 8.1: shift 3/2, Q in rho^3 Diff^1_b, the zero energy
+  difference in rho^4 Diff^2_b); Lemma 3.1 ([Hin26] Lemma 8.2 and (8.7): rho S-bar = U_1 V_1 + U_2 V_2 through 1-forms,
+  V_1 U_2 = 0, so spec S-bar = spec S-bar^C u spec S-bar^Ups u {0 x 5}, both factors triangular by hand); Proposition 4.1
+  ([Hin26] Proposition 8.3 in I.B's form: the grading W = 2 wt + s on S^2, preserved by the rotation of the angular
+  plane, every lower-order term strictly lowering; scalars 0, 0, 0, -2 (1 - e_C) gam c_2, 0, -2 gam c_2, -4 gam c_2).
+- Findings (F1)-(F5): the structure at n = 4; S-bar's spectrum without a matrix; the angular plane and non-spherical
+  c_C (closes supplement 10.26 (b)); the covector-dependent inner product (I.B Lemma 6.0); strong trapping near b_0 for
+  each fixed eps.
+- `lgrade5.py` G1 (new), `sbar5.py` 3/3, `strap5.py` 3/3 pass.
+- Next: Part III.F' ([Hin26] sections 8.2-8.3: indicial roots, Lemma 8.5, tf-admissibility, Corollary 8.7).

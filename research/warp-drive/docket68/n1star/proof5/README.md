@@ -39,7 +39,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.D''' | [Hin26] 6.5.2 | generalized zero energy states of the gauge potential operator | written (D224) |
 | III.E | [Hin26] 7-7.2 (to Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the large dual states | written (D225) |
 | III.E' | [Hin26] 7.2.1 | the vector type 1 dual states: the deformation tensor of a rotation (exact, by equivariance) and the states' dependence on the bracket with the spin | written (D227) |
-| III.C, III.F-III.J | [Hin26] 5, 8-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
+| III.F | [Hin26] 8 to 8.1 | the linearised gauge-fixed Einstein operator: structure, the spectrum of the model's endomorphism, the bound at the trapped set | written (D228) |
+| III.C, III.F'-III.J | [Hin26] 5, 8.2-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -574,3 +575,16 @@ $(\delta^*_{g_b,E_C})^*h^\sharp\in\rho^{\lfloor C_0\rfloor+5}C^\infty$ and $D_{g
 supported. Findings (E$'$1)-(E$'$5), among them (E$'$4): the source's argument for $D\mathrm{Ric}^*h^\sharp$ uses
 $G^2 = \mathrm{Id}$, true only in $3+1$ dimensions; the statement holds by the self-adjointness of $G\,D\mathrm{Ric}$.
 `dualv1_5.py` V1-V4; `mp5.py` M1-M5. Written (D227).
+
+## Part III.F
+
+`PART-III-F-LINEARISED.md`. [Hin26] section 8 to the end of 8.1 at $n = 4$. Lemma 2.1 (Lemma 8.1):
+$2L_b = -2\partial_{t_*}\rho(\rho\partial_\rho-\frac32-\bar S)+\widehat{2L_b}(0)+Q\partial_{t_*}-g^{00}\partial_{t_*}^2$
+near infinity, $Q\in\rho^3\mathrm{Diff}^1_{\mathrm b}$,
+$\widehat{2L_b}(0)-\widehat{2\bar L}(0)\in\rho^4\mathrm{Diff}^2_{\mathrm b}$. Lemma 3.1 (Lemma 8.2, (8.7)): $\rho\bar S$
+factors through 1-forms with one cross term zero, so $\mathrm{spec}\,\bar S$ is that of the constraint propagation and
+gauge potential operators' endomorphisms with five zeros, $\min\mathrm{spec}\,\bar S = 0$, by hand. Proposition 4.1
+(Proposition 8.3): at the trapped set a grading of the symmetric 2-tensors preserved by the rotation of the
+two-dimensional angular plane gives, for every $\epsilon$, an inner product with $\lambda_{\max}(p_1^\Gamma)<\epsilon$,
+for every constraint damping 1-form. Findings (F1)-(F5). `sbar5.py` S1-S3, `strap5.py` P1-P3, `lgrade5.py` G1 (new).
+Written (D228).

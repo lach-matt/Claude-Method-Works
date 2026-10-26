@@ -5246,3 +5246,15 @@ computed by hand on Minkowski (delta-bar(f dr (x)_s V) = -(1/2)(f' + 5 f/r) V, (
 compactly supported: D Ric* G = G D Ric (the linearised Einstein tensor is self-adjoint) and the family is Ricci-flat;
 the source's route needs G^2 = Id, false in 4 + 1 dimensions. Killing rotations ker ad_A: 6, 4, 2 by so(4) = so(3) +
 so(3). dualv1_5.py V1-V4 new, mp5.py 5/5. Next: Part III.F ([Hin26] section 8).
+
+**D228 (2026-10-26): Part III.F written.** [Hin26] section 8 to 8.1 at n = 4 in proof5/PART-III-F-LINEARISED.md. 2 L_b =
+box + 2 E^C delta G + 2 delta*_(E_C) E^Ups G + 2 R from III.B (6.7)-(6.8); near infinity -2 d_t* rho (rho d_rho - 3/2 -
+S-bar) plus Q d_t* (rho^3) and R_b (rho^4), sorted as in III.D Lemma 2.1. S-bar: the d_t* coefficient of 2 L-bar - box
+is 2(-E^C iota_X G + (dt* (x)_s .) E^Ups G), a product UV through T* + T*; det(lam - UV) = lam^5 det(lam - VU), and V_1
+U_2 = iota_X G(dt* (x)_s .) = 0 (dt* null, iota_X g = dt*), so VU is block triangular with diagonal blocks rho S-bar^C
+and rho S-bar^Ups, each triangular in (angular, dt*, k = d t-bar + d|x|) by hand: gam_C {1 - v (x3), (1 - e)(1 - v), 2
+(1 - v)}, gam_Ups {1 (x3), 2, 1 - e}. Trapped set: weights 0, 1, 2, 1, 1 on e_0, ..., e_4; N lowers, iota_{E_2} G lowers
+by 2, E^C raises by the weight of c's component (2 only for c_2), the rotation of V_perp preserves; W = 2 wt + s (s = 1
+on T and the spatial trace-free part) makes the one wt-preserving off-diagonal map T -> e_0 e_2 lowering; the
+W-preserving part is scalar plus skew on seven R-invariant pieces; inner product eta^(-2W). lgrade5.py checks it for
+every c. Next: Part III.F' ([Hin26] 8.2-8.3).
