@@ -1,10 +1,10 @@
 # Part III.I$'''''$. Almost boundedness, n = 4 ([Hin26] section 11.5)
 
-*Status.* Verified (D263: the hundred-and-eleventh verifier; no major finding, two minor ones and nine nits seated, to
-be read). Written (D262). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.5 (pp. 247-252): once the
-boost term is eliminated (Part III.I$''''$), the forward solutions of the augmented linearised operator have
-$K^+$-weight $\alpha_K-2$ for every $\alpha_K<2$, that is, they grow at most like $t_*^{2-\alpha_K}$ in compact spatial
-sets, almost boundedly (Proposition 11.32).
+*Status.* Proved (D266: verifier 112 read the D263 repairs). Verified (D263: the hundred-and-eleventh verifier; no major
+finding, two minor ones and nine nits seated, to be read). Written (D262). This part proves, at spatial dimension $n =
+4$, [Hin26] section 11.5 (pp. 247-252): once the boost term is eliminated (Part III.I$''''$), the forward solutions of
+the augmented linearised operator have $K^+$-weight $\alpha_K-2$ for every $\alpha_K<2$, that is, they grow at most like
+$t_*^{2-\alpha_K}$ in compact spatial sets, almost boundedly (Proposition 11.32).
 
 *What n = 4 changes.* The scheme is the source's: improve the $K^+$-weight in steps, each step a run of Part
 III.I$'''$'s argument with no boost term. Three things differ. The exponents that the formal solution at null infinity
@@ -90,7 +90,8 @@ $2\mathcal E_++2$ has real parts $>4$) and the $K^+$-weight $\alpha'_K-2+a_K$. P
 \min(\alpha'_K+a_K-2,\alpha_K)\ge\alpha'_K$, with equality only when $\alpha'_K = \alpha_K$ (the last round), and fix
 $$\alpha^\sharp_+\in(\tilde\alpha_K,\alpha_+),\qquad\alpha^\sharp_+\notin\mathrm{Re}\,\pi_1\mathcal
 E^C_I\cup\mathrm{Re}\,\pi_1(\mathcal E^\sharp_++\mathbb N_0\mathcal
-E^\iota_{\mathrm{ind}}),\qquad\alpha^\sharp_+\ge\min(\alpha_+,\tfrac32)-\epsilon\tag{2.3}$$ for a given small
+E^\iota_{\mathrm{ind}}),\qquad\alpha^\sharp_+\ge\min(\alpha_+,\tfrac32)-\epsilon\tag{2.3}$$
+for a given small
 $\epsilon>0$, where $\mathcal E^\sharp_+$ is III.I$'$ (3.2) with $\breve{\mathcal E}_+ = \emptyset$ (it contains
 $\lambda_\sharp$) and $\mathcal E^\iota_{\mathrm{ind}}$ the index set of III.G$''$ (4.4); both are fixed in advance, and
 Step 2 creates only exponents in $\mathcal E^\sharp_++\mathbb N_0\mathcal E^\iota_{\mathrm{ind}}$, so none at real part
@@ -196,7 +197,9 @@ $\gamma_{\mathrm{zf}}\in(\tilde\alpha_K-1,1)$;
 $3-\epsilon$, and $1-\epsilon>\tilde\alpha_K-1$; in the first integration, III.I$''$ Lemma 3.1 with $\beta_K :=
 \tilde\alpha_K-1\in(0,1)\subset(-1,1)\setminus\{0\}$, $\beta_K\le\alpha^\sharp_+-\frac12$, and the tf-weight
 $3-\epsilon\ge\alpha^\sharp_++1$; in the second, III.I$''$ Lemma 2.1 (1) with the $K^+$-weight
-$\tilde\alpha_K-2\in(-1,0)$, $\ne0$, and $\mathcal E_K = \{(-1,0)\}$;\n\n(v) in Step 3.4, the integrability, which needs
+$\tilde\alpha_K-2\in(-1,0)$, $\ne0$, and $\mathcal E_K = \{(-1,0)\}$;
+
+(v) in Step 3.4, the integrability, which needs
 $\tilde\alpha_K>1$.
 
 So $u^\flat = u_{\mathrm{hi}}+u_{\mathrm{reg}}+u_{\mathrm{sing}}$ with (III.I$'''$ (2.8), (2.12)-(2.13))
@@ -255,10 +258,10 @@ $\alpha^\sharp_+-\tilde\alpha_K+2$, lies in $(2,3)$ throughout.
 Proved: Proposition 2.1 and Corollary 2.2, given the parts cited. Comparisons with the source are commentary. READ: the
 source's statements quoted from pp. 247-252. Inputs: II.E Proposition 3.4; III.A section 4 ((2.25a), (2.26a)); III.C
 (3.1)-(3.2), Definition 3.1, Lemma 3.2 (a), (c); III.F$'$ Proposition 2.3 (a); III.F$'''$ Proposition 4.1 (1); III.G$'$
-(1.5), Definition 1.2, Lemmas 1.1, 4.2 (a); III.G$''$ (1.1), (4.2), (4.4), Theorems 3.1, 4.2, Corollary 4.3; III.G$'$
-Theorem 3.1 (2); III.H Proposition 3.2; III.I Definition 1.1, Proposition 4.1; III.I$'$ (1.1), (3.2), Propositions 2.1,
-3.1; III.I$''$ (5.1), Lemmas 2.1, 3.1, 4.1, 4.2; III.I$'''$ Proposition 2.1 and its proof, Lemma 1.2; III.I$''''$
-section 1, (2.4), Lemmas 2.5, 3.2, Proposition 4.1, Corollary 4.3.
+(1.5), Definition 1.2, Lemmas 1.1, 4.2 (a), Theorem 3.1 (2); III.G$''$ (1.1), (4.2), (4.4), Theorems 3.1, 4.2, Corollary
+4.3; III.H Proposition 3.2; III.I Definition 1.1, Proposition 4.1; III.I$'$ (1.1), (3.2), Propositions 2.1, 3.1;
+III.I$''$ (5.1), Lemmas 2.1, 3.1, 4.1, 4.2; III.I$'''$ Proposition 2.1 and its proof, Lemma 1.2; III.I$''''$ section 1,
+(2.4), Lemmas 2.5, 3.2, Proposition 4.1, Corollary 4.3.
 
 ### 3.3 Sources
 

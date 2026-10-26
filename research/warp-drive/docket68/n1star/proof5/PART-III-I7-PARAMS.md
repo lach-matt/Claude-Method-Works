@@ -1,14 +1,15 @@
 # Part III.I$''''''$. Black hole parameters and centre-of-mass shift, n = 4 ([Hin26] section 11.6.1)
 
-*Status.* Written (D264). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.6.1 (pp. 252-256): for
+*Status.* Verified (D266: the hundred-and-twelfth verifier; no major finding, three minor ones and eight nits seated, to
+be read). Written (D264). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.6.1 (pp. 252-256): for
 sources with a little more than $t_*^{-2}$-decay at $K^+$, a forward solution with no boost term is a cut-off linearised
 Myers-Perry metric, a cut-off constant centre-of-mass shift, and a remainder that decays at $K^+$ (Proposition 11.34).
 
 *What n = 4 changes.* The scheme is the source's: the step at null infinity and at $\iota^+$, the zero energy inversion,
 a sub-leading zero energy inversion after one order is gained at tf, the rest by the low-energy estimate, and one
 integration in $t_*$. Three things differ. There is no logarithmic centre-of-mass term: the source's comes from the
-exponent $(1,0)$ at $\iota^+$ (its Proposition 9.11 at $\lambda = 1$, $a_{\mathrm s1} = -\log t_*$), while at $n = 4$
-the $\iota^+$-exponents begin at $\lambda_\sharp = \frac32+(1-e_\Upsilon)\gamma_\Upsilon$ and give centre-of-mass
+exponent $(1,0)$ at $\iota^+$ (its Proposition 9.11 at $\lambda = 1$, where $a_{\mathrm s1}$ is a logarithm), while at
+$n = 4$ the $\iota^+$-exponents begin at $\lambda_\sharp = \frac32+(1-e_\Upsilon)\gamma_\Upsilon$ and give centre-of-mass
 motions $t_*^{-\lambda+1}$ that decay. At zero energy the source's Step 3.2 (its Proposition 9.30) is not needed (Part
 III.I$'''''$ (I$'''''$3)); its Step 3.2's second half, the tf-improvement by its Proposition 9.35, is, at $n = 4$ by
 III.G$''''$ Proposition 5.1. And that proposition's solution has a term $|\sigma|^{\alpha-3}h(S)$, singular at zf, which
@@ -59,33 +60,42 @@ Lemma 1.1 (b) ($P = L_1$, $p = 1$), $\sigma[L_1,\chi_{\mathrm{zf}}]u_0\in H^{\in
 (the factor $\sigma$ adds 1 at tf and zf); by its (a) ($P = L_2$, $p = 0$, $j = 2$),
 $\sigma^2\chi_{\mathrm{zf}}L_2u_0\in H^{\infty,(\infty,a+2,\gamma)}_{\mathrm b}$, $\gamma<2$. (b) III.H Lemma 2.4 (a):
 $\hat f = \hat f_c+\hat f_\infty$ with $\hat f_c$ entire in $\sigma$, supported in $\{r\le2\}$, where
-$\chi_{\mathrm{zf}} = 1$ for $|\sigma|\le c$, so its Taylor remainder is $O(\sigma^2)$ in $C^\infty$: zf-weight
-$2-\epsilon$, no condition at tf or scf. And $\hat f_\infty = r^{-3}G(\sigma r,x)$ on $\{r\ge1\}$ with $G$ entire and
-$|(\zeta\partial_\zeta)^j(r\partial_r)^a\partial^\beta_\omega G|\le C\langle\zeta\rangle^{-N}$; with $\hat r
-= |\sigma|r$, $r^{-3}(G(\sigma r)-\chi_1(\hat r)(G(0)+\sigma rG'(0)))$ is $r^{-3}$ times a function of $(\sigma r,x)$
-that is $O(\hat r^2)$ for $\hat r\le\frac18$ and $O(\langle\hat r\rangle^{-N}+\hat r\,1_{\hat r\le\frac14})$ beyond,
-with the same derivative bounds. In III.I$'''$ Lemma 1.2 (b)'s Fubini count ($\rho_{\mathrm{zf}}\sim\hat r$ and
+$\chi_{\mathrm{zf}} = 1$ for $|\sigma|\le c$ (III.I$'''$ section 1), so its Taylor remainder is $O(\sigma^2)$ in
+$C^\infty$: zf-weight $2-\epsilon$, no condition at tf or scf. And $\hat f_\infty = r^{-3}G(\sigma r,x)$ on $\{r\ge1\}$
+with $G$ entire and $|(\zeta\partial_\zeta)^j(r\partial_r)^a\partial^\beta_\omega G|\le C\langle\zeta\rangle^{-N}$; with
+$\hat r = |\sigma|r$, $r^{-3}(G(\sigma r)-\chi_1(\hat r)(G(0)+\sigma rG'(0)))$ is $r^{-3}$ times a function of $(\sigma
+r,x)$ that is $O(\hat r^2)$ for $\hat r\le\frac18$ and $O(\langle\hat r\rangle^{-N}+\hat r\,1_{\hat r\le\frac14})$
+beyond, with the same derivative bounds. In III.I$'''$ Lemma 1.2 (b)'s Fubini count ($\rho_{\mathrm{zf}}\sim\hat r$ and
 $\rho_{\mathrm{tf}}\sim r^{-1}$ near zf, $\rho_{\mathrm{scf}}\sim\hat r^{-1}$ near scf) this gives the weights
 $(N,3-\epsilon,2-\epsilon)$; there the $O(\hat r)$ remainder gave $1-\epsilon$. $\hat f'(0) = \partial_\sigma\hat
 f_c(0)+r^{-2}\partial_\zeta G(0,x)$ is smooth and in $\mathcal A^2\subset H^{\infty,2-\epsilon}_{\mathrm b}$ near
 $\partial X$. $\square$
 
-**Lemma 1.2 (conormal sections are admissible).** Let $\sigma\in\mathbb R\setminus0$ be small, $v$ smooth on $X^\circ$
-and b-conormal at $\partial X$ of $\mu_{\mathrm b}$-weight $a$, with $\widehat{L_b}(\sigma)v$ b-conormal of weight $a$.
-Then $v$ lies in $\mathcal X_\sigma$ for an admissible order family (I.A section 7) which agrees with that of $\mathcal
-X_\sigma$ near the characteristic set of $\widehat{L_b}(\sigma)$ over $\partial X$. On the target of both, the two
-inverses of $\widehat{L_b}(\sigma)$, and of $\tilde L_b(\sigma)$, agree.
+**Lemma 1.2 (conormal sections are admissible).** Let $\sigma\in\mathbb R\setminus0$ be small and $v$ smooth on
+$X^\circ$ and b-conormal at $\partial X$ of $\mu_{\mathrm b}$-weight $a$. Then $v$ lies in the space $\mathcal
+X'_\sigma$ built as $\mathcal X_\sigma$ but with an admissible order family (I.A section 7) lowered near
+$R_{\mathrm{out}}$, the zero section over $\partial X$ (I.A (4.6)), and unchanged near $R_{\mathrm{in}}$; $\mathcal
+X'_\sigma\supset\mathcal X_\sigma$, $\mathcal Y'_\sigma\supset\mathcal Y_\sigma$, and on $\mathcal Y_\sigma$ the
+inverses of $\widehat{L_b}(\sigma)$, and of $\tilde L_b(\sigma)$, on the two spaces agree.
 
-*Proof.* By I.A Lemma 7.4 (a), a b-conormal section of weight $a$ lies in $\bar H^{s,\mathsf r'}$ for every $s$ and
-every order $\mathsf r'$ with $\mathsf r'<a-2$ near the zero section $o_{\partial X}$, with no condition elsewhere. For
-$\sigma\ne0$ the zero section is in the elliptic set of $\widehat{L_b}(\sigma)$ (the boundary face off a neighbourhood
-of $\Sigma^\partial_\sigma$, I.A section 7.1 (F)), and the conditions (O1)-(O3) on admissible orders concern
-$\partial\mathcal R_\pm$, $R_{\mathrm{in}}$, $R_{\mathrm{out}}$ and the flow between them, which avoid it. So lowering
-the order of $\mathcal X_\sigma$ near $o_{\partial X}$ below $a-2$ keeps it admissible. Then $v$, and
-$\widehat{L_b}(\sigma)v$ in the corresponding $\mathcal Y_\sigma$, lie in these spaces, which contain the original ones.
-$\widehat{L_b}(\sigma)$ is invertible on both (III.H, (H1)-(H5) at $\sigma\ne0$ with index 0, and injectivity by
-III.F$''$), so the inverses agree on the smaller target. $\tilde L_b(\sigma)$ is a finite-rank augmentation of it,
-invertible on both for $|\sigma|$ small (III.H Theorem 4.1), so the same holds. $\square$
+*Proof.* Every part of $\widehat{L_b}(\sigma)$ maps $\mathcal A^a$ to $\mathcal A^{a+1}$ (I.A Theorem 7.2 (5)'s proof),
+so $\widehat{L_b}(\sigma)v\in\mathcal A^{a+1}$. $R_{\mathrm{out}}$ lies in the characteristic set, and the admissibility
+conditions there ask the order to be constant near $R_{\mathrm{out}}$ and below a threshold ((O2)-(O3) of I.A section
+7); so $\mathsf r' := \mathsf r-\varphi$, with $\varphi\ge0$ constant near $R_{\mathrm{out}}$, zero near
+$R_{\mathrm{in}}$ and nondecreasing along the flow (I.A Lemma 7.1's construction with a smaller value at
+$R_{\mathrm{out}}$), is admissible, and $\varphi$ can be taken with $\mathsf r'+\alpha_+<a-2$ near $R_{\mathrm{out}}$.
+By I.A Lemma 7.4 (a), $v\in\bar H^{s,\mathsf r'+\alpha_+}$ and $\widehat{L_b}(\sigma)v\in\mathcal A^{a+1}\subset\bar
+H^{s-1,\mathsf r'+\alpha_++1}$ for every $s$, so $v\in\mathcal X'_\sigma$; the inclusions hold as $\mathsf r'\le\mathsf
+r$. $\widehat{L_b}(\sigma)$ is Fredholm of index 0 on both spaces (III.H, (H1)-(H5) at $\sigma\ne0$), and its kernel
+does not depend on the admissible order: by I.A Theorem 7.2 (5) and its proof a kernel element lies in
+$\bigcap_\epsilon\mathcal A^{\frac32+\bar S-\epsilon}$, and such sections lie in every admissible space. So it is
+injective on $\mathcal X'_\sigma$ as on $\mathcal X_\sigma$ (III.F$''$), hence invertible on both, and the inverses
+agree on $\mathcal Y_\sigma$. $\tilde L_b(\sigma)$ is a finite-rank augmentation of it with as many rows as columns, so
+Fredholm of index 0 on both spaces; if $(u,\dot b,S)$ lies in its kernel on the larger one, then
+$\widehat{L_b}(\sigma)\big(u+\hat g^{\mathrm{aug}}(\sigma)(\dot b)+\hat h^{\mathrm{aug}}(\sigma)(S)\big) = 0$, so $u =
+-\hat g^{\mathrm{aug}}(\sigma)(\dot b)-\hat h^{\mathrm{aug}}(\sigma)(S)\in\mathcal X_\sigma$ (III.H Lemma 2.5 (b)), and
+$(u,\dot b,S)$ lies in the kernel on $\mathcal X_\sigma$, which is trivial for $|\sigma|$ small (III.H Theorem 4.1). So
+$\tilde L_b(\sigma)$ is invertible on both, and the inverses agree. $\square$
 
 **Lemma 1.3 (row data).** For $e = (e_1,e_2)\in\mathfrak b_{\mathbb C}\oplus\mathcal S_{1,\mathbb C}$ put $w_e :=
 \chi_{\mathrm{zf}}(\dot g(e_1)+h(e_2))$. Then $r(w_e) = e$, and for $0<|\sigma|\le c$
@@ -93,9 +103,9 @@ $$\tilde L_b(\sigma)^{-1}(0,e) = (w_e,0,0)-\tilde L_b(\sigma)^{-1}\big(\widehat{
 whose $\mathfrak b$- and $\mathcal S_1$-components are $O(|\sigma|^{1-\epsilon})$ and whose first component lies in
 $H^{\infty,(\frac32-\epsilon,1-\epsilon,0)}_{\mathrm b}$ uniformly in $|e|\le1$, for every $\epsilon>0$.
 
-*Proof.* $\chi_{\mathrm{zf}} = 1$ on $\mathrm{supp}\,f^*_j$ for $|\sigma|\le c$, so $r(w_e) = e$ by III.H (3.1); $w_e$
-has compact support for $\sigma\ne0$, so it lies in $\mathcal X_\sigma$ and $\tilde L_b(\sigma)(w_e,0,0) =
-(\widehat{L_b}(\sigma)w_e,e)$, which is the identity. $\dot g(e_1)+h(e_2)\in\mathcal A^2\subset
+*Proof.* $\chi_{\mathrm{zf}} = 1$ on $\mathrm{supp}\,f^*_j$ for $|\sigma|\le c$ (III.I$'''$ section 1), so $r(w_e) = e$
+by III.H (3.1); $w_e$ has compact support for $\sigma\ne0$, so it lies in $\mathcal X_\sigma$ and $\tilde
+L_b(\sigma)(w_e,0,0) = (\widehat{L_b}(\sigma)w_e,e)$, which is the identity. $\dot g(e_1)+h(e_2)\in\mathcal A^2\subset
 H^{\infty,2-\epsilon}_{\mathrm b}(X)$ lies in the kernel of $L_0$, so $\widehat{L_b}(\sigma)w_e =
 [L_0,\chi_{\mathrm{zf}}](\cdot)+(\widehat{L_b}(\sigma)-L_0)(\chi_{\mathrm{zf}}\,\cdot)\in
 H^{\infty,(\infty,4-\epsilon,\gamma)}_{\mathrm b}$, $\gamma<1$ (III.I$'''$ Lemmas 1.1 (a)-(b) with $a = 2-\epsilon$).
@@ -112,15 +122,20 @@ H^{\infty,0}_{\mathrm b}(\pm[0,1)_\sigma,|\frac{d\sigma}\sigma|;\mathcal S_1)$, 
 $$\chi_{\mathrm{zf}}h^{\le3}_{b_0,\mathrm s1}\big(\sigma,|\sigma|^{\alpha-3}S'(\sigma)\big)-\hat
 h^{\mathrm{aug}}(\sigma)(\Sigma(\sigma)) = O(|\sigma|^{\alpha-2})\quad\text{in }C^\infty,\tag{1.2}$$
 and near zf the difference has zf-weight $\alpha-2$; $\hat h^{\mathrm{aug}}(\sigma)(\Sigma(\sigma))$ has tf-weight
-$\alpha$ and is rapidly decaying at scf.
+$\alpha-\epsilon$ for every $\epsilon>0$ (b-Sobolev; III.I$''$ Lemma 4.3 with $a = \alpha-3$) and is rapidly decaying at
+scf.
 
 *Proof.* By (1.1), $\hat h^{\mathrm{aug}}(\sigma)(\Sigma) = |\sigma|^{\alpha-3}\big(\Psi h(S')-\sigma\partial_\sigma\Psi
 h(S')-i\sigma\Psi\breve h(S')\big)$, and $h^{\le3}_{b_0,\mathrm s1}(\sigma,S) = h(S)-i\sigma\breve h^{\le3}_{b_0,\mathrm
 s1}(\sigma,S)$ (III.G$''''$ Proposition 5.1). The difference is $|\sigma|^{\alpha-3}(1-\Psi)h(S')$ plus
-$\sigma|\sigma|^{\alpha-3}$ times bounded terms. On $\{r\le R\}$, $|\Psi-1|\le C|\sigma|$ and $|\partial_\sigma\Psi|\le
-C$ (III.H Lemma 2.5 (d)), with derivatives; for $r\ge1$, $1-\Psi = 1-\Phi(\sigma r) = O(|\sigma|r)$ and
-$h(S')\in\mathcal A^3$, so $|\sigma|^{\alpha-3}(1-\Psi)h(S')$ is $|\sigma|^{\alpha-2}$ times $O(r^{-2})$ near zf. At tf
-($\sigma r\sim1$), $|\sigma|^{\alpha-3}\Phi(\sigma r)r^{-3}\sim|\sigma|^\alpha$; at scf $\Phi$ decays rapidly. $\square$
+$\sigma|\sigma|^{\alpha-3}$ times bounded terms; near zf$\cap$tf the term
+$\sigma|\sigma|^{\alpha-3}\chi_{\mathrm{zf}}\breve h^{\le3}_{b_0,\mathrm s1}(\sigma,S')$ is controlled by III.G$''''$
+Lemma 4.3 ($\breve h^{\le3}_{b_0,\mathrm s1}$ polyhomogeneous at tf with index set $(0,0)\cup\mathcal
+E_{\mathrm{ind}}$), which gives it zf- and tf-weight $\alpha-2$. On $\{r\le R\}$, $|\Psi-1|\le C|\sigma|$ and
+$|\partial_\sigma\Psi|\le C$ (III.H Lemma 2.5 (d)), with derivatives; for $r\ge1$, $1-\Psi = 1-\Phi(\sigma r) =
+O(|\sigma|r)$ and $h(S')\in\mathcal A^3$, so $|\sigma|^{\alpha-3}(1-\Psi)h(S')$ is $|\sigma|^{\alpha-2}$ times
+$O(r^{-2})$ near zf. At tf ($\sigma r\sim1$), $|\sigma|^{\alpha-3}\Phi(\sigma r)r^{-3}\sim|\sigma|^\alpha$ (tf-weight
+$\alpha-\epsilon$ in $H_{\mathrm b}$); at scf $\Phi$ decays rapidly. $\square$
 
 ## 2. Extraction of the parameters ([Hin26] Proposition 11.34 at n = 4)
 
@@ -138,6 +153,8 @@ depending continuously on $f$. $\tilde u$ decays at $K^+$, as $\alpha_K-2>0$.
 The source's (11.117) has a third term $\chi_Kh^{\le4}_{b,\mathrm s1}(\dot S^{(0,1)}_1\log t_*)$, the logarithmic
 centre-of-mass motion, $\iota^+$-weight $1-\epsilon$, and $\alpha_K\in(2,2+\epsilon_K)$ with
 $\epsilon_K<\epsilon_{\mathrm{ind}}$; the cap $\frac52$ here is used only in Steps 1-2, through $c_K<\lambda_\sharp+1$.
+Its (11.116) also has a second class $f_2$ with $\iota^+$-index set $\tilde{\mathcal E}_++2$; at $n = 4$ the terms of
+that kind have $\iota^+$-order 4, so one class suffices, as in Part III.I$'''''$.
 
 *Proof.* *Step 0 (the source's start).* III.I$'''''$ Proposition 2.1 (with any $\alpha_+\in(\alpha'_K,2)$; $f$ has
 $\iota^+$-weight $4-\epsilon$) gives $u\in H^{\infty,(\langle\mathcal
@@ -161,8 +178,11 @@ for $\epsilon<\min(c_K-\alpha_K,\lambda_\sharp+1-\alpha_K)$. This gives $u_I$, $
 E^C_I\rangle,\ell_I),\lambda_\sharp-\epsilon,c'_K}_{\mathrm b}(\Omega_*)^{\bullet,-}$ ($u_I$ supported near $\mathscr
 I^+$) and
 $$u^\flat := u-u_I-u_\iota:\qquad L_bu^\flat =
-f^\flat\in\bigcap_{\epsilon>0}H^{\infty,\ell_I+1,4-\epsilon,\alpha_K}_{\mathrm b}(\Omega_*)^{\bullet,-},\tag{2.2}$$
-$u^\flat$ the forward solution (II.E Proposition 3.4). There is no logarithmic term: the least $\iota^+$-exponent is
+f^\flat\in H^{\infty,\ell_I+1,4-\epsilon,\alpha_K}_{\mathrm b}(\Omega_*)^{\bullet,-},\tag{2.2}$$
+$u^\flat$ the forward solution (II.E Proposition 3.4). From here on $\epsilon>0$ is fixed, small as above; the
+parameters $\dot b$, $\dot S^{(0)}_1$ found below are the $(0,0)$-coefficient of $u$ at $K^+$ (its limit as
+$t_*\to\infty$ in compact spatial sets, as $\tilde u$ tends to 0 there), so they and $\tilde u$ do not depend on
+$\epsilon$, and (2.1) holds for every $\beta_+$. There is no logarithmic term: the least $\iota^+$-exponent is
 $\lambda_\sharp$, and III.G$''$ (4.2)'s $a_{\mathrm s1} = \frac1{\lambda_0(\lambda_0-1)}t_*^{-\lambda_0+1}$ is a power
 for $\mathrm{Re}\,\lambda_0>1$ ((I$''''''$1)).
 
@@ -183,7 +203,7 @@ Y_0$ is the $\mu_{\mathrm b}$-weight $3-\epsilon$, III.I$'''$ Step 3.1) gives $(
 L_b(0)^{-1}(\hat f^\flat(0),0,0)$, $\hat u_0\in H^{\infty,1-\epsilon}_{\mathrm b}(X)$. $S_0 = 0$: $f^\flat$ lies in the
 space of III.I$'''''$ Proposition 2.1's Step 3 for every $\tilde\alpha_K<2$ and $\alpha^\sharp_+<2-\epsilon$, and III.H
 Proposition 3.2's inverses at the weights $1-\epsilon$ and $\alpha^\sharp_+-1\le1-\epsilon$ agree on $\hat f^\flat(0)$
-(nested spaces, both invertible). So that Step gives $u^\flat-\chi_Kt_*h(S_0)$ of $K^+$-weight $\tilde\alpha_K-2>-1$,
+(nested spaces, both invertible). So that Step gives $u^\flat-\chi^H_Kt_*h(S_0)$ of $K^+$-weight $\tilde\alpha_K-2>-1$,
 and $u$, $u_I$, $u_\iota$ have $K^+$-weight $>-1$. So $h(S_0) = 0$ and $S_0 = 0$ (III.F$'''$ Proposition 4.1 (1)). As in
 III.I$'''$ (2.5), $\tilde L_b(\sigma)(\chi_{\mathrm{zf}}\hat u_0,\dot b_0,0) = (\hat f^\flat(\sigma)-\hat
 f_2(\sigma),0,0)$ with
@@ -203,8 +223,9 @@ $\alpha_K-1$, as $\alpha_K<3-\epsilon$).
 b}$ with zf-coefficient $F_1$. Its tf-weight $2-\epsilon$ is too low for III.H Proposition 3.2 at the next order (it
 would need $\alpha+2 = -\epsilon$). III.G$''''$ Proposition 5.1 on $X^\pm_{\mathrm{sc}\text-\mathrm b}$ separately, with
 $\alpha := 2-\epsilon$, $\ell_{\mathrm{scf}} := \frac32-\epsilon$, $\ell_{\mathrm{zf}} := \alpha_K-2\notin\mathbb N_0$,
-$k_0 := 0$ and $w = \alpha_K-2+\epsilon\in(-\epsilon_{\mathrm{ind}},\ell^{\max}_K)$ ($\epsilon$ chosen with $\epsilon+j$
-and $w$ off the finitely many $-\mu$), gives $\hat u_3^\pm = \chi_{\mathrm{zf}}u_b+\chi^\sharp_{\mathrm{tf}}\tilde u$ in
+$k_0 := 0$ and $w = \alpha_K-2+\epsilon\in(-\epsilon_{\mathrm{ind}},\ell^{\max}_K)$ ($\epsilon$ chosen with $w$ and
+every $\epsilon+j$, $j\in\mathbb N_0$, off the set of the $-\mu$, which is real and discrete, III.G$''''$), gives $\hat
+u_3^\pm = \chi_{\mathrm{zf}}u_b+\chi^\sharp_{\mathrm{tf}}\tilde u$ in
 $H^{\infty,(\frac32-2\epsilon,-\epsilon,-1-\epsilon)}_{\mathrm b}$ with
 $$\hat f_4 := \tilde g-\widehat{L_b}(\sigma)\hat u_3\in
 H^{\infty,(\frac52-\epsilon,2+\epsilon_{\mathrm{ind}}-2\epsilon,((0,0),\alpha_K-2))}_{\mathrm b},\tag{2.5}$$
@@ -272,16 +293,18 @@ b_0)$, $G_2(\sigma)(\hat S_4^\pm)$) and III.I$''$ Lemma 4.3 with $a = \alpha_K-2
 and $G_2(\sigma)(\sigma^{-1}\hat S_1-\hat S_4)$),
 $$\mathcal F(\partial_{t_*}u_{\mathrm{sing}}) = \chi\big(G_1(\sigma)(\hat b_1)+iG_2(\sigma)(\sigma^{-1}\hat S_1)\big)\in
 H^{\infty,(N,2-\epsilon,((0,0),\alpha_K-2))}_{\mathrm b},\tag{2.10}$$
-with zf-coefficients $\dot g(\dot b_0)+h(i\hat S_4^\pm)$. *Matching.* If the two differed, $\mathcal
-F(\partial_{t_*}u_{\mathrm{sing}})$ would be $c\,1_{\sigma>0}\chi(|\sigma|)$, $c\ne0$ a section of $X$, plus a function
-to which (2.26a) applies; the inverse transform of the first is $c\cdot(2\pi i)^{-1}t_*^{-1}(1+o(1))$ as
-$t_*\to-\infty$, of $K^-$-weight below 1 in spatially compact sets, while that of the second has $K^-$-weight
-$\alpha_K-1>1$. But $\partial_{t_*}u_{\mathrm{sing}} = -\partial_{t_*}(u_{\mathrm{hi}}+u_{\mathrm{reg}})$ for $t_*<1$
-($u^\flat = 0$ there), of $K^-$-weight $\alpha_K>1$ (Step 4, $\partial_{t_*}\in\rho_\iota\rho_K\mathcal V_{\mathrm b}$).
-So $\hat S_4^+ = \hat S_4^-$ ($h$ injective), and we drop the sign. The distribution $\mathcal
-F(\partial_{t_*}u_{\mathrm{sing}})$ is bounded near $\sigma = 0$; its difference from the bounded function (2.10) is
-supported at $\{0\}$, so its inverse transform is a polynomial in $t_*$, which the decay of both as $t_*\to-\infty$
-forces to vanish. Now (2.26a) with $\beta_K := \alpha_K-1$ gives $\partial_{t_*}u_{\mathrm{sing}}\in
+with zf-coefficients $\dot g(\dot b_0)+h(i\hat S_4^\pm)$. The distribution $\mathcal F(\partial_{t_*}u_{\mathrm{sing}})$
+is bounded near $\sigma = 0$, and its difference from the right side of (2.10), a bounded function with compact support,
+is supported at $\{0\}$; so the inverse transform of the difference is a polynomial in $t_*$, which the decay of both as
+$t_*\to-\infty$ ($\partial_{t_*}u_{\mathrm{sing}} = -\partial_{t_*}(u_{\mathrm{hi}}+u_{\mathrm{reg}})$ for $t_*<1$,
+below; the other by the Riemann-Lebesgue lemma) forces to vanish, and (2.10) holds as distributions. *Matching.* If the
+two differed, $\mathcal F(\partial_{t_*}u_{\mathrm{sing}})$ would be $c\,1_{\sigma>0}\chi(|\sigma|)$, $c\ne0$ a section
+of $X$, plus a function to which (2.26a) applies; the inverse transform of the first is $c\cdot(2\pi
+i)^{-1}t_*^{-1}(1+o(1))$ as $t_*\to-\infty$, of $K^-$-weight below 1 in spatially compact sets, while that of the second
+has $K^-$-weight $\alpha_K-1>1$. But $\partial_{t_*}u_{\mathrm{sing}} =
+-\partial_{t_*}(u_{\mathrm{hi}}+u_{\mathrm{reg}})$ for $t_*<1$ ($u^\flat = 0$ there), of $K^-$-weight $\alpha_K>1$ (Step
+4, $\partial_{t_*}\in\rho_\iota\rho_K\mathcal V_{\mathrm b}$). So $\hat S_4^+ = \hat S_4^-$ ($h$ injective), and we drop
+the sign. Now (2.26a) with $\beta_K := \alpha_K-1$ gives $\partial_{t_*}u_{\mathrm{sing}}\in
 H^{\infty,(3-2\epsilon,3-\epsilon,\alpha_K-1)}_{\mathrm b}(M')$, and III.I$''$ Lemma 2.1 (1) with $\mathcal E_K =
 \emptyset$, $\beta_K := \alpha_K-2\ne0$, the a priori bound on $\Omega_-$ being that of
 $u_{\mathrm{hi}}+u_{\mathrm{reg}}$, gives
@@ -293,18 +316,20 @@ the cut-off of the $(0,0)$-term by $\chi_K$ changes $u_{\mathrm{sing}}$ by a ter
 $\mathscr I^+$ near $(\iota^+)^\circ$, of $\iota^+$-order 2 ($\dot g,h\in\mathcal A^2$). So, with
 $$\dot b := \dot b_0,\qquad\dot S^{(0)}_1 := i\hat S_4\tag{2.11}$$
 (the source's (11.133)), $u_{\mathrm{sing}}-\chi_K\big(\dot g(\dot b)+h(\dot S^{(0)}_1)\big)\in
-H^{\infty,\frac32-4\epsilon,\frac32-5\epsilon,\alpha_K-2}_{\mathrm b}(M')$. Both are real: $f$ real gives $\hat
-f^\flat(-\sigma) = \overline{\hat f^\flat(\sigma)}$, so $\hat f^\flat(0)$ is real and $F_1$ imaginary, and $\tilde
-L_b(0)$ is real, so $\dot b_0$ is real and, $F_4$ being imaginary, so is $i\hat S_4$.
+H^{\infty,\frac32-4\epsilon,\frac32-5\epsilon,\alpha_K-2}_{\mathrm b}(M')$. Their reality is shown after Step 6.
 
 *Step 6 (null infinity).* $\tilde u := u-\chi_K(\dot g(\dot b)+h(\dot S^{(0)}_1)) =
 u_I+u_\iota+u_{\mathrm{hi}}+u_{\mathrm{reg}}+(u_{\mathrm{sing}}-\chi_K(\cdots))$ has $K^+$-weight $\alpha_K-2$ (Steps
 1-5; $c'_K$, $N$, $\alpha_K-1$ are larger) and $\iota^+$-weight $\ell'_+ := \frac32-5\epsilon$. Near $\mathscr I^+$,
 $\chi_K = 0$ and $L\tilde u = f$; III.I$'$ Proposition 2.1 with $\ell_+ := \min(\ell'_+,\min\mathrm{Re}\,\mathcal
 E_+-\epsilon)$, as in III.I$'''$ Step 4, gives the $\mathscr I^+$-data $(\langle\mathcal E^C_I\rangle,\ell_I)$. This is
-(2.1). *Continuity:* every map above is linear and bounded between the spaces stated (III.H Proposition 3.2, III.G$''''$
-Proposition 5.1's construction, III.I$''$ Lemma 4.2, Lemmas 1.1-1.4, (2.25a), (2.26a), and Steps 0-2 as in
-III.I$'''''$). $\square$
+(2.1). *Reality.* $u$ is real, as $f$ and $L$ are and forward solutions are unique; $\dot g$ and $h$ are real on real
+arguments, so $\chi_K\big(\dot g(\mathrm{Im}\,\dot b)+h(\mathrm{Im}\,\dot S^{(0)}_1)\big) = -\mathrm{Im}\,\tilde u$ has
+$K^+$-weight $\alpha_K-2>0$. A stationary tensor of positive $K^+$-weight vanishes on $X^\circ$, so $\dot
+g(\mathrm{Im}\,\dot b)+h(\mathrm{Im}\,\dot S^{(0)}_1) = 0$, and $\mathrm{Im}\,\dot b = 0$, $\mathrm{Im}\,\dot S^{(0)}_1
+= 0$ by the rows of III.H (3.1). *Continuity:* every map above is linear and bounded between the spaces stated (III.H
+Proposition 3.2, III.G$''''$ Proposition 5.1's construction, III.I$''$ Lemma 4.2, Lemmas 1.1-1.4, (2.25a), (2.26a), and
+Steps 0-2 as in III.I$'''''$). $\square$
 
 ## 3. Findings, labels and sources
 
@@ -330,19 +355,21 @@ of the zero energy solution are not needed (III.I$'''''$ (I$'''''$3)); its tf-im
 $\alpha_K-2<\epsilon_{\mathrm{ind}}$ is the source's.
 
 (I$''''''$4) *Admissibility of conormal sections.* The identification (2.8) needs every piece in $\mathcal X_\sigma$;
-the conormal piece of III.G$''''$ Proposition 5.1's solution is, for an order family lowered near the zero section,
-where $\widehat{L_b}(\sigma)$ is elliptic for $\sigma\ne0$ (Lemma 1.2). The source uses the identification without
-comment.
+the conormal piece of III.G$''''$ Proposition 5.1's solution lies in it for an order family lowered near
+$R_{\mathrm{out}}$, the zero section over $\partial X$ (a radial set, where only an upper threshold applies), and the
+inverses on the two spaces agree, as the kernels do not depend on the order (Lemma 1.2). The source uses the
+identification without comment.
 
 ### 3.2 Labels
 
 Proved: Lemmas 1.1-1.4 and Proposition 2.1, given the parts cited. Comparisons with the source are commentary. READ: the
-source's statements quoted from pp. 252-256. Inputs: I.A section 7.1, Lemma 7.4 (a); II.E Proposition 3.4; II.G$'$
-section 3.1, Propositions 3.3 (1), 3.5 (1) ((2.25a), (2.26a)); III.F$''$ (mode stability); III.F$'''$ Proposition 4.1
-(1); III.G$''$ (4.2), Corollary 4.3; III.G$''''$ Proposition 5.1; III.H section 1, (2.6), (3.1), Definitions 2.1, 3.1,
-Lemmas 2.2, 2.4 (a), 2.5 (b)-(d), Proposition 3.2, Theorem 4.1; III.I Proposition 4.1; III.I$'$ Proposition 2.1;
-III.I$''$ section 4, (4.1), Lemmas 2.1, 4.1-4.3; III.I$'''$ Lemmas 1.1-1.3, Proposition 2.1's proof; III.I$''''$ (2.4),
-Lemma 2.5, Proposition 4.1; III.I$'''''$ section 1, Proposition 2.1 and its proof.
+source's statements quoted from pp. 252-256. Inputs: I.A (4.6), section 7, Lemmas 7.1, 7.4 (a), Theorem 7.2 (5) and its
+proof; III.G$''''$ Lemma 4.3; III.H (3.1), Lemma 2.5 (b), Theorem 4.1; III.I$'''$ section 1; II.E Proposition 3.4;
+II.G$'$ section 3.1, Propositions 3.3 (1), 3.5 (1) ((2.25a), (2.26a)); III.F$''$ (mode stability); III.F$'''$
+Proposition 4.1 (1); III.G$''$ (4.2), Corollary 4.3; III.G$''''$ Proposition 5.1; III.H section 1, (2.6), (3.1),
+Definitions 2.1, 3.1, Lemmas 2.2, 2.4 (a), 2.5 (b)-(d), Proposition 3.2, Theorem 4.1; III.I Proposition 4.1; III.I$'$
+Proposition 2.1; III.I$''$ section 4, (4.1), Lemmas 2.1, 4.1-4.3; III.I$'''$ Lemmas 1.1-1.3, Proposition 2.1's proof;
+III.I$''''$ (2.4), Lemma 2.5, Proposition 4.1; III.I$'''''$ section 1, Proposition 2.1 and its proof.
 
 ### 3.3 Sources
 

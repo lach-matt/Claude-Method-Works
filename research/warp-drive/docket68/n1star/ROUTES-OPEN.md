@@ -3394,3 +3394,35 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - (I''''''1) no logarithmic centre-of-mass term; (I''''''2) the boost-type term at tf; (I''''''3) Proposition 9.30 not
   needed, 9.35 needed; (I''''''4) conormal admissibility.
 - Next: verifier 112; then [Hin26] section 11.6.2 (Definition 11.37 onward) as III.I'''''''.
+
+### 4.188 Part III.I''''''' written: [Hin26] section 11.6.2 at n = 4 (D265)
+
+- PART-III-I8-UNPARAM.md: parameters p = (S, b - b_0, S^(0)_1) (no logarithmic centre-of-mass parameter); corrections
+  h^(0)(b-dot) = -dchi_K x omega-dot, h^(0)_s1(S) = -dchi_K x (omega_s1 - Theta w^0), gauge terms with the Remark 11.27
+  counterterms; P_2 = Ric(g') - delta^*(Upsilon(g', g_0) - theta_tot); identities D_p P_2(0,0) = L_b0(chi_K state) for
+  the boost, the Myers-Perry parameters and the centre of mass, all exact.
+- Finding (I'''''''1): the source's centre-of-mass correction -dchi_K x omega_s1 has iota+-order 1, outside X at
+  n = 4 (min Re E_+ > 1); the exterior background is translated, as it is boosted: g_p = (1 - chi_K)(psi_{-S0} o
+  phi_{-S})^* g_b0 + chi_K g_b. III.B (5.3) holds for the composite with the same leading term (the translation
+  difference is |x|^-3), so III.I Lemma 3.6 and everything after it hold; the correction becomes order 3. The parts
+  writing (11.90), Definition 11.63 and Corollary 11.66 must carry the translation in the initial data.
+- Elimination: Lemma 4.1 (parameters near the base point, by L_b0(u_j - u) = F_j - F - (L_j - L_b0)u_j and the
+  uniqueness of the asymptotic parameters); Lemma 4.3 (= 11.43), Lemma 4.5 (= 11.45, close to -id), Corollary 4.6
+  (= 11.46): u in H^{(<E^C_I>, l_I), beta_+, alpha_K - 2}, decaying at K+. Base points at b = b_0 (III.I Remark 5.4).
+- Next: verifier 112's report on III.I'''''' (in hand); then verifier 113 on III.I''''''' and the D266 repairs.
+
+### 4.189 Verifier 112 seated: III.I'''''' verified; III.I''''' proved (D266)
+
+- Verifier 112 on III.I'''''' (PART-III-I7-PARAMS.md) and the D263 repairs: 0 major, 3 minor, 8 nits; the D263 repairs
+  correct and complete but for a literal "\n\n" in III.I''''' (now a paragraph break) and a doubled III.G' label.
+  Confirmed: Lemmas 1.1, 1.3, 1.4; Steps 0-6; the matching; b-dot = b-dot_0, S^(0)_1 = i S-hat_4; Steps 1-2 with c_K.
+- m1: Lemma 1.2 said the zero section is elliptic for sigma != 0; it is R_out, a radial set in the characteristic set.
+  Now the order is lowered near R_out (only an upper threshold applies there; I.A Lemma 7.1's construction), L-hat
+  maps A^a to A^(a+1), and the inverses agree as kernels do not depend on the admissible order (I.A Theorem 7.2 (5)).
+- m2: reality now from the real solution: the imaginary parts of b-dot, S-dot give a stationary tensor of positive
+  K+-weight, hence zero.
+- m3: (2.2) is for one fixed eps; b-dot and S-dot are the K+-limit of u, so they and u-tilde do not depend on eps.
+- Nits: Lemma 1.4's tf-weight alpha - eps and the h-breve term near zf cap tf (III.G'''' Lemma 4.3); chi^H_K; the -mu
+  set real and discrete; the distributional identity (2.10) before the matching; the source's second class f_2; c from
+  III.I''' section 1; the sign of a_s1 dropped.
+- Next: verifier 113 on III.I''''''' and these repairs; then [Hin26] section 11.7 as III.I''''''''.

@@ -5534,3 +5534,17 @@ decay at K+, the forward solution is a cut-off linearised Myers-Perry metric, a 
 remainder decaying at K+. No logarithmic centre-of-mass term at n = 4; the tf-improvement uses III.G'''' Proposition
 5.1, whose singular boost-type term is moved into the S_1-column exactly. Steps 1-2 carry D263's fixed K+-order. Next:
 verifier 112.
+
+**D265 (2026-10-26): Part III.I''''''' written.** [Hin26] section 11.6.2 at n = 4 (PART-III-I8-UNPARAM.md): the
+corrections, the operator P_2 with parameters (S, b - b_0, S^(0)_1), and the elimination of all parameters (Corollary
+11.46): a unique choice makes the forward solution decay at K+. At n = 4 the source's centre-of-mass correction has
+iota+-order 1, outside the perturbation class, so the exterior background is translated as it is boosted; III.B (5.3)
+survives with the same leading term, so the earlier parts apply. Continuity at the base point by a difference identity
+at L_b0.
+
+**D266 (2026-10-26): verifier 112 seated; III.I'''''' verified, III.I''''' proved.** The hundred-and-twelfth verifier
+found no major finding in Part III.I''''''. Three minor findings are seated: the admissibility lemma for conormal
+sections now lowers the order at the outgoing radial set (the zero section, not elliptic) and uses that kernels do not
+depend on the order; reality comes from the real solution's K+-limit; and the decomposition is for one fixed eps, the
+parameters being intrinsic. Eight nits. The D263 repairs are correct (a literal line break and a doubled label fixed),
+so III.I''''' is proved.

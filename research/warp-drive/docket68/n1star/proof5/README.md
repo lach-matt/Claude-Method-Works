@@ -57,9 +57,10 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | proved (D259: verifier 109 read the D258 repairs; verified D258) |
 | III.I''' | [Hin26] 11.4.1 (Proposition 11.20, Lemma 11.21) | the boost parameter: the forward solution is a cut-off generalised boost state plus a remainder of K+-weight alpha_K - 2; zero energy inverted by the augmented operator, no iota+ step at n = 4 | proved (D261: verifier 110 read the D259 repairs; verified D259) |
 | III.I'''' | [Hin26] 11.4.2 (Definitions 11.23, 11.25, Lemmas 11.24, 11.28, Proposition 11.30, (11.95)) | undoing the boost: correction terms, the boost identity (11.78b), the augmented operator, its parameter derivative, the boost parameter map invertible; no logarithms, no splitting of the source, the generalised state re-centred at n = 4 | proved (D263: verifier 111 read the D261 repairs; verified D261) |
-| III.I''''' | [Hin26] 11.5 (Proposition 11.32) | almost boundedness: with the boost eliminated, K+-weight alpha_K - 2 for every alpha_K < 2, by rounds of III.I''''s argument with a step at iota+ from 3/2 + (1 - e_Ups) gam_Ups; no Lemma 11.33, no Step 3.2 at n = 4 | verified (D263; no major, two minor findings and nine nits seated, to be read) |
-| III.I'''''' | [Hin26] 11.6.1 (Proposition 11.34) | extraction of the parameters: for sources of K+-weight alpha_K in (2, 5/2), u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + a remainder decaying at K+; no logarithmic centre-of-mass term at n = 4; the tf-improvement by III.G'''' Proposition 5.1 | written (D264) |
-| III.C', III.I'''''''-III.J | [Hin26] 5.4-5.7, 11.6.2-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| III.I''''' | [Hin26] 11.5 (Proposition 11.32) | almost boundedness: with the boost eliminated, K+-weight alpha_K - 2 for every alpha_K < 2, by rounds of III.I''''s argument with a step at iota+ from 3/2 + (1 - e_Ups) gam_Ups; no Lemma 11.33, no Step 3.2 at n = 4 | proved (D266: verifier 112 read the D263 repairs; verified D263) |
+| III.I'''''' | [Hin26] 11.6.1 (Proposition 11.34) | extraction of the parameters: for sources of K+-weight alpha_K in (2, 5/2), u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + a remainder decaying at K+; no logarithmic centre-of-mass term at n = 4; the tf-improvement by III.G'''' Proposition 5.1 | verified (D266; no major, three minor findings and eight nits seated, to be read) |
+| III.I''''''' | [Hin26] 11.6.2 (Definitions 11.37, 11.40, 11.42, 11.44, Lemmas 11.38, 11.41, 11.43, 11.45, Corollary 11.46) | undoing the parameter changes: corrections, the operator P_2 with parameters (S, b - b_0, S^(0)_1), their elimination; the centre-of-mass shift needs a translated exterior background at n = 4 | written (D265) |
+| III.C', III.I''''''''-III.J | [Hin26] 5.4-5.7, 11.7-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -997,6 +998,7 @@ end. Findings (I$'''''$1)-(I$'''''$3). At $b_0$. Written (D262).
 Verified (D263: verifier 111; the iteration at $\iota^+$, the re-solving at null infinity and $S_0 = 0$ confirmed; the
 $K^+$-order fixed rather than $\ell_K$, as in the source's (11.102), and $\alpha^\sharp_+$ kept off the exponents the
 iteration creates; nine nits).
+Proved (D266: verifier 112 read the D263 repairs).
 
 ## Part III.I$''''''$
 
@@ -1007,3 +1009,16 @@ solution is $\chi_K\dot g(\dot b)+\chi_Kh(\dot S^{(0)}_1)$ plus a remainder of $
 and the boost-type term $|\sigma|^{\alpha-3}h(S)$ of III.G$''''$ Proposition 5.1 moved into the $\mathcal S_1$-column
 exactly. No logarithmic centre-of-mass term ($\iota^+$-exponents begin at $\lambda_\sharp>\frac32$). Findings
 (I$''''''$1)-(I$''''''$4). At $b_0$. Written (D264).
+Verified (D266: verifier 112; Steps 0-6, the matching and the new Steps 1-2 confirmed; Lemma 1.2 now lowers the order at
+$R_{\mathrm{out}}$, the zero section, which is a radial set and not elliptic, with the kernels independent of the order;
+reality from the $K^+$-limit of the real solution; $\epsilon$ fixed in (2.2); eight nits).
+
+## Part III.I$'''''''$
+
+`PART-III-I8-UNPARAM.md`. [Hin26] section 11.6.2 at $n = 4$: the translated background (Definition 1.2, Lemmas 1.1,
+1.3), the correction terms (Definition 2.1, Lemma 2.2, the source's 11.37-11.38), the operator $P_2$ (Definition 2.3,
+11.40), the identities (2.3) (the source's (11.78b), (11.134b), (11.135b)), the parameter derivatives (Lemma 3.1,
+11.41), and the elimination of the parameters (Lemmas 4.1, 4.3, 4.5, Corollary 4.6, the source's 11.42-11.46): for every
+source in the class (11.116) there is a unique $(S',b',S'')$ for which the forward solution decays at $K^+$. The
+source's centre-of-mass correction has $\iota^+$-order 1, outside $\mathcal X$ at $n = 4$, so the exterior background is
+translated as it is boosted. Findings (I$'''''''$1)-(I$'''''''$4). At $b_0$. Written (D265).
