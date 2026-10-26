@@ -22,13 +22,14 @@ of $2L_{b_0}$ on half densities by $|dg|$ is $i\xi f'(r_h)K$ with
 $$\det(k-K) = k^5\,(k-1+x)^3\,(k-2+2x)\,(k+(1-e_C)x)\;(k-y)\,(k+1-y)^3\,(k+2-2y).\tag{1.1}$$
 So the threshold quantity $\vartheta_{\mathcal H}$ of I.A (1.5), in a suitable fibre inner product, is any number above
 $\vartheta_L := \max\{0,\,1-x,\,2-2x,\,-(1-e_C)x,\,y,\,y-1,\,2y-2\}$, and the regularity condition is
-$s>\frac12+\vartheta_L$. With III.D$'$'s choice $c_{\Upsilon,H} = -\frac12\chi\,dr$ ($y = 0$) and $x\ge0$
-($e_C\in(0,1)$, III.F section 1), $\vartheta_L = \max(0,2-2x)$: it is 2, the threshold $s>\frac52$ of the source's
-footnote 78, when $c_C$ has no $dv$ component at the horizon, and 0 when $a_v\gamma_Cr_h\ge1$. For every $\delta>0$
-there is a neighbourhood of $b_0$ (and of the modification parameters, in a compact set) on which
+$s>\frac12+\vartheta_L$. With III.D$'$'s choice $c_{\Upsilon,H} = -\frac12\chi\,dr$ ($y = 0$), $x = a_v\gamma_Cr_h>0$
+(at $r_h$, $g^{-1}(c_C,c_C) = 2a_va_r$, so the past timelike $c_C$ has $a_v>0$), and $e_C\in(0,1)$ makes $-(1-e_C)x<0$;
+so $\vartheta_L = \max(0,2-2x)$: it is 0 when $a_v\gamma_Cr_h\ge1$, and below 2 always; 2, the threshold $s>\frac52$ of
+the source's footnote 78, is its value without the damping ($\gamma_C = 0$), which that footnote ignores. For every
+$\delta>0$ there is a neighbourhood of $b_0$ (and of the modification parameters, in a compact set) on which
 $\vartheta_{\mathcal H}<\vartheta_L+\delta$ in a fixed fibre inner product.
 
-*Proof.* Only the first-order part of $2L_{b_0} = \Box+2E^C\delta G+2\delta^*_{E^C}E^\Upsilon G+2R$ (III.F (2.1)) enters
+*Proof.* Only the first-order part of $2L_{b_0} = \Box+2E^C\delta G+2\delta^*_{E^C}E^\Upsilon G+2R$ (III.F (1.2)) enters
 a subprincipal symbol: $-\nabla^a\nabla_a+2E^C\delta G+2\delta^*E^\Upsilon G$, the curvature term, $2E^CE^\Upsilon G$
 and $2R$ being of order zero. Near the horizon $E^\Upsilon$ is its horizon part $\gamma_{\Upsilon,H}E_H$ (III.B Lemma
 6.2; III.D Lemma 5.1), and only the values of $c_C$ and $c_{\Upsilon,H}$ at $r_h$ enter (they multiply first
@@ -52,10 +53,10 @@ the operator part of (H6) by III.F Lemma 2.1, the threshold at infinity by III.F
 ($\min\mathrm{spec}\,\bar S = 0$), (H7) by III.F Proposition 4.1, and the horizon by Lemma 1.1, the remaining items
 concerning the metric alone and holding as for $\Box^\Upsilon_b$ (III.D sections 2-5). Hence, for
 $s>\frac12+\vartheta_L$ and admissible orders: $\widehat{L_b}(\sigma):\mathcal X_\sigma\to\mathcal Y_\sigma$ is Fredholm
-of index 0 for $\sigma\ne0$, $\mathrm{Im}\,\sigma\ge0$ (I.A Theorem 7.2 (3), I.B Theorem 1.3 (3)); there is $C_0$ with
-$\widehat{L_b}(\sigma)$ invertible for $|\sigma|\ge C_0$, $\mathrm{Im}\,\sigma\ge0$ (I.B Theorem 1.3, as III.D
-Proposition 6.1 for $\Box^\Upsilon_b$); and the constants and the openness of invertibility are uniform in $b$ (I.A
-Theorem 8.1). The same holds for $P'$, whose horizon matrix is (1.1) at $x = 0$.
+of index 0 for $\sigma\ne0$, $\mathrm{Im}\,\sigma\ge0$ (I.A Theorem 7.2 (3), I.B Theorem 1.3 (3)); there is
+$C_{\mathrm{hf}}$ with $\widehat{L_b}(\sigma)$ invertible for $|\sigma|\ge C_{\mathrm{hf}}$, $\mathrm{Im}\,\sigma\ge0$
+(I.B Theorem 1.3, as III.D Proposition 6.1 for $\Box^\Upsilon_b$); and the constants and the openness of invertibility
+are uniform in $b$ (I.A Theorem 8.1). The same holds for $P'$, whose horizon matrix is (1.1) at $x = 0$.
 
 **Lemma 1.3 (conormal states).** Let $\hat P$ satisfy (H1)-(H4), $\sigma\ne0$ with $\mathrm{Im}\,\sigma\ge0$, and
 $u\in\mathcal A^a(\bar X;E)$ for some $a\in\mathbb R$ (smooth up to $\partial_\sharp X$, conormal at $\partial X$) with
@@ -96,14 +97,23 @@ $\partial_rw_\tau = 2h_{r\tau}+i\sigma w_r+2\Gamma^\lambda_{r\tau}w_\lambda$,
 $\partial_rw_A = 2h_{rA}-\partial_Aw_r+2\Gamma^\lambda_{rA}w_\lambda$, the angular derivative acting on the harmonic
 algebraically. Hence: (a) every 1-form of that type with $\delta^*\omega = h$ on an interval is the solution of the
 system determined by its value at one point; (b) in the chart $(t_*,r,z)$ on $\{r>r_0\}$, if $h$ is a mode, so are the
-solutions (near infinity, in the frame $(dt_*,dr,r\,dz)$, $A = O(r^{-1})$ with b-derivatives, so variation of constants
+solutions (near infinity, for $\tilde W := (w_r,r^{-1}w_{t_*},r^{-1}w_A)$ the system is a b-system
+$r\partial_r\tilde W = \tilde A\tilde W+\tilde H$ with $\tilde A$ bounded with b-derivatives, so variation of constants
 gives polynomial bounds and conormality); (c) in the static chart the coefficients are real-analytic in $r$ on
 $(r_h,\infty)$.
 
 *Proof.* The formulas are the definition of $\delta^*$ with $\partial_\tau\mapsto-i\sigma$. (a) is uniqueness for the
-system. (b) $A$ is smooth on $(r_0,\infty)$, as the chart is; at infinity the Christoffel symbols in the frame are
-$O(r^{-1})$ conormal, $H$ is conormal with a polynomial bound, and $r\partial_rW = rAW+rH$ propagates b-regularity. (c)
-The static Tangherlini metric is analytic in $r>r_h$. $\square$
+system. (b) $A$ is smooth on $(r_0,\infty)$, as the chart is. Near infinity, in III.B's $t_*$ ($t-r_*+c_0+O(r^{-1})$
+there), $g_{t_*t_*}+1$, $g_{t_*r}+1$ and $g_{rr}$ are $O(r^{-2})$ with b-derivatives, and $g$ is $t_*$-independent and
+block-diagonal against the sphere. So $\Gamma^\lambda_{rr}$ and $\Gamma^\lambda_{rt_*}$ ($\lambda\in\{t_*,r\}$) are
+$O(r^{-3})$, $\Gamma^{t_*}_{rA} = \Gamma^r_{rA} = \Gamma^A_{rr} = \Gamma^A_{rt_*} = 0$ and
+$\Gamma^B_{rA} = r^{-1}\delta^B_A$: the one entry of $A$ that does not decay is $i\sigma$, coupling $w_r$ into the
+$w_{t_*}$ row. In $\tilde W := (w_r,r^{-1}w_{t_*},r^{-1}w_A)$ the system is
+$r\partial_r\tilde W = \tilde A\tilde W+\tilde H$ with $\tilde A$ bounded with all b-derivatives (the entry $i\sigma$ in
+the second row, $O(r^{-1})$ and $O(r^{-2})$ entries elsewhere, and $-\tilde W_A$ from the scaling) and $\tilde H$
+conormal with a polynomial bound; for this b-system variation of constants gives polynomial bounds and propagates
+b-regularity. (A bound $A = O(r^{-1})$ in the frame $(dt_*,dr,r\,dz)$, stated here before D235, is false because of the
+entry $i\sigma$; the ninety-seventh verifier.) (c) The static Tangherlini metric is analytic in $r>r_h$. $\square$
 
 **Theorem 2.2 ([AHW24] Theorem 6.1 (1) on five-dimensional Tangherlini).** Let $\sigma\ne0$, $\mathrm{Im}\,\sigma\ge0$,
 and let $h$ be a mode of one type and degree with $D_{g_{b_0}}\mathrm{Ric}(h) = 0$ on $\{r>r_h\}$. Then there is a mode
@@ -179,23 +189,23 @@ is a mode. $\square$
 The sectors exhaust the types and degrees of III.A$'$ Lemma 1.6 for symmetric 2-tensors on $\mathbb S^3$: tensor
 $l\ge2$, vector $l\ge1$, scalar $l\ge0$.
 
-**Lemma 2.3 (continuing a solution inside the horizon).** Let $Q$ be a stationary operator on $\{r>r_0\}$ whose
+**Lemma 2.3 (continuing a solution inside the horizon).** Let $Q$ be a stationary operator on $\{r>r_0-\delta_0\}$ whose
 principal part is a positive multiple of $\Box_{g_{b_0}}$, commuting with the rotations, $\sigma\ne0$ with
-$\mathrm{Im}\,\sigma\ge0$, and $w$ of one type and degree, smooth on $\{r>r_0\}$, with $\hat Q(\sigma)w = 0$ on
-$\{r>r_h\}$. Then there is $\tilde w$ of that type and degree, smooth on $\{r>r_0\}$, with $\hat Q(\sigma)\tilde w = 0$
-on $\{r>r_0\}$ and $\tilde w = w$ on $\{r\ge r_h\}$.
+$\mathrm{Im}\,\sigma\ge0$, and $w$ of one type and degree, smooth on $\{r>r_0-\delta_0\}$, with $\hat Q(\sigma)w = 0$ on
+$\{r>r_h\}$. Then there is $\tilde w$ of that type and degree, smooth on $\{r>r_0-\delta_0\}$ (so up to $\{r = r_0\}$),
+with $\hat Q(\sigma)\tilde w = 0$ on $\{r>r_0-\delta_0\}$ and $\tilde w = w$ on $\{r\ge r_h\}$.
 
 *Proof.* As in III.D Proposition 6.2 (d), in the ingoing chart the equation on the coefficients $U(r)$ of the type and
-degree is $-fU''+AU'+BU = 0$ with $A$, $B$ smooth on $(r_0,\infty)$, and with $Y := (U,(r-r_h)U')$ it is
+degree is $-fU''+AU'+BU = 0$ with $A$, $B$ smooth on $(r_0-\delta_0,\infty)$, and with $Y := (U,(r-r_h)U')$ it is
 $(r-r_h)Y' = MY$, $M$ smooth. $Y$ is smooth on $[r_h,\infty)$ and solves the equation on $(r_h,\infty)$, so its Taylor
 series at $r_h$ solves it formally. Let $Y_B$ be smooth on $(r_h-\epsilon,r_h]$ with that Taylor series (Borel), so
 $R := (r-r_h)Y_B'-MY_B$ vanishes to infinite order at $r_h$. Let $\Psi$ be a fundamental matrix of
 $(r-r_h)\Psi' = M\Psi$ on $(r_h-\epsilon,r_h)$; Gronwall gives $|\Psi(r)|+|\Psi(r)^{-1}|\le C|r-r_h|^{-m}$,
-$m := \max\|M\|$. Then $Z(r) := \Psi(r)\int_{r_h}^r\Psi(s)^{-1}R(s)(s-r_h)^{-1}ds$ converges, vanishes to infinite order
-at $r_h$ (the integrand does, and the equation $Z' = (MZ-R)/(r-r_h)$ carries this to every derivative), and solves
+$m := \max\|M\|$. Then $Z(r) := -\Psi(r)\int_{r_h}^r\Psi(s)^{-1}R(s)(s-r_h)^{-1}ds$ converges, vanishes to infinite
+order at $r_h$ (the integrand does, and the equation $Z' = (MZ-R)/(r-r_h)$ carries this to every derivative), and solves
 $(r-r_h)Z' = MZ-R$. So $Y_B+Z$ solves the equation on $(r_h-\epsilon,r_h)$ with the Taylor series of $Y$ at $r_h$; glued
-to $Y$ it is smooth on $(r_h-\epsilon,\infty)$, and on $(r_0,r_h-\epsilon]$, where $f<0$, the equation is a regular
-second-order system and the solution continues. Its first entry, times the harmonic and $e^{-i\sigma t_*}$, is
+to $Y$ it is smooth on $(r_h-\epsilon,\infty)$, and on $(r_0-\delta_0,r_h-\epsilon]$, where $f<0$, the equation is a
+regular second-order system and the solution continues. Its first entry, times the harmonic and $e^{-i\sigma t_*}$, is
 $\tilde w$ (the first row of $M$ being $(0,1)$, the second entry stays $(r-r_h)U'$). $\square$
 
 ## 3. Mode stability at the Tangherlini parameter
@@ -237,10 +247,10 @@ $\sigma$ with $\mathrm{Im}\,\sigma\ge0$, $|\sigma|\ge c_0$,
 $\widehat{L_b}(\sigma):\mathcal X_\sigma\to\mathcal Y_\sigma$ is invertible and has trivial kernel on every
 $\mathcal A^\alpha$.
 
-*Proof.* As III.D Proposition 6.3. For $|\sigma|\ge C_0$, Corollary 1.2. On the compact set
-$K := \{c_0\le|\sigma|\le C_0,\ \mathrm{Im}\,\sigma\ge0\}$, $\widehat{L_{b_0}}(\sigma)$ is invertible (Proposition 3.1);
-by I.A Theorem 8.1 every $\sigma\in K$ has a neighbourhood $U_\sigma$ and a neighbourhood of $b_0$ on which
-invertibility holds; finitely many $U_\sigma$ cover $K$. The kernel on $\mathcal A^\alpha$ by Lemma 1.3. $\square$
+*Proof.* As III.D Proposition 6.3. For $|\sigma|\ge C_{\mathrm{hf}}$, Corollary 1.2. On the compact set
+$K := \{c_0\le|\sigma|\le C_{\mathrm{hf}},\ \mathrm{Im}\,\sigma\ge0\}$, $\widehat{L_{b_0}}(\sigma)$ is invertible
+(Proposition 3.1); by I.A Theorem 8.1 every $\sigma\in K$ has a neighbourhood $U_\sigma$ and a neighbourhood of $b_0$ on
+which invertibility holds; finitely many $U_\sigma$ cover $K$. The kernel on $\mathcal A^\alpha$ by Lemma 1.3. $\square$
 
 ## 5. What remains open
 
@@ -263,8 +273,9 @@ by continuing the gauge potential inside the horizon as a solution (Lemma 2.3) a
 $\Box^\Upsilon$ on all of $\bar X$, in place of a statement on $X$ like the source's.
 
 (F$''$2) *The horizon threshold of $L_b$* (Lemma 1.1), which Part III.F did not state and Part I's theory needs:
-$s>\frac12+\max(0,2-2a_v\gamma_Cr_h)$ with III.D$'$'s horizon modification and $a_v\ge0$, the source's $\frac52$ when
-$c_C$ has no $dv$ component at the horizon; constraint damping lowers it, as it lowers the threshold at infinity.
+$s>\frac12+\max(0,2-2a_v\gamma_Cr_h)$ with III.D$'$'s horizon modification and $a_v>0$ ($c_C$ past timelike), below the
+source's $\frac52$, which his footnote 78 states without the damping; constraint damping lowers it, as it lowers the
+threshold at infinity.
 
 (F$''$3) *The scalar type 1 sector at real $\sigma$.* The algebraic gauge degenerates on the sphere
 $\sigma^2r^4 = \mu_0$, which the record's G4 avoided by working off it; the two gauge 1-forms are glued by the

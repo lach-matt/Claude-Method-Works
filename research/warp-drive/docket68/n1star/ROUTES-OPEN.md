@@ -2882,3 +2882,76 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   III.F'''-III.J and IV-VII.
 - Next: verifier 96 on the D231 repairs and Parts III.F', III.F''; Part III.F''' ([Hin26] Proposition 8.9 to Corollary
   8.13: the zero energy kernel and cokernel).
+
+### 4.156 Part III.F''' written: the zero energy (co)kernel of L_b, [Hin26] 8.9-8.13 (D233)
+
+- `proof5/PART-III-F4-ZERO.md`: Lemma 1.1 (g-dot at b_0 from the Kerr-Schild form: r^-2 (dt+dr)^2 and 2 mu_0 r^-4
+  (dt+dr) (x)_s (A-dot x) . dx, r = |x|; mp5.py M3); Lemma 2.1 (inverse images of rho^(2+k) C^oo, k = 1, 2, lie in
+  A^((k,0) u (k + E_ind))); Proposition 2.2 ([Hin26] Proposition 8.9: no logarithm; g-dot^Ups(1,0) in A^((2,0)...),
+  g-dot^Ups(0,A-dot) in A^((3,0)...)); Remark 2.3 (Remark 8.10: g-dot^Ups(0,[A,A_V]) = 2 h_b,v1(V)); Theorem 3.1
+  ([AHW24] Theorem 6.1 (2) on Tangherlini, per type and degree, static5.py S1-S6); Corollary 3.2 (stationary gauge
+  invariants); Proposition 4.1 ([Hin26] Proposition 8.11: index 0, kernel and cokernel 11-dimensional, at b_0 directly
+  and near b_0 by the augmented operator and I.C Theorem 7.1); Corollary 4.2 ([Hin26] Corollary 8.13).
+- Findings (F'''1)-(F'''6): no logarithm; eleven for seven; [AHW24] replaced at b_0 and avoided near it; Lemma 8.12 not
+  used (independence by types, gauge invariants, continuity and the dual states' leading terms); the adjoint (8.25) with
+  G^-1 = Id - (1/3) g tr; densities |dg_b| = |dt*| |dx| and weights alpha in (0, 1].
+- `static5.py` S1-S6, `zstates5.py` Z1-Z6, `mp5.py` M1-M5 rerun; `lin5.py` E3-E5 pass (E1-E5 all pass).
+- Open: [Hin26] Lemma 8.12 at n = 4 at proof level (with section 8.5's pairings, the next part); b != b_0 with small
+  nonzero sigma (III.F''); Parts III.C, III.F''''-III.J and IV-VII.
+- Next: Part III.F'''' ([Hin26] Lemma 8.12 and section 8.5); verifier 97 (Opus) on III.F''' and the verifier 96 repairs.
+
+### 4.157 Part III.F'''' written: the zero energy pairings and the physical states at -2 (D234)
+
+- `proof5/PART-III-F5-PAIRINGS.md`: Lemma 2.1 (the t*-coefficients of G D Ric: symmetric, antisymmetric, symmetric; D
+  Ric delta* = 0 gives P1 delta* omega = -P0 (dt* (x)_s omega), P2 delta* omega = -P1 (dt* (x)_s omega)); Lemma 2.2 (the
+  reduction to infinity of [Hin24b] Lemma 3.17 written out, first and second order, critical weight a + c = 2 resp.
+  min(a - 3, a-breve - 2) + c = 0, invariance under decaying gauge and t* -> t* + phi, phi in |x| C^oo); Lemma 3.1
+  ([Hin26] Lemma 8.12: 3 pi^2 mu-dot, 2 pi^2 mu <A-dot, A'>_F, (3 pi^2/2) mu xi_S . xi_S', pairing5.py P2-P5, block
+  triangular); Lemma 4.1 ([Hin26] Lemma 8.15: lambda-sharp = pi^2 mu <A_V, .>_F on all of so(4) by Remark 8.10 and
+  spin-independence); Proposition 5.1 ([Hin26] Proposition 8.14 (1) at -2 for s2, v2, t2, Step 2 modified).
+- Findings (F''''1)-(F''''5): the reduction written out; Lemma 8.15 (2) without a direct computation; which states (no
+  -3, no companions; window5.py W2); Step 2 modified; the values and normalisations.
+- Open: the window (the slowest iota+ term) in the part on [Hin26] sections 9-11; Parts III.C, III.G-III.J and IV-VII.
+- Next: verifier 97 (Opus) on III.F''', III.F'''' and the verifier 96 repairs; Part III.G ([Hin26] section 9).
+
+### 4.158 Verifier 97 seated: III.D''', III.E, III.F proved; III.F'-III.F'''' verified (D235)
+
+- The ninety-sixth verifier (Fable) was stopped with no report; the ninety-seventh (Opus) read its brief and III.F'''
+  and III.F'''': the D231 repairs, Parts III.F', III.F'', III.F''', III.F''''. No major finding; three minor, eleven
+  nits.
+- (A) The eight D231 repairs correct and complete; III.E Theorem 1.1 (3) as amended is an obligation of Part IV, as
+  III.F' treats it. III.D''', III.E and III.F: proved.
+- m1 (III.F'): C_0 = 100 (III.F; damping5.py U4 certifies 100), against C_0 >= 101; now -101 and |lambda| > 101. n1:
+  (C1) needs gamma_C large against 1/e_C, and epsilon_ind < 3 x 10^-6 at the record's point (the scalar type 2 root 1 +
+  2.93 x 10^-6); n2: the cancelled root at s1.
+- m2 (III.F''): Lemma 2.1 (b)'s A = O(r^-1) false (the entry i sigma); the conclusion via the b-system in (w_r, w_t*/r,
+  w_A/r), Gamma^lambda_rr, Gamma^lambda_rt* = O(r^-3) in III.B's t*. n3: Z := -Psi int ... (sign); n4: x > 0 since c_C
+  is past timelike, the source's 5/2 ignores the damping; n5: C_hf; n6: III.F (1.2).
+- III.F''': n7 the two epsilon_ind told apart; n8 energy identities for complex solutions; n9 Lemma 2.3 smooth up to r =
+  r_0 (stated on {r > r_0 - delta_0}).
+- m3 (III.F''''): Step 3 placed u_b in A^(alpha - eps) only; f_b is polyhomogeneous, so u_b is by III.A Lemma 1.4, and
+  (5.1)'s index set is reached (it contains the roots lambda^C_+ - 1 just above 1, which the low-energy parts carry).
+  n10: the weight > 1; n11: Lemma 3.1 (2) at spinning b, spin-independent leading term.
+- Checks: linroots5, lhor5, gmodes5 rerun, pass; the verifier's scratch checks (horizon sign, F3 radial system, the
+  factorisation at s0, v1, the mass and spin pairings 3 pi^2 mu-dot and 2 pi^2 mu) pass with failing controls.
+- Status: III.D''', III.E, III.F proved; III.F', III.F'', III.F''', III.F'''' verified (D235), the repairs to be read.
+- Next: Part III.G ([Hin26] section 9.1 at n = 4: Proposition 9.2 by the Fredholm theory on sf across v = 0 and the
+  semiclassical estimate, Proposition 9.4); verifier 98 (Opus) on III.G and the D235 repairs.
+
+### 4.159 Part III.G written: [Hin26] Proposition 9.2 at n = 4 (D236)
+
+- PART-III-G-SPECTRAL.md: N_sf(lambda) = -2 d_v(v d_v + lambda - 3/2 - S) + L(0)(omega, v d_v + lambda, d_omega) on
+  sf = R_v x S^3, supported at v = -1, across the light cone v = 0, b-elliptic at R = 1/v = 0.
+- Fixed lambda: the light cone N*{v = 0} a radial source, beta_0 = 2(1 + v), threshold s < 2 - Re lambda (the source's
+  3/2 - Re lambda at n = 3); the Fredholm property for s below it and mu in (Re lambda - 1, Re lambda); b-regularity by
+  Lie derivatives along the rotations and v d_v, whose commuted terms have first-order symbols vanishing at the light
+  cone.
+- Injectivity for Re lambda < 3/2 (the source has 1 + epsilon_ind at n = 3): II.F Lemma 5.8 with III.F' tf-admissibility
+  on (0, 1] and conormality at the light cone for s > 1/2.
+- Index 0 and finite meromorphy: the semiclassical estimate in vertical strips, lambda = iz/h, |Im z| <= Ch; escape
+  function -(v + 2)(v xi + 1), with H_p of it 2(v + 1)|eta|^2 on the characteristic set; II.F at the cone point.
+- Check: sf5.py S1-S8 (new), each with a failing control, pass.
+- Status: III.G written (D236).
+- Next: Part III.G' ([Hin26] Proposition 9.4, Definitions 9.3 and 9.6 at n = 4: extendible conormality below 1/2 by
+  multiplying by v^k, a Heaviside multiplier and the primitive in v); verifier 98 (Opus) on III.G and the D235 repairs.
+

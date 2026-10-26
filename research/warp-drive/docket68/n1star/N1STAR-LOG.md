@@ -5302,3 +5302,46 @@ omega is continued inside the horizon as a solution (Borel, then a flat correcti
 r_h) Y' = M Y) and vanishes by III.D' Proposition 4.1 on all of X-bar; then h = 0 on the exterior and, by the same ODE,
 inside. Near b_0 for |sigma| >= c_0 by compactness and I.A Theorem 8.1. Open: b != b_0 with 0 < |sigma| < c_0. gmodes5
 G3 gains the E_T check (trace-free angular equation = -(k^2/4r^2)(F^a_a + 2F)). Next: verifier 96; Part III.F'''.
+
+**D233 (2026-10-26): Part III.F''' written.** [Hin26] 8.9-8.13 at n = 4 in proof5/PART-III-F4-ZERO.md. The gauge
+correction of the mass lands at rho^1 and of the spin at rho^2, neither an indicial root of box^Ups(0), so Proposition
+8.9 has no logarithm (III.D' Lemma 5.1 (2) with III.A Lemma 1.4's index set). Remark 8.10 becomes g-dot^Ups(0,[A,A_V]) =
+2 h_b,v1(V) by III.E' Lemma 2.2 and mode stability on A^eps. [AHW24] Theorem 6.1 (2) on Tangherlini is proved per type
+and degree from static5.py's zero-frequency Kodama-Ishibashi formulas: energy identities for l >= 2 (the scalar master
+field O(r^(7/2 - beta)) excludes the exponent l + 3/2 >= 7/2), explicit gauges at l = 0, 1, and the extension across the
+horizon by III.F'' Lemma 2.1 at sigma = 0. Proposition 8.11 at b_0: Bianchi kills eta, Theorem 3.1 per harmonic, the
+gauge potential continued inside the horizon (III.F'' Lemma 2.3 at sigma = 0), its expansion at 0 (only the root 0,
+dt-bar and d(rS)), subtraction of omega_s0, omega_s1(S), mode stability; near b_0 the augmented operator, invertible at
+b_0, stays invertible (I.C Theorem 7.1), so dim ker <= 11, with continuity of the eleven states. The dual states are
+independent at every b: a Killing form vanishing inside the horizon vanishes, and the leading terms dt-bar, dx, V are
+independent. No pairings used; the adjoint (8.25) needs G^-1 = Id - (1/3) g tr at n = 4. lin5.py E1-E5 all pass (E2 1226
+s, E3 1078 s, E4 1296 s, E5 202 s). From now on verifiers run on Opus, not Fable (M, 2026-10-26). Next: Part III.F''''.
+
+**D234 (2026-10-26): Part III.F'''' written.** [Hin26] Lemmas 8.12, 8.15 and Proposition 8.14 at n = 4 in
+proof5/PART-III-F5-PAIRINGS.md. The source's 'the proof of [Hin24b, Lemma 3.17] applies verbatim' is written out: with P
+= D Ric = P0 + P1 d_t* + P2 d_t*^2, G P self-adjoint and |dg_b| = |dt*||dx| give (G Pj)^T = (-1)^j G Pj, and P delta* =
+0 gives P1 delta* omega = -P0 k(omega), P2 delta* omega = -P1 k(omega); so <L1 u, h*> = lim <[P0, chi_R] u, G k(omega*)>
+and the generalized pair's <L2 h + L1 h-breve, h*> = lim <[P1, chi_R] h + [P0, chi_R] h-breve, G k(omega*)>, the gauge
+terms dropping out, which is what pairing5.py computes. Values 3 pi^2 mu-dot, 2 pi^2 mu <A-dot, A'>_F, (3 pi^2/2) mu
+xi_S . xi_S'. Lemma 8.15's v1 functional on all of so(4) from Remark 8.10 on im ad_A and the spin-independence of the
+leading terms (the images over small spins span so(4)). Proposition 8.14 at -2 for s2, v2, t2, Step 2 modified (the
+centre-of-mass pairings against the rotations are absorbed); no -3 states, no companions (window5.py W2). Next: verifier
+97 (Opus); Part III.G.
+
+**D235 (2026-10-26): verifier 97 seated.** The ninety-sixth verifier (Fable) was stopped by M before it reported; from
+now on verifiers run on Opus. The ninety-seventh (Opus) read the D231 repairs and Parts III.F'-III.F'''' in full: no
+major finding, three minor (III.F' C_0 = 100, not >= 101; III.F'' Lemma 2.1 (b)'s false bound A = O(r^-1), the
+conclusion through the b-system in (w_r, w_t*/r, w_A/r); III.F'''' Step 3's u_b only conormal, now polyhomogeneous by
+III.A Lemma 1.4) and eleven nits (among them the sign of Lemma 2.3's flat correction, epsilon_ind < 3 x 10^-6 at the
+record's point, the energy identities for complex solutions), all seated in place. The D231 repairs are confirmed:
+III.D''', III.E and III.F are proved; III.F', III.F'', III.F''' and III.F'''' are verified. linroots5, lhor5 and gmodes5
+rerun by the verifier and pass. Next: Part III.G; verifier 98 on III.G and these repairs.
+
+**D236 (2026-10-26): Part III.G written.** `proof5/PART-III-G-SPECTRAL.md` writes out [Hin26] Proposition 9.2 at
+n = 4: the spectral family of the model operator at future timelike infinity is Fredholm of index 0 across the light
+cone below the threshold s < 2 - Re lambda, b-regular there, invertible for Re lambda < 3/2 (against the source's
+1 + epsilon_ind at n = 3) and finite-meromorphic. The fixed-lambda theory rests on Parts I.A and I.C, the high-frequency
+estimate in vertical strips on I.B at the light cone and II.F at the cone point, with the escape function
+-(v + 2)(v xi + 1). New instrument `sf5.py`, checks S1-S8 with failing controls, passes. Findings (G1)-(G6). Next: Part
+III.G' ([Hin26] Proposition 9.4); verifier 98 on III.G and the D235 repairs.
+

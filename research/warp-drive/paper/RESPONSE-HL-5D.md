@@ -1132,7 +1132,14 @@ operator away from zero frequency, is written: at the black hole itself it is pr
 harmonic by harmonic, from the master equations of Kodama and Ishibashi, where his proof cites a theorem on the
 four-dimensional rotating black hole that has no five-dimensional counterpart; near it, it is proved for frequencies
 bounded away from zero, and small frequencies away from the black hole itself are left to the parts on low frequencies.
-Theorem 4 stays deduced until the last part is proved.
+The twenty-eighth, its kernel and cokernel at zero frequency, eleven-dimensional in five dimensions against his seven,
+is written: at the black hole itself through the stationary solutions of the linearised Einstein equation there, which
+are classified here harmonic by harmonic in place of the four-dimensional theorem he cites, and near it by perturbation
+of an augmented operator, with no classification for the rotating black holes needed. The twenty-ninth, the pairings
+that make that count exact and the large stationary states it needs, is written: the pairings he takes from earlier
+papers are reduced here to integrals at infinity of leading terms, and the states, which in five dimensions include a
+tensor type that four dimensions lacks, are built with one step of his construction changed. Theorem 4 stays deduced
+until the last part is proved.
 
 ---
 
