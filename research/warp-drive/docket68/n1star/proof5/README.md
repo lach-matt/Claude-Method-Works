@@ -880,7 +880,7 @@ $t_*$-derivatives have transforms bounded at sf-weights below 0 and 1 with rapid
 recovered by integrating twice in $t_*$ (Lemma 6.2, with the translation-invariant parametrix of Lemma 6.1). Theorem 1.3:
 for $\alpha_{\mathrm{sf}}+2\in(0,1)$, $L_b$ is 2-admissible with margin 1 and sf-loss 0 (the source: $\delta>
 \alpha_{\mathrm{sf}}+\frac32$ at $n = 3$), for orders of a class $\mathcal O_c$ (II.C Definition 2.4 with three
-conditions that Part I needs), at $b_0$ for every $k$ and on neighbourhoods $\mathcal B_K$ for $k\le K$. Findings (H$'$1)-(H$'$7),
-among them (H$'$2): with $\alpha_K = -2$ and margin 1 the incoming threshold is one short of what the source's Lemmas
+conditions that Part I needs), at $b_0$ for every $k$ and on neighbourhoods $\mathcal B_K$ for $k\le K$.
+Findings (H$'$1)-(H$'$7), among them (H$'$2): with $\alpha_K = -2$ and margin 1 the incoming threshold is one short of what the source's Lemmas
 10.9-10.10 use; the high frequencies are measured at $\alpha_{\mathrm{sf}}+1$ and the regular part at regularity
 $\mathsf s+1$ instead, which the margin allows. Written (D250).
