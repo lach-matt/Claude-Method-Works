@@ -1,12 +1,13 @@
 # Part III.I$''''$. Undoing the boost, n = 4 ([Hin26] section 11.4.2)
 
-*Status.* Verified (D261: the hundred-and-tenth verifier; no major finding, two minor ones and nine nits seated, to be
-read). Written (D260). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.4.2 (pp. 241-247): the
-correction terms that let a source generate the boost term of Part III.I$'''$ (Definition 11.23, Lemma 11.24), the
-identity (11.76)-(11.78b) behind them, the augmented gauge-fixed Einstein operator (Definition 11.25), its linearisation
-in the boost parameter (Lemma 11.28), and the elimination of boosts (Proposition 11.30 and (11.95)): the map from the
-parameter of the source term to the boost parameter of the forward solution is invertible near the identity, so a
-forward solution with no boost term, growing like $t_*^{2-\alpha_K} = o(t_*)$, can be found.
+*Status.* Proved (D263: verifier 111 read the D261 repairs). Verified (D261: the hundred-and-tenth verifier; no major
+finding, two minor ones and nine nits seated, to be read). Written (D260). This part proves, at spatial dimension $n =
+4$, [Hin26] section 11.4.2 (pp. 241-247): the correction terms that let a source generate the boost term of Part
+III.I$'''$ (Definition 11.23, Lemma 11.24), the identity (11.76)-(11.78b) behind them, the augmented gauge-fixed
+Einstein operator (Definition 11.25), its linearisation in the boost parameter (Lemma 11.28), and the elimination of
+boosts (Proposition 11.30 and (11.95)): the map from the parameter of the source term to the boost parameter of the
+forward solution is invertible near the identity, so a forward solution with no boost term, growing like
+$t_*^{2-\alpha_K} = o(t_*)$, can be found.
 
 *What n = 4 changes.* The scheme is the source's. Four things differ. There are no logarithms: the correction $h^{(-1)}$
 has index set $(2,0)\cup(2+\mathcal E_{\mathrm{ind}})$ at $\iota^+$, and its linearised curvature has
@@ -445,7 +446,7 @@ Proved: Lemmas 1.2, 2.2, 2.4, 2.5, 3.1, 3.2, 4.2, Proposition 4.1 and Corollary 
 with the source are commentary. READ: the source's statements quoted from pp. 241-247. Inputs: II.E Proposition 3.4;
 III.B (3.5)-(3.6), Proposition 3.6, section 5 (Lemmas 5.1-5.2, (5.3)), Definition 6.1, (6.1)-(6.3), (6.6), (6.8); III.D
 (Dyn); III.C Lemmas 2.1, 4.3; III.D$''$ section 1, (1.2), Proposition 3.1; III.F$'''$ Proposition 4.1; III.H section 1,
-(1.2), Proposition 3.2; III.I (1.1)-(1.4), Lemmas 3.6, 4.3, Propositions 3.4, 4.1, Corollaries 4.2, 5.2, Theorem 5.3;
+(1.2), Proposition 3.2; III.I (1.1)-(1.4), Lemmas 3.6, 4.3, Propositions 3.4, 4.1, Corollary 5.2, Theorem 5.3;
 III.I$'$ Propositions 2.1, 3.1; III.I$''$ (5.1), Proposition 5.1; III.I$'''$ Proposition 2.1 and its proof.
 
 ### 5.3 Sources

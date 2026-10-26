@@ -5521,3 +5521,16 @@ repairs to III.I''' are correct, so III.I''' is proved.
 alpha_K < 2, with iota+-weight min(alpha_+, 3/2, min Re E_+). The proof runs Part III.I''''s argument in rounds, adding
 a step at iota+ from the exponent 3/2 + (1 - e_Ups) gam_Ups (no pole of the iota+-normal operator below 2); the source's
 Lemma 11.33 and its Step 3.2 are not needed at n = 4. Next: verifier 111.
+
+**D263 (2026-10-26): verifier 111 seated; III.I''''' verified, III.I'''' proved.** The hundred-and-eleventh verifier
+found no major finding in Part III.I''''' and confirmed the iteration at iota+, its termination and S_0 = 0. Two minor
+findings are seated: the K+-order is now fixed and l_K varies with the exponent, as in the source's (11.102), since
+later rounds' coefficients do not vanish near K+; and alpha#_+ avoids the exponents the iteration creates. Nine nits.
+The D261 repairs to III.I'''' are correct (one stale input dropped), so III.I'''' is proved.
+
+**D264 (2026-10-26): Part III.I'''''' written.** [Hin26] section 11.6.1 at n = 4 (PART-III-I7-PARAMS.md): Proposition
+11.34, the extraction of the black hole parameters: for real sources with no boost term and a little more than t_*^(-2)
+decay at K+, the forward solution is a cut-off linearised Myers-Perry metric, a cut-off centre-of-mass shift and a
+remainder decaying at K+. No logarithmic centre-of-mass term at n = 4; the tf-improvement uses III.G'''' Proposition
+5.1, whose singular boost-type term is moved into the S_1-column exactly. Steps 1-2 carry D263's fixed K+-order. Next:
+verifier 112.

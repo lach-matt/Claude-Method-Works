@@ -56,9 +56,10 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I' | [Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future timelike infinity; formal solutions at null infinity, one exceptional term | proved (D258: verifier 108 read the D256 repairs; verified D256) |
 | III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | proved (D259: verifier 109 read the D258 repairs; verified D258) |
 | III.I''' | [Hin26] 11.4.1 (Proposition 11.20, Lemma 11.21) | the boost parameter: the forward solution is a cut-off generalised boost state plus a remainder of K+-weight alpha_K - 2; zero energy inverted by the augmented operator, no iota+ step at n = 4 | proved (D261: verifier 110 read the D259 repairs; verified D259) |
-| III.I'''' | [Hin26] 11.4.2 (Definitions 11.23, 11.25, Lemmas 11.24, 11.28, Proposition 11.30, (11.95)) | undoing the boost: correction terms, the boost identity (11.78b), the augmented operator, its parameter derivative, the boost parameter map invertible; no logarithms, no splitting of the source, the generalised state re-centred at n = 4 | verified (D261; no major, two minor findings and nine nits seated, to be read) |
-| III.I''''' | [Hin26] 11.5 (Proposition 11.32) | almost boundedness: with the boost eliminated, K+-weight alpha_K - 2 for every alpha_K < 2, by rounds of III.I''''s argument with a step at iota+ from 3/2 + (1 - e_Ups) gam_Ups; no Lemma 11.33, no Step 3.2 at n = 4 | written (D262) |
-| III.C', III.I''''''-III.J | [Hin26] 5.4-5.7, 11.6-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| III.I'''' | [Hin26] 11.4.2 (Definitions 11.23, 11.25, Lemmas 11.24, 11.28, Proposition 11.30, (11.95)) | undoing the boost: correction terms, the boost identity (11.78b), the augmented operator, its parameter derivative, the boost parameter map invertible; no logarithms, no splitting of the source, the generalised state re-centred at n = 4 | proved (D263: verifier 111 read the D261 repairs; verified D261) |
+| III.I''''' | [Hin26] 11.5 (Proposition 11.32) | almost boundedness: with the boost eliminated, K+-weight alpha_K - 2 for every alpha_K < 2, by rounds of III.I''''s argument with a step at iota+ from 3/2 + (1 - e_Ups) gam_Ups; no Lemma 11.33, no Step 3.2 at n = 4 | verified (D263; no major, two minor findings and nine nits seated, to be read) |
+| III.I'''''' | [Hin26] 11.6.1 (Proposition 11.34) | extraction of the parameters: for sources of K+-weight alpha_K in (2, 5/2), u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + a remainder decaying at K+; no logarithmic centre-of-mass term at n = 4; the tf-improvement by III.G'''' Proposition 5.1 | written (D264) |
+| III.C', III.I'''''''-III.J | [Hin26] 5.4-5.7, 11.6.2-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -982,6 +983,7 @@ Findings (I$''''$1)-(I$''''$6). At $b_0$. Written (D260).
 Verified (D261: verifier 110; the boost identity, the re-centring and the invertibility confirmed; Lemma 4.2 (b) stated
 for $\ell_I>2$ or sources vanishing near $\mathscr I^+$, Lemma 3.1's count with the background difference as a
 perturbation; nine nits).
+Proved (D263: verifier 111 read the D261 repairs).
 
 ## Part III.I$'''''$
 
@@ -992,3 +994,16 @@ III.I$''''$ Corollary 4.3). The proof raises the $K^+$-weight in rounds of Part 
 $\iota^+$ (III.G$''$ Corollary 4.3, no pole below 2) once the weight passes $\lambda_\sharp =
 \frac32+(1-e_\Upsilon)\gamma_\Upsilon$; re-solving at null infinity creates no exponent below $\frac52$, so the rounds
 end. Findings (I$'''''$1)-(I$'''''$3). At $b_0$. Written (D262).
+Verified (D263: verifier 111; the iteration at $\iota^+$, the re-solving at null infinity and $S_0 = 0$ confirmed; the
+$K^+$-order fixed rather than $\ell_K$, as in the source's (11.102), and $\alpha^\sharp_+$ kept off the exponents the
+iteration creates; nine nits).
+
+## Part III.I$''''''$
+
+`PART-III-I7-PARAMS.md`. [Hin26] section 11.6.1 at $n = 4$: Proposition 2.1 (the source's Proposition 11.34): for real
+sources with $\dot S(f) = 0$ and $K^+$-weight $\alpha_K\in(2,\min(a_K,2+\epsilon_{\mathrm{ind}},\frac52))$, the forward
+solution is $\chi_K\dot g(\dot b)+\chi_Kh(\dot S^{(0)}_1)$ plus a remainder of $K^+$-weight $\alpha_K-2>0$. Lemmas
+1.1-1.4: first-order zf expansions, conormal sections admissible at $\sigma\ne0$, the rows answered by the nullspace,
+and the boost-type term $|\sigma|^{\alpha-3}h(S)$ of III.G$''''$ Proposition 5.1 moved into the $\mathcal S_1$-column
+exactly. No logarithmic centre-of-mass term ($\iota^+$-exponents begin at $\lambda_\sharp>\frac32$). Findings
+(I$''''''$1)-(I$''''''$4). At $b_0$. Written (D264).

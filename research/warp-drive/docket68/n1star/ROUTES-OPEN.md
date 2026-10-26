@@ -3366,3 +3366,31 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (I'''''3) no Lemma 11.33, no expansion (11.107b), no Step 3.2 (Proposition 9.30): no indicial root in (0, 1], columns
   of tf-order 3 - eps.
 - Next: verifier 111; then [Hin26] section 11.6 (black hole parameters) as III.I''''''.
+
+### 4.186 Verifier 111 seated: III.I''''' verified; III.I'''' proved (D263)
+
+- Verifier 111 on III.I''''' (PART-III-I6-ALMOSTBDD.md) and the D261 repairs: 0 major, 2 minor, 9 nits; the D261
+  repairs correct, one incomplete (a stale input, now dropped). Confirmed: termination of the iota+ iteration; no
+  exponent below 5/2 from re-solving at I+; l_0 = 0; S_0 = 0; every use of alpha_K < 3/2 in III.I'''.
+- m1: l_K was fixed once, which holds in the first round only: later coefficients come from III.G'' Corollary 4.3's
+  error, which does not vanish near K+. Now the K+-order c_K in (2, lam_sharp + 1) is fixed and l_K(lam_0) := c_K -
+  Re lam_0 in (0, 1), as the source does in (11.102); errors have K+-weight c_K - eps > 2.
+- m2: alpha#_+ is kept off Re(E#_+ + N_0 E^iota_ind), so no created exponent sits at alpha#_+.
+- Nits: E^tot closure +N_0; the two index sets named E_ind separated (E^iota_ind, eps_ind defined); min Re E^gr_K
+  >= Re lam_0 - 1 with the reason; III.C Lemma 3.2 (a) and the eigencomponent-to-slot change; tilde alpha_K >=
+  alpha'_K; three more uses of alpha_K listed; chi^H_K; status D262; III.I'''' Proposition 4.1 (1) needs no l_I <= a_I.
+- Next: verifier 112 on III.I'''''' and these repairs.
+
+### 4.187 Part III.I'''''' written: [Hin26] section 11.6.1 at n = 4 (D264)
+
+- PART-III-I7-PARAMS.md: Proposition 2.1 (= 11.34): alpha_K in (2, min(a_K, 2 + eps_ind, 5/2)), f real with
+  S-dot(f) = 0: u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + u-tilde, u-tilde of K+-weight alpha_K - 2 > 0.
+- Lemmas: 1.1 first-order zf expansions; 1.2 conormal sections lie in X_sigma for an admissible order lowered near the
+  zero section; 1.3 row data answered by w_e = chi_zf(g-dot(e_1) + h(e_2)); 1.4 the term |sigma|^(alpha-3) h(S') of
+  III.G'''' Proposition 5.1 moved into the S_1-column exactly.
+- Proof: Steps 1-2 of III.I''''' with alpha#_+ = 2 - eps and c_K in (alpha_K, lam_sharp + 1); zero energy (2.25a), the
+  tf-improvement by III.G'''' Proposition 5.1 (the source's Proposition 9.35), a second inversion at relative order
+  eps_ind - 2 eps, the low-energy estimate; one integration in t_*; matching b-dot and S^(0)_1; reality.
+- (I''''''1) no logarithmic centre-of-mass term; (I''''''2) the boost-type term at tf; (I''''''3) Proposition 9.30 not
+  needed, 9.35 needed; (I''''''4) conormal admissibility.
+- Next: verifier 112; then [Hin26] section 11.6.2 (Definition 11.37 onward) as III.I'''''''.
