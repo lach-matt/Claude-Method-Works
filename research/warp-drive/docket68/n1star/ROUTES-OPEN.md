@@ -3808,3 +3808,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   g_0 = g_{b_0} + h_0 and its source term P(g_0, g_{b_0}) are not needed.
 - Next: verifier 125 on III.C' after verifier 124 (III.J''); then III.C'' ([Hin26] sections 5.6-5.7), Part IV ([Hin23a]
   section 3 and [Hin26a] at n = 4), (J'3), and [Hin26] section 13.
+
+### 4.213 Part III.C'' written (D289): boosts and gauged Cauchy data
+
+- III.C'' (PART-III-C3-BOOSTDATA.md) writes [Hin26] sections 5.6-5.7 at n = 4.
+- Lemma 1.1: the pullback of g_{b_0} by a boost lies in the class G of III.C on Omega_ext,r1. With the past slab of
+  III.C' Lemma 1.1 at slope 1/12 (zeta = dt_* + (13/12) dr, timelike for eta), Omega_ext stays in {chi_IVP = 1}.
+  Settled: III.C's (C4).
+- Section 2: the cut-off gauge Upsilon^{chi_0 E_Ups} (2.1) and its naturality under boosts (2.2); Lemma 2.1, the
+  structure of III.C at null infinity holds in that gauge.
+- Theorem 3.1 (the source's Theorem 5.23) (1)-(3): the exterior solution pulled back by boosts, by uniqueness and
+  finite speed of propagation. Remark 3.2.
+- Proposition 4.1 (the source's Proposition 5.25): gauged Cauchy data from the frame e_0, ..., e_4. Proposition 4.2:
+  Boyer-Lindquist data at n = 4 carry no E_log, since t - t_BL = -mu r^{-1} + O(r^{-2}). Remark 4.3 (the source's
+  Example 5.27).
+- Findings: (C''1) a misprint in the source, {chi_0 = 1} for {chi_0 = 0} and [-1/8, -1/8] for [-1/8, 1/8]; (C''2) Part
+  IV must deliver III.C' Theorem 2.1 in the cut-off gauge; (C''3) C4 settled; (C''4) no logarithms at n = 4.
+- Next: verifier 125 on III.C' and III.C''; seat verifier 124 on III.J''.

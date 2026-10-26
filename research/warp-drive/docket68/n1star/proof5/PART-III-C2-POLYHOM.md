@@ -37,7 +37,7 @@ exponents $\frac32+s$, $s\in\sigma_\Upsilon\setminus\{0\}$, exceed $\ell^\flat_I
 $(1-e_\Upsilon)\gamma_\Upsilon\le\gamma_\Upsilon\le2\gamma_\Upsilon$).
 
 **Lemma 1.1 (spacetime domain; [Hin26] Lemma 5.16 at n = 4).** For $r_0$ large let, with $r = |x|$,
-$$\Omega_{\mathrm{ext},r_0} := \big\{-\tfrac{r-r_0}4\le t_{\mathrm{IVP}}\le0\big\}\cup\big\{0\le t_{\mathrm{IVP}}\le
+$$\Omega_{\mathrm{ext},r_0} := \big\{-\tfrac{r-r_0}{12}\le t_{\mathrm{IVP}}\le0\big\}\cup\big\{0\le t_{\mathrm{IVP}}\le
 r+2r^{1-\ell^\flat_I}-(r_0+2r_0^{1-\ell^\flat_I})\big\},$$
 with boundary hypersurfaces $\Sigma_{\mathrm{past},r_0}$, $\Sigma_{\mathrm{fut},r_0}$ (the first and last level sets)
 and $\Sigma_{\mathrm{IVP},r_0} := \Omega_{\mathrm{ext},r_0}\cap\{t_{\mathrm{IVP}} = 0\}$. There is $R_0>3R_1$ such that
@@ -55,9 +55,10 @@ C(\rho_0^2\rho_I^2+\rho_0^{\ell^\flat_0}\rho_I^{3/2})$ in the frame of (1.6), wh
 
 *$\Sigma_{\mathrm{IVP},r_0}$ and $\Sigma_{\mathrm{past},r_0}$.* $dt$ is timelike for $\eta$, and so for $\eta+\delta$
 when $|\delta|$ is small. In the coordinates $(t_*,r)$ of Minkowski space ($t_* = t-r$), $\eta^{-1} =
--2\partial_{t_*}\partial_r+\partial_r^2$ on $dt_*,dr$, so $\zeta := d(t_{\mathrm{IVP}}+\frac{r-r_0}4) = dt_*+\frac54dr$
-has $\eta^{-1}(\zeta,\zeta) = -2\cdot\frac54+(\frac54)^2 = -\frac{15}{16}$ (the computation is dimension-free); so
-$\zeta$ is timelike for $\eta+\delta$ too.
+-2\partial_{t_*}\partial_r+\partial_r^2$ on $dt_*,dr$, so $\zeta := d(t_{\mathrm{IVP}}+\frac{r-r_0}{12}) =
+dt_*+\frac{13}{12}dr$ has $\eta^{-1}(\zeta,\zeta) = -2\cdot\frac{13}{12}+(\frac{13}{12})^2 = -\frac{143}{144}$ (the
+computation is dimension-free; any slope \in(0,1)$ in place of $\frac1{12}$ gives hmtBc2(1+c)+(1+c)^2<0$); so $\zeta$ is
+timelike for $\eta+\delta$ too.
 
 *$\Sigma_{\mathrm{fut},r_0}$.* With $x^0 = t+r$, $x^1 = t-r$, $\eta = -dx^0dx^1$ (symmetric product), so $\eta^{01} =
 -2$, $\eta^{00} = \eta^{11} = 0$, and $dr = \frac12(dx^0-dx^1)$. For $\ell := \ell^\flat_I$,
@@ -74,8 +75,11 @@ $C(\rho_0^{2-\ell}\rho_I^{3-\ell}+\rho_0^{\ell^\flat_0-\ell}+\rho_0^{2\ell^\flat
 to 0 as $\rho_0\to0$, as $\ell<2$, $\ell<\ell^\flat_0$ and $\ell<3$ (1.1). As $\rho_0\le C/r_0$ on
 $\Omega_{\mathrm{ext},r_0}$, for $r_0$ large $(\eta+\delta)^{-1}(\zeta,\zeta)\le-2(\ell-1)r^{-\ell}<0$. $\square$
 
-The source's version uses its Lemma 5.6 for the pointwise bounds; here the slots of $h$ and of $g_{b_0}-\eta$ give them
-directly, the mass entering at $\rho_0^2\rho_I^2$ in the 11-slot only (III.C (b)).
+The source's past slab has the slope $\frac14$; the slope $\frac1{12}$ keeps $\Omega_{\mathrm{ext},r_0}$ inside
+$\{t_{\mathrm{IVP}}>-|x|/10\}$, where $\chi_{\mathrm{IVP}} = 1$ (III.B), so that the boosts of III.C$''$ are genuine
+boosts on all of it (finding (C4) of III.C). The source's version uses its Lemma 5.6 for the pointwise bounds; here the
+slots of $h$ and of $g_{b_0}-\eta$ give them directly, the mass entering at $\rho_0^2\rho_I^2$ in the 11-slot only
+(III.C (b)).
 
 ## 2. The exterior solution ([Hin26] (5.52)-(5.53) and Theorem 5.17 at n = 4; Part IV)
 

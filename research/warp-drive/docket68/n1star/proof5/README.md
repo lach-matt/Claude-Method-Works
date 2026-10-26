@@ -71,7 +71,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
 | III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | written (D286) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | written (D288) |
-| III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23, the cut-off gauge, (C4)); gauged Cauchy data (Proposition 5.25) | to do |
+| III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | written (D289) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -1175,3 +1175,10 @@ Written (D286).
 of Part IV ([Hin23a] section 3 at n = 4, to be written). Theorem 3.1 gives partial polyhomogeneity at I_0 (commuting
 with prod(X_0 - z)) and at null infinity (slot by slot through the constant lower-triangular A-bar, half steps). The
 radiation fields are not subtracted, so III.C's obligation (C7) does not arise. Written (D288).
+
+`PART-III-C3-BOOSTDATA.md`. [Hin26] sections 5.6-5.7 at n = 4. Lemma 1.1 shows the boosted Kerr metric lies in the class
+of III.C on the exterior domain, which settles (C4) (the past slab of III.C' Lemma 1.1 now has slope 1/12, so the domain
+stays where the initial-value cut-off is 1). Section 2 is the cut-off gauge and its naturality under boosts. Theorem 3.1
+(the source's Theorem 5.23) pulls the exterior solution back by boosts; Proposition 4.1 (Proposition 5.25) builds gauged
+Cauchy data. Proposition 4.2: at n = 4, Boyer-Lindquist data need no logarithmic index set, since t - t_BL = -mu/r +
+O(r^-2). Findings (C''1)-(C''4), among them a misprint in the source's support condition. Written (D289).
