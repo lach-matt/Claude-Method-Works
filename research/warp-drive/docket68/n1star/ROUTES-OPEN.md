@@ -3781,3 +3781,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open for [Hin26] section 13 at n = 4: (J'3), the linear theory and its tame form at b != b_0; III.C' and the exterior
   family h_{-S}; smoothing operators on the spaces of III.J Definition 1.1 (II.G Proposition 3.1).
 - Next: verifier 124 on III.J'' once verifier 123 (the D285 repairs) is seated.
+
+### 4.211 Verifier 123 seated (D287): III.I'''''''''''''', III.J and III.J' proved
+
+- Verifier 123 read the D285 repairs to III.I'''''''''''''', III.J and III.J': 0 major, 0 minor, 7 nits. The rotation
+  rows of real part 2 (M_rot), the rate bound by (G), Step 4''s separation modulo O(t^{-3-delta'}), the K+-order of
+  (2.5) at a rotating b and III.J' Case A all check out. III.I'''''''''''''', III.J and III.J' are proved.
+- Nits seated: (J4) of III.J now says real part at most 2; the v1 carrier's rate at a rotating b; the s1 formal
+  solution's order Re lambda_0 + 1 <= 4 in III.J' Case A; lambda_sharp + 2 > 3 + delta' and the rate bound from
+  III.I'''''''''''' Theorem 3.1 in Step 4'; Lemma 2.3 cited for M_rot; Re z in finding 5; two parentheticals merged.
+- Next: verifier 124 on III.J'' (D286); III.C' ([Hin26] sections 5.4-5.5 at n = 4) is being written.

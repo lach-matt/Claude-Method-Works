@@ -5694,3 +5694,8 @@ solutions, coefficients of the background, model inverses at every finite order 
 every construction. One model map, the high-frequency part, loses derivatives in proportion to the order unless the
 trapping is strongly admissible; that is proved at the reference black hole only, so the tame form near it joins the
 open linear theory at other black holes. Next: verifier 124 on this part.
+
+**D287 (2026-10-26): verifier 123 seated; III.I'''''''''''''', III.J and III.J' proved.** Verifier 123 read the repairs
+of D285 (the rotation rows extended to the exponents of real part 2, and the minor points of verifier 122) and found
+nothing of weight: seven nits, all seated. The absorption of the expansion into the operator and both halves of the
+efficient parameterisation are now proved at the reference black hole. Next: verifier 124 on the tame estimates.

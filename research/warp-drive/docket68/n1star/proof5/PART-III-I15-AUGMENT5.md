@@ -1,13 +1,13 @@
 # Part III.I$''''''''''''''$. Absorbing the expansion into the operator, n = 4 ([Hin26] section 11.8.3)
 
 *Status.* Written (D279); verified (D281: verifier 120's findings seated; D284: verifier 121's, on the D281 repairs;
-D285: verifier 122 read those repairs, and the rotation rows now include the exponents of real part 2, to be read). This
-part proves, at spatial dimension $n = 4$, the content of [Hin26] section 11.8.3 (pp. 292-296): the parameters of the
-partial expansion of III.I$''''''''''''$ become arguments of an augmented gauge-fixed Einstein operator $P_5$
-(Definition 1.2, the source's Definition 11.63), its linearisation in the black hole parameters has the full order of
-decay at $K^+$ (Lemma 2.4 (c), the source's Lemma 11.65), and the linearised equation at $(h,\vec p,q)$ has, for every
-source, a unique choice of $\vec p\,'$ for which the solution splits as $h_{\mathrm{rem}}(q')+h'$ with $h'$ of the decay
-assumed of $h$ (Theorem 3.1, the source's Corollary 11.66).
+D285: verifier 122 read those repairs, and the rotation rows now include the exponents of real part 2); proved (D287:
+verifier 123 read the D285 repairs, seven nits seated). This part proves, at spatial dimension $n = 4$, the content of
+[Hin26] section 11.8.3 (pp. 292-296): the parameters of the partial expansion of III.I$''''''''''''$ become arguments of
+an augmented gauge-fixed Einstein operator $P_5$ (Definition 1.2, the source's Definition 11.63), its linearisation in
+the black hole parameters has the full order of decay at $K^+$ (Lemma 2.4 (c), the source's Lemma 11.65), and the
+linearised equation at $(h,\vec p,q)$ has, for every source, a unique choice of $\vec p\,'$ for which the solution
+splits as $h_{\mathrm{rem}}(q')+h'$ with $h'$ of the decay assumed of $h$ (Theorem 3.1, the source's Corollary 11.66).
 
 *What n = 4 changes.* (1) *The linearisation is taken at $h$, not at $h+h_{\mathrm{rem}}(q)$.* The source proves
 Corollary 11.66 by applying Theorem 11.59 at the background $h+h_{\mathrm{rem}}(q)$, whose $K^+$-order is only
@@ -105,8 +105,8 @@ $\mathcal P$ (the background $\vec p$ may lie in the enlarged one), the rotation
 injectivity of $h_\tau$ on $\mathcal W_\tau$, fails for them, $h_{\mathrm v1}$ being 0 on $\mathcal V_1$, and is not
 used for them (III.I$''''''''''$ Corollary 2.3 excludes v1). Each $h_\nu(W)$ is supported in $\mathcal C$ with
 $\iota^+$-exponents in $(\lambda,k)+\mathcal F\subset\mathcal E_+$, as for the v1 rows $(\mathrm v1,\lambda,k)$ of
-$\mathcal N$, which exist as $\mathcal M_{\mathrm{rot}}\subset\mathcal E_{\mathrm{par}}$ (III.I$''''''''''$ (1.2))
-(III.I$'''''''''$ (H3); below 2 by III.I$''''''''$ (1.1) and $\mathcal E_{++}+\mathcal E_{\mathrm{ind}}\subset\mathcal
+$\mathcal N$, which exist as $\mathcal M_{\mathrm{rot}}\subset\mathcal E_{\mathrm{par}}$ (III.I$''''''''''$ (1.2);
+III.I$'''''''''$ (H3), below 2 by III.I$''''''''$ (1.1) and $\mathcal E_{++}+\mathcal E_{\mathrm{ind}}\subset\mathcal
 E_{++}\subset\mathcal E_+$), so (H3) holds and $h_{\mathrm{tot}}(\vec p)\in\mathcal X^\infty$; and $f^\nu_{h,\vec p}(W)
 := D_{\vec p}P_4(h,\vec p)(W_\nu = W) = L_{h,\vec p}m_\nu(W)+r^\nu_{h,\vec p}(W)$ (III.I$'''''''''$ Lemma 2.6 (b)-(c)),
 with $r^\nu_{h,\vec p}$ of $K^+$-weight $\mathrm{Re}\,\lambda+a_K-\epsilon>\alpha$ and plain $\iota^+$-weight
@@ -399,14 +399,15 @@ remainders of $K^+$-order $\alpha-$, $\ell$ applied to their difference gives $(
 $O(t_*^{-3-\delta'})$, $\delta' := \frac12\min(\epsilon_K,\alpha-4)>0$: the bottoms are removed by $\ell$ exactly, and
 what remains is the remainders ($K^+$-order $\alpha-\epsilon>3+\delta'$), the derivatives of $\Delta\dot
 S_{\mathrm{rem}}$ and $\Delta\dot b_{\mathrm{rem}}$ (order $(\alpha-1)-$) and of the other coefficients (rate
-$>2+\epsilon_K$ by (G), Definition 1.1), and the second derivative of $\Delta\dot Y_{\mathrm v1}$ (order
-$\ge\mathrm{Re}\,\lambda+2>3$ at the exponents of $\mathcal M_{\mathrm{rot}}$, $>4$ at the others). The derivative of
-$\Delta\dot Y_{\mathrm v1}$ at its exponents of real part $>2$, hence $>2+\epsilon_K$, is also $O(t_*^{-3-\delta'})$,
-while at $(\lambda,k)\in\mathcal M_{\mathrm{rot}}$ it is triangular in the log power with diagonal $-\lambda\ne0$ and
-has rate $\mathrm{Re}\,\lambda+1\le3$; as the $t_*^{-\lambda-1}(\log t_*)^k$ with $\mathrm{Re}\,\lambda+1\le3$ are
-linearly independent modulo $O(t_*^{-3-\delta'})$, the coefficients of $\Delta\dot Y_{\mathrm v1}$ at $\mathcal
-M_{\mathrm{rot}}$ vanish. So $C^{\mathrm{rot}}$ is determined by $u$, and is an affine function of $\vec
-W'^{\mathrm{rot}}$, as $u$ is on $\mathcal P_K$.
+$>2+\epsilon_K$: every term of $\chi_Ku_{\exp}$ has $K^+$-order $\ge\alpha-2-\epsilon$, III.I$''''''''''''$ Theorem 3.1,
+and (G)), and the second derivative of $\Delta\dot Y_{\mathrm v1}$ (order
+$\ge\mathrm{Re}\,\lambda+2\ge\lambda_\sharp+2>3+\delta'$ at the exponents of $\mathcal M_{\mathrm{rot}}$, $>4$ at the
+others). The derivative of $\Delta\dot Y_{\mathrm v1}$ at its exponents of real part $>2$, hence $>2+\epsilon_K$, is
+also $O(t_*^{-3-\delta'})$, while at $(\lambda,k)\in\mathcal M_{\mathrm{rot}}$ it is triangular in the log power with
+diagonal $-\lambda\ne0$ and has rate $\mathrm{Re}\,\lambda+1\le3$; as the $t_*^{-\lambda-1}(\log t_*)^k$ with
+$\mathrm{Re}\,\lambda+1\le3$ are linearly independent modulo $O(t_*^{-3-\delta'})$, the coefficients of $\Delta\dot
+Y_{\mathrm v1}$ at $\mathcal M_{\mathrm{rot}}$ vanish. So $C^{\mathrm{rot}}$ is determined by $u$, and is an affine
+function of $\vec W'^{\mathrm{rot}}$, as $u$ is on $\mathcal P_K$.
 
 *The derivative and continuity.* At $(0,0,0)$, $u = u_F-\sum_\nu m_\nu(W_\nu)$ (Step 3), where $u_F$ and the
 $m_\nu(W_\nu)$ with $\nu\notin\mathcal N_{\mathrm{rot}}$ do not depend on $\vec W'^{\mathrm{rot}}$ (Step 3); and for
@@ -474,14 +475,14 @@ with constructions independent of $\epsilon$ (Lemma 2.5), the class of $h'$ is t
 fixed loss, the boost and black hole parameter coefficients would lose an $\epsilon$ at each application.
 
 (I$''''''''''''''$5) *Rotation rows (D281).* At the non-rotating $b_0$ the v1 rows carry no parameter
-(III.I$'''''''''$), and a v1 term of exponent $z\in\mathcal M$ of the expansion has rate $z+1>\alpha-2$, so the source's
-bookkeeping puts it into $q$. But $h_{b,\mathrm v1}$ need not vanish at a rotating $b$, where the same term has rate
-$z<2$, and the $b$-derivative of $P_5$ then has $K^+$-order $(\alpha-2+z)-<\alpha$. Rows of all rotations at the
-exponents of $\mathcal M_{\mathrm{rot}}$ (Definition 1.3, which since D285 also carries the exponents of real part 2,
-for III.J's (2.5)) carry these terms; they enter $P_5$ through $h_\nu$, supported away from $K^+$, and $\vartheta_\nu$,
-of $K^+$-weight $\mathrm{Re}\,\lambda+4$, and are fixed by the expansion (Step 4'). They are indices
-$(\mathrm{rot},\lambda,k)$ apart from III.I$'''''''''$'s rows, and on the enlarged $\mathcal P$ the uniqueness of
-III.I$'''''''''''$ Theorem 4.1 fails, so Theorem 3.1 applies it, and III.I$''''''''''''$ Theorem 3.1, with
+(III.I$'''''''''$), and a v1 term of exponent $z\in\mathcal M$ of the expansion has rate $\mathrm{Re}\,z+1>\alpha-2$, so
+the source's bookkeeping puts it into $q$. But $h_{b,\mathrm v1}$ need not vanish at a rotating $b$, where the same term
+has rate $\mathrm{Re}\,z<2$, and the $b$-derivative of $P_5$ then has $K^+$-order $(\alpha-2+\mathrm{Re}\,z)-<\alpha$.
+Rows of all rotations at the exponents of $\mathcal M_{\mathrm{rot}}$ (Definition 1.3, which since D285 also carries the
+exponents of real part 2, for III.J's (2.5)) carry these terms; they enter $P_5$ through $h_\nu$, supported away from
+$K^+$, and $\vartheta_\nu$, of $K^+$-weight $\mathrm{Re}\,\lambda+4$, and are fixed by the expansion (Step 4'). They are
+indices $(\mathrm{rot},\lambda,k)$ apart from III.I$'''''''''$'s rows, and on the enlarged $\mathcal P$ the uniqueness
+of III.I$'''''''''''$ Theorem 4.1 fails, so Theorem 3.1 applies it, and III.I$''''''''''''$ Theorem 3.1, with
 III.I$'''''''''$'s parameters, the rotation-row terms counted in the source (D284). Whether the source's Lemma 11.65
 meets the same term at a non-rotating Kerr $b_0$ was not adjudicated.
 

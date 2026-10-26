@@ -1,13 +1,13 @@
 # Part III.J. Efficient parameterisation I: approximate solutions from data, n = 4 ([Hin26] section 12 to Remark 12.6)
 
-*Status.* Written (D282); verified (D285: verifier 122's findings seated, to be read). This part proves, at spatial
-dimension $n = 4$, [Hin26] Definition 12.1, the construction of section 12.2.1 with Lemma 12.2, Theorem 12.3 and Remarks
-12.4-12.6 (pp. 296-311): a tuple of data (the final black hole parameters, the boost and translation, the free
-$\iota^+$-data at each $\iota^+$-resonance, the conormal remainders of the modification parameters and a remainder
-tensor) determines $(h,\vec p,q)$ at which the augmented operator $P_5$ of III.I$''''''''''''''$ vanishes at $\iota^+$
-to the order $5+\epsilon_+$ and has the $K^+$-order $\alpha$ (Theorem 2.4). The source's map $\Psi$ with an initial
-solution ((12.33)-(12.34), Lemma 12.7) needs the exterior family $h_{-S}$ of Part III.C$'$ and is deferred; its Theorem
-12.8, the description of linearised solutions, is the next part, III.J$'$.
+*Status.* Written (D282); verified (D285: verifier 122's findings seated); proved (D287: verifier 123 read the D285
+repairs, seven nits seated). This part proves, at spatial dimension $n = 4$, [Hin26] Definition 12.1, the construction
+of section 12.2.1 with Lemma 12.2, Theorem 12.3 and Remarks 12.4-12.6 (pp. 296-311): a tuple of data (the final black
+hole parameters, the boost and translation, the free $\iota^+$-data at each $\iota^+$-resonance, the conormal remainders
+of the modification parameters and a remainder tensor) determines $(h,\vec p,q)$ at which the augmented operator $P_5$
+of III.I$''''''''''''''$ vanishes at $\iota^+$ to the order $5+\epsilon_+$ and has the $K^+$-order $\alpha$ (Theorem
+2.4). The source's map $\Psi$ with an initial solution ((12.33)-(12.34), Lemma 12.7) needs the exterior family $h_{-S}$
+of Part III.C$'$ and is deferred; its Theorem 12.8, the description of linearised solutions, is the next part, III.J$'$.
 
 *What n = 4 changes.* (1) *No step at $t_*^{-1}$.* The source's Step 1 solves the $t_*^{-1}$-term, from the resonance at
 $\lambda = 1$ and the black hole's $t_*^{-1}$-tail. At $n = 4$ the least $\iota^+$-exponent is $\lambda_\sharp =
@@ -231,16 +231,16 @@ and $\tilde v$ a sum of terms $t_*^{-\lambda_0}(\log t_*)^iH^{\infty,(\langle\ma
 E^C_I\rangle,\ell_I),\ell_K(\lambda_0)}_{\mathrm b}(\iota^+)$, so of $K^+$-order $\alpha-$. Each formal solution in
 $v_0$, of type $\tau$ at the root $\mu$, has $K^+$-order $\mathrm{Re}(\lambda_0-\mu)<\alpha$, as
 $-\mathrm{Re}\,\mu<\ell_K(\lambda_0)$, and is carried below by a row or tower, of rate $\mathrm{Re}(\lambda_0-\mu)$
-except for the boost row s1 (rate $\mathrm{Re}\,\lambda_0-1$) and for v1 at $b_0$ (rate $\mathrm{Re}\,\lambda_0+1$). We
-assign, top log power first:
+except for the boost row s1 (rate $\mathrm{Re}\,\lambda_0-1$) and for v1 at a rotating $b$ (rate
+$\mathrm{Re}\,\lambda_0$). We assign, top log power first:
 
 (i) the terms of type $\tau\in\mathcal T\setminus\{\mathrm v1\}$ at $\mu_\tau$ whose row has rate
 $\mathrm{Re}\,e_\nu\le2$ to the row $\nu = (\tau,\lambda_0,i)$, with $W_\nu := c_\tau(\lambda_0)^{-1}$ times the
 coefficient; by (G) these are all the s1, s0, s2, c0, c1 terms of rate $\le2+\epsilon_K$, and the s1 terms
 have $\mathrm{Re}\,\lambda_0\le3$;
 
-(ii) the v1 terms with $\mathrm{Re}\,\lambda_0\le2$, whose exponents lie in $\mathcal M_{\mathrm{rot}}$
-(III.I$''''''''''''''$ Definition 1.1), to the rotation row $(\mathrm{rot},\lambda_0,i)$, with $W := c_{\mathrm
+(ii) the v1 terms with $\mathrm{Re}\,\lambda_0\le2$, whose exponents lie in $\mathcal M_{\mathrm{rot}}$ (Lemma 2.3;
+III.I$''''''''''''''$ Definition 1.1), to the rotation row $(\mathrm{rot},\lambda_0,i)$, with $W := c_{\mathrm
 v1}(\lambda_0)^{-1}$ times the coefficient;
 
 (iii) every other term, of type $\tau$ at $\mu$ with rate in $(2,\alpha)$ (the s0, s2, c0, c1 terms of rate $>2$, the v1
@@ -394,8 +394,8 @@ $\mathscr I^+$-term.
 solutions of III.I$''''''''''''''$ Theorem 3.1 have $\iota^+$-exponents in $\mathcal E_\sharp$, so the next part needs
 no others; a pure $\iota^+$-resonance outside $\Lambda$ is excited by no source of the iteration.
 
-(J4) *Rotation rows.* The v1 terms of the data below 2 are assigned to the rotation rows of III.I$''''''''''''''$
-Definition 1.3, not to $q$, for the reason recorded there.
+(J4) *Rotation rows.* The v1 terms of the data of real part at most 2 (below 2, and at 2 for (2.5)) are assigned to the
+rotation rows of III.I$''''''''''''''$ Definition 1.3, not to $q$, for the reason recorded there.
 
 (J5) *For III.J$'$ (Theorem 12.8).* Two points must be settled there. (a) III.I$''''''''''''''$ Theorem 3.1 gives $h'$
 the $\iota^+$-order $(3+\eta_2)-$, $\eta_2<\epsilon_+$ (it inherits III.I$''''''''''''$'s), while $\Phi$ and $\mathcal
