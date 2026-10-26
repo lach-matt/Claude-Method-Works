@@ -3472,3 +3472,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   example and (I''''''''4); the product index set in Lemma 2.6 (b); III.I' Proposition 2.1 in Step 8's list;
   complex exponents (conjugation-symmetric motion parameters); eps_ind < 1 for the tf-iteration; Y_2 for h in X^infty.
 - Next: Part III.I''''''''' ([Hin26] section 11.8.1-11.8.2); verifier 115 on it and these repairs.
+
+### 4.193 Part III.I''''''''' written: corrections #4 and the operator P_4 (D270)
+
+- PART-III-I10-CORR4.md: [Hin26] section 11.8 to Lemma 11.57 at n = 4. Rows of six types: s1 (rate lambda - 1), v1,
+  s0, s2 (rate lambda) and the class roots c0, c1 (rate lambda + d, 0 < d < 1). No exponent 1 at n = 4, so none of the
+  source's logarithmic or lambda = 1 parameters, and no s3 or v2 rows (rate above 5/2).
+- Gauge towers from III.D''' of lengths 4, 3, 4, 3, 2, 2; every counterterm has K+-order kappa_nu > 9/2 + delta_sharp.
+- Lemma 2.6: f^nu = L_{h,p} m_nu + r^nu exactly; r^nu vanishes at (0,0) and has iota+-weight 2 lambda_sharp + 2 - eps
+  > 5 + eps_+ with no index set, K+-weight above 4 + eps_K; f^S, f^b, f^s1 lie in Y(alpha) for alpha <= 4 + eps_K.
+- Hypotheses: (H1) a_+ > lambda_sharp and E_+ in {Re >= lambda_sharp}; (H2) a_K >= 4 + eps_K; (H3) the index sets of
+  the corrections in E_+. E_par and E_src are fixed by Part III.I'''''''''' within (1.2)-(1.3).
+- Next: Part III.I'''''''''' (Theorem 11.59 at n = 4); verifier 115 on III.I''''''''' and the D269 repairs.

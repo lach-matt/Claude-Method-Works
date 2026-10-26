@@ -61,6 +61,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''' | [Hin26] 11.6.1 (Proposition 11.34) | extraction of the parameters: for sources of K+-weight alpha_K in (2, 5/2), u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + a remainder decaying at K+; no logarithmic centre-of-mass term at n = 4; the tf-improvement by III.G'''' Proposition 5.1 | proved (D268: verifier 113 read the D266 repairs; verified D266) |
 | III.I''''''' | [Hin26] 11.6.2 (Definitions 11.37, 11.40, 11.42, 11.44, Lemmas 11.38, 11.41, 11.43, 11.45, Corollary 11.46) | undoing the parameter changes: corrections, the operator P_2 with parameters (S, b - b_0, S^(0)_1), their elimination; the centre-of-mass shift needs a translated exterior background at n = 4 | proved (D269: verifier 114 read the D268 repairs; verified D268) |
 | III.I'''''''' | [Hin26] 11.7 (Definitions 11.47-11.48, Lemma 11.49, Proposition 11.51) | decaying centre-of-mass motions: corrections #3 with generalised gauge 1-forms to order 4; the motions read off from the s1 row of the iota+ step; K+-weight alpha - 2 for alpha < min(a_K, 3), almost t_*^-1 | verified (D269; no major, two minor findings and seven nits seated, to be read) |
+| III.I''''''''' | [Hin26] 11.8 to Lemma 11.57 (Definitions 11.55-11.56, Lemma 11.57) | correction terms #4 for six row types (s1, v1, s0, s2 and the class roots c0, c1; gauge towers of length 4, 3, 4, 3, 2, 2), the operator P_4 with every modification parameter, and its exact linearisation f^nu = L m_nu + r^nu with a remainder of iota+-weight above 5 + eps_+ and no index set | written (D270) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -1041,3 +1042,11 @@ At $b_0$. Written (D267).
 Verified (D269: verifier 114; the design claims, Lemmas 2.2, 2.4, 3.2, 3.3 and the induction of Proposition 4.1
 confirmed; Lemma 3.1's Step 0 now extracts the iota+-terms of the second source class first, Lemma 2.6 (a) counts the
 derivative of delta*_{g_0,E_C} on the motion gauge terms; seven nits).
+
+`PART-III-I10-CORR4.md`. [Hin26] section 11.8 to Lemma 11.57 at $n = 4$: the hypotheses (H1)-(H3) on $\mathcal X$,
+the parameter exponents $\mathcal E_{\mathrm{par}}$, the rows $\mathcal N$ of six types and the source classes
+$\mathcal Y(\alpha)$, $\alpha\le4+\epsilon_K$ (section 1); the correction terms #4 (Definition 2.1, the source's 11.55)
+with their orders (Lemma 2.2), the operator $P_4$ (Definition 2.3, 11.56), the row identity (Lemma 2.4), and the
+linearisation (Lemma 2.6, 11.57) in the exact form $f^\nu = L_{h,\vec p}m_\nu+r^\nu$, $r^\nu$ of $\iota^+$-weight
+$2\lambda_\sharp+2-\epsilon>5+\epsilon_+$. No exponent 1 at $n = 4$, so no logarithmic reparametrisation; the v1
+parameters avoid the Killing rotations. Findings (I$'''''''''$1)-(I$'''''''''$6). At $b_0$. Written (D270).

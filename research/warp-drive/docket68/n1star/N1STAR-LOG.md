@@ -5567,3 +5567,8 @@ verifier found no major finding in Part III.I'''''''' and confirmed its design (
 closed motion index set, no new logarithms), the motion identity, the tf-iteration and the induction eliminating the
 motions; two minor findings (the a priori step of the base level, a gauge-term derivative in the linearisation in the
 parameters) and seven nits are seated. The D268 repairs to III.I''''''' are correct, so III.I''''''' is proved.
+
+**D270 (2026-10-26): Part III.I''''''''' written (corrections #4, the operator P_4).** [Hin26] section 11.8 to Lemma
+11.57 at n = 4: six row types, gauge towers from III.D''', the operator with every modification parameter, and its
+linearisation in the exact form f = L m + r, the remainder of iota+-weight above 5 + eps_+ with no index set to track.
+Theorem 11.59 is the next part; verifier 115 reads this part and the D269 repairs.
