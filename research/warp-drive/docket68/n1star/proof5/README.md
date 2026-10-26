@@ -16,12 +16,12 @@ independent reader has checked it line by line and every finding is seated; **pr
 | Part | Source | Content | Status |
 |---|---|---|---|
 | I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D197) |
-| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | verified (D226; the repair, Lemma 6.0, to be read) |
+| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | verified (D229: Lemma 6.0 confirmed; two minor findings and two nits seated, to be read) |
 | I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | **proved** (D194) |
 | II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | **proved** (D197) |
 | II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
-| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200); D226 correction to be read |
+| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200); the D226 remark confirmed (D229) |
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
@@ -30,15 +30,17 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | **proved** (D216) |
 | II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | **proved** (D216) |
 | II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | **proved** (D217) |
-| III.A | [Hin26] 2.1-2.3 | technical prerequisites: partial polyhomogeneity, integration along b-fields | verified (D226) |
+| III.A | [Hin26] 2.1-2.3 | technical prerequisites: partial polyhomogeneity, integration along b-fields | verified (D229: the D226 repairs confirmed; one minor finding and two nits seated, to be read) |
 | III.A' | [Hin26] 2.4 | harmonics on S^3; the Minkowski operators in the null splittings; indicial roots by type | verified (D221) |
 | III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed Einstein equation | proved (D221) |
-| III.D | [Hin26] 6-6.3 | the gauge potential operator: structure, Minkowski model, indicial roots, horizon threshold, trapping, high energies, mode stability away from zero, tf-admissibility | verified (D226) |
-| III.D' | [Hin26] 6.4, Lemma 6.13 | the gauge potential operator at zero energy: kernel and cokernel, pairings, mode stability at every frequency, the zero energy inverse | written (D222) |
-| III.D'' | [Hin26] 6.5.1 | zero energy states from the Minkowski symmetries; Lemma 6.14's comparisons | written (D223) |
+| III.D | [Hin26] 6-6.3 | the gauge potential operator: structure, Minkowski model, indicial roots, horizon threshold, trapping, high energies, mode stability away from zero, tf-admissibility | proved (D229) |
+| III.D' | [Hin26] 6.4, Lemma 6.13 | the gauge potential operator at zero energy: kernel and cokernel, pairings, mode stability at every frequency, the zero energy inverse | verified (D229; two nits seated, to be read) |
+| III.D'' | [Hin26] 6.5.1 | zero energy states from the Minkowski symmetries; Lemma 6.14's comparisons | verified (D229; one minor finding and one nit seated, to be read) |
 | III.D''' | [Hin26] 6.5.2 | generalized zero energy states of the gauge potential operator | written (D224) |
 | III.E | [Hin26] 7-7.2 (to Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the large dual states | written (D225) |
-| III.C, III.E', III.F-III.J | [Hin26] 5, 7.2.1, 8-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
+| III.E' | [Hin26] 7.2.1 | the vector type 1 dual states: the deformation tensor of a rotation (exact, by equivariance) and the states' dependence on the bracket with the spin | written (D227) |
+| III.F | [Hin26] 8 to 8.1 | the linearised gauge-fixed Einstein operator: structure, the spectrum of the model's endomorphism, the bound at the trapped set | written (D228) |
+| III.C, III.F'-III.J | [Hin26] 5, 8.2-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -105,7 +107,10 @@ the auxiliary absorption of Theorem 6.8, whose sign was wrong for $z_0 = -1$. Al
 The seventy-seventh verifier, reading Part I.C, read these repairs and confirmed each (D191). It asked for one more
 clause, in Proposition 6.4, Step 2: $\delta_1$ is chosen so that $\Gamma(\delta_1)$ lies in $\mathrm{Ell}_h(B_1)$ too, as
 the step needs; seated (D191). The seventy-eighth verifier, reading Part II.A, checked that clause and confirmed it
-(D194). Part I.B is **proved**.
+(D194). Part I.B is **proved**. It has since gained Lemma 6.0 (D226), the conjugation that lets the inner product at the
+trapped set depend on the covector, which the ninety-fourth verifier confirmed (D229), seating two minor findings
+(Proposition 6.4 for the conjugated operator also uses Proposition 4.5, Corollary 4.6 and Theorem 2.4, by Remark 4.7;
+the symbol in Proposition 6.1 taken at $z$) and two nits: verified, the repairs to be read.
 
 ## Part I.C
 
@@ -490,8 +495,11 @@ cut-off in $\sigma$, which is harmless; the constant in Cauchy's formula of Lemm
 ninety-third verifier (D226): the source's Lemma 2.23 needs $\alpha+\mathrm{Re}\,z>\beta$, not $\alpha>\beta$ (a
 counterexample shows it is necessary); the proof of its Proposition 2.25 (1), integrating one factor at a time, gives a
 larger tf index set than stated, and the stated one follows from a new Lemma 3.3, which solves for each zf coefficient
-at once; and the order of integration and the boundary weight, which the source leaves implicit. Verified (D226), the
-repairs to be read.
+at once; and the order of integration and the boundary weight, which the source leaves implicit. Verified (D226). The
+ninety-fourth verifier (D229) confirmed those repairs and found one minor gap, seated: the direct proof of Lemma 1.3,
+integrating one factor at a time, loses derivatives, and the stated order follows by subtracting a particular solution
+and reading the homogeneous coefficients off; and two nits (the extension of a coefficient by its ordinary differential
+equation in Lemma 3.3, and the same loss absorbed in Proposition 4.2's $l$). Those are to be read.
 
 ## Part III.D
 
@@ -509,8 +517,8 @@ inequalities are open" is not right for the all-$\epsilon$ property and is not n
 exactly $s>\frac32$. `harm5.py` K7 checks the model operator against the Cartesian computation for every type at
 $N = 2, 3$; K8 factors its indicial determinants. Verified (D226): the ninety-third verifier's minor finding, that the
 trapped set's inner product depends on the covector while I.B section 6 assumed one from the base, is repaired in I.B by
-Lemma 6.0, the source's conjugation (5.9), which Lemma 5.2 now cites with the density it uses; four nits. The repairs
-are to be read.
+Lemma 6.0, the source's conjugation (5.9), which Lemma 5.2 now cites with the density it uses; four nits. The
+ninety-fourth verifier read the repairs (D229): proved.
 
 ## Part III.D'
 
@@ -525,18 +533,23 @@ compactly supported augmentation, to which I.C Theorems 6.4 and 7.1 apply as pro
 $-4\pi^2(-i\sigma+\gamma)+o(|\sigma|+\gamma)$; Step 2 by perturbation at low, middle and high frequencies around a base
 point where invertibility holds at every frequency. Lemma 5.1 (Lemma 6.13): the zero energy inverse, with
 polyhomogeneous inverse images by III.A Lemma 1.4. Findings (D$'$1)-(D$'$5), among them (D$'$4): the source's Step 2
-asserts a low-energy radius independent of the horizon modification, as written not shown; closed here. Written (D222).
+asserts a low-energy radius independent of the horizon modification, as written not shown; closed here. Verified (D229):
+read in full by the ninety-fourth verifier, who recomputed both horizon pairings independently ($4\pi^2$, against $4\pi$
+in four dimensions); two nits seated, to be read.
 
 ## Part III.D''
 
-`PART-III-D3-SYMSTATES.md`. [Hin26] section 6.5.1 at $n = 4$. Lemma 2.1 (Lemma 6.14): the operators of $g_b$ differ
-from Minkowski's by one more power of $\rho$ than in the source ($\rho^3$, $\rho^4$ for $\delta^*$; $\rho^4$, $\rho^5$
-for $\Box^\Upsilon$), from III.B (3.5). Lemma 2.2: smooth dependence on $b$ of the zero energy inverse images.
-Proposition 3.1 (Proposition 6.15): the stationary solutions of the gauge potential equation with the time translation,
-the translations, the boosts and the rotations of Minkowski space as leading terms, and their symmetric gradients, each
+`PART-III-D3-SYMSTATES.md`. [Hin26] section 6.5.1 at $n = 4$. Lemma 2.1 (Lemma 6.14): the operators of $g_b$ differ from
+Minkowski's by one more power of $\rho$ than in the source ($\rho^3$, $\rho^4$ for $\delta^*$; $\rho^4$, $\rho^5$ for
+$\Box^\Upsilon$), from III.B (3.5). Lemma 2.2: smooth dependence on $b$ of the zero energy inverse images. Proposition
+3.1 (Proposition 6.15): the stationary solutions of the gauge potential equation with the time translation, the
+translations, the boosts and the rotations of Minkowski space as leading terms, and their symmetric gradients, each
 correction one order faster; the boost's correction at $\rho^1$, no indicial root, so without the source's logarithm
-(6.31) and without its formal solution lemma; the translations' at $\rho^2$, which needs $e_\Upsilon\gamma_\Upsilon^2>0$;
-six Killing rotations at zero rotation. Findings (D$''$1)-(D$''$5). Written (D223).
+(6.31) and without its formal solution lemma; the translations' at $\rho^2$, which needs
+$e_\Upsilon\gamma_\Upsilon^2>0$; six Killing rotations at zero rotation. Findings (D$''$1)-(D$''$5). Verified (D229):
+read in full; one minor finding seated, that at general $b$ the difference of the boost corrections lies in
+$\bar H^{\infty,\alpha''}_{\mathrm b}$ for every $\alpha''<2$ rather than being $O(\rho^2)$, which suffices through
+$\delta^*$, and one nit, to be read.
 
 ## Part III.D'''
 
@@ -560,3 +573,29 @@ Proposition 3.1 (Proposition 7.3): the large zero energy dual states built from 
 translations and the six rotations, whose trace-reversed symmetric gradients decay, eleven at zero rotation against the
 source's seven. Findings (E1)-(E4): the weights move by one (the Coulomb root is 2, the source's 1); the corrections are
 one order faster; the eleven states; the input. Section 7.2.1 is Part III.E$'$. Written (D225).
+
+## Part III.E'
+
+`PART-III-E2-V1STATES.md`. [Hin26] section 7.2.1 at $n = 4$. Lemma 2.1: Part III.B's family is $O(4)$-equivariant,
+$\varphi_O^*g_{(\mu,OAO^T)} = g_{(\mu,A)}$. Lemma 2.2 (Lemma 7.5): for a rotation $V = V(A_V)$,
+$\delta^*_{g_b}V_b = \frac12D_Ag_b([A,A_V])$ exactly, with leading term $\mu\rho^3(dt_*+2\,d|x|)\otimes_s\rho V(W)$ and
+no pure gauge term. Lemma 2.3: the Killing rotations are $\ker\mathrm{ad}_A$, of dimension 6, 4 or 2. Proposition 3.1
+(Proposition 7.4): $h^*_{b,\mathrm v1}(V) = h^\sharp_{b,\mathrm v1}([A(b),A_V])+h^\flat_{b,\mathrm v1}(V)$, $h^\sharp$
+defined on all of $\mathfrak{so}(4)$ and smooth in $b$, its $\rho^3$ leading term with the source's coefficients,
+$(\delta^*_{g_b,E_C})^*h^\sharp\in\rho^{\lfloor C_0\rfloor+5}C^\infty$ and $D_{g_b}\mathrm{Ric}(0)^*h^\sharp$ compactly
+supported. Findings (E$'$1)-(E$'$5), among them (E$'$4): the source's argument for $D\mathrm{Ric}^*h^\sharp$ uses
+$G^2 = \mathrm{Id}$, true only in $3+1$ dimensions; the statement holds by the self-adjointness of $G\,D\mathrm{Ric}$.
+`dualv1_5.py` V1-V4; `mp5.py` M1-M5. Written (D227).
+
+## Part III.F
+
+`PART-III-F-LINEARISED.md`. [Hin26] section 8 to the end of 8.1 at $n = 4$. Lemma 2.1 (Lemma 8.1):
+$2L_b = -2\partial_{t_*}\rho(\rho\partial_\rho-\frac32-\bar S)+\widehat{2L_b}(0)+Q\partial_{t_*}-g^{00}\partial_{t_*}^2$
+near infinity, $Q\in\rho^3\mathrm{Diff}^1_{\mathrm b}$,
+$\widehat{2L_b}(0)-\widehat{2\bar L}(0)\in\rho^4\mathrm{Diff}^2_{\mathrm b}$. Lemma 3.1 (Lemma 8.2, (8.7)): $\rho\bar S$
+factors through 1-forms with one cross term zero, so $\mathrm{spec}\,\bar S$ is that of the constraint propagation and
+gauge potential operators' endomorphisms with five zeros, $\min\mathrm{spec}\,\bar S = 0$, by hand. Proposition 4.1
+(Proposition 8.3): at the trapped set a grading of the symmetric 2-tensors preserved by the rotation of the
+two-dimensional angular plane gives, for every $\epsilon$, an inner product with $\lambda_{\max}(p_1^\Gamma)<\epsilon$,
+for every constraint damping 1-form. Findings (F1)-(F5). `sbar5.py` S1-S3, `strap5.py` P1-P3, `lgrade5.py` G1 (new).
+Written (D228).

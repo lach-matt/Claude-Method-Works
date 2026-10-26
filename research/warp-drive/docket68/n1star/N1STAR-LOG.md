@@ -5233,3 +5233,39 @@ Q^-1) = Q Im_B(P) Q^-1 exactly for B = Q*Q, so the threshold symbol in h_Gamma i
 P_Q and carried back with B_1 Q, E_1 Q, G_1 Q. II.C's remark that (5.9) was not used is corrected. Nits n1-n8. I.B goes
 from proved to verified until a reader reads Lemma 6.0. Next: verifier 94 on III.D'-III.E and the D226 repairs; Part
 III.E'.
+
+**D227 (2026-10-26): Part III.E' written.** [Hin26] section 7.2.1 at n = 4 in proof5/PART-III-E2-V1STATES.md. III.B's
+Kerr-Schild family is O(4)-equivariant (s, p^2 invariant, M covariant, the root r_A invariant, Phi_mu radial), so for R
+= A_V x . d_x, L_R g_b = d/ds g_(mu, e^-sA_V A e^sA_V) = D_A g_b([A, A_V]): his Lemma 7.5 is an exact identity, its
+leading term mu rho^3 (dt_* + 2 d|x|) (x)_s rho V(W) read off the Kerr-Schild expansion (u = r/|x| = 1 + O(rho^2) by the
+implicit function theorem, l_A = d|x| + rho rho V(A) + O(rho^2)), with no pure gauge term. Proposition 7.4: omega-sharp
+= V_b + c_0 |x|^-3 V(W), c_0 = mu (1 + 2 (1 + v) gam) / (3 (1 + 2 v gam)) from the v1 indicial value 3 (1 + 2 v gam),
+computed by hand on Minkowski (delta-bar(f dr (x)_s V) = -(1/2)(f' + 5 f/r) V, (E-bar)*(f dt (x)_s V) = -gam f V / r,
+(E-bar)*(f dr (x)_s V) = -gam v f V / r); leading term mu rho^3 (dt_* + kappa d|x|) (x)_s rho V(W), kappa = (1 + 2 (v -
+1) gam)/(1 + 2 v gam); formal solution to rho^(floor(C_0) + 2), remainder by III.E Lemma 2.1. D Ric(0)* h-sharp is
+compactly supported: D Ric* G = G D Ric (the linearised Einstein tensor is self-adjoint) and the family is Ricci-flat;
+the source's route needs G^2 = Id, false in 4 + 1 dimensions. Killing rotations ker ad_A: 6, 4, 2 by so(4) = so(3) +
+so(3). dualv1_5.py V1-V4 new, mp5.py 5/5. Next: Part III.F ([Hin26] section 8).
+
+**D228 (2026-10-26): Part III.F written.** [Hin26] section 8 to 8.1 at n = 4 in proof5/PART-III-F-LINEARISED.md. 2 L_b =
+box + 2 E^C delta G + 2 delta*_(E_C) E^Ups G + 2 R from III.B (6.7)-(6.8); near infinity -2 d_t* rho (rho d_rho - 3/2 -
+S-bar) plus Q d_t* (rho^3) and R_b (rho^4), sorted as in III.D Lemma 2.1. S-bar: the d_t* coefficient of 2 L-bar - box
+is 2(-E^C iota_X G + (dt* (x)_s .) E^Ups G), a product UV through T* + T*; det(lam - UV) = lam^5 det(lam - VU), and V_1
+U_2 = iota_X G(dt* (x)_s .) = 0 (dt* null, iota_X g = dt*), so VU is block triangular with diagonal blocks rho S-bar^C
+and rho S-bar^Ups, each triangular in (angular, dt*, k = d t-bar + d|x|) by hand: gam_C {1 - v (x3), (1 - e)(1 - v), 2
+(1 - v)}, gam_Ups {1 (x3), 2, 1 - e}. Trapped set: weights 0, 1, 2, 1, 1 on e_0, ..., e_4; N lowers, iota_{E_2} G lowers
+by 2, E^C raises by the weight of c's component (2 only for c_2), the rotation of V_perp preserves; W = 2 wt + s (s = 1
+on T and the spatial trace-free part) makes the one wt-preserving off-diagonal map T -> e_0 e_2 lowering; the
+W-preserving part is scalar plus skew on seven R-invariant pieces; inner product eta^(-2W). lgrade5.py checks it for
+every c. Next: Part III.F' ([Hin26] 8.2-8.3).
+
+**D229 (2026-10-26): verifier 94 seated.** The ninety-fourth verifier read the D226 repairs and Parts III.D' and III.D''
+in full: Major 0, Minor 4, Nit 7. m1: III.A Lemma 1.3's direct proof loses one derivative per factor; repaired by u =
+u_p + homogeneous solutions, u_p the composition of Lemma 1.2's solution operators (in rho_H alone, commuting with d_y),
+the coefficients c_(z,l) read off u - u_p on rho_H >= 3/4 (the source's Lemma 2.11 has the same gap). m2: in III.D''
+Proposition 3.1 the general-b boost difference is in H-bar^(oo, alpha'')_b for every alpha'' < 2, not O(rho^2), and
+delta*_(g_b)(0) of it is O(rho^(alpha''+1)), which is what the sentence needs. m3: I.B's paragraph after Lemma 6.0 now
+names Proposition 4.5, Corollary 4.6 and Theorem 2.4, via Remark 4.7, for P_Q. m4: I.B Proposition 6.1's b is built from
+p'-natural_z := p'-natural + varsigma sigma (Im X(z) - Im X(z_0)). Seven nits seated. The verifier's scratch checks:
+v94_pairing.py (4 pi^2 at n = 4, control 4 pi at n = 3), v94_indexsets.py, v94_sym60.py, v94_L5.py. III.D proved;
+III.D', III.D'' verified; III.A, I.B verified with repairs to be read. Next: verifier 95; Part III.F'.

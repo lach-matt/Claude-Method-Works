@@ -1,6 +1,7 @@
 # Part III.D″. Zero energy states from the symmetries of Minkowski space, at n = 4 ([Hin26] section 6.5.1)
 
-*Status.* Written (D223). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$, $b$ near
+*Status.* Verified (D229: read in full by the ninety-fourth verifier, its one minor finding and one nit seated and to be
+read); written (D223). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$, $b$ near
 $b_0 = (\mu_0,0)$, what [Hin26] section 6.5.1 establishes (pp. 125-128): the comparison of the operators of $g_b$ with
 those of Minkowski space and of the non-rotating member of the family (his Lemma 6.14), and the stationary solutions of
 the gauge potential wave equation whose leading terms are the time translation, the spatial translations, the Lorentz
@@ -136,7 +137,7 @@ in $S\in\mathcal S_1$ and $V\in\mathcal V_1$ and smooth in $b$,
 $$\omega^{(0)}_{b,\mathrm s0} := g_b(\partial_{t_*},\cdot),\quad\omega^{(0)}_{b,\mathrm s1}(S),
 \quad\breve\omega^{(0),1}_{b,\mathrm s1}(S),\quad\omega^{(-1)}_{b,\mathrm v1}(V),\tag{3.1}$$
 
-smooth on $\bar X$, with
+smooth on $X$, with components in $\rho^{-1}C^\infty(\bar X)$ at most (the source's footnote 72; D229), with
 
 $$\omega^{(0)}_{b,\mathrm s0}-\bar\omega^{(0)}_{\mathrm s0}\in\rho^2C^\infty,
 \qquad\omega^{(0)}_{b,\mathrm s1}(S)-\bar\omega^{(0)}_{\mathrm s1}(S)\in\mathcal A^{(2,0)\cup(2+\mathcal E_{
@@ -243,15 +244,16 @@ III.A$'$ Lemma 1.6 is into $\mathrm{SO}(4)$-invariant subspaces, and among the t
 $\mathbb R^4$ (at each $l$ the scalar, vector and tensor types are, for $\mathrm{SO}(4)$, the representations of highest
 weights $(\frac l2,\frac l2)$, $(\frac{l\pm1}2,\frac{l\mp1}2)$ and $(\frac{l\pm2}2,\frac{l\mp2}2)$, and $\mathbb R^4$ is
 $(\frac12,\frac12)$); so $\breve h^1_{b_S,\mathrm s1}(S)$ is of scalar type 1, given by $S$. For general $b$, by (2.2),
-$f_b-f_{b_S} = (P_b-P_{b_S})\bar\omega_{\mathrm s1}\in\rho^5C^\infty$, so $\omega'_b-\omega'_{b_S} =
--P_b^{-1}\big((f_b-f_{b_S})+(P_b-P_{b_S})\omega'_{b_S}\big)$, whose argument lies in $\rho^{2+3}C^\infty+\mathcal
-A^{2+(5,0)\cup(5+\mathcal E_{\mathrm{ind}})}$, lies in $\bar H^{\infty,\alpha}_{\mathrm b}$ for some $\alpha>2$
-(III.D$'$ Lemma 5.1, any $\alpha\in(2,\lambda^\Upsilon_{\mathrm s1,2})$). Then, term by term in (3.5), $\breve
-f_b-\breve f_{b_S}\in\rho^4C^\infty+\bar H^{\infty,\alpha+1}_{\mathrm b}+\mathcal A^{(6,0)\cup(6+\mathcal
+$f_b-f_{b_S} = (P_b-P_{b_S})\bar\omega_{\mathrm s1}\in\rho^5C^\infty$, so
+$\omega'_b-\omega'_{b_S} = -P_b^{-1}\big((f_b-f_{b_S})+(P_b-P_{b_S})\omega'_{b_S}\big)$, whose argument lies in
+$\rho^{2+3}C^\infty+\mathcal A^{2+(5,0)\cup(5+\mathcal E_{\mathrm{ind}})}$, lies in $\bar H^{\infty,\alpha}_{\mathrm b}$
+for some $\alpha>2$ (III.D$'$ Lemma 5.1, any $\alpha\in(2,\lambda^\Upsilon_{\mathrm s1,2})$). Then, term by term in
+(3.5), $\breve f_b-\breve f_{b_S}\in\rho^4C^\infty+\bar H^{\infty,\alpha+1}_{\mathrm b}+\mathcal A^{(6,0)\cup(6+\mathcal
 E_{\mathrm{ind}})}$ by Lemma 2.1 (the commutator bound and $R_b-R_{b_S}\in\rho^5\mathrm{Diff}^2_{\mathrm b}$), and
 $\breve\omega'_b-\breve\omega'_{b_S} = -P_b^{-1}\big((\breve f_b-\breve f_{b_S})+(P_b-P_{b_S})\breve\omega'_{b_S}\big)$
-is $O(\rho^2)$ with its b-derivatives (III.D$'$ Lemma 5.1 with $\alpha<2$ close to 2, and (F1)). So, in the formula for
-$\breve h^1$, the differences $dt_*\otimes_s(\omega'_b-\omega'_{b_S})$,
+lies in $\bar H^{\infty,\alpha''}_{\mathrm b}$ for every $\alpha''<2$ (III.D$'$ Lemma 5.1), so that
+$\widehat{\delta^*_{g_b}}(0)$ of it is $O(\rho^{\alpha''+1})$, $\alpha''\in(1,2)$ (D229, the ninety-fourth verifier's
+m2). So, in the formula for $\breve h^1$, the differences $dt_*\otimes_s(\omega'_b-\omega'_{b_S})$,
 $(\widehat{\delta^*_{g_b}}(0)-\widehat{\delta^*_{g_\mu}}(0))\breve{\bar\omega}^1_{\mathrm s1}\in\rho^3C^\infty$,
 $\widehat{\delta^*_{g_b}}(0)(\breve\omega'_b-\breve\omega'_{b_S})$ and
 $(\widehat{\delta^*_{g_b}}(0)-\widehat{\delta^*_{g_\mu}}(0))\breve\omega'_{b_S}\in\rho^5C^\infty$ are all
