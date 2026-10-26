@@ -43,7 +43,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.F' | [Hin26] 8.2-8.3 | the linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal operator on b-spaces | written (D230) |
 | III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | written (D232) |
 | III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | written (D233) |
-| III.C, III.F''''-III.J | [Hin26] 5, 8.4-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
+| III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | written (D234) |
+| III.C, III.G-III.J | [Hin26] 5, 9-12 | exterior stability; spectral theory at the transition faces; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -665,3 +666,21 @@ leading terms. Corollary 4.2 ([Hin26] Corollary 8.13): the linear right inverse 
 (F$'''$1)-(F$'''$6), among them (F$'''$4): the source's Lemma 8.12 pairings are not needed for these, and are left to
 the next part; and (F$'''$5): the source's adjoint (8.25) uses $G^2 = \mathrm{Id}$, false in five dimensions. Written
 (D233).
+
+## Part III.F''''
+
+`PART-III-F5-PAIRINGS.md`. [Hin26] Lemmas 8.12, 8.15 and Proposition 8.14 at $n = 4$. Lemma 2.1: $G\circ D\mathrm{Ric}$
+self-adjoint with $|dg_b| = |dt_*||dx|$ makes its $t_*$-coefficients symmetric, antisymmetric, symmetric, and
+$D\mathrm{Ric}\circ\delta^* = 0$ gives $P_1\delta^*\omega = -P_0(dt_*\otimes_s\omega)$,
+$P_2\delta^*\omega = -P_1(dt_*\otimes_s\omega)$. Lemma 2.2: the source's 'applies verbatim' written out, each pairing of
+a zero energy state (or a generalized pair) with a dual state equal to a limit at infinity, zero above the critical
+weight, a leading-term integral at it, invariant under decaying gauge terms and changes of time function. Lemma 3.1
+([Hin26] Lemma 8.12): $3\pi^2\dot\mu$, $2\pi^2\mu\langle\dot A,A'\rangle_F$ and $\frac{3\pi^2}2\mu\,\xi_S\cdot\xi_{S'}$
+(`pairing5.py` P2-P5), the $11\times11$ matrix block triangular and invertible. Lemma 4.1 ([Hin26] Lemma 8.15): the s1
+pairing an isomorphism; the v1 functional $\lambda^\sharp = \pi^2\mu\langle A_V,\cdot\rangle_F$ on all of
+$\mathfrak{so}(4)$, from Remark 8.10 and the spin-independence of its leading terms, the images of $\mathrm{ad}_A$ over
+small spins spanning $\mathfrak{so}(4)$. Proposition 5.1 ([Hin26] Proposition 8.14 (1)): the physical states at $-2$ of
+types s2, v2 and t2, smooth in $b$, with the source's Step 2 modified to absorb the centre-of-mass pairings against the
+rotations, which are not determined away from $b_0$. Findings (F$''''$1)-(F$''''$5); (F$''''$3): the states at $-3$ and
+the generalized companions are not constructed, the window being decided in the part on [Hin26] sections 9-11. Written
+(D234).

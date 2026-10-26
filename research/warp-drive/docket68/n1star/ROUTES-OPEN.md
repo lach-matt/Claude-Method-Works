@@ -2899,3 +2899,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: [Hin26] Lemma 8.12 at n = 4 at proof level (with section 8.5's pairings, the next part); b != b_0 with small
   nonzero sigma (III.F''); Parts III.C, III.F''''-III.J and IV-VII.
 - Next: Part III.F'''' ([Hin26] Lemma 8.12 and section 8.5); verifier 97 (Opus) on III.F''' and the verifier 96 repairs.
+
+### 4.157 Part III.F'''' written: the zero energy pairings and the physical states at -2 (D234)
+
+- `proof5/PART-III-F5-PAIRINGS.md`: Lemma 2.1 (the t*-coefficients of G D Ric: symmetric, antisymmetric, symmetric; D
+  Ric delta* = 0 gives P1 delta* omega = -P0 (dt* (x)_s omega), P2 delta* omega = -P1 (dt* (x)_s omega)); Lemma 2.2 (the
+  reduction to infinity of [Hin24b] Lemma 3.17 written out, first and second order, critical weight a + c = 2 resp.
+  min(a - 3, a-breve - 2) + c = 0, invariance under decaying gauge and t* -> t* + phi, phi in |x| C^oo); Lemma 3.1
+  ([Hin26] Lemma 8.12: 3 pi^2 mu-dot, 2 pi^2 mu <A-dot, A'>_F, (3 pi^2/2) mu xi_S . xi_S', pairing5.py P2-P5, block
+  triangular); Lemma 4.1 ([Hin26] Lemma 8.15: lambda-sharp = pi^2 mu <A_V, .>_F on all of so(4) by Remark 8.10 and
+  spin-independence); Proposition 5.1 ([Hin26] Proposition 8.14 (1) at -2 for s2, v2, t2, Step 2 modified).
+- Findings (F''''1)-(F''''5): the reduction written out; Lemma 8.15 (2) without a direct computation; which states (no
+  -3, no companions; window5.py W2); Step 2 modified; the values and normalisations.
+- Open: the window (the slowest iota+ term) in the part on [Hin26] sections 9-11; Parts III.C, III.G-III.J and IV-VII.
+- Next: verifier 97 (Opus) on III.F''', III.F'''' and the verifier 96 repairs; Part III.G ([Hin26] section 9).

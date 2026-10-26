@@ -5316,3 +5316,14 @@ b_0, stays invertible (I.C Theorem 7.1), so dim ker <= 11, with continuity of th
 independent at every b: a Killing form vanishing inside the horizon vanishes, and the leading terms dt-bar, dx, V are
 independent. No pairings used; the adjoint (8.25) needs G^-1 = Id - (1/3) g tr at n = 4. lin5.py E1-E5 all pass (E2 1226
 s, E3 1078 s, E4 1296 s, E5 202 s). From now on verifiers run on Opus, not Fable (M, 2026-10-26). Next: Part III.F''''.
+
+**D234 (2026-10-26): Part III.F'''' written.** [Hin26] Lemmas 8.12, 8.15 and Proposition 8.14 at n = 4 in
+proof5/PART-III-F5-PAIRINGS.md. The source's 'the proof of [Hin24b, Lemma 3.17] applies verbatim' is written out: with P
+= D Ric = P0 + P1 d_t* + P2 d_t*^2, G P self-adjoint and |dg_b| = |dt*||dx| give (G Pj)^T = (-1)^j G Pj, and P delta* =
+0 gives P1 delta* omega = -P0 k(omega), P2 delta* omega = -P1 k(omega); so <L1 u, h*> = lim <[P0, chi_R] u, G k(omega*)>
+and the generalized pair's <L2 h + L1 h-breve, h*> = lim <[P1, chi_R] h + [P0, chi_R] h-breve, G k(omega*)>, the gauge
+terms dropping out, which is what pairing5.py computes. Values 3 pi^2 mu-dot, 2 pi^2 mu <A-dot, A'>_F, (3 pi^2/2) mu
+xi_S . xi_S'. Lemma 8.15's v1 functional on all of so(4) from Remark 8.10 on im ad_A and the spin-independence of the
+leading terms (the images over small spins span so(4)). Proposition 8.14 at -2 for s2, v2, t2, Step 2 modified (the
+centre-of-mass pairings against the rotations are absorbed); no -3 states, no companions (window5.py W2). Next: verifier
+97 (Opus); Part III.G.
