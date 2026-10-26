@@ -3163,3 +3163,22 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (off-diagonal blocks e, e^T with e isometric give a kernel); Lemma 2.2 (a)'s sharper set; Proposition 3.2 at every
   constant s > 1/2 + theta_L; "smooth on X" with only conormality at dX.
 - Next: Part III.H' ([Hin26] section 10.2, Theorem 10.1 at n = 4); verifier 105 on III.H' and the D249 repairs.
+
+### 4.173 Part III.H' written: [Hin26] Theorem 10.1 at n = 4 (D250)
+
+- PART-III-H2-ADMISS.md: the 2-admissibility of L_b at n = 4, for alpha_sf + 2 in (0, 1), margin 1, sf-loss 0
+  (Theorem 1.3), by the source's section 10.2: contour representation (Lemma 2.1), high frequencies at the weight
+  alpha_sf + 1 (Lemma 3.1), the regular low-frequency part at regularity s + 1 (Lemma 4.1), the zero energy
+  contributions through their t_*-derivatives (Lemma 5.1) integrated twice (Lemma 6.2).
+- The loss: at n = 3 the derivatives of the singular terms have sf-weights -1/2 - eps and 1/2 - eps; at n = 4, with
+  III.H's cone cut-off, below 0 and 1 with rapid decay at scf, room for alpha_sf + 1 and alpha_sf + 2 ((H'1)).
+- Corrected in the source ((H'2)): with alpha_K = -2 and margin 1, II.C Definition 2.4 (6) gives
+  s + alpha_sf > (-1 + theta_in)/2 - 1 at the incoming radial set, one short of what Lemmas 10.9-10.10 use at weight
+  alpha_sf and regularity s; Remark 10.2 checks only the outgoing set, and without alpha_K. Repaired by the shifts above.
+- (H'3) the neighbourhood of b_0 depends on k (strong trapping only at b_0, III.F Proposition 4.1); (H'4) the orders
+  need (C1)-(C3) beyond Definition 2.4 for Part I to apply; (H'5) bounded frequencies by I.A Theorem 7.2 (6);
+  (H'6) the variable-order step of Lemma 10.13 needs a translation-invariant parametrix localized near the diagonal
+  (Lemma 6.1).
+- OPEN, for the part applying II.C Definition 2.7 ([Hin26c] Theorem 11.1, [Hin26] section 11 at n = 4): orders in O_c,
+  k <= K on B_K for b != b_0 ((H'7)).
+- Next: verifier 105 on III.H' and the D249 repairs; then Part III.I ([Hin26] section 11 at n = 4).

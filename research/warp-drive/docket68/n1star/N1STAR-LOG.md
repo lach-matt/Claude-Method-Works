@@ -5432,3 +5432,12 @@ and the C^j dependence of the Schur complement in Theorem 4.1 (3) is now proved 
 strengthened: under (10.6a)-(10.6b) alone the source's Proposition 10.6 itself fails. The D247 repairs are correct;
 tfgraft5.py's T3 docstring now says the control fails (ii) too. III.H is verified, its repairs to be read; III.G'''' is
 proved. Next: Part III.H'.
+
+**D250 (2026-10-26): Part III.H' written.** [Hin26] Theorem 10.1 at n = 4 (PART-III-H2-ADMISS.md): L_b is 2-admissible
+with sf-weight alpha_sf (alpha_sf + 2 in (0, 1)), margin 1 and sf-loss 0, for orders of a class O_c, at b_0 for every k
+and on neighbourhoods B_K of b_0 for k <= K. The source's loss at n = 3 does not arise: the zero energy contributions'
+t_*-derivatives have transforms bounded at sf-weights below 0 and 1, rapidly decaying at scf by III.H's cone cut-off.
+Found in the source: the incoming threshold of its hypothesis is one short of what its Lemmas 10.9-10.10 use; repaired by
+measuring the high frequencies at alpha_sf + 1 and the regular part at regularity s + 1. Also the k-dependent
+neighbourhood, the conditions (C1)-(C3) on the orders, the bounded frequencies, and a translation-invariant parametrix
+for the variable-order step of Lemma 10.13. Next: verifier 105.

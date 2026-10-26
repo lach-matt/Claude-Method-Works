@@ -51,7 +51,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | proved (D247; verified D245 with four minor findings and eleven nits) |
 | III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | proved (D249; verified D247 with three minor findings and eight nits) |
 | III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | verified (D249; two minor findings and six nits seated, to be read) |
-| III.C', III.H'-III.J | [Hin26] 5.4-5.7, 10.2-12 | exterior stability and partial polyhomogeneity; 2-admissibility; decay | to do |
+| III.H' | [Hin26] 10.2 (Theorem 10.1, Lemmas 10.9-10.13) | 2-admissibility of L_b: the contour representation, high and low frequencies, the zero energy contributions integrated twice in t_*; sf-loss 0 at n = 4 | written (D250) |
+| III.C', III.I-III.J | [Hin26] 5.4-5.7, 11-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -869,3 +870,17 @@ them (H2): the source's (10.6b) does not give the injectivity its proof of Propo
 (D249): verifier 104's two minor findings seated -- the uniformity in $b$ loses $\delta$ (the states are continuous in
 $b$ only below their weights; Remark 2.6, $\epsilon_0 = \frac14(1-(\alpha+2))$) and the differentiability in $\sigma$ of
 the Schur complement is written out (Theorem 4.1 (3)) -- with six nits.
+
+## Part III.H$'$
+
+`PART-III-H2-ADMISS.md`. [Hin26] Theorem 10.1 at $n = 4$ by the argument of its section 10.2: the forward solution is a
+contour integral of $\widehat{L_b}(\sigma)^{-1}$ (Lemma 2.1), split into high frequencies (Lemma 3.1), the regular part
+of the augmented low-energy inverse (Lemmas 4.1-4.2) and the contributions of the zero energy states, whose
+$t_*$-derivatives have transforms bounded at sf-weights below 0 and 1 with rapid decay at scf (Lemma 5.1), and which are
+recovered by integrating twice in $t_*$ (Lemma 6.2, with the translation-invariant parametrix of Lemma 6.1). Theorem 1.3:
+for $\alpha_{\mathrm{sf}}+2\in(0,1)$, $L_b$ is 2-admissible with margin 1 and sf-loss 0 (the source: $\delta>
+\alpha_{\mathrm{sf}}+\frac32$ at $n = 3$), for orders of a class $\mathcal O_c$ (II.C Definition 2.4 with three conditions
+that Part I needs), at $b_0$ for every $k$ and on neighbourhoods $\mathcal B_K$ for $k\le K$. Findings (H$'$1)-(H$'$7),
+among them (H$'$2): with $\alpha_K = -2$ and margin 1 the incoming threshold is one short of what the source's Lemmas
+10.9-10.10 use; the high frequencies are measured at $\alpha_{\mathrm{sf}}+1$ and the regular part at regularity
+$\mathsf s+1$ instead, which the margin allows. Written (D250).
