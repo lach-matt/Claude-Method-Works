@@ -5634,3 +5634,12 @@ intermediate levels. Below the order 4 the last level of the spectral cascade ha
 which removes a step rather than adding one, and the two results it calls accept that weight as they stand. Sources
 with the further iota+ exponents produced by differentiating the towers in the black hole parameters fit the existing
 count of logarithms.
+
+**D279 (2026-10-26): Part III.I'''''''''''''' written (section 11.8.3 at n = 4).** The parameters of the expansion at
+K+ become arguments of the gauge-fixed Einstein operator, and the linearised equation at such an augmented point has, for
+every source, a unique choice of the modification parameters after which the solution is the augmentation of new
+parameters plus a remainder with the decay assumed of the background: the source's Corollary 11.66. The source takes
+its earlier theorem at the augmented background. At n = 4 that background decays too slowly for the one-step route of
+the earlier parts, so the forward solution there is taken as it is, and its decay is raised level by level with the
+theory at the original background, the intermediate levels written in D278. The linearisation in the black hole
+parameters needs the zero-energy states at nearby parameters, normalised by their leading terms.

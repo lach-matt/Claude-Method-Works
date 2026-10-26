@@ -66,6 +66,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | proved (D277: verifier 118 read the repairs) |
 | III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | verified (D277; one major, six minor findings and eleven nits seated, to be read) |
 | III.I''''''''''''' | [Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative produces; the source's routine repetition, which section 11.8.3 needs | written (D278) |
+| III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | written (D279) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -1120,3 +1121,15 @@ level has a negative zf-weight, no zero-energy solve, and III.G$''''$ Propositio
 stand), Lemmas 2.2-2.3 (the expansion and its continuity at every level) and Proposition 2.4 (III.I$'''''''''''$
 Theorem 4.1 and III.I$''''''''''''$ Theorem 3.1 for the enlarged sources). Findings
 (I$'''''''''''''$1)-(I$'''''''''''''$3). At $b_0$. Written (D278).
+
+`PART-III-I15-AUGMENT5.md`. [Hin26] section 11.8.3 at $n = 4$: Definition 1.1 (the coefficients $q$, with orders
+$w-$), Definition 1.2 (augmentation #5, $P_5(h,\vec p,q) = P_4(h+h_{b,\mathrm{rem}}(q),\vec p)$, towers for $L_b$, and
+(11.231)), Lemma 2.1 (towers near $b_0$, smooth in $b$, leading terms independent of $b$), Lemma 2.2 (the source's Remark
+11.64), Lemma 2.3 (the perturbation $R_q$), Lemma 2.4 (the parameter derivatives; (c) the source's Lemma 11.65), Lemma
+2.5 (sources of $K^+$-order $\alpha-$, constructions independent of the loss), Theorem 3.1 (the source's Corollary
+11.66: the forward solution at $h+h_{\mathrm{rem}}(q)$, existing and smooth, has its decay raised level by level by the
+theory at $h$ (III.I$'''''''''''''$), each level's new coefficients being minus the new parameters up to a small error;
+then III.I$''''''''''''$ Theorem 3.1 splits it as $h_{\mathrm{rem}}(q')+h'$) and Remark 3.2 (the class of $h'$ is
+that of $h$). The source's verbatim route (Theorem 11.59 at $h+h_{\mathrm{rem}}(q)$) fails at $n = 4$ in three places,
+recorded in (I$''''''''''''''$1). $h_{-S} = 0$; Corollary 11.67 deferred to after III.C$'$. Findings
+(I$''''''''''''''$1)-(I$''''''''''''''$4). At $b_0$. Written (D279).

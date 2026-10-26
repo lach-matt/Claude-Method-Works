@@ -3640,3 +3640,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   parameter coordinates; no derivative loss (u is known smooth), no r^nu defect (rows at h); the b-direction by towers
   for L_b (Y^natural).
 - Next: verifier 119 on III.I''''''''''''' and the D277 repairs; then III.I'''''''''''''' (section 11.8.3).
+
+### 4.203 Part III.I'''''''''''''' written (D279): section 11.8.3 at n = 4
+
+- PART-III-I15-AUGMENT5.md: P_5(h, p, q) = P_4(h + h_{b,rem}(q), p) with towers for L_b; D_b P_5 in Y^natural(alpha-)
+  (the source's Lemma 11.65: L_b h_{b,rem}(q) has K+-order alpha- for each b, the remainder 2 alpha - 4 - > alpha);
+  Theorem 3.1 = the source's Corollary 11.66.
+- Proof: the forward solution u(p') at h + h_rem(q) exists (II.E Proposition 3.4 on slabs); III.I'''''''' Proposition
+  4.1 at h + h_rem(q) (it needs only a_K above the level, below alpha - 2) gives the base level; then L_h u = F -
+  D_p P_4(p') - Delta_q p' - R_q u, and III.I''''''''''''' Lemma 2.2 at h raises Z_{beta_k} to Z_{beta_{k+1}}, steps
+  below alpha - 4; on the affine set of p' already fixed, the new coefficients are -(new coordinates) + o(1) (at the
+  base point exactly, as in III.I''''''''''' Theorem 4.1's proof); finitely many levels, so a unique p'.
+- The b-derivative needs the towers at b near b_0 with b-independent leading terms (Lemma 2.1: the states are smooth in
+  b by III.D''' Proposition 3.1 and III.F'''' Proposition 5.1, normalised by the Minkowski-model leading terms).
+- Classes: read with orders w- and constructions independent of the loss (Lemma 2.5), the class of h' is that of h.
+- Next: seat verifier 119; verifier 120 on III.I''''''''''''''; then [Hin26] section 12 (efficient parameterization).
