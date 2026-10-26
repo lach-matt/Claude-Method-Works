@@ -3665,9 +3665,32 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   The uses in III.I'''''''''''' Steps 2, 4, 5 and in III.I'''''''''''''' Lemma 2.4 (c) were checked against it.
 - m1: for beta in (4, 4 + eps) the step "tau <= beta - 2 < 2" failed; eps < beta - 4 is now required above 4, and
   beta = 4 is excluded by Definition 1.1 (a).
-- m2 (the base of the bootstrap) and m3 (the row defect at h + h_rem(q)) were gaps in the plan of 4.202. III.I'''''''''''''' as
-  written closes both. Its Step 1 is the base, III.I'''''''' Proposition 4.1 at h + h_rem(q), which asks for K+-order above
+- m2 (the base of the bootstrap) and m3 (the row defect at h + h_rem(q)) were gaps in the plan of 4.202.
+  III.I'''''''''''''' as
+  written closes both. Its Step 1 is the base, III.I'''''''' Proposition 4.1 at h + h_rem(q), which asks for K+-order
+  above
   alpha_1 < 3 only. The rows enter at h, and the difference at h + h_rem(q) is exactly R_q(h_nu(W)) (its Lemma
   2.4 (a)), supported in C.
 - Nits: n1-n4 on III.I''''''''''''', n5-n10 on III.I'''''''''''' and n11 on III.I''''''''''' are seated.
 - Next: verifier 120 on III.I'''''''''''''' and the D280 repairs; then [Hin26] section 12.
+
+### 4.205 Verifier 120 seated (D281): III.I'''''''''''''' verified
+
+- Verifier 120 read III.I'''''''''''''' ([Hin26] section 11.8.3 at n = 4) and the D280 repairs: 1 major, 4 minor, 7
+  nits; the D280 repairs correct.
+- M1: at a rotating b near the non-rotating b_0 the rotation state h_{b,v1} does not vanish, so a v1 coefficient of q
+  with exponent z in M (Re z < 2) has rate z, and the b-derivative of the quadratic term of P_5 has K+-order (alpha - 2
+  + z)- < alpha. Repaired by rotation rows: rows (v1, lambda, k), (lambda, k) in M, carrying all rotations (Definition
+  1.3). They enter P_5 through h_nu (supported away from K+) and theta_nu (K+-weight Re lambda + 4), q's v1 exponents
+  are restricted to Re >= 2, and Theorem 3.1 fixes the rotation coordinates by the expansion (Step 4': the derivative
+  is -id, as m_nu is the v1 tower up to K+-order Re lambda + 4).
+- m1: the b-derivative of the conormal Y^c parts gains min Re E_ind at iota+ (Lemma 2.1); delta_+ <= min Re E_ind. m2:
+  Lemma 2.1's mechanism is III.D''' Proposition 3.1 with the remark after its Lemma 2.1 (not the tower relations),
+  normalised to the identity at b_0; h_{b,v1} is b-dependent. m3: Lemma 2.5's eps_0 also stabilises the level-3 weights
+  and the switch; III.G'''' Proposition 5.1's Mellin line moves without crossing a root. m4: III.I'''''''' Lemma 3.3
+  cited.
+- Nits: Remark 11.61 is on p. 279; the admissible sense; the K+-weight of "q small"; the order of L(d_b h_rem b');
+  spacing in III.I'''''''''''''; line lengths in 4.204; 4.203 omits that the levels below 3 use III.I'''''''' Lemma 3.2
+  at h.
+- Whether the source's Lemma 11.65 meets the same rotation term at a non-rotating Kerr b_0 was not adjudicated.
+- Next: verifier 121 on the D281 repairs; [Hin26] section 12 at n = 4 (Part III.J) is being written.

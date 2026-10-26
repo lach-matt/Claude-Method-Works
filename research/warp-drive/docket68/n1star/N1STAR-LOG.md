@@ -5650,3 +5650,11 @@ below 2, log orders larger than those of E_++, so the enlarged sources below 2 c
 spacetime phase indexes. E_sharp is now M below 2 and keeps the count K only from 2 up; every use was rechecked. A minor
 gap above the order 4 is closed by taking eps < beta - 4. The two gaps it found in the plan for section 11.8.3 are
 closed by III.I'''''''''''''' as written. All nits are seated. Next: verifier 120 on III.I''''''''''''''.
+
+**D281 (2026-10-26): verifier 120 seated; III.I'''''''''''''' verified.** Verifier 120 read the absorption of the
+expansion into the operator, and found one major gap. Near the non-rotating black hole the rotation states vanish, so a
+slowly decaying rotation of the gauge was booked as a fast-decaying tower; at a rotating black hole nearby the same term
+decays slowly, and the derivative of the operator in the black hole parameters lost half an order at the horizon. Such
+terms are now carried as rows of all rotations, which never enter the metric near the horizon, and are fixed by the
+expansion. Four minor points (the gain of the corrections at timelike infinity, the mechanism behind the towers near
+b_0, the independence of the losses, a missing citation) and seven nits are seated.

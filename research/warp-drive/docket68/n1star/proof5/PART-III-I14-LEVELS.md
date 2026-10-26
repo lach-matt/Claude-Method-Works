@@ -118,12 +118,12 @@ level 2 needs only the zf-weight $\ell_2>0$ of $g_2$, and gives $g_3$ the zf-wei
 
 *Step 4 for $\ell_3>0$* ($\beta>4$, where $\ell_3 = \beta-4-\epsilon>0$ by Definition 1.1) is III.I$'''''''''''$'s. *For
 $\ell_3<0$* ($\beta<4$), $g_3$ has no zf-term to remove, and the zero-energy solve of level 3 (III.I$'''''''''''$ Lemma
-2.1 with $\mu_3$) is omitted.  While the tf-weight $\tau$ of the current level-3 source is at most $\beta-2 =
+2.1 with $\mu_3$) is omitted. While the tf-weight $\tau$ of the current level-3 source is at most $\beta-2 =
 2+\ell_3+\epsilon$, apply III.G$''''$ Proposition 5.1 with $\alpha_\tau := \tau\in(1,2)$ ($\tau\ge\tau_3 =
 1+\eta_2-2\epsilon>1$ and $\tau\le\beta-2<2$), $\ell_{\mathrm{zf}} := \ell_3\notin\mathbb N_0$, $k_0 := 0$ and $w =
 \ell_3-\tau+2\in[-\epsilon,1)\subset(-\epsilon_{\mathrm{ind}},\ell^{\max}_K)$; its conditions $w\ne-\mu$,
 $2-\tau+j\ne-\mu$ hold for $\epsilon$ off a finite set, the values of $\tau$ being
-$\tau_3+i(\epsilon_{\mathrm{ind}}-\epsilon)$ . Each round leaves a remainder of tf-weight
+$\tau_3+i(\epsilon_{\mathrm{ind}}-\epsilon)$. Each round leaves a remainder of tf-weight
 $\tau+\epsilon_{\mathrm{ind}}-\epsilon$ and pieces $\sigma^3u$; after finitely many rounds $\tau>\beta-2$, and, lowering
 $\tau$ if necessary, $\tau\in(\beta-2,\beta-1-\epsilon)$. The rest, $g_J$ (the level-3 source after the rounds), lies in
 $H^{\infty,(\frac52-\epsilon,\tau,\ell_3)}_{\mathrm b}$ and is inverted by III.I$''$ Lemma 4.2 with
