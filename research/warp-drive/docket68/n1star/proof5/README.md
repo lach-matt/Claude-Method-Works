@@ -21,119 +21,59 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | **proved** (D197) |
 | II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
-| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200); the
-D226 remark confirmed (D229) | | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified
-(D201) | | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified
-(D204) | | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
+| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200); the D226 remark confirmed (D229) |
+| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
+| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
+| II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
 | II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | **proved** (D216) |
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | **proved** (D216) |
 | II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | **proved** (D216) |
 | II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | **proved** (D217) |
-| III.A | [Hin26] 2.1-2.3 | technical prerequisites: partial polyhomogeneity, integration along b-fields | proved
-(D231) | | III.A' | [Hin26] 2.4 | harmonics on S^3; the Minkowski operators in the null splittings; indicial roots by
-type | verified (D221) | | III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed
-Einstein equation | proved (D221) | | III.D | [Hin26] 6-6.3 | the gauge potential operator: structure, Minkowski model,
-indicial roots, horizon threshold, trapping, high energies, mode stability away from zero, tf-admissibility | proved
-(D229) | | III.D' | [Hin26] 6.4, Lemma 6.13 | the gauge potential operator at zero energy: kernel and cokernel,
-pairings, mode stability at every frequency, the zero energy inverse | proved (D231) | | III.D'' | [Hin26] 6.5.1 | zero
-energy states from the Minkowski symmetries; Lemma 6.14's comparisons | proved (D231) | | III.D''' | [Hin26] 6.5.2 |
-generalized zero energy states of the gauge potential operator | **proved** (D235) | | III.E | [Hin26] 7-7.2 (to
-Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the
-large dual states | **proved** (D235) | | III.E' | [Hin26] 7.2.1 | the vector type 1 dual states: the deformation tensor
-of a rotation (exact, by equivariance) and the states' dependence on the bracket with the spin | proved (D231: read in
-full, no findings) | | III.F | [Hin26] 8 to 8.1 | the linearised gauge-fixed Einstein operator: structure, the spectrum
-of the model's endomorphism, the bound at the trapped set | **proved** (D235) | | III.F' | [Hin26] 8.2-8.3 | the
-linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal
-operator on b-spaces | **proved** (D238: the ninety-eighth verifier read the D235 repairs, correct) | | III.F'' |
-[Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon
-threshold | **proved** (D238: the D235 repairs read, correct; two nits seated) | | III.F''' | [Hin26] 8.4 (Propositions
-8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary
-solutions on Tangherlini | **proved** (D238: the D235 repairs read, correct) | | III.F'''' | [Hin26] 8.4-8.5 (Lemmas
-8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | **proved**
-(D238: the D235 repairs read, correct; two nits seated) | | III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family
-at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ <
-2, finite meromorphy | **proved** (D240: the ninety-ninth verifier read the D238 repairs, correct) | | III.G' | [Hin26]
-9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and
-K⁺, finite regularity, the boundary spectrum | **proved** (D241: the hundredth verifier read the D240 repairs, correct;
-one nit seated) | | III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) |
-formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 |
-proved (D244; verifier 100's repairs read by verifier 101, one nit seated) | | III.C | [Hin26] 5.1-5.3 | metric
-perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an
-order lower; forward mapping | proved (D245; verifier 101's repairs read by verifier 102, three nits seated) | |
-III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal
-operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups)
-gam_Ups; quasi-homogeneous solutions; resonant states | proved (D247; verified D245 with four minor findings and eleven
-nits) | | III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal
-operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the
-low-energy space, conormal sources; Prop 9.35's first step repaired | proved (D249; verified D247 with three minor
-findings and eight nits) | | III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the
-augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with
-sigma-dependent columns; mode stability near b0 at low frequency | proved (D252; verified D249 with two minor findings
-and six nits) | | III.H' | [Hin26] 10.2 (Theorem 10.1, Lemmas 10.9-10.13) | 2-admissibility of L_b: the contour
-representation, high and low frequencies, the zero energy contributions integrated twice in t_*; sf-loss 0 at n = 4 |
-proved (D256; verified D252, D254) | | III.I | [Hin26] 11 opening, 11.1 (Definition 11.3, Lemma 11.5, Propositions 11.6,
-11.8, Corollaries 11.9-11.10, Theorem 11.12) | the dynamical linearised operator: perturbation classes, the e3b class,
-structure in the forward cone, forward mapping, admissibility with p_0 = p~_1 = 0, forward solutions at b0 with sf-loss
-0; the orders of II.F' in O_c | proved (D258: verifier 108 read the D256 repairs; verified D254, D256) | | III.I' |
-[Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future
-timelike infinity; formal solutions at null infinity, one exceptional term | proved (D258: verifier 108 read the D256
-repairs; verified D256) | | III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds:
-integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the
-iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | proved (D259: verifier 109 read the D258 repairs; verified
-D258) | | III.I''' | [Hin26] 11.4.1 (Proposition 11.20, Lemma 11.21) | the boost parameter: the forward solution is a
-cut-off generalised boost state plus a remainder of K+-weight alpha_K - 2; zero energy inverted by the augmented
-operator, no iota+ step at n = 4 | proved (D261: verifier 110 read the D259 repairs; verified D259) | | III.I'''' |
-[Hin26] 11.4.2 (Definitions 11.23, 11.25, Lemmas 11.24, 11.28, Proposition 11.30, (11.95)) | undoing the boost:
-correction terms, the boost identity (11.78b), the augmented operator, its parameter derivative, the boost parameter map
-invertible; no logarithms, no splitting of the source, the generalised state re-centred at n = 4 | proved (D263:
-verifier 111 read the D261 repairs; verified D261) | | III.I''''' | [Hin26] 11.5 (Proposition 11.32) | almost
-boundedness: with the boost eliminated, K+-weight alpha_K - 2 for every alpha_K < 2, by rounds of III.I''''s argument
-with a step at iota+ from 3/2 + (1 - e_Ups) gam_Ups; no Lemma 11.33, no Step 3.2 at n = 4 | proved (D266: verifier 112
-read the D263 repairs; verified D263) | | III.I'''''' | [Hin26] 11.6.1 (Proposition 11.34) | extraction of the
-parameters: for sources of K+-weight alpha_K in (2, 5/2), u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + a remainder
-decaying at K+; no logarithmic centre-of-mass term at n = 4; the tf-improvement by III.G'''' Proposition 5.1 | proved
-(D268: verifier 113 read the D266 repairs; verified D266) | | III.I''''''' | [Hin26] 11.6.2 (Definitions 11.37, 11.40,
-11.42, 11.44, Lemmas 11.38, 11.41, 11.43, 11.45, Corollary 11.46) | undoing the parameter changes: corrections, the
-operator P_2 with parameters (S, b - b_0, S^(0)_1), their elimination; the centre-of-mass shift needs a translated
-exterior background at n = 4 | proved (D269: verifier 114 read the D268 repairs; verified D268) | | III.I'''''''' |
-[Hin26] 11.7 (Definitions 11.47-11.48, Lemma 11.49, Proposition 11.51) | decaying centre-of-mass motions: corrections #3
-with generalised gauge 1-forms to order 4; the motions read off from the s1 row of the iota+ step; K+-weight alpha - 2
-for alpha < min(a_K, 3), almost t_*^-1 | proved (D271: verifier 115 read the D269 repairs; verified D269) | |
-III.I''''''''' | [Hin26] 11.8 to Lemma 11.57 (Definitions 11.55-11.56, Lemma 11.57) | correction terms #4 for six row
-types (s1, v1, s0, s2 and the class roots c0, c1; gauge towers of length 4, 3, 4, 3, 2, 2), the operator P_4 with every
-modification parameter, and its exact linearisation f^nu = L m_nu + r^nu with a remainder of iota+-weight above 5 +
-eps_+ and no index set | proved (D274: verifier 116 read the D271 repairs; verified D271) | | III.I'''''''''' | [Hin26]
-Theorem 11.59, Parts 1-3, first half (with Remark 11.62) | the parameter exponents fixed (an exponent set Lambda, log
-orders growing with the real part, the gap (G)), the towers of III.G'' as delta*-images and the uniqueness of row
-expansions, forward Fourier tails, and the spacetime phase: the iota+-terms of u-exponent below 2 solved up to the
-K+-order alpha <= 4 + eps_K under (C5), their K+-terms the rows | proved (D275: verifier 117 read the D274 repairs;
-verified D274) | | III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase:
-four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a
-physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward
-tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | proved
-(D277: verifier 118 read the repairs) | | III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+
-part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients,
-a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level
-columns, stationary solutions of moderate growth, and formal solutions at K+ | proved (D280) | | III.I''''''''''''' |
-[Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last
-Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative
-produces; the source's routine repetition, which section 11.8.3 needs | verified (D280) | | III.I'''''''''''''' |
-[Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters
-q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h +
-h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and
-raising the decay level by level; Corollary 11.67 deferred to after III.C' | verified (D285) | | III.J | [Hin26] section
-12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole
-parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor)
-determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at
-n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | verified (D285) | | III.J' |
-[Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem
-3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 +
-eps_+)- (Lemma 1.1); tame form and b != b_0 open | verified (D285) | | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7,
-11.8-12 | exterior stability and partial polyhomogeneity; decay | to do | | IV | [Hin26a] 5.2, 6; [Hin23a] 3 |
-constraint damping; the exterior estimates | to do | | V | [CD03], [HHV21] | gluing; the nonlinear step | to do | | VI |
-the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do | | VII | assembly |
-Theorem 4 from Parts I-VI | to do |
+| III.A | [Hin26] 2.1-2.3 | technical prerequisites: partial polyhomogeneity, integration along b-fields | proved (D231) |
+| III.A' | [Hin26] 2.4 | harmonics on S^3; the Minkowski operators in the null splittings; indicial roots by type | verified (D221) |
+| III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed Einstein equation | proved (D221) |
+| III.D | [Hin26] 6-6.3 | the gauge potential operator: structure, Minkowski model, indicial roots, horizon threshold, trapping, high energies, mode stability away from zero, tf-admissibility | proved (D229) |
+| III.D' | [Hin26] 6.4, Lemma 6.13 | the gauge potential operator at zero energy: kernel and cokernel, pairings, mode stability at every frequency, the zero energy inverse | proved (D231) |
+| III.D'' | [Hin26] 6.5.1 | zero energy states from the Minkowski symmetries; Lemma 6.14's comparisons | proved (D231) |
+| III.D''' | [Hin26] 6.5.2 | generalized zero energy states of the gauge potential operator | **proved** (D235) |
+| III.E | [Hin26] 7-7.2 (to Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the large dual states | **proved** (D235) |
+| III.E' | [Hin26] 7.2.1 | the vector type 1 dual states: the deformation tensor of a rotation (exact, by equivariance) and the states' dependence on the bracket with the spin | proved (D231: read in full, no findings) |
+| III.F | [Hin26] 8 to 8.1 | the linearised gauge-fixed Einstein operator: structure, the spectrum of the model's endomorphism, the bound at the trapped set | **proved** (D235) |
+| III.F' | [Hin26] 8.2-8.3 | the linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal operator on b-spaces | **proved** (D238: the ninety-eighth verifier read the D235 repairs, correct) |
+| III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | **proved** (D238: the D235 repairs read, correct; two nits seated) |
+| III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | **proved** (D238: the D235 repairs read, correct) |
+| III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | **proved** (D238: the D235 repairs read, correct; two nits seated) |
+| III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 2, finite meromorphy | **proved** (D240: the ninety-ninth verifier read the D238 repairs, correct) |
+| III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | **proved** (D241: the hundredth verifier read the D240 repairs, correct; one nit seated) |
+| III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | proved (D244; verifier 100's repairs read by verifier 101, one nit seated) |
+| III.C | [Hin26] 5.1-5.3 | metric perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an order lower; forward mapping | proved (D245; verifier 101's repairs read by verifier 102, three nits seated) |
+| III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | proved (D247; verified D245 with four minor findings and eleven nits) |
+| III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | proved (D249; verified D247 with three minor findings and eight nits) |
+| III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | proved (D252; verified D249 with two minor findings and six nits) |
+| III.H' | [Hin26] 10.2 (Theorem 10.1, Lemmas 10.9-10.13) | 2-admissibility of L_b: the contour representation, high and low frequencies, the zero energy contributions integrated twice in t_*; sf-loss 0 at n = 4 | proved (D256; verified D252, D254) |
+| III.I | [Hin26] 11 opening, 11.1 (Definition 11.3, Lemma 11.5, Propositions 11.6, 11.8, Corollaries 11.9-11.10, Theorem 11.12) | the dynamical linearised operator: perturbation classes, the e3b class, structure in the forward cone, forward mapping, admissibility with p_0 = p~_1 = 0, forward solutions at b0 with sf-loss 0; the orders of II.F' in O_c | proved (D258: verifier 108 read the D256 repairs; verified D254, D256) |
+| III.I' | [Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future timelike infinity; formal solutions at null infinity, one exceptional term | proved (D258: verifier 108 read the D256 repairs; verified D256) |
+| III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | proved (D259: verifier 109 read the D258 repairs; verified D258) |
+| III.I''' | [Hin26] 11.4.1 (Proposition 11.20, Lemma 11.21) | the boost parameter: the forward solution is a cut-off generalised boost state plus a remainder of K+-weight alpha_K - 2; zero energy inverted by the augmented operator, no iota+ step at n = 4 | proved (D261: verifier 110 read the D259 repairs; verified D259) |
+| III.I'''' | [Hin26] 11.4.2 (Definitions 11.23, 11.25, Lemmas 11.24, 11.28, Proposition 11.30, (11.95)) | undoing the boost: correction terms, the boost identity (11.78b), the augmented operator, its parameter derivative, the boost parameter map invertible; no logarithms, no splitting of the source, the generalised state re-centred at n = 4 | proved (D263: verifier 111 read the D261 repairs; verified D261) |
+| III.I''''' | [Hin26] 11.5 (Proposition 11.32) | almost boundedness: with the boost eliminated, K+-weight alpha_K - 2 for every alpha_K < 2, by rounds of III.I''''s argument with a step at iota+ from 3/2 + (1 - e_Ups) gam_Ups; no Lemma 11.33, no Step 3.2 at n = 4 | proved (D266: verifier 112 read the D263 repairs; verified D263) |
+| III.I'''''' | [Hin26] 11.6.1 (Proposition 11.34) | extraction of the parameters: for sources of K+-weight alpha_K in (2, 5/2), u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + a remainder decaying at K+; no logarithmic centre-of-mass term at n = 4; the tf-improvement by III.G'''' Proposition 5.1 | proved (D268: verifier 113 read the D266 repairs; verified D266) |
+| III.I''''''' | [Hin26] 11.6.2 (Definitions 11.37, 11.40, 11.42, 11.44, Lemmas 11.38, 11.41, 11.43, 11.45, Corollary 11.46) | undoing the parameter changes: corrections, the operator P_2 with parameters (S, b - b_0, S^(0)_1), their elimination; the centre-of-mass shift needs a translated exterior background at n = 4 | proved (D269: verifier 114 read the D268 repairs; verified D268) |
+| III.I'''''''' | [Hin26] 11.7 (Definitions 11.47-11.48, Lemma 11.49, Proposition 11.51) | decaying centre-of-mass motions: corrections #3 with generalised gauge 1-forms to order 4; the motions read off from the s1 row of the iota+ step; K+-weight alpha - 2 for alpha < min(a_K, 3), almost t_*^-1 | proved (D271: verifier 115 read the D269 repairs; verified D269) |
+| III.I''''''''' | [Hin26] 11.8 to Lemma 11.57 (Definitions 11.55-11.56, Lemma 11.57) | correction terms #4 for six row types (s1, v1, s0, s2 and the class roots c0, c1; gauge towers of length 4, 3, 4, 3, 2, 2), the operator P_4 with every modification parameter, and its exact linearisation f^nu = L m_nu + r^nu with a remainder of iota+-weight above 5 + eps_+ and no index set | proved (D274: verifier 116 read the D271 repairs; verified D271) |
+| III.I'''''''''' | [Hin26] Theorem 11.59, Parts 1-3, first half (with Remark 11.62) | the parameter exponents fixed (an exponent set Lambda, log orders growing with the real part, the gap (G)), the towers of III.G'' as delta*-images and the uniqueness of row expansions, forward Fourier tails, and the spacetime phase: the iota+-terms of u-exponent below 2 solved up to the K+-order alpha <= 4 + eps_K under (C5), their K+-terms the rows | proved (D275: verifier 117 read the D274 repairs; verified D274) |
+| III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | proved (D277: verifier 118 read the repairs) |
+| III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | proved (D280) |
+| III.I''''''''''''' | [Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative produces; the source's routine repetition, which section 11.8.3 needs | verified (D280) |
+| III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | verified (D285) |
+| III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | verified (D285) |
+| III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | verified (D285) |
+| III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
+| V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
+| VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
+| VII | assembly | Theorem 4 from Parts I-VI | to do |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
 record's computed items (for Part I: 10.19, 10.36, 10.60 and 10.79) and turning each into a proof.
