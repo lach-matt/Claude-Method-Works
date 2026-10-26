@@ -5578,3 +5578,9 @@ verifier found no major finding in Part III.I''''''''' and re-derived its rows, 
 linearisation f = L m + r with both weights of the remainder; two minor findings (the towers' index sets in E_ind, and
 the strong K+-decay of h being needed also for the remainder) and seven nits are seated. At the non-rotating b_0 the
 v1 coefficient space is 0. The D269 repairs to III.I'''''''' are correct (one residue seated), so it is proved.
+
+**D272 (2026-10-26): Part III.I'''''''''' written.** The first half of [Hin26] Theorem 11.59 at n = 4: the parameter
+exponents are fixed with log orders that grow with the real part, which closes the self-consistency of the source's
+Remark 11.62; towers, joint injectivity, uniqueness of row expansions and forward Fourier tails are proved; and the
+iota+-terms of u-exponent below 2 are solved in spacetime up to the K+-order 4 + eps_K, which (C5) makes possible, their
+K+-terms identified as rows. The spectral half and the elimination follow as III.I'''''''''''.
