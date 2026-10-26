@@ -3246,3 +3246,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   'near it' dropped (on the real axis sigma/|sigma| = +-1). Nits: Lemma 5.1's k; Lemma 6.2's constancy over
   {r <= r_0 + delta_1}.
 - Next: verifier 107 on III.I' and the D254 repairs; Part III.I'' ([Hin26] section 11.3 at n = 4).
+
+### 4.178 Part III.I'' written: [Hin26] section 11.3 at n = 4 (D255)
+
+- PART-III-I3-ALMOST.md: Lemma 2.1 ([Hin26] Lemma 11.18: integration of d_t* by III.A Lemmas 3.2 and 1.2 in three
+  charts, the third (2 - t_*)^(-1), (2 - t_*)/r covering {t_* < 2}); Lemma 3.1 (Lemma 11.19: the moment condition via
+  II.G' Proposition 2.8 (2)); Lemmas 4.1-4.3 (high and bounded frequencies by II.G' Corollaries 4.2 (2) and 4.5;
+  low frequencies of the augmented operator in b-spaces, II.G' Proposition 4.7's proof with III.H Corollary 4.2 and
+  Theorem 4.1 (3); the cut-off states' transforms in X_sc-b); Proposition 5.1 ([Hin26] Proposition 11.17) at b_0.
+- (I''1): the iota+-weight stays at min(alpha_+, 3/2, min Re E_+) - eps for every K+-weight alpha_K - 2, alpha_K in
+  [1/2, 1); the source's falls to alpha_K - eps. The singular part's first integration takes beta_iota from the a
+  priori bound on {t_* < 1}, not from its transform, whose tf-order is one higher at n = 4.
+- (I''2): the window gamma_+ - alpha~_K in (0, 1), the exact gap (III.F' Proposition 2.3 (a)), for the source's
+  (0, eps_ind). (I''3): Lemma 11.19 needs beta_K > -1 (for (2.26a)), unstated in the source. (I''4): 2 <= l_I <
+  a_I + 1/2.
+- Next: seat verifier 107 (III.I' and D254); verifier 108 on III.I''; then Part III.I''' ([Hin26] section 11.4 at
+  n = 4).

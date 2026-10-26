@@ -5469,3 +5469,11 @@ and Moser's estimate under H^3-smallness; Lemma 3.1 away from K+) and eight nits
 repairs to be read. The D252 repairs to III.H' are correct but one: a frozen order need not be admissible at nearby
 frequencies, so the bounded frequencies now use the induced orders, uniform by I.A Theorem 7.2 (1); two nits. Next:
 verifier 107 on III.I' and these repairs.
+
+**D255 (2026-10-26): Part III.I'' written.** [Hin26] section 11.3 at n = 4 (PART-III-I3-ALMOST.md): the two integration
+lemmas (11.18, and 11.19 with its moment condition, which also needs beta_K > -1), the three frequency ranges in
+b-spaces (II.G' Corollaries 4.2 and 4.5, Proposition 4.7's proof applied to the augmented operator, the cut-off states'
+transforms), and Proposition 11.17 at b_0: sources with K+-weight alpha_K in [1/2, 1) give forward solutions of
+K+-weight alpha_K - 2 that keep the iota+-weight min(alpha_+, 3/2, min Re E_+) - eps, where the source's falls to
+alpha_K - eps; the iteration's window is the exact gap (0, 1). Next: verifier 107's report, then verifier 108 on
+III.I''.
