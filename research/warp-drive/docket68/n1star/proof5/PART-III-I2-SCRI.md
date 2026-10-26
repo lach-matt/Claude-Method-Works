@@ -1,9 +1,10 @@
 # Part III.I$'$. Asymptotics and formal solutions at null infinity, n = 4 ([Hin26] section 11.2)
 
-*Status.* Verified (D256: the hundred-and-seventh verifier; three major and two minor findings and eight nits seated, to
-be read). Written (D253). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.2 (pp. 226-231): the
-partial polyhomogeneity at $\mathscr I^+$ of solutions of $L^{g,g_0}u = f$ without loss at $\iota^+$ (Proposition 11.14,
-with Lemma 11.15), and formal solutions of $L_bu = f$ at $\mathscr I^+$ (Proposition 11.16).
+*Status.* Proved (D258: the hundred-and-eighth verifier read the D256 repairs and found them correct). Verified (D256:
+the hundred-and-seventh verifier; three major and two minor findings and eight nits seated, to be read). Written (D253).
+This part proves, at spatial dimension $n = 4$, [Hin26] section 11.2 (pp. 226-231): the partial polyhomogeneity at
+$\mathscr I^+$ of solutions of $L^{g,g_0}u = f$ without loss at $\iota^+$ (Proposition 11.14, with Lemma 11.15), and
+formal solutions of $L_bu = f$ at $\mathscr I^+$ (Proposition 11.16).
 
 *What n = 4 changes.* The leading part of the operator at $\mathscr I^+$ is $(X_+-X_I)(X_I-\frac32-\bar A)$ with the
 constant lower-triangular $\bar A$ of III.C Lemma 4.2, for the dynamical operator as for $L_b$ (III.I Proposition 3.3):

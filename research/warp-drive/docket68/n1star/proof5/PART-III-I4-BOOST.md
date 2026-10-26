@@ -11,12 +11,13 @@ inverted by the augmented operator at $\sigma = 0$, its zf-leading term subtract
 section 11.3; two integrations in $t_*$ leave a term linear in $t_*$ at $K^+$, whose coefficient is $h(\hat S_1(0))$.
 At $n = 4$ three steps simplify. The formal solution at null infinity has $\iota^+$-index set starting at
 $\frac32+(1-e_\Upsilon)\gamma_\Upsilon$ (III.I$'$ Proposition 3.1), above the weight used, so the source's Step 2 (its
-Proposition 9.11 at $\lambda = 1$, removing a $t_*^{-3}$ term at $\iota^+$) is not needed. The zero energy window is the
-exact gap $(0,1)$ (III.F$'$ Proposition 2.3 (a)), where the source's is $(0,\epsilon_{\mathrm{ind}})$. And the
-remainder keeps the $\iota^+$-weight $\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal E_+)-\epsilon$, where the source's
-is $1-\epsilon$, "limited by 1 due to transport from $\mathscr I^+$" (its p. 238). Everything is at $b = b_0$, as in
-III.I Theorem 5.3. Notation: Parts II.G$'$, III.A, III.H, III.H$'$, III.I, III.I$'$ and III.I$''$, whose section 1 is
-the setting here; no instrument is used.
+Proposition 9.11 at $\lambda = 1$, removing a $t_*^{-3}$ term at $\iota^+$) is not needed. The zero energy window is
+$(0,1)$, III.H (1.1)'s window inside the gap of $\widehat{L_b}(0)$ (III.F$'$ Proposition 2.3 (a)), where the source's is
+$(0,\epsilon_{\mathrm{ind}})$. And the remainder keeps the $\iota^+$-weight
+$\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal E_+)-\epsilon$, where the source's is $1-\epsilon$, "limited by 1 due
+to transport from $\mathscr I^+$" (its p. 238). Everything is at $b = b_0$, as in III.I Theorem 5.3. Notation: Parts
+II.G$'$, III.A, III.H, III.H$'$, III.I, III.I$'$ and III.I$''$, whose section 1 is the setting here; no instrument is
+used.
 
 ## 1. Profiles at zero energy ([Hin26] Lemma 11.21 at n = 4)
 
@@ -274,11 +275,11 @@ where the source's is $1-\epsilon$; the cap $\frac32$ is again the transport of 
 (III.I$''$ (I$''$1)).
 
 (I$'''$3) *The window.* The zero energy inversion needs $\alpha^\sharp_+-1$ in the gap of $\widehat{L_b}(0)$ and the
-remainder $\alpha^\sharp_+-\alpha_K$ in it too: $(0,1)$ exactly at $n = 4$ (III.F$'$ Proposition 2.3 (a)), for the
-source's $(0,\epsilon_{\mathrm{ind}})$ ("$\alpha_+\in(\alpha_K,1+\epsilon_{\mathrm{ind}})$"). The source's columns
-(its Lemma 10.5) are of tf-order $2+\epsilon_{\mathrm{ind}}-\epsilon$, and its (11.70a) needs $\alpha_+<1+\epsilon
-_{\mathrm{ind}}$ for that reason too; at $n = 4$ the columns have tf-order $3-\epsilon$ (Lemma 1.2 (b)), and
-$\alpha^\sharp_+<2$ suffices.
+remainder $\alpha^\sharp_+-\alpha_K$ in it too: III.H (1.1)'s window $(0,1)$ at $n = 4$, inside the gap (III.F$'$
+Proposition 2.3 (a)), for the source's $(0,\epsilon_{\mathrm{ind}})$
+("$\alpha_+\in(\alpha_K,1+\epsilon_{\mathrm{ind}})$"). The source's columns (its Lemma 10.5) are of tf-order
+$2+\epsilon_{\mathrm{ind}}-\epsilon$, and its (11.70a) needs $\alpha_+<1+\epsilon _{\mathrm{ind}}$ for that reason too;
+at $n = 4$ the columns have tf-order $3-\epsilon$ (Lemma 1.2 (b)), and $\alpha^\sharp_+<2$ suffices.
 
 (I$'''$4) *The $K^+$-range.* $\alpha_K<a_K-1$ is needed for (4.2) to reach $K^+$-weight $\alpha_K$ from Proposition
 11.17's $\alpha'_K<1$ (the source's $a_K = 2+\epsilon_K$ gives its $\alpha_K<1+\epsilon_K$); $\alpha_K<\frac32$ keeps

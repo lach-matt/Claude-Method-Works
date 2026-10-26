@@ -5490,3 +5490,9 @@ augmented operator and its columns near zero energy, by Fubini on X_sc-b) and Pr
 K+-weight alpha_K in (1, min(a_K - 1, 3/2)) the forward solution is chi_K h^(<=1)(S-dot) plus a remainder of K+-weight
 alpha_K - 2, S-dot = S-hat_1(0), the iota+-weight kept at min(alpha_+, 3/2, min Re E_+). At n = 4 the source's iota+
 step is not needed and the zero energy window is (0, 1). Next: verifier 108's report.
+
+**D258 (2026-10-26): verifier 108 seated; III.I'' verified, III.I and III.I' proved.** The hundred-and-eighth verifier
+found no major finding in Part III.I'' and confirmed its iota+-weight min(alpha_+, 3/2, min Re E_+) - eps; three minor
+findings (Lemma 3.1's support, a gap the source shares; c fixed per order k; locally uniform continuity) and nine nits
+are seated. The D256 repairs to III.I', III.I and III.H' are correct, so III.I and III.I' are proved. Next: verifier 109
+on III.I''' and these repairs; Part III.I''''.

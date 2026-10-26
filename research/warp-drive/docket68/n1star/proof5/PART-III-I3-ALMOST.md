@@ -1,6 +1,7 @@
 # Part III.I$''$. Almost linear bounds, n = 4 ([Hin26] section 11.3)
 
-*Status.* Written (D255). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.3 (pp. 231-238): the
+*Status.* Verified (D258: the hundred-and-eighth verifier; no major finding, three minor ones and nine nits seated, to
+be read). Written (D255). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.3 (pp. 231-238): the
 improvement of the forward solutions of $L^{g,g_0}u = f$ at $\iota^+$ and $K^+$ for sources with more decay there
 (Proposition 11.17), with the two integration lemmas it rests on (Lemmas 11.18 and 11.19).
 
@@ -12,9 +13,10 @@ III.H have Fourier transforms that decay rapidly at scf and lie one order deeper
 does not limit the decay at $\iota^+$: the forward solutions keep the $\iota^+$-weight $\min(\alpha_+,\frac32,\min
 \mathrm{Re}\,\mathcal E_+)-\epsilon$ for every $K^+$-weight $\alpha_K-2$, $\alpha_K\in[\frac12,1)$, where the source's
 is $\alpha_K-\epsilon$ (Proposition 5.1). The cap $\frac32$ is the transport from $\mathscr I^+$, the source's 1 (its
-p. 238). The bookkeeping window of the iteration is the exact gap $(0,1)$ of $\widehat{L_b}(0)$ (III.F$'$ Proposition
-2.3 (a)), where the source's is $(0,\epsilon_{\mathrm{ind}})$. As in III.I Theorem 5.3, everything is at $b = b_0$ ((I3)
-of III.I). Notation: Parts II.G$'$, III.A, III.C, III.H, III.H$'$, III.I and III.I$'$; no instrument is used.
+$\tilde\alpha_+\le\alpha_+<1$, p. 232; "limited by 1 due to transport from $\mathscr I^+$", p. 238). The bookkeeping
+window of the iteration is $(0,1)$, III.H (1.1)'s window inside the gap of $\widehat{L_b}(0)$ (III.F$'$ Proposition 2.3
+(a)), where the source's is $(0,\epsilon_{\mathrm{ind}})$. As in III.I Theorem 5.3, everything is at $b = b_0$ ((I3) of
+III.I). Notation: Parts II.G$'$, III.A, III.C, III.H, III.H$'$, III.I and III.I$'$; no instrument is used.
 
 ## 1. Setting
 
@@ -83,15 +85,17 @@ $\iota^+$ to the power $-1$ there) and $u\in H^{k,\beta_I}_{\mathrm b}$ on $\{y\
 0$, $E = F = \emptyset$, $\alpha := \beta_I$ and the target weight $\beta := \beta_\iota' := \min(\beta_\iota,\beta_I-
 \epsilon)$ (so $\alpha>\beta$ and $f\in H^{k,\alpha,\beta}_{\mathrm b}$) gives $u\in H^{k,\beta_I,\beta'_\iota}_{\mathrm
 b}$ there. (The flow of $x\partial_x-y\partial_y$ preserves $xy$ and increases $x$ as $y$ decreases, so the value at a
-point depends on the data at smaller $x$ only; the end $x = 2$ plays no role.) This holds on every set $\{t_*\le C'r\}$,
-that is, off any neighbourhood of $K^+$. *Near $K^+$.* In the chart (b) with $\rho_K = \langle x\rangle/t_*$ and
-$x\in\bar X$, $\rho_K\partial_{\rho_K}u = -t_*\partial_{t_*}u\in H^{k,(\mathcal E_K,\beta_K),\beta_\iota}_{\mathrm b}$
-($t_* = \langle x\rangle\rho_K^{-1}$), and on $\{\rho_K\ge\frac12\}$, a set of the previous kind, $u$ has the
-$\iota^+$-weight $\beta_\iota'\le\beta_\iota$. III.A Lemma 1.2 with $z = 0$ ($\beta_K\ne0$), $H := \bar X$ (the
-$\iota^+$-face $\partial\bar X$ carrying the weight $\beta'_\iota$; its solution operators act in $\rho_K$ alone and
-commute with the extension at $\{r = r_0\}$) gives $u\in H^{k,(\mathcal E_K\bar\cup\{(0,0)\},\beta_K),\beta'_\iota}
-_{\mathrm b}$ near $K^+$. Away from $I\cup\iota^+\cup K^+$ in $t_*\ge1$ the set is compact, and $u(t_*) =
-u(1)+\int_1^{t_*}
+point depends on the data at smaller $x$ only; the end $x = 2$ plays no role. Where the square $[0,2)^2$ of the chart
+meets $\{r<r_0\}$, $u$ is first extended across $\{r = r_0\}$ by II.G$'$ Remark 3.7's Seeley extension, which acts in
+the spatial variable and commutes with $\partial_{t_*}$; the characteristics being the sets $\{r = \mathrm{const}\}$,
+nothing propagates across $\{r = r_0\}$.) This holds on every set $\{t_*\le C'r\}$, that is, off any neighbourhood of
+$K^+$. *Near $K^+$.* In the chart (b) with $\rho_K = \langle x\rangle/t_*$ and $x\in\bar X$, $\rho_K\partial_{\rho_K}u =
+-t_*\partial_{t_*}u\in H^{k,(\mathcal E_K,\beta_K),\beta_\iota}_{\mathrm b}$ ($t_* = \langle x\rangle\rho_K^{-1}$), and
+on $\{\rho_K\ge\frac12\}$, a set of the previous kind, $u$ has the $\iota^+$-weight $\beta_\iota'\le\beta_\iota$. III.A
+Lemma 1.2 with $z = 0$ ($\beta_K\ne0$), $H := \bar X$ (the $\iota^+$-face $\partial\bar X$ carrying the weight
+$\beta'_\iota$; its solution operators act in $\rho_K$ alone and commute with the extension at $\{r = r_0\}$) gives
+$u\in H^{k,(\mathcal E_K\bar\cup\{(0,0)\},\beta_K),\beta'_\iota} _{\mathrm b}$ near $K^+$. Away from $I\cup\iota^+\cup
+K^+$ in $t_*\ge1$ the set is compact, and $u(t_*) = u(1)+\int_1^{t_*}
 \partial_{t_*}u$ gives $H^k$ there. With the hypothesis on $\Omega_-$ this is (2.1).
 
 (2) $\Omega_-\setminus\Omega_<$ is covered by the chart (c) on $\{r\ge R\}$, where $\rho_I\le C+2/R$, and by the compact
@@ -100,15 +104,17 @@ chart (c), with $x := \rho_0$ and $y := \rho_I/C''$, $C''>2C$, $\{y\ge\frac12\}\
 \Omega_<$ for $R$ large, and $(x\partial_x-y\partial_y)u = (2-t_*)\partial_{t_*}u\in H^{k,\beta_\iota,\beta_I}_{\mathrm
 b}$ ($2-t_* = \rho_0^{-1}$, a defining function of $\iota^-$ to the power $-1$); III.A Lemma 3.2 with $z = 0$,
 $E = F = \emptyset$, $\alpha := \beta_\iota$ and the target weight $\min(\beta_I,\beta_\iota-\epsilon)<\alpha$ at $y = 0$
-gives (2.2) near $I$. The $K^-$-weight: near $K^-$, $\Omega_-$ lies in $\Omega_<$ for every constant. Index sets at $K$
-pass through unchanged. $\square$
+gives (2.2) near $I$ (applied to $\psi(r)u$, $\psi = 1$ on $[R,\infty)$ and $0$ on $[0,\frac R2]$, so that the square of
+the chart meets only $\{r\ge\frac R2\}$; $\psi(r)$ commutes with $\partial_{t_*}$ and changes nothing on $\{r\ge R\}$).
+The $K^-$-weight: near $K^-$, $\Omega_-$ lies in $\Omega_<$ for every constant. Index sets at $K$ pass through
+unchanged. $\square$
 
 ## 3. Integration with a moment condition ([Hin26] Lemma 11.19 at n = 4)
 
 **Lemma 3.1 ([Hin26] Lemma 11.19 at n = 4).** Let $\Omega_< := \mathrm{cl}_{M'}\{t_*<-r\}$ and $\beta_I,\beta_\iota,
 \beta_K\in\mathbb R$ with $\beta_\iota>\beta_I$, $\beta_K\le\beta_\iota-\beta_I$ and $\beta_K\in(-1,1)\setminus\{0\}$.
 Suppose $u|_{\Omega_<}\in\bar H^{k,\infty,\beta_\iota,\beta_K}_{\mathrm b}(\Omega_<)$, $\mathcal Fu$ is supported in
-$[-1,1]\times X$, and
+$[-c_0,c_0]\times X$ for some $c_0<\frac12$, and
 $$\mathcal F(\partial_{t_*}u)|_{\pm(0,1]}\in H^{k+\ell,(\beta_I,\beta_\iota,((0,0),\beta_K))}_{\mathrm b}
 (X^\pm_{\mathrm{sc}\text-\mathrm b}),\tag{3.1}$$
 with $\ell$ a $k$-independent integer depending on the weights, the restrictions to zf of the two signs agreeing when
@@ -117,7 +123,11 @@ $\beta_K>0$. Then $u\in H^{k,\beta_I,\beta_\iota-\epsilon,((0,0),\beta_K)}_{\mat
 The source states $\beta_K<1$, $\beta_K\ne0$; $\beta_K>-1$ is needed for (2.26a) below, whose $K$-weight $\beta_K+1$ must
 lie in $(0,\infty)\setminus\mathbb N$ (II.G$'$ Proposition 3.5), and is implicit there. By (2.26a) alone (3.1) gives
 $\partial_{t_*}u$ the $I$-weight $\beta_I-\epsilon$, and Lemma 2.1 would then give $u$ the $\iota$-weight $\beta_I-
-2\epsilon$ only; the moment condition (3.4) below is what gives $\beta_\iota-\epsilon$.
+2\epsilon$ only; the moment condition (3.4) below is what gives $\beta_\iota-\epsilon$. The source asks $\mathcal Fu$
+supported in $[-1,1]\times X$; its proof treats $f_2$ by (2.26a), whose cut-off (II.G$'$ Proposition 3.5 (1)) is 1 only
+near $[-\frac12,\frac12]$, and $f_1$ by II.G$'$ Definition 2.7, which asks regularity across $\sigma = \pm1$, where
+$\mathcal Ff$ may jump. Support in $[-c_0,c_0]$, $c_0<\frac12$, meets both ((I$''$5)), and the application in section 5
+has it.
 
 *Proof.* Let $\chi = \chi(t_*/r)$ equal 0 on $(-\infty,-3]$ and 1 on $[-2,\infty)$, and $f := \partial_{t_*}u$. As
 $\partial_{t_*}\chi = r^{-1}\chi'(t_*/r)$ is supported in $\{-3r\le t_*\le-2r\}\subset\Omega_<$, away from $I$ and $K$,
@@ -179,20 +189,28 @@ $(\infty,\beta_\iota,\beta_K)$. Renaming $\epsilon$ gives the claim. $\square$
 
 ## 4. The three frequency ranges
 
-Fix $k$. Let $c\in(0,\frac12]$ be at most $\varsigma_1$ (II.G$'$ (4.5a)) and the $c_{k'}$ of III.H Corollary 4.2 and
-Theorem 4.1 (3) for $k'\le k+\ell_0$, $\ell_0$ the losses below, and $\chi\in C^\infty_c([0,c))$ equal 1 on $[0,\frac
-c2]$, as in III.H$'$ section 2. For $f\in C^\infty_c(\Omega_*^\circ)$, III.H$'$ Lemma 2.1, (4.1)-(4.2) and (5.1)-(5.2)
-give the forward solution of $L_bu = f$ as $u = u_{\mathrm{hi}}+u_{\mathrm{reg}}+u_{\mathrm{sing}}$, with
-$\mathcal Fu_{\mathrm{hi}} = (1-\chi(|\sigma|))\widehat{L_b}(\sigma)^{-1}\hat f(\sigma)$ on $\mathbb R$,
-$\mathcal Fu_{\mathrm{reg}} = \chi(|\sigma|)\hat u_{\mathrm{reg},1}(\sigma)$ on $\mathbb R$ (III.H$'$ Lemma 4.1's proof),
-$(\hat u_{\mathrm{reg},1},\hat b_1,\hat S_1) := \tilde L_b(\sigma)^{-1}(\hat f(\sigma),0,0)$, and $u_{\mathrm{sing}} =
+Fix $k$. Let $c\in(0,\frac12]$ be at most $\varsigma_1$ (II.G$'$ (4.5a)), the $c_{k'}$ of III.H Corollary 4.2 and the
+$c_{j,k'}$ of III.H Theorem 4.1 (3) for $j+k'\le k+\ell_0$, $\ell_0$ the losses below, and $\chi\in C^\infty_c([0,c))$
+equal 1 on $[0,\frac c2]$, as in III.H$'$ section 2. So $c$ depends on $k$, and through III.H's weight $\alpha$ (Lemma
+4.2) on the step of section 5 in which it is used. The memberships (5.5)-(5.9) below hold at order $k$ for that $c$, the
+losses $\ell_0$ being independent of $k$; $u$, $u_I$ and $u^\flat$ do not depend on $c$, so their memberships hold at
+every order. $H^\infty$ in (5.5)-(5.9) is to be read in this sense. For $f\in C^\infty_c(\Omega_*^\circ)$, III.H$'$
+Lemma 2.1, (4.1)-(4.2) and (5.1)-(5.2) give the forward solution of $L_bu = f$ as $u =
+u_{\mathrm{hi}}+u_{\mathrm{reg}}+u_{\mathrm{sing}}$, with $\mathcal Fu_{\mathrm{hi}} =
+(1-\chi(|\sigma|))\widehat{L_b}(\sigma)^{-1}\hat f(\sigma)$ on $\mathbb R$, $\mathcal Fu_{\mathrm{reg}} =
+\chi(|\sigma|)\hat u_{\mathrm{reg},1}(\sigma)$ on $\mathbb R$ (III.H$'$ Lemma 4.1's proof), $(\hat
+u_{\mathrm{reg},1},\hat b_1,\hat S_1) := \tilde L_b(\sigma)^{-1}(\hat f(\sigma),0,0)$, and $u_{\mathrm{sing}} =
 \dot g+h_{\mathrm s1}$ of III.H$'$ (5.1), with (III.H$'$ Lemma 5.1's proof)
 $$\mathcal F(\partial_{t_*}\dot g) = \chi(|\sigma|)G_1(\sigma)(\hat b_1(\sigma)),\qquad\mathcal F(\partial^2_{t_*}
 h_{\mathrm s1}) = \chi(|\sigma|)G_2(\sigma)(\hat S_1(\sigma)),\tag{4.1}$$
 $$G_1(\sigma)(\dot b) := \Psi(\sigma,\cdot)\dot g(\dot b),\qquad G_2(\sigma)(S) := (\Psi-\sigma\partial_\sigma\Psi)h(S)-
 i\sigma\Psi\breve h(S),$$
 $\Psi$ of III.H Lemma 2.5. The bounds below are linear in $f$, and the forward solution map is continuous (III.I Theorem
-5.3 with $h = 0$, $S = 0$), so the decomposition and the bounds extend by density to the spaces stated.
+5.3 with $h = 0$, $S = 0$), so the decomposition and the bounds extend by density to the spaces stated. (These spaces
+are extendible at $\{r = r_0\}$, where $C^\infty_c(\Omega_*^\circ)$ is not dense: one approximates an extension of $f$
+across $\{r = r_0\}$, vanishing for $t_*<1$, by smooth compactly supported functions, for which the decomposition holds,
+and restricts; the forward solution on $\{r\ge r_0\}$ depends on $f$ there only, $\{r = r_0\}$ being spacelike. III.H$'$
+uses the same convention.)
 
 **Lemma 4.1 (high and bounded frequencies; the source's (11.44)).** Let $f\in H^{\infty,(\beta_I^f+1,\beta_\iota+2,
 \beta_K)}_{\mathrm b}(\Omega_*)^{\bullet,-}$ with $\beta_K\in(0,\infty)\setminus\mathbb N$, $\beta^f_I\ge\frac32$ and
@@ -204,7 +222,8 @@ $\mathcal F^{-1}((1-\chi_{C_0})\widehat{L_b}^{-1}\hat f)$ lies in $H^{\infty,(\b
 $\beta'_I<\min(\beta^f_I,\frac32+\bar S) = \frac32$ by II.G$'$ Corollary 4.5 (with I.B's hypotheses for $2L_{b_0}$, as in
 III.H$'$ section 3; $\bar S = 0$, III.I Theorem 5.3's proof). The rest is $w := (\chi_{C_0}-\chi(|\sigma|))\widehat{L_b}
 ^{-1}\hat f$, supported in $J := \{\frac c2\le|\sigma|\le C'_0\}$. By (2.25a) and (2.25b) (II.G$'$ Proposition 3.3 (1),
-(2); the hypotheses on the weights are those of (1)), $\hat f$ lies on $\pm(0,1]$ in $H^{\infty,(\beta_\iota+2-\epsilon,
+(2); the hypotheses on the weights are those of (1)), $\hat f$ lies on $\pm(0,1]$ in
+$H^{\infty,(\min(\beta^f_I+1,\beta_\iota+2)-\epsilon,
 \beta_\iota+1,\cdot)}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b})$ and on $\pm[\frac12,\infty)$ in the high-frequency
 space with the scf-weight $\beta^f_I+1$; on functions supported in the compact set $J$, away from tf and zf, both norms
 are equivalent to that of $\bar H^{\infty,\beta}_{\mathrm b}(J\times\bar X)$ of II.G$'$ Corollary 4.2 (2), with $\beta$
@@ -308,10 +327,11 @@ so the $\mathscr I^+$-exponents of $f$ ($\mathcal E^C_I+1$, and $\mathcal F_{I,1
 H^{\infty,(\frac52-\epsilon,\alpha_++2,\alpha_K)}_{\mathrm b}$. Fix $\beta^{(0)}_+\in(\frac12,\min(\alpha_+,\frac32,
 \min\mathrm{Re}\,\mathcal E_+))$ and $\beta^{(0)}_I\in(\beta^{(0)}_+,\frac32)$; III.I Theorem 5.3 ($\alpha_K\ge\frac12$)
 gives $u\in H^{\infty,(\beta^{(0)}_I,\beta^{(0)}_+,-\frac32)}_{\mathrm b}$. III.I$'$ Proposition 2.1 with $\ell_+ :=
-\beta^{(0)}_+$ (below $\min\mathrm{Re}\,\mathcal E_+$, so $(\mathcal E_+,\ell_+)$ is the weight $\ell_+$, and not in
-$\mathrm{Re}\,\pi_1\mathcal E_+$ nor in $\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I$, whose least real part is
-$\frac32$; $\ell_+<\frac32<\ell_I$), $f$ having $\iota^+$-weight $\alpha_++2\ge\ell_++2$, gives the expansion at
-$\mathscr I^+$ near $\mathscr I^+$; away from $\mathscr I^+$ nothing changes. So
+\beta^{(0)}_+$ (below $\min\mathrm{Re}\,\mathcal E_+$, so $(\mathcal E_+,\ell_+)$ is the weight $\ell_+$ and
+$\ell_+<a_++\min\mathrm{Re}\,\mathcal E_+$, $a_+>0$; $\ell_+$ is not in $\mathrm{Re}\,\pi_1\mathcal E_+$ nor in
+$\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I$, whose least real part is $\frac32$; $\ell_+<\frac32<\ell_I$), $f$
+having $\iota^+$-weight $\alpha_++2\ge\ell_++2$, gives the expansion at $\mathscr I^+$ near $\mathscr I^+$; away from
+$\mathscr I^+$ nothing changes. So
 $$u\in H^{\infty,(\langle\mathcal E^C_I\rangle,\ell_I),\beta'_+,\alpha'_K-2}_{\mathrm b}\tag{5.3}$$
 holds with $(\alpha'_K,\beta'_+) = (\frac12,\beta^{(0)}_+)$.
 
@@ -344,7 +364,8 @@ u-u_I$ vanishes for $t_*<1$ and solves $L_bu^\flat = f^\flat$, so it is the forw
 $(\beta_I,\beta_\iota,\beta_K) = (\ell_I+1,\gamma_++2,\tilde\alpha_K)$; $\tilde\alpha_K\in(0,1)$, and
 $\ell_I+1\ge\gamma_++2-\min(\tilde\alpha_K,1-\epsilon_1)$ for $\epsilon_1<1-\tilde\alpha_K$, as
 $\ell_I\ge2>\gamma_++1-\tilde\alpha_K$) gives
-$$\hat f^\flat|_{\pm(0,1]}\in H^{\infty,(\gamma_++2-\epsilon,\gamma_++1,\tilde\alpha_K-1)}_{\mathrm b}(X^\pm
+$$\hat f^\flat|_{\pm(0,1]}\in H^{\infty,(\min(\ell_I+1,\gamma_++2)-\epsilon,\gamma_++1,\tilde\alpha_K-1)}_{\mathrm
+b}(X^\pm
 _{\mathrm{sc}\text-\mathrm b}),$$
 the zf index set $(0,0)$ dropping as $\tilde\alpha_K-1<0$.
 
@@ -353,7 +374,7 @@ condition is the one just checked) gives $u_{\mathrm{hi}}\in H^{\infty,(\frac32-
 
 *The regular part.* Lemma 4.2 with $\beta_{\mathrm{scf}} := \frac32-\epsilon$, $\beta_{\mathrm{tf}} := \gamma_+-1$,
 $\beta_{\mathrm{zf}} := \tilde\alpha_K-1$ ($\alpha+2 := \gamma_+-\tilde\alpha_K\in(0,1)$; the source space contains
-$\hat f^\flat$, as $\frac52-\epsilon\le\gamma_++2-\epsilon$) gives
+$\hat f^\flat$, as $\frac52-\epsilon\le\min(\ell_I+1,\gamma_++2)-\epsilon$) gives
 $$\hat u_{\mathrm{reg},1}\in H^{\infty,(\frac32-2\epsilon,\gamma_+-1,\tilde\alpha_K-1)}_{\mathrm b},\qquad\hat b_1,
 \hat S_1\in H^{\infty,\tilde\alpha_K-1}_{\mathrm b}(\pm(0,c],|\tfrac{d\sigma}\sigma|).\tag{5.5}$$
 $\chi(|\sigma|)\hat u_{\mathrm{reg},1}$ is supported where II.G$'$ Proposition 3.5's cut-off is 1 ($c\le\frac12$), and
@@ -364,8 +385,10 @@ $$u_{\mathrm{reg}}\in H^{\infty,(\gamma_+-\epsilon,\gamma_+,\tilde\alpha_K)}_{\m
 -i\sigma\mathcal Fv$, which raises the tf- and zf-weights by 1,
 $$\mathcal F(\partial^2_{t_*}u_{\mathrm{sing}}) = -i\sigma\chi G_1(\hat b_1)+\chi G_2(\hat S_1)\in H^{\infty,(N,\tilde
 \alpha_K+2-\epsilon,\tilde\alpha_K-1)}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b}).\tag{5.7}$$
-(The source's (11.49) has $(1-\epsilon,\tilde\alpha_K+1-\epsilon,\cdot)$.) As $u^\flat = 0$ for $t_*<1$, $u_{\mathrm
-{sing}} = -(u_{\mathrm{hi}}+u_{\mathrm{reg}})$ there, so by (5.6) and the high-frequency bound, with $\gamma_+<\frac32-
+(The source's (11.49) has $(1-\epsilon,\tilde\alpha_K+1-\epsilon,\tilde\alpha_K)$; its zf-weight $\tilde\alpha_K$ is a
+slip for $\tilde\alpha_K-1$, which its (11.48) gives and with which its Lemma 11.19 is then applied.) As $u^\flat = 0$
+for $t_*<1$, $u_{\mathrm {sing}} = -(u_{\mathrm{hi}}+u_{\mathrm{reg}})$ there, so by (5.6) and the high-frequency bound,
+with $\gamma_+<\frac32-
 \epsilon$,
 $$u_{\mathrm{sing}}|_{\Omega_-}\in\bar H^{\infty,\gamma_+-\epsilon,\gamma_+,\tilde\alpha_K}_{\mathrm b},\qquad
 \partial_{t_*}u_{\mathrm{sing}}|_{\Omega_-}\in\bar H^{\infty,\gamma_+-\epsilon,\gamma_++1,\tilde\alpha_K+1}_{\mathrm
@@ -375,7 +398,8 @@ $\beta_\iota := \gamma_++1$, $\beta_K := \tilde\alpha_K-1$: $\beta_\iota>\beta_I
 $\beta_K<0<\beta_\iota-\beta_I$; $\beta_K\in[-\frac12,0)$; $v|_{\Omega_<}$ has the weights $(\cdot,\gamma_++1,\tilde
 \alpha_K+1)$, at least $(\infty,\beta_\iota,\beta_K)$, by (5.8); $\mathcal Fv$ is $\chi(|\sigma|)$ times the boundary
 value from $\mathrm{Im}\,\sigma>0$ of a function holomorphic inside $\gamma_0$ with at most a pole at 0 (III.H$'$
-section 5), a distribution supported in $[-c,c]$; and $\mathcal F(\partial_{t_*}v)$ is (5.7), whose tf-weight $\tilde
+section 5), a distribution supported in a compact subset of $(-c,c)$, $c\le\frac12$, as Lemma 3.1 asks; and $\mathcal
+F(\partial_{t_*}v)$ is (5.7), whose tf-weight $\tilde
 \alpha_K+2-\epsilon$ is at least $\beta_\iota = \gamma_++1$ ($\gamma_+<\tilde\alpha_K+1-\epsilon$) and whose
 zf-weight is $\beta_K$, with no zf index term as $\beta_K<0$. So
 $$\partial_{t_*}u_{\mathrm{sing}}\in H^{\infty,\frac32,\gamma_++1-\epsilon,\tilde\alpha_K-1}_{\mathrm b}(M').$$
@@ -390,15 +414,15 @@ $u^\flat\in H^{\infty,\gamma_+-\epsilon,\gamma_+-2\epsilon,\tilde\alpha_K-2}_{\m
 $u = u^\flat+u_I$ has the same $\iota^+$- and $K^+$-weights.
 
 *Step 3 (the source's recovery at $\mathscr I^+$).* III.I$'$ Proposition 2.1 with $\ell_+ := \gamma_+-2\epsilon$
-(below $\min\mathrm{Re}\,\mathcal E_+$, below $\ell_I$, below $\min\mathrm{Re}\,\mathcal E^{\mathrm{tot}}_I = \frac32$;
-$f$ has $\iota^+$-weight $\alpha_++2>\ell_++2$; the a priori $\mathscr I^+$-weight $\gamma_+-\epsilon$) gives (5.3) with
-$(\alpha'_K,\beta'_+)$ replaced by $(\tilde\alpha_K,
+(below $\min\mathrm{Re}\,\mathcal E_+$ and $a_++\min\mathrm{Re}\,\mathcal E_+$, below $\ell_I$, below
+$\min\mathrm{Re}\,\mathcal E^{\mathrm{tot}}_I = \frac32$; $f$ has $\iota^+$-weight $\alpha_++2>\ell_++2$; the a priori
+$\mathscr I^+$-weight $\gamma_+-\epsilon$) gives (5.3) with $(\alpha'_K,\beta'_+)$ replaced by $(\tilde\alpha_K,
 \gamma_+-2\epsilon)$, again in the range of the iteration by (5.4).
 
 *Conclusion.* Each step raises $\alpha'_K$ by $\min(a_K-2,\alpha_K-\alpha'_K)$, $a_K>2$, so finitely many reach
 $\alpha'_K = \alpha_K$, with $\iota^+$-weight $\gamma_+-2\epsilon$; given $\beta_+$ as in the proposition, choose
 $\gamma_+>\beta_++2\epsilon$ in (5.4). This is (5.2). Each step loses finitely many b-derivatives, and the spaces are
-$H^\infty$.
+$H^\infty$ (section 4: at each order $k$, with the $c$ of that order).
 
 *Continuity.* The maps of the scheme are linear in $f$ and $u$; $u_I$, $u_{\mathrm{hi}}$, $u_{\mathrm{reg}}$ and
 $u_{\mathrm{sing}}$ depend on $f'$ only, through maps bounded between the spaces above (III.I$'$ Proposition 3.1's
@@ -406,10 +430,13 @@ construction by III.A Lemma 1.2, and Lemmas 2.1, 3.1, 4.1-4.3 with (2.25a), (2.2
 through $L-L_b$, whose coefficients in (3.6) of III.I depend continuously on $(S,h)$ (III.I Proposition 3.4 and the
 expansion of $g^{-1}$ after it), with (4.2)'s bound uniform for $(S,h)$ small; through the start, which III.I Theorem
 5.3 gives continuously in $(S,h)$ at weights lowered by $\varsigma$; and through III.I$'$ Proposition 2.1 in Steps 0 and
-3, which by the closed graph theorem (its conclusion holds for every such $f$, and the forward solution map is
-continuous into a weaker space) comes with a bound. For two parameters, $L(u-u') = (L'-L)u'$ with $(L'-L)u'$ small in
-the source space of Step 1 at the lowered weights; the bounds of the scheme for the difference give the claim, for
-$\varsigma$ below the room in (5.4). $\square$
+3, whose proof is constructive (III.A Lemmas 1.2 and 3.2 with their bounds, the products by III.C Lemma 2.1 with the
+coefficient norms of the operator), so that its bound depends on $L$ only through coefficient norms, which III.I
+Proposition 3.4 bounds locally uniformly in $(S,h)$. (A closed graph argument would give a bound for each fixed $L$
+only.) So every constant of the scheme, and the bound of $u$ in (5.2) by $f$, is locally uniform in $(S,h)$. For two
+parameters, $L(u-u') = (L'-L)u'$ with $u'$ bounded in (5.2) uniformly and $(L'-L)u'$ small in the source space of Step 1
+at the lowered weights; the bounds of the scheme for the difference give the claim, for $\varsigma$ below the room in
+(5.4). $\square$
 
 ## 6. Findings, labels and sources
 
@@ -421,20 +448,24 @@ $\varsigma$ below the room in (5.4). $\square$
 not by $\tilde\alpha_K-\epsilon$ (Step 2b); Proposition 5.1 keeps the $\iota^+$-weight $\min(\alpha_+,\frac32,\min
 \mathrm{Re}\,\mathcal E_+)-\epsilon$ at every $K^+$-weight $\alpha_K-2$, where the source's is $\alpha_K-\epsilon$. The
 cap $\frac32$ is Lemma 4.1's and Lemma 4.2's scf-weight, the transport of the radiation field's order from $\mathscr
-I^+$; the source's corresponding cap is 1 (its p. 238).
+I^+$; the source's corresponding cap is 1 (its p. 232; p. 238 names the transport).
 
 (I$''$2) *The window.* The source relaxes the $\iota^+$-weight to $\tilde\alpha_+\in(\tilde\alpha_K,\tilde\alpha_K+
 \epsilon_{\mathrm{ind}})$ to stay in the indicial gap at zero energy. At $n = 4$ the gap of $\widehat{L_b}(0)$ contains
-$(0,1)$ exactly (III.F$'$ Proposition 2.3 (a)), and $\gamma_+-\tilde\alpha_K\in(0,1)$ throughout (5.4); no relaxation is
-needed.
+$(0,1]$ (III.F$'$ Proposition 2.3 (a)), III.H (1.1)'s window $(0,1)$ lies inside it, and
+$\gamma_+-\tilde\alpha_K\in(0,1)$ throughout (5.4); no relaxation is needed.
 
 (I$''$3) *Lemma 11.19's range.* Its proof applies (2.26a) at the $K$-weight $\beta_K+1$, which must lie in
 $(0,\infty)\setminus\mathbb N$: $\beta_K>-1$ is needed and not stated (Lemma 3.1). In Proposition 11.17 the source uses
-$\beta_K = \tilde\alpha_K-1\in(-\frac12,0)$, inside the range.
+$\beta_K = \tilde\alpha_K-1\in[-\frac12,0)$, inside the range.
 
 (I$''$4) *The weight at null infinity.* (2.25a) in Step 2b needs $\ell_I+1\ge\gamma_++2-\tilde\alpha_K$; with the
 $\iota^+ $-weights up to $\frac32$ this is $\ell_I\ge2$, which (5.1) asks and the source's $3+\epsilon_I$ meets; and
 III.I Proposition 4.1's range (III.I (I6)) asks $\ell_I<a_I+\frac12$.
+
+(I$''$5) *Lemma 11.19's support.* The source asks $\mathcal Fu$ supported in $[-1,1]\times X$; its proof needs the
+support where II.G$'$ Proposition 3.5's cut-off is 1, and regularity across $\sigma = \pm1$ (II.G$'$ Definition 2.7).
+Lemma 3.1 asks support in $[-c_0,c_0]$, $c_0<\frac12$, which its application has.
 
 ### 6.2 Labels
 

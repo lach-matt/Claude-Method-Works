@@ -3294,3 +3294,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Noted for verifier 108's seat: III.I'' Step 2b's scf-weight of f-hat^flat is min(l_I + 1, gamma_+ + 2) - eps, not
   gamma_+ + 2 - eps (at least 3 - eps either way, which is all Lemma 4.2 needs).
 - Next: seat verifier 108; verifier 109 on III.I'''; Part III.I'''' ([Hin26] section 11.4.2, undoing the boost).
+
+### 4.181 Verifier 108 seated: III.I'' verified; III.I and III.I' proved (D258)
+
+- Verifier 108 on III.I'' (PART-III-I3-ALMOST.md) and the D256 repairs: 0 major, 3 minor, 9 nits on III.I''; the
+  D256 repairs to III.I', III.I and III.H' all correct. The iota+-weight min(alpha_+, 3/2, min Re E_+) - eps holds.
+- m1: Lemma 3.1 asked F u supported in [-1, 1]; II.G' Proposition 3.5's cut-off is 1 only near [-1/2, 1/2] and
+  Definition 2.7 asks regularity across sigma = +-1. Now support in [-c_0, c_0], c_0 < 1/2, which the application
+  has; the source's Lemma 11.19 shares the gap ((I''5)).
+- m2: c depends on k (and on III.H's weight alpha, which changes with the step); (5.5)-(5.9) hold at order k for that
+  c, and H^infinity follows as u, u_I, u^flat do not depend on c.
+- m3: continuity in (S, h) needs locally uniform bounds; III.I' Proposition 2.1's proof is constructive, its bound
+  depends on L through coefficient norms only (III.I Proposition 3.4), so the scheme's constants are locally uniform.
+- Nits: the gap wording ((0, 1] inside the gap; (0, 1) is III.H (1.1)'s window; also in III.I'''), the source's cap 1
+  at p. 232 (p. 238 names the transport), (2.25a)'s scf-weight min(l_I + 1, gamma_+ + 2) - eps (also in Step 2b, the
+  item noted in 4.180), chart squares across r = r_0 (Seeley extension, cut-off psi(r)), [-1/2, 0), the source's
+  (11.49) zf slip, l_+ < a_+ + min Re E_+ listed, density for extendible spaces, c_{j,k'}.
+- Next: verifier 109 on III.I''' and the D258 repairs; Part III.I'''' ([Hin26] section 11.4.2, undoing the boost).

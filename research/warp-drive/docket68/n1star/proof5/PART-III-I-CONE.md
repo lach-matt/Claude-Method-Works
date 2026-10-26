@@ -1,13 +1,14 @@
 # Part III.I. The dynamical linearised operator at n = 4 ([Hin26] section 11 opening and 11.1)
 
-*Status.* Verified (D254: the hundred-and-sixth verifier; one major and two minor findings and eight nits seated. D256:
-the hundred-and-seventh verifier read the repairs; one residual minor finding and two nits seated, to be read). Written
-(D251). This part proves, at spatial dimension $n = 4$, [Hin26] section 11's setting and section 11.1 (pp. 218-226): the
-classes of metric perturbations and source terms (Definition 11.3), the edge-3b membership of the perturbations (Lemma
-11.5), the structure of the linearised gauge-fixed Einstein operator $L^{g,g_0}$ in the forward cone (Proposition 11.6,
-Remark 11.7), its forward mapping properties (Proposition 11.8, Corollary 11.9), its admissibility relative to $L_b$
-(Corollary 11.10), and the regularity of forward solutions (Theorem 11.12, at $b_0$), with the compatibility between
-Part II.F$'$'s orders and those of III.H$'$ that the latter left as an obligation.
+*Status.* Proved (D258: the hundred-and-eighth verifier read the D256 repairs and found them correct). Verified (D254:
+the hundred-and-sixth verifier; one major and two minor findings and eight nits seated. D256: the hundred-and-seventh
+verifier read the repairs; one residual minor finding and two nits seated, to be read). Written (D251). This part
+proves, at spatial dimension $n = 4$, [Hin26] section 11's setting and section 11.1 (pp. 218-226): the classes of metric
+perturbations and source terms (Definition 11.3), the edge-3b membership of the perturbations (Lemma 11.5), the
+structure of the linearised gauge-fixed Einstein operator $L^{g,g_0}$ in the forward cone (Proposition 11.6, Remark
+11.7), its forward mapping properties (Proposition 11.8, Corollary 11.9), its admissibility relative to $L_b$ (Corollary
+11.10), and the regularity of forward solutions (Theorem 11.12, at $b_0$), with the compatibility between Part II.F$'$'s
+orders and those of III.H$'$ that the latter left as an obligation.
 
 *What n = 4 changes.* The perturbation's contributions to the operator at null infinity are half an order lower than
 the constant matrix $\bar A$ (III.C (C1)); so the dynamical operator is admissible with $p_0 = \tilde p_1 = 0$ in II.C
