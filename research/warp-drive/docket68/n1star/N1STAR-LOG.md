@@ -5455,3 +5455,9 @@ orders on finitely many intervals (cost 2 eps in the high-frequency weight, unfe
 stated without b-regularity, and Lemma 6.2 treats the boundary r = r_0 by a cut-off and an extension. The source's
 incoming-threshold gap (H'2) is confirmed real. The D249 repairs are correct. III.H' is verified, its repairs to be read;
 III.H is proved. III.I's Lemma 5.1 drops a redundant condition. Next: verifier 106 on III.I.
+
+**D253 (2026-10-26): Part III.I' written.** [Hin26] section 11.2 at n = 4 (PART-III-I2-SCRI.md): the structure of the
+dynamical operator at scri+ with the constant A-bar of L_b, partial polyhomogeneity at scri+ without loss at iota+
+(Proposition 11.14, Lemma 11.15) for weights below l_I^max = 3/2 + (1 - e_C)(1 - v_C) gam_C and off 3/2 + sigma_Ups, the
+radiation field at 3/2 in pi-slash_0 only, and formal solutions at scri+ (Proposition 11.16) with one exceptional term
+where the source has two. Next: verifier 106 seated, then verifier 107 on III.I'.

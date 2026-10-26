@@ -53,7 +53,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | proved (D252; verified D249 with two minor findings and six nits) |
 | III.H' | [Hin26] 10.2 (Theorem 10.1, Lemmas 10.9-10.13) | 2-admissibility of L_b: the contour representation, high and low frequencies, the zero energy contributions integrated twice in t_*; sf-loss 0 at n = 4 | verified (D252; three minor findings and nine nits seated, to be read) |
 | III.I | [Hin26] 11 opening, 11.1 (Definition 11.3, Lemma 11.5, Propositions 11.6, 11.8, Corollaries 11.9-11.10, Theorem 11.12) | the dynamical linearised operator: perturbation classes, the e3b class, structure in the forward cone, forward mapping, admissibility with p_0 = p~_1 = 0, forward solutions at b0 with sf-loss 0; the orders of II.F' in O_c | written (D251) |
-| III.C', III.I'-III.J | [Hin26] 5.4-5.7, 11.2-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| III.I' | [Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future timelike infinity; formal solutions at null infinity, one exceptional term | written (D253) |
+| III.C', III.I''-III.J | [Hin26] 5.4-5.7, 11.3-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -903,3 +904,15 @@ Theorem 11.12 at $b_0$ with sf-loss 0, $\beta_+\in(\frac12,\frac32)$, $\beta_I\i
 5.1 shows II.C's construction of orders gives III.H$'$'s class $\mathcal O_c$, which meets III.H$'$'s obligation
 (H$'$7). Open ((I3)): Theorem 11.12 for $b\ne b_0$ needs 2-admissibility for all $k$ near $b_0$ and II.F$'$ uniformly in
 the stationary model. Written (D251).
+
+## Part III.I$'$
+
+`PART-III-I2-SCRI.md`. [Hin26] section 11.2 at $n = 4$: the structure of $L^{g,g_0}$ at $\mathscr I^+$ with leading part
+$(X_+-X_I)(X_I-\frac32-\bar A)$, the same constant $\bar A$ for the dynamical operator as for $L_b$ (Lemma 1.1); partial
+polyhomogeneity at $\mathscr I^+$ without loss at $\iota^+$ for $\ell_+<\ell_I<\ell_I^{\max} =
+\frac32+(1-e_C)(1-v_C)\gamma_C$, $\ell_I\notin\frac32+\sigma_\Upsilon$ (Proposition 2.1, Lemma 2.2), with the radiation
+field at $\frac32$ in $\slashed\pi_0$ only and no $\frac32$-term in $\pi_{11}u$; and formal solutions of $L_bu = f$ at
+$\mathscr I^+$ with one exceptional term $\frac52+(1-e_\Upsilon)\gamma_\Upsilon$ where the source has two (Proposition
+3.1). Findings (I$'$1)-(I$'$3): the $h$-dependent radiation coupling is half an order lower at $n = 4$; the upper weight
+is $\ell_I^{\max}$ where the source writes $3+\epsilon_I$, and the exclusion of $\frac32+\sigma_\Upsilon$ is stated; the
+windows of (3.2) start at $\min\mathrm{Re}\,\mathcal E^C_I$. Written (D253).

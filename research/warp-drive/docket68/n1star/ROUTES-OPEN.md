@@ -3210,3 +3210,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the transfer of (C3) to P; I.C's J_pm used off the real axis only; c <= varsigma_1 fixed in section 2; III.H Lemma 2.5
   (d)'s proof for higher derivatives; II.A (S7) for the uniform equivalence; the kernel-range count; O_c a restriction.
 - Next: verifier 106 on III.I and the D252 repairs; then Part III.I' ([Hin26] section 11.2 at n = 4).
+
+### 4.176 Part III.I' written: [Hin26] section 11.2 at n = 4 (D253)
+
+- PART-III-I2-SCRI.md: Lemma 1.1 (the structure at scri+: leading part (X_+ - X_I)(X_I - 3/2 - A-bar) with the constant
+  A-bar for the dynamical operator, error in rho_I C^infty + H^{(E^tot_I - 1, a_I - 1),(E_+, a_+)} Diff^2), Proposition
+  2.1 and Lemma 2.2 ([Hin26] Proposition 11.14, Lemma 11.15: partial polyhomogeneity at scri+ without loss at iota+,
+  for l_+ < l_I < l_I^max, l_I not in 3/2 + sigma_Ups), Proposition 3.1 ([Hin26] Proposition 11.16: formal solutions,
+  one exceptional term 5/2 + (1 - e_Ups) gam_Ups solved with factor -(1 + e_Ups) gam_Ups).
+- (I'1): no radiation coupling into the 11-component at n = 4 (the h-dependent (A^h)_{7,6} is half an order lower);
+  this proves in the forward cone N1STAR-PROOF.md 10.44's reading of the iteration's iota+ index set.
+- (I'2): the upper weight is l_I^max = 3/2 + (1 - e_C)(1 - v_C) gam_C (> 100), where the source writes 3 + eps_I; the
+  exclusion l_I not in 3/2 + sigma_Ups is stated, which the source's Proposition 11.14 leaves implicit.
+- (I'3): the windows of (3.2) start at min Re E^C_I and step by 1.
+- Next: seat verifier 106 (III.I and the D252 repairs); verifier 107 on III.I'; then Part III.I'' ([Hin26] section
+  11.3 at n = 4).
