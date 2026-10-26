@@ -27,19 +27,20 @@ $\rho^2$ times its normal operator; likewise for $\Box^\Upsilon_b$ (III.D Lemma 
 1). All three models commute with the rotations $\mathrm{SO}(4)$ of the spatial factor.
 
 *Parameters.* $e_\Upsilon>0$ and $\gamma_\Upsilon>0$ are small, with $z := 4e_\Upsilon\gamma_\Upsilon^2\in(0,\frac12]$,
-the parameter of III.D Lemma 4.1; $v_C$, $e_C$, $c_C$ and $\gamma_C$ are those of III.E Theorem 1.1, with $C_0\ge101$.
-Part IV fixes the constraint damping parameters first; $\gamma_\Upsilon$ is then taken small, as in the source ("keeping
-the other parameters and all 1-forms fixed").
+the parameter of III.D Lemma 4.1; $v_C$, $e_C$, $c_C$ and $\gamma_C$ are those of III.E Theorem 1.1, with $C_0 = 100$
+(III.F section 1). Part IV fixes the constraint damping parameters first; $\gamma_\Upsilon$ is then taken small, as in
+the source ("keeping the other parameters and all 1-forms fixed").
 
 *The constraint propagation operator.* The facts about $\Box^C_b$ used below are:
 
-(C1) (III.E Theorem 1.1 (3), with its count by type.) Every indicial root of $\Box^C_b$ has real part $\ge2$ or $<-C_0$;
-the only one with real part 2 is $\lambda = 2$, a simple root of scalar types 0 and 1. At scalar type 0 two roots lie on
-each side, written $\lambda^C_{\mathrm s0,\ll,1}$, $\lambda^C_{\mathrm s0,\ll,2}$ (real parts $<-C_0$) and $2$,
-$\lambda^C_{\mathrm s0,+}$; at scalar type 1 three, $\lambda^C_{\mathrm s1,\ll,j}$ ($j = 1,2,3$) and $2$,
-$\lambda^C_{\mathrm s1,+,1}$, $\lambda^C_{\mathrm s1,+,2}$; at scalar type $l\ge2$ three, $\lambda^C_{\mathrm sl,\ll,j}$
-and $\lambda^C_{\mathrm sl,+,j}$; at vector type $l\ge1$ one, $\lambda^C_{\mathrm vl,\ll}$ and
-$\lambda^C_{\mathrm vl,+}$.
+(C1) (III.E Theorem 1.1 (3), with its count by type; it needs $\gamma_C$ large relative to $e_C^{-1}$, the theorem's
+parenthesis recording that the finite scalar roots fall below 2 when $\gamma_C^{-1}>e_C$.) Every indicial root of
+$\Box^C_b$ has real part $\ge2$ or $<-C_0$; the only one with real part 2 is $\lambda = 2$, a simple root of scalar
+types 0 and 1. At scalar type 0 two roots lie on each side, written $\lambda^C_{\mathrm s0,\ll,1}$,
+$\lambda^C_{\mathrm s0,\ll,2}$ (real parts $<-C_0$) and $2$, $\lambda^C_{\mathrm s0,+}$; at scalar type 1 three,
+$\lambda^C_{\mathrm s1,\ll,j}$ ($j = 1,2,3$) and $2$, $\lambda^C_{\mathrm s1,+,1}$, $\lambda^C_{\mathrm s1,+,2}$; at
+scalar type $l\ge2$ three, $\lambda^C_{\mathrm sl,\ll,j}$ and $\lambda^C_{\mathrm sl,+,j}$; at vector type $l\ge1$ one,
+$\lambda^C_{\mathrm vl,\ll}$ and $\lambda^C_{\mathrm vl,+}$.
 
 (C2) The indicial roots of $\Box^C_b$ are simple.
 
@@ -122,13 +123,16 @@ tl, $l\ge2$: $-l$; $l+2$.
 (a) No root has real part in $(0,1]$. (b) At each type and degree, $k$ roots (with multiplicity) have real part $\le0$
 and $k$ have real part $>1$: those before and after the semicolon. (c) $0$ is a root only at scalar types 0 and 2,
 simple there, with the indicial solutions of Lemma 2.5. (d) The roots with real part $\le0$ that come from $\Box^C$,
-written with superscript $C$, have real part $<-C_0-1\le-102$. (e) If (C2)-(C3) hold, there is a countable set
+written with superscript $C$, have real part $<-C_0-1 = -101$. (e) If (C2)-(C3) hold, there is a countable set
 $Z_{\mathrm{exc}}\subset(0,\frac12]$, determined by the roots of $\Box^C_b$, such that for $z\notin Z_{\mathrm{exc}}$
 every root is simple. (f) If (C4) holds, then for every $R$ only finitely many roots have $|\lambda|\le R$, and no
 non-integer root with $|\lambda|\le50$ has integer real part; so there is $\epsilon_{\mathrm{ind}}\in(0,1]$ with
 $$d(\mathrm{Re}\,\lambda,\mathbb Z)\ge\epsilon_{\mathrm{ind}}\quad
 \text{for every non-integer root }\lambda\text{ with }|\lambda|\le50,\tag{2.2}$$
-the source's (8.13), and $(0,\epsilon_{\mathrm{ind}}]\subset(0,1]$ lies in the indicial gap.
+the source's (8.13), and $(0,\epsilon_{\mathrm{ind}}]\subset(0,1]$ lies in the indicial gap. The number is small at the
+record's parameter point: the roots $\lambda^C_{\cdot,+}-1$ lie just above 1 there, the lowest at scalar type 2,
+$1+2.93\times10^{-6}$ (`../N1STAR-PROOF.md` 10.34 (iv)), so $\epsilon_{\mathrm{ind}}<3\times10^{-6}$ there. The gap
+$(0,1]$ of (a) is exact, and no later part may read $\epsilon_{\mathrm{ind}}$ as a number of order one.
 
 *Proof.* *The list.* By Lemma 2.1 the roots of each type are, with multiplicity, $-l$ and $l+2$, the roots of
 $\Box^\Upsilon$ plus 1, the roots of $\Box^C$ minus 1, less the roots of $D$. III.D Lemma 4.1 gives those of
@@ -136,12 +140,12 @@ $\Box^\Upsilon$: s0: $1-\lambda^\Upsilon_{\mathrm s0,2}$, $0$, $\lambda^\Upsilon
 $1-\lambda^\Upsilon_{\mathrm sl,l+2}$, $1-\lambda^\Upsilon_{\mathrm sl,l+1}$, $1-l$,
 $\lambda^\Upsilon_{\mathrm sl,l+1}$, $\lambda^\Upsilon_{\mathrm sl,l+2}$, $l+3$; vl: $-l$, $l+2$. (C1) and Lemma 2.2
 give those of $\Box^C$. At s0 and s1, $(\lambda-1)^2$ divides the numerator of (2.1) exactly: $\lambda = 1$ is the
-simple root $0$ of $\Box^\Upsilon$ plus 1 (simple by III.D Lemma 4.1) and the simple root $2$ of $\Box^C$ minus 1 (C1),
-and no other factor vanishes at 1 ($\lambda(\lambda-2)$ and $(\lambda+1)(\lambda-3)$ do not, nor do the other roots of
-either operator, by the bounds below). At v1, $\lambda(\lambda-2)$ divides it exactly: $0$ is $\Box^\Upsilon$'s root
-$-1$ plus 1, and $2$ is $\Box^C$'s root $3$ minus 1 (Lemma 2.2), each simple, and $(\lambda+1)(\lambda-3)$,
-$\Box^\Upsilon$'s other root $3$ plus 1 and $\Box^C$'s other root $-1-2\gamma_Cv_C$ minus 1 avoid $0$ and $2$. What
-remains is the list.
+simple root $0$ of $\Box^\Upsilon$ plus 1 (at s0 the entry $0$ of the list, at s1 the entry $1-l$) (simple by III.D
+Lemma 4.1) and the simple root $2$ of $\Box^C$ minus 1 (C1), and no other factor vanishes at 1 ($\lambda(\lambda-2)$ and
+$(\lambda+1)(\lambda-3)$ do not, nor do the roots of either operator other than these two, by the bounds below). At v1,
+$\lambda(\lambda-2)$ divides it exactly: $0$ is $\Box^\Upsilon$'s root $-1$ plus 1, and $2$ is $\Box^C$'s root $3$ minus
+1 (Lemma 2.2), each simple, and $(\lambda+1)(\lambda-3)$, $\Box^\Upsilon$'s other root $3$ plus 1 and $\Box^C$'s other
+root $-1-2\gamma_Cv_C$ minus 1 avoid $0$ and $2$. What remains is the list.
 
 *Bounds.* By III.D (4.2), for $0<z\le\frac12$: $\lambda^\Upsilon_{\mathrm s0,2}\in(2,2+\frac z3]$,
 $\lambda^\Upsilon_{\mathrm sl,l+j}\in(l+j,l+j+\frac14)$; so $2-\lambda^\Upsilon_{\mathrm s0,2}\in[-\frac z3,0)$,
@@ -178,7 +182,7 @@ countable.
 roots with $|\lambda|\le R$, each finitely many. The non-integer roots with $|\lambda|\le50$ are those from
 $\Box^\Upsilon$, which are real and lie in the open intervals of the bounds above, so their real parts are not integers,
 and those $\lambda^C_{\cdot,+}-1$ that are not integers (by (d) the roots $\lambda^C_{\cdot,\ll}-1$ have
-$|\lambda|>102$); a non-integer one with integer real part $n$, $2\le n\le50$, would make $\lambda^C_{\cdot,+}$ non-real
+$|\lambda|>101$); a non-integer one with integer real part $n$, $2\le n\le50$, would make $\lambda^C_{\cdot,+}$ non-real
 with real part $n+1\in[3,51]$, against (C4). The minimum of $d(\mathrm{Re}\,\lambda,\mathbb Z)$ over this finite set is
 positive, and $\epsilon_{\mathrm{ind}}$ is any number in $(0,1]$ not exceeding it. $\square$
 

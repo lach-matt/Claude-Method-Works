@@ -195,7 +195,7 @@ angular momentum and $4\pi$ times the mass times the centre of mass, in the norm
 
 ## 4. [Hin26] Lemma 8.15 at n = 4
 
-For a stationary $v$ of weight $\ge-2$, smooth on $X$, with $\widehat{L_b}(0)v$ of weight $>-1$, and
+For a stationary $v$ of weight $\ge-2$, smooth on $X$, with $\widehat{L_b}(0)v$ of weight $>1$, and
 $W\in\mathfrak{so}(4)$, put
 $$\lambda^\sharp_v(W) := \langle\widehat{L_b}(0)v,h^\sharp_{b,\mathrm v1}(W)\rangle
 -\langle v,\widehat{L_b}(0)^*h^\sharp_{b,\mathrm v1}(W)\rangle.\tag{4.1}$$
@@ -242,7 +242,9 @@ it is the integral of the leading terms: $\bar h^1_{\mathrm v1}(V)$ of III.D$'''
 $\bar h^\sharp(W) = \mu\rho^3(dt_*+\kappa_C\,d|x|)\otimes_s\rho V(W)$ of III.E$'$ (3.3), which depends on $b$ only
 through $\mu$; and the model operator. So $\lambda^\sharp_{\breve h^1_{b,\mathrm v1}(V)}(W) = \mu\,c(V,W)$ with $c$ a
 bilinear form independent of $b$. For $b = (\mu,A)$ in the parameter neighbourhood,
-$c(V,W) = \pi^2\langle A_V,W\rangle_F$ on $\mathrm{im}\,\mathrm{ad}_A$; and these images, for $A$ small, span
+$c(V,W) = \pi^2\langle A_V,W\rangle_F$ on $\mathrm{im}\,\mathrm{ad}_A$ (Lemma 3.1 (2) holds at every such $b$, spinning
+or not, with the same value, as the leading term $2\mu\rho^3(dt_*+d|x|)\otimes_s\rho V(\dot A)$ of
+$\dot g^\Upsilon_b(0,\dot A)$, III.E$'$ (2.2), does not depend on $A$); and these images, for $A$ small, span
 $\mathfrak{so}(4)$ ($\mathrm{im}\,\mathrm{ad}_{\epsilon E_{12}} = \mathrm{span}\{E_{13},E_{14},E_{23},E_{24}\}$,
 $\mathrm{im}\,\mathrm{ad}_{\epsilon E_{13}}\ni E_{12},E_{34}$). So $c(V,\cdot) = \pi^2\langle A_V,\cdot\rangle_F$ on
 $\mathfrak{so}(4)$. $\square$
@@ -302,11 +304,20 @@ $f_b := -\widehat{L_b}(0)(h^{\approx,2}_b+h_{b,(0)})\in\mathcal A^{2+\epsilon_{\
 $\langle\widehat{L_b}(0)h_{b,(0)},h^*\rangle = \langle h_{b,(0)},\widehat{L_b}(0)^*h^*\rangle = 0$ for the dual states
 (weight $\ge3$: boundary terms $O(R^{-1}\log^kR)$), so $f_b$ is orthogonal to all of them. III.F$'''$ Corollary 4.2 (2)
 with $\alpha\in(0,\epsilon_{\mathrm{ind}})$ gives $u_b\in\mathcal A^{\alpha-\epsilon}$, smooth in $b$, with
-$\widehat{L_b}(0)u_b = f_b$; then
+$\widehat{L_b}(0)u_b = f_b$. Every term of $f_b$ is polyhomogeneous: $h^\approx_b$ by its construction (III.A Lemma
+1.5), $\breve h^2_{b,\mathrm s1}(S_1)$ and $\breve h^1_{b,\mathrm v1}(V_1)$ in
+$\mathcal A^{(-1,0)\cup(-1+\mathcal E_{\mathrm{ind}})}$ by III.D$'''$ Proposition 3.1 (2)-(3), and $h_{b,(0)}$; and
+$\widehat{L_b}(0)$ has smooth coefficients. So $u_b$, which solves $\rho^2Au_b = f_b$ near $\partial X$ with $A$
+b-elliptic, is polyhomogeneous by III.A Lemma 1.4, as in III.D$'$ Lemma 5.1 (2), with an index set built from the
+indicial roots of $\widehat{L_b}(0)$ with real part $>\alpha-\epsilon$ and from that of $f_b$, both independent of $b$
+(the roots are the model's, III.F$'$ Lemma 2.1). (This index set contains the roots $\lambda^C_{\cdot,+}-1$ just above
+1, harmless here, which the low-energy parts must carry; the ninety-seventh verifier.) Then
 $$h^{(-2)}_b := h^{\approx,2}_b+h_{b,(0)}+u_b\in\ker\widehat{L_b}(0),\tag{5.3}$$
-with leading term $\bar h$ and $h^{(-2)}_b-\chi\bar h\in\mathcal A^{-1}+\mathcal A^{\mathcal F}+\mathcal
-A^{(0,k)}+\mathcal A^{\alpha-\epsilon}\subset\mathcal A^{-2+\mathcal E_{\mathrm{ind}}}$; its index set is that of (5.1),
-independent of $b$.
+with leading term $\bar h$ and $h^{(-2)}_b-\chi\bar h\in\mathcal A^{(-1,0)\cup(-1+\mathcal E_{\mathrm{ind}})}+\mathcal
+A^{\mathcal F}+\mathcal A^{(0,k)}+\mathcal A^{\mathcal E'_b}\subset\mathcal A^{-2+\mathcal E_{\mathrm{ind}}}$,
+$\mathcal E'$ the index set of $u_b$ just found; its index set is that of (5.1), independent of $b$. (Before D235 this
+step placed $u_b$ in the conormal space $\mathcal A^{\alpha-\epsilon}$ only, which no polyhomogeneous space contains;
+the ninety-seventh verifier.)
 
 *Step 4 (the source's generalized companions)* is not needed here; see (F$''''$3).
 

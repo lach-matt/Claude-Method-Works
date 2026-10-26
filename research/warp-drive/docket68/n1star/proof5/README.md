@@ -36,14 +36,14 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.D | [Hin26] 6-6.3 | the gauge potential operator: structure, Minkowski model, indicial roots, horizon threshold, trapping, high energies, mode stability away from zero, tf-admissibility | proved (D229) |
 | III.D' | [Hin26] 6.4, Lemma 6.13 | the gauge potential operator at zero energy: kernel and cokernel, pairings, mode stability at every frequency, the zero energy inverse | proved (D231) |
 | III.D'' | [Hin26] 6.5.1 | zero energy states from the Minkowski symmetries; Lemma 6.14's comparisons | proved (D231) |
-| III.D''' | [Hin26] 6.5.2 | generalized zero energy states of the gauge potential operator | verified (D231; one minor finding and two nits seated, to be read) |
-| III.E | [Hin26] 7-7.2 (to Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the large dual states | verified (D231; one minor finding and three nits seated, Theorem 1.1 (3) amended, to be read) |
+| III.D''' | [Hin26] 6.5.2 | generalized zero energy states of the gauge potential operator | **proved** (D235) |
+| III.E | [Hin26] 7-7.2 (to Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the large dual states | **proved** (D235) |
 | III.E' | [Hin26] 7.2.1 | the vector type 1 dual states: the deformation tensor of a rotation (exact, by equivariance) and the states' dependence on the bracket with the spin | proved (D231: read in full, no findings) |
-| III.F | [Hin26] 8 to 8.1 | the linearised gauge-fixed Einstein operator: structure, the spectrum of the model's endomorphism, the bound at the trapped set | verified (D231; one nit seated, to be read) |
-| III.F' | [Hin26] 8.2-8.3 | the linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal operator on b-spaces | written (D230) |
-| III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | written (D232) |
-| III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | written (D233) |
-| III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | written (D234) |
+| III.F | [Hin26] 8 to 8.1 | the linearised gauge-fixed Einstein operator: structure, the spectrum of the model's endomorphism, the bound at the trapped set | **proved** (D235) |
+| III.F' | [Hin26] 8.2-8.3 | the linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal operator on b-spaces | verified (D235; one minor finding and two nits seated, to be read) |
+| III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | verified (D235; one minor finding and four nits seated, to be read) |
+| III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | verified (D235; three nits seated, to be read) |
+| III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | verified (D235; one minor finding and two nits seated, to be read) |
 | III.C, III.G-III.J | [Hin26] 5, 9-12 | exterior stability; spectral theory at the transition faces; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -569,7 +569,7 @@ Minkowski space (`genstates5.py`, `puregauge5.py`). Deferred to the part on [Hin
 span the kernels of $\bar L(0)$'s indicial families. Findings (D$'''$1)-(D$'''$6), among them a misprint in the source's
 recursion and a normalisation in its (6.39a). Verified (D231): read in full by the ninety-fifth verifier; one minor
 finding (in the recursion the corrections are shown only $\epsilon_{\mathrm{ind}}$ below their leading terms, which is
-all that is used) and two nits seated, to be read.
+all that is used) and two nits seated; the ninety-seventh verifier read the repairs and confirmed each (D235): proved.
 
 ## Part III.E
 
@@ -582,7 +582,9 @@ translations and the six rotations, whose trace-reversed symmetric gradients dec
 source's seven. Findings (E1)-(E4): the weights move by one (the Coulomb root is 2, the source's 1); the corrections are
 one order faster; the eleven states; the input. Section 7.2.1 is Part III.E$'$. Verified (D231): one minor finding
 (consequence (a) of Lemma 2.1 restated at the weight where the inverse applies, with the uniqueness step) and three nits
-seated, and Theorem 1.1 (3) amended with the count by type and the conditions (C2)-(C4) of Part III.F$'$; to be read.
+seated, and Theorem 1.1 (3) amended with the count by type and the conditions (C2)-(C4) of Part III.F$'$; the
+ninety-seventh verifier read the repairs and confirmed each, the amended (3) being an obligation of Part IV, as Part
+III.F$'$ treats it (D235): proved.
 
 ## Part III.E'
 
@@ -608,7 +610,8 @@ gauge potential operators' endomorphisms with five zeros, $\min\mathrm{spec}\,\b
 (Proposition 8.3): at the trapped set a grading of the symmetric 2-tensors preserved by the rotation of the
 two-dimensional angular plane gives, for every $\epsilon$, an inner product with $\lambda_{\max}(p_1^\Gamma)<\epsilon$,
 for every constraint damping 1-form. Findings (F1)-(F5). `sbar5.py` S1-S3, `strap5.py` P1-P3, `lgrade5.py` G1 (new).
-Verified (D231): one nit seated (the rotation rate written as $\sigma\kappa$), to be read.
+Verified (D231): one nit seated (the rotation rate written as $\sigma\kappa$); read and confirmed by the ninety-seventh
+verifier (D235): proved.
 
 ## Part III.F'
 
@@ -627,14 +630,17 @@ $\gamma_\Upsilon$, the kernel by the Bianchi identity and the constraint operato
 deforming to the wave operator with the index fixed. Corollary 3.4 ([Hin26] Corollary 8.7). Findings (F$'$1)-(F$'$6),
 among them (F$'$2): the source's claim that all roots are simple, and its (8.13), rest on properties of the constraint
 operator's roots, now stated in III.E Theorem 1.1 (3) (D231); and (F$'$3): at $n = 4$ Lemma 8.5 is not needed for
-tf-admissibility. `linroots5.py` R1-R3 (new) checks Lemmas 2.2 and 2.5. Written (D230).
+tf-admissibility. `linroots5.py` R1-R3 (new) checks Lemmas 2.2 and 2.5. Written (D230). Verified (D235): read in full by
+the ninety-seventh verifier; one minor finding ($C_0 = 100$ of III.F, against $C_0\ge101$ here; the record's certificate
+is for 100) and two nits ((C1) needs $\gamma_C$ large against $e_C^{-1}$, and $\epsilon_{\mathrm{ind}}<3\times10^{-6}$
+at the record's point; the cancelled root at s1) seated, to be read.
 
 ## Part III.F''
 
 `PART-III-F3-MODES.md`. [Hin26] Proposition 8.8 at $n = 4$. Lemma 1.1: the horizon threshold of $L_b$, which III.F did
 not state: the horizon matrix has determinant (1.1), $k^5(k-1+x)^3(k-2+2x)(k+(1-e_C)x)(k-y)(k+1-y)^3(k+2-2y)$ with
 $x = a_v\gamma_Cr_h$, $y = c_v\gamma_{\Upsilon,H}r_h$, so $s>\frac12+\max(0,2-2x)$ with III.D$'$'s horizon modification,
-the source's $\frac52$ when $c_C$ has no $dv$ component (computed, `lhor5.py` H1-H2, new). Corollary 1.2: Part I's
+below the source's $\frac52$, which ignores the damping (computed, `lhor5.py` H1-H2, new). Corollary 1.2: Part I's
 hypotheses for $L_b$, Fredholm of index 0, invertible at large $|\sigma|$, uniformly in $b$. Lemma 1.3: a conormal
 kernel element lies in $\mathcal X_\sigma$. Theorem 2.2 ([AHW24] Theorem 6.1 (1) on five-dimensional Tangherlini): a
 mode solution of $D\mathrm{Ric}(h) = 0$ at $\sigma\ne0$ of one type and degree is $\delta^*$ of a mode 1-form, by the
@@ -646,7 +652,11 @@ horizon. Proposition 3.1: $\widehat{L_{b_0}}(\sigma)$ invertible for every $\sig
 by the Bianchi identity, III.E Theorem 1.1 (1), Theorem 2.2, Lemma 2.3 and III.D$'$ Proposition 4.1, harmonic by
 harmonic, with no estimate in $l$. Proposition 4.1: invertibility for $b$ near $b_0$ and $|\sigma|\ge c_0$. Open
 (section 5, (F$''$4)): $b\ne b_0$ with $0<|\sigma|<c_0$, which the source takes from [AHW24] on Kerr and which has no
-five-dimensional counterpart. Findings (F$''$1)-(F$''$4). Written (D232).
+five-dimensional counterpart. Findings (F$''$1)-(F$''$4). Written (D232). Verified (D235): read in full by the
+ninety-seventh verifier; one minor finding (Lemma 2.1 (b)'s bound $A = O(r^{-1})$ is false because of the entry
+$i\sigma$; the conclusion holds through the b-system in $(w_r,r^{-1}w_{t_*},r^{-1}w_A)$) and four nits (a sign in Lemma
+2.3's correction, the reason $x>0$, the high-frequency constant renamed $C_{\mathrm{hf}}$, a citation) seated, to be
+read.
 
 ## Part III.F'''
 
@@ -665,7 +675,8 @@ augmented operator's invertibility at $b_0$ and I.C Theorem 7.1; the dual states
 leading terms. Corollary 4.2 ([Hin26] Corollary 8.13): the linear right inverse with eleven augmentations. Findings
 (F$'''$1)-(F$'''$6), among them (F$'''$4): the source's Lemma 8.12 pairings are not needed for these, and are left to
 the next part; and (F$'''$5): the source's adjoint (8.25) uses $G^2 = \mathrm{Id}$, false in five dimensions. Written
-(D233).
+(D233). Verified (D235): read in full by the ninety-seventh verifier, three nits (the two $\epsilon_{\mathrm{ind}}$ told
+apart, the energy identities for complex solutions, Lemma 2.3 up to $r = r_0$) seated, to be read.
 
 ## Part III.F''''
 
@@ -683,4 +694,7 @@ small spins spanning $\mathfrak{so}(4)$. Proposition 5.1 ([Hin26] Proposition 8.
 types s2, v2 and t2, smooth in $b$, with the source's Step 2 modified to absorb the centre-of-mass pairings against the
 rotations, which are not determined away from $b_0$. Findings (F$''''$1)-(F$''''$5); (F$''''$3): the states at $-3$ and
 the generalized companions are not constructed, the window being decided in the part on [Hin26] sections 9-11. Written
-(D234).
+(D234). Verified (D235): read in full by the ninety-seventh verifier; one minor finding (Step 3 placed $u_b$ in a
+conormal space only, so (5.1)'s index set was not reached; now $u_b$ is polyhomogeneous by III.A Lemma 1.4) and two nits
+(a weight, the spin-independence at spinning $b$) seated, to be read; the four pairing values the brief named were
+recomputed or confirmed.

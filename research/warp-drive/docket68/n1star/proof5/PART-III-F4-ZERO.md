@@ -23,9 +23,10 @@ near $\partial X$*, so that $\bar H^{s,\alpha}_{\mathrm b}$ here is I.C's $\bar 
 $H^{\infty,a}_{\mathrm b}\subset\mathcal A^a$ near $\partial X$. $\epsilon_{\mathrm{ind}}$ and
 $\mathcal E_{\mathrm{ind}}$ are as in III.D$''$ section 1: $\epsilon_{\mathrm{ind}}\in(0,\frac12)$ is less than
 $d(\mathrm{Re}\,\lambda,\mathbb Z)$ for every indicial root $\lambda$ of $\widehat{\Box^\Upsilon_b}(0)$ with non-integer
-real part of modulus at most 10, and $\mathcal E_{\mathrm{ind}}$ denotes an index set with
-$\min\mathrm{Re}\,\mathcal E_{\mathrm{ind}}\ge\epsilon_{\mathrm{ind}}$, independent of $b$, which may change from line
-to line. Write $\beta^L_+ := \min\{\mathrm{Re}\,\lambda:\lambda$ an indicial root of $\widehat{L_b}(0)$,
+real part of modulus at most 10 (the gauge potential operator's number, not that of III.F$'$ (2.2), which concerns the
+roots of $\widehat{L_b}(0)$ and is far smaller at the record's point), and $\mathcal E_{\mathrm{ind}}$ denotes an index
+set with $\min\mathrm{Re}\,\mathcal E_{\mathrm{ind}}\ge\epsilon_{\mathrm{ind}}$, independent of $b$, which may change
+from line to line. Write $\beta^L_+ := \min\{\mathrm{Re}\,\lambda:\lambda$ an indicial root of $\widehat{L_b}(0)$,
 $\mathrm{Re}\,\lambda>0\}$; by III.F$'$ Proposition 2.3, $\beta^L_+>1$, so every $\alpha\in(0,1]$ lies in the indicial
 gap $(0,\beta^L_+)$.
 
@@ -188,9 +189,9 @@ $D\mathrm{Ric}(h)_{ij} = -r^2(r^{-3}(r^3fH')'-l(l+2)r^{-2}H)T_{ij}$, and $\Phi :
 $f(f\Phi')' = V_T\Phi$, $V_T = \frac f{r^2}(l(l+2)+\frac34+\frac{9\mu_0}{4r^2})$, with $V_T/f$ positive and bounded on
 $[r_h,\infty)$; the exponents of $H$ are $l$ and $-(l+2)$ at infinity (S1). $H$ is an angular component, the same in all
 charts, so smooth on $\{r>r_0\}$; at infinity $H = O(r^{-\beta})$ excludes the exponent $l$, so $H = O(r^{-l-2})$ and
-$H' = O(r^{-l-3})$. On solutions $(f\Phi\Phi')' = f\Phi'^2+V_T\Phi^2/f$; the boundary terms vanish at $r_h$ ($f = 0$,
-$\Phi$, $\Phi'$ bounded) and at infinity ($O(r^{-2l-2})$), so $\int_{r_h}^\infty(f\Phi'^2+V_T\Phi^2/f)\,dr = 0$,
-$\Phi = 0$, and $h = 0$.
+$H' = O(r^{-l-3})$. On solutions, $f$ and $V_T$ being real, $(f\bar\Phi\Phi')' = f|\Phi'|^2+V_T|\Phi|^2/f$; the boundary
+terms vanish at $r_h$ ($f = 0$, $\Phi$, $\Phi'$ bounded) and at infinity ($O(r^{-2l-2})$), so
+$\int_{r_h}^\infty(f|\Phi'|^2+V_T|\Phi|^2/f)\,dr = 0$, $\Phi = 0$, and $h = 0$.
 
 *Step 2: vector type, $l\ge2$.* $h = 2rf_aV_i\,dy^adz^i+2r^2H_TV_{ij}dz^idz^j$. With $\zeta_0 := r^2BV_i\,dz^i$,
 $B := -2H_T/k_V$ (smooth on $\{r>r_0\}$, $rB = O(r^{1-\beta})$), $h' := h+\delta^*\zeta_0$ has $H'_T = 0$ and
@@ -199,9 +200,9 @@ $E_T = -k_V(r^2fF_r)'/(2r^3)$ and $E_t = -(f(r^5y')'-(k_V^2-2)r^3y)/(2r^4)$, $k_
 $f_t = ry$ at infinity are $l$ and $-(l+2)$; and in the ingoing chart $(v,r,z)$, $h_{vi} = rf_tV_i$ and
 $h_{ri} = r(f_r-f_t/f)V_i$ (S2). So $F_r = 0$, i.e. $f'_r = 0$, and $h'_{ri} = -rf'_tV_i/f$ is smooth at $r_h$:
 $y = f'_t/r$ is $f$ times a smooth function near $r_h$, so $y\to0$ and $y'$ is bounded there. At infinity
-$f'_t = O(r^{-\beta})$, so $y = O(r^{-l-3})$, $y' = O(r^{-l-4})$. On solutions $(r^5yy')' = r^5y'^2+(k_V^2-2)r^3y^2/f$,
-with $y^2/f$ integrable at $r_h$ and the boundary terms zero at both ends; so $y = 0$, $h' = 0$ and
-$h = \delta^*(-\zeta_0)$.
+$f'_t = O(r^{-\beta})$, so $y = O(r^{-l-3})$, $y' = O(r^{-l-4})$. On solutions
+$(r^5\bar yy')' = r^5|y'|^2+(k_V^2-2)r^3|y|^2/f$, with $|y|^2/f$ integrable at $r_h$ and the boundary terms zero at both
+ends; so $y = 0$, $h' = 0$ and $h = \delta^*(-\zeta_0)$.
 
 *Step 3: scalar type, $l\ge2$.* $h = f_{ab}S\,dy^ady^b+2rf_aS_i\,dy^adz^i+2r^2(H_L\gamma_{ij}S+H_TS_{ij})dz^idz^j$. With
 [KI03]'s gauge 1-form $\zeta_1 := -2X_aS\,dy^a-\frac{2r^2}kH_TS_i\,dz^i$, $X_a := \frac rk(f_a+\frac rkD_aH_T)$ ((2.8);
@@ -223,7 +224,7 @@ coefficients are polynomials in $r$ divided by $k^2\mu_0r$, and $H\ge k^2-3>0$, 
 infinity $X,Y = O(r^{1-\beta})$, so $\Phi = O(r^{7/2-\beta})$ by (3.2), which excludes the exponent
 $l+\frac32\ge\frac72$: $\Phi = O(r^{-l-1/2})$, $\Phi' = O(r^{-l-3/2})$. As $Q>0$ on $\{r>r_h\}$ for $l\ge2$ (III.F$''$
 Theorem 2.2, Step 3; `gmodes5.py` G5), $V_S>0$ and $V_S/f$ is bounded; the identity
-$(f\Phi\Phi')' = f\Phi'^2+V_S\Phi^2/f$ gives $\Phi = 0$ as in Step 1; then $\Phi' = 0$, the determinant gives
+$(f\bar\Phi\Phi')' = f|\Phi'|^2+V_S|\Phi|^2/f$ gives $\Phi = 0$ as in Step 1; then $\Phi' = 0$, the determinant gives
 $X = Y = 0$, $E_T = 0$ gives $6F = 0$, so $F = F_{tt} = F_{rr} = 0$, $h' = 0$ and $h = \delta^*(-\zeta_1)$.
 
 *Step 4: scalar type 0.* $h = f_{ab}\,dy^ady^b+2r^2H_L\gamma$. $\delta^*(A_t\,dt_s+A_r\,dr)$ shifts $H_L$ by $fA_r/(2r)$
@@ -356,8 +357,8 @@ $\{r>r_h\}$, and applying $2\delta_{E_\Upsilon}G$, $\Box^\Upsilon_{b_0}\omega'_\
 
 (iii) *Inside the horizon.* III.F$''$ Lemma 2.3 holds at $\sigma = 0$ with the same proof (the radial equation
 $-fU''+AU'+BU = 0$ in the ingoing chart does not use $\sigma\ne0$). With $Q = \Box^\Upsilon_{b_0}$ it gives
-$\tilde\omega_\pi$, smooth on $\{r>r_0\}$, equal to $\omega'_\pi$ on $\{r\ge r_h\}$, with
-$\widehat{\Box^\Upsilon_{b_0}}(0)\tilde\omega_\pi = 0$ on all of $\bar X$.
+$\tilde\omega_\pi$, smooth on $\{r>r_0-\delta_0\}$, so up to $\{r = r_0\}$, equal to $\omega'_\pi$ on $\{r\ge r_h\}$,
+with $\widehat{\Box^\Upsilon_{b_0}}(0)\tilde\omega_\pi = 0$ on all of $\bar X$.
 
 (iv) *The expansion at infinity.* Near $\partial X$, $\widehat{\Box^\Upsilon_{b_0}}(0) = \rho^2A$ with $A$ elliptic, and
 $\tilde\omega_\pi\in H^{\infty,a}_{\mathrm b}$ for every $a<\beta-1$; take $a\in(-1,\beta-1)$. III.A Lemma 1.4, applied

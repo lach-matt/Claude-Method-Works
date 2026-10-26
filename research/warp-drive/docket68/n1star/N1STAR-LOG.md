@@ -5327,3 +5327,12 @@ xi_S . xi_S'. Lemma 8.15's v1 functional on all of so(4) from Remark 8.10 on im 
 leading terms (the images over small spins span so(4)). Proposition 8.14 at -2 for s2, v2, t2, Step 2 modified (the
 centre-of-mass pairings against the rotations are absorbed); no -3 states, no companions (window5.py W2). Next: verifier
 97 (Opus); Part III.G.
+
+**D235 (2026-10-26): verifier 97 seated.** The ninety-sixth verifier (Fable) was stopped by M before it reported; from
+now on verifiers run on Opus. The ninety-seventh (Opus) read the D231 repairs and Parts III.F'-III.F'''' in full: no
+major finding, three minor (III.F' C_0 = 100, not >= 101; III.F'' Lemma 2.1 (b)'s false bound A = O(r^-1), the
+conclusion through the b-system in (w_r, w_t*/r, w_A/r); III.F'''' Step 3's u_b only conormal, now polyhomogeneous by
+III.A Lemma 1.4) and eleven nits (among them the sign of Lemma 2.3's flat correction, epsilon_ind < 3 x 10^-6 at the
+record's point, the energy identities for complex solutions), all seated in place. The D231 repairs are confirmed:
+III.D''', III.E and III.F are proved; III.F', III.F'', III.F''' and III.F'''' are verified. linroots5, lhor5 and gmodes5
+rerun by the verifier and pass. Next: Part III.G; verifier 98 on III.G and these repairs.

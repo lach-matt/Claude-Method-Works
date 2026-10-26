@@ -2913,3 +2913,27 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   -3, no companions; window5.py W2); Step 2 modified; the values and normalisations.
 - Open: the window (the slowest iota+ term) in the part on [Hin26] sections 9-11; Parts III.C, III.G-III.J and IV-VII.
 - Next: verifier 97 (Opus) on III.F''', III.F'''' and the verifier 96 repairs; Part III.G ([Hin26] section 9).
+
+### 4.158 Verifier 97 seated: III.D''', III.E, III.F proved; III.F'-III.F'''' verified (D235)
+
+- The ninety-sixth verifier (Fable) was stopped with no report; the ninety-seventh (Opus) read its brief and III.F'''
+  and III.F'''': the D231 repairs, Parts III.F', III.F'', III.F''', III.F''''. No major finding; three minor, eleven
+  nits.
+- (A) The eight D231 repairs correct and complete; III.E Theorem 1.1 (3) as amended is an obligation of Part IV, as
+  III.F' treats it. III.D''', III.E and III.F: proved.
+- m1 (III.F'): C_0 = 100 (III.F; damping5.py U4 certifies 100), against C_0 >= 101; now -101 and |lambda| > 101. n1:
+  (C1) needs gamma_C large against 1/e_C, and epsilon_ind < 3 x 10^-6 at the record's point (the scalar type 2 root 1 +
+  2.93 x 10^-6); n2: the cancelled root at s1.
+- m2 (III.F''): Lemma 2.1 (b)'s A = O(r^-1) false (the entry i sigma); the conclusion via the b-system in (w_r, w_t*/r,
+  w_A/r), Gamma^lambda_rr, Gamma^lambda_rt* = O(r^-3) in III.B's t*. n3: Z := -Psi int ... (sign); n4: x > 0 since c_C
+  is past timelike, the source's 5/2 ignores the damping; n5: C_hf; n6: III.F (1.2).
+- III.F''': n7 the two epsilon_ind told apart; n8 energy identities for complex solutions; n9 Lemma 2.3 smooth up to r =
+  r_0 (stated on {r > r_0 - delta_0}).
+- m3 (III.F''''): Step 3 placed u_b in A^(alpha - eps) only; f_b is polyhomogeneous, so u_b is by III.A Lemma 1.4, and
+  (5.1)'s index set is reached (it contains the roots lambda^C_+ - 1 just above 1, which the low-energy parts carry).
+  n10: the weight > 1; n11: Lemma 3.1 (2) at spinning b, spin-independent leading term.
+- Checks: linroots5, lhor5, gmodes5 rerun, pass; the verifier's scratch checks (horizon sign, F3 radial system, the
+  factorisation at s0, v1, the mass and spin pairings 3 pi^2 mu-dot and 2 pi^2 mu) pass with failing controls.
+- Status: III.D''', III.E, III.F proved; III.F', III.F'', III.F''', III.F'''' verified (D235), the repairs to be read.
+- Next: Part III.G ([Hin26] section 9.1 at n = 4: Proposition 9.2 by the Fredholm theory on sf across v = 0 and the
+  semiclassical estimate, Proposition 9.4); verifier 98 (Opus) on III.G and the D235 repairs.
