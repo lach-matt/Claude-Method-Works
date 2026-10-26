@@ -37,6 +37,11 @@ Re S-bar = 1 ((8.18a)).  Here, from the definitions (lin5.py's E^Ups and E^C, wi
      rho^(3/2 + s) lies in rho^beta L^2(drho/rho) iff beta < 3/2 + s, so (8.18a) reads beta_sctf < 3/2 + min Re S-bar
      = 3/2 in five dimensions, his 1.  Four-dimensional control: his 1 - eps, -1/2 and 1.  Control: his 1 - eps
      claimed in five dimensions.
+  S4 (computed, exact) S-bar is semisimple: at two parameter points with gam_Ups small the product of S-bar - s over
+     its distinct eigenvalues s vanishes (seven of them in five dimensions), so S-bar is diagonalisable with constant
+     eigenvalues and its spectral projections are smooth; the proof is III.G' Lemma 1.1 (proof5/PART-III-G2-IOTA.md).
+     Four-dimensional control: the same at n = 3.  Control: gam_Ups = gam_C (1 - v), where the two 1-form spectra meet
+     and S-bar has a Jordan block.
 
 Deduced, not computed here: (8.4) on five-dimensional Tangherlini -- S_{E^Ups, E^C} - S-bar in rho C^oo -- as 10.18
 deduces (6.7), Tangherlini differing from Minkowski by O(mu rho^2) and c, c_Ups equal to Minkowski's for large r; and
@@ -254,10 +259,33 @@ def s3(control=0, verbose=False):
     return chk.ok
 
 
+# ------------------------------------------------------------------------------------------------- S4
+def s4(control=0, verbose=False):
+    chk = Checklist(verbose, quiet=control != 0)
+    R_ = sp.Rational
+    pts = [{v: R_(1, 4), eC: R_(1, 2), gC: 2, eU: R_(1, 3), gU: R_(1, 50)},
+           {v: R_(1, 3), eC: R_(1, 5), gC: 7, eU: R_(3, 4), gU: R_(1, 100)}]
+    if control == 1:
+        pts = [{v: R_(1, 4), eC: R_(1, 2), gC: 2, eU: R_(1, 3), gU: R_(3, 2)}]       # gam_U = gam_C (1 - v)
+    for n in ((4,) if control else (4, 3)):
+        S, _ = sbar_L(n, sp.Rational(2, n - 1))
+        for pt in pts:
+            M = S.subs(pt)
+            ev = list(M.eigenvals())
+            P_ = sp.eye(M.shape[0])
+            for e in ev:
+                P_ = P_ * (M - e * sp.eye(M.shape[0]))
+            ok = P_.applyfunc(sp.simplify) == sp.zeros(*M.shape) and len(ev) == 7
+            chk(f"n + 1 = {n + 1} at {sorted((str(k), str(q)) for k, q in pt.items())}: {len(ev)} distinct eigenvalues, "
+                f"the product of S-bar - s over them {'vanishes' if ok else 'does not vanish'}", ok)
+    return chk.ok
+
+
 CHECKS = [("S1 2 L - box on 4+1 Minkowski: first order, d_t* coefficient 2 rho S-bar, S-bar constant; rho d_rho - 3/2",
            s1, 1),
           ("S2 spec S-bar = S-bar^Ups's u S-bar^C's u {0 x 5}, min spec S-bar = 0: (8.7) in five dimensions", s2, 1),
-          ("S3 the improvement to 3/2 - eps, the threshold -1/2, (8.18a) beta_sctf < 3/2 in five dimensions", s3, 1)]
+          ("S3 the improvement to 3/2 - eps, the threshold -1/2, (8.18a) beta_sctf < 3/2 in five dimensions", s3, 1),
+          ("S4 S-bar semisimple with constant eigenvalues for gam_Ups small; Jordan block where the spectra meet", s4, 1)]
 
 
 def selftest(verbose=False):

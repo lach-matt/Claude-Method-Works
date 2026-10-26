@@ -40,12 +40,13 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.E | [Hin26] 7-7.2 (to Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the large dual states | **proved** (D235) |
 | III.E' | [Hin26] 7.2.1 | the vector type 1 dual states: the deformation tensor of a rotation (exact, by equivariance) and the states' dependence on the bracket with the spin | proved (D231: read in full, no findings) |
 | III.F | [Hin26] 8 to 8.1 | the linearised gauge-fixed Einstein operator: structure, the spectrum of the model's endomorphism, the bound at the trapped set | **proved** (D235) |
-| III.F' | [Hin26] 8.2-8.3 | the linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal operator on b-spaces | verified (D235; one minor finding and two nits seated, to be read) |
-| III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | verified (D235; one minor finding and four nits seated, to be read) |
-| III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | verified (D235; three nits seated, to be read) |
-| III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | verified (D235; one minor finding and two nits seated, to be read) |
-| III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 3/2, finite meromorphy | written (D236) |
-| III.C, III.G'-III.J | [Hin26] 5, 9 (from Proposition 9.4)-12 | exterior stability; the rest of the spectral theory at the transition faces; decay | to do |
+| III.F' | [Hin26] 8.2-8.3 | the linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal operator on b-spaces | **proved** (D238: the ninety-eighth verifier read the D235 repairs, correct) |
+| III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | **proved** (D238: the D235 repairs read, correct; two nits seated) |
+| III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | **proved** (D238: the D235 repairs read, correct) |
+| III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | **proved** (D238: the D235 repairs read, correct; two nits seated) |
+| III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 2, finite meromorphy | verified (D238; one major finding, one minor and four nits seated, to be read) |
+| III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | written (D237) |
+| III.C, III.G''-III.J | [Hin26] 5, 9 (from Definition 9.8)-12 | exterior stability; the rest of the spectral theory at the transition faces; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -271,8 +272,8 @@ manifolds, smooth invariant splittings and a fixed perturbation, and takes the u
 theorem's proof. Here Theorem 1.1 proves what is needed directly and quantitatively (section 2), by the graph transform:
 the hypersurfaces have codimension one and the normal dynamics is linear in the defining functions, so each graph
 transform is a one-dimensional shooting problem, solved for the stable hypersurface by a contraction in a weighted norm
-and for the unstable one by forward iteration. Its hypotheses are Part I's (Γ.1)-(Γ.3) and the tangential growth bound of
-(K3); the invariant splitting is not used. Section 3 graphs the characteristic set near the trapped set over the
+and for the unstable one by forward iteration. Its hypotheses are Part I's (Γ.1)-(Γ.3) and the tangential growth bound
+of (K3); the invariant splitting is not used. Section 3 graphs the characteristic set near the trapped set over the
 stationary one, computes the projected field, and proves Proposition 6.3 (Proposition 3.4). Finding (C$'$2) changes the
 statement: the stable hypersurface loses one derivative, $\tilde\phi^s\in C^{d_0-2}$, and both are constructed on a
 neighbourhood of the trapped set, which is all the trapping estimates use. Written (D199). The eighty-third verifier
@@ -374,16 +375,20 @@ Proposition 10.12 is applied, and the auxiliary operators needed to use Part II.
 Written (D208). The eighty-seventh verifier re-derived the constants at $n = 4$, the four threshold sums, the symbols
 and Hamilton fields, the Bessel reduction, the Schur-test integrals, the Fourier bound and the order and weight
 bookkeeping of sections 6-8, by machine where it could, and confirmed (F1)-(F9) at source. No major finding. Its seven
-minor findings are seated (D209): Step 0 of Theorem 10.1 at the order $\mathsf s+1$; the bounded weight at $\mathscr
-I^+$ in Lemma 5.8; the density factor near 0f in Lemma 2.2; the decay $\rho_+^2$ of the metric at $\iota^+$, the $n = 4$
-value, now cited to Part II.B ((F11)); the absorption time; finite speed of propagation, now Lemma 1.3, proved from the
-uniqueness theorem of Bär, Ginoux and Pfäffle (READ) with explicit monotone functions, wherever it is used; and the five
-[0C] statements, re-read at source. Seating them brought out four more, repaired: the slab and the comparison region of
-Lemma 6.3, the starting time of the iteration in Proposition 7.4 (2), a modified metric in Lemma 7.3 (b) that was not
-close to $g_0$ near $K^+$, and Theorem 10.1 itself, now stated and proved on $\Omega_*$, where the next part uses it
-((F13)). Findings (F10)-(F14) are added. The eight nits are seated too. The eighty-eighth verifier read those repairs
-and confirmed each (D212); its two further minor findings, a time cut-off in Lemma 6.3 that was not scaled and the strip
-$0\le\mathrm{Im}\,\sigma< -\gamma_+$ in Lemma 6.4, and four notes are repaired, and await the next reader.
+minor findings are seated (D209): Step 0 of Theorem 10.1 at the order $\mathsf s+1$; the bounded weight at
+$\mathscr I^+$ in Lemma 5.8; the density factor near 0f in Lemma 2.2; the decay $\rho_+^2$ of the metric at $\iota^+$,
+the $n = 4$ value, now cited to Part II.B ((F11)); the absorption time; finite speed of propagation, now Lemma 1.3,
+proved from the uniqueness theorem of Bär, Ginoux and Pfäffle (READ) with explicit monotone functions, wherever it is
+used; and the five [0C] statements, re-read at source. Seating them brought out four more, repaired: the slab and the
+comparison region of Lemma 6.3, the starting time of the iteration in Proposition 7.4 (2), a modified metric in Lemma
+7.3 (b) that was not close to $g_0$ near $K^+$, and Theorem 10.1 itself, now stated and proved on $\Omega_*$, where the
+next part uses it ((F13)). Findings (F10)-(F14) are added. The eight nits are seated too. The eighty-eighth verifier
+read those repairs and confirmed each (D212); its two further minor findings, a time cut-off in Lemma 6.3 that was not
+scaled and the strip $0\le\mathrm{Im}\,\sigma< -\gamma_+$ in Lemma 6.4, and four notes are repaired, and await the next
+reader.
+
+Amended (D238): Lemma 5.7 is stated for $a>-1$, which is all its proof uses, as III.G Proposition 3.2 needs; to be
+read.
 
 ## Part II.F'
 
@@ -636,6 +641,9 @@ the ninety-seventh verifier; one minor finding ($C_0 = 100$ of III.F, against $C
 is for 100) and two nits ((C1) needs $\gamma_C$ large against $e_C^{-1}$, and $\epsilon_{\mathrm{ind}}<3\times10^{-6}$
 at the record's point; the cancelled root at s1) seated, to be read.
 
+Proved (D238): the ninety-eighth verifier read the D235 repairs (m1, $C_0 = 100$; n1, n2) and found them correct and
+complete.
+
 ## Part III.F''
 
 `PART-III-F3-MODES.md`. [Hin26] Proposition 8.8 at $n = 4$. Lemma 1.1: the horizon threshold of $L_b$, which III.F did
@@ -659,6 +667,10 @@ $i\sigma$; the conclusion holds through the b-system in $(w_r,r^{-1}w_{t_*},r^{-
 2.3's correction, the reason $x>0$, the high-frequency constant renamed $C_{\mathrm{hf}}$, a citation) seated, to be
 read.
 
+Proved (D238): the D235 repairs read and correct. Two nits seated: the angular row of the b-system in Lemma 2.1
+(b), $r\partial_r\tilde W_A = \tilde W_A-\partial_A\tilde W_r+2h_{rA}$; and Lemma 2.3 assumes $w$ smooth on
+$\{r\ge r_h\}$, which is all its proof uses.
+
 ## Part III.F'''
 
 `PART-III-F4-ZERO.md`. [Hin26] section 8.4 from Proposition 8.9 to Corollary 8.13 at $n = 4$. Lemma 1.1: the linearised
@@ -678,6 +690,8 @@ leading terms. Corollary 4.2 ([Hin26] Corollary 8.13): the linear right inverse 
 the next part; and (F$'''$5): the source's adjoint (8.25) uses $G^2 = \mathrm{Id}$, false in five dimensions. Written
 (D233). Verified (D235): read in full by the ninety-seventh verifier, three nits (the two $\epsilon_{\mathrm{ind}}$ told
 apart, the energy identities for complex solutions, Lemma 2.3 up to $r = r_0$) seated, to be read.
+
+Proved (D238): the D235 repairs read and correct.
 
 ## Part III.F''''
 
@@ -700,6 +714,9 @@ conormal space only, so (5.1)'s index set was not reached; now $u_b$ is polyhomo
 (a weight, the spin-independence at spinning $b$) seated, to be read; the four pairing values the brief named were
 recomputed or confirmed.
 
+Proved (D238): the D235 repairs read and correct. Two nits seated: the leading term of $\dot g^\Upsilon_b(0,\dot A)$
+is $2\mu\rho^3(dt_*+2\,d|x|)\otimes_s\rho V(\dot A)$, and the index set of $u_b$ carries no subscript $b$.
+
 ## Part III.G
 
 `PART-III-G-SPECTRAL.md`. [Hin26] Proposition 9.2 at $n = 4$: the spectral family $N_{\mathrm{sf}}(\lambda)$ of the
@@ -711,10 +728,34 @@ $\sigma = -i\lambda$; the commutators; the dilation metric, for which $dT$ is sp
 these, each with a failing control. Section 2: the light cone is a radial source with $\beta_0 = 2(1+v)$ and threshold
 $s<2-\mathrm{Re}\,\lambda$; the slab estimates at $v = -1$; the Fredholm property for admissible $(s,\mu)$ (Proposition
 2.4); b-regularity through the Lie derivatives along the rotations and the dilation, whose commuted system keeps the
-threshold (Propositions 2.6-2.7). Section 3: injectivity for $\mathrm{Re}\,\lambda<\frac32$ through II.F Lemma 5.8,
-III.F$'$'s tf-admissibility on $(0,1]$ and conormality at the light cone (Lemma 3.1). Section 4: the semiclassical
-estimate in vertical strips (the source's (9.9)), with the escape function $\tilde\xi = -(v+2)(v\xi+1)$, II.F's
-estimates at the cone point for $|\mathrm{Im}\,z|\le Ch$ and I.B's at the light cone and on the slabs (Proposition 4.6).
-Theorem 5.1: Proposition 9.2 (1)-(3) at $n = 4$, index 0, invertibility for $\mathrm{Re}\,\lambda<\frac32$ (the source
-has $1+\epsilon_{\mathrm{ind}}$ at $n = 3$) and finite meromorphy. Findings (G1)-(G6); (G6): Proposition 9.4 and the
-rest of section 9 are the next part. Written (D236).
+threshold (Propositions 2.6-2.7). Section 3: injectivity for $\mathrm{Re}\,\lambda<2$ through II.F Lemma 5.8, III.F$'$'s
+tf-admissibility on $(0,1]$ and conormality at the light cone (Lemma 3.1). Section 4: the semiclassical estimate in
+vertical strips (the source's (9.9)), with the escape function $\tilde\xi = -(v+2)(v\xi+1)$, II.F's estimates at the
+cone point for $|\mathrm{Im}\,z|\le Ch$ and I.B's at the light cone and on the slabs (Proposition 4.6). Theorem 5.1:
+Proposition 9.2 (1)-(3) at $n = 4$, index 0, invertibility for $\mathrm{Re}\,\lambda<2$ (the source has
+$1+\epsilon_{\mathrm{ind}}$ at $n = 3$) and finite meromorphy. Findings (G1)-(G6); (G6): Proposition 9.4 and the rest of
+section 9 are the next part. Written (D236). Verified (D238): read in full by the ninety-eighth verifier. One major
+finding: Proposition 4.6 used Lemma 4.4's constant-order slab estimate where Lemma 4.2's semiclassical order varied. It
+is repaired by a factor $g(v)$, which makes the order the constant $b_{\mathrm{in}}$ over $\{v\le-\frac14\}$ and
+non-increasing in the direction of propagation. One minor finding: injectivity stopped at $\mathrm{Re}\,\lambda<\frac32$
+by the method only. Lemma 3.1 now holds for every $s\notin\frac12+\mathbb Z$ and II.F Lemma 5.7 for $a>-1$, so the
+operator is invertible for $\mathrm{Re}\,\lambda<2$. Four nits are seated, among them the uniqueness of the turning
+point by $H_p^2v<0$ (`sf5.py` S11, new). The repairs are to be read.
+
+## Part III.G'
+
+`PART-III-G2-IOTA.md`. [Hin26] Proposition 9.4 at $n = 4$, with Definitions 9.3, 9.6 and Remark 9.7: the inverse of the
+$\iota^+$-normal operator $N_{\iota^+}(\lambda) = R^{-2-\lambda}N_{\mathrm{sf}}(\lambda)R^\lambda$ given by III.G's
+inverse. Lemma 1.1: $\bar S$ is semisimple at $n = 4$, with constant eigenvalues and smooth spectral projections, by
+$\rho\bar S = UV$ and the block structure of $VU$ (`sbar5.py` S4, new). So the expansion at $\mathscr I^+\cap\iota^+$
+has one small exponent $\frac32+s$ per eigencomponent
+($s\in\{0,(1-e_\Upsilon)\gamma_\Upsilon,\gamma_\Upsilon,2\gamma_\Upsilon\}$), with the index sets of Definition 1.2.
+Lemma 1.3: the index set at $K^+\cap\iota^+$ is generated by the roots of III.F$'$ with real part $\le0$; its only
+exponent with real part 0 is $(0,0)$. Lemma 2.1: conormality at the light cone for every Sobolev order
+$s\notin\frac12+\mathbb Z$, by integrating in $v$; it replaces the source's (9.5) and (9.21). Theorem 3.1:
+polyhomogeneity at $K^+$ and the partial expansion at $\mathscr I^+$ up to $\frac32+\gamma_C(1-e_C)(1-v_C)$. The
+source's analytic continuation, which excludes $v^\lambda$-terms and their logarithms, is carried out through a Mellin
+recursion. The finite-regularity map (3.3) is finite-meromorphic. Lemmas 4.2-4.3: the boundary spectrum. The source's
+Remark 9.7 becomes a lemma: poles of $N_{\mathrm{sf}}^{-1}$ invisible on $\iota^+$ lie in
+$\frac52+\mathrm{spec}\,\bar S+\mathbb N_0$ (`sf5.py` S9-S10, new). Findings (G$'$1)-(G$'$8); the source's (9.22)
+misprints $v^2$ for $\frac v2$, and his (9.17) holds to a finite order. Written (D237).
