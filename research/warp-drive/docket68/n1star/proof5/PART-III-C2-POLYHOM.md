@@ -1,10 +1,10 @@
 # Part III.C$'$. The exterior solution and its partial polyhomogeneity, n = 4 ([Hin26] sections 5.4-5.5)
 
-*Status.* Written (D288). This part proves, at spatial dimension $n = 4$, [Hin26] Lemma 5.16, the estimate (5.53) and
-Theorem 5.17 as consequences of Part IV, and Theorem 5.21 (pp. 99-108). It settles obligation (C7) of III.C: at $n = 4$
-the radiation fields need not be subtracted. Theorem 5.17 and (5.53) rest on [Hin23a] section 3 at $n = 4$, which Part
-IV writes out; they are stated here as that part's output (finding (C$'$1)). Sections 5.6-5.7 of the source (Theorem
-5.23, Proposition 5.25) are Part III.C$''$.
+*Status.* Written (D288); verified (D291: verifier 125's findings seated, to be read). This part proves, at spatial
+dimension $n = 4$, [Hin26] Lemma 5.16, the estimate (5.53) and Theorem 5.17 as consequences of Part IV, and Theorem 5.21
+(pp. 99-108). It settles obligation (C7) of III.C: at $n = 4$ the radiation fields need not be subtracted. Theorem 5.17
+and (5.53) rest on [Hin23a] section 3 at $n = 4$, which Part IV writes out; they are stated here as that part's output
+(finding (C$'$1)). Sections 5.6-5.7 of the source (Theorem 5.23, Proposition 5.25) are Part III.C$''$.
 
 *What n = 4 changes.* (1) *Weights.* The radiation fields decay like $|x|^{-3/2}$ (III.C (a)), so every weight at
 $\mathscr I^+$ is shifted by $\frac12$: the source's (5.49),
@@ -42,23 +42,25 @@ r+2r^{1-\ell^\flat_I}-(r_0+2r_0^{1-\ell^\flat_I})\big\},$$
 with boundary hypersurfaces $\Sigma_{\mathrm{past},r_0}$, $\Sigma_{\mathrm{fut},r_0}$ (the first and last level sets)
 and $\Sigma_{\mathrm{IVP},r_0} := \Omega_{\mathrm{ext},r_0}\cap\{t_{\mathrm{IVP}} = 0\}$. There is $R_0>3R_1$ such that
 for $r_0\ge R_0$ and every $h\in H^{3,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}(\Omega_{\mathrm{ext},r_0})$ with norm
-below 1, the three hypersurfaces are spacelike for $g_{b_0}+h$.
+below 1 (III.C's spaces (3.3), defined there for $k\ge5$, extend verbatim to $k = 3$), the three hypersurfaces are
+spacelike for $g_{b_0}+h$.
 
-*Proof.* For $r$ large, $t_{\mathrm{IVP}} = t+C$ (III.B Lemma 3.7), and $r^{1-\ell^\flat_I}\to0$ as $\ell^\flat_I>1$; so
-$\Omega_{\mathrm{ext},r_0}\subset U\cap\{|x|\ge r_0\}$ (III.C (1.3)) for $r_0$ large, and on it $\rho_0\le C/r_0$: on
-$\Sigma_{\mathrm{fut},r_0}$, $x^1 = t-r = -r_0+2r^{1-\ell^\flat_I}-2r_0^{1-\ell^\flat_I}+O(1)$, and $x^1$ is smaller
-below it, so $\rho_0 = (2-x^1)^{-1}\le C/r_0$. By Sobolev embedding ($3>\frac52$) every slot of $h$ is bounded by
-$C\rho_0^{\ell^\flat_0}\rho_I^{\ell^\flat_I}$, except $\slashed\pi_0h$, bounded by $C\rho_0^{\ell^\flat_0}\rho_I^{3/2}$;
-and $g_{b_0}-\eta\in\rho_0^2\rho_I^2C^\infty$ with its $\pi_C$, $\pi_{01}$, $\pi_{1/}$, $\slashed\pi_0$ parts in
-$\rho_0^2\rho_I^3C^\infty$ (III.C Lemma 3.5 (1), Definition 3.4). Write $\delta := g_{b_0}+h-\eta$, so $|\delta|\le
-C(\rho_0^2\rho_I^2+\rho_0^{\ell^\flat_0}\rho_I^{3/2})$ in the frame of (1.6), which is small for $r_0$ large.
+*Proof.* For $r$ large, $t_{\mathrm{IVP}} = t-C''$ (III.B Lemma 3.7 (b)), and $r^{1-\ell^\flat_I}\to0$ as
+$\ell^\flat_I>1$; so $\Omega_{\mathrm{ext},r_0}\subset U\cap\{|x|\ge r_0\}$ (III.C (1.3)) for $r_0$ large, and on it
+$\rho_0\le C/r_0$: on $\Sigma_{\mathrm{fut},r_0}$, $x^1 = t-r = -r_0+2r^{1-\ell^\flat_I}-2r_0^{1-\ell^\flat_I}+O(1)$,
+and $x^1$ is smaller below it, so $\rho_0 = (2-x^1)^{-1}\le C/r_0$. By Sobolev embedding ($3>\frac52$) every slot of $h$
+is bounded by $C\rho_0^{\ell^\flat_0}\rho_I^{\ell^\flat_I}$, except $\slashed\pi_0h$, bounded by
+$C\rho_0^{\ell^\flat_0}\rho_I^{3/2}$; and $g_{b_0}-\eta\in\rho_0^2\rho_I^2C^\infty$ with its $\pi_C$, $\pi_{01}$,
+$\pi_{1/}$, $\slashed\pi_0$ parts in $\rho_0^2\rho_I^3C^\infty$ (III.C Lemma 3.5 (1), Definition 3.4). Write $\delta :=
+g_{b_0}+h-\eta$, so $|\delta|\le C(\rho_0^2\rho_I^2+\rho_0^{\ell^\flat_0}\rho_I^{3/2})$ in the frame of (1.6), which is
+small for $r_0$ large.
 
 *$\Sigma_{\mathrm{IVP},r_0}$ and $\Sigma_{\mathrm{past},r_0}$.* $dt$ is timelike for $\eta$, and so for $\eta+\delta$
-when $|\delta|$ is small. In the coordinates $(t_*,r)$ of Minkowski space ($t_* = t-r$), $\eta^{-1} =
--2\partial_{t_*}\partial_r+\partial_r^2$ on $dt_*,dr$, so $\zeta := d(t_{\mathrm{IVP}}+\frac{r-r_0}{12}) =
-dt_*+\frac{13}{12}dr$ has $\eta^{-1}(\zeta,\zeta) = -2\cdot\frac{13}{12}+(\frac{13}{12})^2 = -\frac{143}{144}$ (the
-computation is dimension-free; any slope \in(0,1)$ in place of $\frac1{12}$ gives hmtBc2(1+c)+(1+c)^2<0$); so $\zeta$ is
-timelike for $\eta+\delta$ too.
+when $|\delta|$ is small. In the coordinates $(u,r)$ of Minkowski space ($u := t-r$, not the $t_*$ of III.B (3.6)),
+$\eta^{-1} = -2\partial_u\partial_r+\partial_r^2$ on $du,dr$, so $\zeta := d(t_{\mathrm{IVP}}+\frac{r-r_0}{12}) =
+du+\frac{13}{12}dr$ has $\eta^{-1}(\zeta,\zeta) = -2\cdot\frac{13}{12}+(\frac{13}{12})^2 = -\frac{143}{144}$ (the
+computation is dimension-free; any slope $c\in(0,1)$ in place of $\frac1{12}$ gives $-2(1+c)+(1+c)^2 = (c+1)(c-1)<0$);
+so $\zeta$ is timelike for $\eta+\delta$ too.
 
 *$\Sigma_{\mathrm{fut},r_0}$.* With $x^0 = t+r$, $x^1 = t-r$, $\eta = -dx^0dx^1$ (symmetric product), so $\eta^{01} =
 -2$, $\eta^{00} = \eta^{11} = 0$, and $dr = \frac12(dx^0-dx^1)$. For $\ell := \ell^\flat_I$,
@@ -90,9 +92,11 @@ $\|h_j\|_{H^{k_0,\ell^\flat_0}_{\mathrm b}}<\epsilon_0$, the problem
 $$P(g_{b_0}+h,g_{b_0}) = 0\ \text{in }\Omega_{\mathrm{ext},r_0},\qquad h = h_0,\ \ r\mathcal
 L_{\partial_{t_{\mathrm{IVP}}}}h = h_1\ \text{on }\Sigma_{\mathrm{IVP},r_0},\tag{2.1}$$
 has a unique solution $h\in H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}(\Omega_{\mathrm{ext},r_0})$; and for
-every $\epsilon>0$ and $k$ there are $k_0$ and $\epsilon_0$ with $\|h\|_{H^{k,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm
-b}}<\epsilon$. Moreover, for $h\in H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}$ small in a fixed $H^{d}$-norm
-and every $\alpha_0>\ell^\flat_I$, the solution of
+every $\epsilon>0$ and $k$ there are $k_1\ge k_0$ and $\epsilon_1\in(0,\epsilon_0]$ such that
+$\|h_j\|_{H^{k_1,\ell^\flat_0}_{\mathrm b}}<\epsilon_1$ gives $\|h\|_{H^{k,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm
+b}}<\epsilon$ (the source reuses the letters $k_0$, $\epsilon_0$ here). Moreover, for $h\in
+H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}$ small in a fixed $H^{d}$-norm and every $\alpha_0>\ell^\flat_I$,
+the solution of
 $$L_{g_{b_0}+h,g_{b_0}}\dot g = f\in H^{k+d,\alpha_0+2,(-',\ell^\flat_I+1)}_{\mathrm b},\qquad\dot
 g|_{\Sigma_{\mathrm{IVP},r_0}} = \dot g_0,\quad r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}\dot
 g|_{\Sigma_{\mathrm{IVP},r_0}} = \dot g_1,\quad\dot g_0,\dot g_1\in H^{k+d,\alpha_0}_{\mathrm b},$$
@@ -103,18 +107,21 @@ g_1\|_{H^{k+d,\alpha_0}_{\mathrm b}}\big),\tag{2.2}$$
 with $C$ depending on $k$, $\alpha_0$, $\ell^\flat_I$ and $h$; and the tame form of (2.2) at $\alpha_0 = \ell^\flat_0$,
 the source's (5.52).
 
-Here $(-',\ell^\flat_I+1)$ is the class of III.C (5.2) with the index sets left out, as in the source. The source proves
+Here $(-',\ell^\flat_I+1)$ is the class of III.C Definition 5.1 (2) with the index sets left out, as in the
+source. The source proves
 Theorem 5.17 from [Hin23a] Theorem 3.35 and Corollary 3.36 "with minor, only notational, modifications": the tame
-estimate (5.52), the Nash-Moser scheme of [SR89] (II.G Theorem 2.1 here), and the radiation field of $\pi_{11}\dot g$,
-$\slashed\pi_0\dot g$ recovered by integrating the leading part. At $n = 4$ the leading part is III.C (4.4), and only
-$\slashed\pi_0$ carries a radiation field (III.C (C3)). [Hin23a] section 3 is written out at $n = 4$ in Part IV;
-N1STAR-PROOF.md 10.64 records the eight places where $n$ enters it. Theorem 2.1 is that part's output and is used below
-as stated (finding (C$'$1)).
+estimate (5.52), a Nash-Moser scheme (the source cites [SR89]; here II.G Theorem 2.1, which is [Hin26c] Theorem 12.4),
+and the radiation field of $\pi_{11}\dot g$, $\slashed\pi_0\dot g$ recovered by integrating the leading part. At $n = 4$
+the leading part is III.C (4.4), and only $\slashed\pi_0$ carries a radiation field (III.C (C3)). [Hin23a] section 3 is
+written out at $n = 4$ in Part IV; N1STAR-PROOF.md 10.64 records the eight places where $n$ enters it. Theorem 2.1 is
+that part's output and is used below as stated (finding (C$'$1)).
 
-**Remark 2.2 ([Hin26] Remarks 5.18 and 5.20 at n = 4).** (1) If the data of $\hat g := g_{b_0}+h_0+t_{\mathrm{IVP}}rh_1$
-satisfy the vacuum constraints on $\Sigma_{\mathrm{IVP},r_0}$ and $\Upsilon^{E_\Upsilon}(\hat g,g_{b_0}) = 0$ there, the
-second Bianchi identity gives $\Upsilon(g_{b_0}+h,g_{b_0}) = 0$ and $\mathrm{Ric}(g_{b_0}+h) = 0$, in any dimension
-(10.57 (d) of the record; III.C$''$ for the gauged data). (2) The structure (4.4) of III.C holds for every
+**Remark 2.2 ([Hin26] Remarks 5.18 and 5.20 at n = 4).** (1) If the data of $\hat g :=
+g_{b_0}+h_0+t_{\mathrm{IVP}}r^{-1}h_1$ (the source's Remark 5.18 prints $t_{\mathrm{IVP}}rh_1$; with $h_1 = r\mathcal
+L_{\partial_{t_{\mathrm{IVP}}}}h$ of (2.1) the factor is $r^{-1}$, as in its Proposition 5.25 and section 5.7.1; finding
+(C$'$5)) satisfy the vacuum constraints on $\Sigma_{\mathrm{IVP},r_0}$ and $\Upsilon^{E_\Upsilon}(\hat g,g_{b_0}) = 0$
+there, the second Bianchi identity gives $\Upsilon(g_{b_0}+h,g_{b_0}) = 0$ and $\mathrm{Ric}(g_{b_0}+h) = 0$, in any
+dimension (10.57 (d) of the record; III.C$''$ for the gauged data). (2) The structure (4.4) of III.C holds for every
 $g_0\in\mathcal G$ (III.C Definition 3.4), and Corollary 5.3 of III.C needs only $\mathrm{Ric}(g_0) = 0$; so Theorem 2.1
 holds for $P(g_0+h,g_0) = 0$ with $g_0\in\mathcal G$ Ricci flat and $g_0-g_{b_0}$ small in the sense of Lemma 1.1, in
 particular for $g_0 = \phi_S^*g_{b_0}$ where III.C Lemma 3.5 (2) applies (the cut-off region near $I_0$ is III.C$''$,
@@ -143,17 +150,17 @@ coefficients of the expansions small, which is why (3.2) is stated separately.
 b}$ for some $\alpha_0\in[\ell^\flat_0,\ell_0)$; for $\alpha_0 = \ell^\flat_0$ this is Theorem 2.1
 ($\ell^\flat_0<\min\mathrm{Re}\,\mathcal E_0$). As $P(g_{b_0}+h,g_{b_0}) = 0$ and $P(g_{b_0},g_{b_0}) = 0$,
 $$L_{g_{b_0}}h = -\int_0^1\big(L_{g_{b_0}+sh,g_{b_0}}-L_{g_{b_0},g_{b_0}}\big)h\,ds.\tag{3.3}$$
-By III.C Proposition 4.4, applied with $g_1 = g_0 = g_{b_0}$ to $h$ and to $0$, the two operators have the same leading
-part and the same $C^\infty$ error, and their difference lies in $H^{\infty,(\mathcal E_0+2,\alpha_0+2),(\mathcal
-E^{\mathrm{tot}}_I,\ell^\flat_I)}_{\mathrm b}\mathrm{Diff}^2_{\mathrm b}$ on $U$ (the perturbation part of (4.4), whose
-coefficients are polynomial in $sh$ and its first two derivatives, each term with a factor of $h$; III.C Lemma 4.3),
-uniformly in $s$. Acting on $h$, whose slots lie in $H^{\infty,(\mathcal E_0,\alpha_0),(\mathcal
-E^{\mathrm{tot}}_I,\ell^\flat_I)}_{\mathrm b}$, it gives by III.C Lemma 2.1 an element of $H^{\infty,(\mathcal
-E_0+2,\alpha_0+3),(2\mathcal E^{\mathrm{tot}}_I,\ell^\flat_I+1)}_{\mathrm b}$: at $I_0$ the index set is $2\mathcal
-E_0+2\subset\mathcal E_0+2$ and the weight $\alpha_0+2+\min\mathrm{Re}\,\mathcal E_0>\alpha_0+3$ (as
-$\min\mathrm{Re}\,\mathcal E_0>1$); at $\mathscr I^+$, $2\mathcal E^{\mathrm{tot}}_I\subset\mathcal E^C_I+1$ (III.C
-Lemma 3.2 (b)), at weight $\ell^\flat_I+\frac32>\ell^\flat_I+1$. Away from $U$ the spaces impose only regularity. So $h$
-solves
+By III.C Proposition 4.4, applied with $g_1 = g_0 = g_{b_0}$ to $h$ and to $0$, the two operators have the same
+leading part and the same $C^\infty$ error (the paragraph "The perturbation" of its proof), and their difference lies in
+$H^{\infty,(\mathcal E_0+2,\alpha_0+2),(\mathcal E^{\mathrm{tot}}_I,\ell^\flat_I)}_{\mathrm b}\mathrm{Diff}^2_{\mathrm
+b}$ on $U$ (the perturbation part of (4.4), whose coefficients are polynomial in $sh$ and its first two derivatives,
+each term with a factor of $h$; III.C Lemma 4.3), uniformly in $s$. Acting on $h$, whose slots lie in
+$H^{\infty,(\mathcal E_0,\alpha_0),(\mathcal E^{\mathrm{tot}}_I,\ell^\flat_I)}_{\mathrm b}$, it gives by III.C Lemma 2.1
+an element of $H^{\infty,(\mathcal E_0+2,\alpha_0+3),(2\mathcal E^{\mathrm{tot}}_I,\ell^\flat_I+1)}_{\mathrm b}$: at
+$I_0$ the index set is $2\mathcal E_0+2\subset\mathcal E_0+2$ and the weight $\alpha_0+2+\min\mathrm{Re}\,\mathcal
+E_0>\alpha_0+3$ (as $\min\mathrm{Re}\,\mathcal E_0>1$); at $\mathscr I^+$, $2\mathcal E^{\mathrm{tot}}_I\subset\mathcal
+E^C_I+1$ (III.C Lemma 3.2 (b)), at weight $\ell^\flat_I+\frac32>\ell^\flat_I+1$. Away from $U$ the spaces impose only
+regularity. So $h$ solves
 $$L_{g_{b_0}}h\in H^{\infty,(\mathcal E_0+2,\alpha_0+3),(-',\ell^\flat_I+1)}_{\mathrm b},\qquad
 h|_{\Sigma_{\mathrm{IVP},r_0}} = h_0,\ \ r\mathcal L_{\partial_t}h|_{\Sigma_{\mathrm{IVP},r_0}} = h_1\in
 H^{\infty,(\mathcal E_0,\ell_0)}_{\mathrm b}.\tag{3.4}$$
@@ -167,19 +174,27 @@ $$L_{g_{b_0}}(Rh) = \rho_0^2R\big(\rho_0^{-2}L_{g_{b_0}}h\big)+\rho_0^2\big[\rho
 Index sets are closed under $+\mathbb N_0$ (III.C section 2), so $\mathcal E_0+j\subset\mathcal E_0$. The first term:
 $\rho_0^{-2}L_{g_{b_0}}h\in H^{\infty,(\mathcal E_0,\alpha_0+1),(-',\ell^\flat_I+1)}_{\mathrm b}$ by (3.4), and $R$
 removes its expansion at $I_0$ up to $\alpha_1\le\alpha_0+1$ (III.A Lemma 1.3, converse), so the first term lies in
-$H^{\infty,\alpha_1+2,(-',\ell^\flat_I+1)}_{\mathrm b}$. For the second, $A :=
-\rho_0^{-2}L_{g_{b_0}}\in\rho_I\mathrm{Diff}^2_{\mathrm b}$ has coefficients smooth up to $I_0$ (III.C Lemma 4.1); $X_0$
-commutes with $X_0$, $X_I$, $\partial_\omega$ and maps $a\in C^\infty$ to $X_0a\in\rho_0C^\infty$, so
-$[A,R]\in\rho_0\rho_I\mathrm{Diff}^{N+1}_{\mathrm b}$. Split $h = h_{\mathrm e}+h_{\mathrm r}$, $h_{\mathrm e}$ the
-terms of its expansion at $I_0$ with real part at most $\alpha_1$ and $h_{\mathrm r}\in H^{\infty,\alpha_0}$ at $I_0$.
-Then $Rh_{\mathrm e} = 0$, so $[A,R]h_{\mathrm e} = -RAh_{\mathrm e}$; $Ah_{\mathrm e}$ has its expansion at $I_0$ in
-$\mathcal E_0$ (smooth coefficients only add $\mathbb N_0$), and $R$ removes its terms up to $\alpha_1$, leaving order
-$>\alpha_1$. And $[A,R]h_{\mathrm r}\in H^{\infty,\alpha_0+1}$ at $I_0$, with $\alpha_0+1\ge\alpha_1$. So
-$\rho_0^2[A,R]h\in H^{\infty,\alpha_1+2,(-',\ell^\flat_I+1)}_{\mathrm b}$ (at $\mathscr I^+$ as $A$ is, with the factor
-$\rho_I$). The data of $Rh$ lie in $H^{\infty,\alpha_1}_{\mathrm b}(\Sigma_{\mathrm{IVP},r_0})$. Theorem 2.1 (2.2), with
-$h = 0$ and $\alpha_0$ replaced by $\alpha_1>\ell^\flat_I$, gives $Rh\in H^{\infty,\alpha_1,(-,\ell^\flat_I)}_{\mathrm
-b}$, and III.A Lemma 1.3 gives $h\in H^{\infty,(\mathcal E_0,\alpha_1),(-,\ell^\flat_I)}_{\mathrm b}$. After finitely
-many steps, $h\in H^{\infty,(\mathcal E_0,\ell_0),(-,\ell^\flat_I)}_{\mathrm b}$.
+$H^{\infty,\alpha_1+2,(-',\ell^\flat_I+1)}_{\mathrm b}$. For the second, by III.C Lemma 4.1 and (3.5)
+below, $A := \rho_0^{-2}L_{g_{b_0}} = -\rho_I(X_I-\frac32-\bar A)(X_0-X_I)+\rho_0^{-2}\tilde R_b$ with
+$\rho_0^{-2}\tilde R_b\in\rho_I^2C^\infty\mathrm{Diff}^2_{\mathrm b}$, the leading part having coefficients independent
+of $\rho_0$. $X_0$ commutes with $X_0$, $X_I$, $\partial_\omega$, $\rho_I$ and the constant $\bar A$, and maps $a\in
+C^\infty$ to $X_0a\in\rho_0C^\infty$; so $R$ commutes with the leading part, and $[A,R] = [\rho_0^{-2}\tilde
+R_b,R]\in\rho_0\rho_I^2\mathrm{Diff}^{N+1}_{\mathrm b}$. (The cruder $[A,R]\in\rho_0\rho_I\mathrm{Diff}^{N+1}_{\mathrm
+b}$ would not do: on the radiation field $\rho_I^{3/2}$ of slot 6 it gives $\rho_I^{5/2}$, below the weight
+$\ell^\flat_I+1\in(\frac52,3)$ of the target.) Split $h = h_{\mathrm e}+h_{\mathrm r}$, $h_{\mathrm e}$ the terms of
+its expansion at $I_0$ with real part at most $\alpha_0$ (those known) and $h_{\mathrm r}\in H^{\infty,\alpha_0}$ at
+$I_0$. Then $Rh_{\mathrm e} = 0$, so $[A,R]h_{\mathrm e} = -RAh_{\mathrm e}$. At $I_0$, $Ah_{\mathrm e}$ has its
+expansion in $\mathcal E_0$ (smooth coefficients only add $\mathbb N_0$), and $R$ removes its terms up to $\alpha_1$,
+leaving order $>\alpha_1$. At $\mathscr I^+$, $Ah_{\mathrm e}$ lies in $(-',\ell^\flat_I+1)$: the leading part sends
+the slots other than 6 from the weight $\ell^\flat_I$ to $\ell^\flat_I+1$ and annihilates the radiation field
+$\rho_I^{3/2}a$ of slot 6 ($\bar A_{66} = \bar A_{6i} = \bar A_{76} = 0$, so on it $(X_I-\frac32-\bar A)$ acts as
+$X_I-\frac32$, which commutes past $X_0-X_I$), and $\rho_0^{-2}\tilde R_b$ gains $\rho_I^2$. And $[A,R]h_{\mathrm r}\in
+H^{\infty,\alpha_0+1}$ at $I_0$, with $\alpha_0+1\ge\alpha_1$, and has the weight at least $\frac32+2>\ell^\flat_I+1$ at
+$\mathscr I^+$. So $\rho_0^2[A,R]h\in H^{\infty,\alpha_1+2,(-',\ell^\flat_I+1)}_{\mathrm b}$. The data of $Rh$ lie in
+$H^{\infty,\alpha_1}_{\mathrm b}(\Sigma_{\mathrm{IVP},r_0})$. Theorem 2.1 (2.2), with $h = 0$ and $\alpha_0$ replaced by
+$\alpha_1>\ell^\flat_I$, gives $Rh\in H^{\infty,\alpha_1,(-,\ell^\flat_I)}_{\mathrm b}$, and III.A Lemma 1.3 gives $h\in
+H^{\infty,(\mathcal E_0,\alpha_1),(-,\ell^\flat_I)}_{\mathrm b}$. After finitely many steps, $h\in H^{\infty,(\mathcal
+E_0,\ell_0),(-,\ell^\flat_I)}_{\mathrm b}$.
 
 *Step 2 (the expansion at $\mathscr I^+$).* Suppose $h\in H^{\infty,(\mathcal E_0,\ell_0),\langle\mathcal
 E^C_I\rangle,\alpha_I}_{\mathrm b}$ for some $\alpha_I\in[\ell^\flat_I,\ell_I)$ and some $\mathcal E^C_I$ of III.C
@@ -194,9 +209,10 @@ times a $\mathrm{Diff}^2_{\mathrm b}$-operator with coefficients in $H^{\infty,(
 E^{\mathrm{tot}}_I,\alpha_I)}_{\mathrm b}$ acting on $h$; by III.C Lemma 2.1 it lies in $(\mathcal
 E^{\mathrm{tot}}_I+\mathcal E^{\mathrm{tot}}_I-1,\alpha_I+\eta)\subset(\mathcal E^C_I,\alpha_I+\eta)$ for every
 $\eta<\frac12$ (III.C Definition 3.1 (3); the weight is $\alpha_I+\frac32-1$, with the strict inequality of Lemma 2.1).
-At $I_0$ both lie in $(\mathcal E_0,\ell_0)$. Fix $\eta\in(\frac14,\frac12)$ with $\alpha_I+\eta\le\ell_I$, and lower it
-slightly if needed so that $\beta := \alpha_I+\eta\notin\frac32+\sigma_\Upsilon$ and
-$\beta\notin\mathrm{Re}\,\pi_1\mathcal E_0$ (not needed if $\beta = \ell_I$, by the hypotheses). So
+At $I_0$ both lie in $(\mathcal E_0,\ell_0)$. Fix $\eta\in(\frac14,\frac12)$ and put $\beta :=
+\min(\alpha_I+\eta,\ell_I)$ (as in the source's Step 2.6); lower $\eta$ slightly if needed so that
+$\beta\notin\frac32+\sigma_\Upsilon$ and $\beta\notin\mathrm{Re}\,\pi_1\mathcal E_0$ (not needed if $\beta = \ell_I$, by
+the hypotheses). So
 $$\tilde f\in H^{\infty,(\mathcal E_0,\ell_0),(\mathcal E^C_I,\beta)}_{\mathrm b}(U).\tag{3.6}$$
 Write $w := (X_0-X_I)h$; its slots have the index sets of $h$'s (III.A (F1)). By III.C Lemma 4.2, $\bar A$ is lower
 triangular with the diagonal (4.3) of III.C and off-diagonal entries at $(3,1)$, $(4,1)$, $(4,3)$, $(5,2)$, $(7,3)$,
@@ -231,7 +247,9 @@ III.A Lemma 3.2 gives the extended union $\mathcal E_0\bar\cup(\cdot)$ at $\math
 expansion at $I_0$ meets one at $\mathscr I^+$, the corner produces a logarithm. So, with $\mathcal E'$ the smallest
 index set containing $\mathcal E_0\bar\cup\mathcal E^C_I$ and satisfying III.C Definition 3.1 (it exists by III.C Lemma
 3.2 (e), as $\min\mathrm{Re}(\mathcal E_0\bar\cup\mathcal E^C_I)>\frac32+2\gamma_\Upsilon$; it contains $\mathcal E_0$),
-the slots of $h$ lie in the classes of III.C (3.3) for $\mathcal E'$, at weight $\beta$: $h\in H^{\infty,(\mathcal
+the slots of $h$ lie in the classes of III.C (3.3) for $\mathcal E'$, at weight $\beta$ (for slots 4, 5
+and 7, $\mathcal E_0\bar\cup\mathcal E_{I,j}\subset\mathcal E'_{I,j}$ by III.C Lemma 3.2 (d), as
+$\min\mathrm{Re}\,\mathcal E_0>\frac32+2\gamma_\Upsilon$): $h\in H^{\infty,(\mathcal
 E_0,\ell_0),\langle\mathcal E'\rangle,\beta}_{\mathrm b}$ on $U$, and off $U$ trivially. This is the source's Step 2.6,
 its $\mathcal E^{C,\mathrm{new}}_I$. Repeating with $(\alpha_I,\mathcal E^C_I)$ replaced by $(\beta,\mathcal E')$,
 $\eta>\frac14$, reaches $\ell_I$ after $M\le4(\ell_I-\ell^\flat_I)+1$ rounds, with index sets $\mathcal
@@ -270,11 +288,16 @@ argument uses only the weight.
 (C$'$4) *A coincidence of exponents in slot 7.* $\frac32+2\gamma_\Upsilon$ and $\frac32+(1-e_\Upsilon)\gamma_\Upsilon$
 coincide only at $e_\Upsilon = -1$; under $0<e_\Upsilon<1$ they are distinct, and III.C (3.2) needs no logarithm.
 
+(C$'$5) *A misprint in the source's Remark 5.18* (p. 101): the metric whose data are constrained is
+$g_{b_0}+h_0+t_{\mathrm{IVP}}r^{-1}h_1$, not $\ldots+t_{\mathrm{IVP}}rh_1$, by the convention $h_1 =
+r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}h$ of the source's Theorem 5.17 ((2.1) here) and as in its Proposition 5.25 and
+section 5.7.1.
+
 *Labels.* Lemma 1.1 is the source's Lemma 5.16, Theorem 2.1 its Theorem 5.17 with (5.52)-(5.53), Remark 2.2 its Remarks
 5.18 and 5.20, Theorem 3.1 its Theorem 5.21 with Remark 5.22; Remark 3.2 is new at $n = 4$.
 
 *Sources.* [Hin26] pp. 99-108 (section 5.4: (5.49)-(5.53), Lemma 5.16, Theorem 5.17, Remarks 5.18-5.20; section 5.5:
-Theorem 5.21, Remark 5.22, (5.54)-(5.74)), read at source. Inputs: III.A (F1), Lemmas 1.2, 1.3, 3.2; III.B Lemma 3.7;
-III.C (1.1)-(1.3), (1.6), Definitions 3.1, 3.4, Lemmas 2.1, 3.2, 3.5, 4.1-4.3, Proposition 4.4, Proposition 5.2,
+Theorem 5.21, Remark 5.22, (5.54)-(5.74)), read at source. Inputs: III.A (F1), Lemmas 1.2, 1.3, 3.2; III.B Lemma 3.7 (b);
+III.C (1.1)-(1.3), (1.6), Definitions 3.1, 3.4, 5.1, Lemmas 2.1, 3.2, 3.5, 4.1-4.3, Proposition 4.4, Proposition 5.2,
 Corollary 5.3, findings (C1), (C3), (C4), (C7); II.G Theorem 2.1; Part IV ([Hin23a] section 3 at $n = 4$, to be
 written); N1STAR-PROOF.md 10.57, 10.64.

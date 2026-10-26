@@ -3847,3 +3847,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   lists II.G's support conditions (m6). Nits n1-n7 seated.
 - Next: verifier 126 reads the D290 repairs together with D291 (verifier 125 on III.C', III.C''); then the exact-weight
   part for (J''4).
+
+### 4.215 Verifier 125 seated on III.C' and III.C'' (D291): the boost theorem under the constraints
+
+- Verifier 125 on III.C' (PART-III-C2-POLYHOM.md) and III.C'' (PART-III-C3-BOOSTDATA.md): 1 major, 8 minor, 17 nits,
+  seated. Checked correct: the slope 1/12 and -143/144, Omega_ext inside {chi_IVP = 1}, the future boundary, (C7)
+  settled, (C4), the frame algebra of Proposition 4.1, all pages.
+- M1: III.C'' Theorem 3.1 (1) pulled back the whole gauge-fixed operator as if natural; E_C is built from the fixed
+  1-form c_C of III.B (6.2), which a boost does not preserve. (1) is now stated under the constraints and proved by
+  III.C' Remark 2.2 (1): both terms of the operator vanish near Sigma_IVP, where chi_0 = 0. The source has the same
+  gap: finding (C''5).
+- Minors: Step 1's commutator now uses that R commutes with the leading part, so [A, R] carries rho_I^2 and the
+  radiation field of slot 6 is annihilated (m1); beta := min(alpha_I + eta, l_I) in the last round (m2); t_IVP r^{-1}
+  h_1 in Remark 2.2 (1), the source's Remark 5.18 misprint, (C'5) (m3); a corrupted formula restored (m4); t - t_BL =
+  +mu/r for III.B's time, with the citations corrected (m5); r_1 := 2r_0 so the boost's size is independent of r_0,
+  (C''6) (m6); the cancellation from P(g_0, g_0) = 0 in Theorem 3.1 (2) (m7); (3) through (1)'s proof (m8). Nits n1-n17
+  seated.
+- Next: verifier 126 reads the D290 and D291 repairs; then the exact-weight part for (J''4).

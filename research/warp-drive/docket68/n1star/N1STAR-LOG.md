@@ -5723,3 +5723,12 @@ shown to take a source at one loss to a solution at a larger loss, while the for
 rates; Nash-Moser needs both on one pair of scales. The source states its linear estimate with no loss in the rates. At
 n = 4 this is now open as (J''4), and the next part proposes to remove the loss after the fact, face by face. Six minor
 findings and seven nits seated.
+
+**D291 (2026-10-26): verifier 125 seated on Parts III.C' and III.C''.** One major finding: the boost theorem claimed
+that the boosted solution is the pullback of the unboosted one by pulling back the whole gauge-fixed equation, but the
+gauge term is built from a fixed 1-form that boosts do not preserve. The claim holds for data satisfying the
+constraints, where both terms of the equation vanish near the initial surface; it is now stated and proved so, and the
+same gap is recorded in the source. Eight minor findings: a commutator bound too weak at null infinity (the true bound
+uses that the leading part commutes), the last integration round, two misprints (one in the source), a corrupted
+formula, a sign in the time function, a boost size that depended on the radius (fixed by doubling the radius), and two
+steps of the boost theorem's proof made explicit. Next: verifier 126 on the repairs of D290 and D291.
