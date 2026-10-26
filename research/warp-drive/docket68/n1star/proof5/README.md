@@ -44,7 +44,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | verified (D235; one minor finding and four nits seated, to be read) |
 | III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | verified (D235; three nits seated, to be read) |
 | III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | verified (D235; one minor finding and two nits seated, to be read) |
-| III.C, III.G-III.J | [Hin26] 5, 9-12 | exterior stability; spectral theory at the transition faces; decay | to do |
+| III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 3/2, finite meromorphy | written (D236) |
+| III.C, III.G'-III.J | [Hin26] 5, 9 (from Proposition 9.4)-12 | exterior stability; the rest of the spectral theory at the transition faces; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -698,3 +699,22 @@ the generalized companions are not constructed, the window being decided in the 
 conormal space only, so (5.1)'s index set was not reached; now $u_b$ is polyhomogeneous by III.A Lemma 1.4) and two nits
 (a weight, the spin-independence at spinning $b$) seated, to be read; the four pairing values the brief named were
 recomputed or confirmed.
+
+## Part III.G
+
+`PART-III-G-SPECTRAL.md`. [Hin26] Proposition 9.2 at $n = 4$: the spectral family $N_{\mathrm{sf}}(\lambda)$ of the
+model operator at future timelike infinity, on spaces supported at $v = -1$ and taken across the light cone $v = 0$,
+with conormal regularity there. Lemma 1.2: the principal symbol $v(v+2)\xi^2+|\eta|^2$; b-ellipticity at
+$R = v^{-1} = 0$ with Mellin roots $\lambda-r$;
+$N_{\mathrm{sf}}(\lambda) = R^{2+\lambda}N_{\iota^+}(\lambda)R^{-\lambda}$, II.F's $N^0(\sigma)$ at
+$\sigma = -i\lambda$; the commutators; the dilation metric, for which $dT$ is spacelike. `sf5.py` S1-S8 (new) checks
+these, each with a failing control. Section 2: the light cone is a radial source with $\beta_0 = 2(1+v)$ and threshold
+$s<2-\mathrm{Re}\,\lambda$; the slab estimates at $v = -1$; the Fredholm property for admissible $(s,\mu)$ (Proposition
+2.4); b-regularity through the Lie derivatives along the rotations and the dilation, whose commuted system keeps the
+threshold (Propositions 2.6-2.7). Section 3: injectivity for $\mathrm{Re}\,\lambda<\frac32$ through II.F Lemma 5.8,
+III.F$'$'s tf-admissibility on $(0,1]$ and conormality at the light cone (Lemma 3.1). Section 4: the semiclassical
+estimate in vertical strips (the source's (9.9)), with the escape function $\tilde\xi = -(v+2)(v\xi+1)$, II.F's
+estimates at the cone point for $|\mathrm{Im}\,z|\le Ch$ and I.B's at the light cone and on the slabs (Proposition 4.6).
+Theorem 5.1: Proposition 9.2 (1)-(3) at $n = 4$, index 0, invertibility for $\mathrm{Re}\,\lambda<\frac32$ (the source
+has $1+\epsilon_{\mathrm{ind}}$ at $n = 3$) and finite meromorphy. Findings (G1)-(G6); (G6): Proposition 9.4 and the
+rest of section 9 are the next part. Written (D236).

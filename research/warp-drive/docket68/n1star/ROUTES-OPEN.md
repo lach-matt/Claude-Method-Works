@@ -2937,3 +2937,21 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Status: III.D''', III.E, III.F proved; III.F', III.F'', III.F''', III.F'''' verified (D235), the repairs to be read.
 - Next: Part III.G ([Hin26] section 9.1 at n = 4: Proposition 9.2 by the Fredholm theory on sf across v = 0 and the
   semiclassical estimate, Proposition 9.4); verifier 98 (Opus) on III.G and the D235 repairs.
+
+### 4.159 Part III.G written: [Hin26] Proposition 9.2 at n = 4 (D236)
+
+- PART-III-G-SPECTRAL.md: N_sf(lambda) = -2 d_v(v d_v + lambda - 3/2 - S) + L(0)(omega, v d_v + lambda, d_omega) on
+  sf = R_v x S^3, supported at v = -1, across the light cone v = 0, b-elliptic at R = 1/v = 0.
+- Fixed lambda: the light cone N*{v = 0} a radial source, beta_0 = 2(1 + v), threshold s < 2 - Re lambda (the source's
+  3/2 - Re lambda at n = 3); the Fredholm property for s below it and mu in (Re lambda - 1, Re lambda); b-regularity by
+  Lie derivatives along the rotations and v d_v, whose commuted terms have first-order symbols vanishing at the light
+  cone.
+- Injectivity for Re lambda < 3/2 (the source has 1 + epsilon_ind at n = 3): II.F Lemma 5.8 with III.F' tf-admissibility
+  on (0, 1] and conormality at the light cone for s > 1/2.
+- Index 0 and finite meromorphy: the semiclassical estimate in vertical strips, lambda = iz/h, |Im z| <= Ch; escape
+  function -(v + 2)(v xi + 1), with H_p of it 2(v + 1)|eta|^2 on the characteristic set; II.F at the cone point.
+- Check: sf5.py S1-S8 (new), each with a failing control, pass.
+- Status: III.G written (D236).
+- Next: Part III.G' ([Hin26] Proposition 9.4, Definitions 9.3 and 9.6 at n = 4: extendible conormality below 1/2 by
+  multiplying by v^k, a Heaviside multiplier and the primitive in v); verifier 98 (Opus) on III.G and the D235 repairs.
+

@@ -5336,3 +5336,12 @@ III.A Lemma 1.4) and eleven nits (among them the sign of Lemma 2.3's flat correc
 record's point, the energy identities for complex solutions), all seated in place. The D231 repairs are confirmed:
 III.D''', III.E and III.F are proved; III.F', III.F'', III.F''' and III.F'''' are verified. linroots5, lhor5 and gmodes5
 rerun by the verifier and pass. Next: Part III.G; verifier 98 on III.G and these repairs.
+
+**D236 (2026-10-26): Part III.G written.** `proof5/PART-III-G-SPECTRAL.md` writes out [Hin26] Proposition 9.2 at
+n = 4: the spectral family of the model operator at future timelike infinity is Fredholm of index 0 across the light
+cone below the threshold s < 2 - Re lambda, b-regular there, invertible for Re lambda < 3/2 (against the source's
+1 + epsilon_ind at n = 3) and finite-meromorphic. The fixed-lambda theory rests on Parts I.A and I.C, the high-frequency
+estimate in vertical strips on I.B at the light cone and II.F at the cone point, with the escape function
+-(v + 2)(v xi + 1). New instrument `sf5.py`, checks S1-S8 with failing controls, passes. Findings (G1)-(G6). Next: Part
+III.G' ([Hin26] Proposition 9.4); verifier 98 on III.G and the D235 repairs.
+
