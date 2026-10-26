@@ -5130,3 +5130,21 @@ control) and confirmed (K1) and the D216 repairs. No major. Minor 1: Lemma 3.5 (
 slip; corrected. Minor 2: Lemma 5.2's hypothesis now exhaustive, cut-offs strictly nested, small boosts shown
 admissible. Ten nits seated (III.B section 7.3). Status: Parts I.A-I.C, II.A, II.A', II.F, II.F', II.G, II.G' proved;
 II.B-II.E and III.B verified. Next: Part III.A' ([Hin26] section 2.4 at n = 4, harm5.py).
+
+**D218 (2026-10-26): Part III.A' written.** PR #129 opened for D217. [Hin26] section 2.4 at n = 4 in
+proof5/PART-III-A2-HARMONICS.md: harmonics on S^3 by type, (2.34)-(2.35), Lemma 2.29 in the null splittings, the types
+including the new tensor type, the indicial roots by type and (2.46) with the Killing-field injectivity. All at general
+N: the three facts the draft cited (the co-closed spectrum, the TT classification, Lichnerowicz's commutation) are
+proved here from the Ricci identity and five ambient identities. The constants of Lemma 2.29 change with N (3/2, 2 rho
+d_rho; 3, -3/2, 7/2, -5/2; 3, 4); G, the Christoffel symbols and delta* do not. harm5.py K5: the formula equals the
+Cartesian componentwise computation entry by entry at N = 2 and N = 3, every type, l symbolic; K6 factors the
+determinants as -d, d + 2 over the degree lists. Next: the ninety-second verifier on III.A' and the D217 repairs.
+
+**D219 (2026-10-26): Part III.A written.** [Hin26] sections 2.1-2.3 at n = 4 in proof5/PART-III-A-PREREQ.md. The
+b-analysis lemmas are dimension-free and proved in full (the Mellin argument of Lemma 2.13 and the choice-free contour
+of Lemma 2.15 written out); the 3b- and sc-b notions and Lemma 2.20 restated and proved on R^{1+4}; Lemmas 2.22-2.23
+proved with the Hardy estimates checked; Proposition 2.25 proved from II.G' Propositions 3.3 and 3.5. Findings: (L1) the
+matching condition (2.29) takes the log index k(E_K, j) where k(E_K, j + 1) is needed, so it is meaningless as printed
+already for E_K = (1,0); repaired in (4.4). (L2) a zf-weight misprint in the proof; (L3) the commutator of sigma d_sigma
+with chi(sigma), harmless; (L4) Cauchy's constant in Lemma 2.15. Next: the ninety-second verifier's report on III.A';
+the ninety-third on III.A.

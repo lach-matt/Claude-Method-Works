@@ -30,7 +30,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | **proved** (D216) |
 | II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | **proved** (D216) |
 | II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | **proved** (D217) |
-| III.A | [Hin26] 2 | technical prerequisites: partial polyhomogeneity, integration along b-fields, harmonics on S^3 | to do |
+| III.A | [Hin26] 2.1-2.3 | technical prerequisites: partial polyhomogeneity, integration along b-fields | written (D219) |
+| III.A' | [Hin26] 2.4 | harmonics on S^3; the Minkowski operators in the null splittings; indicial roots by type | written (D218) |
 | III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed Einstein equation | verified (D217) |
 | III.C-III.J | [Hin26] 5-12 | exterior stability; gauge potential, constraint and linearised operators; spectral theory; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -447,3 +448,30 @@ are proved.
 *D217.* The ninety-first verifier read Part III.B: no major finding; two minor findings (a sign in an intermediate line
 of Lemma 3.5's proof; Lemma 5.2's hypothesis made exhaustive, with strictly nested cut-offs and small boosts shown to
 satisfy it) and ten nits seated. Part III.B is verified. It confirmed the D216 repairs of Part II.G', which is proved.
+
+## Part III.A'
+
+`PART-III-A2-HARMONICS.md`. [Hin26] section 2.4 at $n = 4$: functions, 1-forms and symmetric 2-tensors on $\mathbb S^3$
+by type, with the identities between the geometric operators on each type and the special low degrees; the Minkowski
+wave operator, symmetric gradient and divergence in the null bundle splittings near infinity (the source's Lemma 2.29);
+the types those operators preserve; the indicial roots by type; and the symmetric gradient's indicial families with
+their kernels. Everything is proved at general $N$ and read at $N = 3$, $N = 2$ being the source entry by entry: the
+commutators on the sphere from the Ricci identity, the spectra on co-closed 1-forms and on trace-free divergence-free
+tensors from five ambient identities of the Gauss formula, and Lemma 2.29 by the Cartesian route, so no outside result
+on harmonics is used. At $n = 4$ one type is new (tensor type, $l\ge2$), the constants of Lemma 2.29 change (findings
+(H1)-(H6)), and the free indicial roots on a degree-$d$ component are $-d$ and $d+2$. `harm5.py` K5 checks Lemma 2.29 at
+$N = 2$ and $N = 3$ entry by entry against the Cartesian computation for every type with $l$ symbolic; K6 factors the
+determinants. Written (D218).
+
+## Part III.A
+
+`PART-III-A-PREREQ.md`. [Hin26] sections 2.1-2.3 at $n = 4$: manifolds with corners and blow-ups, b-analysis and partial
+polyhomogeneity, the normal form of a b-normal vector field, testing for and integrating partial expansions, the
+boundary spectrum and formal solutions (with the Mellin transform written out), the scattering, 3b- and
+scattering-b-transition notions on $\mathbb R^{1+4}$ with the Plancherel lemma and the normal operator at sf, the
+integration of $x\partial_x$ and of the transport operator $x\partial_x-y\partial_y$, and the Fourier transform with
+partial expansions at $\iota$, $K$, $I$ and at tf, zf, scf. Everything is proved; the inputs of the last result are Part
+II.G$'$'s Propositions 3.3 and 3.5, which carry [Hin26c] section 13.1 to $n = 4$ in b-densities. Findings (L1)-(L4): the
+matching condition (2.29) of the source's Proposition 2.25 takes the wrong log index ($k(E_K,j)$ for $k(E_K,j+1)$), so
+that as printed it is meaningless already for $E_K = (1,0)$; a weight misprinted in its proof; the commutator with the
+cut-off in $\sigma$, which is harmless; and the constant in Cauchy's formula of Lemma 2.15. Written (D219).

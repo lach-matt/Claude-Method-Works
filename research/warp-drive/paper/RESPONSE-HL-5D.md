@@ -1103,7 +1103,10 @@ null infinity, by which forward solutions are shown to decay faster, has been re
 and its repairs read again, which proves it.
 The sixteenth, the first of the parts on his stability paper -- the five-dimensional black hole family on the
 compactified spacetime, its time functions, initial data and boosts, and the gauge-fixed Einstein equation -- has been
-read line by line and its findings seated. Theorem 4 stays deduced until the last part is proved.
+read line by line and its findings seated. The seventeenth, the harmonics on the three-sphere and the operators of
+Minkowski space in the splittings his stability paper uses, is written, and so is the eighteenth, the b-analysis and
+Fourier transforms with partial expansions on which that paper's asymptotic analysis rests. Theorem 4 stays deduced
+until the last part is proved.
 
 ---
 

@@ -2658,3 +2658,32 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   in P_0 (II.F' (F'11)).
 - Next: Part III.A' ([Hin26] section 2.4 at n = 4; harm5.py K1-K4 computed); then the ninety-second verifier on III.A'
   with the D217 repairs.
+
+### 4.141 Part III.A' written: harmonics on the three-sphere and the Minkowski operators at n = 4 (D218)
+
+- `proof5/PART-III-A2-HARMONICS.md`: [Hin26] section 2.4 at n = 4, proved at general N and read at N = 3 (N = 2 is the
+  source, entry by entry). Lemma 1.1 (commutators on S^N from the Ricci identity, replacing the Lichnerowicz citation),
+  Lemma 1.2 (five ambient identities), Lemma 1.4 (the spectra on co-closed 1-forms, k_l^2 - 1, l >= 1, and on trace-free
+  divergence-free tensors, k_l^2 - 2, l >= 2, proved from Lemma 1.2), Lemma 1.5 ((2.34)-(2.35) at n = 4), Lemma 2.1
+  (Lemma 2.29 at n = 4, by the Cartesian route), Lemma 2.3 (indicial roots by type: -d and d + 2 over the degree lists),
+  Lemma 2.4 (the symmetric gradient's kernels, Killing fields).
+- harm5.py: K5 (Lemma 2.1 equals the Cartesian computation entry by entry, every type, N = 2 and 3, l symbolic), K6
+  (the determinants), and a control.
+- Open: the D197, D200, D201, D204, D206, D207 and D217 repairs; Part III.A' unread; Parts III.A, III.C-III.J and IV-VII;
+  uniformity in P_0 (II.F' (F'11)).
+- Next: the ninety-second verifier on III.A' with the D217 repairs; then Part III.A ([Hin26] sections 2.1-2.3).
+
+### 4.142 Part III.A written: [Hin26] sections 2.1-2.3 at n = 4 (D219)
+
+- `proof5/PART-III-A-PREREQ.md`: b-analysis (Lemmas 1.1-1.5: normal form, Fuchsian integration, testing, boundary
+  spectrum with the Mellin argument written out, formal solutions), the 3b- and sc-b notions on R^{1+4} (Lemma 2.4,
+  Plancherel; the normal operator at sf with S^3), Lemmas 3.1-3.2 (x d_x and x d_x - y d_y), Lemma 4.1 and Proposition
+  4.2 (the Fourier transform with partial expansions; inputs II.G' Propositions 3.3 and 3.5).
+- Findings (L1)-(L4): (2.29)'s log index is k(E_K, j + 1), not k(E_K, j) (as printed the condition is meaningless for
+  E_K = (1,0)); a zf-weight misprint in the proof; the commutator with chi(sigma), harmless; Cauchy's constant in Lemma
+  2.15.
+- Open: the D197, D200, D201, D204, D206, D207 and D217 repairs; Parts III.A and III.A' unread; Parts III.C-III.J and
+  IV-VII; uniformity in P_0 (II.F' (F'11)).
+- Next: the ninety-third verifier on III.A after the ninety-second reports; then Part III.C-III.D ([Hin26] sections
+  5-6).
+
