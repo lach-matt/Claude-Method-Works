@@ -45,8 +45,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | **proved** (D238: the D235 repairs read, correct) |
 | III.F'''' | [Hin26] 8.4-8.5 (Lemmas 8.12, 8.15, Proposition 8.14) | the zero energy pairings, reduced to infinity; the physical states at -2 | **proved** (D238: the D235 repairs read, correct; two nits seated) |
 | III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 2, finite meromorphy | **proved** (D240: the ninety-ninth verifier read the D238 repairs, correct) |
-| III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | verified (D240; one major finding, two minor and seven nits seated, to be read) |
-| III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | written (D239) |
+| III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | **proved** (D241: the hundredth verifier read the D240 repairs, correct; one nit seated) |
+| III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | verified (D241; one major finding, two minor and seven nits seated, to be read) |
 | III.C, III.G'''-III.J | [Hin26] 5, 9 (from Lemma 9.13)-12 | exterior stability; the rest of the spectral theory at the transition faces; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -764,19 +764,25 @@ to a finite order. Written (D237). Verified (D240): read in full by the ninety-n
 finite-regularity order of $(v\partial_v-\frac32-\bar S)h$ is $\ell_I$, not $\ell_I+1$, as the source prints. Two minor
 findings: the smallness $\gamma_\Upsilon<\frac38$ and the non-coincidence choices were not secured; and the holomorphy
 in $\lambda$ of the expansion coefficients, now by fixed-circle Mellin integrals. Seven nits are seated; one withdraws
-the finding of a misprint in the source's (9.22), which the normalised text cannot show. The repairs are to be read.
+the finding of a misprint in the source's (9.22), which the normalised text cannot show. Proved (D241): the hundredth
+verifier read the repairs, correct and complete; its one nit, holomorphy of the remainder in the $\ell_I$-weighted
+space, is seated.
 
 ## Part III.G''
 
 `PART-III-G3-GRAFT.md`. [Hin26] Definitions 9.8, 9.10, Proposition 9.9, Proposition 9.11 and Corollary 9.12 at $n = 4$.
-*The window.* Every $\iota^+$-order grafted at $n = 4$ exceeds 1, so the expansion at $R = 0$ is needed only below
-$R^3$: $\ell_K<\ell_K^{\max} = \min(3,2+2\gamma_Cv_C)$. That needs no state at $-3$ and no companion of the physical
-states at $-2$. Table 1.1 lists the roots in $(-3,0]$ with their states (III.D$''$, III.D$'''$, III.F$''''$), the
-companions constructed and those used ($k_\mu\ge2+\mu$). Lemma 1.2: their leading terms span the indicial kernels,
+*The window.* If every $\iota^+$-order grafted at $n = 4$ exceeds $1+\max(\epsilon_K,\epsilon_{\mathrm{ind}})$ (for the
+source's direct grafts at $\lambda = 1$, the record's open reading $\alpha_5$), the expansion at $R = 0$ is needed only
+below $R^3$: $\ell_K<\ell_K^{\max} = \min(3,2+2\gamma_Cv_C)$. That needs no state at $-3$ and no companion of the
+physical states at $-2$. Table 1.1 lists the roots in $(-3,0]$ with their states (III.D$''$, III.D$'''$, III.F$''''$),
+the companions constructed and those used ($k_\mu\ge2+\mu$). Lemma 1.2: their leading terms span the indicial kernels,
 which closes III.D$'''$'s deferred item for the window. Lemmas 2.1-2.6: towers, the Minkowski and Myers-Perry formal
 solutions, their errors (the source's (9.28)-(9.31), (9.37)). Theorem 3.1 (Proposition 9.9): the expansion of
 $N_{\iota^+}(\lambda)u = f$ at $R = 0$ is a sum of formal solutions, log-free, by induction on the least exponent;
-Corollary 3.2 is the $K^+$ index set of III.G$'$ made precise. Theorem 4.2 (Proposition 9.11): grafting, with
-$\bar L$ as the $\iota^+$-normal operator of $L_b$ by the exact identity (4.1) and $\chi_\iota$ a function of $t_*$;
-Corollary 4.3 (Corollary 9.12). (C5) $\gamma_Cv_C\ge\frac12$ is an obligation for Part VI. Findings
-(G$''$1)-(G$''$7). Written (D239).
+Corollary 3.2 is the $K^+$ index set of III.G$'$ made precise. Theorem 4.2 (Proposition 9.11): grafting, with $2\bar L$
+as the $\iota^+$-normal operator of $2L_b$ by the exact identity (4.1) and $\chi_\iota$ a function of $t_*$; Corollary
+4.3 (Corollary 9.12). (C5) $\gamma_Cv_C\ge\frac12$ is an obligation for Part VI. Findings (G$''$1)-(G$''$7). Written
+(D239). Verified (D241): the hundredth verifier read it in full. One major finding: the $\iota^+$-normal operator is
+that of $2\bar L$, so (4.4) failed by a factor 2, repaired by $u_+ := N_{\iota^+}(\lambda)^{-1}(2f_+)$. Two minor: the
+window is conditional on the least grafted order, and Corollary 4.3's hypothesis is now a finite quasi-homogeneous sum.
+Seven nits are seated. The repairs are to be read.

@@ -1,21 +1,27 @@
 # Part III.G$''$. Formal solutions at $K^+$ and grafting at n = 4 ([Hin26] sections 9.1.1-9.1.2)
 
-*Status.* Written (D239). This part proves, at spatial dimension $n = 4$, [Hin26] Definitions 9.8 and 9.10, Proposition
-9.9, Proposition 9.11 and Corollary 9.12 (pp. 172-179). Proposition 9.9 describes the solutions of III.G$'$ at
-$\iota^+\cap K^+$, term by term, as formal solutions built from zero energy states. Proposition 9.11 grafts such a
-solution into spacetime as an approximate solution on the Myers-Perry family, accurate at $\iota^+$ and at $K^+$.
-Corollary 9.12 does the same for sources with logarithms in $t_*$ and at $\iota^+$-resonances. Parts are cited as
-before; the source is [Hin26] = P. Hintz, arXiv:2606.28253v2 (printed page numbers).
+*Status.* Verified (D241: the hundredth verifier; one major finding, two minor and seven nits seated, to be read). This
+part proves, at spatial dimension $n = 4$, [Hin26] Definitions 9.8 and 9.10, Proposition 9.9, Proposition 9.11 and
+Corollary 9.12 (pp. 172-179). Proposition 9.9 describes the solutions of III.G$'$ at $\iota^+\cap K^+$, term by term, as
+formal solutions built from zero energy states. Proposition 9.11 grafts such a solution into spacetime as an approximate
+solution on the Myers-Perry family, accurate at $\iota^+$ and at $K^+$. Corollary 9.12 does the same for sources with
+logarithms in $t_*$ and at $\iota^+$-resonances. Parts are cited as before; the source is [Hin26] = P. Hintz,
+arXiv:2606.28253v2 (printed page numbers).
 
 *What n = 4 changes: the window.* The source expands at $R = 0$ up to $R^{\ell_K}$ with
 $\ell_K<3+\epsilon_{\mathrm{ind}}$. That keeps the indicial roots in $[-3,0]$, each with generalised companions to the
 orders of his (9.32), because the smallest $\iota^+$-order he grafts is $\lambda = 1$ and the remainder must have
-$K^+$-order $\lambda+\ell_K>4$. At $n = 4$ every $\iota^+$-order to be grafted exceeds 1. The pure $\iota^+$ resonances
-have real part at least 2 (III.G Theorem 5.1 (2)), and the source's Corollary 9.12 asks $\mathrm{Re}\,\lambda_0>1$ in
-any case. So $\ell_K<3$ suffices: for every $\lambda>1$ some $\ell_K\in(4-\lambda,3)$ is admissible. This window
-$(-3,0]$ needs no state at $-3$, and every state it needs has been constructed: in III.D$''$, III.D$'''$ and
-III.F$''''$, with at least the companions required (Table 1.1). The record's own estimate of the window (N1STAR-PROOF.md
-10.35 (c), $[\alpha_5-4,0]$ with $\alpha_5\in(1,2]$) lies inside it, and its value of $\alpha_5$ is not needed here.
+$K^+$-order $\lambda+\ell_K>4$. Downstream every use needs only $\lambda+\ell_K\ge4+\epsilon$, with $\epsilon$ the
+source's $\epsilon_K$ or $\epsilon_{\mathrm{ind}}$ ((12.21), p. 308). At $n = 4$ the pure $\iota^+$ resonances have real
+part at least 2 (III.G Theorem 5.1 (2)), and the source's Corollary 9.12 asks $\mathrm{Re}\,\lambda_0>1$. But the source
+also grafts directly at $\lambda = 1$ by Proposition 9.11: the mass change (10.15), p. 247, and the boost source of
+(11.119a). Their $n = 4$ orders rest on the record's reading $\alpha_5\in(1,2]$ (N1STAR-PROOF.md 10.35, deduced). So
+$\ell_K<3$ suffices provided the least grafted order exceeds $1+\max(\epsilon_K,\epsilon_{\mathrm{ind}})$, an open
+reading ((G$''$1)). Theorems 3.1 and 4.2 hold for every $\ell_K<\ell_K^{\max}$ regardless. This window $(-3,0]$ needs no
+state at $-3$ in sections 9-12, and every state it needs has been constructed: in III.D$''$, III.D$'''$ and III.F$''''$,
+with at least the companions required (Table 1.1). The record's own estimate of the window (N1STAR-PROOF.md 10.35 (c),
+$[\alpha_5-4,0]$ with $\alpha_5\in(1,2]$) lies inside it. What is needed of $\alpha_5$ is the bound above, not its
+value.
 
 ## 1. Hypotheses, the roots in the window, and their states
 
@@ -40,7 +46,7 @@ of generalised companions constructed, and the number $k_\mu$ used below.
 
 | root $\mu$ | types | origin | state | $K$ | $k_\mu$ |
 |---|---|---|---|---|---|
-| $0$ | s0 | $\Box^\Upsilon$'s s0 root | time translation $h^{(0)}_{b,\mathrm s0}$, III.D$'''$ Proposition 3.1 (1) | 3 | 2 |
+| $0$ | s0 | the factor $\lambda+l$ of III.F$'$ (2.1) at $l = 0$ | time translation $h^{(0)}_{b,\mathrm s0}$, III.D$'''$ Proposition 3.1 (1) | 3 | 2 |
 | $0$ | s2 | $\Box^\Upsilon$'s sl root $-l+1$, $l = 2$ | III.D$'''$ (4)-(7) | 3 | 2 |
 | $-1$ | s1 | the boosts | $h^{\le k}_{b,\mathrm s1}$, III.D$''$ Proposition 3.1, III.D$'''$ (2) | 4 | 3 (special) |
 | $-1$ | v1 | the rotations | $h^{\le k}_{b,\mathrm v1}$, III.D$''$ Proposition 3.1, III.D$'''$ (3) | 3 | 2 (special) |
@@ -52,10 +58,10 @@ of generalised companions constructed, and the number $k_\mu$ used below.
 | $2-\lambda^\Upsilon_{\mathrm sl,l+1}\in(-\frac54,-1)$, $l = 2$; $2-\lambda^\Upsilon_{\mathrm s1,3}\in(-\frac54,-1)$ | s2; s1 | class roots | III.D$'''$ (4)-(7) | 2 | 1 |
 | $2-\lambda^\Upsilon_{\mathrm s2,4}$, $2-\lambda^\Upsilon_{\mathrm s3,4}\in(-\frac94,-2)$ | s2, s3 | class roots | III.D$'''$ (4)-(7) | 2 | 0 |
 
-A root $\mu$ of III.D$'''$'s $\Box^\Upsilon$-list is a root of $\widehat{L_b}(0)$ shifted by one: the state is
-$h^{(\mu)}_b := \delta^*_{g_b}\omega^{(\mu-1)}_b$, whose leading term $\widehat{\bar\delta^*}(0)\bar\omega$ is of degree
-$\mu$ (III.D$'''$ (4)-(7)). Roots $\mu\in\mathcal W(\ell_K)$ with $-\mathrm{Re}\,\mu\ge\ell_K$ do not occur, and only
-rows with $-\mu<\ell_K$ are used.
+A root $\mu$ of $\widehat{L_b}(0)$ in the $\Box^\Upsilon$ rows is the root $\mu-1$ of III.D$'''$'s $\Box^\Upsilon$-list,
+and the state is $h^{(\mu)}_b := \delta^*_{g_b}\omega^{(\mu-1)}_b$, whose leading term
+$\widehat{\bar\delta^*}(0)\bar\omega$ is of degree $\mu$ (III.D$'''$ (4)-(7)). Roots $\mu\in\mathcal W(\ell_K)$ with
+$-\mathrm{Re}\,\mu\ge\ell_K$ do not occur, and only rows with $-\mu<\ell_K$ are used.
 
 *Completeness of the table.* The roots of III.F$'$ Proposition 2.3 with real part in $(-3,0]$ are those listed and the
 excluded ones. Excluded: the $\lambda^C_{\cdot,\ll,\cdot}-1$ (real part $<-101$); $-2-2\gamma_Cv_C$ (below
@@ -75,11 +81,11 @@ in a basis of $\mathcal Y_\tau$, and depends linearly on $Y$. The state's leadin
 lies in the kernel. It satisfies $\widehat{\bar L}(0)\bar h = 0$: for the base of a chain this is the leading order of
 (2.1) at $m = 0$, since $\widehat{L_b}(0)-\widehat{\bar L}(0)\in\rho^4\mathrm{Diff}^2_{\mathrm b}$ (III.F Lemma 2.1
 (3)); for s1 and v1 it is (2.4) of Lemma 2.2 below at the first index of the chain. As
-$\widehat{\bar L}(0) = \rho^2\tilde L(0)(\omega,\rho\partial_\rho,\partial_\omega)$ is dilation invariant, this is
-$N(\widehat{\bar L}(0),\mu)\phi = 0$. It is non-zero for $Y\ne0$: for the $\Box^\Upsilon$-roots, by (R5) of III.D$'''$,
-as $N(\widehat{\bar\delta^*}(0),\mu-1)$ is injective on these types at $\mu-1\notin\{0,-1\}$, or (at s0, s2 with
-$\mu = 0$) by III.F$'$ Lemma 2.5; for the boosts and rotations, by III.D$'''$ (2)-(3); and for the physical states, by
-III.F$''''$ Proposition 5.1, whose leading terms span the kernel.
+$2\widehat{\bar L}(0) = \rho^2\tilde L(0)(\omega,\rho\partial_\rho,\partial_\omega)$ (III.G (1.1)) is dilation
+invariant, this is $N(\widehat{\bar L}(0),\mu)\phi = 0$. It is non-zero for $Y\ne0$: for the $\Box^\Upsilon$-roots, by
+(R5) of III.D$'''$, as $N(\widehat{\bar\delta^*}(0),\mu-1)$ is injective on these types at $\mu-1\notin\{0,-1\}$, or (at
+s0, s2 with $\mu = 0$) by III.F$'$ Lemma 2.5; for the boosts and rotations, by III.D$'''$ (2)-(3); and for the physical
+states, by III.F$''''$ Proposition 5.1, whose leading terms span the kernel.
 
 $\square$
 
@@ -227,8 +233,8 @@ $z_0<\ell_K$.
 $(R,\omega)$ (Lemma 2.4 (b)). Its $R^{-\mu}$-coefficient is $c$, since
 $t_*^\lambda a\breve{\bar h}^0 = R^{-\mu}\bar h_\tau(Y)$; for s1 and v1 the lowest terms are
 $R^1\bar h^2_{\mathrm s1}(S)$ and $R^1\bar h^1_{\mathrm v1}(V)$. Its other terms have exponents $-\mu+j$, $j\ge1$. By
-(2.6) and the definition (III.G$'$ (1.1)) $N_{\iota^+}(\lambda) = t_*^{\lambda+2}\bar Lt_*^{-\lambda}$ on
-$t_*$-independent functions,
+(2.6) and the definition (III.G$'$ (1.1), with $P_0 = 2L_b$ as in III.G Lemma 1.2 (c))
+$N_{\iota^+}(\lambda) = t_*^{\lambda+2}(2\bar L)t_*^{-\lambda}$ on $t_*$-independent functions,
 $$N_{\iota^+}(\lambda)w\in R^{-\mu+k_\mu-1}C^\infty\subset H^{\infty,\ell_K-2}_{\mathrm b}\quad\text{near }R = 0,$$
 as $-\mu+k_\mu-1\ge1>\ell_K-2$ (Lemma 2.6). The same holds for s1 and v1, with $R^{1}$. So $u' := u-w$ satisfies the
 hypotheses with $f' := f-N_{\iota^+}(\lambda)w$, and has no term $R^{-\mu}$ of the types removed. Doing this for every
@@ -252,18 +258,18 @@ counterpart of the source's $\mathcal E_K$ ((G$'$2) of III.G$'$).
 Let $\mathcal M$ be the compactified spacetime of III.B (the source's (3.3)) with its faces $\mathscr I^+$, $\iota^+$,
 $K^+$. Let $\Omega_* := \mathrm{cl}_{\mathcal M}\{t_*\ge1\}$ (the source's (9.38)), and let the b-spaces on $\Omega_*$
 carry three orders, listed for $\mathscr I^+$, $\iota^+$, $K^+$ (III.A Definitions 2.6-2.8). Let
-$\chi_K\in C^\infty(\mathcal M)$ equal 1 near $K^+$ and 0 near $t_*^{-1}(1)\cup\mathscr I^+$. Let
-$\chi_\iota := \chi(t_*)$, with $\chi\in C^\infty(\mathbb R)$ equal to 0 on $(-\infty,1]$ and 1 on $[2,\infty)$; it
-equals 1 near $\iota^+$ and is supported in $\Omega_*$.
+$\chi_K\in C^\infty(\mathcal M)$ equal 1 near $K^+$ and 0 near $t_*^{-1}(1)\cup\mathscr I^+$, and near $\iota^+$ be a
+function of $R$ alone. Let $\chi_\iota := \chi(t_*)$, with $\chi\in C^\infty(\mathbb R)$ equal to 0 on $(-\infty,1]$ and
+1 on $[2,\infty)$; it equals 1 near $\iota^+$ and is supported in $\Omega_*$.
 
-**Lemma 4.1 ($\bar L$ is the $\iota^+$-normal operator of $L_b$).** For $w = w(R,\omega)$ conormal on $\iota^+$ near
+**Lemma 4.1 ($2\bar L$ is the $\iota^+$-normal operator of $2L_b$).** For $w = w(R,\omega)$ conormal on $\iota^+$ near
 $\{R>0\}$ (equivalently $w(v,\omega)$, $v = R^{-1}$), on $\{|x|>3R_1\}$:
-$$L_b\big(t_*^{-\lambda}w\big) = t_*^{-\lambda-2}N_{\iota^+}(\lambda)w+t_*^{-\lambda-4}v^2Bw,\tag{4.1}$$
-with $B$ a second-order b-operator in $(v\partial_v,\partial_\omega)$ whose coefficients are smooth functions of
-$(\rho,\omega) = (v/t_*,\omega)$.
+$$2L_b\big(t_*^{-\lambda}w\big) = t_*^{-\lambda-2}N_{\iota^+}(\lambda)w+t_*^{-\lambda-4}v^2Bw,\tag{4.1}$$
+with $B = B_0+vB_1+v^2B_2$, each $B_i$ a second-order b-operator in $(v\partial_v,\partial_\omega)$ whose coefficients
+are smooth functions of $(\rho,\omega) = (v/t_*,\omega)$; $B_1$ and $B_2$ come from $Q_b$ and $R_b$.
 
-*Proof.* $\bar L(t_*^{-\lambda}w) = t_*^{-\lambda-2}N_{\iota^+}(\lambda)w$ is the definition of $N_{\iota^+}$ (III.G$'$
-(1.1)). For the rest use III.F (2.3), with
+*Proof.* $2\bar L(t_*^{-\lambda}w) = t_*^{-\lambda-2}N_{\iota^+}(\lambda)w$ is the definition of $N_{\iota^+}$ (III.G$'$
+(1.1); III.G Lemma 1.2 (c), $P_0 = 2L_b$). For the rest use III.F (2.3), stated for $2L_b$, with
 $\partial_{t_*}(t_*^{-\lambda}w(\rho t_*)) = t_*^{-\lambda-1}(v\partial_v-\lambda)w$ and
 $\rho\partial_\rho = v\partial_v$ at fixed $t_*$. $g_b^{00}\partial_{t_*}^2$ gives
 $\rho^2t_*^{-\lambda-2}(\ldots)w = t_*^{-\lambda-4}v^2(\ldots)w$. $Q_b\partial_{t_*}$ gives
@@ -274,7 +280,7 @@ $\square$
 $\mathrm{Re}\,\lambda>0$. Let $\ell_K<\ell_K^{\max}$, $\ell_K\ne-\mathrm{Re}\,\mu$ for all roots, and
 $\ell_K\notin\mathrm{Re}\,\pi_1\mathcal E_K$. Let $\ell_I<\frac32+s_C$,
 $\ell_I\notin\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}$, and $\mathrm{Re}\,\lambda<\ell_I$. Let
-$f_+\in H^{\infty,\ell_I+1,\ell_K-2}_{\mathrm b}(\iota^+;S^2T^*)$ and $u_+ := N_{\iota^+}(\lambda)^{-1}f_+$ (III.G$'$
+$f_+\in H^{\infty,\ell_I+1,\ell_K-2}_{\mathrm b}(\iota^+;S^2T^*)$ and $u_+ := N_{\iota^+}(\lambda)^{-1}(2f_+)$ (III.G$'$
 Theorem 3.1 (2), extended holomorphically to $\lambda\notin\mathrm{spec}_{\iota^+}$). Write
 $u_+ = \chi_K|_{\iota^+}u_0+\tilde u$ by Theorem 3.1, with $\tilde u\in H^{\infty,(\langle\mathcal E^C_{\iota^+,\mathscr
 I}\rangle,\ell_I),\ell_K}_{\mathrm b}(\iota^+)$. Define
@@ -289,8 +295,8 @@ the primed sum over the other rows. Let $u := \chi_Ku_{b,0}+\chi_\iota t_*^{-\la
 $$\chi_\iota t_*^{-\lambda-2}f_+-L_bu\in H^{\infty,(\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}+2,\ \ell_I
 +1),\ \lambda+2+\mathcal E_{\mathrm{ind}},\ \lambda+\ell_K}_{\mathrm b}(\Omega_*;S^2T^*)^{\bullet,-}\tag{4.4}$$
 for an index set $\mathcal E_{\mathrm{ind}}$ with $\min\mathrm{Re}\,\mathcal E_{\mathrm{ind}}>0$ depending only on
-$\bar L$. Moreover $(t_*^\lambda u)|_{\iota^+} = u_+$, and $u\in H^{\infty,(\langle\mathcal E^C_{\iota^+,\mathscr
-I}\rangle,\ell_I),(\lambda,0)\cup(\lambda+\mathcal E_{\mathrm{ind}}),(\mathcal
+$\bar L$ and on whether $\lambda = 1$. Moreover $(t_*^\lambda u)|_{\iota^+} = u_+$, and $u\in H^{\infty,(\langle\mathcal
+E^C_{\iota^+,\mathscr I}\rangle,\ell_I),(\lambda,0)\cup(\lambda+\mathcal E_{\mathrm{ind}}),(\mathcal
 E^{\mathrm{gr}}_K(\lambda),\ell_K)}_{\mathrm b}(\Omega_*)^{\bullet,-}$. Here $\mathcal E^{\mathrm{gr}}_K(\lambda)$
 contains the index sets of $a_{\mathrm s1}$, $a_{\mathrm v1}$ and $(\kappa,0)$ for every exponent $\kappa$ of $t_*^{-1}$
 in (4.3).
@@ -307,7 +313,7 @@ and that of $\breve h^1_{b,\mathrm v1}$ is $a'_{\mathrm v1}V = t_*^{-\lambda-1}V
 $\chi_K|_{\iota^+}$ and $\chi_\iota = 1$ near $\iota^+$, $(t_*^\lambda u)|_{\iota^+} = \chi_Ku_0+\tilde u = u_+$.
 
 *Away from $K^+$.* Near $\iota^+$, $u = t_*^{-\lambda}u_+$ up to terms supported near $K^+$. Lemma 4.1 gives
-$t_*^{-\lambda-2}f_+-L_b(t_*^{-\lambda}u_+) = -t_*^{-\lambda-4}v^2Bu_+$. As
+$t_*^{-\lambda-2}f_+-L_b(t_*^{-\lambda}u_+) = -\frac12t_*^{-\lambda-4}v^2Bu_+$, as $N_{\iota^+}(\lambda)u_+ = 2f_+$. As
 $u_+\in\mathcal A^{(\langle\mathcal E^C_{\iota^+,\mathscr I}\rangle,\ell_I)}$ at $v = 0$ (III.G$'$ Theorem 3.1),
 $v^2Bu_+$ has $\mathscr I^+$-index set in $\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}+2$ to order $\ell_I+2$. Its
 $\iota^+$-orders are $\lambda+4+\mathbb N_0$, from the Taylor expansion of the coefficients in $\rho = v/t_*$. The
@@ -327,20 +333,23 @@ only adds decay; $[L_b,\chi_K]u_{b,0}$, supported away from $K^+$; and $L_bu_{b,
 Lemma 2.6 each term has $K^+$-order $\ge\lambda+3>\lambda+\ell_K$.
 
 *The $\iota^+$-order of the remainder near $K^+\cap\iota^+$.* $t_*^{\lambda+2}L_bu$ restricted to $\iota^+$ is
-$N_{\iota^+}(\lambda)u_+ = f_+$, by Lemma 4.1 and $(t_*^\lambda u)|_{\iota^+} = u_+$. The Myers-Perry corrections in
-$u_{b,0}$ and the terms of Lemma 4.1 contribute at $\iota^+$-orders in $\lambda+2+\mathcal E_{\mathrm{ind}}$, with
-$\mathcal E_{\mathrm{ind}}$ collecting the states' index sets of III.D$''$, III.D$'''$, III.F$''''$ and $2+\mathbb N_0$.
-So the remainder's $\iota^+$-index set is $\lambda+2+\mathcal E_{\mathrm{ind}}$. The membership of $u$ follows term by
-term: $t_*^{-\lambda}\tilde u$ and (4.3), whose $t_*$-exponents are those collected in
+$\frac12N_{\iota^+}(\lambda)u_+ = f_+$, by Lemma 4.1 and $(t_*^\lambda u)|_{\iota^+} = u_+$. The Myers-Perry corrections
+in $u_{b,0}$ and the terms of Lemma 4.1 contribute at $\iota^+$-orders in $\lambda+2+\mathcal E_{\mathrm{ind}}$, with
+$\mathcal E_{\mathrm{ind}}$ collecting the states' index sets of III.D$''$, III.D$'''$, III.F$''''$, $2+\mathbb N_0$,
+and $(2,1)$ when $\lambda = 1$: the term $h_{b,\mathrm s1}(-\log t_*S)$ is of size
+$\rho^3\log t_* = v^3t_*^{-3}\log t_*$. No $t_*$-dependence of $\chi_K$ enters, as $\chi_K$ is a function of $R$ near
+$\iota^+$. So the remainder's $\iota^+$-index set is $\lambda+2+\mathcal E_{\mathrm{ind}}$. The membership of $u$
+follows term by term: $t_*^{-\lambda}\tilde u$ and (4.3), whose $t_*$-exponents are those collected in
 $\mathcal E^{\mathrm{gr}}_K(\lambda)$. $\square$
 
 As in the source, an $O(t_*^{-\lambda-2})$ source can set the black hole in motion. The s1 term is a centre-of-mass
-motion of size $O(t_*^{-\lambda+1})$, or $O(\log t_*)$ at $\lambda = 1$; at $n = 4$ there are four directions. The v1
-term is invisible at $\iota^+$ and non-zero only for $A\ne0$ (III.D$''$ Proposition 3.1 (3)); it is an $O(|A|)$ change
-of the rotation in $\mathfrak{so}(4)$.
+motion of size $O(t_*^{-\lambda+1})$, or $O(\log t_*)$ at $\lambda = 1$; at $n = 4$ there are four directions. In the v1
+term the summand $h_{b,\mathrm v1}(a_{\mathrm v1}V)$ is invisible at $\iota^+$ and non-zero only for $A\ne0$ (III.D$''$
+Proposition 3.1 (3)), an $O(|A|)$ change of the rotation in $\mathfrak{so}(4)$; the summand
+$\breve h^1_{b,\mathrm v1}(a'_{\mathrm v1}V)$ is visible there and reproduces $\bar h^1_{\mathrm v1}$.
 
-For fixed $\epsilon>0$ and $\lambda$ near $\lambda_0$, $\lambda\notin\mathrm{spec}_{\iota^+}(\bar L)$, Theorem 4.2
-defines $\Phi_{\iota,b}(\lambda)f_+ := u$ and
+For fixed $\epsilon>0$ and $\lambda$ near $\lambda_0\ne1$, $\lambda\notin\mathrm{spec}_{\iota^+}(\bar L)$
+($a_{\mathrm s1}$ has a pole at $\lambda = 1$), Theorem 4.2 defines $\Phi_{\iota,b}(\lambda)f_+ := u$ and
 $F_{\iota,b}(\lambda)f_+ := \chi_\iota t_*^{-\lambda-2}f_+-L_b\Phi_{\iota,b}(\lambda)f_+$ on
 $H^{\infty,\ell_I+1,\ell_K-2}_{\mathrm b}(\iota^+)$. These are holomorphic, with values in $H^{\infty,(\langle\mathcal
 E^C_{\iota^+,\mathscr I}\rangle,\ell_I),\lambda_0-\epsilon,\lambda_0-1-\epsilon}_{\mathrm b}(\Omega_*)^{\bullet,-}$ and
@@ -352,32 +361,38 @@ in $\lambda$ with values in these weighted spaces, and the states do not depend 
 
 **Corollary 4.3 ([Hin26] Corollary 9.12 at $n = 4$).** Let $\mathrm{Re}\,\lambda_0>1$. Let $l_0$ be the order of the
 pole of $N_{\iota^+}(\bar L,\cdot)^{-1}$ at $\lambda_0$ ($l_0 = 0$ if $\lambda_0\notin\mathrm{spec}_{\iota^+}(\bar L)$).
-Let $\ell_K$ and $\ell_I$ be as in Theorem 4.2, with $\mathrm{Re}\,\lambda_0<\ell_I$. Let $k\in\mathbb N_0$ and $f\in
-H^{\infty,\ell_I+1,(\lambda_0+2,k),\lambda_0+\ell_K-\epsilon}_{\mathrm b}(\Omega_*;S^2T^*)^{\bullet,-}$ for all
-$\epsilon>0$. Then there are $u^{(j)}_{b,0}$ of the form (4.3), with $\lambda_0$ for $\lambda$ and a factor
-$(\log t_*)^j$ in each argument, and $\tilde u^{(j)}\in\bigcap_\epsilon H^{\infty,(\langle\mathcal E^C_{\iota^+,\mathscr
+Let $\ell_K$ and $\ell_I$ be as in Theorem 4.2, with $\mathrm{Re}\,\lambda_0<\ell_I$. Let $k\in\mathbb N_0$ and
+$f = \sum_{j\le k}\chi_\iota t_*^{-\lambda_0-2}(\log t_*)^jf^{(j)}_++f'$, with
+$f^{(j)}_+\in\bigcap_\epsilon H^{\infty,\ell_I+1,\ell_K-2-\epsilon}_{\mathrm b}(\iota^+)$ and $f'\in\bigcap_\epsilon
+H^{\infty,\ell_I+1,\infty,\lambda_0+\ell_K-\epsilon}_{\mathrm b}(\Omega_*;S^2T^*)^{\bullet,-}$. (The source's hypothesis
+$f\in H^{\ldots,(\lambda_0+2,k),\ldots}$ also allows terms $t_*^{-\lambda_0-2-j}$, $j\ge1$, which its proof does not
+remove.) Then there are $u^{(j)}_{b,0}$ of the form (4.3), with $\lambda_0$ for $\lambda$ and a factor $(\log t_*)^j$ in
+each argument, and $\tilde u^{(j)}\in\bigcap_\epsilon H^{\infty,(\langle\mathcal E^C_{\iota^+,\mathscr
 I}\rangle,\ell_I),\ell_K-\epsilon}_{\mathrm b}(\iota^+)$, $j = 0,\dots,k+l_0$, such that
 $u := \sum_j\chi_Ku^{(j)}_{b,0}+\chi_\iota t_*^{-\lambda_0}(\log t_*)^j\tilde u^{(j)}$ satisfies
 $$f-L_bu\in\bigcap_{\epsilon>0}H^{\infty,(\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}+2,\ell_I+1),\ \lambda_0+2
 +\mathcal E_{\mathrm{ind}},\ \lambda_0+\ell_K-\epsilon}_{\mathrm b}(\Omega_*;S^2T^*)^{\bullet,-}.\tag{4.5}$$
 
-*Proof.* As in the source. Write $f = \sum_{j\le k}\chi_\iota t_*^{-\lambda_0-2}(\log t_*)^jf^{(j)}_+$, up to a
-remainder of $\iota^+$-order $\infty$ and $K^+$-order $\lambda_0+\ell_K-\epsilon$, with
-$f^{(j)}_+\in\bigcap_\epsilon H^{\infty,\ell_I+1,\ell_K-2-\epsilon}_{\mathrm b}(\iota^+)$. Then $f = \frac1{2\pi
+*Proof.* As in the source. The quasi-homogeneous part is $f-f' = \frac1{2\pi
 i}\oint\sum_j(-1)^jj!(\lambda-\lambda_0)^{-j-1}\chi_\iota t_*^{-\lambda-2}f^{(j)}_+\,d\lambda$, over a small circle
 around $\lambda_0$ on which $\lambda\notin\mathrm{spec}_{\iota^+}(\bar L)$. Put $u := \frac1{2\pi
-i}\oint\sum_j(-1)^jj!(\lambda-\lambda_0)^{-j-1}\Phi_{\iota,b}(\lambda)f^{(j)}_+\,d\lambda$. Then $f-L_bu$ is the same
-integral of $F_{\iota,b}(\lambda)f^{(j)}_+$, of the stated orders by the holomorphy above. Expanding in $t_*$ gives the
-polyhomogeneity: the power of $\log t_*$ is at most the order of the pole of the integrand at $\lambda_0$ minus 1, that
-is $k+l_0$. $\square$
+i}\oint\sum_j(-1)^jj!(\lambda-\lambda_0)^{-j-1}\Phi_{\iota,b}(\lambda)f^{(j)}_+\,d\lambda$. Then $f-L_bu$ is $f'$ plus
+the same integral of $F_{\iota,b}(\lambda)f^{(j)}_+$, of the stated orders by the holomorphy above. Expanding in $t_*$
+gives the polyhomogeneity: the power of $\log t_*$ is at most the order of the pole of the integrand at $\lambda_0$
+minus 1, that is $k+l_0$. $\square$
 
 ## 5. Findings
 
-(G$''$1) *The window at $n = 4$ is $\ell_K<3$ (with (C5), or $\ell_K<2+2\gamma_Cv_C$ without it).* Every $\iota^+$-order
-grafted exceeds 1, so the remainder's $K^+$-order $\lambda+\ell_K$ can exceed 4 with $\ell_K<3$. Then no state at $-3$
-is needed: neither the physical s3, v3, t3 nor the pure gauge s5, v4. Neither are the companions of the physical states
-at $-2$, which III.F$''''$ (F$''''$3) left unconstructed. The record's estimate $[\alpha_5-4,0]$ (10.35 (c)) lies inside
-this window, and its reading of $\alpha_5$ is not needed.
+(G$''$1) *The window at $n = 4$ is $\ell_K<3$ (with (C5), or $\ell_K<2+2\gamma_Cv_C$ without it), conditionally.*
+Downstream needs $\lambda+\ell_K\ge4+\epsilon$. The resonances (real part at least 2) and Corollary 9.12's orders (above
+1) fit. The source's direct grafts at $\lambda = 1$ ((10.15), p. 247, (11.119a)) have $n = 4$ orders that rest on the
+record's reading $\alpha_5\in(1,2]$ (10.35, deduced). So $\ell_K<3$ suffices provided the least grafted order exceeds
+$1+\max(\epsilon_K,\epsilon_{\mathrm{ind}})$: an open reading, to be proved where those grafts are written (Parts
+III.H-III.I). Then no state at $-3$ is needed in sections 9-12: neither the physical s3, v3, t3 nor the pure gauge s5,
+v4. Neither are the companions of the physical states at $-2$, which III.F$''''$ (F$''''$3) left unconstructed. The
+record's estimate $[\alpha_5-4,0]$ (10.35 (c)) lies inside this window; it needs
+$\alpha_5>1+\max(\epsilon_K,\epsilon_{\mathrm{ind}})$, not the value. The source's section 13.2 (Theorem 13.5, sharp
+decay) needs $\ell_K$ up to $4+\epsilon$, which at $n = 4$ would need the states at $-3$; it is outside this scope.
 
 (G$''$2) *The v1 root of $\Box^C$*, $-2-2\gamma_Cv_C$, is the one root from the constraint operator that can enter the
 window. It is excluded by (C5), $\gamma_Cv_C\ge\frac12$, an obligation for Part VI. Without (C5) the window is
@@ -402,3 +417,26 @@ III.G$'$ (3.2) gives (III.G$'$ (G$'$4)).
 
 (G$''$7) *At $n = 4$ the boost and rotation states decay one order faster* ($\rho^3$, $\rho^2$, $\rho^3$ against the
 source's $\rho^2$, $\rho$, $\rho$; III.D$''$ (3.4)), so their invisibility at $\iota^+$ holds with room.
+
+### 5.1 The hundredth verifier (D241)
+
+The hundredth verifier (Opus) read this part in full and the D240 repairs of III.G$'$. Findings and dispositions:
+
+(M1, major) Lemma 4.1 and Theorem 4.2 used $\bar L$ where the $\iota^+$-normal operator is that of $2\bar L$ (III.G
+(1.3), III.G Lemma 1.2 (c)); (4.4) failed by the leading term $\frac12t_*^{-\lambda-2}f_+$. Repaired: (4.1) is stated
+for $2L_b$ and $u_+ := N_{\iota^+}(\lambda)^{-1}(2f_+)$; the same slip at the definition of $N_{\iota^+}$ in Theorem
+3.1's proof and at $2\widehat{\bar L}(0)$ in Lemma 1.2's proof (harmless there) is corrected. The verifier checked the
+normalisation symbolically on $4+1$ Minkowski.
+
+(m1) The window rests on the least grafted order exceeding $1+\max(\epsilon_K,\epsilon_{\mathrm{ind}})$, which for the
+source's direct grafts at $\lambda = 1$ is the record's open reading $\alpha_5$. Repaired: stated as conditional, in the
+opening and in (G$''$1).
+
+(m2) Corollary 4.3's hypothesis allowed terms the proof does not remove. Repaired: the hypothesis is a finite sum of
+quasi-homogeneous terms plus a remainder of $\iota^+$-order $\infty$.
+
+Nits, all seated: $\mathcal E_{\mathrm{ind}}$ contains $(2,1)$ when $\lambda = 1$, and $\chi_K$ is a function of $R$
+near $\iota^+$; $B = B_0+vB_1+v^2B_2$; the origin of the s0 root 0 in Table 1.1; the wording of the root shift; the
+holomorphy statement needs $\lambda_0\ne1$; the visible and invisible v1 summands; the scope against the source's
+section 13.2. The D240 repairs of III.G$'$ were found correct and complete, with one nit (holomorphy of the remainder in
+the $\ell_I$-weighted space), seated there.

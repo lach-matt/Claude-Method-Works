@@ -401,7 +401,12 @@ $\mathrm{Re}\,z<\ell_I$, is $\frac1{2\pi i}\oint(\kappa-z)^j\Pi_s\mathcal M(\chi
 fixed small circle around $z$. It is holomorphic by the joint holomorphy of Step 3 (b), which for $f$ in the weighted
 space holds on $\{\mathrm{Re}\,\kappa<\ell_I\}$: there $H_s$ is the transform of
 $-\chi\Pi_sf/(2v)\in\rho_I^{\ell_I}H_{\mathrm b}$ and of terms supported in $[\frac12,1)$. The remainder is $h$ minus
-the finite expansion (D240). So (3.3) is finite-meromorphic on $\{\mathrm{Re}\,\lambda<\ell_I\}$. Its principal part at
+the finite expansion (D240). It is holomorphic in the weaker weight in which $h(\lambda)$ is, and bounded in the
+$\ell_I$-weighted space locally uniformly in $\lambda$, the constants of Steps 1-5 being built from
+$N_{\mathrm{sf}}(\lambda)^{-1}$ and fixed-circle integrals. A locally bounded map into a Hilbert space that is
+holomorphic into a larger space continuously containing it is holomorphic (W. Arendt and N. Nikolski, Vector-valued
+holomorphic functions revisited, Math. Z. 234 (2000), 777-805, Theorem 3.1, with the functionals of the larger space as
+the separating set) (D241). So (3.3) is finite-meromorphic on $\{\mathrm{Re}\,\lambda<\ell_I\}$. Its principal part at
 $\lambda_0$ is obtained by expanding $R^{\pm\lambda}$ about $\lambda_0$: its Laurent coefficients are finite
 combinations of $R^{-\lambda_0}(\log R)^iA_{-j}(\log R)^{i'}R^{2+\lambda_0}$, with $A_{-j}$ those of
 $N_{\mathrm{sf}}^{-1}$. These have finite rank and do not depend on $(s,\mu)$, as the inverses agree (III.G Theorem 5.1

@@ -5370,3 +5370,9 @@ choices of eps and l_I; holomorphy of the coefficients by Mellin integrals) and 
 misprint finding on the source's (9.22) withdrawn. The D238 repairs are correct: III.G is proved; III.G' is verified,
 its repairs to be read. Next: Part III.G'''; verifier 100 on III.G'' and these repairs.
 
+**D241 (2026-10-26): verifier 100 seated.** The hundredth verifier (Opus) read III.G'' and the D240 repairs. One major
+finding (the iota+-normal operator belongs to 2 L-bar, so Theorem 4.2's (4.4) failed by a factor 2), two minor (the
+window is conditional on the least grafted order exceeding 1 + max(eps_K, eps_ind), an open reading for the direct
+grafts at lam = 1; Corollary 4.3's hypothesis) and seven nits, all seated. The D240 repairs are correct, one nit seated:
+III.G' is proved; III.G'' is verified, its repairs to be read. Next: Parts III.C and III.G'''.
+

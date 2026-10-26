@@ -3020,3 +3020,21 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Next: Part III.G''' ([Hin26] Lemmas 9.13-9.14, Proposition 9.15 to Proposition 9.22); verifier 100 (Opus) on III.G''
   and the D240 repairs.
 
+### 4.164 Verifier 100 seated: III.G' proved; III.G'' verified (D241)
+
+- The hundredth verifier (Opus) read III.G'' in full and the D240 repairs of III.G': one major finding, two minor,
+  seven nits on III.G''; the D240 repairs correct and complete, one nit.
+- M1 (major): the iota+-normal operator is that of 2 L-bar (III.G (1.3), Lemma 1.2 (c)), so Lemma 4.1 and (4.4) were
+  off by a factor 2. Repaired: (4.1) for 2 L_b, u_+ := N_iota(lam)^-1 (2 f_+).
+- m1: the window l_K < 3 needs the least grafted order above 1 + max(eps_K, eps_ind); for the source's direct grafts
+  at lam = 1 ((10.15), p. 247, (11.119a)) that is the record's open reading alpha_5. Stated as conditional, to be
+  proved where those grafts are written (III.H-III.I).
+- m2: Corollary 4.3's hypothesis is now a finite quasi-homogeneous sum plus a remainder of iota+-order infinity.
+- Nits: E_ind contains (2, 1) at lam = 1, chi_K a function of R near iota+; B = B_0 + v B_1 + v^2 B_2; the origin of the
+  s0 root 0; the root-shift wording; lam_0 != 1 for holomorphy; the v1 summands; section 13.2 out of scope. In III.G'
+  the remainder's holomorphy in the l_I-weighted space by local boundedness ([AN00] Theorem 3.1).
+- Checks: sf5.py S1-S11 and sbar5.py S1-S4 pass; the verifier's symbolic check of the factor 2 on 4+1 Minkowski.
+- Status: III.G' proved; III.G'' verified (D241), the repairs to be read.
+- Next: Part III.C ([Hin26] section 5 at n = 4) and III.G''' ([Hin26] Lemma 9.13 on); a verifier on them and these
+  repairs.
+
