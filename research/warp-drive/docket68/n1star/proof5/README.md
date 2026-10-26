@@ -70,7 +70,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | **proved** (D287) |
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
 | III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | written (D286) |
-| III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | written (D288) |
+| III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23, the cut-off gauge, (C4)); gauged Cauchy data (Proposition 5.25) | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -1168,3 +1169,9 @@ order. II.G' Corollary 4.5's loss ceil(k delta) + ell is bounded through strong 
 inventories every construction of III.I-III.I(14) and III.J'. Theorems 4.1-4.2 give the tame forms of III.I(14) Theorem
 3.1 and III.J' Theorem 2.1, and Proposition 4.3 the tame forward map. It discharges (J'2) at b_0; (J'3) stays open.
 Written (D286).
+
+`PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
+1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output
+of Part IV ([Hin23a] section 3 at n = 4, to be written). Theorem 3.1 gives partial polyhomogeneity at I_0 (commuting
+with prod(X_0 - z)) and at null infinity (slot by slot through the constant lower-triangular A-bar, half steps). The
+radiation fields are not subtracted, so III.C's obligation (C7) does not arise. Written (D288).

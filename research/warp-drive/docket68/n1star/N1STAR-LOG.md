@@ -5699,3 +5699,10 @@ open linear theory at other black holes. Next: verifier 124 on this part.
 of D285 (the rotation rows extended to the exponents of real part 2, and the minor points of verifier 122) and found
 nothing of weight: seven nits, all seated. The absorption of the expansion into the operator and both halves of the
 efficient parameterisation are now proved at the reference black hole. Next: verifier 124 on the tame estimates.
+
+**D288 (2026-10-26): Part III.C' written: the exterior solution and its partial polyhomogeneity.** The source's sections
+5.4-5.5 at n = 4. The exterior domain is shown spacelike with the weights at null infinity shifted by one half. The
+exterior solution is stated as the output of Part IV, which writes out the exterior estimates. The expansions at
+spacelike and null infinity are derived. At n = 4 the perturbation enters the operator at null infinity only half an
+order below the leading part, so the equation is integrated directly, slot by slot, and the radiation fields need not be
+subtracted: the obligation left by III.C is settled. Next: verifier 125.

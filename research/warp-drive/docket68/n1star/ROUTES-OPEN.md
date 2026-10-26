@@ -3791,3 +3791,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   solution's order Re lambda_0 + 1 <= 4 in III.J' Case A; lambda_sharp + 2 > 3 + delta' and the rate bound from
   III.I'''''''''''' Theorem 3.1 in Step 4'; Lemma 2.3 cited for M_rot; Re z in finding 5; two parentheticals merged.
 - Next: verifier 124 on III.J'' (D286); III.C' ([Hin26] sections 5.4-5.5 at n = 4) is being written.
+
+### 4.212 Part III.C' written (D288): the exterior solution and its partial polyhomogeneity
+
+- III.C' (PART-III-C2-POLYHOM.md) writes [Hin26] sections 5.4-5.5 at n = 4.
+- Lemma 1.1 (the source's Lemma 5.16): the exterior domain with the weights 3/2 < l_I^flat < min(l_0^flat, 3/2 + (1 -
+  e_Ups) gam_Ups, 2), shifted by 1/2 at null infinity. The null boundary is spacelike for g_{b_0} + h: only delta_00,
+  of pi_C type, competes with r^{-l}, and the n = 4 mass sits in the 11-slot at rho_0^2 rho_I^2.
+- Theorem 2.1 (the source's Theorem 5.17 with (5.52)-(5.53)) is stated as the output of Part IV ([Hin23a] section 3 at
+  n = 4); finding (C'1).
+- Theorem 3.1 (the source's Theorem 5.21) at n = 4, with min Re E_0 > 3/2 + 2 gam_Ups. Step 1 commutes with prod(X_0 -
+  z): index sets are closed under +N_0, and R annihilates the expansion terms up to alpha_1, so the commutator costs
+  nothing. Step 2 integrates slot by slot through the constant lower-triangular A-bar (III.C Lemma 4.2), half a step at
+  a time, enlarging E^C_I by the extended union with E_0 that the corner integration makes (the source's E^{C,new}_I).
+- Settled: III.C's (C7). At n = 4 the radiation fields enter only the error (III.C (C1)), so the source's subtraction
+  g_0 = g_{b_0} + h_0 and its source term P(g_0, g_{b_0}) are not needed.
+- Next: verifier 125 on III.C' after verifier 124 (III.J''); then III.C'' ([Hin26] sections 5.6-5.7), Part IV ([Hin23a]
+  section 3 and [Hin26a] at n = 4), (J'3), and [Hin26] section 13.
