@@ -338,9 +338,9 @@ E^C_I\rangle,\ell_I),\lambda_\sharp-\epsilon,\alpha-2-\epsilon}_{\mathrm b}(\Ome
 
 (c) $f^\flat := f-L_{b_0}(u_I+u_\iota)\in\bigcap_{\epsilon>0}H^{\infty,\ell_I+1,(\mathcal
 E^\flat+2,w_+-\epsilon),\alpha-\epsilon}_{\mathrm b}(\Omega_*;S^2T^*)^{\bullet,-}$, vanishing for $t_*<1$, where
-$\mathcal E^\flat$ is an index set with $\pi_1\mathcal E^\flat\subset\Lambda\cap\{\mathrm{Re}\ge2\}$ and log order at
-most $K(\lambda)$ at $\lambda$, and $\mathcal E_I$ in (a) is one with $\pi_1(\mathcal
-E_I\cap\{\mathrm{Re}<3+\epsilon_+\})\subset\Lambda$.
+$\mathcal E^\flat$ is an index set with $\pi_1(\mathcal
+E^\flat\cap\{\mathrm{Re}<3+\epsilon_+\})\subset\Lambda\cap\{\mathrm{Re}\ge2\}$ and log order at most $K(\lambda)$ at
+$\lambda$, and $\mathcal E_I$ in (a) is one with $\pi_1(\mathcal E_I\cap\{\mathrm{Re}<3+\epsilon_+\})\subset\Lambda$.
 
 For $\alpha<3$ this is III.I$''''''''$ Lemma 3.2's Steps 1-2 (with the $\iota^+$-expansion recorded to the weight
 $w_+$); the new point is $\alpha\le4+\epsilon_K$.

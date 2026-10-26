@@ -3550,3 +3550,24 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   2 + E_col joins Lambda. Also eta_1, eta_2 < eps_+ and Lemmas 2.1-2.2 to the full remainder order.
 - Next: verifier 117 on III.I''''''''''' and the D274 repairs; then III.I'''''''''''' (Part 4, the iota+ index set of
   (11.222), section 11.8.3).
+
+### 4.198 Verifier 117 seated: III.I''''''''''' verified, III.I'''''''''' proved (D275)
+
+- Verifier 117 on III.I''''''''''' (PART-III-I12-SPECTRAL.md) and the D274 repairs: 1 major, 3 minor, 12 nits; the
+  D274 repairs (M1, m1-m3, n1-n7 of verifier 116) all made and correct, and the new generator 2 + pi_1 E_col of Lambda
+  breaks nothing, so III.I'''''''''' is proved.
+- M1: the zero-energy data at levels 1-3 are found for each sign of sigma, and S_1^+ != S_1^- in general (the
+  sign-dependent zf-coefficient of III.G'''' Proposition 4.4's remainder); the odd part of sigma h^aug(S_1) is not locally
+  integrable. Repaired by a matching step (as in III.I'''''' Step 5 and the source's p. 287 caveat): on d_t v the odd
+  part is i sgn(sigma) h(S_o) + o(1), whose inverse transform ~ c t^{-1} as t -> -inf, while d_t v is rapidly
+  decaying there; so S_o = 0. The other sign-dependent pieces are of integer degree without log and give no tail.
+- m1: Step 4 applies Proposition 5.1 with alpha_tau = min(tau, 2 - delta), loops while tau <= 2 + l_3 + eps, and ends
+  with tau in (2 + l_3 + eps, 3), so III.I'' Lemma 4.2's beta_tf - beta_zf lies in (0,1). m2: the s1 pieces have degree
+  alpha_0 - 3 + j + i. m3: III.I'''''''' Proposition 4.1 is stated for P_3; with h' = h + sum h_nu(W_nu) it holds for
+  (L_{h,p}, D_p P_4), the derivatives differing by an O(|W|) term in Y_2(alpha).
+- Nits: Lemma 1.1's citation and rho_tf; the sign of i L_1 u; the commutators' index sets; c_tau and P_int at critical
+  orders; the towers without their top term; Lemma 2.4's weights through III.A Proposition 4.2 (2); T W = W - S(...);
+  the unused condition on alpha'; the fourth Taylor level made explicit rather than new; w_0 + a_K > alpha; the tail
+  exponent beta = alpha - 3 - 2 eps; E^flat in Lambda only below 3 + eps_+ (III.I'''''''''').
+- Next: III.I'''''''''''' (Part 4: the expansion modulo K+-order 4 + eps_K and the iota+ index set of (11.222));
+  verifier 118 on it and the D275 repairs. Design notes in the D274 scratchpad.
