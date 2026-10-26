@@ -5394,3 +5394,11 @@ III.G''. No major finding; four minor (pi-slash_0's radiation allowance, now wit
 source and a third control of E5 showing the strengthened index condition is needed; the condition's relation to the
 source's) and six nits, all seated, and one nit on III.G'''s (4.5). III.C is verified, its repairs to be read; III.G''
 is proved. Next: verifier 102 on III.G''' and these repairs; Part III.G''''.
+
+**D245 (2026-10-26): verifier 102 seated.** The hundred-and-second verifier (Opus) read III.G''' and the D244 repairs.
+The claims asked are proved (lambda_sharp the least incoming pole, simple; agreement with III.G''s inverse below it).
+No major finding; four minor (the frames on iota+; finite regularity on strips; the mechanism of the exceptional term,
+a v^lambda_sharp term of Pi_(2 gam_Ups) h; the record's account) and fourteen nits, all seated. D243's statement that
+the record's alpha_5 = 2 reading "did not consider" the lambda_sharp channel is withdrawn: N1STAR-PROOF.md 10.38 (d)
+treats incoming terms below 2 and closes it on its readings; open for III.J is whether section 12's linear grafting
+errors reach it. III.G''' is verified, its repairs to be read; III.C is proved. Next: Part III.G''''.

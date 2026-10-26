@@ -47,8 +47,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.G | [Hin26] 9.1 (Proposition 9.2) | the spectral family at future timelike infinity: the Fredholm property across the light cone, b-regularity there, invertibility for Re λ < 2, finite meromorphy | **proved** (D240: the ninety-ninth verifier read the D238 repairs, correct) |
 | III.G' | [Hin26] 9.1 (Definitions 9.3, 9.6, Proposition 9.4, Remark 9.7) | the ι⁺-normal operator: its inverse, the asymptotics at I⁺ and K⁺, finite regularity, the boundary spectrum | **proved** (D241: the hundredth verifier read the D240 repairs, correct; one nit seated) |
 | III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | proved (D244; verifier 100's repairs read by verifier 101, one nit seated) |
-| III.C | [Hin26] 5.1-5.3 | metric perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an order lower; forward mapping | verified (D244; four minor findings and six nits seated, to be read) |
-| III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | written (D243) |
+| III.C | [Hin26] 5.1-5.3 | metric perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an order lower; forward mapping | proved (D245; verifier 101's repairs read by verifier 102, three nits seated) |
+| III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | verified (D245; four minor findings and fourteen nits seated, to be read) |
 | III.C', III.G''''-III.J | [Hin26] 5.4-5.7, 9.2-12 | exterior stability and partial polyhomogeneity; the tf-normal operator and grafting on the spectral side; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -795,9 +795,9 @@ Seven nits are seated. The repairs are to be read.
 Proposition 5.14 and Corollary 5.15 at $n = 4$. Lemma 1.1: on the exterior region near infinity,
 $(\rho_0,\rho_I,\omega)$ are global coordinates, and $\partial_{t_*} = \rho_0(X_0-X_I)$,
 $\rho\partial_\rho = X_I+8\mu_0\rho_0^2\rho_I(X_0-X_I)$ exactly. Lemma 2.1: products of partially polyhomogeneous
-b-Sobolev functions. Definition 3.1: the index sets at $\mathscr I^+$ start at $\frac32$, with the added condition
-$\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1) \subset\mathcal E^C_I$ (needing $\gamma_\Upsilon<\frac14$);
-$\pi_{11}h$ carries no radiation field. Lemma 4.1: from III.F Lemma 2.1,
+b-Sobolev functions. Definition 3.1: the index sets at $\mathscr I^+$ start at $\frac32$, with the source's last
+condition strengthened to $\mathcal E^{\mathrm{tot}}_I+(\mathcal E^{\mathrm{tot}}_I-1) \subset\mathcal E^C_I$ (needing
+$\gamma_\Upsilon<\frac14$); $\pi_{11}h$ carries no radiation field. Lemma 4.1: from III.F Lemma 2.1,
 $L_b = -\rho_0^2\rho_I(X_I-\frac32-\bar S)(X_0-X_I)$ modulo $\rho_0^2\rho_I^2\mathrm{Diff}^2_{\mathrm b}$. Lemma 4.2:
 $\bar S$ in the splitting is a constant lower-triangular matrix (Schur's lemma, `scri5.py` C1). Proposition 4.4: the
 perturbation's part of the operator has coefficients of $\mathscr I^+$-index $\mathcal E^{\mathrm{tot}}_I$, half an
@@ -808,7 +808,7 @@ coordinate identities, the scalar leading part, $\bar A$'s support, Definition 3
 5.2's bookkeeping, each with controls. Findings (C1)-(C7). Written (D242). Verified (D244): verifier 101's four minor
 findings and six nits seated -- the radiation allowance of $\slashed\pi_0$ stated with obligation (C7), Lemma 4.2 in
 $\bar g$'s and $\eta$'s frames, E5's third control (the source's analogue condition fails Proposition 5.2), and the
-index condition's relation to the source's.
+index condition's relation to the source's. Proved (D245): verifier 102 read the repairs; three nits seated.
 
 ## Part III.G'''
 
@@ -822,6 +822,9 @@ slot-wise spaces. Lemma 2.3 and Proposition 2.4: the continuation is identified 
 $\lambda_\sharp$ by uniqueness in III.G's admissible spaces, a step the source asserts; at $\lambda_\sharp$ itself the
 extension by zero creates $\delta(v)$ at the light cone. Lemma 3.4: the left inverse used in the source's Lemma 9.21.
 `ext5.py` E6-E7 (new): the eigenvector supports of $\bar A$ and Lemma 2.2's exponent bookkeeping. Findings
-(G$'''$1)-(G$'''$5); (G$'''$1) records that the pole at $\lambda_\sharp<2$ is an incoming channel the record's reading
-$\alpha_5 = 2$ did not consider, for Part III.J. Written (D243).
+(G$'''$1)-(G$'''$5); (G$'''$1) records that the pole at $\lambda_\sharp<2$ is excited only by a $v^{\lambda_\sharp}$
+term of $\Pi_{2\gamma_\Upsilon}h$; the record's 10.38 (d) closes it on its readings, and whether section 12's linear
+grafting errors reach it is for Part III.J. Written (D243). Verified (D245): verifier 102's four minor findings (the
+frames on $\iota^+$, finite regularity on strips, the mechanism and the record's account in (G$'''$1)) and eleven nits
+seated.
 

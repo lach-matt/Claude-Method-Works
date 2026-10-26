@@ -3067,9 +3067,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   in III.G's admissible spaces; at lambda_sharp the extension by zero creates delta(v) at the light cone, which is why it
   is a pole); the left inverse behind Lemma 9.21.
 - OPEN, for III.J: the pole at lambda_sharp < 2 is excited only by sources with the exceptional term v^(1 + lambda_sharp)
-  in the (dx^1)^2-component at I+ cap iota+ (from A-bar's (7, 4) entry on pi_01's leading term). The record's alpha_5 = 2
-  (10.35, 10.38 (d)-(e)) considered pure resonant states, not this channel. III.G'''s window condition (least grafted
-  order above 1 + eps) holds for it.
+  in the (dx^1)^2-component at I+ cap iota+, which arises exactly when Pi_(2 gam_Ups) h carries a v^lambda_sharp term
+  (corrected D245: not from A-bar's (7, 4) entry alone). The record's 10.38 (d) does treat incoming terms below 2 and,
+  on its readings, closes this channel (corrected D245: the D243 wording "did not consider" is withdrawn). What is open
+  is whether section 12's linear grafting errors (iota+-index set lambda_0 + 2 + E_ind) reach frequency lambda_sharp.
+  III.G'''s window condition (least grafted order above 1 + eps) holds for it when eps <= 1/2.
 - ext5.py E6-E7 added: 7/7 with controls.
 - Next: Part III.G'''' ([Hin26] section 9.2, the tf-normal operator); verifier 101 is reading III.C.
 
@@ -3084,4 +3086,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - III.G''' gains the agreement of the null frames of eta, g_mu and g-bar on iota+.
 - ext5.py: 7/7; E5 has three controls.
 - Next: verifier 102 on III.G''' and these repairs; Part III.G''''.
+
+### 4.168 Verifier 102 seated: III.G''' verified, III.C proved (D245)
+
+- Verifier 102 (Opus) read III.G''' and the D244 repairs. The two claims asked are proved: lambda_sharp is the least
+  incoming pole, simple; the continuation agrees with III.G''s inverse below it. No major finding; four minor and eleven
+  nits in III.G''', three nits in the repairs, all seated.
+- (m1) the frames on iota+ from III.C Lemma 1.3's proof (|x|^-1 = v/t_* at iota+); (m2) Lemmas 2.3 and 3.4 at finite
+  regularity on strips; (m3) the exceptional term comes from a v^lambda_sharp term of Pi_(2 gam_Ups) h; (m4) the record's
+  10.38 (d) closes the lambda_sharp channel on its readings; what III.J must settle is whether section 12's linear
+  grafting errors reach it (4.166 corrected).
+- III.C: (C7) moved into its findings; Remark 4.5 says what exterior5.py X7 computes; ext5.py build() drops the
+  redundant 2 E^tot generator; E4-E7 pass.
+- Next: Part III.G'''' ([Hin26] section 9.2).
 

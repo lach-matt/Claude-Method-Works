@@ -1,11 +1,11 @@
 # Part III.C. The exterior region at n = 4: perturbations and the operator at null infinity ([Hin26] 5.1-5.3)
 
-*Status.* Verified (D244: the hundred-and-first verifier; no major finding, four minor and six nits seated, to be read).
-This part proves, at spatial dimension $n = 4$, [Hin26] Definitions 5.1-5.4 and 5.13, Remark 5.5, Proposition 5.11 with
-(5.40)-(5.41a), Proposition 5.14 and Corollary 5.15 (pp. 84-99), and the parts of Lemmas 5.6-5.8 and Corollaries
-5.9-5.10 that these use. Sections 5.4-5.7 of the source (Lemma 5.16, Theorems 5.17, 5.21 and 5.23, Proposition 5.25) and
-the edge-b form (5.26b) that their energy estimates use are Part III.C$'$. Parts are cited as before; the source is
-[Hin26] = P. Hintz, arXiv:2606.28253v2 (printed page numbers).
+*Status.* Proved (D245: the hundred-and-second verifier read the D244 repairs; three nits seated). This part proves, at
+spatial dimension $n = 4$, [Hin26] Definitions 5.1-5.4 and 5.13, Remark 5.5, Proposition 5.11 with (5.40)-(5.41a),
+Proposition 5.14 and Corollary 5.15 (pp. 84-99), and the parts of Lemmas 5.6-5.8 and Corollaries 5.9-5.10 that these
+use. Sections 5.4-5.7 of the source (Lemma 5.16, Theorems 5.17, 5.21 and 5.23, Proposition 5.25) and the edge-b form
+(5.26b) that their energy estimates use are Part III.C$'$. Parts are cited as before; the source is [Hin26] = P. Hintz,
+arXiv:2606.28253v2 (printed page numbers).
 
 *What n = 4 changes.* Three things, and together they make the structure simpler than the source's.
 
@@ -398,9 +398,10 @@ $\mathrm{Riem}(g)-\mathrm{Riem}(g_1)\in\rho_0^2H^{k-2,(\mathcal E_0,\ell_0), (\m
 Lemma 5.8). The edge-b form (5.26b) is in III.C$'$. Taking $\mathcal F = \mathcal E^{\mathrm{tot}}_I$ for every
 component discards the component structure (e.g. the $\partial_1^2$ coefficient $g^{11}$ is tied to $h_{00}$, of index
 $\mathcal E^C_I$); the b-form does not need it, but (5.26b) and III.C$'$'s energy estimates will. At tensor level the
-half-order drop is consistent with `exterior5.py` X7 (N1STAR-PROOF.md 10.64), which computes the $h$-dependent entries
-of [Hin23a]'s closely related operator at $n = 3$ and $n = 4$ and finds them $r^{-1/2}$ times the four-dimensional ones;
-that operator omits the $\gamma_\Upsilon$ term, which carries one $c$ and obeys the same counting.
+half-order drop is proved by hand (Lemma 4.3's counting) and cross-checked, not computed, against `exterior5.py` X7
+(N1STAR-PROOF.md 10.64), which computes three of the $h$-dependent entries ($A(7,1)$, $A(4,7)$, $B(4,1)$) of [Hin23a]'s
+closely related operator at $n = 3$ and $n = 4$ and finds them $r^{-1/2}$ times the four-dimensional ones; that operator
+omits the $\gamma_\Upsilon$ term, which carries one $c$ and obeys the same counting.
 
 ## 5. Forward mapping ([Hin26] Definition 5.13, Proposition 5.14, Corollary 5.15 at n = 4)
 
@@ -534,6 +535,11 @@ $k-2>\frac12\dim\Omega_{\mathrm {ext}}$, without proof (its remark (vii)), and w
 polyhomogeneous functions. Lemma 2.1 proves the form used, with its strict inequalities on the weights; every use here
 has room to spare.
 
+(C7) *An obligation for III.C$'$* (Definition 3.3): the source's Theorem 5.21, Step 2, subtracts the radiation fields of
+$\slashed\pi_0h$ and $\pi_{11}h$ through $g_0' = g_b+h_0$, $h_0\in\langle(2,0)\rangle_0$, and uses Corollary 5.15 (2)
+for $P(g_0',g_b)$. At $n = 4$ the class $\langle(3,0)\rangle_0$ carries no radiation field of $\slashed\pi_0$. III.C$'$
+must either show the subtraction unnecessary, as (C1) suggests, or use a class with $(\frac32,0)$ in slot 6.
+
 ### 6.2 Labels
 
 Proved: Lemmas 1.1, 1.3, 2.1, 3.2, 3.5, 4.1-4.3, Proposition 4.4, Proposition 5.2, Corollary 5.3, given the parts cited.
@@ -549,11 +555,6 @@ pp. 84-99 (Definitions 5.1-5.4, Remark 5.5, Lemmas 5.6-5.8, Corollaries 5.9-5.10
 and (5.40)-(5.42), Definition 5.13 with (5.43), Proposition 5.14, Corollary 5.15 with (5.48)) and p. 169.
 N1STAR-PROOF.md 10.38 and 10.64. `ext5.py` (this part), `scri5.py` C1, `sbar5.py`.
 
-(C7) *An obligation for III.C$'$* (Definition 3.3): the source's Theorem 5.21, Step 2, subtracts the radiation fields of
-$\slashed\pi_0h$ and $\pi_{11}h$ through $g_0' = g_b+h_0$, $h_0\in\langle(2,0)\rangle_0$, and uses Corollary 5.15 (2)
-for $P(g_0',g_b)$. At $n = 4$ the class $\langle(3,0)\rangle_0$ carries no radiation field of $\slashed\pi_0$. III.C$'$
-must either show the subtraction unnecessary, as (C1) suggests, or use a class with $(\frac32,0)$ in slot 6.
-
 ### 6.4 The hundred-and-first verifier (D244)
 
 The hundred-and-first verifier (Opus) read this part in full: no major finding, four minor, six nits, all seated. (m1)
@@ -567,3 +568,11 @@ index condition is needed; the tensor-level half-order drop is cross-checked aga
 III.B (4.1); polynomials, not smooth functions, in Lemma 4.3; $\chi^2-\chi$ in Lemma 2.1; the discarded component
 structure (Remark 4.5); the second condition of Definition 3.4. The verifier found the counting of Proposition 4.4
 right, including the terms the source puts in $A^h$, so N1STAR-PROOF.md 10.38 (a)'s scaling deduction is proved.
+
+### 6.5 The hundred-and-second verifier (D245)
+
+The hundred-and-second verifier (Opus) read the D244 repairs: every finding of the hundred-and-first is answered and
+correct (it checked that with $(\frac32,0)$ in slot 6 Proposition 5.2's (5.3) fails, and that E5's third control is
+caught). Three nits, seated: (C7) moved into 6.1; Remark 4.5 now says which entries `exterior5.py` X7 computes and that
+the half-order drop is proved by hand, cross-checked, not computed; `ext5.py` `build()` no longer adds the generator
+$2\mathcal E^{\mathrm{tot}}_I$ that Lemma 3.2 (e)'s construction drops (it is redundant, and E4-E5 pass without it).
