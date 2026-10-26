@@ -2687,3 +2687,68 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Next: the ninety-third verifier on III.A after the ninety-second reports; then Part III.C-III.D ([Hin26] sections
   5-6).
 
+### 4.143 Part III.D written: the gauge potential operator at n = 4, [Hin26] section 6 to Proposition 6.9 (D220)
+
+- `proof5/PART-III-D-GAUGEPOT.md`: Lemma 2.1 (Lemma 6.1 at n = 4; S = S-bar near infinity, Q in rho^3 Diff^1_b, the
+  zero-energy difference in rho^4 Diff^2_b), Lemma 3.1 (Lemma 6.3: E-bar with m = 2/N, S-bar, M_E with +-N e), Lemma 4.1
+  (Lemma 6.6 and (6.17): roots by type, z = 4 e gamma^2, the gap (0, lambda_{s1,2})), Lemma 5.1 (threshold s > 3/2),
+  Lemma 5.2 (gamma_- < 0 near b_0), Propositions 6.1-6.3 (6.5 and 6.9; Tangherlini mode stability away from 0 by ODEs,
+  replacing [AHW24]), Lemma 7.1 (Lemma 6.8, tf-admissibility).
+- harm5.py: K7 (the model operator equals the Cartesian computation, every type, N = 2 and 3), K8 (its indicial
+  determinants), with a control.
+- Findings (D1)-(D6); (D4): supplement 10.60 (b)'s "the inequalities are open" fails for strong trapping admissibility
+  at every epsilon; the open condition gamma_- < 0 is what Part I.B uses and is proved.
+- Open: the D197, D200, D201, D204, D206, D207 and D217 repairs; Parts III.A, III.A' and III.D unread; Parts III.C,
+  III.D'-III.J and IV-VII; uniformity in P_0 (II.F' (F'11)); (Dyn) in Part VI.
+- Next: seat the ninety-second verifier; the ninety-third on III.A and III.D; then Part III.D' ([Hin26] section 6.4).
+
+### 4.144 The ninety-second verifier seated; Part III.A' verified, Part III.B proved (D221)
+
+- Verifier 92 read Part III.A' line by line with harm5.py (Lemma 1.2 by machine at N = 2 with a failing control; every
+  K5 matrix at lin5's second point; each Cartesian basis element traced against (2.2)) and the D217 repairs of III.B.
+  No major. Minor 1: the labels (3.3, (H6)) said no outside result on harmonics is used; the classical theory of
+  harmonic polynomials and the spectral theorem are quoted, and are now named. Minor 2: K2/K3 asserted closure only;
+  the selftest now asserts their determinants against Lemma 2.3's lists. Six nits seated (III.A' section 3.4; K5 at two
+  points, a 2-tensor control, Lemma 1.5's l ranges, the tensor type proved, (H6)'s READ dependence, `sign` removed).
+- Every D217 repair confirmed: Part III.B is proved.
+- III.D Proposition 6.2 (d) rewritten before its reading: the horizon is null, so the continuation inside it is by the
+  mode equations, Fuchsian at r_h, and Gronwall's inequality, not by a Cauchy argument.
+- Open: the D197, D200, D201, D204, D206, D207 repairs; Parts III.A and III.D unread; Parts III.C, III.D'-III.J and
+  IV-VII; uniformity in P_0 (II.F' (F'11)); (Dyn) in Part VI.
+- Next: the ninety-third verifier on III.A and III.D; Part III.D' ([Hin26] section 6.4).
+
+### 4.145 Part III.D' written: the gauge potential operator at zero energy, [Hin26] section 6.4 and Lemma 6.13 (D222)
+
+- `proof5/PART-III-D2-ZEROENERGY.md`: Lemma 2.1 (Lemma 6.10 at n = 4: kernel span W*, cokernel the horizon pairing l;
+  the kernel by energy identities, the cokernel by Box_0 H(r - r_h) = 0 and I.C Corollary 6.6; replaces [AHW24] Theorem
+  5.1 (2)), Lemma 3.1 (Lemma 6.11: both pairings 4 pi^2), Proposition 4.1 (Proposition 6.12: a Grushin problem with
+  I.C (6.5), Schur complement -4 pi^2 (-i sigma + gamma) + o; Step 2 at every frequency), Lemma 5.1 (Lemma 6.13).
+- Findings (D'1)-(D'5); (D'4): the source's Step 2 asserts that c_0 is independent of gamma_{Ups,H}; closed by
+  perturbing around a base point where invertibility already holds at every frequency.
+- Open: the D197, D200, D201, D204, D206, D207 repairs; Parts III.A, III.D, III.D' unread; Parts III.C, III.D''-III.J
+  and IV-VII; uniformity in P_0 (II.F' (F'11)); (Dyn) in Part VI; [Hin26]'s nullspace claim on A^alpha at sigma != 0
+  (III.D' Remark (a)).
+- Next: seat the ninety-third verifier (III.A, III.D); the ninety-fourth on III.D'; Part III.D'' ([Hin26] section 6.5).
+
+### 4.146 Part III.D'' written: zero energy states from the Minkowski symmetries, [Hin26] section 6.5.1 (D223)
+
+- `proof5/PART-III-D3-SYMSTATES.md`: Lemma 2.1 (Lemma 6.14 at n = 4, one power better throughout, from III.B (3.5)),
+  Lemma 2.2 (smooth dependence on b), Proposition 3.1 (Proposition 6.15: omega_s0, omega_s1(S), the boost correction,
+  omega_v1(V), with h_s1, h_v1 in A^((3,0) u (3 + E_ind)) and h-breve^1 in A^((2,0) u (2 + E_ind)); no logarithm;
+  Killing rotations by the triviality of the zero energy kernel).
+- Findings (D''1)-(D''5); (D''3): the source's (6.32c) states less than its proof gives.
+- Open: as at 4.145, plus Parts III.D'' unread; Part III.D''' ([Hin26] section 6.5.2, Proposition 6.18).
+- Next: Part III.D'''; the verifiers in turn.
+
+### 4.147 Part III.D''' written: generalized zero energy states, [Hin26] section 6.5.2 (D224)
+
+- `proof5/PART-III-D4-GENSTATES.md`: Lemma 2.1 (solving with a prescribed leading term), Proposition 3.1 (Proposition
+  6.18 at n = 4: parts (1)-(3) on the symmetries, (4)-(7) the classes, the source's degree ranges; leading terms the
+  model's, computed by genstates5 H1-H3 and puregauge5 J5).
+- Findings (D'''1)-(D'''6): the recursion's A_2 printed as A_0; (6.39a)'s normalisation; two orders and no logarithm in
+  (1); the ranges 0 < z < 4; Lemma 2.1 as the source's "Lemmas 2.15 and 6.13 as usual"; no tensor-type gauge states.
+- Deferred: the spanning of ker N(L-bar(0), lambda) (with Lemma 8.4 at n = 4); the window of roots n = 4 needs (with
+  the decay of [Hin26] sections 11-12).
+- Open: the D197, D200, D201, D204, D206, D207 repairs; Parts III.A, III.D, III.D', III.D'', III.D''' unread; Parts
+  III.C, III.E-III.J and IV-VII; uniformity in P_0 (II.F' (F'11)); (Dyn) in Part VI.
+- Next: verifier 93's report; Part III.E ([Hin26] section 7, the constraint propagation operator).

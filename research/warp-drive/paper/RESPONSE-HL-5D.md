@@ -1103,9 +1103,16 @@ null infinity, by which forward solutions are shown to decay faster, has been re
 and its repairs read again, which proves it.
 The sixteenth, the first of the parts on his stability paper -- the five-dimensional black hole family on the
 compactified spacetime, its time functions, initial data and boosts, and the gauge-fixed Einstein equation -- has been
-read line by line and its findings seated. The seventeenth, the harmonics on the three-sphere and the operators of
-Minkowski space in the splittings his stability paper uses, is written, and so is the eighteenth, the b-analysis and
-Fourier transforms with partial expansions on which that paper's asymptotic analysis rests. Theorem 4 stays deduced
+read line by line, its findings seated and its repairs read again, which proves it. The seventeenth, the harmonics on
+the three-sphere and the operators of Minkowski space in the splittings his stability paper uses, has been read line by
+line and its findings seated. The eighteenth, the b-analysis and Fourier transforms with partial expansions on which
+that paper's asymptotic analysis rests, is written, and so is the nineteenth, the wave operator on the gauge potential
+near the five-dimensional black hole: its structure near infinity, its model, its indicial roots, its threshold and
+trapped set, and its mode stability away from zero frequency, proved there by ordinary differential equations, and so is
+the twentieth, the same operator at zero frequency: its kernel and cokernel on the black hole, the modification at the
+horizon that removes them, and mode stability at every frequency, and so is the twenty-first, the stationary gauge
+potentials that begin as the translations, boosts and rotations of Minkowski space, and so is the twenty-second, the
+gauge potentials polynomial in time that carry them, and the remaining roots, to higher order. Theorem 4 stays deduced
 until the last part is proved.
 
 ---

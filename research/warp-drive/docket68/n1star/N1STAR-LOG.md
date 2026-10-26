@@ -5148,3 +5148,63 @@ matching condition (2.29) takes the log index k(E_K, j) where k(E_K, j + 1) is n
 already for E_K = (1,0); repaired in (4.4). (L2) a zf-weight misprint in the proof; (L3) the commutator of sigma d_sigma
 with chi(sigma), harmless; (L4) Cauchy's constant in Lemma 2.15. Next: the ninety-second verifier's report on III.A';
 the ninety-third on III.A.
+
+**D220 (2026-10-26): Part III.D written.** [Hin26] section 6 to Proposition 6.9 at n = 4 in
+proof5/PART-III-D-GAUGEPOT.md: the gauge potential operator near the five-dimensional Tangherlini parameter. Structure
+near infinity with a gained power (the mass enters at |x|^-2), the model operator at general N (m = 2/N, +-N e), the
+indicial roots by type (s0: 0, 3, 1/2 +- (9/4 + z)^(1/2); sl, vl; z = 4 e gamma^2) with the gap (0, lambda_{s1,2}), the
+threshold s > 3/2, the trapped set in the open form gamma_- < 0, high energies, Tangherlini mode stability away from 0
+by ODE arguments with positive potentials (no [AHW24]), perturbation to b near b_0, and tf-admissibility. (D4): the
+record's supplement 10.60 (b) said strong trapping admissibility persists because "the inequalities are open"; for
+every epsilon that is not so, and Part I.B needs only gamma_- < 0. harm5.py K7-K8; thresh5, trap5, hienergy5, modes5,
+gaugepot5 and lowenergy5 rerun, all pass. Next: the ninety-second verifier's report; the ninety-third on III.A and
+III.D; Part III.D' ([Hin26] section 6.4).
+
+**D221 (2026-10-26): the ninety-second verifier seated; Part III.A' verified, Part III.B proved.** The verifier read
+Part III.A' and harm5.py line by line (Lemma 1.2 checked by machine at N = 2 on generic fields with a failing control;
+every K5 matrix recomputed at lin5's second point; the Cartesian bases traced against (2.2)) and confirmed every D217
+repair of Part III.B. No major. Minor 1: section 3.3 and (H6) said no outside result on harmonics is used, but Lemma 1.4
+quotes the decomposition of harmonic polynomials, the density of polynomials and the spectral theorem; both now name
+them. Minor 2: K2 and K3 asserted closure only; the selftest now asserts their determinants against the degree lists,
+and the proof of Lemma 2.3 says K5 carries K6 to the Cartesian side. Nits: K5 at the second point, a 2-tensor N-control,
+`sign` removed, Lemma 1.5's l ranges, z^(l-2) beta (x) beta proved tensor type, (H6) on the READ V_l. Also III.D
+Proposition 6.2 (d): the horizon is null, not spacelike; the continuation inside it is now by the mode equations, whose
+first-order form (r - r_h) Y' = M Y is regular singular at r_h, and Gronwall's inequality. Status: Parts I.A-I.C, II.A,
+II.A', II.F, II.F', II.G, II.G', III.B proved; II.B-II.E, III.A' verified; III.A, III.D written. Next: the ninety-third
+verifier on III.A and III.D; Part III.D'.
+
+**D222 (2026-10-26): Part III.D' written.** [Hin26] section 6.4 and Lemma 6.13 at n = 4 in
+proof5/PART-III-D2-ZEROENERGY.md. Lemma 6.10 on five-dimensional Tangherlini without [AHW24]: the kernel of the 1-form
+wave operator at zero energy is span W*, W* = r^-2 dt + r_h r^-3 f^-1 dr, by energy identities (the divergence, the
+field, the gauge, as in III.D Proposition 6.2 at sigma = 0) and the continuation inside the horizon; the cokernel is the
+pairing l with d(H(r - r_h)), because Box_0 H(r - r_h) = 0 (the horizon is characteristic for the stationary operator)
+and Box d = d Box_0, with index 0 from I.C Corollary 6.6. Lemma 6.11: l([Box, t_*] W*) = 4 pi^2 and l(2 E_H G delta* W*)
+= 4 pi^2, by hand in the ingoing chart and computed (gaugepot5 G6). Proposition 6.12: Step 1 by a Grushin problem with
+a fixed augmentation (psi, phi compactly supported), to which I.C Theorems 6.4 and 7.1 apply as proved; the Schur
+complement c is -4 pi^2 (-i sigma + gamma)/l(psi) + o(|sigma| + gamma), by the pairings and the convergence of the
+augmented inverse to (W*, 0); so the horizon modification alone gives mode stability on |sigma| <= c_1 with c_1
+independent of gamma. Step 2 around that base point at low, middle and high frequencies. (D'4): the source's Step 2
+asserts that its low-energy radius does not depend on gamma_{Ups,H}; as written that is not shown, and is not needed
+here. Lemma 6.13: invertibility at every s gives the infinite regularity that Lemma 2.13 needs. Next: the ninety-third
+verifier's report (III.A, III.D); the ninety-fourth on III.D'; Part III.D''.
+
+**D223 (2026-10-26): Part III.D'' written.** [Hin26] section 6.5.1 at n = 4 in proof5/PART-III-D3-SYMSTATES.md. Lemma
+6.14 one power better throughout (Myers-Perry meets Minkowski at mu |x|^-2 and Tangherlini at |x|^-3, III.B (3.5)).
+Proposition 6.15: the time translation is Killing; the translations' correction solves P_b omega' = -P_b dx^i, source in
+rho^4, so omega' at rho^2 without logarithm (2 is no root once z = 4 e gam^2 > 0); the boost's source (3.5) is in rho^3
+(Q_b in rho^3 Diff^1_b, R_b in rho^4 Diff^2_b, the commutator in rho Diff^1_b on omega'), its correction at rho^1 -- no
+root, so no logarithm and no formal solution lemma, c_{b,s1} = 0; the rotations' at rho^2, and when the rotation field is
+Killing the state is g_b(R_V, .) by the triviality of the zero energy kernel (six at zero rotation). The leading term of
+h-breve^1 is scalar type 1 by SO(4) equivariance at zero rotation and one power of decay in general. Next: Part III.D'''
+(Proposition 6.18); verifier 93's report.
+
+**D224 (2026-10-26): Part III.D''' written.** [Hin26] section 6.5.2 at n = 4 in proof5/PART-III-D4-GENSTATES.md. A
+lemma solves P_b u = f with a prescribed leading term at rho^m (m <= 2): the leading coefficient by N(A, m)^-1 on its
+type, the rest by III.A Lemma 1.5 and III.D' Lemma 5.1. Proposition 6.18 at n = 4: the recursion A_0 w^j = -A_1 w^(j-1)
+- A_2 w^(j-2) (the source prints A_0 for A_2), the states on the time translation (leading W = |x| (-d t-bar + beta_e
+d|x|), beta_e = (2 - e)/(4e), its correction at rho^1, no logarithm), on the boosts to degree 4 (s1 roots -2, -3, -4
+absent for 0 < z < 20/3), on the rotations to degree 3 ((1 + 2 gam/5) |x| V), and the four classes with the source's
+degrees, each correction two orders below its leading term. h^(0),<=k normalised by (k + 1)^-1 (the source's (6.39a)
+omits the factor). The spanning of ker N(L-bar(0), lambda) is deferred to section 8's part. harm5 selftest passes in
+full after the D221 edits (169 checks); zstates5, genstates5, puregauge5 rerun, all pass. Next: verifier 93; Part
+III.E.

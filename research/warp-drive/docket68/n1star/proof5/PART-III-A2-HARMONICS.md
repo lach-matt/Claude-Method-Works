@@ -1,6 +1,7 @@
 # Part III.A$'$. Spherical harmonics on the three-sphere, and the Minkowski operators, at n = 4
 
-*Status.* Written (D218). This part proves, at spatial dimension $n = 4$, what [Hin26] section 2.4 (pp. 63-67)
+*Status.* Verified (D221). Written (D218); read line by line by the ninety-second verifier, whose two minor findings and
+six nits are seated (section 3.4). This part proves, at spatial dimension $n = 4$, what [Hin26] section 2.4 (pp. 63-67)
 establishes at $n = 3$: the spherical harmonic decomposition of functions, 1-forms and symmetric 2-tensors on the sphere
 at infinity, the identities between the geometric operators on each type and the special low degrees ((2.34)-(2.35)),
 the Minkowski wave operator, symmetric gradient and divergence in the null bundle splittings near infinity (his Lemma
@@ -119,8 +120,13 @@ The source states that on $\mathbb S^2$ there are no nonzero trace-free divergen
 $\mathcal V_l = \{\slashed\star dS:S\in\mathcal S_l\}$ ([Hin26] p. 64, from [Hig87]; READ, used only to compare with the
 source). On $\mathbb S^3$ the tensor type is not empty: with $z := x_1+ix_2$, $w := x_3+ix_4$ and $\beta :=
 z\,dw-w\,dz$, a tangential 1-form, $T := z^{l-2}\beta\otimes\beta$ restricted to $\mathbb S^3$ lies in $\mathcal
-T_l\otimes\mathbb C$ for every $l\ge2$ (computed, `harm5.py` K5, types t2 and tl: the Cartesian computation closes on
-this tensor alone, which forces trace and divergence zero, with the eigenvalue $k_l^2-2$).
+T_l\otimes\mathbb C$ for every $l\ge2$. Indeed, with the Euclidean product extended bilinearly, $dz\cdot dz = dw\cdot
+dw = dz\cdot dw = 0$, so $\beta\cdot\beta = 0$, $\beta\cdot dz = \beta\cdot dw = 0$ and $\beta\cdot x = 0$; and
+$\partial_i\beta_i = 0$. Hence $T$ is tangential and trace-free, its Euclidean divergence $\beta(\beta\cdot\nabla
+z^{l-2})+z^{l-2}((\partial_i\beta_i)\beta+(\beta\cdot\nabla)\beta)$ vanishes, and its components are holomorphic in
+$(z,w)$, so harmonic and homogeneous of degree $l$; the argument of Lemma 1.4 (3), by (1.2e), then gives
+$\slashed\delta T = 0$ and $\slashed\Delta T = (k_l^2-2)T$. (Also computed: `harm5.py` K5, types t2 and tl, where the
+Cartesian computation closes on this tensor alone.)
 
 **Lemma 1.4 (spectra).** (1) $\mathcal S_l$ consists of the restrictions of the harmonic homogeneous polynomials of
 degree $l$ on $\mathbb R^{N+1}$, these exhaust the eigenfunctions of $\slashed\Delta$, and $\dim\mathcal S_l = (l+1)^2$
@@ -168,8 +174,8 @@ $\slashed\delta\omega = 0$, so each $\omega_\mu$ is co-closed and, by (2), lies 
 For a trace-free divergence-free $h = \sum_\mu h_\mu$ the same argument applies to $\mathrm{tr}\,h_\mu$ (eigenvalue
 $\mu$) and then to $\slashed\delta h_\mu$ (eigenvalue $\mu+N+1$ by Lemma 1.1 (d)), and (3) concludes. $\square$
 
-**Lemma 1.5 (the identities; [Hin26] (2.34)-(2.35) at n = 4).** For $S\in\mathcal S_l$, $V\in\mathcal V_l$,
-$T\in\mathcal T_l$ and $k^2 := k_l^2$:
+**Lemma 1.5 (the identities; [Hin26] (2.34)-(2.35) at n = 4).** For $S\in\mathcal S_l$, $V\in\mathcal V_l$ ($l\ge1$),
+$T\in\mathcal T_l$ ($l\ge2$) and $k^2 := k_l^2$:
 $$\slashed\delta dS = k^2S,\qquad\slashed\Delta dS = (k^2-N+1)\,dS,\qquad\slashed\delta^*dS
 = \slashed\delta^*_0dS-\tfrac{k^2}N\slashed gS,\qquad
 \slashed\Delta(\slashed gS) = k^2\slashed gS,$$
@@ -425,8 +431,10 @@ functions' roots are $-l$ and $l+2$ (at $n = 3$, $-l$ and $l+1$), and none lies 
 
 *Proof.* The type-wise matrices are read off from Lemma 2.1 with the identities (1.2)-(1.3) (for the 2-tensor types they
 are $7\times7$ for sl, $l\ge2$, and smaller for the others), and their determinants, with $l$ symbolic, factor exactly
-as stated (computed, exact: `harm5.py` K6). The same determinants arise from the Cartesian componentwise computation
-(`harm5.py` K1-K3), and K5 shows that the two matrices agree entry by entry. $\square$
+as stated (computed, exact: `harm5.py` K6). On the Cartesian side `harm5.py` K1-K3 compute the
+determinants and assert them against the lists (with $l$ symbolic for functions and for the 1-form types sl, vl, and at
+$l\le2$ for 2-tensors); K5 shows that the two matrices agree entry by entry with $l$ symbolic, which carries K6 to the
+Cartesian side. $\square$
 
 *Remark.* The pattern has a structural reason: $\bar\Box$ acts on Cartesian components as the scalar operator, whose
 indicial roots on a degree-$d$ harmonic are $-d$ and $d+N-1$ by (2.6); $\mathcal D$ lists the harmonic degrees of the
@@ -502,8 +510,11 @@ computation, or the geometric fact" by the second argument written out.
 (H6) *What the source cites and this part proves.* The source cites [Hin23b] section 6.2 for Lemma 2.29 and [Hig87] for
 the harmonics on $\mathbb S^2$. Here Lemma 2.1 is proved by the Cartesian route (componentwise action plus the ambient
 identities of Lemma 1.2), Lemma 1.4 proves the spectra on co-closed 1-forms and on trace-free divergence-free tensors
-from the same identities, and Lemma 1.1 proves the commutation used for (2.35) from the Ricci identity, so no outside
-result on harmonics is used at $N = 3$.
+from the same identities, and Lemma 1.1 proves the commutation used for (2.35) from the Ricci identity, so no result on
+the harmonics of $\mathbb S^2$ ([Hig87]) is used at $N = 3$; what is quoted is the classical theory of harmonic
+polynomials (Lemma 1.4 (1)) and the spectral theorem for elliptic operators (Lemma 1.4 (4), Lemma 1.6 (3)). The $N = 2$
+control of K5 takes the vector-type basis $x\times\nabla S$ to be $\mathcal V_l$, which is the READ fact after
+Definition 1.3.
 
 ### 3.2 Sources
 
@@ -513,8 +524,28 @@ and the remarks after (2.45) and (2.46)), arXiv:2606.28253v2, full text. Not rea
 
 ### 3.3 Labels
 
-Every statement of sections 1-2 is proved here at general $N$ and read at $N = 3$, except the dimension count
-$\dim\mathcal S_l = (l+1)^2$, which is the classical count given in the proof of Lemma 1.4 (1), and the comparison
-statements about $\mathbb S^2$, which are READ. Lemma 2.3's factorizations are exact computations (K6), and Lemma 2.1
-and (1.2) are also checked by machine at $N = 2$ and $N = 3$ with $l$ symbolic (K5). `harm5.py --selftest` runs K1-K6
-and their controls.
+Every statement of sections 1-2 is proved here at general $N$ and read at $N = 3$, from classical facts quoted without
+proof: the decomposition $\mathcal P_l = \mathcal H_l\oplus|x|^2\mathcal P_{l-2}$ of the homogeneous polynomials and
+the density of polynomials in $C(\mathbb S^N)$ (Lemma 1.4 (1), with the dimension count $\dim\mathcal S_l = (l+1)^2$
+given there), and the spectral theorem and elliptic regularity for self-adjoint elliptic operators on a compact manifold
+(Lemma 1.4 (4), Lemma 1.6 (3)). The comparison statements about $\mathbb S^2$ are READ. Lemma 2.3's factorizations are
+exact computations (K6), and Lemma 2.1 and (1.2) are also checked by machine at $N = 2$ and $N = 3$ with $l$ symbolic
+(K5, at two points for $N = 3$). `harm5.py --selftest` runs K1-K8 and their controls; K1-K3 assert the determinants of
+the Cartesian side against the degree lists of Lemma 2.3 (with $l$ symbolic for functions and for the 1-form types sl,
+vl, and at $l\le2$ for 2-tensors).
+
+### 3.4 The ninety-second verifier (D221)
+
+The ninety-second verifier read this part line by line, rederived every proof step, checked Lemma 1.2 by machine at
+$N = 2$ on generic fields (with a failing control), recomputed every K5 matrix at lin5.py's second point, and traced
+each Cartesian basis element against (2.2). No major finding. *Minor 1* (labels): section 3.3 and (H6) said that no
+outside result on harmonics is used; Lemma 1.4 (1) quotes the classical decomposition of harmonic polynomials and the
+density of polynomials, and Lemma 1.4 (4) and Lemma 1.6 (3) the spectral theorem and elliptic regularity. Repaired: both
+now name what is quoted; no statement changes. *Minor 2* (harm5.py): K2 and K3 asserted only closure, and the proof of
+Lemma 2.3 attributed the symbolic determinants to K1-K3. Repaired: the selftest asserts the K2 and K3 determinants
+against the degree lists, the docstring says which side carries which assertion, and the proof of Lemma 2.3 says that K5
+carries K6 to the Cartesian side. *Nits:* K5 now also runs at the second point (all operators at $N = 3$, the 1-form
+operators at $N = 2$); a 2-tensor control (s1, box on 2-tensors) is added to the 1-form one; the vestigial `sign`
+parameter is removed; Lemma 1.5 repeats $l\ge1$ and $l\ge2$; the tensor $z^{l-2}\beta\otimes\beta$ is now proved to lie
+in $\mathcal T_l\otimes\mathbb C$; (H6) says that the $N = 2$ control rests on the READ description of $\mathcal V_l$.
+The verifier also confirmed every repair of D217 to Part III.B.

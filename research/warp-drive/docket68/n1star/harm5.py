@@ -13,22 +13,35 @@ z^p a symbol, so l is symbolic.
   K2 (computed) 1-forms, scalar type l: roots {-l, l + 2} (time component, degree l) and {-l + 1, l + 1},
      {-l - 1, l + 3} (spatial components, degrees l - 1 and l + 1); vector type l: {-l, l + 2}, each once.
      Control n = 3: scalar type l gives -l - 1, -l, -l + 1, l, l + 1, l + 2, the example after [Hin26] Definition 2.30.
-  K3 (computed) symmetric 2-tensors: scalar, vector and tensor type l; every root is -d or d + 2 for a degree d of a
-     Cartesian component, and the determinant is the product over the components.
+  K3 (computed) symmetric 2-tensors, types s0, s1, s2, v1, v2, t2 (l numeric): every root is -d or d + 2 for a degree d
+     of a Cartesian component, and the determinant is the product over the components.  K1-K3 compute the determinants
+     on the Cartesian side and the selftest asserts them against the degree lists of Part III.A' Lemma 2.3; at symbolic l
+     the lists are asserted on the formula side (K6) and carried to the Cartesian side by K5.
   K4 (computed) the symmetric gradient's indicial family N(delta*, lam) on 1-forms is injective except at lam = 0 for
-     types s0, s1 (translations) and lam = -1 for v1 (rotations): the stationary Killing 1-forms of Minkowski, at every n.
+     types s0, s1 (translations) and lam = -1 for v1 (rotations): the stationary Killing 1-forms of Minkowski, at every
+     n.
   K5 (computed) [Hin26] Lemma 2.29 at general N (proof5 Part III.A' Lemma 2.1): the operators box, delta* and delta in
      the null splittings, reduced by type with Part III.A' Lemma 1.5's identities (formula), equal entry by entry the
      matrices of the Cartesian componentwise operators on the splitting's basis of each type (cartesian), at N = 2 and
-     N = 3, for s0, s1, s2, sl, v1, v2, vl and (N = 3) t2, tl, l symbolic.
+     N = 3, for s0, s1, s2, sl, v1, v2, vl and (N = 3) t2, tl, l symbolic; at both of lin5.py's points for N = 3, and for
+     the operators on 1-forms at N = 2.
   K6 (computed) the determinants of the type-wise matrices of box at N = 3 factor as prod (lam + d)(lam - d - 2) over
      the degree lists of Part III.A' Lemma 2.3.
+  K7 (computed) [Hin26] Lemma 6.3 at general N (proof5 Part III.D Lemma 3.1): the gauge potential operator box^Ups =
+     box + 2 E-bar G delta* on Minkowski, E-bar h = -gam (2 iota_{c#} h - m (1 - e) c tr h), c = r^-1 dt, m = 2/(n - 1),
+     in the operator form of Part III.D (3.3) reduced by type, equals lin5.py's Cartesian box_U entry by entry at N = 2
+     and N = 3, for s0, s1, s2, sl, v1, v2, vl, with l, gam, e symbolic.
+  K8 (computed) [Hin26] Lemma 6.6 at n = 4: the determinants of K7's matrices are c lam (lam - 3)(lam^2 - lam - 2 - z)
+     (s0), c (l + 3 - lam)(l + lam - 1) Q (sl, l >= 1), Q = s^2 - (2 + 2 kappa + z) s + kappa (kappa + 1) + z kappa, s =
+     lam (lam - 1), kappa = l (l + 2), and c (lam + l)(l + 2 - lam) (vl), z = 4 e gam^2.
 
 Controls (the selftest runs them): n = 3 reproduces the source's example in K2 and the roots -l, l + 1 in K1; K4's
 expected kernels are asserted, so a change in the bases or in delta* that moved them would fail; K5 at N = 2 is the
-source's Lemma 2.29, and the N = 2 formula held against the N = 3 computation (s1, box on 1-forms) must fail.
+source's Lemma 2.29, and the N = 2 formula held against the N = 3 computation (s1, box on 1-forms and on 2-tensors)
+must fail; K7 at N =
+2 is the source's (6.11), and its N = 2 formula held against the N = 3 computation (s0) must fail.
 
-python3 harm5.py [--selftest]   (about 30 minutes, most of it K5 on symmetric 2-tensors)
+python3 harm5.py [--selftest]   (about 45 minutes, most of it K5 on symmetric 2-tensors)
 """
 import importlib.util, os, sys
 import sympy as sp
@@ -41,13 +54,12 @@ spec.loader.exec_module(lin5)
 lam, l, Zs = lin5.lam, lin5.l, lin5.Zs
 
 
-def box(C, h, sign=1):
+def box(C, h):
     """componentwise -eta^{kl} d_k d_l on a static tensor (h a list for 1-forms, a Matrix for 2-tensors)"""
     if isinstance(h, sp.MatrixBase):
         return sp.Matrix(h.shape[0], h.shape[1],
-                         lambda a, b: -sum((C.eta[k, k] if k else sign * C.eta[k, k]) * C.d(C.d(h[a, b], k), k)
-                                           for k in range(C.N)))
-    return [-sum((C.eta[k, k] if k else sign * C.eta[k, k]) * C.d(C.d(q, k), k) for k in range(C.N)) for q in h]
+                         lambda a, b: -sum(C.eta[k, k] * C.d(C.d(h[a, b], k), k) for k in range(C.N)))
+    return [-sum(C.eta[k, k] * C.d(C.d(q, k), k) for k in range(C.N)) for q in h]
 
 
 def dstar1(C, w):
@@ -55,11 +67,11 @@ def dstar1(C, w):
     return sp.Matrix(N, N, lambda a, b: (d(w[a], b) + d(w[b], a)) / 2)
 
 
-def Nbox(n, typ, rank, sign=1):
+def Nbox(n, typ, rank):
     C = lin5.ctx_of(n, typ)
     B1, B2 = lin5.bases(C, typ)
     B = B1 if rank == 1 else B2
-    N, ok = lin5.Nmat(C, B, [box(C, b, sign) for b in B], scale=C.r**2)
+    N, ok = lin5.Nmat(C, B, [box(C, b) for b in B], scale=C.r**2)
     return N, ok
 
 
@@ -67,10 +79,10 @@ def roots_of(N):
     return sp.factor(lin5.fastdet(N))
 
 
-def k1(n=4, sign=1):
+def k1(n=4):
     C = lin5.Ctx(n, l, l)
     f = Zs
-    out = box(C, [f], sign)[0]
+    out = box(C, [f])[0]
     P = lin5.point(C)
     val = sp.factor(sp.cancel(sp.expand((C.r**2 * out).subs(P)) / sp.expand(f.subs(P))))
     return val
@@ -152,7 +164,12 @@ def opmats(N):
     de = [[c(L - N), c(-L + N), [(1, "delta")], Z, Z, [(sp.Rational(1, 2), "tr")]],
           [Z, c(L - N), Z, c(-L + N), [(1, "delta")], [(-sp.Rational(1, 2), "tr")]],
           [Z, Z, c(L - N - 1), Z, c(-L + N + 1), [(1, "delta")]]]
-    return {"box1": box1, "box2": box2, "dstar": ds, "delta": de}
+    gU, eU = lin5.gU, lin5.eU
+    ME = [[[(-(1 + eU) * L + N * eU, None)], [(-(1 - eU) * L - N * eU, None)], [(-eU, "delta")]],
+          [[((1 - eU) * L + N * eU, None)], [((1 + eU) * L - N * eU, None)], [(-eU, "delta")]],
+          [[(2, "d")], [(2, "d")], Z]]
+    boxU = [[box1[i][j] + [(gU * c0, o) for c0, o in ME[i][j]] for j in range(3)] for i in range(3)]
+    return {"box1": box1, "box2": box2, "dstar": ds, "delta": de, "boxU": boxU}
 
 
 SLOTS1 = {"s0": [(0, "S"), (1, "S")], "s1": [(0, "S"), (1, "S"), (2, "dS")], "v": [(2, "V")]}
@@ -179,7 +196,7 @@ def formula(N, typ, op):
     k2 = deg * (deg + N - 1)
     absent = {"s": {0: {"dS", "hS"}, 1: {"hS"}}, "v": {1: {"dV"}}}.get(typ[0], {}).get(deg, set())
     M = opmats(sp.Integer(N))[op]
-    rin = 1 if op in ("box1", "dstar") else 2
+    rin = 1 if op in ("box1", "dstar", "boxU") else 2
     sin, sout = slots(typ, rin), slots(typ, 2 if op in ("box2", "dstar") else 1)
     A = sp.zeros(len(sout), len(sin))
     for j, (cj, nj) in enumerate(sin):
@@ -228,21 +245,23 @@ def cart_basis(C, typ, rank):
     return B
 
 
-def cartesian(n, typ, op):
+def cartesian(n, typ, op, which=0):
     C = lin5.ctx_of(n, typ)
-    rin = 1 if op in ("box1", "dstar") else 2
+    rin = 1 if op in ("box1", "dstar", "boxU") else 2
     rout = 2 if op in ("box2", "dstar") else 1
     Bin, Bout = cart_basis(C, typ, rin), cart_basis(C, typ, rout)
     if op in ("box1", "box2"):
         outs, sc = [box(C, b) for b in Bin], C.r**2
+    elif op == "boxU":
+        outs, sc = [lin5.box_U(C, b) for b in Bin], C.r**2
     elif op == "dstar":
         outs, sc = [dstar1(C, b) for b in Bin], C.r
     else:
         outs, sc = [lin5.delta(C, b) for b in Bin], C.r
-    return lin5.Nmat(C, Bout, outs, scale=sc)
+    return lin5.Nmat(C, Bout, outs, which=which, scale=sc)
 
 
-def k5(n, ops=("box1", "box2", "dstar", "delta")):
+def k5(n, ops=("box1", "box2", "dstar", "delta"), which=0):
     """Lemma 2.29 at N = n - 1: the operator form reduced by type against the Cartesian computation, entry by entry"""
     types = ["s0", "s1", "s2", "sl", "v1", "v2", "vl"] + (["t2", "tl"] if n == 4 else [])
     out = []
@@ -251,7 +270,7 @@ def k5(n, ops=("box1", "box2", "dstar", "delta")):
             if typ[0] == "t" and op != "box2":
                 continue
             F = formula(n - 1, typ, op)
-            Cm, closed = cartesian(n, typ, op)
+            Cm, closed = cartesian(n, typ, op, which)
             diff = (F - Cm).applyfunc(lambda q: sp.simplify(q))
             out.append((typ, op, closed and diff == sp.zeros(*F.shape), F))
     return out
@@ -265,10 +284,21 @@ def selftest(verbose=False):
     vc = k1(3)
     good = sp.simplify(vc - (lam + l) * (lam - l - 1)) == 0 or sp.simplify(vc + (lam + l) * (lam - l - 1)) == 0
     print("K1 control n = 3: N =", vc, "PASS" if good else "FAIL"); ok &= good
+    D = {("s0", "box1"): [0, 1], ("s1", "box1"): [0, 1, 2], ("s2", "box1"): [1, 2, 3], ("sl", "box1"): [l - 1, l, l + 1],
+         ("v1", "box1"): [1], ("v2", "box1"): [2], ("vl", "box1"): [l],
+         ("s0", "box2"): [0, 0, 1, 2], ("s1", "box2"): [0, 1, 1, 1, 2, 3], ("s2", "box2"): [0, 1, 2, 2, 2, 3, 4],
+         ("sl", "box2"): [l - 2, l - 1, l, l, l, l + 1, l + 2], ("v1", "box2"): [1, 2], ("v2", "box2"): [1, 2, 3],
+         ("vl", "box2"): [l - 1, l, l + 1], ("t2", "box2"): [2], ("tl", "box2"): [l]}
+
+    def lists(det, degs):
+        q = sp.simplify(det / sp.prod([(lam + d) * (lam - d - 2) for d in degs]))
+        return q.is_number and q != 0
     r2 = k2(4)
     for typ, (d, cl) in r2.items():
-        print("K2 1-forms n = 4", typ, ":", d, "closed" if cl else "NOT CLOSED")
-        ok &= cl
+        good = cl and lists(d, D[(typ, "box1")])
+        print("K2 1-forms n = 4", typ, ":", d, "= c prod (lam + d)(lam - d - 2), d in", D[(typ, "box1")],
+              "PASS" if good else "FAIL")
+        ok &= good
     r2c = k2(3)
     d3 = r2c["sl"][0]
     exp3 = sp.expand((lam + l + 1) * (lam + l) * (lam + l - 1) * (lam - l) * (lam - l - 1) * (lam - l - 2))
@@ -276,8 +306,10 @@ def selftest(verbose=False):
     print("K2 control n = 3, s_l:", d3, "PASS" if good3 else "FAIL"); ok &= good3
     r3 = k3(4)
     for typ, (d, cl) in r3.items():
-        print("K3 2-tensors n = 4", typ, ":", d, "closed" if cl else "NOT CLOSED")
-        ok &= cl
+        good = cl and lists(d, D[(typ, "box2")])
+        print("K3 2-tensors n = 4", typ, ":", d, "= c prod (lam + d)(lam - d - 2), d in", D[(typ, "box2")],
+              "PASS" if good else "FAIL")
+        ok &= good
     r4 = k4(4)
     want = {"s0": lam, "s1": lam, "s2": 1, "v1": lam + 1, "v2": 1}
     for typ, d in r4.items():
@@ -287,19 +319,41 @@ def selftest(verbose=False):
         for typ, op, good, _ in k5(n):
             print("K5 Lemma 2.1 at N =", n - 1, typ, op, ": formula = Cartesian", "PASS" if good else "FAIL")
             ok &= good
-    F2, (C3, _) = formula(2, "s1", "box1"), cartesian(4, "s1", "box1")
-    good = (F2 - C3).applyfunc(sp.simplify) != sp.zeros(*F2.shape)
-    print("K5 control: the N = 2 formula against the N = 3 computation differs", "PASS" if good else "FAIL"); ok &= good
-    D = {("s0", "box1"): [0, 1], ("s1", "box1"): [0, 1, 2], ("s2", "box1"): [1, 2, 3], ("sl", "box1"): [l - 1, l, l + 1],
-         ("v1", "box1"): [1], ("v2", "box1"): [2], ("vl", "box1"): [l],
-         ("s0", "box2"): [0, 0, 1, 2], ("s1", "box2"): [0, 1, 1, 1, 2, 3], ("s2", "box2"): [0, 1, 2, 2, 2, 3, 4],
-         ("sl", "box2"): [l - 2, l - 1, l, l, l, l + 1, l + 2], ("v1", "box2"): [1, 2], ("v2", "box2"): [1, 2, 3],
-         ("vl", "box2"): [l - 1, l, l + 1], ("t2", "box2"): [2], ("tl", "box2"): [l]}
+    for n, ops in ((3, ("box1", "dstar", "delta")), (4, ("box1", "box2", "dstar", "delta"))):
+        for typ, op, good, _ in k5(n, ops, which=1):
+            print("K5 Lemma 2.1 at N =", n - 1, typ, op, ": formula = Cartesian at the second point",
+                  "PASS" if good else "FAIL")
+            ok &= good
+    for op in ("box1", "box2"):
+        F2, (C3, _) = formula(2, "s1", op), cartesian(4, "s1", op)
+        good = (F2 - C3).applyfunc(sp.simplify) != sp.zeros(*F2.shape)
+        print("K5 control (s1, " + op + "): the N = 2 formula against the N = 3 computation differs",
+              "PASS" if good else "FAIL"); ok &= good
     for (typ, op), degs in D.items():
         det = sp.factor(formula(3, typ, op).det())
-        want = sp.prod([(lam + d) * (lam - d - 2) for d in degs])
-        good = sp.simplify(det / want).is_number and sp.simplify(det / want) != 0
+        good = lists(det, degs)
         print("K6 det", typ, op, "= c prod (lam + d)(lam - d - 2), d in", degs, "PASS" if good else "FAIL"); ok &= good
+    gU, eU = lin5.gU, lin5.eU
+    for n in (3, 4):
+        for typ in ["s0", "s1", "s2", "sl", "v1", "v2", "vl"]:
+            F, (Cm, cl) = formula(n - 1, typ, "boxU"), cartesian(n, typ, "boxU")
+            good = cl and (F - Cm).applyfunc(sp.simplify) == sp.zeros(*F.shape)
+            print("K7 box^Ups at N =", n - 1, typ, ": formula = Cartesian", "PASS" if good else "FAIL"); ok &= good
+    F2, (C3, _) = formula(2, "s0", "boxU"), cartesian(4, "s0", "boxU")
+    good = (F2 - C3).applyfunc(sp.simplify) != sp.zeros(*F2.shape)
+    print("K7 control: the N = 2 formula against the N = 3 computation differs", "PASS" if good else "FAIL"); ok &= good
+    z = 4 * eU * gU**2
+
+    def Q(lv):
+        kap, s_ = lv * (lv + 2), lam * (lam - 1)
+        return s_**2 - (2 + 2 * kap + z) * s_ + kap * (kap + 1) + z * kap
+    want = {"s0": lam * (lam - 3) * (lam**2 - lam - 2 - z), "s1": (4 - lam) * lam * Q(1),
+            "s2": (5 - lam) * (lam + 1) * Q(2), "sl": (l + 3 - lam) * (l + lam - 1) * Q(l),
+            "v1": (lam + 1) * (3 - lam), "v2": (lam + 2) * (4 - lam), "vl": (lam + l) * (l + 2 - lam)}
+    for typ, w in want.items():
+        r_ = sp.simplify(formula(3, typ, "boxU").det() / w)
+        good = r_.is_number and r_ != 0
+        print("K8 det box^Ups", typ, ": c times the stated factors", "PASS" if good else "FAIL"); ok &= good
     print("selftest:", "PASS" if ok else "FAIL")
     return ok
 

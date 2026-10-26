@@ -1,14 +1,14 @@
 # Part III.B. The Myers-Perry family on the compactified spacetime, and the gauge-fixed Einstein equation, at n = 4
 
-*Status.* Verified (D217). Written out in full (D215) and read line by line by the ninety-first verifier, which found no
-major gap; its two minor findings and ten nits are seated (section 7.3). Nothing here is labelled proved until a reader
-has read those repairs. This part proves, at spatial dimension $n = 4$, what [Hin26] sections 3 and 4 (pp. 68-83)
-establish for the Kerr family: the compactified spacetime and its charts, the black hole family as smooth metrics on it
-with their decay at infinity, the time functions, the linearised metrics, the initial data and their decay, the null
-coordinates near null infinity, the cut-off Lorentz boosts and the pullback of the family by them, and the gauge-fixed
-Einstein equation with its linearisation. The source is [Hin26] = P. Hintz, *Nonlinear stability of subextremal Kerr
-black holes* (printed page numbers), read in the record's text extraction. Parts II.A (`PART-II-A-SETUP.md`) and II.C
-(`PART-II-C-OPERATORS.md`) are cited as II.A and II.C.
+*Status.* **Proved** (D221). Written out in full (D215) and read line by line by the ninety-first verifier, which found
+no major gap; its two minor findings and ten nits are seated (section 7.3), and the ninety-second verifier read those
+repairs and confirmed each (D221). This part proves, at spatial dimension $n = 4$, what [Hin26] sections 3 and 4 (pp.
+68-83) establish for the Kerr family: the compactified spacetime and its charts, the black hole family as smooth metrics
+on it with their decay at infinity, the time functions, the linearised metrics, the initial data and their decay, the
+null coordinates near null infinity, the cut-off Lorentz boosts and the pullback of the family by them, and the
+gauge-fixed Einstein equation with its linearisation. The source is [Hin26] = P. Hintz, *Nonlinear stability of
+subextremal Kerr black holes* (printed page numbers), read in the record's text extraction. Parts II.A
+(`PART-II-A-SETUP.md`) and II.C (`PART-II-C-OPERATORS.md`) are cited as II.A and II.C.
 
 *Method.* At $n = 4$ the black hole family is the Myers-Perry family, written for every spin at once in Kerr-Schild form
 (supplement section 10.36). One feature of five dimensions simplifies the source's section 3 throughout: the ingoing and
