@@ -5509,3 +5509,9 @@ with a shifted perturbation), the boost identity (11.78b), the parameter derivat
 splitting), and Proposition 11.30: the map from the source's boost parameter to the forward solution's is invertible
 near the identity, so a forward solution with no boost term, growing like t_*^(2 - alpha_K), exists. Found: the
 generalised boost state must be re-centred by the constant C' between III.B's t and III.D''s t-bar. Next: verifier 110.
+
+**D261 (2026-10-26): verifier 110 seated; III.I'''' verified, III.I''' proved.** The hundred-and-tenth verifier found no
+major finding in Part III.I'''' and confirmed the boost identity (11.78b) exactly, the re-centring of the boost state,
+the linearisation of P_1 and the invertibility of the boost parameter map; two minor findings (room for the I+-weight in
+the continuity lemma, the S-dependence of the C^infinity error in Lemma 3.1's count) and nine nits are seated. The D259
+repairs to III.I''' are correct, so III.I''' is proved.

@@ -1,10 +1,11 @@
 # Part III.I$'''$. The boost parameter, n = 4 ([Hin26] section 11.4.1)
 
-*Status.* Verified (D259: the hundred-and-ninth verifier; no major finding, three minor ones and seven nits seated, to
-be read). Written (D257). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.4.1 (pp. 238-241): for
-sources with more than one order of decay at $K^+$, the forward solution of $L^{g,g_0}u = f$ is $\chi_Kh^{\le1}(\dot
-S)$, a cut-off generalised zero energy state of the boosts, plus a remainder of $K^+$-weight $\alpha_K-2>-1$
-(Proposition 11.20), with the description of the augmented operator near zero energy that it uses (Lemma 11.21).
+*Status.* Proved (D261: the hundred-and-tenth verifier read the D259 repairs and found them correct). Verified (D259:
+the hundred-and-ninth verifier; no major finding, three minor ones and seven nits seated, to be read). Written (D257).
+This part proves, at spatial dimension $n = 4$, [Hin26] section 11.4.1 (pp. 238-241): for sources with more than one
+order of decay at $K^+$, the forward solution of $L^{g,g_0}u = f$ is $\chi_Kh^{\le1}(\dot S)$, a cut-off generalised
+zero energy state of the boosts, plus a remainder of $K^+$-weight $\alpha_K-2>-1$ (Proposition 11.20), with the
+description of the augmented operator near zero energy that it uses (Lemma 11.21).
 
 *What n = 4 changes.* The scheme is the source's: Proposition 11.17 and the forward mapping put $L_bu$ one order better
 at $K^+$; null infinity is solved away (Proposition 11.16); at low frequencies the zero energy part of the source is
@@ -258,8 +259,8 @@ integral of $\partial^2_{t_*}h^{\le1,\mathrm{aug}}_{b,\mathrm s1}$ with $h_{b,\m
 {hi}}+u_{\mathrm{reg}}+(u_{\mathrm{sing}}-\chi_Kh^{\le1}(\dot S))$ of $\iota^+$-weight $\ell'_+ :=
 \min(\frac32,\alpha^\sharp_+)-4\epsilon$ and $K^+$-weight $\alpha_K-2$ (Steps 1-3; $u_I$ is supported near $\mathscr
 I^+$). Near $\mathscr I^+$, $\chi_K = 0$ ($\chi_K$ vanishes for $|x|\ge t_*/2$), so $L\tilde u = f$ there, and III.I$'$
-Proposition 2.1 with $\ell_+ := \min(\ell'_+,\min\mathrm{Re}\,\mathcal E_+-\epsilon)$, $\epsilon$ chosen with
-$\ell_+\notin\mathrm{Re}\,\pi_1\mathcal E_+$ (lowering the a priori weight is free;
+Proposition 2.1 with $\ell_+ := \min(\ell'_+,\min\mathrm{Re}\,\mathcal E_+-\epsilon)$ (so
+$\ell_+\notin\mathrm{Re}\,\pi_1\mathcal E_+$; lowering the a priori weight is free;
 $\frac32<\ell_I<\min(a_I+\frac12,\ell_I^{\max})$ by III.I$''$ (5.1); $\ell_+<\min(\ell_I,a_++\min\mathrm{Re}\,\mathcal
 E_+)$; $\ell_+$ below $\min\mathrm{Re}\,\mathcal E_+$, so that $(\mathcal E_+,\ell_+)$ is the weight $\ell_+$, and below
 $\min\mathrm{Re}\,\mathcal E^{\mathrm{tot}}_I = \frac32$) gives the $\mathscr I^+$-data $(\langle\mathcal

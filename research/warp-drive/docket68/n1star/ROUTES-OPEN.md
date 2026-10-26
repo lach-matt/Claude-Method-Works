@@ -3338,3 +3338,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   form of P_1. (I''''5) a_I >= 2. (I''''6) the two one-line steps of the source written out.
 - Requirement: 2 + E_ind in E_+ ((2.4), the source's 1 + E_ind in E_+).
 - Next: verifier 110 on III.I'''' and the D259 repairs; then [Hin26] section 11.5 (almost boundedness) as III.I'''''.
+
+### 4.184 Verifier 110 seated: III.I'''' verified; III.I''' proved (D261)
+
+- Verifier 110 on III.I'''' (PART-III-I5-UNBOOST.md) and the D259 repairs: 0 major, 2 minor, 9 nits; the D259 repairs
+  correct and complete. Confirmed: (2.3) exact with signs, Theta and the counterterm; the C' term of Lemma 1.2 is there
+  (iota+-order 1); L_{h,S} = L^{g',g_0} and h^(-1) in X; Lemma 3.2's counts; S-dot = Pi(f - (L - L_b0)u); invertibility.
+- m1: Lemma 4.2 (b) needs room l_I > 2; stated for l_I > 2 or f vanishing near I+ (then any l''_I > 2 serves, S-dot
+  being determined by u), which is how Proposition 4.1 (2) uses it (f_00 is supported in C).
+- m2: Lemma 3.1's proof said the C^infinity error does not depend on S; now the background difference k_S in K is
+  counted with the perturbation, as in III.I Proposition 3.4's proof.
+- Nits: (ii) derived from III.B's Upsilon^0 formula; III.B (3.5), Proposition 3.6 for g_b0 - eta; (Dyn) recorded; E_ind
+  of (2.4) fixed; Corollary 4.2 dropped from Lemma 2.5's list; (3.3) without the bullet; "polynomial" qualified; d's
+  size in Lemma 4.2 (b); t^flat_* in the closing remark; III.I''' Step 4's "eps chosen" made automatic.
+- Next: Part III.I''''' ([Hin26] section 11.5) is written (D262); verifier 111 on it and these repairs.

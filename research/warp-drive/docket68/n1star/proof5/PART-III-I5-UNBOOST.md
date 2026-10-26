@@ -1,6 +1,7 @@
 # Part III.I$''''$. Undoing the boost, n = 4 ([Hin26] section 11.4.2)
 
-*Status.* Written (D260). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.4.2 (pp. 241-247): the
+*Status.* Verified (D261: the hundred-and-tenth verifier; no major finding, two minor ones and nine nits seated, to be
+read). Written (D260). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.4.2 (pp. 241-247): the
 correction terms that let a source generate the boost term of Part III.I$'''$ (Definition 11.23, Lemma 11.24), the
 identity (11.76)-(11.78b) behind them, the augmented gauge-fixed Einstein operator (Definition 11.25), its linearisation
 in the boost parameter (Lemma 11.28), and the elimination of boosts (Proposition 11.30 and (11.95)): the map from the
@@ -51,11 +52,12 @@ $P(g,g_0)$, $\Upsilon^{E_\Upsilon}(g,g_0)$, $\delta^*_{g_0,E_C}$ and $\delta_{g_
 D_{g_b}\mathrm{Ric}+\delta^*_{g_b,E_C}\delta_{g_b,E_\Upsilon}G_{g_b}$ (III.B (6.8)). Three identities are used
 throughout. (i) $\Upsilon^{E_\Upsilon}(g,g) = 0$ for every $g$ (III.B (6.3): $\Gamma(g)-\Gamma(g) = 0$, $g-g = 0$), so
 $(D_1+D_2)\Upsilon^{E_\Upsilon}(g,g) = 0$ and $P(g,g) = \mathrm{Ric}(g)$. (ii) $D_1\Upsilon^{E_\Upsilon}(g,g) =
--\delta_{g,E_\Upsilon}G_g$, by comparing III.B's $L_{g,g_0} =
-D_g\mathrm{Ric}-\delta^*_{g_0,E_C}D_1\Upsilon^{E_\Upsilon}(g,g_0)$ at $g_0 = g$ with (6.8). (iii) If $\mathrm{Ric}(g) =
-0$, then $D_g\mathrm{Ric}(\mathcal L_Yg) = \mathcal L_Y\mathrm{Ric}(g) = 0$ for every smooth vector field $Y$
-(differentiate $\mathrm{Ric}(\psi_\epsilon^*g) = \psi_\epsilon^*\mathrm{Ric}(g)$ along the flow of $Y$); in particular
-$D_g\mathrm{Ric}\circ\delta^*_g = 0$.
+-\delta_{g,E_\Upsilon}G_g$: by III.B's $\Upsilon^0(g,g_0) = g\,g_0^{-1}\delta_gG_gg_0$ (section 6, the source's
+(4.3)-(4.4)) and (6.3), $D_1\Upsilon^0(g,g)k = D(\delta_gG_g)(k)\,g = -\delta_gG_gk$, as $\delta_gG_gg = 0$ for every
+$g$, and the $E^\Upsilon$-term contributes $-E^\Upsilon_gG_gk$ (III.B (6.6) at $g_0 = g$ says the same). (iii) If
+$\mathrm{Ric}(g) = 0$, then $D_g\mathrm{Ric}(\mathcal L_Yg) = \mathcal L_Y\mathrm{Ric}(g) = 0$ for every smooth vector
+field $Y$ (differentiate $\mathrm{Ric}(\psi_\epsilon^*g) = \psi_\epsilon^*\mathrm{Ric}(g)$ along the flow of $Y$); in
+particular $D_g\mathrm{Ric}\circ\delta^*_g = 0$.
 
 *The boost states.* By III.D$''$ Proposition 3.1 at $b_0$, with $\omega_{\mathrm s1}(S) := \omega^{(0)}_{b_0,\mathrm
 s1}(S)$ and $\breve\omega(S) := \breve\omega^{(0),1}_{b_0,\mathrm s1}(S)$, stationary and linear in $S$:
@@ -67,8 +69,9 @@ t_*+|x|$ (III.D$''$ (1.2)); $h(S) := \delta^*_{g_{b_0}}\omega_{\mathrm s1}(S)\in
 E_{\mathrm{ind}})}$, and $h^{\le1}(S) = t_*h(S)+\breve h(S) = \delta^*_{g_{b_0}}(t_*\omega_{\mathrm
 s1}(S)+\breve\omega(S))$, $\breve h(S)\in\mathcal A^{(2,0)\cup(2+\mathcal E_{\mathrm{ind}})}$, is III.H section 1's
 generalised state; $h(S)$ and $h^{\le1}(S)$ lie in the kernels of $D_{g_{b_0}}\mathrm{Ric}$ and of
-$\delta_{g_{b_0},E_\Upsilon}G_{g_{b_0}}$. Near infinity $\bar t = t+C'-8\mu_0|x|^{-1}$ and
-$g_{b_0}-\eta\in|x|^{-2}C^\infty$ (III.D$''$ section 1, from III.B (3.6)); $C'$ is that constant.
+$\delta_{g_{b_0},E_\Upsilon}G_{g_{b_0}}$. Near infinity $\bar t = t+C'-8\mu_0|x|^{-1}$ (III.D$''$ section 1, from III.B
+(3.6)) and $g_{b_0}-\eta\in|x|^{-2}C^\infty$ (III.B (3.5), Proposition 3.6); $C'$ is that constant. III.D$''$
+Proposition 3.1 assumes (Dyn) (III.D), as every part from III.D$''$ on does.
 
 **Definition 1.1 (the re-centred state).** $\omega^{\le1}_\natural(S) := (t_*-C')\omega_{\mathrm s1}(S)+\breve\omega(S)$
 and $h^{\le1}_\natural(S) := \delta^*_{g_{b_0}}\omega^{\le1}_\natural(S) = h^{\le1}(S)-C'h(S)$, in the same two kernels.
@@ -183,10 +186,11 @@ boost.
 
 **Lemma 2.5 (the linearisation in $h$; [Hin26] (11.84)-(11.85) at n = 4).** Assume
 $$2+\mathcal E_{\mathrm{ind}}\subset\mathcal E_+.\tag{2.4}$$
-Then $h^{(-1)}(S)\in\mathcal X^\infty$ with $\|h^{(-1)}(S)\|_{\mathcal X^k}\le C_k|S|$, and
+($\mathcal E_{\mathrm{ind}}$ is the index set of III.D$''$ Proposition 3.1 at $b_0$, fixed once, so (2.4) is a condition
+on $\mathcal E_+$.) Then $h^{(-1)}(S)\in\mathcal X^\infty$ with $\|h^{(-1)}(S)\|_{\mathcal X^k}\le C_k|S|$, and
 $$L_{h,S} = L^{g',g_0},\qquad g' = g_0+h',\quad h' := h^{(-1)}(S)+h,\quad g_0 = g_S.$$
 So for $|S|$ and $\|h\|_{\mathcal X^d}$ small, $L_{h,S}$ is the operator of III.I Theorem 5.3 with $(S,h')$ for $(S,h)$,
-and III.I Propositions 3.4, 4.1, Corollaries 4.2, 5.2, Theorem 5.3, III.I$'$ Propositions 2.1, 3.1, III.I$''$
+and III.I Propositions 3.4, 4.1, Corollary 5.2, Theorem 5.3, III.I$'$ Propositions 2.1, 3.1, III.I$''$
 Proposition 5.1 and III.I$'''$ Proposition 2.1 hold for it, with their constants for $(S,h')$.
 
 *Proof.* $\vartheta_\sharp(S)$ does not depend on $h$, so $D_hP_1 =
@@ -223,11 +227,13 @@ of the same terms with one factor replaced by $k'$ or one of its derivatives (or
 $k'\in\mathcal K\subset\mathcal X^\infty$ is counted as a difference. So $\dot L$ is of the class (3.6). In III.I
 Proposition 4.1's proof of (4.1) near $\mathscr I^+$, $L^{g,g_0}$ is the leading part
 $\rho_+^2\rho_I(X_+-X_I)(X_I-\frac32-\bar A)$, which does not depend on $(g,g_0)$, plus the $C^\infty$ error of
-$L_{b_0}$, which does not depend on $S$, plus the perturbation error; $\dot L$ is the $S$-derivative of the last only,
-which is of the same kind, and the counts given there for the perturbation error ($2\mathcal
-E^{\mathrm{tot}}_I\subset\mathcal E^C_I+1$ at weight $\ell_I+1$, $2\mathcal E_++2$ at weight $\ell_++2$, by III.C Lemma
-2.1) apply to it. Away from $\mathscr I^+$, (4.2)'s count, from (3.6) and III.C Lemma 2.1, gives the $\iota^+$-data, and
-$\dot L = 0$ near $K^+$, as $g_S = g_{b_0}$ there. Linearity in $k'$ gives the $O(|S'|)$ bound. $\square$
+$L_{b_0}$, plus the perturbation error, in which the background difference $k_S\in\mathcal K\subset\mathcal X^\infty$ is
+counted with $h$, as in III.I Proposition 3.4's proof; the first two do not depend on $S$, and $\dot L$ is the
+$S$-derivative of the perturbation error, which is of the same kind, and the counts given there for the perturbation
+error ($2\mathcal E^{\mathrm{tot}}_I\subset\mathcal E^C_I+1$ at weight $\ell_I+1$, $2\mathcal E_++2$ at weight
+$\ell_++2$, by III.C Lemma 2.1) apply to it. Away from $\mathscr I^+$, (4.2)'s count, from (3.6) and III.C Lemma 2.1,
+gives the $\iota^+$-data, and $\dot L = 0$ near $K^+$, as $g_S = g_{b_0}$ there. Linearity in $k'$ gives the $O(|S'|)$
+bound. $\square$
 
 **Lemma 3.2 ([Hin26] Lemma 11.28 at n = 4).** Assume (2.4). Let $|S|$, $\|h\|_{\mathcal X^5}$ be small, $h\in\mathcal
 X^k$, $k\ge5$, and $f_{h,S}(S') := D_SP_1(h,S,b_0)(S')$, $S'\in\mathcal S_1$. Put
@@ -236,7 +242,7 @@ E_{\mathrm{ind}}).\tag{3.2}$$
 Then $f_{h,S}(S')$ is linear in $S'$, vanishes on $\mathrm{int}\,\chi_K^{-1}(1)$ (a neighbourhood of $K^+$); if $h$
 vanishes for $t^\flat_*<c$, $c\le10$, so does $f_{h,S}(S')$; and for every $\epsilon>0$
 $$f_{h,S}(S')\in H^{k-2,(\langle\mathcal E^C_I+1\rangle',a_I+1),((\tilde{\mathcal E}_+\cup2\mathcal E_+)+2,\
-a_++2+\min(2,m_+)-\epsilon),\infty}_{\mathrm b}(\Omega_*)^{\bullet,-},\tag{3.3}$$
+a_++2+\min(2,m_+)-\epsilon),\infty}_{\mathrm b}(\Omega_*),\tag{3.3}$$
 with norm $O(|S'|)$, continuous in $(h,S)$ with $h\in\mathcal X^k$. In particular its $\iota^+$-weight is $4-\epsilon$
 at worst, and $f_{0,0}(S') = L_{b_0}(\chi_Kh^{\le1}_\natural(S'))$ is supported in $\mathcal C$.
 
@@ -342,7 +348,8 @@ $\alpha_K-2>-1$, so $h(\dot S)$ is the coefficient of $t_*$ in $u$ at $K^+$, and
 
 (a) $|\dot S_{h,S}(f)|\le C\|f\|_{H^{k_0,(\langle\mathcal E^C_I+1\rangle',\ell_I+1),\alpha_++2,\alpha_K}_{\mathrm b}}$;
 
-(b) for fixed $f$, $(h,S)\mapsto\dot S_{h,S}(f)$ is continuous, $h$ in the $\mathcal X^d$-topology.
+(b) if $\ell_I>2$, or if $f$ vanishes near $\mathscr I^+$, then for fixed $f$ the map $(h,S)\mapsto\dot S_{h,S}(f)$ is
+continuous, $h$ in the $\mathcal X^d$-topology with $d\ge k_1+d_T+7$, $d_T$ the $d$ of III.I Theorem 5.3 and $k_1$ below.
 
 *Proof.* In III.I$'''$ Proposition 2.1's proof (with $L := L_{h,S}$), $\dot S = S_0$ is obtained from $f' :=
 f-(L-L_{b_0})u$ alone: $u_I$ by III.I$'$ Proposition 3.1's construction for $L_{b_0}$, $f^\flat := f'-L_{b_0}u_I$, and
@@ -353,7 +360,9 @@ construction loses finitely many derivatives; (2.25a) and III.H Proposition 3.2 
 L_{b_0}(0)^{-1}$). Moreover $\dot S$ is determined by $u$, so it does not depend on the auxiliary weights
 $(\alpha'_K,\beta'_+,\alpha^\sharp_+,\ell_I)$ of that proof, which may be taken with room: $\alpha'_K>\alpha_K-(a_K-2)$
 strictly and $\ell_I>2$ strictly, so that lowering the weights of $u$ by a small $\varsigma>0$ keeps $f'$ in a space on
-which some such $\Pi$ is bounded.
+which some such $\Pi$ is bounded. If $\ell_I = 2$ and $f$ vanishes near $\mathscr I^+$, $f$ lies in the space for any
+$\ell''_I\in(2,\min(a_I+\frac12,\ell_I^{\max}))$ off III.I$''$ (5.1)'s excluded set, and the argument runs there; $\dot
+S$ is the same, being determined by $u$.
 
 (a) $\|f'\|\le\|f\|+\|(L-L_{b_0})u\|\le\|f\|+C\|u\|$, by III.I Proposition 4.1 (4.2) with the coefficient bounds of
 III.I Proposition 3.4, uniform for small $(S,h')$, and $\|u\|\le C\|f\|$ in the space (5.2) of III.I$''$ Proposition
@@ -362,12 +371,13 @@ X^d}\le\|h\|_{\mathcal X^d}+C|S|$ (Lemma 2.5) this gives (a), $k_0$ the sum of t
 
 (b) For $(h_1,S_1)$ near $(h,S)$, $L_1 := L_{h_1,S_1}$, $u_1$ its forward solution with source $f$,
 $$\dot S_{h_1,S_1}(f)-\dot S_{h,S}(f) = -\Pi\big((L_1-L)u_1+(L-L_{b_0})(u_1-u)\big).$$
-The coefficients of $L^{g,g_0}-L_{b_0}$ are polynomial in the differences (Lemma 3.1's proof), so $L_1-L$ has
-coefficients in the class (3.6) of norm $o(1)$ as $(h_1,S_1)\to(h,S)$ ($h'_1\to h'$ in $\mathcal X^d$, Lemma 2.2), and
-(4.2)'s bound is linear in the coefficient norms (III.C Lemma 2.1); $u_1$ is bounded in (5.2) by (a)'s argument. So
-$(L_1-L)u_1\to0$. III.I$''$ Proposition 5.1's continuity gives $u_1\to u$ in (5.2) with weights lowered by $\varsigma$,
-and (4.2) gives $(L-L_{b_0})(u_1-u)\to0$ in the space of $f'$ with weights lowered by $\varsigma$, on which $\Pi$ is
-bounded by the choice of room. $\square$
+The coefficients of $L^{g,g_0}-L_{b_0}$ are polynomial in the differences and their derivatives, with coefficients
+smooth in $g^{-1}$, $g_0^{-1}$ (Lemma 3.1's proof), so $L_1-L$ has coefficients in the class (3.6) of norm $o(1)$ as
+$(h_1,S_1)\to(h,S)$ ($h'_1\to h'$ in $\mathcal X^d$, Lemma 2.2), and (4.2)'s bound is linear in the coefficient norms
+(III.C Lemma 2.1); $u_1$ is bounded in (5.2) by (a)'s argument. So $(L_1-L)u_1\to0$. III.I$''$ Proposition 5.1's
+continuity gives $u_1\to u$ in (5.2) with weights lowered by $\varsigma$, at the regularity $k_1+2$ that $\Pi$ needs
+once $d\ge k_1+d_T+7$ (III.I Theorem 5.3's continuity, through (3.7)), and (4.2) gives $(L-L_{b_0})(u_1-u)\to0$ in the
+space of $f'$ with weights lowered by $\varsigma$, on which $\Pi$ is bounded by the choice of room. $\square$
 
 *Proof of (2).* By Lemma 2.4, $f_{0,0}(S') = L_{b_0}(\chi_Kh^{\le1}_\natural(S'))$, and $\chi_Kh^{\le1}_\natural(S')$
 vanishes for $t^\flat_*<10$, so it is the forward solution (II.E Proposition 3.4); it has the form (4.1) with $\tilde u
@@ -375,9 +385,9 @@ vanishes for $t^\flat_*<10$, so it is the forward solution (II.E Proposition 3.4
 $$S^{(-1)}_{h,S}(S')-S' = \dot S_{h,S}\big(f_{h,S}(S')-f_{0,0}(S')\big)+\big(\dot S_{h,S}-\dot
 S_{0,0}\big)\big(f_{0,0}(S')\big).$$
 The first term tends to 0 as $(h,S)\to0$ by Lemma 4.2 (a) and the continuity in Lemma 3.2 (with $k = d$, $d\ge k_0+2$;
-$f_{h,S}\in H^\infty$ for $h\in\mathcal X^\infty$, and its convergence is in $H^{d-2}$); the second by Lemma 4.2 (b). So
-$S^{(-1)}_{h,S}$ is close to the identity on $\mathcal S_1\cong\mathbb R^4$ for small $(h,S)$, hence invertible.
-$\square$
+$f_{h,S}\in H^\infty$ for $h\in\mathcal X^\infty$, and its convergence is in $H^{d-2}$); the second by Lemma 4.2 (b),
+$f_{0,0}(S')$ vanishing near $\mathscr I^+$ (it is supported in $\mathcal C$). So $S^{(-1)}_{h,S}$ is close to the
+identity on $\mathcal S_1\cong\mathbb R^4$ for small $(h,S)$, hence invertible. $\square$
 
 **Corollary 4.3 ([Hin26] (11.95) at n = 4).** For $(h,S)$ and $f$ as in Proposition 4.1 (1), put $S'' :=
 (S^{(-1)}_{h,S})^{-1}\dot S(f)$. The forward solution $u$ of
@@ -391,8 +401,8 @@ $\dot S = \dot S(f)-S^{(-1)}_{h,S}(S'') = 0$ by linearity. $\square$
 
 The source then introduces $P'(h,S,b) := P(\chi_-h_{-S}+h,S,b)$ ((11.90)), which carries the initial data, and works
 with $h$ vanishing for $t_*<1$ ((11.91)), restoring $\chi_-h_{-S}$ only at its Definition 11.63 and Corollary 11.66. The
-same is done here: $P'$ belongs to the part that writes those, and every statement above is for $h$ vanishing for
-$t_*<1$.
+same is done here: $P'$ belongs to the part that writes those, and every statement above is for $h$ vanishing near
+$\{t^\flat_* = 1\}$.
 
 ## 5. Findings, labels and sources
 
@@ -433,10 +443,10 @@ the continuity of its Theorem 11.12 persisting through the subsequent arguments.
 
 Proved: Lemmas 1.2, 2.2, 2.4, 2.5, 3.1, 3.2, 4.2, Proposition 4.1 and Corollary 4.3, given the parts cited. Comparisons
 with the source are commentary. READ: the source's statements quoted from pp. 241-247. Inputs: II.E Proposition 3.4;
-III.B section 5 (Lemmas 5.1-5.2, (5.3)), Definition 6.1, (3.6), (6.1)-(6.3), (6.8); III.C Lemmas 2.1, 4.3; III.D$''$
-section 1, (1.2), Proposition 3.1; III.F$'''$ Proposition 4.1; III.H section 1, (1.2), Proposition 3.2; III.I
-(1.1)-(1.4), Lemmas 3.6, 4.3, Propositions 3.4, 4.1, Corollaries 4.2, 5.2, Theorem 5.3; III.I$'$ Propositions 2.1, 3.1;
-III.I$''$ (5.1), Proposition 5.1; III.I$'''$ Proposition 2.1 and its proof.
+III.B (3.5)-(3.6), Proposition 3.6, section 5 (Lemmas 5.1-5.2, (5.3)), Definition 6.1, (6.1)-(6.3), (6.6), (6.8); III.D
+(Dyn); III.C Lemmas 2.1, 4.3; III.D$''$ section 1, (1.2), Proposition 3.1; III.F$'''$ Proposition 4.1; III.H section 1,
+(1.2), Proposition 3.2; III.I (1.1)-(1.4), Lemmas 3.6, 4.3, Propositions 3.4, 4.1, Corollaries 4.2, 5.2, Theorem 5.3;
+III.I$'$ Propositions 2.1, 3.1; III.I$''$ (5.1), Proposition 5.1; III.I$'''$ Proposition 2.1 and its proof.
 
 ### 5.3 Sources
 
