@@ -2882,3 +2882,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   III.F'''-III.J and IV-VII.
 - Next: verifier 96 on the D231 repairs and Parts III.F', III.F''; Part III.F''' ([Hin26] Proposition 8.9 to Corollary
   8.13: the zero energy kernel and cokernel).
+
+### 4.156 Part III.F''' written: the zero energy (co)kernel of L_b, [Hin26] 8.9-8.13 (D233)
+
+- `proof5/PART-III-F4-ZERO.md`: Lemma 1.1 (g-dot at b_0 from the Kerr-Schild form: r^-2 (dt+dr)^2 and 2 mu_0 r^-4
+  (dt+dr) (x)_s (A-dot x) . dx, r = |x|; mp5.py M3); Lemma 2.1 (inverse images of rho^(2+k) C^oo, k = 1, 2, lie in
+  A^((k,0) u (k + E_ind))); Proposition 2.2 ([Hin26] Proposition 8.9: no logarithm; g-dot^Ups(1,0) in A^((2,0)...),
+  g-dot^Ups(0,A-dot) in A^((3,0)...)); Remark 2.3 (Remark 8.10: g-dot^Ups(0,[A,A_V]) = 2 h_b,v1(V)); Theorem 3.1
+  ([AHW24] Theorem 6.1 (2) on Tangherlini, per type and degree, static5.py S1-S6); Corollary 3.2 (stationary gauge
+  invariants); Proposition 4.1 ([Hin26] Proposition 8.11: index 0, kernel and cokernel 11-dimensional, at b_0 directly
+  and near b_0 by the augmented operator and I.C Theorem 7.1); Corollary 4.2 ([Hin26] Corollary 8.13).
+- Findings (F'''1)-(F'''6): no logarithm; eleven for seven; [AHW24] replaced at b_0 and avoided near it; Lemma 8.12 not
+  used (independence by types, gauge invariants, continuity and the dual states' leading terms); the adjoint (8.25) with
+  G^-1 = Id - (1/3) g tr; densities |dg_b| = |dt*| |dx| and weights alpha in (0, 1].
+- `static5.py` S1-S6, `zstates5.py` Z1-Z6, `mp5.py` M1-M5 rerun; `lin5.py` E3-E5 pass (E1-E5 all pass).
+- Open: [Hin26] Lemma 8.12 at n = 4 at proof level (with section 8.5's pairings, the next part); b != b_0 with small
+  nonzero sigma (III.F''); Parts III.C, III.F''''-III.J and IV-VII.
+- Next: Part III.F'''' ([Hin26] Lemma 8.12 and section 8.5); verifier 97 (Opus) on III.F''' and the verifier 96 repairs.

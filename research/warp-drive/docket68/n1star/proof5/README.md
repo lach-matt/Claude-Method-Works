@@ -42,7 +42,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.F | [Hin26] 8 to 8.1 | the linearised gauge-fixed Einstein operator: structure, the spectrum of the model's endomorphism, the bound at the trapped set | verified (D231; one nit seated, to be read) |
 | III.F' | [Hin26] 8.2-8.3 | the linearised operator's indicial roots, the indicial solutions at 0, tf-admissibility, the inverse of the tf-normal operator on b-spaces | written (D230) |
 | III.F'' | [Hin26] 8.4 (Proposition 8.8) | mode stability of the linearised operator away from zero frequency; its horizon threshold | written (D232) |
-| III.C, III.F'''-III.J | [Hin26] 5, 8.4-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
+| III.F''' | [Hin26] 8.4 (Propositions 8.9, 8.11, Remark 8.10, Corollary 8.13) | the zero energy kernel and cokernel of the linearised operator; stationary solutions on Tangherlini | written (D233) |
+| III.C, III.F''''-III.J | [Hin26] 5, 8.4-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -645,3 +646,22 @@ by the Bianchi identity, III.E Theorem 1.1 (1), Theorem 2.2, Lemma 2.3 and III.D
 harmonic, with no estimate in $l$. Proposition 4.1: invertibility for $b$ near $b_0$ and $|\sigma|\ge c_0$. Open
 (section 5, (F$''$4)): $b\ne b_0$ with $0<|\sigma|<c_0$, which the source takes from [AHW24] on Kerr and which has no
 five-dimensional counterpart. Findings (F$''$1)-(F$''$4). Written (D232).
+
+## Part III.F'''
+
+`PART-III-F4-ZERO.md`. [Hin26] section 8.4 from Proposition 8.9 to Corollary 8.13 at $n = 4$. Lemma 1.1: the linearised
+family at $b_0$, $\dot g_{b_0}(1,0) = |x|^{-2}(dt+d|x|)^2$ and
+$\dot g_{b_0}(0,\dot A) = 2\mu_0|x|^{-4}(dt+d|x|)\otimes_s(\dot Ax)\cdot dx$, from the Kerr-Schild form. Proposition 2.2
+([Hin26] Proposition 8.9): the gauged linearised metrics, without the source's logarithm, the mass correction at
+$\rho^1$ and the spin's at $\rho^2$ being off the indicial roots (Lemma 2.1). Remark 2.3 (Remark 8.10): the spin changes
+in the image of $\mathrm{ad}_A$ are $2h_{b,\mathrm v1}(V)$, pure gauge with unbounded potentials as $A\to0$. Theorem 3.1
+([AHW24] Theorem 6.1 (2) on five-dimensional Tangherlini): a decaying stationary solution of $D\mathrm{Ric}(h) = 0$ of
+one type and degree is a linearised Myers-Perry metric plus $\delta^*$ of a stationary 1-form one power larger, by the
+Kodama-Ishibashi master equations at zero frequency for $l\ge2$ and explicit gauges at $l = 0,1$ (`static5.py` S1-S6).
+Proposition 4.1 ([Hin26] Proposition 8.11): index 0, kernel and cokernel eleven-dimensional, the kernel at $b_0$ by the
+Bianchi identity, Theorem 3.1, continuation inside the horizon and mode stability of $\Box^\Upsilon$, near $b_0$ by the
+augmented operator's invertibility at $b_0$ and I.C Theorem 7.1; the dual states independent at every $b$ by their
+leading terms. Corollary 4.2 ([Hin26] Corollary 8.13): the linear right inverse with eleven augmentations. Findings
+(F$'''$1)-(F$'''$6), among them (F$'''$4): the source's Lemma 8.12 pairings are not needed for these, and are left to
+the next part; and (F$'''$5): the source's adjoint (8.25) uses $G^2 = \mathrm{Id}$, false in five dimensions. Written
+(D233).

@@ -5302,3 +5302,17 @@ omega is continued inside the horizon as a solution (Borel, then a flat correcti
 r_h) Y' = M Y) and vanishes by III.D' Proposition 4.1 on all of X-bar; then h = 0 on the exterior and, by the same ODE,
 inside. Near b_0 for |sigma| >= c_0 by compactness and I.A Theorem 8.1. Open: b != b_0 with 0 < |sigma| < c_0. gmodes5
 G3 gains the E_T check (trace-free angular equation = -(k^2/4r^2)(F^a_a + 2F)). Next: verifier 96; Part III.F'''.
+
+**D233 (2026-10-26): Part III.F''' written.** [Hin26] 8.9-8.13 at n = 4 in proof5/PART-III-F4-ZERO.md. The gauge
+correction of the mass lands at rho^1 and of the spin at rho^2, neither an indicial root of box^Ups(0), so Proposition
+8.9 has no logarithm (III.D' Lemma 5.1 (2) with III.A Lemma 1.4's index set). Remark 8.10 becomes g-dot^Ups(0,[A,A_V]) =
+2 h_b,v1(V) by III.E' Lemma 2.2 and mode stability on A^eps. [AHW24] Theorem 6.1 (2) on Tangherlini is proved per type
+and degree from static5.py's zero-frequency Kodama-Ishibashi formulas: energy identities for l >= 2 (the scalar master
+field O(r^(7/2 - beta)) excludes the exponent l + 3/2 >= 7/2), explicit gauges at l = 0, 1, and the extension across the
+horizon by III.F'' Lemma 2.1 at sigma = 0. Proposition 8.11 at b_0: Bianchi kills eta, Theorem 3.1 per harmonic, the
+gauge potential continued inside the horizon (III.F'' Lemma 2.3 at sigma = 0), its expansion at 0 (only the root 0,
+dt-bar and d(rS)), subtraction of omega_s0, omega_s1(S), mode stability; near b_0 the augmented operator, invertible at
+b_0, stays invertible (I.C Theorem 7.1), so dim ker <= 11, with continuity of the eleven states. The dual states are
+independent at every b: a Killing form vanishing inside the horizon vanishes, and the leading terms dt-bar, dx, V are
+independent. No pairings used; the adjoint (8.25) needs G^-1 = Id - (1/3) g tr at n = 4. lin5.py E1-E5 all pass (E2 1226
+s, E3 1078 s, E4 1296 s, E5 202 s). From now on verifiers run on Opus, not Fable (M, 2026-10-26). Next: Part III.F''''.
