@@ -3529,3 +3529,24 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   identity (the exact linearisation f^nu = L m_nu + r^nu), = (11.222) at K+ with the plain iota+ weight.
 - Next: verifier 117 on III.I''''''''''' (after verifier 116 is seated); then III.I'''''''''''' (Part 4, the iota+
   index set of (11.222), section 11.8.3).
+
+### 4.197 Verifier 116 seated: III.I'''''''''' verified, III.I''''''''' proved; III.I''''''''''' amended (D274)
+
+- Verifier 116 on III.I'''''''''' (PART-III-I11-SPACETIME.md) and the D271 repairs: 1 major, 3 minor, 7 nits; the D271
+  repairs all made and correct, so III.I''''''''' is proved.
+- M1: L_0 bounded the log orders of E^0_src and E_++ up to the real part 5; (H3) puts (2,K(2)) into E_+, hence
+  (4,K(2)) into E_+ + G inside E^0_src, so L_0 >= K(2) > L_0. Repaired: L_0 bounds the log orders only below
+  2 lambda_sharp = 3 + 2 delta_sharp > 3 + eps_+, where nothing involves E_+ (E_++ taken as the least choice); the log
+  count (Lemma 1.2 (c)) is stated up to the u-exponent 3 + eps_+, all that the sources and the cascade record.
+- m1: E_par closed under +1 (an index set in the sense of [Hin26] Definition 2.7) without changing E_par below 3.
+  m2: (H4) asks a_I > 3 + eps_+ (l_I <= a_I is kept from III.I''''''''). m3: the factor (-1)^z in Lemma 2.4's proof.
+- Nits: the unused e; the isotypic citation and the degree of breve omega^1_s0; h_s0's index set from III.D''' (3.1);
+  m_nu for every triple; the v1 rows of N_sigma; K = L_0 + L_1(n+1); E_I in Lambda only below 3 + eps_+. Also a
+  label: h_s1's index set is III.F''' Proposition 4.1 (4.2), not III.F''''.
+- Found while seating: the cascade of III.I''''''''''' needs the column terms polyhomogeneous at tf (III.H Lemma 2.4 and
+  III.I'''''' Lemma 1.1 (b) give them only conormally, weight 3 - eps, which after two divisions by sigma would cap
+  the level-2 source at tf-weight 2 < 2 + eta_2). New Lemma 1.1 there: at b_0 the columns are r^{-3} G(sigma r, x)
+  with G polyhomogeneous in x (the cut-off chi_c(r/t_*), the operator and dot g, h, breve h are), index set E_col;
+  2 + E_col joins Lambda. Also eta_1, eta_2 < eps_+ and Lemmas 2.1-2.2 to the full remainder order.
+- Next: verifier 117 on III.I''''''''''' and the D274 repairs; then III.I'''''''''''' (Part 4, the iota+ index set of
+  (11.222), section 11.8.3).

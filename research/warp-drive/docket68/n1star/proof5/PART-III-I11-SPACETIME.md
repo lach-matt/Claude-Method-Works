@@ -1,14 +1,15 @@
 # Part III.I$''''''''''$. Towers, row expansions and the spacetime phase, n = 4 ([Hin26] Theorem 11.59, first half)
 
-*Status.* Written (D272). This part and the next, III.I$'''''''''''$, prove at spatial dimension $n = 4$ Parts 1-3 of
-the proof of [Hin26] Theorem 11.59 (pp. 278-289): with the correction terms of III.I$'''''''''$ the forward solution can
-be made to decay at $K^+$ at the order $2+\epsilon_K$ (the source's (11.222)). This part fixes the parameter exponents
-(section 1), proves the facts about towers, row expansions and Fourier tails that both parts use (section 2), and
-carries out the part of the argument that takes place in spacetime (section 3): the $\iota^+$-terms of the source of
-$u$-exponent below 2 are solved by the $\iota^+$-normal operator up to the $K^+$-order $\alpha\le4+\epsilon_K$, and the
-$K^+$-terms this produces below $\alpha-2$ are identified as rows of III.I$'''''''''$ (Proposition 3.1). What is left is
-a forward problem whose source is partially polyhomogeneous at $\iota^+$ from the order 4 on; its $K^+$-expansion comes
-from the zero-energy structure, and III.I$'''''''''''$ treats it and the elimination.
+*Status.* Written (D272); verified (D274: verifier 116's findings seated, to be read). This part and the next,
+III.I$'''''''''''$, prove at spatial dimension $n = 4$ Parts 1-3 of the proof of [Hin26] Theorem 11.59 (pp. 278-289):
+with the correction terms of III.I$'''''''''$ the forward solution can be made to decay at $K^+$ at the order
+$2+\epsilon_K$ (the source's (11.222)). This part fixes the parameter exponents (section 1), proves the facts about
+towers, row expansions and Fourier tails that both parts use (section 2), and carries out the part of the argument that
+takes place in spacetime (section 3): the $\iota^+$-terms of the source of $u$-exponent below 2 are solved by the
+$\iota^+$-normal operator up to the $K^+$-order $\alpha\le4+\epsilon_K$, and the $K^+$-terms this produces below
+$\alpha-2$ are identified as rows of III.I$'''''''''$ (Proposition 3.1). What is left is a forward problem whose source
+is partially polyhomogeneous at $\iota^+$ from the order 4 on; its $K^+$-expansion comes from the zero-energy structure,
+and III.I$'''''''''''$ treats it and the elimination.
 
 *What n = 4 changes.* (1) *The spacetime window.* Under (C5) the $K^+$-range of the $\iota^+$-normal operator is
 $\ell^{\max}_K = 3$ (III.G$''$ (1.1)), so III.G$''$ Corollary 4.3 solves the term at the $u$-exponent $\lambda_0$,
@@ -20,7 +21,7 @@ source's $\tilde{\mathcal E}'_{++}$, built after its proof by the procedure of (
 (Definition 1.1), with log orders that grow with the real part; the rows' own sources never pass through the
 construction, as $f^\nu = Lm_\nu+r^\nu$ exactly (III.I$'''''''''$ Lemma 2.6), and this is how the self-consistency of
 the source's Remark 11.62 enters. (4) Two further conditions: (H4) $\ell_I>3+\epsilon_+$, and the gap condition (G) on
-$\epsilon_K$. Notation: Parts II.E, III.A, III.A$'$, III.D$''$, III.D$'''$, III.F$'$, III.F$''''$, III.G$'$, III.G$''$,
+$\epsilon_K$. Notation: Parts II.E, III.A, III.A$'$, III.D$''$, III.D$'''$, III.F$'$, III.F$'''$, III.G$'$, III.G$''$,
 III.G$''''$, III.I-III.I$'''''''''$; no instrument is used.
 
 ## 1. Setting
@@ -34,13 +35,16 @@ $\mathcal Y(\alpha)$; and its section 2: $K_\tau$, $\breve\omega^i_\tau$, (2.1),
 $m_\nu$, $h_\nu$, $\vartheta_\nu$, $P_4$, $L_{h,\vec p}$, $f^\nu_{h,\vec p}$ and $r^\nu_{h,\vec p}$. $\mathcal
 E^\sharp_+$ is III.I$'$ Proposition 3.1's set (3.2), $\lambda_\sharp = \frac32+(1-e_\Upsilon)\gamma_\Upsilon$, $\mathcal
 E^\iota_{\mathrm{ind}}$ the index set of III.G$''$ (4.4), and $\epsilon_{\mathrm{ind}}$ III.G$''''$ Proposition 5.1's.
-Two further hypotheses:
+Definition 2.1 and Lemma 2.2 (b), (e) of III.I$'''''''''$ extend verbatim to every triple $(\tau,\lambda,k)$ with
+$\tau\in\mathcal T$, $\mathrm{Re}\,\lambda\ge\lambda_\sharp$, $k\in\mathbb N_0$, and $m_\nu$, $r_\nu$ denote these also
+for $\nu\notin\mathcal N$. Two further hypotheses:
 
 (C5) $\gamma_Cv_C\ge\frac12$ (III.G$''$ section 1), so that $\ell^{\max}_K = \min(3,2+2\gamma_Cv_C) = 3$ (III.G$''$
 (1.1)).
 
 (H4) $\ell_I>3+\epsilon_+$, with $\ell_I$ off the discrete exclusion sets of III.I$'$ Proposition 3.1 and III.G$''$
-Theorem 4.2. As $\frac32<\ell_I<a_I+\frac12$ (III.I section 3), this asks $a_I>\frac52+\epsilon_+$ of the class;
+Theorem 4.2. As $\ell_I\le a_I$ (III.I$''''''''$ section 1; used in III.I$'''''''''$ Lemma 2.6 (a), which section 1
+below uses), this asks $a_I>3+\epsilon_+$ of the class (the source's class has the $\mathscr I^+$-order $3+\epsilon_I$);
 $\ell_I<\frac32+s_C$ (III.G$''$ Theorem 4.2) is no restriction, $s_C$ being large by (C1).
 
 *The sources.* Fix $\mathcal E_{\mathrm{src}}$ as the least choice in III.I$'''''''''$ (1.3), and put
@@ -59,64 +63,89 @@ p}m_\nu+r^\nu_{h,\vec p}$, where $r^\nu_{h,\vec p}$ has no index set (III.I$''''
 *The parameter exponents.*
 
 **Definition 1.1.** Let $\Lambda\subset\mathbb C$ be the smallest set, closed under conjugation, that contains
-$$\pi_1\big(\mathcal E_{++}\cup\mathcal G\cup\mathcal E^C_I\big)\cup\{\lambda_\sharp,3\}$$
+$$\pi_1\big(\mathcal E_{++}\cup\mathcal G\cup\mathcal E^C_I\big)\cup\{\lambda_\sharp,3\}\cup\big(2+\pi_1\mathcal
+E_{\mathrm{col}}\big)$$
 and satisfies $\Lambda+w\subset\Lambda$ for $w\in\pi_1(\mathcal E_{\mathrm{ind}}\cup\mathcal
-E^\iota_{\mathrm{ind}})\cup\{1\}$. Let $\eta_0 := \min\big(\mathrm{Re}\,\pi_1(\mathcal E_{\mathrm{ind}}\cup\mathcal
+E^\iota_{\mathrm{ind}})\cup\{1\}$; here $\mathcal E_{++}$ is the least choice in III.I$''''''''$ (1.1), and $\mathcal
+E_{\mathrm{col}}\subset\{\mathrm{Re}\ge0\}$ is the index set at $\partial X$ of the column terms at $b_0$
+(III.I$'''''''''''$ Lemma 1.1). Let $\eta_0 := \min\big(\mathrm{Re}\,\pi_1(\mathcal E_{\mathrm{ind}}\cup\mathcal
 E^\iota_{\mathrm{ind}})\cup\{1\}\big)>0$ and $N_* := \lceil5/\eta_0\rceil+2$; let $l_*\in\mathbb N_0$ bound, at real
 part $\le5$, the log orders of $\mathcal E_{\mathrm{ind}}\cup\mathcal E^\iota_{\mathrm{ind}}\cup\mathcal E^C_I$, the
 orders of the poles of $N_{\iota^+}(\bar L,\cdot)^{-1}$ (III.G$'$ Lemma 4.2) and the multiplicities of the indicial
 roots of $\widehat{L_{b_0}}(0)$ (III.F$'$ Proposition 2.3); and let $L_0\in\mathbb N$ bound the log orders of $\mathcal
-E^0_{\mathrm{src}}\cup\mathcal E_{++}\cup\mathcal G$ at real part $\le5$. For $\lambda\in\Lambda$ let $n(\lambda)$ be
-the number of $\lambda'\in\Lambda$ with $\mathrm{Re}\,\lambda'<\mathrm{Re}\,\lambda$, and $K(\lambda) :=
-L_0+(N_*+1)(l_*+1)(n(\lambda)+1)$. Put
-$$\mathcal E_{\mathrm{par}} := \mathcal M\cup\{(\lambda,k):\lambda\in\Lambda,\ 2\le\mathrm{Re}\,\lambda\le3,\ k\le
-K(\lambda)\}.\tag{1.2}$$
+E^0_{\mathrm{src}}\cup\mathcal E_{++}\cup\mathcal G\cup(2+\mathcal E_{\mathrm{col}})$ at real part $<2\lambda_\sharp$,
+and only there (Lemma 1.2 (b)). For $\lambda\in\Lambda$ let $n(\lambda)$ be the number of $\lambda'\in\Lambda$ with
+$\mathrm{Re}\,\lambda'<\mathrm{Re}\,\lambda$, and $K(\lambda) := L_0+(N_*+1)(l_*+1)(n(\lambda)+1)$. Put
+$$\mathcal E_{\mathrm{par}} := \mathcal M\cup\{(\lambda+j,k):\lambda\in\Lambda,\ 2\le\mathrm{Re}\,\lambda\le3,\ k\le
+K(\lambda),\ j\in\mathbb N_0\}.\tag{1.2}$$
 
 The number $3\in\Lambda$ is the $u$-exponent of the boost row that the zero-energy mass state produces
-(III.I$'''''''''''$); the increment 1 accounts for the Taylor levels of the spectral construction there.
+(III.I$'''''''''''$); the increment 1 accounts for the Taylor levels of the spectral construction there, and
+$2+\pi_1\mathcal E_{\mathrm{col}}$ for the column terms at its first Taylor level.
 
 **Lemma 1.2.** (a) $\Lambda\cap\{\mathrm{Re}\le R\}$ is finite for every $R$,
 $\Lambda\subset\{\mathrm{Re}\ge\lambda_\sharp\}$, and $\Lambda\cap\{\mathrm{Re}<2\} = \pi_1\mathcal M$.
 
-(b) $\mathcal E_{\mathrm{par}}$ is an index set, closed under conjugation, with III.I$'''''''''$ (1.2).
-$\Lambda\cap\{\mathrm{Re}\le3+\epsilon_+\}$, and so $\mathcal E_{\mathrm{par}}$, depends on $\mathcal E_+$ only through
-$\mathcal E_{++}$, which III.I$''''''''$ fixes. Hence (H3), which asks $\mathcal E_+\supset(\lambda,k)+\mathcal F$ for
-the rows, can be imposed on the class together with (H1): the $n = 4$ form of the source's Remark 11.62.
+(b) $\mathcal E_{\mathrm{par}}$ is an index set, closed under conjugation, with III.I$'''''''''$ (1.2), and $\mathcal
+E_{\mathrm{par}}\cap\{\mathrm{Re}\le3\} = \mathcal M\cup\{(\lambda,k):\lambda\in\Lambda,\ 2\le\mathrm{Re}\,\lambda\le3,\
+k\le K(\lambda)\}$. $\mathcal E_{\mathrm{par}}$ does not depend on $\mathcal E_+$. Hence (H3), which asks $\mathcal
+E_+\supset(\lambda,k)+\mathcal F$ for the rows, can be imposed on the class together with (H1): the $n = 4$ form of the
+source's Remark 11.62.
 
 (c) (*The log count.*) Applied to sources in $\mathcal Y^0(\alpha)$, the constructions of section 3 and of
 III.I$'''''''''''$ change index sets only by: adding $(w,l)\in\mathcal E_{\mathrm{ind}}\cup\mathcal
-E^\iota_{\mathrm{ind}}\cup\{(1,0)\}$ to an exponent; extended unions with $\mathcal E^C_I$ (III.I$'$ (3.2)) or with the
-indicial roots (III.A Lemma 1.4), each raising the log order at one exponent by at most $l_*+1$; and raising the log
-order at a treated exponent by a pole order of $N_{\iota^+}(\bar L,\cdot)^{-1}$ (III.G$''$ Corollary 4.3) or by 1
-(III.G$''''$ Proposition 4.4 at $\alpha_0 = 2$, its Remark 4.5). At an exponent of real part $\le5$ at most $N_*$ such
-raises occur (each belongs to one window of section 3's iteration, of width at least $\eta_0$ below 2, or to one Taylor
-level of III.I$'''''''''''$, of which there are four). Hence every exponent $(\lambda,k)$ produced with
-$2\le\mathrm{Re}\,\lambda\le5$ has $\lambda\in\Lambda$ and $k\le K(\lambda)$.
+E^\iota_{\mathrm{ind}}\cup\{(1,0)\}$ to an exponent; unions with the column exponents $(2+j,0)+\mathcal
+E_{\mathrm{col}}$ at the Taylor level $j+1$ (III.I$'''''''''''$ Lemma 2.2), of log orders $\le L_0$; extended unions
+with $\mathcal E^C_I$ (III.I$'$ (3.2)) or with the indicial roots (III.A Lemma 1.4), each raising the log order at one
+exponent by at most $l_*+1$; and raising the log order at a treated exponent by a pole order of $N_{\iota^+}(\bar
+L,\cdot)^{-1}$ (III.G$''$ Corollary 4.3) or by 1 (III.G$''''$ Proposition 4.4 at $\alpha_0 = 2$, its Remark 4.5). At an
+exponent of real part $\le3+\epsilon_+$ at most $N_*$ such raises occur (each belongs to one window of section 3's
+iteration, of width at least $\eta_0$ below 2, or to one Taylor level of III.I$'''''''''''$, of which there are four).
+Hence every exponent $(\lambda,k)$ produced with $2\le\mathrm{Re}\,\lambda\le3+\epsilon_+$ has $\lambda\in\Lambda$ and
+$k\le K(\lambda)$. These are all the exponents recorded: the $\iota^+$-data of $\mathcal Y^0(\alpha)$ stop at the weight
+$w_+-\epsilon$, that is at the $u$-exponent $3+\epsilon_+-\epsilon$.
 
 *Proof.* (a) The generators are index sets of real parts $\ge\lambda_\sharp$ ($\mathcal E_{++}\subset\mathcal E_+$ by
 (H1); $\min\mathrm{Re}\,\mathcal E^C_I>\frac32+2\gamma_\Upsilon>\lambda_\sharp$, III.I$'''''$ Step 1), finitely many
 below every bound, and the increments have real part $\ge\eta_0$; so below $R$ only sums with at most $R/\eta_0$
 increments occur. Below 2 the generators lie in $\pi_1\mathcal E_{++}$: $\lambda_\sharp$ does, and so does every element
 of $\pi_1\mathcal E^C_I$ below 2, as III.I$'$ (3.2) puts it into $\mathcal E^\sharp_+$ and $\mathcal
-E_{++}\supset\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}$ ((H1)); $\mathcal G$ and 3 have real part $\ge2$. And
-$\pi_1\mathcal E_{++}\cap\{\mathrm{Re}<2\}$ is closed under the increments below 2 (III.I$''''''''$ (1.1); $+1$ leaves
-$\{\mathrm{Re}<2\}$ as $\lambda_\sharp+1>2$). So $\Lambda\cap\{\mathrm{Re}<2\} = \pi_1\mathcal M$.
+E_{++}\supset\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}$ ((H1)); $\mathcal G$, 3 and $2+\pi_1\mathcal E_{\mathrm{col}}$
+have real part $\ge2$. And $\pi_1\mathcal E_{++}\cap\{\mathrm{Re}<2\}$ is closed under the increments below 2
+(III.I$''''''''$ (1.1); $+1$ leaves $\{\mathrm{Re}<2\}$ as $\lambda_\sharp+1>2$). So $\Lambda\cap\{\mathrm{Re}<2\} =
+\pi_1\mathcal M$.
 
-(b) An index set: finitely many exponents below each bound by (a), and finitely many logs at each. Conjugation:
-$\Lambda$ is closed under it and $n(\bar\lambda) = n(\lambda)$, $\mathcal M = \bar{\mathcal M}$. III.I$'''''''''$ (1.2):
-$\min\mathrm{Re}\,\mathcal E_{\mathrm{par}}\ge\lambda_\sharp$, and $\mathcal E_{\mathrm{par}}\cap\{\mathrm{Re}<2\} =
-\mathcal M$. The generators depend on $\mathcal E_+$ only through $\mathcal E_{++}$: $\mathcal G$ and $\mathcal E^C_I$
-do not involve $\mathcal E_+$, and the part of $\mathcal E^0_{\mathrm{src}}$ (and of $\mathcal E_{\mathrm{rows}}$) that
-involves $\mathcal E_+$ beyond $\mathcal E_{++}$, namely $\mathcal E_++\mathcal G$, $2\mathcal E_+$ and
-$(\lambda,k)+\mathcal F+\mathcal E_+$, has real part $\ge2\lambda_\sharp = 3+2\delta_\sharp>3+\epsilon_+$
-(III.I$'''''''''$ (1.1)). So $\mathcal E_+\supset\mathcal E_{\mathrm{par}}+\mathcal F$, $\mathcal
-E_+\subset\{\mathrm{Re}\ge\lambda_\sharp\}$ and III.I$''''''''$ (1.1) can be required together.
+(b) An index set: finitely many exponents below each bound by (a), finitely many logs at each, and closed under
+$(z,k)\mapsto(z+1,k)$, as $\Lambda+1\subset\Lambda$, $K(\lambda+1)\ge K(\lambda)$ ($n(\lambda+1)>n(\lambda)$), and for
+$(z,k)\in\mathcal M$, $z+1\in\Lambda$ has real part in $[2,3)$ and $k\le L_0\le K(z+1)$ ($\mathcal M\subset\mathcal
+E_{++}$). The part below 3: if $\mathrm{Re}(\lambda+j)\le3$ with $j\ge1$, then $\mathrm{Re}\,\lambda = 2$, $j = 1$, and
+$K(\lambda)\le K(\lambda+1)$. Conjugation: $\Lambda$ is closed under it and $n(\bar\lambda) = n(\lambda)$, $\mathcal M =
+\bar{\mathcal M}$. III.I$'''''''''$ (1.2): $\min\mathrm{Re}\,\mathcal E_{\mathrm{par}}\ge\lambda_\sharp$, and $\mathcal
+E_{\mathrm{par}}\cap\{\mathrm{Re}<2\} = \mathcal M$. *Independence of $\mathcal E_+$.* The increments have positive real
+parts, so $\Lambda\cap\{\mathrm{Re}<R\}$ is determined by the generators of real part $<R$, and $\mathcal
+E_{\mathrm{par}}$ by $\Lambda\cap\{\mathrm{Re}\le3\}$ and $L_0$. Below $2\lambda_\sharp = 3+2\delta_\sharp>3+\epsilon_+$
+(III.I$'''''''''$ (1.1)) nothing used involves $\mathcal E_+$: $\mathcal G$, $\mathcal E^C_I$ and $\mathcal
+E_{\mathrm{col}}$ do not; the parts of $\mathcal E^0_{\mathrm{src}}$ (and of $\mathcal E_{\mathrm{rows}}$) that involve
+$\mathcal E_+$, namely $\mathcal E_++\mathcal G$, $2\mathcal E_+$ and $(\lambda,k)+\mathcal F+\mathcal E_+$, have real
+part $\ge2\lambda_\sharp$ by (H1); and the least $\mathcal E_{++}$ of III.I$''''''''$ (1.1) agrees below
+$2\lambda_\sharp$ with the least index set that contains $\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}$ and is closed under
+$+(\mathcal E^\iota_{\mathrm{ind}}\cup\mathcal E_{\mathrm{ind}})$, since adding an element of $\mathcal E_+$ lands at
+real part $\ge2\lambda_\sharp$. So $\Lambda\cap\{\mathrm{Re}\le3\}$, $L_0$ and $\mathcal E_{\mathrm{par}}$ do not depend
+on $\mathcal E_+$, and the conditions on $\mathcal E_+$ ((H1); (H3), which gives $\mathcal E_+\supset\mathcal
+E_{\mathrm{par}}+\mathcal F$ with III.I$''''''''$ (1.1); and $\mathcal E_+\supset\mathcal
+E^\sharp_+\cap\{\mathrm{Re}<2\}$, $\mathcal E_++(\mathcal E^\iota_{\mathrm{ind}}\cup\mathcal
+E_{\mathrm{ind}}\cup\mathcal E_+)\subset\mathcal E_+$ there) are conditions on $\mathcal E_+$ alone: the least index set
+containing $\mathcal E_{\mathrm{par}}+\mathcal F$ and $\mathcal E^\sharp_+\cap\{\mathrm{Re}<2\}$ and closed under these
+additions meets them, its exponents being sums of exponents of real part $\ge\lambda_\sharp$. (As first written, $L_0$
+bounded the log orders up to the real part 5; then (H3) put $(2,K(2))$ into $\mathcal E_+$, hence $(4,K(2))$ into
+$\mathcal E_++\mathcal G\subset\mathcal E^0_{\mathrm{src}}$, and $L_0\ge K(2)>L_0$: verifier 116's major finding.)
 
 (c) The exponents produced lie in $\Lambda$, which contains the generators and is closed under the additions listed (the
 exponent 4 of III.G$''''$ (4.3), at the Taylor level $j$ of III.I$'''''''''''$, is the $u$-exponent $3+j$). Log orders,
 by induction on $n(\lambda)$: the log order at $\lambda$ is the largest over its contributions, each either a
-generator's ($\le L_0$) or $(\lambda',k')+(w,l)$ with $\mathrm{Re}\,\lambda'<\mathrm{Re}\,\lambda$, $k'\le K(\lambda')$
-and $l\le l_*$, plus at most $N_*(l_*+1)$ from the raises at $\lambda$. As $n(\lambda)\ge n(\lambda')+1$,
+generator's or a column exponent's ($\le L_0$, as $\mathrm{Re}\,\lambda\le3+\epsilon_+<2\lambda_\sharp$) or
+$(\lambda',k')+(w,l)$ with $\mathrm{Re}\,\lambda'<\mathrm{Re}\,\lambda$, $k'\le K(\lambda')$ and $l\le l_*$, plus at
+most $N_*(l_*+1)$ from the raises at $\lambda$. As $n(\lambda)\ge n(\lambda')+1$,
 $K(\lambda)-K(\lambda')\ge(N_*+1)(l_*+1)\ge l_*+N_*(l_*+1)$, and $L_0+N_*(l_*+1)\le K(\lambda)$. $\square$
 
 **Definition 1.3 (the gap and admissible orders).** (G) $\epsilon_K$ is so small that no $\lambda\in\Lambda$ has real
@@ -196,19 +225,21 @@ $\chi_K = 1$ for large $t_*$, and the stationary companions are smooth there.
 
 (d) $\int e^{i\sigma t}a^{(i)}dt = (-i\sigma)^i\hat a(\sigma)$, and (2.1). $\square$
 
-**Lemma 2.2 (joint injectivity of the states).** Let $e\in\mathbb C$, and for each $\tau\in\mathcal T\setminus\{\mathrm
+**Lemma 2.2 (joint injectivity of the states).** For each $\tau\in\mathcal T\setminus\{\mathrm
 v1\}$ let $W_\tau\in\mathcal W_{\tau,\mathbb C}$. If $\sum_\tau h_\tau(W_\tau) = 0$, then every $W_\tau = 0$.
 
-*Proof.* At the static, spherically symmetric $b_0$, $\delta^*_{g_{b_0}}$ commutes with the rotations of $\mathbb S^3$,
-and $\breve\omega^0_\tau(W)$ is of scalar type of degree $l_\tau$ (0 for s0 and c0, 1 for s1 and c1, 2 for s2; III.D$''$
-Proposition 3.1, III.D$'''$ Proposition 3.1 (1), (4)-(7)), so $h_\tau(W)$ lies in the isotypic component of degree
-$l_\tau$ (III.A$'$ Lemma 1.6), and these components are independent. Degree 2: $h_{\mathrm s2}$ is injective
-(III.I$'''''''''$ Lemma 2.2 (f)). Degree 0: $h_{\mathrm c0}(W_{\mathrm c0})\in\mathcal A^{(\mu_{\mathrm c0},0)+\mathcal
-F}$ has a nonzero $\rho^{\mu_{\mathrm c0}}$-coefficient if $W_{\mathrm c0}\ne0$ (III.I$'''''''''$ Lemma 2.2 (f)'s
-proof), while $h_{\mathrm s0}(W_{\mathrm s0})\in\mathcal A^{(0,0)+\mathcal F}$ (III.I$'''''''''$ (2.1)) and
-$\mu_{\mathrm c0}<0\le\min\mathrm{Re}\,\mathcal F$; so $W_{\mathrm c0} = 0$, and then $W_{\mathrm s0} = 0$. Degree 1:
-the same with $h_{\mathrm s1}(S)\in\mathcal A^{(3,0)\cup(3+\mathcal E_{\mathrm{ind}})}$ (III.F$''''$ Proposition 4.1
-(4.2)) and $\mu_{\mathrm c1}<0$. $\square$
+*Proof.* At the static, spherically symmetric $b_0$, every construction of III.D$''$ and III.D$'''$ stays in its
+isotypic component (III.D$'''$ Proposition 3.1's proof, *Types*), and $\breve\omega^0_\tau(W)$ is of scalar type of
+degree $l_\tau$ (0 for s0 and c0, 1 for s1 and c1, 2 for s2; III.D$''$ Proposition 3.1, III.D$'''$ Proposition 3.1 (1),
+(4)-(7)); for s0, whose state is $\delta^*(t_*\breve\omega^0+\breve\omega^1)$, $\breve\omega^1_{\mathrm s0}$ is of
+degree 0 as well (III.D$'''$ Proposition 3.1 (1)). So $h_\tau(W)$ lies in the isotypic component of degree $l_\tau$, and
+these components are independent. Degree 2: $h_{\mathrm s2}$ is injective (III.I$'''''''''$ Lemma 2.2 (f)). Degree 0:
+$h_{\mathrm c0}(W_{\mathrm c0})\in\mathcal A^{(\mu_{\mathrm c0},0)+\mathcal F}$ has a nonzero $\rho^{\mu_{\mathrm
+c0}}$-coefficient if $W_{\mathrm c0}\ne0$ (III.I$'''''''''$ Lemma 2.2 (f)'s proof), while $h_{\mathrm s0}(W_{\mathrm
+s0})\in\mathcal A^{(0,0)+\mathcal F}$ (III.D$'''$ (3.1), with $(2,0)\in\mathcal E_{\mathrm{ind}}$, III.I$'''''''''$
+section 1) and $\mu_{\mathrm c0}<0\le\min\mathrm{Re}\,\mathcal F$; so $W_{\mathrm c0} = 0$, and then $W_{\mathrm s0} =
+0$. Degree 1: the same with $h_{\mathrm s1}(S)\in\mathcal A^{(3,0)\cup(3+\mathcal E_{\mathrm{ind}})}$ (III.F$'''$
+Proposition 4.1 (4.2)) and $\mu_{\mathrm c1}<0$. $\square$
 
 **Corollary 2.3 (uniqueness of row expansions).** Let $\mathcal N'$ be a finite set of rows $\nu = (\tau,\lambda,k)$,
 $\tau\ne\mathrm v1$, and $W_\nu\in\mathcal W_{\tau,\mathbb C}$. If $\sum_{\nu\in\mathcal N'}m_\nu(W_\nu)$ has
@@ -266,10 +297,11 @@ change of basis is block triangular in $m$ with diagonal blocks $\binom{1\ \ 1}{
 $e^{2i\pi z}\ne1$. If $z\in\mathbb N_0$, $s^+_{z,0} = s^-_{z,0}$ and the space spanned by the
 $1_{\pm\sigma>0}\sigma^z(\log|\sigma|)^m$, $m\le M$, is spanned by $\sigma^z$, the $s^\pm_{z,m}$ with $1\le m\le M$, and
 $s^+_{z,M+1}-s^-_{z,M+1}$, which on $\sigma<0$ is $2\pi i(M+1)\sigma^z(\log|\sigma|)^M$ plus lower powers and vanishes
-on $\sigma>0$; its coefficient in the expansion of $v$ is $(a^-_{z,M}-a^+_{z,M})/(2\pi i(M+1))$. So
+on $\sigma>0$; its coefficient in the expansion of $v$ is $((-1)^za^-_{z,M}-a^+_{z,M})/(2\pi i(M+1))$, the data on
+$\sigma<0$ being $a^-_{z,M}|\sigma|^z = (-1)^za^-_{z,M}\sigma^z$. So
 $$v = \chi\sum_z\Big(\sum_mB^+_{z,m}s^+_{z,m}+\sum_mB^-_{z,m}s^-_{z,m}\Big)+\chi\sum_\pm1_\pm r^\pm,$$
-with $B^-_{z,M+1} = -B^+_{z,M+1} = (a^+_{z,M}-a^-_{z,M})/(2\pi i(M+1))$ for $z\in\mathbb N_0$, the polynomial $\sigma^z$
-counted with $s^+$. As $t\to-\infty$ only the $s^-$-terms and $r^\pm$ contribute beyond $O(|t|^{-\infty})$:
+with $B^-_{z,M+1} = -B^+_{z,M+1} = (a^+_{z,M}-(-1)^za^-_{z,M})/(2\pi i(M+1))$ for $z\in\mathbb N_0$, the polynomial
+$\sigma^z$ counted with $s^+$. As $t\to-\infty$ only the $s^-$-terms and $r^\pm$ contribute beyond $O(|t|^{-\infty})$:
 $$w(t) = \sum_{z,m}B^-_{z,m}\partial^m_z\big(\bar c(\bar z)|t|^{-z-1}\big)+O(|t|^{-\beta-1+\delta}) =
 O(|t|^{-\beta-1}).$$
 The functions $|t|^{-z-1}(\log|t|)^j$, finitely many and distinct with $\mathrm{Re}\,z<\beta$, are independent modulo
@@ -288,9 +320,10 @@ III.I$'''''''''''$) do not reach $K^+$.
 
 Let $\mathcal N_\iota := \{\nu\in\mathcal N:\lambda_\nu\in\pi_1\mathcal M\}$, the rows with $\mathrm{Re}\,\lambda<2$
 (the s1 rows among them are III.I$''''''''$'s motions), and $\mathcal N_\sigma := \mathcal N\setminus\mathcal N_\iota$,
-the rows with $2\le\mathrm{Re}\,\lambda\le3$: by (G) and section 1 these are the s1 rows with $(\lambda,k)\in\mathcal
-E_{\mathrm{par}}$, $2\le\mathrm{Re}\,\lambda\le3$, and the s0 and s2 rows with $\mathrm{Re}\,\lambda = 2$ (a c-row with
-$\mathrm{Re}\,\lambda\ge2$ has rate $\ge2+d_\tau>2+\epsilon_K$).
+the rows with $2\le\mathrm{Re}\,\lambda\le3$: by section 1 these are the s1 rows with $(\lambda,k)\in\mathcal
+E_{\mathrm{par}}$, $2\le\mathrm{Re}\,\lambda\le3$, the s0 and s2 rows with $\mathrm{Re}\,\lambda = 2$, and the v1 rows
+with $\mathrm{Re}\,\lambda = 2$, which carry no parameter (by (G), a c-row with $\mathrm{Re}\,\lambda\ge2$ has rate
+$\ge2+d_\tau>2+\epsilon_K$).
 
 **Proposition 3.1 (the spacetime phase).** Let $\alpha\in(2,4+\epsilon_K]$ be admissible and $f = f_1+f_2$ with
 $f_j\in\mathcal Y^0_j(\alpha)$, real, vanishing for $t_*<1$. There are real $u_I$, $u_\iota$, vanishing for $t_*<1$, and
@@ -306,7 +339,8 @@ E^C_I\rangle,\ell_I),\lambda_\sharp-\epsilon,\alpha-2-\epsilon}_{\mathrm b}(\Ome
 (c) $f^\flat := f-L_{b_0}(u_I+u_\iota)\in\bigcap_{\epsilon>0}H^{\infty,\ell_I+1,(\mathcal
 E^\flat+2,w_+-\epsilon),\alpha-\epsilon}_{\mathrm b}(\Omega_*;S^2T^*)^{\bullet,-}$, vanishing for $t_*<1$, where
 $\mathcal E^\flat$ is an index set with $\pi_1\mathcal E^\flat\subset\Lambda\cap\{\mathrm{Re}\ge2\}$ and log order at
-most $K(\lambda)$ at $\lambda$, and $\mathcal E_I$ in (a) is one with $\pi_1\mathcal E_I\subset\Lambda$.
+most $K(\lambda)$ at $\lambda$, and $\mathcal E_I$ in (a) is one with $\pi_1(\mathcal
+E_I\cap\{\mathrm{Re}<3+\epsilon_+\})\subset\Lambda$.
 
 For $\alpha<3$ this is III.I$''''''''$ Lemma 3.2's Steps 1-2 (with the $\iota^+$-expansion recorded to the weight
 $w_+$); the new point is $\alpha\le4+\epsilon_K$.
@@ -380,9 +414,12 @@ $u$-exponent $\ge2$ are left to the spectral side, as in the source; there III.I
 $\iota^+$-exponents of $\mathcal E^C_I$ with real part $\ge\frac52$ that a spacetime treatment would have to revisit.
 
 (II$''''''''''$2) *The parameter exponents* (the source's $\tilde{\mathcal E}'_{++}$, Definition 11.56 and (11.186)) are
-fixed in Definition 1.1 before the construction. They depend on $\mathcal E_+$ only through $\mathcal E_{++}$ (Lemma 1.2
-(b)), so (H3) is consistent: the content of the source's Remark 11.62 at $n = 4$. Their log orders grow with the real
-part ($K(\lambda) = L_0+L_1n(\lambda)$), which makes the count of Lemma 1.2 (c) close.
+fixed in Definition 1.1 before the construction. They do not depend on $\mathcal E_+$ (Lemma 1.2 (b)): every exponent
+that involves $\mathcal E_+$ beyond $\mathcal E_{++}$ has real part $\ge2\lambda_\sharp>3+\epsilon_+$, and $L_0$ bounds
+log orders only below $2\lambda_\sharp$ (bounding them up to the real part 5, as first written, made $L_0\ge K(2)>L_0$
+under (H3); verifier 116). So (H3) is consistent: the content of the source's Remark 11.62 at $n = 4$. Their log orders
+grow with the real part ($K(\lambda) = L_0+L_1(n(\lambda)+1)$, $L_1 := (N_*+1)(l_*+1)$), which makes the count of Lemma
+1.2 (c) close.
 
 (II$''''''''''$3) *The rows' sources are not constructed through.* $f^\nu_{h,\vec p} = L_{h,\vec p}m_\nu+r^\nu_{h,\vec
 p}$ exactly, with $r^\nu$ of no index set, so the sources that pass through Proposition 3.1 and III.I$'''''''''''$ are
@@ -391,8 +428,8 @@ Corollary 4.3's $l_0$, III.G$''''$ Proposition 4.4 at $\alpha_0 = 2$) outside $\
 
 (II$''''''''''$4) *(H4).* The $\mathscr I^+$-step must reach the $\iota^+$-weight $w_+-2 = 3+\epsilon_+$ (Step 1), and
 the Fourier transform of $f^\flat$ in III.I$'''''''''''$ needs III.A Proposition 4.2's (4.2), $\ell_I+1>w_+-1$; both are
-$\ell_I>3+\epsilon_+$, that is $a_I>\frac52+\epsilon_+$. The source's class has $\mathscr I^+$-order $3+\epsilon_I$ for
-$h$.
+$\ell_I>3+\epsilon_+$, and with $\ell_I\le a_I$ this asks $a_I>3+\epsilon_+$. The source's class has $\mathscr
+I^+$-order $3+\epsilon_I$ for $h$.
 
 (II$''''''''''$5) *The gap (G).* At $n = 4$ the row rates $\lambda-1$, $\lambda$, $\lambda+d_\tau$ are spread over
 $\Lambda$; $\epsilon_K$ must avoid them so that the remainder order $2+\epsilon_K$ is reached with the rows of $\mathcal
@@ -408,7 +445,7 @@ classical); Proposition 3.1 is the source's Part 1, Step 2.A.1 and the spacetime
 
 *Sources.* [Hin26] pp. 278-289 (Theorem 11.59, Remarks 11.60-11.62, the proof's Parts 1-3), read at source. Inputs: II.E
 Proposition 3.4; III.A Proposition 4.2, Lemma 1.4; III.A$'$ Lemma 1.6; III.D$''$ Proposition 3.1; III.D$'''$ Proposition
-3.1; III.F$''''$ Proposition 4.1; III.G$'$ Lemmas 1.3, 4.2; III.G$''$ (1.1), Table 1.1, Lemma 2.1, Definition 2.5,
+3.1; III.F$'''$ Proposition 4.1; III.G$'$ Lemmas 1.3, 4.2; III.G$''$ (1.1), Table 1.1, Lemma 2.1, Definition 2.5,
 (4.2)-(4.4), Theorem 4.2, Corollary 4.3; III.G$''''$ Propositions 4.4, 5.1; III.I section 3; III.I$'$ Proposition 3.1;
 III.I$''''$ (1.2); III.I$'''''$ Steps 1-2; III.I$'''''''$ Lemma 3.1; III.I$''''''''$ (1.1), Lemmas 3.1-3.2;
 III.I$'''''''''$ sections 1-2.

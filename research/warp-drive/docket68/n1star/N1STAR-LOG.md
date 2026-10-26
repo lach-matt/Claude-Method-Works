@@ -5591,3 +5591,12 @@ conormal form at level 3; the resolvent decomposed into physical pieces, so the 
 zero energy and at the last level; the K+-terms below alpha - 2 identified as the rows N_sigma by forward tails, the
 mass producing the boost rows at lambda = 3; and the elimination (11.222) at K+ as one step from an admissible
 alpha' in (2,3), a perturbation of the identity.
+
+**D274 (2026-10-26): verifier 116 seated; III.I'''''''''' verified, III.I''''''''' proved.** The hundred-and-sixteenth
+verifier found one major finding in Part III.I'''''''''': the log-order constant L_0 was asked to bound exponents up to
+the real part 5, where (H3) feeds the rows' own log orders back into the sources, so no class could satisfy (H3). It is
+repaired by bounding the log orders only below 2 lambda_sharp, where nothing depends on E_+, which is all that the
+sources record. Three minor findings (E_par closed under +1, (H4) as a_I > 3 + eps_+, a sign in the forward-tail
+lemma) and seven nits are seated. The D271 repairs are correct, so III.I''''''''' is proved. Seating this exposed a
+gap in III.I''''''''''': the column terms were known at tf only conormally; a new lemma shows them polyhomogeneous at
+b_0, and their exponents join the parameter exponents.

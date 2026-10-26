@@ -61,9 +61,9 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''' | [Hin26] 11.6.1 (Proposition 11.34) | extraction of the parameters: for sources of K+-weight alpha_K in (2, 5/2), u = chi_K g-dot(b-dot) + chi_K h(S^(0)_1) + a remainder decaying at K+; no logarithmic centre-of-mass term at n = 4; the tf-improvement by III.G'''' Proposition 5.1 | proved (D268: verifier 113 read the D266 repairs; verified D266) |
 | III.I''''''' | [Hin26] 11.6.2 (Definitions 11.37, 11.40, 11.42, 11.44, Lemmas 11.38, 11.41, 11.43, 11.45, Corollary 11.46) | undoing the parameter changes: corrections, the operator P_2 with parameters (S, b - b_0, S^(0)_1), their elimination; the centre-of-mass shift needs a translated exterior background at n = 4 | proved (D269: verifier 114 read the D268 repairs; verified D268) |
 | III.I'''''''' | [Hin26] 11.7 (Definitions 11.47-11.48, Lemma 11.49, Proposition 11.51) | decaying centre-of-mass motions: corrections #3 with generalised gauge 1-forms to order 4; the motions read off from the s1 row of the iota+ step; K+-weight alpha - 2 for alpha < min(a_K, 3), almost t_*^-1 | proved (D271: verifier 115 read the D269 repairs; verified D269) |
-| III.I''''''''' | [Hin26] 11.8 to Lemma 11.57 (Definitions 11.55-11.56, Lemma 11.57) | correction terms #4 for six row types (s1, v1, s0, s2 and the class roots c0, c1; gauge towers of length 4, 3, 4, 3, 2, 2), the operator P_4 with every modification parameter, and its exact linearisation f^nu = L m_nu + r^nu with a remainder of iota+-weight above 5 + eps_+ and no index set | verified (D271; no major, two minor findings and seven nits seated, to be read) |
-| III.I'''''''''' | [Hin26] Theorem 11.59, Parts 1-3, first half (with Remark 11.62) | the parameter exponents fixed (an exponent set Lambda, log orders growing with the real part, the gap (G)), the towers of III.G'' as delta*-images and the uniqueness of row expansions, forward Fourier tails, and the spacetime phase: the iota+-terms of u-exponent below 2 solved up to the K+-order alpha <= 4 + eps_K under (C5), their K+-terms the rows | written (D272) |
-| III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | written (D273) |
+| III.I''''''''' | [Hin26] 11.8 to Lemma 11.57 (Definitions 11.55-11.56, Lemma 11.57) | correction terms #4 for six row types (s1, v1, s0, s2 and the class roots c0, c1; gauge towers of length 4, 3, 4, 3, 2, 2), the operator P_4 with every modification parameter, and its exact linearisation f^nu = L m_nu + r^nu with a remainder of iota+-weight above 5 + eps_+ and no index set | proved (D274: verifier 116 read the D271 repairs; verified D271) |
+| III.I'''''''''' | [Hin26] Theorem 11.59, Parts 1-3, first half (with Remark 11.62) | the parameter exponents fixed (an exponent set Lambda, log orders growing with the real part, the gap (G)), the towers of III.G'' as delta*-images and the uniqueness of row expansions, forward Fourier tails, and the spacetime phase: the iota+-terms of u-exponent below 2 solved up to the K+-order alpha <= 4 + eps_K under (C5), their K+-terms the rows | verified (D274; one major, three minor findings and seven nits seated, to be read) |
+| III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | written (D273; amended D274) |
 | III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -1056,6 +1056,7 @@ parameters avoid the Killing rotations. Findings (I$'''''''''$1)-(I$'''''''''$6)
 Verified (D271: verifier 115; the rows, towers, (2.1), Lemmas 2.2, 2.4 and the formula (2.4) for $r^\nu$
 confirmed; $\mathcal E_{\mathrm{ind}}$ now also holds the towers' index sets, the strong $K^+$-decay of $h$ is
 recorded as needed also for $r^\nu$, and at the non-rotating $b_0$ the v1 coefficient space is 0; seven nits).
+Proved (D274: verifier 116 read the D271 repairs; all made and correct).
 
 `PART-III-I11-SPACETIME.md`. [Hin26] Theorem 11.59, Parts 1-3, first half, at $n = 4$: (C5) and (H4)
 $\ell_I>3+\epsilon_+$; the parameter exponents $\mathcal E_{\mathrm{par}}$ fixed (Definition 1.1, an exponent set
@@ -1066,6 +1067,10 @@ forward Fourier tails (Lemma 2.4); and the spacetime phase (Proposition 3.1): ev
 $u$-exponent below 2 solved up to the $K^+$-order $\alpha\le4+\epsilon_K$, its $K^+$-terms below $\alpha-2$ the
 rows $\mathcal N_\iota$. The spectral half and the elimination are III.I$'''''''''''$. Findings
 (I$''''''''''$1)-(I$''''''''''$6). At $b_0$. Written (D272).
+Verified (D274: verifier 116; one major finding, the log bound $L_0$ taken up to the real part 5, which made (H3)
+circular, repaired by bounding the log orders only below $2\lambda_\sharp$, where nothing involves $\mathcal E_+$;
+$\mathcal E_{\mathrm{par}}$ closed under $+1$; (H4) asks $a_I>3+\epsilon_+$; a sign $(-1)^z$ in Lemma 2.4's proof;
+seven nits; and the column exponents $2+\mathcal E_{\mathrm{col}}$ added to $\Lambda$).
 
 `PART-III-I12-SPECTRAL.md`. [Hin26] Theorem 11.59, Parts 1-3, second half, at $n = 4$: zero-energy solves with
 expansions at $\partial X$ (Lemma 2.1), one Taylor level (Lemma 2.2), III.G$''''$ Proposition 4.4's pieces in
@@ -1075,4 +1080,7 @@ components (Lemma 2.5); the spectral phase (Proposition 3.1: Taylor levels 0-3, 
 $\alpha-2$ the rows $\mathcal N_\sigma$, the stationary columns vanishing by decay), the expansion (Lemma 3.2)
 and its continuity (Lemma 3.3), and the elimination (Theorem 4.1, the source's (11.222) at $K^+$), one step from
 an admissible $\alpha'\in(2,3)$ by a perturbation of the identity. The $\iota^+$-index set of (11.222), Part 4
-and section 11.8.3 are the next part. Findings (I$'''''''''''$1)-(I$'''''''''''$6). At $b_0$. Written (D273).
+and section 11.8.3 are the next part. Findings (I$'''''''''''$1)-(I$'''''''''''$7). At $b_0$. Written (D273).
+Amended before its verification (D274): Lemma 1.1, the column terms at $b_0$ polyhomogeneous at tf (III.H and
+III.I$''''''$ had them only conormally, which would have capped the level-2 source below the order the cascade needs);
+$\eta_1,\eta_2<\epsilon_+$; Lemmas 2.1-2.2 carried to the full remainder order.

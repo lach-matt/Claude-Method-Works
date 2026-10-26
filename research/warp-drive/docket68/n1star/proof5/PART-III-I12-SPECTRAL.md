@@ -1,12 +1,13 @@
 # Part III.I$'''''''''''$. The spectral phase and the elimination, n = 4 ([Hin26] Theorem 11.59, second half)
 
-*Status.* Written (D273). This part completes, at spatial dimension $n = 4$, Parts 1-3 of the proof of [Hin26] Theorem
-11.59 (pp. 278-289), begun in III.I$''''''''''$: the forward solution of the linearised gauge-fixed Einstein equation
-with the correction terms of III.I$'''''''''$, for a source of $K^+$-order $\alpha\le4+\epsilon_K$, has a
-$K^+$-expansion below the order $\alpha-2$ consisting of rows (Lemma 3.2), and a unique choice of the modification
-parameters removes it (Theorem 4.1, the source's (11.222)). III.I$''''''''''$ Proposition 3.1 reduced the expansion to a
-forward problem $L_{b_0}v = f^\flat$ whose source is partially polyhomogeneous at $\iota^+$ from the order 4 on; here
-$v$ is expanded on the spectral side (Proposition 3.1).
+*Status.* Written (D273); amended before its verification (D274: Lemma 1.1, the column terms are polyhomogeneous at tf;
+$\eta_1,\eta_2<\epsilon_+$; Lemmas 2.1-2.2 carried to the full remainder order). This part completes, at spatial
+dimension $n = 4$, Parts 1-3 of the proof of [Hin26] Theorem 11.59 (pp. 278-289), begun in III.I$''''''''''$: the
+forward solution of the linearised gauge-fixed Einstein equation with the correction terms of III.I$'''''''''$, for a
+source of $K^+$-order $\alpha\le4+\epsilon_K$, has a $K^+$-expansion below the order $\alpha-2$ consisting of rows
+(Lemma 3.2), and a unique choice of the modification parameters removes it (Theorem 4.1, the source's (11.222)).
+III.I$''''''''''$ Proposition 3.1 reduced the expansion to a forward problem $L_{b_0}v = f^\flat$ whose source is
+partially polyhomogeneous at $\iota^+$ from the order 4 on; here $v$ is expanded on the spectral side (Proposition 3.1).
 
 *What n = 4 changes.* (1) *The cascade.* The source reaches the order $\alpha_K = 4+\epsilon_K$ through three
 zero-energy solves (its Steps 2.A.3, 2.A.5, 2.A.7 and Part 3) and tf-model inversions between them. At $n = 4$ the
@@ -20,8 +21,8 @@ $K^+$-terms below $\alpha-2$ come only from III.G$''''$ Proposition 4.4's pieces
 homogeneous functions of $\sigma$ times the spectral towers (Lemma 2.3); III.I$''''''''''$ Lemma 2.4 (forward tails)
 turns them into the rows $\mathcal N_\sigma$, including the boost rows at $\lambda = 3$ that the zero-energy mass state
 produces. (4) *The elimination is a perturbation of the identity* (III.I$'''''''''$ Lemma 2.6 (c), III.I$''''''''''$
-Corollary 2.3), not the source's "$\pm$ identity plus $o(1)$" of Step 2.B. Notation: Parts II.G$'$, III.A, III.F$'$,
-III.F$''''$, III.G$''$, III.G$''''$, III.H, III.I-III.I$''''''''''$; no instrument is used.
+Corollary 2.3), not the source's "$\pm$ identity plus $o(1)$" of Step 2.B. Notation: Parts II.G$'$, III.A, III.D$'''$,
+III.F$'$, III.F$'''$, III.F$''''$, III.G$''$, III.G$''''$, III.H, III.I-III.I$''''''''''$; no instrument is used.
 
 ## 1. Setting
 
@@ -52,51 +53,85 @@ at $\partial X$ to the $u$-exponent $z+j+1$. A row of $u$-exponent $\lambda$ has
 (s0, s2) or $\lambda+d_\tau$ (c0, c1).
 
 *Constants.* Let $\alpha = 4+\epsilon_K-\epsilon'$ be admissible (III.I$''''''''''$ Definition 1.3;
-$0<\epsilon'<\epsilon'_0<\epsilon_K$, so $\alpha>4$). Fix $\eta_1,\eta_2\in(\epsilon_K,\epsilon_{\mathrm{ind}})$,
-$\eta_1<\eta_2$, such that no $\lambda\in\Lambda$ has real part $2+\eta_1$ or $3+\eta_2$. *The exclusion set of
-III.I$''''''''''$ Definition 1.3* is the finite set of $\epsilon'$ for which one of the conditions (4.2) of III.G$''''$
-Proposition 4.4 fails at the levels 1 and 2 below (for the finitely many $\alpha_0$ treated there, with
-$\ell_{\mathrm{zf}} = \alpha-1-j-\epsilon$), one of the conditions of its Proposition 5.1 fails at level 3 (finitely
-many rounds), or $\alpha-4-\epsilon$ is a real part excluded in III.I$''$ Lemma 4.2 or III.H (1.1); $\epsilon>0$ is then
-taken small and off a finite set as well. The orders $\mu_j\in(2,3)$ of the zero-energy solves are chosen off the real
-parts of the exponents at hand.
+$0<\epsilon'<\epsilon'_0<\epsilon_K$, so $\alpha>4$). Fix $\eta_1,\eta_2\in(\epsilon_K,\epsilon_+)$, $\eta_1<\eta_2$,
+such that no $\lambda\in\Lambda$ has real part $2+\eta_1$ or $3+\eta_2$; below $\epsilon_+$, so that every exponent
+treated has $u$-exponent below $3+\epsilon_+$, where the source is polyhomogeneous and III.I$''''''''''$ Lemma 1.2 (c)
+counts the logs. *The exclusion set of III.I$''''''''''$ Definition 1.3* is the finite set of $\epsilon'$ for which one
+of the conditions (4.2) of III.G$''''$ Proposition 4.4 fails at the levels 1 and 2 below (for the finitely many
+$\alpha_0$ treated there, with $\ell_{\mathrm{zf}} = \alpha-1-j-\epsilon$), one of the conditions of its Proposition 5.1
+fails at level 3 (finitely many rounds), or $\alpha-4-\epsilon$ is a real part excluded in III.I$''$ Lemma 4.2 or III.H
+(1.1); $\epsilon>0$ is then taken small, with $2\epsilon<\epsilon_+-\eta_2$, and off a finite set as well. The orders
+$\mu_j\in(2,3)$ of the zero-energy solves are chosen off the real parts of the exponents at hand.
 
 *The a priori facts.* $f^\flat$ is III.I$''''''''''$ Proposition 3.1 (c)'s source for $f\in\mathcal Y^0(\alpha)$, and
 $v$ the forward solution of $L_{b_0}v = f^\flat$. In section 3, $v = u-u_I-u_\iota$ with $u$ as in Lemma 3.2's
 hypothesis, so $v$ has $K^+$-weight $w_v>0$ and $\iota^+$-weight $\beta'_+$ (III.I$''''''''''$ Proposition 3.1 (a)-(b):
 $u_I$ vanishes near $K^+$, and the rows of $\mathcal N_\iota$ have rates $\ge\lambda_\sharp-1>0$).
 
+**Lemma 1.1 (the column terms at $b_0$).** On $\{r\ge1\}$, $\hat f_{\dot b}(\sigma) = r^{-3}G(\sigma r,x)$ and $\hat
+f_S(\sigma) = r^{-3}G(\sigma r,x)$ (III.H (2.3), with $G = G_{\dot b}$, resp. $G_S$, linear in $\dot b$, resp. $S$),
+where $G(\zeta,x) = \int_2^4e^{i\zeta s}F(s,x)\,ds$ and $F$ is smooth in $s$, supported in $s\in[2,4]$, and
+polyhomogeneous at $\partial X$ with all its $s$-derivatives, with an index set $\mathcal
+E_{\mathrm{col}}\subset\{\mathrm{Re}\ge0\}$ that does not depend on $\dot b$, $S$. Hence $G(\zeta,\cdot)$ is
+polyhomogeneous with the index set $\mathcal E_{\mathrm{col}}$, its coefficients and remainders entire in $\zeta$ and
+$O(\langle\zeta\rangle^{-N})$ on $\{\mathrm{Im}\,\zeta\ge0\}$ for every $N$; $\hat f_{\dot b}(0),\hat f_S(0)\in\mathcal
+A^{3+\mathcal E_{\mathrm{col}}}$ near $\partial X$; and on $X^\pm_{\mathrm{sc}\text-\mathrm b}$ near tf, where
+$\rho_{\mathrm{tf}} = r^{-1}$ and $\sigma r = \pm\hat r$, $\hat f_{\dot b}$ and $\hat f_S$ are polyhomogeneous at tf
+with the index set $3+\mathcal E_{\mathrm{col}}$, smooth in $\hat r$ up to zf and rapidly decaying at scf.
+
+*Proof.* On $\{r\ge1\}$, $\chi_K = \chi_c(r/t_*)$ (III.H (1.2)), and $L_{b_0}\dot g(\dot b) = 0$,
+$L_{b_0}(t_*h(S)+\breve h(S)) = 0$ (III.H section 2), so there $f = L_{b_0}(\chi_Kw) = [L_{b_0},\chi_K]w$ with $w = \dot
+g(\dot b)$, resp. $t_*h(S)+\breve h(S)$. On sections $a(t_*)w(x)$, $L_{b_0} = L_0+L_1\partial_{t_*}+L_2\partial^2_{t_*}$
+($L_1 = [L_{b_0},t_*]$, $L_2 = \frac12[[L_{b_0},t_*],t_*]$; III.I$''''''$ section 1), with
+$L_k\in\rho^{2-k}\mathrm{Diff}^{2-k}_{\mathrm b}(\bar X)$ of smooth coefficients (III.I$'''$ Lemma 1.1, as it is applied
+to them there). The $t_*$-derivatives and the b-derivatives in $x$ of $\chi_c(r/t_*)$ are sums of terms
+$r^{-k}\phi(t_*/r)$, $k\in\{0,1,2\}$, with $\phi$ smooth and, when at least one derivative falls on $\chi_c$, supported
+in $[2,4]$; for instance $r\partial_r[\chi_c(r/t_*)] = (r/t_*)\chi'_c(r/t_*)$ and $\partial_{t_*}[\chi_c(r/t_*)] =
+-r^{-1}(r/t_*)^2\chi'_c(r/t_*)$. So $[L_{b_0},\chi_K]w$ is a finite sum of terms $r^{-k}\phi(t_*/r)t_*^m(Qw_m)(x)$ with
+$m\in\{0,1\}$, $Q\in\rho^q\mathrm{Diff}_{\mathrm b}$ of smooth coefficients, and $w_m$ among $\dot g(\dot b)$, $h(S)$,
+$\breve h(S)$, which are polyhomogeneous at $\partial X$: $\dot g^\Upsilon_{b_0}(1,0)\in\mathcal A^{(2,0)\cup(2+\mathcal
+E_{\mathrm{ind}})}$ and $\dot g^\Upsilon_{b_0}(0,\dot A)\in\mathcal A^{(3,0)\cup(3+\mathcal E_{\mathrm{ind}})}$
+(III.F$'''$ Proposition 2.2 (2.2)), $h(S)\in\mathcal A^{(3,0)\cup(3+\mathcal E_{\mathrm{ind}})}$ (III.F$'''$ Proposition
+4.1 (4.2)), and $\breve h(S)$ is built from the tower of III.D$'''$ Proposition 3.1 (2) (III.I$''''''''''$ Lemma 2.1
+(b)), whose index sets $\mathcal E_{\mathrm{ind}}$ contains (III.I$''''''''$ section 1). With $t_* = sr$, $F(s,x) =
+r^4f(sr,x)$ is a finite sum of terms $\phi(s)s^mr^{4-k+m}(Qw_m)(x)$: smooth in $s$, supported in $[2,4]$, and
+polyhomogeneous in $x$ with an index set $E$ independent of $\dot b$, $S$. $F$ is bounded (III.H Lemma 2.4 (a) and its
+proof), so its coefficients at the exponents of real part $<0$ vanish, and $\mathcal E_{\mathrm{col}} :=
+E\cap\{\mathrm{Re}\ge0\}$ will do. The statements on $G$ follow by integrating the expansion of $F$ against $e^{i\zeta
+s}$, with integrations by parts in $s$ for the decay in $\zeta$ ($\mathrm{Im}\,\zeta\ge0$, $s>0$), and $r^{-3}G(\sigma
+r,x) = \rho^3_{\mathrm{tf}}G(\pm\hat r,x)$. $\square$
+
 ## 2. Lemmas
 
-**Lemma 2.1 (zero energy with expansions).** Let $\mu\in(2,3)$, $\mu'\in(\mu,\mu+1)$, and let $F\in
+**Lemma 2.1 (zero energy with expansions).** Let $\mu\in(2,3)$, $\mu'\in(\mu,5]$, and let $F\in
 H^{\infty,(E,\mu')}_{\mathrm b}(\bar X)$, partially polyhomogeneous at $\partial X$ with an index set $E$,
 $\min\mathrm{Re}\,E>\mu$. Then $(\hat u,\dot b,S) := \tilde L_{b_0}(0)^{-1}(F,0,0)$ (III.H Proposition 3.2 with its
 weight $\alpha_{\mathrm H} := \mu-4$, so that its $\alpha_{\mathrm H}+2 = \mu-2\in(0,1)$ is the $L^2$-b-weight of a
 source of conormal order $\mu$) has $\hat u\in H^{\infty,(E',\mu'-2)}_{\mathrm b}(\bar X)$, where $E'$ is the index set
-of III.A Lemma 1.4 built from $(E-2)\cup((3,0)-2)$ and the indicial roots of $\widehat{L_{b_0}}(0)$ (III.F$'$
-Proposition 2.3) with real part in $(\mu-2,\mu'-2)$. Below the real part 3 these roots are 2 (type s0, the mass) and
-possibly $1+\lambda^\Upsilon_{\mathrm s0,2}>3$ (none), so
-$E'\cap\{\mathrm{Re}<\mu'-2\}\subset(E-2)\cup(1,0)\cup(2,l_*)\cup((E-2)+\mathbb N_0)$; in $u$-exponents at level $j$
-these are $\Lambda$-valued (Lemma 1.2 of III.I$''''''''''$).
+that III.A Lemma 1.4 builds from $(E-2)\cup(1+\mathcal E_{\mathrm{col}})$ and the indicial roots of
+$\widehat{L_{b_0}}(0)$ (III.F$'$ Proposition 2.3) with real part in $(\mu-2,\mu'-2)$. Below the real part 3 the only
+such root is 2 (type s0, the mass), so $E'$ lies in the extended union of $(E-2)\cup(1+\mathcal E_{\mathrm{col}})$ and
+$(2,l_*)$, plus $\mathbb N_0$; in $u$-exponents at level $j$ these are $\Lambda$-valued (III.I$''''''''''$ Lemma 1.2).
 
 *Proof.* III.H Proposition 3.2 gives $\hat u\in H^{\infty,\mu-2}_{\mathrm b}$ (conormal order $\mu-2$, as in
 III.I$''''''$ Step 3.1). Near $\partial X$, $\widehat{L_{b_0}}(0) = \rho^2A$ with $A$ an elliptic b-operator (III.F$'$
 section 2, as III.F$''''$ Proposition 5.1's proof uses it), and $\widehat{L_{b_0}}(0)\hat u = F-\hat f_{\dot b}(0)-\hat
-f_S(0)$ there, with $\hat f_{\dot b}(0),\hat f_S(0)\in\mathcal A^{(3,0)}$ (III.H Lemma 2.3: $r^{-3}G(0,x)$ near
-$\partial X$). III.A Lemma 1.4 with $\alpha = \mu-2$, $F$ replaced by $\rho^{-2}$ times the right side (index set
-$(E-2)\cup(1,0)$, remainder $\mu'-2$), gives the expansion. The roots: III.F$'$ Proposition 2.3 (a) (none in $(0,1]$)
-and its list (decaying roots: 2 for s0; 3, $1+\lambda^\Upsilon_{\mathrm s1,2}$, $1+\lambda^\Upsilon_{\mathrm s1,3}$, $5$
-for s1; $3,4$ for v1; $l+2\ge4$ and above for $l\ge2$; $1+\lambda^\Upsilon_{\mathrm s0,2}\in(3,3+\frac{z_\Upsilon}3]$, 4
-for s0). $\square$
+f_S(0)$ there, with $\hat f_{\dot b}(0),\hat f_S(0)\in\mathcal A^{3+\mathcal E_{\mathrm{col}}}$ (Lemma 1.1). III.A Lemma
+1.4 with $\alpha = \mu-2$ and $F$ replaced by $\rho^{-2}$ times the right side (index set $(E-2)\cup(1+\mathcal
+E_{\mathrm{col}})$, remainder $\mu'-2$), applied finitely many times, each time from the remainder order the previous
+application gave (each gains less than 1), gives the expansion up to $\mu'-2$. The roots: III.F$'$ Proposition 2.3 (a)
+(none in $(0,1]$) and its list (decaying roots: 2 for s0; 3, $1+\lambda^\Upsilon_{\mathrm s1,2}$,
+$1+\lambda^\Upsilon_{\mathrm s1,3}$, $5$ for s1; $3,4$ for v1; $l+2\ge4$ and above for $l\ge2$;
+$1+\lambda^\Upsilon_{\mathrm s0,2}\in(3,3+\frac{z_\Upsilon}3]$, 4 for s0). $\square$
 
 **Lemma 2.2 (one level).** Let $j\in\{0,1,2,3\}$, $g\in H^{\infty,(\frac52-\epsilon,(E,\tau),((0,0),z))}_{\mathrm
 b}(X^\pm_{\mathrm{sc}\text-\mathrm b})$ with $z>0$, its zf-coefficient $g(0)\in H^{\infty,(E,\tau)}_{\mathrm b}(\bar
-X)$, and $(\hat u,\dot b,S)$ as in Lemma 2.1 for $F = g(0)$ (the same for both signs, or separately). Put
+X)$, and $(\hat u,\dot b,S)$ as in Lemma 2.1 for $F = g(0)$ and $\mu' = \tau$ (the same for both signs, or separately).
+Put
 $$g^{+1} := \sigma^{-1}\Big(g-\widehat{L_{b_0}}(\sigma)(\chi_{\mathrm{zf}}\hat u)-\hat f_{\dot b}(\sigma)-\hat
 f_S(\sigma)\Big).\tag{2.1}$$
-Then $g^{+1}\in H^{\infty,(\frac52-\epsilon,(E^{+1},\tau'),((0,0),z-1))}_{\mathrm b}$ with $\tau' :=
-\min(\tau,\mu'_{\hat u}+2,4)-1$ ($\mu'_{\hat u}$ the remainder order of $\hat u$) and
-$$E^{+1}\subset(E-1)\cup(E'+1)\cup\big((2,0)+\mathbb N_0\big),$$
+Then $g^{+1}\in H^{\infty,(\frac52-\epsilon,(E^{+1},\tau-1),((0,0),z-1))}_{\mathrm b}$ and
+$$E^{+1}\subset(E-1)\cup(E'+1)\cup(2+\mathcal E_{\mathrm{col}}),$$
 $E'$ the index set of $\hat u$; its zf-coefficient is $g_1-iL_1\hat u+(\ldots)$, where $g_1$ is the
 $\sigma^1$-coefficient of $g$, and the exact formula is
 $$g^{+1} = \sigma^{-1}\big(g-\chi_{\mathrm{zf}}g(0)\big)-\sigma^{-1}[L_0,\chi_{\mathrm{zf}}]\hat
@@ -110,12 +145,15 @@ $\sigma^{-1}(g-\chi_{\mathrm{zf}}g(0))$ has the tf-index set $E-1$ (division by 
 \rho_{\mathrm{tf}}\rho_{\mathrm{zf}}$) and zf $((0,0),z-1)$; the commutators are supported where $\hat r\sim1$, away
 from zf, and by III.I$'''$ Lemma 1.1 (b) have tf-index sets $E'+2-1$ and $E'+2$; $\chi_{\mathrm{zf}}L_1\hat u$ has
 $E'+1$, and $\sigma\chi_{\mathrm{zf}}L_2\hat u$ has $E'+1$ ($L_2$ without decay, $\sigma$ adding one at tf); all are
-polynomial in $\sigma$ at zf. The column terms: by III.H Lemma 2.4, $\hat f(\sigma) = \hat f_c(\sigma)+r^{-3}G(\sigma
-r,x)$ on $\{r\ge1\}$ with $\hat f_c$ entire and compactly supported and $G$ entire with the bounds there; so
-$\sigma^{-1}(\hat f(\sigma)-\chi_{\mathrm{zf}}\hat f(0))$ is $\rho_{\mathrm{tf}}^2$ times a smooth function of $(\hat
-r,\omega)$ near tf (index set $(2,0)$, the Taylor terms of $G$ adding integer orders at zf), rapidly decaying at scf
-(III.I$''''''$ Lemma 1.1 (b)'s proof, at all orders). The tf-weights: $\tau-1$, $\mu'_{\hat u}-2+1$, and 3 from the
-columns. $\square$
+polynomial in $\sigma$ at zf. The column terms: by Lemma 1.1, on $\{r\ge1\}$, $\sigma^{-1}(\hat
+f(\sigma)-\chi_{\mathrm{zf}}\hat f(0)) = r^{-2}H(\sigma r,x)$ with $H(\zeta,x) :=
+(G(\zeta,x)-\chi(|\zeta|)G(0,x))/\zeta$, $\chi_{\mathrm{zf}} = \chi(\hat r)$, which is smooth in $\zeta$ up to 0 ($G$ is
+entire), polyhomogeneous in $x$ with the index set $\mathcal E_{\mathrm{col}}$, and rapidly decaying as
+$|\zeta|\to\infty$; near tf, $r^{-2} = \rho^2_{\mathrm{tf}}$ and $\zeta = \pm\hat r$, so this has the tf-index set
+$2+\mathcal E_{\mathrm{col}}$, Taylor expansions at zf and rapid decay at scf. On $\{r\le2\}$, $\hat f_c$ is entire
+(III.H Lemma 2.4 (a)) and $\chi_{\mathrm{zf}} = 1$ there for $|\sigma|$ small, so that part is polynomial at zf. The
+tf-weights: $\tau-1$ and $\mu'_{\hat u}+1 = \tau-1$ ($\mu'_{\hat u} = \tau-2$ the remainder order of $\hat u$); the
+columns are polyhomogeneous. $\square$
 
 **Lemma 2.3 (III.G$''''$ Proposition 4.4's pieces in compact sets).** Let $u$ be the solution of III.G$''''$ Proposition
 4.4 for a source with tf-leading term at $(\alpha_0,k)$, $k = 0$ (for $k>0$ apply the following to the
@@ -203,12 +241,13 @@ E^\flat+1,w_+-1-\epsilon),((0,0),\alpha-1-\epsilon))}_{\mathrm b},$$
 tf-exponents of real part $\ge3$, $u$-exponents (level 0) in $\Lambda$. We construct pieces $P_i$ and $g_J$, $J = 3$, as
 in Lemma 2.5.
 
-*Step 1 (level 0; the source's Step 2.A.3).* Lemma 2.1 with $\mu_0 := 3-\epsilon$, $F = g_0(0)$, gives $(\hat u_0,\dot
-b_0,S_0)$, the same for both signs; $\hat u_0$ has the exponents $(\mathcal E^\flat-1)\cup(1,0)\cup(2,\cdot)$ below
-$\mu'-2$, the root 2 being the mass. $S_0 = 0$ by III.I$''''''$ Step 3.1's argument ($f^\flat$ lies in the space of
-III.I$'''''$ Proposition 2.1's Step 3, and $v$ has $K^+$-weight $>-1$). Pieces: $\chi_{\mathrm{zf}}\hat u_0$, $\hat
-g^{\mathrm{aug}}(\dot b_0)$. Lemma 2.2 gives $g_1$, tf-exponents of real part $\ge2$ in $u$-exponents $\Lambda$ (level
-1), zf $((0,0),\alpha-2-\epsilon)$.
+*Step 1 (level 0; the source's Step 2.A.3).* Lemma 2.1 with $\mu_0 := 3-\epsilon$, $\mu' := w_+-1-\epsilon$, $F =
+g_0(0)$, gives $(\hat u_0,\dot b_0,S_0)$, the same for both signs; $\hat u_0$ has the exponents $(\mathcal
+E^\flat-1)\cup(1+\mathcal E_{\mathrm{col}})\cup(2,\cdot)$ (and their $\mathbb N_0$-shifts) below $\mu'-2 =
+2+\epsilon_+-\epsilon$, the root 2 being the mass. $S_0 = 0$ by III.I$''''''$ Step 3.1's argument ($f^\flat$ lies in the
+space of III.I$'''''$ Proposition 2.1's Step 3, and $v$ has $K^+$-weight $>-1$). Pieces: $\chi_{\mathrm{zf}}\hat u_0$,
+$\hat g^{\mathrm{aug}}(\dot b_0)$. Lemma 2.2 gives $g_1$: tf-exponents of real part $\ge2$, $u$-exponents in $\Lambda$
+(level 1), tf-weight $3+\epsilon_+-\epsilon$, zf $((0,0),\alpha-2-\epsilon)$.
 
 *Step 2 (level 1; Steps 2.A.4-2.A.5).* For each tf-exponent $(\alpha_0,k)$ of $g_1$ with
 $2\le\mathrm{Re}\,\alpha_0<2+\eta_1$ (finitely many), III.G$''''$ Proposition 4.4 with $\ell_{\mathrm{zf}} :=
@@ -217,19 +256,20 @@ its whole tf-coefficient), and gives $u_{(\alpha_0,k)}$; the pieces are $\sigma 
 $g_1-\sum\widehat{L_{b_0}}(\sigma)u_{(\alpha_0,k)}$ has tf-exponents in $((\alpha_0,k)+\mathcal
 E_{\mathrm{ind}})\cup((4,k+1)+\mathcal F)$ (III.G$''''$ (4.3)), of real part $\ge2+\epsilon_{\mathrm{ind}}>2+\eta_1$,
 and the other exponents of $g_1$, $\ge2+\eta_1$ by the choice of $\eta_1$; zf unchanged. Lemma 2.1 with $\mu_1 :=
-2+\eta_1$ on its zf-coefficient (both signs separately) gives $(\hat u_1,\dot b_1,S_1)^\pm$; pieces
-$\sigma(\chi_{\mathrm{zf}}\hat u_1+\hat g^{\mathrm{aug}}(\dot b_1)+\hat h^{\mathrm{aug}}(S_1))$; and Lemma 2.2 gives
-$g_2$, with tf-exponents of real part $\ge1+\eta_1$ ($\hat u_1$ of order $\eta_1-\epsilon$ plus one; the remainder's
-$\ge2+\eta_1$ minus one; the columns' 2), zf $((0,0),\alpha-3-\epsilon)$.
+2+\eta_1$, $\mu' := 3+\epsilon_+-\epsilon$ on its zf-coefficient (both signs separately) gives $(\hat u_1,\dot
+b_1,S_1)^\pm$; pieces $\sigma(\chi_{\mathrm{zf}}\hat u_1+\hat g^{\mathrm{aug}}(\dot b_1)+\hat h^{\mathrm{aug}}(S_1))$;
+and Lemma 2.2 gives $g_2$, with tf-exponents of real part $\ge1+\eta_1$ (those of $\hat u_1$, at least $\eta_1$, plus
+one; the remainder's, at least $2+\eta_1$, minus one; the columns' $2+\mathcal E_{\mathrm{col}}$), tf-weight
+$2+\epsilon_+-\epsilon$, zf $((0,0),\alpha-3-\epsilon)$.
 
 *Step 3 (level 2; Steps 2.A.6-2.A.7).* For each tf-exponent $(\alpha_0,k)$ of $g_2$ with
 $1+\eta_1\le\mathrm{Re}\,\alpha_0<2+\eta_2$, III.G$''''$ Proposition 4.4 with $\ell_{\mathrm{zf}} := \alpha-3-\epsilon$;
 its remainder exponents $\alpha_0+\mathcal E_{\mathrm{ind}}$ may again lie below $2+\eta_2$, and are treated in turn
 (finitely many rounds, the real parts rising by $\ge\epsilon_{\mathrm{ind}}$); $(4,k+1)$ lies above. Pieces
-$\sigma^2u_{(\alpha_0,k)}$. Then Lemma 2.1 with $\mu_2 := 2+\eta_2$, pieces $\sigma^2(\chi_{\mathrm{zf}}\hat u_2+\hat
-g^{\mathrm{aug}}(\dot b_2)+\hat h^{\mathrm{aug}}(S_2))$, and Lemma 2.2 gives $g_3$, of tf-weight $\tau_3 :=
-1+\eta_2-2\epsilon$ (conormal; its expansion is not needed), zf $((0,0),\ell_3)$, $\ell_3 :=
-\alpha-4-\epsilon\in(0,\epsilon_K)$.
+$\sigma^2u_{(\alpha_0,k)}$. Then Lemma 2.1 with $\mu_2 := 2+\eta_2$, $\mu' := 2+\epsilon_+-\epsilon$, pieces
+$\sigma^2(\chi_{\mathrm{zf}}\hat u_2+\hat g^{\mathrm{aug}}(\dot b_2)+\hat h^{\mathrm{aug}}(S_2))$, and Lemma 2.2 gives
+$g_3$, of tf-weight $\tau_3 := 1+\eta_2-2\epsilon$ (conormal; its expansion is not needed), zf $((0,0),\ell_3)$, $\ell_3
+:= \alpha-4-\epsilon\in(0,\epsilon_K)$.
 
 *Step 4 (level 3; Step 2.A.8 and Part 3).* While the tf-weight $\tau$ of the current level-3 source is at most
 $2+\ell_3$, apply III.G$''''$ Proposition 5.1 with $\alpha := \tau\in(1,2)$, $\ell_{\mathrm{zf}} := \ell_3$, $k_0 := 0$,
@@ -237,7 +277,7 @@ $w = \ell_3-\tau+2\in(0,1)$ (its conditions by admissibility): it gives $u =
 \chi_{\mathrm{zf}}u_b+\chi^\sharp_{\mathrm{tf}}\tilde u\in H^{\infty,(\frac32-2\epsilon,\tau-2,\tau-3)}_{\mathrm b}$
 with remainder of tf-weight $\tau+\epsilon_{\mathrm{ind}}-\epsilon$; pieces $\sigma^3u$. After finitely many rounds
 $\tau\in(2+\ell_3,3+\ell_3)$, and $\tau<3$ for $\epsilon$ small ($\ell_3<\epsilon_K<\epsilon_{\mathrm{ind}}$). Lemma 2.1
-with $\mu_3 := \tau-\epsilon$, $\mu' := \tau$ and no index set gives $(\hat u_3,\dot b_3,S_3)^\pm$ and pieces
+with $\mu_3 := \tau-\epsilon$, $\mu' := \tau$ and $E = \emptyset$ gives $(\hat u_3,\dot b_3,S_3)^\pm$ and pieces
 $\sigma^3(\chi_{\mathrm{zf}}\hat u_3+\hat g^{\mathrm{aug}}(\dot b_3)+\hat h^{\mathrm{aug}}(S_3))$; the rest,
 $$g_J := \text{the level-3 source}-\widehat{L_{b_0}}(\sigma)(\chi_{\mathrm{zf}}\hat u_3)-\hat f_{\dot b_3}-\hat
 f_{S_3}\in H^{\infty,(\frac52-\epsilon,\tau-\epsilon,\ell_3)}_{\mathrm b}$$
@@ -457,12 +497,20 @@ $a_K-2\ge2+\epsilon_K$.
 (I$'''''''''''$6) *Deferred.* The $\iota^+$-polyhomogeneity of $u$ in (11.222) and Part 4 (the expansion modulo
 $K^+$-order $4+\epsilon_K$, (11.196)) are the next part.
 
-*Labels.* Lemmas 2.1-2.5 are new at $n = 4$; Proposition 3.1 and Lemma 3.2 are the source's Steps 2.A.3-2.A.8 and Part 3
-at $n = 4$; Theorem 4.1 is (11.222) at $K^+$.
+(I$'''''''''''$7) *The column terms are polyhomogeneous at tf* (Lemma 1.1; D274). III.H Lemma 2.4 and III.I$''''''$
+Lemma 1.1 (b) give the column terms at tf only conormally (weight $3-\epsilon$); the cascade needs their tf-expansion up
+to the level-2 order $2+\eta_2$, which a conormal remainder of weight 3 at level 0 would cap at 2 after two divisions by
+$\sigma$. At $b_0$ the cut-off $\chi_c(r/t_*)$, the operator and the states $\dot g$, $h$, $\breve h$ are
+polyhomogeneous, and so are the columns; their exponents $2+\mathcal E_{\mathrm{col}}$ join $\Lambda$ (III.I$''''''''''$
+Definition 1.1).
+
+*Labels.* Lemmas 1.1 and 2.1-2.5 are new at $n = 4$; Proposition 3.1 and Lemma 3.2 are the source's Steps 2.A.3-2.A.8
+and Part 3 at $n = 4$; Theorem 4.1 is (11.222) at $K^+$.
 
 *Sources.* [Hin26] pp. 278-289 (Theorem 11.59 and its proof, Parts 1-3), read at source. Inputs: II.G$'$ (2.26a); III.A
 Proposition 4.2, Lemma 1.4; III.F$'$ Proposition 2.3; III.F$''''$ Proposition 5.1's proof; III.G$''$ Table 1.1,
-Definition 2.5; III.G$''''$ (3.2), Definitions 2.3, 4.1, Lemma 4.3, Propositions 4.4, 5.1; III.H Lemmas 2.3-2.5,
-Proposition 3.2, (3.1); III.I Proposition 4.1; III.I$'$ Proposition 2.1; III.I$''$ Lemmas 4.1-4.3; III.I$'''$ Lemma 1.1;
-III.I$'''''$ Proposition 2.1; III.I$''''''$ Lemmas 1.1-1.2, Steps 3.1, 5; III.I$''''''''$ Lemmas 3.2-3.3, Proposition
-4.1; III.I$'''''''''$ Lemmas 2.2, 2.5, 2.6; III.I$''''''''''$.
+Definition 2.5; III.G$''''$ (3.2), Definitions 2.3, 4.1, Lemma 4.3, Propositions 4.4, 5.1; III.H (1.2), (2.3), section
+2, Lemmas 2.3-2.5, Proposition 3.2, (3.1); III.D$'''$ Proposition 3.1 (2); III.F$'''$ Propositions 2.2, 4.1; III.I
+Proposition 4.1; III.I$'$ Proposition 2.1; III.I$''$ Lemmas 4.1-4.3; III.I$'''$ Lemma 1.1; III.I$'''''$ Proposition 2.1;
+III.I$''''''$ Lemmas 1.1-1.2, Steps 3.1, 5; III.I$''''''''$ Lemmas 3.2-3.3, Proposition 4.1; III.I$'''''''''$ Lemmas
+2.2, 2.5, 2.6; III.I$''''''''''$.
