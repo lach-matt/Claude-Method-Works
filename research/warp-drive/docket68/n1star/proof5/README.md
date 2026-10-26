@@ -54,8 +54,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.H' | [Hin26] 10.2 (Theorem 10.1, Lemmas 10.9-10.13) | 2-admissibility of L_b: the contour representation, high and low frequencies, the zero energy contributions integrated twice in t_*; sf-loss 0 at n = 4 | proved (D256; verified D252, D254) |
 | III.I | [Hin26] 11 opening, 11.1 (Definition 11.3, Lemma 11.5, Propositions 11.6, 11.8, Corollaries 11.9-11.10, Theorem 11.12) | the dynamical linearised operator: perturbation classes, the e3b class, structure in the forward cone, forward mapping, admissibility with p_0 = p~_1 = 0, forward solutions at b0 with sf-loss 0; the orders of II.F' in O_c | proved (D258: verifier 108 read the D256 repairs; verified D254, D256) |
 | III.I' | [Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future timelike infinity; formal solutions at null infinity, one exceptional term | proved (D258: verifier 108 read the D256 repairs; verified D256) |
-| III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | verified (D258; no major, three minor findings and nine nits seated, to be read) |
-| III.I''' | [Hin26] 11.4.1 (Proposition 11.20, Lemma 11.21) | the boost parameter: the forward solution is a cut-off generalised boost state plus a remainder of K+-weight alpha_K - 2; zero energy inverted by the augmented operator, no iota+ step at n = 4 | written (D257) |
+| III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | proved (D259: verifier 109 read the D258 repairs; verified D258) |
+| III.I''' | [Hin26] 11.4.1 (Proposition 11.20, Lemma 11.21) | the boost parameter: the forward solution is a cut-off generalised boost state plus a remainder of K+-weight alpha_K - 2; zero energy inverted by the augmented operator, no iota+ step at n = 4 | verified (D259; no major, three minor findings and seven nits seated, to be read) |
 | III.C', III.I''''-III.J | [Hin26] 5.4-5.7, 11.4.2-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -943,11 +943,13 @@ of the augmented operator in b-spaces (Lemma 4.2, II.G$'$ Proposition 4.7's proo
 transforms of the cut-off states (Lemma 4.3: rapid decay at scf, tf-orders $a+2$, $a+3$); and Proposition 5.1 ([Hin26]
 Proposition 11.17): for sources of $K^+$-weight $\alpha_K\in[\frac12,1)$ the forward solutions have $K^+$-weight
 $\alpha_K-2$ and keep the $\iota^+$-weight $\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal E_+)-\epsilon$, where the
-source's falls to $\alpha_K-\epsilon$ ((I$''$1)); the iteration's window is the exact gap $(0,1)$ ((I$''$2)), and the
+source's falls to $\alpha_K-\epsilon$ ((I$''$1)); the iteration's window is $(0,1)$, III.H (1.1)'s, inside the gap
+((I$''$2)), and the
 null infinity weight needs $2\le\ell_I<a_I+\frac12$ ((I$''$4)). At $b_0$. Written (D255).
 Verified (D258: verifier 108; Lemma 3.1's support now in $[-c_0,c_0]$, $c_0<\frac12$ ((I$''$5), a gap the source
 shares), $c$ fixed per order $k$ with $H^\infty$ recovered from the $c$-independence of $u$, and the continuity in
 $(S,h)$ locally uniform through III.I$'$ Proposition 2.1's constructive bound; nine nits).
+Proved (D259: verifier 109 read the D258 repairs).
 
 ## Part III.I$'''$
 
@@ -960,3 +962,5 @@ $K^+$-weight $\alpha_K\in(1,\min(a_K-1,\frac32))$ the forward solution is $\chi_
 $\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal E_+)-\epsilon$. Findings: no $\iota^+$ step (the source's Step 2), as
 the formal solution's $\iota^+$-index set starts at $\frac32+(1-e_\Upsilon)\gamma_\Upsilon$ ((I$'''$1)); the
 $\iota^+$-weight ((I$'''$2)); the window $(0,1)$ ((I$'''$3)); the $K^+$-range ((I$'''$4)). At $b_0$. Written (D257).
+Verified (D259: verifier 109; Step 4's a priori weight lowered below $\min\mathrm{Re}\,\mathcal E_+$, the support of
+$\mathcal Fv$ in a compact subset of $(-c,c)$, $c$ fixed per order $k$; seven nits).

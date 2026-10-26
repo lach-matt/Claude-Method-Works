@@ -1,9 +1,10 @@
 # Part III.I$'''$. The boost parameter, n = 4 ([Hin26] section 11.4.1)
 
-*Status.* Written (D257). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.4.1 (pp. 238-241): for
-sources with more than one order of decay at $K^+$, the forward solution of $L^{g,g_0}u = f$ is $\chi_Kh^{\le1}(\dot S)$,
-a cut-off generalised zero energy state of the boosts, plus a remainder of $K^+$-weight $\alpha_K-2>-1$ (Proposition
-11.20), with the description of the augmented operator near zero energy that it uses (Lemma 11.21).
+*Status.* Verified (D259: the hundred-and-ninth verifier; no major finding, three minor ones and seven nits seated, to
+be read). Written (D257). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.4.1 (pp. 238-241): for
+sources with more than one order of decay at $K^+$, the forward solution of $L^{g,g_0}u = f$ is $\chi_Kh^{\le1}(\dot
+S)$, a cut-off generalised zero energy state of the boosts, plus a remainder of $K^+$-weight $\alpha_K-2>-1$
+(Proposition 11.20), with the description of the augmented operator near zero energy that it uses (Lemma 11.21).
 
 *What n = 4 changes.* The scheme is the source's: Proposition 11.17 and the forward mapping put $L_bu$ one order better
 at $K^+$; null infinity is solved away (Proposition 11.16); at low frequencies the zero energy part of the source is
@@ -26,7 +27,9 @@ x\rangle^{-1}$, and $\chi_{\mathrm{zf}} := \chi_1(\hat r)$, $\hat r := |\sigma|\
 3.1's cut-off (1 for $\hat r\le\frac18$, 0 for $\hat r\ge\frac14$). The space $H^{k,(\gamma_{\mathrm{scf}},\gamma
 _{\mathrm{tf}},((0,0),\gamma_{\mathrm{zf}}))}_{\mathrm b}$, $\gamma_{\mathrm{zf}}\in(0,1)$, is that of $\chi_{\mathrm
 {zf}}v_0+\tilde u$ with $v_0\in H^{k,\gamma_{\mathrm{tf}}}_{\mathrm b}(X)$ (its zf-coefficient, the same for both signs
-when so stated) and $\tilde u\in H^{k,\gamma}_{\mathrm b}$ (II.G$'$ section 3.1).
+when so stated) and $\tilde u\in H^{k,\gamma}_{\mathrm b}$ (II.G$'$ section 3.1). Throughout, $c\le\frac1{8\sqrt5}$, so
+that $\chi_{\mathrm{zf}} = 1$ on $\{r\le2\}$ for $|\sigma|\le c$, and $c$ is also below the $k$-independent bound of
+(2.4) ($\chi_{\mathrm{zf}} = 1$ on $\mathrm{supp}\,f^*_j$).
 
 **Lemma 1.1 (profiles independent of $\sigma$).** Let $a\in\mathbb R$, $P\in\rho^p\mathrm{Diff}^m_{\mathrm b}(\bar X)$
 with smooth coefficients, $p\ge0$, $j\in\mathbb N_0$, and $u_0\in H^{\infty,a}_{\mathrm b}(X)$. Then
@@ -103,10 +106,10 @@ H^{\infty,3-\epsilon}_{\mathrm b}(X)$.
 $G_2(S_0)-\chi_{\mathrm {zf}}h = ((\Phi-\zeta\Phi')(\zeta)-\chi_1)h-i\zeta\Phi(\zeta)r^{-1}\breve h$, $\zeta = \sigma
 r$, both $O(\min(|\zeta|,1)
 \langle\zeta\rangle^{-N})$ times states in $\mathcal A^2$, resp. $\mathcal A^3$ (III.H section 1; $r^{-1}\breve h\in
-\mathcal A^3$); for $r\le1$, $\Psi-1 = O(|\sigma|)$ with derivatives (III.H Lemma 2.5 (d)); and $\chi(|\sigma|)-1$
-vanishes for $|\sigma|\le\frac c2$, where on $\mathrm{supp}\,\chi_{\mathrm{zf}}$ the remaining term is supported in a
-compact set of $x$ away from tf and zf. The Fubini count of Lemma 1.2 (b) with $\langle x\rangle^{-2}$ in place of
-$\langle x\rangle^{-3}$ gives $\gamma_{\mathrm{tf}}<2$ for $G_1$. $\square$
+\mathcal A^3$); for $r\le1$, $\Psi-1 = O(|\sigma|)$ with derivatives (III.H Lemma 2.5 (d) and its proof); and
+$\chi(|\sigma|)-1$ vanishes for $|\sigma|\le\frac c2$, where on $\mathrm{supp}\,\chi_{\mathrm{zf}}$ the remaining term
+is supported in a compact set of $x$ away from tf and zf. The Fubini count of Lemma 1.2 (b) with $\langle x\rangle^{-2}$
+in place of $\langle x\rangle^{-3}$ gives $\gamma_{\mathrm{tf}}<2$ for $G_1$. $\square$
 
 ## 2. The boost parameter ([Hin26] Proposition 11.20 at n = 4)
 
@@ -132,8 +135,9 @@ $\alpha_K<a_K-1$, and $\beta'_+\in(1,\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mat
 {Re}\,\mathcal E_+$) gives $(L-L_b)u$ the $\iota^+$-weight $\beta'_++2+m_+-\epsilon>4$ (no expansion term, as $\beta'_++
 m_+<2\min\mathrm{Re}\,\mathcal E_+$) and the $K^+$-weight $\alpha'_K-2+a_K\ge\alpha_K$. Fix
 $$\alpha^\sharp_+\in\big(\alpha_K,\ \min(\alpha_+,\tfrac32+(1-e_\Upsilon)\gamma_\Upsilon)\big),\tag{2.2}$$
-with $\alpha^\sharp_+\ge\min(\alpha_+,\frac32)-\epsilon$ for a given small $\epsilon>0$; then $\alpha^\sharp_+\in(1,2)$,
-$\alpha^\sharp_+-1\in(0,1)$ and $\alpha^\sharp_+-\alpha_K\in(0,1)$. So
+with $\alpha^\sharp_+\ge\min(\alpha_+,\frac32)-\epsilon$ for a given small $\epsilon>0$; then
+$\alpha^\sharp_+\in(1,\frac74)\subset(1,2)$ (as $\gamma_\Upsilon<\frac14$, III.C (1.1)), $\alpha^\sharp_+-1\in(0,1)$ and
+$\alpha^\sharp_+-\alpha_K\in(0,1)$. So
 $$L_bu = f' := f-(L-L_b)u\in H^{\infty,(\langle\mathcal E^C_I+1\rangle',\ell_I+1),\alpha^\sharp_++2,\alpha_K}_{\mathrm
 b}(\Omega_*)^{\bullet,-}.$$
 
@@ -152,7 +156,10 @@ Step 2 removes by its Proposition 9.11 at $\lambda = 1$; at $n = 4$ there is no 
 $u^\flat$ vanishes for $t_*<1$, so it is the forward solution of $L_bu^\flat = f^\flat$ (II.E Proposition 3.4).
 
 *Step 2 (the decomposition).* As in III.I$''$ section 4, $u^\flat = u_{\mathrm{hi}}+u_{\mathrm{reg}}+u_{\mathrm{sing}}$.
-III.I$''$ Lemma 4.1 ($\beta^f_I = \ell_I$, $\beta_\iota = \alpha^\sharp_+$, $\beta_K = \alpha_K\in(1,2)$; $\ell_I+1\ge
+The memberships (2.3)-(2.13) are read as there: at order $k$, with the $c$ of that order and of III.H's weight $\alpha$,
+$\alpha+2 = \alpha^\sharp_+-\alpha_K$; $u$, $u_I$, $u^\flat$, $\dot S = S_0$ (from $\tilde L_b(0)^{-1}$) and $\tilde u$
+do not depend on $c$, so their memberships hold at every order. III.I$''$ Lemma 4.1 ($\beta^f_I = \ell_I$, $\beta_\iota
+= \alpha^\sharp_+$, $\beta_K = \alpha_K\in(1,2)$; $\ell_I+1\ge
 \alpha^\sharp_++2-(1-\epsilon_1)$ as $\ell_I\ge2$) gives $u_{\mathrm{hi}}\in H^{\infty,(\frac32-\epsilon,N,N)}_{\mathrm
 b}(M')$. (2.25a) (II.G$'$ Proposition 3.3 (1), with $\beta_K = \alpha_K\in(1,2)$) gives
 $$\hat f^\flat|_{\pm(0,c]}\in H^{\infty,(3-\epsilon,\alpha^\sharp_++1,((0,0),\alpha_K-1))}_{\mathrm b}
@@ -192,8 +199,9 @@ $$\hat u_{\mathrm{reg},1}\in H^{\infty,(\frac32-2\epsilon,\alpha^\sharp_+-1,((0,
 \hat b_1\in H^{\infty,((0,0),\alpha_K-1)}_{\mathrm b}(\pm(0,c],|\tfrac{d\sigma}\sigma|;\mathfrak b),\quad\hat S_1\in
 H^{\infty,((0,0),\alpha_K-1)}_{\mathrm b}(\pm(0,c],|\tfrac{d\sigma}\sigma|;\mathcal S_1),\tag{2.7}$$
 with the coefficients $\hat u_0$, $\dot b_0$, $S_0$ at $\sigma = 0$, the same for both signs ($\hat u_0\in H^{\infty,
-\alpha^\sharp_+-1}_{\mathrm b}(X)$ being the zf-coefficient of the tf-weight $\alpha^\sharp_+-1$). By (2.26a) ($\beta_K =
-\alpha_K\in(1,2)$; the one Taylor coefficient, of order $0<\alpha_K-1$, agrees for the two signs),
+\alpha^\sharp_+-1}_{\mathrm b}(X)$ being the zf-coefficient of the tf-weight $\alpha^\sharp_+-1$). By (2.26a) (applied
+to $\chi(|\sigma|)\hat u_{\mathrm{reg},1}$, supported where II.G$'$ Proposition 3.5's cut-off is 1, $c\le\frac12$;
+$\beta_K = \alpha_K\in(1,2)$; the one Taylor coefficient, of order $0<\alpha_K-1$, agrees for the two signs),
 $$u_{\mathrm{reg}}\in H^{\infty,(\min(\frac32,\alpha^\sharp_+)-3\epsilon,\alpha^\sharp_+,\alpha_K)}_{\mathrm b}(M').
 \tag{2.8}$$
 
@@ -216,7 +224,8 @@ _{\mathrm b},\qquad\partial_{t_*}u_{\mathrm{sing}}|_{\Omega_-}\in\bar H^{\infty,
 $\beta_\iota := \alpha^\sharp_++1$, $\beta_K := \alpha_K-1\in(0,\frac12)$: $\beta_\iota>\beta_I$; $\beta_K\le\beta_\iota-
 \beta_I = \alpha^\sharp_+-\frac12$ (as $\alpha^\sharp_+>\alpha_K$); $\beta_K\in(-1,1)\setminus\{0\}$; the zf-restrictions
 of the two signs agree (2.9); $v|_{\Omega_<}$ has weights at least $(\infty,\beta_\iota,\beta_K)$ by (2.10); $\mathcal
-Fv$ is supported in $[-c,c]$ (III.I$''$ Step 2b's reason); and (2.9)'s tf-weight $3-\epsilon$ is at least $\beta_\iota =
+Fv$ is supported in a compact subset of $(-c,c)$, $c\le\frac12$, as III.I$''$ Lemma 3.1 asks (III.I$''$ Step 2b's
+reason); and (2.9)'s tf-weight $3-\epsilon$ is at least $\beta_\iota =
 \alpha^\sharp_++1$. So
 $$\partial_{t_*}u_{\mathrm{sing}}\in H^{\infty,\frac32,\alpha^\sharp_++1-\epsilon,((0,0),\alpha_K-1)}_{\mathrm b}(M').
 \tag{2.11}$$
@@ -246,12 +255,15 @@ integral of $\partial^2_{t_*}h^{\le1,\mathrm{aug}}_{b,\mathrm s1}$ with $h_{b,\m
 \chi_Kh^{\le1}(S)$ (III.H Definition 2.1), so $G_2(0)(S) = \Psi(0,\cdot) h(S) = h(S)$ directly.
 
 *Step 4 (null infinity; the source's Step 4).* So $u = \chi_Kh^{\le1}(\dot S)+\tilde u$ with $\tilde u := u_I+u_{\mathrm
-{hi}}+u_{\mathrm{reg}}+(u_{\mathrm{sing}}-\chi_Kh^{\le1}(\dot S))$ of $\iota^+$-weight $\ell_+ := \min(\frac32,\alpha
-^\sharp_+)-4\epsilon$ and $K^+$-weight $\alpha_K-2$ (Steps 1-3; $u_I$ is supported near $\mathscr I^+$). Near $\mathscr
-I^+$, $\chi_K = 0$ ($\chi_K$ vanishes for $|x|\ge t_*/2$), so $L\tilde u = f$ there, and III.I$'$ Proposition 2.1
-($\frac32<\ell_I<\min(a_I+\frac12,\ell_I^{\max})$ by III.I$''$ (5.1); $\ell_+<\min(\ell_I,a_++\min\mathrm{Re}\,\mathcal
-E_+)$, $\ell_+$ below $\min\mathrm{Re}\,\mathcal E_+$ and below $\min\mathrm{Re}\,\mathcal E^{\mathrm{tot}}_I = \frac32$)
-gives the $\mathscr I^+$-data $(\langle\mathcal E^C_I\rangle,\ell_I)$. As $\alpha^\sharp_+\ge\min(\alpha_+,\frac32)-
+{hi}}+u_{\mathrm{reg}}+(u_{\mathrm{sing}}-\chi_Kh^{\le1}(\dot S))$ of $\iota^+$-weight $\ell'_+ :=
+\min(\frac32,\alpha^\sharp_+)-4\epsilon$ and $K^+$-weight $\alpha_K-2$ (Steps 1-3; $u_I$ is supported near $\mathscr
+I^+$). Near $\mathscr I^+$, $\chi_K = 0$ ($\chi_K$ vanishes for $|x|\ge t_*/2$), so $L\tilde u = f$ there, and III.I$'$
+Proposition 2.1 with $\ell_+ := \min(\ell'_+,\min\mathrm{Re}\,\mathcal E_+-\epsilon)$, $\epsilon$ chosen with
+$\ell_+\notin\mathrm{Re}\,\pi_1\mathcal E_+$ (lowering the a priori weight is free;
+$\frac32<\ell_I<\min(a_I+\frac12,\ell_I^{\max})$ by III.I$''$ (5.1); $\ell_+<\min(\ell_I,a_++\min\mathrm{Re}\,\mathcal
+E_+)$; $\ell_+$ below $\min\mathrm{Re}\,\mathcal E_+$, so that $(\mathcal E_+,\ell_+)$ is the weight $\ell_+$, and below
+$\min\mathrm{Re}\,\mathcal E^{\mathrm{tot}}_I = \frac32$) gives the $\mathscr I^+$-data $(\langle\mathcal
+E^C_I\rangle,\ell_I)$. As $\alpha^\sharp_+\ge\min(\alpha_+,\frac32)-
 \epsilon$ and $\epsilon$ is arbitrary, (2.1) holds for every $\beta_+<\min(\alpha_+,\frac32,\min\mathrm{Re}\,\mathcal
 E_+)$; $\dot S$ does not depend on these choices, being determined by $u$.
 
@@ -259,7 +271,7 @@ E_+)$; $\dot S$ does not depend on these choices, being determined by $u$.
 $(\hat u_0,\dot b_0,S_0)$, $\hat f_2$, the pieces of Step 2 and the integrations are linear maps bounded between the
 spaces above (III.I$'$ Proposition 3.1's construction, III.H Proposition 3.2, Lemmas 1.1-1.3, III.I$''$ Lemmas 2.1, 3.1,
 4.1-4.3, (2.25a), (2.26a)). So $\dot S = S_0$ and $\tilde u$ depend continuously on $f$; Step 4 by the closed graph
-theorem, as in III.I$''$ Proposition 5.1. $\square$
+theorem ($L$ being fixed), or by III.I$'$ Proposition 2.1's constructive bound. $\square$
 
 ## 3. Findings, labels and sources
 
@@ -282,16 +294,18 @@ $2+\epsilon_{\mathrm{ind}}-\epsilon$, and its (11.70a) needs $\alpha_+<1+\epsilo
 at $n = 4$ the columns have tf-order $3-\epsilon$ (Lemma 1.2 (b)), and $\alpha^\sharp_+<2$ suffices.
 
 (I$'''$4) *The $K^+$-range.* $\alpha_K<a_K-1$ is needed for (4.2) to reach $K^+$-weight $\alpha_K$ from Proposition
-11.17's $\alpha'_K<1$ (the source's $a_K = 2+\epsilon_K$ gives its $\alpha_K<1+\epsilon_K$); $\alpha_K<\frac32$ keeps
-$\alpha_K<\alpha^\sharp_+$ in (2.2).
+11.17's $\alpha'_K<1$ (the source's $a_K = 2+\epsilon_K$ gives its $\alpha_K<1+\epsilon_K$); $\alpha_K<\frac32$ suffices
+for $\alpha_K<\alpha^\sharp_+$ in (2.2), which needs $\alpha_K<\min(\alpha_+,\frac32+(1-e_\Upsilon)\gamma_\Upsilon)$,
+and gives $\alpha_K-1<\frac12$.
 
 ### 3.2 Labels
 
 Proved: Lemmas 1.1-1.3 and Proposition 2.1, given the parts cited. Comparisons with the source are commentary. READ:
 the source's statements quoted from pp. 238-241. Inputs: II.E Proposition 3.4; II.G$'$ section 3.1, section 4.1,
-Proposition 3.3 (1); III.A section 4 ((2.25a), (2.26a)); III.C Definition 3.1; III.F$'$ Proposition 2.3; III.F$'''$
-Proposition 4.1; III.H section 1, (1.2), Definitions 2.1, 3.1, Lemmas 2.3-2.5, Proposition 3.2; III.I Proposition 4.1;
-III.I$'$ (3.2), Propositions 2.1, 3.1; III.I$''$ section 1, (4.1), (5.1), Lemmas 2.1, 3.1, 4.1-4.3, Proposition 5.1.
+Proposition 3.3 (1); III.A section 4 ((2.25a), (2.26a)); III.C (1.1), Definition 3.1; III.F$'$ Proposition 2.3;
+III.F$'''$ Proposition 4.1; III.H section 1, (1.2), Definitions 2.1, 3.1, Lemmas 2.3-2.5, Proposition 3.2; III.I
+Proposition 4.1; III.I$'$ (3.2), Propositions 2.1, 3.1; III.I$''$ section 1, (4.1), (5.1), Lemmas 2.1, 3.1, 4.1-4.3,
+Proposition 5.1.
 
 ### 3.3 Sources
 

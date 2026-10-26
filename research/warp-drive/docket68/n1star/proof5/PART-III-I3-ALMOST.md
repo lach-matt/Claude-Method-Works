@@ -1,9 +1,10 @@
 # Part III.I$''$. Almost linear bounds, n = 4 ([Hin26] section 11.3)
 
-*Status.* Verified (D258: the hundred-and-eighth verifier; no major finding, three minor ones and nine nits seated, to
-be read). Written (D255). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.3 (pp. 231-238): the
-improvement of the forward solutions of $L^{g,g_0}u = f$ at $\iota^+$ and $K^+$ for sources with more decay there
-(Proposition 11.17), with the two integration lemmas it rests on (Lemmas 11.18 and 11.19).
+*Status.* Proved (D259: the hundred-and-ninth verifier read the D258 repairs and found them correct). Verified (D258:
+the hundred-and-eighth verifier; no major finding, three minor ones and nine nits seated, to be read). Written (D255).
+This part proves, at spatial dimension $n = 4$, [Hin26] section 11.3 (pp. 231-238): the improvement of the forward
+solutions of $L^{g,g_0}u = f$ at $\iota^+$ and $K^+$ for sources with more decay there (Proposition 11.17), with the two
+integration lemmas it rests on (Lemmas 11.18 and 11.19).
 
 *What n = 4 changes.* The scheme is the source's: the forward solution of Theorem 11.12 is improved by rewriting
 $L_bu = f-(L^{g,g_0}-L_b)u$, solving away the null infinity terms (Proposition 11.16), splitting $L_b^{-1}$ by the

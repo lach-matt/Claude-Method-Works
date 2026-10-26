@@ -5496,3 +5496,9 @@ found no major finding in Part III.I'' and confirmed its iota+-weight min(alpha_
 findings (Lemma 3.1's support, a gap the source shares; c fixed per order k; locally uniform continuity) and nine nits
 are seated. The D256 repairs to III.I', III.I and III.H' are correct, so III.I and III.I' are proved. Next: verifier 109
 on III.I''' and these repairs; Part III.I''''.
+
+**D259 (2026-10-26): verifier 109 seated; III.I''' verified, III.I'' proved.** The hundred-and-ninth verifier found no
+major finding in Part III.I''' and confirmed its n = 4 departures (no iota+ step, the window (0, 1), the K+-range, S-dot
+as the coefficient of t_* at K+); three minor findings (Step 4's a priori weight against min Re E_+, the support of F v,
+c fixed per order) and seven nits are seated. The D258 repairs to III.I'' are correct, so III.I'' is proved. Next: Part
+III.I''''.

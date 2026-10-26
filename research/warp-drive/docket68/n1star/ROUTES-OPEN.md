@@ -3311,3 +3311,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   item noted in 4.180), chart squares across r = r_0 (Seeley extension, cut-off psi(r)), [-1/2, 0), the source's
   (11.49) zf slip, l_+ < a_+ + min Re E_+ listed, density for extendible spaces, c_{j,k'}.
 - Next: verifier 109 on III.I''' and the D258 repairs; Part III.I'''' ([Hin26] section 11.4.2, undoing the boost).
+
+### 4.182 Verifier 109 seated: III.I''' verified; III.I'' proved (D259)
+
+- Verifier 109 on III.I''' (PART-III-I4-BOOST.md) and the D258 repairs: 0 major, 3 minor, 7 nits; the D258 repairs
+  correct, one not carried to the README (the gap wording). Confirmed: no iota+ step, the window (0, 1) inside the
+  gap, the K+-range (1, min(a_K - 1, 3/2)), S-dot = S-hat_1(0) the coefficient of t_* at K+.
+- M1: Step 4's a priori weight could exceed min Re E_+; now l_+ := min(l'_+, min Re E_+ - eps), off Re pi_1 E_+.
+- M2: the support of F v is a compact subset of (-c, c), c <= 1/2, as III.I'' Lemma 3.1 now asks.
+- M3: c fixed per order k, as in III.I'' section 4; S-dot and u~ do not depend on c.
+- Nits: alpha#_+ < 7/4 (gamma_Ups < 1/4), the closed graph pointer, the README gap wording, c's k-independent bounds,
+  (2.26a)'s cut-off, III.H Lemma 2.5 (d) "and its proof", (I'''4)'s "suffices".
+- Next: Part III.I'''' ([Hin26] section 11.4.2, undoing the boost); verifier 110 on it and these repairs.
