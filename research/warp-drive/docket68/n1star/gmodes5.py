@@ -39,7 +39,8 @@ nabla_b dGamma^c_ca, dGamma^c_ab = (1/2) g^cd (nabla_a h_bd + nabla_b h_ad - nab
      of A_a S dy^a + r^2 B S_i dz^i shifts f_ab by D_(a A_b), f_a by (r^2 D_a B - k A_a)/(2 r), H_L by k B/6 + f A_r/(2
      r) and H_T by -k B/2, so the gauge 1-form -2 X_a S dy^a - (2 r^2/k) H_T S_i dz^i, X_a = (r/k)(f_a + (r/k) D_a H_T)
      of [KI03] (2.8), leaves f_a = H_T = 0 and their invariants F, F_ab of (2.7); there the seven reduced equations are
-     computed, and at sigma != 0, in [KI03]'s X, Y, Z (2.20)-(2.21) with Z = i sigma Z~: E_t, E_r, E_tr give exactly
+     computed; E_T = -(k^2/(4 r^2)) (F^a_a + 2 F), the algebraic relation that [KI03]'s X, Y, Z (2.20)-(2.21)
+     parametrise; and at sigma != 0, in those X, Y, Z with Z = i sigma Z~: E_t, E_r, E_tr give exactly
      [KI03] (2.24a-c); E_tt, E_rr, E_L then reduce to one linear constraint, which the flow preserves, so the solutions
      form a two-dimensional space; Phi := (3 Z~ - r (X + Y))/(r^(1/2) H), H = m + 6 mu/r^2, m = k^2 - 3, solves f (f
      Phi')' + (sigma^2 - V_S) Phi = 0 with V_S = f Q/(16 r^2 H^2), [KI03] (3.1)-(3.7) at n = 3, on that constraint; and
@@ -483,6 +484,11 @@ def g3(control=0, verbose=False):
             ok)
     names = {"c_tt": "tt", "c_tr": "tr", "c_rr": "rr", "c_t": "t", "c_r": "r", "c_L": "L", "c_T": "T"}
     Es = {names[p[0].name]: cs[p[0]] for p in parts}
+    if control == 0:
+        Fn = {nm: sp.Function(nm)(t, r) for nm in FN}
+        trF = -Fn["F_tt"] / f + f * Fn["F_rr"] + 2 * Fn["F"]
+        chk("E_T = -(k^2/(4 r^2)) (F^a_a + 2 F): the trace-free angular equation is [KI03]'s algebraic relation, which "
+            "their X, Y, Z (2.20)-(2.21) parametrise", ok and zero(Es["T"] + k**2 / (4 * r**2) * trF))
     flow_ok, C, rank1, preserved, master, det = scalar_flow(Es, k, sZ=-1 if control == 1 else 1)
     chk(f"at sigma != 0, Z = i sigma Z~: E_t, E_r, E_tr give [KI03] (2.24a-c); E_tt, E_rr, E_L reduce to one constraint "
         f"(rank 1: {rank1}), preserved by the flow ({preserved}); Phi = (3 Z~ - r (X + Y))/(r^(1/2) H) solves (3.5) "

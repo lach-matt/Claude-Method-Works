@@ -5269,3 +5269,36 @@ names Proposition 4.5, Corollary 4.6 and Theorem 2.4, via Remark 4.7, for P_Q. m
 p'-natural_z := p'-natural + varsigma sigma (Im X(z) - Im X(z_0)). Seven nits seated. The verifier's scratch checks:
 v94_pairing.py (4 pi^2 at n = 4, control 4 pi at n = 3), v94_indexsets.py, v94_sym60.py, v94_L5.py. III.D proved;
 III.D', III.D'' verified; III.A, I.B verified with repairs to be read. Next: verifier 95; Part III.F'.
+
+**D230 (2026-10-26): Part III.F' written.** [Hin26] 8.2-8.3 at n = 4 in proof5/PART-III-F2-INDICIAL.md. The roots by
+type from lin5.py E2's factorisation det N_L = c (lam + l)(lam - l - 2) det N_Ups(lam - 1) det N_C(lam + 1) / D, D =
+(lam - 1)^2 at s0, s1 and lam (lam - 2) at v1, where box^C's vector type 1 roots are 3 and -1 - 2 gam_C v_C by hand (V
+Killing; delta*_{E^C}(f V) = (df + 2 gam_C f c) (x)_s V; delta(F dr (x)_s V) = -(1/2)(F' + 5F/r) V). No root in (0, 1];
+even split per type; 0 only at s0, s2. Simplicity needs z = 4 e_U gam_U^2 > 0, box^C's roots simple and off {1 - l, 3 -
+l, l + 3, l + 5} (scalar) and {1 - l, 2 - l, l + 3, l + 4} (vector), and z off a countable set (lam^Ups strictly
+increasing in z: Q_l(kappa) = -kappa); (8.13) needs box^C's roots with integer real part in [3, 51] real; these are
+(C2)-(C4), for Part IV. Lemma 8.5 by hand: h_s0 = -dt^2 + (2 - e_U)/(4 e_U) dx^2 (E^Ups G h = -gam r^-1 dt (2 - e_U (1 +
+4B))). Proposition 8.6: kernel by Bianchi, eta_0 = O(r^-1-eps) inside box^C's tf range [-C_0, 2) (no Lemma 8.5 needed),
+then the gamma_C-free operator D Ric + delta* delta_{E^Ups} G perturbed from box; cokernel by index 0, via a relative
+index lemma at ztf (Mellin, Smith form) and a deformation tau (gam_C, gam_U), the even split at both ends; finitely many
+isotypic components meet a strip (Clebsch-Gordan). linroots5.py R1-R3 new. Next: Part III.F'' ([Hin26] 8.4).
+
+**D231 (2026-10-26): verifier 95 seated.** The ninety-fifth verifier read the D229 repairs (all correct and complete)
+and Parts III.D''', III.E, III.E', III.F in full: Major 0, Minor 2, Nit 6. M1: III.D''' Proposition 3.1's recursion
+claimed the other terms two orders down where Lemma 2.1 gives epsilon_ind; only epsilon_ind is used, so the wording is
+narrowed (the first correction of each state is two orders down, as (D'''3) now says). M2: III.E's consequence (a)
+applied the inverse at alpha = C_0 + 2 to an f outside its target; restated at alpha in (0, min Re F - 2) with the
+uniqueness step. Six nits. III.E Theorem 1.1 (3) amended with the count by type and (C2)-(C4) for III.F'. I.B, III.A,
+III.D', III.D'' proved; III.E' proved (no findings); III.D''', III.E, III.F verified.
+
+**D232 (2026-10-26): Part III.F'' written.** [Hin26] Proposition 8.8 at n = 4 in proof5/PART-III-F3-MODES.md. The
+horizon threshold of L_b, which III.F did not state (lhor5.py, new: K at N*H on half densities, the background
+polynomial (k - 2)(k + 2)(k - 1)^3 (k + 1)^3 k^7, and with the modifications five eigenvalues lowered by x (2, 1, 1, 1,
+1 - e_C) and five raised by y (2, 1, 1, 1, 1); control: E^C's sign reversed). At b_0, for every sigma != 0 in the closed
+upper half plane: the gauge 1-form eta = delta_{E^Ups} G u solves box^C eta = 0 by Bianchi, so eta = 0; per type and
+degree, Kodama-Ishibashi gives h = delta* omega on the exterior (gmodes5 G1-G5; the s1 algebraic gauge degenerates at
+sigma^2 r^4 = mu_0 and the two 1-forms are glued by analyticity of the static radial system); box^Ups omega = 0 there;
+omega is continued inside the horizon as a solution (Borel, then a flat correction by variation of constants for (r -
+r_h) Y' = M Y) and vanishes by III.D' Proposition 4.1 on all of X-bar; then h = 0 on the exterior and, by the same ODE,
+inside. Near b_0 for |sigma| >= c_0 by compactness and I.A Theorem 8.1. Open: b != b_0 with 0 < |sigma| < c_0. gmodes5
+G3 gains the E_T check (trace-free angular equation = -(k^2/4r^2)(F^a_a + 2F)). Next: verifier 96; Part III.F'''.

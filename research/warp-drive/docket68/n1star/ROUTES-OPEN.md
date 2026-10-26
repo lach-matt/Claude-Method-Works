@@ -2826,3 +2826,59 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   be read; II.C's D226 remark confirmed.
 - Next: verifier 95 on the D229 repairs and Parts III.D''', III.E, III.E', III.F; Part III.F' ([Hin26] sections
   8.2-8.3).
+
+### 4.153 Part III.F' written: indicial roots and tf-admissibility of L_b, [Hin26] 8.2-8.3 (D230)
+
+- `proof5/PART-III-F2-INDICIAL.md`: Lemma 2.1 (the factorisation, lin5.py E2); Lemma 2.2 (box^C at vector type 1: roots
+  3 and -1 - 2 gam_C v_C, by hand); Proposition 2.3 ([Hin26] Lemma 8.4: the list by type, no root with real part in (0,
+  1], the even split, 0 only at s0 and s2 and simple, simplicity and (8.13) under (C2)-(C4) and z off a countable set);
+  Lemma 2.4 (roots in a strip lie on finitely many isotypic components, uniformly in a parameter); Lemma 2.5 ([Hin26]
+  Lemma 8.5: h_s0 = -dt^2 + (2 - e_U)/(4 e_U) dx^2, h_s2 = delta*(rho^-1 w_S)); Lemma 3.1 (the relative index at ztf);
+  Lemma 3.2 (common orders); Proposition 3.3 ([Hin26] Proposition 8.6); Corollary 3.4 ([Hin26] Corollary 8.7: beta_sctf
+  < 3/2, beta_ztf in [-1, 0)).
+- Findings (F'1)-(F'6): the n = 4 roots and the factor lam (lam - 2) at v1; simplicity and (8.13) rest on (C2)-(C4),
+  added to Part IV's obligations; Lemma 8.5 is not needed for tf-admissibility at n = 4; the index argument without
+  restriction to a type; the Fredholm spaces in place of the source's conormal kernels; Corollary 8.7's weights.
+- `linroots5.py` R1-R3 (new) and `lin5.py` E1-E5 pass.
+- Open: III.E Theorem 1.1 (3) to receive (C1)'s count and (C2)-(C4) once verifier 95 has read III.E; Parts III.C,
+  III.F''-III.J and IV-VII.
+- Next: Part III.F'' ([Hin26] section 8.4: mode stability, the gauged linearised black holes, the zero energy
+  (co)kernel).
+
+### 4.154 Verifier 95 seated: I.B, III.A, III.D', III.D'' proved; III.D''', III.E, III.F verified; III.E' proved (D231)
+
+- The ninety-fifth verifier read the D229 repairs and Parts III.D''', III.E, III.E', III.F in full: Major 0, Minor 2,
+  Nit 6; all eleven D229 repairs correct and complete; every instrument the parts cite rerun and checking what its part
+  says; scratch checks with failing controls (the model states, box^C's indicial families at n = 4, the trapped set
+  matrix, S-bar's spectrum, III.D''''s resonance conditions).
+- Seated: M1 (III.D''' Proposition 3.1: in the recursion the other terms are shown lower by epsilon_ind, which is all
+  the leading coefficient needs; the first correction of each state stays two orders down, (D'''3) narrowed); M2 (III.E
+  consequence (a): the inverse at alpha in (0, min Re F - 2), the constructed solution equal to it by injectivity);
+  n1-n6 (smooth on X; chi_partial W-bar; a sign; rho^6 C^oo + H-dot^(-1, C_0+6); the supported character inside the
+  horizon; sigma kappa in III.F).
+- III.E Theorem 1.1 (3) amended with the count by type (s0 2|2, scalar l >= 1 3|3, vector 1|1, checked by the verifier
+  at the record's point for l <= 2) and III.F''s (C2)-(C4); the verifier's caution for Part IV: 'sufficiently large
+  gamma_C' means gamma_C >~ 1/e_C (damping5.py U6).
+- Next: verifier 96 on the D231 repairs and Parts III.F', III.F''.
+
+### 4.155 Part III.F'' written: mode stability of L_b away from zero frequency, [Hin26] Proposition 8.8 (D232)
+
+- `proof5/PART-III-F3-MODES.md`: Lemma 1.1 (the horizon threshold of L_b, [Hin26] footnote 78 at n = 4: det(k - K) = k^5
+  (k - 1 + x)^3 (k - 2 + 2x)(k + (1 - e_C) x)(k - y)(k + 1 - y)^3 (k + 2 - 2y), x = a_v gam_C r_h, y = c_v gam_UH r_h,
+  so s > 1/2 + max(0, 2 - 2x) with III.D''s horizon modification and a_v >= 0; lhor5.py H1-H2, new); Corollary 1.2 (Part
+  I's hypotheses for L_b: Fredholm of index 0, invertible for |sigma| >= C_0, uniform in b); Lemma 1.3 (conormal kernel
+  elements lie in X_sigma); Lemma 2.1 (the r-row of delta* omega = h as a radial ODE system); Theorem 2.2 ([AHW24]
+  Theorem 6.1 (1) on five-dimensional Tangherlini: Kodama-Ishibashi master equations, V_T, V_V, V_S > 0 for l >= 2, the
+  exceptional sectors s0, v1, s1 pure gauge, the s1 gauge glued across sigma^2 r^4 = mu_0 by analyticity); Lemma 2.3 (a
+  solution continued inside the horizon: Borel and a flat correction); Proposition 3.1 ([Hin26] Proposition 8.8 at b_0,
+  every sigma != 0 of the closed upper half plane, harmonic by harmonic: Bianchi, III.E Theorem 1.1 (1), Theorem 2.2,
+  Lemma 2.3, III.D' Proposition 4.1); Proposition 4.1 (b near b_0, |sigma| >= c_0).
+- Findings (F''1)-(F''4): [AHW24] replaced at b_0 with no estimate in l, the localisation to the exterior removed by
+  continuing the gauge potential; the horizon threshold of L_b, absent from III.F; the scalar type 1 sector at real
+  sigma; open: b != b_0 with 0 < |sigma| < c_0.
+- `gmodes5.py` G3 now also checks that the trace-free angular equation is [KI03]'s algebraic relation, E_T = -(k^2/(4
+  r^2)) (F^a_a + 2F); G1-G5, `lhor5.py` H1-H2 pass.
+- Open: b != b_0 with small nonzero sigma (to the low-energy parts on [Hin26] 9-12, or Part VI); Parts III.C,
+  III.F'''-III.J and IV-VII.
+- Next: verifier 96 on the D231 repairs and Parts III.F', III.F''; Part III.F''' ([Hin26] Proposition 8.9 to Corollary
+  8.13: the zero energy kernel and cokernel).
