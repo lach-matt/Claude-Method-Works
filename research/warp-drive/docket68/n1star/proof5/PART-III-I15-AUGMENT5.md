@@ -1,12 +1,12 @@
 # Part III.I$''''''''''''''$. Absorbing the expansion into the operator, n = 4 ([Hin26] section 11.8.3)
 
-*Status.* Written (D279); verified (D281: verifier 120's findings seated, to be read). This part proves, at spatial
-dimension $n = 4$, the content of [Hin26] section 11.8.3 (pp. 292-296): the parameters of the partial expansion of
-III.I$''''''''''''$ become arguments of an augmented gauge-fixed Einstein operator $P_5$ (Definition 1.2, the source's
-Definition 11.63), its linearisation in the black hole parameters has the full order of decay at $K^+$ (Lemma 2.4 (c),
-the source's Lemma 11.65), and the linearised equation at $(h,\vec p,q)$ has, for every source, a unique choice of $\vec
-p\,'$ for which the solution splits as $h_{\mathrm{rem}}(q')+h'$ with $h'$ of the decay assumed of $h$ (Theorem 3.1, the
-source's Corollary 11.66).
+*Status.* Written (D279); verified (D281: verifier 120's findings seated; D284: verifier 121's, on the D281 repairs,
+seated, to be read). This part proves, at spatial dimension $n = 4$, the content of [Hin26] section 11.8.3 (pp.
+292-296): the parameters of the partial expansion of III.I$''''''''''''$ become arguments of an augmented gauge-fixed
+Einstein operator $P_5$ (Definition 1.2, the source's Definition 11.63), its linearisation in the black hole parameters
+has the full order of decay at $K^+$ (Lemma 2.4 (c), the source's Lemma 11.65), and the linearised equation at $(h,\vec
+p,q)$ has, for every source, a unique choice of $\vec p\,'$ for which the solution splits as $h_{\mathrm{rem}}(q')+h'$
+with $h'$ of the decay assumed of $h$ (Theorem 3.1, the source's Corollary 11.66).
 
 *What n = 4 changes.* (1) *The linearisation is taken at $h$, not at $h+h_{\mathrm{rem}}(q)$.* The source proves
 Corollary 11.66 by applying Theorem 11.59 at the background $h+h_{\mathrm{rem}}(q)$, whose $K^+$-order is only
@@ -21,7 +21,7 @@ classes are read with the orders "$w-$", every order below $w$ (Definition 1.1),
 III.I$'''''''''''$-III.I$'''''''''''''$ accept sources of $K^+$-order $\alpha-$ and do not depend on the loss (Lemma
 2.5); this is what makes the class of $h'$ that of $h$ (Remark 3.2). (3) *Rotation rows.* At the non-rotating $b_0$
 every rotation is Killing, so the v1 terms of exponent below 2 carry no row (III.I$'''''''''$ section 1) and the
-source's treatment would put them into $q$; but at a rotating $b$ near $b_0$ the rotation state $h_{b,\mathrm v1}$ does
+source's treatment would put them into $q$; but at a rotating $b$ near $b_0$ the rotation state $h_{b,\mathrm v1}$ need
 not vanish, and such a coefficient would give the linearisation in $b$ the $K^+$-order $\alpha-2+\lambda_\sharp$ only.
 They are carried instead by rows of all rotations (Definition 1.3), fixed in Theorem 3.1 by the expansion (Step 4'). (4)
 $h_{-S} := 0$, as the source permits ("the reader may as well only consider the case that $h_{-S} = 0$"); the exterior
@@ -77,36 +77,46 @@ p}\big(h_{b_0,\mathrm{rem}}(q')\big),\tag{1.4}$$
 the source's (11.231), and we write $R_q := L_{h',\vec p}-L_{h,\vec p}$ and $\Delta_q := D_{\vec p}P_5(h,\vec
 p,q)-D_{\vec p}P_4(h,\vec p)$.
 
-**Definition 1.3 (rotation rows).** Let $\mathcal N_{\mathrm{rot}} := \{(\mathrm v1,\lambda,k):(\lambda,k)\in\mathcal
-M\}$, each with the coefficient space $\mathcal V_{1,\mathbb C}$ of all rotations (not III.I$'''''''''$'s complement
-$\mathcal V'$ of the Killing ones, which is 0 at $b_0$), and for $\nu\in\mathcal N_{\mathrm{rot}}$ let $a_\nu = r_\nu =
-t_*^{-\lambda}(\log t_*)^k$, $\omega_\nu$, $m_\nu$, $h_\nu$, $\vartheta_\nu$ and $\vartheta_{\nu,\sharp}$ be given by
-III.I$'''''''''$ Definition 2.1, which III.I$''''''''''$ section 1 extends verbatim to every triple. From here on
-$\mathcal P$ is III.I$'''''''''$'s space enlarged by the conjugation-symmetric tuples $(W_\nu)_{\nu\in\mathcal
-N_{\mathrm{rot}}}$, and $h_{\mathrm{tot}}(\vec p)$, $\vartheta_{\mathrm{tot}}(\vec p)$ (III.I$'''''''''$ Definition 2.3)
-are summed over $\mathcal N\cup\mathcal N_{\mathrm{rot}}$; so $P_4$ and $P_5$ take $\vec p$ in the enlarged $\mathcal
-P$. A rotation row is given the rate $\mathrm{Re}\,\lambda+1$: at $b_0$ every rotation is Killing, so $h_{\mathrm v1} =
-0$ and $m_\nu(W)$ has $K^+$-weight $\mathrm{Re}\,\lambda+1-\epsilon>\alpha-2$ (III.I$'''''''''$ Lemma 2.2 (e)), and no
-level of III.I$'''''''''''$ or Theorem 3.1 eliminates it; its coordinate is fixed in Theorem 3.1 by the expansion (Step
-4'). The parts III.I$''''''''$-III.I$'''''''''''''$ hold with the enlarged $\mathcal P$: III.I$'''''''''$ Lemmas 2.2 and
-2.4-2.6 hold for $\nu\in\mathcal N_{\mathrm{rot}}$ (with $e_\nu = \lambda$ and $\kappa_\nu = \mathrm{Re}\,\lambda+4$);
-each $h_\nu(W)$ is supported in $\mathcal C$ with $\iota^+$-exponents $(\lambda,k)+\mathcal F$, in $\mathcal M$ below 2
-(III.I$''''''''$ (1.1)) and in $\mathcal E_\sharp$ above (III.I$''''''''''''$ section 1), so (H3) holds and
-$h_{\mathrm{tot}}(\vec p)\in\mathcal X^\infty$; and $f^\nu_{h,\vec p} = L_{h,\vec p}m_\nu+r^\nu_{h,\vec p}$ with
-$r^\nu_{h,\vec p}$ of $K^+$-weight $\mathrm{Re}\,\lambda+a_K-\epsilon>\alpha$ and plain $\iota^+$-weight
-$\mathrm{Re}\,\lambda+2+\lambda_\sharp-\epsilon>w_+$ (III.I$'''''''''$ (2.5)), so these rows enter the constructions
-exactly as the rows of $\mathcal N$ do.
+**Definition 1.3 (rotation rows).** Let $\mathcal N_{\mathrm{rot}} := \{(\mathrm{rot},\lambda,k):(\lambda,k)\in\mathcal
+M\}$, an index set disjoint from $\mathcal N$ (the v1 rows of $\mathcal N$ keep the coefficient space $\mathcal V' = 0$
+of III.I$'''''''''$ section 1), each $\nu\in\mathcal N_{\mathrm{rot}}$ with the coefficient space $\mathcal V_{1,\mathbb
+C}$ of all rotations. For $\nu = (\mathrm{rot},\lambda,k)$ let $a_\nu = r_\nu = t_*^{-\lambda}(\log t_*)^k$,
+$\omega_\nu$, $m_\nu$, $h_\nu$, $\vartheta_\nu$ and $\vartheta_{\nu,\sharp}$ be those that III.I$'''''''''$ Definition
+2.1 assigns to the type v1 and the exponent $(\lambda,k)$, with $W\in\mathcal V_{1,\mathbb C}$; III.I$''''''''''$
+section 1 extends that definition verbatim to every triple. From here on $\mathcal P$ is III.I$'''''''''$'s space
+enlarged by the tuples $(W_\nu)_{\nu\in\mathcal N_{\mathrm{rot}}}$, conjugation-symmetric ($W_{\bar\nu} =
+\overline{W_\nu}$, $\bar\nu := (\mathrm{rot},\bar\lambda,k)$), and $h_{\mathrm{tot}}(\vec p)$,
+$\vartheta_{\mathrm{tot}}(\vec p)$ (III.I$'''''''''$ Definition 2.3) are summed over the disjoint union $\mathcal
+N\sqcup\mathcal N_{\mathrm{rot}}$; so $P_4$ and $P_5$ take $\vec p$ in the enlarged $\mathcal P$, of which
+III.I$'''''''''$'s is the subspace $\vec W^{\mathrm{rot}} := (W_\nu)_{\nu\in\mathcal N_{\mathrm{rot}}} = 0$. A rotation
+row is given the rate $\mathrm{Re}\,\lambda+1$: at $b_0$ every rotation is Killing, so $h_{\mathrm v1} = 0$ and
+$m_\nu(W)$ has $K^+$-weight $\mathrm{Re}\,\lambda+1-\epsilon>\alpha-2$ (III.I$'''''''''$ Lemma 2.2 (e)), and no level of
+III.I$'''''''''''$ or Theorem 3.1 eliminates it; its coordinate is fixed in Theorem 3.1 by the expansion (Step 4'). The
+parts III.I$''''''''$-III.I$'''''''''''''$ hold with the enlarged $\mathcal P$, except the uniqueness in
+III.I$'''''''''''$ Theorem 4.1, which fails there (the solutions form a graph over $\vec W^{\mathrm{rot}}$, Theorem 3.1,
+Step 3): that theorem and III.I$''''''''''''$ Theorem 3.1 are used only with III.I$'''''''''$'s $\mathcal P$, the
+rotation-row terms being counted in the source (Step 4'). III.I$'''''''''$ Lemmas 2.2 (a)-(e) and 2.4-2.6 hold for
+$\nu\in\mathcal N_{\mathrm{rot}}$, with $e_\nu = \lambda$ and $\kappa_\nu = \mathrm{Re}\,\lambda+4$ (their proofs do not
+use the coefficient space); Lemma 2.2 (f), the injectivity of $h_\tau$ on $\mathcal W_\tau$, fails for them, $h_{\mathrm
+v1}$ being 0 on $\mathcal V_1$, and is not used for them (III.I$''''''''''$ Corollary 2.3 excludes v1). Each $h_\nu(W)$
+is supported in $\mathcal C$ with $\iota^+$-exponents in $(\lambda,k)+\mathcal F\subset\mathcal E_+$, as for the v1 rows
+of $\mathcal N$ (III.I$'''''''''$ (H3), by III.I$''''''''$ (1.1) and $\mathcal E_{++}+\mathcal
+E_{\mathrm{ind}}\subset\mathcal E_{++}\subset\mathcal E_+$), so (H3) holds and $h_{\mathrm{tot}}(\vec p)\in\mathcal
+X^\infty$; and $f^\nu_{h,\vec p}(W) := D_{\vec p}P_4(h,\vec p)(W_\nu = W) = L_{h,\vec p}m_\nu(W)+r^\nu_{h,\vec p}(W)$
+(III.I$'''''''''$ Lemma 2.6 (b)-(c)), with $r^\nu_{h,\vec p}$ of $K^+$-weight $\mathrm{Re}\,\lambda+a_K-\epsilon>\alpha$
+and plain $\iota^+$-weight $\mathrm{Re}\,\lambda+2+\lambda_\sharp-\epsilon>w_+$ (III.I$'''''''''$ Lemma 2.6 (c)), so
+these rows enter the constructions exactly as the rows of $\mathcal N$ do.
 
 ## 2. The augmented operator
 
 **Lemma 2.1 (towers near $b_0$).** For $b$ near $b_0$ the states of III.G$''$ Table 1.1 for $L_b$ and their companions
 $\breve h^{(\mu),j}_{b,\tau}$ can be chosen smooth in $b$, equal at $b_0$ to those of III.G$''$, with leading terms at
-$\partial X$ that do not depend on $b$; the rotation state $h_{b,\mathrm v1}\in\mathcal A^3$ is smooth in $b$, vanishes
-at $b_0$ and not at a rotating $b$; and $\dot g_b$ is smooth in $b$. Then $\partial_b\breve
-h^{(\mu),j}_{b,\tau}(Y)\in\mathcal A^{(\mu-j)+\mathcal E_{\mathrm{ind}}}$, and for $a = \chi_+t_*^{-z}(\log t_*)^k$ the
-tensor $\partial_b(\chi_KT_{\rho,b}(a))$ is polyhomogeneous at $\iota^+$ with exponents in $z+d_\rho+\mathcal
-E_{\mathrm{ind}}$ and, for v1, $z+3$; all lie in $z+d_\rho$ plus at most two increments of $\Lambda$ ($(2,0)\in\mathcal
-E_{\mathrm{ind}}$, III.I$'''''''''$ section 1).
+$\partial X$ that do not depend on $b$; the rotation state $h_{b,\mathrm v1}\in\mathcal A^3$ is smooth in $b$ and
+vanishes at $b_0$; and $\dot g_b$ is smooth in $b$. Then $\partial_b\breve h^{(\mu),j}_{b,\tau}(Y)\in\mathcal
+A^{(\mu-j)+\mathcal E_{\mathrm{ind}}}$, and for $a = \chi_+t_*^{-z}(\log t_*)^k$ the tensor
+$\partial_b(\chi_KT_{\rho,b}(a))$ is polyhomogeneous at $\iota^+$ with exponents in $z+d_\rho+\mathcal E_{\mathrm{ind}}$
+and, for v1, $z+3$; all lie in $z+d_\rho$ plus at most two increments of $\Lambda$ ($(2,0)\in\mathcal E_{\mathrm{ind}}$,
+III.I$'''''''''$ section 1).
 
 *Proof.* The pure gauge states and their companions are $\delta^*_{g_b}\omega^{\le k}_b$ with $\omega^{\le
 k}_b\in\ker\Box^\Upsilon_b$ polynomial in $t_*$ and smooth in $b$ (III.D$'''$ Proposition 3.1); by the remark closing
@@ -119,8 +129,8 @@ coefficient), normalised to be the identity at $b_0$, keeps everything at $b_0$,
 III.I$''''''''''''$'s $\chi_Ku_{\exp}$. The corrections lie in $\mathcal A^{(\mu-j)+\mathcal E_{\mathrm{ind}}}$ with
 $\mathcal E_{\mathrm{ind}}$ independent of $b$ (III.G$''$ section 2, III.D$'''$ Proposition 3.1, III.F$''''$ Proposition
 5.1), so their $b$-derivatives do too. The rotation state $h_{b,\mathrm v1}(V) = \delta^*_{g_b}\omega^{(-1)}_{b,\mathrm
-v1}(V)\in\mathcal A^3$ vanishes at $b_0$, where every rotation is Killing, but not at a rotating $b$ (III.D$'''$
-Proposition 3.1 (3)); its $b$-derivative lies in $\mathcal A^3$ and gives the $\iota^+$-exponent $z+3$. $\dot
+v1}(V)\in\mathcal A^3$ vanishes at $b_0$, where every rotation is Killing (at a rotating $b$ it need not vanish; nothing
+below uses that it does not); its $b$-derivative lies in $\mathcal A^3$ and gives the $\iota^+$-exponent $z+3$. $\dot
 g^\Upsilon_b$ is the gauge-corrected derivative of the Myers-Perry family, smooth in $b$; its leading term may depend on
 $b$ (through the mass), which is harmless, $b_{\mathrm{rem}}$ having order $(\alpha-1)-$. The $\iota^+$-statement
 follows as in III.I$''''''''''''$ section 1 (the leading part of $T_\rho(a)$ is homogeneous of degree $-z-d_\rho$).
@@ -256,11 +266,11 @@ Step 2 have zero coefficients. The level-3 construction depends on $\epsilon$ al
 independent of $\epsilon$), the order $\mu_3 = \tau-\epsilon$ of the expansions recorded in the zero-energy solve, and
 the lowering of $\tau$ in III.I$'''''''''''$ Proposition 3.1's Step 4. We take $\epsilon_0$ so small that, for
 $\epsilon<\epsilon_0$, none of these crosses an exponent at hand, a root, or a value excluded in III.G$''''$ Proposition
-5.1 (finitely many conditions on the values at $\epsilon = 0$). III.G$''''$ Proposition 5.1 solves (5.3) by Mellin
-inversion on $\mathrm{Re}\,\lambda = \alpha_\tau-2-j$, and moving that line without crossing a root does not change the
-solution; the recorded expansions and the switch are then the same for every $\epsilon<\epsilon_0$. So the pieces, the
-coefficients of (3.1) and $\tilde u$ are the same for every $\epsilon<\epsilon_0$, and the estimates hold for each.
-$\square$
+5.1 (each is affine in $\epsilon$ with nonzero slope, so it crosses each of the finitely many thresholds at most once).
+III.G$''''$ Proposition 5.1 solves (5.3) by Mellin inversion on $\mathrm{Re}\,\lambda = \alpha_\tau-2-j$, and moving
+that line without crossing a root does not change the solution; the recorded expansions and the switch are then the same
+for every $\epsilon<\epsilon_0$. So the pieces, the coefficients of (3.1) and $\tilde u$ are the same for every
+$\epsilon<\epsilon_0$, and the estimates hold for each. $\square$
 
 ## 3. The decay of forward solutions ([Hin26] Corollary 11.66 at n = 4)
 
@@ -290,17 +300,18 @@ sense. III.I$''''''''$'s hypotheses on the background ask $K^+$-order only above
 4.1: $\alpha_1<\min(a_K,3)$; its Lemmas 3.1-3.2 take steps below $a_K-2$), so they hold for $h+h_{\mathrm{rem}}(q)$, of
 $K^+$-order $(\alpha-2)-$ and with the other data of $\mathcal X$ (Lemma 2.2 (a), (c)). Split $\vec p\,' = \vec
 p\,'_{<}\oplus\vec W$ with $\vec p\,'_<\in\mathcal P_{\alpha_1}$ (III.I$'''''''''''$ section 4) and $\vec W =
-(W_\nu)_{\nu\in\mathcal N'}$. As in III.I$'''''''''''$ Theorem 4.1's proof (*III.I$''''''''$ Proposition 4.1 for
-$P_4$*), III.I$''''''''$ Proposition 4.1 holds for $P_5$ at $(h,\vec p,q)$: $P_5$ is $P_3$ at
-$(h+h_{\mathrm{rem}}(q)+\sum_\nu h_\nu(W_\nu),\vec p_3)$, the sum over the rows other than the motions (the rotation
-rows included), up to the term $(\partial\delta^*_{g_0,E_C})\vartheta_{\mathrm{rows}}$, and in the direction $b$ also up
-to $L(\partial_bh_{b,\mathrm{rem}}(q)b')$, of $K^+$-order $>2+\epsilon_K>\alpha_1$ (every coefficient of $q$ has rate
-$>2+\epsilon_K$ at $b_0$, by (G) and Definition 1.1, and $\widehat{L_{b_0}}(0)\partial_bh_{b,\mathrm v1} = 0$ as
-$h_{b_0,\mathrm v1} = 0$, so the v1 part has rate $\ge3$); all of these lie in III.I$''''''''$'s $\mathcal Y(\alpha_1)$
-and are $O(|\vec W|+\|q\|)$, and so does $D_{\vec W}P_5 = D_{\vec W}P_4+\Delta_q$ (Lemma 2.4 (a); III.I$'''''''''$ Lemma
-2.6 (b)) and $F$ (III.I$'''''''''''''$ Lemma 2.2's last sentence). So for every $\vec W$ there is a unique $\vec
-p\,'_<(\vec W)\in\mathcal P_{\alpha_1}$, affine in $\vec W$, with $u(\vec p\,'_<(\vec W)\oplus\vec W)\in\mathcal
-Z_{\alpha_1}$. Let $\mathcal P_0$ be the set of these $\vec p\,'$: the graph of $\vec W\mapsto\vec p\,'_<(\vec W)$.
+(W_\nu)_{\nu\in\mathcal N'\sqcup\mathcal N_{\mathrm{rot}}}$. As in III.I$'''''''''''$ Theorem 4.1's proof
+(*III.I$''''''''$ Proposition 4.1 for $P_4$*), III.I$''''''''$ Proposition 4.1 holds for $P_5$ at $(h,\vec p,q)$: $P_5$
+is $P_3$ at $(h+h_{\mathrm{rem}}(q)+\sum_\nu h_\nu(W_\nu),\vec p_3)$, the sum over the rows other than the motions (the
+rotation rows included), up to the term $(\partial\delta^*_{g_0,E_C})\vartheta_{\mathrm{rows}}$, and in the direction
+$b$ also up to $L(\partial_bh_{b,\mathrm{rem}}(q)b')$, of $K^+$-order $>2+\epsilon_K>\alpha_1$ (every coefficient of $q$
+has rate $>2+\epsilon_K$ at $b_0$, by (G) and Definition 1.1, and $\widehat{L_{b_0}}(0)\partial_bh_{b,\mathrm v1} = 0$
+as $h_{b_0,\mathrm v1} = 0$, so the v1 part has rate $\ge3$); all of these lie in III.I$''''''''$'s $\mathcal
+Y(\alpha_1)$ and are $O(|\vec W|+\|q\|)$, and so does $D_{\vec W}P_5 = D_{\vec W}P_4+\Delta_q$ (Lemma 2.4 (a);
+III.I$'''''''''$ Lemma 2.6 (b)) and $F$ (III.I$'''''''''''''$ Lemma 2.2's last sentence). So for every $\vec W$ there is
+a unique $\vec p\,'_<(\vec W)\in\mathcal P_{\alpha_1}$, affine in $\vec W$, with $u(\vec p\,'_<(\vec W)\oplus\vec
+W)\in\mathcal Z_{\alpha_1}$. Let $\mathcal P_0$ be the set of these $\vec p\,'$: the graph of $\vec W\mapsto\vec
+p\,'_<(\vec W)$.
 
 *Step 2 (one level).* Choose admissible levels $\alpha_1 = \beta_0<\beta_1<\dots<\beta_K = \alpha$ (III.I$''''''''$'s
 below 3, III.I$'''''''''''''$ Definition 1.1 above 3) with $\beta_{k+1}-\beta_k<\alpha-4$ and $\beta_{K-1}>4$; this is
@@ -313,11 +324,11 @@ $\beta_{K-1}+\alpha-4>\alpha$), and $\Delta_q(\vec p\,')\in\mathcal Y^\natural(\
 (3.3) through $D_{\vec p}P_4$ at $h$, whose defects $r^\nu_{h,\vec p}$ have the orders of III.I$'''''''''$ Lemma 2.6
 (c), as $a_K\ge4+\epsilon_K$; at $h+h_{\mathrm{rem}}(q)$ the row directions differ from these by exactly $\Delta_q(\vec
 W) = R_q(h_\nu(\vec W))$ (Lemma 2.4 (a)), supported in $\mathcal C$, so no row defect of the background
-$h+h_{\mathrm{rem}}(q)$ enters. For $\beta_{k+1}>3$, $u_0 := u+\sum_{\nu\in\mathcal N\cup\mathcal
+$h+h_{\mathrm{rem}}(q)$ enters. For $\beta_{k+1}>3$, $u_0 := u+\sum_{\nu\in\mathcal N\sqcup\mathcal
 N_{\mathrm{rot}}}m_\nu(W'_\nu)$ ($W'_\nu$ the row components of $\vec p\,'$, the motions and the rotation rows included)
 solves
 $$L_{h,\vec p}u_0 = G' := \tilde G-f^S_{h,\vec p}(S')-f^b_{h,\vec p}(b')-f^{\mathrm s1}_{h,\vec
-p}(S^{(0)\prime}_1)-\sum_{\nu\in\mathcal N\cup\mathcal N_{\mathrm{rot}}}r^\nu_{h,\vec p}(W'_\nu)\in\mathcal
+p}(S^{(0)\prime}_1)-\sum_{\nu\in\mathcal N\sqcup\mathcal N_{\mathrm{rot}}}r^\nu_{h,\vec p}(W'_\nu)\in\mathcal
 Y^\natural(\beta_{k+1})$$
 (III.I$'''''''''$ Lemma 2.6 (a), (c); III.I$''''''''''$ section 1; resp. $\mathcal Y^\natural(\alpha-)$), and has
 $K^+$-weight $\min(\beta_k-2,\lambda_\sharp-1)-\epsilon>0$, with $\min(\beta_k-2,\lambda_\sharp-1)+a_K>\beta_{k+1}$, and
@@ -354,34 +365,71 @@ W^{\mathrm{rot}}\mapsto\vec p\,'(\vec W^{\mathrm{rot}})$. *Uniqueness:* if $u(\v
 $u(\vec p\,'')\in\mathcal Z_{\beta_k}$ for all $k$, so $\vec p\,''\in\mathcal P_0$ by Step 1's uniqueness and then $\vec
 p\,''\in\mathcal P_K$; Step 4' fixes the rotation coordinates.
 
-*Step 4' (the rotation coordinates).* For $\vec p\,'\in\mathcal P_K$, $u = u(\vec p\,')\in\mathcal Z_\alpha$ solves
-(3.3), and III.I$''''''''''''$ Theorem 3.1 (as in Step 4) gives the v1 coefficient $\dot Y_{\mathrm v1}$ of its
-expansion; let $C^{\mathrm{rot}}(\vec p\,')$ be the tuple of its polyhomogeneous coefficients at the exponents in
-$\mathcal M$, an affine function of $\vec W^{\mathrm{rot}}$. The polyhomogeneous coefficients of III.I$''''''''''''$
-(3.1) of rate below $\alpha-\epsilon$ are determined by $u$: if two such sums of towers differ by a tensor of
-$K^+$-order $\alpha-\epsilon$, their lowest terms cancel, and the leading terms of the towers of distinct rows of
-III.G$''$ Table 1.1 are linearly independent (distinct roots, types or degrees) and injective (III.G$''$ Lemma 1.2). At
-$(0,0,0)$, $u = u_F-\sum_\nu m_\nu(W_\nu)$ (Step 3), and for $\nu = (\mathrm v1,\lambda,k)\in\mathcal N_{\mathrm{rot}}$,
-$m_\nu(W)$ is $\chi_KT_{\mathrm v1}(t_*^{-\lambda}(\log t_*)^kW)$ up to $K^+$-order $\ge\mathrm{Re}\,\lambda+4>\alpha$
-(III.I$''''''''''$ Lemma 2.1 (a): the terms $i\le2$ of $\sum_ia_\nu^{(i)}\breve h^i_{\mathrm v1}(W)$ are the v1 tower of
-III.G$''$ Definition 2.5 at $b_0$, both being $\delta^*_{g_{b_0}}$ of the polynomial gauge 1-forms of III.D$'''$ (3),
-with $\breve h^0_{\mathrm v1} = h_{b_0,\mathrm v1} = 0$; the term $i = 3$ and the $dt_*$-term have $K^+$-order
-$\ge\mathrm{Re}\,\lambda+4$). So $C^{\mathrm{rot}}$ has derivative $-\mathrm{id}$ in $\vec W^{\mathrm{rot}}$ at
-$(0,0,0)$; it depends continuously on $(h,\vec p,q)$, uniformly for $\vec p\,'$ bounded, by the lemmas of Step 3 and
-III.I$''''''''''$ Proposition 3.1 for the exponents below 2. Hence for $(h,\vec p,q)$ small there is a unique $\vec
-W^{\mathrm{rot}}$ with $C^{\mathrm{rot}} = 0$, and this fixes $\vec p\,'$.
+*Step 4' (the rotation coordinates).* For $\vec p\,'\in\mathcal P_K$ split $\vec p\,' = \vec p\,'_0\oplus\vec
+W'^{\mathrm{rot}}$, with $\vec p\,'_0$ in III.I$'''''''''$'s $\mathcal P$ (Definition 1.3), and put
+$$\tilde G_0 := \tilde G-\sum_{\nu\in\mathcal N_{\mathrm{rot}}}f^\nu_{h,\vec p}(W'_\nu),\qquad\text{so that}\qquad
+L_{h,\vec p}u = \tilde G_0-D_{\vec p}P_4(h,\vec p)(\vec p\,'_0)\tag{3.5}$$
+by (3.3), $D_{\vec p}P_4(h,\vec p)$ being linear. $\tilde G_0\in\mathcal Y^\natural(\alpha-)$, as $f^\nu_{h,\vec
+p}(W)\in\mathcal Y_2(\alpha)$ (III.I$'''''''''$ Lemma 2.6 (b), Definition 1.3). So $u = u(\vec p\,')\in\mathcal
+Z_\alpha$ solves (3.5), whose parameter $\vec p\,'_0$ lies in III.I$'''''''''$'s $\mathcal P$: by the uniqueness in
+III.I$'''''''''''$ Theorem 4.1 (Lemma 2.5), $\vec p\,'_0 = \vec p\,'_{h,\vec p}(\tilde G_0)$, and III.I$''''''''''''$
+Theorem 3.1 (Lemma 2.5, III.I$'''''''''''''$ Proposition 2.4) applies with $F = \tilde G_0$: $u = \chi_Ku_{\exp}+\tilde
+u$, with $\tilde u$ of $K^+$-order $\alpha-$ (III.I$''''''''''''$ (3.3)). Let $C^{\mathrm{rot}}(\vec p\,')$ be the tuple
+of the polyhomogeneous coefficients, at the exponents in $\mathcal M$, of the v1 coefficient $\dot Y_{\mathrm v1}$ of
+$u_{\exp}$.
 
-*Step 4 (the expansion).* With $\vec p\,'$ of Step 4', $u\in\mathcal Z_\alpha$ solves (3.3) with $\tilde G\in\mathcal
-Y^\natural(\alpha-)$, and $R_qu$ has $K^+$-weight $(2\alpha-4)-$. By the uniqueness in III.I$'''''''''''$ Theorem 4.1
-(Lemma 2.5), $\vec p\,' = \vec p\,'_{h,\vec p}(\tilde G)$, so III.I$''''''''''''$ Theorem 3.1 (Lemma 2.5,
-III.I$'''''''''''''$ Proposition 2.4) applies: $u = \chi_Ku_{\exp}+\tilde u$, with an $\epsilon$-independent
-decomposition. Its coefficients $q' := (\dot S_{\mathrm{rem}},\dot b_{\mathrm{rem}},(\dot Y_\rho))$ lie in $\mathcal Q$:
-(3.2) of III.I$''''''''''''$ for every $\epsilon$; every term of $\chi_Ku_{\exp}$ has $K^+$-order
-$\ge\alpha-2-\epsilon$, so the polyhomogeneous coefficients of rate $\le2<\alpha-2-\epsilon$ vanish, which is Definition
-1.1's $\mathrm{Re}\,z>2$, and $\dot Y_{\mathrm v1}$ has no exponent in $\mathcal M$ (Step 4'), which is its $\mathcal
-E^\alpha_{\mathrm v1}$; conjugation symmetry by III.I$''''''''''''$ Step 6. Put $h' := \tilde u$, which satisfies
-(3.2)'s first statement by III.I$''''''''''''$ (3.3). As $\chi_Ku_{\exp} = h_{\mathrm{rem}}(q')$ (Definition 1.2 at
-$b_0$), (1.4) gives $D_hP_5(h')+D_qP_5(q') = L_{h+h_{\mathrm{rem}}(q),\vec p}(h'+h_{\mathrm{rem}}(q')) =
+*The coefficients are determined by $u$.* Let $\mathcal K$ be the finite-dimensional space of the stationary tensors
+$\sum_\rho\breve h^{(\mu_\rho),0}_{b_0,\tau_\rho}(Y_\rho)+\breve h^1_{b_0,\mathrm v1}(V)+\dot g(\dot b)+h_{b_0,\mathrm
+s1}(S)$ of III.I$''''''''''''$ Lemma 2.3 (a), the sum over the rows of $\mathcal R'$ other than v1, whose coefficients
+are unique. Each nonzero element of $\mathcal K$ is nonzero on an open set, so, the unit sphere of $\mathcal K$ being
+compact, there is a compact set $\mathcal K_0$ in the interior of $X$ on which restriction is injective on $\mathcal K$,
+and there are continuous linear functionals on $C^0(\mathcal K_0)$ that return the coefficients; let $\ell$ be the one
+returning $V$. On $\mathcal K_0$, for $t_*$ large, $\chi_Ku_{\exp}$ is the element of $\mathcal K$ with the coefficients
+$\dot Y_\rho$, $\dot Y_{\mathrm v1}'$, $\dot b_{\mathrm{rem}}$, $\dot S_{\mathrm{rem}}$ at $t_*$, plus the higher terms
+of the towers, whose coefficients are $t_*$-derivatives of these (the v1 bottom is $h_{b_0,\mathrm v1} = 0$, and $\dot
+Y_{\mathrm v1}$ enters through $\breve h^1_{b_0,\mathrm v1}(\dot Y_{\mathrm v1}')$). If $u$ has two such expansions with
+remainders of $K^+$-order $\alpha-$, $\ell$ applied to their difference gives $(\Delta\dot Y_{\mathrm v1})'$ plus terms
+$O(t_*^{-3}(\log t_*)^{K'})$ for some $K'$: the bottoms are removed by $\ell$ exactly, and what remains is the
+remainders ($K^+$-order $\alpha-\epsilon>3$), the derivatives of $\Delta\dot S_{\mathrm{rem}}$ and $\Delta\dot
+b_{\mathrm{rem}}$ (order $(\alpha-1)-$) and of the other coefficients (rate $>2$), and the second derivative of
+$\Delta\dot Y_{\mathrm v1}$ (order $\ge\mathrm{Re}\,\lambda+2>3$ at the exponents of $\mathcal M$, $\ge4$ at the
+others). The derivative of $\Delta\dot Y_{\mathrm v1}$ at its exponents of real part $\ge2$ is also $O(t_*^{-3}(\log
+t_*)^{K'})$, while at $(\lambda,k)\in\mathcal M$ it is triangular in the log power with diagonal $-\lambda\ne0$ and has
+rate $\mathrm{Re}\,\lambda+1<3$; as the $t_*^{-\lambda-1}(\log t_*)^k$ with $\mathrm{Re}\,\lambda+1<3$ are linearly
+independent modulo $O(t_*^{-3}(\log t_*)^{K'})$, the coefficients of $\Delta\dot Y_{\mathrm v1}$ at $\mathcal M$ vanish.
+So $C^{\mathrm{rot}}$ is determined by $u$, and is an affine function of $\vec W'^{\mathrm{rot}}$, as $u$ is on
+$\mathcal P_K$.
+
+*The derivative and continuity.* At $(0,0,0)$, $u = u_F-\sum_\nu m_\nu(W_\nu)$ (Step 3), where $u_F$ and the
+$m_\nu(W_\nu)$ with $\nu\notin\mathcal N_{\mathrm{rot}}$ do not depend on $\vec W'^{\mathrm{rot}}$ (Step 3); and for
+$\nu = (\mathrm{rot},\lambda,k)$, $m_\nu(W)$ is $\chi_KT_{\mathrm v1}(t_*^{-\lambda}(\log t_*)^kW)$ up to $K^+$-order
+$\ge\mathrm{Re}\,\lambda+3-\epsilon>\alpha$ (III.I$''''''''''$ Lemma 2.1 (a), and (b)'s argument for v1: the terms
+$i\le2$ of $\sum_ia_\nu^{(i)}\breve h^i_{\mathrm v1}(W)$ are the v1 tower of III.G$''$ Definition 2.5 at $b_0$, both
+being $\delta^*_{g_{b_0}}$ of the polynomial gauge 1-forms of III.D$'''$ (3), with $\breve h^0_{\mathrm v1} =
+h_{b_0,\mathrm v1} = 0$; the term $i = 3$ and the $dt_*$-term have $K^+$-order $\ge\mathrm{Re}\,\lambda+3-\epsilon$,
+III.I$''''''''''$ (2.1)), whose v1 coefficient is $t_*^{-\lambda}(\log t_*)^kW$. So $C^{\mathrm{rot}}$ has derivative
+$-\mathrm{id}$ in $\vec W'^{\mathrm{rot}}$ at $(0,0,0)$. Near the base point $C^{\mathrm{rot}}$ tends to its value
+there, uniformly for $\vec W'^{\mathrm{rot}}$ bounded, by III.I$'''''''''''$ Lemma 3.3's argument: let $u_{(0)}$ be the
+solution at $(0,0,0)$ with the same $\vec W'^{\mathrm{rot}}$, and $F_{\mathrm{tot}}$, $F_{\mathrm{tot},(0)}$ the right
+sides of (3.5) for $u$ and $u_{(0)}$; then $u-u_{(0)}$ is the forward solution of $L_{b_0}(u-u_{(0)}) = R :=
+F_{\mathrm{tot}}-F_{\mathrm{tot},(0)}-(L_{h,\vec p}-L_{b_0})u$, which tends to 0 in $\mathcal Y^\natural(\alpha-)$ (the
+lemmas of Step 3, by which the coordinates of $\mathcal P_K$ over $\vec W'^{\mathrm{rot}}$ tend to those at the base
+point, and III.I$'''''''''''$ Lemma 3.3's count for the last term). As $u-u_{(0)}\in\mathcal Z_\alpha$, its parameter at
+$(0,0)$ is 0 (III.I$'''''''''''$ Theorem 4.1's uniqueness), and III.I$''''''''''''$ Theorem 3.1 at $(0,0)$ (with
+III.I$''''''''''$ Proposition 3.1 for the exponents below 2) bounds its coefficients by $R$; by the uniqueness just
+shown, the coefficients of $u$ are those of $u_{(0)}$ plus those of $u-u_{(0)}$. Hence for $(h,\vec p,q)$ small there is
+a unique $\vec W'^{\mathrm{rot}}$ with $C^{\mathrm{rot}} = 0$, and this fixes $\vec p\,'$.
+
+*Step 4 (the expansion).* With $\vec p\,'$ of Step 4', $u\in\mathcal Z_\alpha$ solves (3.5) with $\vec p\,'_0 = \vec
+p\,'_{h,\vec p}(\tilde G_0)$ and $\tilde G_0\in\mathcal Y^\natural(\alpha-)$, and $R_qu$ has $K^+$-weight
+$(2\alpha-4)-$; III.I$''''''''''''$ Theorem 3.1 with $F = \tilde G_0$ (Step 4') gives $u = \chi_Ku_{\exp}+\tilde u$,
+with an $\epsilon$-independent decomposition. Its coefficients $q' := (\dot S_{\mathrm{rem}},\dot b_{\mathrm{rem}},(\dot
+Y_\rho))$ lie in $\mathcal Q$: (3.2) of III.I$''''''''''''$ for every $\epsilon$; every term of $\chi_Ku_{\exp}$ has
+$K^+$-order $\ge\alpha-2-\epsilon$, so the polyhomogeneous coefficients of rate $\le2<\alpha-2-\epsilon$ vanish, which
+is Definition 1.1's $\mathrm{Re}\,z>2$, and $\dot Y_{\mathrm v1}$ has no exponent in $\mathcal M$ (Step 4'), which is
+its $\mathcal E^\alpha_{\mathrm v1}$; conjugation symmetry by III.I$''''''''''''$ Step 6. Put $h' := \tilde u$, which
+satisfies (3.2)'s first statement by III.I$''''''''''''$ (3.3). As $\chi_Ku_{\exp} = h_{\mathrm{rem}}(q')$ (Definition
+1.2 at $b_0$), (1.4) gives $D_hP_5(h')+D_qP_5(q') = L_{h+h_{\mathrm{rem}}(q),\vec p}(h'+h_{\mathrm{rem}}(q')) =
 L_{h+h_{\mathrm{rem}}(q),\vec p}u$, which is (3.2) by (3.1). *Linearity and bounds:* every map used is linear and
 bounded, uniformly for $(h,\vec p,q)$ small, and the inverses $(-\mathrm{id}+A_k)^{-1}$ are bounded. $\square$
 
@@ -421,7 +469,10 @@ fixed loss, the boost and black hole parameter coefficients would lose an $\epsi
 bookkeeping puts it into $q$. But $h_{b,\mathrm v1}\ne0$ at a rotating $b$, where the same term has rate $z<2$, and the
 $b$-derivative of $P_5$ then has $K^+$-order $(\alpha-2+z)-<\alpha$. Rows of all rotations at the exponents of $\mathcal
 M$ (Definition 1.3) carry these terms; they enter $P_5$ through $h_\nu$, supported away from $K^+$, and $\vartheta_\nu$,
-of $K^+$-weight $\mathrm{Re}\,\lambda+4$, and are fixed by the expansion (Step 4'). Whether the source's Lemma 11.65
+of $K^+$-weight $\mathrm{Re}\,\lambda+4$, and are fixed by the expansion (Step 4'). They are indices
+$(\mathrm{rot},\lambda,k)$ apart from III.I$'''''''''$'s rows, and on the enlarged $\mathcal P$ the uniqueness of
+III.I$'''''''''''$ Theorem 4.1 fails, so Theorem 3.1 applies it, and III.I$''''''''''''$ Theorem 3.1, with
+III.I$'''''''''$'s parameters, the rotation-row terms counted in the source (D284). Whether the source's Lemma 11.65
 meets the same term at a non-rotating Kerr $b_0$ was not adjudicated.
 
 (I$''''''''''''''$4) *Deferred.* $h_{-S} = 0$ here (the source allows it); the exterior part III.C$'$ adds
@@ -438,6 +489,7 @@ Corollaries 11.66-11.67) and p. 279 (Remarks 11.61-11.62), read at source. Input
 Proposition 4.2; III.D$'''$ Lemma 2.1, Proposition 3.1; III.F$'$ section 2; III.F$''''$ Proposition 5.1; III.G$''$ Table
 1.1, Lemma 1.2, section 2, Definition 2.5, Lemma 2.6; III.G$''''$ Propositions 4.4, 5.1; III.H section 1; III.I (1.2),
 Proposition 4.1; III.I$''$ Lemmas 4.1-4.2; III.I$'''''''$ (1.3), Lemmas 1.3, 2.2; III.I$''''''''$ (4.2), Lemmas 3.2-3.3,
-Proposition 4.1; III.I$'''''''''$ (2.3), Lemmas 2.4-2.6; III.I$''''''''''$ section 1, Lemmas 1.2, 2.1, Corollary 2.3,
-Proposition 3.1; III.I$'''''''''''$ section 4, Proposition 3.1, Lemmas 3.2-3.3, Theorem 4.1; III.I$''''''''''''$ section
-1, Lemma 2.4, Theorem 3.1; III.I$'''''''''''''$ Definition 1.1, Lemmas 1.3, 2.2-2.3, Propositions 2.1, 2.4.
+Proposition 4.1; III.I$'''''''''$ (2.3), Lemmas 2.2, 2.4-2.6; III.I$''''''''''$ section 1, (2.1), Lemmas 1.2, 2.1,
+Corollary 2.3, Proposition 3.1; III.I$'''''''''''$ section 4, Proposition 3.1, Lemmas 3.2-3.3, Theorem 4.1;
+III.I$''''''''''''$ section 1, (3.3), Lemmas 2.3-2.4, Theorem 3.1; III.I$'''''''''''''$ Definition 1.1, Lemmas 1.3,
+2.2-2.3, Propositions 2.1, 2.4.

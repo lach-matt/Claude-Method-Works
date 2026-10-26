@@ -3666,11 +3666,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - m1: for beta in (4, 4 + eps) the step "tau <= beta - 2 < 2" failed; eps < beta - 4 is now required above 4, and
   beta = 4 is excluded by Definition 1.1 (a).
 - m2 (the base of the bootstrap) and m3 (the row defect at h + h_rem(q)) were gaps in the plan of 4.202.
-  III.I'''''''''''''' as
-  written closes both. Its Step 1 is the base, III.I'''''''' Proposition 4.1 at h + h_rem(q), which asks for K+-order
-  above
-  alpha_1 < 3 only. The rows enter at h, and the difference at h + h_rem(q) is exactly R_q(h_nu(W)) (its Lemma
-  2.4 (a)), supported in C.
+  III.I'''''''''''''' as written closes both. Its Step 1 is the base, III.I'''''''' Proposition 4.1 at h + h_rem(q),
+  which asks for K+-order above alpha_1 < 3 only. The rows enter at h, and the difference at h + h_rem(q) is exactly
+  R_q(h_nu(W)) (its Lemma 2.4 (a)), supported in C.
 - Nits: n1-n4 on III.I''''''''''''', n5-n10 on III.I'''''''''''' and n11 on III.I''''''''''' are seated.
 - Next: verifier 120 on III.I'''''''''''''' and the D280 repairs; then [Hin26] section 12.
 
@@ -3683,7 +3681,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   + z)- < alpha. Repaired by rotation rows: rows (v1, lambda, k), (lambda, k) in M, carrying all rotations (Definition
   1.3). They enter P_5 through h_nu (supported away from K+) and theta_nu (K+-weight Re lambda + 4), q's v1 exponents
   are restricted to Re >= 2, and Theorem 3.1 fixes the rotation coordinates by the expansion (Step 4': the derivative
-  is -id, as m_nu is the v1 tower up to K+-order Re lambda + 4).
+  is -id, as m_nu is the v1 tower up to K+-order Re lambda + 3 - eps).
 - m1: the b-derivative of the conormal Y^c parts gains min Re E_ind at iota+ (Lemma 2.1); delta_+ <= min Re E_ind. m2:
   Lemma 2.1's mechanism is III.D''' Proposition 3.1 with the remark after its Lemma 2.1 (not the tower relations),
   normalised to the identity at b_0; h_{b,v1} is b-dependent. m3: Lemma 2.5's eps_0 also stabilises the level-3 weights
@@ -3722,3 +3720,22 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open: the tame form of the estimates (III.I(8)-(14) state bounds uniform for small backgrounds, not tame); the linear
   theory at b != b_0 ((I3)); Psi after III.C'.
 - Next: verifiers 121 (D281) and 122 (III.J, III.J'); then [Hin26] section 13 and III.C'.
+
+### 4.208 Verifier 121 seated (D284): the D281 repairs read
+
+- Verifier 121 read the D281 repairs to III.I'''''''''''''': 1 major, 2 minor, 6 nits; verifier 120's M1 and m1-m4
+  closed.
+- M1: Step 4 used the uniqueness in III.I''''''''''' Theorem 4.1, which fails on the P enlarged by the rotation rows
+  (Step 3 itself makes the solutions a graph over the rotation coordinates). Repaired: Step 4' splits p' = p'_0 +
+  W'^rot, moves the rotation-row terms f^nu(W'_nu) into the source (they lie in Y_2(alpha), III.I''''''''' Lemma 2.6
+  (b)), and applies III.I''''''''''' Theorem 4.1 and III.I'''''''''''' Theorem 3.1 with the P of III.I''''''''';
+  Definition 1.3 exempts the two from the enlarged P.
+- m1: the rotation rows are an index set (rot, lambda, k) disjoint from N, whose v1 rows keep W = 0; Lemma 2.2 (f) is
+  excluded for them. III.J and III.J' use the same notation.
+- m2: the coefficients of the expansion are determined by u through dual functionals on a compact set, from the
+  uniqueness in III.I'''''''''''' Lemma 2.3 (a); the conormal S_rem term is removed exactly. The continuity of C^rot is
+  III.I''''''''''' Lemma 3.3's argument.
+- Nits: the i = 3 and dt-terms have K+-order Re lambda + 3 - eps (also in 4.205); III.I'''''''''' Lemma 2.1 (b)'s
+  argument for v1; (H3) from that of III.I'''''''''; the non-vanishing at a rotating b is a remark; the eps-stability
+  wording; 4.204 rejoined.
+- Next: verifier 122 on III.J, III.J' and the D284 repairs.

@@ -91,9 +91,10 @@ p\,'_{\le0}$ vanishes. This is the source's Step 1, which at $n = 4$ has no $t_*
 $\vec p_{\le0}$ enter at the $u$-exponents of $\mathcal G\subset\{\mathrm{Re}\ge2\}$ (III.J Lemma 2.1).
 
 *Step 2 (the exponents of $\Lambda_*$).* Suppose $\vec p\,'_{\le0} = 0$ and that for every $\lambda\in\Lambda_*$ with
-$\mathrm{Re}\,\lambda<\mathrm{Re}\,\lambda_0$ the term $[h']_\lambda$, the rows $W'_\nu$ with $\nu = (\tau,\lambda,k)$,
-and the polyhomogeneous coefficients of $q'$ at the exponents $(\lambda-d_\rho,k)$ vanish. Put
-$$G'(\lambda_0) := \Big[h'+\sum_{\nu\in\mathcal N\cup\mathcal
+$\mathrm{Re}\,\lambda<\mathrm{Re}\,\lambda_0$ the term $[h']_\lambda$, the rows $W'_\nu$ with $\nu = (\tau,\lambda,k)$
+or $(\mathrm{rot},\lambda,k)$, and the polyhomogeneous coefficients of $q'$ at the exponents $(\lambda-d_\rho,k)$
+vanish. Put
+$$G'(\lambda_0) := \Big[h'+\sum_{\nu\in\mathcal N\sqcup\mathcal
 N_{\mathrm{rot}}}m_\nu(W'_\nu)+h_{b_0,\mathrm{rem}}(q')\Big]_{\lambda_0}.$$
 Differentiating III.J Lemma 2.1 at $(h,\vec p,q)$ in the direction $(h',\vec p\,',q')$: the quadratic part contributes
 at $u$-exponents $\ge2\lambda_\sharp>3+\epsilon_+$, the dependence of $F_0$ and of $L_{0,\vec p_{\le0}}$ on $\vec
@@ -129,10 +130,10 @@ $(h',\vec p\,',q')-D_U\Phi(U'_{\lambda_0})$ makes the new $G'(\lambda_0)$ zero a
 argument then makes every term, row and coefficient at $\lambda_0$ vanish.
 
 Exponents of equal real part are treated together, independently. After the finitely many exponents of $\Lambda_*$:
-$\vec p\,' = 0$ (every row $(\tau,\lambda,k)$ of $\mathcal N\cup\mathcal N_{\mathrm{rot}}$ has $\lambda\in\Lambda_*$, as
-$\mathrm{Re}\,\lambda\le3$; $\vec p\,'_{\le0} = 0$ by Step 1); $q'$ has no polyhomogeneous part (each has
-$\iota^+$-exponent $z+d_\rho\in\Lambda_*$, III.I$''''''''''''''$ Definition 1.1 and Lemma 1.1); and $h'$ has no
-$\iota^+$-term below $3+\epsilon_+$, so $h'\in H^{\infty,(\langle\mathcal
+$\vec p\,' = 0$ (every row $(\tau,\lambda,k)$ or $(\mathrm{rot},\lambda,k)$ of $\mathcal N\sqcup\mathcal
+N_{\mathrm{rot}}$ has $\lambda\in\Lambda_*$, as $\mathrm{Re}\,\lambda\le3$; $\vec p\,'_{\le0} = 0$ by Step 1); $q'$ has
+no polyhomogeneous part (each has $\iota^+$-exponent $z+d_\rho\in\Lambda_*$, III.I$''''''''''''''$ Definition 1.1 and
+Lemma 1.1); and $h'$ has no $\iota^+$-term below $3+\epsilon_+$, so $h'\in H^{\infty,(\langle\mathcal
 E^C_I\rangle,\ell_I),(3+\epsilon_+)-,\alpha-}_{\mathrm b}(\Omega_*)^{\bullet,-}$, the class of $\tilde h$ in III.J
 Definition 1.1.
 

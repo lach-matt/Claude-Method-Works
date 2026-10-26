@@ -5672,3 +5672,10 @@ describes the linear solutions exactly. A gap between the decay at timelike infi
 the nonlinear class closes: no exponent lies between the two orders, so the spectral construction does not change as its
 threshold approaches the larger one. Still open: the tame form of the estimates, and the linear theory away from the
 reference black hole.
+
+**D284 (2026-10-26): verifier 121 seated.** Verifier 121 read the repairs of D281 and found them sound but for one step:
+the last step of the expansion theorem invoked a uniqueness that the enlarged parameter space no longer has, since the
+rotation coordinates stay free until the expansion fixes them. The rotation-row terms are now moved into the source, and
+the earlier theorems are applied with the original parameters, where their uniqueness holds. The rotation rows are made
+a separate index set, the coefficients of the expansion are shown to be determined by the solution through dual
+functionals, and six nits are seated. Next: verifier 122 on Parts III.J and III.J' and these repairs.

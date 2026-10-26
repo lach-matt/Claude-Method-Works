@@ -117,13 +117,14 @@ Proposition 3.7. $\square$
 Let $U\in\mathcal D^\infty$ be small. The construction assigns to the exponents $\lambda_0\in\Lambda_* :=
 \Lambda\cap\{\mathrm{Re}<3+\epsilon_+\}$, a finite set, in order of increasing real part (exponents of equal real part
 together; their equations below are independent), a correction $h_{\lambda_0}$, quasi-homogeneous of degree $\lambda_0$
-in $t_*^{-1}$, row coordinates $W_\nu$ for the rows $\nu = (\tau,\lambda_0,j)$ of $\mathcal N\cup\mathcal
-N_{\mathrm{rot}}$, and the polyhomogeneous coefficients of $q$ at the exponents $(\lambda_0-d_\rho,j)$; and then
+in $t_*^{-1}$, row coordinates $W_\nu$ for the rows $\nu = (\tau,\lambda_0,j)$ of $\mathcal N$ and
+$(\mathrm{rot},\lambda_0,j)$ of $\mathcal N_{\mathrm{rot}}$, and the polyhomogeneous coefficients of $q$ at the
+exponents $(\lambda_0-d_\rho,j)$; and then
 $$h := \chi_\iota\sum_{\lambda\in\Sigma}u_\lambda+\tilde h+\chi_\iota\sum_{\lambda_0\in\Lambda_*}h_{\lambda_0},\quad\vec
 p := (U_0,(W_\nu)),\quad q := \big(S_{\mathrm{rem}},b_{\mathrm{rem}},(Y_{\rho,\mathrm{rem}}\ (\rho\in\mathcal
 R'_0))+(\text{the polyhomogeneous coefficients})\big),\tag{2.1}$$
 $\chi_\iota$ the cut-off of III.G$''$ section 4. For $(h,\vec p,q)$ of the form (2.1), and for each $\lambda_0$, put
-$$G(\lambda_0) := \Big[h+\sum_{\nu\in\mathcal N\cup\mathcal
+$$G(\lambda_0) := \Big[h+\sum_{\nu\in\mathcal N\sqcup\mathcal
 N_{\mathrm{rot}}}m_\nu(W_\nu)+h_{b,\mathrm{rem}}(q)\Big]_{\lambda_0},\qquad F_0(\lambda_0) := \big[P_4(0,\vec
 p_{\le0})\big]_{\lambda_0+2},$$
 the latter with every row coordinate 0.
@@ -175,7 +176,7 @@ $\chi_K$ times $t_*^{-\lambda_0}$ times a finite sum $\sum_{i\le j}(\log t_*)^i\
 formal solution of III.G$''$ Theorem 3.1 of type $\tau$ at the root $\mu_\tau$ with coefficient $c_\tau(\lambda_0)W$ in
 the top log power $j$, plus formal solutions of the same type with lower log powers, plus terms of $K^+$-order
 $\ge\mathrm{Re}\,\lambda_0+3$. Here $c_{\mathrm s1}(\lambda_0) = \lambda_0(\lambda_0-1)$ and $c_\tau = 1$ otherwise. The
-same holds for the rotation rows $\nu = (\mathrm v1,\lambda_0,j)$, $\lambda_0\in\pi_1\mathcal M$, $W\in\mathcal
+same holds for the rotation rows $\nu = (\mathrm{rot},\lambda_0,j)$, $\lambda_0\in\pi_1\mathcal M$, $W\in\mathcal
 V_{1,\mathbb C}$, with the v1 formal solution and $c_{\mathrm v1} = -\lambda_0$.
 
 (b) For $\rho = (\mu,\tau)\in\mathcal R'$ and $Y\in\mathcal Y_\rho$, $[\chi_KT_{\rho,b}(t_*^{-(\lambda_0-d_\rho)}(\log
@@ -232,7 +233,7 @@ $\mathrm{Re}\,e_\nu\le2$ to the row $\nu = (\tau,\lambda_0,i)$, with $W_\nu := c
 coefficient; by (G) and (G$^+$) these are all the s1, s0, s2, c0, c1 terms of rate $\le2+\epsilon_+$, and the s1 terms
 have $\mathrm{Re}\,\lambda_0\le3$;
 
-(ii) the v1 terms with $\lambda_0\in\pi_1\mathcal M$ to the rotation row $(\mathrm v1,\lambda_0,i)$, with $W :=
+(ii) the v1 terms with $\lambda_0\in\pi_1\mathcal M$ to the rotation row $(\mathrm{rot},\lambda_0,i)$, with $W :=
 c_{\mathrm v1}(\lambda_0)^{-1}$ times the coefficient;
 
 (iii) every other term, of type $\tau$ at $\mu$ with rate in $(2,\alpha)$ (the s0, s2, c0, c1 terms of rate $>2$, the v1
@@ -268,7 +269,7 @@ most $l_*$.
 
 **Lemma 2.3 (the log count).** Every exponent $(\lambda_0,i)$ of the construction (of $[h]_{\lambda_0}$, of the rows
 assigned and of the coefficients of $q$, shifted by $d_\rho$) lies in $\mathcal E_\sharp$; the rows assigned lie in
-$\mathcal N\cup\mathcal N_{\mathrm{rot}}$, and the coefficients of $q$ in $\mathcal Q^\infty_J$.
+$\mathcal N\sqcup\mathcal N_{\mathrm{rot}}$, and the coefficients of $q$ in $\mathcal Q^\infty_J$.
 
 *Proof.* By induction over $\Lambda_*$ in order of real part. The log powers at $\lambda_0$ come from: the data
 $u_{\lambda_0}$, $\le2l_*$ (Lemma 1.2); $F_0(\lambda_0)$, $\le L_0$ ($\mathcal G$, III.I$''''''''''$ Definition 1.1);
