@@ -5424,3 +5424,11 @@ is invertible by the pairings of III.F''''; Theorem 4.1 extends I.C Theorem 6.4 
 the source's Proposition 10.7. From it, L-hat_b(sigma) is invertible for small sigma != 0 and b near b_0 with a uniform
 radius, which closes the range III.F'' section 5 left open: [Hin26] Proposition 8.8 at n = 4 near b_0. One correction
 to the source: its (10.6b) does not give the injectivity its proof of Proposition 10.6 uses. Next: verifier 104.
+
+**D249 (2026-10-26): verifier 104 seated.** The hundred-and-fourth verifier (Opus) read III.H and the D247 repairs.
+No major finding in III.H; two minor and six nits, all seated: the uniformity in b of the source-term bounds loses a
+delta, as the states are continuous in b only below their weights (Remark 2.6; eps_0 = (1 - (alpha + 2))/4 absorbs it),
+and the C^j dependence of the Schur complement in Theorem 4.1 (3) is now proved (Banach-Steinhaus and Leibniz). (H2) is
+strengthened: under (10.6a)-(10.6b) alone the source's Proposition 10.6 itself fails. The D247 repairs are correct;
+tfgraft5.py's T3 docstring now says the control fails (ii) too. III.H is verified, its repairs to be read; III.G'''' is
+proved. Next: Part III.H'.

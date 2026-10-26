@@ -3148,3 +3148,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Corrected in the source: (10.6b) does not give the injectivity of u -> (<u, f*_1>, <u, f*_2>) on the nullspace that
   its proof of Proposition 10.6 uses; a biorthogonal choice of f* gives both ((H2)).
 - Next: verifier 104 on III.H and the D247 repairs; Part III.H' ([Hin26] section 10.2, Theorem 10.1 at n = 4).
+
+### 4.172 Verifier 104 seated: III.H verified, III.G'''' proved (D249)
+
+- Verifier 104 (Opus) read III.H and the D247 repairs. No major finding in III.H; two minor and six nits, all seated.
+  The D247 repairs are correct and complete; one nit (tfgraft5.py T3's docstring: the control fails (ii) too).
+- (m1) uniformity in b: the states are continuous in b only in b-Sobolev spaces below their weights, so the bounds of
+  Lemmas 2.2-2.4 hold uniformly with a loss delta (Remark 2.6, new); Corollary 4.2 and Lemma 5.2 now take
+  eps_0 = (1 - (alpha + 2))/4 = delta, which keeps (A1)-(A3).
+- (m2) Theorem 4.1 (3): R(sigma) F_i(sigma) has a sigma-dependent argument; Banach-Steinhaus on the strongly continuous
+  R^(i)(sigma), (A4) in norm and the Leibniz rule give M(sigma) and M(sigma)^-1 in C^j.
+- Nits: renames (chi_c for the cone cut-off, kappa for Lemma 2.3's constants, Sigma' for Theorem 4.1's set); (2.4) and
+  (A2) for |sigma| <= varsigma_1; (H2) strengthened: under (10.6a)-(10.6b) alone the source's Proposition 10.6 is false
+  (off-diagonal blocks e, e^T with e isometric give a kernel); Lemma 2.2 (a)'s sharper set; Proposition 3.2 at every
+  constant s > 1/2 + theta_L; "smooth on X" with only conormality at dX.
+- Next: Part III.H' ([Hin26] section 10.2, Theorem 10.1 at n = 4); verifier 105 on III.H' and the D249 repairs.

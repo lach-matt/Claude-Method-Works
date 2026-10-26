@@ -20,8 +20,10 @@ the proof of Proposition 9.35.  Labels: computed (exact, sympy; exact rational a
      c_mu + 1 - mu + min(0, Re beta_mu) of Lemma 3.3 exceeds w (the uniform bound, which Lemma 3.3 needs only for
      Re alpha_0 <= 2); (ii) the zf-orders of Proposition 4.4's Step 1.2 (iii) exceed l_zf (generic, s1 with k = 3, v1
      with k = 2); (iii) those of Proposition 5.1 exceed l_zf.
-     Controls: l_zf allowed up to 3 + eps_ind/2 (the source's range; the uniform bound then fails, at Re alpha_0 > 2
-     only, where Lemma 3.3 splits instead: it tests this proof's bound, not a necessity); one companion fewer.
+     Controls: l_zf allowed up to 3 + eps_ind/2 (the source's range): both (i) and (ii) then fail, at Re alpha_0 in
+     (2, 2.014) and l_zf in [3, 3.006) on this grid (Re alpha_0 > 2 being forced by w < 3); there Lemma 3.3 splits
+     instead of (i), and (ii) is the bound l_zf < 3 that (4.2) implies: the control tests this proof's bounds, not a
+     necessity; one companion fewer.
   T4 (Proposition 5.1, Step 1) Scalar model N(lam) = (lam - a)(lam - b): for f = rho^(i eta), the source's pointwise
      choice u = N(alpha - 2)^-1 f leaves rho^-alpha (rho^2 N(rho d_rho))(rho^(alpha-2) u) - f = (N(alpha - 2 + i eta) /
      N(alpha - 2) - 1) f, of the size of f (no factor rho); the dilation-invariant inverse u = N(alpha - 2 + i eta)^-1 f

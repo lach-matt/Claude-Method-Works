@@ -49,8 +49,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.G'' | [Hin26] 9.1.1-9.1.2 (Definitions 9.8, 9.10, Propositions 9.9, 9.11, Corollary 9.12) | formal solutions at K⁺ from the zero energy states, the expansion at K⁺, grafting into spacetime; the window ℓ_K < 3 | proved (D244; verifier 100's repairs read by verifier 101, one nit seated) |
 | III.C | [Hin26] 5.1-5.3 | metric perturbations at n = 4; the linearised operator at null infinity: constant lower-triangular matrix, perturbation half an order lower; forward mapping | proved (D245; verifier 101's repairs read by verifier 102, three nits seated) |
 | III.G''' | [Hin26] 9.1.3 (Lemmas 9.13-9.14, Propositions 9.15, 9.22, Corollary 9.18, Lemma 9.21) | the iota+-normal operator on partially polyhomogeneous inputs: one exceptional exponent, the least incoming pole 3/2 + (1 - e_Ups) gam_Ups; quasi-homogeneous solutions; resonant states | proved (D247; verified D245 with four minor findings and eleven nits) |
-| III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | verified (D247; three minor findings and eight nits seated, to be read) |
-| III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | written (D248) |
+| III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | proved (D249; verified D247 with three minor findings and eight nits) |
+| III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | verified (D249; two minor findings and six nits seated, to be read) |
 | III.C', III.H'-III.J | [Hin26] 5.4-5.7, 10.2-12 | exterior stability and partial polyhomogeneity; 2-admissibility; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
@@ -864,4 +864,8 @@ depending on $\sigma$; Corollary 4.2 is the source's Proposition 10.7, for every
 source's $(0,\epsilon_{\mathrm{ind}})$). Corollaries 4.3-4.4: $\widehat{L_b}(\sigma)$ is invertible for small
 $\sigma\ne0$ and $b$ near $b_0$, uniformly, which closes III.F$''$ section 5 (the source's Proposition 8.8 at $n = 4$
 near $b_0$). Section 5: the spectral-side augmentation, with no correction and no logarithm. Findings (H1)-(H5), among
-them (H2): the source's (10.6b) does not give the injectivity its proof of Proposition 10.6 uses. Written (D248).
+them (H2): the source's (10.6b) does not give the injectivity its proof of Proposition 10.6 uses, and under
+(10.6a)-(10.6b) alone that proposition is false (an explicit choice of rows has a kernel). Written (D248). Verified
+(D249): verifier 104's two minor findings seated -- the uniformity in $b$ loses $\delta$ (the states are continuous in
+$b$ only below their weights; Remark 2.6, $\epsilon_0 = \frac14(1-(\alpha+2))$) and the differentiability in $\sigma$ of
+the Schur complement is written out (Theorem 4.1 (3)) -- with six nits.

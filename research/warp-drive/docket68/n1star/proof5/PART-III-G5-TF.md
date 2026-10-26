@@ -1,7 +1,7 @@
 # Part III.G$''''$. The transition face and grafting on the spectral side at n = 4 ([Hin26] section 9.2)
 
-*Status.* Verified (D247: the hundred-and-third verifier; no major finding, three minor findings and eight nits
-seated, to be read). This part proves, at spatial dimension $n = 4$, [Hin26] section 9.2 (pp. 186-199): the formal
+*Status.* Proved (D249: the hundred-and-fourth verifier read the D247 repairs and found them correct). Verified
+(D247: the hundred-and-third verifier; no major finding, three minor findings and eight nits seated). This part proves, at spatial dimension $n = 4$, [Hin26] section 9.2 (pp. 186-199): the formal
 solutions at ztf ((9.57)-(9.61), Definition 9.25), the expansion at $\hat r = 0$ of the inverse of the tf-normal
 operator (Lemma 9.26, Remarks 9.27-9.28), the grafting of tf-solutions into the low-energy space (Definition 9.29,
 (9.72), Proposition 9.30, Remarks 9.31-9.34), and its conormal version (Proposition 9.35). The source uses these results
