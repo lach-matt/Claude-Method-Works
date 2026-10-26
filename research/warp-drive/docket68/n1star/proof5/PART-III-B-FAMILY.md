@@ -1,13 +1,14 @@
 # Part III.B. The Myers-Perry family on the compactified spacetime, and the gauge-fixed Einstein equation, at n = 4
 
-*Status.* Written out in full (D215). Not yet read by an independent verifier; nothing here is labelled proved. This
-part proves, at spatial dimension $n = 4$, what [Hin26] sections 3 and 4 (pp. 68-83) establish for the Kerr family: the
-compactified spacetime and its charts, the black hole family as smooth metrics on it with their decay at infinity, the
-time functions, the linearised metrics, the initial data and their decay, the null coordinates near null infinity, the
-cut-off Lorentz boosts and the pullback of the family by them, and the gauge-fixed Einstein equation with its
-linearisation. The source is [Hin26] = P. Hintz, *Nonlinear stability of subextremal Kerr black holes* (printed page
-numbers), read in the record's text extraction. Parts II.A (`PART-II-A-SETUP.md`) and II.C (`PART-II-C-OPERATORS.md`)
-are cited as II.A and II.C.
+*Status.* **Proved** (D221). Written out in full (D215) and read line by line by the ninety-first verifier, which found
+no major gap; its two minor findings and ten nits are seated (section 7.3), and the ninety-second verifier read those
+repairs and confirmed each (D221). This part proves, at spatial dimension $n = 4$, what [Hin26] sections 3 and 4 (pp.
+68-83) establish for the Kerr family: the compactified spacetime and its charts, the black hole family as smooth metrics
+on it with their decay at infinity, the time functions, the linearised metrics, the initial data and their decay, the
+null coordinates near null infinity, the cut-off Lorentz boosts and the pullback of the family by them, and the
+gauge-fixed Einstein equation with its linearisation. The source is [Hin26] = P. Hintz, *Nonlinear stability of
+subextremal Kerr black holes* (printed page numbers), read in the record's text extraction. Parts II.A
+(`PART-II-A-SETUP.md`) and II.C (`PART-II-C-OPERATORS.md`) are cited as II.A and II.C.
 
 *Method.* At $n = 4$ the black hole family is the Myers-Perry family, written for every spin at once in Kerr-Schild form
 (supplement section 10.36). One feature of five dimensions simplifies the source's section 3 throughout: the ingoing and
@@ -41,7 +42,7 @@ enter at $r^{-1}$ and $r^{-2}$.
 term has the exponent 4 and the constant $\frac2{\pi^2}$ where the source has 3 and $\frac3{4\pi}$ (Lemma 5.2).
 
 (e) The trace weight of the gauge modifications is $\frac2{D-2} = \frac23$, $D = n+1 = 5$, where the source has 1, so
-that the modifications act on trace-reversed tensors exactly as at $D = 4$ (Lemma 6.1).
+that the modifications act on trace-reversed tensors exactly as at $D = 4$ (Lemma 6.2).
 
 ## 2. The compactification
 
@@ -132,9 +133,9 @@ wherever (c)'s condition holds, $(g^{\mathrm{KS}}_{\mu,A})^{-1}(dt-\beta\,d|x|,d
 *Proof.* (a), (b): $|\ell_A|^2-1$ and $\ell_A(x\cdot\partial_x)-r$ are rational functions of $(r,x,A)$ which vanish on
 $\{Q = 0\}$: in the rotated frame they equal $-Q/P$ and $-rQ/P$ (symbolic computation, `d215/chk3b.py`), and both sides
 are conjugation-covariant. (c) $\mathsf M$ commutes with $A$, so $A\mathsf M$ is antisymmetric and $x^TA^2\mathsf M^2x =
--|A\mathsf Mx|^2$; so $F_A\le1$. By (a), $\mathsf M/P = (r^2I-A^2)^{-1}$ has norm at most $r^{-2}$, so $|A\mathsf
-Mx|/P\le\|A\||x|r^{-2}\le\|A\|(r^2+\|A\|^2)^{1/2}r^{-2}<1$ under (c)'s condition (Lemma 3.1 (b)); so $F_A>0$ and
-$H_{\mu,A}>0$, $P>0$ for $r>0$. (d) $\eta^{-1}(k_A,k_A) = 0$ by (a), and then $(\eta+Hk\otimes
+-|A\mathsf Mx|^2$; so $F_A\le1$. By Lemma 3.1 (a), $\mathsf M/P = (r^2I-A^2)^{-1}$ has norm at most $r^{-2}$, so
+$|A\mathsf Mx|/P\le\|A\||x|r^{-2}\le\|A\|(r^2+\|A\|^2)^{1/2}r^{-2}<1$ under (c)'s condition (Lemma 3.1 (b)); so $F_A>0$
+and $H_{\mu,A}>0$, $P>0$ for $r>0$. (d) $\eta^{-1}(k_A,k_A) = 0$ by (a), and then $(\eta+Hk\otimes
 k)(\eta^{-1}-Hk^\sharp\otimes k^\sharp) = I+Hk\otimes k^\sharp-Hk\otimes k^\sharp-H^2\eta^{-1}(k,k)k\otimes k^\sharp =
 I$. (e) With $\theta := dt-\beta\,d|x|$, $\eta^{-1}(\theta,\theta) = -1+\beta^2$ and $k_A^\sharp(\theta) =
 \eta^{-1}(k_A,\theta) = -1-\beta\,\ell_A(\hat x\cdot\partial_x) = -1-\beta r_A/|x|$. So the quantity is
@@ -165,7 +166,8 @@ Fix $\chi_\infty\in C^\infty(\mathbb R)$, non-decreasing, equal to 0 on $(-\inft
 For $\mu\in(\frac12\mu_0,\frac32\mu_0)$ let
 $$T_\mu(\rho) := 2\int_\rho^\infty\chi_\infty(s)\frac{\mu}{s^2-\mu}\,ds,\qquad\Phi_\mu(t,x) := (t-T_\mu(|x|),x),\qquad
 g_b := \Phi_\mu^*g^{\mathrm{KS}}_b.\tag{3.3}$$
-($s^2-\mu>\frac12\mu_0>0$ on $\mathrm{supp}\,\chi_\infty$.) Write $g_\mu := g_{(\mu,0)}$ and $\bar g := \eta$.
+($s^2-\mu\ge4\mu_0-\frac32\mu_0 = \frac52\mu_0$ on $\mathrm{supp}\,\chi_\infty$.) Write $g_\mu := g_{(\mu,0)}$ and $\bar
+g := \eta$.
 
 **Lemma 3.5 (no logarithm).** (a) $T_\mu\in|x|^{-1}C^\infty(\bar X)$ near infinity, with $T_\mu(\rho) =
 \sqrt\mu\log\frac{\rho+\sqrt\mu}{\rho-\sqrt\mu} = \frac{2\mu}\rho+\frac{2\mu^2}{3\rho^3}+O(\rho^{-5})$ for
@@ -181,16 +183,17 @@ C^\infty(M;S^2T^*)$ into itself near $I_0\cup\mathscr I^+\cup\iota^+\cup K^+$, f
 2\sqrt\mu\,\mathrm{artanh}\frac{\sqrt\mu}\rho$, an odd power series in $\sqrt\mu/\rho$ convergent for $\rho>\sqrt\mu$.
 (b) On $\{|x|\ge3R_1\}$, $\Phi_\mu^*dt = dt-T_\mu'd|x| = dt+\frac{2\mu}{|x|^2-\mu}d|x|$, and $g^{\mathrm{KS}}_{\mu,0} =
 \eta+\frac\mu{|x|^2}(dt+d|x|)^2$. Substituting, the $(t,|x|)$ block of $\Phi_\mu^*g^{\mathrm{KS}}_{\mu,0}$ has $g_{tt} =
--f$, $g_{t|x|} = \frac\mu{|x|^2}-(-f)\frac{2\mu}{|x|^2-\mu} = -\frac\mu{|x|^2}$ and $g_{|x||x|} = 1+\frac\mu{|x|^2}$
-(symbolic check: `d215/chk3b.py`), which is (3.4). (c) $T_\mu$ is smooth and bounded, so $\Phi_\mu$ is a diffeomorphism
-with inverse $(t,x)\mapsto(t+T_\mu(|x|),x)$, a time translation by $-T_\mu(2R_1)$ on $\{|x|\le2R_1\}$. In each chart of
-(2.2) the lift is smooth with smooth inverse: $t_0\mapsto t_0-T_\mu$ with $T_\mu\in\rho C^\infty$ near $\mathscr I^+$;
-$\rho_0\mapsto\rho_0(1-\rho_0T_\mu)^{-1}$, $\rho_+\mapsto\rho_+(1-\rho_+T_\mu)^{-1}$, $\rho_K =
-t_0^{-1}\mapsto\rho_K(1-\rho_KT_\mu)^{-1}$, $\tau\mapsto\tau-\rho T_\mu$, the other coordinates fixed; each factor is
-$1+O(\rho)$ or $1+O(\rho_K)$ with $\rho\in\rho_0\rho_I\rho_+C^\infty$. So the defining functions are multiplied by
-positive smooth functions and the weighted spaces are preserved. On the bundle, $\Phi_\mu^*dt = dt-T_\mu'(|x|)\hat
-x\cdot dx$ and $\Phi_\mu^*dx^i = dx^i$, with $T_\mu'\hat x^i\in C^\infty(\bar X)$: a smooth bundle map of $T^*$.
-$\square$
+-f$, $g_{t|x|} = g^{\mathrm{KS}}_{t|x|}-g^{\mathrm{KS}}_{tt}T_\mu' = \frac\mu{|x|^2}-f\frac{2\mu}{|x|^2-\mu} =
+-\frac\mu{|x|^2}$ and $g_{|x||x|} = 1+\frac\mu{|x|^2}$ (symbolic check: `d215/chk3b.py`), which is (3.4). (c) $T_\mu$ is
+smooth and bounded, so $\Phi_\mu$ is a diffeomorphism with inverse $(t,x)\mapsto(t+T_\mu(|x|),x)$, a time translation by
+$-T_\mu(2R_1)$ on $\{|x|\le2R_1\}$. In each chart of (2.2) the lift is smooth with smooth inverse: $t_0\mapsto
+t_0-T_\mu$ with $T_\mu\in\rho C^\infty$ near $\mathscr I^+$; $\rho_0\mapsto\rho_0(1+\rho_0T_\mu)^{-1}$,
+$\rho_+\mapsto\rho_+(1-\rho_+T_\mu)^{-1}$, $\rho_K = t_0^{-1}\mapsto\rho_K(1-\rho_KT_\mu)^{-1}$, $\tau\mapsto\tau-\rho
+T_\mu$, and near $\iota^+\cap K^+$ $\rho_K = |x|/t_0\mapsto\rho_K(1-\rho_+\rho_KT_\mu)^{-1}$, the other coordinates
+fixed; each factor is $1+O(\rho)$ or $1+O(\rho_K)$ with $\rho\in\rho_0\rho_I\rho_+C^\infty$. So the defining functions
+are multiplied by positive smooth functions and the weighted spaces are preserved. On the bundle, $\Phi_\mu^*dt =
+dt-T_\mu'(|x|)\hat x\cdot dx$ and $\Phi_\mu^*dx^i = dx^i$, with $T_\mu'\hat x^i\in C^\infty(\bar X)$: a smooth bundle
+map of $T^*$. $\square$
 
 **Proposition 3.6 ([Hin26] Proposition 3.10 at n = 4).** For $b = (\mu,A)\in\mathcal B$: $g_b\in C^\infty(M;S^2T^*)$ and
 $g_b^{-1}\in C^\infty(M;S^2T)$, smoothly in $b$; and
@@ -237,7 +240,8 @@ $[r_0,\infty)$.
 $\mathrm{supp}\,\chi_\infty$, $\beta = 1$. On it, $\rho\ge2R_1$, i.e. $\rho^2\ge4\mu_0$, and $\mu<\frac32\mu_0$:
 $(8\mu_0-2\mu)\rho^2-8\mu_0\mu\ge5\mu_0\cdot4\mu_0-12\mu_0^2>0$, so the bracket is positive and $\beta<1$; and
 $\beta\ge1-\frac{8\mu_0}{\rho^2}>1-2 = -1$ for $\rho>2R_1$ (at $\rho = 2R_1$, $\chi_\infty = 0$). For $t_*\le t$:
-$\psi(2R_1) = \frac32R_1$, $\psi'\ge-1$ on $[2R_1,3R_1]$ and $\psi'>0$ elsewhere, so $\psi\ge\frac12R_1>0$.
+$\psi(2R_1) = \frac32R_1$, $\psi'\ge-1$ on $[2R_1,3R_1]$ and $\psi'>0$ elsewhere, so $\psi\ge0$ everywhere ($\psi =
+\rho-r_0$ on $[r_0,2R_1]$, and $\psi\ge\frac12R_1$ on $[2R_1,\infty)$).
 
 (b) Choose $\psi_{\mathrm{IVP}}'\in C^\infty$ with $\psi_{\mathrm{IVP}}' = \psi'$ on $[r_0,5R_1]$,
 $0\le\psi_{\mathrm{IVP}}'\le\psi'$ on $[5R_1,\infty)$, and $\psi_{\mathrm{IVP}}' = 0$ on $[R_3,\infty)$ (possible as
@@ -311,12 +315,14 @@ $\partial_u\rho_I = \rho_I\rho_++\frac12\rho_I^2\rho_+$, and $\partial_u =
 -\rho_+\,\rho_+\partial_{\rho_+}+\rho_+(1+\frac12\rho_I)\rho_I\partial_{\rho_I}\in\rho_+\mathcal V_b$. Near
 $I_0\cap\mathscr I^+$, $\rho_0 = (2-u)^{-1}$, $\rho_I = \frac{2(2-u)}{v-u}$, and the same computation gives $\partial_v
 = -\frac12\rho_0\rho_I\,\rho_I\partial_{\rho_I}\in\rho_0\rho_I\mathcal V_b$ and $\partial_u\in\rho_0\mathcal V_b$. In
-the interiors of $I_0$ and $\iota^+$ both lie in $|x|^{-1}\mathcal V_b$, linear fields with constant coefficients being
-$|x|^{-1}$ times b-vector fields there. As $\frac{2-f}f\partial_t-\partial_{|x|} =
-2\partial_u+(c-1)(\partial_u+\partial_v)$ with $c-1\in|x|^{-2}C^\infty$, (4.3) follows; the dimension enters nowhere.
-$\square$
+the interior of $\mathscr I^+$, with $(t_0,\rho_I = |x|^{-1})$, $\partial_v =
+-\frac12\rho_I\,\rho_I\partial_{\rho_I}\in\rho_I\mathcal V_b$ and $\partial_u =
+\partial_{t_0}+\frac12\rho_I^2\partial_{\rho_I}\in\mathcal V_b$. In the interiors of $I_0$ and $\iota^+$ both lie in
+$|x|^{-1}\mathcal V_b$, linear fields with constant coefficients being $|x|^{-1}$ times b-vector fields there. As
+$\frac{2-f}f\partial_t-\partial_{|x|} = 2\partial_u+(c-1)(\partial_u+\partial_v)$ with $c-1\in|x|^{-2}C^\infty$, (4.3)
+follows; the dimension enters nowhere. $\square$
 
-Correspondingly ([Hin26] (3.34)-(3.37)), on $\{|x|>\mu^{1/2}\}$
+Correspondingly ([Hin26] (3.34)-(3.37)), on $\{|x|\ge3R_1\}$, where (4.1) defines $x^0$,
 $$T^* = \langle dx^0\rangle\oplus\langle dx^1\rangle\oplus|x|T^*\mathbb S^3,\tag{4.4}$$
 $$S^2T^* = \langle(dx^0)^2\rangle\oplus\langle2dx^0dx^1\rangle\oplus(2dx^0\otimes_s|x|T^*\mathbb S^3)
 \oplus\langle(dx^1)^2\rangle\oplus
@@ -340,9 +346,12 @@ components fixed. The cut-offs $\chi^\flat_K,\chi_K,\chi^\sharp_K,\chi_{\mathrm{
 C^\infty(M)$ are those of [Hin26] Definition 3.17 with $m_0$ replaced by $R_1$, made consistent (section 7, (K1)):
 $\chi^\flat_K,\chi_K,\chi^\sharp_K$ supported in $\{t>50R_1\}$, $\chi^\flat_K = 1$ on $\{|x|<t/10,\ t>60R_1\}$,
 $\mathrm{supp}\,\chi^\sharp_K\subset\{|x|<t/2\}$, $\chi_{\mathrm{IVP}} = 1$ on $\{t_{\mathrm{IVP}}>-|x|/10\}$,
-$\mathrm{supp}\,\chi^\sharp_{\mathrm{IVP}}\subset\{t_{\mathrm{IVP}}>-|x|/2\}$, each later function equal to 1 on the
-support of the earlier. In addition fix $\chi_r\in C^\infty(\mathbb R)$ equal to 0 on $(-\infty,5R_1]$ and to 1 on
-$[6R_1,\infty)$.
+$\mathrm{supp}\,\chi^\sharp_{\mathrm{IVP}}\subset\{t_{\mathrm{IVP}}>-|x|/2\}$, each later function equal to 1 on a
+neighbourhood of the support of the earlier (strict nesting:
+$\mathrm{supp}\,\chi_{\mathrm{IVP}}\subset\mathrm{int}\{\chi^\sharp_{\mathrm{IVP}} = 1\}$,
+$\mathrm{supp}\,\chi^\flat_K\subset\mathrm{int}\{\chi_K = 1\}$, which Definition 3.17 permits). In addition fix
+$\chi_r\in C^\infty(\mathbb R)$ equal to 0 on $(-\infty,5R_1]$, to 1 on $[6R_1,\infty)$, and less than 1 on
+$(-\infty,6R_1)$.
 
 **Lemma 5.1 ([Hin26] Lemma 3.18 at n = 4).** $V(S_w) := \frac12\chi_r(|x|)\chi^\sharp_{\mathrm{IVP}}(1-\chi^\flat_K)X_w$
 is a b-vector field on $\overline{\mathbb R^{1+4}}$ near the support, tangent to $Y_+$; its lift to $M$ is a b-vector
@@ -370,10 +379,15 @@ each weighted space, the defining functions being multiplied by smooth positive 
 **Lemma 5.2 ([Hin26] Lemma 3.19 at n = 4).** Let $w\in\mathbb R^4$ be so small that every integral curve of $V(S_w)$
 starting in $\mathrm{supp}(\chi_{\mathrm{IVP}}(1-\chi_K))$ stays, for times in $[0,1]$, in
 $\{\chi_r\chi^\sharp_{\mathrm{IVP}}(1-\chi^\flat_K) = 1\}$ (a subset of $\{|x|\ge6R_1\}$), or in a fixed compact subset
-of $M^\circ$; (5.3) concerns the former, the statement on the latter being smoothness only. Let $c := |w|$, so that
+of $M$ disjoint from $I_0\cup\mathscr I^+\cup\iota^+\cup K^+$; (5.3) concerns the former, the statement on the latter
+being smoothness only. Such $w\ne0$ exist: with the strict nesting above, the first set has a neighbourhood margin
+around $\mathrm{supp}(\chi_{\mathrm{IVP}}(1-\chi_K))$ near $I_0\cup\mathscr I^+\cup\iota^+$, $M$ is compact, and as
+$V(S_w)$ is linear in $w$ its time-$[0,1]$ flow converges uniformly to the identity as $w\to0$; so the hypothesis holds
+for $|w|<w_0$. Let $c := |w|$, so that
 $$c^2 = \frac2{\pi^2}\|S_w\|^2_{L^2(\mathbb S^3)},\qquad a(\omega) := \Big(\cosh\frac c2+
 \frac{S_w(\omega)}c\sinh\frac c2\Big)^{-1},\qquad h_{S_w} := \mu\big(a^4-1\big)\in C^\infty(\mathbb S^3).\tag{5.2}$$
-Then for $b = (\mu,A)\in\mathcal B$,
+($\frac{S_w}c\sinh\frac c2 = S_w\frac{\sinh(c/2)}c$ and $\cosh\frac c2$ are smooth in $w$, so $h_{S_w}$ is smooth in $w$
+and vanishes at $w = 0$.) Then for $b = (\mu,A)\in\mathcal B$,
 $$\chi_{\mathrm{IVP}}(1-\chi_K)\Big(\phi_{S_w}^*g_b-\big(g_b+|x|^{-2}h_{S_w}(dx^1)^2\big)\Big)\in
 \rho_0^2\rho_I^3\rho_+^2C^\infty(M;S^2T^*).\tag{5.3}$$
 
@@ -384,9 +398,8 @@ The source's (3.43)-(3.44) have $r^{-1}$, $2m(a^3-1)$, $\frac3{4\pi}$ and the re
 $\Lambda$ of rapidity $\beta := \frac c2$ in the direction $\hat w$; so $\phi_{S_w}^* = \Lambda^*$ there. As
 $\Lambda^*\bar g = \bar g$,
 $$\Lambda^*g_b-g_b = \Lambda^*(g_b-g_\mu)-(g_b-g_\mu)+\Lambda^*(g_\mu-\bar g)-(g_\mu-\bar g).$$
-$\Lambda$ is linear, commutes with dilations and, on the region (where $t\ge-|x|/2$ and $|x|\gtrsim t$), satisfies
-$|\Lambda(t,x)|_x\ge c_1|x|$; so $\Lambda^*$ maps $|x|^{-3}C^\infty(M;S^2T^*)$ into itself there, and the first two
-terms lie in $|x|^{-3}C^\infty\subset\rho_0^3\rho_I^3\rho_+^3C^\infty$. For the last two, $g_\mu-\bar g =
+By Lemma 5.1, $\phi_{S_w}^*$, which equals $\Lambda^*$ there, maps $|x|^{-3}C^\infty(M;S^2T^*)$ into itself, and the
+first two terms lie in $|x|^{-3}C^\infty\subset\rho_0^3\rho_I^3\rho_+^3C^\infty$. For the last two, $g_\mu-\bar g =
 \mu|x|^{-2}(dt_0)^2$ on $\{|x|\ge3R_1\}$ (Proposition 3.6), $t_0 = x^1$. Write $t = |x|(1+v)$, $x = |x|\omega$. By
 homogeneity, $t' := t\circ\Lambda = |x|L(v,\omega)$ and $|x'| := |x\circ\Lambda| = |x|G(v,\omega)$, with $L,G$ smooth
 for bounded $v$, $G>0$ on the region, and $L(0,\omega) = G(0,\omega) = a(\omega)^{-1}$: at $v = 0$, $t'
@@ -517,6 +530,19 @@ No other statement of [Hin26] sections 3-4 is found false. Two remarks on the re
 places the free index as an upper index on both sides, and (6.3) writes $\Upsilon^0$ as a 1-form, which is what (4.3)
 defines; and the source's $\mathcal S_1$ is the space of restrictions of linear functions to the sphere (extracted as
 "$S\in S^1$").
+
+### 7.3 The ninety-first verifier (D217)
+
+The ninety-first verifier read the part line by line with sympy and numerical checks (the Kerr-Schild identities for a
+non-block $A$, Lemma 3.7's $\beta$ over the parameter set, the boost's exponent, constant and remainder class, Lemma 6.2
+with a failing weight-1 control), and confirmed (K1) as a reading of the source. No major finding. Minor 1: the
+intermediate expression for $g_{t|x|}$ in the proof of Lemma 3.5 (b) had a sign slip; corrected, (3.4) unchanged. Minor
+2: Lemma 5.2's hypothesis now names a compact set disjoint from the faces, the cut-offs are strictly nested, and a
+sentence shows the hypothesis holds for small $w$. Nits seated: the reference to Lemma 6.2 in section 1 (e) and to Lemma
+3.1 (a) in Lemma 3.3; $\rho_0$'s transformation and the corner chart $\iota^+\cap K^+$ in Lemma 3.5 (c); $\psi\ge0$ in
+Lemma 3.7; the domain of (4.4); the chart in the interior of $\mathscr I^+$ in Lemma 4.1; Lemma 5.1 cited for the
+pullback in Lemma 5.2; $h_{S_w}$ smooth in $w$; $\chi_r<1$ before $6R_1$; and the bound $s^2-\mu\ge\frac52\mu_0$. The
+D216 repairs of Part II.G$'$ were confirmed.
 
 ### 7.2 Sources
 

@@ -16,12 +16,12 @@ independent reader has checked it line by line and every finding is seated; **pr
 | Part | Source | Content | Status |
 |---|---|---|---|
 | I.A | [Hin26c] 9.1-9.2 | bounded nonzero frequencies, Theorem 9.5, bundles, uniform in b | **proved** (D197) |
-| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | **proved** (D194) |
+| I.B | [Hin26c] 9.3 | high energies, trapping with (5.9)'s conjugation, Theorem 9.16 | verified (D226; the repair, Lemma 6.0, to be read) |
 | I.C | [Hin26c] 9.4-9.6 | zero energy (9.36), tf operator (9.38), low energy (9.41), 9.39, 9.43 | **proved** (D194) |
 | II.A | [Hin26c] 2-3 | compactifications, Lie algebras, e3b-calculus, embeddings, tame estimates | **proved** (D197) |
 | II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197) |
-| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200) |
+| II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200); D226 correction to be read |
 | II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201) |
 | II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206) |
@@ -29,10 +29,16 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | **proved** (D216) |
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | **proved** (D216) |
 | II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | **proved** (D216) |
-| II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | verified (D216) |
-| III.A | [Hin26] 2 | technical prerequisites: partial polyhomogeneity, integration along b-fields, harmonics on S^3 | to do |
-| III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed Einstein equation | written (D215) |
-| III.C-III.J | [Hin26] 5-12 | exterior stability; gauge potential, constraint and linearised operators; spectral theory; decay | to do |
+| II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | **proved** (D217) |
+| III.A | [Hin26] 2.1-2.3 | technical prerequisites: partial polyhomogeneity, integration along b-fields | verified (D226) |
+| III.A' | [Hin26] 2.4 | harmonics on S^3; the Minkowski operators in the null splittings; indicial roots by type | verified (D221) |
+| III.B | [Hin26] 3-4 | the Myers-Perry family on M, time functions, boosts, the gauge-fixed Einstein equation | proved (D221) |
+| III.D | [Hin26] 6-6.3 | the gauge potential operator: structure, Minkowski model, indicial roots, horizon threshold, trapping, high energies, mode stability away from zero, tf-admissibility | verified (D226) |
+| III.D' | [Hin26] 6.4, Lemma 6.13 | the gauge potential operator at zero energy: kernel and cokernel, pairings, mode stability at every frequency, the zero energy inverse | written (D222) |
+| III.D'' | [Hin26] 6.5.1 | zero energy states from the Minkowski symmetries; Lemma 6.14's comparisons | written (D223) |
+| III.D''' | [Hin26] 6.5.2 | generalized zero energy states of the gauge potential operator | written (D224) |
+| III.E | [Hin26] 7-7.2 (to Proposition 7.3) | the constraint propagation operator at zero energy: invertibility of its adjoint, indicial roots, the large dual states | written (D225) |
+| III.C, III.E', III.F-III.J | [Hin26] 5, 7.2.1, 8-12 | exterior stability; constraint and linearised operators; spectral theory; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -443,3 +449,114 @@ which the cut-offs do not give; repaired by a radial cut-off, with nothing chang
 *Proved (D216).* The ninetieth verifier confirmed the D213 repairs of Part II.G, and the eighty-ninth had confirmed the
 D212 repairs of Parts II.F and II.F' (D213, recorded there as confirmed but not yet marked): Parts II.F, II.F' and II.G
 are proved.
+
+*D217.* The ninety-first verifier read Part III.B: no major finding; two minor findings (a sign in an intermediate line
+of Lemma 3.5's proof; Lemma 5.2's hypothesis made exhaustive, with strictly nested cut-offs and small boosts shown to
+satisfy it) and ten nits seated. Part III.B is verified. It confirmed the D216 repairs of Part II.G', which is proved.
+
+*D221.* The ninety-second verifier read the D217 repairs and confirmed each. Part III.B is proved.
+
+## Part III.A'
+
+`PART-III-A2-HARMONICS.md`. [Hin26] section 2.4 at $n = 4$: functions, 1-forms and symmetric 2-tensors on $\mathbb S^3$
+by type, with the identities between the geometric operators on each type and the special low degrees; the Minkowski
+wave operator, symmetric gradient and divergence in the null bundle splittings near infinity (the source's Lemma 2.29);
+the types those operators preserve; the indicial roots by type; and the symmetric gradient's indicial families with
+their kernels. Everything is proved at general $N$ and read at $N = 3$, $N = 2$ being the source entry by entry: the
+commutators on the sphere from the Ricci identity, the spectra on co-closed 1-forms and on trace-free divergence-free
+tensors from five ambient identities of the Gauss formula, and Lemma 2.29 by the Cartesian route, so no outside result
+on harmonics is used. At $n = 4$ one type is new (tensor type, $l\ge2$), the constants of Lemma 2.29 change (findings
+(H1)-(H6)), and the free indicial roots on a degree-$d$ component are $-d$ and $d+2$. `harm5.py` K5 checks Lemma 2.29 at
+$N = 2$ and $N = 3$ entry by entry against the Cartesian computation for every type with $l$ symbolic; K6 factors the
+determinants. Written (D218).
+
+*D221.* The ninety-second verifier read Part III.A$'$ line by line and harm5.py: no major finding; two minor findings
+(the labels claimed that no outside result on harmonics is used, where Lemma 1.4 quotes the classical theory of harmonic
+polynomials and the spectral theorem; K2 and K3 asserted only closure) and six nits seated (III.A$'$ section 3.4). Part
+III.A$'$ is verified.
+
+## Part III.A
+
+`PART-III-A-PREREQ.md`. [Hin26] sections 2.1-2.3 at $n = 4$: manifolds with corners and blow-ups, b-analysis and partial
+polyhomogeneity, the normal form of a b-normal vector field, testing for and integrating partial expansions, the
+boundary spectrum and formal solutions (with the Mellin transform written out), the scattering, 3b- and
+scattering-b-transition notions on $\mathbb R^{1+4}$ with the Plancherel lemma and the normal operator at sf, the
+integration of $x\partial_x$ and of the transport operator $x\partial_x-y\partial_y$, and the Fourier transform with
+partial expansions at $\iota$, $K$, $I$ and at tf, zf, scf. Everything is proved; the inputs of the last result are Part
+II.G$'$'s Propositions 3.3 and 3.5, which carry [Hin26c] section 13.1 to $n = 4$ in b-densities. Findings (L1)-(L4): the
+matching condition (2.29) of the source's Proposition 2.25 takes the wrong log index ($k(E_K,j)$ for $k(E_K,j+1)$), so
+that as printed it is meaningless already for $E_K = (1,0)$; a weight misprinted in its proof; the commutator with the
+cut-off in $\sigma$, which is harmless; the constant in Cauchy's formula of Lemma 2.15; and (L5)-(L7), from the
+ninety-third verifier (D226): the source's Lemma 2.23 needs $\alpha+\mathrm{Re}\,z>\beta$, not $\alpha>\beta$ (a
+counterexample shows it is necessary); the proof of its Proposition 2.25 (1), integrating one factor at a time, gives a
+larger tf index set than stated, and the stated one follows from a new Lemma 3.3, which solves for each zf coefficient
+at once; and the order of integration and the boundary weight, which the source leaves implicit. Verified (D226), the
+repairs to be read.
+
+## Part III.D
+
+`PART-III-D-GAUGEPOT.md`. [Hin26] section 6 to Proposition 6.9 at $n = 4$: the gauge potential wave operator
+$\Box^\Upsilon_{g_b}$ on 1-forms near the five-dimensional Tangherlini parameter. Its structure near infinity (Lemma
+2.1: $S = \bar S$, $Q\in\rho^3\mathrm{Diff}^1_{\mathrm b}$, zero-energy difference in
+$\rho^4\mathrm{Diff}^2_{\mathrm b}$), the Minkowski model with $\bar E$, $\bar S$ and $M_E$ at general $N$ (Lemma 3.1),
+the indicial roots by type with the gap $(0,\lambda^\Upsilon_{\mathrm s1,2})$ (Lemma 4.1), the horizon threshold
+$s>\frac32$ (Lemma 5.1), the trapped set in the open form Part I.B uses, $\gamma_-<0$ (Lemma 5.2), high energies and
+bounded frequencies (Propositions 6.1 and 6.3), mode stability away from zero on Tangherlini by ordinary differential
+equations in place of [AHW24] (Proposition 6.2), and tf-admissibility (Lemma 7.1). Findings (D1)-(D6): the deviations
+gain a power because the mass enters at $|x|^{-2}$; the constants $m = \frac2N$ and $\pm Ne$; the roots pair about four
+centres by family, with $z = 4e\gamma^2$; the record's claim that strong trapping admissibility persists because "the
+inequalities are open" is not right for the all-$\epsilon$ property and is not needed; [AHW24] replaced; the threshold
+exactly $s>\frac32$. `harm5.py` K7 checks the model operator against the Cartesian computation for every type at
+$N = 2, 3$; K8 factors its indicial determinants. Verified (D226): the ninety-third verifier's minor finding, that the
+trapped set's inner product depends on the covector while I.B section 6 assumed one from the base, is repaired in I.B by
+Lemma 6.0, the source's conjugation (5.9), which Lemma 5.2 now cites with the density it uses; four nits. The repairs
+are to be read.
+
+## Part III.D'
+
+`PART-III-D2-ZEROENERGY.md`. [Hin26] section 6.4 and Lemma 6.13 at $n = 4$. Lemma 2.1 ([Hin26] Lemma 6.10): on
+five-dimensional Tangherlini the zero energy kernel of the 1-form wave operator is spanned by
+$W^* = r^{-2}dt+r_hr^{-3} f^{-1}dr$ (energy identities for the stationary mode equations, and the continuation inside
+the horizon of III.D Proposition 6.2 (d)), and the annihilator of its range by the pairing with $d(H(r-r_h))$ (from
+$\Box_0H(r-r_h) = 0$, $\Box d = d\Box_0$ and the index 0 of I.C Corollary 6.6), in place of [AHW24] Theorem 5.1 (2).
+Lemma 3.1 (Lemma 6.11): both horizon pairings are exactly $4\pi^2$, by hand and computed. Proposition 4.1 (Proposition
+6.12): mode stability at every frequency of the closed upper half plane; Step 1 by a Grushin problem with a fixed
+compactly supported augmentation, to which I.C Theorems 6.4 and 7.1 apply as proved, its Schur complement
+$-4\pi^2(-i\sigma+\gamma)+o(|\sigma|+\gamma)$; Step 2 by perturbation at low, middle and high frequencies around a base
+point where invertibility holds at every frequency. Lemma 5.1 (Lemma 6.13): the zero energy inverse, with
+polyhomogeneous inverse images by III.A Lemma 1.4. Findings (D$'$1)-(D$'$5), among them (D$'$4): the source's Step 2
+asserts a low-energy radius independent of the horizon modification, as written not shown; closed here. Written (D222).
+
+## Part III.D''
+
+`PART-III-D3-SYMSTATES.md`. [Hin26] section 6.5.1 at $n = 4$. Lemma 2.1 (Lemma 6.14): the operators of $g_b$ differ
+from Minkowski's by one more power of $\rho$ than in the source ($\rho^3$, $\rho^4$ for $\delta^*$; $\rho^4$, $\rho^5$
+for $\Box^\Upsilon$), from III.B (3.5). Lemma 2.2: smooth dependence on $b$ of the zero energy inverse images.
+Proposition 3.1 (Proposition 6.15): the stationary solutions of the gauge potential equation with the time translation,
+the translations, the boosts and the rotations of Minkowski space as leading terms, and their symmetric gradients, each
+correction one order faster; the boost's correction at $\rho^1$, no indicial root, so without the source's logarithm
+(6.31) and without its formal solution lemma; the translations' at $\rho^2$, which needs $e_\Upsilon\gamma_\Upsilon^2>0$;
+six Killing rotations at zero rotation. Findings (D$''$1)-(D$''$5). Written (D223).
+
+## Part III.D'''
+
+`PART-III-D4-GENSTATES.md`. [Hin26] section 6.5.2 at $n = 4$. Lemma 2.1: solving the zero energy equation with a
+prescribed leading term, by a hand step, the formal solution lemma (III.A Lemma 1.5) and the zero energy inverse
+(III.D$'$ Lemma 5.1), the roots needed only on the leading coefficient's type. Proposition 3.1 (Proposition 6.18): the
+generalized zero energy states -- polynomials in $t_*$ in the kernel of the gauge potential operator -- on the time
+translation (no logarithm), the boosts and the rotations to higher order, and the four classes on the roots below $-1$
+with the source's degrees, each stationary correction two orders below its leading term; the leading terms computed on
+Minkowski space (`genstates5.py`, `puregauge5.py`). Deferred to the part on [Hin26] section 8: that these leading terms
+span the kernels of $\bar L(0)$'s indicial families. Findings (D$'''$1)-(D$'''$6), among them a misprint in the
+source's recursion and a normalisation in its (6.39a). Written (D224).
+
+## Part III.E
+
+`PART-III-E-CONSTRAINT.md`. [Hin26] section 7 to Proposition 7.3 at $n = 4$. Theorem 1.1, the source's Theorem 7.1 at
+$n = 4$ (the summary of [Hin26a]), is stated as the input and is proved in Part IV. Lemma 2.1 (Lemma 7.2): the adjoint
+of the constraint propagation operator at zero energy is invertible on b-weights $\alpha\in(0,C_0+2]$ with $s\le C_0+1$,
+its indicial roots $2-\bar\lambda$; inverse images are partially polyhomogeneous and vanish inside the horizon.
+Proposition 3.1 (Proposition 7.3): the large zero energy dual states built from the time translation, the four
+translations and the six rotations, whose trace-reversed symmetric gradients decay, eleven at zero rotation against the
+source's seven. Findings (E1)-(E4): the weights move by one (the Coulomb root is 2, the source's 1); the corrections are
+one order faster; the eleven states; the input. Section 7.2.1 is Part III.E$'$. Written (D225).

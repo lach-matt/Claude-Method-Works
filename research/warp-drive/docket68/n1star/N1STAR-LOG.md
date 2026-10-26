@@ -5122,3 +5122,114 @@ weight of the gap and (J10)(b); (J6)'s scope; rho_+ after Definition 5.2; a scra
 ((J1)). Recorded in II.G' section 7.3. With the D212 repairs confirmed at D213, Parts II.F, II.F' and II.G are proved;
 II.G' is verified. Status: Parts I.A-I.C, II.A, II.A', II.F, II.F', II.G proved; II.B-II.E and II.G' verified; III.B
 written. Next: Part III.A' (harmonics on S^3) and III.A; the ninety-first verifier on III.B and the D216 repairs.
+
+**D217 (2026-10-26): the ninety-first verifier seated; Part III.B verified, Part II.G' proved.** PR #127 merged at D214
+and PR #128 at D216. The verifier read Part III.B with sympy and numerical checks (Kerr-Schild identities for a
+non-block A, Lemma 3.7's beta range, the boost exponent, constant and remainder class, Lemma 6.2 with a failing weight-1
+control) and confirmed (K1) and the D216 repairs. No major. Minor 1: Lemma 3.5 (b)'s intermediate g_{t|x|} had a sign
+slip; corrected. Minor 2: Lemma 5.2's hypothesis now exhaustive, cut-offs strictly nested, small boosts shown
+admissible. Ten nits seated (III.B section 7.3). Status: Parts I.A-I.C, II.A, II.A', II.F, II.F', II.G, II.G' proved;
+II.B-II.E and III.B verified. Next: Part III.A' ([Hin26] section 2.4 at n = 4, harm5.py).
+
+**D218 (2026-10-26): Part III.A' written.** PR #129 opened for D217. [Hin26] section 2.4 at n = 4 in
+proof5/PART-III-A2-HARMONICS.md: harmonics on S^3 by type, (2.34)-(2.35), Lemma 2.29 in the null splittings, the types
+including the new tensor type, the indicial roots by type and (2.46) with the Killing-field injectivity. All at general
+N: the three facts the draft cited (the co-closed spectrum, the TT classification, Lichnerowicz's commutation) are
+proved here from the Ricci identity and five ambient identities. The constants of Lemma 2.29 change with N (3/2, 2 rho
+d_rho; 3, -3/2, 7/2, -5/2; 3, 4); G, the Christoffel symbols and delta* do not. harm5.py K5: the formula equals the
+Cartesian componentwise computation entry by entry at N = 2 and N = 3, every type, l symbolic; K6 factors the
+determinants as -d, d + 2 over the degree lists. Next: the ninety-second verifier on III.A' and the D217 repairs.
+
+**D219 (2026-10-26): Part III.A written.** [Hin26] sections 2.1-2.3 at n = 4 in proof5/PART-III-A-PREREQ.md. The
+b-analysis lemmas are dimension-free and proved in full (the Mellin argument of Lemma 2.13 and the choice-free contour
+of Lemma 2.15 written out); the 3b- and sc-b notions and Lemma 2.20 restated and proved on R^{1+4}; Lemmas 2.22-2.23
+proved with the Hardy estimates checked; Proposition 2.25 proved from II.G' Propositions 3.3 and 3.5. Findings: (L1) the
+matching condition (2.29) takes the log index k(E_K, j) where k(E_K, j + 1) is needed, so it is meaningless as printed
+already for E_K = (1,0); repaired in (4.4). (L2) a zf-weight misprint in the proof; (L3) the commutator of sigma d_sigma
+with chi(sigma), harmless; (L4) Cauchy's constant in Lemma 2.15. Next: the ninety-second verifier's report on III.A';
+the ninety-third on III.A.
+
+**D220 (2026-10-26): Part III.D written.** [Hin26] section 6 to Proposition 6.9 at n = 4 in
+proof5/PART-III-D-GAUGEPOT.md: the gauge potential operator near the five-dimensional Tangherlini parameter. Structure
+near infinity with a gained power (the mass enters at |x|^-2), the model operator at general N (m = 2/N, +-N e), the
+indicial roots by type (s0: 0, 3, 1/2 +- (9/4 + z)^(1/2); sl, vl; z = 4 e gamma^2) with the gap (0, lambda_{s1,2}), the
+threshold s > 3/2, the trapped set in the open form gamma_- < 0, high energies, Tangherlini mode stability away from 0
+by ODE arguments with positive potentials (no [AHW24]), perturbation to b near b_0, and tf-admissibility. (D4): the
+record's supplement 10.60 (b) said strong trapping admissibility persists because "the inequalities are open"; for
+every epsilon that is not so, and Part I.B needs only gamma_- < 0. harm5.py K7-K8; thresh5, trap5, hienergy5, modes5,
+gaugepot5 and lowenergy5 rerun, all pass. Next: the ninety-second verifier's report; the ninety-third on III.A and
+III.D; Part III.D' ([Hin26] section 6.4).
+
+**D221 (2026-10-26): the ninety-second verifier seated; Part III.A' verified, Part III.B proved.** The verifier read
+Part III.A' and harm5.py line by line (Lemma 1.2 checked by machine at N = 2 on generic fields with a failing control;
+every K5 matrix recomputed at lin5's second point; the Cartesian bases traced against (2.2)) and confirmed every D217
+repair of Part III.B. No major. Minor 1: section 3.3 and (H6) said no outside result on harmonics is used, but Lemma 1.4
+quotes the decomposition of harmonic polynomials, the density of polynomials and the spectral theorem; both now name
+them. Minor 2: K2 and K3 asserted closure only; the selftest now asserts their determinants against the degree lists,
+and the proof of Lemma 2.3 says K5 carries K6 to the Cartesian side. Nits: K5 at the second point, a 2-tensor N-control,
+`sign` removed, Lemma 1.5's l ranges, z^(l-2) beta (x) beta proved tensor type, (H6) on the READ V_l. Also III.D
+Proposition 6.2 (d): the horizon is null, not spacelike; the continuation inside it is now by the mode equations, whose
+first-order form (r - r_h) Y' = M Y is regular singular at r_h, and Gronwall's inequality. Status: Parts I.A-I.C, II.A,
+II.A', II.F, II.F', II.G, II.G', III.B proved; II.B-II.E, III.A' verified; III.A, III.D written. Next: the ninety-third
+verifier on III.A and III.D; Part III.D'.
+
+**D222 (2026-10-26): Part III.D' written.** [Hin26] section 6.4 and Lemma 6.13 at n = 4 in
+proof5/PART-III-D2-ZEROENERGY.md. Lemma 6.10 on five-dimensional Tangherlini without [AHW24]: the kernel of the 1-form
+wave operator at zero energy is span W*, W* = r^-2 dt + r_h r^-3 f^-1 dr, by energy identities (the divergence, the
+field, the gauge, as in III.D Proposition 6.2 at sigma = 0) and the continuation inside the horizon; the cokernel is the
+pairing l with d(H(r - r_h)), because Box_0 H(r - r_h) = 0 (the horizon is characteristic for the stationary operator)
+and Box d = d Box_0, with index 0 from I.C Corollary 6.6. Lemma 6.11: l([Box, t_*] W*) = 4 pi^2 and l(2 E_H G delta* W*)
+= 4 pi^2, by hand in the ingoing chart and computed (gaugepot5 G6). Proposition 6.12: Step 1 by a Grushin problem with
+a fixed augmentation (psi, phi compactly supported), to which I.C Theorems 6.4 and 7.1 apply as proved; the Schur
+complement c is -4 pi^2 (-i sigma + gamma)/l(psi) + o(|sigma| + gamma), by the pairings and the convergence of the
+augmented inverse to (W*, 0); so the horizon modification alone gives mode stability on |sigma| <= c_1 with c_1
+independent of gamma. Step 2 around that base point at low, middle and high frequencies. (D'4): the source's Step 2
+asserts that its low-energy radius does not depend on gamma_{Ups,H}; as written that is not shown, and is not needed
+here. Lemma 6.13: invertibility at every s gives the infinite regularity that Lemma 2.13 needs. Next: the ninety-third
+verifier's report (III.A, III.D); the ninety-fourth on III.D'; Part III.D''.
+
+**D223 (2026-10-26): Part III.D'' written.** [Hin26] section 6.5.1 at n = 4 in proof5/PART-III-D3-SYMSTATES.md. Lemma
+6.14 one power better throughout (Myers-Perry meets Minkowski at mu |x|^-2 and Tangherlini at |x|^-3, III.B (3.5)).
+Proposition 6.15: the time translation is Killing; the translations' correction solves P_b omega' = -P_b dx^i, source in
+rho^4, so omega' at rho^2 without logarithm (2 is no root once z = 4 e gam^2 > 0); the boost's source (3.5) is in rho^3
+(Q_b in rho^3 Diff^1_b, R_b in rho^4 Diff^2_b, the commutator in rho Diff^1_b on omega'), its correction at rho^1 -- no
+root, so no logarithm and no formal solution lemma, c_{b,s1} = 0; the rotations' at rho^2, and when the rotation field is
+Killing the state is g_b(R_V, .) by the triviality of the zero energy kernel (six at zero rotation). The leading term of
+h-breve^1 is scalar type 1 by SO(4) equivariance at zero rotation and one power of decay in general. Next: Part III.D'''
+(Proposition 6.18); verifier 93's report.
+
+**D224 (2026-10-26): Part III.D''' written.** [Hin26] section 6.5.2 at n = 4 in proof5/PART-III-D4-GENSTATES.md. A
+lemma solves P_b u = f with a prescribed leading term at rho^m (m <= 2): the leading coefficient by N(A, m)^-1 on its
+type, the rest by III.A Lemma 1.5 and III.D' Lemma 5.1. Proposition 6.18 at n = 4: the recursion A_0 w^j = -A_1 w^(j-1)
+- A_2 w^(j-2) (the source prints A_0 for A_2), the states on the time translation (leading W = |x| (-d t-bar + beta_e
+d|x|), beta_e = (2 - e)/(4e), its correction at rho^1, no logarithm), on the boosts to degree 4 (s1 roots -2, -3, -4
+absent for 0 < z < 20/3), on the rotations to degree 3 ((1 + 2 gam/5) |x| V), and the four classes with the source's
+degrees, each correction two orders below its leading term. h^(0),<=k normalised by (k + 1)^-1 (the source's (6.39a)
+omits the factor). The spanning of ker N(L-bar(0), lambda) is deferred to section 8's part. harm5 selftest passes in
+full after the D221 edits (169 checks); zstates5, genstates5, puregauge5 rerun, all pass. Next: verifier 93; Part
+III.E.
+
+**D225 (2026-10-26): Part III.E written.** [Hin26] section 7 to Proposition 7.3 at n = 4 in
+proof5/PART-III-E-CONSTRAINT.md. Theorem 7.1 at n = 4 is stated as Theorem 1.1 and left to Part IV ([Hin26a] at n = 4).
+Lemma 7.2: the adjoint of the constraint propagation operator at zero energy is invertible for b-weights alpha in (0,
+C_0 + 2] and s <= C_0 + 1 (the source's (0, C_0 + 1]: the Coulomb root is 2 at n = 4), indicial roots 2 - conj(lambda);
+inverse images partially polyhomogeneous and vanishing inside the horizon. Proposition 7.3: the large zero energy dual
+states of the time translation, the four translations and the six rotations, their trace-reversed symmetric gradients
+one order faster; eleven at zero rotation against the source's seven. Findings (E1)-(E4). Section 7.2.1 is Part III.E'.
+Next: seat verifier 93.
+
+**D226 (2026-10-26): verifier 93 seated; Parts III.A and III.D verified.** III.A M1: the source's Proposition 2.25 (1)
+integrates R_I one factor at a time by Lemma 2.23, and once z and z + 1 both occur the extended union returns (z + 1, 1)
+at tf; the stated set is right and now follows from a new Lemma 3.3 (the product of the transport operators, solved for
+each zf coefficient by an ordinary differential equation in y, Lemma 1.2 applied in decreasing real part, then Lemma 3.2
+with nothing at x = 0). Found while repairing: Lemma 2.23 assumes alpha > beta and reduces by x^z u, which needs alpha +
+Re z > beta; u = x^-z chi(xy) (xy)^c with alpha + Re z < c < beta is a counterexample (L5); in Proposition 2.25 the
+weight beta_K is free there and is taken large. m1: Lemma 1.4 first solves the terms of F on Re = beta (no pole of
+N(A)^-1 there), Lemma 1.5 iterates over Re <= beta; m2: decreasing real part in Lemma 1.3 and Proposition 4.2. III.D m3,
+a fault in I.B: section 6 took h_Gamma from the base, while Lemma 5.2's depends on the covector. I.B Lemma 6.0 is the
+source's conjugation (5.9): Q = Op(b-tilde^(1/2)), P_Q = Q P Q^-1 = P + hX with X microsupported near Gamma, Im(Q P
+Q^-1) = Q Im_B(P) Q^-1 exactly for B = Q*Q, so the threshold symbol in h_Gamma is (6.0) = (1/2)(p_1 + b^-1 p_1 b) +
+(i/2) b^-1 [r, b] + (1/2) b^-1 H_G b, which is what III.D computes in its frame; Propositions 6.1 and 6.4 are proved for
+P_Q and carried back with B_1 Q, E_1 Q, G_1 Q. II.C's remark that (5.9) was not used is corrected. Nits n1-n8. I.B goes
+from proved to verified until a reader reads Lemma 6.0. Next: verifier 94 on III.D'-III.E and the D226 repairs; Part
+III.E'.
