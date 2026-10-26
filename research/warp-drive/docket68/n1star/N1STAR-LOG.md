@@ -5502,3 +5502,10 @@ major finding in Part III.I''' and confirmed its n = 4 departures (no iota+ step
 as the coefficient of t_* at K+); three minor findings (Step 4's a priori weight against min Re E_+, the support of F v,
 c fixed per order) and seven nits are seated. The D258 repairs to III.I'' are correct, so III.I'' is proved. Next: Part
 III.I''''.
+
+**D260 (2026-10-26): Part III.I'''' written.** [Hin26] section 11.4.2 at n = 4 (PART-III-I5-UNBOOST.md): the correction
+terms and the augmented operator P_1 (in the form of the source's Remark 11.27, so its linearisation is III.I's operator
+with a shifted perturbation), the boost identity (11.78b), the parameter derivative (Lemma 11.28, iota+-order 4 so no
+splitting), and Proposition 11.30: the map from the source's boost parameter to the forward solution's is invertible
+near the identity, so a forward solution with no boost term, growing like t_*^(2 - alpha_K), exists. Found: the
+generalised boost state must be re-centred by the constant C' between III.B's t and III.D''s t-bar. Next: verifier 110.

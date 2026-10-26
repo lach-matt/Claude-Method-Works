@@ -56,7 +56,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I' | [Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future timelike infinity; formal solutions at null infinity, one exceptional term | proved (D258: verifier 108 read the D256 repairs; verified D256) |
 | III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | proved (D259: verifier 109 read the D258 repairs; verified D258) |
 | III.I''' | [Hin26] 11.4.1 (Proposition 11.20, Lemma 11.21) | the boost parameter: the forward solution is a cut-off generalised boost state plus a remainder of K+-weight alpha_K - 2; zero energy inverted by the augmented operator, no iota+ step at n = 4 | verified (D259; no major, three minor findings and seven nits seated, to be read) |
-| III.C', III.I''''-III.J | [Hin26] 5.4-5.7, 11.4.2-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| III.I'''' | [Hin26] 11.4.2 (Definitions 11.23, 11.25, Lemmas 11.24, 11.28, Proposition 11.30, (11.95)) | undoing the boost: correction terms, the boost identity (11.78b), the augmented operator, its parameter derivative, the boost parameter map invertible; no logarithms, no splitting of the source, the generalised state re-centred at n = 4 | written (D260) |
+| III.C', III.I'''''-III.J | [Hin26] 5.4-5.7, 11.5-12 | exterior stability and partial polyhomogeneity; decay | to do |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -964,3 +965,15 @@ the formal solution's $\iota^+$-index set starts at $\frac32+(1-e_\Upsilon)\gamm
 $\iota^+$-weight ((I$'''$2)); the window $(0,1)$ ((I$'''$3)); the $K^+$-range ((I$'''$4)). At $b_0$. Written (D257).
 Verified (D259: verifier 109; Step 4's a priori weight lowered below $\min\mathrm{Re}\,\mathcal E_+$, the support of
 $\mathcal Fv$ in a compact subset of $(-c,c)$, $c$ fixed per order $k$; seven nits).
+
+## Part III.I$''''$
+
+`PART-III-I5-UNBOOST.md`. [Hin26] section 11.4.2 at $n = 4$: the re-centred boost state $h^{\le1}_\natural =
+h^{\le1}-C'h$ (Lemma 1.2: III.B's boosts are centred at $t = 0$, III.D$''$'s model states at $\bar t = 0$), the
+correction terms (Definition 2.1, Lemma 2.2: index set $(2,0)\cup(2+\mathcal E_{\mathrm{ind}})$ at $\iota^+$, no
+logarithm), the augmented operator $P_1$ in the form of the source's Remark 11.27 (Definition 2.3, Lemma 2.5: its
+linearisation is III.I's operator with a shifted perturbation), the boost identity (Lemma 2.4, the source's (11.78b)),
+the derivative of the operator family (Lemma 3.1), the parameter derivative (Lemma 3.2, the source's Lemma 11.28:
+$\iota^+$-order 4, no splitting), the continuity of the boost parameter in the operator (Lemma 4.2), Proposition 4.1
+(the source's Proposition 11.30: asymptotics, and the boost parameter map invertible) and Corollary 4.3 ((11.95)).
+Findings (I$''''$1)-(I$''''$6). At $b_0$. Written (D260).

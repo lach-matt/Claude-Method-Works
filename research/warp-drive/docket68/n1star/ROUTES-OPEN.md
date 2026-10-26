@@ -3323,3 +3323,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Nits: alpha#_+ < 7/4 (gamma_Ups < 1/4), the closed graph pointer, the README gap wording, c's k-independent bounds,
   (2.26a)'s cut-off, III.H Lemma 2.5 (d) "and its proof", (I'''4)'s "suffices".
 - Next: Part III.I'''' ([Hin26] section 11.4.2, undoing the boost); verifier 110 on it and these repairs.
+
+### 4.183 Part III.I'''' written: [Hin26] section 11.4.2 at n = 4 (D260)
+
+- PART-III-I5-UNBOOST.md: the re-centred state h^(<=1)_nat = h^(<=1) - C' h (Lemma 1.2); the correction terms
+  h^(-1), theta^(-1), theta_sharp (Definition 2.1; Lemma 2.2 = 11.24: (2,0) u (2 + E_ind) at iota+, no log); P_1 in
+  the form of the source's Remark 11.27 (Definition 2.3; Lemma 2.5: L_{h,S} = L^{g',g_0}, h' = h^(-1)(S) + h, so
+  III.I-III.I''' apply); the boost identity (Lemma 2.4 = (11.76)-(11.78b), exact with III.B's cut-off factor Theta);
+  Lemma 3.1 (the S-derivative of the operator family maps as III.I (4.1)-(4.2)); Lemma 3.2 (= 11.28: iota+-order 4,
+  I+-data (<E^C_I + 1>', a_I + 1)); Lemma 4.2 (S-dot = Pi(f - (L - L_b0)u), Pi fixed by L_b0: bounded, continuous
+  in the operator); Proposition 4.1 (= 11.30) and Corollary 4.3 (= (11.95)).
+- (I''''1) the time origin: t-bar - t = C' - 8 mu_0/|x|; without re-centring h^(-1) has an iota+-order 1 term.
+  (I''''2) no logarithms. (I''''3) no splitting of the source term (order 4 at iota+, the source's 3). (I''''4) the
+  form of P_1. (I''''5) a_I >= 2. (I''''6) the two one-line steps of the source written out.
+- Requirement: 2 + E_ind in E_+ ((2.4), the source's 1 + E_ind in E_+).
+- Next: verifier 110 on III.I'''' and the D259 repairs; then [Hin26] section 11.5 (almost boundedness) as III.I'''''.
