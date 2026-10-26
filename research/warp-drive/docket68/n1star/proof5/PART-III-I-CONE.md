@@ -1,12 +1,13 @@
 # Part III.I. The dynamical linearised operator at n = 4 ([Hin26] section 11 opening and 11.1)
 
-*Status.* Verified (D254: the hundred-and-sixth verifier; one major and two minor findings and eight nits seated, to be
-read). Written (D251). This part proves, at spatial dimension $n = 4$, [Hin26] section 11's setting and section 11.1
-(pp. 218-226): the classes of metric perturbations and source terms (Definition 11.3), the edge-3b membership of the
-perturbations (Lemma 11.5), the structure of the linearised gauge-fixed Einstein operator $L^{g,g_0}$ in the forward
-cone (Proposition 11.6, Remark 11.7), its forward mapping properties (Proposition 11.8, Corollary 11.9), its
-admissibility relative to $L_b$ (Corollary 11.10), and the regularity of forward solutions (Theorem 11.12, at $b_0$),
-with the compatibility between Part II.F$'$'s orders and those of III.H$'$ that the latter left as an obligation.
+*Status.* Verified (D254: the hundred-and-sixth verifier; one major and two minor findings and eight nits seated. D256:
+the hundred-and-seventh verifier read the repairs; one residual minor finding and two nits seated, to be read). Written
+(D251). This part proves, at spatial dimension $n = 4$, [Hin26] section 11's setting and section 11.1 (pp. 218-226): the
+classes of metric perturbations and source terms (Definition 11.3), the edge-3b membership of the perturbations (Lemma
+11.5), the structure of the linearised gauge-fixed Einstein operator $L^{g,g_0}$ in the forward cone (Proposition 11.6,
+Remark 11.7), its forward mapping properties (Proposition 11.8, Corollary 11.9), its admissibility relative to $L_b$
+(Corollary 11.10), and the regularity of forward solutions (Theorem 11.12, at $b_0$), with the compatibility between
+Part II.F$'$'s orders and those of III.H$'$ that the latter left as an obligation.
 
 *What n = 4 changes.* The perturbation's contributions to the operator at null infinity are half an order lower than
 the constant matrix $\bar A$ (III.C (C1)); so the dynamical operator is admissible with $p_0 = \tilde p_1 = 0$ in II.C
@@ -226,12 +227,12 @@ bounded in terms of an upper bound for $\|h\|_{\mathcal X^k}$. $\square$
 *The inverse metric (D254).* Smallness enters only through $g^{-1} = (g_b+\delta)^{-1}$, $\delta := g-g_b$. Write
 $(g_b+\delta)^{-1} = \sum_{j\le N}(-g_b^{-1}\delta)^jg_b^{-1}+R_N$, $R_N := (-g_b^{-1}\delta)^{N+1}(g_b+\delta)^{-1}$.
 $(g_b+\delta)^{-1}$ is a smooth function of $\delta$ for $\delta$ pointwise small, which the $H^{3,(1,0,0)}_{\mathrm
-b}$-smallness gives by Sobolev embedding, so by Moser's composition estimate (II.A's tame estimates) it is bounded in
-$H^k_{\mathrm b}$ with weights 0, by a constant depending on an upper bound for $\|\delta\|_{H^k}$. The factor
-$(-g_b^{-1}\delta)^{N+1}$ has $N+1$ times $\delta$'s least orders, positive at each face, so for $N$ large $R_N$ lies in
-$H^k_{\mathrm b}$ with weights beyond every weight in (3.4), (3.6) and (3.7) and adds no expansion terms; the Taylor
-terms are products handled by III.C Lemma 2.1. This replaces III.C Proposition 4.4's Neumann series, whose convergence
-needs $H^k$-smallness.
+b}$-smallness gives by Sobolev embedding, so by Moser's composition estimate (II.A's tame estimates)
+$(g_b+\delta)^{-1}-g_b^{-1}$ is bounded in $H^k_{\mathrm b}$ with weights 0, by a constant depending on an upper bound
+for $\|\delta\|_{H^k}$. The factor $(-g_b^{-1}\delta)^{N+1}$ has $N+1$ times $\delta$'s least orders, positive at each
+face, so for $N$ large $R_N$ lies in $H^k_{\mathrm b}$ with weights beyond every weight in (3.4), (3.6) and (3.7) and
+adds no expansion terms; the Taylor terms are products handled by III.C Lemma 2.1. This replaces III.C Proposition 4.4's
+Neumann series, whose convergence needs $H^k$-smallness.
 
 **Remark 3.5 ([Hin26] Remark 11.7 at n = 4).** $g_{b_0}+h$ and $g_{b_0,b,0}+h$ differ near $(\iota^+)^\circ$ by
 $\chi_K(g_b-g_{b_0})\in\rho_+^2C^\infty$, which is absorbed into $h$ as $(2,0)\in\mathcal E_+$; the same holds for the
@@ -245,8 +246,8 @@ $H^{\infty,(\langle(3,0)\rangle_0,\infty),((2,0),\infty),\infty}_{\mathrm b}(\Om
 *Proof.* $g_{b_0,b,-S}-g_b = (1-\chi_K)(\phi^*_{-S}g_{b_0}-g_{b_0})+(1-\chi_K)(g_{b_0}-g_b)$. On $\mathrm{supp}(1-\chi_K)
 \cap\Omega_*$, $\chi_{\mathrm{IVP}} = 1$ and the flow of $V(S)$ is the boost (on III.B Lemma 5.2's first alternative,
 with $\mathrm{supp}\,\chi^\flat_K\subset\chi_K^{-1}(1)$; on its second, $\{|x|<6R_1\}$, the difference is smooth and
-supported in a compact set, as $1-\chi_K = 0$ on $\{t_*\ge2,\ |x|\le t_*/4\}$, away from the faces at infinity, hence in
-the class), so by III.B (5.3), $\phi^*_{-S}g_{b_0}-g_{b_0} = |x|^{-2}h_{-S}(\omega)
+supported in a compact set away from the faces at infinity, as that alternative of III.B Lemma 5.2 states, hence in the
+class), so by III.B (5.3), $\phi^*_{-S}g_{b_0}-g_{b_0} = |x|^{-2}h_{-S}(\omega)
 (dx^1)^2+\rho_0^2\rho_I^3\rho_+^2C^\infty$, with $h_{-S} = O(|S|)$; and by III.B Proposition 3.6, $g_{b_0}-g_b =
 (\mu_0-\mu)|x|^{-2}(dx^1)^2+O(|b-b_0|)|x|^{-3}C^\infty$ on $\{|x|\ge3R_1\}$. Near $\mathscr I^+$, $|x|^{-2}(dx^1)^2$ is
 the slot $\pi_{11}$ at $\rho_I$-order 2 and $\iota^+$-order 2, and $|x|^{-3}$ is of orders 3; in the interior of
@@ -405,8 +406,8 @@ are $\mu_{\mathrm b}$.
 The source has $\beta_+\in(\frac12,\frac12+\epsilon_{\mathrm{ind}})$, $\beta_I\in(\beta_+,1)$, sf-loss
 $\delta>\beta_+-\frac12$ (so $u$ at $\beta_+-\delta$), and $b$ near $b_0$; here $\delta = 0$, the window of $\beta_+$ is
 $(\frac12,\frac32)$, and $\beta_I$ reaches $\frac32$, the radiation field's order. The source's (11.23) writes the
-$K^+$-weights $-2$ and $0$ where its (11.21)-(11.22) have $\frac12$ and $-\frac32$; with $\mu_{\mathrm b}$ throughout,
-(5.2) uses the latter.
+$K^+$-weights $-2$ for $u$ and $0$ for $f$ where its (11.22) and (11.21) have $-\frac32$ and $\frac12$; with
+$\mu_{\mathrm b}$ throughout, (5.2) uses the latter.
 
 *Proof.* Apply II.F$'$ Theorem 1.1, in the form of its Corollary 1.2, with $P_0 := 2L_{b_0}$, $\aleph = 2$, the
 sf-weight $\alpha_+ := \beta_+-\frac52$ and $\alpha_I := \beta_I-2$, with its Remark 7.1 for the relaxed admissibility

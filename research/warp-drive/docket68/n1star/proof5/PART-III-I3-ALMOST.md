@@ -309,8 +309,9 @@ H^{\infty,(\frac52-\epsilon,\alpha_++2,\alpha_K)}_{\mathrm b}$. Fix $\beta^{(0)}
 \min\mathrm{Re}\,\mathcal E_+))$ and $\beta^{(0)}_I\in(\beta^{(0)}_+,\frac32)$; III.I Theorem 5.3 ($\alpha_K\ge\frac12$)
 gives $u\in H^{\infty,(\beta^{(0)}_I,\beta^{(0)}_+,-\frac32)}_{\mathrm b}$. III.I$'$ Proposition 2.1 with $\ell_+ :=
 \beta^{(0)}_+$ (below $\min\mathrm{Re}\,\mathcal E_+$, so $(\mathcal E_+,\ell_+)$ is the weight $\ell_+$, and not in
-$\mathrm{Re}\,\pi_1\mathcal E_+$; $\ell_+<\frac32<\ell_I$), $f$ having $\iota^+$-weight $\alpha_++2\ge\ell_++2$, gives
-the expansion at $\mathscr I^+$ near $\mathscr I^+$; away from $\mathscr I^+$ nothing changes. So
+$\mathrm{Re}\,\pi_1\mathcal E_+$ nor in $\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I$, whose least real part is
+$\frac32$; $\ell_+<\frac32<\ell_I$), $f$ having $\iota^+$-weight $\alpha_++2\ge\ell_++2$, gives the expansion at
+$\mathscr I^+$ near $\mathscr I^+$; away from $\mathscr I^+$ nothing changes. So
 $$u\in H^{\infty,(\langle\mathcal E^C_I\rangle,\ell_I),\beta'_+,\alpha'_K-2}_{\mathrm b}\tag{5.3}$$
 holds with $(\alpha'_K,\beta'_+) = (\frac12,\beta^{(0)}_+)$.
 
@@ -389,8 +390,9 @@ $u^\flat\in H^{\infty,\gamma_+-\epsilon,\gamma_+-2\epsilon,\tilde\alpha_K-2}_{\m
 $u = u^\flat+u_I$ has the same $\iota^+$- and $K^+$-weights.
 
 *Step 3 (the source's recovery at $\mathscr I^+$).* III.I$'$ Proposition 2.1 with $\ell_+ := \gamma_+-2\epsilon$
-(below $\min\mathrm{Re}\,\mathcal E_+$, below $\ell_I$; $f$ has $\iota^+$-weight $\alpha_++2>\ell_++2$; the a priori
-$\mathscr I^+$-weight $\gamma_+-\epsilon$) gives (5.3) with $(\alpha'_K,\beta'_+)$ replaced by $(\tilde\alpha_K,
+(below $\min\mathrm{Re}\,\mathcal E_+$, below $\ell_I$, below $\min\mathrm{Re}\,\mathcal E^{\mathrm{tot}}_I = \frac32$;
+$f$ has $\iota^+$-weight $\alpha_++2>\ell_++2$; the a priori $\mathscr I^+$-weight $\gamma_+-\epsilon$) gives (5.3) with
+$(\alpha'_K,\beta'_+)$ replaced by $(\tilde\alpha_K,
 \gamma_+-2\epsilon)$, again in the range of the iteration by (5.4).
 
 *Conclusion.* Each step raises $\alpha'_K$ by $\min(a_K-2,\alpha_K-\alpha'_K)$, $a_K>2$, so finitely many reach

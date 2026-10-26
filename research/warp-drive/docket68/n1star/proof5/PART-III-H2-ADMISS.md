@@ -1,14 +1,15 @@
 # Part III.H$'$. 2-admissibility of $L_b$ at n = 4 ([Hin26] section 10.2, Theorem 10.1)
 
-*Status.* Verified (D252: the hundred-and-fifth verifier; no major finding, three minor findings and nine nits seated.
-D254: the hundred-and-sixth verifier read the repairs; one residual minor finding and two nits seated, to be read).
-Written (D250). This part proves, at spatial dimension $n = 4$, [Hin26] Theorem 10.1 (pp. 199-201) by the argument of
-its section 10.2 (pp. 212-217): the forward solution of $L_bu = f$ on $\Omega$ is represented by a contour integral of
-$\widehat{L_b}(\sigma)^{-1}$ (Lemma 2.1), split into high frequencies (Lemma 3.1), a regular low-frequency part (Lemma
-4.1) and the contribution of the zero energy states (Lemma 5.1), which is controlled by integrating twice in $t_*$
-(Lemma 6.2). The conclusion (Theorem 1.3) is 2-admissibility with sf-weight $\alpha_{\mathrm{sf}}$,
-$\alpha_{\mathrm{sf}}+2\in(0,1)$, margin 1 and *sf-loss 0*, for orders of a class $\mathcal O_c$ (Definition 1.1), at
-$b_0$ for every $k$ and, for $b\ne b_0$, for $k$ up to a bound fixed by the neighbourhood of $b_0$.
+*Status.* Proved (D256: the hundred-and-seventh verifier read the D254 repairs and found them correct; one nit seated).
+Verified (D252: the hundred-and-fifth verifier; three minor findings and nine nits seated. D254: the hundred-and-sixth
+verifier; one residual minor finding and two nits seated). Written (D250). This part proves, at spatial dimension $n =
+4$, [Hin26] Theorem 10.1 (pp. 199-201) by the argument of its section 10.2 (pp. 212-217): the forward solution of $L_bu
+= f$ on $\Omega$ is represented by a contour integral of $\widehat{L_b}(\sigma)^{-1}$ (Lemma 2.1), split into high
+frequencies (Lemma 3.1), a regular low-frequency part (Lemma 4.1) and the contribution of the zero energy states (Lemma
+5.1), which is controlled by integrating twice in $t_*$ (Lemma 6.2). The conclusion (Theorem 1.3) is 2-admissibility
+with sf-weight $\alpha_{\mathrm{sf}}$, $\alpha_{\mathrm{sf}}+2\in(0,1)$, margin 1 and *sf-loss 0*, for orders of a class
+$\mathcal O_c$ (Definition 1.1), at $b_0$ for every $k$ and, for $b\ne b_0$, for $k$ up to a bound fixed by the
+neighbourhood of $b_0$.
 
 *What n = 4 changes.* At $n = 3$ the zero energy states decay like $r^{-1}$, the derivatives $\partial_{t_*}\dot g$,
 $\partial^2_{t_*}h_{\mathrm s1}$ of their contributions have sf-weights $-\frac12-\epsilon$ and $\frac12-\epsilon$, and
@@ -212,17 +213,18 @@ strongly in $\bar H^{-N,-N}$, to a limit that is nonzero by the uniform (7.1) an
 $\widehat{L_b}(\sigma_*)$ on a space of an admissible order ($\mathsf r_{\sigma_*}-\epsilon$, the margins exceeding
 $\epsilon$), contradicting invertibility (III.H Corollary 4.4; the kernel does not depend on the orders, I.A Theorem 7.2
 (3)); for (7.3) as in the proof of I.A Theorem 7.2 (6). Then (7.6) holds at each $\sigma$ with the orders $(s_c,\mathsf
-r_\sigma)$, uniformly: $\partial_\sigma^{j'}\widehat{L_b}^{-1}$ is a sum of products of $\widehat{L_b}^{-1}$ and
-$\sigma$-derivatives of $\widehat{L_b}$ (on test sections, $\sigma\mapsto\widehat{L_b}(\sigma)^{-1}g$ being smooth in
-the fixed spaces of I.A Lemma 7.1's orders, I.A Theorem 7.2 (6)), each factor bounded uniformly between the spaces at
-$\sigma$, a $\sigma$-derivative of $\widehat{L_b}$ costing one b-derivative. So the output is bounded in the decay order
-$\mathsf r_\sigma+\beta$, a fortiori in $\mathsf r_\sigma+\beta-2\epsilon$, by the input in $\mathsf r_\sigma+\beta+1$.
-(D252 froze the orders on intervals; a frozen order need not be admissible at nearby $\sigma$, (C3) not being
-quantitative: D254.) $(\sigma\partial_\sigma)^{j'}$ is a combination of $\sigma^i\partial_\sigma^i$, $i\le j'$, with
-bounded coefficients. The integrand is bounded as before, without powers of $|\sigma|$, and on $|\sigma|\ge C_0$ the
-bound at the weight $\beta$ gives it at $\beta-2\epsilon$. *Conclusion.* By II.A Lemma 5.2 again, with the weight
-$\beta+1 = \alpha_{\mathrm{sf}}+2$, the integral is at most $C\|f\|^2_{H^{(\mathsf
-s;k),(\alpha_{\mathrm{sf}}+2,0)}_{3b;b}}$. $\square$
+r_\sigma)$, uniformly (the inverse bound being obtained as above at each raised order $(s_c+l,\mathsf r_\sigma)$, $l\le
+j'$, that the product formula uses): $\partial_\sigma^{j'}\widehat{L_b}^{-1}$ is a sum of products of
+$\widehat{L_b}^{-1}$ and $\sigma$-derivatives of $\widehat{L_b}$ (on test sections,
+$\sigma\mapsto\widehat{L_b}(\sigma)^{-1}g$ being smooth in the fixed spaces of I.A Lemma 7.1's orders, I.A Theorem 7.2
+(6)), each factor bounded uniformly between the spaces at $\sigma$, a $\sigma$-derivative of $\widehat{L_b}$ costing one
+b-derivative. So the output is bounded in the decay order $\mathsf r_\sigma+\beta$, a fortiori in $\mathsf
+r_\sigma+\beta-2\epsilon$, by the input in $\mathsf r_\sigma+\beta+1$. (D252 froze the orders on intervals; a frozen
+order need not be admissible at nearby $\sigma$, (C3) not being quantitative: D254.) $(\sigma\partial_\sigma)^{j'}$ is a
+combination of $\sigma^i\partial_\sigma^i$, $i\le j'$, with bounded coefficients. The integrand is bounded as before,
+without powers of $|\sigma|$, and on $|\sigma|\ge C_0$ the bound at the weight $\beta$ gives it at $\beta-2\epsilon$.
+*Conclusion.* By II.A Lemma 5.2 again, with the weight $\beta+1 = \alpha_{\mathrm{sf}}+2$, the integral is at most
+$C\|f\|^2_{H^{(\mathsf s;k),(\alpha_{\mathrm{sf}}+2,0)}_{3b;b}}$. $\square$
 
 $u_{\mathrm{hi}}$ is not supported in $\Omega$, so its norm is on $M_0$ (the source's footnote 100). The derivative
 loss (regularity $\mathsf s$ for $f$ and for $u_{\mathrm{hi}}$) is the trapping loss.
