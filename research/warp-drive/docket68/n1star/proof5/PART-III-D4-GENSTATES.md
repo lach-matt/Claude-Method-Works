@@ -8,11 +8,11 @@ boosts, the rotations, and on the indicial roots of the zero energy operator bel
 Computations cited as *computed* are exact (sympy) and rerun by the instruments named (D224).
 
 *What n = 4 changes.* The zero energy operator of $g_b$ differs from Minkowski's by $\rho^4\mathrm{Diff}^2_{\mathrm b}$
-(III.D$''$ Lemma 2.1), one power more than in the source, so every stationary correction lies two orders below its
-leading term instead of one. The indicial roots of the classes move ($\lambda^\Upsilon_{\mathrm s0,2}$,
-$\lambda^\Upsilon_{\mathrm sl,l+1}$, $\lambda^\Upsilon_{\mathrm sl,l+2}$ of III.D Lemma 4.1), and the resonance-free
-ranges are those of section 1 below. The leading terms are computed exactly on Minkowski space. Part (1) carries no
-logarithm. Findings are in section 4.
+(III.D$''$ Lemma 2.1), one power more than in the source, so the correction to the leading term of every stationary
+state lies two orders below it instead of one. The indicial roots of the classes move
+($\lambda^\Upsilon_{\mathrm s0,2}$, $\lambda^\Upsilon_{\mathrm sl,l+1}$, $\lambda^\Upsilon_{\mathrm sl,l+2}$ of III.D
+Lemma 4.1), and the resonance-free ranges are those of section 1 below. The leading terms are computed exactly on
+Minkowski space. Part (1) carries no logarithm. Findings are in section 4.
 
 ## 1. Setting
 
@@ -72,12 +72,12 @@ except at $\lambda = 0$ (s0, s1) and $\lambda = -1$ (v1) (III.A$'$ Lemma 2.4; `p
 
 ## 2. Solving with a prescribed leading term
 
-**Lemma 2.1.** Let $m\in\mathcal M$, $m\le2$, and let $f$ be smooth on $\bar X$ with $\rho^{-2}f\in\mathcal A^{\mathcal
-F}$ near $\partial X$, where $\mathcal F\subset\{(m,0)\}\cup\{\mathrm{Re}\ge m+\epsilon_{\mathrm{ind}}\}$, and suppose
-that the $\rho^m$-coefficient $f_m$ of $\rho^{-2}f$ has components only of types $\tau$ for which $m$ is not a
-type-$\tau$ root. Then there is $u\in\mathcal A^{(m,0)\cup(m+\mathcal E_{\mathrm{ind}})}$, smooth on $\bar X$, with
-$P_bu = f$ and $\rho^m$-coefficient $u_m = N(\rho^{-2}P_b,m)^{-1}f_m$, of the types of $f_m$. If $f$ depends smoothly on
-$b$ (in the topology of these spaces), $u$ can be chosen to.
+**Lemma 2.1.** Let $m\in\mathcal M$, $m\le2$, and let $f$ be smooth on $X$ with $\rho^{-2}f\in\mathcal A^{\mathcal F}$
+near $\partial X$, where $\mathcal F\subset\{(m,0)\}\cup\{\mathrm{Re}\ge m+\epsilon_{\mathrm{ind}}\}$, and suppose that
+the $\rho^m$-coefficient $f_m$ of $\rho^{-2}f$ has components only of types $\tau$ for which $m$ is not a type-$\tau$
+root. Then there is $u\in\mathcal A^{(m,0)\cup(m+\mathcal E_{\mathrm{ind}})}$, smooth on $X$, with $P_bu = f$ and
+$\rho^m$-coefficient $u_m = N(\rho^{-2}P_b,m)^{-1}f_m$, of the types of $f_m$. If $f$ depends smoothly on $b$ (in the
+topology of these spaces), $u$ can be chosen to.
 
 *Proof.* Near $\partial X$, $A := \rho^{-2}P_b$ is an elliptic b-operator whose normal operator is the model's (III.D
 Lemma 2.1 (3)) and so commutes with the rotations; its indicial family $N(A,\lambda)$ preserves the types, and on type
@@ -106,16 +106,16 @@ A_0,m)$, so $u_m = \bar w$.
 ## 3. The states ([Hin26] Proposition 6.18 at n = 4)
 
 **Proposition 3.1.** Assume (Dyn), and let $E_\Upsilon$ and $b$ be as in section 1. All 1-forms below are stationary,
-smooth on $\bar X$, smooth in $b$, and linear in $S\in\mathcal S_l$, $V\in\mathcal V_l$; every $\omega^{\le k}$ lies in
-$\ker\Box^\Upsilon_b$, and every symmetric gradient $\delta^*_{g_b}\omega^{\le k}$ in $\ker
-D_{g_b}\mathrm{Ric}\cap\ker\delta_{g_b,E_\Upsilon}G_{g_b}$ (section 1).
+smooth on $X$, smooth in $b$, and linear in $S\in\mathcal S_l$, $V\in\mathcal V_l$; every $\omega^{\le k}$ lies in
+$\ker\Box^\Upsilon_b$, and every symmetric gradient $\delta^*_{g_b}\omega^{\le k}$ in
+$\ker D_{g_b}\mathrm{Ric}\cap\ker\delta_{g_b,E_\Upsilon}G_{g_b}$ (section 1).
 
 (1) (*The time translation; the s0 root 0 of the linearised operator.*) Let $\bar W := |x|(-d\bar t+\beta_e\,d|x|)$,
-$\beta_e := \frac{2-e_\Upsilon}{4e_\Upsilon}$. There are $\breve\omega^{(0),1}_{b,\mathrm s0}-\bar W\in\mathcal
-A^{(1,0)\cup(1+\mathcal E_{\mathrm{ind}})}$ and $\breve\omega^{(0),k}_{b,\mathrm s0}\in\mathcal
-A^{(-k,0)\cup(-k+\mathcal E_{\mathrm{ind}})}$, $k = 2,3,4$, with scalar type 0 leading terms, such that, with
-$\omega^{(0)}_{b,\mathrm s0}$ as the zeroth term, $\omega^{(0),\le k}_{b,\mathrm s0}\in\ker\Box^\Upsilon_b$ for $k\le4$.
-The stationary tensor
+$\beta_e := \frac{2-e_\Upsilon}{4e_\Upsilon}$. There are $\breve\omega^{(0),1}_{b,\mathrm s0}-\chi_\partial\bar
+W\in\mathcal A^{(1,0)\cup(1+\mathcal E_{\mathrm{ind}})}$ and
+$\breve\omega^{(0),k}_{b,\mathrm s0}\in\mathcal A^{(-k,0)\cup(-k+\mathcal E_{\mathrm{ind}})}$, $k = 2,3,4$, with scalar
+type 0 leading terms, such that, with $\omega^{(0)}_{b,\mathrm s0}$ as the zeroth term,
+$\omega^{(0),\le k}_{b,\mathrm s0}\in\ker\Box^\Upsilon_b$ for $k\le4$. The stationary tensor
 
 $$h^{(0)}_{b,\mathrm s0} :
 = \delta^*_{g_b}\omega^{(0),\le1}_{b,\mathrm s0}\in\mathcal A^{(0,0)\cup(2,0)\cup(2+\mathcal E_{\mathrm{ind}})}
@@ -236,17 +236,19 @@ with $m = \mu+2\le2$ (no type-$\tau$ root, (R4)) gives $\omega'$ with $P_b\omega
 $\omega^{(\mu)}_b := \chi_\partial\bar\omega+\omega'$. Its symmetric gradient:
 $\widehat{\delta^*_{g_b}}(0)\omega^{(\mu)}_b =
 \widehat{\bar\delta^*}(0)\bar\omega+(\widehat{\delta^*_{g_b}}(0)-\widehat{\bar\delta^*}(0))\bar\omega+\widehat{
-\delta^*_{g_b}}(0)\omega'$,
-the last two in $\rho^{\mu+3}$; the first is $\rho^{\mu+1}N(\rho^{-1}\widehat{\bar\delta^*}(0),\mu)\bar w$, nonzero by
-(R5), as $\mu\notin\{0,-1\}$. The recursion (1.3): for $1\le k\le K$, the right side
-$-A_1\breve\omega^{k-1}-A_2\breve\omega^{k-2}$ has $\rho^{-2}$ of it with $m = \mu-k$ and leading coefficient that of
-$-\bar A_1\breve{\bar\omega}^{k-1}$, of type $\tau$, while its other terms are two orders lower: $(A_1-\bar
-A_1)\breve{\bar\omega}^{k-1}$, $\bar A_1(\breve\omega^{k-1}-\breve{\bar\omega}^{k-1})$ and $A_2\breve\omega^{k-2}$ are
-in $\rho^{\mu-k+4}$, and $(A_0-\bar A_0)$ applied to the leading term to be found is too. $\mu-k$ is no type-$\tau$ root
+\delta^*_{g_b}}(0)\omega'$, the last two in $\rho^{\mu+3}$; the first is
+$\rho^{\mu+1}N(\rho^{-1}\widehat{\bar\delta^*}(0),\mu)\bar w$, nonzero by (R5), as $\mu\notin\{0,-1\}$. The recursion
+(1.3): for $1\le k\le K$, the right side $-A_1\breve\omega^{k-1}-A_2\breve\omega^{k-2}$ has $\rho^{-2}$ of it with
+$m = \mu-k$ and leading coefficient that of $-\bar A_1\breve{\bar\omega}^{k-1}$, of type $\tau$, while its other terms
+are lower by at least $\epsilon_{\mathrm{ind}}$, which is all the identification of the leading coefficient needs
+(D231): $(A_1-\bar A_1)\breve{\bar\omega}^{k-1}$ and $A_2\breve\omega^{k-2}$ are in $\rho^{\mu-k+4}$,
+$\bar A_1(\breve\omega^{k-1}-\breve{\bar\omega}^{k-1})$ is in $\mathcal A^{\mu-k+2+\mathcal E_{\mathrm{ind}}}$ by Lemma
+2.1, and $(A_0-\bar A_0)$ applied to the leading term to be found is in $\rho^{\mu-k+4}$. $\mu-k$ is no type-$\tau$ root
 (R4), so Lemma 2.1 gives $\breve\omega^k$ with leading term the model's $\breve{\bar\omega}^k$ (computed, J5: the model
 recursion $N_0(\mu-i)\breve{\bar\omega}^i = -N_1(\mu-i+1)\breve{\bar\omega}^{i-1}$ is solvable and the assembled
-polynomial lies in $\ker\bar\Box^\Upsilon$). The corrections, two orders lower, may meet roots, and their logarithms are
-in $\mu-k+\mathcal E_{\mathrm{ind}}$. The statements about $\breve h^{(\mu),k}_b$ follow from (1.4). $\square$
+polynomial lies in $\ker\bar\Box^\Upsilon$). The corrections, lower by at least $\epsilon_{\mathrm{ind}}$, may meet
+roots, and their logarithms are in $\mu-k+\mathcal E_{\mathrm{ind}}$. The statements about $\breve h^{(\mu),k}_b$ follow
+from (1.4). $\square$
 
 *Remarks.* (a) *What is deferred.* The source also states that the leading terms $\bar h^{(0)}_{\mathrm s0}$, $\bar
 h^2_{\mathrm s1}(S)$, $\bar h^1_{\mathrm v1}(V)$ and $\widehat{\bar\delta^*}(0)\bar\omega$ span the kernels of the
@@ -273,11 +275,12 @@ of $\breve\omega^k$ two lines later uses ((1.3)).
 coefficient of $\delta^*_{g_b}\omega^{(0),\le k+1}_{b,\mathrm s0}$ is $(k+1)h^{(0)}_{b,\mathrm s0}$. Its (6.45) is
 consistent with the factor $k$ it carries. Here $h^{(0),\le k}$ is normalised by $(k+1)^{-1}$; nothing changes.
 
-(D$'''$3) *Two orders, one logarithm fewer.* Every stationary correction lies two orders below its leading term
-($\rho^{\mu+2}$ for the class states, $\rho^1$ against $\rho^{-1}$ in (1)), where the source has one; part (1) has no
-logarithm; the leading terms are the source's in form, with the five-dimensional constants $\beta_e =
-\frac{2-e_\Upsilon}{4e_\Upsilon}$ (source $\frac{2-e_\Upsilon}{3e_\Upsilon}$) and $1\pm\frac25\gamma_\Upsilon$ in (3.3)
-(source $1\pm\frac12\gamma_\Upsilon$).
+(D$'''$3) *Two orders, one logarithm fewer.* The correction to the leading term of each state lies two orders below it
+($\rho^{\mu+2}$ for the class states, $\rho^1$ against $\rho^{-1}$ in (1)), where the source has one (in the recursion
+(1.3) the higher coefficients are shown, and needed, only to $\epsilon_{\mathrm{ind}}$ below their leading terms; D231);
+part (1) has no logarithm; the leading terms are the source's in form, with the five-dimensional constants
+$\beta_e = \frac{2-e_\Upsilon}{4e_\Upsilon}$ (source $\frac{2-e_\Upsilon}{3e_\Upsilon}$) and
+$1\pm\frac25\gamma_\Upsilon$ in (3.3) (source $1\pm\frac12\gamma_\Upsilon$).
 
 (D$'''$4) *The ranges.* Parts (1)-(3) need $0<z<4$ (s0) and $0<z<\frac{20}3$ (s1); the classes need $0<z<4$, sharp at
 the s0 class ($\mu_{\mathrm s0}+2$ meets 0 at $z = 4$); all hold for $z\le\frac12$. $z>0$ is needed: at $z = 0$, $-2$ is

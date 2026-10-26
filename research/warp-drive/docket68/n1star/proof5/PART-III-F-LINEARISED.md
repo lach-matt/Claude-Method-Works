@@ -159,11 +159,12 @@ Gram matrix $CJ$ and $\nabla_{H_G}e_0 = 0$, $\nabla_{H_G}e_1 = -2\sigma e_0$, $\
 plane $V_\perp$ of angular covectors orthogonal to them, $g$-positive, $\nabla_{H_G}$-invariant and $g$-skew there
 (III.D Lemma 5.2's proof). Normalise $e_0,e_1,e_2$ by $C^{1/2}$ (stationary, homogeneous of degree 0; $H_GC = 0$ keeps
 the connection matrix) and let $e_3,e_4$ be a local $g$-orthonormal frame of $V_\perp$, so
-$\nabla_{H_G}e_a = \kappa R(e_a)$, $a = 3,4$, with $R$ the rotation $e_3\mapsto e_4\mapsto-e_3$ and $\kappa$ a function.
-Write $c_C = \sum_\mu c_\mu e_\mu$; as $c_C$ is past timelike (III.E Theorem 1.1) and $e_0$ future null on the future
-characteristic set, $c_2 = -g^{-1}(c_C,e_0)<0$, and $\gamma := C^{1/2}\gamma_C/\sigma>0$ ($\sigma>0$ on $\Gamma_{b_0}$,
-which lies in the future characteristic set over $\{|x|>r_h\}$). With $g^{-1}e_0 = -E_2$ ($E_\mu$ the dual frame),
-$\sigma_1(i\delta)(\zeta) = -C^{1/2}\iota_{E_2}$, and (4.1) reads
+$\nabla_{H_G}e_a = \sigma\kappa R(e_a)$, $a = 3,4$, with $R$ the rotation $e_3\mapsto e_4\mapsto-e_3$ and $\kappa$ a
+function homogeneous of degree 0 (D231). Write $c_C = \sum_\mu c_\mu e_\mu$; as $c_C$ is past timelike (III.E Theorem
+1.1) and $e_0$ future null on the future characteristic set, $c_2 = -g^{-1}(c_C,e_0)<0$, and
+$\gamma := C^{1/2}\gamma_C/\sigma>0$ ($\sigma>0$ on $\Gamma_{b_0}$, which lies in the future characteristic set over
+$\{|x|>r_h\}$). With $g^{-1}e_0 = -E_2$ ($E_\mu$ the dual frame), $\sigma_1(i\delta)(\zeta) = -C^{1/2}\iota_{E_2}$, and
+(4.1) reads
 $$iS_{\mathrm{sub}}(2L_{b_0}) = H_G+\sigma(A+\kappa R),\tag{4.2}$$
 on components in the frame, where $A = 2N+2\gamma\,E^C_{(c)}(-\iota_{E_2})G$ ($N$ the Leibniz extension of
 $e_1\mapsto-e_0$, $e_2\mapsto-e_1$, $e_0,e_3,e_4\mapsto0$, $E^C_{(c)}$ the map of (6.2) of III.B with $c_C$ in place,

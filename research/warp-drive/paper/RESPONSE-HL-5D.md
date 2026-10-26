@@ -1082,10 +1082,10 @@ estimates — and are not evaluated; that is not a separate gap. A line-by-line 
 deductions written out, would make Theorem 4 a theorem. That write-out has begun: the proof written in full at n = 4,
 self-contained, part by part. Its first three parts -- Hintz's spectral theory at bounded nonzero, at high and at low
 frequencies, on bundles and uniformly in the operator -- are written, read line by line, their repairs read again, and
-proved (the second has since gained one lemma, at the trapped set, which a reader of the nineteenth asked for and the
-next reader confirmed, two smaller findings on it seated). So are the fourth, the setup of his spacetime analysis, and
-the fifth, which proves the two standard estimates that the fourth takes as inputs; one finding of the fourth corrects
-the hypothesis of his real principal type estimate on the variable order, which as printed admits a counterexample. The
+proved (the second has since gained one lemma, at the trapped set, which a reader of the nineteenth asked for; it has
+been read, and its smaller repairs read again). So are the fourth, the setup of his spacetime analysis, and the fifth,
+which proves the two standard estimates that the fourth takes as inputs; one finding of the fourth corrects the
+hypothesis of his real principal type estimate on the variable order, which as printed admits a counterexample. The
 sixth, the dynamics of light rays in the stationary model, the seventh, the classes of operators, the time function and
 the order functions of his spacetime analysis, and the eighth, the trapped sets of the perturbed metrics, proved here
 without the theorem on normally hyperbolic trapping that he cites, have been read line by line and their findings seated
@@ -1110,21 +1110,29 @@ line and its findings seated. The eighteenth, the b-analysis and Fourier transfo
 that paper's asymptotic analysis rests, and the nineteenth, the wave operator on the gauge potential near the
 five-dimensional black hole -- its structure near infinity, its model, its indicial roots, its threshold and trapped
 set, and its mode stability away from zero frequency, proved there by ordinary differential equations -- have been read
-line by line, their findings seated and their repairs read again, which proves the nineteenth; the second reading of the
-eighteenth found one gap more, in the order of regularity of one lemma, now closed. In the eighteenth, one step of his
-proof gives more logarithmic terms than he states, and the stated set is proved here another way; in the nineteenth, the
-inner product at the trapped set depends on the direction of the ray, which the second part now allows by the
-conjugation he uses, written out. The twentieth, the same operator at zero frequency: its kernel and cokernel on the
-black hole, the modification at the horizon that removes them, and mode stability at every frequency, and the
+line by line, their findings seated and their repairs read again, which proves both; the second reading of the
+eighteenth found one gap more, in the order of regularity of one lemma, closed and read again. In the eighteenth, one
+step of his proof gives more logarithmic terms than he states, and the stated set is proved here another way; in the
+nineteenth, the inner product at the trapped set depends on the direction of the ray, which the second part now allows
+by the conjugation he uses, written out. The twentieth, the same operator at zero frequency: its kernel and cokernel on
+the black hole, the modification at the horizon that removes them, and mode stability at every frequency, and the
 twenty-first, the stationary gauge potentials that begin as the translations, boosts and rotations of Minkowski space,
-have been read line by line and their findings seated. The twenty-second, the gauge potentials polynomial in time that
-carry them, and the remaining roots, to higher order, is written, and so is the twenty-third, the constraint propagation
-operator of his gauge at zero frequency and the stationary dual states built from the symmetries of Minkowski space,
-eleven in five dimensions against his seven, and so is the twenty-fourth, the dual states of the rotations, whose
-leading term depends on a rotation only through its bracket with the spin -- in five dimensions an exact identity of the
-black hole family, and so is the twenty-fifth, the linearised gauge-fixed Einstein operator near infinity and at the
-trapped set, where in five dimensions the plane of directions orthogonal to the trapped rays turns along them. Theorem 4
-stays deduced until the last part is proved.
+have been read line by line, their findings seated and their repairs read again, which proves them. The twenty-second,
+the gauge potentials polynomial in time that carry them, and the remaining roots, to higher order, the twenty-third, the
+constraint propagation operator of his gauge at zero frequency and the stationary dual states built from the symmetries
+of Minkowski space, eleven in five dimensions against his seven, the twenty-fourth, the dual states of the rotations,
+whose leading term depends on a rotation only through its bracket with the spin -- in five dimensions an exact identity
+of the black hole family, and the twenty-fifth, the linearised gauge-fixed Einstein operator near infinity and at the
+trapped set, where in five dimensions the plane of directions orthogonal to the trapped rays turns along them, have been
+read line by line and their findings seated; the twenty-fourth had none to repair, which proves it. The twenty-sixth,
+the indicial roots of that operator and its invertibility where low frequencies meet spatial infinity, is written; there
+the source's claim that all those roots are simple is shown to rest on properties of the constraint damping operator,
+which the part on that operator must now supply. The twenty-seventh, the mode stability of the same
+operator away from zero frequency, is written: at the black hole itself it is proved here, frequency by frequency and
+harmonic by harmonic, from the master equations of Kodama and Ishibashi, where his proof cites a theorem on the
+four-dimensional rotating black hole that has no five-dimensional counterpart; near it, it is proved for frequencies
+bounded away from zero, and small frequencies away from the black hole itself are left to the parts on low frequencies.
+Theorem 4 stays deduced until the last part is proved.
 
 ---
 

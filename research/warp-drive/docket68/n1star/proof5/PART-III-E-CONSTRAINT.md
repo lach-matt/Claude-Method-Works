@@ -46,7 +46,14 @@ $P^C_b:\{\omega\in\bar H^{s,\alpha}_{\mathrm b}:P^C_b\omega\in\bar H^{s-1,\alpha
 H^{s-1,\alpha+2}_{\mathrm b}$ is invertible, with the Euclidean density (I.C (3.1)).
 
 (3) (*Indicial roots.*) The indicial roots of $P^C_b$ satisfy $\mathrm{Re}\,\lambda\ge2$ or $\mathrm{Re}\,\lambda<-C_0$;
-the only root with real part 2 is $\lambda = 2$, a simple root of scalar type 0 and of scalar type 1.
+the only root with real part 2 is $\lambda = 2$, a simple root of scalar type 0 and of scalar type 1. At each type and
+degree as many roots, with multiplicity, have real part $\ge2$ as have real part $<-C_0$: two each at scalar type 0,
+three each at scalar type $l\ge1$, one each at vector type $l\ge1$. The roots are simple; at scalar type $l$ none lies
+in $\{1-l,3-l,l+3,l+5\}\setminus\{2\}$, at vector type $l\ge2$ none in $\{1-l,2-l,l+3,l+4\}$; and a root whose real part
+is an integer in $[3,51]$ is real. (The count and the last three clauses are added in D231: Part III.F$'$ uses them as
+(C1)-(C4). The ninety-fifth verifier checked the count at the record's parameter point for $l\le2$, and noted there that
+the finite scalar roots lie within $10^{-4}$ above 2 and fall below it when $1/\gamma_C>e_C$ (`damping5.py` U6):
+"sufficiently large $\gamma_C$" means $\gamma_C\gtrsim1/e_C$.)
 
 (4) (*tf-admissibility.*) $\Box^C_b$ is tf-admissible (I.C Definition 5.1) with every weight in $[-C_0,2)$.
 
@@ -96,18 +103,23 @@ is one of the adjoint. The rest is Theorem 1.1 (3). (*Computed:* `dual5.py` A1 c
 N(2-\lambda)$ type by type for s0, sl ($l\le3$), vl ($l\le3$), and the four-dimensional $1-\bar\lambda$ as a control.)
 $\square$
 
-Two consequences used below. (a) For $f\in\dot H^{s-1,\alpha+2}_{\mathrm b}$ with $f$ polyhomogeneous near $\partial X$
-with index set $\mathcal F$, $\min\mathrm{Re}\,\mathcal F>2$, the solution $u = ((P^C_b)^*)^{-1}f$ with $\alpha = C_0+2$
+Two consequences used below. (a) Let $f$ be polyhomogeneous near $\partial X$ with index set $\mathcal F$,
+$\min\mathrm{Re}\,\mathcal F>2$, and $f\in\dot H^{s-1,\alpha+2}_{\mathrm b}$ for
+$\alpha\in(0,\min\mathrm{Re}\,\mathcal F-2)$. Then the solution $u = ((P^C_b)^*)^{-1}f$ given by (1) at such an $\alpha$
 lies in $\dot H^{s,(\mathcal E,C_0+2)}_{\mathrm b}$ (partial polyhomogeneity, III.A Definition 2.8), where $\mathcal E$
-is the index set of III.A Lemma 1.5 for $\rho^{-2}f$: solve $\rho^{-2}f$ away near $\partial X$ to order
+is the index set of III.A Lemma 1.5 for $\rho^{-2}f$. Indeed, solve $\rho^{-2}f$ away near $\partial X$ to order
 $\rho^{C_0+4+\epsilon}$ by Lemma 1.5 for the elliptic b-operator $\rho^{-2}(P^C_b)^*$ (on the bundle), and the
-remainder, compactly supported away from $\partial X$ modulo $\dot H^{s-1,C_0+4}_{\mathrm b}$, by (1). Since the adjoint
-has no root with real part in $(0,C_0+2]$, the exponents of $\mathcal E$ below $C_0+2$ are those of $\mathcal F$ less 2
-plus $\mathbb N_0$, without logarithms. (b) *Vanishing inside the horizon.* On $\{r_0<|x|<r_h\}$ the Killing field
-$\partial_{t_*}$ is spacelike, so the quotient metric is Lorentzian with $|x|$ timelike, and on stationary sections
-$(P^C_b)^*$ is a wave operator in the time $-|x|$ there; an element of its kernel, or a solution with a source supported
-in $\{|x|>r_h\}$, that lies in a $\dot H$ space vanishes near $\{|x| = r_0\}$, and so on $\{r_0<|x|<r_h\}$ by uniqueness
-for the Cauchy problem on the spacelike hypersurfaces $\{|x| = c\}$, $c<r_h$.
+remainder, compactly supported away from $\partial X$ modulo $\dot H^{s-1,C_0+4}_{\mathrm b}$, by (1) at the weight
+$C_0+2$; the sum lies in $\dot H^{s,\alpha}_{\mathrm b}$ for the $\alpha$ above (the exponents of $\mathcal E$ below
+$C_0+2$ exceed $\alpha$, by the next sentence) and solves the equation, so it is $u$, (1) being injective at that
+$\alpha$ (D231, the ninety-fifth verifier's M2). Since the adjoint has no root with real part in $(0,C_0+2]$, the
+exponents of $\mathcal E$ below $C_0+2$ are those of $\mathcal F$ less 2 plus $\mathbb N_0$, without logarithms. (b)
+*Vanishing inside the horizon.* On $\{r_0<|x|<r_h\}$ the Killing field $\partial_{t_*}$ is spacelike, so the quotient
+metric is Lorentzian with $|x|$ timelike, and on stationary sections $(P^C_b)^*$ is a wave operator in the time $-|x|$
+there; an element of its kernel, or a solution with a source supported in $\{|x|>r_h\}$, that lies in a $\dot H$ space
+vanishes, extended by zero, on $\{|x|<r_0\}$ (the supported character), and so on $\{r_0<|x|<r_h\}$ by uniqueness for
+the Cauchy problem on the spacelike hypersurfaces $\{|x| = c\}$, $c<r_h$, run from $\{|x|<r_0\}$ across $\{|x| = r_0\}$,
+where the operator is still hyperbolic in $|x|$ (D231).
 
 ## 3. The dual states ([Hin26] Proposition 7.3 at n = 4)
 
@@ -151,12 +163,12 @@ C_c^\infty+\rho\,\mathrm{Diff}^1_{\mathrm b}\dot H^{1,C_0+2}_{\mathrm b}\subset\
 s1}+\chi(\widehat{\delta^*_{g_b}}(0)-\widehat{\bar\delta^*}(0))\bar\omega_{\mathrm s1}\in C_c^\infty+\rho^3C^\infty$
 (III.D$''$ (2.1); $\bar\delta^*\bar\omega_{\mathrm s1} = 0$), and $(\delta^*_{g_b,E_C})^*G_{g_b}$ lies in
 $\rho\,\mathrm{Diff}^1_{\mathrm b}$ near $\partial X$ (the adjoint of $\delta^*_{g_b}$ is $\delta_{g_b}$, and $(E^C)^*$
-has coefficients in $\rho C^\infty$), so $f_b := (\Box^C_b)^*(\chi\bar\omega_{\mathrm s1})\in
-C_c^\infty+\rho^4C^\infty$. (*Computed:* on Tangherlini $(\Box^C)^*dx$ vanishes to order $\rho^3$ with a nonzero
-$\rho^4$ term, `dual5.py` A2.) By consequence (a) of Lemma 2.1, with $\mathcal F = (4,0)$: $\omega'_b :=
--((P^C_b)^*)^{-1}f_b\in\dot H^{1,((2,0),C_0+2)}_{\mathrm b}$, the coefficient of $\rho^2$ being
-$N(\rho^{-2}(P^C_b)^*,2)^{-1}$ of that of $\rho^{-2}f_b$ (2 is no root of the adjoint). Put $\omega^{*(0)}_{b,\mathrm
-s1}(S) := \chi\bar\omega_{\mathrm s1}(S)+\omega'_b$. Then $h^*_{b,\mathrm s1}(S) =
+has coefficients in $\rho C^\infty$), so
+$f_b := (\Box^C_b)^*(\chi\bar\omega_{\mathrm s1})\in C_c^\infty+\rho^4C^\infty$. (*Computed:* on Tangherlini
+$(\Box^C)^*dx$ vanishes to order $\rho^3$ with a nonzero $\rho^4$ term, `dual5.py` A2.) By consequence (a) of Lemma 2.1,
+with $\mathcal F = (4,0)$: $\omega'_b := -((P^C_b)^*)^{-1}f_b\in\dot H^{1,((2,0),C_0+2)}_{\mathrm b}$, the coefficient
+of $\rho^2$ being $-N(\rho^{-2}(P^C_b)^*,2)^{-1}$ of that of $\rho^{-2}f_b$ (2 is no root of the adjoint). Put
+$\omega^{*(0)}_{b,\mathrm s1}(S) := \chi\bar\omega_{\mathrm s1}(S)+\omega'_b$. Then $h^*_{b,\mathrm s1}(S) =
 G_{g_b}(d\chi\otimes_s\bar\omega_{\mathrm
 s1}+\chi(\widehat{\delta^*_{g_b}}(0)-\widehat{\bar\delta^*}(0))\bar\omega_{\mathrm
 s1}+\widehat{\delta^*_{g_b}}(0)\omega'_b)\in C_c^\infty+\rho^3C^\infty+\dot H^{0,((3,0),C_0+3)}_{\mathrm b}$.
@@ -178,14 +190,17 @@ $\alpha\in(0,1)$ it vanishes. So $\omega^{*(-1)}_{b,\mathrm v1}(V)-\chi K = \ome
 $h^*_{b,\mathrm v1}(V) = G_{g_b}(d\chi\otimes_sK+\widehat{\delta^*_{g_b}}(0)\omega'')\in\dot H^{0,C_0+3}_{\mathrm b}$.
 
 *Regularity in b.* For a smooth curve $b(\tau)$ with $b(0) = b$, the formal derivative $\dot\omega'$ of
-$\omega'_{b(\tau)}$ solves $(P^C_b)^*\dot\omega' = -(\partial_\tau(P^C_{b(\tau)})^*)\omega'_b-\partial_\tau
-f_{b(\tau)}$. $\partial_\tau(P^C_{b(\tau)})^*$ is a second-order b-operator with coefficients in $\rho^4C^\infty$ near
-$\partial X$ (the mass and rotation enter at $\rho^2$ and $\rho^3$, counted as in III.D$''$ Lemma 2.1), so the first
-term lies in $\dot H^{-1,C_0+6}_{\mathrm b}$, and $\partial_\tau f$ lies in $C_c^\infty+\rho^4C^\infty$; Lemma 2.1 (1)
-with $s = 0$ bounds $\dot\omega'$ in $\dot H^{0,C_0+2}_{\mathrm b}$, with the loss of one derivative, and difference
-quotients converge to it as in III.D$''$ Lemma 2.2. Iterating gives $C^k$ into $\dot H^{1-k,C_0+2}_{\mathrm b}$; the
-expansion terms, from III.A Lemma 1.5, depend smoothly on $b$. The statements for $h^*$ follow. *Vanishing inside the
-horizon* is section 2, (b), as $(P^C_b)^*\omega = 0$ there. $\square$
+$\omega'_{b(\tau)}$ solves
+$(P^C_b)^*\dot\omega' = -(\partial_\tau(P^C_{b(\tau)})^*)\omega'_b-\partial_\tau f_{b(\tau)}$.
+$\partial_\tau(P^C_{b(\tau)})^*$ is a second-order b-operator with coefficients in $\rho^4C^\infty$ near $\partial X$
+(the mass and rotation enter at $\rho^2$ and $\rho^3$, counted as in III.D$''$ Lemma 2.1), so the first term lies in
+$\rho^6C^\infty+\dot H^{-1,C_0+6}_{\mathrm b}$ (as $\omega'_b\in\dot H^{1,((2,0),C_0+2)}_{\mathrm b}$; its
+$\rho^6C^\infty$ part is carried, like that of $\partial_\tau f$, by the expansion terms of the last sentence), and
+$\partial_\tau f$ lies in $C_c^\infty+\rho^4C^\infty$; Lemma 2.1 (1) with $s = 0$ bounds $\dot\omega'$ in
+$\dot H^{0,C_0+2}_{\mathrm b}$, with the loss of one derivative, and difference quotients converge to it as in III.D$''$
+Lemma 2.2. Iterating gives $C^k$ into $\dot H^{1-k,C_0+2}_{\mathrm b}$; the expansion terms, from III.A Lemma 1.5,
+depend smoothly on $b$. The statements for $h^*$ follow. *Vanishing inside the horizon* is section 2, (b), as
+$(P^C_b)^*\omega = 0$ there. $\square$
 
 *Remarks.* (a) *Counting.* At $A = 0$ the dual states are one for the time translation, four for the translations and
 six for the rotations: eleven, against the source's seven ($1+3+3$). The time translation's and the six rotations' $h^*$
