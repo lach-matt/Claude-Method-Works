@@ -3739,3 +3739,144 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   argument for v1; (H3) from that of III.I'''''''''; the non-vanishing at a rotating b is a remark; the eps-stability
   wording; 4.204 rejoined.
 - Next: verifier 122 on III.J, III.J' and the D284 repairs.
+
+### 4.209 Verifier 122 seated (D285): III.J and III.J' verified
+
+- Verifier 122 read III.J, III.J' and the D284 repairs to III.I'''''''''''''': 1 major, 3 minor, 10 nits. The D284
+  repairs close verifier 121's M1, m1 and m2; page citations and format check out.
+- M1: III.J Theorem 2.4's (2.5) at a rotating b. A v1 coefficient of q at an exponent of real part 2 (2 is in Lambda)
+  has K+-order 2 through the rotation state h_{b,v1}, so its square in P_5 has K+-order 4 < alpha. Repaired by carrying
+  these terms by rotation rows too: N_rot is indexed by M_rot := M + (E_sharp at real part 2) = E_sharp at real part <=
+  2, whose rate at b_0 is Re lambda + 1 <= 3, so they are new rows at no level; E^alpha_v1 := E_sharp at real part > 2,
+  hence > 2 + eps_K by (G), and h_{b,rem}(q) has K+-order (alpha - 2)- at every b near b_0. III.I'''''''''''''' Step 4'
+  now separates the coefficients at M_rot modulo O(t^{-3-delta'}), delta' = min(eps_K, alpha - 4)/2.
+- m1: (i) of Step lambda_0 claimed the rows up to rate 2 + eps_+; (G) clears only up to 2 + eps_K. m2: L_b, not
+  L_{b_0}, acts on the towers in the K+-order of f. m3: III.J' Case A now states that the coefficients of q' and of D_U
+  Phi have rate < alpha, so each carries a formal solution visible below ell_K.
+- Nits n1-n10 seated (the s1 and v1 rates against the K+-order of the formal solution; Corollary 3.1 applied to 2f; the
+  pole bound of III.G''' Proposition 2.4; the choices re-made after eps_+ decreases; the source's V_{1,rem} absent at n
+  = 4; ell_K^max = 3 under (C5); the exponent claim of Lemma 2.1; real parts at real lambda_0; and in
+  III.I'''''''''''''' the unknown parameter in the original P, and 'need not vanish' in finding 5).
+- Next: verifier 123 on the D285 repairs; III.J'' (the tame estimates, (J'2)) is being written.
+
+### 4.210 Part III.J'' written (D286): tame estimates
+
+- III.J'' (PART-III-J3-TAME.md) discharges (J'2) at b_0, the tame estimates that [Hin26] asserts in Remark 11.13 and
+  states for Corollary 11.66 and Theorem 12.8 without proof.
+- Section 1: tame families (C_k(||e||_{k+d} + ||beta||_{k+d} ||e||_d)), closed under sums, composition (losses add),
+  finite rank, fixed maps and a fixed number of compositions.
+- Lemma 2.1, the elementary families: (a) the forward solutions, by III.I Theorem 5.3 with the background h + h_tot(p)
+  + h_rem(q); (b) the background coefficients, by II.A Corollary 9.7 and Lemma 9.5 and II.G Lemma 4.1; (c)
+  finite-dimensional inverses and coefficient functionals; (d)-(g) the model inverses at every finite order with a loss
+  independent of the order, nine of them stated at order infinity and proved at finite order by their own proofs
+  (III.G' Theorem 3.1 (2) at iota+, III.F' Corollary 3.4 at tf).
+- Found: II.G' Corollary 4.5 (high frequencies) loses ceil(k delta) + ell. The loss is bounded in k only through strong
+  trapping admissibility, which is proved at b_0 (III.F Proposition 4.1); near b_0 it holds on a neighbourhood
+  shrinking with k (III.H' (H'3)), so the tame form at b != b_0 joins (J'3). The order-dependent choices (that cut-off,
+  the radius c_k of III.H Corollary 4.2) cost constants only (Remark 2.2).
+- Section 3 inventories every construction of III.I-III.I(14) and III.J' by these families, each loop of a length fixed
+  by weights and orders. Theorem 4.1 is the tame form of III.I(14) Theorem 3.1 (the source's Corollary 11.66 estimate),
+  Theorem 4.2 that of III.J' Theorem 2.1 (Theorem 12.8), and Proposition 4.3 the tame forward map U -> P_5(Phi(U))
+  (section 13.1, Step 3 (2)).
+- Open for [Hin26] section 13 at n = 4: (J'3), the linear theory and its tame form at b != b_0; III.C' and the exterior
+  family h_{-S}; smoothing operators on the spaces of III.J Definition 1.1 (II.G Proposition 3.1).
+- Next: verifier 124 on III.J'' once verifier 123 (the D285 repairs) is seated.
+
+### 4.211 Verifier 123 seated (D287): III.I'''''''''''''', III.J and III.J' proved
+
+- Verifier 123 read the D285 repairs to III.I'''''''''''''', III.J and III.J': 0 major, 0 minor, 7 nits. The rotation
+  rows of real part 2 (M_rot), the rate bound by (G), Step 4''s separation modulo O(t^{-3-delta'}), the K+-order of
+  (2.5) at a rotating b and III.J' Case A all check out. III.I'''''''''''''', III.J and III.J' are proved.
+- Nits seated: (J4) of III.J now says real part at most 2; the v1 carrier's rate at a rotating b; the s1 formal
+  solution's order Re lambda_0 + 1 <= 4 in III.J' Case A; lambda_sharp + 2 > 3 + delta' and the rate bound from
+  III.I'''''''''''' Theorem 3.1 in Step 4'; Lemma 2.3 cited for M_rot; Re z in finding 5; two parentheticals merged.
+- Next: verifier 124 on III.J'' (D286); III.C' ([Hin26] sections 5.4-5.5 at n = 4) is being written.
+
+### 4.212 Part III.C' written (D288): the exterior solution and its partial polyhomogeneity
+
+- III.C' (PART-III-C2-POLYHOM.md) writes [Hin26] sections 5.4-5.5 at n = 4.
+- Lemma 1.1 (the source's Lemma 5.16): the exterior domain with the weights 3/2 < l_I^flat < min(l_0^flat, 3/2 + (1 -
+  e_Ups) gam_Ups, 2), shifted by 1/2 at null infinity. The null boundary is spacelike for g_{b_0} + h: only delta_00,
+  of pi_C type, competes with r^{-l}, and the n = 4 mass sits in the 11-slot at rho_0^2 rho_I^2.
+- Theorem 2.1 (the source's Theorem 5.17 with (5.52)-(5.53)) is stated as the output of Part IV ([Hin23a] section 3 at
+  n = 4); finding (C'1).
+- Theorem 3.1 (the source's Theorem 5.21) at n = 4, with min Re E_0 > 3/2 + 2 gam_Ups. Step 1 commutes with prod(X_0 -
+  z): index sets are closed under +N_0, and R annihilates the expansion terms up to alpha_1, so the commutator costs
+  nothing. Step 2 integrates slot by slot through the constant lower-triangular A-bar (III.C Lemma 4.2), half a step at
+  a time, enlarging E^C_I by the extended union with E_0 that the corner integration makes (the source's E^{C,new}_I).
+- Settled: III.C's (C7). At n = 4 the radiation fields enter only the error (III.C (C1)), so the source's subtraction
+  g_0 = g_{b_0} + h_0 and its source term P(g_0, g_{b_0}) are not needed.
+- Next: verifier 125 on III.C' after verifier 124 (III.J''); then III.C'' ([Hin26] sections 5.6-5.7), Part IV ([Hin23a]
+  section 3 and [Hin26a] at n = 4), (J'3), and [Hin26] section 13.
+
+### 4.213 Part III.C'' written (D289): boosts and gauged Cauchy data
+
+- III.C'' (PART-III-C3-BOOSTDATA.md) writes [Hin26] sections 5.6-5.7 at n = 4.
+- Lemma 1.1: the pullback of g_{b_0} by a boost lies in the class G of III.C on Omega_ext,r1. With the past slab of
+  III.C' Lemma 1.1 at slope 1/12 (zeta = dt_* + (13/12) dr, timelike for eta), Omega_ext stays in {chi_IVP = 1}.
+  Settled: III.C's (C4).
+- Section 2: the cut-off gauge Upsilon^{chi_0 E_Ups} (2.1) and its naturality under boosts (2.2); Lemma 2.1, the
+  structure of III.C at null infinity holds in that gauge.
+- Theorem 3.1 (the source's Theorem 5.23) (1)-(3): the exterior solution pulled back by boosts, by uniqueness and
+  finite speed of propagation. Remark 3.2.
+- Proposition 4.1 (the source's Proposition 5.25): gauged Cauchy data from the frame e_0, ..., e_4. Proposition 4.2:
+  Boyer-Lindquist data at n = 4 carry no E_log, since t - t_BL = -mu r^{-1} + O(r^{-2}). Remark 4.3 (the source's
+  Example 5.27).
+- Findings: (C''1) a misprint in the source, {chi_0 = 1} for {chi_0 = 0} and [-1/8, -1/8] for [-1/8, 1/8]; (C''2) Part
+  IV must deliver III.C' Theorem 2.1 in the cut-off gauge; (C''3) C4 settled; (C''4) no logarithms at n = 4.
+- Next: verifier 125 on III.C' and III.C''; seat verifier 124 on III.J''.
+
+### 4.214 Verifier 124 seated on III.J'' (D290): fixed losses, one norm, (J''4) found
+
+- Verifier 124 on III.J'' (PART-III-J3-TAME.md): 2 major, 6 minor, 7 nits, seated.
+- M1: the spaces of III.I(14) and III.J carry orders read 'w-', intersections over a loss, so their order-k spaces are
+  Frechet. Section 1 now takes each at a fixed loss eps (Banach); a statement maps the input at a loss eps' <= eps
+  (closed graph theorem) to the output at eps, and Theorems 4.1-4.2 and Proposition 4.3 are stated so. Found (J''4):
+  Proposition 4.3 maps D_eps to F_eps and gains nothing in the weights, so II.G Theorem 2.1 needs eps' = eps, an
+  inverse without loss in the weights. The source states exactly that (Theorem 12.8, p. 312: f at (4+eps_I, 5+eps_+,
+  4+eps_K), h' at (3+eps_I, 3+eps_+, 4+eps_K)). Open; the route proposed is an improvement to exact weights after the
+  fact, face by face (N_{iota+} on a line free of its spectrum with the gap of (G+); III.A Lemma 1.2 at I+; the
+  low-energy estimates at K+).
+- M2: Lemma 2.3 names the one norm: every 'small' of III.I-III.I(14) is smallness of ||h||_{X^{d_*}} + |S| + |p| +
+  ||q||_{Q^{d_*}} (III.I Theorem 5.3, II.F' Theorem 1.1, III.I(4) Lemma 4.2 (b), III.I(7)'s and III.I(8)'s convention,
+  III.I(14)'s seminorm for q); the d_k of III.J' Theorem 2.1 are not needed ((J''5)).
+- Minors: (f) now derives (k+1) delta_Gamma <= 1 from I.B (1.4) and III.F Proposition 4.1, with ell depending only on
+  orders and weights (m1); the inventory rows completed and relabelled (m2); III.I' Proposition 2.1 and III.A Lemma 3.2
+  as regularity statements, Lemma 1.2 (f) (m3, n7); Case B and the conormal components of q' routed (m4); Lemma 2.4,
+  tame products in partially polyhomogeneous spaces, and Proposition 4.3's use of the cancellation (m5); Remark 4.4
+  lists II.G's support conditions (m6). Nits n1-n7 seated.
+- Next: verifier 126 reads the D290 repairs together with D291 (verifier 125 on III.C', III.C''); then the exact-weight
+  part for (J''4).
+
+### 4.215 Verifier 125 seated on III.C' and III.C'' (D291): the boost theorem under the constraints
+
+- Verifier 125 on III.C' (PART-III-C2-POLYHOM.md) and III.C'' (PART-III-C3-BOOSTDATA.md): 1 major, 8 minor, 17 nits,
+  seated. Checked correct: the slope 1/12 and -143/144, Omega_ext inside {chi_IVP = 1}, the future boundary, (C7)
+  settled, (C4), the frame algebra of Proposition 4.1, all pages.
+- M1: III.C'' Theorem 3.1 (1) pulled back the whole gauge-fixed operator as if natural; E_C is built from the fixed
+  1-form c_C of III.B (6.2), which a boost does not preserve. (1) is now stated under the constraints and proved by
+  III.C' Remark 2.2 (1): both terms of the operator vanish near Sigma_IVP, where chi_0 = 0. The source has the same
+  gap: finding (C''5).
+- Minors: Step 1's commutator now uses that R commutes with the leading part, so [A, R] carries rho_I^2 and the
+  radiation field of slot 6 is annihilated (m1); beta := min(alpha_I + eta, l_I) in the last round (m2); t_IVP r^{-1}
+  h_1 in Remark 2.2 (1), the source's Remark 5.18 misprint, (C'5) (m3); a corrupted formula restored (m4); t - t_BL =
+  +mu/r for III.B's time, with the citations corrected (m5); r_1 := 2r_0 so the boost's size is independent of r_0,
+  (C''6) (m6); the cancellation from P(g_0, g_0) = 0 in Theorem 3.1 (2) (m7); (3) through (1)'s proof (m8). Nits n1-n17
+  seated.
+- Next: verifier 126 reads the D290 and D291 repairs; then the exact-weight part for (J''4).
+
+### 4.216 Verifier 126 seated (D292): III.C' and III.C'' proved; III.J'' minors
+
+- Verifier 126 read the D290 repairs (III.J'') and the D291 repairs (III.C', III.C''): every finding of verifiers 124
+  and 125 resolved; (J''4) stated accurately and open; new: 0 major, 3 minor, 8 nits, seated. III.C' and III.C'' are
+  proved; III.J'' stays verified, its three minor repairs to be read.
+- m1: the closed graph theorem gives eps'(eps, k); section 1 now says so, lists the rows whose margins were read and
+  are independent of k, and puts the rest into (J''4), where eps' = eps makes it moot.
+- m2: Lemma 2.3 now names the remaining continuity inputs of III.I(14) Steps 3 and 4' and their topologies; the three
+  lemmas that state (h_j, p_j) -> (0, 0) without a topology need it only in one fixed seminorm, since the coefficient
+  functional they converge through is bounded by one (Lemma 2.1 (c)).
+- m3: before the K+ step of (J''4), each minus at K+ is to be classified as a margin or a logarithm at the weight.
+- Nits: d_0 := d_* + D; Theta may depend on the point; Ric(g_0) = 0 in the cancellation of III.C'' (two places); Remark
+  2.2 (2) and the cut-off gauge cited in III.C'' Theorem 3.1 (3); README aligned with J3's qualifiers; 'for one eps' in
+  (J''4); the K+ classification recorded in (J''4).
+- Next: Part III.J''' (exact weights), from the five-reader survey of where the losses enter (d292).

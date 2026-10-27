@@ -5679,3 +5679,63 @@ rotation coordinates stay free until the expansion fixes them. The rotation-row 
 the earlier theorems are applied with the original parameters, where their uniqueness holds. The rotation rows are made
 a separate index set, the coefficients of the expansion are shown to be determined by the solution through dual
 functionals, and six nits are seated. Next: verifier 122 on Parts III.J and III.J' and these repairs.
+
+**D285 (2026-10-26): verifier 122 seated; III.J and III.J' verified.** Verifier 122 read the two parts of the efficient
+parameterisation and the repairs of D284, and found the repairs sound. Its one major finding: at a rotating black hole,
+a slowly decaying rotation term of the expansion, at the exponent 2, would leave the square of itself in the operator
+with too little decay at the horizon. Such terms are now carried by the rotation rows as well, which never enter the
+metric near the horizon, so every coefficient left in the expansion decays fast enough at every nearby black hole. Three
+minor points and ten nits are seated. Next: verifier 123 on these repairs, while the tame estimates are written.
+
+**D286 (2026-10-26): Part III.J'' written: tame estimates.** The source asserts that the tame form of its first linear
+estimate propagates through all of its section 11, and states the tame estimate of the linearised solution maps without
+proof. Here it is proved at the reference black hole: a calculus of tame families, the elementary maps (forward
+solutions, coefficients of the background, model inverses at every finite order with a fixed loss) and an inventory of
+every construction. One model map, the high-frequency part, loses derivatives in proportion to the order unless the
+trapping is strongly admissible; that is proved at the reference black hole only, so the tame form near it joins the
+open linear theory at other black holes. Next: verifier 124 on this part.
+
+**D287 (2026-10-26): verifier 123 seated; III.I'''''''''''''', III.J and III.J' proved.** Verifier 123 read the repairs
+of D285 (the rotation rows extended to the exponents of real part 2, and the minor points of verifier 122) and found
+nothing of weight: seven nits, all seated. The absorption of the expansion into the operator and both halves of the
+efficient parameterisation are now proved at the reference black hole. Next: verifier 124 on the tame estimates.
+
+**D288 (2026-10-26): Part III.C' written: the exterior solution and its partial polyhomogeneity.** The source's sections
+5.4-5.5 at n = 4. The exterior domain is shown spacelike with the weights at null infinity shifted by one half. The
+exterior solution is stated as the output of Part IV, which writes out the exterior estimates. The expansions at
+spacelike and null infinity are derived. At n = 4 the perturbation enters the operator at null infinity only half an
+order below the leading part, so the equation is integrated directly, slot by slot, and the radiation fields need not be
+subtracted: the obligation left by III.C is settled. Next: verifier 125.
+
+**D289 (2026-10-26): Part III.C'' written: boosts and gauged Cauchy data.** The source's sections 5.6-5.7 at n = 4. A
+boosted Kerr metric is shown to lie in the perturbation class of III.C on the exterior domain, after the past slab of
+that domain was made steeper so that it stays where the initial-value cut-off is 1; that settles the obligation III.C
+left open. The exterior solution is pulled back by boosts in a gauge that is cut off near the initial surface, and
+gauged Cauchy data are built. At n = 4, data in Boyer-Lindquist form need no logarithmic terms. One misprint in the
+source's support condition is recorded. Next: verifier 125.
+
+**D290 (2026-10-26): verifier 124 seated on Part III.J''.** Two major findings. The spaces of the linear theory are
+defined with every decay rate read 'minus an arbitrarily small loss', so at a fixed order they are not Banach spaces,
+which the Nash-Moser theorem of II.G needs; and the cited statements did not name the norm in which the background is
+small. The second is settled: every part's 'small' is smallness in one fixed norm. The first is repaired as far as it
+goes: the spaces are taken at a fixed loss and the estimates stated so. That exposes a real gap. The solution maps are
+shown to take a source at one loss to a solution at a larger loss, while the forward map gains nothing in the decay
+rates; Nash-Moser needs both on one pair of scales. The source states its linear estimate with no loss in the rates. At
+n = 4 this is now open as (J''4), and the next part proposes to remove the loss after the fact, face by face. Six minor
+findings and seven nits seated.
+
+**D291 (2026-10-26): verifier 125 seated on Parts III.C' and III.C''.** One major finding: the boost theorem claimed
+that the boosted solution is the pullback of the unboosted one by pulling back the whole gauge-fixed equation, but the
+gauge term is built from a fixed 1-form that boosts do not preserve. The claim holds for data satisfying the
+constraints, where both terms of the equation vanish near the initial surface; it is now stated and proved so, and the
+same gap is recorded in the source. Eight minor findings: a commutator bound too weak at null infinity (the true bound
+uses that the leading part commutes), the last integration round, two misprints (one in the source), a corrupted
+formula, a sign in the time function, a boost size that depended on the radius (fixed by doubling the radius), and two
+steps of the boost theorem's proof made explicit. Next: verifier 126 on the repairs of D290 and D291.
+
+**D292 (2026-10-26): verifier 126 seated; the exterior parts III.C' and III.C'' are proved.** The verifier read the
+repairs to the tame estimates and to the two exterior parts and found every earlier finding resolved, the open problem
+of the weights stated accurately, and no new major finding. Three minor findings on the tame estimates are seated: the
+loss of the input may a priori depend on the order, which is now said and put into the open item; the last continuity
+inputs are traced to one fixed norm; and the decay losses at the black-hole face must be sorted into margins and
+logarithms before the next part treats them. Next: the exact-weight part.

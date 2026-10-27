@@ -66,10 +66,12 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I''''''''''' | [Hin26] Theorem 11.59, Parts 1-3, second half, and (11.222) | the spectral phase: four zero-energy solves with expansions, III.G'''' Proposition 4.4 at levels 1-2 and Proposition 5.1 at level 3, a physical decomposition in place of the augmented assembly, the K+-terms below alpha - 2 as the rows N_sigma by forward tails; the expansion lemma and the elimination, one step from alpha' in (2,3), a perturbation of the identity | proved (D277: verifier 118 read the repairs) |
 | III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | proved (D280) |
 | III.I''''''''''''' | [Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative produces; the source's routine repetition, which section 11.8.3 needs | verified (D280) |
-| III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | verified (D284) |
-| III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | written (D282) |
-| III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | written (D283) |
-| III.C', III.I'''''''''-III.J | [Hin26] 5.4-5.7, 11.8-12 | exterior stability and partial polyhomogeneity; decay | to do |
+| III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | **proved** (D287) |
+| III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | **proved** (D287) |
+| III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
+| III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | verified (D292; the weights open as (J''4)) |
+| III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
+| III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
 | V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
@@ -1138,6 +1140,8 @@ recorded in (I$''''''''''''''$1). $h_{-S} = 0$; Corollary 11.67 deferred to afte
 (I$''''''''''''''$1)-(I$''''''''''''''$4). At $b_0$. Written (D279); verified (D281).
 Verifier 121 (D284): one major (Step 4 used a uniqueness the enlarged parameter space lacks),
 repaired in Step 4'; to be read.
+Verifier 122 (D285) read the D284 repairs; the rotation rows now include the exponents of real part 2; to be read.
+Proved (D287): verifier 123 read the D285 repairs; seven nits seated.
 
 `PART-III-J-PARAM.md`. [Hin26] section 12 to Remark 12.6 at $n = 4$: the data space (Definition 1.1, with the
 $\iota^+$-resonances in $\pi_1\mathcal E_\sharp$ only), the construction of $\Phi$ exponent by exponent below
@@ -1145,9 +1149,45 @@ $3+\epsilon_+$ (Lemma 2.1: one linear model equation $\bar L\,G(\lambda_0) = -F_
 start at $2\lambda_\sharp>3+\epsilon_+$; Lemma 2.2: rows and towers at $\iota^+$; Lemma 2.3: the log count), and Theorem
 2.4 ($\Phi$ affine in the infinite-dimensional data, smooth and tame, $P_5(\Phi(U))$ of $\iota^+$-order
 $(5+\epsilon_+)-$ and $K^+$-order $\alpha-$). Findings (J1)-(J6); $\Psi$ and Theorem 12.8 deferred. Written (D282).
+Verified (D285): verifier 122's major (the order at K+ of (2.5) at a rotating b) repaired by the rotation rows of real
+part 2.
+Proved (D287): verifier 123 read the D285 repairs; seven nits seated.
 
 `PART-III-J2-LINEAR.md`. [Hin26] Theorem 12.8 at $n = 4$ and $b_0$: Lemma 1.1 (under (G$^+$) the level-2 threshold of
 the spectral phase can approach $\epsilon_+$ without changing the construction, so the linear solutions have the
 $\iota^+$-order $(3+\epsilon_+)-$ of the nonlinear class), Theorem 2.1 (the solution of the linearised equation is
 $D_U\Phi(U')$: the parameters first, then each exponent below $3+\epsilon_+$ by the resonant states, Cases A-B, then the
 conormal remainders), Remark 2.2. Findings (J$'$1)-(J$'$4): the tame form and $b\ne b_0$ open. Written (D283).
+Verified (D285).
+Proved (D287): verifier 123 read the D285 repairs; seven nits seated.
+
+`PART-III-J3-TAME.md`. [Hin26] Remark 11.13 and the tame estimates of Corollary 11.66 and Theorem 12.8, at n = 4 and
+b_0. Section 1 is a calculus of tame families (closed under composition, finite rank, finite-dimensional inverses and
+fixed maps). Lemma 2.1 lists the elementary families: the forward solutions, tame by III.I Theorem 5.3; the background
+coefficients, by II.A's tame product bounds; and the model inverses at every finite order with a loss independent of the
+order. II.G' Corollary 4.5's loss ceil(k delta) + ell is bounded through strong trapping admissibility at b_0. Section 3
+inventories every construction of III.I-III.I(14) and III.J'. Theorems 4.1-4.2 give the tame forms of III.I(14) Theorem
+3.1 and III.J' Theorem 2.1, and Proposition 4.3 the tame forward map. It discharges (J'2) at b_0 in the b-regularity;
+the weights are (J''4), and (J'3) stays open. Written (D286). Verified (D290): verifier 124's findings seated. The
+spaces are taken at a fixed loss in the weights; the smallness is in one fixed norm (Lemma 2.3), with tame products in
+the partially polyhomogeneous spaces (Lemma 2.4). Open: (J''4), one pair of Banach scales, since the inverse is shown
+only to map a source at a loss eps' to a solution at the loss eps >= eps' while the forward map gains nothing.
+
+`PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
+1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output
+of Part IV ([Hin23a] section 3 at n = 4, to be written). Theorem 3.1 gives partial polyhomogeneity at I_0 (commuting
+with prod(X_0 - z)) and at null infinity (slot by slot through the constant lower-triangular A-bar, half steps). The
+radiation fields are not subtracted, so III.C's obligation (C7) does not arise. Written (D288).
+Verified (D291): verifier 125's findings seated (Step 1's commutator through the leading part, which commutes with R;
+the last round of Step 2; a misprint of the source's Remark 5.18, (C'5)).
+
+`PART-III-C3-BOOSTDATA.md`. [Hin26] sections 5.6-5.7 at n = 4. Lemma 1.1 shows the boosted Kerr metric lies in the class
+of III.C on the exterior domain, which settles (C4) (the past slab of III.C' Lemma 1.1 now has slope 1/12, so the domain
+stays where the initial-value cut-off is 1). Section 2 is the cut-off gauge and its naturality under boosts. Theorem 3.1
+(the source's Theorem 5.23) pulls the exterior solution back by boosts; Proposition 4.1 (Proposition 5.25) builds gauged
+Cauchy data. Proposition 4.2: at n = 4, Boyer-Lindquist data need no logarithmic index set, since t - t_BL = -mu/r +
+O(r^-2). Findings (C''1)-(C''4), among them a misprint in the source's support condition. Written (D289).
+Verified (D291): verifier 125's findings seated. Theorem 3.1 (1) is stated and proved under the constraints: the
+gauge-fixed operator is not natural under boosts (E_C is built from a fixed 1-form), a gap shared with the source
+(C''5). With r_1 = 2r_0 the boost's size no longer depends on r_0 (C''6). The time of III.B differs from Boyer-Lindquist
+time by +mu/r, not -mu/r.
