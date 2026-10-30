@@ -5746,3 +5746,12 @@ every loss reaching a final weight can be avoided. One is an artefact of writing
 instead of the defining function of the face; three come from pointwise bounds, which are re-proved in L^2; the rest
 are margins chosen with room. Under new conditions that each exclude finitely many weights, the solution maps act at
 the weights the source states, and the tame estimates hold on one pair of scales. Verifier 127 reads it.
+
+**D294 (2026-10-30): uniformity near the reference black hole.** The linear theory had been proved for the
+non-rotating reference black hole only, because two inputs were missing at nearby parameters. The first was that
+high-frequency waves near the trapped photon orbits decay with an arbitrarily small loss at every nearby black hole.
+This now follows from a frame built from the null geometry alone, which works at every parameter where the source used
+a frame special to Kerr. The second was that the forward-solution estimates hold uniformly as the black hole varies.
+The model operator at future timelike infinity turns out not to depend on the black hole at all in five dimensions,
+and the rest is continuity and compactness. The linear estimates therefore hold near the reference black hole,
+uniformly and continuously. What remains is to rerun the later linear parts at a rotating base point.

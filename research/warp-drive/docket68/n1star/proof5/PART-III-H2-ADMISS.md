@@ -488,7 +488,9 @@ source's argument at $n = 3$, as far as this reading goes.
 $(k+1)\delta_\Gamma(-\epsilon)\le1$; strong trapping admissibility is proved at $b_0$ only (III.F Proposition 4.1), and
 near $b_0$ it holds with $\delta_\Gamma(0)$ small on a neighbourhood $\mathcal B^{\mathrm{hi}}_k$ that shrinks with $k$.
 Theorem 1.3 is therefore stated at $b_0$ for all $k$ and on $\mathcal B_K$ for $k\le K$. The source states Theorem 10.1
-for $b$ near $b_0$ with its Proposition 8.3 (strong trapping admissibility near $b_0$ at $n = 3$).
+for $b$ near $b_0$ with its Proposition 8.3 (strong trapping admissibility near $b_0$ at $n = 3$). III.H$''$ (D294)
+proves strong trapping admissibility at every $b$ of a fixed neighbourhood $\mathcal B_*$ and Theorem 1.3 there for every
+$k$, uniformly (its Proposition 1.1 and Theorem 2.1), to be verified.
 
 (H$'$4) *The class of orders.* $\mathcal O_c$ adds to II.C Definition 2.4 the conditions (C1)-(C3) under which the
 induced spectral orders satisfy the hypotheses of Part I: constant regularity (I.A (O1), Remark 1.1; I.C), constancy of

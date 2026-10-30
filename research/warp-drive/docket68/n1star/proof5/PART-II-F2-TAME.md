@@ -799,7 +799,8 @@ Kerr wave operator, $\Omega$ for $\Omega_*$) is not proved here (section 1.3 (a)
 
 (F'11) *Uniformity in $P_0$.* The source allows $P_0$ to vary near $P_1$; this needs II.F Theorem 8.1 and the
 $\aleph$-admissibility estimate uniformly in $P_0$, which are not proved or assumed here (section 1.3 (b)). Open until a
-later part needs it.
+later part needs it. For the family $P_0 = 2L_b$, $b$ near $b_0$, III.H$''$ (D294) proves both and Theorem 1.1
+uniformly, with continuity in $b$ (its Theorems 3.1 and 4.1), to be verified.
 
 (F'12) Remark 11.4 at $n = 4$ reads $\beta_-<1+\bar S$; and the source's (12.7) prints $\epsilon_+<\epsilon_I$ where
 $\alpha_+<\alpha_I-\frac12$ needs $\epsilon_+>\epsilon_I$ (Remark 7.3; for Part II.G).

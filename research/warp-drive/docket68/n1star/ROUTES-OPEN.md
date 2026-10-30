@@ -3897,3 +3897,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (J''4) is discharged at b_0, to be verified (verifier 127).
 - Open: (J'3), the linear theory at b != b_0; the support conditions of II.G Theorem 2.1; smoothing operators on D_ex;
   the exterior family h_{-S}; Part IV; III.K ([Hin26] section 13).
+
+### 4.218 Part III.H'' written (D294): uniformity near b_0; (I3) discharged, to be verified
+
+- III.H'' (PART-III-H3-UNIFORM.md) supplies the two inputs that (I3) of III.I left open for b != b_0.
+- Proposition 1.1: strong trapping admissibility of 2L_b at every b of a fixed neighbourhood B_*, uniformly. The frame
+  is e_0 = zeta/sigma, a null e_2 built from dt_*, and the screen V = {e_0, e_2}^perp: e_0 is parallel along null
+  bicharacteristics, the null filtration is invariant, and III.F's grading argument applies verbatim. Multiplying the
+  inner product by f_b = |dg_b|/|dt_* dx| removes the density correction exactly. Corollary 1.2: delta_Gamma is
+  uniformly small, so B^hi_k contains B_* for every k.
+- Theorem 2.1: III.H' Theorem 1.3 on B_* for every k, uniformly (I.A Theorem 8.1, I.B section 9, III.H Remark 2.6).
+- Lemma 3.2: N_{iota+}(2L_b) = N_{iota+}(2 bar L), since 2L_b - 2 bar L has coefficients rho^2, rho^3, rho^4. Theorem
+  3.1: II.F Theorem 8.1 uniformly in b. Theorem 4.1: II.F' Theorem 1.1 uniformly in b, with continuity in b; (F'11)
+  is discharged for the family 2L_b.
+- Corollary 5.1: III.I Theorem 5.3 for b in B_*, with continuity in (b, S, h); (I3) and III.I Remark 5.4 discharged.
+- Open, (H''5): the chain III.I'-III.J''' at base points b != b_0. The data at b_0 enter as the v1-rows (every
+  rotation is Killing at b_0), as index sets of the zero energy states fixed at b_0, and as derivatives in b at b_0.
+  This is the rest of (J'3). Also open: Part IV; III.K ([Hin26] section 13).

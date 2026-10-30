@@ -52,6 +52,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | proved (D249; verified D247 with three minor findings and eight nits) |
 | III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | proved (D252; verified D249 with two minor findings and six nits) |
 | III.H' | [Hin26] 10.2 (Theorem 10.1, Lemmas 10.9-10.13) | 2-admissibility of L_b: the contour representation, high and low frequencies, the zero energy contributions integrated twice in t_*; sf-loss 0 at n = 4 | proved (D256; verified D252, D254) |
+| III.H'' | [Hin26] Proposition 8.3 and Theorem 10.1 near b_0; [Hin26c] Theorems 10.1, 11.1 uniformly in the stationary model | uniformity near b_0: strong trapping admissibility at every b by a frame from the null geometry, 2-admissibility on a fixed neighbourhood for every k, II.F Theorem 8.1 and II.F' Theorem 1.1 uniformly over the family 2L_b, III.I Theorem 5.3 near b_0 with continuity in b | written (D294) |
 | III.I | [Hin26] 11 opening, 11.1 (Definition 11.3, Lemma 11.5, Propositions 11.6, 11.8, Corollaries 11.9-11.10, Theorem 11.12) | the dynamical linearised operator: perturbation classes, the e3b class, structure in the forward cone, forward mapping, admissibility with p_0 = p~_1 = 0, forward solutions at b0 with sf-loss 0; the orders of II.F' in O_c | proved (D258: verifier 108 read the D256 repairs; verified D254, D256) |
 | III.I' | [Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future timelike infinity; formal solutions at null infinity, one exceptional term | proved (D258: verifier 108 read the D256 repairs; verified D256) |
 | III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | proved (D259: verifier 109 read the D258 repairs; verified D258) |
@@ -912,6 +913,17 @@ r_0\}$ by a cut-off and an extension in $x$ -- with nine nits. D254: verifier 10
 admissible at nearby frequencies ((C3) is not quantitative); the bounded frequencies now use the induced orders
 themselves, uniform by I.A Theorem 7.2 (1) for continuous families, with the inverse bound by a contradiction argument;
 and two nits. Proved (D256): verifier 107 read the D254 repairs and found them correct; one nit.
+
+`PART-III-H3-UNIFORM.md`. Uniformity near $b_0$: the two inputs that (I3) of III.I left open for $b\ne b_0$.
+Proposition 1.1 proves strong trapping admissibility of $2L_b$ at every $b$ of a fixed neighbourhood $\mathcal B_*$, with
+bounds uniform in $b$. Its frame comes from the null geometry alone: $e_0 = \zeta/\sigma$ is parallel along null
+bicharacteristics and the null filtration is invariant, so III.F's grading argument applies at every $b$. Theorem 2.1 is
+III.H$'$ Theorem 1.3 on $\mathcal B_*$ for every $k$, uniformly. Lemma 3.2: $N_{\iota^+}(2L_b)$ does not depend on $b$,
+so II.F's analysis at $\iota^+$ carries over unchanged, and Theorem 3.1 is II.F Theorem 8.1 uniformly in $b$. Theorem
+4.1 is II.F$'$ Theorem 1.1 uniformly in $b$, with continuity in $b$, which discharges (F$'$11) for this family.
+Corollary 5.1 is III.I Theorem 5.3 near $b_0$, the source's Theorem 11.12 with continuity in $b$. (H$''$5) records what
+(J$'$3) still needs: the chain III.I$'$-III.J$'''$ at base points $b\ne b_0$ (the v1-rows of non-Killing rotations,
+index sets fixed at $b_0$, derivatives in $b$ at $b_0$). Written (D294).
 
 ## Part III.I
 
