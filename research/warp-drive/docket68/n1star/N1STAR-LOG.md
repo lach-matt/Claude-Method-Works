@@ -6097,3 +6097,12 @@ did not control; the argument now differentiates along the straight line through
 conclusion of the same lemma. Six small corrections are made: an operator's name, a citation, the order of quantifiers
 in the rate, the classes in which the initial solution is unique, a one-sided extension, and the wording about the
 boost. To be read.
+
+**D336 (2026-10-30): the linear statement, proved.** A second reader went through the repairs to Part VIII and found
+them correct, with three textual corrections, now made. So the linear statement of the paper's section 8.2 is proved:
+every linearised data set in Hintz's class has a linearised vacuum development in the gauge of the nonlinear problem
+that settles to a linearised Myers-Perry metric at the rate of Theorem 4, and in the class to a change of mass alone.
+The paper's sections 8.2, 8.8 and 9 now say so; the deduced routes in other gauges stay beside the proof. The other two
+things the paper lists as not proved stay so, for the reasons recorded in ROUTES 4.257: evaluating lambda_1 and delta
+needs every constant of the write-out made explicit, and the physical wavelengths are a large-data problem without a
+small parameter.

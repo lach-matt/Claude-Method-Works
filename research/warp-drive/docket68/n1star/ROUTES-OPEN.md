@@ -4437,3 +4437,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and Corollary 2.3's equivariance checked.
 - m1: Lemma 1.1 (3) now differentiates Gauss-Codazzi along g + s hdot and uses (1). Nits n1-n6 seated.
 - Next: one reader on the D335 repairs; then the paper's sections 8.2, 8.8 and 9.
+
+### 4.259 Verifier 154 seated (D336): Part VIII proved; the paper updated
+
+- Report (scratchpad d335/verifier154.md): the seven repairs correct; three textual nits (p1-p3), seated.
+- Part VIII is proved. Paper: abstract, section 8.2 (a new first paragraph: the linear statement proved in the gauge
+  of the nonlinear problem; the deduced routes kept beside it), section 8.8 (the seventy-fifth part), section 9 (the
+  Settling bullet: lambda_1 and delta with the reason they are not evaluated; 8.2 proved), the review bullet
+  (verifiers 74-154), the source table and the md5 table.

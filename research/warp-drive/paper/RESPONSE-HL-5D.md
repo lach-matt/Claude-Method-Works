@@ -45,11 +45,13 @@ Beyond that domain, outside the black hole, we prove that in the class a continu
 the hole settles at late times to five-dimensional Schwarzschild–Tangherlini, and that every perturbation of them
 without symmetry that is small in Hintz's data class settles to a slowly rotating Myers–Perry black hole (Theorem 4).
 The proof is Hintz's proof of the nonlinear stability of Kerr carried into five dimensions and written out in full in
-the supplement: every section of his stability paper and of the companion papers that the route uses is proved at n = 4,
-self-contained, from statements read at source that hold in every dimension, every input that depends on the dimension
-computed at Schwarzschild–Tangherlini and proved at nearby Myers–Perry parameters, and each part was read line by line
-by an independent reader, its findings repaired and the repairs read again. It replaces the censuses and the deductions
-by which an earlier version of this paper carried his arguments to five dimensions. We list what is not proved, the
+the supplement: every section of his stability paper and of the companion papers that the route uses is proved at n =
+4, self-contained, from statements read at source that hold in every dimension, every input that depends on the
+dimension computed at Schwarzschild–Tangherlini and proved at nearby Myers–Perry parameters, and each part was read
+line by line by an independent reader, its findings repaired and the repairs read again. It replaces the censuses and
+the deductions by which an earlier version of this paper carried his arguments to five dimensions. The linear statement
+-- the stability of five-dimensional Schwarzschild–Tangherlini against linearised perturbations, in the gauge of the
+nonlinear problem -- is proved with it, as the nonlinear theorem's linearisation. We list what is not proved, the
 application at physical wavelengths among it.
 
 ---
@@ -678,6 +680,18 @@ in the T²-mirror class, once the solution is also constructed outside D_T. Sect
 
 ### 8.2 The linear level
 
+The linear statement is proved (supplement `proof5/PART-VIII-LINEAR.md`, Theorem 2.2 and Corollary 2.3), in the gauge
+of the nonlinear problem. Every solution of the linearised constraint equations in Hintz's data class (section 8.8) has
+a linearised vacuum development in his generalised wave gauge. Up to a linearised boost it takes those data, and where
+the late-time cut-off is 1 it differs from a linearised Myers–Perry metric by O(t*^(−2−ε)) in spatially compact subsets
+of the exterior, for each ε < ε_K. In the class the boost vanishes and the Myers–Perry change is a change of mass
+alone. The proof is Theorem 4's linearisation at the Tangherlini data: the linear initial-value problem near Hintz's
+initial surface, the right inverse of the linearised operator at the zero perturbation, and the Bianchi identity
+linearised at a Ricci-flat metric. It needs no new estimate. It does not show that a linearised solution given in
+another gauge, such as the two below, differs from this one by a linearised diffeomorphism. The rest of this section is
+the route by which the linear level was first reached, in those gauges and by deduction; it stands beside the proof as
+an independent route.
+
 Linearly more is known, and it applies to the class: the class carries no vector-type perturbation and no linearised
 rotation (computed, `docket68/n1star/settle5.py` T1), and for the other two types the gauge-invariant master quantities
 on five-dimensional Tangherlini decay, "in spacetime dimension six and below, the uniform decay estimate Ě^N_Ψ(Σ_τ) ≤
@@ -1204,7 +1218,10 @@ Tangherlini; the trapped set and the global dynamics near it, by the separabilit
 metrics; and a consistent choice of the parameters the parts leave open, in an order with no circular threshold. All
 four are proved; the seventy-third's argument that the damping is used at one value only is now an enumeration,
 described below. The seventy-fourth assembles Theorem 4 from the parts and the record, in the class and without it, and
-is proved.
+is proved. The seventy-fifth, written after Theorem 4, linearises it at the Tangherlini data and proves the linear
+statement of section 8.2. Its reader found no step that fails and one gap in a justification: the linearised
+constraints were carried to the initial surface along a family whose second derivatives the proof did not control, and
+are now carried along the straight line through the background. With the repairs read again, it is proved.
 
 Three completeness claims inside the write-out first rested on searches of its own text: that no part uses the
 constraint damping at constants other than the ones proved, that no step uses a lower triangular structure of the
@@ -1230,8 +1247,11 @@ Theorem 4 with them.
 ## 9. What is not proved
 
 - **Settling.** Theorem 4 is proved, in the supplement's write-out (section 8.8); λ1 and δ exist by the proof and are
-  not evaluated. The linear statements of section 8.2 are deduced, the route of Hung's sections 5–8 in five dimensions
-  not a proof.
+  not evaluated. Evaluating them would need every constant of the write-out made explicit, and several come from
+  compactness, contradiction and Fredholm arguments that give no number. The linear statement of section 8.2 is proved,
+  in the gauge of the nonlinear problem (supplement `proof5/PART-VIII-LINEAR.md`). Its routes in a Regge–Wheeler-type
+  gauge and in the harmonic gauge (Hung's sections 5–8 in five dimensions) remain deductions, and that a linearised
+  solution given in another gauge differs from the proved one by a linearised diffeomorphism is not written.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1,
@@ -1330,9 +1350,9 @@ Theorem 4 with them.
   sixty-third, which found no major fault and eleven minor ones — among them two misprints of the sources carried to n =
   4, a step of [Hin24b]'s proof left unnamed, and places the write-outs named that their rows lacked — all seated
   (D157). Later rounds, seated in D162–D184, were read by the sixty-fourth to the seventy-third, every finding seated.
-  The write-out of section 8.8 was read part by part by the seventy-fourth to the hundred-and-fifty-second verifiers
-  (D185–D333), one or a few parts at a time, each part's findings seated and its repairs read again until a reader found
-  them correct; the findings that changed a statement of the sources or of the route are named in section 8.8.
+  The write-out of section 8.8 was read part by part by the seventy-fourth to the hundred-and-fifty-fourth verifiers
+  (D185–D336), one or a few parts at a time, each part's findings seated and its repairs read again until a reader
+  found them correct; the findings that changed a statement of the sources or of the route are named in section 8.8.
 
 ---
 
@@ -2053,7 +2073,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the eighty-fourth Part II.D (D204) |
 | | the eighty-fifth Part II.D′ (D206) |
 | | the eighty-sixth Part II.E (D207) |
-| | the eighty-seventh to the hundred-and-fifty-second the remaining parts of the write-out and their repairs (D208–D333; `proof5/README.md`, N1STAR-LOG) |
+| | the eighty-seventh to the hundred-and-fifty-fourth the remaining parts of the write-out and their repairs (D208–D336; `proof5/README.md`, N1STAR-LOG) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -2139,7 +2159,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `0608b96923fa88e82aace044063a35a0` |
+| `docket68/n1star/N1STAR-LOG.md` | `b02b1bb467508287efdfa3ed198cab8e` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2216,7 +2236,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
-| `docket68/n1star/proof5/README.md` | `8de9d27fc20dc172694ed79f80c4907c` |
+| `docket68/n1star/proof5/README.md` | `b27213c2dff9cadc96c813fd938a8f61` |
 | `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `901e27d95b65b7849494ece5bfed9505` |
 | `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
 | `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
@@ -2226,5 +2246,6 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/proof5/checks/damping5.tsv` | `4e7c226efd96b04206eb1c8e207e6861` |
 | `docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md` | `d7532a0cb202e4fe77a109fa1f6dbf0f` |
 | `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `7a5ecacf958a470070c4a92388f4fc54` |
+| `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `e1af147b48b8c47cabb3b945cf3f34b1` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

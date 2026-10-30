@@ -1,7 +1,7 @@
 # Part VIII: linear stability of the Schwarzschild-Tangherlini metric, n = 4 (III.K linearised at Tangherlini)
 
 *Status.* Written (D334); verified (D335: verifier 153 found no major gap; its minor finding m1 and six nits seated);
-to be read.
+proved (D336: verifier 154 read the repairs, correct; its three nits seated).
 
 This part proves the linear stability of five-dimensional Schwarzschild-Tangherlini $g_{b_0}$, $b_0 = (\mu_0,0)$, in
 the gauge of the nonlinear problem. Every solution $(\dot\gamma,\dot k)$ of the linearised constraint equations in
@@ -162,9 +162,10 @@ E_0$ and $\ell^\flat_0<\ell_0$ (III.C$'$ Theorem 3.1's proof, Step 1).
 
 The three solutions agree on overlaps by II.F Lemma 1.3 with $\tau := t_{\mathrm{IVP}}$, as in III.K. *The uniqueness
 classes* (verifier 153's n4): Part IV$''$ Theorem 2.4's $H^{\max(k,1),\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}$ on
-$\Omega_{\mathrm{ext},r_1}$, Part IV$'''$ Theorem 2.1's class on $\Omega^\natural$, and $H^1$ on $\mathcal K$ (the
-energy estimate). Each is preserved by every isometry of $g$ that fixes $t$ and $|x|$, the weights being functions of
-$(t,|x|)$ (III.B (2.2)).
+$\Omega_{\mathrm{ext},r_1}$, Part IV$'''$ Theorem 2.1's on $\Omega^\natural$, with $\max(k,1)$ as in Part IV$''$
+(verifier 154's p3), and $H^1$ on $\mathcal K$ (the energy estimate). Each is preserved by every isometry of $g$ that
+fixes $t$ and $|x|$, the weights being functions of $(t,|x|)$ (III.B (2.2)) and $\rho'_I$ a function of $(t,|x|)$
+(III.K Proposition 1.2's proof, PART-III-K-NONLINEAR.md:136-138).
 
 *(2).* On $\Omega_{\mathrm{ext},r_1}$ this is III.C$'$ Theorem 3.1's proof for $L^{\chi_0}$ (III.C$''$ Lemma 2.1).
 There $L^{\chi_0}_{g,g}\dot h = 0$, with III.C$''$ Lemma 2.1 giving the structure of III.C Proposition 4.4 for
@@ -254,12 +255,12 @@ vanishes on $\{t^\flat_*<\hat T+\frac74\}$, and (6) follows from Lemma 2.1.
 $$P_5\big(\Phi(U)+(k,0,0)\big) = \mathrm{Ric}(G(U)+k)-\delta^*_{g_0(U),E_C}\Big(\Upsilon^{E_\Upsilon}\big(G(U)+k,
 g_0(U)\big)-\vartheta_{\mathrm{tot}}(\vec p)\Big),\qquad g_0(U) := g_{b_0,b,-S},$$
 which is III.K's $P_5(\Psi(U))$ for $k = \chi_-h_{-S}$. The right side is smooth in $(U,k)$. $\Phi$ is smooth (III.J
-Theorem 2.4, III.J$'''$ Corollary 6.6), $g_{b_0,b,-S}$ is smooth in $(b,S)$ (III.I (1.1), (0.2)), and
-$h_{\mathrm{tot}}$, $\vartheta_{\mathrm{tot}}$ and $h_{\mathrm{rem}}$ are smooth in $(\vec p,q)$
-(PART-III-I8-UNPARAM.md Definition 2.3, PART-III-I9-COMMOTION.md Definition 2.1, PART-III-I10-CORR4.md Definitions 2.1
-and 2.3, PART-III-I15-AUGMENT5.md Definition 1.2). At $(U,k) = (0,0)$ the metric is $g$ and the gauge 1-form vanishes,
-so the variation of $\delta^*_{g_0(U),E_C}$ drops out. Differentiating at $(0,0)$ in the direction $(U',\chi_-\dot h)$
-gives
+Theorem 2.4; on the exact classes III.J$'''$ Proposition 5.4; verifier 154's p2), $g_{b_0,b,-S}$ is smooth in $(b,S)$
+(III.I (1.1), (0.2)), and $h_{\mathrm{tot}}$, $\vartheta_{\mathrm{tot}}$ and $h_{\mathrm{rem}}$ are smooth in $(\vec
+p,q)$ (PART-III-I8-UNPARAM.md Definition 2.3, PART-III-I9-COMMOTION.md Definition 2.1, PART-III-I10-CORR4.md
+Definitions 2.1 and 2.3, PART-III-I15-AUGMENT5.md Definition 1.2). At $(U,k) = (0,0)$ the metric is $g$ and the gauge
+1-form vanishes, so the variation of $\delta^*_{g_0(U),E_C}$ drops out. Differentiating at $(0,0)$ in the direction
+$(U',\chi_-\dot h)$ gives
 $$D\mathrm{Ric}(\dot g)-\delta^*_{g,E_C}\dot\eta = D_0(P_5\circ\Phi)(U')+L(\chi_-\dot h) = f-f = 0\quad\text{on
 }\Omega_*,\tag{2.4}$$
 with $\dot g := D_0G(U')+\chi_-\dot h$ and $\dot\eta$ as in (5). Here $D_hP_5(0)(k) = Lk$, since at $U = 0$ the right
@@ -360,7 +361,7 @@ supported where $\chi^\flat_K\ne1$, which can meet $\{\chi_K = 1\}$ (III.I (1.2)
 (VIII3) *Constraint propagation.* The nonlinear propagation (III.K Propositions 1.2 (2) and 4.2) uses the second
 Bianchi identity at the solution. Here it is used at $g$, where its derivative is $\delta_gG_gD\mathrm{Ric} = 0$
 because $g$ is Ricci flat. The linearised constraints enter through the Gauss-Codazzi identity differentiated along
-$g_\epsilon$ (Lemma 1.1 (3)).
+$g+s\dot h$ (Lemma 1.1 (3); verifier 154's p1).
 
 (VIII4) *Relation to the paper's section 8.2.* There the decay of the metric is deduced in a Regge-Wheeler-type gauge
 from [KI03] and [HKW18] (supplement Proposition 10.1), and in the harmonic gauge by Hung's route in five dimensions
@@ -372,7 +373,9 @@ independent routes in other gauges, and Remark 2.4 (a) says what links them to t
 $g_\epsilon$, which needs the $\epsilon$-derivative of its 2-jet; it now differentiates along $g+s\dot h$ and uses (1).
 Nits: the operator $L^{\chi_0}$ in Proposition 1.2 (2) (n1); III.J$'''$ Proposition 5.4 for $D_U\Phi$ in the exact
 classes (n2); the rate for each $\epsilon_t$ with its $\alpha$ (n3); the uniqueness classes (n4); one-sided $\dot h$ in
-Lemma 1.1 (n5); the cut-off boost term (n6).
+Lemma 1.1 (n5); the cut-off boost term (n6). *Verifier 154 (D336)* read the repairs and found them correct; its three
+nits are seated: the wording of (VIII3) after m1 (p1), the citation for the smoothness of $\Phi$ (p2), and the slab's
+uniqueness class (p3).
 
 *Labels.* Lemma 1.1 (III.C$''$ Proposition 4.1 linearised), Proposition 1.2 (III.K Proposition 1.2 linearised), Lemma
 2.1, Theorem 2.2 (III.K Theorem 4.3 linearised), Corollary 2.3 (Part VII Proposition 3.2 linearised), Remark 2.4.
