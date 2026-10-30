@@ -1,7 +1,7 @@
 # Evaluating λ1 and δ: methods, the reduction, and the programme
 
 *Status.* Begun D338 (M, 2026-10-30: "deep research this for possible methods of evaluating/calculating/deriving such
-numbers, and then prove them"). Section 2's reduction has been read five times.
+numbers, and then prove them"). Section 2's reduction has been read six times.
 
 - *Verifier 155 (D338).* Proposition 2.1 correct; Proposition 2.2 incomplete (two major findings, five minor, six
   nits).
@@ -17,7 +17,10 @@ numbers, and then prove them"). Section 2's reduction has been read five times.
 - *Verifier 159 (D341).* The pair's definition sound; its existence argued from the wrong lines (one major, one
   minor, five nits).
 
-- *Now (D341).* Proposition 2.2 fixes an admissible pair (ε_dat, δ_K), which III.K's proof shows exists, and keeps the
+- *Verifier 160 (D342).* The existence argument nearly valid: δ's uniform lower bound unstated (one major), one
+  minor, three nits. Seated.
+
+- *Now (D342).* Proposition 2.2 fixes an admissible pair (ε_dat, δ_K), which III.K's proof shows exists, and keeps the
   enumeration as an inventory not claimed complete. To be read.
 
 Nothing else here is proved. Labels as in the record: computed, deduced, READ.
@@ -95,7 +98,7 @@ Nothing else here is proved. Labels as in the record: computed, deduced, READ.
    - *What this means here.* Making the high-energy estimates explicit will not give small constants. That is a
      reason to keep the explicit high-energy work on Tangherlini, where the dynamics are explicit.
 
-## 2. The reduction (Proposition 2.1 confirmed; Proposition 2.2 repaired D341, to be read)
+## 2. The reduction (Proposition 2.1 confirmed; Proposition 2.2 repaired D342)
 
 **Proposition 2.1 (II.G's threshold, explicitly).**
 
@@ -155,14 +158,16 @@ The proof sets its ε := θ0^−α. Verifier 155 checked the identities (2.5), 5
       conditions ε_NM and ε_NM^G are excepted, and treated below.
     - *There is one.* This follows from the quantifiers of III.K's proof. Theorem 3.2 applies II.G on the domain
       {U ∈ B^∞ : |U|_{3d} < δ} (III.K:387-388), and II.G uses Lemmas 2.2 and 2.3 at every point of its domain, so
-      their thresholds on U exceed δ there. The proof takes δ, with C_k, C1 and C2, bounded uniformly over the small
-      data (III.K:410-411), so one δ serves every datum below some size: a product set. The thresholds that depend on
-      S, as III.C Proposition 4.4's through g_1 (PART-III-C-EXTERIOR.md:340-341), and the joint conditions of
-      Proposition 4.2 (III.K:457-458) then hold after shrinking both entries further. Every data hypothesis is on a
+      their thresholds on U exceed δ there; that includes III.C Proposition 4.4's threshold, which depends on S
+      through g_1 (PART-III-C-EXTERIOR.md:340-341) and is applied inside Lemmas 2.2 and 2.3 (III.K:253, 300). The
+      proof takes ε_NM uniform over the small data (III.K:410-412), and Proposition 2.1's θ0 contains
+      (4K3/δ)^{1/(6d+2)}, so a uniform ε_NM = θ0^−α bounds θ0 above and δ below: δ ≥ δ_* > 0 for every datum
+      below some size. One δ_* then serves them all: a product set. The joint conditions of Proposition 4.2
+      (III.K:457-458) hold after shrinking both entries further. Every data hypothesis is on a
       norm of order at most d1, because Theorems 3.2 and 4.3 are stated and proved for data small in H^{d1}
       (III.K:383, 465-469); a hypothesis above d1 would leave that proof incomplete.
-    - *Where U ranges.* Over B^∞ (III.K's class with tails, III.K:324, 407-408), where Lemma 2.3's support clause and
-      II.G (iii) hold.
+    - *Where U ranges.* Over B^∞ (III.K's class with tails). Lemma 2.3's support clause and II.G (iii) hold at level
+      η for U ∈ B^∞_η (III.K:324, 407-408), which is all II.G's proof uses.
     - *Down-closed.* Shrinking either entry keeps a pair admissible, so a pair can be fixed before anything below.
     - *A choice it contains.* Statements of the form "for every k and ε > 0 there are k_1 and ε_1"
       (PART-III-C2-POLYHOM.md:96-98, 143-145; PART-IV3-NM.md:322, 328-329) give a threshold only once their ε is
@@ -409,13 +414,16 @@ first real test.
 - Verifier 156 (D339): MAJ-1 (the exterior, slab and data-map thresholds Proposition 1.2 imports), MIN-1 (ε_G is a
   threshold on ‖P5(Ψ(0))‖, now ε_NM^G / A_2d), MIN-2 (the "rest" made exhaustive), NIT-1 to NIT-4, all seated (D339).
 
-- Verifier 159 (D341): MAJ-1 (existence argued from K:410-411's wording rather than the proof's quantifiers), MIN-1
-  (ε_m, ε_t, ε_K omitted from the lists), NIT-1 to NIT-5; seated (D341).
-
-- Verifier 158 (D339): MAJ-1 (the suprema ill-posed), MIN-1 (section 0 overstated), MIN-2 (orders; the ε-choice in
-  Proposition 1.2 (3)), MIN-3 (g_1), NIT-1 to NIT-5; seated by admissible pairs (D339).
-
 - Verifier 157 (D339): the D339 repairs correct, ε_NM^G / A_2d correct; MAJ-1 (three more cited thresholds: the
   higher-order exterior and slab bounds, III.C Corollary 5.3's, III.B Lemma 5.2's w_0), MIN-1 (the Part IV N-site's
   role), NIT-1 to NIT-5. Seated by defining δ_K and ε_dat instead of enumerating them, and keeping the enumeration
   as an inventory not claimed complete.
+
+- Verifier 158 (D340): MAJ-1 (the suprema ill-posed), MIN-1 (section 0 overstated), MIN-2 (orders; the ε-choice in
+  Proposition 1.2 (3)), MIN-3 (g_1), NIT-1 to NIT-5; seated by admissible pairs (D340).
+
+- Verifier 159 (D341): MAJ-1 (existence argued from K:410-411's wording rather than the proof's quantifiers), MIN-1
+  (ε_m, ε_t, ε_K omitted from the lists), NIT-1 to NIT-5; seated (D341).
+
+- Verifier 160 (D342): MAJ-1 (δ's uniform lower bound, from the uniform ε_NM through θ0), MIN-1 (III.C 4.4's
+  threshold is inside Lemmas 2.2-2.3, not a shrink), NIT-a to NIT-c; seated (D342).

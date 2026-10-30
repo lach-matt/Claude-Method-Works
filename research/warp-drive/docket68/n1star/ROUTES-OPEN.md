@@ -4518,3 +4518,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   list; NIT-1..5 (stale D-numbers, "proves" before the read, eps_NM's C_k as data-ball bounds, the data map's
   topology unnamed, U's class B^inf). All seated; existence now from II.G's domain {|U|_3d < delta} with delta uniform
   over small data, then a shrink for the S-dependent and joint conditions. To be read.
+
+### 4.265 lambda_1 and delta: verifier 160 (D342)
+
+- Verifier 160: existence nearly valid; MAJ-1 delta's uniform lower bound unstated (now: eps_NM uniform, K:412, and
+  theta0 >= (4K3/delta)^(1/(6d+2)) give delta >= delta_* > 0); MIN-1 III.C 4.4's S-dependent threshold is inside
+  Lemmas 2.2-2.3, not a shrink; NIT-a..c. Seated. One narrow read of the clause follows.

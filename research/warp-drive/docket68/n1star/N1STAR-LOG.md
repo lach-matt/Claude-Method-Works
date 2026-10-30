@@ -6153,3 +6153,8 @@ the pair and found the argument for its existence leaning on a sentence the redu
 argument now runs through the nonlinear step's own quantifiers: the Nash-Moser theorem is applied on a ball of fixed
 radius on which the right inverses must exist, the radius is uniform over small data, and the remaining conditions
 hold after shrinking both. The given parameters of the final assembly are added to the list. To be read.
+
+**D342 (2026-10-30): the radius's lower bound stated.** A sixth reader found the existence argument nearly valid: it
+needed the radius of the Nash-Moser step to be bounded below uniformly over small data, which the record implies but
+the reduction had not said. It follows from the record's own claim that the Nash-Moser threshold is uniform, since
+that threshold falls as the radius falls. Stated, with three small corrections.
