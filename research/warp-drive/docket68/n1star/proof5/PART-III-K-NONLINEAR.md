@@ -143,9 +143,11 @@ Part IV$''$ (IV$''$2)).
 $h_S$ there, smooth in $S$, with (2) there by its (3); its hypotheses (the constraints and $\Upsilon^0 = 0$ at
 $\Sigma_{\mathrm{IVP}}$) are III.C$''$ Proposition 4.1 (1)-(2).
 
-*Slab.* On $\mathcal S$ the solution is the output of Part IV ((K2) (b)): the continuation near the interior of
-$\mathscr I^+$ from the spacelike $(\{\rho'_I = c\}\cup\Sigma_{\mathrm{fut},r_1})\cap\partial\mathcal S$, with the data
-that $\mathcal K$ and the exterior give there, to $\{t_* = \hat T+3\}$, small with the orders $(\langle\mathcal
+*Slab.* On $\mathcal S$ the solution is the output of Part IV ((K2) (b); Part IV$'''$ Theorem 2.2, which poses it on
+$\Omega_{\mathrm{ext},r_1}\cup\mathcal S$ from $\Sigma_{\mathrm{IVP},r_1}$ and $\{\rho'_I = c\}\cap\partial\mathcal S$,
+so that no data sit on $\Sigma_{\mathrm{fut},r_1}$ near $\mathscr I^+$): the continuation near the interior of $\mathscr
+I^+$ from the spacelike $(\{\rho'_I = c\}\cup\Sigma_{\mathrm{fut},r_1})\cap\partial\mathcal S$, with the data that
+$\mathcal K$ and the exterior give there, to $\{t_* = \hat T+3\}$, small with the orders $(\langle\mathcal
 E^C_I\rangle,\ell_I)$ at $\mathscr I^+$ (III.C$'$ Theorem 3.1). Here $\chi^\natural_0 = 1$: on $\mathcal S$, $\rho'_I<c$
 gives $t>(1-c)|x|+T''$, so $t_{\mathrm{IVP}}\ge\frac r4$, and $\chi_0 = 1$ there.
 

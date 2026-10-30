@@ -5840,3 +5840,9 @@ later. The equation near null infinity is integrated along its two families of c
 infinity is solved in both time directions, and the sharp decay is recovered in two rounds: in five dimensions every
 coupling that brings the radiation of one component into another is of lower order. The nonlinear solution follows
 from the iteration theorem, and the cut-off gauge changes nothing where the fine structure is used.
+
+**D306 (2026-10-30): the slab near null infinity.** The region near null infinity at bounded time beyond the exterior
+domain is now solved. Its past boundary would have included a surface that touches null infinity and becomes null there,
+where no Cauchy problem of the needed kind is available; so the region is solved together with the exterior domain,
+from the initial surface and from a compact surface on its inner side, neither of which reaches null infinity. The
+boosted background is checked in coordinates shifted in time, which the stationarity of the black hole allows.

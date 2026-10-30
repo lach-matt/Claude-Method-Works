@@ -77,6 +77,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | IV | [Hin23a] sections 3.1-3.2 (Lemmas 3.13, 3.16, Corollary 3.14, Proposition 3.17) and [HV20] Proposition 4.3 | exterior estimates I: the edge-b structure at I+ on III.C's region, the scalar operator rho_I rho^(-7/2) box rho^(3/2) with Delta+3/4, the basic energy estimate near I+ and near I_0 | written (D301); verified (D304; repairs to be read) |
 | IV' | [Hin23a] sections 3.3-3.5 (Proposition 3.29, Proposition 3.32, Lemmas 3.33-3.34) | exterior estimates II: [Hin26]'s conjugated linearised operator in edge-b form with the constant first-order matrix Abar; the energy estimate and its tame form for the system at alpha_I < min(alpha_0, 0) | written (D303) |
 | IV'' | [Hin23a] section 3.6 (Theorem 3.35, Corollary 3.36) | exterior estimates III: integration along the two families of curves, the Cauchy problem near I_0 in both directions, sharp decay in two rounds (radiation field in slot 6 only), the nonlinear exterior solution by II.G, the cut-off gauge; delivers III.C' Theorem 2.1 | written (D305) |
+| IV''' | III.K (K2) (b); [Hin26] p. 321 | the slab near I+: posed on the exterior domain together with the slab, from Sigma_IVP and the compact surface Sigma_c, in the chart translated in t; the boosted background in the translated class (III.B Lemma 5.2); orders at I+ | written (D306) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -1276,6 +1277,14 @@ d = 4, with the tame form (5.52). Theorem 3.1 is the nonlinear solution by II.G 
 higher norms from shifted scales and uniqueness from the averaged operator. Corollary 4.1: the cut-off gauge and the
 backgrounds of III.C' Remark 2.2 (2), chi_0 being 1 wherever the edge-b structure is used. Findings (IV''1)-(IV''3); the
 slab of III.K (K2) (b) is the next part's. Written (D305).
+
+`PART-IV4-SLAB.md`. Part IV''' delivers III.K (K2) (b), the solution on the slab S near the interior of I+ up to
+t_* = T^ + 3. Cauchy data on Sigma_fut,r_1 near I+, a surface that reaches I+ and is asymptotically null there, are
+avoided: the problem is posed on the exterior domain together with S, from Sigma_IVP,r_1 and the compact surface
+Sigma_c where S meets the compact part, neither of which reaches I+, and the exterior solution is recovered by
+uniqueness. III.C's chart is translated in t (g_{b_0} is stationary), and the boosted background lies in the translated
+class by III.B Lemma 5.2 (Lemma 0.1). Theorem 2.1 is Part IV'''s linear theorem there, Theorem 2.2 the nonlinear one,
+Corollary 2.3 the orders at I+ (III.C' Theorem 3.1's proof). Findings (IV'''1)-(IV'''2). Written (D306).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

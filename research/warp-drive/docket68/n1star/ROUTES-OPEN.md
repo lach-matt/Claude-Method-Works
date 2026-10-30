@@ -4063,3 +4063,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the backward problem added to Part IV's Proposition 4.1.
 - Next: verifier 133 reads III.I(15)'s D302 repairs, the D304 repairs, Part IV' and Part IV''; then Part IV''' (the
   slab) and Part IV'''' ([Hin26a], III.E Theorem 1.1).
+
+### 4.230 Part IV''' written (D306): the slab
+
+- PART-IV4-SLAB.md: the slab of III.K (K2) (b) is posed on Omega_ext,r_1 cup S from Sigma_IVP,r_1 and the compact
+  Sigma_c = {rho'_I = c} cap dS, so that no Cauchy data sit on Sigma_fut,r_1 near I+ (asymptotically null there);
+  the chart is translated in t (T'' = T^ + 5); Lemma 0.1 puts phi_S^* g_{b_0} in the translated class by III.B Lemma
+  5.2; Lemma 1.1 the curves; Theorems 2.1-2.2 Part IV'''s linear and nonlinear theorems there; Corollary 2.3 the
+  orders (III.C' Theorem 3.1's proof). III.K Proposition 1.2's slab paragraph cites it.
+- Next: Part IV'''' ([Hin26a] sections 2.3, 3-6 and Appendix B at n = 4 -> III.E Theorem 1.1), in several files; the
+  record's 10.21-10.23 and (lxi) carry the computed inputs (cpmodes5, solv5, tface5, 10.79's horizon threshold).
