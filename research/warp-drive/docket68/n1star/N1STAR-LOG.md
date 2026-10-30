@@ -6209,3 +6209,12 @@ weights that the proof fixes only by inequalities, of step counts it chooses fre
 give no closed form (LOSS-D.md). So that item was not bookkeeping; it is three tasks, now named. On the way, k'' turned
 out to be used in the nonlinear step and in Part VIII but never defined; it is now the largest, over the orders used, of
 the loss the initial-data proposition gives.
+
+**D348 (2026-10-30): one count in the loss is very large.** Fixing the weights needs the index sets' numbers, and the
+record's own numbers decide one step count already. The smallest gap in the indicial roots at the record's parameter
+point is 2.93 millionths, and every later small constant is chosen below it. One chain of decay levels in the last
+augmentation part must step by less than that constant and climb by about 2, so it has more than 660,000 levels. The
+tame-estimate part composes the levels, so if each costs a derivative the loss d is above 660,000 and the regularity
+the nonlinear step needs is above 13 million derivatives. This is no gap in a proof; it is the size of the number the
+proof produces at the chosen parameters. Whether another admissible parameter point opens the gap is the first
+question for fixing the weights.

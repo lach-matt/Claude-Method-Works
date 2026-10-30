@@ -1,6 +1,6 @@
 # LOSS-D -- the loss d of III.J''' Theorem 4.1, added up as far as the record allows (E1')
 
-Status: written (D347); to be read.
+Status: written (D347); LD3 added (D348); to be read.
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J''''s losses part by part, so that α = 8d+2
 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a number. The record
@@ -106,6 +106,21 @@ many chosen weights and of five losses that the record proves finite without com
   loss k'_k that may depend on k. Repair: Lemma 2.2 (d) holds with k'_k at every order, and III.K now defines k'' :=
   max_(k ≤ N) k'_k, finite, which is all the smallness argument uses (the constants C_k with k ≤ N, and the norm
   F^(2d) with 2d ≤ N). Part VIII's bound at an order k > N reads k'_k for k''.
+
+- LD3 (the β-chain is long at the record's parameters; a finding about the size of d, not a gap in any proof).
+  III.I(15) Step 2 (PART-III-I15-AUGMENT5.md:323-324) chooses admissible levels α_1 = β_0 < … < β_K = α with
+  β_(k+1) − β_k < α − 4, because the remainder term R_q u gains only α − 4 per level (Lemma 2.3 with w = β_k − 2, line
+  329). An admissible α ≥ 3 has α ∈ (4 + ε_K − ε'_0, 4 + ε_K] (PART-III-I11-SPACETIME.md:156-158), so α − 4 ≤ ε_K;
+  and α_1 < 2 + ε_K (I15:314). Hence K ≥ (α − α_1)/(α − 4) > (4 − (2 + ε_K))/ε_K = 2/ε_K − 1. And ε_K < ε_+ < ε_ind
+  (PART-III-J-PARAM.md:34), with ε_ind < 3 × 10⁻⁶ at the record's parameter point (PART-III-F2-INDICIAL.md:133-136:
+  the lowest root λ^C − 1, at scalar type 2, is 1 + 2.93 × 10⁻⁶). So K > 6.6 × 10⁵ there. III.J''' composes the
+  levels (its section 3 rows for III.I(14) Theorem 3.1 and III.I(15) Proposition 2.5: "levels β_0 < … < β_K", with
+  FWD, BG and FIN), each level's estimate taking the previous level's output as input through R_q u; so by its Lemma
+  1.2 (e) the β-chain alone contributes K times the loss of one level. If that loss is at least 1 (E1'b to confirm),
+  then d > 6.6 × 10⁵, N = 21d + 6 > 1.3 × 10⁷, and the exponent 8d + 2 of EFFECTIVE-CONSTANTS.md exceeds 5 × 10⁶, at
+  the record's parameter point. The levers are the parameter point (ε_ind is small because the root λ^C − 1 sits
+  just above 1 there; whether another admissible point moves it is E1'a's first question) and a per-level gain larger
+  than α − 4.
 
 - LD2 (the record's own description). EFFECTIVE-CONSTANTS.md called E1' bookkeeping. It is a reduction to E1'a-E1'c;
   the description is corrected there.

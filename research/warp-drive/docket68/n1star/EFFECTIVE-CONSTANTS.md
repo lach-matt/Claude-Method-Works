@@ -363,7 +363,9 @@ file, line, class, the statement it serves, the constant it hides, and an excerp
 - **E1'. The loss d.** Add up III.J''''s losses part by part, with k'' and d1, so that α and N become numbers. Done as
   far as the record allows (LOSS-D.md, D347): d is a finite sum whose step losses are explicit in the chosen weights
   except five, so E1' is not bookkeeping but three tasks: E1'a (numbers for the weights from the index sets at n = 4),
-  E1'b (the five losses), E1'c (the level and round counts). k'' is now defined (LOSS-D.md LD1).
+  E1'b (the five losses), E1'c (the level and round counts). k'' is now defined (LOSS-D.md LD1). At the record's
+  parameter point one count is already known to be large: III.I(15)'s chain has more than 6.6 × 10⁵ levels, so d is
+  of that order if a level costs a derivative (LD3, D348).
 
 - **E1''. The inventory.** Finish section 2's inventory of δ_K and ε_dat statement by statement, and unfold each
   part (ε_ext, ε_slab and their higher orders, the data map, III.C's and III.B's thresholds) into its own proof's
