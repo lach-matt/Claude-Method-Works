@@ -4548,3 +4548,33 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   with M (1.86, 3.28, 3.44 at M = 6, 8, 12) and with (u, v) (3.28, 3.36): resolution, not the gauge.
 - G1 not yet answered to the end of the domain; next: angular resolution with an axis filter, refinement at D_q's
   edge, D_q at lambda = 0.3162, then F3.
+
+### 4.268 The linear result in any gauge: Part IX (D345, D347)
+
+- proof5/PART-IX-GAUGE.md: on D_U(Sigma_U), U open in N°, a linearised vacuum solution whose Cauchy data are those of
+  L_Z g is L_X g, X unique up to Killing fields; Part VIII's solution in any gauge is dot g + L_X g (Corollary 2.3).
+  Domain: D_{N°}(Sigma°) globally hyperbolic, contains N° cap {t_IVP >= 0} (Lemma 1.2); [BGP] Theorem 3.2.11 for data
+  without compact support (Lemma 1.1). Gauge vector: 2 delta G delta^* w = Theta(k), w = 0 and nabla_nu w = Y^flat on
+  Sigma; then k - L_X g has zero data and vanishes (uniqueness for DRic + delta^* Theta, normally hyperbolic).
+- checks/ix5.py X1-X7 (identities by exact expansion or at four random rational points to 60 digits; seven controls).
+- Not proved: the size or decay of X, so the Regge-Wheeler-type and harmonic-gauge decay routes of section 8.2 stay
+  deductions. Verifier 162: sound; M1-M4, N1-N5 seated (D347).
+
+### 4.269 The equality case mu0 = sqrt72 l5^2 (D346, D347)
+
+- EQUALITY5.md: g_lam = g0 on Omega cap {v <= v_s} (Proposition E.2; the record's energy inequality with a null face);
+  the boundary is null there, spacelike for g_lam on v >= v_s + eta once lam <= lam_eta (E.3); the layer between, of
+  width -> 0 with lam, undecided (Remark E.6: margin and perturbation both flat at v_s); D_T^lam, within c lam eta* of
+  D_T inside x_K <= 1, whose inner boundary nothing enters (E.4); the spheres' horizon at equality (E.5).
+- checks/eq5.py E1-E6. Verifier 163: sound; MINOR-1..4 and nine nits seated (D347).
+- Open: the causal character of x_K = 1 itself for g_lam in the layer, a question about the exact solution near v_s.
+
+### 4.270 The loss d (E1'): bookkept, not a number (D347)
+
+- LOSS-D.md: d = sum over III.J''' section 3's rows of (steps x step loss). Step losses explicit in the weights
+  (II.G' Corollary 4.5's l = 2 l_3 + l_4 + l_5 and its parts, Proposition 3.5, III.F' Corollary 3.4, III.G''' 2.2/2.4,
+  III.G' Theorem 3.1 (2) <= 2(ceil(l_I - Re lambda) + 2), III.I Theorem 5.3's +5, N_*), except five (III.A Proposition
+  4.2 (1); II.G' Corollary 4.2; III.G''' Corollary 3.1 and Proposition 3.7; III.I'' Lemma 4.2). Weights fixed only by
+  inequalities at n = 4 (l_I > 3 + eps_+, alpha_K = 4 + eps_K, eps_ind, ...); level and round counts chosen.
+- Next: E1'a (numbers for the weights from the computed index sets), E1'b (the five losses), E1'c (the counts).
+- Finding LD1: k'' (III.K, Part VIII) was never defined; now k'' := max_{k <= N} k'_k from III.K Proposition 1.2 (3).

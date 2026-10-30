@@ -230,7 +230,9 @@ the scales of III.J$'''$ Corollary 6.6, with constants depending on the data thr
 $(\tilde\gamma,\tilde k)$;
 
 (d) $P_5(\Psi(0))$ is supported in $\{\hat T+\frac74\le t^\flat_*\le\hat T+2\}$, and $\|P_5(\Psi(0))\|_{\mathcal
-F^k_{\mathrm{ex}}}\le C_k\|(\tilde\gamma,\tilde k)\|_{H^{k+k''}}$.
+F^k_{\mathrm{ex}}}\le C_k\|(\tilde\gamma,\tilde k)\|_{H^{k+k'_k}}$, $k'_k$ Proposition 1.2 (3)'s $k'$ at the order
+$k$. Below, $k'' := \max_{k\le N}k'_k$ with $N$ of section 3 (finite; defined D347, LOSS-D.md LD1: it was used before
+without a definition), and every bound with $H^{k+k''}$ is used only for $k\le N$.
 
 *Proof.* On $\{t^\flat_*<\hat T+2\}$, $\chi_K = 0$ (section 0, $T_K>\hat T+2$), so $g_{b_0,b,-S} = \phi_{-S}^*g_{b_0}$.
 Also $h_{\mathrm{tot}}(\vec p)$ and $\vartheta_{\mathrm{tot}}(\vec p)$ vanish there, being supported in $\mathcal
@@ -407,8 +409,9 @@ $\Psi_{\mathrm{NM}}(U)(F^\infty_\eta)\subset B^\infty_\eta$; at $\eta = 0$ this 
 $F^\infty$ into $B^\infty$. This is II.G Theorem 2.1 (iii) in its form amended in D304, for $u\in U\cap B^\infty_\eta$,
 which is all its proof uses; the form for every $u$ in the domain does not hold here (Lemma 2.3's proof).
 
-*Smallness.* Let $N := 21d+6$. The constants $C_k$ ($k\le N$), $C_1$, $C_2$ and $\delta$ depend on the data only through
-$\|(\tilde\gamma,\tilde k)\|_{H^{N+k''}}$ (Lemmas 2.2 (c), 2.3); they are bounded once that norm is at most 1. So II.G
+*Smallness.* Let $N := 21d+6$ and $k'' := \max_{k\le N}k'_k$ (Lemma 2.2 (d)). The constants $C_k$ ($k\le N$),
+$C_1$, $C_2$ and $\delta$ depend on the data only through $\|(\tilde\gamma,\tilde k)\|_{H^{N+k''}}$ (Lemmas 2.2 (c),
+2.3); they are bounded once that norm is at most 1. So II.G
 Theorem 2.1's $\epsilon_{\mathrm{NM}}$ is uniform, and $\|P_5(\Psi(0))\|_{\mathcal
 F^{2d}_{\mathrm{ex}}}<\epsilon_{\mathrm{NM}}$ for data small in $H^{d_1}$, $d_1 := N+k''$, by Lemma 2.2 (d). II.G
 Theorem 2.1 gives $U\in B^\infty_{1/2}$ with $|U|_{3d}<\delta$ and $P_5(\Psi(U)) = 0$. $\square$

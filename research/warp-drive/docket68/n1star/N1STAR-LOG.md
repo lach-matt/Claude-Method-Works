@@ -6197,3 +6197,15 @@ double-null run's second zero (1.425) with the record's break at the first seed 
 there is 1.500, the 1.4516 having been a single-step excursion (D43-D44), and 1.583 at the second seed. Corrected in
 CERTIFY-10L5.md and ROUTES 4.267; the conclusion (the run passes the break) stands. dnsolve5.py gains an optional
 exponential filter in x for the axis-resolution runs of G1.
+
+**D347 (2026-10-30): two verifiers seated; the loss d added up as far as it goes.** Verifier 162 read Part IX and found
+it sound: four minor findings (a case split in the extension of the existence theorem, a check that tested two of the
+three directions it claimed, the settling clause stated beyond its domain, a symmetry hypothesis left implicit) and
+five nits, all seated, with a seventh computed check. Verifier 163 read the equality case and found it sound: four
+minor findings, mostly about citing the right step (the solution's data agree with the seed's as a metric, which the
+proof of Theorem D gives, and not only as Cauchy data) and two overstatements in the summary, and nine nits, all
+seated. The loss d: adding up the last tame-estimate part's losses step by step ends in an explicit function of
+weights that the proof fixes only by inequalities, of step counts it chooses freely, and of five losses whose proofs
+give no closed form (LOSS-D.md). So that item was not bookkeeping; it is three tasks, now named. On the way, k'' turned
+out to be used in the nonlinear step and in Part VIII but never defined; it is now the largest, over the orders used, of
+the loss the initial-data proposition gives.

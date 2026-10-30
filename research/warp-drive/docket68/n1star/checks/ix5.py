@@ -5,8 +5,9 @@ Conventions (Part IX section 0): (delta k)_mu = -nabla^a k_{a mu}, G k = k - (1/
 nabla w^T), Theta := delta G, K(X, Y) = g(nabla_X nu, Y) with nu the future unit normal.
 
   X1 (computed) Flat R^{1+4}: DRic(k) + delta^* Theta(k) = -(1/2) box k, for every symmetric k (all 15 components
-     arbitrary functions).  So 2(DRic + delta^* Theta) has principal symbol g^{-1}(zeta, zeta).  Control: with
-     -delta^* Theta the identity fails.
+     arbitrary functions).  So 2(DRic + delta^* Theta) has principal symbol g^{-1}(zeta, zeta).  The flat DRic used is
+     checked equal to ricci_dot, the s-derivative X6 uses (verifier 162's N4).  Control: with -delta^* Theta the
+     identity fails.
   X2 (computed) Flat R^{1+4}: 2 Theta(delta^* w) = -box w for every 1-form w.  Control: dropping the trace term of G
      fails.
   X3 (computed) On a curved metric in three dimensions with g_{0i} != 0 at Sigma = {t = 0} (the identity is pointwise
@@ -16,12 +17,17 @@ nabla w^T), Theta := delta G, K(X, Y) = g(nabla_X nu, Y) with nu the future unit
      + (1/2) sum_i (nabla_nu k)(e_i, e_i), e_i an orthonormal frame of T Sigma.  Control: the factor 1/2 on the
      tangential trace replaced by 1 fails.
   X5 (computed) Same setting: if X = 0 on Sigma and nabla_nu X = Y := sum_j k(nu, e_j) e_j - (1/2) k(nu, nu) nu, then
-     L_X g = k on Sigma, for every k with k(e_i, e_j) = 0 on Sigma.  Control: Y with +1/2 fails.
+     L_X g = k on Sigma, for every k with k(e_i, e_j) = 0 on Sigma: k = nu^flat (x) a + a (x) nu^flat, a an arbitrary
+     1-form (all three components free; verifier 162's M2).  Controls: Y with +1/2 fails; the factor 2 on the
+     tangential sum fails.
+  X7 (computed) Same setting: for X = t V / nu(t), V an arbitrary vector field (X = 0 on Sigma), L_X g induces zero data
+     on Sigma: its T Sigma components vanish and the s-derivative of the second fundamental form of g + s L_X g
+     vanishes (Lemma 2.1 (f); verifier 162's N3).  Control: X = (1 + t) V, not zero on Sigma, fails.
   X6 (computed) At five-dimensional Tangherlini, DRic(L_X g) = 0 for X = a(t, r) d_t + b(t, r) d_r (a, b arbitrary);
      DRic is the s-derivative at 0 of the Ricci tensor of g + s L_X g, assembled from its Christoffel symbols to first
      order in s.  Control: at the four-dimensional lapse F = 1 - mu/r (not Ricci-flat in five dimensions) it fails.
 
-X1 and X2 are decided by exact expansion.  X3-X6 are identities between rational expressions (with square roots) in the
+X1 and X2 are decided by exact expansion.  X3-X7 are identities between rational expressions (with square roots) in the
 coordinates and the jets of the arbitrary functions; each is decided by evaluation at four random rational points to 60
 digits, every coordinate and every jet an independent random rational (polynomial identity testing; seed fixed).  An
 identity holds if every residual is below 1e-45; a control fails if some residual exceeds 1e-6.
@@ -96,7 +102,9 @@ def flat_checks():
     th = [-div[m] + sp.diff(tr, X[m]) / 2 for m in range(5)]
     dstar = lambda w: sp.Matrix(5, 5, lambda a, b: (sp.diff(w[b], X[a]) + sp.diff(w[a], X[b])) / 2)
     lhs = DRic + dstar(th)
-    r1 = all(sp.expand(lhs[a, b] + box(k[a, b]) / 2) == 0 for a in range(5) for b in range(5))
+    Rd = ricci_dot(eta, k, list(X))
+    tie = all(sp.expand(Rd[a, b] - DRic[a, b]) == 0 for a in range(5) for b in range(5))
+    r1 = tie and all(sp.expand(lhs[a, b] + box(k[a, b]) / 2) == 0 for a in range(5) for b in range(5))
     c1 = all(sp.expand(DRic[a, b] - dstar(th)[a, b] + box(k[a, b]) / 2) == 0 for a in range(5) for b in range(5))
     w = [sp.Function('w%d' % a)(*X) for a in range(5)]
     ds = dstar(w)
@@ -171,9 +179,8 @@ def x3_x5():
     # X5: k1 := nu^flat (x) c + c (x) nu^flat + c0 nu^flat (x) nu^flat, so k1(e_i, e_j) = 0; X = t Y / nu(t), so X = 0
     # on Sigma and nabla_nu X = Y there; then L_X g = k1 on Sigma
     nu_flat = g.subs(sub0) * nu0
-    c1v = sp.Matrix([sp.Function('c1')(X[1], X[2]), sp.Function('c2')(X[1], X[2]), 0])
-    cc = sp.Function('c0')(X[1], X[2])
-    k1 = (nu_flat * c1v.T + c1v * nu_flat.T) + cc * nu_flat * nu_flat.T
+    al = sp.Matrix([sp.Function('a%d' % i)(X[1], X[2]) for i in range(3)])     # an arbitrary 1-form
+    k1 = nu_flat * al.T + al * nu_flat.T                                       # k1(e_i, e_j) = 0
     k1nu = lambda v: (nu0.T * k1 * v)[0]
     lam = nu0[0]                                                        # nu(t) at Sigma
 
@@ -183,8 +190,30 @@ def x3_x5():
                          - 2 * sum(Gm[d][a][b] * Xf[d] for d in range(3))).subs(sub0)
     tsum = sum((k1nu(ej) * ej for ej in e0), sp.zeros(3, 1))
     r5 = holds(list(lie(tsum - k1nu(nu0) / 2 * nu0) - k1), ranges=RANGES)
-    c5 = not fails(list(lie(tsum + k1nu(nu0) / 2 * nu0) - k1), ranges=RANGES)
-    return r3, c3, r4, c4, r5, c5
+    c5 = (not fails(list(lie(tsum + k1nu(nu0) / 2 * nu0) - k1), ranges=RANGES)
+          or not fails(list(lie(2 * tsum - k1nu(nu0) / 2 * nu0) - k1), ranges=RANGES))
+    # X7: X = t V / nu(t) gives zero data; control X = (1 + t) V
+    V = sp.Matrix([sp.Function('V%d' % i)(X[1], X[2]) for i in range(3)])
+
+    def lie_full(Xv):
+        Xf = g * Xv
+        return sp.Matrix(3, 3, lambda a, b: sp.diff(Xf[b], X[a]) + sp.diff(Xf[a], X[b])
+                         - 2 * sum(Gm[d][a][b] * Xf[d] for d in range(3)))
+
+    def data_of(kk):
+        Ks7 = sp.Matrix(2, 2, lambda i, j: (nab(E[i], nus7(kk), Gs7(kk)).T * (g + s * kk) * E[j])[0])
+        tang = [kk[a, b].subs(sub0) for a in (1, 2) for b in (1, 2)]
+        return tang + list(Ks7.diff(s).subs(s, 0).subs(sub0))
+
+    def Gs7(kk):
+        return christoffel(g + s * kk, X, gi - s * gi * kk * gi)[0]
+
+    def nus7(kk):
+        gis7 = gi - s * gi * kk * gi
+        return -(gis7 * dt) / sp.sqrt(-(dt.T * gis7 * dt)[0])
+    r7 = holds(data_of(lie_full(t * V / lam)), ranges=RANGES)
+    c7 = not fails(data_of(lie_full((1 + t) * V)), ranges=RANGES)
+    return r3, c3, r4, c4, r5, c5, r7, c7
 
 
 def ricci_dot(g, k, C):
@@ -228,12 +257,14 @@ def main():
     print('X2 2 Theta delta^* = -box (flat):', 'PASS' if r2 else 'FAIL', '| control without the trace term:', c2,
           flush=True)
     ok &= r1 and not c1 and r2 and not c2
-    r3, c3, r4, c4, r5, c5 = x3_x5()
+    r3, c3, r4, c4, r5, c5, r7, c7 = x3_x5()
     print('X3 Kdot = (1/2) nabla_nu k on T Sigma (k = 0 on Sigma):', 'PASS' if r3 else 'FAIL', '| control factor 1:', c3)
     print('X4 Theta(k) at Sigma in the frame:', 'PASS' if r4 else 'FAIL', '| control tangential trace 1:', c4)
-    print('X5 L_X g = k on Sigma for the Y of the construction:', 'PASS' if r5 else 'FAIL', '| control +1/2:', c5,
+    print('X5 L_X g = k on Sigma for the Y of the construction:', 'PASS' if r5 else 'FAIL',
+          '| controls +1/2, tangential factor 2:', c5)
+    print('X7 L_X g induces zero data when X = 0 on Sigma:', 'PASS' if r7 else 'FAIL', '| control X != 0 on Sigma:', c7,
           flush=True)
-    ok &= r3 and not c3 and r4 and not c4 and r5 and not c5
+    ok &= r3 and not c3 and r4 and not c4 and r5 and not c5 and r7 and not c7
     t5, t4 = x6()
     print('X6 DRic(L_X g) = 0 at 5D Tangherlini:', 'PASS' if t5 else 'FAIL', '| control (4D lapse):', t4)
     ok &= t5 and not t4

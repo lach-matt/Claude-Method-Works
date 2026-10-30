@@ -1,6 +1,7 @@
 # Part IX: the linear solution is unique up to a linearised diffeomorphism, n = 4
 
-*Status.* Written (D345); to be read.
+*Status.* Written (D345). Verified (D347): verifier 162 found no blocking or major gap; its minor findings M1-M4 and
+nits N1-N5 are seated (finding (IX4)).
 
 Part VIII Remark 2.4 (a) records what Theorem 2.2 there does not assert: that a linearised solution given in another
 gauge differs from $\dot g$ by a linearised diffeomorphism. This part proves it, on the Cauchy development of
@@ -25,7 +26,8 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
 - *$\dot g$ lives on $N$.* $\Omega_*\cup\mathcal D = N$. Indeed $\Omega_* = \mathrm{cl}_M\{t^\flat_*\ge1\}$ (III.K
   section 0) lies in $N$, as $t_{\mathrm{IVP}}\ge t_*\ge t^\flat_*$ (Part VIII section 0; III.B Lemma 3.7, II.C Lemma
   3.2 (b)); and a point of $N$ has either $t^\flat_*>\hat T+3\ge1$, so lies in $\Omega_*$, or lies in $\mathcal D =
-  N\cap\{t^\flat_*\le\hat T+3\}$. So Part VIII Theorem 2.2's $\dot g$ is a smooth symmetric 2-tensor on $N$ with
+  N\cap\{t^\flat_*\le\hat T+3\}$, with III.K section 0's convention that $\{t^\flat_*\le c\}$ is the
+  complement of $\{t^\flat_*>c\}$, so that points where $t^\flat_*$ is undefined lie in it. So Part VIII Theorem 2.2's $\dot g$ is a smooth symmetric 2-tensor on $N$ with
   $D\mathrm{Ric}(\dot g) = 0$ there.
 
 - *Time orientation.* As in II.B, $dt_*$ is past timelike. $dt_{\mathrm{IVP}}$ is timelike for $g$ on $M$ (III.B Lemma
@@ -68,8 +70,9 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
 
 **Lemma 1.1 ([BGP] Theorem 3.2.11 for data without compact support).** Let $(Y,g)$ be globally hyperbolic, $S$ a smooth
 spacelike Cauchy hypersurface, $n$ its future unit normal, and $P$ a normally hyperbolic operator on a vector bundle
-$E$. For every $u_0,u_1\in C^\infty(S;E)$ and $f\in C^\infty(Y;E)$ there is a unique $u\in C^\infty(Y;E)$ with $Pu =
-f$, $u|_S = u_0$, $\nabla_nu|_S = u_1$.
+$E$, $\nabla$ the connection on $E$ with which [BGP] Theorem 3.2.11 poses the data. For every $u_0,u_1\in C^\infty(S;E)$
+and $f\in C^\infty(Y;E)$ there is a unique $u\in C^\infty(Y;E)$ with $Pu = f$, $u|_S = u_0$, $\nabla_nu|_S = u_1$. (In
+every use below $u_0 = 0$, and then $\nabla_nu|_S$ does not depend on the connection.)
 
 *Proof.* Uniqueness is [BGP] Corollary 3.2.4. For existence, write $Y = \mathbb R\times S$ with $S = S_0$, $t$ the first
 coordinate. Choose a locally finite partition of unity $(\phi_j)$ on $S$ with compact supports, and a locally finite
@@ -78,15 +81,17 @@ S$. By [BGP] Theorem 3.2.11 let $u_j$ solve $Pu_j = 0$ with data $(\phi_ju_0,\ph
 \psi_if$ with zero data; $\mathrm{supp}\,u_j\subset J(\mathrm{supp}\,\phi_j)$ and $\mathrm{supp}\,v_i\subset
 J(\mathrm{supp}\,\psi_i)$.
 
-- *Sources away from $S$.* If $a_i\ge0$, then $v_i = 0$ on $(-R,a_i)\times S$ for every $R>0$: there $Pv_i = 0$ and
-  $v_i$ has zero data on $S$, and Corollary 3.2.4 applies on that slab. So $v_i = 0$ where $t<a_i$. Likewise, if
-  $a_i+1\le0$, $v_i = 0$ where $t>a_i+1$.
+- *Sources away from $S$.* If $a_i>0$, then $v_i = 0$ on $(-R,a_i)\times S$ for every $R>0$: that slab contains
+  $S = S_0$, there $Pv_i = 0$ and $v_i$ has zero data on $S$, and Corollary 3.2.4 applies on it. So $v_i = 0$ where
+  $t<a_i$. Likewise, if $a_i+1<0$, $v_i = 0$ where $t>a_i+1$. The remaining $i$ have $-1\le a_i\le0$ (verifier 162's
+  M1: the cases $a_i = 0$ and $a_i+1 = 0$ are among them).
 
 - *Local finiteness.* Let $C\subset[-T,T]\times S$ be compact. $u_j\ne0$ somewhere on $C$ only if
-  $\mathrm{supp}\,\phi_j$ meets $J(C)\cap S$, which is compact (Lemma A.5.4 with the slab $[-1,1]$): finitely many $j$.
-  If $a_i\ge0$, $v_i\ne0$ somewhere on $C$ only if $a_i\le T$ and $\mathrm{supp}\,\psi_i$ meets $([0,T+1]\times S)\cap
-  J(C)$, which is compact: finitely many $i$. The case $a_i+1\le0$ is symmetric. If $a_i<0<a_i+1$, then
-  $\mathrm{supp}\,\psi_i\subset[-1,1]\times S$ meets the compact set $([-1,1]\times S)\cap J(C)$: finitely many $i$.
+  $\mathrm{supp}\,\phi_j$ meets $J(C)\cap S$, which is compact (Lemma A.5.4 with the slab $[0,0]$, as applied in
+  Theorem 3.2.11's proof): finitely many $j$. If $a_i>0$, $v_i\ne0$ somewhere on $C$ only if $a_i\le T$ and
+  $\mathrm{supp}\,\psi_i$ meets $([0,T+1]\times S)\cap J(C)$, which is compact: finitely many $i$. The case $a_i+1<0$
+  is symmetric. If $-1\le a_i\le0$, then $\mathrm{supp}\,\psi_i\subset[-1,1]\times S$ meets the compact set
+  $([-1,1]\times S)\cap J(C)$: finitely many $i$.
 
 So $u := \sum_ju_j+\sum_iv_i$ is a locally finite sum of smooth sections, $Pu = \sum_i\psi_if = f$, $u|_S =
 \sum_j\phi_ju_0 = u_0$ and $\nabla_nu|_S = u_1$. $\square$
@@ -175,8 +180,9 @@ $X$ is unique up to a Killing field of $g$ on $\Omega'$.
 *Proof.* $\Omega'$ is globally hyperbolic with smooth spacelike Cauchy hypersurface $\Sigma_U$ (Lemma 1.2). Uniqueness
 up to Killing fields is $\mathcal L_{X-X'}g = 0$.
 
-*Step 0 (zero data).* Let $\psi\in C^\infty(\Omega')$ equal 1 near $\Sigma_U$ and vanish outside the neighbourhood
-where $Z$ is defined ($\Sigma_U$ is closed in $\Omega'$). $k_0 := k-\mathcal L_{\psi Z}g$ has $D\mathrm{Ric}(k_0) = 0$
+*Step 0 (zero data).* Let $W$ be the neighbourhood of $\Sigma_U$ where $Z$ is defined, and $\psi\in C^\infty(\Omega')$
+equal 1 near $\Sigma_U$ with $\mathrm{supp}_{\Omega'}\psi\subset W$ (smooth Urysohn: $\Sigma_U$ is closed in
+$\Omega'$). $k_0 := k-\mathcal L_{\psi Z}g$ has $D\mathrm{Ric}(k_0) = 0$
 (Lemma 2.1 (b)), and it induces zero data: those of $\mathcal L_{\psi Z}g$ and $\mathcal L_Zg$ agree, as $\psi Z = Z$
 near $\Sigma_U$. If $k_0 = \mathcal L_{X_0}g$, then $k = \mathcal L_{X_0+\psi Z}g$. So assume $Z = 0$.
 
@@ -211,9 +217,11 @@ $(\dot\gamma,\dot k)$ plus those of $\mathcal L_Zg$, for a smooth $Z$ near $\Sig
 $$\dot g' = \dot g+\mathcal L_Xg\quad\text{on }\Omega'$$
 for a smooth vector field $X$ on $\Omega'$. In particular, where $\chi_K = 1$ in $\Omega'$,
 $$\dot g'-\mathcal L_Xg-\partial_bg_b|_{b=b_0}(\dot b) = h_{b_0,\mathrm{rem}}(q')+h',$$
-with the rate of Part VIII (2.3): every linearised vacuum solution with these data settles, up to a linearised
-diffeomorphism, to a linearised Myers-Perry metric. With $U = N^\circ$, $\Omega'$ contains $N^\circ\cap
-\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2).
+For $U = N^\circ$, $\Omega'$ contains $N^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2), so on the region where
+Part VIII (2.3) is stated, intersected with $\{r>r_0\}$ ($\Omega'\subset M^\circ$), the remainder has the rate of
+Part VIII (2.3): every linearised vacuum solution with these data settles, up to the linearised diffeomorphism
+$\mathcal L_Xg$, to a linearised Myers-Perry metric, with $X$ itself not controlled (Remark 2.4 (b)). For a general
+open $U$ this holds only on the part of that region which $\Omega'$ contains (verifier 162's M3).
 
 *Proof.* $\dot g$ is smooth on $N\supset\Omega'$ with $D\mathrm{Ric}(\dot g) = 0$ (section 0; Part VIII Theorem 2.2
 (1)). Near $\Sigma_{\mathrm{IVP}}$ in $N$, $\dot g = \dot h+\dot g_{S'}$ with $\dot g_{S'} = -\mathcal L_{V(S')}g$:
@@ -230,9 +238,10 @@ data, and its behaviour at $\mathscr I^+$ and $K^+$ depends on the gauge of $\do
 routes keep their status: a solution in the Regge-Wheeler-type gauge or in the harmonic gauge with the same data is
 $\dot g+\mathcal L_Xg$ on its Cauchy development (Corollary 2.3), which settles modulo $\mathcal L_Xg$; the decay *in
 those gauges* is the decay of $\mathcal L_Xg$ there, which is what the deduced routes argue and is not proved here.
-(c) In the class of Part VII, if $\dot g'$ and $Z$ are $G$-invariant, $X$ may be taken $G$-invariant: average Step 1's
-data and source over $G$, which commutes with $\Theta$, $\delta^*_g$ and the Cauchy problem (Part VIII Corollary 2.3's
-proof), and Lemma 1.1's uniqueness.
+(c) In the class of Part VII, if $U$ is $G$-invariant (for instance $U = N^\circ$), so that $\Omega'$ is $G$-stable,
+and $\dot g'$ and $Z$ are $G$-invariant, $X$ may be taken $G$-invariant: $G$ is compact and acts by isometries of $g$
+(Part VIII Corollary 2.3's proof), $k$ is $G$-invariant, and the Haar average $X_G := \int_G\sigma_*X\,d\sigma$ has
+$\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 162's M4).
 
 ## 3. Findings, labels and sources
 
@@ -245,8 +254,16 @@ proof), and Lemma 1.1's uniqueness.
 - (IX3) The domain of the comparison is a Cauchy development, $D_U(\Sigma_U)$; for $U = N^\circ$ it contains the
   whole future $N^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2), where the settling statement lives.
 
+- (IX4) Verifier 162 (D347): no blocking or major gap. M1, Lemma 1.1's case split at $a_i = 0$, $a_i+1 = 0$; M2, X5
+  tested a two-dimensional family of the three-dimensional space it claims, now the full family, with a tangential
+  control; M3, Corollary 2.3's settling clause restricted to where $\Omega'$ reaches; M4, Remark 2.4 (c) needs $U$
+  $G$-invariant, and averages $X$ itself. Nits: III.K's sublevel convention cited (N1); Step 0's support (N2); Lemma
+  2.1 (f) now computed, X7 (N3); X1's flat $D\mathrm{Ric}$ tied to X6's (N4); the connection of Lemma 1.1 (N5). All
+  seated.
+
 Labels: proved here from the cited parts and [BGP] (READ); Lemma 2.1's identities are derived in the text and computed
-in `checks/ix5.py` (X1-X6, with controls).
+in `checks/ix5.py` (X1-X7, with controls). The [BGP] readings were not re-read by verifier 162 (arXiv refused the
+fetch).
 
 Sources: Part VIII (PART-VIII-LINEAR.md) section 0, Lemma 1.1, Proposition 1.2, Theorem 2.2, Corollary 2.3, Remark 2.4;
 III.B (PART-III-B-FAMILY.md) (3.5), (3.6), Lemma 3.7; II.C (PART-II-C-OPERATORS.md) Lemma 3.2; II.F (PART-II-F-IOTA.md)

@@ -195,7 +195,8 @@ on $\Omega_*$. $\square$
 $\Omega_*\cap\{t^\flat_*\le\hat T+2\}\subset\mathcal D$; extend it by 0 to $\Omega_*$, and put
 $$f := -L\big(\chi_-(t^\flat_*)\dot h\big)\quad\text{on }\Omega_*.\tag{2.1}$$
 Then $f = -[L,\chi_-(t^\flat_*)]\dot h$ is supported in $\{\hat T+\frac74\le t^\flat_*\le\hat T+2\}$, $f\in\mathcal
-F^\infty_{\mathrm{ex}}$, and $\|f\|_{\mathcal F^k_{\mathrm{ex}}}\le C_k\|(\dot\gamma,\dot k)\|_{H^{k+k''}}$.
+F^\infty_{\mathrm{ex}}$, and $\|f\|_{\mathcal F^k_{\mathrm{ex}}}\le
+C_k\|(\dot\gamma,\dot k)\|_{H^{k+k'_k}}$ ($k'_k$ as in III.K Lemma 2.2 (d); D347).
 
 *Proof.* On $\mathcal D\cap\Omega_*$, $L\dot h = L^\natural\dot h = 0$ by (0.1) and (1.1). So $L(\chi_-\dot h) =
 [L,\chi_-]\dot h$, a first-order operator applied to $\dot h$, with coefficients supported in
