@@ -87,7 +87,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313); verified (D315); proved (D317) |
 | VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317); proved (D318) |
 | VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318: verifier 138's three minors seated, to be read) |
-| VI.B'-C | the record's computed inputs | the trapped set and the global dynamics near b_0 ((Γ.1)-(Γ.3), (K3), (H8)); the parameter conditions left open by the parts | to do |
+| VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319) |
+| VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open | to do |
 | VII | assembly | Theorem 4 from Parts I-VI | to do |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
@@ -1371,6 +1372,18 @@ identity outside $\{|x|<2R_1\}$, fixes it at $\{|x| = r_h\}$ (Lemma 1.2). Its co
 (VI.B1)-(VI.B5). Written (D316). Verified (D318): verifier 138's three minor findings (the conjugation by $\Psi_b$
 proved for thresholds and spaces, the rescaled field defined on all of $\partial\tilde\Sigma_{0,b}$, the no-re-entry
 step) and six notes repaired; to be read.
+
+`PART-VI3-TRAPPING.md`. Part VI.B$'$ proves (Γ.1)-(Γ.3), (K3)-(K4) and (H8) near $b_0$. Five-dimensional Myers-Perry
+separates in III.B's Kerr-Schild coordinates written spheroidally, $x = (r^2I-A^2)^{1/2}\omega$, with the Kerr-Schild
+time: $\varrho^2g_b^{-1} = \mathfrak A(r,p_r;E,\Phi,\Psi)+\mathcal K(\omega,\eta)$ (Lemma 0.1, `checks/trap5.py` S1 to
+40 digits). The radial function $\mathcal R$ times $uP$ is a quintic in $u = r^2$ whose reversal $\mathcal Q(w)$ is
+$E^2-\Lambda w+\mu\Lambda w^2$ at Tangherlini; it stays convex or positive near $b_0$ (Lemma 1.1), so the only trapping
+is a nondegenerate double root near the photon sphere (Corollary 1.2). The trapped set and its separatrices $\tilde
+p\mp(r-r_c)\sqrt S$ are in closed form, with exact rates (Proposition 2.2). The tangential bound of (K3) for every
+$\epsilon$ comes from the integrable flow of $\mathcal K$ on $T^*\mathbb S^3$: linear growth on regular orbits by a
+commuting frame, and ellipticity on the singular 2-tori and circles (Lemma 3.2, Proposition 3.4). (H8) follows from the
+radial classification, the horizon's causal structure and a Lyapunov function at the radial source (Proposition 4.1).
+Theorem 5.1 collects (Dyn) near $b_0$. Findings (VI.B$'$1)-(VI.B$'$5). Written (D319).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

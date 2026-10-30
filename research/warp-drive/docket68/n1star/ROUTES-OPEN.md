@@ -4224,3 +4224,21 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Part VI.A: verifier 138 read the D317 repairs, all correct; its four notes are repaired (energy sign on
   Sigma^{-z0}, the maximal interval, F' < 3/2 for A', co-orientation of dt_s and dt_*). Part VI.A is proved.
 - Next: Part VI.B' (trapping near b_0 by separability), then one verifier on VI.B' and the D318 repairs.
+
+### 4.243 Part VI.B' written (D319): trapping near b_0 by separability
+
+- PART-VI3-TRAPPING.md, checks/trap5.py (S1-S6).
+- Separation: rho^2 g^-1 = A(r, p_r; E, Phi, Psi) + K(omega, eta). This holds in III.B's Kerr-Schild coordinates
+  written as x = (r^2 - A^2)^{1/2} omega, with Kerr-Schild time. It is checked to 40 digits against III.B's Cartesian
+  formulas. Everything is defined without an eigenframe of A.
+- Radial structure: u P R is a quintic in u = r^2, and its reversal Q(w) = E^2 - Lambda w + mu Lambda w^2 at
+  Tangherlini. Near b_0, Q stays strictly convex where Lambda >= mu_0/6 and positive where Lambda < mu_0/6. So the only
+  trapping is a nondegenerate double root near r_ph with Lambda near 4 mu.
+- Trapped set: Gamma_b = {r = r_c, p~ = 0, m = 0}, with separatrices phi_pm = p~ -/+ (r - r_c) sqrt(S) and the exact
+  rates H phi_pm = -/+ 2T phi_pm. The bracket is 2 alpha sqrt(S), and the rate at b_0 is 4 (2mu)^{-1/2}.
+- (K3) for every epsilon: the flow on Gamma_b projects to H_h, h = F(K, Phi, Psi), on T^*S^3. Regular orbits grow
+  linearly, by a commuting frame. The singular sets are the tori p_theta = 0 = U' and the circles omega_1 = 0 or
+  omega_2 = 0, all elliptic because K is near 4 mu_0, much larger than |A|^2. Compactness then gives a C_eps uniform in b.
+- (H8): from the radial classification, the inward crossing of H_b at finite covectors, the backward limit set at
+  fibre infinity (contained in dR_+-, by (H4)), and the Lyapunov function L = q + M rho_inf at the source.
+- Next: verifier 139 on Part VI.B' and the D318 repairs to Part VI.B; then Part VI.C (parameters) and Part VII.

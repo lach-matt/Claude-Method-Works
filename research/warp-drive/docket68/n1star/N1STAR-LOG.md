@@ -5934,3 +5934,12 @@ part for the rotating black holes and found three minor gaps: that the hypothese
 which pins the horizon was asserted rather than shown, a rescaled flow was defined only near the horizon's conormal set
 but used everywhere, and one step that keeps a curve from returning was argued wrongly. All three are repaired. It also
 read last time's repairs to the static case and found them correct, so that part is proved.
+
+**D319 (2026-10-30): light trapped around the rotating black holes.** The last dynamical facts the estimates need are
+the behaviour of light rays near the rotating black holes: where they can orbit, how fast nearby rays peel away, and
+where every other ray ends up. Light rays in the five-dimensional rotating black hole have a hidden conserved quantity,
+and the rays separate into a radial motion and an angular one in the very coordinates the proof uses, which a 40-digit
+check confirms. The radial motion is governed by a polynomial that, near the static black hole, stays convex, so rays
+can orbit only on one surface near the photon sphere, and that surface and its escape routes come out in closed form.
+The rate at which rays spread along the orbiting surface is bounded by the integrability of the angular motion: the
+special orbits are all stable oscillations, as for the Kerr black hole's equator.
