@@ -6117,3 +6117,17 @@ a double-null evolution reaches the end of the domain, and whether a certified l
 one; the first is next. The Drive paper is a three-page programme on the cosmological constant with no proofs and no
 explicit constants; it does not help with lambda_1 and delta, which reduce to III.K's Nash-Moser threshold and so to
 every constant of the linear theory (ROUTES 4.260).
+
+**D338 (2026-10-30): lambda_1 and delta reduced to named constants; the sites where numbers are lost, listed.** M asked
+for deep research on methods of evaluating constants that come from compactness, contradiction or Fredholm arguments,
+and then for the proof. Methods found at source (EFFECTIVE-CONSTANTS.md section 1): verified inverse-operator norms by
+a Schur complement and a Neumann series (Sekine, Nakao and Oishi); proof mining, which replaces arguments by sequences
+with finite covers (Ferreira, Leustean and Pinto); validated Taylor models for black-hole ODEs (Goldstein and
+Jejjala). Proved from proved parts (section 2): II.G's Nash-Moser threshold is an explicit formula, and lambda_1 and
+delta are explicit functions of a finite list of constants. A first reader confirmed the first half and found the
+second incomplete: three smallness thresholds of the nonlinear step were missing, the loss d is itself not yet a
+number, and lambda_1 was badly defined. All of it is repaired, and is to be read again. The ledger
+EFFECTIVE-LEDGER.tsv lists 165 sites in proof5, 35 of which hide a constant; they sit mostly in the linear theory's
+foundations. A number would need those constants made explicit with certified computation at Tangherlini: a programme
+of the size of the linear write-out itself (section 5). The feasibility study's solver design is recorded
+(CERTIFY-10L5.md section 6a).

@@ -4469,3 +4469,23 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   occur 19, 51, 74 and 28 times across 36 parts (a text count, not a census of arguments). Each such argument would
   need a quantitative replacement (an explicit lower bound in place of 'injective, hence bounded below'), on
   Tangherlini by certified computation of the separated ODEs and near it by explicit perturbation. Not attempted.
+
+### 4.261 lambda_1 and delta: methods, the reduction, the ledger (D338)
+
+- M (2026-10-30): deep research for methods of evaluating constants from compactness, contradiction or Fredholm
+  arguments, then prove them. EFFECTIVE-CONSTANTS.md.
+- Methods READ: Sekine-Nakao-Oishi arXiv:1910.00759v1 (Thm 2.1 p. 5, Lemma 2.2 p. 6: L^-1 through a Schur complement,
+  ||S^-1|| <= 1/(1-kappa)); Ferreira-Leustean-Pinto arXiv:1810.01508v4 (pp. 1-2: Heine-Borel in place of sequential
+  compactness, bounded functional interpretation); Goldstein-Jejjala arXiv:2609.21797v2 (Taylor models, 512-bit
+  intervals, a Poincare-Miranda certificate for a black hole). Datchev-Jin through the search index only.
+- Proved (section 2), read by verifier 155 and repaired: Proposition 2.1, II.G's threshold theta0 = max{16,
+  16 eta_G^-2, (4K3/delta_G)^(1/(6d+2)), 1+K4, C1K5 + C2K3^2/2}, eps = theta0^-(8d+2), confirmed. Proposition 2.2:
+  eps <= min{1, eps_NM/A_2d, eps_dat, eps_G}, delta = eps/2, lambda_1 := min(lambda_1.1, eta_gl/C_R, eps/(4C_R));
+  verifier 155's M1 (three smallness thresholds of III.K missing), M2 (the loss d, eps_G's norm-equivalence
+  constants, III.J's inverse operators inside the map), m1-m5, n1-n6 seated. To be read again.
+- Not explicit: d (a sum of III.J''' losses, not added up), the tame and smoothing constants, delta_K, eps_dat,
+  A_2d, eps_G's constants, the record's C_J and lambda_1.1, the gluing's eta_gl and C_R.
+- E1 done: EFFECTIVE-LEDGER.tsv, 165 rows (N1 6, N2 15, N3 1, N4 13, F 41, G 37, X 52), each row checked by script
+  to cite an existing file with a keyword within two lines; classes are a reading. Next: E1' (add up d), E2 (a
+  certified N1 constant at Tangherlini for one operator).
+- CERTIFY-10L5.md section 6a: F2's scheme from the Ricci components' second derivatives (computed).

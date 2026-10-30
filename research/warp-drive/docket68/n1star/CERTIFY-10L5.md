@@ -145,6 +145,36 @@ No blocker has been found. What is already known about the propagator (amplifica
 that G2 can be met, but that is a non-rigorous measurement on a scheme that breaks, not a bound. The decisive unknown is
 G1. The next step is F2.
 
+## 6a. F2 design: the evolution scheme (computed, D338)
+
+The second derivatives in each component of Ric(g5) for the class in double-null gauge (computed from `dnull5.py`'s
+metric; θ derivatives written t):
+
+| component | second derivatives | role |
+|---|---|---|
+| Ric_vv | A_vv, B_vv, γ_vv | the outgoing constraint: an ODE in v on u = u0 |
+| Ric(Y, Y) | A_uu, B_uu, γ_uu, b_uv, ... | the ingoing constraint: an ODE in u on v = v0 |
+| Ric_vθ | b_vv, A_tv, B_tv, Ω_tv | transport of the shift b in v |
+| Ric_11, Ric_22 | A_uv, A_tv, A_tt (and B) | wave equations for A, B |
+| Ric_θθ | γ_uv, γ_tv, A_tt, B_tt, Ω_tt, b_tv | wave equation for γ |
+| Ric_uv | Ω_uv, Ω_tv, Ω_tt, A_uv, B_uv, γ_uv, b_vv | wave equation for Ω |
+| Ric_uθ | A_tu, B_tu, Ω_tu, γ_uv, b_uv, ... | a constraint |
+
+No other component is nonzero. So the scheme is the following.
+
+- *Evolution.* Evolve (A, B, γ, Ω) by their four (u, v) wave equations, with b from its v-transport.
+
+- *Data.* Solve the two characteristic constraints for the data on u = u0 and v = v0.
+
+- *Monitoring.* Monitor Ric_vv, Ric(Y, Y) and Ric_uθ, which the Bianchi identities propagate.
+
+- *Discretisation.* In θ, the regular parts Â := A − log(r cos θ), B̂ := B − log(r sin θ) and γ/r² are expanded in cos
+  2kθ, which is even at both axes. In (u, v), a second-order diamond scheme.
+
+- *Coordinates.* On the ingoing initial cone v = v0 (exact Tangherlini, before the shell), take u := −r, which is
+  regular across the horizon. On the outgoing initial cone u = u0, take v Eddington-Finkelstein. Ω is then fixed by
+  these choices on the two cones.
+
 ## 7. Sources
 
 - READ: [Wu26] arXiv:2609.08421v1, (1.1) p. 2, Theorems 2.1-2.2 pp. 6-7, the residual formulas p. 12; [CCRT07], [MP11]
