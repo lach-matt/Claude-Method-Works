@@ -45,7 +45,8 @@ frame of III.C (1.6) lie in $\rho^2C^\infty(U)$ (III.C Lemma 1.3 and III.B (4.2)
 
 **Lemma 1.1.** For $\slashed\omega\in C^\infty(\mathbb S^3;T^*\mathbb S^3)$,
 $$dx^0\in\rho_0^{-1}x_I^{-2}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),\quad
-dx^1\in\rho_0^{-1}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),\quad|x|\slashed\omega\in\rho_0^{-1}x_I^{-1}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),$$
+dx^1\in\rho_0^{-1}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),\quad
+|x|\slashed\omega\in\rho_0^{-1}x_I^{-1}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),$$
 and the products of the frame (1.6) of III.C have the source's orders (3.13): $(dx^0)^2\in\rho_0^{-2}x_I^{-4}C^\infty$,
 $dx^0dx^1$ and $|x|^2\slashed h\in\rho_0^{-2}x_I^{-2}C^\infty$,
 $dx^0\otimes_s|x|\slashed\omega\in\rho_0^{-2}x_I^{-3}C^\infty$, $(dx^1)^2\in\rho_0^{-2}C^\infty$,
@@ -64,14 +65,16 @@ $\square$
 **Corollary 1.2 (the source's Lemma 3.12 and Corollary 3.14).**
 $g_{b_0}\in\rho_0^{-2}x_I^{-2}C^\infty(M_\sharp;S^2\,{}^{\mathrm{e,b}}T^*M_\sharp)$ is nondegenerate of Lorentzian
 signature up to $I_0\cup\mathscr I^+$, and
-$$\rho_0^2x_I^2g_{b_0}\equiv2\Big(\frac{d\rho_0}{\rho_0}\Big)^2+2\frac{d\rho_0}{\rho_0}\otimes_s\frac{d\rho_I}{\rho_I}+x_I^{-2}\slashed g,\qquad\rho_0^{-2}x_I^{-2}g_{b_0}^{-1}\equiv2X_I\otimes_s(X_0-X_I)+x_I^2\slashed g^{-1},$$
+$$\rho_0^2x_I^2g_{b_0}\equiv2\Big(\frac{d\rho_0}{\rho_0}\Big)^2+2\frac{d\rho_0}{\rho_0}\otimes_s\frac{d\rho_I}{\rho_I}+x_I^{-2}\slashed g,\qquad
+\rho_0^{-2}x_I^{-2}g_{b_0}^{-1}\equiv2X_I\otimes_s(X_0-X_I)+x_I^2\slashed g^{-1},$$
 modulo $x_IC^\infty(M_\sharp;S^2\,{}^{\mathrm{e,b}}T^*M_\sharp)$, resp.
 $x_IC^\infty(M_\sharp;S^2\,{}^{\mathrm{e,b}}TM_\sharp)$.
 
 *Proof.* For $\eta$: $dx^1 = \rho_0^{-1}\,d\rho_0/\rho_0$ and $d|x| = -|x|(d\rho_0/\rho_0+d\rho_I/\rho_I)$ from $x^1 =
 2-\rho_0^{-1}$ and $|x| = (\rho_0\rho_I)^{-1}$; with $dx^0 = dx^1+2d|x|$,
 $$\rho_0^2\rho_I\eta =
-2\Big(\frac{d\rho_0}{\rho_0}\Big)^2+2\frac{d\rho_0}{\rho_0}\otimes_s\frac{d\rho_I}{\rho_I}-\rho_I\Big(\frac{d\rho_0}{\rho_0}\Big)^2+\rho_I^{-1}\slashed g$$
+2\Big(\frac{d\rho_0}{\rho_0}\Big)^2+2\frac{d\rho_0}{\rho_0}\otimes_s\frac{d\rho_I}{\rho_I}
+-\rho_I\Big(\frac{d\rho_0}{\rho_0}\Big)^2+\rho_I^{-1}\slashed g$$
 exactly, and $\rho_I^{-1}\slashed g = x_I^{-2}\slashed g$ is a smooth eb-tensor ($d\omega/x_I$ being an eb-covector).
 The dual statement for $\eta^{-1} = -4\partial_0\otimes_s\partial_1+|x|^{-2}\slashed g^{-1}$ follows from (1.5) of III.C
 in the same way. By §0, the components of $g_{b_0}-\eta$ in the null frame are $O(\rho^2)$; by Lemma 1.1 the worst frame
@@ -214,7 +217,8 @@ null with $\Omega$ to its past.
 replaced by the leading part $L_0$ of (2.2), and $\mu_{\mathrm b}$ by $\bar\mu_{\mathrm b}
 := |\frac{d\rho_0}{\rho_0}\frac{d\rho_I}{\rho_I}d\slashed g|$ (Lemma 2.1). Then $-\mathrm{div}_{\bar\mu_{\mathrm b}}W =
 -[V,w^2] = w^2(-2(1+\kappa)\alpha_I+2\alpha_0)$, and
-$$Q\equiv\bar Q := w^2\Big(-4\alpha_I(\rho_0D_{\rho_0}-\rho_ID_{\rho_I})^2+4\kappa(\alpha_0-\alpha_I)(\rho_ID_{\rho_I})^2+\big(1+2(\alpha_0-\alpha_I)+\kappa(1-2\alpha_I)\big)x_I^2\big(\slashed\Delta+\tfrac34\big)\Big).\tag{3.3}$$
+$$Q\equiv\bar Q := w^2\Big(-4\alpha_I(\rho_0D_{\rho_0}-\rho_ID_{\rho_I})^2+4\kappa(\alpha_0-\alpha_I)(\rho_ID_{\rho_I})^2
++\big(1+2(\alpha_0-\alpha_I)+\kappa(1-2\alpha_I)\big)x_I^2\big(\slashed\Delta+\tfrac34\big)\Big).\tag{3.3}$$
 This is the source's (3.25) with $\slashed\Delta+\frac34$ in place of $\slashed\Delta$, computed in 10.64 X3 by applying
 $[L_0,W]-(\mathrm{div}W)L_0$ to $e^{i(\xi_0\log\rho_0+\xi_I\log\rho_I)}$. The constant $\frac34$ enters only through the
 angular term: $x_I^2\cdot\frac34$ commutes with $X_0$, and its commutator with $X_I$ is of order 0. As $\alpha_I<0$,
