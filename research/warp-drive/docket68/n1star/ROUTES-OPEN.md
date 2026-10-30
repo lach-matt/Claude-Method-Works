@@ -3880,3 +3880,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   2.2 (2) and the cut-off gauge cited in III.C'' Theorem 3.1 (3); README aligned with J3's qualifiers; 'for one eps' in
   (J''4); the K+ classification recorded in (J''4).
 - Next: Part III.J''' (exact weights), from the five-reader survey of where the losses enter (d292).
+
+### 4.217 Part III.J''' written (D293): exact weights at b_0; (J''4) discharged, to be verified
+
+- III.J''' (PART-III-J4-EXACT.md) removes the losses in the weights where they arise instead of improving after the
+  fact, the route 4.216 proposed. The d292 survey found three roots of every loss that reaches a final weight: (a) the
+  graft's log t_* at K+, which hides log rho_K; (b) three pointwise proofs at the final weight; (c) margins at iota+,
+  which are choices.
+- (a): written in powers of log rho_+ (the source's Definition 2.8) the graft is exact (Corollary 3.2); in the log t_*
+  convention no exact statement exists (Remark 3.1). III.A Proposition 4.2 is exact and only transmitted the loss.
+- (b): III.I(12) Lemmas 2.2 and 2.1 (a) and Theorem 3.1's piece (vii) re-proved in L^2 (Lemmas 4.4-4.5).
+- (c): at the closed endpoint of (G+) every map at iota+ is exact, and level 3's non-resonance holds automatically
+  (Proposition 4.3).
+- New conditions (E2)-(E5), each a finite exclusion (Lemma 1.4); alpha = 4 + eps_K is available under (A_K).
+- Corollary 6.6: III.J'' Theorems 4.1-4.2 and Proposition 4.3 with eps' = eps = 0, on one pair of Banach scales;
+  (J''4) is discharged at b_0, to be verified (verifier 127).
+- Open: (J'3), the linear theory at b != b_0; the support conditions of II.G Theorem 2.1; smoothing operators on D_ex;
+  the exterior family h_{-S}; Part IV; III.K ([Hin26] section 13).

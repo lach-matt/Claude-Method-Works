@@ -69,7 +69,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | **proved** (D287) |
 | III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | **proved** (D287) |
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
-| III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | verified (D292; the weights open as (J''4)) |
+| III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | verified (D292; the weights (J''4) discharged at b_0 by III.J''', to be verified) |
+| III.J''' | [Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights | exact weights: the exact classes and conditions (E1)-(E5), the graft at the exact K+ weight in the rho_+ convention, III.A Proposition 4.2 exact, the pointwise bounds at the final weight re-proved in L^2, III.I(14) Theorem 3.1 and III.J' Theorem 2.1 at fixed weights, the tame estimates on one pair of scales | written (D293) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -1172,6 +1173,16 @@ the weights are (J''4), and (J'3) stays open. Written (D286). Verified (D290): v
 spaces are taken at a fixed loss in the weights; the smallness is in one fixed norm (Lemma 2.3), with tame products in
 the partially polyhomogeneous spaces (Lemma 2.4). Open: (J''4), one pair of Banach scales, since the inverse is shown
 only to map a source at a loss eps' to a solution at the loss eps >= eps' while the forward map gains nothing.
+Discharged at b_0 by III.J''' (D293), to be verified.
+
+`PART-III-J4-EXACT.md`. [Hin26] Corollary 11.66 and Theorem 12.8 at the fixed weights the source states, at n = 4 and
+b_0. Definition 1.1 gives the exact classes, Definition 1.3 the conditions (E1)-(E5), each a finite exclusion (Lemma
+1.4). Section 3 writes the graft of III.G'' Corollary 4.3 in powers of log rho_+, the convention of the source's
+Definition 2.8, in which it is exact (Corollary 3.2); in powers of log t_* it cannot be (Remark 3.1). Section 4 shows
+III.A Proposition 4.2 exact at K+ and re-proves in L^2 the three pointwise bounds at the final weight; at iota+ the
+closed endpoint of (G+) makes every map exact. Section 5 gives III.I(14) Theorem 3.1 and III.J' Theorem 2.1 at exact
+weights, and Corollary 6.6 the tame estimates of III.J'' on one pair of Banach scales, which discharges (J''4) at b_0.
+Findings (J'''1)-(J'''7). Written (D293).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

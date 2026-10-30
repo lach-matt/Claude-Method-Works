@@ -5739,3 +5739,10 @@ of the weights stated accurately, and no new major finding. Three minor findings
 loss of the input may a priori depend on the order, which is now said and put into the open item; the last continuity
 inputs are traced to one fixed norm; and the decay losses at the black-hole face must be sorted into margins and
 logarithms before the next part treats them. Next: the exact-weight part.
+
+**D293 (2026-10-30): the exact-weight part is written.** The linear solution maps had been shown to lose an arbitrarily
+small amount of decay between source and solution, which the Nash-Moser scheme cannot absorb. The new part shows that
+every loss reaching a final weight can be avoided. One is an artefact of writing logarithms in the time coordinate
+instead of the defining function of the face; three come from pointwise bounds, which are re-proved in L^2; the rest
+are margins chosen with room. Under new conditions that each exclude finitely many weights, the solution maps act at
+the weights the source states, and the tame estimates hold on one pair of scales. Verifier 127 reads it.
