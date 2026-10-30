@@ -4110,3 +4110,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   3.2 cited; J3 Remark 4.4 quotes the amended (iii).
 - Status: Part IV proved; Part IV', Part IV'' verified; III.K and III.I(16) repairs to be read.
 
+### 4.234 Part IV'''''' written (D310): [Hin26a] Theorem B.1 at n = 4, and III.E Theorem 1.1 (4)
+
+- PART-IV7-TFACE.md: the tf model's spectral family (Lemma 0.1, record 10.20 (i)) is Fredholm of index 0 (Proposition
+  1.1: radial estimates with the n = 4 shift 3/2; relative index per S^3 sector, counts 2, 3, 1 for both the damped
+  and the free operator) and injective (Theorem 2.1 = Theorem B.4 on edge-b spaces; Theorem 3.1 = section B.4 with
+  (l, beta) = (-1/2, 7/2), (alpha_sf, alpha_cf) = (-5/2, 5/2)).
+- Theorem 4.1: box^C_b is tf-admissible (I.C Definition 5.1) with every weight in [-C_0, 2), C_0 in [3/2, 100]; I.C's
+  spaces are Theorem B.1's with q = 2 - beta; the adjoint half from surjectivity (I.C Theorem 4.3 (3)), without
+  [Hin26c] (9.115) (IV''''''1).
+- Melrose's relative index theorem is cited as the source cites it (IV''''''2).
+- So III.E Theorem 1.1 (1)-(4) are proved at n = 4 in Parts IV''''-IV'''''', given (Dyn) (Part VI).
+- Next: Parts V-VII; verifier 134 reading IV'''-IV''''' and the D309 repairs; IV'''''' to the next verifier.
+

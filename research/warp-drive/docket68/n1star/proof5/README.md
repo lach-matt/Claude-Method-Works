@@ -80,6 +80,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | IV''' | III.K (K2) (b); [Hin26] p. 321 | the slab near I+: posed on the exterior domain together with the slab, from Sigma_IVP and the compact surface Sigma_c, in the chart translated in t; the boosted background in the translated class (III.B Lemma 5.2); orders at I+ | written (D306); amended D309 (the slab's top on t^flat_*) |
 | IV'''' | [Hin26a] sections 3-4, 5.1, 6, Appendix A | constraint damping I: the fibre algebra, the structure at infinity, the indicial roots for every h <= 10^-6, the 1-form c, the horizon threshold, (H1)-(H4) and (G); mode stability at sigma != 0 and the invertibility of the zero energy operator by the adjoint route (III.E Theorem 1.1 (1)-(3)), with [Hin26a] Theorem 5.2 at n = 4 from IV''''' | written (D307); amended D308 |
 | IV''''' | [Hin26a] sections 2.1-2.3, 5.2 | constraint damping II: the compactification and 3b-structure at n = 4 in Kerr-Schild time, the causal facts, the fibre algebra and the 1-form; elliptic, fibre-infinity, saddle, corner, sink, real principal type, interior and energy estimates; the a priori estimate (5.79), the adjoint estimate (5.81) and [Hin26a] Theorem 5.2 at n = 4, uniformly in b | written (D308) |
+| IV'''''' | [Hin26a] Appendix B; [Hin26] Theorem 7.1 (4) | constraint damping III: the tf model on 4+1 Minkowski; Fredholm and index 0 (radial estimates, relative index per S^3 sector), edge-b solvability (Theorem B.4), the kernel argument; Theorem B.1 at n = 4; tf-admissibility with every weight in [-C_0, 2) (III.E Theorem 1.1 (4)) | written (D310) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -1309,6 +1310,17 @@ leaves unstated: along K^+ outward, along sf, and through the interior in both d
 each a priori set covered by an earlier step, into (5.79) and (5.81), then gives existence by duality, the initial
 value problem through the energy estimate with data (6.1), and the transfer to III.B's coordinates. Findings
 (IV'''''1)-(IV'''''5). Written (D308).
+
+`PART-IV7-TFACE.md`. Part IV'''''' proves III.E Theorem 1.1 (4) at n = 4 through [Hin26a] Theorem B.1 there
+(Theorem 3.1): the spectral family of the dilation-invariant model on 4+1 Minkowski space, the transition face normal
+operator of box^C_b, is invertible on the scattering-b spaces with b-weight in (0, 2 + C_0]. Section 1 gives the
+Fredholm property by radial estimates at n = 4 (the shift 3/2, the thresholds -1/2 + h^-1 (1 - e)(1 -+ v)) and index 0
+by the relative index theorem, sector by sector on S^3, the crossing counts 2, 3, 1 matching for the damped and the
+free operator. Section 2 is Theorem B.4 on edge-b spaces: the cone face as a radial source, the propagation along
+r/t by dilation invariance, the interior, and the chains in both directions. Section 3 is the kernel argument of
+section B.4. Section 4 identifies the spaces with I.C's (q = 2 - beta, no epsilon) and checks Definition 5.1, the
+adjoint half from surjectivity and I.C Theorem 4.3 (3) rather than (9.115). Findings (IV''''''1)-(IV''''''5).
+Written (D310).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

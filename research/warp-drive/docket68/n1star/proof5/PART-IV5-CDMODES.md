@@ -26,11 +26,12 @@ the conclusions below fail (10.12 (U5), 10.13 (W1)).
 *The parameters.* As III.K section 0 takes them,
 $$v_C := \tfrac12,\qquad e_C := \tfrac1{102400},\qquad C_0 := 100\ (\text{or any }C_0\le100),\qquad h\in\mathsf H,
 \tag{0.1}$$
-where $\mathsf H := (0,h_*)\setminus\mathsf Z$, $h_* := \min(10^{-6},h_0)$ with $h_0$ the bound of Part IV$'''''$'s
-Theorem 5.2 at these $(v_C,e_C,C_0)$ and the weights (2.1) below, and $\mathsf Z$ the countable set of Lemma 1.3 (b).
-$c_C$ is 10.14's 1-form (10.49) at $\mu = 1$, $r_0 = 100$, smoothed near $r_0/2$ and $2r_0$ (10.14 (b)) and rescaled to
-$\mu_0$ (all conditions depend on $\mu r_0^{-2}$ and $r/r_0$ only, 10.14 (v)); it is stationary and equals
-$|x|^{-1}(dt-v_C\,d|x|)$ for large $|x|$ (in the static time up to $O(\mu_0|x|^{-3})\,d|x|$, 10.14 (c)).
+where $\mathsf H := (0,h_*)\setminus\mathsf Z$, $h_* := \min(10^{-6},h_0,h_{\mathrm{tf}})$ with $h_0$ the bound of Part
+IV$'''''$'s Theorem 5.2 (its Theorem 7.3) at these $(v_C,e_C,C_0)$ and the weights (2.1) below, $h_{\mathrm{tf}}$ that
+of Part IV$''''''$ Theorem 3.1 (amended D310), and $\mathsf Z$ the countable set of Lemma 1.3 (b). $c_C$ is 10.14's
+1-form (10.49) at $\mu = 1$, $r_0 = 100$, smoothed near $r_0/2$ and $2r_0$ (10.14 (b)) and rescaled to $\mu_0$ (all
+conditions depend on $\mu r_0^{-2}$ and $r/r_0$ only, 10.14 (v)); it is stationary and equals $|x|^{-1}(dt-v_C\,d|x|)$
+for large $|x|$ (in the static time up to $O(\mu_0|x|^{-3})\,d|x|$, 10.14 (c)).
 
 ## 1. The inputs at n = 4
 

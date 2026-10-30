@@ -5871,3 +5871,11 @@ Eight smaller gaps are closed: a cut-off that could not exist as specified, a ba
 boundary, a bound that held at high levels only, norms that were too weak, and the uniqueness statements made precise.
 The exterior's first estimate part is now proved, and its second and third parts verified.
 
+**D310 (2026-10-30): constraint damping, third part.** The last property the constraint propagation equation needs is
+now proved in five dimensions: its behaviour at the transition between zero and nonzero frequencies, which is governed
+by an exactly scale-invariant model problem on flat space. The model is shown to be invertible, first by counting
+(its index is zero, because the number of exponents that cross a line when the damping is switched off matches on
+both sides, two, three and one in the three families of harmonics on the three-sphere), then by solving the model's
+wave equation in spacetime with weights that exclude any stationary solution. With this, all four properties of the
+constraint damping that the stability proof uses are proved, given the dynamical facts about the black hole.
+
