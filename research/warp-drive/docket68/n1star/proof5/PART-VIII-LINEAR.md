@@ -1,16 +1,18 @@
 # Part VIII: linear stability of the Schwarzschild-Tangherlini metric, n = 4 (III.K linearised at Tangherlini)
 
-*Status.* Written (D334); to be read.
+*Status.* Written (D334); verified (D335: verifier 153 found no major gap; its minor finding m1 and six nits seated);
+to be read.
 
 This part proves the linear stability of five-dimensional Schwarzschild-Tangherlini $g_{b_0}$, $b_0 = (\mu_0,0)$, in
 the gauge of the nonlinear problem. Every solution $(\dot\gamma,\dot k)$ of the linearised constraint equations in
 Hintz's data class has a linearised vacuum development $\dot g$ in the generalised wave gauge of III.K. Up to a
 linearised boost, $\dot g$ induces $(\dot\gamma,\dot k)$, and where $\chi_K = 1$ it differs from a linearised
 Myers-Perry metric $\partial_bg_b(\dot b)$ by terms of $K^+$-order $(\alpha-2)-$: on spatially compact sets
-$O(t_*^{-2-\epsilon})$ for every $\epsilon<\epsilon_K$ (Theorem 2.2). In the class of Part VII, $\dot b$ is a change of
-mass alone and the boost vanishes (Corollary 2.3). This is the form of Theorem 4 (Part VII Theorem 0.2) one order down,
-and the statement the paper's section 8.2 reaches by deduction: there the decay of the metric is deduced in a
-Regge-Wheeler gauge from [KI03] and [HKW18], and in the harmonic gauge by Hung's route in five dimensions.
+$O(t_*^{-2-\epsilon})$ for each $\epsilon<\epsilon_K$, with $\alpha$ chosen for it as in Part VII section 4 (Theorem
+2.2; verifier 153's n3). In the class of Part VII, $\dot b$ is a change of mass alone and the boost vanishes (Corollary
+2.3). This is the form of Theorem 4 (Part VII Theorem 0.2) one order down, and the statement the paper's section 8.2
+reaches by deduction: there the decay of the metric is deduced in a Regge-Wheeler gauge from [KI03] and [HKW18], and in
+the harmonic gauge by Hung's route in five dimensions.
 
 No new linear theory is written. The linear solution is the derivative at zero data of III.K's equation $P_5(\Psi(U)) =
 0$, solved directly: the linear Cauchy problem near $\Sigma_{\mathrm{IVP}}$ (Part IV$''$ Theorem 2.4, Part IV$'''$
@@ -65,9 +67,10 @@ $\Omega_*\cap\mathcal D' = \Omega_*\cap\{t^\flat_*<\hat T+\frac74\}$.
 H^{\infty,(\mathcal E_0,\ell_0)}_{\mathrm b}(\Sigma_{\mathrm{IVP}};S^2T^*\Sigma_{\mathrm{IVP}})$ and $\dot k\in
 H^{\infty,(\mathcal E_0+1,\ell_0+1)}_{\mathrm b}(\Sigma_{\mathrm{IVP}};S^2T^*\Sigma_{\mathrm{IVP}})$. There are $\dot
 h_0,\dot h_1\in H^{\infty,(\mathcal E_0,\ell_0)}_{\mathrm b}(\Sigma_{\mathrm{IVP}};S^2T^*)$, linear in
-$(\dot\gamma,\dot k)$, each seminorm bounded by finitely many of $(\dot\gamma,\dot k)$, such that every smooth
-symmetric 2-tensor $\dot h$ near $\Sigma_{\mathrm{IVP}}$ with $\dot h|_{\Sigma_{\mathrm{IVP}}} = \dot h_0$ and
-$(r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}\dot h)|_{\Sigma_{\mathrm{IVP}}} = \dot h_1$ satisfies:
+$(\dot\gamma,\dot k)$, each seminorm bounded by finitely many of $(\dot\gamma,\dot k)$, such that every symmetric
+2-tensor $\dot h$, smooth near $\Sigma_{\mathrm{IVP}}$ or on one side of it up to $\Sigma_{\mathrm{IVP}}$, with $\dot
+h|_{\Sigma_{\mathrm{IVP}}} = \dot h_0$ and $(r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}\dot h)|_{\Sigma_{\mathrm{IVP}}}
+= \dot h_1$ satisfies:
 
 (1) the first and second fundamental forms of $\Sigma_{\mathrm{IVP}}$ for $g+s\dot h$ have the derivatives
 $(\dot\gamma, \dot k)$ at $s = 0$;
@@ -91,8 +94,9 @@ in $\dot\gamma$, its b-derivatives and $\dot k$, with the coefficients of that p
 $H^{\infty,(\mathcal E_0+1,\ell_0+1)}_{\mathrm b}$ by its count, and $\dot h_1\in H^{\infty,(\mathcal
 E_0,\ell_0)}_{\mathrm b}$, linearly and with the stated bounds.
 
-Given $\dot h$, fix $\chi\in C^\infty_c(\mathbb R)$ equal to 1 near 0, and in the coordinates $(t_{\mathrm{IVP}},x)$
-put
+Given $\dot h$, extend it smoothly across $\Sigma_{\mathrm{IVP}}$ if it is given on one side only; (1)-(3) involve only
+its derivatives at $\Sigma_{\mathrm{IVP}}$ (verifier 153's n5). Fix $\chi\in C^\infty_c(\mathbb R)$ equal to 1 near 0,
+and in the coordinates $(t_{\mathrm{IVP}},x)$ put
 $$g_\epsilon := g+\epsilon\dot h+t_{\mathrm{IVP}}\chi(t_{\mathrm{IVP}})\,r^{-1}\big(h_1(\epsilon)-\epsilon\dot
 h_1\big),$$
 the last bracket taken independent of $t_{\mathrm{IVP}}$. Then $(g_\epsilon-g)|_{\Sigma_{\mathrm{IVP}}} =
@@ -103,16 +107,24 @@ $\Sigma_{\mathrm{IVP}}$, derived pointwise in its proof. So they hold for $g_\ep
 $\Sigma_{\mathrm{IVP}}$, where $g_\epsilon$ is Lorentzian for $|\epsilon|$ small. By its (1)-(2), $g_\epsilon$ induces
 $(\gamma_{b_0}+\epsilon\dot\gamma,k_{b_0}+\epsilon\dot k)$ and $\Upsilon^0(g_\epsilon,g) = 0$ at
 $\Sigma_{\mathrm{IVP}}$, for every small $\epsilon$. The induced data and $\Upsilon^0$ at $\Sigma_{\mathrm{IVP}}$ are
-smooth functions of $g_\epsilon$ and its first derivatives there, and $\partial_\epsilon g_\epsilon|_{\epsilon=0} =
-\dot h$, as the correction is $O(\epsilon^2)$ at each point. Differentiating at $\epsilon = 0$ gives (1) and (2).
+smooth functions of $g_\epsilon$ and its first derivatives there, and the correction's 1-jet at $\Sigma_{\mathrm{IVP}}$
+is $O(\epsilon^2)$ at each point: the correction vanishes there, so do its tangential derivatives, and its
+$t_{\mathrm{IVP}}$-derivative is $r^{-1}(h_1(\epsilon)-\epsilon\dot h_1)$. So the 1-jet of $g_\epsilon$ at
+$\Sigma_{\mathrm{IVP}}$ has the $\epsilon$-derivative of that of $g+\epsilon\dot h$ at $\epsilon = 0$. Differentiating
+at $\epsilon = 0$ gives (1) and (2).
 
-(3) By the Gauss and Codazzi equations, $(G_{g_\epsilon}\mathrm{Ric}(g_\epsilon))(\nu_{g_\epsilon},\cdot) = \mathcal
-C(\gamma_{b_0}+\epsilon\dot\gamma,k_{b_0}+\epsilon\dot k)$ at $\Sigma_{\mathrm{IVP}}$. Differentiate at $\epsilon = 0$.
-On the left, the variations of $G_{g_\epsilon}$ and $\nu_{g_\epsilon}$ multiply $\mathrm{Ric}(g) = 0$, leaving
-$(G_gD\mathrm{Ric}(\dot h))(\nu,\cdot)$; on the right, $D\mathcal C(\dot\gamma,\dot k) = 0$. $\square$
+(3) Use $g+s\dot h$, not $g_\epsilon$ (verifier 153's m1: differentiating along $g_\epsilon$ would need the
+$\epsilon$-derivative of its 2-jet). For $|s|$ small $g+s\dot h$ is Lorentzian near any compact piece of
+$\Sigma_{\mathrm{IVP}}$, and there the Gauss and Codazzi equations give $(G_{g+s\dot h}\mathrm{Ric}(g+s\dot
+h))(\nu_s,\cdot) = \mathcal C(\gamma_s,k_s)$ at $\Sigma_{\mathrm{IVP}}$, with $(\gamma_s,k_s)$ the data $g+s\dot h$
+induces and $\nu_s$ its unit normal. Both sides are smooth in $s$. Differentiate at $s = 0$. On the left, the
+variations of $G_{g+s\dot h}$ and $\nu_s$ multiply $\mathrm{Ric}(g) = 0$, leaving $(G_gD\mathrm{Ric}(\dot
+h))(\nu,\cdot)$. On the right, $\frac{d}{ds}(\gamma_s,k_s)|_{s=0} = (\dot\gamma,\dot k)$ by (1), so the derivative is
+$D\mathcal C(\dot\gamma,\dot k) = 0$. $\square$
 
 **Proposition 1.2 (the linear initial solution; III.K Proposition 1.2 linearised at zero data).** Let $(\dot\gamma,\dot
-k)$ be as in Lemma 1.1 and satisfy the linearised constraint equations. There is a unique $\dot h$ on $\mathcal D$ with
+k)$ be as in Lemma 1.1 and satisfy the linearised constraint equations. There is a unique $\dot h$ on $\mathcal D$, in
+the classes named below, with
 $$L^\natural\dot h = 0,\qquad\dot h = \dot h_0,\ \ r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}\dot h = \dot h_1\ \text{on
 }\Sigma_{\mathrm{IVP}},\tag{1.1}$$
 and:
@@ -148,15 +160,20 @@ E_0$ and $\ell^\flat_0<\ell_0$ (III.C$'$ Theorem 3.1's proof, Step 1).
   the data that $\mathcal K$ gives on $\Sigma_c$, gives $\dot h$ on $\Omega^\natural = \Omega_{\mathrm{ext},r_1}\cup
   \mathcal S$. It equals the exterior solution on $\Omega_{\mathrm{ext},r_1}$, by uniqueness there.
 
-The three solutions agree on overlaps by II.F Lemma 1.3 with $\tau := t_{\mathrm{IVP}}$, as in III.K.
+The three solutions agree on overlaps by II.F Lemma 1.3 with $\tau := t_{\mathrm{IVP}}$, as in III.K. *The uniqueness
+classes* (verifier 153's n4): Part IV$''$ Theorem 2.4's $H^{\max(k,1),\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}$ on
+$\Omega_{\mathrm{ext},r_1}$, Part IV$'''$ Theorem 2.1's class on $\Omega^\natural$, and $H^1$ on $\mathcal K$ (the
+energy estimate). Each is preserved by every isometry of $g$ that fixes $t$ and $|x|$, the weights being functions of
+$(t,|x|)$ (III.B (2.2)).
 
 *(2).* On $\Omega_{\mathrm{ext},r_1}$ this is III.C$'$ Theorem 3.1's proof for $L^{\chi_0}$ (III.C$''$ Lemma 2.1).
-There $L_{g_{b_0}}\dot h = 0$, so (3.4) of III.C$'$ holds with source 0 and (3.5) without its integral, and every step
-is linear in the data. Its (3.2) becomes $\|\dot h\|_{H^{k,(\mathcal E_0,\ell_0),\langle\mathcal E^C_I\rangle,\ell_I}_
-{\mathrm b}}\le C_k\|(\dot h_0,\dot h_1)\|_{H^{k_0,(\mathcal E_0,\ell_0)}_{\mathrm b}}$, a linear map continuous at 0
-being bounded. On $\mathcal S$, Part IV$'''$ Corollary 2.3's proof (III.C$'$ Theorem 3.1's proof on $\Omega^\natural$)
-gives the same, with the data on $\Sigma_c$ bounded by the energy estimate on $\mathcal K$. On $\mathcal K$ there is
-nothing at $\mathscr I^+$. Lemma 1.1 bounds $(\dot h_0,\dot h_1)$ by $(\dot\gamma,\dot k)$.
+There $L^{\chi_0}_{g,g}\dot h = 0$, with III.C$''$ Lemma 2.1 giving the structure of III.C Proposition 4.4 for
+$L^{\chi_0}$ (verifier 153's n1), so (3.4) of III.C$'$ holds with source 0 and (3.5) without its integral, and every
+step is linear in the data. Its (3.2) becomes $\|\dot h\|_{H^{k,(\mathcal E_0,\ell_0),\langle\mathcal
+E^C_I\rangle,\ell_I}_ {\mathrm b}}\le C_k\|(\dot h_0,\dot h_1)\|_{H^{k_0,(\mathcal E_0,\ell_0)}_{\mathrm b}}$, a linear
+map continuous at 0 being bounded. On $\mathcal S$, Part IV$'''$ Corollary 2.3's proof (III.C$'$ Theorem 3.1's proof on
+$\Omega^\natural$) gives the same, with the data on $\Sigma_c$ bounded by the energy estimate on $\mathcal K$. On
+$\mathcal K$ there is nothing at $\mathscr I^+$. Lemma 1.1 bounds $(\dot h_0,\dot h_1)$ by $(\dot\gamma,\dot k)$.
 
 *(1).* This is III.K Proposition 1.2 (2)'s argument, linearised. Put $\dot\eta := \dot\Upsilon^\natural(\dot h)$. By
 (0.1) and (1.1), $D\mathrm{Ric}(\dot h) = \delta^*_{g,E_C}\dot\eta$. The second Bianchi identity $\delta_{\tilde
@@ -204,8 +221,8 @@ k)$, with:
 
 (3) on $\Omega_*\cap\{t^\flat_*\ge\hat T+2\}$, $\dot g = D_0G(U')$, the derivative at $U = 0$ of
 $$G(U) := g_{b_0,b,-S}+h_{\mathrm{tot}}(\vec p)+h_{\mathrm{rem}}(q)+h,\qquad(h,\vec p,q) = \Phi(U),$$
-the metric of III.K Theorem 4.3 (3), and $D_0\Phi(U') = (h',\vec p\,',q')$ with $h'\in\mathcal X^\infty_{J,
-\mathrm{ex}}$ and $q'\in\mathcal Q_{\mathrm{ex}}$;
+the metric of III.K Theorem 4.3 (3), and $D_0\Phi(U') = (h',\vec p\,',q')$ with $h'\in\mathcal
+X^\infty_{J,\mathrm{ex}}$ and $q'\in\mathcal Q_{\mathrm{ex}}$ (III.J$'''$ Proposition 5.4);
 
 (4) where $\chi_K = 1$,
 $$\dot g-\partial_bg_b|_{b=b_0}(\dot b) = h_{b_0,\mathrm{rem}}(q')+h'.\tag{2.2}$$
@@ -273,7 +290,7 @@ and so do those of the gauge 1-form, $\chi^\natural_0$ being 1 there. As $\Omega
 \Omega_*\cup\mathcal D$, this gives (1), (2) and (5).
 
 *Step 6 ((3) and (4)).* On $\{t^\flat_*\ge\hat T+2\}$, $\chi_- = 0$, so $\dot g = D_0G(U')$; this is (3), with
-$D_0\Phi(U')$ in the classes of III.J Theorem 2.4 (2.4) and III.J$'''$ Corollary 6.6. Where $\chi_K = 1$: $g_{b_0,b,-S}
+$D_0\Phi(U')$ in the exact classes by III.J$'''$ Proposition 5.4 (verifier 153's n2). Where $\chi_K = 1$: $g_{b_0,b,-S}
 = g_b$ for every $(b,S)$ (III.I (1.1)), so $D_0g_{b_0,b,-S}(U') = \partial_bg_b|_{b_0}(\dot b)$; $h_{\mathrm{tot}}(\vec
 p)$ vanishes for every $\vec p$, each of its terms carrying a factor $d\chi_K$ (the four sites of Part VII Theorem 0.2
 (i)), so its derivative vanishes; $h_{b,\mathrm{rem}}(q)$ is linear in $q$ for each $b$ (PART-III-I15-AUGMENT5.md
@@ -286,9 +303,10 @@ $K^+$-order $\alpha-$, and $h_{b_0,\mathrm{rem}}(q')$ has $K^+$-order $(\alpha-2
 $q'$ (PART-III-I15-AUGMENT5.md Lemma 2.2 (a)). Near the interior of $K^+$, $\rho_K = t_0^{-1}$ with $t_0 = t-|x|$
 (III.B (2.2), (4.1)), comparable to $t_*$ on $\{r\le R'\}$, and the b-vector fields there are spanned by
 $t_*\partial_{t_*}$ and $\partial_x$. By b-Sobolev embedding, $(t_*\partial_{t_*})^i\partial^\beta_x$ of a function of
-$K^+$-order $w-$ is $O(t_*^{-w+\epsilon'})$, bounded by a seminorm of it. With $w = \alpha-2$, (6) and III.J Theorem
-2.4's bound $\|D_0\Phi (U')\|_k\le C_k\|U'\|_{\mathcal D^{k+d}}$, this is (2.3). The bound on $\alpha$ is VI.C row w2
-with Part VII section 4's choice $\alpha>4+\epsilon_t$. $\square$
+$K^+$-order $w-$ is $O(t_*^{-w+\epsilon'})$, bounded by a seminorm of it. With $w = \alpha-2$, (6) and the tame bound
+for $D_U\Phi$ at $U = 0$ (III.J$'''$ Proposition 5.4), $\|D_0\Phi(U')\|_k\le C_k\|U'\|_{\mathcal
+D^{k+d}_{\mathrm{ex}}}$, this is (2.3). The bound on $\alpha$ is VI.C row w2 with Part VII section 4's choice
+$\alpha>4+\epsilon_t$. $\square$
 
 **Corollary 2.3 (in the class).** Let $G = O(2)\times O(2)$ act as in Part VII section 0, and make the choices of Part
 VII Lemma 3.1 equivariant. If $(\dot\gamma,\dot k)$ are $G$-invariant, Theorem 2.2 holds with $U'$ fixed by $G$, $\dot
@@ -334,8 +352,10 @@ $(0,0)$ gives, with $\chi_-\dot h$ in place of the derivative of $\chi_-h_{-S}$ 
 exist; (2.4) is solved directly instead.
 
 (VIII2) *The boost at the linear level.* The derivative of $\chi_-h_{-S}$ in $S$ vanishes at zero data, so the boost
-enters the linear problem only through $g_{b_0,b,-S}$. There it is the linearised diffeomorphism (0.2), supported where
-$\chi^\flat_K\ne1$. It is absent where $\chi_K = 1$, and absent in the class.
+enters the linear problem only through $g_{b_0,b,-S}$. There it is $(1-\chi_K)\dot g_{S'}$, the cut-off linearised
+diffeomorphism (0.2): the cut-off term, not $\dot g_{S'}$ itself, vanishes where $\chi_K = 1$, as $\dot g_{S'}$ is
+supported where $\chi^\flat_K\ne1$, which can meet $\{\chi_K = 1\}$ (III.I (1.2)). It is absent in the class (verifier
+153's n6).
 
 (VIII3) *Constraint propagation.* The nonlinear propagation (III.K Propositions 1.2 (2) and 4.2) uses the second
 Bianchi identity at the solution. Here it is used at $g$, where its derivative is $\delta_gG_gD\mathrm{Ric} = 0$
@@ -348,6 +368,12 @@ from [KI03] and [HKW18] (supplement Proposition 10.1), and in the harmonic gauge
 the nonlinear problem, at the rate of Theorem 4, from the proved Parts III-IV. The deduced routes stay as they are, as
 independent routes in other gauges, and Remark 2.4 (a) says what links them to this one: nothing written.
 
+(VIII5) *Verifier 153 (D335).* No major gap. Minor m1: Lemma 1.1 (3) differentiated the Gauss-Codazzi identity along
+$g_\epsilon$, which needs the $\epsilon$-derivative of its 2-jet; it now differentiates along $g+s\dot h$ and uses (1).
+Nits: the operator $L^{\chi_0}$ in Proposition 1.2 (2) (n1); III.J$'''$ Proposition 5.4 for $D_U\Phi$ in the exact
+classes (n2); the rate for each $\epsilon_t$ with its $\alpha$ (n3); the uniqueness classes (n4); one-sided $\dot h$ in
+Lemma 1.1 (n5); the cut-off boost term (n6).
+
 *Labels.* Lemma 1.1 (III.C$''$ Proposition 4.1 linearised), Proposition 1.2 (III.K Proposition 1.2 linearised), Lemma
 2.1, Theorem 2.2 (III.K Theorem 4.3 linearised), Corollary 2.3 (Part VII Proposition 3.2 linearised), Remark 2.4.
 
@@ -356,6 +382,7 @@ III.B Definition 6.1, (2.2), (4.1) and section 5 (PART-III-B-FAMILY.md:340-359);
 5.3's proof; III.C$'$ Theorem 3.1 and its proof; III.C$''$ (2.1), Lemma 2.1, Proposition 4.1; III.I (1.1)-(1.2);
 PART-III-I8-UNPARAM.md Definition 2.3; PART-III-I9-COMMOTION.md Definition 2.1; PART-III-I10-CORR4.md Definitions 2.1
 and 2.3; PART-III-I15-AUGMENT5.md Definition 1.2 and Lemma 2.2; III.J Definition 1.1 and Theorem 2.4; III.J$''$ Theorem
-4.2; III.J$'''$ Corollary 6.6; III.K section 0, Lemma 1.1, Proposition 1.2 and its proof, (2.1), Lemmas 2.2-2.3, 4.1,
-Proposition 4.2 and Theorem 4.3; Part IV$''$ Lemma 2.2, Theorem 2.4, Corollary 4.1; Part IV$'''$ Theorem 2.1, Corollary
-2.3; VI.C Theorem 2.1; Part VII section 0, Lemma 3.1, Proposition 3.2, Theorem 0.2 and section 4.
+4.2; III.J$'''$ Proposition 5.4 and Corollary 6.6; III.K section 0, Lemma 1.1, Proposition 1.2 and its proof, (2.1),
+Lemmas 2.2-2.3, 4.1, Proposition 4.2 and Theorem 4.3; Part IV$''$ Lemma 2.2, Theorem 2.4, Corollary 4.1; Part IV$'''$
+Theorem 2.1, Corollary 2.3; VI.C Theorem 2.1; Part VII section 0, Lemma 3.1, Proposition 3.2, Theorem 0.2 and
+section 4.

@@ -6089,3 +6089,11 @@ to a change of mass alone. Nothing new is estimated: the linear Cauchy problem n
 inverse at the zero perturbation, and the Bianchi identity linearised at a Ricci-flat metric. What it does not assert:
 that a linearised solution given in another gauge differs from this one by a linearised diffeomorphism (Remark 2.4).
 Written; to be read.
+
+**D335 (2026-10-30): the linear statement, verified.** A reader went through Part VIII and every part it cites and
+found no step that fails, and nothing claimed beyond what is proved. One gap in a justification: the linearised
+constraints were carried to the initial surface by differentiating along a family whose second derivatives the proof
+did not control; the argument now differentiates along the straight line through the background, using the first
+conclusion of the same lemma. Six small corrections are made: an operator's name, a citation, the order of quantifiers
+in the rate, the classes in which the initial solution is unique, a one-sided extension, and the wording about the
+boost. To be read.

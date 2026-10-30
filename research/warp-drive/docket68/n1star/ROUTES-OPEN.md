@@ -4430,3 +4430,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   solution with an a posteriori stability theorem in five dimensions; the record's own scheme fails before the shell's
   peak there (ROUTES 4.3 and the 10 l5 go/no-go). Not attempted.
 - Next: one reader on Part VIII; then the paper's sections 8.2 and 9.
+
+### 4.258 Verifier 153 seated (D335): Part VIII verified
+
+- Report (scratchpad d334/verifier153.md): 0 major, 1 minor, 6 nits; D_hP5(0) = L, the support clause at c = That+7/4
+  and Corollary 2.3's equivariance checked.
+- m1: Lemma 1.1 (3) now differentiates Gauss-Codazzi along g + s hdot and uses (1). Nits n1-n6 seated.
+- Next: one reader on the D335 repairs; then the paper's sections 8.2, 8.8 and 9.
