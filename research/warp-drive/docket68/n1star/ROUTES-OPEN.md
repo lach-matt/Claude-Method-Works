@@ -4416,3 +4416,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (gammac5.py G1-G5), Definition 3.3 (3) (admiss5.py), the base-point census (BASEPOINT-LEDGER.md, a reading).
 - Paper: abstract, introduction, Theorem 4 (proved: proof5, Part VII Theorem 0.2), section 8.8's account through all
   74 parts, section 9, the review bullet (verifiers 74-152), the source table and the md5 table.
+
+### 4.257 Part VIII written (D334): linear stability of 5D Tangherlini, III.K linearised at the Tangherlini data
+
+- The paper's section 9 lists three things not proved: lambda_1 and delta not evaluated; section 8.2's linear
+  statements deduced; the physical wavelengths. M asked that they be proved (D334).
+- Section 8.2: proved as Part VIII, in the gauge of the nonlinear problem (Theorem 2.2; Corollary 2.3 in the class).
+  The RW-gauge and Hung routes stay as deduced routes in other gauges; the gauge comparison is not written (Remark
+  2.4 (a)).
+- lambda_1 and delta: their existence is proved; evaluating them needs every constant of the 74 parts made explicit,
+  and several are produced by compactness, contradiction and Fredholm arguments that give no number. Not attempted.
+- Physical wavelengths (10 l5): no small parameter; a large-data problem. It would need a certified numerical
+  solution with an a posteriori stability theorem in five dimensions; the record's own scheme fails before the shell's
+  peak there (ROUTES 4.3 and the 10 l5 go/no-go). Not attempted.
+- Next: one reader on Part VIII; then the paper's sections 8.2 and 9.

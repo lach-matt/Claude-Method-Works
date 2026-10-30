@@ -6079,3 +6079,13 @@ findings repaired and the repairs read again. The censuses that once carried the
 and the three searches inside the write-out itself, are replaced by proof: the first by the write-out, two of the others
 by enumerations that fail on any line they do not list, and the third by a reading of every line. The paper now says so,
 with its account of the write-out carried through all seventy-four parts.
+
+**D334 (2026-10-30): the linear statement, written.** The paper's section 8.2 lists the linear level of settling as
+deduced: the decay of the metric in a Regge-Wheeler-type gauge from [KI03] and [HKW18], and in the harmonic gauge by
+Hung's route in five dimensions. Part VIII (proof5/PART-VIII-LINEAR.md) proves it in the gauge of the nonlinear
+problem, as the linearisation of III.K at the Tangherlini data. Every linearised data set in III.K's class has a
+linearised vacuum development that settles to a linearised Myers-Perry metric at the rate of Theorem 4; in the class,
+to a change of mass alone. Nothing new is estimated: the linear Cauchy problem near the initial surface, III.K's right
+inverse at the zero perturbation, and the Bianchi identity linearised at a Ricci-flat metric. What it does not assert:
+that a linearised solution given in another gauge differs from this one by a linearised diffeomorphism (Remark 2.4).
+Written; to be read.

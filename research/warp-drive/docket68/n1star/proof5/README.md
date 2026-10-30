@@ -9,7 +9,8 @@ needed for it.
 
 Labels as in the record. A part is **written** when its proofs are complete on the page; **verified** when an
 independent reader has checked it line by line and every finding is seated; **proved** only then. Every part below is
-**proved** (D333), and with them Theorem 4.
+**proved** (D333), and with them Theorem 4,
+except Part VIII (D334), the linear statement, which is written and to be read.
 
 ## The plan
 
@@ -90,6 +91,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319); verified (D321); proved (D323: verifier 140 read the repairs, two notes seated) |
 | VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2); verified (D323: order corrected, row b4); proved (D324); section 3 amended (D327-D328), read by verifier 150, widened (D331: G4-G5); **proved** (D332: verifier 151 read it, nits only) |
 | VII | assembly | Theorem 4 from Parts III-VI and the record: (i) the record's data on III.K's initial surface, glued in the class to Tangherlini, and III.K run on G-fixed spaces; (ii) perturbations in III.K's data class | written (D322); verified (D323: verifier 140's three minors and twelve notes seated); proved (D324: verifier 141 read the repairs) |
+| VIII | III.K linearised at Tangherlini | linear stability of 5D Tangherlini in the gauge of the nonlinear problem: every linearised data set in III.K's class has a linearised vacuum development settling to a linearised Myers-Perry metric at $t_*^{-(\alpha-2)+\epsilon}$; in the class, to a change of mass alone | written (D334); to be read |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
 record's computed items (for Part I: 10.19, 10.36, 10.60 and 10.79) and turning each into a proof.
@@ -1427,6 +1429,16 @@ equivariant choices. Written (D322). Verified (D323): verifier 140 found no majo
 stated for any closed subgroup of $O(4)$; the families in $b$ used in $h_{b,\mathrm{rem}}$ are averaged as families; the
 nested cut-offs are chosen radial directly, since averaging could break the nesting. Twelve notes are repaired, among
 them a sign in the flux identity and $k = d_1+5$.
+
+`PART-VIII-LINEAR.md`. Part VIII proves linear stability of five-dimensional Schwarzschild-Tangherlini in the gauge of
+the nonlinear problem (Theorem 2.2): every linearised data set in III.K's class, satisfying the linearised constraints,
+has a linearised vacuum development that induces the data up to a linearised boost, satisfies the linearised gauge
+condition, and where $\chi_K = 1$ differs from a linearised Myers-Perry metric by terms of $K^+$-order $(\alpha-2)-$,
+so $O(t_*^{-2-\epsilon})$ on spatially compact sets. In the class the boost vanishes and the parameter change is a
+change of mass (Corollary 2.3). The proof differentiates III.K's equation at zero data, not its solution: the linear
+Cauchy problem near the initial surface (Parts IV''-IV''' and III.C' at $h = 0$), III.K Lemma 2.3's right inverse at $U
+= 0$ applied to the source the cut-off creates, and the linearised Bianchi identity. This proves the linear statement
+of the paper's section 8.2, which there is deduced in other gauges. Findings (VIII1)-(VIII4). Written (D334).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output
