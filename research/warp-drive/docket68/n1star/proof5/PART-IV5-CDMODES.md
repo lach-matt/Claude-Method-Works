@@ -1,15 +1,15 @@
 # Part IV$''''$. Constraint damping I: mode stability and the zero energy operator, n = 4 ([Hin26a] sections 3-4, 5.1,
 6, Appendix A)
 
-*Status.* Written (D307). This part proves III.E Theorem 1.1 (1)-(3) at $n = 4$: the mode stability of the constraint
-propagation operator $\Box^C_b$ at $\sigma\ne0$, the invertibility of its zero energy operator on the stated weights,
-and its indicial roots. It is conditional on [Hin26a] Theorem 5.2 at $n = 4$ together with the adjoint estimate (5.81)
-of its proof, which Part IV$'''''$ writes out, and on (Dyn) (Part VI), as III.E is; III.E Theorem 1.1 (4), the
-tf-admissibility, rests on [Hin26a] Theorem B.1, which Part IV$''''''$ writes out. The inputs where $n$ enters are the
-record's computations, each exact: the fibre algebra of [Hin26a] section 3 (N1STAR-PROOF.md 10.13), the indicial roots
-for every $h\in(0,10^{-6}]$ (10.12, 10.54), the 1-form $c$ on Tangherlini (10.14), the weights at the critical sets
-(10.22), the structure at infinity (10.18) and the horizon threshold (10.79). Source: [Hin26a] (arXiv:2606.27658v2) pp.
-25-41, 66-69 and Appendix A, read at source.
+*Status.* Written (D307); amended D308 (Lemma 1.4's reading of (4)-(5), Theorem 2.1 (1)'s data surface). This part
+proves III.E Theorem 1.1 (1)-(3) at $n = 4$: the mode stability of the constraint propagation operator $\Box^C_b$ at
+$\sigma\ne0$, the invertibility of its zero energy operator on the stated weights, and its indicial roots. It uses
+[Hin26a] Theorem 5.2 at $n = 4$ together with the adjoint estimate (5.81), which Part IV$'''''$ proves (Theorem 7.3,
+D308), and rests on (Dyn) (Part VI), as III.E is; III.E Theorem 1.1 (4), the tf-admissibility, rests on [Hin26a] Theorem
+B.1, which Part IV$''''''$ writes out. The inputs where $n$ enters are the record's computations, each exact: the fibre
+algebra of [Hin26a] section 3 (N1STAR-PROOF.md 10.13), the indicial roots for every $h\in(0,10^{-6}]$ (10.12, 10.54),
+the 1-form $c$ on Tangherlini (10.14), the weights at the critical sets (10.22), the structure at infinity (10.18) and
+the horizon threshold (10.79). Source: [Hin26a] (arXiv:2606.27658v2) pp. 25-41, 66-69 and Appendix A, read at source.
 
 ## 0. Setting
 
@@ -96,13 +96,17 @@ some $\delta_r>0$ and with $\delta_{\mathrm{sf}} =
 interval). (4)-(6) at $\mathrm{sf}$: the symbol $T = r^2(-\ell(dw/w)+S)$ depends only on $\rho_K$ and the weights there;
 it is positive definite at $\partial K^+$ iff $b_K>b_{\mathrm{sf}}-b^*$ and at the sink iff $b_{\mathrm{sf}}<b^*$, with
 $b_K = \alpha_K$, $b_{\mathrm{sf}} = \alpha_{\mathrm{sf}}+1$ and $b^* = 0.99340731\ldots$ (10.14 (iv), `cform5.py` C7);
-at (2.1), $b_{\mathrm{sf}} = -C_0-\frac32$ and $b_K = 1$, and $T$ is positive definite on all of $\mathrm{sf}$ with
-$\rho_K\le10$ for every $C_0\in[0,100]$ (10.22 Proposition 10.19 (iv), `solv5.py` Q4, exact). Off $\mathrm{sf}$, for
-$\rho_{\mathrm{sf}}\le2\delta_r$, by continuity, as Tangherlini differs from its Minkowski model by $\rho_{\mathrm{sf}}
-C^\infty$ terms (10.14 (a), his p. 39). His (5.8) holds on an interval about $v$ of half-width below $0.00166$, which
-gives the conditions (6) on $\mathrm{sf}$ with $\delta_{\mathrm{sf}} = \frac1{100}$ (10.14 (iv), C5). For $g_b$: each
-condition is a strict positivity of a continuous function of the metric on a compact set, or holds at $\mathrm{sf}$,
-where $g_b$ and $g_{b_0}$ have the same 3sc model; so it persists for $b$ near $b_0$. $\square$
+at (2.1), $b_{\mathrm{sf}} = -C_0-\frac32$ and $b_K = 1$, the characteristic polynomials at $\partial K^+$ and at $R_v$
+have positive roots for every $C_0\ge0$, and at $C_0 = 100$ $T$ is positive definite on all of $\mathrm{sf}$ with
+$\rho_K\le10$ (10.22 Proposition 10.19 (iv), `solv5.py` Q4, exact). So (4) holds near $\partial K^+$ by continuity, and
+(5) holds on $|\frac{r/t}v-1|\le2\delta_{\mathrm{sf}}$ because $T'$ at the sink does not depend on $\rho_K$ (10.22 (c));
+this sentence is amended D308, finding (IV$'''''$3), where it read that $T$ is positive definite on $\mathrm{sf}$ for
+every $C_0\in[0,100]$. Off $\mathrm{sf}$, for $\rho_{\mathrm{sf}}\le2\delta_r$, by continuity, as Tangherlini differs
+from its Minkowski model by $\rho_{\mathrm{sf}} C^\infty$ terms (10.14 (a), his p. 39). His (5.8) holds on an interval
+about $v$ of half-width below $0.00166$, which gives the conditions (6) on $\mathrm{sf}$ with $\delta_{\mathrm{sf}} =
+\frac1{100}$ (10.14 (iv), C5). For $g_b$: each condition is a strict positivity of a continuous function of the metric
+on a compact set, or holds at $\mathrm{sf}$, where $g_b$ and $g_{b_0}$ have the same 3sc model; so it persists for $b$
+near $b_0$. $\square$
 
 **Lemma 1.5 (the horizon threshold).** For $b$ near $b_0$ and every $h\in(0,10^{-6}]$, the threshold $\vartheta_{\mathcal
 H}$ of I.A (PART-I-SPECTRAL.md after (1.3)) of the spectral family of $\Box^C_b$ satisfies $\frac12+\vartheta_{\mathcal
@@ -163,10 +167,13 @@ $$2i\sigma\rho\big(\rho\partial_\rho-\tfrac32-\bar S^C\big)\omega'\in\big(\rho^2
 \mathrm{Diff}^1_{\mathrm b}+\sigma^2\rho^2\mathrm{Diff}^0_{\mathrm b}\big)\omega'\subset\mathcal A^{\gamma+2},$$
 the term $\rho\tilde S$ of (1.1) included in the first class. Dividing by $2i\sigma\rho$ and solving the
 regular-singular equation in $\rho$ gives $\omega'\in\mathcal A^{\gamma+1}$ as long as
-$\gamma+1<\frac32+\min\mathrm{spec}\,\bar S^C$; iterating, $\omega'\in\mathcal A^1$, as $\bar S^C>0$ (Lemma 1.2). Then
-the data $(\omega,r\mathcal L_{\partial_t}\omega)|_{t=0} = (e^{i\sigma\psi}\omega',-i\sigma re^{i\sigma\psi}
-\omega')$ satisfy $|\omega^{(0)}|\le Cr^{-1}$, $|\omega^{(1)}|\le C$, as $|e^{i\sigma\psi}| = e^{-(\mathrm{Im}\,\sigma)
-\psi}\le1$ for $\psi\ge0$; so they lie in
+$\gamma+1<\frac32+\min\mathrm{spec}\,\bar S^C$; iterating, $\omega'\in\mathcal A^1$, as $\bar S^C>0$ (Lemma 1.2).
+Theorem 5.2 is applied in Part IV$'''''$'s Kerr-Schild coordinates (its Remark 7.4), in which $t =
+t_{\mathrm{KS}}+T_\mu(|x|)$ (III.B (3.3)). The data $(\omega,r\mathcal L_{\partial_t}\omega)|_{t_{\mathrm{KS}}=0} =
+(e^{i\sigma(\psi-T_\mu)}\omega',-i\sigma re^{i\sigma(\psi-T_\mu)}\omega')$ satisfy $|\omega^{(0)}|\le Cr^{-1}$,
+$|\omega^{(1)}|\le C$. Indeed $|e^{i\sigma(\psi-T_\mu)}| = e^{-(\mathrm{Im}\,\sigma)(\psi-T_\mu)}$ is bounded,
+$\psi-T_\mu$ being continuous on $[r_\sharp,\infty)$ and tending to $+\infty$ (amended D308; the data were taken at $\{t
+= 0\}$ of III.B's $t$, which is not shown to be a time function, finding (IV$'''''$1)); so they lie in
 $\rho^{-2-\epsilon}\bar H^{1-j}_{\mathrm b}(X,r^3|dr\,d\slashed g|)$ for every $\epsilon>0$ (10.18 (iii): $\rho^k\in
 \rho^aL^2(r^3dr)$ near $\partial X$ iff $a<k-2$), which lies in $\rho^{\alpha_{\mathrm{sf}}+\frac12}\bar
 H^{1-j}_{\mathrm b}$, as $\alpha_{\mathrm{sf}}+\frac12 = -C_0-2<-2-\epsilon$. Theorem 5.2's initial value problem (its
@@ -217,8 +224,9 @@ point, not for every $v_C$ and $C_0$.
 (IV$''''$3) *Surjectivity by the adjoint estimate.* The zero energy operator's surjectivity is taken from the adjoint
 estimate (5.81) and the indicial roots, the source's third route, which avoids an index count.
 
-(IV$''''$4) *Conditional on Part IV$'''''$.* (1) and (2) rest on [Hin26a] Theorem 5.2 at $n = 4$, (5.16) and (5.81); its
-inputs are Lemmas 1.1, 1.4 and the 3b-geometry of Tangherlini (10.22 Proposition 10.19 (i)-(iii)).
+(IV$''''$4) *Theorem 5.2 at $n = 4$.* (1) and (2) rest on [Hin26a] Theorem 5.2 at $n = 4$, (5.16) and (5.81), which Part
+IV$'''''$ proves (Theorem 7.3, D308); its inputs are Lemmas 1.1, 1.4 and the 3b-geometry of Tangherlini (10.22
+Proposition 10.19 (i)-(iii)).
 
 (IV$''''$5) *What is used of Part I.* I.C Theorem 3.1 ([Hin26c] Theorem 9.36) needs (H1)-(H4) and (G) only; (H3)-(H4)
 come from (Dyn) except for the threshold, Lemma 1.5, which at $n = 4$ holds with a margin of more than 4700 at the

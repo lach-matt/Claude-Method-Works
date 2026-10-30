@@ -5853,3 +5853,12 @@ part. The five-dimensional inputs (the algebra of the damping term with its five
 rates at infinity for every small parameter, the damping form on the black hole, the horizon threshold) were computed
 exactly earlier and are now assembled into the proof. The stationary operator's invertibility is obtained from an
 estimate for the adjoint problem, which avoids an index count.
+
+**D308 (2026-10-30): constraint damping, second part.** The solvability theorem for the constraint propagation
+equation on weighted spaces, on which the first part rested, is proved in five dimensions for the black holes near
+the reference one, with one small parameter threshold for all of them. The source's chain of microlocal estimates is
+written out with each five-dimensional input named: the compactification with three-sphere fibres, the volume
+density, the causal character of the time functions (exact in Kerr-Schild time), the damping algebra and the damping
+form. Three families of propagation estimates the source leaves to the reader are stated and proved, and the order
+in which the estimates feed each other is listed step by step. One overstated sentence of the first part, about where
+a positivity holds, is corrected without changing any conclusion.

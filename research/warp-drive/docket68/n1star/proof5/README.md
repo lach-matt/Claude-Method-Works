@@ -78,7 +78,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | IV' | [Hin23a] sections 3.3-3.5 (Proposition 3.29, Proposition 3.32, Lemmas 3.33-3.34) | exterior estimates II: [Hin26]'s conjugated linearised operator in edge-b form with the constant first-order matrix Abar; the energy estimate and its tame form for the system at alpha_I < min(alpha_0, 0) | written (D303) |
 | IV'' | [Hin23a] section 3.6 (Theorem 3.35, Corollary 3.36) | exterior estimates III: integration along the two families of curves, the Cauchy problem near I_0 in both directions, sharp decay in two rounds (radiation field in slot 6 only), the nonlinear exterior solution by II.G, the cut-off gauge; delivers III.C' Theorem 2.1 | written (D305) |
 | IV''' | III.K (K2) (b); [Hin26] p. 321 | the slab near I+: posed on the exterior domain together with the slab, from Sigma_IVP and the compact surface Sigma_c, in the chart translated in t; the boosted background in the translated class (III.B Lemma 5.2); orders at I+ | written (D306) |
-| IV'''' | [Hin26a] sections 3-4, 5.1, 6, Appendix A | constraint damping I: the fibre algebra, the structure at infinity, the indicial roots for every h <= 10^-6, the 1-form c, the horizon threshold, (H1)-(H4) and (G); mode stability at sigma != 0 and the invertibility of the zero energy operator by the adjoint route (III.E Theorem 1.1 (1)-(3)), conditional on [Hin26a] Theorem 5.2 at n = 4 | written (D307) |
+| IV'''' | [Hin26a] sections 3-4, 5.1, 6, Appendix A | constraint damping I: the fibre algebra, the structure at infinity, the indicial roots for every h <= 10^-6, the 1-form c, the horizon threshold, (H1)-(H4) and (G); mode stability at sigma != 0 and the invertibility of the zero energy operator by the adjoint route (III.E Theorem 1.1 (1)-(3)), with [Hin26a] Theorem 5.2 at n = 4 from IV''''' | written (D307); amended D308 |
+| IV''''' | [Hin26a] sections 2.1-2.3, 5.2 | constraint damping II: the compactification and 3b-structure at n = 4 in Kerr-Schild time, the causal facts, the fibre algebra and the 1-form; elliptic, fibre-infinity, saddle, corner, sink, real principal type, interior and energy estimates; the a priori estimate (5.79), the adjoint estimate (5.81) and [Hin26a] Theorem 5.2 at n = 4, uniformly in b | written (D308) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -1294,8 +1295,20 @@ record's exact computations at proof level: [Hin26a]'s fibre algebra with the tr
 with the critical-set weights (10.14, 10.22) and the horizon threshold (10.79), each extended to b near b_0. Lemma 1.6
 gives Part I's hypotheses. Theorem 2.1 is [Hin26a] Theorem 6.2: mode stability by the regular-singular argument and
 Theorem 5.2's initial value problem; injectivity at zero energy as in the source; surjectivity by the adjoint estimate
-(5.81) and the adjoint's indicial roots, which avoids the index count. Conditional on Theorem 5.2 at n = 4 (next part)
-and (Dyn). Findings (IV''''1)-(IV''''5). Written (D307).
+(5.81) and the adjoint's indicial roots, which avoids the index count. Theorem 5.2 at n = 4 is Part IV''''' and (Dyn) is
+Part VI. Findings (IV''''1)-(IV''''5). Written (D307); amended D308
+(Lemma 1.4's reading of (4)-(5); Theorem 2.1 (1)'s data at {t_KS = 0}).
+
+`PART-IV6-SOLV.md`. Part IV''''' proves [Hin26a] Theorem 5.2 at n = 4 (Theorem 7.3), uniformly for b near b_0
+(Lemma 8.1). Section 0 sets up the compactification with fibres S^3 in the Kerr-Schild time of III.B, where
+III.B Lemma 3.3 (e) makes d(t - beta r) timelike for every beta in (-1, 1], and the density |dg| = r^4 |dtau dr dg/|.
+It gathers the causal facts (T_0 = 1/2), the fibre algebra with the subprincipal symbol (his Lemma 3.9, free of n)
+and the 1-form's Proposition 5.1. Sections 1-6 carry his Propositions 5.5-5.6, 5.8, 5.9, 5.11, 5.12 and 5.16 at
+n = 4, with every symbol identity and sign source named. Propositions 5.2-5.3 state and prove the propagations he
+leaves unstated: along K^+ outward, along sf, and through the interior in both directions. Section 7 chains them,
+each a priori set covered by an earlier step, into (5.79) and (5.81), then gives existence by duality, the initial
+value problem through the energy estimate with data (6.1), and the transfer to III.B's coordinates. Findings
+(IV'''''1)-(IV'''''5). Written (D308).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

@@ -4080,5 +4080,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   h < min(10^-6, h_0) off a countable set (IV''''1). Lemmas 1.1-1.5 from the record's exact computations (10.13, 10.18,
   10.54, 10.14, 10.22, 10.79), extended to b near b_0; Lemma 1.6 (H1)-(H4), (G). Theorem 2.1 = [Hin26a] Theorem 6.2:
   surjectivity by the adjoint estimate (5.81) (IV''''3).
-- Conditional on [Hin26a] Theorem 5.2 at n = 4 with (5.16) and (5.81): Part IV''''' (section 5.2, pp. 41-66), next;
-  then Part IV'''''' (Theorem B.1 -> III.E Theorem 1.1 (4)).
+- Conditional on [Hin26a] Theorem 5.2 at n = 4 with (5.16) and (5.81): Part IV''''' (section 5.2, pp. 41-66), written
+  D308 (4.232); then Part IV'''''' (Theorem B.1 -> III.E Theorem 1.1 (4)).
+
+### 4.232 Part IV''''' written (D308): [Hin26a] Theorem 5.2 at n = 4
+
+- PART-IV6-SOLV.md: the forward problem, the initial value problem (5.16), (5.79) and (5.81) for box^C on g^KS_b, b
+  near b_0, at the weights (alpha_sf, alpha_K) = (-C_0 - 5/2, 1), C_0 <= 100, with h_0 uniform in b (Lemma 8.1).
+- Inputs where n enters: III.B (3.2), Lemma 3.3 (d)-(e), Proposition 3.6 (the 3sc structure and the causal facts in
+  Kerr-Schild time), Part IV'''' Lemmas 1.1 and 1.4, record 10.13, 10.14, 10.22, 10.65 (a).
+- Stated and proved here, left unstated by the source: Propositions 5.2-5.3 (K^+ outward, sf, the interior both ways),
+  and the chains of Propositions 7.1-7.2 (IV'''''2).
+- Amended: Part IV'''' Lemma 1.4's reading of (4)-(5) (IV'''''3) and Theorem 2.1 (1)'s data surface (IV'''''1).
+- Next: Part IV'''''' ([Hin26a] Theorem B.1 -> III.E Theorem 1.1 (4)); seat verifier 133 (D309).
