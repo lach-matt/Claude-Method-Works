@@ -1,14 +1,15 @@
 # Part II.C$'$. The stable and unstable trapped sets of perturbed metrics, at n = 4
 
-*Status.* Verified. Written out in full (D199). Read line by line by the eighty-third verifier, which re-derived every
-step and confirmed (C$'$1)-(C$'$3) at source; its five minor findings (two gaps in Lemma 2.1, the exact value of $\hat
-W_0t_*$, a citation, and the smallness of $\epsilon_0$ for the unstable hypersurface) and its nits are seated (D201). The
-part is labelled proved once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$, [Hin26c]
-Proposition 6.3 (pp. 112-113): for a metric that decays in time to the stationary model, there are hypersurfaces, close
-to the stable and unstable manifolds of the stationary trapped set and converging to them, to which the
-null-bicharacteristic flow is tangent. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1. Part I.B
-(`PART-I-B-HIGHENERGY.md`) is cited as I.B, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part II.B (`PART-II-B-DYNAMICS.md`)
-as II.B and Part II.C (`PART-II-C-OPERATORS.md`) as II.C.
+*Status.* Repairs read (D326: verifier 142 found the D201 repairs correct but one; that minor finding, the starting time
+of Proposition 3.4, and one nit are seated, to be read). Verified. Written out in full (D199). Read line by line by the
+eighty-third verifier, which re-derived every step and confirmed (C$'$1)-(C$'$3) at source; its five minor findings (two
+gaps in Lemma 2.1, the exact value of $\hat W_0t_*$, a citation, and the smallness of $\epsilon_0$ for the unstable
+hypersurface) and its nits are seated (D201). The part is labelled proved once the next reader has confirmed them. This
+part proves, at spatial dimension $n = 4$, [Hin26c] Proposition 6.3 (pp. 112-113): for a metric that decays in time to
+the stationary model, there are hypersurfaces, close to the stable and unstable manifolds of the stationary trapped set
+and converging to them, to which the null-bicharacteristic flow is tangent. The source is [Hin26c] = P. Hintz,
+arXiv:2606.28008v1. Part I.B (`PART-I-B-HIGHENERGY.md`) is cited as I.B, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part
+II.B (`PART-II-B-DYNAMICS.md`) as II.B and Part II.C (`PART-II-C-OPERATORS.md`) as II.C.
 
 *Method.* The source reduces the statement to a theorem on decaying perturbations of a flow with normally hyperbolic
 trapping, [Hin21] Theorem 2.6 (P. Hintz, *Normally hyperbolic trapping on asymptotically stationary spacetimes*, Probab.
@@ -205,7 +206,7 @@ and $(\mathcal T\beta)_j := \mathcal S_j\beta_{j+1}$.
 
 *$\mathcal T$ maps $\mathfrak B$ into itself.* As $\rho(t_{j+1})\le\rho(t_j)$, (S1) gives $|\mathcal S_j\beta_{j+1}|\le
 e^{-\nu T}(M_0+C_T)\epsilon\rho(t_j)\le M_0\epsilon\rho(t_j)$, and (2.5) with (2.3) gives $\|D^i\mathcal
-S_j\beta_{j+1}\|_\infty\le\frac12M_i\epsilon\rho(t_j)+C(T,M_1,\dots,M_{i-1})\epsilon\rho(t_j)\le M_i\epsilon\rho(t_j)$.
+S_j\beta_{j+1}\|_\infty\le\frac12M_i\epsilon\rho(t_j)+C(T,M_0,\dots,M_{i-1})\epsilon\rho(t_j)\le M_i\epsilon\rho(t_j)$.
 
 *$\mathcal T$ is a contraction* for $d(\beta,\tilde\beta) := \sup_j\rho(t_j)^{-1}|\beta_j-\tilde\beta_j|_\infty$, by (S2)
 and $\rho(t_j)^{-1}\le\rho(t_{j+1})^{-1}$, with factor $e^{-\nu T}(1-3C_T\delta)^{-1}\le\frac12$.
@@ -356,11 +357,12 @@ $$V = \partial_{t_*}+\mathsf V+\tilde V,\qquad\tilde V(t_*,\cdot)\ \text{tangent
 ### 3.4 The statement
 
 **Proposition 3.4 ([Hin26c] Proposition 6.3 at $n = 4$).** Let $d_0\ge3$, $\ell_K>0$ and $g = g_0+h$ with
-$h\in\tilde{\mathcal G}^{d_0,(0,0,\ell_K)}_{e3b}$ of sufficiently small norm $\epsilon$. Let $\partial\Gamma_0 :=
-\{t_*>1\}\times\Gamma$ in the slice coordinates (the stationary extension of $\partial\Gamma_{K^+}$, II.B Definition
-5.1), and $U$ a small conic neighbourhood of it in ${}^{e3b}S^*_DM$. There are functions $\phi_0^{u/s}\in C^\infty(U)$,
-independent of $t_*$, with $\phi_0^{u/s} = \phi_{u/s}(x,z)$ on the stationary characteristic set, and $\tilde\phi^u\in
-C^{d_0-1}(U)$, $\tilde\phi^s\in C^{d_0-2}(U)$, with
+$h\in\tilde{\mathcal G}^{d_0,(0,0,\ell_K)}_{e3b}$ of sufficiently small norm $\epsilon$. Let $T_\flat := 1/C'$, with
+$C'$ of II.C Lemma 3.2, and $\partial\Gamma_0 := \{t_*>T_\flat\}\times\Gamma$ in the slice coordinates (the stationary
+extension of $\partial\Gamma_{K^+}$, II.B Definition 5.1), and $U$ a small conic neighbourhood of it in
+${}^{e3b}S^*_DM$. There are functions $\phi_0^{u/s}\in C^\infty(U)$, independent of $t_*$, with $\phi_0^{u/s} =
+\phi_{u/s}(x,z)$ on the stationary characteristic set, and $\tilde\phi^u\in C^{d_0-1}(U)$, $\tilde\phi^s\in
+C^{d_0-2}(U)$, with
 $$|\partial^\alpha\tilde\phi^u|\le C\epsilon t_*^{-\ell_K}\ (|\alpha|\le d_0-1),\qquad|\partial^\alpha\tilde\phi^s|
 \le C\epsilon t_*^{-\ell_K}\ (|\alpha|\le d_0-2),$$
 derivatives along $\partial_{t_*},\partial_x$ and the fibres, such that, with $\phi^{u/s} :=
@@ -369,22 +371,25 @@ U\cap(\phi^{u/s})^{-1}(0)$. For $\epsilon\le\epsilon_1$ the norms are at most 1.
 for the stationary models of parameters $b$ near $b_0$ (K4).
 
 *Proof.* By Lemma 3.1 and (3.3), Theorem 1.1 applies on $Y$ with $V_0 = \mathsf V$, $k := d_0-1\ge2$, $\ell := \ell_K$,
-$T_0 := 1$ (the metric being defined on $\Omega_*\supset\{t_*\ge1\}$ over $D$, II.C (4.1), so that $T_0 = 1$ is literal
-and Remark (c) below is the source's slice $\{\rho_K = 1\}$; D201), giving $\psi_u\in C^{d_0-1}$, $\psi_s\in C^{d_0-2}$
-on $(1,\infty)\times O'$ with $V$ tangent to $W^{u/s} = \{\phi_{u/s}+\psi_{u/s} = 0\}$. For $(t_*,x,z)$ in $U$, write
+$T_0 := T_\flat$ (the metric is defined on $\Omega_*$, II.C (4.1), and $\Omega_*\supset\{t_*\ge T_\flat\}$ because
+$t^\flat_*\ge C't_*$, II.C Lemma 3.2 (b); D326: D201 took $T_0 = 1$ on the claim $\Omega_*\supset\{t_*\ge1\}$ over $D$,
+which is reversed, as $t^\flat_*\le t_*$), giving $\psi_u\in C^{d_0-1}$, $\psi_s\in C^{d_0-2}$ on
+$(T_\flat,\infty)\times O'$ with $V$ tangent to $W^{u/s} = \{\phi_{u/s}+\psi_{u/s} = 0\}$. For $(t_*,x,z)$ in $U$, write
 $(x,z) = e^{fN}w$ ($w = w(x,z)\in Y$) and put
 $$\phi_0^{u/s}(x,z) := \phi_{u/s}(w(x,z)),\qquad\tilde\phi^{u/s}(t_*,x,z) := \psi_{u/s}(t_*,w(x,z)),$$
 extended homogeneously of degree 0 in $(\sigma,\zeta)$. On the perturbed characteristic set, $(x,z) = e^{F(t_*,w)N}w$
-(Lemma 3.3) and $w(x,z) = w$, so $\phi^{u/s}(t_*,x,z) = (\phi_{u/s}+\psi_{u/s})(t_*,w)$, and $\Gamma^{u/s} = \hat\Psi(\{f
-= 0\}\cap W^{u/s})$. $V^h = \hat\Psi_*V$ is tangent to $\hat\Psi(W^{u/s})$, as $V$ is to $W^{u/s}$; $\hat W$ and $\mathsf
-H_G$ are positive multiples of $V^h$ on the characteristic set (Lemma 3.2 and $\hat Wt_*>0$). The bounds follow by the
-chain rule, $w(x,z)$ being smooth and $t_*$-independent. Uniformity: Lemma 3.1 and the explicit dependence of the
-constants in Theorem 1.1. $\square$
+(Lemma 3.3) and $w(x,z) = w$, so $\phi^{u/s}(t_*,x,z) = (\phi_{u/s}+\psi_{u/s})(t_*,w)$, and $\Gamma^{u/s} =
+\hat\Psi(\{f = 0\}\cap W^{u/s})$. $V^h = \hat\Psi_*V$ is tangent to $\hat\Psi(W^{u/s})$, as $V$ is to $W^{u/s}$; $\hat
+W$ and $\mathsf H_G$ are positive multiples of $V^h$ on the characteristic set (Lemma 3.2 and $\hat Wt_*>0$). The bounds
+follow by the chain rule, $w(x,z)$ being smooth and $t_*$-independent. Uniformity: Lemma 3.1 and the explicit dependence
+of the constants in Theorem 1.1. $\square$
 
 *Remarks.* (a) $\phi_0^{u/s}$ agrees with I.B's $\phi_{u/s}$ on the stationary characteristic set; off it the two may
-differ, which is immaterial for $\Gamma^{u/s}$. (b) The intersections of $\Gamma^{u/s}$ with the stationary face $\{t_* =
-\infty\}$ are $\partial\Gamma^{u/s}_{K^+}$, as $\tilde\phi^{u/s}\to0$. (c) $W^u$ at $t_* = 1$ is the stationary unstable
-hypersurface, the source's choice ([Hin26c] p. 113: "$\Gamma^u = \bigcup_{s\ge0}e^{sV}(\Gamma^u_0\cap\{\rho_K = 1\})$").
+differ, which is immaterial for $\Gamma^{u/s}$. (b) The intersections of $\Gamma^{u/s}$ with the stationary face $\{t_*
+= \infty\}$ are $\partial\Gamma^{u/s}_{K^+}$, as $\tilde\phi^{u/s}\to0$. (c) $W^u$ at $t_* = T_\flat$ is the stationary
+unstable hypersurface; the source makes the same choice at its slice $\{\rho_K = 1\}$ ([Hin26c] p. 113: "$\Gamma^u =
+\bigcup_{s\ge0}e^{sV}(\Gamma^u_0\cap\{\rho_K = 1\})$"). The slice is immaterial below: II.D uses $\Gamma^{u/s}$ only
+where $\rho_K$ is small (D326).
 
 ## 4. What this part found
 

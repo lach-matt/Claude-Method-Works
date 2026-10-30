@@ -4312,3 +4312,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   terms, conormal remainders, 'a continuation of their data' in the abstract and introduction, 8.7's slice.
 - Status: every part of proof5 is proved except II.B, II.C, II.C', II.D, II.D', II.E (verified D197-D207).
 - Next: verifier 142 on the old repairs of II.B-II.E and the D324 paper repairs.
+
+### 4.249 Verifier 142 seated (D326): II.B and II.D proved; II.C, II.C', II.D', II.E repairs to be read
+
+- Report (scratchpad d324/verifier142.md): 0 major; 6 minor, 9 nits, all seated. II.C (C8) now cites I.B Lemma 6.0
+  for (5.9); II.C' Proposition 3.4 starts at T_flat = 1/C' (Omega_* contains {t_* >= T_flat}, not {t_* >= 1}); II.D'
+  (H_G xi_0)/xi_0 odd on dSigma^-; II.E Lemma 3.3 (b) quantises e_+ with kernel near the diagonal in t_*, so
+  E_+ v~ = 0; nits: Sigma^+ in II.B Lemma 3.3 (4) and (B2), M_0 in II.C' 2.4, zeta's support in II.D, (2.2') in (D'3),
+  chi_Z wording in II.E, II.C's status line.
+- Paper: sections 8.4 and 8.6 put 'for every eps < eps_K' before the smallness; Theorem 4 says eps_K is chosen after
+  l_0 and below l_0 - 3; remainders in r^(-l_0) H_b^inf; Part VII takes alpha > 4 + eps_t in row w2 (its eps_t is the
+  paper's eps). response5.py passes.
+- Status: every part of proof5 is proved except II.C, II.C', II.D', II.E, whose one minor repair each is to be read.
+- Next: verifier 143 on the D326 repairs (those four parts, II.B and II.D's nits, Part VII's eps_t, the paper).

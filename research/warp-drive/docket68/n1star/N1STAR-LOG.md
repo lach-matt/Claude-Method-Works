@@ -5988,3 +5988,15 @@ status lines still said written or verified; each now opens with the stage reach
 record has them. Eight wrapped lines in the first three parts, all from early sessions, began with a vertical bar and
 are rewrapped; nothing in their mathematics changed. A reader is checking the six oldest parts still at the verified
 stage, and the paper's restated settling theorem.
+
+**D326 (2026-10-30): two more parts proved.** A reader checked the repairs to the six oldest parts still at the verified
+stage, those on the dynamics of the stationary model, the operator classes, the trapped sets of perturbed metrics, the
+microlocal regularity with and without b-regularity, and the energy estimates, together with the paper's restated
+settling theorem. No major gap; the earlier repairs hold, the horizon coupling of the b-regularity part included. The
+dynamics and regularity parts, with wording points only, are now proved. Four parts had one smaller point each, now
+repaired: the trapped-set part had stated an inclusion of regions the wrong way round, and now starts its construction
+at a later time that the region does contain; the energy part had inferred that an operator annihilates a function from
+where its singularities lie, which does not locate its kernel in time, and the operator is now built with its kernel
+near the diagonal, as the regularity part already does; a parity was misnamed; and a stale sentence contradicted a
+correction. In the paper the decay rate's quantifier now comes before the smallness it governs. These four parts are
+proved once a reader confirms the repairs.

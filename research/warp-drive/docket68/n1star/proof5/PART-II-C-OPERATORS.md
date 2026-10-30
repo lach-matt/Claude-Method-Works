@@ -1,15 +1,17 @@
 # Part II.C. Wave-type operators, the time function and the order functions, at n = 4
 
-*Status.* Verified; a D226 correction (the remark after Lemma 2.2: the source's conjugation (5.9) is I.B Lemma 6.0) is
-to be read. Written out in full (D198). Read line by line by the eighty-second verifier, which re-derived every
-computation and confirmed (C1)-(C3) at source; its one minor finding (the form of the Minkowski metric stated in the
-proof of Lemma 1.3, on which the argument for $\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ rested; the claim holds) and
-seven nits are seated (D200). The part is labelled proved once the next reader has confirmed them. This part proves, at
-spatial dimension $n = 4$, [Hin26c] section 5 (pp. 100-110) and section 6 (pp. 110-114) except its Proposition 6.3, the
-stable and unstable trapped sets of perturbed metrics, which is the subject of Part II.C$'$ (in writing). The source is
-[Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part
-I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part I.C (`PART-I-C-LOWENERGY.md`) as I.C, Part II.A (`PART-II-A-SETUP.md`) as
-II.A and Part II.B (`PART-II-B-DYNAMICS.md`) as II.B.
+*Status.* Repairs read (D326: verifier 142 found the D200 repairs and the D226 correction correct; its one minor
+finding, the stale sentence of (C8), and one nit are seated, to be read). Verified; a D226 correction (the remark after
+Lemma 2.2: the source's conjugation (5.9) is I.B Lemma 6.0), confirmed by the ninety-fourth verifier (D229). Written out
+in full (D198). Read line by line by the eighty-second verifier, which re-derived every computation and confirmed
+(C1)-(C3) at source; its one minor finding (the form of the Minkowski metric stated in the proof of Lemma 1.3, on which
+the argument for $\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ rested; the claim holds) and seven nits are seated (D200).
+The part is labelled proved once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$,
+[Hin26c] section 5 (pp. 100-110) and section 6 (pp. 110-114) except its Proposition 6.3, the stable and unstable trapped
+sets of perturbed metrics, which is the subject of Part II.C$'$ (in writing). The source is [Hin26c] = P. Hintz,
+arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B
+(`PART-I-B-HIGHENERGY.md`) as I.B, Part I.C (`PART-I-C-LOWENERGY.md`) as I.C, Part II.A (`PART-II-A-SETUP.md`) as II.A
+and Part II.B (`PART-II-B-DYNAMICS.md`) as II.B.
 
 *Method.* Section 5 of the source consists of definitions and three lemmas. The definitions are restated at $n = 4$: the
 constant 1 of its form (5.1a) becomes $\frac32 = \frac{n-1}2$, the weight $\alpha_{\mathrm{sf}}+\frac32$ of its
@@ -831,9 +833,10 @@ the localisation $\chi_t$ of [Hin23c] shown unnecessary in this class. The bound
 appendix states as its (C.1) is replaced by Lemma 5.3, which proves the form used.
 
 (C8) *Changes of statement.* Definition 2.1 takes the threshold of trapping admissibility from I.B's (Γ.4), for the
-density of I.A, in place of (5.8) for $|dg|$, and does not use (5.9); Definition 2.3 is I.C's tf-admissibility (I.C
-section 5.1 compares it with the source's). Proposition 4.2 is stated over $\{r\ge r_0\}$, where the perturbation is
-defined, with "reaches $\{r = r_0\}$" for the source's "crosses $\{r = m\}$".
+density of I.A, in place of (5.8) for $|dg|$, and realises (5.9) as I.B Lemma 6.0 (D226; this finding said before that
+(5.9) was not used, D326); Definition 2.3 is I.C's tf-admissibility (I.C section 5.1 compares it with the source's).
+Proposition 4.2 is stated over $\{r\ge r_0\}$, where the perturbation is defined, with "reaches $\{r = r_0\}$" for the
+source's "crosses $\{r = m\}$".
 
 ## Sources
 

@@ -86,7 +86,10 @@ $i,\beta$ there are $C$ and $T'$ with
 $$|(t_*\partial_{t_*})^i\partial^\beta_x(g-g_{(m',0)})|\le Ct_*^{-(\alpha-2)+
 \epsilon'}\quad\text{on }\{r_0\le r\le R',\ t_*\ge T'\},\tag{0.2}$$
 where $\alpha-2>2+\epsilon_K-\epsilon'_0>2$ (VI.C row w2), and $\alpha$ may be chosen as close to $4+\epsilon_K$ as
-desired. On $\Sigma_{\mathrm{IVP}}\cap\{r<R\}$, $g$ and $g_\lambda$ induce the same data.
+desired. So for every $\epsilon_t<\epsilon_K$, choosing $\alpha>4+\epsilon_t$ in row w2 and $\epsilon' :=
+\alpha-4-\epsilon_t$ gives $O(t_*^{-2-\epsilon_t})$ in (0.2), the rate of the paper's Theorem 4 (its $\epsilon$); the
+parameters, and with them $\epsilon$ and $\lambda_1$ below, then depend on $\epsilon_t$ (D326). On
+$\Sigma_{\mathrm{IVP}}\cap\{r<R\}$, $g$ and $g_\lambda$ induce the same data.
 
 (ii) *Without symmetry.* Let $(\gamma,k)$ be smooth vacuum data on $\Sigma_{\mathrm{IVP}}$ with
 $(\gamma-\gamma_\lambda,k-k_\lambda)\in H^{\infty,(\mathcal E_0,\ell_0)}_{\mathrm b}\times H^{\infty,(\mathcal
@@ -391,14 +394,15 @@ representation. So $b = (m',0)$ and $S = S^{(0)}_1 = 0$, and III.K Theorem 4.3 (
 
 ## 4. Proof of Theorem 0.2
 
-Given $\epsilon_m>0$, fix the parameters by VI.C Theorem 2.1 with (0.1). In III.K Theorem 3.2's proof, apply II.G
-Theorem 2.1 with its radius $\delta$ replaced by $\min(\delta,\epsilon_m)$: its hypotheses restrict to the smaller set,
-and its $\epsilon_{\mathrm{NM}}$ then depends on $\epsilon_m$. This gives III.K Theorem 4.3 with
-$|b-b_0|\le|U|_{3d}<\epsilon_m$ and $|S|<\epsilon_m$ (III.K Lemma 2.3's proof), for data of norm below some $\epsilon =
-\epsilon(\epsilon_m)$, with $d_1$ as before. In (i), $\epsilon$ is moreover taken below the threshold for which
-Proposition 3.2's run of II.G Theorem 2.1 applies (through the equivalence of the norms). Take $k := d_1+5$ in
-Proposition 2.2, then $R\ge\max(R_{\mathrm{gl}},R_3)$, then $c_0$ and $\Omega'$ by Lemma 1.2, $J := k+5$ in Lemma 1.1,
-and $\lambda_1$ so small that $C_R\lambda_1<\frac12\epsilon$. Put $\delta := \frac12\epsilon$.
+Given $\epsilon_m>0$ and $\epsilon_t<\epsilon_K$, fix the parameters by VI.C Theorem 2.1 with (0.1), taking
+$\alpha>4+\epsilon_t$ in row w2 (D326). In III.K Theorem 3.2's proof, apply II.G Theorem 2.1 with its radius $\delta$
+replaced by $\min(\delta,\epsilon_m)$: its hypotheses restrict to the smaller set, and its $\epsilon_{\mathrm{NM}}$ then
+depends on $\epsilon_m$. This gives III.K Theorem 4.3 with $|b-b_0|\le|U|_{3d}<\epsilon_m$ and $|S|<\epsilon_m$ (III.K
+Lemma 2.3's proof), for data of norm below some $\epsilon = \epsilon(\epsilon_m)$, with $d_1$ as before. In (i),
+$\epsilon$ is moreover taken below the threshold for which Proposition 3.2's run of II.G Theorem 2.1 applies (through
+the equivalence of the norms). Take $k := d_1+5$ in Proposition 2.2, then $R\ge\max(R_{\mathrm{gl}},R_3)$, then $c_0$
+and $\Omega'$ by Lemma 1.2, $J := k+5$ in Lemma 1.1, and $\lambda_1$ so small that $C_R\lambda_1<\frac12\epsilon$. Put
+$\delta := \frac12\epsilon$.
 
 *(i).* Corollary 2.3 gives $(\gamma_\lambda,k_\lambda)$, $G$-invariant, smooth and vacuum, with
 $\|(\gamma_\lambda-\gamma_{b_0},k_\lambda-k_{b_0})\|_{d_1}<\frac12\epsilon$. By Lemma 0.1 the differences lie in
