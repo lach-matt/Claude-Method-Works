@@ -5846,3 +5846,10 @@ domain is now solved. Its past boundary would have included a surface that touch
 where no Cauchy problem of the needed kind is available; so the region is solved together with the exterior domain,
 from the initial surface and from a compact surface on its inner side, neither of which reaches null infinity. The
 boosted background is checked in coordinates shifted in time, which the stationarity of the black hole allows.
+
+**D307 (2026-10-30): constraint damping, first part.** The constraint propagation equation of the gauge is shown to
+have no growing or oscillating modes and an invertible stationary operator, given the solvability theorem of the next
+part. The five-dimensional inputs (the algebra of the damping term with its five-dimensional trace weight, the decay
+rates at infinity for every small parameter, the damping form on the black hole, the horizon threshold) were computed
+exactly earlier and are now assembled into the proof. The stationary operator's invertibility is obtained from an
+estimate for the adjoint problem, which avoids an index count.

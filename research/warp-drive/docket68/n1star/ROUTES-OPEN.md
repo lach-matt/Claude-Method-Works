@@ -4073,3 +4073,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   orders (III.C' Theorem 3.1's proof). III.K Proposition 1.2's slab paragraph cites it.
 - Next: Part IV'''' ([Hin26a] sections 2.3, 3-6 and Appendix B at n = 4 -> III.E Theorem 1.1), in several files; the
   record's 10.21-10.23 and (lxi) carry the computed inputs (cpmodes5, solv5, tface5, 10.79's horizon threshold).
+
+### 4.231 Part IV'''' written (D307): mode stability and the zero energy operator of box^C
+
+- PART-IV5-CDMODES.md: III.E Theorem 1.1 (1)-(3) at n = 4 at (v_C, e_C, C_0) = (1/2, 1/102400, <= 100), gamma_C = 1/h,
+  h < min(10^-6, h_0) off a countable set (IV''''1). Lemmas 1.1-1.5 from the record's exact computations (10.13, 10.18,
+  10.54, 10.14, 10.22, 10.79), extended to b near b_0; Lemma 1.6 (H1)-(H4), (G). Theorem 2.1 = [Hin26a] Theorem 6.2:
+  surjectivity by the adjoint estimate (5.81) (IV''''3).
+- Conditional on [Hin26a] Theorem 5.2 at n = 4 with (5.16) and (5.81): Part IV''''' (section 5.2, pp. 41-66), next;
+  then Part IV'''''' (Theorem B.1 -> III.E Theorem 1.1 (4)).
