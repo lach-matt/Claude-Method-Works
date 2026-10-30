@@ -1,6 +1,7 @@
 # The base-point ledger: III.I16 Theorem 3.1 by reading
 
-*Status.* Being read (D328 onward): the five batches are with verifiers 145-149.
+*Status.* Read (D328-D330): all five batches read, by verifiers 145-149. Three gaps and one unstated theorem were
+found and are repaired in III.I16 (D329-D330); the repairs are to be read.
 
 ## What this file is
 
@@ -21,7 +22,7 @@ $b$:
 
 - section 2 (Proposition 2.2, Lemma 2.4, Proposition 2.5: the v1 terms);
 
-- or an item (i)-(viii) of Theorem 3.1's proof.
+- or an item (i)-(viii) of Theorem 3.1's proof (now (i)-(xi)).
 
 The reader also says whether that supply is uniform in $b$. A use that nothing supplies is a gap. Each gap is repaired
 in the part it concerns, and the repair is read by the next reader.
@@ -50,9 +51,9 @@ The categories are:
 | batch | parts | lines | reader | status |
 |---|---|---|---|---|
 | 1 | III.I$'$-III.I$'''''$ (PART-III-I2 to I6) | 1,806 | verifier 145 | read (D329); one gap, repaired, to be read |
-| 2 | III.I$''''''$-III.I$'''''''''$ (PART-III-I7 to I10) | 1,814 | verifier 146 | reading |
-| 3 | III.I$''''''''''$-III.I$'''''''''''''$ (PART-III-I11 to I14) | 1,718 | verifier 147 | reading |
-| 4 | III.I$''''''''''''''$, III.J, III.J$'$ (PART-III-I15, J, J2) | 1,122 | verifier 148 | reading |
+| 2 | III.I$''''''$-III.I$'''''''''$ (PART-III-I7 to I10) | 1,814 | verifier 146 | read (D330); one gap, repaired, to be read |
+| 3 | III.I$''''''''''$-III.I$'''''''''''''$ (PART-III-I11 to I14) | 1,718 | verifier 147 | read (D330); one gap, repaired, to be read |
+| 4 | III.I$''''''''''''''$, III.J, III.J$'$ (PART-III-I15, J, J2) | 1,122 | verifier 148 | read (D330); no major gap, one minor gap (reality), repaired, to be read |
 | 5 | III.J$''$, III.J$'''$ (PART-III-J3, J4) | 1,117 | verifier 149 | read (D329); one gap, repaired, to be read |
 
 Theorem 3.1 is proved when every batch is read, every gap is repaired, and the repairs are read.
@@ -137,6 +138,254 @@ $\delta$. Five nits seated. Report: the scratchpad file d327/ledger145.md.
 | I6 | 209-212 | f | S0 = 0 from injectivity (III.F''' Prop 4.1 (1)) | Lemma 1.2 | yes | m3 |
 | I6 | 69-75 | d | Cor 2.2 uses (S^(-1))^{-1} of III.I'''' Cor 4.3 | inherits M1 | GAP | |
 | I6 | 225-227 | d | continuity: III.G'' Cor 4.3 | (P2) | yes | |
+
+## Batch 2: III.I$''''''$-III.I$'''''''''$
+
+Verifier 146 read every line (69 rows; by category a 6, b 3, c 10, d 43, e 8, f 8, g 3, h 6, and i 3, the reader's own,
+for maps fixed by $L_{b_0}$ as a reference). One gap, major: III.I$'''''''$ Lemma 2.4's parameter identities are exact
+only at $(0,0)$, as the background at $(0,\vec p_b)$ mixes $g_{b_0}$ and $g_b$ in $\mathcal C$ and the corrections #2
+are built at $b_0$; so III.I$'''''''$ Lemmas 4.3, 4.5, Corollary 4.6 and III.I$''''''''$ Proposition 4.1's base step,
+which invert their maps by continuity from $(0,0)$, and III.I16 Proposition 2.5's base level did not carry to $b$.
+Repaired in III.I16 section 2.8, by Lemma 2.11 (the identities at $b$ with an error $E^{\mathrm{mot}}_b$, supported in
+$\mathcal C$ and $O(|b-b_0|)$) and Proposition 2.12 (a direct bound), and in Proposition 2.5's Step 3. Two minor
+findings, seated in Theorem 3.1's list: the statements of III.I$'''''''$ used at $b$, and the fixed-$b$ qualification of
+the continuity statements. Five nits seated, among them the naming of the corrections #1-#4 and the stale pointers in
+III.I$'''''''$-III.I$'''''''''$. Report: the scratchpad file d327/ledger146.md.
+
+| part | line | cat | property used | supplied by | uniform | note |
+|---|---|---|---|---|---|---|
+| I7 | 18 | h | "Everything is at b = b_0" | Thm bullet 1 | yes | |
+| I7 | 23-27 | a | Lhat_b(sigma)=L0-i sigma L1-sigma^2 L2, L1,L2 stationary | (P5) | yes | only d_t Killing used |
+| I7 | 28-36 | d | augmented operator, rows f*_j with III.H (3.1), columns, states gdot,h,hbreve of III.H s.1 | (P3); III.H Prop 3.2 (stated near b_0, B(b) invertible) | yes | III.H Prop 3.2 not in (P4) (n3) |
+| I7 | 49-73 | d | Lemma 1.1: L1 on u0; source terms f of III.H Lemma 2.2/2.4 | (P5), III.H at b | yes | |
+| I7 | 82-99 | d | Lemma 1.2: Fredholm, kernel trivial for small sigma (III.F'' mode stability, III.H Thm 4.1) | (P4): III.H Cors 4.3-4.4 at b | yes | |
+| I7 | 101-117 | d,f | Lemma 1.3: gdot(e1)+h(e2) in A^2, ker L0; r(w_e)=e | (P3); III.H B(b) | yes | |
+| I7 | 120-139 | d | Lemma 1.4: h^{<=3}_{b0,s1}, III.G'''' Prop 5.1, Lemma 4.3 index set (0,0)+E_ind | (P4),(P3) | yes | Lemma 4.3 is a lemma, (P4) says "propositions" (n3) |
+| I7 | 143-152 | h | Prop 2.1 "at b_0" | Thm bullet 1 | yes | |
+| I7 | 144,174,227-228 | c | eps_ind; set of -mu real, discrete | (P2) | yes | constants |
+| I7 | 160-168 | d | Step 0: L-L_b gains a_K at K+ | (i), III.I Lemma 3.6 | yes | |
+| I7 | 170-188 | c | lambda_sharp, III.G'' Cor 4.3, a_s1 a power, E^iota_ind | (P2) | yes | |
+| I7 | 202-208 | d,f | Step 3.1: III.H Prop 3.2; h(S0)=0 => S0=0 (III.F''' Prop 4.1(1)) | III.H Prop 3.2 at b; L1.2 | yes | |
+| I7 | 225-242 | d,g | Step 3.2: (5.2) at b; only s1 term below zf-weight alpha-2 | (P4): III.G'''' (5.2) is written at b; its v1 term carries abs(sigma)^{alpha-2} even with h_{b,v1}!=0 | yes | checked G5-TF:636-639 |
+| I7 | 244-276 | d | Steps 3.3-3.5: Ltilde_b(sigma)^{-1}, III.I'' Lemma 4.2, injectivity | (P1),(P4) | yes | |
+| I7 | 291-319 | d,f | Step 5: G1,G2 at b; S4+=S4- (h injective); (0,0)-coefficient | (P3), L1.2 | yes | |
+| I7 | 326-330 | a,f | Step 6: stationary tensor of positive K+-weight vanishes; Im bdot=0 by rows | (P5); III.H B(b) | yes | |
+| I8 | 20,454,481-484 | h | base points at b_0; (I'''''''4) "waits on those inputs" | Thm bullet 2, (iv) | yes | text superseded, no pointer (n5) |
+| I8 | 28-30 | d | omega_s1=omega^{(0)}_{b0,s1}, h(S), h^{<=1}_nat; h^{(-1)},theta at b_0 | (P3) states; (P6) corrections | yes | |
+| I8 | 31 | b | b-space R x so(4) (III.F''' Prop 2.2) | III.F''' Prop 2.2 near b_0 | yes | |
+| I8 | 32-35 | e | gdot_{b0}=d_b g_b at b_0, omegadot_{b0}, gdot^Ups_{b0} | (iv),(P3) | yes | |
+| I8 | 35-41,46,48 | c | E_ind at b_0; (1.1) class G; eps_ind | (P3),(P2) | yes | |
+| I8 | 42-44 | f | (bdot,S)->gdot+h injective by rows | III.H B(b) / L1.2 | yes | |
+| I8 | 55-58 | d | w^0=g_{b0}(Y_S,.) | none needed: exterior is g_{b0} at every b (Def 1.2) | yes | |
+| I8 | 100-101,125-127 | d | Lemma 1.3(b): III.I Thm 5.3 for g_p "b=b_0" | (P1) + III.H'' Cor 5.1's proof with Lemma 1.3(a) | yes | (P1) names g_{b0,b,-S} only (n3) |
+| I8 | 103-106,129-135 | c | Lemma 1.3(c) "with b=b_0": g_p-eta in rho^2 | g_b-eta in abs(x)^{-2}C^inf at every b (III.B (3.5)) | yes | |
+| I8 | 139-151 | d | Def 2.1: corrections #2 at b_0 | (P6) | yes | |
+| I8 | 153-175 | d | Lemma 2.2 (b_0-built, any g_0) | b-independent | yes | not in Thm list though used at b (m1) |
+| I8 | 196-229 | d,e | Lemma 2.4 (2.3) exact at (0,0) with L_{b0}; at (0,p_b) false: g_{p_b}=g_{b0,b,0}, corrections at b_0 | NONE (I16:93-95 is commentary, f^S,f^s1 only) | - | GAP G1 |
+| I8 | 234-262 | d,i | Lemma 2.5: results for L_{h,p}; maps fixed by L_{b0} | Thm bullet 1, (i), (P1) | yes | |
+| I8 | 266-318 | d,e | Lemma 3.1 (p=(S,0,S1)): on U_K g_{b0} Ricci flat, gdot_{b0}; U_iota k_b=chi_K gdot_{b0} | proof transfers: g_b Ricci flat for all b, gdot_b (P3) | yes | not in Thm list (m1) |
+| I8 | 281,322 | d | Lemma 3.1(c): value at (0,0) is (2.3) | - | - | GAP G1 |
+| I8 | 330-337 | a,f | Sdot, Q determined by forward solution | (P5); III.H B(b) | yes | |
+| I8 | 339-380 | e | Lemma 4.1: continuity at (0,0) against L_{b0} | at b fixed-b only, reference L_{0,p_b} | no | fixed b only; not listed (m1,m2) |
+| I8 | 395-410 | d | Lemma 4.3: S^{(-1)}_{0,0}=id by Lemma 2.4; invertible by continuity | - | - | GAP G1 |
+| I8 | 417-427 | d | Lemma 4.5: map = -id at (0,0) by Lemma 2.4 | - | - | GAP G1 |
+| I8 | 433-450 | d | Cor 4.6 (b=b_0) | rests on 4.3, 4.5 | - | GAP G1 (Thm lists it as uniform) |
+| I9 | 12,25,30 | h,d | motions with h_{b0,s1}; everything at b_0 | (P3),(P6), Thm | yes | |
+| I9 | 15-16,425-426 | c | Lhat_b(0) no indicial root in (0,1] | (P2) | yes | |
+| I9 | 32-37,55-58,302-303 | c | E_ind (III.D''' at b_0), E^iota_ind, lambda_sharp, roots mu real/discrete, class roots non-integer | (P2),(P3) | yes | |
+| I9 | 70-77 | d | omegabreve^i_{b0,s1}, omega^{<=k} in ker Box_{b0} | (P3): III.D''' Prop 3.1 is smooth in b (D4:109-112) | yes | |
+| I9 | 79-87 | d | row m_{lambda,k} with delta*_{g_b0}; h^{(lambda-1,k)}_{s1}, theta (#3) | (P6): row at b, corrections at b_0 (= CORR4 rows (s1,lambda,k)) | yes | |
+| I9 | 89-123 | a,d | Lemma 2.2: Box stationary (2.1); (2.2) deltahat*(0)omegabreve^0=h(S) | (P5),(P3) | yes | |
+| I9 | 137-153 | d | Lemma 2.4 exact motion identity, L_{b0} | (P6) (1.1) with E^nu | yes | "in the form (1.1)" not said (n4) |
+| I9 | 155-193 | d,e | Lemmas 2.5-2.6 (b=b_0); 2.6(a) via III.I''''''' Lemma 3.1 | UNPARAM 2.5 at b; Lemma 3.1 at b | yes | m1 |
+| I9 | 201-237 | d,i | Lemma 3.1 base level: L_b, UNPARAM 4.1,4.3,4.5, Cor 4.6 | (i); base level -> G1 | - | GAP G1 |
+| I9 | 262-274 | g,d | s1 row h^{<=3}_{b0,s1}; v1 row gives lambda_0 | (P2),(P3); I16 Lemma 2.1 and Lemma 2.4 last sentence (rate Re lambda-eps > alpha-2) | yes | |
+| I9 | 276-327 | d | Step 3: III.I'''''' at b; III.G'''' Prop 5.1 iterated | Thm bullet 1, (P4) | yes | |
+| I9 | 331-337 | f | bdot0=0, S4=0; h injective | III.H B(b), L1.2 | yes | |
+| I9 | 339-342 | i | maps fixed by L_{b0} / L-L_{b0} | (i) | yes | |
+| I9 | 344-353 | e | Lemma 3.3 continuity at (0,0) | fixed b only (I16:397-401) | no | fixed b |
+| I9 | 378-382 | d | base step: Cor 4.6, 4.3, 4.5 close to +-id | - | - | GAP G1 |
+| I9 | 394-403 | d,e | T_{0,0}=id by Lemma 2.4; near (0,0) by Lemma 3.3 | I16 Prop 2.5 Step 3 direct bound with (1.1) for rows (s1,lambda,k) | yes | Thm list does not say so (m2) |
+| I10 | 22-23,89-96,418-425 | g,b | V_K, V'=0 because every rotation Killing at b_0 | (vi), S2 (rotation rows), I16 Lemma 2.1 | yes | |
+| I10 | 27,32 | h | everything at b_0 | Thm | yes | |
+| I10 | 33,44-47 | c | lambda_sharp, delta_sharp, eps_ind, w_+ | (P2); delta_sharp gauge-only | yes | |
+| I10 | 37-40,85-87 | c | E_ind enlarged (III.D''' at b_0); (H3) | (P3) | yes | |
+| I10 | 18-21,67-83 | b,c | six SO(4) types, roots -1,0 of Lhat_{b0}(0), class roots mu_c0, mu_c1, d_tau | (P2) roots; (P3) states; types by the b-independent iota+ decomposition | yes | |
+| I10 | 126-150 | d | towers omegabreve^i_tau at b_0, lengths K_tau, ker Box_{b0} | (P3) (III.D''' Prop 3.1 in b), (P6) | yes | |
+| I10 | 151-164 | a,c,d | (2.1); omega^{(0)}_{b0,s0}=g_{b0}(d_t,.) Killing; states h_tau | (P5),(P3) | yes | |
+| I10 | 166-185 | d | Def 2.1 rows and corrections #4 | (P6) | yes | |
+| I10 | 187-247 | a,d | Lemma 2.2(a),(d),(e): Box stationary; theta=1/2 Box omega near K+ | (P5),(P3),(P6) | yes | |
+| I10 | 249-253 | f | Lemma 2.2(f) h_tau injective | L1.2; leading terms b-independent (P3) | yes | |
+| I10 | 269-280 | d | Lemma 2.4 exact row identity | (P6) (1.1) | yes | |
+| I10 | 271,279-280 | d | "identities III.I''''''' (2.3) hold for P_4" | - | - | GAP G1 |
+| I10 | 287-293 | h | Lemma 2.5 b=b_0 | UNPARAM 2.5 at b | yes | |
+| I10 | 298-343 | d,e | Lemma 2.6(a): d_b g_0=chi_K gdot_{b0}; f^b by UNPARAM 3.1 | (iv),(P3); Lemma 3.1 at b | yes | m1 |
+| I10 | 345-361 | d | Lemma 2.6(b): near K+ g_0=g_{b0} | at b g_0=g_b near K+; weight kappa_nu unchanged | yes | |
+| I10 | 311-392 | d | Lemma 2.6(c): r^nu w.r.t. L_{b0}, r_{0,0}=0, 2nd term in C at b=b_0 | (P6) f^nu_b; I16 Prop 2.5 Step 3 (r+E = O(abs(b-b0)) at (0,p_b)) | yes | |
+| I10 | 427-433 | d | (I'''''''''3) u=v-sum m_nu, Lv=F-sum r^nu | (1.1): add E^nu | yes | |
+
+## Batch 3: III.I$''''''''''$-III.I$'''''''''''''$
+
+Verifier 147 read every line (57 rows; by category a 2, b 5, c 16, d 22, e 1, f 4, g 13, h 4). One gap, major:
+III.I$''''''''''''$ Lemmas 2.3-2.4 use $h_{b_0,\mathrm v1} = 0$ without naming it, to put $\breve h^1_{b_0,\mathrm
+v1}(V)$ in $\ker L_0$ and to remove the v1 content through an antiderivative; at a rotating $b$, Lemma 2.3 (b) fails
+when $\dot b_V\ne0$, and III.I$''''''''''''$ Theorem 3.1, which III.I16 Propositions 2.2 and 2.5 use at $b$, was not
+supplied. Repaired in III.I16 section 2.7, by Lemma 2.9 (the lemmas at $b$, with $\kappa_b$ of (2.6) and the rotation
+rows $T_{\mathrm v1,b}$ in place of the antiderivative, no map inverted) and Corollary 2.10. Two minor findings: the
+level-3 conormal rotation tower at $b$ (in Corollary 2.10), and the collision set $\mathcal E_{\mathrm{col}}$, read as a
+$b$-independent set (Theorem 3.1 (iii)). Three nits seated: III.I$''''''''''$'s definitions in the list, the conjugation
+symmetry of $A_b$, and $\dot g_b$'s leading terms in (P3). Report: the scratchpad file d327/ledger147.md.
+
+| part | line | cat | property used | supplied by | uniform | note |
+|---|---|---|---|---|---|---|
+| I11 | 30-36 | d | b = b_0; III.I^(9) s.1-2 objects (states, m_nu, P_4, L_{h,p}) | statement-at-b, P3, P6 | yes | |
+| I11 | 33 | g | W_v1 = 0 at b_0 | T(vi), S2 (rotation rows N_rot) | yes | |
+| I11 | 66-72 | c | Lambda contains 2+pi_1 E_col, E_col "the column terms at b_0" | P3 + III.I''' L1.1 at b (T-list b.1), implicitly | yes | not named in T(iii): finding m1 |
+| I11 | 73-76 | c | pole orders of N_iota+(Lbar)^-1, multiplicities of roots of \hat L_{b_0}(0) | P2 | yes | |
+| I11 | 83-85 | c | 3 in Lambda: boost row from mass root 2 | P2 | yes | |
+| I11 | 152-161 | c | (G), admissibility: roots of \hat L_{b_0}(0), E_K (III.G' L1.3, from N_iota+) | P2 | yes | b-independent exclusion set |
+| I11 | 163-165 | g | rates listed by type, v1 absent | S2 (L2.1: rot rate Re lambda; L2.4 N_rot^{<beta}) | yes | |
+| I11 | 169-200, 207-212 | d | Lemma 2.1 (a),(b),(d): towers via delta^*_{g_{b_0}} | P3; (a) uses only stationarity | yes | |
+| I11 | 203-205 | a | \breve omega^0_s0 Killing | P5 | yes | |
+| I11 | 187-225 | d | Lemma 2.1(c): u_{b_0,0}, k_tau of Table 1.1 | P2, P3; used at b in Prop 2.2(a) proof (I16:180-181) | yes | absent from T-list: n1 |
+| I11 | 222 | g | h_{b_0,v1}(V) = 0, V Killing | Prop 2.2(a) | yes | |
+| I11 | 223-224 | c | rows outside T have Re mu <= -1 | P2 | yes | |
+| I11 | 229-243 | f | Lemma 2.2 joint injectivity | L1.2 (K_0, c independent of b) | yes | |
+| I11 | 232-236 | b,a | static, spherical, isotypic components, degrees l_tau | L1.2 (replaces proof) | yes | |
+| I11 | 238-243 | c | h_s0 in A^{(0,0)+F}, h_s1 in A^{(3,0)...}, mu_c0, mu_c1 < 0 | inside L2.2's proof only; L1.2 | yes | |
+| I11 | 245-258 | f | Cor 2.3 | L1.2 | yes | |
+| I11 | 322-327 | g | v1 rows of N_sigma carry no parameter | S2 (N_{sigma,rot}) | yes | |
+| I11 | 340-406 | d | L_{b_0}, III.G'' Cor 4.3, III.I' at b_0, chi_K u_{b_0,0} | T(i), P1, P2, Prop 2.2(a) | yes | |
+| I11 | 373 | c | spec_iota+(Lbar) in Re >= 2 | P2 | yes | |
+| I11 | 399-401 | h | reality: L_{b_0} real, conjugation lambda0 -> bar lambda0 | L_b real | yes | A_b symmetry unstated: n2 |
+| I11 | 440-442 | b | rows told apart by spherical degree | L1.2 | yes | |
+| I12 | 11, 19-45 | d | \hat L_{b_0}(sigma), \tilde L_{b_0}, injective on X'_sigma | T-list b.1 (III.I''''''), P4 | yes | |
+| I12 | 73-106 | d,c | Lemma 1.1: L_{b_0}\dot g = 0, L_{b_0}(t h+\breve h) = 0, \dot g^Y_{b_0} index sets, E_col | P3, P4, III.I''' L1.1 at b | yes | E_col at b: m1 |
+| I12 | 112-129 | c,b | roots of \hat L_{b_0}(0) by type; only root < 3 is 2 | P2 | yes | |
+| I12 | 135-161 | d | L_0, L_1 in rho Diff^1_b, L_2 | T-list b.1 | yes | |
+| I12 | 172-188 | d,b | Lemma 2.3: towers h_{b_0,tau}, Table 1.1 types, beta_mu | P2, P3, P4 | yes | |
+| I12 | 179 | g | v1 tower carries sigma at least once | Prop 2.2(b) | yes | |
+| I12 | 224-234 | d | Lemma 2.5 | T-list b.1, P4 | yes | |
+| I12 | 260-261 | d | S_0 = 0 (III.I'''''' Step 3.1) | T-list b.1 | yes | |
+| I12 | 329, 373-374 | h | S_o = 0; \dot b_0 = S_1 = 0 (III.H (3.1)) | P4 (B(b) invertible) | yes | |
+| I12 | 375-381 | g | v1 rate >= alpha_0+1 at level 1, alpha_0+2 at level 2 | Prop 2.2(b) | yes | |
+| I12 | 382-384 | d | towers = m_nu via I11 L2.1 | P3 | yes | |
+| I12 | 403-427 | d,f | Lemma 3.2 (b = b_0); L - L_{b_0}; determination by Cor 2.3 | T(i), I16 L2.4, L1.2 | yes | |
+| I12 | 429-435 | d | Lemma 3.3 continuity at (0,0) | I16 L2.4 at fixed b only | fixed b | by design |
+| I12 | 446-520 | d | Theorem 4.1 (b = b_0); T_{h,p} -> id by continuity | Prop 2.5 (direct bound) | yes | |
+| I12 | 538-546 | c,d | mass root 2 -> boost row lambda = 3; \hat g^aug exact | P2, P4 | yes | |
+| I12 | 555-560 | c | "at b_0 cut-off, operator, states polyhomogeneous" | P3 + T-list b.1, implicitly | yes | m1 |
+| I13 | 47-61 | d,b | towers T_rho at b_0, harmonics Y_rho, d_rho | P3, III.I^(14) L2.1 | yes | |
+| I13 | 54 | h | "Myers-Perry corrections smaller by min Re E_ind" | P3 | yes | |
+| I13 | 59-65 | g | v1 K+-rate z+1 (h_{b_0,v1} = 0); "rho != v1" | III.I^(14) Def 1.1, Prop 2.2(c) | yes | |
+| I13 | 67-77 | c | E_sharp built from Lambda, M | T(iii) | yes | inherits m1 |
+| I13 | 164-169 | g | \breve h^1_{b_0,v1}(V) in ker L_0 because h_{b_0,v1} = 0 | none | -- | GAP, M1 |
+| I13 | 171-214 | g | Lemma 2.3 (a) kernel list; (b) \dot b = 0 | none (Prop 2.2(c) uses it as input) | -- | GAP, M1: (b) false at rotating b |
+| I13 | 191-193, 211-213 | c,d | simple roots; \bar h_tau leading; ker = span(\dot g, h(S)), 11-dim | P2, P3, P4 | yes | |
+| I13 | 241-269 | g | Lemma 2.4: "\dot b = 0" step; subtraction T_v1(\tilde a V); mu_v1 = -1 | none | -- | GAP, M1 |
+| I13 | 298-322 | d | Step 0-1(ii): L_{b_0}, tower relations, graft u_{b_0,0} | T(i), P2, P3, I16 L2.1, Prop 2.2(a) | yes | |
+| I13 | 366-373 | g | level-3 rotation tower rate alpha_tau+3 > alpha | none (at b rate alpha_tau+2 < alpha) | -- | GAP, m2 |
+| I13 | 388-406 | g,d | C omits a v1 conormal tower; Lemma 2.4 applied with L_{b_0} | depends on M1, m2 | -- | GAP |
+| I13 | 437 | c | h_s1 in A^3, \breve h^1, \dot g in A^2 | P3 | yes | |
+| I13 | 459-463 | h | (I''''''''''''3) "no early \dot g": L_1\dot g(\dot b) in L_0(G) only for \dot b = 0 | none | -- | false at rotating b, M1 |
+| I14 | 31-32, 49-50 | g | v1 rate lambda; N_beta | S2 (L2.4 N_rot^{<beta}) | yes | Def 1.1(a) already counts v1 |
+| I14 | 35-46 | c | admissible beta: roots of \hat L_{b_0}(0), E_K | P2 | yes | |
+| I14 | 52-58 | c | E^natural from E_sharp, E_ind, E^iota_ind | T(iii) | yes | inherits m1 |
+| I14 | 93-150 | d | Prop 2.1: L_{b_0}, levels | T-list, Prop 2.2(b) | yes | |
+| I14 | 152-176 | d,f | Lemmas 2.2-2.3 (b = b_0) | I16 L2.4, L1.2 | yes/fixed b | |
+| I14 | 178-186 | d | Prop 2.4: I13 Thm 3.1 with Y^natural | inside Prop 2.5 | -- | inherits M1 |
+| I14 | 21-22, 200-203 | e | b-derivative of towers, exponents E_sharp + increments | T(iv), III.I^(14) L2.1 | yes | |
+
+## Batch 4: III.I$''''''''''''''$, III.J, III.J$'$
+
+Verifier 148 read every line (79 rows; by category a 3, b 4, c 7, d 45, e 8, f 4, g 15, h 3). No major gap. One minor
+gap: the reality of the objects at $b$, used for conjugation-symmetric coordinates and by (2.2), was supplied by
+nothing; (P3) now says real, with the reason in Lemma 1.1's proof, and Definition 2.3 says that $A_b$ commutes with
+conjugation. Two minor findings, seated in Theorem 3.1: III.J holds as written at $b$, with its rows built at $b_0$,
+(P6)'s rule of rows at $b$ not being applied there; and III.J$'$ Lemma 1.1 is listed, for Proposition 2.5's output.
+Seven nits seated, among them the stale statuses in III.J and III.J$'$. Report: the scratchpad file d327/ledger148.md.
+
+| part | line | cat | property used | supplied by | uniform | note |
+|---|---|---|---|---|---|---|
+| I15 | 23-29 | b | at b_0 every rotation is Killing, so no v1 row and the v1 terms go to q | sec. 2 (Prop 2.2, Lemma 2.4, Prop 2.5) | Y | motivation only |
+| I15 | 39-40 | d | "theorems at b = b_0, derivatives at b_0" | Thm 3.1 rule (I16:10-14), (iv) | Y | global |
+| I15 | 39 | c | eta_E = min Re E_ind > 0 | (P3), (iii): E_ind is independent of b | Y | |
+| I15 | 41-44 | d | E_+ contains (E_sharp u E^nat) below 3+eps_+ | (iii), (P3) | Y | (iii) does not name E^nat (n7) |
+| I15 | 52-56 | d | E^alpha_rho, M_rot taken from E_sharp | (iii) | Y | |
+| I15 | 63-65 | g | v1 rate Re z+1 at b_0 (h_{b0,v1}=0), Re z at a rotating b, > 2+eps_K by (G) | in text; (P3); (G) does not depend on b | Y | "Re z" holds only off ker h_{b,v1} (n4) |
+| I15 | 67-72 | d | h_{b,rem}, T_{rho,b}, h^{<=2}_{b,v1}, gdot_b | defined at b; (P3), (P6) | Y | |
+| I15 | 72, 133-135 | d | at b_0, h_rem(q) is III.I^(12)'s chi_K u_exp | III.I^(12) Thm 3.1 at b with the towers T_{rho,b} ((P6)) | Y | |
+| I15 | 76-81 | d | (1.4) at b_0 with h_{b0,rem} | (1.3) is defined at every b, so (1.4) holds at b with h_{b,rem} | Y | not named in Thm 3.1 (n2) |
+| I15 | 83-98 | g | rotation rows get the rate Re lambda+1 because h_v1 = 0 at b_0 | I16 Lemma 2.1 (rate Re lambda - eps), Prop 2.5 (they become new rows) | Y | |
+| I15 | 87-89 | d | h_nu, theta_nu of the rotation rows are III.I^(9) Def 2.1's b_0 corrections | (P6) | Y | |
+| I15 | 99-103 | d | III.I^(11) Thm 4.1 used only with the parameter in the non-rotation P | Thm 3.1 (Thm 4.1 only inside Lemma 2.4/Prop 2.5), Lemma 1.2 | Y | |
+| I15 | 103-106 | f,g | Lemma 2.2(f) fails for the v1 rows; Cor 2.3 excludes v1 | Lemma 1.2 (v1 excluded at b too, I16:120-127) | Y | |
+| I15 | 106-114 | d | exponents of h_nu in (lambda,k)+F; f^nu = L m_nu + r^nu | (P3) (F does not depend on b); (P6) (1.1) adds E^nu; I16 Lemma 2.1 | Y | |
+| I15 | 118-143 | e,g | Lemma 2.1: states smooth in b, h_{b,v1} vanishes at b_0 | already at b; it is (P3)'s source | Y | :140-141 conflicts with (P3)'s wording (n1) |
+| I15 | 127-131 | c | (R4): no root at mu-k | (P2) | Y | |
+| I15 | 147-163 | d | Lemma 2.2(a) at b_0: h_{b0,s1} in A^3, breve h^1 in A^2, gdot weights 2, 3 | Thm 3.1 lists Lemma 2.2; (P3); (P4)'s A^{q-delta} loss absorbed by the "-" orders | Y | |
+| I15 | 147 | h | h_rem(q) is real | none: (P3) is silent on reality at b | - | GAP, m3 |
+| I15 | 163-168 | a | L_b h^{<=1}_{b,s1}(S) = S''(..)+S'''(..): stationarity plus the tower relations at b | (P5), (P3) | Y | |
+| I15 | 173-188 | d | Lemma 2.3 through Lemma 2.2(a) and III.I^(9) Lemma 2.5 | the list (III.I^(9) sec. 2) | Y | |
+| I15 | 193-209 | d | Lemma 2.4(a) at b_0: h_nu (b_0-built) supported in C | (P6) | Y | |
+| I15 | 211-219 | d | (b): g_0 depends on S only off chi_K; d_S g_p in rho^2 C^inf | Thm 3.1 item 1 (g_{b0,b,-S}); III.I^(7) Lemma 1.3 at b | Y | |
+| I15 | 221-238 | e,g | (c): b-derivative at b_0; every q-rate > 2 at every b | (iv) | Y | |
+| I15 | 240-242 | e | d_b g_b of weight 2; h^(0)(bdot) in A^G | III.H sec. 1 (the MP family); III.I^(7) Lemma 2.2 (holds for every g_0, PART-III-I8-UNPARAM.md:153-159) | Y | |
+| I15 | 243-250 | e | exponents of d_b h_{b,rem}(q): z+d+E_ind, and z+3 for v1 | (P3), I15 Lemma 2.1 | Y | the v1 z+3 exceeds w_+ after L |
+| I15 | 253-280 | c,d | Lemma 2.5: thresholds, roots, III.G'''' Props 4.4 and 5.1 | (P2), (P4) | Y | A_b and E^nu not mentioned (n3) |
+| I15 | 284-295 | d | Thm 3.1 at b_0 | Prop 2.5 | Y | |
+| I15 | 305-321 | d | Step 1: III.I^(8) Prop 4.1 for P_5 | (P1)-(P6); E^nu in Y(alpha_1) (P6), I16:247-249 | Y | |
+| I15 | 313-316 | e,g | hat L_{b0}(0) d_b h_{b,v1} = 0 | (iv) | Y | |
+| I15 | 330-334 | d | Step 2: orders of r^nu, III.I^(9) Lemma 2.6(c) | (P6) plus E^nu; Prop 2.5 Step 2 | Y | |
+| I15 | 348-350 | f | III.I^(10) Cor 2.3 | Lemma 1.2 | Y | |
+| I15 | 357-366 | d,e | identity at (0,0) with L_{b0}; continuity as (h,p,q)->0, i.e. b->b_0 | Prop 2.5 Step 3 (direct bound) | Y | |
+| I15 | 369-370 | g | a rotation row is a new row at no level (rate Re lambda+1) | Prop 2.5 (new rows at b) | Y | |
+| I15 | 375-430 | d,f,g | Step 4': K, l built from b_0 states; h_{b0,v1} = 0; L_{b0}; Thm 4.1's uniqueness | (v): not used at b; Prop 2.5 | Y | |
+| I15 | 435-439 | g | v1 coefficient of q' has no M_rot exponent (from Step 4') | Prop 2.5, I16:294-296, with Lemma 2.4's class of u-tilde | Y | |
+| I15 | 440-441 | d | chi_K u_exp = h_rem(q') "(Def 1.2 at b_0)" | (P6): the towers of III.I^(12) at b are T_{rho,b} | Y | |
+| I15 | 446-457 | d | Remark 3.2(2): the class reproduces | b-free; the new at-b inputs use a_K only through strict inequalities | Y | not named (n2) |
+| J | 39 | c | p_<=0 = (S, b-b_0, S_1), g_0 = g_{p<=0} | a coordinate, defined at every b | Y | |
+| J | 48-51 | c | (G+): Lambda does not depend on the constants | (P2), (P3)/(iii) | Y | |
+| J | 53-57 | c | (A_J): roots of hat L_{b0}(0), E_K | (P2): the indicial roots do not depend on b | Y | |
+| J | 76-79 | d | III.G'' Lemma 4.1 for L_b | (P2) (III.G'' sec. 4 is at general b) | Y | |
+| J | 81-83 | b | R'_0 = types s0, s2, c0, c1 | (P3) (labels by leading terms that do not depend on b), (P2) roots | Y | |
+| J | 131-134, 222-224 | d | G(lambda_0) and T(lambda_0) use the rows m_nu and their corrections | the rows are m^{b0} (J:160, 268-270); (P6) puts rows at b | Y | m1 |
+| J | 152-155 | d | L_{0,p<=0} - L_{b0} has iota^+-order 2 | III.I^(7) (1.3), Lemma 2.2 (every g_0); III.I^(9) Lemma 2.5 at b (list) | Y | |
+| J | 157-161 | d | D_W P4(0,0) = L_{b0} m_nu (the b_0 identity) | evaluated at (0,0) on b_0 objects, so valid at every b | Y | "bilinear" (n6) |
+| J | 166-172 | h | P_4(0,p<=0) supported in supp dchi_K; exponents in G | III.I^(7) (1.3), Lemma 2.2 at general p; F_0 is kept as a source, and no Ricci flatness of g_{b0} in C is used | Y | contrast I16 sec. 2.6 |
+| J | 178-185 | b | types, mu_tau, c_tau | (P2), (P3) | Y | |
+| J | 192-197 | d | rows through III.I^(10) Lemma 2.1(a) at b_0 | the b_0 rows are valid as b_0 objects | Y | m1 |
+| J | 195 | a | breve h^0_{s0} = 0 (d_t Killing) | (P5) | Y | |
+| J | 212-214 | g | breve h^0_{v1} = h_{b0,v1} = 0 for the rotation rows | b_0 rows; with rows at b, h_{b,v1} in A^3 enters at u >= lambda_0+3 > 3+eps_+ (J:218-219, (P3)) | Y | |
+| J | 214-219 | d | lambda_0-term of T_{rho,b} does not depend on b | (P3), I15 Lemma 2.1 | Y | |
+| J | 233-235 | g | v1 rate Re lambda_0 at a rotating b | in text, (P3) | Y | n4 |
+| J | 237-249 | b,g | assignment by type; v1 goes to the rotation rows | (P3) labels; I15 Def 1.3 | Y | |
+| J | 264-272 | d | L_{b0} m_nu = f^nu_{0,0}, kappa_nu; tower relations of L_b | the b_0 identity on b_0 objects; (P3), and the v1 tower relations at b (I16 Lemma 2.1 proof) | Y | |
+| J | 289-291 | d | M + E_ind stays in M below 2 | (iii); the v1 +3 lies above 2 | Y | |
+| J | 335-337 | d | III.I (1.4), Cor 4.2 | (P1) | Y | |
+| J | 338-339 | d | near K^+ the rows enter only through theta_{nu,sharp} (b_0-built, kappa_nu) | (P6) | Y | |
+| J | 340-345 | g | the integral has K^+-order > alpha at every b, its v1 part included | in text; (iv) | Y | |
+| J | 346-348 | a | L_b stationary | (P5) | Y | |
+| J | 349-356 | e | smooth in U_0 through F_0 and T_{rho,b} | (P3) | Y | |
+| J | 361-362 | h | the states are real (conjugation, (4)) | none: (P3) is silent | - | GAP, m3 |
+| J | 370-372 | d | the removed row terms are "pure gauge" | with the b_0 rows, pure gauge for g_{b0} only | Y | remark (m1) |
+| J | 403-404 | d | (J5)(b) "open" | Thm 3.1, Cor 3.2 | Y | stale (n5) |
+| J2 | 4, 8-9, 25-27 | d | "at b_0"; b != b_0 open | Cor 3.2 | Y | stale (n5) |
+| J2 | 29-65 | d | Lemma 1.1 (eta_2 -> eps_+) at b_0 | not named in Thm 3.1; supplied by (P2), (P4) and Def 2.3 | Y | m2 |
+| J2 | 41-43 | g | at level 2, tf-exponent alpha_0 = u-exponent alpha_0+1 | the thresholds are on tf-exponents and so are unaffected by Prop 2.2(b)'s rate shift | Y | |
+| J2 | 44 | d | tilde L_{b0}(0)^{-1} | (P4): III.H Prop 3.2 at b | Y | |
+| J2 | 46-47 | c | no indicial root in (0,1) | (P2) | Y | |
+| J2 | 69-70, 79 | d | U and p at b_0 | Cor 3.2; (viii), Prop 2.5 | Y | |
+| J2 | 76-86 | d | Step 0: III.I^(14) Thm 3.1 | Prop 2.5 (Remark 2.6: only the constructed map is used) | Y | |
+| J2 | 78 | d | III.I^(14) Remark 3.2(2) | b-free | Y | n2 |
+| J2 | 99-100 | d | h_{b0,rem}(q'); the rows m_nu | h_{b,rem} by the rule ((1.4) at b); III.J's rows are m^{b0}, and only the rows at lambda_0 enter, whose lambda_0-terms do not depend on b | Y | m1 |
+| J2 | 101-104 | e | differentiating III.J Lemma 2.1 with p'_<=0 = 0 | III.J is at b | Y | |
+| J2 | 107-111 | d | [h']_{lambda_0} = O(R^{l_K}) from K^+-order alpha- | Prop 2.5 (u in Z_alpha) | Y | |
+| J2 | 116-118 | d,g | rates of q' < alpha (III.I^(12) Lemma 2.4, III.I^(14) Step 4) | Prop 2.5 / Lemma 2.4; the v1 Re z <= 3 by (G+) | Y | |
+| J2 | 122-125 | f | distinct rows have independent, injective leading terms (III.G'' Lemma 1.2) | at the Minkowski model level; (P2), (P3) | Y | |
+| J2 | 141-144, 148-149 | d | q' has no polyhomogeneous part; its orders by Lemma 1.1 | m2 | Y | |
+| J2 | 154-156 | d | III.I^(14) Thm 3.1 linear and uniform | Prop 2.5, uniform in b | Y | |
+| J2 | 179-181 | d | (J'3) "to be verified" | I16 proved (D311) | Y | stale (n5) |
 
 ## Batch 5: III.J$''$, III.J$'''$
 

@@ -22,8 +22,8 @@ fixed in advance and closed, the source's device $u_\Sigma$ ((11.180)-(11.183)) 
 algebra close to the identity. (3) The zero energy analysis is Part III.I$''''''$'s, with the tf-improvement iterated
 (Step 3.4$'$ below) once $\alpha_K\ge2+\epsilon_{\mathrm{ind}}$, as the source's Step 1.6. (4) The gauge modification
 uses the generalised gauge 1-forms to order 4 of III.D$'''$, so that it decays to $K^+$-order $\mathrm{Re}\,\lambda+4$.
-Everything is at $b = b_0$. Notation: Parts III.D$'''$, III.F$'$, III.G$''$, III.G$''''$, III.H, III.I-III.I$'''''''$;
-no instrument is used.
+Everything is at $b = b_0$; the case $b\ne b_0$ is III.I$'''''''''''''''$ Theorem 3.1 (D330, verifier 146's n5).
+Notation: Parts III.D$'''$, III.F$'$, III.G$''$, III.G$''''$, III.H, III.I-III.I$'''''''$; no instrument is used.
 
 ## 1. Setting
 

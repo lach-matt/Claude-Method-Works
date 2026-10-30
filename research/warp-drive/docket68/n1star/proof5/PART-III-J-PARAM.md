@@ -155,8 +155,8 @@ $\iota^+$-order $\ge2$: III.I$'''''''$ (1.3) and Lemma 2.2, III.I$'''''''''$ Lem
 $\bar L$, near $\iota^+$ away from $K^+$, by the term $t_*^{-\lambda-4}v^2Bw$ of III.G$''$ (4.1); so for a term $w$ of
 $\iota^+$-order $\ge\lambda_\sharp$, $[L_{0,\vec p_{\le0}}w]_{\lambda_0+2} = \bar L[w]_{\lambda_0}$ for
 $\mathrm{Re}\,\lambda_0<\lambda_\sharp+2$, which contains $\Lambda_*$. Likewise $D_{W_\nu}P_4(0,\vec
-p_{\le0})(W)-D_{W_\nu}P_4(0,0)(W)$ consists of terms bilinear in $(\vec p_{\le0},W)$ (through $g_0$,
-$h_{\mathrm{tot}}(\vec p_{\le0})$ and $\delta^*_{g_0,E_C}$, III.I$'''''''''$ (2.3)) of $u$-exponent
+p_{\le0})(W)-D_{W_\nu}P_4(0,0)(W)$ consists of terms linear in $W$, of size $O(|\vec p_{\le0}||W|)$ (verifier 148's n6)
+(through $g_0$, $h_{\mathrm{tot}}(\vec p_{\le0})$ and $\delta^*_{g_0,E_C}$, III.I$'''''''''$ (2.3)) of $u$-exponent
 $\ge\lambda_\sharp+2$, and $D_{W_\nu}P_4(0,0)(W) = L_{b_0}m_\nu(W)$ (III.I$'''''''''$ Lemma 2.4; for the rotation rows
 III.I$''''''''''''''$ Definition 1.3), so its $u$-exponent-$\lambda_0$ term is $\bar L[m_\nu(W)]_{\lambda_0}$. Summing
 gives (2.2). The conormal remainders: $\tilde h$ and the conormal parts of $q$ have $\iota^+$-order $(3+\epsilon_+)-$
@@ -401,7 +401,8 @@ rotation rows of III.I$''''''''''''''$ Definition 1.3, not to $q$, for the reaso
 the $\iota^+$-order $(3+\eta_2)-$, $\eta_2<\epsilon_+$ (it inherits III.I$''''''''''''$'s), while $\Phi$ and $\mathcal
 F$ use $(3+\epsilon_+)-$ and $(5+\epsilon_+)-$; the linearised solution must reach $(3+\epsilon_+)-$, or the scheme must
 absorb the difference. (b) The parts III.I$''''''''$-III.I$''''''''''''''$ are at $b = b_0$ ((I3) of III.I); $\Phi$ is
-defined for $b$ near $b_0$, and the linear theory at $b\ne b_0$ is open there.
+defined for $b$ near $b_0$, and the linear theory at $b\ne b_0$ is open there. Since closed: III.I$'''''''''''''''$
+Theorem 3.1 and Corollary 3.2 (D297; D330, verifier 148's n5).
 
 (J6) *Deferred.* The source's map $\Psi$ ((12.33)-(12.34), Lemma 12.7) adds an initial solution $h_{-S}$ in $t_*\le2$
 and uses its Corollary 5.15 (1) near $\mathscr I^+$; it is deferred to after Part III.C$'$.

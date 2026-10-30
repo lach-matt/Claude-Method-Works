@@ -6036,3 +6036,16 @@ by a direct bound in the size of the data, the boost and the rotation rather tha
 The fifth batch found one theorem, at exact weights, that the transfer used but never stated at a rotating black hole;
 it is now stated, with its reasons. Smaller points from both are seated, among them a superseded remark that a trapping
 bound shrinks with the order. The three middle batches are still being read.
+
+**D330 (2026-10-30): the census read through, and two more gaps.** The three middle batches of the reading are in, so
+every line of the linear theory's parts has now been read for its uses of the static black hole. The second batch found
+the parameter identities, the companions of the boost identity for the mass, the rotation and the centre, exact only at
+the static black hole, for the same reason as the boost: in a transition region the background interpolates between the
+static and the rotating metric, and the correction terms are built from the static one. Each identity now carries an
+error of the size of the rotation, and the first level of the elimination is bounded directly rather than by continuity.
+The third batch found that the expansion lemmas used, without saying so, that the rotation state vanishes at the static
+black hole. At a rotating one the rotation state is a combination of the mass and translation states, one lemma's
+conclusion fails, and the expansion now removes the rotation content through the rotation rows rather than through an
+antiderivative, with no map inverted. The fourth batch found no major gap, only that nothing stated the reality of the
+objects at a rotating black hole; it is now stated, with its reason. The smaller findings of all three are seated, and
+the transfer theorem's census is now the reading itself, not a search. One reader takes the repairs of both rounds next.

@@ -4364,3 +4364,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   as Proposition 2.5 at exact weights, with reasons in (viii). m1: III.H'' Proposition 1.1 cited; (J''2) superseded.
   Nits seated, among them the (J'3) status pointers in III.J'' and III.J'''.
 - Next: batches 2-4 (verifiers 146-148, reading); then one reader of all the repairs.
+
+### 4.253 Base-point ledger complete (D330): batches 2-4 seated, two more major gaps repaired
+
+- Batch 2 (verifier 146, III.I''''''-III.I''''''''', 69 rows): M1, III.I''''''' Lemma 2.4's parameter identities are
+  exact only at (0,0), and the base level (III.I''''''' Lemmas 4.3, 4.5, Corollary 4.6; III.I'''''''' Proposition 4.1's
+  base step; III.I16 Proposition 2.5 Step 3) inverted its maps by continuity from (0,0). Repaired: III.I16 section 2.8,
+  Lemma 2.11 ((2.7), E^mot_b supported in C, O(|b - b_0|)) and Proposition 2.12 ((2.8), direct bound); Step 3 cites it.
+  m1, m2, n1-n5 seated (the list, fixed-b qualifiers, corrections #1-#4 named by part, #3 through (1.1), pointers).
+- Batch 3 (verifier 147, III.I''''''''''-III.I''''''''''''', 57 rows): M1, III.I'''''''''''' Lemmas 2.3-2.4 used
+  h_{b_0,v1} = 0. Repaired: III.I16 section 2.7, kappa_b (2.6), Lemma 2.9 (rotation rows T_{v1,b}, no inversion) and
+  Corollary 2.10 (with m2, the level-3 conormal rotation tower). m1 (E_col b-independent), n1-n3 seated.
+- Batch 4 (verifier 148, III.I^(14), III.J, III.J', 79 rows): no major gap; m3, reality at b, now in (P3) and
+  Definition 2.3; m1, III.J as written with rows at b_0; m2, III.J' Lemma 1.1 listed; n1-n7 seated.
+- III.I16 Theorem 3.1's proof now cites the ledger as a reading; findings (I^(15)5)-(I^(15)8).
+- Next: one reader of all the repairs (D329-D330), with the D328 repairs of II.D and VI.C.

@@ -24,8 +24,9 @@ linearisation.* $f^\nu = L_{h,\vec p}m_\nu+r^\nu$ with a remainder $r^\nu$ that 
 $\iota^+$-weight above $5+\epsilon_+$ with no index set (Lemma 2.6 (c)); this replaces the source's (11.194) and makes
 the elimination of Part III.I$''''''''''$ a perturbation of the identity, as in III.I$''''''''$. (4) *The source
 classes* record $\iota^+$-index sets up to weight $5+\epsilon_+$ (section 1), the analogue of the source's (11.195).
-Everything is at $b = b_0$. Notation: Parts II.E, III.B, III.D$''$, III.D$'''$, III.G$''$, III.G$''''$, III.H,
-III.I-III.I$''''''''$; no instrument is used.
+Everything is at $b = b_0$; the case $b\ne b_0$ is III.I$'''''''''''''''$ Theorem 3.1 (D330, verifier 146's n5).
+Notation: Parts II.E, III.B, III.D$''$, III.D$'''$, III.G$''$, III.G$''''$, III.H, III.I-III.I$''''''''$; no instrument
+is used.
 
 ## 1. Setting
 

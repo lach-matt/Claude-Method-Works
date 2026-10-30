@@ -5,8 +5,8 @@ repairs, seven nits seated). This part proves, at spatial dimension $n = 4$ and 
 [Hin26] Theorem 12.8 and Remark 12.9 (pp. 312-318): every solution of the linearised equation that III.I$''''''''''''''$
 Theorem 3.1 produces, for a source of the class $\mathcal F$ of III.J, is $D_U\Phi(U')$ for data $U'$, so that the map
 $\Phi$ of III.J describes the linear forward solutions exactly (Theorem 2.1). The tame form of the estimates (the
-source's $\|U'\|_k\le C_k(\|f\|_{k+d}+\|U\|_{k+d}\|f\|_d)$) and the parameters $b\ne b_0$ are recorded as open
-((J$'$2)-(J$'$3)).
+source's $\|U'\|_k\le C_k(\|f\|_{k+d}+\|U\|_{k+d}\|f\|_d)$) and the parameters $b\ne b_0$ were recorded as open
+((J$'$2)-(J$'$3)); III.J$''$ and III.I$'''''''''''''''$ Corollary 3.2 have since closed them (D330, verifier 148's n5).
 
 *What n = 4 changes.* (1) *The $\iota^+$-order of the linear solutions.* III.I$'''''''''''$-III.I$''''''''''''''$ give
 the solutions the $\iota^+$-order $(3+\eta_2)-$ with $\eta_2<\epsilon_+$, while $\Phi$ and $\mathcal F$ use
@@ -178,7 +178,7 @@ once III.I$''''''''''''''$ Theorem 3.1 is.
 
 (J$'$3) *$b\ne b_0$.* Theorem 2.1 is at $b_0$, as III.I$''''''''$-III.I$''''''''''''''$ are ((I3) of III.I); the
 nonlinear iteration moves $b$, and the linear theory at $b$ near $b_0$ is open. D297: III.I$'''''''''''''''$ supplies it
-(Corollary 3.2); to be verified.
+(Corollary 3.2), proved D311; its census is now the base-point ledger (D329-D330, verifier 148's n5).
 
 (J$'$4) *$\Psi$.* The version with an initial solution (the source's Theorem 12.8 for $\Psi$) waits for Part III.C$'$,
 as in III.J (J6).
