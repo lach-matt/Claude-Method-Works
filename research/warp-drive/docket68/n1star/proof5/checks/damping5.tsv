@@ -1,0 +1,43 @@
+# file	class	line text (exact); G4 of gammac5.py: lines that set, bound, range or quantify v_C, e_C or C_0 (D331)
+PART-II-G2-DECAY.md	X	stationary wave-type operator $P_0$ (II.C Lemma 1.2), let $C_0\ge1$ be as in I.B Theorem 1.3 (3) (enlarged if necessary,
+PART-II-G2-DECAY.md	X	made independent of $\epsilon$; the case $\mathrm{Re}\,\sigma_0 = 0$ of Corollary 4.2 (1); $C_0\ge1$ in Corollary 4.5;
+PART-III-G5-TF.md	X	and coefficients polynomial in $\beta$. (2) For $C_0\in\mathbb R$ and $\chi\in C^\infty_c([0,1))$,
+PART-III-I6-ALMOSTBDD.md	X	so by the last sentence of that proposition (with $C_0<\frac52$) neither $\lambda_\sharp$ nor any $z\in\pi_1\mathcal
+PART-III-B-FAMILY.md	D	$c_C\in|x|^{-1}C^\infty(X;T^*)$ stationary with $c_C = |x|^{-1}(dt-v_C\,d|x|)$ for large $|x|$, $v_C\in(0,1)$, and
+PART-III-E-CONSTRAINT.md	D	Definition 6.1 (6.2), for $v_C\in(0,1)$, $e_C$, $\gamma_C$ and a stationary $c_C\in|x|^{-1}C^\infty$ equal to
+PART-III-E-CONSTRAINT.md	S	**Theorem 1.1 ([Hin26] Theorem 7.1 at n = 4; proved in Part IV).** Fix $v_C\in(0,1)$ and $C_0>0$. There are
+PART-III-E-CONSTRAINT.md	S	$e_C\in(0,1)$ and a stationary past timelike $c_C\in\rho C^\infty(\bar X;T^*X)$ with $c_C = |x|^{-1}(dt-v_C\,d|x|)$ for
+PART-III-C-EXTERIOR.md	F	(The source's conditions (5.42), $v_C<1$, $0<e_C<1$, $\gamma_C>0$, $0<e_\Upsilon<1$, $\gamma_\Upsilon>0$, hold under
+PART-III-C2-POLYHOM.md	F	A_{jj}\ge\frac32+(1-e_C)(1-v_C)\gamma_C>\ell_I\ge\beta$ ($1-e_C<1$). By induction the right side lies in $(\mathcal
+PART-III-F-LINEARISED.md	F	gauge potential operator $\Box^\Upsilon_b$ is mode stable with the indicial roots of III.D Lemma 4.1; and $v_C\in(0,1)$,
+PART-III-F-LINEARISED.md	F	$C_0 = 100$, and $c_C$, $e_C\in(0,1)$, $\gamma_C$ from III.E Theorem 1.1, with $\gamma_C$ so large that
+PART-III-F-LINEARISED.md	F	$0,0,0,-2(1-e_C)\gamma c_2,0,-2\gamma c_2,-4\gamma c_2$ in the order above, all $\ge0$ as $c_2<0$, $e_C<1$. (*Computed:*
+PART-III-F2-INDICIAL.md	F	the parameter of III.D Lemma 4.1; $v_C$, $e_C$, $c_C$ and $\gamma_C$ are those of III.E Theorem 1.1, with $C_0 = 100$
+PART-III-F3-MODES.md	F	(at $r_h$, $g^{-1}(c_C,c_C) = 2a_va_r$, so the past timelike $c_C$ has $a_v>0$), and $e_C\in(0,1)$ makes $-(1-e_C)x<0$;
+PART-III-F5-PAIRINGS.md	F	($h^\flat\in\dot H^{0,C_0+3}_{\mathrm b}$, $C_0>1$, so the boundary terms vanish) and
+PART-III-F5-PAIRINGS.md	F	s0}\rangle = 0$: $h^*_{b,\mathrm s0}\in\dot H^{0,C_0+3}_{\mathrm b}$, $C_0>1$, so the boundary terms, $O(R^{1-C_0})$,
+PART-III-F5-PAIRINGS.md	F	(possible as $C_0>1$), III.E Theorem 1.1 (2) gives $\eta = 0$; then
+PART-III-G2-IOTA.md	F	($0<e_C,e_\Upsilon,v_C<1$). So both are diagonalisable. Their spectra are disjoint, since
+PART-III-H3-UNIFORM.md	F	damping $(c_C,e_C,\gamma_C)$ of III.F section 1, with $e_C\in(0,1)$, $\gamma_C>0$, and (Dyn) (III.D, introduction).
+PART-III-H3-UNIFORM.md	F	as $c_C$ is past timelike (B3) and $e_0$ future null; so the scalars are $\ge0$, $e_C<1$.
+PART-III-K-NONLINEAR.md	F	*Parameters* (the source's Step 1). $E_C$ is given by III.E Theorem 1.1 with $v_C = \frac12$, $C_0 = 100$ and $\gamma_C$
+PART-IV3-NM.md	F	1: $(1-e_C)(1-v_C)\gamma_C>100$, $0<e_C,v_C<1$), and
+PART-IV5-CDMODES.md	P	$$v_C := \tfrac12,\qquad e_C := \tfrac1{102400},\qquad C_0 := 100\ (\text{or any }C_0\le100),\qquad h\in\mathsf H,
+PART-IV5-CDMODES.md	P	that is at $\alpha_{\mathrm{sf}} = -C_0-\frac32$, for every $C_0\ge0$: the conditions at $\mathrm{sf}$ are
+PART-IV5-CDMODES.md	P	have positive roots for every $C_0\ge0$, and at $C_0 = 100$ $T$ is positive definite on all of $\mathrm{sf}$ with
+PART-IV5-CDMODES.md	P	every $C_0\in[0,100]$. Off $\mathrm{sf}$, for $\rho_{\mathrm{sf}}\le2\delta_r$, by continuity, as Tangherlini differs
+PART-IV5-CDMODES.md	P	does not depend on $s>\frac12+\vartheta_{\mathcal H}$, and $-C_0>\frac12+\vartheta_{\mathcal H}$ by Lemma 1.5.)
+PART-IV5-CDMODES.md	P	$k>C_0+3$, which Lemma 1.3 does not give at $C_0 = 100$; the source keeps this margin by applying its Theorem 4.9 with
+PART-IV5-CDMODES.md	P	(IV$''''$2) *The parameter point.* The record's inputs are computed at $v_C = \frac12$, $e_C = \frac1{102400}$, $C_0\le
+PART-IV5-CDMODES.md	P	100$, which is what III.K section 0 fixes; III.E Theorem 1.1's "Fix $v_C\in(0,1)$ and $C_0>0$" is proved here at that
+PART-IV5-CDMODES.md	P	point, not for every $v_C$ and $C_0$.
+PART-IV5-CDMODES.md	P	$C_0 = 100$, the value III.K fixes. Repaired by applying (5.81) at the weight (2.1) with $C_0-1$, which asks decay above
+PART-IV6-SOLV.md	P	v_C = \frac12$ and $e := e_C = \frac1{102400}$ (Part IV$''''$ (0.1)).
+PART-IV6-SOLV.md	P	with $C_0\in[0,100]$, the weights (2.1) of Part IV$''''$. Put $w :=
+PART-IV6-SOLV.md	P	$\mathrm{sf}$ with $\rho_K\le10$ for every $C_0\in[0,100]$" overstates 10.22 Proposition 10.19 (iv). That proposition
+PART-IV6-SOLV.md	P	gives two things: for every $C_0\ge0$, the positivity at $\partial K^+$ and at the sink $R_v$; and, at $C_0 = 100$, $T$
+PART-IV7-TFACE.md	P	Let $v := \frac12$ and $e := \frac1{102400}$, $h\in(0,10^{-6}]$, $\gamma_C = h^{-1}$, and $C_0\in[\frac32,100]$. On
+PART-IV7-TFACE.md	P	-\frac12$ and $\beta := \frac72$, admissible as $C_0\ge\frac32$ (record Proposition 10.20 (iv): $-\frac12$ lies in every
+PART-IV7-TFACE.md	P	Part IV$''''$ (0.1), and $C_0\in[\frac32,100]$, $\Box^C_b$ is tf-admissible (I.C Definition 5.1) with every weight
+PART-IV7-TFACE.md	P	(IV$''''''$3) *The range of $C_0$.* The source's "without loss $C_0\ge2$" becomes $C_0\ge\frac32$ (so that $\beta =
+PART-IV7-TFACE.md	P	\frac72$ is admissible), and the record's computations bound $C_0\le100$. Theorem 4.1 holds for $C_0\in[\frac32,100]$.

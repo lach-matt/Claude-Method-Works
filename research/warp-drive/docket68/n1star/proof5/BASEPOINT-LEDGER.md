@@ -1,7 +1,8 @@
 # The base-point ledger: III.I16 Theorem 3.1 by reading
 
-*Status.* Read (D328-D330): all five batches read, by verifiers 145-149. Three gaps and one unstated theorem were
-found and are repaired in III.I16 (D329-D330); the repairs are to be read.
+*Status.* Read (D328-D330): all five batches read, by verifiers 145-149. Three major gaps, one minor gap and one
+unstated theorem were found and are repaired in III.I16 (D329-D331). Verifier 150 read the repairs (D331): one of them,
+the expansion's, was incomplete, and is completed by the parity under $-1$ (III.I16 (P3)); to be read.
 
 ## What this file is
 

@@ -665,9 +665,10 @@ III.J$''$ section 1 could show only row by row, verifier 126) is $0$ for every $
 III.J$''$ Theorem 4.2's proof then gives (4.2) with $\mathcal F^{k+d}_{\mathrm{ex}}$ and $\mathcal D^k_{\mathrm{ex}}$,
 and Proposition 5.4 gives Proposition 4.3 on the same scales. $\square$
 
-What remains of III.J$''$ Remark 4.4: (J$'$3), the linear theory and its tame form at $b\ne b_0$; the support conditions
-of II.G Theorem 2.1; smoothing operators on $\mathcal D_{\mathrm{ex}}$ (II.G Proposition 3.1); and the exterior family
-$h_{-S}$ (III.C$'$, III.C$''$).
+What remains of III.J$''$ Remark 4.4: (J$'$3), the linear theory and its tame form at $b\ne b_0$, since closed by
+III.I$'''''''''''''''$ Corollary 3.2 (D297; D331, verifier 150's n6); the support conditions of II.G Theorem 2.1;
+smoothing operators on $\mathcal D_{\mathrm{ex}}$ (II.G Proposition 3.1); and the exterior family $h_{-S}$ (III.C$'$,
+III.C$''$).
 
 ## 7. Findings, labels and sources
 

@@ -1,9 +1,10 @@
 # The uses of the constraint damping parameter gamma_C in the parts (VI.C section 3; D327, D328).
 # Every statement derived from III.E Theorem 1.1 (III.E sections 2-3, III.E', (C1)-(C5)) concerns Box^C_b at the
 # parameters fixed in III.E (PART-III-E-CONSTRAINT.md:69, VI.C rows c1-c4). To apply one at another value a part must
-# write an operator with another damping parameter, and the damping enters Box^C_b, delta^*_{g,E_C} and E^C only
-# through gamma_C: such a use names gamma_C, s_C := gamma_C (1 - e_C)(1 - v_C), h := 1/gamma_C (the variable of
-# Parts IV''''-IV'''''', which prove the theorem), or a rescaled E_C. So:
+# write an operator with another damping parameter. Of the damping's constants only gamma_C is chosen in a range;
+# v_C, e_C and C_0 are fixed once, by VI.C row c1 (G4, D331). So a use at another value names gamma_C,
+# s_C := gamma_C (1 - e_C)(1 - v_C), h := 1/gamma_C (the variable of Parts IV''''-IV'''''', which prove the theorem;
+# G5), or a rescaled E_C. So:
 #   G1  every occurrence in PART-*.md of \gamma_C, of s_C, and of a citation of III.E Theorem 1.1 (also split over a
 #       line break, either way) is listed below with its class, and every listed line is such an occurrence;
 #   G2  the theorem is applied only at the one fixed value (classes F and T). The one family over a range,
@@ -86,4 +87,37 @@ for f, l in seen:
     assert sum(1 for (g, key) in FAM if g == f and key in l) == 1, (f, l)
 print('G3 no rescaled damping operator: the', len(FAM), 'lines pairing E_C, E^C or Box^C with a family are spectral '
       'families or a time range')
+# G4 (D331): the damping's other constants v_C, e_C, C_0 are fixed once, by VI.C row c1. Every line that sets, bounds,
+# ranges or quantifies one of them is listed in damping5.tsv with its class: X C_0 names another constant; D a
+# definition for every value; S III.E Theorem 1.1's statement; F a use of the fixed point; P Parts IV''''-IV''''''.
+dq = re.compile(r"(?<![A-Za-z_\\])(v_C|e_C|C_0)\s*(\\in|>|\\ge|<|\\le|=|:=)|(every|any|all|Fix)\s+\$?(v_C|e_C|C_0)|"
+                r"\\tau\s*(v_C|e_C)")
+D4 = {}
+for row in open(os.path.join(HERE, 'damping5.tsv')):
+    if not row.startswith('#'):
+        f, c, x = row.rstrip('\n').split('\t', 2)
+        D4.setdefault(f, []).append((x, c))
+got = {}
+for f in sorted(glob.glob(os.path.join(P5, 'PART-*.md'))):
+    b = os.path.basename(f)
+    ls = [l for l in open(f).read().split('\n') if dq.search(l)] if b not in RECORDS else []
+    if ls:
+        got[b] = sorted(ls)
+assert set(got) == set(D4), sorted(set(got) ^ set(D4))
+for f in got:
+    want = sorted(x for x, c in D4[f])
+    assert got[f] == want, (f, [x for x in got[f] if x not in want][:2], [x for x in want if x not in got[f]][:2])
+n4 = {}
+for f in D4:
+    for x, c in D4[f]:
+        n4[c] = n4.get(c, 0) + 1
+assert set(n4) <= set('XDSFP') and n4.get('S', 0) == 2, n4
+print('G4 v_C, e_C, C_0 fixed once:', sum(n4.values()), 'lines setting, bounding or quantifying them; by class',
+      dict(sorted(n4.items())))
+# G5 (D331): h := gamma_C^{-1} is introduced only in Part IV'''', which proves III.E Theorem 1.1 in that variable.
+hdef = sorted(os.path.basename(f) for f in glob.glob(os.path.join(P5, 'PART-*.md'))
+              if os.path.basename(f) not in RECORDS
+              for l in open(f).read().split('\n') if re.search(r"h\s*:=\s*\\gamma_C\^\{-1\}", l))
+assert hdef == ['PART-IV5-CDMODES.md'], hdef
+print('G5 h := gamma_C^{-1} only in Part IV\'\'\'\' (PART-IV5-CDMODES.md)')
 print('gammac5 checks pass')

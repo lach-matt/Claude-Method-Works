@@ -267,6 +267,7 @@ length is fixed by the weights and orders of the statement, never by $k$.
 | III.I$''''''''''''$ | Lemmas 2.1-2.4, Theorem 3.1 | FWD, MOD (as III.I$'''''''''''$), BG, FIN | pairs removed, finitely many |
 | III.I$'''''''''''''$ | Proposition 2.1, Lemmas 2.2, 2.3, Proposition 2.4 | as III.I$'''''''''''$-III.I$''''''''''''$ at each level $\beta$ | as there |
 | III.I$''''''''''''''$ | Theorem 3.1 | FWD ($L_{h+h_{\mathrm{rem}}(q),\vec p}$), BG ($R_q$, $\Delta_q$), FIN, and III.I$''''''''$, III.I$'''''''''''$-III.I$'''''''''''''$ | levels $\beta_0<\dots<\beta_K$ (fixed by $\alpha$, $\alpha_1$) |
+| III.I$'''''''''''''''$ | Proposition 2.5 (III.I$''''''''''''''$ Theorem 3.1 at $b\ne b_0$) | as III.I$''''''''''''''$ Theorem 3.1, and FIN ($A_b$, of finite rank, Lemma 1.2 (c)), BG ($E^\nu$, (P6) there) | as there (verifier 149's n4, D331) |
 | III.J$'$ | Theorem 2.1 | III.I$''''''''''''''$ Theorem 3.1 at $\Phi(U)$; MOD (III.G$'''$ Proposition 3.7; the $t_*^{-\lambda_0}$-terms); BG ($D_U\Phi$) | the exponents of $\Lambda_*$, finitely many |
 
 ## 4. The theorems
@@ -336,8 +337,8 @@ a neighbourhood of 0, so at $b\ne b_0$ too, with $\Psi(u)F_\eta\subset B_\eta$ f
 Theorem 2.1 (ii)-(iii) as amended in D304, (H10), in its notation; the source meets these support conditions by finite
 speed of propagation, Step 3 (3), p. 322). Remaining: one pair of scales, Proposition 4.3 mapping $\mathcal D_\epsilon$
 to $\mathcal F_\epsilon$ and Theorem 4.2 mapping $\mathcal F_{\epsilon'}$ to $\mathcal D_\epsilon$ ((J$''$4)); (J$'$3),
-the linear theory and its tame form at $b\ne b_0$; the support conditions; the smoothing operators; and the exterior
-family $h_{-S}$ (III.C$'$).
+the linear theory and its tame form at $b\ne b_0$, since closed by III.I$'''''''''''''''$ Corollary 3.2 (D297; D331,
+verifier 150's n6); the support conditions; the smoothing operators; and the exterior family $h_{-S}$ (III.C$'$).
 
 ## 5. Findings, labels and sources
 

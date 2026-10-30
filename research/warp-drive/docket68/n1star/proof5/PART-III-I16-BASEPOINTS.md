@@ -1,10 +1,12 @@
 # Part III.I$'''''''''''''''$. The linear theory at base points near $b_0$, n = 4 ([Hin26] sections 11.2-12 at black
 hole parameters $b\ne b_0$)
 
-*Status.* Three gaps found by the base-point ledger (BASEPOINT-LEDGER.md, verifiers 145-149) and repaired (D329-D330),
-to be read: III.I$''''$'s boost identity (section 2.6), III.I$''''''''''''$'s expansion at a rotating $b$ (section 2.7),
-and III.I$'''''''$'s parameter identities and base level (section 2.8). Theorem 3.1's census is now that reading.
-Written (D297); verified (D299, D302: verifiers 130-131's findings seated, to be read). The parts
+*Status.* Three major gaps and one minor one found by the base-point ledger (BASEPOINT-LEDGER.md, verifiers 145-149) and
+repaired (D329-D331), to be read; verifier 150 read D329-D330 and found the expansion's repair incomplete (its M1),
+repaired by the parity under $-1$ in (P3) (D331). The major gaps: III.I$''''$'s boost identity (section 2.6),
+III.I$''''''''''''$'s expansion at a rotating $b$ (section 2.7), and III.I$'''''''$'s parameter identities and base
+level (section 2.8). The minor gap is the reality of the objects at $b$, now in (P3). Theorem 3.1's census is now that
+reading. Written (D297); verified (D299, D302: verifiers 130-131's findings seated, to be read). The parts
 III.I$'$-III.I$''''''''''''''$ and III.J-III.J$'''$ prove the linear theory at base points whose black hole parameter is
 $b = b_0$, with derivatives in $b$ taken at $b_0$; III.I Remark 5.4 and (I3) of III.I recorded why. III.H$''$ supplied
 the two inputs that were missing for $b\ne b_0$ (its Corollary 5.1) and recorded the rest as (H$''$5). This part proves
@@ -49,7 +51,12 @@ of III.F$''''$ and $\dot g_b$ are real and smooth in $b$, with index sets in $(\
 $\mathcal E_{\mathrm{ind}}$ independent of $b$, and, except for $\dot g_b$, with leading terms at $\partial X$ that do
 not depend on $b$ (those of $\dot g_b$ may depend on $b$ through the mass, PART-III-I15-AUGMENT5.md:140-141, and the
 parts use its index sets and its smoothness in $b$; verifier 147's n3, 148's n1, m3); the rotation state $h_{b,\mathrm
-v1}\in\mathcal A^3$ is smooth in $b$ and vanishes at $b_0$ (III.I$''''''''''''''$ Lemma 2.1).
+v1}\in\mathcal A^3$ is smooth in $b$ and vanishes at $b_0$ (III.I$''''''''''''''$ Lemma 2.1). The element $-1$ of
+$SO(4)$, $x\mapsto-x$ on the spatial factor, is an isometry of every $g_b$: it is central in $SO(4)$, so it lies in the
+torus of rotations commuting with the spin. It preserves $t_*$ and the gauge data, $c_C$, $c_\Upsilon$ and the cut-offs
+being spherically symmetric, so it commutes with $L_b$, $\Box^\Upsilon_b$ and $\widehat{L_b}(0)$. The states are
+equivariant under it: $h_b(S)$ and its companions are odd, $\dot g_b(\dot b)$, $h_{b,\mathrm v1}(V)$ and their
+companions even (verifier 150's M1).
 
 (P4) III.H Corollaries 4.2-4.4 and III.H$'$ Theorem 1.3 hold at $b$ (III.H$''$ Theorem 2.1 and its compactness
 paragraph), and so do the other statements of III.H and III.H$'$ the parts use: III.H Definitions 2.1 and 3.1, Lemmas
@@ -84,10 +91,16 @@ its $K^+$-weight is $\kappa_\nu-\epsilon>\alpha$, and its $\iota^+$-exponents be
 
 *Proof.* (P1)-(P4) are the cited statements. (P5): $g_b$ is stationary. The reality in (P3) holds as at $b_0$: $L_b$,
 $\delta^*_{g_b}$ and $\Box_{g_b}$ are real, and III.D$'''$ Proposition 3.1, III.F$''''$ Proposition 5.1 and
-III.I$''''''''''''''$ Lemma 2.1's normalisation are real constructions (verifier 148's m3). (P6): $f^\nu_b$ is
-III.I$'''''''''$ Lemma 2.6 (c)'s computation at $b$. Its errors near $K^+$ are $L_{h,\vec p}-L_b$, which gains $a_K$
-there, $g_0 = g_b$ near $K^+$ (III.I Lemma 3.6); its objects are smooth in $b$ (P3), so the bounds are uniform. For
-$E^\nu$ (verifier 131's m1 and section B): - The differences $h^{b_0}_\nu-h^b_\nu$ and
+III.I$''''''''''''''$ Lemma 2.1's normalisation are real constructions (verifier 148's m3). The parity in (P3): the
+pullback by $-1$ maps the nullspace of $\widehat{L_b}(0)$ in $\mathcal X_0$ to itself, and an element of that nullspace
+is fixed by its leading terms at $\partial X$ (the matrix $B(b)$ of III.H Proposition 3.2's proof is invertible). The
+leading terms of $h_b(S)$ are those at $b_0$ ((P3)), odd, as the translations are; $g_{b'}$ is invariant for every $b'$,
+so $\dot g_b(\dot b)$ is even; and $h_{b,\mathrm v1}(V)$ is $\delta^*_{g_b}$ of the 1-form of III.D$''$ (3.4) in
+$\ker\Box^\Upsilon_b$ fixed by its leading term, the rotation 1-form $x^idx^j-x^jdx^i$, which is even, and $-1$ commutes
+with every rotation $V$. The companions are fixed by the tower relations and their leading terms, and inherit the
+parity. (P6): $f^\nu_b$ is III.I$'''''''''$ Lemma 2.6 (c)'s computation at $b$. Its errors near $K^+$ are $L_{h,\vec
+p}-L_b$, which gains $a_K$ there, $g_0 = g_b$ near $K^+$ (III.I Lemma 3.6); its objects are smooth in $b$ (P3), so the
+bounds are uniform. For $E^\nu$ (verifier 131's m1 and section B): - The differences $h^{b_0}_\nu-h^b_\nu$ and
 $\vartheta^{b_0}_{\nu,\sharp}-\vartheta^b_{\nu,\sharp}$ are $b$-differences of the 1-form towers and of their
 commutators with $\chi_K$, so $O(|b-b_0|)$ by (P3), and supported in $\mathrm{supp}\,\chi_K$. - Near $K^+$ the
 corrections vanish (they are supported in $\mathcal C$), but the counterterms do not: there $\vartheta_{\nu,\sharp} =
@@ -134,9 +147,12 @@ v1 stays excluded at $b$, as at $b_0$, for a quantitative reason. At $b$, $h_{b,
 1-form in $\ker\Box^\Upsilon_b$ (III.D$''$ (3.4)), so it lies in $\ker\widehat{L_b}(0)$ in III.H's space $\mathcal X_0$,
 and it is $O(|b-b_0||V|)$ (P3). Near $b_0$ that nullspace has the dimension it has at $b_0$, with the continuous basis
 $\dot g_b(\dot b)$, $h_b(S)$ (III.H Proposition 3.2's proof: the matrix $B(b)$ is invertible). So $h_{b,\mathrm v1}(V) =
-\dot g_b(\dot b_V)+h_b(S_V)$ with $|\dot b_V|+|S_V| = O(|b-b_0||V|)$. A $K^+$-extraction that read a v1 coefficient
-beside the $b$- and $S$-coefficients would invert a map that degenerates as $b\to b_0$ (verifier 130's m4). This is why
-the v1 coefficients are assigned in section 2, not read from the $K^+$-expansion.
+\dot g_b(\dot b_V)+h_b(S_V)$ with $|\dot b_V|+|S_V| = O(|b-b_0||V|)$. Moreover $S_V = 0$: the pullback by $-1$ fixes
+$h_{b,\mathrm v1}(V)$ and $\dot g_b(\dot b_V)$ and reverses $h_b(S_V)$ ((P3)), so $h_b(S_V) = 0$, and $S_V = 0$ by the
+injectivity of $S\mapsto h_b(S)$. So $h_{b,\mathrm v1}(V) = \dot g_b(\dot b_V)$, and $\ker h_{b,\mathrm v1} = \{V:\dot
+b_V = 0\}$ (verifier 150's M1). A $K^+$-extraction that read a v1 coefficient beside the $b$- and $S$-coefficients would
+invert a map that degenerates as $b\to b_0$ (verifier 130's m4). This is why the v1 coefficients are assigned in section
+2, not read from the $K^+$-expansion.
 
 ## 2. The rotation rows at $b$
 
@@ -305,9 +321,10 @@ $W'$ only through the small terms listed above, the rows there being rows of (1.
 coordinates are the motion parameters $(S',b',S'')$, which enter $G'$ through $f^S$, $f^b$, $f^{\mathrm s1}$ in full.
 There the level map is that of III.I$'''''''$ Corollary 4.6, the composite of the maps of its Lemmas 4.3 and 4.5, and
 Proposition 2.12 bounds those directly, within $C(\|h\|+|\vec p-\vec p_b|+|b-b_0|)$ of $\pm\mathrm{id}$, with $\|q\|$
-entering through $\Delta_q$ and $R_q$ as above (verifier 146's M1, n1). So $|A_k|\le C(\|h\|+|\vec p-\vec
-p_b|+\|q\|+|b-b_0|)$ at every level, and the continuity statements that III.I$''''''''''''''$ Step 3 cites are not
-needed.
+entering through $\Delta_q$ and $R_q$ as above (verifier 146's M1, n1). Their composite is block-triangular, not of the
+form $-\mathrm{id}+A_k$; what the elimination uses is that its inverse is bounded uniformly, which this gives (verifier
+150's n4). So $|A_k|\le C(\|h\|+|\vec p-\vec p_b|+\|q\|+|b-b_0|)$ at every level above the base, the base level's map
+has a uniformly bounded inverse, and the continuity statements that III.I$''''''''''''''$ Step 3 cites are not needed.
 
 So $-\mathrm{id}+A_k$ is invertible for $(h,\vec p,q)$ small, and $\mathcal P_{k+1}$ is a graph. At $k = K$ every row
 has rate below $\alpha-2$ (the rotation rows at $b$: $\mathrm{Re}\,\lambda\le2<\alpha-2$), so $\mathcal P_K$ is one
@@ -361,25 +378,27 @@ $\mathcal A^{\mathcal G+2-\delta}$ for every $\delta>0$, $\mathcal G := (2,0)\cu
 seminorms $O(|b-b_0||\dot S|)$ uniformly on $\bar{\mathcal B}_*$.
 
 *Proof.* *Support.* By III.I (1.1), $g_{b_0,b,-S} = (1-\chi_K)\phi^*_{-S}g_{b_0}+\chi_Kg_b$, and the corrections
-$h^{(-1)}$, $\vartheta_\sharp$ of III.I$''''$ Definition 2.1 are supported in $\mathcal C$ (III.I$''''$ Lemma 2.2).
-Where $\chi_K = 0$, $g' = g_0 = \phi^*_{-S}g_{b_0}$ is Ricci flat for every $S$, and $\Upsilon^{E_\Upsilon}(g_0,g_0) =
-0$ (III.I$''''$ (i)); so $P_1(0,S,b) = 0$ there for all $S$, and $f_{0,0;b} = 0$. Where $\chi_K = 1$, $g' = g_0 = g_b$
-does not depend on $S$, so again $f_{0,0;b} = 0$. On both sets $L^{G,G}(\chi_Kh^{\le1}_{b,\natural})$ vanishes as well.
-Where $\chi_K = 0$ it vanishes trivially. Where $\chi_K = 1$ it is $L_bh^{\le1}_{b,\natural}$, which is 0:
-$h^{\le1}_{b,\natural} = \delta^*_{g_b}\omega^{\le1}_{b,\natural}$ lies in $\ker D_{g_b}\mathrm{Ric}$ by III.I$''''$
-(iii), and in $\ker\delta_{g_b,E_\Upsilon}G_{g_b}$ because $\omega^{\le1}_{b,\natural}$ is a generalised zero energy
-state of the gauge potential operator at $b$ (III.D$'''$ at $b$, (P3)). So $E^S_b$ is supported in $\mathcal C$. *At
-$b_0$.* $G = g_{b_0}$, $L^{G,G} = L_{b_0}$ and $h^{\le1}_{b_0,\natural} = h^{\le1}_\natural$, so (2.4) with $E^S_{b_0} =
-0$ is III.I$''''$ (2.3). *Size.* Every term of $E^S_b(\dot S)$ is linear in $\dot S$ and a smooth function of $b$ on
-$\mathcal C$. Its ingredients are $G-g_{b_0} = \chi_K(g_b-g_{b_0})$, which lies in $|b-b_0|\rho_+^2C^\infty$ near
-$(\iota^+)^\circ$ (on $\mathcal C$, $|x|\ge t/10$, and $g_b-g_{b_0} = O(|b-b_0||x|^{-2})$ with all Cartesian
-derivatives, III.B); the state $h^{\le1}_{b,\natural}$, smooth in $b$ in $\mathcal A^{\mathcal G-\delta}$ ((P3), with
-III.H Remark 2.6's loss, (P4)); and the $b$-independent corrections. III.I$''''$ Lemma 2.2's count, that
-$D_{g_0}\mathrm{Ric}$ and $\delta^*\delta G$ lie in $\rho_+^2\mathrm{Diff}^2_{\mathrm b}$ near $(\iota^+)^\circ$, takes
-$\mathcal A^{\mathcal G-\delta}$ into $\mathcal A^{\mathcal G+2-\delta}$, uniformly for $b\in\bar{\mathcal B}_*$. So
-$\partial_bE^S_b(\dot S)$ is bounded there by $C|\dot S|$, and $E^S_b = E^S_b-E^S_{b_0}$ is $O(|b-b_0||\dot S|)$ by the
-mean value theorem along the segment from $b_0$ to $b$, which lies in $\bar{\mathcal B}_*$ (a ball, VI.C row b4).
-$\square$
+$h^{(-1)}$, $\vartheta_\sharp$ of III.I$''''$ Definition 2.1 are supported in $\mathcal C$ (III.I$''''$ Lemma 2.2). In
+the interior of $\chi_K^{-1}(0)$, $g' = g_0 = \phi^*_{-S}g_{b_0}$ is Ricci flat for every $S$, and
+$\Upsilon^{E_\Upsilon}(g_0,g_0) = 0$ (III.I$''''$ (i)); so $P_1(0,S,b) = 0$ there for all $S$, and $f_{0,0;b} = 0$. In
+the interior of $\chi_K^{-1}(1)$, $g' = g_0 = g_b$ does not depend on $S$, so again $f_{0,0;b} = 0$. On both sets
+$L^{G,G}(\chi_Kh^{\le1}_{b,\natural})$ vanishes as well. On the first it vanishes trivially. On the second it is
+$L_bh^{\le1}_{b,\natural}$, which is 0: $h^{\le1}_{b,\natural} = \delta^*_{g_b}\omega^{\le1}_{b,\natural}$ lies in $\ker
+D_{g_b}\mathrm{Ric}$ by III.I$''''$ (iii), and in $\ker\delta_{g_b,E_\Upsilon}G_{g_b}$ because
+$\omega^{\le1}_{b,\natural}$ is a generalised zero energy state of the gauge potential operator at $b$ (III.D$'''$ at
+$b$, (P3)). So $E^S_b$ is supported in $\mathcal C$. *At $b_0$.* $G = g_{b_0}$, $L^{G,G} = L_{b_0}$ and
+$h^{\le1}_{b_0,\natural} = h^{\le1}_\natural$, so (2.4) with $E^S_{b_0} = 0$ is III.I$''''$ (2.3). *Size.* Every term of
+$E^S_b(\dot S)$ is linear in $\dot S$ and a smooth function of $b$ on $\mathcal C$. Its ingredients are $G-g_{b_0} =
+\chi_K(g_b-g_{b_0})$, which lies in $|b-b_0|\rho_+^2C^\infty$ near $(\iota^+)^\circ$ (on $\mathcal C$, $|x|\ge t/10$,
+and $g_b-g_{b_0} = O(|b-b_0||x|^{-2})$ with all Cartesian derivatives, III.B); the state $h^{\le1}_{b,\natural}$, smooth
+in $b$ in $\mathcal A^{\mathcal G-\delta}$ ((P3), with III.H Remark 2.6's loss, (P4)); the $b$-independent corrections;
+and $k_0 := \partial_Sg_S(\dot S) = -(1-\chi_K)\delta^*(\Theta w)$, $b$-independent and in $\rho_+^2C^\infty$ near
+$(\iota^+)^\circ$ (PART-III-I5-UNBOOST.md:274-279), which enters as $w$ itself has order $\rho_+^{-1}$ (verifier 150's
+n2). III.I$''''$ Lemma 2.2's count, that $D_{g_0}\mathrm{Ric}$ and $\delta^*\delta G$ lie in
+$\rho_+^2\mathrm{Diff}^2_{\mathrm b}$ near $(\iota^+)^\circ$, takes $\mathcal A^{\mathcal G-\delta}$ into $\mathcal
+A^{\mathcal G+2-\delta}$, uniformly for $b\in\bar{\mathcal B}_*$. So $\partial_bE^S_b(\dot S)$ is bounded there by
+$C|\dot S|$, and $E^S_b = E^S_b-E^S_{b_0}$ is $O(|b-b_0||\dot S|)$ by the mean value theorem along the segment from
+$b_0$ to $b$, which lies in $\bar{\mathcal B}_*$ (a ball, VI.C row b4). $\square$
 
 **Proposition 2.8 (III.I$''''$ Proposition 4.1 (2) and Corollary 4.3 at $b$).** Read III.I$''''$ Proposition 4.1 (1) at
 $b\in\bar{\mathcal B}_*$ with the leading term $\chi^H_Kh^{\le1}_b(\dot S)$ built at $b$ ((P3)), and $\dot S(f)$ read
@@ -398,23 +417,25 @@ L^{G,G}$ (III.I$''''$ Lemma 2.5 at $h = 0$, $S = 0$) with the source $f_{0,0;b}(
 $$S^{(-1)}_{h,S;b}(S')-S' = \dot S_{h,S;b}\big(f_{h,S;b}(S')-f_{0,0;b}(S')\big)+\big(\dot S_{h,S;b}-\dot
 S_{0,0;b}\big)\big(f_{0,0;b}(S')\big)+\dot S_{0,0;b}\big(E^S_b(S')\big).$$
 *The first term.* $f_{h,S;b} := D_SP_1(h,S,b)$ depends smoothly on $(h,S)$. III.I$''''$ Lemma 3.2's bounds hold for
-small $(h,S)$ and depend on $b$ only through finitely many seminorms of $g_{b_0,b,-S}$. So
-$\|f_{h,S;b}(S')-f_{0,0;b}(S')\|\le C(\|h\|_{\mathcal X^d}+|S|)|S'|$ in the norm of Lemma 4.2 (a), and the first term is
-at most $C(\|h\|_{\mathcal X^d}+|S|)|S'|$. *The second term.* By Lemma 4.2 (b)'s formula, with $(h_1,S_1) := (h,S)$ and
-$(h,S) := (0,0)$, it is $-\Pi_b\big((L_{h,S;b}-L_{0,0;b})u_{h,S}+(L_{0,0;b}-L_b)(u_{h,S}-u_{0,0})\big)$. Here
-$u_\bullet$ are the forward solutions with the source $f := f_{0,0;b}(S')$, which vanishes near $\mathscr I^+$ (it is
-supported in $\mathcal C$). The coefficients of $L_{h,S;b}-L_{0,0;b}$ lie in Lemma 3.1's class (3.6) with norm at most
-$C(\|h\|_{\mathcal X^d}+|S|)$: they are polynomial in the differences of the metrics, with coefficients smooth in their
-inverses (Lemma 3.1's proof, Lemma 2.5). So (4.2) gives $\|(L_{h,S;b}-L_{0,0;b})u_{h,S}\|\le C(\|h\|_{\mathcal
-X^d}+|S|)\|f\|$. Since $L_{0,0;b}(u_{h,S}-u_{0,0}) = -(L_{h,S;b}-L_{0,0;b})u_{h,S}$, III.I$''$ Proposition 5.1, with the
-weights lowered by the room $\varsigma$ of Lemma 4.2's proof, gives $\|u_{h,S}-u_{0,0}\|\le C(\|h\|_{\mathcal
-X^d}+|S|)\|f\|$, and (4.2) bounds the second summand the same way. $\Pi_b$ is bounded on the space with that room,
-uniformly in $b$. So the second term is at most $C(\|h\|_{\mathcal X^d}+|S|)|S'|$. *The third term.* By Lemma 2.7,
-$E^S_b(S')$ is supported in $\mathcal C$. It vanishes near $\mathscr I^+$ and $K^+$, and its $\iota^+$-order is at least
-$4-\delta>\alpha_++2$, as $\alpha_+<\frac32$. So it lies in the source space of Lemma 4.2 (a) with norm at most
-$C|b-b_0||S'|$, and the third term is at most $C|b-b_0||S'|$. This proves (2.5), and the Neumann series gives the
-inverse. III.I$''''$ Corollary 4.3's proof and III.I$'''''$ Corollary 2.2's use the invertibility alone, so they hold at
-$b$. $\square$
+small $(h,S)$ and depend on $b$ only through finitely many seminorms of $g_{b_0,b,-S}$; the derivative of $f_{h,S;b}$ in
+$h$ is bounded by III.I$''''$ Lemma 3.1 (3.1), and that in $S$ by the count of its (3.4), for $d$ as in III.I$''''$
+Proposition 4.1 (verifier 150's n3). So $\|f_{h,S;b}(S')-f_{0,0;b}(S')\|\le C(\|h\|_{\mathcal X^d}+|S|)|S'|$ in the norm
+of Lemma 4.2 (a), and the first term is at most $C(\|h\|_{\mathcal X^d}+|S|)|S'|$. *The second term.* By Lemma 4.2 (b)'s
+formula, with $(h_1,S_1) := (h,S)$ and $(h,S) := (0,0)$, it is
+$-\Pi_b\big((L_{h,S;b}-L_{0,0;b})u_{h,S}+(L_{0,0;b}-L_b)(u_{h,S}-u_{0,0})\big)$. Here $u_\bullet$ are the forward
+solutions with the source $f := f_{0,0;b}(S')$, which vanishes near $\mathscr I^+$ (it is supported in $\mathcal C$).
+The coefficients of $L_{h,S;b}-L_{0,0;b}$ lie in Lemma 3.1's class (3.6) with norm at most $C(\|h\|_{\mathcal
+X^d}+|S|)$: they are polynomial in the differences of the metrics, with coefficients smooth in their inverses (Lemma
+3.1's proof, Lemma 2.5). So (4.2) gives $\|(L_{h,S;b}-L_{0,0;b})u_{h,S}\|\le C(\|h\|_{\mathcal X^d}+|S|)\|f\|$. Since
+$L_{0,0;b}(u_{h,S}-u_{0,0}) = -(L_{h,S;b}-L_{0,0;b})u_{h,S}$, III.I$''$ Proposition 5.1, with the weights lowered by the
+room $\varsigma$ of Lemma 4.2's proof, gives $\|u_{h,S}-u_{0,0}\|\le C(\|h\|_{\mathcal X^d}+|S|)\|f\|$, and (4.2) bounds
+the second summand the same way. $\Pi_b$ is bounded on the space with that room, uniformly in $b$. So the second term is
+at most $C(\|h\|_{\mathcal X^d}+|S|)|S'|$. *The third term.* By Lemma 2.7, $E^S_b(S')$ is supported in $\mathcal C$. It
+vanishes near $\mathscr I^+$ and $K^+$, and its $\iota^+$-order is at least $4-\delta>\alpha_++2$, as $\alpha_+<2$
+(PART-III-I5-UNBOOST.md:320), for $\delta<2-\alpha_+$ (verifier 150's n1). So it lies in the source space of Lemma 4.2
+(a) with norm at most $C|b-b_0||S'|$, and the third term is at most $C|b-b_0||S'|$. This proves (2.5), and the Neumann
+series gives the inverse. III.I$''''$ Corollary 4.3's proof and III.I$'''''$ Corollary 2.2's use the invertibility
+alone, so they hold at $b$. $\square$
 
 III.I$''''$ Lemma 4.2 (b), a continuity at fixed $(h,S)$, is not used at $b$: its difference formula enters only through
 the bound above. The same pattern replaced the continuity lemmas for the elimination in Proposition 2.5's Step 3
@@ -424,15 +445,15 @@ the bound above. The same pattern replaced the continuity lemmas for the elimina
 
 III.I$''''''''''''$ Lemmas 2.3 and 2.4 use $h_{b_0,\mathrm v1} = 0$ without saying so. They put $\breve h^1_{b_0,\mathrm
 v1}(V)$ in $\ker L_0$, and they remove the v1 content through an antiderivative. At a rotating $b$, $h_{b,\mathrm v1}(V)
-= \dot g_b(\dot b_V)+h_b(S_V)$ (Lemma 1.2's remark), and both steps change (verifier 147's M1, D330). Below, $L_0 :=
-\widehat{L_b}(0)$, $L_1 := [L_b,t_*]$, $L_2 := \frac12[[L_b,t_*],t_*]$; $h := h_{b,\mathrm s1}$, $\breve h^j := \breve
-h^j_{b,\mathrm s1}$; $\mathcal G$ is III.I$''''''''''''$'s space of sections conormal of order $>-3$; and $T_{\mathrm
-v1,b}(aV) := \sum_ja^{(j)}\breve h^j_{b,\mathrm v1}(V)$, $\breve h^0_{b,\mathrm v1} := h_{b,\mathrm v1}$, is the
-rotation row of III.I$''''''''''''''$ Definition 1.3. Put
-$$\kappa_b(V) := \breve h^1_{b,\mathrm v1}(V)-\breve h^1(S_V),\qquad L_0\kappa_b(V) = -L_1\dot g_b(\dot b_V).\tag{2.6}$$
-The identity holds by the tower relations $L_0\breve h^1_{b,\mathrm v1}(V) = -L_1h_{b,\mathrm v1}(V)$ and $L_0\breve
-h^1(S) = -L_1h(S)$. At $b_0$, $\kappa_{b_0}(V) = \breve h^1_{b_0,\mathrm v1}(V)$ lies in $\ker L_0$. Let $\mathcal V^0_b
-:= \{V:\dot b_V = 0\}$.
+= \dot g_b(\dot b_V)$ (Lemma 1.2's remark), and both steps change (verifier 147's M1, D330; verifier 150's M1, D331).
+Below, $L_0 := \widehat{L_b}(0)$, $L_1 := [L_b,t_*]$, $L_2 := \frac12[[L_b,t_*],t_*]$; $h := h_{b,\mathrm s1}$, $\breve
+h^j := \breve h^j_{b,\mathrm s1}$; $\mathcal G$ is III.I$''''''''''''$'s space of sections conormal of order $>-3$; and
+$T_{\mathrm v1,b}(aV) := \sum_ja^{(j)}\breve h^j_{b,\mathrm v1}(V)$, $\breve h^0_{b,\mathrm v1} := h_{b,\mathrm v1}$, is
+the rotation row of III.I$''''''''''''''$ Definition 1.3. Put
+$$\kappa_b(V) := \breve h^1_{b,\mathrm v1}(V),\qquad L_0\kappa_b(V) = -L_1\dot g_b(\dot b_V).\tag{2.6}$$
+The identity holds by the tower relation $L_0\breve h^1_{b,\mathrm v1}(V) = -L_1h_{b,\mathrm v1}(V)$. At $b_0$,
+$\kappa_{b_0}(V) = \breve h^1_{b_0,\mathrm v1}(V)$ lies in $\ker L_0$. Let $\mathcal V^0_b := \{V:\dot b_V = 0\} = \ker
+h_{b,\mathrm v1}$.
 
 **Lemma 2.9 (III.I$''''''''''''$ Lemmas 2.3-2.4 at $b$).** Let $b\in\bar{\mathcal B}_*$.
 
@@ -445,7 +466,7 @@ $V_X$ is the v1 coefficient that Lemma 2.3's reduction of $X$ removes at the roo
 
 (c) III.I$''''''''''''$ Lemma 2.4 holds at $b$, with its (2.4) read as
 $$\chi_K\sum_iy_ip_i = \chi_K\Big(\sum_{\rho\ne\mathrm v1}T_{\rho,b}(a_\rho)+T_{\mathrm v1,b}(a_{\mathrm v1})
-+h^{\le2}_{b,\mathrm s1}(a_{\mathrm s})+\dot g_b(a_{\mathrm b})\Big)+w''.$$
++h^{\le1}_{b,\mathrm s1}(a_{\mathrm s})+\dot g_b(a_{\mathrm b})\Big)+w''.$$
 The exponents are as there; those of $a_{\mathrm v1}$ lie in $\bigcup_iE_i+\mathbb N_0-1$, and those of $a_{\mathrm b}$
 have real part $\ge\beta-1$. The constants are uniform on $\bar{\mathcal B}_*$, and no map $V\mapsto h_{b,\mathrm
 v1}(V)$ is inverted.
@@ -463,19 +484,19 @@ $$P = \sum_\rho\breve h^{(\mu_\rho),0}_{b,\tau_\rho}(Y_\rho)+\kappa_b(V)+\dot g_
 \qquad V\in\mathcal V^0_b.$$
 Two steps change. Write $a := \chi_+t_*^{-z_0}(\log t_*)^{k_0}$, and let $\tilde a$ be its antiderivative.
 
-*The v1 part of $P$.* Subtract $T_{\mathrm v1,b}(\tilde aV)-h^{\le2}_{b,\mathrm s1}(\tilde aS_V)$. Its bottoms cancel:
-$\tilde ah_{b,\mathrm v1}(V) = \tilde ah(S_V)$, as $\dot b_V = 0$. Its next term is $a\kappa_b(V)$. Both are towers, so
-$L_b$ of it involves $a''$ and higher only, and has $K^+$-order $\mathrm{Re}\,z_0+2\ge\beta$. Here $h^{\le2}_{b,\mathrm
-s1}$ is the s1 tower to $\breve h^2$, whose relation $L_0\breve h^2+L_1\breve h^1+L_2h = 0$ III.I$''''''''''''$ Lemma
-2.3's reduction uses.
+*The v1 part of $P$.* Subtract $T_{\mathrm v1,b}(\tilde aV)$. Its bottom $\tilde ah_{b,\mathrm v1}(V)$ vanishes, as
+$V\in\mathcal V^0_b = \ker h_{b,\mathrm v1}$, and its next term is $a\kappa_b(V)$. It is a tower, so $L_b$ of it
+involves $a''$ and higher only, and has $K^+$-order $\mathrm{Re}\,z_0+2\ge\beta$. Its coefficient $\tilde aV$ enters
+$a_{\mathrm v1}$ at the exponent $z_0-1$, and $a_{\mathrm s}$ is unchanged, which is why the exponents are as there
+(verifier 150's M1).
 
 *The $\dot g$ part of $P$.* If $\mathrm{Re}\,z_0+1\ge\beta$, subtract $\dot g_b(a\dot b)$ as at $b_0$. Otherwise the
 next coefficient gives $L_0P_1 = z_0L_1P$, and with the tower relations $L_0X = z_0L_1\dot g_b(\dot b)$ for a section
 $X\in\mathcal G$. By (b), $z_0\dot b = -\dot b_{V_X}$. Put $V'' := -V_X/z_0$, so that $\dot b_{V''} = \dot b$. Subtract
-$T_{\mathrm v1,b}(aV'')-h^{\le2}_{b,\mathrm s1}(aS_{V''})$ instead of $\dot g_b(a\dot b)$. Its bottom is $a(\dot
-g_b(\dot b_{V''})+h(S_{V''}))-ah(S_{V''}) = a\dot g_b(\dot b)$, as required. $L_b$ of it involves $a''$ and higher. Its
-next term, $a'\kappa_b(V'')$, carries the v1 content $V_X$ that the next pair's reduction would remove; that content is
-therefore removed here, at the earlier pair.
+$T_{\mathrm v1,b}(aV'')$ instead of $\dot g_b(a\dot b)$. Its bottom is $ah_{b,\mathrm v1}(V'') = a\dot g_b(\dot b_{V''})
+= a\dot g_b(\dot b)$, as required. $L_b$ of it involves $a''$ and higher. Its next term, $a'\kappa_b(V'')$, carries the
+v1 content $V_X$ that the next pair's reduction would remove; that content is therefore removed here, at the earlier
+pair.
 
 The new terms are again compatible: a companion $a^{(j)}\breve h^j$ has the exponent $z+j$ and degree $\mu-j$, as at
 $b_0$. $|V''|\le C|V_X|$ with $C$ depending only on $|z_0|^{-1}$ and $\mathrm{Re}\,z_0\ge\beta-2>1$. The coefficients
@@ -486,11 +507,12 @@ are uniform on $\bar{\mathcal B}_*$. $\square$
 B}_*$, uniformly. Two changes are needed:
 
 - Its Step 2 uses Lemma 2.9 (c) for III.I$''''''''''''$ Lemma 2.4, so the v1 coefficients and the early $\dot g$ terms
-enter through rotation rows $T_{\mathrm v1,b}$. - The conormal towers $C$ of its Step 1 (viii) include $T_{\mathrm
-v1,b}(Y^c_{\mathrm v1})$. At $b$ the level-3 conormal rotation tower has $K^+$-rate
-$\alpha_\tau+2\in[3+\eta_2-2\epsilon,4)$, below $\alpha$, since its bottom $h_{b,\mathrm v1}$ no longer vanishes.
-III.I$''''''''''''''$ Definition 1.1 admits this coefficient ($w_{\mathrm v1} = 3+\eta_2-2\epsilon$), and $L_b$ of it
-has $K^+$-order $\alpha_\tau+5>\alpha$ (verifier 147's m2).
+enter through rotation rows $T_{\mathrm v1,b}$.
+
+- The conormal towers $C$ of its Step 1 (viii) include $T_{\mathrm v1,b}(Y^c_{\mathrm v1})$. At $b$ the level-3 conormal
+rotation tower has $K^+$-rate $\alpha_\tau+2\in[3+\eta_2-2\epsilon,4)$, below $\alpha$, since its bottom $h_{b,\mathrm
+v1}$ no longer vanishes. III.I$''''''''''''''$ Definition 1.1 admits this coefficient ($w_{\mathrm v1} =
+3+\eta_2-2\epsilon$), and $L_b$ of it has $K^+$-order $\alpha_\tau+5>\alpha$ (verifier 147's m2).
 
 *Proof.* Step 1 is unchanged at $b$: its pieces are those of (P2)-(P4). Step 2 is the assembly, with Lemma 2.9 (c) in
 place of III.I$''''''''''''$ Lemma 2.4. $\square$
@@ -561,18 +583,25 @@ states at $b$), which are bounded on $\mathcal Y$ uniformly in $b$ ((P1), (P4), 
 $f^\bullet_{h,\vec p}$ for $D_{\vec p}P_2(h,\vec p)$ in the direction $\bullet$, and $f^{=0}_{h,\vec p}(b',S'') :=
 f^b_{h,\vec p}(b')+f^{\mathrm s1}_{h,\vec p}(S'')$. *Two bounds at fixed $b$.* (1) $\|f^\bullet_{h,\vec
 p}-f^\bullet_{0,\vec p_b}\|_{\mathcal Y}\le C(\|h\|+|\vec p-\vec p_b|)$ per unit direction. $f^\bullet$ is smooth in
-$(h,\vec p)$, and III.I$'''''''$ Lemma 3.1's bounds, which hold at $b$ (Theorem 3.1), apply to its derivative in
-$(h,\vec p)$, whose terms are again polynomial in the differences of the metrics with coefficients smooth in their
-inverses; the mean value theorem along the segment from $(0,\vec p_b)$ gives the bound. (2) For $F\in\mathcal Y$, $|\dot
-S_{h,\vec p}(F)-\dot S_{0,\vec p_b}(F)|+|Q_{h,\vec p}(F)-Q_{0,\vec p_b}(F)|\le C(\|h\|+|\vec p-\vec p_b|)\|F\|_{\mathcal
-Y}$. This is III.I$'''''''$ Lemma 4.1's comparison made quantitative, with $L_{0,\vec p_b}$ in place of $L_{b_0}$. For
-the forward solutions $u$, $u_0$ of $F$, $L_{0,\vec p_b}(u-u_0) = -(L_{h,\vec p}-L_{0,\vec p_b})u$, whose norm in
-$\mathcal Y$ is at most $C(\|h\|+|\vec p-\vec p_b|)\|F\|$: both backgrounds equal $g_b$ near $K^+$ (III.I Lemma 3.6), so
-the difference gains $a_K$ there, and at $\iota^+$ it gains as in Lemma 4.1's proof. The difference of the parameters is
-then $(\dot S,Q)_{0,\vec p_b}$ of that source, by the uniqueness of Lemma 4.1's proof at $b$, which uses the injectivity
-of $(\dot b,\dot S)\mapsto\dot g_b(\dot b)+h_b(\dot S)$ (Lemma 1.2's remark). *The boost map.* By (2.7),
-$\chi_Kh^{\le1}_{b,\natural}(S')$ is the forward solution of $L_{0,\vec p_b}u = f^S_{0,\vec
-p_b}(S')-E^{\mathrm{mot}}_b(S',0,0)$, so $\dot S_{0,\vec p_b}(f^S_{0,\vec p_b}(S')) = S'+\dot S_{0,\vec
+$(h,\vec p)$, and III.I$'''''''$ Lemma 3.1's bounds, which hold at $b$ (Theorem 3.1's bullet for III.I$'''''''$, which
+the reading supplies independently of this proposition; verifier 150's n8), apply to its derivative in $(h,\vec p)$ (its
+(3.1) for $h$, the count of III.I$''''$ (3.4) for $\vec p$; verifier 150's n3), whose terms are again polynomial in the
+differences of the metrics with coefficients smooth in their inverses; the mean value theorem along the segment from
+$(0,\vec p_b)$ gives the bound. (2) For $F\in\mathcal Y$, $|\dot S_{h,\vec p}(F)-\dot S_{0,\vec p_b}(F)|\le
+C(\|h\|+|\vec p-\vec p_b|)\|F\|_{\mathcal Y}$. And for $F_1,F_2\in\mathcal Y$ with $\dot S_{h,\vec p}(F_1) = 0 = \dot
+S_{0,\vec p_b}(F_2)$, where alone $Q_{h,\vec p}$ and $Q_{0,\vec p_b}$ are defined (PART-III-I8-UNPARAM.md:332-335),
+$|Q_{h,\vec p}(F_1)-Q_{0,\vec p_b}(F_2)|\le C\|F_1-F_2\|_{\mathcal Y}+C(\|h\|+|\vec p-\vec p_b|)\|F_1\|_{\mathcal Y}$
+(verifier 150's m1). This is III.I$'''''''$ Lemma 4.1 (b)'s comparison made quantitative
+(PART-III-I8-UNPARAM.md:368-376), with $L_{0,\vec p_b}$ in place of $L_{b_0}$. Let $u_1$, $u_2$ be the forward solutions
+of $L_{h,\vec p}u_1 = F_1$ and $L_{0,\vec p_b}u_2 = F_2$. Then $L_{0,\vec p_b}(u_1-u_2) = R := F_1-F_2-(L_{h,\vec
+p}-L_{0,\vec p_b})u_1$, and $\|(L_{h,\vec p}-L_{0,\vec p_b})u_1\|_{\mathcal Y}\le C(\|h\|+|\vec p-\vec p_b|)\|F_1\|$:
+both backgrounds equal $g_b$ near $K^+$ (III.I Lemma 3.6), so the difference gains $a_K$ there, and at $\iota^+$ it
+gains as in Lemma 4.1's proof. With $F_1 = F_2 = F$, the boost terms of $u_1$ and $u_2$ are built from the same state at
+$b$, so the difference of the boost parameters is $\dot S_{0,\vec p_b}(R)$. Under the condition, $u_1-u_2$ has no boost
+term, so $\dot S_{0,\vec p_b}(R) = 0$, and $Q_{h,\vec p}(F_1)-Q_{0,\vec p_b}(F_2) = Q_{0,\vec p_b}(R)$ by the uniqueness
+of Lemma 4.1's proof at $b$, which uses the injectivity of $(\dot b,\dot S)\mapsto\dot g_b(\dot b)+h_b(\dot S)$ (Lemma
+1.2's remark). *The boost map.* By (2.7), $\chi_Kh^{\le1}_{b,\natural}(S')$ is the forward solution of $L_{0,\vec p_b}u
+= f^S_{0,\vec p_b}(S')-E^{\mathrm{mot}}_b(S',0,0)$, so $\dot S_{0,\vec p_b}(f^S_{0,\vec p_b}(S')) = S'+\dot S_{0,\vec
 p_b}(E^{\mathrm{mot}}_b(S',0,0))$. Hence
 $$S^{(-1)}_{h,\vec p}(S')-S' = \dot S_{h,\vec p}\big(f^S_{h,\vec p}(S')-f^S_{0,\vec p_b}(S')\big)
 +\big(\dot S_{h,\vec p}-\dot S_{0,\vec p_b}\big)\big(f^S_{0,\vec p_b}(S')\big)
@@ -585,11 +614,15 @@ p_b}(b',S'')-E^{\mathrm{mot}}_b(0,b',S'')$; it has $K^+$-weight $-\epsilon>-1$, 
 of it is $(b',S'')$. So $|S'_0|\le C|b-b_0||\vec p\,'^{,=0}|$, and
 $$M_{0,\vec p_b}(\vec p\,'^{,=0}) = -\vec p\,'^{,=0}
 -Q_{0,\vec p_b}\big(E^{\mathrm{mot}}_b(0,b',S'')+f^S_{0,\vec p_b}(S'_0)\big),$$
-whence $|M_{0,\vec p_b}+\mathrm{id}|\le C|b-b_0|$. For $(h,\vec p)$ near $(0,\vec p_b)$, $M_{h,\vec p}-M_{0,\vec p_b}$
-is bounded by (1) and (2), with $\vec p\,'^{,<0}_{h,\vec p}-\vec p\,'^{,<0}_{0,\vec p_b}$ bounded the same way through
-Lemma 4.3's formula and the bound on the boost map. This proves (2.8), and the Neumann series gives the inverses.
-III.I$'''''''$ Corollary 4.6's proof and III.I$''''''''$ Proposition 4.1's base step use, beyond III.I$'''''''$ Lemma
-2.5 (c), only these inverses and their bounds. $\square$
+whence $|M_{0,\vec p_b}+\mathrm{id}|\le C|b-b_0|$. For $(h,\vec p)$ near $(0,\vec p_b)$, $M_{h,\vec p}(\vec p\,'^{,=0})
+= Q_{h,\vec p}(F_{h,\vec p})$, with $F_{h,\vec p}$ the source of III.I$'''''''$ Lemma 4.5's proof and $\dot S_{h,\vec
+p}(F_{h,\vec p}) = 0$ by Lemma 4.3, and likewise at $(0,\vec p_b)$. So (2), for the pair $(F_{h,\vec p},F_{0,\vec
+p_b})$, bounds $M_{h,\vec p}-M_{0,\vec p_b}$ by $C\|F_{h,\vec p}-F_{0,\vec p_b}\|_{\mathcal Y}+C(\|h\|+|\vec p-\vec
+p_b|)$ per unit $\vec p\,'^{,=0}$; and (1) bounds $\|F_{h,\vec p}-F_{0,\vec p_b}\|_{\mathcal Y}$, with $\vec
+p\,'^{,<0}_{h,\vec p}-\vec p\,'^{,<0}_{0,\vec p_b}$ bounded the same way through Lemma 4.3's formula and the bound on
+the boost map. This proves (2.8), and the Neumann series gives the inverses. III.I$'''''''$ Corollary 4.6's proof and
+III.I$''''''''$ Proposition 4.1's base step use, beyond III.I$'''''''$ Lemma 2.5 (c), only these inverses and their
+bounds. $\square$
 
 III.I$'''''''$ Lemma 4.1 and III.I$''''''''$ Proposition 4.1 (ii), continuity statements at the reference point, are
 used at $b$ at fixed $b$ only, with $L_{0,\vec p_b}$ as the reference, as Lemma 2.4 uses the later parts' (verifier
@@ -647,8 +680,9 @@ Proposition 2.5 at exact weights (verifier 149's m2).
 $b\in\bar{\mathcal B}_*$ need not have, or an object built at $b_0$, is a row of BASEPOINT-LEDGER.md, with what supplies
 it at $b$ and whether that supply is uniform in $b$. Implicit uses count, the symmetries of $b_0$ among them (static,
 spherical, isotypic, Killing, $SO(4)$). Each supply is one of (P1)-(P6), Lemma 1.2 or section 2, and the rows group into
-the uses (i)-(xi) below. The uses that nothing supplied were the gaps (I$'''''''''''''''$6)-(I$'''''''''''''''$8) and an
-unstated theorem, III.J$'''$ Theorem 5.3 at $b$; each is now supplied, by sections 2.6-2.8 and the list above.
+the uses (i)-(xi) below. The uses that nothing supplied were the major gaps (I$'''''''''''''''$6)-(I$'''''''''''''''$8),
+a minor one, the reality of the objects at $b$ (verifier 148's m3, now in (P3) and Definition 2.3), and an unstated
+theorem, III.J$'''$ Theorem 5.3 at $b$; each is now supplied, by sections 2.6-2.8 and the list above.
 
 (i) The forward solutions: III.I$'$-III.I$''''''''''''''$ solve with $L^{g,g_0}$ at the base point through III.I Theorem
 5.3 and its corollaries (P1). The splitting $L_{h,\vec p} = L_{b_0}+(L_{h,\vec p}-L_{b_0})$ near $K^+$, used to move a
@@ -782,9 +816,10 @@ $E^\nu\in\mathcal Y^\natural_2(\alpha-)\cap\mathcal Y(\alpha_1)$. Settled in D30
 (I$'''''''''''''''$5) *The census.* Theorem 3.1 first rested on a search of the parts for the uses of $b_0$ and of its
 symmetries, and a use the search did not see would have been a gap, for instance an argument at $b_0$ that does not name
 it. The search is replaced by a reading, BASEPOINT-LEDGER.md: five independent readers (verifiers 145-149) read every
-line of the parts and recorded every use of the base point with its supply at $b$. The reading found three gaps that the
-search had missed, (I$'''''''''''''''$6)-(I$'''''''''''''''$8), and one theorem used at $b$ but not stated there,
-III.J$'''$ Theorem 5.3; all are repaired in sections 2.6-2.8 and in Theorem 3.1's list (D329-D330).
+line of the parts and recorded every use of the base point with its supply at $b$. The reading found three major gaps
+that the search had missed, (I$'''''''''''''''$6)-(I$'''''''''''''''$8), a minor one, the reality of the objects at $b$,
+and one theorem used at $b$ but not stated there, III.J$'''$ Theorem 5.3; all are repaired in sections 2.6-2.8 and in
+Theorem 3.1's list (D329-D330).
 
 (I$'''''''''''''''$6) *The boost identity holds at $b_0$ only.* III.I$''''$ Lemma 2.4 uses that $g_{b_0}$ is Ricci flat
 in $\mathcal C$ and that correction and leading term are the same $b_0$-state. At $b$ the identity carries the error
@@ -802,14 +837,20 @@ base-point ledger (verifier 146, D330).
 
 (I$'''''''''''''''$8) *The expansion used $h_{b_0,\mathrm v1} = 0$.* III.I$''''''''''''$ Lemmas 2.3-2.4 put $\breve
 h^1_{b_0,\mathrm v1}(V)$ in $\ker L_0$ and removed the v1 content through an antiderivative, both because the rotation
-state vanishes at $b_0$, which they do not say. At a rotating $b$, $h_{b,\mathrm v1}(V) = \dot g_b(\dot b_V)+h_b(S_V)$,
-Lemma 2.3 (b)'s conclusion $\dot b = 0$ fails when $\dot b_V\ne0$, and the level-3 conormal rotation tower falls below
-$\alpha$. Lemma 2.9 and Corollary 2.10 restate them at $b$, with the rotation rows $T_{\mathrm v1,b}$ in place of the
+state vanishes at $b_0$, which they do not say. At a rotating $b$, $h_{b,\mathrm v1}(V) = \dot g_b(\dot b_V)$, Lemma 2.3
+(b)'s conclusion $\dot b = 0$ fails when $\dot b_V\ne0$, and the level-3 conormal rotation tower falls below $\alpha$.
+Lemma 2.9 and Corollary 2.10 restate them at $b$, with the rotation rows $T_{\mathrm v1,b}$ in place of the
 antiderivative and no map inverted. Found by the third batch of the base-point ledger (verifier 147, D330).
 
-*Labels.* Lemmas 1.1, 1.2, 2.1, 2.4, 2.7, 2.9, 2.11, Propositions 2.2, 2.5, 2.8, 2.12, Definition 2.3, Remark 2.6,
-Corollary 2.10, Theorem 3.1 and Corollary 3.2 are new at $n = 4$; Theorem 3.1 is what the source states throughout its
-sections 11.2-12 by taking its base points with $|b-b_0|$ small.
+(I$'''''''''''''''$9) *The rotation state at $b$ is a change of the black hole parameter alone.* In the nullspace of
+$\widehat{L_b}(0)$, $h_{b,\mathrm v1}(V)$ is a combination of $\dot g_b$ and $h_b$; the antipodal map, an isometry of
+every $g_b$ under which the translations are odd and the rotations even, removes the translation part, so $h_{b,\mathrm
+v1}(V) = \dot g_b(\dot b_V)$. Without it, section 2.7's first repair put the translation part into the s1 coefficients
+one order too low. Found by verifier 150 (D331).
+
+*Labels.* Lemmas 1.1, 1.2, 2.1, 2.4, 2.7, 2.9, 2.11 (the parity in (P3) new), Propositions 2.2, 2.5, 2.8, 2.12,
+Definition 2.3, Remark 2.6, Corollary 2.10, Theorem 3.1 and Corollary 3.2 are new at $n = 4$; Theorem 3.1 is what the
+source states throughout its sections 11.2-12 by taking its base points with $|b-b_0|$ small.
 
 *Sources.* [Hin26] pp. 275 (Definition 11.55), 278-280 (Theorem 11.59's statement, the v1 elimination
 "$V^{(1,0)\prime}\approx\dot V$"), 293 ((11.228)-(11.229)), read at source. Inputs: II.C Lemma 1.4; III.D$''$ (3.4),

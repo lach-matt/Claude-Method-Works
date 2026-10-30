@@ -1,19 +1,19 @@
 # Part II.D. Microlocal regularity on spacetime: radial sets, trapping and the global estimate, at n = 4
 
-*Status.* Proved (D326: verifier 142 read the D204 repairs, correct; one nit seated), with one repair to be read (D328:
-verifier 144 found the setting of section 4 still on $\{t_*>1\}$ after II.C$'$'s start time moved; it is now on
-$\{t_*>T_\flat\}$). Verified. Written out in full (D202). Read line by line by the eighty-fourth verifier, which
-re-derived every threshold, sign and dynamical claim and confirmed (D1)-(D4) at source; its two minor findings (the
-comparison of norms in Step 3 of Proposition 4.2, and the support of the time cut-off's term in Proposition 3.6) and its
-nits are seated (D204). The part is labelled proved once the next reader has confirmed them; verifier 142 did (D326),
-and verifier 143 confirmed the D326 repairs, its two nits seated (D327). This part proves, at spatial dimension $n = 4$,
-[Hin26c] section 7.1 (pp. 114-127): the global edge-3b regularity estimate, its Proposition 7.1, with the ingredients it
-combines, the radial point estimates (Propositions 7.4 and 7.6-7.9, Remark 7.5) and the estimate at the trapped set
-(Proposition 7.10). Section 7.2 of the source, b-regularity and estimates tame in it, is Part II.D$'$. The source is
-[Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part
-I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part II.A$'$ (`PART-II-A2-STANDARD.md`)
-as II.A$'$, Part II.B (`PART-II-B-DYNAMICS.md`) as II.B, Part II.C (`PART-II-C-OPERATORS.md`) as II.C and Part II.C$'$
-(`PART-II-C2-TRAPPING.md`) as II.C$'$.
+*Status.* Proved (D326: verifier 142 read the D204 repairs, correct; one nit seated; D331: verifier 150 read the D328
+repair, correct) (D328: verifier 144 found the setting of section 4 still on $\{t_*>1\}$ after II.C$'$'s start time
+moved; it is now on $\{t_*>T_\flat\}$). Verified. Written out in full (D202). Read line by line by the eighty-fourth
+verifier, which re-derived every threshold, sign and dynamical claim and confirmed (D1)-(D4) at source; its two minor
+findings (the comparison of norms in Step 3 of Proposition 4.2, and the support of the time cut-off's term in
+Proposition 3.6) and its nits are seated (D204). The part is labelled proved once the next reader has confirmed them;
+verifier 142 did (D326), and verifier 143 confirmed the D326 repairs, its two nits seated (D327). This part proves, at
+spatial dimension $n = 4$, [Hin26c] section 7.1 (pp. 114-127): the global edge-3b regularity estimate, its Proposition
+7.1, with the ingredients it combines, the radial point estimates (Propositions 7.4 and 7.6-7.9, Remark 7.5) and the
+estimate at the trapped set (Proposition 7.10). Section 7.2 of the source, b-regularity and estimates tame in it, is
+Part II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A
+(`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A (`PART-II-A-SETUP.md`) as
+II.A, Part II.A$'$ (`PART-II-A2-STANDARD.md`) as II.A$'$, Part II.B (`PART-II-B-DYNAMICS.md`) as II.B, Part II.C
+(`PART-II-C-OPERATORS.md`) as II.C and Part II.C$'$ (`PART-II-C2-TRAPPING.md`) as II.C$'$.
 
 *Method.* Every estimate here is a positive commutator estimate. II.A$'$ section 4 provides the machinery with
 coefficients of finite regularity: one step with a regulariser (its Lemma 4.1) and the iteration in the order (its Lemma

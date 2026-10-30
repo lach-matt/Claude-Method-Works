@@ -4379,3 +4379,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Definition 2.3; m1, III.J as written with rows at b_0; m2, III.J' Lemma 1.1 listed; n1-n7 seated.
 - III.I16 Theorem 3.1's proof now cites the ledger as a reading; findings (I^(15)5)-(I^(15)8).
 - Next: one reader of all the repairs (D329-D330), with the D328 repairs of II.D and VI.C.
+
+### 4.254 Verifier 150 seated (D331): II.D proved; the rotation state at b is a parameter change
+
+- Report (scratchpad d330/verifier150.md): 1 major, 2 minor, 8 nits. Sections 2.6 and 2.8 correct in substance; II.D
+  section 4 correct (II.D proved); VI.C section 3's conclusion holds.
+- M1: Lemma 2.9 (c) subtracted T_{v1,b}(a~V) - h^{<=2}(a~S_V), putting S_V into a_s at z_0 - 1. Repaired: -1 in SO(4)
+  is central, so in every MP isometry torus; h_b(S) odd, gdot_b and h_{b,v1} even ((P3), Lemma 1.1's proof), so S_V = 0
+  and h_{b,v1}(V) = gdot_b(bdot_V) (Lemma 1.2's remark). Section 2.7 now subtracts T_{v1,b} alone; a_s unchanged;
+  (2.4) with h^{<=1} as at b_0; finding (I^(15)9).
+- m1: Prop 2.12's bound (2) for pairs F_1, F_2 with Sdot = 0 each (UNPARAM Lemma 4.1 (b)); Lemma 4.5's map through it.
+- m2: VI.C section 3 widened to v_C, e_C, C_0 (fixed once by row c1); gammac5.py G4 (42 lines, damping5.tsv; X 4, D 2,
+  S 2, F 15, P 19) and G5 (h := gamma_C^{-1} only in IV''''); negative controls caught.
+- Nits: alpha_+ < 2; interiors and k_0 in Lemma 2.7; Lipschitz citations; the base level's block-triangular map; the
+  reality gap named; (J'3) pointers in J'' and J''' and the J'' inventory row at b; the n8 citation.
+- Status: III.I16 (sections 2.6-2.8, (P3) parity) and VI.C section 3 to be read; every other part proved.
+- Next: the paper's section 8.8 written out over all 74 parts; one reader of D331 and the paper.

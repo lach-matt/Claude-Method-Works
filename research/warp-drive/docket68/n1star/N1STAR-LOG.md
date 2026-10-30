@@ -6049,3 +6049,14 @@ conclusion fails, and the expansion now removes the rotation content through the
 antiderivative, with no map inverted. The fourth batch found no major gap, only that nothing stated the reality of the
 objects at a rotating black hole; it is now stated, with its reason. The smaller findings of all three are seated, and
 the transfer theorem's census is now the reading itself, not a search. One reader takes the repairs of both rounds next.
+
+**D331 (2026-10-30): the repairs read, and the rotation state at a rotating black hole.** One reader went through the
+repairs of the last two rounds. The boost repair, the parameter repair and the corrected start time of the microlocal
+part were found correct, the last of which proves that part. The expansion's repair was not: it removed the rotation
+content together with a translation part, which it then put one order too low. That part is in fact zero. The antipodal
+map of the four spatial directions is a rotation by half a turn in both planes of rotation, so it is an isometry of
+every five-dimensional rotating black hole; translations are odd under it and rotations even, so the rotation state at a
+rotating black hole is a change of the black hole's parameters alone, with no translation part. With that, the
+expansion's repair needs only the rotation rows. Two smaller points: a comparison of two parameter maps is now stated
+for the sources on which each is defined, and the argument that the damping parameter is used at one value now covers
+the damping's other constants, fixed once, with a second enumeration that checks it.
