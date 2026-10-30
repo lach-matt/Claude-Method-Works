@@ -1,13 +1,13 @@
 # Part IV. Exterior estimates I: the edge-b structure and the basic energy estimate, n = 4 ([Hin23a] sections 3.1-3.2)
 
-*Status.* Written (D301). Part IV writes out [Hin23a] section 3 at spatial dimension $n = 4$, on the exterior region of
-III.C, for [Hin26]'s gauge-fixed operator. Its outputs are III.C$'$ Theorem 2.1 (with its continuation on a slab near
-$\mathscr I^+$, III.K (K2)) and the energy estimates behind it. This first part covers the edge-b structure at $\mathscr
-I^+$ (the source's sections 3.1-3.2: Definitions 3.1-3.3, Lemmas 3.6, 3.12-3.16, Corollary 3.14) and the basic energy
-estimate (Proposition 3.17), together with the estimate near the interior of $I_0$ that the source cites from [HV20,
-Proposition 4.3]. Later parts cover the tensor operator, the tame estimates and the Nash-Moser step (sections 3.3-3.6).
-N1STAR-PROOF.md 10.64 records where $n$ enters; here each place is written into the proof. Source: [Hin23a]
-(arXiv:2302.13804v1) pp. 9-17, read at source.
+*Status.* Written (D301); verified (D304: verifier 132's findings seated, to be read). Part IV writes out [Hin23a]
+section 3 at spatial dimension $n = 4$, on the exterior region of III.C, for [Hin26]'s gauge-fixed operator. Its outputs
+are III.C$'$ Theorem 2.1 (with its continuation on a slab near $\mathscr I^+$, III.K (K2)) and the energy estimates
+behind it. This first part covers the edge-b structure at $\mathscr I^+$ (the source's sections 3.1-3.2: Definitions
+3.1-3.3, Lemmas 3.6, 3.12-3.16, Corollary 3.14) and the basic energy estimate (Proposition 3.17), together with the
+estimate near the interior of $I_0$ that the source cites from [HV20, Proposition 4.3]. Later parts cover the tensor
+operator, the tame estimates and the Nash-Moser step (sections 3.3-3.6). N1STAR-PROOF.md 10.64 records where $n$ enters;
+here each place is written into the proof. Source: [Hin23a] (arXiv:2302.13804v1) pp. 9-17, read at source.
 
 ## 0. Setting and the edge-b calculus
 
@@ -148,10 +148,10 @@ x_I\sum_k(x_I\Omega_{k,1})\Omega_{k,2}+x_I(x_I\Omega_\flat)+x_I^2\big(f+\tfrac34
 x_I\mathrm{Diff}^{1,1}_{\mathrm{e,b;b}}$$
 (the source's (3.18)).
 
-- $[L,\Omega] = \rho_I[\Omega,\slashed\Delta]+[\tilde L,\Omega]$, and the first term lies in
-$x_I\mathrm{Diff}^{1,1}_{\mathrm{e,b;b}}$ in the same way. For the second, lifts of vector fields on $\mathbb S^3$
-preserve the eb-classes. In coordinates, $\Omega = \sum_j\Omega^j(y)\partial_{y^j}$ and $V =
-a^0X_0+a^1X_I+\sum_ja^jx_I\partial_{y^j}$, and
+- $[L,\Omega] = \rho_I[\slashed\Delta,\Omega]+[\tilde L,\Omega]$ (the source prints the first commutator with the
+opposite sign; immaterial), and the first term lies in $x_I\mathrm{Diff}^{1,1}_{\mathrm{e,b;b}}$ in the same way. For
+the second, lifts of vector fields on $\mathbb S^3$ preserve the eb-classes. In coordinates, $\Omega =
+\sum_j\Omega^j(y)\partial_{y^j}$ and $V = a^0X_0+a^1X_I+\sum_ja^jx_I\partial_{y^j}$, and
 $$[\Omega,V] = (\Omega a^0)X_0+(\Omega a^1)X_I+x_I\sum_j[\Omega,a^j\partial_{y^j}]\in\mathcal V_{\mathrm{e,b}}$$
 (the source's (3.19a)). So $[-,\Omega]$ maps $\mathrm{Diff}^{2,(\alpha_0,\alpha_1)}_{\mathrm{e,b}}$ to itself (its
 (3.19b)), and $[\tilde L,\Omega]\in x_I\mathrm{Diff}^2_{\mathrm{e,b}}$.
@@ -163,7 +163,8 @@ $x_I\mathrm{Diff}^0$. $\square$
 
 *Domains.* Let $c_\sharp>0$ be so small that, on $\{x_I<c_\sharp\}\cap\{\rho_0\le1\}$:
 
-- $|x| = \rho_0^{-1}x_I^{-2}>c_\sharp^{-2}\ge4R_1$, so the set lies in $U$;
+- $|x| = \rho_0^{-1}x_I^{-2}>c_\sharp^{-2}\ge4R_1$, so the part of the set in $\{t_*\le T_0\}$ lies in $U$ (III.C (1.3);
+$x^1\le1$ alone does not give $t_*\le T_0$, as $t_* = x^1+C'-8\mu_0|x|^{-1}$ there);
 
 - the level sets of $x_I$ are spacelike for $g_{b_0}$;
 
@@ -173,18 +174,23 @@ This is possible. For $\eta$, $d\rho_I = |x|^{-1}\big(-\frac12\rho_Idx^0-(1-\fra
 $$\eta^{-1}(d\rho_I,d\rho_I) = -2|x|^{-2}\rho_I\big(1-\tfrac12\rho_I\big)<0\quad(\rho_I<2)\tag{3.1}$$
 (the source's (3.8), with $\eta^{-1}(dx^0,dx^1) = -2$, $\eta^{-1}(dx^0,dx^0) = \eta^{-1}(dx^1,dx^1) = 0$). The
 correction from $g_{b_0}-\eta$ is $O(\rho^2)$ relative to $\rho_I|x|^{-2}$ by Corollary 1.2, so (3.1) persists for
-$\rho_0x_I^2$ small; this is the role of the source's $\bar x_I\le1/\sqrt{8m}$, at $n = 4$ $\bar x_I\le1/(2\mu_0^{1/4})$
-(10.64 X8).
+$\rho_0x_I^2$ small; this is the role of the source's $\bar x_I\le1/\sqrt{8m}$. Here $c_\sharp$ is fixed by the three
+conditions above in III.C's Minkowski coordinates; the source's numerical bound is stated in its $r_*$-coordinates
+(10.64 X8) and is not used.
 
-Let $\Omega\subset\{x_I<c\}\cap\{\rho_0<1\}$, $c<c_\sharp$, be open. Its boundary in the interior consists of two smooth
-hypersurfaces: $\Sigma_{\mathrm{in}}$, spacelike for $g_{b_0}$, and $\Sigma_{\mathrm{fin}}$, spacelike or null for
-$g_{b_0}$, with $\Omega$ to the future of $\Sigma_{\mathrm{in}}$ and to the past of $\Sigma_{\mathrm{fin}}$. Every
-integral curve of $X_I$ in $\Omega$ (at fixed $\rho_0,\omega$, $\rho_I$ decreasing) begins on $\Sigma_{\mathrm{in}}$.
-The source's $\{x_I<c,\rho_0<1\}$ with $\Sigma_{\mathrm{in}} = x_I^{-1}(c)$ and $\Sigma_{\mathrm{fin}} = \rho_0^{-1}(1)$
-is an example. So is $\Omega_{\mathrm{ext},r_0}\cap\{x_I<c\}\cap\{t_{\mathrm{IVP}}\ge0\}$, whose part of
-$\Sigma_{\mathrm{IVP}}$ is spacelike and whose $\Sigma_{\mathrm{fut},r_0}$ is spacelike (III.C$'$ Lemma 1.1), together
-with the part of $x_I^{-1}(c)$ in it; an outgoing ray at fixed $x^1$ enters it across $\Sigma_{\mathrm{IVP}}$ or
-$x_I^{-1}(c)$.
+Let $\Omega\subset\{x_I<c\}\cap\{\rho_0<1\}\cap\{t_*\le T_0\}$, $c<c_\sharp$, be open. Its boundary in the interior
+consists of two hypersurfaces, each smooth or piecewise smooth (there is no boundary term at a corner of
+$\Sigma_{\mathrm{in}}$, where $u$ vanishes): $\Sigma_{\mathrm{in}}$, spacelike for $g_{b_0}$, and
+$\Sigma_{\mathrm{fin}}$, spacelike or null for $g_{b_0}$, with $\Omega$ to the future of $\Sigma_{\mathrm{in}}$ and to
+the past of $\Sigma_{\mathrm{fin}}$. Every integral curve of $X_I$ in $\Omega$ (at fixed $\rho_0,\omega$, $\rho_I$
+decreasing) begins on $\Sigma_{\mathrm{in}}$. The source's $\{x_I<c,\rho_0<1\}$ with $\Sigma_{\mathrm{in}} =
+x_I^{-1}(c)$ and $\Sigma_{\mathrm{fin}} = \rho_0^{-1}(1)$ is an example once $1$ is replaced by $\bar\rho_0 :=
+(1+2R_1)^{-1}$: $\rho_0<\bar\rho_0$ means $x^1<1-2R_1$, which gives $t_*<T_0$. So is
+$\Omega_{\mathrm{ext},r_0}\cap\{x_I<c\}\cap\{t_{\mathrm{IVP}}\ge0\}$, whose part of $\Sigma_{\mathrm{IVP}}$ is spacelike
+and whose $\Sigma_{\mathrm{fut},r_0}$ is spacelike (III.C$'$ Lemma 1.1), together with the part of $x_I^{-1}(c)$ in it
+(a piecewise smooth $\Sigma_{\mathrm{in}}$, with a corner where it meets $\Sigma_{\mathrm{IVP}}$;
+$\Omega_{\mathrm{ext},r_0}\subset U$ by III.C$'$ Lemma 1.1's proof); an outgoing ray at fixed $x^1$ enters it across
+$\Sigma_{\mathrm{IVP}}$ or $x_I^{-1}(c)$.
 
 **Proposition 3.1 (the energy estimate; [Hin23a] Proposition 3.17 at n = 4).** Let $\Omega$ be as above, $k\in\mathbb
 N_0$, and $\alpha_0,\alpha_I\in\mathbb R$ with $\alpha_I<\min(\alpha_0,0)$. Let $f\in
@@ -209,10 +215,19 @@ $\rho_0^{-2}x_I^{-1}C^\infty$, so $V$ is uniformly timelike in the eb-sense.
 $$2\,\mathrm{Re}\langle wLu,wVu\rangle_{L^2(\Omega,\mu_{\mathrm b})} = \langle Qu,u\rangle+\mathcal
 B_{\mathrm{fin}}(u),\qquad Q := L^*W+W^*L = [L,W]-(\mathrm{div}_{\mu_{\mathrm b}}W)L.$$
 Here $\mathcal B_{\mathrm{fin}}$ is the boundary term at $\Sigma_{\mathrm{fin}}$; there is none at
-$\Sigma_{\mathrm{in}}$, where $u$ vanishes to second order, and none at $I_0\cup\mathscr I^+$ for $u$ of compact support
-in $M_\sharp$, the general case following by density. $\mathcal B_{\mathrm{fin}}(u)\ge0$: it is the flux through
-$\Sigma_{\mathrm{fin}}$ of the energy current of the future timelike $W$, and $\Sigma_{\mathrm{fin}}$ is spacelike or
-null with $\Omega$ to its past.
+$\Sigma_{\mathrm{in}}$, where $u$ vanishes to second order, and none at $I_0\cup\mathscr I^+$ in the following
+approximation, as the forward solution is not known beforehand to lie in the weighted space. Approximate $f$ in
+$H^{k,(\alpha_0,2\alpha_I)}_{\mathrm b}$ by $f_j$ supported in $\{\rho_0\ge1/j\}$. The forward solution $u_j$ of $Lu_j =
+f_j$ vanishes near $I_0$, the causal future of $\mathrm{supp}\,f_j$ staying in $\{x^1\ge x^1_j\}$ for some $x^1_j$, so
+away from spatial infinity. Apply the identity to $u_j$ on $\Omega_\epsilon := \Omega\cap\{x_I>\epsilon\}$, whose added
+boundary $\{x_I = \epsilon\}$ is spacelike by (3.1), with $\Omega_\epsilon$ to its past: it is a further final boundary,
+with a boundary term of the same sign as $\mathcal B_{\mathrm{fin}}$. The Poincaré inequality below does not depend on
+where an $X_I$-curve ends. So the estimate holds for $u_j$ on $\Omega_\epsilon$, uniformly in $\epsilon$ and $j$; let
+$\epsilon\to0$, then $j\to\infty$, the $u_j$ converging to $u$ locally uniformly with their derivatives and the uniform
+bound passing to the limit. $\mathcal B_{\mathrm{fin}}(u)\ge0$: it is the flux through $\Sigma_{\mathrm{fin}}$ of the
+energy current of the future timelike $W$, and $\Sigma_{\mathrm{fin}}$ is spacelike or null with $\Omega$ to its past.
+It also contains the potential term, a positive multiple of $V_0|u|^2$ with $V_0 := L(1) = \frac34x_I^2+O(x_I^3)>0$
+(near $I_0$, $\frac34\rho_I$), of the same sign; so does the boundary term of Proposition 4.1's proof.
 
 *The principal symbol of Q.* Modulo $\rho_0^{-2\alpha_0}x_I^{-4\alpha_I+1}\mathrm{Diff}^2_{\mathrm{e,b}}$, $L$ may be
 replaced by the leading part $L_0$ of (2.2), and $\mu_{\mathrm b}$ by $\bar\mu_{\mathrm b}
@@ -288,8 +303,11 @@ $\Lambda$ large this gives the estimate for $k = 0$, with $e^{\pm\Lambda\tau}$ b
 Higher b-regularity follows by commuting $\rho\partial_\rho$ and the rotation fields: their commutators with $L$ lie in
 $\mathrm{Diff}^2_{\mathrm b}$ and are of first order in the commuted derivatives, since $L$ is a b-operator. The
 induction closes on the compact $\tau$-interval with the same $\Lambda$-argument, the commutator terms entering as
-sources. Commuting $\partial_\tau$ is not needed: a b-derivative transversal to the level sets of $\tau$ is recovered
-from the equation, $L$ being strictly hyperbolic with respect to $\tau$. $\square$
+sources: the $k = 0$ estimate has the form $\|w_0\nabla u\|\le C\Lambda^{-1}\|w_0f\|$, so these sources, of first order
+in the commuted derivatives, are absorbed for $\Lambda$ large, and the $\partial_\tau^2$-terms of
+$[L,\rho\partial_\rho]$ are recovered from the equation. Commuting $\partial_\tau$ is not needed: a b-derivative
+transversal to the level sets of $\tau$ is recovered from the equation, $L$ being strictly hyperbolic with respect to
+$\tau$. $\square$
 
 *Remark 4.2 (gluing).* Proposition 3.1 near $\mathscr I^+\cup(I_0\cap\mathscr I^+)$, Proposition 4.1 near the interior
 of $I_0$, and the standard energy estimate on compact sets cover $\Omega_{\mathrm{ext},r_0}$ near infinity. The forward
@@ -297,8 +315,15 @@ problem is solved successively: on a region whose past boundary is $\Sigma_{\mat
 the previous solution as data. The data enter as sources after subtracting an extension of the Cauchy data, cut off near
 the initial surface. The regions are ordered by domain of dependence (II.F Lemma 1.3), as in the source ("cut and paste
 energy estimates using domain of dependence properties", p. 16). Where two estimates apply, the solutions agree, and the
-norms are equivalent on the overlaps, each overlap lying away from the face that distinguishes the two calculi. The
-global estimate for the tensor operator, with weights at both faces, is the next part's.
+norms are equivalent on the overlaps, each overlap lying away from the face that distinguishes the two calculi.
+$\Omega_{\mathrm{ext},r_0}$ also contains the past slab $\{-\frac{r-r_0}{12}\le t_{\mathrm{IVP}}\le0\}$ (III.C$'$ Lemma
+1.1), where III.C$'$ Theorem 2.1 asserts the solution and III.C$''$ and III.K use it. There the solution is the backward
+one from $\Sigma_{\mathrm{IVP}}$, near the interior of $I_0$ ($\tau\in[-\frac1{12}-\epsilon,\epsilon]$ for $r_0$ large),
+and Proposition 4.1 gives it with $t$ replaced by $-t$: $g_{b_0}$ is static, so $t\mapsto-t$ is an isometry of it, and
+the proof uses only the b-structure of $L$ and that $d\tau$ is timelike on the $\tau$-range,
+$\Sigma_{\mathrm{past},r_0}$ being spacelike (III.C$'$ Lemma 1.1). This backward problem is among Part IV's outputs;
+Part IV$''$ writes it with the data. The global estimate for the tensor operator, with weights at both faces, is the
+next part's.
 
 ## 5. Findings and sources
 
