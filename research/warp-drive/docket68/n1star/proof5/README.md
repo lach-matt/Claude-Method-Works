@@ -52,7 +52,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.G'''' | [Hin26] 9.2 (Definitions 9.25, 9.29, Lemma 9.26, Propositions 9.30, 9.35) | the tf-normal operator: formal solutions at ztf, the expansion of its inverse at r-hat = 0 over the window (-3, 0], grafting into the low-energy space, conormal sources; Prop 9.35's first step repaired | proved (D249; verified D247 with three minor findings and eight nits) |
 | III.H | [Hin26] 10.1 (Lemma 10.4, (10.24), Propositions 10.6-10.7, section 10.1.3) | the augmented low-energy resolvent: cut-off states, the augmented zero energy operator, uniform low-energy estimates with sigma-dependent columns; mode stability near b0 at low frequency | proved (D252; verified D249 with two minor findings and six nits) |
 | III.H' | [Hin26] 10.2 (Theorem 10.1, Lemmas 10.9-10.13) | 2-admissibility of L_b: the contour representation, high and low frequencies, the zero energy contributions integrated twice in t_*; sf-loss 0 at n = 4 | proved (D256; verified D252, D254) |
-| III.H'' | [Hin26] Proposition 8.3 and Theorem 10.1 near b_0; [Hin26c] Theorems 10.1, 11.1 uniformly in the stationary model | uniformity near b_0: strong trapping admissibility at every b by a frame from the null geometry, 2-admissibility on a fixed neighbourhood for every k, II.F Theorem 8.1 and II.F' Theorem 1.1 uniformly over the family 2L_b, III.I Theorem 5.3 near b_0 with continuity in b | written (D294) |
+| III.H'' | [Hin26] Proposition 8.3 and Theorem 10.1 near b_0; [Hin26c] Theorems 10.1, 11.1 uniformly in the stationary model | uniformity near b_0: strong trapping admissibility at every b by a frame from the null geometry, 2-admissibility on a fixed neighbourhood for every k, II.F Theorem 8.1 and II.F' Theorem 1.1 uniformly over the family 2L_b, III.I Theorem 5.3 near b_0 with continuity in b | verified (D296; repairs to be read) |
 | III.I | [Hin26] 11 opening, 11.1 (Definition 11.3, Lemma 11.5, Propositions 11.6, 11.8, Corollaries 11.9-11.10, Theorem 11.12) | the dynamical linearised operator: perturbation classes, the e3b class, structure in the forward cone, forward mapping, admissibility with p_0 = p~_1 = 0, forward solutions at b0 with sf-loss 0; the orders of II.F' in O_c | proved (D258: verifier 108 read the D256 repairs; verified D254, D256) |
 | III.I' | [Hin26] 11.2 (Propositions 11.14, 11.16, Lemma 11.15) | partial polyhomogeneity at null infinity without loss at future timelike infinity; formal solutions at null infinity, one exceptional term | proved (D258: verifier 108 read the D256 repairs; verified D256) |
 | III.I'' | [Hin26] 11.3 (Proposition 11.17, Lemmas 11.18-11.19) | almost linear bounds: integration of d_t* with a moment condition, the three frequency ranges, forward solutions improved at K+ with the iota+-weight kept at min(alpha_+, 3/2, min Re E_+) | proved (D259: verifier 109 read the D258 repairs; verified D258) |
@@ -70,8 +70,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | **proved** (D287) |
 | III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | **proved** (D287) |
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
-| III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | proved (D295; the weights (J''4) discharged at b_0 by III.J''', to be read) |
-| III.J''' | [Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights | exact weights: the exact classes and conditions (E1)-(E5), the graft at the exact K+ weight in the rho_+ convention, III.A Proposition 4.2 exact, the pointwise bounds at the final weight re-proved in L^2, III.I(14) Theorem 3.1 and III.J' Theorem 2.1 at fixed weights, the tame estimates on one pair of scales | verified (D295; repairs to be read) |
+| III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | proved (D295; the weights (J''4) discharged at b_0 by III.J''', proved D296) |
+| III.J''' | [Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights | exact weights: the exact classes and conditions (E1)-(E5), the graft at the exact K+ weight in the rho_+ convention, III.A Proposition 4.2 exact, the pointwise bounds at the final weight re-proved in L^2, III.I(14) Theorem 3.1 and III.J' Theorem 2.1 at fixed weights, the tame estimates on one pair of scales | **proved** (D296) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -923,7 +923,10 @@ so II.F's analysis at $\iota^+$ carries over unchanged, and Theorem 3.1 is II.F 
 4.1 is II.F$'$ Theorem 1.1 uniformly in $b$, with continuity in $b$, which discharges (F$'$11) for this family.
 Corollary 5.1 is III.I Theorem 5.3 near $b_0$, the source's Theorem 11.12 with continuity in $b$. (H$''$5) records what
 (J$'$3) still needs: the chain III.I$'$-III.J$'''$ at base points $b\ne b_0$ (the v1-rows of non-Killing rotations,
-index sets fixed at $b_0$, derivatives in $b$ at $b_0$). Written (D294).
+index sets fixed at $b_0$, derivatives in $b$ at $b_0$). Written (D294). Verified (D296): verifier 128's four minor
+findings seated. Uniformity for every $k$ comes by compactness over a first neighbourhood $\mathcal B_1$, and $\mathcal
+B_*$ is chosen after the uniform constants. II.F section 6 is run with $2L_{b_0}$. (C3) holds at $b$ by the margins of
+III.I Lemma 5.1. Six nits are also seated.
 
 ## Part III.I
 
@@ -1189,8 +1192,9 @@ Discharged at b_0 by III.J''' (D293), to be verified. Proved (D295): verifier 12
 resolved.
 
 `PART-III-J4-EXACT.md`. [Hin26] Corollary 11.66 and Theorem 12.8 at the fixed weights the source states, at n = 4 and
-b_0. Definition 1.1 gives the exact classes, Definition 1.3 the conditions (E1)-(E5), each a finite exclusion (Lemma
-1.4). Section 3 writes the graft of III.G'' Corollary 4.3 in powers of log rho_+, the convention of the source's
+b_0. Definition 1.1 gives the exact classes, Definition 1.3 the conditions (E1)-(E5) (Lemma 1.4: (E2)-(E4) finite
+exclusions, (E1) a smallness condition, (E5) vacuous). Section 3 writes the graft of III.G'' Corollary 4.3 in powers of
+log rho_+, the convention of the source's
 Definition 2.8, in which it is exact (Corollary 3.2); in powers of log t_* the two classes are incomparable (Remark
 3.1). Section 4 shows
 III.A Proposition 4.2 exact at K+ and re-proves in L^2 the four pointwise bounds at the final weight (the fourth, at the
@@ -1200,7 +1204,9 @@ weights, and Corollary 6.6 the tame estimates of III.J'' on one pair of Banach s
 Findings (J'''1)-(J'''7). Written (D293). Verified (D295): verifier 127's findings seated. The major one: the joint
 exact weight at the corner of iota+ and K+ needed an L^2 form of III.I(12) Lemma 2.1 there (Lemma 4.7). Also seated:
 Remark 3.1 corrected (the two classes are incomparable); Corollary 6.6 now argues why the unchanged lossy rows do no
-harm; (E1) is a smallness condition and (E5) vacuous.
+harm; (E1) is a smallness condition and (E5) vacuous. Proved (D296): verifier 128 read the D295 repairs and found them
+correct; four nits seated (the transition region, the main terms of the type (v) pieces, Remark 3.1's title, stale
+(E5) wording).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

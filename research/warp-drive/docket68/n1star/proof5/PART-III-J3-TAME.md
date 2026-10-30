@@ -372,7 +372,7 @@ $K^+$ step each minus at $K^+$ ($\alpha-$, $(\alpha-2)-$, $(\alpha-1)-$, and the
 $Y_{\rho,\mathrm{rem}}$) is to be classified as a margin or a logarithm at the weight, and for a logarithm the shifted
 weight named to which the source's fixed $4+\epsilon_K$ corresponds (verifier 126).
 III.J$'''$ (D293) takes another route: each loss that reaches a final weight is removed where it arises, none is
-improved after the fact, and its Corollary 6.6 discharges (J$''$4) at $b_0$, to be verified.
+improved after the fact, and its Corollary 6.6 discharges (J$''$4) at $b_0$ (proved, D296).
 
 (J$''$5) *Smallness in one norm.* Every "small" of III.I-III.I$''''''''''''''$ is smallness in one fixed norm (Lemma
 2.3); the orders $d_k$ of III.J$'$ Theorem 2.1 are not needed.

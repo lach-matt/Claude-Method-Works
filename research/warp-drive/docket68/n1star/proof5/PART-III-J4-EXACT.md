@@ -1,6 +1,7 @@
 # Part III.J$'''$. Exact weights, n = 4 ([Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights)
 
-*Status.* Written (D293); verified (D295: verifier 127's findings seated, to be read). This part proves, at spatial
+*Status.* Written (D293); verified (D295: verifier 127's findings seated); proved (D296: verifier 128 read the D295
+repairs and found them correct; four nits seated). This part proves, at spatial
 dimension $n = 4$ and $b = b_0$, that the solution map of III.I$''''''''''''''$ Theorem 3.1 and the right inverse of
 III.J$'$ Theorem 2.1 lose nothing in the weights. A source at the fixed weights $(\ell_I+1,5+\epsilon_+,\alpha)$ at
 $(\mathscr I^+,\iota^+,K^+)$ gives a solution at $(\ell_I,3+\epsilon_+,\alpha)$, with one fixed admissible $\alpha$.
@@ -25,8 +26,9 @@ At $\iota^+$, the level-2 margin $\eta_2<\epsilon_+$ of III.I$'''''''''''$ and t
 choices, not estimate losses: at the closed endpoint of (G$^+$) every map is exact (Proposition 4.3), as the source's
 own run at these weights shows (pp. 289-291). At $\mathscr I^+$ every class and every main statement is already exact.
 (2) *The $K^+$-weight is one fixed admissible $\alpha$*, not the numeral $4+\epsilon_K$; $\alpha = 4+\epsilon_K$ itself
-is admissible off a finite set of $\epsilon_K$ (Definition 1.3, (A$_K$)). (3) *Four new conditions* (E2)-(E5), each
-excluding finitely many values, of the kind of (G$^+$) and of admissibility.
+is admissible off a finite set of $\epsilon_K$ (Definition 1.3, (A$_K$)). (3) *New conditions* (E2)-(E4), each
+excluding finitely many values, of the kind of (G$^+$) and of admissibility; (E1) is (G$^+$) at its closed endpoint,
+and (E5) is vacuous.
 
 Notation: as in III.I$''''''''''''''$, III.J, III.J$'$ and III.J$''$; $w_+ := 5+\epsilon_+$; $\rho_+$, $\rho_K$ are the
 defining functions of $\iota^+$ and $K^+$ near their corner, $\rho_+ = 1/r$, $\rho_K = R = r/t_*$, so $t_*^{-1} =
@@ -143,7 +145,7 @@ $\log\rho_+$, with coefficients on $\iota^+$ that carry the weights of the adjac
 $$\rho_+^z(\log\rho_+)^\ell a = t_*^{-z}\sum_{j\le\ell}\tbinom\ell j(-1)^\ell(\log
 t_*)^j(\log\rho_K)^{\ell-j}\rho_K^{-z}a.\tag{3.1}$$
 
-**Remark 3.1 (the $t_*$-convention cannot be exact).** III.G$''$ Corollary 4.3 takes $f = \sum_{j\le k}\chi_\iota
+**Remark 3.1 (the two conventions at the exact weight).** III.G$''$ Corollary 4.3 takes $f = \sum_{j\le k}\chi_\iota
 t_*^{-\lambda_0-2}(\log t_*)^jf^{(j)}_++f'$ with $f^{(j)}_+\in\bigcap_\epsilon
 H^{\infty,\ell_I+1,\ell_K-2-\epsilon}_{\mathrm b}(\iota^+)$, and concludes (4.5) at the $K^+$-weight
 $\lambda_0+\ell_K-\epsilon$. By (3.1) a source of exact $K^+$-weight $\alpha$ in the sense of Definition 2.8 has
@@ -372,8 +374,8 @@ $-\epsilon_{\mathrm{ind}}<w<\ell^{\max}_K$; $\ell_3\notin\mathbb N_0$; $w\ne-\mu
 rounds start from tf-weights $\ge1+\epsilon_++\epsilon_{\mathrm{ind}}-\epsilon$, with fixed room above $2+\epsilon_+-1$;
 their $\alpha_\tau$ may be lowered freely, so their conditions hold off a finite set of $\alpha_\tau$, and their
 zf-weight $\ell_3$ is kept. The final zero-energy solve: III.I$''$ Lemma 4.2 with $\beta_{\mathrm{zf}} := \ell_3$
-(allowed by (E5)) and $\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}}\in(0,1)$ gives $\dot b_f$, $S_f\in
-H^{\infty,\ell_3}_{\mathrm b}$ and $\hat u_f$ with zf-weight $\ell_3$.
+(III.I$''$ Lemma 4.2 puts no condition on $\beta_{\mathrm{zf}}$) and $\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}}\in(0,1)$
+gives $\dot b_f$, $S_f\in H^{\infty,\ell_3}_{\mathrm b}$ and $\hat u_f$ with zf-weight $\ell_3$.
 
 *Step 5.* Lemma 4.2 with $\beta := \alpha-3\notin\mathbb N_0$: the exponents with $\mathrm{Re}\,z<\alpha-3$ are in $E$,
 those above in $r^\pm$, none at $\alpha-3$ by (E3); $r^\pm = O(|\sigma|^{\alpha-3})$ follows from the zf-weight
@@ -455,7 +457,10 @@ $\ne3+\epsilon_+$ by (E1), or comes from a conormal profile at the edge ($\hat u
 $\mu'_j-2\in\{2+\epsilon_+,1+\epsilon_+,\epsilon_+\}$, or $v_0$ with degree $\epsilon_+-1$), each with $z$ plus its
 degree equal to $3+\epsilon_+$ and $d_\rho\in\{\mu,0,1\}$ different from that degree, so $z+d_\rho>3+\epsilon_+$.
 *The corner (D295).* Near $\mathscr I^+$ and on $\{r\ge t_*/2\}$, $\chi_K = 0$ and $\tilde u = u$, exact at $\iota^+$
-by Proposition 4.3 (with $u_I$ of Proposition 3.4). Near the corner of $\iota^+$ and $K^+$, $\tilde u$ is the sum over
+by Proposition 4.3 (with $u_I$ of Proposition 3.4). On the transition region $\{t_*/8<r<t_*/2\}$, away from the
+corner, $\tilde u = u-\chi_Ku_{\exp}$ with both terms exact at $\iota^+$: $u$ by Proposition 4.3, and $u_{\exp}$ as a
+sum of coefficients of exact order times homogeneous or exact-degree profiles, exact at $\iota^+$ where $r\sim t_*$
+(D296). Near the corner of $\iota^+$ and $K^+$, $\tilde u$ is the sum over
 the pieces of III.I$''''''''''''$ Theorem 3.1, Step 1, of each piece minus its part in $\chi_Ku_{\exp}$. Two kinds of
 piece reach $\iota^+$-order exactly $3+\epsilon_+$. The first is the conormal parts of (v), and of the pieces of type
 (v) inside (vi) and (viii). These come from III.I$''''''''''''$ Lemma 2.1 (b) with $c =
@@ -463,9 +468,12 @@ piece reach $\iota^+$-order exactly $3+\epsilon_+$. The first is the conormal pa
 space of its degree (Proposition 4.3). The second is the level-3 towers of (viii). These come from Lemma 2.1 (a) with
 $w = \alpha_\tau+1-\mu$ and the tower's profiles, homogeneous of degree $d_\rho-j$ (III.I$''''''''''''$ section 1), so
 $w+1+d_\rho = \alpha_\tau+2 = 3+\epsilon_+$. For each, the part in $\chi_Ku_{\exp}$ is the main term
-$\chi_K\sum_j(\chi_+y)^{(j)}p_j$ of (2.1) there, and what is left in $\tilde u$ is its $R$. Lemma 4.7 puts $R$ in
-$\rho_+^{3+\epsilon_+}\rho_K^NH^\infty_{\mathrm b}$ near the corner, for every $N$. Every other term of $\tilde u$ there
-is exact at one face with room at the other ((J$'''$6)). It has $K^+$-order $\ge\alpha$ (Steps 0-4) and either
+$\chi_K\sum_j(\chi_+y)^{(j)}p_j$ of (2.1) there, and what is left in $\tilde u$ is its $R$. This is literal for the
+conormal towers. For the pieces of type (v) the main terms are reorganised by III.I$''''''''''''$ Lemma 2.4 (Step 3),
+and the coefficient sections at exponents below $\alpha$ are exactly sums of states (III.I$''''''''''''$ Lemma 2.3 (a)),
+so again what is left is $R$ and terms of the kinds below; so the dichotomy below is exhaustive (D296). Lemma 4.7 puts
+$R$ in $\rho_+^{3+\epsilon_+}\rho_K^NH^\infty_{\mathrm b}$ near the corner, for every $N$. Every other term of $\tilde
+u$ there is exact at one face with room at the other ((J$'''$6)). It has $K^+$-order $\ge\alpha$ (Steps 0-4) and either
 $\iota^+$-order $>3+\epsilon_+$, or is polyhomogeneous at $\iota^+$ with exponents in $\mathcal E_\sharp$, none of real
 part $3+\epsilon_+$ (E1). So $\tilde u$ has $(\mathcal E_\sharp,3+\epsilon_+)$ at $\iota^+$ jointly with $\alpha$ at
 $K^+$. $\square$

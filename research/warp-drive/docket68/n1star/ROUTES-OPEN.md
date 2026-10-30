@@ -3930,3 +3930,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Propositions 2.1 and 3.1, lambda_sharp included; the Laurent cut-off for the remainder's coefficients; "finite rank"
   dropped; "(P2: ...)" replaced by the use of (E1) in III.A's integrations.
 - Next: verifier 128 reads the D295 repairs of III.J''' and III.H'' (D294).
+
+### 4.220 Verifier 128 seated (D296): III.J''' proved; III.H'' verified, its repairs to be read
+
+- Verifier 128 read III.H'' (D294) and the D295 repairs of III.J'''. III.J''': every finding of verifier 127
+  resolved (Lemma 4.7 correct; the corner paragraph closes M1); four nits seated, and III.J''' is proved. (J''4) is
+  discharged at b_0.
+- III.H'': 0 major, 4 minor, 6 nits, seated. m1: Theorem 2.1's uniformity for every k comes from I.C Theorem 7.1 (2),
+  local around each b at which its qualitative hypotheses hold, and compactness over a first neighbourhood B_1.
+  m2: B_* is now chosen after the uniform constants, by (B5): Corollary 5.1's eps_0, the slab smallness up to
+  tau_0^{-1}, and t^flat from g_{b_0} serving every b. m3: II.F section 6.3 uses P_0, so section 6 is run with
+  2L_{b_0}. m4: (C3) at b by the margins of III.I Lemma 5.1.
+- Nits: the limit operator's smallness in Theorem 4.1's continuity; the two further facts of the grading argument;
+  the extension off Sigma by the same formulas; II.D at I+ and C' in section 7.6's list; the (H''5) sentence on
+  III.G''; the frame comparison at b_0 marked as unused.
+- Next: (H''5), the chain III.I'-III.J''' at base points b != b_0 (plan in the scratchpad, d296/plan.md).

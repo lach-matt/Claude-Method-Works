@@ -5763,3 +5763,10 @@ re-proof of a pointwise bound in L^2, not three as D293 said, and the new lemma 
 are seated: a remark had overstated what the time-coordinate convention rules out; the tame corollary now explains why
 the steps left with small losses do no harm; and one of the new conditions is a smallness bound, not a finite
 exclusion, while another is vacuous.
+
+**D296 (2026-10-30): the exact-weight part is proved.** The verifier read the repairs to the exact-weight part and
+found them correct, so it is proved: the solution maps lose nothing in the decay weights at the reference black hole.
+It also read the uniformity part and found no major gap. It had four smaller points, all now seated. The constants are
+uniform for every order of regularity by compactness. The neighbourhood of the reference black hole is now chosen
+after the constants it must respect, not before. One step at future timelike infinity is run with the reference
+operator. One condition on the orders is checked at the nearby black holes too.
