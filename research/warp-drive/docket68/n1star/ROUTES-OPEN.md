@@ -4510,3 +4510,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Repair: an admissible pair (eps_dat, delta_K) in (0,1]^2, for which every non-Nash-Moser smallness hypothesis of
   III.K holds on {data < eps_dat in H^d1} x {|U|_3d < delta_K}; it exists by III.K's proof (K:383-388, 410-411,
   465-469) and is down-closed; the eps-choice is made first; section 0 says the pair is defined, not computed.
+
+### 4.264 lambda_1 and delta: verifier 159 (D341)
+
+- Verifier 159: the admissible-pair definition well-posed and down-closed; MAJ-1 its existence cited K:410-411's
+  wording instead of the proof's quantifiers; MIN-1 eps_m, eps_t, eps_K missing from section 0 and the not-explicit
+  list; NIT-1..5 (stale D-numbers, "proves" before the read, eps_NM's C_k as data-ball bounds, the data map's
+  topology unnamed, U's class B^inf). All seated; existence now from II.G's domain {|U|_3d < delta} with delta uniform
+  over small data, then a shrink for the S-dependent and joint conditions. To be read.

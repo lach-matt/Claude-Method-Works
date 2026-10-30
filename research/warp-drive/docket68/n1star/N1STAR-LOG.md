@@ -6147,3 +6147,9 @@ smallness conditions involve the data and the unknown together, and some thresho
 data. The reduction now fixes a pair, a data size and a radius at which every such condition holds, and takes it from
 the nonlinear step's own proof, which shows that one exists. It also says plainly what this does not give: those two
 numbers are defined by the proof's hypotheses, not computed. To be read.
+
+**D341 (2026-10-30): the pair's existence argued from the proof itself.** A fifth reader accepted the definition of
+the pair and found the argument for its existence leaning on a sentence the reduction itself calls loose. The
+argument now runs through the nonlinear step's own quantifiers: the Nash-Moser theorem is applied on a ball of fixed
+radius on which the right inverses must exist, the radius is uniform over small data, and the remaining conditions
+hold after shrinking both. The given parameters of the final assembly are added to the list. To be read.

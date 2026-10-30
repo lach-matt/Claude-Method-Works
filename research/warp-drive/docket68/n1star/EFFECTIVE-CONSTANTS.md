@@ -1,7 +1,7 @@
 # Evaluating λ1 and δ: methods, the reduction, and the programme
 
 *Status.* Begun D338 (M, 2026-10-30: "deep research this for possible methods of evaluating/calculating/deriving such
-numbers, and then prove them"). Section 2's reduction has been read four times.
+numbers, and then prove them"). Section 2's reduction has been read five times.
 
 - *Verifier 155 (D338).* Proposition 2.1 correct; Proposition 2.2 incomplete (two major findings, five minor, six
   nits).
@@ -14,7 +14,10 @@ numbers, and then prove them"). Section 2's reduction has been read four times.
 - *Verifier 158 (D339).* The chain to λ1 and δ correct; the definitions of δ_K and ε_dat by suprema ill-posed (joint
   hypotheses; U-thresholds that depend on the data); three minor, five nits.
 
-- *Now (D339).* Proposition 2.2 fixes an admissible pair (ε_dat, δ_K), which III.K's proof shows exists, and keeps the
+- *Verifier 159 (D341).* The pair's definition sound; its existence argued from the wrong lines (one major, one
+  minor, five nits).
+
+- *Now (D341).* Proposition 2.2 fixes an admissible pair (ε_dat, δ_K), which III.K's proof shows exists, and keeps the
   enumeration as an inventory not claimed complete. To be read.
 
 Nothing else here is proved. Labels as in the record: computed, deduced, READ.
@@ -24,14 +27,15 @@ Nothing else here is proved. Labels as in the record: computed, deduced, READ.
 - *What λ1 and δ are.* Theorem 4 (proof5 Part VII Theorem 0.2) holds for λ ≤ λ1 and data within δ. Both are fixed in
   Part VII section 4.
 
-- *What they reduce to.* Section 2 proves that they are explicit formulas (minima, ratios, Proposition 2.1's θ0) in a
-  finite list of named quantities:
+- *What they reduce to.* Section 2 shows (to be read) that they are explicit formulas (minima, ratios, Proposition
+  2.1's θ0) in a finite list of named quantities:
   - the tame constants of III.K's map and of its right inverses, and the smoothing constants;
   - the loss d of the right inverses, with k'' and d1 = N + k'';
   - A_2d and the threshold ε_NM^G of Part VII's G-invariant run;
   - an admissible pair (ε_dat, δ_K): a data size and a radius in U at which every other smallness hypothesis of
     III.K holds;
-  - the record's threshold λ_1.1 at order J, and the gluing's η_gl and C_R, which depend on the chosen R.
+  - the record's threshold λ_1.1 at order J, and the gluing's η_gl and C_R, which depend on the chosen R;
+  - the given ε_m and ε_t (through the α of VI.C row w2) and VI.C's threshold ε_K (PART-VII-ASSEMBLY.md:397-401).
   - *What this does not give.* (ε_dat, δ_K) are defined by III.K's own hypotheses, not computed: for them the reduction
     says only that III.K's thresholds exist, and lists the parts found so far (an inventory, not claimed complete).
 
@@ -91,7 +95,7 @@ Nothing else here is proved. Labels as in the record: computed, deduced, READ.
    - *What this means here.* Making the high-energy estimates explicit will not give small constants. That is a
      reason to keep the explicit high-energy work on Tangherlini, where the dynamics are explicit.
 
-## 2. The reduction (Proposition 2.1 confirmed; Proposition 2.2 repaired D339, to be read)
+## 2. The reduction (Proposition 2.1 confirmed; Proposition 2.2 repaired D341, to be read)
 
 **Proposition 2.1 (II.G's threshold, explicitly).**
 
@@ -149,10 +153,16 @@ The proof sets its ε := θ0^−α. Verifier 155 checked the identities (2.5), 5
       |U|_{3d} < r, every hypothesis of smallness that III.K sections 1-4 take, directly or through the statements
       they apply, holds, on the data, on U, on |S| (through |S| ≤ |U|_{3d}) or on them jointly. The Nash–Moser
       conditions ε_NM and ε_NM^G are excepted, and treated below.
-    - *There is one.* III.K's proof establishes it: Theorem 3.2 applies II.G on {|U|_{3d} < δ} with δ and the
-      constants uniform for data of H^{d1}-norm at most 1 (III.K:387-388, 410-411), and Theorems 3.2 and 4.3 are
-      stated for data small in H^{d1} (III.K:383, 465-469). So every hypothesis of III.K holds on some such product.
-      If one sat on a norm above d1, III.K's theorem would be false as stated, and it is proved (D312).
+    - *There is one.* This follows from the quantifiers of III.K's proof. Theorem 3.2 applies II.G on the domain
+      {U ∈ B^∞ : |U|_{3d} < δ} (III.K:387-388), and II.G uses Lemmas 2.2 and 2.3 at every point of its domain, so
+      their thresholds on U exceed δ there. The proof takes δ, with C_k, C1 and C2, bounded uniformly over the small
+      data (III.K:410-411), so one δ serves every datum below some size: a product set. The thresholds that depend on
+      S, as III.C Proposition 4.4's through g_1 (PART-III-C-EXTERIOR.md:340-341), and the joint conditions of
+      Proposition 4.2 (III.K:457-458) then hold after shrinking both entries further. Every data hypothesis is on a
+      norm of order at most d1, because Theorems 3.2 and 4.3 are stated and proved for data small in H^{d1}
+      (III.K:383, 465-469); a hypothesis above d1 would leave that proof incomplete.
+    - *Where U ranges.* Over B^∞ (III.K's class with tails, III.K:324, 407-408), where Lemma 2.3's support clause and
+      II.G (iii) hold.
     - *Down-closed.* Shrinking either entry keeps a pair admissible, so a pair can be fixed before anything below.
     - *A choice it contains.* Statements of the form "for every k and ε > 0 there are k_1 and ε_1"
       (PART-III-C2-POLYHOM.md:96-98, 143-145; PART-IV3-NM.md:322, 328-329) give a threshold only once their ε is
@@ -160,7 +170,8 @@ The proof sets its ε := θ0^−α. Verifier 155 checked the identities (2.5), 5
       first, and the pair, Proposition 1.2 (3)'s C_k and hence A_2d are relative to it.
     - *Choices that do not enter.* The cut-off's c (III.K:147-148) and the gauge parameters γ and e_Υ (III.K:49-53)
       are fixed before, and bind neither U nor the data.
-    - ε_NM: Proposition 2.1's threshold for III.K's spaces, with η_G := 1 and δ_G := min(δ_K, ε_m).
+    - ε_NM: Proposition 2.1's threshold for III.K's spaces, with η_G := 1 and δ_G := min(δ_K, ε_m), and with C_k, C1,
+      C2 their bounds over the data ball (III.K:411), so that ε_NM does not depend on the datum it bounds.
     - A_2d: III.K Lemma 2.2 (d)'s constant, ‖P5(Ψ(0))‖_{F^{2d}} ≤ A_2d ‖(γ̃, k̃)‖_{H^{2d+k''}}.
     - ε_NM^G: the threshold of Part VII Proposition 3.2's run of II.G on G-fixed spaces, on ‖P5(Ψ(0))‖ in the G-sup
       norm (PART-VII-ASSEMBLY.md:386). It is Proposition 2.1 with the constants of the G-sup norms, which carry the
@@ -218,8 +229,8 @@ statement.
   (PART-IV4-SLAB.md:86).
 
 - *On the data, through Proposition 1.2.*
-  - The data map, III.C'' Proposition 4.1: γ̃ small in H³_b, (h_0, h_1) continuous in the data
-    (PART-III-C3-BOOSTDATA.md:166-168).
+  - The data map, III.C'' Proposition 4.1: γ̃ small in H³_b, (h_0, h_1) "depending continuously" on the data
+    (PART-III-C3-BOOSTDATA.md:166-168), in a topology the statement does not name; E1'' is to fix it.
   - The exterior, III.C'' Theorem 3.1 (PART-III-C3-BOOSTDATA.md:91), through III.C' Theorem 2.1's ε_0 at
     H^{k_0, ℓ♭_0}_b (PART-III-C2-POLYHOM.md:89-92), which is Part IV'' Theorem 3.1's ε_0 at H^{14, ℓ♭_0}_b
     (PART-IV3-NM.md:321-324, its own d := 7): a Nash–Moser threshold, ε_ext.
@@ -244,10 +255,12 @@ statement.
 
 - the tame constants C_k (k ≤ N), C1 and C2 of III.K's map and right inverses, and the smoothing constants C_{s,t};
 
-- the admissible pair (ε_dat, δ_K), among whose parts are the two Nash–Moser thresholds ε_ext and ε_slab with their higher-order
-  thresholds and the data map's modulus of continuity; and A_2d;
+- the admissible pair (ε_dat, δ_K), among whose parts are the two Nash–Moser thresholds ε_ext and ε_slab with their
+  higher-order thresholds and the data map's modulus of continuity; and A_2d;
 
 - the constants of the equivalence of the G-sup norms in ε_NM^G;
+
+- ε_m and ε_t, which are given, and VI.C's ε_K;
 
 - the record's C_J and λ_1.1 at order J;
 
@@ -395,6 +408,9 @@ first real test.
 
 - Verifier 156 (D339): MAJ-1 (the exterior, slab and data-map thresholds Proposition 1.2 imports), MIN-1 (ε_G is a
   threshold on ‖P5(Ψ(0))‖, now ε_NM^G / A_2d), MIN-2 (the "rest" made exhaustive), NIT-1 to NIT-4, all seated (D339).
+
+- Verifier 159 (D341): MAJ-1 (existence argued from K:410-411's wording rather than the proof's quantifiers), MIN-1
+  (ε_m, ε_t, ε_K omitted from the lists), NIT-1 to NIT-5; seated (D341).
 
 - Verifier 158 (D339): MAJ-1 (the suprema ill-posed), MIN-1 (section 0 overstated), MIN-2 (orders; the ε-choice in
   Proposition 1.2 (3)), MIN-3 (g_1), NIT-1 to NIT-5; seated by admissible pairs (D339).
