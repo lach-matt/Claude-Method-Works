@@ -7,7 +7,8 @@ edge-b form; at $n = 4$ its first-order matrix is the constant $\bar A$ of III.C
 (N1STAR-PROOF.md 10.64 (e), III.C Remark 4.5). Section 2 proves the energy estimate for the system, with the tame
 estimate and the sharp weights. The source's section 3.3 (metric perturbations, Lemmas 3.23-3.28) is III.C sections 2-5
 at $n = 4$, which this part uses as it stands. Source: [Hin23a] pp. 18-30, read at source. Amended D309: verifier 133's
-findings seated (C-m1: the norms of $h$ are the polyhomogeneous ones; C-n1 to C-n3).
+findings seated (C-m1: the norms of $h$ are the polyhomogeneous ones; C-n1 to C-n3). Proved (D311): verifier 134 read
+the D309 repairs, correct.
 
 ## 0. Setting
 

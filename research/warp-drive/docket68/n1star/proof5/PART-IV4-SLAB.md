@@ -10,11 +10,13 @@ $\mathcal K$, neither of which reaches $\mathscr I^+$. Part IV$''$'s argument th
 III.C's chart translated in $t$ (which $g_{b_0}$ allows, being stationary), and its solution restricts to the exterior
 solution on $\Omega_{\mathrm{ext},r_1}$. The source covers the slab in one sentence ([Hin26] p. 321, quoted in III.K
 (K2)). No source text beyond Part IV$''$'s is used. Amended D309 with III.K: the slab's top is $\{t^\flat_* = \hat
-T+3\}$, robustly spacelike, and $\mathcal S$ lies in $\{r\ge R_9\}$ (verifier 133's B-M1, B-m3, B-n5).
+T+3\}$, robustly spacelike, and $\mathcal S$ lies in $\{r\ge R_9\}$ (verifier 133's B-M1, B-m3, B-n5). Verified (D311):
+verifier 134 read it in full; one minor finding shared with III.K (the slab's side $\{r = R_9\}$, empty once
+$c\le1/R_9$) and one nit, seated; to be read.
 
 ## 0. Setting
 
-$\hat T = 2/C_\flat$, $T''$, $r_1 = 2r_0$, $R_8\ge\max(2r_1,8)$, $c$, the region $\mathcal D$, the compact part
+$\hat T = 2/C_\flat$, $T''$, $r_1 = 2r_0$, $R_8\ge\max(2r_1,8,R)$, $c$, the region $\mathcal D$, the compact part
 $\mathcal K$, the slab $\mathcal S := \mathcal D\cap\{\rho'_I<c,\ r\ge R_9\}\setminus\Omega_{\mathrm{ext},r_1}$ and
 $\rho'_I := (T''-x^1)/|x|$ are those of III.K section 0 and Proposition 1.2's proof. Put
 $$\rho'_0 := (T''-x^1)^{-1},\qquad x'_I := (\rho'_I)^{1/2},\qquad U'' := \mathrm{cl}_M\{t_*\le T_0+T''-2\}\cap\{|x|\ge
@@ -69,10 +71,12 @@ $t^\flat_*$, along this curve and the next: both are past-directed causal for $g
 $g_{b_0} = \eta+\mu_0|x|^{-2}(dx^1)^2$ there, III.B Lemma 3.5 (b)), and $dt^\flat_*$ is past timelike for $g_{b_0}$
 (II.C Lemma 3.2 (2)). $t_{\mathrm{IVP}} = x^1+|x|-C''$ decreases too, and at $r_c$ it is
 $x^1_p(1-c_1^{-1})+T''c_1^{-1}-C''$, which is $\ge|x^1_p|(c_1^{-1}-1)+T''c_1^{-1}-C''>0$ if $x^1_p<0$, and $\ge
-T''-1+c_1^{-1}-C''>0$ if $x^1_p\in[0,T''-1]$, for $c_1$ small; and $r_c\ge r_0$. *The curve of fixed $|x|$.* $t$
-decreases to $t_c := (1-c_1)|x|+T''$; $t_*$ decreases; it may cross $\Sigma_{\mathrm{fut},r_1}$ into
-$\Omega_{\mathrm{ext},r_1}$; $t_{\mathrm{IVP}}(t_c)\ge\frac12|x|+T''-C''>0$; and $\rho'_I<c_1$ along it, so it avoids
-$\mathcal K$. (c) is the definition of $\mathcal S$ and $\mathcal K\subset\mathcal D\setminus\mathcal S$. $\square$
+T''-1+c_1^{-1}-C''>0$ if $x^1_p\in[0,T''-1]$, for $c_1$ small; and $r_c = (T''-x^1_p)/c_1\ge1/c_1\ge4/c\ge4R_9$, as
+$T''-x^1\ge1$ on $\mathcal D$ and $c\le1/R_9$ (III.K section 0, amended D311), so the ray stays in $\{r\ge R_9\}$. *The
+curve of fixed $|x|$.* $t$ decreases to $t_c := (1-c_1)|x|+T''$; $t_*$ decreases; it may cross
+$\Sigma_{\mathrm{fut},r_1}$ into $\Omega_{\mathrm{ext},r_1}$; $t_{\mathrm{IVP}}(t_c)\ge\frac12|x|+T''-C''>0$; and
+$\rho'_I<c_1$ along it, so it avoids $\mathcal K$. (c) is the definition of $\mathcal S$ and $\mathcal K\subset\mathcal
+D\setminus\mathcal S$. $\square$
 
 So Part IV$''$ Lemma 1.2 holds on $\Omega^\natural_{c_1} := \Omega^\natural\cap\{\rho'_I<c_1\}$, in the translated chart,
 with the same proof.

@@ -12,7 +12,9 @@ causal facts (Lemma 0.3), the fibre algebra (Lemma 0.4, from Part IV$''''$ Lemma
 Part IV$''''$ Lemma 1.4). The source uses three families of estimates without stating them: the propagation through the
 interior of $\Omega$ in both directions, along $\mathrm{sf}$ between its critical sets, and along $K^+$ outward from the
 saddle. These are stated and proved as Propositions 5.2-5.3. Source: [Hin26a] (arXiv:2606.27658v2) pp. 12-17 (sections
-2.1-2.2), 25-28 (section 3), 37-39 (Proposition 5.1), 41-66 (section 5.2), read at source.
+2.1-2.2), 25-28 (section 3), 37-39 (Proposition 5.1), 41-66 (section 5.2), read at source. Verified (D311): verifier 134
+read it in full; two minor findings and two nits, seated as findings (IV$'''''$6)-(IV$'''''$7) and in Propositions
+7.1-7.2 and Theorem 7.3 (c); to be read.
 
 ## 0. Setting
 
@@ -673,14 +675,18 @@ For $s>1$, the energy estimates are the only step restricted to $s = 1$; the rem
 proof does. Extend $f := P_h\omega$ to $\tilde f$ on $\tilde\Omega := \mathrm{cl}\{t\ge0,r\ge\frac34r_\sharp\}$ with the
 same quotient norm, and $g$, $c$ as in section 0. The forward solution $\tilde\omega\in
 H^{0,(\alpha_{\mathrm{sf}},\alpha_K)}_{3\mathrm b,h}(\tilde\Omega)^{\bullet,-}$ exists with $\|\tilde\omega\|\le
-Ch^{-1}\|\tilde f\|_{H^{-1}}$, by Proposition 7.2 at $s' = 1$ on $\tilde\Omega$ and duality. Lemma 0.3 holds on
-$\{r\ge\frac12r_\sharp\}$, so the whole argument runs on $\tilde\Omega$ with $\frac34r_\sharp$ for $r_\sharp$. Moreover
-$\tilde\omega = \omega$ on $\Omega$, by uniqueness of forward solutions: $\Sigma^\sharp$ is spacelike with future
-timelike vectors pointing out, and $X_0$ is spacelike (Lemma 0.3 (a), (c)). The microlocal estimates of sections 1-5
-hold for every $s$ in the strong sense; near the zero section the order is irrelevant. They apply to $\tilde\omega$ on
-$\{r\ge\frac78r_\sharp\}$, where $\Sigma^\sharp$ is now interior. Near $\tau = 0$ they propagate from $\tau<0$, where
-$\tilde\omega = 0$, by Proposition 5.3 (1) and Proposition 1.3 with the cut-offs moved below $\tau = 0$. Restriction to
-$\Omega$ gives (5.79) for $s\ge1$. $\square$
+Ch^{-1}\|\tilde f\|_{H^{-1}}$, by Proposition 7.2 at $s' = 1$ on $\tilde\Omega$ and duality. On $\tilde\Omega$ the
+argument runs with two changes (amended D311, finding (IV$'''''$6)). Proposition 5.1 is used with $r_1\ge r_\sharp$, and
+Proposition 5.3's $\chi_r$ transition is placed in $\{r\ge r_\sharp\}$, where $c$ is 10.14's 1-form and Lemma 0.5 (6)
+holds. On $\{\frac34r_\sharp\le r\le r_3\}$, $r_3<\hat r$, the estimates (5.68)-(5.69) of Proposition 6.1 are used, with
+$\frac34r_\sharp$ for $r_\sharp$; they need only Lemma 0.3 (c) and Lemma 0.4, which hold for every stationary past
+timelike extension of $c$, Lemma 0.3 holding on $\{r\ge\frac12r_\sharp\}$. Proposition 1.3 needs only Lemma 0.3 (c)
+there. Moreover $\tilde\omega = \omega$ on $\Omega$, by uniqueness of forward solutions: $\Sigma^\sharp$ is spacelike
+with future timelike vectors pointing out, and $X_0$ is spacelike (Lemma 0.3 (a), (c)). The microlocal estimates of
+sections 1-5 hold for every $s$ in the strong sense; near the zero section the order is irrelevant. They apply to
+$\tilde\omega$ on $\{r\ge\frac78r_\sharp\}$, where $\Sigma^\sharp$ is now interior. Near $\tau = 0$ they propagate from
+$\tau<0$, where $\tilde\omega = 0$, by Proposition 5.3 (1) and Proposition 1.3 with the cut-offs moved below $\tau = 0$.
+Restriction to $\Omega$ gives (5.79) for $s\ge1$. $\square$
 
 **Proposition 7.2 (the adjoint estimate (5.81) at n = 4).** For $s'\ge1$ there are $h_0>0$ and $C$ such that for
 $h\in(0,h_0)$,
@@ -724,7 +730,12 @@ $\tau\ge\frac12T_0$ has $t\ge\frac12T_0r_\sharp>2t_1$.
 (x) (5.67) on $\tau^{-1}([0,\frac12T_0])$, from $\tau^{-1}([\frac12T_0,T_0])$, which is covered by (ii) near
 $\mathrm{sf}$, by (viii) elsewhere, and by (ix) off $o$.
 
-Absorbing $h^N$ gives (5.81) at $s' = 1$. For $s'>1$, extend and restrict as in Proposition 7.1. $\square$
+Absorbing $h^N$ gives (5.81) at $s' = 1$. For $s'>1$, extend and restrict as in Proposition 7.1.\n\nThe parameters of
+Propositions 7.1-7.2 are ordered so that each a priori set lies where an earlier step applies (verifier 134's A-n1). In
+Proposition 7.1 (ix), $2\delta'\le\delta_0$, so that the start set of Proposition 5.2 (b) (1) lies in Proposition 3.1's
+$B_0$. In (ii) above, $2\delta'$ is at most the sink's $\delta$ and $s_3\gev(1-\frac54\delta_{\mathrm{sf}})$. In (iv)
+above, $t_1\ge2/(\delta_0\delta_r)$, so that $[r'_3,r'_4]$ at $\rho_K = 1/t\le t_1^{-1}$ lies in
+$\{r/t\le\frac54\delta_r\}$. $\square$
 
 **Theorem 7.3 ([Hin26a] Theorem 5.2 at n = 4).** Let $(\alpha_{\mathrm{sf}},\alpha_K)$ be as in Lemma 0.5 and $C_1>0$.
 There is $h_0>0$, uniform for $b\in U$ (Lemma 8.1), such that for $h\in(0,h_0)$, $s\in[-C_1,C_1]$ and $b\in U$:
@@ -743,7 +754,8 @@ b}(X_0,r^3|dr\,d\slashed g|)\tag{5.16}$$
 has a unique solution $\omega\in\rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}}\rho_K^{\alpha_K}\bar H^1_{3\mathrm
 b}(\Omega,|dg|)$, the densities on $X_0$ being Euclidean (his footnote 15);
 
-(c) (5.79) and (5.81) hold, for every $s,s'\ge1$, with constants uniform for $b\in U$.
+(c) (5.79) and (5.81) hold for $s,s'\in[1,C_1+1]$ and $h\in(0,h_0)$, with constants uniform for $b\in U$ ($h_0$ depends
+on $C_1$; verifier 134's A-n2).
 
 *Proof.* (c) is Propositions 7.1-7.2 with Lemma 8.1.
 
@@ -786,9 +798,15 @@ $$\|\omega\|_{\rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}}\rho_K^{\alpha_K}\bar H^1
 C\big(\|f\|+\|(\omega,r\mathcal L_{\partial_t}\omega)|_{X_0}\|_{\mathcal H_{\mathrm{data}}}\big).$$
 
 *General data.* Approximate $f$ and the data in their spaces by such smooth data. By this estimate the solutions
-converge in $\rho^{\alpha_{\mathrm{sf}}}_{\mathrm{sf}}\rho^{\alpha_K}_K\bar H^1_{3\mathrm b}(\Omega)$, and the limit
-solves (5.16), the traces at $X_0$ being continuous on $\bar H^1$ near $X_0$. Uniqueness is the estimate itself.
-$\square$
+converge in $\rho^{\alpha_{\mathrm{sf}}}_{\mathrm{sf}}\rho^{\alpha_K}_K\bar H^1_{3\mathrm b}(\Omega)$. Near $X_0$ they
+also converge in $C([0,T_0]_\tau;\rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}}\bar H^1_{\mathrm b})\cap
+C^1([0,T_0]_\tau;\rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}}\bar H^0_{\mathrm b})$: the boundary term at $\tau = T$ of
+(5.74) and (5.77), run at every $T\in[0,T_0]$ in the proof of (6.1), bounds the norm of
+$(\omega,\partial_\tau\omega)|_{\tau = T}$ by the right side of (6.1). So the limit takes the data and solves (5.16).
+For uniqueness, let $\omega\in\rho^{\alpha_{\mathrm{sf}}}_{\mathrm{sf}}\rho^{\alpha_K}_K\bar H^1_{3\mathrm b}(\Omega)$
+solve (5.16) with $f = 0$ and vanishing data. Its extension by zero across $X_0$ is a distribution supported in
+$\{t\ge0\}$ with $P_h\omega = 0$, the vanishing data leaving no layer on $X_0$; so $\omega = 0$ by the uniqueness in (a)
+(amended D311, finding (IV$'''''$7)). $\square$
 
 **Remark 7.4 (in III.B's coordinates).** III.B's $g_b = \Phi_\mu^*g$, with $\Phi_\mu(t,x) = (t-T_\mu(|x|),x)$ and
 $T_\mu\in|x|^{-1}C^\infty(\bar X)$ near infinity (III.B Lemma 3.5 (a)). $\Phi_\mu$ commutes with $\partial_t$ and acts
@@ -855,7 +873,16 @@ set $\mathsf H$ is defined through $h_0$, so $h_0$ must be uniform; Lemma 8.1 gi
 
 (IV$'''''$5) *The inner radius.* $r_\sharp = \frac12R_1$ is III.B's $r_0$ and 10.14's $m$. $\hat r = \frac34R_1$
 replaces the source's $r_+$ in the cut-offs and the energy estimates near $\Sigma^\sharp$, since only the future
-timelike character of $dr$ on $[r_\sharp,\hat r]$ is used (Lemma 0.3 (c)). The horizon of $g_b$ is not located.
+timelike character of $dr$ on $[r_\sharp,\hat r]$ is used (Lemma 0.3 (c)). The horizon of $g_b$ is not
+located.\n\n(IV$'''''$6) *The extended domain* (verifier 134's A-m1). The extension to $\tilde\Omega$ in Proposition
+7.1's proof read that the whole argument runs there with $\frac34r_\sharp$ for $r_\sharp$. Proposition 5.1 and the
+dropped $\chi_r$ term of Proposition 5.3 (1) use Lemma 0.5 (6), which is not known for the extension of $c$ below
+$r_\sharp$. They are kept in $\{r\ge r_\sharp\}$, and $[\frac34r_\sharp,r_3]$ is covered by (5.68)-(5.69), which use
+only Lemma 0.3 (c) and Lemma 0.4.\n\n(IV$'''''$7) *General data* (verifier 134's A-m2). The passage to general data in
+Theorem 7.3 (b) read the traces as continuous on $\bar H^1$ and uniqueness as the estimate itself. The trace of
+$r\mathcal L_{\partial_t}\omega$ is not continuous on $\bar H^1$, and the estimate was proved for smooth solutions.
+Repaired by the energy identity's boundary term at every $\tau\in[0,T_0]$, and by uniqueness from (a) for the extension
+by zero.
 
 *Labels.* The labels map to the source as follows:
 

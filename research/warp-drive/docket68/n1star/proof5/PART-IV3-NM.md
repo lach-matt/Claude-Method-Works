@@ -12,7 +12,7 @@ Theorem 2.1. At $n = 4$ the recovery needs two rounds and no $h$-dependent leadi
 only slot 6 carries a radiation field. The continuation near $\mathscr I^+$ that III.K (K2) (b) asks for, on the slab
 $\mathcal S$ of III.K Proposition 1.2 as re-posed in D304, is the next part's (finding (IV$''$2)); Lemmas 1.1, 1.2 and
 2.1 are stated so that it can use them. Source: [Hin23a] pp. 30-32, read at source. Amended D309: verifier 133's
-findings seated (D-m1 to D-m3, D-n1 to D-n5).
+findings seated (D-m1 to D-m3, D-n1 to D-n5). Proved (D311): verifier 134 read the D309 repairs, correct.
 
 ## 0. Setting
 

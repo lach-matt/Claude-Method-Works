@@ -10,7 +10,8 @@ that rest. At every base point $(h,\vec p)$, or $(h,\vec p,q)$, or $U$, whose bl
 of each of them is obtained as follows: $L_{b_0}$, $g_{b_0}$ near $K^+$, the states, towers and companions at $b_0$, and
 the index set $\mathcal E_{\mathrm{ind}}$ are replaced by those at $b$; derivatives in $b$ are taken at $b$; and the v1
 terms are treated by section 2. This closes (J$'$3) of III.J$'$, and with it (I3) and (H$''$5). Verifier 133's findings
-seated (D309): the direct bound now covers every level (A-m1); A-n1 to A-n3; to be read.
+seated (D309): the direct bound now covers every level (A-m1); A-n1 to A-n3; to be read. Proved (D311): verifier 134
+read the D309 repairs, correct.
 
 *What n = 4 changes.* At $b_0$ every rotation is Killing. At a rotating $b$ only the rotations commuting with the spin
 are, and the rotation state $h_{b,\mathrm v1}$ is $O(|b-b_0|)$ but not zero (III.E$'$). The v1 terms of exponent of real

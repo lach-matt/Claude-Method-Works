@@ -10,6 +10,8 @@ B.1, which Part IV$''''''$ writes out. The inputs where $n$ enters are the recor
 algebra of [Hin26a] section 3 (N1STAR-PROOF.md 10.13), the indicial roots for every $h\in(0,10^{-6}]$ (10.12, 10.54),
 the 1-form $c$ on Tangherlini (10.14), the weights at the critical sets (10.22), the structure at infinity (10.18) and
 the horizon threshold (10.79). Source: [Hin26a] (arXiv:2606.27658v2) pp. 25-41, 66-69 and Appendix A, read at source.
+Verified (D311): verifier 134 read it in full; one major finding (the weight of the adjoint step), one minor and three
+nits, seated as findings (IV$''''$6)-(IV$''''$7) and in section 0, Lemma 1.4 and Theorem 2.1; to be read.
 
 ## 0. Setting
 
@@ -26,12 +28,15 @@ the conclusions below fail (10.12 (U5), 10.13 (W1)).
 *The parameters.* As III.K section 0 takes them,
 $$v_C := \tfrac12,\qquad e_C := \tfrac1{102400},\qquad C_0 := 100\ (\text{or any }C_0\le100),\qquad h\in\mathsf H,
 \tag{0.1}$$
-where $\mathsf H := (0,h_*)\setminus\mathsf Z$, $h_* := \min(10^{-6},h_0,h_{\mathrm{tf}})$ with $h_0$ the bound of Part
-IV$'''''$'s Theorem 5.2 (its Theorem 7.3) at these $(v_C,e_C,C_0)$ and the weights (2.1) below, $h_{\mathrm{tf}}$ that
-of Part IV$''''''$ Theorem 3.1 (amended D310), and $\mathsf Z$ the countable set of Lemma 1.3 (b). $c_C$ is 10.14's
-1-form (10.49) at $\mu = 1$, $r_0 = 100$, smoothed near $r_0/2$ and $2r_0$ (10.14 (b)) and rescaled to $\mu_0$ (all
-conditions depend on $\mu r_0^{-2}$ and $r/r_0$ only, 10.14 (v)); it is stationary and equals $|x|^{-1}(dt-v_C\,d|x|)$
-for large $|x|$ (in the static time up to $O(\mu_0|x|^{-3})\,d|x|$, 10.14 (c)).
+where $\mathsf H := (0,h_*)\setminus\mathsf Z$, $h_* := \min(10^{-6},h_0,h_{\mathrm{tf}})$ with $h_0$ the smaller of the
+bounds of Part IV$'''''$'s Theorem 5.2 (its Theorem 7.3) at these $(v_C,e_C)$ and the weights (2.1) below at $C_0$ and
+at $C_0-1$ (amended D311, finding (IV$''''$6)), $h_{\mathrm{tf}}$ that of Part IV$''''''$ Theorem 3.1 (amended D310),
+and $\mathsf Z$ the countable set of Lemma 1.3 (b). $c_C$ is 10.14's 1-form (10.49) at $\mu = 1$, $r_0 = 100$, smoothed
+near $r_0/2$ and $2r_0$ (10.14 (b)) and rescaled to $\mu_0$ (all conditions depend on $\mu r_0^{-2}$ and $r/r_0$ only,
+10.14 (v)); it is stationary and equals $|x|^{-1}(dt-v_C\,d|x|)$ for large $|x|$ up to $O(\mu_0|x|^{-3})\,d|x|$. (10.14
+(c) states this in the static time. III.B's $t$ is the outgoing Kerr-Schild time of III.B (3.3)-(3.4), whose
+differential differs from the static one by $O(\mu_0|x|^{-2})\,d|x|$, which changes $|x|^{-1}(dt-v_C\,d|x|)$ by
+$O(\mu_0|x|^{-3})\,d|x|$; verifier 134's B-n3.)
 
 ## 1. The inputs at n = 4
 
@@ -91,7 +96,9 @@ $$\alpha_K := 1,\qquad\alpha_{\mathrm{sf}} := -C_0-\tfrac52,\tag{2.1}$$
 $w := \rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}+1}\rho_K^{\alpha_K}$ and $w' :=
 \rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}+1}$, $c_C$ satisfies his Proposition 5.1 (1)-(6) on Tangherlini $g_{b_0}$, for
 some $\delta_r>0$ and with $\delta_{\mathrm{sf}} =
-\frac1{100}$; and on $g_b$ for $b$ near $b_0$, with smaller $\delta_r$, $\delta_{\mathrm{sf}}$.
+\frac1{100}$; and on $g_b$ for $b$ near $b_0$, with smaller $\delta_r$ and the same $\delta_{\mathrm{sf}}$, conditions
+(5)-(6) on $\mathrm{sf}$ not depending on $b$ (verifier 134's B-n1). The same holds with $C_0-1$ for $C_0$ in (2.1), the
+proof using only $C_0-1\ge0$ (amended D311).
 
 *Proof.* (1)-(3) and (6) off $\mathrm{sf}$: 10.14 Proposition 10.11 (i)-(iii) (`cform5.py` C1-C4, exact; Sturm on each
 interval). (4)-(6) at $\mathrm{sf}$: the symbol $T = r^2(-\ell(dw/w)+S)$ depends only on $\rho_K$ and the weights there;
@@ -172,15 +179,20 @@ $\gamma+1<\frac32+\min\mathrm{spec}\,\bar S^C$; iterating, $\omega'\in\mathcal A
 Theorem 5.2 is applied in Part IV$'''''$'s Kerr-Schild coordinates (its Remark 7.4), in which $t =
 t_{\mathrm{KS}}+T_\mu(|x|)$ (III.B (3.3)). The data $(\omega,r\mathcal L_{\partial_t}\omega)|_{t_{\mathrm{KS}}=0} =
 (e^{i\sigma(\psi-T_\mu)}\omega',-i\sigma re^{i\sigma(\psi-T_\mu)}\omega')$ satisfy $|\omega^{(0)}|\le Cr^{-1}$,
-$|\omega^{(1)}|\le C$. Indeed $|e^{i\sigma(\psi-T_\mu)}| = e^{-(\mathrm{Im}\,\sigma)(\psi-T_\mu)}$ is bounded,
-$\psi-T_\mu$ being continuous on $[r_\sharp,\infty)$ and tending to $+\infty$ (amended D308; the data were taken at $\{t
-= 0\}$ of III.B's $t$, which is not shown to be a time function, finding (IV$'''''$1)); so they lie in
-$\rho^{-2-\epsilon}\bar H^{1-j}_{\mathrm b}(X,r^3|dr\,d\slashed g|)$ for every $\epsilon>0$ (10.18 (iii): $\rho^k\in
+$|(r\partial_r,\partial_\omega)\omega^{(0)}|\le C$ (the phase contributes $\sigma r$, and $\omega'\in\mathcal A^1$ is
+conormal; verifier 134's B-n2) and $|\omega^{(1)}|\le C$. Indeed $|e^{i\sigma(\psi-T_\mu)}| =
+e^{-(\mathrm{Im}\,\sigma)(\psi-T_\mu)}$ is bounded, $\psi-T_\mu$ being continuous on $[r_\sharp,\infty)$ and tending to
+$+\infty$ (amended D308; the data were taken at $\{t = 0\}$ of III.B's $t$, which is not shown to be a time function,
+finding (IV$'''''$1)); so they lie in $\rho^{-2-\epsilon}\bar H^{1-j}_{\mathrm b}(X,r^3|dr\,d\slashed g|)$ for every
+$\epsilon>0$ (10.18 (iii): $\rho^k\in
 \rho^aL^2(r^3dr)$ near $\partial X$ iff $a<k-2$), which lies in $\rho^{\alpha_{\mathrm{sf}}+\frac12}\bar
 H^{1-j}_{\mathrm b}$, as $\alpha_{\mathrm{sf}}+\frac12 = -C_0-2<-2-\epsilon$. Theorem 5.2's initial value problem (its
-(5.16) at $n = 4$) gives $\omega\in\rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}}\rho_K^{\alpha_K}\bar H^1_{3\mathrm
-b}(\Omega,|dg|)$. On $[0,\infty)_t\times A$, $A = \{r_1\le r\le r_2\}$ an annulus, $\rho_{\mathrm{sf}}$ is bounded above
-and below and $\rho_K = r/t$, so $\int_0^\infty\int_A(t/r)^2|\omega|^2<\infty$ with $|\omega| =
+(5.16) at $n = 4$) has a solution with these data in its class, and it is $\omega$: both are $H^1_{\mathrm{loc}}$
+solutions with the same data, so they agree by local energy uniqueness, every past-inextendible causal curve in
+$\Omega^\circ$ meeting $X_0$ (Part IV$'''''$ Theorem 7.3 (b)'s proof; amended D311, finding (IV$''''$7)). So
+$\omega\in\rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}}\rho_K^{\alpha_K}\bar H^1_{3\mathrm b}(\Omega,|dg|)$. On
+$[0,\infty)_t\times A$, $A = \{r_1\le r\le r_2\}$ an annulus, $\rho_{\mathrm{sf}}$ is bounded above and below and
+$\rho_K = r/t$, so $\int_0^\infty\int_A(t/r)^2|\omega|^2<\infty$ with $|\omega| =
 e^{(\mathrm{Im}\,\sigma)t_*}|\omega'|$, which forces $\omega' = 0$ on $A$, for every annulus. So $\omega = 0$.
 
 *(2), injectivity.* Let $u$ be in the kernel. By I.C Theorem 3.1 (2) (Lemmas 1.5-1.6), $u$ is smooth up to the inner
@@ -195,15 +207,21 @@ range is $\ker_{\mathcal X^*_0}(P^C_b)^{*}$, $\mathcal X^*_0\subset\dot H^{1-s,-
 inner boundary). Let $v$ be in that kernel. The indicial roots of $(P^C_b)^*$ are $2-\bar\lambda$ (III.E Lemma 2.1 (2),
 which uses only Lemma 1.3), with real part $\le0$ or $>C_0+2$. As $\alpha+2<2$, $v$ has pointwise weight $-\alpha>0$ at
 $\partial X$, so the normal operator argument (the expansion of $v$ along the roots of real part above its weight, I.C
-Theorem 3.1 (2) for the adjoint) gives $v\in\mathcal A^{C_0+2-\epsilon}$ near $\partial X$ for every $\epsilon>0$, the
-roots of real part $\le0$ being below the weight. So $\omega'(t,x) := v(x)$ is a stationary solution of $(\Box^C_b)^*
-\omega' = 0$ lying in $\rho_{\mathrm{sf}}^{-\alpha_{\mathrm{sf}}-2}\rho_K^{-\alpha_K}H^{s'}_{3\mathrm
-b}(\Omega)^{-,\bullet}$ for $s' = 1-s$ near $\partial X$: $-\alpha_{\mathrm{sf}}-2 = C_0+\frac12$, the decay
-$C_0+2-\epsilon$ exceeding it after the shift $\frac32$ between the pointwise and the $L^2$ weight with $|dg|$ (the
-source's shift, at $n = 4$ that of $\rho^a L^2(r^3dr)$ plus $\frac12$ from the slab, 10.18 (iii)), and $\rho_K^{-1}$
-allowing a stationary function, as $\int^\infty(r/t)^2dt<\infty$. The adjoint estimate (5.81) of Theorem 5.2's proof at
-$n = 4$ (Part IV$'''''$) makes $(\Box^C_b)^*$ injective there, so $v = 0$. So $P^C_b$ is surjective, hence invertible,
-and by I.C Theorem 3.1 (4) the estimates hold without the error terms. $\square$
+Theorem 3.1 (2) for the adjoint) gives $v\in\mathcal A^k$ near $\partial X$ for every $k<\varrho_1$. Here
+$\varrho_1>C_0+2$ is the least real part of an indicial root of $(P^C_b)^*$ above $C_0+2$, which exists as the roots are
+discrete and accumulate only at $+\infty$ (Lemma 1.6); the roots of real part $\le0$ are below the weight. So
+$\omega'(t,x) := v(x)$ is a stationary solution of $(\Box^C_b)^*\omega' = 0$. Put $\alpha'_{\mathrm{sf}} :=
+-C_0-\frac32$, the weight (2.1) at $C_0-1$. A stationary function of pointwise decay $\rho^k$ lies in
+$\rho^a\rho_K^{-1}L^2(\Omega,|dg|)$ near $\partial X$ iff $k>a+\frac52$: the shift is 2 for $\rho^aL^2(r^3dr)$ (10.18
+(iii)), plus $\frac12$ from $\int_0^\infty\rho_K^2\,dt = \int_0^\infty(r/(t+r))^2\,dt = r$. At $a =
+-\alpha'_{\mathrm{sf}}-2 = C_0-\frac12$ this asks $k>C_0+2$, which $k\in(C_0+2,\varrho_1)$ meets. So
+$\omega'\in\rho_{\mathrm{sf}}^{-\alpha'_{\mathrm{sf}}-2}\rho_K^{-\alpha_K}H^{s'}_{3\mathrm b}(\Omega)^{-,\bullet}$ for
+$s' = 1-s$ near $\partial X$. The adjoint estimate (5.81) of Theorem 5.2's proof at $n = 4$ (Part IV$'''''$ Proposition
+7.2), at the weights $(\alpha'_{\mathrm{sf}},\alpha_K)$, which satisfy its hypotheses by Lemma 1.4 at $C_0-1$, holds for
+$h<h_*$ and makes $(\Box^C_b)^*$ injective there, so $v = 0$. At the weight (2.1) itself the membership would ask
+$k>C_0+3$, which Lemma 1.3 does not give at $C_0 = 100$; the source keeps this margin by applying its Theorem 4.9 with
+$C_0+4$ (amended D311, finding (IV$''''$6)). So $P^C_b$ is surjective, hence invertible, and by I.C Theorem 3.1 (4) the
+estimates hold without the error terms. $\square$
 
 The source's other two routes to surjectivity, the index 0 from its Theorem B.1 with [Hin26c] Corollary 9.43 (here I.C
 Corollary 6.6) and the radial ordinary differential operators of a static metric with its Theorem 4.9 (3), are not used:
@@ -229,9 +247,15 @@ estimate (5.81) and the indicial roots, the source's third route, which avoids a
 IV$'''''$ proves (Theorem 7.3, D308); its inputs are Lemmas 1.1, 1.4 and the 3b-geometry of Tangherlini (10.22
 Proposition 10.19 (i)-(iii)).
 
-(IV$''''$5) *What is used of Part I.* I.C Theorem 3.1 ([Hin26c] Theorem 9.36) needs (H1)-(H4) and (G) only; (H3)-(H4)
-come from (Dyn) except for the threshold, Lemma 1.5, which at $n = 4$ holds with a margin of more than 4700 at the
-record's point.
+(IV$''''$6) *The weight of the adjoint step* (verifier 134's B-M1, MAJOR). The surjectivity step read that $v\in\mathcal
+A^{C_0+2-\epsilon}$ lies in the dual space at the weight (2.1) "after the shift $\frac32$". The shift at $n = 4$ is
+$\frac52$, so that space asks decay above $C_0+3$, which Lemma 1.3 (roots of $(P^C_b)^*$ above $C_0+2$) does not give at
+$C_0 = 100$, the value III.K fixes. Repaired by applying (5.81) at the weight (2.1) with $C_0-1$, which asks decay above
+$C_0+2$, and by taking $h_*$ below both bounds $h_0$.\n\n(IV$''''$7) *The mode and the forward solution* (verifier 134's
+B-m1). Theorem 7.3 (b)'s uniqueness is in its weighted class; the mode solution is identified with the solution it gives
+by local energy uniqueness, which the source leaves unstated.\n\n(IV$''''$5) *What is used of Part I.* I.C Theorem 3.1
+([Hin26c] Theorem 9.36) needs (H1)-(H4) and (G) only; (H3)-(H4) come from (Dyn) except for the threshold, Lemma 1.5,
+which at $n = 4$ holds with a margin of more than 4700 at the record's point.
 
 *Labels.* Lemma 1.1 is the source's Lemmas 3.3-3.8, Lemma 1.2 its (6.4), Lemma 1.3 its Theorem 4.9, Lemma 1.4 its
 Proposition 5.1, Lemma 1.5 the threshold of [Hin26c] (5.17) for $\Box^C$ (the source's Remark 5.7 mechanism), Theorem
