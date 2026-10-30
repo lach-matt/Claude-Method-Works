@@ -4271,3 +4271,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   B-n1: Phi_mu fixes x. VI.A B-n2: r_h = R_1 (III.B section 2).
 - Status: VI.B' verified (D321); VI.B verified (D318), its repairs read, one further minor repaired, to be read.
 - Next: Part VII (Theorem 4 assembled from Parts I-VI); then verifier 140 on VI.C, VII and the D321 repairs.
+
+### 4.246 Part VII written (D322): Theorem 4 assembled
+
+- PART-VII-ASSEMBLY.md, Theorem 0.2. (i) in the class: Lemma 1.1 (Theorem E at every order; after the shell g_lam =
+  Tangherlini + smooth O(lam)); Lemma 1.2 (the record's domain enlarged to contain Sigma_IVP near the hole); Lemma 2.1
+  (Tangherlini on Sigma_IVP, charges 6 pi^2 m); Proposition 2.2 (Part V in the class: equivariant Step 1, one-dimensional
+  obstruction, |m - mu_end| <= C eta by the flux identity); Lemma 3.1 (naturality, choices averaged over O(4));
+  Proposition 3.2 (III.K on G-fixed spaces: Pi S_theta, Pi Psi_NM; b = (m', 0), S = 0). (ii): III.K Theorem 4.3 on
+  perturbations in its own class.
+- Findings: (VII1) the paper's (ii) via gluing concludes for the glued data only (late times near the hole depend on
+  the far data); (VII2) l_0 > 3 + eps_+ ((H4) with l_I < l_0), VI.C rows d1-d2 repaired as (VI.C4); (VII3) no Cauchy
+  stability; (VII4) rate t*^(-(alpha-2)+eps); g and g_lam share data on a ball; (VII5) equivariant choices; (VII6) the
+  a priori mass bound keeps the glued data O(lam)-close in III.K's weighted norm at a fixed radius.
+- Next: verifier 140 on VI.C, Part VII and the D321 repairs; then the paper's Theorem 4 and section 8.7-8.8 updated to
+  Theorem 0.2 and findings (VII1), (VII4).

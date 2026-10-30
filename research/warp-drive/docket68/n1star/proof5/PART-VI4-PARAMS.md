@@ -1,12 +1,13 @@
 # Part VI.C: the parameters
 
-*Status.* Written (D320). Parts III-VI state conditions on the parameters they leave open: the constraint damping gauge
-$E_C$, the gauge-modification parameters $E_\Upsilon$, the weights at $\mathscr I^+$, $\iota^+$ and $K^+$, the data
-classes, and the Myers-Perry parameter set. This part lists every such condition with its source (section 1), and shows
-that they can all be met, in an order in which each threshold depends only on choices already made (Theorem 2.1). It
-also records two checks of quantifiers (section 3). Theorem 1.1 of III.E is proved at one point of $(v_C,e_C,C_0)$ and
-for $\gamma_C>1/h_*$ outside a countable set, and every part uses one value of $\gamma_C$, chosen once. The open item of
-III.F$''$ section 5 is closed by III.H Corollary 4.3.
+*Status.* Written (D320); amended (D322: rows d1-d2 take III.I$''''''''''$'s (H4), finding (VI.C4)). Parts III-VI state
+conditions on the parameters they leave open: the constraint damping gauge $E_C$, the gauge-modification parameters
+$E_\Upsilon$, the weights at $\mathscr I^+$, $\iota^+$ and $K^+$, the data classes, and the Myers-Perry parameter set.
+This part lists every such condition with its source (section 1), and shows that they can all be met, in an order in
+which each threshold depends only on choices already made (Theorem 2.1). It also records two checks of quantifiers
+(section 3). Theorem 1.1 of III.E is proved at one point of $(v_C,e_C,C_0)$ and for $\gamma_C>1/h_*$ outside a countable
+set, and every part uses one value of $\gamma_C$, chosen once. The open item of III.F$''$ section 5 is closed by III.H
+Corollary 4.3.
 
 ## 1. The conditions
 
@@ -31,8 +32,8 @@ III.J.
 | b3 | $\mathcal B_*$ | open, $\bar{\mathcal B}_*\subset\mathcal B_1$, and (B5): $\|P-2L_b\|_{(0;d)}<\epsilon_0$ on $\bar{\mathcal B}_*$; the only condition on $\mathcal B_*$ there | PART-III-H3-UNIFORM.md:61-64 | b2, u1-u5 |
 | w1 | $\epsilon_+$, $\epsilon_K$ | $0<\epsilon_K<\epsilon_+<\min(\delta_\sharp,\epsilon_{\mathrm{ind}})$, $\epsilon_+<\frac14$, and (G+) after decreasing $\epsilon_+$; $\delta_\sharp = (1-e_\Upsilon)\gamma_\Upsilon$, $\epsilon_{\mathrm{ind}} = \min\mathrm{Re}\,\mathcal E^\iota_{\mathrm{ind}}>0$ | PART-III-I10-CORR4.md:32-45; PART-III-I6-ALMOSTBDD.md:118-119; PART-III-J-PARAM.md:34, 48-51, 56 | u1-u5 |
 | w2 | $\alpha$ | admissible $\alpha$, dense in $(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$ | PART-III-J-PARAM.md:57 | w1 |
-| d1 | $\mathcal E_0$, $\ell_0$ | $\min\mathrm{Re}\,\mathcal E_0>\frac32+2\gamma_\Upsilon$, $j\mathcal E_0\subset\mathcal E_0$, $\ell_0>\frac32$, $\ell_0\notin\mathrm{Re}\,\pi_1\mathcal E_0$ | PART-III-C2-POLYHOM.md:19, 133-140; PART-III-K-NONLINEAR.md:54-56 | u4 |
-| d2 | $\ell_I$ | $\frac32<\ell_I<\min(\ell_0,\frac32+s_C)$, $\ell_I\notin\frac32+\sigma_\Upsilon$, $\sigma_\Upsilon = \{0,(1-e_\Upsilon)\gamma_\Upsilon,\gamma_\Upsilon,2\gamma_\Upsilon\}$ | PART-III-C2-POLYHOM.md:135-136; PART-III-C-EXTERIOR.md:146 | c1-c2, u3-u4, d1 |
+| d1 | $\mathcal E_0$, $\ell_0$ | $\min\mathrm{Re}\,\mathcal E_0>\frac32+2\gamma_\Upsilon$, $j\mathcal E_0\subset\mathcal E_0$, $\ell_0>3+\epsilon_+$ (so that row d2 is nonempty), $\ell_0\notin\mathrm{Re}\,\pi_1\mathcal E_0$ | PART-III-C2-POLYHOM.md:19, 133-140; PART-III-K-NONLINEAR.md:54-56; PART-III-I11-SPACETIME.md:45 | u4, w1 |
+| d2 | $\ell_I$ | $3+\epsilon_+<\ell_I<\min(\ell_0,\frac32+s_C)$ (III.C$'$ Theorem 3.1 asks $\frac32<\ell_I<\ell_0$, III.I$''''''''''$ (H4) asks $\ell_I>3+\epsilon_+$, and III.K uses one $\ell_I$), off (H4)'s discrete exclusion sets, $\ell_I\notin\frac32+\sigma_\Upsilon$, $\sigma_\Upsilon = \{0,(1-e_\Upsilon)\gamma_\Upsilon,\gamma_\Upsilon,2\gamma_\Upsilon\}$ | PART-III-C2-POLYHOM.md:135-136; PART-III-C-EXTERIOR.md:146; PART-III-I11-SPACETIME.md:45-48; PART-III-K-NONLINEAR.md:56-57 | c1-c2, u3-u4, w1, d1 |
 | n1 | $\epsilon$, $d_1$ | the smallness and regularity of III.K Theorem 4.3 | PART-III-K-NONLINEAR.md:463-468 | all the above |
 
 ## 2. The choice
@@ -70,8 +71,10 @@ $\bar{\mathcal B}_*$, a compact set on which (Dyn) holds (step 0), as (H5) and i
 $\epsilon_K$, as in row w1, decreasing $\epsilon_+$ for (G+) (possible: no $\lambda\in\Lambda$ has real part in
 $(3,3+\epsilon_+]$ for $\epsilon_+$ small, PART-III-J-PARAM.md:48-51); then $\alpha$ as in row w2.
 
-(5) The data classes: $\mathcal E_0$ and $\ell_0$ as in row d1, then $\ell_I$ in the nonempty open interval of row d2
-minus the four points $\frac32+\sigma_\Upsilon$. For the data of the route, Part VII checks row d1.
+(5) The data classes: $\mathcal E_0$ and $\ell_0$ as in row d1, which needs $\epsilon_+$ from step (4), then $\ell_I$ in
+the nonempty open interval of row d2 minus the four points $\frac32+\sigma_\Upsilon$ and (H4)'s exclusion sets, which
+are discrete. For the route, Part VII takes $\mathcal E_0 = \{(j,0):j\ge2\}$ and $\ell_0\in(3+\epsilon_+,4)$
+(PART-VII-ASSEMBLY.md (0.1)).
 
 (6) $\epsilon$ and $d_1$ of III.K Theorem 4.3, which depend on all of the above.
 
@@ -115,5 +118,11 @@ the gauge choices produce. III.H3's (B5) is an upper bound only, so this is allo
 over an interval minus a countable set. The record's point $(\frac12,\frac1{102400},10^6)$, at which III.F$'$ computes
 (C1)-(C4), has $h = 10^{-6}$, which is not in $\mathsf H\subset(0,h_*)$ since $h_*\le10^{-6}$. It is a computation, not
 the choice: Part IV$''''$ gives (C1)-(C4) for every $h\in\mathsf H$, and any such $h$ serves.
+
+(VI.C4) *The data weight* (found in writing Part VII, D322). III.C$'$ Theorem 3.1 asks $\ell_I<\ell_0$ and
+III.I$''''''''''$ (H4) asks $\ell_I>3+\epsilon_+$, for the one $\ell_I$ that III.K uses (PART-III-K-NONLINEAR.md:56-57).
+So the data weight must satisfy $\ell_0>3+\epsilon_+$: at spatial infinity the data must have their terms of order 2 and
+3 polyhomogeneous, with a conormal remainder beyond order 3. Rows d1-d2 as written at D320 listed only $\ell_0>\frac32$
+and $\frac32<\ell_I$. Repaired; step (5) now comes after the choice of $\epsilon_+$ in step (4), as it already did.
 
 *Sources.* No new reading. Inputs: the rows of section 1.

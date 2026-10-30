@@ -5957,3 +5957,13 @@ major gap. One minor one: a light ray outside the horizon that approaches it for
 out. It is now: near the horizon's radial set a quantity grows along every forward ray, so a ray cannot settle there.
 Thirteen smaller notes (notation, constants, the order of a few quantifiers) are repaired, and in the horizon part the
 transported inner product now carries the Jacobian of the diffeomorphism, which makes an identity exact.
+
+**D322 (2026-10-30): the settling theorem assembled.** The last part of the proof puts the pieces together into the
+paper's Theorem 4. In the symmetric class: after the shell, the record's solution is a small smooth perturbation of the
+final black hole. Its data on the initial surface of the nonlinear theorem are glued, keeping the symmetry, to an exact
+black hole far out. The nonlinear theorem, run so that every step respects the symmetry, then shows the solution settles
+to a non-rotating black hole at rest. Without symmetry the theorem now covers perturbations in the nonlinear theorem's
+own data class. Writing it out found that the paper's version without symmetry claimed too much: gluing a general
+perturbation to an exact solution far out changes its late-time behaviour near the hole, so it only shows the glued data
+settle. It also found that the data must decay with polyhomogeneous terms to third order, which the parameter part had
+not recorded; that part is repaired.
