@@ -4445,3 +4445,27 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   of the nonlinear problem; the deduced routes kept beside it), section 8.8 (the seventy-fifth part), section 9 (the
   Settling bullet: lambda_1 and delta with the reason they are not evaluated; 8.2 proved), the review bullet
   (verifiers 74-154), the source table and the md5 table.
+
+### 4.260 Certified existence at 10 l5: feasibility study, phase 0 (D337); lambda_1 and delta: the Drive paper
+
+- M (2026-10-30): start the feasibility study for the certified computation. CERTIFY-10L5.md, phase 0:
+  [Wu26] Theorem 2.2 READ again (its threshold eps(C0) and constant C(C0) are not explicit, the proof is a sketch,
+  3+1 on S^2); dnull5.py D1-D5, the class in double-null gauge keeps the characteristic structure in five
+  dimensions (Raychaudhuri with 1/3, the shift, Tangherlini vacuum, constraints ODEs on the cones); python-flint
+  ball arithmetic installs and is fast; at 10 l5 the data are one broad pulse (0.48 and 1.51 periods); the closing
+  condition delta + int eps < 1/(4 G T F^2) makes the certified growth factor F the deciding number.
+- Go/no-go: G1 the double-null gauge survives to the end of the domain (next, F2: a prototype solver), G2 a
+  certified linear constant near the measured propagator's, G3 the far-field data with a certified tail, G4 the
+  axes. Phase-0 verdict: no blocker found; G1 decides first.
+- M (2026-10-30): lambda_1 and delta; the Drive paper 'Self-Tuning Cosmological Constant Framework' (warp folder,
+  PDF, 3 pp., read in full) may offer a framework. Assessment: it does not. It is a programme for a different
+  system (M4 x K compactification, moduli coupled to a defect measure), with no proofs: its 'Infrared Vacuum
+  Attractor Theorem' (p. 3) is stated without proof, and the paper calls itself the architecture for 'ongoing
+  calculations resolving the global existence and regularity' (p. 3). It contains no estimate with explicit
+  constants and no device for making a compactness, contradiction or Fredholm argument quantitative.
+- Where lambda_1 and delta come from: Part VII section 4 takes delta := eps/2 and lambda_1 with C_R lambda_1 <
+  eps/2, eps III.K's Nash-Moser threshold, which depends on the norms of the linear theory's right inverses. In
+  proof5's parts the words contradiction, compactness (and compact embedding, Rellich), Fredholm and subsequence
+  occur 19, 51, 74 and 28 times across 36 parts (a text count, not a census of arguments). Each such argument would
+  need a quantitative replacement (an explicit lower bound in place of 'injective, hence bounded below'), on
+  Tangherlini by certified computation of the separated ODEs and near it by explicit perturbation. Not attempted.

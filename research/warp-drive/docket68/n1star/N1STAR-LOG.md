@@ -6106,3 +6106,14 @@ The paper's sections 8.2, 8.8 and 9 now say so; the deduced routes in other gaug
 things the paper lists as not proved stay so, for the reasons recorded in ROUTES 4.257: evaluating lambda_1 and delta
 needs every constant of the write-out made explicit, and the physical wavelengths are a large-data problem without a
 small parameter.
+
+**D337 (2026-10-30): the feasibility study begun; the Drive paper read.** M asked for a feasibility study of the
+certified computation at 10 l5, and pointed to a new paper in the Drive folder as possible guidance on making lambda_1
+and delta evaluable. The study's first phase (CERTIFY-10L5.md): the a posteriori theorem the record pointed to, [Wu26]
+Theorem 2.2, gives the right structure but no usable constants; the class keeps the characteristic structure of the
+double-null gauge in five dimensions (dnull5.py, computed exactly); at 10 l5 the data are one broad pulse, so the
+computation is easy and the analysis is hard; ball arithmetic is available and fast. The deciding questions are whether
+a double-null evolution reaches the end of the domain, and whether a certified linear constant stays near the measured
+one; the first is next. The Drive paper is a three-page programme on the cosmological constant with no proofs and no
+explicit constants; it does not help with lambda_1 and delta, which reduce to III.K's Nash-Moser threshold and so to
+every constant of the linear theory (ROUTES 4.260).
