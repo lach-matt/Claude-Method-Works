@@ -80,11 +80,11 @@ independent reader has checked it line by line and every finding is seated; **pr
 | IV''' | III.K (K2) (b); [Hin26] p. 321 | the slab near I+: posed on the exterior domain together with the slab, from Sigma_IVP and the compact surface Sigma_c, in the chart translated in t; the boosted background in the translated class (III.B Lemma 5.2); orders at I+ | **proved** (D312: verifier 135 read the D311 repairs, correct) |
 | IV'''' | [Hin26a] sections 3-4, 5.1, 6, Appendix A | constraint damping I: the fibre algebra, the structure at infinity, the indicial roots for every h <= 10^-6, the 1-form c, the horizon threshold, (H1)-(H4) and (G); mode stability at sigma != 0 and the invertibility of the zero energy operator by the adjoint route (III.E Theorem 1.1 (1)-(3)), with [Hin26a] Theorem 5.2 at n = 4 from IV''''' | **proved** (D312: verifier 135 read the D311 repairs, the adjoint weight included, correct) |
 | IV''''' | [Hin26a] sections 2.1-2.3, 5.2 | constraint damping II: the compactification and 3b-structure at n = 4 in Kerr-Schild time, the causal facts, the fibre algebra and the 1-form; elliptic, fibre-infinity, saddle, corner, sink, real principal type, interior and energy estimates; the a priori estimate (5.79), the adjoint estimate (5.81) and [Hin26a] Theorem 5.2 at n = 4, uniformly in b | **proved** (D312: verifier 135 read the D311 repairs, correct) |
-| IV'''''' | [Hin26a] Appendix B; [Hin26] Theorem 7.1 (4) | constraint damping III: the tf model on 4+1 Minkowski; Fredholm and index 0 (radial estimates, relative index per S^3 sector), edge-b solvability (Theorem B.4), the kernel argument; Theorem B.1 at n = 4; tf-admissibility with every weight in [-C_0, 2) (III.E Theorem 1.1 (4)) | written (D310); verified (D312: verifier 135's three minors seated, to be read) |
+| IV'''''' | [Hin26a] Appendix B; [Hin26] Theorem 7.1 (4) | constraint damping III: the tf model on 4+1 Minkowski; Fredholm and index 0 (radial estimates, relative index per S^3 sector), edge-b solvability (Theorem B.4), the kernel argument; Theorem B.1 at n = 4; tf-admissibility with every weight in [-C_0, 2) (III.E Theorem 1.1 (4)) | **proved** (D315: verifier 136 read the D312 repairs, correct) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
-| V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313) |
+| V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313); verified (D315: verifier 136's three minors seated, to be read) |
 | VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314) |
 | VI.B-C | the record's computed inputs | (Dyn) at b near b_0 with (H5), (K4); the parameter conditions left open by the parts | to do |
 | VII | assembly | Theorem 4 from Parts I-VI | to do |
@@ -1332,7 +1332,7 @@ section B.4. Section 4 identifies the spaces with I.C's (q = 2 - beta, no epsilo
 adjoint half from surjectivity and I.C Theorem 4.3 (3) rather than (9.115). Findings (IV''''''1)-(IV''''''5).
 Written (D310). Verified (D312): verifier 135 read it in full; three minor findings (the deformation interval, the index
 for every order with the cokernel's independence, a strip in the adjoint chain) and six nits seated, findings
-(IV''''''6)-(IV''''''7); to be read.
+(IV''''''6)-(IV''''''7); to be read. Proved (D315): verifier 136 read the D312 repairs.
 
 `PART-V-GLUING.md`. Part V proves [CD03] Theorem 8.1 at $n = 4$ (Theorem 3.1) for data whose charges lie near
 Tangherlini's. Section 1: the fifteen KIDs of flat data (Lemma 1.1), a linear flux identity with a quadratic remainder
@@ -1344,7 +1344,9 @@ that its Remark 8.2 names as missing): Schur's lemma for $O(4)$ leaves four scal
 $-4\pi^2\mu_0$ and $-6\pi^2\mu_0$, computed by hand and checked numerically. Section 3: [CD03] Theorem 5.9's
 exponentially weighted solvability on the annulus (READ, every $n$), the continuity in the background that Lemma 3.18
 needs (Lemma 3.2), the pairing's asymptotics (3.2), Lemma 3.18 proved, and the glued data, smooth, equal to a family
-member for $r\ge4R$, their charges converging. Findings (V1)-(V5). Written (D313).
+member for $r\ge4R$, their charges converging. Findings (V1)-(V5). Written (D313). Verified (D315): verifier 136 found
+no step that uses an n = 3 fact; three minor findings (the projection is orthogonal in the current metric, continuity
+deduced from product estimates, a normalisation dropped) and seven nits seated, findings (V6)-(V8); to be read.
 
 `PART-VI-DYN.md`. Part VI.A proves the dynamical hypotheses that Parts I-IV leave to Part VI, at five-dimensional
 Tangherlini with III.B's $t_*$. Section 0: every time function used is $v-\varphi(r)$, and a change of time function is

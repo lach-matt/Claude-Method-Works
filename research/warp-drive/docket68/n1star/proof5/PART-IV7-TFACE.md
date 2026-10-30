@@ -6,6 +6,7 @@
 invertibility of the spectral family of the dilation-invariant model on 4+1 Minkowski space, which is $\Box^C_b$'s
 transition face normal operator. The proof follows the source's three steps. Verified (D312): verifier 135 read it in
 full; three minor findings and six nits, seated as findings (IV$''''''$6)-(IV$''''''$7) and in the text; to be read.
+Proved (D315): verifier 136 read the D312 repairs, correct.
 
 - The Fredholm property and index 0 (section 1), by radial estimates and Melrose's relative index theorem, sector by
 sector on $\mathbb S^3$.

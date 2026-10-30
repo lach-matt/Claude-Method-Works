@@ -4179,3 +4179,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Checks: d313/dyn5.py (sympy).
 - Next: Part VI.B ((Dyn) for b near b_0: horizon by continuity on the fixed conormal, trapping by [HPS77]
   persistence, (H8) by the escape function with no return), VI.C (gamma_Upsilon < min(s_C/2, 1/4), (C5)), Part VII.
+
+### 4.239 Verifier 136 seated (D315): Part V verified, IV'''''' proved
+
+- Part V: no step uses an n = 3 fact; the four scalars, Schur, and every READ of [CD03] confirmed. Three minors:
+  [CD03]'s projection is orthogonal in the current metric, so Step 3 pairs with the KIDs converted by g' and the Gram
+  matrix tends to the flat one (V7); the continuity in the background and the Lipschitz derivative are deduced from
+  product estimates, not read (V8); Proposition 1.3's normalisation and the rescaling sentence are dropped (V6). Seven
+  nits seated; the checks jac5.py and dyn5.py are now in proof5/checks/.
+- IV'''''': the D312 repairs read, correct; proved.
+- Next: Part VI.B ((Dyn) near b_0), VI.C, Part VII; Part VI.A and the D315 repairs to verifier 137.

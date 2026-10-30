@@ -5908,3 +5908,9 @@ photon sphere, and that every other ray falls in or escapes. These are now prove
 photon sphere sits at the square root of twice the mass parameter; the rays that approach it are found in closed form;
 and a single quantity, the radial momentum times the distance from the photon sphere, increases along every ray except
 those on the sphere itself. That quantity is what will carry the conclusions over to slowly rotating black holes.
+
+**D315 (2026-10-30): the gluing checked.** The hundred-and-thirty-sixth verifier read the gluing part and found that it
+uses nothing special to three dimensions, and that the conserved quantities of the rotating black hole family were
+computed correctly. It found three gaps with evident repairs, the most substantive being that the published method
+projects with respect to the perturbed geometry rather than the flat one, which changes which finite set of directions
+must be matched. The last constraint damping part is now proved.

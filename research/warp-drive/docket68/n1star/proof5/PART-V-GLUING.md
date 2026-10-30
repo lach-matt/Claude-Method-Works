@@ -13,7 +13,9 @@ $R^{-2}$ for the energy and momentum, $R^{-3}$ for the angular momentum and the 
 source are each stated in [CD03] for every $n\ge2$: (2.1), (2.4), Theorems 3.6 and 3.9, Theorem 5.9, Proposition 5.10,
 Corollary 5.11 and Proposition G.1. Lemma 3.18 is proved again here. This part replaces N1STAR-PROOF.md 10.63 (a)-(c),
 10.66 (a)-(e) and Proposition 10.47. The nonlinear step that the plan pairs with the gluing is III.K, and [HHV21]'s
-perturbation arguments (record 10.68) are discussed in finding (V5).
+perturbation arguments (record 10.68) are discussed in finding (V5). Verified (D315): verifier 136 read it in full,
+found no step that uses an $n = 3$ fact, and three minor findings and seven nits, seated as findings (V6)-(V8) and in
+the text; to be read.
 
 ## 0. Notation
 
@@ -92,13 +94,13 @@ $\mathrm{div}\,Y = 0$. $\square$
 (1.1) is the content of [CD03] (E.15)-(E.16) and (E.27), here in its linear 3+1 form, written out because it is all that
 is used.
 
-**Proposition 1.3 (the charges).** Let $(g,K)$ be vacuum data on $\{r>R_0\}$ with $|||(g,K)|||_{\alpha,2}\le1$,
+**Proposition 1.3 (the charges).** Let $(g,K)$ be vacuum data on $\{r>R_0\}$ with $|||(g,K)|||_{\alpha,2}<\infty$,
 $\alpha>\frac32$, and $|g-\delta|\le\frac12$. For $X$ in the basis (0.4), of degree $d$, the limit
 $$\mathfrak Q_X(g,K) := \lim_{\rho\to\infty}\oint_{S_\rho}\mathfrak b_X(g-\delta,K)$$
 exists, and
 $$\Big|\mathfrak Q_X(g,K)-\oint_{S_\rho}\mathfrak b_X(g-\delta,K)\Big|\le
 C\,|||(g,K)|||_{\alpha,2}^2\,\rho^{2+d-2\alpha}\qquad(\rho>R_0),\tag{1.3}$$
-with $C$ depending only on $\alpha$ and $R_0$. Moreover:
+with $C$ depending only on $\alpha$ and $R_0$ (amended D315, finding (V6)). Moreover:
 
 (a) $\mathfrak Q_X$ is continuous on such data for the norm $|||\cdot|||_{\alpha,2}$;
 
@@ -144,7 +146,8 @@ $Z_k := x^k\partial_t+t\partial_k$;
 
 - $\Phi_p(y) := \Lambda_wy+(0,c)$ and $G_p := \Phi_p^*g^{\mathrm{KS}}_{\mu,A}$;
 
-- $(g_p,K_p)$, the data (0.2) of $G_p$ on $\{y^0 = 0\}\cap\{|y|>R_P\}$, with $R_P := 100R_1$.
+- $(g_p,K_p)$, the data (0.2) of $G_p$ on $\{y^0 = 0\}\cap\{|y|>R_P\}$, with $R_P := 100R_1$, with $R_1$ III.B's radius
+(not the gluing radius $R_{\mathrm{gl}}$ of Theorem 3.1).
 
 Write $p_0 := (\mu_0,0,0,0)$. $\mathbb A := \sum_{a<b}A_{ab}W_{ab}$ fixes the coordinates $A_{ab}$ on $\mathfrak{so}(4)$.
 
@@ -264,28 +267,32 @@ $p(Q)$ is continuous and the data $(g_{p(Q)},K_{p(Q)})$ have charge vector exact
 
 **Theorem 3.1 ([CD03] Theorem 8.1 and Remark 8.4 at n = 4).** Let $(g,K)$ be smooth vacuum data on
 $\{r>R_0\}\subset\mathbb R^4$ with $|||(g,K)|||_{\alpha,7}<\infty$ for some $\alpha\in(\frac32,2]$, and with charge
-vector $\mathfrak Q^0 := (\mathfrak Q_X(g,K))_X\in V$. There is $R_1$ such that for every $R\ge R_1$ there are $p_R\in
-U$ and smooth vacuum data $(\hat g_R,\hat K_R)$ on $\{r>R_0\}$ that equal $(g,K)$ on $\{r\le R\}$ and
-$(g_{p_R},K_{p_R})$ on $\{r\ge4R\}$. Moreover $\mathfrak q(p_R)\to\mathfrak Q^0$ as $R\to\infty$.
+vector $\mathfrak Q^0 := (\mathfrak Q_X(g,K))_X\in V$. There is $R_{\mathrm{gl}}$ such that for every $R\ge
+R_{\mathrm{gl}}$ there are $p_R\in U$ and smooth vacuum data $(\hat g_R,\hat K_R)$ on $\{r>R_0\}$ that equal $(g,K)$ on
+$\{r\le R\}$ and $(g_{p_R},K_{p_R})$ on $\{r\ge4R\}$. Moreover $\mathfrak q(p_R)\to\mathfrak Q^0$ as $R\to\infty$.
 
-Rescaling and Proposition 1.3 (a) make $|||(g,K)|||_{\alpha,2}\le1$ on $\{r>R_0\}$ with $|g-\delta|\le\frac12$ after
-enlarging $R_0$; this is assumed below. Fix $k := 3$, the least integer above $\frac n2$. The proof has five steps.
+Enlarging $R_0$, $|g-\delta|\le\frac12$ on $\{r>R_0\}$; this is assumed below. Fix $k := 3$, the least integer above
+$\frac n2$. The proof has five steps.
 
 *Step 1: the solvability statement read at source.* Let $M := \bar\Gamma(1,4)$, a compact manifold with boundary, and
 let $x\in C^\infty(M)$ be a defining function of $\partial M$ with $0<x\le1$ in the interior that equals the distance to
 $\partial M$ near it. The background is $(K_0,g_0) := (0,\delta)$. [CD03] Theorem 5.9 (READ, p. 25, for every $n$)
 applies with any $s>0$ (fix $s := 1$) and this $k>\frac n2$. Its hypotheses hold: $g_0$ is smooth on $M$, so it has
 $(W^{k+4,\infty}_{x^2},k+4)$-behaviour; $x^4|\mathrm{Ric}(g_0)| = 0$; $x|\nabla\nabla x|\to0$, $\nabla\nabla x$ being
-bounded near $\partial M$; and $K_0 = 0$. Its spaces are those of Theorem 3.9 with $\varphi = x^2$ and $\psi =
-e^{-s/x}$, as its solution $(\delta K,\delta g) = e^{-2s/x}\Phi^2P^*(Y,N)$ shows. Their kernel $\mathcal K_{g_0}$ is the
-kernel of $P^*_{(0,\delta)}$ in $\mathring H^{k+3}_{x^2,e^{-s/x}}\times\mathring H^{k+4}_{x^2,e^{-s/x}}$. By Lemma 1.1
-and interior regularity it is $\mathcal K$ restricted to $M$: the 15 KIDs are bounded, so they lie in these spaces, and
-every element of the kernel is smooth in $M^\circ$ and one of them. $\pi$ denotes the projection orthogonal to $\mathcal
-K$ in $L^2(M,e^{-2s/x}dx)$. The theorem gives $\epsilon>0$ with the following property. For $(K',g')$ with
-$\|(K',g')-(0,\delta)\|_{C^{k+4}(M)}<\epsilon$, which bounds the norm of $x^{-2}W^{k+3,\infty}_{x^2}\times
-W^{k+4,\infty}_{x^2}$ as $x\le1$, and for every $(\delta J,\delta\rho)\in H^{k+1}_{x^2,e^{s/x}}\times H^k_{x^2,e^{s/x}}$
-of norm $<\epsilon$, there is a solution $(\delta K,\delta g)\in x^2H^{k+2}_{x^2,e^{s/x}}\times
-x^4H^{k+2}_{x^2,e^{s/x}}$ of
+bounded near $\partial M$; and $K_0 = 0$. The source prints $\varphi = x^2$, $\psi = e^{s/x}$ for its sources and
+solutions (p. 25). Its $(Y,N)$-spaces are those of Theorem 3.9 with $\psi = e^{-s/x}$, as its solution $(\delta K,\delta
+g) = e^{-2s/x}\Phi^2P^*(Y,N)$ shows, and $\psi^2H_{\varphi,\psi} = H_{\varphi,\psi^{-1}}$ ($x^2|d\psi|/\psi = s$ is
+bounded). The kernel $\mathcal K_{g_0}$ is that of $\Phi P^*_{(0,\delta)}$ on $\mathring H^1\times\mathring H^2$
+(Proposition 3.3, p. 11). By Lemma 1.1 and interior regularity it is $\mathcal K$ restricted to $M$: the 15 KIDs are
+bounded, so they lie in these spaces, and every element of the kernel is smooth in $M^\circ$ and one of them. As in the
+source (p. 11), $\pi = \pi_{g'}$ denotes the $L^2_\psi(g')$-orthogonal projection onto $\mathcal K^{\perp_{g_0}}$, $g'$
+the current background metric; its kernel is $(\mathcal K^{\perp_{g_0}})^{\perp_{g'}} = M_{g'}^{-1}\mathcal K$, where
+$\langle u,v\rangle_{L^2_\psi(g')} = \langle M_{g'}u,v\rangle_{L^2_\psi(g_0)}$, $M_{g'}$ the pointwise conversion by
+$g'$ and $\sqrt{\det g'}$ (amended D315, finding (V7)). The theorem gives $\epsilon>0$ with the following property. For
+$(K',g')$ with $\|K'\|_{C^{k+3}(M)}+\|g'-\delta\|_{C^{k+4}(M)}<\epsilon$, which bounds the norm of
+$x^{-2}W^{k+3,\infty}_{x^2}\times W^{k+4,\infty}_{x^2}$ as $x\le1$, and for every $(\delta J,\delta\rho)\in
+H^{k+1}_{x^2,e^{s/x}}\times H^k_{x^2,e^{s/x}}$ of norm $<\epsilon$, there is a solution $(\delta K,\delta g)\in
+x^2H^{k+2}_{x^2,e^{s/x}}\times x^4H^{k+2}_{x^2,e^{s/x}}$ of
 $$\pi\,e^{2s/x}\big\{(J,\rho)(K'+\delta K,g'+\delta g)-(J,\rho)(K',g')\big\} = \pi\,e^{2s/x}(\delta
 J,\delta\rho).\tag{3.1}$$
 It satisfies $\|(\delta K,\delta g)\|\le C\|(\delta J,\delta\rho)\|$, the bound of Proposition G.1 (pp. 77-78), through
@@ -296,23 +303,28 @@ gives $(\delta K,\delta g)\in C^\infty(M)$, extending smoothly by zero across $\
 $H^{k+2}_{x^2,e^{s/x}}\subset H^{k+2}(M)\subset C^2(M)$, as $x^{-4j}e^{-2s/x}$ is bounded and $k+2 = 5>\frac n2+2$. So
 $\|(\delta K,\delta g)\|_{C^2(M)}\le C\|(\delta J,\delta\rho)\|$.
 
-**Lemma 3.2 (continuity in the background).** In Step 1, the solution with $(Y,N)$ in the neighbourhood of zero is
-unique, and it depends continuously on $((K',g'),(\delta J,\delta\rho))$.
+**Lemma 3.2 (continuity in the background).** In Step 1, the solution with $(Y,N)\in\mathcal K^{\perp_{g_0}}$ in the
+neighbourhood of zero is unique, and it depends continuously on $((K',g'),(\delta J,\delta\rho))$.
 
 *Proof.* Write $\Psi(x',z)$ for the left side of (3.1) as a function of the background $x' = (K',g')$ and of $z =
 (Y,N)$. By Theorem 3.6 (READ, p. 13), $D_z\Psi(x',0)$ is an isomorphism, the norm of its inverse at most $C_1$
-independently of $x'$ near $(0,\delta)$. By hypothesis 3 of Proposition G.1, which Theorem 3.9's proof verifies
-uniformly in $x'$, $\|D_z\Psi(x',z_1)-D_z\Psi(x',z_2)\|\le C_3\|z_1-z_2\|$ near zero. So for $z_1,z_2$ in the ball of
-radius $(2C_1C_3)^{-1}$,
+independently of $x'$ near $(0,\delta)$. Write $T_{x'}z := e^{-2s/x}\Phi^2P^*_{x'}z$, so that $\Psi(x',z) =
+\pi_{g'}e^{2s/x}\{(J,\rho)(x'+T_{x'}z)-(J,\rho)(x')\}$. $T_{x'}$ is bounded from the $(Y,N)$-space to the solution
+space, continuously in $x'$ in operator norm, its coefficients being polynomial in the 2-jet of $x'$ and in $g'^{-1}$.
+The constraint map is a polynomial in the 2-jet of the data with coefficients rational in $g$. The spaces
+$H^{k+2}_{x^2,e^{s/x}}$ with $k+2>\frac n2+1$ embed in $C^1(M)$ and are stable under products with each other and with
+$C^{k+2}(M)$, by Sobolev's inequality on the scaled balls of [CD03] Appendix B. So $(x',\delta
+x)\mapsto(J,\rho)(x'+\delta x)-(J,\rho)(x')$ is $C^2$ in $\delta x$ near zero, with derivatives continuous in $x'$ and
+bounded uniformly, and $\|D_z\Psi(x',z_1)-D_z\Psi(x',z_2)\|\le C_3\|T\|^2\|z_1-z_2\|$ near zero; this is Proposition
+G.1's hypothesis 3 transferred to $z$ (deduced, not read; finding (V8)). Write $C_3$ for $C_3\|T\|^2$ below. So for
+$z_1,z_2$ in the ball of radius $(2C_1C_3)^{-1}$,
 $$\|\Psi(x',z_1)-\Psi(x',z_2)\|\ge\|D_z\Psi(x',0)(z_1-z_2)\|
 -C_3\max(\|z_1\|,\|z_2\|)\,\|z_1-z_2\|\ge(2C_1)^{-1}\|z_1-z_2\|.$$
 This gives uniqueness in that ball. For continuity, let $z$ solve the equation for $(x',\delta f)$ and $\tilde z$ for
 $(\tilde x',\tilde{\delta f})$, with $\delta f$ the right side of (3.1). Then $\|\tilde z-z\|\le2C_1\|\Psi(\tilde
 x',\tilde z)-\Psi(\tilde x',z)\|\le2C_1(\|\tilde{\delta f}-\delta f\|+\|\Psi(x',z)-\Psi(\tilde x',z)\|)$. The last term
-tends to zero as $\tilde x'\to x'$: at fixed $z$, $\Psi$ is a composition of $P^*_{x'}$, whose coefficients are
-polynomial in the 2-jet of $x'$ and in $g'^{-1}$, with the constraint map, polynomial in the 2-jet, and the weighted
-Moser estimates by which Theorem 5.9's proof makes it differentiable bound its differences in the coefficients (READ, p.
-26). $\square$
+tends to zero as $\tilde x'\to x'$: at fixed $z$, $x'\mapsto T_{x'}z$ is continuous, the constraint map is continuous in
+the background and the datum by the same product estimates, and $\pi_{g'}$ is continuous in $g'$ (deduced). $\square$
 
 *Step 2: the approximate data.* Fix a radial $\chi\in C^\infty(\mathbb R^4)$ with $0\le\chi\le1$, $\chi = 1$ for $r\le2$
 and $\chi = 0$ for $r\ge3$. Let $\bar B\subset V$ be a closed ball about $\mathfrak Q^0$. For $R\ge\max(2R_0,R_P)$ and
@@ -320,8 +332,8 @@ $Q\in\bar B$ put
 $$x_{Q,R} := \chi\,\sigma_R(K,g)+(1-\chi)\,\sigma_R(K_{p(Q)},g_{p(Q)})\qquad\text{on }M.$$
 Then:
 
-(a) $\|x_{Q,R}-(0,\delta)\|_{C^{k+4}(M)}\le CR^{-\alpha}$, uniformly for $Q\in\bar B$, and $Q\mapsto x_{Q,R}$ is
-continuous into $C^{k+4}(M)$. Indeed $|\partial^\gamma_y(\sigma_Rg-\delta)(y)| =
+(a) $\|K_{Q,R}\|_{C^{k+3}(M)}+\|g_{Q,R}-\delta\|_{C^{k+4}(M)}\le CR^{-\alpha}$, uniformly for $Q\in\bar B$, and
+$Q\mapsto x_{Q,R}$ is continuous into $C^{k+3}\times C^{k+4}(M)$. Indeed $|\partial^\gamma_y(\sigma_Rg-\delta)(y)| =
 R^{|\gamma|}|\partial^\gamma(g-\delta)(Ry)|\le CR^{-\alpha}$ and $|\partial^\gamma\sigma_RK|\le CR^{-\alpha}$ for
 $|\gamma|\le k+4 = 7$ (resp. 6). The member's data obey the same bounds with $\alpha$ replaced by $2\ge\alpha$,
 uniformly in $p$, and depend smoothly on $p$ (Lemma 2.2), and $p(Q)$ is continuous.
@@ -333,17 +345,18 @@ of the 2-jet vanishing at $(0,\delta)$.
 By (b), $(\delta J,\delta\rho) := -(J,\rho)(x_{Q,R})$ is smooth and supported in $\bar\Gamma(2,3)\subset M^\circ$, where
 $x$ is bounded below, so its weighted norms are at most $C\|\cdot\|_{C^{k+1}}\le CR^{-\alpha}$. For $R\ge R_2$, Step 1
 and Lemma 3.2 give a smooth $\delta x_{Q,R}$ on $M$ that extends by zero, with $\|\delta x_{Q,R}\|_{C^2(M)}\le
-CR^{-\alpha}$, continuous in $Q$. Put $\hat x_{Q,R} := x_{Q,R}+\delta x_{Q,R}$; by (3.1), $\pi\,e^{2s/x}(J,\rho)(\hat
-x_{Q,R}) = 0$.
+CR^{-\alpha}$, continuous in $Q$. Put $\hat x_{Q,R} := x_{Q,R}+\delta x_{Q,R}$; by (3.1),
+$\pi_{g_{Q,R}}e^{2s/x}(J,\rho)(\hat x_{Q,R}) = 0$.
 
-*Step 3: the obstruction is a pairing.* As $\mathcal K$ is finite-dimensional, $\pi z = 0$ iff $z\in\mathcal K$, so
-$(J,\rho)(\hat x_{Q,R}) = e^{-2s/x}\sum_ic_ie_i$ on $M^\circ$, for some $c\in\mathbb R^{15}$; vectors and covectors are
-identified by $\delta$. Let
+*Step 3: the obstruction is a pairing.* By Step 1, $\pi_{g'}z = 0$ iff $z\in M_{g'}^{-1}\mathcal K$, $g' := g_{Q,R}$, so
+$(J,\rho)(\hat x_{Q,R}) = e^{-2s/x}\sum_ic_iM_{g'}^{-1}e_i$ on $M^\circ$, for some $c\in\mathbb R^{15}$; vectors and
+covectors are identified by $\delta$. Let
 $$F_R(Q)_j := \int_M(Y_j^iJ_i+N_j\rho)(\hat x_{Q,R})\,d\mu_{\hat g_{Q,R}},\qquad e_j = (Y_j,N_j).$$
-Then $F_R(Q) = \mathcal G\,c$, where $\mathcal G_{ji} := \int_M(Y_j\cdot Y_i+N_jN_i)\,e^{-2s/x}d\mu_{\hat g}$ is the
-Gram matrix of functions that are linearly independent on every open set, for a positive measure. So $\mathcal G$ is
-positive definite, and $(J,\rho)(\hat x_{Q,R}) = 0$ iff $F_R(Q) = 0$. $F_R$ is continuous on $\bar B$, its integrand
-depending continuously on $\hat x_{Q,R}$ in $C^2$.
+Then $F_R(Q) = \mathcal G'c$ with $\mathcal G'_{ji} := \int_Me_j\cdot M_{g'}^{-1}e_i\,e^{-2s/x}d\mu_{\hat g}$. As $g'$,
+$\hat g\to\delta$ in $C^0(M)$ uniformly on $\bar B$, $\mathcal G'\to\mathcal G$, $\mathcal G_{ji} := \int_Me_j\cdot
+e_i\,e^{-2s/x}dx$, the Gram matrix of functions that are linearly independent on every open set, for a positive measure.
+So $\mathcal G$ is positive definite, $\mathcal G'$ is invertible for $R$ large, and $(J,\rho)(\hat x_{Q,R}) = 0$ iff
+$F_R(Q) = 0$. $F_R$ is continuous on $\bar B$, its integrand depending continuously on $\hat x_{Q,R}$ in $C^2$.
 
 *Step 4: the pairing's asymptotics.* Let $\mathfrak x = (\hat K,\hat g) := \sigma_R^{-1}\hat x_{Q,R}$ on $\Gamma(R,4R)$.
 By Lemma 1.4 and then (1.1),
@@ -371,12 +384,13 @@ fixed point $y_\lambda$ by Brouwer's theorem (cited). Then $x_\lambda := G^{-1}(
 $G_\lambda(x_\lambda) = y_\lambda-u_\lambda(y_\lambda) = y$. $\square$
 
 *Step 5: conclusion.* Apply Lemma 3.3 with $U'$ the interior of $\bar B$, $G(Q) := Q-\mathfrak Q^0$, $G_R$ from (3.2)
-and $y = 0$. For every $r'>0$ there is $R_1$ such that for $R\ge R_1$ some $Q_R$ with $|Q_R-\mathfrak Q^0|\le r'$ has
-$G_R(Q_R) = 0$. Then $F_R(Q_R) = 0$ and, by Step 3, $(J,\rho)(\hat x_{Q_R,R}) = 0$. Put $p_R := p(Q_R)$, and let $(\hat
-g_R,\hat K_R)$ be $(g,K)$ on $\{R_0<r\le R\}$, $\sigma_R^{-1}\hat x_{Q_R,R}$ on $\Gamma(R,4R)$ and $(g_{p_R},K_{p_R})$
-on $\{r\ge4R\}$. These are smooth, as $\chi$ is constant near $\partial M$ and $\delta x$ extends smoothly by zero. They
-are vacuum everywhere, and $\hat g_R$ is Riemannian, being $C^0$-close to $\delta$ on $\Gamma(R,4R)$. Finally $\mathfrak
-q(p_R) = Q_R\to\mathfrak Q^0$. $\square$
+and $y = 0$. For every $r'>0$ below the radius of $\bar B$ there is $R(r')$ such that for $R\ge R(r')$ some $Q_R$ with
+$|Q_R-\mathfrak Q^0|\le r'$ has $G_R(Q_R) = 0$; put $R_{\mathrm{gl}} := R(r'_0)$ for one such $r'_0$. Then $F_R(Q_R) =
+0$ and, by Step 3, $(J,\rho)(\hat x_{Q_R,R}) = 0$. Put $p_R := p(Q_R)$, and let $(\hat g_R,\hat K_R)$ be $(g,K)$ on
+$\{R_0<r\le R\}$, $\sigma_R^{-1}\hat x_{Q_R,R}$ on $\Gamma(R,4R)$ and $(g_{p_R},K_{p_R})$ on $\{r\ge4R\}$. These are
+smooth, as $\chi$ is constant near $\partial M$ and $\delta x$ extends smoothly by zero. They are vacuum everywhere, and
+$\hat g_R$ is Riemannian, being $C^0$-close to $\delta$ on $\Gamma(R,4R)$. Finally $\mathfrak q(p_R) = Q_R$, and
+choosing $Q_R$ with the least admissible $r'$, $r'(R)\to0$, gives $\mathfrak q(p_R)\to\mathfrak Q^0$. $\square$
 
 **Remark 3.4 (what Part VII takes from Theorem 3.1).** The data $(\hat g_R,\hat K_R)$ equal, for $r\ge4R$, the data that
 $G_{p_R} = \Phi_{p_R}^*g^{\mathrm{KS}}_{\mu,A}$ induces on $\{y^0 = 0\}$. By uniqueness for the vacuum Cauchy problem,
@@ -398,7 +412,7 @@ odd and of the same order as the metric, $r^{-2}$, which (E.9) would exclude.
 readings of [ER08] (34) and [CD03] (E.14) used in 10.63 (a). Only the derivative at Tangherlini is needed: four scalars
 computed by hand, and Schur's lemma for the zero blocks. In ADM units the values agree with Proposition 10.47: energy
 $\frac{3\pi\mu}8$, momentum per unit rapidity equal to the energy, angular momentum $\frac{\pi\mu}4$ per unit spin,
-centre of mass shifted by the translation. A numerical check of all 225 entries at large radius is `d312/jac5.py`.
+centre of mass shifted by the translation. A numerical check of all 225 entries at large radius is `checks/jac5.py`.
 
 (V3) *[CD03]'s indices at n = 4.* The convergence rate of (8.3) is $\beta = \min(\alpha,n-2)$, printed as
 $\min(\alpha,1)$, and (8.7)'s $R^{-1}$ is $R^{-(n-2)-d}$. Theorem 5.6 states $s\ge n-2$ where its proof uses $s\ge n-1$,
@@ -406,9 +420,8 @@ and (8.5) prints $s = t-1$ where $s = t+n-2$ is the index (8.5) states (10.66 (c
 5.9's exponentially weighted spaces, which [CD03] uses for smooth data (Proposition 5.10, Corollary 5.11).
 
 (V4) *Continuity in the parameter.* [CD03] Theorem 3.19 applies Lemma 3.18 to $F_\lambda$, which must be continuous in
-$Q$; the source leaves this implicit. It is Lemma 3.2 here. Uniqueness and continuity follow from the uniform bounds of
-Theorem 3.6 and Proposition G.1; the one input read is the continuity of the map (3.1) in the background at fixed
-$(Y,N)$, from Theorem 5.9's proof.
+$Q$; the source leaves this implicit. It is Lemma 3.2 here. Uniqueness and continuity follow from the uniform bound of
+Theorem 3.6 and from product estimates in the weighted spaces, which are deduced here (finding (V8)).
 
 (V5) *Scope.* The Proposition F.1 equivalent is proved near Tangherlini only; its global form for the Myers-Perry family
 is not attempted. Theorem 3.1 needs $\mathfrak Q^0\in V$, which is closeness to Tangherlini (Remark 3.4). The plan's row
@@ -416,6 +429,17 @@ V named [HHV21] beside [CD03] for its two perturbation arguments (record 10.68):
 Lemma 10.52 (P1)) and the semicontinuity of the kernel ((P2)). Neither is used in this part. Where the write-out needs
 the facts they give at $b$ near $b_0$, it proves them in place; for example the openness of invertibility uniformly in
 $b$ is I.A Theorem 8.1, cited in III.F$''$.
+
+(V6) *A normalisation* (verifier 136's V-m3). Proposition 1.3 assumed $|||(g,K)|||_{\alpha,2}\le1$, which the members of
+the family need not satisfy, and Theorem 3.1 reached it by a rescaling that would move the charges out of $V$. The bound
+is not used; it is dropped, and the rescaling with it.
+
+(V7) *The projection* (verifier 136's V-m1). [CD03]'s projection is orthogonal in $L^2_\psi$ of the current metric, so
+its kernel is the KIDs converted by $g'$, not the KIDs. Step 3 now pairs with the converted KIDs, whose Gram matrix
+tends to the flat one.
+
+(V8) *Continuity and the Lipschitz derivative* (verifier 136's V-m2). Lemma 3.2 had read both at p. 26, which states
+differentiability only. They are deduced from the product estimates of the weighted spaces.
 
 *Labels.*
 

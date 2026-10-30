@@ -132,7 +132,7 @@ then $C = r^2f^{-1}(1-u^2) = 4\mu$; likewise for $\phi_2$. So $\{\phi_1\phi_2 = 
 4\mu\}\cap\Sigma^s$, and each branch is a union of orbits ($C$ is conserved, and the $(r,\xi)$-curve $f\xi = \pm u$ is
 invariant under the reduced flow). The identities (3.2) are exact on $\Sigma^s$. The computation substitutes $C =
 r^2(f^{-1}-f\xi^2)$ into $\mathsf H^\flat\phi_i$, with $r^4-3\mu r^2+2\mu^2 = (r^2-\mu)(r^2-2\mu)$ (sympy,
-`d313/dyn5.py`; the record's $\nu = 4(2\mu)^{-1/2}$ at $\Gamma$, Proposition 10.16 (ii)). (c) $\{\phi_1,\phi_2\} =
+`checks/dyn5.py`; the record's $\nu = 4(2\mu)^{-1/2}$ at $\Gamma$, Proposition 10.16 (ii)). (c) $\{\phi_1,\phi_2\} =
 \partial_\xi\phi_1\partial_r\phi_2-\partial_r\phi_1\partial_\xi\phi_2 = 2fu'$ at $\xi = 0$, which at $r_{\mathrm{ph}}$
 is $2\cdot\frac12\cdot4\mu r_{\mathrm{ph}}^{-3} = (2/\mu)^{1/2}$. $\partial_\eta G^s = 2r^{-2}\eta^\sharp\ne0$, as
 $|\eta|^2 = 4\mu$. For $z_0 = -1$ the roles of $\phi_1$ and $\phi_2$ exchange, and the sign of $\phi_s$ restores
@@ -222,7 +222,7 @@ $$H_{G^s}\mathcal F = \frac{2r\big(\xi^2(r^2-\mu)^2+(r^2-2\mu)^2\big)}{(r^2-\mu)
 with equality exactly on $\Gamma$.
 
 *Proof.* For $\mathcal F = a(r)\xi$, $H_{G^s}\mathcal F = 2\xi^2r^{-2}((r^2-\mu)a'-ra)+2r(r^2-2\mu)(r^2-\mu)^{-2}a$ on
-$\Sigma^s$, after substituting $C$. At $a = r^2-2\mu$ the first bracket is $r^3$. (Sympy, `d313/dyn5.py`.) $\square$
+$\Sigma^s$, after substituting $C$. At $a = r^2-2\mu$ the first bracket is $r^3$. (Sympy, `checks/dyn5.py`.) $\square$
 
 Lemma 5.2 is not needed at $b_0$, where Proposition 5.1 uses the conserved $C$. Part VI.B uses it, as $C$ is not
 conserved at $b\ne b_0$. Exactly, $\phi_2^2-\phi_1^2 = 4f\xi u$, so $\mathcal F = \frac{r^2}{4f}(\phi_2^2-\phi_1^2)$,
