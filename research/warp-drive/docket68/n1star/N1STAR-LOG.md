@@ -5914,3 +5914,10 @@ uses nothing special to three dimensions, and that the conserved quantities of t
 computed correctly. It found three gaps with evident repairs, the most substantive being that the published method
 projects with respect to the perturbed geometry rather than the flat one, which changes which finite set of directions
 must be matched. The last constraint damping part is now proved.
+
+**D316 (2026-10-30): the horizon of the rotating black holes.** The facts about the horizon proved last time for the
+static black hole are now carried over to the slowly rotating ones. The horizon of a rotating black hole in the
+coordinates the proof uses is located exactly, by an identity checked symbolically, and the properties the estimates
+need there survive a small rotation because they are strict inequalities on a fixed compact set. The photon sphere is
+harder: a general perturbation argument would give its shape only with limited smoothness, so it will be treated
+through the special conserved quantity that rotating black holes in five dimensions possess.

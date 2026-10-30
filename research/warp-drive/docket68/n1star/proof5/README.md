@@ -86,7 +86,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
 | V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313); verified (D315: verifier 136's three minors seated, to be read) |
 | VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314) |
-| VI.B-C | the record's computed inputs | (Dyn) at b near b_0 with (H5), (K4); the parameter conditions left open by the parts | to do |
+| VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316) |
+| VI.B'-C | the record's computed inputs | the trapped set and the global dynamics near b_0 ((Γ.1)-(Γ.3), (K3), (H8)); the parameter conditions left open by the parts | to do |
 | VII | assembly | Theorem 4 from Parts I-VI | to do |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
@@ -1358,6 +1359,13 @@ from the periodic geodesic flow of $\mathbb S^3$ (Proposition 4.1). The global d
 momentum (Proposition 5.1), and the escape function $(r^2-2\mu)\xi$, whose derivative
 $2r(\xi^2(r^2-\mu)^2+(r^2-2\mu)^2)/(r^2-\mu)^2$ vanishes only on $\Gamma$ (Lemma 5.2), for Part VI.B. Findings
 (VI.A1)-(VI.A3). Written (D314).
+
+`PART-VI2-HORIZON.md`. Part VI.B carries the horizon hypotheses from $b_0$ to $b$ near $b_0$. The Myers-Perry horizon in
+III.B's Kerr-Schild form is $\{r_A = r_+\}$, $r_+$ the largest root of $(r^2+a^2)(r^2+b^2) = \mu r^2$, by the exact
+identity $g^{-1}(dr_A,dr_A) = \Delta_b(r_A)/(r_A^2\Sigma)$ (Lemma 1.1, `checks/horizon5.py`). A diffeomorphism, the
+identity outside $\{|x|<2R_1\}$, fixes it at $\{|x| = r_h\}$ (Lemma 1.2). Its conormal bundle is then invariant (Lemma
+2.1), and (H3)-(H4) hold with constants uniform in $b$ by continuity on fixed compact sets (Proposition 2.2). Findings
+(VI.B1)-(VI.B2). Written (D316).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

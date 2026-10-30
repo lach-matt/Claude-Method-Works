@@ -4189,3 +4189,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   nits seated; the checks jac5.py and dyn5.py are now in proof5/checks/.
 - IV'''''': the D312 repairs read, correct; proved.
 - Next: Part VI.B ((Dyn) near b_0), VI.C, Part VII; Part VI.A and the D315 repairs to verifier 137.
+
+### 4.240 Part VI.B written (D316): the horizon near b_0
+
+- PART-VI2-HORIZON.md. The Myers-Perry horizon in III.B's Kerr-Schild coordinates is {r_A = r_+}, where r_+ is the
+  largest root of (r^2 + a^2)(r^2 + b^2) = mu r^2. The proof is the exact identity g^-1(dr_A, dr_A) = Delta_b(r_A)/(r_A^2
+  Sigma) (Lemma 1.1, checks/horizon5.py).
+- A diffeomorphism, the identity outside |x| < 2R_1, fixes the horizon at |x| = r_h (Lemma 1.2). Its conormal bundle
+  is then invariant (Lemma 2.1), and (H3)-(H4) hold uniformly in b by continuity on fixed compact sets (Proposition
+  2.2).
+- Next: Part VI.B', the trapped set near b_0. Hirsch-Pugh-Shub persistence gives the separatrices only C^r for each r
+  on shrinking neighbourhoods, while (H7) asks C^infinity. So VI.B' uses the separability of 5D Myers-Perry null
+  geodesics, as [Hin26c] uses Carter's constant for Kerr. Then VI.C (parameters) and Part VII.
