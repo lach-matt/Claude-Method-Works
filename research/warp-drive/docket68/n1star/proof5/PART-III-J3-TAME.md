@@ -333,11 +333,12 @@ factors at the low norm. $\square$
 **Remark 4.4 (what remains for section 13).** II.G Theorem 2.1 asks, on one pair of Banach scales: (i) smoothing
 operators on the spaces of $\mathcal D$ (II.G Proposition 3.1 and the source's p. 322); (ii) the tame forward map
 (Proposition 4.3) with $\Phi(U\cap B_\eta)\subset F_\eta$; and (iii) tame right inverses (Theorem 4.2) for every $U$ in
-a neighbourhood of 0, so at $b\ne b_0$ too, with $\Psi(u)F_\eta\subset B_\eta$ (II.G Theorem 2.1 (ii)-(iii), in its
-notation; the source meets these support conditions by finite speed of propagation, Step 3 (3), p. 322). Remaining: one
-pair of scales, Proposition 4.3 mapping $\mathcal D_\epsilon$ to $\mathcal F_\epsilon$ and Theorem 4.2 mapping $\mathcal
-F_{\epsilon'}$ to $\mathcal D_\epsilon$ ((J$''$4)); (J$'$3), the linear theory and its tame form at $b\ne b_0$; the
-support conditions; the smoothing operators; and the exterior family $h_{-S}$ (III.C$'$).
+a neighbourhood of 0, so at $b\ne b_0$ too, with $\Psi(u)F_\eta\subset B_\eta$ for $u\in U\cap B^\infty_\eta$ (II.G
+Theorem 2.1 (ii)-(iii) as amended in D304, (H10), in its notation; the source meets these support conditions by finite
+speed of propagation, Step 3 (3), p. 322). Remaining: one pair of scales, Proposition 4.3 mapping $\mathcal D_\epsilon$
+to $\mathcal F_\epsilon$ and Theorem 4.2 mapping $\mathcal F_{\epsilon'}$ to $\mathcal D_\epsilon$ ((J$''$4)); (J$'$3),
+the linear theory and its tame form at $b\ne b_0$; the support conditions; the smoothing operators; and the exterior
+family $h_{-S}$ (III.C$'$).
 
 ## 5. Findings, labels and sources
 

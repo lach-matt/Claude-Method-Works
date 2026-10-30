@@ -6,7 +6,8 @@ sections 3.4-3.5)
 edge-b form; at $n = 4$ its first-order matrix is the constant $\bar A$ of III.C Lemma 4.2, free of the perturbation $h$
 (N1STAR-PROOF.md 10.64 (e), III.C Remark 4.5). Section 2 proves the energy estimate for the system, with the tame
 estimate and the sharp weights. The source's section 3.3 (metric perturbations, Lemmas 3.23-3.28) is III.C sections 2-5
-at $n = 4$, which this part uses as it stands. Source: [Hin23a] pp. 18-30, read at source.
+at $n = 4$, which this part uses as it stands. Source: [Hin23a] pp. 18-30, read at source. Amended D309: verifier 133's
+findings seated (C-m1: the norms of $h$ are the polyhomogeneous ones; C-n1 to C-n3).
 
 ## 0. Setting
 
@@ -15,8 +16,10 @@ $U$, $M_\sharp$, $x_I = \rho_I^{1/2}$, $X_0$, $X_I$, $\mathcal V_{\mathrm{e,b}}$
 $\mathscr I^+$ are listed in powers of $\rho_I$, as in III.C, unless they are written with $x_I$. Let
 $g_1,g_0\in\mathcal G$ (III.C Definition 3.4), $k\ge5$, and $h\in H^{k,(\mathcal E_0,\ell_0),(\mathcal
 F,\ell_I)}_{\mathrm b}(U;S^2T^*)$ as in III.C Proposition 4.4. That is: $\min\mathrm{Re}\,\mathcal E_0>0$,
-$\min\mathrm{Re}\,\mathcal F>0$, $2\mathcal F\subset\mathcal F$, $\ell_0,\ell_I>0$, and $h$ small in
-$H^{k,a_0,a_I}_{\mathrm b}$. Assume moreover
+$\min\mathrm{Re}\,\mathcal F>0$, $2\mathcal F\subset\mathcal F$, $\ell_0,\ell_I>0$, and $h$ small in $H^{k,(\mathcal
+E_0,\ell_0),(\mathcal F,\ell_I)}_{\mathrm b}$, the polyhomogeneous norm. (The coefficients $\tilde a$ below lie in
+$\rho_I^{-1}$ times terms in $h$, whose size near $\mathscr I^+$ the conormal norm $H^{k,a_0,a_I}_{\mathrm b}$ does not
+control when $a_I<1$; verifier 133's C-m1, amended D309.) Assume moreover
 $$\min\mathrm{Re}\,\mathcal F>1,\qquad\ell_I>1,\tag{0.1}$$
 which holds for $\mathcal F = \mathcal E^{\mathrm{tot}}_I$ ($\min\mathrm{Re} = \frac32$, III.C Remark 4.5) and
 $\ell_I>\frac32$ (III.C$'$ Theorem 3.1), and for $\mathcal F = (2,0)$. Put $g := g_1+h$ and
@@ -45,8 +48,8 @@ L_g\in\Big(x_IC^\infty(M_\sharp)+H^{k-2,(\mathcal E_0,\ell_0),(\mathcal F-1,\ell
 b}\Big)\mathrm{Diff}^2_{\mathrm{e,b}}(M_\sharp;S^2T^*),\tag{1.1}$$
 where $\slashed\Delta = -\slashed g^{ab}\partial_a\partial_b$ acts on each slot, in local coordinates $\omega^a$ of
 $\mathbb S^3$. By (0.1) the coefficients of the second class decay at $\mathscr I^+$ at least like
-$\rho_I^{\min(\frac12,\ell_I-1)}$ and are small in $L^\infty$ near $\mathscr I^+$ for $h$ small. So $\tilde L_g$ is
-small relative to the leading part near $\mathscr I^+$, as the source's (3.29b) is.
+$\rho_I^{\min(\min\mathrm{Re}\,\mathcal F-1,\ell_I-1)-}$ and are small in $L^\infty$ near $\mathscr I^+$ for $h$ small.
+So $\tilde L_g$ is small relative to the leading part near $\mathscr I^+$, as the source's (3.29b) is.
 
 *Proof.* *The conjugation.* By III.C Proposition 4.4,
 $$L^{g,g_0} = -\rho_0^2\rho_I\big(X_I-\tfrac32-\bar A\big)(X_0-X_I)+R,\qquad
@@ -78,12 +81,12 @@ $\rho_0^2\rho_IC^\infty\mathrm{Diff}^1_{\mathrm{e,b}}$. - Its zeroth-order part 
 III.C Lemma 4.1's computation identifies the part of the first-order terms that is not $O(\rho_I)$ relative: it is
 $\rho_0^2\rho_I\bar A(X_0-X_I)$ (with the $-\frac32$ of the scalar conjugation). So, after conjugation and the prefactor,
 $$L_{b_0,\mathrm{conj}} = \big(2\rho_I\rho^{-7/2}\tfrac12\Box_{g_{b_0}}\rho^{3/2}\big)\otimes\mathrm{Id}+2\bar
-A(X_0-X_I)+x_I^2C^\infty\mathrm{Diff}^1_{\mathrm{e,b}}+x_I^2C^\infty.$$
+A(X_0-X_I)+x_IC^\infty\mathrm{Diff}^1_{\mathrm{e,b}}+x_I^2C^\infty.$$
 The scalar term is Part IV Lemma 2.2's $L$: $-2X_I(X_0-X_I)+x_I^2(\slashed\Delta+\frac34)$ modulo
 $x_I\mathrm{Diff}^2_{\mathrm{e,b}}$. Its first-order part in Lemma 2.2 is that of the scalar wave operator, and it
 differs from the frame's by the connection terms just counted. $x_I^2\cdot\frac34$ and
-$x_I^2C^\infty\mathrm{Diff}^1_{\mathrm{e,b}}$ lie in $x_I\mathrm{Diff}^1_{\mathrm{e,b}}$. So the background part of
-(1.1) holds with $\tilde L$ in $x_IC^\infty\mathrm{Diff}^2_{\mathrm{e,b}}$.
+$x_IC^\infty\mathrm{Diff}^1_{\mathrm{e,b}}$ (the angular connection terms) lie in $x_I\mathrm{Diff}^1_{\mathrm{e,b}}$.
+So the background part of (1.1) holds with $\tilde L$ in $x_IC^\infty\mathrm{Diff}^2_{\mathrm{e,b}}$.
 
 *The perturbation.* For $(g_1+h,g_0)$ against $(g_1,g_0)$ the factor is $\delta = h$. By III.C Lemma 4.3 and Lemma 1.1,
 each term is $\rho_0^2$ times a product of $h$ or $\mathcal V_{\mathrm b}$-derivatives of $h$ of order at most 2 with
@@ -97,7 +100,8 @@ $\mathrm{Diff}^2_{\mathrm{e,b}}$. The frame change of III.C Lemma 1.3 preserves 
 
 *Smallness.* By (0.1) and the Sobolev embedding (0.1) of Part IV ($k-2\ge3$), elements of $H^{k-2,(\mathcal
 E_0,\ell_0),(\mathcal F-1,\ell_I-1)}_{\mathrm b}$ are bounded by $C\rho_0^{\min(\min\mathrm{Re}\,\mathcal
-E_0,\ell_0)}\rho_I^{\min(\frac12,\ell_I-1)-}$ times their norm, which is $O(\|h\|_{H^{k}})$. $\square$
+E_0,\ell_0)}\rho_I^{\min(\min\mathrm{Re}\,\mathcal F-1,\ell_I-1)-}$ times their norm, which is $O(\|h\|_{H^{k}})$.
+$\square$
 
 *Remark 1.3 (the source's $A_g$ and $B_g$).* In [Hin23a] (3.29a) the $h$-dependent entries of $A_g$ and the term $B_g$
 are of the size of the leading part at $\mathscr I^+$; at $n = 3$ they are bounded there. At $n = 4$ they carry an extra
@@ -123,11 +127,12 @@ most $\epsilon\max|\bar A_{ji}|$; rename $\epsilon$. $\square$
 **Proposition 2.2 (the energy estimate and its tame form; [Hin23a] Proposition 3.32 at n = 4).** Let $\Omega$,
 $\Sigma_{\mathrm{in}}$, $\Sigma_{\mathrm{fin}}$ be as in Part IV section 3, and $\alpha_0,\alpha_I\in\mathbb R$ with
 $\alpha_I<\min(\alpha_0,0)$. Let $k\ge8$ and $3\le m\le k-3$, and let $h$ be as in section 0, small in
-$H^{8,a_0,a_I}_{\mathrm b}$. For $f\in H^{m,(\alpha_0,2\alpha_I)}_{\mathrm b}(\Omega;S^2T^*)$ vanishing near
-$\Sigma_{\mathrm{in}}$, the forward solution $u$ of $L_gu = f$ lies in
+$H^{8,(\mathcal E_0,\ell_0),(\mathcal F,\ell_I)}_{\mathrm b}$. For $f\in H^{m,(\alpha_0,2\alpha_I)}_{\mathrm
+b}(\Omega;S^2T^*)$ vanishing near $\Sigma_{\mathrm{in}}$, the forward solution $u$ of $L_gu = f$ lies in
 $H^{(1;m),(\alpha_0,2\alpha_I)}_{\mathrm{e,b;b}}(\Omega;S^2T^*)$, and
 $$\|u\|_{H^{(1;m),(\alpha_0,2\alpha_I)}_{\mathrm{e,b;b}}}\le C\Big(\|f\|_{H^{m,(\alpha_0,2\alpha_I)}_{\mathrm
-b}}+\|h\|_{H^{m+3,a_0,a_I}_{\mathrm b}}\|f\|_{H^{3,(\alpha_0,2\alpha_I)}_{\mathrm b}}\Big),\tag{2.1}$$
+b}}+\|h\|_{H^{m+3,(\mathcal E_0,\ell_0),(\mathcal F,\ell_I)}_{\mathrm b}}\|f\|_{H^{3,(\alpha_0,2\alpha_I)}_{\mathrm
+b}}\Big),\tag{2.1}$$
 with $C$ depending on $m$, $k$, $\alpha_0$, $\alpha_I$ and the classes, not on $f$ or $h$.
 
 *Proof.* *The basic estimate.* Use the multiplier $W = w^2V$ of Part IV Proposition 3.1, $V = X_0-(1+\kappa)X_I$, with
@@ -147,14 +152,15 @@ It is positive definite if $4(d_j-\alpha_I)(\alpha_0-\alpha_I)>\kappa d_j^2$. As
 $\alpha_0>\alpha_I$, this holds for $\kappa>0$ small. Fix such $\kappa$, then $\epsilon$ small. The angular term of
 $\bar Q$, $(1+2(\alpha_0-\alpha_I)+\kappa(1-2\alpha_I))x_I^2|\slashed\nabla u|^2$, is positive, so $\langle Qu,u\rangle$
 controls $\|wu\|^2_{H^1_{\mathrm{e,b}}}$ modulo: - $\|wu\|^2_{L^2_{\mathrm b}}$, removed by Part IV's Poincaré
-inequality; - the contribution of $\tilde L_g$, whose coefficients are $O(c^{\min(1,2\ell_I-2)})$ on $\{x_I<c\}$ by
-Proposition 1.2's smallness and are absorbed for $c$ small, as in Part IV.
+inequality; - the contribution of $\tilde L_g$, whose coefficients are $O(c^{\min(2\min\mathrm{Re}\,\mathcal
+F-2,2\ell_I-2)-})$ on $\{x_I<c\}$ by Proposition 1.2's smallness and are absorbed for $c$ small, as in Part IV.
 
 The term $(L_g^*-L_g)W$ is that of the first-order part, already counted, plus that of $\tilde L_g$. This gives
 $$\|u\|_{H^{1,(\alpha_0,2\alpha_I)}_{\mathrm{e,b}}}\le C_0\|L_gu\|_{H^{0,(\alpha_0,2\alpha_I)}_{\mathrm b}},\tag{2.2}$$
-with $C_0$ uniform for $h$ small in $H^{5,a_0,a_I}_{\mathrm b}$ (the source's (3.53)). Away from $\mathscr I^+$, Part IV
-Proposition 4.1's argument applies to the system: the principal part is scalar, and the first-order terms are bounded
-b-operators, absorbed by the exponential weight. Remark 4.2 there glues the pieces.
+with $C_0$ uniform for $h$ small in $H^{5,(\mathcal E_0,\ell_0),(\mathcal F,\ell_I)}_{\mathrm b}$ (the source's (3.53);
+the skew part needs $\tilde a\in W^{1,\infty}$, so $h\in H^6$, which the $H^8$ hypothesis gives). Away from $\mathscr
+I^+$, Part IV Proposition 4.1's argument applies to the system: the principal part is scalar, and the first-order terms
+are bounded b-operators, absorbed by the exponential weight. Remark 4.2 there glues the pieces.
 
 *Commuting.* With $X_0$, $X_1 := X_I$, the rotation fields $X_2,\dots,X_7$ of $\mathbb S^3$ (acting on the slots in the
 frame (1.6), which they preserve: III.C Lemma 4.2's equivariance) and $X_8 := 1$, apply (2.2) to $X_{j_1}\cdots

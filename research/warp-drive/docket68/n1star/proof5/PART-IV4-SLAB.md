@@ -2,20 +2,21 @@
 
 *Status.* Written (D306). This part delivers the continuation that III.K (K2) (b) asks of Part IV: the solution on
 the slab $\mathcal S$ of III.K Proposition 1.2's proof (as re-posed in D304), near the interior of $\mathscr I^+$ up to
-$\{t_* = \hat T+3\}$, with its orders at $\mathscr I^+$. The slab's past boundary contains the part of
+$\{t^\flat_* = \hat T+3\}$, with its orders at $\mathscr I^+$. The slab's past boundary contains the part of
 $\Sigma_{\mathrm{fut},r_1}$ near $\mathscr I^+$, which reaches $\mathscr I^+$ and is asymptotically null there; Cauchy
 data on it are avoided. The solution is instead posed on $\Omega^\natural := \Omega_{\mathrm{ext},r_1}\cup\mathcal S$,
 from $\Sigma_{\mathrm{IVP},r_1}$ and from the compact surface $\Sigma_c$ where $\mathcal S$ meets the compact part
 $\mathcal K$, neither of which reaches $\mathscr I^+$. Part IV$''$'s argument then applies on $\Omega^\natural$, in
 III.C's chart translated in $t$ (which $g_{b_0}$ allows, being stationary), and its solution restricts to the exterior
 solution on $\Omega_{\mathrm{ext},r_1}$. The source covers the slab in one sentence ([Hin26] p. 321, quoted in III.K
-(K2)). No source text beyond Part IV$''$'s is used.
+(K2)). No source text beyond Part IV$''$'s is used. Amended D309 with III.K: the slab's top is $\{t^\flat_* = \hat
+T+3\}$, robustly spacelike, and $\mathcal S$ lies in $\{r\ge R_9\}$ (verifier 133's B-M1, B-m3, B-n5).
 
 ## 0. Setting
 
-$\hat T = 2/C'$, $T'' = \hat T+5$, $r_1 = 2r_0$, $R_8\ge\max(2r_1,8)$, $c$, the region $\mathcal D$, the compact part
-$\mathcal K$, the slab $\mathcal S := \mathcal D\cap\{\rho'_I<c\}\setminus\Omega_{\mathrm{ext},r_1}$ and $\rho'_I :=
-(T''-x^1)/|x|$ are those of III.K section 0 and Proposition 1.2's proof. Put
+$\hat T = 2/C_\flat$, $T''$, $r_1 = 2r_0$, $R_8\ge\max(2r_1,8)$, $c$, the region $\mathcal D$, the compact part
+$\mathcal K$, the slab $\mathcal S := \mathcal D\cap\{\rho'_I<c,\ r\ge R_9\}\setminus\Omega_{\mathrm{ext},r_1}$ and
+$\rho'_I := (T''-x^1)/|x|$ are those of III.K section 0 and Proposition 1.2's proof. Put
 $$\rho'_0 := (T''-x^1)^{-1},\qquad x'_I := (\rho'_I)^{1/2},\qquad U'' := \mathrm{cl}_M\{t_*\le T_0+T''-2\}\cap\{|x|\ge
 4R_1\},$$
 III.C's (1.2)-(1.3) with $2$ replaced by $T''$: on $U''$, $x^1\le T''-1$ (as in III.C after (1.3)), so $\rho'_0\le1$, and
@@ -39,9 +40,9 @@ it is III.C$''$'s background.
 
 *Proof.* On $\mathcal S$, $\chi_{\mathrm{IVP}} = 1$, as $t_{\mathrm{IVP}}\ge0>-|x|/10$ (III.B section 5), and $\chi_K =
 0$, as $\mathrm{supp}\,\chi_K\subset\{|x|<t/2\}$ (III.B section 5: $\mathrm{supp}\,\chi_K$ lies in the interior of
-$\{\chi^\sharp_K = 1\}\subset\mathrm{supp}\,\chi^\sharp_K\subset\{|x|<t/2\}$), while on $\mathcal S$, $t_*\le\hat T+3$
-gives $x^1\le T''-1$, so $t\le|x|+T''<2|x|$ near infinity; and $\mathcal S$ lies near infinity. So III.B Lemma 5.2's
-(5.3) holds near $\bar{\mathcal S}$:
+$\{\chi^\sharp_K = 1\}\subset\mathrm{supp}\,\chi^\sharp_K\subset\{|x|<t/2\}$), while on $\mathcal S$, $t^\flat_*\le\hat
+T+3$ gives $t_*\le(\hat T+3)/C_\flat$ and so $x^1\le T''-1$ (III.K Proposition 1.2's proof), so $t\le|x|+T''<2|x|$ near
+infinity; and $\mathcal S$ lies near infinity. So III.B Lemma 5.2's (5.3) holds near $\bar{\mathcal S}$:
 $$\phi_S^*g_{b_0}-g_{b_0}-|x|^{-2}h_S(\omega)(dx^1)^2\in\rho_0^2\rho_I^3\rho_+^2C^\infty(M;S^2T^*),$$
 and $g_{b_0}-\eta = \mu_0|x|^{-2}(dx^1)^2+|x|^{-3}C^\infty$ on $\{|x|\ge3R_1\}$ (III.C Lemma 3.5 (1)'s proof). On
 $\mathcal S$, $\rho_0$, $\rho'_0$ and $\rho_+$ are bounded below and $\rho_I/\rho'_I$ is smooth and positive, so
@@ -60,16 +61,18 @@ $\{\rho'_I = c_1\}$, which they do. (c) $\Omega^\natural\cap\{\rho'_I<c_1\}$ doe
 lies in $\{\rho'_I = c\}$.
 
 *Proof.* (a) is Part IV$''$ Lemma 1.1 (a) in the translated chart. (b) Near infinity, $\Omega^\natural\cap\{\rho'_I<c\}$
-is the set $\{\rho'_I<c,\ t_{\mathrm{IVP}}\ge0,\ t_*\le\hat T+3\}$: below $\Sigma_{\mathrm{fut},r_1}$ it is
+is the set $\{\rho'_I<c,\ t_{\mathrm{IVP}}\ge0,\ t^\flat_*\le\hat T+3\}$: below $\Sigma_{\mathrm{fut},r_1}$ it is
 $\Omega_{\mathrm{ext},r_1}$, above it $\mathcal S$. So it suffices that along the segment $\rho'_I$ stays below $c$ and
-$t_{\mathrm{IVP}}\ge0$ and $t_*\le\hat T+3$ persist. *The ray.* Along it $x^1 = x^1_p$, and $|x|$ decreases to $r_c :=
-(T''-x^1_p)/c_1$, where $\rho'_I = c_1<c$. $t_* = x^1+C'-8\mu_0|x|^{-1}$ decreases along it. $t_{\mathrm{IVP}} =
-x^1+|x|-C''$ decreases too, and at $r_c$ it is $x^1_p(1-c_1^{-1})+T''c_1^{-1}-C''$, which is
-$\ge|x^1_p|(c_1^{-1}-1)+T''c_1^{-1}-C''>0$ if $x^1_p<0$, and $\ge T''-1+c_1^{-1}-C''>0$ if $x^1_p\in[0,T''-1]$, for
-$c_1$ small; and $r_c\ge r_0$. *The curve of fixed $|x|$.* $t$ decreases to $t_c := (1-c_1)|x|+T''$; $t_*$ decreases; it
-may cross $\Sigma_{\mathrm{fut},r_1}$ into $\Omega_{\mathrm{ext},r_1}$; $t_{\mathrm{IVP}}(t_c)\ge\frac12|x|+T''-C''>0$;
-and $\rho'_I<c_1$ along it, so it avoids $\mathcal K$. (c) is the definition of $\mathcal S$ and $\mathcal
-K\subset\mathcal D\setminus\mathcal S$. $\square$
+$t_{\mathrm{IVP}}\ge0$ and $t^\flat_*\le\hat T+3$ persist. *The ray.* Along it $x^1 = x^1_p$, and $|x|$ decreases to
+$r_c := (T''-x^1_p)/c_1$, where $\rho'_I = c_1<c$. $t_* = x^1+C'-8\mu_0|x|^{-1}$ decreases along it. So does
+$t^\flat_*$, along this curve and the next: both are past-directed causal for $g_{b_0}$ (the ray is $g_{b_0}$-null, as
+$g_{b_0} = \eta+\mu_0|x|^{-2}(dx^1)^2$ there, III.B Lemma 3.5 (b)), and $dt^\flat_*$ is past timelike for $g_{b_0}$
+(II.C Lemma 3.2 (2)). $t_{\mathrm{IVP}} = x^1+|x|-C''$ decreases too, and at $r_c$ it is
+$x^1_p(1-c_1^{-1})+T''c_1^{-1}-C''$, which is $\ge|x^1_p|(c_1^{-1}-1)+T''c_1^{-1}-C''>0$ if $x^1_p<0$, and $\ge
+T''-1+c_1^{-1}-C''>0$ if $x^1_p\in[0,T''-1]$, for $c_1$ small; and $r_c\ge r_0$. *The curve of fixed $|x|$.* $t$
+decreases to $t_c := (1-c_1)|x|+T''$; $t_*$ decreases; it may cross $\Sigma_{\mathrm{fut},r_1}$ into
+$\Omega_{\mathrm{ext},r_1}$; $t_{\mathrm{IVP}}(t_c)\ge\frac12|x|+T''-C''>0$; and $\rho'_I<c_1$ along it, so it avoids
+$\mathcal K$. (c) is the definition of $\mathcal S$ and $\mathcal K\subset\mathcal D\setminus\mathcal S$. $\square$
 
 So Part IV$''$ Lemma 1.2 holds on $\Omega^\natural_{c_1} := \Omega^\natural\cap\{\rho'_I<c_1\}$, in the translated chart,
 with the same proof.
@@ -91,9 +94,10 @@ proof); so $L = L^{\chi_0}$ on $\Omega^\natural$, and Part IV$''$ Corollary 4.1 
 $\Omega^\natural_{c_1}$ ($\rho'_I<c_1$ gives $t_{\mathrm{IVP}}\ge\frac r4$). *The background.* $g_0\in\mathcal G''$ near
 $\bar{\mathcal S}$ by Lemma 0.1, and in III.C$''$'s class on $\Omega_{\mathrm{ext},r_1}$; it is Ricci flat. *The
 regions.* Fix $c_1\le\frac c4$ so small that Part IV$'$ Proposition 2.2 holds on $\Omega^\natural_{c_1}$ with
-$\Sigma_{\mathrm{in}} := \{\rho'_I = c_1\}\cap\Omega^\natural$, $\Sigma_{\mathrm{fin}} := \{t_* = \hat T+3\}\cap
-\Omega^\natural_{c_1}$, spacelike as $t_*$ is a time function (III.B Lemma 3.7 (a)); every $X'_I$-curve there begins on
-$\Sigma_{\mathrm{in}}$ (Lemma 1.1 (b)). Then:
+$\Sigma_{\mathrm{in}} := \{\rho'_I = c_1\}\cap\Omega^\natural$, $\Sigma_{\mathrm{fin}} := \{t^\flat_* = \hat
+T+3\}\cap\Omega^\natural_{c_1}$, spacelike for $g$, as $dt^\flat_*$ is past timelike for every $g_{b_0}+h$ with $h$
+small in $\tilde{\mathcal G}^{0,(1,0,0)}_{\mathrm{e3b}}$ (II.C Lemma 3.2 (2); III.K finding (K9), amended D309); every
+$X'_I$-curve there begins on $\Sigma_{\mathrm{in}}$ (Lemma 1.1 (b)). Then:
 
 (i) On $\Omega_N$ (near the interior of $I_0$, with the past slab) Part IV$''$ Lemma 2.2 with the data on
 $\Sigma_{\mathrm{IVP},r_1}$, unchanged.
@@ -104,8 +108,8 @@ interior of $I_0$; standard energy estimates on the compact part with $|x|\le R$
 is compact ($|x|\le4(T''-x^1)/c_1$, $x^1$ bounded), by the standard energy estimate for the Cauchy problem of a linear
 wave equation on a compact domain of dependence, with data on $\Sigma_c$ (given) and on $\Sigma_{\mathrm{fut},r_1}\cap
 \{\frac{c_1}4\le\rho'_I<c\}$ (from the part in $\Omega_{\mathrm{ext},r_1}$), both spacelike and compact. Its boundary to
-the future, $\{\rho'_I = \frac{c_1}4\}$, $\{t_* = \hat T+3\}$ and $\Sigma_{\mathrm{fut},r_1}\cap\{\rho'_I\ge c\}$ (where
-$\Omega^\natural$ borders $\mathcal K$), is spacelike, so the region is closed under past causal curves within
+the future, $\{\rho'_I = \frac{c_1}4\}$, $\{t^\flat_* = \hat T+3\}$ and $\Sigma_{\mathrm{fut},r_1}\cap\{\rho'_I\ge c\}$
+(where $\Omega^\natural$ borders $\mathcal K$), is spacelike, so the region is closed under past causal curves within
 $\Omega^\natural$ (II.F Lemma 1.3 for uniqueness).
 
 (iii) On $\Omega^\natural_{c_1}$, Part IV$''$ Lemma 2.3's second step and Theorem 2.4's Steps 4-6, with $c_1$ for $c$:

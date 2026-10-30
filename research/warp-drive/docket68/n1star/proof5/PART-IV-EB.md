@@ -319,11 +319,11 @@ norms are equivalent on the overlaps, each overlap lying away from the face that
 $\Omega_{\mathrm{ext},r_0}$ also contains the past slab $\{-\frac{r-r_0}{12}\le t_{\mathrm{IVP}}\le0\}$ (III.C$'$ Lemma
 1.1), where III.C$'$ Theorem 2.1 asserts the solution and III.C$''$ and III.K use it. There the solution is the backward
 one from $\Sigma_{\mathrm{IVP}}$, near the interior of $I_0$ ($\tau\in[-\frac1{12}-\epsilon,\epsilon]$ for $r_0$ large),
-and Proposition 4.1 gives it with $t$ replaced by $-t$: $g_{b_0}$ is static, so $t\mapsto-t$ is an isometry of it, and
-the proof uses only the b-structure of $L$ and that $d\tau$ is timelike on the $\tau$-range,
-$\Sigma_{\mathrm{past},r_0}$ being spacelike (III.C$'$ Lemma 1.1). This backward problem is among Part IV's outputs;
-Part IV$''$ writes it with the data. The global estimate for the tensor operator, with weights at both faces, is the
-next part's.
+and Proposition 4.1's proof, run backward in time, gives it: it uses only the b-structure of $L$ and that $d\tau$ is
+timelike on the $\tau$-range ($t\mapsto-t$ is not an isometry of the gauge-fixed operator, whose $E_C$-term is odd in
+time; verifier 133's B-n6), $\Sigma_{\mathrm{past},r_0}$ being spacelike (III.C$'$ Lemma 1.1). This backward problem is
+among Part IV's outputs; Part IV$''$ writes it with the data. The global estimate for the tensor operator, with weights
+at both faces, is the next part's.
 
 ## 5. Findings and sources
 

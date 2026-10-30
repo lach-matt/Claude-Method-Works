@@ -5862,3 +5862,12 @@ density, the causal character of the time functions (exact in Kerr-Schild time),
 form. Three families of propagation estimates the source leaves to the reader are stated and proved, and the order
 in which the estimates feed each other is listed step by step. One overstated sentence of the first part, about where
 a positivity holds, is corrected without changing any conclusion.
+
+**D309 (2026-10-30): the hundred-and-thirty-third reading.** The reader found one real gap. The nonlinear argument had
+been moved onto a time function whose causal margin near null infinity is too thin to survive the perturbation, so a
+uniqueness step could fail there. It is moved back onto the time function built for that purpose, whose margin is
+robust, and the cost of doing so, half-integer powers at null infinity, is shown to stay inside the function spaces.
+Eight smaller gaps are closed: a cut-off that could not exist as specified, a backward problem with an inflow
+boundary, a bound that held at high levels only, norms that were too weak, and the uniqueness statements made precise.
+The exterior's first estimate part is now proved, and its second and third parts verified.
+

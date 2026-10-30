@@ -11,7 +11,8 @@ IV$'$'s energy estimate near $\mathscr I^+$, and the recovery of the sharp weigh
 Theorem 2.1. At $n = 4$ the recovery needs two rounds and no $h$-dependent leading terms (Part IV$'$ Remark 1.3), and
 only slot 6 carries a radiation field. The continuation near $\mathscr I^+$ that III.K (K2) (b) asks for, on the slab
 $\mathcal S$ of III.K Proposition 1.2 as re-posed in D304, is the next part's (finding (IV$''$2)); Lemmas 1.1, 1.2 and
-2.1 are stated so that it can use them. Source: [Hin23a] pp. 30-32, read at source.
+2.1 are stated so that it can use them. Source: [Hin23a] pp. 30-32, read at source. Amended D309: verifier 133's
+findings seated (D-m1 to D-m3, D-n1 to D-n5).
 
 ## 0. Setting
 
@@ -49,9 +50,10 @@ $\slashed\pi_0\dot g\in H^{k,\alpha_0,((\frac32,0),\ell^\flat_I)}_{\mathrm b}$. 
 $$\mathcal G^k_{a_0}(\Omega) := \Big\{u:\ u_j\in H^{k,(a_0,2\beta)}_{\mathrm b}\ (j\ne6),\ \ u_6 = \chi_Iu^{(0)}+\tilde
 u_6,\ \ u^{(0)}\in H^{k,a_0}_{\mathrm b}(\mathscr I^+\cap\bar\Omega),\ \tilde u_6\in H^{k,(a_0,2\beta)}_{\mathrm
 b}\Big\},\tag{0.3}$$
-with $\chi_I := \hat\chi(\rho_I)$, $\hat\chi\in C^\infty_c([0,\frac14))$ equal to 1 near 0, $u^{(0)}$ extended constant
-in $\rho_I$, and the norm the sum of the norms; the radiation field of $\slashed\pi_0\dot g$ is $\rho_0^{3/2}u^{(0)}$,
-the coefficient of $\rho_I^{3/2}$. Away from $U$ the classes impose only $H^k$.
+with $\chi_I := \hat\chi(\rho_I)$, $\hat\chi\in C^\infty_c([0,\frac c2))$ equal to 1 near 0, $c$ the constant of Lemma
+2.1 (so $u^{(0)}$ is used only over $\Omega_c$; another $\hat\chi$ gives an equivalent norm; verifier 133's D-n2),
+$u^{(0)}$ extended constant in $\rho_I$, and the norm the sum of the norms; the radiation field of $\slashed\pi_0\dot g$
+is $\rho_0^{3/2}u^{(0)}$, the coefficient of $\rho_I^{3/2}$. Away from $U$ the classes impose only $H^k$.
 
 *The operator.* Let $g_0\in\mathcal G$ (III.C Definition 3.4) with $\mathrm{Ric}(g_0) = 0$ and $g_0-g_{b_0}$ small in the
 sense of III.C$'$ Lemma 1.1, or $g_0 = g_{b_0}$; let $h\in H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm
@@ -157,10 +159,10 @@ $\Omega_c$ begins on $\Sigma_{\mathrm{in}}$ (Lemma 1.1 (b)). $\square$
 
 **Lemma 2.2 (the Cauchy problem near the interior of $I_0$, both directions).** Let $\Omega_N :=
 \Omega_{\mathrm{ext},r_0}\cap\{\tau'\le\frac14\}$, which contains $\Omega^-$, and $\alpha\in\mathbb R$, $s\in\mathbb
-N_0$. For $h$ small in $H^{s_0}$, $s_0 := \max(s,5)$, $f\in H^{s,\alpha+2}_{\mathrm b}(\Omega_N)$ and data $\dot g_j\in
-H^{s+1-j,\alpha}_{\mathrm b}(\Sigma_{\mathrm{IVP},r_0})$, $j = 0,1$, there is a unique $\dot g\in H^{s+1,\alpha}_{\mathrm
-b}(\Omega_N)$ with $L\dot g = f$, $\dot g = \dot g_0$ and $r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}\dot g = \dot g_1$ on
-$\Sigma_{\mathrm{IVP},r_0}$, and
+N_0$. For $h$ small in $H^5$ with $h\in H^{s+2}$ (verifier 133's D-m1: the tame term carries $\|h\|_{H^{s+2}}$), $f\in
+H^{s,\alpha+2}_{\mathrm b}(\Omega_N)$ and data $\dot g_j\in H^{s+1-j,\alpha}_{\mathrm b}(\Sigma_{\mathrm{IVP},r_0})$, $j
+= 0,1$, there is a unique $\dot g\in H^{s+1,\alpha}_{\mathrm b}(\Omega_N)$ with $L\dot g = f$, $\dot g = \dot g_0$ and
+$r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}\dot g = \dot g_1$ on $\Sigma_{\mathrm{IVP},r_0}$, and
 $$\|\dot g\|_{H^{s+1,\alpha}_{\mathrm b}(\Omega_N)}\le C\big(\|f\|_{H^{s,\alpha+2}_{\mathrm b}}+\|\dot
 g_0\|_{H^{s+1,\alpha}_{\mathrm b}}+\|\dot g_1\|_{H^{s,\alpha}_{\mathrm b}}\big)+C\|h\|_{H^{s+2}}\big(\|f\|_{H^{4,\alpha
 +2}_{\mathrm b}}+\|\dot g_0\|_{H^{5,\alpha}_{\mathrm b}}+\|\dot g_1\|_{H^{4,\alpha}_{\mathrm b}}\big).\tag{2.1}$$
@@ -191,15 +193,17 @@ derivatives $\partial^2_{\tau'}$ are recovered from the equation, which is non-c
 $\tau'$. The tame term comes from the Moser estimate (Part IV$'$ Lemma 2.3) for the perturbation's coefficients, which
 are rational in $h$ and two of its b-derivatives.
 
-*Both directions.* On $\Omega^+\cap\Omega_N$ the solution is the forward one; on $\Omega^-$ it is the backward one, given
-by the same argument with $t$ replaced by $-t$: $g_{b_0}$ is static, so $t\mapsto-t$ is an isometry of it, and the
-hypotheses ($\Sigma_{\mathrm{past},r_0}$ spacelike, III.C$'$ Lemma 1.1; $d\tau'$ timelike) are symmetric. Uniqueness: the
-estimate applied to the difference of two solutions, which have vanishing data and source. $\square$
+*Both directions.* On $\Omega^+\cap\Omega_N$ the solution is the forward one; on $\Omega^-$ it is the backward one,
+given by the same argument run backward in time, which uses only the b-structure of $L$, that $d\tau'$ is timelike, and
+that $\Sigma_{\mathrm{past},r_0}$ is spacelike (III.C$'$ Lemma 1.1). ($t\mapsto-t$ is not an isometry of the gauge-fixed
+operator, whose $E_C$-term is odd in time; verifier 133's D-n4.) Uniqueness: the estimate applied to the difference of
+two solutions, which have vanishing data and source. $\square$
 
 **Lemma 2.3 (the forward problem with growth at $\mathscr I^+$; Part IV Remark 4.2 for the system).** Let $\Omega^+_1
-:= \Omega^+\cap\{\tau'\ge\frac1{16}\}$, $a_0\in\mathbb R$, $\alpha_I<\min(a_0,0)$, $8\le m+3\le k_h$ with $h$ small in
-$H^{8}$, and let $f_\flat\in H^{m,(a_0,2\alpha_I)}_{\mathrm b}(\Omega^+_1)$ vanish on $\{\tau'<\frac18\}$. The forward
-solution $u$ of $L_gu = f_\flat$ on $\Omega^+_1$, vanishing on $\{\tau'<\frac18\}$, satisfies
+:= \Omega^+\cap\{\tau'\ge\frac1{16}\}$, $a_0\in\mathbb R$, $\alpha_I<\min(a_0,0)$, $3\le m\le k_h-3$, $k_h\ge8$, with
+$h\in H^{k_h}$ small in $H^8$ (verifier 133's D-n1), and let $f_\flat\in H^{m,(a_0,2\alpha_I)}_{\mathrm b}(\Omega^+_1)$
+vanish on $\{\tau'<\frac18\}$. The forward solution $u$ of $L_gu = f_\flat$ on $\Omega^+_1$, vanishing on
+$\{\tau'<\frac18\}$, satisfies
 $$\|u\|_{H^{m+1,a_0}_{\mathrm b}(\Omega^+_1\cap\{\rho_I>\frac c2\})}+\|u\|_{H^{(1;m),(a_0,2\alpha_I)}_{\mathrm{e,b;b}}
 (\Omega_c)}\le C\big(\|f_\flat\|_{H^{m,(a_0,2\alpha_I)}_{\mathrm b}}+\|h\|_{H^{m+3}}\|f_\flat\|_{H^{4,(a_0,2\alpha_I)}_{
 \mathrm b}}\big).\tag{2.2}$$
@@ -226,8 +230,9 @@ second term of (2.2). $\square$
 $\alpha_0>\ell^\flat_I$, $a_0 := \alpha_0-\frac32$, $k\in\mathbb N_0$, $d := 4$, and let $h$ be small in
 $H^{8,\ell^\flat_0, (-,\ell^\flat_I)}_{\mathrm b}$. For $f\in H^{k+d,\alpha_0+2,(-',\ell^\flat_I+1)}_{\mathrm
 b}(\Omega_{\mathrm{ext},r_0})$ and $\dot g_0,\dot g_1\in H^{k+d,\alpha_0}_{\mathrm b}(\Sigma_{\mathrm{IVP},r_0})$ there
-is a unique $\dot g\in H^{k,\alpha_0,(-,\ell^\flat_I)}_{\mathrm b}(\Omega_{\mathrm{ext},r_0})$ with $L\dot g = f$, $\dot
-g|_{\Sigma_{\mathrm{IVP}, r_0}} = \dot g_0$ and $r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}\dot
+is a $\dot g\in H^{k,\alpha_0,(-,\ell^\flat_I)}_{\mathrm b}(\Omega_{\mathrm{ext},r_0})$, unique in
+$H^{\max(k,1),\alpha_0,(-,\ell^\flat_I)}_{\mathrm b}$ (the energy estimate needs $H^1$; verifier 133's D-n5), with
+$L\dot g = f$, $\dot g|_{\Sigma_{\mathrm{IVP}, r_0}} = \dot g_0$ and $r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}\dot
 g|_{\Sigma_{\mathrm{IVP},r_0}} = \dot g_1$; and with $N(f,\dot g_0,\dot g_1;j) :=
 \|f\|_{H^{j,\alpha_0+2,(-',\ell^\flat_I+1)}_{\mathrm b}}+\|\dot g_0\|_{H^{j,\alpha_0}_{\mathrm b}}+\|\dot
 g_1\|_{H^{j,\alpha_0}_{\mathrm b}}$,
@@ -294,7 +299,7 @@ $u^{(0)}\in H^{k,a_0}_{\mathrm b}(\mathscr I^+\cap\bar\Omega_c)$, $\tilde u_6\in
 
 *Step 6 (assembly).* On $\Omega_c$, $u = u_2+\chi_cu_1$, with $\chi_cu_1$ supported in $\{\rho_I\ge\frac c4\}$; on
 $\Omega^+\cap\{\rho_I>\frac c2\}$, Step 3; on $\Omega_N$, Step 1. As $\chi_I = \hat\chi(\rho_I)$ vanishes for
-$\rho_I\ge\frac14\ge\frac c2$, $u_6-\chi_Iu^{(0)} = \tilde u_6+(1-\chi_I)u^{(0)}+\chi_cu_{1,6}$ on $\Omega_c$, and
+$\rho_I\ge\frac c2$, $u_6-\chi_Iu^{(0)} = \tilde u_6+(1-\chi_I)u^{(0)}+\chi_cu_{1,6}$ on $\Omega_c$, and
 $(1-\chi_I)u^{(0)}$ is supported in $\{\rho_I\ge\frac c2\cdot\frac12\}$ within $\Omega_c$, where every weight at
 $\mathscr I^+$ is equivalent. So $u\in\mathcal G^k_{a_0}(\Omega^+)$, that is, $\dot g = \rho^{3/2}u+\chi\dot g_N\in
 H^{k,\alpha_0,(-,\ell^\flat_I)}_{\mathrm b}$ on $\Omega^+$ (section 0), and on $\Omega^-$ by Step 1.
@@ -319,9 +324,10 @@ H^{\infty,\ell^\flat_0}_{\mathrm b}(\Sigma_{\mathrm{IVP},r_0};S^2T^*)$ with $\|h
 b}}<\epsilon_0$ the problem
 $$P(g_0+h,g_0) = 0\ \text{in }\Omega_{\mathrm{ext},r_0},\qquad h = h_0,\ \ r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}h =
 h_1\ \text{on }\Sigma_{\mathrm{IVP},r_0},\tag{3.1}$$
-has a unique solution $h\in H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}(\Omega_{\mathrm{ext},r_0})$ small in
-$H^{3d}$ of this class, and $\|h_j\|_{H^{2d+k,\ell^\flat_0}_{\mathrm b}}<\epsilon_1$ gives $\|h\|_{H^{3d+k,\ell^\flat_0,
-(-,\ell^\flat_I)}_{\mathrm b}}<\epsilon$. This is III.C$'$ Theorem 2.1 with $k_0 := 2d = 14$ and $k_1 := 2d+k$.
+has a solution $h\in H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}(\Omega_{\mathrm{ext},r_0})$ small in $H^{3d}$
+of this class, unique among solutions small in $B^8$ (verifier 133's D-m2), and $\|h_j\|_{H^{2d+k,\ell^\flat_0}_{\mathrm
+b}}<\epsilon_1$ gives $\|h\|_{H^{3d+k,\ell^\flat_0, (-,\ell^\flat_I)}_{\mathrm b}}<\epsilon$. This is III.C$'$ Theorem
+2.1 with $k_0 := 2d = 14$ and $k_1 := 2d+k$.
 
 *Proof.* Apply II.G Theorem 2.1 with $d = 7$ and:
 
@@ -377,10 +383,11 @@ $\square$
 III.C$''$ (2.1) in place of $L^{g,g_0}$ and $P$, for every $g_0$ of section 0.
 
 *Proof.* $\chi_0 = 1-\check\chi_0(t_{\mathrm{IVP}}/r)$ equals 1 on $\{t_{\mathrm{IVP}}\ge\frac r4\}$ (III.C$''$
-section 2). On $\Omega_c$, $\rho_I<c\le\frac12$ gives $t>(1-c)|x|+2$, so $t_{\mathrm{IVP}}\ge\frac12|x|$ for $|x|\ge
-r_0$ large; so $L^{\chi_0} = L$ on $\Omega_c$, and the edge-b structure (Part IV$'$ Proposition 1.2), Part IV$'$
-Proposition 2.2 and section 2's integration, which are used only on $\Omega_c$, are unchanged. Elsewhere only the
-b-structure enters (Part IV Proposition 4.1 in Lemmas 2.2-2.3), and $L^{\chi_0}-L\in\rho_0^2\rho_I^2C^\infty
+section 2). On $\Omega_c$, $\rho_I<c\le\frac12$ gives $t>(1-c)|x|+2$, so $t_{\mathrm{IVP}}\ge\frac14|x|$ for $|x|\ge
+r_0$ large, which suffices (verifier 133's D-n3); so $L^{\chi_0} = L$ on $\Omega_c$, and the edge-b structure (Part
+IV$'$ Proposition 1.2), Part IV$'$ Proposition 2.2 and section 2's integration, which are used only on $\Omega_c$, are
+unchanged. Elsewhere only the b-structure enters (Part IV Proposition 4.1 in Lemmas 2.2-2.3), and
+$L^{\chi_0}-L\in\rho_0^2\rho_I^2C^\infty
 \mathrm{Diff}^1_{\mathrm b}$ (III.C$''$ Lemma 2.1's proof), a first-order term of the class those proofs absorb. In
 Theorem 3.1, III.C Proposition 5.2 and Corollary 5.3 hold for $L^{\chi_0}$, $P^{\chi_0}$ by III.C$''$ Lemma 2.1, and
 $P^{\chi_0}(g_0,g_0) = 0$ there. For $g_0\ne g_{b_0}$: Part IV$'$ is stated for $g_1,g_0\in\mathcal G$ (its section 0),
@@ -407,13 +414,14 @@ $\Sigma_{\mathrm{IVP}}$, not on $\Sigma_{\mathrm{fut},r_1}$ alone: the domain of
 $\Sigma_{\mathrm{fut},r_1}\cap\{r\ge R_8\}$ is bounded by the outgoing cone through $\Sigma_{\mathrm{fut},r_1}\cap\{r =
 R_8\}$, which stays near $\Sigma_{\mathrm{fut},r_1}$. This is verifier 132's A-m2 (ii) seen from the slab. The region
 near $\mathscr I^+$ must be posed after the compact part, from the spacelike surface $\{\rho_I = c\}$ (Lemma 1.1 (a)),
-whose past within $\{t_*\le T\}$ is compact away from the exterior domain; and verifier 132's A-M3 moves III.K's levels
-from $t^\flat_*$ to $t_*$. III.K's D304 repair poses it so: the slab $\mathcal S$ lies to the future of $\{\rho'_I =
-c\}\cup
-\Sigma_{\mathrm{fut},r_1}$, $\rho'_I$ being $\rho_I$ in the chart translated in $t$, up to $\{t_* = \hat T+3\}$, after
-the compact part. The continuation there is the next part's, by section 2's argument on that region: Lemmas 1.1-1.2 hold
-there (the curves backward reach $\{\rho_I = c\}$), and Part IV$'$ applies near the interior of $\mathscr I^+$ after the
-chart (1.2) of III.C is translated in $t$ ($g_{b_0}$ is stationary).
+whose past within $\{t_*\le T\}$ is compact away from the exterior domain; and verifier 132's A-M3 moved III.K's levels
+from $t^\flat_*$ to $t_*$, verifier 133's B-M1 back (D309). III.K poses the slab $\mathcal S$ to the future of
+$\{\rho'_I = c\}\cup\Sigma_{\mathrm{fut},r_1}$, $\rho'_I$ being $\rho_I$ in the chart translated in $t$, up to
+$\{t^\flat_* = \hat T+3\}$, after the compact part. The continuation there is Part IV$'''$. On that slab the
+$X_I$-curves backward need not reach $\{\rho_I = c\}$ before $\Sigma_{\mathrm{fut},r_1}$ (verifier 133's D-m3), so Part
+IV$'''$ poses the problem on the exterior domain together with the slab, where its Lemma 1.1 proves that they reach
+$\{\rho'_I = c_1\}$, and Part IV$'$ applies near the interior of $\mathscr I^+$ after the chart (1.2) of III.C is
+translated in $t$ ($g_{b_0}$ is stationary).
 
 (IV$''$3) *The Cauchy problem near $I_0$.* Part IV's Proposition 4.1 is stated with vanishing data and with the initial
 surface a level set of $\tau$. Lemma 2.2 adds the data (the flux through $\Sigma_{\mathrm{IVP}}$, tangential commutation,

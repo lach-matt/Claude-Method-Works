@@ -4093,3 +4093,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and the chains of Propositions 7.1-7.2 (IV'''''2).
 - Amended: Part IV'''' Lemma 1.4's reading of (4)-(5) (IV'''''3) and Theorem 2.1 (1)'s data surface (IV'''''1).
 - Next: Part IV'''''' ([Hin26a] Theorem B.1 -> III.E Theorem 1.1 (4)); seat verifier 133 (D309).
+
+### 4.233 Verifier 133 seated (D309): III.K's support classes back on t^flat_*
+
+- Verifier 133 read the D302 repairs (III.I(16)), the D304 repairs (III.K, Part IV, II.G), Part IV' and Part IV''.
+  Totals: 1 MAJOR, 8 MINOR, 18 NIT.
+- MAJOR B-M1: III.K's support classes, chi_-, D and the collar had been moved to t_* (D304), but II.F Lemma 1.3 needs
+  tau to be a time function for G_S, and dt_*'s margin near I+ is only O(mu_0 r^-2) (g^-1(dt_*, dt_*) = -18 mu_0 r^-2).
+  Repaired by restoring t^flat_* (II.C Lemma 3.2 (2): robust margin), with the collar along the levels of
+  (t^flat_*, omega); the half-integer powers at I+ lie in every slot's index set (III.C (3.2)-(3.3), Lemma 3.2 (a)).
+  T_iota, T_K, T'' and D re-posed; Part IV''' and Part IV'' follow.
+- MINORs: nu (vanishes near r_0, an inflow boundary for the backward problem; r/64 at infinity); the slab's top on
+  t^flat_*; III.I(16)'s direct bound at every level; Part IV' in polyhomogeneous norms; Part IV'' Lemma 2.2's tame
+  smallness, the uniqueness qualifier (also in III.C' Theorem 2.1), and the slab's curves (Part IV''' Lemma 1.1).
+- NITs seated, among them: t -> -t is not an isometry of the gauge-fixed operator (Part IV, Part IV''); II.G Example
+  3.2 cited; J3 Remark 4.4 quotes the amended (iii).
+- Status: Part IV proved; Part IV', Part IV'' verified; III.K and III.I(16) repairs to be read.
+

@@ -9,7 +9,8 @@ that rest. At every base point $(h,\vec p)$, or $(h,\vec p,q)$, or $U$, whose bl
 ($\mathcal B_*$ of III.H$''$), the statements of those parts hold with constants uniform in $b$. *The statement at $b$*
 of each of them is obtained as follows: $L_{b_0}$, $g_{b_0}$ near $K^+$, the states, towers and companions at $b_0$, and
 the index set $\mathcal E_{\mathrm{ind}}$ are replaced by those at $b$; derivatives in $b$ are taken at $b$; and the v1
-terms are treated by section 2. This closes (J$'$3) of III.J$'$, and with it (I3) and (H$''$5).
+terms are treated by section 2. This closes (J$'$3) of III.J$'$, and with it (I3) and (H$''$5). Verifier 133's findings
+seated (D309): the direct bound now covers every level (A-m1); A-n1 to A-n3; to be read.
 
 *What n = 4 changes.* At $b_0$ every rotation is Killing. At a rotating $b$ only the rotations commuting with the spin
 are, and the rotation state $h_{b,\mathrm v1}$ is $O(|b-b_0|)$ but not zero (III.E$'$). The v1 terms of exponent of real
@@ -229,13 +230,13 @@ p}\big)(W'_\nu),\qquad\tilde G := F-\Delta_q(\vec p\,')-R_qu(\vec p\,').$$
 There is a unique $\vec p\,'\in\mathcal P$ with
 $$W'_\nu = A_{b,\nu}\big(G'(\vec p\,')\big)\qquad(\nu\in\mathcal N_{\mathrm{rot}})\tag{2.2}$$
 such that $u(\vec p\,')$ satisfies the conclusions of III.I$''''''''''''''$ Theorem 3.1: (3.1)-(3.2), and $u =
-h_{\mathrm{rem}}(q')+h'$ with $q'\in\mathcal Q$. $\vec p\,'$, $q'$ and $h'$ are linear in $F$, with bounds uniform for
+h_{b,\mathrm{rem}}(q')+h'$ with $q'\in\mathcal Q$. $\vec p\,'$, $q'$ and $h'$ are linear in $F$, with bounds uniform for
 $(h,\vec p,q)$ small, $b$ included. At $b_0$, (2.2) is III.I$''''''''''''''$ Step 4$'$'s condition $C^{\mathrm{rot}} =
 0$, and $\vec p\,'$ is that of III.I$''''''''''''''$ Theorem 3.1.
 
-*Proof.* *Steps 0-1* are III.I$''''''''''''''$'s at $b$, by (P1)-(P6). $E^\nu\in\mathcal
-Y^\natural(\alpha-)\subset\mathcal Y(\alpha_1)$ joins the terms of Step 1. The rotation rows, of $K^+$-weight
-$\mathrm{Re}\,\lambda-\epsilon>1>\alpha_1-2$ (Lemma 2.1), lie above the base level.
+*Proof.* *Steps 0-1* are III.I$''''''''''''''$'s at $b$, by (P1)-(P6). $E^\nu\in\mathcal Y(\alpha_1)$, by (P6), joins
+the terms of Step 1. The rotation rows, of $K^+$-weight $\mathrm{Re}\,\lambda-\epsilon>1>\alpha_1-2$ (Lemma 2.1), lie
+above the base level.
 
 *Step 2 at $b$.* Let $u := u(\vec p\,')\in\mathcal Z_{\beta_k}$. As in III.I$''''''''''''''$ Step 2, by (1.1), $u_0 :=
 u+\sum_{\mathcal N\sqcup\mathcal N_{\mathrm{rot}}}m_\nu(W'_\nu)$ solves $L_{h,\vec p}u_0 = G'(\vec p\,')\in\mathcal
@@ -273,9 +274,10 @@ row. On $\mathcal P_k$ the lower coordinates are, by the induction, affine funct
 of the same smallness. $S^{h,\vec p,\beta}$ and $A_b$ are bounded uniformly in $b$ and $(h,\vec p)$ small (Lemma 2.4,
 Definition 2.3). So in the new coordinates $C^{k+1} = -\mathrm{id}+A_k$ with $|A_k|\le C(\|h\|+|\vec p-\vec
 p_b|+\|q\|+|b-b_0|)$, $C$ uniform in $b$ (verifier 131's M1, by the direct bound). At the base level and the levels
-below 3, the continuity statements that III.I$''''''''''''''$ Step 3 cites (III.I$''''''''$ Proposition 4.1 (ii) and
-Lemma 3.3, III.I$'''''''''''$ Lemma 3.3, III.I$'''''''''''''$ Lemma 2.3) are used at fixed $b$, with $(0,\vec p_b)$ in
-place of $(0,0)$, as in Lemma 2.4's proof.
+below 3 the same direct bound applies (verifier 133's A-m1). There $C^{k+1}$ is the $K^+$-coefficient of $u = u_0-\sum
+m(W')$ (III.I$'''''''$ Lemma 3.2), a bounded functional of $G'$, uniform in $b$ by (P1), minus $W'$; and $G'$ depends on
+the new $W'$ only through the small terms listed above. So $|A_k|\le C(\|h\|+|\vec p-\vec p_b|+\|q\|+|b-b_0|)$ at every
+level, and the continuity statements that III.I$''''''''''''''$ Step 3 cites are not needed.
 
 So $-\mathrm{id}+A_k$ is invertible for $(h,\vec p,q)$ small, and $\mathcal P_{k+1}$ is a graph. At $k = K$ every row
 has rate below $\alpha-2$ (the rotation rows at $b$: $\mathrm{Re}\,\lambda\le2<\alpha-2$), so $\mathcal P_K$ is one
@@ -391,13 +393,13 @@ are read at $b$ as in Lemma 2.4 and Proposition 2.5. The new objects enter III.J
 (Proposition 2.2); $E^\nu$ is bounded by $C|b-b_0||W|$ in a fixed seminorm ((P6)); the rotation rows enter
 $-\mathrm{id}+A_k$ as the other rows do; and $d_*$ includes their orders.
 
-The constants: every constant above is a finite combination of constants of (P1)-(P4), of Lemma 1.2, of Lemma 2.1 and of
-the maps of Proposition 2.2, each uniform on $\bar{\mathcal B}_*$. The continuity statements (III.I$''''''''$
-Proposition 4.1 (ii) and Lemma 3.3, III.I$'''''''''''$ Lemma 3.3, III.I$'''''''''''''$ Lemma 2.3 in Lemma 2.4) are used
-at fixed $b$ only. The smallness of the elimination, across $b$, comes from the direct bound of Proposition 2.5's Step
-3, through (P6) and Definition 2.3 (verifier 131's M1 and n2). $\mathcal B_*$ is shrunk, beyond III.H$''$ (B5), so that
-Lemma 1.2's bound holds and the maps $-\mathrm{id}+A_k$ of Proposition 2.5 are invertible on it (verifier 130's m3).
-$\square$
+The constants: every constant above is a finite combination of constants of (P1)-(P4) and (P6), of Lemma 1.2, of Lemmas
+2.1 and 2.4, and of the maps of Proposition 2.2, each uniform on $\bar{\mathcal B}_*$. The continuity statements
+(III.I$''''''''$ Proposition 4.1 (ii) and Lemma 3.3, III.I$'''''''''''$ Lemma 3.3, III.I$'''''''''''''$ Lemma 2.3) enter
+Lemma 2.4 at fixed $b$ only and are not used for the elimination's bounds. The smallness of the elimination, across $b$,
+comes from the direct bound of Proposition 2.5's Step 3, through (P6) and Definition 2.3 (verifier 131's M1 and n2).
+$\mathcal B_*$ is shrunk, beyond III.H$''$ (B5), so that Lemma 1.2's bound holds and the maps $-\mathrm{id}+A_k$ of
+Proposition 2.5 are invertible on it (verifier 130's m3). $\square$
 
 **Corollary 3.2 ((J$'$3) closed).** III.J$'$ Theorem 2.1 and its tame and exact forms (III.J$''$ Theorem 4.2, III.J$'''$
 Corollary 6.6) hold at every base point $U\in\mathcal D^\infty$ small in $\mathcal D^d$, with black hole parameter
