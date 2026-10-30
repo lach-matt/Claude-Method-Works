@@ -6140,3 +6140,10 @@ been incomplete three times. So the reduction now defines the two remaining thre
 and the largest data size at which every smallness condition of the nonlinear step holds. They are positive because
 there are finitely many. The list of their parts is kept beside them as an inventory, marked as not claimed complete,
 for the work of making each part a number. To be read.
+
+**D340 (2026-10-30): the reduction's last two thresholds fixed as a pair.** A fourth reader found the chain from the
+nonlinear step to lambda_1 and delta correct, but the definitions of the two remaining thresholds ill-posed: some
+smallness conditions involve the data and the unknown together, and some thresholds on the unknown change with the
+data. The reduction now fixes a pair, a data size and a radius at which every such condition holds, and takes it from
+the nonlinear step's own proof, which shows that one exists. It also says plainly what this does not give: those two
+numbers are defined by the proof's hypotheses, not computed. To be read.

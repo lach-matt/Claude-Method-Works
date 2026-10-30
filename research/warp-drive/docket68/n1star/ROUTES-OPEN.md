@@ -4500,3 +4500,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Repair: Proposition 2.2 now defines delta_K and eps_dat as the suprema below which every smallness hypothesis III.K
   takes, directly or through what it applies, holds (finitely many, so positive); the enumeration is an inventory, not
   claimed complete; E1'' finishes it. To be read.
+
+### 4.263 lambda_1 and delta: verifier 158; admissible pairs (D340)
+
+- Verifier 158: the chain VII section 4 -> lambda_1, delta correct (no condition on R, k, J or lambda outside
+  Nash-Moser, Part VII's own and III.K's); MAJ-1 the sup-definitions of delta_K, eps_dat ill-posed (joint data-and-U
+  hypotheses; U-thresholds depending on the data); MIN-1 section 0 overstated; MIN-2 orders and the eps-choice in
+  III.K Prop 1.2 (3); MIN-3 g_1 at III.C:341; NIT-1..5.
+- Repair: an admissible pair (eps_dat, delta_K) in (0,1]^2, for which every non-Nash-Moser smallness hypothesis of
+  III.K holds on {data < eps_dat in H^d1} x {|U|_3d < delta_K}; it exists by III.K's proof (K:383-388, 410-411,
+  465-469) and is down-closed; the eps-choice is made first; section 0 says the pair is defined, not computed.
