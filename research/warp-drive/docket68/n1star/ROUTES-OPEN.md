@@ -3914,3 +3914,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Open, (H''5): the chain III.I'-III.J''' at base points b != b_0. The data at b_0 enter as the v1-rows (every
   rotation is Killing at b_0), as index sets of the zero energy states fixed at b_0, and as derivatives in b at b_0.
   This is the rest of (J'3). Also open: Part IV; III.K ([Hin26] section 13).
+
+### 4.219 Verifier 127 seated (D295): III.J'' proved; III.J''' verified, its repairs to be read
+
+- Verifier 127 read III.J''' and the D292 repairs of III.J''. III.J'': m1-m3 resolved, so it is proved. III.J''': 1
+  major, 3 minor, 6 nits, seated. All Sources pages are correct.
+- M1: the joint exact weight at the corner of iota+ and K+ was not proved. III.I(12) Lemma 2.1's bounds near iota+ and
+  at the corner are pointwise, a fourth pointwise proof at a final weight (4.217 said three). Lemma 4.7 proves them in
+  L^2: case (a) by Minkowski's inequality in zeta with the dilation invariance of dr/r, case (b) with m = 0 by a sup
+  bound and the L^2 profile. Proposition 4.6's iota+ side is rewritten on it.
+- m1: Remark 3.1, the t_*-convention's class and Definition 2.8's are incomparable at the exact weight; "no exact
+  statement exists" withdrawn. m2: Corollary 6.6 now argues why the unchanged lossy rows do no harm (exact data enters
+  every chain; margins chosen backwards per k change C_k, not d). m3: (E1) is a smallness condition; (E5) is vacuous.
+- Nits: the indicial roots read with -Re mu; continuously embedded, not closed; (E2) covers the exclusions of III.I'
+  Propositions 2.1 and 3.1, lambda_sharp included; the Laurent cut-off for the remainder's coefficients; "finite rank"
+  dropped; "(P2: ...)" replaced by the use of (E1) in III.A's integrations.
+- Next: verifier 128 reads the D295 repairs of III.J''' and III.H'' (D294).

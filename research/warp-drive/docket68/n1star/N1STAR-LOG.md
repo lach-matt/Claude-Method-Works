@@ -5755,3 +5755,11 @@ a frame special to Kerr. The second was that the forward-solution estimates hold
 The model operator at future timelike infinity turns out not to depend on the black hole at all in five dimensions,
 and the rest is continuity and compactness. The linear estimates therefore hold near the reference black hole,
 uniformly and continuously. What remains is to rerun the later linear parts at a rotating base point.
+
+**D295 (2026-10-30): verifier 127 seated; the tame estimates are proved.** The verifier confirmed the repairs to the
+tame estimates, so that part is proved. In the exact-weight part it found one gap. Where future timelike infinity
+meets the black-hole face, the decay at both faces had been shown separately but not jointly. That needs a fourth
+re-proof of a pointwise bound in L^2, not three as D293 said, and the new lemma supplies it. Three smaller corrections
+are seated: a remark had overstated what the time-coordinate convention rules out; the tame corollary now explains why
+the steps left with small losses do no harm; and one of the new conditions is a smallness bound, not a finite
+exclusion, while another is vacuous.

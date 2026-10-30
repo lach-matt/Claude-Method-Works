@@ -1,7 +1,8 @@
 # Part III.J$''$. Tame estimates, n = 4 ([Hin26] Remark 11.13; the tame forms of Corollary 11.66 and Theorem 12.8)
 
 *Status.* Written (D286); verified (D290: verifier 124's findings seated; D292: verifier 126 read the repairs, three
-minor findings seated, to be read). This part proves, at spatial
+minor findings seated); proved (D295: verifier 127 read the D292 repairs and found them resolved).
+This part proves, at spatial
 dimension $n = 4$ and at the black hole parameters $b_0$, the tame estimates that [Hin26] asserts in Remark 11.13 (p.
 226), states for Corollary 11.66 (pp. 294-295) and Theorem 12.8 (p. 312) without proof, and uses in section 13 (pp.
 321-322, Step 3 (2)-(3)): the tame form of III.I$''''''''''''''$ Theorem 3.1 (Theorem 4.1) and of III.J$'$ Theorem 2.1

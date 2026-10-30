@@ -1,22 +1,25 @@
 # Part III.J$'''$. Exact weights, n = 4 ([Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights)
 
-*Status.* Written (D293). This part proves, at spatial dimension $n = 4$ and $b = b_0$, that the solution map of
-III.I$''''''''''''''$ Theorem 3.1 and the right inverse of III.J$'$ Theorem 2.1 lose nothing in the weights. A source at
-the fixed weights $(\ell_I+1,5+\epsilon_+,\alpha)$ at $(\mathscr I^+,\iota^+,K^+)$ gives a solution at
-$(\ell_I,3+\epsilon_+,\alpha)$, with one fixed admissible $\alpha$. This is how the source states its Corollary 11.66
-(pp. 294-295) and Theorem 12.8 (p. 312), at $(4+\epsilon_I,5+\epsilon_+,4+\epsilon_K)$ and
-$(3+\epsilon_I,3+\epsilon_+,4+\epsilon_K)$. With III.J$''$ this gives the tame estimates on one pair of Banach scales
-(Corollary 6.6), and so discharges (J$''$4) of III.J$''$ at $b_0$. The linear theory at $b\ne b_0$, (J$'$3), stays open.
+*Status.* Written (D293); verified (D295: verifier 127's findings seated, to be read). This part proves, at spatial
+dimension $n = 4$ and $b = b_0$, that the solution map of III.I$''''''''''''''$ Theorem 3.1 and the right inverse of
+III.J$'$ Theorem 2.1 lose nothing in the weights. A source at the fixed weights $(\ell_I+1,5+\epsilon_+,\alpha)$ at
+$(\mathscr I^+,\iota^+,K^+)$ gives a solution at $(\ell_I,3+\epsilon_+,\alpha)$, with one fixed admissible $\alpha$.
+This is how the source states its Corollary 11.66 (pp. 294-295) and Theorem 12.8 (p. 312), at
+$(4+\epsilon_I,5+\epsilon_+,4+\epsilon_K)$ and $(3+\epsilon_I,3+\epsilon_+,4+\epsilon_K)$. With III.J$''$ this gives the
+tame estimates on one pair of Banach scales (Corollary 6.6), and so discharges (J$''$4) of III.J$''$ at $b_0$. The
+linear theory at $b\ne b_0$, (J$'$3), stays open.
 
 *What n = 4 changes.* (1) *The losses are removed where they arise; nothing is improved after the fact.* Of the
 statements of III.I-III.I$''''''''''''''$ that take a source at an exact weight and conclude an order "$w-$", only those
 whose loss reaches a final weight matter: every other one feeds an open condition with fixed room. Those losses have
 three roots. (a) At $K^+$, III.G$''$ Corollary 4.3 writes the $\iota^+$-terms in powers of $\log t_*$. At the corner
 $t_*^{-1} = \rho_+\rho_K$, so each $\log t_*$ hides a $\log\rho_K$, and a logarithm times a conormal function of exact
-weight lies in no weighted $L^2$-b space of that weight. In that convention the loss is genuine (Remark 3.1). Written in
+weight lies in no weighted $L^2$-b space of that weight. In that convention Corollary 4.3 cannot be applied at the exact
+weight, the two classes being incomparable (Remark 3.1). Written in
 powers of $\log\rho_+$, the convention of [Hin26] Definition 2.8 in which the classes of the parts are defined, the same
-construction is exact (Corollary 3.2). (b) At $K^+$, III.I$''''''''''''$ Lemma 2.2 and Lemma 2.1 (a) bound their outputs
-pointwise, which gives only the $L^2$-weight $w-$; at the final weight they are re-proved in $L^2$ (Lemmas 4.4-4.5). The
+construction is exact (Corollary 3.2). (b) III.I$''''''''''''$ Lemma 2.2 and Lemma 2.1 bound their outputs pointwise, at
+$K^+$ and at the corner of $\iota^+$ and $K^+$, which gives only the $L^2$-weight $w-$; at the final weight they are
+re-proved in $L^2$ (Lemmas 4.4, 4.5 and 4.7). The
 Fourier characterization III.A Proposition 4.2 is itself exact and only transmits the loss of (a) (Proposition 4.1). (c)
 At $\iota^+$, the level-2 margin $\eta_2<\epsilon_+$ of III.I$'''''''''''$ and the $5\epsilon$ of III.J$'$ Lemma 1.1 are
 choices, not estimate losses: at the closed endpoint of (G$^+$) every map is exact (Proposition 4.3), as the source's
@@ -27,8 +30,9 @@ excluding finitely many values, of the kind of (G$^+$) and of admissibility.
 
 Notation: as in III.I$''''''''''''''$, III.J, III.J$'$ and III.J$''$; $w_+ := 5+\epsilon_+$; $\rho_+$, $\rho_K$ are the
 defining functions of $\iota^+$ and $K^+$ near their corner, $\rho_+ = 1/r$, $\rho_K = R = r/t_*$, so $t_*^{-1} =
-\rho_+\rho_K$ there (III.I$''$ section 1); $\mu$ runs over the real indicial roots of $\widehat{L_{b_0}}(0)$ (III.F$'$
-Proposition 2.3). No instrument is used.
+\rho_+\rho_K$ there (III.I$''$ section 1); $\mu$ runs over the indicial roots of $\widehat{L_{b_0}}(0)$ (III.F$'$
+Proposition 2.3), and $-\mu$ is read as $-\mathrm{Re}\,\mu$; the non-real roots have real part below $-101$ or above 1,
+outside every interval used. No instrument is used.
 
 ## 1. The exact classes and the exactness conditions
 
@@ -61,7 +65,7 @@ These are the source's classes (11.226) (p. 292), (11.227b) (p. 293), (11.233) (
 (12.31) (p. 310), with $(3+\epsilon_I,4+\epsilon_I)$ read as $(\ell_I,\ell_I+1)$ and $4+\epsilon_K$ as $\alpha$. Each
 $\mathcal D^k_{\mathrm{ex}}$ and $\mathcal F^k_{\mathrm{ex}}$ is a Banach space.
 
-**Remark 1.2 (inclusions).** Each exact class is a closed subspace of its "$w-$" class: same index sets, a larger
+**Remark 1.2 (inclusions).** Each exact class is continuously embedded in its "$w-$" class: same index sets, a larger
 weight. And $\mathcal F_{\mathrm{ex}}\subset\mathcal Y^0_{\mathrm{ex}}(\alpha)$: a plain weight $w_+$ is the class
 $(\mathcal E^0_{\mathrm{src}}+2,w_+)$ with vanishing coefficients, as III.J$'$ Theorem 2.1's Step 0 argues for the
 "$w-$" classes. So every statement of the parts applies to exact inputs. Only statements whose output must lie in an
@@ -69,12 +73,15 @@ exact class are re-proved below.
 
 **Definition 1.3 (the exactness conditions).** Besides admissibility and (A$_J$):
 
-- (E1) (G$^+$) of III.J, used with its closed endpoint: no $\lambda\in\Lambda$ has real part in $(3,3+\epsilon_+]$. With
-III.I$''''''''''$ Lemma 1.2 (c) (every exponent produced with real part in $[2,3+\epsilon_+]$ lies in $\Lambda$), no
+- (E1) (G$^+$) of III.J, used with its closed endpoint: no $\lambda\in\Lambda$ has real part in $(3,3+\epsilon_+]$,
+that is, $\epsilon_+<\min\{\mathrm{Re}\,\lambda-3:\lambda\in\Lambda,\ \mathrm{Re}\,\lambda>3\}$, a smallness condition.
+With III.I$''''''''''$ Lemma 1.2 (c) (every exponent produced with real part in $[2,3+\epsilon_+]$ lies in $\Lambda$), no
 exponent produced has $u$-exponent of real part $3+\epsilon_+$.
 
-- (E2) $3+\epsilon_+\notin\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I$, the exclusion of III.I$'$ Proposition 3.1 at
-the $\iota^+$-weight $3+\epsilon_+$.
+- (E2) $3+\epsilon_+\notin\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I\cup\{\lambda_\sharp\}$: the exclusions of
+III.I$'$ Proposition 3.1 ($\mathrm{Re}\,\pi_1\mathcal E^C_I$ and $\lambda_\sharp$) and of III.I$'$ Proposition 2.1
+($\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I$) at the $\iota^+$-weight $3+\epsilon_+$; $\mathcal
+E^{\mathrm{tot}}_I\supset\mathcal E^C_I$ (III.C (3.1)).
 
 - (E3) No $K^+$-exponent at hand (of the pieces' coefficients, of the rows, and their $\mathbb N_0$-shifts, as in
 III.I$''''''''''''''$ Lemma 2.5) has real part $\alpha-2$, $\alpha-1$ or $\alpha$. The first and last are admissibility
@@ -84,12 +91,14 @@ III.I$''''''''''''''$ Lemma 2.5) has real part $\alpha-2$, $\alpha-1$ or $\alpha
 finitely many tf-exponents $\alpha_0$ of levels 1-2 of III.I$'''''''''''$ Proposition 3.1: III.G$''''$ (4.2) at
 $\ell_{\mathrm{zf}} = \alpha-2$ and $\alpha-3$.
 
-- (E5) $\alpha-4$ is not a real part excluded in III.I$''$ Lemma 4.2.
+- (E5) Vacuous (D295): III.I$''$ Lemma 4.2 excludes no real part; it asks only $\beta_{\mathrm{tf}}-\beta_{\mathrm{zf}}
+= \alpha_H+2\in(0,1)$. The label is kept.
 
 - (A$_K$) (optional) $\alpha := 4+\epsilon_K$ is admissible and satisfies (A$_J$), (E3)-(E5).
 
-**Lemma 1.4.** (E1)-(E2) exclude finitely many $\epsilon_+$ in any bounded range, (E3)-(E5) finitely many $\alpha$, and
-(A$_K$) finitely many $\epsilon_K$ at fixed $\epsilon_+$. So admissible $\alpha$ with (E3)-(E5) exist in
+**Lemma 1.4.** (E1) is a smallness condition on $\epsilon_+$, (E2) excludes finitely many $\epsilon_+$ in any bounded
+range, (E3)-(E4) finitely many $\alpha$, (E5) nothing, and (A$_K$) finitely many $\epsilon_K$ at fixed $\epsilon_+$. So
+admissible $\alpha$ with (E3)-(E5) exist in
 $(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$, and $\epsilon_+$, $\epsilon_K$ may be decreased to meet (E1)-(E2) and
 (A$_K$), as (G$^+$) and (G) already permit.
 
@@ -97,9 +106,10 @@ $(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$, and $\epsilon_+$, $\epsilon_K$ may be
 $\epsilon_K$ within the ranges used: the roots $\mu$, discrete with finitely many in any bounded set (III.F$'$
 Proposition 2.3); $\Lambda$ and the tf-exponents $\alpha_0$ of levels 1-2, $\Lambda$-valued below 3 and finitely many
 (III.I$''''''''''$ Lemma 1.2); the exponents at hand below $\alpha+1$, finitely many and $\Lambda$-generated
-(III.I$''''''''''''''$ Lemma 2.5's proof); the real parts excluded in III.I$''$ Lemma 4.2, discrete; and
-$\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I$, an index set, finite below any bound. Each condition removes the values
-of $\alpha$, $\epsilon_+$ or $\epsilon_K$ equal to one of finitely many such numbers. $\square$
+(III.I$''''''''''''''$ Lemma 2.5's proof); $\lambda_\sharp$; and $\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I$, an
+index set, finite below any bound. Each of (E2)-(E4) and (A$_K$) removes the values of $\alpha$, $\epsilon_+$ or
+$\epsilon_K$ equal to one of finitely many such numbers; (E1) is (G$^+$) itself, an upper bound on $\epsilon_+$.
+$\square$
 
 ## 2. Two elementary lemmas
 
@@ -139,12 +149,13 @@ H^{\infty,\ell_I+1,\ell_K-2-\epsilon}_{\mathrm b}(\iota^+)$, and concludes (4.5)
 $\lambda_0+\ell_K-\epsilon$. By (3.1) a source of exact $K^+$-weight $\alpha$ in the sense of Definition 2.8 has
 $t_*$-coefficients containing $(\log R)^{\ell-j}R^{-z}a_\ell$, which lie in $H^{\alpha-\mathrm{Re}\,z-\epsilon}$ for
 every $\epsilon>0$ but in general not at $\epsilon = 0$:
-$\|\rho^{-w+\epsilon}(\log\rho)^kg\|\le(k/e\epsilon)^k\|\rho^{-w}g\|$, and this is sharp. Conversely the
-$t_*$-convention's class is strictly larger than Definition 2.8's class at the exact weight: for $k = 1$, $f^{(0)} = 0$
-and $f^{(1)} = g$ generic in $H^{\ell_K-2}$, the Definition 2.8 coefficient $-(\log\varphi)\varphi^zg$ is not in
-$H^{\alpha}$. So no exact statement exists in that convention: the minus of Corollary 4.3 is genuine there, with
-constants of order $\epsilon^{-k}$. The source's Corollary 9.12 (p. 179) has the same minus; its Proposition 11.34
-states the exact weight after the same step ((11.120b), p. 254), which Corollary 3.2 justifies.
+$\|\rho^{-w+\epsilon}(\log\rho)^kg\|\le(k/e\epsilon)^k\|\rho^{-w}g\|$, and this is sharp. Conversely, for
+$k = 1$, $f^{(0)} = 0$ and $f^{(1)} = g$ generic in $H^{\ell_K-2}$, the Definition 2.8 coefficient
+$-(\log\varphi)\varphi^zg$ is not in $H^{\alpha}$. So for $k\ge1$ the two classes at the exact weight are incomparable
+(for $k = 0$ they coincide), and Corollary 4.3 cannot be applied at $\epsilon = 0$ to a Definition 2.8 source; in its
+convention it is stated with the minus, with constants of order $\epsilon^{-k}$. Whether an exact statement exists in
+that convention is not decided here; none is needed. The source's Corollary 9.12 (p. 179) has the same minus; its
+Proposition 11.34 states the exact weight after the same step ((11.120b), p. 254), which Corollary 3.2 justifies.
 
 **Corollary 3.2 (III.G$''$ Corollary 4.3 at the exact $K^+$-weight).** Let $\mathrm{Re}\,\lambda_0>1$, let $l_0$ be the
 order of the pole of $N_{\iota^+}(\bar L,\cdot)^{-1}$ at $\lambda_0$ ($0$ if none), let $\ell_I$ be as in III.G$''$
@@ -245,14 +256,16 @@ i}\oint(\lambda-\lambda_0)^{-j-1}r_j(\lambda)\,d\lambda$. Expanding $\rho_+^{\la
 \rho_+^{\lambda_0+c}\sum_m(\log\rho_+)^m(\lambda-\lambda_0)^m/m!$ pointwise, $u$'s $\iota^+$-part is
 $\chi_\iota\rho_+^{\lambda_0}\sum_m(\log\rho_+)^mv_m$ with $v_m = \sum_j\frac{j!}{m!}\frac1{2\pi
 i}\oint(\lambda-\lambda_0)^{m-j-1}U_j(\lambda)\,d\lambda$, which vanish for $m>k+l_0$ (Laurent order); the remainder's
-coefficients are circle integrals of the $c_{e,p}(\lambda)$, and its rest the circle integral of $r_N(\lambda)$. Lemma
-2.2, with $Z$ the space at the exact weight $\alpha$ (the coefficient spaces on $\iota^+$, and the space of plain
-$\iota^+$-weight $\mathrm{Re}\,\lambda_0+2+N-\delta$) and $Z_-$ the same at $\alpha-4\delta$, with Lemma 3.3 bounding
-the integrands, gives $v_m\in H^{(\langle\mathcal E^C\rangle,\ell_I),\alpha}(\iota^+)$, the coefficients of $f-L_bu$ in
-$H^{(\mathcal E^{\mathrm{tot}}+2,\ell_I+1),\alpha}(\iota^+)$ with exponents in $\lambda_0+2+\mathcal
-E_{\mathrm{ind}}+(0,k+l_0)$, and the rest at $K^+$-weight $\alpha$. As $N$ is arbitrary, this is (3.3). The
-$u_{b,0}$-part becomes $\sum_j\chi_Ku^{(j)}_{b,0}$ with the Laurent coefficients of $Y(\lambda)$ (the form (4.3)).
-Linearity and the bounds, with constants $C\delta^{-k-l_0-1}$, follow from Lemma 3.3. $\square$
+coefficients are circle integrals of the $c_{e,p}(\lambda)$, which are polynomial in $\lambda$, $Y(\lambda)$ and
+$U(\lambda)$, hence meromorphic in $D$ with pole order at most $l_0$, so the same Laurent cut-off applies to them, and
+its rest the circle integral of $r_N(\lambda)$. Lemma 2.2, with $Z$ the space at the exact weight $\alpha$ (the
+coefficient spaces on $\iota^+$, and the space of plain $\iota^+$-weight $\mathrm{Re}\,\lambda_0+2+N-\delta$) and $Z_-$
+the same at $\alpha-4\delta$, with Lemma 3.3 bounding the integrands, gives $v_m\in H^{(\langle\mathcal
+E^C\rangle,\ell_I),\alpha}(\iota^+)$, the coefficients of $f-L_bu$ in $H^{(\mathcal
+E^{\mathrm{tot}}+2,\ell_I+1),\alpha}(\iota^+)$ with exponents in $\lambda_0+2+\mathcal E_{\mathrm{ind}}+(0,k+l_0)$, and
+the rest at $K^+$-weight $\alpha$. As $N$ is arbitrary, this is (3.3). The $u_{b,0}$-part becomes
+$\sum_j\chi_Ku^{(j)}_{b,0}$ with the Laurent coefficients of $Y(\lambda)$ (the form (4.3)). Linearity and the bounds,
+with constants $C\delta^{-k-l_0-1}$, follow from Lemma 3.3. $\square$
 
 **Proposition 3.4 (the graft's uses at the top level).** Let $f\in\mathcal Y^0_{\mathrm{ex}}(\alpha)$, with (E1)-(E3).
 Then III.I$''''''''''$ Proposition 3.1 holds with: (a) $u_I$ of $\iota^+$-data $(\mathcal E_I,3+\epsilon_+)$; (b)
@@ -261,9 +274,11 @@ E^\flat+2,w_+),\alpha}_{\mathrm b}$. And III.I$''''''''''''$ Theorem 3.1's piece
 $K^+$-order exactly $\alpha$.
 
 *Proof.* (a) Step 1 of III.I$''''''''''$ Proposition 3.1 takes $\breve\ell_+ := w_+-2-\epsilon$ "off its exclusions for
-all but finitely many $\epsilon$"; the exclusion is that of III.I$'$ Proposition 3.1,
-$\breve\ell_+\in\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I$, and by (E2) $\breve\ell_+ := w_+-2 = 3+\epsilon_+$ is
-allowed. III.I$'$ Proposition 3.1 is exact at an allowed weight. (c) At $K^+$: Step 2 takes $c_K := \alpha$ and applies
+all but finitely many $\epsilon$"; the exclusions are those of III.I$'$ Proposition 3.1 ($\mathrm{Re}\,\pi_1\mathcal
+E^C_I$ and $\lambda_\sharp$) and of III.I$'$ Proposition 2.1 ($\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I$), and by
+(E2) $\breve\ell_+ := w_+-2 = 3+\epsilon_+$ is allowed. III.I$'$ Propositions 2.1 and 3.1 are exact at an allowed
+weight; (E2) is used again in Step 2's $\mathscr I^+$-removals and in Proposition 4.3's $\mathscr I^+$-regularity
+(III.I$'$ Proposition 2.1 at $\ell_+ = 3+\epsilon_+$). (c) At $K^+$: Step 2 takes $c_K := \alpha$ and applies
 the graft to the coefficients of the current source, which lie in $H^{\infty,\ell_I+1,\alpha}_{\mathrm b}(\iota^+)$ with
 respect to $\rho_+$ ($\mathcal Y^0(\alpha)$ is a Definition 2.8 class, exact at $K^+$); Corollary 3.2 replaces Corollary
 4.3, and each graft error has the exact $K^+$-weight $\alpha$ by (3.3), so the iteration closes at $\alpha$. The part of
@@ -271,12 +286,13 @@ the source that does not reach $\iota^+$ near the corner (the difference between
 $\chi_\iota$) goes into $f'$. Step 1's "$K^+$-weight $\alpha-\epsilon$" is a free weakening ($f_1$ has $K^+$-weight
 $\alpha$). At $\iota^+$: $f^\flat = f-L_{b_0}(u_I+u_\iota)$ with $f$ at $(\mathcal E^\flat+2,w_+)$, $L_{b_0}u_I$ at
 $(\mathcal E_I+2,w_+)$ by (a), and $u_\iota$ a finite sum of single $\iota^+$-terms; by (E1) no exponent has real part
-$w_+$, so the class is exact (P2: an exponent at the weight would not lie in it). (b) Its $K^+$-ingredients are
-$u_\lambda$'s $\iota^+$-part, of $K^+$-weight $\alpha>\alpha-2$; the rows, identified up to $K^+$-weight
-$\mathrm{Re}\,\lambda_0+1-\epsilon>\frac52>\alpha-2$; and the c-rows of rate $>2+\epsilon_K\ge\alpha-2$, of weight their
-rate minus $\epsilon$, which exceeds $\alpha-2$ for $\epsilon$ small; each is strict. Piece (ii) of III.I$''''''''''''$
-Theorem 3.1 is the graft remainder $\chi_\iota\rho_+^{\lambda_0}(\log\rho_+)^mv_m$ of Corollary 3.2, of $K^+$-order
-exactly $\alpha$. $\square$
+$w_+$, so the integrations of III.A Lemmas 1.2 and 1.4, which are exact at weights that are not exponents, are applied
+at such a weight (Definition 2.8's class itself expands every exponent of real part at most the weight). (b) Its
+$K^+$-ingredients are $u_\lambda$'s $\iota^+$-part, of $K^+$-weight $\alpha>\alpha-2$; the rows, identified up to
+$K^+$-weight $\mathrm{Re}\,\lambda_0+1-\epsilon>\frac52>\alpha-2$; and the c-rows of rate $>2+\epsilon_K\ge\alpha-2$, of
+weight their rate minus $\epsilon$, which exceeds $\alpha-2$ for $\epsilon$ small; each is strict. Piece (ii) of
+III.I$''''''''''''$ Theorem 3.1 is the graft remainder $\chi_\iota\rho_+^{\lambda_0}(\log\rho_+)^mv_m$ of Corollary 3.2,
+of $K^+$-order exactly $\alpha$. $\square$
 
 ## 4. The spectral construction at exact weights
 
@@ -438,11 +454,69 @@ either falls under III.I$''''''''''''$ Lemma 2.4's clause on exponents, so that 
 $\ne3+\epsilon_+$ by (E1), or comes from a conormal profile at the edge ($\hat u_j$, $j\le2$, with degree
 $\mu'_j-2\in\{2+\epsilon_+,1+\epsilon_+,\epsilon_+\}$, or $v_0$ with degree $\epsilon_+-1$), each with $z$ plus its
 degree equal to $3+\epsilon_+$ and $d_\rho\in\{\mu,0,1\}$ different from that degree, so $z+d_\rho>3+\epsilon_+$.
-Subtracting $\chi_Ku_{\exp}$, whose conormal coefficients have order exactly $3+\epsilon_+-d_\rho$ and homogeneous
-profiles of degree $d_\rho$, leaves $\iota^+$-weight $3+\epsilon_+$ for its contribution in $L^2$ (Lemma 2.1, with room
-$\alpha-(3+\epsilon_+-d_\rho)<0$ at $K^+$ absorbed by the subtraction near $K^+$ as in the present Step 5); with
-$v_{\mathrm{low}}$ of Proposition 4.3 and $u_I$ of Proposition 3.4, $\tilde u$ has $(\mathcal E_\sharp,3+\epsilon_+)$ at
-$\iota^+$. $\square$
+*The corner (D295).* Near $\mathscr I^+$ and on $\{r\ge t_*/2\}$, $\chi_K = 0$ and $\tilde u = u$, exact at $\iota^+$
+by Proposition 4.3 (with $u_I$ of Proposition 3.4). Near the corner of $\iota^+$ and $K^+$, $\tilde u$ is the sum over
+the pieces of III.I$''''''''''''$ Theorem 3.1, Step 1, of each piece minus its part in $\chi_Ku_{\exp}$. Two kinds of
+piece reach $\iota^+$-order exactly $3+\epsilon_+$. The first is the conormal parts of (v), and of the pieces of type
+(v) inside (vi) and (viii). These come from III.I$''''''''''''$ Lemma 2.1 (b) with $c =
+\sigma^j|\sigma|^k\mathrm{sgn}(\sigma)^\delta$ ($m = 0$) and a single profile, whose conormal part lies in the exact
+space of its degree (Proposition 4.3). The second is the level-3 towers of (viii). These come from Lemma 2.1 (a) with
+$w = \alpha_\tau+1-\mu$ and the tower's profiles, homogeneous of degree $d_\rho-j$ (III.I$''''''''''''$ section 1), so
+$w+1+d_\rho = \alpha_\tau+2 = 3+\epsilon_+$. For each, the part in $\chi_Ku_{\exp}$ is the main term
+$\chi_K\sum_j(\chi_+y)^{(j)}p_j$ of (2.1) there, and what is left in $\tilde u$ is its $R$. Lemma 4.7 puts $R$ in
+$\rho_+^{3+\epsilon_+}\rho_K^NH^\infty_{\mathrm b}$ near the corner, for every $N$. Every other term of $\tilde u$ there
+is exact at one face with room at the other ((J$'''$6)). It has $K^+$-order $\ge\alpha$ (Steps 0-4) and either
+$\iota^+$-order $>3+\epsilon_+$, or is polyhomogeneous at $\iota^+$ with exponents in $\mathcal E_\sharp$, none of real
+part $3+\epsilon_+$ (E1). So $\tilde u$ has $(\mathcal E_\sharp,3+\epsilon_+)$ at $\iota^+$ jointly with $\alpha$ at
+$K^+$. $\square$
+
+**Lemma 4.7 (III.I$''''''''''''$ Lemma 2.1 at the corner, in $L^2$; D295).** In III.I$''''''''''''$ Lemma 2.1, near the
+corner of $\iota^+$ and $K^+$, on $\{r\ge2,\ t_*\ge8r\}$ with $\rho_+ = 1/r$ and $\rho_K = r/t_*$, and in the b-Sobolev
+spaces of the density $\frac{dt_*}{t_*}\frac{dr}r\,d\omega$ (that of $\mu_{\mathrm b}$ there):
+
+(a) in case (a), if $|(r\partial_r)^a\partial_\omega^\beta p_j|\lesssim r^{j-d}$ on $\{r\ge1\}$ for all $a,\beta$ (degree
+exactly $d-j$, without logarithms), then $R\in\rho_+^{w+1+d}\rho_K^NH^\infty_{\mathrm b}$ for every $N$;
+
+(b) in case (b) with $m = 0$, if $r^{d-j}p_j\in H^\infty_{\mathrm b}$ near $\partial X$ for the density
+$|\frac{dr}r\,d\omega|$, then $R\in\rho_+^{\mathrm{Re}\,z+1+d}\rho_K^NH^\infty_{\mathrm b}$ for every $N$. Moreover, on
+$\{r\ge2\}$ the left side of (2.1) is $\sum_jr^{-1-j-z}F_j(t_*/r)p_j(x)$, with
+$F_j(s) := \frac1{2\pi}\int e^{-i\zeta s}\chi_0(|\zeta|)(-i\zeta)^j|\zeta|^z\mathrm{sgn}(\zeta)^\delta\,d\zeta$ smooth
+and bounded with all its $s\partial_s$-derivatives on bounded sets.
+
+*Proof.* Put $s := t_*/r\ge8$. Then $\frac{dt_*}{t_*}\frac{dr}r = \frac{ds}s\frac{dr}r$, and the b-vector fields
+$t_*\partial_{t_*}$, $r\partial_r$ are $s\partial_s$ and $r\partial_r|_s-s\partial_s$. So it suffices to bound
+$r^as^NR$, $a$ the stated $\iota^+$-weight, in $L^2(\frac{ds}s\frac{dr}r\,d\omega)$, and likewise after applying
+$s\partial_s$, $r\partial_r|_s$ and $\partial_\omega$. As in the proof of III.I$''''''''''''$ Lemma 2.1, $R =
+\sum_je_{j,r}(t_*)p_j(x)$ there, and $\sigma = \zeta/r$ gives
+$$e_{j,r}(t_*) = r^{-1-j}\frac1{2\pi}\int e^{-i\zeta s}(-i\zeta)^j(\chi c)(\zeta/r)\big(\chi_0(|\zeta|)-1\big)\,d\zeta.$$
+The amplitude vanishes for $|\zeta|\le c_0$ and for $|\zeta|\ge r$. Integrating by parts $M$ times gives $s^{-M}$ times
+the integral of the $M$-th $\zeta$-derivative of the amplitude. A derivative falling on $(\chi c)(\zeta/r)$ gives
+$\zeta^{-1}((\sigma\partial_\sigma)(\chi c))(\zeta/r)$, and one falling on $\chi_0(|\zeta|)-1$ gives a factor supported
+in $\{c_0\le|\zeta|\le1\}$.
+
+(a) Write $(\sigma\partial_\sigma)^l(\chi c) = |\sigma|^w\tilde c_l$ with $\tilde c_l\in H^\infty_{\mathrm
+b}(\pm(0,1),|\frac{d\sigma}\sigma|)$. Then $|e_{j,r}(t_*)|\le
+Cr^{-1-j-w}s^{-M}\sum_l\int_{|\zeta|\ge c_0}|\zeta|^{w+j-M}|\tilde c_l(\zeta/r)|\,d\zeta$. By Minkowski's inequality and
+the dilation invariance of $\frac{dr}r$,
+$$\Big\|\int_{|\zeta|\ge c_0}|\zeta|^{w+j-M}|\tilde c_l(\zeta/r)|\,d\zeta\Big\|_{L^2(\frac{dr}r)}\le\|\tilde
+c_l\|_{L^2(\frac{d\sigma}\sigma)}\int_{|\zeta|\ge c_0}|\zeta|^{w+j-M}\,d\zeta<\infty$$
+for $M>w+j+1$, uniformly in $s$. As $|r^{d-j}p_j|\le C$, $\|r^{w+1+d}s^NR\|_{L^2}\le C(\int_8^\infty
+s^{2(N-M)}\frac{ds}s)^{1/2}<\infty$ for $M>N$. $s\partial_s$ acting on $e^{-i\zeta s}$ is $\zeta\partial_\zeta$, moved
+onto the amplitude by parts; $r\partial_r|_s$ acting on $(\chi c)(\zeta/r)$ gives $-((\sigma\partial_\sigma)(\chi
+c))(\zeta/r)$. Both keep the form above, and $(r\partial_r)^a\partial_\omega^\beta p_j$ keeps the bound.
+
+(b) Here $(\chi c)(\zeta/r) = r^{-z}|\zeta|^z\mathrm{sgn}(\zeta)^\delta\chi(\zeta/r)$, and the derivatives of the
+amplitude are $O(|\zeta|^{\mathrm{Re}\,z+j-M})$ uniformly in $r$ (a derivative of $\chi(\zeta/r)$ gives
+$r^{-1}\le|\zeta|^{-1}$ on its support). So $e_{j,r}(t_*) = r^{-1-j-z}E_j(s,r)$ with
+$|(s\partial_s)^a(r\partial_r|_s)^bE_j|\le
+C_{ab}s^{-M}$ for $M>\mathrm{Re}\,z+j+1$, and
+$$\|r^{\mathrm{Re}\,z+1+d}s^NR\|_{L^2}\le C\sum_j\Big(\int_8^\infty
+s^{2(N-M)}\frac{ds}s\Big)^{1/2}\|r^{d-j}p_j\|_{L^2(\frac{dr}r\,d\omega)},$$
+likewise with b-derivatives. For $r\ge2$, $\chi = 1$ on the support of $\chi_0(|\sigma|r)$, so the left side of (2.1)
+is $\sum_j(y^{(j)}*k_r)(t_*)p_j(x)$, with $(y^{(j)}*k_r)(t_*) = r^{-1-j}\frac1{2\pi}\int
+e^{-i\zeta s}\chi_0(|\zeta|)(-i\zeta)^jc(\zeta/r)\,d\zeta = r^{-1-j-z}F_j(s)$. $F_j$ is the inverse Fourier transform
+of a compactly supported integrable function, as $\mathrm{Re}\,z+j>-1$, so it is smooth; and $s\partial_sF_j$ is the
+same transform of $-\partial_\zeta(\zeta\,\cdot)$ of the amplitude, again integrable. $\square$
 
 ## 5. The theorems at exact weights
 
@@ -566,13 +640,21 @@ the background coefficients (products of exact weights, III.J$''$ Lemma 2.4), th
 integrations (III.A Lemmas 1.2 and 3.2, lossless at weights that are not exponents), and the model inverses, all stated
 at fixed weights. The statements of this part are finite compositions of these families at fixed weights with fixed
 losses: Corollary 3.2 is III.G$''$ Theorem 4.2 on a fixed circle with the Mellin inverse of Lemma 3.3 and the
-finite-rank Cauchy integrals of Lemma 2.2 (constants $C\delta^{-k-l_0-1}$, $\delta$ fixed); Propositions 3.4, 4.3 and
+Cauchy integrals of Lemma 2.2 (constants $C\delta^{-k-l_0-1}$, $\delta$ fixed); Propositions 3.4, 4.3 and
 4.6 replace weights, not maps, in the rows of III.J$''$'s inventory; Lemmas 4.2, 4.4 and 4.5 are fixed maps; Lemma 5.1
-and Propositions 5.2 and 5.4 are compositions of III.J's maps. So III.J$''$ Theorem 4.1's induction runs at the exact
-weights, with losses independent of $k$; the input loss $\epsilon'$, whose independence of $k$ III.J$''$ section 1 could
-show only row by row (verifier 126), is $0$ for every $k$. III.J$''$ Theorem 4.2's proof then gives (4.2) with $\mathcal
-F^{k+d}_{\mathrm{ex}}$ and $\mathcal D^k_{\mathrm{ex}}$, and Proposition 5.4 gives Proposition 4.3 on the same scales.
-$\square$
+and Propositions 5.2 and 5.4 are compositions of III.J's maps. The rows that this part leaves unchanged ((J$'''$7))
+still run at "$w-$" weights, with the closed-graph input losses $\epsilon'(\epsilon,k)$ of III.J$''$ section 1; among
+them are III.I$''''''''''''''$'s Steps 1-2 below $\alpha$, the spaces $Z_\beta$, and III.I$''''''''''''$ Lemma 3.2's
+$\beta_+<\frac32$. They do no harm (D295, verifier 127). Every chain of the inventory starts from exact data (the source
+in $\mathcal F_{\mathrm{ex}}$ and the background in its exact class), which lies in every lossy class, and ends in a
+statement of this part at an exact weight. So for each $k$ the intermediate margins can be chosen backwards from the
+output. This changes $C_k$ but not the derivative loss $d$, as the losses in derivatives are ceilings of continuous
+functions of the weights and stay bounded as the margins shrink. So III.J$''$ Theorem 4.1's induction runs from exact
+inputs to exact outputs, with losses independent of $k$, and the input loss $\epsilon'$ (whose independence of $k$
+III.J$''$ section 1 could show only row by row, verifier 126) is $0$ for every $k$. This discharges III.J$''$ section 1's
+"for the other rows it is part of (J$''$4)". The exactness of the outputs rests on Proposition 4.6, with Lemma 4.7.
+III.J$''$ Theorem 4.2's proof then gives (4.2) with $\mathcal F^{k+d}_{\mathrm{ex}}$ and $\mathcal D^k_{\mathrm{ex}}$,
+and Proposition 5.4 gives Proposition 4.3 on the same scales. $\square$
 
 What remains of III.J$''$ Remark 4.4: (J$'$3), the linear theory and its tame form at $b\ne b_0$; the support conditions
 of II.G Theorem 2.1; smoothing operators on $\mathcal D_{\mathrm{ex}}$ (II.G Proposition 3.1); and the exterior family
@@ -581,7 +663,8 @@ $h_{-S}$ (III.C$'$, III.C$''$).
 ## 7. Findings, labels and sources
 
 (J$'''$1) *The loss at $K^+$ is a convention.* III.G$''$ Corollary 4.3 writes its $\iota^+$-terms in powers of $\log
-t_*$; at the corner this hides $\log\rho_K$, and no exact statement exists in that convention (Remark 3.1). In the
+t_*$; at the corner this hides $\log\rho_K$, and that convention's class and Definition 2.8's are incomparable at the
+exact weight (Remark 3.1). In the
 convention of Definition 2.8 the graft is exact (Corollary 3.2). The source has the same minus in its Corollary 9.12 and
 states the exact weight after the step in Proposition 11.34 ((11.120b)).
 
@@ -589,15 +672,18 @@ states the exact weight after the step in Proposition 11.34 ((11.120b)).
 3.1 at $K^+$ was transmitted from the graft, not produced there. The $\delta$ of III.I$''''''''''$ Lemma 2.4 (b) is a
 free weakening (Lemma 4.2).
 
-(J$'''$3) *Three pointwise proofs at the final weight* (III.I$''''''''''''$ Lemma 2.2, Lemma 2.1 (a), and the Taylor
-remainder of Theorem 3.1's piece (vii)) give only "$w-$" in $L^2$; they are re-proved in $L^2$ (Lemmas 4.4-4.5).
+(J$'''$3) *Four pointwise proofs at the final weight* (III.I$''''''''''''$ Lemma 2.2; Lemma 2.1 (a) for $\chi_+y$; Lemma
+2.1's bounds near $\iota^+$ and at the corner with $K^+$, missed at D293 and found by verifier 127; and the Taylor
+remainder of Theorem 3.1's piece (vii)) give only "$w-$" in $L^2$; they are re-proved in $L^2$ (Lemmas 4.4, 4.5 and
+4.7).
 
 (J$'''$4) *At $\iota^+$ there is no loss.* The level-2 margin and the $5\epsilon$ of III.J$'$ Lemma 1.1 are choices; at
 the closed endpoint of (G$^+$) every map is exact and the non-resonance conditions of level 3 hold automatically from
 $\epsilon_+<\epsilon_{\mathrm{ind}}$ and III.F$'$ (2.2) (Proposition 4.3), as in the source's Part 4 of the proof of its
 Theorem 11.59 (pp. 289-291). (H5) of III.I$''''''''''''''$ becomes $a_+\le3+\epsilon_+$.
 
-(J$'''$5) *New conditions* (E2)-(E5), each a finite exclusion (Lemma 1.4). The $K^+$-weight is one fixed admissible
+(J$'''$5) *New conditions* (E2)-(E4), each a finite exclusion (Lemma 1.4); (E1) is (G$^+$) used at its closed
+endpoint, and (E5) is vacuous. The $K^+$-weight is one fixed admissible
 $\alpha$; $\alpha = 4+\epsilon_K$ is available under (A$_K$). No condition on $\mathrm{spec}_{\iota^+}(\bar L)$ beyond
 (G$^+$) is needed, as no improvement after the fact is made.
 
@@ -613,7 +699,7 @@ $j\le\lfloor\ell_{\mathrm{zf}}\rfloor$.
 *Labels.* Corollary 3.2 is the source's Corollary 9.12 in the convention of its Definition 2.8; Theorem 5.3 its
 Corollary 11.66 with (11.234); Theorem 5.5 its Theorem 12.8; Definition 1.1 its (11.226), (11.227b), (11.233),
 (12.12c)-(12.12d), (12.31). Definition 1.3, Lemma 1.4, Lemmas 2.1-2.2, Remark 3.1, Lemma 3.3, Propositions 3.4, 4.1,
-4.3, 4.6, Lemmas 4.2, 4.4, 4.5, 5.1, Propositions 5.2, 5.4 and Corollary 6.6 are new at $n = 4$.
+4.3, 4.6, Lemmas 4.2, 4.4, 4.5, 4.7, 5.1, Propositions 5.2, 5.4 and Corollary 6.6 are new at $n = 4$.
 
 *Sources.* [Hin26] p. 48 (Definition 2.8), pp. 178-179 ((9.42), Corollary 9.12), p. 248 ((11.102)), pp. 253-254
 (Proposition 11.34, Step 2.2, (11.120b)), p. 267 (Proposition 2.25 (1) at $\beta_K = \alpha_K$), p. 278 (Theorem 11.59),
