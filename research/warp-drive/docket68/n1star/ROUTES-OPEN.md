@@ -4578,7 +4578,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   inequalities at n = 4 (l_I > 3 + eps_+, alpha_K = 4 + eps_K, eps_ind, ...); level and round counts chosen.
 - Next: E1'a (numbers for the weights from the computed index sets), E1'b (the five losses), E1'c (the counts).
 - Finding LD1: k'' (III.K, Part VIII) was never defined; now k'' := max_{k <= N} k'_k from III.K Proposition 1.2 (3).
-- Finding LD3 (D348): III.I(15)'s beta-chain has steps below alpha - 4 <= eps_K and spans more than 2 - eps_K, so
-  K > 2/eps_K - 1; eps_K < eps_ind < 3e-6 at the record's parameter point, so K > 6.6e5 levels, and d > 6.6e5 if a
-  level costs a derivative (E1'b). Levers: the parameter point (where the root lambda^C - 1 = 1 + 2.93e-6 sits) and
-  a larger per-level gain.
+- Finding LD3 (D348, restated after verifier 164): I15's beta-chain has steps below alpha - 4 <= eps_K and climbs
+  more than 2, so K > 2/eps_K > 6.8e5 at the record's parameter point (eps_K < eps_ind < 3e-6); each level costs 2 in
+  III.J''''s accounting, so the d it produces is > 1.3e6 and N = 21d + 6 > 2.8e7. Nested inside, I14's level-3 loop
+  rises by eps_ind per round at every beta-level: about 5e10 rounds over the chain, and d beyond that if a round costs a
+  derivative (E1'b). These bound the d this proof produces, not the optimal loss. Levers: the parameter point, a larger
+  per-level gain, another proof of the level step (the source's one-step route is closed at n = 4).
+- Verifier 164 (D348): M1 (d is a recursion over calls, not a flat sum over rows), M2 (LD3's scope), M3 (the nested
+  level-3 loop), m1-m4, nits; all seated, with the k'' scope in III.K repaired at the e_S bound.

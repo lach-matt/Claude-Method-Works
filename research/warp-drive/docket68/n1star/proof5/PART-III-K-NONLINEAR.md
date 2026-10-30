@@ -232,7 +232,8 @@ $(\tilde\gamma,\tilde k)$;
 (d) $P_5(\Psi(0))$ is supported in $\{\hat T+\frac74\le t^\flat_*\le\hat T+2\}$, and $\|P_5(\Psi(0))\|_{\mathcal
 F^k_{\mathrm{ex}}}\le C_k\|(\tilde\gamma,\tilde k)\|_{H^{k+k'_k}}$, $k'_k$ Proposition 1.2 (3)'s $k'$ at the order
 $k$. Below, $k'' := \max_{k\le N}k'_k$ with $N$ of section 3 (finite; defined D347, LOSS-D.md LD1: it was used before
-without a definition), and every bound with $H^{k+k''}$ is used only for $k\le N$.
+without a definition). The smallness constants use orders $k\le N$ only; a bound needed at every order $k$ (the
+$e_S$ bound in Lemma 2.3's proof, which feeds II.G Theorem 2.1 (2.4)) carries $k'_k$ (D348, verifier 164's m2).
 
 *Proof.* On $\{t^\flat_*<\hat T+2\}$, $\chi_K = 0$ (section 0, $T_K>\hat T+2$), so $g_{b_0,b,-S} = \phi_{-S}^*g_{b_0}$.
 Also $h_{\mathrm{tot}}(\vec p)$ and $\vartheta_{\mathrm{tot}}(\vec p)$ vanish there, being supported in $\mathcal
@@ -301,7 +302,7 @@ $\mathrm{supp}\,\chi_K$, and so both defects vanish there; in general each is an
 (c). So for $U$ whose tail vanishes on $\{t^\flat_*<\hat T\}$, $e_S(S')$ vanishes there, and it lies in $\mathcal
 F^\infty_{\mathrm{ex}}$, at $\mathscr I^+$ by III.C Corollary 5.3 as in Lemma 2.2 (c). Its bound is tame, $e_S$
 involving $\tilde h$ through $D_hP_5$ at $\Psi(U)$: $\|e_S(S')\|_{\mathcal F^k_{\mathrm{ex}}}\le
-C_k\big(\|(\tilde\gamma,\tilde k)\|_{H^{k+k''}}+\|(\tilde\gamma,\tilde k)\|_{H^{k''}}\|U\|_{\mathcal
+C_k\big(\|(\tilde\gamma,\tilde k)\|_{H^{k+k'_k}}+\|(\tilde\gamma,\tilde k)\|_{H^{k''}}\|U\|_{\mathcal
 D^{k+d}_{\mathrm{ex}}}\big)|S'|$, by Proposition 1.2 (3) and the Moser estimates of III.J$''$ section 1.
 
 So III.I$''''''''''''''$ Theorem 3.1 at the base point $\Psi(U)$, with the boost defect $f^S_\Psi$, is

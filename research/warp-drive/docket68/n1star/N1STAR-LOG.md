@@ -6218,3 +6218,13 @@ tame-estimate part composes the levels, so if each costs a derivative the loss d
 the nonlinear step needs is above 13 million derivatives. This is no gap in a proof; it is the size of the number the
 proof produces at the chosen parameters. Whether another admissible parameter point opens the gap is the first
 question for fixing the weights.
+
+**D349 (2026-10-30): the count, read again.** A verifier read the loss note and found its structure wrong in one
+respect and its main count incomplete. The loss is not a sum over the table's rows but a recursion over calls: an
+inner part's loss is paid every time an outer loop calls it. And inside each of the 680,000 levels of the chain found
+in D348 there is a second loop that climbs by the same tiny gap, about 300,000 rounds near the top: some 5 × 10¹⁰
+rounds in all. Within the tame-estimate part's own accounting each level already costs two derivatives, so the loss
+that accounting produces exceeds 1.3 million without further reading; whether each inner round costs one more is to
+be read. These are sizes of the number this proof produces, not of the best possible loss, and the note now says so.
+It also found that the definition of k'' made the day before was scoped too narrowly at one bound needed at every
+order; that bound now carries the order-dependent loss.
