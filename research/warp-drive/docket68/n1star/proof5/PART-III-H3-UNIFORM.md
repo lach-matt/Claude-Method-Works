@@ -2,14 +2,14 @@
 $b_0$; [Hin26c] Theorems 10.1 and 11.1 uniformly in the stationary model)
 
 *Status.* Written (D294); verified (D296: verifier 128's findings seated). Verifier 129 (D298): 0 major, 2 minor, 5
-nits, seated; to be read. This part proves, at spatial dimension $n = 4$, the two inputs that Part III lacked at black
-hole parameters $b\ne b_0$ ((I3) of III.I). The first is the 2-admissibility of $2L_b$ for every order $k$ of
-b-regularity, on one fixed neighbourhood $\mathcal B_*$ of $b_0$ and with constants uniform in $b$ (Theorem 2.1). The
-second is the forward solution theory of II.F Theorem 8.1 and II.F$'$ Theorem 1.1, uniformly over the stationary models
-$2L_b$, $b\in\mathcal B_*$ (Theorems 3.1 and 4.1). So III.I Theorem 5.3, the source's Theorem 11.12, holds for
-$b\in\mathcal B_*$ with constants uniform in $b$ and with continuity in $b$ (Corollary 5.1). This discharges (H$'$3) of
-III.H$'$, (F$'$11) of II.F$'$ for this family, and (I3) of III.I. What (J$'$3) of III.J$'$ needs beyond this is recorded
-as (H$''$5).
+nits, seated. Proved (D299): verifier 130 read the D298 repairs; two nits seated. This part proves, at spatial dimension
+$n = 4$, the two inputs that Part III lacked at black hole parameters $b\ne b_0$ ((I3) of III.I). The first is the
+2-admissibility of $2L_b$ for every order $k$ of b-regularity, on one fixed neighbourhood $\mathcal B_*$ of $b_0$ and
+with constants uniform in $b$ (Theorem 2.1). The second is the forward solution theory of II.F Theorem 8.1 and II.F$'$
+Theorem 1.1, uniformly over the stationary models $2L_b$, $b\in\mathcal B_*$ (Theorems 3.1 and 4.1). So III.I Theorem
+5.3, the source's Theorem 11.12, holds for $b\in\mathcal B_*$ with constants uniform in $b$ and with continuity in $b$
+(Corollary 5.1). This discharges (H$'$3) of III.H$'$, (F$'$11) of II.F$'$ for this family, and (I3) of III.I. What
+(J$'$3) of III.J$'$ needs beyond this is recorded as (H$''$5).
 
 *What n = 4 changes.* (1) *The trapping bound at every $b$.* III.F Proposition 4.1 proves strong trapping admissibility
 at $b_0$ only, from a frame built with Tangherlini's symmetry; near $b_0$ it gives the bound $\epsilon$ only on a
@@ -61,9 +61,10 @@ Sections 1-4 are stated and proved on $\bar{\mathcal B}_1$, with constants unifo
 (B1)-(B4) (verifier 129's M1). Then fix an open $\mathcal B_*\ni b_0$ with $\bar{\mathcal B}_*\subset\mathcal B_1$ and
 
 (B5) $|b-b_0|$ so small, for $b\in\bar{\mathcal B}_*$, that $\|P-2L_b\|_{(0;d)}<\epsilon_0$ of Theorem 4.1 in Corollary
-5.1 for $|S|$ and $\|h\|$ small (III.I Proposition 3.4, (3.7)). This is the only condition on $\mathcal B_*$. The slab
-clause it carried in D296 is not needed, as Theorems 3.1 and 4.1 apply II.E relative to $2L_b$ itself, and its
-$\epsilon_G$ clause is now in (B2) (verifier 129's M1-M2).
+5.1 for $|S|$ and $\|h\|$ small (III.I Proposition 3.4, (3.7)). This is the only condition on $\mathcal B_*$ here;
+III.I$'''''''''''''''$ (Lemma 1.2, Proposition 2.5) shrinks it further (verifier 130's n5). The slab clause it carried
+in D296 is not needed, as Theorems 3.1 and 4.1 apply II.E relative to $2L_b$ itself, and its $\epsilon_G$ clause is now
+in (B2) (verifier 129's M1-M2).
 
 The choices are made in this order: $\mathcal B_1$ by (B1)-(B4); the constants of sections 1-4, uniform on
 $\bar{\mathcal B}_1$; then $\mathcal B_*$ by (B5), which involves only $\epsilon_0$ of Theorem 4.1. So nothing is
@@ -271,8 +272,10 @@ conditions, threshold, dynamics), and are uniform for $\epsilon_P$ small (the la
 Proposition 3.4, and the proof of Proposition 4.3, which applies it). For $P_0 = 2L_b$ these norms, which II.F bounds
 over all the slabs of section 7.5 at a fixed $b$, are seminorms of stationary coefficients smooth in $b$ (III.F Lemma
 2.1 (3)), and the margins are continuous and positive in $b$; so they are bounded, respectively bounded below, on the
-compact $\bar{\mathcal B}_1$, on every slab whatever its final time, as no perturbation of $2L_{b_0}$ is taken (verifier
-129's M2). So II.F Proposition 7.4 holds with $\tau_0$ and $C$ uniform on $\bar{\mathcal B}_1$.
+compact $\bar{\mathcal B}_1$, as no perturbation of $2L_{b_0}$ is taken (verifier 129's M2). What is uniform in $b$ is
+each slab's constant (II.F Lemma 7.5's depend on the step), and only finitely many steps enter (7.4) at $T =
+2\delta^{-1}$, so the bound is uniform (verifier 130's n4). So II.F Proposition 7.4 holds with $\tau_0$ and $C$ uniform
+on $\bar{\mathcal B}_1$.
 
 (c) *Section 8.* Step 0 uses II.E Proposition 4.3 on a slab, uniform as in (b). Steps 1 and 3 use II.F Proposition 7.4,
 uniform by (b). Step 2 uses the 2-admissibility estimate (II.F (8.6)), uniform by Theorem 2.1, and Lemmas 1.3-1.4, which

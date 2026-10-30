@@ -3972,3 +3972,21 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Nits: O fixed small in (B1) instead of shrunk later; the two further arguments behind the uniformity in k; the order
   in II.F section 6 with P_0 := 2L_{b_0}; a cleaner (C3).
 - Next: verifier 130 reads the D298 repairs and III.I(15).
+
+### 4.223 Verifier 130 seated (D299): III.H'' proved; III.I(15) verified, its repairs to be read
+
+- III.H'': verifier 130 read the D298 repairs. M1 and M2 and the five nits are resolved; the II.E coefficient-norm claim
+  is supported. Two nits are seated: the uniformity is per slab step, finitely many steps; B_* is shrunk further by
+  III.I(15). III.H'' is proved.
+- III.I(15): 1 major, 4 minor, 3 nits. M1: at a rotating b the rotation rows have K+-rate Re lambda <= 2, below the
+  levels, so III.I(14) Step 2's (3.4) and the uniqueness via Step 4' fail at b. Repair: Lemma 2.4 (III.I(13) Lemmas
+  2.2-2.3 at b, with the rotation rows at their assigned coordinates A_b(G)). Proposition 2.5 makes the rotation rows
+  new rows of the levels at which their rates lie, with C = A_b(G') - W'. The joint elimination is -id + small, and
+  uniqueness holds with the constraint W'^rot = A_b(G') (Remark 2.6; III.J'-III.J''' use only the constructed map).
+- Minors. m1: the sign, which is now W' = A(G'). m2: rows at b and corrections at b_0 give a mismatch E^nu (1.1),
+  supported away from K+ and O(|b-b_0|). Its iota+-exponents are those of the b-derivatives of the towers; its place
+  in Y^natural rests on III.I(14) Lemma 2.4's argument, recorded as the point to check (I^(15)3). m3: the continuity
+  lemmas were added to the list, and B_* is shrunk. m4: the reason v1 is excluded is that h_{b,v1}(V) is O(|b-b_0|) in
+  the span of gdot_b, h_b(S).
+- Next: verifier 131 reads the D299 repairs of III.I(15). III.K ([Hin26] section 13.1) is being drafted (plan:
+  scratchpad d299/plan.md).

@@ -5785,3 +5785,13 @@ found no major gap. It had two smaller points, now seated. The order in which th
 chosen was still circular as written. And one smallness condition did not cover every time slab it was used on. Both
 are repaired the same way: the estimates on slabs are applied to the nearby black hole's own operator, whose constants
 vary continuously with the parameters, so the condition is no longer needed.
+
+**D299 (2026-10-30): the uniformity part is proved; the base-point part needs one repair.** The verifier read the
+repairs to the uniformity part and found them sound, so it is proved. It also read the new part on nearby black holes
+and found one real gap. At a rotating black hole the rotation terms decay more slowly than at the reference one, slowly
+enough to fall below the decay levels at which the other terms are removed one by one. They therefore cannot wait until
+the end, as the reference case lets them. The repair treats them as ordinary terms of the levels they fall in, with
+their sizes read from the construction, and removes them together with the rest. At a rotating black hole the result is
+unique only once those sizes are fixed this way; the later parts never needed more. Four smaller points were repaired
+too. One is a sign. Another is a small mismatch between objects built at the nearby black hole and corrections built
+at the reference one. Its size is controlled, and the one estimate it rests on is marked for the next reading.
