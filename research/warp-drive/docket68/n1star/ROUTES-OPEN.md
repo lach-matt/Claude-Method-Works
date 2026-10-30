@@ -4137,3 +4137,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Status: IV', IV'' and III.I(16) proved; IV''', IV'''', IV''''' verified (repairs to be read); III.K's D309 repairs
   read, correct, one new minor seated.
 - Next: Part V ([CD03] Theorem 8.1 at n = 4) in writing; IV'''-IV'''''' and the D311 repairs to the next verifier.
+
+### 4.236 Verifier 135 seated (D312): Part IV'''''' verified; IV'''-IV''''' and III.K proved
+
+- IV'''''' (three minors): the deformation of the damping runs over [0, h^-1] for the fixed h; the annihilator of the
+  range is independent of the admissible orders (dual estimate (B.28)), so the index is, and the sector count is made
+  at I.C's order for the free operator; the adjoint step (c) (2) is stated on {tau > kappa}, which contains (B.40)'s a
+  priori set (findings (IV''''''6)-(IV''''''7)). Six nits seated (the density r|d tau| x r^3|dr dg|, the record's
+  Proposition numbering, the loss rho^-3/2, C_1 = 1, eps_X <= delta_r T, the Sobolev order named).
+- The D311 repairs read and correct: IV''''s adjoint weight at C_0 - 1, IV'''''s extended domain and general data,
+  the slab's c <= 1/R_9. Formatting slips of the D311 script (literal line-break escapes, one TeX space) repaired.
+- Status: Parts IV-IV''''' and III.K proved; IV'''''' verified (repairs to be read).
+- Next: Part V ([CD03] Theorem 8.1 at n = 4).

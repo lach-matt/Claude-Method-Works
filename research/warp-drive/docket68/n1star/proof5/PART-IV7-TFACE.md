@@ -4,7 +4,8 @@
 *Status.* Written (D310). This part proves III.E Theorem 1.1 (4) at $n = 4$: $\Box^C_b$ is tf-admissible (I.C Definition
 5.1) with every weight in $[-C_0,2)$. It does so through [Hin26a] Theorem B.1 at $n = 4$ (Theorem 3.1 below), the
 invertibility of the spectral family of the dilation-invariant model on 4+1 Minkowski space, which is $\Box^C_b$'s
-transition face normal operator. The proof follows the source's three steps.
+transition face normal operator. The proof follows the source's three steps. Verified (D312): verifier 135 read it in
+full; three minor findings and six nits, seated as findings (IV$''''''$6)-(IV$''''''$7) and in the text; to be read.
 
 - The Fredholm property and index 0 (section 1), by radial estimates and Melrose's relative index theorem, sector by
 sector on $\mathbb S^3$.
@@ -58,10 +59,10 @@ $N_{\mathrm{tf}}(\hat\sigma) = \widehat{\Box^C}(\hat\sigma)$ in I.C (4.1), with 
 $N(P^{(0)})$ the normal operator of $\rho^{-2}\widehat{\Box^C}(0)$.
 
 *Proof.* (a) is computed: in $t_*$ and Cartesian $x$, the coefficient of every $k$-th order derivative of $\Box^C$ is
-homogeneous of degree $k-2$ in $x$, on each of its 147 terms (record 10.20 (i), `tface5.py` F1, exact). (b) The form
-(0.2), with $\bar S$, is Part IV$''''$ Lemma 1.2's (1.1) on the model, where $\tilde S$, $Q$ and $R$ vanish ($g = \eta$,
-$c$ exactly $r^{-1}(dt-v\,dr)$; record 10.18 (i), 10.21 (i), `cpmodes5.py` K1). The $\frac32 = \frac{n-1}2$ is the shift
-that makes $i(\rho^2\partial_\rho-k\rho)$ symmetric on $L^2(\rho^{-4}\frac{d\rho}\rho)$. Integrating by parts,
+homogeneous of degree $k-2$ in $x$, on each of its 147 terms (record Proposition 10.20 (i), `tface5.py` F1, exact). (b)
+The form (0.2), with $\bar S$, is Part IV$''''$ Lemma 1.2's (1.1) on the model, where $\tilde S$, $Q$ and $R$ vanish ($g
+= \eta$, $c$ exactly $r^{-1}(dt-v\,dr)$; record Proposition 10.18 (i), `cpmodes5.py` K1). The $\frac32 = \frac{n-1}2$ is
+the shift that makes $i(\rho^2\partial_\rho-k\rho)$ symmetric on $L^2(\rho^{-4}\frac{d\rho}\rho)$. Integrating by parts,
 $i(\rho^2\partial_\rho-k\rho)$ has adjoint $i(\rho^2\partial_\rho+(1-m+k)\rho)$ on $L^2(\rho^{-m}\frac{d\rho}\rho)$,
 symmetric iff $k = \frac{m-1}2$, and here $m = 4$. Diagonalisability: the $2\times2$ block has the distinct eigenvalues
 $2(1-v)\ne(1-e)(1-v)$, and the angular block is scalar. (c) The memberships follow from (0.2) and (a). The symbols are
@@ -77,8 +78,9 @@ by a constant plus $O(\rho)$, which does not change the data at $\rho = 0$. $\sq
 H^s_{\mathrm{sc,b}}(X;\mathcal T^*_X)$, with $L^2$ taken for the Euclidean density $r^3|dr\,d\slashed g| =
 \rho^{-4}\frac{d\rho}\rho|d\slashed g|$ (the source's $r^2|dr\,d\slashed g|$) and a fibre inner product fixed below.
 $\ell$ may be a variable order on ${}^{\mathrm{sc}}T^*_{\partial_{\mathrm{sc}}X}X$. Near $r = 0$, $H^{s,\beta}_{\mathrm
-b}(r^3dr) = H^{s,\beta-2}_{\mathrm b}(\frac{dr}r)$: the b-weight is $\beta-2$ (record 10.20 (ii)). The radial sets over
-$\rho = 0$ for $\sigma = \pm1$ are $R_{\mathrm{out}} := \{\xi = \eta = 0\}$ (the zero section) and $R_{\mathrm{in}} :=
+b}(r^3dr) = H^{s,\beta-2}_{\mathrm b}(\frac{dr}r)$: the b-weight is $\beta-2$ (record Proposition 10.20 (ii)). The
+radial sets over $\rho = 0$ for $\sigma = \pm1$ are $R_{\mathrm{out}} := \{\xi = \eta = 0\}$ (the zero section) and
+$R_{\mathrm{in}} :=
 \{\xi = 2\sigma,\eta = 0\}$, and for $\mathrm{Im}\,\sigma>0$ the characteristic set over $\rho = 0$ is
 $R_{\mathrm{out}}$ (the source's (B.15)-(B.18), free of $n$).
 
@@ -92,7 +94,8 @@ and non-increasing along $\sigma H_{G_\sigma}$.
 **Proposition 1.1.** For $(s,\ell,\beta)$ admissible at $\sigma\in e^{i[0,\pi]}$,
 $$\widehat{\Box^C}(\sigma):\{\omega\in H^{s,(\ell,\beta)}_{\mathrm{sc,b}}:\widehat{\Box^C}(\sigma)\omega\in
 H^{s-2,(\ell+1,\beta-2)}_{\mathrm{sc,b}}\}\to H^{s-2,(\ell+1,\beta-2)}_{\mathrm{sc,b}}\tag{1.1}$$
-is Fredholm of index 0, and its nullspace does not depend on the admissible $(s,\ell,\beta)$. The estimates
+is Fredholm of index 0, and its nullspace and the annihilator of its range do not depend on the admissible
+$(s,\ell,\beta)$. The estimates
 $$\|\omega\|_{H^{s,(\ell,\beta)}_{\mathrm{sc,b}}}\le
 C\big(\|\widehat{\Box^C}(\sigma)\omega\|_{H^{s-2,(\ell+1,\beta-2)}_{\mathrm{sc,b}}}
 +\|\omega\|_{H^{s_0,(\ell_0,\beta_0)}_{\mathrm{sc,b}}}\big)\tag{1.2}$$
@@ -120,8 +123,8 @@ it conjugates $\Box^C$ with $(c_v,h^{-1})$ to the operator with $(c_{-v},-h^{-1}
 r}\widehat{\Box^C}(\sigma)e^{-2i\sigma r}$ is the pullback of the spectral family at $-\sigma$ of that operator, by the
 source's identity after (B.27), which is free of $n$. With an eigenbasis of $\bar S_{-v}$ orthonormal, the shift at
 $R_{\mathrm{in}}$ is $(-1)(-2(-h^{-1})\bar S_{-v})$. $\bar S_{-v}$ has spectrum $\{2(1+v),(1-e)(1+v),1+v\}$, with bottom
-$(1-e)(1+v)$. The threshold is $\ell>-\frac12-h^{-1}(1-e)(1+v)$ (record 10.20 (iv): the bottom $S_{\mathrm{in}}$ of the
-adjoint's $\tilde S$, the same number).
+$(1-e)(1+v)$. The threshold is $\ell>-\frac12-h^{-1}(1-e)(1+v)$ (record Proposition 10.20 (iv): the bottom
+$S_{\mathrm{in}}$ of the adjoint's $\tilde S$, the same number).
 
 - In between, real principal type propagation applies along $\mathrm{Char}_\sigma$, which flows from $R_{\mathrm{in}}$
 to $R_{\mathrm{out}}$ by (B.16).
@@ -132,8 +135,8 @@ normal operator that of $r^2\widehat{\Box^C}(0)$. By (a) and the inversion $\rho
 0$ are $-\mu$, with $\mu$ running over those of Part IV$''''$ Lemma 1.3 at infinity. These have
 $\mathrm{Re}\,\mu\notin[-100,\frac{19}{10}]$, and only $\mu = 2$ in $[-100,2]$. So no root at $0$ has real part in
 $(-2,100]$, and the b-weight $\beta-2\in(-2,C_0]$ is root-free. With $[\beta_0-2,\beta-2]$ root-free as well, the
-inverse Mellin transform of the normal operator gives (1.2) from (B.20) (record 10.20 (ii); the source's argument on p.
-89). The dual estimate is the same with the propagation reversed.
+inverse Mellin transform of the normal operator gives (1.2) from (B.20) (record Proposition 10.20 (ii); the source's
+argument on p. 89). The dual estimate is the same with the propagation reversed.
 
 *Complex $\sigma$.* Only $R_{\mathrm{out}}$ is characteristic. Write $\sigma^{-1}\widehat{\Box^C}(\sigma) = P-iQ$ as in
 (B.29), with $Q_0 = 2\rho h^{-1}\bar S$, $P_1 = \mathrm{Re}\,2i(\rho^2\partial_\rho-\frac32\rho)$, and $Q_3 =
@@ -145,7 +148,10 @@ subprincipal or elliptic, as in the source's p. 90. *Uniformity* in $\sigma$ nea
 principle: the full Hamilton field on the cut-offs keeps the sign structure of (B.23), as the source notes on p. 91.
 
 So (1.1) is Fredholm, and by (1.2) and elliptic and propagation regularity its nullspace consists of elements in every
-admissible space; it is the same for every admissible $(s,\ell,\beta)$.
+admissible space; it is the same for every admissible $(s,\ell,\beta)$. The annihilator of the range is the nullspace of
+the adjoint on the dual spaces; by the dual estimate (B.28) and the adjoint's propagation regularity it too consists of
+elements of every dual space, so it does not depend on the orders either, as in I.C Theorem 4.3 (3)'s proof. Hence the
+index does not depend on the admissible orders (amended D312, finding (IV$''''''$6)).
 
 *Index 0.* $\widehat{\Box^C}(\sigma)$ commutes with the rotations of $\mathbb S^3$, and with the dilations up to the
 factor of (a). Decompose sections of $\mathcal T^*_X$ by harmonics on $\mathbb S^3$ (III.A$'$): scalar type of degree
@@ -154,18 +160,23 @@ $l\ge1$ (one component, the co-closed 1-forms on $\mathbb S^3$). The projections
 the spaces with rotation-invariant orders (I.C Proposition 5.3's proof), and $\widehat{\Box^C}(\sigma)$ commutes with
 them. So (1.1) is the direct sum of its restrictions to the sectors. Each restriction is Fredholm, and only finitely
 many have nonzero kernel or cokernel, the total ones being finite-dimensional. Fix a sector and write $I$ for its index
-on (1.1), with $\ell$ a variable order $>-\frac12$ at $R_{\mathrm{in}}$ and $<-\frac12$ at $R_{\mathrm{out}}$. Such an
-$\ell$ is admissible for every $h^{-1}\ge0$.
+on (1.1), with $\ell$ a variable order $>-\frac12$ at $R_{\mathrm{in}}$ and $<-\frac12$ at $R_{\mathrm{out}}$. Take for
+$\ell$ I.C's order for the free operator at this $\sigma = e^{i\theta}$: I.A Lemma 7.1's with $\theta_{\mathrm{in}} = 0$
+and $\bar S = 0$ for $\theta\in\{0,\pi\}$, or $r_{\mathrm{mid}}$ for $\theta\in(0,\pi)$. It is invariant under the
+rotations of $\mathbb S^3$, $>-\frac12$ at $R_{\mathrm{in}}$ and $<-\frac12$ at $R_{\mathrm{out}}$, so it is admissible
+for every $h^{-1}\ge0$; as the index does not depend on the admissible orders, $I$ is the sector's index for all of them
+(verifier 135's A-m2).
 
 (i) *Lowering $\beta$.* In the sector, $\widehat{\Box^C}(0)$ has finitely many indicial roots at $r = 0$, continuous in
-$h^{-1}\in[0,10^6]$ ((0.2): they are the roots of the sector's indicial polynomial, whose coefficients are polynomial in
-$h^{-1}$ with leading coefficient free of it). Fix $\beta_1$ below all of them for all such $h^{-1}$. Moving the weight
-from $\beta$ to $\beta_1$ raises the index by the number of roots, with multiplicity, whose real part lies in
-$[\beta_1-2,\beta-2)$. This is Melrose's relative index theorem ([Mel93] Theorem 6.5, cited by the source on p. 91 for
-this step; a theorem on b-operators in every dimension, not re-read here). These are the roots $-\mu$ with
-$\mathrm{Re}\,\mu\ge2$: two in the scalar sector $l = 0$, three in each scalar sector $l\ge1$, one in each vector sector
-(Part IV$''''$ Lemma 1.3 (a): as many roots have real part $\ge2$ as below $-100$, three, two or one per type and
-degree). The index becomes $I+m$, with $m = 2,3,1$.
+$h^{-1}\in[0,h_{\mathrm f}^{-1}]$, $h_{\mathrm f}\in(0,10^{-6}]$ the value at hand (verifier 135's A-m1) ((0.2): they
+are the roots of the sector's indicial polynomial, whose coefficients are polynomial in $h^{-1}$ with leading
+coefficient free of it). Fix $\beta_1$ below all of them for all such $h^{-1}$. Moving the weight from $\beta$ to
+$\beta_1$ raises the index by the number of roots, with multiplicity, whose real part lies in $[\beta_1-2,\beta-2)$.
+This is Melrose's relative index theorem ([Mel93] Theorem 6.5, cited by the source on p. 91 for this step; a theorem on
+b-operators in every dimension, not re-read here). These are the roots $-\mu$ with $\mathrm{Re}\,\mu\ge2$: two in the
+scalar sector $l = 0$, three in each scalar sector $l\ge1$, one in each vector sector (Part IV$''''$ Lemma 1.3 (a): as
+many roots have real part $\ge2$ as below $-100$, three, two or one per type and degree). The index becomes $I+m$, with
+$m = 2,3,1$.
 
 (ii) *Removing the damping.* Deform $h^{-1}$ to $0$ at the weight $\beta_1$. The family is continuous in operator norm
 between the fixed spaces, as the $h^{-1}$-terms ($2i\sigma\rho h^{-1}\bar S$, and the first-order part
@@ -176,14 +187,15 @@ operator is $2\delta_\eta G_\eta\delta^*_\eta = \Box_\eta$ on 1-forms ($\mathrm{
 in the frame $dt,dx^i$.
 
 (iii) *Raising $\beta$ for the free operator.* Its roots at $r = 0$ are $-3,-2\,|\,0,1$ in the scalar sector $l = 0$,
-$-l-3,-l-2,-l-1\,|\,l-1,l,l+1$ in the scalar sector $l\ge1$, and $-l-2\,|\,l$ in the vector sector (record 10.20 (v),
-`tface5.py` F5, from `gaugepot5.py`'s indicial determinants at $\gamma = 0$, each simple). The window between the groups
-contains $(-2,0)$. Raising $\beta_1$ to $\beta_2$ with $\beta_2-2\in(-2,0)$ crosses $2$, $3$ or $1$ roots and lowers the
-index by as many, to $I$. On these spaces $\widehat{\Box_\eta}(\sigma)$ is invertible: it is $N_{\mathrm{tf}}$ of the
-free operator, which is tf-admissible with every weight in $(0,2)$ (I.C Proposition 5.3, whose data are those of
-$\Box_\eta$ componentwise). By I.C Corollary 5.2 (a) it is invertible on I.C's spaces with $q\in(0,2)$, the free gap
-being $(0,2)$, and these are the spaces here with $\beta = q$ (section 4's identification, which uses only the
-definitions); take $\beta_2 := q$. So $I = 0$ in every sector, and the index of (1.1) is $0$. $\square$
+$-l-3,-l-2,-l-1\,|\,l-1,l,l+1$ in the scalar sector $l\ge1$, and $-l-2\,|\,l$ in the vector sector (record Proposition
+10.20 (v), `tface5.py` F5, from `gaugepot5.py`'s indicial determinants at $\gamma = 0$, each simple). The window between
+the groups contains $(-2,0)$. Raising $\beta_1$ to $\beta_2$ with $\beta_2-2\in(-2,0)$ crosses $2$, $3$ or $1$ roots and
+lowers the index by as many, to $I$. On these spaces $\widehat{\Box_\eta}(\sigma)$ is invertible: it is
+$N_{\mathrm{tf}}$ of the free operator, which is tf-admissible with every weight in $(0,2)$ (I.C Proposition 5.3, whose
+data are those of $\Box_\eta$ componentwise). By I.C Corollary 5.2 (a) it is invertible on I.C's spaces with
+$q\in(0,2)$, the free gap being $(0,2)$, and these are the spaces here with $\beta = q$ and $\ell$ the order fixed above
+(section 4's identification, which uses only the definitions); take $\beta_2 := q$. So $I = 0$ in every sector, and the
+index of (1.1) is $0$. $\square$
 
 ## 2. Solvability on edge-b spaces ([Hin26a] Theorem B.4 at n = 4)
 
@@ -196,8 +208,8 @@ on the model). $H^{s,(\alpha_{\mathrm{sf}},\alpha_{\mathrm{cf}})}_{\mathrm{eb},h
 \{t\ge0\}$, $X_0 := \{t = 0\}$ and $\tau := t/r$.
 
 **Theorem 2.1 ([Hin26a] Theorem B.4 at n = 4).** Let $\alpha_{\mathrm{sf}}<b^*-1$ and $\alpha_{\mathrm{cf}}>1-b^*$, with
-$b^* = 0.99340731\ldots$ the smaller root of $204795d^2-409605d+204801$ (record 10.20 (iii)), and $C_1>0$. There is
-$h_0>0$ such that for $h\in(0,h_0)$:
+$b^* = 0.99340731\ldots$ the smaller root of $204795d^2-409605d+204801$ (record Proposition 10.20 (iii)), and $C_1>0$.
+There is $h_0>0$ such that for $h\in(0,h_0)$:
 
 (1) for $s\in[-C_1,C_1]$ the forcing problem $\Box^C\omega = f\in\dot
 H^{s-1,(\alpha_{\mathrm{sf}}+2,\alpha_{\mathrm{cf}}-2)}_{\mathrm{eb}}(\Omega)$ has a solution $\omega\in\dot
@@ -236,14 +248,14 @@ $\frac{dw}w\equiv(\alpha_{\mathrm{cf}}-1)\frac{dr}r$ modulo $\rho_{\mathrm{cf}}C
 square roots exist for the following reasons.
 
 - $b_0$: $r^2(-\ell(dw/w)+S)$ at $\rho_{\mathrm{cf}} = 0$ is the record's $T$ at $\rho_K = 0$ with $d =
-1-\alpha_{\mathrm{cf}}$. It is positive definite iff $d<b^*$, that is $\alpha_{\mathrm{cf}}>1-b^*$ (record 10.20 (iii),
-`cform5.py` C7, exact: positive definite at $d = 0.9934$ and not at $0.9935$). Positivity extends to $\mathrm{supp}\,a$
-for $\mathfrak X$ large, and $w^{-1}H_jw$ vanishes at $o$.
+1-\alpha_{\mathrm{cf}}$. It is positive definite iff $d<b^*$, that is $\alpha_{\mathrm{cf}}>1-b^*$ (record Proposition
+10.20 (iii), `cform5.py` C7, exact: positive definite at $d = 0.9934$ and not at $0.9935$). Positivity extends to
+$\mathrm{supp}\,a$ for $\mathfrak X$ large, and $w^{-1}H_jw$ vanishes at $o$.
 
 - $b_{\mathrm{cf}}$: $-\frac12r^2\ell(dr/r)$ has characteristic polynomial
 $(\lambda-v)^3(\lambda^2-(3-e)v\lambda+(2-e)v^2-e)$. At $(v,e) = (\frac12,\frac1{102400})$ its roots are positive
-(record 10.20 (iii), F3). It is $B$-self-adjoint (Part IV$'''''$ Lemma 0.4, his Lemma 3.3), so it is $B$-positive
-definite. $d\rho_{\mathrm{cf}}/\rho_{\mathrm{cf}}\equiv dr/r$ modulo $\rho_{\mathrm{cf}}$, and
+(record Proposition 10.20 (iii), F3). It is $B$-self-adjoint (Part IV$'''''$ Lemma 0.4, his Lemma 3.3), so it is
+$B$-positive definite. $d\rho_{\mathrm{cf}}/\rho_{\mathrm{cf}}\equiv dr/r$ modulo $\rho_{\mathrm{cf}}$, and
 $-\chi_{\mathrm{cf}}\chi'_{\mathrm{cf}}\ge0$.
 
 - $e_\tau$: $d(t/r)$ is past timelike on $\mathrm{supp}\,\chi'_1$, so $r^2\ell(d(t/r))$ is negative definite (Part
@@ -286,7 +298,9 @@ $\{\delta_r\le\rho_{\mathrm{cf}}\le2\delta_r\}$ in the forward direction and has
 
 - (a) forward;
 
-- (c) (1) on every compact subset of $\Omega\cap\{\rho_{\mathrm{cf}}\ge2\delta_r\}$, from (B.34) and (a);
+- (c) (1) on every compact subset of $\Omega\cap\{\rho_{\mathrm{cf}}\ge2\delta_r\}$, from (B.34) and (a), with
+$\epsilon_X\le\delta_rT$ so that its set $\{\frac12\epsilon_X\le t\le\epsilon_X\}$ lies under (B.34), as
+$\tau\le\epsilon_X/\delta_r$ on $\{\rho_{\mathrm{cf}}\ge\delta_r\}$ (verifier 135's A-n6);
 
 - (b) along $\mathrm{sf}$ from $s\in[2\delta_r,3\delta_r]$ (by (a), as $\rho_{\mathrm{cf}} =
 s/(1+s)+O(\rho_{\mathrm{sf}})$ near $\mathrm{sf}$) and from $s\in[5,10]$ (by (B.34)), their interior a priori sets by
@@ -295,16 +309,19 @@ s/(1+s)+O(\rho_{\mathrm{sf}})$ near $\mathrm{sf}$) and from $s\in[5,10]$ (by (B.
 - the sink, its a priori sets by (b) and (c).
 
 These cover a neighbourhood of $o$ over $\Omega$: near $\mathrm{cf}$ by (a) and (B.34), near $\mathrm{sf}$ by (a), (b),
-the sink and (B.34), and the compact rest by (c). This gives the source's (B.41) at $s = 1$, and for $s\ge1$ by
-extension and restriction. *Adjoint*:
+the sink and (B.34), and the compact rest by (c). This gives the source's (B.41) at the Sobolev order 1, and at every
+order $\ge1$ by extension and restriction. *Adjoint*:
 
 - the sink (free);
 
 - (b) (2) outward along $\mathrm{sf}$, the sf-cut-off terms having the good sign;
 
-- (c) (2) on compact subsets of $\Omega\cap\{\rho_{\mathrm{cf}}\ge2\delta_r\}\cap\{\tau\ge\frac T4\}$; its late set
-(large $t$, $r\le(t+c_1)/\kappa$, $\rho_{\mathrm{cf}}\ge\delta_r$) lies near $\mathrm{sf}$ with $s\in[\delta_r,10]$, by
-$\kappa = \frac19$, covered by the previous two steps;
+- (c) (2) on compact subsets of $\Omega\cap\{\rho_{\mathrm{cf}}\ge2\delta_r\}\cap\{\tau>\kappa\}$, the set of Part
+IV$'''''$ Proposition 7.2 (viii) ($t-\kappa r>0$; there $t\ge2t_1$ once $t_1<\delta_r/9$, as
+$\rho_{\mathrm{cf}}\ge2\delta_r$ gives $r\ge2\delta_r$), which contains the a priori set of (B.40), its $\chi_2(\tau)$
+being supported in $\tau\ge\frac{2.25}{10}T>\kappa$ (amended D312, finding (IV$''''''$7)); its late set (large $t$,
+$r\le(t+c_1)/\kappa$, $\rho_{\mathrm{cf}}\ge\delta_r$) lies near $\mathrm{sf}$ with $s\in[\delta_r,10]$, by $\kappa =
+\frac19$, covered by the previous two steps;
 
 - (a) adjoint, i.e. (B.40), its a priori set $\{\frac52\delta_r\le\rho_{\mathrm{cf}}\le4\delta_r\}$ covered by (c) (2)
 and, near $\mathrm{sf}$, by (b) (2);
@@ -313,8 +330,8 @@ and, near $\mathrm{sf}$, by (b) (2);
 
 Each step's a priori set lies in an earlier step's controlled set, as in Part IV$'''''$ Propositions 7.1-7.2. Duality,
 extension and restriction, and the initial value problem are Part IV$'''''$ Theorem 7.3's arguments with these
-estimates. The data weights in (2.1) follow because $|dg| = r^4|dt\,\frac{dr}r\,d\slashed g| = r\,|dt|\otimes
-r^3|dr\,d\slashed g|$ on $\{t/r\in I\}$, so the weights shift by $\frac12$ at both faces (record 10.20 (iv)).
+estimates. The data weights in (2.1) follow because $|dg| = r^4|dt\,\frac{dr}r\,d\slashed g| = r\,|d\tau|\otimes
+r^3|dr\,d\slashed g|$ on $\{t/r\in I\}$, so the weights shift by $\frac12$ at both faces (record Proposition 10.20 (iv)).
 
 *Strong uniqueness.* By finite speed of propagation for wave equations with smooth coefficients in $\{r>0\}$, a solution
 vanishing on $\{t\le0\}$ vanishes on $\{0\le t\le1,r>t\}$. On $\Omega' := \mathrm{cl}\{0\le t\le1,r\le1-t\}$ the a
@@ -332,10 +349,10 @@ every $\sigma\in e^{i[0,\pi]}$ and every $(s,\ell,\beta)$ admissible at $\sigma$
 inverse bounded uniformly for $\sigma$ in each sector where fixed orders are admissible (Proposition 1.1).
 
 *Proof.* By Proposition 1.1 it suffices to show that the nullspace is trivial for one admissible choice. Take $\ell :=
--\frac12$ and $\beta := \frac72$, admissible as $C_0\ge\frac32$ (record 10.20 (iv): $-\frac12$ lies in every window, and
-$\frac72\in(0,2+C_0]$). Apply Theorem 2.1 with $(\alpha_{\mathrm{sf}},\alpha_{\mathrm{cf}}) := (-\frac52,\frac52)$,
-which satisfy $\alpha_{\mathrm{sf}}<b^*-1$ and $\alpha_{\mathrm{cf}}>1-b^*$. Let $h_{\mathrm{tf}}$ be Theorem 2.1's
-$h_0$ for these weights, with $h_{\mathrm{tf}}\le10^{-6}$.
+-\frac12$ and $\beta := \frac72$, admissible as $C_0\ge\frac32$ (record Proposition 10.20 (iv): $-\frac12$ lies in every
+window, and $\frac72\in(0,2+C_0]$). Apply Theorem 2.1 with $(\alpha_{\mathrm{sf}},\alpha_{\mathrm{cf}}) :=
+(-\frac52,\frac52)$, which satisfy $\alpha_{\mathrm{sf}}<b^*-1$ and $\alpha_{\mathrm{cf}}>1-b^*$. Let $h_{\mathrm{tf}}$
+be Theorem 2.1's $h_0$ for these weights and $C_1 = 1$, with $h_{\mathrm{tf}}\le10^{-6}$.
 
 Let $\omega_0\in H^{1,(\ell,\beta)}_{\mathrm{sc,b}}$ with $\widehat{\Box^C}(\sigma)\omega_0 = 0$. Then $\omega :=
 e^{-i\sigma(t-r)}\omega_0$ solves $\Box^C\omega = 0$, with data $(\omega^{(0)},\omega^{(1)}) := (e^{i\sigma
@@ -345,12 +362,13 @@ against the b-derivatives. So $\omega^{(0)}\in\rho_{\mathrm{sc}}^{\ell-1}\rho_{\
 $\omega^{(1)}\in\rho_{\mathrm{sc}}^{\ell-1}\rho_{\mathrm b}^\beta\bar H^0_{\mathrm b}$, for $r^3|dr\,d\slashed g|$. On
 $X_0$, $\rho_{\mathrm{sf}}$ and $\rho_{\mathrm{cf}}$ are $\rho_{\mathrm{sc}}$ and $\rho_{\mathrm b}$. Both data lie in
 (2.1)'s spaces, since $\ell-1 = -\frac32\ge\alpha_{\mathrm{sf}}+\frac12 = -2$ and $\beta =
-\frac72\ge\alpha_{\mathrm{cf}}-\frac12 = 2$ (record 10.20 (iv)). Theorem 2.1 (2) gives a solution
+\frac72\ge\alpha_{\mathrm{cf}}-\frac12 = 2$ (record Proposition 10.20 (iv)). Theorem 2.1 (2) gives a solution
 $\omega'\in\rho_{\mathrm{sf}}^{-5/2}\rho_{\mathrm{cf}}^{5/2}\bar H^1_{\mathrm{eb}}(\Omega)$. On each $\Omega_{\le t_0}$,
 $\omega$ lies in $\bar H^{1,(-N,\alpha_{\mathrm{cf}})}_{\mathrm{eb}}$: near $\mathrm{cf}$ at bounded $t$, $\omega$ is
 $\omega_0$ times a smooth bounded factor, and $\omega_0\in\rho_{\mathrm b}^{7/2}H^1$ with edge-b derivatives
-$r\partial_t$, $r\partial_x$; near $\mathrm{sf}$ at bounded $t$, the weight $-N$ absorbs $\rho_{\mathrm{sc}}^{-1/2}$. So
-$\omega' = \omega$ by Theorem 2.1 (2)'s uniqueness.
+$r\partial_t$, $r\partial_x$; near $\mathrm{sf}$ at bounded $t$, the weight $-N$ absorbs the loss
+$\rho_{\mathrm{sc}}^{-3/2}$, the edge-b derivative of $e^{i\sigma r}$ costing a further $\rho^{-1}$. So $\omega' =
+\omega$ by Theorem 2.1 (2)'s uniqueness.
 
 Suppose $\omega_0\ne0$: then $|\omega_0|\ge c>0$ on an open $U$ with $\bar U\subset\mathbb R^4\setminus0$ compact. In
 $t\ge1$, $r\le t$, take $\rho_{\mathrm{cf}} = r/t$ and $\rho_{\mathrm{sf}} = 1/t$. With $T := \max(1,\sup_Ur)$,
@@ -358,7 +376,7 @@ $|\omega|\ge e^{-(\mathrm{Im}\,\sigma)r}|\omega_0|$, and
 $$\int_U\int_T^\infty\rho_{\mathrm{sf}}^{-2\alpha_{\mathrm{sf}}}
 \rho_{\mathrm{cf}}^{-2\alpha_{\mathrm{cf}}}|\omega|^2\,dt\,dx
 \ge c'\int_U r^{-5}\,dx\int_T^\infty t^{2(\alpha_{\mathrm{sf}}+\alpha_{\mathrm{cf}})}dt = \infty,$$
-as $2(\alpha_{\mathrm{sf}}+\alpha_{\mathrm{cf}}) = 0$ (record 10.20 (iv)). This contradicts
+as $2(\alpha_{\mathrm{sf}}+\alpha_{\mathrm{cf}}) = 0$ (record Proposition 10.20 (iv)). This contradicts
 $\omega\in\rho_{\mathrm{sf}}^{-5/2}\rho_{\mathrm{cf}}^{5/2}L^2(|dg|)$. So the nullspace is trivial, and (1.1) is
 invertible at $(\ell,\beta) = (-\frac12,\frac72)$, hence at every admissible choice. The uniform bound on the inverse
 follows from the uniform estimate (1.2) and invertibility by the compactness argument of I.C Corollary 5.2 (b). $\square$
@@ -389,8 +407,8 @@ radial sets and monotone along the flow, functions of $\xi$ and $|\eta|^2$;
 
 - their thresholds are I.A's for $\widehat{\Box^C_b}$, which are $\Box^C_b$'s data at $\rho = 0$ (I.C section 4.1 (a)):
 $-\frac12+\min\mathrm{spec}\,\bar S^C$ at $R_{\mathrm{out}}$, and at $R_{\mathrm{in}}$ the bound
-$-\frac12-S_{\mathrm{in}}$ with $S_{\mathrm{in}} = h^{-1}(1-e)(1+v)$ (record 10.20 (iv), 10.21 K2). These are Definition
-0.2's.
+$-\frac12-S_{\mathrm{in}}$ with $S_{\mathrm{in}} = h^{-1}(1-e)(1+v)$ (record Proposition 10.20 (iv), section 10.21 K2).
+These are Definition 0.2's.
 
 (ii) By Theorem 3.1, $N_{\mathrm{tf}}(e^{i\theta})$ is invertible, so injective, on $\mathcal X_{\mathrm{tf},\theta}$
 for every $\theta\in[0,\pi]$.
@@ -415,9 +433,9 @@ range (I.C Theorem 4.3 (3)), which Theorem 3.1's surjectivity makes trivial.
 
 (IV$''''''$2) *The index argument at n = 4.* The source's relative index step crosses three roots in the scalar sector
 $l\ge1$. At $n = 4$ it crosses two, three and one in the scalar sectors $l = 0$, $l\ge1$ and the vector sectors, both
-for the damped operator (Part IV$''''$ Lemma 1.3's counts) and for the free one (record 10.20 (v)). The counts match,
-which is what makes the index 0. Melrose's relative index theorem is taken as cited by the source; it is the one input
-of this part not read at source.
+for the damped operator (Part IV$''''$ Lemma 1.3's counts) and for the free one (record Proposition 10.20 (v)). The
+counts match, which is what makes the index 0. Melrose's relative index theorem is taken as cited by the source; it is
+the one input of this part not read at source.
 
 (IV$''''''$3) *The range of $C_0$.* The source's "without loss $C_0\ge2$" becomes $C_0\ge\frac32$ (so that $\beta =
 \frac72$ is admissible), and the record's computations bound $C_0\le100$. Theorem 4.1 holds for $C_0\in[\frac32,100]$.
@@ -431,6 +449,14 @@ $n = 4$'s $\bar S$. All are computed (record 10.20).
 
 (IV$''''''$5) *$h$.* Part IV$''''$'s $\mathsf H$ is to be read with $h_*$ also below $h_{\mathrm{tf}}$ (amended there,
 D310).
+
+(IV$''''''$6) *The index for every order* (verifier 135's A-m2). The index was computed for one class of orders and only
+the nullspace was shown independent of them; the annihilator of the range is now shown independent too, and the sector
+computation is run at I.C's order for the free operator, which is the one I.C Corollary 5.2 (a) uses.
+
+(IV$''''''$7) *A strip in the adjoint chain* (verifier 135's A-m3). The adjoint step (c) (2) was stated on
+$\{\tau\ge\frac T4\}$, which misses the strip $\frac{2.25}{10}T\le\tau<\frac T4$ of (B.40)'s a priori set; it is stated
+on $\{\tau>\kappa\}$.
 
 *Labels.* The labels map to the source as follows:
 
@@ -446,7 +472,8 @@ D310).
 *Sources.* [Hin26a] pp. 85-98 (Appendix B: (B.1)-(B.45), Theorem B.1, Proposition B.2 and its proof, Definition B.3,
 Theorem B.4 and its proof, section B.4), read at source. Inputs:
 
-- record 10.12, 10.14 (iv), 10.18 (i), 10.20 (i)-(v), 10.21 (i), K2;
+- record sections 10.12, 10.14 (iv), 10.21 (K1-K2) and Propositions 10.18 (i), 10.20 (i)-(v) (the record's Proposition
+numbers are not its section numbers: Proposition 10.20 is in section 10.23);
 
 - Part IV$''''$ Lemmas 1.2, 1.3, 1.6;
 

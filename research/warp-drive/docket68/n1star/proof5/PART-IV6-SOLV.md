@@ -14,7 +14,7 @@ interior of $\Omega$ in both directions, along $\mathrm{sf}$ between its critica
 saddle. These are stated and proved as Propositions 5.2-5.3. Source: [Hin26a] (arXiv:2606.27658v2) pp. 12-17 (sections
 2.1-2.2), 25-28 (section 3), 37-39 (Proposition 5.1), 41-66 (section 5.2), read at source. Verified (D311): verifier 134
 read it in full; two minor findings and two nits, seated as findings (IV$'''''$6)-(IV$'''''$7) and in Propositions
-7.1-7.2 and Theorem 7.3 (c); to be read.
+7.1-7.2 and Theorem 7.3 (c); to be read. Proved (D312): verifier 135 read the D311 repairs, correct.
 
 ## 0. Setting
 
@@ -730,10 +730,12 @@ $\tau\ge\frac12T_0$ has $t\ge\frac12T_0r_\sharp>2t_1$.
 (x) (5.67) on $\tau^{-1}([0,\frac12T_0])$, from $\tau^{-1}([\frac12T_0,T_0])$, which is covered by (ii) near
 $\mathrm{sf}$, by (viii) elsewhere, and by (ix) off $o$.
 
-Absorbing $h^N$ gives (5.81) at $s' = 1$. For $s'>1$, extend and restrict as in Proposition 7.1.\n\nThe parameters of
+Absorbing $h^N$ gives (5.81) at $s' = 1$. For $s'>1$, extend and restrict as in Proposition 7.1.
+
+The parameters of
 Propositions 7.1-7.2 are ordered so that each a priori set lies where an earlier step applies (verifier 134's A-n1). In
 Proposition 7.1 (ix), $2\delta'\le\delta_0$, so that the start set of Proposition 5.2 (b) (1) lies in Proposition 3.1's
-$B_0$. In (ii) above, $2\delta'$ is at most the sink's $\delta$ and $s_3\gev(1-\frac54\delta_{\mathrm{sf}})$. In (iv)
+$B_0$. In (ii) above, $2\delta'$ is at most the sink's $\delta$ and $s_3\ge v(1-\frac54\delta_{\mathrm{sf}})$. In (iv)
 above, $t_1\ge2/(\delta_0\delta_r)$, so that $[r'_3,r'_4]$ at $\rho_K = 1/t\le t_1^{-1}$ lies in
 $\{r/t\le\frac54\delta_r\}$. $\square$
 
@@ -874,11 +876,15 @@ set $\mathsf H$ is defined through $h_0$, so $h_0$ must be uniform; Lemma 8.1 gi
 (IV$'''''$5) *The inner radius.* $r_\sharp = \frac12R_1$ is III.B's $r_0$ and 10.14's $m$. $\hat r = \frac34R_1$
 replaces the source's $r_+$ in the cut-offs and the energy estimates near $\Sigma^\sharp$, since only the future
 timelike character of $dr$ on $[r_\sharp,\hat r]$ is used (Lemma 0.3 (c)). The horizon of $g_b$ is not
-located.\n\n(IV$'''''$6) *The extended domain* (verifier 134's A-m1). The extension to $\tilde\Omega$ in Proposition
+located.
+
+(IV$'''''$6) *The extended domain* (verifier 134's A-m1). The extension to $\tilde\Omega$ in Proposition
 7.1's proof read that the whole argument runs there with $\frac34r_\sharp$ for $r_\sharp$. Proposition 5.1 and the
 dropped $\chi_r$ term of Proposition 5.3 (1) use Lemma 0.5 (6), which is not known for the extension of $c$ below
 $r_\sharp$. They are kept in $\{r\ge r_\sharp\}$, and $[\frac34r_\sharp,r_3]$ is covered by (5.68)-(5.69), which use
-only Lemma 0.3 (c) and Lemma 0.4.\n\n(IV$'''''$7) *General data* (verifier 134's A-m2). The passage to general data in
+only Lemma 0.3 (c) and Lemma 0.4.
+
+(IV$'''''$7) *General data* (verifier 134's A-m2). The passage to general data in
 Theorem 7.3 (b) read the traces as continuous on $\bar H^1$ and uniqueness as the estimate itself. The trace of
 $r\mathcal L_{\partial_t}\omega$ is not continuous on $\bar H^1$, and the estimate was proved for smooth solutions.
 Repaired by the energy identity's boundary term at every $\tau\in[0,T_0]$, and by uniqueness from (a) for the extension

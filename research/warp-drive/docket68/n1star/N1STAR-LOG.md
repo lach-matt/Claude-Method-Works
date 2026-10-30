@@ -5886,3 +5886,10 @@ was one unit short at the damping strength the proof fixes. The repair applies t
 weaker, where the decay that the exponents guarantee suffices; the source keeps the same margin. Two smaller gaps in
 the spacetime estimate, a geometric condition used outside the region where it was proved and a limit taken without a
 continuous trace, and one in the slab's definition, are closed. Three earlier parts are now proved.
+
+**D312 (2026-10-30): the constraint damping proved.** The hundred-and-thirty-fifth verifier read the last constraint
+damping part, the scale-invariant model at the transition between frequencies, and found no error of substance: three
+gaps with evident repairs (a parameter interval misstated, the index shown independent of the choice of function
+spaces only for the kernel and not for the cokernel, and a thin strip missing from one chain of estimates). It also
+confirmed every repair of the previous round. With this, the exterior estimates, the nonlinear theorem near null
+infinity and the first three constraint damping parts are proved; the fourth awaits a reading of its repairs.

@@ -9,7 +9,7 @@ conditionally on Part IV, as III.C$'$ is. It also uses III.I$'''''''''''''''$ Co
 repairs are being read. Verifier 133's findings seated (D309): the support classes, $\chi_-$, $\mathcal D$ and the
 collar are again defined by $t^\flat_*$ (B-M1); to be read. Verifier 134 read the D309 repairs (D311): correct, but the
 restriction $r\ge R_9$ of the slab could give it a timelike side; repaired by $c\le1/R_9$ (D-m1), with one nit (D-n1);
-to be read.
+to be read. Proved (D312): verifier 135 read the D311 repair, correct.
 
 The source's proof has four steps: the parameters, the solution up to $t_* = 2$, the Nash-Moser iteration, and
 constraint propagation ([Hin26] pp. 320-323). Section 0 fixes the parameters, section 1 builds the initial family,
@@ -24,15 +24,15 @@ character ((K4)), and right inverses for $\Psi$ in which the boost direction car
 (b), with $\Sigma_{\mathrm{IVP}} := t_{\mathrm{IVP}}^{-1}(0)$. $t^\flat_*$ is II.C Lemma 3.2's function ($\ell =
 \frac12$), with $C_\flat t_*\le t^\flat_*\le t_*$ there ((b); II.C writes $C'$ for $C_\flat\in(0,1)$, the letter $C'$
 being III.B (3.6)'s constant here); $\Omega_* := \mathrm{cl}_M\{t^\flat_*\ge1\}$ (III.I$'$-III.I$''''''''''''''$, III.I
-section 1). $t^\flat_*$ is defined on $\{t_*\ge\frac12\}$ (II.C Lemma 3.2; II.E Lemma 1.2 (iv)); a sublevel set
-$\{t^\flat_*\le c\}$, $c\ge1$, means the complement of $\{t^\flat_*>c\}$, which lies in $\{t_*>c\}$. Every level used
-below, the top of $\mathcal D$ and those of the support classes, lies at $t^\flat_*\ge\hat T\ge2$ (verifier 134's D-n1).
-Put $\hat T := 2/C_\flat\ge2$, so $\{t^\flat_*\ge\hat T\}\subset\Omega_*$. The cut-off $\chi_-$, the region $\mathcal D$
-and the support classes of section 3 are defined by $t^\flat_*$. Its differential is past timelike for every $g_{b_0}+h$
-with $h$ small in $\tilde{\mathcal G}^{0,(1,0,0)}_{\mathrm{e3b}}$ (II.C Lemma 3.2 (2)), a margin that survives the
-perturbations used below, while $dt_*$'s margin near $\mathscr I^+$ is only $O(\mu_0r^{-2})$ (finding (K9), amended
-D309). $t^\flat_*$ is smooth on $M_{1/2}$ near $\mathscr I^+$ (II.C Lemma 3.2 (a)) and equals $t_*$ on $\mathscr I^+$.
-Put $T_\iota := (\hat T+2)/C_\flat$ and $T_K := \max(10,T_\iota+2)$. The cut-off $\chi_K$ satisfies
+section 1). Put $\hat T := 2/C_\flat\ge2$, so $\{t^\flat_*\ge\hat T\}\subset\Omega_*$. $t^\flat_*$ is defined on
+$\{t_*\ge\frac12\}$ (II.C Lemma 3.2; II.E Lemma 1.2 (iv)); a sublevel set $\{t^\flat_*\le c\}$, $c\ge1$, means the
+complement of $\{t^\flat_*>c\}$, which lies in $\{t_*>c\}$. Every level used below, the top of $\mathcal D$ and those of
+the support classes, lies at $t^\flat_*\ge\hat T\ge2$ (verifier 134's D-n1). The cut-off $\chi_-$, the region $\mathcal
+D$ and the support classes of section 3 are defined by $t^\flat_*$. Its differential is past timelike for every
+$g_{b_0}+h$ with $h$ small in $\tilde{\mathcal G}^{0,(1,0,0)}_{\mathrm{e3b}}$ (II.C Lemma 3.2 (2)), a margin that
+survives the perturbations used below, while $dt_*$'s margin near $\mathscr I^+$ is only $O(\mu_0r^{-2})$ (finding (K9),
+amended D309). $t^\flat_*$ is smooth on $M_{1/2}$ near $\mathscr I^+$ (II.C Lemma 3.2 (a)) and equals $t_*$ on $\mathscr
+I^+$. Put $T_\iota := (\hat T+2)/C_\flat$ and $T_K := \max(10,T_\iota+2)$. The cut-off $\chi_K$ satisfies
 $\mathrm{supp}\,\chi_K\subset\{t^\flat_*\ge T_K\}$ (III.I (1.2), which allows any large threshold); so $\chi_K = 0$ on
 $\{t_*<T_K\}$, as $t^\flat_*\le t_*$. $\mathcal S_1$ and the boosts $\phi_S$ are those of III.B section 5,
 $g_{b_0,b,-S}$ is III.I (1.1), and $P_5$ is III.I$''''''''''''''$ (1.3). $\Phi$, $\mathcal D$, $\mathcal F$ and
@@ -135,7 +135,9 @@ exterior radius, not the inner radius of III.B (3.6)), $R_8\ge\max(2r_1,8,R)$, $
 with $C'$ III.B (3.6)'s constant, and, with III.C's chart (1.2) translated in $t$ ($g_{b_0}$ is stationary), $\rho'_I :=
 (T''-x^1)/|x|$ near infinity. On $\mathcal D$ near infinity $t_*\le t^\flat_*/C_\flat\le(\hat T+3)/C_\flat$ (II.C Lemma
 3.2 (b)), so $x^1 = t_*-C'+8\mu_0|x|^{-1}\le T''-1$ and $\rho'_I>0$ there (verifier 133's B-n2). Fix $c\in(0,\frac12]$
-as in Part IV$''$ Lemma 2.1. $\mathcal D$ is covered by three sets, solved in this order. - The exterior domain
+as in Part IV$''$ Lemma 2.1. $\mathcal D$ is covered by three sets, solved in this order.
+
+- The exterior domain
 $\Omega_{\mathrm{ext},r_1}$, with its past slab $\{-\frac{r-r_1}{12}\le t_{\mathrm{IVP}}\le0\}$, which contains
 $\mathcal D\cap\{t_{\mathrm{IVP}}<0,\ r\ge R_8\}$, as $\nu(r)\le\frac r{32}\le\frac{r-r_1}{12}$ for $r\ge R_8\ge2r_1$
 (verifier 132's A-m2 (i)).
@@ -144,8 +146,8 @@ $\mathcal D\cap\{t_{\mathrm{IVP}}<0,\ r\ge R_8\}$, as $\nu(r)\le\frac r{32}\le\f
 \mathcal D\cap\{\rho'_I<c,\ r\ge R_9\}\setminus\Omega_{\mathrm{ext},r_1}$, $R_9\ge\max(R_5,4R_1,4|C''|)$, and
 $c\le\min(\frac12,1/R_9)$ (Part IV$''$ Lemma 2.1 asks only that $c$ be small, and nothing chosen before $c$ depends on
 it). As $x^1\le T''-1$ on $\mathcal D$, $\rho'_I<c$ forces $|x|>1/c\ge R_9$ there, so the clause $r\ge R_9$ is vacuous
-and $\mathcal S$ has no side $\{r = R_9\}$ (amended D311, verifier 134's D-m1), on which $\rho'_I$ is defined and
-$t_{\mathrm{IVP}} = t-C''$ (verifier 133's B-n5). On $\mathcal K$ near infinity, above $\Sigma_{\mathrm{fut},r_1}$,
+and $\mathcal S$ has no side $\{r = R_9\}$ (amended D311, verifier 134's D-m1). On $\{r\ge R_9\}$, $\rho'_I$ is defined
+and $t_{\mathrm{IVP}} = t-C''$ (verifier 133's B-n5). On $\mathcal K$ near infinity, above $\Sigma_{\mathrm{fut},r_1}$,
 $x^1\ge C''-r_1-2$ (III.C$'$ Lemma 1.1: there $t_{\mathrm{IVP}}\ge r+2r^{1-\ell^\flat_I}-(r_1+2r_1^{1-\ell^\flat_I})$,
 and $t_{\mathrm{IVP}} = t-C''$) and $\rho'_I\ge c$, so $|x|\le(T''+r_1+2-C'')/c$; with $t^\flat_*\le\hat T+3$ and
 $t_{\mathrm{IVP}}\ge-\nu$ on $\mathcal K\setminus\Omega_{\mathrm{ext},r_1}$, $\mathcal K$ is compact. Its boundary

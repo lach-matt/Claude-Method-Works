@@ -73,14 +73,14 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
 | III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | proved (D295; the weights (J''4) discharged at b_0 by III.J''', proved D296) |
 | III.J''' | [Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights | exact weights: the exact classes and conditions (E1)-(E5), the graft at the exact K+ weight in the rho_+ convention, III.A Proposition 4.2 exact, the pointwise bounds at the final weight re-proved in L^2, III.I(14) Theorem 3.1 and III.J' Theorem 2.1 at fixed weights, the tame estimates on one pair of scales | **proved** (D296) |
-| III.K | [Hin26] section 13.1 (Theorem 13.1, Remarks 13.2-13.4; (12.33)-(12.34), Lemma 12.7) | the nonlinear theorem: the initial family in a cut-off gauge equal to the cone's on Omega_*, the map Psi and its right inverses, support classes and smoothing on D_ex, II.G's Nash-Moser theorem, constraint propagation; conditional on Part IV | written (D300); verified (D304); verifier 133's MAJOR seated D309, read by verifier 134 (D311), correct; its new minor (the slab's side, c <= 1/R_9) seated, to be read |
+| III.K | [Hin26] section 13.1 (Theorem 13.1, Remarks 13.2-13.4; (12.33)-(12.34), Lemma 12.7) | the nonlinear theorem: the initial family in a cut-off gauge equal to the cone's on Omega_*, the map Psi and its right inverses, support classes and smoothing on D_ex, II.G's Nash-Moser theorem, constraint propagation; conditional on Part IV | **proved** (D312: verifier 135 read the D311 repair, correct) |
 | IV | [Hin23a] sections 3.1-3.2 (Lemmas 3.13, 3.16, Corollary 3.14, Proposition 3.17) and [HV20] Proposition 4.3 | exterior estimates I: the edge-b structure at I+ on III.C's region, the scalar operator rho_I rho^(-7/2) box rho^(3/2) with Delta+3/4, the basic energy estimate near I+ and near I_0 | written (D301); verified (D304); proved (D309: verifier 133 read the repairs) |
 | IV' | [Hin23a] sections 3.3-3.5 (Proposition 3.29, Proposition 3.32, Lemmas 3.33-3.34) | exterior estimates II: [Hin26]'s conjugated linearised operator in edge-b form with the constant first-order matrix Abar; the energy estimate and its tame form for the system at alpha_I < min(alpha_0, 0) | **proved** (D311: verifier 134 read the D309 repairs, correct) |
 | IV'' | [Hin23a] section 3.6 (Theorem 3.35, Corollary 3.36) | exterior estimates III: integration along the two families of curves, the Cauchy problem near I_0 in both directions, sharp decay in two rounds (radiation field in slot 6 only), the nonlinear exterior solution by II.G, the cut-off gauge; delivers III.C' Theorem 2.1 | **proved** (D311: verifier 134 read the D309 repairs, correct) |
-| IV''' | III.K (K2) (b); [Hin26] p. 321 | the slab near I+: posed on the exterior domain together with the slab, from Sigma_IVP and the compact surface Sigma_c, in the chart translated in t; the boosted background in the translated class (III.B Lemma 5.2); orders at I+ | written (D306); amended D309; verified (D311: verifier 134's findings seated, to be read) |
-| IV'''' | [Hin26a] sections 3-4, 5.1, 6, Appendix A | constraint damping I: the fibre algebra, the structure at infinity, the indicial roots for every h <= 10^-6, the 1-form c, the horizon threshold, (H1)-(H4) and (G); mode stability at sigma != 0 and the invertibility of the zero energy operator by the adjoint route (III.E Theorem 1.1 (1)-(3)), with [Hin26a] Theorem 5.2 at n = 4 from IV''''' | written (D307); amended D308; verified (D311: verifier 134's MAJOR, the weight of the adjoint step, and its minor seated, to be read) |
-| IV''''' | [Hin26a] sections 2.1-2.3, 5.2 | constraint damping II: the compactification and 3b-structure at n = 4 in Kerr-Schild time, the causal facts, the fibre algebra and the 1-form; elliptic, fibre-infinity, saddle, corner, sink, real principal type, interior and energy estimates; the a priori estimate (5.79), the adjoint estimate (5.81) and [Hin26a] Theorem 5.2 at n = 4, uniformly in b | written (D308); verified (D311: verifier 134's two minors seated, to be read) |
-| IV'''''' | [Hin26a] Appendix B; [Hin26] Theorem 7.1 (4) | constraint damping III: the tf model on 4+1 Minkowski; Fredholm and index 0 (radial estimates, relative index per S^3 sector), edge-b solvability (Theorem B.4), the kernel argument; Theorem B.1 at n = 4; tf-admissibility with every weight in [-C_0, 2) (III.E Theorem 1.1 (4)) | written (D310) |
+| IV''' | III.K (K2) (b); [Hin26] p. 321 | the slab near I+: posed on the exterior domain together with the slab, from Sigma_IVP and the compact surface Sigma_c, in the chart translated in t; the boosted background in the translated class (III.B Lemma 5.2); orders at I+ | **proved** (D312: verifier 135 read the D311 repairs, correct) |
+| IV'''' | [Hin26a] sections 3-4, 5.1, 6, Appendix A | constraint damping I: the fibre algebra, the structure at infinity, the indicial roots for every h <= 10^-6, the 1-form c, the horizon threshold, (H1)-(H4) and (G); mode stability at sigma != 0 and the invertibility of the zero energy operator by the adjoint route (III.E Theorem 1.1 (1)-(3)), with [Hin26a] Theorem 5.2 at n = 4 from IV''''' | **proved** (D312: verifier 135 read the D311 repairs, the adjoint weight included, correct) |
+| IV''''' | [Hin26a] sections 2.1-2.3, 5.2 | constraint damping II: the compactification and 3b-structure at n = 4 in Kerr-Schild time, the causal facts, the fibre algebra and the 1-form; elliptic, fibre-infinity, saddle, corner, sink, real principal type, interior and energy estimates; the a priori estimate (5.79), the adjoint estimate (5.81) and [Hin26a] Theorem 5.2 at n = 4, uniformly in b | **proved** (D312: verifier 135 read the D311 repairs, correct) |
+| IV'''''' | [Hin26a] Appendix B; [Hin26] Theorem 7.1 (4) | constraint damping III: the tf model on 4+1 Minkowski; Fredholm and index 0 (radial estimates, relative index per S^3 sector), edge-b solvability (Theorem B.4), the kernel argument; Theorem B.1 at n = 4; tf-admissibility with every weight in [-C_0, 2) (III.E Theorem 1.1 (4)) | written (D310); verified (D312: verifier 135's three minors seated, to be read) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
@@ -1251,7 +1251,8 @@ where they do not enter ((K4)), Lemma 3.1 (smoothing on D_ex, partially polyhomo
 coefficient), and Theorem 3.2 (II.G Theorem 2.1). Section 4 has Lemma 4.1 (the source's short calculation, in any
 dimension), Proposition 4.2 (constraint propagation in the cone by II.F Lemma 1.3) and Theorem 4.3 (the source's Theorem
 13.1 at n = 4). Findings (K1)-(K8). Written (D300). Verifier 134 read the D309 repairs (D311): correct; the restriction
-of the slab to $r\ge R_9$ needed $c\le1/R_9$, now fixed, with one nit; to be read.
+of the slab to $r\ge R_9$ needed $c\le1/R_9$, now fixed, with one nit; to be read. Proved (D312): verifier 135 read the
+D311 repair.
 
 `PART-IV-EB.md`. Part IV writes out [Hin23a] section 3 at n = 4 for [Hin26]'s operator on III.C's exterior region; its
 outputs are III.C' Theorem 2.1 and the slab of III.K (K2). This first part covers sections 3.1-3.2. Lemma 1.1 and
@@ -1289,7 +1290,8 @@ Sigma_c where S meets the compact part, neither of which reaches I+, and the ext
 uniqueness. III.C's chart is translated in t (g_{b_0} is stationary), and the boosted background lies in the translated
 class by III.B Lemma 5.2 (Lemma 0.1). Theorem 2.1 is Part IV'' Theorem 2.4 there, Theorem 2.2 its Theorem 3.1,
 Corollary 2.3 the orders at I+ (III.C' Theorem 3.1's proof). Findings (IV'''1)-(IV'''2). Written (D306). Verified
-(D311): one minor finding shared with III.K and one nit seated; to be read.
+(D311): one minor finding shared with III.K and one nit seated; to be read. Proved (D312): verifier 135 read the D311
+repairs.
 
 `PART-IV5-CDMODES.md`. Part IV'''' proves III.E Theorem 1.1 (1)-(3) at n = 4, at the record's point v_C = 1/2,
 e_C = 1/102400, C_0 <= 100, h = 1/gamma_C in (0, min(10^-6, h_0)) off a countable set. Lemmas 1.1-1.5 assemble the
@@ -1303,7 +1305,7 @@ Part VI. Findings (IV''''1)-(IV''''5). Written (D307); amended D308
 (Lemma 1.4's reading of (4)-(5); Theorem 2.1 (1)'s data at {t_KS = 0}). Verified (D311): verifier 134's major finding,
 the weight of the adjoint step (at $n = 4$ the shift is 5/2, so the dual space at (2.1) asks decay above $C_0+3$), is
 repaired by applying (5.81) at the weight with $C_0-1$; one minor and three nits seated, findings (IV''''6)-(IV''''7);
-to be read.
+to be read. Proved (D312): verifier 135 read the D311 repairs.
 
 `PART-IV6-SOLV.md`. Part IV''''' proves [Hin26a] Theorem 5.2 at n = 4 (Theorem 7.3), uniformly for b near b_0
 (Lemma 8.1). Section 0 sets up the compactification with fibres S^3 in the Kerr-Schild time of III.B, where
@@ -1316,6 +1318,7 @@ each a priori set covered by an earlier step, into (5.79) and (5.81), then gives
 value problem through the energy estimate with data (6.1), and the transfer to III.B's coordinates. Findings
 (IV'''''1)-(IV'''''5). Written (D308). Verified (D311): verifier 134 read it in full; two minor findings (the extended
 domain below $r_\sharp$, the passage to general data) and two nits seated, findings (IV'''''6)-(IV'''''7); to be read.
+Proved (D312): verifier 135 read the D311 repairs.
 
 `PART-IV7-TFACE.md`. Part IV'''''' proves III.E Theorem 1.1 (4) at n = 4 through [Hin26a] Theorem B.1 there
 (Theorem 3.1): the spectral family of the dilation-invariant model on 4+1 Minkowski space, the transition face normal
@@ -1326,7 +1329,9 @@ free operator. Section 2 is Theorem B.4 on edge-b spaces: the cone face as a rad
 r/t by dilation invariance, the interior, and the chains in both directions. Section 3 is the kernel argument of
 section B.4. Section 4 identifies the spaces with I.C's (q = 2 - beta, no epsilon) and checks Definition 5.1, the
 adjoint half from surjectivity and I.C Theorem 4.3 (3) rather than (9.115). Findings (IV''''''1)-(IV''''''5).
-Written (D310).
+Written (D310). Verified (D312): verifier 135 read it in full; three minor findings (the deformation interval, the index
+for every order with the cokernel's independence, a strip in the adjoint chain) and six nits seated, findings
+(IV''''''6)-(IV''''''7); to be read.
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

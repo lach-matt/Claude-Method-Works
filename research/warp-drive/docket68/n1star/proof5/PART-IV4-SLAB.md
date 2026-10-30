@@ -12,7 +12,7 @@ solution on $\Omega_{\mathrm{ext},r_1}$. The source covers the slab in one sente
 (K2)). No source text beyond Part IV$''$'s is used. Amended D309 with III.K: the slab's top is $\{t^\flat_* = \hat
 T+3\}$, robustly spacelike, and $\mathcal S$ lies in $\{r\ge R_9\}$ (verifier 133's B-M1, B-m3, B-n5). Verified (D311):
 verifier 134 read it in full; one minor finding shared with III.K (the slab's side $\{r = R_9\}$, empty once
-$c\le1/R_9$) and one nit, seated; to be read.
+$c\le1/R_9$) and one nit, seated; to be read. Proved (D312): verifier 135 read the D311 repairs, correct.
 
 ## 0. Setting
 

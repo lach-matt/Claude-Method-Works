@@ -11,7 +11,8 @@ algebra of [Hin26a] section 3 (N1STAR-PROOF.md 10.13), the indicial roots for ev
 the 1-form $c$ on Tangherlini (10.14), the weights at the critical sets (10.22), the structure at infinity (10.18) and
 the horizon threshold (10.79). Source: [Hin26a] (arXiv:2606.27658v2) pp. 25-41, 66-69 and Appendix A, read at source.
 Verified (D311): verifier 134 read it in full; one major finding (the weight of the adjoint step), one minor and three
-nits, seated as findings (IV$''''$6)-(IV$''''$7) and in section 0, Lemma 1.4 and Theorem 2.1; to be read.
+nits, seated as findings (IV$''''$6)-(IV$''''$7) and in section 0, Lemma 1.4 and Theorem 2.1; to be read. Proved (D312):
+verifier 135 read the D311 repairs, correct.
 
 ## 0. Setting
 
@@ -97,8 +98,9 @@ $w := \rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}+1}\rho_K^{\alpha_K}$ and $w' :=
 \rho_{\mathrm{sf}}^{\alpha_{\mathrm{sf}}+1}$, $c_C$ satisfies his Proposition 5.1 (1)-(6) on Tangherlini $g_{b_0}$, for
 some $\delta_r>0$ and with $\delta_{\mathrm{sf}} =
 \frac1{100}$; and on $g_b$ for $b$ near $b_0$, with smaller $\delta_r$ and the same $\delta_{\mathrm{sf}}$, conditions
-(5)-(6) on $\mathrm{sf}$ not depending on $b$ (verifier 134's B-n1). The same holds with $C_0-1$ for $C_0$ in (2.1), the
-proof using only $C_0-1\ge0$ (amended D311).
+(5)-(6) on $\mathrm{sf}$ not depending on $b$ (verifier 134's B-n1). The same holds with $C_0-1$ for $C_0$ in (2.1),
+that is at $\alpha_{\mathrm{sf}} = -C_0-\frac32$, for every $C_0\ge0$: the conditions at $\mathrm{sf}$ are
+$b_{\mathrm{sf}} = -C_0-\frac12<b^*$ and $b_K = 1>b_{\mathrm{sf}}-b^*$ (amended D311; verifier 135's B-n4).
 
 *Proof.* (1)-(3) and (6) off $\mathrm{sf}$: 10.14 Proposition 10.11 (i)-(iii) (`cform5.py` C1-C4, exact; Sturm on each
 interval). (4)-(6) at $\mathrm{sf}$: the symbol $T = r^2(-\ell(dw/w)+S)$ depends only on $\rho_K$ and the weights there;
@@ -209,12 +211,12 @@ which uses only Lemma 1.3), with real part $\le0$ or $>C_0+2$. As $\alpha+2<2$, 
 $\partial X$, so the normal operator argument (the expansion of $v$ along the roots of real part above its weight, I.C
 Theorem 3.1 (2) for the adjoint) gives $v\in\mathcal A^k$ near $\partial X$ for every $k<\varrho_1$. Here
 $\varrho_1>C_0+2$ is the least real part of an indicial root of $(P^C_b)^*$ above $C_0+2$, which exists as the roots are
-discrete and accumulate only at $+\infty$ (Lemma 1.6); the roots of real part $\le0$ are below the weight. So
-$\omega'(t,x) := v(x)$ is a stationary solution of $(\Box^C_b)^*\omega' = 0$. Put $\alpha'_{\mathrm{sf}} :=
--C_0-\frac32$, the weight (2.1) at $C_0-1$. A stationary function of pointwise decay $\rho^k$ lies in
-$\rho^a\rho_K^{-1}L^2(\Omega,|dg|)$ near $\partial X$ iff $k>a+\frac52$: the shift is 2 for $\rho^aL^2(r^3dr)$ (10.18
-(iii)), plus $\frac12$ from $\int_0^\infty\rho_K^2\,dt = \int_0^\infty(r/(t+r))^2\,dt = r$. At $a =
--\alpha'_{\mathrm{sf}}-2 = C_0-\frac12$ this asks $k>C_0+2$, which $k\in(C_0+2,\varrho_1)$ meets. So
+discrete (Lemma 1.3 (a)); the roots of real part $\le0$ are below the weight. So $\omega'(t,x) := v(x)$ is a stationary
+solution of $(\Box^C_b)^*\omega' = 0$. Put $\alpha'_{\mathrm{sf}} := -C_0-\frac32$, the weight (2.1) at $C_0-1$. A
+stationary function of pointwise decay $\rho^k$ lies in $\rho^a\rho_K^{-1}L^2(\Omega,|dg|)$ near $\partial X$ iff
+$k>a+\frac52$: the shift is 2 for $\rho^aL^2(r^3dr)$ (10.18 (iii)), plus $\frac12$ from $\int_0^\infty\rho_K^2\,dt =
+\int_0^\infty(r/(t+r))^2\,dt = r$. At $a = -\alpha'_{\mathrm{sf}}-2 = C_0-\frac12$ this asks $k>C_0+2$, which
+$k\in(C_0+2,\varrho_1)$ meets. So
 $\omega'\in\rho_{\mathrm{sf}}^{-\alpha'_{\mathrm{sf}}-2}\rho_K^{-\alpha_K}H^{s'}_{3\mathrm b}(\Omega)^{-,\bullet}$ for
 $s' = 1-s$ near $\partial X$. The adjoint estimate (5.81) of Theorem 5.2's proof at $n = 4$ (Part IV$'''''$ Proposition
 7.2), at the weights $(\alpha'_{\mathrm{sf}},\alpha_K)$, which satisfy its hypotheses by Lemma 1.4 at $C_0-1$, holds for
@@ -247,15 +249,19 @@ estimate (5.81) and the indicial roots, the source's third route, which avoids a
 IV$'''''$ proves (Theorem 7.3, D308); its inputs are Lemmas 1.1, 1.4 and the 3b-geometry of Tangherlini (10.22
 Proposition 10.19 (i)-(iii)).
 
+(IV$''''$5) *What is used of Part I.* I.C Theorem 3.1
+([Hin26c] Theorem 9.36) needs (H1)-(H4) and (G) only; (H3)-(H4) come from (Dyn) except for the threshold, Lemma 1.5,
+which at $n = 4$ holds with a margin of more than 4700 at the record's point.
+
 (IV$''''$6) *The weight of the adjoint step* (verifier 134's B-M1, MAJOR). The surjectivity step read that $v\in\mathcal
 A^{C_0+2-\epsilon}$ lies in the dual space at the weight (2.1) "after the shift $\frac32$". The shift at $n = 4$ is
 $\frac52$, so that space asks decay above $C_0+3$, which Lemma 1.3 (roots of $(P^C_b)^*$ above $C_0+2$) does not give at
 $C_0 = 100$, the value III.K fixes. Repaired by applying (5.81) at the weight (2.1) with $C_0-1$, which asks decay above
-$C_0+2$, and by taking $h_*$ below both bounds $h_0$.\n\n(IV$''''$7) *The mode and the forward solution* (verifier 134's
+$C_0+2$, and by taking $h_*$ below both bounds $h_0$.
+
+(IV$''''$7) *The mode and the forward solution* (verifier 134's
 B-m1). Theorem 7.3 (b)'s uniqueness is in its weighted class; the mode solution is identified with the solution it gives
-by local energy uniqueness, which the source leaves unstated.\n\n(IV$''''$5) *What is used of Part I.* I.C Theorem 3.1
-([Hin26c] Theorem 9.36) needs (H1)-(H4) and (G) only; (H3)-(H4) come from (Dyn) except for the threshold, Lemma 1.5,
-which at $n = 4$ holds with a margin of more than 4700 at the record's point.
+by local energy uniqueness, which the source leaves unstated.
 
 *Labels.* Lemma 1.1 is the source's Lemmas 3.3-3.8, Lemma 1.2 its (6.4), Lemma 1.3 its Theorem 4.9, Lemma 1.4 its
 Proposition 5.1, Lemma 1.5 the threshold of [Hin26c] (5.17) for $\Box^C$ (the source's Remark 5.7 mechanism), Theorem
