@@ -4006,3 +4006,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   t^flat_* = 3 (the source's "for globally small initial data" sentence, p. 321); and III.E Theorem 1.1.
 - (K8): chi_iota is taken to vanish on {t^flat_* <= 2}; its choice in III.G'' is free, which is to be checked.
 - Next: verifier 132 reads III.K (after verifier 131 on III.I(15)); then Part IV.
+
+### 4.225 Part IV started (D301): [Hin23a] sections 3.1-3.2 at n = 4
+
+- Part IV, the exterior estimates III.C' Theorem 2.1 rests on, is written out at n = 4 on III.C's region in III.C's
+  Minkowski null coordinates (not the source's Schwarzschild ones; the mass enters only the error class).
+- This first file covers the edge-b frame and metric; the operator L = rho_I rho^(-7/2) box rho^(3/2), symmetric on
+  rho_0^5 rho_I^4 |dg|, with Delta+3/4; the energy estimate near I+ with Qbar of 10.64 X3; and the b-estimate near the
+  interior of I_0, which the source cites from [HV20, Proposition 4.3] and which is written out here.
+- Next: Part IV's tensor operator and tame estimates ([Hin23a] sections 3.3-3.5), then section 3.6 with III.C'
+  Theorem 2.1, the cut-off gauge (C''2) and the slab (K2); [Hin26a] for III.E Theorem 1.1.

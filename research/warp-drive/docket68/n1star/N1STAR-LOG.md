@@ -5806,3 +5806,10 @@ cut-off equals one, so the cut-off is adjusted to make them match. The iteration
 needed conditions on every part of the unknown. The boost direction has to carry the early solution along. The theorem
 still rests on Part IV, the exterior estimates, which is not yet written; this part says exactly what it needs from
 there.
+
+**D301 (2026-10-30): the exterior estimates begin.** The last unwritten input of the chain is the analysis far from the
+black hole, near the null infinity where gravitational radiation escapes. This first instalment sets up the
+geometry there and proves the basic energy estimate. In five dimensions two things change: the conjugation that
+removes the first-order term uses a different power of the radius, and the wave operator acquires a positive constant
+next to the angular Laplacian. The constant only helps, so the source's estimate goes through unchanged. The estimate in
+the far region before radiation arrives, which the source takes from an earlier paper, is written out here.

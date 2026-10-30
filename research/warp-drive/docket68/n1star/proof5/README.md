@@ -74,6 +74,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | proved (D295; the weights (J''4) discharged at b_0 by III.J''', proved D296) |
 | III.J''' | [Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights | exact weights: the exact classes and conditions (E1)-(E5), the graft at the exact K+ weight in the rho_+ convention, III.A Proposition 4.2 exact, the pointwise bounds at the final weight re-proved in L^2, III.I(14) Theorem 3.1 and III.J' Theorem 2.1 at fixed weights, the tame estimates on one pair of scales | **proved** (D296) |
 | III.K | [Hin26] section 13.1 (Theorem 13.1, Remarks 13.2-13.4; (12.33)-(12.34), Lemma 12.7) | the nonlinear theorem: the initial family in a cut-off gauge equal to the cone's on Omega_*, the map Psi and its right inverses, support classes and smoothing on D_ex, II.G's Nash-Moser theorem, constraint propagation; conditional on Part IV | written (D300) |
+| IV | [Hin23a] sections 3.1-3.2 (Lemmas 3.13, 3.16, Corollary 3.14, Proposition 3.17) and [HV20] Proposition 4.3 | exterior estimates I: the edge-b structure at I+ on III.C's region, the scalar operator rho_I rho^(-7/2) box rho^(3/2) with Delta+3/4, the basic energy estimate near I+ and near I_0 | written (D301) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -1239,6 +1240,14 @@ where they do not enter ((K4)), Lemma 3.1 (smoothing on D_ex, partially polyhomo
 coefficient), and Theorem 3.2 (II.G Theorem 2.1). Section 4 has Lemma 4.1 (the source's short calculation, in any
 dimension), Proposition 4.2 (constraint propagation in the cone by II.F Lemma 1.3) and Theorem 4.3 (the source's Theorem
 13.1 at n = 4). Findings (K1)-(K8). Written (D300).
+
+`PART-IV-EB.md`. Part IV writes out [Hin23a] section 3 at n = 4 for [Hin26]'s operator on III.C's exterior region; its
+outputs are III.C' Theorem 2.1 and the slab of III.K (K2). This first part covers sections 3.1-3.2. Lemma 1.1 and
+Corollary 1.2 give the null frame and g_{b_0} as edge-b objects, Lemma 2.1 the density rho_0^5 rho_I^4 |dg|, and Lemma
+2.2 the operator L = rho_I rho^(-7/2) box rho^(3/2) = -2X_I(X_0-X_I) + x_I^2(Delta+3/4) + x_I Diff^2_eb with its
+commutators. Proposition 3.1 is the energy estimate near I+, with the multiplier w^2(X_0-(1+kappa)X_I) and Qbar positive
+with Delta+3/4, on domains whose final boundary is spacelike or null. Proposition 4.1 is the b-estimate near the
+interior of I_0, which the source cites from [HV20]. Remark 4.2 glues them. Findings (IV1)-(IV3). Written (D301).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output
