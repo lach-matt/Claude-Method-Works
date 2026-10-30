@@ -1,9 +1,20 @@
 # Evaluating λ1 and δ: methods, the reduction, and the programme
 
 *Status.* Begun D338 (M, 2026-10-30: "deep research this for possible methods of evaluating/calculating/deriving such
-numbers, and then prove them"). Section 2's reduction was read by verifier 155 (D338): Proposition 2.1 correct,
-Proposition 2.2 incomplete (two major findings, five minor, six nits). It is repaired here (D338) and is to be read
-again. Nothing else here is proved. Labels as in the record: computed, deduced, READ.
+numbers, and then prove them"). Section 2's reduction has been read three times.
+
+- *Verifier 155 (D338).* Proposition 2.1 correct; Proposition 2.2 incomplete (two major findings, five minor, six
+  nits).
+
+- *Verifier 156 (D339).* Every finding of 155 repaired; one major finding (the thresholds Proposition 1.2 imports),
+  two minor, four nits.
+
+- *Verifier 157 (D339).* The repairs correct; three more cited thresholds missing from the enumeration.
+
+- *Now (D339).* Proposition 2.2 defines δ_K and ε_dat, and keeps the enumeration as an inventory not claimed complete.
+  To be read.
+
+Nothing else here is proved. Labels as in the record: computed, deduced, READ.
 
 ## 0. Summary
 
@@ -14,15 +25,17 @@ again. Nothing else here is proved. Labels as in the record: computed, deduced, 
   - the tame constants of III.K's map and of its right inverses, and the smoothing constants;
   - the loss d of the right inverses, with k'' and d1 = N + k'';
   - the radius δ_K in U on which the right inverses exist and the constants are uniform;
-  - the data thresholds of III.K (A_2d, ε_dat) and of Part VII's G-invariant run (ε_G);
+  - the data thresholds of III.K (A_2d and ε_dat, which contains the exterior and slab Nash–Moser thresholds of
+    Parts IV'' and IV''') and of Part VII's G-invariant run (ε_NM^G);
   - the record's threshold λ_1.1 at order J, and the gluing's η_gl and C_R.
 
 - *The Nash–Moser step is already effective.* II.G's threshold is an explicit formula in those constants (Proposition
   2.1 below).
 
-- *Where the numbers are lost.* In the linear theory (through the right inverses, and through III.J's inverse
-  operators inside the map), in the gluing, and in the local quasilinear theory; the record's threshold at order J is
-  not yet checked. The arguments are of four kinds (section 3), and EFFECTIVE-LEDGER.tsv lists the sites.
+- *Where the numbers are lost.* In the linear theory (through the right inverses, through III.J's inverse operators
+  inside the map, and through Part IV's exterior and slab solutions), in the gluing, and in the local quasilinear
+  theory; the record's threshold at order J is not yet checked. The arguments are of four kinds (section 3), and
+  EFFECTIVE-LEDGER.tsv lists the sites.
 
 - *Methods exist for each kind* (section 4, READ). Turning them into numbers is a programme of the size of a second
   write-out of the linear theory, with certified computation at Tangherlini. Section 5 states it.
@@ -90,8 +103,8 @@ again. Nothing else here is proved. Labels as in the record: computed, deduced, 
   - θ0 := max{ 16, 16 η_G⁻², (4K3/δ_G)^{1/(6d+2)}, 1 + K4, C1 K5 + ½ C2 K3² }.
   - II.G takes η_G ≤ 1, so the entry 16 is implied by the second; III.K takes η_G := 1.
 
-- *Conclusion.* ε := θ0^−α satisfies the conclusion of the theorem: if ‖Φ(0)‖_{2d} < ε, there is u ∈ B^∞_{η_G/2}
-  with |u|_{3d} < δ_G and Φ(u) = 0.
+- *Conclusion.* ε_NM := θ0^−α satisfies the conclusion of the theorem: if ‖Φ(0)‖_{2d} < ε_NM, there is u ∈
+  B^∞_{η_G/2} with |u|_{3d} < δ_G and Φ(u) = 0.
 
 *Proof.* These are the conditions on θ0 imposed in the theorem's proof (PART-II-G-NASHMOSER.md:101-155), collected.
 
@@ -114,7 +127,7 @@ again. Nothing else here is proved. Labels as in the record: computed, deduced, 
 - *Nothing else.* The paragraphs on the higher norms and on convergence (PART-II-G-NASHMOSER.md:157-173) put conditions
   on j only. Every condition above is a lower bound on θ0, so the max meets them all.
 
-The proof sets ε := θ0^−α. Verifier 155 checked the identities (2.5), 5d − N + β = −κα − 1, α − 2d = 6d+2 and
+The proof sets its ε := θ0^−α. Verifier 155 checked the identities (2.5), 5d − N + β = −κα − 1, α − 2d = 6d+2 and
 3d ≤ N − 2d for d = 1, ..., 7, and (2.6) at θ0 = 16 (D338). □
 
 **Proposition 2.2 (the chain to λ1 and δ).**
@@ -124,21 +137,24 @@ The proof sets ε := θ0^−α. Verifier 155 checked the identities (2.5), 5d �
   (PART-VII-ASSEMBLY.md:397-402).
 
 - *ε.* Any ε with
-  - ε ≤ min{ 1, ε_NM / A_2d, ε_dat, ε_G }
+  - ε ≤ min{ 1, ε_NM / A_2d, ε_NM^G / A_2d, ε_dat }
   - is admissible, with these quantities:
     - ε_NM: Proposition 2.1's threshold for III.K's spaces, with η_G := 1 and δ_G := min(δ_K, ε_m).
-    - δ_K: the radius in U. It is the least of the smallness of U that III.K takes: the definition of Ψ and Lemma
-      2.2 (PART-III-K-NONLINEAR.md:214, 219), Lemma 2.3's ε_0 (273), and Proposition 4.2's (457-458). It is also the
-      least of the smallness of |S| that III.K takes, turned into a bound on U by |S| ≤ |U|_{3d}: III.K Lemma 1.1 (d)
-      (77, 90), Proposition 1.2's C|S| ≤ ½c_ν and its use of II.C Lemma 3.2 (2) (114, 158), and Lemma 2.3's supports
-      paragraph (320).
+    - δ_K: the supremum of the radii r ≤ 1 such that, for |U|_{3d} < r, every hypothesis of smallness on U, and
+      on |S| through |S| ≤ |U|_{3d}, that III.K sections 1-4 take, directly or through the statements they apply,
+      holds. There are finitely many such hypotheses, each with a positive threshold, so δ_K > 0. Its parts found so
+      far are listed below (the inventory).
     - A_2d: III.K Lemma 2.2 (d)'s constant, ‖P5(Ψ(0))‖_{F^{2d}} ≤ A_2d ‖(γ̃, k̃)‖_{H^{2d+k''}}.
-    - ε_dat: the least of the smallness of the data that III.K takes: Proposition 1.2 (158, 184-186, the local
-      quasilinear theory), Lemma 2.3 (281, the base point small in III.I's class; 305-309, the boost defect e_S
-      small enough for the elimination; 320, G_S − g_b0 small), and Proposition 4.2 (457-458, h_{−S} small).
-    - ε_G: the threshold of Part VII Proposition 3.2's run of II.G on G-fixed spaces. It is Proposition 2.1 with the
-      constants of the G-sup norms, so it carries the constants of their equivalence with the original norms
-      (PART-VII-ASSEMBLY.md:369-371, 402-404).
+    - ε_dat: the supremum of the ε' ≤ 1 such that, for ‖(γ̃, k̃)‖_{H^{d1}} < ε', every hypothesis of smallness on the
+      data that III.K sections 1-4 take, directly or through the statements they apply, holds at the orders III.K
+      uses (up to N + k'', III.K:410-411). Each is carried to H^{d1} by the comparison of norms and, where the data
+      enter through III.C'' Proposition 4.1, by that map's continuity. There are finitely many, each positive, so
+      ε_dat > 0. Its parts found so far are in the inventory.
+    - ε_NM^G: the threshold of Part VII Proposition 3.2's run of II.G on G-fixed spaces, on ‖P5(Ψ(0))‖ in the G-sup
+      norm (PART-VII-ASSEMBLY.md:386). It is Proposition 2.1 with the constants of the G-sup norms, which carry the
+      constants of their equivalence with the original norms (369-371), and its radius is min(δ_K, ε_m) in those
+      norms. For G-invariant data P5(Ψ(0)) is G-fixed (Part VII Lemma 3.1 at U = 0), so its G-sup norm is its norm,
+      and ε_NM^G / A_2d is the data threshold (402-404).
   - III.K Theorem 3.2's smallness paragraph bounds the constants once the data norm is at most 1 (III.K:410-411).
     Lemma 2.3 needs more: the data below its thresholds, which are in ε_dat. That is a looseness of the paragraph's
     wording, not a gap in the theorem, which asks only for some ε; it is why the "1" alone does not suffice.
@@ -155,15 +171,50 @@ The proof sets ε := θ0^−α. Verifier 155 checked the identities (2.5), 5d �
 
 - *For ε.* III.K Theorem 4.3's ε as run there. Its smallness conditions are those listed under δ_K and ε_dat, each
   read at the cited line, and Theorem 3.2's: "‖P5(Ψ(0))‖_{F^{2d}_ex} < ε_NM for data small in H^{d1}" through Lemma
-  2.2 (d) (III.K:410-413). Part VII section 4 replaces II.G's radius by min(δ_G, ε_m), and in (i) adds the threshold
+  2.2 (d) (III.K:410-413). Part VII section 4 replaces II.G's radius by min(δ_K, ε_m), and in (i) adds the threshold
   of Proposition 3.2's run.
 
 - *For λ1.* Corollary 2.3's "for λ small" is η ≤ η_gl against Proposition 2.2 (PART-VII-ASSEMBLY.md:193-197, 258), and
   Lemma 1.1 has its own threshold. The other conditions in Part VII section 2 are on R and η_gl, not on λ.
 
-Each condition is an upper bound on the data norm, on U or on λ, so the minima meet them all. The list of III.K's
-conditions is the result of reading every occurrence of "small", "sufficient" and "below" in PART-III-K-NONLINEAR.md
-(D338); the first draft missed three of them (verifier 155's M1). □
+Each condition is an upper bound on the data norm, on U or on λ. The Nash–Moser conditions are ε_NM and ε_NM^G, read
+through A_2d; Part VII section 4's own conditions are those listed (verifier 157 checked them statement by statement);
+every other condition III.K takes is in δ_K or ε_dat by their definition. So the minima meet them all. □
+
+**The inventory of δ_K and ε_dat (found by three reads, D338-D339; not claimed complete).** The definitions above do
+not depend on this list. It records the parts found, so that E1'' can make each explicit. Each read found more: the
+first draft's keyword reading missed hits of its own keywords (verifier 155), five hypotheses that no keyword marks
+(verifier 156), and three more in statements III.K applies (verifier 157). E1'' is to finish it statement by
+statement.
+
+- *On U.* The definition of Ψ and Lemma 2.2 (PART-III-K-NONLINEAR.md:214, 219); Lemma 2.3's ε_0 (273) and its base
+  point (281); Proposition 4.2 (457-458); Part VII Lemma 3.1's equivariance (PART-VII-ASSEMBLY.md:317), inside Ψ's
+  domain.
+
+- *On |S|.* III.K Lemma 1.1 (d) (77, 90); III.B Lemma 5.2's own threshold w_0, under which its constant C holds
+  (PART-III-B-FAMILY.md:379, 385), applied at 113 and 322; Proposition 1.2's C|S| ≤ ½c_ν (114) and its use of II.C
+  Lemma 3.2 (2) (158); Lemma 2.3's supports paragraph (320); the exterior's ε_2 and C|S| < 1/24
+  (PART-III-C3-BOOSTDATA.md:84-88) and "S small, depending only on b_0, ℓ♭_0 and ℓ♭_I" (95-96); the slab's
+  (PART-IV4-SLAB.md:86).
+
+- *On the data, through Proposition 1.2.*
+  - The data map, III.C'' Proposition 4.1: γ̃ small in H³_b, (h_0, h_1) continuous in the data
+    (PART-III-C3-BOOSTDATA.md:166-168).
+  - The exterior, III.C'' Theorem 3.1 (PART-III-C3-BOOSTDATA.md:91), through III.C' Theorem 2.1's ε_0 at
+    H^{k_0, ℓ♭_0}_b (PART-III-C2-POLYHOM.md:89-92), which is Part IV'' Theorem 3.1's ε_0 at H^{14, ℓ♭_0}_b
+    (PART-IV3-NM.md:321-324, its own d := 7): a Nash–Moser threshold, ε_ext.
+  - The exterior's higher-order bounds, one threshold per order: III.C' (3.2) (PART-III-C2-POLYHOM.md:143-148), III.C'
+    Theorem 2.1's ε_1(k, ε) (96-98) and Part IV'' Theorem 3.1's ε_1 (PART-IV3-NM.md:322, 328-329), at the orders
+    III.K uses (Proposition 1.2 (3) through III.K:205).
+  - The slab, Part IV''' Theorem 2.2: ‖h_j‖_{H^{2d, ℓ♭_0}_b} + ‖k_j‖_{H^{2d}(Σ_c)} < ε_0 with Part IV''''s own d
+    (PART-IV4-SLAB.md:128-132), a second Nash–Moser threshold, ε_slab, with (k_0, k_1) from the compact part through
+    its Cauchy stability; and its higher-order bounds (134-135, 148-150).
+  - The compact part's local quasilinear theory (III.K:158, 184-186).
+
+- *On the data, elsewhere in III.K.* III.C Corollary 5.3's smallness "as in Proposition 4.4", with its own ε_0
+  depending on k, a_0 and a_I (PART-III-C-EXTERIOR.md:340-341, 476-477), applied to χ_−h_{−S} + h̃ at III.K:253 and
+  for e_S at 300; Lemma 2.3's base point in III.I's class (281), its boost defect e_S (305-309) and G_S − g_b0 (320);
+  Proposition 4.2's h_{−S} (457-458).
 
 **What is not explicit.** In Propositions 2.1-2.2, every quantity is a formula except:
 
@@ -172,23 +223,35 @@ conditions is the result of reading every occurrence of "small", "sufficient" an
 
 - the tame constants C_k (k ≤ N), C1 and C2 of III.K's map and right inverses, and the smoothing constants C_{s,t};
 
-- the parts of δ_K and of ε_dat, and A_2d;
+- δ_K and ε_dat, among whose parts are the two Nash–Moser thresholds ε_ext and ε_slab with their higher-order
+  thresholds and the data map's modulus of continuity; and A_2d;
 
-- the constants of the equivalence of the G-sup norms in ε_G;
+- the constants of the equivalence of the G-sup norms in ε_NM^G;
 
 - the record's C_J and λ_1.1 at order J;
 
 - the gluing's η_gl and C_R.
 
-The smoothing constants, the Moser parts of the map's estimates and c_ν (III.K:114) are explicit in principle. The rest
-are where section 3's arguments enter:
+Of these, the smoothing constants, the Moser parts of the map's estimates, c_ν (III.K:114), the comparisons of norms
+and the compact part's local theory (energy estimates and Cauchy stability on a compact domain) are explicit in
+principle. None of the others is yet shown explicit. Section 3's arguments enter:
 
-- the map's constants, through III.J's inverse operators N_ι+(z)⁻¹ and S_λ0 (PART-III-J-PARAM.md:95, 225-232) and
-  through h_{−S} (the local theory, III.K:184-186);
+- the map's constants and A_2d, through III.J's inverse operators N_ι+(z)⁻¹ and S_λ0 (PART-III-J-PARAM.md:95,
+  225-232), and through h_{−S}, whose bounds come from the compact part's local theory and from the exterior and slab
+  solutions (III.K:184-186, 205-206);
 
-- the right inverses' constants and δ_K, through the linear theory;
+- the right inverses' constants, δ_K and Lemma 2.3's and Proposition 4.2's parts of ε_dat, through the linear theory;
+
+- ε_ext and ε_slab, through the linear theory of Parts IV-IV''' (the ledger finds no N-site there; its one N-site in
+  Part IV, PART-IV7-TFACE.md:383, is in Part IV''''''s constraint damping, which enters III.K through III.E's
+  parameters, III.K:49);
+
+- the data map's modulus of continuity: not yet examined (E1'');
 
 - η_gl and C_R, through [CD03]'s implicit function theorem (E5).
+
+C_J and λ_1.1 are not yet checked (E5), and ε_NM^G's equivalence constants are explicit once the action's derivatives
+are bounded.
 
 ## 3. Where the numbers are lost: four kinds of argument
 
@@ -257,6 +320,10 @@ file, line, class, the statement it serves, the constant it hides, and an excerp
 
 - **E1'. The loss d.** Add up III.J''''s losses part by part, with k'' and d1, so that α and N become numbers.
 
+- **E1''. The inventory.** Finish section 2's inventory of δ_K and ε_dat statement by statement, and unfold each
+  part (ε_ext, ε_slab and their higher orders, the data map, III.C's and III.B's thresholds) into its own proof's
+  constants, as section 2 does for III.K.
+
 - **E2. Tangherlini, mode by mode.**
   - *The problem.* The operators of III.D, III.F and IV at b0, separated over the harmonics of S³, give radial ODE
     families with a regular singular point at the horizon and an irregular one at infinity, as in Goldstein–Jejjala.
@@ -275,16 +342,16 @@ file, line, class, the statement it serves, the constant it hides, and an excerp
     contains arguments of kinds N1-N4 is still to be checked (E1 covered proof5 only).
   - *The gluing's η_gl and C_R.* These come through [CD03]'s implicit function theorem, whose linearised operator's
     invertibility is an N1 step.
-  - *ε_dat.* Proposition 1.2's part is the local quasilinear theory on a compact domain (energy estimates and Cauchy
-    stability), explicit in principle; Lemma 2.3's and Proposition 4.2's parts go through III.I's class and the right
-    inverses (E2-E4).
-  - *ε_G.* The norm-equivalence constants of a compact group acting smoothly: explicit once the action's derivatives
-    are bounded.
+  - *ε_dat.* The compact part's local quasilinear theory (energy estimates and Cauchy stability) is explicit in
+    principle. The exterior and slab thresholds are Nash–Moser runs over Part IV's linear theory (E2-E4 apply there
+    too), and Lemma 2.3's and Proposition 4.2's parts go through III.I's class and the right inverses.
+  - *ε_NM^G.* The norm-equivalence constants of a compact group acting smoothly: explicit once the action's
+    derivatives are bounded.
 
 - **E6. Assemble.** Feed the numbers through section 2's formulas.
 
 *Size.* E2-E4 rewrite, with numbers, the parts of the linear theory that the right inverses and III.J's inverse
-operators rest on (Parts I, II.F, III.D-III.H'', III.J). That is comparable to the original write-out of those parts,
+operators rest on (Parts I, II.F, III.D-III.H'', III.J, IV). That is comparable to the original write-out of those parts,
 plus certified computation. It is not one session's work. E1 is done; E1' is bookkeeping; E2 at one operator is the
 first real test.
 
@@ -298,8 +365,17 @@ first real test.
 - Through the search index only: Datchev–Jin (title, abstract).
 
 - The proof: PART-II-G-NASHMOSER.md:101-173; PART-III-K-NONLINEAR.md sections 1-4; PART-III-J3-TAME.md:288-292;
-  PART-III-J-PARAM.md:95, 225-232; PART-VII-ASSEMBLY.md:104-108, 256-266, 366-371 and 395-410; the sites of section 3
-  and EFFECTIVE-LEDGER.tsv.
+  PART-III-J-PARAM.md:95, 225-232; PART-VII-ASSEMBLY.md:104-108, 256-266, 317, 366-371, 386 and 395-410; for the
+  inventory, PART-III-C3-BOOSTDATA.md, PART-III-C2-POLYHOM.md, PART-IV3-NM.md, PART-IV4-SLAB.md, PART-III-C-EXTERIOR.md,
+  PART-III-B-FAMILY.md and PART-IV7-TFACE.md at the lines cited; the sites of section 3 and EFFECTIVE-LEDGER.tsv.
 
 - Verifier 155 (D338), read of section 2: Proposition 2.1 confirmed; M1 (three smallness thresholds missing), M2 (the
-  loss d, ε_G's constants, the map's inverse operators), m1-m5 and n1-n6, all seated in this revision.
+  loss d, ε_G's constants, the map's inverse operators), m1-m5 and n1-n6, all seated (D338).
+
+- Verifier 156 (D339): MAJ-1 (the exterior, slab and data-map thresholds Proposition 1.2 imports), MIN-1 (ε_G is a
+  threshold on ‖P5(Ψ(0))‖, now ε_NM^G / A_2d), MIN-2 (the "rest" made exhaustive), NIT-1 to NIT-4, all seated (D339).
+
+- Verifier 157 (D339): the D339 repairs correct, ε_NM^G / A_2d correct; MAJ-1 (three more cited thresholds: the
+  higher-order exterior and slab bounds, III.C Corollary 5.3's, III.B Lemma 5.2's w_0), MIN-1 (the Part IV N-site's
+  role), NIT-1 to NIT-5. Seated by defining δ_K and ε_dat instead of enumerating them, and keeping the enumeration
+  as an inventory not claimed complete.

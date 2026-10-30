@@ -4489,3 +4489,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   to cite an existing file with a keyword within two lines; classes are a reading. Next: E1' (add up d), E2 (a
   certified N1 constant at Tangherlini for one operator).
 - CERTIFY-10L5.md section 6a: F2's scheme from the Ricci components' second derivatives (computed).
+
+### 4.262 lambda_1 and delta: verifiers 156-157; delta_K and eps_dat defined (D339)
+
+- Verifier 156: 155's findings repaired; MAJ-1 the exterior (III.C'' Thm 3.1 -> III.C' Thm 2.1 -> IV'' Thm 3.1,
+  Nash-Moser, d := 7), slab (IV''' Thm 2.2, Nash-Moser) and data-map (III.C'' Prop 4.1) thresholds that III.K Prop 1.2
+  imports; MIN-1 eps_G is a threshold on ||P5(Psi(0))||, now eps_NM^G / A_2d (VII Lemma 3.1 at U = 0); MIN-2; nits.
+- Verifier 157: those repairs correct; MAJ-1 three more (higher-order exterior and slab thresholds, III.C Cor 5.3's,
+  III.B Lemma 5.2's w_0); MIN-1 the Part IV N2 site (IV7:383) is constraint damping, not on the exterior/slab path.
+- Repair: Proposition 2.2 now defines delta_K and eps_dat as the suprema below which every smallness hypothesis III.K
+  takes, directly or through what it applies, holds (finitely many, so positive); the enumeration is an inventory, not
+  claimed complete; E1'' finishes it. To be read.

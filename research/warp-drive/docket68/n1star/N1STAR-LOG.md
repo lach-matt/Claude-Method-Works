@@ -6131,3 +6131,12 @@ EFFECTIVE-LEDGER.tsv lists 165 sites in proof5, 35 of which hide a constant; the
 foundations. A number would need those constants made explicit with certified computation at Tangherlini: a programme
 of the size of the linear write-out itself (section 5). The feasibility study's solver design is recorded
 (CERTIFY-10L5.md section 6a).
+
+**D339 (2026-10-30): the reduction read twice more; the thresholds defined rather than listed.** Two more readers went
+through the reduction of lambda_1 and delta. Each confirmed the previous repairs and each found smallness conditions
+still missing from the list: first those the nonlinear step takes from the exterior and slab solutions it imports,
+which are two more Nash-Moser arguments; then three more inside statements it applies. A list made by hand had now
+been incomplete three times. So the reduction now defines the two remaining thresholds directly, as the largest radius
+and the largest data size at which every smallness condition of the nonlinear step holds. They are positive because
+there are finitely many. The list of their parts is kept beside them as an inventory, marked as not claimed complete,
+for the work of making each part a number. To be read.
