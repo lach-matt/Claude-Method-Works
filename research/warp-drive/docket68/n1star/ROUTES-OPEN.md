@@ -4302,3 +4302,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Paper (D323): Theorem 4 restated as Part VII's Theorem 0.2 ((i) on Hintz's initial surface; (ii) in Hintz's data
   class; rate t*^(-2-eps) for eps < eps_K); sections 8.6-8.7, abstract and introduction aligned; a paragraph records
   (VII1). response5.py passes.
+
+### 4.248 Verifier 141 seated (D324): Part VII and VI.C proved; III.A' and III.I(13) proved
+
+- Report: the D323 repairs all correct (3 NIT, seated: invariant parameter balls in |mu - mu_0| + |A|_F, the c_C
+  citation, steps (0)-(4)). III.A' (harm5 K2-K3 lists re-run) and III.I(13) (PART-III-I14-LEVELS.md): repairs correct.
+- Paper: B-m1, Theorem 4 now fixes l_0 in (3, 4) and eps < eps_K first and takes Theorem 1 with K large on an enlarged
+  domain; B-m2, sections 8.4 and 8.6 give t*^(-2-eps) for every eps < eps_K; notes: the second fundamental form's
+  terms, conormal remainders, 'a continuation of their data' in the abstract and introduction, 8.7's slice.
+- Status: every part of proof5 is proved except II.B, II.C, II.C', II.D, II.D', II.E (verified D197-D207).
+- Next: verifier 142 on the old repairs of II.B-II.E and the D324 paper repairs.

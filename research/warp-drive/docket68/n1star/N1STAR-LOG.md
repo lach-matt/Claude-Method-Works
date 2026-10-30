@@ -5975,3 +5975,10 @@ are averaged as whole families; and the nested cut-off functions are chosen symm
 by one could break their nesting. In the parameter part, the order of choices had become circular after the last change:
 one decay rate must now be chosen after the data classes. The trapping and horizon parts are now proved: the reader
 found every earlier repair correct.
+
+**D324 (2026-10-30): the assembly proved.** A further reader checked the repairs to the assembly and the parameter part
+and found them correct, so both are now proved. It also re-checked two older parts left at the verified stage, the
+spherical harmonics on the three-sphere and one part of the cone analysis, re-running their checks, and found their
+repairs correct: both are now proved. In the paper, the settling theorem's quantifiers now come in the right order: the
+data class and the decay rate are fixed first, and Theorem 1 is taken at a high enough order on an enlarged domain. The
+rate is stated as just below the earlier value everywhere it appears.

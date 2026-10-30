@@ -41,17 +41,18 @@ at past null infinity, where before the shell they are the black hole exactly an
 prescribed one at every λ (Theorem 2). At past null infinity they admit Bondi coordinates and an expansion in r^(−1/2),
 and the five-dimensional Bondi mass law holds for them (Theorem 3): their Bondi mass is μ(v) + O(λ) while the shell
 passes and μ + (2/9) λ² A² ∫ env'² + O(λ³) after it, the second-order rate the numerics measure, with its coefficient.
-Beyond that domain, outside the black hole, we deduce without proving that in the class the solutions settle at late
-times to five-dimensional Schwarzschild–Tangherlini, and that every perturbation of them without symmetry that is small
-in Hintz's data class settles to a slowly rotating Myers–Perry black hole: Hintz's proof of the nonlinear stability of
-Kerr carried into five dimensions, every input that depends on the dimension computed at Schwarzschild–Tangherlini and
-deduced at nearby Myers–Perry parameters, his companion papers' arguments read at source, and the proofs of theirs the
-route uses carried to five dimensions by modification, every place where a full-text census of the source finds the
-dimension computed, and every other deduced step placed on its computed and read inputs and on the modification steps,
-each now written out at n = 4 against its source proof, at proof level but for one the supplement names; the
-completeness of those censuses, evidenced by two methods and not proved, and the deductions themselves, written out at
-proof level and read by independent verifiers but not proofs checked at the level of the theorem's statement, separate
-this from a proof (Theorem 4). We list what is not proved, the application at physical wavelengths among it.
+Beyond that domain, outside the black hole, we deduce without proving that in the class a continuation of their data
+beyond a ball about the hole settles at late times to five-dimensional Schwarzschild–Tangherlini, and that every
+perturbation of them without symmetry that is small in Hintz's data class settles to a slowly rotating Myers–Perry black
+hole: Hintz's proof of the nonlinear stability of Kerr carried into five dimensions, every input that depends on the
+dimension computed at Schwarzschild–Tangherlini and deduced at nearby Myers–Perry parameters, his companion papers'
+arguments read at source, and the proofs of theirs the route uses carried to five dimensions by modification, every
+place where a full-text census of the source finds the dimension computed, and every other deduced step placed on its
+computed and read inputs and on the modification steps, each now written out at n = 4 against its source proof, at proof
+level but for one the supplement names; the completeness of those censuses, evidenced by two methods and not proved, and
+the deductions themselves, written out at proof level and read by independent verifiers but not proofs checked at the
+level of the theorem's statement, separate this from a proof (Theorem 4). We list what is not proved, the application at
+physical wavelengths among it.
 
 ---
 
@@ -107,24 +108,24 @@ five-dimensional symmetry class, not an answer to Problem 8.6 as posed, which co
 solutions are also constructed from the waves' free data at past null infinity (Theorem 2, section 3), and at past null
 infinity they obey the five-dimensional Bondi mass law with the prescribed radiation field (Theorem 3, section 3).
 
-Beyond that domain, and outside the black hole, we deduce — we do not prove — that in the class the solutions settle at
-late times to five-dimensional Tangherlini of a nearby mass, and that their perturbations without symmetry that are
-small in Hintz's data class settle to slowly rotating Myers–Perry black holes (Theorem 4, section 8.8). The route is
-Hintz's proof of the nonlinear stability of Kerr [Hin26], carried into five dimensions: every input that depends on the
-dimension is computed at Tangherlini, his arguments and those of his companion papers [Hin26a, Hin26c, Hin23a] are read
-at source for where the dimension enters, the class removes his boosts, rotations and their gauge modifications, and
-without it they are restored, with the inputs at every nearby Myers–Perry parameter deduced by the perturbative route of
-[HHV21] and the charges by which the gluing at large radius matches the Myers–Perry family computed, the gluing deduced.
-What separates the deduction from a proof is stated in section 8.8. The proofs of those papers that the route uses —
-[Hin26c]'s estimates, [Hin26a]'s constraint damping, [Hin23a]'s at null infinity, [CD03]'s gluing, Hintz's boost and
-[HHV21]'s perturbation arguments — are carried to five dimensions by modification, every place a full-text census of the
-source finds the dimension computed. Every other deduced step is placed on its computed and read inputs and on the
-modification steps' conclusions, at proof level but for one that section 8.8 names, and each modification step lists the
-places where the dimension changes it, each value computed, deduced in an earlier section, arithmetic in n, or the
-record's choice. Each modification step is now written out at n = 4 against its source proof. What remains is that those
-censuses are complete, which two methods evidence and nothing proves; the statements at n = 4 that thirty-four of the
-steps took as readings are each settled, written out or READ, Hintz's spectral theory re-run proof by proof on bundles
-among them (section 8.8).
+Beyond that domain, and outside the black hole, we deduce — we do not prove — that in the class a continuation of their
+data beyond a ball about the hole settles at late times to five-dimensional Tangherlini of a nearby mass, and that their
+perturbations without symmetry that are small in Hintz's data class settle to slowly rotating Myers–Perry black holes
+(Theorem 4, section 8.8). The route is Hintz's proof of the nonlinear stability of Kerr [Hin26], carried into five
+dimensions: every input that depends on the dimension is computed at Tangherlini, his arguments and those of his
+companion papers [Hin26a, Hin26c, Hin23a] are read at source for where the dimension enters, the class removes his
+boosts, rotations and their gauge modifications, and without it they are restored, with the inputs at every nearby
+Myers–Perry parameter deduced by the perturbative route of [HHV21] and the charges by which the gluing at large radius
+matches the Myers–Perry family computed, the gluing deduced. What separates the deduction from a proof is stated in
+section 8.8. The proofs of those papers that the route uses — [Hin26c]'s estimates, [Hin26a]'s constraint damping,
+[Hin23a]'s at null infinity, [CD03]'s gluing, Hintz's boost and [HHV21]'s perturbation arguments — are carried to five
+dimensions by modification, every place a full-text census of the source finds the dimension computed. Every other
+deduced step is placed on its computed and read inputs and on the modification steps' conclusions, at proof level but
+for one that section 8.8 names, and each modification step lists the places where the dimension changes it, each value
+computed, deduced in an earlier section, arithmetic in n, or the record's choice. Each modification step is now written
+out at n = 4 against its source proof. What remains is that those censuses are complete, which two methods evidence and
+nothing proves; the statements at n = 4 that thirty-four of the steps took as readings are each settled, written out or
+READ, Hintz's spectral theory re-run proof by proof on bundles among them (section 8.8).
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
 coupled to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an
@@ -918,8 +919,8 @@ physical state: the class loses one order of decay at the Kerr face where he los
 forcing at order 3 + ε_K there (`sharp5.py`; computed, the bookkeeping deduced). His Theorems 12.3 and 12.8, the
 exterior theorems of his section 5 with the radiative order 3/2 at null infinity, and his Theorem 13.1 follow: in the
 class, G-invariant data near five-dimensional Tangherlini of mass m₀ that satisfy the constraints, have his decay and
-are small have a G-invariant vacuum development, and it settles to Tangherlini of a nearby mass at the rate t*^(−2−ε_K)
-in spatially compact sets (supplement section 10.49; deduced, on the readings of section 8.5).
+are small have a G-invariant vacuum development, and it settles to Tangherlini of a nearby mass at the rate t*^(−2−ε),
+for every ε < ε_K, in spatially compact sets (supplement section 10.49; deduced, on the readings of section 8.5).
 
 ### 8.5 The readings taken up
 
@@ -965,12 +966,12 @@ at low energy the eleven zero energy states exist at every nearby parameter and 
 semicontinuity, after which Hintz's augmented operator gives invertibility near zero (supplement section 10.60; deduced).
 
 Second, his bookkeeping at the Kerr face with two orders of loss, run over every harmonic type at every exponent at
-timelike infinity the sources carry, eliminates six pure gauge classes, records fourteen, and records the physical states
-of scalar, vector and tensor type at l = 2 — the tensor type the one kind four dimensions lack — with every recorded
-term's image above the threshold (`general5.py` G1; computed, the steps deduced, supplement section 10.61). His Theorem
-13.1 follows in five dimensions without the class: small data near Tangherlini with no symmetry have a vacuum development
-that, its initial slice boosted by a small Lorentz boost, settles to a Myers–Perry metric of nearby mass and small spin
-at the rate t*^(−2−ε_K) in spatially compact sets (supplement section 10.62; deduced).
+timelike infinity the sources carry, eliminates six pure gauge classes, records fourteen, and records the physical
+states of scalar, vector and tensor type at l = 2 — the tensor type the one kind four dimensions lack — with every
+recorded term's image above the threshold (`general5.py` G1; computed, the steps deduced, supplement section 10.61). His
+Theorem 13.1 follows in five dimensions without the class: small data near Tangherlini with no symmetry have a vacuum
+development that, its initial slice boosted by a small Lorentz boost, settles to a Myers–Perry metric of nearby mass and
+small spin at the rate t*^(−2−ε), for every ε < ε_K, in spatially compact sets (supplement section 10.62; deduced).
 
 Third, gluing a perturbation at large radius to the family would have to match all fifteen Poincaré charges, which a
 translated, rotated and boosted Myers–Perry metric supplies — in [CD03]'s words, "the only element missing is an
@@ -988,9 +989,9 @@ being E = 3πμ/8 and J = (πμ/4)A ([ER08] (34)) — is a local diffeomorphism 
 After the shell, on {v > v_end}, every oscillating profile of the approximant vanishes — the waves are proportional to
 the envelope, and the transports of Lemma 5.3 run along lines of constant v — so there g_λ is Tangherlini of mass μ_end
 plus smooth means independent of λ times powers of λ (supplement section 10.50). The estimate of Theorem 1 holds at
-every order of derivatives k ≥ 6 with K ≥ 6, its bootstrap closing whatever k is (supplement section 10.51), so the data
-of g_λ on a τ-slice after the shell are small in every norm Hintz's theorem uses. Those data are read on Hintz's own
-initial surface, which near the hole lies in a suitably enlarged domain of the record. Beyond a ball they are glued
+every order of derivatives k ≥ 6 with K ≥ 6, its bootstrap closing whatever k is (supplement section 10.51). So, with K
+large enough for the number of derivatives needed, the data of g_λ on Hintz's initial surface near the hole, which lies
+in a suitably enlarged domain of the record, are small in every norm his theorem uses. Beyond a ball they are glued
 G-equivariantly to exact Tangherlini data on the same surface by [CD03]'s method. Its obstruction is the Killing initial
 data, of which the G-invariant ones are ∂_t's alone, so only the mass is matched, and on G-invariant data no parity
 condition is needed. The flux identity bounds the glued mass's distance from μ_end by the data's deviation, so the glued
@@ -1007,18 +1008,19 @@ which the theorem applies (finding (VII1) there).
 
 ### 8.8 Settling
 
-**Theorem 4 (deduced).** Let g_λ be the solutions of Theorem 1, with A and the envelope fixed. There are λ1 > 0 and δ >
-0 such that for λ ≤ λ1:
+**Theorem 4 (deduced).** Fix ℓ0 ∈ (3, 4) and ε < ε_K. Let g_λ be the solutions of Theorem 1, with A and the envelope
+fixed, with K large enough and on a domain enlarged as in section 8.7. There are λ1 > 0 and δ > 0 such that for λ ≤ λ1:
 
  (i) (in the class) the data of g_λ on Hintz's initial surface, continued G-equivariantly to exact Tangherlini data
      beyond a ball (section 8.7), have a G-invariant vacuum development, with the same data as g_λ on that ball, which
-     settles there to five-dimensional Tangherlini of a mass near μ_end: its difference from that metric is
-     O(t*^(−2−ε)), for every ε < ε_K, in spatially compact subsets of the exterior;
+     settles to five-dimensional Tangherlini of a mass near μ_end: its difference from that metric is O(t*^(−2−ε)) in
+     spatially compact subsets of the exterior;
 
  (ii) (without symmetry) every vacuum data set on the same surface whose difference from the data of (i) is small
-     in Hintz's data class -- polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) and a
-     remainder decaying faster than r^(−3) -- has a vacuum development that, its initial slice boosted by a small
-     Lorentz boost, settles at the same rate to a Myers–Perry black hole of mass near μ_end and small spin.
+     in Hintz's data class -- polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the metric
+     and r^(−3) and r^(−4) in the second fundamental form, and conormal remainders O(r^(−ℓ0)) and O(r^(−ℓ0−1)) -- has a
+     vacuum development that, its initial slice boosted by a small Lorentz boost, settles at the same rate to a
+     Myers–Perry black hole of mass near μ_end and small spin.
 
 The assembly of Theorem 4 from the parts is written out at n = 4 and has been read line by line, its findings seated
 (supplement `proof5/PART-VII-ASSEMBLY.md`). It narrowed (ii). An earlier version also covered perturbations that merely

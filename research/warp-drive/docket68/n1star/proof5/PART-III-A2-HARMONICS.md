@@ -1,14 +1,15 @@
 # Part III.A$'$. Spherical harmonics on the three-sphere, and the Minkowski operators, at n = 4
 
-*Status.* Verified (D221). Written (D218); read line by line by the ninety-second verifier, whose two minor findings and
-six nits are seated (section 3.4). This part proves, at spatial dimension $n = 4$, what [Hin26] section 2.4 (pp. 63-67)
-establishes at $n = 3$: the spherical harmonic decomposition of functions, 1-forms and symmetric 2-tensors on the sphere
-at infinity, the identities between the geometric operators on each type and the special low degrees ((2.34)-(2.35)),
-the Minkowski wave operator, symmetric gradient and divergence in the null bundle splittings near infinity (his Lemma
-2.29), the types of tensors those operators preserve ((2.43)-(2.44)), the indicial roots by type (his Definition 2.30
-and the example after it), and the indicial families of the symmetric gradient with their kernels ((2.46) and the remark
-after it). At $n = 4$ the sphere is $\mathbb S^3$, the constants of his Lemma 2.29 change, and one type is new:
-transverse trace-free symmetric 2-tensors, which $\mathbb S^2$ does not carry.
+*Status.* Proved (D324: verifier 141 read the D221 repairs, correct, re-running harm5's K2-K3 list checks). Verified
+(D221). Written (D218); read line by line by the ninety-second verifier, whose two minor findings and six nits are
+seated (section 3.4). This part proves, at spatial dimension $n = 4$, what [Hin26] section 2.4 (pp. 63-67) establishes
+at $n = 3$: the spherical harmonic decomposition of functions, 1-forms and symmetric 2-tensors on the sphere at
+infinity, the identities between the geometric operators on each type and the special low degrees ((2.34)-(2.35)), the
+Minkowski wave operator, symmetric gradient and divergence in the null bundle splittings near infinity (his Lemma 2.29),
+the types of tensors those operators preserve ((2.43)-(2.44)), the indicial roots by type (his Definition 2.30 and the
+example after it), and the indicial families of the symmetric gradient with their kernels ((2.46) and the remark after
+it). At $n = 4$ the sphere is $\mathbb S^3$, the constants of his Lemma 2.29 change, and one type is new: transverse
+trace-free symmetric 2-tensors, which $\mathbb S^2$ does not carry.
 
 *Method.* Every statement is proved on the unit sphere $\mathbb S^N$ and on $\mathbb R^{1+(N+1)}$ for general $N\ge2$,
 from the Ricci identity and the Gauss formula, and then read at $N = 3$. At $N = 2$ each formula is the source's, entry

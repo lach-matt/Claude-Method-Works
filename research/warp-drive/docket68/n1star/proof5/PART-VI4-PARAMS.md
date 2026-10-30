@@ -1,14 +1,14 @@
 # Part VI.C: the parameters
 
 *Status.* Written (D320); amended (D322: rows d1-d2 take III.I$''''''''''$'s (H4), finding (VI.C4)); verified (D323:
-verifier 140's two minor findings and four notes repaired, finding (VI.C5)). Parts III-VI state conditions on the
-parameters they leave open: the constraint damping gauge $E_C$, the gauge-modification parameters $E_\Upsilon$, the
-weights at $\mathscr I^+$, $\iota^+$ and $K^+$, the data classes, and the Myers-Perry parameter set. This part lists
-every such condition with its source (section 1), and shows that they can all be met, in an order in which each
-threshold depends only on choices already made (Theorem 2.1). It also records two checks of quantifiers (section 3).
-Theorem 1.1 of III.E is proved at one point of $(v_C,e_C,C_0)$ and for $\gamma_C>1/h_*$ outside a countable set, and
-every part uses one value of $\gamma_C$, chosen once. The open item of III.F$''$ section 5 is closed by III.H Corollary
-4.3.
+verifier 140's two minor findings and four notes repaired, finding (VI.C5)); proved (D324: verifier 141 read the
+repairs, correct; one note seated). Parts III-VI state conditions on the parameters they leave open: the constraint
+damping gauge $E_C$, the gauge-modification parameters $E_\Upsilon$, the weights at $\mathscr I^+$, $\iota^+$ and $K^+$,
+the data classes, and the Myers-Perry parameter set. This part lists every such condition with its source (section 1),
+and shows that they can all be met, in an order in which each threshold depends only on choices already made (Theorem
+2.1). It also records two checks of quantifiers (section 3). Theorem 1.1 of III.E is proved at one point of
+$(v_C,e_C,C_0)$ and for $\gamma_C>1/h_*$ outside a countable set, and every part uses one value of $\gamma_C$, chosen
+once. The open item of III.F$''$ section 5 is closed by III.H Corollary 4.3.
 
 ## 1. The conditions
 
@@ -76,10 +76,12 @@ keeps rows d1-d2.
 B(c_0)$ of III.F$''$ Proposition 4.1, which fixes the modification parameters first and then allows every $c_0>0$
 (PART-III-F3-MODES.md:248-249). Let $\mathcal B_*$ be an open ball about $b_0$ whose closure lies in $\mathcal
 B_{\mathrm{VI}}$, in every neighbourhood of row b2, and in $\mathcal B_1$, with (B5). These are finitely many
-neighbourhoods of $b_0$, fixed by steps (0)-(2). III.H3 imposes no lower bound on $\mathcal B_*$
-(PART-III-H3-UNIFORM.md:64), so shrinking it is allowed. Every operator family of Parts I-IV is then taken over
-$\bar{\mathcal B}_*$, a compact set on which (Dyn) holds (step 0), as (H5) and its extensions ask. Last, $\mathcal B_*$
-is shrunk as III.I(16) asks (row b4), which depends on steps (3)-(4) only.
+neighbourhoods of $b_0$, fixed by steps (0)-(4). Balls are taken in the norm $|\mu-\mu_0|+|A|$, $|A|$ the Frobenius
+norm, which is invariant under conjugation by $O(4)$, so every parameter ball is $O(4)$-invariant (Part VII Lemma 3.1
+uses this). III.H3 imposes no lower bound on $\mathcal B_*$ (PART-III-H3-UNIFORM.md:64), so shrinking it is allowed.
+Every operator family of Parts I-IV is then taken over $\bar{\mathcal B}_*$, a compact set on which (Dyn) holds (step
+0), as (H5) and its extensions ask. Last, $\mathcal B_*$ is shrunk as III.I(16) asks (row b4), which depends on steps
+(3)-(4) only.
 
 (6) $\epsilon$ and $d_1$ of III.K Theorem 4.3, which depend on all of the above.
 

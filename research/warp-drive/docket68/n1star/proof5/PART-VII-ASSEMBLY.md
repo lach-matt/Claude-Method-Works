@@ -1,21 +1,22 @@
 # Part VII: Theorem 4 assembled
 
-*Status.* Written (D322); verified (D323: verifier 140's three minor findings and twelve notes repaired). This part
-proves the paper's Theorem 4 (RESPONSE-HL-5D.md section 8.8) from Parts III-VI and the record, in the form of Theorem
-0.2. In (i), the data of the record's solution after the shell, on III.K's initial surface, are continued
-G-equivariantly to exact Tangherlini data far out (section 2). Their development is G-invariant and settles to
-Tangherlini, by III.K run in the class (section 3). In (ii), every perturbation of those data that is small in III.K's
-data class has a development settling to a Myers-Perry metric (III.K Theorem 4.3). Five findings change what the paper
-states (section 5). (VII1): (ii) is stated for perturbations in III.K's data class. The record's gluing of a general
-decaying perturbation (10.63) replaces its data near infinity, and the late-time solution near the hole depends on those
-data. (VII2): III.K's data weight must exceed $3+\epsilon_+$; VI.C's rows d1-d2 omitted this, and they are repaired.
-(VII3): the initial surface is III.K's $\Sigma_{\mathrm{IVP}}$, not the record's $\tau$-slice, so no Cauchy stability
-argument is needed. (VII4): the rate is $t_*^{-(\alpha-2)+\epsilon}$, slightly below the paper's $t_*^{-2-\epsilon_K}$,
-and the record's solution and the settling development are related through their common data on a ball. (VII5): the
-class run needs the choices of Parts III-IV made O(4)-equivariant, which is possible (Lemma 3.1): cut-offs and gauge
-1-forms are radial, and linear maps and families given by existence statements are averaged. The inputs are III.K
-Theorem 4.3, Part V's gluing lemmas, VI.C Theorem 2.1, II.G Theorem 2.1, and from the record sections 0-2, 10.50 (a) and
-the dependence of Theorem E on its order (written out in Lemma 1.1).
+*Status.* Written (D322); verified (D323: verifier 140's three minor findings and twelve notes repaired); proved (D324:
+verifier 141 read the repairs, correct; three notes seated). This part proves the paper's Theorem 4 (RESPONSE-HL-5D.md
+section 8.8) from Parts III-VI and the record, in the form of Theorem 0.2. In (i), the data of the record's solution
+after the shell, on III.K's initial surface, are continued G-equivariantly to exact Tangherlini data far out (section
+2). Their development is G-invariant and settles to Tangherlini, by III.K run in the class (section 3). In (ii), every
+perturbation of those data that is small in III.K's data class has a development settling to a Myers-Perry metric (III.K
+Theorem 4.3). Five findings change what the paper states (section 5). (VII1): (ii) is stated for perturbations in
+III.K's data class. The record's gluing of a general decaying perturbation (10.63) replaces its data near infinity, and
+the late-time solution near the hole depends on those data. (VII2): III.K's data weight must exceed $3+\epsilon_+$;
+VI.C's rows d1-d2 omitted this, and they are repaired. (VII3): the initial surface is III.K's $\Sigma_{\mathrm{IVP}}$,
+not the record's $\tau$-slice, so no Cauchy stability argument is needed. (VII4): the rate is
+$t_*^{-(\alpha-2)+\epsilon}$, slightly below the paper's $t_*^{-2-\epsilon_K}$, and the record's solution and the
+settling development are related through their common data on a ball. (VII5): the class run needs the choices of Parts
+III-IV made O(4)-equivariant, which is possible (Lemma 3.1): cut-offs and gauge 1-forms are radial, and linear maps and
+families given by existence statements are averaged. The inputs are III.K Theorem 4.3, Part V's gluing lemmas, VI.C
+Theorem 2.1, II.G Theorem 2.1, and from the record sections 0-2, 10.50 (a) and the dependence of Theorem E on its order
+(written out in Lemma 1.1).
 
 ## 0. Setting and statement
 
@@ -288,7 +289,8 @@ invariant set. No averaging is used; averaging separately could break the nestin
 PART-III-E-CONSTRAINT.md:19-21). They are stationary, lie in $|x|^{-1}C^\infty$ or are supported in $\{|x|<5R_1\}$, and
 equal $|x|^{-1}dt$ or $|x|^{-1}(dt-v_C\,d|x|)$ for large $|x|$. The proofs use the specific forms $c_\Upsilon =
 \zeta(|x|)|x|^{-1}dt$, $c_{\Upsilon,H} = -\frac12\chi(|x|)\,d|x|$ (PART-III-D3-SYMSTATES.md:30-32) and $c_C$ of
-PART-IV5-CDMODES.md:36-38, which are $O(4)$-invariant; no averaging is needed.
+PART-IV5-CDMODES.md:36-38 (the record's 10.49, N1STAR-PROOF.md:3071-3075, whose coefficients are functions of $r$ only),
+which are $O(4)$-invariant; no averaging is needed.
 
 (C3) *Linear maps given by existence statements:* $\omega_{\mathrm s1}(S)$ and $\breve\omega(S)$ (III.D$''$ Proposition
 3.1 at $b_0$, linear in $S\in\mathcal S_1$; PART-III-I5-UNBOOST.md:63-66); the states and towers of III.G$''$ Table 1.1,
@@ -303,7 +305,8 @@ $h^{\le1}_{b,\mathrm s1}$, $h_{b,\mathrm v1}$ and $h^{\le2}_{b,\mathrm v1}$, cho
 PART-III-I15-AUGMENT5.md Lemma 2.1 (:118-122). Replace a family $L_b$ by $L^{O(4)}_b := \int_{O(4)}\sigma_*\circ
 L_{\sigma^{-1}\cdot b}\circ\sigma^{-1}\,d\sigma$. Then $\sigma_*\circ L^{O(4)}_b\circ\sigma^{-1} = L^{O(4)}_{\sigma\cdot
 b}$, and the average keeps the tower relations for $L_b$ (natural, given (C2)), smoothness in $b$, the $b$-independent
-leading terms, and the value at $b_0$ once (C3) is applied there.
+leading terms, and the value at $b_0$ once (C3) is applied there. The parameter balls are $O(4)$-invariant, being balls
+in the conjugation-invariant norm of VI.C step (5).
 
 (C4) *The complement $\mathcal V'$* of PART-III-I10-CORR4.md:89-91, which is 0 at $b_0$ (:93-94).
 
