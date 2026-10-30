@@ -5950,3 +5950,10 @@ neighbourhood of the static black hole. Each part says how small or large its nu
 such condition with where it is stated and shows they can all be met at once, by choosing in an order where each bound
 depends only on what was chosen before. It also confirms that the one gap left open in the mode-stability part was
 closed by a later low-frequency argument.
+
+**D321 (2026-10-30): the trapping part checked.** An independent reader went through the part on the trapped light rays
+and the global behaviour of light near the black hole, recomputing the separation identities and the rates by hand. No
+major gap. One minor one: a light ray outside the horizon that approaches it forever without crossing had not been ruled
+out. It is now: near the horizon's radial set a quantity grows along every forward ray, so a ray cannot settle there.
+Thirteen smaller notes (notation, constants, the order of a few quantifiers) are repaired, and in the horizon part the
+transported inner product now carries the Jacobian of the diffeomorphism, which makes an identity exact.

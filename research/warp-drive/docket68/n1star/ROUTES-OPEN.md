@@ -4256,3 +4256,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   - III.D Proposition 6.3 is implied by III.D' Proposition 4.1.
   - III.F'' section 5 is closed by III.H Corollary 4.3.
 - Next: verifier 139's report (VI.B', D318); Part VII, the assembly of Theorem 4, then one verifier on VI.C and VII.
+
+### 4.245 Verifier 139 seated (D321): Part VI.B' verified
+
+- Report: 0 MAJOR. VI.B': 1 MINOR, 13 NIT; the D318 repairs: 1 MINOR, 2 NIT; every other D318 repair correct.
+- A-m1 (VI.B' Proposition 4.1): an exterior curve with r -> r_+ forward and covector -> fibre infinity was not
+  excluded. Now: its forward limit set lies in dR_pm (by (H4)), so it eventually lies in N, where L > 0 does not
+  decrease forward; contradiction. L and N are defined before the horizon paragraph (n9, n10), and the half-line
+  argument covers exterior curves in both directions and interior curves backward (n5, n6).
+- Notes: E != 0 in N (n1); C_eps e^{eps|s|} (n2); Lemma 3.2 at the rotated point (n3); Z_1, Z_2, Z_2' as families
+  (n4); Sigma_{z0} = Sigma^flat_{z0} on O and a fixed neighbourhood for (H5) (n7); t - t_* = psi - T_mu (n8);
+  eps_8 <= eps(delta) (n11); a notation paragraph (n12); S2, S6 and Sources (n13).
+- VI.B B-m1: h' := |det D Psi_b| B_b^*(h o Psi_b) B_b, so Im_{h'} of the conjugate is the conjugate of Im_h exactly.
+  B-n1: Phi_mu fixes x. VI.A B-n2: r_h = R_1 (III.B section 2).
+- Status: VI.B' verified (D321); VI.B verified (D318), its repairs read, one further minor repaired, to be read.
+- Next: Part VII (Theorem 4 assembled from Parts I-VI); then verifier 140 on VI.C, VII and the D321 repairs.

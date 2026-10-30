@@ -1,12 +1,13 @@
 # Part VI.B: the horizon near $b_0$
 
 *Status.* Written (D316); verified (D318: verifier 138's three minor findings and six notes repaired, findings
-(VI.B3)-(VI.B5)). This part carries Part VI.A's horizon hypotheses, the dynamical parts of (H3) and all of (H4), from
-$b_0$ to every $b$ near $b_0$, uniformly in $b$ as (H5) asks. (H6), (K1) and the first clause of (K4) hold for every
-$b\in\mathcal B$ by VI.A Lemma 1.1. The trapped set and the global dynamics near $b_0$, (Γ.1)-(Γ.3), (K3) and (H8), are
-Part VI.B$'$. The one new fact used is that the Myers-Perry horizon is the null hypersurface $\{r_A = r_+\}$ of III.B's
-Kerr-Schild form (Lemma 1.1). It is proved here by an exact identity. The rest is continuity on compact sets, after a
-diffeomorphism that fixes the horizon (Lemma 1.2).
+(VI.B3)-(VI.B5)); the repairs read by verifier 139, whose one further minor finding (the Jacobian of $\Psi_b$ in $h'$)
+and two notes are repaired (D321). This part carries Part VI.A's horizon hypotheses, the dynamical parts of (H3) and all
+of (H4), from $b_0$ to every $b$ near $b_0$, uniformly in $b$ as (H5) asks. (H6), (K1) and the first clause of (K4) hold
+for every $b\in\mathcal B$ by VI.A Lemma 1.1. The trapped set and the global dynamics near $b_0$, (Γ.1)-(Γ.3), (K3) and
+(H8), are Part VI.B$'$. The one new fact used is that the Myers-Perry horizon is the null hypersurface $\{r_A = r_+\}$
+of III.B's Kerr-Schild form (Lemma 1.1). It is proved here by an exact identity. The rest is continuity on compact sets,
+after a diffeomorphism that fixes the horizon (Lemma 1.2).
 
 ## 1. The horizon
 
@@ -59,15 +60,18 @@ for $\tilde g_b$. The spectral families of $g_b$ and $\tilde g_b$ are conjugate:
 trivialised by $dt_*,dx^i$, pulling back by $\Psi_b$ conjugates each operator by the smooth bundle map $B_b$ taking the
 frame $\Psi_b^*dt_*,\Psi_b^*dx^i$ to $dt_*,dx^i$, smooth in $b$, with $B_{b_0} = \mathrm{Id}$. The hypotheses of Parts
 I-II are invariant under this conjugation. The scalar principal symbol is preserved. With the transported fibre inner
-product $h' := B_b^*hB_b$, $\mathrm{Im}_{h'}(B_b^{-1}PB_b) = B_b^{-1}(\mathrm{Im}_hP)B_b$, so the subprincipal
-endomorphisms in (H3)'s threshold and in (Γ.4) (I.A (1.5)) are conjugate, with the same spectra and thresholds. $\Psi_b$
-is the identity on $\{|x|\le\frac58R_1\}$ and on $\{|x|\ge\frac74R_1\}$, so the artificial boundary, the extendible and
-supported spaces there, (H2), (K1) and the structure at infinity are untouched, and smoothness in $b$ gives norms
-equivalent uniformly in $b$. The conjugated family is $\Psi_b^*$ of the family that III.D, III.F and Part IV$''''$ build
-from $g_b$, gauge 1-forms included; where they compute a threshold at $N^*\mathcal H_b$ in $g_b$'s coordinates (III.D
-Lemma 5.1), that is the threshold of the conjugated family at $N^*\{r = r_h\}$. Write $\tilde G_{0,b}$,
-$\tilde\tau_{1,b}$ for $\tilde g_b$'s symbols, and keep VI.A's radii, $\rho_\infty = |\xi|^{-1}$, and $\mathcal R_\pm =
-\{r = r_h,\eta = 0,\pm\xi>0\}$, now fixed sets.
+product $h' := |\det D\Psi_b|\,B_b^*(h\circ\Psi_b)B_b$, under which the pull-back by $\Psi_b$ followed by $B_b^{-1}$ is
+an isometry from $L^2(|dy|;h)$ to $L^2(|dx|;h')$, $y = \Psi_b(x)$, the $h'$-imaginary part of the conjugated operator is
+the conjugate of $\mathrm{Im}_hP$, exactly (without the Jacobian it would acquire $\frac12H_G\log|\det D\Psi_b|$). $h'$
+is a fibre inner product as in I.A section 1.2 (Hermitian, bounded above and below, smooth in $b$), equal to $h$ where
+$\Psi_b = \mathrm{Id}$. So the subprincipal endomorphisms in (H3)'s threshold and in (Γ.4) (I.A (1.5)) are conjugate,
+with the same spectra and thresholds. $\Psi_b$ is the identity on $\{|x|\le\frac58R_1\}$ and on $\{|x|\ge\frac74R_1\}$,
+so the artificial boundary, the extendible and supported spaces there, (H2), (K1) and the structure at infinity are
+untouched, and smoothness in $b$ gives norms equivalent uniformly in $b$. The conjugated family is $\Psi_b^*$ of the
+family that III.D, III.F and Part IV$''''$ build from $g_b$, gauge 1-forms included; where they compute a threshold at
+$N^*\mathcal H_b$ in $g_b$'s coordinates (III.D Lemma 5.1), that is the threshold of the conjugated family at $N^*\{r =
+r_h\}$. Write $\tilde G_{0,b}$, $\tilde\tau_{1,b}$ for $\tilde g_b$'s symbols, and keep VI.A's radii, $\rho_\infty
+= |\xi|^{-1}$, and $\mathcal R_\pm = \{r = r_h,\eta = 0,\pm\xi>0\}$, now fixed sets.
 
 ## 2. (H3) and (H4) near $b_0$
 
@@ -75,7 +79,8 @@ $\tilde\tau_{1,b}$ for $\tilde g_b$'s symbols, and keep VI.A's radii, $\rho_\inf
 G_{0,b}}$ is tangent to it.
 
 *Proof.* $\tilde G_{0,b}(\lambda\,dr) = \lambda^2\tilde g_b^{-1}(dr,dr) = 0$ on $\{r = r_h\}$, by Lemma 1.1 transported
-by $\Psi_b$ ($dr$ has no $dt$-component). So the Lagrangian submanifold $N^*\{r = r_h\}$ lies in the level set $\{\tilde
+by $\Psi_b$ (the change of time $\Phi_\mu$ of III.B (3.3) fixes $x$, so $g_b^{-1}(dr_A,dr_A) =
+g^{\mathrm{KS}}_b{}^{-1}(dr_A,dr_A)$). So the Lagrangian submanifold $N^*\{r = r_h\}$ lies in the level set $\{\tilde
 G_{0,b} = 0\}$. For $v$ tangent to it, $\omega(H_{\tilde G_{0,b}},v) = d\tilde G_{0,b}(v) = 0$, so $H_{\tilde G_{0,b}}$
 lies in the symplectic orthogonal of the tangent space, which is the tangent space itself. $\square$
 

@@ -86,9 +86,9 @@ which differs from $dt_*,dx^i$ by the change $dt = dt_*+\psi'\hat x\cdot dx$, sm
 ## 2. The horizon ((H3), (H4) at $b_0$)
 
 Fix I.A's radii as follows: $r_0-2\delta_0 := \frac12R_1$ (III.B's inner radius), $\delta_0 := \frac18(r_h-\frac12R_1)$,
-$r_0 := \frac12R_1+2\delta_0$, $r_2 := r_h-2\delta_0$, $r_e := r_h+\delta_0$. These are positive and ordered, as
-$r_h>R_1/\sqrt2$ (III.B Proposition 3.4). $\mathcal H := \{r = r_h\}$, $\rho_\infty := |\xi|^{-1}$ near $N^*\mathcal H$,
-and $\mathcal R_\pm := \{r = r_h,\eta = 0,\pm\xi>0\}$.
+$r_0 := \frac12R_1+2\delta_0$, $r_2 := r_h-2\delta_0$, $r_e := r_h+\delta_0$. These are positive and ordered, as $r_h =
+R_1$ (III.B section 2). $\mathcal H := \{r = r_h\}$, $\rho_\infty := |\xi|^{-1}$ near $N^*\mathcal H$, and $\mathcal
+R_\pm := \{r = r_h,\eta = 0,\pm\xi>0\}$.
 
 **Proposition 2.1.** With $\tau = t_*$, (H3) holds at $b_0$ with $\beta_0 = f'(r_h) = 2\mu^{-1/2}$, $\beta = 2/\beta_0 =
 \mu^{1/2}$, $q_\pm := |\eta/\xi|^2_{\slashed g}$ restricted to $\partial\Sigma_0$ and $c = \beta_0$. (H4) holds with

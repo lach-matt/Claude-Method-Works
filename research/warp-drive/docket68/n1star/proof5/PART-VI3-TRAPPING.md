@@ -1,15 +1,22 @@
 # Part VI.B$'$: the trapped set and the global dynamics near $b_0$
 
-*Status.* Written (D319). This part proves the remaining dynamical hypotheses for $g_b$, $b$ near $b_0$: the normally
-hyperbolic trapping (Γ.1)-(Γ.3) of (H7), $r$-normal hyperbolicity (K3) with the uniformity (K4), and the global dynamics
-(H8), with the uniformity (H5) extended to them (I.B section 1.5). With Part VI.A ((H6), (K1), and (Dyn) at $b_0$) and
-Part VI.B ((H3)-(H4) near $b_0$) this completes (Dyn) near $b_0$ (Theorem 5.1). The tool is the separability of the null
-geodesic flow of five-dimensional Myers-Perry. It holds in III.B's own Kerr-Schild coordinates, written in spheroidal
-form, with the Kerr-Schild time: $\varrho^2g_b^{-1}$ is a function of the radial variables plus a function of the
-angular ones (Lemma 0.1). This plays the part of Carter's constant in [Hin26c] section 4.2.3. It gives the trapped set
-and its stable and unstable hypersurfaces in closed form, smooth in $b$, which a perturbation argument would give only
-with finite regularity (finding (VI.B$'$2)). Every object is defined without choosing an eigenframe of $A$ (finding
-(VI.B$'$4)). `checks/trap5.py` verifies the identities.
+*Status.* Written (D319); verified (D321: verifier 139's minor finding and thirteen notes repaired). This part proves
+the remaining dynamical hypotheses for $g_b$, $b$ near $b_0$: the normally hyperbolic trapping (Γ.1)-(Γ.3) of (H7),
+$r$-normal hyperbolicity (K3) with the uniformity (K4), and the global dynamics (H8), with the uniformity (H5) extended
+to them (I.B section 1.5). With Part VI.A ((H6), (K1), and (Dyn) at $b_0$) and Part VI.B ((H3)-(H4) near $b_0$) this
+completes (Dyn) near $b_0$ (Theorem 5.1). The tool is the separability of the null geodesic flow of five-dimensional
+Myers-Perry. It holds in III.B's own Kerr-Schild coordinates, written in spheroidal form, with the Kerr-Schild time:
+$\varrho^2g_b^{-1}$ is a function of the radial variables plus a function of the angular ones (Lemma 0.1). This plays
+the part of Carter's constant in [Hin26c] section 4.2.3. It gives the trapped set and its stable and unstable
+hypersurfaces in closed form, smooth in $b$, which a perturbation argument would give only with finite regularity
+(finding (VI.B$'$2)). Every object is defined without choosing an eigenframe of $A$ (finding (VI.B$'$4)).
+`checks/trap5.py` verifies the identities.
+
+*Notation.* Some letters have two uses, kept apart by context: $b$ is the parameter and, in a frame, the second spin;
+$\Psi$ is a momentum in a frame and $\Psi_b$ is VI.B's diffeomorphism; $F$ is the function of Lemma 3.1, the momentum
+map in the proof of Lemma 3.2 and, in section 4, the shift $t-t_*$; $\Lambda$ is the invariant of section 1 and
+$\Lambda_s$ a multiplier in Proposition 3.4; $\lambda$ is the positive factor of Lemma 3.3 and Proposition 3.4, and
+$\lambda_b$ the scaling in $\iota_b$; $\beta$ is the coefficient of Lemma 0.1 (c) and $\beta_0$ the rate of (H3).
 
 ## 0. Spheroidal coordinates and the separation
 
@@ -93,15 +100,15 @@ Put $\Lambda := \mathcal K+sE^2 = |\eta|^2_{\mathbb S^3}+E^2|A\omega|^2\ge|\eta|
 A^2\omega = |A\omega|^2$. In a frame, $u := r^2$, the function $\mathcal P(u) := uP\mathcal R$ is
 $$\mathcal P = \mu\big(PE+a\Phi(u+b^2)+b\Psi(u+a^2)\big)^2+\Delta_b\big(uPE^2+(a^2-b^2)(\Phi^2(u+b^2)-\Psi^2(u+a^2))-
 \mathcal KP\big),\tag{1.1}$$
-a polynomial of degree 5 in $u$ whose coefficients are polynomials in $(\mu,a,b,E,\Phi,\Psi,\Lambda)$. Then $\mathcal
-Q(w) := w^5\mathcal P(w^{-1})$ is a polynomial in $w$ with $\mathcal Q(0) = E^2$, at $A = 0$
+a polynomial of degree 5 in $u$ whose coefficients are polynomials in $(\mu,a,b,E,\Phi,\Psi,\Lambda)$ (S2). Then
+$\mathcal Q(w) := w^5\mathcal P(w^{-1})$ is a polynomial in $w$ with $\mathcal Q(0) = E^2$, at $A = 0$
 $$\mathcal Q = E^2-\Lambda w+\mu\Lambda w^2,\tag{1.2}$$
 and $\mathcal R(r) = r^8\mathcal Q(r^{-2})/P(r)$, so $\mathcal R$ and $\mathcal Q(r^{-2})$ have the same sign and the
-same zeros, with multiplicity (S2). $\mathcal R$ and $\mathcal Q$ are homogeneous of degree 2 in
+same zeros, with multiplicity, as $P>0$. $\mathcal R$ and $\mathcal Q$ are homogeneous of degree 2 in
 $(E,\Phi,\Psi,\Lambda^{1/2})$, so their signs and zeros depend only on the normalised values in
 $$\mathcal N := \{(E,\Phi,\Psi,\Lambda):E^2+\Lambda/\mu_0 = 1,\ (|\Phi|+|\Psi|)^2\le\Lambda\}.$$
-Every nonzero covector has its normalised values in $\mathcal N$: $|\eta|^2_{\mathbb S^3}\ge\Phi^2/\sin^2\theta+\Psi^2/
-\cos^2\theta\ge(|\Phi|+|\Psi|)^2$ by Cauchy-Schwarz.
+Every covector with $E\ne0$ (as in every use below, where $E = z_0$) has its normalised values in $\mathcal N$:
+$|\eta|^2_{\mathbb S^3}\ge\Phi^2/\sin^2\theta+\Psi^2/ \cos^2\theta\ge(|\Phi|+|\Psi|)^2$ by Cauchy-Schwarz.
 
 **Lemma 1.1 (convexity).** There is $\epsilon_R>0$ such that for $|b-b_0|\le\epsilon_R$, in any frame, and every point
 of $\mathcal N$, on $[0,2/\mu_0]$: if $\Lambda\ge\mu_0/6$, then $\mathcal Q''\ge\mu_0^2/12$; if $\Lambda<\mu_0/6$, then
@@ -114,7 +121,8 @@ vanishing at $a = b = 0$, hence bounded by $C\|A\|$ on the compact set $\mathcal
 with $C$ independent of the frame ($|a|,|b|\le\|A\|$). So the difference is at most $C'\|A\|$ in $C^2([0,2/\mu_0])$,
 which is below $\min(\mu_0^2/12,\frac14)$ for $\|A\|$ small. $\square$
 
-S6 of `checks/trap5.py` samples the two bounds at $\|A\|\le0.02\mu_0^{1/2}$: the minima found are $0.30\mu_0^2$ and
+S6 of `checks/trap5.py` samples the two bounds at $\|A\|\le0.02\mu_0^{1/2}$ on the face $(|\Phi|+|\Psi|)^2 = \Lambda$ of
+$\mathcal N$, as an illustration only (the proof is the perturbation above): the minima found are $0.30\mu_0^2$ and
 $0.80$.
 
 **Corollary 1.2 (the radial structure).** Let $\epsilon_R$ also be so small that $r_+(b)^{-2}<2/\mu_0$, and let
@@ -213,13 +221,17 @@ rate (S5).
 
 (d) $dt$ and $dt_*$ are timelike for $g_b$ (III.B Lemma 3.3 (e) with $\beta = 0$, and Lemma 3.7 (a)). They are
 co-oriented: $g_b^{-1}(dt,dt_*)$ cannot vanish where both are timelike, the region is connected, and near infinity it is
-close to $\eta_{\mathrm{Mink}}^{-1}(dt,dt-d|x|) = -1$. $t-t_*$ is a function of $|x|$ (III.B (3.6)). So VI.A Lemma 0.1
-(a)-(b) carries $\Gamma_b$, $\phi_{u/s}$, (Γ.1)-(Γ.3) and the future field to $t_*$, and the cotangent lift of $\Psi_b$,
-a symplectomorphism intertwining the Hamilton fields, carries them to $\tilde g_b$. Everything in (2.1) is built from
-frame-free functions smooth in $(b,\cdot)$, and so are the two maps. At $b_0$, $\Gamma\subset\{r = r_{\mathrm{ph}}\}$
-and $r_2<r_{\mathrm{ph}}<3R_1 = \rho_1^{-1}$; by continuity $\tilde\Gamma_b$ stays in $T^*\{r_2<r<\rho_1^{-1}\}$.
-$q_{z_0}$ is continuous in $b$ and the point, and on $\Gamma_{b_0}$ it is $4z_0$ in $t_*$ (VI.A Theorem 6.1); so
-$\beta_0(b)\to2$ and $q^\Gamma\to4$ uniformly. $\square$
+close to $\eta_{\mathrm{Mink}}^{-1}(dt,dt-d|x|) = -1$. $t-t_* = \psi-T_\mu$ is a function of $|x|$ (III.B (3.3), (3.6)).
+So VI.A Lemma 0.1 (a)-(b) carries $\Gamma_b$, $\phi_{u/s}$, (Γ.1)-(Γ.3) and the future field to $t_*$, and the cotangent
+lift of $\Psi_b$, a symplectomorphism intertwining the Hamilton fields, carries them to $\tilde g_b$. Everything in
+(2.1) is built from frame-free functions smooth in $(b,\cdot)$, and so are the two maps. At $b_0$, $\Gamma\subset\{r =
+r_{\mathrm{ph}}\}$ and $r_2<r_{\mathrm{ph}}<3R_1 = \rho_1^{-1}$; by continuity $\tilde\Gamma_b$ stays in
+$T^*\{r_2<r<\rho_1^{-1}\}$. $q_{z_0}$ is continuous in $b$ and the point, and on $\Gamma_{b_0}$ it is $4z_0$ in $t_*$
+(VI.A Theorem 6.1); so $\beta_0(b)\to2$ and $q^\Gamma\to4$ uniformly. In particular, after shrinking $O$ uniformly in
+$b$, $z_0q_{z_0}>0$ on $\Sigma_{z_0}\cap O$, so there $\Sigma_{z_0}$ agrees with (H7)'s $\Sigma^\flat_{z_0} =
+\Sigma^{z_0}_{z_0} = \Sigma_{z_0}\cap\{z_0q_{z_0}>0\}$ (I.B section 1), and the $\Gamma_{u/s}$ of (2.1) are (H7)'s. For
+the continuity in $b$ that (H5) asks, $\phi_{u/s}$ are taken on a fixed neighbourhood of $\tilde\Gamma_{b_0}$ contained
+in the transported $O_b$ for every $b$ near $b_0$. $\square$
 
 ## 3. $r$-normal hyperbolicity ((K3), (K4) near $b_0$)
 
@@ -261,15 +273,15 @@ $(\theta,\phi,\psi)$ and their momenta are canonical coordinates, $d\Phi$ and $d
 = 2p_\theta\,dp_\theta+U'\,d\theta+(\dots)d\Phi+(\dots)d\Psi$. So $p\in Z$ there iff $p_\theta = 0 = U'(\theta)$. If
 $\Phi = 0$, then $U' = 2\sin\theta\cos\theta\,(\Psi^2/\cos^4\theta+a^2-b^2)>0$, since $\Psi^2/\cos^4\theta\ge
 \Psi^2/\cos^2\theta\ge3\mu_0-2\|A\|^2$ there; likewise for $\Psi = 0$. So these points of $Z$ have $\Phi\Psi\ne0$ and
-lie on the invariant 2-tori $Z_1 := \{p_\theta = 0,\ \theta = \theta_0(\Phi,\Psi)\}$, $\theta_0$ a critical point of
-$U$. Near $\omega_1 = 0$ use $y := \omega_1\in\mathbb C\cong\mathbb R^2$, $\omega = (y,(1-|y|^2)^{1/2}e^{i\psi})$, with
-momenta $(\eta_y,\eta_\psi)$. There
+lie on $Z_1 := \{p_\theta = 0,\ \theta = \theta_0(\Phi,\Psi)\}$, $\theta_0$ a critical point of $U$: a family of
+invariant 2-tori, one for each $(\Phi,\Psi)$ and $\theta_0$. Near $\omega_1 = 0$ use $y := \omega_1\in\mathbb
+C\cong\mathbb R^2$, $\omega = (y,(1-|y|^2)^{1/2}e^{i\psi})$, with momenta $(\eta_y,\eta_\psi)$. There
 $$\mathcal K = |\eta_y|^2-(y\cdot\eta_y)^2+\frac{\eta_\psi^2}{1-|y|^2}-a^2+(a^2-b^2)|y|^2,\tag{3.2}$$
 $\Psi = \pm\eta_\psi$ and $\Phi = \pm(y_1\eta_2-y_2\eta_1)$. At $y = 0$, $d\Phi = \pm(\eta_2dy_1-\eta_1dy_2)$, $d\Psi =
 \pm d\eta_\psi$ and $d\mathcal K = 2\eta_y\cdot d\eta_y+2\eta_\psi\,d\eta_\psi$. These are independent if $\eta_y\ne0$.
-If $\eta_y = 0$, the point lies on the invariant circle $Z_2 := \{y = 0,\eta_y = 0\}$ (by (3.2), $\dot y = \dot\eta_y =
-0$ there). The same holds near $\omega_2 = 0$, with $a,b$ and $\Phi,\Psi$ exchanged, giving a circle $Z_2'$. So $Z =
-Z_1\cup Z_2\cup Z_2'$.
+If $\eta_y = 0$, the point lies on $Z_2 := \{y = 0,\eta_y = 0\}$, a family of invariant circles, one for each
+$\eta_\psi$ (by (3.2), $\dot y = \dot\eta_y = 0$ there). The same holds near $\omega_2 = 0$, with $a,b$ and $\Phi,\Psi$
+exchanged, giving the family of circles $Z_2'$. So $Z = Z_1\cup Z_2\cup Z_2'$.
 
 *The singular levels.* Every local maximum $\theta_m$ of $U$ has $U''(\theta_m)\le0$. By (3.1),
 $\Phi^2/\sin^2\theta_m+\Psi^2/\cos^2\theta_m\le|a^2-b^2|$ there, so $U(\theta_m)\le2\|A\|^2<3\mu_0$. Hence for
@@ -278,8 +290,8 @@ U(\theta_0)$ is a critical value, then $U''(\theta_0)>0$, $\theta_0$ is the uniq
 Z_1$ is the torus through $p$. For $p\in Z_2$, $F(p) = (\Psi_0^2-a^2,0,\Psi_0)$. A point with $\Phi = 0$, $\Psi =
 \Psi_0$ and $\theta>0$ has $\mathcal K\ge U(\theta)$, and $U(\theta) =
 \Psi_0^2/\cos^2\theta-a^2+(a^2-b^2)\sin^2\theta>\Psi_0^2-a^2$ because $\Psi_0^2\ge3\mu_0-\|A\|^2>|a^2-b^2|$. So
-$F^{-1}(F(p))$ is the circle $Z_2$; likewise for $Z_2'$. Consequently, for $p\in Y\setminus Z$ the connected component
-$L$ of $F^{-1}(F(p))\cap Y$ containing $p$ is compact and disjoint from $Z$.
+$F^{-1}(F(p))$ is the circle of $Z_2$ through $p$; likewise for $Z_2'$. Consequently, for $p\in Y\setminus Z$ the
+connected component $L$ of $F^{-1}(F(p))\cap Y$ containing $p$ is compact and disjoint from $Z$.
 
 *Regular orbits.* Let $p\notin Z$ and $N$ be a compact neighbourhood of $L$ in $Y\setminus Z$. On $N$ the $X_i$ are
 independent and span $\bigcap_j\ker dF_j$ (each $X_i$ annihilates every $F_j$, and both spaces have dimension 3). Let
@@ -321,18 +333,19 @@ with $\lambda := (\varrho^2q_*)^{-1}$, where $q_*>0$ is $t_*$'s $q_1$; $\lambda$
 $p\in\Gamma_b$. By Lemma 3.1, $e^{sH_{\mathcal G}}|_{\Gamma_b}$ is conjugate by $\pi$ to $e^{sH_h} =
 e^{sc_0X_0}e^{sc_1X_1}e^{sc_2X_2}$, the $c_i$ being constant along the orbit. Differentiating, $D_{\pi p}e^{sH_h} =
 De^{sc_0X_0}De^{sc_1X_1}De^{sc_2X_2}+s\sum_iX_i\otimes dc_i$. Here $e^{tX_1}$, $e^{tX_2}$ are cotangent lifts of
-rotations of $\mathbb S^3$ (the frame's $J_{12}$, $J_{34}$), with derivatives bounded uniformly in $t$ on $Y$. With
-Lemma 3.2, $|D_pe^{sH_{\mathcal G}}|_{T\Gamma_b}|\le C_p(1+|s|)^2$, and by Lemma 3.3, $|D_pe^{s\mathsf
-V}|_{T\Gamma_b}|\le C'_p(1+|s|)^3$. Now let $\epsilon>0$. Identify $\Gamma_b$ with $\Gamma_{b_0}$ smoothly in $b$ by
-$\iota_b(\omega,\eta) := (\omega,\lambda_b(\omega,\eta)\eta)$ on $\Gamma^{\mathbb S}_{b_0}$, where $\lambda_b$ solves
-$m_b(\omega,\lambda_b\eta) = 0$ near 1 (Lemma 2.1: the radial derivative of $m$ is $-8\mu_0^2\ne0$ at $b_0$), followed
-by $\pi^{-1}$. The set $\mathcal S := \{(b,p):|b-b_0|\le\epsilon_K,\ p\in\Gamma_b\}\cong\{|b-b_0|\le
-\epsilon_K\}\times\Gamma_{b_0}$ is compact. For each $(b,p)\in\mathcal S$ the polynomial bound gives $T\ge1$ with
-$|D_pe^{\pm T\mathsf V_b}|_{T\Gamma_b}|\le e^{\epsilon T}$. By continuity in $(b,p)$, read through $\iota_b$, the same
-$T$ gives $e^{2\epsilon T}$ on a neighbourhood. Finitely many such neighbourhoods cover $\mathcal S$, with times $T_j\le
-T_{\max}$. Composing the flow over successive times $T_j$ chosen at the current point gives $|D_pe^{s\mathsf
-V_b}|_{T\Gamma_b}|\le C_\epsilon e^{2\epsilon|s|}$ for all $(b,p)\in\mathcal S$, $s\in\mathbb R$, with $C_\epsilon :=
-\sup\{|De^{t\mathsf V_b}|:|t|\le T_{\max},(b,p)\in\mathcal S\}$.
+rotations of $\mathbb S^3$ (the frame's $J_{12}$, $J_{34}$), with derivatives bounded uniformly in $t$ on $Y$. Lemma 3.2
+enters at the rotated point $e^{sc_1X_1}e^{sc_2X_2}\pi p$; the rotations commute with $X_0$ and have derivatives bounded
+on $Y$, so its constant there is at most $CC_{\pi p}$. Hence $|D_pe^{sH_{\mathcal G}}|_{T\Gamma_b}|\le C_p(1+|s|)^2$,
+and by Lemma 3.3, $|D_pe^{s\mathsf V}|_{T\Gamma_b}|\le C'_p(1+|s|)^3$. Now let $\epsilon>0$. Identify $\Gamma_b$ with
+$\Gamma_{b_0}$ smoothly in $b$ by $\iota_b(\omega,\eta) := (\omega,\lambda_b(\omega,\eta)\eta)$ on $\Gamma^{\mathbb
+S}_{b_0}$, where $\lambda_b$ solves $m_b(\omega,\lambda_b\eta) = 0$ near 1 (Lemma 2.1: the radial derivative of $m$ is
+$-8\mu_0^2\ne0$ at $b_0$), followed by $\pi^{-1}$. The set $\mathcal S := \{(b,p):|b-b_0|\le\epsilon_K,\
+p\in\Gamma_b\}\cong\{|b-b_0|\le \epsilon_K\}\times\Gamma_{b_0}$ is compact. For each $(b,p)\in\mathcal S$ the polynomial
+bound gives $T\ge1$ with $|D_pe^{\pm T\mathsf V_b}|_{T\Gamma_b}|\le e^{\epsilon T/2}$. By continuity in $(b,p)$, read
+through $\iota_b$, the same $T$ gives $e^{\epsilon T}$ on a neighbourhood. Finitely many such neighbourhoods cover
+$\mathcal S$, with times $T_j\le T_{\max}$. Composing the flow over successive times $T_j$ chosen at the current point
+gives $|D_pe^{s\mathsf V_b}|_{T\Gamma_b}|\le C_\epsilon e^{\epsilon|s|}$ for all $(b,p)\in\mathcal S$, $s\in\mathbb R$,
+with $C_\epsilon := \sup\{|De^{t\mathsf V_b}|:|t|\le T_{\max},(b,p)\in\mathcal S\}$.
 
 *Splitting and normal rates.* On $\Gamma_b$, (2.2) gives $\mathsf V\phi_s = (\nu_s/q_1)\phi_s$ and $\mathsf V\phi_u =
 -(\nu_u/q_1)\phi_u$, so $d\phi_s(De^{s\mathsf V}v) = \Lambda_s\,d\phi_s(v)$ for $v\in T\Gamma_u|_{\Gamma_b}$, with
@@ -372,48 +385,70 @@ $\tilde p = 0\ne\partial_r\mathcal R$. Indeed $r$ cannot converge to a point $\b
 r)>0$ would keep $|\dot r|$ bounded below, and a simple zero is passed in finite time. So at each end $r\to r_+$ or
 $r\to\infty$, or the curve leaves $\{r_A>r_+\}$. In the second case $\mathcal R>0$ off $r_c$, the curve is $\Gamma_b$ or
 lies on $\{\phi_+\phi_- = 0\}$, and $r$ is monotone, tending to $r_c$ at one end and to $r_+$ or $\infty$ at the other.
-By Corollary 1.2 (c) and Lemma 2.1 (uniqueness of $r_c$ in $I$, with $\{m = 0\}\cap\bar W\subset W$), every double zero
-lies in $O$, so these curves are exactly those through $\{\phi_u = 0\}\cap\Sigma\cap O$ (backward asymptotic to
-$\Gamma_b$) or $\{\phi_s = 0\}\cap\Sigma\cap O$ (forward asymptotic), extended by the flow.
+By Corollary 1.2 (c), with $\epsilon_8\le\epsilon(\delta)$ for a $\delta$ that places $r_c$ in $I$ and $(\omega,\eta)$
+in $W$ ($|\eta|^2_{\mathbb S^3} = \Lambda-|A\omega|^2E^2$), and Lemma 2.1 (uniqueness of $r_c$ in $I$, with $\{m =
+0\}\cap\bar W\subset W$), every double zero lies in $O$, so these curves are exactly those through $\{\phi_u =
+0\}\cap\Sigma\cap O$ (backward asymptotic to $\Gamma_b$) or $\{\phi_s = 0\}\cap\Sigma\cap O$ (forward asymptotic),
+extended by the flow.
 
 *At infinity.* As $r\to\infty$, $\mathcal R = r^4E^2+O(r^2(1+\Lambda))$ and $\alpha = r^2+O(1)$, so $p_r = (\tilde
 p-\beta)/\alpha = \mathrm{sgn}(\tilde p)+O((1+\Lambda)r^{-2})$; and $r_A = |x|(1+O(|x|^{-2}))$ (III.B Lemma 3.1 (b))
 gives $\xi_t = p_r+O((1+\Lambda^{1/2})r^{-2})$ for the coefficient $\xi_t$ of $d|x|$, while $|\eta|/r\le
 \Lambda^{1/2}r^{-1}$. Forward with $r\to\infty$, $\dot r>0$ forces $\mathrm{sgn}\,\tilde p = z_0$, so $\xi_t\to z_0$
-and, with $t_* = t-F(|x|)$, $F' = 1+O(r^{-2})$ (III.B (3.6)), $\xi_* = \xi_t-z_0F'\to0$. Backward $\xi_*\to-2z_0$. The
-bounds are uniform for $\Lambda\le\Lambda_K$, so VI.A Proposition 5.1's argument at infinity applies verbatim with $C$
-replaced by $\Lambda$. This gives convergence to $R_{\mathrm{out}}$ and $R_{z_0,\mathrm{in}}$, and the absorbing sets $A
-= \{r>R, |\xi_*|<\epsilon\}$ and $A' = \{r>R,|\xi_*+2z_0|<\epsilon\}$.
+and, with $t_* = t-F(|x|)$, $F := \psi-T_\mu$, $F' = 1+O(r^{-2})$ (III.B (3.3), Lemma 3.5 (a), (3.6)), $\xi_* =
+\xi_t-z_0F'\to0$. Backward $\xi_*\to-2z_0$. The bounds are uniform for $\Lambda\le\Lambda_K$, so VI.A Proposition 5.1's
+argument at infinity applies verbatim with $C$ replaced by $\Lambda$. This gives convergence to $R_{\mathrm{out}}$ and
+$R_{z_0,\mathrm{in}}$, and the absorbing sets $A = \{r>R, |\xi_*|<\epsilon\}$ and $A' = \{r>R,|\xi_*+2z_0|<\epsilon\}$.
+
+*Near the radial sets.* (H3) as proved in VI.B gives $\mathsf H_bq\ge\frac12\beta_0q$ on
+$\partial\Sigma_0\cap\{q<\epsilon_q\}$ near $\partial\mathcal R_\pm$ (VI.B Proposition 2.2) and $\rho_\infty^{-1}\mathsf
+H_b\rho_\infty\ge\frac12\beta_0$ at $\partial\mathcal R_\pm$. By continuity there is a neighbourhood $U_R$ of
+$\partial\mathcal R_\pm$ in the compactified $\Sigma$, with compact closure and the same for all $b$ near $b_0$, on
+which $\mathsf H_bq\ge\frac14\beta_0q-c\rho_\infty$ and $\mathsf H_b\rho_\infty\ge\frac14\beta_0\rho_\infty$, with $q$
+extended as $|\eta/\xi|^2$. So $L := q+(8c/\beta_0)\rho_\infty$ has $\mathsf H_bL\ge\frac18\beta_0L$ on $U_R$. $L$
+vanishes on $\partial\mathcal R_\pm$ and is positive on the rest of $U_R$: $\rho_\infty>0$ at finite covectors, and at
+fibre infinity near $\partial\mathcal R_\pm$, $q = |\hat\eta|^2$ vanishes only on $\partial\mathcal R_\pm$ (VI.B
+Proposition 2.2: there $\partial\Sigma_0$ is a graph over $(\omega,\hat\eta)$ and $\partial\mathcal R_\pm = \{\hat\eta =
+0\}$). Fix $0<\delta_L<\min L$ over the boundary of $U_R$, and $N := \{L<\delta_L\}\cap U_R$, an open neighbourhood of
+$\partial\mathcal R_\pm$. Backward along a curve in $U_R$, $L$ does not increase; so a curve in $N$ never reaches
+$\{L\ge\delta_L\}$, which contains the boundary of $U_R$, and stays in $N$ backward, with $L$ decaying backward
+exponentially at the uniform rate $\frac18\beta_0$.
 
 *At the horizon.* $\mathcal H_b$ is a null hypersurface (VI.B Lemma 1.1), and $dr_A(w)<0$ for every future-directed
 causal $w$ at $\mathcal H_b$ not tangent to its null generators. This set of $w$ is connected, $dr_A(w)$ vanishes on it
 only for $w$ tangent to the generators, and the sign is that of $b_0$ (VI.A section 5) by continuity. The velocity of
 $\gamma$ is a nonzero multiple of $\nu^\sharp$, and $\nu^\sharp$ tangent to a generator would make $\nu$ a multiple of
 $dr_A$, so $\nu(\partial_t) = 0$, against $E = z_0$. So a curve meeting $\mathcal H_b$ at a finite covector crosses it
-inward, transversally, in finite time. Hence a curve in $\{r_A>r_+\}$ with $r\to r_+$ backward cannot do so at a bounded
-covector: a backward limit point at a finite covector over $\mathcal H_b$ would, with its orbit, cross into
-$\{r_A<r_+\}$, which the closure of the curve does not meet. So it tends to fibre infinity over $\mathcal H_b$. Its
-backward limit set $\mathcal L$, in the compactified characteristic set, is compact, invariant, and contained in
-$\partial\Sigma_0$ over $\mathcal H_b$. A point of $\partial\Sigma_0\setminus\partial\mathcal R_\pm$ reaches
+inward, transversally, and by continuity each finite covector $p_0$ over $\mathcal H_b$ has $\delta,T>0$ such that the
+curve through any point within $\delta$ of $p_0$ is in $\{r_A<r_+\}$ a parameter $T$ later and in $\{r_A>r_+\}$ a
+parameter $T$ earlier. Let $\gamma$ stay in $\{r_A>r_+\}$ on a forward or a backward half-line, with $r\to r_+$ along
+it, and let $\mathcal L$ be its limit set at that end, in the compactified characteristic set: compact, invariant, over
+$\mathcal H_b$, and approached by $\gamma$. $\mathcal L$ contains no finite covector $p_0$: $\gamma$ comes within
+$\delta$ of $p_0$ arbitrarily far along the half-line, and is then in $\{r_A<r_+\}$ a parameter $T$ later, still on the
+half-line. So $\mathcal L\subset\partial\Sigma_0$. A point of $\partial\Sigma_0\setminus\partial\mathcal R_\pm$ reaches
 $\{r<r_h-\kappa\}$ forward in finite time (VI.B Proposition 2.2, (H4)), which an invariant set over $\mathcal H_b$
-cannot contain; so $\mathcal L\subset\partial\mathcal R_\pm$, and $\gamma$ tends backward to $\partial\mathcal R_\pm$.
-Inside, on $\{r_0-2\delta_0\le r<r_h\}$, $dr$ is timelike (VI.B Lemma 1.1 and Proposition 2.2), so $r$ decreases
-strictly along $\gamma$. On compact subsets of the compactified $\Sigma_{z_0}\cap\{r_0-\delta_0\le r\le r_1\}$,
-$r_1<r_h$, the rescaled $\dot r$ is bounded above by a negative constant, so $\gamma$ reaches $\{r<r_0-\delta_0\}$ in
-finite time. Backward, an interior curve either crosses $\mathcal H_b$ outward at a finite covector, impossible as
-above, or tends to fibre infinity over $\mathcal H_b$ and so to $\partial\mathcal R_\pm$.
+cannot contain; so $\mathcal L\subset\partial\mathcal R_\pm$, and $\gamma$ lies in $N$ near that end. Forward this is
+impossible: $L>0$ along $\gamma$ does not decrease forward in $N$, so it cannot tend to $0$. Hence an exterior curve
+with $r\to r_+$ forward leaves $\{r_A>r_+\}$, so meets $\mathcal H_b$ and crosses it inward; one with $r\to r_+$
+backward tends backward to $\partial\mathcal R_\pm$. Inside, read for $\tilde g_b$ ($\Psi_b$ carries $\{r<r_h\}$ to the
+inside of $\mathcal H_b$, VI.B Lemma 1.2), on $\{r_0-2\delta_0\le r<r_h\}$, $dr$ is timelike (VI.B Lemma 1.1 and
+Proposition 2.2), so $r$ decreases strictly along $\gamma$. On compact subsets of the compactified
+$\Sigma_{z_0}\cap\{r_0-\delta_0\le r\le r_1\}$, $r_1<r_h$, the rescaled $\dot r$ is bounded above by a negative
+constant, so $\gamma$ reaches $\{r<r_0-\delta_0\}$ in finite time. Backward, $r$ increases strictly along an interior
+curve. If the curve meets $\mathcal H_b$ backward, it crossed it inward there, and its earlier part is an exterior
+curve, treated above. Otherwise $r\to\bar r\le r_h$ backward. $\bar r<r_h$ is impossible: with $r_1 := \bar r$, the
+rescaled $\dot r$ is at most a negative constant on the compact part of the compactified $\Sigma_{z_0}$ over
+$\{r(s_0)\le r\le\bar r\}$, so $r$ would grow without bound backward. If $\bar r = r_h$, a finite covector $p_0$ in the
+backward limit set is impossible, since $\gamma$ would be outside $\mathcal H_b$ a parameter $T$ before passing within
+$\delta$ of $p_0$, still on the backward half-line; so the limit set lies in $\partial\Sigma_0$ over $\mathcal H_b$,
+hence in $\partial\mathcal R_\pm$ as above, and $\gamma$ tends backward to $\partial\mathcal R_\pm$.
 
 *(a).* Combining: a curve not in $\bar\Gamma_u$ tends backward to $\partial\mathcal R_\pm$ or $R_{z_0,\mathrm{in}}$, and
 a curve not in $\bar\Gamma_s$ tends forward to $R_{\mathrm{out}}$ or reaches $\{r<r_0-\delta_0\}$ in finite time.
-*Uniformity.* Near $\partial\mathcal R_\pm$, (H3) as proved in VI.B gives $\mathsf H_bq\ge\frac12\beta_0q$ on
-$\partial\Sigma_0$ and $\rho_\infty^{-1}\mathsf H_b\rho_\infty\ge\frac12\beta_0$ at $\partial\mathcal R_\pm$. By
-continuity, on a neighbourhood of $\partial\mathcal R_\pm$ in the compactified $\Sigma$, uniform in $b$, $\mathsf
-H_bq\ge\frac14\beta_0q-c\rho_\infty$ and $\mathsf H_b\rho_\infty\ge\frac14\beta_0\rho_\infty$, with $q$ extended as
-$|\eta/\xi|^2$. So $L := q+(8c/\beta_0)\rho_\infty$ has $\mathsf H_bL\ge\frac18\beta_0L$ there. The set $N :=
-\{L<\delta_L\}$ is backward invariant, and on it $L$ decays backward exponentially at a uniform rate. With the absorbing
-sets $A$, $A'$, $N$ and $\{r<r_0-\delta_0\}$, VI.A Proposition 5.1's cover argument applies on compact subsets of
-$\{(b,p)\}$: the set of $(b,p)$ whose curve enters the relevant absorbing set before parameter $T$ is open and increases
-with $T$, and these sets cover by the pointwise statement.
+*Uniformity.* With the absorbing sets $A$, $A'$, $N$ (in which $L$ decays backward at the uniform rate) and
+$\{r<r_0-\delta_0\}$, VI.A Proposition 5.1's cover argument applies on compact subsets of $\{(b,p)\}$: the set of
+$(b,p)$ whose curve enters the relevant absorbing set before parameter $T$ is open and increases with $T$, and these
+sets cover by the pointwise statement.
 
 *(b).* Within $O$, a point with $\phi_u = 0$ has $m = 0$ and lies on the branch on which $r\to r_c$, $\tilde p\to0$
 backward, so its curve tends to $\Gamma_b$ backward. A point with $\phi_s = 0\ne\phi_u$ moves away from $r_c$ backward,
@@ -448,8 +483,8 @@ separation gives them in closed form, (2.1), smooth in $b$.
 
 (VI.B$'$3) *The tangential bound.* At $b\ne b_0$ the flow on the trapped set is not periodic. The bound for every
 $\epsilon$ comes from its integrable structure (Lemmas 3.1-3.2), as in [Hin26c] Proposition 4.19 (3). The singular
-orbits are the 2-tori $Z_1$ and the two circles $Z_2$, $Z_2'$, where Kerr has the equatorial set; all are elliptic near
-$b_0$.
+orbits are the 2-tori of $Z_1$ and the circles of $Z_2$, $Z_2'$, where Kerr has the equatorial set; all are elliptic
+near $b_0$.
 
 (VI.B$'$4) *No frame.* The eigenframe of $A$ is not continuous in $A$ at $A = 0$, nor where $a^2 = b^2$. Every object is
 defined from $A$ directly ((0.1), (0.2), Lemma 2.1); frames are used only to compute and to compare with (0.3).
@@ -464,5 +499,5 @@ Lemmas 3.1-3.3 and Proposition 3.4: [Hin26c] Proposition 4.19 and Lemma 4.20. Pr
 4.24.
 
 *Sources.* [Hin26c] pp. 85-95 (section 4.2.3: Lemmas 4.10-4.20, Proposition 4.19 and its proof), READ. Inputs: III.B
-Lemmas 3.1, 3.3 (d)-(e), 3.7 (a), Definition 3.2, Proposition 3.4, (3.5), (3.6); VI.A Lemma 0.1, Propositions 2.1, 3.1,
-4.1, 5.1, Theorem 6.1; VI.B Lemmas 1.1, 1.2, Proposition 2.2; I.B (H7), (H8); II.B (K3), (K4); `checks/trap5.py` S1-S6.
+Lemmas 3.1, 3.3 (d)-(e), 3.7 (a), Definition 3.2, (3.3), Lemma 3.5 (a), (3.6); VI.A Lemma 0.1, Propositions 2.1, 3.1,
+5.1, Theorem 6.1; VI.B Lemmas 1.1, 1.2, Proposition 2.2; I.B (H7), (H8); II.B (K3), (K4); `checks/trap5.py` S1-S6.
