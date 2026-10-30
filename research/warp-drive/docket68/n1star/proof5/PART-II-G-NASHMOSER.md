@@ -1,12 +1,13 @@
 # Part II.G. The Nash-Moser theorem, smoothing operators and tame bounds, at n = 4
 
-*Status.* Verified. Written out in full (D211) and read line by line by the eighty-ninth verifier (D213), which redid
-the exponent algebra of the Nash-Moser iteration by machine: no major finding; its five minor findings, two of which
-withdraw findings (H2) and (H7) as misreadings of the source, and its nits are seated (section 6.3). The part is labelled
-proved once the next reader has confirmed the repairs. This part
-proves, at spatial dimension $n = 4$, the tools of [Hin26c] section 12 (pp. 233-243) on which the nonlinear step of the
-route rests: the Nash-Moser theorem in the form of its Theorem 12.4, the smoothing operators of its Proposition 12.6 and
-Example 12.7 on the spaces of its Theorem 11.1, and the tame bounds of its Lemma 12.8. The source is [Hin26c] = P. Hintz,
+*Status.* Proved (D216: verifier 90 read the repairs, correct; amended D304, Theorem 2.1 (iii) and (H10); status
+synchronised with the README at D325). Verified. Written out in full (D211) and read line by line by the eighty-ninth
+verifier (D213), which redid the exponent algebra of the Nash-Moser iteration by machine: no major finding; its five
+minor findings, two of which withdraw findings (H2) and (H7) as misreadings of the source, and its nits are seated
+(section 6.3). The part is labelled proved once the next reader has confirmed the repairs. This part proves, at spatial
+dimension $n = 4$, the tools of [Hin26c] section 12 (pp. 233-243) on which the nonlinear step of the route rests: the
+Nash-Moser theorem in the form of its Theorem 12.4, the smoothing operators of its Proposition 12.6 and Example 12.7 on
+the spaces of its Theorem 11.1, and the tame bounds of its Lemma 12.8. The source is [Hin26c] = P. Hintz,
 arXiv:2606.28008v1 (printed page numbers). Parts II.A (`PART-II-A-SETUP.md`), II.C, II.E (`PART-II-E-ENERGY.md`), II.F
 (`PART-II-F-IOTA.md`) and II.F$'$ (`PART-II-F2-TAME.md`) are cited as II.A, II.C, II.E, II.F and II.F$'$.
 

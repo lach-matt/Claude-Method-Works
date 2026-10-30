@@ -1,13 +1,14 @@
 # Part IV. Exterior estimates I: the edge-b structure and the basic energy estimate, n = 4 ([Hin23a] sections 3.1-3.2)
 
-*Status.* Written (D301); verified (D304: verifier 132's findings seated, to be read). Part IV writes out [Hin23a]
-section 3 at spatial dimension $n = 4$, on the exterior region of III.C, for [Hin26]'s gauge-fixed operator. Its outputs
-are III.C$'$ Theorem 2.1 (with its continuation on a slab near $\mathscr I^+$, III.K (K2)) and the energy estimates
-behind it. This first part covers the edge-b structure at $\mathscr I^+$ (the source's sections 3.1-3.2: Definitions
-3.1-3.3, Lemmas 3.6, 3.12-3.16, Corollary 3.14) and the basic energy estimate (Proposition 3.17), together with the
-estimate near the interior of $I_0$ that the source cites from [HV20, Proposition 4.3]. Later parts cover the tensor
-operator, the tame estimates and the Nash-Moser step (sections 3.3-3.6). N1STAR-PROOF.md 10.64 records where $n$ enters;
-here each place is written into the proof. Source: [Hin23a] (arXiv:2302.13804v1) pp. 9-17, read at source.
+*Status.* Proved (D309: verifier 133 read the repairs, correct; status synchronised with the README at D325). Written
+(D301); verified (D304: verifier 132's findings seated, to be read). Part IV writes out [Hin23a] section 3 at spatial
+dimension $n = 4$, on the exterior region of III.C, for [Hin26]'s gauge-fixed operator. Its outputs are III.C$'$ Theorem
+2.1 (with its continuation on a slab near $\mathscr I^+$, III.K (K2)) and the energy estimates behind it. This first
+part covers the edge-b structure at $\mathscr I^+$ (the source's sections 3.1-3.2: Definitions 3.1-3.3, Lemmas 3.6,
+3.12-3.16, Corollary 3.14) and the basic energy estimate (Proposition 3.17), together with the estimate near the
+interior of $I_0$ that the source cites from [HV20, Proposition 4.3]. Later parts cover the tensor operator, the tame
+estimates and the Nash-Moser step (sections 3.3-3.6). N1STAR-PROOF.md 10.64 records where $n$ enters; here each place is
+written into the proof. Source: [Hin23a] (arXiv:2302.13804v1) pp. 9-17, read at source.
 
 ## 0. Setting and the edge-b calculus
 

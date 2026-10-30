@@ -1,15 +1,16 @@
 # Part III.F$''$. Mode stability of the linearised operator away from zero frequency, at n = 4 ([Hin26] Proposition 8.8)
 
-*Status.* Written (D232). This part proves, at spatial dimension $n = 4$, [Hin26] Proposition 8.8 (p. 153), mode
-stability of the linearised gauge-fixed Einstein operator $L_b$ at the nonzero frequencies of the closed upper half
-plane: at the five-dimensional Tangherlini parameter $b_0$ for every such frequency, and for $b$ near $b_0$ for the
-frequencies bounded away from zero. The source takes its input from [AHW24] Theorem 6.1 (1), mode stability of the
-linearised Einstein equation on Kerr, which has no five-dimensional counterpart; at $b_0$ it is proved here from the
+*Status.* Proved (D238: verifier 98 read the repairs, correct; two nits seated; status synchronised with the README at
+D325). Written (D232). This part proves, at spatial dimension $n = 4$, [Hin26] Proposition 8.8 (p. 153), mode stability
+of the linearised gauge-fixed Einstein operator $L_b$ at the nonzero frequencies of the closed upper half plane: at the
+five-dimensional Tangherlini parameter $b_0$ for every such frequency, and for $b$ near $b_0$ for the frequencies
+bounded away from zero. The source takes its input from [AHW24] Theorem 6.1 (1), mode stability of the linearised
+Einstein equation on Kerr, which has no five-dimensional counterpart; at $b_0$ it is proved here from the
 Kodama-Ishibashi decomposition, with the gauge 1-form built by an ordinary differential equation in the radial direction
 and continued inside the horizon as a solution (sections 2-3). The range $b\ne b_0$ with small nonzero frequency is
 recorded as open (section 5). Section 1 first supplies what Part III.F does not state, the threshold of $L_b$ at the
-event horizon, by which Part I's theory applies to $L_b$. Notation is that of Parts III.F and III.F$'$;
-$P' := D_{g_b}\mathrm{Ric}+\delta^*_{g_b}\delta_{g_b,E^\Upsilon}G_{g_b}$ is the operator without the constraint damping
+event horizon, by which Part I's theory applies to $L_b$. Notation is that of Parts III.F and III.F$'$; $P' :=
+D_{g_b}\mathrm{Ric}+\delta^*_{g_b}\delta_{g_b,E^\Upsilon}G_{g_b}$ is the operator without the constraint damping
 modification (III.F$'$ Proposition 3.3, Step 5). Computations cited as *computed* are exact (sympy) and rerun by
 `lhor5.py` (new) and `gmodes5.py` G1-G5.
 

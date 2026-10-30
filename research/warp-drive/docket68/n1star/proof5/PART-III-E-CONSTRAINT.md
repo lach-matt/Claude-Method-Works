@@ -1,12 +1,13 @@
 # Part III.E. The constraint propagation operator and its dual states, at n = 4 ([Hin26] section 7 to Proposition 7.3)
 
-*Status.* Written (D225). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$, $b$ near
-$b_0 = (\mu_0,0)$, what [Hin26] section 7 establishes up to and including Proposition 7.3 (pp. 134-139): the
-invertibility of the adjoint of the constraint propagation operator at zero energy and its indicial roots (his Lemma
-7.2), and the large zero energy states of the adjoint built from the time translation, the translations and the
-rotations, whose trace-reversed symmetric gradients decay (Proposition 7.3). Its input is [Hin26] Theorem 7.1 at $n =
-4$, the summary of [Hin26a]; it is stated in section 1 and is proved in Part IV, which writes out [Hin26a] at $n = 4$.
-Section 7.2.1 (Proposition 7.4, Lemma 7.5) is Part III.E$'$. Parts are cited as in III.D$'$.
+*Status.* Proved (D235: verifier 97 read the repairs, correct; status synchronised with the README at D325). Written
+(D225). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$, $b$ near $b_0 =
+(\mu_0,0)$, what [Hin26] section 7 establishes up to and including Proposition 7.3 (pp. 134-139): the invertibility of
+the adjoint of the constraint propagation operator at zero energy and its indicial roots (his Lemma 7.2), and the large
+zero energy states of the adjoint built from the time translation, the translations and the rotations, whose
+trace-reversed symmetric gradients decay (Proposition 7.3). Its input is [Hin26] Theorem 7.1 at $n = 4$, the summary of
+[Hin26a]; it is stated in section 1 and is proved in Part IV, which writes out [Hin26a] at $n = 4$. Section 7.2.1
+(Proposition 7.4, Lemma 7.5) is Part III.E$'$. Parts are cited as in III.D$'$.
 
 *What n = 4 changes.* The weights: the zero energy invertibility of the constraint propagation operator holds for
 weights $\alpha+2\in[-C_0,2)$ (Euclidean density), its top the Coulomb root 2 where the source's is 1, so the adjoint is

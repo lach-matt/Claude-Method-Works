@@ -1,12 +1,13 @@
 # Part III.I$'''''''$. Undoing the parameter changes, n = 4 ([Hin26] section 11.6.2)
 
-*Status.* Verified (D268: the hundred-and-thirteenth verifier; no major finding, two minor ones and seven nits seated,
-to be read). Written (D265). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.6.2 (pp. 256-262): the
-correction terms that let a source generate the change of the black hole parameters and the centre-of-mass shift of Part
-III.I$''''''$ (the source's (11.134a)-(11.135b), Definition 11.37, Lemma 11.38), the gauge-fixed Einstein operator with
-all modification parameters (Definition 11.40), its linearisation in them (Lemma 11.41), and their elimination
-(Definitions 11.42, 11.44, Lemmas 11.43, 11.45, Corollary 11.46): for a source with a little more than $t_*^{-2}$-decay
-at $K^+$ there is a unique choice of the parameters for which the forward solution decays at $K^+$.
+*Status.* Proved (D269: verifier 114 read the repairs, correct; status synchronised with the README at D325). Verified
+(D268: the hundred-and-thirteenth verifier; no major finding, two minor ones and seven nits seated, to be read). Written
+(D265). This part proves, at spatial dimension $n = 4$, [Hin26] section 11.6.2 (pp. 256-262): the correction terms that
+let a source generate the change of the black hole parameters and the centre-of-mass shift of Part III.I$''''''$ (the
+source's (11.134a)-(11.135b), Definition 11.37, Lemma 11.38), the gauge-fixed Einstein operator with all modification
+parameters (Definition 11.40), its linearisation in them (Lemma 11.41), and their elimination (Definitions 11.42, 11.44,
+Lemmas 11.43, 11.45, Corollary 11.46): for a source with a little more than $t_*^{-2}$-decay at $K^+$ there is a unique
+choice of the parameters for which the forward solution decays at $K^+$.
 
 *What n = 4 changes.* The scheme is the source's. Three things differ. There is no logarithmic centre-of-mass term (Part
 III.I$''''''$ (I$''''''$1)), so there are three parameters, not four, and the source's (11.136)-(11.138b),

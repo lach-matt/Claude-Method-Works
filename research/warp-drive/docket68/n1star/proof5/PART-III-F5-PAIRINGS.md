@@ -1,16 +1,17 @@
 # Part III.F$''''$. Zero energy pairings and physical zero energy states at n = 4 ([Hin26] 8.12, 8.14, 8.15)
 
-*Status.* Written (D234). This part proves, at spatial dimension $n = 4$, the pairings of [Hin26] Lemma 8.12 (p. 157)
-and Lemma 8.15 (pp. 158-159) and the physical large zero energy states of Proposition 8.14 (pp. 158-163) that the
-expansion at low energies needs. The source proves Lemma 8.12 by "The proof of [Hin24b, Lemma 3.17] applies verbatim",
-that is, by reducing each pairing to a pairing at infinity of leading terms ([Hin23b] Theorem 9.6); here the reduction
-is written out (Lemma 2.2), and the pairings at infinity are the record's exact computations (`pairing5.py` P2-P5).
-Lemma 8.15's vector type pairing is obtained on all of $\mathfrak{so}(4)$ from Remark 8.10 (III.F$'''$ Remark 2.3) and
-the spin-independence of its leading terms (Lemma 4.1 (2)), without a separate computation. Proposition 8.14 is proved
-at the root $-2$ for scalar, vector and tensor type 2, the last absent in four dimensions; its Step 2 is modified,
-because in five dimensions the vanishing of the centre-of-mass pairings against the rotations' dual states, which the
-source's Step 2 uses, is not available away from $b_0$. Notation is that of Parts III.F$'$-III.F$'''$; computations
-cited as *computed* are exact (sympy) and rerun by `pairing5.py`.
+*Status.* Proved (D238: verifier 98 read the repairs, correct; two nits seated; status synchronised with the README at
+D325). Written (D234). This part proves, at spatial dimension $n = 4$, the pairings of [Hin26] Lemma 8.12 (p. 157) and
+Lemma 8.15 (pp. 158-159) and the physical large zero energy states of Proposition 8.14 (pp. 158-163) that the expansion
+at low energies needs. The source proves Lemma 8.12 by "The proof of [Hin24b, Lemma 3.17] applies verbatim", that is, by
+reducing each pairing to a pairing at infinity of leading terms ([Hin23b] Theorem 9.6); here the reduction is written
+out (Lemma 2.2), and the pairings at infinity are the record's exact computations (`pairing5.py` P2-P5). Lemma 8.15's
+vector type pairing is obtained on all of $\mathfrak{so}(4)$ from Remark 8.10 (III.F$'''$ Remark 2.3) and the
+spin-independence of its leading terms (Lemma 4.1 (2)), without a separate computation. Proposition 8.14 is proved at
+the root $-2$ for scalar, vector and tensor type 2, the last absent in four dimensions; its Step 2 is modified, because
+in five dimensions the vanishing of the centre-of-mass pairings against the rotations' dual states, which the source's
+Step 2 uses, is not available away from $b_0$. Notation is that of Parts III.F$'$-III.F$'''$; computations cited as
+*computed* are exact (sympy) and rerun by `pairing5.py`.
 
 ## 1. Setting
 

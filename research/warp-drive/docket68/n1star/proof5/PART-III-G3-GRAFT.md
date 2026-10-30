@@ -1,6 +1,7 @@
 # Part III.G$''$. Formal solutions at $K^+$ and grafting at n = 4 ([Hin26] sections 9.1.1-9.1.2)
 
-*Status.* Verified (D241: the hundredth verifier; one major finding, two minor and seven nits seated, to be read). This
+*Status.* Proved (D244: verifier 101 read the repairs, correct; one nit seated; status synchronised with the README at
+D325). Verified (D241: the hundredth verifier; one major finding, two minor and seven nits seated, to be read). This
 part proves, at spatial dimension $n = 4$, [Hin26] Definitions 9.8 and 9.10, Proposition 9.9, Proposition 9.11 and
 Corollary 9.12 (pp. 172-179). Proposition 9.9 describes the solutions of III.G$'$ at $\iota^+\cap K^+$, term by term, as
 formal solutions built from zero energy states. Proposition 9.11 grafts such a solution into spacetime as an approximate

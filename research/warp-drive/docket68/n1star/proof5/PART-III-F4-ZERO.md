@@ -1,17 +1,18 @@
 # Part III.F$'''$. The zero energy kernel and cokernel of the linearised operator at n = 4 ([Hin26] 8.9-8.13)
 
-*Status.* Written (D233). This part proves, at spatial dimension $n = 4$, [Hin26] section 8.4 from Proposition 8.9 to
-Corollary 8.13 (pp. 154-158): the linearised Myers-Perry metrics brought into the gauge (Proposition 2.2, the source's
-Proposition 8.9), the spin changes that are pure gauge (Remark 2.3, Remark 8.10), the kernel and cokernel of the zero
-energy operator $\widehat{L_b}(0)$, eleven-dimensional against the source's seven (Proposition 4.1, Proposition 8.11),
-and the linear right inverse built from them (Corollary 4.2, Corollary 8.13). The source takes the kernel bound from
-[AHW24] Theorem 6.1 (2), the classification of the stationary decaying solutions of the linearised Einstein equation on
-Kerr, which has no five-dimensional counterpart; at the Tangherlini parameter $b_0$ it is proved here harmonic by
-harmonic from the Kodama-Ishibashi decomposition at zero frequency (Theorem 3.1), and near $b_0$ the count follows from
-the invertibility at $b_0$ of an augmented operator and Part I.C's perturbation theory, so no rigidity statement for
-spinning Myers-Perry metrics is needed. The pairings of the source's Lemma 8.12 are not used here (finding (F$'''$4));
-they are part of the next part. Notation is that of Parts III.F, III.F$'$ and III.F$''$. Computations cited as
-*computed* are exact (sympy) and rerun by `static5.py` S1-S6, `zstates5.py` Z5-Z6 and `mp5.py` M3.
+*Status.* Proved (D238: verifier 98 read the repairs, correct; status synchronised with the README at D325). Written
+(D233). This part proves, at spatial dimension $n = 4$, [Hin26] section 8.4 from Proposition 8.9 to Corollary 8.13 (pp.
+154-158): the linearised Myers-Perry metrics brought into the gauge (Proposition 2.2, the source's Proposition 8.9), the
+spin changes that are pure gauge (Remark 2.3, Remark 8.10), the kernel and cokernel of the zero energy operator
+$\widehat{L_b}(0)$, eleven-dimensional against the source's seven (Proposition 4.1, Proposition 8.11), and the linear
+right inverse built from them (Corollary 4.2, Corollary 8.13). The source takes the kernel bound from [AHW24] Theorem
+6.1 (2), the classification of the stationary decaying solutions of the linearised Einstein equation on Kerr, which has
+no five-dimensional counterpart; at the Tangherlini parameter $b_0$ it is proved here harmonic by harmonic from the
+Kodama-Ishibashi decomposition at zero frequency (Theorem 3.1), and near $b_0$ the count follows from the invertibility
+at $b_0$ of an augmented operator and Part I.C's perturbation theory, so no rigidity statement for spinning Myers-Perry
+metrics is needed. The pairings of the source's Lemma 8.12 are not used here (finding (F$'''$4)); they are part of the
+next part. Notation is that of Parts III.F, III.F$'$ and III.F$''$. Computations cited as *computed* are exact (sympy)
+and rerun by `static5.py` S1-S6, `zstates5.py` Z5-Z6 and `mp5.py` M3.
 
 ## 1. Setting
 

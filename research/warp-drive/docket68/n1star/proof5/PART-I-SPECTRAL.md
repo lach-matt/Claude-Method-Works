@@ -880,8 +880,8 @@ H_{\sigma_0}\rho)\mathrm{Id} - 2\hat p\big]$, which does not involve $\epsilon$ 
 uniformly in $\sigma_0\in I$ and $\sigma_1\in[0,\nu]$ ($Q^{(0)}$ does not involve $\sigma_1$), there are a neighbourhood
 $W\subset U$ and $c_Q > 0$ with $Q_\epsilon\ge c_Q$ and $K$'s symbol $\ge2|\sigma_0|$ on $W$.
 
-*The cut-off term.* On $\mathrm{supp}\,\psi_\Sigma\psi_R'$ at $\rho = 0$, write $\xi = -2\sigma_0 + x$. Then $q = x^2 +
-|\eta|^2\in[(2\varsigma_R)^{-1},\varsigma_R^{-1}]$, and $|g_{\sigma_0}|\le\gamma := \varsigma_\Sigma^{-1/2}$ with
+*The cut-off term.* On $\mathrm{supp}\,\psi_\Sigma\psi_R'$ at $\rho = 0$, write $\xi = -2\sigma_0 + x$. Then $q =
+x^2 + |\eta|^2\in[(2\varsigma_R)^{-1},\varsigma_R^{-1}]$, and $|g_{\sigma_0}|\le\gamma := \varsigma_\Sigma^{-1/2}$ with
 $g_{\sigma_0} = x(x - 2\sigma_0) + |\eta|^2$. So $2|\sigma_0||x|\le\gamma + q$. Take $\varsigma_\Sigma$ with $\gamma\le
 (2\varsigma_R)^{-1}\le q$. Then $x^2\le q^2/\sigma_0^2\le q/2$ once $\varsigma_R\ge2/\min_I\sigma_0^2$, and $|\eta|^2\ge
 q/2$. Hence
@@ -1084,9 +1084,9 @@ $\rho^{-1}\tilde{\mathsf H}\rho = -2(1 + \kappa_\sigma\xi) < 0$, so $Q_\epsilon\
 1)(\rho^{-1}\tilde{\mathsf H}\rho)\mathrm{Id} - 2\tilde p$, which does not involve $\epsilon$ and whose remaining terms
 vanish at $R_{\mathrm{out}}$ and are bounded uniformly in $\sigma\in\mathcal D$ (D187). So $Q_\epsilon\ge c_Q$ on a
 neighbourhood $W$ of $R_{\mathrm{out}}$, uniformly. The cut-off term is now $+8\varsigma_R|\eta|^2(-\psi_R\psi_R')\ge0$.
-On $\mathrm{supp}\,\psi_\Sigma\psi_R'$ we have $2\xi = \tilde g - \kappa_\sigma q$, so $|\xi|\le\frac12(\gamma +
-|\kappa_\sigma|q)\le\frac12(1 + |\kappa_\sigma|)q$ when $\gamma\le q$. Then $\xi^2\le q/2$ for $\varsigma_R\ge (1 +
-\sup_{\mathcal D}|\kappa_\sigma|)^2$, hence $|\eta|^2\ge q/2$, and
+On $\mathrm{supp}\,\psi_\Sigma\psi_R'$ we have $2\xi = \tilde g - \kappa_\sigma q$, so
+$|\xi|\le\frac12(\gamma + |\kappa_\sigma|q)\le\frac12(1 + |\kappa_\sigma|)q$ when $\gamma\le q$. Then $\xi^2\le q/2$ for
+$\varsigma_R\ge (1 + \sup_{\mathcal D}|\kappa_\sigma|)^2$, hence $|\eta|^2\ge q/2$, and
 
 $$e_{R,\epsilon} := \rho^{-\mathsf r'}\varphi_\epsilon\psi_\partial\psi_\Sigma\big(8|\eta|^2/q\big)^{1/2}\sqrt{-x\psi(x)
 \psi'(x)}\big|_{x = \varsigma_Rq}$$
@@ -1475,9 +1475,8 @@ $\{\varepsilon_*\xi\ge-\frac12|\sigma_*|\}$. Let $\chi_c\in C_c^\infty$ equal 1 
 $\{\xi^2 + |\eta|^2\le(3|\sigma_*|)^2\}$, which contains $\Sigma^\partial_{\sigma_0}$ for $\sigma_0 \in J$ (Lemma 4.5:
 $|\xi|\le2|\sigma_0|$, $|\eta|\le|\sigma_0|$ there). On the boundary face set
 
-$$\mathsf r := \mathsf r_{\mathrm{out}} + (\mathsf r_{\mathrm{in}} - \mathsf
-r_{\mathrm{out}})\,\Theta(\xi)\,\chi_c(\xi^2 +
-|\eta|^2),$$
+$$\mathsf r := \mathsf r_{\mathrm{out}} +
+(\mathsf r_{\mathrm{in}} - \mathsf r_{\mathrm{out}})\,\Theta(\xi)\,\chi_c(\xi^2 + |\eta|^2),$$
 
 and extend it smoothly. Every $R_{\sigma_0,\mathrm{in}}$, $\sigma_0\in J$, has
 $\varepsilon_*\xi = -2|\sigma_0| < -\frac32|\sigma_*|$, where $\mathsf r = \mathsf r_{\mathrm{in}}$; and

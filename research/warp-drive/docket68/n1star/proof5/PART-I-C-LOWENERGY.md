@@ -131,9 +131,9 @@ $\|\mathcal F_tw\|^2 = 2\pi\|w\|^2$ for $L^2(\mathbb R;\mathcal H)$-valued $w$, 
 
 An *end* is a neighbourhood of $\infty$ or of $0$ in $\mathbb R^4$, with *decay variable* $\varrho := |x|^{-1}$ (the end
 at $\infty$, where $\varrho = \rho$) or $\varrho := |x|$ (the end at 0, used at the face ztf in section 4). Put $t :=
--\log\varrho$, so $t\to+\infty$ at the end, $\omega := x/|x|\in\mathbb S^3$, and $\mu_b := |d\varrho/\varrho\,d\omega| =
-|dt\,d\omega|$. The b-vector fields are spanned over $C^\infty_b$ (below) by $\varrho\partial_\varrho = -\partial_t$ and
-a fixed frame $Z_1,\dots,Z_6$ of vector fields on $\mathbb S^3$; they are dilation invariant.
+-\log\varrho$, so $t\to+\infty$ at the end, $\omega := x/|x|\in\mathbb S^3$, and $\mu_b := |d\varrho/\varrho\,d\omega|
+= |dt\,d\omega|$. The b-vector fields are spanned over $C^\infty_b$ (below) by $\varrho\partial_\varrho = -\partial_t$
+and a fixed frame $Z_1,\dots,Z_6$ of vector fields on $\mathbb S^3$; they are dilation invariant.
 
 Fix $\psi\in C_c^\infty((-1,1))$, $0\le\psi\le1$, with $\sum_{k\in\mathbb Z}\psi(\cdot-k) = 1$ on $\mathbb R$, and put
 $\psi_k := \psi(t-k)$, $A := \{e^{-1}<|y|<e\}$, and $\Phi_k$ the dilation of $\mathbb R^4$ by $e^k$ (end at $\infty$) or
@@ -142,8 +142,8 @@ $e^{-k}$ (end at 0), which maps $A$ onto $\{k-1<t<k+1\}$. For a distribution $v$
 
 **Definition 2.1.** For $s,c\in\mathbb R$ and $v$ supported in $\{t>t_0\}$,
 $$\|v\|^2_{H^s_{b,c}} := \sum_{k\ge\lfloor t_0\rfloor}e^{2ck}\|v_k\|^2_{H^s(\mathbb R^4)}.$$
-$c$ is the *b-weight*: at $s = 0$ the norm is equivalent to $\|\varrho^{-c}v\|_{L^2(\mu_b)}$, because $\mu_b =
-|y|^{-4}|dy|$ on $A$ pulls back under $\Phi_k$ to itself, $\varrho^{-c} = e^{ct}$ lies between $e^{c(k-1)}$ and
+$c$ is the *b-weight*: at $s = 0$ the norm is equivalent to $\|\varrho^{-c}v\|_{L^2(\mu_b)}$, because $\mu_b
+= |y|^{-4}|dy|$ on $A$ pulls back under $\Phi_k$ to itself, $\varrho^{-c} = e^{ct}$ lies between $e^{c(k-1)}$ and
 $e^{c(k+1)}$ on the $k$-th piece, and $\sum_k\psi_k = 1$ with at most two pieces overlapping. $C^\infty_b$ denotes the
 functions $f$ with $(\varrho\partial_\varrho)^jZ^\alpha f$ bounded for all $j,\alpha$ (equivalently, $f\circ\Phi_k$
 bounded in $C^\infty$ on a neighbourhood of $\bar A$ uniformly in $k$); it contains the functions smooth in

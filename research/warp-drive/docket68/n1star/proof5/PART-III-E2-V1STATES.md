@@ -1,9 +1,10 @@
 # Part III.E'. The vector type 1 dual states at n = 4 ([Hin26] section 7.2.1)
 
-*Status.* Written (D227). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part
-III.B with $b$ near $b_0 = (\mu_0,0)$, what [Hin26] section 7.2.1 establishes (pp. 140-144): the Lie derivative of $g_b$
-along the rotation vector fields (his Lemma 7.5) and the structure of the vector type 1 dual states (his Proposition
-7.4), whose leading term depends on the rotation only through its bracket with the spin. Parts are cited as in III.E.
+*Status.* Proved (D231: verifier 95 read it in full, no findings; status synchronised with the README at D325). Written
+(D227). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part III.B with $b$ near
+$b_0 = (\mu_0,0)$, what [Hin26] section 7.2.1 establishes (pp. 140-144): the Lie derivative of $g_b$ along the rotation
+vector fields (his Lemma 7.5) and the structure of the vector type 1 dual states (his Proposition 7.4), whose leading
+term depends on the rotation only through its bracket with the spin. Parts are cited as in III.E.
 
 *What n = 4 changes.* The spin is a matrix $A\in\mathfrak{so}(4)$, and the source's $a(b)\times a(V)$ becomes the
 bracket $W = [A,A_V]$. Lemma 7.5 becomes an exact identity, $\delta^*_{g_b}V_b = \frac12D_Ag_b(W)$, from the
@@ -258,4 +259,3 @@ invariance of $\mathrm{Ric}$; the formal self-adjointness of the linearised Eins
 READ: [Hin26] pp. 140-144 (section 7.2.1: (7.16), Proposition 7.4, (7.17)-(7.19), Lemma 7.5 and its proof,
 (7.20)-(7.28), the proof of Proposition 7.4, (7.29)-(7.35)), arXiv:2606.28253v2, full text in the record's extraction.
 The record's supplement 10.31 (i), (c) and 10.36 for the computed values, here derived by hand.
-

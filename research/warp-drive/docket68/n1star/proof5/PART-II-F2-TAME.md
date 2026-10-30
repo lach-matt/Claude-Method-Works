@@ -1,14 +1,14 @@
 # Part II.F$'$. Forward solutions of admissible wave-type operators, and tame estimates, at n = 4
 
-*Status.* Verified. Written out in full (D210) and read line by line by the eighty-eighth verifier (D212): one major
-finding, that the uniqueness class of Theorem 1.1 was too large for the smallness assumed, repaired by restricting it;
-one minor finding and two notes, seated (section 8.4). The part is labelled proved once the next reader has confirmed
-the repairs. This part
-proves, at spatial dimension $n = 4$, [Hin26c] section 11 (pp. 227-233): Theorem 11.1, which solves forward problems for
-admissible wave-type operators $P$ on b-Sobolev spaces with decay at $\mathscr I^+$, $\iota^+$ and $K^+$, with estimates
-tame in the b-regularity, and its Remarks 11.2-11.4. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page
-numbers). Parts II.A (`PART-II-A-SETUP.md`), II.A$'$, II.C, II.D, II.D$'$, II.E (`PART-II-E-ENERGY.md`) and II.F
-(`PART-II-F-IOTA.md`) are cited as II.A, II.A$'$, II.C, II.D, II.D$'$, II.E and II.F.
+*Status.* Proved (D216: verifier 90 read the repairs, correct; status synchronised with the README at D325). Verified.
+Written out in full (D210) and read line by line by the eighty-eighth verifier (D212): one major finding, that the
+uniqueness class of Theorem 1.1 was too large for the smallness assumed, repaired by restricting it; one minor finding
+and two notes, seated (section 8.4). The part is labelled proved once the next reader has confirmed the repairs. This
+part proves, at spatial dimension $n = 4$, [Hin26c] section 11 (pp. 227-233): Theorem 11.1, which solves forward
+problems for admissible wave-type operators $P$ on b-Sobolev spaces with decay at $\mathscr I^+$, $\iota^+$ and $K^+$,
+with estimates tame in the b-regularity, and its Remarks 11.2-11.4. The source is [Hin26c] = P. Hintz,
+arXiv:2606.28008v1 (printed page numbers). Parts II.A (`PART-II-A-SETUP.md`), II.A$'$, II.C, II.D, II.D$'$, II.E
+(`PART-II-E-ENERGY.md`) and II.F (`PART-II-F-IOTA.md`) are cited as II.A, II.A$'$, II.C, II.D, II.D$'$, II.E and II.F.
 
 *Method.* As in the source, the forward solution of $Pu = f$ is the weak limit of the forward solutions of operators
 $P_\epsilon$ that equal $P$ up to a time of order $\epsilon^{-1}$ and the stationary model $P_0$ after it. The a priori

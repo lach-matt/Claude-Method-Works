@@ -5982,3 +5982,9 @@ spherical harmonics on the three-sphere and one part of the cone analysis, re-ru
 repairs correct: both are now proved. In the paper, the settling theorem's quantifiers now come in the right order: the
 data class and the decay rate are fixed first, and Theorem 1 is taken at a high enough order on an enlarged domain. The
 rate is stated as just below the earlier value everywhere it appears.
+
+**D325 (2026-10-30): the record made consistent.** Twenty-three parts had been proved on the record while their own
+status lines still said written or verified; each now opens with the stage reached, the date and the reader, as the
+record has them. Eight wrapped lines in the first three parts, all from early sessions, began with a vertical bar and
+are rewrapped; nothing in their mathematics changed. A reader is checking the six oldest parts still at the verified
+stage, and the paper's restated settling theorem.

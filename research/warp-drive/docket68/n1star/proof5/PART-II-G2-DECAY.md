@@ -1,15 +1,16 @@
 # Part II.G$'$. Improving decay: Fourier transforms, resolvent bounds and the radiation field, at n = 4
 
-*Status.* Verified (D216). Written out in full (D214) and read line by line by the ninetieth verifier, which found no
-major gap; its two minor findings and eleven nits are seated (section 7.3). Nothing here is labelled proved until a
-reader has read those repairs. This part proves, at spatial dimension $n = 4$, the tools of [Hin26c] section 13 (pp.
-243-260) by which forward solutions are shown to decay faster than Theorem 11.1 alone gives: the Fourier transform in
-time on weighted b-Sobolev spaces, on the line and on the resolved product spaces (the source's 13.1); the translation
-of Part I's resolvent estimates at nonzero, high and low frequencies into b-Sobolev spaces with a loss of b-regularity
-independent of the order (13.2); and the radiation field at null infinity (13.3). The source is [Hin26c] = P. Hintz,
-arXiv:2606.28008v1 (printed page numbers). Parts I.A (`PART-I-SPECTRAL.md`), I.B (`PART-I-B-HIGHENERGY.md`), I.C
-(`PART-I-C-LOWENERGY.md`), II.A (`PART-II-A-SETUP.md`), II.C (`PART-II-C-OPERATORS.md`) and II.F$'$
-(`PART-II-F2-TAME.md`) are cited as I.A, I.B, I.C, II.A, II.C and II.F$'$.
+*Status.* Proved (D217: verifier 91 read the repairs, correct; status synchronised with the README at D325). Verified
+(D216). Written out in full (D214) and read line by line by the ninetieth verifier, which found no major gap; its two
+minor findings and eleven nits are seated (section 7.3). Nothing here is labelled proved until a reader has read those
+repairs. This part proves, at spatial dimension $n = 4$, the tools of [Hin26c] section 13 (pp. 243-260) by which forward
+solutions are shown to decay faster than Theorem 11.1 alone gives: the Fourier transform in time on weighted b-Sobolev
+spaces, on the line and on the resolved product spaces (the source's 13.1); the translation of Part I's resolvent
+estimates at nonzero, high and low frequencies into b-Sobolev spaces with a loss of b-regularity independent of the
+order (13.2); and the radiation field at null infinity (13.3). The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1
+(printed page numbers). Parts I.A (`PART-I-SPECTRAL.md`), I.B (`PART-I-B-HIGHENERGY.md`), I.C (`PART-I-C-LOWENERGY.md`),
+II.A (`PART-II-A-SETUP.md`), II.C (`PART-II-C-OPERATORS.md`) and II.F$'$ (`PART-II-F2-TAME.md`) are cited as I.A, I.B,
+I.C, II.A, II.C and II.F$'$.
 
 *Method.* The source's section 13.1 states its results for every $n$; they are proved here, at $n = 4$, with one change
 of route. The facts on the line that the source draws from [Tay11a] and from complex interpolation are proved instead

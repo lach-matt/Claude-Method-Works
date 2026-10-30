@@ -1,15 +1,16 @@
 # Part III.G. The spectral family at future timelike infinity at n = 4 ([Hin26] section 9.1, Proposition 9.2)
 
-*Status.* Written (D236); verified (D238: one major finding, one minor and four nits of the ninety-eighth verifier
-seated, the repairs to be read). This part proves, at spatial dimension $n = 4$, [Hin26] Proposition 9.2 (pp. 164-168):
-the spectral family $N_{\mathrm{sf}}(\lambda)$ of the Minkowski model $\bar L$ of the linearised gauge-fixed Einstein
-operator, on spaces of distributions on the front face sf supported in $\{v\ge-1\}$, is Fredholm of index 0 for every
-$\lambda\in\mathbb C$, invertible for $\mathrm{Re}\,\lambda<2$ (raised from $\frac32$ at D238), invertible for all but
-finitely many $\lambda$ in every half plane $\{\mathrm{Re}\,\lambda\le C\}$, with a finite-meromorphic inverse; and
-solutions gain b-regularity at the light cone $\{v = 0\}$ with their right sides. The rest of the source's section 9
-(Proposition 9.4 and after) is the next part. Parts are cited as before (I.A-I.C, II.A-II.G$'$, III.A-III.F$''''$,
-README.md); the source is [Hin26] = P. Hintz, arXiv:2606.28253v2 (printed page numbers). Computations cited as
-*computed* are exact (sympy) and rerun by `../sf5.py` S1-S8 (new, D236) and S11 (D238), each with a failing control.
+*Status.* Proved (D240: verifier 99 read the repairs, correct; status synchronised with the README at D325). Written
+(D236); verified (D238: one major finding, one minor and four nits of the ninety-eighth verifier seated, the repairs to
+be read). This part proves, at spatial dimension $n = 4$, [Hin26] Proposition 9.2 (pp. 164-168): the spectral family
+$N_{\mathrm{sf}}(\lambda)$ of the Minkowski model $\bar L$ of the linearised gauge-fixed Einstein operator, on spaces of
+distributions on the front face sf supported in $\{v\ge-1\}$, is Fredholm of index 0 for every $\lambda\in\mathbb C$,
+invertible for $\mathrm{Re}\,\lambda<2$ (raised from $\frac32$ at D238), invertible for all but finitely many $\lambda$
+in every half plane $\{\mathrm{Re}\,\lambda\le C\}$, with a finite-meromorphic inverse; and solutions gain b-regularity
+at the light cone $\{v = 0\}$ with their right sides. The rest of the source's section 9 (Proposition 9.4 and after) is
+the next part. Parts are cited as before (I.A-I.C, II.A-II.G$'$, III.A-III.F$''''$, README.md); the source is [Hin26] =
+P. Hintz, arXiv:2606.28253v2 (printed page numbers). Computations cited as *computed* are exact (sympy) and rerun by
+`../sf5.py` S1-S8 (new, D236) and S11 (D238), each with a failing control.
 
 *What n = 4 changes.* The radiative constant is $c = \frac32$ (his 1), so the operator is
 $-2\partial_v(v\partial_v+\lambda-\frac32-\bar S)+\tilde L(0)(v\partial_v+\lambda)$, the regularity threshold at the
