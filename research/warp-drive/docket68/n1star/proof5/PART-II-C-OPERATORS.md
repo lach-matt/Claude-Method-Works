@@ -1,14 +1,15 @@
 # Part II.C. Wave-type operators, the time function and the order functions, at n = 4
 
-*Status.* Repairs read (D326: verifier 142 found the D200 repairs and the D226 correction correct; its one minor
-finding, the stale sentence of (C8), and one nit are seated, to be read). Verified; a D226 correction (the remark after
-Lemma 2.2: the source's conjugation (5.9) is I.B Lemma 6.0), confirmed by the ninety-fourth verifier (D229). Written out
-in full (D198). Read line by line by the eighty-second verifier, which re-derived every computation and confirmed
-(C1)-(C3) at source; its one minor finding (the form of the Minkowski metric stated in the proof of Lemma 1.3, on which
-the argument for $\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ rested; the claim holds) and seven nits are seated (D200).
-The part is labelled proved once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$,
-[Hin26c] section 5 (pp. 100-110) and section 6 (pp. 110-114) except its Proposition 6.3, the stable and unstable trapped
-sets of perturbed metrics, which is the subject of Part II.C$'$ (in writing). The source is [Hin26c] = P. Hintz,
+*Status.* Proved (D327: verifier 143 read the D326 repair, the stale sentence of (C8), and found it correct). Repairs
+read (D326: verifier 142 found the D200 repairs and the D226 correction correct; its one minor finding, the stale
+sentence of (C8), and one nit are seated, to be read). Verified; a D226 correction (the remark after Lemma 2.2: the
+source's conjugation (5.9) is I.B Lemma 6.0), confirmed by the ninety-fourth verifier (D229). Written out in full
+(D198). Read line by line by the eighty-second verifier, which re-derived every computation and confirmed (C1)-(C3) at
+source; its one minor finding (the form of the Minkowski metric stated in the proof of Lemma 1.3, on which the argument
+for $\omega^\mu\bar\Gamma_{\kappa\mu\nu} = 0$ rested; the claim holds) and seven nits are seated (D200). The part is
+labelled proved once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$, [Hin26c]
+section 5 (pp. 100-110) and section 6 (pp. 110-114) except its Proposition 6.3, the stable and unstable trapped sets of
+perturbed metrics, which is the subject of Part II.C$'$ (in writing). The source is [Hin26c] = P. Hintz,
 arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B
 (`PART-I-B-HIGHENERGY.md`) as I.B, Part I.C (`PART-I-C-LOWENERGY.md`) as I.C, Part II.A (`PART-II-A-SETUP.md`) as II.A
 and Part II.B (`PART-II-B-DYNAMICS.md`) as II.B.

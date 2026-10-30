@@ -100,11 +100,16 @@ $\epsilon_{\mathrm{VI}}$ does not depend on the regularity $d_0$ of II.C$'$, nor
 *III.E Theorem 1.1.* It is stated for fixed $v_C\in(0,1)$, $C_0>0$ and all sufficiently large $\gamma_C$
 (PART-III-E-CONSTRAINT.md:36-38). Part IV$''''$ proves it at $(v_C,e_C,C_0) = (\frac12,\frac1{102400},\le100)$ and for
 $\gamma_C>1/h_*$ outside a countable set (PART-IV5-CDMODES.md:235-243, finding (IV$''''$1)). The proved range is what
-the parts use. A search of PART-*.md for $\gamma_C$ together with "for all", "for every", "sufficiently large" or a
-limit $\gamma_C\to\infty$ finds only III.E's statement and IV$''''$'s finding. Every other part takes one value of
-$\gamma_C$, chosen once: III.F$'$ fixes $\gamma_C$ before $\gamma_1$ (PART-III-F2-INDICIAL.md:429), III.K takes
-$\gamma_C$ large with $s_C>100$ (PART-III-K-NONLINEAR.md:49-50), III.G$'$ and III.C$'$ use $s_C$ as a fixed number. So
-the restriction costs nothing.
+the parts use. This is proved by enumeration, not found by search (D327; a search for quantifiers stood here). A part
+can use III.E Theorem 1.1 only by citing it, each step of a verified part being justified by a cited statement, and a
+value of $\gamma_C$ only by naming $\gamma_C$ or $s_C := \gamma_C(1-e_C)(1-v_C)$, the one quantity defined from it under
+another name. `checks/gammac5.py` lists every such line of PART-*.md, 172 in 26 parts, each with its class, and fails on
+any line it does not list: 56 identities valid for every $\gamma_C$; 57 conditions on, or uses of, the one fixed value;
+15 citations of the theorem at that value; 3 lines of III.F$'$'s homotopy $(\tau\gamma_C,\tau\gamma_\Upsilon)$,
+$\tau\in[0,1]$, which uses III.F Lemma 2.1's proof and III.E section 1, not the theorem; and III.E's statement, its
+proof in IV$''''$ and IV$''''''$, and these records. So every part takes one value of $\gamma_C$, chosen once: III.F$'$
+fixes $\gamma_C$ before $\gamma_1$ (PART-III-F2-INDICIAL.md:429), III.K takes $\gamma_C$ large with $s_C>100$
+(PART-III-K-NONLINEAR.md:49-50), III.G$'$ and III.C$'$ use $s_C$ as a fixed number. So the restriction costs nothing.
 
 *III.F$''$ section 5.* For $b\ne b_0$ and $0<|\sigma|<c_0$, the invertibility of $\widehat{L_b}(\sigma)$ was left open
 there (PART-III-F3-MODES.md:261-265). III.H Corollary 4.3 proves it for $b$ near $b_0$ and $\sigma\in\Sigma_0$,

@@ -4,12 +4,12 @@
 (D196). Read line by line by the eighty-first verifier, which recomputed every flow and linearisation and confirmed
 (B1)-(B4) at source; its one minor finding, that the statement of Lemma 3.3 (4) repeated the slip of the source which
 its proof corrects, and four nits are seated (D197). The part is labelled proved once the next reader has confirmed
-them. This part proves, at spatial dimension $n = 4$, the content of [Hin26c] section 4 (pp. 77-99) that the later parts
-use: the radial sets, the horizon, the trapped set and the global null-bicharacteristic dynamics of the stationary model
-in e3b-phase space over the domain $\Omega$ of Part II.A. The source works on subextremal Kerr. Here the stationary
-model is any metric satisfying the hypotheses of Part I together with (K1)-(K4) of section 1. Part I.A
-(`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A (`PART-II-A-SETUP.md`) as
-II.A.
+them; verifier 142 did (D326), and verifier 143 confirmed the D326 nit (D327). This part proves, at spatial dimension $n
+= 4$, the content of [Hin26c] section 4 (pp. 77-99) that the later parts use: the radial sets, the horizon, the trapped
+set and the global null-bicharacteristic dynamics of the stationary model in e3b-phase space over the domain $\Omega$ of
+Part II.A. The source works on subextremal Kerr. Here the stationary model is any metric satisfying the hypotheses of
+Part I together with (K1)-(K4) of section 1. Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B
+(`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A (`PART-II-A-SETUP.md`) as II.A.
 
 *Method.* The source computes the Kerr dynamics from the explicit metric: Carter's constant, the potential of the
 radial motion, the expansion rates, and Dyatlov's proof of $r$-normal hyperbolicity. At $n = 4$ there is no explicit

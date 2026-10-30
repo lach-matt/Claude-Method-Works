@@ -916,12 +916,12 @@ is (38/25, 499996.62) against his (51/50, 499996.12), and its exceptional expone
 changes his steps solve for vanish in the class, and his bookkeeping of the terms at the Kerr face, run over every
 exponent at timelike infinity the class's sources carry — all at least α_min = 3/2 + (1 − e_Υ)γ_Υ = 1.5099 — records no
 physical state: the class loses one order of decay at the Kerr face where he loses two, and the iteration needs its
-forcing at order 3 + ε_K there (`sharp5.py`; computed, the bookkeeping deduced). His Theorems 12.3 and 12.8, the
-exterior theorems of his section 5 with the radiative order 3/2 at null infinity, and his Theorem 13.1 follow: in the
-class, for every ε < ε_K, G-invariant data near five-dimensional Tangherlini of mass m₀ that satisfy the constraints,
-have his decay and are small enough, depending on ε, have a G-invariant vacuum development, and it settles to
-Tangherlini of a nearby mass at the rate t*^(−2−ε) in spatially compact sets (supplement section 10.49; deduced, on the
-readings of section 8.5).
+forcing at order 3 + ε_K there (ε_K a small decay parameter, chosen after ℓ0 and below ℓ0 − 3) (`sharp5.py`; computed,
+the bookkeeping deduced). His Theorems 12.3 and 12.8, the exterior theorems of his section 5 with the radiative order
+3/2 at null infinity, and his Theorem 13.1 follow: in the class, for every ε < ε_K, G-invariant data near
+five-dimensional Tangherlini of mass m₀ that satisfy the constraints, have his decay and are small enough, depending on
+ε, have a G-invariant vacuum development, and it settles to Tangherlini of a nearby mass at the rate t*^(−2−ε) in
+spatially compact sets (supplement section 10.49; deduced, on the readings of section 8.5).
 
 ### 8.5 The readings taken up
 

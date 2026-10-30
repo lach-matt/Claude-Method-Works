@@ -1,15 +1,17 @@
 # Part II.C$'$. The stable and unstable trapped sets of perturbed metrics, at n = 4
 
-*Status.* Repairs read (D326: verifier 142 found the D201 repairs correct but one; that minor finding, the starting time
-of Proposition 3.4, and one nit are seated, to be read). Verified. Written out in full (D199). Read line by line by the
-eighty-third verifier, which re-derived every step and confirmed (C$'$1)-(C$'$3) at source; its five minor findings (two
-gaps in Lemma 2.1, the exact value of $\hat W_0t_*$, a citation, and the smallness of $\epsilon_0$ for the unstable
-hypersurface) and its nits are seated (D201). The part is labelled proved once the next reader has confirmed them. This
-part proves, at spatial dimension $n = 4$, [Hin26c] Proposition 6.3 (pp. 112-113): for a metric that decays in time to
-the stationary model, there are hypersurfaces, close to the stable and unstable manifolds of the stationary trapped set
-and converging to them, to which the null-bicharacteristic flow is tangent. The source is [Hin26c] = P. Hintz,
-arXiv:2606.28008v1. Part I.B (`PART-I-B-HIGHENERGY.md`) is cited as I.B, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part
-II.B (`PART-II-B-DYNAMICS.md`) as II.B and Part II.C (`PART-II-C-OPERATORS.md`) as II.C.
+*Status.* Repairs read again (D327: verifier 143 found the D326 repair correct but incomplete, sections 3.2-3.3 being
+still on $\{t_*>1\}$; they now start at $T_\flat$ too, to be read). Repairs read (D326: verifier 142 found the D201
+repairs correct but one; that minor finding, the starting time of Proposition 3.4, and one nit are seated, to be read).
+Verified. Written out in full (D199). Read line by line by the eighty-third verifier, which re-derived every step and
+confirmed (C$'$1)-(C$'$3) at source; its five minor findings (two gaps in Lemma 2.1, the exact value of $\hat W_0t_*$, a
+citation, and the smallness of $\epsilon_0$ for the unstable hypersurface) and its nits are seated (D201). The part is
+labelled proved once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$, [Hin26c]
+Proposition 6.3 (pp. 112-113): for a metric that decays in time to the stationary model, there are hypersurfaces, close
+to the stable and unstable manifolds of the stationary trapped set and converging to them, to which the
+null-bicharacteristic flow is tangent. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1. Part I.B
+(`PART-I-B-HIGHENERGY.md`) is cited as I.B, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part II.B
+(`PART-II-B-DYNAMICS.md`) as II.B and Part II.C (`PART-II-C-OPERATORS.md`) as II.C.
 
 *Method.* The source reduces the statement to a theorem on decaying perturbations of a flow with normally hyperbolic
 trapping, [Hin21] Theorem 2.6 (P. Hintz, *Normally hyperbolic trapping on asymptotically stationary spacetimes*, Probab.
@@ -290,15 +292,18 @@ $b_0$, and $\mathcal B$ is compact. $\square$
 
 ### 3.2 The slice and the projected flow
 
-Near $(K^+)^\circ$, over $D := \{t_*>1,\ r_{\Gamma,-}<r<r_{\Gamma,+}\}$ with
-$[r_{\Gamma,-},r_{\Gamma,+}]\subset(r_2,\rho_1^{-1})$ containing the projection of $\Gamma$, the e3b-structure is spanned
-by $\partial_{t_*},\partial_x$ (II.A section 2.2, II.B section 2.1; D201), and ${}^{e3b}T^*_DM = T^*D$ with covectors
-$-\sigma\,dt_*+\zeta$. On $\{\sigma>0\}$ use the slice coordinates $(t_*,x,z)$, $z := \zeta/\sigma$, which identify
-$\{\sigma>0\}\cap{}^{e3b}S^*_DM$ with $(1,\infty)\times T^*\{r_{\Gamma,-}<r<r_{\Gamma,+}\}$; at $\rho_K = t_*^{-1} = 0$
-this is the map $\Phi_1$ of II.B Definition 2.2. Let $g = g_0+h$ with $h\in\tilde{\mathcal G}^{d_0,(0,0,\ell_K)}_{e3b}$,
-$d_0\ge3$, $\ell_K>0$, and $\|h\|\le\epsilon$. Over $D$, $x_I$ and $\rho_+$ are bounded above and below and $\rho_K\sim
-t_*^{-1}$, so the components of $g^{-1}-g_0^{-1}$ in the frame $\partial_{t_*},\partial_x$ have derivatives of order $\le
-d_0$ along $\partial_{t_*},\partial_x$ bounded by $C\epsilon t_*^{-\ell_K}$ (Neumann series, II.A Lemma 8.2). Put
+Near $(K^+)^\circ$, over $D := \{t_*>T_\flat,\ r_{\Gamma,-}<r<r_{\Gamma,+}\}$, where $T_\flat := 1/C'$ with $C'$ of II.C
+Lemma 3.2, so that $\{t_*\ge T_\flat\}\subset\Omega_*$ by II.C Lemma 3.2 (b) and $g$ is defined, with its $d_0$
+derivatives, up to $\{t_* = T_\flat\}$ (D327: this section was written on $\{t_*>1\}$, where $g$ need not be defined),
+and with $[r_{\Gamma,-},r_{\Gamma,+}]\subset(r_2,\rho_1^{-1})$ containing the projection of $\Gamma$, the e3b-structure
+is spanned by $\partial_{t_*},\partial_x$ (II.A section 2.2, II.B section 2.1; D201), and ${}^{e3b}T^*_DM = T^*D$ with
+covectors $-\sigma\,dt_*+\zeta$. On $\{\sigma>0\}$ use the slice coordinates $(t_*,x,z)$, $z := \zeta/\sigma$, which
+identify $\{\sigma>0\}\cap{}^{e3b}S^*_DM$ with $(T_\flat,\infty)\times T^*\{r_{\Gamma,-}<r<r_{\Gamma,+}\}$; at $\rho_K =
+t_*^{-1} = 0$ this is the map $\Phi_1$ of II.B Definition 2.2. Let $g = g_0+h$ with $h\in\tilde{\mathcal
+G}^{d_0,(0,0,\ell_K)}_{e3b}$, $d_0\ge3$, $\ell_K>0$, and $\|h\|\le\epsilon$. Over $D$, $x_I$ and $\rho_+$ are bounded
+above and below and $\rho_K\sim t_*^{-1}$, so the components of $g^{-1}-g_0^{-1}$ in the frame
+$\partial_{t_*},\partial_x$ have derivatives of order $\le d_0$ along $\partial_{t_*},\partial_x$ bounded by $C\epsilon
+t_*^{-\ell_K}$ (Neumann series, II.A Lemma 8.2). Put
 $$p_1(t_*,x,z) := G(t_*,x;-dt_*+z),\qquad\tilde g := p_1-G_1 = (g^{-1}-g_0^{-1})(-dt_*+z,-dt_*+z),\tag{3.1}$$
 so $\tilde g$ is quadratic in $z$, with $|\partial^\alpha\tilde g|\le C\epsilon t_*^{-\ell_K}$, $|\alpha|\le d_0$, on
 compact $z$-sets.
@@ -329,10 +334,10 @@ Let $N$ be a smooth vector field on a neighbourhood $O_N$ of $\Gamma$ in $T^*\ti
 diffeomorphism from $(-c,c)\times Y$ onto a neighbourhood of $Y$, and $G_1(e^{fN}w) = f$, as $\frac d{df}G_1(e^{fN}w) =
 (NG_1)(e^{fN}w) = 1$. Write $w(x,z)$ and $f(x,z)$ for the inverse.
 
-**Lemma 3.3.** For $\epsilon$ small there is $F\in C^{d_0}((1,\infty)\times Y)$, $|\partial^\alpha F|\le C\epsilon
-t_*^{-\ell_K}$ for $|\alpha|\le d_0$, with $\{p_1(t_*,\cdot) = 0\}\cap\hat\Psi_0((-c,c)\times Y) = \{e^{F(t_*,w)N}w: w\in
-Y\}$. The map $\hat\Psi(t_*,f,w) := (t_*,e^{(f+F(t_*,w))N}w)$ is a $C^{d_0}$ diffeomorphism onto a neighbourhood of the
-perturbed characteristic set near $\Gamma$, with $\|\hat\Psi-\hat\Psi_0\|_{C^{d_0}}\le C\epsilon t_*^{-\ell_K}$
+**Lemma 3.3.** For $\epsilon$ small there is $F\in C^{d_0}((T_\flat,\infty)\times Y)$, $|\partial^\alpha F|\le C\epsilon
+t_*^{-\ell_K}$ for $|\alpha|\le d_0$, with $\{p_1(t_*,\cdot) = 0\}\cap\hat\Psi_0((-c,c)\times Y) = \{e^{F(t_*,w)N}w:
+w\in Y\}$. The map $\hat\Psi(t_*,f,w) := (t_*,e^{(f+F(t_*,w))N}w)$ is a $C^{d_0}$ diffeomorphism onto a neighbourhood of
+the perturbed characteristic set near $\Gamma$, with $\|\hat\Psi-\hat\Psi_0\|_{C^{d_0}}\le C\epsilon t_*^{-\ell_K}$
 ($\hat\Psi_0(t_*,f,w) := (t_*,e^{fN}w)$), and it maps $\{f = 0\}$ onto the perturbed characteristic set.
 
 *Proof.* At $e^{fN}w$, $p_1 = f+\tilde g(t_*,e^{fN}w)$. The map $f\mapsto-\tilde g(t_*,e^{fN}w)$ sends $[-\frac c2,\frac
@@ -344,25 +349,25 @@ $\hat\Psi$ is then $C^{d_0}$-close to $\hat\Psi_0$, hence a diffeomorphism near 
 
 Near $\Gamma$, $\hat Wt_* = z\cdot\partial_zp_1-2p_1$, which is $\ge\frac12\beta_0$ near $\Gamma$ for $\epsilon$ small:
 at $\epsilon = 0$ it is exactly $q_1$, as $z\cdot\partial_zG_1 = 2g_0^{-1}(-dt_*+z,z) = 2G_1+q_1$ (D201; an earlier
-version printed $q_1-2G_1$). Put $V^h := \hat W/(\hat Wt_*)$, a $C^{d_0-1}$ vector field near $(1,\infty)\times\Gamma$
-with $V^ht_* = 1$, tangent to $\{p_1 = 0\}$ (Lemma 3.2), and $V^0 := \hat W_0/(\hat W_0t_*) = \partial_{t_*}+H_{G_1}/q_1$
-for $g_0$ (where $\partial_{t_*}G_1 = 0$). By (3.1)-(3.2), $V^h-V^0$ has coefficients with derivatives of order $\le
-d_0-1$ bounded by $C\epsilon t_*^{-\ell_K}$. Let $V := \hat\Psi^*V^h$ restricted to $\{f = 0\} = (1,\infty)\times Y$,
-which is tangent to it since $V^h$ is tangent to the characteristic set; $Vt_* = 1$, as $\hat\Psi$ preserves $t_*$. As
-$\hat\Psi_0^*V^0$ restricted to $\{f = 0\}$ is $\partial_{t_*}+q_1^{-1}H_{G_1} = \partial_{t_*}+\mathsf V$, and
-$\hat\Psi-\hat\Psi_0$, $V^h-V^0$ are $O(\epsilon t_*^{-\ell_K})$ in $C^{d_0}$, resp. $C^{d_0-1}$,
+version printed $q_1-2G_1$). Put $V^h := \hat W/(\hat Wt_*)$, a $C^{d_0-1}$ vector field near
+$(T_\flat,\infty)\times\Gamma$ with $V^ht_* = 1$, tangent to $\{p_1 = 0\}$ (Lemma 3.2), and $V^0 := \hat W_0/(\hat
+W_0t_*) = \partial_{t_*}+H_{G_1}/q_1$ for $g_0$ (where $\partial_{t_*}G_1 = 0$). By (3.1)-(3.2), $V^h-V^0$ has
+coefficients with derivatives of order $\le d_0-1$ bounded by $C\epsilon t_*^{-\ell_K}$. Let $V := \hat\Psi^*V^h$
+restricted to $\{f = 0\} = (T_\flat,\infty)\times Y$, which is tangent to it since $V^h$ is tangent to the
+characteristic set; $Vt_* = 1$, as $\hat\Psi$ preserves $t_*$. As $\hat\Psi_0^*V^0$ restricted to $\{f = 0\}$ is
+$\partial_{t_*}+q_1^{-1}H_{G_1} = \partial_{t_*}+\mathsf V$, and $\hat\Psi-\hat\Psi_0$, $V^h-V^0$ are $O(\epsilon
+t_*^{-\ell_K})$ in $C^{d_0}$, resp. $C^{d_0-1}$,
 $$V = \partial_{t_*}+\mathsf V+\tilde V,\qquad\tilde V(t_*,\cdot)\ \text{tangent to}\ Y,\qquad|\partial^\alpha\tilde V|
 \le C\epsilon t_*^{-\ell_K},\ |\alpha|\le d_0-1.\tag{3.3}$$
 
 ### 3.4 The statement
 
 **Proposition 3.4 ([Hin26c] Proposition 6.3 at $n = 4$).** Let $d_0\ge3$, $\ell_K>0$ and $g = g_0+h$ with
-$h\in\tilde{\mathcal G}^{d_0,(0,0,\ell_K)}_{e3b}$ of sufficiently small norm $\epsilon$. Let $T_\flat := 1/C'$, with
-$C'$ of II.C Lemma 3.2, and $\partial\Gamma_0 := \{t_*>T_\flat\}\times\Gamma$ in the slice coordinates (the stationary
-extension of $\partial\Gamma_{K^+}$, II.B Definition 5.1), and $U$ a small conic neighbourhood of it in
-${}^{e3b}S^*_DM$. There are functions $\phi_0^{u/s}\in C^\infty(U)$, independent of $t_*$, with $\phi_0^{u/s} =
-\phi_{u/s}(x,z)$ on the stationary characteristic set, and $\tilde\phi^u\in C^{d_0-1}(U)$, $\tilde\phi^s\in
-C^{d_0-2}(U)$, with
+$h\in\tilde{\mathcal G}^{d_0,(0,0,\ell_K)}_{e3b}$ of sufficiently small norm $\epsilon$. With $T_\flat$ of section 3.2,
+let $\partial\Gamma_0 := \{t_*>T_\flat\}\times\Gamma$ in the slice coordinates (the stationary extension of
+$\partial\Gamma_{K^+}$, II.B Definition 5.1), and $U$ a small conic neighbourhood of it in ${}^{e3b}S^*_DM$. There are
+functions $\phi_0^{u/s}\in C^\infty(U)$, independent of $t_*$, with $\phi_0^{u/s} = \phi_{u/s}(x,z)$ on the stationary
+characteristic set, and $\tilde\phi^u\in C^{d_0-1}(U)$, $\tilde\phi^s\in C^{d_0-2}(U)$, with
 $$|\partial^\alpha\tilde\phi^u|\le C\epsilon t_*^{-\ell_K}\ (|\alpha|\le d_0-1),\qquad|\partial^\alpha\tilde\phi^s|
 \le C\epsilon t_*^{-\ell_K}\ (|\alpha|\le d_0-2),$$
 derivatives along $\partial_{t_*},\partial_x$ and the fibres, such that, with $\phi^{u/s} :=

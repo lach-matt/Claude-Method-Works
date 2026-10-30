@@ -1,20 +1,20 @@
 # Part II.E. Energy estimates, and the global estimate at high frequencies, at n = 4
 
-*Status.* Repairs read (D326: verifier 142 found the D207 repairs correct but one; that minor finding, Lemma 3.3 (b)'s
-kernel, and one nit are seated, to be read). Verified. Written out in full (D205). Read line by line by the eighty-sixth
-verifier, which re-derived Lemma 2.4 at $n = 4$ by machine (and at $n = 3$, reproducing the source's (8.10)), Lemma 2.5,
-Propositions 3.2 and 3.4 and sections 4-6, and confirmed (E1)-(E13) at source. Its six minor findings (the order on the
-extension region, the domain of the collar flow, the slab bookkeeping in the tame inductions, the support of $E_+$, the
-definition of the extended $t^\flat$, and a hypothesis of Proposition 3.2) and its nits are seated (D207). The part is
-labelled proved once the next reader has confirmed them. (E14) was narrowed on the eighty-eighth verifier's reading
-(D212): the tame bounds (4.4), (5.6) and (6.2) are proved, and now stated, for orders constant and in $\mathbb N_0$ near
-the face across which the source term is extended. This part proves, at spatial dimension $n = 4$, [Hin26c] section 8
-(pp. 141-157): solvability of forward problems on bounded time slabs, with energy estimates, on edge-Sobolev spaces with
-and without b-regularity and tame in it (the source's Lemma 8.1 and Propositions 8.3, 8.6, 8.9); the same in the black
-hole interior with $r$ as the time function (Lemma 8.10, Propositions 8.11-8.13); and the global estimate (Theorem
-8.14), which joins these to the microlocal estimate of Part II.D$'$. The source is [Hin26c] = P. Hintz,
-arXiv:2606.28008v1 (printed page numbers). Parts II.A, II.A$'$, II.B, II.C, II.C$'$, II.D and II.D$'$ are cited as in
-Part II.D$'$.
+*Status.* Proved (D327: verifier 143 read the D326 repair, Lemma 3.3 (b)'s kernel, and found it correct). Repairs read
+(D326: verifier 142 found the D207 repairs correct but one; that minor finding, Lemma 3.3 (b)'s kernel, and one nit are
+seated, to be read). Verified. Written out in full (D205). Read line by line by the eighty-sixth verifier, which
+re-derived Lemma 2.4 at $n = 4$ by machine (and at $n = 3$, reproducing the source's (8.10)), Lemma 2.5, Propositions
+3.2 and 3.4 and sections 4-6, and confirmed (E1)-(E13) at source. Its six minor findings (the order on the extension
+region, the domain of the collar flow, the slab bookkeeping in the tame inductions, the support of $E_+$, the definition
+of the extended $t^\flat$, and a hypothesis of Proposition 3.2) and its nits are seated (D207). The part is labelled
+proved once the next reader has confirmed them. (E14) was narrowed on the eighty-eighth verifier's reading (D212): the
+tame bounds (4.4), (5.6) and (6.2) are proved, and now stated, for orders constant and in $\mathbb N_0$ near the face
+across which the source term is extended. This part proves, at spatial dimension $n = 4$, [Hin26c] section 8 (pp.
+141-157): solvability of forward problems on bounded time slabs, with energy estimates, on edge-Sobolev spaces with and
+without b-regularity and tame in it (the source's Lemma 8.1 and Propositions 8.3, 8.6, 8.9); the same in the black hole
+interior with $r$ as the time function (Lemma 8.10, Propositions 8.11-8.13); and the global estimate (Theorem 8.14),
+which joins these to the microlocal estimate of Part II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1
+(printed page numbers). Parts II.A, II.A$'$, II.B, II.C, II.C$'$, II.D and II.D$'$ are cited as in Part II.D$'$.
 
 *Method.* The energy estimates are proved with a vector field multiplier, as in the source, at $n = 4$. Near $\mathscr
 I^+$ the multiplier is a weighted edge vector field whose deformation tensor is positive in the time derivative only

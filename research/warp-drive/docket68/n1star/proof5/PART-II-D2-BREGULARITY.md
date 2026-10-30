@@ -1,18 +1,19 @@
 # Part II.D$'$. Microlocal regularity with b-regularity, and estimates tame in it, at n = 4
 
-*Status.* Repairs read (D326: verifier 142 found the D206 repairs, the horizon coupling included, correct; one minor
-finding, a parity misnamed, and one nit are seated, to be read). Verified. Written out in full (D203). Read line by line
-by the eighty-fifth verifier, which re-derived Lemmas 2.1-2.5, the commutators of sections 3-6 and the assembly, and
-confirmed (D$'$1)-(D$'$2) at source. Its major finding, that with the words of (2.2) the coupling at the horizon is not
-diagonal and its Hermitian part is indefinite for $k\ge2$, is repaired by the form (2.2$'$) for commuting letters; its
-three minor findings (the form of $R^{(2)}$ in (C2), the bound used in the tame assembly, half of (D$'$3)) and its nits
-are seated (D206). The part is labelled proved once the next reader has confirmed them. This part proves, at spatial
-dimension $n = 4$, [Hin26c] section 7.2 (pp. 127-141): the global estimate of Part II.D with $k$ additional degrees of
-b-regularity (the source's Proposition 7.11), its version tame in $k$, and the ingredients: commutators with b-vector
-fields near $\mathscr I^+$ (Lemma 7.12), and the radial point and trapping estimates with b-regularity (Propositions
-7.17 and 7.22, Lemmas 7.15-7.16 and 7.19-7.21). The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page
-numbers). Part II.A (`PART-II-A-SETUP.md`) is cited as II.A, Part II.B as II.B, Part II.C as II.C, Part II.C$'$ as
-II.C$'$ and Part II.D (`PART-II-D-REGULARITY.md`) as II.D.
+*Status.* Proved (D327: verifier 143 read the D326 repair, the parity, and found it correct). Repairs read (D326:
+verifier 142 found the D206 repairs, the horizon coupling included, correct; one minor finding, a parity misnamed, and
+one nit are seated, to be read). Verified. Written out in full (D203). Read line by line by the eighty-fifth verifier,
+which re-derived Lemmas 2.1-2.5, the commutators of sections 3-6 and the assembly, and confirmed (D$'$1)-(D$'$2) at
+source. Its major finding, that with the words of (2.2) the coupling at the horizon is not diagonal and its Hermitian
+part is indefinite for $k\ge2$, is repaired by the form (2.2$'$) for commuting letters; its three minor findings (the
+form of $R^{(2)}$ in (C2), the bound used in the tame assembly, half of (D$'$3)) and its nits are seated (D206). The
+part is labelled proved once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$,
+[Hin26c] section 7.2 (pp. 127-141): the global estimate of Part II.D with $k$ additional degrees of b-regularity (the
+source's Proposition 7.11), its version tame in $k$, and the ingredients: commutators with b-vector fields near
+$\mathscr I^+$ (Lemma 7.12), and the radial point and trapping estimates with b-regularity (Propositions 7.17 and 7.22,
+Lemmas 7.15-7.16 and 7.19-7.21). The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part II.A
+(`PART-II-A-SETUP.md`) is cited as II.A, Part II.B as II.B, Part II.C as II.C, Part II.C$'$ as II.C$'$ and Part II.D
+(`PART-II-D-REGULARITY.md`) as II.D.
 
 *Method.* b-regularity is tested by commuting b-vector fields through $P$. For the elliptic and real principal type
 estimates, II.A section 9 commutes a spanning set of b-vector fields; the commutators enter the commuted system below
