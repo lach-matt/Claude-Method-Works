@@ -2259,6 +2259,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `c5b0dddd69644ffcd7ca93624b2ef4a2` |
 | `docket68/n1star/proof5/PART-IX-GAUGE.md` | `de9afd2470c80c26ff6b172d35992a51` |
 | `docket68/n1star/checks/ix5.py` | `3aef2fc325684b0a489e2b04c9a89c4a` |
+| `docket68/n1star/EQUALITY5.md` | `9a36681c3862dd10f528ecc011cdcc73` |
 | `docket68/n1star/checks/eq5.py` | `fae5dce11668492f91fec0657408090b` |
 | `docket68/n1star/LOSS-D.md` | `bf9cc64fa9d2c9cd75642e1db3ef6bfa` |
 | `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `ff1f27f03b6aa076d8f5a6dcdef73506` |
