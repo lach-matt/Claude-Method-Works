@@ -177,7 +177,8 @@ and coefficients depending on $U$ only through finitely many derivatives at the 
 once III.I$''''''''''''''$ Theorem 3.1 is.
 
 (J$'$3) *$b\ne b_0$.* Theorem 2.1 is at $b_0$, as III.I$''''''''$-III.I$''''''''''''''$ are ((I3) of III.I); the
-nonlinear iteration moves $b$, and the linear theory at $b$ near $b_0$ is open.
+nonlinear iteration moves $b$, and the linear theory at $b$ near $b_0$ is open. D297: III.I$'''''''''''''''$ supplies it
+(Corollary 3.2); to be verified.
 
 (J$'$4) *$\Psi$.* The version with an initial solution (the source's Theorem 12.8 for $\Psi$) waits for Part III.C$'$,
 as in III.J (J6).

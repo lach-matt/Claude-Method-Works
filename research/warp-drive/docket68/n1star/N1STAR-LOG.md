@@ -5602,7 +5602,8 @@ gap in III.I''''''''''': the column terms were known at tf only conormally; a ne
 b_0, and their exponents join the parameter exponents.
 
 **D275 (2026-10-26): verifier 117 seated; III.I''''''''''' verified, III.I'''''''''' proved.** The
-hundred-and-seventeenth verifier found one major finding in Part III.I''''''''''': the zero-energy data of the spectral cascade are found for
+hundred-and-seventeenth verifier found one major finding in Part III.I''''''''''': the zero-energy data of the spectral
+cascade are found for
 each sign of sigma, and the boost data at the first Taylor level can differ between the signs, which the sorting of the
 pieces at K+ ignored. A matching step on the time derivative, as in Part III.I'''''' and the source's own caveat, shows
 the difference vanishes. Three minor findings (Proposition 5.1's range at the last level, a degree, and the transfer of
@@ -5770,3 +5771,17 @@ It also read the uniformity part and found no major gap. It had four smaller poi
 uniform for every order of regularity by compactness. The neighbourhood of the reference black hole is now chosen
 after the constants it must respect, not before. One step at future timelike infinity is run with the reference
 operator. One condition on the orders is checked at the nearby black holes too.
+
+**D297 (2026-10-30): the linear theory away from the reference black hole.** The chain of parts that builds the solution
+maps was written for the reference black hole, but the nonlinear iteration moves the black hole's parameters. A new part
+carries the chain to every nearby black hole. One thing does not carry over by perturbation. At the reference black hole
+every rotation is a symmetry, so rotations produce no terms; at a rotating one they do, and those terms cannot be
+removed the way the others are. As in the source, they are carried by rows already built for the purpose, with their
+coefficients read off from the construction itself. A list of every place the chain used the reference black hole
+backs the transfer; the part says plainly that this list comes from a search.
+
+**D298 (2026-10-30): the uniformity part, second reading.** The verifier read the repairs to the uniformity part and
+found no major gap. It had two smaller points, now seated. The order in which the neighbourhood and its constants were
+chosen was still circular as written. And one smallness condition did not cover every time slab it was used on. Both
+are repaired the same way: the estimates on slabs are applied to the nearby black hole's own operator, whose constants
+vary continuously with the parameters, so the condition is no longer needed.

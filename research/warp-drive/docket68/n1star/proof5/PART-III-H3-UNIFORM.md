@@ -1,14 +1,15 @@
 # Part III.H$''$. Uniformity near $b_0$, n = 4 ([Hin26] Proposition 8.3 and Theorem 10.1 on a fixed neighbourhood of
 $b_0$; [Hin26c] Theorems 10.1 and 11.1 uniformly in the stationary model)
 
-*Status.* Written (D294); verified (D296: verifier 128's findings seated, to be read). This part proves, at spatial
-dimension $n = 4$, the two inputs that Part III lacked at black hole parameters $b\ne b_0$ ((I3) of III.I). The first is
-the 2-admissibility of $2L_b$ for every order $k$ of b-regularity, on one fixed neighbourhood $\mathcal B_*$ of $b_0$
-and with constants uniform in $b$ (Theorem 2.1). The second is the forward solution theory of II.F Theorem 8.1 and
-II.F$'$ Theorem 1.1, uniformly over the stationary models $2L_b$, $b\in\mathcal B_*$ (Theorems 3.1 and 4.1). So III.I
-Theorem 5.3, the source's Theorem 11.12, holds for $b\in\mathcal B_*$ with constants uniform in $b$ and with continuity
-in $b$ (Corollary 5.1). This discharges (H$'$3) of III.H$'$, (F$'$11) of II.F$'$ for this family, and (I3) of III.I.
-What (J$'$3) of III.J$'$ needs beyond this is recorded as (H$''$5).
+*Status.* Written (D294); verified (D296: verifier 128's findings seated). Verifier 129 (D298): 0 major, 2 minor, 5
+nits, seated; to be read. This part proves, at spatial dimension $n = 4$, the two inputs that Part III lacked at black
+hole parameters $b\ne b_0$ ((I3) of III.I). The first is the 2-admissibility of $2L_b$ for every order $k$ of
+b-regularity, on one fixed neighbourhood $\mathcal B_*$ of $b_0$ and with constants uniform in $b$ (Theorem 2.1). The
+second is the forward solution theory of II.F Theorem 8.1 and II.F$'$ Theorem 1.1, uniformly over the stationary models
+$2L_b$, $b\in\mathcal B_*$ (Theorems 3.1 and 4.1). So III.I Theorem 5.3, the source's Theorem 11.12, holds for
+$b\in\mathcal B_*$ with constants uniform in $b$ and with continuity in $b$ (Corollary 5.1). This discharges (H$'$3) of
+III.H$'$, (F$'$11) of II.F$'$ for this family, and (I3) of III.I. What (J$'$3) of III.J$'$ needs beyond this is recorded
+as (H$''$5).
 
 *What n = 4 changes.* (1) *The trapping bound at every $b$.* III.F Proposition 4.1 proves strong trapping admissibility
 at $b_0$ only, from a frame built with Tangherlini's symmetry; near $b_0$ it gives the bound $\epsilon$ only on a
@@ -37,45 +38,51 @@ B}_1$:
 
 (B1) $\Gamma_b$ lies over a fixed compact subset of $U_\Gamma$ and in a fixed conic neighbourhood $O$ of $\Gamma_{b_0}$
 in $T^*M\setminus o$, on which $\sigma>0$ and which meets the characteristic set $\Sigma_b$ of $g_b$ only in its future
-component; I.B (Γ.1)-(Γ.3) hold with $\nu_{\min}$, $\beta_0$ and $\sup_\Gamma q^\Gamma$ continuous in $b$ and positive
-((Dyn));
+component; $O$ lies over $U_\Gamma$ and is so small that on it $\zeta$ and $dt_*$ are independent and
+$g_b^{-1}(dt_*,\zeta)\ne0$ (both hold on $\Sigma_b$, where a nonzero null covector is independent of, and not orthogonal
+to, the timelike $dt_*$ of (B2), hence near $\Gamma_{b_0}$ for $b$ near $b_0$; verifier 129's N2); I.B (Γ.1)-(Γ.3) hold
+with $\nu_{\min}$, $\beta_0$ and $\sup_\Gamma q^\Gamma$ continuous in $b$ and positive ((Dyn));
 
-(B2) $dt_*$ is $g_b$-timelike over $U_\Gamma$ ($g_b^{00}<0$ on $X^\circ$, III.B Lemma 3.7 (a));
+(B2) $dt_*$ is $g_b$-timelike over $U_\Gamma$ ($g_b^{00}<0$ on $X^\circ$, III.B Lemma 3.7 (a)), and $g_b-g_{b_0}$ is
+below $\epsilon_G$ of II.C Lemma 3.2 (2), so that the time function $t^\flat$ built from $g_{b_0}$ serves every $g_b$
+and $\Omega_* = \mathrm{cl}_M\{t^\flat\ge1\}$ does not depend on $b$ (moved here from (B5) by verifier 129's M1);
 
 (B3) $c_C$ is past timelike for $g_b$ over $U_\Gamma$ (III.E Theorem 1.1 at $b_0$, and continuity over the closure
 of $U_\Gamma$, compact modulo $t_*$-translation, all quantities being stationary);
 
 (B4) the order $\mathsf s$ of II.C Proposition 5.1, built for $2L_{b_0}$, is admissible for $2L_b$ with the same
 weights and margin (II.C Proposition 5.1 (4)), and satisfies (C1)-(C3) of III.H$'$ Definition 1.1 for $2L_b$. At $b_0$
-this is III.I Lemma 5.1. At $b$, (C1)-(C2) do not involve the metric. For (C3), the order varies only over
-$\Omega_\iota$, at large $r$, where $g_b-g_{b_0} = O(|b-b_0|r^{-2})$; the $O(|b-b_0|)$ change of the Hamilton field
-there is absorbed by the margins of III.I Lemma 5.1's proof ($\delta/8$ and $\varrho^{-1}$) (verifier 128's m4).
+this is III.I Lemma 5.1. At $b$, (C1)-(C2) do not involve the metric. For (C3): II.C Lemmas 5.3 and 5.5 hold for every
+$g$ of II.C Proposition 5.1 (2), whose (4) includes the models $2L_b$ at nearby $b$, so III.I Lemma 5.1's proof runs
+verbatim with $G_b$, its margins ($Hf_T\ge\varrho^{-1}$ against $2\varrho^{-1}$, $Hf_W\ge\delta/8$, and the gap
+$\hat\xi<-\delta/8$ off $\Sigma$) being relative (verifier 128's m4, verifier 129's N5).
 
-The constants of sections 1-4 are obtained uniformly over $\bar{\mathcal B}_1$; their proofs use only (B1)-(B4).
-Then fix an open $\mathcal B_*\ni b_0$ with $\bar{\mathcal B}_*\subset\mathcal B_1$ and
+Sections 1-4 are stated and proved on $\bar{\mathcal B}_1$, with constants uniform there; their proofs use only
+(B1)-(B4) (verifier 129's M1). Then fix an open $\mathcal B_*\ni b_0$ with $\bar{\mathcal B}_*\subset\mathcal B_1$ and
 
-(B5) $|b-b_0|$ so small, for $b\in\bar{\mathcal B}_*$, that: $\|P-2L_b\|_{(0;d)}<\epsilon_0$ of Theorem 4.1 in Corollary
-5.1 for $|S|$ and $\|h\|$ small (III.I Proposition 3.4, (3.7)); $2L_b-2L_{b_0}$ is below the smallness thresholds of
-II.E Propositions 3.4 and 4.3 on the slabs $\Omega_{1,T}$, $T\le\tau_0^{-1}+2$, used in Theorem 3.1 (b)-(c), with
-$\tau_0$ of Theorem 3.1; and $g_b-g_{b_0}$ is below $\epsilon_G$ of II.C Lemma 3.2 (2), so that the time function
-$t^\flat$ built from $g_{b_0}$ serves every $g_b$ and $\Omega_* = \mathrm{cl}_M\{t^\flat\ge1\}$ does not depend on $b$.
+(B5) $|b-b_0|$ so small, for $b\in\bar{\mathcal B}_*$, that $\|P-2L_b\|_{(0;d)}<\epsilon_0$ of Theorem 4.1 in Corollary
+5.1 for $|S|$ and $\|h\|$ small (III.I Proposition 3.4, (3.7)). This is the only condition on $\mathcal B_*$. The slab
+clause it carried in D296 is not needed, as Theorems 3.1 and 4.1 apply II.E relative to $2L_b$ itself, and its
+$\epsilon_G$ clause is now in (B2) (verifier 129's M1-M2).
 
-The choices are made in this order, so nothing is circular (verifier 128's m2). Every statement below for
-$b\in\bar{\mathcal B}_*$ holds a fortiori; those of sections 1-2 hold on $\bar{\mathcal B}_1$.
+The choices are made in this order: $\mathcal B_1$ by (B1)-(B4); the constants of sections 1-4, uniform on
+$\bar{\mathcal B}_1$; then $\mathcal B_*$ by (B5), which involves only $\epsilon_0$ of Theorem 4.1. So nothing is
+circular (verifier 128's m2, verifier 129's M1), and every statement of sections 1-4 holds a fortiori on $\bar{\mathcal
+B}_*$.
 
 Put $f_b := |dg_b|/(|dt_*|\,|dx|)$, a smooth positive stationary function, smooth in $b$.
 
-## 1. Strong trapping admissibility on $\mathcal B_*$ ([Hin26] Proposition 8.3 at n = 4)
+## 1. Strong trapping admissibility on $\mathcal B_1$ ([Hin26] Proposition 8.3 at n = 4)
 
-**Proposition 1.1.** For $\eta\in(0,1]$ and $b\in\bar{\mathcal B}_*$ there is a stationary fibre inner product
+**Proposition 1.1.** For $\eta\in(0,1]$ and $b\in\bar{\mathcal B}_1$ there is a stationary fibre inner product
 $h_{\eta,b}$ on $\pi^*S^2T^*$ over $O$, homogeneous of degree 0 and smooth in $b$, such that, with $p_1^\Gamma$ of I.B
 (Γ.4) for $2L_b$, $h_{\eta,b}$ and the adjoints of I.A (for $|dx|$ and $dt_*$),
 $$\sup_{\Gamma_b}\lambda_{\max}(p_1^\Gamma)\le C\eta,\tag{1.1}$$
 with $C$ independent of $\eta$ and $b$. In particular $2L_b$ is strongly trapping admissible ([Hin26c] Definition 5.8)
-at every $b\in\bar{\mathcal B}_*$.
+at every $b\in\bar{\mathcal B}_1$.
 
 *Proof.* *Step 1: the subprincipal operator.* Over $U_\Gamma$, $E^\Upsilon = 0$ and $R_{g_b}$ has order 0, so III.F
-(4.1) holds at every $b\in\bar{\mathcal B}_*$, on half-densities by $|dg_b|$:
+(4.1) holds at every $b\in\bar{\mathcal B}_1$, on half-densities by $|dg_b|$:
 $$iS_{\mathrm{sub}}(2L_b) = \nabla^{\pi^*S^2T^*}_{H_G}+2E^C_{g_b}\sigma_1(i\delta_{g_b})G_{g_b};$$
 the identity $iS_{\mathrm{sub}}(\Box_g) = \nabla^{\pi^*S^2T^*}_{H_G}$ is [Hin17] Proposition 4.1, valid in every
 dimension and for every metric.
@@ -125,15 +132,15 @@ it is defined on $O$, stationary, homogeneous of degree 0 and smooth in $b$ (the
 $dt_*$); the seven pieces are orthogonal for it, and $\Omega$ is skew. Put $h^0_{\eta,b} :=
 \sum_P\eta^{-2W(P)}\langle\cdot_P,\cdot_P\rangle_0$ on $\Sigma\cap O$, and extend it to $O$ by the same formulas.
 $e_0$, $e_2$ (by the formulas for $a$, $c$), $V$, the frame and the pieces are defined near $\Sigma_b$, where
-$\mathrm{span}\{e_0,e_2\} = \mathrm{span}\{\tau,e_0\}$ stays Lorentzian and $e_0$, $\tau$ stay independent (shrink $O$);
-this gives a stationary inner product on $O$, homogeneous of degree 0 and smooth in $b$; $p_1^\Gamma$ involves the inner
-product only on $\Gamma_b$ and through its derivative along $H_G$, which is tangent to $\Sigma$, so the extension does
-not enter. As in III.F, in an $h^0_{\eta,b}$-orthonormal frame $D_-$ is $O(\eta)$ and $D_0$ is unchanged; $h^0_{\eta,b}$
-is constant in the frame, so $H_G$ is skew; and by (1.3) and I.B (6.0), on $\Gamma_b$,
+$\mathrm{span}\{e_0,e_2\} = \mathrm{span}\{\tau,e_0\}$ stays Lorentzian and $e_0$, $\tau$ stay independent (on $O$, by
+(B1)-(B2)); this gives a stationary inner product on $O$, homogeneous of degree 0 and smooth in $b$; $p_1^\Gamma$
+involves the inner product only on $\Gamma_b$ and through its derivative along $H_G$, which is tangent to $\Sigma$, so
+the extension does not enter. As in III.F, in an $h^0_{\eta,b}$-orthonormal frame $D_-$ is $O(\eta)$ and $D_0$ is
+unchanged; $h^0_{\eta,b}$ is constant in the frame, so $H_G$ is skew; and by (1.3) and I.B (6.0), on $\Gamma_b$,
 $$p_1^\Gamma = -\tfrac12(D_0+D_0^*)+O(\eta),\qquad-\tfrac12(D_0+D_0^*)\le0,$$
 for the half-densities by $|dg_b|$. The $O(\eta)$ term is bounded by $\eta$ times a polynomial in $|\sigma^{-1}w|$,
 $\gamma_C$ and the components $c_\mu$, which are continuous on $O$ and in $b$; as $\Gamma_b\cap\{\sigma = 1\}$ lies in a
-fixed compact subset of $O$ modulo time translations (B1), the bound is uniform on $\bar{\mathcal B}_*$.
+fixed compact subset of $O$ modulo time translations (B1), the bound is uniform on $\bar{\mathcal B}_1$.
 
 *Step 5: the density.* I.A's adjoints are for $|dt_*|\,|dx|$, and (1.3) is on half-densities by $|dg_b| =
 f_b|dt_*|\,|dx|$. Put $h_{\eta,b} := f_bh^0_{\eta,b}$. Then $\int h_{\eta,b}(u,v)\,|dt_*|\,|dx| = \int
@@ -144,8 +151,8 @@ $C\eta<\epsilon$, (1.1) gives strong trapping admissibility. $\square$
 
 **Corollary 1.2 ($\delta_\Gamma$ uniformly small).** For every $k\in\mathbb N_0$ there are $\eta_k\in(0,1]$ and
 $\epsilon_k>0$ such that, with $h_\Gamma := h_{\eta_k,b}$ in I.B (Γ.4), $\delta_\Gamma(0)<\frac1{2(k+1)}$ and
-$\delta_\Gamma(-\epsilon)\le\frac1{k+1}$ for $\epsilon\in(0,\epsilon_k]$ and every $b\in\bar{\mathcal B}_*$. So
-$\mathcal B^{\mathrm{hi}}_k$ of III.H$'$ section 1 may be taken to contain $\bar{\mathcal B}_*$ for every $k$.
+$\delta_\Gamma(-\epsilon)\le\frac1{k+1}$ for $\epsilon\in(0,\epsilon_k]$ and every $b\in\bar{\mathcal B}_1$. So
+$\mathcal B^{\mathrm{hi}}_k$ of III.H$'$ section 1 may be taken to contain $\bar{\mathcal B}_1$ for every $k$.
 
 *Proof.* With $f(\eta') := \sup_\Gamma\lambda_{\max}(p_1^\Gamma-\eta'q^\Gamma)$ of I.B (1.4), $q^\Gamma\ge2\beta_0$ and
 (1.1) give $f(\eta')\le C\eta-2\beta_0\eta'$ for $\eta'\ge0$, so $\gamma_+\le C\eta/(2\beta_0)$. $f$ is Lipschitz with
@@ -153,20 +160,20 @@ constant $Q := \sup_\Gamma q^\Gamma$ and $f(\gamma_-)-f(\gamma_+) = \frac12\nu_{
 $\gamma_+-\gamma_-\ge\nu_{\min}/(2Q)$. Hence, by (1.4),
 $$\delta_\Gamma(-\epsilon)\le\frac{\gamma_++\epsilon}{\gamma_+-\gamma_-}
 \le\frac{2Q}{\nu_{\min}}\Big(\frac{C\eta}{2\beta_0}+\epsilon\Big),$$
-and $\beta_0$, $Q$, $\nu_{\min}$ are continuous and positive on the compact $\bar{\mathcal B}_*$ (B1). Choose $\eta_k$
+and $\beta_0$, $Q$, $\nu_{\min}$ are continuous and positive on the compact $\bar{\mathcal B}_1$ (B1). Choose $\eta_k$
 and $\epsilon_k$ accordingly. $\square$
 
 For each $k$ the inner product $h_{\eta_k,b}$ is a different one; I.B Theorem 1.3 is applied at each $k$ separately
 (III.H$'$ Lemma 3.1), so this is what it needs.
 
-## 2. 2-admissibility on $\mathcal B_*$ for every $k$ ([Hin26] Theorem 10.1 at n = 4)
+## 2. 2-admissibility on $\mathcal B_1$ for every $k$ ([Hin26] Theorem 10.1 at n = 4)
 
-**Theorem 2.1.** III.H$'$ Theorem 1.3 holds with $\bar{\mathcal B}_*$ in place of $\mathcal B_k$, for every $k$: for
-$k\in\mathbb N_0$, the order $\mathsf s$ of (B4) and $b\in\bar{\mathcal B}_*$, III.H$'$ (1.2) holds with a constant
+**Theorem 2.1.** III.H$'$ Theorem 1.3 holds with $\bar{\mathcal B}_1$ in place of $\mathcal B_k$, for every $k$: for
+$k\in\mathbb N_0$, the order $\mathsf s$ of (B4) and $b\in\bar{\mathcal B}_1$, III.H$'$ (1.2) holds with a constant
 $C_k$ independent of $b$. So $2L_b$ is 2-admissible with sf-weight $\alpha_{\mathrm{sf}}$, sf-loss 0 and margin 1 (II.C
-Definition 2.7, relaxed, for these orders) at every $b\in\bar{\mathcal B}_*$, with constants uniform in $b$.
+Definition 2.7, relaxed, for these orders) at every $b\in\bar{\mathcal B}_1$, with constants uniform in $b$.
 
-*Proof.* Run III.H$'$ sections 2-7 at $b\in\bar{\mathcal B}_*$. Each constant is uniform, as follows.
+*Proof.* Run III.H$'$ sections 2-7 at $b\in\bar{\mathcal B}_1$. Each constant is uniform, as follows.
 
 (i) *Section 2.* $c$ is at most the $c_{j,k'}$ of III.H Theorem 4.1 (3) for $j+k'\le k$, uniform near $b_0$ by III.H
 Corollary 4.2 (and Lemma 5.2 (b) there). Lemma 2.1 has no constant; its high-energy input, I.B Theorem 1.3 (3), is
@@ -175,11 +182,11 @@ uniform in $b$ by I.B section 9.
 (ii) *Lemma 3.1, $|\sigma|\ge C_0$.* I.B Theorem 1.3 (5), at the orders of III.H$'$ Lemma 1.2 (b), with $h_\Gamma :=
 h_{\eta_k,b}$ of Corollary 1.2. By I.B section 9 its constants are uniform in $b$, given (H5)-(H8) continuously in $b$
 ((Dyn)) and the inner product continuous in $b$; then the thresholds $\gamma_\pm$ of I.B section 6 and $c_\Gamma$ are
-continuous in $b$. The condition $(k+1)\delta\le1$ of the proof holds on $\bar{\mathcal B}_*$ by Corollary 1.2, for
+continuous in $b$. The condition $(k+1)\delta\le1$ of the proof holds on $\bar{\mathcal B}_1$ by Corollary 1.2, for
 $\epsilon\le\epsilon_k$.
 
 (iii) *Lemma 3.1, $\frac c2\le|\sigma|\le C_0$.* The argument by contradiction there, run with sequences
-$(\sigma_n,b_n)\to(\sigma_*,b_*)$, $b_*\in\bar{\mathcal B}_*$. The estimates (7.1) and (7.3) of I.A Theorem 7.2 hold
+$(\sigma_n,b_n)\to(\sigma_*,b_*)$, $b_*\in\bar{\mathcal B}_1$. The estimates (7.1) and (7.3) of I.A Theorem 7.2 hold
 uniformly in $b$ for these fixed orders (I.A Theorem 8.1); the coefficients of $\widehat{L_{b_n}}(\sigma_n)$ converge in
 $C^\infty$ to those of $\widehat{L_{b_*}}(\sigma_*)$; and the limit is a nonzero element of the kernel of
 $\widehat{L_{b_*}}(\sigma_*)$ on a space of admissible order. This contradicts III.H Corollary 4.4, as $b_*\in\mathcal
@@ -197,12 +204,15 @@ $t_*$, which do not involve $b$.
 (vii) *Section 7.* The assembly, linear in the bounds above.
 
 *Uniformity for every $k$ on $\bar{\mathcal B}_1$ (D296, verifier 128's m1).* The uniformity near $b_0$ that (i),
-(iv) and (v) cite (III.H Corollary 4.2, Remark 2.6, Lemma 5.2) comes from I.C Theorem 7.1 (2). That theorem gives
-constants uniform on a neighbourhood of a parameter at which its hypotheses hold, and the neighbourhood may depend on
-$k$. Its hypotheses, (G), (Z$_{\mathcal P}$) and (TF), and the invertibility of III.H Proposition 3.2 and Corollary 4.4,
-are qualitative and hold at every $b\in\bar{\mathcal B}_1$ ($\mathcal B$ being taken inside the neighbourhoods of III.H
-Proposition 3.2 and Corollary 4.4). So for each $k$, I.C Theorem 7.1 (2) gives uniform constants near each
-$b_*\in\bar{\mathcal B}_1$, and by compactness $c_k$ and $C_k$ are uniform on $\bar{\mathcal B}_1$.
+(iv) and (v) cite (III.H Corollary 4.2, Remark 2.6, Lemma 5.2) comes from I.C Theorem 7.1 (2), together with two
+arguments of III.H Corollary 4.2's uniformity paragraph, Proposition 3.2's uniform inverse (by contradiction) and Remark
+2.6's column bounds, both local in $b$ (verifier 129's N3). That theorem gives constants uniform on a neighbourhood of a
+parameter at which its hypotheses hold, and the neighbourhood may depend on $k$. Its hypotheses, (G), (Z$_{\mathcal P}$)
+and (TF), and the invertibility of III.H Proposition 3.2 and Corollary 4.4, are qualitative and hold at every
+$b\in\bar{\mathcal B}_1$ ((G) and (TF) by III.H section 1, the rest by $\mathcal B$ being taken inside the
+neighbourhoods of III.H Proposition 3.2 and Corollary 4.4). So for each $k$, I.C Theorem 7.1 (2), with III.H Proposition
+3.2 and Remark 2.6 rerun at $b_*$, gives uniform constants near each $b_*\in\bar{\mathcal B}_1$, and by compactness
+$c_k$ and $C_k$ are uniform on $\bar{\mathcal B}_1$.
 
 For II.C Definition 2.7: (1) is Proposition 1.1; (2), tf-admissibility with weight $\alpha_{\mathrm{sf}}+2$, is III.F$'$
 Proposition 3.3, which holds for every $b$ near $b_0$ as the tf-normal operator does not depend on $b$; (3) is (1.2) of
@@ -228,7 +238,7 @@ frozen operator $P^{(0)}(0,\cdot)$ is $(\rho^{-2}\widehat{2\bar L}(0))|_{\rho = 
 At $n = 3$ the mass enters $R_b$ at $\rho^3$, and $\rho^{-2}R_b$ is of order $\rho$; at $n = 4$ it is of order $\rho^2$.
 Either way it vanishes at $\rho = 0$; the point here is only that the remainder carries all the $b$-dependence.
 
-**Theorem 3.1.** II.F Theorem 8.1, with II.F Remark 8.2 (margin 1), holds for $P_0 = 2L_b$, $b\in\bar{\mathcal B}_*$,
+**Theorem 3.1.** II.F Theorem 8.1, with II.F Remark 8.2 (margin 1), holds for $P_0 = 2L_b$, $b\in\bar{\mathcal B}_1$,
 $\aleph = 2$, sf-loss 0, the order $\mathsf s$ of (B4), and a constant $C_k$ independent of $b$.
 
 *Proof.* (a) *Sections 1-6 of II.F.* They concern $N_{\iota^+}(P_0)$: its Mellin family $N^0(\sigma)$ and the
@@ -237,10 +247,11 @@ problem for $N_{\iota^+}(P_0)$ (Proposition 6.2). By Lemma 3.2 their statements 
 6.3's proof also uses $P_0$: it builds $P_\lambda := P_0+\psi\tilde\psi(N-P_0)$, applies II.E Proposition 3.4 to it with
 $\lambda$ chosen by smallness relative to $P_0$, and section 6.1's orders are admissible for $P_0$. So section 6 is run
 with $P_0 := 2L_{b_0}$ for every $b$, which is allowed as Proposition 6.2's statement involves only $N_{\iota^+}(P_0) =
-N_{\iota^+}(2L_{b_0})$ (verifier 128's m3). Their compactness and contradiction
-arguments (II.F sections 3.5, 4.2 and 5.4) concern $N^0$ and $N_{\mathrm{tf}}$, which do not depend on $b$. The
-uniqueness of section 1.4 (Lemmas 1.3-1.4) is qualitative and holds for every $g_b$, with $t_*$ a time function (II.B
-Lemma 1.1).
+N_{\iota^+}(2L_{b_0})$ (verifier 128's m3). The statement also involves section 6.1's order, admissible for $P_0$; with
+$P_0 := 2L_{b_0}$ this is the order $\mathsf s$ of (B4), which II.F section 7.2 uses at $2L_b$, so the substitution is
+consistent (verifier 129's N4). Their compactness and contradiction arguments (II.F sections 3.5, 4.2 and 5.4) concern
+$N^0$ and $N_{\mathrm{tf}}$, which do not depend on $b$. The uniqueness of section 1.4 (Lemmas 1.3-1.4) is qualitative
+and holds for every $g_b$, with $t_*$ a time function (II.B Lemma 1.1).
 
 (b) *Section 7.* $P_+ = \chi N_{\iota^+}(P_0)+(1-\chi)P_0$ (II.F Definition 7.1), and $P_+-N_{\iota^+}(P_0) =
 (1-\chi)(P_0-N_{\iota^+}(P_0))$ lies in $x_I^2\tau^3\rho_{\mathrm{cf}}^{-2}\mathrm{Diff}^2_{\mathrm{ebe}}$ (II.F Lemma
@@ -252,11 +263,16 @@ of $b$), the radial estimates at $\mathscr I^+$ (II.D Propositions 3.5-3.6), pro
 estimates; and $\tau_0<\frac12C'\tau_1$ involves $C'$ of II.C Lemma 3.2. Their constants depend on finitely many
 seminorms of $P_+-N_{\iota^+}(P_0)$ and of the orders, and on margins, all continuous in $b$. Its one limit argument
 ($u^\epsilon\rightharpoonup u$) extracts a solution from an estimate that is already uniform. Strong uniqueness (II.F
-section 7.4) is qualitative. Finite-time solvability (II.F section 7.5) uses II.E Propositions 3.4 and 4.3, whose
-constants are uniform for $\epsilon_P$ small: on a slab (bounded $t_*$), $2L_b-2L_{b_0}$ is such a perturbation of
-$2L_{b_0}$, its coefficients being $O(|b-b_0|)$ times $\rho^2,\rho^3,\rho^4$ near infinity (III.F Lemma 2.1 (3)) and the
-weights at $\iota^+$ and $K^+$ being bounded above and below there. So II.F Proposition 7.4 holds with $\tau_0$ and $C$
-uniform on $\bar{\mathcal B}_*$.
+section 7.4) is qualitative. Finite-time solvability (II.F section 7.5) applies II.E Propositions 3.4 and 4.3 on slabs
+to operators weakly admissible relative to $P_0 = 2L_b$ itself, with $\epsilon_P\le Ct_{*,0}^{-(1-\ell_+)}$ (II.F Lemma
+7.5; $C$ is a seminorm of $N_{\iota^+}(P_0)-P_0$ in II.F Lemma 1.2's class, continuous in $b$ by III.F Lemma 2.1 (3)).
+II.E's constants depend on $P_0$ through finitely many coefficient norms and the structural margins (timelike
+conditions, threshold, dynamics), and are uniform for $\epsilon_P$ small (the last paragraph of the proof of II.E
+Proposition 3.4, and the proof of Proposition 4.3, which applies it). For $P_0 = 2L_b$ these norms, which II.F bounds
+over all the slabs of section 7.5 at a fixed $b$, are seminorms of stationary coefficients smooth in $b$ (III.F Lemma
+2.1 (3)), and the margins are continuous and positive in $b$; so they are bounded, respectively bounded below, on the
+compact $\bar{\mathcal B}_1$, on every slab whatever its final time, as no perturbation of $2L_{b_0}$ is taken (verifier
+129's M2). So II.F Proposition 7.4 holds with $\tau_0$ and $C$ uniform on $\bar{\mathcal B}_1$.
 
 (c) *Section 8.* Step 0 uses II.E Proposition 4.3 on a slab, uniform as in (b). Steps 1 and 3 use II.F Proposition 7.4,
 uniform by (b). Step 2 uses the 2-admissibility estimate (II.F (8.6)), uniform by Theorem 2.1, and Lemmas 1.3-1.4, which
@@ -266,9 +282,9 @@ are qualitative. Step 4 sums the bounds. So (8.2) holds with $C_k$ independent o
 
 **Theorem 4.1.** Let $\alpha_I$, $\alpha_+$, $\ell_I$, $\ell_+$, $\ell_K$ be as in II.F$'$ Theorem 1.1, with $\aleph =
 2$, $\delta = 0$ and the order $\mathsf s$ of (B4). There are $\epsilon_0>0$ and $d\in\mathbb N$ such that for every
-$b\in\bar{\mathcal B}_*$ the conclusions of II.F$'$ Theorem 1.1 and Corollary 1.2 hold with $P_0 := 2L_b$ (with II.F$'$
+$b\in\bar{\mathcal B}_1$ the conclusions of II.F$'$ Theorem 1.1 and Corollary 1.2 hold with $P_0 := 2L_b$ (with II.F$'$
 Remark 7.1 for margin 1), with $\epsilon_0$, $d$ and $C_k$ independent of $b$. Moreover, for $k\ge1$: let $b_j\to b$ in
-$\bar{\mathcal B}_*$, let $P_j$ be admissible relative to $2L_{b_j}$ of class $((0;k+d),(2\ell_I,\ell_+,\ell_K))$ with
+$\bar{\mathcal B}_1$, let $P_j$ be admissible relative to $2L_{b_j}$ of class $((0;k+d),(2\ell_I,\ell_+,\ell_K))$ with
 $\|P_j-2L_{b_j}\|_{(0;d)}<\epsilon_0$ and $\|P_j-2L_{b_j}\|_{(0;k+d)}$ bounded, with coefficients converging in $C^2$ on
 compact subsets of $M^\circ\cap\{r>r_0\}$ to those of $P$, admissible relative to $2L_b$ with
 $\|P-2L_b\|_{(0;d)}<\epsilon_0$, and let $f_j\to f$ in (1.4) of II.F$'$. Then the forward solutions converge in
@@ -278,7 +294,9 @@ $\varsigma>0$.
 *Proof.* II.F$'$'s proof depends on $P_0$ only through the following inputs:
 
 (i) II.E Theorem 6.1 and II.E Propositions 3.4, 4.3 and 4.4 (II.F$'$ section 3.1). Theorem 6.1 is uniform over the
-stationary models of nearby parameters (its last sentence). The slab propositions are uniform as in Theorem 3.1 (b).
+stationary models of nearby parameters (its last sentence). The slab propositions are applied relative to $P_0 = 2L_b$
+(II.F$'$ Proposition 3.1 (iv) on $\Omega_{1,T_\eta}$, Lemma 2.9 on $\Omega_{1,4/\epsilon}$, and II.E Proposition 4.4,
+which rests on Proposition 4.3), and are uniform on every slab as in Theorem 3.1 (b) (verifier 129's M2).
 
 (ii) The thresholds of II.F$'$ Lemma 2.1 and of II.C Lemmas 3.2 and 3.7, which are continuous in the coefficients.
 
@@ -289,7 +307,7 @@ stationary models of nearby parameters (its last sentence). The slab proposition
 (v) The 2-admissibility estimate II.C (2.2), uniform by Theorem 2.1.
 
 Every other constant depends on $P$ only through $\epsilon_0$ (II.F$'$ section 3.1, last sentence). So $\epsilon_0$, $d$
-and $C_k$ can be chosen independent of $b\in\bar{\mathcal B}_*$. *Continuity.* The proof in II.F$'$ section 6, with
+and $C_k$ can be chosen independent of $b\in\bar{\mathcal B}_1$. *Continuity.* The proof in II.F$'$ section 6, with
 $P^{(j)} := P_j$ relative to $2L_{b_j}$: by the first part the $u_j$ are bounded in
 $H^{k,(\alpha_I,\alpha_+,-2)}_{\mathrm b}$ uniformly in $j$. A weak limit point $\tilde u$ satisfies $P\tilde u = f$, by
 the $C^2$ convergence of the coefficients on compact sets. II.F$'$ Lemma 2.2 (uniqueness, qualitative) gives $\tilde u =
@@ -344,7 +362,8 @@ zero energy states are fixed at $b_0$ (III.D$''$ Proposition 3.1, III.D$'''$ Pro
 2.2; used in III.I$''''$, III.I$'''''''$, III.I$''''''''$, III.I$'''''''''$). (c) Derivatives in $b$ are taken at $b_0$
 (III.I$'''''''$). The $\iota^+$-normal operator, hence III.G$'$'s $\iota^+$-resolvent, does not depend on $b$ (Lemma
 3.2); III.G$''$ Theorem 4.2 and Corollary 4.3 contain the $K^+$-towers $u_{b,0}$ of $L_b$ and are already stated for
-general $b$. Writing that chain at base points $b\in\mathcal B_*$ is the remainder of (J$'$3).
+general $b$. Writing that chain at base points $b\in\mathcal B_*$ is the remainder of (J$'$3). D297: carried out in
+III.I$'''''''''''''''$ (Theorem 3.1, Corollary 3.2); to be verified.
 
 *Labels.* Proposition 1.1 is the source's Proposition 8.3 on $\mathcal B_*$, by a different frame; Theorem 2.1 its
 Theorem 10.1 near $b_0$ for every $k$; Theorems 3.1 and 4.1 [Hin26c] Theorems 10.1 and 11.1 uniformly over the family

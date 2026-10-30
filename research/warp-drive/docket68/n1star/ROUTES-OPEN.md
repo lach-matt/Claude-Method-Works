@@ -3558,7 +3558,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   breaks nothing, so III.I'''''''''' is proved.
 - M1: the zero-energy data at levels 1-3 are found for each sign of sigma, and S_1^+ != S_1^- in general (the
     sign-dependent zf-coefficient of III.G'''' Proposition 4.4's remainder); the odd part of sigma h^aug(S_1) is not
-  locally integrable. Repaired by a matching step (as in III.I'''''' Step 5 and the source's p. 287 caveat): on d_t v the odd
+  locally integrable. Repaired by a matching step (as in III.I'''''' Step 5 and the source's p. 287 caveat): on d_t v
+  the odd
   part is i sgn(sigma) h(S_o) + o(1), whose inverse transform ~ c t^{-1} as t -> -inf, while d_t v is rapidly
   decaying there; so S_o = 0. The other sign-dependent pieces are of integer degree without log and give no tail.
 - m1: Step 4 applies Proposition 5.1 with alpha_tau = min(tau, 2 - delta), loops while tau <= 2 + l_3 + eps, and ends
@@ -3945,3 +3946,29 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the extension off Sigma by the same formulas; II.D at I+ and C' in section 7.6's list; the (H''5) sentence on
   III.G''; the frame comparison at b_0 marked as unused.
 - Next: (H''5), the chain III.I'-III.J''' at base points b != b_0 (plan in the scratchpad, d296/plan.md).
+
+### 4.221 III.I''''''''''''''' written (D297): the linear theory at base points near b_0
+
+- (J'3) of III.J' and (H''5) of III.H'': the chain III.I'-III.J''' was written at b = b_0. The new part carries it to
+  every b in B_* (III.H'' Corollary 5.1). The model objects transfer by (P1)-(P6), with L_b in place of L_{b_0}; joint
+  injectivity of the states at b follows by perturbation.
+- The one obstruction is v1: at a rotating b, h_{b,v1}(V) lies in ker hat L_b(0), whose dimension does not jump, so v1
+  cannot be eliminated by the K+ extraction. As in the source (pp. 279-280, (11.229)), the v1 terms of exponent of real
+  part at most 2 are carried by the rotation rows of III.I(14), with coefficients assigned from the construction: the
+  graft's, read from the iota+ data, and the spectral one at level 1. No inversion of h_{b,v1} is used; at b_0 the
+  assignment agrees with III.I(14) Step 4'.
+- Theorem 3.1 lists the statements that hold at b, by a census of the uses of b_0; Corollary 3.2 gives right inverses
+  at every base point. The census is a search, and (I^(15)4) says so.
+- Next: verifier 130 reads it with the D298 repairs of III.H''.
+
+### 4.222 Verifier 129 seated (D298): III.H'' repairs
+
+- Verifier 129 read the D296 repairs of III.H''. 0 major, 2 minor, 5 nits. M1: the order of choices was still circular,
+  as (B5) used eps_0 and tau_0 proved only on B_*. M2: (B5)'s slab clause did not cover the slabs of II.F Lemma 7.5 and
+  of II.F' Proposition 3.1 (iv) and Lemma 2.9.
+- Repairs: II.E is applied relative to 2L_b itself, as II.F section 7.5 and II.F' do; its constants depend on finitely
+  many coefficient norms and margins, continuous in b, hence uniform on the compact closure of B_1. The slab clause is
+  dropped; the eps_G clause moves to (B2); sections 1-4 are stated and proved on B_1; B_* is chosen by eps_0 alone.
+- Nits: O fixed small in (B1) instead of shrunk later; the two further arguments behind the uniformity in k; the order
+  in II.F section 6 with P_0 := 2L_{b_0}; a cleaner (C3).
+- Next: verifier 130 reads the D298 repairs and III.I(15).
