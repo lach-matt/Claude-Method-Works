@@ -5921,3 +5921,10 @@ coordinates the proof uses is located exactly, by an identity checked symbolical
 need there survive a small rotation because they are strict inequalities on a fixed compact set. The photon sphere is
 harder: a general perturbation argument would give its shape only with limited smoothness, so it will be treated
 through the special conserved quantity that rotating black holes in five dimensions possess.
+
+**D317 (2026-10-30): the static black hole's dynamics checked.** The hundred-and-thirty-seventh verifier read the
+dynamical part at the static black hole and found no major gap. It found three minor ones: a quantity attached to the
+choice of time was carried between two time functions without proof (it agrees on the trapped set, which is all that is
+used); one of the two incoming sets at infinity was overlooked in a limit argument, which is now read off directly with
+explicit uniform bounds; and a lemma assumed both time coordinates timelike where one is null. All are repaired. It also
+read last time's repairs to the gluing part and found them correct, so the gluing part is now proved.

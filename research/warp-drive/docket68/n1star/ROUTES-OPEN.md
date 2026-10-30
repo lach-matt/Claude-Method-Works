@@ -4201,3 +4201,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Next: Part VI.B', the trapped set near b_0. Hirsch-Pugh-Shub persistence gives the separatrices only C^r for each r
   on shrinking neighbourhoods, while (H7) asks C^infinity. So VI.B' uses the separability of 5D Myers-Perry null
   geodesics, as [Hin26c] uses Carter's constant for Kerr. Then VI.C (parameters) and Part VII.
+
+### 4.241 Verifier 137 seated (D317): Part V proved, Part VI.A verified
+
+- Part VI.A (PART-VI-DYN.md): 0 MAJOR / 3 MINOR / 8 NIT, all repaired. Lemma 0.1 now has a part (a) without causal
+  hypotheses and a part (c), q' = q - 2F' G(nu, dr), so q is the same in t_s and t_* on Gamma. That gives q^Gamma = 4
+  and beta_0 = 2 in t_*, and (K3)'s field changes by a factor equal to 1 on Gamma.
+- (H8): the limits at infinity are read off directly. The uniformity is proved with absorbing sets {r > R, |xi_*| < eps}
+  and, at the horizon, a backward-invariant set on the singular root. Before the repair, R_in at z0 = -1 was missed.
+  Findings (VI.A4)-(VI.A6).
+- Part V: verifier 137 read the D315 repairs and found them all correct; its one note (Step 5's choice of r') is
+  repaired. Part V is proved.
+- Next: verifier 138 on Part VI.B and the D317 repairs; Part VI.B' (trapping near b_0 by separability) in parallel.

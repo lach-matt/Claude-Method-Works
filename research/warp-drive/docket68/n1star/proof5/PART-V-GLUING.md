@@ -15,7 +15,7 @@ Corollary 5.11 and Proposition G.1. Lemma 3.18 is proved again here. This part r
 10.66 (a)-(e) and Proposition 10.47. The nonlinear step that the plan pairs with the gluing is III.K, and [HHV21]'s
 perturbation arguments (record 10.68) are discussed in finding (V5). Verified (D315): verifier 136 read it in full,
 found no step that uses an $n = 3$ fact, and three minor findings and seven nits, seated as findings (V6)-(V8) and in
-the text; to be read.
+the text. Proved (D317): verifier 137 read the repairs and found them correct, with one note, repaired in Step 5.
 
 ## 0. Notation
 
@@ -389,8 +389,10 @@ $|Q_R-\mathfrak Q^0|\le r'$ has $G_R(Q_R) = 0$; put $R_{\mathrm{gl}} := R(r'_0)$
 0$ and, by Step 3, $(J,\rho)(\hat x_{Q_R,R}) = 0$. Put $p_R := p(Q_R)$, and let $(\hat g_R,\hat K_R)$ be $(g,K)$ on
 $\{R_0<r\le R\}$, $\sigma_R^{-1}\hat x_{Q_R,R}$ on $\Gamma(R,4R)$ and $(g_{p_R},K_{p_R})$ on $\{r\ge4R\}$. These are
 smooth, as $\chi$ is constant near $\partial M$ and $\delta x$ extends smoothly by zero. They are vacuum everywhere, and
-$\hat g_R$ is Riemannian, being $C^0$-close to $\delta$ on $\Gamma(R,4R)$. Finally $\mathfrak q(p_R) = Q_R$, and
-choosing $Q_R$ with the least admissible $r'$, $r'(R)\to0$, gives $\mathfrak q(p_R)\to\mathfrak Q^0$. $\square$
+$\hat g_R$ is Riemannian, being $C^0$-close to $\delta$ on $\Gamma(R,4R)$. Finally $\mathfrak q(p_R) = Q_R$. Choose
+$Q_R$ for an admissible $r' = r'(R)\le2\inf\{r':R\ge R(r')\}+R^{-1}$, which exists as $R\ge R(r'_0)$, and tends to 0 as
+$R\to\infty$, since every $r'>0$ is admissible once $R\ge R(r')$. Then $\mathfrak q(p_R)\to\mathfrak Q^0$ (amended
+D317). $\square$
 
 **Remark 3.4 (what Part VII takes from Theorem 3.1).** The data $(\hat g_R,\hat K_R)$ equal, for $r\ge4R$, the data that
 $G_{p_R} = \Phi_{p_R}^*g^{\mathrm{KS}}_{\mu,A}$ induces on $\{y^0 = 0\}$. By uniqueness for the vacuum Cauchy problem,

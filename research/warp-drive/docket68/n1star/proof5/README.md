@@ -84,8 +84,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
-| V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313); verified (D315: verifier 136's three minors seated, to be read) |
-| VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314) |
+| V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313); verified (D315); proved (D317) |
+| VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317: verifier 137's three minors seated, to be read) |
 | VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316) |
 | VI.B'-C | the record's computed inputs | the trapped set and the global dynamics near b_0 ((Γ.1)-(Γ.3), (K3), (H8)); the parameter conditions left open by the parts | to do |
 | VII | assembly | Theorem 4 from Parts I-VI | to do |
@@ -1347,7 +1347,8 @@ exponentially weighted solvability on the annulus (READ, every $n$), the continu
 needs (Lemma 3.2), the pairing's asymptotics (3.2), Lemma 3.18 proved, and the glued data, smooth, equal to a family
 member for $r\ge4R$, their charges converging. Findings (V1)-(V5). Written (D313). Verified (D315): verifier 136 found
 no step that uses an n = 3 fact; three minor findings (the projection is orthogonal in the current metric, continuity
-deduced from product estimates, a normalisation dropped) and seven nits seated, findings (V6)-(V8); to be read.
+deduced from product estimates, a normalisation dropped) and seven nits seated, findings (V6)-(V8). Proved (D317):
+verifier 137 read the repairs, all correct, and its one note is repaired.
 
 `PART-VI-DYN.md`. Part VI.A proves the dynamical hypotheses that Parts I-IV leave to Part VI, at five-dimensional
 Tangherlini with III.B's $t_*$. Section 0: every time function used is $v-\varphi(r)$, and a change of time function is
@@ -1358,7 +1359,9 @@ The horizon: $\beta_0 = 2\mu^{-1/2}$, $\beta = \mu^{1/2}$, $q = |\eta/\xi|^2$ wi
 from the periodic geodesic flow of $\mathbb S^3$ (Proposition 4.1). The global dynamics by the conserved angular
 momentum (Proposition 5.1), and the escape function $(r^2-2\mu)\xi$, whose derivative
 $2r(\xi^2(r^2-\mu)^2+(r^2-2\mu)^2)/(r^2-\mu)^2$ vanishes only on $\Gamma$ (Lemma 5.2), for Part VI.B. Findings
-(VI.A1)-(VI.A3). Written (D314).
+(VI.A1)-(VI.A6). Written (D314). Verified (D317): verifier 137's three minor findings ($q$ under a change of
+time function, the incoming set at $z_0 = -1$ and the uniformity in (H8), $v$'s null differential) and eight notes
+repaired; to be read.
 
 `PART-VI2-HORIZON.md`. Part VI.B carries the horizon hypotheses from $b_0$ to $b$ near $b_0$. The Myers-Perry horizon in
 III.B's Kerr-Schild form is $\{r_A = r_+\}$, $r_+$ the largest root of $(r^2+a^2)(r^2+b^2) = \mu r^2$, by the exact
