@@ -6228,3 +6228,18 @@ that accounting produces exceeds 1.3 million without further reading; whether ea
 be read. These are sizes of the number this proof produces, not of the best possible loss, and the note now says so.
 It also found that the definition of k'' made the day before was scoped too narrowly at one bound needed at every
 order; that bound now carries the order-dependent loss.
+
+**D350 (2026-10-30): the first constant of the linear theory made explicit.** For the scalar wave operator on the
+seed, one angular harmonic at a time, the step that the record proves only by contradiction (no outgoing solution at a
+real nonzero frequency) now has a constant: the Wronskian is at least twice the frequency, by conservation of flux;
+the solutions grow at most like exp(∫V/|σ|) through the potential barrier; so the outgoing resolvent, cut off to an
+interval, is bounded by an explicit number for every harmonic and every real frequency (E2-PILOT.md). Off the real
+axis the bound is uniform in the harmonic. On it, the bound grows like exp(l²/|σ|), and making it uniform needs an
+estimate of the decay under the barrier, the next step; low and high frequencies and the record's norms remain.
+
+**D351 (2026-10-30): the angular resolution of the double-null runs.** A filter in angle keeps the shears bounded
+but does not make them converge. With more angular modes and with finer steps in v, the solution on the curvature-
+bounded region converges only up to v ≈ 1.5, not 2.0 as D344 read from its (u, v) refinement alone. Beyond it the
+disagreement starts at one axis, near the seed's horizon, where the angular spectrum stops decaying: the solution
+steepens there faster than 24 modes resolve. Finer v-steps change nothing, so it is not a stability limit of the
+step. Whether the steepening is the solution's or the axis treatment's is now G1's question.

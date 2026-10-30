@@ -4586,3 +4586,26 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   per-level gain, another proof of the level step (the source's one-step route is closed at n = 4).
 - Verifier 164 (D348): M1 (d is a recursion over calls, not a flat sum over rows), M2 (LD3's scope), M3 (the nested
   level-3 loop), m1-m4, nits; all seated, with the k'' scope in III.K repaired at the e_S bound.
+
+### 4.271 10 l5, G1: angular resolution at lambda = 1 (D351)
+
+- dnsolve5.py --run ... [p]: exponential filter exp(-36 (k/(M-1))^p) on the Chebyshev coefficients in x after each
+  diamond. Runs (scratchpad): M = 12 (p 32) at 400 x 180 and 800 x 360, M = 16 (p 32, 64), 24 (p 64) at 400 x 180,
+  M = 12 (p 32), 16 (p 64) at 400 x 720; D_q recomputed on the M = 12 filtered 800 x 360 run (111,891 cells).
+- On D_q: converged in (u, v) and in M to v ~ 1.5 (M16 vs M24 |dm| <= 4e-5). On [1.5, 2): M12/M16/M24 differ by
+  0.36-0.44 in m (of 0.44-0.55); dv/4 changes M16 by 0.03 (not a step-size limit). The filter bounds the shears (no
+  growth to ~100 as unfiltered) but does not give convergence.
+- The discrepancy starts at the axis x = -1 near u ~ -1 (the seed's horizon generator), R ~ 0.7-1, from v ~ 1.6; the
+  M24 Chebyshev spectrum of m flattens (3e-7 at v = 1.6, 1e-3 at 1.75, unresolved at 2.2). M = 24 at dv/4 and M = 32
+  stop on a singular 4 x 4 solve.
+- Correction: D344's "converged on D_q to v ~ 2.0" was (u, v) convergence only; in angle, to v ~ 1.5-1.6.
+- Next: an axis treatment without division by 1 - x^2, or axis-concentrated angular grids; then D_q at lambda = 0.3162.
+
+### 4.272 E2 at one operator (D350)
+
+- E2-PILOT.md, checks/e2pilot5.py P1-P2: box on 5D Tangherlini by harmonics. V_l = f((l(l+2) + 3/4)/r^2 + 9 mu/(4r^4)),
+  I_l = (l(l+2) + 3/2)/sqrt(mu). Off the real axis ||R_l(sigma)|| <= 1/dist(sigma^2, [0, inf)), uniform in l. On it,
+  for every l and real sigma != 0: |W| >= 2|sigma| (flux), |u|^2 <= 2 exp(int V/|sigma|) (Gronwall), and the cut-off
+  resolvent <= (Lambda/|sigma|) exp(I_l/(2|sigma|)): III.D Proposition 6.2's injectivity with a constant, per harmonic.
+- Open: uniformity in l (an Agmon bound in the forbidden region), sigma -> 0, the trapping energies at large sigma, the
+  record's b-Sobolev norms, Im sigma -> 0 joined to the real axis.

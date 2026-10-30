@@ -214,13 +214,26 @@ No other component is nonzero. So the scheme is the following.
     is small. Its onset moves later with angular resolution (M = 6, 8, 12: v = 1.86, 3.28, 3.44) and with (u, v)
     resolution (3.28, 3.36): a resolution limit of the prototype, not a gauge breakdown. 𝒟_q is not yet computed here.
 
-- *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
-  the computed solution is a converged approximation on 𝒟_q up to v ≈ 2.0 of 4.5. Where the prototype fails, the
-  failure is resolution (the shears beyond v ≈ 2, the axis), not the gauge. G1 is not yet answered to the end of the
-  domain.
+- *Angular resolution (D351).* An exponential filter in x (order 32 at M = 12, order 64 at M = 16, 24) keeps the
+  shears bounded on 𝒟_q where the unfiltered runs grow to m ≈ 100, but does not make them converge. On 𝒟_q, with 𝒟_q
+  recomputed on the filtered M = 12 run at 800 × 360 (111,891 of 123,975 strip cells): every field converges in (u, v)
+  and in M up to v ≈ 1.5 (M = 16 against 24: |Δm| ≤ 4 × 10⁻⁵); on 1.5 ≤ v < 2, m differs by 0.36 to 0.44 between M =
+  12, 16 and 24 (of 0.44 to 0.55), and the unfiltered M = 8 and 12 runs of D344 differ by 0.85 there. Refining v by 4
+  changes the M = 16 solution by 0.03 there while M = 12 against 16 stays at 0.38: not a step-size limit. The
+  difference starts at the axis x = −1 near the seed's horizon generator (u ≈ −0.95 to −1, R ≈ 0.7 to 1), from v ≈
+  1.6, where the Chebyshev spectrum of m, decaying to 3 × 10⁻⁷ at v = 1.6, flattens to 10⁻³ by v = 1.75 and is
+  unresolved by v = 2.2. M = 24 at the finer v-step and M = 32 stop on a singular 4 × 4 solve. So the solution steepens
+  at that axis faster than M = 24 resolves; whether that is the solution or the axis treatment is the next question.
+  D344's "converged on 𝒟_q up to v ≈ 2.0" held in (u, v) only (corrected D351).
 
-- *Next.* More angular resolution with a filter at the axes, and refinement near the edge of 𝒟_q. Then 𝒟_q at
-  λ = 0.3162, and F3 (the certified linear constant) on the converged part.
+- *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
+  the computed solution is a converged approximation on 𝒟_q up to v ≈ 1.5-1.6 of 4.5, in (u, v) and in angle. Beyond
+  it the shears steepen at the axis x = −1 near the horizon faster than the prototype resolves (D351). G1 is not yet
+  answered to the end of the domain.
+
+- *Next.* Decide whether the steepening at x = −1 near the horizon is the solution's: an axis treatment that does not
+  divide by 1 − x² (a basis built on the regular combinations' parity), or angular refinement concentrated at the axes
+  (a mapped Chebyshev grid). Then 𝒟_q at λ = 0.3162, and F3 (the certified linear constant) on the converged part.
 
 ## 7. Sources
 
