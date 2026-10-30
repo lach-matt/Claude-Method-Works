@@ -5820,3 +5820,9 @@ statement proved by comparing with the reference black hole. Near the final blac
 The smallness is now shown directly: every quantity involved is bounded uniformly, and the only terms that couple the
 unknowns are themselves small. The small mismatch between objects built at the two black holes is redefined so that
 it decays fast enough near the black hole, and where its decay at late times lies is now settled.
+
+**D303 (2026-10-30): the exterior estimates, second part.** The linearised equation near null infinity is put in the
+form the energy method needs, with the coupling between its components given by a constant matrix whose diagonal is
+non-negative. One finding: the earlier part had placed the error terms in a class that loses two powers of the angular
+weight, and a finer count repairs it. The energy estimate and its tame form are proved for the whole system by choosing
+an inner product on the tensor bundle in which the coupling between components is small.

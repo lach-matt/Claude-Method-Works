@@ -75,6 +75,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.J''' | [Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights | exact weights: the exact classes and conditions (E1)-(E5), the graft at the exact K+ weight in the rho_+ convention, III.A Proposition 4.2 exact, the pointwise bounds at the final weight re-proved in L^2, III.I(14) Theorem 3.1 and III.J' Theorem 2.1 at fixed weights, the tame estimates on one pair of scales | **proved** (D296) |
 | III.K | [Hin26] section 13.1 (Theorem 13.1, Remarks 13.2-13.4; (12.33)-(12.34), Lemma 12.7) | the nonlinear theorem: the initial family in a cut-off gauge equal to the cone's on Omega_*, the map Psi and its right inverses, support classes and smoothing on D_ex, II.G's Nash-Moser theorem, constraint propagation; conditional on Part IV | written (D300) |
 | IV | [Hin23a] sections 3.1-3.2 (Lemmas 3.13, 3.16, Corollary 3.14, Proposition 3.17) and [HV20] Proposition 4.3 | exterior estimates I: the edge-b structure at I+ on III.C's region, the scalar operator rho_I rho^(-7/2) box rho^(3/2) with Delta+3/4, the basic energy estimate near I+ and near I_0 | written (D301) |
+| IV' | [Hin23a] sections 3.3-3.5 (Proposition 3.29, Proposition 3.32, Lemmas 3.33-3.34) | exterior estimates II: [Hin26]'s conjugated linearised operator in edge-b form with the constant first-order matrix Abar; the energy estimate and its tame form for the system at alpha_I < min(alpha_0, 0) | written (D303) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -1253,6 +1254,15 @@ Corollary 1.2 give the null frame and g_{b_0} as edge-b objects, Lemma 2.1 the d
 commutators. Proposition 3.1 is the energy estimate near I+, with the multiplier w^2(X_0-(1+kappa)X_I) and Qbar positive
 with Delta+3/4, on domains whose final boundary is spacelike or null. Proposition 4.1 is the b-estimate near the
 interior of I_0, which the source cites from [HV20]. Remark 4.2 glues them. Findings (IV1)-(IV3). Written (D301).
+
+`PART-IV2-TAME.md`. Part IV' covers [Hin23a] sections 3.3-3.5. Lemma 1.1 puts the Cartesian derivatives in rho_0
+V_eb; Proposition 1.2 gives [Hin26]'s conjugated linearised operator the edge-b form -2(X_I - Abar)(X_0 - X_I) + x_I^2
+Delta + Ltilde_g, with Abar III.C Lemma 4.2's constant lower-triangular matrix (diagonal >= 0) and Ltilde_g in
+(x_I C^oo + H^{k-2}_b) Diff^2_eb. Lemma 2.1 chooses a fibre inner product that makes Abar's off-diagonal part small, and
+Proposition 2.2 proves the energy estimate and its tame form for alpha_I < min(alpha_0, 0) in one argument; Lemmas
+2.3-2.4 are the Moser and commutator estimates in dimension 5. Findings (IV'1): III.C's b-form loses x_I^(-2) in the
+angular directions, and the edge-b form III.C attributes to III.C' is (1.1) here; (IV'2): the first-order matrix is
+h-free at n = 4. Written (D303).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

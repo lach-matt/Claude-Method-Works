@@ -4029,3 +4029,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   III.I(13) Proposition 2.4 are used at b only inside Lemma 2.4 and Proposition 2.5. m3: A_b and E^nu enter III.J'''s
   tame inventory.
 - Next: verifier 133 reads the D302 repairs, after verifier 132 (III.K and Part IV).
+
+### 4.227 Part IV' written (D303): the tensor operator and the tame estimate
+
+- PART-IV2-TAME.md writes out [Hin23a] sections 3.3-3.5 at n = 4 for [Hin26]'s operator on III.C's exterior region.
+  Proposition 1.2: L_g = 2 rho_I rho^(-7/2) L^{g,g0} rho^(3/2) = -2(X_I - Abar)(X_0 - X_I) + x_I^2 Delta + Ltilde_g,
+  Abar constant lower triangular with diagonal >= 0, Ltilde_g in (x_I C^oo + H^{k-2,(E_0,l_0),(F-1,l_I-1)}_b) Diff^2_eb.
+- Proposition 2.2: the energy estimate and its tame form for alpha_I < min(alpha_0, 0), by Lemma 2.1's fibre inner
+  product and a per-slot quadratic form positive for kappa small; Lemmas 2.3-2.4 in dimension 5.
+- (IV'1): the edge-b form needs the refined count of Lemma 1.1; III.C's pointer to III.C' for it is not borne out.
+  (IV'2): A^0_h is absent at n = 4, so the basic and sharp-weight estimates are one argument.
+- Next: Part IV'' ([Hin23a] section 3.6 -> III.C' Theorem 2.1, the cut-off gauge, the slab of (K2)).
