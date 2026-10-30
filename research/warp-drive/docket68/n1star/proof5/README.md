@@ -84,7 +84,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
-| V | [CD03], [HHV21] | gluing; the nonlinear step | to do |
+| V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313) |
 | VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
 | VII | assembly | Theorem 4 from Parts I-VI | to do |
 
@@ -1332,6 +1332,18 @@ adjoint half from surjectivity and I.C Theorem 4.3 (3) rather than (9.115). Find
 Written (D310). Verified (D312): verifier 135 read it in full; three minor findings (the deformation interval, the index
 for every order with the cokernel's independence, a strip in the adjoint chain) and six nits seated, findings
 (IV''''''6)-(IV''''''7); to be read.
+
+`PART-V-GLUING.md`. Part V proves [CD03] Theorem 8.1 at $n = 4$ (Theorem 3.1) for data whose charges lie near
+Tangherlini's. Section 1: the fifteen KIDs of flat data (Lemma 1.1), a linear flux identity with a quadratic remainder
+(Lemma 1.2), the charges as limits of linear fluxes with the rate $\rho^{2+d-2\alpha}$, which needs only
+$\alpha>\frac32$ and no parity condition (Proposition 1.3), and the scaling of the pairings, $R^{-2-d}$ (Lemma 1.4).
+Section 2: the Kerr-Schild Myers-Perry family, translated, rotated and boosted (Definition 2.1, Lemma 2.2), and its
+charge map, $C^1$ with invertible derivative at Tangherlini (Proposition 2.3, the equivalent of [CD03] Proposition F.1
+that its Remark 8.2 names as missing): Schur's lemma for $O(4)$ leaves four scalars, $6\pi^2$, $-6\pi^2\mu_0$,
+$-4\pi^2\mu_0$ and $-6\pi^2\mu_0$, computed by hand and checked numerically. Section 3: [CD03] Theorem 5.9's
+exponentially weighted solvability on the annulus (READ, every $n$), the continuity in the background that Lemma 3.18
+needs (Lemma 3.2), the pairing's asymptotics (3.2), Lemma 3.18 proved, and the glued data, smooth, equal to a family
+member for $r\ge4R$, their charges converging. Findings (V1)-(V5). Written (D313).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

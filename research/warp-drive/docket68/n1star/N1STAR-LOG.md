@@ -5893,3 +5893,11 @@ gaps with evident repairs (a parameter interval misstated, the index shown indep
 spaces only for the kernel and not for the cokernel, and a thin strip missing from one chain of estimates). It also
 confirmed every repair of the previous round. With this, the exterior estimates, the nonlinear theorem near null
 infinity and the first three constraint damping parts are proved; the fourth awaits a reading of its repairs.
+
+**D313 (2026-10-30): the gluing, written out.** The step that attaches an arbitrary small perturbation of the black hole
+to an exactly known rotating, moving black hole far away is now written out in five dimensions. The published argument
+works in any dimension except for one ingredient, which it names as missing: that the conserved quantities of the
+rotating, boosted and translated family, energy, momentum, angular momentum and centre of mass, can be prescribed
+freely near those of the static black hole. That is proved here by computing how each changes with each parameter, a
+calculation that symmetry reduces to four numbers. In five dimensions the decay of the fields is fast enough that the
+symmetry condition the published proof imposes on the data at infinity is not needed.

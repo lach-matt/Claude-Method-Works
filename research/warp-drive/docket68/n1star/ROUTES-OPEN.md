@@ -4149,3 +4149,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the slab's c <= 1/R_9. Formatting slips of the D311 script (literal line-break escapes, one TeX space) repaired.
 - Status: Parts IV-IV''''' and III.K proved; IV'''''' verified (repairs to be read).
 - Next: Part V ([CD03] Theorem 8.1 at n = 4).
+
+### 4.237 Part V written (D313): [CD03] Theorem 8.1 at n = 4, gluing to the Myers-Perry family
+
+- PART-V-GLUING.md. The fifteen KIDs of 4 + 1 Minkowski data (Lemma 1.1). A linear flux identity, with a quadratic
+  remainder, replaces [CD03] Appendix E (Lemma 1.2). The charges are limits of linear fluxes, with the rate
+  rho^(2 + d - 2 alpha): for alpha > 3/2 no parity condition is needed (Proposition 1.3; finding (V1)).
+- The Kerr-Schild Myers-Perry family, translated, rotated and boosted, has a C^1 charge map whose derivative at
+  Tangherlini is invertible (Proposition 2.3). Schur's lemma for O(4) leaves four scalars, 6 pi^2, -6 pi^2 mu_0,
+  -4 pi^2 mu_0 and -6 pi^2 mu_0. They are computed by hand and checked numerically on all 225 entries (d312/jac5.py).
+  This is [CD03] Proposition F.1's equivalent near Tangherlini, the element its Remark 8.2 names as missing.
+- Theorem 3.1: [CD03] Theorem 5.9's exponentially weighted solvability on Gamma(1, 4) is READ for every n. The
+  continuity in the background that Lemma 3.18 needs is proved (Lemma 3.2). The pairings are R^(-2-d) times the charge
+  differences plus O(R^(3 - 2 alpha)). Lemma 3.18 is proved. The glued data are smooth and equal a family member for
+  r >= 4R.
+- Replaces record 10.63 (a)-(c), 10.66 (a)-(e) and Proposition 10.47 (finding (V2)).
+- Next: Part VI ((Dyn) and the record's computed inputs); Part VII (assembly); Part V to the next verifier, with the
+  D312 repairs of IV''''''.
