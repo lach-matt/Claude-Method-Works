@@ -45,8 +45,8 @@ frame of III.C (1.6) lie in $\rho^2C^\infty(U)$ (III.C Lemma 1.3 and III.B (4.2)
 
 **Lemma 1.1.** For $\slashed\omega\in C^\infty(\mathbb S^3;T^*\mathbb S^3)$,
 $$dx^0\in\rho_0^{-1}x_I^{-2}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),\quad
-dx^1\in\rho_0^{-1}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),\quad
-|x|\slashed\omega\in\rho_0^{-1}x_I^{-1}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),$$
+dx^1\in\rho_0^{-1}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),
+\quad|x|\slashed\omega\in\rho_0^{-1}x_I^{-1}C^\infty(M_\sharp;{}^{\mathrm{e,b}}T^*M_\sharp),$$
 and the products of the frame (1.6) of III.C have the source's orders (3.13): $(dx^0)^2\in\rho_0^{-2}x_I^{-4}C^\infty$,
 $dx^0dx^1$ and $|x|^2\slashed h\in\rho_0^{-2}x_I^{-2}C^\infty$,
 $dx^0\otimes_s|x|\slashed\omega\in\rho_0^{-2}x_I^{-3}C^\infty$, $(dx^1)^2\in\rho_0^{-2}C^\infty$,
@@ -65,7 +65,8 @@ $\square$
 **Corollary 1.2 (the source's Lemma 3.12 and Corollary 3.14).**
 $g_{b_0}\in\rho_0^{-2}x_I^{-2}C^\infty(M_\sharp;S^2\,{}^{\mathrm{e,b}}T^*M_\sharp)$ is nondegenerate of Lorentzian
 signature up to $I_0\cup\mathscr I^+$, and
-$$\rho_0^2x_I^2g_{b_0}\equiv2\Big(\frac{d\rho_0}{\rho_0}\Big)^2+2\frac{d\rho_0}{\rho_0}\otimes_s\frac{d\rho_I}{\rho_I}+x_I^{-2}\slashed g,\qquad
+$$\rho_0^2x_I^2g_{b_0}\equiv2\Big(\frac{d\rho_0}{\rho_0}\Big)^2
++2\frac{d\rho_0}{\rho_0}\otimes_s\frac{d\rho_I}{\rho_I}+x_I^{-2}\slashed g,\qquad
 \rho_0^{-2}x_I^{-2}g_{b_0}^{-1}\equiv2X_I\otimes_s(X_0-X_I)+x_I^2\slashed g^{-1},$$
 modulo $x_IC^\infty(M_\sharp;S^2\,{}^{\mathrm{e,b}}T^*M_\sharp)$, resp.
 $x_IC^\infty(M_\sharp;S^2\,{}^{\mathrm{e,b}}TM_\sharp)$.
