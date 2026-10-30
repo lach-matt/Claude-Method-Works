@@ -59,7 +59,8 @@ $$D_{\vec p}P_4(h,\vec p)(W_\nu = W) = L_{h,\vec p}m_\nu(W)+r^\nu_{h,\vec p}(W)+
 Here $f^\nu_b := L_{h,\vec p}m_\nu+r^\nu_{h,\vec p}$ is III.I$'''''''''$ Lemma 2.6 (c) at $b$, with every object (rows,
 corrections, counterterms) built at $b$, in the classes of III.I$'''''''''$ (2.5) uniformly in $b$. And
 $$E^\nu_{h,\vec p}(W) := L_{h,\vec
-p}\big(h^{b_0}_\nu-h^b_\nu\big)(W)+\delta^*_{g_0,E_C}\big(\vartheta^{b_0}_{\nu,\sharp}-\vartheta^b_{\nu,\sharp}\big)(W),$$
+p}\big(h^{b_0}_\nu-h^b_\nu\big)(W)
++\delta^*_{g_0,E_C}\big(\vartheta^{b_0}_{\nu,\sharp}-\vartheta^b_{\nu,\sharp}\big)(W),$$
 the difference between the corrections and counterterms built at $b_0$ and at $b$, lies in $\mathcal
 Y^\natural_2(\alpha-)\cap\mathcal Y(\alpha_1)$, with norm $O(|b-b_0||W|)$. Its support is in $\mathrm{supp}\,\chi_K$,
 its $K^+$-weight is $\kappa_\nu-\epsilon>\alpha$, and its $\iota^+$-exponents below $w_+$ lie in $\mathcal E^\natural+2$
