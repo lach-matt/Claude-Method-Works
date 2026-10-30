@@ -5943,3 +5943,10 @@ check confirms. The radial motion is governed by a polynomial that, near the sta
 can orbit only on one surface near the photon sphere, and that surface and its escape routes come out in closed form.
 The rate at which rays spread along the orbiting surface is bounded by the integrability of the angular motion: the
 special orbits are all stable oscillations, as for the Kerr black hole's equator.
+
+**D320 (2026-10-30): the parameters fit together.** The proof leaves many numbers to be chosen: how strongly the
+constraints are damped, how the gauge is modified near the horizon and at infinity, the decay rates, the size of the
+neighbourhood of the static black hole. Each part says how small or large its numbers must be. A new part lists every
+such condition with where it is stated and shows they can all be met at once, by choosing in an order where each bound
+depends only on what was chosen before. It also confirms that the one gap left open in the mode-stability part was
+closed by a later low-frequency argument.

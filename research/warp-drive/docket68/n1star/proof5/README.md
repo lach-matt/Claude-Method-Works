@@ -88,7 +88,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317); proved (D318) |
 | VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318: verifier 138's three minors seated, to be read) |
 | VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319) |
-| VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open | to do |
+| VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320) |
 | VII | assembly | Theorem 4 from Parts I-VI | to do |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
@@ -1384,6 +1384,15 @@ $\epsilon$ comes from the integrable flow of $\mathcal K$ on $T^*\mathbb S^3$: l
 commuting frame, and ellipticity on the singular 2-tori and circles (Lemma 3.2, Proposition 3.4). (H8) follows from the
 radial classification, the horizon's causal structure and a Lyapunov function at the radial source (Proposition 4.1).
 Theorem 5.1 collects (Dyn) near $b_0$. Findings (VI.B$'$1)-(VI.B$'$5). Written (D319).
+
+`PART-VI4-PARAMS.md`. Part VI.C lists every condition the parts put on the parameters left open, with its file and line,
+and proves they can be met together (Theorem 2.1). The order: Part VI's ball (metric only); the constraint damping gauge
+at the record's point $(\frac12,\frac1{102400},100)$ with $\gamma_C = 1/h$, $h\in\mathsf H$; the gauge modification
+$\gamma_{\Upsilon,H}$, then $e_\Upsilon$, then $\gamma_\Upsilon$ off a countable set; III.H's $c_0$ and III.F$''$'s
+$\mathcal B(c_0)$; $\mathcal B_*$ shrunk inside all of these; the weights $\epsilon_+$, $\epsilon_K$, $\alpha$; the data
+classes; III.K's $\epsilon$, $d_1$. III.E Theorem 1.1 is proved only at that point and for $\gamma_C$ off a countable
+set, and every part uses one $\gamma_C$, chosen once. III.F$''$ section 5's open item is closed by III.H Corollary 4.3.
+Findings (VI.C1)-(VI.C3). Written (D320).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

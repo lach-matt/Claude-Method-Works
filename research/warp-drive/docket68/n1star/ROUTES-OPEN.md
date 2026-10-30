@@ -4242,3 +4242,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - (H8): from the radial classification, the inward crossing of H_b at finite covectors, the backward limit set at
   fibre infinity (contained in dR_+-, by (H4)), and the Lyapunov function L = q + M rho_inf at the source.
 - Next: verifier 139 on Part VI.B' and the D318 repairs to Part VI.B; then Part VI.C (parameters) and Part VII.
+
+### 4.244 Part VI.C written (D320): the parameters
+
+- PART-VI4-PARAMS.md: every parameter condition of Parts III-VI, each with file:line and what its threshold depends
+  on (17 rows), and Theorem 2.1, a consistent choice made in order.
+- The order is (0) Part VI's ball, then (1) (v_C, e_C, C_0) = (1/2, 1/102400, 100) with gamma_C = 1/h for h in H, then
+  (2) gamma_Ups,H, e_Ups, gamma_Ups (avoiding a countable set), then (3) III.H's c_0, III.F'''s B(c_0) and B_*, then
+  (4) the weights eps_+, eps_K, alpha, then (5) E_0, ell_0, ell_I, and last (6) III.K's eps, d_1.
+- Checks:
+  - III.E Theorem 1.1 is proved only at the record's point, for gamma_C off a countable set, and every part uses a
+    single gamma_C.
+  - III.D Proposition 6.3 is implied by III.D' Proposition 4.1.
+  - III.F'' section 5 is closed by III.H Corollary 4.3.
+- Next: verifier 139's report (VI.B', D318); Part VII, the assembly of Theorem 4, then one verifier on VI.C and VII.
