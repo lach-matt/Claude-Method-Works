@@ -1,18 +1,19 @@
 # Part VI.A: the dynamical hypotheses at Tangherlini
 
 *Status.* Written (D314); verified (D317: verifier 137's three minor findings and eight notes repaired, findings
-(VI.A4)-(VI.A6)). Parts I-IV state their dynamical hypotheses for a class of metrics and leave their verification for
-the record's metrics to Part VI (III.D's introduction: "we write (Dyn) for them"). These are: the radial structure of
-the horizon in (H3) and (H4) (I.A section 1.3), the Lorentzian structure and the time function (H6), the normally
-hyperbolic trapping (Γ.1)-(Γ.3) in (H7), the global dynamics (H8) (I.B sections 1.2 and 1.5), and $r$-normal
-hyperbolicity (K3) with the decay (K1) (II.B section 1.1). This part proves them for five-dimensional
-Schwarzschild-Tangherlini $g_{b_0}$, $b_0 = (\mu_0,0)$, with III.B's time function $t_*$ (Theorem 6.1). (H6) and (K1)
-are proved for every $b\in\mathcal B$. Part VI.B carries the others to $b$ near $b_0$ with the uniformity (H5) and (K4);
-Part VI.C collects the parameter conditions the parts leave open. The threshold in (H3) and the bound (Γ.4) in (H7)
-involve the subprincipal symbol, so they are operator hypotheses, proved for each operator in III.D, III.F and Part
-IV$''''$. The dynamical hypotheses concern the metric alone. Every operator whose principal symbol is
-$g_b^{-1}\otimes\mathrm{Id}$ has them. The record's computations used here are N1STAR-PROOF.md 10.17 (Proposition 10.14
-(ii)) and 10.19 (Proposition 10.16 (ii), (iv)). Each is re-derived below in closed form.
+(VI.A4)-(VI.A6)); proved (D318: verifier 138 read the repairs and found them correct, with four notes, repaired). Parts
+I-IV state their dynamical hypotheses for a class of metrics and leave their verification for the record's metrics to
+Part VI (III.D's introduction: "we write (Dyn) for them"). These are: the radial structure of the horizon in (H3) and
+(H4) (I.A section 1.3), the Lorentzian structure and the time function (H6), the normally hyperbolic trapping
+(Γ.1)-(Γ.3) in (H7), the global dynamics (H8) (I.B sections 1.2 and 1.5), and $r$-normal hyperbolicity (K3) with the
+decay (K1) (II.B section 1.1). This part proves them for five-dimensional Schwarzschild-Tangherlini $g_{b_0}$, $b_0 =
+(\mu_0,0)$, with III.B's time function $t_*$ (Theorem 6.1). (H6) and (K1) are proved for every $b\in\mathcal B$. Part
+VI.B carries the others to $b$ near $b_0$ with the uniformity (H5) and (K4); Part VI.C collects the parameter conditions
+the parts leave open. The threshold in (H3) and the bound (Γ.4) in (H7) involve the subprincipal symbol, so they are
+operator hypotheses, proved for each operator in III.D, III.F and Part IV$''''$. The dynamical hypotheses concern the
+metric alone. Every operator whose principal symbol is $g_b^{-1}\otimes\mathrm{Id}$ has them. The record's computations
+used here are N1STAR-PROOF.md 10.17 (Proposition 10.14 (ii)) and 10.19 (Proposition 10.16 (ii), (iv)). Each is
+re-derived below in closed form.
 
 ## 0. Coordinates and the spectral symbols
 
@@ -58,13 +59,13 @@ same sign, since $d\tau$ and $d\tau'$ are timelike with the same orientation. Th
 
 So every statement about the flow of $G_{z_0}$ on a region of $r$ may be proved in whichever coordinates are convenient
 there: $v$ near and inside the horizon, $t_s$ on $\{r>r_h\}$, $t_*$ near infinity. The components $\Sigma^\pm_{z_0}$ are
-always those of $t_*$, on $\{r>r_h\}$ the same as those of $t_s$ by (b). The differential of $v$ is null ($G^{vv} = 0$),
-and $v$ is used only as a symplectic chart, by (a). Near $\mathcal H$, $t_* = v-\varphi$ with $\varphi'>0$, since
-$g_{00} = \varphi'^2f-2\varphi'<0$ at $f = 0$; so $G(dv,dt_*) = -\varphi'<0$, $dv$ lies in the closed causal cone of
-$dt_*$, and $q_v := 2G(\nu,dv) = 2\xi$ has the sign of $t_*$'s $q_{z_0}$ wherever it is nonzero. The future field on
-$\Sigma^{\pm}_{z_0}$ is $\pm H_{G_{z_0}}$ (I.B section 1.3). On $\{r>r_h\}$ in static variables, $q_{z_0} =
-2G(-z_0dt_s+\zeta,dt_s) = 2z_0f^{-1}$, so only $\Sigma^{z_0}_{z_0}$ occurs there, with future field $\mathsf H^\flat :=
-z_0H_{G^s}$.
+always those of $t_*$, on $\{r>r_h\}$ the same as those of $t_s$ by (b), as $dt_s$ and $dt_*$ are co-oriented there:
+$G(dt_s,dt_*) = -f^{-1}<0$. The differential of $v$ is null ($G^{vv} = 0$), and $v$ is used only as a symplectic chart,
+by (a). Near $\mathcal H$, $t_* = v-\varphi$ with $\varphi'>0$, since $g_{00} = \varphi'^2f-2\varphi'<0$ at $f = 0$; so
+$G(dv,dt_*) = -\varphi'<0$, $dv$ lies in the closed causal cone of $dt_*$, and $q_v := 2G(\nu,dv) = 2\xi$ has the sign
+of $t_*$'s $q_{z_0}$ wherever it is nonzero. The future field on $\Sigma^{\pm}_{z_0}$ is $\pm H_{G_{z_0}}$ (I.B section
+1.3). On $\{r>r_h\}$ in static variables, $q_{z_0} = 2G(-z_0dt_s+\zeta,dt_s) = 2z_0f^{-1}$, so only $\Sigma^{z_0}_{z_0}$
+occurs there, with future field $\mathsf H^\flat := z_0H_{G^s}$.
 
 ## 1. The Lorentzian structure and the decay ((H6), (K1))
 
@@ -195,10 +196,12 @@ step. $\square$
 
 ## 5. The global dynamics ((H8) at $b_0$)
 
-The future integral curves of $G_{z_0}$ project to future null geodesics of $g_{b_0}$ with velocity $2z_0\nu^\sharp$,
-$\nu = -z_0\,d\tau+\zeta$, whose energy $-g(2z_0\nu^\sharp,\partial_t) = -2z_0\nu(\partial_t) = 2$ is positive for both
-signs; $C$ is the squared angular momentum. By Lemma 0.1 each statement below may be checked in the time function named;
-$\xi_s$ and $\xi_*$ denote $\xi$ in $t_s$ and in $t_*$ variables.
+On $\Sigma^{z_0}_{z_0}$ the future integral curves of $G_{z_0}$ project to future null geodesics of $g_{b_0}$ with
+velocity $2z_0\nu^\sharp$, $\nu = -z_0\,d\tau+\zeta$, whose energy $-g(2z_0\nu^\sharp,\partial_t) = -2z_0\nu(\partial_t)
+= 2$ is positive for both signs of $z_0$. On $\Sigma^{-z_0}_{z_0}$, which occurs only inside the horizon, the velocity
+is $-2z_0\nu^\sharp$ and the energy $-2$, allowed there as $\partial_t$ is spacelike. $C$ is the squared angular
+momentum. By Lemma 0.1 each statement below may be checked in the time function named; $\xi_s$ and $\xi_*$ denote $\xi$
+in $t_s$ and in $t_*$ variables.
 
 **Proposition 5.1.** (H8) (a) and (b) hold at $b_0$ for $z_0\in\{1,-1\}$, with $\bar\Gamma_u = \{\phi_u =
 0\}\cap\Sigma^s\cap\{r>r_h\}$ and $\bar\Gamma_s = \{\phi_s = 0\}\cap\Sigma^s\cap\{r>r_h\}$, and every neighbourhood
@@ -251,18 +254,21 @@ $\bar\Gamma_s$. $C$ is conserved, and $C\le C_K$ on $K$. For $\epsilon\in(0,\fra
 := \{r>R,\ |\xi_*|<\epsilon\}$. While $z_0\xi_s>0$ and $r>R$: $\mathsf H^\flat r = 2z_0f\xi_s =
 2(1-Cfr^{-2})^{1/2}\ge1$, and $(f\xi_s)^2 = 1-Cfr^{-2}$ gives $z_0\xi_* = |\xi_s|-F'$, hence $|\xi_*|\le c_1(C+1)r^{-2}$
 and $|\eta|/r = C^{1/2}r^{-1}$, with $c_1$ depending only on $\mu$. Take $R$ with $c_1(C_K+1)R^{-2}<\epsilon/2$ and
-$F'>\frac12$ on $\{r>R\}$. A curve from $K$ that enters $A$ has $z_0\xi_s = z_0\xi_*+F'>0$ there, and the set of later
-parameters with $z_0\xi_s>0$ is open and, as on it $|\xi_*|<\epsilon/2$ and so $z_0\xi_s>\frac14$, closed. So the curve
-stays in $A$, with $r\ge R+s$ at parameter $s$ after entry, and converges to $R_{\mathrm{out}}$ at rates independent of
-its initial point. For $T>0$ let $U_T$ be the set of points of $K$ whose forward curve enters $A$ or
-$\{r<r_0-\delta_0\}$ before parameter $T$. Each $U_T$ is open, as both target sets are open and the flow is continuous;
-the $U_T$ increase with $T$; and they cover $K$ by the pointwise statement, since a curve tending to $R_{\mathrm{out}}$
-has $r\to\infty$ and $\xi_*\to0$. So $K\subset U_T$ for one $T$, and the forward convergence is uniform on $K$.
+$F'>\frac12$ on $\{r>R\}$. A curve from $K$ that enters $A$ has $z_0\xi_s = z_0\xi_*+F'>0$ there, and on the maximal
+parameter interval after entry on which $z_0\xi_s>0$, $r$ increases ($\mathsf H^\flat r\ge1$), so $r>R$ persists and
+$|\xi_*|<\epsilon/2$, hence $z_0\xi_s>\frac14$; that interval is therefore closed as well as open, and contains every
+later parameter. So the curve stays in $A$, with $r\ge R+s$ at parameter $s$ after entry, and converges to
+$R_{\mathrm{out}}$ at rates independent of its initial point. For $T>0$ let $U_T$ be the set of points of $K$ whose
+forward curve enters $A$ or $\{r<r_0-\delta_0\}$ before parameter $T$. Each $U_T$ is open, as both target sets are open
+and the flow is continuous; the $U_T$ increase with $T$; and they cover $K$ by the pointwise statement, since a curve
+tending to $R_{\mathrm{out}}$ has $r\to\infty$ and $\xi_*\to0$. So $K\subset U_T$ for one $T$, and the forward
+convergence is uniform on $K$.
 
 Backward, for $K$ disjoint from $\bar\Gamma_u$, the same argument applies with $A' := \{r>R,\ |\xi_*+2z_0|<\epsilon\}$
-for $R_{z_0,\mathrm{in}}$, where $z_0\xi_s<0$ and $|\xi_*+2z_0| = \big||\xi_s|-(2-F')\big|\le c_1(C+1)r^{-2}$, and with
-$N := \{|r-r_h|<\delta,\ \rho_\infty<\delta',\ C<C_K+1\}$ near the horizon, where $\delta,\delta'$ are so small, given
-$C_K$, that $N$ meets only the singular root. $N$ is backward invariant, as $|r-r_h|$ decreases backward on both of its
+for $R_{z_0,\mathrm{in}}$, with $R$ also so large that $F'<\frac32$ on $\{r>R\}$: on $A'$, $z_0\xi_s =
+z_0(\xi_*+2z_0)-2+F'<-\frac14$, and $|\xi_*+2z_0| = \big||\xi_s|-(2-F')\big|\le c_1(C+1)r^{-2}$, and with $N :=
+\{|r-r_h|<\delta,\ \rho_\infty<\delta',\ C<C_K+1\}$ near the horizon, where $\delta,\delta'$ are so small, given $C_K$,
+that $N$ meets only the singular root. $N$ is backward invariant, as $|r-r_h|$ decreases backward on both of its
 branches and $\rho_\infty$ with it, and on $N$, $\rho_\infty\le c|f|$ and $|\eta/\xi|\le cC_K^{1/2}|f|$. In the rescaled
 parameter, $|dr/ds| = \rho_\infty|\dot r| = |f|(1+O(C_Kf))$ on $N$, and $|f| = \beta_0|r-r_h|(1+O(r-r_h))$, so $|r-r_h|$
 decays backward exponentially at a rate close to $\beta_0$, uniformly on $N$. With the cover argument this makes the

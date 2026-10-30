@@ -5928,3 +5928,9 @@ choice of time was carried between two time functions without proof (it agrees o
 used); one of the two incoming sets at infinity was overlooked in a limit argument, which is now read off directly with
 explicit uniform bounds; and a lemma assumed both time coordinates timelike where one is null. All are repaired. It also
 read last time's repairs to the gluing part and found them correct, so the gluing part is now proved.
+
+**D318 (2026-10-30): the static black hole's dynamics proved.** The hundred-and-thirty-eighth verifier read the horizon
+part for the rotating black holes and found three minor gaps: that the hypotheses survive the change of coordinates
+which pins the horizon was asserted rather than shown, a rescaled flow was defined only near the horizon's conormal set
+but used everywhere, and one step that keeps a curve from returning was argued wrongly. All three are repaired. It also
+read last time's repairs to the static case and found them correct, so that part is proved.

@@ -4213,3 +4213,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Part V: verifier 137 read the D315 repairs and found them all correct; its one note (Step 5's choice of r') is
   repaired. Part V is proved.
 - Next: verifier 138 on Part VI.B and the D317 repairs; Part VI.B' (trapping near b_0 by separability) in parallel.
+
+### 4.242 Verifier 138 seated (D318): Part VI.A proved, Part VI.B verified
+
+- Part VI.B (PART-VI2-HORIZON.md): 0 MAJOR / 3 MINOR / 6 NIT, all repaired, findings (VI.B3)-(VI.B5).
+  - The conjugation by Psi_b is now proved. Transporting the fibre inner product keeps the thresholds. The spaces are
+    kept because Psi_b is the identity on {|x| <= 5R_1/8} and on {|x| >= 7R_1/4}.
+  - xi != 0 on all of the fibre-infinity characteristic set, so the rescaled field and the split by sgn xi are global.
+  - The no-re-entry step now rests on H_b q > 0 on the boundary of U.
+- Part VI.A: verifier 138 read the D317 repairs, all correct; its four notes are repaired (energy sign on
+  Sigma^{-z0}, the maximal interval, F' < 3/2 for A', co-orientation of dt_s and dt_*). Part VI.A is proved.
+- Next: Part VI.B' (trapping near b_0 by separability), then one verifier on VI.B' and the D318 repairs.
