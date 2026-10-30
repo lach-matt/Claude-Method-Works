@@ -1,0 +1,166 @@
+file	line	class	statement	hidden	quote
+PART-III-K-NONLINEAR.md	456	X	III.K Prop 4.2 propagation, cross-ref to II.F 7.4	-	Its compactness hypothesis is checked in II.F section 7.4
+PART-III-G-SPECTRAL.md	7	F	III.G intro summary of Thm 5.1 (1)	-	is Fredholm of index 0 for every lambda
+PART-III-G-SPECTRAL.md	38	X	III.G Organisation paragraph	-	Section 2: fixed lambda, the Fredholm property
+PART-III-G-SPECTRAL.md	180	X	III.G section 2 heading	-	## 2. Fixed lambda: the Fredholm property
+PART-III-G-SPECTRAL.md	299	X	III.G section 2.3 heading	-	### 2.3 The Fredholm property
+PART-III-G-SPECTRAL.md	311	F	III.G Proposition 2.4 (1)-(2)	-	Proposition 2.4 (Fredholm property, n=4)
+PART-III-G-SPECTRAL.md	323	F	III.G Proposition 2.4 (2)	-	(2) N_sf(lambda): X -> Y is Fredholm
+PART-III-G-SPECTRAL.md	342	N4	III.G Prop 2.4 (1) proof, finitely many propagation estimates	constant C of finitely many estimates over compact Sigma (no value)	off Sigma_0, and compactness give ||Eu|| <= C(...)
+PART-III-G-SPECTRAL.md	371	F	III.G Prop 2.4 (2)-(3) proof, Peetre	-	Rellich on the compact remainder, so (2.8)-(2.9) give finite-dimensional kernels
+PART-III-G-SPECTRAL.md	700	G	III.G section 4 lemma, compactness of K	-	Compactness of K. In the cone region Sigma is compact over sf
+PART-III-G-SPECTRAL.md	895	F	III.G Theorem 5.1 (1)	-	(1) Fredholm property. N_sf(lambda): X -> Y is Fredholm of index 0
+PART-III-G-SPECTRAL.md	908	X	III.G Theorem 5.1 proof, cross-ref to Prop 2.4	-	(1): The Fredholm property and the independence are Proposition 2.4
+PART-III-G-SPECTRAL.md	924	F	III.G Theorem 5.1 (2)-(3) meromorphy	-	Meromorphy. On a disc D_1 ... Fredholm of index 0
+PART-III-G-SPECTRAL.md	926	X	same argument as line 924 (III.G Thm 5.1 meromorphy)	-	the analytic Fredholm theorem (I.C (K5)) gives a meromorphic inverse
+PART-I-SPECTRAL.md	15	X	Sources, HJS reference	-	Lecture notes on non-elliptic Fredholm theory
+PART-I-SPECTRAL.md	215	X	I.A section 2.1 (C4) calculus citation	-	(C4) (compactness, p. 20) Proposition 3.13
+PART-I-SPECTRAL.md	274	X	I.A Lemma 2.1 (d) proof remark	-	compactness and duality are statements about each entry
+PART-I-SPECTRAL.md	1502	X	I.A Theorem 7.2 (1) label	-	(1) (Fredholm estimates, I.) Let I compact
+PART-I-SPECTRAL.md	1514	X	I.A Theorem 7.2 (2) label	-	(2) (Fredholm estimates, II.) Let I in R be compact
+PART-I-SPECTRAL.md	1518	F	I.A Theorem 7.2 (3)	-	(3) (Fredholm property.) P-hat(sigma): X_sigma -> Y_sigma is
+PART-I-SPECTRAL.md	1519	F	I.A Theorem 7.2 (3), kernel and index independence	-	Fredholm. Its kernel and the annihilator of its range do not depend on the orders
+PART-I-SPECTRAL.md	1570	N4	I.A Theorem 7.2 (1) proof, section 7.1 preamble	finite covering of compact I (no value)	characteristic sets, so compactness of I leaves finitely many
+PART-I-SPECTRAL.md	1602	N4	I.A Theorem 7.2 (1) proof, estimate (B)	finitely many backward curves over boundary of Sigma_0 (no value)	By compactness finitely many curves suffice
+PART-I-SPECTRAL.md	1649	F	I.A Theorem 7.2 (3) proof	-	Fredholm. X_sigma into H^{-N,-N} is compact
+PART-I-SPECTRAL.md	1693	N2	I.A section 7.3, augmented P-tilde injective near sigma*	uniform injectivity of P-tilde near sigma* (no value)	Otherwise there are sigma_j -> sigma_* and (u_j,c_j) != 0 in the kernel
+PART-I-SPECTRAL.md	1694	X	same argument as line 1693	-	hence u_j -> u in H^{-N} (compactness), and c_j -> c
+PART-I-SPECTRAL.md	1801	N2	I.A section 7.6, estimate (7.1) without last term, uniform near sigma*	constant of (7.1) without error term (no value)	is nonzero and lies in ker P-hat(sigma_*). That is a contradiction
+PART-I-SPECTRAL.md	1808	G	I.A section 7.6 continuity of inverse in sigma	-	For sigma_j -> sigma, a subsequence converges weakly there
+PART-I-SPECTRAL.md	1884	N4	I.A Theorem 8.1 proof, uniformity in b	finitely many b_1 covering compact B (no value)	Compactness of B gives finitely many b_1
+PART-I-SPECTRAL.md	1932	X	Sources, HJS reference	-	[HJS] A. Hassell, Q. Jia, E. Sussman, Lecture notes on non-elliptic Fredholm theory
+PART-I-B-HIGHENERGY.md	733	G	I.B Lemma 4.1 proof, lower bound on compact K x Z	-	By compactness of K x Z there are a neighbourhood U of K and c>0
+PART-I-B-HIGHENERGY.md	1446	G	I.B Lemma 6.2 (defect measure)	-	a subsequence has a defect measure on U
+PART-I-B-HIGHENERGY.md	1463	G	I.B Lemma 6.2 proof (c), diagonal argument	-	gives a subsequence along which L(b) exists
+PART-I-B-HIGHENERGY.md	1513	N3	I.B Proposition 6.4 proof, (6.6) by contradiction	constant C in (6.6) over h beta <= Im z <= h gamma (no value)	after passing to a subsequence Im z_j/h_j -> eta and (u_j) has a defect measure
+PART-I-B-HIGHENERGY.md	1685	N1	I.B Theorem 1.3 (b), invertibility of P'_{h,z}	bound on inverse, constant from (a) (no value)	P'_{h,z}: H -> L^2 is Fredholm, and by (a) it and its adjoint are injective
+PART-I-B-HIGHENERGY.md	1836	N4	I.B section 8 proof, Corollary 4.6' applied finitely many times	finitely many applications, constant C (no value)	finitely many times (compactness)
+PART-I-B-HIGHENERGY.md	1913	N4	I.B Theorem 1.3 (a) proof, covering of K_Sigma	finitely many neighbourhoods, nu_1 (no value)	finitely many of these neighbourhoods cover K_Sigma
+PART-I-B-HIGHENERGY.md	1934	G	I.B section 8 (b), Im z >= nu_1	-	uniformly for Im z in [nu_1, nu] by compactness
+PART-I-B-HIGHENERGY.md	1978	N1	I.B section 8.4 invertibility of P-hat(sigma)	inverse bound (no value)	P(sigma) is Fredholm, so it is invertible
+PART-I-B-HIGHENERGY.md	2046	N4	I.B section 9 uniformity in b	finitely many neighbourhoods covering compact B (no value)	by compactness of B, finitely many suffice
+PART-I-B-HIGHENERGY.md	2047	N2	I.B section 9, uniformity in b by contradiction	O(h) remainders uniform in b (no value)	The two arguments by contradiction (Proposition 6.4 and the absorption)
+PART-I-B-HIGHENERGY.md	2048	X	same argument as line 2047	-	run with sequences (h_j,z_j,b_j), b_j -> b_infty
+PART-I-B-HIGHENERGY.md	2052	X	same argument as line 2047	-	and the dynamics (D1)-(D3) of b_infty give the contradiction
+PART-I-C-LOWENERGY.md	113	X	I.C section 2 fact (K3) Rellich citation	-	(K3) Rellich. [HJS] Proposition 3.13
+PART-I-C-LOWENERGY.md	122	X	I.C section 2 fact (K5) analytic Fredholm citation	-	(K5) Analytic Fredholm theorem ([RS1] Theorem VI.14)
+PART-I-C-LOWENERGY.md	271	F	I.C Lemma 2.4 (b), J(lambda) Fredholm	-	compact on H^m (it maps H^m to H^{m+1}, and (K3)-(K4) give compactness on
+PART-I-C-LOWENERGY.md	273	F	I.C Lemma 2.4 (b)-(c), Id+F(lambda) Fredholm index 0	-	Id+F(lambda) is Fredholm of index 0
+PART-I-C-LOWENERGY.md	379	X	I.C Theorem 3.1 (1) label	-	(1) (Fredholm estimates.) For every N there is C with
+PART-I-C-LOWENERGY.md	387	F	I.C Theorem 3.1 (1), Fredholm property	-	P-hat(0): X_0 -> Y_0 is Fredholm
+PART-I-C-LOWENERGY.md	461	F	I.C Theorem 3.1 (3) proof	-	Fredholm. By Lemma 2.9 (b) the inclusion is compact
+PART-I-C-LOWENERGY.md	497	N1	I.C Theorem 3.1 (4) proof, estimate without error term	constant of (3.2) without error term (no value)	then by Lemma 2.9 (b) a subsequence converges in H^{-N,-N}_b, by (3.2) it is Cauchy
+PART-I-C-LOWENERGY.md	498	X	same argument as line 497	-	its limit is a kernel element of norm 1, a contradiction
+PART-I-C-LOWENERGY.md	599	X	I.C Theorem 4.3 (1) label	-	(1) (Fredholm estimates, I.) For theta in Theta_pm there is C
+PART-I-C-LOWENERGY.md	610	X	I.C Theorem 4.3 (2) label	-	(2) (Fredholm estimates, II.) Let I in (0,pi) be compact
+PART-I-C-LOWENERGY.md	613	F	I.C Theorem 4.3 (3)	-	(3) (Fredholm property.) N_tf(e^{i theta}) is Fredholm
+PART-I-C-LOWENERGY.md	674	F	I.C Theorem 4.3 (3) proof, Peetre	-	so (4.3)-(4.4) give the Fredholm property, by Peetre's lemma
+PART-I-C-LOWENERGY.md	686	N2	I.C Theorem 4.3 (3) proof, local constancy of index in theta	local constancy neighbourhood of theta* (no value)	contradiction argument with theta_j -> theta_* using the uniform estimates
+PART-I-C-LOWENERGY.md	748	N2	I.C Corollary 5.2 (b) proof, estimate (5.1) uniform on Sigma	uniform constant of (5.1) on Sigma (no value)	a subsequence converges in H^{-N,(-N,-N)} to some w != 0
+PART-I-C-LOWENERGY.md	1282	F	I.C section 6 proof, item (3) augmented operator	-	so it is Fredholm by I.A Theorem 7.2 (3)
+PART-I-C-LOWENERGY.md	1414	N2	I.C section 6 (Z_P), estimate uniform in b near b*	constant of ||u||+|c| <= C||P(0)(u,c)|| near b* (no value)	so a subsequence converges weakly in H^{s,alpha}_b
+PART-I-C-LOWENERGY.md	1421	N2	I.C section 6 (TF) and Corollary 5.2 (b), uniformity in (theta,b)	uniform constants near (theta*,b*) (no value)	the proof of Corollary 5.2 (b) by contradiction runs with sequences (theta_j,b_j)
+PART-I-C-LOWENERGY.md	1492	X	I.C remark on Definition 5.1	-	Part I.C states tf-admissibility on the Fredholm spaces (Definition 5.1)
+PART-I-C-LOWENERGY.md	1509	X	I.C sources, RS1	-	analytic Fredholm theorem), used in Lemma 2.4
+PART-II-A-SETUP.md	388	F	II.A (S5)-(S6) remark	-	Elliptic operators are Fredholm when V is fully symbolic
+PART-II-A-SETUP.md	975	G	II.A section 1, mollified coefficients, weak subsequence	-	A subsequence converges weakly in the Hilbert space H^s_e3b
+PART-II-A-SETUP.md	1589	X	II.A Sources, HJS reference	-	[HJS] A. Hassell, Q. Jia, E. Sussman, Lecture notes on non-elliptic Fredholm theory
+PART-II-A2-STANDARD.md	225	G	II.A2 Lemma 2.3 (a), density	-	w = 0 as a distribution, a contradiction
+PART-II-A2-STANDARD.md	299	G	II.A2 Lemma (composition limits), weak compactness	-	convergent subsequences, whose limits are identified in D'
+PART-II-A2-STANDARD.md	584	G	II.A2 Lemma 5.1, Arzela-Ascoli for flows	-	have subsequences converging uniformly on compact time intervals
+PART-II-A2-STANDARD.md	607	G	II.A2 Lemma 5.2, injectivity of (z,y)	-	by the usual compactness argument for a curve that meets the slice once
+PART-II-A2-STANDARD.md	736	G	II.A2 Lemma 5.2 perturbation, injectivity uniform	-	So the compactness argument for the injectivity in Lemma 5.2 holds uniformly
+PART-II-A2-STANDARD.md	772	N4	II.A2 Prop 5.3 / Thm 3.1 proof, finite family B_alpha_i	finitely many B_alpha_i, constant C (no value)	By compactness of WF'(B), finitely many B_{alpha_i} are jointly
+PART-II-C2-TRAPPING.md	78	G	II.C2 Psi_0 injective near Gamma	-	subsequence p_n -> p, q_n -> q in Gamma
+PART-II-C2-TRAPPING.md	218	G	II.C2 section 2 fixed-point construction, Arzela-Ascoli	-	(Arzela-Ascoli) every subsequence has a
+PART-II-C2-TRAPPING.md	219	X	same argument as line 218	-	further subsequence converging in C^{k-1}, necessarily to beta_j
+PART-II-C2-TRAPPING.md	276	G	II.C2 section 3, relatively compact neighbourhood Y	-	Y is replaced by a relatively compact open neighbourhood of Gamma
+PART-II-B-DYNAMICS.md	679	G	II.B Prop 8.1 forward, limit points	-	so t_* -> infinity, a contradiction
+PART-II-B-DYNAMICS.md	688	G	II.B Prop 8.2 backward, alpha-limit set	-	contradiction. QED
+PART-II-C-OPERATORS.md	427	G	II.C Lemma 3.2 proof, bound on compact region	-	compactness, so g^{-1}(dt_*,dt_*) <= -1/2 c_0 for epsilon_G small
+PART-II-C-OPERATORS.md	573	G	II.C backward dynamics, alpha-limit argument	-	as s decreases and cannot tend to 0, a contradiction
+PART-II-D-REGULARITY.md	601	G	II.D lemma on U(delta), compact closure of O'	-	By compactness of O-bar' there are O'' and delta'>0
+PART-II-D-REGULARITY.md	1032	N4	II.D section 6, (P1) covering of supp chi	finitely many B jointly elliptic, constant in (1.4) (no value)	By compactness of the cosphere bundle over supp chi, finitely many such B
+PART-II-E-ENERGY.md	155	G	II.E section 1.4 collar flow	-	elsewhere at bounded times by compactness
+PART-II-E-ENERGY.md	414	G	II.E Lemma 2.6 proof, T(N,N) >= c|zeta|^2	-	and by Lemma 2.2 and compactness
+PART-II-E-ENERGY.md	615	N4	II.E Prop 3.4 proof, finitely many operators over supp chi_1	finitely many operators, constant (no value)	by compactness of WF'(E) and the local boundedness of the entrance times
+PART-II-E-ENERGY.md	941	G	II.E Lemma 5.1 proof, r-slab constants	-	stationarity of g_0, compactness in x and the decay of g-g_0
+PART-II-F-IOTA.md	259	G	II.F section 1, causal curves in compact L_p	-	converges in the compact set L_p
+PART-II-F-IOTA.md	667	X	II.F Prop 2.6 proof, cross-ref to I.B Prop 4.2	-	and the compactness argument of I.B Proposition 4.2
+PART-II-F-IOTA.md	1051	X	II.F section 4, cross-ref to I.C Thm 4.3 (1)	-	The proof of I.C Theorem 4.3 (1) with sigma-hat in place of e^{i theta}
+PART-II-F-IOTA.md	1063	N2	II.F Lemma 3.5 (3.15), uniform in y and Z^i	uniform bound (3.15) in sigma-hat (no value)	holds uniformly by the contradiction argument of I.C Corollary 5.2 (b)
+PART-II-F-IOTA.md	1329	N2	II.F Lemma 3.6 (4.5), k-derivative version	uniform constants of (4.5) (no value)	the contradiction argument of I.C Corollary 5.2 (b) with I.C (4.5)
+PART-II-F-IOTA.md	1375	F	II.F Proposition 5.1 statement	-	is Fredholm of index 0. If moreover Im sigma > -1-beta_+, it is invertible
+PART-II-F-IOTA.md	1385	F	II.F section 5.1 remark, Fredholm property on compact manifold	-	used only through the Fredholm property it gives on a compact manifold
+PART-II-F-IOTA.md	1393	N1	II.F Lemma 5.2 (Fredholm estimates with a weak remainder)	C in ||x|| <= C(||Tx|| + ||jx||) (no value)	Lemma 5.2 (Fredholm estimates with a weak remainder)
+PART-II-F-IOTA.md	1418	G	II.F Lemma 5.3 proof, compact inclusion via Rellich	-	so it is compact by Rellich's theorem
+PART-II-F-IOTA.md	1488	F	II.F Lemma 5.5 (a), model Fredholm property	-	Lemma 5.5 (the model's Fredholm property)
+PART-II-F-IOTA.md	1489	X	same argument as line 1488	-	P-hat^* ... Fredholm (for mu_b and the standard Hermitian form)
+PART-II-F-IOTA.md	1527	F	II.F Lemma 5.5 proof, parametrix	-	make P-hat Fredholm at the weight alpha = 2 gamma_I
+PART-II-F-IOTA.md	1532	F	II.F Lemma 5.5 proof, adjoint	-	The adjoint of a Fredholm operator is Fredholm
+PART-II-F-IOTA.md	1537	X	II.F section 5.4 heading	-	### 5.4 The Fredholm property
+PART-II-F-IOTA.md	1556	F	II.F Lemma 5.6 (b)	-	(b) N^0(sigma): X^s -> Y^{s-2} is Fredholm of index 0
+PART-II-F-IOTA.md	1610	F	II.F Lemma 5.6 proof (b), index	-	So (5.2) is Fredholm at k = 0
+PART-II-F-IOTA.md	1617	F	II.F Lemma 5.6 proof, index constancy in sigma	-	continuous into the Fredholm operators on the connected half-plane
+PART-II-F-IOTA.md	1757	F	II.F section 5.6 proof of Prop 5.1	-	For k = 0, Lemma 5.6 (b) gives the Fredholm property with index 0
+PART-II-F-IOTA.md	1765	X	same argument as line 1757	-	dimension, (5.2) is Fredholm of index 0, and it is invertible
+PART-II-F-IOTA.md	2479	G	II.F section 7 proof, weak limit as epsilon -> 0	-	subsequence u^{epsilon_j} converges weakly to some u
+PART-II-F-IOTA.md	2687	X	II.F section 9.2 finding G1 (record text)	-	Fredholm property it implies ([0C] Corollary 3.6) by the Schur test
+PART-II-F-IOTA.md	2731	X	II.F sources, BGP reference	-	past compactness of the causal future of a Cauchy hypersurface
+PART-II-F2-TAME.md	686	G	II.F2 Lemma 6.1 (compactness), statement and proof	-	Lemma 6.1 (compactness). Let k>=1 ... The inclusion ... is compact
+PART-II-F2-TAME.md	696	X	same argument as line 686	-	A subsequence converges in H^{k-1,w''}_b(M-tilde)
+PART-II-F2-TAME.md	705	G	II.F2 section 6, continuity proof, weak limit	-	subsequence. For phi in C^infty_c, P^{(j)*}phi -> P^*phi in L^2
+PART-II-F2-TAME.md	709	X	same argument as line 705	-	Every subsequence having a further subsequence converging weakly to u
+PART-II-F2-TAME.md	711	X	same argument as line 705	-	norm-convergent subsequence, whose limit is the weak limit u
+PART-II-F2-TAME.md	712	X	same argument as line 705	-	subsequence, whose limit is the weak limit u
+PART-II-F2-TAME.md	834	X	II.F2 Sources, SBG reference	-	[SBG] arXiv:2408.06651v1 ... compactness statements
+PART-II-G-NASHMOSER.md	299	N4	II.G section 1, bounded geometry charts covering compact M	finitely many charts and cell families (no value)	By compactness of M cap {|t| <= c_1} ... finitely many charts of kind (a)
+PART-II-G2-DECAY.md	716	N4	II.G' Corollary 4.2 proof, uniform in sigma over I-bar	finitely many neighbourhoods covering I-bar (no value)	By compactness of I-bar, finitely many such neighbourhoods cover it
+PART-III-C-EXTERIOR.md	115	G	III.C Lemma 2.1 (products), hypothesis	-	compact or a relatively compact domain in one
+PART-III-F4-ZERO.md	295	F	III.F4 Proposition 4.1 statement	-	Proposition 4.1 ... is Fredholm of index 0
+PART-III-F4-ZERO.md	311	F	III.F4 Proposition 4.1 Step 0, index	-	Fredholm, the annihilator of its range is the kernel of the adjoint
+PART-III-F4-ZERO.md	439	N2	III.F4 Corollary 4.2 (1), uniform bound near b_0	uniform constant near b_0 (no value)	Passing to a subsequence, u_j -> u weakly in H^{s,alpha}_b and strongly
+PART-III-F3-MODES.md	56	F	III.F3 Corollary 1.2	-	Fredholm of index 0 for sigma != 0, Im sigma >= 0
+PART-III-F3-MODES.md	223	N1	III.F3 Proposition 3.1 proof, injectivity after index 0	inverse bound (no value)	By Corollary 1.2 the operator is Fredholm of index 0, so injectivity suffices
+PART-III-H-AUGMENT.md	313	F	III.H-AUG augmented L-tilde_b(0), index 0	-	is Fredholm of index 0, so L-tilde_b(0) has index 0
+PART-III-H-AUGMENT.md	326	N2	III.H-AUG uniform bound near b_0	uniform constant near b_0 (no value)	the estimate of I.C Theorem 3.1 holds uniformly near b_0
+PART-III-H2-ADMISS.md	211	N2	III.H2 section 7, estimates (7.1),(7.3) without last terms	uniform constants near sigma* (no value)	a subsequence converges weakly there and strongly in H^{-N,-N}
+PART-III-H3-UNIFORM.md	24	X	III.H3 intro (3), cross-ref to I.A sec 8, I.B sec 9	-	The rest is continuity and compactness, as in I.A
+PART-III-H3-UNIFORM.md	189	N2	III.H3 Lemma 3.1 (iii), uniform in (sigma,b)	uniform constants near (sigma*,b*) (no value)	The argument by contradiction there, run with sequences (sigma_n,b_n)
+PART-III-H3-UNIFORM.md	209	X	III.H3 section 7, cross-ref to III.H Cor 4.2	-	arguments of III.H Corollary 4.2's uniformity paragraph
+PART-III-H3-UNIFORM.md	215	N4	III.H3 section 7, uniformity on B-bar_1	finitely many b_* covering B-bar_1 (c_k, C_k no value)	by compactness c_k and C_k are uniform on B-bar_1
+PART-III-H3-UNIFORM.md	253	X	III.H3 section 7, cross-ref to II.F 3.5, 4.2, 5.4	-	Their compactness and contradiction arguments (II.F sections 3.5, 4.2 and 5.4)
+PART-III-I7-PARAMS.md	90	F	III.I7 Lemma, L-hat_b(sigma) Fredholm index 0	-	is Fredholm of index 0 on both spaces
+PART-III-I7-PARAMS.md	95	X	same argument as line 90	-	Fredholm of index 0 on both spaces; if (u,b-dot,S) lies in its kernel
+PART-III-I11-SPACETIME.md	258	G	III.I11 Lemma 2.3 proof, expansion argument	-	contradiction. QED
+PART-III-I16-BASEPOINTS.md	64	X	III.I16 (P4), cross-ref to III.H Cor 4.2-4.4	-	(P4) III.H Corollaries 4.2-4.4 and III.H' Theorem 1.3 hold at b
+PART-III-I16-BASEPOINTS.md	67	X	same argument as line 64	-	covers Proposition 3.2 and its compactness paragraph
+PART-III-I16-BASEPOINTS.md	151	G	III.I16 Corollary 2.3 proof, compact unit sphere	-	so by compactness of the unit sphere of W there is a compact K_0
+PART-III-A-PREREQ.md	151	F	III.A section 1 (E2), analytic Fredholm theory	-	(E2) Analytic Fredholm theory: N(A,lambda)^{-1} is meromorphic
+PART-III-A-PREREQ.md	720	X	III.A section 6 labels, standard-facts list	-	named: Plancherel's theorem; ... analytic Fredholm theory
+PART-III-J4-EXACT.md	134	G	III.J4 Lemma 2.2 proof, weak subsequence of Riemann sums	-	A subsequence converges weakly in Z to some I'
+PART-III-J4-EXACT.md	135	X	same argument as line 134	-	weakly in Z to some I'
+PART-III-D-GAUGEPOT.md	365	N1	III.D Proposition 6.2 proof, index 0 then injectivity	inverse bound (no value)	Fredholm of index 0, so it suffices to show injectivity
+PART-III-D-GAUGEPOT.md	387	F	III.D Proposition 6.2 proof, Wronskian injectivity	-	a contradiction. If sigma is real, the Wronskian is constant
+PART-III-D2-ZEROENERGY.md	256	N2	III.D2 claim, limit as (sigma,gamma) -> (0,0)	uniform limit in (sigma,gamma) (no value)	Pass to a subsequence with w_j weakly convergent
+PART-III-D2-ZEROENERGY.md	259	X	same argument as line 256	-	by Rellich u_j -> w in H^{s'}(K)
+PART-III-D2-ZEROENERGY.md	379	X	III.D2 section 6.2, standard facts list	-	Standard facts used: integration by parts, the trace theorem, Rellich's theorem
+PART-III-F2-INDICIAL.md	347	F	III.F2 Step 3, indices of N_2 and N_1	-	N_2 and N_1 are Fredholm (I.C Theorem 4.3 (3))
+PART-III-F2-INDICIAL.md	350	F	III.F2 Step 3, Fredholm index of N restricted to Z	-	is Fredholm with the index of N_2
+PART-III-F2-INDICIAL.md	452	F	III.F2 Multiplicity, locally constant index	-	a norm-continuous family of Fredholm operators on fixed spaces
+PART-III-F2-INDICIAL.md	520	X	III.F2 (F'5) remark on the source's tf-admissibility	-	it is injectivity on the Fredholm spaces (I.C Definition 5.1)
+PART-III-F2-INDICIAL.md	521	X	same argument as line 520	-	for all the operators at once (Lemma 3.2)
+PART-IV5-CDMODES.md	207	F	IV.5 (2) surjectivity, Fredholm	-	P^C_b: X_0 -> Y_0 is Fredholm and the annihilator of its range
+PART-IV6-SOLV.md	185	G	IV.6 Lemma 0.4 proof, one C by compactness of sphere bundle	-	Corollary 3.6 at each point and compactness of the unit sphere bundle over Omega
+PART-IV6-SOLV.md	265	G	IV.6 section 5 main term, lower bound by compactness	-	with a lower bound fixed by compactness
+PART-IV6-SOLV.md	531	G	IV.6 Lemma 5.? (1) proof, lower bound by compactness	-	with a lower bound by compactness
+PART-IV7-TFACE.md	11	X	IV.7 intro summary	-	The Fredholm property and index 0 (section 1), by radial estimates
+PART-IV7-TFACE.md	93	X	IV.7 section 1 heading	-	## 1. Fredholm property and index 0
+PART-IV7-TFACE.md	98	F	IV.7 Proposition 1.1 statement	-	is Fredholm of index 0, and its nullspace
+PART-IV7-TFACE.md	151	F	IV.7 Proposition 1.1 proof	-	So (1.1) is Fredholm, and by (1.2) its nullspace
+PART-IV7-TFACE.md	162	F	IV.7 Proposition 1.1 proof, sectors	-	Each restriction is Fredholm, and only finitely many have nonzero kernel
+PART-IV7-TFACE.md	185	F	IV.7 Proposition 1.1 proof, damping removal	-	It stays Fredholm, by the estimates above
+PART-IV7-TFACE.md	383	N2	IV.7 Theorem 3.1, uniform bound on inverse	uniform bound on inverse in h^{-1} (no value)	The uniform bound on the inverse follows from the uniform estimate (1.2) and invertibility
+PART-VI2-HORIZON.md	97	G	VI.2 proof, lower bound on compact sphere cosection	-	by compactness of S^*{R_1/2 <= r <= r_h + delta_0/2} this persists
+PART-VI3-TRAPPING.md	141	G	VI.3 Lemma 1.1 (c), compactness of double zeros	-	Compactness gives (c)
+PART-VIII-LINEAR.md	282	X	VIII section, cross-ref to III.K Prop 4.2 and II.F 7.4	-	Its compactness hypothesis is checked in II.F section 7.4

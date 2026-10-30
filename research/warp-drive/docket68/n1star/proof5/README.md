@@ -8,8 +8,9 @@ every dimension. Once a part is written and verified, the census and the deducti
 needed for it.
 
 Labels as in the record. A part is **written** when its proofs are complete on the page; **verified** when an
-independent reader has checked it line by line and every finding is seated; **proved** only then. Theorem 4 stays
-*deduced* until every part below is proved.
+independent reader has checked it line by line and every finding is seated; **proved** only then. Every part below is
+**proved** (D333), and with them Theorem 4.
+Part VIII, the linear statement, is proved too (D336).
 
 ## The plan
 
@@ -22,8 +23,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197); proved (D326: verifier 142 read the repairs) |
 | II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200); the D226 remark confirmed (D229); proved (D327: verifier 143 read the D326 repair) |
-| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201); repairs read (D326, D327: the start time T_flat carried into sections 3.2-3.3, to be read) |
-| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204); proved (D326: verifier 142 read the repairs) |
+| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201); proved (D328: verifier 144 read the D327 repair; T_flat := 2/C') |
+| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204); proved (D326); the D328 repair (section 4's setting at T_flat) read by verifier 150, correct (D331) |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206); proved (D327: verifier 143 read the D326 repair) |
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207); proved (D327: verifier 143 read the D326 repair) |
 | II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | **proved** (D216) |
@@ -68,7 +69,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.I'''''''''''' | [Hin26] Theorem 11.59, Part 4 ((11.196)) and the iota+ part of (11.222) | the forward solution as towers of the zero-energy states with partially polyhomogeneous coefficients, a conormal boost and black hole parameter, modulo K+-order alpha; the cut-off as an approximate identity, the last-level columns, stationary solutions of moderate growth, and formal solutions at K+ | proved (D280) |
 | III.I''''''''''''' | [Hin26] Theorem 11.59, Parts 2-3, at every level | the expansion at K+ at every level beta in (3, 4 + eps_K] (the last Taylor level with negative zf-weight below 4) and for the enlarged sources Y^natural that section 11.8.3's b-derivative produces; the source's routine repetition, which section 11.8.3 needs | verified (D280); proved (D324: verifier 141 read the repairs) |
 | III.I'''''''''''''' | [Hin26] section 11.8.3 (Definition 11.63, Remark 11.64, Lemma 11.65, Corollary 11.66) | augmentation #5: the parameters q of the K+-expansion become arguments of P_5; the b-derivative has K+-order alpha-; the forward solution at h + h_rem(q) has a unique p' after which it is h_rem(q') + h' with h' in the class of h; proved by linearising at h and raising the decay level by level; Corollary 11.67 deferred to after III.C' | **proved** (D287) |
-| III.I''''''''''''''' | [Hin26] sections 11.2-12 at base points b != b_0 (Definition 11.55, pp. 279-280, (11.229)) | the linear theory at base points near b_0: the model objects and joint injectivity at b, v1 terms of exponent of real part <= 2 as rotation rows with coefficients assigned from the construction, III.I'-III.J''' at b by a census of the uses of b_0 | **proved** (D311: verifier 134 read the D309 repairs, correct) |
+| III.I''''''''''''''' | [Hin26] sections 11.2-12 at base points b != b_0 (Definition 11.55, pp. 279-280, (11.229)) | the linear theory at base points near b_0: the model objects and joint injectivity at b, v1 terms of exponent of real part <= 2 as rotation rows with coefficients assigned from the construction, III.I'-III.J''' at b by a line-by-line reading of the uses of b_0 (BASEPOINT-LEDGER.md) | proved (D311); the base-point ledger, all five batches read (verifiers 145-149), found three major gaps and a minor one (reality at b), repaired by sections 2.6-2.8 and (P3) (D329-D331: the boost identity, the expansion at a rotating b, the parameter identities and base level; verifier 150's M1, the rotation state at b a change of the parameter alone, by the parity under -1), and one unstated theorem (III.J''' Theorem 5.3 at b), now listed; the census is now that reading; D332: the parity argued from the states' constructions (verifier 151's a1); **proved** (D333: verifier 152 read it, correct) |
 | III.J | [Hin26] section 12 to Remark 12.6 (Definition 12.1, Lemma 12.2, Theorem 12.3) | efficient parameterisation I: data (black hole parameters, boost, translation, iota+ data at the resonances in E_sharp, conormal remainders, a remainder tensor) determine (h, p, q) with P_5 vanishing at iota+ to the order 5 + eps_+ and of K+-order alpha; linear below 3 + eps_+ at n = 4, so Phi is affine in the data with smooth dependence on the black hole parameters | **proved** (D287) |
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
 | III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | proved (D295; the weights (J''4) discharged at b_0 by III.J''', proved D296) |
@@ -88,8 +89,9 @@ independent reader has checked it line by line and every finding is seated; **pr
 | VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317); proved (D318) |
 | VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318); proved (D323: verifier 140 read the D321 repairs) |
 | VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319); verified (D321); proved (D323: verifier 140 read the repairs, two notes seated) |
-| VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2); verified (D323: order corrected, row b4); proved (D324) |
+| VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2); verified (D323: order corrected, row b4); proved (D324); section 3 amended (D327-D328), read by verifier 150, widened (D331: G4-G5); **proved** (D332: verifier 151 read it, nits only) |
 | VII | assembly | Theorem 4 from Parts III-VI and the record: (i) the record's data on III.K's initial surface, glued in the class to Tangherlini, and III.K run on G-fixed spaces; (ii) perturbations in III.K's data class | written (D322); verified (D323: verifier 140's three minors and twelve notes seated); proved (D324: verifier 141 read the repairs) |
+| VIII | III.K linearised at Tangherlini | linear stability of 5D Tangherlini in the gauge of the nonlinear problem: every linearised data set in III.K's class has a linearised vacuum development settling to a linearised Myers-Perry metric at $t_*^{-(\alpha-2)+\epsilon}$; in the class, to a change of mass alone | written (D334); verified (D335: verifier 153, no major gap, its minor m1 and six nits seated); **proved** (D336: verifier 154 read the repairs, three nits) |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
 record's computed items (for Part I: 10.19, 10.36, 10.60 and 10.79) and turning each into a proof.
@@ -1193,6 +1195,15 @@ gains only 2 at K+. It is now a direct bound, A_k = O(|h| + |p - p_b| + |q| + |b
 continuity lemmas are used at fixed b only. The mismatch E^nu is redefined as the b-difference of the corrections and
 counterterms, of K+-weight kappa_nu > alpha, and its iota+-exponents are settled. Two minors and eight nits are also
 seated. To be read. Proved (D311): verifier 134 read the D309 repairs.
+D328-D330: the census is replaced by a reading, BASEPOINT-LEDGER.md, every line of the parts read by verifiers 145-149.
+It found three gaps the search had missed, each an identity or a vanishing that holds at b_0 without naming it: the
+boost identity (section 2.6, Lemma 2.7 and Proposition 2.8), the expansion's use of h_{b_0,v1} = 0 (section 2.7, Lemma
+2.9 and Corollary 2.10) and the parameter identities with the base level of the elimination (section 2.8, Lemma 2.11 and
+Proposition 2.12); and one theorem used at b but not stated there (III.J''' Theorem 5.3). All are repaired, with the
+minor findings and nits; findings (I^(15)5)-(I^(15)8). D331: verifier 150 found the expansion's repair incomplete,
+completed by the parity under -1 in (P3): the rotation state at b is a change of the black hole parameter alone (finding
+(I^(15)9)). D332: verifier 151 found that repair correct but the written reason for the parity wrong; it is now argued
+from the constructions of the states. To be read.
 
 `PART-III-J-PARAM.md`. [Hin26] section 12 to Remark 12.6 at $n = 4$: the data space (Definition 1.1, with the
 $\iota^+$-resonances in $\pi_1\mathcal E_\sharp$ only), the construction of $\Phi$ exponent by exponent below
@@ -1418,6 +1429,20 @@ equivariant choices. Written (D322). Verified (D323): verifier 140 found no majo
 stated for any closed subgroup of $O(4)$; the families in $b$ used in $h_{b,\mathrm{rem}}$ are averaged as families; the
 nested cut-offs are chosen radial directly, since averaging could break the nesting. Twelve notes are repaired, among
 them a sign in the flux identity and $k = d_1+5$.
+
+`PART-VIII-LINEAR.md`. Part VIII proves linear stability of five-dimensional Schwarzschild-Tangherlini in the gauge of
+the nonlinear problem (Theorem 2.2): every linearised data set in III.K's class, satisfying the linearised constraints,
+has a linearised vacuum development that induces the data up to a linearised boost, satisfies the linearised gauge
+condition, and where $\chi_K = 1$ differs from a linearised Myers-Perry metric by terms of $K^+$-order $(\alpha-2)-$,
+so $O(t_*^{-2-\epsilon})$ on spatially compact sets. In the class the boost vanishes and the parameter change is a
+change of mass (Corollary 2.3). The proof differentiates III.K's equation at zero data, not its solution: the linear
+Cauchy problem near the initial surface (Parts IV''-IV''' and III.C' at $h = 0$), III.K Lemma 2.3's right inverse at $U
+= 0$ applied to the source the cut-off creates, and the linearised Bianchi identity. This proves the linear statement
+of the paper's section 8.2, which there is deduced in other gauges. Findings (VIII1)-(VIII4). Written (D334). Verified
+(D335): verifier 153 found no major gap. Its minor finding: Lemma 1.1 (3) differentiated the Gauss-Codazzi identity
+along a family whose second derivatives it did not control; it now differentiates along $g+s\dot h$. Six nits seated
+(finding (VIII5)). Proved (D336): verifier 154 read the repairs and found them correct; its three textual nits are
+seated.
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

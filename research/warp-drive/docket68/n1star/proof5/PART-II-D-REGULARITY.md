@@ -1,17 +1,19 @@
 # Part II.D. Microlocal regularity on spacetime: radial sets, trapping and the global estimate, at n = 4
 
-*Status.* Proved (D326: verifier 142 read the D204 repairs, correct; one nit seated). Verified. Written out in full
-(D202). Read line by line by the eighty-fourth verifier, which re-derived every threshold, sign and dynamical claim and
-confirmed (D1)-(D4) at source; its two minor findings (the comparison of norms in Step 3 of Proposition 4.2, and the
-support of the time cut-off's term in Proposition 3.6) and its nits are seated (D204). The part is labelled proved once
-the next reader has confirmed them; verifier 142 did (D326), and verifier 143 confirmed the D326 repairs, its two nits
-seated (D327). This part proves, at spatial dimension $n = 4$, [Hin26c] section 7.1 (pp. 114-127): the global edge-3b
-regularity estimate, its Proposition 7.1, with the ingredients it combines, the radial point estimates (Propositions 7.4
-and 7.6-7.9, Remark 7.5) and the estimate at the trapped set (Proposition 7.10). Section 7.2 of the source, b-regularity
-and estimates tame in it, is Part II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers).
-Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A
-(`PART-II-A-SETUP.md`) as II.A, Part II.A$'$ (`PART-II-A2-STANDARD.md`) as II.A$'$, Part II.B (`PART-II-B-DYNAMICS.md`)
-as II.B, Part II.C (`PART-II-C-OPERATORS.md`) as II.C and Part II.C$'$ (`PART-II-C2-TRAPPING.md`) as II.C$'$.
+*Status.* Proved (D326: verifier 142 read the D204 repairs, correct; one nit seated; D331: verifier 150 read the D328
+repair, correct) (D328: verifier 144 found the setting of section 4 still on $\{t_*>1\}$ after II.C$'$'s start time
+moved; it is now on $\{t_*>T_\flat\}$). Verified. Written out in full (D202). Read line by line by the eighty-fourth
+verifier, which re-derived every threshold, sign and dynamical claim and confirmed (D1)-(D4) at source; its two minor
+findings (the comparison of norms in Step 3 of Proposition 4.2, and the support of the time cut-off's term in
+Proposition 3.6) and its nits are seated (D204). The part is labelled proved once the next reader has confirmed them;
+verifier 142 did (D326), and verifier 143 confirmed the D326 repairs, its two nits seated (D327). This part proves, at
+spatial dimension $n = 4$, [Hin26c] section 7.1 (pp. 114-127): the global edge-3b regularity estimate, its Proposition
+7.1, with the ingredients it combines, the radial point estimates (Propositions 7.4 and 7.6-7.9, Remark 7.5) and the
+estimate at the trapped set (Proposition 7.10). Section 7.2 of the source, b-regularity and estimates tame in it, is
+Part II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A
+(`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A (`PART-II-A-SETUP.md`) as
+II.A, Part II.A$'$ (`PART-II-A2-STANDARD.md`) as II.A$'$, Part II.B (`PART-II-B-DYNAMICS.md`) as II.B, Part II.C
+(`PART-II-C-OPERATORS.md`) as II.C and Part II.C$'$ (`PART-II-C2-TRAPPING.md`) as II.C$'$.
 
 *Method.* Every estimate here is a positive commutator estimate. II.A$'$ section 4 provides the machinery with
 coefficients of finite regularity: one step with a regulariser (its Lemma 4.1) and the iteration in the order (its Lemma
@@ -545,16 +547,16 @@ used in Part II.D$'$.
 
 ## 4. The estimate at the trapped set
 
-*Setting.* Near the trapped set $W' = 1$ (section 1.1). Over $D = \{t_*>1,\ r_{\Gamma,-}<r<r_{\Gamma,+}\}$ of II.C$'$
-section 3.2 the e3b-structure is spanned by $\partial_{t_*}$ and $\partial_x$, and ${}^{e3b}T^*_DM = T^*D$ with covectors
-$-\sigma\,dt_*+\zeta$. There $\rho_K = t_*^{-1}$, while $x_I$ and $\rho_+$ are smooth and positive, so only the weight
-$\alpha_K$ enters, and we write $H^{\mathsf t,\alpha_K} := H^{\mathsf t,(2\alpha_I,\alpha_+,\alpha_K)}_{e3b}$. We work on
-$\partial\Sigma^+$, near the trapped set $\Gamma = \Gamma_1\subset\Sigma^\flat_1$ of (H7) at $z_0 = 1$, where $\sigma>0$.
-The slice coordinates $(t_*,x,z)$, $z = \zeta/\sigma$, of II.C$'$ section 3.2 identify ${}^{e3b}S^*_DM\cap\{\sigma>0\}$
-with $(1,\infty)\times T^*\{r_{\Gamma,-}<r<r_{\Gamma,+}\}$, and $\partial\Gamma_0 := \{t_*>1\}\times\Gamma$. Put $\rho :=
-\sigma^{-1}$ there, extended to a positive symbol of degree $-1$ near fibre infinity (section 2). Then $\mathsf H := \rho
-H_G$ is the field $\hat W$ of II.C$'$ (3.2) with $p = G$, and $\rho^2G = G(t_*,x;-dt_*+z)$. Three facts are used
-throughout.
+*Setting.* Near the trapped set $W' = 1$ (section 1.1). Over $D = \{t_*>T_\flat,\ r_{\Gamma,-}<r<r_{\Gamma,+}\}$ of
+II.C$'$ section 3.2 ($T_\flat = 2/C'$ there; D328) the e3b-structure is spanned by $\partial_{t_*}$ and $\partial_x$,
+and ${}^{e3b}T^*_DM = T^*D$ with covectors $-\sigma\,dt_*+\zeta$. There $\rho_K = t_*^{-1}$, while $x_I$ and $\rho_+$
+are smooth and positive, so only the weight $\alpha_K$ enters, and we write $H^{\mathsf t,\alpha_K} := H^{\mathsf
+t,(2\alpha_I,\alpha_+,\alpha_K)}_{e3b}$. We work on $\partial\Sigma^+$, near the trapped set $\Gamma =
+\Gamma_1\subset\Sigma^\flat_1$ of (H7) at $z_0 = 1$, where $\sigma>0$. The slice coordinates $(t_*,x,z)$, $z =
+\zeta/\sigma$, of II.C$'$ section 3.2 identify ${}^{e3b}S^*_DM\cap\{\sigma>0\}$ with $(T_\flat,\infty)\times
+T^*\{r_{\Gamma,-}<r<r_{\Gamma,+}\}$, and $\partial\Gamma_0 := \{t_*>T_\flat\}\times\Gamma$. Put $\rho := \sigma^{-1}$
+there, extended to a positive symbol of degree $-1$ near fibre infinity (section 2). Then $\mathsf H := \rho H_G$ is the
+field $\hat W$ of II.C$'$ (3.2) with $p = G$, and $\rho^2G = G(t_*,x;-dt_*+z)$. Three facts are used throughout.
 
 (T1) $\mathsf Ht_*\ge\frac12\beta_0$ on a neighbourhood of $\partial\Gamma_0$ in the full phase space, for $\epsilon_P$
 small (II.C$'$, the paragraph after Lemma 3.3). So $\mathsf H\rho_K = -\rho_K^2\,\mathsf Ht_*<0$ there.
@@ -573,8 +575,8 @@ Proposition 3.4 for the metric $g$ of $P$, on the neighbourhood $U$ of $\partial
 and $O'\Subset O$ an open neighbourhood of $\Gamma$. For $\delta>0$ let
 $$U(\delta) := \{\rho_K\le\delta,\ |\phi^u|\le\delta,\ |\phi^s|\le\delta,\ |\rho^2G|\le\delta,\ (x,z)\in\bar O'\},$$
 a subset of fibre infinity over $\{\sigma>0\}$, closed in the compactified bundle, which includes $\rho_K = 0$. There is
-$\delta_U\in(0,C')$, with $C'$ of II.C Lemma 3.2, such that the following hold ($\rho_K\le\delta<C'$ places $U(\delta)$
-over $\{t_*>T_\flat\}$, where $\phi^{u/s}$ are defined, II.C$'$ Proposition 3.4; D327).
+$\delta_U\in(0,\frac12C')$, with $C'$ of II.C Lemma 3.2, such that the following hold ($\rho_K\le\delta<\frac12C'$
+places $U(\delta)$ over $\{t_*>T_\flat\}$, where $\phi^{u/s}$ are defined, II.C$'$ Proposition 3.4; D327).
 
 (a) For $\delta\le\delta_U$, $U(\delta)$ is a compact neighbourhood of $\partial\Gamma_{K^+}$, contained in $\{(x,z)\in
 O''\}$ for an open $O''\Subset O'$ independent of $\delta$, and $\bigcap_{\delta>0}U(\delta) = \partial\Gamma_{K^+}$.

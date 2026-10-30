@@ -1,10 +1,11 @@
 # Part II.F$'$. Forward solutions of admissible wave-type operators, and tame estimates, at n = 4
 
-*Status.* Proved (D216: verifier 90 read the repairs, correct; status synchronised with the README at D325). Verified.
-Written out in full (D210) and read line by line by the eighty-eighth verifier (D212): one major finding, that the
-uniqueness class of Theorem 1.1 was too large for the smallness assumed, repaired by restricting it; one minor finding
-and two notes, seated (section 8.4). The part is labelled proved once the next reader has confirmed the repairs. This
-part proves, at spatial dimension $n = 4$, [Hin26c] section 11 (pp. 227-233): Theorem 11.1, which solves forward
+*Status.* Amended (D327: Lemma 2.1 (b) by enumeration), the amendment read by verifier 144 and found correct, one nit
+seated (D328). Proved (D216: verifier 90 read the repairs, correct; status synchronised with the README at D325).
+Verified. Written out in full (D210) and read line by line by the eighty-eighth verifier (D212): one major finding, that
+the uniqueness class of Theorem 1.1 was too large for the smallness assumed, repaired by restricting it; one minor
+finding and two notes, seated (section 8.4). The part is labelled proved once the next reader has confirmed the repairs.
+This part proves, at spatial dimension $n = 4$, [Hin26c] section 11 (pp. 227-233): Theorem 11.1, which solves forward
 problems for admissible wave-type operators $P$ on b-Sobolev spaces with decay at $\mathscr I^+$, $\iota^+$ and $K^+$,
 with estimates tame in the b-regularity, and its Remarks 11.2-11.4. The source is [Hin26c] = P. Hintz,
 arXiv:2606.28008v1 (printed page numbers). Parts II.A (`PART-II-A-SETUP.md`), II.A$'$, II.C, II.D, II.D$'$, II.E
@@ -174,10 +175,12 @@ Definition 3.3 (3) is not used is proved by enumeration, not found by search (D3
 is a statement about $p_1$ and $p_0$ over $\partial X$, so a step can use it only where it names $p_0$, $p_1$ (with
 $\tilde p_1$, $\bar p_1$), the fibre inner product $h_I$ built from $p_1$, the triangular structure, or the condition.
 `checks/admiss5.py` lists every such line of II.C-II.E, 104 in five parts, with its class, and fails on any line it does
-not list. The word triangular occurs only in the statement of (3); $h_I$ is built by Jordan scalings at points,
-continuity and a partition of unity (II.D Proposition 3.6, II.E (1.2)), which need no triangular structure, and (a)
-replaces it; every other line uses (1)-(2), the definition of $\bar p_1$, or (2.3). The source's use of (3), to make
-$\mathrm{Im}\,p_1$ and $p_0$ small, is not made (II.E section 7, (E2)). $\square$
+not list. The five parts close the scope: Definition 3.3 is first stated in II.C, II.D-II.E cite no later part, and the
+earlier parts precede it; the hypotheses that cite Definition 3.3 without (3) state it, or use (3.1)-(3.2) (D328). The
+word triangular occurs only in the statement of (3); $h_I$ is built by Jordan scalings at points, continuity and a
+partition of unity (II.D Proposition 3.6, II.E (1.2)), which need no triangular structure, and (a) replaces it; every
+other line uses (1)-(2), the definition of $\bar p_1$, or (2.3). The source's use of (3), to make $\mathrm{Im}\,p_1$ and
+$p_0$ small, is not made (II.E section 7, (E2)). $\square$
 
 Below, "admissible" for $P$ and for the operators $P_\epsilon$ of section 2.6 means (1) and (2) of II.C Definition 3.3
 together with the smallness of Lemma 2.1, and every citation of II.D, II.D$'$ or II.E is in the sense of Lemma 2.1 (b).

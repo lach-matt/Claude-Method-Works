@@ -1,16 +1,16 @@
 # Part III.J$''$. Tame estimates, n = 4 ([Hin26] Remark 11.13; the tame forms of Corollary 11.66 and Theorem 12.8)
 
 *Status.* Written (D286); verified (D290: verifier 124's findings seated; D292: verifier 126 read the repairs, three
-minor findings seated); proved (D295: verifier 127 read the D292 repairs and found them resolved).
-This part proves, at spatial
-dimension $n = 4$ and at the black hole parameters $b_0$, the tame estimates that [Hin26] asserts in Remark 11.13 (p.
-226), states for Corollary 11.66 (pp. 294-295) and Theorem 12.8 (p. 312) without proof, and uses in section 13 (pp.
-321-322, Step 3 (2)-(3)): the tame form of III.I$''''''''''''''$ Theorem 3.1 (Theorem 4.1) and of III.J$'$ Theorem 2.1
-(Theorem 4.2), and the tame bounds of the map $U\mapsto P_5(\Phi(U))$ (Proposition 4.3). It discharges (J$'$2) of
+minor findings seated); proved (D295: verifier 127 read the D292 repairs and found them resolved). This part proves, at
+spatial dimension $n = 4$ and at the black hole parameters $b_0$, the tame estimates that [Hin26] asserts in Remark
+11.13 (p. 226), states for Corollary 11.66 (pp. 294-295) and Theorem 12.8 (p. 312) without proof, and uses in section 13
+(pp. 321-322, Step 3 (2)-(3)): the tame form of III.I$''''''''''''''$ Theorem 3.1 (Theorem 4.1) and of III.J$'$ Theorem
+2.1 (Theorem 4.2), and the tame bounds of the map $U\mapsto P_5(\Phi(U))$ (Proposition 4.3). It discharges (J$'$2) of
 III.J$'$ at $b_0$ in the b-regularity, with the background small in one fixed norm (Lemma 2.3). Two things stay open:
 the weights ((J$''$4): the inverse is shown to map a source at the loss $\epsilon'$ to a solution at the loss
-$\epsilon\ge\epsilon'$, while II.G needs $\epsilon' = \epsilon$, which the source states), and (J$'$3), the linear
-theory at $b\ne b_0$.
+$\epsilon\ge\epsilon'$, while II.G needs $\epsilon' = \epsilon$, which the source states; since discharged by III.J$'''$
+Corollary 6.6, D296; verifier 152's n3), and (J$'$3), the linear theory at $b\ne b_0$, since closed by
+III.I$'''''''''''''''$ Corollary 3.2 (D297; D329).
 
 *What n = 4 changes.* (1) *The argument is written out.* The source states that "the tameness of the initial tame
 estimate (11.23) will propagate throughout all of our arguments" and omits the intermediate tame statements. Here: a
@@ -268,6 +268,7 @@ length is fixed by the weights and orders of the statement, never by $k$.
 | III.I$''''''''''''$ | Lemmas 2.1-2.4, Theorem 3.1 | FWD, MOD (as III.I$'''''''''''$), BG, FIN | pairs removed, finitely many |
 | III.I$'''''''''''''$ | Proposition 2.1, Lemmas 2.2, 2.3, Proposition 2.4 | as III.I$'''''''''''$-III.I$''''''''''''$ at each level $\beta$ | as there |
 | III.I$''''''''''''''$ | Theorem 3.1 | FWD ($L_{h+h_{\mathrm{rem}}(q),\vec p}$), BG ($R_q$, $\Delta_q$), FIN, and III.I$''''''''$, III.I$'''''''''''$-III.I$'''''''''''''$ | levels $\beta_0<\dots<\beta_K$ (fixed by $\alpha$, $\alpha_1$) |
+| III.I$'''''''''''''''$ | Proposition 2.5 (III.I$''''''''''''''$ Theorem 3.1 at $b\ne b_0$) | as III.I$''''''''''''''$ Theorem 3.1, and FIN ($A_b$, of finite rank, Lemma 1.2 (c)), BG ($E^\nu$, (P6) there) | as there (verifier 149's n4, D331) |
 | III.J$'$ | Theorem 2.1 | III.I$''''''''''''''$ Theorem 3.1 at $\Phi(U)$; MOD (III.G$'''$ Proposition 3.7; the $t_*^{-\lambda_0}$-terms); BG ($D_U\Phi$) | the exponents of $\Lambda_*$, finitely many |
 
 ## 4. The theorems
@@ -336,9 +337,10 @@ operators on the spaces of $\mathcal D$ (II.G Proposition 3.1 and the source's p
 a neighbourhood of 0, so at $b\ne b_0$ too, with $\Psi(u)F_\eta\subset B_\eta$ for $u\in U\cap B^\infty_\eta$ (II.G
 Theorem 2.1 (ii)-(iii) as amended in D304, (H10), in its notation; the source meets these support conditions by finite
 speed of propagation, Step 3 (3), p. 322). Remaining: one pair of scales, Proposition 4.3 mapping $\mathcal D_\epsilon$
-to $\mathcal F_\epsilon$ and Theorem 4.2 mapping $\mathcal F_{\epsilon'}$ to $\mathcal D_\epsilon$ ((J$''$4)); (J$'$3),
-the linear theory and its tame form at $b\ne b_0$; the support conditions; the smoothing operators; and the exterior
-family $h_{-S}$ (III.C$'$).
+to $\mathcal F_\epsilon$ and Theorem 4.2 mapping $\mathcal F_{\epsilon'}$ to $\mathcal D_\epsilon$ ((J$''$4), since
+discharged by III.J$'''$ Corollary 6.6, D296; verifier 151's A7); (J$'$3), the linear theory and its tame form at $b\ne
+b_0$, since closed by III.I$'''''''''''''''$ Corollary 3.2 (D297; D331, verifier 150's n6); the support conditions; the
+smoothing operators; and the exterior family $h_{-S}$ (III.C$'$).
 
 ## 5. Findings, labels and sources
 
@@ -349,8 +351,9 @@ section 2 and the inventory of section 3 prove it at $b_0$.
 (J$''$2) *Two model maps need care at finite order.* II.G$'$ Corollary 4.5 loses $\lceil k\delta\rceil+\ell$; the loss
 is bounded in $k$ only through strong trapping admissibility, which at $n = 4$ is proved at $b_0$ (III.F Proposition
 4.1). Near $b_0$ it holds on a neighbourhood that shrinks with $k$ (III.H$'$ (H$'$3)), so the tame form at $b\ne b_0$ is
-part of (J$'$3). III.H Corollary 4.2 holds on $|\sigma|<c_k$ with $c_k$ depending on $k$; Remark 2.2 shows this costs
-only constants.
+part of (J$'$3). Superseded: III.H$''$ Proposition 1.1 bounds the loss at every order at every $b$ near $b_0$, uniformly
+(PART-III-H3-UNIFORM.md:158-170, 222; D329, verifier 149's m1). III.H Corollary 4.2 holds on $|\sigma|<c_k$ with $c_k$
+depending on $k$; Remark 2.2 shows this costs only constants.
 
 (J$''$3) *Nine model statements are stated at order $\infty$*: III.G$''$ Theorem 4.2 and Corollary 4.3, III.G$''''$
 Theorem 3.1 and Propositions 4.4 and 5.1, III.I$'$ Propositions 2.1 and 3.1, and III.I$''$ Lemmas 4.1 and 4.3. Their

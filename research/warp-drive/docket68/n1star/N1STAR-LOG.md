@@ -6008,8 +6008,172 @@ the metric need not be defined. They now begin at the new time too. Two smaller 
 repaired: the settling theorem's statement now names the decay rate among the things its constants depend on, and the
 paper says where the decay parameter is chosen. Of the three places where the write-out still rested on a search of its
 own text, two are now proved by complete enumeration. Where the parts use the constraint damping parameter, a script
-lists every line that can use it, 172 in 26 parts, and classifies each: the damping theorem is applied at one fixed
+lists every line that can use it, 175 in 26 parts, and classifies each: the damping theorem is applied at one fixed
 value only. Where the energy and regularity parts were said not to use a triangular structure assumed of the operators,
 a second script lists every line that names the objects that structure is about, 104 in five parts: none uses it. Each
 script fails if a line appears that it does not list. The third search, the transfer of the linear theory to rotating
 black holes, rests on reading about eight thousand lines, and is next.
+
+**D328 (2026-10-30): the damping argument restated.** The reader of the last repairs found them sound but for three
+points. The trapped-set part's new start time had not been carried into the regularity part's setting, which still began
+at the old time; it now begins at the new one, and the start time is doubled so that it lies inside the region where the
+metric is defined rather than on its edge. The trapped-set part is now proved. The enumeration for the damping parameter
+reached the right conclusion from a premise that was too narrow: the damping theorem's content also reaches the parts
+through conditions and results derived from it that do not cite it by name. The argument now rests on what any use at
+another value would need, an operator with a different damping parameter, which can be written only through that
+parameter; the script now also catches a citation split across a line in the other direction, and checks that no
+rescaled damping operator occurs. Both scripts now key their classifications to the text of each line rather than its
+number, so that an edit elsewhere in a file no longer breaks them while a changed line still does. The reading of the
+transfer to rotating black holes has begun with its first batch.
+
+**D329 (2026-10-30): the census read line by line, and what the search had missed.** The transfer of the linear theory
+from the static black hole to nearby rotating ones had rested on a search of the text for the static black hole's name.
+It is now being read line by line in five batches, every use of the base point recorded with what supplies it at a
+rotating one. The first two batches are in. The first found what the search could not: an identity in the boost part
+that holds only because the static metric is Ricci flat in a transition region, where the background at a rotating base
+point is not. The identity there carries an error of the size of the rotation, and the boost parameter is now controlled
+by a direct bound in the size of the data, the boost and the rotation rather than by continuity at a fixed black hole.
+The fifth batch found one theorem, at exact weights, that the transfer used but never stated at a rotating black hole;
+it is now stated, with its reasons. Smaller points from both are seated, among them a superseded remark that a trapping
+bound shrinks with the order. The three middle batches are still being read.
+
+**D330 (2026-10-30): the census read through, and two more gaps.** The three middle batches of the reading are in, so
+every line of the linear theory's parts has now been read for its uses of the static black hole. The second batch found
+the parameter identities, the companions of the boost identity for the mass, the rotation and the centre, exact only at
+the static black hole, for the same reason as the boost: in a transition region the background interpolates between the
+static and the rotating metric, and the correction terms are built from the static one. Each identity now carries an
+error of the size of the rotation, and the first level of the elimination is bounded directly rather than by continuity.
+The third batch found that the expansion lemmas used, without saying so, that the rotation state vanishes at the static
+black hole. At a rotating one the rotation state is a combination of the mass and translation states, one lemma's
+conclusion fails, and the expansion now removes the rotation content through the rotation rows rather than through an
+antiderivative, with no map inverted. The fourth batch found no major gap, only that nothing stated the reality of the
+objects at a rotating black hole; it is now stated, with its reason. The smaller findings of all three are seated, and
+the transfer theorem's census is now the reading itself, not a search. One reader takes the repairs of both rounds next.
+
+**D331 (2026-10-30): the repairs read, and the rotation state at a rotating black hole.** One reader went through the
+repairs of the last two rounds. The boost repair, the parameter repair and the corrected start time of the microlocal
+part were found correct, the last of which proves that part. The expansion's repair was not: it removed the rotation
+content together with a translation part, which it then put one order too low. That part is in fact zero. The antipodal
+map of the four spatial directions is a rotation by half a turn in both planes of rotation, so it is an isometry of
+every five-dimensional rotating black hole; translations are odd under it and rotations even, so the rotation state at a
+rotating black hole is a change of the black hole's parameters alone, with no translation part. With that, the
+expansion's repair needs only the rotation rows. Two smaller points: a comparison of two parameter maps is now stated
+for the sources on which each is defined, and the argument that the damping parameter is used at one value now covers
+the damping's other constants, fixed once, with a second enumeration that checks it.
+
+**D332 (2026-10-30): VI.C proved; the parity argued from the constructions.** A reader went through the last round of
+repairs and the paper's new account of the write-out. It found the repairs correct in substance: the antipodal map is a
+symmetry of every rotating black hole here, the rotation state is a change of the black hole's parameters alone, the
+expansion is back at its exponents, and the comparison of the parameter maps is now sound. But the written reason for
+the parity was wrong. It cited a matrix of interior pairings as if it fixed a state by its leading terms, and it skipped
+the gauge correction of the parameter state. The parity is now argued from how each state is built: each is a Minkowski
+1-form of definite parity corrected by an inverse that commutes with the symmetry. The part on the parameters, with nits
+only, is proved. The paper's account was found to match the record, but for a line count, 7,577 rather than the planning
+estimate of 8,055, and a claim that the write-out uses no census at all, which now says no census of the source papers.
+One more reading of the parity argument and of the paper remains.
+
+**D333 (2026-10-30): every part proved.** A reader went through the parity argument, now built from the constructions of
+the states, and the paper's account of the write-out, and found them correct. With that, every one of the seventy-four
+parts of the five-dimensional write-out is proved: written in full, read line by line by an independent reader, its
+findings repaired and the repairs read again. The censuses that once carried the companion papers to five dimensions,
+and the three searches inside the write-out itself, are replaced by proof: the first by the write-out, two of the others
+by enumerations that fail on any line they do not list, and the third by a reading of every line. The paper now says so,
+with its account of the write-out carried through all seventy-four parts.
+
+**D334 (2026-10-30): the linear statement, written.** The paper's section 8.2 lists the linear level of settling as
+deduced: the decay of the metric in a Regge-Wheeler-type gauge from [KI03] and [HKW18], and in the harmonic gauge by
+Hung's route in five dimensions. Part VIII (proof5/PART-VIII-LINEAR.md) proves it in the gauge of the nonlinear
+problem, as the linearisation of III.K at the Tangherlini data. Every linearised data set in III.K's class has a
+linearised vacuum development that settles to a linearised Myers-Perry metric at the rate of Theorem 4; in the class,
+to a change of mass alone. Nothing new is estimated: the linear Cauchy problem near the initial surface, III.K's right
+inverse at the zero perturbation, and the Bianchi identity linearised at a Ricci-flat metric. What it does not assert:
+that a linearised solution given in another gauge differs from this one by a linearised diffeomorphism (Remark 2.4).
+Written; to be read.
+
+**D335 (2026-10-30): the linear statement, verified.** A reader went through Part VIII and every part it cites and
+found no step that fails, and nothing claimed beyond what is proved. One gap in a justification: the linearised
+constraints were carried to the initial surface by differentiating along a family whose second derivatives the proof
+did not control; the argument now differentiates along the straight line through the background, using the first
+conclusion of the same lemma. Six small corrections are made: an operator's name, a citation, the order of quantifiers
+in the rate, the classes in which the initial solution is unique, a one-sided extension, and the wording about the
+boost. To be read.
+
+**D336 (2026-10-30): the linear statement, proved.** A second reader went through the repairs to Part VIII and found
+them correct, with three textual corrections, now made. So the linear statement of the paper's section 8.2 is proved:
+every linearised data set in Hintz's class has a linearised vacuum development in the gauge of the nonlinear problem
+that settles to a linearised Myers-Perry metric at the rate of Theorem 4, and in the class to a change of mass alone.
+The paper's sections 8.2, 8.8 and 9 now say so; the deduced routes in other gauges stay beside the proof. The other two
+things the paper lists as not proved stay so, for the reasons recorded in ROUTES 4.257: evaluating lambda_1 and delta
+needs every constant of the write-out made explicit, and the physical wavelengths are a large-data problem without a
+small parameter.
+
+**D337 (2026-10-30): the feasibility study begun; the Drive paper read.** M asked for a feasibility study of the
+certified computation at 10 l5, and pointed to a new paper in the Drive folder as possible guidance on making lambda_1
+and delta evaluable. The study's first phase (CERTIFY-10L5.md): the a posteriori theorem the record pointed to, [Wu26]
+Theorem 2.2, gives the right structure but no usable constants; the class keeps the characteristic structure of the
+double-null gauge in five dimensions (dnull5.py, computed exactly); at 10 l5 the data are one broad pulse, so the
+computation is easy and the analysis is hard; ball arithmetic is available and fast. The deciding questions are whether
+a double-null evolution reaches the end of the domain, and whether a certified linear constant stays near the measured
+one; the first is next. The Drive paper is a three-page programme on the cosmological constant with no proofs and no
+explicit constants; it does not help with lambda_1 and delta, which reduce to III.K's Nash-Moser threshold and so to
+every constant of the linear theory (ROUTES 4.260).
+
+**D338 (2026-10-30): lambda_1 and delta reduced to named constants; the sites where numbers are lost, listed.** M asked
+for deep research on methods of evaluating constants that come from compactness, contradiction or Fredholm arguments,
+and then for the proof. Methods found at source (EFFECTIVE-CONSTANTS.md section 1): verified inverse-operator norms by
+a Schur complement and a Neumann series (Sekine, Nakao and Oishi); proof mining, which replaces arguments by sequences
+with finite covers (Ferreira, Leustean and Pinto); validated Taylor models for black-hole ODEs (Goldstein and
+Jejjala). Proved from proved parts (section 2): II.G's Nash-Moser threshold is an explicit formula, and lambda_1 and
+delta are explicit functions of a finite list of constants. A first reader confirmed the first half and found the
+second incomplete: three smallness thresholds of the nonlinear step were missing, the loss d is itself not yet a
+number, and lambda_1 was badly defined. All of it is repaired, and is to be read again. The ledger
+EFFECTIVE-LEDGER.tsv lists 165 sites in proof5, 35 of which hide a constant; they sit mostly in the linear theory's
+foundations. A number would need those constants made explicit with certified computation at Tangherlini: a programme
+of the size of the linear write-out itself (section 5). The feasibility study's solver design is recorded
+(CERTIFY-10L5.md section 6a).
+
+**D339 (2026-10-30): the reduction read twice more; the thresholds defined rather than listed.** Two more readers went
+through the reduction of lambda_1 and delta. Each confirmed the previous repairs and each found smallness conditions
+still missing from the list: first those the nonlinear step takes from the exterior and slab solutions it imports,
+which are two more Nash-Moser arguments; then three more inside statements it applies. A list made by hand had now
+been incomplete three times. So the reduction now defines the two remaining thresholds directly, as the largest radius
+and the largest data size at which every smallness condition of the nonlinear step holds. They are positive because
+there are finitely many. The list of their parts is kept beside them as an inventory, marked as not claimed complete,
+for the work of making each part a number. To be read.
+
+**D340 (2026-10-30): the reduction's last two thresholds fixed as a pair.** A fourth reader found the chain from the
+nonlinear step to lambda_1 and delta correct, but the definitions of the two remaining thresholds ill-posed: some
+smallness conditions involve the data and the unknown together, and some thresholds on the unknown change with the
+data. The reduction now fixes a pair, a data size and a radius at which every such condition holds, and takes it from
+the nonlinear step's own proof, which shows that one exists. It also says plainly what this does not give: those two
+numbers are defined by the proof's hypotheses, not computed. To be read.
+
+**D341 (2026-10-30): the pair's existence argued from the proof itself.** A fifth reader accepted the definition of
+the pair and found the argument for its existence leaning on a sentence the reduction itself calls loose. The
+argument now runs through the nonlinear step's own quantifiers: the Nash-Moser theorem is applied on a ball of fixed
+radius on which the right inverses must exist, the radius is uniform over small data, and the remaining conditions
+hold after shrinking both. The given parameters of the final assembly are added to the list. To be read.
+
+**D342 (2026-10-30): the radius's lower bound stated.** A sixth reader found the existence argument nearly valid: it
+needed the radius of the Nash-Moser step to be bounded below uniformly over small data, which the record implies but
+the reduction had not said. It follows from the record's own claim that the Nash-Moser threshold is uniform, since
+that threshold falls as the radius falls. Stated, with three small corrections.
+
+**D343 (2026-10-30): the reduction read a seventh time, with no major finding.** The last reader found the existence
+argument valid up to one clause (the constants of the estimates may be taken at least 1, which makes the lower bound
+on the radius uniform), now added with two small corrections. The reduction of lambda_1 and delta to named quantities
+stands: they are explicit formulas in the Nash-Moser constants, the loss, the gluing's constants, the record's
+threshold, the given parameters, and a pair of thresholds that the nonlinear step's proof shows to exist but does not
+compute.
+
+**D344 (2026-10-30): a double-null evolution at the prescribed wavelength.** The feasibility study's first decisive
+question is whether the problem at 10 l5 can be evolved in double-null coordinates at all, since the record's own
+coordinates broke there. A prototype solver now exists (dnsolve5.py). It reproduces the exact seed at second order,
+and its curvature diagnostic reproduces the seed's curvature. On the record's data it passes the point where the
+record's chart broke, at both seeds. At the first seed the computed solution converges, on the region where curvature
+stays below the record's bound, up to about half the domain; beyond that the shears need more resolution. Two things
+were learned on the way: the natural first coordinate squeezes the late interior into a sliver, which a logarithmic
+grid fixes; and the wave raises the curvature above the bound near the inner edge earlier than the seed alone would,
+so the true domain is smaller than the seed suggests. At the second seed the run reaches about three quarters of the
+domain before an axis growth whose onset moves later with resolution. Nothing here is a bound; it is the measurement
+the study said to make first.

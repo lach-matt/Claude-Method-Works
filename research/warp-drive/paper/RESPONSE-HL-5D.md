@@ -41,18 +41,18 @@ at past null infinity, where before the shell they are the black hole exactly an
 prescribed one at every λ (Theorem 2). At past null infinity they admit Bondi coordinates and an expansion in r^(−1/2),
 and the five-dimensional Bondi mass law holds for them (Theorem 3): their Bondi mass is μ(v) + O(λ) while the shell
 passes and μ + (2/9) λ² A² ∫ env'² + O(λ³) after it, the second-order rate the numerics measure, with its coefficient.
-Beyond that domain, outside the black hole, we deduce without proving that in the class a continuation of their data
-beyond a ball about the hole settles at late times to five-dimensional Schwarzschild–Tangherlini, and that every
-perturbation of them without symmetry that is small in Hintz's data class settles to a slowly rotating Myers–Perry black
-hole: Hintz's proof of the nonlinear stability of Kerr carried into five dimensions, every input that depends on the
-dimension computed at Schwarzschild–Tangherlini and deduced at nearby Myers–Perry parameters, his companion papers'
-arguments read at source, and the proofs of theirs the route uses carried to five dimensions by modification, every
-place where a full-text census of the source finds the dimension computed, and every other deduced step placed on its
-computed and read inputs and on the modification steps, each now written out at n = 4 against its source proof, at proof
-level but for one the supplement names; the completeness of those censuses, evidenced by two methods and not proved, and
-the deductions themselves, written out at proof level and read by independent verifiers but not proofs checked at the
-level of the theorem's statement, separate this from a proof (Theorem 4). We list what is not proved, the application at
-physical wavelengths among it.
+Beyond that domain, outside the black hole, we prove that in the class a continuation of their data beyond a ball about
+the hole settles at late times to five-dimensional Schwarzschild–Tangherlini, and that every perturbation of them
+without symmetry that is small in Hintz's data class settles to a slowly rotating Myers–Perry black hole (Theorem 4).
+The proof is Hintz's proof of the nonlinear stability of Kerr carried into five dimensions and written out in full in
+the supplement: every section of his stability paper and of the companion papers that the route uses is proved at n =
+4, self-contained, from statements read at source that hold in every dimension, every input that depends on the
+dimension computed at Schwarzschild–Tangherlini and proved at nearby Myers–Perry parameters, and each part was read
+line by line by an independent reader, its findings repaired and the repairs read again. It replaces the censuses and
+the deductions by which an earlier version of this paper carried his arguments to five dimensions. The linear statement
+-- the stability of five-dimensional Schwarzschild–Tangherlini against linearised perturbations, in the gauge of the
+nonlinear problem -- is proved with it, as the nonlinear theorem's linearisation. We list what is not proved, the
+application at physical wavelengths among it.
 
 ---
 
@@ -108,24 +108,21 @@ five-dimensional symmetry class, not an answer to Problem 8.6 as posed, which co
 solutions are also constructed from the waves' free data at past null infinity (Theorem 2, section 3), and at past null
 infinity they obey the five-dimensional Bondi mass law with the prescribed radiation field (Theorem 3, section 3).
 
-Beyond that domain, and outside the black hole, we deduce — we do not prove — that in the class a continuation of their
-data beyond a ball about the hole settles at late times to five-dimensional Tangherlini of a nearby mass, and that their
-perturbations without symmetry that are small in Hintz's data class settle to slowly rotating Myers–Perry black holes
-(Theorem 4, section 8.8). The route is Hintz's proof of the nonlinear stability of Kerr [Hin26], carried into five
-dimensions: every input that depends on the dimension is computed at Tangherlini, his arguments and those of his
-companion papers [Hin26a, Hin26c, Hin23a] are read at source for where the dimension enters, the class removes his
-boosts, rotations and their gauge modifications, and without it they are restored, with the inputs at every nearby
-Myers–Perry parameter deduced by the perturbative route of [HHV21] and the charges by which the gluing at large radius
-matches the Myers–Perry family computed, the gluing deduced. What separates the deduction from a proof is stated in
-section 8.8. The proofs of those papers that the route uses — [Hin26c]'s estimates, [Hin26a]'s constraint damping,
-[Hin23a]'s at null infinity, [CD03]'s gluing, Hintz's boost and [HHV21]'s perturbation arguments — are carried to five
-dimensions by modification, every place a full-text census of the source finds the dimension computed. Every other
-deduced step is placed on its computed and read inputs and on the modification steps' conclusions, at proof level but
-for one that section 8.8 names, and each modification step lists the places where the dimension changes it, each value
-computed, deduced in an earlier section, arithmetic in n, or the record's choice. Each modification step is now written
-out at n = 4 against its source proof. What remains is that those censuses are complete, which two methods evidence and
-nothing proves; the statements at n = 4 that thirty-four of the steps took as readings are each settled, written out or
-READ, Hintz's spectral theory re-run proof by proof on bundles among them (section 8.8).
+Beyond that domain, and outside the black hole, we prove that in the class a continuation of their data beyond a ball
+about the hole settles at late times to five-dimensional Tangherlini of a nearby mass, and that their perturbations
+without symmetry that are small in Hintz's data class settle to slowly rotating Myers–Perry black holes (Theorem 4,
+section 8.8). The route is Hintz's proof of the nonlinear stability of Kerr [Hin26], carried into five dimensions: every
+input that depends on the dimension is computed at Tangherlini, the class removes his boosts, rotations and their gauge
+modifications, and without it they are restored, with the inputs at every nearby Myers–Perry parameter proved by
+perturbation from Tangherlini, in the manner of [HHV21], and the charges by which the gluing at large radius matches the
+Myers–Perry family computed. The proof is written out in full at n = 4 in the supplement (`proof5/`): his stability
+paper, the parts of his companion papers [Hin26a, Hin26c, Hin23a] that the route uses, and [CD03]'s gluing, part by
+part, self-contained, from statements READ at source that hold in every dimension, each part read line by line by an
+independent reader and its repairs read again. An earlier version of this paper reached Theorem 4 by deduction: those
+papers' proofs were carried to five dimensions by modification, at every place a full-text census of the source found
+the dimension, and the completeness of the censuses was evidenced by two methods, not proved. The write-out uses no
+census of the source papers; its own three completeness claims are settled by enumeration and by a reading (section
+8.8).
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
 coupled to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an
@@ -683,6 +680,18 @@ in the T²-mirror class, once the solution is also constructed outside D_T. Sect
 
 ### 8.2 The linear level
 
+The linear statement is proved (supplement `proof5/PART-VIII-LINEAR.md`, Theorem 2.2 and Corollary 2.3), in the gauge
+of the nonlinear problem. Every solution of the linearised constraint equations in Hintz's data class (section 8.8) has
+a linearised vacuum development in his generalised wave gauge. Up to a linearised boost it takes those data, and where
+the late-time cut-off is 1 it differs from a linearised Myers–Perry metric by O(t*^(−2−ε)) in spatially compact subsets
+of the exterior, for each ε < ε_K. In the class the boost vanishes and the Myers–Perry change is a change of mass
+alone. The proof is Theorem 4's linearisation at the Tangherlini data: the linear initial-value problem near Hintz's
+initial surface, the right inverse of the linearised operator at the zero perturbation, and the Bianchi identity
+linearised at a Ricci-flat metric. It needs no new estimate. It does not show that a linearised solution given in
+another gauge, such as the two below, differs from this one by a linearised diffeomorphism. The rest of this section is
+the route by which the linear level was first reached, in those gauges and by deduction; it stands beside the proof as
+an independent route.
+
 Linearly more is known, and it applies to the class: the class carries no vector-type perturbation and no linearised
 rotation (computed, `docket68/n1star/settle5.py` T1), and for the other two types the gauge-invariant master quantities
 on five-dimensional Tangherlini decay, "in spacetime dimension six and below, the uniform decay estimate Ě^N_Ψ(Σ_τ) ≤
@@ -1010,9 +1019,10 @@ which the theorem applies (finding (VII1) there).
 
 ### 8.8 Settling
 
-**Theorem 4 (deduced).** Fix ℓ0 ∈ (3, 4); let ε_K be the decay parameter of section 8.4, which is chosen after ℓ0 and
-below ℓ0 − 3; and fix ε < ε_K. Let g_λ be the solutions of Theorem 1, with A and the envelope fixed, with K large enough
-and on a domain enlarged as in section 8.7. There are λ1 > 0 and δ > 0 such that for λ ≤ λ1:
+**Theorem 4 (proved: supplement `proof5/`, Part VII Theorem 0.2).** Fix ℓ0 ∈ (3, 4); let ε_K be the decay parameter of
+section 8.4, which is chosen after ℓ0 and below ℓ0 − 3; and fix ε < ε_K. Let g_λ be the solutions of Theorem 1, with A
+and the envelope fixed, with K large enough and on a domain enlarged as in section 8.7. There are λ1 > 0 and δ > 0 such
+that for λ ≤ λ1:
 
  (i) (in the class) the data of g_λ on Hintz's initial surface, continued G-equivariantly to exact Tangherlini data
      beyond a ball (section 8.7), have a G-invariant vacuum development, with the same data as g_λ on that ball, which
@@ -1025,91 +1035,93 @@ and on a domain enlarged as in section 8.7. There are λ1 > 0 and δ > 0 such th
      has a vacuum development that, its initial slice boosted by a small Lorentz boost, settles at the same rate to a
      Myers–Perry black hole of mass near μ_end and small spin.
 
-The assembly of Theorem 4 from the parts is written out at n = 4 and has been read line by line, its findings seated
-(supplement `proof5/PART-VII-ASSEMBLY.md`). It narrowed (ii). An earlier version also covered perturbations that merely
-decay faster than r^(−3/2), by gluing them far out to a boosted Myers–Perry metric. That gluing replaces the data near
-infinity, and the solution near the hole at late times depends on those data, so it proved settling for the glued data
-and not for the perturbation. (ii) now takes the perturbation in Hintz's own data class, where his theorem applies
-without gluing. The assembly also found that his data must have their terms of orders r^(−2) and r^(−3) polyhomogeneous,
-and that the rate holds for every ε < ε_K rather than at ε_K.
+The assembly of Theorem 4 from the parts is written out at n = 4 and has been read line by line, its findings seated and
+its repairs read again (supplement `proof5/PART-VII-ASSEMBLY.md`). It narrowed (ii). An earlier version also covered
+perturbations that merely decay faster than r^(−3/2), by gluing them far out to a boosted Myers–Perry metric. That
+gluing replaces the data near infinity, and the solution near the hole at late times depends on those data, so it proved
+settling for the glued data and not for the perturbation. (ii) now takes the perturbation in Hintz's own data class,
+where his theorem applies without gluing. The assembly also found that his data must have their terms of orders r^(−2)
+and r^(−3) polyhomogeneous, and that the rate holds for every ε < ε_K rather than at ε_K.
 
-Theorem 4 is deduced, not proved. Two things separate it from proved. (i) The censuses. Every estimate of the companion
-papers that the route uses has been read at source for where the dimension enters (supplement sections 10.53–10.58). The
-proofs that were left as readings are carried to n = 4 by modification: [Hin26c]'s sections 7–8 and 9.3, [Hin26a]'s
-section 5.2, [Hin23a]'s section 3, [CD03]'s gluing, Hintz's handling of the boost (his sections 3.4, 5.6 and 11–13) and
-the two arguments of [HHV21] the route uses. For each, a census of the source in full text finds every place the
-dimension enters, each is computed at n = 3 against the printed value and at n = 4, and the proof is run with the
-computed quantity in place (supplement sections 10.64–10.68; `exterior5.py`, `gluing5.py`, `edge5.py`). The conjugated
-wave operator at null infinity gains (3/4)r^(−2), which only strengthens Hintz's energy form. The gauge endomorphism
-there has the diagonal 2γ_C, γ_C, (3/2)γ_C, −(3/2)γ_Υ, −γ_Υ, 0, −2γ_Υ, lower triangular, with the same least positive
-entry, −γ_Υ, as in four dimensions. The quadratic radiation term and the metric-dependent entries fall by r^(−1/2), so
-the coupling that four dimensions must track at leading order is an error term in five. The energy current at null
-infinity keeps its threshold α_I < −1/2. The boost changes the data at r^(−2), inside Hintz's class, where in four
-dimensions it changes them at the radiation order. [CD03]'s gluing needs its parity condition on the data only for decay
-below r^(−3/2); its other uses of it fall on the Myers–Perry metrics glued to, which meet it. [Hin26a]'s calculus is
-constructed in every dimension [Hin23d, Hin26d], and each positive commutator in its section 5.2 is an identity of
+Theorem 4 is proved: the supplement's write-out, `proof5/`, described below, proves it in full at n = 4. Before that
+write-out it was deduced, and two things separated it from proved, which the write-out replaces. (i) The censuses. Every
+estimate of the companion papers that the route uses has been read at source for where the dimension enters (supplement
+sections 10.53–10.58). The proofs that were left as readings are carried to n = 4 by modification: [Hin26c]'s sections
+7–8 and 9.3, [Hin26a]'s section 5.2, [Hin23a]'s section 3, [CD03]'s gluing, Hintz's handling of the boost (his sections
+3.4, 5.6 and 11–13) and the two arguments of [HHV21] the route uses. For each, a census of the source in full text finds
+every place the dimension enters, each is computed at n = 3 against the printed value and at n = 4, and the proof is run
+with the computed quantity in place (supplement sections 10.64–10.68; `exterior5.py`, `gluing5.py`, `edge5.py`). The
+conjugated wave operator at null infinity gains (3/4)r^(−2), which only strengthens Hintz's energy form. The gauge
+endomorphism there has the diagonal 2γ_C, γ_C, (3/2)γ_C, −(3/2)γ_Υ, −γ_Υ, 0, −2γ_Υ, lower triangular, with the same
+least positive entry, −γ_Υ, as in four dimensions. The quadratic radiation term and the metric-dependent entries fall by
+r^(−1/2), so the coupling that four dimensions must track at leading order is an error term in five. The energy current
+at null infinity keeps its threshold α_I < −1/2. The boost changes the data at r^(−2), inside Hintz's class, where in
+four dimensions it changes them at the radiation order. [CD03]'s gluing needs its parity condition on the data only for
+decay below r^(−3/2); its other uses of it fall on the Myers–Perry metrics glued to, which meet it. [Hin26a]'s calculus
+is constructed in every dimension [Hin23d, Hin26d], and each positive commutator in its section 5.2 is an identity of
 symbols whose sign is a positivity computed in five dimensions. A second census by another method agrees: a sweep of
 every marker of the dimension on every page of the carried passages finds 278, all accounted for but one norm
-convention, now named (supplement section 10.69; `censusweep.py`). What is not done is to re-derive those papers line by
-line: that the censuses found every place the dimension enters is evidenced by the two methods agreeing and read at
-source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 are arguments from
-computed inputs, inputs READ at source, and readings — statements of the companion papers at n = 4 that the modification
-steps carry, on which 34 of those steps rested until each was settled, written out or READ — each read by an independent
-verifier, not proofs written out at the level of the theorem's statement. Inventoried by a fixed rule, the 248 deduced
-steps are 90 pieces of bookkeeping on computed values, 29 applications of results printed for general n, 31 perturbation
-or continuity arguments, 38 other, and 60 proofs written in 3 + 1 dimensions and carried to five by modification, 61
-with one undecided step that supplement section 10.73 reads so. Those 61 are the core of what a line-by-line check would
-write out (supplement sections 10.70 and 10.74, `DEDUCTIONS.tsv`, `B-MAP.tsv`). The perturbation steps are now at proof
-level given their continuity inputs. They rest on five lemmas — openness of invertibility, semicontinuity of the kernel,
-persistence of strict inequalities, Rouché and the inverse function theorem — of which the first three are proved in the
-supplement and the last two are cited, and on continuity statements read from the sources (supplement section 10.71).
-The applications of general-n results have every hypothesis placed, three of them now read at source (supplement section
-10.72). The 38 others, read one by one, are twelve with no step of their own, 25 at proof level given their inputs —
-among them steps by symmetry and sums over harmonics, put there by two lemmas proved in the supplement — and one more
-modification step (supplement section 10.73; `synth5.py`). Each of the 61 modification steps lists the places where the
-dimension changes its proof — 57 name some, 4 none, the proof being the source's as it stands — and each
-five-dimensional value there is computed, deduced in an earlier section, arithmetic in n, or the record's choice
-(supplement section 10.74, `B-MAP.tsv`). What they leave is that the source proofs use the dimension only at those
-places, which is the census question of (i): by a rule the supplement deduces rather than proves, (ii) reduces to (i),
-but for one step, which rests on a modification step and so on the census (supplement section 10.73). All 61 are now
-written out step by step at n = 4 — forty-five with source proofs of at most about seven pages (two replaced by a
-computation), sixteen on longer runs of proof, [Hin26] sections 11 and 12, [Hin26c] sections 5, 7–11 and 13 and [Hin26a]
-section 5.2 — so their own steps rest on their inputs and not on a census, though thirty-four took a reading among those
-inputs, a statement at n = 4 whose proof was not written out. Traced to their roots, the readings were ten statements,
-and each is now settled, written out or READ: the record's own five, among them the damped operator's threshold at the
-horizon, by computation, and what the rows use of the zero energy pole, by deduction; two groups of companion results,
-written out at n = 4; one READ for general n; and two steps the source takes at every n without writing them out, on
-which his own theorem in 3 + 1 dimensions rests too -- the passage from scalar operators to operators on bundles, which
-he leaves to the reader, and the uniformity of the estimates under small perturbations, which he asserts -- both written
-out site by site, the sites checked by a second census, and each proof of his spectral theory that the route uses re-run
-on bundles with the changes in -- a re-run that found one sign slip in the source, in the commutator behind the
-b-regularity at the outgoing radial set, repaired without change to the statement (supplement sections 10.75 and
-10.77–10.86, `READINGS.tsv`, `hthresh5.py`, `tfnorm5.py`, `iotasol5.py`, `bundlesweep.py`, `bundle5.py`, with a lemma at
-the horizon proved in section 10.76). λ1 and δ exist by the deduction — from Hintz's smallness constant and Theorem 1's
-estimates — and are not evaluated; that is not a separate gap. A line-by-line check of those papers at n = 4, with the
-deductions written out, would make Theorem 4 a theorem. That write-out has begun: the proof written in full at n = 4,
-self-contained, part by part. Its first three parts -- Hintz's spectral theory at bounded nonzero, at high and at low
-frequencies, on bundles and uniformly in the operator -- are written, read line by line, their repairs read again, and
-proved (the second has since gained one lemma, at the trapped set, which a reader of the nineteenth asked for; it has
-been read, and its smaller repairs read again). So are the fourth, the setup of his spacetime analysis, and the fifth,
-which proves the two standard estimates that the fourth takes as inputs; one finding of the fourth corrects the
-hypothesis of his real principal type estimate on the variable order, which as printed admits a counterexample. The
-sixth, the dynamics of light rays in the stationary model, the seventh, the classes of operators, the time function and
-the order functions of his spacetime analysis, and the eighth, the trapped sets of the perturbed metrics, proved here
-without the theorem on normally hyperbolic trapping that he cites, have been read line by line and their findings seated
-(supplement `proof5/`). The ninth, his microlocal regularity estimate on spacetime, with the radial estimates and the
-estimate at the trapped set, which he quotes from his earlier paper and which is proved here in the present calculus,
-the tenth, that estimate with b-regularity and in the tame form his iteration uses, and the eleventh, his energy
-estimates on bounded time slabs and in the black hole interior, with the global estimate at high frequencies they give,
-have been read line by line too and their findings seated. The twelfth, his analysis at future timelike infinity -- the
-normal operator there, its spectral family at bounded and high frequencies, its forward solutions, and the forward
-solutions of the stationary model on the spaces his iteration uses -- has been read line by line and its findings
-seated. The thirteenth, the forward solutions of the perturbed wave operators with estimates tame in the regularity, and
-the fourteenth, the Nash-Moser theorem with the smoothing operators and tame bounds it needs, proved here rather than
-quoted, have been read line by line and their findings seated, and with the twelfth their repairs have been read again,
-which proves the three. The fifteenth, the Fourier transform in time on the weighted spaces, his resolvent bounds
-translated into them and the radiation field at null infinity, by which forward solutions are shown to decay faster, has
-been read line by line, its findings seated and its repairs read again, which proves it.
+convention, now named (supplement section 10.69; `censusweep.py`). What that route did not do was re-derive those papers
+line by line: that the censuses found every place the dimension enters was evidenced by the two methods agreeing and
+read at source, page by page, not proved. (ii) The deductions of the supplement's sections 10.12–10.72 were arguments
+from computed inputs, inputs READ at source, and readings — statements of the companion papers at n = 4 that the
+modification steps carry, on which 34 of those steps rested until each was settled, written out or READ — each read by
+an independent verifier, not proofs written out at the level of the theorem's statement. Inventoried by a fixed rule,
+the 248 deduced steps are 90 pieces of bookkeeping on computed values, 29 applications of results printed for general n,
+31 perturbation or continuity arguments, 38 other, and 60 proofs written in 3 + 1 dimensions and carried to five by
+modification, 61 with one undecided step that supplement section 10.73 reads so. Those 61 are the core of what a
+line-by-line check would write out (supplement sections 10.70 and 10.74, `DEDUCTIONS.tsv`, `B-MAP.tsv`). The
+perturbation steps are now at proof level given their continuity inputs. They rest on five lemmas — openness of
+invertibility, semicontinuity of the kernel, persistence of strict inequalities, Rouché and the inverse function theorem
+— of which the first three are proved in the supplement and the last two are cited, and on continuity statements read
+from the sources (supplement section 10.71). The applications of general-n results have every hypothesis placed, three
+of them now read at source (supplement section 10.72). The 38 others, read one by one, are twelve with no step of their
+own, 25 at proof level given their inputs — among them steps by symmetry and sums over harmonics, put there by two
+lemmas proved in the supplement — and one more modification step (supplement section 10.73; `synth5.py`). Each of the 61
+modification steps lists the places where the dimension changes its proof — 57 name some, 4 none, the proof being the
+source's as it stands — and each five-dimensional value there is computed, deduced in an earlier section, arithmetic in
+n, or the record's choice (supplement section 10.74, `B-MAP.tsv`). What they leave is that the source proofs use the
+dimension only at those places, which is the census question of (i): by a rule the supplement deduces rather than
+proves, (ii) reduces to (i), but for one step, which rests on a modification step and so on the census (supplement
+section 10.73). All 61 are now written out step by step at n = 4 — forty-five with source proofs of at most about seven
+pages (two replaced by a computation), sixteen on longer runs of proof, [Hin26] sections 11 and 12, [Hin26c] sections 5,
+7–11 and 13 and [Hin26a] section 5.2 — so their own steps rest on their inputs and not on a census, though thirty-four
+took a reading among those inputs, a statement at n = 4 whose proof was not written out. Traced to their roots, the
+readings were ten statements, and each is now settled, written out or READ: the record's own five, among them the damped
+operator's threshold at the horizon, by computation, and what the rows use of the zero energy pole, by deduction; two
+groups of companion results, written out at n = 4; one READ for general n; and two steps the source takes at every n
+without writing them out, on which his own theorem in 3 + 1 dimensions rests too -- the passage from scalar operators to
+operators on bundles, which he leaves to the reader, and the uniformity of the estimates under small perturbations,
+which he asserts -- both written out site by site, the sites checked by a second census, and each proof of his spectral
+theory that the route uses re-run on bundles with the changes in -- a re-run that found one sign slip in the source, in
+the commutator behind the b-regularity at the outgoing radial set, repaired without change to the statement (supplement
+sections 10.75 and 10.77–10.86, `READINGS.tsv`, `hthresh5.py`, `tfnorm5.py`, `iotasol5.py`, `bundlesweep.py`,
+`bundle5.py`, with a lemma at the horizon proved in section 10.76). λ1 and δ exist by the proof — from Hintz's smallness
+constant and Theorem 1's estimates — and are not evaluated. A line-by-line check of those papers at n = 4, with the
+deductions written out, would make Theorem 4 a theorem. That write-out is done: the proof written in full at n = 4,
+self-contained, in seventy-four parts, each written, read line by line by an independent reader, its findings seated,
+and its repairs read again until a reader found them correct. Its first three parts -- Hintz's spectral theory at
+bounded nonzero, at high and at low frequencies, on bundles and uniformly in the operator -- are written, read line by
+line, their repairs read again, and proved (the second has since gained one lemma, at the trapped set, which a reader of
+the nineteenth asked for; it has been read, and its smaller repairs read again). So are the fourth, the setup of his
+spacetime analysis, and the fifth, which proves the two standard estimates that the fourth takes as inputs; one finding
+of the fourth corrects the hypothesis of his real principal type estimate on the variable order, which as printed admits
+a counterexample. The sixth, the dynamics of light rays in the stationary model, the seventh, the classes of operators,
+the time function and the order functions of his spacetime analysis, and the eighth, the trapped sets of the perturbed
+metrics, proved here without the theorem on normally hyperbolic trapping that he cites, have been read line by line and
+their findings seated (supplement `proof5/`). The ninth, his microlocal regularity estimate on spacetime, with the
+radial estimates and the estimate at the trapped set, which he quotes from his earlier paper and which is proved here in
+the present calculus, the tenth, that estimate with b-regularity and in the tame form his iteration uses, and the
+eleventh, his energy estimates on bounded time slabs and in the black hole interior, with the global estimate at high
+frequencies they give, have been read line by line too and their findings seated. The twelfth, his analysis at future
+timelike infinity -- the normal operator there, its spectral family at bounded and high frequencies, its forward
+solutions, and the forward solutions of the stationary model on the spaces his iteration uses -- has been read line by
+line and its findings seated. The thirteenth, the forward solutions of the perturbed wave operators with estimates tame
+in the regularity, and the fourteenth, the Nash-Moser theorem with the smoothing operators and tame bounds it needs,
+proved here rather than quoted, have been read line by line and their findings seated, and with the twelfth their
+repairs have been read again, which proves the three. The fifteenth, the Fourier transform in time on the weighted
+spaces, his resolvent bounds translated into them and the radiation field at null infinity, by which forward solutions
+are shown to decay faster, has been read line by line, its findings seated and its repairs read again, which proves it.
 The sixteenth, the first of the parts on his stability paper -- the five-dimensional black hole family on the
 compactified spacetime, its time functions, initial data and boosts, and the gauge-fixed Einstein equation -- has been
 read line by line, its findings seated and its repairs read again, which proves it. The seventeenth, the harmonics on
@@ -1132,35 +1144,114 @@ of Minkowski space, eleven in five dimensions against his seven, the twenty-four
 whose leading term depends on a rotation only through its bracket with the spin -- in five dimensions an exact identity
 of the black hole family, and the twenty-fifth, the linearised gauge-fixed Einstein operator near infinity and at the
 trapped set, where in five dimensions the plane of directions orthogonal to the trapped rays turns along them, have been
-read line by line and their findings seated; the twenty-fourth had none to repair, which proves it. The twenty-sixth,
-the indicial roots of that operator and its invertibility where low frequencies meet spatial infinity, is written; there
-the source's claim that all those roots are simple is shown to rest on properties of the constraint damping operator,
-which the part on that operator must now supply. The twenty-seventh, the mode stability of the same
-operator away from zero frequency, is written: at the black hole itself it is proved here, frequency by frequency and
+read line by line, their findings seated and their repairs read again, which proves them; the twenty-fourth had none to
+repair. The twenty-sixth, the indicial roots of that operator and its invertibility where low frequencies meet spatial
+infinity, is proved; there the source's claim that all those roots are simple is shown to rest on properties of the
+constraint damping operator, which the parts on that operator supply. The twenty-seventh, the mode stability of the same
+operator away from zero frequency, is proved: at the black hole itself it is proved here, frequency by frequency and
 harmonic by harmonic, from the master equations of Kodama and Ishibashi, where his proof cites a theorem on the
 four-dimensional rotating black hole that has no five-dimensional counterpart; near it, it is proved for frequencies
-bounded away from zero, and small frequencies away from the black hole itself are left to the parts on low frequencies.
+bounded away from zero, and small frequencies away from the black hole itself are taken in the parts on low frequencies.
 The twenty-eighth, its kernel and cokernel at zero frequency, eleven-dimensional in five dimensions against his seven,
-is written: at the black hole itself through the stationary solutions of the linearised Einstein equation there, which
+is proved: at the black hole itself through the stationary solutions of the linearised Einstein equation there, which
 are classified here harmonic by harmonic in place of the four-dimensional theorem he cites, and near it by perturbation
 of an augmented operator, with no classification for the rotating black holes needed. The twenty-ninth, the pairings
-that make that count exact and the large stationary states it needs, is written: the pairings he takes from earlier
+that make that count exact and the large stationary states it needs, is proved: the pairings he takes from earlier
 papers are reduced here to integrals at infinity of leading terms, and the states, which in five dimensions include a
-tensor type that four dimensions lacks, are built with one step of his construction changed. Theorem 4 stays deduced
-until the last part is proved.
+tensor type that four dimensions lacks, are built with one step of his construction changed. Each of those four was read
+line by line, its findings seated and its repairs read again.
+
+The thirtieth, his spectral family at future timelike infinity -- its Fredholm property across the light cone, its
+b-regularity there, its invertibility for Re λ < 2 and its finite meromorphy -- the thirty-first, the normal operator
+there, with its inverse, its asymptotics at null infinity and near the black hole, and its boundary spectrum, and the
+thirty-second, the formal solutions at late times near the black hole built from the zero energy states, their expansion
+and their grafting into spacetime, have been read line by line, their findings seated and their repairs read again,
+which proves them. So have the thirty-third, the metric perturbations at n = 4 and the linearised operator at null
+infinity, whose matrix there is constant and lower triangular, its perturbation half an order lower; the thirty-fourth,
+the normal operator at future timelike infinity on partially polyhomogeneous inputs, with one exceptional exponent and
+the least incoming pole 3/2 + (1 − e_Υ)γ_Υ; and the thirty-fifth, the normal operator where low frequencies meet spatial
+infinity, with the expansion of its inverse over the window (−3, 0], where the first step of his Proposition 9.35 is
+repaired. The thirty-sixth, the low-energy resolvent with his augmentation, uniform at low frequencies, and the
+thirty-seventh, the 2-admissibility of the linearised operator, which at n = 4 loses nothing at spatial infinity, are
+proved. So is the thirty-eighth, the uniformity of all this near Tangherlini: strong trapping admissibility at every
+nearby parameter by a frame built from the null geometry, 2-admissibility on one neighbourhood at every order, and the
+forward solutions uniformly over the family.
+
+The thirty-ninth to the fifty-fourth carry his section 11, the linearised equation about the dynamical metric, and the
+expansion of its solutions at late times near the black hole: the forward solutions and their partial polyhomogeneity at
+null infinity; the almost linear bounds; the boost parameter, its correction terms, the boost identity and the boost's
+elimination; almost boundedness; the extraction of the black hole parameters and of the translation, and their
+elimination, where the shift of the centre of mass needs a translated exterior background at n = 4; the decaying motions
+of the centre of mass; the correction terms for six types of rows; the expansion near the black hole in its spacetime
+and its spectral phase and at every level up to 4 + ε_K; and the augmentation by the expansion's own parameters. At n =
+4 several of his steps fall away -- the logarithms in the boost, the splitting of the source, the logarithmic term of
+the centre of mass, the step at future timelike infinity in the boost's parameter -- and each part says which. The first
+fifteen of these have been read line by line, their findings seated and their repairs read again, which proves them. The
+fifty-fourth carries the whole linear theory from Tangherlini to the nearby rotating black holes at which the
+iteration's base points lie, with constants uniform in the parameter. At a rotating black hole the rotations are no
+longer symmetries, and their terms are new rows of the expansion, fixed inside the elimination. Its census of where the
+linear theory uses the static black hole was first a search of the text; it is now a reading, described below, and with
+the reading's repairs read again the part is proved.
+
+The fifty-fifth and the fifty-sixth, his efficient parameterisation of the data and the description of every linear
+forward solution through it, the fifty-seventh, the estimates tame in the regularity, for which a calculus of tame
+families is built, and the fifty-eighth, the same at exact weights, which his iteration needs on one pair of scales, are
+proved. The fifty-seventh found that its inverse maps a source at one loss of weight to a solution at a larger loss,
+where the iteration needs the same, and the fifty-eighth closes that gap. The fifty-ninth, his nonlinear theorem -- the
+initial data in a cut-off gauge, the map whose zero is the solution and its right inverses, the Nash–Moser theorem of
+the fourteenth part, and the propagation of the constraints -- is proved. The sixtieth to the sixty-sixth carry the
+estimates of his companion papers near null infinity and his constraint damping: [Hin23a]'s analysis at null infinity,
+the energy estimates for the system and their tame form, sharp decay by integration along two families of curves, and
+the slab near null infinity; then [Hin26a]'s constraint damping operator, with its indicial roots for every small value
+of the damping variable, its mode stability and its invertibility at zero frequency by the adjoint route, his estimates
+on its compactification at n = 4, and its model on five-dimensional Minkowski space where low frequencies meet spatial
+infinity. All seven are proved; the damping is proved at the values the iteration uses -- one point of two of its
+constants, the third in a bounded interval, and the damping parameter large outside a countable set -- not over the
+range his statement allows. The sixty-seventh, the exterior solution and its partial polyhomogeneity at spatial and null
+infinity, obtained here without subtracting the radiation fields, and the sixty-eighth, the pullback by boosts in the
+cut-off gauge, are proved. The sixty-ninth, [CD03]'s gluing to the Myers–Perry family at n = 4, with a linear flux
+identity and charges that need no parity condition, is proved.
+
+The seventieth to the seventy-third check, for the operators of this paper, the hypotheses the parts state for a class
+of operators: the dynamics at Tangherlini, with the trapped set's separatrices in closed form; the horizon near
+Tangherlini; the trapped set and the global dynamics near it, by the separability of the five-dimensional Myers–Perry
+metrics; and a consistent choice of the parameters the parts leave open, in an order with no circular threshold. All
+four are proved; the seventy-third's argument that the damping is used at one value only is now an enumeration,
+described below. The seventy-fourth assembles Theorem 4 from the parts and the record, in the class and without it, and
+is proved. The seventy-fifth, written after Theorem 4, linearises it at the Tangherlini data and proves the linear
+statement of section 8.2. Its reader found no step that fails and one gap in a justification: the linearised
+constraints were carried to the initial surface along a family whose second derivatives the proof did not control, and
+are now carried along the straight line through the background. With the repairs read again, it is proved.
+
+Three completeness claims inside the write-out first rested on searches of its own text: that no part uses the
+constraint damping at constants other than the ones proved, that no step uses a lower triangular structure of the
+subprincipal symbol, and that every use of the static black hole's properties in the linear theory holds at the nearby
+rotating ones. The first two are proved by enumeration: a program lists every line of the parts in scope that names the
+property's object, with its class, and fails on any line it does not list, a use of a property having to name its
+object; for the damping's other constants the program lists every line in which it finds one of them set, bounded or
+quantified (`proof5/checks/gammac5.py`, `proof5/checks/admiss5.py`). The third is proved by a reading: five independent
+readers went through the 7,577 lines of the linear theory and recorded every use of the base point with what supplies it
+at a rotating one (`proof5/BASEPOINT-LEDGER.md`). The reading found three gaps the search had missed -- two identities,
+of the boost and of the black hole's parameters, exact only at the static black hole, whose metric and correction terms
+they use in a transition region, and an expansion that used, without saying so, that the rotation state vanishes at the
+static black hole -- a smaller one, the reality of the objects at a rotating black hole, and one theorem used at a
+rotating black hole but not stated there; each is repaired, with a direct bound in place of continuity at a fixed black
+hole. A reader of those repairs found the expansion's incomplete. It is completed by a symmetry: the antipodal map of
+the four spatial directions is a rotation by half a turn in both planes of rotation, so it is an isometry of every
+five-dimensional Myers–Perry metric; translations are odd under it and rotations even, so the rotation state at a
+rotating black hole is a change of its parameters alone. With those repairs read again, every part is proved, and
+Theorem 4 with them.
 
 ---
 
 ## 9. What is not proved
 
-- **Settling as a theorem.** Theorem 4 is deduced: what separates it from a theorem is stated in section 8.8 — the
-  completeness of the censuses that carry the companion papers' proofs to five dimensions, and of the census of the steps
-  where Hintz's spectral theory uses scalar operators, each evidenced by two methods and not proved; and the deductions,
-  written out step by step at proof level and read by independent verifiers, not proofs checked at the level of the
-  theorem's statement. The readings thirty-four of the modification steps took are each settled, written out or READ. The
-  other deductions are placed on their inputs, at proof level but for one named in section 8.8. λ1 and δ exist by the
-  deduction and are not evaluated, which is not a separate gap. The linear statements of section 8.2 are deduced too, the
-  route of Hung's sections 5–8 in five dimensions not a proof.
+- **Settling.** Theorem 4 is proved, in the supplement's write-out (section 8.8); λ1 and δ exist by the proof and are
+  not evaluated. Evaluating them would need every constant of the write-out made explicit, and several come from
+  compactness, contradiction and Fredholm arguments that give no number. The linear statement of section 8.2 is proved,
+  in the gauge of the nonlinear problem (supplement `proof5/PART-VIII-LINEAR.md`). Its routes in a Regge–Wheeler-type
+  gauge and in the harmonic gauge (Hung's sections 5–8 in five dimensions) remain deductions, and that a linearised
+  solution given in another gauge differs from the proved one by a linearised diffeomorphism is not written.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1,
@@ -1193,7 +1284,7 @@ until the last part is proved.
   2 × 10⁵ and 6 × 10³: a certified argument would need the propagator's norm, not a sup-norm bound. The linear
   scattering of the shell off the seed at 10 l5 is computed in `docket68/lemmas/seed_escape.py`.
 - **Beyond the boundary.** Theorems 1–3 are made on D_T and Ω, whose inner boundary r = a lies a fixed distance inside
-  x_K = 1; beyond them only Theorem 4's deduced statement is made, outside the black hole.
+  x_K = 1; beyond them only Theorem 4 is stated, outside the black hole.
 - **More families.** Several dusts, angular separation, and the passage to Vlasov matter are not attempted.
 - **The boundary at equality.** If μ0 = √72 l5² exactly, x_K = 1 is null on the seed's portion (Proposition 3.2).
 - **Review.** An eighth independent verifier read this paper and the supplement's last restatement (log D26): no major
@@ -1258,7 +1349,10 @@ until the last part is proved.
   with twelve minor findings, all seated (D153); D150–D153, with sections 10.75 (xvii)–(xxxiv), were read by the
   sixty-third, which found no major fault and eleven minor ones — among them two misprints of the sources carried to n =
   4, a step of [Hin24b]'s proof left unnamed, and places the write-outs named that their rows lacked — all seated
-  (D157).
+  (D157). Later rounds, seated in D162–D184, were read by the sixty-fourth to the seventy-third, every finding seated.
+  The write-out of section 8.8 was read part by part by the seventy-fourth to the hundred-and-fifty-fourth verifiers
+  (D185–D336), one or a few parts at a time, each part's findings seated and its repairs read again until a reader
+  found them correct; the findings that changed a statement of the sources or of the route are named in section 8.8.
 
 ---
 
@@ -1906,8 +2000,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | `docket68/n1star/transfer5.py` T1–T2; `docket68/n1star/general5.py` G1–G2; [HKW18], [KI03], |
 | | [KI03b], [CLY03b], [CYDL03], [Hun19], |
 | | [Sch13], [Hin23a], [Hin23b], [Hin24b], [Hin26a], [Hin26], [Hin26c], [AHW24], [CD03], [HHV21], [DLMF] |
-| Theorem 4 and what separates it from proved, section 8.8 | supplement sections 10.43–10.74; the route and its |
-| | remaining reading, `docket68/n1star/ROUTES-OPEN.md` 4.44–4.69 |
+| Theorem 4 and its proof, section 8.8 | supplement `proof5/` (`proof5/README.md`, Part VII), |
+| | `proof5/BASEPOINT-LEDGER.md`, `proof5/checks/`; the earlier route, supplement sections 10.43–10.74 |
 | the general class, section 8.6 | supplement sections 10.60–10.63; `docket68/n1star/general5.py` G1–G2; |
 | | [HHV21], [CD03] |
 | [Hin23a]'s section 3 at n = 4, section 8.8 | supplement section 10.64; `docket68/n1star/exterior5.py` X1–X8; [Hin23a] |
@@ -1979,6 +2073,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the eighty-fourth Part II.D (D204) |
 | | the eighty-fifth Part II.D′ (D206) |
 | | the eighty-sixth Part II.E (D207) |
+| | the eighty-seventh to the hundred-and-fifty-fourth the remaining parts of the write-out and their repairs (D208–D336; `proof5/README.md`, N1STAR-LOG) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction
@@ -2064,7 +2159,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `e2dc1d2c3d67a0e548035ceaa8178692` |
+| `docket68/n1star/N1STAR-LOG.md` | `b02b1bb467508287efdfa3ed198cab8e` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2103,9 +2198,9 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/solv5.py` | `dfc11365958695d53d4dc98ccdd747bc` |
 | `docket68/n1star/tface5.py` | `de9625072d570b423959da1af7654e41` |
 | `docket68/n1star/lin5.py` | `b108caf5ebecc29dc61ce56d7f49af37` |
-| `docket68/n1star/sbar5.py` | `a1899ea2f8470115ece25a400dc5fdc7` |
+| `docket68/n1star/sbar5.py` | `1da168fe2b9ab33ec28e71609623844e` |
 | `docket68/n1star/strap5.py` | `8d716c0c7dd36f8cd23987f1c79fec3d` |
-| `docket68/n1star/gmodes5.py` | `5d2b68e8b13e2b921e08a733e0900031` |
+| `docket68/n1star/gmodes5.py` | `9dd520feec732b5924306b060bf222c1` |
 | `docket68/n1star/zstates5.py` | `ea860787d2a4345a193e6ce2f9a19b7f` |
 | `docket68/n1star/genstates5.py` | `f2ef7478e67760e3d6ff05d0a0dd74e5` |
 | `docket68/n1star/puregauge5.py` | `6fda612d263dcfa82b79a9ff76a70000` |
@@ -2140,6 +2235,17 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |
-| `docket68/n1star/proof5/PART-II-F-IOTA.md` | `58afe762b8bc571772529dd37ebae2cd` |
+| `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
+| `docket68/n1star/proof5/README.md` | `b27213c2dff9cadc96c813fd938a8f61` |
+| `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `901e27d95b65b7849494ece5bfed9505` |
+| `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
+| `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
+| `docket68/n1star/proof5/checks/gammac5.tsv` | `0801ba6869e3884ed3ef309acf872ad1` |
+| `docket68/n1star/proof5/checks/admiss5.py` | `e3ec393be73a893b76b2c66130c474c8` |
+| `docket68/n1star/proof5/checks/admiss5.tsv` | `133a673e184f911e6529c318eac95950` |
+| `docket68/n1star/proof5/checks/damping5.tsv` | `4e7c226efd96b04206eb1c8e207e6861` |
+| `docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md` | `d7532a0cb202e4fe77a109fa1f6dbf0f` |
+| `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `7a5ecacf958a470070c4a92388f4fc54` |
+| `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `e1af147b48b8c47cabb3b945cf3f34b1` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

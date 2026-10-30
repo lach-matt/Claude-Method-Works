@@ -481,7 +481,8 @@ and gives the invertibility of $S^{(-1)}_{h,\vec p}$ and of Lemma 4.5's map at o
 (I$'''''''$4) *Base points at $b_0$.* The linearisation is taken at base points with $b = b_0$, as in all of Part III
 (III.I Remark 5.4: the admissibility of $2L_b$ for all $k$ and the uniform version of II.F$'$ Theorem 1.1 are open for
 $b\ne b_0$); the derivative in $b$ at $b_0$ is used. The source's Corollary 11.46 at base points with $b\ne b_0$ waits
-on those inputs.
+on those inputs. Since supplied: III.I$'''''''''''''''$ Theorem 3.1, with Lemma 2.4 and Corollary 4.6 at $b$ in the
+forms of its Lemma 2.11 and Proposition 2.12 (D330, verifier 146's n5).
 
 ### 5.2 Labels
 

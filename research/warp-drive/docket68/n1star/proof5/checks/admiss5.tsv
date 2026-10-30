@@ -1,0 +1,93 @@
+# file	class	line text (exact); generated from the line-number table of D327-D328
+PART-II-C-OPERATORS.md	U	$\sup_{\Gamma_{z_0}}\lambda_{\max}(p_1^\Gamma)<\frac12\nu_{\min}$. It is *strongly trapping admissible* if, for each
+PART-II-C-OPERATORS.md	U	$z_0$ and every $\epsilon>0$, there is such an $h_\Gamma$ with $\sup_{\Gamma_{z_0}}\lambda_{\max}(p_1^\Gamma)<\epsilon$.
+PART-II-C-OPERATORS.md	U	$\rho_\infty\sigma_1(\mathrm{Im}_hP_0)(-\sigma\,dt_*+\zeta) = p_1(1)(x,\zeta/\sigma)$, $p_1$ as in I.B Lemma 1.1. So the
+PART-II-C-OPERATORS.md	U	$p_1(1)(\zeta)$ by I.B Lemma 1.1 (b). $\square$
+PART-II-C-OPERATORS.md	Df	$$p_0,\ \tilde p_1\in\rho_+^{\ell_+}C^{k+d_0}_b(\mathscr I^+\cap\Omega;\mathrm{End}\,\mathbb C^N)\tag{3.1}$$
+PART-II-C-OPERATORS.md	Df	$$\tilde P := P-\Big[P_0+\chi_I\tfrac12x_I^2\rho_+^2\big(2\tilde p_1(x_I\partial_{x_I}-2\rho_+\partial_{\rho_+})+
+PART-II-C-OPERATORS.md	Df	p_0\big)\Big]\in x_I^2\rho_+^2C^{(d_0;k),(2\ell_I,\ell_+,\ell_K)}_{e3b;b}\mathrm{Diff}^2_{e3b}(\Omega;E);\tag{3.2}$$
+PART-II-C-OPERATORS.md	S	(3) there is a splitting $\mathbb C^N = \bigoplus_{j = 1}^J E_j$, over $\partial X$, in which $p_1 := S|_{\partial
+PART-II-C-OPERATORS.md	S	X}+\tilde p_1$ is lower triangular with diagonal blocks of real spectrum, and $p_0$ is strictly lower triangular.
+PART-II-C-OPERATORS.md	N	$$2x_I^{-2}\rho_+^{-2}P-\Big[-\big(x_I\partial_{x_I}-3-2p_1\big)\big(x_I\partial_{x_I}-2\rho_+\partial_{\rho_+}\big)+
+PART-II-C-OPERATORS.md	N	2x_I^2\Delta_{\mathbb S^3}+p_0\Big]\in C^{(d_0;k),(2\ell_I,0)}_{eb;b}\mathrm{Diff}^2_{eb}.\tag{3.3}$$
+PART-II-C-OPERATORS.md	N	The characteristic exponents of $x_I\partial_{x_I}-3-2p_1$ are $3+2\mu$, $\mu\in\mathrm{spec}\,p_1$ (the source's
+PART-II-C-OPERATORS.md	N	p_1(x_I\partial_{x_I}-2\rho_+\partial_{\rho_+})+p_0+2x_I^{-2}\rho_+^{-2}\tilde P$. Insert (1.4); $S-S|_{\partial
+PART-II-C-OPERATORS.md	N	$-(x_I\partial_{x_I}-3-2S|_{\partial X})A+2\tilde p_1A = -(x_I\partial_{x_I}-3-2p_1)A$ with $A =
+PART-II-C-OPERATORS.md	Df	**Definition 3.5 ([Hin26c] Definition 5.20).** $\bar p_1 := \inf_{p\in\mathscr
+PART-II-C-OPERATORS.md	Df	I^+}\min\mathrm{Re}\,\mathrm{spec}\,p_1(p)$.
+PART-II-C-OPERATORS.md	R	properties of $P_0$ ([Hin26c] Remark 5.21); the regularity of $p_0$, $\tilde p_1$ in (3.1) is the source's choice
+PART-II-C-OPERATORS.md	Df	$p_0$, $\tilde p_1$ in (3.1) and of a representation of $\tilde P$ in (3.2) (II.A section 8.2); on $\Omega'\subset\Omega$
+PART-II-D-REGULARITY.md	N	part of $W^{-1}P_0$, the terms $\chi_I(\tilde p_1(x_I\partial_{x_I}-2\rho_+\partial_{\rho_+})+\frac12p_0)$ of II.C (3.2),
+PART-II-D-REGULARITY.md	Th	$$\alpha_I<-\tfrac12+\bar p_1,\qquad\alpha_+<\alpha_I-\tfrac12,\qquad\alpha_K\in\mathbb R,\tag{1.3}$$
+PART-II-D-REGULARITY.md	Th	with $\bar p_1$ of II.C Definition 3.5, and order functions $\mathsf s_0<\mathsf s$, admissible for $P_0$ with weights
+PART-II-D-REGULARITY.md	Th	\tfrac12(p_1+p_1^{*h}),\tag{3.6}$$
+PART-II-D-REGULARITY.md	Th	with $p_1 = S|_{\partial X}+\tilde p_1$ of II.C Definition 3.3. In particular $\mathfrak p = 0$ at $\partial R_{\mathscr
+PART-II-D-REGULARITY.md	N	x_I^2\rho_+^2$. By II.C Lemma 3.4, $P = P_s+Wp_1X_1+\frac12W(p_0+R)$ with $P_s :=
+PART-II-D-REGULARITY.md	N	(ii) $(Wp_1X_1)^{*h} = \mathsf G^{-1}X_1^*p_1^*W\mathsf G$, and $\sigma(X_1) = i(\xi_{eb}-2\sigma_{eb})$, so
+PART-II-D-REGULARITY.md	N	$\sigma_1(\mathrm{Im}_h(Wp_1X_1)) = W\,\mathrm{Re}_hp_1\,(\xi_{eb}-2\sigma_{eb})$, as $\mathsf G^{-1}p_1^*\mathsf G =
+PART-II-D-REGULARITY.md	N	p_1^{*h}$.
+PART-II-D-REGULARITY.md	N	(iii) $p_0$ is of order 0. $R$ has real scalar principal symbol and coefficients in $x_I^{2\ell_I}C^{(d_0;0)}_{eb;b}$, a
+PART-II-D-REGULARITY.md	Th	$$\alpha_I<-\tfrac12+\bar p_1\tag{3.9}$$
+PART-II-D-REGULARITY.md	Th	($\bar p_1$ of II.C Definition 3.5, for $P$), (3.8) holds in the strong sense, for $P = P_0$ and every $P$ with
+PART-II-D-REGULARITY.md	H	p_1-\frac12-\alpha_I)>0$, and let $h_I$ be a smooth fibre inner product near $\mathrm{cl}(\mathscr I^+\cap\Omega)$ with
+PART-II-D-REGULARITY.md	H	$\mathrm{Re}_{h_I}p_1\ge\bar p_1-\delta'$ there. It is constructed as in II.C Lemma 2.5: $p_1$ is continuous on the
+PART-II-D-REGULARITY.md	H	compact closure of $\mathscr I^+\cap\Omega$ (with $\tilde p_1\in\rho_+^{\ell_+}C_b$ tending to 0 at $\iota^+$), so Jordan
+PART-II-D-REGULARITY.md	H	scalings at points, continuity and a smooth partition of unity apply verbatim; $h_I$ is extended independently of $x_I$.
+PART-II-D-REGULARITY.md	Th	-\hat\xi = 0$ (II.B (7.4)); and $\mathfrak p' = -2\,\mathrm{Re}_{h_I}p_1$ (Lemma 3.4). So at $R$
+PART-II-D-REGULARITY.md	Th	$$Q_\epsilon = 4A^{-1}(\mathrm{Re}_{h_I}p_1)A-2+2\cdot2\alpha_I\cdot(-1)
+PART-II-D-REGULARITY.md	Th	\ge4\big(\bar p_1-\delta'-\tfrac12-\alpha_I\big) = 12\delta' =: 2c>0,$$
+PART-II-D-REGULARITY.md	U	$\partial\Gamma_{K^+}$, $\mathfrak p' = p_1(1)$, by II.C Lemma 2.2 (b), the coefficients of $P-P_0$ vanishing at $K^+$.
+PART-II-D2-BREGULARITY.md	N	$$2L = -(V_2-3-2p_1)V_1\pm2x_I^2\sum_{a<b}\Omega_{ab}^2+p_0+\tilde R,
+PART-II-D2-BREGULARITY.md	N	with $p_0$, $p_1 = S|_{\partial X}+\tilde p_1$ functions on $\mathscr I^+$ extended independently of $x_I$, so $V_2p_0 =
+PART-II-D2-BREGULARITY.md	N	V_2p_1 = 0$. We compute $[2L,X]$ for $X\in\mathcal X_I$, $X\ne I$, using $[AB,X] = A[B,X]+[A,X]B$ and (a).
+PART-II-D2-BREGULARITY.md	N	$[-(V_2-3-2p_1)V_1,X] = 2[p_1,X]V_1 = -2(Xp_1)V_1$: an operator of order 0 times $V_1$; it vanishes for $X = V_2$.
+PART-II-D2-BREGULARITY.md	N	in $x_IC^\infty$, times $\Omega_{ab}$. $[p_0,X] = -(Xp_0)$, of order 0 (a term $Q_{iJ}X_J$). Finally $[\tilde R,X]\in
+PART-II-D2-BREGULARITY.md	R	(D$'$7) *Bookkeeping near $\mathscr I^+$.* The source carries the terms $[X_i,p_0]$, $[X_i,p_1]X_1$ and $p_1[X_i,X_1]$ in
+PART-II-E-ENERGY.md	R	Poincaré inequality with the exponential weight. So the fibre inner product need only make $\mathrm{Re}\,p_1$ large, and
+PART-II-E-ENERGY.md	R	not also make $\mathrm{Im}\,p_1$ and $p_0$ small as in the source. Solvability at all orders is proved from the energy
+PART-II-E-ENERGY.md	N	$$P-\tfrac12x_I^2\Big[-2\big(x_I\partial_{x_I}-3-2p_1\big)\partial_{t_*}+2x_I^2\Delta_{\mathbb S^3}+
+PART-II-E-ENERGY.md	N	t_*^{-1}p_0\Big]\in x_I^2C^{(d_0;k),2\ell_I}_{e;b}\mathrm{Diff}^2_e,\tag{1.1}$$
+PART-II-E-ENERGY.md	N	with $p_0$, $p_1$ of II.C Definition 3.3 and $\Delta_{\mathbb S^3}\ge0$ the Laplacian of the round sphere. Hence, for
+PART-II-E-ENERGY.md	N	$2t_*x_I^{-2}P\equiv-2t_*(x_I\partial_{x_I}-3-2p_1)\partial_{t_*}+2t_*x_I^2\Delta_{\mathbb S^3}+p_0$, as $t_*$ commutes
+PART-II-E-ENERGY.md	N	with $x_I\partial_{x_I}$ and with multiplication by $p_1$. Multiply by $x_I^2/(2t_*)$; the remainder class becomes
+PART-II-E-ENERGY.md	N	with $p_0 = p_1 = 0$ and $\Delta_{\mathbb S^3} = -\Delta_{\mathrm{lap}}$. $\square$
+PART-II-E-ENERGY.md	R	$-2(x_I\partial_{x_I}-2(1+p_1))\partial_{t_*}+2x_I^2\slashed\Delta+p_0$ ([Hin26c] (8.3)): the constant $2 = n-1$ is $3$
+PART-II-E-ENERGY.md	R	here, and $p_0$ stands where the normal form gives $t_*^{-1}p_0$; section 7, (E1).
+PART-II-E-ENERGY.md	H	Let $\delta' > 0$. As in the proof of II.D Proposition 3.6 there is a smooth fibre inner product $h_I = \langle
+PART-II-E-ENERGY.md	H	$$\mathrm{Re}_{h_I}p_1\ge\bar p_1-\delta'\quad\text{on }\mathrm{cl}(\mathscr I^+\cap\Omega).\tag{1.2}$$
+PART-II-E-ENERGY.md	R	The source asks also $|\mathrm{Im}_hp_1|<\epsilon$ and $\|p_0\|_h<\epsilon$ ([Hin26c] (8.4)); that is not needed below
+PART-II-E-ENERGY.md	N	(1.1) with the data $p_0$, $\tilde p_1$ extended to $t_*\in[\frac12,1]$, and (1.2) holds for $t_*\in[1-\eta_0,1]$ with
+PART-II-E-ENERGY.md	N	which gives (ii), and acts on the data $p_0$, $\tilde p_1$ of (3.1)-(3.2) of II.C Definition 3.3 in the same way, which
+PART-II-E-ENERGY.md	H	gives the form in (iii). The extended $p_1$ is continuous in $t_*$ and equals $p_1$ at $t_* = 1$, so (1.2) persists with
+PART-II-E-ENERGY.md	Th	**Lemma 2.5 (energy estimate near $\mathscr I^+$; [Hin26c] Lemma 8.1 at $n = 4$).** Let $\alpha<-\frac12+\bar p_1$ and
+PART-II-E-ENERGY.md	Th	$\big(\int_Ox_I^{-4\beta}|u|^2|dg|\big)^{1/2}$, and $P^*$ is the adjoint for $|dg|$ and the fibre inner product $h_I$ of
+PART-II-E-ENERGY.md	N	coefficient $O(x_I^2)$. By Lemma 1.1, with $P_\Box$ for $g$ satisfying (1.1) with $p_0 = p_1 = 0$ (its difference from
+PART-II-E-ENERGY.md	Th	$$\tilde P = P_\Box+2x_I^2\tilde p_1\partial_{t_*}+x_I^2b\,x_I\partial_{x_I}+R_1+R_0,\qquad\tilde p_1 := A_I^{-1}p_1A_I,
+PART-II-E-ENERGY.md	Th	$R_0$ of order 0 with coefficient $O(x_I^2)$. By (1.2), $\mathrm{Re}\,\tilde p_1 = A_I^{-1}(\mathrm{Re}_{h_I}p_1)A_I$, so
+PART-II-E-ENERGY.md	Th	$\langle\mathrm{Re}\,\tilde p_1w,w\rangle = h_I(\mathrm{Re}_{h_I}p_1A_Iw,A_Iw)\ge(\bar p_1-\delta')|w|^2$; take $\delta'
+PART-II-E-ENERGY.md	Th	:= \frac14(\bar p_1-\frac12-\alpha)$.
+PART-II-E-ENERGY.md	Th	$$\big(-2(2\alpha+1)+4(\bar p_1-\delta')\big)\tau_0^2-C_1\tau_0\tau_1-C_1\tau_1^2+2\Phi(\tau_1^2+\tau_2^2)-2(2\alpha+3)_+
+PART-II-E-ENERGY.md	Th	p_1\partial_{t_*}v_\flat,\partial_{t_*}v_\flat\rangle$ plus the $\zeta_{t_*}^2$ part of $2K_{X_0}$; $C_1$ bounds the
+PART-II-E-ENERGY.md	Th	p_1\partial_{t_*}v_\flat,x_I\partial_{x_I}v_\flat\rangle$ and those of $b$; $C_2$ bounds the $x_I^2$-terms of Lemma 2.4,
+PART-II-E-ENERGY.md	Th	p_1^*\partial_{t_*}-x_I^2b^*x_I\partial_{x_I}+R_1'+R_0'$, with $R_1'$, $R_0'$ as before ($(x_I\partial_{x_I})^* =
+PART-II-E-ENERGY.md	Th	p_1^*\partial_{t_*}w_\flat,Yw_\flat\rangle$ contributes $4\langle\mathrm{Re}\,\tilde
+PART-II-E-ENERGY.md	Th	p_1\partial_{t_*}w_\flat,\partial_{t_*}w_\flat\rangle$, so the coefficient is again $a$. The rest is as in (i), with
+PART-II-E-ENERGY.md	Th	**Proposition 2.7 ([Hin26c] Lemma 8.1 and (8.23) at $n = 4$).** Let $\alpha<-\frac12+\bar p_1$ and $\Omega' =
+PART-II-E-ENERGY.md	Th	Throughout, $\alpha<-\frac12+\bar p_1$, and $h$ is a fibre inner product on $\mathbb C^N$ equal to $h_I$ of (1.2) near
+PART-II-E-ENERGY.md	Th	frame of $h_I$, and the weight $w := x_I'^{2\alpha}$ for (3.2), $w^* := x_I'^{2\alpha^*}$ with $\alpha^* := -\alpha-1$
+PART-II-E-ENERGY.md	Th	4A^{-1}(\mathrm{Re}_{h_I}p_1)A-2-4\alpha\ge4(\bar p_1-2\delta')-2-4\alpha = 8\delta'$, by (1.2) with $2\delta'$, as
+PART-II-E-ENERGY.md	Th	$4(\bar p_1-\frac12-\alpha) = 16\delta'$. The factors $\psi(\mathfrak M_\Sigma\rho^2\ell)$, $\psi(\mathfrak M_Rq)$,
+PART-II-E-ENERGY.md	Th	At $R$, $\rho^{-1}\mathsf H\rho = 0$, $\mathfrak p' = -2\,\mathrm{Re}_{h_I}p_1$ (II.D Lemma 3.4), $\mathsf H\log W' =
+PART-II-E-ENERGY.md	Th	So $Q^*_\epsilon = 4A^{-1}(\mathrm{Re}_{h_I}p_1)A+2-4\alpha-4$, the same quantity as $Q_\epsilon$ in (3.2), positive;
+PART-II-E-ENERGY.md	Th	**Proposition 3.4 ([Hin26c] Corollary 8.2 and Proposition 8.3 at $n = 4$).** Let $\alpha<-\frac12+\bar p_1$, $\Omega' =
+PART-II-E-ENERGY.md	N	I^+$, so its normal form at $\mathscr I^+$, (1.1), has the same $p_1$ as $P\otimes\mathrm{Id}$ (its zeroth-order part, of
+PART-II-E-ENERGY.md	N	size $O(x_I^2)$, changes $p_0$, which is never used), and its
+PART-II-E-ENERGY.md	Th	**Proposition 4.3 ([Hin26c] Proposition 8.6 at $n = 4$).** Let $\alpha<-\frac12+\bar p_1$, $\Omega' = \Omega_{T_0,T_1}$
+PART-II-E-ENERGY.md	R	$P\equiv\frac12x_I^2[-2(x_I\partial_{x_I}-2(1+p_1))\partial_{t_*}+2x_I^2\slashed\Delta+p_0]$. From its normal form at
+PART-II-E-ENERGY.md	R	$t_*^{-1}p_0$ (Lemma 1.1). At bounded times this is a bounded positive factor, and zeroth-order terms are absorbed by the
+PART-II-E-ENERGY.md	R	(E2) *The smallness in (8.4) is not needed.* The source chooses the fibre inner product with $\mathrm{Re}\,p_1$ close to
+PART-II-E-ENERGY.md	R	its infimum and also $|\mathrm{Im}\,p_1|<\epsilon$, $\|p_0\|<\epsilon$. In Lemma 2.5 every first-order term other than
+PART-II-E-ENERGY.md	R	$2x_I^2\tilde p_1\partial_{t_*}$ is kept as a quadratic form in the edge derivatives, absorbed by the exponential weight
+PART-II-E-ENERGY.md	R	in time, and $p_0$ by the Poincaré inequality (Lemma 2.3); only $\mathrm{Re}_{h_I}p_1\ge\bar p_1-\delta'$, (1.2), is
+PART-II-E-ENERGY.md	R	$\zeta_{t_*}^2$, $-(2\beta+1)$, which carries the threshold, is the same, so the threshold $\alpha_I<-\frac12+\bar p_1$
+PART-II-E-ENERGY.md	R	(E13) *A weight condition omitted in Theorem 8.14.* Theorem 8.14 assumes $\alpha_I<-\frac12+\bar p_1$ and the

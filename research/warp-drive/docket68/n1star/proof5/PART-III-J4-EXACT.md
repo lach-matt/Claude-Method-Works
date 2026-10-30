@@ -1,14 +1,15 @@
 # Part III.J$'''$. Exact weights, n = 4 ([Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights)
 
 *Status.* Written (D293); verified (D295: verifier 127's findings seated); proved (D296: verifier 128 read the D295
-repairs and found them correct; four nits seated). This part proves, at spatial
-dimension $n = 4$ and $b = b_0$, that the solution map of III.I$''''''''''''''$ Theorem 3.1 and the right inverse of
-III.J$'$ Theorem 2.1 lose nothing in the weights. A source at the fixed weights $(\ell_I+1,5+\epsilon_+,\alpha)$ at
-$(\mathscr I^+,\iota^+,K^+)$ gives a solution at $(\ell_I,3+\epsilon_+,\alpha)$, with one fixed admissible $\alpha$.
-This is how the source states its Corollary 11.66 (pp. 294-295) and Theorem 12.8 (p. 312), at
-$(4+\epsilon_I,5+\epsilon_+,4+\epsilon_K)$ and $(3+\epsilon_I,3+\epsilon_+,4+\epsilon_K)$. With III.J$''$ this gives the
-tame estimates on one pair of Banach scales (Corollary 6.6), and so discharges (J$''$4) of III.J$''$ at $b_0$. The
-linear theory at $b\ne b_0$, (J$'$3), stays open.
+repairs and found them correct; four nits seated). This part proves, at spatial dimension $n = 4$ and $b = b_0$, that
+the solution map of III.I$''''''''''''''$ Theorem 3.1 and the right inverse of III.J$'$ Theorem 2.1 lose nothing in the
+weights. A source at the fixed weights $(\ell_I+1,5+\epsilon_+,\alpha)$ at $(\mathscr I^+,\iota^+,K^+)$ gives a solution
+at $(\ell_I,3+\epsilon_+,\alpha)$, with one fixed admissible $\alpha$. This is how the source states its Corollary 11.66
+(pp. 294-295) and Theorem 12.8 (p. 312), at $(4+\epsilon_I,5+\epsilon_+,4+\epsilon_K)$ and
+$(3+\epsilon_I,3+\epsilon_+,4+\epsilon_K)$. With III.J$''$ this gives the tame estimates on one pair of Banach scales
+(Corollary 6.6), and so discharges (J$''$4) of III.J$''$ at $b_0$. The linear theory at $b\ne b_0$, (J$'$3), was then
+open; III.I$'''''''''''''''$ Corollary 3.2 closes it, with Theorem 5.3 at $b$ in the form of its Proposition 2.5 (D297;
+D329).
 
 *What n = 4 changes.* (1) *The losses are removed where they arise; nothing is improved after the fact.* Of the
 statements of III.I-III.I$''''''''''''''$ that take a source at an exact weight and conclude an order "$w-$", only those
@@ -664,9 +665,10 @@ III.J$''$ section 1 could show only row by row, verifier 126) is $0$ for every $
 III.J$''$ Theorem 4.2's proof then gives (4.2) with $\mathcal F^{k+d}_{\mathrm{ex}}$ and $\mathcal D^k_{\mathrm{ex}}$,
 and Proposition 5.4 gives Proposition 4.3 on the same scales. $\square$
 
-What remains of III.J$''$ Remark 4.4: (J$'$3), the linear theory and its tame form at $b\ne b_0$; the support conditions
-of II.G Theorem 2.1; smoothing operators on $\mathcal D_{\mathrm{ex}}$ (II.G Proposition 3.1); and the exterior family
-$h_{-S}$ (III.C$'$, III.C$''$).
+What remains of III.J$''$ Remark 4.4: (J$'$3), the linear theory and its tame form at $b\ne b_0$, since closed by
+III.I$'''''''''''''''$ Corollary 3.2 (D297; D331, verifier 150's n6); the support conditions of II.G Theorem 2.1;
+smoothing operators on $\mathcal D_{\mathrm{ex}}$ (II.G Proposition 3.1); and the exterior family $h_{-S}$ (III.C$'$,
+III.C$''$).
 
 ## 7. Findings, labels and sources
 

@@ -4333,10 +4333,217 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   'for every eps_m > 0 and eps_t < eps_K'; section 4 runs VI.C through eps_K first. Nits: delta_U < C' in II.D Lemma
   4.1, zeta's neighbourhood inside U(delta_1), the status lines of II.B and II.D, 5 minor not 6, the paper's eps_K.
 - The three search-based completeness claims inside proof5: VI.C section 3 (gamma_C) and II.F' Lemma 2.1 (b)
-  (Definition 3.3 (3)) are now proved by complete enumeration: checks/gammac5.py (172 lines, 26 parts) and
+  (Definition 3.3 (3)) are now proved by complete enumeration: checks/gammac5.py (175 lines, 26 parts; 176 at D328) and
   checks/admiss5.py (104 lines, 5 parts) list every line that can use the property, with its class, and fail on any
   line they do not list; the completeness argument is that a use of a property must name its object.
 - Remaining: III.I16 Theorem 3.1's census of the uses of b_0 (finding (I^(15)5)). Route: line-by-line ledgers of
   III.I'-III.I^(14) and III.J-III.J''' (8,055 lines) in five batches, each use of the base point classed against
   (P1)-(P6), Lemma 1.2 and section 2.
 - Next: verifier 144 on the D327 repairs and the two enumerations; then the ledgers.
+
+### 4.251 Verifier 144 seated (D328): II.C' proved; the gamma_C argument restated
+
+- Report (scratchpad d327/verifier144.md): 0 major; 3 minor, 7 nits. A1 II.C' correct (nit: start slice on the boundary
+  of Omega_*; now T_flat := 2/C', inside it): II.C' proved. A2 II.D section 4's setting still on {t_* > 1}: now on
+  {t_* > T_flat}, delta_U < C'/2 (to be read). A3 VII correct (nit: eps(eps_m, eps_t)). B1 gamma_C: conclusion holds,
+  premise 'a use must cite it' false ((C1)-(C5), III.E Proposition 3.1, III.E', a split citation at III.F:163). Now:
+  a use at another value needs an operator with another damping parameter, named only through gamma_C, s_C, h or a
+  rescaled E_C; gammac5.py G3 checks there is none; labels fixed (F':55 R, III.E':21 F, III.K:49 T). B2 correct
+  (nit: why the five parts close the scope, added).
+- Both enumerations now read their classifications from checks/gammac5.tsv and checks/admiss5.tsv, keyed by line text.
+- Status: II.D, VI.C (section 3) to be read; III.I16's census: verifier 145 reading batch 1 of 5 of the ledger.
+
+### 4.252 Base-point ledger, batches 1 and 5 seated (D329): one major gap found and repaired
+
+- proof5/BASEPOINT-LEDGER.md holds the reading that replaces III.I16 Theorem 3.1's census (finding (I^(15)5)).
+- Batch 1 (verifier 145, III.I'-III.I''''', 68 rows): M1, III.I'''' Lemma 2.4's boost identity is exact only at b_0
+  (Ric(g_{b_0}) = 0 in C); at b, S^(-1)_{0,0;b} = id + Sdot(E^S_b). Repaired: III.I16 section 2.6, Lemma 2.7 (E^S_b
+  supported in C, O(|b - b_0|), iota+-order >= 4 - delta) and Proposition 2.8 (|S^(-1)_{h,S;b} - id| <=
+  C(||h|| + |S| + |b - b_0|), Neumann series). m1-m4 and n1-n5 seated in III.I16 ((P1), (P4), (P6), (i), (iv)-(vi)).
+- Batch 5 (verifier 149, III.J''-III.J''', 51 rows): m2, III.J''' Theorem 5.3 at b unstated; now listed in Theorem 3.1
+  as Proposition 2.5 at exact weights, with reasons in (viii). m1: III.H'' Proposition 1.1 cited; (J''2) superseded.
+  Nits seated, among them the (J'3) status pointers in III.J'' and III.J'''.
+- Next: batches 2-4 (verifiers 146-148, reading); then one reader of all the repairs.
+
+### 4.253 Base-point ledger complete (D330): batches 2-4 seated, two more major gaps repaired
+
+- Batch 2 (verifier 146, III.I''''''-III.I''''''''', 69 rows): M1, III.I''''''' Lemma 2.4's parameter identities are
+  exact only at (0,0), and the base level (III.I''''''' Lemmas 4.3, 4.5, Corollary 4.6; III.I'''''''' Proposition 4.1's
+  base step; III.I16 Proposition 2.5 Step 3) inverted its maps by continuity from (0,0). Repaired: III.I16 section 2.8,
+  Lemma 2.11 ((2.7), E^mot_b supported in C, O(|b - b_0|)) and Proposition 2.12 ((2.8), direct bound); Step 3 cites it.
+  m1, m2, n1-n5 seated (the list, fixed-b qualifiers, corrections #1-#4 named by part, #3 through (1.1), pointers).
+- Batch 3 (verifier 147, III.I''''''''''-III.I''''''''''''', 57 rows): M1, III.I'''''''''''' Lemmas 2.3-2.4 used
+  h_{b_0,v1} = 0. Repaired: III.I16 section 2.7, kappa_b (2.6), Lemma 2.9 (rotation rows T_{v1,b}, no inversion) and
+  Corollary 2.10 (with m2, the level-3 conormal rotation tower). m1 (E_col b-independent), n1-n3 seated.
+- Batch 4 (verifier 148, III.I^(14), III.J, III.J', 79 rows): no major gap; m3, reality at b, now in (P3) and
+  Definition 2.3; m1, III.J as written with rows at b_0; m2, III.J' Lemma 1.1 listed; n1-n7 seated.
+- III.I16 Theorem 3.1's proof now cites the ledger as a reading; findings (I^(15)5)-(I^(15)8).
+- Next: one reader of all the repairs (D329-D330), with the D328 repairs of II.D and VI.C.
+
+### 4.254 Verifier 150 seated (D331): II.D proved; the rotation state at b is a parameter change
+
+- Report (scratchpad d330/verifier150.md): 1 major, 2 minor, 8 nits. Sections 2.6 and 2.8 correct in substance; II.D
+  section 4 correct (II.D proved); VI.C section 3's conclusion holds.
+- M1: Lemma 2.9 (c) subtracted T_{v1,b}(a~V) - h^{<=2}(a~S_V), putting S_V into a_s at z_0 - 1. Repaired: -1 in SO(4)
+  is central, so in every MP isometry torus; h_b(S) odd, gdot_b and h_{b,v1} even ((P3), Lemma 1.1's proof), so S_V = 0
+  and h_{b,v1}(V) = gdot_b(bdot_V) (Lemma 1.2's remark). Section 2.7 now subtracts T_{v1,b} alone; a_s unchanged;
+  (2.4) with h^{<=1} as at b_0; finding (I^(15)9).
+- m1: Prop 2.12's bound (2) for pairs F_1, F_2 with Sdot = 0 each (UNPARAM Lemma 4.1 (b)); Lemma 4.5's map through it.
+- m2: VI.C section 3 widened to v_C, e_C, C_0 (fixed once by row c1); gammac5.py G4 (42 lines, damping5.tsv; X 4, D 2,
+  S 2, F 15, P 19) and G5 (h := gamma_C^{-1} only in IV''''); negative controls caught.
+- Nits: alpha_+ < 2; interiors and k_0 in Lemma 2.7; Lipschitz citations; the base level's block-triangular map; the
+  reality gap named; (J'3) pointers in J'' and J''' and the J'' inventory row at b; the n8 citation.
+- Status: III.I16 (sections 2.6-2.8, (P3) parity) and VI.C section 3 to be read; every other part proved.
+- Next: the paper's section 8.8 written out over all 74 parts; one reader of D331 and the paper.
+
+### 4.255 Verifier 151 seated (D332): VI.C proved; III.I16's parity argued from the constructions
+
+- Report (scratchpad d331/verifier151.md): 0 major, 3 minor, 11 nits. A: D331 correct in substance (-1 an isometry,
+  S_V = 0, section 2.7, Prop 2.12's pairs, G4-G5). B: the paper's 74-part account matches proof5/README.
+- a1: the parity's written reason (B(b) is interior pairings, not leading terms; gdot_b's gauge correction skipped).
+  Now from the constructions: omega_{b,s1}(S) = omegabar - P_b^{-1}Box omegabar odd, omega_{b,v1}(V) = V - P_b^{-1}Box V
+  even, gdot^Ups_b = gdot_b - delta* P_b^{-1} eta_b even (III.F''' (2.1)); I15 Lemma 2.1's reparametrisation keeps it.
+- b1, b2 (paper draft): 7,577 lines, not 8,055; 'no census of the source papers'. Nits: (P3)'s isometry reason (commutes
+  with the spin; (3.2) even in x), companions dropped, (I^(15)5) wording, README's I16 paragraph, G4's wording and
+  c_C, G5 widened (control caught), (J''4) discharged in J'', the paper's damping point, gaps named, md5 rows.
+- VI.C proved (nits only). III.I16: the parity argument to be read. Paper: committed once III.I16 is proved.
+- Next: one reader of the parity argument and the paper draft (scratchpad d330/dry3.md).
+
+### 4.256 Verifier 152 seated (D333): every part of proof5 proved; the paper updated
+
+- Report (scratchpad d332/verifier152.md): the parity argument from the constructions correct; III.I16 proved.
+- All 74 parts of proof5 are proved. The three in-proof completeness claims: gamma_C and the damping's constants
+  (gammac5.py G1-G5), Definition 3.3 (3) (admiss5.py), the base-point census (BASEPOINT-LEDGER.md, a reading).
+- Paper: abstract, introduction, Theorem 4 (proved: proof5, Part VII Theorem 0.2), section 8.8's account through all
+  74 parts, section 9, the review bullet (verifiers 74-152), the source table and the md5 table.
+
+### 4.257 Part VIII written (D334): linear stability of 5D Tangherlini, III.K linearised at the Tangherlini data
+
+- The paper's section 9 lists three things not proved: lambda_1 and delta not evaluated; section 8.2's linear
+  statements deduced; the physical wavelengths. M asked that they be proved (D334).
+- Section 8.2: proved as Part VIII, in the gauge of the nonlinear problem (Theorem 2.2; Corollary 2.3 in the class).
+  The RW-gauge and Hung routes stay as deduced routes in other gauges; the gauge comparison is not written (Remark
+  2.4 (a)).
+- lambda_1 and delta: their existence is proved; evaluating them needs every constant of the 74 parts made explicit,
+  and several are produced by compactness, contradiction and Fredholm arguments that give no number. Not attempted.
+- Physical wavelengths (10 l5): no small parameter; a large-data problem. It would need a certified numerical
+  solution with an a posteriori stability theorem in five dimensions; the record's own scheme fails before the shell's
+  peak there (ROUTES 4.3 and the 10 l5 go/no-go). Not attempted.
+- Next: one reader on Part VIII; then the paper's sections 8.2 and 9.
+
+### 4.258 Verifier 153 seated (D335): Part VIII verified
+
+- Report (scratchpad d334/verifier153.md): 0 major, 1 minor, 6 nits; D_hP5(0) = L, the support clause at c = That+7/4
+  and Corollary 2.3's equivariance checked.
+- m1: Lemma 1.1 (3) now differentiates Gauss-Codazzi along g + s hdot and uses (1). Nits n1-n6 seated.
+- Next: one reader on the D335 repairs; then the paper's sections 8.2, 8.8 and 9.
+
+### 4.259 Verifier 154 seated (D336): Part VIII proved; the paper updated
+
+- Report (scratchpad d335/verifier154.md): the seven repairs correct; three textual nits (p1-p3), seated.
+- Part VIII is proved. Paper: abstract, section 8.2 (a new first paragraph: the linear statement proved in the gauge
+  of the nonlinear problem; the deduced routes kept beside it), section 8.8 (the seventy-fifth part), section 9 (the
+  Settling bullet: lambda_1 and delta with the reason they are not evaluated; 8.2 proved), the review bullet
+  (verifiers 74-154), the source table and the md5 table.
+
+### 4.260 Certified existence at 10 l5: feasibility study, phase 0 (D337); lambda_1 and delta: the Drive paper
+
+- M (2026-10-30): start the feasibility study for the certified computation. CERTIFY-10L5.md, phase 0:
+  [Wu26] Theorem 2.2 READ again (its threshold eps(C0) and constant C(C0) are not explicit, the proof is a sketch,
+  3+1 on S^2); dnull5.py D1-D5, the class in double-null gauge keeps the characteristic structure in five
+  dimensions (Raychaudhuri with 1/3, the shift, Tangherlini vacuum, constraints ODEs on the cones); python-flint
+  ball arithmetic installs and is fast; at 10 l5 the data are one broad pulse (0.48 and 1.51 periods); the closing
+  condition delta + int eps < 1/(4 G T F^2) makes the certified growth factor F the deciding number.
+- Go/no-go: G1 the double-null gauge survives to the end of the domain (next, F2: a prototype solver), G2 a
+  certified linear constant near the measured propagator's, G3 the far-field data with a certified tail, G4 the
+  axes. Phase-0 verdict: no blocker found; G1 decides first.
+- M (2026-10-30): lambda_1 and delta; the Drive paper 'Self-Tuning Cosmological Constant Framework' (warp folder,
+  PDF, 3 pp., read in full) may offer a framework. Assessment: it does not. It is a programme for a different
+  system (M4 x K compactification, moduli coupled to a defect measure), with no proofs: its 'Infrared Vacuum
+  Attractor Theorem' (p. 3) is stated without proof, and the paper calls itself the architecture for 'ongoing
+  calculations resolving the global existence and regularity' (p. 3). It contains no estimate with explicit
+  constants and no device for making a compactness, contradiction or Fredholm argument quantitative.
+- Where lambda_1 and delta come from: Part VII section 4 takes delta := eps/2 and lambda_1 with C_R lambda_1 <
+  eps/2, eps III.K's Nash-Moser threshold, which depends on the norms of the linear theory's right inverses. In
+  proof5's parts the words contradiction, compactness (and compact embedding, Rellich), Fredholm and subsequence
+  occur 19, 51, 74 and 28 times across 36 parts (a text count, not a census of arguments). Each such argument would
+  need a quantitative replacement (an explicit lower bound in place of 'injective, hence bounded below'), on
+  Tangherlini by certified computation of the separated ODEs and near it by explicit perturbation. Not attempted.
+
+### 4.261 lambda_1 and delta: methods, the reduction, the ledger (D338)
+
+- M (2026-10-30): deep research for methods of evaluating constants from compactness, contradiction or Fredholm
+  arguments, then prove them. EFFECTIVE-CONSTANTS.md.
+- Methods READ: Sekine-Nakao-Oishi arXiv:1910.00759v1 (Thm 2.1 p. 5, Lemma 2.2 p. 6: L^-1 through a Schur complement,
+  ||S^-1|| <= 1/(1-kappa)); Ferreira-Leustean-Pinto arXiv:1810.01508v4 (pp. 1-2: Heine-Borel in place of sequential
+  compactness, bounded functional interpretation); Goldstein-Jejjala arXiv:2609.21797v2 (Taylor models, 512-bit
+  intervals, a Poincare-Miranda certificate for a black hole). Datchev-Jin through the search index only.
+- Proved (section 2), read by verifier 155 and repaired: Proposition 2.1, II.G's threshold theta0 = max{16,
+  16 eta_G^-2, (4K3/delta_G)^(1/(6d+2)), 1+K4, C1K5 + C2K3^2/2}, eps = theta0^-(8d+2), confirmed. Proposition 2.2:
+  eps <= min{1, eps_NM/A_2d, eps_dat, eps_G}, delta = eps/2, lambda_1 := min(lambda_1.1, eta_gl/C_R, eps/(4C_R));
+  verifier 155's M1 (three smallness thresholds of III.K missing), M2 (the loss d, eps_G's norm-equivalence
+  constants, III.J's inverse operators inside the map), m1-m5, n1-n6 seated. To be read again.
+- Not explicit: d (a sum of III.J''' losses, not added up), the tame and smoothing constants, delta_K, eps_dat,
+  A_2d, eps_G's constants, the record's C_J and lambda_1.1, the gluing's eta_gl and C_R.
+- E1 done: EFFECTIVE-LEDGER.tsv, 165 rows (N1 6, N2 15, N3 1, N4 13, F 41, G 37, X 52), each row checked by script
+  to cite an existing file with a keyword within two lines; classes are a reading. Next: E1' (add up d), E2 (a
+  certified N1 constant at Tangherlini for one operator).
+- CERTIFY-10L5.md section 6a: F2's scheme from the Ricci components' second derivatives (computed).
+
+### 4.262 lambda_1 and delta: verifiers 156-157; delta_K and eps_dat defined (D339)
+
+- Verifier 156: 155's findings repaired; MAJ-1 the exterior (III.C'' Thm 3.1 -> III.C' Thm 2.1 -> IV'' Thm 3.1,
+  Nash-Moser, d := 7), slab (IV''' Thm 2.2, Nash-Moser) and data-map (III.C'' Prop 4.1) thresholds that III.K Prop 1.2
+  imports; MIN-1 eps_G is a threshold on ||P5(Psi(0))||, now eps_NM^G / A_2d (VII Lemma 3.1 at U = 0); MIN-2; nits.
+- Verifier 157: those repairs correct; MAJ-1 three more (higher-order exterior and slab thresholds, III.C Cor 5.3's,
+  III.B Lemma 5.2's w_0); MIN-1 the Part IV N2 site (IV7:383) is constraint damping, not on the exterior/slab path.
+- Repair: Proposition 2.2 now defines delta_K and eps_dat as the suprema below which every smallness hypothesis III.K
+  takes, directly or through what it applies, holds (finitely many, so positive); the enumeration is an inventory, not
+  claimed complete; E1'' finishes it. To be read.
+
+### 4.263 lambda_1 and delta: verifier 158; admissible pairs (D340)
+
+- Verifier 158: the chain VII section 4 -> lambda_1, delta correct (no condition on R, k, J or lambda outside
+  Nash-Moser, Part VII's own and III.K's); MAJ-1 the sup-definitions of delta_K, eps_dat ill-posed (joint data-and-U
+  hypotheses; U-thresholds depending on the data); MIN-1 section 0 overstated; MIN-2 orders and the eps-choice in
+  III.K Prop 1.2 (3); MIN-3 g_1 at III.C:341; NIT-1..5.
+- Repair: an admissible pair (eps_dat, delta_K) in (0,1]^2, for which every non-Nash-Moser smallness hypothesis of
+  III.K holds on {data < eps_dat in H^d1} x {|U|_3d < delta_K}; it exists by III.K's proof (K:383-388, 410-411,
+  465-469) and is down-closed; the eps-choice is made first; section 0 says the pair is defined, not computed.
+
+### 4.264 lambda_1 and delta: verifier 159 (D341)
+
+- Verifier 159: the admissible-pair definition well-posed and down-closed; MAJ-1 its existence cited K:410-411's
+  wording instead of the proof's quantifiers; MIN-1 eps_m, eps_t, eps_K missing from section 0 and the not-explicit
+  list; NIT-1..5 (stale D-numbers, "proves" before the read, eps_NM's C_k as data-ball bounds, the data map's
+  topology unnamed, U's class B^inf). All seated; existence now from II.G's domain {|U|_3d < delta} with delta uniform
+  over small data, then a shrink for the S-dependent and joint conditions. To be read.
+
+### 4.265 lambda_1 and delta: verifier 160 (D342)
+
+- Verifier 160: existence nearly valid; MAJ-1 delta's uniform lower bound unstated (now: eps_NM uniform, K:412, and
+  theta0 >= (4K3/delta)^(1/(6d+2)) give delta >= delta_* > 0); MIN-1 III.C 4.4's S-dependent threshold is inside
+  Lemmas 2.2-2.3, not a shrink; NIT-a..c. Seated. One narrow read of the clause follows.
+
+### 4.266 lambda_1 and delta: verifier 161, no major (D343)
+
+- Verifier 161: the existence of an admissible pair valid, no major; MIN-1 the tame constants taken >= 1 so that
+  delta_G >= 4 eps_NM^((6d+2)/alpha) uniformly; NIT-1 III.C Cor 5.3 named; NIT-2 delta_G. Seated. Section 2 stands
+  as a reduction (Proposition 2.1 confirmed by 155; Proposition 2.2 after 156-161).
+
+### 4.267 10 l5: F2, the prototype double-null solver (D344)
+
+- dnsolve5.py: the class in double-null gauge with the record's regular combinations (axis conditions identically);
+  Ric_11, Ric_22, Ric_xx -> (R, m, n)_uv; Ric(Y, d_v) -> W_uv; Ric_vx -> shift transport; diamond scheme, Chebyshev-Gauss
+  in x; Kretschmann from exact Christoffels and their exact derivatives. Selftest S1 (Tangherlini, ratio 3.90), S2
+  (flat 2e-26; Tangherlini K median rel. error 6.4e-3), S3 (control W + 0.01 v, ratio 1.00) pass.
+- Coordinate: u := -r on the first cone squeezes the late interior (r - 1 ~ (r0 - 1) e^v); grid u = -1 + a sinh xi,
+  a = 0.002, fixes it (107 rows in 0.54 <= R <= 1 at v = 1.6).
+- lambda = 1 (L = 100): second zero of R_v at v = 1.425 (the record's break, 1.45) passed; constraints converge at
+  second order to v = 1.5; x_K > 1 near the cut from v ~ 1.45 (wave curvature), so D_q < {R >= r_core}; D_q computed
+  (113,682 of 125,265 strip cells at 800 x 360, reaching v = 4.5); converged on D_q to v ~ 2.0 (400 vs 800), shears not
+  converged beyond; axis growth from v ~ 1.61 lies outside D_q.
+- lambda = 0.3162 (L = 1000): runs to v ~ 3.3-3.4; axis growth at x = +1 just outside the horizon, onset moving later
+  with M (1.86, 3.28, 3.44 at M = 6, 8, 12) and with (u, v) (3.28, 3.36): resolution, not the gauge.
+- G1 not yet answered to the end of the domain; next: angular resolution with an axis filter, refinement at D_q's
+  edge, D_q at lambda = 0.3162, then F3.
