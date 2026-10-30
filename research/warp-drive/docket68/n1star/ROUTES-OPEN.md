@@ -4299,3 +4299,6 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - III.K section 0 cross-refers to row d1 (l_0 > 3). VI.B': U_R's closure; the interior backward case spelled out.
 - Next: the paper's Theorem 4 and sections 8.7-8.8 to Theorem 0.2; verifier 141 on the D323 repairs, the paper
   changes and the old repairs of III.A' and III.I(13); verifier 142 on those of II.B-II.E.
+- Paper (D323): Theorem 4 restated as Part VII's Theorem 0.2 ((i) on Hintz's initial surface; (ii) in Hintz's data
+  class; rate t*^(-2-eps) for eps < eps_K); sections 8.6-8.7, abstract and introduction aligned; a paragraph records
+  (VII1). response5.py passes.
