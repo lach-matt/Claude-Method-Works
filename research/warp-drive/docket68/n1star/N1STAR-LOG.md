@@ -6060,3 +6060,14 @@ rotating black hole is a change of the black hole's parameters alone, with no tr
 expansion's repair needs only the rotation rows. Two smaller points: a comparison of two parameter maps is now stated
 for the sources on which each is defined, and the argument that the damping parameter is used at one value now covers
 the damping's other constants, fixed once, with a second enumeration that checks it.
+
+**D332 (2026-10-30): VI.C proved; the parity argued from the constructions.** A reader went through the last round of
+repairs and the paper's new account of the write-out. It found the repairs correct in substance: the antipodal map is a
+symmetry of every rotating black hole here, the rotation state is a change of the black hole's parameters alone, the
+expansion is back at its exponents, and the comparison of the parameter maps is now sound. But the written reason for
+the parity was wrong. It cited a matrix of interior pairings as if it fixed a state by its leading terms, and it skipped
+the gauge correction of the parameter state. The parity is now argued from how each state is built: each is a Minkowski
+1-form of definite parity corrected by an inverse that commutes with the symmetry. The part on the parameters, with nits
+only, is proved. The paper's account was found to match the record, but for a line count, 7,577 rather than the planning
+estimate of 8,055, and a claim that the write-out uses no census at all, which now says no census of the source papers.
+One more reading of the parity argument and of the paper remains.

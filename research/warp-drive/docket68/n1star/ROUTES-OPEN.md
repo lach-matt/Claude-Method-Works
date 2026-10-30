@@ -4395,3 +4395,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   reality gap named; (J'3) pointers in J'' and J''' and the J'' inventory row at b; the n8 citation.
 - Status: III.I16 (sections 2.6-2.8, (P3) parity) and VI.C section 3 to be read; every other part proved.
 - Next: the paper's section 8.8 written out over all 74 parts; one reader of D331 and the paper.
+
+### 4.255 Verifier 151 seated (D332): VI.C proved; III.I16's parity argued from the constructions
+
+- Report (scratchpad d331/verifier151.md): 0 major, 3 minor, 11 nits. A: D331 correct in substance (-1 an isometry,
+  S_V = 0, section 2.7, Prop 2.12's pairs, G4-G5). B: the paper's 74-part account matches proof5/README.
+- a1: the parity's written reason (B(b) is interior pairings, not leading terms; gdot_b's gauge correction skipped).
+  Now from the constructions: omega_{b,s1}(S) = omegabar - P_b^{-1}Box omegabar odd, omega_{b,v1}(V) = V - P_b^{-1}Box V
+  even, gdot^Ups_b = gdot_b - delta* P_b^{-1} eta_b even (III.F''' (2.1)); I15 Lemma 2.1's reparametrisation keeps it.
+- b1, b2 (paper draft): 7,577 lines, not 8,055; 'no census of the source papers'. Nits: (P3)'s isometry reason (commutes
+  with the spin; (3.2) even in x), companions dropped, (I^(15)5) wording, README's I16 paragraph, G4's wording and
+  c_C, G5 widened (control caught), (J''4) discharged in J'', the paper's damping point, gaps named, md5 rows.
+- VI.C proved (nits only). III.I16: the parity argument to be read. Paper: committed once III.I16 is proved.
+- Next: one reader of the parity argument and the paper draft (scratchpad d330/dry3.md).

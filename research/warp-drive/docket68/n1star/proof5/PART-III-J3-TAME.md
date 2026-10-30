@@ -336,9 +336,10 @@ operators on the spaces of $\mathcal D$ (II.G Proposition 3.1 and the source's p
 a neighbourhood of 0, so at $b\ne b_0$ too, with $\Psi(u)F_\eta\subset B_\eta$ for $u\in U\cap B^\infty_\eta$ (II.G
 Theorem 2.1 (ii)-(iii) as amended in D304, (H10), in its notation; the source meets these support conditions by finite
 speed of propagation, Step 3 (3), p. 322). Remaining: one pair of scales, Proposition 4.3 mapping $\mathcal D_\epsilon$
-to $\mathcal F_\epsilon$ and Theorem 4.2 mapping $\mathcal F_{\epsilon'}$ to $\mathcal D_\epsilon$ ((J$''$4)); (J$'$3),
-the linear theory and its tame form at $b\ne b_0$, since closed by III.I$'''''''''''''''$ Corollary 3.2 (D297; D331,
-verifier 150's n6); the support conditions; the smoothing operators; and the exterior family $h_{-S}$ (III.C$'$).
+to $\mathcal F_\epsilon$ and Theorem 4.2 mapping $\mathcal F_{\epsilon'}$ to $\mathcal D_\epsilon$ ((J$''$4), since
+discharged by III.J$'''$ Corollary 6.6, D296; verifier 151's A7); (J$'$3), the linear theory and its tame form at $b\ne
+b_0$, since closed by III.I$'''''''''''''''$ Corollary 3.2 (D297; D331, verifier 150's n6); the support conditions; the
+smoothing operators; and the exterior family $h_{-S}$ (III.C$'$).
 
 ## 5. Findings, labels and sources
 

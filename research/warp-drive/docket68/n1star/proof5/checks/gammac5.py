@@ -87,9 +87,10 @@ for f, l in seen:
     assert sum(1 for (g, key) in FAM if g == f and key in l) == 1, (f, l)
 print('G3 no rescaled damping operator: the', len(FAM), 'lines pairing E_C, E^C or Box^C with a family are spectral '
       'families or a time range')
-# G4 (D331): the damping's other constants v_C, e_C, C_0 are fixed once, by VI.C row c1. Every line that sets, bounds,
-# ranges or quantifies one of them is listed in damping5.tsv with its class: X C_0 names another constant; D a
-# definition for every value; S III.E Theorem 1.1's statement; F a use of the fixed point; P Parts IV''''-IV''''''.
+# G4 (D331): the damping's other constants v_C, e_C, C_0 are fixed once, by VI.C row c1. Every line in which the
+# pattern dq finds one of them set, bounded, ranged or quantified is listed in damping5.tsv with its class (D332):
+# X C_0 names another constant; D a definition for every value; S III.E Theorem 1.1's statement; F a use of the fixed
+# point; P Parts IV''''-IV''''''. c_C, chosen with III.E Theorem 1.1 too, is fixed by PART-IV5-CDMODES.md:35-38.
 dq = re.compile(r"(?<![A-Za-z_\\])(v_C|e_C|C_0)\s*(\\in|>|\\ge|<|\\le|=|:=)|(every|any|all|Fix)\s+\$?(v_C|e_C|C_0)|"
                 r"\\tau\s*(v_C|e_C)")
 D4 = {}
@@ -117,7 +118,7 @@ print('G4 v_C, e_C, C_0 fixed once:', sum(n4.values()), 'lines setting, bounding
 # G5 (D331): h := gamma_C^{-1} is introduced only in Part IV'''', which proves III.E Theorem 1.1 in that variable.
 hdef = sorted(os.path.basename(f) for f in glob.glob(os.path.join(P5, 'PART-*.md'))
               if os.path.basename(f) not in RECORDS
-              for l in open(f).read().split('\n') if re.search(r"h\s*:=\s*\\gamma_C\^\{-1\}", l))
+              for l in open(f).read().split('\n') if re.search(r"h\s*(:=|=)\s*(1/\\gamma_C|\\gamma_C\^\{-1\}|\\frac1\{?\\gamma_C)", l))
 assert hdef == ['PART-IV5-CDMODES.md'], hdef
 print('G5 h := gamma_C^{-1} only in Part IV\'\'\'\' (PART-IV5-CDMODES.md)')
 print('gammac5 checks pass')

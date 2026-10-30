@@ -2,15 +2,16 @@
 
 *Status.* Amended (D327-D328: section 3's argument by enumeration, restated after verifier 144 found its first premise
 too narrow), read by verifier 150 (D331: the conclusion holds; the premise is widened to $v_C$, $e_C$ and $C_0$, fixed
-once by row c1, with the checks G4-G5), to be read. Written (D320); amended (D322: rows d1-d2 take III.I$''''''''''$'s
-(H4), finding (VI.C4)); verified (D323: verifier 140's two minor findings and four notes repaired, finding (VI.C5));
-proved (D324: verifier 141 read the repairs, correct; one note seated). Parts III-VI state conditions on the parameters
-they leave open: the constraint damping gauge $E_C$, the gauge-modification parameters $E_\Upsilon$, the weights at
-$\mathscr I^+$, $\iota^+$ and $K^+$, the data classes, and the Myers-Perry parameter set. This part lists every such
-condition with its source (section 1), and shows that they can all be met, in an order in which each threshold depends
-only on choices already made (Theorem 2.1). It also records two checks of quantifiers (section 3). Theorem 1.1 of III.E
-is proved at one point of $(v_C,e_C,C_0)$ and for $\gamma_C>1/h_*$ outside a countable set, and every part uses one
-value of $\gamma_C$, chosen once. The open item of III.F$''$ section 5 is closed by III.H Corollary 4.3.
+once by row c1, with the checks G4-G5), read by verifier 151, correct, its three nits seated; proved (D332). Written
+(D320); amended (D322: rows d1-d2 take III.I$''''''''''$'s (H4), finding (VI.C4)); verified (D323: verifier 140's two
+minor findings and four notes repaired, finding (VI.C5)); proved (D324: verifier 141 read the repairs, correct; one note
+seated). Parts III-VI state conditions on the parameters they leave open: the constraint damping gauge $E_C$, the
+gauge-modification parameters $E_\Upsilon$, the weights at $\mathscr I^+$, $\iota^+$ and $K^+$, the data classes, and
+the Myers-Perry parameter set. This part lists every such condition with its source (section 1), and shows that they can
+all be met, in an order in which each threshold depends only on choices already made (Theorem 2.1). It also records two
+checks of quantifiers (section 3). Theorem 1.1 of III.E is proved at one point of $(v_C,e_C,C_0)$ and for
+$\gamma_C>1/h_*$ outside a countable set, and every part uses one value of $\gamma_C$, chosen once. The open item of
+III.F$''$ section 5 is closed by III.H Corollary 4.3.
 
 ## 1. The conditions
 
@@ -109,20 +110,22 @@ write an operator with another damping parameter, and the damping enters $\Box^C
 through $\gamma_C$; so such a use names $\gamma_C$, $s_C := \gamma_C(1-e_C)(1-v_C)$, $h := \gamma_C^{-1}$ (the variable
 of IV$''''$-IV$''''''$, which prove the theorem), or a rescaled $E_C$. The other constants of the damping, $v_C$, $e_C$
 and $C_0$, enter $\Box^C_b$ too; they are fixed once, by row c1, at the point where Part IV$''''$ proves the theorem,
-and no part varies them: `checks/gammac5.py` G4 lists, with its class, every line that sets, bounds, ranges or
-quantifies one of them, and fails on any line it does not list (42 lines: 15 uses of the fixed point, 19 in Parts
-IV$''''$-IV$''''''$, 2 definitions, the 2 lines of III.E's statement, and 4 where $C_0$ names another constant;
-`checks/damping5.tsv`; verifier 150's m2, D331). And $h := \gamma_C^{-1}$ is introduced in Part IV$''''$ alone (G5).
-`checks/gammac5.py` lists every line of PART-*.md naming $\gamma_C$ or $s_C$ or citing III.E Theorem 1.1 (also across a
-line break), with its class, and fails on any line it does not list: 55 identities valid for every $\gamma_C$; 56
-conditions on, or uses of, the one fixed value; 17 citations of the theorem at that value; 3 lines of III.F$'$'s
-homotopy $(\tau\gamma_C,\tau\gamma_\Upsilon)$, $\tau\in[0,1]$, which uses III.F Lemma 2.1's proof and III.E section 1,
-not the theorem; III.E's statement; the theorem's proof in IV$''''$ and IV$''''''$ (IV$'''''$, written in $h$, names
-neither); and the records, among them the record's computation at its own point $\gamma_C = 10^6$, outside the proved
-set. It also checks that no rescaled $E_C$ or $E^C$ occurs: the six lines that pair $E_C$, $E^C$ or $\Box^C$ with a
-family are spectral families in the frequency or a time range. So every part takes one value of $\gamma_C$, chosen once:
-III.F$'$ fixes $\gamma_C$ before $\gamma_1$ (PART-III-F2-INDICIAL.md:429), III.K takes $\gamma_C$ large with $s_C>100$
-(PART-III-K-NONLINEAR.md:49-50), III.G$'$ and III.C$'$ use $s_C$ as a fixed number. So the restriction costs nothing.
+and no part varies them: `checks/gammac5.py` G4 lists, with its class, every line its pattern finds setting, bounding,
+ranging or quantifying one of them, and fails on any line it does not list; $c_C$, chosen with III.E Theorem 1.1 too, is
+fixed by Part IV$''''$ (PART-IV5-CDMODES.md:35-38) and varied by no part (verifier 151's A5) (42 lines: 15 uses of the
+fixed point, 19 in Parts IV$''''$-IV$''''''$, 2 definitions, the 2 lines of III.E's statement, and 4 where $C_0$ names
+another constant; `checks/damping5.tsv`; verifier 150's m2, D331). And $h := \gamma_C^{-1}$ is introduced in Part
+IV$''''$ alone (G5). `checks/gammac5.py` lists every line of PART-*.md naming $\gamma_C$ or $s_C$ or citing III.E
+Theorem 1.1 (also across a line break), with its class, and fails on any line it does not list: 55 identities valid for
+every $\gamma_C$; 56 conditions on, or uses of, the one fixed value; 17 citations of the theorem at that value; 3 lines
+of III.F$'$'s homotopy $(\tau\gamma_C,\tau\gamma_\Upsilon)$, $\tau\in[0,1]$, which uses III.F Lemma 2.1's proof and
+III.E section 1, not the theorem; III.E's statement; the theorem's proof in IV$''''$ and IV$''''''$ (IV$'''''$, written
+in $h$, names neither); and the records, among them the record's computation at its own point $\gamma_C = 10^6$, outside
+the proved set. It also checks that no rescaled $E_C$ or $E^C$ occurs: the six lines that pair $E_C$, $E^C$ or $\Box^C$
+with a family are spectral families in the frequency or a time range. So every part takes one value of $\gamma_C$,
+chosen once: III.F$'$ fixes $\gamma_C$ before $\gamma_1$ (PART-III-F2-INDICIAL.md:429), III.K takes $\gamma_C$ large
+with $s_C>100$ (PART-III-K-NONLINEAR.md:49-50), III.G$'$ and III.C$'$ use $s_C$ as a fixed number. So the restriction
+costs nothing.
 
 *III.F$''$ section 5.* For $b\ne b_0$ and $0<|\sigma|<c_0$, the invertibility of $\widehat{L_b}(\sigma)$ was left open
 there (PART-III-F3-MODES.md:261-265). III.H Corollary 4.3 proves it for $b$ near $b_0$ and $\sigma\in\Sigma_0$,
