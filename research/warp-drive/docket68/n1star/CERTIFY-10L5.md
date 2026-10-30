@@ -175,11 +175,55 @@ No other component is nonzero. So the scheme is the following.
   regular across the horizon. On the outgoing initial cone u = u0, take v Eddington-Finkelstein. Ω is then fixed by
   these choices on the two cones.
 
+## 6b. F2: the prototype and what it measured (computed, D344; non-rigorous)
+
+- *The instrument.* `dnsolve5.py` evolves the class in double-null gauge. The section metric is written with the
+  record's regular combinations (hf_mirror5.py's F, G): with P = (2(1+x)m − (1−x)n)/3 and Q = (2(1−x)n − (1+x)m)/3,
+  the axis conditions 2P + Q = 0 at x = −1 and P + 2Q = 0 at x = 1 hold identically. Ric_11, Ric_22, Ric_xx give the
+  mixed derivatives of R, m, n; Ric(Y, ∂_v) = Ric_uv + β Ric_vx gives W's (its second v-derivatives cancel); Ric_vx
+  transports the shift along each outgoing cone. A second-order diamond scheme in (u, v), Chebyshev–Gauss in x. Its
+  selftest: Tangherlini at second order (S1), the Kretschmann scalar on flat space and Tangherlini (S2), and a control
+  with inconsistent data that does not converge (S3).
+
+- *The coordinate.* With u := −r on the first ingoing cone, the late interior is squeezed into an exponentially thin
+  u-interval (r − 1 ≈ (r₀ − 1)e^v): at v = 1.6 the region 0.54 ≤ R ≤ 1 spanned about four rows of a uniform grid, and
+  the scheme failed there at a v that moved with the cut and with resolution. A grid logarithmic in |1 + u| gives 107
+  rows there at v = 1.6 and 43 at v = 4.
+
+- *λ = 1 (L = 100).*
+  - *The record's break is passed.* Along an ingoing cone the outgoing expansion R_v acquires a second zero at
+    v = 1.425, where the record's Bondi chart broke (1.45). The double-null evolution continues through it.
+  - *Constraints.* Ric_vv, Ric(Y, Y) and Ric_ux, by differences on the solution, converge at second order or better
+    on common points up to v = 1.5 (ratios 4.1 to 16 between 380 and 760 rows).
+  - *The domain.* The curvature exceeds the record's bound near the inner cut from v ≈ 1.45 (x_K = 1.22 at R ≈ 0.58),
+    because the wave adds to the seed's curvature. So 𝒟_q is smaller than {R ≥ r_core}. Computed on the interior
+    strip u > −1.3 at 800 rows by 360 columns, M = 8: 113,682 of 125,265 cells, reaching v = 4.5.
+  - *Convergence on 𝒟_q* (400 against 800 rows, common points). Every field converges up to v ≈ 2.0: for
+    1.4 ≤ v < 2.0 the fine–coarse differences are 3 × 10⁻³ in R, 0.04 in m (of 0.85) and 2.5 in s (of 122). Beyond
+    v = 2 the shears m, n do not converge (differences comparable to their size), while R and W do (≤ 0.1 and 0.04).
+    W stays in [−0.35, 1.29] on 𝒟_q: no sign of a degenerate lapse.
+  - *Outside 𝒟_q.* Where x_K > 1 on the past, an axis growth starts at v ≈ 1.61, reproducibly (400 and 800 rows;
+    M = 12 at 1.64). 𝒟_q is a past set, so it does not reach 𝒟_q.
+
+- *λ = 0.3162 (L = 1000).*
+  - The second zero of R_v appears, and the evolution continues through it.
+  - It runs to v ≈ 3.3–3.4 of 4.5. There an axis growth starts at x = +1 just outside the horizon (R ≈ 1.2), where x_K
+    is small. Its onset moves later with angular resolution (M = 6, 8, 12: v = 1.86, 3.28, 3.44) and with (u, v)
+    resolution (3.28, 3.36): a resolution limit of the prototype, not a gauge breakdown. 𝒟_q is not yet computed here.
+
+- *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
+  the computed solution is a converged approximation on 𝒟_q up to v ≈ 2.0 of 4.5. Where the prototype fails, the
+  failure is resolution (the shears beyond v ≈ 2, the axis), not the gauge. G1 is not yet answered to the end of the
+  domain.
+
+- *Next.* More angular resolution with a filter at the axes, and refinement near the edge of 𝒟_q. Then 𝒟_q at
+  λ = 0.3162, and F3 (the certified linear constant) on the converged part.
+
 ## 7. Sources
 
 - READ: [Wu26] arXiv:2609.08421v1, (1.1) p. 2, Theorems 2.1-2.2 pp. 6-7, the residual formulas p. 12; [CCRT07], [MP11]
   and [RT12] as in ROUTES-OPEN.md section 2.
 
-- Computed: dnull5.py; the timings and the pulse's periods (D337).
+- Computed: dnull5.py; the timings and the pulse's periods (D337); dnsolve5.py and its runs (D344).
 
 - The record: growth5.py, ROUTES-OPEN.md 2 and 4.3, the paper's section 9.

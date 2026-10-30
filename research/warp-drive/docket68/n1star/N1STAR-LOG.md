@@ -6165,3 +6165,15 @@ on the radius uniform), now added with two small corrections. The reduction of l
 stands: they are explicit formulas in the Nash-Moser constants, the loss, the gluing's constants, the record's
 threshold, the given parameters, and a pair of thresholds that the nonlinear step's proof shows to exist but does not
 compute.
+
+**D344 (2026-10-30): a double-null evolution at the prescribed wavelength.** The feasibility study's first decisive
+question is whether the problem at 10 l5 can be evolved in double-null coordinates at all, since the record's own
+coordinates broke there. A prototype solver now exists (dnsolve5.py). It reproduces the exact seed at second order,
+and its curvature diagnostic reproduces the seed's curvature. On the record's data it passes the point where the
+record's chart broke, at both seeds. At the first seed the computed solution converges, on the region where curvature
+stays below the record's bound, up to about half the domain; beyond that the shears need more resolution. Two things
+were learned on the way: the natural first coordinate squeezes the late interior into a sliver, which a logarithmic
+grid fixes; and the wave raises the curvature above the bound near the inner edge earlier than the seed alone would,
+so the true domain is smaller than the seed suggests. At the second seed the run reaches about three quarters of the
+domain before an axis growth whose onset moves later with resolution. Nothing here is a bound; it is the measurement
+the study said to make first.

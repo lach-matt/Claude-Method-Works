@@ -4530,3 +4530,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Verifier 161: the existence of an admissible pair valid, no major; MIN-1 the tame constants taken >= 1 so that
   delta_G >= 4 eps_NM^((6d+2)/alpha) uniformly; NIT-1 III.C Cor 5.3 named; NIT-2 delta_G. Seated. Section 2 stands
   as a reduction (Proposition 2.1 confirmed by 155; Proposition 2.2 after 156-161).
+
+### 4.267 10 l5: F2, the prototype double-null solver (D344)
+
+- dnsolve5.py: the class in double-null gauge with the record's regular combinations (axis conditions identically);
+  Ric_11, Ric_22, Ric_xx -> (R, m, n)_uv; Ric(Y, d_v) -> W_uv; Ric_vx -> shift transport; diamond scheme, Chebyshev-Gauss
+  in x; Kretschmann from exact Christoffels and their exact derivatives. Selftest S1 (Tangherlini, ratio 3.90), S2
+  (flat 2e-26; Tangherlini K median rel. error 6.4e-3), S3 (control W + 0.01 v, ratio 1.00) pass.
+- Coordinate: u := -r on the first cone squeezes the late interior (r - 1 ~ (r0 - 1) e^v); grid u = -1 + a sinh xi,
+  a = 0.002, fixes it (107 rows in 0.54 <= R <= 1 at v = 1.6).
+- lambda = 1 (L = 100): second zero of R_v at v = 1.425 (the record's break, 1.45) passed; constraints converge at
+  second order to v = 1.5; x_K > 1 near the cut from v ~ 1.45 (wave curvature), so D_q < {R >= r_core}; D_q computed
+  (113,682 of 125,265 strip cells at 800 x 360, reaching v = 4.5); converged on D_q to v ~ 2.0 (400 vs 800), shears not
+  converged beyond; axis growth from v ~ 1.61 lies outside D_q.
+- lambda = 0.3162 (L = 1000): runs to v ~ 3.3-3.4; axis growth at x = +1 just outside the horizon, onset moving later
+  with M (1.86, 3.28, 3.44 at M = 6, 8, 12) and with (u, v) (3.28, 3.36): resolution, not the gauge.
+- G1 not yet answered to the end of the domain; next: angular resolution with an axis filter, refinement at D_q's
+  edge, D_q at lambda = 0.3162, then F3.
