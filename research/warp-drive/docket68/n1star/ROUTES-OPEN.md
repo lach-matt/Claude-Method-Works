@@ -4333,10 +4333,22 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   'for every eps_m > 0 and eps_t < eps_K'; section 4 runs VI.C through eps_K first. Nits: delta_U < C' in II.D Lemma
   4.1, zeta's neighbourhood inside U(delta_1), the status lines of II.B and II.D, 5 minor not 6, the paper's eps_K.
 - The three search-based completeness claims inside proof5: VI.C section 3 (gamma_C) and II.F' Lemma 2.1 (b)
-  (Definition 3.3 (3)) are now proved by complete enumeration: checks/gammac5.py (172 lines, 26 parts) and
+  (Definition 3.3 (3)) are now proved by complete enumeration: checks/gammac5.py (175 lines, 26 parts; 176 at D328) and
   checks/admiss5.py (104 lines, 5 parts) list every line that can use the property, with its class, and fail on any
   line they do not list; the completeness argument is that a use of a property must name its object.
 - Remaining: III.I16 Theorem 3.1's census of the uses of b_0 (finding (I^(15)5)). Route: line-by-line ledgers of
   III.I'-III.I^(14) and III.J-III.J''' (8,055 lines) in five batches, each use of the base point classed against
   (P1)-(P6), Lemma 1.2 and section 2.
 - Next: verifier 144 on the D327 repairs and the two enumerations; then the ledgers.
+
+### 4.251 Verifier 144 seated (D328): II.C' proved; the gamma_C argument restated
+
+- Report (scratchpad d327/verifier144.md): 0 major; 3 minor, 7 nits. A1 II.C' correct (nit: start slice on the boundary
+  of Omega_*; now T_flat := 2/C', inside it): II.C' proved. A2 II.D section 4's setting still on {t_* > 1}: now on
+  {t_* > T_flat}, delta_U < C'/2 (to be read). A3 VII correct (nit: eps(eps_m, eps_t)). B1 gamma_C: conclusion holds,
+  premise 'a use must cite it' false ((C1)-(C5), III.E Proposition 3.1, III.E', a split citation at III.F:163). Now:
+  a use at another value needs an operator with another damping parameter, named only through gamma_C, s_C, h or a
+  rescaled E_C; gammac5.py G3 checks there is none; labels fixed (F':55 R, III.E':21 F, III.K:49 T). B2 correct
+  (nit: why the five parts close the scope, added).
+- Both enumerations now read their classifications from checks/gammac5.tsv and checks/admiss5.tsv, keyed by line text.
+- Status: II.D, VI.C (section 3) to be read; III.I16's census: verifier 145 reading batch 1 of 5 of the ledger.

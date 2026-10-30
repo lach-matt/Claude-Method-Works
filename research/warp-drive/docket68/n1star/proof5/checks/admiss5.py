@@ -17,21 +17,11 @@ PAT = re.compile(r"(?<![a-zA-Z])p_0|(?<![a-zA-Z])p_1|h_I|triangular|Definition 3
                  r"\(3\) of II\.C")
 
 FILE_CLASS = {'PART-II-C2-TRAPPING.md': 'U'}
-LINE_CLASS = {
-    'PART-II-C-OPERATORS.md': {193: 'U', 194: 'U', 198: 'U', 208: 'U', 475: 'Df', 477: 'Df', 478: 'Df', 480: 'S',
-                               481: 'S', 489: 'N', 490: 'N', 491: 'N', 495: 'N', 497: 'N', 503: 'Df', 504: 'Df',
-                               507: 'R', 511: 'Df'},
-    'PART-II-D-REGULARITY.md': {54: 'N', 121: 'Th', 122: 'Th', 411: 'Th', 412: 'Th', 423: 'N', 434: 'N', 435: 'N',
-                                436: 'N', 438: 'N', 493: 'Th', 494: 'Th', 498: 'H', 499: 'H', 500: 'H', 501: 'H',
-                                504: 'Th', 505: 'Th', 506: 'Th', 568: 'U'},
-    'PART-II-D2-BREGULARITY.md': {328: 'N', 330: 'N', 331: 'N', 333: 'N', 337: 'N', 661: 'R'},
-    'PART-II-E-ENERGY.md': {23: 'R', 24: 'R', 79: 'N', 80: 'N', 81: 'N', 91: 'N', 92: 'N', 98: 'N', 101: 'R',
-                            102: 'R', 106: 'H', 109: 'H', 110: 'R', 122: 'N', 134: 'N', 135: 'H', 329: 'Th',
-                            341: 'Th', 357: 'N', 359: 'Th', 362: 'Th', 363: 'Th', 364: 'Th', 375: 'Th', 378: 'Th',
-                            380: 'Th', 396: 'Th', 402: 'Th', 403: 'Th', 423: 'Th', 442: 'Th', 506: 'Th', 520: 'Th',
-                            521: 'Th', 537: 'Th', 539: 'Th', 648: 'Th', 802: 'N', 803: 'N', 810: 'Th', 1210: 'R',
-                            1212: 'R', 1215: 'R', 1216: 'R', 1217: 'R', 1218: 'R', 1257: 'R', 1273: 'R'},
-}
+LINE_CLASS = {}
+for row in open(os.path.join(HERE, 'admiss5.tsv')):
+    if not row.startswith('#'):
+        f, c, x = row.rstrip('\n').split('\t', 2)
+        LINE_CLASS.setdefault(f, []).append((x, c))
 PARTS = ['PART-II-C-OPERATORS.md', 'PART-II-C2-TRAPPING.md', 'PART-II-D-REGULARITY.md', 'PART-II-D2-BREGULARITY.md',
          'PART-II-E-ENERGY.md']
 
@@ -43,15 +33,18 @@ for f in PARTS:
     if f in FILE_CLASS:
         n[FILE_CLASS[f]] = n.get(FILE_CLASS[f], 0) + len(h)
         continue
-    assert h == set(LINE_CLASS[f]), (f, sorted(h - set(LINE_CLASS[f])), sorted(set(LINE_CLASS[f]) - h))
-    for c in LINE_CLASS[f].values():
+    have = sorted(L[i - 1] for i in h)
+    want = sorted(x for x, c in LINE_CLASS[f])
+    assert have == want, (f, [x for x in have if x not in want][:3], [x for x in want if x not in have][:3])
+    for x, c in LINE_CLASS[f]:
         n[c] = n.get(c, 0) + 1
 print('A1 occurrences:', sum(n.values()), 'lines in', len(PARTS), 'parts; by class', dict(sorted(n.items())))
-tri = [(f, i) for f in PARTS for i, l in enumerate(text[f], 1) if 'triangular' in l]
-assert tri == [('PART-II-C-OPERATORS.md', 481)], tri
-D = text['PART-II-D-REGULARITY.md']
-assert 'Jordan' in D[499] and 'II.C Lemma 2.5' in D[498]
-E = text['PART-II-E-ENERGY.md']
-assert 'II.D Proposition 3.6' in E[105] and 'not needed' in E[109]
+cls = {(f, x): c for f in LINE_CLASS for x, c in LINE_CLASS[f]}
+tri = [(f, l) for f in PARTS for l in text[f] if 'triangular' in l]
+assert len(tri) == 1 and cls[tri[0]] == 'S', tri
+H = {f: [x for x, c in LINE_CLASS[f] if c == 'H'] for f in ('PART-II-D-REGULARITY.md', 'PART-II-E-ENERGY.md')}
+assert any('Jordan' in x for x in H['PART-II-D-REGULARITY.md'])
+assert any('II.C Lemma 2.5' in x for x in H['PART-II-D-REGULARITY.md'])
+assert any('II.D Proposition 3.6' in x for x in H['PART-II-E-ENERGY.md'])
 print('A2 "triangular" only in the statement of (3); h_I by Jordan scalings (II.D Proposition 3.6, II.E (1.2))')
 print('admiss5 checks pass')

@@ -1,0 +1,131 @@
+# file	class	line text (exact); generated from the line-number table of D327-D328
+PART-III-C-EXTERIOR.md	F	(The source's conditions (5.42), $v_C<1$, $0<e_C<1$, $\gamma_C>0$, $0<e_\Upsilon<1$, $\gamma_\Upsilon>0$, hold under
+PART-III-C-EXTERIOR.md	D	$$2(1-v_C)\gamma_C,\ (1-v_C)\gamma_C,\ (1-e_C)(1-v_C)\gamma_C,\ (1-e_\Upsilon)\gamma_\Upsilon,\ \gamma_\Upsilon,\ 0,\
+PART-III-C-EXTERIOR.md	F	$\gamma_\Upsilon<\min(\frac12s_C,\frac38)$ as an obligation for Part VI: $\gamma_\Upsilon<\min(\frac12s_C,\frac14)$.
+PART-III-C2-POLYHOM.md	F	with $\ell_0\notin\mathrm{Re}\,\pi_1\mathcal E_0$, $\ell_I<\ell_0$, $\ell_I<\frac32+(1-e_C)(1-v_C)\gamma_C$ and
+PART-III-C2-POLYHOM.md	F	A_{jj}\ge\frac32+(1-e_C)(1-v_C)\gamma_C>\ell_I\ge\beta$ ($1-e_C<1$). By induction the right side lies in $(\mathcal
+PART-III-E-CONSTRAINT.md	D	Definition 6.1 (6.2), for $v_C\in(0,1)$, $e_C$, $\gamma_C$ and a stationary $c_C\in|x|^{-1}C^\infty$ equal to
+PART-III-E-CONSTRAINT.md	D	$$\delta^*_{g,E_C} := \delta^*_g+E^C_g,\quad E^C_g\omega = \gamma_C\big(2c_C\otimes_s\omega-\tfrac23(1-e_C)\,
+PART-III-E-CONSTRAINT.md	S	large $|x|$ such that for all sufficiently large $\gamma_C$ and all $b$ near $b_0$:
+PART-III-E-CONSTRAINT.md	S	the finite scalar roots lie within $10^{-4}$ above 2 and fall below it when $1/\gamma_C>e_C$ (`damping5.py` U6):
+PART-III-E-CONSTRAINT.md	S	"sufficiently large $\gamma_C$" means $\gamma_C\gtrsim1/e_C$.)
+PART-III-E-CONSTRAINT.md	D	spectrum $\gamma_C\{2(1-v_C),(1-e_C)(1-v_C),1-v_C\ (\text{three times})\}$ (computed: `cpmodes5.py` K1; supplement 10.21
+PART-III-E-CONSTRAINT.md	F	Below, $C_0$, $v_C$, $e_C$, $c_C$ and $\gamma_C$ are fixed as in Theorem 1.1, and $b$ is near $b_0$. *An unweighted
+PART-III-E2-V1STATES.md	D	coefficient $c_0$ fixed by the vector type 1 indicial value $3(1+2v_C\gamma_C)$. The Killing rotations form a space of
+PART-III-E2-V1STATES.md	F	and the constants $v_C$, $e_C$, $\gamma_C$, $C_0$ are as in III.E; $g_b = \Phi_\mu^*g^{\mathrm{KS}}_{\mu,A}$ with III.B
+PART-III-E2-V1STATES.md	D	$$c_0 := \frac{\mu(1+2(1+v_C)\gamma_C)}{3(1+2v_C\gamma_C)},\qquad
+PART-III-E2-V1STATES.md	D	\kappa_C := \frac{1+2(v_C-1)\gamma_C}{1+2v_C\gamma_C}.\tag{3.1}$$
+PART-III-E2-V1STATES.md	D	$(\bar E_C)^*h = \gamma_C(2\iota_{\bar g^{-1}\bar c_C}h-\frac23(1-e_C)\bar c_C\,\mathrm{tr}\,h)$ gives
+PART-III-E2-V1STATES.md	D	$(\bar E_C)^*(f\,d\bar t\otimes_sV) = -\gamma_Cr^{-1}fV$ and $(\bar E_C)^*(f\,dr\otimes_sV) = -\gamma_Cv_Cr^{-1}fV$. So
+PART-III-E2-V1STATES.md	D	$$2(\bar\delta+\bar E_C^*)\bar Gh_0 = -\mu(1+2\gamma_C(1+v_C))r^{-5}V,\qquad
+PART-III-E2-V1STATES.md	D	2(\bar\delta+\bar E_C^*)\bar G\,\bar\delta^*(c_0r^{-3}V) = 3c_0(1+2\gamma_Cv_C)r^{-5}V,$$
+PART-III-E2-V1STATES.md	D	which cancel by (3.1); $3(1+2v_C\gamma_C)$ is the vector type 1 indicial value $N(\rho^{-2}P^*,2)$ (supplement 10.31
+PART-III-E2-V1STATES.md	D	$\rho^3\leftrightarrow\rho^2$ and the bracket for the cross product, the same coefficients $1+2(v_C\mp1)\gamma_C$ over
+PART-III-E2-V1STATES.md	D	$1+2v_C\gamma_C$ appear, up to the orientation convention of the spin (supplement 10.36 (ii)), and the indicial value
+PART-III-E2-V1STATES.md	D	$3(1+2v_C\gamma_C)$ replaces his $2+4\gamma_Cv_C$. In his ansatz the term $\rho S(a)S'dr+\frac12\slashed d(S(a)S')$
+PART-III-E2-V1STATES.md	D	indicial value $3(1+2v_C\gamma_C)$; the leading term (3.3) has the source's coefficients $1+2(v_C\mp1)\gamma_C$ over
+PART-III-E2-V1STATES.md	D	$1+2v_C\gamma_C$. $e_C$ drops out, the tensors involved being trace-free, as in the source.
+PART-III-F-LINEARISED.md	F	$C_0 = 100$, and $c_C$, $e_C\in(0,1)$, $\gamma_C$ from III.E Theorem 1.1, with $\gamma_C$ so large that
+PART-III-F-LINEARISED.md	F	$(1-e_C)(1-v_C)\gamma_C>100$, so that the constraint propagation operator $\Box^C_b$ is mode stable, enhanced at zero
+PART-III-F-LINEARISED.md	D	$\bar E^Ch := \gamma_C(2\bar c_C\otimes_s\omega-\frac23(1-e_C)\bar g\,\iota_{\bar g^{-1}\bar c_C}\omega)$ on 1-forms
+PART-III-F-LINEARISED.md	D	$$\mathrm{spec}\,\bar S = \{0\ (5\times)\}\cup\gamma_C\{2(1-v_C),\,(1-e_C)(1-v_C),\,1-v_C\ (3\times)\}
+PART-III-F-LINEARISED.md	D	$\bar G\bar E^C\omega = \gamma_C(2\bar c_C\otimes_s\omega-e_C\bar g\langle\bar c_C,\omega\rangle)$ (III.B (6.5)),
+PART-III-F-LINEARISED.md	D	$$\gamma_C^{-1}\bar S^C\omega = (1-v_C)\omega-\omega(X)\,\bar c_C/\rho+e_C\langle\bar c_C/\rho,\omega\rangle\,dt_*,$$
+PART-III-F-LINEARISED.md	T	function homogeneous of degree 0 (D231). Write $c_C = \sum_\mu c_\mu e_\mu$; as $c_C$ is past timelike (III.E Theorem
+PART-III-F-LINEARISED.md	D	$\gamma := C^{1/2}\gamma_C/\sigma>0$ ($\sigma>0$ on $\Gamma_{b_0}$, which lies in the future characteristic set over
+PART-III-F-LINEARISED.md	D	divided by $\gamma_C$) and $R$ acts as a derivation.
+PART-III-F-LINEARISED.md	T	Proposition 4.1; III.E Theorem 1.1 and section 1; I.A-I.B (H1), (H2), (H6), (H7) and I.B Lemma 6.0; (Dyn). Standard
+PART-III-F2-INDICIAL.md	D	$\bar E^C\omega = \gamma_C(2\bar c_C\otimes_s\omega-m(1-e_C)\bar g\langle\bar c_C,\omega\rangle)$,
+PART-III-F2-INDICIAL.md	T	$\bar c_C = r^{-1}(d\bar t-v_C\,dr)$ (III.B (6.5), III.E Theorem 1.1); so $\bar E^\Upsilon\bar Gh =
+PART-III-F2-INDICIAL.md	F	the parameter of III.D Lemma 4.1; $v_C$, $e_C$, $c_C$ and $\gamma_C$ are those of III.E Theorem 1.1, with $C_0 = 100$
+PART-III-F2-INDICIAL.md	T	(C1) (III.E Theorem 1.1 (3), with its count by type; it needs $\gamma_C$ large relative to $e_C^{-1}$, the theorem's
+PART-III-F2-INDICIAL.md	T	parenthesis recording that the finite scalar roots fall below 2 when $\gamma_C^{-1}>e_C$.) Every indicial root of
+PART-III-F2-INDICIAL.md	T	(C1)-(C4) are III.E Theorem 1.1 (3) as amended in D231: (C1) with the count by type that the source's Lemma 8.4 reads
+PART-III-F2-INDICIAL.md	R	At the record's parameter point $(v_C,e_C,\gamma_C) = (\frac12,\frac1{102400},10^6)$ they are computed: (C1) by
+PART-III-F2-INDICIAL.md	D	*Proof.* Computed, exact (`lin5.py` E2, with $l$, $\gamma_\Upsilon$, $e_\Upsilon$, $\gamma_C$, $e_C$, $v_C$ symbolic; E1
+PART-III-F2-INDICIAL.md	D	**Lemma 2.2 (vector type 1 of $\Box^C$).** $N_C(\lambda) = -(\lambda-3)(\lambda+1+2\gamma_Cv_C)$ at vector type 1. So
+PART-III-F2-INDICIAL.md	D	the roots are $3$ and $-1-2\gamma_Cv_C$.
+PART-III-F2-INDICIAL.md	D	$k\in\mathrm{span}(d\bar t,dr)$, so $\bar\delta^*_{\bar E^C}(fV) = (df+2\gamma_Cf\bar c_C)\otimes_sV =
+PART-III-F2-INDICIAL.md	D	(F_r\,dr+F_t\,d\bar t)\otimes_sV$, with $F_r = f'-2\gamma_Cv_Cf/r = -(\lambda+1+2\gamma_Cv_C)r^{-\lambda-2}$, and
+PART-III-F2-INDICIAL.md	D	$\bar\Box^C(fV) = -(F_r'+5F_r/r)V = -(\lambda+1+2\gamma_Cv_C)(\lambda-3)r^{-2}fV$. (*Computed:* `linroots5.py` R1,
+PART-III-F2-INDICIAL.md	D	v1: $-2-2\gamma_Cv_C$, $-1$; $3$, $4$;
+PART-III-F2-INDICIAL.md	D	root $-1-2\gamma_Cv_C$ minus 1 avoid $0$ and $2$. What remains is the list.
+PART-III-F2-INDICIAL.md	D	themselves by (C2), and at v1 the four are distinct as $\gamma_Cv_C>0$. A root from $\Box^C$ equals an integer entry of
+PART-III-F2-INDICIAL.md	H	homogeneous. And it holds for the operators of III.F Lemma 2.1 with the parameters $(\gamma_C,\gamma_\Upsilon)$ replaced
+PART-III-F2-INDICIAL.md	H	by $(\tau\gamma_C,\tau\gamma_\Upsilon)$, $\tau\in[0,1]$, or by $(0,\gamma_\Upsilon)$, which satisfy (H1)-(H2) by the
+PART-III-F2-INDICIAL.md	H	$(\tau\gamma_C,\tau\gamma_\Upsilon)$, uniformly for $\gamma_\Upsilon\in[0,1]$ and $\tau\in[0,1]$; by I.C Theorem 4.3 (3)
+PART-III-F2-INDICIAL.md	T	*Step 4.* By III.E Theorem 1.1 (4), $\widehat{\Box^C_b}$ is tf-admissible with the weight $\beta_C\in[-C_0,2)$, so
+PART-III-F2-INDICIAL.md	D	$2\bar L' = \bar\Box+2\bar\delta^*\bar E^\Upsilon\bar G$ does not involve $\gamma_C$.
+PART-III-F2-INDICIAL.md	F	$CC'\gamma_\Upsilon\le\frac12$. This fixes $\gamma_1$; it depends on the orders, hence on $\gamma_C$, which is fixed
+PART-III-F2-INDICIAL.md	T	(C4). (C2)-(C4) are added to the obligations of Part IV, written into III.E Theorem 1.1 (3) in D231.
+PART-III-F3-MODES.md	F	$x := a_v\gamma_Cr_h$, $y := c_v\gamma_{\Upsilon,H}r_h$. At $N^*\mathcal H$, $\zeta = \xi\,dr$, the subprincipal symbol
+PART-III-F3-MODES.md	F	$s>\frac12+\vartheta_L$. With III.D$'$'s choice $c_{\Upsilon,H} = -\frac12\chi\,dr$ ($y = 0$), $x = a_v\gamma_Cr_h>0$
+PART-III-F3-MODES.md	F	so $\vartheta_L = \max(0,2-2x)$: it is 0 when $a_v\gamma_Cr_h\ge1$, and below 2 always; 2, the threshold $s>\frac52$ of
+PART-III-F3-MODES.md	D	the source's footnote 78, is its value without the damping ($\gamma_C = 0$), which that footnote ignores. For every
+PART-III-F3-MODES.md	D	and at $\gamma_C = \gamma_{\Upsilon,H} = 0$ the polynomial $(k-2)(k+2)(k-1)^3(k+1)^3k^7$, the sums of two of the 1-form
+PART-III-F3-MODES.md	T	$\Box^C_{b_0}$, which satisfies (H1)-(H4) (III.E), and III.E Theorem 1.1 (1), $\eta = 0$. So $D\mathrm{Ric}(h) = 0$ and
+PART-III-F3-MODES.md	F	$s>\frac12+\max(0,2-2a_v\gamma_Cr_h)$ with III.D$'$'s horizon modification and $a_v>0$ ($c_C$ past timelike), below the
+PART-III-F4-ZERO.md	T	$\eta\in\bar H^{s',1}_{\mathrm b}$ for every $s'$, which is the Euclidean weight $-1$, and $-1+2\in[-C_0,2)$, III.E
+PART-III-F5-PAIRINGS.md	T	(possible as $C_0>1$), III.E Theorem 1.1 (2) gives $\eta = 0$; then
+PART-III-G2-IOTA.md	D	**Lemma 1.1 ($\bar S$ is semisimple).** Let $\gamma_\Upsilon<\min(\frac12s_C,\frac38)$, $s_C := \gamma_C(1-e_C)(1-v_C)$.
+PART-III-G2-IOTA.md	D	There, $\bar S^C$ and $\bar S^\Upsilon$ leave the angular covectors invariant and act on them as $\gamma_C(1-v_C)$ and
+PART-III-G2-IOTA.md	D	entries $\gamma_C(1-e_C)(1-v_C)$, $2\gamma_C(1-v_C)$ and $2\gamma_\Upsilon$, $\gamma_\Upsilon(1-e_\Upsilon)$
+PART-III-G2-IOTA.md	D	$\mathrm{spec}\,\bar S^\Upsilon\subset(0,2\gamma_\Upsilon]$ and $\mathrm{spec}\,\bar S^C\subset[s_C,\infty)$. Let $p_1$,
+PART-III-G2-IOTA.md	D	$\gamma_\Upsilon = \gamma_C(1-v_C)$, where the two spectra meet, $\bar S$ has a Jordan block.) $\square$
+PART-III-G2-IOTA.md	D	 = \gamma_C\{(1-e_C)(1-v_C),\ 1-v_C,\ 2(1-v_C)\},\qquad\Pi_C := \sum_{s\in\sigma_C}\Pi_s,\tag{1.4}$$
+PART-III-G2-IOTA.md	D	$\min\sigma_C = s_C$. The source works in his splitting (5.27). There $\bar S$ is lower triangular ((8.8)), and one
+PART-III-G2-IOTA.md	D	s1 and v1; $-2-2\gamma_Cv_C$ at v1; and $2-\lambda^\Upsilon_{\mathrm sl,l+j}$ ($j = 1,2$) and
+PART-III-G2-IOTA.md	F	$\gamma_\Upsilon<\min(\frac12s_C,\frac38)$ (the source's $0<\gamma_\Upsilon\ll1$; D240). Let $\lambda\in\mathbb C$ be
+PART-III-G2-IOTA.md	F	(1) (*Conormality and polyhomogeneity.*) For every $\ell_I<\frac32+s_C$ and every $\ell<\frac52+s_C$, with
+PART-III-G2-IOTA.md	F	(2) (*Finite regularity.*) Let $\ell_I<\frac32+s_C$ with
+PART-III-G2-IOTA.md	F	proof). Fix $\ell_I<\frac32+s_C$ with $\ell_I\notin\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I}$; it
+PART-III-G2-IOTA.md	F	$\mathrm{Re}(\frac32+s)\ge\frac32+s_C>\ell_I\ge\vartheta_{j+1}$, so
+PART-III-G2-IOTA.md	F	holds up to order $2+(1-e_C)(1-v_C)\gamma_C$ ($\frac52+s_C$ at $n = 4$, (3.2)). Beyond that, the large eigenvalues of
+PART-III-G3-GRAFT.md	F	$\gamma_\Upsilon<\min(\frac12s_C,\frac38)$ (III.G$'$ Lemma 1.1), (C1) (III.F$'$), and (C2)-(C3) with
+PART-III-G3-GRAFT.md	F	$$\ell_K^{\max} := \min(3,\ 2+2\gamma_Cv_C),\tag{1.1}$$
+PART-III-G3-GRAFT.md	F	so that the vector type 1 root $-2-2\gamma_Cv_C$ of III.F$'$ Proposition 2.3 lies below the window. The other roots from
+PART-III-G3-GRAFT.md	F	(C5) $\gamma_Cv_C\ge\frac12$, an obligation for Part VI at the record's parameters.
+PART-III-G3-GRAFT.md	F	excluded ones. Excluded: the $\lambda^C_{\cdot,\ll,\cdot}-1$ (real part $<-101$); $-2-2\gamma_Cv_C$ (below
+PART-III-G3-GRAFT.md	F	$\ell_K\notin\mathrm{Re}\,\pi_1\mathcal E_K$. Let $\ell_I<\frac32+s_C$,
+PART-III-G3-GRAFT.md	F	(G$''$1) *The window at $n = 4$ is $\ell_K<3$ (with (C5), or $\ell_K<2+2\gamma_Cv_C$ without it), conditionally.*
+PART-III-G3-GRAFT.md	F	(G$''$2) *The v1 root of $\Box^C$*, $-2-2\gamma_Cv_C$, is the one root from the constraint operator that can enter the
+PART-III-G3-GRAFT.md	F	window. It is excluded by (C5), $\gamma_Cv_C\ge\frac12$, an obligation for Part VI. Without (C5) the window is
+PART-III-G3-GRAFT.md	F	$\ell_K<2+2\gamma_Cv_C$, which still serves every $\lambda>2-2\gamma_Cv_C$.
+PART-III-G4-RESONANT.md	D	*What n = 4 changes.* (a) The source's (9.44), $1<\ell_I<1+(1-e_C)(1-v_C)\gamma_C$, becomes
+PART-III-G4-RESONANT.md	F	$\frac32<\ell_I<\frac32+s_C$, with $s_C := \gamma_C(1-e_C)(1-v_C)$ (and $\ell_I$ off the real parts of
+PART-III-G4-RESONANT.md	F	$K^+$ is III.G$''$'s, below $\ell_K^{\max} = \min(3,2+2\gamma_Cv_C)$. The harmonic degrees there are at most 4 (the
+PART-III-G4-RESONANT.md	F	3.2. The parameters are those of III.G$'$ Theorem 3.1, with $\gamma_\Upsilon<\min(\frac12s_C,\frac14)$ (III.C (1.1)).
+PART-III-G4-RESONANT.md	F	$$\tfrac32<\ell_I<\tfrac32+s_C,\qquad\ell_I\notin\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_I,\tag{1.2}$$
+PART-III-G4-RESONANT.md	F	from every other diagonal entry (all seven are distinct, as $2\gamma_\Upsilon<s_C$) has $x_i = 0$ for $i<j$, $x_j = 1$,
+PART-III-G4-RESONANT.md	F	$\mathrm{Re}\,z-\frac32\in (2\gamma_\Upsilon,s_C)$ (III.C Definition 3.1 (2) and (1.2)), and
+PART-III-G4-RESONANT.md	F	$\mathrm{spec}\,\bar A\subset[0,2\gamma_\Upsilon]\cup [s_C,\infty)$ (III.F (3.1)). So $z-\frac32-\bar A$ is invertible,
+PART-III-H3-UNIFORM.md	F	damping $(c_C,e_C,\gamma_C)$ of III.F section 1, with $e_C\in(0,1)$, $\gamma_C>0$, and (Dyn) (III.D, introduction).
+PART-III-H3-UNIFORM.md	T	(B3) $c_C$ is past timelike for $g_b$ over $U_\Gamma$ (III.E Theorem 1.1 at $b_0$, and continuity over the closure
+PART-III-H3-UNIFORM.md	D	$$iS_{\mathrm{sub}}(2L_b) = H_G+\sigma(A+\Omega),\qquad A := N_1+2\gamma_C\,E^C_{(c)}(-\iota_{E_2})G,\tag{1.3}$$
+PART-III-H3-UNIFORM.md	D	$\gamma_C$. This is III.F (4.2) with $N_1$ for $2N$, $\gamma_C$ for $\gamma$ and $\Omega$ for $\kappa R$. III.F's
+PART-III-H3-UNIFORM.md	D	$0,0,0,-2(1-e_C)\gamma_Cc_2,0,-2\gamma_Cc_2,-4\gamma_Cc_2$. $N_1$ lowers $W$ (by at least 1, as it lowers $\mathrm{wt}$
+PART-III-H3-UNIFORM.md	F	$\gamma_C$ and the components $c_\mu$, which are continuous on $O$ and in $b$; as $\Gamma_b\cap\{\sigma = 1\}$ lies in a
+PART-III-H3-UNIFORM.md	T	6.1, sections 2.3 and 3.1, Remark 7.1; III.B Lemma 3.7; III.D section 1, section 5.2, Lemma 5.2; III.E Theorem 1.1;
+PART-III-I11-SPACETIME.md	F	(C5) $\gamma_Cv_C\ge\frac12$ (III.G$''$ section 1), so that $\ell^{\max}_K = \min(3,2+2\gamma_Cv_C) = 3$ (III.G$''$
+PART-III-I11-SPACETIME.md	F	$\ell_I<\frac32+s_C$ (III.G$''$ Theorem 4.2) is no restriction, $s_C$ being large by (C1).
+PART-III-I11-SPACETIME.md	F	L)\subset\{\mathrm{Re}\ge2\}$, III.G$'$ Lemma 4.2 (a)); $\ell_I<\frac32+s_C$, $\ell_I\notin\mathrm{Re}\,\pi_1\mathcal
+PART-III-I11-SPACETIME.md	F	without (C5), $\ell^{\max}_K = 2+2\gamma_Cv_C$ could fall below $\alpha-\lambda_\sharp\approx\frac52$. The terms of
+PART-III-I2-SCRI.md	F	$\ell_I^{\max} = \frac32+(1-e_C)(1-v_C)\gamma_C$, the least indicial root of the $\pi_C$-slots ((I$'$2)). Notation:
+PART-III-I2-SCRI.md	F	$\lambda_C\in\gamma_C\{2(1-v_C), (1-v_C),(1-e_C)(1-v_C)\}$ those on slots 1-3 (III.C (4.3)). III.F section 1 takes
+PART-III-I2-SCRI.md	F	$(1-e_C)(1-v_C)\gamma_C>100$. Put
+PART-III-I2-SCRI.md	F	$$\ell_I^{\max} := \tfrac32+(1-e_C)(1-v_C)\gamma_C\ (>100).\tag{1.1}$$
+PART-III-I2-SCRI.md	F	\frac32+(1-e_C)(1-v_C)\gamma_C$ keeps $\ell_I$ below the $\pi_C$-roots, which the source states as
+PART-III-I2-SCRI.md	F	$3+\epsilon_I<1+(1-e_C)(1-v_C)\gamma_C$. At $\iota^+$ likewise $\ell_+<a_++\min\mathrm{Re}\,\mathcal E_+$. Proposition
+PART-III-I6-ALMOSTBDD.md	F	$\ell_I^{\max} = \frac32+s_C$, $s_C = \gamma_C(1-e_C)(1-v_C)$ (III.I$'$ (1.1), III.G$'$ Lemma 1.1), and write
+PART-III-I6-ALMOSTBDD.md	F	admissible in III.G$'$ Theorem 3.1 (2) ($\ell_K>-1$) and below $\ell_K^{\max} = \min(3,2+2\gamma_Cv_C)\ge2$ (III.G$''$
+PART-III-I6-ALMOSTBDD.md	F	$\ell_I<\frac32+s_C$, $\ell_I\notin\mathrm{Re}\,\pi_1\mathcal E^{\mathrm{tot}}_{\iota^+,\mathscr I} =
+PART-III-I9-COMMOTION.md	F	(below $\ell^{\max}_K = \min(3,2+2\gamma_Cv_C)$ and off its exclusions by admissibility), gives $u_\iota = \sum
+PART-III-J-PARAM.md	F	$\ell_I$ is the class's, with $\ell_I>3+\epsilon_+$ (III.I$''''''''''$ (H4)), and III.G$'''$ (1.2) holds, $s_C$ being
+PART-III-K-NONLINEAR.md	T	this part also needs on a slab near $\mathscr I^+$ (finding (K2)), and III.E Theorem 1.1. Theorem 4.3 is proved here
+PART-III-K-NONLINEAR.md	T	*Parameters* (the source's Step 1). $E_C$ is given by III.E Theorem 1.1 with $v_C = \frac12$, $C_0 = 100$ and $\gamma_C$
+PART-III-K-NONLINEAR.md	F	large, so that $(1-e_C)(1-v_C)\gamma_C>100$. $E_\Upsilon =
+PART-III-K-NONLINEAR.md	T	$\phi_S(\{t_{\mathrm{IVP}}\ge0\})\cap\{t_*\le2\}$", p. 321). (c) III.E Theorem 1.1 (constraint damping), which III.E
+PART-III-K-NONLINEAR.md	T	III.E Theorem 1.1; III.F$'$ Proposition 3.3; III.G$''$ section 4; III.H$''$ (B2); III.I (1.1), (1.2), (1.4);
+PART-IV2-TAME.md	D	$$2(1-v_C)\gamma_C,\ (1-v_C)\gamma_C,\ (1-e_C)(1-v_C)\gamma_C,\ (1-e_\Upsilon)\gamma_\Upsilon,\ \gamma_\Upsilon,\ 0,\
+PART-IV3-NM.md	D	The diagonal (4.3) of III.C is $2(1-v_C)\gamma_C$, $(1-v_C)\gamma_C$, $(1-e_C)(1-v_C)\gamma_C$,
+PART-IV3-NM.md	F	1: $(1-e_C)(1-v_C)\gamma_C>100$, $0<e_C,v_C<1$), and

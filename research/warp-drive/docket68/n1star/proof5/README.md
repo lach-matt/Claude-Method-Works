@@ -22,8 +22,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.A' | [Hin26c] 3.23-3.24, k = 0 | elliptic and propagation estimates, finite regularity | **proved** (D197) |
 | II.B | [Hin26c] 4 | null-bicharacteristic dynamics of the stationary model | verified (D197); proved (D326: verifier 142 read the repairs) |
 | II.C | [Hin26c] 5, 6 but 6.3 | operator classes, admissibility, time function, order functions | verified (D200); the D226 remark confirmed (D229); proved (D327: verifier 143 read the D326 repair) |
-| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201); repairs read (D326, D327: the start time T_flat carried into sections 3.2-3.3, to be read) |
-| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204); proved (D326: verifier 142 read the repairs) |
+| II.C' | [Hin26c] 6.3 | stable and unstable trapped sets of perturbed metrics | verified (D201); proved (D328: verifier 144 read the D327 repair; T_flat := 2/C') |
+| II.D | [Hin26c] 7.1 | microlocal regularity: radial sets, the trapped set, the global estimate | verified (D204); proved (D326); a D328 repair, section 4's setting at T_flat, to be read |
 | II.D' | [Hin26c] 7.2 | b-regularity and estimates tame in it | verified (D206); proved (D327: verifier 143 read the D326 repair) |
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207); proved (D327: verifier 143 read the D326 repair) |
 | II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | **proved** (D216) |

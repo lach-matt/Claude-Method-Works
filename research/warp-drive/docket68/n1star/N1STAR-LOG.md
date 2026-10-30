@@ -6008,8 +6008,20 @@ the metric need not be defined. They now begin at the new time too. Two smaller 
 repaired: the settling theorem's statement now names the decay rate among the things its constants depend on, and the
 paper says where the decay parameter is chosen. Of the three places where the write-out still rested on a search of its
 own text, two are now proved by complete enumeration. Where the parts use the constraint damping parameter, a script
-lists every line that can use it, 172 in 26 parts, and classifies each: the damping theorem is applied at one fixed
+lists every line that can use it, 175 in 26 parts, and classifies each: the damping theorem is applied at one fixed
 value only. Where the energy and regularity parts were said not to use a triangular structure assumed of the operators,
 a second script lists every line that names the objects that structure is about, 104 in five parts: none uses it. Each
 script fails if a line appears that it does not list. The third search, the transfer of the linear theory to rotating
 black holes, rests on reading about eight thousand lines, and is next.
+
+**D328 (2026-10-30): the damping argument restated.** The reader of the last repairs found them sound but for three
+points. The trapped-set part's new start time had not been carried into the regularity part's setting, which still began
+at the old time; it now begins at the new one, and the start time is doubled so that it lies inside the region where the
+metric is defined rather than on its edge. The trapped-set part is now proved. The enumeration for the damping parameter
+reached the right conclusion from a premise that was too narrow: the damping theorem's content also reaches the parts
+through conditions and results derived from it that do not cite it by name. The argument now rests on what any use at
+another value would need, an operator with a different damping parameter, which can be written only through that
+parameter; the script now also catches a citation split across a line in the other direction, and checks that no
+rescaled damping operator occurs. Both scripts now key their classifications to the text of each line rather than its
+number, so that an edit elsewhere in a file no longer breaks them while a changed line still does. The reading of the
+transfer to rotating black holes has begun with its first batch.

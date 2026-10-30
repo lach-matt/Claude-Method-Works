@@ -1,16 +1,17 @@
 # Part VII: Theorem 4 assembled
 
-*Status.* Written (D322); verified (D323: verifier 140's three minor findings and twelve notes repaired); proved (D324:
-verifier 141 read the repairs, correct; three notes seated). This part proves the paper's Theorem 4 (RESPONSE-HL-5D.md
-section 8.8) from Parts III-VI and the record, in the form of Theorem 0.2. In (i), the data of the record's solution
-after the shell, on III.K's initial surface, are continued G-equivariantly to exact Tangherlini data far out (section
-2). Their development is G-invariant and settles to Tangherlini, by III.K run in the class (section 3). In (ii), every
-perturbation of those data that is small in III.K's data class has a development settling to a Myers-Perry metric (III.K
-Theorem 4.3). Five findings change what the paper states (section 5). (VII1): (ii) is stated for perturbations in
-III.K's data class. The record's gluing of a general decaying perturbation (10.63) replaces its data near infinity, and
-the late-time solution near the hole depends on those data. (VII2): III.K's data weight must exceed $3+\epsilon_+$;
-VI.C's rows d1-d2 omitted this, and they are repaired. (VII3): the initial surface is III.K's $\Sigma_{\mathrm{IVP}}$,
-not the record's $\tau$-slice, so no Cauchy stability argument is needed. (VII4): the rate is
+*Status.* Amended (D326-D327: $\epsilon_t$ in Theorem 0.2 and section 4), the amendment read by verifier 144 and found
+correct, one nit seated (D328). Written (D322); verified (D323: verifier 140's three minor findings and twelve notes
+repaired); proved (D324: verifier 141 read the repairs, correct; three notes seated). This part proves the paper's
+Theorem 4 (RESPONSE-HL-5D.md section 8.8) from Parts III-VI and the record, in the form of Theorem 0.2. In (i), the data
+of the record's solution after the shell, on III.K's initial surface, are continued G-equivariantly to exact Tangherlini
+data far out (section 2). Their development is G-invariant and settles to Tangherlini, by III.K run in the class
+(section 3). In (ii), every perturbation of those data that is small in III.K's data class has a development settling to
+a Myers-Perry metric (III.K Theorem 4.3). Five findings change what the paper states (section 5). (VII1): (ii) is stated
+for perturbations in III.K's data class. The record's gluing of a general decaying perturbation (10.63) replaces its
+data near infinity, and the late-time solution near the hole depends on those data. (VII2): III.K's data weight must
+exceed $3+\epsilon_+$; VI.C's rows d1-d2 omitted this, and they are repaired. (VII3): the initial surface is III.K's
+$\Sigma_{\mathrm{IVP}}$, not the record's $\tau$-slice, so no Cauchy stability argument is needed. (VII4): the rate is
 $t_*^{-(\alpha-2)+\epsilon}$, slightly below the paper's $t_*^{-2-\epsilon_K}$, and the record's solution and the
 settling development are related through their common data on a ball. (VII5): the class run needs the choices of Parts
 III-IV made O(4)-equivariant, which is possible (Lemma 3.1): cut-offs and gauge 1-forms are radial, and linear maps and
@@ -398,11 +399,11 @@ $\epsilon_t<\epsilon_K$, take $\alpha>4+\epsilon_t$ in row w2 and finish its ste
 on $\epsilon_t$; D326-D327). In III.K Theorem 3.2's proof, apply II.G Theorem 2.1 with its radius $\delta$ replaced by
 $\min(\delta,\epsilon_m)$: its hypotheses restrict to the smaller set, and its $\epsilon_{\mathrm{NM}}$ then depends on
 $\epsilon_m$. This gives III.K Theorem 4.3 with $|b-b_0|\le|U|_{3d}<\epsilon_m$ and $|S|<\epsilon_m$ (III.K Lemma 2.3's
-proof), for data of norm below some $\epsilon = \epsilon(\epsilon_m)$, with $d_1$ as before. In (i), $\epsilon$ is
-moreover taken below the threshold for which Proposition 3.2's run of II.G Theorem 2.1 applies (through the equivalence
-of the norms). Take $k := d_1+5$ in Proposition 2.2, then $R\ge\max(R_{\mathrm{gl}},R_3)$, then $c_0$ and $\Omega'$ by
-Lemma 1.2, $J := k+5$ in Lemma 1.1, and $\lambda_1$ so small that $C_R\lambda_1<\frac12\epsilon$. Put $\delta :=
-\frac12\epsilon$.
+proof), for data of norm below some $\epsilon = \epsilon(\epsilon_m,\epsilon_t)$ (D328), with $d_1$ as before. In (i),
+$\epsilon$ is moreover taken below the threshold for which Proposition 3.2's run of II.G Theorem 2.1 applies (through
+the equivalence of the norms). Take $k := d_1+5$ in Proposition 2.2, then $R\ge\max(R_{\mathrm{gl}},R_3)$, then $c_0$
+and $\Omega'$ by Lemma 1.2, $J := k+5$ in Lemma 1.1, and $\lambda_1$ so small that $C_R\lambda_1<\frac12\epsilon$. Put
+$\delta := \frac12\epsilon$.
 
 *(i).* Corollary 2.3 gives $(\gamma_\lambda,k_\lambda)$, $G$-invariant, smooth and vacuum, with
 $\|(\gamma_\lambda-\gamma_{b_0},k_\lambda-k_{b_0})\|_{d_1}<\frac12\epsilon$. By Lemma 0.1 the differences lie in
