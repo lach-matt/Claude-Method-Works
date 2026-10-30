@@ -4016,3 +4016,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   interior of I_0, which the source cites from [HV20, Proposition 4.3] and which is written out here.
 - Next: Part IV's tensor operator and tame estimates ([Hin23a] sections 3.3-3.5), then section 3.6 with III.C'
   Theorem 2.1, the cut-off gauge (C''2) and the slab (K2); [Hin26a] for III.E Theorem 1.1.
+
+### 4.226 Verifier 131 seated (D302): III.I(15) repairs
+
+- Verifier 131 read the D299 repairs: 1 major, 3 minor, 8 nits. Verifier 130's M1 (outside the continuity step), m1
+  and m4 are resolved, and (I(15)3) is settled: E^nu's iota+-exponents lie in E^natural + 2.
+- M1: Step 3's A_k -> 0 across b rested on continuity lemmas proved by perturbation from L_{b_0}, whose remainder has
+  K+-weight at most lambda_sharp + 1 at b != b_0. Repair: A_k is bounded directly by the uniform bounds of S and A_b
+  and the smallness of r^nu + E^nu, Delta_q, R_q; the continuity lemmas are used at fixed b with base point (0, p_b).
+- m1: the cut-off split is dropped. f^nu_b is III.I(9) Lemma 2.6 (c) with every object at b, and E^nu is the
+  b-difference of the corrections and counterterms, of K+-weight kappa_nu > alpha. m2: III.I(11) Theorem 4.1 and
+  III.I(13) Proposition 2.4 are used at b only inside Lemma 2.4 and Proposition 2.5. m3: A_b and E^nu enter III.J'''s
+  tame inventory.
+- Next: verifier 133 reads the D302 repairs, after verifier 132 (III.K and Part IV).

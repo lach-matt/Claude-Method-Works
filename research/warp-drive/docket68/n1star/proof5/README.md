@@ -1178,7 +1178,12 @@ III.I(14) Theorem 3.1's Steps 2-3 and its uniqueness had not been carried to b. 
 b, with the rotation rows at their assigned coordinates) and Proposition 2.5 (the rotation rows are new rows of their
 levels, fixed inside the elimination; uniqueness holds with the assigned coordinates, Remark 2.6). Four minors were also
 repaired: the sign; the mismatch E^nu between rows at b and corrections at b_0; the continuity lemmas added to the list;
-the reason v1 is excluded. To be read.
+the reason v1 is excluded. To be read. D302: verifier 131 found the D299 repairs sound except one major point. The
+elimination's smallness across b had been claimed by continuity lemmas that perturb from L_{b_0}, and L_b - L_{b_0}
+gains only 2 at K+. It is now a direct bound, A_k = O(|h| + |p - p_b| + |q| + |b - b_0|), from the uniform bounds; the
+continuity lemmas are used at fixed b only. The mismatch E^nu is redefined as the b-difference of the corrections and
+counterterms, of K+-weight kappa_nu > alpha, and its iota+-exponents are settled. Two minors and eight nits are also
+seated. To be read.
 
 `PART-III-J-PARAM.md`. [Hin26] section 12 to Remark 12.6 at $n = 4$: the data space (Definition 1.1, with the
 $\iota^+$-resonances in $\pi_1\mathcal E_\sharp$ only), the construction of $\Phi$ exponent by exponent below

@@ -1,7 +1,7 @@
 # Part III.I$'''''''''''''''$. The linear theory at base points near $b_0$, n = 4 ([Hin26] sections 11.2-12 at black
 hole parameters $b\ne b_0$)
 
-*Status.* Written (D297); verified (D299: verifier 130's findings seated, to be read). The parts
+*Status.* Written (D297); verified (D299, D302: verifiers 130-131's findings seated, to be read). The parts
 III.I$'$-III.I$''''''''''''''$ and III.J-III.J$'''$ prove the linear theory at base points whose black hole parameter is
 $b = b_0$, with derivatives in $b$ taken at $b_0$; III.I Remark 5.4 and (I3) of III.I recorded why. III.H$''$ supplied
 the two inputs that were missing for $b\ne b_0$ (its Corollary 5.1) and recorded the rest as (H$''$5). This part proves
@@ -52,38 +52,44 @@ at $b$.
 
 (P6) *Rows at $b$, corrections at $b_0$.* The rows and towers are built at the base point's $b$ (the towers $T_{\rho,b}$
 of III.I$''''''''''''''$ Definition 1.2, smooth in $b$ by (P3)); the corrections #1-#4 (III.I$'''''''$ Definition 2.1,
-III.I$'''''''''$ Definition 2.1) are the tensors built from $b_0$-objects, as the source builds them ([Hin26] p. 275,
-Definition 11.55; its operator is at $b$, Definition 11.56). At a base point $(h,\vec p)$ with parameter $b$, the row
-identities of III.I$'''''''''$ Lemmas 2.2-2.6, with those of III.I$'''''''$ section 2 for the motion rows, hold in the
-form
-$$D_{\vec p}P_4(h,\vec p)(W_\nu = W) = L_{h,\vec p}m_\nu(W)+r^\nu_{h,\vec p}(W)+E^\nu_{h,\vec p}(W),\tag{1.1}$$
-with $r^\nu_{h,\vec p}$ in the classes of III.I$'''''''''$ Lemma 2.6, uniformly in $b$, and $E^\nu_{h,\vec p}(W)$
-supported away from $K^+$, in $\mathcal Y^\natural(\alpha-)$, of size $O(|b-b_0||W|)$.
+III.I$'''''''''$ Definition 2.1) and their counterterms are the tensors built from $b_0$-objects, as the source builds
+them ([Hin26] p. 275, Definition 11.55; its operator is at $b$, Definition 11.56). At a base point $(h,\vec p)$ with
+parameter $b$,
+$$D_{\vec p}P_4(h,\vec p)(W_\nu = W) = L_{h,\vec p}m_\nu(W)+r^\nu_{h,\vec p}(W)+E^\nu_{h,\vec p}(W).\tag{1.1}$$
+Here $f^\nu_b := L_{h,\vec p}m_\nu+r^\nu_{h,\vec p}$ is III.I$'''''''''$ Lemma 2.6 (c) at $b$, with every object (rows,
+corrections, counterterms) built at $b$, in the classes of III.I$'''''''''$ (2.5) uniformly in $b$. And
+$$E^\nu_{h,\vec p}(W) := L_{h,\vec
+p}\big(h^{b_0}_\nu-h^b_\nu\big)(W)+\delta^*_{g_0,E_C}\big(\vartheta^{b_0}_{\nu,\sharp}-\vartheta^b_{\nu,\sharp}\big)(W),$$
+the difference between the corrections and counterterms built at $b_0$ and at $b$, lies in $\mathcal
+Y^\natural_2(\alpha-)\cap\mathcal Y(\alpha_1)$, with norm $O(|b-b_0||W|)$. Its support is in $\mathrm{supp}\,\chi_K$,
+its $K^+$-weight is $\kappa_\nu-\epsilon>\alpha$, and its $\iota^+$-exponents below $w_+$ lie in $\mathcal E^\natural+2$
+(III.I$'''''''''''''$ Definition 1.2).
 
-*Proof.* (P1)-(P4) are the cited statements. (P5): $g_b$ is stationary. (P6): fix $\tilde\chi\in C^\infty(M)$, equal to
-1 near $K^+$ and supported in the interior of $\chi_K^{-1}(1)$, away from $\mathcal C$. Let $\varrho^\nu := D_{\vec
-p}P_4(h,\vec p)(W_\nu = W)-L_{h,\vec p}m_\nu(W)$, and $\varrho^\nu_0$ the same with the row $m^{b_0}_\nu$ built at
-$b_0$; put $r^\nu := \tilde\chi\varrho^\nu+(1-\tilde\chi)\varrho^\nu_0$ and $E^\nu :=
-(1-\tilde\chi)(\varrho^\nu-\varrho^\nu_0)$. Near $K^+$ the corrections vanish (they are supported in $\mathcal C$) and
-$m_\nu$ is the tower at $b$, so $\tilde\chi\varrho^\nu = -\tilde\chi L_{h,\vec p}T_{\nu,b}$ is the top of the tower plus
-$(L_{h,\vec p}-L_b)T_{\nu,b}$, with $g_0 = g_b$ there (III.I Lemma 3.6): this is III.I$'''''''''$ Lemma 2.6 (c)'s
-computation near $K^+$ with $L_b$ in place of $L_{b_0}$. Off $\tilde\chi^{-1}(1)$, $\varrho^\nu_0$ is III.I$'''''''''$
-Lemma 2.6's computation with its rows and corrections at $b_0$, on a background that differs from the one at $b_0$ by
-$\chi_K(g_b-g_{b_0}) = O(|b-b_0|r^{-2})$; near $(\iota^+)^\circ$ this gains $\rho_+^2$, so the differences have
-$\iota^+$-order at least $\mathrm{Re}\,\lambda+4$, as the terms of III.I$'''''''''$ (2.5). Finally
-$\varrho^\nu-\varrho^\nu_0 = -L_{h,\vec p}\big(\chi_K(T_{\nu,b}-T_{\nu,b_0})(a_\nu W)\big)$. Off $\tilde\chi^{-1}(1)$,
-$\chi_KL_{h,\vec p}(T_{\nu,b}-T_{\nu,b_0})$ is the difference of the tops of the towers plus $(L_{h,\vec
-p}-L_b)T_{\nu,b}-(L_{h,\vec p}-L_{b_0})T_{\nu,b_0}$, and $L_b-L_{b_0}$ gains $\rho_+^2$ at $\iota^+$. The commutator
-$[L_{h,\vec p},\chi_K](T_{\nu,b}-T_{\nu,b_0})(a_\nu W)$ is supported in $\mathrm{supp}\,d\chi_K$, is $O(|b-b_0||W|)$,
-and has its $\iota^+$-exponents in $\lambda+d_\rho+2$ plus at most two increments of $\Lambda$ (III.I$''''''''''''''$
-Lemma 2.1, for $\partial_b(\chi_KT_{\rho,b})$). These are the exponents at which III.I$''''''''''''''$ Lemma 2.4 places
-$L(\partial_bh_{b,\mathrm{rem}}(q)b')$ in $\mathcal Y^\natural(\alpha-)$, and the same argument places $E^\nu$ there
-(finding (I$'''''''''''''''$3)). $\square$
+*Proof.* (P1)-(P4) are the cited statements. (P5): $g_b$ is stationary. (P6): $f^\nu_b$ is III.I$'''''''''$ Lemma 2.6
+(c)'s computation at $b$. Its errors near $K^+$ are $L_{h,\vec p}-L_b$, which gains $a_K$ there, $g_0 = g_b$ near $K^+$
+(III.I Lemma 3.6); its objects are smooth in $b$ (P3), so the bounds are uniform. For $E^\nu$ (verifier 131's m1 and
+section B): - The differences $h^{b_0}_\nu-h^b_\nu$ and $\vartheta^{b_0}_{\nu,\sharp}-\vartheta^b_{\nu,\sharp}$ are
+$b$-differences of the 1-form towers and of their commutators with $\chi_K$, so $O(|b-b_0|)$ by (P3), and supported in
+$\mathrm{supp}\,\chi_K$. - Near $K^+$ the corrections vanish (they are supported in $\mathcal C$), but the counterterms
+do not: there $\vartheta_{\nu,\sharp} = \frac12\Box\omega_\nu$ (III.I$'''''''''$ section 2). Their difference has the
+$K^+$-weight $\kappa_\nu$ of the tops of the towers (III.I$'''''''''$ Lemma 2.2 (a), (d), and (P3)). So $E^\nu$ has
+$K^+$-weight $\kappa_\nu-\epsilon>\alpha$. - At $\iota^+$, the $b$-differences of the towers have exponents
+$\lambda_\nu+\mathcal E_{\mathrm{ind}}$ (for v1 also $\lambda_\nu+3$; III.I$''''''''''''''$ Lemma 2.1), with
+$\lambda_\nu$ the row's $\iota^+$-exponent in $\mathcal E_{\mathrm{par}}\cap\{\mathrm{Re}\le3\}\subset\mathcal
+E_\sharp$. $L$ and $\delta^*$ add 2 and increments, and the parts of $L_{h,\vec p}-L_b$ from $h$ and $h_{\mathrm{tot}}$
+gain $\rho_+^{\lambda_\sharp}$. So below $w_+$ the exponents lie in $\mathcal E^\natural+2$ (III.I$'''''''''''''$
+Definition 1.2), with log orders bounded by III.I$'''''''''''''$ Lemma 1.3 (a), and above it the plain weight is
+$\mathrm{Re}\,\lambda+2+\lambda_\sharp>w_+$. - So $E^\nu\in\mathcal Y^\natural_2(\alpha-)$, and $E^\nu\in\mathcal
+Y(\alpha_1)$ as $\mathcal E^\natural\cap\{\mathrm{Re}<2\}\subset\mathcal E_{++}$ (III.I$'''''''''''''$ Lemma 1.3 (a)).
+$\square$
 
-The source makes the same choice: its corrections are built at $b_0$, its operator and towers at $b$. Rows built at
-$b_0$ would leave $(L_b-L_{b_0})m^{b_0}_\nu$ near $K^+$, of $K^+$-order only $\mathrm{Re}\,e_\nu+2$. Rows at $b$ move
-the mismatch into $\mathcal C$, away from $K^+$, where it is $E^\nu$ (verifier 130's m2). At $b_0$, $E^\nu = 0$ and
-(1.1) is III.I$'''''''''$'s identity.
+The source makes the same choice: its corrections are built at $b_0$, its operator is at $b$ (Definition 11.56), and its
+expansion's towers are those of $L_b$ (Theorem 11.59). Rows built at $b_0$ would leave $(L_b-L_{b_0})m^{b_0}_\nu$ near
+$K^+$, of $K^+$-order only $\mathrm{Re}\,e_\nu+2$. Rows at $b$ move the mismatch into the $b$-differences of the
+corrections and counterterms, which near $K^+$ enter only through the counterterms, at the weight $\kappa_\nu$ (verifier
+130's m2, 131's m1). Corrections #1-#3 are commutator terms in $\mathrm{supp}\,d\chi_K$ (III.I$''''$), so $f^S$ and
+$f^{\mathrm s1}$ vanish near $K^+$, and their $b_0/b$ mismatch lies at $\iota^+$ only, with the gain $\rho_+^2$ of
+$g_b-g_{b_0}$ (verifier 131's n8). At $b_0$, $E^\nu = 0$ and (1.1) is III.I$'''''''''$'s identity.
 
 **Lemma 1.2 (joint injectivity at $b$).** Shrinking $\mathcal B_*$, III.I$''''''''''$ Lemma 2.2 and Corollary 2.3 hold
 at every $b\in\bar{\mathcal B}_*$, for the states at $b$: if $\sum_{\tau\ne\mathrm v1}h_{b,\tau}(W_\tau) = 0$ then every
@@ -119,9 +125,9 @@ t_*^{-\lambda}(\log t_*)^k$, $W\in\mathcal V_{1,\mathbb C}$.
 $\mathrm{Re}\,\lambda-\epsilon$ (its bottom $a_\nu h_{b,\mathrm v1}(W)$, of size $O(|b-b_0||W|)$), and
 $m_\nu(W)-\chi_Ka_\nu h_{b,\mathrm v1}(W)$ has $K^+$-weight $\mathrm{Re}\,\lambda+1-\epsilon$. III.I$'''''''''$ Lemmas
 2.2 (a)-(e) and 2.4-2.6 hold for $\nu$ at $b$, with $e_\nu = \lambda$ and $\kappa_\nu = \mathrm{Re}\,\lambda+4$; in
-particular $f^\nu_{h,\vec p}(W) := D_{\vec p}P_4(h,\vec p)(W_\nu = W)$ is $L_{h,\vec p}m_\nu(W)+r^\nu_{h,\vec
-p}(W)+E^\nu_{h,\vec p}(W)$ as in (1.1), with $L_{h,\vec p}m_\nu(W)+r^\nu_{h,\vec p}(W)\in\mathcal Y_2(\alpha)$ uniformly
-in $b$, and $E^\nu_{h,\vec p}(W)\in\mathcal Y^\natural(\alpha-)$ of size $O(|b-b_0||W|)$.
+particular $f^\nu_{h,\vec p}(W) := D_{\vec p}P_4(h,\vec p)(W_\nu = W) = f^\nu_b(W)+E^\nu_{h,\vec p}(W)$ as in (1.1),
+with $f^\nu_b(W) = L_{h,\vec p}m_\nu(W)+r^\nu_{h,\vec p}(W)\in\mathcal Y_2(\alpha)$ uniformly in $b$, and $E^\nu_{h,\vec
+p}(W)\in\mathcal Y^\natural_2(\alpha-)\cap\mathcal Y(\alpha_1)$ of size $O(|b-b_0||W|)$.
 
 *Proof.* As III.I$''''''''''''''$ Definition 1.3 states for $b_0$: the proofs of III.I$'''''''''$ Lemmas 2.2 (a)-(e) and
 2.4-2.6 use the tower relations and not the coefficient space, and hold at $b$ by (P3) and (P6). The only change is the
@@ -182,8 +188,8 @@ $A_{b,\nu}(G)\in\mathcal V_{1,\mathbb C}$, $\nu\in\mathcal N_{\mathrm{rot}}$, ar
 that Proposition 2.2 (a)-(b) produces in the forward solution of $L_{h,\vec p}u = G$: the graft's v1 coefficients at the
 exponents of $\mathcal M$ (spacetime phase), and the spectral level-1 coefficients at the exponents of real part 2. They
 do not depend on $\beta$. $A_b := (A_{b,\nu})_\nu$ is linear and continuous on $\mathcal Y^\natural(\beta)$, uniformly
-in $b$ and in $(h,\vec p)$ small, and continuous in $(h,\vec p)$ jointly with $b$ (Proposition 2.2, (P2), (P4)). It is
-defined at $b_0$ by the same formulas.
+in $b$ and in $(h,\vec p)$ small, (Proposition 2.2, (P2), (P4)). No continuity in $b$ is claimed or needed (Proposition
+2.5's Step 3). It is defined at $b_0$ by the same formulas.
 
 **Lemma 2.4 (III.I$'''''''''''''$ Lemmas 2.2-2.3 at $b$).** Let $\beta\in(3,4+\epsilon_K]$ be admissible, $(h,\vec p)$ a
 base point with parameter $b\in\bar{\mathcal B}_*$ and $h\in\mathcal X^\infty$ small, $G\in\mathcal Y^\natural(\beta)$,
@@ -193,12 +199,12 @@ N^{<\beta}_{\mathrm{rot}}}m_\nu\big(A_{b,\nu}(G)\big)+\tilde u,\qquad\mathcal N^
 \{\nu\in\mathcal N_{\mathrm{rot}}:\mathrm{Re}\,\lambda_\nu<\beta-2\},\tag{2.1}$$
 with $\tilde u$ in the class of III.I$'''''''''''''$ (2.2) and $S_\nu = S^{h,\vec p,\beta}_\nu(G)$ determined by
 $u-\sum_{\mathcal N^{<\beta}_{\mathrm{rot}}}m_\nu(A_{b,\nu}(G))$, conjugation-symmetric, linear and continuous in $G$,
-uniformly. If $(h_j,\vec p_j)\to(0,0)$ (their parameters $b_j\to b_0$) and $G_j\to G$ in $\mathcal Y^\natural(\beta)$,
-with the hypothesis of III.I$'''''''''''''$ Lemma 2.3, then $S^{h_j,\vec p_j,\beta}_\nu(G_j)\to S^{0,0,\beta}_\nu(G)$
-and $A_{b_j}(G_j)\to A_{b_0}(G)$. At $b_0$ the second sum in (2.1) is absent (the rotation rows' rates there are
-$\mathrm{Re}\,\lambda+1>\alpha-2\ge\beta-2$), and (2.1) is III.I$'''''''''''''$ (2.2). For $\beta<3$ no rotation row has
-rate below $\beta-2$ ($\mathrm{Re}\,\lambda-\epsilon>1$, Lemma 2.1), and III.I$''''''''$ Lemma 3.2 holds at $b$ as at
-$b_0$.
+uniformly. At a fixed $b$: if $(h_j,\vec p_j)\to(0,\vec p_b)$, with $\vec p_b$ the parameter whose only nonzero
+component is $b-b_0$, and $G_j\to G$ in $\mathcal Y^\natural(\beta)$, with the hypothesis of III.I$'''''''''''''$ Lemma
+2.3, then $S^{h_j,\vec p_j,\beta}_\nu(G_j)\to S^{0,\vec p_b,\beta}_\nu(G)$. At $b_0$ the second sum in (2.1) is absent
+(the rotation rows' rates there are $\mathrm{Re}\,\lambda+1>\alpha-2\ge\beta-2$), and (2.1) is III.I$'''''''''''''$
+(2.2). For $\beta<3$ no rotation row has rate below $\beta-2$ ($\mathrm{Re}\,\lambda-\epsilon>1$, Lemma 2.1), and
+III.I$''''''''$ Lemma 3.2 holds at $b$ as at $b_0$.
 
 *Proof.* III.I$'''''''''''''$ Lemma 2.2's proof builds the expansion from the pieces of III.I$''''''''''$ Proposition
 3.1 (the spacetime phase), III.I$'''''''''''$ Proposition 3.1 and Theorem 4.1 (the spectral phase), III.I$''''''''''''$
@@ -206,9 +212,11 @@ Theorem 3.1 and III.I$'''''''''''''$ Proposition 2.1, and reads the coefficients
 $b$ these hold with the model objects at $b$ ((P1)-(P6)), except the v1 pieces of exponent in $\mathcal
 M_{\mathrm{rot}}$. By Proposition 2.2 (a)-(c) those are the rotation rows with the coefficients $A_{b,\nu}(G)$, up to
 $K^+$-weight $\mathrm{Re}\,\lambda+1-\epsilon>\beta-2$, which goes into $\tilde u$. The rows other than v1 are then read
-from $u-\sum m_\nu(A_{b,\nu}(G))$, uniquely, by Corollary 2.3 at $b$ (Lemma 1.2). For the continuity,
-III.I$'''''''''''''$ Lemma 2.3's proof passes to the limit piece by piece; the pieces depend continuously on the
-background, its parameter $b$ included, as the model objects do ((P1)-(P4)), and $A_b$ does by Definition 2.3. $\square$
+from $u-\sum m_\nu(A_{b,\nu}(G))$, uniquely, by Corollary 2.3 at $b$ (Lemma 1.2). For the continuity at fixed $b$,
+III.I$'''''''''''''$ Lemma 2.3's proof runs with $L_{0,\vec p_b}$ in place of $L_{b_0}$. Its remainder $(L_{h_j,\vec
+p_j}-L_{0,\vec p_b})u_j$ gains $a_K$ near $K^+$, where both backgrounds equal $g_b$ (III.I Lemma 3.6). Continuity across
+$b$ is not claimed: the proofs perturb from a reference operator, and $L_b-L_{b_0}$ gains only 2 at $K^+$ (verifier
+131's M1). $\square$
 
 **Proposition 2.5 (III.I$''''''''''''''$ Theorem 3.1 at $b$).** Let $h\in\mathcal X^\infty$, $\vec p\in\mathcal P$ with
 parameter $b\in\bar{\mathcal B}_*$, and $q\in\mathcal Q$ be small, and $F\in\mathcal Y^\natural(\alpha-)$. For $\vec
@@ -250,27 +258,28 @@ rows of every level $j\le k$; by Step 2, $u(\vec p\,')\in\mathcal Z_{\beta_k}$ o
 III.I$''''''''''''''$ Step 3, $\mathcal P_k$ is, by induction, the graph of an affine map from the coordinates of the
 rows of rate $\ge\beta_k-2$ to the others. The rotation rows enter by their rates $\mathrm{Re}\,\lambda$ at $b$. On
 $\mathcal P_k$, $C^{k+1}$ restricted to the new coordinates is $-\mathrm{id}+A_k$, with $A_k\to0$ as $(h,\vec
-p,q)\to(0,0,0)$, the parameter of $\vec p$ tending to $b_0$. At $(0,0,0)$, $u(\vec p\,') = u_F-\sum_\nu m_\nu(W_\nu)$
-and $G'(\vec p\,') = F-D_{\vec p}P_4(0,0)(\vec p\,'_<)$, since the defects and $E^\nu$ vanish there
-(III.I$''''''''''''''$ Step 3: $D_{\vec p}P_4(0,0)(W_\nu = W) = L_{b_0}m_\nu(W)$). At $b_0$ no $m_\nu(W)$ has a
-$K^+$-coefficient at a lower row (III.I$''''''''''''''$ Step 3, and Step 4$'$'s derivative for the rotation rows). So
-$C^{k+1}_\nu = C^{k+1}_\nu(0)-W_\nu$ in the new coordinates. Near $(0,0,0)$, $C^{k+1}$ depends continuously on $(h,\vec
-p,q)$ jointly with $b$, uniformly for $\vec p\,'$ bounded, by:
+p,q)\to(0,0,0)$, the parameter of $\vec p$ tending to $b_0$. The bound on $A_k$ is direct, with no continuity in $b$. By
+Step 2, $C^{k+1}_\nu(\vec p\,') = S^{h,\vec p,\beta_{k+1}}_\nu(G'(\vec p\,'))-W'_\nu$, resp. $A_{b,\nu}(G'(\vec
+p\,'))-W'_\nu$, and $G'$ is affine in $\vec p\,'$. Its dependence on the coordinates $W'_\nu$ of the rows of $\mathcal
+N\sqcup\mathcal N_{\mathrm{rot}}$ is through: - $(r^\nu_{h,\vec p}+E^\nu_{h,\vec p})(W'_\nu)$. At the base point
+$(0,\vec p_b)$ the identity of III.I$'''''''''$ Lemma 2.4 at $b$ gives $f^\nu_b = L_{0,\vec p_b}m_\nu$ up to the
+$O(|b-b_0|)$ mixing of $g_{b_0,b,0}$ in $\mathcal C$. So $r^\nu_{h,\vec p}+E^\nu_{h,\vec p}$ has norm $O(\|h\|+|\vec
+p-\vec p_b|+|b-b_0|)$ in $\mathcal Y^\natural_2(\alpha-)$ (III.I$'''''''''$ Lemma 2.6's bounds at $b$, and (P6)). -
+$\Delta_q(\vec p\,')$ and $R_qu(\vec p\,')$, of norm $O(\|q\|)$ (III.I$''''''''''''''$ Lemmas 2.3-2.4).
 
-- Lemma 2.4;
-
-- the continuity lemmas cited in III.I$''''''''''''''$ Step 3, at $b$ (Theorem 3.1's list);
-
-- (P6), for $r^\nu$ and for $E^\nu = O(|b-b_0|)$;
-
-- III.I$''''''''''''''$ Lemmas 2.3-2.4, for $R_q$ and $\Delta_q = O(\|q\|)$;
-
-- Definition 2.3, for $A_b$.
+The motion coordinates enter through $f^S$, $f^b$, $f^{\mathrm s1}$, but they lie at the base level, below every new
+row. On $\mathcal P_k$ the lower coordinates are, by the induction, affine functions of the free ones with coefficients
+of the same smallness. $S^{h,\vec p,\beta}$ and $A_b$ are bounded uniformly in $b$ and $(h,\vec p)$ small (Lemma 2.4,
+Definition 2.3). So in the new coordinates $C^{k+1} = -\mathrm{id}+A_k$ with $|A_k|\le C(\|h\|+|\vec p-\vec
+p_b|+\|q\|+|b-b_0|)$, $C$ uniform in $b$ (verifier 131's M1, by the direct bound). At the base level and the levels
+below 3, the continuity statements that III.I$''''''''''''''$ Step 3 cites (III.I$''''''''$ Proposition 4.1 (ii) and
+Lemma 3.3, III.I$'''''''''''$ Lemma 3.3, III.I$'''''''''''''$ Lemma 2.3) are used at fixed $b$, with $(0,\vec p_b)$ in
+place of $(0,0)$, as in Lemma 2.4's proof.
 
 So $-\mathrm{id}+A_k$ is invertible for $(h,\vec p,q)$ small, and $\mathcal P_{k+1}$ is a graph. At $k = K$ every row
 has rate below $\alpha-2$ (the rotation rows at $b$: $\mathrm{Re}\,\lambda\le2<\alpha-2$), so $\mathcal P_K$ is one
 point $\vec p\,'$. It satisfies (2.2), and $u(\vec p\,')\in\mathcal Z_\alpha$ with no rotation-row content. The rest of
-III.I$''''''''''''''$'s proof, the splitting $u = h_{\mathrm{rem}}(q')+h'$ by III.I$''''''''''''$ Theorem 3.1 at $b$,
+III.I$''''''''''''''$'s proof, the splitting $u = h_{b,\mathrm{rem}}(q')+h'$ by III.I$''''''''''''$ Theorem 3.1 at $b$,
 then applies. The v1 coefficient of $q'$ has no term at $\mathcal M_{\mathrm{rot}}$. $\vec p\,'$ is affine in $F$, which
 enters through $\tilde G$ only, and linear since it vanishes at $F = 0$. Uniqueness: any $\vec p\,''$ satisfying (2.2)
 with $u(\vec p\,'')\in\mathcal Z_\alpha$ lies in $\mathcal P_0$ (III.I$''''''''''''''$ Step 1's uniqueness). Its
@@ -279,16 +288,18 @@ p\,''\in\mathcal P_K$.
 
 *At $b_0$.* At $b_0$ the v1 coefficient of $u = u_0-\sum m_\nu(W'_\nu)$ at $\mathcal M_{\mathrm{rot}}$ is
 $A_{b_0}(G')-\vec W'^{\mathrm{rot}}$. The v1 pieces of $u_0$ are the construction's, with the coefficients $A_{b_0}(G')$
-(Proposition 2.2 at $b_0$, read by III.I$''''''''''''''$ Step 4$'$'s functional $\ell$, which returns them uniquely),
-and $m_\nu(W)$, $\nu\in\mathcal N_{\mathrm{rot}}$, has v1 coefficient $a_\nu W$. So $C^{\mathrm{rot}} = 0$ is (2.2)
-(with the sign of Step 4$'$'s derivative $-\mathrm{id}$; verifier 130's m1 corrects D297's sign). The $\vec p\,'$ of
+(Proposition 2.2 at $b_0$). On $\mathcal P_K$ the coefficients of the rows of $\mathcal N$ vanish, and
+III.I$''''''''''''''$ Step 4$'$'s functional $\ell$, applied to $u = u_0-\sum m_\nu(W'_\nu)$, returns its v1 coefficient
+uniquely; by Proposition 2.2 (c) and Definition 2.3 it is $A_{b_0}(G')-\vec W'^{\mathrm{rot}}$ (verifier 131's n3), and
+$m_\nu(W)$, $\nu\in\mathcal N_{\mathrm{rot}}$, has v1 coefficient $a_\nu W$. So $C^{\mathrm{rot}} = 0$ is (2.2) (with
+the sign of Step 4$'$'s derivative $-\mathrm{id}$; verifier 130's m1 corrects D297's sign). The $\vec p\,'$ of
 III.I$''''''''''''''$ Theorem 3.1 satisfies the level conditions and (2.2), so it is the point $\mathcal P_K$. $\square$
 
 **Remark 2.6 (uniqueness at $b$).** At a rotating $b$, the $\vec p\,'$ of Proposition 2.5 is unique only together with
 (2.2). The bottom of $m_\nu(W)$, $\nu\in\mathcal N_{\mathrm{rot}}$, is $a_\nu h_{b,\mathrm v1}(W) = a_\nu(\dot g_b(\dot
 b_W)+h_b(S_W))$, with coefficients $O(|b-b_0||W|)$ (Lemma 1.2's remark). The $K^+$-expansion does not separate it from
-the $b$- and $S$-rows, so the conditions $u\in\mathcal Z_{\beta_k}$ alone do not fix $\vec W'^{\mathrm{rot}}$. The later
-parts use only the constructed map $F\mapsto(\vec p\,',q',h')$:
+the $b$- and $S$-rows, so the conditions $u\in\mathcal Z_{\beta_k}$ alone are not shown to fix $\vec W'^{\mathrm{rot}}$
+(verifier 131's n5). The later parts use only the constructed map $F\mapsto(\vec p\,',q',h')$:
 
 - III.J$'$ Theorem 2.1 builds $U'$ from it; its Remark 2.2 records that $D_U\Phi$ is not injective.
 
@@ -316,11 +327,14 @@ $g_{b_0,b,-S}$, and the corrections #1-#3 stay the tensors built at $b_0$, (P6))
 
 - III.I$''''''''''$ Proposition 3.1;
 
-- III.I$'''''''''''$ Proposition 3.1, Lemmas 3.2-3.3, Theorem 4.1;
+- III.I$'''''''''''$ Proposition 3.1, Lemmas 3.2-3.3 (at fixed $b$, Lemma 2.4's proof), and Theorem 4.1 only inside
+Lemma 2.4 and Proposition 2.5: at a rotating $b$ its parameter space lacks the rotation rows, and Proposition 2.5 with
+$q = 0$ is its form there (verifier 131's m2);
 
 - III.I$''''''''''''$ Theorem 3.1;
 
-- III.I$'''''''''''''$ Propositions 2.1, 2.4, and Lemmas 2.2-2.3 in the form of Lemma 2.4;
+- III.I$'''''''''''''$ Proposition 2.1, Lemmas 2.2-2.3 in the form of Lemma 2.4, and Proposition 2.4 only inside
+Proposition 2.5, as for III.I$'''''''''''$ Theorem 4.1;
 
 - III.I$''''''''''''''$ Lemmas 2.2-2.5, and Theorem 3.1 in the form of Proposition 2.5 (unique among the $\vec p\,'$
 with the assigned rotation coordinates);
@@ -370,14 +384,19 @@ Proposition 2.5.
 and their proofs use III.I$''''''''''''''$ Theorem 3.1 and the maps of III.J at that base point, by (i)-(vii).
 III.J$''$'s tame calculus (section 1, Lemmas 2.1-2.4) has constants that depend on the base point through finitely many
 seminorms, continuous in $b$; III.J$'''$'s exact classes and conditions (E1)-(E5) do not involve $b$ ((P2)-(P3): the
-exponents, roots and index sets are those at $b_0$).
+exponents, roots and index sets are those at $b_0$). III.J$''$ Theorem 4.1's solution maps of III.I-III.I$'''''''''''''$
+are read at $b$ as in Lemma 2.4 and Proposition 2.5. The new objects enter III.J$''$ Lemma 2.1 (c)'s inventory (verifier
+131's m3): $A_b$ is bounded by a fixed low seminorm of $G$, as it reads the $\iota^+$-data $u_+$ and the tf-data
+(Proposition 2.2); $E^\nu$ is bounded by $C|b-b_0||W|$ in a fixed seminorm ((P6)); the rotation rows enter
+$-\mathrm{id}+A_k$ as the other rows do; and $d_*$ includes their orders.
 
 The constants: every constant above is a finite combination of constants of (P1)-(P4), of Lemma 1.2, of Lemma 2.1 and of
-the maps of Proposition 2.2, each uniform on $\bar{\mathcal B}_*$. They depend continuously on $(h,\vec p,q)$ jointly
-with $b$: the continuity lemmas of the list (III.I$''''''''$ Proposition 4.1 (ii) and Lemma 3.3, III.I$''''''''''$ Lemma
-3.3, III.I$'''''''''''$ Lemma 3.3, Lemma 2.4) pass to the limit in pieces built from the model objects, which are
-continuous in $b$ by (P1)-(P4). $\mathcal B_*$ is shrunk, beyond III.H$''$ (B5), so that Lemma 1.2's bound holds and the
-maps $-\mathrm{id}+A_k$ of Proposition 2.5 are invertible on it (verifier 130's m3). $\square$
+the maps of Proposition 2.2, each uniform on $\bar{\mathcal B}_*$. The continuity statements (III.I$''''''''$
+Proposition 4.1 (ii) and Lemma 3.3, III.I$'''''''''''$ Lemma 3.3, III.I$'''''''''''''$ Lemma 2.3 in Lemma 2.4) are used
+at fixed $b$ only. The smallness of the elimination, across $b$, comes from the direct bound of Proposition 2.5's Step
+3, through (P6) and Definition 2.3 (verifier 131's M1 and n2). $\mathcal B_*$ is shrunk, beyond III.H$''$ (B5), so that
+Lemma 1.2's bound holds and the maps $-\mathrm{id}+A_k$ of Proposition 2.5 are invertible on it (verifier 130's m3).
+$\square$
 
 **Corollary 3.2 ((J$'$3) closed).** III.J$'$ Theorem 2.1 and its tame and exact forms (III.J$''$ Theorem 4.2, III.J$'''$
 Corollary 6.6) hold at every base point $U\in\mathcal D^\infty$ small in $\mathcal D^d$, with black hole parameter
@@ -398,12 +417,12 @@ elimination (Proposition 2.5), not at the end as by III.I$''''''''''''''$ Step 4
 with coefficients $O(|b-b_0||V|)$ (Lemma 1.2's remark). So a $K^+$-reading of v1 degenerates as $b\to b_0$, and the
 coefficients are assigned.
 
-(I$'''''''''''''''$3) *Corrections at $b_0$, rows at $b$.* As in the source, the corrections #1-#4 are built at $b_0$,
-while the rows and towers are built at the base point's $b$ ((P6), (1.1)). The mismatch $E^\nu$ is supported in
-$\mathcal C$, away from $K^+$, and is $O(|b-b_0|)$. Its $\iota^+$-exponents are those of the $b$-derivatives of the
-towers, $\lambda+d_\rho+2$ plus at most two increments of $\Lambda$ (III.I$''''''''''''''$ Lemma 2.1). Its place in
-$\mathcal Y^\natural(\alpha-)$ rests on III.I$''''''''''''''$ Lemma 2.4's argument for those exponents, used here at row
-exponents of real part down to $\lambda_\sharp$. This is the point to check (verifier 130's m2 left the order unsettled).
+(I$'''''''''''''''$3) *Corrections at $b_0$, rows at $b$.* As in the source, the corrections #1-#4 and their
+counterterms are built at $b_0$, while the rows and towers are built at the base point's $b$ ((P6), (1.1)). The mismatch
+$E^\nu$ is the $b$-difference of the corrections and counterterms: supported in $\mathrm{supp}\,\chi_K$, of $K^+$-weight
+$\kappa_\nu-\epsilon>\alpha$, and $O(|b-b_0|)$. Its $\iota^+$-exponents lie in $\mathcal E^\natural+2$, so
+$E^\nu\in\mathcal Y^\natural_2(\alpha-)\cap\mathcal Y(\alpha_1)$. Settled in D302 (verifier 131's section B); verifier
+130's m2 had left it open.
 
 (I$'''''''''''''''$4) *Uniqueness at $b$ only with the assigned coordinates* (Remark 2.6).
 

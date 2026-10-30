@@ -5813,3 +5813,10 @@ geometry there and proves the basic energy estimate. In five dimensions two thin
 removes the first-order term uses a different power of the radius, and the wave operator acquires a positive constant
 next to the angular Laplacian. The constant only helps, so the source's estimate goes through unchanged. The estimate in
 the far region before radiation arrives, which the source takes from an earlier paper, is written out here.
+
+**D302 (2026-10-30): the base-point part, second repair.** The verifier found the earlier repair sound except for one
+step. The argument that the elimination at a nearby black hole is a small perturbation had borrowed a continuity
+statement proved by comparing with the reference black hole. Near the final black hole that comparison is too crude.
+The smallness is now shown directly: every quantity involved is bounded uniformly, and the only terms that couple the
+unknowns are themselves small. The small mismatch between objects built at the two black holes is redefined so that
+it decays fast enough near the black hole, and where its decay at late times lies is now settled.
