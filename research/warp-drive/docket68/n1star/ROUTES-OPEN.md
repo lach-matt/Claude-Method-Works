@@ -4040,3 +4040,26 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - (IV'1): the edge-b form needs the refined count of Lemma 1.1; III.C's pointer to III.C' for it is not borne out.
   (IV'2): A^0_h is absent at n = 4, so the basic and sharp-weight estimates are one argument.
 - Next: Part IV'' ([Hin23a] section 3.6 -> III.C' Theorem 2.1, the cut-off gauge, the slab of (K2)).
+
+### 4.228 Verifier 132 seated (D304): III.K and Part IV
+
+- III.K: 3 major, 5 minor, 5 nits, each major an inherited gap of the source. A-M1: Lemma 2.3's support claim needs the
+  tail of the base point to vanish below the level; II.G Theorem 2.1 (iii) is weakened to u in U cap B_eta, which its
+  proof uses ((H10)). A-M2: D_S := phi_S^(-1)({t_IVP >= 0}) cap ..., h_S on an S-independent two-sided region D.
+  A-M3: support classes, chi_- and the collar in t_*, not t^flat_*; levels at T^ = 2/C', D up to t_* = T^ + 3.
+- Minors: Lemma 1.1 (d)'s proof completed (nu_0 = min(1/4, r_0/8), compactness on r <= r_1 + 1); the cover re-posed
+  (R_8 >= 2r_1; the compact part a domain of dependence bounded by {rho'_I = c}; the slab after it); h_0 two-sided and
+  the order of S = 0 and S != 0; chi_K's threshold above T_iota + 1; e_S's support, tame bound and Step 1 role.
+- Part IV: 0 major, 3 minor, 5 nits: the domain in U (t_* <= T_0), the density step by exhaustion with f_j away from
+  I_0 and {x_I = eps}, the backward problem on the past slab; nits seated.
+- To be read: the D304 repairs, with (K9)'s two checks (II.G section 6 and II.F section 7.4 for t_*).
+
+### 4.229 Part IV'' written (D305): sharp decay and the exterior solution
+
+- PART-IV3-NM.md: Lemmas 1.1-1.2 (the two families of curves, integration without loss), Lemma 2.2 (the Cauchy problem
+  near I_0, both directions), Lemma 2.3 (growth at I+), Theorem 2.4 (III.C' (2.2) and (5.52), d = 4), Theorem 3.1
+  (III.C' Theorem 2.1 by II.G, k_0 = 14), Corollary 4.1 (the cut-off gauge, (C''2)).
+- (IV''1): two rounds, all slots at once; (IV''2): the slab of III.K (K2) (b) is the next part's; (IV''3): the data and
+  the backward problem added to Part IV's Proposition 4.1.
+- Next: verifier 133 reads III.I(15)'s D302 repairs, the D304 repairs, Part IV' and Part IV''; then Part IV''' (the
+  slab) and Part IV'''' ([Hin26a], III.E Theorem 1.1).

@@ -74,8 +74,8 @@ $$\|\Phi(u)\|_k\le C_k(1+|u|_{k+d})\ (k\ge d),\qquad\|\Phi'(u)v\|_{2d}\le C_1|v|
 \le C_2|v|_{3d}|w|_{3d}.\tag{2.3}$$
 
 (iii) (*Right inverses.*) For $u\in U$ there is a linear map $\Psi(u):F^\infty\to B^\infty$ with
-$\Psi(u)(F^\infty_\eta)\subset B^\infty_\eta$ for $\eta\in[0,1]$, $\Phi'(u)\Psi(u)f = f$ for $f\in F^\infty$, and (with
-the same constants $C_k$, enlarged if necessary)
+$\Psi(u)(F^\infty_\eta)\subset B^\infty_\eta$ for $\eta\in[0,1]$ whenever $u\in U\cap B^\infty_\eta$ (amended in D304,
+finding (H10)), $\Phi'(u)\Psi(u)f = f$ for $f\in F^\infty$, and (with the same constants $C_k$, enlarged if necessary)
 $$|\Psi(u)f|_k\le C_k\big(\|f\|_{k+d}+|u|_{k+d}\|f\|_{2d}\big),\qquad k\ge d,\ f\in F^\infty.\tag{2.4}$$
 
 Let $N := 21d+6$. There is $\epsilon>0$, depending only on $d$, $\delta$, $\eta_0$, $C_1$, $C_2$ and the constants $C_k$,
@@ -124,10 +124,11 @@ $$|v_j|_d\le C_d(1+\delta)\|e_j\|_{2d}\le K_1\theta_j^{-\alpha}.$$
 By (2.4) at $k = N-2d\ge d$, (2.3) at $k = N-d$, the monotonicity of the norms and $\|e_j\|_{2d}\le1$,
 $$|v_j|_{N-2d}\le C_{N-2d}\big(C_{N-d}(1+|u_j|_N)+|u_j|_N\big)\le K_2(1+|u_j|_N)\le2K_2\theta_j^\beta.$$
 
-*Supports.* By (ii), $e_j\in F^\infty_{\eta_j}$ ($\eta_j\le\eta_0$); by (iii), $v_j\in B^\infty_{\eta_j}$. Choose
-$\theta_0\ge16\eta_0^{-2}$, with $\theta_0^{1/4}\ge2$. Then $\theta_j^{-1/2}\le\theta_0^{-1/2}\le\frac14\eta_0\le\eta_j$,
-so $S_{\theta_j}$ applies to $v_j$, and $w_j\in B^\infty_{\eta_j-\theta_j^{-1/2}} = B^\infty_{\eta_{j+1}}$; also $u_j\in
-B^\infty_{\eta_j}\subset B^\infty_{\eta_{j+1}}$, so $u_{j+1}\in B^\infty_{\eta_{j+1}}$. By (2.6) with $\gamma = \frac12$,
+*Supports.* By (ii), $e_j\in F^\infty_{\eta_j}$ ($\eta_j\le\eta_0$); by (iii), as $u_j\in B^\infty_{\eta_j}$, $v_j\in
+B^\infty_{\eta_j}$. Choose $\theta_0\ge16\eta_0^{-2}$, with $\theta_0^{1/4}\ge2$. Then
+$\theta_j^{-1/2}\le\theta_0^{-1/2}\le\frac14\eta_0\le\eta_j$, so $S_{\theta_j}$ applies to $v_j$, and $w_j\in
+B^\infty_{\eta_j-\theta_j^{-1/2}} = B^\infty_{\eta_{j+1}}$; also $u_j\in B^\infty_{\eta_j}\subset
+B^\infty_{\eta_{j+1}}$, so $u_{j+1}\in B^\infty_{\eta_{j+1}}$. By (2.6) with $\gamma = \frac12$,
 $\eta_{j+1}\ge\eta_0-2\theta_0^{-1/2}\ge\frac12\eta_0$.
 
 *Bounds on $w_j$.* By (2.1),
@@ -500,6 +501,12 @@ through the existence of some finite order.
 (H9) Lemma 12.8 (3) is stated for $u\in\bar H^k_b(M)$; its bound by $\|u\|_{k+d}$ is finite only for $u\in\bar
 H^{k+d}_b(M)$, as in Lemma 4.1 (3). Lemma 12.8 (2) has the same feature, and Lemma 4.1 (2) states $u\in\bar
 H^{k+d}_b(M)$.
+
+(H10) *(D304.)* Theorem 12.4 asks the support property of the right inverses at every $u\in U$. Theorem 2.1 (iii) asks it
+only at $u\in U\cap B^\infty_\eta$, which is all the proof uses (*Supports*: $u_j\in B^\infty_{\eta_j}$ and $e_j\in
+F^\infty_{\eta_j}$), so the conclusion is unchanged. The weaker hypothesis is what the right inverses of [Hin26]'s
+nonlinear theorem provide at $n = 4$: at a base point whose tail does not vanish below the level, the boost direction
+contributes a source there (III.K Lemma 2.3; verifier 132's A-M1, a gap also of [Hin26]'s Step 3 (3), p. 322).
 
 ### 6.2 Sources
 

@@ -5826,3 +5826,17 @@ form the energy method needs, with the coupling between its components given by 
 non-negative. One finding: the earlier part had placed the error terms in a class that loses two powers of the angular
 weight, and a finer count repairs it. The energy estimate and its tame form are proved for the whole system by choosing
 an inner product on the tensor bundle in which the coupling between components is small.
+
+**D304 (2026-10-30): the nonlinear theorem, first repair.** The verifier found three structural gaps in the nonlinear
+theorem, each present in the source as well. The right inverses keep their supports only at base points that already
+vanish below the level, and the iteration theorem now asks for no more than that. The boosted initial family was
+placed on the wrong image of the initial region. And the support classes were defined by a time function along whose
+levels the expansions at null infinity cannot be split; they are now defined by the standard time function. The region
+near null infinity at bounded time is now posed after the compact part, since its points depend on all of the data.
+The exterior estimates of the earlier part had three smaller gaps, now closed.
+
+**D305 (2026-10-30): the exterior solution.** The exterior solution is now proved at the level of the statement used
+later. The equation near null infinity is integrated along its two families of curves, the Cauchy problem near spatial
+infinity is solved in both time directions, and the sharp decay is recovered in two rounds: in five dimensions every
+coupling that brings the radiation of one component into another is of lower order. The nonlinear solution follows
+from the iteration theorem, and the cut-off gauge changes nothing where the fine structure is used.

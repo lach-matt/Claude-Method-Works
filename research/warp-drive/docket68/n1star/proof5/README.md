@@ -28,7 +28,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | II.E | [Hin26c] 8 | energy estimates on slabs and in the interior; the global estimate | verified (D207) |
 | II.F | [Hin26c] 10 | the normal operator at iota+; forward solutions of P_0 on e3b-spaces | **proved** (D216) |
 | II.F' | [Hin26c] 11 | forward solutions of wave-type operators, tame estimates | **proved** (D216) |
-| II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | **proved** (D216) |
+| II.G | [Hin26c] 12 | the Nash-Moser theorem, smoothing operators, tame bounds | **proved** (D216); amended D304 (Theorem 2.1 (iii), (H10)) |
 | II.G' | [Hin26c] 13 | improving decay: Fourier transforms, resolvent bounds, the radiation field | **proved** (D217) |
 | III.A | [Hin26] 2.1-2.3 | technical prerequisites: partial polyhomogeneity, integration along b-fields | proved (D231) |
 | III.A' | [Hin26] 2.4 | harmonics on S^3; the Minkowski operators in the null splittings; indicial roots by type | verified (D221) |
@@ -73,9 +73,10 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
 | III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | proved (D295; the weights (J''4) discharged at b_0 by III.J''', proved D296) |
 | III.J''' | [Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights | exact weights: the exact classes and conditions (E1)-(E5), the graft at the exact K+ weight in the rho_+ convention, III.A Proposition 4.2 exact, the pointwise bounds at the final weight re-proved in L^2, III.I(14) Theorem 3.1 and III.J' Theorem 2.1 at fixed weights, the tame estimates on one pair of scales | **proved** (D296) |
-| III.K | [Hin26] section 13.1 (Theorem 13.1, Remarks 13.2-13.4; (12.33)-(12.34), Lemma 12.7) | the nonlinear theorem: the initial family in a cut-off gauge equal to the cone's on Omega_*, the map Psi and its right inverses, support classes and smoothing on D_ex, II.G's Nash-Moser theorem, constraint propagation; conditional on Part IV | written (D300) |
-| IV | [Hin23a] sections 3.1-3.2 (Lemmas 3.13, 3.16, Corollary 3.14, Proposition 3.17) and [HV20] Proposition 4.3 | exterior estimates I: the edge-b structure at I+ on III.C's region, the scalar operator rho_I rho^(-7/2) box rho^(3/2) with Delta+3/4, the basic energy estimate near I+ and near I_0 | written (D301) |
+| III.K | [Hin26] section 13.1 (Theorem 13.1, Remarks 13.2-13.4; (12.33)-(12.34), Lemma 12.7) | the nonlinear theorem: the initial family in a cut-off gauge equal to the cone's on Omega_*, the map Psi and its right inverses, support classes and smoothing on D_ex, II.G's Nash-Moser theorem, constraint propagation; conditional on Part IV | written (D300); verified (D304; repairs to be read) |
+| IV | [Hin23a] sections 3.1-3.2 (Lemmas 3.13, 3.16, Corollary 3.14, Proposition 3.17) and [HV20] Proposition 4.3 | exterior estimates I: the edge-b structure at I+ on III.C's region, the scalar operator rho_I rho^(-7/2) box rho^(3/2) with Delta+3/4, the basic energy estimate near I+ and near I_0 | written (D301); verified (D304; repairs to be read) |
 | IV' | [Hin23a] sections 3.3-3.5 (Proposition 3.29, Proposition 3.32, Lemmas 3.33-3.34) | exterior estimates II: [Hin26]'s conjugated linearised operator in edge-b form with the constant first-order matrix Abar; the energy estimate and its tame form for the system at alpha_I < min(alpha_0, 0) | written (D303) |
+| IV'' | [Hin23a] section 3.6 (Theorem 3.35, Corollary 3.36) | exterior estimates III: integration along the two families of curves, the Cauchy problem near I_0 in both directions, sharp decay in two rounds (radiation field in slot 6 only), the nonlinear exterior solution by II.G, the cut-off gauge; delivers III.C' Theorem 2.1 | written (D305) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -1263,6 +1264,18 @@ Proposition 2.2 proves the energy estimate and its tame form for alpha_I < min(a
 2.3-2.4 are the Moser and commutator estimates in dimension 5. Findings (IV'1): III.C's b-form loses x_I^(-2) in the
 angular directions, and the edge-b form III.C attributes to III.C' is (1.1) here; (IV'2): the first-order matrix is
 h-free at n = 4. Written (D303).
+
+`PART-IV3-NM.md`. Part IV'' covers [Hin23a] section 3.6 and delivers III.C' Theorem 2.1. Lemma 1.1 shows that the
+X_I-curves (outgoing rays) and the (X_0 - X_I)-curves (fixed |x|) followed backward stay in the exterior domain until
+the spacelike level set {rho_I = c}; Lemma 1.2 integrates X_I - d (d above the weight), X_I (the radiation field) and
+X_0 - X_I along them by Young's inequality, without loss. Lemma 2.2 is the Cauchy problem near the interior of I_0 with
+data, forward and backward (the past slab, verifier 132's B-m3), Lemma 2.3 the forward problem with growth at I+.
+Theorem 2.4 recovers the weight beta = l_I^flat - 3/2 in two rounds, every slot at once: the error of Part IV' (1.1)
+gains x_I^(1-2 eps), no row couples to slot 6 and row 6 couples to none, so only slot 6 carries a radiation field; loss
+d = 4, with the tame form (5.52). Theorem 3.1 is the nonlinear solution by II.G with trivial support classes, with the
+higher norms from shifted scales and uniqueness from the averaged operator. Corollary 4.1: the cut-off gauge and the
+backgrounds of III.C' Remark 2.2 (2), chi_0 being 1 wherever the edge-b structure is used. Findings (IV''1)-(IV''3); the
+slab of III.K (K2) (b) is the next part's. Written (D305).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output
