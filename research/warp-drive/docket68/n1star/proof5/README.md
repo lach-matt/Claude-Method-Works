@@ -1283,7 +1283,7 @@ t_* = T^ + 3. Cauchy data on Sigma_fut,r_1 near I+, a surface that reaches I+ an
 avoided: the problem is posed on the exterior domain together with S, from Sigma_IVP,r_1 and the compact surface
 Sigma_c where S meets the compact part, neither of which reaches I+, and the exterior solution is recovered by
 uniqueness. III.C's chart is translated in t (g_{b_0} is stationary), and the boosted background lies in the translated
-class by III.B Lemma 5.2 (Lemma 0.1). Theorem 2.1 is Part IV'''s linear theorem there, Theorem 2.2 the nonlinear one,
+class by III.B Lemma 5.2 (Lemma 0.1). Theorem 2.1 is Part IV'' Theorem 2.4 there, Theorem 2.2 its Theorem 3.1,
 Corollary 2.3 the orders at I+ (III.C' Theorem 3.1's proof). Findings (IV'''1)-(IV'''2). Written (D306).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
