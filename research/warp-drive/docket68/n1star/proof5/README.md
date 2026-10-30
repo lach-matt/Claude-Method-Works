@@ -85,7 +85,8 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
 | V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313) |
-| VI | the record's computed inputs | that the record's operators satisfy each part's hypotheses | to do |
+| VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314) |
+| VI.B-C | the record's computed inputs | (Dyn) at b near b_0 with (H5), (K4); the parameter conditions left open by the parts | to do |
 | VII | assembly | Theorem 4 from Parts I-VI | to do |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
@@ -1344,6 +1345,17 @@ $-4\pi^2\mu_0$ and $-6\pi^2\mu_0$, computed by hand and checked numerically. Sec
 exponentially weighted solvability on the annulus (READ, every $n$), the continuity in the background that Lemma 3.18
 needs (Lemma 3.2), the pairing's asymptotics (3.2), Lemma 3.18 proved, and the glued data, smooth, equal to a family
 member for $r\ge4R$, their charges converging. Findings (V1)-(V5). Written (D313).
+
+`PART-VI-DYN.md`. Part VI.A proves the dynamical hypotheses that Parts I-IV leave to Part VI, at five-dimensional
+Tangherlini with III.B's $t_*$. Section 0: every time function used is $v-\varphi(r)$, and a change of time function is
+a fibre translation that intertwines the flows (Lemma 0.1). (H6) and (K1) hold for every $b\in\mathcal B$ (Lemma 1.1).
+The horizon: $\beta_0 = 2\mu^{-1/2}$, $\beta = \mu^{1/2}$, $q = |\eta/\xi|^2$ with $\mathsf Hq = 2q(f'-2r^{-3}q)$, and
+(H4) inside it (Proposition 2.1). The trapped set $r^2 = 2\mu$, $\xi = 0$, $C = 4\mu$, with the exact separatrices $f\xi
+= \pm(1-2\mu r^{-2})$ and exact rates, $\nu = 4(2\mu)^{-1/2}$ on $\Gamma$ (Proposition 3.1). $r$-normal hyperbolicity
+from the periodic geodesic flow of $\mathbb S^3$ (Proposition 4.1). The global dynamics by the conserved angular
+momentum (Proposition 5.1), and the escape function $(r^2-2\mu)\xi$, whose derivative
+$2r(\xi^2(r^2-\mu)^2+(r^2-2\mu)^2)/(r^2-\mu)^2$ vanishes only on $\Gamma$ (Lemma 5.2), for Part VI.B. Findings
+(VI.A1)-(VI.A3). Written (D314).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

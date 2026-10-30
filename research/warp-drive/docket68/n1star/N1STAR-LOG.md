@@ -5901,3 +5901,10 @@ rotating, boosted and translated family, energy, momentum, angular momentum and 
 freely near those of the static black hole. That is proved here by computing how each changes with each parameter, a
 calculation that symmetry reduces to four numbers. In five dimensions the decay of the fields is fast enough that the
 symmetry condition the published proof imposes on the data at infinity is not needed.
+
+**D314 (2026-10-30): the geometry the estimates assume.** Many earlier parts assumed facts about how light moves near
+the five-dimensional black hole: that the horizon traps rays at the right rate, that there is exactly one unstable
+photon sphere, and that every other ray falls in or escapes. These are now proved for the static black hole. The
+photon sphere sits at the square root of twice the mass parameter; the rays that approach it are found in closed form;
+and a single quantity, the radial momentum times the distance from the photon sphere, increases along every ray except
+those on the sphere itself. That quantity is what will carry the conclusions over to slowly rotating black holes.

@@ -4166,3 +4166,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Replaces record 10.63 (a)-(c), 10.66 (a)-(e) and Proposition 10.47 (finding (V2)).
 - Next: Part VI ((Dyn) and the record's computed inputs); Part VII (assembly); Part V to the next verifier, with the
   D312 repairs of IV''''''.
+
+### 4.238 Part VI.A written (D314): the dynamical hypotheses at Tangherlini
+
+- PART-VI-DYN.md. The dynamical hypotheses that Parts I-IV call (Dyn) are proved for 5D Tangherlini with III.B's
+  t_*. (H6) and (K1) are proved for every b. The horizon's radial source has beta_0 = 2 mu^(-1/2), beta = mu^(1/2)
+  and quadratic defining function |eta/xi|^2. The trapped set is r^2 = 2 mu with C = 4 mu; its separatrices are
+  exactly f xi = +-(1 - 2 mu r^-2), with exact rates. (K3) holds through the periodic geodesic flow of S^3. (H8)
+  holds through the conserved angular momentum.
+- Lemma 5.2: the escape function (r^2 - 2 mu) xi has H F = 2r(xi^2 (r^2 - mu)^2 + (r^2 - 2 mu)^2)/(r^2 - mu)^2, zero
+  only on Gamma, and z_0 F = (r^2/4f)(phi_s^2 - phi_u^2) exactly. It is for the perturbation to b near b_0 in VI.B.
+- Checks: d313/dyn5.py (sympy).
+- Next: Part VI.B ((Dyn) for b near b_0: horizon by continuity on the fixed conormal, trapping by [HPS77]
+  persistence, (H8) by the escape function with no return), VI.C (gamma_Upsilon < min(s_C/2, 1/4), (C5)), Part VII.
