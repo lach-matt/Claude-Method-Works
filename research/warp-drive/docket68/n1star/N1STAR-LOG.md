@@ -5795,3 +5795,14 @@ their sizes read from the construction, and removes them together with the rest.
 unique only once those sizes are fixed this way; the later parts never needed more. Four smaller points were repaired
 too. One is a sign. Another is a small mismatch between objects built at the nearby black hole and corrections built
 at the reference one. Its size is controlled, and the one estimate it rests on is marked for the next reading.
+
+**D300 (2026-10-30): the nonlinear theorem is written, pending Part IV.** The last part of the black-hole chain is now
+on the page: the step that turns the linear theory into the nonlinear stability result. It runs the iteration that
+corrects an approximate solution again and again until it is exact, starting from a solution near the initial
+surface. It then shows that the gauge condition, imposed by hand, holds automatically, so the result solves Einstein's
+equations and not just a modified version of them. Three places needed more care than the source gives them. The
+early solution was built in a slightly different gauge from the later one, and the two only match where a certain
+cut-off equals one, so the cut-off is adjusted to make them match. The iteration's bookkeeping of where each term lives
+needed conditions on every part of the unknown. The boost direction has to carry the early solution along. The theorem
+still rests on Part IV, the exterior estimates, which is not yet written; this part says exactly what it needs from
+there.

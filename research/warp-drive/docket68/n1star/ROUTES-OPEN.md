@@ -3990,3 +3990,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the span of gdot_b, h_b(S).
 - Next: verifier 131 reads the D299 repairs of III.I(15). III.K ([Hin26] section 13.1) is being drafted (plan:
   scratchpad d299/plan.md).
+
+### 4.224 III.K written (D300): [Hin26] section 13.1 at n = 4, conditional on Part IV
+
+- The assembly of the nonlinear theorem: initial family, Psi, right inverses, support classes, smoothing, II.G
+  Nash-Moser, constraint propagation; Theorem 4.3 is the source's Theorem 13.1 at n = 4.
+- Three changes from the source:
+  - (K1) The initial family solves the cut-off gauge, and the cone uses the uncut one; they agree only where chi_0 = 1.
+    The new cut-off chi_0-natural = 1 - (1 - chi_0)(1 - chi(t_*)) equals 1 on Omega_* and chi_0 on the exterior domain.
+  - (K3) In Psi's right inverses the boost defect gains a term e_S supported in {1 <= t^flat_* <= 2}, small with the
+    data.
+  - (K4) II.G's closed support classes need conditions on every component of supported character. The q-tails are cut
+    off to t_* >= 8 by Z at no cost, as they enter only through h_rem(q), which vanishes on t_* < 10.
+- Part IV must deliver (K2): III.C' Theorem 2.1 in the cut-off gauge; its continuation on the slab near I+ up to
+  t^flat_* = 3 (the source's "for globally small initial data" sentence, p. 321); and III.E Theorem 1.1.
+- (K8): chi_iota is taken to vanish on {t^flat_* <= 2}; its choice in III.G'' is free, which is to be checked.
+- Next: verifier 132 reads III.K (after verifier 131 on III.I(15)); then Part IV.

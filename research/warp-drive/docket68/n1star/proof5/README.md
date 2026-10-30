@@ -73,6 +73,7 @@ independent reader has checked it line by line and every finding is seated; **pr
 | III.J' | [Hin26] Theorem 12.8, Remark 12.9 | efficient parameterisation II: every linear forward solution of III.I(14) Theorem 3.1 for a source of the class F is D_U Phi(U'), at b_0; under (G+) the linear solutions have the iota+-order (3 + eps_+)- (Lemma 1.1); tame form and b != b_0 open | **proved** (D287) |
 | III.J'' | [Hin26] Remark 11.13; the tame estimates of Corollary 11.66 and Theorem 12.8 | tame estimates: a calculus of tame families, the elementary families (forward solutions, background coefficients, model inverses at every finite order), the inventory of III.I-III.I(14) and III.J', the tame forms of III.I(14) Theorem 3.1 and III.J' Theorem 2.1, the tame forward map | proved (D295; the weights (J''4) discharged at b_0 by III.J''', proved D296) |
 | III.J''' | [Hin26] Corollary 11.66 and Theorem 12.8 at fixed weights | exact weights: the exact classes and conditions (E1)-(E5), the graft at the exact K+ weight in the rho_+ convention, III.A Proposition 4.2 exact, the pointwise bounds at the final weight re-proved in L^2, III.I(14) Theorem 3.1 and III.J' Theorem 2.1 at fixed weights, the tame estimates on one pair of scales | **proved** (D296) |
+| III.K | [Hin26] section 13.1 (Theorem 13.1, Remarks 13.2-13.4; (12.33)-(12.34), Lemma 12.7) | the nonlinear theorem: the initial family in a cut-off gauge equal to the cone's on Omega_*, the map Psi and its right inverses, support classes and smoothing on D_ex, II.G's Nash-Moser theorem, constraint propagation; conditional on Part IV | written (D300) |
 | III.C' | [Hin26] 5.4-5.5 | the exterior domain (Lemma 5.16); the exterior solution and its linear estimate (Theorem 5.17, (5.52)-(5.53), from Part IV); partial polyhomogeneity at I_0 and null infinity (Theorem 5.21) without subtracting radiation fields, which settles (C7) | **proved** (D292) |
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin26a] 5.2, 6; [Hin23a] 3 | constraint damping; the exterior estimates | to do |
@@ -1226,6 +1227,18 @@ Remark 3.1 corrected (the two classes are incomparable); Corollary 6.6 now argue
 harm; (E1) is a smallness condition and (E5) vacuous. Proved (D296): verifier 128 read the D295 repairs and found them
 correct; four nits seated (the transition region, the main terms of the type (v) pieces, Remark 3.1's title, stale
 (E5) wording).
+
+`PART-III-K-NONLINEAR.md`. [Hin26] section 13.1 at n = 4, the nonlinear stability theorem, conditional on Part IV. Lemma
+1.1 introduces the cut-off chi_0-natural, which equals 1 on Omega_* and equals III.C'''s chi_0 on the exterior domain.
+The source's family solves the cut-off gauge while the cone uses the uncut one, and these agree only where chi_0 = 1
+((K1)). Proposition 1.2 is the initial family h_S on {t^flat_* <= 3}: exterior by III.C'', a slab near I+ from Part IV
+((K2)), the compact rest by local theory; Ricci-flat and in gauge. Definition 2.1 and Lemma 2.2 give Psi(U) = (chi_-
+h_{-S},0,0) + Phi(U) (the source's Lemma 12.7). Lemma 2.3 gives right inverses for Psi, in which the boost defect gains
+a small term supported in {1 <= t^flat_* <= 2} ((K3)). Section 3 has the support classes B_eta, with the q-tails cut off
+where they do not enter ((K4)), Lemma 3.1 (smoothing on D_ex, partially polyhomogeneous parts coefficient by
+coefficient), and Theorem 3.2 (II.G Theorem 2.1). Section 4 has Lemma 4.1 (the source's short calculation, in any
+dimension), Proposition 4.2 (constraint propagation in the cone by II.F Lemma 1.3) and Theorem 4.3 (the source's Theorem
+13.1 at n = 4). Findings (K1)-(K8). Written (D300).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output
