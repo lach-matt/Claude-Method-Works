@@ -5879,3 +5879,10 @@ both sides, two, three and one in the three families of harmonics on the three-s
 wave equation in spacetime with weights that exclude any stationary solution. With this, all four properties of the
 constraint damping that the stability proof uses are proved, given the dynamical facts about the black hole.
 
+**D311 (2026-10-30): a margin restored.** The hundred-and-thirty-fourth verifier read the constraint damping parts and
+found one error of substance: in five dimensions a time-independent function needs slightly more decay to be square
+integrable over the region than the write-out allowed for, so the step that proves the zero frequency operator onto
+was one unit short at the damping strength the proof fixes. The repair applies the same estimate at a weight one unit
+weaker, where the decay that the exponents guarantee suffices; the source keeps the same margin. Two smaller gaps in
+the spacetime estimate, a geometric condition used outside the region where it was proved and a limit taken without a
+continuous trace, and one in the slab's definition, are closed. Three earlier parts are now proved.

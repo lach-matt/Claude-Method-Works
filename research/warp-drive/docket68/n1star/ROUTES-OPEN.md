@@ -4123,3 +4123,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - So III.E Theorem 1.1 (1)-(4) are proved at n = 4 in Parts IV''''-IV'''''', given (Dyn) (Part VI).
 - Next: Parts V-VII; verifier 134 reading IV'''-IV''''' and the D309 repairs; IV'''''' to the next verifier.
 
+### 4.235 Verifier 134 seated (D311): IV''''s adjoint weight; IV', IV'' and III.I(16) proved
+
+- IV'''' (MAJOR, B-M1): at n = 4 a stationary function of decay rho^k lies in the dual space at weight a iff k > a + 5/2
+  (2 from rho^a L^2(r^3 dr), 1/2 from the slab), so at (2.1) the adjoint step needs decay above C_0 + 3, which Lemma
+  1.3 does not give at C_0 = 100. Repaired: (5.81) is applied at the weight (2.1) with C_0 - 1, which needs decay above
+  C_0 + 2; h_* is below both bounds h_0 (findings (IV''''6)-(IV''''7)).
+- IV''''' (A-m1, A-m2): on the extended domain, Lemma 0.5 (6) is used only in r >= r_sharp, and the strip below is
+  covered by (5.68)-(5.69); general data pass to the limit by the energy identity's boundary term at every tau, and
+  uniqueness comes from (a) for the extension by zero (findings (IV'''''6)-(IV'''''7)).
+- III.K and IV''' (D-m1): the slab's restriction to r >= R_9 is made vacuous by c <= min(1/2, 1/R_9); nits D-n1, C-n1,
+  A-n1, A-n2, B-n1 to B-n3 seated.
+- Status: IV', IV'' and III.I(16) proved; IV''', IV'''', IV''''' verified (repairs to be read); III.K's D309 repairs
+  read, correct, one new minor seated.
+- Next: Part V ([CD03] Theorem 8.1 at n = 4) in writing; IV'''-IV'''''' and the D311 repairs to the next verifier.
