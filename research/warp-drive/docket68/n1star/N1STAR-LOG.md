@@ -5967,3 +5967,11 @@ own data class. Writing it out found that the paper's version without symmetry c
 perturbation to an exact solution far out changes its late-time behaviour near the hole, so it only shows the glued data
 settle. It also found that the data must decay with polyhomogeneous terms to third order, which the parameter part had
 not recorded; that part is repaired.
+
+**D323 (2026-10-30): the assembly checked.** An independent reader went through the assembly of the settling theorem,
+the parameter part and the trapping repairs. No major gap. In the symmetric run, three steps needed care: the symmetry
+argument now covers the actual symmetry group, not only the full rotation group; the black-hole-dependent ingredients
+are averaged as whole families; and the nested cut-off functions are chosen symmetric directly, since averaging them one
+by one could break their nesting. In the parameter part, the order of choices had become circular after the last change:
+one decay rate must now be chosen after the data classes. The trapping and horizon parts are now proved: the reader
+found every earlier repair correct.

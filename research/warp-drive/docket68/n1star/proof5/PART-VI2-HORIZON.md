@@ -2,12 +2,12 @@
 
 *Status.* Written (D316); verified (D318: verifier 138's three minor findings and six notes repaired, findings
 (VI.B3)-(VI.B5)); the repairs read by verifier 139, whose one further minor finding (the Jacobian of $\Psi_b$ in $h'$)
-and two notes are repaired (D321). This part carries Part VI.A's horizon hypotheses, the dynamical parts of (H3) and all
-of (H4), from $b_0$ to every $b$ near $b_0$, uniformly in $b$ as (H5) asks. (H6), (K1) and the first clause of (K4) hold
-for every $b\in\mathcal B$ by VI.A Lemma 1.1. The trapped set and the global dynamics near $b_0$, (Γ.1)-(Γ.3), (K3) and
-(H8), are Part VI.B$'$. The one new fact used is that the Myers-Perry horizon is the null hypersurface $\{r_A = r_+\}$
-of III.B's Kerr-Schild form (Lemma 1.1). It is proved here by an exact identity. The rest is continuity on compact sets,
-after a diffeomorphism that fixes the horizon (Lemma 1.2).
+and two notes are repaired (D321). Proved (D323): verifier 140 read the D321 repairs, correct. This part carries Part
+VI.A's horizon hypotheses, the dynamical parts of (H3) and all of (H4), from $b_0$ to every $b$ near $b_0$, uniformly in
+$b$ as (H5) asks. (H6), (K1) and the first clause of (K4) hold for every $b\in\mathcal B$ by VI.A Lemma 1.1. The trapped
+set and the global dynamics near $b_0$, (Γ.1)-(Γ.3), (K3) and (H8), are Part VI.B$'$. The one new fact used is that the
+Myers-Perry horizon is the null hypersurface $\{r_A = r_+\}$ of III.B's Kerr-Schild form (Lemma 1.1). It is proved here
+by an exact identity. The rest is continuity on compact sets, after a diffeomorphism that fixes the horizon (Lemma 1.2).
 
 ## 1. The horizon
 

@@ -86,10 +86,10 @@ independent reader has checked it line by line and every finding is seated; **pr
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
 | V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313); verified (D315); proved (D317) |
 | VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317); proved (D318) |
-| VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318: verifier 138's three minors seated; read by verifier 139, one further minor seated D321, to be read) |
-| VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319); verified (D321: verifier 139's one minor and thirteen notes seated) |
-| VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2) |
-| VII | assembly | Theorem 4 from Parts III-VI and the record: (i) the record's data on III.K's initial surface, glued in the class to Tangherlini, and III.K run on G-fixed spaces; (ii) perturbations in III.K's data class | written (D322) |
+| VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318); proved (D323: verifier 140 read the D321 repairs) |
+| VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319); verified (D321); proved (D323: verifier 140 read the repairs, two notes seated) |
+| VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2); verified (D323: order corrected, row b4) |
+| VII | assembly | Theorem 4 from Parts III-VI and the record: (i) the record's data on III.K's initial surface, glued in the class to Tangherlini, and III.K run on G-fixed spaces; (ii) perturbations in III.K's data class | written (D322); verified (D323: verifier 140's three minors and twelve notes seated) |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
 record's computed items (for Part I: 10.19, 10.36, 10.60 and 10.79) and turning each into a proof.
@@ -1398,7 +1398,10 @@ $\mathcal B(c_0)$; $\mathcal B_*$ shrunk inside all of these; the weights $\epsi
 classes; III.K's $\epsilon$, $d_1$. III.E Theorem 1.1 is proved only at that point and for $\gamma_C$ off a countable
 set, and every part uses one $\gamma_C$, chosen once. III.F$''$ section 5's open item is closed by III.H Corollary 4.3.
 Findings (VI.C1)-(VI.C3). Written (D320). Amended (D322): III.I$''''''''''$'s (H4), $\ell_I>3+\epsilon_+$, with
-III.C$'$'s $\ell_I<\ell_0$, forces $\ell_0>3+\epsilon_+$; rows d1-d2 now say so (finding (VI.C4)).
+III.C$'$'s $\ell_I<\ell_0$, forces $\ell_0>3+\epsilon_+$; rows d1-d2 now say so (finding (VI.C4)). Verified (D323): the
+order is corrected, as $\Lambda$ contains $\pi_1\mathcal E^C_I$, which depends on $\ell_I$. The data classes now come
+before the weights, with $\epsilon_+<\ell_I-3$, and III.I(16)'s shrinking of $\mathcal B_*$ is a new row b4, chosen last
+(finding (VI.C5)).
 
 `PART-VII-ASSEMBLY.md`. Part VII proves the paper's Theorem 4 (Theorem 0.2). (i): the record's Theorem E holds at every
 order, and after the shell its solution is Tangherlini plus smooth $O(\lambda)$ terms (Lemma 1.1). The record's domain
@@ -1411,7 +1414,10 @@ $O(4)$-equivariant by averaging. (ii): every perturbation in III.K's data class 
 Myers-Perry metric (III.K Theorem 4.3). Findings (VII1)-(VII6): the paper's (ii), via the record's gluing of a general
 decaying perturbation, concluded for the glued data, not the perturbation; the data weight must exceed $3+\epsilon_+$
 (VI.C repaired); no Cauchy stability is needed; the rate is slightly below the paper's; and the class run needs
-equivariant choices. Written (D322).
+equivariant choices. Written (D322). Verified (D323): verifier 140 found no major gap. Its minor findings: Lemma 3.1 is
+stated for any closed subgroup of $O(4)$; the families in $b$ used in $h_{b,\mathrm{rem}}$ are averaged as families; the
+nested cut-offs are chosen radial directly, since averaging could break the nesting. Twelve notes are repaired, among
+them a sign in the flux identity and $k = d_1+5$.
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

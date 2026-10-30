@@ -53,10 +53,11 @@ III.D and III.D$''$ (III.D$''$ Lemma 3.1), and $\gamma_{\Upsilon,H}$, $e_\Upsilo
 the mode stability of III.D$''$ Proposition 4.1 and the tf-admissibility of III.F$'$ Proposition 3.3. The data index set
 $\mathcal E_0$ and weight $\ell_0$ satisfy the hypotheses of III.C$'$ Theorem 3.1: $\min\mathrm{Re}\,\mathcal
 E_0>\frac32+2\gamma_\Upsilon$, $j\mathcal E_0\subset\mathcal E_0$, $\ell_0>\frac32$,
-$\ell_0\notin\mathrm{Re}\,\pi_1\mathcal E_0$. $\mathcal E^C_I$ and $\ell_I$ are then those of III.C$'$ Theorem 3.1. The
-weights $\ell_I$, $\epsilon_+$, $\epsilon_K$, $\alpha$ of the cone are those of III.I-III.J$'''$; the source's
-$3+\epsilon_0$ and $1+\epsilon_0$ are $\ell_0$ and $\frac32+\epsilon_0$ in the normalisation of III.C (weights shifted
-by $\frac12$ at null infinity, III.C$'$ (1.1)).
+$\ell_0\notin\mathrm{Re}\,\pi_1\mathcal E_0$; with (H4) of III.I$''''''''''$, $\ell_0>3$ as well (VI.C row d1, finding
+(VI.C4); amended D323). $\mathcal E^C_I$ and $\ell_I$ are then those of III.C$'$ Theorem 3.1. The weights $\ell_I$,
+$\epsilon_+$, $\epsilon_K$, $\alpha$ of the cone are those of III.I-III.J$'''$; the source's $3+\epsilon_0$ and
+$1+\epsilon_0$ are $\ell_0$ and $\frac32+\epsilon_0$ in the normalisation of III.C (weights shifted by $\frac12$ at null
+infinity, III.C$'$ (1.1)).
 
 *The cut-off $\chi_\iota$.* We take the cut-off $\chi_\iota = \chi(t_*)$ of III.G$''$ section 4 with $\chi = 0$ on
 $(-\infty,T_\iota]$ and $\chi = 1$ on $[T_\iota+1,\infty)$, so that $\chi_\iota = 0$ on $\{t_*\le

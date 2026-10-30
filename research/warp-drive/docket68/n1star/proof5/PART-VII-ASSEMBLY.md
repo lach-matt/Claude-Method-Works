@@ -1,19 +1,21 @@
 # Part VII: Theorem 4 assembled
 
-*Status.* Written (D322). This part proves the paper's Theorem 4 (RESPONSE-HL-5D.md section 8.8) from Parts III-VI and
-the record, in the form of Theorem 0.2. In (i), the data of the record's solution after the shell, on III.K's initial
-surface, are continued G-equivariantly to exact Tangherlini data far out (section 2). Their development is G-invariant
-and settles to Tangherlini, by III.K run in the class (section 3). In (ii), every perturbation of those data that is
-small in III.K's data class has a development settling to a Myers-Perry metric (III.K Theorem 4.3). Five findings change
-what the paper states (section 5). (VII1): (ii) is stated for perturbations in III.K's data class. The record's gluing
-of a general decaying perturbation (10.63) replaces its data near infinity, and the late-time solution near the hole
-depends on those data. (VII2): III.K's data weight must exceed $3+\epsilon_+$; VI.C's rows d1-d2 omitted this, and they
-are repaired. (VII3): the initial surface is III.K's $\Sigma_{\mathrm{IVP}}$, not the record's $\tau$-slice, so no
-Cauchy stability argument is needed. (VII4): the rate is $t_*^{-(\alpha-2)+\epsilon}$, slightly below the paper's
-$t_*^{-2-\epsilon_K}$, and the record's solution and the settling development are related through their common data on a
-ball. (VII5): the class run needs the choices of Parts III-IV made O(4)-equivariant, which is possible (Lemma 3.1). The
-inputs are III.K Theorem 4.3, Part V's gluing lemmas, VI.C Theorem 2.1, II.G Theorem 2.1, and from the record sections
-0-2, 10.50 (a) and the dependence of Theorem E on its order (written out in Lemma 1.1).
+*Status.* Written (D322); verified (D323: verifier 140's three minor findings and twelve notes repaired). This part
+proves the paper's Theorem 4 (RESPONSE-HL-5D.md section 8.8) from Parts III-VI and the record, in the form of Theorem
+0.2. In (i), the data of the record's solution after the shell, on III.K's initial surface, are continued
+G-equivariantly to exact Tangherlini data far out (section 2). Their development is G-invariant and settles to
+Tangherlini, by III.K run in the class (section 3). In (ii), every perturbation of those data that is small in III.K's
+data class has a development settling to a Myers-Perry metric (III.K Theorem 4.3). Five findings change what the paper
+states (section 5). (VII1): (ii) is stated for perturbations in III.K's data class. The record's gluing of a general
+decaying perturbation (10.63) replaces its data near infinity, and the late-time solution near the hole depends on those
+data. (VII2): III.K's data weight must exceed $3+\epsilon_+$; VI.C's rows d1-d2 omitted this, and they are repaired.
+(VII3): the initial surface is III.K's $\Sigma_{\mathrm{IVP}}$, not the record's $\tau$-slice, so no Cauchy stability
+argument is needed. (VII4): the rate is $t_*^{-(\alpha-2)+\epsilon}$, slightly below the paper's $t_*^{-2-\epsilon_K}$,
+and the record's solution and the settling development are related through their common data on a ball. (VII5): the
+class run needs the choices of Parts III-IV made O(4)-equivariant, which is possible (Lemma 3.1): cut-offs and gauge
+1-forms are radial, and linear maps and families given by existence statements are averaged. The inputs are III.K
+Theorem 4.3, Part V's gluing lemmas, VI.C Theorem 2.1, II.G Theorem 2.1, and from the record sections 0-2, 10.50 (a) and
+the dependence of Theorem E on its order (written out in Lemma 1.1).
 
 ## 0. Setting and statement
 
@@ -37,18 +39,17 @@ $\mathrm{span}(W_{12},W_{34})$, while $x^2\mapsto-x^2$ reverses $W_{12}$ and $x^
 \Phi_{\mu_{\mathrm{end}}}^*g^{\mathrm{KS}}_{\mu_{\mathrm{end}},0}$, that is $t =
 t_{\mathrm{KS}}+T_{\mu_{\mathrm{end}}}(|x|)$ (III.B (3.3)). $t_*$, $t_{\mathrm{IVP}}$, $\Sigma_{\mathrm{IVP}}$,
 $\Omega_*$, $\mathcal D$, $\chi_K$ and the boosts $\phi_S$ are those of III.K section 0. The parameters are those of
-VI.C Theorem 2.1, with its step (5) taken as
-$$\mathcal E_0 := \{(j,0):j\in\mathbb N,\ j\ge2\},\qquad\ell_0\in(3+\epsilon_+,4),\qquad\ell_I\in(3+\epsilon_+,
+VI.C Theorem 2.1, with its step (3) (the data classes, which precede the weights since D323) taken as
+$$\mathcal E_0 := \{(j,0):j\in\mathbb N,\ j\ge2\},\qquad\ell_0\in(3,4),\qquad\ell_I\in(3,
 \ell_0).\tag{0.1}$$
 Row d1 holds. $\min\mathrm{Re}\,\mathcal E_0 = 2>\frac32+2\gamma_\Upsilon$, since $\gamma_\Upsilon<\frac14$ (VI.C step
 (2)); $\mathcal E_0$ is closed under sums and positive multiples; and $\ell_0>\frac32$ with $\ell_0\notin\mathbb N$. Row
-d2 also holds, together with (H4) of III.I$''''''''''$ (finding (VII2)):
-$\ell_I\in(3+\epsilon_+,\min(\ell_0,\frac32+s_C))$, an interval that is nonempty as $s_C>100$, with $\ell_I$ taken off
-the discrete exclusion sets of row d2 and of (H4). Then $\epsilon$ and $d_1$ are those of III.K Theorem 4.3 (VI.C step
-(6)). For a pair $(\tilde\gamma,\tilde k)$ of symmetric 2-tensors on $\Sigma_{\mathrm{IVP}}$, $\|(\tilde\gamma,\tilde
-k)\|_{d_1}$ is the norm in which III.K Theorem 4.3 measures $(\gamma-\gamma_{b_0},k-k_{b_0})$: $H^{d_1}$ of
-$H^{\infty,(\mathcal E_0,\ell_0)}_{\mathrm b}\times H^{\infty,(\mathcal E_0+1,\ell_0+1)}_{\mathrm b}$, infinite outside
-these spaces.
+d2 holds as amended (D323): $\ell_I\in(3,\min(\ell_0,\frac32+s_C))$, nonempty as $s_C>100$, off the discrete exclusion
+sets of row d2 and of (H4). VI.C's step (4) then takes $\epsilon_+<\ell_I-3$, so (H4) of III.I$''''''''''$ holds
+(finding (VII2)). Then $\epsilon$ and $d_1$ are those of III.K Theorem 4.3 (VI.C step (6)). For a pair
+$(\tilde\gamma,\tilde k)$ of symmetric 2-tensors on $\Sigma_{\mathrm{IVP}}$, $\|(\tilde\gamma,\tilde k)\|_{d_1}$ is the
+norm in which III.K Theorem 4.3 measures $(\gamma-\gamma_{b_0},k-k_{b_0})$: $H^{d_1}$ of $H^{\infty,(\mathcal
+E_0,\ell_0)}_{\mathrm b}\times H^{\infty,(\mathcal E_0+1,\ell_0+1)}_{\mathrm b}$, infinite outside these spaces.
 
 **Lemma 0.1 (what lies in the class).** Let $\rho := |x|^{-1}$, and let $\tilde\gamma$, $\tilde k$ be smooth symmetric
 2-tensors on $\Sigma_{\mathrm{IVP}}$ whose Cartesian components lie, on $\{r\ge R'\}$, in $\rho^2C^\infty$ and
@@ -72,12 +73,15 @@ placed in the record's chart by Lemma 1.2.
 that equal the data of $g_\lambda$ on $\Sigma_{\mathrm{IVP}}\cap\{r\le R\}$, and the data of
 $g^{\mathrm{KS}}_{m_\lambda,0}$ on $\Sigma_{\mathrm{IVP}}\cap\{r\ge4R\}$, with $|m_\lambda-\mu_{\mathrm{end}}|\le
 C\lambda$ and $\|(\gamma_\lambda-\gamma_{b_0},k_\lambda-k_{b_0})\|_{d_1}\le C\lambda$. There are also $m'$ with
-$|m'-\mu_{\mathrm{end}}|<\epsilon_m$, and a $G$-invariant metric $g$ on $\Omega_*\cup\mathcal D$ with $\mathrm{Ric}(g) =
-0$ inducing $(\gamma_\lambda,k_\lambda)$ on $\Sigma_{\mathrm{IVP}}$, such that where $\chi_K = 1$
+$|m'-\mu_{\mathrm{end}}|<\epsilon_m$, and a $G$-invariant metric $g$ on $\Omega_*\cup\mathcal D_0$ ($\mathcal
+D_0\subset\mathcal D$, III.K Proposition 1.2) with $\mathrm{Ric}(g) = 0$ inducing $(\gamma_\lambda,k_\lambda)$ on
+$\Sigma_{\mathrm{IVP}}$, such that where $\chi_K = 1$
 $$g-g_{(m',0)} = h_{\mathrm{rem}}(q)+h,\qquad h\in\mathcal X^\infty_{J,\mathrm{ex}},
 \quad q\in\mathcal Q_{\mathrm{ex}},$$
-III.K Theorem 4.3 (3)-(4) with $b = (m',0)$ and $S = 0$. In particular, for every $R'$, $\epsilon'>0$ and $i,\beta$
-there are $C$ and $T'$ with
+III.K Theorem 4.3 (3)-(4) with $b = (m',0)$ and $S = 0$; its term $h_{\mathrm{tot}}(\vec p)$ vanishes where $\chi_K =
+1$, each of its terms carrying a factor $d\chi_K$ (PART-III-I5-UNBOOST.md:107-108, PART-III-I8-UNPARAM.md:139-141,
+PART-III-I9-COMMOTION.md:81-82, PART-III-I10-CORR4.md:172-173). In particular, for every $R'$, $\epsilon'>0$ and
+$i,\beta$ there are $C$ and $T'$ with
 $$|(t_*\partial_{t_*})^i\partial^\beta_x(g-g_{(m',0)})|\le Ct_*^{-(\alpha-2)+
 \epsilon'}\quad\text{on }\{r_0\le r\le R',\ t_*\ge T'\},\tag{0.2}$$
 where $\alpha-2>2+\epsilon_K-\epsilon'_0>2$ (VI.C row w2), and $\alpha$ may be chosen as close to $4+\epsilon_K$ as
@@ -94,7 +98,7 @@ metric $g_b$ at the rates (0.2).
 ## 1. The record's solution after the shell
 
 **Lemma 1.1 (after the shell).** Let $\Omega'$ be a domain of the record's form (1.1) with constants $(T',\delta'_0)$,
-and let $J\in\mathbb N$. Put $k := K := J+4$ and $N := K+3$, and build $g_\lambda$ on $\Omega'$ with these orders
+and let $J\ge2$ be an integer. Put $k := K := J+4$ and $N := K+3$, and build $g_\lambda$ on $\Omega'$ with these orders
 (record Theorems A, D and E). There are $C_J$ and $\lambda_1$ such that for $\lambda\le\lambda_1$, on $\Omega'_+ :=
 \Omega'\cap\{v\ge v_{\mathrm{end}}+1\}$, $g_\lambda$ is $G$-invariant and vacuum, and its Cartesian components satisfy
 $$|\partial^j(g_\lambda-g^{\mathrm{KS}}_{\mu_{\mathrm{end}},0})|\le C_J\lambda\qquad(j\le J),\tag{1.1}$$
@@ -132,8 +136,9 @@ record's section 0.7. $\square$
 **Lemma 1.2 (placing $\Sigma_{\mathrm{IVP}}$).** Let $R\ge R_3$, the radius beyond which $\psi_{\mathrm{IVP}}$ is
 constant (III.B Lemma 3.7 (b)). There are $c_0\in\mathbb R$ and a domain $\Omega'$ of the record's form (1.1), with $a'
 = q_0-\delta'_0<\frac12r_0$, such that in the chart $(t,x) := (\tau+T_{\mu_{\mathrm{end}}}(|x|)+c_0,x)$: (a) $g_0 =
-g_{b_0}$ on $\Omega'\cap\{v\ge v_{\mathrm{end}}\}$; (b) $\Sigma_{\mathrm{IVP}}\cap\{r_0\le r\le4R\}$ lies in the
-interior of $\Omega'_+$. The chart change commutes with $G$, and $\Sigma_{\mathrm{IVP}}$ is $G$-invariant.
+g_{b_0}$ on $\Omega'\cap\{v\ge v_{\mathrm{end}},\ |x|\ge r_0\}$, where $g_{b_0}$ is defined; (b)
+$\Sigma_{\mathrm{IVP}}\cap\{r_0\le r\le4R\}$ lies in the interior of $\Omega'_+$. The chart change commutes with $G$,
+and $\Sigma_{\mathrm{IVP}}$ is $G$-invariant.
 
 *Proof.* (a) There $g_0 = g^{\mathrm{KS}}_{\mu_{\mathrm{end}},0}$ in $(\tau,x)$, which does not depend on $\tau$, and
 $g_{b_0} = \Phi^*g^{\mathrm{KS}}_{\mu_{\mathrm{end}},0}$ with $\Phi(t,x) = (t-T_{\mu_{\mathrm{end}}}(|x|),x)$. (b) On
@@ -181,8 +186,9 @@ $2g_{t(i}\partial_{j)}f+g_{tt}\partial_if\partial_jf = O(r^{-4})$, with first de
 $\{t_{\mathrm{KS}} = 0\}$, which is $6\pi^2m$ by Part V Proposition 2.3 at $p = (m,0,0,0)$. $\square$
 
 **Proposition 2.2 (gluing in the class; [CD03] Theorem 8.1 with $G$).** Write $\bar\mu := \mu_{\mathrm{end}}$ and fix
-$k\ge3$. There are $R_{\mathrm{gl}}$, $\eta_0$ and $C$ such that for $R\ge\max(R_{\mathrm{gl}},R_3)$ the following
-holds. Let $(g,K)$ be $G$-invariant smooth vacuum data on $\Sigma_{\mathrm{IVP}}\cap\{r_0\le r\le3R\}$ with
+$k\ge3$, the order of the gluing (not Theorem E's order of Lemma 1.1). There are $R_{\mathrm{gl}}$, $\eta_0$ and $C$
+such that for $R\ge\max(R_{\mathrm{gl}},R_3)$ the following holds. Let $(g,K)$ be $G$-invariant smooth vacuum data on
+$\Sigma_{\mathrm{IVP}}\cap\{r_0\le r\le3R\}$ with
 $$\eta := \sup_{R\le r\le3R}\Big(\sum_{|\beta|\le k+4}r^{2+|\beta|}|\partial^\beta(g-\gamma^{\bar\mu})|+
 \sum_{|\beta|\le k+3}r^{3+|\beta|}|\partial^\beta(K-k^{\bar\mu})|\Big)\le\eta_0.\tag{2.1}$$
 Then there are $m$ with $|m-\bar\mu|\le C\eta$, and $G$-invariant smooth vacuum data $(\hat g,\hat K)$ on
@@ -222,20 +228,21 @@ unscaled, gives
 $$\oint_{S_{4R}}\mathfrak b(\gamma^m,k^m)-\oint_{S_R}\mathfrak b(g,K)+\int_{\Gamma(R,4R)}q_{e_0}(\hat x)\,dx = 0.$$
 The same lemma on $\Gamma(4R,\rho)$ for $(\gamma^m,k^m)$, and on $\Gamma(R,\rho)$ for $(\gamma^{\bar\mu},k^{\bar\mu})$,
 with $\rho\to\infty$ (Lemma 2.1 (c); $|q|\le Cr^{-6}$ is integrable), gives $\oint_{S_{4R}}\mathfrak b(\gamma^m,k^m) =
-6\pi^2m-\int_{r>4R}q(\gamma^m)$ and $\oint_{S_R}\mathfrak b(\gamma^{\bar\mu},k^{\bar\mu}) =
-6\pi^2\bar\mu-\int_{r>R}q(\gamma^{\bar\mu})$. By (2.1), $\oint_{S_R}\mathfrak b(g,K)$ differs from the latter flux by at
+6\pi^2m+\int_{r>4R}q(\gamma^m)$ and $\oint_{S_R}\mathfrak b(\gamma^{\bar\mu},k^{\bar\mu}) =
+6\pi^2\bar\mu+\int_{r>R}q(\gamma^{\bar\mu})$. By (2.1), $\oint_{S_R}\mathfrak b(g,K)$ differs from the latter flux by at
 most $C\eta$. Hence
 $$6\pi^2(m-\bar\mu) = \int_{\Gamma(R,4R)}\big(q(\gamma^{\bar\mu})-q(\hat x)\big)+
-\int_{r>4R}\big(q(\gamma^m)-q(\gamma^{\bar\mu})\big)+O(\eta).$$
+\int_{r>4R}\big(q(\gamma^{\bar\mu})-q(\gamma^m)\big)+O(\eta).$$
 Write $a := \sigma_R(g,K)$ and $b := \sigma_R(\gamma^m,k^m)$; both are vacuum and $x_{m,R} = b+\chi(a-b)$. The
 constraint map is smooth near flat data and vanishes at $b$. So the source of Step 1 has
 $\|(J,\rho)(x_{m,R})\|_{C^{k+1}}\le C\|a-b\|_{C^{k+3}\times C^{k+4}}\le C(\eta+|m-\bar\mu|)R^{-2}$. By Step 1's bound,
 $\delta x_{m,R}$ is of the same size in $H^{k+2}(M)\subset C^{k-1}(M)$. Unscaled, $\hat x-(\gamma^{\bar\mu},k^{\bar\mu})
 = \chi(a-\sigma_R(\gamma^{\bar\mu},k^{\bar\mu}))+(1-\chi)(\cdots)+\delta x$ has $|h|\le C(\eta+|m-\bar\mu|)R^{-2}$, with
 each derivative, and $K$, a further factor $R^{-1}$. Both $\hat x$ and $(\gamma^{\bar\mu},k^{\bar\mu})$ have $|h|\le
-CR^{-2}$ with the same scaling. So by Part V (1.2), $|q(\hat x)-q(\gamma^{\bar\mu})|\le C(\eta+|m-\bar\mu|)R^{-6}$ on
-$\Gamma(R,4R)$, and $|q(\gamma^m)-q(\gamma^{\bar\mu})|\le C|m-\bar\mu|r^{-6}$. Integrating, $6\pi^2|m-\bar\mu|\le
-C(\eta+|m-\bar\mu|)R^{-2}+C\eta$, so $|m-\bar\mu|\le C\eta$ for $R$ large.
+CR^{-2}$ with the same scaling. $q_{e_0}$ is a smooth function of $(h,\partial h,\partial^2h,K,\partial K)$ vanishing to
+second order at 0 (Part V Lemma 1.2's proof), with the quadratic bound (1.2). So $|q(\hat x)-q(\gamma^{\bar\mu})|\le
+C(\eta+|m-\bar\mu|)R^{-6}$ on $\Gamma(R,4R)$, and $|q(\gamma^m)-q(\gamma^{\bar\mu})|\le C|m-\bar\mu|r^{-6}$.
+Integrating, $6\pi^2|m-\bar\mu|\le C(\eta+|m-\bar\mu|)R^{-2}+C\eta$, so $|m-\bar\mu|\le C\eta$ for $R$ large.
 
 (7) *The bound (2.2) and the conclusion.* $\hat x-(\gamma^{\bar\mu},k^{\bar\mu})$ is the sum of $\chi$ times the data's
 deviation, $(1-\chi)(\gamma^m-\gamma^{\bar\mu},k^m-k^{\bar\mu})$ and $\delta x$. These are bounded in (2.2)'s norm by
@@ -246,12 +253,12 @@ vacuum and Riemannian as in Part V's Step 5, and $G$-invariant by (3). $\square$
 in Lemma 1.2. Take $J := k+5$ in Lemma 1.1, and let $(g,K)$ be the data of $g_\lambda$ on
 $\Sigma_{\mathrm{IVP}}\cap\{r_0\le r\le4R\}$. Then (2.1) holds with $\eta\le C_R\lambda$, and for $\lambda$ small
 Proposition 2.2 gives $(\gamma_\lambda,k_\lambda) := (\hat g,\hat K)$ and $m_\lambda := m$, with
-$|m_\lambda-\mu_{\mathrm{end}}|\le C_R\lambda$. If $k\ge d_1+4$, then also
+$|m_\lambda-\mu_{\mathrm{end}}|\le C_R\lambda$. If $k\ge d_1+5$, then also
 $\|(\gamma_\lambda-\gamma_{b_0},k_\lambda-k_{b_0})\|_{d_1}\le C_R\lambda$.
 
 *Proof.* The data a metric induces on a fixed spacelike slice are smooth functions of its components and their first
-derivatives along the slice. By Lemma 1.2 the slice piece lies in $\Omega'_+$, where $g_0 = g_{b_0}$, so by Lemma 1.1
-the data of $g_\lambda$ differ from $(\gamma_{b_0},k_{b_0}) = (\gamma^{\bar\mu},k^{\bar\mu})$ by $C\lambda$ in $C^{k+4}$
+derivatives at the slice. By Lemma 1.2 the slice piece lies in $\Omega'_+$, where $g_0 = g_{b_0}$, so by Lemma 1.1 the
+data of $g_\lambda$ differ from $(\gamma_{b_0},k_{b_0}) = (\gamma^{\bar\mu},k^{\bar\mu})$ by $C\lambda$ in $C^{k+4}$
 there. With the weights $r^{2+|\beta|}\le(3R)^{k+6}$, $\eta\le C_R\lambda$. The data are $G$-invariant ($g_\lambda$ and
 $\Sigma_{\mathrm{IVP}}$ are, Lemmas 1.1 and 1.2) and vacuum. For the last claim apply Lemma 0.1 with $R' = 4R$: on
 $\{r\le8R\}$ the deviation is $C_R\lambda$ in $C^{d_1+3}$, by Lemma 1.1, (2.2) and Lemma 2.1 (a), and on $\{r\ge4R\}$ it
@@ -271,14 +278,17 @@ and the values of the $q$-tails) by $\sigma_*$.
 (C1) *Cut-offs:* $\chi^\flat_K,\chi_K,\chi^\sharp_K,\chi_{\mathrm{IVP}},\chi^\sharp_{\mathrm{IVP}}$
 (PART-III-B-FAMILY.md:345-349, [Hin26] Definition 3.17 with $m_0 = R_1$), $\chi_r$ (:353), $\chi_\infty$ (:165),
 $\chi_\iota$, $\chi_-$, $\chi_9$ (III.K sections 0 and 3), $\Theta$ (III.I$''''$), and the cut-offs inside $t^\flat_*$
-(II.C Lemma 3.2). Each is constrained by $0\le\chi\le1$ and by equalities and supports on sets defined by
-$(t,t_*,t_{\mathrm{IVP}},|x|)$. These conditions are convex and $O(4)$-invariant, so the $O(4)$-average of an admissible
-choice is admissible and a function of $(t,|x|)$.
+(II.C Lemma 3.2). Every set in their conditions (the values 0 and 1, the supports, and the nesting of
+PART-III-B-FAMILY.md:345-349, each later function equal to 1 near the support of the earlier) is defined by
+$(t,t_*,t_{\mathrm{IVP}},t^\flat_*,|x|)$, hence $O(4)$-invariant. So they are chosen directly, in nesting order, as
+smooth functions of these and of $|x|^2$: each is a cut-off between an invariant closed set and the interior of a larger
+invariant set. No averaging is used; averaging separately could break the nesting.
 
 (C2) *Gauge 1-forms:* $c_\Upsilon$, $c_{\Upsilon,H}$, $c_C$ (III.B Definition 6.1, PART-III-B-FAMILY.md:430-433;
 PART-III-E-CONSTRAINT.md:19-21). They are stationary, lie in $|x|^{-1}C^\infty$ or are supported in $\{|x|<5R_1\}$, and
-equal $|x|^{-1}dt$ or $|x|^{-1}(dt-v_C\,d|x|)$ for large $|x|$. These conditions are affine and $O(4)$-invariant, so
-each form is replaced by its $O(4)$-average.
+equal $|x|^{-1}dt$ or $|x|^{-1}(dt-v_C\,d|x|)$ for large $|x|$. The proofs use the specific forms $c_\Upsilon =
+\zeta(|x|)|x|^{-1}dt$, $c_{\Upsilon,H} = -\frac12\chi(|x|)\,d|x|$ (PART-III-D3-SYMSTATES.md:30-32) and $c_C$ of
+PART-IV5-CDMODES.md:36-38, which are $O(4)$-invariant; no averaging is needed.
 
 (C3) *Linear maps given by existence statements:* $\omega_{\mathrm s1}(S)$ and $\breve\omega(S)$ (III.D$''$ Proposition
 3.1 at $b_0$, linear in $S\in\mathcal S_1$; PART-III-I5-UNBOOST.md:63-66); the states and towers of III.G$''$ Table 1.1,
@@ -288,14 +298,22 @@ $L:V\to\mathcal T$ from an $O(4)$-representation into tensors. Its conditions ar
 equations with natural operators of $g_{b_0}$, and asymptotic or support conditions at faces fixed by $O(4)$. So
 $L^{O(4)} := \int_{O(4)}\sigma_*\circ L\circ\sigma^{-1}\,d\sigma$ meets them, with the same bounds.
 
+(C3$'$) *Families in $b$:* the towers and states at $b$ used in $h_{b,\mathrm{rem}}(q)$, namely $T_{\rho,b}$,
+$h^{\le1}_{b,\mathrm s1}$, $h_{b,\mathrm v1}$ and $h^{\le2}_{b,\mathrm v1}$, chosen smooth in $b$ by
+PART-III-I15-AUGMENT5.md Lemma 2.1 (:118-122). Replace a family $L_b$ by $L^{O(4)}_b := \int_{O(4)}\sigma_*\circ
+L_{\sigma^{-1}\cdot b}\circ\sigma^{-1}\,d\sigma$. Then $\sigma_*\circ L^{O(4)}_b\circ\sigma^{-1} = L^{O(4)}_{\sigma\cdot
+b}$, and the average keeps the tower relations for $L_b$ (natural, given (C2)), smoothness in $b$, the $b$-independent
+leading terms, and the value at $b_0$ once (C3) is applied there.
+
 (C4) *The complement $\mathcal V'$* of PART-III-I10-CORR4.md:89-91, which is 0 at $b_0$ (:93-94).
 
-Then, for $O(4)$-invariant data $(\gamma,k)$ and every $\sigma\in O(4)$ and $U\in\mathcal D_{\mathrm{ex}}$ small,
-$\Phi(\sigma\cdot U) = \sigma\cdot\Phi(U)$, $\Psi(\sigma\cdot U) = \sigma_*\Psi(U)$ and $P_5(\Psi(\sigma\cdot U)) =
-\sigma_*P_5(\Psi(U))$. The proofs of Parts III-IV use the objects of (C1)-(C3) only through the conditions stated at the
-sites listed (finding (VII5)), so the averaged choices are admissible.
+Then, for every closed subgroup $G'$ of $O(4)$, every $G'$-invariant data $(\gamma,k)$, every $\sigma\in G'$ and every
+small $U\in\mathcal D_{\mathrm{ex}}$, $\Phi(\sigma\cdot U) = \sigma\cdot\Phi(U)$, $\Psi(\sigma\cdot U) =
+\sigma_*\Psi(U)$ and $P_5(\Psi(\sigma\cdot U)) = \sigma_*P_5(\Psi(U))$. The proofs of Parts III-IV use the objects of
+(C3) and (C3$'$) only through the conditions stated at the sites listed (finding (VII5)), so the averaged choices are
+admissible.
 
-*Proof.* By induction along the definitions; each object is natural, given (C1)-(C4).
+*Proof.* By induction along the definitions; each object is natural, given (C1)-(C4) and (C3$'$).
 
 - $g_b = \Phi_\mu^*g^{\mathrm{KS}}_{\mu,A}$. III.B Definition 3.2 builds $r_A$, $\ell_A = \mathsf M(rI+A)x/P\cdot dx$
 and $H_{\mu,A}$ from $(\mu,A,x)$ by matrix operations, so $\sigma_*g_{(\mu,A)} = g_{(\mu,\sigma A\sigma^{-1})}$;
@@ -320,7 +338,7 @@ $\delta^*_{g,E_C}$ (III.B Definition 6.1) are natural in $(g,g_0)$ and the forms
 Definition 2.1, PART-III-I10-CORR4.md Definitions 2.1 and 2.3) are built from $\chi_K$, $\delta^*_{g_{b_0}}$ and
 commutators with $\chi_K$, the maps of (C3), $w(S)$, $\Theta$ and functions of $t_*$. $h_{\mathrm{rem}}(q)$
 (PART-III-I15-AUGMENT5.md Definition 1.2) is $\chi_K$ times $h^{\le1}_{b,\mathrm s1}$, $\dot g_b$ and the towers of
-(C3).
+(C3$'$).
 
 - $\Phi$ (III.J (2.1), (2.4)) is built from $\chi_\iota$, $u_\lambda =
 u^0_\lambda+\mathrm{res}_{z=\lambda}(t_*^{-z}N_{\iota^+}(z)^{-1}f_\lambda(z))$, with $N_{\iota^+}$ the normal operator
@@ -329,8 +347,8 @@ of a natural operator, $\tilde h$, and $h_{\lambda_0} = \mathcal S_{\lambda_0}(f
 - $h_{-S}$ (III.K Proposition 1.2) is the unique solution of (1.2) with data $h_{S,0}$, $h_{S,1}$, the pull-backs by
 $\phi_S$ of III.C$''$ Proposition 4.1's $h_0$, $h_1$. That proof builds these from $(\tilde\gamma,\tilde k)$ and
 $g_{b_0}$ by setting $h_0 := \tilde\gamma$ with $h_0(\nu_{b_0},\cdot) := 0$, and by solving tensorial linear equations
-for $\tilde h_1$, uniquely (PART-III-C3-BOOSTDATA.md:174-196). So for $O(4)$-invariant data $h_{\sigma S,j} =
-\sigma_*h_{S,j}$, and $h_{\sigma S} = \sigma_*h_S$ by uniqueness.
+for $\tilde h_1$, uniquely (PART-III-C3-BOOSTDATA.md:174-196). So for $G'$-invariant data and $\sigma\in G'$, $h_{\sigma
+S,j} = \sigma_*h_{S,j}$, and $h_{\sigma S} = \sigma_*h_S$ by uniqueness.
 
 So $\Psi(U) = (\chi_-h_{-S},0,0)+\Phi(U)$ (III.K (2.1)) and $P_5\circ\Psi$ are equivariant. $\square$
 
@@ -352,15 +370,16 @@ preserves every support class.
 
 *II.G Theorem 2.1 on the fixed spaces.* (i) $\Pi S_\theta$, with $S_\theta$ of III.K Lemma 3.1, maps
 $B^{\infty,G}_{\theta^{-1/2}}$ into $B^{\infty,G}$ and $B^{\infty,G}_\eta$ into $B^{\infty,G}_{\eta-\theta^{-1/2}}$, and
-satisfies II.G (2.1) with the same constants. (ii) By Lemma 3.1, $U\mapsto P_5(\Psi(U))$ maps the fixed part of III.K
-Theorem 3.2's domain into $F^{\infty,G}$, and $B^{\infty,G}_\eta$ into $F^{\infty,G}_\eta$. Differentiability and II.G
-(2.2)-(2.3) hold by restriction. (iii) For $U\in B^{\infty,G}$, differentiating $P_5(\Psi(\sigma\cdot V)) =
-\sigma_*P_5(\Psi(V))$ at $V = U$ gives $D_U(P_5\circ\Psi)\circ\sigma = \sigma_*\circ D_U(P_5\circ\Psi)$. So
-$\Psi^G_{\mathrm{NM}}(U) := \Pi\Psi_{\mathrm{NM}}(U)$ on $F^{\infty,G}$ satisfies
+satisfies II.G (2.1) with the constants of the $G$-sup norms. (ii) By Lemma 3.1, $U\mapsto P_5(\Psi(U))$ maps the fixed
+part of III.K Theorem 3.2's domain into $F^{\infty,G}$, and $B^{\infty,G}_\eta$ into $F^{\infty,G}_\eta$.
+Differentiability and II.G (2.2)-(2.3) hold by restriction. (iii) For $U\in B^{\infty,G}$, differentiating
+$P_5(\Psi(\sigma\cdot V)) = \sigma_*P_5(\Psi(V))$ at $V = U$ gives $D_U(P_5\circ\Psi)\circ\sigma = \sigma_*\circ
+D_U(P_5\circ\Psi)$. So $\Psi^G_{\mathrm{NM}}(U) := \Pi\Psi_{\mathrm{NM}}(U)$ on $F^{\infty,G}$ satisfies
 $D_U(P_5\circ\Psi)\Psi^G_{\mathrm{NM}}(U)f = \Pi D_U(P_5\circ\Psi)\Psi_{\mathrm{NM}}(U)f = \Pi f = f$. It maps
-$F^{\infty,G}_\eta$ into $B^{\infty,G}_\eta$ for $U\in B^G_\eta$, and inherits II.G (2.4). The smallness in III.K
-Theorem 3.2's proof is unchanged. So II.G Theorem 2.1 on the fixed spaces gives $U\in B^{\infty,G}_{1/2}$ with
-$P_5(\Psi(U)) = 0$ on $\Omega_*$.
+$F^{\infty,G}_\eta$ into $B^{\infty,G}_\eta$ for $U\in B^G_\eta$, and inherits II.G (2.4). So II.G Theorem 2.1 holds on
+the fixed spaces with its own threshold $\epsilon^G_{\mathrm{NM}}$, computed from the constants of the $G$-sup norms;
+section 4 takes the data small for it as well. So II.G Theorem 2.1 on the fixed spaces gives $U\in B^{\infty,G}_{1/2}$
+with $P_5(\Psi(U)) = 0$ on $\Omega_*$.
 
 *The metric.* III.K Proposition 4.2 builds $g$ from $(h,\vec p,q) = \Phi(U)$, $h_{-S}$ and $g_{b_0,b,-S}$. By Lemma 3.1
 every ingredient is equivariant and $U$ is fixed, so $g$ is $G$-invariant. $U_0 = (b-b_0,S,S^{(0)}_1)$ is fixed: by
@@ -373,9 +392,10 @@ Given $\epsilon_m>0$, fix the parameters by VI.C Theorem 2.1 with (0.1). In III.
 Theorem 2.1 with its radius $\delta$ replaced by $\min(\delta,\epsilon_m)$: its hypotheses restrict to the smaller set,
 and its $\epsilon_{\mathrm{NM}}$ then depends on $\epsilon_m$. This gives III.K Theorem 4.3 with
 $|b-b_0|\le|U|_{3d}<\epsilon_m$ and $|S|<\epsilon_m$ (III.K Lemma 2.3's proof), for data of norm below some $\epsilon =
-\epsilon(\epsilon_m)$, with $d_1$ as before. Take $k := d_1+4$ in Proposition 2.2, then $R\ge\max(R_{\mathrm{gl}},R_3)$,
-then $c_0$ and $\Omega'$ by Lemma 1.2, $J := k+5$ in Lemma 1.1, and $\lambda_1$ so small that
-$C_R\lambda_1<\frac12\epsilon$. Put $\delta := \frac12\epsilon$.
+\epsilon(\epsilon_m)$, with $d_1$ as before. In (i), $\epsilon$ is moreover taken below the threshold for which
+Proposition 3.2's run of II.G Theorem 2.1 applies (through the equivalence of the norms). Take $k := d_1+5$ in
+Proposition 2.2, then $R\ge\max(R_{\mathrm{gl}},R_3)$, then $c_0$ and $\Omega'$ by Lemma 1.2, $J := k+5$ in Lemma 1.1,
+and $\lambda_1$ so small that $C_R\lambda_1<\frac12\epsilon$. Put $\delta := \frac12\epsilon$.
 
 *(i).* Corollary 2.3 gives $(\gamma_\lambda,k_\lambda)$, $G$-invariant, smooth and vacuum, with
 $\|(\gamma_\lambda-\gamma_{b_0},k_\lambda-k_{b_0})\|_{d_1}<\frac12\epsilon$. By Lemma 0.1 the differences lie in
@@ -386,13 +406,14 @@ induces $(\gamma_\lambda,k_\lambda)$ on $\Sigma_{\mathrm{IVP}}$, which on $\{r<R
 
 *The rate (0.2).* Where $\chi_K = 1$, $g-g_{(m',0)} = h_{\mathrm{tot}}(\vec p)+h_{\mathrm{rem}}(q)+h$ (III.K Theorem 4.3
 (4)). $h_{\mathrm{tot}}(\vec p)$ is supported in $\mathcal C$, whose closure is disjoint from $K^+$
-(PART-III-I8-UNPARAM.md Lemma 2.2). So it vanishes on $\{r\le R'\}$ for $t_*$ large, as do $1-\chi_K$ there.
-$h\in\mathcal X^\infty_{J,\mathrm{ex}}$ has $K^+$-order $\alpha-$, and $h_{\mathrm{rem}}(q)$ has $K^+$-order
-$(\alpha-2)-$ (PART-III-I15-AUGMENT5.md Lemma 2.2 (a)). Near the interior of $K^+$, $\rho_K = t_0^{-1}$ with $t_0 =
-t-|x|$ (III.B (2.2), (4.1)), comparable to $t_*$ on $\{r\le R'\}$, and the b-vector fields there are spanned by
-$t_*\partial_{t_*}$ and $\partial_x$. By b-Sobolev embedding (III.C$'$ section 0: a weight is the pointwise order),
-$(t_*\partial_{t_*})^i\partial^\beta_x$ of a function of $K^+$-order $w-$ is $O(t_*^{-w+\epsilon'})$ for every
-$\epsilon'>0$. With $w = \alpha-2$ this is (0.2). By VI.C row w2, $\alpha$ is admissible in
+(PART-III-I8-UNPARAM.md Lemma 2.2). So it vanishes on $\{r\le R'\}$ for $t_*$ large, as does $1-\chi_K$; indeed it
+vanishes wherever $\chi_K = 1$ (statement (i)). $h\in\mathcal X^\infty_{J,\mathrm{ex}}$ has $K^+$-order $\alpha-$, and
+$h_{\mathrm{rem}}(q)$ has $K^+$-order $(\alpha-2)-$ (PART-III-I15-AUGMENT5.md Lemma 2.2 (a) at $b_0$; at $b$ near $b_0$,
+the rates of its (1.1), :61-65, which exceed $\alpha-2$, with its Lemma 2.1). Near the interior of $K^+$, $\rho_K =
+t_0^{-1}$ with $t_0 = t-|x|$ (III.B (2.2), (4.1)), comparable to $t_*$ on $\{r\le R'\}$, and the b-vector fields there
+are spanned by $t_*\partial_{t_*}$ and $\partial_x$. By b-Sobolev embedding (III.C$'$ section 0: a weight is the
+pointwise order), $(t_*\partial_{t_*})^i\partial^\beta_x$ of a function of $K^+$-order $w-$ is $O(t_*^{-w+\epsilon'})$
+for every $\epsilon'>0$. With $w = \alpha-2$ this is (0.2). By VI.C row w2, $\alpha$ is admissible in
 $(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$, a dense set.
 
 *(ii).* The difference $(\gamma-\gamma_{b_0},k-k_{b_0}) =
@@ -424,8 +445,9 @@ is not made here.
 (VII2) *The data weight.* III.C$'$ Theorem 3.1 asks $\ell_I<\ell_0$, and (H4) of III.I$''''''''''$
 (PART-III-I11-SPACETIME.md:45) asks $\ell_I>3+\epsilon_+$; III.K uses one $\ell_I$ for both
 (PART-III-K-NONLINEAR.md:56-57). So $\ell_0>3+\epsilon_+$. VI.C's row d2 listed only $\frac32<\ell_I$, and row d1 only
-$\ell_0>\frac32$. Both are repaired in VI.C (D322), whose step (5) now chooses $\ell_0$ after $\epsilon_+$, as its step
-(4) allows.
+$\ell_0>\frac32$. Both are repaired in VI.C (D322), and its order is corrected (D323): the data classes come first (step
+(3)), since $\Lambda$ contains $\pi_1\mathcal E^C_I$, which depends on $\ell_I$, and then $\epsilon_+<\ell_I-3$ (step
+(4)).
 
 (VII3) *The initial surface.* The paper's $\Sigma''$ was the record's $\tau$-slice near the hole and a static slice far
 out, from which the data were carried to Hintz's surface. Here the record's domain is enlarged (Lemma 1.2) so that it
@@ -441,11 +463,13 @@ $\epsilon''$. The paper's "contains $g_\lambda$ on $\Omega$" is replaced by the 
 $\Sigma_{\mathrm{IVP}}\cap\{r<R\}$ (Remark 4.1).
 
 (VII5) *Equivariant choices.* The class run needs $P_5\circ\Psi$ equivariant. The construction makes choices: cut-offs,
-three stationary 1-forms, linear maps given by existence statements, and one complement. Each is made $O(4)$-equivariant
-by averaging, which keeps the conditions stated at its site (Lemma 3.1). That no proof in Parts III-IV uses more than
-those conditions is checked at the sites listed; a reader of Lemma 3.1 should confirm it. Every other ingredient is
-natural or the unique solution of a natural problem. III.C$''$ Proposition 4.1's data and the boosts $\phi_S$ are among
-the natural ones.
+three stationary 1-forms, linear maps given by existence statements, and one complement. The cut-offs and the gauge
+1-forms are chosen radial directly (the proofs already use radial forms; averaging cut-offs separately could break their
+nesting). The linear maps given by existence statements, and their families in $b$, are averaged, which keeps the
+conditions stated at their sites (Lemma 3.1, (C3) and (C3$'$); verifier 140's A-m2, A-m3). That no proof in Parts III-IV
+uses more than those conditions is checked at the sites listed; a reader of Lemma 3.1 should confirm it. Every other
+ingredient is natural or the unique solution of a natural problem. III.C$''$ Proposition 4.1's data and the boosts
+$\phi_S$ are among the natural ones.
 
 (VII6) *Part V in the class.* Proposition 2.2 adds to Part V's proof the equivariance of its Step 1, a one-dimensional
 obstruction, and an a priori bound $|m-\bar\mu|\le C\eta$ from the flux identity. The bound makes the glued data
@@ -459,4 +483,5 @@ $R^{-1}$ at radius $R$ costs about $R^{\ell_0-3}$ in that norm, which grows with
 4.2; II.G Theorem 2.1; Part V Lemmas 1.2, 3.2, 3.3, Propositions 1.3, 2.3 and the proof of Theorem 3.1; III.B
 Definitions 3.2, 6.1, Lemmas 3.5, 3.7, 5.1, Proposition 3.4, (2.2), (3.3), (4.1); III.C$''$ Proposition 4.1;
 PART-III-I8-UNPARAM.md Lemma 2.2; PART-III-I11-SPACETIME.md (H4); PART-III-I15-AUGMENT5.md Lemma 2.2; III.J (2.1),
-(2.4); VI.C Theorem 2.1; the record's sections 0-2, 4-6, 10.50 (a), 10.51.
+(2.4); PART-III-I15-AUGMENT5.md (1.1) and Lemma 2.1; PART-III-D3-SYMSTATES.md:30-32; PART-IV5-CDMODES.md:36-38; VI.C
+Theorem 2.1; the record's sections 0-2, 4-6, 10.50 (a), 10.51.

@@ -4286,3 +4286,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   a priori mass bound keeps the glued data O(lam)-close in III.K's weighted norm at a fixed radius.
 - Next: verifier 140 on VI.C, Part VII and the D321 repairs; then the paper's Theorem 4 and section 8.7-8.8 updated to
   Theorem 0.2 and findings (VII1), (VII4).
+
+### 4.247 Verifier 140 seated (D323): Part VII and VI.C verified; VI.B and VI.B' proved
+
+- Report: 0 MAJOR. Part VII: 3 MINOR, 12 NIT. VI.C: 2 MINOR, 4 NIT. The D321 repairs: all correct, 2 NIT.
+- VII A-m1: Lemma 3.1 for any closed subgroup G' of O(4) and G'-invariant data. A-m2: (C3') averages the families
+  in b (T_{rho,b}, h_{b,s1}, h_{b,v1}) as families. A-m3: the nested cut-offs are chosen radial directly; the gauge
+  1-forms are already radial (III.D3:30-32, IV5:36-38). Notes: h_tot = 0 where chi_K = 1; the flux sign; q smooth to
+  second order; k = d_1 + 5; G-sup norms change II.G's constants; D_0; I15 (1.1) at b != b_0; J >= 2; |x| >= r_0.
+- VI.C B-m1: the order was circular (Lambda contains pi_1 E^C_I, which depends on l_I). Now: data classes (step 3),
+  then eps_+ < l_I - 3 (step 4), then the parameter set (step 5). B-m2: row b4, III.I(16)'s shrinking of B_*.
+- III.K section 0 cross-refers to row d1 (l_0 > 3). VI.B': U_R's closure; the interior backward case spelled out.
+- Next: the paper's Theorem 4 and sections 8.7-8.8 to Theorem 0.2; verifier 141 on the D323 repairs, the paper
+  changes and the old repairs of III.A' and III.I(13); verifier 142 on those of II.B-II.E.

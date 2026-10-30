@@ -1,16 +1,16 @@
 # Part VI.B$'$: the trapped set and the global dynamics near $b_0$
 
-*Status.* Written (D319); verified (D321: verifier 139's minor finding and thirteen notes repaired). This part proves
-the remaining dynamical hypotheses for $g_b$, $b$ near $b_0$: the normally hyperbolic trapping (Γ.1)-(Γ.3) of (H7),
-$r$-normal hyperbolicity (K3) with the uniformity (K4), and the global dynamics (H8), with the uniformity (H5) extended
-to them (I.B section 1.5). With Part VI.A ((H6), (K1), and (Dyn) at $b_0$) and Part VI.B ((H3)-(H4) near $b_0$) this
-completes (Dyn) near $b_0$ (Theorem 5.1). The tool is the separability of the null geodesic flow of five-dimensional
-Myers-Perry. It holds in III.B's own Kerr-Schild coordinates, written in spheroidal form, with the Kerr-Schild time:
-$\varrho^2g_b^{-1}$ is a function of the radial variables plus a function of the angular ones (Lemma 0.1). This plays
-the part of Carter's constant in [Hin26c] section 4.2.3. It gives the trapped set and its stable and unstable
-hypersurfaces in closed form, smooth in $b$, which a perturbation argument would give only with finite regularity
-(finding (VI.B$'$2)). Every object is defined without choosing an eigenframe of $A$ (finding (VI.B$'$4)).
-`checks/trap5.py` verifies the identities.
+*Status.* Written (D319); verified (D321: verifier 139's minor finding and thirteen notes repaired); proved (D323:
+verifier 140 read the repairs, correct; two notes repaired). This part proves the remaining dynamical hypotheses for
+$g_b$, $b$ near $b_0$: the normally hyperbolic trapping (Γ.1)-(Γ.3) of (H7), $r$-normal hyperbolicity (K3) with the
+uniformity (K4), and the global dynamics (H8), with the uniformity (H5) extended to them (I.B section 1.5). With Part
+VI.A ((H6), (K1), and (Dyn) at $b_0$) and Part VI.B ((H3)-(H4) near $b_0$) this completes (Dyn) near $b_0$ (Theorem
+5.1). The tool is the separability of the null geodesic flow of five-dimensional Myers-Perry. It holds in III.B's own
+Kerr-Schild coordinates, written in spheroidal form, with the Kerr-Schild time: $\varrho^2g_b^{-1}$ is a function of the
+radial variables plus a function of the angular ones (Lemma 0.1). This plays the part of Carter's constant in [Hin26c]
+section 4.2.3. It gives the trapped set and its stable and unstable hypersurfaces in closed form, smooth in $b$, which a
+perturbation argument would give only with finite regularity (finding (VI.B$'$2)). Every object is defined without
+choosing an eigenframe of $A$ (finding (VI.B$'$4)). `checks/trap5.py` verifies the identities.
 
 *Notation.* Some letters have two uses, kept apart by context: $b$ is the parameter and, in a frame, the second spin;
 $\Psi$ is a momentum in a frame and $\Psi_b$ is VI.B's diffeomorphism; $F$ is the function of Lemma 3.1, the momentum
@@ -405,14 +405,15 @@ $\partial\Sigma_0\cap\{q<\epsilon_q\}$ near $\partial\mathcal R_\pm$ (VI.B Propo
 H_b\rho_\infty\ge\frac12\beta_0$ at $\partial\mathcal R_\pm$. By continuity there is a neighbourhood $U_R$ of
 $\partial\mathcal R_\pm$ in the compactified $\Sigma$, with compact closure and the same for all $b$ near $b_0$, on
 which $\mathsf H_bq\ge\frac14\beta_0q-c\rho_\infty$ and $\mathsf H_b\rho_\infty\ge\frac14\beta_0\rho_\infty$, with $q$
-extended as $|\eta/\xi|^2$. So $L := q+(8c/\beta_0)\rho_\infty$ has $\mathsf H_bL\ge\frac18\beta_0L$ on $U_R$. $L$
-vanishes on $\partial\mathcal R_\pm$ and is positive on the rest of $U_R$: $\rho_\infty>0$ at finite covectors, and at
-fibre infinity near $\partial\mathcal R_\pm$, $q = |\hat\eta|^2$ vanishes only on $\partial\mathcal R_\pm$ (VI.B
-Proposition 2.2: there $\partial\Sigma_0$ is a graph over $(\omega,\hat\eta)$ and $\partial\mathcal R_\pm = \{\hat\eta =
-0\}$). Fix $0<\delta_L<\min L$ over the boundary of $U_R$, and $N := \{L<\delta_L\}\cap U_R$, an open neighbourhood of
-$\partial\mathcal R_\pm$. Backward along a curve in $U_R$, $L$ does not increase; so a curve in $N$ never reaches
-$\{L\ge\delta_L\}$, which contains the boundary of $U_R$, and stays in $N$ backward, with $L$ decaying backward
-exponentially at the uniform rate $\frac18\beta_0$.
+extended as $|\eta/\xi|^2$. So $L := q+(8c/\beta_0)\rho_\infty$ has $\mathsf H_bL\ge\frac18\beta_0L$ on $U_R$. Shrinking
+it, take $U_R$ with closure inside a neighbourhood with these properties, so that what follows holds on the boundary of
+$U_R$ too. $L$ vanishes on $\partial\mathcal R_\pm$ and is positive on the rest of $U_R$: $\rho_\infty>0$ at finite
+covectors, and at fibre infinity near $\partial\mathcal R_\pm$, $q = |\hat\eta|^2$ vanishes only on $\partial\mathcal
+R_\pm$ (VI.B Proposition 2.2: there $\partial\Sigma_0$ is a graph over $(\omega,\hat\eta)$ and $\partial\mathcal R_\pm =
+\{\hat\eta = 0\}$). Fix $0<\delta_L<\min L$ over the boundary of $U_R$, and $N := \{L<\delta_L\}\cap U_R$, an open
+neighbourhood of $\partial\mathcal R_\pm$. Backward along a curve in $U_R$, $L$ does not increase; so a curve in $N$
+never reaches $\{L\ge\delta_L\}$, which contains the boundary of $U_R$, and stays in $N$ backward, with $L$ decaying
+backward exponentially at the uniform rate $\frac18\beta_0$.
 
 *At the horizon.* $\mathcal H_b$ is a null hypersurface (VI.B Lemma 1.1), and $dr_A(w)<0$ for every future-directed
 causal $w$ at $\mathcal H_b$ not tangent to its null generators. This set of $w$ is connected, $dr_A(w)$ vanishes on it
@@ -436,12 +437,14 @@ Proposition 2.2), so $r$ decreases strictly along $\gamma$. On compact subsets o
 $\Sigma_{z_0}\cap\{r_0-\delta_0\le r\le r_1\}$, $r_1<r_h$, the rescaled $\dot r$ is bounded above by a negative
 constant, so $\gamma$ reaches $\{r<r_0-\delta_0\}$ in finite time. Backward, $r$ increases strictly along an interior
 curve. If the curve meets $\mathcal H_b$ backward, it crossed it inward there, and its earlier part is an exterior
-curve, treated above. Otherwise $r\to\bar r\le r_h$ backward. $\bar r<r_h$ is impossible: with $r_1 := \bar r$, the
-rescaled $\dot r$ is at most a negative constant on the compact part of the compactified $\Sigma_{z_0}$ over
-$\{r(s_0)\le r\le\bar r\}$, so $r$ would grow without bound backward. If $\bar r = r_h$, a finite covector $p_0$ in the
-backward limit set is impossible, since $\gamma$ would be outside $\mathcal H_b$ a parameter $T$ before passing within
-$\delta$ of $p_0$, still on the backward half-line; so the limit set lies in $\partial\Sigma_0$ over $\mathcal H_b$,
-hence in $\partial\mathcal R_\pm$ as above, and $\gamma$ tends backward to $\partial\mathcal R_\pm$.
+curve, treated above. Otherwise, with $s_0$ a parameter at which $\gamma$ is inside, $r\to\bar r\le r_h$ as
+$s\to-\infty$. $\bar r<r_h$ is impossible: on the compact part of the compactified $\Sigma_{z_0}$ over
+$\{r(\gamma(s_0))\le r\le\bar r\}\subset\{r_0-2\delta_0\le r<r_h\}$, where $dr$ is timelike, the rescaled $\dot r$ is at
+most a negative constant $-c$, so $r$ would exceed $\bar r$ within backward parameter $(\bar r-r(\gamma(s_0)))/c$. If
+$\bar r = r_h$, a finite covector $p_0$ in the backward limit set is impossible, since $\gamma$ would be outside
+$\mathcal H_b$ a parameter $T$ before passing within $\delta$ of $p_0$, still on the backward half-line; so the limit
+set lies in $\partial\Sigma_0$ over $\mathcal H_b$, hence in $\partial\mathcal R_\pm$ as above, and $\gamma$ tends
+backward to $\partial\mathcal R_\pm$.
 
 *(a).* Combining: a curve not in $\bar\Gamma_u$ tends backward to $\partial\mathcal R_\pm$ or $R_{z_0,\mathrm{in}}$, and
 a curve not in $\bar\Gamma_s$ tends forward to $R_{\mathrm{out}}$ or reaches $\{r<r_0-\delta_0\}$ in finite time.
