@@ -8,8 +8,9 @@ spatial dimension $n = 4$ and at the black hole parameters $b_0$, the tame estim
 2.1 (Theorem 4.2), and the tame bounds of the map $U\mapsto P_5(\Phi(U))$ (Proposition 4.3). It discharges (J$'$2) of
 III.J$'$ at $b_0$ in the b-regularity, with the background small in one fixed norm (Lemma 2.3). Two things stay open:
 the weights ((J$''$4): the inverse is shown to map a source at the loss $\epsilon'$ to a solution at the loss
-$\epsilon\ge\epsilon'$, while II.G needs $\epsilon' = \epsilon$, which the source states), and (J$'$3), the linear
-theory at $b\ne b_0$, since closed by III.I$'''''''''''''''$ Corollary 3.2 (D297; D329).
+$\epsilon\ge\epsilon'$, while II.G needs $\epsilon' = \epsilon$, which the source states; since discharged by III.J$'''$
+Corollary 6.6, D296; verifier 152's n3), and (J$'$3), the linear theory at $b\ne b_0$, since closed by
+III.I$'''''''''''''''$ Corollary 3.2 (D297; D329).
 
 *What n = 4 changes.* (1) *The argument is written out.* The source states that "the tameness of the initial tame
 estimate (11.23) will propagate throughout all of our arguments" and omits the intermediate tame statements. Here: a

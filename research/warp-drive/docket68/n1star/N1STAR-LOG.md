@@ -6071,3 +6071,11 @@ the gauge correction of the parameter state. The parity is now argued from how e
 only, is proved. The paper's account was found to match the record, but for a line count, 7,577 rather than the planning
 estimate of 8,055, and a claim that the write-out uses no census at all, which now says no census of the source papers.
 One more reading of the parity argument and of the paper remains.
+
+**D333 (2026-10-30): every part proved.** A reader went through the parity argument, now built from the constructions of
+the states, and the paper's account of the write-out, and found them correct. With that, every one of the seventy-four
+parts of the five-dimensional write-out is proved: written in full, read line by line by an independent reader, its
+findings repaired and the repairs read again. The censuses that once carried the companion papers to five dimensions,
+and the three searches inside the write-out itself, are replaced by proof: the first by the write-out, two of the others
+by enumerations that fail on any line they do not list, and the third by a reading of every line. The paper now says so,
+with its account of the write-out carried through all seventy-four parts.

@@ -1,23 +1,24 @@
 # Part III.I$'''''''''''''''$. The linear theory at base points near $b_0$, n = 4 ([Hin26] sections 11.2-12 at black
 hole parameters $b\ne b_0$)
 
-*Status.* Three major gaps and one minor one found by the base-point ledger (BASEPOINT-LEDGER.md, verifiers 145-149) and
-repaired (D329-D331), to be read; verifier 150 read D329-D330 and found the expansion's repair incomplete (its M1),
-repaired by the parity under $-1$ in (P3) (D331); verifier 151 read D331 and found it correct but for the reason given
-for the parity, now argued from the constructions of the states (D332). The major gaps: III.I$''''$'s boost identity
-(section 2.6), III.I$''''''''''''$'s expansion at a rotating $b$ (section 2.7), and III.I$'''''''$'s parameter
-identities and base level (section 2.8). The minor gap is the reality of the objects at $b$, now in (P3). Theorem 3.1's
-census is now that reading. Written (D297); verified (D299, D302: verifiers 130-131's findings seated, to be read). The
-parts III.I$'$-III.I$''''''''''''''$ and III.J-III.J$'''$ prove the linear theory at base points whose black hole
-parameter is $b = b_0$, with derivatives in $b$ taken at $b_0$; III.I Remark 5.4 and (I3) of III.I recorded why.
-III.H$''$ supplied the two inputs that were missing for $b\ne b_0$ (its Corollary 5.1) and recorded the rest as
-(H$''$5). This part proves that rest. At every base point $(h,\vec p)$, or $(h,\vec p,q)$, or $U$, whose black hole
-parameter is $b\in\mathcal B_*$ ($\mathcal B_*$ of III.H$''$), the statements of those parts hold with constants uniform
-in $b$. *The statement at $b$* of each of them is obtained as follows: $L_{b_0}$, $g_{b_0}$ near $K^+$, the states,
-towers and companions at $b_0$, and the index set $\mathcal E_{\mathrm{ind}}$ are replaced by those at $b$; derivatives
-in $b$ are taken at $b$; and the v1 terms are treated by section 2. This closes (J$'$3) of III.J$'$, and with it (I3)
-and (H$''$5). Verifier 133's findings seated (D309): the direct bound now covers every level (A-m1); A-n1 to A-n3; to be
-read. Proved (D311): verifier 134 read the D309 repairs, correct.
+*Status.* Proved (D333: verifier 152 read the D332 repair, correct). Three major gaps and one minor one found by the
+base-point ledger (BASEPOINT-LEDGER.md, verifiers 145-149) and repaired (D329-D331), to be read; verifier 150 read
+D329-D330 and found the expansion's repair incomplete (its M1), repaired by the parity under $-1$ in (P3) (D331);
+verifier 151 read D331 and found it correct but for the reason given for the parity, now argued from the constructions
+of the states (D332). The major gaps: III.I$''''$'s boost identity (section 2.6), III.I$''''''''''''$'s expansion at a
+rotating $b$ (section 2.7), and III.I$'''''''$'s parameter identities and base level (section 2.8). The minor gap is the
+reality of the objects at $b$, now in (P3). Theorem 3.1's census is now that reading. Written (D297); verified (D299,
+D302: verifiers 130-131's findings seated, to be read). The parts III.I$'$-III.I$''''''''''''''$ and III.J-III.J$'''$
+prove the linear theory at base points whose black hole parameter is $b = b_0$, with derivatives in $b$ taken at $b_0$;
+III.I Remark 5.4 and (I3) of III.I recorded why. III.H$''$ supplied the two inputs that were missing for $b\ne b_0$ (its
+Corollary 5.1) and recorded the rest as (H$''$5). This part proves that rest. At every base point $(h,\vec p)$, or
+$(h,\vec p,q)$, or $U$, whose black hole parameter is $b\in\mathcal B_*$ ($\mathcal B_*$ of III.H$''$), the statements
+of those parts hold with constants uniform in $b$. *The statement at $b$* of each of them is obtained as follows:
+$L_{b_0}$, $g_{b_0}$ near $K^+$, the states, towers and companions at $b_0$, and the index set $\mathcal
+E_{\mathrm{ind}}$ are replaced by those at $b$; derivatives in $b$ are taken at $b$; and the v1 terms are treated by
+section 2. This closes (J$'$3) of III.J$'$, and with it (I3) and (H$''$5). Verifier 133's findings seated (D309): the
+direct bound now covers every level (A-m1); A-n1 to A-n3; to be read. Proved (D311): verifier 134 read the D309 repairs,
+correct.
 
 *What n = 4 changes.* At $b_0$ every rotation is Killing. At a rotating $b$ only the rotations commuting with the spin
 are, and the rotation state $h_{b,\mathrm v1}$ is $O(|b-b_0|)$ but not zero (III.E$'$). The v1 terms of exponent of real
@@ -92,37 +93,39 @@ its $K^+$-weight is $\kappa_\nu-\epsilon>\alpha$, and its $\iota^+$-exponents be
 (III.I$'''''''''''''$ Definition 1.2).
 
 *Proof.* (P1)-(P4) are the cited statements. (P5): $g_b$ is stationary. The reality in (P3) holds as at $b_0$: $L_b$,
-$\delta^*_{g_b}$ and $\Box_{g_b}$ are real, and III.D$'''$ Proposition 3.1, III.F$''''$ Proposition 5.1 and
-III.I$''''''''''''''$ Lemma 2.1's normalisation are real constructions (verifier 148's m3). The parity in (P3) follows
-from the constructions of the states (verifier 151's a1). Write $\phi$ for the pullback by $-1$ and $P_b :=
-\widehat{\Box^\Upsilon_b}(0)$, invertible on the decaying b-spaces of III.D$'''$ (PART-III-D3-SYMSTATES.md:33-36), which
+$\delta^*_{g_b}$ and $\Box_{g_b}$ are real, and III.D$''$ and III.D$'''$ Propositions 3.1, III.F$''''$ Proposition 5.1
+and III.I$''''''''''''''$ Lemma 2.1's normalisation are real constructions (verifier 148's m3). The parity in (P3)
+follows from the constructions of the states (verifier 151's a1). Write $\phi$ for the pullback by $-1$ and $P_b :=
+\widehat{\Box^\Upsilon_b}(0)$, invertible on the decaying b-spaces of III.D$''$ (PART-III-D3-SYMSTATES.md:33-36), which
 $\phi$ preserves. Since $\phi$ commutes with $P_b$, it commutes with $P_b^{-1}$ there, and it commutes with
-$\delta^*_{g_b}$. III.D$'''$ Proposition 3.1 builds $\omega_{b,\mathrm s1}(S) = \bar\omega_{\mathrm
+$\delta^*_{g_b}$. III.D$''$ Proposition 3.1 builds $\omega_{b,\mathrm s1}(S) = \bar\omega_{\mathrm
 s1}(S)-P_b^{-1}\Box^\Upsilon_b\bar\omega_{\mathrm s1}(S)$ from the Minkowski translation 1-form $\bar\omega_{\mathrm
 s1}(S)$, which is odd, and $\omega_{b,\mathrm v1}(V) = V-P_b^{-1}\Box^\Upsilon_bV$ from the rotation 1-form $V$, which
 is even (PART-III-D3-SYMSTATES.md:192-200, 269). So $\omega_{b,\mathrm s1}(S)$ and $h_b(S) =
 \delta^*_{g_b}\omega_{b,\mathrm s1}(S)$ are odd, and $\omega_{b,\mathrm v1}(V)$ and $h_{b,\mathrm v1}(V) =
-\delta^*_{g_b}\omega_{b,\mathrm v1}(V)$ are even. $\phi$ fixes $g_{b'}$ for every $b'$, so $\dot g_b(\dot b) =
-\partial_bg_b(\dot b)$ is even; so are $\eta_b(\dot b) = 2\delta_{g_b,E_\Upsilon}G_{g_b}\dot g_b(\dot b)$ and
-$\dot\omega_b(\dot b) = -P_b^{-1}\eta_b(\dot b)$, and so is the nullspace state $\dot g^\Upsilon_b(\dot b) = \dot
-g_b(\dot b)+\delta^*_{g_b}\dot\omega_b(\dot b)$ of III.F$'''$ (2.1) (PART-III-F4-ZERO.md:85-89). III.I$''''''''''''''$
-Lemma 2.1's reparametrisation by the leading coefficients (PART-III-I15-AUGMENT5.md:131-134) is linear in the parameter
-and keeps each family's parity. (P6): $f^\nu_b$ is III.I$'''''''''$ Lemma 2.6 (c)'s computation at $b$. Its errors near
-$K^+$ are $L_{h,\vec p}-L_b$, which gains $a_K$ there, $g_0 = g_b$ near $K^+$ (III.I Lemma 3.6); its objects are smooth
-in $b$ (P3), so the bounds are uniform. For $E^\nu$ (verifier 131's m1 and section B): - The differences
-$h^{b_0}_\nu-h^b_\nu$ and $\vartheta^{b_0}_{\nu,\sharp}-\vartheta^b_{\nu,\sharp}$ are $b$-differences of the 1-form
-towers and of their commutators with $\chi_K$, so $O(|b-b_0|)$ by (P3), and supported in $\mathrm{supp}\,\chi_K$. - Near
-$K^+$ the corrections vanish (they are supported in $\mathcal C$), but the counterterms do not: there
-$\vartheta_{\nu,\sharp} = \frac12\Box\omega_\nu$ (III.I$'''''''''$ section 2). Their difference has the $K^+$-weight
-$\kappa_\nu$ of the tops of the towers (III.I$'''''''''$ Lemma 2.2 (a), (d), and (P3)). So $E^\nu$ has $K^+$-weight
-$\kappa_\nu-\epsilon>\alpha$. - At $\iota^+$, the $b$-differences of the towers have exponents $\lambda_\nu+\mathcal
-E_{\mathrm{ind}}$ (for v1 also $\lambda_\nu+3$; III.I$''''''''''''''$ Lemma 2.1), with $\lambda_\nu$ the row's
-$\iota^+$-exponent in $\mathcal E_{\mathrm{par}}\cap\{\mathrm{Re}\le3\}\subset\mathcal E_\sharp$. $L$ and $\delta^*$ add
-2 and increments, and the parts of $L_{h,\vec p}-L_b$ from $h$ and $h_{\mathrm{tot}}$ gain $\rho_+^{\lambda_\sharp}$. So
-below $w_+$ the exponents lie in $\mathcal E^\natural+2$ (III.I$'''''''''''''$ Definition 1.2), with log orders bounded
-by III.I$'''''''''''''$ Lemma 1.3 (a), and above it the plain weight is $\mathrm{Re}\,\lambda+2+\lambda_\sharp>w_+$. -
-So $E^\nu\in\mathcal Y^\natural_2(\alpha-)$, and $E^\nu\in\mathcal Y(\alpha_1)$ as $\mathcal
-E^\natural\cap\{\mathrm{Re}<2\}\subset\mathcal E_{++}$ (III.I$'''''''''''''$ Lemma 1.3 (a)). $\square$
+\delta^*_{g_b}\omega_{b,\mathrm v1}(V)$ are even. $\phi$ fixes $g_{b'}$ for every $b'$, so $\partial_bg_b(\dot b)$ is
+even; so are $\eta_b(\dot b) = 2\delta_{g_b,E_\Upsilon}G_{g_b}\partial_bg_b(\dot b)$ and $\dot\omega_b(\dot b) =
+-P_b^{-1}\eta_b(\dot b)$, and so is $\dot g_b(\dot b) = \dot g^\Upsilon_b(\dot b) = \partial_bg_b(\dot
+b)+\delta^*_{g_b}\dot\omega_b(\dot b)$, the gauge-corrected state of III.F$'''$ (2.1) (PART-III-F4-ZERO.md:85-89), which
+is what $\dot g_b$ means here, as in PART-III-I15-AUGMENT5.md:71 and in III.H's basis (verifier 152's n1).
+III.I$''''''''''''''$ Lemma 2.1's reparametrisation by the leading coefficients (PART-III-I15-AUGMENT5.md:131-134) is
+linear in the parameter and keeps each family's parity. (P6): $f^\nu_b$ is III.I$'''''''''$ Lemma 2.6 (c)'s computation
+at $b$. Its errors near $K^+$ are $L_{h,\vec p}-L_b$, which gains $a_K$ there, $g_0 = g_b$ near $K^+$ (III.I Lemma 3.6);
+its objects are smooth in $b$ (P3), so the bounds are uniform. For $E^\nu$ (verifier 131's m1 and section B): - The
+differences $h^{b_0}_\nu-h^b_\nu$ and $\vartheta^{b_0}_{\nu,\sharp}-\vartheta^b_{\nu,\sharp}$ are $b$-differences of the
+1-form towers and of their commutators with $\chi_K$, so $O(|b-b_0|)$ by (P3), and supported in
+$\mathrm{supp}\,\chi_K$. - Near $K^+$ the corrections vanish (they are supported in $\mathcal C$), but the counterterms
+do not: there $\vartheta_{\nu,\sharp} = \frac12\Box\omega_\nu$ (III.I$'''''''''$ section 2). Their difference has the
+$K^+$-weight $\kappa_\nu$ of the tops of the towers (III.I$'''''''''$ Lemma 2.2 (a), (d), and (P3)). So $E^\nu$ has
+$K^+$-weight $\kappa_\nu-\epsilon>\alpha$. - At $\iota^+$, the $b$-differences of the towers have exponents
+$\lambda_\nu+\mathcal E_{\mathrm{ind}}$ (for v1 also $\lambda_\nu+3$; III.I$''''''''''''''$ Lemma 2.1), with
+$\lambda_\nu$ the row's $\iota^+$-exponent in $\mathcal E_{\mathrm{par}}\cap\{\mathrm{Re}\le3\}\subset\mathcal
+E_\sharp$. $L$ and $\delta^*$ add 2 and increments, and the parts of $L_{h,\vec p}-L_b$ from $h$ and $h_{\mathrm{tot}}$
+gain $\rho_+^{\lambda_\sharp}$. So below $w_+$ the exponents lie in $\mathcal E^\natural+2$ (III.I$'''''''''''''$
+Definition 1.2), with log orders bounded by III.I$'''''''''''''$ Lemma 1.3 (a), and above it the plain weight is
+$\mathrm{Re}\,\lambda+2+\lambda_\sharp>w_+$. - So $E^\nu\in\mathcal Y^\natural_2(\alpha-)$, and $E^\nu\in\mathcal
+Y(\alpha_1)$ as $\mathcal E^\natural\cap\{\mathrm{Re}<2\}\subset\mathcal E_{++}$ (III.I$'''''''''''''$ Lemma 1.3 (a)).
+$\square$
 
 The source makes the same choice: its corrections are built at $b_0$, its operator is at $b$ (Definition 11.56), and its
 expansion's towers are those of $L_b$ (Theorem 11.59). Rows built at $b_0$ would leave $(L_b-L_{b_0})m^{b_0}_\nu$ near
@@ -155,13 +158,13 @@ holds at $b$ (P3). $\square$
 v1 stays excluded at $b$, as at $b_0$, for a quantitative reason. At $b$, $h_{b,\mathrm v1}(V)$ is $\delta^*_{g_b}$ of a
 1-form in $\ker\Box^\Upsilon_b$ (III.D$''$ (3.4)), so it lies in $\ker\widehat{L_b}(0)$ in III.H's space $\mathcal X_0$,
 and it is $O(|b-b_0||V|)$ (P3). Near $b_0$ that nullspace has the dimension it has at $b_0$, with the continuous basis
-$\dot g_b(\dot b)$, $h_b(S)$ (III.H Proposition 3.2's proof: the matrix $B(b)$ is invertible). So $h_{b,\mathrm v1}(V) =
-\dot g_b(\dot b_V)+h_b(S_V)$ with $|\dot b_V|+|S_V| = O(|b-b_0||V|)$. Moreover $S_V = 0$: the pullback by $-1$ fixes
-$h_{b,\mathrm v1}(V)$ and $\dot g_b(\dot b_V)$ and reverses $h_b(S_V)$ ((P3)), so $h_b(S_V) = 0$, and $S_V = 0$ by the
-injectivity of $S\mapsto h_b(S)$. So $h_{b,\mathrm v1}(V) = \dot g_b(\dot b_V)$, and $\ker h_{b,\mathrm v1} = \{V:\dot
-b_V = 0\}$ (verifier 150's M1). A $K^+$-extraction that read a v1 coefficient beside the $b$- and $S$-coefficients would
-invert a map that degenerates as $b\to b_0$ (verifier 130's m4). This is why the v1 coefficients are assigned in section
-2, not read from the $K^+$-expansion.
+$\dot g_b(\dot b)$, the gauge-corrected state of III.F$'''$ (2.1), and $h_b(S)$ (III.H Proposition 3.2's proof: the
+matrix $B(b)$ is invertible). So $h_{b,\mathrm v1}(V) = \dot g_b(\dot b_V)+h_b(S_V)$ with $|\dot b_V|+|S_V| =
+O(|b-b_0||V|)$. Moreover $S_V = 0$: the pullback by $-1$ fixes $h_{b,\mathrm v1}(V)$ and $\dot g_b(\dot b_V)$ and
+reverses $h_b(S_V)$ ((P3)), so $h_b(S_V) = 0$, and $S_V = 0$ by the injectivity of $S\mapsto h_b(S)$. So $h_{b,\mathrm
+v1}(V) = \dot g_b(\dot b_V)$, and $\ker h_{b,\mathrm v1} = \{V:\dot b_V = 0\}$ (verifier 150's M1). A $K^+$-extraction
+that read a v1 coefficient beside the $b$- and $S$-coefficients would invert a map that degenerates as $b\to b_0$
+(verifier 130's m4). This is why the v1 coefficients are assigned in section 2, not read from the $K^+$-expansion.
 
 ## 2. The rotation rows at $b$
 

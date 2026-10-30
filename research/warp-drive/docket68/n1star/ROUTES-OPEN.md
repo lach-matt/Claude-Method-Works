@@ -4408,3 +4408,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   c_C, G5 widened (control caught), (J''4) discharged in J'', the paper's damping point, gaps named, md5 rows.
 - VI.C proved (nits only). III.I16: the parity argument to be read. Paper: committed once III.I16 is proved.
 - Next: one reader of the parity argument and the paper draft (scratchpad d330/dry3.md).
+
+### 4.256 Verifier 152 seated (D333): every part of proof5 proved; the paper updated
+
+- Report (scratchpad d332/verifier152.md): the parity argument from the constructions correct; III.I16 proved.
+- All 74 parts of proof5 are proved. The three in-proof completeness claims: gamma_C and the damping's constants
+  (gammac5.py G1-G5), Definition 3.3 (3) (admiss5.py), the base-point census (BASEPOINT-LEDGER.md, a reading).
+- Paper: abstract, introduction, Theorem 4 (proved: proof5, Part VII Theorem 0.2), section 8.8's account through all
+  74 parts, section 9, the review bullet (verifiers 74-152), the source table and the md5 table.

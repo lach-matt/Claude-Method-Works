@@ -111,21 +111,21 @@ through $\gamma_C$; so such a use names $\gamma_C$, $s_C := \gamma_C(1-e_C)(1-v_
 of IV$''''$-IV$''''''$, which prove the theorem), or a rescaled $E_C$. The other constants of the damping, $v_C$, $e_C$
 and $C_0$, enter $\Box^C_b$ too; they are fixed once, by row c1, at the point where Part IV$''''$ proves the theorem,
 and no part varies them: `checks/gammac5.py` G4 lists, with its class, every line its pattern finds setting, bounding,
-ranging or quantifying one of them, and fails on any line it does not list; $c_C$, chosen with III.E Theorem 1.1 too, is
-fixed by Part IV$''''$ (PART-IV5-CDMODES.md:35-38) and varied by no part (verifier 151's A5) (42 lines: 15 uses of the
-fixed point, 19 in Parts IV$''''$-IV$''''''$, 2 definitions, the 2 lines of III.E's statement, and 4 where $C_0$ names
-another constant; `checks/damping5.tsv`; verifier 150's m2, D331). And $h := \gamma_C^{-1}$ is introduced in Part
-IV$''''$ alone (G5). `checks/gammac5.py` lists every line of PART-*.md naming $\gamma_C$ or $s_C$ or citing III.E
-Theorem 1.1 (also across a line break), with its class, and fails on any line it does not list: 55 identities valid for
-every $\gamma_C$; 56 conditions on, or uses of, the one fixed value; 17 citations of the theorem at that value; 3 lines
-of III.F$'$'s homotopy $(\tau\gamma_C,\tau\gamma_\Upsilon)$, $\tau\in[0,1]$, which uses III.F Lemma 2.1's proof and
-III.E section 1, not the theorem; III.E's statement; the theorem's proof in IV$''''$ and IV$''''''$ (IV$'''''$, written
-in $h$, names neither); and the records, among them the record's computation at its own point $\gamma_C = 10^6$, outside
-the proved set. It also checks that no rescaled $E_C$ or $E^C$ occurs: the six lines that pair $E_C$, $E^C$ or $\Box^C$
-with a family are spectral families in the frequency or a time range. So every part takes one value of $\gamma_C$,
-chosen once: III.F$'$ fixes $\gamma_C$ before $\gamma_1$ (PART-III-F2-INDICIAL.md:429), III.K takes $\gamma_C$ large
-with $s_C>100$ (PART-III-K-NONLINEAR.md:49-50), III.G$'$ and III.C$'$ use $s_C$ as a fixed number. So the restriction
-costs nothing.
+ranging or quantifying one of them, and fails on any line it does not list (42 lines: 15 uses of the fixed point, 19 in
+Parts IV$''''$-IV$''''''$, 2 definitions, the 2 lines of III.E's statement, and 4 where $C_0$ names another constant;
+`checks/damping5.tsv`; verifier 150's m2, D331). $c_C$, chosen with III.E Theorem 1.1 too, is fixed by Part IV$''''$
+(PART-IV5-CDMODES.md:35-38) and varied by no part (verifier 151's A5; verifier 152's n4). And $h := \gamma_C^{-1}$ is
+introduced in Part IV$''''$ alone (G5). `checks/gammac5.py` lists every line of PART-*.md naming $\gamma_C$ or $s_C$ or
+citing III.E Theorem 1.1 (also across a line break), with its class, and fails on any line it does not list: 55
+identities valid for every $\gamma_C$; 56 conditions on, or uses of, the one fixed value; 17 citations of the theorem at
+that value; 3 lines of III.F$'$'s homotopy $(\tau\gamma_C,\tau\gamma_\Upsilon)$, $\tau\in[0,1]$, which uses III.F Lemma
+2.1's proof and III.E section 1, not the theorem; III.E's statement; the theorem's proof in IV$''''$ and IV$''''''$
+(IV$'''''$, written in $h$, names neither); and the records, among them the record's computation at its own point
+$\gamma_C = 10^6$, outside the proved set. It also checks that no rescaled $E_C$ or $E^C$ occurs: the six lines that
+pair $E_C$, $E^C$ or $\Box^C$ with a family are spectral families in the frequency or a time range. So every part takes
+one value of $\gamma_C$, chosen once: III.F$'$ fixes $\gamma_C$ before $\gamma_1$ (PART-III-F2-INDICIAL.md:429), III.K
+takes $\gamma_C$ large with $s_C>100$ (PART-III-K-NONLINEAR.md:49-50), III.G$'$ and III.C$'$ use $s_C$ as a fixed
+number. So the restriction costs nothing.
 
 *III.F$''$ section 5.* For $b\ne b_0$ and $0<|\sigma|<c_0$, the invertibility of $\widehat{L_b}(\sigma)$ was left open
 there (PART-III-F3-MODES.md:261-265). III.H Corollary 4.3 proves it for $b$ near $b_0$ and $\sigma\in\Sigma_0$,
