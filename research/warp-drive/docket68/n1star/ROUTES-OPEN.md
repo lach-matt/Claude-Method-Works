@@ -4524,3 +4524,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - Verifier 160: existence nearly valid; MAJ-1 delta's uniform lower bound unstated (now: eps_NM uniform, K:412, and
   theta0 >= (4K3/delta)^(1/(6d+2)) give delta >= delta_* > 0); MIN-1 III.C 4.4's S-dependent threshold is inside
   Lemmas 2.2-2.3, not a shrink; NIT-a..c. Seated. One narrow read of the clause follows.
+
+### 4.266 lambda_1 and delta: verifier 161, no major (D343)
+
+- Verifier 161: the existence of an admissible pair valid, no major; MIN-1 the tame constants taken >= 1 so that
+  delta_G >= 4 eps_NM^((6d+2)/alpha) uniformly; NIT-1 III.C Cor 5.3 named; NIT-2 delta_G. Seated. Section 2 stands
+  as a reduction (Proposition 2.1 confirmed by 155; Proposition 2.2 after 156-161).

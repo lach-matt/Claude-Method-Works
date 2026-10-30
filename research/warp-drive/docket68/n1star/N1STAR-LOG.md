@@ -6158,3 +6158,10 @@ hold after shrinking both. The given parameters of the final assembly are added 
 needed the radius of the Nash-Moser step to be bounded below uniformly over small data, which the record implies but
 the reduction had not said. It follows from the record's own claim that the Nash-Moser threshold is uniform, since
 that threshold falls as the radius falls. Stated, with three small corrections.
+
+**D343 (2026-10-30): the reduction read a seventh time, with no major finding.** The last reader found the existence
+argument valid up to one clause (the constants of the estimates may be taken at least 1, which makes the lower bound
+on the radius uniform), now added with two small corrections. The reduction of lambda_1 and delta to named quantities
+stands: they are explicit formulas in the Nash-Moser constants, the loss, the gluing's constants, the record's
+threshold, the given parameters, and a pair of thresholds that the nonlinear step's proof shows to exist but does not
+compute.

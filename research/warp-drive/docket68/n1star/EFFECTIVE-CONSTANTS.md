@@ -1,7 +1,7 @@
 # Evaluating λ1 and δ: methods, the reduction, and the programme
 
 *Status.* Begun D338 (M, 2026-10-30: "deep research this for possible methods of evaluating/calculating/deriving such
-numbers, and then prove them"). Section 2's reduction has been read six times.
+numbers, and then prove them"). Section 2's reduction has been read seven times.
 
 - *Verifier 155 (D338).* Proposition 2.1 correct; Proposition 2.2 incomplete (two major findings, five minor, six
   nits).
@@ -20,7 +20,9 @@ numbers, and then prove them"). Section 2's reduction has been read six times.
 - *Verifier 160 (D342).* The existence argument nearly valid: δ's uniform lower bound unstated (one major), one
   minor, three nits. Seated.
 
-- *Now (D342).* Proposition 2.2 fixes an admissible pair (ε_dat, δ_K), which III.K's proof shows exists, and keeps the
+- *Verifier 161 (D342).* No major finding; one minor clause and two nits, seated (D343).
+
+- *Now (D343).* Proposition 2.2 fixes an admissible pair (ε_dat, δ_K), which III.K's proof shows exists, and keeps the
   enumeration as an inventory not claimed complete. To be read.
 
 Nothing else here is proved. Labels as in the record: computed, deduced, READ.
@@ -157,15 +159,16 @@ The proof sets its ε := θ0^−α. Verifier 155 checked the identities (2.5), 5
       they apply, holds, on the data, on U, on |S| (through |S| ≤ |U|_{3d}) or on them jointly. The Nash–Moser
       conditions ε_NM and ε_NM^G are excepted, and treated below.
     - *There is one.* This follows from the quantifiers of III.K's proof. Theorem 3.2 applies II.G on the domain
-      {U ∈ B^∞ : |U|_{3d} < δ} (III.K:387-388), and II.G uses Lemmas 2.2 and 2.3 at every point of its domain, so
-      their thresholds on U exceed δ there; that includes III.C Proposition 4.4's threshold, which depends on S
-      through g_1 (PART-III-C-EXTERIOR.md:340-341) and is applied inside Lemmas 2.2 and 2.3 (III.K:253, 300). The
-      proof takes ε_NM uniform over the small data (III.K:410-412), and Proposition 2.1's θ0 contains
-      (4K3/δ)^{1/(6d+2)}, so a uniform ε_NM = θ0^−α bounds θ0 above and δ below: δ ≥ δ_* > 0 for every datum
-      below some size. One δ_* then serves them all: a product set. The joint conditions of Proposition 4.2
-      (III.K:457-458) hold after shrinking both entries further. Every data hypothesis is on a
-      norm of order at most d1, because Theorems 3.2 and 4.3 are stated and proved for data small in H^{d1}
-      (III.K:383, 465-469); a hypothesis above d1 would leave that proof incomplete.
+      {U ∈ B^∞ : |U|_{3d} < δ_G} (III.K:387-388), and II.G uses Lemmas 2.2 and 2.3 at every point of its domain, so
+      their thresholds on U exceed δ_G there; that includes III.C Proposition 4.4's threshold, which depends on S
+      through g_1 (PART-III-C-EXTERIOR.md:340-341) and enters through III.C Corollary 5.3 (476-487) inside Lemmas 2.2
+      and 2.3 (III.K:253, 300). The proof takes ε_NM uniform over the small data (III.K:410-412). The tame constants
+      may be taken ≥ 1, since enlarging the constant of an upper bound keeps it, so K3 ≥ 1, and Proposition 2.1's θ0
+      contains (4K3/δ_G)^{1/(6d+2)}. A uniform ε_NM = θ0^−α therefore bounds θ0 above and so δ_G below:
+      δ_G ≥ 4 ε_NM^{(6d+2)/α} for every datum below some size. One radius then serves them all: a product set. The
+      joint conditions of Proposition 4.2 (III.K:457-458) hold after shrinking both entries further. Every data
+      hypothesis is on a norm of order at most d1, because Theorems 3.2 and 4.3 are stated and proved for data small
+      in H^{d1} (III.K:383, 465-469); a hypothesis above d1 would leave that proof incomplete.
     - *Where U ranges.* Over B^∞ (III.K's class with tails). Lemma 2.3's support clause and II.G (iii) hold at level
       η for U ∈ B^∞_η (III.K:324, 407-408), which is all II.G's proof uses.
     - *Down-closed.* Shrinking either entry keeps a pair admissible, so a pair can be fixed before anything below.
@@ -424,6 +427,9 @@ first real test.
 
 - Verifier 159 (D341): MAJ-1 (existence argued from K:410-411's wording rather than the proof's quantifiers), MIN-1
   (ε_m, ε_t, ε_K omitted from the lists), NIT-1 to NIT-5; seated (D341).
+
+- Verifier 161 (D342): no major; MIN-1 (the tame constants taken ≥ 1, so the lower bound on δ_G is uniform),
+  NIT-1 (III.C Corollary 5.3 named), NIT-2 (δ_G); seated (D343).
 
 - Verifier 160 (D342): MAJ-1 (δ's uniform lower bound, from the uniform ε_NM through θ0), MIN-1 (III.C 4.4's
   threshold is inside Lemmas 2.2-2.3, not a shrink), NIT-a to NIT-c; seated (D342).
