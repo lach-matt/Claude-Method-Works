@@ -1,14 +1,15 @@
 # Part II.B. The null-bicharacteristic dynamics of the stationary model in e3b-phase space, at n = 4
 
-*Status.* Verified. Written out in full (D196). Read line by line by the eighty-first verifier, which recomputed every
-flow and linearisation and confirmed (B1)-(B4) at source; its one minor finding, that the statement of Lemma 3.3 (4)
-repeated the slip of the source which its proof corrects, and four nits are seated (D197). The part is labelled proved
-once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$, the content of [Hin26c] section
-4 (pp. 77-99) that the later parts use: the radial sets, the horizon, the trapped set and the global
-null-bicharacteristic dynamics of the stationary model in e3b-phase space over the domain $\Omega$ of Part II.A. The
-source works on subextremal Kerr. Here the stationary model is any metric satisfying the hypotheses of Part I together
-with (K1)-(K4) of section 1. Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B,
-Part II.A (`PART-II-A-SETUP.md`) as II.A.
+*Status.* Proved (D326: verifier 142 read the D197 repairs, correct; one nit seated). Verified. Written out in full
+(D196). Read line by line by the eighty-first verifier, which recomputed every flow and linearisation and confirmed
+(B1)-(B4) at source; its one minor finding, that the statement of Lemma 3.3 (4) repeated the slip of the source which
+its proof corrects, and four nits are seated (D197). The part is labelled proved once the next reader has confirmed
+them; verifier 142 did (D326), and verifier 143 confirmed the D326 nit (D327). This part proves, at spatial dimension $n
+= 4$, the content of [Hin26c] section 4 (pp. 77-99) that the later parts use: the radial sets, the horizon, the trapped
+set and the global null-bicharacteristic dynamics of the stationary model in e3b-phase space over the domain $\Omega$ of
+Part II.A. The source works on subextremal Kerr. Here the stationary model is any metric satisfying the hypotheses of
+Part I together with (K1)-(K4) of section 1. Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B
+(`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A (`PART-II-A-SETUP.md`) as II.A.
 
 *Method.* The source computes the Kerr dynamics from the explicit metric: Carter's constant, the potential of the
 radial motion, the expansion rates, and Dyatlov's proof of $r$-normal hyperbolicity. At $n = 4$ there is no explicit
@@ -342,11 +343,12 @@ if $\ge0$, then $\gamma(s)\to\partial R_{\partial K^+,\mathrm{in}}$ as $s\to-\in
 
 (3) (*Convexity in $\iota^+$.*) Over $\iota^+$, if $\mathsf H\rho_K = 0$ and $\rho_K>0$, then $\mathsf H^2\rho_K>0$.
 
-(4) (*Invariant manifolds over $\iota^+$.*) $\partial W_{\mathrm{out}}$ is the unstable manifold of $\partial R_{\partial
-K^+,\mathrm{out}}$ and $\partial W_{\mathrm{in}}$ the stable manifold of $\partial R_{\partial K^+,\mathrm{in}}$ over
-$\iota^+$ (Lemma 3.2 (b)). Their conic extensions are, within $\Sigma$, the characteristic sets of $r\partial_r$ and
-$2r\partial_{t_*}-r\partial_r$ over $\iota^+$ (D197; this statement printed the source's $r\partial_{t_*}-2r\partial_r$,
-which the proof corrects).
+(4) (*Invariant manifolds over $\iota^+$.*) $\partial W_{\mathrm{out}}$ is the unstable manifold of $\partial
+R_{\partial K^+,\mathrm{out}}$ and $\partial W_{\mathrm{in}}$ the stable manifold of $\partial R_{\partial
+K^+,\mathrm{in}}$ over $\iota^+$ (Lemma 3.2 (b)). Their conic extensions are, within $\Sigma^+$, the characteristic sets
+of $r\partial_r$ and $2r\partial_{t_*}-r\partial_r$ over $\iota^+$ (D326: $\Sigma^+$, not $\Sigma$, which also holds the
+half $\sigma_{3b}>0$) (D197; this statement printed the source's $r\partial_{t_*}-2r\partial_r$, which the proof
+corrects).
 
 *Proof.* (1) Over $K^+$ ($\rho_K = 0$), $\mathsf H\rho_+ = -2(1-\hat\xi)\rho_++\rho_+^3a$ with $a$ smooth, by section
 3.1. So $\mathsf H\rho_+ = 0$ with $\rho_+>0$ gives $1-\hat\xi = \frac12\rho_+^2a$, and on $\partial\Sigma^+$,
@@ -382,14 +384,15 @@ zero for $\rho_K>0$. So $\mathsf H^2\rho_K>0$.
 
 (4) By Lemma 3.2 (b), the curves over $\iota^+$ that tend to $\partial R_{\partial K^+,\mathrm{out}}$ as $s\to-\infty$
 are those of (i), and those that tend to $\partial R_{\partial K^+,\mathrm{in}}$ as $s\to\infty$ are those of (ii). The
-conic extensions are $\{\xi_{3b} = 0,\eta_{3b} = 0\}$ and $\{\xi_{3b} = 2\sigma_{3b},\eta_{3b} = 0\}$ over $\iota^+$, the
-intersections with $\Sigma$ of the characteristic sets of $r\partial_r$ and of $2r\partial_{t_*}-r\partial_r$ (on
-$\Sigma$, $\xi_{3b} = 0$ and $\xi_{3b} = 2\sigma_{3b}$ each force $\eta_{3b} = 0$ by (3.2)), with which a 3b-covector
-(3.1) pairs to $\xi_{3b}$, resp. $2\sigma_{3b}-\xi_{3b}$. In the coordinates $(t,r)$, $t = t_*+r$, these fields are
-$r(\partial_t+ \partial_r)$ and $r(\partial_t-\partial_r)$, the outgoing and incoming null fields of $\bar g$:
-$\partial_t|_r = \partial_{t_*}$ and $\partial_r|_t = \partial_r-\partial_{t_*}$. (The source prints $\xi_{3b} =
--2\sigma_{3b}$ for the second set and $r\partial_{t_*}-2r\partial_r$ for the second field; neither matches its own
-$\partial W^+_{\mathrm{in}} = \{\hat\xi_{3b} = 2\}$ nor its $r(\partial_t-\partial_r)$; section 9, (B2).) $\square$
+conic extensions are $\{\xi_{3b} = 0,\eta_{3b} = 0,\sigma_{3b}<0\}$ and $\{\xi_{3b} = 2\sigma_{3b},\eta_{3b} =
+0,\sigma_{3b}<0\}$ over $\iota^+$, the intersections with $\Sigma^+$ of the characteristic sets of $r\partial_r$ and of
+$2r\partial_{t_*}-r\partial_r$ (on $\Sigma$, $\xi_{3b} = 0$ and $\xi_{3b} = 2\sigma_{3b}$ each force $\eta_{3b} = 0$ by
+(3.2)), with which a 3b-covector (3.1) pairs to $\xi_{3b}$, resp. $2\sigma_{3b}-\xi_{3b}$. In the coordinates $(t,r)$,
+$t = t_*+r$, these fields are $r(\partial_t+ \partial_r)$ and $r(\partial_t-\partial_r)$, the outgoing and incoming null
+fields of $\bar g$: $\partial_t|_r = \partial_{t_*}$ and $\partial_r|_t = \partial_r-\partial_{t_*}$. (The source prints
+$\xi_{3b} = -2\sigma_{3b}$ for the second set and $r\partial_{t_*}-2r\partial_r$ for the second field; neither matches
+its own $\partial W^+_{\mathrm{in}} = \{\hat\xi_{3b} = 2\}$ nor its $r(\partial_t-\partial_r)$; section 9, (B2).)
+$\square$
 
 The uniqueness of the interior maximum of $u$ in Lemma 3.2 (b) (iii) is (3): $u = \rho_K^{-1}$, and at a zero of
 $\mathsf H\rho_K$, $\mathsf H^2u = -\rho_K^{-2}\mathsf H^2\rho_K<0$, so every critical point of $u$ is a strict local
@@ -696,7 +699,7 @@ strictly *decreasing* for $s>0$ (a critical point is a strict local maximum); th
 argument is otherwise as stated; Lemma 3.3 (2) gives it in full, including why $\rho_+\to0$.
 
 (B2) *[Hin26c] Lemma 4.6 (4).* The conic extension of $\partial W^+_{\mathrm{in}} = \{\hat\xi_{3b} = 2\}$ is $\{\xi_{3b}
-= 2\sigma_{3b}\}$, printed as $\xi_{3b} = -2\sigma_{3b}$, and within $\Sigma$ it is the characteristic set of
+= 2\sigma_{3b}\}$, printed as $\xi_{3b} = -2\sigma_{3b}$, and within $\Sigma^+$ it is the characteristic set of
 $2r\partial_{t_*}-r\partial_r = r(\partial_t-\partial_r)$, printed as $r\partial_{t_*}-2r\partial_r$. The source's
 $(t,r)$-form $r(\partial_t-\partial_r)$ is right.
 

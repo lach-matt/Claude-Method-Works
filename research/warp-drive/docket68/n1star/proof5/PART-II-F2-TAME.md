@@ -166,13 +166,18 @@ at the radial set $R = \partial R_{\mathscr I^+,\mathrm{out}}$ (II.D Proposition
 p_1-\delta'_I-\frac12-\alpha_I) = 12\delta'_I$; II.E Lemma 2.5, where the coefficient of $\tau_0^2$ is
 $-2(2\alpha+1)+4(\bar p_1-\delta'_I) = 12\delta'_I$; II.E Proposition 3.2, where
 $4A^{-1}(\mathrm{Re}_{h_I}p_1)A-2-4\alpha\ge8\delta'_I$ with $2\delta'_I$; and II.E section 7, (E2), which records that
-nothing else of $p_1$, $p_0$ is used). The commuted systems of II.D$'$ and II.E section 4 have the same $p_1$ (II.E (4.1)
-and the paragraph after it), at the weights $\alpha-\frac j2\le\alpha$. By (a), $h_S$ in place of $h_I$ and $\delta_S$ in
-place of $\delta'_I$ satisfy (2.3) with $12\delta_S$, for every $\alpha\le\alpha_I$, so the proofs run verbatim with
-$(h_S,\delta_S)$, and their constants depend on these instead of on $(h_I,\delta'_I)$. A search of Parts II.C-II.E for
-the use of II.C Definition 3.3 (3), the triangular structure of $p_1$ and $p_0$, finds only the fibre inner product,
-which (a) replaces (II.E section 7, (E2), records that the source's use of (3), to make $\mathrm{Im}\,p_1$ and $p_0$
-small, is not needed). $\square$
+nothing else of $p_1$, $p_0$ is used). The commuted systems of II.D$'$ and II.E section 4 have the same $p_1$ (II.E
+(4.1) and the paragraph after it), at the weights $\alpha-\frac j2\le\alpha$. By (a), $h_S$ in place of $h_I$ and
+$\delta_S$ in place of $\delta'_I$ satisfy (2.3) with $12\delta_S$, for every $\alpha\le\alpha_I$, so the proofs run
+verbatim with $(h_S,\delta_S)$, and their constants depend on these instead of on $(h_I,\delta'_I)$. That II.C
+Definition 3.3 (3) is not used is proved by enumeration, not found by search (D327; a search stood here). Condition (3)
+is a statement about $p_1$ and $p_0$ over $\partial X$, so a step can use it only where it names $p_0$, $p_1$ (with
+$\tilde p_1$, $\bar p_1$), the fibre inner product $h_I$ built from $p_1$, the triangular structure, or the condition.
+`checks/admiss5.py` lists every such line of II.C-II.E, 104 in five parts, with its class, and fails on any line it does
+not list. The word triangular occurs only in the statement of (3); $h_I$ is built by Jordan scalings at points,
+continuity and a partition of unity (II.D Proposition 3.6, II.E (1.2)), which need no triangular structure, and (a)
+replaces it; every other line uses (1)-(2), the definition of $\bar p_1$, or (2.3). The source's use of (3), to make
+$\mathrm{Im}\,p_1$ and $p_0$ small, is not made (II.E section 7, (E2)). $\square$
 
 Below, "admissible" for $P$ and for the operators $P_\epsilon$ of section 2.6 means (1) and (2) of II.C Definition 3.3
 together with the smallness of Lemma 2.1, and every citation of II.D, II.D$'$ or II.E is in the sense of Lemma 2.1 (b).

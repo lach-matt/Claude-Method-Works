@@ -4312,3 +4312,31 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   terms, conormal remainders, 'a continuation of their data' in the abstract and introduction, 8.7's slice.
 - Status: every part of proof5 is proved except II.B, II.C, II.C', II.D, II.D', II.E (verified D197-D207).
 - Next: verifier 142 on the old repairs of II.B-II.E and the D324 paper repairs.
+
+### 4.249 Verifier 142 seated (D326): II.B and II.D proved; II.C, II.C', II.D', II.E repairs to be read
+
+- Report (scratchpad d324/verifier142.md): 0 major; 5 minor, 9 nits, all seated (D327: 5, not 6). II.C (C8) now cites I.B Lemma 6.0
+  for (5.9); II.C' Proposition 3.4 starts at T_flat = 1/C' (Omega_* contains {t_* >= T_flat}, not {t_* >= 1}); II.D'
+  (H_G xi_0)/xi_0 odd on dSigma^-; II.E Lemma 3.3 (b) quantises e_+ with kernel near the diagonal in t_*, so
+  E_+ v~ = 0; nits: Sigma^+ in II.B Lemma 3.3 (4) and (B2), M_0 in II.C' 2.4, zeta's support in II.D, (2.2') in (D'3),
+  chi_Z wording in II.E, II.C's status line.
+- Paper: sections 8.4 and 8.6 put 'for every eps < eps_K' before the smallness; Theorem 4 says eps_K is chosen after
+  l_0 and below l_0 - 3; remainders in r^(-l_0) H_b^inf; Part VII takes alpha > 4 + eps_t in row w2 (its eps_t is the
+  paper's eps). response5.py passes.
+- Status: every part of proof5 is proved except II.C, II.C', II.D', II.E, whose one minor repair each is to be read.
+- Next: verifier 143 on the D326 repairs (those four parts, II.B and II.D's nits, Part VII's eps_t, the paper).
+
+### 4.250 Verifier 143 seated (D327): II.C, II.D', II.E proved; two searches replaced by enumerations
+
+- Report (scratchpad d326/verifier143.md): 0 major; 2 minor, 6 nits. II.C, II.D', II.E: D326 repairs correct. II.C':
+  sections 3.2-3.3 still on {t_* > 1}; now on {t_* > T_flat}, T_flat := 1/C' (to be read). VII: Theorem 0.2 now opens
+  'for every eps_m > 0 and eps_t < eps_K'; section 4 runs VI.C through eps_K first. Nits: delta_U < C' in II.D Lemma
+  4.1, zeta's neighbourhood inside U(delta_1), the status lines of II.B and II.D, 5 minor not 6, the paper's eps_K.
+- The three search-based completeness claims inside proof5: VI.C section 3 (gamma_C) and II.F' Lemma 2.1 (b)
+  (Definition 3.3 (3)) are now proved by complete enumeration: checks/gammac5.py (172 lines, 26 parts) and
+  checks/admiss5.py (104 lines, 5 parts) list every line that can use the property, with its class, and fail on any
+  line they do not list; the completeness argument is that a use of a property must name its object.
+- Remaining: III.I16 Theorem 3.1's census of the uses of b_0 (finding (I^(15)5)). Route: line-by-line ledgers of
+  III.I'-III.I^(14) and III.J-III.J''' (8,055 lines) in five batches, each use of the base point classed against
+  (P1)-(P6), Lemma 1.2 and section 2.
+- Next: verifier 144 on the D327 repairs and the two enumerations; then the ledgers.

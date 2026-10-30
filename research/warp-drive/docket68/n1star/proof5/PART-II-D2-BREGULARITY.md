@@ -1,16 +1,19 @@
 # Part II.D$'$. Microlocal regularity with b-regularity, and estimates tame in it, at n = 4
 
-*Status.* Verified. Written out in full (D203). Read line by line by the eighty-fifth verifier, which re-derived Lemmas
-2.1-2.5, the commutators of sections 3-6 and the assembly, and confirmed (D$'$1)-(D$'$2) at source. Its major finding,
-that with the words of (2.2) the coupling at the horizon is not diagonal and its Hermitian part is indefinite for
-$k\ge2$, is repaired by the form (2.2$'$) for commuting letters; its three minor findings (the form of $R^{(2)}$ in
-(C2), the bound used in the tame assembly, half of (D$'$3)) and its nits are seated (D206). The part is labelled proved
-once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$, [Hin26c] section 7.2 (pp.
-127-141): the global estimate of Part II.D with $k$ additional degrees of b-regularity (the source's Proposition 7.11),
-its version tame in $k$, and the ingredients: commutators with b-vector fields near $\mathscr I^+$ (Lemma 7.12), and the
-radial point and trapping estimates with b-regularity (Propositions 7.17 and 7.22, Lemmas 7.15-7.16 and 7.19-7.21). The
-source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part II.A (`PART-II-A-SETUP.md`) is cited as
-II.A, Part II.B as II.B, Part II.C as II.C, Part II.C$'$ as II.C$'$ and Part II.D (`PART-II-D-REGULARITY.md`) as II.D.
+*Status.* Proved (D327: verifier 143 read the D326 repair, the parity, and found it correct). Repairs read (D326:
+verifier 142 found the D206 repairs, the horizon coupling included, correct; one minor finding, a parity misnamed, and
+one nit are seated, to be read). Verified. Written out in full (D203). Read line by line by the eighty-fifth verifier,
+which re-derived Lemmas 2.1-2.5, the commutators of sections 3-6 and the assembly, and confirmed (D$'$1)-(D$'$2) at
+source. Its major finding, that with the words of (2.2) the coupling at the horizon is not diagonal and its Hermitian
+part is indefinite for $k\ge2$, is repaired by the form (2.2$'$) for commuting letters; its three minor findings (the
+form of $R^{(2)}$ in (C2), the bound used in the tame assembly, half of (D$'$3)) and its nits are seated (D206). The
+part is labelled proved once the next reader has confirmed them. This part proves, at spatial dimension $n = 4$,
+[Hin26c] section 7.2 (pp. 127-141): the global estimate of Part II.D with $k$ additional degrees of b-regularity (the
+source's Proposition 7.11), its version tame in $k$, and the ingredients: commutators with b-vector fields near
+$\mathscr I^+$ (Lemma 7.12), and the radial point and trapping estimates with b-regularity (Propositions 7.17 and 7.22,
+Lemmas 7.15-7.16 and 7.19-7.21). The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part II.A
+(`PART-II-A-SETUP.md`) is cited as II.A, Part II.B as II.B, Part II.C as II.C, Part II.C$'$ as II.C$'$ and Part II.D
+(`PART-II-D-REGULARITY.md`) as II.D.
 
 *Method.* b-regularity is tested by commuting b-vector fields through $P$. For the elliptic and real principal type
 estimates, II.A section 9 commutes a spanning set of b-vector fields; the commutators enter the commuted system below
@@ -404,10 +407,11 @@ $\tilde\rho := |\xi_0|^{-1}$ on $U_0$ and $\mathsf H := \rho H_G$. Then $\rho(H_
 the vector field $\mathsf H$ on the cosphere bundle vanishes, so $\tilde\rho^{-1}\mathsf H\tilde\rho = \rho^{-1}\mathsf
 H\rho+(\tilde\rho/\rho)^{-1}\mathsf H(\tilde\rho/\rho) = \rho^{-1}\mathsf H\rho = \beta_0$ there (II.B (4.1), as in the
 proof of II.D Proposition 3.1), $\tilde\rho/\rho$ being homogeneous of degree 0. This gives (4.1) on $\partial\Sigma^+$,
-where $\varsigma = 1$; on $\partial\Sigma^-$ the quantity $(H_G\xi_0)/\xi_0$ is even, the future field is $-\mathsf H$,
-whose $\rho^{-1}(-\mathsf H)\rho$ is $\beta_0$, so $\rho^{-1}\mathsf H\rho = -\beta_0$ there, and $\varsigma = -1$
-restores (4.1). The threshold of II.D Proposition 3.1 for $L^{(k)}$ is then $\sup\lambda_{\max}(\beta_0^{-1}(\mathfrak
-p-j_\alpha\beta_0))\le\vartheta_{\mathcal H}$, in the inner product $h^{\oplus\mathcal W_k}$. $\square$
+where $\varsigma = 1$; on $\partial\Sigma^-$ the quantity $(H_G\xi_0)/\xi_0$ is odd ($H_G\xi_0$ even, $\xi_0$ odd; D326,
+where it said even), the future field is $-\mathsf H$, whose $\rho^{-1}(-\mathsf H)\rho$ is $\beta_0$, so
+$\rho^{-1}\mathsf H\rho = -\beta_0$ there, and $\varsigma = -1$ restores (4.1). The threshold of II.D Proposition 3.1
+for $L^{(k)}$ is then $\sup\lambda_{\max}(\beta_0^{-1}(\mathfrak p-j_\alpha\beta_0))\le\vartheta_{\mathcal H}$, in the
+inner product $h^{\oplus\mathcal W_k}$. $\square$
 
 The non-positive sign in (4.1) is the red shift: commuting with $\partial_r$ lowers the threshold, so the minimal
 regularity $s_0>\frac12+\vartheta_{\mathcal H}$ of II.D Proposition 3.1 does not rise with $k$.
@@ -628,12 +632,13 @@ $\alpha\in\mathbb N_0^N$ and expands $[\vec X^\alpha,P]$ by its Lemma 3.25 (II.A
 \alpha}c_{\beta\gamma}(\mathrm{ad}^\beta_{\vec X}P)\vec X^\gamma$ ((7.37), (7.43), (7.61)). Near $\mathscr I^+$ the
 fields do not commute: the rotation fields, and at $n = 3$ also $[X_1,X_2]\in x_IC^\infty$ ((7.31)). The expansion
 (7.37) is exact even so, as deleting positions from an ordered power leaves an ordered power. But $X_j\vec X^\gamma$ is
-not $\vec X^{\gamma+e_j}$, and the source needs it to read $Q_{ij}X_j\vec X^\gamma u$ as a component of $u^{(k)}$. So the
-system closes only modulo reordering commutators, which the source does not track (an earlier version of this finding
-also called (7.37) inexact; the eighty-fifth verifier, D206); they lie in the span of the family
-and could be absorbed, so the gap is one of bookkeeping. With words (section 2) the expansion (F2) is exact and the
-commuted system closes without reordering. At the horizon, over $\partial K^+$ and at the trapped set the fields commute
-($[\partial_r,t_*\partial_{t_*}] = 0$, or a single field besides $I$), and words and multi-indices agree up to counting.
+not $\vec X^{\gamma+e_j}$, and the source needs it to read $Q_{ij}X_j\vec X^\gamma u$ as a component of $u^{(k)}$. So
+the system closes only modulo reordering commutators, which the source does not track (an earlier version of this
+finding also called (7.37) inexact; the eighty-fifth verifier, D206); they lie in the span of the family and could be
+absorbed, so the gap is one of bookkeeping. With words (section 2) the expansion (F2) is exact and the commuted system
+closes without reordering. At the horizon, over $\partial K^+$ and at the trapped set the fields commute
+($[\partial_r,t_*\partial_{t_*}] = 0$, or a single field besides $I$), and words and multi-indices agree up to counting,
+with the coupling (2.2$'$), whose horizon coupling is diagonal (D206; D326).
 
 (D$'$4) *What changes at $n = 4$* (Lemma 3.1). There are six rotation fields $\Omega_{ab}$ on $\mathbb S^3$ for the
 source's three, and $\Delta_{\mathbb S^3} = \pm\sum_{a<b}\Omega_{ab}^2$ exactly, where the source writes $\not\Delta$

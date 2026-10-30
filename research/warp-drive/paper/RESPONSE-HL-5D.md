@@ -916,11 +916,12 @@ is (38/25, 499996.62) against his (51/50, 499996.12), and its exceptional expone
 changes his steps solve for vanish in the class, and his bookkeeping of the terms at the Kerr face, run over every
 exponent at timelike infinity the class's sources carry — all at least α_min = 3/2 + (1 − e_Υ)γ_Υ = 1.5099 — records no
 physical state: the class loses one order of decay at the Kerr face where he loses two, and the iteration needs its
-forcing at order 3 + ε_K there (`sharp5.py`; computed, the bookkeeping deduced). His Theorems 12.3 and 12.8, the
-exterior theorems of his section 5 with the radiative order 3/2 at null infinity, and his Theorem 13.1 follow: in the
-class, G-invariant data near five-dimensional Tangherlini of mass m₀ that satisfy the constraints, have his decay and
-are small have a G-invariant vacuum development, and it settles to Tangherlini of a nearby mass at the rate t*^(−2−ε),
-for every ε < ε_K, in spatially compact sets (supplement section 10.49; deduced, on the readings of section 8.5).
+forcing at order 3 + ε_K there (ε_K a small decay parameter, chosen after ℓ0 and below ℓ0 − 3) (`sharp5.py`; computed,
+the bookkeeping deduced). His Theorems 12.3 and 12.8, the exterior theorems of his section 5 with the radiative order
+3/2 at null infinity, and his Theorem 13.1 follow: in the class, for every ε < ε_K, G-invariant data near
+five-dimensional Tangherlini of mass m₀ that satisfy the constraints, have his decay and are small enough, depending on
+ε, have a G-invariant vacuum development, and it settles to Tangherlini of a nearby mass at the rate t*^(−2−ε) in
+spatially compact sets (supplement section 10.49; deduced, on the readings of section 8.5).
 
 ### 8.5 The readings taken up
 
@@ -969,9 +970,10 @@ Second, his bookkeeping at the Kerr face with two orders of loss, run over every
 timelike infinity the sources carry, eliminates six pure gauge classes, records fourteen, and records the physical
 states of scalar, vector and tensor type at l = 2 — the tensor type the one kind four dimensions lack — with every
 recorded term's image above the threshold (`general5.py` G1; computed, the steps deduced, supplement section 10.61). His
-Theorem 13.1 follows in five dimensions without the class: small data near Tangherlini with no symmetry have a vacuum
-development that, its initial slice boosted by a small Lorentz boost, settles to a Myers–Perry metric of nearby mass and
-small spin at the rate t*^(−2−ε), for every ε < ε_K, in spatially compact sets (supplement section 10.62; deduced).
+Theorem 13.1 follows in five dimensions without the class: for every ε < ε_K, data near Tangherlini with no symmetry
+that are small enough, depending on ε, have a vacuum development that, its initial slice boosted by a small Lorentz
+boost, settles to a Myers–Perry metric of nearby mass and small spin at the rate t*^(−2−ε) in spatially compact sets
+(supplement section 10.62; deduced).
 
 Third, gluing a perturbation at large radius to the family would have to match all fifteen Poincaré charges, which a
 translated, rotated and boosted Myers–Perry metric supplies — in [CD03]'s words, "the only element missing is an
@@ -1008,18 +1010,19 @@ which the theorem applies (finding (VII1) there).
 
 ### 8.8 Settling
 
-**Theorem 4 (deduced).** Fix ℓ0 ∈ (3, 4) and ε < ε_K. Let g_λ be the solutions of Theorem 1, with A and the envelope
-fixed, with K large enough and on a domain enlarged as in section 8.7. There are λ1 > 0 and δ > 0 such that for λ ≤ λ1:
+**Theorem 4 (deduced).** Fix ℓ0 ∈ (3, 4); let ε_K be the decay parameter of section 8.4, which is chosen after ℓ0 and
+below ℓ0 − 3; and fix ε < ε_K. Let g_λ be the solutions of Theorem 1, with A and the envelope fixed, with K large enough
+and on a domain enlarged as in section 8.7. There are λ1 > 0 and δ > 0 such that for λ ≤ λ1:
 
  (i) (in the class) the data of g_λ on Hintz's initial surface, continued G-equivariantly to exact Tangherlini data
      beyond a ball (section 8.7), have a G-invariant vacuum development, with the same data as g_λ on that ball, which
      settles to five-dimensional Tangherlini of a mass near μ_end: its difference from that metric is O(t*^(−2−ε)) in
      spatially compact subsets of the exterior;
 
- (ii) (without symmetry) every vacuum data set on the same surface whose difference from the data of (i) is small
-     in Hintz's data class -- polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the metric
-     and r^(−3) and r^(−4) in the second fundamental form, and conormal remainders O(r^(−ℓ0)) and O(r^(−ℓ0−1)) -- has a
-     vacuum development that, its initial slice boosted by a small Lorentz boost, settles at the same rate to a
+ (ii) (without symmetry) every vacuum data set on the same surface whose difference from the data of (i) is small in
+     Hintz's data class -- polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the metric and
+     r^(−3) and r^(−4) in the second fundamental form, and conormal remainders in r^(−ℓ0) H_b^∞ and r^(−ℓ0−1) H_b^∞ --
+     has a vacuum development that, its initial slice boosted by a small Lorentz boost, settles at the same rate to a
      Myers–Perry black hole of mass near μ_end and small spin.
 
 The assembly of Theorem 4 from the parts is written out at n = 4 and has been read line by line, its findings seated

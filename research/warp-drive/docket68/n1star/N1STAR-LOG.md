@@ -5988,3 +5988,28 @@ status lines still said written or verified; each now opens with the stage reach
 record has them. Eight wrapped lines in the first three parts, all from early sessions, began with a vertical bar and
 are rewrapped; nothing in their mathematics changed. A reader is checking the six oldest parts still at the verified
 stage, and the paper's restated settling theorem.
+
+**D326 (2026-10-30): two more parts proved.** A reader checked the repairs to the six oldest parts still at the verified
+stage, those on the dynamics of the stationary model, the operator classes, the trapped sets of perturbed metrics, the
+microlocal regularity with and without b-regularity, and the energy estimates, together with the paper's restated
+settling theorem. No major gap; the earlier repairs hold, the horizon coupling of the b-regularity part included. The
+dynamics part and the regularity part without b-regularity, with wording points only, are now proved. Four parts had one
+smaller point each, now repaired: the trapped-set part had stated an inclusion of regions the wrong way round, and now
+starts its construction at a later time that the region does contain; the energy part had inferred that an operator
+annihilates a function from where its singularities lie, which does not locate its kernel in time, and the operator is
+now built with its kernel near the diagonal, as the regularity part already does; a parity was misnamed; and a stale
+sentence contradicted a correction. In the paper the decay rate's quantifier now comes before the smallness it governs.
+These four parts are proved once a reader confirms the repairs.
+
+**D327 (2026-10-30): two searches replaced by proofs.** A further reader confirmed the last repairs to the operator
+classes, the b-regularity part and the energy part, which are now proved, and found one repair to the trapped-set part
+incomplete: the construction's start time had been moved, but two sections before it still began at the old time, where
+the metric need not be defined. They now begin at the new time too. Two smaller points in the assembly and the paper are
+repaired: the settling theorem's statement now names the decay rate among the things its constants depend on, and the
+paper says where the decay parameter is chosen. Of the three places where the write-out still rested on a search of its
+own text, two are now proved by complete enumeration. Where the parts use the constraint damping parameter, a script
+lists every line that can use it, 172 in 26 parts, and classifies each: the damping theorem is applied at one fixed
+value only. Where the energy and regularity parts were said not to use a triangular structure assumed of the operators,
+a second script lists every line that names the objects that structure is about, 104 in five parts: none uses it. Each
+script fails if a line appears that it does not list. The third search, the transfer of the linear theory to rotating
+black holes, rests on reading about eight thousand lines, and is next.

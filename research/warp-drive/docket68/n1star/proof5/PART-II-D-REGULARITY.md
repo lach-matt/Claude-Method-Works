@@ -1,16 +1,17 @@
 # Part II.D. Microlocal regularity on spacetime: radial sets, trapping and the global estimate, at n = 4
 
-*Status.* Verified. Written out in full (D202). Read line by line by the eighty-fourth verifier, which re-derived every
-threshold, sign and dynamical claim and confirmed (D1)-(D4) at source; its two minor findings (the comparison of norms
-in Step 3 of Proposition 4.2, and the support of the time cut-off's term in Proposition 3.6) and its nits are seated
-(D204). The part is labelled proved once the next reader has confirmed them. This part proves, at spatial dimension $n =
-4$, [Hin26c] section 7.1 (pp. 114-127): the global edge-3b regularity estimate, its Proposition 7.1, with the
-ingredients it combines, the radial point estimates (Propositions 7.4 and 7.6-7.9, Remark 7.5) and the estimate at the
-trapped set (Proposition 7.10). Section 7.2 of the source, b-regularity and estimates tame in it, is Part II.D$'$. The
-source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers). Part I.A (`PART-I-SPECTRAL.md`) is cited as
-I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part II.A$'$
-(`PART-II-A2-STANDARD.md`) as II.A$'$, Part II.B (`PART-II-B-DYNAMICS.md`) as II.B, Part II.C (`PART-II-C-OPERATORS.md`)
-as II.C and Part II.C$'$ (`PART-II-C2-TRAPPING.md`) as II.C$'$.
+*Status.* Proved (D326: verifier 142 read the D204 repairs, correct; one nit seated). Verified. Written out in full
+(D202). Read line by line by the eighty-fourth verifier, which re-derived every threshold, sign and dynamical claim and
+confirmed (D1)-(D4) at source; its two minor findings (the comparison of norms in Step 3 of Proposition 4.2, and the
+support of the time cut-off's term in Proposition 3.6) and its nits are seated (D204). The part is labelled proved once
+the next reader has confirmed them; verifier 142 did (D326), and verifier 143 confirmed the D326 repairs, its two nits
+seated (D327). This part proves, at spatial dimension $n = 4$, [Hin26c] section 7.1 (pp. 114-127): the global edge-3b
+regularity estimate, its Proposition 7.1, with the ingredients it combines, the radial point estimates (Propositions 7.4
+and 7.6-7.9, Remark 7.5) and the estimate at the trapped set (Proposition 7.10). Section 7.2 of the source, b-regularity
+and estimates tame in it, is Part II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page numbers).
+Part I.A (`PART-I-SPECTRAL.md`) is cited as I.A, Part I.B (`PART-I-B-HIGHENERGY.md`) as I.B, Part II.A
+(`PART-II-A-SETUP.md`) as II.A, Part II.A$'$ (`PART-II-A2-STANDARD.md`) as II.A$'$, Part II.B (`PART-II-B-DYNAMICS.md`)
+as II.B, Part II.C (`PART-II-C-OPERATORS.md`) as II.C and Part II.C$'$ (`PART-II-C2-TRAPPING.md`) as II.C$'$.
 
 *Method.* Every estimate here is a positive commutator estimate. II.A$'$ section 4 provides the machinery with
 coefficients of finite regularity: one step with a regulariser (its Lemma 4.1) and the iteration in the order (its Lemma
@@ -572,7 +573,8 @@ Proposition 3.4 for the metric $g$ of $P$, on the neighbourhood $U$ of $\partial
 and $O'\Subset O$ an open neighbourhood of $\Gamma$. For $\delta>0$ let
 $$U(\delta) := \{\rho_K\le\delta,\ |\phi^u|\le\delta,\ |\phi^s|\le\delta,\ |\rho^2G|\le\delta,\ (x,z)\in\bar O'\},$$
 a subset of fibre infinity over $\{\sigma>0\}$, closed in the compactified bundle, which includes $\rho_K = 0$. There is
-$\delta_U>0$ such that the following hold.
+$\delta_U\in(0,C')$, with $C'$ of II.C Lemma 3.2, such that the following hold ($\rho_K\le\delta<C'$ places $U(\delta)$
+over $\{t_*>T_\flat\}$, where $\phi^{u/s}$ are defined, II.C$'$ Proposition 3.4; D327).
 
 (a) For $\delta\le\delta_U$, $U(\delta)$ is a compact neighbourhood of $\partial\Gamma_{K^+}$, contained in $\{(x,z)\in
 O''\}$ for an open $O''\Subset O'$ independent of $\delta$, and $\bigcap_{\delta>0}U(\delta) = \partial\Gamma_{K^+}$.
@@ -879,12 +881,13 @@ $$\|B_3^\epsilon u\|^2\le\|E_3^\epsilon u\|^2+C_\delta\mathcal K^2.\tag{4.12}$$
 Let $M^\epsilon := \mathrm{Op}(\rho^{-s'}\varphi_\epsilon F(|\phi^s|)\bar\chi_3)$. After the factor
 $\rho^{-s'}\varphi_\epsilon$ its symbol is $z := F(|\phi^s|)\bar\chi_3$, and that of $B_3^\epsilon$ is $x_1 :=
 \Psi_3(Q_\epsilon+2\beta w_s)^{1/2}$. Let $\zeta$ be a cut-off equal to 1 near $\mathrm{supp}\,z$ and supported in
-$\{\frac\delta4<|\phi^s|<2R_3\}$, where also $Q_\epsilon+2\beta w_s\ge c_0$, and $q_1 :=
-\zeta|\phi^s|^\beta(Q_\epsilon+2\beta w_s)^{-1/2}$. Then $z = q_1x_1$ near $\mathrm{supp}\,z$, and $\sup|q_1|\le
-(2R_3)^\beta c_0^{-1/2}$, independently of $\delta$ and $\epsilon$; so Lemma 2.5 in its general form gives $\|M^\epsilon
-u\|\le CR_3^\beta\|B_3^\epsilon u\|+C_\delta\mathcal K$, $\delta$ entering through the derivatives of $|\phi^s|^\beta$
-near $|\phi^s| = \frac\delta4$. Its particular case does not apply, as $x_1$ vanishes where $z$ does (the eighty-fourth
-verifier, D204). The symbol of $E_3^\epsilon$ is supported in
+$\{\frac\delta4<|\phi^s|<2R_3\}$ and in a neighbourhood of $\mathrm{supp}\,\bar\chi_3\cap\{|\phi^s|\le2R_3\}$ inside the
+interior of $U(\delta_1)$, where (4.3) holds (D327), so that $Q_\epsilon+2\beta w_s\ge c_0$ on $\mathrm{supp}\,\zeta$
+(D326), and $q_1 := \zeta|\phi^s|^\beta(Q_\epsilon+2\beta w_s)^{-1/2}$. Then $z = q_1x_1$ near $\mathrm{supp}\,z$, and
+$\sup|q_1|\le (2R_3)^\beta c_0^{-1/2}$, independently of $\delta$ and $\epsilon$; so Lemma 2.5 in its general form gives
+$\|M^\epsilon u\|\le CR_3^\beta\|B_3^\epsilon u\|+C_\delta\mathcal K$, $\delta$ entering through the derivatives of
+$|\phi^s|^\beta$ near $|\phi^s| = \frac\delta4$. Its particular case does not apply, as $x_1$ vanishes where $z$ does
+(the eighty-fourth verifier, D204). The symbol of $E_3^\epsilon$ is supported in
 $\{\frac\delta2\le|\phi^s|\le\delta\}\cap\mathrm{supp}\,\bar\chi_3$, where $|\phi^s|^{-\beta}e_3\le C\delta^{-\beta}$:
 the propagation runs from the shell $|\phi^s|\sim\delta$ outward, along which $|\phi^s|$ grows, and the weight
 $|\phi^s|^{-\beta}$ costs $\delta^{-\beta}$.

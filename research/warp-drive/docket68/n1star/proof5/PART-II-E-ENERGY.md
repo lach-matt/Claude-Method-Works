@@ -1,18 +1,20 @@
 # Part II.E. Energy estimates, and the global estimate at high frequencies, at n = 4
 
-*Status.* Verified. Written out in full (D205). Read line by line by the eighty-sixth verifier, which re-derived Lemma
-2.4 at $n = 4$ by machine (and at $n = 3$, reproducing the source's (8.10)), Lemma 2.5, Propositions 3.2 and 3.4 and
-sections 4-6, and confirmed (E1)-(E13) at source. Its six minor findings (the order on the extension region, the domain
-of the collar flow, the slab bookkeeping in the tame inductions, the support of $E_+$, the definition of the extended
-$t^\flat$, and a hypothesis of Proposition 3.2) and its nits are seated (D207). The part is labelled proved once the
-next reader has confirmed them. (E14) was narrowed on the eighty-eighth verifier's reading (D212): the tame bounds
-(4.4), (5.6) and (6.2) are proved, and now stated, for orders constant and in $\mathbb N_0$ near the face across which
-the source term is extended. This part proves, at spatial dimension $n = 4$, [Hin26c] section 8 (pp. 141-157):
-solvability of forward problems on bounded time slabs, with energy estimates, on edge-Sobolev spaces with and without
-b-regularity and tame in it (the source's Lemma 8.1 and Propositions 8.3, 8.6, 8.9); the same in the black hole interior
-with $r$ as the time function (Lemma 8.10, Propositions 8.11-8.13); and the global estimate (Theorem 8.14), which joins
-these to the microlocal estimate of Part II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page
-numbers). Parts II.A, II.A$'$, II.B, II.C, II.C$'$, II.D and II.D$'$ are cited as in Part II.D$'$.
+*Status.* Proved (D327: verifier 143 read the D326 repair, Lemma 3.3 (b)'s kernel, and found it correct). Repairs read
+(D326: verifier 142 found the D207 repairs correct but one; that minor finding, Lemma 3.3 (b)'s kernel, and one nit are
+seated, to be read). Verified. Written out in full (D205). Read line by line by the eighty-sixth verifier, which
+re-derived Lemma 2.4 at $n = 4$ by machine (and at $n = 3$, reproducing the source's (8.10)), Lemma 2.5, Propositions
+3.2 and 3.4 and sections 4-6, and confirmed (E1)-(E13) at source. Its six minor findings (the order on the extension
+region, the domain of the collar flow, the slab bookkeeping in the tame inductions, the support of $E_+$, the definition
+of the extended $t^\flat$, and a hypothesis of Proposition 3.2) and its nits are seated (D207). The part is labelled
+proved once the next reader has confirmed them. (E14) was narrowed on the eighty-eighth verifier's reading (D212): the
+tame bounds (4.4), (5.6) and (6.2) are proved, and now stated, for orders constant and in $\mathbb N_0$ near the face
+across which the source term is extended. This part proves, at spatial dimension $n = 4$, [Hin26c] section 8 (pp.
+141-157): solvability of forward problems on bounded time slabs, with energy estimates, on edge-Sobolev spaces with and
+without b-regularity and tame in it (the source's Lemma 8.1 and Propositions 8.3, 8.6, 8.9); the same in the black hole
+interior with $r$ as the time function (Lemma 8.10, Propositions 8.11-8.13); and the global estimate (Theorem 8.14),
+which joins these to the microlocal estimate of Part II.D$'$. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1
+(printed page numbers). Parts II.A, II.A$'$, II.B, II.C, II.C$'$, II.D and II.D$'$ are cited as in Part II.D$'$.
 
 *Method.* The energy estimates are proved with a vector field multiplier, as in the source, at $n = 4$. Near $\mathscr
 I^+$ the multiplier is a weighted edge vector field whose deformation tensor is positive in the time derivative only
@@ -168,11 +170,11 @@ strongly continuous at $\tau = 0$, by the chain rule and the density of $C^\inft
 only near $\Omega^-_*\cap\{t^\flat\le T_1+2\}$, in Lemma 1.3 below $(\Phi_{\pm\tau})_*$ is applied only after
 multiplication by a cut-off $\chi_Z$, a function of $t^\flat$ equal to 1 on $\{T_0-\frac14\eta_0\le t^\flat\le T_1+1\}$
 and supported in $\{T_0-\frac12\eta_0\le t^\flat\le T_1+2\}$ (there $T_0\ge1-\frac12\eta_0$). This changes neither the
-pairings, the other factor being supported where $\chi_Z = 1$, nor the restrictions to $U'$ and $V'$. The level sets of
-$t^\flat$ near $\{t^\flat = T\}$, with the flow lines of $Z/(-Zt^\flat)$, give collar coordinates $(t^\flat,y)$ in which
-$Z/(-Zt^\flat) = -\partial_{t^\flat}$; near $\mathscr I^+$, $y = (x_I,\omega)$, and in $(t^\flat,x_I,\omega)$ the edge
-vector fields are spanned by $\partial_{t^\flat}$, $x_I\partial_{x_I}$, $x_I\partial_\omega$, as $t^\flat-t_* =
--t_*^{1+\ell_I}x_I^{2\ell_I}$ has bounded edge derivatives.
+pairings, the supports of the two factors meeting only where $\chi_Z = 1$ (D326), nor the restrictions to $U'$ and $V'$.
+The level sets of $t^\flat$ near $\{t^\flat = T\}$, with the flow lines of $Z/(-Zt^\flat)$, give collar coordinates
+$(t^\flat,y)$ in which $Z/(-Zt^\flat) = -\partial_{t^\flat}$; near $\mathscr I^+$, $y = (x_I,\omega)$, and in
+$(t^\flat,x_I,\omega)$ the edge vector fields are spanned by $\partial_{t^\flat}$, $x_I\partial_{x_I}$,
+$x_I\partial_\omega$, as $t^\flat-t_* = -t_*^{1+\ell_I}x_I^{2\ell_I}$ has bounded edge derivatives.
 
 **Lemma 1.3 (pairing, duality and density).** Let $\Omega' = \Omega_{T_0,T_1}$ with $T_0\ge1-\frac12\eta_0$,
 $\alpha\in\mathbb R$ and $m\in\mathbb Z$; weights are $2\alpha$ on $u$ and $-2\alpha$ on $v$.
@@ -629,11 +631,16 @@ strictly increasing there, against $t^\flat$ being constant ($=\lim t^\flat$) on
 over $\mathscr I^+$ at the time $t_\infty := \lim t^\flat\in[T_0,T_1]$, where $\mathsf Ht_* = t_*\hat\xi = 0$, so
 $\hat\xi = 0$ and $|\hat\eta|^2 = \frac12\hat\xi(2-\hat\xi) = 0$: it lies in $R$. Over $\mathscr I^+$ the curves (iii)
 of II.B Lemma 7.2 reach $\{t_*>T_1\}$ and the curves (i) tend to $R$. At $R_{[T_0-\delta/2,T_1]}$ use (3.3) with $t_- :=
-T_0-\frac12\delta$, $t_+ := T_1+\frac12\omega_0$ ($\omega_0$ as in (a)); its $E_+$ has $\mathrm{WF}'(E_+)\subset\{t_*\ge
-t_+\}$ and Schwartz kernel in $K\times K$. Since $t^\flat\le t_*$, the first alone does not place it in
-$\{t^\flat>T_1\}$; but $K$ is any compact neighbourhood of a compact part of $\mathscr I^+$, where $x_I = 0$, so we take
-it so small that $t_*^{1+\ell_I}x_I^{2\ell_I}<\frac14\omega_0$ on $K$. Then on $K\cap\{t_*\ge t_+\}$, $t^\flat = t_*-
-t_*^{1+\ell_I}x_I^{2\ell_I}>T_1+\frac14\omega_0$, where $\tilde v = 0$, so $E_+\tilde v = 0$. Conclude as in (a).
+T_0-\frac12\delta$, $t_+ := T_1+\frac12\omega_0$ ($\omega_0$ as in (a)); its $E_+$ quantises $e_+$, whose symbol is
+supported in $\{t_*>t_+\}$ (proof of Proposition 3.2), and its Schwartz kernel lies in $K\times K$. Neither places the
+kernel in $\{t^\flat>T_1\}$: the operator wave front set does not locate a kernel, and $K$ covers $\mathscr
+I^+\cap\{t_--\omega_0\le t_*\le t_++\omega_0\}$ (D326; the D207 repair inferred $E_+\tilde v = 0$ from these two). So
+quantise $e_+$ with Schwartz kernel within $\frac18\omega_0$ of the diagonal in $t_*$, as II.D does for $E$ after
+Proposition 3.6; this changes $E_+$ by an operator of order $-\infty$ with kernel in $K\times K$, which the low-order
+term of (3.3) absorbs, and the kernel now lies in $(K\cap\{t_*>t_+-\frac18\omega_0\})^2$. $K$ is any compact
+neighbourhood of a compact part of $\mathscr I^+$, where $x_I = 0$, so we take it so small that
+$t_*^{1+\ell_I}x_I^{2\ell_I}<\frac14\omega_0$ on $K$. Then on $K\cap\{t_*>t_+-\frac18\omega_0\}$, $t^\flat =
+t_*-t_*^{1+\ell_I}x_I^{2\ell_I}>T_1+\frac18\omega_0$, where $\tilde v = 0$, so $E_+\tilde v = 0$. Conclude as in (a).
 $\square$
 
 ### 3.3 Solvability
