@@ -42,9 +42,11 @@ print('A1 occurrences:', sum(n.values()), 'lines in', len(PARTS), 'parts; by cla
 cls = {(f, x): c for f in LINE_CLASS for x, c in LINE_CLASS[f]}
 tri = [(f, l) for f in PARTS for l in text[f] if 'triangular' in l]
 assert len(tri) == 1 and cls[tri[0]] == 'S', tri
-H = {f: [x for x, c in LINE_CLASS[f] if c == 'H'] for f in ('PART-II-D-REGULARITY.md', 'PART-II-E-ENERGY.md')}
-assert any('Jordan' in x for x in H['PART-II-D-REGULARITY.md'])
-assert any('II.C Lemma 2.5' in x for x in H['PART-II-D-REGULARITY.md'])
-assert any('II.D Proposition 3.6' in x for x in H['PART-II-E-ENERGY.md'])
+H = {f: {x for x, c in LINE_CLASS[f] if c == 'H'} for f in ('PART-II-D-REGULARITY.md', 'PART-II-E-ENERGY.md')}
+D, E = text['PART-II-D-REGULARITY.md'], text['PART-II-E-ENERGY.md']
+assert any('II.C Lemma 2.5' in D[i] and 'Jordan' in D[i + 1] and {D[i], D[i + 1]} <= H['PART-II-D-REGULARITY.md']
+           for i in range(len(D) - 1))
+assert any('II.D Proposition 3.6' in E[i] and E[i] in H['PART-II-E-ENERGY.md']
+           and any('not needed' in E[j] for j in range(i + 1, min(i + 6, len(E)))) for i in range(len(E)))
 print('A2 "triangular" only in the statement of (3); h_I by Jordan scalings (II.D Proposition 3.6, II.E (1.2))')
 print('admiss5 checks pass')
