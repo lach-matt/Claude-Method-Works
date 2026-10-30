@@ -4352,3 +4352,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (nit: why the five parts close the scope, added).
 - Both enumerations now read their classifications from checks/gammac5.tsv and checks/admiss5.tsv, keyed by line text.
 - Status: II.D, VI.C (section 3) to be read; III.I16's census: verifier 145 reading batch 1 of 5 of the ledger.
+
+### 4.252 Base-point ledger, batches 1 and 5 seated (D329): one major gap found and repaired
+
+- proof5/BASEPOINT-LEDGER.md holds the reading that replaces III.I16 Theorem 3.1's census (finding (I^(15)5)).
+- Batch 1 (verifier 145, III.I'-III.I''''', 68 rows): M1, III.I'''' Lemma 2.4's boost identity is exact only at b_0
+  (Ric(g_{b_0}) = 0 in C); at b, S^(-1)_{0,0;b} = id + Sdot(E^S_b). Repaired: III.I16 section 2.6, Lemma 2.7 (E^S_b
+  supported in C, O(|b - b_0|), iota+-order >= 4 - delta) and Proposition 2.8 (|S^(-1)_{h,S;b} - id| <=
+  C(||h|| + |S| + |b - b_0|), Neumann series). m1-m4 and n1-n5 seated in III.I16 ((P1), (P4), (P6), (i), (iv)-(vi)).
+- Batch 5 (verifier 149, III.J''-III.J''', 51 rows): m2, III.J''' Theorem 5.3 at b unstated; now listed in Theorem 3.1
+  as Proposition 2.5 at exact weights, with reasons in (viii). m1: III.H'' Proposition 1.1 cited; (J''2) superseded.
+  Nits seated, among them the (J'3) status pointers in III.J'' and III.J'''.
+- Next: batches 2-4 (verifiers 146-148, reading); then one reader of all the repairs.

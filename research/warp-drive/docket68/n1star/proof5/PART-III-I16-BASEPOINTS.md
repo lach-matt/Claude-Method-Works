@@ -1,17 +1,19 @@
 # Part III.I$'''''''''''''''$. The linear theory at base points near $b_0$, n = 4 ([Hin26] sections 11.2-12 at black
 hole parameters $b\ne b_0$)
 
-*Status.* Written (D297); verified (D299, D302: verifiers 130-131's findings seated, to be read). The parts
-III.I$'$-III.I$''''''''''''''$ and III.J-III.J$'''$ prove the linear theory at base points whose black hole parameter is
-$b = b_0$, with derivatives in $b$ taken at $b_0$; III.I Remark 5.4 and (I3) of III.I recorded why. III.H$''$ supplied
-the two inputs that were missing for $b\ne b_0$ (its Corollary 5.1) and recorded the rest as (H$''$5). This part proves
-that rest. At every base point $(h,\vec p)$, or $(h,\vec p,q)$, or $U$, whose black hole parameter is $b\in\mathcal B_*$
-($\mathcal B_*$ of III.H$''$), the statements of those parts hold with constants uniform in $b$. *The statement at $b$*
-of each of them is obtained as follows: $L_{b_0}$, $g_{b_0}$ near $K^+$, the states, towers and companions at $b_0$, and
-the index set $\mathcal E_{\mathrm{ind}}$ are replaced by those at $b$; derivatives in $b$ are taken at $b$; and the v1
-terms are treated by section 2. This closes (J$'$3) of III.J$'$, and with it (I3) and (H$''$5). Verifier 133's findings
-seated (D309): the direct bound now covers every level (A-m1); A-n1 to A-n3; to be read. Proved (D311): verifier 134
-read the D309 repairs, correct.
+*Status.* A gap found by the base-point ledger and repaired (D329): verifier 145 found III.I$''''$'s boost identity
+exact only at $b_0$; section 2.6 (Lemma 2.7, Proposition 2.8) repairs it, to be read. Written (D297); verified (D299,
+D302: verifiers 130-131's findings seated, to be read). The parts III.I$'$-III.I$''''''''''''''$ and III.J-III.J$'''$
+prove the linear theory at base points whose black hole parameter is $b = b_0$, with derivatives in $b$ taken at $b_0$;
+III.I Remark 5.4 and (I3) of III.I recorded why. III.H$''$ supplied the two inputs that were missing for $b\ne b_0$ (its
+Corollary 5.1) and recorded the rest as (H$''$5). This part proves that rest. At every base point $(h,\vec p)$, or
+$(h,\vec p,q)$, or $U$, whose black hole parameter is $b\in\mathcal B_*$ ($\mathcal B_*$ of III.H$''$), the statements
+of those parts hold with constants uniform in $b$. *The statement at $b$* of each of them is obtained as follows:
+$L_{b_0}$, $g_{b_0}$ near $K^+$, the states, towers and companions at $b_0$, and the index set $\mathcal
+E_{\mathrm{ind}}$ are replaced by those at $b$; derivatives in $b$ are taken at $b$; and the v1 terms are treated by
+section 2. This closes (J$'$3) of III.J$'$, and with it (I3) and (H$''$5). Verifier 133's findings seated (D309): the
+direct bound now covers every level (A-m1); A-n1 to A-n3; to be read. Proved (D311): verifier 134 read the D309 repairs,
+correct.
 
 *What n = 4 changes.* At $b_0$ every rotation is Killing. At a rotating $b$ only the rotations commuting with the spin
 are, and the rotation state $h_{b,\mathrm v1}$ is $O(|b-b_0|)$ but not zero (III.E$'$). The v1 terms of exponent of real
@@ -30,8 +32,8 @@ continuity in $b$, and the joint injectivity of the states, proved at $b_0$ by s
 **Lemma 1.1 (the model objects at $b$).** For $b\in\bar{\mathcal B}_*$, uniformly in $b$:
 
 (P1) III.I Theorem 5.3 holds at $b$, with continuity in $(b,S,h)$ (III.H$''$ Corollary 5.1), and so do III.I
-Propositions 3.3-3.4, 4.1, Corollaries 4.2, 5.2 and Lemma 3.6, which are stated for $g_0 = g_{b_0,b,-S}$ with $|b-b_0|$
-small.
+Propositions 3.3-3.4, 4.1, Corollaries 4.2, 5.2 and Lemmas 3.2 and 3.6 (verifier 145's n4), which are stated for $g_0 =
+g_{b_0,b,-S}$ with $|b-b_0|$ small.
 
 (P2) $N_{\iota^+}(2L_b) = N_{\iota^+}(2\bar L)$ (III.H$''$ Lemma 3.2), so $\mathrm{spec}_{\iota^+}$, III.G$'$ Theorem
 3.1 and III.G$'''$ do not depend on $b$; III.G$''$ Theorem 4.2 and Corollary 4.3 are stated for general $b$ (with the
@@ -45,18 +47,24 @@ index sets in $(\mu-j)+\mathcal E_{\mathrm{ind}}$, $\mathcal E_{\mathrm{ind}}$ i
 $h_{b,\mathrm v1}\in\mathcal A^3$ is smooth in $b$ and vanishes at $b_0$ (III.I$''''''''''''''$ Lemma 2.1).
 
 (P4) III.H Corollaries 4.2-4.4 and III.H$'$ Theorem 1.3 hold at $b$ (III.H$''$ Theorem 2.1 and its compactness
-paragraph), and III.G$''''$'s propositions hold at $b$, their inputs being the tf-normal operator (P2), the zero energy
-states (P3) and III.H.
+paragraph), and so do the other statements of III.H and III.H$'$ the parts use: III.H Definitions 2.1 and 3.1, Lemmas
+2.3-2.5, Proposition 3.2 and Theorem 4.1 (3), and III.H$'$ Lemma 2.1, (4.1)-(5.2) and section 5. III.H$''$ Theorem 2.1
+reruns III.H$'$ sections 2-7 at $b$, and its compactness paragraph covers Proposition 3.2. The states' bounds are
+uniform in $\mathcal A^{q-\delta}$ for every $\delta>0$ (III.H Remark 2.6), a loss the parts absorb, each using its
+weights with room (verifier 145's m4). III.H$''$ Proposition 1.1 bounds the high-frequency loss at every order $k$ at
+every $b\in\bar{\mathcal B}_1$, with constants independent of $b$ (PART-III-H3-UNIFORM.md:158-170; verifier 149's m1).
+III.G$''''$'s propositions hold at $b$, their inputs being the tf-normal operator (P2), the zero energy states (P3) and
+III.H.
 
 (P5) The time translation $\partial_{t_*}$ is Killing for $g_b$, so every statement that uses only that the s0 gauge
 1-form $\omega^{(0)}_{b,\mathrm s0}$ is Killing (as III.I$'''''''''$ section 2 and III.I$''''''''''$ Lemma 2.1 do) holds
 at $b$.
 
 (P6) *Rows at $b$, corrections at $b_0$.* The rows and towers are built at the base point's $b$ (the towers $T_{\rho,b}$
-of III.I$''''''''''''''$ Definition 1.2, smooth in $b$ by (P3)); the corrections #1-#4 (III.I$'''''''$ Definition 2.1,
-III.I$'''''''''$ Definition 2.1) and their counterterms are the tensors built from $b_0$-objects, as the source builds
-them ([Hin26] p. 275, Definition 11.55; its operator is at $b$, Definition 11.56). At a base point $(h,\vec p)$ with
-parameter $b$,
+of III.I$''''''''''''''$ Definition 1.2, smooth in $b$ by (P3)); the corrections #1-#4 (III.I$''''$ Definition 2.1,
+III.I$'''''''$ Definition 2.1, III.I$'''''''''$ Definition 2.1; verifier 145's n3) and their counterterms are the
+tensors built from $b_0$-objects, as the source builds them ([Hin26] p. 275, Definition 11.55; its operator is at $b$,
+Definition 11.56). At a base point $(h,\vec p)$ with parameter $b$,
 $$D_{\vec p}P_4(h,\vec p)(W_\nu = W) = L_{h,\vec p}m_\nu(W)+r^\nu_{h,\vec p}(W)+E^\nu_{h,\vec p}(W).\tag{1.1}$$
 Here $f^\nu_b := L_{h,\vec p}m_\nu+r^\nu_{h,\vec p}$ is III.I$'''''''''$ Lemma 2.6 (c) at $b$, with every object (rows,
 corrections, counterterms) built at $b$, in the classes of III.I$'''''''''$ (2.5) uniformly in $b$. And
@@ -92,7 +100,8 @@ $K^+$, of $K^+$-order only $\mathrm{Re}\,e_\nu+2$. Rows at $b$ move the mismatch
 corrections and counterterms, which near $K^+$ enter only through the counterterms, at the weight $\kappa_\nu$ (verifier
 130's m2, 131's m1). Corrections #1-#3 are commutator terms in $\mathrm{supp}\,d\chi_K$ (III.I$''''$), so $f^S$ and
 $f^{\mathrm s1}$ vanish near $K^+$, and their $b_0/b$ mismatch lies at $\iota^+$ only, with the gain $\rho_+^2$ of
-$g_b-g_{b_0}$ (verifier 131's n8). At $b_0$, $E^\nu = 0$ and (1.1) is III.I$'''''''''$'s identity.
+$g_b-g_{b_0}$ (verifier 131's n8). For $f^S$ that mismatch is Lemma 2.7's $E^S_b$, and Proposition 2.8 carries it
+(D329). At $b_0$, $E^\nu = 0$ and (1.1) is III.I$'''''''''$'s identity.
 
 **Lemma 1.2 (joint injectivity at $b$).** Shrinking $\mathcal B_*$, III.I$''''''''''$ Lemma 2.2 and Corollary 2.3 hold
 at every $b\in\bar{\mathcal B}_*$, for the states at $b$: if $\sum_{\tau\ne\mathrm v1}h_{b,\tau}(W_\tau) = 0$ then every
@@ -314,14 +323,93 @@ III.I$''''''''''''''$ Theorem 3.1 at exact weights). At $b$, Proposition 2.5's c
 $A_b$ does not depend on the loss, being computed from $\iota^+$- and tf-data, which the exact and the lossy classes
 share.
 
+### 2.6 The boost parameter at $b$
+
+III.I$''''$ Lemma 2.4 is an identity at $b_0$. It uses that $g_{b_0}$ is Ricci flat in $\mathcal C$, and that the
+correction and the leading term are built from the same $b_0$-state. At $b$ the background in $\mathcal C$ interpolates
+between $g_{b_0}$ and $g_b$, so the identity acquires an error, and III.I$''''$ Proposition 4.1 (2) is proved at $b$ by
+a direct bound rather than by continuity at fixed $b$ (verifier 145's M1, D329).
+
+**Lemma 2.7 (the boost identity at $b$).** Let $b\in\bar{\mathcal B}_*$, $G := g_{b_0,b,0} =
+(1-\chi_K)g_{b_0}+\chi_Kg_b$ (III.I (1.1)), $P_1(h,S,b)$ as in III.I$''''$ (2.2) with $g_0 := g_{b_0,b,-S}$, and
+$f_{0,0;b}(\dot S) := D_SP_1(0,S,b)|_{S=0}(\dot S)$. Let $h^{\le1}_{b,\natural}(\dot S) :=
+\delta^*_{g_b}\omega^{\le1}_{b,\natural}(\dot S)$ be the re-centred s1 state at $b$ ((P3), with the gauge 1-form of
+III.D$'''$ at $b$; at $b_0$ it is III.I$''''$'s $h^{\le1}_\natural$). Then
+$$f_{0,0;b}(\dot S) = L^{G,G}\big(\chi_Kh^{\le1}_{b,\natural}(\dot S)\big)+E^S_b(\dot S),\tag{2.4}$$
+where $E^S_b(\dot S)$ is supported in $\mathcal C$, vanishes at $b = b_0$, and, near $(\iota^+)^\circ$, lies in
+$\mathcal A^{\mathcal G+2-\delta}$ for every $\delta>0$, $\mathcal G := (2,0)\cup(2+\mathcal E_{\mathrm{ind}})$, with
+seminorms $O(|b-b_0||\dot S|)$ uniformly on $\bar{\mathcal B}_*$.
+
+*Proof.* *Support.* By III.I (1.1), $g_{b_0,b,-S} = (1-\chi_K)\phi^*_{-S}g_{b_0}+\chi_Kg_b$, and the corrections
+$h^{(-1)}$, $\vartheta_\sharp$ of III.I$''''$ Definition 2.1 are supported in $\mathcal C$ (III.I$''''$ Lemma 2.2).
+Where $\chi_K = 0$, $g' = g_0 = \phi^*_{-S}g_{b_0}$ is Ricci flat for every $S$, and $\Upsilon^{E_\Upsilon}(g_0,g_0) =
+0$ (III.I$''''$ (i)); so $P_1(0,S,b) = 0$ there for all $S$, and $f_{0,0;b} = 0$. Where $\chi_K = 1$, $g' = g_0 = g_b$
+does not depend on $S$, so again $f_{0,0;b} = 0$. On both sets $L^{G,G}(\chi_Kh^{\le1}_{b,\natural})$ vanishes as well.
+Where $\chi_K = 0$ it vanishes trivially. Where $\chi_K = 1$ it is $L_bh^{\le1}_{b,\natural}$, which is 0:
+$h^{\le1}_{b,\natural} = \delta^*_{g_b}\omega^{\le1}_{b,\natural}$ lies in $\ker D_{g_b}\mathrm{Ric}$ by III.I$''''$
+(iii), and in $\ker\delta_{g_b,E_\Upsilon}G_{g_b}$ because $\omega^{\le1}_{b,\natural}$ is a generalised zero energy
+state of the gauge potential operator at $b$ (III.D$'''$ at $b$, (P3)). So $E^S_b$ is supported in $\mathcal C$. *At
+$b_0$.* $G = g_{b_0}$, $L^{G,G} = L_{b_0}$ and $h^{\le1}_{b_0,\natural} = h^{\le1}_\natural$, so (2.4) with $E^S_{b_0} =
+0$ is III.I$''''$ (2.3). *Size.* Every term of $E^S_b(\dot S)$ is linear in $\dot S$ and a smooth function of $b$ on
+$\mathcal C$. Its ingredients are $G-g_{b_0} = \chi_K(g_b-g_{b_0})$, which lies in $|b-b_0|\rho_+^2C^\infty$ near
+$(\iota^+)^\circ$ (on $\mathcal C$, $|x|\ge t/10$, and $g_b-g_{b_0} = O(|b-b_0||x|^{-2})$ with all Cartesian
+derivatives, III.B); the state $h^{\le1}_{b,\natural}$, smooth in $b$ in $\mathcal A^{\mathcal G-\delta}$ ((P3), with
+III.H Remark 2.6's loss, (P4)); and the $b$-independent corrections. III.I$''''$ Lemma 2.2's count, that
+$D_{g_0}\mathrm{Ric}$ and $\delta^*\delta G$ lie in $\rho_+^2\mathrm{Diff}^2_{\mathrm b}$ near $(\iota^+)^\circ$, takes
+$\mathcal A^{\mathcal G-\delta}$ into $\mathcal A^{\mathcal G+2-\delta}$, uniformly for $b\in\bar{\mathcal B}_*$. So
+$\partial_bE^S_b(\dot S)$ is bounded there by $C|\dot S|$, and $E^S_b = E^S_b-E^S_{b_0}$ is $O(|b-b_0||\dot S|)$ by the
+mean value theorem along the segment from $b_0$ to $b$, which lies in $\bar{\mathcal B}_*$ (a ball, VI.C row b4).
+$\square$
+
+**Proposition 2.8 (III.I$''''$ Proposition 4.1 (2) and Corollary 4.3 at $b$).** Read III.I$''''$ Proposition 4.1 (1) at
+$b\in\bar{\mathcal B}_*$ with the leading term $\chi^H_Kh^{\le1}_b(\dot S)$ built at $b$ ((P3)), and $\dot S(f)$ read
+from the coefficient of $t_*$ at $K^+$, which determines it by Lemma 1.2 (the s1 states alone). There are $C$ and a
+smallness of $(h,S)$, uniform on $\bar{\mathcal B}_*$, with
+$$|S^{(-1)}_{h,S;b}-\mathrm{id}|\le C\big(\|h\|_{\mathcal X^d}+|S|+|b-b_0|\big).\tag{2.5}$$
+So, after shrinking $\mathcal B_*$ and the smallness of $(h,S)$, $S^{(-1)}_{h,S;b}$ is invertible with inverse of norm
+at most 2, and III.I$''''$ Corollary 4.3 and III.I$'''''$ Corollary 2.2 hold at $b$, with constants uniform in $b$.
+
+*Proof.* At $b$, III.I$''''$ Lemma 4.2's map is $\dot S_{h,S;b}(f) = \Pi_bf'$, with $f' := f-(L_{h,S;b}-L_b)u$. Here
+$\Pi_b$ is built from III.I$'$ Proposition 3.1's construction for $L_b$ and from $\tilde L_b(0)^{-1}$ (III.H Proposition
+3.2 at $b$, (P4)). Its bound (a) holds with $C$ uniform in $b$, by (P1) and (P4). By Lemma 2.7,
+$\chi_Kh^{\le1}_{b,\natural}(S')$ vanishes for $t^\flat_*<10$. It is therefore the forward solution of $L_{0,0;b} =
+L^{G,G}$ (III.I$''''$ Lemma 2.5 at $h = 0$, $S = 0$) with the source $f_{0,0;b}(S')-E^S_b(S')$, and it has the form
+(4.1) with $\dot S = S'$ and $\tilde u = 0$. Hence, for $S'$ in a basis of $\mathcal S_1$,
+$$S^{(-1)}_{h,S;b}(S')-S' = \dot S_{h,S;b}\big(f_{h,S;b}(S')-f_{0,0;b}(S')\big)+\big(\dot S_{h,S;b}-\dot
+S_{0,0;b}\big)\big(f_{0,0;b}(S')\big)+\dot S_{0,0;b}\big(E^S_b(S')\big).$$
+*The first term.* $f_{h,S;b} := D_SP_1(h,S,b)$ depends smoothly on $(h,S)$. III.I$''''$ Lemma 3.2's bounds hold for
+small $(h,S)$ and depend on $b$ only through finitely many seminorms of $g_{b_0,b,-S}$. So
+$\|f_{h,S;b}(S')-f_{0,0;b}(S')\|\le C(\|h\|_{\mathcal X^d}+|S|)|S'|$ in the norm of Lemma 4.2 (a), and the first term is
+at most $C(\|h\|_{\mathcal X^d}+|S|)|S'|$. *The second term.* By Lemma 4.2 (b)'s formula, with $(h_1,S_1) := (h,S)$ and
+$(h,S) := (0,0)$, it is $-\Pi_b\big((L_{h,S;b}-L_{0,0;b})u_{h,S}+(L_{0,0;b}-L_b)(u_{h,S}-u_{0,0})\big)$. Here
+$u_\bullet$ are the forward solutions with the source $f := f_{0,0;b}(S')$, which vanishes near $\mathscr I^+$ (it is
+supported in $\mathcal C$). The coefficients of $L_{h,S;b}-L_{0,0;b}$ lie in Lemma 3.1's class (3.6) with norm at most
+$C(\|h\|_{\mathcal X^d}+|S|)$: they are polynomial in the differences of the metrics, with coefficients smooth in their
+inverses (Lemma 3.1's proof, Lemma 2.5). So (4.2) gives $\|(L_{h,S;b}-L_{0,0;b})u_{h,S}\|\le C(\|h\|_{\mathcal
+X^d}+|S|)\|f\|$. Since $L_{0,0;b}(u_{h,S}-u_{0,0}) = -(L_{h,S;b}-L_{0,0;b})u_{h,S}$, III.I$''$ Proposition 5.1, with the
+weights lowered by the room $\varsigma$ of Lemma 4.2's proof, gives $\|u_{h,S}-u_{0,0}\|\le C(\|h\|_{\mathcal
+X^d}+|S|)\|f\|$, and (4.2) bounds the second summand the same way. $\Pi_b$ is bounded on the space with that room,
+uniformly in $b$. So the second term is at most $C(\|h\|_{\mathcal X^d}+|S|)|S'|$. *The third term.* By Lemma 2.7,
+$E^S_b(S')$ is supported in $\mathcal C$. It vanishes near $\mathscr I^+$ and $K^+$, and its $\iota^+$-order is at least
+$4-\delta>\alpha_++2$, as $\alpha_+<\frac32$. So it lies in the source space of Lemma 4.2 (a) with norm at most
+$C|b-b_0||S'|$, and the third term is at most $C|b-b_0||S'|$. This proves (2.5), and the Neumann series gives the
+inverse. III.I$''''$ Corollary 4.3's proof and III.I$'''''$ Corollary 2.2's use the invertibility alone, so they hold at
+$b$. $\square$
+
+III.I$''''$ Lemma 4.2 (b), a continuity at fixed $(h,S)$, is not used at $b$: its difference formula enters only through
+the bound above. The same pattern replaced the continuity lemmas for the elimination in Proposition 2.5's Step 3
+(verifier 131's M1).
+
 ## 3. The parts at $b$
 
 **Theorem 3.1 (the linear theory at base points near $b_0$).** For base points with black hole parameter
 $b\in\bar{\mathcal B}_*$, the statements at $b$ of the following hold, with constants and smallness conditions uniform
 in $b$:
 
-- III.I$'$-III.I$''''''$ (the parts below level 3; III.I$'''$'s background $g_S := g_{b_0,b_0,-S}$ becomes
-$g_{b_0,b,-S}$, and the corrections #1-#3 stay the tensors built at $b_0$, (P6));
+- III.I$'$-III.I$''''''$ (the parts below level 3; the backgrounds $g_0 := g_{b_0,b_0,-S}$ of III.I$''$ section 1 and
+$g_S$ of III.I$''''$ (1.1) become $g_{b_0,b,-S}$, and the corrections #1-#3 stay the tensors built at $b_0$, (P6)), with
+III.I$''''$ Proposition 4.1 (2), Corollary 4.3 and III.I$'''''$ Corollary 2.2 in the form of Proposition 2.8 (D329;
+verifier 145's M1, m1);
 
 - III.I$'''''''$ Lemmas 1.3, 2.4, 2.5, Corollary 4.6;
 
@@ -349,7 +437,8 @@ with the assigned rotation coordinates);
 
 - III.J$''$ Theorems 4.1-4.2, Proposition 4.3;
 
-- III.J$'''$ Corollary 6.6.
+- III.J$'''$ Propositions 3.4, 4.3, 4.6, 5.2, 5.4, Theorems 5.3, 5.5 and Corollary 6.6, Theorem 5.3 in the form of
+Proposition 2.5 at exact weights (verifier 149's m2).
 
 *Proof.* The census. A search of these parts for every occurrence of $b_0$, $L_{b_0}$, $g_{b_0}$ and of the symmetries
 (static, spherical, isotypic, Killing, $SO(4)$) gives the uses listed below. Each is one of (P1)-(P6), Lemma 1.2, or
@@ -359,6 +448,10 @@ section 2.
 5.3 and its corollaries (P1). The splitting $L_{h,\vec p} = L_{b_0}+(L_{h,\vec p}-L_{b_0})$ near $K^+$, used to move a
 perturbation into the source (III.I$''''''''$-III.I$''''''''''''$, for instance III.I$''''''''''''$ Step 0), becomes
 $L_{h,\vec p} = L_b+(L_{h,\vec p}-L_b)$. This has the same $K^+$-gain, $g_0 = g_b$ near $K^+$ (III.I Lemma 3.6).
+III.I$''''$'s class statement $k_S := g_S-g_{b_0}\in\mathcal K$ reads $k_S := g_{b_0,b,-S}-g_b\in\mathcal K$ at $b$,
+with differences taken from $g_b$; $k' := \partial_Sk_S$ is unchanged and vanishes near $K^+$. At $b$, $L_{h,S} :=
+D_hP_1(\cdot,S,b)$, and $P_1(0,0,b)\ne0$ in $\mathcal C$; the linear theory uses only $D_hP_1$ and $D_SP_1$ (verifier
+145's m2, n5).
 
 (ii) The model at $\iota^+$ and at tf: III.G-III.G$''''$ through (P2), (P4).
 
@@ -367,20 +460,25 @@ sets of III.D$''$, III.D$'''$ and III.F$'''$ "at $b_0$". They are independent of
 E_{\mathrm{ind}}$, $\mathcal E_\sharp$, $\mathcal E_+$ of these parts serve at every $b$.
 
 (iv) The derivatives in $b$, taken at $b_0$ in III.I$'''''''$ Corollary 4.6 and III.I$''''''''''''''$ Lemma 2.4 (c): at
-$b$, the $b$-column $\dot g_b$ (P3). III.I$''''''''''''''$ Lemma 2.4 (c)'s proof is written for every $b$ near $b_0$; it
-uses that every coefficient of $q$ has rate $>2$ at every such $b$. The point of III.I$''''''''''''''$ Theorem 3.1's
-Step 1 that uses $\widehat{L_{b_0}}(0)\partial_bh_{b,\mathrm v1} = 0$ needs only that the $q$-terms have $K^+$-order
-above $\alpha_1$. At $b$, $\widehat{L_b}(0)\partial_bh_{b,\mathrm v1} = -(\partial_b\widehat{L_b}(0))h_{b,\mathrm v1}$
-need not vanish, but $q$'s v1 coefficients have rate $>2+\epsilon_K>\alpha_1$ (Definition 1.1, (G)), so the $K^+$-order
-of $L(\partial_bh_{b,\mathrm{rem}}(q)b')$ is still $>2+\epsilon_K>\alpha_1$.
+$b$, the $b$-column $\dot g_b$ (P3). So does $\dot g = \partial_bg_b$ in III.I$''$-III.I$'''''$, which enters through
+III.H's columns and singular part ((P3), (P4); verifier 145's n1). III.I$''''''''''''''$ Lemma 2.4 (c)'s proof is
+written for every $b$ near $b_0$; it uses that every coefficient of $q$ has rate $>2$ at every such $b$. The point of
+III.I$''''''''''''''$ Theorem 3.1's Step 1 that uses $\widehat{L_{b_0}}(0)\partial_bh_{b,\mathrm v1} = 0$ needs only
+that the $q$-terms have $K^+$-order above $\alpha_1$. At $b$, $\widehat{L_b}(0)\partial_bh_{b,\mathrm v1} =
+-(\partial_b\widehat{L_b}(0))h_{b,\mathrm v1}$ need not vanish, but $q$'s v1 coefficients have rate
+$>2+\epsilon_K>\alpha_1$ (Definition 1.1, (G)), so the $K^+$-order of $L(\partial_bh_{b,\mathrm{rem}}(q)b')$ is still
+$>2+\epsilon_K>\alpha_1$.
 
 (v) The joint injectivity: III.I$''''''''''$ Lemma 2.2 and Corollary 2.3 at $b$ by Lemma 1.2, III.I$''''''''''''''$ Step
-4$'$ is not used at $b$, Proposition 2.5 replacing it.
+4$'$ is not used at $b$, Proposition 2.5 replacing it. The injectivity of $S\mapsto h(S)$ (III.F$'''$ Proposition 4.1
+(1), proved at $b_0$ by symmetry), used at PART-III-I4-BOOST.md:128, PART-III-I5-UNBOOST.md:343 and
+PART-III-I6-ALMOSTBDD.md:211, holds at $b$ by Lemma 1.2, the s1 states alone (verifier 145's m3).
 
 (vi) The v1 terms: III.I$'''''''''$ section 1 ($\mathcal W_{\mathrm v1} = \mathcal V' = 0$, kept at every $b$),
 III.I$''''''''''$ Lemma 2.1 and Proposition 3.1, III.I$'''''''''''$ Lemma 2.3, III.I$''''''''''''$ section 1, and
 III.I$''''''''''''''$ Definitions 1.1, 1.3, Steps 2-3 and 4$'$. These are section 2: Proposition 2.2, Lemma 2.4 and
-Proposition 2.5.
+Proposition 2.5. The $a_{\mathrm v1}$ term of III.I$'''''$ (PART-III-I6-ALMOSTBDD.md:146-151) is covered by Lemma 2.1
+(verifier 145's n2).
 
 (vii) The time translation as a Killing field: (P5).
 
@@ -394,13 +492,29 @@ are read at $b$ as in Lemma 2.4 and Proposition 2.5. The new objects enter III.J
 (Proposition 2.2); $E^\nu$ is bounded by $C|b-b_0||W|$ in a fixed seminorm ((P6)); the rotation rows enter
 $-\mathrm{id}+A_k$ as the other rows do; and $d_*$ includes their orders.
 
+In III.J$''$, Lemma 2.1 (f), the loss at every order, holds at $b$ by III.H$''$ Proposition 1.1, uniformly on
+$\bar{\mathcal B}_1$; this supersedes (J$''$2)'s neighbourhood shrinking with $k$. III.J$''$ Lemma 2.3's continuity is
+read at $b$ through Lemma 2.4 at $(0,\vec p_b)$ and Proposition 2.5's direct bound, both in fixed seminorms, so $d_*$ is
+unchanged; and III.J$''$ Theorem 4.1 at $b$ takes $\delta_0$ at most the radius of $\mathcal B_*$ as shrunk below
+(verifier 149's m1, n1, n5). III.J$'''$ Theorem 5.3 at $b$ is Proposition 2.5 at the exact weights: $E^\nu$ is exact
+there, having $K^+$-weight $\kappa_\nu-\epsilon>\alpha$ and $\iota^+$-exponents in $\mathcal E^\natural+2$, which
+III.J$'''$ (E1) covers (III.I$'''''''''''''$ Lemma 1.3 (a)); $A_b$ does not depend on the loss, being computed from
+$\iota^+$- and tf-data (Remark 2.6); and the errors of the rotation rows' identification have $K^+$-order
+$\mathrm{Re}\,\lambda_0+1-\epsilon>\alpha-2$, with room. III.I$''''''''''''''$ Step 4$'$, which III.J$'''$ cites
+(PART-III-J4-EXACT.md:587-588), is not used at $b$, Proposition 2.5 replacing it, and Propositions 3.4, 4.3 carry the
+rotation rows of Proposition 2.2 (verifier 149's m2).
+
+(ix) The boost column: III.I$''''$ Lemma 2.4, Proposition 4.1 (2), Corollary 4.3 and III.I$'''''$ Corollary 2.2 at $b$
+are Lemma 2.7 and Proposition 2.8 (verifier 145's M1, D329).
+
 The constants: every constant above is a finite combination of constants of (P1)-(P4) and (P6), of Lemma 1.2, of Lemmas
 2.1 and 2.4, and of the maps of Proposition 2.2, each uniform on $\bar{\mathcal B}_*$. The continuity statements
 (III.I$''''''''$ Proposition 4.1 (ii) and Lemma 3.3, III.I$'''''''''''$ Lemma 3.3, III.I$'''''''''''''$ Lemma 2.3) enter
-Lemma 2.4 at fixed $b$ only and are not used for the elimination's bounds. The smallness of the elimination, across $b$,
-comes from the direct bound of Proposition 2.5's Step 3, through (P6) and Definition 2.3 (verifier 131's M1 and n2).
-$\mathcal B_*$ is shrunk, beyond III.H$''$ (B5), so that Lemma 1.2's bound holds and the maps $-\mathrm{id}+A_k$ of
-Proposition 2.5 are invertible on it (verifier 130's m3). $\square$
+Lemma 2.4 at fixed $b$ only and are not used for the elimination's bounds. III.I$''''$ Lemma 4.2 (b) is not used across
+$b$; Proposition 2.8's direct bound replaces it (D329). The smallness of the elimination, across $b$, comes from the
+direct bound of Proposition 2.5's Step 3, through (P6) and Definition 2.3 (verifier 131's M1 and n2). $\mathcal B_*$ is
+shrunk, beyond III.H$''$ (B5), so that Lemma 1.2's bound holds and the maps $-\mathrm{id}+A_k$ of Proposition 2.5 are
+invertible on it (verifier 130's m3). $\square$
 
 **Corollary 3.2 ((J$'$3) closed).** III.J$'$ Theorem 2.1 and its tame and exact forms (III.J$''$ Theorem 4.2, III.J$'''$
 Corollary 6.6) hold at every base point $U\in\mathcal D^\infty$ small in $\mathcal D^d$, with black hole parameter
@@ -433,6 +547,12 @@ $E^\nu\in\mathcal Y^\natural_2(\alpha-)\cap\mathcal Y(\alpha_1)$. Settled in D30
 (I$'''''''''''''''$5) *The census.* Theorem 3.1 rests on a search of the parts for the uses of $b_0$ and of the
 symmetries of $b_0$. A use that the search does not see would be a gap in this part, for instance an argument at $b_0$
 that does not name it.
+
+(I$'''''''''''''''$6) *The boost identity holds at $b_0$ only.* III.I$''''$ Lemma 2.4 uses that $g_{b_0}$ is Ricci flat
+in $\mathcal C$ and that correction and leading term are the same $b_0$-state. At $b$ the identity carries the error
+$E^S_b$ of Lemma 2.7, $O(|b-b_0|)$ and supported in $\mathcal C$, and III.I$''''$ Proposition 4.1 (2) holds at $b$ by
+Proposition 2.8's direct bound. The token search behind Theorem 3.1 did not see it: the identity names $b_0$ through
+$g_{b_0}$, but its use at $b$ named nothing. Found by the first batch of the base-point ledger (verifier 145, D329).
 
 *Labels.* Lemmas 1.1, 1.2, 2.1, 2.4, Propositions 2.2, 2.5, Definition 2.3, Remark 2.6, Theorem 3.1 and Corollary 3.2
 are new at $n = 4$; Theorem 3.1 is what the source states throughout its sections 11.2-12 by taking its base points with

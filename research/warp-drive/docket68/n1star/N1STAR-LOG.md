@@ -6025,3 +6025,14 @@ parameter; the script now also catches a citation split across a line in the oth
 rescaled damping operator occurs. Both scripts now key their classifications to the text of each line rather than its
 number, so that an edit elsewhere in a file no longer breaks them while a changed line still does. The reading of the
 transfer to rotating black holes has begun with its first batch.
+
+**D329 (2026-10-30): the census read line by line, and what the search had missed.** The transfer of the linear theory
+from the static black hole to nearby rotating ones had rested on a search of the text for the static black hole's name.
+It is now being read line by line in five batches, every use of the base point recorded with what supplies it at a
+rotating one. The first two batches are in. The first found what the search could not: an identity in the boost part
+that holds only because the static metric is Ricci flat in a transition region, where the background at a rotating base
+point is not. The identity there carries an error of the size of the rotation, and the boost parameter is now controlled
+by a direct bound in the size of the data, the boost and the rotation rather than by continuity at a fixed black hole.
+The fifth batch found one theorem, at exact weights, that the transfer used but never stated at a rotating black hole;
+it is now stated, with its reasons. Smaller points from both are seated, among them a superseded remark that a trapping
+bound shrinks with the order. The three middle batches are still being read.

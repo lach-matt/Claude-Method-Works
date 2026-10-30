@@ -1,16 +1,15 @@
 # Part III.J$''$. Tame estimates, n = 4 ([Hin26] Remark 11.13; the tame forms of Corollary 11.66 and Theorem 12.8)
 
 *Status.* Written (D286); verified (D290: verifier 124's findings seated; D292: verifier 126 read the repairs, three
-minor findings seated); proved (D295: verifier 127 read the D292 repairs and found them resolved).
-This part proves, at spatial
-dimension $n = 4$ and at the black hole parameters $b_0$, the tame estimates that [Hin26] asserts in Remark 11.13 (p.
-226), states for Corollary 11.66 (pp. 294-295) and Theorem 12.8 (p. 312) without proof, and uses in section 13 (pp.
-321-322, Step 3 (2)-(3)): the tame form of III.I$''''''''''''''$ Theorem 3.1 (Theorem 4.1) and of III.J$'$ Theorem 2.1
-(Theorem 4.2), and the tame bounds of the map $U\mapsto P_5(\Phi(U))$ (Proposition 4.3). It discharges (J$'$2) of
+minor findings seated); proved (D295: verifier 127 read the D292 repairs and found them resolved). This part proves, at
+spatial dimension $n = 4$ and at the black hole parameters $b_0$, the tame estimates that [Hin26] asserts in Remark
+11.13 (p. 226), states for Corollary 11.66 (pp. 294-295) and Theorem 12.8 (p. 312) without proof, and uses in section 13
+(pp. 321-322, Step 3 (2)-(3)): the tame form of III.I$''''''''''''''$ Theorem 3.1 (Theorem 4.1) and of III.J$'$ Theorem
+2.1 (Theorem 4.2), and the tame bounds of the map $U\mapsto P_5(\Phi(U))$ (Proposition 4.3). It discharges (J$'$2) of
 III.J$'$ at $b_0$ in the b-regularity, with the background small in one fixed norm (Lemma 2.3). Two things stay open:
 the weights ((J$''$4): the inverse is shown to map a source at the loss $\epsilon'$ to a solution at the loss
 $\epsilon\ge\epsilon'$, while II.G needs $\epsilon' = \epsilon$, which the source states), and (J$'$3), the linear
-theory at $b\ne b_0$.
+theory at $b\ne b_0$, since closed by III.I$'''''''''''''''$ Corollary 3.2 (D297; D329).
 
 *What n = 4 changes.* (1) *The argument is written out.* The source states that "the tameness of the initial tame
 estimate (11.23) will propagate throughout all of our arguments" and omits the intermediate tame statements. Here: a
@@ -349,8 +348,9 @@ section 2 and the inventory of section 3 prove it at $b_0$.
 (J$''$2) *Two model maps need care at finite order.* II.G$'$ Corollary 4.5 loses $\lceil k\delta\rceil+\ell$; the loss
 is bounded in $k$ only through strong trapping admissibility, which at $n = 4$ is proved at $b_0$ (III.F Proposition
 4.1). Near $b_0$ it holds on a neighbourhood that shrinks with $k$ (III.H$'$ (H$'$3)), so the tame form at $b\ne b_0$ is
-part of (J$'$3). III.H Corollary 4.2 holds on $|\sigma|<c_k$ with $c_k$ depending on $k$; Remark 2.2 shows this costs
-only constants.
+part of (J$'$3). Superseded: III.H$''$ Proposition 1.1 bounds the loss at every order at every $b$ near $b_0$, uniformly
+(PART-III-H3-UNIFORM.md:158-170, 222; D329, verifier 149's m1). III.H Corollary 4.2 holds on $|\sigma|<c_k$ with $c_k$
+depending on $k$; Remark 2.2 shows this costs only constants.
 
 (J$''$3) *Nine model statements are stated at order $\infty$*: III.G$''$ Theorem 4.2 and Corollary 4.3, III.G$''''$
 Theorem 3.1 and Propositions 4.4 and 5.1, III.I$'$ Propositions 2.1 and 3.1, and III.I$''$ Lemmas 4.1 and 4.3. Their
