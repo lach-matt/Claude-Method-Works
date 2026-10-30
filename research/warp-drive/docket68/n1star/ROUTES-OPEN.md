@@ -3558,7 +3558,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   breaks nothing, so III.I'''''''''' is proved.
 - M1: the zero-energy data at levels 1-3 are found for each sign of sigma, and S_1^+ != S_1^- in general (the
     sign-dependent zf-coefficient of III.G'''' Proposition 4.4's remainder); the odd part of sigma h^aug(S_1) is not
-  locally integrable. Repaired by a matching step (as in III.I'''''' Step 5 and the source's p. 287 caveat): on d_t v the odd
+  locally integrable. Repaired by a matching step (as in III.I'''''' Step 5 and the source's p. 287 caveat): on d_t v
+  the odd
   part is i sgn(sigma) h(S_o) + o(1), whose inverse transform ~ c t^{-1} as t -> -inf, while d_t v is rapidly
   decaying there; so S_o = 0. The other sign-dependent pieces are of integer degree without log and give no tail.
 - m1: Step 4 applies Proposition 5.1 with alpha_tau = min(tau, 2 - delta), loops while tau <= 2 + l_3 + eps, and ends
@@ -3880,3 +3881,434 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   2.2 (2) and the cut-off gauge cited in III.C'' Theorem 3.1 (3); README aligned with J3's qualifiers; 'for one eps' in
   (J''4); the K+ classification recorded in (J''4).
 - Next: Part III.J''' (exact weights), from the five-reader survey of where the losses enter (d292).
+
+### 4.217 Part III.J''' written (D293): exact weights at b_0; (J''4) discharged, to be verified
+
+- III.J''' (PART-III-J4-EXACT.md) removes the losses in the weights where they arise instead of improving after the
+  fact, the route 4.216 proposed. The d292 survey found three roots of every loss that reaches a final weight: (a) the
+  graft's log t_* at K+, which hides log rho_K; (b) three pointwise proofs at the final weight; (c) margins at iota+,
+  which are choices.
+- (a): written in powers of log rho_+ (the source's Definition 2.8) the graft is exact (Corollary 3.2); in the log t_*
+  convention no exact statement exists (Remark 3.1). III.A Proposition 4.2 is exact and only transmitted the loss.
+- (b): III.I(12) Lemmas 2.2 and 2.1 (a) and Theorem 3.1's piece (vii) re-proved in L^2 (Lemmas 4.4-4.5).
+- (c): at the closed endpoint of (G+) every map at iota+ is exact, and level 3's non-resonance holds automatically
+  (Proposition 4.3).
+- New conditions (E2)-(E5), each a finite exclusion (Lemma 1.4); alpha = 4 + eps_K is available under (A_K).
+- Corollary 6.6: III.J'' Theorems 4.1-4.2 and Proposition 4.3 with eps' = eps = 0, on one pair of Banach scales;
+  (J''4) is discharged at b_0, to be verified (verifier 127).
+- Open: (J'3), the linear theory at b != b_0; the support conditions of II.G Theorem 2.1; smoothing operators on D_ex;
+  the exterior family h_{-S}; Part IV; III.K ([Hin26] section 13).
+
+### 4.218 Part III.H'' written (D294): uniformity near b_0; (I3) discharged, to be verified
+
+- III.H'' (PART-III-H3-UNIFORM.md) supplies the two inputs that (I3) of III.I left open for b != b_0.
+- Proposition 1.1: strong trapping admissibility of 2L_b at every b of a fixed neighbourhood B_*, uniformly. The frame
+  is e_0 = zeta/sigma, a null e_2 built from dt_*, and the screen V = {e_0, e_2}^perp: e_0 is parallel along null
+  bicharacteristics, the null filtration is invariant, and III.F's grading argument applies verbatim. Multiplying the
+  inner product by f_b = |dg_b|/|dt_* dx| removes the density correction exactly. Corollary 1.2: delta_Gamma is
+  uniformly small, so B^hi_k contains B_* for every k.
+- Theorem 2.1: III.H' Theorem 1.3 on B_* for every k, uniformly (I.A Theorem 8.1, I.B section 9, III.H Remark 2.6).
+- Lemma 3.2: N_{iota+}(2L_b) = N_{iota+}(2 bar L), since 2L_b - 2 bar L has coefficients rho^2, rho^3, rho^4. Theorem
+  3.1: II.F Theorem 8.1 uniformly in b. Theorem 4.1: II.F' Theorem 1.1 uniformly in b, with continuity in b; (F'11)
+  is discharged for the family 2L_b.
+- Corollary 5.1: III.I Theorem 5.3 for b in B_*, with continuity in (b, S, h); (I3) and III.I Remark 5.4 discharged.
+- Open, (H''5): the chain III.I'-III.J''' at base points b != b_0. The data at b_0 enter as the v1-rows (every
+  rotation is Killing at b_0), as index sets of the zero energy states fixed at b_0, and as derivatives in b at b_0.
+  This is the rest of (J'3). Also open: Part IV; III.K ([Hin26] section 13).
+
+### 4.219 Verifier 127 seated (D295): III.J'' proved; III.J''' verified, its repairs to be read
+
+- Verifier 127 read III.J''' and the D292 repairs of III.J''. III.J'': m1-m3 resolved, so it is proved. III.J''': 1
+  major, 3 minor, 6 nits, seated. All Sources pages are correct.
+- M1: the joint exact weight at the corner of iota+ and K+ was not proved. III.I(12) Lemma 2.1's bounds near iota+ and
+  at the corner are pointwise, a fourth pointwise proof at a final weight (4.217 said three). Lemma 4.7 proves them in
+  L^2: case (a) by Minkowski's inequality in zeta with the dilation invariance of dr/r, case (b) with m = 0 by a sup
+  bound and the L^2 profile. Proposition 4.6's iota+ side is rewritten on it.
+- m1: Remark 3.1, the t_*-convention's class and Definition 2.8's are incomparable at the exact weight; "no exact
+  statement exists" withdrawn. m2: Corollary 6.6 now argues why the unchanged lossy rows do no harm (exact data enters
+  every chain; margins chosen backwards per k change C_k, not d). m3: (E1) is a smallness condition; (E5) is vacuous.
+- Nits: the indicial roots read with -Re mu; continuously embedded, not closed; (E2) covers the exclusions of III.I'
+  Propositions 2.1 and 3.1, lambda_sharp included; the Laurent cut-off for the remainder's coefficients; "finite rank"
+  dropped; "(P2: ...)" replaced by the use of (E1) in III.A's integrations.
+- Next: verifier 128 reads the D295 repairs of III.J''' and III.H'' (D294).
+
+### 4.220 Verifier 128 seated (D296): III.J''' proved; III.H'' verified, its repairs to be read
+
+- Verifier 128 read III.H'' (D294) and the D295 repairs of III.J'''. III.J''': every finding of verifier 127
+  resolved (Lemma 4.7 correct; the corner paragraph closes M1); four nits seated, and III.J''' is proved. (J''4) is
+  discharged at b_0.
+- III.H'': 0 major, 4 minor, 6 nits, seated. m1: Theorem 2.1's uniformity for every k comes from I.C Theorem 7.1 (2),
+  local around each b at which its qualitative hypotheses hold, and compactness over a first neighbourhood B_1.
+  m2: B_* is now chosen after the uniform constants, by (B5): Corollary 5.1's eps_0, the slab smallness up to
+  tau_0^{-1}, and t^flat from g_{b_0} serving every b. m3: II.F section 6.3 uses P_0, so section 6 is run with
+  2L_{b_0}. m4: (C3) at b by the margins of III.I Lemma 5.1.
+- Nits: the limit operator's smallness in Theorem 4.1's continuity; the two further facts of the grading argument;
+  the extension off Sigma by the same formulas; II.D at I+ and C' in section 7.6's list; the (H''5) sentence on
+  III.G''; the frame comparison at b_0 marked as unused.
+- Next: (H''5), the chain III.I'-III.J''' at base points b != b_0 (plan in the scratchpad, d296/plan.md).
+
+### 4.221 III.I''''''''''''''' written (D297): the linear theory at base points near b_0
+
+- (J'3) of III.J' and (H''5) of III.H'': the chain III.I'-III.J''' was written at b = b_0. The new part carries it to
+  every b in B_* (III.H'' Corollary 5.1). The model objects transfer by (P1)-(P6), with L_b in place of L_{b_0}; joint
+  injectivity of the states at b follows by perturbation.
+- The one obstruction is v1: at a rotating b, h_{b,v1}(V) lies in ker hat L_b(0), whose dimension does not jump, so v1
+  cannot be eliminated by the K+ extraction. As in the source (pp. 279-280, (11.229)), the v1 terms of exponent of real
+  part at most 2 are carried by the rotation rows of III.I(14), with coefficients assigned from the construction: the
+  graft's, read from the iota+ data, and the spectral one at level 1. No inversion of h_{b,v1} is used; at b_0 the
+  assignment agrees with III.I(14) Step 4'.
+- Theorem 3.1 lists the statements that hold at b, by a census of the uses of b_0; Corollary 3.2 gives right inverses
+  at every base point. The census is a search, and (I^(15)4) says so.
+- Next: verifier 130 reads it with the D298 repairs of III.H''.
+
+### 4.222 Verifier 129 seated (D298): III.H'' repairs
+
+- Verifier 129 read the D296 repairs of III.H''. 0 major, 2 minor, 5 nits. M1: the order of choices was still circular,
+  as (B5) used eps_0 and tau_0 proved only on B_*. M2: (B5)'s slab clause did not cover the slabs of II.F Lemma 7.5 and
+  of II.F' Proposition 3.1 (iv) and Lemma 2.9.
+- Repairs: II.E is applied relative to 2L_b itself, as II.F section 7.5 and II.F' do; its constants depend on finitely
+  many coefficient norms and margins, continuous in b, hence uniform on the compact closure of B_1. The slab clause is
+  dropped; the eps_G clause moves to (B2); sections 1-4 are stated and proved on B_1; B_* is chosen by eps_0 alone.
+- Nits: O fixed small in (B1) instead of shrunk later; the two further arguments behind the uniformity in k; the order
+  in II.F section 6 with P_0 := 2L_{b_0}; a cleaner (C3).
+- Next: verifier 130 reads the D298 repairs and III.I(15).
+
+### 4.223 Verifier 130 seated (D299): III.H'' proved; III.I(15) verified, its repairs to be read
+
+- III.H'': verifier 130 read the D298 repairs. M1 and M2 and the five nits are resolved; the II.E coefficient-norm claim
+  is supported. Two nits are seated: the uniformity is per slab step, finitely many steps; B_* is shrunk further by
+  III.I(15). III.H'' is proved.
+- III.I(15): 1 major, 4 minor, 3 nits. M1: at a rotating b the rotation rows have K+-rate Re lambda <= 2, below the
+  levels, so III.I(14) Step 2's (3.4) and the uniqueness via Step 4' fail at b. Repair: Lemma 2.4 (III.I(13) Lemmas
+  2.2-2.3 at b, with the rotation rows at their assigned coordinates A_b(G)). Proposition 2.5 makes the rotation rows
+  new rows of the levels at which their rates lie, with C = A_b(G') - W'. The joint elimination is -id + small, and
+  uniqueness holds with the constraint W'^rot = A_b(G') (Remark 2.6; III.J'-III.J''' use only the constructed map).
+- Minors. m1: the sign, which is now W' = A(G'). m2: rows at b and corrections at b_0 give a mismatch E^nu (1.1),
+  supported away from K+ and O(|b-b_0|). Its iota+-exponents are those of the b-derivatives of the towers; its place
+  in Y^natural rests on III.I(14) Lemma 2.4's argument, recorded as the point to check (I^(15)3). m3: the continuity
+  lemmas were added to the list, and B_* is shrunk. m4: the reason v1 is excluded is that h_{b,v1}(V) is O(|b-b_0|) in
+  the span of gdot_b, h_b(S).
+- Next: verifier 131 reads the D299 repairs of III.I(15). III.K ([Hin26] section 13.1) is being drafted (plan:
+  scratchpad d299/plan.md).
+
+### 4.224 III.K written (D300): [Hin26] section 13.1 at n = 4, conditional on Part IV
+
+- The assembly of the nonlinear theorem: initial family, Psi, right inverses, support classes, smoothing, II.G
+  Nash-Moser, constraint propagation; Theorem 4.3 is the source's Theorem 13.1 at n = 4.
+- Three changes from the source:
+  - (K1) The initial family solves the cut-off gauge, and the cone uses the uncut one; they agree only where chi_0 = 1.
+    The new cut-off chi_0-natural = 1 - (1 - chi_0)(1 - chi(t_*)) equals 1 on Omega_* and chi_0 on the exterior domain.
+  - (K3) In Psi's right inverses the boost defect gains a term e_S supported in {1 <= t^flat_* <= 2}, small with the
+    data.
+  - (K4) II.G's closed support classes need conditions on every component of supported character. The q-tails are cut
+    off to t_* >= 8 by Z at no cost, as they enter only through h_rem(q), which vanishes on t_* < 10.
+- Part IV must deliver (K2): III.C' Theorem 2.1 in the cut-off gauge; its continuation on the slab near I+ up to
+  t^flat_* = 3 (the source's "for globally small initial data" sentence, p. 321); and III.E Theorem 1.1.
+- (K8): chi_iota is taken to vanish on {t^flat_* <= 2}; its choice in III.G'' is free, which is to be checked.
+- Next: verifier 132 reads III.K (after verifier 131 on III.I(15)); then Part IV.
+
+### 4.225 Part IV started (D301): [Hin23a] sections 3.1-3.2 at n = 4
+
+- Part IV, the exterior estimates III.C' Theorem 2.1 rests on, is written out at n = 4 on III.C's region in III.C's
+  Minkowski null coordinates (not the source's Schwarzschild ones; the mass enters only the error class).
+- This first file covers the edge-b frame and metric; the operator L = rho_I rho^(-7/2) box rho^(3/2), symmetric on
+  rho_0^5 rho_I^4 |dg|, with Delta+3/4; the energy estimate near I+ with Qbar of 10.64 X3; and the b-estimate near the
+  interior of I_0, which the source cites from [HV20, Proposition 4.3] and which is written out here.
+- Next: Part IV's tensor operator and tame estimates ([Hin23a] sections 3.3-3.5), then section 3.6 with III.C'
+  Theorem 2.1, the cut-off gauge (C''2) and the slab (K2); [Hin26a] for III.E Theorem 1.1.
+
+### 4.226 Verifier 131 seated (D302): III.I(15) repairs
+
+- Verifier 131 read the D299 repairs: 1 major, 3 minor, 8 nits. Verifier 130's M1 (outside the continuity step), m1
+  and m4 are resolved, and (I(15)3) is settled: E^nu's iota+-exponents lie in E^natural + 2.
+- M1: Step 3's A_k -> 0 across b rested on continuity lemmas proved by perturbation from L_{b_0}, whose remainder has
+  K+-weight at most lambda_sharp + 1 at b != b_0. Repair: A_k is bounded directly by the uniform bounds of S and A_b
+  and the smallness of r^nu + E^nu, Delta_q, R_q; the continuity lemmas are used at fixed b with base point (0, p_b).
+- m1: the cut-off split is dropped. f^nu_b is III.I(9) Lemma 2.6 (c) with every object at b, and E^nu is the
+  b-difference of the corrections and counterterms, of K+-weight kappa_nu > alpha. m2: III.I(11) Theorem 4.1 and
+  III.I(13) Proposition 2.4 are used at b only inside Lemma 2.4 and Proposition 2.5. m3: A_b and E^nu enter III.J'''s
+  tame inventory.
+- Next: verifier 133 reads the D302 repairs, after verifier 132 (III.K and Part IV).
+
+### 4.227 Part IV' written (D303): the tensor operator and the tame estimate
+
+- PART-IV2-TAME.md writes out [Hin23a] sections 3.3-3.5 at n = 4 for [Hin26]'s operator on III.C's exterior region.
+  Proposition 1.2: L_g = 2 rho_I rho^(-7/2) L^{g,g0} rho^(3/2) = -2(X_I - Abar)(X_0 - X_I) + x_I^2 Delta + Ltilde_g,
+  Abar constant lower triangular with diagonal >= 0, Ltilde_g in (x_I C^oo + H^{k-2,(E_0,l_0),(F-1,l_I-1)}_b) Diff^2_eb.
+- Proposition 2.2: the energy estimate and its tame form for alpha_I < min(alpha_0, 0), by Lemma 2.1's fibre inner
+  product and a per-slot quadratic form positive for kappa small; Lemmas 2.3-2.4 in dimension 5.
+- (IV'1): the edge-b form needs the refined count of Lemma 1.1; III.C's pointer to III.C' for it is not borne out.
+  (IV'2): A^0_h is absent at n = 4, so the basic and sharp-weight estimates are one argument.
+- Next: Part IV'' ([Hin23a] section 3.6 -> III.C' Theorem 2.1, the cut-off gauge, the slab of (K2)).
+
+### 4.228 Verifier 132 seated (D304): III.K and Part IV
+
+- III.K: 3 major, 5 minor, 5 nits, each major an inherited gap of the source. A-M1: Lemma 2.3's support claim needs the
+  tail of the base point to vanish below the level; II.G Theorem 2.1 (iii) is weakened to u in U cap B_eta, which its
+  proof uses ((H10)). A-M2: D_S := phi_S^(-1)({t_IVP >= 0}) cap ..., h_S on an S-independent two-sided region D.
+  A-M3: support classes, chi_- and the collar in t_*, not t^flat_*; levels at T^ = 2/C', D up to t_* = T^ + 3.
+- Minors: Lemma 1.1 (d)'s proof completed (nu_0 = min(1/4, r_0/8), compactness on r <= r_1 + 1); the cover re-posed
+  (R_8 >= 2r_1; the compact part a domain of dependence bounded by {rho'_I = c}; the slab after it); h_0 two-sided and
+  the order of S = 0 and S != 0; chi_K's threshold above T_iota + 1; e_S's support, tame bound and Step 1 role.
+- Part IV: 0 major, 3 minor, 5 nits: the domain in U (t_* <= T_0), the density step by exhaustion with f_j away from
+  I_0 and {x_I = eps}, the backward problem on the past slab; nits seated.
+- To be read: the D304 repairs, with (K9)'s two checks (II.G section 6 and II.F section 7.4 for t_*).
+
+### 4.229 Part IV'' written (D305): sharp decay and the exterior solution
+
+- PART-IV3-NM.md: Lemmas 1.1-1.2 (the two families of curves, integration without loss), Lemma 2.2 (the Cauchy problem
+  near I_0, both directions), Lemma 2.3 (growth at I+), Theorem 2.4 (III.C' (2.2) and (5.52), d = 4), Theorem 3.1
+  (III.C' Theorem 2.1 by II.G, k_0 = 14), Corollary 4.1 (the cut-off gauge, (C''2)).
+- (IV''1): two rounds, all slots at once; (IV''2): the slab of III.K (K2) (b) is the next part's; (IV''3): the data and
+  the backward problem added to Part IV's Proposition 4.1.
+- Next: verifier 133 reads III.I(15)'s D302 repairs, the D304 repairs, Part IV' and Part IV''; then Part IV''' (the
+  slab) and Part IV'''' ([Hin26a], III.E Theorem 1.1).
+
+### 4.230 Part IV''' written (D306): the slab
+
+- PART-IV4-SLAB.md: the slab of III.K (K2) (b) is posed on Omega_ext,r_1 cup S from Sigma_IVP,r_1 and the compact
+  Sigma_c = {rho'_I = c} cap dS, so that no Cauchy data sit on Sigma_fut,r_1 near I+ (asymptotically null there);
+  the chart is translated in t (T'' = T^ + 5); Lemma 0.1 puts phi_S^* g_{b_0} in the translated class by III.B Lemma
+  5.2; Lemma 1.1 the curves; Theorems 2.1-2.2 Part IV'' Theorems 2.4 and 3.1 there; Corollary 2.3 the
+  orders (III.C' Theorem 3.1's proof). III.K Proposition 1.2's slab paragraph cites it.
+- Next: Part IV'''' ([Hin26a] sections 2.3, 3-6 and Appendix B at n = 4 -> III.E Theorem 1.1), in several files; the
+  record's 10.21-10.23 and (lxi) carry the computed inputs (cpmodes5, solv5, tface5, 10.79's horizon threshold).
+
+### 4.231 Part IV'''' written (D307): mode stability and the zero energy operator of box^C
+
+- PART-IV5-CDMODES.md: III.E Theorem 1.1 (1)-(3) at n = 4 at (v_C, e_C, C_0) = (1/2, 1/102400, <= 100), gamma_C = 1/h,
+  h < min(10^-6, h_0) off a countable set (IV''''1). Lemmas 1.1-1.5 from the record's exact computations (10.13, 10.18,
+  10.54, 10.14, 10.22, 10.79), extended to b near b_0; Lemma 1.6 (H1)-(H4), (G). Theorem 2.1 = [Hin26a] Theorem 6.2:
+  surjectivity by the adjoint estimate (5.81) (IV''''3).
+- Conditional on [Hin26a] Theorem 5.2 at n = 4 with (5.16) and (5.81): Part IV''''' (section 5.2, pp. 41-66), written
+  D308 (4.232); then Part IV'''''' (Theorem B.1 -> III.E Theorem 1.1 (4)).
+
+### 4.232 Part IV''''' written (D308): [Hin26a] Theorem 5.2 at n = 4
+
+- PART-IV6-SOLV.md: the forward problem, the initial value problem (5.16), (5.79) and (5.81) for box^C on g^KS_b, b
+  near b_0, at the weights (alpha_sf, alpha_K) = (-C_0 - 5/2, 1), C_0 <= 100, with h_0 uniform in b (Lemma 8.1).
+- Inputs where n enters: III.B (3.2), Lemma 3.3 (d)-(e), Proposition 3.6 (the 3sc structure and the causal facts in
+  Kerr-Schild time), Part IV'''' Lemmas 1.1 and 1.4, record 10.13, 10.14, 10.22, 10.65 (a).
+- Stated and proved here, left unstated by the source: Propositions 5.2-5.3 (K^+ outward, sf, the interior both ways),
+  and the chains of Propositions 7.1-7.2 (IV'''''2).
+- Amended: Part IV'''' Lemma 1.4's reading of (4)-(5) (IV'''''3) and Theorem 2.1 (1)'s data surface (IV'''''1).
+- Next: Part IV'''''' ([Hin26a] Theorem B.1 -> III.E Theorem 1.1 (4)); seat verifier 133 (D309).
+
+### 4.233 Verifier 133 seated (D309): III.K's support classes back on t^flat_*
+
+- Verifier 133 read the D302 repairs (III.I(16)), the D304 repairs (III.K, Part IV, II.G), Part IV' and Part IV''.
+  Totals: 1 MAJOR, 8 MINOR, 18 NIT.
+- MAJOR B-M1: III.K's support classes, chi_-, D and the collar had been moved to t_* (D304), but II.F Lemma 1.3 needs
+  tau to be a time function for G_S, and dt_*'s margin near I+ is only O(mu_0 r^-2) (g^-1(dt_*, dt_*) = -18 mu_0 r^-2).
+  Repaired by restoring t^flat_* (II.C Lemma 3.2 (2): robust margin), with the collar along the levels of
+  (t^flat_*, omega); the half-integer powers at I+ lie in every slot's index set (III.C (3.2)-(3.3), Lemma 3.2 (a)).
+  T_iota, T_K, T'' and D re-posed; Part IV''' and Part IV'' follow.
+- MINORs: nu (vanishes near r_0, an inflow boundary for the backward problem; r/64 at infinity); the slab's top on
+  t^flat_*; III.I(16)'s direct bound at every level; Part IV' in polyhomogeneous norms; Part IV'' Lemma 2.2's tame
+  smallness, the uniqueness qualifier (also in III.C' Theorem 2.1), and the slab's curves (Part IV''' Lemma 1.1).
+- NITs seated, among them: t -> -t is not an isometry of the gauge-fixed operator (Part IV, Part IV''); II.G Example
+  3.2 cited; J3 Remark 4.4 quotes the amended (iii).
+- Status: Part IV proved; Part IV', Part IV'' verified; III.K and III.I(16) repairs to be read.
+
+### 4.234 Part IV'''''' written (D310): [Hin26a] Theorem B.1 at n = 4, and III.E Theorem 1.1 (4)
+
+- PART-IV7-TFACE.md: the tf model's spectral family (Lemma 0.1, record 10.20 (i)) is Fredholm of index 0 (Proposition
+  1.1: radial estimates with the n = 4 shift 3/2; relative index per S^3 sector, counts 2, 3, 1 for both the damped
+  and the free operator) and injective (Theorem 2.1 = Theorem B.4 on edge-b spaces; Theorem 3.1 = section B.4 with
+  (l, beta) = (-1/2, 7/2), (alpha_sf, alpha_cf) = (-5/2, 5/2)).
+- Theorem 4.1: box^C_b is tf-admissible (I.C Definition 5.1) with every weight in [-C_0, 2), C_0 in [3/2, 100]; I.C's
+  spaces are Theorem B.1's with q = 2 - beta; the adjoint half from surjectivity (I.C Theorem 4.3 (3)), without
+  [Hin26c] (9.115) (IV''''''1).
+- Melrose's relative index theorem is cited as the source cites it (IV''''''2).
+- So III.E Theorem 1.1 (1)-(4) are proved at n = 4 in Parts IV''''-IV'''''', given (Dyn) (Part VI).
+- Next: Parts V-VII; verifier 134 reading IV'''-IV''''' and the D309 repairs; IV'''''' to the next verifier.
+
+### 4.235 Verifier 134 seated (D311): IV''''s adjoint weight; IV', IV'' and III.I(16) proved
+
+- IV'''' (MAJOR, B-M1): at n = 4 a stationary function of decay rho^k lies in the dual space at weight a iff k > a + 5/2
+  (2 from rho^a L^2(r^3 dr), 1/2 from the slab), so at (2.1) the adjoint step needs decay above C_0 + 3, which Lemma
+  1.3 does not give at C_0 = 100. Repaired: (5.81) is applied at the weight (2.1) with C_0 - 1, which needs decay above
+  C_0 + 2; h_* is below both bounds h_0 (findings (IV''''6)-(IV''''7)).
+- IV''''' (A-m1, A-m2): on the extended domain, Lemma 0.5 (6) is used only in r >= r_sharp, and the strip below is
+  covered by (5.68)-(5.69); general data pass to the limit by the energy identity's boundary term at every tau, and
+  uniqueness comes from (a) for the extension by zero (findings (IV'''''6)-(IV'''''7)).
+- III.K and IV''' (D-m1): the slab's restriction to r >= R_9 is made vacuous by c <= min(1/2, 1/R_9); nits D-n1, C-n1,
+  A-n1, A-n2, B-n1 to B-n3 seated.
+- Status: IV', IV'' and III.I(16) proved; IV''', IV'''', IV''''' verified (repairs to be read); III.K's D309 repairs
+  read, correct, one new minor seated.
+- Next: Part V ([CD03] Theorem 8.1 at n = 4) in writing; IV'''-IV'''''' and the D311 repairs to the next verifier.
+
+### 4.236 Verifier 135 seated (D312): Part IV'''''' verified; IV'''-IV''''' and III.K proved
+
+- IV'''''' (three minors): the deformation of the damping runs over [0, h^-1] for the fixed h; the annihilator of the
+  range is independent of the admissible orders (dual estimate (B.28)), so the index is, and the sector count is made
+  at I.C's order for the free operator; the adjoint step (c) (2) is stated on {tau > kappa}, which contains (B.40)'s a
+  priori set (findings (IV''''''6)-(IV''''''7)). Six nits seated (the density r|d tau| x r^3|dr dg|, the record's
+  Proposition numbering, the loss rho^-3/2, C_1 = 1, eps_X <= delta_r T, the Sobolev order named).
+- The D311 repairs read and correct: IV''''s adjoint weight at C_0 - 1, IV'''''s extended domain and general data,
+  the slab's c <= 1/R_9. Formatting slips of the D311 script (literal line-break escapes, one TeX space) repaired.
+- Status: Parts IV-IV''''' and III.K proved; IV'''''' verified (repairs to be read).
+- Next: Part V ([CD03] Theorem 8.1 at n = 4).
+
+### 4.237 Part V written (D313): [CD03] Theorem 8.1 at n = 4, gluing to the Myers-Perry family
+
+- PART-V-GLUING.md. The fifteen KIDs of 4 + 1 Minkowski data (Lemma 1.1). A linear flux identity, with a quadratic
+  remainder, replaces [CD03] Appendix E (Lemma 1.2). The charges are limits of linear fluxes, with the rate
+  rho^(2 + d - 2 alpha): for alpha > 3/2 no parity condition is needed (Proposition 1.3; finding (V1)).
+- The Kerr-Schild Myers-Perry family, translated, rotated and boosted, has a C^1 charge map whose derivative at
+  Tangherlini is invertible (Proposition 2.3). Schur's lemma for O(4) leaves four scalars, 6 pi^2, -6 pi^2 mu_0,
+  -4 pi^2 mu_0 and -6 pi^2 mu_0. They are computed by hand and checked numerically on all 225 entries (d312/jac5.py).
+  This is [CD03] Proposition F.1's equivalent near Tangherlini, the element its Remark 8.2 names as missing.
+- Theorem 3.1: [CD03] Theorem 5.9's exponentially weighted solvability on Gamma(1, 4) is READ for every n. The
+  continuity in the background that Lemma 3.18 needs is proved (Lemma 3.2). The pairings are R^(-2-d) times the charge
+  differences plus O(R^(3 - 2 alpha)). Lemma 3.18 is proved. The glued data are smooth and equal a family member for
+  r >= 4R.
+- Replaces record 10.63 (a)-(c), 10.66 (a)-(e) and Proposition 10.47 (finding (V2)).
+- Next: Part VI ((Dyn) and the record's computed inputs); Part VII (assembly); Part V to the next verifier, with the
+  D312 repairs of IV''''''.
+
+### 4.238 Part VI.A written (D314): the dynamical hypotheses at Tangherlini
+
+- PART-VI-DYN.md. The dynamical hypotheses that Parts I-IV call (Dyn) are proved for 5D Tangherlini with III.B's
+  t_*. (H6) and (K1) are proved for every b. The horizon's radial source has beta_0 = 2 mu^(-1/2), beta = mu^(1/2)
+  and quadratic defining function |eta/xi|^2. The trapped set is r^2 = 2 mu with C = 4 mu; its separatrices are
+  exactly f xi = +-(1 - 2 mu r^-2), with exact rates. (K3) holds through the periodic geodesic flow of S^3. (H8)
+  holds through the conserved angular momentum.
+- Lemma 5.2: the escape function (r^2 - 2 mu) xi has H F = 2r(xi^2 (r^2 - mu)^2 + (r^2 - 2 mu)^2)/(r^2 - mu)^2, zero
+  only on Gamma, and z_0 F = (r^2/4f)(phi_s^2 - phi_u^2) exactly. It is for the perturbation to b near b_0 in VI.B.
+- Checks: d313/dyn5.py (sympy).
+- Next: Part VI.B ((Dyn) for b near b_0: horizon by continuity on the fixed conormal, trapping by [HPS77]
+  persistence, (H8) by the escape function with no return), VI.C (gamma_Upsilon < min(s_C/2, 1/4), (C5)), Part VII.
+
+### 4.239 Verifier 136 seated (D315): Part V verified, IV'''''' proved
+
+- Part V: no step uses an n = 3 fact; the four scalars, Schur, and every READ of [CD03] confirmed. Three minors:
+  [CD03]'s projection is orthogonal in the current metric, so Step 3 pairs with the KIDs converted by g' and the Gram
+  matrix tends to the flat one (V7); the continuity in the background and the Lipschitz derivative are deduced from
+  product estimates, not read (V8); Proposition 1.3's normalisation and the rescaling sentence are dropped (V6). Seven
+  nits seated; the checks jac5.py and dyn5.py are now in proof5/checks/.
+- IV'''''': the D312 repairs read, correct; proved.
+- Next: Part VI.B ((Dyn) near b_0), VI.C, Part VII; Part VI.A and the D315 repairs to verifier 137.
+
+### 4.240 Part VI.B written (D316): the horizon near b_0
+
+- PART-VI2-HORIZON.md. The Myers-Perry horizon in III.B's Kerr-Schild coordinates is {r_A = r_+}, where r_+ is the
+  largest root of (r^2 + a^2)(r^2 + b^2) = mu r^2. The proof is the exact identity g^-1(dr_A, dr_A) = Delta_b(r_A)/(r_A^2
+  Sigma) (Lemma 1.1, checks/horizon5.py).
+- A diffeomorphism, the identity outside |x| < 2R_1, fixes the horizon at |x| = r_h (Lemma 1.2). Its conormal bundle
+  is then invariant (Lemma 2.1), and (H3)-(H4) hold uniformly in b by continuity on fixed compact sets (Proposition
+  2.2).
+- Next: Part VI.B', the trapped set near b_0. Hirsch-Pugh-Shub persistence gives the separatrices only C^r for each r
+  on shrinking neighbourhoods, while (H7) asks C^infinity. So VI.B' uses the separability of 5D Myers-Perry null
+  geodesics, as [Hin26c] uses Carter's constant for Kerr. Then VI.C (parameters) and Part VII.
+
+### 4.241 Verifier 137 seated (D317): Part V proved, Part VI.A verified
+
+- Part VI.A (PART-VI-DYN.md): 0 MAJOR / 3 MINOR / 8 NIT, all repaired. Lemma 0.1 now has a part (a) without causal
+  hypotheses and a part (c), q' = q - 2F' G(nu, dr), so q is the same in t_s and t_* on Gamma. That gives q^Gamma = 4
+  and beta_0 = 2 in t_*, and (K3)'s field changes by a factor equal to 1 on Gamma.
+- (H8): the limits at infinity are read off directly. The uniformity is proved with absorbing sets {r > R, |xi_*| < eps}
+  and, at the horizon, a backward-invariant set on the singular root. Before the repair, R_in at z0 = -1 was missed.
+  Findings (VI.A4)-(VI.A6).
+- Part V: verifier 137 read the D315 repairs and found them all correct; its one note (Step 5's choice of r') is
+  repaired. Part V is proved.
+- Next: verifier 138 on Part VI.B and the D317 repairs; Part VI.B' (trapping near b_0 by separability) in parallel.
+
+### 4.242 Verifier 138 seated (D318): Part VI.A proved, Part VI.B verified
+
+- Part VI.B (PART-VI2-HORIZON.md): 0 MAJOR / 3 MINOR / 6 NIT, all repaired, findings (VI.B3)-(VI.B5).
+  - The conjugation by Psi_b is now proved. Transporting the fibre inner product keeps the thresholds. The spaces are
+    kept because Psi_b is the identity on {|x| <= 5R_1/8} and on {|x| >= 7R_1/4}.
+  - xi != 0 on all of the fibre-infinity characteristic set, so the rescaled field and the split by sgn xi are global.
+  - The no-re-entry step now rests on H_b q > 0 on the boundary of U.
+- Part VI.A: verifier 138 read the D317 repairs, all correct; its four notes are repaired (energy sign on
+  Sigma^{-z0}, the maximal interval, F' < 3/2 for A', co-orientation of dt_s and dt_*). Part VI.A is proved.
+- Next: Part VI.B' (trapping near b_0 by separability), then one verifier on VI.B' and the D318 repairs.
+
+### 4.243 Part VI.B' written (D319): trapping near b_0 by separability
+
+- PART-VI3-TRAPPING.md, checks/trap5.py (S1-S6).
+- Separation: rho^2 g^-1 = A(r, p_r; E, Phi, Psi) + K(omega, eta). This holds in III.B's Kerr-Schild coordinates
+  written as x = (r^2 - A^2)^{1/2} omega, with Kerr-Schild time. It is checked to 40 digits against III.B's Cartesian
+  formulas. Everything is defined without an eigenframe of A.
+- Radial structure: u P R is a quintic in u = r^2, and its reversal Q(w) = E^2 - Lambda w + mu Lambda w^2 at
+  Tangherlini. Near b_0, Q stays strictly convex where Lambda >= mu_0/6 and positive where Lambda < mu_0/6. So the only
+  trapping is a nondegenerate double root near r_ph with Lambda near 4 mu.
+- Trapped set: Gamma_b = {r = r_c, p~ = 0, m = 0}, with separatrices phi_pm = p~ -/+ (r - r_c) sqrt(S) and the exact
+  rates H phi_pm = -/+ 2T phi_pm. The bracket is 2 alpha sqrt(S), and the rate at b_0 is 4 (2mu)^{-1/2}.
+- (K3) for every epsilon: the flow on Gamma_b projects to H_h, h = F(K, Phi, Psi), on T^*S^3. Regular orbits grow
+  linearly, by a commuting frame. The singular sets are the tori p_theta = 0 = U' and the circles omega_1 = 0 or
+  omega_2 = 0, all elliptic because K is near 4 mu_0, much larger than |A|^2. Compactness then gives a C_eps uniform in b.
+- (H8): from the radial classification, the inward crossing of H_b at finite covectors, the backward limit set at
+  fibre infinity (contained in dR_+-, by (H4)), and the Lyapunov function L = q + M rho_inf at the source.
+- Next: verifier 139 on Part VI.B' and the D318 repairs to Part VI.B; then Part VI.C (parameters) and Part VII.
+
+### 4.244 Part VI.C written (D320): the parameters
+
+- PART-VI4-PARAMS.md: every parameter condition of Parts III-VI, each with file:line and what its threshold depends
+  on (17 rows), and Theorem 2.1, a consistent choice made in order.
+- The order is (0) Part VI's ball, then (1) (v_C, e_C, C_0) = (1/2, 1/102400, 100) with gamma_C = 1/h for h in H, then
+  (2) gamma_Ups,H, e_Ups, gamma_Ups (avoiding a countable set), then (3) III.H's c_0, III.F'''s B(c_0) and B_*, then
+  (4) the weights eps_+, eps_K, alpha, then (5) E_0, ell_0, ell_I, and last (6) III.K's eps, d_1.
+- Checks:
+  - III.E Theorem 1.1 is proved only at the record's point, for gamma_C off a countable set, and every part uses a
+    single gamma_C.
+  - III.D Proposition 6.3 is implied by III.D' Proposition 4.1.
+  - III.F'' section 5 is closed by III.H Corollary 4.3.
+- Next: verifier 139's report (VI.B', D318); Part VII, the assembly of Theorem 4, then one verifier on VI.C and VII.
+
+### 4.245 Verifier 139 seated (D321): Part VI.B' verified
+
+- Report: 0 MAJOR. VI.B': 1 MINOR, 13 NIT; the D318 repairs: 1 MINOR, 2 NIT; every other D318 repair correct.
+- A-m1 (VI.B' Proposition 4.1): an exterior curve with r -> r_+ forward and covector -> fibre infinity was not
+  excluded. Now: its forward limit set lies in dR_pm (by (H4)), so it eventually lies in N, where L > 0 does not
+  decrease forward; contradiction. L and N are defined before the horizon paragraph (n9, n10), and the half-line
+  argument covers exterior curves in both directions and interior curves backward (n5, n6).
+- Notes: E != 0 in N (n1); C_eps e^{eps|s|} (n2); Lemma 3.2 at the rotated point (n3); Z_1, Z_2, Z_2' as families
+  (n4); Sigma_{z0} = Sigma^flat_{z0} on O and a fixed neighbourhood for (H5) (n7); t - t_* = psi - T_mu (n8);
+  eps_8 <= eps(delta) (n11); a notation paragraph (n12); S2, S6 and Sources (n13).
+- VI.B B-m1: h' := |det D Psi_b| B_b^*(h o Psi_b) B_b, so Im_{h'} of the conjugate is the conjugate of Im_h exactly.
+  B-n1: Phi_mu fixes x. VI.A B-n2: r_h = R_1 (III.B section 2).
+- Status: VI.B' verified (D321); VI.B verified (D318), its repairs read, one further minor repaired, to be read.
+- Next: Part VII (Theorem 4 assembled from Parts I-VI); then verifier 140 on VI.C, VII and the D321 repairs.
+
+### 4.246 Part VII written (D322): Theorem 4 assembled
+
+- PART-VII-ASSEMBLY.md, Theorem 0.2. (i) in the class: Lemma 1.1 (Theorem E at every order; after the shell g_lam =
+  Tangherlini + smooth O(lam)); Lemma 1.2 (the record's domain enlarged to contain Sigma_IVP near the hole); Lemma 2.1
+  (Tangherlini on Sigma_IVP, charges 6 pi^2 m); Proposition 2.2 (Part V in the class: equivariant Step 1, one-dimensional
+  obstruction, |m - mu_end| <= C eta by the flux identity); Lemma 3.1 (naturality, choices averaged over O(4));
+  Proposition 3.2 (III.K on G-fixed spaces: Pi S_theta, Pi Psi_NM; b = (m', 0), S = 0). (ii): III.K Theorem 4.3 on
+  perturbations in its own class.
+- Findings: (VII1) the paper's (ii) via gluing concludes for the glued data only (late times near the hole depend on
+  the far data); (VII2) l_0 > 3 + eps_+ ((H4) with l_I < l_0), VI.C rows d1-d2 repaired as (VI.C4); (VII3) no Cauchy
+  stability; (VII4) rate t*^(-(alpha-2)+eps); g and g_lam share data on a ball; (VII5) equivariant choices; (VII6) the
+  a priori mass bound keeps the glued data O(lam)-close in III.K's weighted norm at a fixed radius.
+- Next: verifier 140 on VI.C, Part VII and the D321 repairs; then the paper's Theorem 4 and section 8.7-8.8 updated to
+  Theorem 0.2 and findings (VII1), (VII4).
+
+### 4.247 Verifier 140 seated (D323): Part VII and VI.C verified; VI.B and VI.B' proved
+
+- Report: 0 MAJOR. Part VII: 3 MINOR, 12 NIT. VI.C: 2 MINOR, 4 NIT. The D321 repairs: all correct, 2 NIT.
+- VII A-m1: Lemma 3.1 for any closed subgroup G' of O(4) and G'-invariant data. A-m2: (C3') averages the families
+  in b (T_{rho,b}, h_{b,s1}, h_{b,v1}) as families. A-m3: the nested cut-offs are chosen radial directly; the gauge
+  1-forms are already radial (III.D3:30-32, IV5:36-38). Notes: h_tot = 0 where chi_K = 1; the flux sign; q smooth to
+  second order; k = d_1 + 5; G-sup norms change II.G's constants; D_0; I15 (1.1) at b != b_0; J >= 2; |x| >= r_0.
+- VI.C B-m1: the order was circular (Lambda contains pi_1 E^C_I, which depends on l_I). Now: data classes (step 3),
+  then eps_+ < l_I - 3 (step 4), then the parameter set (step 5). B-m2: row b4, III.I(16)'s shrinking of B_*.
+- III.K section 0 cross-refers to row d1 (l_0 > 3). VI.B': U_R's closure; the interior backward case spelled out.
+- Next: the paper's Theorem 4 and sections 8.7-8.8 to Theorem 0.2; verifier 141 on the D323 repairs, the paper
+  changes and the old repairs of III.A' and III.I(13); verifier 142 on those of II.B-II.E.
+- Paper (D323): Theorem 4 restated as Part VII's Theorem 0.2 ((i) on Hintz's initial surface; (ii) in Hintz's data
+  class; rate t*^(-2-eps) for eps < eps_K); sections 8.6-8.7, abstract and introduction aligned; a paragraph records
+  (VII1). response5.py passes.
+
+### 4.248 Verifier 141 seated (D324): Part VII and VI.C proved; III.A' and III.I(13) proved
+
+- Report: the D323 repairs all correct (3 NIT, seated: invariant parameter balls in |mu - mu_0| + |A|_F, the c_C
+  citation, steps (0)-(4)). III.A' (harm5 K2-K3 lists re-run) and III.I(13) (PART-III-I14-LEVELS.md): repairs correct.
+- Paper: B-m1, Theorem 4 now fixes l_0 in (3, 4) and eps < eps_K first and takes Theorem 1 with K large on an enlarged
+  domain; B-m2, sections 8.4 and 8.6 give t*^(-2-eps) for every eps < eps_K; notes: the second fundamental form's
+  terms, conormal remainders, 'a continuation of their data' in the abstract and introduction, 8.7's slice.
+- Status: every part of proof5 is proved except II.B, II.C, II.C', II.D, II.D', II.E (verified D197-D207).
+- Next: verifier 142 on the old repairs of II.B-II.E and the D324 paper repairs.

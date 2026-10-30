@@ -5602,7 +5602,8 @@ gap in III.I''''''''''': the column terms were known at tf only conormally; a ne
 b_0, and their exponents join the parameter exponents.
 
 **D275 (2026-10-26): verifier 117 seated; III.I''''''''''' verified, III.I'''''''''' proved.** The
-hundred-and-seventeenth verifier found one major finding in Part III.I''''''''''': the zero-energy data of the spectral cascade are found for
+hundred-and-seventeenth verifier found one major finding in Part III.I''''''''''': the zero-energy data of the spectral
+cascade are found for
 each sign of sigma, and the boost data at the first Taylor level can differ between the signs, which the sorting of the
 pieces at K+ ignored. A matching step on the time derivative, as in Part III.I'''''' and the source's own caveat, shows
 the difference vanishes. Three minor findings (Proposition 5.1's range at the last level, a degree, and the transfer of
@@ -5739,3 +5740,251 @@ of the weights stated accurately, and no new major finding. Three minor findings
 loss of the input may a priori depend on the order, which is now said and put into the open item; the last continuity
 inputs are traced to one fixed norm; and the decay losses at the black-hole face must be sorted into margins and
 logarithms before the next part treats them. Next: the exact-weight part.
+
+**D293 (2026-10-30): the exact-weight part is written.** The linear solution maps had been shown to lose an arbitrarily
+small amount of decay between source and solution, which the Nash-Moser scheme cannot absorb. The new part shows that
+every loss reaching a final weight can be avoided. One is an artefact of writing logarithms in the time coordinate
+instead of the defining function of the face; three come from pointwise bounds, which are re-proved in L^2; the rest
+are margins chosen with room. Under new conditions that each exclude finitely many weights, the solution maps act at
+the weights the source states, and the tame estimates hold on one pair of scales. Verifier 127 reads it.
+
+**D294 (2026-10-30): uniformity near the reference black hole.** The linear theory had been proved for the
+non-rotating reference black hole only, because two inputs were missing at nearby parameters. The first was that
+high-frequency waves near the trapped photon orbits decay with an arbitrarily small loss at every nearby black hole.
+This now follows from a frame built from the null geometry alone, which works at every parameter where the source used
+a frame special to Kerr. The second was that the forward-solution estimates hold uniformly as the black hole varies.
+The model operator at future timelike infinity turns out not to depend on the black hole at all in five dimensions,
+and the rest is continuity and compactness. The linear estimates therefore hold near the reference black hole,
+uniformly and continuously. What remains is to rerun the later linear parts at a rotating base point.
+
+**D295 (2026-10-30): verifier 127 seated; the tame estimates are proved.** The verifier confirmed the repairs to the
+tame estimates, so that part is proved. In the exact-weight part it found one gap. Where future timelike infinity
+meets the black-hole face, the decay at both faces had been shown separately but not jointly. That needs a fourth
+re-proof of a pointwise bound in L^2, not three as D293 said, and the new lemma supplies it. Three smaller corrections
+are seated: a remark had overstated what the time-coordinate convention rules out; the tame corollary now explains why
+the steps left with small losses do no harm; and one of the new conditions is a smallness bound, not a finite
+exclusion, while another is vacuous.
+
+**D296 (2026-10-30): the exact-weight part is proved.** The verifier read the repairs to the exact-weight part and
+found them correct, so it is proved: the solution maps lose nothing in the decay weights at the reference black hole.
+It also read the uniformity part and found no major gap. It had four smaller points, all now seated. The constants are
+uniform for every order of regularity by compactness. The neighbourhood of the reference black hole is now chosen
+after the constants it must respect, not before. One step at future timelike infinity is run with the reference
+operator. One condition on the orders is checked at the nearby black holes too.
+
+**D297 (2026-10-30): the linear theory away from the reference black hole.** The chain of parts that builds the solution
+maps was written for the reference black hole, but the nonlinear iteration moves the black hole's parameters. A new part
+carries the chain to every nearby black hole. One thing does not carry over by perturbation. At the reference black hole
+every rotation is a symmetry, so rotations produce no terms; at a rotating one they do, and those terms cannot be
+removed the way the others are. As in the source, they are carried by rows already built for the purpose, with their
+coefficients read off from the construction itself. A list of every place the chain used the reference black hole
+backs the transfer; the part says plainly that this list comes from a search.
+
+**D298 (2026-10-30): the uniformity part, second reading.** The verifier read the repairs to the uniformity part and
+found no major gap. It had two smaller points, now seated. The order in which the neighbourhood and its constants were
+chosen was still circular as written. And one smallness condition did not cover every time slab it was used on. Both
+are repaired the same way: the estimates on slabs are applied to the nearby black hole's own operator, whose constants
+vary continuously with the parameters, so the condition is no longer needed.
+
+**D299 (2026-10-30): the uniformity part is proved; the base-point part needs one repair.** The verifier read the
+repairs to the uniformity part and found them sound, so it is proved. It also read the new part on nearby black holes
+and found one real gap. At a rotating black hole the rotation terms decay more slowly than at the reference one, slowly
+enough to fall below the decay levels at which the other terms are removed one by one. They therefore cannot wait until
+the end, as the reference case lets them. The repair treats them as ordinary terms of the levels they fall in, with
+their sizes read from the construction, and removes them together with the rest. At a rotating black hole the result is
+unique only once those sizes are fixed this way; the later parts never needed more. Four smaller points were repaired
+too. One is a sign. Another is a small mismatch between objects built at the nearby black hole and corrections built
+at the reference one. Its size is controlled, and the one estimate it rests on is marked for the next reading.
+
+**D300 (2026-10-30): the nonlinear theorem is written, pending Part IV.** The last part of the black-hole chain is now
+on the page: the step that turns the linear theory into the nonlinear stability result. It runs the iteration that
+corrects an approximate solution again and again until it is exact, starting from a solution near the initial
+surface. It then shows that the gauge condition, imposed by hand, holds automatically, so the result solves Einstein's
+equations and not just a modified version of them. Three places needed more care than the source gives them. The
+early solution was built in a slightly different gauge from the later one, and the two only match where a certain
+cut-off equals one, so the cut-off is adjusted to make them match. The iteration's bookkeeping of where each term lives
+needed conditions on every part of the unknown. The boost direction has to carry the early solution along. The theorem
+still rests on Part IV, the exterior estimates, which is not yet written; this part says exactly what it needs from
+there.
+
+**D301 (2026-10-30): the exterior estimates begin.** The last unwritten input of the chain is the analysis far from the
+black hole, near the null infinity where gravitational radiation escapes. This first instalment sets up the
+geometry there and proves the basic energy estimate. In five dimensions two things change: the conjugation that
+removes the first-order term uses a different power of the radius, and the wave operator acquires a positive constant
+next to the angular Laplacian. The constant only helps, so the source's estimate goes through unchanged. The estimate in
+the far region before radiation arrives, which the source takes from an earlier paper, is written out here.
+
+**D302 (2026-10-30): the base-point part, second repair.** The verifier found the earlier repair sound except for one
+step. The argument that the elimination at a nearby black hole is a small perturbation had borrowed a continuity
+statement proved by comparing with the reference black hole. Near the final black hole that comparison is too crude.
+The smallness is now shown directly: every quantity involved is bounded uniformly, and the only terms that couple the
+unknowns are themselves small. The small mismatch between objects built at the two black holes is redefined so that
+it decays fast enough near the black hole, and where its decay at late times lies is now settled.
+
+**D303 (2026-10-30): the exterior estimates, second part.** The linearised equation near null infinity is put in the
+form the energy method needs, with the coupling between its components given by a constant matrix whose diagonal is
+non-negative. One finding: the earlier part had placed the error terms in a class that loses two powers of the angular
+weight, and a finer count repairs it. The energy estimate and its tame form are proved for the whole system by choosing
+an inner product on the tensor bundle in which the coupling between components is small.
+
+**D304 (2026-10-30): the nonlinear theorem, first repair.** The verifier found three structural gaps in the nonlinear
+theorem, each present in the source as well. The right inverses keep their supports only at base points that already
+vanish below the level, and the iteration theorem now asks for no more than that. The boosted initial family was
+placed on the wrong image of the initial region. And the support classes were defined by a time function along whose
+levels the expansions at null infinity cannot be split; they are now defined by the standard time function. The region
+near null infinity at bounded time is now posed after the compact part, since its points depend on all of the data.
+The exterior estimates of the earlier part had three smaller gaps, now closed.
+
+**D305 (2026-10-30): the exterior solution.** The exterior solution is now proved at the level of the statement used
+later. The equation near null infinity is integrated along its two families of curves, the Cauchy problem near spatial
+infinity is solved in both time directions, and the sharp decay is recovered in two rounds: in five dimensions every
+coupling that brings the radiation of one component into another is of lower order. The nonlinear solution follows
+from the iteration theorem, and the cut-off gauge changes nothing where the fine structure is used.
+
+**D306 (2026-10-30): the slab near null infinity.** The region near null infinity at bounded time beyond the exterior
+domain is now solved. Its past boundary would have included a surface that touches null infinity and becomes null there,
+where no Cauchy problem of the needed kind is available; so the region is solved together with the exterior domain,
+from the initial surface and from a compact surface on its inner side, neither of which reaches null infinity. The
+boosted background is checked in coordinates shifted in time, which the stationarity of the black hole allows.
+
+**D307 (2026-10-30): constraint damping, first part.** The constraint propagation equation of the gauge is shown to
+have no growing or oscillating modes and an invertible stationary operator, given the solvability theorem of the next
+part. The five-dimensional inputs (the algebra of the damping term with its five-dimensional trace weight, the decay
+rates at infinity for every small parameter, the damping form on the black hole, the horizon threshold) were computed
+exactly earlier and are now assembled into the proof. The stationary operator's invertibility is obtained from an
+estimate for the adjoint problem, which avoids an index count.
+
+**D308 (2026-10-30): constraint damping, second part.** The solvability theorem for the constraint propagation
+equation on weighted spaces, on which the first part rested, is proved in five dimensions for the black holes near
+the reference one, with one small parameter threshold for all of them. The source's chain of microlocal estimates is
+written out with each five-dimensional input named: the compactification with three-sphere fibres, the volume
+density, the causal character of the time functions (exact in Kerr-Schild time), the damping algebra and the damping
+form. Three families of propagation estimates the source leaves to the reader are stated and proved, and the order
+in which the estimates feed each other is listed step by step. One overstated sentence of the first part, about where
+a positivity holds, is corrected without changing any conclusion.
+
+**D309 (2026-10-30): the hundred-and-thirty-third reading.** The reader found one real gap. The nonlinear argument had
+been moved onto a time function whose causal margin near null infinity is too thin to survive the perturbation, so a
+uniqueness step could fail there. It is moved back onto the time function built for that purpose, whose margin is
+robust, and the cost of doing so, half-integer powers at null infinity, is shown to stay inside the function spaces.
+Eight smaller gaps are closed: a cut-off that could not exist as specified, a backward problem with an inflow
+boundary, a bound that held at high levels only, norms that were too weak, and the uniqueness statements made precise.
+The exterior's first estimate part is now proved, and its second and third parts verified.
+
+**D310 (2026-10-30): constraint damping, third part.** The last property the constraint propagation equation needs is
+now proved in five dimensions: its behaviour at the transition between zero and nonzero frequencies, which is governed
+by an exactly scale-invariant model problem on flat space. The model is shown to be invertible, first by counting
+(its index is zero, because the number of exponents that cross a line when the damping is switched off matches on
+both sides, two, three and one in the three families of harmonics on the three-sphere), then by solving the model's
+wave equation in spacetime with weights that exclude any stationary solution. With this, all four properties of the
+constraint damping that the stability proof uses are proved, given the dynamical facts about the black hole.
+
+**D311 (2026-10-30): a margin restored.** The hundred-and-thirty-fourth verifier read the constraint damping parts and
+found one error of substance: in five dimensions a time-independent function needs slightly more decay to be square
+integrable over the region than the write-out allowed for, so the step that proves the zero frequency operator onto
+was one unit short at the damping strength the proof fixes. The repair applies the same estimate at a weight one unit
+weaker, where the decay that the exponents guarantee suffices; the source keeps the same margin. Two smaller gaps in
+the spacetime estimate, a geometric condition used outside the region where it was proved and a limit taken without a
+continuous trace, and one in the slab's definition, are closed. Three earlier parts are now proved.
+
+**D312 (2026-10-30): the constraint damping proved.** The hundred-and-thirty-fifth verifier read the last constraint
+damping part, the scale-invariant model at the transition between frequencies, and found no error of substance: three
+gaps with evident repairs (a parameter interval misstated, the index shown independent of the choice of function
+spaces only for the kernel and not for the cokernel, and a thin strip missing from one chain of estimates). It also
+confirmed every repair of the previous round. With this, the exterior estimates, the nonlinear theorem near null
+infinity and the first three constraint damping parts are proved; the fourth awaits a reading of its repairs.
+
+**D313 (2026-10-30): the gluing, written out.** The step that attaches an arbitrary small perturbation of the black hole
+to an exactly known rotating, moving black hole far away is now written out in five dimensions. The published argument
+works in any dimension except for one ingredient, which it names as missing: that the conserved quantities of the
+rotating, boosted and translated family, energy, momentum, angular momentum and centre of mass, can be prescribed
+freely near those of the static black hole. That is proved here by computing how each changes with each parameter, a
+calculation that symmetry reduces to four numbers. In five dimensions the decay of the fields is fast enough that the
+symmetry condition the published proof imposes on the data at infinity is not needed.
+
+**D314 (2026-10-30): the geometry the estimates assume.** Many earlier parts assumed facts about how light moves near
+the five-dimensional black hole: that the horizon traps rays at the right rate, that there is exactly one unstable
+photon sphere, and that every other ray falls in or escapes. These are now proved for the static black hole. The
+photon sphere sits at the square root of twice the mass parameter; the rays that approach it are found in closed form;
+and a single quantity, the radial momentum times the distance from the photon sphere, increases along every ray except
+those on the sphere itself. That quantity is what will carry the conclusions over to slowly rotating black holes.
+
+**D315 (2026-10-30): the gluing checked.** The hundred-and-thirty-sixth verifier read the gluing part and found that it
+uses nothing special to three dimensions, and that the conserved quantities of the rotating black hole family were
+computed correctly. It found three gaps with evident repairs, the most substantive being that the published method
+projects with respect to the perturbed geometry rather than the flat one, which changes which finite set of directions
+must be matched. The last constraint damping part is now proved.
+
+**D316 (2026-10-30): the horizon of the rotating black holes.** The facts about the horizon proved last time for the
+static black hole are now carried over to the slowly rotating ones. The horizon of a rotating black hole in the
+coordinates the proof uses is located exactly, by an identity checked symbolically, and the properties the estimates
+need there survive a small rotation because they are strict inequalities on a fixed compact set. The photon sphere is
+harder: a general perturbation argument would give its shape only with limited smoothness, so it will be treated
+through the special conserved quantity that rotating black holes in five dimensions possess.
+
+**D317 (2026-10-30): the static black hole's dynamics checked.** The hundred-and-thirty-seventh verifier read the
+dynamical part at the static black hole and found no major gap. It found three minor ones: a quantity attached to the
+choice of time was carried between two time functions without proof (it agrees on the trapped set, which is all that is
+used); one of the two incoming sets at infinity was overlooked in a limit argument, which is now read off directly with
+explicit uniform bounds; and a lemma assumed both time coordinates timelike where one is null. All are repaired. It also
+read last time's repairs to the gluing part and found them correct, so the gluing part is now proved.
+
+**D318 (2026-10-30): the static black hole's dynamics proved.** The hundred-and-thirty-eighth verifier read the horizon
+part for the rotating black holes and found three minor gaps: that the hypotheses survive the change of coordinates
+which pins the horizon was asserted rather than shown, a rescaled flow was defined only near the horizon's conormal set
+but used everywhere, and one step that keeps a curve from returning was argued wrongly. All three are repaired. It also
+read last time's repairs to the static case and found them correct, so that part is proved.
+
+**D319 (2026-10-30): light trapped around the rotating black holes.** The last dynamical facts the estimates need are
+the behaviour of light rays near the rotating black holes: where they can orbit, how fast nearby rays peel away, and
+where every other ray ends up. Light rays in the five-dimensional rotating black hole have a hidden conserved quantity,
+and the rays separate into a radial motion and an angular one in the very coordinates the proof uses, which a 40-digit
+check confirms. The radial motion is governed by a polynomial that, near the static black hole, stays convex, so rays
+can orbit only on one surface near the photon sphere, and that surface and its escape routes come out in closed form.
+The rate at which rays spread along the orbiting surface is bounded by the integrability of the angular motion: the
+special orbits are all stable oscillations, as for the Kerr black hole's equator.
+
+**D320 (2026-10-30): the parameters fit together.** The proof leaves many numbers to be chosen: how strongly the
+constraints are damped, how the gauge is modified near the horizon and at infinity, the decay rates, the size of the
+neighbourhood of the static black hole. Each part says how small or large its numbers must be. A new part lists every
+such condition with where it is stated and shows they can all be met at once, by choosing in an order where each bound
+depends only on what was chosen before. It also confirms that the one gap left open in the mode-stability part was
+closed by a later low-frequency argument.
+
+**D321 (2026-10-30): the trapping part checked.** An independent reader went through the part on the trapped light rays
+and the global behaviour of light near the black hole, recomputing the separation identities and the rates by hand. No
+major gap. One minor one: a light ray outside the horizon that approaches it forever without crossing had not been ruled
+out. It is now: near the horizon's radial set a quantity grows along every forward ray, so a ray cannot settle there.
+Thirteen smaller notes (notation, constants, the order of a few quantifiers) are repaired, and in the horizon part the
+transported inner product now carries the Jacobian of the diffeomorphism, which makes an identity exact.
+
+**D322 (2026-10-30): the settling theorem assembled.** The last part of the proof puts the pieces together into the
+paper's Theorem 4. In the symmetric class: after the shell, the record's solution is a small smooth perturbation of the
+final black hole. Its data on the initial surface of the nonlinear theorem are glued, keeping the symmetry, to an exact
+black hole far out. The nonlinear theorem, run so that every step respects the symmetry, then shows the solution settles
+to a non-rotating black hole at rest. Without symmetry the theorem now covers perturbations in the nonlinear theorem's
+own data class. Writing it out found that the paper's version without symmetry claimed too much: gluing a general
+perturbation to an exact solution far out changes its late-time behaviour near the hole, so it only shows the glued data
+settle. It also found that the data must decay with polyhomogeneous terms to third order, which the parameter part had
+not recorded; that part is repaired.
+
+**D323 (2026-10-30): the assembly checked.** An independent reader went through the assembly of the settling theorem,
+the parameter part and the trapping repairs. No major gap. In the symmetric run, three steps needed care: the symmetry
+argument now covers the actual symmetry group, not only the full rotation group; the black-hole-dependent ingredients
+are averaged as whole families; and the nested cut-off functions are chosen symmetric directly, since averaging them one
+by one could break their nesting. In the parameter part, the order of choices had become circular after the last change:
+one decay rate must now be chosen after the data classes. The trapping and horizon parts are now proved: the reader
+found every earlier repair correct.
+
+**D324 (2026-10-30): the assembly proved.** A further reader checked the repairs to the assembly and the parameter part
+and found them correct, so both are now proved. It also re-checked two older parts left at the verified stage, the
+spherical harmonics on the three-sphere and one part of the cone analysis, re-running their checks, and found their
+repairs correct: both are now proved. In the paper, the settling theorem's quantifiers now come in the right order: the
+data class and the decay rate are fixed first, and Theorem 1 is taken at a high enough order on an enlarged domain. The
+rate is stated as just below the earlier value everywhere it appears.
+
+**D325 (2026-10-30): the record made consistent.** Twenty-three parts had been proved on the record while their own
+status lines still said written or verified; each now opens with the stage reached, the date and the reader, as the
+record has them. Eight wrapped lines in the first three parts, all from early sessions, began with a vertical bar and
+are rewrapped; nothing in their mathematics changed. A reader is checking the six oldest parts still at the verified
+stage, and the paper's restated settling theorem.

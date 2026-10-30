@@ -1,16 +1,16 @@
 # Part I.B. The spectral family at high frequencies, at n = 4, on bundles
 
-*Status.* Verified; the D226 repair (Lemma 6.0, a fibre inner product on phase space at the trapped set) was read and
-confirmed by the ninety-fourth verifier, whose two minor findings on it and two nits are seated (D229) and are to be
-read. It was proved at D194; the ninety-third verifier, reading Part III.D (D226), found that section 6 assumed
-$h_\Gamma$ from the base, which Part III.D's is not, and Lemma 6.0 supplies the source's conjugation (5.9). Written out
-in full (D188). Read line by line by the seventy-sixth verifier, whose one major and nine minor findings and nits are
-seated in place (D189). The seventy-seventh verifier read those repairs and confirmed each, and asked for one further
-clause in Proposition 6.4, Step 2, seated (D191); the seventy-eighth verifier read that clause and confirmed it (D194).
-Every finding is seated and its repair read. This part replaces, for the statements it covers, the deductions of
-`../N1STAR-PROOF.md` 10.84 and 10.86 that re-ran [Hin26c] section 9.3 on bundles at proof level. The source is [Hin26c]
-= P. Hintz, arXiv:2606.28008v1. Part I.A is `PART-I-SPECTRAL.md`; its sections are cited as I.A section 4.5, I.A Theorem
-7.2, and so on.
+*Status.* Proved (D231: verifier 95 read the repairs, correct; status synchronised with the README at D325). Verified;
+the D226 repair (Lemma 6.0, a fibre inner product on phase space at the trapped set) was read and confirmed by the
+ninety-fourth verifier, whose two minor findings on it and two nits are seated (D229) and are to be read. It was proved
+at D194; the ninety-third verifier, reading Part III.D (D226), found that section 6 assumed $h_\Gamma$ from the base,
+which Part III.D's is not, and Lemma 6.0 supplies the source's conjugation (5.9). Written out in full (D188). Read line
+by line by the seventy-sixth verifier, whose one major and nine minor findings and nits are seated in place (D189). The
+seventy-seventh verifier read those repairs and confirmed each, and asked for one further clause in Proposition 6.4,
+Step 2, seated (D191); the seventy-eighth verifier read that clause and confirmed it (D194). Every finding is seated and
+its repair read. This part replaces, for the statements it covers, the deductions of `../N1STAR-PROOF.md` 10.84 and
+10.86 that re-ran [Hin26c] section 9.3 on bundles at proof level. The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1.
+Part I.A is `PART-I-SPECTRAL.md`; its sections are cited as I.A section 4.5, I.A Theorem 7.2, and so on.
 
 *What is proved here.* Theorem 1.3: [Hin26c] Theorem 9.16 at $n = 4$, for operators on a trivial bundle of any rank,
 with constants uniform in the operator (section 9). As in Part I.A the regularity order is constant (I.A Remark 1.1);
@@ -216,9 +216,9 @@ $$\|u\|_{(s;k),\mathsf r+\alpha_+,\mathsf b;+}\le Ch^{-1-\delta_\Gamma(\mathrm{I
 \|P_{h,z}u\|_{(s-1;k),\mathsf r+\alpha_++1,\mathsf b;+}.\tag{1.7}$$
 
 (5) (*Regularity in the spectral parameter.*) For $\sigma$ as in (3) and $j,k\in\mathbb N_0$, $\epsilon>0$, the inverse
-$\hat P(\sigma)^{-1}$ is $j$ times differentiable along $\sigma\partial_\sigma$, and with $h$ as in (3) ($h :=
-|\mathrm{Re}\,\sigma|^{-1}$ if $\mathrm{Im}\,\sigma<\nu'|\sigma|$, $h := |\sigma|^{-1}$ otherwise; D189) and $\delta :=
-\delta_\Gamma(\mathrm{Im}\,\sigma-\epsilon)$,
+$\hat P(\sigma)^{-1}$ is $j$ times differentiable along $\sigma\partial_\sigma$, and with $h$ as in (3) ($h
+:= |\mathrm{Re}\,\sigma|^{-1}$ if $\mathrm{Im}\,\sigma<\nu'|\sigma|$, $h := |\sigma|^{-1}$ otherwise; D189) and $\delta
+:= \delta_\Gamma(\mathrm{Im}\,\sigma-\epsilon)$,
 
 $$\|(\sigma\partial_\sigma)^j\hat P(\sigma)^{-1}f\|_{(s+j;k),\mathsf r+\alpha_+,\mathsf b;+}\le
 C|\sigma|^{-1+(j+1)\delta}
@@ -1563,13 +1563,13 @@ m(\delta)\le C_2\,\delta\tag{6.9}$$
 with $C_2$ independent of $\delta\in(0,\delta_0/4)$.
 
 *Step 3: propagation for logarithmic times.* Lemma 6.3 (b), with $\|G\mathbf Pu\| = o(h^2)$, gives
-$\int(Va\,d\nu+2a\,\mathrm{tr}((p^\natural-\eta q^\natural)d\mu)) = 0$ for real $a\in C_c^\infty(\mathrm{Ell}_h(B))$. Let
-$p_\eta := \lambda_{\max}(p^\natural-\eta q^\natural)$, continuous; for $a\ge0$ Lemma 6.2 gives
+$\int(Va\,d\nu+2a\,\mathrm{tr}((p^\natural-\eta q^\natural)d\mu)) = 0$ for real $a\in C_c^\infty(\mathrm{Ell}_h(B))$.
+Let $p_\eta := \lambda_{\max}(p^\natural-\eta q^\natural)$, continuous; for $a\ge0$ Lemma 6.2 gives
 $\int(Va+2ap_\eta)\,d\nu\ge0$. Since $\eta\ge\beta$ and $q^\natural>0$, $p_\eta\le\lambda_{\max}(p^\natural-\beta
 q^\natural)$, and $\beta>\gamma_-$ gives $\sup_\Gamma p_\eta<\frac12\nu_{\min}$; so we can fix $\lambda'$ with
 $\sup_{\Gamma(\delta_0)}p_\eta^+/\nu^\natural_s<\lambda'<\frac12$ (shrinking $\delta_0$; $p_\eta^+ := \max(p_\eta,0)$).
-Take $a := a_0(\phi^\natural_u)a_1(\phi^\natural_s)\psi(G_{z_0})$ with $a_0,\psi$ as before and $a_1(t) :=
-|t|^{-2\lambda'}f(|t|)$, $f\in C_c^\infty((\frac\delta2,\delta_0))$, $f\ge0$, $f = 1$ on $[\delta,\frac{\delta_0}2]$,
+Take $a := a_0(\phi^\natural_u)a_1(\phi^\natural_s)\psi(G_{z_0})$ with $a_0,\psi$ as before and $a_1(t)
+:= |t|^{-2\lambda'}f(|t|)$, $f\in C_c^\infty((\frac\delta2,\delta_0))$, $f\ge0$, $f = 1$ on $[\delta,\frac{\delta_0}2]$,
 $f'\le0$ on $[\delta,\infty)$, $|xf'(x)|\le4$ on $[\frac\delta2,\delta]$. On $\mathrm{supp}\,\nu$, by (6.3),
 $V|\phi^\natural_s|^{-2\lambda'} = -2\lambda'\nu^\natural_s|\phi^\natural_s|^{-2\lambda'}$, so
 $$Va+2ap_\eta = \nu^\natural_s|\phi^\natural_s|^{-2\lambda'}\Big(-2\big(\lambda'-\frac{p_\eta}{\nu^\natural_s}\big)f+|
@@ -1685,8 +1685,8 @@ infinity and over $\partial X$ (Lemma 6.5 (c)), so it has a parametrix modulo an
 1}$, $K$ large, which is compact on $L^2$; so $P'_{h,z}:H^{(2,0,0)}_h\to L^2$ is Fredholm, and by (a) it and its adjoint
 are injective. (c) *Interpolation.* In terms of $\sigma = z/h$, (a) gives $\|\hat P'(\sigma)^{-1}\|_{L^2\to L^2}\le C$
 for $\mathrm{Re}\,\sigma\ge h_0^{-1}$ and $\mathrm{Im}\,\sigma\in[\beta,\beta']$, and $\le C|\sigma|^{-1}$ on
-$\mathrm{Im}\,\sigma = \beta'$ (here $\|\hat P'(\sigma)u\|_{L^2} = h^{-2}\|P'_{h,z}u\|_{L^2}$ with $h :=
-|\mathrm{Re}\,\sigma|^{-1}$; for $z_0 = -1$ use $\mathrm{Re}\,\sigma\le-h_0^{-1}$). For $\sigma_0\ge h_0^{-1}$, $f\in
+$\mathrm{Im}\,\sigma = \beta'$ (here $\|\hat P'(\sigma)u\|_{L^2} = h^{-2}\|P'_{h,z}u\|_{L^2}$ with $h
+:= |\mathrm{Re}\,\sigma|^{-1}$; for $z_0 = -1$ use $\mathrm{Re}\,\sigma\le-h_0^{-1}$). For $\sigma_0\ge h_0^{-1}$, $f\in
 L^2$ and $\kappa := \beta'-\beta$, apply Lemma 6.6 to $F(w) := \hat P'(3\sigma_0+i\beta+\kappa w)^{-1}f$ on
 $[-\frac{2\sigma_0}\kappa,\frac{2\sigma_0}\kappa]+i[0,1]$, with $M = M_0 = C\|f\|$, $M_1 = C\sigma_0^{-1}\|f\|$, $L =
 2\sigma_0/\kappa$, $\Lambda = \log\sigma_0$; $\Lambda e^{-\pi L/4}\to0$, so $\|\hat P'(\sigma)^{-1}f\|\le

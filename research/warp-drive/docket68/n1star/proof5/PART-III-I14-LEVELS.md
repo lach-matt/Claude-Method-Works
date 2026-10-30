@@ -1,17 +1,17 @@
 # Part III.I$'''''''''''''$. The expansion at every level, n = 4 ([Hin26] Theorem 11.59, Parts 2-3)
 
-*Status.* Written (D278); verified (D280: verifier 119's findings seated, to be read). This part extends, at spatial
-dimension $n = 4$, the expansion of forward solutions at $K^+$ (III.I$'''''''''''$ Proposition 3.1 and Lemma 3.2) from
-the levels $\alpha\in(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$ to every level $\beta\in(3,4+\epsilon_K]$, and, together
-with III.I$'''''''''''$ Theorem 4.1 and III.I$''''''''''''$ Theorem 3.1, to sources whose $\iota^+$-index set carries
-the further exponents that the linearisation in the black hole parameters of section 11.8.3 produces. The source reaches
-the order $4+\epsilon_K$ level by level (Parts 2 and 3 of the proof of Theorem 11.59, the latter "a routine
-repetition"), and its Remark 11.61 records that only $2+\epsilon_K$ orders of $K^+$-decay of $h$ are used.
-III.I$'''''''''''$ instead reached the order $\alpha>4$ in one step from an admissible $\alpha'\in(2,3)$, which needs
-$a_K\ge4+\epsilon_K$ (III.I$'''''''''''$ (I$'''''''''''$5)). Section 11.8.3 at $n = 4$ linearises at $h$ and carries the
-difference to the background $h+h_{b,\mathrm{rem}}(q)$, of $K^+$-order only $\alpha-2-\epsilon$, as a source, so it has
-to pass through every level in steps shorter than $\alpha-4$ (III.I$''''''''''''''$ Theorem 3.1, ROUTES-OPEN
-4.201-4.203); this part supplies those levels.
+*Status.* Written (D278); verified (D280: verifier 119's findings seated); proved (D324: verifier 141 read the repairs,
+correct). This part extends, at spatial dimension $n = 4$, the expansion of forward solutions at $K^+$
+(III.I$'''''''''''$ Proposition 3.1 and Lemma 3.2) from the levels $\alpha\in(4+\epsilon_K-\epsilon'_0,4+\epsilon_K]$ to
+every level $\beta\in(3,4+\epsilon_K]$, and, together with III.I$'''''''''''$ Theorem 4.1 and III.I$''''''''''''$
+Theorem 3.1, to sources whose $\iota^+$-index set carries the further exponents that the linearisation in the black hole
+parameters of section 11.8.3 produces. The source reaches the order $4+\epsilon_K$ level by level (Parts 2 and 3 of the
+proof of Theorem 11.59, the latter "a routine repetition"), and its Remark 11.61 records that only $2+\epsilon_K$ orders
+of $K^+$-decay of $h$ are used. III.I$'''''''''''$ instead reached the order $\alpha>4$ in one step from an admissible
+$\alpha'\in(2,3)$, which needs $a_K\ge4+\epsilon_K$ (III.I$'''''''''''$ (I$'''''''''''$5)). Section 11.8.3 at $n = 4$
+linearises at $h$ and carries the difference to the background $h+h_{b,\mathrm{rem}}(q)$, of $K^+$-order only
+$\alpha-2-\epsilon$, as a source, so it has to pass through every level in steps shorter than $\alpha-4$
+(III.I$''''''''''''''$ Theorem 3.1, ROUTES-OPEN 4.201-4.203); this part supplies those levels.
 
 *What n = 4 changes.* (1) *The last Taylor level below the order 4.* At a level $\beta<4$ the level-3 source has the
 zf-weight $\ell_3 = \beta-4-\epsilon\in(-1,0)$: it has no zf-coefficient to remove, so there is no zero-energy solve at

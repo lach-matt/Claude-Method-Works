@@ -1,18 +1,19 @@
 # Part II.F. The normal operator at future timelike infinity, and forward solutions on e3b-spaces, at n = 4
 
-*Status.* Written out in full (D208) and read by an independent verifier (verifier 87, D209): no major finding; its
-seven minor findings and eight notes are repaired here (section 9.4), and Theorem 8.1 is now stated and proved on
-$\Omega_*$, the domain on which the later parts use it. The eighty-eighth verifier read those repairs and confirmed each
-(D212); it found two further minor gaps, in Lemmas 6.3 and 6.4, and four notes, repaired here (section 9.5). The part is
-labelled verified; it is not labelled proved until a verifier has read the D212 repairs. This part proves, at spatial
-dimension $n = 4$, [Hin26c] section 10 (pp. 200-227): Theorem 10.1, which solves forward problems for the stationary
-model $P_0$ on edge-3b-Sobolev spaces with decay at $\iota^+$ and the loss $\aleph$ at $K^+$, and the ingredients: the
-normal operator $N_{\iota^+}(P_0)$ at $\iota^+$ and its Mellin-transformed family (Definition 10.3, Lemma 10.5,
-Proposition 10.6, Lemmas 10.7-10.10), forward solutions of $N_{\iota^+}(P_0)$ (Proposition 10.12), and forward solutions
-of the modified operator $P_+$ (Definition 10.13, Proposition 10.14). The source is [Hin26c] = P. Hintz,
-arXiv:2606.28008v1 (printed page numbers). Part I.B (`PART-I-B-HIGHENERGY.md`) is cited as I.B, Part I.C
-(`PART-I-C-LOWENERGY.md`) as I.C, Part II.A (`PART-II-A-SETUP.md`) as II.A, Part II.A$'$ as II.A$'$, Part II.B as II.B,
-Part II.C as II.C, Part II.D as II.D, Part II.D$'$ as II.D$'$ and Part II.E (`PART-II-E-ENERGY.md`) as II.E.
+*Status.* Proved (D216: verifier 90 read the repairs, correct; status synchronised with the README at D325). Written out
+in full (D208) and read by an independent verifier (verifier 87, D209): no major finding; its seven minor findings and
+eight notes are repaired here (section 9.4), and Theorem 8.1 is now stated and proved on $\Omega_*$, the domain on which
+the later parts use it. The eighty-eighth verifier read those repairs and confirmed each (D212); it found two further
+minor gaps, in Lemmas 6.3 and 6.4, and four notes, repaired here (section 9.5). The part is labelled verified; it is not
+labelled proved until a verifier has read the D212 repairs. This part proves, at spatial dimension $n = 4$, [Hin26c]
+section 10 (pp. 200-227): Theorem 10.1, which solves forward problems for the stationary model $P_0$ on edge-3b-Sobolev
+spaces with decay at $\iota^+$ and the loss $\aleph$ at $K^+$, and the ingredients: the normal operator
+$N_{\iota^+}(P_0)$ at $\iota^+$ and its Mellin-transformed family (Definition 10.3, Lemma 10.5, Proposition 10.6, Lemmas
+10.7-10.10), forward solutions of $N_{\iota^+}(P_0)$ (Proposition 10.12), and forward solutions of the modified operator
+$P_+$ (Definition 10.13, Proposition 10.14). The source is [Hin26c] = P. Hintz, arXiv:2606.28008v1 (printed page
+numbers). Part I.B (`PART-I-B-HIGHENERGY.md`) is cited as I.B, Part I.C (`PART-I-C-LOWENERGY.md`) as I.C, Part II.A
+(`PART-II-A-SETUP.md`) as II.A, Part II.A$'$ as II.A$'$, Part II.B as II.B, Part II.C as II.C, Part II.D as II.D, Part
+II.D$'$ as II.D$'$ and Part II.E (`PART-II-E-ENERGY.md`) as II.E.
 
 *Method.* The dimension enters the source's argument through the constant $c := \frac{n-1}2$ of the stationary model's
 normal form, $\frac32$ here (II.C (1.1)), and through the densities, which shift weights by $\frac n2 = 2$ and

@@ -92,12 +92,12 @@ $h_0,h_1\in H^{\infty,\ell^\flat_0}_{\mathrm b}(\Sigma_{\mathrm{IVP},r_0};S^2T^*
 $\|h_j\|_{H^{k_0,\ell^\flat_0}_{\mathrm b}}<\epsilon_0$, the problem
 $$P(g_{b_0}+h,g_{b_0}) = 0\ \text{in }\Omega_{\mathrm{ext},r_0},\qquad h = h_0,\ \ r\mathcal
 L_{\partial_{t_{\mathrm{IVP}}}}h = h_1\ \text{on }\Sigma_{\mathrm{IVP},r_0},\tag{2.1}$$
-has a unique solution $h\in H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}(\Omega_{\mathrm{ext},r_0})$; and for
-every $\epsilon>0$ and $k$ there are $k_1\ge k_0$ and $\epsilon_1\in(0,\epsilon_0]$ such that
-$\|h_j\|_{H^{k_1,\ell^\flat_0}_{\mathrm b}}<\epsilon_1$ gives $\|h\|_{H^{k,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm
-b}}<\epsilon$ (the source reuses the letters $k_0$, $\epsilon_0$ here). Moreover, for $h\in
-H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}$ small in a fixed $H^{d}$-norm and every $\alpha_0>\ell^\flat_I$,
-the solution of
+has a solution $h\in H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}(\Omega_{\mathrm{ext},r_0})$, unique among
+solutions small in $H^8$ of this class (Part IV$''$ Theorem 3.1; verifier 133's D-m2, D309); and for every $\epsilon>0$
+and $k$ there are $k_1\ge k_0$ and $\epsilon_1\in(0,\epsilon_0]$ such that $\|h_j\|_{H^{k_1,\ell^\flat_0}_{\mathrm
+b}}<\epsilon_1$ gives $\|h\|_{H^{k,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}}<\epsilon$ (the source reuses the letters
+$k_0$, $\epsilon_0$ here). Moreover, for $h\in H^{\infty,\ell^\flat_0,(-,\ell^\flat_I)}_{\mathrm b}$ small in a fixed
+$H^{d}$-norm and every $\alpha_0>\ell^\flat_I$, the solution of
 $$L_{g_{b_0}+h,g_{b_0}}\dot g = f\in H^{k+d,\alpha_0+2,(-',\ell^\flat_I+1)}_{\mathrm b},\qquad\dot
 g|_{\Sigma_{\mathrm{IVP},r_0}} = \dot g_0,\quad r\mathcal L_{\partial_{t_{\mathrm{IVP}}}}\dot
 g|_{\Sigma_{\mathrm{IVP},r_0}} = \dot g_1,\quad\dot g_0,\dot g_1\in H^{k+d,\alpha_0}_{\mathrm b},$$

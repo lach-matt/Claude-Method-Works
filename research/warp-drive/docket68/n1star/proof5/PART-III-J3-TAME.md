@@ -1,7 +1,8 @@
 # Part III.J$''$. Tame estimates, n = 4 ([Hin26] Remark 11.13; the tame forms of Corollary 11.66 and Theorem 12.8)
 
 *Status.* Written (D286); verified (D290: verifier 124's findings seated; D292: verifier 126 read the repairs, three
-minor findings seated, to be read). This part proves, at spatial
+minor findings seated); proved (D295: verifier 127 read the D292 repairs and found them resolved).
+This part proves, at spatial
 dimension $n = 4$ and at the black hole parameters $b_0$, the tame estimates that [Hin26] asserts in Remark 11.13 (p.
 226), states for Corollary 11.66 (pp. 294-295) and Theorem 12.8 (p. 312) without proof, and uses in section 13 (pp.
 321-322, Step 3 (2)-(3)): the tame form of III.I$''''''''''''''$ Theorem 3.1 (Theorem 4.1) and of III.J$'$ Theorem 2.1
@@ -332,11 +333,12 @@ factors at the low norm. $\square$
 **Remark 4.4 (what remains for section 13).** II.G Theorem 2.1 asks, on one pair of Banach scales: (i) smoothing
 operators on the spaces of $\mathcal D$ (II.G Proposition 3.1 and the source's p. 322); (ii) the tame forward map
 (Proposition 4.3) with $\Phi(U\cap B_\eta)\subset F_\eta$; and (iii) tame right inverses (Theorem 4.2) for every $U$ in
-a neighbourhood of 0, so at $b\ne b_0$ too, with $\Psi(u)F_\eta\subset B_\eta$ (II.G Theorem 2.1 (ii)-(iii), in its
-notation; the source meets these support conditions by finite speed of propagation, Step 3 (3), p. 322). Remaining: one
-pair of scales, Proposition 4.3 mapping $\mathcal D_\epsilon$ to $\mathcal F_\epsilon$ and Theorem 4.2 mapping $\mathcal
-F_{\epsilon'}$ to $\mathcal D_\epsilon$ ((J$''$4)); (J$'$3), the linear theory and its tame form at $b\ne b_0$; the
-support conditions; the smoothing operators; and the exterior family $h_{-S}$ (III.C$'$).
+a neighbourhood of 0, so at $b\ne b_0$ too, with $\Psi(u)F_\eta\subset B_\eta$ for $u\in U\cap B^\infty_\eta$ (II.G
+Theorem 2.1 (ii)-(iii) as amended in D304, (H10), in its notation; the source meets these support conditions by finite
+speed of propagation, Step 3 (3), p. 322). Remaining: one pair of scales, Proposition 4.3 mapping $\mathcal D_\epsilon$
+to $\mathcal F_\epsilon$ and Theorem 4.2 mapping $\mathcal F_{\epsilon'}$ to $\mathcal D_\epsilon$ ((J$''$4)); (J$'$3),
+the linear theory and its tame form at $b\ne b_0$; the support conditions; the smoothing operators; and the exterior
+family $h_{-S}$ (III.C$'$).
 
 ## 5. Findings, labels and sources
 
@@ -370,6 +372,8 @@ I^+$ through III.A Lemma 1.2 at weights that are not exponents; at $K^+$ through
 $K^+$ step each minus at $K^+$ ($\alpha-$, $(\alpha-2)-$, $(\alpha-1)-$, and the $(3+\eta_2-2\epsilon-d_\rho)$ of
 $Y_{\rho,\mathrm{rem}}$) is to be classified as a margin or a logarithm at the weight, and for a logarithm the shifted
 weight named to which the source's fixed $4+\epsilon_K$ corresponds (verifier 126).
+III.J$'''$ (D293) takes another route: each loss that reaches a final weight is removed where it arises, none is
+improved after the fact, and its Corollary 6.6 discharges (J$''$4) at $b_0$ (proved, D296).
 
 (J$''$5) *Smallness in one norm.* Every "small" of III.I-III.I$''''''''''''''$ is smallness in one fixed norm (Lemma
 2.3); the orders $d_k$ of III.J$'$ Theorem 2.1 are not needed.

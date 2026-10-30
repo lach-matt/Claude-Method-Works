@@ -460,7 +460,9 @@ through II.F$'$ Remark 7.1 and II.F Remark 8.2.
 (I3) *$b\ne b_0$ (open).* Theorem 11.12 is proved at $b_0$. For $b\ne b_0$ near $b_0$ it needs (a) 2-admissibility of
 $L_b$ for all $k$, which needs strong trapping admissibility near $b_0$ or a finite-$k$ version of the later Nash-Moser
 argument, and (b) II.F$'$ Theorem 1.1 uniformly in the stationary model ((F$'$11)). The later parts, where the final
-parameters $b$ vary ([Hin26] section 11.6 on), must supply both or work around them.
+parameters $b$ vary ([Hin26] section 11.6 on), must supply both or work around them. III.H$''$ (D294) supplies both on
+a fixed neighbourhood $\mathcal B_*$ of $b_0$, and Theorem 5.3 there, uniformly and continuously in $b$ (its Corollary
+5.1), to be verified.
 
 (I4) *Orders at $\iota^+$.* The background differences are of order 2 at $\iota^+$ (Lemma 3.6), the curvature of the
 patched background of order 4 (Lemma 4.3), so $(2,0)\in\mathcal E_+$ replaces the source's $(1,0)$; the forward mapping

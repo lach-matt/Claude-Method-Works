@@ -1,11 +1,11 @@
 # Part III.F. The linearised gauge-fixed Einstein operator at n = 4: structure, trapped set ([Hin26] 8 to 8.1)
 
-*Status.* Written (D228). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part
-III.B with $b$ near $b_0 = (\mu_0,0)$, what [Hin26] section 8 establishes up to the end of section 8.1 (pp. 144-149):
-the structure of the linearised gauge-fixed Einstein operator $L_b$ as a stationary wave-type operator (his Lemma 8.1),
-its Minkowski model and the spectrum of the model's endomorphism $\bar S$ (his Lemma 8.2 with (8.7)), and the bound at
-the trapped set (his Proposition 8.3), in the form Part I.B uses. Parts are cited as in III.D and III.E; (Dyn) is as in
-III.D.
+*Status.* Proved (D235: verifier 97 read the repairs, correct; status synchronised with the README at D325). Written
+(D228). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part III.B with $b$ near
+$b_0 = (\mu_0,0)$, what [Hin26] section 8 establishes up to the end of section 8.1 (pp. 144-149): the structure of the
+linearised gauge-fixed Einstein operator $L_b$ as a stationary wave-type operator (his Lemma 8.1), its Minkowski model
+and the spectrum of the model's endomorphism $\bar S$ (his Lemma 8.2 with (8.7)), and the bound at the trapped set (his
+Proposition 8.3), in the form Part I.B uses. Parts are cited as in III.D and III.E; (Dyn) is as in III.D.
 
 *What n = 4 changes.* The structure is that of the source with the shift $\frac32$ in place of $1$ and one more power of
 $\rho$ in every deviation from Minkowski space. The spectrum of $\bar S$ is the union of those of the gauge potential

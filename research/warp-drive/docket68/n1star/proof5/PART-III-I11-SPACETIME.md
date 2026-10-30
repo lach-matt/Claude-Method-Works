@@ -1,15 +1,16 @@
 # Part III.I$''''''''''$. Towers, row expansions and the spacetime phase, n = 4 ([Hin26] Theorem 11.59, first half)
 
-*Status.* Written (D272); verified (D274: verifier 116's findings seated, to be read). This part and the next,
-III.I$'''''''''''$, prove at spatial dimension $n = 4$ Parts 1-3 of the proof of [Hin26] Theorem 11.59 (pp. 278-289):
-with the correction terms of III.I$'''''''''$ the forward solution can be made to decay at $K^+$ at the order
-$2+\epsilon_K$ (the source's (11.222)). This part fixes the parameter exponents (section 1), proves the facts about
-towers, row expansions and Fourier tails that both parts use (section 2), and carries out the part of the argument that
-takes place in spacetime (section 3): the $\iota^+$-terms of the source of $u$-exponent below 2 are solved by the
-$\iota^+$-normal operator up to the $K^+$-order $\alpha\le4+\epsilon_K$, and the $K^+$-terms this produces below
-$\alpha-2$ are identified as rows of III.I$'''''''''$ (Proposition 3.1). What is left is a forward problem whose source
-is partially polyhomogeneous at $\iota^+$ from the order 4 on; its $K^+$-expansion comes from the zero-energy structure,
-and III.I$'''''''''''$ treats it and the elimination.
+*Status.* Proved (D275: verifier 117 read the repairs, correct; status synchronised with the README at D325). Written
+(D272); verified (D274: verifier 116's findings seated, to be read). This part and the next, III.I$'''''''''''$, prove
+at spatial dimension $n = 4$ Parts 1-3 of the proof of [Hin26] Theorem 11.59 (pp. 278-289): with the correction terms of
+III.I$'''''''''$ the forward solution can be made to decay at $K^+$ at the order $2+\epsilon_K$ (the source's (11.222)).
+This part fixes the parameter exponents (section 1), proves the facts about towers, row expansions and Fourier tails
+that both parts use (section 2), and carries out the part of the argument that takes place in spacetime (section 3): the
+$\iota^+$-terms of the source of $u$-exponent below 2 are solved by the $\iota^+$-normal operator up to the $K^+$-order
+$\alpha\le4+\epsilon_K$, and the $K^+$-terms this produces below $\alpha-2$ are identified as rows of III.I$'''''''''$
+(Proposition 3.1). What is left is a forward problem whose source is partially polyhomogeneous at $\iota^+$ from the
+order 4 on; its $K^+$-expansion comes from the zero-energy structure, and III.I$'''''''''''$ treats it and the
+elimination.
 
 *What n = 4 changes.* (1) *The spacetime window.* Under (C5) the $K^+$-range of the $\iota^+$-normal operator is
 $\ell^{\max}_K = 3$ (III.G$''$ (1.1)), so III.G$''$ Corollary 4.3 solves the term at the $u$-exponent $\lambda_0$,

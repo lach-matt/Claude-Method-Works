@@ -1,0 +1,162 @@
+# Part VI.B: the horizon near $b_0$
+
+*Status.* Written (D316); verified (D318: verifier 138's three minor findings and six notes repaired, findings
+(VI.B3)-(VI.B5)); the repairs read by verifier 139, whose one further minor finding (the Jacobian of $\Psi_b$ in $h'$)
+and two notes are repaired (D321). Proved (D323): verifier 140 read the D321 repairs, correct. This part carries Part
+VI.A's horizon hypotheses, the dynamical parts of (H3) and all of (H4), from $b_0$ to every $b$ near $b_0$, uniformly in
+$b$ as (H5) asks. (H6), (K1) and the first clause of (K4) hold for every $b\in\mathcal B$ by VI.A Lemma 1.1. The trapped
+set and the global dynamics near $b_0$, (Γ.1)-(Γ.3), (K3) and (H8), are Part VI.B$'$. The one new fact used is that the
+Myers-Perry horizon is the null hypersurface $\{r_A = r_+\}$ of III.B's Kerr-Schild form (Lemma 1.1). It is proved here
+by an exact identity. The rest is continuity on compact sets, after a diffeomorphism that fixes the horizon (Lemma 1.2).
+
+## 1. The horizon
+
+For $b = (\mu,A)\in\mathcal B$ let $r_A$, $P$, $\mathsf M$, $\ell_A$, $F_A$, $H_{\mu,A}$ be as in III.B Lemma 3.1 and
+Definition 3.2. In a frame where $A = aJ_{12}+bJ_{34}$, $P(r) = (r^2+a^2)(r^2+b^2)$ (III.B Lemma 3.1's proof). Let
+$r_+(b)$ be the largest positive root of
+$$\Delta_b(r) := P(r)-\mu r^2 = 0.\tag{1.1}$$
+At $b_0$, $\Delta_{b_0} = r^2(r^2-\mu_0)$, so $r_+(b_0) = \mu_0^{1/2} = r_h$. There $\partial_r\Delta_{b_0} =
+2\mu_0^{3/2}\ne0$, so $r_+$ is a simple root, smooth in $b$ near $b_0$ (implicit function theorem; $P$ depends on $A$
+only through $s = a^2+b^2$ and $p^2 = a^2b^2$, which are smooth functions of $A$, III.B Lemma 3.1).
+
+**Lemma 1.1 (the horizon is null).** On $\{|x|^2>s\}$,
+$$g^{\mathrm{KS}}_{\mu,A}{}^{-1}(dr_A,dr_A) = \frac{\Delta_b(r_A)}{r_A^2\,\varrho^2},\qquad\varrho^2 :=
+r_A^2+a^2\cos^2\theta+b^2\sin^2\theta>0,\tag{1.2}$$
+in the spheroidal parametrisation $x = (\sqrt{r_A^2+a^2}\sin\theta\,e^{i\phi},\sqrt{r_A^2+b^2}\cos\theta\,e^{i\psi})$ of
+the level sets of $r_A$. Hence $\mathcal H_b := \{r_A = r_+(b)\}$ is a smooth null hypersurface invariant under
+$\partial_t$. $dr_A$ is spacelike just outside it, and timelike just inside, where $\Delta_b<0$.
+
+*Proof.* The parametrisation satisfies $x^T(r^2I-A^2)^{-1}x = 1$, which by III.B Lemma 3.1 (a) and its proof is $Q(r,x)
+= 0$, the equation of $r_A$. With $\nabla r_A = -\nabla_xQ/(2r\,\partial_yQ)$ ($y = r^2$), III.B Lemma 3.3 (d) gives
+$g^{-1}(dr_A,dr_A) = |\nabla r_A|^2-H_{\mu,A}(\ell_A\cdot\nabla r_A)^2$. Substituting the parametrisation, the
+difference of the two sides of (1.2) simplifies to 0 (sympy, exact, in the rotated frame; `checks/horizon5.py`). Both
+sides are conjugation covariant, so (1.2) holds for every $A$. $\Delta_b$ has a simple zero at $r_+$, so $\mathcal H_b$
+is a smooth level set of $r_A$ with $dr_A\ne0$, and it is null. $t$-invariance holds as $g^{\mathrm{KS}}$ has
+$t$-independent components. $\square$
+
+(1.2) is the Boyer-Lindquist component $g^{rr} = \Delta/\varrho^2$ of the Myers-Perry metric, written in III.B's
+coordinates; the radius $r_A$ of the Kerr-Schild form is the Boyer-Lindquist $r$.
+
+**Lemma 1.2 (fixing the horizon).** There are $\epsilon_H>0$ and diffeomorphisms $\Psi_b$ of $\{|x|\ge\frac12R_1\}$, for
+$|b-b_0|<\epsilon_H$, smooth in $(b,x)$, with $\Psi_{b_0} = \mathrm{Id}$, $\Psi_b = \mathrm{Id}$ on
+$\{|x|\le\frac58R_1\}$ and on $\{|x|\ge\frac74R_1\}$, and $\Psi_b(\{|x| = r_h\}) = \mathcal H_b$. Its spacetime lift is
+$(t,x)\mapsto(t,\Psi_b(x))$.
+
+*Proof.* Let $\chi\in C^\infty_c((\frac58R_1,\frac74R_1))$ equal 1 near $[\frac34R_1,\frac32R_1]$. This interval
+contains $r_h = \mu_0^{1/2} = R_1$ (III.B section 2). Put $\tilde r_b :=
+\chi(|x|)\frac{r_h}{r_+(b)}r_A(x)+(1-\chi(|x|))|x|$. Then $\tilde r_{b_0} = |x|$ (as $r_A = |x|$ at $A = 0$, III.B Lemma
+3.1 (b)), $\tilde r_b\to|x|$ in $C^\infty$ as $b\to b_0$, and $\mathcal H_b = \{\tilde r_b = r_h\}$ near $\{|x| =
+r_h\}$. Define $\Psi_b(x) := \lambda\hat x$, with $\lambda = \lambda_b(x)$ solving $\tilde r_b(\lambda\hat x) = |x|$. As
+$\partial_\lambda\tilde r_b(\lambda\hat x) = 1+O(|b-b_0|)$, $\lambda\mapsto\tilde r_b(\lambda\hat x)$ is strictly
+increasing on $[\frac12R_1,\infty)$ and equal to $\lambda$ off $\mathrm{supp}\,\chi$, so it is a bijection of
+$[\frac12R_1,\infty)$, $\lambda_b$ is defined globally and smooth by the implicit function theorem, and $\Psi_b$ is a
+diffeomorphism. It is the identity where $\chi = 0$, and it maps $\{|x| = r_h\}$ onto $\{\tilde r_b = r_h\}$, which is
+$\mathcal H_b$: on $\{\chi = 1\}$ it is $\{r_A = r_+\}$, and on the transition region, where
+$|x|\in(\frac58R_1,\frac34R_1)\cup(\frac32R_1,\frac74R_1)$, $\tilde r_b$ is $C^\infty$-close to $|x|$ and so differs
+from $r_h = R_1$. $\square$
+
+Below, $\tilde g_b := \Psi_b^*g_b$, with the time function $\Psi_b^*t_*$; $d(\Psi_b^*t_*) = \Psi_b^*dt_*$ is timelike
+for $\tilde g_b$. The spectral families of $g_b$ and $\tilde g_b$ are conjugate: on the bundles of I.A section 1.2,
+trivialised by $dt_*,dx^i$, pulling back by $\Psi_b$ conjugates each operator by the smooth bundle map $B_b$ taking the
+frame $\Psi_b^*dt_*,\Psi_b^*dx^i$ to $dt_*,dx^i$, smooth in $b$, with $B_{b_0} = \mathrm{Id}$. The hypotheses of Parts
+I-II are invariant under this conjugation. The scalar principal symbol is preserved. With the transported fibre inner
+product $h' := |\det D\Psi_b|\,B_b^*(h\circ\Psi_b)B_b$, under which the pull-back by $\Psi_b$ followed by $B_b^{-1}$ is
+an isometry from $L^2(|dy|;h)$ to $L^2(|dx|;h')$, $y = \Psi_b(x)$, the $h'$-imaginary part of the conjugated operator is
+the conjugate of $\mathrm{Im}_hP$, exactly (without the Jacobian it would acquire $\frac12H_G\log|\det D\Psi_b|$). $h'$
+is a fibre inner product as in I.A section 1.2 (Hermitian, bounded above and below, smooth in $b$), equal to $h$ where
+$\Psi_b = \mathrm{Id}$. So the subprincipal endomorphisms in (H3)'s threshold and in (Γ.4) (I.A (1.5)) are conjugate,
+with the same spectra and thresholds. $\Psi_b$ is the identity on $\{|x|\le\frac58R_1\}$ and on $\{|x|\ge\frac74R_1\}$,
+so the artificial boundary, the extendible and supported spaces there, (H2), (K1) and the structure at infinity are
+untouched, and smoothness in $b$ gives norms equivalent uniformly in $b$. The conjugated family is $\Psi_b^*$ of the
+family that III.D, III.F and Part IV$''''$ build from $g_b$, gauge 1-forms included; where they compute a threshold at
+$N^*\mathcal H_b$ in $g_b$'s coordinates (III.D Lemma 5.1), that is the threshold of the conjugated family at $N^*\{r =
+r_h\}$. Write $\tilde G_{0,b}$, $\tilde\tau_{1,b}$ for $\tilde g_b$'s symbols, and keep VI.A's radii, $\rho_\infty
+= |\xi|^{-1}$, and $\mathcal R_\pm = \{r = r_h,\eta = 0,\pm\xi>0\}$, now fixed sets.
+
+## 2. (H3) and (H4) near $b_0$
+
+**Lemma 2.1.** For $|b-b_0|<\epsilon_H$, $N^*\{r = r_h\}\setminus o\subset\{\tilde G_{0,b} = 0\}$, and $H_{\tilde
+G_{0,b}}$ is tangent to it.
+
+*Proof.* $\tilde G_{0,b}(\lambda\,dr) = \lambda^2\tilde g_b^{-1}(dr,dr) = 0$ on $\{r = r_h\}$, by Lemma 1.1 transported
+by $\Psi_b$ (the change of time $\Phi_\mu$ of III.B (3.3) fixes $x$, so $g_b^{-1}(dr_A,dr_A) =
+g^{\mathrm{KS}}_b{}^{-1}(dr_A,dr_A)$). So the Lagrangian submanifold $N^*\{r = r_h\}$ lies in the level set $\{\tilde
+G_{0,b} = 0\}$. For $v$ tangent to it, $\omega(H_{\tilde G_{0,b}},v) = d\tilde G_{0,b}(v) = 0$, so $H_{\tilde G_{0,b}}$
+lies in the symplectic orthogonal of the tangent space, which is the tangent space itself. $\square$
+
+**Proposition 2.2 ((H3) and (H4) near $b_0$).** There is $\epsilon_1\in(0,\epsilon_H]$ such that for
+$|b-b_0|<\epsilon_1$ (and so on the compact ball $|b-b_0|\le\frac12\epsilon_1$, as (H5) asks a compact parameter space),
+(H3)'s dynamical conditions and (H4) hold for $\tilde g_b$ with VI.A's radii, the sets $\mathcal R_\pm$, $\rho_\infty$,
+and $q_{\pm,b} := |\eta/\xi|^2_{\slashed g}$ restricted to $\partial\tilde\Sigma_{0,b}$. Moreover
+$\beta_0(b)\ge\frac12\beta_0(b_0)$, $\beta(b)\ge\frac12\beta(b_0)$, $\mathsf
+H_bq_{\pm,b}\ge\frac12\beta_0(b_0)q_{\pm,b}$ near $\partial\mathcal R_\pm$, and the lengths in (H4) are bounded, all
+uniformly in $b$. So (H5)'s uniformity holds for these data.
+
+*Proof.* All symbols depend smoothly on $b$ in $C^\infty$, as $\Psi_b$ does. By the first step of (H4) below,
+$\partial\tilde\Sigma_{0,b}$ lies over $\{r<r_h+\frac12\delta_0\}$. At $b_0$, on $\partial\Sigma_0$ (over $r\le r_h$),
+$C/\xi^2 = -fr^2\le\sup_{[R_1/2,r_h]}(-fr^2)<\infty$, so $|\xi|\ge c|\zeta|$ there; by compactness of
+$S^*\{\frac12R_1\le r\le r_h+\frac12\delta_0\}$ this persists for $b$ near $b_0$. So $\xi\ne0$ on
+$\partial\tilde\Sigma_{0,b}$, $\mathrm{sgn}\,\xi$ splits it into two open and closed parts, and $\rho_\infty
+= |\xi|^{-1}$ and the future-directed rescaled field $\mathsf H_b := \mathrm{sgn}(\xi)\rho_\infty H_{\tilde G_{0,b}}$
+are defined on all of it.
+
+*(H3).* By Lemma 2.1, $\partial\mathcal R_\pm$ are invariant compact sets for every $b$. $\beta_0(b) =
+\rho_\infty^{-1}\mathsf H_b\rho_\infty$ and $\mp\beta_0^{-1}\rho_\infty\tilde\tau_{1,b}$ are continuous functions on the
+fixed compact $\partial\mathcal R_\pm$, continuous in $b$, and their infima at $b_0$ are $2\mu_0^{-1/2}$ and
+$\mu_0^{1/2}$ (VI.A Proposition 2.1). So they are at least half of that for $b$ near $b_0$. Next, $d\tilde G_{0,b}\ne0$
+at $\partial\mathcal R_\pm$ (at $b_0$, $\partial_r(f\xi^2)\ne0$ there), so near $\partial\mathcal R_\pm$,
+$\partial\tilde\Sigma_{0,b}$ is a smooth hypersurface of $S^*\tilde X$, a graph $r = r_b(\omega,\hat\eta)$ over the
+coordinates $(\omega,\hat\eta := \eta/\xi)$, smooth in $b$ (implicit function theorem). In these coordinates
+$\partial\mathcal R_\pm = \{\hat\eta = 0\}$ for every $b$, and $q_{\pm,b} = |\hat\eta|^2$ is a quadratic defining
+function. $\mathsf H_b$ is tangent to $\{\hat\eta = 0\}$, so $\mathsf H_bq_{\pm,b} =
+Q_b(\omega)(\hat\eta,\hat\eta)+O(|\hat\eta|^3)$, with the quadratic form $Q_b$ continuous in $b$ and the remainder
+uniform. At $b_0$, $Q_{b_0} = 2\beta_0(b_0)|\hat\eta|^2$ (VI.A (2.1)ff.: $\mathsf Hq = 2q(f'-2r^{-3}q)$). So
+$Q_b\ge\frac32\beta_0(b_0)|\hat\eta|^2$ for $b$ near $b_0$, and $\mathsf H_bq_{\pm,b}\ge\frac12\beta_0(b_0)q_{\pm,b}$ on
+$\{q_{\pm,b}<\epsilon_q\}$ for a fixed $\epsilon_q>0$.
+
+*(H4).* At $b_0$, $\partial\Sigma_0$ lies over $\{r\le r_h\}$, and $\tilde G_{0,b_0}\ge c>0$ on
+$S^*\{r_h+\frac12\delta_0\le r\le\rho_1^{-1}\}$. On $\{r\ge\rho_1^{-1}\}$, $\tilde G_{0,b}$ is elliptic uniformly for
+$b$ near $b_0$: at $b_0$ it is $f\xi^2+r^{-2}C$, $g_b-g_{b_0}$ is small in $\rho^2C^\infty$ (III.B (3.5)), and $\Psi_b =
+\mathrm{Id}$ there. So for $b$ near $b_0$, $\partial\tilde\Sigma_{0,b}$ lies over
+$\{r<r_h+\frac12\delta_0\}\subset\{r\le r_e\}$. On $\{r_0-2\delta_0\le r\le r_2\}$ the conditions "$\tilde G_{0,b}$
+Lorentzian of signature $(1,3)$", "$\tilde G_{0,b}(dr)<0$" and "$\mathsf H_br<0$ on $\partial\tilde\Sigma_{0,b}$" are
+strict and hold at $b_0$ on a compact set, so they persist. For the flow, let $U := \{q_{\pm,b}<\epsilon_q\}$ near
+$\partial\mathcal R_\pm$. At $b_0$, $\partial\Sigma_0\setminus U$ lies over $\{r\le r_h-\kappa\}$ for some $\kappa>0$
+($q = -fr^2$ there), where $\mathsf Hr = 2f\le-c'$. By continuity, for $b$ near $b_0$,
+$\partial\tilde\Sigma_{0,b}\setminus U$ lies over $\{r\le r_h-\frac\kappa2\}$, where $\mathsf H_br\le-\frac{c'}2$. Let
+$\gamma$ be a maximal curve of $\mathsf H_b$ in $\partial\tilde\Sigma_{0,b}\setminus\partial\mathcal R_\pm$. In $U$,
+$q_{\pm,b}$ grows forward at the rate $\ge\frac12\beta_0(b_0)$, so $\gamma$ leaves $U$ forward in finite time. $\mathsf
+H_bq_{\pm,b}\ge\frac12\beta_0(b_0)q_{\pm,b}>0$ on the closure of $U$, in particular on $\{q_{\pm,b} = \epsilon_q\}$, so
+the complement of $U$ in $\partial\tilde\Sigma_{0,b}$ is forward invariant and $\gamma$ does not re-enter $U$. Outside
+$U$, $r$ decreases at the rate $\ge\frac{c'}2$, so $\gamma$ reaches $\{r<r_0-\delta_0\}$ within time
+$2(r_h-\frac12R_1)/c'$ after leaving $U$. Backward, $r$ increases outside $U$, so $\gamma$ enters $U$ in finite time. In
+$U$, $q_{\pm,b}$ decreases exponentially backward, so $\gamma(s)\to\partial\mathcal R_\pm$ as $s\to-\infty$. The times
+are bounded uniformly in $b$ on compact sets of initial points away from $\partial\mathcal R_\pm$. $\square$
+
+## 3. Findings, labels and sources
+
+(VI.B1) *The horizon is computed in the write-out's own coordinates.* The record took the Myers-Perry horizon from
+[ER08]'s Boyer-Lindquist form. Here (1.2) is proved in III.B's Kerr-Schild coordinates, where Parts III-IV work, so no
+change of coordinates is read.
+
+(VI.B2) *The radial set at $b\ne b_0$ is the conormal of a moving horizon.* (H3) is stated for $\mathcal H = \{r =
+r_h\}$, and I.A's $r$ is $|x|$. The diffeomorphism $\Psi_b$ of Lemma 1.2 makes this literal: it is the identity outside
+$\{|x|<2R_1\}$, so (H1)-(H2) and the structure at infinity are unchanged. (H5) already allows $\mathcal H$ to depend on
+$b$, and this is how it does.
+
+(VI.B3) *Conjugation by $\Psi_b$* (verifier 138's A-m1). That the hypotheses of Parts I-II survive the conjugation was
+asserted. It is now proved for the thresholds, by transporting the fibre inner product, and for the spaces, as $\Psi_b$
+is the identity near the artificial boundary and near infinity.
+
+(VI.B4) *The rescaled field on all of $\partial\tilde\Sigma_{0,b}$* (verifier 138's A-m2). $\mathsf H_b$ and the split
+by $\mathrm{sgn}\,\xi$ were defined only near $\partial\mathcal R_\pm$, but (H4) uses them everywhere. $|\xi|\ge
+c|\zeta|$ on $\partial\Sigma_0$ at $b_0$ persists, so both are global.
+
+(VI.B5) *No re-entry* (verifier 138's A-m3). The argument that a curve does not return to $U$ was wrong; the boundary of
+$U$ is crossed outward only, as $\mathsf H_bq>0$ there.
+
+*Labels.* Lemma 1.1: [Hin26c] section 9.2.1's horizon, for Myers-Perry; Proposition 2.2: (H3)-(H4) near $b_0$, [Hin26]
+Remark 1.4 (b)'s "non-degenerate source at the conormal bundle of the event horizon".
+
+*Sources.* No new reading. Inputs: III.B Lemma 3.1, Definition 3.2, Lemma 3.3 (d), Propositions 3.4, 3.6, (3.5); VI.A
+Lemma 1.1, Proposition 2.1 and (2.1); I.A (H2)-(H5).

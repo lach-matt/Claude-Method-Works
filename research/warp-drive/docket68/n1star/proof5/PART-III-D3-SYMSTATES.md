@@ -1,13 +1,14 @@
 # Part III.D″. Zero energy states from the symmetries of Minkowski space, at n = 4 ([Hin26] section 6.5.1)
 
-*Status.* Verified (D229: read in full by the ninety-fourth verifier, its one minor finding and one nit seated and to be
-read); written (D223). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$, $b$ near
-$b_0 = (\mu_0,0)$, what [Hin26] section 6.5.1 establishes (pp. 125-128): the comparison of the operators of $g_b$ with
-those of Minkowski space and of the non-rotating member of the family (his Lemma 6.14), and the stationary solutions of
-the gauge potential wave equation whose leading terms are the time translation, the spatial translations, the Lorentz
-boosts and the rotations of Minkowski space, with their symmetric gradients (Proposition 6.15 and Remarks 6.16-6.17).
-Part III.D$'$ is cited as III.D$'$, and the other parts as in III.D$'$. Computations cited as *computed* are exact
-(sympy) and rerun by the instruments named (D223).
+*Status.* Proved (D231: verifier 95 read the repairs, correct; status synchronised with the README at D325). Verified
+(D229: read in full by the ninety-fourth verifier, its one minor finding and one nit seated and to be read); written
+(D223). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$, $b$ near $b_0 =
+(\mu_0,0)$, what [Hin26] section 6.5.1 establishes (pp. 125-128): the comparison of the operators of $g_b$ with those of
+Minkowski space and of the non-rotating member of the family (his Lemma 6.14), and the stationary solutions of the gauge
+potential wave equation whose leading terms are the time translation, the spatial translations, the Lorentz boosts and
+the rotations of Minkowski space, with their symmetric gradients (Proposition 6.15 and Remarks 6.16-6.17). Part III.D$'$
+is cited as III.D$'$, and the other parts as in III.D$'$. Computations cited as *computed* are exact (sympy) and rerun
+by the instruments named (D223).
 
 *What n = 4 changes.* The mass of $g_b$ enters at $|x|^{-2}$ and the rotation at $|x|^{-3}$ (III.B (3.5)), where Kerr's
 enter at $|x|^{-1}$ and $|x|^{-2}$, so every comparison of Lemma 6.14 gains one power of $\rho$, and so do the

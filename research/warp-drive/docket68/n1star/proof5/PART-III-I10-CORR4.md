@@ -1,11 +1,12 @@
 # Part III.I$'''''''''$. Correction terms #4 and the operator, n = 4 ([Hin26] section 11.8 to Lemma 11.57)
 
-*Status.* Verified (D271: the hundred-and-fifteenth verifier; no major finding, two minor ones and seven nits seated, to
-be read). Written (D270). This part proves, at spatial dimension $n = 4$, the opening of [Hin26] section 11.8 and its
-section 11.8.1 (pp. 273-277): the correction terms that undo the pure gauge terms of the $K^+$-expansion which decay no
-faster than $t_*^{-2}$ (Definition 11.55), the gauge-fixed Einstein operator with all modification parameters
-(Definition 11.56), and its linearisation in the new parameters (Lemma 11.57). Theorem 11.59, which uses them, is the
-next part, III.I$''''''''''$.
+*Status.* Proved (D274: verifier 116 read the repairs, correct; status synchronised with the README at D325). Verified
+(D271: the hundred-and-fifteenth verifier; no major finding, two minor ones and seven nits seated, to be read). Written
+(D270). This part proves, at spatial dimension $n = 4$, the opening of [Hin26] section 11.8 and its section 11.8.1 (pp.
+273-277): the correction terms that undo the pure gauge terms of the $K^+$-expansion which decay no faster than
+$t_*^{-2}$ (Definition 11.55), the gauge-fixed Einstein operator with all modification parameters (Definition 11.56),
+and its linearisation in the new parameters (Lemma 11.57). Theorem 11.59, which uses them, is the next part,
+III.I$''''''''''$.
 
 *What n = 4 changes.* The scheme is the source's: for each pure gauge term of the $K^+$-expansion that decays no faster
 than $t_*^{-2}$, a cut-off pure gauge tensor $m_\nu$, built from the generalised gauge 1-forms of III.D$'''$, with a

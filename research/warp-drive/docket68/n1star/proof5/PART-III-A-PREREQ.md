@@ -1,13 +1,14 @@
 # Part III.A. Technical prerequisites at n = 4 ([Hin26] sections 2.1-2.3)
 
-*Status.* Verified. The ninety-third verifier's findings are seated (D226) and the ninety-fourth read and confirmed the
-repairs; its one minor finding (Lemma 1.3's regularity count) and two nits are seated (D229) and are to be read. This
-part carries [Hin26] sections 2.1-2.3 (pp. 44-63) to spatial dimension $n = 4$: manifolds with corners and blow-ups,
-b-analysis and partial polyhomogeneity (Definitions 2.4-2.8, Lemmas 2.10-2.13, 2.15, Remark 2.14), the scattering, 3b-
-and scattering-b-transition notions (Example 2.17, Definitions 2.16, 2.18, 2.19, (2.11)-(2.15), Lemma 2.20), extendible
-and supported spaces (section 2.1.5), the integration of $x\partial_x$ and $x\partial_x-y\partial_y$ (section 2.2,
-Lemmas 2.22-2.23), and the Fourier transform with partial expansions (section 2.3, Lemma 2.24, Proposition 2.25).
-Section 2.4 is Part III.A$'$.
+*Status.* Proved (D231: verifier 95 read the repairs, correct; status synchronised with the README at D325). Verified.
+The ninety-third verifier's findings are seated (D226) and the ninety-fourth read and confirmed the repairs; its one
+minor finding (Lemma 1.3's regularity count) and two nits are seated (D229) and are to be read. This part carries
+[Hin26] sections 2.1-2.3 (pp. 44-63) to spatial dimension $n = 4$: manifolds with corners and blow-ups, b-analysis and
+partial polyhomogeneity (Definitions 2.4-2.8, Lemmas 2.10-2.13, 2.15, Remark 2.14), the scattering, 3b- and
+scattering-b-transition notions (Example 2.17, Definitions 2.16, 2.18, 2.19, (2.11)-(2.15), Lemma 2.20), extendible and
+supported spaces (section 2.1.5), the integration of $x\partial_x$ and $x\partial_x-y\partial_y$ (section 2.2, Lemmas
+2.22-2.23), and the Fourier transform with partial expansions (section 2.3, Lemma 2.24, Proposition 2.25). Section 2.4
+is Part III.A$'$.
 
 *What n = 4 changes.* Sections 2.1.1-2.1.2, 2.1.5 and 2.2 are stated by the source for manifolds with corners of any
 dimension and carry over verbatim; their proofs are given here in full, because the source sketches two of them (Lemmas

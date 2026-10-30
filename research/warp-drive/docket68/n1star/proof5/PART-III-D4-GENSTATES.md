@@ -1,7 +1,8 @@
 # Part III.D‴. Generalized zero energy states of the gauge potential operator, at n = 4 ([Hin26] section 6.5.2)
 
-*Status.* Written (D224). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$, $b$ near
-$b_0 = (\mu_0,0)$, what [Hin26] section 6.5.2 establishes (pp. 128-134): the generalized zero energy states of the gauge
+*Status.* Proved (D235: verifier 97 read the repairs, correct; status synchronised with the README at D325). Written
+(D224). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$, $b$ near $b_0 =
+(\mu_0,0)$, what [Hin26] section 6.5.2 establishes (pp. 128-134): the generalized zero energy states of the gauge
 potential wave operator -- polynomials in $t_*$ in its kernel -- built on the time translation, the translations and
 boosts, the rotations, and on the indicial roots of the zero energy operator below $-1$, with their symmetric gradients
 (Proposition 6.18 and Remark 6.19). Parts III.D$'$ and III.D$''$ are cited as III.D$'$, III.D$''$, the others as there.

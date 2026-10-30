@@ -1,14 +1,15 @@
 # Part III.D′. The gauge potential operator at zero energy, at n = 4 ([Hin26] section 6.4)
 
-*Status.* Verified (D229: read in full by the ninety-fourth verifier, its two nits seated and to be read); written
-(D222). This part proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part III.B with $b$ near
-the Tangherlini parameter $b_0$, what [Hin26] section 6.4 and Lemma 6.13 establish (pp. 119-125): the kernel and
-cokernel of the unmodified 1-form wave operator at zero energy (his Lemma 6.10, which he takes from [AHW24] Theorem 5.1
-(2)), the two pairings at the horizon (Lemma 6.11), mode stability of the gauge potential wave operator at every
-frequency of the closed upper half plane (Proposition 6.12), and the invertibility of its zero energy operator with
-polyhomogeneous inverse images (Lemma 6.13). Part III.D is cited as III.D, Parts I.A-I.C as I.A-I.C, Part III.A as
-III.A, Part III.A$'$ as III.A$'$, Part III.B as III.B. Computations cited as *computed* are exact (sympy) and rerun by
-the instruments named (D222).
+*Status.* Proved (D231: verifier 95 read the repairs, correct; status synchronised with the README at D325). Verified
+(D229: read in full by the ninety-fourth verifier, its two nits seated and to be read); written (D222). This part
+proves, at spatial dimension $n = 4$ and for the Myers-Perry metrics $g_b$ of Part III.B with $b$ near the Tangherlini
+parameter $b_0$, what [Hin26] section 6.4 and Lemma 6.13 establish (pp. 119-125): the kernel and cokernel of the
+unmodified 1-form wave operator at zero energy (his Lemma 6.10, which he takes from [AHW24] Theorem 5.1 (2)), the two
+pairings at the horizon (Lemma 6.11), mode stability of the gauge potential wave operator at every frequency of the
+closed upper half plane (Proposition 6.12), and the invertibility of its zero energy operator with polyhomogeneous
+inverse images (Lemma 6.13). Part III.D is cited as III.D, Parts I.A-I.C as I.A-I.C, Part III.A as III.A, Part III.A$'$
+as III.A$'$, Part III.B as III.B. Computations cited as *computed* are exact (sympy) and rerun by the instruments named
+(D222).
 
 *How it differs from the source.* Lemma 6.10 is proved here on five-dimensional Tangherlini, the kernel by energy
 identities for the mode equations and the cokernel by a distributional identity at the horizon, with the index from I.C.

@@ -1,14 +1,15 @@
 # Part III.F$'$. Indicial roots and tf-admissibility of the linearised operator, at n = 4 ([Hin26] sections 8.2-8.3)
 
-*Status.* Written (D230). This part proves, at spatial dimension $n = 4$, what [Hin26] sections 8.2-8.3 establish (pp.
-149-153): the indicial roots of the zero energy operator of the linearised gauge-fixed Einstein operator $L_b$ (his
-Lemma 8.4, with (8.13)), that the indicial solutions at $\lambda = 0$ satisfy the linearised gauge condition (his Lemma
-8.5), the tf-admissibility of $L_b$ (his Proposition 8.6) and the inversion of its transition face normal operator on
-b-Sobolev spaces (his Corollary 8.7). Notation is that of Part III.F; the types and degrees are those of III.A$'$
-(2.9)-(2.10), indicial roots by type are those of III.A$'$ Definition 2.2, and $\mathrm{spec}_{\mathrm b}$ is the set of
-all indicial roots. The facts about the constraint propagation operator that Part IV must deliver are collected in
-section 1; where the source computes with Mathematica, the computation is `lin5.py`'s, with $l$ and every parameter
-symbolic, and the facts proved here by hand are checked by `linroots5.py` R1-R3.
+*Status.* Proved (D238: verifier 98 read the repairs, correct; status synchronised with the README at D325). Written
+(D230). This part proves, at spatial dimension $n = 4$, what [Hin26] sections 8.2-8.3 establish (pp. 149-153): the
+indicial roots of the zero energy operator of the linearised gauge-fixed Einstein operator $L_b$ (his Lemma 8.4, with
+(8.13)), that the indicial solutions at $\lambda = 0$ satisfy the linearised gauge condition (his Lemma 8.5), the
+tf-admissibility of $L_b$ (his Proposition 8.6) and the inversion of its transition face normal operator on b-Sobolev
+spaces (his Corollary 8.7). Notation is that of Part III.F; the types and degrees are those of III.A$'$ (2.9)-(2.10),
+indicial roots by type are those of III.A$'$ Definition 2.2, and $\mathrm{spec}_{\mathrm b}$ is the set of all indicial
+roots. The facts about the constraint propagation operator that Part IV must deliver are collected in section 1; where
+the source computes with Mathematica, the computation is `lin5.py`'s, with $l$ and every parameter symbolic, and the
+facts proved here by hand are checked by `linroots5.py` R1-R3.
 
 ## 1. The setting
 
