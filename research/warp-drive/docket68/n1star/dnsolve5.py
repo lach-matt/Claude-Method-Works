@@ -20,8 +20,10 @@ never differentiated numerically.
      the error against Tangherlini's R(u, v) does not fall with resolution.  (A constant shift of W along the cone,
      corner included, cancels exactly in the diamond update, so it is no control.)
 
-  --run lam rcut M Nu Nv out.npz   the record's data at wavelength lam (A = 1, envelope [1/2, 7/2], R0 = 10, v to 4.5,
-                                   a = 0.002), cut at R < rcut; the solution and the cut mask are written to out.npz.
+  --run lam rcut M Nu Nv out.npz [p]   the record's data at wavelength lam (A = 1, envelope [1/2, 7/2], R0 = 10, v to
+                                   4.5, a = 0.002), cut at R < rcut; the solution and the cut mask are written to
+                                   out.npz.  With p, an exponential filter of order p on the Chebyshev coefficients in x
+                                   is applied to every new diamond (the axis filter).
 """
 import sys, importlib.util, numpy as np, sympy as sp, warnings
 warnings.filterwarnings('ignore')
@@ -107,6 +109,14 @@ def cheb_gauss(M):
     return x, D1, D1 @ D1
 
 
+def cheb_filter(M, p):
+    """exponential filter exp(-36 (k/(M-1))^p) on the Chebyshev coefficients, as a map of values to values"""
+    x = np.cos((np.arange(M) + 0.5) * np.pi / M)
+    T = np.cos(np.outer(np.arange(M), np.arccos(x)))
+    sig = np.exp(-36.0 * (np.arange(M) / (M - 1))**p)
+    return T.T @ np.diag(sig) @ np.linalg.inv(T.T)
+
+
 
 # ---------------------------------------------------------------- Tangherlini, mu = 1, in (U, v) with U = -r on v = v0
 def rstar(r):
@@ -148,9 +158,10 @@ class Data:
 
 
 class Grid:
-    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None):
+    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None, filt=None):
         self.x, self.D1, self.D2 = cheb_gauss(M)
         self.M = M
+        self.Fm = None if filt is None else cheb_filter(M, filt)      # axis filter of order filt, or none
         if a is None:
             self.u = np.linspace(u0, u1, Nu + 1)
         else:                       # logarithmic in |1 + u| about the horizon generator u = -1 of the first cone
@@ -256,6 +267,8 @@ def run(E, G, data, r_cut, iters=3, log=None):
             fuv = E.uv(env_from(G, c, fu, fv, c['sv']))
             for k, f in enumerate(FIELDS):
                 nn[f] = e_[f] + w_[f] - s_[f] + du * G.dv * fuv[..., k]
+        if G.Fm is not None:
+            nn = {f: nn[f] @ G.Fm.T for f in ALL}
         for f in ALL:
             A[f][Nc] = nn[f]
         bad = ~np.isfinite(nn['R']).all(-1) | (nn['R'] < r_cut).any(-1)
@@ -409,8 +422,9 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == '--run':
         lam, rcut = float(sys.argv[2]), float(sys.argv[3])
         M, Nu, Nv = int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
+        filt = int(sys.argv[8]) if len(sys.argv) > 8 else None
         E = Eqs()
-        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002)
+        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt)
         A, mask = run(E, G, Data(lam, 1.0), rcut)
         np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, **{f: A[f] for f in ALL})
         print('written', sys.argv[7], 'cells', int((~mask).sum()), 'of', mask.size)

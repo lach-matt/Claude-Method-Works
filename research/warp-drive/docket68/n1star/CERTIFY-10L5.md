@@ -192,7 +192,10 @@ No other component is nonzero. So the scheme is the following.
 
 - *λ = 1 (L = 100).*
   - *The record's break is passed.* Along an ingoing cone the outgoing expansion R_v acquires a second zero at
-    v = 1.425, where the record's Bondi chart broke (1.45). The double-null evolution continues through it.
+    v = 1.425, earlier than the record's Bondi chart broke at the first seed: 1.500 by the persistence criterion (Ny =
+    20; 1.496 at Ny = 28), the 1.4516 once stated there being a single-step excursion of the root count (LOG D43-D44);
+    at the second seed the break is 1.583. The double-null evolution continues through the second zero and past v =
+    1.5 (corrected D346: this line had compared with the transient 1.45).
   - *Constraints.* Ric_vv, Ric(Y, Y) and Ric_ux, by differences on the solution, converge at second order or better
     on common points up to v = 1.5 (ratios 4.1 to 16 between 380 and 760 rows).
   - *The domain.* The curvature exceeds the record's bound near the inner cut from v ≈ 1.45 (x_K = 1.22 at R ≈ 0.58),

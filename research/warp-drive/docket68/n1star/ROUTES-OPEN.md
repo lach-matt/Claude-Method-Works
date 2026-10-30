@@ -4539,10 +4539,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (flat 2e-26; Tangherlini K median rel. error 6.4e-3), S3 (control W + 0.01 v, ratio 1.00) pass.
 - Coordinate: u := -r on the first cone squeezes the late interior (r - 1 ~ (r0 - 1) e^v); grid u = -1 + a sinh xi,
   a = 0.002, fixes it (107 rows in 0.54 <= R <= 1 at v = 1.6).
-- lambda = 1 (L = 100): second zero of R_v at v = 1.425 (the record's break, 1.45) passed; constraints converge at
-  second order to v = 1.5; x_K > 1 near the cut from v ~ 1.45 (wave curvature), so D_q < {R >= r_core}; D_q computed
-  (113,682 of 125,265 strip cells at 800 x 360, reaching v = 4.5); converged on D_q to v ~ 2.0 (400 vs 800), shears not
-  converged beyond; axis growth from v ~ 1.61 lies outside D_q.
+- lambda = 1 (L = 100): second zero of R_v at v = 1.425, before the record's persistent break at the first seed
+  (1.500; its 1.4516 was a single-step excursion, D43-D44; 1.583 at the second seed; corrected D346), passed;
+  constraints converge at second order to v = 1.5; x_K > 1 near the cut from v ~ 1.45 (wave curvature), so D_q <
+  {R >= r_core}; D_q computed (113,682 of 125,265 strip cells at 800 x 360, reaching v = 4.5); converged on D_q to
+  v ~ 2.0 (400 vs 800), shears not converged beyond; axis growth from v ~ 1.61 lies outside D_q.
 - lambda = 0.3162 (L = 1000): runs to v ~ 3.3-3.4; axis growth at x = +1 just outside the horizon, onset moving later
   with M (1.86, 3.28, 3.44 at M = 6, 8, 12) and with (u, v) (3.28, 3.36): resolution, not the gauge.
 - G1 not yet answered to the end of the domain; next: angular resolution with an axis filter, refinement at D_q's

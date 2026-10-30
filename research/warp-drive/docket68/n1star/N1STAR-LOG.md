@@ -6177,3 +6177,23 @@ grid fixes; and the wave raises the curvature above the bound near the inner edg
 so the true domain is smaller than the seed suggests. At the second seed the run reaches about three quarters of the
 domain before an axis growth whose onset moves later with resolution. Nothing here is a bound; it is the measurement
 the study said to make first.
+
+**D345 (2026-10-30): the gauge comparison of the linear result, written.** Part VIII had proved linear stability in the
+gauge of the nonlinear problem and left out the comparison with other gauges (its Remark 2.4). Part IX
+(proof5/PART-IX-GAUGE.md) proves it: a linearised vacuum solution whose data are those of a Lie derivative is itself a
+Lie derivative, the generating vector field unique up to Killing fields, on a domain shown to be globally hyperbolic;
+existence for data without compact support is reduced to the compactly supported case. The pointwise identities are
+checked in checks/ix5.py (six checks, six controls). An earlier version of the script spent eighteen minutes in
+symbolic simplification; the identities are now decided by evaluation at random rational points to sixty digits,
+in under a minute. Verifier 162 is reading it.
+
+**D346 (2026-10-30): the equality case, and a stale figure corrected.** At μ0 = √72 l5² (EQUALITY5.md, checks/eq5.py):
+the solution equals the seed exactly before the shell starts, by the record's energy inequality run on a region with
+a null face; so the curvature boundary there is the seed's horizon. After the shell starts the boundary is spacelike
+outside a layer whose width tends to zero with λ; inside the layer the record's bounds do not decide it, and the note
+says why. In its place, a domain within O(λ) of the record's, inside the same curvature bound, that nothing enters from
+inside; and the horizon statement at equality. Verifier 163 is reading it. Separately, D344 had compared the
+double-null run's second zero (1.425) with the record's break at the first seed as 1.45; the record's persistent break
+there is 1.500, the 1.4516 having been a single-step excursion (D43-D44), and 1.583 at the second seed. Corrected in
+CERTIFY-10L5.md and ROUTES 4.267; the conclusion (the run passes the break) stands. dnsolve5.py gains an optional
+exponential filter in x for the axis-resolution runs of G1.
