@@ -23,7 +23,11 @@ never differentiated numerically.
   --run lam rcut M Nu Nv out.npz [p]   the record's data at wavelength lam (A = 1, envelope [1/2, 7/2], R0 = 10, v to
                                    4.5, a = 0.002), cut at R < rcut; the solution and the cut mask are written to
                                    out.npz.  With p, an exponential filter of order p on the Chebyshev coefficients in x
-                                   is applied to every new diamond (the axis filter).
+                                   is applied to every new diamond (the axis filter); p = 0 for none.  With a
+                                   further argument reg, the axis regularisation: near x = -1 the equations fix only
+                                   (1 + x) m_uv and near x = +1 only (1 - x) n_uv (m drops out of the metric at x = -1,
+                                   n at x = +1), so m_uv, n_uv are recovered by exact division in Chebyshev space
+                                   (D352).  Without it the 4 x 4 solve divides rounding by about 1 - |x|.
 """
 import sys, importlib.util, numpy as np, sympy as sp, warnings
 warnings.filterwarnings('ignore')
@@ -109,6 +113,21 @@ def cheb_gauss(M):
     return x, D1, D1 @ D1
 
 
+def axis_quotients(M):
+    """values -> values maps Q_-, Q_+: a polynomial f of degree < M to (f - f(-1))/(1 + x), resp. (f - f(1))/(1 - x),
+    by division in Chebyshev space (1 + x = T_0 + T_1, 1 - x = T_0 - T_1)"""
+    from numpy.polynomial import chebyshev as Ch
+    x = np.cos((np.arange(M) + 0.5) * np.pi / M)
+    T = np.cos(np.outer(np.arange(M), np.arccos(x)))
+    Tinv = np.linalg.inv(T.T)
+    Qm, Qp = np.zeros((M, M)), np.zeros((M, M))
+    for k in range(M):
+        c = Tinv @ np.eye(M)[k]
+        qm, _ = Ch.chebdiv(c, [1.0, 1.0]); qp, _ = Ch.chebdiv(c, [1.0, -1.0])
+        Qm[:, k] = Ch.chebval(x, qm); Qp[:, k] = Ch.chebval(x, qp)
+    return Qm, Qp
+
+
 def cheb_filter(M, p):
     """exponential filter exp(-36 (k/(M-1))^p) on the Chebyshev coefficients, as a map of values to values"""
     x = np.cos((np.arange(M) + 0.5) * np.pi / M)
@@ -158,10 +177,11 @@ class Data:
 
 
 class Grid:
-    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None, filt=None):
+    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None, filt=None, reg=False):
         self.x, self.D1, self.D2 = cheb_gauss(M)
         self.M = M
         self.Fm = None if filt is None else cheb_filter(M, filt)      # axis filter of order filt, or none
+        self.Q = axis_quotients(M) if reg else None                     # axis regularisation of m_uv, n_uv, or none
         if a is None:
             self.u = np.linspace(u0, u1, Nu + 1)
         else:                       # logarithmic in |1 + u| about the horizon generator u = -1 of the first cone
@@ -265,6 +285,9 @@ def run(E, G, data, r_cut, iters=3, log=None):
             fu = {f: (w_[f] - s_[f] + nn[f] - e_[f]) / (2 * du) for f in FIELDS}
             fv = {f: (e_[f] - s_[f] + nn[f] - w_[f]) / (2 * G.dv) for f in FIELDS}
             fuv = E.uv(env_from(G, c, fu, fv, c['sv']))
+            if G.Q is not None:       # only (1 + x) m_uv and (1 - x) n_uv are determined near x = -1, +1: divide exactly
+                fuv[..., 1] = ((1 + G.x) * fuv[..., 1]) @ G.Q[0].T
+                fuv[..., 2] = ((1 - G.x) * fuv[..., 2]) @ G.Q[1].T
             for k, f in enumerate(FIELDS):
                 nn[f] = e_[f] + w_[f] - s_[f] + du * G.dv * fuv[..., k]
         if G.Fm is not None:
@@ -422,9 +445,10 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == '--run':
         lam, rcut = float(sys.argv[2]), float(sys.argv[3])
         M, Nu, Nv = int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
-        filt = int(sys.argv[8]) if len(sys.argv) > 8 else None
+        filt = int(sys.argv[8]) if len(sys.argv) > 8 and sys.argv[8] != '0' else None
+        reg = len(sys.argv) > 9 and sys.argv[9] == 'reg'
         E = Eqs()
-        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt)
+        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt, reg=reg)
         A, mask = run(E, G, Data(lam, 1.0), rcut)
         np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, **{f: A[f] for f in ALL})
         print('written', sys.argv[7], 'cells', int((~mask).sum()), 'of', mask.size)
