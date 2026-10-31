@@ -1,6 +1,7 @@
 # FAMILIES5 -- more matter families: several null dusts, angular separation, Vlasov
 
-Status: scoping note (D361); proposed, nothing proved. Read by verifier 167 (D362), findings seated.
+Status: scoping note (D361); proposed, nothing proved. Read by verifier 167 (D362), findings seated. Section 1's two
+deductions on the cross coupling added (D363-D364).
 
 The paper's open item "more families" (RESPONSE-HL-5D.md section 9): "Several dusts, angular separation, and the passage
 to Vlasov matter are not attempted." This note sets out what each would need, given what the record's proof uses of
@@ -33,6 +34,29 @@ record's first-order wave is W = W_TT + χ dv² (`lead5.py`). W_TT has component
   terms χ and χ', not through the transverse-traceless waves.
 - A gauge or an ansatz that removes χ and χ' at first order, or moves them to higher order, would remove the cross
   couplings at leading order. Whether one exists in the class is the first analytic question of the two-family case.
+
+**χ dv² is pure gauge, and a generalised wave gauge removes it (deduced, D364; to be computed in step 4).**
+Write k := dv, null and geodesic for g0 (k = ∇v, so ∇_k k = ½∇|k|² = 0). Take ∂ for the derivative in X at fixed θ.
+
+- *Pure gauge.* For Z := λ² Φ(X, v/λ) k^♯, ∂_a Φ = Φ_(,a) + λ⁻¹ ∂_θΦ k_a gives
+  L_Z g0 = 2λ ∂_θΦ k ⊗ k + λ²(2Φ_(,(a) k_(b)) + 2Φ ∇_a k_b). With ∂_θΦ = χ/2, which exists since χ has θ-mean zero
+  (`lead5.py`:149), χ dv² is L_Z g0 at order λ, with an order-λ² completion.
+- *Why the record carries it.* In the wave-map gauge relative to g0 (RESPONSE-HL-5D.md:238) the reduced operator's
+  principal part is −½ g^(ab) ∂_a ∂_b, whose symbol vanishes at k. So no λ² term can meet a λ⁰ second harmonic; only
+  g1's transport −(k·∇ + ½□v) ∂_θ g1 can. The vv second harmonic of R^(0) is therefore met by χ's transport along ℓ
+  (RESPONSE-HL-5D.md:439-442; `lead5.py`:19-20).
+- *A generalised wave gauge.* Solve instead Ric(g) − δ*_g(Υ(g) − H) = 0 with a fixed gauge source H := λ h(X, v/λ) k.
+  Then δ*H = ∂_θh k ⊗ k + O(λ), so the vv second harmonic S k ⊗ k of R^(0) is met algebraically by ∂_θh = −S,
+  periodic since S has mean zero. Then χ = 0. Likewise H' := λ h'(X, u/λ) du gives χ' = 0.
+- *The cross couplings.* With χ = χ' = 0, g1^(in) = W_TT and g1^(out) = W'_TT are purely angular. So
+  [∂² g1^(j)](ℓ_k, ℓ_k) = 0 for all j, k, and contracting the linearization with ℓ_k ⊗ ℓ_k kills both families' large
+  terms, as for one family (section 5.2). The cross coupling of section 1 is then a gauge artefact of the record's
+  gauge.
+- *What it costs, still open.* H is fixed, so it does not enter the linearization. But the constraint Υ − H must be
+  propagated, and the solution compared with the record's gauge (by the diffeomorphism exp Z, O(λ²) in C⁰). Step 4
+  must also check that no other λ⁻¹ coefficient appears in the two-family linearization; in one family (5.1) there is
+  exactly one. [Tou24]'s abstract names "a generalised wave gauge" for the interaction of the waves. Whether it is
+  this one is not read: abstract only.
 
 ## 2. Several null dusts
 

@@ -6262,8 +6262,8 @@ interval now bounds the cut-off resolvent by one over the barrier's height above
 for every harmonic past an explicit l_0(σ): 14, 19 and 50 at σ = 0.3, 1 and 3 in closed form, and 3, 7 and 18 when its
 two conditions are evaluated by quadrature. The bound is within a factor 2 of the measured norms (0.059 against 0.040
 at σ = 0.3, l = 16). The two conditions are the signs of |u|²'s derivative at the interval's ends. Both come from the
-flux and from the WKB energy |u'|² + (σ² − V)|u|², which is monotone on each side of the barrier. The harmonics below l_0 keep the old
-constant.
+flux and from the WKB energy |u'|² + (σ² − V)|u|², which is monotone on each side of the barrier. The harmonics below
+l_0 keep the old constant.
 
 **D356 (2026-10-31): the uniform bound read by an independent verifier.** Verifier 165 found the proofs of E2.5 sound
 and the check's closed form identical to the text. It found seven minor points and six nits, all seated. Two constants
@@ -6336,4 +6336,13 @@ radius once the spin bound is tied to the radius. So with the inner radius at ha
 development covers the interior down to the curvature boundary for every mass (BEYOND5.md Proposition 6.2, deduced
 from the census, which is a reading and not a re-proof). The families note now locates the cross coupling of two
 families: only the second-harmonic gauge terms carry it.
+
+**D364 (2026-10-31): the cross coupling of two families is a gauge artefact at leading order.** The record's
+second-harmonic term χ dv² is pure gauge to first order: it is the Lie derivative of the background along a small,
+rapidly oscillating multiple of the null generator. The record needs it only because its wave-map gauge cannot meet
+the vv second harmonic of the λ⁰ equation in any other way. A generalised wave gauge, with a fixed oscillating gauge
+source of order λ, meets that harmonic algebraically and sets χ and its outgoing twin to zero. Both first-order waves
+are then purely angular, and the cross couplings vanish at leading order (FAMILIES5.md section 1, deduced). What it
+costs (propagating the gauge condition with a source, comparing the two gauges, and the absence of further large
+coefficients) is left to the two-family computation of step 4.
 

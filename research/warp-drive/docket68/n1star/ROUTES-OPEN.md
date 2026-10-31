@@ -4670,4 +4670,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Stage 0 (v ingoing, u outgoing) in the class; mixed harmonics non-resonant, solved by division.
 - D363 (deduced from the record's Stage 0): the cross couplings enter only through the second-harmonic gauge terms
   chi dv^2 and chi' du^2, W_TT being purely angular; a gauge removing chi, chi' at first order would remove them.
+- D364 (deduced): chi dv^2 is pure gauge at order lambda (L_Z g0 for Z = lambda^2 Phi(X, v/lambda) grad v, d_theta Phi =
+  chi/2). The record's wave-map gauge forces it, the reduced symbol vanishing at the null dv; a generalised wave gauge with
+  fixed source H = lambda h(X, v/lambda) dv meets the vv second harmonic algebraically, so chi = chi' = 0 and the leading
+  cross couplings vanish (a gauge artefact). Open: constraint propagation with H, comparison of gauges, no other
+  lambda^-1 coefficient in the two-family linearization (step 4).
 
