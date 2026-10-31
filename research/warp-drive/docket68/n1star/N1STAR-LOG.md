@@ -6671,3 +6671,13 @@ split that made the bound uniform in the mode number, its angular derivative too
 a weight that vanishes at the photon sphere, where light can orbit and no such estimate can be uniform without loss.
 The constants are explicit and certified at one frequency, and a direct computation sits well inside them. It is a
 first step from these simple norms toward the record's.
+
+**D405 (2026-10-31): verifier 180 on the last five entries.** One serious finding, again about the loss's gap
+condition: two of the cases the previous repair named as possible are ruled out by bounds the record itself proves on
+the offsets, so what remains is narrower, an exponent lying within about a millionth below two at the record's point.
+The record's own printout also shows the smallest distance from an integer to be about forty times smaller than the
+figure used so far; the earlier bounds stay true, only loose. The other arguments held and the numbers reproduced.
+The field used to compare the two gauges' accuracy is not gauge-free point by point, since the angle labels differ;
+measured instead on the invariant section volume, the original gauge is up to fourteen times more accurate, and
+equally accurate early on. The original gauge's error falls steadily toward the swapped gauge's cut-off rather than
+stopping at an edge. The derivative check gained an independent derivative and pinned constants.

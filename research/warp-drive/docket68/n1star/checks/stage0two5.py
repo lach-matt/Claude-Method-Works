@@ -343,7 +343,7 @@ def gauge_pure(out, verbose):
         -e^(-2 sig) n1 n2 vanishes at n1 n2 = 0 (T4), so Stage 0 is unchanged. Controls (D402): a unit G in each
         component reaches exactly the stated row; without the angular diagonal the r = u equation loses its unknown
         and is unsolvable exactly where the waves' D1 has an r = u component (without G_uu likewise for r = v, which
-        the waves' D1 turns out never to have at a pure harmonic, so G_uu = 0 there).
+        the waves' D1 turns out never to have at a harmonic (n, 0), so G_uu = 0 there; at (0, n), r = u and G_vv).
     Tested as T7 is, on concrete functions at random points."""
     import random
     conc = {sig: (u + 2*v)/7, Rf: 2 + u**2/5 + v/3, Hf: 1 + th/3, alpha: 1 + v/2, beta: 1 - u/4,
@@ -423,7 +423,8 @@ def gauge_pure(out, verbose):
             print("  T8 control, %s: unsolvable at %d of %d harmonic-points, exactly where D1 has the component"
                   " that loses its unknown: %s" % (mode, cnt, len(keys)*len(pts), cons), flush=True)
         if no_v:
-            print("  T8: the waves' D1 has no r = v component at any pure harmonic, so G_uu = 0 there", flush=True)
+            print("  T8: the waves' D1 has no r = v component at any (n, 0) (nor r = u at (0, n)): G_uu = 0 (G_vv = 0)",
+                  flush=True)
     return (mean_worst <= tol and worst <= tol and len(keys) > 0), ctl_ok
 
 

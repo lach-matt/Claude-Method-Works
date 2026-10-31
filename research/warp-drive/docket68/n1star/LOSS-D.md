@@ -273,7 +273,9 @@ loop counts of section 3.
     < η_2 < ε_+.
   - *What caps ε_+.* 0 < ε_K < ε_+ < min(δ_♯, ε_ind) (I10:47 (1.1), J-PARAM:34), the ground LD3 already uses. With F2's
     ε_ind ≤ 2.932 × 10⁻⁶ at the record's point (the root 1 + 2.932 × 10⁻⁶; F2 (2.2), :133-136), α − 4 ≤ ε_K < 2.94 ×
-    10⁻⁶ (α ≤ 4 + ε_K by I11:156), and below LD5's 3.1 × 10⁻⁵ at every admissible damping point. I11 Definition 1.3's
+    10⁻⁶ (α ≤ 4 + ε_K by I11:156), and below LD5's 3.1 × 10⁻⁵ at every admissible damping point. [D405, verifier 180:
+    (2.2)'s least distance is printed at N1STAR-PROOF.md:4071-4072 as 7.3846 × 10⁻⁸ at the record's point, so
+    ε_ind ≤ 7.4 × 10⁻⁸; the bounds here that use 2.932 × 10⁻⁶ are true and about 40 times loose.] I11 Definition 1.3's
     (G) is a further constraint, which can only lower ε_K; whether it binds below ε_ind is not computed. ((1.1)'s ε_ind
     is III.G⁗ Proposition 5.1's (I10:48, I11:38), which is F′ (2.2)'s (G5:190). VI4-PARAMS:38's row w1 read it as min
     Re ℰ^ι_ind, under which no number follows; that row now reads it as (1.1) does, D390.)
@@ -311,12 +313,18 @@ loop counts of section 3.
       asks Re Σ n_i w_i within ε_ind above ½ − δ_♯ = 0.4901 (mod 1); for g = 2 and 3, within ε_ind above an
       integer. The other generators are the elements of ℰ_++ (I9:37-40, min Re ≥ λ_♯) and of ℰ^C_I (C2:257-259,
       min Re > 3/2 + 2γ_Υ, I11:110), and 2 + ℰ_col (I12:103-104, real parts ≥ 0), with the sums of each;
-    - λ + d_c, c = c0, c1, with real part in (2, 2 + ε_ind), for λ ∈ Λ with Re λ ∈ [λ_♯, 2]. Here d_c := −μ_c lies in
-      (0, 1) (I10-CORR4:74-75), so this asks d_c within ε_ind above 2 − Re λ: at λ = 2, d_c < ε_ind; at λ = λ_♯,
-      d_c ∈ (0.4901, 0.4901 + ε_ind).
+    - λ + d_c, c = c0, c1, with real part in (2, 2 + ε_ind), for λ ∈ π_1 ℳ = Λ ∩ {Re < 2} (I11:113), that is
+      Re λ ∈ (2 − d_c, 2 − d_c + ε_ind) (corrected D405, verifier 180). Here d_c := −μ_c, and μ_c0 = 2 − λ^Υ_s0,2,
+      μ_c1 = 2 − λ^Υ_s1,2 are themselves non-integer roots of F2 Proposition 2.3 (F2:106-110), so d_c ≥ ε_ind by
+      (2.2) (I11:154-155 notes d_c > ε_K); and d_c0 ≤ z_Υ/3, d_c1 < ¼ (G2-IOTA:106-107, 117-118; I10-CORR4:72-73). So
+      λ = 2 and Re λ ≥ 2 cannot bind, and neither can λ_♯ (λ_♯ + d_c < 1.76); what remains is an element of π_1 ℳ
+      within d_c below 2: under ¼ in general, and under 1.34 × 10⁻⁶ at the record's point (d_c0 ≈ z/3, d_c1 ≈ z/12,
+      z = 4 × 10⁻⁶; N1STAR-PROOF.md:3155, 4070). D402's two worked cases, d_c < ε_ind at λ = 2 and d_c near 0.4901 at
+      λ_♯, are excluded by these bounds and are withdrawn.
 
     D397 listed four sources: sums from λ_♯, single elements of ℰ_++, ℰ^C_I and ℰ_col, and d_c at λ = 2 only. It
-    missed the sums from the other generators, and λ + d_c for λ below 2.
+    missed the sums from the other generators, and λ + d_c for λ below 2. (Λ is also closed under conjugation, I11:64;
+    harmless for real parts.)
   - *A near miss that is not in Λ.* The roots 2 + 2.93 × 10⁻⁶ of □^C at l = 2 (`checks/iota5.py`:44) would bind if
     they were in Λ. Nothing places them there: Λ's ℰ_ind is □^Υ(0)'s (verifier 174's B1), and ℰ_++ is required to
     contain only ℰ^♯_+ ∩ {Re < 2}.

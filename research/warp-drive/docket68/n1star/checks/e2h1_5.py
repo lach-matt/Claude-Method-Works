@@ -11,9 +11,10 @@ K := 2 Xb + (M' + 2|sigma|) B_l. For Im sigma > 0 the same holds with 4|sigma| f
 
   H1 (exact) the constants at sigma = 3 for every l >= 6 from the certified m' >= 0.005793, M' <= 1.02041 and
      min_I w_6 >= 1.0610 (e2certify5 C3), with exact rationals, every square root rounded up: B_6(3), Xb, K and
-     a K/(a - a_1) at l = 6 (the largest over l >= 6, as a/(a - a_1) decreases).
+     a K/(a - a_1) at l = 6 (the largest over l >= 6, as a/(a - a_1) decreases), pinned to their decimals (D405).
   H2 (computed) at l = 6, sigma = 3 + 0.25i, the operator norms f -> u' on I and f -> (a psi)^(1/2) u on I, from the
-     finite-difference resolvent of e2cplx5.py, lie below the bounds with 4|sigma| (Lemma E2.10). Control: centred
+     finite-difference resolvent of e2cplx5.py, lie below the bounds with 4|sigma| (Lemma E2.10), and u' by a forward
+     difference agrees with the central one to 5 % (an independent derivative, D405). Control: centred
      0.3 off the photon sphere, psi takes negative values, so Lemma E2.9's split w_l >= w_1, and with it the bound
      uniform in l, fails.
 Labels: H1 computed (exact, outward rounded); H2 computed (floating point, not certified); the corollary deduced.
@@ -78,15 +79,17 @@ def h2(sigma=complex(3.0, 0.25), l=6, h=0.02, L=(-80.0, 120.0)):
     a = l*(l + 2) + 0.75
     Gd = np.empty((len(I), len(I)), complex)
     Gp = np.empty((len(I), len(I)), complex)
+    Gf = np.empty((len(I), len(I)), complex)
     for k, i in enumerate(I):
         rhs = np.zeros(n, complex)
         rhs[i] = 1/h
         sol = lu.solve(rhs)
         du = (sol[I + 1] - sol[I - 1])/(2*h)
         Gd[:, k] = du*h
+        Gf[:, k] = (sol[I + 1] - sol[I])/h*h       # a forward difference, an independent derivative (D405)
         Gp[:, k] = np.sqrt(a*np.maximum(psi[I], 0))*sol[I]*h
-    nd, npsi = (np.linalg.norm(G, 2) for G in (Gd, Gp))
-    return nd, npsi, float(min(psi[I])), float(max(psi[I])), float(min(psi)), float(min(psi_of(xg, rg, 0.3)))
+    nd, npsi, nf = (np.linalg.norm(G, 2) for G in (Gd, Gp, Gf))
+    return nd, npsi, float(min(psi[I])), float(max(psi[I])), float(min(psi)), float(min(psi_of(xg, rg, 0.3))), nf
 
 
 def main():
@@ -94,18 +97,19 @@ def main():
     B, Xb, K, aK = constants()
     print("  H1: sigma = 3, l >= 6: B_6 <= %.4f, ||u'||_I <= %.2f ||f||, l(l+2) int_I psi|u|^2 <= %.1f ||f||^2"
           % (float(B), float(Xb), float(aK)))
-    ok["H1"] = abs(float(B) - 19.21) < 0.02 and Xb > 0 and aK > 0
+    ok["H1"] = abs(float(B) - 19.214) < 5e-4 and abs(float(Xb) - 224.49) < 5e-3 and abs(float(aK) - 632.5) < 0.05
     sg = complex(3.0, 0.25)
     c = float(MM) + 4*abs(sg)
     Bp = math.sqrt((2/float(M1) + c*c/float(W6))/float(W6))
     Xp = (1 + math.sqrt(1 + 2*float(M1)*c*Bp))/(2*float(M1))
     a6 = 6*8 + 0.75
     Kp = (2*Xp + c*Bp)*a6/(a6 - float(A1))
-    nd, npsi, pmin, pmax, pall, pctl = h2(sg)
+    nd, npsi, pmin, pmax, pall, pctl, nf = h2(sg)
     print("  H2: l = 6, sigma = 3 + 0.25i: ||f -> u'|_I|| = %.4f <= %.1f; ||f -> (a psi)^(1/2) u|_I|| = %.4f <= %.2f;"
           " psi on I in [%.2e, %.3f], min on the grid %.2e" % (nd, Xp, npsi, math.sqrt(Kp), pmin, pmax, pall))
-    print("  H2 control: centred 0.3 off the photon sphere, min psi = %.3e < 0" % pctl)
-    ok["H2"] = nd <= Xp and npsi <= math.sqrt(Kp) and pall >= -1e-15
+    print("  H2 control: centred 0.3 off the photon sphere, min psi = %.3e < 0; u' by a forward difference: %.4f"
+          " against %.4f (central)" % (pctl, nf, nd))
+    ok["H2"] = nd <= Xp and npsi <= math.sqrt(Kp) and pall >= -1e-15 and abs(nf - nd) <= 0.05*nd
     ok["H2 control"] = pctl < 0
     for k, v in ok.items():
         print(k, "PASS" if v else "FAIL")

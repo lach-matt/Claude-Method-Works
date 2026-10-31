@@ -479,7 +479,8 @@ has the same left side and the right side with 4|σ|. ∎
   largest over l ≥ 6 is at l = 6, as a/(a − a_1) decreases).
 - *H2 (floating point, not certified).* At l = 6 and σ = 3 + 0.25i the operator norms of f ↦ u′|_I and of
   f ↦ (aψ)^(1/2) u|_I, from e2cplx5's finite-difference resolvent, are 0.752 and 0.795, against the bounds with 4|σ|,
-  265.4 and 29.7. ψ on I lies in [1.3 × 10⁻⁵, 0.073].
+  265.4 and 29.7; u′ by a forward difference gives 0.7545, an independent derivative (D405). ψ on I lies in
+  [0, 0.073], vanishing at √2 ∈ I; 1.3 × 10⁻⁵ is its minimum on the grid.
 - *Control.* Centred 0.3 off the photon sphere, ψ takes negative values (down to −5.2 × 10⁻³), so the split
   w_l ≥ w_1, and with it the bound uniform in l, fails.
 

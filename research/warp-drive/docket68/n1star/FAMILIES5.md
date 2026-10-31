@@ -169,7 +169,8 @@ stress. What it does not give:
     who found the first control unable to fail, as angular off-diagonal G has no fast divergence): a unit G in each
     component reaches exactly the stated row; and without the angular diagonal the r = u equation loses its unknown
     and is unsolvable exactly where the waves' part has an r = u component (12 of the 24 harmonic-points tested). The
-    waves' part has no r = v component at any pure harmonic, so G_uu = 0 there.
+    waves' part has no r = v component at any harmonic (n, 0), so G_uu = 0 there (at (0, n): no r = u component, and
+    G_vv = 0).
   - *The next stage at the pure harmonics (deduced, D401).* Let the background solve the two-dust equations
     (section 4c), α, β, χ and χ′ their transports (T3, T5), and ĝ_2 be fixed on the mixed harmonics by T4 and, at
     (n, 0), in G_uu, G_uA and g0^(AB) G_AB by T8; the other ten components of ĝ_2 there are free. Then R^(−1) = R^(0)

@@ -4659,7 +4659,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D399 (checks/g1uv5.py, checks/g1cells5.py, computed): G1 in (u, v), M = 24, grids 200x90, 400x180, 800x360. Swapped
   gauge (k = 10): ratios 2.9-4.9 (s 3.4-6.9) to v = 4.6; 400-800 peaks 9.7e-3 in P, 0.26 in s on [1.65, 1.8), above
   the angular differences in every band, so (u, v) sets the run's error. A cell is the same pair of null hypersurfaces
-  in both gauges: on the 164,827 cells both keep, dnsolve5 converges at ratio 3.7-4.5 with P errors 14-57x smaller
+  in both gauges: on the 164,827 cells both keep, dnsolve5 converges at ratio 3.7-4.5 with P errors 14-57x [D402:
+  12-56x; D405: in the invariant section volume 1-14x, equal on [0.5, 1)] smaller
   before v = 2.5, and in angle to v ~ 3.5 at k = 10, axis included (swapped: 2.25). dnsolve5's failures lie on the
   16,617 cells only it keeps, between the two cuts. So D386-D395's gauge comparison was mostly one of cell sets. The
   swapped P ratio stays 2.9-3.0 on [1, 1.8) at k = 3-50: second order or ~1.6 undecided; a 1600x720 grid runs.
@@ -4667,7 +4668,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   sums g + sum n_i w_i (I11:66-69), so a sum from any generator can reach the window above the next integer, and that
   lambda + d_c, d_c in (0, 1), binds for lambda below 2 as well; LD8 now lists the two kinds. D394, D396, D398 hold;
   D399's numbers reproduce, the cell identity across gauges is justified, and its conclusions stand. Minor: the factor
-  is 2-29 in W (the field both gauges share), P 12-56 before v = 2.5, not 14-57; the swapped gauge is better in angle
+  is 2-29 in W [D405: at equal labels only; the invariant V gives 1-14], P 12-56 before v = 2.5, not 14-57; the
+  swapped gauge is better in angle
   on [1.8, 2.25); the (u, v)/angle factors compared different cells (like for like: ~700 to 1e5); k = 0 ratios named
   per field; the 6b table is over D_q. T8's control could not fail; now a component-split check and a no-trace
   control (12 of 24 unsolvable); the waves' D1 has no r = v part at pure harmonics, so G_uu = 0 there. Nits seated.
@@ -4676,7 +4678,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   P 3.5-4.3, W 3.6-4.4, s 3.8-4.9, m 3.4-5.5 in every band; the coarse triple was pre-asymptotic. Richardson: the
   1600x720 run's P error is ~1.4e-3 (0.4 %) at its worst band. dnsolve5 on its own cells fails on [1.8, 2.25) even
   60 rows from its cut, where it keeps ~230 rows per column beyond the swapped cut: its converged region ends near the
-  swapped gauge's cut. Both gauges stop converging at about the same events.
+  swapped gauge's cut. Both gauges stop converging at about the same events. [D405: scanned to 250 rows the error
+  falls steadily with no edge, so this is a trend, not a measured boundary.]
+- D405 (verifier 180 on D400-D404). MAJOR on D402's LD8 repair: its two worked lambda + d_c cases are excluded by the
+  record (mu_c are non-integer roots of F2 Prop 2.3, so d_c >= eps_ind; d_c0 <= z/3, d_c1 < 1/4): what remains is an
+  element of pi_1 M within d_c below 2, under 1.34e-6 at the record's point. Also eps_ind <= 7.4e-8 (N1STAR-PROOF
+  4071), so the 2.932e-6 figures are 40x loose. D400, D401 hold; D403, D404 reproduce. Minor: W is not gauge-free at a
+  node (labels differ off u = -R0): the invariant V(u, v) gives 1-14 (equal on [0.5, 1)); the record's k-scan falls
+  steadily to 250 rows, no edge; k = 0 off-asymptotic fields completed; factors 1e4-8e5 and 2.3e3 on [3, 3.5); psi's
+  range includes 0; e2h1_5 constants pinned and u' checked by a forward difference. Nits seated.
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 
@@ -4718,7 +4728,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   What could: lambda_sharp-translates near an integer, E_++ or E^C_I in a window, E_col in (0, eps_ind], or
   d_c0, d_c1 <= eps_ind -- four index sets at n = 4 not computed. box^C's 2 + 2.93e-6 is not in Lambda.
   [Corrected D402: the open set is every sum g + sum n_i w_i in (2, 2 + eps_ind) or (3, 3 + eps_ind), any generator g,
-  and lambda + d_c in (2, 2 + eps_ind) for lambda in Lambda, Re lambda in [lambda_sharp, 2].]
+  and lambda + d_c in (2, 2 + eps_ind) for lambda in pi_1 M (Re lambda < 2), i.e. Re lambda within d_c below 2;
+  d_c >= eps_ind (mu_c is a non-integer root of F2 Prop 2.3), d_c0 <= z/3, d_c1 < 1/4 (D405).]
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
