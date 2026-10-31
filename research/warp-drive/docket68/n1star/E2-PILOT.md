@@ -4,10 +4,11 @@ Status: written (D350); section 3b added (D355) and verified (verifier 165, D356
 verifier 167 (D362); section 3d (the band, computed) added (D371); section 3e (Lemma E2.8, a Morawetz bound for every
 l ≥ 1 and every real σ, D379; read by verifier 175, D382) added; section 3f (Lemma E2.9 and the certificate:
 every l ≥ 1, D384; read by verifier 176, D385: decimals rounded outward) added; section 3g (Lemma E2.8′, l = 0
-certified, D387) added; section 3h (off the real axis, D394) added; sections 1-3, 3d, 3g and 3h to be read.
+certified, D387) added; section 3h (off the real axis, D394) added; section 3i (Corollary E2.11, one derivative, D404)
+added; sections 1-3, 3d, 3g, 3h and 3i to be read.
 Check scripts: `checks/e2pilot5.py` P1-P4 (computed), all pass, every control fails; the band: `checks/e2band5.py`;
 E2.8: `checks/e2morawetz5.py` M1-M3; E2.9 and the certificate: `checks/e2certify5.py` C1-C5; l = 0:
-`checks/e2lzero5.py` Z1-Z5; off the axis: `checks/e2cplx5.py` J1-J4.
+`checks/e2lzero5.py` Z1-Z5; off the axis: `checks/e2cplx5.py` J1-J4; one derivative: `checks/e2h1_5.py` H1-H2.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
@@ -450,6 +451,49 @@ at σ = 3 is 0.42 (section 4's table). At l = 0 (J4, D398) the norm is 0.183, 0.
 (a < 0) and 2 + i (a > 0). That is below B⁺ with section 3g's certified constants and Σ c_k (269-403; at 2 + i, B⁺
 without the q-term, 362.3, as the lemma allows there, D402), and below 1/dist(σ², [0, ∞)).
 
+## 3i. One derivative, uniformly in l (E2.11, D404)
+
+The identity (3.4) bounds more than ‖u‖_I: its left side holds ‖u′‖_I, and by Lemma E2.9's split it holds the
+angular part too, with a weight that vanishes at the photon sphere.
+
+**Corollary E2.11 (deduced).** Let l ≥ 1, σ ≠ 0 real, f ∈ L²(I) and u = R_l(σ)f. Put ψ := −φ_*U′ ≥ 0 (Lemma E2.9),
+which vanishes on ℝ only at the photon sphere r = √2, to second order. Let B_l(σ) be any bound of ‖χ_I R_l(σ) χ_I‖
+(section 3f's table), m′, M′ those of φ_*, and a = l(l + 2) + 3/4, a_1 = 15/4. Then
+
+    ‖u′‖_I ≤ X_l(σ) ‖f‖,                 X_l := (1 + (1 + 2m′(M′ + 2|σ|) B_l)^(1/2)) / (2m′),
+    (a − a_1) ∫_I ψ |u|² ≤ K_l(σ) ‖f‖²,   K_l := 2X_l + (M′ + 2|σ|) B_l.                                      (3.9)
+
+For Im σ > 0 the same holds with 4|σ| for 2|σ| (Lemma E2.10). At l = 1, where a = a_1, the angular part is
+3‖u‖²_I ≤ 3B_1²‖f‖² directly.
+
+*Proof.* Take φ = φ_* in (3.4). By Lemma E2.9, w_l = w_1 + (a − a_1)ψ, and w_1 ≥ 0 on ℝ (C1-C2). Dropping the
+non-negative integrands off I, and w_1 on I, leaves 2m′X² + (a − a_1)∫_I ψ|u|² ≤ ‖f‖(2X + (M′ + 2|σ|)Y), with
+X := ‖u′‖_I and Y := ‖u‖_I ≤ B_l‖f‖ (any valid bound for Y serves, whichever multiplier gave it). So 2m′X² − 2‖f‖X −
+(M′ + 2|σ|)B_l‖f‖² ≤ 0, which gives X ≤ X_l‖f‖, and then the second bound. Off the axis, Lemma E2.10's form of (3.4)
+has the same left side and the right side with 4|σ|. ∎
+
+**Computed (`checks/e2h1_5.py` H1-H2).**
+
+- *H1 (exact, square roots rounded up).* At σ = 3 and every l ≥ 6, from C3's m′ ≥ 0.005793, M′ ≤ 1.02041 and
+  min_I w_6 ≥ 1.0610: B_6 ≤ 19.214, ‖u′‖_I ≤ 224.5‖f‖, and l(l + 2)∫_I ψ|u|² ≤ a K/(a − a_1) ≤ 632.5‖f‖² (the
+  largest over l ≥ 6 is at l = 6, as a/(a − a_1) decreases).
+- *H2 (floating point, not certified).* At l = 6 and σ = 3 + 0.25i the operator norms of f ↦ u′|_I and of
+  f ↦ (aψ)^(1/2) u|_I, from e2cplx5's finite-difference resolvent, are 0.752 and 0.795, against the bounds with 4|σ|,
+  265.4 and 29.7. ψ on I lies in [1.3 × 10⁻⁵, 0.073].
+- *Control.* Centred 0.3 off the photon sphere, ψ takes negative values (down to −5.2 × 10⁻³), so the split
+  w_l ≥ w_1, and with it the bound uniform in l, fails.
+
+What it gives: per harmonic, the cut-off resolvent maps L²(I) to the norm ‖u′‖_I + (l(l + 2)∫_I ψ|u|²)^(1/2), with
+explicit constants uniform in l ≥ 6 at each σ (and for 1 ≤ l ≤ 5 from the table's B_l). Summed over the harmonics,
+which are orthogonal on S³, that is a bound for ‖∂_(r_*) u‖ and the angular gradient weighted by ψ on I × S³.
+
+What it does not give:
+
+- the angular derivative without the weight: ψ vanishes at the photon sphere, where trapping costs any estimate
+  uniform in σ a loss (E4);
+- good constants: X_l is dominated by 1/m′, as B_l is (section 3e);
+- the record's norms beyond H¹ on I: the variable-order b-Sobolev spaces near the horizon and at infinity (E2-E4).
+
 ## 4. What remains for E2 at this operator
 
 - **Uniformity in l (E2.5): done for real σ on a fixed interval (section 3b, D355).** exp(I_l/(2|σ|)) grows like
@@ -491,7 +535,8 @@ without the q-term, 362.3, as the lemma allows there, D402), and below 1/dist(σ
   degenerate at the trapping energies σ² ≈ max V_l for large σ (the photon sphere; E4), and E2.8 grows linearly in |σ|.
 - **The record's norms.** Proposition 6.2 is stated on the variable-order b-Sobolev spaces X_σ, Y_σ of the extended
   domain through the horizon; passing from L²(dr_*) per harmonic to them needs the elliptic and propagation constants of
-  I.A-I.B made explicit (E2-E4).
+  I.A-I.B made explicit (E2-E4). One step is made: H¹ on I, with the angular derivative weighted by ψ, which vanishes
+  at the photon sphere, uniformly in l (Corollary E2.11, section 3i, D404).
 - **Im σ > 0 near the axis: done for the cut-off norm (section 3h, D394, D398).** Lemma E2.1 degenerates as
   Im σ → 0. Lemma E2.10 shows the Morawetz bounds stable under Im σ > 0 for every l ≥ 0: with 4|σ| for 2|σ| when
   l ≥ 1, and with 4|σ| + 2Σ c_k at l = 0.
@@ -499,7 +544,8 @@ without the q-term, 362.3, as the lemma allows there, D402), and below 1/dist(σ
 ## 5. Labels and sources
 
 Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, Proposition E2.5, Corollary E2.6; Lemma
-E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9; Lemma E2.8′ given W_q ≥ 0; Lemma E2.10); computed (P1: (1.1), (1.2); P2:
+E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9; Lemma E2.8′ given W_q ≥ 0; Lemma E2.10; Corollary E2.11); computed (P1:
+(1.1), (1.2); P2:
 numerical illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started from the exact solution of the
 inverse-square tail; P3: Corollary E2.6's
 thresholds, Proposition E2.5's conditions by quadrature, and the bound against the numerical kernels; P4: unimodality
@@ -507,6 +553,6 @@ for l ≤ 40, and Lemma E2.7 against the numerical kernels on I; `checks/e2moraw
 derivative, sympy; M2-M3: w ≥ 0 and the constants on a grid, and B_l(3) against the computed norms, floating point, not
 certified); certified (`checks/e2certify5.py` C1-C5: w ≥ 0 on ℝ for every l ≥ 1 by Lemma E2.9, and the constants, by
 interval arithmetic with explicit tail bounds; `checks/e2lzero5.py` Z1-Z5: l = 0 by Lemma E2.8′, the same way;
-`checks/e2cplx5.py` J1-J2 exact, J3-J4 floating point).
+`checks/e2cplx5.py` J1-J2 exact, J3-J4 floating point; `checks/e2h1_5.py` H1 exact, H2 floating point).
 Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE
 fact); EFFECTIVE-CONSTANTS.md section 5 (E2).

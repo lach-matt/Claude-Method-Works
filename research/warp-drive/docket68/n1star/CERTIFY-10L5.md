@@ -394,15 +394,23 @@ No other component is nonzero. So the scheme is the following.
     the |ΔP| of 0.019 and 2.75 in the bullet before. At k = 0, |ΔP| there is 5.8 × 10⁻³ on [1.5, 1.65), 0.85 on
     [1.65, 1.8), and up to 1.7 × 10⁵; |Δm| is up to 1.1 × 10⁸. The 4,867 cells that D392's invariant cut adds to the
     swapped gauge fail too.
+    - Its own k-scan (D403, `checks/g1geom5.py` on its M16, M24, M32 runs): with the last 60 of its kept rows dropped
+      it still fails on [1.8, 2.25) (|ΔP| M16-M24 → M24-M32: 2.6 × 10⁻² → 1.4 × 10⁻², 1.27 → 0.64). There it keeps
+      about 230 rows per column more than the swapped gauge. So its converged region ends near the swapped gauge's
+      cut, not near its own: in both gauges the convergence stops at about the same events.
   - *What this changes.* D386-D395 compared each gauge over its own kept cells, so the gain the table above shows
     from dnsolve5 to the swapped gauge is a difference of cell sets more than of gauges. On one set of cells the
     record's gauge is better in angle from v ≈ 2.25 to 3.5 and worse on [1.8, 2.25), s near the cut aside, and better
     in (u, v) in every band (D402). In both gauges the cells that fail
     border the cut near the x = −1 axis at small R (D381, D391-D392). Whether that is the axis treatment, the cut or
     the geometry is still not decided.
-  - *The swapped gauge's order in (u, v).* Its ratio for P stays at 2.9-3.0 on [1, 1.8) at every k from 3 to 50. So
-    three grids do not separate a pre-asymptotic second order from an order near log₂ 3 ≈ 1.6. A 1600 × 720 run is the
-    fourth grid.
+  - *The swapped gauge's order in (u, v).* Its ratio for P stays at 2.9-3.0 on [1, 1.8) at every k from 3 to 50, so
+    these three grids do not separate a pre-asymptotic second order from an order near log₂ 3 ≈ 1.6. The fourth grid
+    does (D403): on 400 × 180, 800 × 360 and 1600 × 720 (the last 2,772 s), with 20 rows of the 400 grid dropped (the
+    distance of 10 rows of the 200 grid), the ratios are 3.5-4.3 for P, 3.6-4.4 for W, 3.8-4.9 for s and 3.4-5.5 for
+    m in every band, and with 100 rows dropped 3.5-4.1 for P. So the order is second, and the coarser triple was not
+    yet asymptotic. The 800-1600 differences peak on [1.65, 2) at 3.8 × 10⁻³ in P and 0.10 in s, so by Richardson the
+    1600 × 720 run's own error there is about 1.4 × 10⁻³ in P, 0.4 % of max |P|.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds.
   - At λ = 1, over its own kept cells, the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in
     dnsolve5's gauge (on 𝒟_q, in (u, v) and in angle).
@@ -418,8 +426,8 @@ No other component is nonzero. So the scheme is the following.
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
-  Measure how far below its own cut dnsolve5's gauge converges (its k-scan), and run the swapped gauge's fourth grid.
-  Then separate the axis treatment at small R from the geometry. On the axis x = −1 the circle that does not shrink,
+  dnsolve5's k-scan and the swapped gauge's fourth grid are done (D403). Next, separate the axis treatment at small R
+  from the geometry. On the axis x = −1 the circle that does not shrink,
   g_22 = R²(1 − x)e^(2Q)/2, has an invariant size, so compare it across gauges and resolutions where the runs stop;
   and recompute x_K and 𝒟_q from this run with a stencil that stops at the cut. Candidates for the axis are an
   axis-adapted variable, a mapped Chebyshev grid concentrated at the axes, and a shift condition between the two

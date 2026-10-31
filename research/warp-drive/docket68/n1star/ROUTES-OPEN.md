@@ -4671,6 +4671,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   on [1.8, 2.25); the (u, v)/angle factors compared different cells (like for like: ~700 to 1e5); k = 0 ratios named
   per field; the 6b table is over D_q. T8's control could not fail; now a component-split check and a no-trace
   control (12 of 24 unsolvable); the waves' D1 has no r = v part at pure harmonics, so G_uu = 0 there. Nits seated.
+- D403 (checks/g1uv5.py on 400x180, 800x360, 1600x720; checks/g1geom5.py on dnsolve5's M16/24/32, computed): the
+  swapped gauge is second order. On the finer triple (20 rows of the 400 grid dropped, D399's distance) the ratios are
+  P 3.5-4.3, W 3.6-4.4, s 3.8-4.9, m 3.4-5.5 in every band; the coarse triple was pre-asymptotic. Richardson: the
+  1600x720 run's P error is ~1.4e-3 (0.4 %) at its worst band. dnsolve5 on its own cells fails on [1.8, 2.25) even
+  60 rows from its cut, where it keeps ~230 rows per column beyond the swapped cut: its converged region ends near the
+  swapped gauge's cut. Both gauges stop converging at about the same events.
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 
@@ -4748,6 +4754,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D398 (e2cplx5.py J4): l = 0 on the whole upper half plane. For a = Re sigma^2 < 0, |a| ||u||^2 <= ||f|| ||u||_I
   bounds the q-term by 2 max q ||f|| ||u||_I, max q <= sum c_k = 0.6500188621: B+ with 4|sigma| + 2 sum c_k. Computed
   l = 0 norms at 1 + 2i, 0.5 + i, 2 + i: 0.183, 0.594, 0.224, below B+ and below 1/dist(sigma^2, [0, oo)).
+- D404 (E2-PILOT section 3i, checks/e2h1_5.py H1-H2): Corollary E2.11, one derivative. With w_l = w_1 + (a - a_1) psi,
+  psi = -phi_* U' >= 0 (zero only at the photon sphere), (3.4) gives ||u'||_I <= X_l ||f|| and (a - a_1) int_I psi |u|^2
+  <= K_l ||f||^2, X_l = (1 + (1 + 2m'(M' + 2|sigma|) B_l)^(1/2))/(2m'). At sigma = 3, l >= 6 (exact, rounded up): 224.5
+  and l(l+2) int psi|u|^2 <= 632.5 ||f||^2. Computed at l = 6, 3 + 0.25i: 0.752, 0.795 against 265.4, 29.7. Control:
+  centred off the photon sphere psi < 0. Not: the unweighted angular derivative (trapping), the b-Sobolev orders.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 

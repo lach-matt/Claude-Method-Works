@@ -6658,3 +6658,16 @@ the one field both gauges share, the original gauge's error in the null directio
 to 57; the swapped gauge is better in angle on one stretch; and one comparison had used different cells on its two
 sides, which, done like for like, only strengthens it. A control in the gauge check could not have failed; it is
 replaced by checks that can, and they pass.
+
+**D403 (2026-10-31): the null-direction convergence settled, and where the original gauge stops.** A fourth, finer
+grid shows the swapped gauge converging at second order in the null directions; the coarser three had not yet
+reached that regime. On the finest grid its error is a few tenths of a percent. The original gauge, examined on its own
+cells, keeps failing on a stretch even well inside its own cut-off, and exactly on cells beyond the swapped gauge's
+cut-off: both gauges stop converging at about the same events, which points away from either gauge as the cause.
+
+**D404 (2026-10-31): the first resolvent bound with a derivative.** The bound on each angular mode of the wave equation
+controlled only the size of the solution. The same identity also controls its radial derivative, and, through the
+split that made the bound uniform in the mode number, its angular derivative too, uniformly in the mode number, with
+a weight that vanishes at the photon sphere, where light can orbit and no such estimate can be uniform without loss.
+The constants are explicit and certified at one frequency, and a direct computation sits well inside them. It is a
+first step from these simple norms toward the record's.
