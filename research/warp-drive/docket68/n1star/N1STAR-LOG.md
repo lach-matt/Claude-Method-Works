@@ -6346,3 +6346,11 @@ are then purely angular, and the cross couplings vanish at leading order (FAMILI
 costs (propagating the gauge condition with a source, comparing the two gauges, and the absence of further large
 coefficients) is left to the two-family computation of step 4.
 
+**D365 (2026-10-31): the longest loop in the loss is set by a choice.** The chain of levels that dominates the loss d
+climbs in steps smaller than α − 4, because each level gains what the decay of the background's correction allows.
+The top order α is capped at 4 + ε_K, and the record states the cap as the order that four zero-energy solves reach.
+No obstruction is named. So a fifth solve, if the next term of the zero-energy expansion exists in five dimensions,
+would make the step about 1, cutting the chain from more than 65,000 levels to about three (LOSS-D.md LD6). Whether
+that term exists is the open question: logarithms enter the free resolvent's expansion in even spatial dimension. The
+nested loop set by the constraint damping's gap is not touched.
+

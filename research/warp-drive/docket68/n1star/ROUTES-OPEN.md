@@ -4639,6 +4639,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   sup over a strip <= max(7 + 2 ceil(ell_I - lambda_-), 12) for 3 < ell_I < 3.5, so l' = 30 with lambda_- just below
   3/2. Verifier 166 (D358): forms and d_1 = 0 hold; the strip rule repaired; s_c >= 0 chosen; Cor 3.1 (2) loses l'.
   Remaining: E1'a (numbers for the data and the free choices) and E1'c (the counts).
+- D365 (LOSS-D LD6): the beta-chain's step alpha - 4 is the gain of R_q (coefficients of K+-order (alpha - 2)-), and the
+  cap alpha <= 4 + eps_K is the order four zero-energy solves reach (I12:14-16, 528-529), no obstruction named. Lever,
+  not examined: a fifth solve, if the sigma^4 zf term exists at n = 4 (logs in even n to check), takes alpha towards 5,
+  the step to about 1 and K from > 6.5 x 10^4 to about 3. The nested level-3 loop (eps_ind) is untouched.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

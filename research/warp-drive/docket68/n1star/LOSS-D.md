@@ -1,8 +1,8 @@
 # LOSS-D -- the loss d of III.J''' Theorem 4.1, added up as far as the record allows (E1')
 
-Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357); read by verifier 164 (D348), whose
-three major findings (the structure of d, the scope of LD3, a second nested loop) and its minor findings and nits are
-seated (LD4). Section 2b to be read.
+Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), LD6 (D365). Read by verifier 164
+(D348), whose three major findings (the structure of d, the scope of LD3, a second nested loop) and its minor findings
+and nits are seated (LD4); section 2b read by verifier 166 (D358), findings seated. LD6 to be read.
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J''''s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -244,6 +244,20 @@ loop counts of section 3.
   (G1). Since ε_ind is at most this gap, at every admissible point ε_K < ε_ind < 3.1 × 10⁻⁵, so LD3's counts improve by
   at most about ten: K > 6.5 × 10⁴, the d this proof produces exceeds 1.3 × 10⁵, and the nested loop runs more than
   5 × 10⁸ rounds. A gap of order one needs a different constraint damping, not a different point of this one.
+
+- LD6 (the β-chain's step is set by the top order, and the top order is a choice; D365). (i) The step bound
+  β_(k+1) − β_k < α − 4 comes from R_q u ∈ 𝒴⁰_2(β) for β < β_k + α − 4 (I15:324, 328-329, Lemma 2.3 with w = β_k − 2).
+  R_q's coefficients, from q, have K⁺-order (α − 2)−, and R_q is of second order, so a level gains α − 4. (ii) The cap
+  α ≤ 4 + ε_K is stated as the order that four zero-energy solves reach: "The source reaches the order α_K = 4+ε_K
+  through zero-energy solves ... The zf-Taylor expansion ... has four terms (orders σ⁰, …, σ³, as α − 1 > 3)"
+  (I12:14-16); "The order α_K = 4+ε_K needs four zero-energy solves" (I12:528-529). No indicial root or resonance is
+  named there as blocking a higher order. (iii) So a lever for LD3 (i), not yet examined: a fifth solve would carry the
+  zf expansion to σ⁴. If that term exists at n = 4, without a log term or a zero-energy obstruction (to be checked: n = 4
+  is even, where logarithms enter the free resolvent's expansion), it would take α towards 5. The step would then be
+  about 1 and K about 3, against K > 6.5 × 10⁴ now. The exclusions of ε_K (I11:152-154) would then have to hold on the
+  longer range. The source's one-step route needs, among other conditions, the background's K⁺-order
+  α − 2 − ε ≥ 4 + ε_K (I15:14-16), so α above 6 + ε_K, two orders further. LD3 (ii), the nested level-3 loop, is set
+  by ε_ind and is untouched by this lever (LD5).
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.
