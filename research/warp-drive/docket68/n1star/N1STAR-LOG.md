@@ -6564,3 +6564,12 @@ either cut-off the converged region ends where that radius drops to about half t
 where the original gauge also failed. Whether that is the solver's treatment of the axis at small radius or the
 geometry itself is still undecided; the next comparison uses the size of the circle that stays finite on that axis,
 which does not depend on the gauge.
+
+**D393 (2026-10-31): measured in what the geometry contains, the swapped gauge goes further.** The field whose
+non-convergence marked the swapped gauge's limit is one that drops out of the metric on the axis where it failed, so
+its error there says little about the spacetime. Measured instead in the fields the metric is built from, and in the
+size of the circle that survives on that axis, which both gauges must agree on, the swapped-gauge solution converges
+with the angular resolution to about v = 3 of 4.5 away from the cut-off, by factors of 6 to 50 per refinement, and
+stays resolved to better than one part in a thousand beyond that. The original gauge, measured the same way, fails
+just after 1.65. The cells right at the cut-off are resolved less well, and the curvature domain is not imposed in
+these figures.

@@ -4646,6 +4646,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   converged region is where every node keeps R >= ~0.54; in dnsolve5 too the onset was at x = -1 with R ~ 0.52. K at
   the onset cells is not computable (they border the cut); x_K = 0.048 inward at v = 1.9. Axis treatment at small R
   versus geometry: not decided; next, the invariant circle g_22 on the axis across gauges.
+- D393 (checks/g1geom5.py, computed on the saved runs): m drops out of the metric at x = -1, so |dm| there is not a
+  geometric measure. In the swapped gauge the metric's fields P, Q, R, W converge in angle to v ~ 3 away from the cut
+  (|dP| M24-M32 1.7e-6, 2.0e-5, 3.7e-5 on [2, 3), falling 6-50 per step) and stay below 7e-4 to v = 4.6; the axis
+  circle g22 = R^2 e^(8n/3) on x = -1 converges to v = 2.5. dnsolve5: |dP| 0.019 on [1.65, 1.8), 2.75 on [2, 2.25).
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 

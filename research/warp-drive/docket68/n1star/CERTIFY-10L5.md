@@ -320,10 +320,30 @@ No other component is nonzero. So the scheme is the following.
   as they border the cut and the Kretschmann stencil reaches masked neighbours. Inward, at v = 1.9, x_K = 0.048 on
   the section. In dnsolve5's gauge, too, the onset was at the x = −1 axis with R about 0.52 there (D381). Whether this
   is the axis treatment at small R or the approach of the axis to the singularity is not decided by these runs.
+- *The metric's own fields (D393, computed).* m drops out of the metric at x = −1 (P = −2n/3, Q = 4n/3 there), so a
+  maximum of |Δm| over x is not a geometric measure near that axis. The fields the metric contains are P, Q, R, W
+  and s.
+  - *On the axis.* The circle that survives on x = −1 has size g_22 = R² e^(8n/3), and as a function of (u, v) it is
+    the same in both gauges. In the swapped gauge it converges in angle to v = 2.5, M24-M32 against M16-M24:
+    1.1 × 10⁻⁶ on [2, 2.25) and 1.8 × 10⁻⁵ on [2.25, 2.5), against 6.3 × 10⁻⁵ and 5.7 × 10⁻⁵. In dnsolve5's gauge it
+    differs by 0.19 between M24 and M32 already on [1.65, 1.8). Between the gauges it agrees to 1.9 × 10⁻³ on
+    [0.5, 1) and 1.4 × 10⁻² on [1, 1.5), the size of the (u, v) error.
+  - *Over the section, away from the cut.* On the kept cells, with each v-column's last 10 kept rows (those next to
+    the cut) dropped, max |ΔP| between M24 and M32 is 1.7 × 10⁻⁶ on [2, 2.25), 2.0 × 10⁻⁵ on [2.25, 2.5) and
+    3.7 × 10⁻⁵ on [2.5, 3). Between M16 and M24 it is 8.3 × 10⁻⁵, 2.1 × 10⁻⁴ and 2.3 × 10⁻⁴: a fall of 6-50 per step.
+    Q, R and W behave the same way.
+  - *Beyond v ≈ 3* the differences no longer fall: |ΔP| is 9.9 × 10⁻⁵ → 2.9 × 10⁻⁴ on [3, 3.5) and
+    2.4 × 10⁻⁴ → 6.8 × 10⁻⁴ on [3.5, 4.6). They stay below 7 × 10⁻⁴ to the end of the domain.
+  - *Next to the cut*, the last 10 rows, the differences are up to about 10⁻³, spread over the section.
+  - *dnsolve5, the same measure.* |ΔP| between M24 and M32 is 0.019 on [1.65, 1.8) and 2.75 on [2, 2.25).
+  - So the swapped gauge's metric converges in angle to v ≈ 3 of 4.5 away from the cut, and is resolved to below
+    7 × 10⁻⁴ beyond. Its m does not converge at x = −1 beyond v ≈ 2.1, where m is not part of the metric. 𝒟_q is not
+    imposed in these numbers.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
-  the computed solution is a converged approximation on 𝒟_q up to v ≈ 2.1 of 4.5 in the swapped gauge (v ≈ 1.65 in
-  dnsolve5's, in (u, v) and in angle). In the swapped gauge the convergence in angle is measured, and in (u, v) the
-  evidence is the section volume alone. At the second seed it holds to v ≈ 3-3.5. Beyond, it fails to converge at an
+  the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in dnsolve5's gauge (on 𝒟_q, in (u, v)
+  and in angle). In the swapped gauge, the metric's fields P, Q, R, W converge in angle to v ≈ 3 away from the cut
+  and stay within 7 × 10⁻⁴ beyond (D393), while m does so only to v ≈ 2.1. In (u, v) the swapped gauge's evidence is
+  the section volume alone. At the second seed it holds to v ≈ 3-3.5. Beyond, it fails to converge at an
   axis: at x = −1 for λ = 1 (in the swapped gauge, at the run's cut on the axis node, D391), and at x = +1 for the
   second seed. G1 is not yet answered to the end of the domain.
 
