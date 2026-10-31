@@ -4928,6 +4928,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   coefficient (a Riccati equation in the data; W_v = 0 still solves it); "then everywhere" in D440 replaced by "where
   the linear characteristic problem has uniqueness"; "exact" is exact in the transverse jets, the tangential data
   spot-checked over 3 seeds per n; the non-null control also perturbs g_vA; "H" includes its derivatives.
+- D442 (LOSS-D LD9, checks/s1coef5.py S1-S5, computed): the rho^(2+d1) coefficient A of the s1 state, solved from the
+  horizon on Tangherlini (mu = 1, gam_H = 1/10) with c_Ups = zeta r^-1 dt and c_Ups,H = -(1/2) eta dr, in ingoing
+  coordinates. Horizon exponents 0 (x4), 1, -1 (the 1 a resonance, handled): three smooth solutions. A agrees to ten
+  digits across matching radii, starts and tolerances. A = 2.584 (z = 1/2), 2.662 (z = 1/8 along gam_U -> 0), 10.99 (z =
+  1/8 along e_U -> 0). Over 22 cut-off choices A changes with every one (by up to 1.8 at z = 1/2): D415's dependence on
+  the cut-offs, asserted until now, is computed. A stays positive throughout; no zeta with A = 0 found. Open: the
+  record's point, the dual state, whether some zeta removes the term, and the bumped cut-offs' admissibility for III.D'
+  Prop. 4.1 beyond the matching being solvable.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

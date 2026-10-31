@@ -389,13 +389,13 @@ loop counts of section 3.
       K > 2/δ_G = 4.0 × 10⁷.
     - (G) can still bind through Definition 1.1's generators the record does not list (π_1 ℰ_++, 𝒢, ℰ^C_I,
       2 + π_1 ℰ_col and the increments of ℰ^ι_ind; I11:66-71): each adds bases, and every base adds a residue below d1.
-  - *Not decided.* Whether the coefficient of ρ^(2+d1) is nonzero, so that ℰ_ind contains d1 (the record keeps ℰ_ind
-    as a bound), and δ_G over the unlisted generators. The sl offsets are δ_l = z l/(2(l + 1)(2l +
-    1)) + O(z²) and δ′_l = (l + 2)z/(2(l + 1)(2l + 3)) + O(z²) (GAUGEPOT:194 prints δ′_l; both follow from ∂_z s_l,j =
-    (s − κ)/(2s − 2 − 2κ − z) on Q_l's roots). Entering with integer parts l − 1 and l, at most one of them fits in a
-    sum. That adds shifts to d1's multiples and could lower the bound below 5.0 × 10⁻⁸ [computed, D430: it does not],
-    but it cannot bring the O(z²) parts into play. (D408 said "if they all enter, δ_G
-    is set by the O(z²) parts"; withdrawn, D413.)
+  - *Not decided.* Whether the coefficient of ρ^(2+d1) is nonzero, so that ℰ_ind contains d1 (the record keeps ℰ_ind as a
+    bound; at every cut-off computed it is nonzero, D442), and δ_G over the unlisted generators. The sl offsets are δ_l =
+    z l/(2(l + 1)(2l + 1)) + O(z²) and δ′_l = (l + 2)z/(2(l + 1)(2l + 3)) + O(z²) (GAUGEPOT:194 prints δ′_l; both follow
+    from ∂_z s_l,j = (s − κ)/(2s − 2 − 2κ − z) on Q_l's roots). Entering with integer parts l − 1 and l, at most one of
+    them fits in a sum. That adds shifts to d1's multiples and could lower the bound below 5.0 × 10⁻⁸ [computed, D430: it
+    does not], but it cannot bring the O(z²) parts into play. (D408 said "if they all enter, δ_G is set by the O(z²)
+    parts"; withdrawn, D413.)
   - *The local expansion does not decide it (D412; `checks/s1reson5.py`, exact).* The s1 state is dx¹ + w. On
     Tangherlini, □^Υ(dx¹) starts at ρ⁴, which is the order resonant with the root 2 + d1:
     F4 = μ(−2γ_Υ(e_Υ + 2), −3, 1) on (dt, dr, dχ).
@@ -409,8 +409,17 @@ loop counts of section 3.
       1/z.
     - So the coefficient of ρ^(2+d1) is that of the homogeneous decaying solution, fixed by regularity at the horizon:
       a global question, not a local one.
-    - It is computable: solve the s1 system from the horizon at z where d1 is not small (z ≤ ½ is allowed, d1 ≈ z/12),
-      read the coefficient off, and follow it in z.
+    - Computed (D442; `checks/s1coef5.py` S1-S5): the s1 system solved from the horizon at z = 1/2 and z = 1/8 (d1 =
+      0.0375 and 0.0101), μ = 1, γ_Υ,H = 1/10, c_Υ = ζ r⁻¹ dt (ζ = 0 near the horizon, where dt is singular, and 1 for r
+      ≥ 2.5) and c_Υ,H = −½η dr (η = 1 near the horizon, 0 for r ≥ 1.8), in ingoing coordinates. The ODEs reproduce
+      genstates5's operator in static coordinates. The solutions smooth at the horizon are three power series: its
+      exponents are 0 four times, 1 and −1, the 1 handled as a resonance. At infinity the state is u_0 + A u_(2+d1) + B3
+      u_λ3 + B4 u_4, u_0 the series from dx¹ with the logarithm the roots 0 and 4 force, the others with unit leading
+      vectors. A agrees to ten digits over two matching radii, two starting radii and two tolerances.
+    - A = 2.584 at z = 1/2 (γ_Υ = e_Υ = 1/2) and 2.662 at z = 1/8 reached along γ_Υ → 0 (γ_Υ = 1/4, e_Υ = 1/2); at z =
+      1/8 reached along e_Υ → 0 (γ_Υ = 1/2, e_Υ = 1/8) it is 10.99, about four times larger, as the local picture above
+      leads one to expect (there the near-resonant particular solution grows like 1/e_Υ). Two points on each branch at
+      most; the record's point (z = 4 × 10⁻⁶) is not computed.
   - *The global problem depends on choices the record leaves open (D415, deduced).* The s1 state solves □^Υ_b ω = 0
     and is smooth on X (D4:109-111), so its ρ^(2+d1) coefficient depends on □^Υ_b everywhere, not only near infinity.
     The record fixes c_Υ only near infinity: c_Υ = ζ(|x|)|x|⁻¹ dt with ζ = 1 for large |x|, and c_Υ,H = −½χ(|x|) d|x|
@@ -420,15 +429,16 @@ loop counts of section 3.
       whose ρ^(2+d1) coefficient is the pairing of that source with the dual state of the root 2 + d1.
     - That pairing is an integral against δζ (or δχ). It vanishes for every variation only if its integrand vanishes
       identically, which nothing in the record forces.
-    - So whether d1 ∈ ℰ_ind is a property of the cut-offs, not of the record. Generically it is (asserted, not shown: it
-      depends on the cut-offs unless the pairing integrand vanishes identically, which is not computed; D429), and a
-      choice of ζ
-      solving one real equation would remove this state's term (one for all S ∈ 𝒮_1, as ζ and χ are rotation
-      invariant).
+    - So whether d1 ∈ ℰ_ind is a property of the cut-offs, not of the record. The dependence is computed (D442; it had
+      been asserted, D429): over 22 choices of ζ and η (transition intervals moved, compactly supported bumps of
+      amplitude up to 100 added to ζ on [1.6, 2.4] or [2.55, 2.95], or to η near the horizon), A changes with every one,
+      by up to 1.8 at z = 1/2. It stays positive throughout (from 0.98 to 2.74 at z = 1/2, 1.25 to 2.82 and 6.6 to 11.2
+      at the two z = 1/8 points). A ζ solving the one real equation A = 0 would remove this state's term (one for all S ∈
+      𝒮_1, as ζ and χ are rotation invariant), but none was found in these families.
     - For the loss d: the record keeps ℰ_ind as a bound valid for its choices, so LD9's δ_G ≤ 5.0 × 10⁻⁸ is the one to
-      carry unless ζ is chosen to exclude d1. The horizon computation proposed under D412 would give the coefficient
-      for one choice of ζ and χ only.
-    - Not computed: the dual state, and a variation for which the pairing is nonzero.
+      carry unless ζ is chosen to exclude d1. At every cut-off computed (D442) the state does carry d1.
+    - Not computed: the dual state, the record's point, and whether some ζ makes A vanish. A variation for which the
+      pairing is nonzero: every one computed in D442.
 
 - LD10 (ε_ind as D4 defines it; computed, D420 after verifier 182; `checks/epsind5.py` E1-E2, exact).
   - *The definition.* D4:54-57 lets ℳ be "the finite set of real numbers in [−10, 10] of the form Re λ + j", λ an
