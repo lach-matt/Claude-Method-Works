@@ -295,11 +295,13 @@ def gauge_check(out, verbose, wrong=False):
 
     def cc(e):
         return sp.expand(e.subs(conc).doit())
+    def hc(e):
+        return {k: cc(c) for k, c in harmonics(e).items() if k[0]*k[1] != 0}
     R0 = [[None]*N for _ in range(N)]
     for (b_, c_), val in out.items():
         if isinstance(b_, int):
-            R0[b_][c_] = R0[c_][b_] = harmonics(cc(val[1]))
-    D1h = [harmonics(cc(e)) for e in out["D1"]]
+            R0[b_][c_] = R0[c_][b_] = hc(val[1])
+    D1h = [hc(e) for e in out["D1"]]
     keys = {k for i in range(N) for j in range(N) for k in R0[i][j] if k[0]*k[1] != 0}
     keys |= {k for h in D1h for k in h if k[0]*k[1] != 0}
     random.seed(7)
