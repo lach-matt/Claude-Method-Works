@@ -6478,3 +6478,9 @@ comparison carried to two more frequencies (every bound above the computed norm)
 attributed to the flux step, not to trapping. The repaired loss-lever account stands; which reading of a small
 constant the record uses, and that a further gap condition is not shown to bind, are now stated.
 
+**D383 (2026-10-31): the two-phase gauge condition at the next order.** With the mixed terms of the correction fixed
+by the leading equation, the gauge condition at the next order holds on them too, as the Bianchi identity says it must
+where the mixed symbol does not vanish: tested on concrete functions at random points, the residual is at rounding
+level, while the same test with the correction's sign flipped fails. The pure terms at that order, which need the
+correction's own transport, are not checked.
+

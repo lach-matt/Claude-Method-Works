@@ -4754,4 +4754,6 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   of the mean are automatic; the Isaacson law is an input; gauge condition (L5 analogue) and H not derived: listed.
 - D381: stage0two5 T6: the gauge 1-form D vanishes at order lam^0 (each W transverse to its generator, traceless).
   ghat_2's gauge condition at order lam is still not checked.
+- D383: stage0two5 T7 (--gauge): with ghat_2's mixed harmonics fixed by T4, the order-lam gauge 1-form vanishes on
+  them (numerical identity test on concrete functions: 5e-18 against 2.8e-2 over 16 harmonics; wrong sign fails).
 

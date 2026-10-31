@@ -152,9 +152,12 @@ So Stage 0 of the two-phase ansatz closes on any round double-null background wh
 stress. What it does not give:
 
 - the background itself, a solution of Einstein-two-null-dusts in the class (a characteristic problem, not attempted);
-- the gauge condition beyond leading order: at order λ⁰ the gauge 1-form D = g^(ab)(Γ − Γ0)_(ab) vanishes (T6, D381;
-  each W is transverse to its own generator and traceless, `lead5.py`'s L5), but ĝ_2's own gauge condition at order λ
-  is not checked;
+- the gauge condition beyond what is checked: at order λ⁰ the gauge 1-form D = g^(ab)(Γ − Γ0)_(ab) vanishes (T6,
+  D381; each W is transverse to its own generator and traceless, `lead5.py`'s L5). At order λ, on the mixed
+  harmonics, the waves' part plus ĝ_2's fast divergence vanishes once ĝ_2 is fixed by T4 (T7 with `--gauge`, D383: a
+  numerical identity test of the exact assembly on concrete functions at random points, residual 5 × 10⁻¹⁸ against
+  2.8 × 10⁻² over 16 harmonics; ĝ_2 of the wrong sign fails). The pure harmonics at order λ, which need ĝ_2's own
+  transport, are not checked;
 - the profile H: it is imposed, the record's, not derived for the outgoing family;
 - the next stages (ĝ_2's own transport at order λ, and the mixed terms it feeds back);
 - the energy estimate with the two large couplings of section 1.
