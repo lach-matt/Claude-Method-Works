@@ -120,16 +120,21 @@ V with g_λ, and B := M ∩ {t_IVP ≥ 0} with g.
     most once. Suppose it misses Σ.
     - D̊ ∖ Σ lies in I⁺(Σ) ∪ I⁻(Σ), which are open and disjoint by achronality. So γ lies in one of them, say I⁺(Σ).
     - Fix p on γ, let γ₋ be its past part, and pick p′ ∈ I⁺(p) ∩ D̊ ∩ I⁺(Σ), non-empty as D̊ ∩ I⁺(Σ) is an open
-      neighbourhood of p; p′ ∈ D⁺_I(Σ). Let c be a timelike curve from p′ to p. Then c·γ₋ lies in I⁺(Σ) (push-up), so
-      it misses Σ, and as p′ ∈ D⁺_I(Σ) it is not past-inextendible in M. So γ₋ has a past endpoint q, with
-      q ∈ J⁻(p) ⊂ I⁻(p′).
+      neighbourhood of p. Then p′ ∈ D⁺_I(Σ), not D⁻_I(Σ), as D⁻_I(Σ) ∖ Σ lies in I⁻(Σ), which is disjoint from
+      I⁺(Σ). Let c be a timelike curve from p′ to p. It lies in I⁺(p) ⊂ I⁺(Σ) by transitivity of ≪, and γ₋ lies in
+      I⁺(Σ) by the case, so c·γ₋ misses Σ. As p′ ∈ D⁺_I(Σ), it is not past-inextendible in M. So γ₋ has a past
+      endpoint q, with q ∈ J⁻(p) ⊂ I⁻(p′) (push-up, I ∘ J ⊂ I).
     - If q ∈ I⁺(Σ): [Chr11] Proposition 2.9.7 (I⁻(p′) ∩ J⁺(S) ⊂ D⁺_I(S)) puts the open set I⁻(p′) ∩ I⁺(Σ) inside
       D⁺_I(Σ). So q ∈ D̊ and γ₋ extends in D̊.
-    - If q ∉ I⁺(Σ): continue c·γ₋ past q as a past-inextendible timelike curve. It meets Σ, at some s ∈ J⁻(q). Either
-      s = q ∈ Σ ⊂ D̊, and γ₋ extends in D̊; or q ∈ I⁺(s) ⊂ I⁺(Σ), against the case.
+    - If q ∉ I⁺(Σ): continue c·γ₋ past q as a past-inextendible timelike curve (the concatenation is a curve of
+      [Chr11]'s class, section 2.3, which is not read here). It meets Σ, at some s ∈ J⁻(q). Either s = q ∈ Σ ⊂ D̊, and
+      γ₋ extends in D̊; or q ∈ I⁺(s) ⊂ I⁺(Σ), against the case.
     - Either way γ is extendible in D̊, a contradiction. ∎
-  - The push-up (J⁺(x) ⊂ I⁺(Σ) for x ∈ I⁺(Σ)) is [Chr11] Lemma 2.4.14, as invoked in the proof of Proposition 2.9.7;
-    its statement is not read here.
+  - The push-up used is I ∘ J ⊂ I, in J⁻(p) ⊂ I⁻(p′). [Chr11] invokes its Lemma 2.4.14 for a step of this kind in the
+    proof of Proposition 2.9.7; the lemma's statement is not read here (D395, verifier 178).
+  - "Without boundary" is [Chr11]'s convention (p. 44): a hypersurface is an embedded submanifold of codimension one,
+    assumed to have no boundary. Σ, the graph over the open shell, is one. Whether the convention also excludes an
+    edge in the sense of achronal sets is not read here.
   - [Sbi15] Theorem 2.6 gives a common development near Σ (Choquet-Bruhat's local uniqueness).
   - Theorem 3.4 gives the maximal one, U ⊂ int_N D(Σ) with an isometric embedding ψ into Ω′. As a common development
     of two developments of the same data, ψ preserves the time orientation and the embedding of Σ (Definitions

@@ -12,8 +12,7 @@ and left the background unconstructed. Here:
      and the two remaining equations are the Raychaudhuri constraints
          C_u := R_uu - 2 s_u R_u + B/(3 R^2) = 0,    C_v := R_vv - 2 s_v R_v + A/(3 R^2) = 0.
   B2 (exact) the constraints propagate: modulo the evolution, d_v (R^2 C_u) = 0 and d_u (R^2 C_v) = 0 identically,
-     because B depends on u alone and A on v alone. Control: with B = B(u, v), d_v (R^2 C_u) = R dB/dv / 3 (up to the
-     factor), not zero. So data satisfying C_v on u = u0 and C_u on v = v0 give, through the evolution, a solution.
+     because B depends on u alone and A on v alone. Control: with B = B(u, v), d_v (R^2 C_u) = d_v B / 3, not zero. So data satisfying C_v on u = u0 and C_u on v = v0 give, through the evolution, a solution.
   B3 (exact) the mass function mu := R^2 (1 + 2 e^(-2s) R_u R_v) (g0^(ab) dR_a dR_b = 1 - mu/R^2) obeys, on solutions,
          mu_v = -(2/3) A e^(-2s) R_u,     mu_u = -(2/3) B e^(-2s) R_v:
      where R_u < 0 < R_v the ingoing dust adds mass and the outgoing dust carries it away.
@@ -87,7 +86,10 @@ def exact_checks():
     sol = sp.solve([Ruv, Rth], [sp.Derivative(Rf, u, v), sp.Derivative(sf, u, v)], dict=True)
     b1 = (len(sol) == 1 and all(sp.simplify(sol[0][k] - EVO[k]) == 0 for k in EVO)
           and all(sp.simplify(o) == 0 for o in off) and sp.simplify(Ric(3, 3)/sp.cos(th)**2 - Rth) == 0
-          and sp.simplify(Ric(0, 0) - 3*(2*sp.diff(Rf, u)*sp.diff(sf, u) - sp.diff(Rf, u, 2))/Rf) == 0)
+          and sp.simplify(Ric(0, 0) - 3*(2*sp.diff(Rf, u)*sp.diff(sf, u) - sp.diff(Rf, u, 2))/Rf) == 0
+          and sp.simplify(Ric(1, 1) - 3*(2*sp.diff(Rf, v)*sp.diff(sf, v) - sp.diff(Rf, v, 2))/Rf) == 0
+          and all(sp.simplify(Ric(i, j)) == 0 for i, j in ((0, 4), (1, 3)))
+          and sp.simplify(Ric(4, 4)/sp.sin(th)**2 - Rth) == 0)
     ok["B1"] = b1
     Cu = sp.diff(Rf, u, 2) - 2*sp.diff(sf, u)*sp.diff(Rf, u) + Bf/(3*Rf**2)
     Cv = sp.diff(Rf, v, 2) - 2*sp.diff(sf, v)*sp.diff(Rf, v) + Af/(3*Rf**2)

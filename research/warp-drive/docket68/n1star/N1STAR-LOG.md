@@ -6582,3 +6582,14 @@ bounded by, at twice the constant. So every bound proved for real frequencies ex
 whole upper half plane for every harmonic from the first, and for the lowest harmonic in the sector where the real
 part dominates. A direct computation at four distances from the axis gives norms well below the bound and below the
 general bound for a self-adjoint operator, which checks the computation itself.
+
+**D395 (2026-10-31): verifier 178 seated; D393 cut back.** Three of D393's statements went further than the
+measurements. The field said to have dropped out of the metric on the axis does enter it there, through the metric's
+rate of change across the axis and so through the curvature on the axis; and on the axis it stops converging at
+about v = 2.25, so the curvature there is not converged beyond that. The claim that the metric converges to about
+v = 3 away from the cut-off depended on how many rows next to the cut-off were left out: with three rows left out it
+reaches about 2.25, with forty the whole domain, the error rising steadily toward the cut-off. And the late
+differences grow with the resolution, so they give no error estimate. What stands: the metric's values converge in
+angle on a strip below the cut-off, much further than in the original gauge; the axis geometry does so only to about
+v = 2.25. The gluing argument, the two-dust background and the parameter-row repair were confirmed, with small
+corrections to their wording.

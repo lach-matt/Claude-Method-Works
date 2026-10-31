@@ -4650,6 +4650,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   geometric measure. In the swapped gauge the metric's fields P, Q, R, W converge in angle to v ~ 3 away from the cut
   (|dP| M24-M32 1.7e-6, 2.0e-5, 3.7e-5 on [2, 3), falling 6-50 per step) and stay below 7e-4 to v = 4.6; the axis
   circle g22 = R^2 e^(8n/3) on x = -1 converges to v = 2.5. dnsolve5: |dP| 0.019 on [1.65, 1.8), 2.75 on [2, 2.25).
+- D395 (verifier 178): D393 corrected. m at x = -1 is geometric (in the metric's x-derivative and the axis curvature,
+  K ~ (3 - 28m - 8n + 16 n_x) e^(4n/3)/(3R^2)); it does not converge on the axis beyond v ~ 2.25, so the axis
+  curvature is unconverged there. "To v ~ 3" depended on dropping k = 10 rows: k = 3, 10, 20, 40 give ~2.25, 3, 3.5,
+  4.6, the error rising toward the cut (frozen at u = -1.0557 from v ~ 2.4). "Below 7e-4" withdrawn: beyond v ~ 3 the
+  differences grow with M (kept-cell max 7e-3, at x = +1). M32 tails exceed M24's from v ~ 2. D388-D390 sound
+  (nits seated); g1geom5 now compares s, scans k, splits m on/off the axis, prints tails.
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 

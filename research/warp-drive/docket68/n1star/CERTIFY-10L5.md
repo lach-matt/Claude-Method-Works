@@ -311,39 +311,59 @@ No other component is nonzero. So the scheme is the following.
       node next to x = +1, and x_K = 0.001 came from dnsolve5's run, which is not converged there. Both are
       withdrawn.
 - *An invariant cut (D392; `dnsolve5v.py ... vol`, computed).* The cut was moved to the areal radius (V/2π²)^(1/3) of
-  the invariant section volume, with R ≥ r_cut/2 at every node as a floor for the solve. The runs keep about 4,600 more
-  cells at 800 × 360 (169,722 at M = 24, against 164,855 with the node cut). Those cells are where R at the x = −1
-  node falls to 0.27-0.34 while the areal radius stays at or above 0.54, and they do not converge in angle: |Δm| between
-  M = 24 and 32 exceeds 10⁻⁴ from v = 1.46 (u = −0.940, x = −0.9988, areal radius 0.545, node R 0.34) and 10⁻² from
-  v = 1.58. So under either cut the converged region of the swapped gauge is where R at every node stays at or above
-  about 0.54; the failure follows small R at the x = −1 axis node. The curvature at those cells cannot be evaluated,
-  as they border the cut and the Kretschmann stencil reaches masked neighbours. Inward, at v = 1.9, x_K = 0.048 on
-  the section. In dnsolve5's gauge, too, the onset was at the x = −1 axis with R about 0.52 there (D381). Whether this
-  is the axis treatment at small R or the approach of the axis to the singularity is not decided by these runs.
-- *The metric's own fields (D393, computed).* m drops out of the metric at x = −1 (P = −2n/3, Q = 4n/3 there), so a
-  maximum of |Δm| over x is not a geometric measure near that axis. The fields the metric contains are P, Q, R, W
-  and s.
-  - *On the axis.* The circle that survives on x = −1 has size g_22 = R² e^(8n/3), and as a function of (u, v) it is
-    the same in both gauges. In the swapped gauge it converges in angle to v = 2.5, M24-M32 against M16-M24:
-    1.1 × 10⁻⁶ on [2, 2.25) and 1.8 × 10⁻⁵ on [2.25, 2.5), against 6.3 × 10⁻⁵ and 5.7 × 10⁻⁵. In dnsolve5's gauge it
-    differs by 0.19 between M24 and M32 already on [1.65, 1.8). Between the gauges it agrees to 1.9 × 10⁻³ on
-    [0.5, 1) and 1.4 × 10⁻² on [1, 1.5), the size of the (u, v) error.
-  - *Over the section, away from the cut.* On the kept cells, with each v-column's last 10 kept rows (those next to
-    the cut) dropped, max |ΔP| between M24 and M32 is 1.7 × 10⁻⁶ on [2, 2.25), 2.0 × 10⁻⁵ on [2.25, 2.5) and
-    3.7 × 10⁻⁵ on [2.5, 3). Between M16 and M24 it is 8.3 × 10⁻⁵, 2.1 × 10⁻⁴ and 2.3 × 10⁻⁴: a fall of 6-50 per step.
-    Q, R and W behave the same way.
-  - *Beyond v ≈ 3* the differences no longer fall: |ΔP| is 9.9 × 10⁻⁵ → 2.9 × 10⁻⁴ on [3, 3.5) and
-    2.4 × 10⁻⁴ → 6.8 × 10⁻⁴ on [3.5, 4.6). They stay below 7 × 10⁻⁴ to the end of the domain.
-  - *Next to the cut*, the last 10 rows, the differences are up to about 10⁻³, spread over the section.
-  - *dnsolve5, the same measure.* |ΔP| between M24 and M32 is 0.019 on [1.65, 1.8) and 2.75 on [2, 2.25).
-  - So the swapped gauge's metric converges in angle to v ≈ 3 of 4.5 away from the cut, and is resolved to below
-    7 × 10⁻⁴ beyond. Its m does not converge at x = −1 beyond v ≈ 2.1, where m is not part of the metric. 𝒟_q is not
-    imposed in these numbers.
+  the invariant section volume, with R ≥ r_cut/2 at every node as a floor for the solve. The runs keep 4,867 more cells
+  at 800 × 360 at M = 24 and 4,045 at M = 32 (169,722 at M = 24, against 164,855 with the node cut). Those cells are
+  where R at the x = −1 node falls to 0.27-0.34 while the areal radius stays at or above 0.54, and they do not converge
+  in angle: |Δm| between M = 24 and 32 exceeds 10⁻⁴ from v = 1.46 (u = −0.940, x = −0.9988, areal radius 0.545, node R
+  0.34) and 10⁻² from v = 1.58. So under either cut the converged region of the swapped gauge lies within the cells
+  where R at every node stays at or above about 0.54: a necessary condition, not a sufficient one, since node-cut cells
+  fail too from v ≈ 2.25 (D395). The failure follows small R at the x = −1 axis node. The curvature at those cells
+  cannot be evaluated, as they border the cut and the Kretschmann stencil reaches masked neighbours. Inward, at v = 1.9,
+  x_K = 0.048 on the section. In dnsolve5's gauge, too, the onset was at the x = −1 axis with R about 0.52 there (D381).
+  Whether this is the axis treatment at small R or the approach of the axis to the singularity is not decided by these
+  runs.
+- *The metric's own fields (D393, corrected D395 after verifier 178).* m is absent from the metric's values at
+  x = −1 (P = −2n/3, Q = 4n/3 there) but enters its x-derivative there and the axis curvature. Holding R constant in
+  x, the Gauss curvature of the (x, φ1) plane at x = −1 is (3 − 28m − 8n + 16 ∂_x n) e^(4n/3)/(3R²) (verifier 178,
+  sympy). The fields' values P, Q, R, W converge more easily than that, as |ΔP| is damped by (1 + x) near the axis.
+  - *Values, away from the cut.* The swapped gauge's metric values converge in angle on a strip that stops short of
+    the cut. Measured with each v-column's last k kept rows dropped, M24-M32 against M16-M24:
+    - k = 3: converged to v ≈ 2.25 (|ΔP| 2.2 × 10⁻⁴ against 8.3 × 10⁻⁴ on [2.25, 2.5); growing on [3, 3.5));
+    - k = 10: to v ≈ 3 (|ΔP| 1.7 × 10⁻⁶, 2.0 × 10⁻⁵, 3.7 × 10⁻⁵ against 8.3 × 10⁻⁵, 2.1 × 10⁻⁴, 2.3 × 10⁻⁴ on
+      [2, 2.25), [2.25, 2.5), [2.5, 3));
+    - k = 20: to v ≈ 3.5;
+    - k = 40: falling 10-20 fold in every band to v = 4.6.
+
+    In every band the largest difference sits exactly k rows from the cut, so the error rises steadily toward the cut.
+    From v ≈ 2.4 the last kept row is frozen at u = −1.0557, where R is 0.92-1.43: the mask there is inherited from
+    earlier columns, not a fresh cut. So the converged region is a strip in u below the cut, and no single v marks
+    its end.
+  - *The axis.* m does not converge at x = −1 beyond v ≈ 2.25: 6.1 × 10⁻² → 2.45 × 10⁻² on [2.25, 2.5) and
+    6.6 × 10⁻² → 3.4 × 10⁻² on [2.5, 3). Off the axis (x > −0.9) it does: 3.4 × 10⁻³ → 2.8 × 10⁻⁴ on [2.25, 2.5). So the
+    metric converges in its values but not in its first and second x-derivatives at the axis, and the axis curvature
+    is not converged beyond v ≈ 2.25.
+  - *The axis circle.* g_22 = R²e^(8n/3) on x = −1 is the same function of (u, v) in both gauges. In the swapped gauge
+    its M24-M32 difference is 1.1 × 10⁻⁶ on [2, 2.25) and 1.8 × 10⁻⁵ on [2.25, 2.5). But over the kept cells the
+    M32 run's last Chebyshev coefficient exceeds M24's from v ≈ 2 (for m 4.2 × 10⁻⁶ against 2.5 × 10⁻⁶ on [2, 2.25),
+    for R 3.2 × 10⁻⁶ against 2.3 × 10⁻⁶). An endpoint value carries the tail undamped (T_k(−1) = (−1)^k), so the
+    extrapolation to the axis is noise-limited from there. Between the gauges the maxima, 1.85 × 10⁻³ on [0.5, 1) and
+    1.4 × 10⁻² on [1, 1.5), are on the last kept row, with medians 5.9 × 10⁻⁶ and 2.8 × 10⁻⁴. Their attribution to
+    (u, v) error is not measured, as no (u, v) refinement of g_22 was run.
+  - *Next to the cut and late.* Over all kept cells (k = 0), |ΔP| between M24 and M32 is 3.4 × 10⁻³ on [3, 3.5) and
+    7.0 × 10⁻³ on [3.5, 4.6), and |ΔW| 5.8 × 10⁻³. For v ≥ 3 these sit at x = +1 on the last kept row. Beyond v ≈ 3
+    (at k = 10) the differences grow with M, so no error estimate is available there. D393's "resolved to below
+    7 × 10⁻⁴ beyond" is withdrawn.
+  - *dnsolve5, the same measure.* |ΔP| between M24 and M32 is 0.019 on [1.65, 1.8) and 2.75 on [2, 2.25) (k = 10).
+  - *The shift s* (compared since D395) converges in angle too, less tightly. At k = 10, M16-M24 against M24-M32 is
+    3.6 × 10⁻² → 1.5 × 10⁻³ on [2.25, 3) and 1.1 × 10⁻² → 3.7 × 10⁻³ on [3, 3.5). At k = 40 it falls in every band,
+    for example 1.8 × 10⁻³ → 2.8 × 10⁻⁵ on [3.5, 4.6). D393's "converges to v ≈ 3 away from the cut" is withdrawn as stated: the
+    extent depends on k, as above (`checks/g1geom5.py LOW HIGH 3 10 20 40`).
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
   the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in dnsolve5's gauge (on 𝒟_q, in (u, v)
-  and in angle). In the swapped gauge, the metric's fields P, Q, R, W converge in angle to v ≈ 3 away from the cut
-  and stay within 7 × 10⁻⁴ beyond (D393), while m does so only to v ≈ 2.1. In (u, v) the swapped gauge's evidence is
-  the section volume alone. At the second seed it holds to v ≈ 3-3.5. Beyond, it fails to converge at an
+  and in angle). In the swapped gauge, the metric's values converge in angle on a strip below the cut whose extent
+  depends on how far from the cut one measures, while m on the axis x = −1, and with it the axis curvature, does not
+  converge beyond v ≈ 2.25 (D393, corrected D395). In (u, v) the swapped gauge's evidence is the section volume
+  alone. At the second seed it holds to v ≈ 3-3.5. Beyond, it fails to converge at an
   axis: at x = −1 for λ = 1 (in the swapped gauge, at the run's cut on the axis node, D391), and at x = +1 for the
   second seed. G1 is not yet answered to the end of the domain.
 
