@@ -6934,3 +6934,9 @@ piece after another, and each piece stays zero if the data obey the surface's ow
 condition holds where the two surfaces meet. Still assumed rather than computed: that such data exist (solving those
 constraints, with the condition where the surfaces meet), the matter terms, and the standard uniqueness theorem for
 data of this kind.
+
+**D441 (2026-10-31): verifier 189 on D440.** Nothing broke. An independent computation, built a different way,
+reproduces the three transport equations and their coefficients, and one of them was also derived by hand in every
+dimension. The corrections are wording. The first equation is linear only once the solution is known (in terms of the
+data alone it is quadratic in the unknown, though zero still solves it), and the summary entry had claimed more reach
+than the main text.

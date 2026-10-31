@@ -4918,9 +4918,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   gamma^AB d_u g_AB (triangular, diagonal g^uv, g^uv, -1/2). E_vv = C_vv - d_v W_v + (kappa - theta/2) W_v; modulo
   W_v's jets along N, E_vA = C_vA - d_v W_A + (chi_A^B - theta/2 delta) W_B; modulo W_v's and W_A's,
   gamma^AB E_AB = C_tr + 2 g^uv d_v W_u - g^uv H_v W_u; the C's are data (the null constraints in the gauge W = 0).
-  So the constraints and W = 0 on S give W = 0 on N and on N', then everywhere by P2 and uniqueness for the linear
-  characteristic problem (standard). Controls fail. Open: solving the gauge-reduced constraints with the corner
+  So the constraints and W = 0 on S give W = 0 on N and on N', then W = 0 where P2's linear characteristic problem
+  has uniqueness (standard, not computed). Controls fail. Open: solving the gauge-reduced constraints with the corner
   conditions at S, the dusts' stress, and the record's solution solving the reduced equation exactly.
+- D441 (verifier 189 on D440; CONFIRMED-WITH-CORRECTIONS, nothing refuted): an independent sympy computation (n = 4,
+  explicit metric, Ricci from Riemann, another pivot rule) reproduces N2, N3's chi_A^B - (theta/2) delta and N4's
+  2 g^uv d_v W_u - g^uv H_v W_u; N2 by hand for general n; candidates of full rank, so the checks are not vacuous.
+  Corrected: kappa contains d_u g_vv, so the W_v transport is linear only with the solution's kappa as a
+  coefficient (a Riccati equation in the data; W_v = 0 still solves it); "then everywhere" in D440 replaced by "where
+  the linear characteristic problem has uniqueness"; "exact" is exact in the transverse jets, the tangential data
+  spot-checked over 3 seeds per n; the non-null control also perturbs g_vA; "H" includes its derivatives.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

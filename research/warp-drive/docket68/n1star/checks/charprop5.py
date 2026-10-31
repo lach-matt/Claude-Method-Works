@@ -21,21 +21,26 @@ Gamma^c_ad, (dstar W)_ab = (1/2)(nabla_a W_b + nabla_b W_a), Ric_ab = d_c Gamma^
   N4  Modulo W_v, W_A and their first derivatives along N: gamma^(AB) E_AB = C_tr + 2 g^(uv) d_v W_u - g^(uv) H_v W_u,
       with C_tr T-free and no d_A W_u term. A transport of W_u, once W_v = W_A = 0 on N.
 
-C_vv, C_vA and C_tr are the null constraints in the gauge W = 0: they involve only g on N, its derivatives along N,
-and H. If the data satisfy them on N and W = 0 on the section S = N cap {v = 0}, then N2, N3 and N4 in turn give
-W_v = 0, W_A = 0 and W_u = 0 on N (linear ODEs along the generators, zero data at S). On N' = {v = 0} the same holds
-with u and v exchanged; the computation is symmetric under that relabelling and is not repeated. propagate5's P2 then
-gives box_g W + Ric(g)(W) = 0 with W = 0 on N and N'.
+C_vv, C_vA and C_tr are the null constraints in the gauge W = 0: they involve only g on N, its derivatives along N, and H
+with its derivatives. If the data satisfy them on N and W = 0 on the section S = N cap {v = 0}, then N2, N3 and N4 in
+turn give W_v = 0, W_A = 0 and W_u = 0 on N (ODEs along the generators, zero data at S; linear with the solution's kappa,
+which contains d_u g_vv, as a coefficient, D441). On N' = {v = 0} the same holds with u and v exchanged; the computation
+is symmetric under that relabelling and is not repeated. propagate5's P2 then gives box_g W + Ric(g)(W) = 0 with W = 0 on
+N and N'.
 
-Controls: N2 with g_vv != 0 on N (a hypersurface that is not null), and with theta in place of theta/2, is not
-T-free; N3 without the reduction modulo W_v has no solution; N4 with the single component E_22 in place of the trace
-has none (the trace-free angular equations carry the trace-free d_v d_u g_AB, not a constraint).
+
+Controls: N2 with g_vv != 0 on N (a hypersurface that is not null; g_vA's jets along N are then random too), and with
+theta in place of theta/2, is not T-free; N3 without the reduction modulo W_v has no solution; N4 with the single
+component E_22 in place of the trace has none (the trace-free angular equations carry the trace-free d_v d_u g_AB, not a
+constraint).
+
 
 Not computed: that the gauge-reduced constraints can be solved on N and N' (ODEs along the generators) with W = 0 on S
 (the corner conditions), the null dusts' stress in place of vacuum, and uniqueness of the characteristic problem for
 the linear wave equation with zero data on N and N'.
 
-Run: python3 charprop5.py   (n = 4 and n = 5, three seeds each; exact)
+Run: python3 charprop5.py (n = 4 and n = 5, three seeds each; exact in the transverse jets, the jets along N and of H
+random rationals)
 """
 import random
 import sys
@@ -263,7 +268,7 @@ def run(n, seed):
     jn = make(n, seed, null=False)
     gn = geometry(jn)
     thn = theta_chi(jn)[0]
-    ctl["g_vv != 0 on N (N2)"] = not (gn["Ric"][V][V] + thn * half * gn["W"][V]).is_ground
+    ctl["g_vv, g_vA != 0 on N (N2)"] = not (gn["Ric"][V][V] + thn * half * gn["W"][V]).is_ground
     return out, ctl, mus3, mu4
 
 
