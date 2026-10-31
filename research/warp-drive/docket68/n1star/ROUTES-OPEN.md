@@ -4655,3 +4655,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (VII1). Open: (a) write (VII4); (b) g_lambda's own data on all of Sigma_IVP, in III.K's class, then Theorem 0.2 (ii);
   (c) r_0 lowered below r_q (census of r_0 in proof5); (d) or the finite-r-time slab by uniform Cauchy stability.
 
+### 4.279 More families: several dusts, angular separation, Vlasov (D361)
+
+- FAMILIES5.md (scoping, nothing proved). The single-family uses: exact eikonal v, one null dust, one lambda^-1 coupling
+  s = w(l, l), one phase-shift identity and transport. N families: N couplings and cross terms
+  [d^2_{theta_j} g1^(j)](l_k, l_k). READ abstracts: Touati arXiv:2402.17530 (multiphase, any number of dusts, 3+1, no
+  symmetry); Huneau-Luk arXiv:2506.21779 (Vlasov via dusts, U(1), small localized). First step proposed: two-phase
+  Stage 0 (v ingoing, u outgoing) in the class; mixed harmonics non-resonant, solved by division.
+

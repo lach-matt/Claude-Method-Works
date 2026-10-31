@@ -6307,3 +6307,12 @@ more than 36 l5². Two limits come with this. It is a continuation fixed by the 
 record's own only where the record's data determine it. Larger masses need the inner radius lowered, which the
 construction makes as a choice. BEYOND5.md says what each of these needs.
 
+**D361 (2026-10-31): more matter families, scoped.** The proof uses a single family of waves in four places: the exact
+null phase, the one null dust it averages to, the single large coupling in the linearization, and the transport that
+regains a derivative. With several families the new difficulty is the cross coupling, each family's large term felt
+by the other's component. The closest published work is Touati's multiphase construction for any number of null dusts
+(3 + 1 dimensions, no symmetry, regular background). For Vlasov matter it is Huneau and Luk's limit through ever more
+dust families (small, localized data under U(1) symmetry). FAMILIES5.md proposes as a first computable step the
+two-family Stage 0 in the class: the ingoing shell crossed by an outgoing packet, whose mixed harmonics are
+non-resonant and solved by division.
+
