@@ -6681,3 +6681,12 @@ The field used to compare the two gauges' accuracy is not gauge-free point by po
 measured instead on the invariant section volume, the original gauge is up to fourteen times more accurate, and
 equally accurate early on. The original gauge's error falls steadily toward the swapped gauge's cut-off rather than
 stopping at an edge. The derivative check gained an independent derivative and pinned constants.
+
+**D406 (2026-10-31): the slowest-decaying part of the record's correction, followed out to spatial infinity.** After
+the shell, the record's correction terms fall off like the inverse square of the distance, with an angular pattern
+fixed on the incoming light cone. Following one such pattern to spatial infinity, in flat space and with nothing
+coming in from past null infinity, gives an exact answer: a finite polynomial in the inverse distance, built from a
+Chebyshev polynomial, because in four space dimensions the relevant recursion stops after finitely many steps. So this
+part of the data reaches spatial infinity with a clean expansion, of the kind the late-time theorem requires, with
+odd angular patterns dropping out at leading order. The curved-space corrections, the remainders, and a term-by-term
+check that the coefficient really stays constant after the shell are not done.

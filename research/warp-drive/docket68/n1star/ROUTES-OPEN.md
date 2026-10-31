@@ -4825,6 +4825,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   reach. The rest is D^-(S), S = Sigma_IVP cap {r >= 4R}: bounded by N = {v = v1} (in Omega' cup P') and I^- at
   v >= v1 > v_end, where nothing comes in. So (b1) a scattering problem near I_0 without incoming radiation, data
   g_lambda on N; (b2) its expansion at I_0 (the means give r^-2 M_m + E_(5/2), a bound, not an expansion); (b3) VII 3.2.
+- D406 (BEYOND5 Lemma 6.5, checks/coulomb5.py K1-K4, exact): the Coulomb part carried to I_0. On 5D Minkowski the
+  solution with data M r^-2 Y_l on N and no incoming radiation is phi_l = M r^-2 U_l(1 - (v - v1)/r) Y_l/(l + 1)
+  (= 2F1(-l, l+2; 3/2; (v - v1)/2r)): the radial recursion stops at j = l + 1 (integer order in four space dimensions).
+  At t = const it is a polynomial in 1/r (rho^2 C^oo), |r^2 phi_l| <= M, value at I_0 M cos(pi l/2)/(l + 1). So the
+  means' leading term on N gives data on S in rho^2 C^oo at the principal level, if M_m is constant after the shell
+  (section 9.3's count suggests so; not checked term by term). Not: Tangherlini corrections, E_(5/2), uniqueness.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 

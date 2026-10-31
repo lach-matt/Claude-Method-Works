@@ -224,6 +224,44 @@ So (b) now consists of three steps:
 - (b1) the scattering problem of (iv), with r-weighted estimates in place of Lemma 9.3's annuli of bounded thickness;
 - (b2) the expansion of its solution at I_0, to put the data on S in III.K's class;
 - (b3) Part VII Proposition 3.2 on g_λ's own data, as above.
+
+**Lemma 6.5 (the Coulomb part, carried to I_0; computed, D406).** On five-dimensional Minkowski space in the chart
+(v, r), ds² = −dv² + 2 dv dr + r² dΩ₃², let N = {v = v1} and let Y_l be a harmonic of S³. Expand φ = Σ_j a_j(v)
+r^(−2−j) Y_l. Then □φ = 0 is (1 + 2j) a_j′ = −(l + 1 − j)(l + 1 + j) a_(j−1). The recursion stops at j = l + 1,
+because in four space dimensions the radial order is the integer l + 1. With a_0 = M and a_j(v1) = 0 for j ≥ 1,
+
+    φ_l = M r⁻² ₂F₁(−l, l + 2; 3/2; (v − v1)/(2r)) Y_l = M r⁻² U_l(1 − (v − v1)/r) Y_l / (l + 1),
+
+U_l the Chebyshev polynomial of the second kind (the Gegenbauer polynomial of S³).
+
+- φ_l is the solution with data M r⁻² Y_l on N and no incoming radiation (r^(3/2) φ_l → 0 at fixed v).
+- On a slice t = const (v = t + r), r² φ_l is a polynomial in ρ = 1/r, so φ_l ∈ ρ²C^∞ there.
+- Its value at ρ = 0 is M cos(πl/2)/(l + 1), and |r² φ_l| ≤ M wherever 0 ≤ (v − v1)/r ≤ 2, uniformly in l.
+
+Checked by `checks/coulomb5.py` K1-K4 (exact, l ≤ 10). Control: flipping the cross term's sign gives no solution,
+and the limit then grows (2, 5, 14, ...).
+
+What it gives for (b2):
+
+- By (v) the means carry on N the leading term r⁻² M_m(v, x̂).
+- M_m := 2∫^v S_(m,3) dv′ is constant in v wherever its source has no r⁻³ part. Section 9.3's count suggests that is
+  so after the shell: it puts products of means, and the background's Christoffels times means, at r⁻⁴ and below,
+  so only the oscillating products reach r⁻³. This is not checked term by term here.
+- In wave gauge the principal part of each Cartesian component's equation is the flat □.
+- So, at the principal level and for the leading term, the means' data on S are Σ_l M_(m,l) r⁻² U_l(1 − (v − v1)/r)
+  Y_l/(l + 1).
+- On S, s := (v − v1)/r = 1 − (v1 − t)ρ. The coefficient of ρ^(2+k) is then M_(m,l) times the k-th derivative of
+  U_l/(l + 1) at s = 1, which is at most a power of l by Markov's inequality.
+- So when M_m is smooth on S³ (its M_(m,l) decay faster than any power), the sum is in ρ²C^∞ (Lemma 0.1's condition
+  for this term).
+- The r⁻² coefficient at I_0 is Σ_l cos(πl/2)/(l + 1) M_(m,l) Y_l. The odd harmonics drop out at that order.
+
+What it does not give:
+
+- Tangherlini's corrections, at relative order μ/r²;
+- the structure beyond the principal part (the gauge terms and the trace couplings);
+- the remainder in E_(5/2) of (v), and the remainder g_λ − g_app;
+- uniqueness in W beyond the expansion (an energy identity on W would give it).
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
