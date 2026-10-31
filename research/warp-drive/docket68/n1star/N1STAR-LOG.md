@@ -6258,11 +6258,11 @@ different constraint damping.
 
 **D355 (2026-10-31): the resolvent bound uniform in the harmonic.** The per-harmonic bound of D350 grew like
 exp(l²/σ) because it ignored that the solutions decay through the potential barrier. An energy identity on the
-interval now bounds the cut-off resolvent by one over the barrier's height above σ², asymptotically 17/(l(l + 2)), for every
-harmonic past an explicit l_0(σ): 14, 19 and 50 at σ = 0.3, 1 and 3 in closed form, and 3, 7 and 18 when its two
-conditions are evaluated by quadrature. The bound is within a factor 2 of the measured norms (0.059 against 0.040 at
-σ = 0.3, l = 16). The two conditions are the signs of |u|²'s derivative at the interval's ends. Both come from the flux and from
-the WKB energy |u'|² + (σ² − V)|u|², which is monotone on each side of the barrier. The harmonics below l_0 keep the old
+interval now bounds the cut-off resolvent by one over the barrier's height above σ², asymptotically 17/(l(l + 2)),
+for every harmonic past an explicit l_0(σ): 14, 19 and 50 at σ = 0.3, 1 and 3 in closed form, and 3, 7 and 18 when its
+two conditions are evaluated by quadrature. The bound is within a factor 2 of the measured norms (0.059 against 0.040
+at σ = 0.3, l = 16). The two conditions are the signs of |u|²'s derivative at the interval's ends. Both come from the
+flux and from the WKB energy |u'|² + (σ² − V)|u|², which is monotone on each side of the barrier. The harmonics below l_0 keep the old
 constant.
 
 **D356 (2026-10-31): the uniform bound read by an independent verifier.** Verifier 165 found the proofs of E2.5 sound
@@ -6326,4 +6326,14 @@ confirm). That gives a final mass of about 118 l5², inside the condition. Its o
 - the class run, not the asymmetric theorem, is the tool for the record's own data;
 - Touati's theorem assumes a background near Minkowski;
 - two expectations in the families note are now labelled as such.
+
+**D363 (2026-10-31): the inner radius need not be half the horizon radius.** The development of Theorem 4 was built
+on the region outside r_0 = ½√μ_end, which reaches the curvature boundary only for masses up to about 136 l5². A census
+of every line of Parts III-VII naming the inner radius (308 lines, 25 files; `checks/r0census5.py`) finds that 108
+lines name another r_0, and of the remaining 200 all but five use only that the boundary is spacelike inside the
+horizon, or a constant chosen from it. The five put ½R_1 into an inequality, and each still holds at every smaller
+radius once the spin bound is tied to the radius. So with the inner radius at half the smaller of R_1 and r_q, the
+development covers the interior down to the curvature boundary for every mass (BEYOND5.md Proposition 6.2, deduced
+from the census, which is a reading and not a re-proof). The families note now locates the cross coupling of two
+families: only the second-harmonic gauge terms carry it.
 

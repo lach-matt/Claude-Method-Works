@@ -1,0 +1,309 @@
+file	line	class	note
+PART-III-B-FAMILY.md	49	DEF	
+PART-III-B-FAMILY.md	55	DEF	
+PART-III-B-FAMILY.md	58	DEF	
+PART-III-B-FAMILY.md	79	DEF	
+PART-III-B-FAMILY.md	102	OTHER	r_A at A = 0
+PART-III-B-FAMILY.md	117	OTHER	r_A at A = 0
+PART-III-B-FAMILY.md	157	VAL	B: |x|^2 >= R_1^2/4 > 2||A||^2; a smaller r needs eps_param < r/(sqrt2 R_1)
+PART-III-B-FAMILY.md	158	VAL	as 157
+PART-III-B-FAMILY.md	159	VAL	as 157
+PART-III-B-FAMILY.md	161	SPC	horizon inside {|x| > r_0}
+PART-III-B-FAMILY.md	177	DEF	
+PART-III-B-FAMILY.md	178	DEF	
+PART-III-B-FAMILY.md	224	DEF	
+PART-III-B-FAMILY.md	229	DEF	
+PART-III-B-FAMILY.md	230	DEF	
+PART-III-B-FAMILY.md	237	DEF	
+PART-III-B-FAMILY.md	244	VAL	psi(2R_1) = 2R_1 - r_0 >= 3R_1/2: holds for every smaller r_0
+PART-III-B-FAMILY.md	246	DEF	
+PART-III-B-FAMILY.md	248	DEF	
+PART-III-B-FAMILY.md	250	DEF	
+PART-III-B-FAMILY.md	251	DEF	
+PART-III-C2-POLYHOM.md	40	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	41	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	42	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	43	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	44	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	45	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	50	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	51	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	52	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	57	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	59	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	61	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	66	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	78	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	79	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	81	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	90	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	91	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	93	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	94	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	95	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	102	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	103	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	123	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	139	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	142	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	166	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C2-POLYHOM.md	195	OTHER	III.C''s exterior radius, r_0 large
+PART-III-C3-BOOSTDATA.md	11	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	12	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	19	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	20	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	56	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	81	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	84	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	85	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	87	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	88	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	92	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	93	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	94	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	109	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	113	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	115	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	118	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	207	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	256	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-C3-BOOSTDATA.md	259	OTHER	III.C''s exterior radius; r_1 = 2r_0
+PART-III-D-GAUGEPOT.md	367	SPC	ODE on (r_0, r_h), r_0 < r_h
+PART-III-D-GAUGEPOT.md	410	SPC	ODE on (r_0, r_h), r_0 < r_h
+PART-III-D-GAUGEPOT.md	417	SPC	ODE on (r_0, r_h), r_0 < r_h
+PART-III-D-GAUGEPOT.md	421	SPC	ODE on (r_0, r_h), r_0 < r_h
+PART-III-D2-ZEROENERGY.md	160	SPC	{r_0<r<r_h}
+PART-III-E-CONSTRAINT.md	118	SPC	vanishing inside the horizon, {|x| = c} spacelike
+PART-III-E-CONSTRAINT.md	121	SPC	vanishing inside the horizon, {|x| = c} spacelike
+PART-III-E-CONSTRAINT.md	122	SPC	vanishing inside the horizon, {|x| = c} spacelike
+PART-III-E-CONSTRAINT.md	151	SPC	vanishing inside the horizon, {|x| = c} spacelike
+PART-III-F3-MODES.md	80	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	92	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	100	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	107	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	124	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	130	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	189	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	196	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	200	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	204	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	212	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	226	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	228	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	232	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	237	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	242	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F3-MODES.md	244	SPC	modes on {r>r_0}; f<0 on (r_0-delta_0, r_h)
+PART-III-F4-ZERO.md	163	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	175	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	178	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	182	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	185	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	192	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	198	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	210	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	267	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	269	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	270	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	330	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	335	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	352	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	354	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	361	SPC	smooth on {r>r_0}
+PART-III-F4-ZERO.md	386	SPC	smooth on {r>r_0}
+PART-III-F5-PAIRINGS.md	34	SPC	zero on {r_0<|x|<r_h}
+PART-III-F5-PAIRINGS.md	88	SPC	zero on {r_0<|x|<r_h}
+PART-III-H-AUGMENT.md	29	SPC	r >= r_0 > 0
+PART-III-H2-ADMISS.md	30	SPC	X = {r >= r_0}, extendible at r = r_0; Seeley into {r > r_0/2}
+PART-III-H2-ADMISS.md	38	SPC	X = {r >= r_0}, extendible at r = r_0; Seeley into {r > r_0/2}
+PART-III-H2-ADMISS.md	99	SPC	X = {r >= r_0}, extendible at r = r_0; Seeley into {r > r_0/2}
+PART-III-H2-ADMISS.md	380	CON	delta_1
+PART-III-H2-ADMISS.md	381	CON	r_Gamma > r_2 > r_0
+PART-III-H2-ADMISS.md	398	CON	bounded factors
+PART-III-H2-ADMISS.md	402	CON	weight integral
+PART-III-H2-ADMISS.md	409	SPC	X = {r >= r_0}, extendible at r = r_0; Seeley into {r > r_0/2}
+PART-III-H2-ADMISS.md	410	SPC	X = {r >= r_0}, extendible at r = r_0; Seeley into {r > r_0/2}
+PART-III-H2-ADMISS.md	412	SPC	X = {r >= r_0}, extendible at r = r_0; Seeley into {r > r_0/2}
+PART-III-H2-ADMISS.md	413	SPC	X = {r >= r_0}, extendible at r = r_0; Seeley into {r > r_0/2}
+PART-III-H2-ADMISS.md	417	SPC	X = {r >= r_0}, extendible at r = r_0; Seeley into {r > r_0/2}
+PART-III-H2-ADMISS.md	421	CON	<x> <= C r
+PART-III-H3-UNIFORM.md	292	SPC	compact subsets of {r>r_0}
+PART-III-I-CONE.md	345	OTHER	inner boundary of Omega_iota
+PART-III-I3-ALMOST.md	24	SPC	artificial boundary, spacelike
+PART-III-I3-ALMOST.md	28	SPC	artificial boundary, spacelike
+PART-III-I3-ALMOST.md	90	SPC	artificial boundary, spacelike
+PART-III-I3-ALMOST.md	92	SPC	artificial boundary, spacelike
+PART-III-I3-ALMOST.md	97	SPC	artificial boundary, spacelike
+PART-III-I3-ALMOST.md	211	SPC	artificial boundary, spacelike
+PART-III-I3-ALMOST.md	212	SPC	artificial boundary, spacelike
+PART-III-I3-ALMOST.md	213	SPC	artificial boundary, spacelike
+PART-III-K-NONLINEAR.md	43	DEF	psi_IVP = psi on [r_0, 5R_1]
+PART-III-K-NONLINEAR.md	44	DEF	
+PART-III-K-NONLINEAR.md	84	CON	nu_0 = min(1/4, r_0/8)
+PART-III-K-NONLINEAR.md	86	CON	
+PART-III-K-NONLINEAR.md	103	CON	R_nu = (r_0+R)/2
+PART-III-K-NONLINEAR.md	107	SPC	inner boundary spacelike, dr future timelike
+PART-III-K-NONLINEAR.md	134	OTHER	III.C'''s exterior radius, stated
+PART-III-K-NONLINEAR.md	135	OTHER	as 134
+PART-III-K-NONLINEAR.md	157	SPC	inner boundary spacelike, dr future timelike
+PART-III-K-NONLINEAR.md	183	SPC	inner boundary spacelike, dr future timelike
+PART-III-K-NONLINEAR.md	559	CON	nu vanishes near r_0
+PART-IV-EB.md	190	OTHER	Omega_ext,r_0 of III.C'
+PART-IV-EB.md	191	OTHER	Omega_ext,r_0 of III.C'
+PART-IV-EB.md	193	OTHER	Omega_ext,r_0 of III.C'
+PART-IV-EB.md	314	OTHER	Omega_ext,r_0 of III.C'
+PART-IV-EB.md	320	OTHER	Omega_ext,r_0 of III.C'
+PART-IV-EB.md	322	OTHER	Omega_ext,r_0 of III.C'
+PART-IV-EB.md	325	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	5	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	60	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	72	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	73	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	75	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	77	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	83	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	95	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	98	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	99	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	101	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	110	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	155	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	156	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	161	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	163	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	165	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	171	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	172	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	182	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	198	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	212	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	213	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	232	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	233	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	235	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	236	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	323	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	325	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	326	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	327	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	334	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	335	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	336	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	340	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	341	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	345	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	346	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	356	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	387	OTHER	Omega_ext,r_0 of III.C'
+PART-IV3-NM.md	394	OTHER	Omega_ext,r_0 of III.C'
+PART-IV4-SLAB.md	19	OTHER	r_1 = 2r_0, r_0 large (III.C')
+PART-IV4-SLAB.md	58	OTHER	r_1 = 2r_0, r_0 large (III.C')
+PART-IV5-CDMODES.md	35	OTHER	the source's r_0 = r_c
+PART-IV5-CDMODES.md	36	OTHER	as 35
+PART-IV5-CDMODES.md	186	SPC	continuity on [r_sharp, inf)
+PART-IV5-CDMODES.md	209	SPC	supported at the inner boundary
+PART-IV6-SOLV.md	22	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	23	OTHER	the source's r_0 = r_c
+PART-IV6-SOLV.md	28	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	32	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	33	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	39	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	45	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	52	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	54	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	57	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	68	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	110	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	129	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	138	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	140	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	147	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	155	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	163	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	167	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	192	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	226	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	227	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	232	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	285	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	314	OTHER	r_c for r_0
+PART-IV6-SOLV.md	317	OTHER	r_c for r_0
+PART-IV6-SOLV.md	420	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	428	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	514	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	515	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	520	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	524	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	526	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	527	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	532	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	533	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	536	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	577	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	587	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	596	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	597	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	600	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	610	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	648	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	670	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	671	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	675	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	679	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	680	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	681	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	682	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	683	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	687	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	712	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	718	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	721	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	726	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	876	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	878	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	882	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	884	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-V-GLUING.md	142	SPC	domain {|x| >= r_0}
+PART-VI-DYN.md	24	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI-DYN.md	73	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI-DYN.md	88	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI-DYN.md	89	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI-DYN.md	117	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI-DYN.md	240	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI-DYN.md	242	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI-DYN.md	250	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI-DYN.md	252	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI-DYN.md	262	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
+PART-VI2-HORIZON.md	40	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	42	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	45	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	51	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	52	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	55	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	68	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	97	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	98	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	121	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	131	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI2-HORIZON.md	132	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
+PART-VI3-TRAPPING.md	25	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VI3-TRAPPING.md	52	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VI3-TRAPPING.md	374	VAL	r_0-delta_0 < 5R_1/8: 7r/8 + r_h/8 < 5R_1/8 holds for r < 0.539 R_1
+PART-VI3-TRAPPING.md	378	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VI3-TRAPPING.md	435	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VI3-TRAPPING.md	437	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VI3-TRAPPING.md	438	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VI3-TRAPPING.md	442	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VI3-TRAPPING.md	450	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VI3-TRAPPING.md	452	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VII-ASSEMBLY.md	40	DEF	
+PART-VII-ASSEMBLY.md	88	CON	(0.2) on {r_0 <= r <= R'}
+PART-VII-ASSEMBLY.md	142	CON	Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free
+PART-VII-ASSEMBLY.md	143	CON	Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free
+PART-VII-ASSEMBLY.md	144	CON	Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free
+PART-VII-ASSEMBLY.md	150	CON	Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free
+PART-VII-ASSEMBLY.md	151	CON	Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free
+PART-VII-ASSEMBLY.md	152	CON	Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free
+PART-VII-ASSEMBLY.md	156	CON	Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free
+PART-VII-ASSEMBLY.md	195	DEF	
+PART-VII-ASSEMBLY.md	258	DEF	

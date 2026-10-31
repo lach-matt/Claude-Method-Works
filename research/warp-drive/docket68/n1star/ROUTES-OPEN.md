@@ -4654,6 +4654,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   g_lambda on the domain of dependence of Sigma_IVP cap {r < R} (CB-G; (VII4) to write), not at late times near the hole
   (VII1). Open: (a) write (VII4); (b) g_lambda's own data on all of Sigma_IVP, in III.K's class, then Theorem 0.2 (ii);
   (c) r_0 lowered below r_q (census of r_0 in proof5); (d) or the finite-r-time slab by uniform Cauchy stability.
+- D363, (c): the census (checks/r0census5.py, BEYOND5-R0.tsv). 308 lines in 25 files of Parts III-VII: 108 another
+  r_0 (III.C''s exterior radius, the source's r_c), 19 definition and domain, 128 only "{r = r_0} spacelike, dr future
+  timelike, inside the horizon", 48 through a constant, 5 put R_1/2 into an inequality (III.B 157-159, 244; VI3 374),
+  each of which holds for every smaller radius once eps_param <= r/(4R_1). Proposition 6.2 (deduced from the census):
+  with r_0 := min(R_1, r_q)/2, Proposition 6.1 holds for every mu_end, without (1.1). Rests on: a reading, not a
+  re-proof; IV6's finding (IV'''''5) for [Hin26a] Prop 5.1 at m; Part VII's delta'_0 nearer q_0.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 
@@ -4662,4 +4668,6 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   [d^2_{theta_j} g1^(j)](l_k, l_k). READ abstracts: Touati arXiv:2402.17530 (multiphase, any number of dusts, 3+1, no
   symmetry); Huneau-Luk arXiv:2506.21779 (Vlasov via dusts, U(1), small localized). First step proposed: two-phase
   Stage 0 (v ingoing, u outgoing) in the class; mixed harmonics non-resonant, solved by division.
+- D363 (deduced from the record's Stage 0): the cross couplings enter only through the second-harmonic gauge terms
+  chi dv^2 and chi' du^2, W_TT being purely angular; a gauge removing chi, chi' at first order would remove them.
 
