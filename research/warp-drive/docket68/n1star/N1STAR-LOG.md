@@ -6805,3 +6805,14 @@ The next-order gauge condition and its propagation are not done.
 Smaller corrections: one condition holds only along one way of switching the damping off, a missed third window that
 changes nothing, a constant that tends to 2.0 rather than 1.86, and an earlier verifier's harmless warning,
 recorded.
+
+**D421 (2026-10-31): the next angular pattern checked.** D417's argument that the slowest part of the correction
+stays clean at spatial infinity, with the record's full equation, was computed for the simplest angular pattern and
+claimed for all. The next pattern, with six components instead of four, has exactly the same structure, so the claim
+is now checked on two patterns.
+
+**D422 (2026-10-31): the record's smallest scale, settled from its own text.** The record uses two different small
+numbers under one name. One belongs to the gauge, and D420's reading of it is the record's own. The other is the one
+that limits the long chain, and its definition covers far more of the record's exponents than the record actually
+computed. Including them, the number is about four times smaller than the record printed. So the long chain has at
+least about a hundred million steps, and the loss it produces is at least about two hundred million derivatives.

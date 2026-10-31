@@ -284,7 +284,15 @@ t = const, s = 1 + tρ, so the expansion at I_0 is F's Taylor series at s = 1.
   at s = 1, is an ordinary point.
 - *So r²h is smooth in ρ at I_0, with no logarithm, for every value of γ_Υ, e_Υ, γ_C, e_C and v* (an ODE with
   polynomial coefficients at an ordinary point). The argument uses only the principal symbol and the homogeneity, so it
-  holds for every harmonic; the computation is the l = 0 sector.
+  holds for every harmonic. The computation covers the l = 0 sector and, since D421, the l = 1 scalar-type sector
+  (Q5).
+- *Q5 (exact, D421).* The l = 1 scalar-type sector, h = r⁻² Y(a dt² + 2b dt dr + c dr² + d r² g_S³) + 2r⁻¹(e dt +
+  f dr) ⊗_s dY with Y = cos χ, has six functions. On S³ the traceless Hessian of an l = 1 harmonic vanishes, so there
+  is no seventh. The result:
+  - r, t and the angles drop out, and the components outside the sector vanish.
+  - The second-order part is −½ s(s − 2) times the identity, and the other coefficients are polynomials in s.
+  - At the record's point the exponents at s = 0, besides 0, are −0.5099, −0.51, −0.52, −1.5 × 10⁶ (twice) and
+    −3 × 10⁶, all negative.
 - *Q3 (exact control).* With the damping off, Lemma 6.5's polynomials solve the system: a = a_0, b = b_0(1 − s),
   c − d = e_0 U_2(1 − s)/3 and (c + 3d)/4 = p_0, the Cartesian harmonics l = 0, 1, 2, 0. The transfer from N to I_0
   multiplies them by 1, 0, −1/3, 1, which is cos(πl/2)/(l + 1). With U_1 in place of U_2 it fails.

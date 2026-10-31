@@ -4803,6 +4803,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   metric value P agrees to 1e-3 at the event and converges slowly in M on [1.8, 2) (|dP| 5.9e-3 -> 1.6e-3); the
   metric's failure starts on [2, 2.25) and grows with M (3.2e-2 ... 1.1e3). Minors: D412 non-resonance only along
   gam -> 0; (G)'s third window 2.45e-7 (bound stands); D411's 2.0/r^2 and 1e-12; L1 does not test the ansatz.
+- D421 (BEYOND5 Lemma 6.5', checks/coulombL5.py Q5, exact): the l = 1 scalar-type sector (six functions) of the full
+  flat operator has the same structure: homogeneous, second-order part -(1/2) s (s - 2) I, polynomial coefficients,
+  exponents at N besides 0 all negative (-0.51 ... -3e6). So "every harmonic" is now checked at l = 0 and l = 1.
+- D422 (LOSS-D LD10, checks/epsind5.py E3, exact): the record has two eps_ind. The gauge potential's is restricted to
+  |Re lam| <= 10 (F4:25-27, D3:44-45), settling D4's reading (< 1.46e-10). (1.1)'s is III.F' (2.2)'s (I10:48,
+  G5:190): d(Re lam, Z) >= eps_ind for non-integer roots of L(0) with |lam| <= 50 (F2:130-132). With lin5 E2's
+  factorisation, box^Ups roots + 1 are such roots; their least distance from Z is delta_50 = 1.94e-8 (7.3846e-8 over
+  l <= 12, the record's computation, lin5 LMAX = 12). So eps_K < 1.94e-8 and K > 1.03e8, d >= 2.06e8.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

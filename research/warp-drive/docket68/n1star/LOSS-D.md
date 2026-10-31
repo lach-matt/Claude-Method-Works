@@ -276,9 +276,9 @@ loop counts of section 3.
     10⁻⁶ (α ≤ 4 + ε_K by I11:156), and below LD5's 3.1 × 10⁻⁵ at every admissible damping point. [D405, verifier 180:
     (2.2)'s least distance is printed at N1STAR-PROOF.md:4071-4072 as 7.3846 × 10⁻⁸ at the record's point, so
     ε_ind ≤ 7.4 × 10⁻⁸; the bounds here that use 2.932 × 10⁻⁶ are true and about 40 times loose.] [D420, verifier
-    182: 7.3846 × 10⁻⁸ is δ_12, the value at the cutoff l ≤ 12 of that computation, not a minimum; δ_l → 0. Under the
-    reading LD10 fixes (roots with real part in [−10, 10]) the least distance from ℤ is 9.47 × 10⁻⁸, and D4's ε_ind is
-    below 1.46 × 10⁻¹⁰.] I11 Definition 1.3's
+    182: 7.3846 × 10⁻⁸ is δ_12, the value at the cutoff l ≤ 12 of that computation, not a minimum; δ_l → 0. D422:
+    (2.2) ranges over |λ| ≤ 50, where the least distance is δ_50 = 1.94 × 10⁻⁸, so (1.1)'s ε_ind ≤ 1.94 × 10⁻⁸
+    (LD10).] I11 Definition 1.3's
     (G) is a further constraint, which can only lower ε_K; whether it binds below ε_ind is not computed. ((1.1)'s ε_ind
     is III.G⁗ Proposition 5.1's (I10:48, I11:38), which is F′ (2.2)'s (G5:190). VI4-PARAMS:38's row w1 read it as min
     Re ℰ^ι_ind, under which no number follows; that row now reads it as (1.1) does, D390.)
@@ -422,11 +422,22 @@ loop counts of section 3.
       δ′_8), so ε_ind < 1.46 × 10⁻¹⁰.
     - The least distance of a point from ℤ is δ_9 = 9.47 × 10⁻⁸.
     - Control: at z = 0 every root is an integer.
-  - *Consequences, under the finite reading.*
-    - If (1.1)'s ε_ind is D4's, one parameter through Part III, then ε_K < ε_+ < ε_ind < 1.46 × 10⁻¹⁰. LD3's chain then
-      has K > 2/ε_K > 1.4 × 10¹⁰ levels, and the d it produces is at least 2K > 2.7 × 10¹⁰.
-    - If (1.1)'s ε_ind is only F′ (2.2)'s distance from ℤ, the bound is ε_ind ≤ 9.47 × 10⁻⁸, and K > 2.1 × 10⁷.
-    - Which holds is not decided here. Either way the gap condition (G) is not the binding constraint (LD9).
+  - *Which ε_ind, read at source (D422).* The record has two.
+    - The gauge potential's is fixed in III.D″ section 1 "less than d(Re λ, ℤ) for every indicial root λ of
+      □^Υ_b(0) with non-integer real part of modulus at most 10" (F4:25-27, D3:44-45; D4:54-57 refines it). This
+      settles D4's reading as the finite one, and that ε_ind is below 1.46 × 10⁻¹⁰ (E2). It bounds ℰ_ind's real parts.
+    - F4:27 calls it "the gauge potential operator's number, not that of III.F′ (2.2)". (2.2) asks d(Re λ, ℤ) ≥ ε_ind
+      "for every non-integer root λ with |λ| ≤ 50" of L̂_b(0) (F2:130-132).
+    - (1.1)'s ε_ind is III.G⁗ Proposition 5.1's (I10:48), which is III.F′ Proposition 2.3 (f)'s (G5:190): the (2.2)
+      one.
+  - *E3, (2.2) at the record's point.* By lin5.py E2's factorisation, det N(L, λ) = det N(□^Υ, λ − 1) det N(□^C, λ + 1)
+    times integer factors, every □^Υ root plus 1 is a root of L̂_b(0). Over those with |λ| ≤ 50 the least distance
+    from ℤ is δ_50 = 1.94 × 10⁻⁸, at λ = −49 − δ_50. Over l ≤ 12 it is 7.3846 × 10⁻⁸, the record's number. So the
+    record computed (2.2) on l ≤ 12 (lin5.py's LMAX = 12) while (2.2) ranges over |λ| ≤ 50. □^C's roots can only lower
+    the minimum further.
+  - *Consequences.* ε_K < ε_+ < ε_ind ≤ 1.94 × 10⁻⁸. LD3's chain has K > 2/ε_K > 1.03 × 10⁸ levels, and the d it
+    produces is at least 2K > 2.06 × 10⁸. This replaces D420's two readings (K > 1.4 × 10¹⁰ if (1.1)'s ε_ind were D4's,
+    K > 2.1 × 10⁷ with the window |Re λ| ≤ 10). The gap condition (G) is not the binding constraint (LD9).
   - *For the record.* The same δ_l → 0 makes any condition d(Re λ, ℤ) ≥ ε_ind for all roots unsatisfiable without a
     bound on l, which bears on F2 (2.2) as LD7 uses it. A reading that bounds l (the real-part window, or l ≤ 12 as
     N1STAR-PROOF.md computed) has to be fixed for D4's definition to make sense. Recorded, not repaired.

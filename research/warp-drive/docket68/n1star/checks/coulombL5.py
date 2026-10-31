@@ -24,8 +24,12 @@ genstates5.py's polar machinery:
      m1_0 the coefficient of F' at s = 0; at the record's point (e_U = gam_U = 1/100, e_C = 1/102400, gam_C = 10^6,
      v = 1/2; lin5.POINT) none is a positive integer, so the regular branch exists for every F(0). The transfer
      F(0) -> F(1) at gam_C = 1 by the regular series (convergent for |s| < 2) and by a stiff integrator agree.
+  Q5 (exact, D421) the l = 1 scalar-type sector (six functions; the traceless Hessian of an l = 1 harmonic on S^3
+     vanishes): the same reduction, second-order part (s - s^2/2) I, polynomial coefficients, exponents at s = 0
+     besides 0 all negative at the record's point.
 Labels: computed (exact, sympy; floating point where said); the smoothness at I_0 deduced from Q2 (an ODE with analytic
-coefficients at an ordinary point). Other harmonics and Tangherlini (mu != 0) are not computed here.
+coefficients at an ordinary point). Harmonics beyond l = 1, the vector and tensor types, and Tangherlini (mu != 0) are
+not computed here.
 
     python3 checks/coulombL5.py [--selftest]
 """
@@ -71,6 +75,55 @@ def reduce():
     L = GS.dric(h, G) + GS.dstar(w, G) + E_C(w)
     comps = [L[0, 0]*r**4, L[0, 1]*r**4, L[1, 1]*r**4, L[2, 2]*r**2, L[3, 3]*r**2/sp.sin(ch)**2]
     return [sp.expand(sp.simplify(e.subs(t, (S - 1)*r).doit())) for e in comps]
+
+
+FN1 = [sp.Function(n) for n in ("a1", "b1", "c1", "d1", "e1", "f1")]
+
+
+def reduce_l1():
+    """the l = 1 scalar-type sector, Y = cos chi: h = r^-2 Y (a dt^2 + 2b dt dr + c dr^2 + d r^2 g_S3)
+    + 2 r^-1 (e dt + f dr) (x)_s dY (the traceless Hessian of an l = 1 harmonic on S^3 vanishes)"""
+    G = GS.geo(4, True)
+    X, g, gi, Gam, f_ = G
+    N = 5
+    sx = (t + r)/r
+    a, b, c, d, e, f = FN1
+    Y, dY = sp.cos(ch), -sp.sin(ch)
+    h = sp.zeros(N)
+    h[0, 0], h[1, 1] = Y*a(sx)/r**2, Y*c(sx)/r**2
+    h[0, 1] = h[1, 0] = Y*b(sx)/r**2
+    for k in (2, 3, 4):
+        h[k, k] = g[k, k]*Y*d(sx)/r**2
+    h[0, 2] = h[2, 0] = dY*e(sx)/r
+    h[1, 2] = h[2, 1] = dY*f(sx)/r
+
+    def E_C(w):
+        cc = [1/r, -vC/r, 0, 0, 0]
+        cw = sum(gi[p, q]*cc[p]*w[q] for p in range(N) for q in range(N))
+        m = sp.Rational(2, 3)*(1 - eC)
+        return sp.Matrix(N, N, lambda p, q: gC*(cc[p]*w[q] + cc[q]*w[p] - m*g[p, q]*cw))
+
+    Gh = GS.Gop(h, G)
+    w = [p + q for p, q in zip(GS.div(Gh, G), GS.Eups(Gh, G))]
+    L = GS.dric(h, G) + GS.dstar(w, G) + E_C(w)
+    comps = [L[0, 0]*r**4/Y, L[0, 1]*r**4/Y, L[1, 1]*r**4/Y, L[2, 2]*r**2/Y, L[0, 2]*r**3/dY, L[1, 2]*r**3/dY,
+             L[3, 3]*r**2/(Y*sp.sin(ch)**2), L[2, 3], L[0, 3], L[2, 4]]
+    return [sp.expand(sp.simplify(q.subs(t, (S - 1)*r).doit())) for q in comps]
+
+
+def matrices6(eqs):
+    syms = {}
+    for k, q in enumerate(FN1):
+        syms[sp.Derivative(q(S), (S, 2))] = sp.Symbol("q2_%d" % k)
+        syms[sp.Derivative(q(S), S)] = sp.Symbol("q1_%d" % k)
+    out = []
+    for e in eqs:
+        e2 = e.subs(syms).subs({q(S): sp.Symbol("q0_%d" % k) for k, q in enumerate(FN1)})
+        out.append(sp.expand(e2))
+    M = [sp.Matrix(6, 6, lambda i, j: out[i].coeff(sp.Symbol("q%d_%d" % (o, j)))) for o in (2, 1, 0)]
+    rest = [sp.expand(out[i] - sum(M[o][i, j]*sp.Symbol("q%d_%d" % (2 - o, j)) for o in range(3) for j in range(6)))
+            for i in range(6)]
+    return M, rest
 
 
 def matrices(eqs):
@@ -193,6 +246,23 @@ def main():
     for i in range(4):
         print("      " + "  ".join("%+.10f" % float(Tser[i, j]) for j in range(4)))
     print("      series against Radau: max difference %.2e" % diff)
+    e1 = reduce_l1()
+    sym = {S, gU, eU, gC, eC, vC}
+    q5a = all(q.free_symbols <= sym for q in e1[:7]) and sp.expand(e1[3] - e1[6]) == 0 and \
+        all(sp.expand(q) == 0 for q in e1[7:])
+    M1, rest1 = matrices6(e1[:6])
+    q5b = all(r_ == 0 for r_ in rest1) and sp.expand(M1[0] - m2*sp.eye(6)) == sp.zeros(6) and \
+        all(M1[o][i, j].is_polynomial(S) for o in (1, 2) for i in range(6) for j in range(6))
+    m10b = sp.Matrix(M1[1].subs(S, 0).subs(POINT))
+    lam = sp.Symbol("lam")
+    ev1 = [complex(x) for x in sp.Poly(m10b.charpoly(lam).as_expr(), lam).nroots(n=30, maxsteps=200)]
+    expo1 = [1 - x for x in ev1]
+    bad1 = [x for x in expo1 if abs(x.imag) < 1e-9 and x.real > 0.5 and abs(x.real - round(x.real)) < 1e-9]
+    ok["Q5 l = 1"] = q5a and q5b and not bad1
+    print("  Q5 (D421): l = 1 scalar-type sector, six functions: r, t and the angles drop out, the other components "
+          "vanish: %s; F'' coefficient (s - s^2/2) I, polynomial coefficients: %s; exponents at s = 0 besides 0: %s"
+          % (q5a, q5b, ", ".join("%.6g" % x.real if abs(x.imag) < 1e-9 else "%.4g%+.3gi" % (x.real, x.imag)
+                                 for x in expo1)))
     for k, val in ok.items():
         print(k, "PASS" if val else "FAIL")
     if "--selftest" in sys.argv:
