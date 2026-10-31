@@ -6826,6 +6826,7 @@ stays true for all time is the standard argument, deduced and not checked here.
 depend on the frequency, so every constant grows with the frequency in an explicit way. The bound found at the test
 frequency therefore holds for every frequency below it, down to zero, with the constant falling to about 530 near
 zero. This is still for the region between the horizon and the outer cut-off, not the record's full norms.
+[D427: the 530 is an upper bound near zero, not the exact constant.]
 
 **D425 (2026-10-31): the record's loss, as numbers.** With the scale settled in D422, the record's own accounting gives
 a loss of at least about two hundred million derivatives from the long chain alone, and its inner loop runs more than a
@@ -6836,3 +6837,9 @@ could do.
 equation was carried to spatial infinity in flat space in D417. With the black hole's mass included to first order, the
 correction it brings obeys an equation of the same kind, with no new problem point at spatial infinity, so the
 expansion there stays free of logarithms. Higher orders in the mass, and the other angular patterns, are not done.
+
+**D427 (2026-10-31): verifier 184 on the last six.** An independent reader re-ran D421 to D426 and broke none of them.
+Three needed their wording tightened. One angular pattern's check covered three of the seven pieces that should vanish;
+all seven are now checked, and they do. The bound near zero frequency is an upper bound, not the exact constant. And the
+absence of logarithms at spatial infinity comes from that point being an ordinary point of the equation, not from the
+signs of the exponents, which matter at the other end.

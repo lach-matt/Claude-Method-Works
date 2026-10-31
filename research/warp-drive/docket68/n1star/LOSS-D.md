@@ -284,8 +284,8 @@ loop counts of section 3.
     (2.2) ranges over |λ| ≤ 50, where the least distance is δ_50 = 1.94 × 10⁻⁸, so (1.1)'s ε_ind ≤ 1.94 × 10⁻⁸
     (LD10).] I11 Definition 1.3's
     (G) is a further constraint, which can only lower ε_K; whether it binds below ε_ind is not computed. ((1.1)'s ε_ind
-    is III.G⁗ Proposition 5.1's (I10:48, I11:38), which is F′ (2.2)'s (G5:190). VI4-PARAMS:38's row w1 read it as min
-    Re ℰ^ι_ind, under which no number follows; that row now reads it as (1.1) does, D390.)
+    is III.G⁗ Proposition 5.1's (I10:48, I11:38), which is F′ (2.2)'s (G5:122, 190). VI4-PARAMS:38's row w1 read it as
+    min Re ℰ^ι_ind, under which no number follows; that row now reads it as (1.1) does, D390.)
   - *Withdrawn.* D377 put the damping root λ^C − 1 into ℰ_ind, and so 3 + 2.93 × 10⁻⁶ into Λ. Nothing in the record says
     so. The ℰ_ind inside Λ is built from expansions of the gauge-potential operator □^Υ(0) (I8:35-36, I9:32-33,
     I10:38-40, I5:190; D3:33-48), whose indicial roots are not near 1 (verifier 174's B1).
@@ -432,13 +432,13 @@ loop counts of section 3.
       settles D4's reading as the finite one, and that ε_ind is below 1.46 × 10⁻¹⁰ (E2). It bounds ℰ_ind's real parts.
     - F4:27 calls it "the gauge potential operator's number, not that of III.F′ (2.2)". (2.2) asks d(Re λ, ℤ) ≥ ε_ind
       "for every non-integer root λ with |λ| ≤ 50" of L̂_b(0) (F2:130-132).
-    - (1.1)'s ε_ind is III.G⁗ Proposition 5.1's (I10:48), which is III.F′ Proposition 2.3 (f)'s (G5:190): the (2.2)
+    - (1.1)'s ε_ind is III.G⁗ Proposition 5.1's (I10:48), which is III.F′ Proposition 2.3 (f)'s (G5:122, 190): the (2.2)
       one.
   - *E3, (2.2) at the record's point.* By lin5.py E2's factorisation, det N(L, λ) = det N(□^Υ, λ − 1) det N(□^C, λ + 1)
-    times integer factors, every □^Υ root plus 1 is a root of L̂_b(0). Over those with |λ| ≤ 50 the least distance
-    from ℤ is δ_50 = 1.94 × 10⁻⁸, at λ = −49 − δ_50. Over l ≤ 12 it is 7.3846 × 10⁻⁸, the record's number. So the
-    record computed (2.2) on l ≤ 12 (lin5.py's LMAX = 12) while (2.2) ranges over |λ| ≤ 50. □^C's roots can only lower
-    the minimum further.
+    times factors with integer roots, divided by D, which has integer roots; so every □^Υ root plus 1 with non-integer
+    real part is a root of L̂_b(0). Over those with |λ| ≤ 50 the least distance from ℤ is δ_50 = 1.94 × 10⁻⁸, at
+    λ = −49 − δ_50. Over l ≤ 12 it is 7.3846 × 10⁻⁸, the record's number. So the record computed (2.2) on l ≤ 12
+    (lin5.py's LMAX = 12) while (2.2) ranges over |λ| ≤ 50. □^C's roots can only lower the minimum further.
   - *Consequences.* ε_K < ε_+ < ε_ind ≤ 1.94 × 10⁻⁸. LD3's chain has K > 2/ε_K > 1.03 × 10⁸ levels, and the d it
     produces is at least 2K > 2.06 × 10⁸. This replaces D420's two readings (K > 1.4 × 10¹⁰ if (1.1)'s ε_ind were D4's,
     K > 2.1 × 10⁷ with the window |Re λ| ≤ 10). The gap condition (G) is not the binding constraint (LD9).

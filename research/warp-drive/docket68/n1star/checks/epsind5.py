@@ -12,7 +12,7 @@ z kappa, kappa = l (l + 2); vl: -l, l + 2. z = 4 e gam^2 = 4e-6 at the record's 
      Z" over l <= 12, a cutoff value, not a minimum.
   E2 (exact) the finite reading, roots with real part in [-10, 10]: the least distance between distinct points of M,
      and the least distance of a point of M from Z; so eps_ind < half the former.
-  E3 (exact, D422) (1.1)'s eps_ind is III.F' (2.2)'s (I10:48, G5:190): d(Re lam, Z) >= eps_ind for every non-integer
+  E3 (exact, D422) (1.1)'s eps_ind is III.F' (2.2)'s (I10:48, G5:122, 190): d(Re lam, Z) >= eps_ind for every non-integer
      root of L_b(0) with |lam| <= 50 (F2:130-132). By lin5.py E2's factorisation every box^Ups root plus 1 is one, and
      their least distance from Z is delta_50 = 1.94e-8 (over l <= 12 it is the record's 7.3846e-8).
   Control: at z = 0 every root is an integer and M = Z cap [-10, 10], least distance 1.
@@ -87,8 +87,9 @@ def main():
           % (len(uniq), mp.nstr(best, 6), arg[0], arg[1], mp.nstr(best/2, 6), mp.nstr(fromZ[0], 6), fromZ[1]))
     ok["E2"] = abs(best - mpf("2.9243e-10")) < mpf("1e-13") and abs(fromZ[0] - mpf("9.4737e-8")) < mpf("1e-12")
     # E3 (D422): (1.1)'s eps_ind is III.F' (2.2)'s, over the non-integer roots of L_b(0) with |lam| <= 50; by the
-    # factorisation det N(L, lam) = det N(box^Ups, lam - 1) det N(box^C, lam + 1) x (integer factors) (lin5.py), every
-    # box^Ups root plus 1 is one of them, so their least distance from Z bounds eps_ind from above
+    # factorisation det N(L, lam) = det N(box^Ups, lam - 1) det N(box^C, lam + 1) x (factors with integer roots) / D
+    # (lin5.py), every box^Ups root plus 1 with non-integer real part is one of them, so their least distance
+    # from Z bounds eps_ind from above
     shifted = [(lam + 1, name) for lam, name in roots(z, 60) if abs(lam + 1) <= 50]
     dist = [(min(lam - floor(lam), 1 - (lam - floor(lam))), name, lam) for lam, name in shifted]
     dist = [q for q in dist if q[0] > mpf(10)**-40]

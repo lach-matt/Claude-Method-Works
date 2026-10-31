@@ -26,7 +26,8 @@ genstates5.py's polar machinery:
      F(0) -> F(1) at gam_C = 1 by the regular series (convergent for |s| < 2) and by a stiff integrator agree.
   Q5 (exact, D421) the l = 1 scalar-type sector (six functions; the traceless Hessian of an l = 1 harmonic on S^3
      vanishes): the same reduction, second-order part (s - s^2/2) I, polynomial coefficients, exponents at s = 0
-     besides 0 all negative at the record's point.
+     besides 0 all negative at the record's point. The seven components outside the sector, (t, r, chi) x (theta, phi)
+     and (theta, phi), vanish, and phi phi = sin^2 theta theta theta (all checked; verifier 184, D427).
   Q6 (exact, D426) Tangherlini to first order in mu (static t, f = 1 - mu/r^2, c_U and c built on that t), the l = 0
      sector, h = r^-2 F(s) + mu r^-4 G(s): the mu^0 part is Q1's system; the mu^1 part is an ODE system for G with a
      source in F, depending on s only, with second-order part (s - s^2/2) I and polynomial coefficients and source;
@@ -111,7 +112,8 @@ def reduce_l1():
     w = [p + q for p, q in zip(GS.div(Gh, G), GS.Eups(Gh, G))]
     L = GS.dric(h, G) + GS.dstar(w, G) + E_C(w)
     comps = [L[0, 0]*r**4/Y, L[0, 1]*r**4/Y, L[1, 1]*r**4/Y, L[2, 2]*r**2/Y, L[0, 2]*r**3/dY, L[1, 2]*r**3/dY,
-             L[3, 3]*r**2/(Y*sp.sin(ch)**2), L[2, 3], L[0, 3], L[2, 4]]
+             L[3, 3]*r**2/(Y*sp.sin(ch)**2), L[0, 3], L[0, 4], L[1, 3], L[1, 4], L[2, 3], L[2, 4], L[3, 4],
+             L[4, 4] - sp.sin(GS.th)**2*L[3, 3]]
     return [sp.expand(sp.simplify(q.subs(t, (S - 1)*r).doit())) for q in comps]
 
 

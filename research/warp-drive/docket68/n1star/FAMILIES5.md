@@ -275,7 +275,8 @@ couplings are then killed by their own contractions.
   - H's raised form g0^(uv) h ∂_u enters only the r = u row at (n, 0), and h′ only r = v at (0, n). T8 sets those
     rows by ĝ_2's angular trace.
   - Solved by T8's components on all 8 pure harmonics present, the source's (±2, 0) and (0, ±2) included: the residual
-    is 6.6 × 10⁻¹⁷. The method is stage0two5's gauge_pure, on concrete functions at random points.
+    is 6.6 × 10⁻¹⁷. The method is stage0two5's gauge_pure, on concrete functions at three random points. The content
+    is that the linear system is solvable at every harmonic and point; the residual only confirms the solve (D427).
   - Control: without the angular diagonal the system fails at 12 harmonic-points, exactly where that row carries a
     term.
 - Not computed: the propagation of Υ − H = 0. H is fixed, so the contracted Bianchi identity gives a homogeneous wave

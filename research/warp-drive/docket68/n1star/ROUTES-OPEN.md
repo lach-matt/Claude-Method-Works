@@ -4805,10 +4805,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   gam -> 0; (G)'s third window 2.45e-7 (bound stands); D411's 2.0/r^2 and 1e-12; L1 does not test the ansatz.
 - D421 (BEYOND5 Lemma 6.5', checks/coulombL5.py Q5, exact): the l = 1 scalar-type sector (six functions) of the full
   flat operator has the same structure: homogeneous, second-order part -(1/2) s (s - 2) I, polynomial coefficients,
-  exponents at N besides 0 all negative (-0.51 ... -3e6). So "every harmonic" is now checked at l = 0 and l = 1.
+  exponents at N besides 0 all negative (-0.5099 ... -3e6). So "every harmonic" is now checked at l = 0 and l = 1.
+  [Verifier 184, D427: on two sectors, l = 0 and the l = 1 scalar type, all seven off-sector components included; the
+  l = 1 vector type and l >= 2 are not computed.]
 - D422 (LOSS-D LD10, checks/epsind5.py E3, exact): the record has two eps_ind. The gauge potential's is restricted to
   |Re lam| <= 10 (F4:25-27, D3:44-45), settling D4's reading (< 1.46e-10). (1.1)'s is III.F' (2.2)'s (I10:48,
-  G5:190): d(Re lam, Z) >= eps_ind for non-integer roots of L(0) with |lam| <= 50 (F2:130-132). With lin5 E2's
+  G5:122, 190): d(Re lam, Z) >= eps_ind for non-integer roots of L(0) with |lam| <= 50 (F2:130-132). With lin5 E2's
   factorisation, box^Ups roots + 1 are such roots; their least distance from Z is delta_50 = 1.94e-8 (7.3846e-8 over
   l <= 12, the record's computation, lin5 LMAX = 12). So eps_K < 1.94e-8 and K > 1.03e8, d >= 2.06e8.
 - D423 (FAMILIES5 4e, checks/stage0h5.py H3): Ups - H = 0 at order lam in the generalised wave gauge holds on every pure
@@ -4817,6 +4819,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D424 (E2-PILOT 3i, Corollary E2.12, checks/e2h1_5.py H5): the multipliers are sigma-independent, so every bound is
   explicit and increasing in |sigma|: the summed cut-off H^1 constant is C <= 808.6 on all of 0 < |sigma| <= 3
   (528.3 at 0.01, 808.6 at 3), finite as sigma -> 0+. Uniform on a compact band, in the cut-off norm only.
+  [Verifier 184, D427: for real 0 < |sigma| <= 3; the sigma-independence is Lemmas E2.8/E2.8''s, which H5 cannot test;
+  528.3 is an upper bound (B_l(3) kept for l <= 5), not the constant at 0.01.]
 - D425 (LOSS-D LD3 (iv)): with (1.1)'s eps_ind <= 1.94e-8 (D422), K > 1.03e8, d >= 2K > 2.06e8, N = 21d + 6 > 4.3e9;
   the nested level-3 loop > 5.1e7 rounds per level near beta = 4 and > 1.3e15 over the chain. Lower bounds for the
   record's proof, not for the optimal loss. checks/g1axis5.py gains --refine for the 1600 x 720 comparison (pending).
@@ -4824,6 +4828,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (c's on the static t): h = r^-2 F(s) + mu r^-4 G(s); G obeys an ODE with principal part -(1/2) s (s - 2) I,
   polynomial coefficients and source; exponents at N -2.51, -2.52, -1.5e6, -3e6. So r^2 h = F + mu rho^2 G + O(mu^2)
   is smooth at I_0, no log at O(mu). Open: higher orders in mu, other sectors, the t_* reading of c.
+  [Verifier 184, D427: no log at s = 1 because s = 1 is an ordinary point, whatever the exponents; the negative
+  exponents make the regular branch at N exist and be unique. The t_* clause is deduced.]
+- D427 (verifier 184 on D421-D426; none refuted, three wording corrections): D421's Q5 checked 3 of the 7 off-sector
+  components; all 7 and phi phi = sin^2 theta theta theta now vanish in coulombL5 Q5. D422 cites G5:122, 190, and
+  lin5's other factors have integer roots, with D dividing. D423's residual only confirms the solve; the content is
+  solvability at 8 harmonics x 3 points. D424: the sigma-independence is the Lemmas', not H5's; C(sigma) are upper
+  bounds. D425 recomputes (1.0302e8, 2.0604e8, 4.327e9, 5.151e7, 1.327e15). D426: s = 1 is an ordinary point; the
+  exponents make N's regular branch unique; the t_* clause is deduced.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
