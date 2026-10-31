@@ -282,7 +282,8 @@ $\delta_gG_g\delta^*_{g,E_C}\dot\eta = 0$ on $\Omega_*$. $\dot\eta$ vanishes on 
 T+\frac74\}$, which contains $\Omega_*\cap\{t^\flat_*\le2\}$ ($\hat T\ge2$). II.F Lemma 1.3 on $\Omega^\circ_*$ with
 $\tau := t^\flat_*$ and $c := \frac32$, as in III.K Proposition 4.2, gives $\dot\eta = 0$. Its compactness hypothesis
 is checked in II.F section 7.4 for metrics with $dt^\flat_*$ past timelike, and $g$ is one (II.C Lemma 3.2 (2) at $h =
-0$). So $D\mathrm{Ric}(\dot g) = 0$ on $\Omega_*$ by (2.4).
+0$); near the inner boundary, past causal curves stay in $\{r\ge\min(r(p),r^\natural)\}$ by II.C Lemma 3.2 (1) at $h =
+0$, as in II.F Lemma 1.4 (a) (D378). So $D\mathrm{Ric}(\dot g) = 0$ on $\Omega_*$ by (2.4).
 
 *Step 5 (the initial region).* On $\mathcal D'$ put $\dot g := \dot h+\dot g_{S'}$. $D\mathrm{Ric}(\dot h) = 0$
 (Proposition 1.2 (1)) and $D\mathrm{Ric}(\dot g_{S'}) = 0$ (section 0). The gauge 1-form of (5) on $\mathcal D'$ is

@@ -4665,6 +4665,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
   harmonics with max V_l >= sigma^2 below l_0 (5 <= l < 50 at sigma = 3).
+- D379 (E2-PILOT section 3e, checks/e2morawetz5.py M1-M3): Lemma E2.8, a 1D Morawetz bound. phi = tanh((r_* - x_p)/s),
+  s < 1 (horizon tail), w = -phi V_l' - phi'''/2 >= 0 gives ||chi_I R_l chi_I|| <= ((2/m' + (M' + 2|sigma|)^2/w_I)/w_I)^1/2
+  at every real sigma != 0, bounded as sigma -> 0. Every l >= 1 (computed to l = 30; l = 0 has no admissible s): B_l(3)
+  <= 21.3 on the band 5 <= l <= 17, where only e^54 held. Not certified (w >= 0 on a grid); coarser than computed norms.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 
@@ -4708,6 +4712,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (VI.A7). m1: F1 cited for its Lorentzian argument only. Census VI-DYN 81 reclassed VAL (322 lines: CON 61, VAL 14).
   Nits: VI3 and README marked amended, (VI.B'6) names Proposition 4.1. BEYOND5-R0-PROOF section 8 (Part VI at
   r_flat) written; batch 4 to verifier 173.
+- D378: verifier 173 seated on batch 4 (no major). m1: II.F Lemma 1.3's compactness near {r = r_flat} needs
+  II.C Lemma 3.2 (1) (as II.F Lemma 1.4 (a)); the record cited II.F 7.4 (the iota+ model); now named at VIII:284-286
+  and III.K:459-463. m2: Part VII's constants depend on r_flat through delta'_0, c_0, T'. Nits seated. Re-proof done.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 

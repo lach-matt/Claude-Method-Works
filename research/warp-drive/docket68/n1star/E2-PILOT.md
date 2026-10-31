@@ -1,8 +1,9 @@
 # E2-PILOT -- E2 at one operator: □ on 5D Tangherlini, harmonic by harmonic, with explicit constants
 
 Status: written (D350); section 3b added (D355) and verified (verifier 165, D356); section 3c added (D359), read by
-verifier 167 (D362); section 3d (the band, computed) added (D371); sections 1-3 and 3d to be read. Check script:
-`checks/e2pilot5.py` P1-P4 (computed), all pass, every control fails; the band: `checks/e2band5.py`.
+verifier 167 (D362); section 3d (the band, computed) added (D371); section 3e (Lemma E2.8, a Morawetz bound for every
+l ≥ 1 and every real σ, D379) added; sections 1-3, 3d and 3e to be read. Check scripts: `checks/e2pilot5.py` P1-P4
+(computed), all pass, every control fails; the band: `checks/e2band5.py`; E2.8: `checks/e2morawetz5.py` M1-M3.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
@@ -210,6 +211,58 @@ growth through the forbidden region F = {V_l > σ²}.
 - On F, N = |u|² is convex (N″ = 2|u′|² + 2(V − σ²)N ≥ 0). With the energy H′ = −V′N and the flux this should give
   the two bounds without WKB asymptotics, as Lemma E2.5a does at the ends of I.
 - Writing it, as Lemma E2.8, is the next step for the band.
+
+## 3e. A Morawetz bound for every harmonic l ≥ 1 and every real σ (E2.8, D379)
+
+**Lemma E2.8.** Let φ be smooth and increasing, with φ(±∞) = ±1 and φ′, φ″ → 0 at ±∞, and put w := −φV_l′ − ½φ‴
+(derivatives in r_*). Suppose w ≥ 0 on ℝ, and let m′ := min_I φ′, M′ := max_I φ′ and w_I := min_I w > 0. For real
+σ ≠ 0 and f ∈ L²(I), let u := R_l(σ)f be the outgoing solution, u ~ c_± e^(±iσr_*) at ±∞. Then
+
+    2 ∫ φ′|u′|² + ∫ w|u|² = Re ∫ f (2φū′ + φ′ū) + 2σ²(|c_+|² + |c_−|²),                                   (3.4)
+
+    ‖χ_I R_l(σ) χ_I‖ ≤ B_l(σ) := ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2).
+
+*Proof.*
+
+- Multiply −u″ + (V_l − σ²)u = f by 2φū′ + φ′ū, take real parts and integrate. The integrand on the right of (3.4)
+  minus the one on the left is an exact derivative (M1, exact). Its limits at ±∞ give −2σ²(φ(∞)|c_+|² −
+  φ(−∞)|c_−|²) = −2σ²(|c_+|² + |c_−|²), since V_l → 0 and u′ ∓ iσu → 0 there. That is (3.4).
+- The flux identity σ(|c_+|² + |c_−|²) = −Im ∫ f ū bounds the last term by 2|σ| ‖f‖ ‖u‖_I.
+- Both integrands on the left are ≥ 0, so drop them off I. With X := ‖u′‖_I, Y := ‖u‖_I and |φ| ≤ 1,
+  2m′X² + w_I Y² ≤ ‖f‖ (2X + (M′ + 2|σ|) Y).
+- By Cauchy-Schwarz, (2m′X² + w_I Y²)^(1/2) ≤ ‖f‖ (2/m′ + (M′ + 2|σ|)²/w_I)^(1/2), and Y ≤ B_l(σ) ‖f‖. ∎
+
+**Instantiated (`checks/e2morawetz5.py` M1-M3; M1 exact, M2-M3 computed in floating point, not certified).**
+
+- Take φ := tanh((r_* − x_p)/s), x_p the peak of V_l. Then −φV_l′ ≥ 0, since V_l rises and then falls (E2.7), and
+  −½φ‴ = s^(−3) > 0 at the peak.
+- Near the horizon V_l′ decays like e^(2r_*) and φ‴ like e^(2r_*/s), so w ≥ 0 needs s < 1. The control s = 1.5 fails.
+- At l = 0, no s in [0.2, 0.98] gives w ≥ 0. For 1 ≤ l ≤ 30, s = 0.98 does; for l ≥ 6 the minimum of w on I is at the
+  peak, w_I = s^(−3) = 1.0625.
+
+| l | 1 | 2 | 3 | 4 | 5 | 6 | 10 | 17 | 25 |
+|---|---|---|---|---|---|---|---|---|---|
+| B_l(3) | 253 | 53.3 | 35.5 | 26.6 | 21.3 | 19.5 | 19.3 | 19.2 | 19.2 |
+| computed norm (section 3d) | 0.423 | 0.451 | 0.508 | 0.672 | 1.132 | 0.983 | 0.421 | 0.0551 | 0.0225 |
+
+For l ≥ 6, B_l(1) ≈ 18.3 and B_l(10) ≈ 26.8 (`--table 30`). A hundredth of B_5(3) is below the computed norm, so the
+comparison is not vacuous.
+
+What it gives:
+
+- *The band.* For 5 ≤ l ≤ 17 at σ = 3, where only Proposition E2.4's e^54 held, B ≤ 21.3. That is within a factor of
+  about 19 of the computed norm at the barrier-top harmonic l = 5. At large l the bound is loose by up to about 10³,
+  and E2.5's 1/κ_I² is the better one.
+- *In σ.* B_l is uniform on compact sets of real σ ≠ 0, and grows linearly in |σ|. As σ → 0 it stays bounded,
+  B_l(0+) = (2/(m′w_I))^(1/2). It does not degenerate at the barrier-top energy σ² = max V_l of a single harmonic.
+- *In l.* For 6 ≤ l ≤ 30 the constants are nearly constant: they depend on l only through x_p, which tends to the
+  photon sphere. Beyond l = 30 this is expected, as −φV_l′ grows like l², but it is not computed.
+- *With E2.5 and E2.7,* every harmonic l ≥ 1 now has an explicit bound at every real σ ≠ 0. For l = 0, E2.7 holds for
+  σ² > max V_0 and Proposition E2.4 otherwise.
+
+What it does not give: a certificate. w ≥ 0 and the constants are checked on a grid, and an interval-arithmetic check
+per l is a finite step. Nor does it give the record's norms (section 4), or Im σ > 0. It is a bound per harmonic, not
+uniform in l at large σ: there the photon-sphere trapping (E4) appears as the linear growth in |σ|.
 
 ## 4. What remains for E2 at this operator
 

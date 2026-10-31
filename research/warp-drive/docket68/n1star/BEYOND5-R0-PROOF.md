@@ -4,7 +4,8 @@ Status: batch 1 written (D368): sections 0-3 (common facts, Parts I and II, III.
 (III.C-III.I3); batch 3 written (D370): sections 5-6 (III.I4-III.K, Part IV). Verifiers 169-171 read batches 1-3;
 their findings, among them the radius mismatch of section 0, are seated (D372), and its repair is made in proof5
 Part VI (D373), with verifier 172's findings seated (D375). Batch 4 written (D374-D375): sections 7-11 (Parts V-IX),
-section 8 after verifier 172. Each batch
+read by verifier 173, whose findings are seated (D378: the inner-boundary input of II.F Lemma 1.3 named in Part VIII and
+III.K, the dependences in Part VII, five nits). Each batch
 is read by its own verifier. Labels as marked; "re-proved" means the Part's argument was re-read at every step that
 touches the inner region, and each such step re-derived with r_♭.
 
@@ -207,8 +208,8 @@ spaces and theorems, which hold at the new radii (section 2).
 
 **III.E (b)** (vanishing inside the horizon, III.E:118-123; used by III.E Proposition 3.1 and III.F4 Steps 1-2).
 
-- On {r_0 < |x| < r_h}, ∂_(t_*) is spacelike: g_(b_0)(∂_t, ∂_t) = −f > 0 there. The quotient metric is Lorentzian with
-  |x| timelike (F2), and both persist for b near b_0 on compacta (F3).
+- On {r_0 < |x| < r_h}, ∂_(t_*) is spacelike: g_(b_0)(∂_t, ∂_t) = −f > 0 there. The quotient metric is Lorentzian,
+  with |x| timelike (F2), and both persist for b near b_0 on compacta (F3).
 - The Cauchy problem runs on the spacelike {|x| = c} from {|x| < r_0}, where the solution vanishes by the supported
   character, across {|x| = r_0}. That needs the operator hyperbolic in |x| just inside r_0. It is: dr is timelike on
   {½r_♭ ≤ r ≤ 15R_1/16} (F2, F3; the record's argument above that), and the operator is defined on Part I's
@@ -281,8 +282,8 @@ infinity and at K⁺, not by the inner radius (III.J‴'s table).
 
 - *Setting (:23-47).* t_*, t_IVP and Σ_IVP are III.B's at r_♭ (section 3). F = ψ − ψ_IVP vanishes on [r_♭, 5R_1], so
   t_* ≤ t_IVP as before. R_5, R_6 and the constant C_ψ are at infinity.
-- *Lemma 1.1 (d) (:84-86).* ν_0 := min(¼, r_♭/8). On {|t_IVP| < ν_0}, t_* ≤ t_IVP < ¼, so χ_♮(t_*) = 0, and
-  |t_IVP| < ν_0 ≤ r_♭/8 ≤ r/8 for r ≥ r_♭, so χ_0 = 0. Only the constant moves.
+- *Lemma 1.1 (d) (:84-86).* ν_0 := min(¼, r_♭/8). On {|t_IVP| < ν_0}, t_* ≤ t_IVP < ¼, so χ_♮(t_*) = 0;
+  also |t_IVP| < ν_0 ≤ r_♭/8 ≤ r/8 for r ≥ r_♭, so χ_0 = 0. Only the constant moves.
 - *Proposition 1.2 (:96-112).*
   - R_ν := ½(r_♭ + R), R being III.B section 5's radius inside which φ_(±S) is the identity; R = 5R_1 serves
     (III.B:358-361), and R > r_♭. ν vanishes on [0, R_ν], so N = {t_IVP ≥ 0} near {r = r_♭}.
@@ -354,9 +355,10 @@ repair the two radii are the same (verifier 171's minor).
 Everything after it uses the data of G_p on {y^0 = 0} ∩ {|y| > R_P}, R_P = 100R_1 (:149-150), where the point
 Φ_p(0, y) has |x| ≥ ½|y| ≥ 50R_1 (Lemma 2.2's proof, :162-164).
 
-- There III.B Lemma 3.3 (c) holds for every ‖A‖ < R_1: |x|² ≥ 2500R_1² > 2‖A‖² ≥ s, and r_A² ≥ |x|² − ‖A‖² > 3‖A‖².
-  So the region Part V uses does not depend on the inner radius, and Definition 2.1's domain clause reads
-  {|x| ≥ r_♭} for (μ, A) ∈ ℬ_♭ by F1.
+- There III.B Lemma 3.3 (c) holds for every ‖A‖ < R_1, so for Part V's |A| < ε_P: |x|² ≥ 2500R_1² > 2‖A‖² ≥ s, and
+  r_A² ≥ |x|² − ‖A‖² > 3‖A‖². So the region Part V uses does not depend on the inner radius. Definition 2.1's domain
+  clause may be read on {|x| ≥ 50R_1}, which is all Part V uses; III.B's X̄ (:158-160) enters near infinity only
+  (verifier 173's n4). Part VII uses Part V at A = 0.
 - Lemma 1.4 (scaling), Proposition 2.3 (the charge map), Corollary 2.4 and Theorem 3.1 (the gluing on Γ(R, 4R)) work
   at |x| ≥ R ≥ R_P and are unchanged.
 
@@ -392,9 +394,10 @@ verifier 172; the parameter set is ℬ_♭.
   forward time to {r < r_0^A − δ_0} is at most 2(r_h − r_♭ + 2δ_0)/c′. When r_♭ < R_1/4, δ_0 < R_1/16 and the band
   {r < r_h + ½δ_0} is thinner: ∂Σ̃_(0,b) lies in it for b in a smaller neighbourhood, and I.B Proposition 5.2's band
   is local (section 0).
-- **VI.B′.** Lemma 0.1's separation holds on {|x|² > s}, which contains {|x| ≥ ½r_♭} for b ∈ ℬ_♭ (F1's
-  |x|² > 2‖A‖² ≥ s). In Proposition 4.1, Ψ_b is the identity on {|x| ≤ ⅝R_1} ⊃ {r < r_0^A − δ_0}. Inside the horizon
-  of g̃_b, dr is timelike on {r_0^A − 2δ_0 ≤ r < r_h} by VI.B Proposition 2.2 at the new radii, and the rescaled ṙ is
+- **VI.B′.** Lemma 0.1's separation holds on {|x|² > s}, which contains {|x| ≥ ½r_♭} for b ∈ ℬ_♭ by F1's bound
+  2‖A‖² ≥ s. In Proposition 4.1, Ψ_b is the identity on {|x| ≤ ⅝R_1} ⊃ {r < r_0^A − δ_0}. Inside the horizon of g̃_b,
+  dr is timelike on {r_0^A − 2δ_0 ≤ r < r_h} by VI.B Lemma 1.1 and Proposition 2.2 at the new radii (the record cites
+  both, VI3-TRAPPING:436-437; verifier 173's n2), and the rescaled ṙ is
   bounded above by a negative constant on compact subsets of {r_0^A − δ_0 ≤ r ≤ r_1}, r_1 < r_h. The exterior part
   and the trapped set are at r > r_h. Theorem 5.1 follows as in the record.
 - **VI.C (VI4-PARAMS)** names no inner radius. Its neighbourhood U of b_0 and the constants downstream are chosen
@@ -414,7 +417,8 @@ Read in full at sections 0-2 and at every radius of sections 3-4 (pattern list a
   where χ_K = 1. The b-Sobolev step (:415-425) is at K⁺ and does not involve the inner radius.
 - **Lemma 1.1 (after the shell).** The record's Theorems A, D and E hold on every domain Ω′ of the form (1.1),
   for every δ′_0 ∈ (0, q_0) (N1STAR-PROOF.md:145-150). {r = a′} stays spacelike (record Lemma 1.1 (b): a′ < q_0 ≤
-  √μ_0). C_J and λ_1 depend on δ′_0, which is fixed once r_♭ is.
+  √μ_seed, the record's μ0). C_J and λ_1 depend on Ω′ = Ω′(T′, δ′_0) (N1STAR-PROOF.md:177), so on r_♭ through δ′_0,
+  c_0 and T′, all fixed once r_♭ is (verifier 173's m2).
 - **Lemma 1.2 (placing Σ_IVP).** It needs a′ = q_0 − δ′_0 < ½r_♭. Take δ′_0 ∈ (max(0, q_0 − ½r_♭), q_0), a nonempty
   interval as r_♭ > 0.
   - (a): for v ≥ v_end, g_0 = g^KS_(μ_end,0) in (τ, x), a formula valid for every r > 0. g_(b_0) is its pull-back by
@@ -427,7 +431,8 @@ Read in full at sections 0-2 and at every radius of sections 3-4 (pattern list a
 - **Section 3 (naturality).** The cut-offs are defined from (t, t_*, t_IVP, t^♭_*, |x|), O(4)-invariant at every
   radius. The forms of (C2) have coefficients that are functions of r, smooth for r > 0 (section 3).
 - **Section 4 (the proof).** The choices run in the record's order: k, then R, then c_0 and Ω′ by Lemma 1.2 (with
-  δ′_0 from r_♭), then J, then λ_1. They depend on r_♭ only through δ′_0 and III.K's constants.
+  δ′_0 from r_♭), then J, then λ_1. They depend on r_♭ through δ′_0, c_0 and T′ (Lemma 1.2) and III.K's constants.
+  r_♭ depends on μ_end alone, and every later choice comes after it, so Proposition 6.2 is not circular.
 - **Remark 4.1 and (VII4)** are BEYOND5.md Lemma 6.3, with Σ = Σ_IVP ∩ {r_♭ < r < R}.
 
 *Status:* Part VII re-proved at r_♭, given section 8.
@@ -438,10 +443,14 @@ Part VIII linearises III.K at b_0 (U = 0); its M, N = {t_IVP ≥ −ν(|x|)}, Ω
 
 - At r_♭ these are section 5's sets. The inputs are Part IV″ Theorem 2.4, IV‴ Theorem 2.1 and III.C′ Theorem 3.1's
   proof at h = 0, which are exterior (section 6, and III.C′ in section 4), and III.K Lemma 2.3 at U = 0 (section 5).
-- Step 4 (:280-285) runs II.F Lemma 1.3 on Ω_*° with τ := t^♭_*. Its compactness hypothesis holds for metrics with
-  dt^♭_* past timelike, and g_(b_0) is one by II.C Lemma 3.2 (2) at h = 0, at the repaired radii (section 2).
+- Step 4 (:280-286) runs II.F Lemma 1.3 on Ω_*° with τ := t^♭_*. Its compactness hypothesis needs dt^♭_* past
+  timelike, which II.C Lemma 3.2 (2) gives at h = 0 at the repaired radii (section 2). Near {r = r_♭} it also needs
+  past causal curves to stay in {r ≥ min(r(p), r^♮)}: that is II.C Lemma 3.2 (1) at h = 0, as in II.F Lemma 1.4 (a),
+  and at b_0 also F2. The record named only the first input, and cited II.F section 7.4, the ι⁺ model, which does not
+  meet the inner boundary. Part VIII and III.K Proposition 4.2 (III.K:459-463) now name the second (D378, verifier
+  173's m1).
 - (2.3) holds on {r_♭ ≤ r ≤ R′}, as Part VII's (0.2) does.
-- Section 3's G-equivariance: G fixes t, t_*, t_IVP, t^♭_* and |x| at every radius.
+- Corollary 2.3's G-equivariance (VIII:314-337): G fixes t, t_*, t_IVP, t^♭_* and |x| at every radius.
 
 *Status:* Part VIII re-proved at r_♭.
 

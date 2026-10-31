@@ -456,11 +456,11 @@ Proposition 1.2 (2) with $-S$.
 $\delta_gG_g\delta^*_{g_0,E_C}\eta = 0$. The operator $\delta_gG_g\delta^*_{g_0,E_C}$ has the principal symbol of
 $\delta_gG_g\delta^*_g$, which is $\frac12g^{-1}(\zeta,\zeta)$ times the identity up to the sign convention of III.B:
 $\delta^*_{g_0,E_C}-\delta^*_g$ is of order 0. $\eta$ vanishes on $\Omega_*\cap\{t^\flat_*\le\hat T+\frac14c_0\}$, which
-contains $\Omega_*\cap\{t^\flat_*\le2\}$ ($\hat T\ge2$). II.F Lemma 1.3 on $\Omega^\circ_*$,
-with $\tau := t^\flat_*$ and $c := \frac32$, gives $\eta = 0$. Its compactness hypothesis is checked in II.F section 7.4
-for metrics with $dt^\flat_*$ past timelike, and $g$ is one by II.C Lemma 3.2 (2): $g-g_{b_0}$ is small in its class, by
-III.H$''$ (B2) and the smallness of $U$, $h_{-S}$. So $\mathrm{Ric}(g) =
-\delta^*_{g_0,E_C}0 = 0$. $\square$
+contains $\Omega_*\cap\{t^\flat_*\le2\}$ ($\hat T\ge2$). II.F Lemma 1.3 on $\Omega^\circ_*$, with $\tau := t^\flat_*$
+and $c := \frac32$, gives $\eta = 0$. Its compactness hypothesis is checked in II.F section 7.4 for metrics with
+$dt^\flat_*$ past timelike, and $g$ is one by II.C Lemma 3.2 (2): $g-g_{b_0}$ is small in its class, by III.H$''$ (B2)
+and the smallness of $U$, $h_{-S}$. Near the inner boundary, past causal curves stay in $\{r\ge\min(r(p),r^\natural)\}$
+by II.C Lemma 3.2 (1), as in II.F Lemma 1.4 (a) (D378). So $\mathrm{Ric}(g) = \delta^*_{g_0,E_C}0 = 0$. $\square$
 
 The source propagates the constraints from $\phi_S(\Sigma_{\mathrm{IVP}})$, using Lemma 4.1 there. Here $\eta$ already
 vanishes on an open slab of $\Omega_*$ (Proposition 1.2 (2)), and Lemma 4.1 enters only through Proposition 1.2's proof.

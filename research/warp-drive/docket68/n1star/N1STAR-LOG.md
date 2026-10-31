@@ -6439,3 +6439,17 @@ coming from the same constraint-damping root that LD5 found cannot be moved far 
 chain's step is bounded by the same gap as the nested loop, and both levers come down to one: a constraint damping with
 a gap of order one, or a construction that handles that exponent rather than excluding it.
 
+**D378 (2026-10-31): verifier 173 seated on batch 4.** No major finding: Parts V-IX hold at the lowered radius.
+One step was missed, in the record as well as in the note. The propagation of the gauge condition (Part VIII, and
+III.K before it) needs past causal curves to stay off the inner boundary, which is the radial direction being timelike
+there; the record cited a model problem at infinity instead. Both record sites now name the right lemma. The
+dependence of Part VII's constants on the lowered radius was stated too narrowly, and five nits are repaired. The
+re-proof of every Part at the lowered radius is complete and read.
+
+**D379 (2026-10-31): a bound for every harmonic at every real frequency.** The band of harmonics whose potential
+barrier straddles the frequency had only an astronomically large constant (e^54). A one-dimensional Morawetz identity,
+with a multiplier that changes sign at the top of the barrier, gives an explicit bound instead, about 20 at the
+reference frequency, for every harmonic from l = 1 and every real frequency, staying finite as the frequency goes to
+zero. It is coarser than the computed norms but finite and explicit; the positivity it needs is checked on a grid, not
+yet certified. The lowest harmonic, l = 0, is not covered by this multiplier.
+
