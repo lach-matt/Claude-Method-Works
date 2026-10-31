@@ -181,7 +181,8 @@ l with V_max ≥ σ² below l_0(σ). Those are the l whose barrier top lies abov
   replace it, for l ≥ l_0(σ), by 1/((15/256)(L + 3/4) − σ²), asymptotically 17.07/L. They rest on Lemma E2.5a's
   monotone energy and the flux.
   - *Above the barrier* (σ² > max V_l) Lemma E2.7 gives the polynomial Λσ/(σ² − max V_l) (section 3c, D359).
-  - *The other harmonics l < l_0(σ)* keep Proposition E2.4's constant, which is finite but astronomically large. Below the
+  - *The other harmonics l < l_0(σ)* keep Proposition E2.4's constant, which is finite but astronomically large.
+  Below the
     proved l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below the threshold 18 that quadrature
     gives, which is computed, not proved).
   - *Two kinds of l below l_0.*
