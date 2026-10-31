@@ -28,12 +28,10 @@ which contains d_u g_vv, as a coefficient, D441). On N' = {v = 0} the same holds
 is symmetric under that relabelling and is not repeated. propagate5's P2 then gives box_g W + Ric(g)(W) = 0 with W = 0 on
 N and N'.
 
-
 Controls: N2 with g_vv != 0 on N (a hypersurface that is not null; g_vA's jets along N are then random too), and with
 theta in place of theta/2, is not T-free; N3 without the reduction modulo W_v has no solution; N4 with the single
 component E_22 in place of the trace has none (the trace-free angular equations carry the trace-free d_v d_u g_AB, not a
 constraint).
-
 
 Not computed: that the gauge-reduced constraints can be solved on N and N' (ODEs along the generators) with W = 0 on S
 (the corner conditions), the null dusts' stress in place of vacuum, and uniqueness of the characteristic problem for
