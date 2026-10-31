@@ -176,12 +176,12 @@ dezornification", arXiv:1309.7591v3, read 2026-10-31 through alphaXiv): Definiti
       358, 361, 374; III.C 112; III.I8 61) and 7/16 R_1 (VI3-TRAPPING 376; 9/16 R_1 before D373). Part IX, the gauge
       comparison, is outside the census; Theorem 0.2 does not use it.
 
-**Proposition 6.2 (deduced from the census, D363; repaired D366, D372; re-proved Part by Part, D368-D378).** Let r_♭ ∈ (0, ½R_1] and replace III.B's
-r_0 by r_♭ and its ε_param by min(1/20, r_♭/(4R_1)). Put Part I's artificial boundary there too, r_0^A := r_♭, with
-the collar δ_0 := min(R_1/16, r_♭/4) (BEYOND5-R0-PROOF.md section 0). Then each of the 214 matched lines that use the
-inner radius (DEF, SPC, CON, VAL) holds with r_♭, the constants then depending on r_♭. The Part-by-Part re-proof is
-BEYOND5-R0-PROOF.md. So with r_♭ := ½ min(R_1, r_q(μ_end)), Proposition
-6.1's conclusion holds for every μ_end, without (1.1).
+**Proposition 6.2 (deduced from the census, D363; repaired D366, D372; re-proved Part by Part, D368-D378).** Let r_♭ ∈
+(0, ½R_1] and replace III.B's r_0 by r_♭ and its ε_param by min(1/20, r_♭/(4R_1)). Put Part I's artificial boundary
+there too, r_0^A := r_♭, with the collar δ_0 := min(R_1/16, r_♭/4) (BEYOND5-R0-PROOF.md section 0). Then each of the 214
+matched lines that use the inner radius (DEF, SPC, CON, VAL) holds with r_♭, the constants then depending on r_♭. The
+Part-by-Part re-proof is BEYOND5-R0-PROOF.md. So with r_♭ := ½ min(R_1, r_q(μ_end)), Proposition 6.1's conclusion holds
+for every μ_end, without (1.1).
 
 *Proof (from the census).*
 
