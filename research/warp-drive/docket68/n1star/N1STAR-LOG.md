@@ -6883,6 +6883,6 @@ pattern before a closed formula takes over. It is still for the region between t
 **D432 (2026-10-31): the finer runs are in.** The two runs with the step in both null directions halved finished,
 and comparing all four settles what limits the accuracy where. Up to the time 1.8 it is the null step: halving it
 changes the geometry by about a hundred-thousandth, while adding angular modes changes it by about a billionth. Between
-1.8 and 2 it is the angular resolution instead, and only in a thin shell of small radius, between 1.0 and 1.2; halving the
-null step does nothing there. After 2, near that shell, nothing converges yet; further out the runs stay close to each
-other until about 3.
+1.8 and 2 it is the angular resolution instead, and only in a thin shell of small radius, between 1.0 and 1.2;
+halving the null step does nothing there. After 2, near that shell, nothing converges yet; further out the runs stay
+close to each other until about 3.
