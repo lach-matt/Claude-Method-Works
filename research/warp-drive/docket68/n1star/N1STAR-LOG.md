@@ -6816,3 +6816,8 @@ numbers under one name. One belongs to the gauge, and D420's reading of it is th
 that limits the long chain, and its definition covers far more of the record's exponents than the record actually
 computed. Including them, the number is about four times smaller than the record printed. So the long chain has at
 least about a hundred million steps, and the loss it produces is at least about two hundred million derivatives.
+
+**D423 (2026-10-31): the better gauge, one stage further.** The gauge condition of the alternative gauge also holds at
+the next order: the extra term the gauge source brings lands in exactly the equation that a free piece of the
+next-stage correction controls, and solving for that piece removes it at every harmonic checked. Why the condition then
+stays true for all time is the standard argument, deduced and not checked here.

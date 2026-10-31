@@ -268,9 +268,18 @@ Ric(g) − δ*_g(Υ(g) − H), with the fixed source H := λ(h(X, s1) dv + h′(
 - *Control.* With h = 0 the vv (2, 0) entry is nonzero, and with h_2 of the wrong sign it doubles.
 
 So section 1's gauge exists at Stage 0, χ = χ′ = 0 is consistent there, and by section 4d's L3 both families' large
-couplings are then killed by their own contractions. Not computed: the gauge condition Υ − H = 0 at order λ (T8 with
-the source), and its propagation. By T8's structure, H's raised form g0^(uv) h enters only the r = u row, which
-ĝ_2's angular trace sets, so it is expected to be solvable; that is not checked.
+couplings are then killed by their own contractions.
+
+- *H3, the gauge condition at order λ (computed, D423).* Υ − H = 0 at order λ on the pure harmonics reads
+  D^(1) + (ĝ_2's fast divergence) − g0⁻¹H^(1) = 0.
+  - H's raised form g0^(uv) h ∂_u enters only the r = u row at (n, 0), and h′ only r = v at (0, n). T8 sets those
+    rows by ĝ_2's angular trace.
+  - Solved by T8's components on all 8 pure harmonics present, the source's (±2, 0) and (0, ±2) included: the residual
+    is 6.6 × 10⁻¹⁷. The method is stage0two5's gauge_pure, on concrete functions at random points.
+  - Control: without the angular diagonal the system fails at 12 harmonic-points, exactly where that row carries a
+    term.
+- Not computed: the propagation of Υ − H = 0. H is fixed, so the contracted Bianchi identity gives a homogeneous wave
+  equation for it (deduced, not checked here).
 
 ## 4c. The two-dust background (D389)
 

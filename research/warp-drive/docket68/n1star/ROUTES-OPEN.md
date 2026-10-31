@@ -4811,6 +4811,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   G5:190): d(Re lam, Z) >= eps_ind for non-integer roots of L(0) with |lam| <= 50 (F2:130-132). With lin5 E2's
   factorisation, box^Ups roots + 1 are such roots; their least distance from Z is delta_50 = 1.94e-8 (7.3846e-8 over
   l <= 12, the record's computation, lin5 LMAX = 12). So eps_K < 1.94e-8 and K > 1.03e8, d >= 2.06e8.
+- D423 (FAMILIES5 4e, checks/stage0h5.py H3): Ups - H = 0 at order lam in the generalised wave gauge holds on every pure
+  harmonic: H's raised form enters only the r = u (v) row, which ghat_2's angular trace sets (T8); residual 6.6e-17 on 8
+  harmonics; control (no angular diagonal) fails exactly where that row has a term. Open: propagation (deduced only).
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
