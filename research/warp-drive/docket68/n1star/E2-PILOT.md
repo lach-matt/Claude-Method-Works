@@ -4,10 +4,10 @@ Status: written (D350); section 3b added (D355) and verified (verifier 165, D356
 verifier 167 (D362); section 3d (the band, computed) added (D371); section 3e (Lemma E2.8, a Morawetz bound for every
 l ≥ 1 and every real σ, D379; read by verifier 175, D382) added; section 3f (Lemma E2.9 and the certificate:
 every l ≥ 1, D384; read by verifier 176, D385: decimals rounded outward) added; section 3g (Lemma E2.8′, l = 0
-certified, D387) added; sections 1-3, 3d and 3g to be read.
+certified, D387) added; section 3h (off the real axis, D394) added; sections 1-3, 3d, 3g and 3h to be read.
 Check scripts: `checks/e2pilot5.py` P1-P4 (computed), all pass, every control fails; the band: `checks/e2band5.py`;
 E2.8: `checks/e2morawetz5.py` M1-M3; E2.9 and the certificate: `checks/e2certify5.py` C1-C5; l = 0:
-`checks/e2lzero5.py` Z1-Z5.
+`checks/e2lzero5.py` Z1-Z5; off the axis: `checks/e2cplx5.py` J1-J3.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
@@ -378,8 +378,9 @@ If φ′ − q ≥ 0 and W_q ≥ 0 on ℝ, and m′ := min_I (φ′ − q) > 0 a
 *Proof.* The identity is E2.8's with −2qū added to the multiplier. The added term contributes
 Re ∫ f(−2qū) = −2∫ q|u′|² + ∫ q″|u|² − 2∫ q(V − σ²)|u|², by two integrations by parts. Its boundary terms
 q(|u|²)′ − q′|u|² vanish at ±∞ because q, q′ → 0 and u and u′ are bounded. The flux identity
-σ(|c_+|² + |c_−|²) = −Im ∫ f ū is unchanged. On the left, the σ²q term is nonnegative and is dropped, and the integrands outside I are nonnegative. The
-pairing on the right is at most ‖f‖(2‖u′‖_I + M′‖u‖_I). So E2.8's algebra applies with m′, M′ and w_I as defined. ∎
+σ(|c_+|² + |c_−|²) = −Im ∫ f ū is unchanged. On the left, the σ²q term is nonnegative and is dropped, and the
+integrands outside I are nonnegative. The pairing on the right is at most ‖f‖(2‖u′‖_I + M′‖u‖_I). So E2.8's algebra
+applies with m′, M′ and w_I as defined. ∎
 
 **Certified (`checks/e2lzero5.py` Z1-Z5; interval arithmetic as in section 3f).**
 
@@ -411,6 +412,40 @@ toward the horizon, wider outside) gives B_1(3) ≈ 86 against 264.5 (computed, 
 
 What it does not give: a sharp constant (m′ is small, so the cut-off term dominates as before); constants away from
 I and s = 49/50; and the record's norms (section 4) or Im σ > 0.
+
+## 3h. Off the real axis (E2.10, D394)
+
+**Lemma E2.10.** Let σ have Im σ > 0, write σ² = a + ib, and let φ, q be as in Lemma E2.8′ (q = 0 is Lemma E2.8). If
+q ≠ 0, assume also |Re σ| ≥ Im σ, that is a ≥ 0. Then the bounds of sections 3e-3g hold with 2|σ| replaced by 4|σ|:
+
+    ‖χ_I R(σ) χ_I‖ ≤ B⁺(σ) := ((2/m′ + (M′ + 4|σ|)²/w_I)/w_I)^(1/2),
+
+with the same m′, M′ and w_I.
+
+*Proof.* For Im σ > 0 the outgoing solution u = R(σ)f, f ∈ L²(I), decays exponentially at both ends, so every
+boundary term vanishes and there is no flux term.
+- *The identity.* The identity of E2.8′, computed with complex σ² (`checks/e2cplx5.py` J1, exact), is
+
+      2∫(φ′ − q)|u′|² + ∫W_q|u|² + 2a∫q|u|² = Re∫f(2φū′ + (φ′ − 2q)ū) − 2b∫φ Im(u ū′).
+
+- *The energy identity* (J2) integrates to ∫fū = ‖u′‖² + ∫V|u|² − σ²‖u‖², norms over ℝ. Its imaginary part gives
+  |b|‖u‖² ≤ ‖f‖‖u‖_I. Its real part, with V ≥ 0, gives ‖u′‖² ≤ ‖f‖‖u‖_I + a₊‖u‖², a₊ := max(a, 0).
+- *The new term.* Since |φ| ≤ 1, |2b∫φ Im(u ū′)| ≤ 2|b|‖u‖‖u′‖. This is at most
+  2|b|‖u‖(‖f‖‖u‖_I)^(1/2) + 2|b| a₊^(1/2)‖u‖², hence at most 2(|b|^(1/2) + a₊^(1/2))‖f‖‖u‖_I. Here
+  |b|^(1/2) = (2|Re σ| Im σ)^(1/2) ≤ |σ| and a₊^(1/2) ≤ |Re σ| ≤ |σ|, so the term is at most 4|σ|‖f‖‖u‖_I.
+- *The rest.* 2a∫q|u|² ≥ 0 when a ≥ 0, and is dropped. The rest is E2.8's algebra, with 4|σ| where the flux step gave
+  2|σ|. ∎
+
+So the real-axis bounds are stable under Im σ > 0: B⁺ is continuous in σ and bounded on compact sets of
+{Im σ ≥ 0, σ ≠ 0}, for every l ≥ 1. At l = 0 this holds in the sector |Re σ| ≥ Im σ. As Im σ → 0 the constant tends
+to B⁺, not to B; the factor 2 is the price of bounding the b-term by global norms. Lemma E2.1's degeneration as
+Im σ → 0 is not needed in that sector.
+
+*Computed (J3; floating point, not certified).* At l = 1 and σ = 3 + iη, by finite differences on r_* ∈ [−80, 120],
+the cut-off norm is 0.297, 0.224, 0.145, 0.081 at η = 0.25, 0.5, 1, 2. That is below B⁺ (451-528, with C5's l = 1
+constants recomputed), and below the self-adjoint bound 1/|Im σ²| (0.667-0.083), an independent check of the solver.
+At η = 0.25 a twice finer grid changes it by 10⁻⁴. On the real axis the computed norm at σ = 3 is 0.42 (section 4's
+table).
 
 ## 4. What remains for E2 at this operator
 
@@ -454,20 +489,21 @@ I and s = 49/50; and the record's norms (section 4) or Im σ > 0.
 - **The record's norms.** Proposition 6.2 is stated on the variable-order b-Sobolev spaces X_σ, Y_σ of the extended
   domain through the horizon; passing from L²(dr_*) per harmonic to them needs the elliptic and propagation constants of
   I.A-I.B made explicit (E2-E4).
-- **Im σ > 0 near the axis.** Lemma E2.1 degenerates as Im σ → 0; joining it to Proposition E2.4 needs the real-axis
-  bound to be stable under small Im σ, which the same Wronskian argument should give (the flux identity acquires a sign
-  term).
+- **Im σ > 0 near the axis: done for the cut-off norm (section 3h, D394).** Lemma E2.1 degenerates as Im σ → 0.
+  Lemma E2.10 shows the Morawetz bounds stable under Im σ > 0, with 4|σ| for 2|σ|: for every l ≥ 1, and for l = 0 in
+  the sector |Re σ| ≥ Im σ. The sector |Re σ| < Im σ at l = 0 is not covered by E2.10.
 
 ## 5. Labels and sources
 
 Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, Proposition E2.5, Corollary E2.6; Lemma
-E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9; Lemma E2.8′ given W_q ≥ 0); computed (P1: (1.1), (1.2); P2: numerical
-illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started from the exact solution of the
+E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9; Lemma E2.8′ given W_q ≥ 0; Lemma E2.10); computed (P1: (1.1), (1.2); P2:
+numerical illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started from the exact solution of the
 inverse-square tail; P3: Corollary E2.6's
 thresholds, Proposition E2.5's conditions by quadrature, and the bound against the numerical kernels; P4: unimodality
 for l ≤ 40, and Lemma E2.7 against the numerical kernels on I; `checks/e2morawetz5.py` M1: identity (3.4) as an exact
 derivative, sympy; M2-M3: w ≥ 0 and the constants on a grid, and B_l(3) against the computed norms, floating point, not
 certified); certified (`checks/e2certify5.py` C1-C5: w ≥ 0 on ℝ for every l ≥ 1 by Lemma E2.9, and the constants, by
-interval arithmetic with explicit tail bounds; `checks/e2lzero5.py` Z1-Z5: l = 0 by Lemma E2.8′, the same way).
+interval arithmetic with explicit tail bounds; `checks/e2lzero5.py` Z1-Z5: l = 0 by Lemma E2.8′, the same way;
+`checks/e2cplx5.py` J1-J2 exact, J3 floating point).
 Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE
 fact); EFFECTIVE-CONSTANTS.md section 5 (E2).

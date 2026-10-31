@@ -6573,3 +6573,12 @@ with the angular resolution to about v = 3 of 4.5 away from the cut-off, by fact
 stays resolved to better than one part in a thousand beyond that. The original gauge, measured the same way, fails
 just after 1.65. The cells right at the cut-off are resolved less well, and the curvature domain is not imposed in
 these figures.
+
+**D394 (2026-10-31): the frequency bounds hold just off the real axis too.** The Morawetz bounds were proved at real
+frequencies, where the outgoing solution radiates and a flux term enters. With the frequency moved into the upper half
+plane the solution decays at both ends, the flux term disappears, and a new term appears in its place, proportional
+to the frequency's imaginary part squared; the energy identity bounds it by the same quantity the flux term was
+bounded by, at twice the constant. So every bound proved for real frequencies extends, with that factor, to the
+whole upper half plane for every harmonic from the first, and for the lowest harmonic in the sector where the real
+part dominates. A direct computation at four distances from the axis gives norms well below the bound and below the
+general bound for a self-adjoint operator, which checks the computation itself.

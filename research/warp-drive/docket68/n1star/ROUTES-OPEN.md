@@ -4713,6 +4713,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the multiplier: W_q = w + q'' - 2qV, m' = min_I (phi' - q), M' = max_I |phi' - 2q|, the sigma^2 q term good. q = 43
   sech^2 bumps (widths < s) from a linear program, rounded and certified as is: W_q >= 0, phi' - q >= 0 on R, tails
   explicit. B_0(0+, 1, 3, 10) <= 164.5, 183.5, 275.2, 725.0. Every harmonic l >= 0 now certified at real sigma != 0.
+- D394 (E2-PILOT section 3h, checks/e2cplx5.py J1-J3): Lemma E2.10, the Morawetz bounds off the real axis. For
+  Im sigma > 0 the flux term is replaced by -2b int phi Im(u u-bar') (sigma^2 = a + ib, identity exact), bounded via
+  the energy identity by 4|sigma| ||f|| ||u||_I: B+ = B with 4|sigma| for 2|sigma|, every l >= 1, and l = 0 when
+  |Re sigma| >= Im sigma. Computed at l = 1, sigma = 3 + i eta: 0.297-0.081, below B+ and below 1/|Im sigma^2|.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 
