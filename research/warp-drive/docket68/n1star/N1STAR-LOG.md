@@ -6423,3 +6423,11 @@ on a value (three eighths at least one quarter), and six nits are seated. The re
 back for this verifier, is written: every inner-region step uses only that the radial direction is timelike inside
 the horizon, on compact sets. Batch 4 is complete and goes to one verifier.
 
+**D376 (2026-10-31): two crossing families at leading order.** The first computable step proposed for more matter
+families is done: an ingoing and an outgoing high-frequency wave on a general round background with two null
+directions, expanded exactly. At leading order the averaged equation is Einstein with two null dusts, each carrying
+its own energy along its own direction, and the two do not interact in the mean. Each family's oscillating terms are
+those of the single-family construction. The new terms, where the two phases mix, are solved algebraically, because
+the sum of two different null directions is not null. What remains is the background itself, a solution with two
+dusts, and the energy estimate with two large couplings.
+

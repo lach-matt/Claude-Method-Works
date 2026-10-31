@@ -4718,4 +4718,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   wave gauge with fixed source H = lambda h(X, v/lambda) dv meets the vv second harmonic algebraically, so
   chi = chi' = 0 and the leading cross couplings vanish (a gauge artefact). Open: constraint propagation with H,
   comparison of gauges, no other lambda^-1 coefficient in the two-family linearization (step 4).
+- D376 (FAMILIES5 section 4b; checks/stage0two5.py, computed): Stage 0 of the two-phase ansatz on a general round
+  double-null background closes. R^(-1) = 0; the double mean of R^(0) is Ric(g0) - K_in dv^2 - K_out du^2 with no
+  cross term, K R^3 = alpha(v)^2/3 and beta(u)^2/3 with the record's H (two round dusts, two Isaacson laws); the pure
+  harmonics are lead5's per family under the R^(-3/2) transports; the mixed harmonics are present and ghat_2 solves
+  them by division (symbol -e^(-2 sigma) n1 n2). Open: the two-dust background in the class; later stages; the
+  energy estimate with two couplings.
 
