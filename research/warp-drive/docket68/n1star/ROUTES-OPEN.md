@@ -4682,6 +4682,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   computed for 1 <= l <= 30 (verifier's scans at 60, 100, 200 pass); a large-l proof plus a finite check would close
   it. B(0+) = ((2/m' + M'^2/w_I)/w_I)^1/2; s <= 1; tail monotone checked; sigma = 0.3, 1 compared (all above); the
   sigma-growth is the flux step; the 2/m' cut-off cost dominates. LD7: eps_ind is G'''' Prop 5.1's = F' (2.2)'s.
+- D384 (E2-PILOT section 3f, checks/e2certify5.py C1-C5, certified by interval arithmetic): Lemma E2.9. With phi
+  centred at the photon sphere, -phi U' >= 0, so w_l = w_1 + (a - a_1)(-phi U') grows with l; w_1 >= 0 on R certified
+  (adaptive bisection plus explicit tails), so E2.8 holds for every l >= 1. Certified B_l(3): 264, 51, 34, 26, 21 for
+  l = 1-5 and <= 19.21 for every l >= 6. l = 0 still open.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 

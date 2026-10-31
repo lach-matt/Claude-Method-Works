@@ -6484,3 +6484,10 @@ where the mixed symbol does not vanish: tested on concrete functions at random p
 level, while the same test with the correction's sign flipped fails. The pure terms at that order, which need the
 correction's own transport, are not checked.
 
+**D384 (2026-10-31): the Morawetz bound for every harmonic, certified.** Centring the multiplier at the photon sphere
+instead of at each harmonic's own barrier top makes the positivity condition grow with the harmonic index, so a single
+check at the lowest harmonic proves it for all of them. That check, and the constants, are now certified by interval
+arithmetic, with explicit bounds for the two tails beyond the computed range. Every harmonic from l = 1 has an explicit
+certified bound for the cut-off resolvent at every real frequency: about 21 across the band at the reference frequency,
+and at most 19.2 for every harmonic from l = 6, uniformly. The lowest harmonic, l = 0, is still not covered.
+
