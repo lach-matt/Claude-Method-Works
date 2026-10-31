@@ -250,8 +250,8 @@ What it gives for (b2):
 - In wave gauge the principal part of each Cartesian component's equation is the flat □.
 - So, at the principal level and for the leading term, the means' data on S are Σ_l M_(m,l) r⁻² U_l(1 − (v − v1)/r)
   Y_l/(l + 1).
-- On S, s := (v − v1)/r = 1 − (v1 − t)ρ. The coefficient of ρ^(2+k) is then M_(m,l) times the k-th derivative of
-  U_l/(l + 1) at s = 1, which is at most a power of l by Markov's inequality.
+- On S, s := (v − v1)/r = 1 − (v1 − t)ρ. The coefficient of ρ^(2+k) is then M_(m,l) (t − v1)^k/k! times the k-th
+  derivative of U_l/(l + 1) at s = 1, which is at most a power of l by Markov's inequality (wording corrected D413).
 - So when M_m is smooth on S³ (its M_(m,l) decay faster than any power), the sum is in ρ²C^∞ (Lemma 0.1's condition
   for this term).
 - The r⁻² coefficient at I_0 is Σ_l cos(πl/2)/(l + 1) M_(m,l) Y_l. The odd harmonics drop out at that order.
@@ -275,7 +275,11 @@ What it does not give:
 - Tangherlini's corrections beyond the scalar model (the curvature couplings of the tensor equation);
 - the structure beyond the principal part (the gauge terms and the trace couplings);
 - the remainder in E_(5/2) of (v), and the remainder g_λ − g_app;
-- uniqueness in W beyond the expansion (an energy identity on W would give it).
+- uniqueness in W beyond the expansion (an energy identity on W would give it);
+- the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
+  the r⁻² coefficient at I_0 above needs those sources to be o(r⁻⁴). For l = 0, □φ = f r⁻⁴ Y_0 with zero data on N
+  gives φ = r⁻² G(s) with s(s − 2)G″ + 3(s − 1)G′ = f, and G(1) = −f/2, which shifts the ρ² coefficient. After the
+  shell the leading means are static, so their products are probably r⁻⁶, but this is not checked.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

@@ -332,25 +332,44 @@ loop counts of section 3.
     the record has not computed, and then the sums over them up to real part 3 + ε_ind.
 
 - LD9 (whether (G) binds, at two of the record's own roots; computed, conditional, D408; `checks/gapsums5.py`).
-  - *What E_ind is.* Λ's increments are π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}. ℰ_ind is the index set of III.D″ Proposition 3.1
-    and III.F‴ Proposition 2.2 at b_0 (I5:190, I8:35). Their states lie in 𝒜^((2,0) ∪ (2 + ℰ_ind)) (D3:135-148), and
-    their exponents are indicial roots plus integers (D4:52-60). The record bounds min Re ℰ_ind ≥ ε_ind and does not
-    list the exponents.
+  - *What E_ind is (classes corrected D413, verifier 181).* Λ's increments are π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}. ℰ_ind is
+    the index set of III.D″ Proposition 3.1 and III.F‴ Proposition 2.2 at b_0 (I5:190, I8:35). The classes differ by
+    state (D3:141-147, I8:37-38): ω_s1 − ω̄_s1 and ω_v1 − V lie in 𝒜^((2,0) ∪ (2 + ℰ_ind)); the second s1 state and
+    the mass state's gauge part ω̇(ḃ) lie in 𝒜^((1,0) ∪ (1 + ℰ_ind)); and the s0 state has ω_s0 − ω̄_s0 ∈ ρ²C^∞, with
+    no non-integer exponent. Exponents are indicial roots plus integers (D4:52-60), the roots being the exponents of
+    the components in the frame where dt̄ and d(rS) have root 0 (GAUGEPOT:195-199). The record bounds
+    min Re ℰ_ind ≥ ε_ind and does not list the exponents.
   - *Two of them.* □^Υ(0)'s s0 and s1 roots through 2 are λ_s0 = (1 + (9 + 4z)^(1/2))/2 and λ_s1,2 = (1 + (17 + 2z −
     2(z² + 4z + 16)^(1/2))^(1/2))/2 (III.D (4.1); N1STAR-PROOF.md:4575-4576). Their offsets above 2 are
     d0 = 1.3333327 × 10⁻⁶ ≈ z/3 and d1 = 3.3333305 × 10⁻⁷ ≈ z/12 at z = 4 × 10⁻⁶. d0 − 4d1 = 5.56 × 10⁻¹³ = O(z²):
-    the two are nearly commensurate. The expansions of Proposition 3.1's s1 state and of the mass state's gauge part
-    generically carry ρ^(2+d1) and ρ^(2+d0).
-  - *If ℰ_ind contains d0 and d1,* then 2 + n0 d0 + n1 d1 ∈ Λ for all n0, n1 ≥ 0. The least such value above 3 is
-    3 + 4.68 × 10⁻¹³, at (n0, n1) = (350001, 1599998). From λ_♯ the least above 2 is 2 + 5.10 × 10⁻¹³. So
-    δ_G ≤ 4.7 × 10⁻¹³, about 1.6 × 10⁵ times below the record's least root distance 7.38 × 10⁻⁸ (≥ ε_ind), and (G)
-    binds: ε_K < 4.7 × 10⁻¹³, and the β-chain needs K > 2/ε_K > 4 × 10¹².
-  - *Control.* With d0 alone the least gap is 8.9 × 10⁻⁷. It is the near-commensurability d0 ≈ 4d1 that brings the
-    sums this close.
-  - *Not decided.* Whether the coefficients of those two exponents are nonzero, so that ℰ_ind contains them (the
-    record keeps ℰ_ind as a bound). And whether more of □^Υ's offsets enter: the sl offsets are
-    z l/(2(l + 1)(2l + 1)) + O(z²), all rational multiples of z at first order, which would bring the sums closer
-    still. If they all enter, δ_G is set by the O(z²) parts and the loss d is larger than LD3's by many orders.
+    the two are nearly commensurate.
+    - A ρ^(2+d1) term in ω_s1 − ω̄_s1 (class 2 + ℰ_ind) puts d1 into ℰ_ind.
+    - A ρ^(2+d0) term in ω̇(ḃ) (class 1 + ℰ_ind) puts 1 + d0 into ℰ_ind, not d0. D408 read it as d0, which needs a
+      state in a 2 + ℰ_ind class carrying ρ^(2+d0), and none cited does.
+  - *Only offsets with integer part 0 can be stacked.* The windows of (G) lie above 2 and 3, and the generators that
+    reach them have real part ≥ 3/2. So an increment with integer part ≥ 1 can be used at most once there, and only
+    increments in (0, 1) can be summed many times. Of the computed roots, only d1 is one: the sl roots
+    λ_sl,l+1 = l + 1 + δ_l and λ_sl,l+2 = l + 2 + δ′_l (GAUGEPOT:204-211) enter a 2 + ℰ_ind class as (l − 1) + δ_l and
+    l + δ′_l, and the mass state's root as 1 + d0, as above.
+  - *If ℰ_ind contains d1 and 1 + d0* (`checks/gapsums5.py` G4-G5, D413), with the increment 1: the least value above
+    2 or 3 is 3 + 1.39 × 10⁻⁷ from the generator 2, and 3 + 5.02 × 10⁻⁸ from λ_♯, both reached with d1 alone. So
+    δ_G ≤ 5.0 × 10⁻⁸. That is below the record's least root distance 7.38 × 10⁻⁸, but D4:54-57 fixes ε_ind below half
+    the least distance between distinct points of ℳ (the roots plus integers), so ε_ind < 3.7 × 10⁻⁸ < 5.0 × 10⁻⁸.
+    So (G) is not shown to bind below ε_ind. It may still bind, since 5.0 × 10⁻⁸
+    only bounds δ_G from above.
+  - *If ℰ_ind contained d0 and d1* (D408's hypothesis, which no cited state supports; G2-G3), then
+    2 + n0 d0 + n1 d1 ∈ Λ for all n0, n1 ≥ 0, the least such value above 3 would be 3 + 4.68 × 10⁻¹³, at
+    (n0, n1) = (350001, 1599998), and from λ_♯ 2 + 5.10 × 10⁻¹³. D408's δ_G ≤ 4.7 × 10⁻¹³, and with it ε_K < 4.7 ×
+    10⁻¹³ and K > 4 × 10¹², rest on that hypothesis and are withdrawn as consequences of the record.
+  - *Controls.* With d0 alone the least gap is 8.9 × 10⁻⁷; with d1 alone 1.39 × 10⁻⁷ (G4 is that value). It is the
+    near-commensurability d0 ≈ 4d1 that brought D408's sums close, and it needs both offsets stackable.
+  - *Not decided.* Whether the coefficient of ρ^(2+d1) is nonzero, so that ℰ_ind contains d1 (the record keeps ℰ_ind
+    as a bound), and how δ_G compares with ε_ind below 3.7 × 10⁻⁸. The sl offsets are δ_l = z l/(2(l + 1)(2l + 1)) +
+    O(z²) and δ′_l = (l + 2)z/(2(l + 1)(2l + 3)) + O(z²), from ∂_z s_l,j = (s − κ)/(2s − 2 − 2κ − z) on Q_l's roots
+    (GAUGEPOT:204-206; derived here, D413). Entering
+    with integer parts l − 1 and l, they can each be used once in a window. That adds shifts to d1's multiples and can
+    lower the bound below 5.0 × 10⁻⁸, but it cannot bring the O(z²) parts into play. (D408 said "if they all enter, δ_G
+    is set by the O(z²) parts"; withdrawn, D413.)
   - *The local expansion does not decide it (D412; `checks/s1reson5.py`, exact).* The s1 state is dx¹ + w. On
     Tangherlini, □^Υ(dx¹) starts at ρ⁴, which is the order resonant with the root 2 + d1:
     F4 = μ(−2γ_Υ(e_Υ + 2), −3, 1) on (dt, dr, dχ).

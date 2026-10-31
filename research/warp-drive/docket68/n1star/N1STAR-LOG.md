@@ -6704,7 +6704,8 @@ enter the set of exponents the condition ranges over, as they generically would,
 millionth of a millionth above the next integer, about a hundred and sixty thousand times closer than the scale used
 so far. The step of the long chain must then be smaller than that, and the number of its levels rises to trillions.
 Whether those two exponents really appear with nonzero coefficients is not something the record settles; that is the
-remaining question.
+remaining question. [Corrected in D413: only one of the two can enter in the way assumed, and without the pair the
+sums come no closer than about five hundredths of a millionth, so "probably binds, and hard" is withdrawn.]
 
 **D409 (2026-10-31): the derivative bound for every mode at one frequency.** The bound with a derivative now has an
 explicit, certified constant for every angular mode at the test frequency, and so for the full wave equation on the
@@ -6716,7 +6717,8 @@ separates two things. Where the numerical solution first goes wrong always sits 
 error there shrinks as the cut-off is raised: that part belongs to the cut-off. But at one place on the axis, at an
 areal radius of about one and well away from every cut-off, the solution fails to converge in angle by the same amount
 whichever cut-off is used. That part belongs to the axis or to the geometry itself, and a run with the axis treated
-differently is under way to tell which.
+differently is under way to tell which. [Corrected in D413: the cut-off cannot affect the cells that are kept, so there
+is only one failure, and the cut-off only decides how much of it is shown.]
 
 **D411 (2026-10-31): the same around the black hole.** Repeating the previous calculation with the black hole's
 curvature included, for a scalar wave, the clean structure survives: no logarithms can appear at any order, the
@@ -6730,3 +6732,18 @@ the resonant order would have made the coefficient large and certainly nonzero. 
 a direction the resonance does not see, so it produces nothing special. The coefficient is therefore set globally, by
 regularity at the horizon, and has to be computed from the full radial problem, most easily at a larger damping
 parameter where the two exponents separate, then followed down.
+
+**D413 (2026-10-31): the 181st verifier's findings seated, and the second axis treatment tried.** The verifier found
+two real errors. First, in D408 one of the two nearly-commensurate exponents enters the record's sets shifted by a
+whole unit, and a shifted exponent can be used only once in the windows that matter. So the near-cancellation between
+the two never comes into play. With the one exponent that can be repeated, the sums come within about five hundredths
+of a millionth above an integer, not half a millionth of a millionth. That is close to the scale the record's
+construction already allows, but not shown to be below it, so the claim that the gap condition binds hard is withdrawn.
+Second, in D410 the cut-off cannot influence any cell the solver keeps, because the solver drops every cell whose past
+touches the cut. So there is one failure, at fixed events near the axis, and the cut-off only decides how much of it is
+kept. The run with the axis treated differently is back: it fails at the same event by about the same amount, and the
+two treatments differ there by amounts of the same order as the two resolutions do. A run at higher angular
+resolution is under way to tell
+whether the failure is a matter of resolution. The minor findings (a missing condition on sources at large distance, a
+sum over modes that left out the lowest one, table entries rounded the wrong way, a wording about which terms were
+computed, a missing control) are repaired as well.

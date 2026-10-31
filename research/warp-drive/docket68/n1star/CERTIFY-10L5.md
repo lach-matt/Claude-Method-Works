@@ -422,18 +422,33 @@ No other component is nonzero. So the scheme is the following.
 - *The cut moved (D410; `checks/g1cut5.py`, computed).* dnsolve5's gauge at λ = 1, M = 24 and 32, 800 × 360, with
   r_cut = 0.54, 0.7 and 0.9. The grids differ between cuts (u runs to −r_cut), so events are compared through the
   areal radius (V/2π²)^(1/3).
-  - *The onset follows the cut.* |Δm| first exceeds 10⁻³ next to the cut each time: at v = 1.550 (0 rows from the cut,
-    areal radius 0.614), 1.675 (1 row, 0.761) and 1.825 (6 rows, 0.933). Next to the cut the error scales with the
-    cut: along the column through v = 1.99 it is 1.4 × 10³ at the cut for r_cut = 0.54 and 1.8 for r_cut = 0.9.
-  - *A failure that does not move.* At the event u = −1.003, v = 1.988, x = −0.989, areal radius 1.000, |Δm|
-    (M24-M32) is 0.227 at r_cut = 0.54 and 0.232 at 0.9. That event is 191 and 145 rows from the respective cut, and
-    M16-M24 there is 0.278, so it barely converges. Over the cells of areal radius ≥ 1.0 on [1.8, 2) the maxima are
-    0.23 in m and 5.8 × 10⁻³ in P at every cut. The error is concentrated at the x = −1 axis (0.07 at x = −1, 2 × 10⁻²
-    at the node before, 10⁻³ to 6 × 10⁻³ elsewhere in x).
-  - So the failure has two parts. One sits next to the cut and grows as the cut is lowered. The other sits at the
-    x = −1 axis at areal radius about 1 near v = 2, whatever the cut. These are among the cells only dnsolve5 keeps
-    (D399), and the swapped gauge's node cut removes them.
-  - The second part is the axis treatment or the geometry, not the cut.
+  - *The onset is where the kept set ends.* |Δm| first exceeds 10⁻³ next to the cut each time: at v = 1.550 (0 rows
+    from the cut, areal radius 0.614), 1.675 (1 row, 0.761) and 1.825 (6 rows, 0.933). Along the column through
+    v = 1.99 it is 1.4 × 10³ at the cut for r_cut = 0.54 and 1.8 for r_cut = 0.9.
+  - *The cut cannot reach a kept cell (corrected D413, verifier 181).* dnsolve5 masks a cell whenever one of its three
+    past neighbours is masked (dnsolve5.py:305-306), so every kept cell's discrete past is kept, and the cut changes a
+    kept cell only through the u-grid (u1 = −r_cut changes du by about 11 %). At the last row kept by r_cut = 0.9, and
+    1, 5 and 20 rows before it, the r_cut = 0.54 run has the same |Δm| at the same (u, v): 8.9 × 10⁻³ against
+    8.6 × 10⁻³ at v = 1.85, 0.11 against 0.11 at v = 1.90, 2.2 against 2.1 at v = 2.00 (verifier 181's `same.py`).
+    So the onset following the cut is a selection effect: the first kept cell above τ is at the edge of the kept set.
+    D410's split into a part "next to the cut, that belongs to the cut-off" and a part at the axis is withdrawn. There
+    is one failure, a property of the events: it starts at the x = −1 axis at areal radius about 1 near v = 2 and
+    spreads toward small R and late v, and the cut decides only how much of it is kept.
+  - *At the event.* u = −1.003, v = 1.988, x = −0.989, areal radius 1.000: |Δm| (M24-M32) is 0.227 at r_cut = 0.54 and
+    0.232 at 0.9, 191 and 145 rows from the respective cut, and M16-M24 there is 0.278, so it barely converges. In x
+    it peaks at x = −0.989 (Lobatto node 61 of 65, 0.23), with 0.07 at x = −1 (corrected D413). Over the cells of
+    areal radius ≥ 1.0 on [1.8, 2) the maxima are 0.23 in m and 5.8 × 10⁻³ in P at every cut; that agreement could
+    not have come out otherwise, since those cells are kept by every cut. Beyond v = 2 the sets "areal ≥ ρ" are not
+    the same region across cuts, as the kept sets differ.
+  - *A second axis treatment fails the same way (D413).* dnsolve5's `reg` option, which recovers m_uv at the axis by
+    exact division (D352), at r_cut = 0.9, M = 24 and 32 (881 s and 1028 s; `checks/g1axis5.py`): |Δm| at the event
+    is 0.308, against 0.232 without it. Over areal radius ≥ 1.0 the band maxima of |Δm| are 2.3 × 10⁻¹ / 3.1 × 10⁻¹ on
+    [1.8, 2) (plain / reg) and 2.0 × 10⁻⁶ / 6.8 × 10⁻⁷ on [1.65, 1.8). The two treatments agree to 2.3 × 10⁻⁷ at M32
+    up to v = 1.8 (areal ≥ 1). At the event's node they differ by 0.18 at M24 and 0.10 at M32 (0.51 and 0.46 at the
+    worst node of that cell), the same order as the resolutions' differences. So where one fails the other fails too,
+    by a comparable amount, and neither treatment is the cause on its own. What
+    remains is angular resolution at the axis, a feature of the solution there, or a defect common to both
+    treatments. An M = 40 run at r_cut = 0.9 is the next test.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds.
   - At λ = 1, over its own kept cells, the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in
     dnsolve5's gauge (on 𝒟_q, in (u, v) and in angle).
@@ -444,8 +459,9 @@ No other component is nonzero. So the scheme is the following.
     converge beyond v ≈ 2.25 (D393, corrected D395), and the (u, v) error is larger than dnsolve5's from v = 1, up to
     14 times in the section volume (D399, corrected D402 and D405).
   - At the second seed it holds to v ≈ 3-3.5.
-  - Beyond, it fails to converge at an axis: at x = −1 for λ = 1 (in both gauges, on cells that border the cut; D391,
-    D399), and at x = +1 for the second seed. G1 is not yet answered to the end of the domain.
+  - Beyond, it fails to converge at an axis: at x = −1 for λ = 1 (in both gauges; D391, D399), from areal radius
+    about 1 near v = 2, with either axis treatment and whatever the cut (D410, corrected D413); and at x = +1 for the
+    second seed. G1 is not yet answered to the end of the domain.
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
@@ -454,8 +470,9 @@ No other component is nonzero. So the scheme is the following.
   g_22 = R²(1 − x)e^(2Q)/2, has an invariant size, so compare it across gauges and resolutions where the runs stop;
   and recompute x_K and 𝒟_q from this run with a stencil that stops at the cut. Candidates for the axis are an
   axis-adapted variable, a mapped Chebyshev grid concentrated at the axes, and a shift condition between the two
-  gauges. The `reg` division of D352 did not cure the axis in dnsolve5, but there the
-  drag dominated. Then rerun M = 24 and 32. At the second seed, decide
+  gauges. The `reg` division of D352 did not cure the axis in dnsolve5, either under the
+  drag (D352) or at the event of D410 (D413). A cut experiment cannot separate the axis treatment from the geometry
+  (D413); M = 40 at r_cut = 0.9 decides whether the event converges in angle. At the second seed, decide
   whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann scalar along the axis) or by
   angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is excluded (D354), and so is the
   curvature cut. Then F3 (the certified linear constant) on the converged part.

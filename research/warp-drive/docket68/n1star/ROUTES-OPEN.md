@@ -4680,7 +4680,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   60 rows from its cut, where it keeps ~230 rows per column beyond the swapped cut: its converged region ends near the
   swapped gauge's cut. Both gauges stop converging at about the same events. [D405: scanned to 250 rows the error
   falls steadily with no edge, so this is a trend, not a measured boundary.]
-- D410 (checks/g1cut5.py, computed): dnsolve5 at r_cut = 0.54, 0.7, 0.9 (M24/M32, 800x360), events compared by areal
+- D410 [corrected D413, verifier 181: the cut cannot reach a kept cell (dnsolve5 masks every cell whose past touches a
+  masked one), so the onset "following the cut" is a selection effect, and at the 0.9 cut's edge the 0.54 run has the
+  same |dm|. One failure, at the events; the two-part split is withdrawn. Peak in x at -0.989 (0.23), 0.07 at x = -1.]
+  (checks/g1cut5.py, computed): dnsolve5 at r_cut = 0.54, 0.7, 0.9 (M24/M32, 800x360), events compared by areal
   radius. The onset of |dm| > 1e-3 follows the cut (v = 1.55, 1.675, 1.825, 0-6 rows from it), and the near-cut error
   falls as the cut rises (1.4e3 against 1.8). But at u = -1.003, v = 1.988, x = -0.989 (areal radius 1.000), 145-191
   rows from either cut, |dm| = 0.23 at every cut (M16-24: 0.28), concentrated at the x = -1 axis: a failure of the
@@ -4735,7 +4738,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   [Corrected D402: the open set is every sum g + sum n_i w_i in (2, 2 + eps_ind) or (3, 3 + eps_ind), any generator g,
   and lambda + d_c in (2, 2 + eps_ind) for lambda in pi_1 M (Re lambda < 2), i.e. Re lambda within d_c below 2;
   d_c >= eps_ind (mu_c is a non-integer root of F2 Prop 2.3), d_c0 <= z/3, d_c1 < 1/4 (D405).]
-- D408 (LOSS-D LD9, checks/gapsums5.py, computed, conditional): box^Ups's s0 and s1 roots through 2 sit d0 = z/3 +
+- D408 [corrected D413, verifier 181: the mass state's gauge part is in A^((1,0) u (1 + E_ind)) (I8:37-38) and the s0
+  state is rho^2 C^inf, so its rho^(2+d0) puts 1 + d0, not d0, into E_ind; only offsets with integer part 0 stack.
+  With {d1, 1 + d0, 1}: delta_G <= 5.02e-8 (from lambda_sharp; 1.39e-7 from 2), against eps_ind < 3.7e-8 (D4:54-57).
+  The 4.7e-13 and K > 4e12 below rest on d0 in E_ind, which no cited state supports, and are withdrawn.]
+  (LOSS-D LD9, checks/gapsums5.py, computed, conditional): box^Ups's s0 and s1 roots through 2 sit d0 = z/3 +
   O(z^2) and d1 = z/12 + O(z^2) above 2, with d0 - 4 d1 = 5.56e-13. If E_ind contains both offsets (the states'
   expansions generically carry them; the record keeps E_ind as a bound), Lambda has 2 + n0 d0 + n1 d1 within
   4.68e-13 above 3 (and lambda_sharp + sums within 5.1e-13 above 2): delta_G <= 4.7e-13, 1.6e5 below eps_ind, so
@@ -4744,6 +4751,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   F4 = mu(-2 gam(e + 2), -3, 1); det I(2) = 4z, but I(2)'s left null vector (0, 1, 3) at z = 0 annihilates F4, so the
   particular solution stays finite (mu(0, 1/4 - 1/e, -1/4 - 1/e)). The rho^(2+d1) coefficient is the homogeneous
   solution's, fixed by horizon regularity: compute it at larger z (d1 ~ z/12) and follow it in z.
+- D413 (verifier 181 on D406-D410 seated; dnsolve5 `reg` at r_cut 0.9, computed): M1 (D408 classes) and M2 (D410 cut)
+  as bracketed above; LOSS-D LD9 rewritten, gapsums5 G4-G5. Minors: D406's r^-4 source condition (G(1) = -f/2 at
+  l = 0, re-run) and the rho^(2+k) wording; D407's W x g2 terms listed open (they reach (n, 0) through pure
+  harmonics too) and its Ric(g0) wording; D409's sum restricted to f with no l = 0 harmonic, the table rounded up;
+  D410's x-peak. Nits: stage1pure5 gains the G_uA control. Axis: with `reg`, |dm| (M24-M32) at the event
+  u = -1.003, v = 1.988, x = -0.989 is 0.308 against 0.232 plain; the two treatments agree to 2.3e-7 (M32, areal >= 1)
+  up to v = 1.8 and differ by 0.18 (M24) and 0.10 (M32) at the event's node (checks/g1axis5.py). Both fail there
+  alike. Next: M = 40 at r_cut 0.9 (running).
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
@@ -4782,10 +4797,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D404 (E2-PILOT section 3i, checks/e2h1_5.py H1-H2): Corollary E2.11, one derivative. With w_l = w_1 + (a - a_1) psi,
   psi = -phi_* U' >= 0 (zero only at the photon sphere), (3.4) gives ||u'||_I <= X_l ||f|| and (a - a_1) int_I psi |u|^2
   <= K_l ||f||^2, X_l = (1 + (1 + 2m'(M' + 2|sigma|) B_l)^(1/2))/(2m'). At sigma = 3, l >= 6 (exact, rounded up): 224.5
-  and l(l+2) int psi|u|^2 <= 632.5 ||f||^2. Computed at l = 6, 3 + 0.25i: 0.752, 0.795 against 265.4, 29.7. Control:
+  and l(l+2) int psi|u|^2 <= 632.6 ||f||^2 (632.5 before D413 sat below the value). Computed at l = 6,
+  3 + 0.25i: 0.752, 0.795 against 265.4, 29.7. Control:
   centred off the photon sphere psi < 0. Not: the unweighted angular derivative (trapping), the b-Sobolev orders.
-- D409 (e2h1_5.py H3, exact): Corollary E2.11 at every l at sigma = 3 from section 3f's certified B_l: X_l = 495.8,
-  282.3, 254.5, 238.7, 228.3, 224.5 (l = 1..5, >= 6), angular bounds 209,881 (l = 1, 3 B_1^2), 1,478 ... 623. Summed
+- D409 (e2h1_5.py H3, exact): Corollary E2.11 at every l at sigma = 3 from section 3f's certified B_l: X_l = 495.9,
+  282.4, 254.6, 238.7, 228.4, 224.5 (l = 1..5, >= 6; rounded up since D413), angular bounds 209,881 (l = 1,
+  3 B_1^2), 1,478 ... 623. Summed
   over harmonics: ||d_r* u||_I^2 + sum_l l(l+2) int_I psi |u_l|^2 <= C^2 ||f||^2, C <= 675.1, set by l = 1.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)

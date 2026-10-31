@@ -475,7 +475,7 @@ has the same left side and the right side with 4|σ|. ∎
 **Computed (`checks/e2h1_5.py` H1-H2).**
 
 - *H1 (exact, square roots rounded up).* At σ = 3 and every l ≥ 6, from C3's m′ ≥ 0.005793, M′ ≤ 1.02041 and
-  min_I w_6 ≥ 1.0610: B_6 ≤ 19.214, ‖u′‖_I ≤ 224.5‖f‖, and l(l + 2)∫_I ψ|u|² ≤ a K/(a − a_1) ≤ 632.5‖f‖² (the
+  min_I w_6 ≥ 1.0610: B_6 ≤ 19.214, ‖u′‖_I ≤ 224.5‖f‖, and l(l + 2)∫_I ψ|u|² ≤ a K/(a − a_1) ≤ 632.6‖f‖² (the
   largest over l ≥ 6 is at l = 6, as a/(a − a_1) decreases).
 - *H2 (floating point, not certified).* At l = 6 and σ = 3 + 0.25i the operator norms of f ↦ u′|_I and of
   f ↦ (aψ)^(1/2) u|_I, from e2cplx5's finite-difference resolvent, are 0.752 and 0.795, against the bounds with 4|σ|,
@@ -488,13 +488,17 @@ has the same left side and the right side with 4|σ|. ∎
 
   | l | 1 | 2 | 3 | 4 | 5 | ≥ 6 |
   |---|---|---|---|---|---|---|
-  | B_l(3) | 264.5 | 51.12 | 34.39 | 26.02 | 20.99 | 19.21 |
-  | X_l (‖u′‖_I/‖f‖ ≤) | 495.8 | 282.3 | 254.5 | 238.7 | 228.3 | 224.5 |
-  | A_l | 209,881 | 1,478 | 938 | 754 | 661 | 623 |
-  | C_l² | 455,746 | 81,190 | 65,709 | 57,722 | 52,793 | 51,016 |
+  | B_l(3) | 264.5 | 51.12 | 34.39 | 26.02 | 20.99 | 19.22 |
+  | X_l (‖u′‖_I/‖f‖ ≤) | 495.9 | 282.4 | 254.6 | 238.7 | 228.4 | 224.5 |
+  | A_l | 209,881 | 1,478 | 939 | 755 | 661 | 623 |
+  | C_l² | 455,746 | 81,191 | 65,709 | 57,723 | 52,794 | 51,017 |
 
-  Summed over the harmonics, which are orthogonal on S³: ‖∂_(r_*) u‖²_I + Σ_l l(l + 2)∫_I ψ|u_l|² ≤ C²‖f‖² with
-  C ≤ 675.1 at σ = 3, the angular part unweighted at l = 1. The constant is set by l = 1, where B_1 is large.
+  Summed over the harmonics, which are orthogonal on S³, for f with no l = 0 harmonic (then u has none):
+  ‖∂_(r_*) u‖²_I + Σ_l l(l + 2)∫_I ψ|u_l|² ≤ C²‖f‖² with C ≤ 675.1 at σ = 3, the angular part unweighted at l = 1.
+  The constant is set by l = 1, where B_1 is large. The l = 0 harmonic needs its own derivative bound: Corollary
+  E2.11 is for l ≥ 1, and section 3g's multiplier does not give an X_0 (restriction added D413, verifier 181). The
+  table's entries are upper bounds rounded up (D413; before, several were rounded to nearest and sat below the
+  exact value, e.g. X_1 495.8 < 495.848).
 
 What it gives: per harmonic, the cut-off resolvent maps L²(I) to the norm ‖u′‖_I + (l(l + 2)∫_I ψ|u|²)^(1/2), with
 explicit constants uniform in l ≥ 6 at each σ (and for 1 ≤ l ≤ 5 from the table's B_l). Summed over the harmonics,

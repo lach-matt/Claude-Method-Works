@@ -55,6 +55,14 @@ def sqrt_up(q, digits=12):
     return Fr(r, 10**digits)
 
 
+def up(x, nd):
+    """x rounded up to nd decimals, as a string (exact: via Fraction)"""
+    q = x if isinstance(x, Fr) else Fr(x)
+    n = -((-q*10**nd).__floor__())
+    s = str(n).rjust(nd + 1, "0")
+    return s if nd == 0 else s[:-nd] + "." + s[-nd:]
+
+
 def constants(sigma=3, l=6):
     a = l*(l + 2) + Fr(3, 4)
     c = MM + 2*sigma
@@ -115,16 +123,16 @@ def h2(sigma=complex(3.0, 0.25), l=6, h=0.02, L=(-80.0, 120.0)):
 def main():
     ok = {}
     B, Xb, K, aK = constants()
-    print("  H1: sigma = 3, l >= 6: B_6 <= %.4f, ||u'||_I <= %.2f ||f||, l(l+2) int_I psi|u|^2 <= %.1f ||f||^2"
-          % (float(B), float(Xb), float(aK)))
+    print("  H1: sigma = 3, l >= 6: B_6 <= %s, ||u'||_I <= %s ||f||, l(l+2) int_I psi|u|^2 <= %s ||f||^2"
+          % (up(B, 4), up(Xb, 2), up(aK, 1)))
     ok["H1"] = abs(float(B) - 19.214) < 5e-4 and abs(float(Xb) - 224.49) < 5e-3 and abs(float(aK) - 632.5) < 0.05
     rows = every_l()
     for l, B, Xb, A, C2 in rows:
-        print("  H3: l %s %d: B <= %.2f, ||u'||_I <= %.1f, angular <= %.0f, C_l^2 <= %.0f"
-              % (">=" if l == 6 else "=", l, float(B), float(Xb), float(A), float(C2)))
+        print("  H3: l %s %d: B <= %s, ||u'||_I <= %s, angular <= %s, C_l^2 <= %s"
+              % (">=" if l == 6 else "=", l, up(B, 2), up(Xb, 1), up(A, 0), up(C2, 0)))
     cmax = max(r[4] for r in rows)
-    print("  H3: max_l C_l^2 <= %.0f (C <= %.1f), at l = %d" % (float(cmax), float(sqrt_up(cmax)),
-                                                              max(rows, key=lambda q: q[4])[0]))
+    print("  H3: max_l C_l^2 <= %s (C <= %.1f), at l = %d" % (up(cmax, 0), float(sqrt_up(cmax)),
+                                                             max(rows, key=lambda q: q[4])[0]))
     ok["H3"] = abs(float(cmax) - 455800) < 2000 and max(rows, key=lambda q: q[4])[0] == 1
     sg = complex(3.0, 0.25)
     c = float(MM) + 4*abs(sg)

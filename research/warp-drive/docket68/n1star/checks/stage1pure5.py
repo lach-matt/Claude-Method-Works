@@ -1,6 +1,7 @@
 """stage1pure5.py -- FAMILIES5 section 4b (D407): the linear core of D401, computed. At a pure harmonic (n, 0), the
 order-lam part of Ric^H(g0 + lam^2 Q) that is linear in Q, on a general round double-null background (no field
-equation for g0: Ric(g0) enters only at order lam^2 here).
+equation for g0: the lam coefficient contains no Ric(g0), which is the lam^0 term; wording corrected D413). The terms
+W x Q, also linear in Q and at order lam, are not computed here.
 
 With Q = G(u, v, th) z1^n, d_v -> d_v + lam^-1 F1 (F1 = i n on this harmonic), the order-lam coefficient is
 
@@ -16,7 +17,8 @@ ricci_orders at this order; the gauge term is -(1/2)(g_pr nabla0_q D^r + g_qr na
   P2 (exact) each of the ten other components of R1 (vv, uv, v A, the angular trace-free part) contains the transport
      d_u of its own free component, with coefficient -i n g0^uv (times the component's own weight), so the ten are
      transports along d_u for the ten free components.
-  Control: with G_uu, or the angular trace, nonzero, the corresponding one of the five components does not vanish.
+  Control: with G_uu, G_u theta (D413) or the angular trace nonzero, the corresponding one of the five components
+  does not vanish.
 n = 1 and 2. Labels: computed (exact, sympy).
 
     python3 checks/stage1pure5.py [--selftest]
@@ -68,7 +70,7 @@ def harm(e, n):
 def build(n, reach=None):
     """Q = G z1^n; reach = None (reachable components zero), 'uu' or 'tr' (that one nonzero, the rest as None)"""
     f = {k: sp.Function("q" + k)(u, v, th) for k in ("vv", "uv", "vt", "v1", "v2", "t1", "t2", "12", "a", "b", "uu",
-                                                     "tr")}
+                                                     "tr", "uA")}
     G = sp.zeros(N)
     G[1, 1] = f["vv"]
     G[0, 1] = G[1, 0] = f["uv"]
@@ -83,6 +85,8 @@ def build(n, reach=None):
     G[4, 4] = Rf**2*Sn**2*f["b"]
     if reach == "uu":
         G[0, 0] = f["uu"]
+    if reach == "uA":
+        G[0, 2] = G[2, 0] = f["uA"]
     return (G*z1**n).applyfunc(sp.expand), f
 
 
@@ -104,7 +108,7 @@ def main():
             cf = sp.simplify(R[k].coeff(sp.Derivative(f[name], u)))
             p2 &= sp.simplify(cf - (-sp.I*n*g0i[0, 1]*weight.get(name, 1))) == 0
         ok["P2"] &= p2
-        for reach, idx in (("uu", 0), ("tr", 4)):
+        for reach, idx in (("uu", 0), ("uA", 1), ("tr", 4)):
             Qc, _ = build(n, reach)
             Rc = {k: harm(e, n) for k, e in r1(Qc).items()}
             fivec = [Rc[(0, 0)], Rc[(0, 2)], Rc[(0, 3)], Rc[(0, 4)],
