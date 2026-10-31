@@ -127,7 +127,8 @@ def tails(tL, rR):
     rhoq = sum((8*c*iv.exp(2*(XL - xk)/k) for xk, k, c in QB), iv.mpf(0))*(a + b)*rL**3/(2*th*DL)
     qphi = sum((4*s*c*iv.exp(2*(XL - xk)/k - 2*(XL - XC)/s) for xk, k, c in QB), iv.mpf(0))
     past = all(((XL - xk)/k).b < -iv.mpf("0.66") for xk, k, c in QB)
-    left = (rho3 + rhoq).b < 1 and qphi.b < 1 and past and DL.a > 0 and (1/s - 1).a > 0
+    narrow = all((k - s).b < 0 for _, k, _ in QB)    # kappa_k < s: q decays faster than phi' at both ends
+    left = (rho3 + rhoq).b < 1 and qphi.b < 1 and past and DL.a > 0 and (1/s - 1).a > 0 and narrow
     # right
     rR = iv.mpf(rR); XR = xr(iv.log(rR - 1)); dR = -iv.log((rR - 1)/(rR + 1))/2; zR = (XR - XC)/s
     thR = tanh_of(zR); cR = (1 - 1/rR**2)*(1 - 2/rR**2)
@@ -136,7 +137,7 @@ def tails(tL, rR):
     qphiR = sum((4*s*c*iv.exp(-2*(XR - xk)/k + 2*(XR - XC)/s) for xk, k, c in QB), iv.mpf(0))
     pastR = all(((XR - xk)/k).a > iv.mpf("0.66") for xk, k, c in QB)
     mono = (XR + dR - 3*s/2).a > 0 and min((XR + dR - k/2).a for _, k, _ in QB) > 0
-    right = (rho3R + rhoqR).b < 1 and qphiR.b < 1 and pastR and mono
+    right = (rho3R + rhoqR).b < 1 and qphiR.b < 1 and pastR and mono and narrow
     return left, right, (rho3 + rhoq, qphi, rho3R + rhoqR, qphiR)
 
 

@@ -364,7 +364,7 @@ What it does not give:
 
 ## 3g. The harmonic l = 0, certified (E2.8′, D387)
 
-No tanh multiplier gives w_0 ≥ 0 (sections 3e-3f), so the multiplier takes one more term.
+No tanh multiplier tried gives w_0 ≥ 0 (sections 3e-3f), so the multiplier takes one more term.
 
 **Lemma E2.8′.** Let φ be as in Lemma E2.8, and let q ∈ C² with q ≥ 0 and q, q′ → 0 at ±∞. For u the outgoing solution
 of −u″ + (V − σ²)u = f, f ∈ L²(I), σ real and nonzero,
@@ -372,13 +372,13 @@ of −u″ + (V − σ²)u = f, f ∈ L²(I), σ real and nonzero,
     2 ∫ (φ′ − q)|u′|² + ∫ W_q |u|² + 2σ² ∫ q|u|² = Re ∫ f (2φū′ + (φ′ − 2q)ū) + 2σ²(|c_+|² + |c_−|²),
     W_q := −φV′ − ½φ‴ + q″ − 2qV.
 
-If φ′ − q ≥ 0 and W_q ≥ 0 on ℝ, then ‖χ_I R(σ) χ_I‖ ≤ ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2) with m′ := min_I (φ′ − q),
-M′ := max_I |φ′ − 2q| and w_I := min_I W_q.
+If φ′ − q ≥ 0 and W_q ≥ 0 on ℝ, and m′ := min_I (φ′ − q) > 0 and w_I := min_I W_q > 0, then
+‖χ_I R(σ) χ_I‖ ≤ ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2), with M′ := max_I |φ′ − 2q|.
 
 *Proof.* The identity is E2.8's with −2qū added to the multiplier. The added term contributes
 Re ∫ f(−2qū) = −2∫ q|u′|² + ∫ q″|u|² − 2∫ q(V − σ²)|u|², by two integrations by parts. Its boundary terms
-q(|u|²)′ − q′|u|² vanish at ±∞ because q, q′ → 0 and u is bounded. The flux identity σ(|c_+|² + |c_−|²) = −Im ∫ f ū is
-unchanged. On the left, the σ²q term is nonnegative and is dropped, and the integrands outside I are nonnegative. The
+q(|u|²)′ − q′|u|² vanish at ±∞ because q, q′ → 0 and u and u′ are bounded. The flux identity
+σ(|c_+|² + |c_−|²) = −Im ∫ f ū is unchanged. On the left, the σ²q term is nonnegative and is dropped, and the integrands outside I are nonnegative. The
 pairing on the right is at most ‖f‖(2‖u′‖_I + M′‖u‖_I). So E2.8's algebra applies with m′, M′ and w_I as defined. ∎
 
 **Certified (`checks/e2lzero5.py` Z1-Z5; interval arithmetic as in section 3f).**
@@ -400,7 +400,8 @@ pairing on the right is at most ‖f‖(2‖u′‖_I + M′‖u‖_I). So E2.8'
     - Certified: ρ_3 + ρ_q ≤ 0.145 at the end of the range, and q/φ′ ≤ 2.32 × 10⁻⁶ (increasing in r_*).
   - *Above it.* ρ_3 + ρ_q ≤ 7.03 × 10⁻¹⁰⁰ and q/φ′ ≤ 1.32 × 10⁻¹⁷, both decreasing in r_*.
 - *Z4, the constants.* Over 2000 pieces of I: min_I W_q ≥ 0.02886, m′ ≥ 0.002580, M′ ≤ 0.3809. So
-  B_0(0+) ≤ 164.5, B_0(1) ≤ 183.5, B_0(3) ≤ 275.2 and B_0(10) ≤ 725.0.
+  B_0(0+) ≤ 164.5, B_0(1) ≤ 183.5, B_0(3) ≤ 275.2 and B_0(10) ≤ 725.0. B is computed from the enclosures, not from
+  the four-digit constants, which give the slightly larger 275.218 at σ = 3 (verifier 177, D391).
 - *Z5, controls.* Without q, w_0 ≤ −0.1775 at t = −0.04 (certified). With q″ entering at −1, the bisection fails and
   W ≤ −0.490 at t = −0.12.
 

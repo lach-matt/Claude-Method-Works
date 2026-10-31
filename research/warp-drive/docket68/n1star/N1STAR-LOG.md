@@ -6545,3 +6545,13 @@ proof's free parameters in a consistent order defined the indicial-gap constant 
 index set, a quantity from which no number follows. The proof's own statement uses a different constant, the gap of
 the indicial roots from the integers, which is the small number already measured at the record's parameter point.
 The row now reads it as the proof does.
+
+**D391 (2026-10-31): verifier 177 seated; one conclusion of D386 withdrawn.** The lowest-harmonic certificate stands
+as written. The swapped gauge's mirror equations, its initial-cone construction and the invariant comparison stand
+too, and the gain in convergence (to about v = 2.1 from 1.65) is unchanged. But D386's account of where and why it
+then fails was wrong. The radius quoted there was read at the grid point next to the opposite axis; at the failing
+point the radius is at the run's own cut-off. The new gauge, while no longer pressing the angle into that axis, draws
+it away from it, by a factor up to about ten, and that drives the coordinate-dependent radius at the axis node down to
+the cut. So the failure is not shown to be the axis condition rather than the gauge, and the claim that it was is
+withdrawn. The next step is a cut-off on a quantity both gauges share, and the curvature domain recomputed from this
+run, before either cause is named.

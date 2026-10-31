@@ -4634,9 +4634,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D386 (dnsolve5v.py V1-V4, computed): the shift on dv. The Ricci tensors are exact u <-> v mirrors, so the scheme is
   dnsolve5's mirrored; s_u on u = -R0 from Ric_vx with the transverse f_u carried by the uv-equations. The section
   volume (invariant) agrees with dnsolve5 within (u, v) error, converging. lambda = 1, 800 x 360, ld 3: |dm| M24-M32 is
-  7e-6, 3e-5, 5e-5, 2e-4 on [1, 2) (dnsolve5: 2e-6, 4e-4, 0.43, 3.4); drag <= e^-0.92. Converged in angle to v ~ 2.1
-  (was 1.65). Then m steepens at x = -1 outside the horizon (R = 1.58, x_K = 0.001), where only (1+x) m_uv is fixed:
-  the axis condition on m is the next limit, not the drag.
+  7e-6, 3e-5, 5e-5, 2e-4 on [1, 2) (dnsolve5: 2e-6, 4e-4, 0.43, 3.4); pressing drag <= e^-0.92. Converged in angle to
+  v ~ 2.1 (was 1.65).
+- D391 (verifier 177): D387 sound, decimals outward. MAJOR on D386: its onset R = 1.58 was read at the node next to
+  x = +1; at the failing node x = -0.998, R = 0.54, the run's cut, reached under the gauge's outward drift at x = -1
+  (up to e^+2.35, now reported by --drift); R at a node is not invariant, and x_K came from dnsolve5's unconverged run.
+  "The axis condition on m, not the drag" withdrawn: not yet separated. Next: an invariant cut, x_K from this run.
+  Minors: the volume gap is within the swapped gauge's (u, v) error (~3x dnsolve5's); V4 now tests s_u on u = -R0.
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 

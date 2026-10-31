@@ -19,17 +19,20 @@ dnsolve5 needed s_v only on v = 0, inside Tangherlini, where it vanishes; the mi
 
   V1 (exact) the mirror: every Ricci component of this metric is dnsolve5's with u and v exchanged; EYu has no s_uu.
   V2 (computed) Tangherlini on the stretched grid at second order (error ratio in [3, 6] at r > 1.5); the spurious s
-     the axis rounding of D354 leaves is below 1e-3 (5.3e-5 at 400 x 180; dnsolve5's own s there is 1.0e-4).
-  V3 (computed) the transverse ODE on u = -R0 with Tangherlini data returns Tangherlini's R_u there, at second order.
+     the axis rounding of D354 leaves on kept cells is below 1e-3 (5.3e-5 at 400 x 180; dnsolve5's own there 1.0e-4).
+  V3 (computed) the transverse ODE on u = -R0 with Tangherlini data returns Tangherlini's R_u there, at second order
+     (s_u is 0 there, so V4 tests it: at lambda = 1 it agrees with the marched s, and better on the finer grid).
   V4 (computed) the gauges agree: at lambda = 1 the section volume V(u, v) = pi^2 int R^3 dx, invariant under the
      change of angle between the two gauges, agrees with dnsolve5's on v <= 1 at both resolutions, and the agreement
      improves with resolution; the control: R at a node next to an axis, not invariant, does not agree.
 
-  --run lam rcut M Nu Nv out.npz [p] [ld k]   as dnsolve5.py --run (A = 1, envelope [1/2, 7/2], R0 = 10, v to 4.5,
-                                             a = 0.002); p the axis filter order (0 for none), ld k as there.
-  --drift RUN.npz [v ...]                     ln of the factor by which this gauge's angle presses a fixed outgoing
-                                             generator toward each axis: d ln(1 + x)/dv = 2 s(x = -1) and
-                                             d ln(1 - x)/dv = -2 s(x = +1), integrated in v from v = 0 at fixed u.
+  --run lam rcut M Nu Nv out.npz [p] [ld k] [vol]   as dnsolve5.py --run (A = 1, envelope [1/2, 7/2], R0 = 10, v to
+                                             4.5, a = 0.002); p the axis filter order (0 for none), ld k as there; vol
+                                             cuts on the invariant areal radius, not R at a node (D391).
+  --drift RUN.npz [v ...]                     ln of the factor by which this gauge's angle moves a fixed outgoing
+                                             generator toward (negative) or away from (positive) each axis:
+                                             d ln(1 + x)/dv = 2 s(x = -1) and d ln(1 - x)/dv = -2 s(x = +1),
+                                             integrated in v from v = 0 at fixed u; both signs (D391).
   --compare A.npz B.npz [vmax]                the invariant V(u, v) of two runs on the same (u, v) grid (either gauge).
 """
 import sys, time, importlib.util, numpy as np, sympy as sp, warnings
@@ -196,7 +199,16 @@ def first_cone(G, A, data):
     A['R'][0] = R
 
 
-def run(E, G, data, r_cut, iters=3, log=None):
+def cut_bad(R, x, r_cut, cut):
+    """'node': R < r_cut at some node (dnsolve5's cut); 'vol': the areal radius (V/2pi^2)^(1/3) of the invariant
+    section volume below r_cut, or R below r_cut/2 at some node (a floor for the solve) (D391)"""
+    if cut == 'node':
+        return (R < r_cut).any(-1)
+    rA = (volume(R, x)/(2*np.pi**2))**(1/3)
+    return (rA < r_cut) | (R < r_cut/2).any(-1)
+
+
+def run(E, G, data, r_cut, iters=3, log=None, cut='node'):
     Nu, Nv, M = G.Nu, G.Nv, G.M
     A = {f: np.full((Nu + 1, Nv + 1, M), np.nan) for f in ALLV}
     A['R'][:, 0, :] = -G.u[:, None]; A['W'][:, 0, :] = -0.5 * np.log(2)
@@ -210,8 +222,8 @@ def run(E, G, data, r_cut, iters=3, log=None):
         b = s_step_u(E, G, a, b, G.du[i])
         A['s'][i + 1, 0] = b['s']; A['su'][i + 1, 0] = b['su']
     mask = np.zeros((Nu + 1, Nv + 1), bool)
-    mask[:, 0] = A['R'][:, 0, 0] < r_cut
-    mask[0, :] = (A['R'][0] < r_cut).any(-1)
+    mask[:, 0] = cut_bad(A['R'][:, 0], G.x, r_cut, cut)
+    mask[0, :] = cut_bad(A['R'][0], G.x, r_cut, cut)
     for d in range(2, Nu + Nv + 1):
         n1 = np.arange(max(1, d - Nv), min(Nu, d - 1) + 1)
         m1 = d - n1
@@ -238,7 +250,8 @@ def run(E, G, data, r_cut, iters=3, log=None):
             nn = {f: nn[f] @ G.Fm.T for f in ALLV}
         for f in ALLV:
             A[f][Nc] = nn[f]
-        bad = ~np.isfinite(nn['R']).all(-1) | (nn['R'] < r_cut).any(-1)
+        with np.errstate(invalid='ignore'):
+            bad = ~np.isfinite(nn['R']).all(-1) | cut_bad(nn['R'], G.x, r_cut, cut)
         mask[Nc[0][bad], Nc[1][bad]] = True
         if log and d % 50 == 0:
             log(d, int(ok.sum()), float(np.nanmax(np.abs(nn['m']))))
@@ -274,18 +287,19 @@ def drift(path, vs):
         return np.concatenate([np.zeros((sx.shape[0], 1)), np.cumsum(0.5 * (sx[:, 1:] + sx[:, :-1]) * dv, axis=1)], 1)
 
     cm, cp = 2 * cum(s[:, :, im]), -2 * cum(s[:, :, ip])
-    print("%s: first node ln(1 - |x|) = %.2f" % (path, np.log(1 - abs(xg[ip]))))
+    print("%s: first node ln(1 - |x|) = %.2f; per axis the most negative (pressed toward it) and the most positive"
+          " (drawn away) value, with R at that axis node" % (path, np.log(1 - abs(xg[ip]))))
     for v_ in vs:
         j = np.argmin(abs(vv - v_))
         out = []
         for c, k in ((cm, im), (cp, ip)):
             col = np.where(np.isfinite(c[:, j]), c[:, j], np.nan)
             if not np.isfinite(col).any():
-                out.append((np.nan, np.nan, np.nan)); continue
-            i = np.nanargmin(col)
-            out.append((col[i], uu[i], R[i, j, k]))
-        print("  v = %.2f  x = -1: %7.2f at u = %.4f (R = %.2f)   x = +1: %7.2f at u = %.4f (R = %.2f)"
-              % ((vv[j],) + out[0] + out[1]))
+                out.append("     -"); continue
+            i, i2 = np.nanargmin(col), np.nanargmax(col)
+            out.append("%6.2f at u = %.4f (R = %.2f), %+6.2f at u = %.4f (R = %.2f)"
+                       % (col[i], uu[i], R[i, j, k], col[i2], uu[i2], R[i2, j, k]))
+        print("  v = %.2f  x = -1: %s   x = +1: %s" % (vv[j], out[0], out[1]))
 
 
 def compare(pa, pb, vmax=None):
@@ -323,10 +337,11 @@ def selftest():
     G, A, mf, ef, rf = res[(400, 180)]
     sel = (~mc) & (rc > 1.5)
     ratio = np.nanmax(np.abs(ec[sel])) / np.nanmax(np.abs(ef[::2, ::2][sel]))
-    smax = max(np.nanmax(np.abs(res[N][1]['s'])) for N in res)
-    r2 = 3 <= ratio <= 6 and smax < 1e-3          # dnsolve5's own: 1.7e-4, 1.0e-4 here (axis rounding, D354)
-    print('V2 Tangherlini, stretched grid: error ratio %.2f at r > 1.5 (second order: 4); max |s| %.1e ->'
-          % (ratio, smax), 'PASS' if r2 else 'FAIL', '(%.0fs)' % (time.time() - t0), flush=True)
+    smx = [np.nanmax(np.where(res[N][2][..., None], np.nan, np.abs(res[N][1]['s']))) for N in sorted(res)]
+    r2 = 3 <= ratio <= 6 and max(smx) < 1e-3     # dnsolve5's own: 1.7e-4, 1.0e-4 here (axis rounding, D354)
+    print('V2 Tangherlini, stretched grid: error ratio %.2f at r > 1.5 (second order: 4); max |s| %.1e at 200 x 90,'
+          ' %.1e at 400 x 180 ->' % (ratio, smx[0], smx[1]), 'PASS' if r2 else 'FAIL', '(%.0fs)' % (time.time() - t0),
+          flush=True)
     ok &= r2
     errs = []
     for Nv in (90, 180):
@@ -342,7 +357,7 @@ def selftest():
           errs[0] / errs[1]), 'PASS' if r3 else 'FAIL', flush=True)
     ok &= r3
     E5 = d5.Eqs()
-    rel, ctl = [], []
+    rel, ctl, sue, sus = [], [], [], []
     for Nu, Nv in ((200, 90), (400, 180)):
         Gs = d5.Grid(8, -10.0, -0.54, Nu, 0.0, 4.5, Nv, a=0.002)
         Aa, ma = d5.run(E5, Gs, d5.Data(1.0, 1.0), 0.54)
@@ -351,11 +366,20 @@ def selftest():
         va, vb = volume(Aa['R'], Gs.x), volume(Ab['R'], Gs.x)
         rel.append(np.nanmax(np.abs(va - vb)[good] / va[good]))
         ctl.append(np.nanmax(np.abs(Aa['R'][..., 0] - Ab['R'][..., 0])[good] / Aa['R'][..., 0][good]))
+        # s_u on u = -R0 from the transverse ODE against the marched s (three-point one-sided difference, D391)
+        h1, h2 = Gs.du[0], Gs.du[1]
+        sm = (-(2*h1 + h2)/(h1*(h1 + h2))*Ab['s'][0] + (h1 + h2)/(h1*h2)*Ab['s'][1] - h1/(h2*(h1 + h2))*Ab['s'][2])
+        cols = (Gs.v <= 1.0) & ~mb[2]
+        sue.append(np.nanmax(np.abs(Ab['su'][0][cols] - sm[cols])))
+        sus.append(np.nanmax(np.abs(Ab['su'][0][cols])))
     r4 = rel[1] < rel[0] / 2 and rel[1] < 1e-3 and ctl[1] > 10 * rel[1]
+    r4s = sue[1] < sue[0] / 2 and sue[1] < 0.05 * sus[1]
     print('V4 lambda = 1, v <= 1: section volume, relative difference of the gauges %.1e, %.1e; control R at the node'
           ' next to x = +1: %.1e ->' % (rel[0], rel[1], ctl[1]), 'PASS' if r4 else 'FAIL',
           '(%.0fs)' % (time.time() - t0), flush=True)
-    ok &= r4
+    print('V4 s_u on u = -R0 (transverse ODE) against the marched s: max difference %.1e, %.1e (max |s_u| %.1e) ->'
+          % (sue[0], sue[1], sus[1]), 'PASS' if r4s else 'FAIL', flush=True)
+    ok &= r4 and r4s
     print('dnsolve5v:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 
@@ -369,7 +393,7 @@ def main():
         ld = int(opts[opts.index('ld') + 1]) if 'ld' in opts else 0
         E = Eqs()
         G = d5.Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt, ld=ld)
-        A, mask = run(E, G, d5.Data(lam, 1.0), rcut)
+        A, mask = run(E, G, d5.Data(lam, 1.0), rcut, cut='vol' if 'vol' in opts else 'node')
         np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, **{f: A[f] for f in ALLV})
         print('written', sys.argv[7], 'cells', int((~mask).sum()), 'of', mask.size)
         return 0
