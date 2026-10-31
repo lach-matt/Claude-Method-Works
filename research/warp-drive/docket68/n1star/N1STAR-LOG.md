@@ -6637,3 +6637,13 @@ past null infinity, where after the shell nothing comes in. So the missing step 
 infinity with no incoming radiation, followed by an expansion of its solution there, fine enough to place the data in
 the late-time theorem's class. What the record provides on the cone, a leading inverse-square term and a bound on
 the rest, is not yet such an expansion.
+
+**D401 (2026-10-31): the gauge-fixed pieces of the second-order correction, one stage on.** At the previous stage the
+gauge condition fixed five components of the second-order correction on each harmonic that belongs to one wave alone.
+The question left was whether those values agree with what the field equations demand of the same components at the
+next stage. They do, and without computation: the field equations differ from Einstein's by a term built from the
+gauge condition, so the Bianchi identity ties the divergence of the next stage's equations to the gauge condition,
+and on these harmonics the relevant symbol vanishes. The five equations that would constrain the fixed components
+therefore hold identically, and the remaining ten are transport equations for the ten components left free. Checking
+this on the assembled next-stage equations would need a background that actually solves its field equations, which
+is available only numerically, and is not done.

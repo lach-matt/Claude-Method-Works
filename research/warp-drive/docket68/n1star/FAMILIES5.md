@@ -167,11 +167,28 @@ stress. What it does not give:
     those components (residual 2 × 10⁻¹⁶); at (0, n) likewise with u and v exchanged. These components do not enter
     R^(0), whose symbol −e^(−2σ) n1 n2 vanishes there (T4), so Stage 0 is unchanged. Control: with G restricted to its
     angular off-diagonal block, the system is not solvable.
-  - *Not checked.* Whether the components so fixed agree with ĝ_2's own transport at the next stage, the pure
-    harmonics of R^(1), where the Bianchi identity says they should;
+  - *The next stage at the pure harmonics (deduced, D401).* Let the background solve the two-dust equations
+    (section 4c), α, β, χ and χ′ their transports (T3, T5), and ĝ_2 be fixed on the mixed harmonics by T4 and, at
+    (n, 0), in G_uu, G_uA and g0^(AB) G_AB by T8; the other ten components of ĝ_2 there are free. Then R^(−1) = R^(0)
+    = 0 and D^(0) = D^(1) = 0 on every harmonic (T1-T8).
+    - Ric^H is Ric − ½(g_pr ∇̂_q D^r + g_qr ∇̂_p D^r), ∇̂ the connection of g0 (`ricci_orders`): Ric minus a term
+      linear in D and its first derivatives. So the contracted Bianchi identity makes div_g(Ric^H − ½ g tr_g Ric^H)
+      a linear second-order expression in D, L(D).
+    - At order λ⁰ the left side is the fast divergence g0^(vu) F1 (R^(1) − ½ g0 tr_(g0) R^(1))_(u c). The slow
+      divergence, and every term with W, act on the orders λ⁻¹ and λ⁰ of Ric^H, which vanish.
+    - At order λ⁰ the right side is g0^(ab) F_a F_b D^(2) plus terms in D^(1), and g0^(ab) F_a F_b = −2 g0^(uv) n1 n2
+      vanishes at (n, 0).
+    - So at (n, 0), identically and whatever the free components of ĝ_2: c = u gives R^(1)_uu = 0, c = A gives
+      R^(1)_uA = 0 (as g0_uu = g0_uA = 0), and c = v gives g0^(AB) R^(1)_AB = 0 (the R^(1)_uv terms cancel).
+    - These five are the components in which T8 fixed ĝ_2 (through r = v, A and u). Their equations at this stage hold
+      automatically, so the fixed components need no transport of their own. The other ten components of R^(1) at
+      (n, 0) (vv, uv, vA and the angular trace-free part) are transports along ∂_u for the ten free components, with
+      principal part −g0^(uv) i n ∂_u from −½ g^(ab) ∂_a ∂_b. At (0, n) the same holds with u and v exchanged.
+    - Not computed: R^(1) itself. Assembling it and checking these five components needs an on-shell background,
+      for instance a jet of section 4c's solution at a point.
 - the profile H: it is imposed, the record's, not derived for the outgoing family;
-- the next stages (ĝ_2's own transport at order λ, with the gauge-fixed components of its pure harmonics as data,
-  and the mixed terms it feeds back);
+- the next stages: ĝ_2's own transport at order λ (at the pure harmonics, its ten free components', D401) and the
+  mixed terms it feeds back;
 - the energy estimate with the two large couplings of section 1.
 
 Section 1's claim that the cross couplings are a gauge artefact concerns the linearised operator, not Stage 0, and is

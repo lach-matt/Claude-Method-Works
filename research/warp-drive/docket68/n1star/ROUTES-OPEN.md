@@ -4831,3 +4831,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   harmonic (n, 0) is cancelled by ghat_2's pure harmonic in G_uu, G_uA and the angular trace (r = v, A, u; the G_uv
   terms cancel in r = u), components that do not enter R^(0). 8 harmonics, residual 2e-16; control (angular
   off-diagonal G) unsolvable. Open: agreement of those components with ghat_2's transport at the next stage.
+- D401 (FAMILIES5 4b, deduced): that agreement. Ric^H = Ric - Sym(g nabla0 D), linear in D; with R^(-1) = R^(0) = 0
+  (background on shell) and D^(0) = D^(1) = 0, the contracted Bianchi identity at order lam^0 and (n, 0) reads
+  g0^(vu) F1 (R^(1) - g0 tr R^(1)/2)_(u c) = g0^(ab) F_a F_b D^(2) = 0 (null symbol). So R^(1)_uu, R^(1)_uA and
+  g0^(AB) R^(1)_AB vanish identically: T8's five components need no transport; the other ten of R^(1) are transports
+  along d_u for the ten free ones. Not computed: R^(1) itself, which needs an on-shell background (a jet would do).
