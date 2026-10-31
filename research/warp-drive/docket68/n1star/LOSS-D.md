@@ -231,8 +231,8 @@ loop counts of section 3.
   per round from about 1 to β − 2, so about (β − 3)/ε_ind rounds at the levels above 3, about 3 × 10⁵ near β = 4. Over
   the β-chain this is of order (1/ε_K)(½/ε_ind) > 5 × 10¹⁰ rounds; if a round costs a derivative (it rests on III.F'
   Corollary 3.4's ℓ, section 2's table), the d this proof produces exceeds that. (iii) These bound the d that
-  III.J''''s accounting of the record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is existential, and the optimal loss
-  may be far smaller. The levers: the parameter point (E1'a's first question); a per-level gain larger than α − 4; a
+  III.J''''s accounting of the record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is
+  existential, and the optimal loss may be far smaller. The levers: the parameter point (E1'a's first question); a per-level gain larger than α − 4; a
   different proof of the level step, keeping in mind that the source's one-step route is closed at n = 4 (I15:12-17).
 
 - LD5 (E1'a's first question answered: no admissible point opens the gap; D353). The record's construction fixes the
