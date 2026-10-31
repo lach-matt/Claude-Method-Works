@@ -6705,3 +6705,8 @@ millionth of a millionth above the next integer, about a hundred and sixty thous
 so far. The step of the long chain must then be smaller than that, and the number of its levels rises to trillions.
 Whether those two exponents really appear with nonzero coefficients is not something the record settles; that is the
 remaining question.
+
+**D409 (2026-10-31): the derivative bound for every mode at one frequency.** The bound with a derivative now has an
+explicit, certified constant for every angular mode at the test frequency, and so for the full wave equation on the
+cut-off region, summed over the modes. The lowest non-trivial mode sets the constant, as it already did for the size
+of the solution.

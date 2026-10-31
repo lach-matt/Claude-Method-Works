@@ -4775,6 +4775,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   <= K_l ||f||^2, X_l = (1 + (1 + 2m'(M' + 2|sigma|) B_l)^(1/2))/(2m'). At sigma = 3, l >= 6 (exact, rounded up): 224.5
   and l(l+2) int psi|u|^2 <= 632.5 ||f||^2. Computed at l = 6, 3 + 0.25i: 0.752, 0.795 against 265.4, 29.7. Control:
   centred off the photon sphere psi < 0. Not: the unweighted angular derivative (trapping), the b-Sobolev orders.
+- D409 (e2h1_5.py H3, exact): Corollary E2.11 at every l at sigma = 3 from section 3f's certified B_l: X_l = 495.8,
+  282.3, 254.5, 238.7, 228.3, 224.5 (l = 1..5, >= 6), angular bounds 209,881 (l = 1, 3 B_1^2), 1,478 ... 623. Summed
+  over harmonics: ||d_r* u||_I^2 + sum_l l(l+2) int_I psi |u_l|^2 <= C^2 ||f||^2, C <= 675.1, set by l = 1.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 

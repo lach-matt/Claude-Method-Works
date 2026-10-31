@@ -483,6 +483,18 @@ has the same left side and the right side with 4|σ|. ∎
   [0, 0.073], vanishing at √2 ∈ I; 1.3 × 10⁻⁵ is its minimum on the grid.
 - *Control.* Centred 0.3 off the photon sphere, ψ takes negative values (down to −5.2 × 10⁻³), so the split
   w_l ≥ w_1, and with it the bound uniform in l, fails.
+- *H3, every l at σ = 3 (exact, D409).* With section 3f's certified B_l(3), in the table below. The angular bound A_l
+  is l(l + 2)K_l/(a − a_1) for l ≥ 2, and 3B_1² at l = 1, where a = a_1. C_l² := X_l² + A_l.
+
+  | l | 1 | 2 | 3 | 4 | 5 | ≥ 6 |
+  |---|---|---|---|---|---|---|
+  | B_l(3) | 264.5 | 51.12 | 34.39 | 26.02 | 20.99 | 19.21 |
+  | X_l (‖u′‖_I/‖f‖ ≤) | 495.8 | 282.3 | 254.5 | 238.7 | 228.3 | 224.5 |
+  | A_l | 209,881 | 1,478 | 938 | 754 | 661 | 623 |
+  | C_l² | 455,746 | 81,190 | 65,709 | 57,722 | 52,793 | 51,016 |
+
+  Summed over the harmonics, which are orthogonal on S³: ‖∂_(r_*) u‖²_I + Σ_l l(l + 2)∫_I ψ|u_l|² ≤ C²‖f‖² with
+  C ≤ 675.1 at σ = 3, the angular part unweighted at l = 1. The constant is set by l = 1, where B_1 is large.
 
 What it gives: per harmonic, the cut-off resolvent maps L²(I) to the norm ‖u′‖_I + (l(l + 2)∫_I ψ|u|²)^(1/2), with
 explicit constants uniform in l ≥ 6 at each σ (and for 1 ≤ l ≤ 5 from the table's B_l). Summed over the harmonics,

@@ -12,6 +12,10 @@ K := 2 Xb + (M' + 2|sigma|) B_l. For Im sigma > 0 the same holds with 4|sigma| f
   H1 (exact) the constants at sigma = 3 for every l >= 6 from the certified m' >= 0.005793, M' <= 1.02041 and
      min_I w_6 >= 1.0610 (e2certify5 C3), with exact rationals, every square root rounded up: B_6(3), Xb, K and
      a K/(a - a_1) at l = 6 (the largest over l >= 6, as a/(a - a_1) decreases), pinned to their decimals (D405).
+  H3 (exact) every l at sigma = 3, from section 3f's certified B_l(3) (l = 1: 264.5, peak multiplier C5; l = 2-5:
+     51.12, 34.39, 26.02, 20.99; l >= 6: B_6): X_l, the angular bound A_l (l(l+2) K_l/(a - a_1) for l >= 2, and
+     3 B_1^2 at l = 1, where a = a_1), and C_l^2 := X_l^2 + A_l, so that, summed over the orthogonal harmonics,
+     ||d_r* u||_I^2 + sum_l l(l+2) int_I psi |u_l|^2 <= max_l C_l^2 ||f||^2 (the angular part unweighted at l = 1).
   H2 (computed) at l = 6, sigma = 3 + 0.25i, the operator norms f -> u' on I and f -> (a psi)^(1/2) u on I, from the
      finite-difference resolvent of e2cplx5.py, lie below the bounds with 4|sigma| (Lemma E2.10), and u' by a forward
      difference agrees with the central one to 5 % (an independent derivative, D405). Control: centred
@@ -67,6 +71,22 @@ def psi_of(xg, rg, shift=0.0):
     return -np.tanh((xg - xs)/float(S))*(2*f/rg**3)*(2*y - 1)
 
 
+BL3 = {1: Fr(2645, 10), 2: Fr(5112, 100), 3: Fr(3439, 100), 4: Fr(2602, 100), 5: Fr(2099, 100)}
+
+
+def every_l(sigma=3):
+    c = MM + 2*sigma
+    rows = []
+    for l in range(1, 7):
+        B = BL3[l] if l in BL3 else constants(sigma, 6)[0]
+        Xb = (1 + sqrt_up(1 + 2*M1*c*B))/(2*M1)
+        K = 2*Xb + c*B
+        a = l*(l + 2) + Fr(3, 4)
+        A = 3*B*B if l == 1 else l*(l + 2)*K/(a - A1)
+        rows.append((l, B, Xb, A, Xb*Xb + A))
+    return rows
+
+
 def h2(sigma=complex(3.0, 0.25), l=6, h=0.02, L=(-80.0, 120.0)):
     xg = np.arange(L[0], L[1] + h/2, h)
     V, rg = E.potential_on(xg, l)
@@ -98,6 +118,14 @@ def main():
     print("  H1: sigma = 3, l >= 6: B_6 <= %.4f, ||u'||_I <= %.2f ||f||, l(l+2) int_I psi|u|^2 <= %.1f ||f||^2"
           % (float(B), float(Xb), float(aK)))
     ok["H1"] = abs(float(B) - 19.214) < 5e-4 and abs(float(Xb) - 224.49) < 5e-3 and abs(float(aK) - 632.5) < 0.05
+    rows = every_l()
+    for l, B, Xb, A, C2 in rows:
+        print("  H3: l %s %d: B <= %.2f, ||u'||_I <= %.1f, angular <= %.0f, C_l^2 <= %.0f"
+              % (">=" if l == 6 else "=", l, float(B), float(Xb), float(A), float(C2)))
+    cmax = max(r[4] for r in rows)
+    print("  H3: max_l C_l^2 <= %.0f (C <= %.1f), at l = %d" % (float(cmax), float(sqrt_up(cmax)),
+                                                              max(rows, key=lambda q: q[4])[0]))
+    ok["H3"] = abs(float(cmax) - 455800) < 2000 and max(rows, key=lambda q: q[4])[0] == 1
     sg = complex(3.0, 0.25)
     c = float(MM) + 4*abs(sg)
     Bp = math.sqrt((2/float(M1) + c*c/float(W6))/float(W6))
