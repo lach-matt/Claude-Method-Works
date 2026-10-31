@@ -6608,3 +6608,10 @@ distance above those integers. The parts of the set that the record computes can
 gap constant, so if the condition binds harder it must be through one of four ingredients the record has not computed
 as numbers in five dimensions. A small root sitting just above two belongs to a different operator and is not in the
 set.
+
+**D398 (2026-10-31): the lowest harmonic off the axis, everywhere.** The off-axis extension had left one sector of
+the upper half plane uncovered at the lowest harmonic, where the frequency's imaginary part dominates and the
+lower-order term in the multiplier has the wrong sign. In that sector the energy identity itself bounds the solution's
+size, which bounds the wrong-signed term by the size of the correction term, a fixed number below two thirds. So the
+lowest harmonic, like every other, now has an explicit bound throughout the upper half plane; a direct computation at
+three points, on both sides of the sector's edge, sits well below it.

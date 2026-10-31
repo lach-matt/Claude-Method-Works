@@ -4728,6 +4728,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Im sigma > 0 the flux term is replaced by -2b int phi Im(u u-bar') (sigma^2 = a + ib, identity exact), bounded via
   the energy identity by 4|sigma| ||f|| ||u||_I: B+ = B with 4|sigma| for 2|sigma|, every l >= 1, and l = 0 when
   |Re sigma| >= Im sigma. Computed at l = 1, sigma = 3 + i eta: 0.297-0.081, below B+ and below 1/|Im sigma^2|.
+- D398 (e2cplx5.py J4): l = 0 on the whole upper half plane. For a = Re sigma^2 < 0, |a| ||u||^2 <= ||f|| ||u||_I
+  bounds the q-term by 2 max q ||f|| ||u||_I, max q <= sum c_k = 0.6500188621: B+ with 4|sigma| + 2 sum c_k. Computed
+  l = 0 norms at 1 + 2i, 0.5 + i, 2 + i: 0.183, 0.594, 0.224, below B+ and below 1/dist(sigma^2, [0, oo)).
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 

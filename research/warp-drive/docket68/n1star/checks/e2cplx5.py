@@ -18,7 +18,12 @@ B^+(sigma) := ((2/m' + (M' + 4|sigma|)^2/w_I)/w_I)^(1/2) for every sigma with Im
      fine; each lies below B^+(sigma) with the certified l = 1 constants of checks/e2certify5.py C5 (peak centre),
      recomputed here. Independent check of the solver: since -d^2 + V >= 0 is self-adjoint, ||R(sigma)|| <=
      1/|Im sigma^2|, and each computed norm lies below that too.
-Labels: J1-J2 computed (exact, sympy); J3 computed (floating point, not certified); the bound itself proved in
+  J4 (computed) l = 0 over the whole upper half plane (D398): for a = Re sigma^2 <= 0 the energy identity gives
+     |a| ||u||^2 <= ||f|| ||u||_I, so the q-term, now of the wrong sign, is at most 2 q_max ||f|| ||u||_I, with
+     q_max <= sum_k c_k = 0.6500188621 for checks/e2lzero5.py's 43 bumps. So at l = 0, B^++ := B with
+     4|sigma| + 2 sum_k c_k for 2|sigma|, at every Im sigma > 0. At sigma = 1 + 2i, 0.5 + i (a < 0) and 2 + i (a > 0)
+     the computed l = 0 norm lies below B^++ (Z4's certified constants) and below 1/dist(sigma^2, [0, oo)).
+Labels: J1-J2 computed (exact, sympy); J3-J4 computed (floating point, not certified); the bound itself proved in
 E2-PILOT section 3h.
 
     python3 checks/e2cplx5.py [--selftest]
@@ -120,6 +125,17 @@ def main():
         sane = sane and nr <= cap
         print("  J3: sigma = 3 + %.2fi: ||chi R chi|| = %.4f <= B^+ = %.1f: %s; <= 1/|Im sigma^2| = %.4f: %s"
               % (eta, nr, Bp, nr <= Bp, cap, nr <= cap), flush=True)
+    m0, M0, w0, qmax = 0.002580, 0.3809, 0.02886, 0.6500188621     # e2lzero5.py Z4 (outward rounded), sum c_k
+    j4 = True
+    for sg in (complex(1.0, 2.0), complex(0.5, 1.0), complex(2.0, 1.0)):
+        nr = resolvent_norm(sg, l=0)
+        Bpp = math.sqrt((2/m0 + (M0 + 4*abs(sg) + 2*qmax)**2/w0)/w0)
+        z = sg**2
+        cap = 1/(abs(z) if z.real <= 0 else abs(z.imag))
+        j4 = j4 and nr <= Bpp and nr <= cap
+        print("  J4: l = 0, sigma = %s (a = %+.2f): ||chi R chi|| = %.4f <= B^++ = %.1f: %s; <= 1/dist = %.4f: %s"
+              % (sg, z.real, nr, Bpp, nr <= Bpp, cap, nr <= cap), flush=True)
+    ok["J4"] = j4
     coarse, fine = resolvent_norm(complex(3.0, 0.25)), resolvent_norm(complex(3.0, 0.25), h=0.01)
     print("  J3: sigma = 3 + 0.25i at h = 0.02, 0.01: %.5f, %.5f (grid check)" % (coarse, fine))
     ok["J3"] = j3 and abs(fine - coarse)/fine < 0.05

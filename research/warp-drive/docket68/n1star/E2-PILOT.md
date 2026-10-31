@@ -7,7 +7,7 @@ every l ≥ 1, D384; read by verifier 176, D385: decimals rounded outward) added
 certified, D387) added; section 3h (off the real axis, D394) added; sections 1-3, 3d, 3g and 3h to be read.
 Check scripts: `checks/e2pilot5.py` P1-P4 (computed), all pass, every control fails; the band: `checks/e2band5.py`;
 E2.8: `checks/e2morawetz5.py` M1-M3; E2.9 and the certificate: `checks/e2certify5.py` C1-C5; l = 0:
-`checks/e2lzero5.py` Z1-Z5; off the axis: `checks/e2cplx5.py` J1-J3.
+`checks/e2lzero5.py` Z1-Z5; off the axis: `checks/e2cplx5.py` J1-J4.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
@@ -415,12 +415,12 @@ I and s = 49/50; and the record's norms (section 4) or Im σ > 0.
 
 ## 3h. Off the real axis (E2.10, D394)
 
-**Lemma E2.10.** Let σ have Im σ > 0, write σ² = a + ib, and let φ, q be as in Lemma E2.8′ (q = 0 is Lemma E2.8). If
-q ≠ 0, assume also |Re σ| ≥ Im σ, that is a ≥ 0. Then the bounds of sections 3e-3g hold with 2|σ| replaced by 4|σ|:
+**Lemma E2.10.** Let σ have Im σ > 0, write σ² = a + ib, and let φ, q be as in Lemma E2.8′ (q = 0 is Lemma E2.8).
+Then the bounds of sections 3e-3g hold with 2|σ| replaced by 4|σ| + 2 max q:
 
-    ‖χ_I R(σ) χ_I‖ ≤ B⁺(σ) := ((2/m′ + (M′ + 4|σ|)²/w_I)/w_I)^(1/2),
+    ‖χ_I R(σ) χ_I‖ ≤ B⁺(σ) := ((2/m′ + (M′ + 4|σ| + 2 max q)²/w_I)/w_I)^(1/2),
 
-with the same m′, M′ and w_I.
+with the same m′, M′ and w_I. When q = 0 (every l ≥ 1), or when a ≥ 0, the term 2 max q may be dropped (D398).
 
 *Proof.* For Im σ > 0 the outgoing solution u = R(σ)f, f ∈ L²(I), decays exponentially at both ends, so every
 boundary term vanishes and there is no flux term.
@@ -433,19 +433,21 @@ boundary term vanishes and there is no flux term.
 - *The new term.* Since |φ| ≤ 1, |2b∫φ Im(u ū′)| ≤ 2|b|‖u‖‖u′‖. This is at most
   2|b|‖u‖(‖f‖‖u‖_I)^(1/2) + 2|b| a₊^(1/2)‖u‖², hence at most 2(|b|^(1/2) + a₊^(1/2))‖f‖‖u‖_I. Here
   |b|^(1/2) = (2|Re σ| Im σ)^(1/2) ≤ |σ| and a₊^(1/2) ≤ |Re σ| ≤ |σ|, so the term is at most 4|σ|‖f‖‖u‖_I.
-- *The rest.* 2a∫q|u|² ≥ 0 when a ≥ 0, and is dropped. The rest is E2.8's algebra, with 4|σ| where the flux step gave
-  2|σ|. ∎
+- *The q-term.* If a ≥ 0, 2a∫q|u|² ≥ 0 and is dropped. If a < 0, the real part of the energy identity gives
+  |a|‖u‖² ≤ ‖f‖‖u‖_I, so the term, moved to the right, is at most 2 max q ‖f‖‖u‖_I (D398).
+- *The rest.* The rest is E2.8's algebra, with 4|σ| + 2 max q where the flux step gave 2|σ|. ∎
 
 So the real-axis bounds are stable under Im σ > 0: B⁺ is continuous in σ and bounded on compact sets of
-{Im σ ≥ 0, σ ≠ 0}, for every l ≥ 1. At l = 0 this holds in the sector |Re σ| ≥ Im σ. As Im σ → 0 the constant tends
-to B⁺, not to B; the factor 2 is the price of bounding the b-term by global norms. Lemma E2.1's degeneration as
-Im σ → 0 is not needed in that sector.
+{Im σ ≥ 0, σ ≠ 0}, for every l ≥ 0. At l = 0, max q ≤ Σ_k c_k = 0.6500188621 for section 3g's 43 bumps (sech² ≤ 1).
+As Im σ → 0 the constant tends to B⁺, not to B; the factor 2 is the price of bounding the b-term by global norms.
+Lemma E2.1's degeneration as Im σ → 0 is not needed.
 
 *Computed (J3; floating point, not certified).* At l = 1 and σ = 3 + iη, by finite differences on r_* ∈ [−80, 120],
 the cut-off norm is 0.297, 0.224, 0.145, 0.081 at η = 0.25, 0.5, 1, 2. That is below B⁺ (451-528, with C5's l = 1
 constants recomputed), and below the self-adjoint bound 1/|Im σ²| (0.667-0.083), an independent check of the solver.
 At η = 0.25 a twice finer grid changes it by 10⁻⁴. On the real axis the computed norm at σ = 3 is 0.42 (section 4's
-table).
+table). At l = 0 (J4, D398) the norm is 0.183, 0.594 and 0.224 at σ = 1 + 2i, 0.5 + i (a < 0) and 2 + i (a > 0).
+That is below B⁺ with section 3g's certified constants and Σ c_k (269-403), and below 1/dist(σ², [0, ∞)).
 
 ## 4. What remains for E2 at this operator
 
@@ -489,9 +491,9 @@ table).
 - **The record's norms.** Proposition 6.2 is stated on the variable-order b-Sobolev spaces X_σ, Y_σ of the extended
   domain through the horizon; passing from L²(dr_*) per harmonic to them needs the elliptic and propagation constants of
   I.A-I.B made explicit (E2-E4).
-- **Im σ > 0 near the axis: done for the cut-off norm (section 3h, D394).** Lemma E2.1 degenerates as Im σ → 0.
-  Lemma E2.10 shows the Morawetz bounds stable under Im σ > 0, with 4|σ| for 2|σ|: for every l ≥ 1, and for l = 0 in
-  the sector |Re σ| ≥ Im σ. The sector |Re σ| < Im σ at l = 0 is not covered by E2.10.
+- **Im σ > 0 near the axis: done for the cut-off norm (section 3h, D394, D398).** Lemma E2.1 degenerates as
+  Im σ → 0. Lemma E2.10 shows the Morawetz bounds stable under Im σ > 0 for every l ≥ 0: with 4|σ| for 2|σ| when
+  l ≥ 1, and with 4|σ| + 2Σ c_k at l = 0.
 
 ## 5. Labels and sources
 
@@ -504,6 +506,6 @@ for l ≤ 40, and Lemma E2.7 against the numerical kernels on I; `checks/e2moraw
 derivative, sympy; M2-M3: w ≥ 0 and the constants on a grid, and B_l(3) against the computed norms, floating point, not
 certified); certified (`checks/e2certify5.py` C1-C5: w ≥ 0 on ℝ for every l ≥ 1 by Lemma E2.9, and the constants, by
 interval arithmetic with explicit tail bounds; `checks/e2lzero5.py` Z1-Z5: l = 0 by Lemma E2.8′, the same way;
-`checks/e2cplx5.py` J1-J2 exact, J3 floating point).
+`checks/e2cplx5.py` J1-J2 exact, J3-J4 floating point).
 Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE
 fact); EFFECTIVE-CONSTANTS.md section 5 (E2).
