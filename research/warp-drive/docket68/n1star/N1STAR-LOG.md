@@ -6755,3 +6755,10 @@ new ones. Each family's own large term disappears from the component that family
 does not. It survives only through a gauge term that the record's choice of gauge carries along, and with the gauge
 choice proposed earlier it disappears too. So the cross-coupling between the two families is, at this level, an
 artefact of the gauge. The energy estimate in either gauge is not done.
+
+**D415 (2026-10-31): the open coefficient depends on a free choice.** The coefficient that decides whether the
+repeatable exponent of D413 appears belongs to a state defined on the whole spacetime, so it depends on how the
+record's gauge is set up in the interior. The record fixes that only far out and leaves the interior to a cut-off of
+its choosing. Changing the cut-off changes the coefficient, generically, so the question has no answer from the record
+alone. One condition on the cut-off would make that term vanish. Until such a choice is made, the bound of D413 is the
+one to carry.

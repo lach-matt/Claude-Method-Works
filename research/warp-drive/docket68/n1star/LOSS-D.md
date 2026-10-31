@@ -382,6 +382,22 @@ loop counts of section 3.
       a global question, not a local one.
     - It is computable: solve the s1 system from the horizon at z where d1 is not small (z ≤ ½ is allowed, d1 ≈ z/12),
       read the coefficient off, and follow it in z.
+  - *The global problem depends on choices the record leaves open (D415, deduced).* The s1 state solves □^Υ_b ω = 0
+    and is smooth on X (D4:109-111), so its ρ^(2+d1) coefficient depends on □^Υ_b everywhere, not only near infinity.
+    The record fixes c_Υ only near infinity: c_Υ = ζ(|x|)|x|⁻¹ dt with ζ = 1 for large |x|, and c_Υ,H = −½χ(|x|) d|x|
+    with χ supported in {|x| < 5R_1} (III.B Definition 6.1, B-FAMILY:430-432; D3:31-33).
+    - Changing ζ or χ on a compact set changes □^Υ_b = 2(δ + E^Υ)Gδ* by the compactly supported first-order term
+      2(δE^Υ)Gδ*, since E^Υ is algebraic in c. The state changes by the decaying solution of □^Υ_b δω = −2(δE^Υ)Gδ*ω,
+      whose ρ^(2+d1) coefficient is the pairing of that source with the dual state of the root 2 + d1.
+    - That pairing is an integral against δζ (or δχ). It vanishes for every variation only if its integrand vanishes
+      identically, which nothing in the record forces.
+    - So whether d1 ∈ ℰ_ind is a property of the cut-offs, not of the record. Generically it is, and a choice of ζ
+      solving one real equation would remove this state's term (one for all S ∈ 𝒮_1, as ζ and χ are rotation
+      invariant).
+    - For the loss d: the record keeps ℰ_ind as a bound valid for its choices, so LD9's δ_G ≤ 5.0 × 10⁻⁸ is the one to
+      carry unless ζ is chosen to exclude d1. The horizon computation proposed under D412 would give the coefficient
+      for one choice of ζ and χ only.
+    - Not computed: the dual state, and a variation for which the pairing is nonzero.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.

@@ -4765,6 +4765,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   -2 e^(-4 sigma) s_in chi, E(ell_in, ell_out) = 0: own contraction kills own coupling; the cross one survives through
   the second-harmonic gauge terms alone, and vanishes with chi = chi' = 0. Without the gauge term the coefficient
   gains k(Pwk)-type terms (control). Open: the cross coupling's absorption in the record's gauge, the energy estimate.
+- D415 (LOSS-D LD9, deduced): the s1 state is a global solution of box^Ups_b omega = 0, smooth on X (D4:109-111), and
+  the record fixes c_Ups only near infinity (c_Ups = zeta(|x|)|x|^-1 dt, zeta = 1 for large |x|; c_Ups,H = -chi d|x|/2,
+  III.B Def 6.1, D3:31-33). A compact change of zeta or chi changes box^Ups by 2(delta E)G delta*, and the rho^(2+d1)
+  coefficient by its pairing with the dual state of 2 + d1: generically nonzero. So d1 in E_ind is a property of the
+  cut-offs; one real condition on zeta removes it. Carry delta_G <= 5.0e-8 unless zeta is so chosen. Not computed.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
