@@ -1,7 +1,7 @@
 # E2-PILOT -- E2 at one operator: □ on 5D Tangherlini, harmonic by harmonic, with explicit constants
 
-Status: written (D350); to be read. Check script: `checks/e2pilot5.py` P1-P2 (computed), both pass, both controls
-fail.
+Status: written (D350), section 3b added (D355); to be read. Check script: `checks/e2pilot5.py` P1-P3 (computed), all
+pass, every control fails.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
@@ -79,12 +79,82 @@ This is III.D Proposition 6.2's injectivity at real σ, harmonic by harmonic, wi
 record turned into a number, by inequality alone. P2 checks the lemma's three ingredients against numerical solutions
 for l ≤ 6 at four values of σ (it does not prove them).
 
+## 3b. Uniformly in l (E2.5, D355)
+
+Take σ > 0 (σ < 0 is the complex conjugate), an r_*-interval I = [α, β], and write q := V_l − σ², N := |u|² and
+Q := Re(ū u') = N'/2 for a solution u of the homogeneous equation, so that Q' = |u'|² + qN.
+
+**Lemma E2.5a (an energy monotone on each side of the barrier).** Put H := |u'|² + (σ² − V_l)|u|². Then H' = −V_l' N.
+So H(u_h) ≤ 2σ² on every interval (−∞, t] on which V_l is non-decreasing, and H(u_∞) ≤ 2σ² on every [t, ∞) on which
+V_l is non-increasing.
+
+*Proof.* H' = 2Re(ū' u'') − 2qQ − V_l'N, and 2Re(ū' u'') = 2qQ. At the end where each is normalised, u_h ~ e^(−iσ r_*)
+and u_∞ ~ e^(iσ r_*) with their derivatives (the Volterra iteration of section 1), and V_l → 0, so H → 2σ². ∎
+
+For μ = 1, with L := l(l + 2) and g := (L + 3/4)/r² + 9/(4r⁴), one has −4g/r ≤ g' ≤ −2g/r, so V_l' = f'g + fg' (in r)
+lies between (g/r³)(6 − 4r²) and (g/r³)(4 − 2r²): V_l increases in r for r² < 3/2 and decreases for r² > 2, for every l.
+
+**Lemma E2.5b (the signs at the ends of I).** Let t_1 < α and t_2 > β be points with q(t_1) = q(t_2) = 0 and q ≥ 0 on
+[t_1, t_2], with V_l non-decreasing on (−∞, t_1] and non-increasing on [t_2, ∞). Put A_− := ∫_(t_1)^α q^(1/2) dr_*,
+A_+ := ∫_β^(t_2) q^(1/2) dr_*, and for t < t_1 < t_2 < t'
+
+    B_−(t) := (2σ²/(σ² − V_l(t)))^(1/2) + √2 σ (t_1 − t),     B_+(t') := (2σ²/(σ² − V_l(t')))^(1/2) + √2 σ (t' − t_2).
+
+Then Q(u_h)(α) ≥ 2σA_− − √2 σ B_−(t) and Q(u_∞)(β) ≤ √2 σ B_+(t') − 2σA_+.
+
+*Proof* (u_h; u_∞ is the mirror image, with flux Im(ū_∞ u_∞') = +σ). On (−∞, t_1], σ² − V_l ≥ 0 and H ≤ 2σ² give
+|u'|² ≤ 2σ² and (σ² − V_l)N ≤ 2σ²; and |(N^(1/2))'| = |Q|/N^(1/2) ≤ |u'| ≤ √2 σ. So N(t_1)^(1/2) ≤ B_−(t), while
+|u'(t_1)|² = H(t_1) ≤ 2σ², and |Q(t_1)| ≤ N^(1/2)|u'| ≤ √2 σ B_−(t). On [t_1, α], |u'| ≥ |Im(ū u')|/|u| = σ N^(−1/2)
+(Lemma E2.2's flux), so Q' ≥ σ²/N + qN ≥ 2σ q^(1/2). Integrate from t_1 to α. ∎
+
+**Proposition E2.5.** If κ_I² := min_I q > 0, Q(u_h)(α) ≥ 0 and Q(u_∞)(β) ≤ 0 (by Lemma E2.5b it suffices that
+A_− ≥ B_−(t)/√2 and A_+ ≥ B_+(t')/√2 for some t, t'), then ‖χ_I R_l(σ) χ_I‖_(L²(dr_*) → L²(dr_*)) ≤ 1/κ_I².
+
+*Proof.* For G supported in I, Φ = R_l(σ)G is c_h u_h on (−∞, α] and c_∞ u_∞ on [β, ∞) (Proposition E2.4's formula).
+Pairing −Φ'' + qΦ = G with Φ̄ over I: ∫_I (|Φ'|² + q|Φ|²) = Re ∫_I GΦ̄ + |c_∞|² Q(u_∞)(β) − |c_h|² Q(u_h)(α) ≤ ‖G‖ ‖Φ‖_I,
+and the left side is at least κ_I² ‖Φ‖_I². ∎
+
+**Corollary E2.6 (closed form; μ = 1, I the r_*-interval of r ∈ [1.2, 4]).** Let c := (15/16)(L + 3/4). The hypotheses
+of Proposition E2.5 hold, and so ‖χ_I R_l(σ) χ_I‖ ≤ 1/((15/256)(L + 3/4) − σ²), whenever
+
+- (i) (15/256)(L + 3/4) > σ² and (0.21/1.4641)(L + 3/4) > σ²;
+- (ii) 0.32727 (0.120524 (L + 3/4) − σ²)^(1/2) > (2 + 1.1248 σ)/√2;
+- (iii) c^(1/2) > 8σ and (√3/2) c^(1/2) ln(c^(1/2)/(8σ)) > (2 + 0.79217 (L + 1)^(1/2))/√2.
+
+Each of (i)-(iii), once true, stays true as l grows. So with l_0(σ) the least l at which they hold, the bound holds
+for every l ≥ l_0(σ), and it is at most about 17/L.
+
+*Proof.* (i): min over [1.2, 4] of f/r² is f(4)/16 = 15/256 (f/r² rises to r = √2 and falls after), and V_l(1.1) ≥
+(L + 3/4)f(1.1)/1.21 > σ², so t_1 lies at r < 1.1; t_2 lies at r > 4. (ii): on [1.1, 1.2], 1/f ≥ 1/f(1.2) = 3.2727 and
+V_l ≥ (L + 3/4)f(1.1)/1.44, so A_− ≥ 0.32727(0.120524(L + 3/4) − σ²)^(1/2). Take t where V_l = σ²/2: on (1, 1.1],
+d ln V_l/dr_* ≥ (6 − 4r²)/r³ ≥ 0.87153, so t_1 − t ≤ ln 2/0.87153 and B_−(t) ≤ 2 + 1.1248σ. (iii): for r ≥ 4, 1/f ≥ 1
+and V_l ≥ c/r²; on [4, ρ], ρ := c^(1/2)/(2σ), q ≥ (3/4)c/r², so A_+ ≥ (√3/2)c^(1/2) ln(ρ/4). Take t' where V_l = σ²/2:
+for r ≥ 4, |d ln V_l/dr_*| ≥ (2/r)(1 − 2/r²) ≥ 1.75/r and V_l ≤ (L + 1)/r², so r(t') ≤ (2(L + 1))^(1/2)/σ, t' − t_2 ≤
+(ln 2/1.75) r(t') and B_+(t') ≤ 2 + 0.79217(L + 1)^(1/2). Monotonicity: the left sides of (i)-(ii) increase with L and
+their right sides do not; in (iii) the left side over L^(1/2) increases and the right side over L^(1/2) decreases. ∎
+
+**Computed (P3).** The closed form gives l_0 = 14, 19, 50 at σ = 0.3, 1, 3. Evaluating Proposition E2.5's conditions
+by quadrature (A_±, and B_± minimised over sample points) gives them from l = 3, 7, 18 on. Against the numerical kernels
+of section 4 the end signs hold, and the bound sits just above the measured norm:
+
+| σ | l | ‖χ_I R_l χ_I‖ (computed) | 1/κ_I² |
+|---|---|---|---|
+| 0.3 | 8, 16, 32 | 0.121, 0.0399, 0.0120 | 0.215, 0.0594, 0.0157 |
+| 1.0 | 8, 16, 32 | 0.139, 0.0415, 0.0122 | 0.267, 0.0628, 0.0159 |
+| 3.0 | 32 | 0.0135 | 0.0182 |
+
+Control: 1/(4κ_I²) falls below the measured norm somewhere.
+
 ## 4. What remains for E2 at this operator
 
-- **Uniformity in l (E2.5).** exp(I_l/(2|σ|)) grows like exp(l²/(2|σ|√μ)): Lemma E2.3 ignores that the solutions
-  decay, not grow, through the barrier when V_l > σ². For a compact σ-band only finitely many l have max V_l ≤ 2σ²;
-  for the others an Agmon-type estimate in the classically forbidden region should give a bound uniform in l. This is
-  the next step, to be written with its constants.
+- **Uniformity in l (E2.5): done for real σ on a fixed interval (section 3b, D355).** exp(I_l/(2|σ|)) grows like
+  exp(l²/(2|σ|√μ)) because Lemma E2.3 ignores that the solutions decay, not grow, through the barrier. Proposition E2.5
+  and Corollary E2.6 replace it, for l ≥ l_0(σ), by 1/((15/256)(L + 3/4) − σ²) ≤ about 17/L, from Lemma E2.5a's
+  monotone energy and the flux. The harmonics l < l_0(σ) keep Proposition E2.4's constant. That constant is finite but
+  astronomically large: at σ = 3, l = 17 it is e^54. Proposition E2.5 needs only κ_I² > 0 and the two end signs,
+  so a lower-growth argument covering the l where the barrier does not yet cover I would bring that part down too. On
+  a compact band of σ, every closed-form threshold is monotone in σ: take the band's largest σ for l_0 and its
+  smallest for Proposition E2.4.
 - **What a uniform bound must reach (measured, D352).** The actual cut-off norms, from the numerical u_h, u_∞ of P2 on
   the r_*-interval of r ∈ [1.2, 4] (length 3.74), discretised kernel at 161 points:
 
@@ -95,12 +165,9 @@ for l ≤ 6 at four values of σ (it does not prove them).
   | 3.0 | 0.41 | 0.42 | 0.45 | 0.67 | 0.73 | 0.065 | 0.014 |
 
   They fall like about 12/(l(l + 2)) once the barrier covers the interval, roughly 1/min V_l there, while Proposition
-  E2.4's bound is 10⁶⁰ at (σ, l) = (0.3, 8) and overflows beyond. The missing ingredient is a lower bound on the growth
-  of u_h through the barrier, |A| ≳ exp(∫(V_l − σ²)₊^(1/2) dr_*), matching the upper bounds of Lemma E2.3 there; with
-  it the kernel is controlled by exp(−∫_x^y (V_l − σ²)^(1/2)) inside the barrier. The route: the Riccati equation for
-  u'/u, whose imaginary part is fixed by the flux (Im(ū u') = ∓σ), with comparison in the forbidden region and the WKB
-  energy |u'|² + (σ² − V_l)|u|², which is monotone where V_l is (its derivative is −V_l'|u|²), in the allowed regions.
-  Labels: computed (the table), not proved.
+  E2.4's bound is 10⁶⁰ at (σ, l) = (0.3, 8) and overflows beyond. The missing ingredient was a lower bound on how fast
+  u_h grows through the barrier. Section 3b supplies the part of it that is needed: the signs of (|u_h|²)' and
+  (|u_∞|²)' at the ends of I, from the WKB energy and the flux. Labels: computed (the table); section 3b proved.
 - **Near σ = 0 and large |σ|.** The bound degenerates as σ → 0 (the record's I.C low-energy analysis) and, uniformly in
   l, at the trapping energies σ² ≈ max V_l for large σ (the photon sphere; E4).
 - **The record's norms.** Proposition 6.2 is stated on the variable-order b-Sobolev spaces X_σ, Y_σ of the extended
@@ -112,6 +179,8 @@ for l ≤ 6 at four values of σ (it does not prove them).
 
 ## 5. Labels and sources
 
-Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4); computed (P1: (1.1), (1.2); P2: numerical illustration,
-scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started from the exact solution of the inverse-square tail).
+Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, Proposition E2.5, Corollary E2.6);
+computed (P1: (1.1), (1.2); P2: numerical illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started
+from the exact solution of the inverse-square tail; P3: Corollary E2.6's thresholds, Proposition E2.5's conditions by
+quadrature, and the bound against the numerical kernels).
 Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE fact); EFFECTIVE-CONSTANTS.md section 5 (E2).

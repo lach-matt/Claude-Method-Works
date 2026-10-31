@@ -19,6 +19,9 @@ never differentiated numerically.
   S3 (computed, control) W on u = -R0 shifted by 0.01 v (a lapse off the Tangherlini normalisation along that cone):
      the error against Tangherlini's R(u, v) does not fall with resolution.  (A constant shift of W along the cone,
      corner included, cancels exactly in the diamond update, so it is no control.)
+  S4 (computed) The axis nodes: a spherical state (m = n = s = 0) has m_uv = n_uv = 0 exactly; at M = 16 the double
+     solve at the three nodes next to each axis returns more than 1e-9 there (the control: cancellation of about
+     (1 - |x|)^(-4.5) eps), the long-double solve (uv_ld) at least 100 times less (D354).
 
   --run lam rcut M Nu Nv out.npz [p]   the record's data at wavelength lam (A = 1, envelope [1/2, 7/2], R0 = 10, v to
                                    4.5, a = 0.002), cut at R < rcut; the solution and the cut mask are written to
@@ -27,7 +30,10 @@ never differentiated numerically.
                                    further argument reg, the axis regularisation: near x = -1 the equations fix only
                                    (1 + x) m_uv and near x = +1 only (1 - x) n_uv (m drops out of the metric at x = -1,
                                    n at x = +1), so m_uv, n_uv are recovered by exact division in Chebyshev space
-                                   (D352).  Without it the 4 x 4 solve divides rounding by about 1 - |x|.
+                                   (D352).  It does not cure the axis loss and stops on a singular solve at M = 16,
+                                   24 (D354); kept as an option.  With further arguments ld k, the k nodes next to
+                                   each axis are solved in 80-bit long double (D354: the double solve there loses
+                                   about (1 - |x|)^(-4.5) eps; k = 3 cuts the spurious axis signal 165-1250 fold).
 """
 import sys, importlib.util, numpy as np, sympy as sp, warnings
 warnings.filterwarnings('ignore')
@@ -84,6 +90,7 @@ class Eqs:
         self.sargs = sorted(self.svv_expr.free_symbols, key=str); self.snames = [str(a) for a in self.sargs]
         self.fs = sp.lambdify(self.sargs, self.svv_expr, 'numpy', cse=True)
         self.fm = sp.lambdify(self.args, rhs + sum(Mm, []), 'numpy', cse=True)
+        self._uvexpr, self._fld = rhs + sum(Mm, []), None
 
     def svv(self, env):
         r = self.fs(*[env[k] for k in self.snames])
@@ -95,6 +102,30 @@ class Eqs:
         rhs = np.stack(vals[:4], -1)
         M = np.stack(vals[4:], -1).reshape(shape + (4, 4))
         return np.linalg.solve(M, rhs[..., None])[..., 0]
+
+    def uv_ld(self, env, idx):
+        """the same solve at the x-nodes idx in 80-bit long double, the expressions' rational constants exact: at the
+        nodes next to an axis the double evaluation loses about (1 - |x|)^(-4.5) eps to cancellation (D354)"""
+        if self._fld is None:
+            from sympy.printing.numpy import NumPyPrinter
+            class LD(NumPyPrinter):
+                def _print_Rational(self, e):
+                    return 'numpy.longdouble(%d)/numpy.longdouble(%d)' % (e.p, e.q)
+            self._fld = sp.lambdify(self.args, self._uvexpr, modules='numpy', printer=LD, cse=True)
+        sub = {k: np.asarray(env[k], np.longdouble)[..., idx] for k in self.names}
+        shape = np.broadcast_shapes(*[np.shape(q) for q in sub.values()])
+        vals = [np.broadcast_to(np.asarray(v_, np.longdouble), shape) for v_ in self._fld(*[sub[k] for k in self.names])]
+        b = np.stack(vals[:4], -1).reshape(-1, 4).copy(); A = np.stack(vals[4:], -1).reshape(-1, 4, 4).copy()
+        r = np.arange(len(b))
+        for k in range(4):              # Gaussian elimination with partial pivoting, vectorised (LAPACK has no long double)
+            p = k + np.argmax(np.abs(A[:, k:, k]), axis=1)
+            A[r, k], A[r, p] = A[r, p].copy(), A[r, k].copy(); b[r, k], b[r, p] = b[r, p].copy(), b[r, k].copy()
+            for i in range(k + 1, 4):
+                f = A[:, i, k] / A[:, k, k]; A[:, i, k:] -= f[:, None] * A[:, k, k:]; b[:, i] -= f * b[:, k]
+        y = np.zeros_like(b)
+        for i in range(3, -1, -1):
+            y[:, i] = (b[:, i] - (A[:, i, i + 1:] * y[:, i + 1:]).sum(-1)) / A[:, i, i]
+        return y.astype(float).reshape(shape + (4,))
 
 
 def cheb_gauss(M):
@@ -177,9 +208,10 @@ class Data:
 
 
 class Grid:
-    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None, filt=None, reg=False):
+    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None, filt=None, reg=False, ld=0):
         self.x, self.D1, self.D2 = cheb_gauss(M)
         self.M = M
+        self.ld = np.r_[np.arange(ld), np.arange(M - ld, M)] if ld else None    # nodes solved in long double, or none
         self.Fm = None if filt is None else cheb_filter(M, filt)      # axis filter of order filt, or none
         self.Q = axis_quotients(M) if reg else None                     # axis regularisation of m_uv, n_uv, or none
         if a is None:
@@ -284,7 +316,10 @@ def run(E, G, data, r_cut, iters=3, log=None):
             c = {f: 0.25 * (s_[f] + e_[f] + w_[f] + nn[f]) for f in ALL}
             fu = {f: (w_[f] - s_[f] + nn[f] - e_[f]) / (2 * du) for f in FIELDS}
             fv = {f: (e_[f] - s_[f] + nn[f] - w_[f]) / (2 * G.dv) for f in FIELDS}
-            fuv = E.uv(env_from(G, c, fu, fv, c['sv']))
+            env = env_from(G, c, fu, fv, c['sv'])
+            fuv = E.uv(env)
+            if G.ld is not None:
+                fuv[..., G.ld, :] = E.uv_ld(env, G.ld)
             if G.Q is not None:       # only (1 + x) m_uv and (1 - x) n_uv are determined near x = -1, +1: divide exactly
                 fuv[..., 1] = ((1 + G.x) * fuv[..., 1]) @ G.Q[0].T
                 fuv[..., 2] = ((1 - G.x) * fuv[..., 2]) @ G.Q[1].T
@@ -437,6 +472,17 @@ def selftest():
     print('S3 control, W + 0.01 v on u = -R0: error ratio %.2f (no convergence expected) ->' % ratio3,
           'PASS' if r3 else 'FAIL')
     ok &= r3
+    # S4: the axis nodes, double against long double on a spherical state
+    G4 = Grid(16, -10, -0.54, 10, 0, 1, 10, ld=3); one = np.ones(16)
+    c4 = {'R': 3.2241 * one, 'm': 0 * one, 'n': 0 * one, 'W': -0.3383 * one, 's': 0 * one}
+    fu4 = {'R': -1.0168 * one, 'm': 0 * one, 'n': 0 * one, 'W': 0.0081 * one}
+    fv4 = {'R': 0.4519 * one, 'm': 0 * one, 'n': 0 * one, 'W': 0.0149 * one}
+    env4 = env_from(G4, c4, fu4, fv4, 0 * one)
+    ed = np.abs(E.uv(env4)[G4.ld][:, 1:3]).max(); el = np.abs(E.uv_ld(env4, G4.ld)[:, 1:3]).max()
+    r4 = ed > 1e-9 and el < ed / 100
+    print('S4 axis nodes, spherical state at M = 16: |m_uv|, |n_uv| double %.1e, long double %.1e ->' % (ed, el),
+          'PASS' if r4 else 'FAIL')
+    ok &= r4
     print('dnsolve5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 
@@ -446,9 +492,11 @@ def main():
         lam, rcut = float(sys.argv[2]), float(sys.argv[3])
         M, Nu, Nv = int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
         filt = int(sys.argv[8]) if len(sys.argv) > 8 and sys.argv[8] != '0' else None
-        reg = len(sys.argv) > 9 and sys.argv[9] == 'reg'
+        opts = sys.argv[9:]
+        reg = 'reg' in opts
+        ld = int(opts[opts.index('ld') + 1]) if 'ld' in opts else 0
         E = Eqs()
-        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt, reg=reg)
+        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt, reg=reg, ld=ld)
         A, mask = run(E, G, Data(lam, 1.0), rcut)
         np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, **{f: A[f] for f in ALL})
         print('written', sys.argv[7], 'cells', int((~mask).sum()), 'of', mask.size)

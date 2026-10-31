@@ -11,7 +11,10 @@ at real sigma != 0 (E2-PILOT.md).  Labels: computed.
      |W| >= 2|sigma|; Im(conj(u_h) u_h') = -sigma along x (the flux, to rounding relative to |u_h| |u_h'| where u_h
      has grown through the barrier); and |u_h(x)|^2, |u_inf(x)|^2 obey the Gronwall
      bounds 2 exp(int V / |sigma|) at sampled x.  Control: |W| >= 4|sigma| fails somewhere.
-Numerical integration (scipy solve_ivp, rtol 1e-11) checks the lemma; the lemma itself is proved in E2-PILOT.md.
+  P3 (computed) E2.5 on I = r in [1.2, 4]: Corollary E2.6's closed-form conditions, the least l_0 from which they hold
+     to l = 400 at sigma = 0.3, 1, 3, and Proposition E2.5's conditions by quadrature; at l = 8, 16, 32 (where they
+     hold) the numerical kernel's end signs and ||chi R chi|| <= 1/kappa_I^2.  Control: 1/(4 kappa_I^2) fails somewhere.
+Numerical integration (scipy solve_ivp, rtol 1e-11) checks the lemmas; the lemmas are proved in E2-PILOT.md.
 """
 import sys
 import numpy as np
@@ -107,13 +110,93 @@ def p2():
     return ok, ctl
 
 
+A_, B_ = 1.2, 4.0                       # the interval I of section 4, in r
+
+
+def closed(s, L):
+    """Corollary E2.6's closed-form sufficient conditions at L = l(l+2) (mu = 1, I = r in [1.2, 4]); each constant is
+    computed from its formula, lower bounds rounded down and upper bounds up by a relative 1e-9"""
+    dn, up = 1 - 1e-9, 1 + 1e-9
+    a = L + 0.75
+    kap = dn * a * (1 - 1 / B_**2) / B_**2 - s**2                       # min_I f/r^2 is at r = 4
+    r11 = dn * a * (1 - 1 / 1.1**2) / 1.1**2 > s**2                      # V_l(1.1) > sigma^2, so r_1 < 1.1
+    rate = dn * (6 - 4 * 1.1**2) / 1.1**3                                 # d ln V / dr_* >= rate on (1, 1.1]
+    Bl = up * (2 + np.sqrt(2) * s * np.log(2) / rate)
+    Al = dn * (A_ - 1.1) / (1 - 1 / A_**2) * np.sqrt(max(a * (1 - 1 / 1.1**2) / A_**2 - s**2, 0))
+    cL = dn * a * (1 - 1 / B_**2)
+    Br = up * (2 + np.sqrt(2) * np.log(2) * np.sqrt(2 * (L + 1)) / (2 / B_ * (1 - 2 / B_**2) * B_))
+    Ar = dn * (np.sqrt(3) / 2) * np.sqrt(cL) * np.log(np.sqrt(cL) / (2 * s) / B_) if np.sqrt(cL) > 2 * s * B_ else 0
+    return kap > 0 and r11 and Al > Bl / np.sqrt(2) and Ar > Br / np.sqrt(2), kap
+
+
+def turning(s, l, lo, hi):
+    """the root of V_l(r) = s^2 on [lo, hi] (V_l monotone there), by bisection"""
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if (V(mid, l) - s**2) * (V(lo, l) - s**2) > 0: lo = mid
+        else: hi = mid
+    return 0.5 * (lo + hi)
+
+
+def exact(s, l):
+    """Proposition E2.5's conditions evaluated by quadrature: kappa_I^2 > 0, A_left > B_left/sqrt2, A_right >
+    B_right/sqrt2 (B: the Ermakov-invariant bound on sqrt N at the turning point, minimised over sample points)"""
+    from scipy.integrate import quad
+    rr = np.linspace(A_, B_, 4001)
+    kap = V(rr, l).min() - s**2
+    if kap <= 0 or V(A_, l) <= s**2 or V(B_, l) <= s**2:
+        return False, kap
+    r1 = turning(s, l, 1 + 1e-15, A_); r2 = turning(s, l, B_, 1e7)
+    g = lambda r: np.sqrt(max(V(r, l) - s**2, 0)) / (1 - 1 / r**2)
+    Al = quad(g, r1, A_, limit=400)[0]; Ar = quad(g, B_, r2, limit=400)[0]
+    tl = 1 + (r1 - 1) * np.linspace(1e-6, 1 - 1e-6, 3000)
+    Bl = np.min(np.sqrt(2 * s**2 / (s**2 - V(tl, l))) + np.sqrt(2) * s * (rstar(r1) - rstar(tl)))
+    tr = r2 * np.exp(np.linspace(1e-6, 3, 3000))
+    Br = np.min(np.sqrt(2 * s**2 / (s**2 - V(tr, l))) + np.sqrt(2) * s * (rstar(tr) - rstar(r2)))
+    return (Al > Bl / np.sqrt(2) and Ar > Br / np.sqrt(2)), kap
+
+
+def p3():
+    """E2.5: closed-form l_0 for each sigma and its monotone tail to l = 400; the exact conditions from l_0; against
+    the numerical kernels: the end signs and ||chi R chi|| <= 1/kappa_I^2 where the conditions hold"""
+    ok, ctl, rep = True, False, []
+    for s in (0.3, 1.0, 3.0):
+        hold = [closed(s, l * (l + 2))[0] for l in range(401)]
+        l0 = next(l for l in range(401) if all(hold[l:]))
+        ex = [exact(s, l)[0] for l in range(l0 + 1)]
+        le = next(l for l in range(l0 + 1) if all(ex[l:]))
+        ok &= hold[l0] and ex[l0]
+        rep.append('sigma %.1f: l_0 %d closed form, %d by quadrature' % (s, l0, le))
+        a, b = rstar(A_), rstar(B_)
+        xs = np.linspace(a, b, 161); h = xs[1] - xs[0]
+        for l in (8, 16, 32):
+            if l < le: continue
+            Uh, Uph = solve(l, s, -40.0, 400.0, 'h', np.concatenate([xs, [400.0]]))
+            Ui, Upi = solve(l, s, -40.0, 400.0, 'inf', np.concatenate([[-40.0], xs]))
+            Uh, Uph, Ui, Upi = Uh[:-1], Uph[:-1], Ui[1:], Upi[1:]
+            W = (Uh * Upi - Uph * Ui).mean()
+            i, j = np.meshgrid(np.arange(161), np.arange(161), indexing='ij')
+            K = Uh[np.minimum(i, j)] * Ui[np.maximum(i, j)] / W
+            nrm = np.linalg.norm(K * h, 2)
+            kap = exact(s, l)[1]
+            sgn = np.real(np.conj(Uh[0]) * Uph[0]) >= 0 and np.real(np.conj(Ui[-1]) * Upi[-1]) <= 0
+            ok &= sgn and nrm <= 1 / kap
+            ctl |= nrm > 1 / (4 * kap)
+            rep.append('  l %2d: ||chi R chi|| %.3g <= 1/kappa^2 %.3g; signs at the ends %s' % (l, nrm, 1 / kap, sgn))
+    return ok, ctl, rep
+
+
 def main():
     r1, c1 = p1()
     print('P1 V_l and I_l:', 'PASS' if r1 else 'FAIL', '| control 3/4 for 9/4:', c1)
     r2, c2 = p2()
     print('P2 flux, |W| >= 2|sigma|, Gronwall bounds (l <= 6, four sigma):', 'PASS' if r2 else 'FAIL',
           '| control |W| >= 4|sigma| fails somewhere:', c2)
-    ok = r1 and not c1 and r2 and c2
+    r3, c3, rep = p3()
+    print('\n'.join(rep))
+    print('P3 E2.5 conditions and the bound 1/kappa_I^2:', 'PASS' if r3 else 'FAIL',
+          '| control 1/(4 kappa_I^2) fails somewhere:', c3)
+    ok = r1 and not c1 and r2 and c2 and r3 and c3
     print('e2pilot5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 

@@ -6255,3 +6255,12 @@ of D348-D349 is set by one of the constraint-damping parameters, and the admissi
 record fixes by positivity at an interior saddle, allows a gap of at most about 3 × 10⁻⁵: ten times the record's, no
 more. So the loss of this proof stays above about 130,000 whatever the parameters; a gap of order one would need a
 different constraint damping.
+
+**D355 (2026-10-31): the resolvent bound uniform in the harmonic.** The per-harmonic bound of D350 grew like
+exp(l²/σ) because it ignored that the solutions decay through the potential barrier. An energy identity on the
+interval now bounds the cut-off resolvent by one over the barrier's height above σ², about 17/(l(l + 2)), for every
+harmonic past an explicit l_0(σ): 14, 19 and 50 at σ = 0.3, 1 and 3 in closed form, and 3, 7 and 18 when its two
+conditions are evaluated by quadrature. The bound sits just above the measured norms (0.060 against 0.040 at σ = 0.3,
+l = 16). The two conditions are the signs of |u|²'s derivative at the interval's ends. Both come from the flux and from
+the WKB energy |u'|² + (σ² − V)|u|², which is monotone on each side of the barrier. The harmonics below l_0 keep the old
+constant.

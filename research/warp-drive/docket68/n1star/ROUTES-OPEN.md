@@ -4617,3 +4617,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   largest value is ~3.1e-5 (v ~ 0.45, h -> e = e_0), against 2.93e-6 at the record's point. So eps_ind < 3.1e-5 at every
   admissible point; LD3's counts improve by at most ~10 (K > 6.5e4, d > 1.3e5, nested rounds > 5e8). An order-one gap
   needs another constraint damping.
+
+### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
+
+- E2-PILOT.md section 3b, checks/e2pilot5.py P3. Lemma E2.5a: H = |u'|^2 + (sigma^2 - V_l)|u|^2 has H' = -V_l' |u|^2,
+  so H <= 2 sigma^2 for u_h left of the barrier's peak and for u_inf right of it. Lemma E2.5b: with the flux, the signs
+  Re(conj(u_h) u_h') >= 0 at the left end of I and Re(conj(u_inf) u_inf') <= 0 at the right end. Proposition E2.5:
+  then ||chi_I R_l(sigma) chi_I|| <= 1/min_I (V_l - sigma^2). Corollary E2.6 (mu = 1, I = r in [1.2, 4]): closed-form
+  sufficient conditions, monotone in l; l_0 = 14, 19, 50 at sigma = 0.3, 1, 3 (3, 7, 18 by quadrature); bound
+  <= 1/((15/256)(L + 3/4) - sigma^2), about 17/L. Open: l < l_0 (Proposition E2.4's constant), Im sigma -> 0, the
+  record's b-Sobolev norms.
