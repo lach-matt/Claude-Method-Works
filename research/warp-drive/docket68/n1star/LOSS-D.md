@@ -88,8 +88,9 @@ the horizon (I.A); s_c the fixed regularity order of II.G' Corollary 4.2's proof
      R_K u has order k + l − n_K, and (4.7) on it costs n_ι + 1. The extra product ∏_(j≤⌊β_K−1⌋)(σ∂_σ − j) costs
      ⌊β_K⌋. Integrating the n_K + ⌊β_K⌋ factors one at a time costs one each. So l_0 = 1 + n_ι + 2(n_K + ⌊β_K⌋).
    - *Part (1), general E_I.* χ_K u costs l_0. For u vanishing near K, the K-weight is raised to β'_K, the least
-     admissible non-integer above B := max(β_K, β_ι + max(0, −min Re π_1E_I)), so ⌊β'_K⌋ = ⌊B⌋ and E_K = ∅. Then R_I u costs n_I,
-     the case E_I = ∅ costs 1 + n_ι + 2⌊β'_K⌋, and Lemma 3.3 is lossless given its a priori order. Integrating at
+     admissible non-integer above B := max(β_K, β_ι + max(0, −min Re π_1E_I)), so ⌊β'_K⌋ = ⌊B⌋ and E_K = ∅.
+     Then R_I u costs n_I, the case E_I = ∅ costs 1 + n_ι + 2⌊β'_K⌋, and Lemma 3.3 is lossless given its a priori
+     order. Integrating at
      scf costs n_I.
    - So III.A Proposition 4.2 (1) has
 
@@ -229,8 +230,8 @@ loop counts of section 3.
   1.3 × 10⁶, and N = 21d + 6 > 2.8 × 10⁷. (ii) Nested inside, at every β-level, I14's level-3 loop rises by ε_ind − ε
   per round from about 1 to β − 2, so about (β − 3)/ε_ind rounds at the levels above 3, about 3 × 10⁵ near β = 4. Over
   the β-chain this is of order (1/ε_K)(½/ε_ind) > 5 × 10¹⁰ rounds; if a round costs a derivative (it rests on III.F'
-  Corollary 3.4's ℓ, section 2's table), the d this proof produces exceeds that. (iii) These bound the d that III.J''''s accounting
-  of the record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is existential, and the optimal loss
+  Corollary 3.4's ℓ, section 2's table), the d this proof produces exceeds that. (iii) These bound the d that
+  III.J''''s accounting of the record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is existential, and the optimal loss
   may be far smaller. The levers: the parameter point (E1'a's first question); a per-level gain larger than α − 4; a
   different proof of the level step, keeping in mind that the source's one-step route is closed at n = 4 (I15:12-17).
 

@@ -1,7 +1,7 @@
 # E2-PILOT -- E2 at one operator: □ on 5D Tangherlini, harmonic by harmonic, with explicit constants
 
-Status: written (D350); section 3b added (D355) and verified (verifier 165, D356); sections 1-3 to be read. Check script: `checks/e2pilot5.py` P1-P3 (computed), all
-pass, every control fails.
+Status: written (D350); section 3b added (D355) and verified (verifier 165, D356); sections 1-3 to be read. Check
+script: `checks/e2pilot5.py` P1-P3 (computed), all pass, every control fails.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
