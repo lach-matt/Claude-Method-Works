@@ -4635,6 +4635,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   n_K + ceil((max(beta_iota - beta_scf, beta_K) + eps - 1/2)_+). II.G' Cor 4.2 and III.I'' Lemma 4.2: ell =
   max(ceil((theta_in/2 + 3 - beta_scf)_+), ceil((s_c - 1)_+)) (in the proofs, II.G2:698-702). III.G''' Prop 3.7 and Cor
   3.1: Prop 2.4's l' = 2 ceil(ell_I) + 10 + sup d (Cor 3.1 (2): + 2). III.G' Thm 3.1 (2): d_1 = 0, d(lambda) = 6 +
-  ceil(max(0, Re lambda - 2 + delta)) + ceil(max(0, Re lambda - 3/2) + delta) + 2 ceil(ell_I - Re lambda). Remaining:
-  E1'a (numbers for the data) and E1'c (the counts).
+  ceil(max(0, Re lambda - 2 + delta)) + ceil(max(0, Re lambda - 3/2) + delta) + 2 ceil(ell_I - Re lambda), not monotone;
+  sup over a strip <= max(7 + 2 ceil(ell_I - lambda_-), 12) for 3 < ell_I < 3.5, so l' = 30 with lambda_- just below
+  3/2. Verifier 166 (D358): forms and d_1 = 0 hold; the strip rule repaired; s_c >= 0 chosen; Cor 3.1 (2) loses l'.
+  Remaining: E1'a (numbers for the data and the free choices) and E1'c (the counts).
 

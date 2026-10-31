@@ -6283,3 +6283,13 @@ constants of the operators at the horizon and the incoming radial set, and the s
 So d is now an explicit function of numbers the record computes or chooses. Making it a number still needs those
 numbers chosen and the loops counted.
 
+**D358 (2026-10-31): the six losses read by a verifier.** Verifier 166 checked the closed forms against the cited lines
+of the proofs; they hold, and so does the reading that the term the record left as depending on s is zero. One rule
+was wrong. The light-cone loss does not grow steadily as the exponent falls, so its maximum over a strip is not at the
+strip's ends; at ℓ_I = 3.2 it is 11 at both ends of [1.4, 2.5] and 12 inside. The right statement is a bound by the
+larger of 7 + 2⌈ℓ_I − λ_−⌉ and 12. With the strip's lower end just below 3/2, which the record requires anyway, the
+loss of the resonance maps is 30. Three smaller corrections and six nits are seated:
+- a regularity order is now chosen non-negative;
+- one corollary's +2 was a double count;
+- the free choices still in the formulas are named.
+
