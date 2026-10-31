@@ -23,6 +23,17 @@ for each θ_k separately, so there are N phase-shift identities, N large couplin
 s_k := w(ℓ_k, ℓ_k), and N transported phases φ_k. Contracting with ℓ_k ⊗ ℓ_k kills family k's coupling but not family
 j's: [∂²_(θ_j) g1^(j)](ℓ_k, ℓ_k) is not zero in general. These cross couplings are the new analytic difficulty.
 
+**Where the cross coupling sits in the class (deduced from the record's Stage 0; to be computed in step 4).** The
+record's first-order wave is W = W_TT + χ dv² (`lead5.py`). W_TT has components only on the angular block
+(θ, φ1, φ2), so W_TT(ℓ, ·) = 0 for every vector ℓ in the (τ, r) plane, and χ dv² is the second harmonic's gauge term.
+- For an outgoing family the analogue is W'_TT + χ' du².
+- So [∂²_(θ_2) g1^(out)](ℓ_in, ℓ_in) = ∂²_(θ_2) χ' (du(ℓ_in))², and [∂²_(θ_1) g1^(in)](ℓ_out, ℓ_out) = ∂²_(θ_1) χ
+  (dv(ℓ_out))².
+- Since du(ℓ_in) ≠ 0 ≠ dv(ℓ_out), the cross couplings are present. They enter only through the second-harmonic gauge
+  terms χ and χ', not through the transverse-traceless waves.
+- A gauge or an ansatz that removes χ and χ' at first order, or moves them to higher order, would remove the cross
+  couplings at leading order. Whether one exists in the class is the first analytic question of the two-family case.
+
 ## 2. Several null dusts
 
 - **Published (READ: abstract of [Tou24], arXiv:2402.17530v2).** For a regular solution of Einstein-null dusts "without
