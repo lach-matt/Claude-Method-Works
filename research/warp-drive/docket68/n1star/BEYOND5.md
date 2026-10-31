@@ -270,10 +270,38 @@ f = 1 − μ/r², the wave operator gains exactly −μ r⁻³ ∂_r(r ∂_r F).
 - Not proved: the convergence for every l and the radius of convergence in s, though the recursion's ratio for
   j ≫ l (about s/2) suggests |s| < 2.
 
+**Lemma 6.5′ (the record's full flat operator; deduced, with `checks/coulombL5.py` Q1-Q4, D417).** On 4+1 Minkowski
+the record's operator is L = D Ric + δ*_(E^C) δ_(E^Υ) G, with E^Υ built on c_Υ = r⁻¹ dt and E^C on
+c = r⁻¹(dt − v dr) (lin5.py's L̄, [Hin26] (8.1)). Both 1-forms are homogeneous of degree −1, so L is homogeneous of
+degree −2. Data r⁻² F(0) on N, with v1 = 0, therefore give the self-similar solution r⁻² F(s), s := v/r. On a slice
+t = const, s = 1 + tρ, so the expansion at I_0 is F's Taylor series at s = 1.
+
+- *Q1-Q2 (exact).* In the spherically symmetric sector, h = r⁻²(a dt² + 2b dt dr + c dr² + d r² g_S³), L reduces to
+  a 4 × 4 system in s with second-order part −½ s(s − 2) F″ in every row, the principal symbol at ds. All other
+  coefficients are polynomials in s. So its only singular points are s = 0 (N) and s = 2 (the cone u = 0), and I_0,
+  at s = 1, is an ordinary point.
+- *So r²h is smooth in ρ at I_0, with no logarithm, for every value of γ_Υ, e_Υ, γ_C, e_C and v* (an ODE with
+  polynomial coefficients at an ordinary point). The argument uses only the principal symbol and the homogeneity, so it
+  holds for every harmonic; the computation is the l = 0 sector.
+- *Q3 (exact control).* With the damping off, Lemma 6.5's polynomials solve the system: a = a_0, b = b_0(1 − s),
+  c − d = e_0 U_2(1 − s)/3 and (c + 3d)/4 = p_0, the Cartesian harmonics l = 0, 1, 2, 0. The transfer from N to I_0
+  multiplies them by 1, 0, −1/3, 1, which is cos(πl/2)/(l + 1). With U_1 in place of U_2 it fails.
+- *Q4.* At s = 0 the Frobenius exponents are 0, for the regular branch the data fix, and 1 − eig(m1_0). At the
+  record's point (lin5's: e_Υ = γ_Υ = 1/100, e_C = 1/102400, γ_C = 10⁶, v = 1/2) the latter are −0.5099, −0.52,
+  −1.5 × 10⁶ and −3 × 10⁶, all negative. So the regular branch is the only solution continuous at N.
+  - With the damping on, the r⁻² coefficient at I_0 is no longer Lemma 6.5's. At γ_C = 1 the transfer matrix
+    (regular series, 400 terms, radius 2) agrees with a stiff integrator to 1.6 × 10⁻¹⁴ and mixes the components, for
+    instance a(1) = 1.032 a(0) + ….
+  - At γ_C = 10⁶ it is not computed.
+
+So at leading order in flat space, and for the full operator, the Coulomb part lies in ρ²C^∞ at I_0. Lemma 0.1's
+condition for this term holds. The coefficient is the transfer matrix's, not cos(πl/2)/(l + 1).
+
 What it does not give:
 
 - Tangherlini's corrections beyond the scalar model (the curvature couplings of the tensor equation);
-- the structure beyond the principal part (the gauge terms and the trace couplings);
+- the structure beyond the principal part (the gauge terms and the trace couplings) on Tangherlini; on Minkowski it is
+  Lemma 6.5′ (D417);
 - the remainder in E_(5/2) of (v), and the remainder g_λ − g_app;
 - uniqueness in W beyond the expansion (an energy identity on W would give it);
 - the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so

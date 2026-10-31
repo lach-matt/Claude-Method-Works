@@ -4774,6 +4774,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   identity carries 2 int (phi' - q)|u'|^2 with phi' - q >= 0 on R, so E2.11's algebra gives ||u'||_I <= X_0 ||f||;
   X_0(3) <= 808.6 from section 3g's certified constants. Summed over every l >= 0: C <= 808.6, set by l = 0 (675.1
   over l >= 1). D413's "3g gives no X_0" withdrawn. Computed at 3 + 0.25i: 0.846 against 1264.5.
+- D417 (BEYOND5 Lemma 6.5', checks/coulombL5.py Q1-Q4): the record's full flat operator L = D Ric + delta*_(E^C)
+  delta_(E^Ups) G is homogeneous of degree -2, so data r^-2 F(0) on N give r^-2 F(v/r). l = 0 sector: a 4 x 4 ODE in s
+  with second-order part -(1/2) s (s - 2) F'' and polynomial coefficients, so I_0 (s = 1) is an ordinary point and the
+  Coulomb part is in rho^2 C^inf for every damping parameter (exact). Damping off: Lemma 6.5's polynomials, transfer
+  1, 0, -1/3, 1 (exact control). Exponents at N at the record's point: 0, -0.51, -0.52, -1.5e6, -3e6. Damping on, the
+  r^-2 coefficient is the transfer matrix's (gamma_C = 1: series = Radau to 1.6e-14). Open: Tangherlini, other l.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

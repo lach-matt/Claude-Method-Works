@@ -6768,3 +6768,10 @@ covers the spherically symmetric mode too: the identity used for that mode alrea
 the same short argument applies. Its constant, about 809, is the largest of all the modes at the test frequency, so it
 sets the constant for the full wave equation on the cut-off region. An earlier note that this mode needed a different
 argument is withdrawn.
+
+**D417 (2026-10-31): the slowest part of the correction at spatial infinity, with the record's full equation.** D406
+followed the slowest-decaying part of the correction to spatial infinity with the plain wave equation. The record's
+equation also carries its gauge-damping terms. In flat space those terms respect the scaling symmetry, so the solution
+is a fixed profile in one variable, and spatial infinity sits at an ordinary point of that profile's equation. So the
+clean expansion survives whatever the damping, although the leading number changes. With the damping switched off the
+calculation reproduces D406 exactly. The curved-space version, with the black hole's mass included, is not done.
