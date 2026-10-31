@@ -515,6 +515,17 @@ derivative term as E2.8's does.
 - *Computed (floating point, not certified).* At σ = 3 + 0.25i the norm of f ↦ u′|_I at l = 0 is 0.846, against the
   bound 1264.5 with 4|σ| and B_0⁺.
 
+**Corollary E2.12 (on the band 0 < |σ| ≤ 3; deduced, with `checks/e2h1_5.py` H5, D424).** The multipliers of Lemmas
+E2.8, E2.8′ and E2.9 do not depend on σ, so neither do m′, M′ and w_I. Every bound above, B_l, X_l, A_l and C_l, is
+then an explicit function that increases with |σ|.
+- So for real 0 < |σ| ≤ 3 the summed estimate holds with the constant at σ = 3: ‖∂_(r_*) u‖²_I + Σ_l l(l + 2)∫_I
+  ψ|u_l|² ≤ C²‖f‖², with C ≤ 808.6. For l = 1-5 only B_l(3) is certified, and it is used at every σ.
+- The constant stays finite as σ → 0⁺. H5 gives C(σ) = 528.3, 557.6, 599.5, 714.6 and 808.6 at σ = 0.01, 0.5, 1, 2
+  and 3.
+- Off the axis Lemma E2.10's form holds with 4|σ| + 2 max q in place of 2|σ|, and is increasing in the same way.
+- This is uniformity on a compact band, as the record's Proposition 6.2 needs, but in the cut-off H¹ norm only, not in
+  the record's norms (section 4).
+
 What it gives: per harmonic, the cut-off resolvent maps L²(I) to the norm ‖u′‖_I + (l(l + 2)∫_I ψ|u|²)^(1/2), with
 explicit constants uniform in l ≥ 6 at each σ (and for 1 ≤ l ≤ 5 from the table's B_l). Summed over the harmonics,
 which are orthogonal on S³, that is a bound for ‖∂_(r_*) u‖ and the angular gradient weighted by ψ on I × S³.

@@ -6821,3 +6821,8 @@ least about a hundred million steps, and the loss it produces is at least about 
 the next order: the extra term the gauge source brings lands in exactly the equation that a free piece of the
 next-stage correction controls, and solving for that piece removes it at every harmonic checked. Why the condition then
 stays true for all time is the standard argument, deduced and not checked here.
+
+**D424 (2026-10-31): the derivative bound on a whole range of frequencies.** The weights used in the bounds do not
+depend on the frequency, so every constant grows with the frequency in an explicit way. The bound found at the test
+frequency therefore holds for every frequency below it, down to zero, with the constant falling to about 530 near
+zero. This is still for the region between the horizon and the outer cut-off, not the record's full norms.

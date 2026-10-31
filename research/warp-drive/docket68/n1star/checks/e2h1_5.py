@@ -26,8 +26,11 @@ K := 2 Xb + (M' + 2|sigma|) B_l. For Im sigma > 0 the same holds with 4|sigma| f
      m0' >= 0.002580, M0' <= 0.3809 and B_0(3) <= 275.2 (Z4); there is no angular part at l = 0. X_0(3) and the constant
      over every l >= 0, max(C_l, X_0). Computed beside it: at sigma = 3 + 0.25i the norm of f -> u'|_I, against the
      bound with 4|sigma| (Lemma E2.10; Re sigma^2 > 0, so no q-term) and B_0^+.
-Labels: H1, H3, H4 computed (exact, outward rounded); H2 and H4's comparison computed (floating point, not certified);
-the corollary deduced.
+  H5 (exact, D424) every multiplier above, hence m', M', w_I, is independent of sigma, so every bound is an explicit
+     increasing function of |sigma|: the summed constant C(sigma) on a grid of (0, 3], increasing, so C <= C(3) on
+     0 < |sigma| <= 3, finite as sigma -> 0+ (for l = 1..5, B_l(3) is used at every sigma, as only it is certified).
+Labels: H1, H3, H4, H5 computed (exact, outward rounded); H2 and H4's comparison computed (floating point, not
+certified); the corollary deduced.
 
     python3 checks/e2h1_5.py [--selftest]
 """
@@ -161,6 +164,25 @@ def main():
     nd0 = h2(sg0, l=0)[0]
     print("  H4: l = 0, sigma = 3 + 0.25i (Re sigma^2 > 0, no q-term): ||f -> u'|_I|| = %.4f <= %.1f" % (nd0, X0p))
     ok["H4"] = 800 < float(X0) < 820 and X0*X0 > cmax and nd0 <= X0p
+    # H5 (D424): the multipliers, hence m', M', w_I, do not depend on sigma, so every bound is explicit and increasing
+    # in |sigma|; the summed constant on the band 0 < |sigma| <= 3 is C(3), and it stays finite as sigma -> 0+.
+    # For l = 1..5 only B_l(3) is certified (section 3f), so there B_l(sigma) <= B_l(3) is used, monotone as well.
+    grid = [Fr(1, 100), Fr(1, 2), Fr(1), Fr(2), Fr(3)]
+    cs = []
+    for sg in grid:
+        c = MM + 2*sg
+        B6 = sqrt_up((2/M1 + c*c/W6)/W6)
+        rows_s = []
+        for l in range(1, 7):
+            B = BL3[l] if l in BL3 else B6       # l = 1..5: B_l(3) bounds B_l(sigma) for |sigma| <= 3
+            Xb = (1 + sqrt_up(1 + 2*M1*c*B))/(2*M1)
+            K = 2*Xb + c*B
+            a = l*(l + 2) + Fr(3, 4)
+            rows_s.append(Xb*Xb + (3*B*B if l == 1 else l*(l + 2)*K/(a - A1)))
+        cs.append(max(max(rows_s), lzero(sg)**2))
+    print("  H5: summed constant C(sigma) at sigma = %s: %s; increasing, so C <= %s on 0 < |sigma| <= 3"
+          % (", ".join(str(q) for q in grid), ", ".join(up(sqrt_up(q), 1) for q in cs), up(sqrt_up(cs[-1]), 1)))
+    ok["H5"] = all(cs[i] <= cs[i + 1] for i in range(len(cs) - 1)) and cs[-1] == call
     sg = complex(3.0, 0.25)
     c = float(MM) + 4*abs(sg)
     Bp = math.sqrt((2/float(M1) + c*c/float(W6))/float(W6))

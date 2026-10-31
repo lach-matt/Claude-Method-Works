@@ -4814,6 +4814,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D423 (FAMILIES5 4e, checks/stage0h5.py H3): Ups - H = 0 at order lam in the generalised wave gauge holds on every pure
   harmonic: H's raised form enters only the r = u (v) row, which ghat_2's angular trace sets (T8); residual 6.6e-17 on 8
   harmonics; control (no angular diagonal) fails exactly where that row has a term. Open: propagation (deduced only).
+- D424 (E2-PILOT 3i, Corollary E2.12, checks/e2h1_5.py H5): the multipliers are sigma-independent, so every bound is
+  explicit and increasing in |sigma|: the summed cut-off H^1 constant is C <= 808.6 on all of 0 < |sigma| <= 3
+  (528.3 at 0.01, 808.6 at 3), finite as sigma -> 0+. Uniform on a compact band, in the cut-off norm only.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
