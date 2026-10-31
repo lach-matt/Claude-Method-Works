@@ -6868,3 +6868,9 @@ geometry agrees to a thousandth were not borne out: at the finest setting the ax
 coarsest the two treatments differ by a quarter of a hundredth. Third, the clean expansion at spatial infinity with the
 record's full equation holds one angular pattern at a time and assuming uniqueness; for all patterns together a bound
 uniform in the pattern is missing, so that condition is open again. Nine smaller points were corrected with them.
+
+**D430 (2026-10-31): the record's gap condition does not bind, as far as the computed numbers go.** The record's
+proof needs a small number to stay below the gaps of a certain set of exponents. With every exponent computed so far
+put in at once, the smallest gap is still about fifty billionths, while the other condition on the same small number
+already forces it below about twenty billionths. So the gap condition adds nothing from these exponents, and the long
+chain's length stays at about a hundred million steps. Exponents the record does not list could still change this.

@@ -29,6 +29,11 @@ generators reaching them have real part >= 3/2). So:
   G5 the same from lambda_sharp: 3 + 5.02e-8, with d1 alone;
   and both are far above G2-G3's values: without d0 stackable the near-commensurability does not act.
   G6 (D420) (G)'s third window, lambda + d_c above 2 for lambda = lambda_sharp + n d1 below 2: 2.45e-7 for d_c = d0, d1.
+  G7 (D430) every computed root at once: from the generators 2, 3 and lambda_sharp, with d1 summed freely and at most
+     one increment of integer part >= 1 out of {1, 1 + d0, 1 + delta_2, 1 + delta'_1} (the sl roots l + 1 + delta_l,
+     l + 2 + delta'_l enter as (l - 1) + delta_l and l + delta'_l, LOSS-D LD9; the others have integer part >= 2 and
+     overshoot both windows), the least value above 2 or 3. delta_1 = d1 to 40 digits is checked. Control: without the
+     two sl offsets it is G4-G5's minimum.
 
     python3 checks/gapsums5.py [--selftest]
 """
@@ -44,6 +49,35 @@ D1 = (1 + sqrt(17 + 2*Z - 2*sqrt(Z**2 + 4*Z + 16)))/2 - 2
 LSHARP = mpf(3)/2 + (1 - EU)*GU
 EPS_REC = mpf("7.3846e-8")   # the record's printed number: delta_12, a cutoff value (LD10), kept as a fixture
 EPS_F2 = mpf("1.94137e-8")   # (1.1)'s eps_ind <= delta_50 (D422, epsind5 E3)
+
+
+def sl_offsets(l):
+    """delta_l, delta'_l of the sl roots l + 1 + delta_l, l + 2 + delta'_l of box^Ups: 1/2 + (1/4 + s)^(1/2), s the
+    roots of Q_l(s) = s^2 - (2 + 2 kappa + z) s + kappa (kappa + 1) + z kappa, kappa = l (l + 2) (GAUGEPOT:200-206)"""
+    k = l*(l + 2)
+    b, c = 2 + 2*k + Z, k*(k + 1) + Z*k
+    disc = sqrt(b*b - 4*c)
+    lam = [mpf(1)/2 + sqrt(mpf(1)/4 + s) for s in ((b - disc)/2, (b + disc)/2)]
+    return lam[0] - (l + 1), lam[1] - (l + 2)
+
+
+def least_window_sl(bases, extra):
+    """least positive B + c + n d1 - T over T in (2, 3), B in bases, c in {0} u extra, n >= 0 (G7)"""
+    best = None
+    for T in (2, 3):
+        for bname, B in bases:
+            for cname, c in [("0", mpf(0))] + extra:
+                rest = T - B - c
+                if rest < 0:
+                    n, val = 0, -rest
+                else:
+                    n = int(ceil(rest/D1))
+                    val = n*D1 - rest
+                    if val == 0:
+                        n, val = n + 1, D1
+                if best is None or val < best[0]:
+                    best = (val, T, bname, cname, n)
+    return best
 
 
 def least_above(target, a, b, nmax):
@@ -121,6 +155,21 @@ def main():
     print("  G6 (D420): (G)'s third window, lambda + d_c above 2 for lambda = lambda_sharp + n d1 below 2: d_c = d0 %s,"
           " d_c = d1 %s" % (mp.nstr(g6["d0"][0], 6), mp.nstr(g6["d1"][0], 6)))
     ok["G6"] = all(below and 0 < val < 3e-7 and val > g5 for val, below in g6.values())
+    d_1, dp_1 = sl_offsets(1)
+    d_2, dp_2 = sl_offsets(2)
+    bases = [("2", mpf(2)), ("3", mpf(3)), ("lambda_sharp", LSHARP)]
+    old = [("1", mpf(1)), ("1 + d0", 1 + D0)]
+    g7 = least_window_sl(bases, old + [("1 + delta_2", 1 + d_2), ("1 + delta'_1", 1 + dp_1)])
+    g7c = least_window_sl(bases, old)
+    print("  G7 (D430): delta_1 - d1 = %s; delta_2 = %s, delta'_1 = %s (z/15 = %s, 3z/20 = %s)"
+          % (mp.nstr(d_1 - D1, 3), mp.nstr(d_2, 8), mp.nstr(dp_1, 8), mp.nstr(Z/15, 8), mp.nstr(3*Z/20, 8)))
+    print("      every computed root: least value above 2 or 3 = %s, at T = %s from %s + %s + %d d1; against eps_ind <= "
+          "%s (D422): %s; then K > 2/delta_G = %s" % (mp.nstr(g7[0], 6), g7[1], g7[2], g7[3], g7[4],
+                                                    mp.nstr(EPS_F2, 6), "below" if g7[0] < EPS_F2 else "above",
+                                                    mp.nstr(2/g7[0], 4)))
+    print("      control, without the sl offsets: %s (G4-G5's minimum %s)"
+          % (mp.nstr(g7c[0], 6), mp.nstr(min(g4, g5), 6)), flush=True)
+    ok["G7"] = abs(d_1 - D1) < mpf(10)**-40 and 0 < g7[0] <= min(g4, g5) and abs(g7c[0] - min(g4, g5)) < mpf(10)**-45
     n = int(ceil(1/D0))
     gc = n*D0 - 1
     if gc == 0:

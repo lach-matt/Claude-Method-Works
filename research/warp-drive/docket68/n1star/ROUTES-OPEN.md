@@ -4863,6 +4863,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the Coulomb part is open. Minors: D415's pairing asserted; 1.3e10 not 1.4e10; (2.2) is bounded; both eps_ind
   definitions cited; D418's null-step claim withdrawn; stage0h5 H1 uncounted and an independent mutant added;
   gapsums5's 7.3846e-8 relabelled; coulombL5 Q1 checks phi phi and the off-diagonals.
+- D430 (LOSS-D LD9, checks/gapsums5.py G7, exact): (G) over every computed root at once. From 2, 3 and lambda_sharp,
+  d1 free and one of 1, 1 + d0, 1 + delta_2, 1 + delta'_1 (delta_2 = 2.67e-7, delta'_1 = 6.0e-7; delta_1 = d1 to 50
+  digits), the least value above 2 or 3 is still 3 + 5.02e-8 (lambda_sharp + 4470304 d1). So the computed roots do not
+  make (G) bind: delta_G = 5.02e-8 > 1.94e-8 >= eps_ind > eps_K; eps_ind binds (K > 1.03e8). Open: (G) through the
+  unlisted generators of I11 Definition 1.1 (E_++, G, E^C_I, E_col, E^iota_ind), and d1's coefficient.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

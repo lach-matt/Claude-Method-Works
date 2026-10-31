@@ -376,12 +376,22 @@ loop counts of section 3.
     10⁻¹³ and K > 4 × 10¹², rest on that hypothesis and are withdrawn as consequences of the record.
   - *Controls.* With d0 alone the least gap is 8.9 × 10⁻⁷; with d1 alone 1.39 × 10⁻⁷ (G4 is that value). It is the
     near-commensurability d0 ≈ 4d1 that brought D408's sums close, and it needs both offsets stackable.
+  - *Every computed root at once (D430; `checks/gapsums5.py` G7, exact, 50 digits).* From the generators 2, 3 and λ_♯,
+    with d1 summed freely and at most one of 1, 1 + d0, 1 + δ_2 and 1 + δ′_1 (δ_2 = 2.6666653 × 10⁻⁷ ≈ z/15,
+    δ′_1 = 6.0000008 × 10⁻⁷ ≈ 3z/20; δ_1 = d1 to 50 digits; every other computed root has integer part ≥ 2 and
+    overshoots both windows), the least value above 2 or 3 is still 3 + 5.02 × 10⁻⁸, from λ_♯ + 4,470,304 d1. Control:
+    without the two sl offsets it is G4-G5's minimum. The third window gives 2.45 × 10⁻⁷ (G6).
+    - So the computed roots do not make (G) bind: from them δ_G = 5.02 × 10⁻⁸, above ε_ind ≤ 1.94 × 10⁻⁸ > ε_K, and
+      the binding constraint on ε_K is ε_ind (LD10), with K > 1.03 × 10⁸; (G) from these roots alone would give only
+      K > 2/δ_G = 4.0 × 10⁷.
+    - (G) can still bind through Definition 1.1's generators the record does not list (π_1 ℰ_++, 𝒢, ℰ^C_I,
+      2 + π_1 ℰ_col and the increments of ℰ^ι_ind; I11:66-71): each adds bases, and every base adds a residue below d1.
   - *Not decided.* Whether the coefficient of ρ^(2+d1) is nonzero, so that ℰ_ind contains d1 (the record keeps ℰ_ind
-    as a bound), and how δ_G compares with ε_ind below 1.46 × 10⁻¹⁰ (LD10). The sl offsets are δ_l = z l/(2(l + 1)(2l +
+    as a bound), and δ_G over the unlisted generators. The sl offsets are δ_l = z l/(2(l + 1)(2l +
     1)) + O(z²) and δ′_l = (l + 2)z/(2(l + 1)(2l + 3)) + O(z²) (GAUGEPOT:194 prints δ′_l; both follow from ∂_z s_l,j =
     (s − κ)/(2s − 2 − 2κ − z) on Q_l's roots). Entering with integer parts l − 1 and l, at most one of them fits in a
-    sum. That adds shifts to d1's multiples and can lower the bound below 5.0 × 10⁻⁸, but it cannot bring the O(z²)
-    parts into play. (D408 said "if they all enter, δ_G
+    sum. That adds shifts to d1's multiples and could lower the bound below 5.0 × 10⁻⁸ [computed, D430: it does not],
+    but it cannot bring the O(z²) parts into play. (D408 said "if they all enter, δ_G
     is set by the O(z²) parts"; withdrawn, D413.)
   - *The local expansion does not decide it (D412; `checks/s1reson5.py`, exact).* The s1 state is dx¹ + w. On
     Tangherlini, □^Υ(dx¹) starts at ρ⁴, which is the order resonant with the root 2 + d1:
