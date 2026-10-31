@@ -6299,3 +6299,11 @@ The cut-off resolvent is then at most Λσ/(σ² − max V), polynomial in place
 first five harmonics are now bounded by 1.3 to 4.4 against measured norms of 0.41 to 0.67. The old exponential
 constant remains only for the harmonics whose barrier top lies above σ² without covering the interval.
 
+**D360 (2026-10-31): the black-hole interior after the shell, first step.** Theorems 1-3 stop a time T after the shell,
+and only the exterior is stated beyond. The late-time development of Theorem 4 already reaches inside the event
+horizon, down to half the horizon radius. So whenever the final mass is at most about 136 l5², it covers the whole
+interior up to the curvature boundary for all later times; that includes the first seed at 10 l5 unless the wave adds
+more than 36 l5². Two limits come with this. It is a continuation fixed by the gluing at large radius, and it is the
+record's own only where the record's data determine it. Larger masses need the inner radius lowered, which the
+construction makes as a choice. BEYOND5.md says what each of these needs.
+

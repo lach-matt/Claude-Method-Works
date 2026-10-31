@@ -4647,3 +4647,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
   harmonics with max V_l >= sigma^2 below l_0 (5 <= l < 50 at sigma = 3).
 
+### 4.278 Beyond D_T: the interior after the shell (D360)
+
+- BEYOND5.md. Theorem 0.2 (i)'s g lives on {r >= r_0 = sqrt(mu_end)/2} to the future of Sigma_IVP; if mu_end <= 16
+  sqrt72 l5^2 then r_q >= r_0 and g covers {r >= r_q} for all later times (Proposition 6.1, deduced). It agrees with
+  g_lambda on the domain of dependence of Sigma_IVP cap {r < R} (CB-G; (VII4) to write), not at late times near the hole
+  (VII1). Open: (a) write (VII4); (b) g_lambda's own data on all of Sigma_IVP, in III.K's class, then Theorem 0.2 (ii);
+  (c) r_0 lowered below r_q (census of r_0 in proof5); (d) or the finite-r-time slab by uniform Cauchy stability.
+
