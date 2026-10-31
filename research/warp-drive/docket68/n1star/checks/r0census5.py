@@ -2,7 +2,7 @@
 
 Every line of proof5/PART-{III,IV,V,VI,VII}*.md (Parts II, VIII and IX excluded; IX, the gauge comparison, is not
 used by Theorem 0.2) that names r_0, the inner radius or
-boundary, R_1/2, r_sharp, (5/8)R_1 or (3/4)R_1 is listed with a class:
+boundary, R_1/2, r_sharp, (5/8)R_1, (3/4)R_1 or, since D373, (3/8)R_1 is listed with a class:
 
   DEF    III.B's r_0 itself: its definition, the domain {|x| >= r_0}, the time functions built from it;
   VAL    the value R_1/2 enters a numerical inequality (the note says whether a smaller radius keeps it);
@@ -19,7 +19,7 @@ import re, glob, os, sys, collections
 HERE = os.path.dirname(os.path.abspath(__file__))
 P5 = os.path.join(HERE, '..', 'proof5')
 PAT = re.compile(r'r_0(?![0-9])|r_\{0\}|inner radius|inner boundary|\\t?frac12\s*R_1|R_1/2|r_\\sharp'
-                 r'|\\frac58\s*R_1|\\frac34\s*R_1')
+                 r'|\\frac58\s*R_1|\\frac34\s*R_1|\\frac38\s*R_1|3R_1/8')
 
 OTHER_FILES = {'PART-III-C2-POLYHOM.md': "III.C''s exterior radius, r_0 large",
                'PART-III-C3-BOOSTDATA.md': "III.C''s exterior radius; r_1 = 2r_0",
@@ -36,9 +36,9 @@ SPC_FILES = {'PART-III-D-GAUGEPOT.md': 'ODE on (r_0, r_h), r_0 < r_h', 'PART-III
              'PART-III-I3-ALMOST.md': 'artificial boundary, spacelike',
              'PART-V-GLUING.md': None}
 CON_FILES = {'PART-VI-DYN.md':
-             "I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8",
-             'PART-VI2-HORIZON.md': 'Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite',
-             'PART-VI3-TRAPPING.md': "I.A's radii; domain {|x| >= R_1/2}"}
+             "I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)",
+             'PART-VI2-HORIZON.md': 'Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite',
+             'PART-VI3-TRAPPING.md': "I.A's radii; domain {|x| >= 3R_1/8}"}
 LINES = {  # (file, line): (class, note)
     ('PART-III-B-FAMILY.md', 102): ('OTHER', 'r_A at A = 0'), ('PART-III-B-FAMILY.md', 117): ('OTHER', 'r_A at A = 0'),
     ('PART-III-B-FAMILY.md', 157): ('VAL',
@@ -63,7 +63,7 @@ LINES = {  # (file, line): (class, note)
     ('PART-IV5-CDMODES.md', 209): ('SPC', 'supported at the inner boundary'),
     ('PART-IV6-SOLV.md', 23): ('OTHER', "the source's r_0 = r_c"), ('PART-IV6-SOLV.md', 314): ('OTHER', 'r_c for r_0'),
     ('PART-IV6-SOLV.md', 317): ('OTHER', 'r_c for r_0'),
-    ('PART-VI3-TRAPPING.md', 374): ('VAL', 'r_0-delta_0 < 5R_1/8: with r_0^A = r, delta_0 <= R_1/16 (D372)'),
+    ('PART-VI3-TRAPPING.md', 374): ('VAL', 'r_0-delta_0 = 7R_1/16 < 5R_1/8 (D373); at r_0^A = r, delta_0 <= R_1/16'),
     ('PART-VII-ASSEMBLY.md', 88): ('CON', '(0.2) on {r_0 <= r <= R\'}'),
 }
 for i in (192, 428, 532, 533, 679, 680, 882, 884):
@@ -113,7 +113,7 @@ def main():
         print('selftest', 'ok' if ok else 'FAIL'); sys.exit(0 if ok else 1)
 
 
-EXPECT = collections.Counter({'CON': 48, 'DEF': 19, 'OTHER': 108, 'SPC': 120, 'VAL': 13})
+EXPECT = collections.Counter({'CON': 60, 'DEF': 19, 'OTHER': 108, 'SPC': 120, 'VAL': 13})
 EXPECT_FILES = 25
 
 if __name__ == '__main__':

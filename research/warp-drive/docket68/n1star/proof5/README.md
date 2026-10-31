@@ -86,7 +86,7 @@ Part VIII, the linear statement, is proved too (D336). Part IX, the comparison o
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
 | V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313); verified (D315); proved (D317) |
-| VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317); proved (D318) |
+| VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317); proved (D318); amended (D373) |
 | VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318); proved (D323: verifier 140 read the D321 repairs) |
 | VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319); verified (D321); proved (D323: verifier 140 read the repairs, two notes seated) |
 | VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2); verified (D323: order corrected, row b4); proved (D324); section 3 amended (D327-D328), read by verifier 150, widened (D331: G4-G5); **proved** (D332: verifier 151 read it, nits only) |
@@ -1374,7 +1374,10 @@ momentum (Proposition 5.1), and the escape function $(r^2-2\mu)\xi$, whose deriv
 $2r(\xi^2(r^2-\mu)^2+(r^2-2\mu)^2)/(r^2-\mu)^2$ vanishes only on $\Gamma$ (Lemma 5.2), for Part VI.B. Findings
 (VI.A1)-(VI.A6). Written (D314). Verified (D317): verifier 137's three minor findings ($q$ under a change of
 time function, the incoming set at $z_0 = -1$ and the uniformity in (H8), $v$'s null differential) and eight notes
-repaired. Proved (D318): verifier 138 read the repairs, all correct, and its four notes are repaired.
+repaired. Proved (D318): verifier 138 read the repairs, all correct, and its four notes are repaired. Amended (D373):
+Part I's artificial boundary is put at III.B's radius, $r_0 := \frac12R_1$, with the collar down to $\frac38R_1$, where
+Lemma 1.1 defines $g_b$ and $t_*$ by III.B's formulas; Parts VI.B and VI.B$'$ are read on $\{|x|\ge\frac38R_1\}$
+(finding (VI.A7); BEYOND5-R0-PROOF.md section 0, verifiers 170-171).
 
 `PART-VI2-HORIZON.md`. Part VI.B carries the horizon hypotheses from $b_0$ to $b$ near $b_0$. The Myers-Perry horizon in
 III.B's Kerr-Schild form is $\{r_A = r_+\}$, $r_+$ the largest root of $(r^2+a^2)(r^2+b^2) = \mu r^2$, by the exact

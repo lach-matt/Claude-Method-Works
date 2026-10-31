@@ -6397,3 +6397,11 @@ bound μ_end ≤ 135.76 l5² for reaching the curvature boundary stands. Without
 seed (about 118 l5²) would need the lowered radius of Proposition 6.2. Batch 4 (Parts V-IX, including Part VI's checks
 at the new radii) is next.
 
+**D373 (2026-10-31): the repair carried into the record.** At the author's word, Part VI itself now puts the
+artificial boundary of the estimates at the development's inner radius, one half of the horizon radius, with a collar
+reaching down to three eighths, where the background metric and its time function are still given by the same
+formulas. The horizon-side radii are unchanged. Part VI's two companion files are read on the larger region, and the
+one place where a fraction of the radius entered a bound (nine sixteenths, now seven sixteenths) is updated. The census
+of lines naming the inner radius grows from 308 to 320, all twelve new lines in Part VI, and BEYOND5.md and the re-proof
+note now describe the record as repaired. One verifier reads the amendment.
+

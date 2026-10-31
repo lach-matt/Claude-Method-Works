@@ -161,6 +161,6 @@ PART-IV7-TFACE.md	151	F	IV.7 Proposition 1.1 proof	-	So (1.1) is Fredholm, and b
 PART-IV7-TFACE.md	162	F	IV.7 Proposition 1.1 proof, sectors	-	Each restriction is Fredholm, and only finitely many have nonzero kernel
 PART-IV7-TFACE.md	185	F	IV.7 Proposition 1.1 proof, damping removal	-	It stays Fredholm, by the estimates above
 PART-IV7-TFACE.md	383	N2	IV.7 Theorem 3.1, uniform bound on inverse	uniform bound on inverse in h^{-1} (no value)	The uniform bound on the inverse follows from the uniform estimate (1.2) and invertibility
-PART-VI2-HORIZON.md	97	G	VI.2 proof, lower bound on compact sphere cosection	-	by compactness of S^*{R_1/2 <= r <= r_h + delta_0/2} this persists
+PART-VI2-HORIZON.md	99	G	VI.2 proof, lower bound on compact sphere cosection	-	by compactness of S^*{3R_1/8 <= r <= r_h + delta_0/2} this persists
 PART-VI3-TRAPPING.md	141	G	VI.3 Lemma 1.1 (c), compactness of double zeros	-	Compactness gives (c)
 PART-VIII-LINEAR.md	282	X	VIII section, cross-ref to III.K Prop 4.2 and II.F 7.4	-	Its compactness hypothesis is checked in II.F section 7.4

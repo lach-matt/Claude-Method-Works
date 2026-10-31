@@ -264,38 +264,50 @@ PART-IV6-SOLV.md	878	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] u
 PART-IV6-SOLV.md	882	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
 PART-IV6-SOLV.md	884	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
 PART-V-GLUING.md	142	SPC	domain {|x| >= r_0}
-PART-VI-DYN.md	24	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI-DYN.md	73	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI-DYN.md	88	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI-DYN.md	89	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI-DYN.md	117	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI-DYN.md	240	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI-DYN.md	242	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI-DYN.md	250	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI-DYN.md	252	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI-DYN.md	262	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
-PART-VI2-HORIZON.md	40	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	42	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	45	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	51	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	52	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	55	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	68	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	97	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	98	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	121	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	131	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI2-HORIZON.md	132	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
-PART-VI3-TRAPPING.md	25	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	52	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	374	VAL	r_0-delta_0 < 5R_1/8: with r_0^A = r, delta_0 <= R_1/16 (D372)
-PART-VI3-TRAPPING.md	378	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	435	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	437	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	438	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	442	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	450	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	452	CON	I.A's radii; domain {|x| >= R_1/2}
+PART-VI-DYN.md	15	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	25	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	74	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	81	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	94	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	95	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	124	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	247	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	249	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	257	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	259	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	269	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	339	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	340	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	342	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	343	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	345	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	346	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	347	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI2-HORIZON.md	6	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	42	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	44	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	47	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	53	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	54	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	57	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	70	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	99	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	100	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	123	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	133	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI2-HORIZON.md	134	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
+PART-VI3-TRAPPING.md	25	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	52	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	374	VAL	r_0-delta_0 = 7R_1/16 < 5R_1/8 (D373); at r_0^A = r, delta_0 <= R_1/16
+PART-VI3-TRAPPING.md	378	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	435	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	437	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	438	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	442	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	450	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	452	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	499	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	501	CON	I.A's radii; domain {|x| >= 3R_1/8}
 PART-VII-ASSEMBLY.md	40	DEF	
 PART-VII-ASSEMBLY.md	88	CON	(0.2) on {r_0 <= r <= R'}
 PART-VII-ASSEMBLY.md	142	CON	Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free

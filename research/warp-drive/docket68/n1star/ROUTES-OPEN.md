@@ -4689,6 +4689,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   with the collar delta_0 := min(R_1/16, r_flat/4). Proposition 6.1's bound 135.76 l5^2 holds with the repair; without
   it the condition is mu_end <= 55.61 l5^2, which the first seed fails. Proposition 6.2 assumes the repair. Batch 4
   (V-IX, including Part VI's checks at the new radii) open.
+- D373: the repair is made in the record. Part VI now sets r_0 := R_1/2 (III.B's radius), delta_0 = R_1/16, so the
+  collar reaches 3R_1/8, where Lemma 1.1 defines g_b and t_* by III.B's formulas (Lemma 3.3 (c) at |x| >= R_1/4, as
+  IV6-SOLV section 0); VI2-VI3 read on {|x| >= 3R_1/8}; VI3 374-375's r_0 - delta_0 is 7R_1/16. Finding (VI.A7). Census
+  320 lines (CON 60). Verifier 172 reads it.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 

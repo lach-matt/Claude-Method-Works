@@ -2,7 +2,8 @@
 
 Status: batch 1 written (D368): sections 0-3 (common facts, Parts I and II, III.B); batch 2 written (D369): section 4
 (III.C-III.I3); batch 3 written (D370): sections 5-6 (III.I4-III.K, Part IV). Verifiers 169-171 read batches 1-3;
-their findings, among them the radius mismatch of section 0, are seated (D372). Batch 4 (V-IX) to follow. Each batch
+their findings, among them the radius mismatch of section 0, are seated (D372), and its repair is made in proof5
+Part VI (D373). Batch 4 (V-IX) to follow. Each batch
 is read by its own verifier. Labels as marked; "re-proved" means the Part's argument was re-read at every step that
 touches the inner region, and each such step re-derived with r_♭.
 
@@ -18,16 +19,19 @@ are instantiated in Part VI by radii built from the inner radius.
 - **III.B's radius.** r_♭ replaces III.B's r_0 = ½R_1 everywhere: M_♭ := cl{|x| ≥ r_♭, t ≥ −½|x|}, Σ^int := {|x| = r_♭},
   X_♭ := cl{|x| ≥ r_♭}.
 - **Part I's radii, and a repair of the record (D372).** I write r_0^A for Part I's r_0.
-  - *The record.* Part VI fixes Part I's radii (VI-DYN 88-89) as r_0^A − 2δ_0 := ½R_1 (III.B's inner radius),
-    δ_0 := (r_h − ½R_1)/8 = R_1/16, r_0^A := ½R_1 + 2δ_0 = ⅝R_1, r_2 := r_h − 2δ_0 and r_e := r_h + δ_0, with r_h = R_1.
+  - *The record, until D373.* Part VI fixed Part I's radii (VI-DYN 88-89 then) as r_0^A − 2δ_0 := ½R_1 (III.B's
+    inner radius), δ_0 := (r_h − ½R_1)/8 = R_1/16, r_0^A := ½R_1 + 2δ_0 = ⅝R_1, r_2 := r_h − 2δ_0 and r_e := r_h + δ_0,
+    with r_h = R_1.
   - *The mismatch.* Part II, and III.D-III.J‴ after it, put the artificial boundary of every space at Part I's r_0^A
     (II.A:38-39; III.H:29, III.H2:30, III.I3:24; verifier 170). III.K and Part VII take III.B's ½R_1 as the inner
     boundary (III.K:43, 84, 103; VII:40). III.K:157 and 183 cite II.C Lemma 3.2 (1), which covers {r ≥ r_0^A} only.
-    So, as the record stands, its development is controlled on {r ≥ ⅝R_1}, not on all of III.B's M.
+    So, as the record stood, its development was controlled on {r ≥ ⅝R_1}, not on all of III.B's M.
   - *The repair,* made here at r_♭ and so also at the record's ½R_1. Part I's artificial boundary is put at III.B's
     radius, r_0^A := r_♭, with the collar δ_0 := min(R_1/16, r_♭/4) inward. Then X̃° = {r > r_♭ − 2δ_0} ⊂ {r > ½r_♭},
     inside F1's domain. r_2 := 7R_1/8 and r_e := 17R_1/16 keep the record's values.
   - *Ordering.* ½r_♭ ≤ r_0^A − 2δ_0 < r_0^A = r_♭ < r_2 < r_h. At r_♭ = ½R_1, δ_0 = R_1/16, as the record had.
+  - *Made in the record (D373).* Part VI now sets r_0^A := ½R_1 and δ_0 := R_1/16, so the collar reaches ⅜R_1; Lemma 1.1
+    defines g_b and t_* there by III.B's own formulas, and VI2-VI3 are read on {|x| ≥ ⅜R_1} (VI-DYN finding (VI.A7)).
   - *Near the horizon* only I.B Proposition 5.2's band {|r − r_h| < δ_0} (I.B:1067) involves δ_0, and only when
     r_♭ < R_1/4 does δ_0 shrink. That proposition asserts neighbourhoods inside the band, and its proof is local at
     ∂ℛ_± (Lemma 5.1, "near ∂ℛ_±", I.B:1078-1097), so it holds in any smaller band. I.B:906's δ_0 is a local
@@ -131,7 +135,7 @@ paragraph); that check is re-proved in batch 4. Here, the hypotheses that involv
 - (H2), (H3), (H7), (K1)-(K4) concern infinity, the horizon and the trapped set, which lies in {r > r_2}; for
   Tangherlini it is at r = (2μ_0)^(1/2) > r_h. On {r ≥ ½R_1} the new t_* differs from the record's by the constant
   r_♭ − ½R_1, ψ changing only by its lower limit, so none of them moves (verifier 169's n3).
-- For b ≠ b_0, Part VI states (H4) for Ψ_b^* g_b, which equals g_b on {|x| ≤ ⅝R_1} (VI2-HORIZON:40-42). That set
+- For b ≠ b_0, Part VI states (H4) for Ψ_b^* g_b, which equals g_b on {|x| ≤ ⅝R_1} (VI2-HORIZON:42-44). That set
   contains the inner collar {r ≤ r_♭}, so the bullets above apply to it unchanged (verifier 169's n6).
 
 *Status:* Parts I and II re-proved in the sense above, given Part VI's checks (batch 4).
