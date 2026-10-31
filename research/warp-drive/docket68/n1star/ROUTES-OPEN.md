@@ -4740,6 +4740,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   expansions generically carry them; the record keeps E_ind as a bound), Lambda has 2 + n0 d0 + n1 d1 within
   4.68e-13 above 3 (and lambda_sharp + sums within 5.1e-13 above 2): delta_G <= 4.7e-13, 1.6e5 below eps_ind, so
   eps_K < 4.7e-13 and K > 4e12. Control: d0 alone gives 8.9e-7. Open: whether the coefficients are nonzero.
+- D412 (checks/s1reson5.py, exact): not forced locally. box^Ups_Tang(dx^1) starts at rho^4, resonant with 2 + d1;
+  F4 = mu(-2 gam(e + 2), -3, 1); det I(2) = 4z, but I(2)'s left null vector (0, 1, 3) at z = 0 annihilates F4, so the
+  particular solution stays finite (mu(0, 1/4 - 1/e, -1/4 - 1/e)). The rho^(2+d1) coefficient is the homogeneous
+  solution's, fixed by horizon regularity: compute it at larger z (d1 ~ z/12) and follow it in z.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

@@ -351,6 +351,18 @@ loop counts of section 3.
     record keeps ℰ_ind as a bound). And whether more of □^Υ's offsets enter: the sl offsets are
     z l/(2(l + 1)(2l + 1)) + O(z²), all rational multiples of z at first order, which would bring the sums closer
     still. If they all enter, δ_G is set by the O(z²) parts and the loss d is larger than LD3's by many orders.
+  - *The local expansion does not decide it (D412; `checks/s1reson5.py`, exact).* The s1 state is dx¹ + w. On
+    Tangherlini, □^Υ(dx¹) starts at ρ⁴, which is the order resonant with the root 2 + d1:
+    F4 = μ(−2γ_Υ(e_Υ + 2), −3, 1) on (dt, dr, dχ).
+    - The flat indicial matrix on the l = 1 harmonic has det I(λ) = λ(λ − 4) q(λ), with q's root λ_s1,2, and
+      det I(2) = 16 e_Υ γ_Υ² = 4z.
+    - At z = 0 the left null vector (0, 1, 3) of I(2) annihilates F4. So the forcing is not resonant, and the
+      particular solution μ(0, ¼ − 1/e_Υ, −¼ − 1/e_Υ) stays finite as z → 0. At the record's point it is about −100μ.
+      Control: a forcing along (0, 1, 3) gives a particular solution of order 1/z.
+    - So the coefficient of ρ^(2+d1) is that of the homogeneous decaying solution, fixed by regularity at the horizon:
+      a global question, not a local one.
+    - It is computable: solve the s1 system from the horizon at z where d1 is not small (z ≤ ½ is allowed, d1 ≈ z/12),
+      read the coefficient off, and follow it in z.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.

@@ -6723,3 +6723,10 @@ curvature included, for a scalar wave, the clean structure survives: no logarith
 leading pattern is unchanged, and the curvature only adds corrections falling off two powers faster. The expansion
 no longer stops after finitely many terms, but it converges numerically out to spatial infinity. A proof of
 convergence for every angular pattern, and the tensor version, are not done.
+
+**D412 (2026-10-31): the open coefficient is a global one.** Whether one of the two nearly-commensurate exponents
+really appears was tested against the simplest local mechanism: a forcing from the black hole's curvature at exactly
+the resonant order would have made the coefficient large and certainly nonzero. The forcing is present but points in
+a direction the resonance does not see, so it produces nothing special. The coefficient is therefore set globally, by
+regularity at the horizon, and has to be computed from the full radial problem, most easily at a larger damping
+parameter where the two exponents separate, then followed down.
