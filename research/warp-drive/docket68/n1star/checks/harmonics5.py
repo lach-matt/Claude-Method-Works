@@ -25,6 +25,7 @@ import sys
 import mpmath as mp
 import numpy as np
 import sympy as sp
+from sympy.core.function import AppliedUndef
 
 sys.path.insert(0, __file__.rsplit("/", 1)[0])
 sys.path.insert(0, __file__.rsplit("/", 2)[0])
@@ -69,10 +70,21 @@ def ode_rules(fun, second):
     return apply
 
 
+def simp_lin(e):
+    """e linear in the unknown functions and their derivatives: simplify each coefficient on its own, after writing
+    tan and cot through sin and cos (sympy leaves tan(chi) cot(chi) standing inside large expressions)"""
+    e = sp.expand(sp.sympify(e).subs({sp.tan(ch): sp.sin(ch)/sp.cos(ch), sp.cot(ch): sp.cos(ch)/sp.sin(ch)}))
+    if e == 0:
+        return sp.Integer(0)
+    terms = sorted(e.atoms(sp.Derivative) | e.atoms(AppliedUndef), key=sp.default_sort_key)
+    d = sp.collect(e, terms, evaluate=False)
+    return sp.Add(*[k_*sp.simplify(sp.trigsimp(sp.cancel(v))) for k_, v in d.items()])
+
+
 def coeffs(e):
     """e linear in y0, y1: (coefficient of y0, coefficient of y1), simplified"""
     e = sp.expand(e)
-    return sp.simplify(e.coeff(y0)), sp.simplify(e.coeff(y1))
+    return simp_lin(e.coeff(y0)), simp_lin(e.coeff(y1))
 
 
 FS = [sp.Function(n) for n in ("a", "b", "c", "d", "e", "f", "k")]
@@ -80,7 +92,7 @@ FV = [sp.Function(n) for n in ("p", "q", "kv")]
 
 
 def to_s(e):
-    return sp.expand(sp.simplify(e.subs(t, (S - 1)*r).doit()))
+    return simp_lin(sp.expand(e.subs(t, (S - 1)*r).doit()))
 
 
 def reduce_scalar():
@@ -116,14 +128,14 @@ def reduce_scalar():
         checks.append(c0 == 0)
         out[name] = c1
     t0, t1 = coeffs(R[(3, 3)]*r**2/sp.sin(ch)**2)
-    B = sp.simplify(t1/sp.cot(ch))
-    A = sp.simplify(t0 - kap*B/3)
+    B = simp_lin(t1*sp.sin(ch)/sp.cos(ch))
+    A = simp_lin(t0 - kap*B/3)
     x0, x1 = coeffs(R[(2, 2)]*r**2)
-    checks.append(sp.simplify(x0 - (A - 2*kap*B/3)) == 0)
-    checks.append(sp.simplify(x1 + 2*B*sp.cot(ch)) == 0)
-    checks.append(sp.simplify(R[(4, 4)] - sp.sin(th)**2*R[(3, 3)]) == 0)
+    checks.append(simp_lin(x0 - (A - 2*kap*B/3)) == 0)
+    checks.append(simp_lin(x1 + 2*B*sp.cos(ch)/sp.sin(ch)) == 0)
+    checks.append(simp_lin(R[(4, 4)] - sp.sin(th)**2*R[(3, 3)]) == 0)
     for (i, j) in ((0, 3), (0, 4), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)):
-        checks.append(sp.simplify(R[(i, j)]) == 0)
+        checks.append(simp_lin(R[(i, j)]) == 0)
     eqs = [out[(0, 0)], out[(0, 1)], out[(1, 1)], A, out["e"], out["f"], B]
     eqs = [to_s(q) for q in eqs]
     free = all(q.free_symbols <= {S, gU, eU, gC, eC, vC, kap} for q in eqs)
@@ -172,10 +184,10 @@ def reduce_vector():
         checks.append(c1 == 0)
         eqs.append(c0)
     c0, c1 = coeffs(R[(2, 4)]*r**2/sp.sin(th)**2)
-    checks.append(sp.simplify(c0 + 2*sp.cot(ch)*c1) == 0)
+    checks.append(simp_lin(c0 + 2*sp.cos(ch)/sp.sin(ch)*c1) == 0)
     eqs.append(c1)
     for (i, j) in ((0, 0), (0, 1), (1, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 2), (3, 3), (4, 4), (2, 3), (3, 4)):
-        checks.append(sp.simplify(R[(i, j)]) == 0)
+        checks.append(simp_lin(R[(i, j)]) == 0)
     eqs = [to_s(e) for e in eqs]
     free = all(e.free_symbols <= {S, gU, eU, gC, eC, vC, lam} for e in eqs)
     return eqs, all(checks) and free, checks
