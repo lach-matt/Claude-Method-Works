@@ -310,6 +310,16 @@ No other component is nonzero. So the scheme is the following.
     - D386 printed "R = 1.58, outside the horizon" and "the axis condition on m, not the drag". That R was read at the
       node next to x = +1, and x_K = 0.001 came from dnsolve5's run, which is not converged there. Both are
       withdrawn.
+- *An invariant cut (D392; `dnsolve5v.py ... vol`, computed).* The cut was moved to the areal radius (V/2π²)^(1/3) of
+  the invariant section volume, with R ≥ r_cut/2 at every node as a floor for the solve. The runs keep about 4,600 more
+  cells at 800 × 360 (169,722 at M = 24, against 164,855 with the node cut). Those cells are where R at the x = −1
+  node falls to 0.27-0.34 while the areal radius stays at or above 0.54, and they do not converge in angle: |Δm| between
+  M = 24 and 32 exceeds 10⁻⁴ from v = 1.46 (u = −0.940, x = −0.9988, areal radius 0.545, node R 0.34) and 10⁻² from
+  v = 1.58. So under either cut the converged region of the swapped gauge is where R at every node stays at or above
+  about 0.54; the failure follows small R at the x = −1 axis node. The curvature at those cells cannot be evaluated,
+  as they border the cut and the Kretschmann stencil reaches masked neighbours. Inward, at v = 1.9, x_K = 0.048 on
+  the section. In dnsolve5's gauge, too, the onset was at the x = −1 axis with R about 0.52 there (D381). Whether this
+  is the axis treatment at small R or the approach of the axis to the singularity is not decided by these runs.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
   the computed solution is a converged approximation on 𝒟_q up to v ≈ 2.1 of 4.5 in the swapped gauge (v ≈ 1.65 in
   dnsolve5's, in (u, v) and in angle). In the swapped gauge the convergence in angle is measured, and in (u, v) the
@@ -317,10 +327,12 @@ No other component is nonzero. So the scheme is the following.
   axis: at x = −1 for λ = 1 (in the swapped gauge, at the run's cut on the axis node, D391), and at x = +1 for the
   second seed. G1 is not yet answered to the end of the domain.
 
-- *Next.* At λ = 1, in the swapped gauge: cut on an invariant (the section volume, or the circle sizes at the axes)
-  instead of R at a node; recompute x_K and 𝒟_q from this run; then separate the axis condition on m at x = −1 from
-  the outward drift. Candidates are an axis-adapted variable, a mapped Chebyshev grid concentrated at the axes, and a
-  shift condition between the two gauges. The `reg` division of D352 did not cure the axis in dnsolve5, but there the
+- *Next.* At λ = 1, in the swapped gauge: the invariant cut is tried (D392) and does not move the limit. Next, separate
+  the axis treatment at small R from the geometry. On the axis x = −1 the circle that does not shrink,
+  g_22 = R²(1 − x)e^(2Q)/2, has an invariant size, so compare it across gauges and resolutions where the runs stop;
+  and recompute x_K and 𝒟_q from this run with a stencil that stops at the cut. Candidates for the axis are an
+  axis-adapted variable, a mapped Chebyshev grid concentrated at the axes, and a shift condition between the two
+  gauges. The `reg` division of D352 did not cure the axis in dnsolve5, but there the
   drag dominated. Then rerun M = 24 and 32. At the second seed, decide
   whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann scalar along the axis) or by
   angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is excluded (D354), and so is the

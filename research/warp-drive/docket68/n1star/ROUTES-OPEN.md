@@ -4641,6 +4641,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (up to e^+2.35, now reported by --drift); R at a node is not invariant, and x_K came from dnsolve5's unconverged run.
   "The axis condition on m, not the drag" withdrawn: not yet separated. Next: an invariant cut, x_K from this run.
   Minors: the volume gap is within the swapped gauge's (u, v) error (~3x dnsolve5's); V4 now tests s_u on u = -R0.
+- D392 (dnsolve5v.py ... vol, computed): a cut on the invariant areal radius keeps ~4,600 more cells, where R at the
+  x = -1 node falls to 0.27-0.34; they do not converge (|dm| M24-M32 > 1e-4 from v = 1.46). Under either cut the
+  converged region is where every node keeps R >= ~0.54; in dnsolve5 too the onset was at x = -1 with R ~ 0.52. K at
+  the onset cells is not computable (they border the cut); x_K = 0.048 inward at v = 1.9. Axis treatment at small R
+  versus geometry: not decided; next, the invariant circle g_22 on the axis across gauges.
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 

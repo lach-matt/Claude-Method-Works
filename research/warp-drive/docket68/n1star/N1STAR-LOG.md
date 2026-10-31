@@ -6555,3 +6555,12 @@ it away from it, by a factor up to about ten, and that drives the coordinate-dep
 the cut. So the failure is not shown to be the axis condition rather than the gauge, and the claim that it was is
 withdrawn. The next step is a cut-off on a quantity both gauges share, and the curvature domain recomputed from this
 run, before either cause is named.
+
+**D392 (2026-10-31): a cut-off on a shared quantity does not move the limit.** The swapped-gauge runs were repeated
+with the cut-off placed on the radius defined by each symmetry sphere's volume, which both gauges agree on, instead of
+the coordinate-dependent radius at a grid point. The runs then keep a few thousand more cells. Those are exactly where
+the radius at the grid point next to one axis falls well below the old cut-off, and none of them converge. So under
+either cut-off the converged region ends where that radius drops to about half the horizon value, at the same axis
+where the original gauge also failed. Whether that is the solver's treatment of the axis at small radius or the
+geometry itself is still undecided; the next comparison uses the size of the circle that stays finite on that axis,
+which does not depend on the gauge.
