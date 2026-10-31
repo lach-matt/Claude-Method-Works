@@ -19,6 +19,9 @@ the l = 1 scalar type (Q5) with explicit harmonics. Here the harmonic is kept ab
      and the damping drops out: the tensor-type transfers do not depend on gamma_C or gamma_Ups.
   T  (computed, series at 30 digits, 400 against 600 terms) for l = 1 ... LMAX: the scalar- and vector-type transfers
      F(0) -> F(1) at gamma_C = 10^6 and at gamma_C = 10^5, the exponents at N besides 0, and the size of each transfer.
+  G  the growth in l: the norms of the k-th derivative transfers F(0) -> F^(k)(1), k = 0 ... 3, in the basis
+     normalised by each harmonic's own L^2(S^3) size (|Y|^2, |dY|^2 = kappa |Y|^2, |Hess^0 Y|^2 = (2/3) kappa
+     (kappa - 3) |Y|^2, |(nabla V)_sym|^2 = 2 (kappa - 3) |V|^2), and the exponent p of a fit ~ l^p over the last l.
 """
 import sys
 
@@ -235,7 +238,7 @@ def matrices_n(eqs, funs):
     return M, rest
 
 
-def series_transfer_n(M, sub, nterms=400, dps=30):
+def series_transfer_n(M, sub, nterms=400, dps=30, nder=0):
     mp.mp.dps = dps
     n = M[0].shape[0]
     Cs, deg = {}, 0
@@ -249,6 +252,7 @@ def series_transfer_n(M, sub, nterms=400, dps=30):
                     Cs[(o, pw)][i, j] = mp.mpf(v.p)/v.q
                     deg = max(deg, pw)
     T = mp.matrix(n, n)
+    Td = [mp.matrix(n, n) for _ in range(nder + 1)]
     last = mp.mpf(0)
     for j0 in range(n):
         F = [mp.matrix(n, 1)]
@@ -273,7 +277,18 @@ def series_transfer_n(M, sub, nterms=400, dps=30):
             total += Fm
         for i in range(n):
             T[i, j0] = total[i]
+        for kd in range(nder + 1):
+            tot = mp.matrix(n, 1)
+            for m in range(kd, len(F)):
+                fac = 1
+                for qq in range(kd):
+                    fac *= (m - qq)
+                tot += F[m]*fac
+            for i in range(n):
+                Td[kd][i, j0] = tot[i]
         last = max(last, max(abs(x) for x in F[-1]))
+    if nder:
+        return T, last, Td
     return T, last
 
 
@@ -282,11 +297,21 @@ def transfers(M, sub, label):
     expo = 1 - np.linalg.eigvals(m10)
     bad = [x for x in expo if abs(x.imag) < 1e-9 and x.real > 0.5 and abs(x.real - round(x.real)) < 1e-6]
     T4, _ = series_transfer_n(M, sub, 400)
-    T6, last = series_transfer_n(M, sub, 600)
+    T6, last, Td = series_transfer_n(M, sub, 600, nder=3)
     n = M[0].shape[0]
     A = np.array([[float(T6[i, j]) for j in range(n)] for i in range(n)])
+    Ad = [np.array([[float(X[i, j]) for j in range(n)] for i in range(n)]) for X in Td]
     d46 = float(max(abs(T4[i, j] - T6[i, j]) for i in range(n) for j in range(n)))
-    return A, d46, float(last), sorted(expo.real), bad
+    return A, d46, float(last), sorted(expo.real), bad, Ad
+
+
+def weights(typ, l, n):
+    kv = l*(l + 2)
+    if typ == "scalar":
+        w = [1, 1, 1, 3**0.5, (2*kv)**0.5, (2*kv)**0.5, (2*kv*(kv - 3)/3)**0.5][:n]
+    else:
+        w = [2**0.5, 2**0.5, (2*(kv - 3))**0.5][:n]
+    return np.diag(w)
 
 
 def main():
@@ -331,18 +356,29 @@ def main():
                 sub = dict(C.POINT)
                 sub[gC] = gc
                 out[gc] = transfers(Ml, sub, typ)
-            A6, d46, last, expo, bad = out[10**6]
+            A6, d46, last, expo, bad, Ad = out[10**6]
             A5 = out[10**5][0]
             dlim = float(np.max(np.abs(A6 - A5)))
             nrm = float(np.linalg.norm(A6, 2))
-            rows.append((l, typ, n, nrm, d46, last, dlim, expo, bad, A6))
+            Wt = weights(typ, l, n)
+            nn = [float(np.linalg.norm(Wt @ X @ np.linalg.inv(Wt), 2)) for X in Ad]
+            rows.append((l, typ, n, nrm, d46, last, dlim, expo, bad, A6, nn))
             good = good and d46 < 1e-12 and not bad
             print("  T: l = %d %s (%d functions): ||T(1e6)||_2 = %.6g; series 400 vs 600 %.1e (last term %.1e); "
                   "|T(1e6) - T(1e5)| = %.2e; exponents at N besides 0: %s%s"
                   % (l, typ, n, nrm, d46, last, dlim, ", ".join("%.4g" % x for x in expo if abs(x) > 1e-9),
                      "; RESONANT %s" % bad if bad else ""), flush=True)
     ok["T"] = good
-    for l, typ, n, nrm, d46, last, dlim, expo, bad, A6 in rows:
+    for typ in ("scalar", "vector"):
+        rr = [q for q in rows if q[1] == typ]
+        print("  G: %s type, normalised norms of F(0) -> F^(k)(1), k = 0 ... 3:" % typ)
+        for q in rr:
+            print("      l = %2d: %s" % (q[0], "  ".join("%10.4g" % x for x in q[10])))
+        if len(rr) >= 3:
+            l1, l2 = rr[-3][0], rr[-1][0]
+            ps = [np.log(rr[-1][10][k]/rr[-3][10][k])/np.log(l2/l1) for k in range(4)]
+            print("      fitted exponent p in l^p from l = %d to %d: %s" % (l1, l2, ", ".join("%.2f" % x for x in ps)))
+    for l, typ, n, nrm, d46, last, dlim, expo, bad, A6, nn in rows:
         if l <= 2:
             print("  T(1e6), l = %d %s:" % (l, typ))
             for i in range(n):
