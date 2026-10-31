@@ -365,7 +365,9 @@ loop counts of section 3.
   - *If ℰ_ind contains d1 and 1 + d0* (`checks/gapsums5.py` G4-G5, D413), with the increment 1: the least value above
     2 or 3 is 3 + 1.39 × 10⁻⁷ from the generator 2, and 3 + 5.02 × 10⁻⁸ from λ_♯, both reached with d1 alone. So
     δ_G ≤ 5.0 × 10⁻⁸. D4:54-57 fixes ε_ind below half the least distance between distinct points of ℳ, which is
-    2.92 × 10⁻¹⁰ under the reading LD10 fixes, so ε_ind < 1.46 × 10⁻¹⁰, more than 300 times below 5.0 × 10⁻⁸. So (G)
+    2.92 × 10⁻¹⁰ under the reading LD10 fixes, so ε_ind < 1.46 × 10⁻¹⁰, more than 300 times below 5.0 × 10⁻⁸. That is the
+    gauge potential's ε_ind; against (1.1)'s, F′ (2.2)'s, ε_ind ≤ 1.94 × 10⁻⁸ (LD10, D422), the margin is about 2.6
+    (D429, verifier 183). So (G)
     is not shown to bind below ε_ind. It may still bind, since 5.0 × 10⁻⁸ only bounds δ_G from above. (Corrected
     D420, verifier 182: D413 compared with 7.38 × 10⁻⁸ and 3.7 × 10⁻⁸, but 7.38 × 10⁻⁸ is δ_12, not that distance.)
   - *If ℰ_ind contained d0 and d1* (D408's hypothesis, which no cited state supports; G2-G3), then
@@ -405,7 +407,9 @@ loop counts of section 3.
       whose ρ^(2+d1) coefficient is the pairing of that source with the dual state of the root 2 + d1.
     - That pairing is an integral against δζ (or δχ). It vanishes for every variation only if its integrand vanishes
       identically, which nothing in the record forces.
-    - So whether d1 ∈ ℰ_ind is a property of the cut-offs, not of the record. Generically it is, and a choice of ζ
+    - So whether d1 ∈ ℰ_ind is a property of the cut-offs, not of the record. Generically it is (asserted, not shown: it
+      depends on the cut-offs unless the pairing integrand vanishes identically, which is not computed; D429), and a
+      choice of ζ
       solving one real equation would remove this state's term (one for all S ∈ 𝒮_1, as ζ and χ are rotation
       invariant).
     - For the loss d: the record keeps ℰ_ind as a bound valid for its choices, so LD9's δ_G ≤ 5.0 × 10⁻⁸ is the one to
@@ -416,20 +420,23 @@ loop counts of section 3.
 - LD10 (ε_ind as D4 defines it; computed, D420 after verifier 182; `checks/epsind5.py` E1-E2, exact).
   - *The definition.* D4:54-57 lets ℳ be "the finite set of real numbers in [−10, 10] of the form Re λ + j", λ an
     indicial root of □^Υ (GAUGEPOT Lemma 4.1), j ∈ ℤ, and fixes ε_ind below half the least distance between distinct
-    points of ℳ.
+    points of ℳ. F4:25-27 and D3:44-45 define it instead as below d(Re λ, ℤ) over the same window, which E2 puts at 9.47
+    × 10⁻⁸: the record holds both definitions (D429, verifier 183).
   - *E1, read literally it is empty.* The sl roots l + 1 + δ_l have δ_l = zl/(2(l + 1)(2l + 1)) + O(z²) → 0:
     3.3 × 10⁻⁷ at l = 1, 7.38 × 10⁻⁸ at l = 12, 9.9 × 10⁻⁹ at l = 100. So over every l, ℳ is not finite, its points
     accumulate at the integers, and no ε_ind > 0 exists. The record's 7.3846 × 10⁻⁸ (N1STAR-PROOF.md:4069-4072,
     used in D405 and D413) is δ_12, the value at the cutoff l ≤ 12 of that computation, not a minimum.
   - *E2, the finite reading* (roots with real part in [−10, 10], so l ≤ 9). There are 35 distinct fractional parts.
-    - The least distance between distinct points of ℳ is 2.92 × 10⁻¹⁰, between λ_s7,1 and λ_s8,2 (δ_7 against
+    - The least distance between distinct points of ℳ is 2.92 × 10⁻¹⁰, between the mirrors 1 − λ of λ_s8,2 and λ_s7,1
+      (epsind5 prints s8,2−, s7,1−; δ_7 against
       δ′_8), so ε_ind < 1.46 × 10⁻¹⁰.
     - The least distance of a point from ℤ is δ_9 = 9.47 × 10⁻⁸.
     - Control: at z = 0 every root is an integer.
   - *Which ε_ind, read at source (D422).* The record has two.
     - The gauge potential's is fixed in III.D″ section 1 "less than d(Re λ, ℤ) for every indicial root λ of
       □^Υ_b(0) with non-integer real part of modulus at most 10" (F4:25-27, D3:44-45; D4:54-57 refines it). This
-      settles D4's reading as the finite one, and that ε_ind is below 1.46 × 10⁻¹⁰ (E2). It bounds ℰ_ind's real parts.
+      settles D4's reading as the finite one, and that ε_ind is below 9.47 × 10⁻⁸ by F4's distance from ℤ and below 1.46
+      × 10⁻¹⁰ by D4's refinement (E2). It bounds ℰ_ind's real parts.
     - F4:27 calls it "the gauge potential operator's number, not that of III.F′ (2.2)". (2.2) asks d(Re λ, ℤ) ≥ ε_ind
       "for every non-integer root λ with |λ| ≤ 50" of L̂_b(0) (F2:130-132).
     - (1.1)'s ε_ind is III.G⁗ Proposition 5.1's (I10:48), which is III.F′ Proposition 2.3 (f)'s (G5:122, 190): the (2.2)
@@ -440,10 +447,12 @@ loop counts of section 3.
     λ = −49 − δ_50. Over l ≤ 12 it is 7.3846 × 10⁻⁸, the record's number. So the record computed (2.2) on l ≤ 12
     (lin5.py's LMAX = 12) while (2.2) ranges over |λ| ≤ 50. □^C's roots can only lower the minimum further.
   - *Consequences.* ε_K < ε_+ < ε_ind ≤ 1.94 × 10⁻⁸. LD3's chain has K > 2/ε_K > 1.03 × 10⁸ levels, and the d it
-    produces is at least 2K > 2.06 × 10⁸. This replaces D420's two readings (K > 1.4 × 10¹⁰ if (1.1)'s ε_ind were D4's,
+    produces is at least 2K > 2.06 × 10⁸. This replaces D420's two readings (K > 1.3 × 10¹⁰ if (1.1)'s ε_ind were D4's,
+    as 2/(1.462 × 10⁻¹⁰) = 1.37 × 10¹⁰, printed 1.4 there,
     K > 2.1 × 10⁷ with the window |Re λ| ≤ 10). The gap condition (G) is not the binding constraint (LD9).
   - *For the record.* The same δ_l → 0 makes any condition d(Re λ, ℤ) ≥ ε_ind for all roots unsatisfiable without a
-    bound on l, which bears on F2 (2.2) as LD7 uses it. A reading that bounds l (the real-part window, or l ≤ 12 as
+    bound on l, which does not bear on F2 (2.2), whose roots are bounded by |λ| ≤ 50 (F2:130-132; corrected D429). A
+    reading that bounds l (the real-part window, or l ≤ 12 as
     N1STAR-PROOF.md computed) has to be fixed for D4's definition to make sense. Recorded, not repaired.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is

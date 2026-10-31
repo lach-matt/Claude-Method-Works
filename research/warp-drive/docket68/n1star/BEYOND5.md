@@ -275,16 +275,19 @@ f = 1 − μ/r², the wave operator gains exactly −μ r⁻³ ∂_r(r ∂_r F).
 **Lemma 6.5′ (the record's full flat operator; deduced, with `checks/coulombL5.py` Q1-Q4, D417).** On 4+1 Minkowski
 the record's operator is L = D Ric + δ*_(E^C) δ_(E^Υ) G, with E^Υ built on c_Υ = r⁻¹ dt and E^C on
 c = r⁻¹(dt − v dr) (lin5.py's L̄, [Hin26] (8.1)). Both 1-forms are homogeneous of degree −1, so L is homogeneous of
-degree −2. Data r⁻² F(0) on N, with v1 = 0, therefore give the self-similar solution r⁻² F(s), s := v/r. On a slice
+degree −2. Data r⁻² F(0) on N, with v1 = 0, therefore give the self-similar solution r⁻² F(s), s := v/r, if the
+characteristic problem's solution is unique (not given here; see the list below, D429). On a slice
 t = const, s = 1 + tρ, so the expansion at I_0 is F's Taylor series at s = 1.
 
 - *Q1-Q2 (exact).* In the spherically symmetric sector, h = r⁻²(a dt² + 2b dt dr + c dr² + d r² g_S³), L reduces to
   a 4 × 4 system in s with second-order part −½ s(s − 2) F″ in every row, the principal symbol at ds. All other
   coefficients are polynomials in s. So its only singular points are s = 0 (N) and s = 2 (the cone u = 0), and I_0,
-  at s = 1, is an ordinary point.
+  at s = 1, is an ordinary point. The other angular components agree with χχ (φφ = sin²θ θθ), and the off-diagonal
+  ones outside (t, r) vanish (checked since D429).
 - *So r²h is smooth in ρ at I_0, with no logarithm, for every value of γ_Υ, e_Υ, γ_C, e_C and v* (an ODE with
-  polynomial coefficients at an ordinary point). The argument uses only the principal symbol and the homogeneity, so it
-  holds for every harmonic. The computation covers the l = 0 sector and, since D421, the l = 1 scalar-type sector
+  polynomial coefficients at an ordinary point). The argument uses only the principal symbol and the homogeneity, so its
+  ordinary-point part holds for every harmonic, one at a time (D429). The computation covers the l = 0 sector and, since
+  D421, the l = 1 scalar-type sector
   (Q5).
 - *Q5 (exact, D421).* The l = 1 scalar-type sector, h = r⁻² Y(a dt² + 2b dt dr + c dr² + d r² g_S³) + 2r⁻¹(e dt +
   f dr) ⊗_s dY with Y = cos χ, has six functions. On S³ the traceless Hessian of an l = 1 harmonic vanishes, so there
@@ -317,8 +320,11 @@ t = const, s = 1 + tρ, so the expansion at I_0 is F's Taylor series at s = 1.
     instance a(1) = 1.032 a(0) + ….
   - At γ_C = 10⁶ it is not computed.
 
-So at leading order in flat space, and for the full operator, the Coulomb part lies in ρ²C^∞ at I_0. Lemma 0.1's
-condition for this term holds. The coefficient is the transfer matrix's, not cos(πl/2)/(l + 1).
+So at leading order in flat space, and for the full operator, each harmonic of the Coulomb part lies in ρ²C^∞ at
+I_0, given uniqueness. Whether their sum does, Lemma 0.1's condition for this term, needs a bound uniform in l on the
+transfer's Taylor coefficients at s = 1 in place of Lemma 6.5's Markov step. That bound is not given, so the condition
+stays open for the full operator (D429, verifier 183). The coefficient is the transfer matrix's, not
+cos(πl/2)/(l + 1).
 
 What it does not give:
 
@@ -326,7 +332,8 @@ What it does not give:
 - the structure beyond the principal part (the gauge terms and the trace couplings) on Tangherlini; on Minkowski it is
   Lemma 6.5′ (D417);
 - the remainder in E_(5/2) of (v), and the remainder g_λ − g_app;
-- uniqueness in W beyond the expansion (an energy identity on W would give it);
+- uniqueness in W beyond the expansion (an energy identity on W would give it); Lemma 6.5′'s self-similar reduction
+  assumes it;
 - the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
   the r⁻² coefficient at I_0 above needs those sources to be o(r⁻⁴). For l = 0, □φ = f r⁻⁴ Y_0 with zero data on N
   gives φ = r⁻² G(s) with s(s − 2)G″ + 3(s − 1)G′ = f, and G(1) = −f/2, which shifts the ρ² coefficient. After the

@@ -445,37 +445,49 @@ No other component is nonzero. So the scheme is the following.
     is 0.308, against 0.232 without it. Over areal radius ≥ 1.0 the band maxima of |Δm| are 2.3 × 10⁻¹ / 3.1 × 10⁻¹ on
     [1.8, 2) (plain / reg) and 2.0 × 10⁻⁶ / 6.8 × 10⁻⁷ on [1.65, 1.8). The two treatments agree to 2.3 × 10⁻⁷ at M32
     up to v = 1.8 (areal ≥ 1). At the event's node they differ by 0.18 at M24 and 0.10 at M32 (0.51 and 0.45 at the
-    worst node of that cell, x = −1). [D420, verifier 182: at x = −1 each treatment nearly settles, plain m = 0.708,
-    0.779, 0.791 at M24, 32, 40 and reg 1.217, 1.229 at M24, 32, but the two settle 0.45 apart. So "the same order as
+    worst node of that cell, x = −1). [D420, verifier 182: at x = −1 plain m = 0.708, 0.779, 0.791, 0.765 and 1.000 at
+    M24-56
+    and reg 1.217, 1.229 at M24, 32: plain m(−1) has not settled by M56, and at M32 the treatments differ by 0.45
+    (corrected D429, verifier 183). So "the same order as
     the resolutions' differences" holds only at node 61, and "neither treatment is the cause on its own" is withdrawn.
-    What the two disagree on is a derivative of the metric, not its values: see the next bullet.]
+    What the two disagree on is a derivative of the metric, not its values: see the D420 bullet below.]
 - *M alone does not resolve it (D418; `checks/g1axis5.py --sweep`, computed).* Plain runs at M = 24, 32, 40, 48 and 56,
-  800 × 360, r_cut = 0.9 (1021-1532 s each), compared on the 182,741 cells all five keep.
+  800 × 360, r_cut = 0.9 (863-1532 s each), compared on the 182,741 cells all five keep.
   - At the event's node the successive differences |m_M − m_M′| are 0.232, 0.112, 0.0024 and 0.083. The maximum over
     x in that cell is 0.23, 0.17, 0.12 and 0.24. The band maxima over areal radius ≥ 1 on [1.8, 2) are 0.23, 0.17,
     0.12 and 0.49. So there is no convergence in M, and M40's 0.0024 at the node is not representative of the cell.
   - Before v = 1.8 the successive differences grow with M, from 2.0 × 10⁻⁶, 4.6 × 10⁻⁶ and 4.3 × 10⁻⁵ to
     9.0 × 10⁻⁵ on [1.65, 1.8), where an angular truncation error would fall.
-  - So at a fixed null grid, raising M degrades the solution. The null step, not M, sets the error there (D399). D410's
+  - So at a fixed null grid, raising M degrades the solution: the successive differences grow with M in every band,
+    [0.5, 1) included (7.8 × 10⁻⁸, 4.0 × 10⁻⁷, 9.2 × 10⁻⁶, 1.0 × 10⁻⁵, the sweep's output as verifier 183 read it).
+    An M-amplified error dominates, for instance D354's axis-node round-off; a null-step error would be shared by the
+    runs and cancel in their differences. Whether the null step cures it is the running test ("the null step, not M,
+    sets the error", D399, withdrawn D429). D410's
     "barely converges" (M16-M32) is withdrawn as a statement about angle.
   - The test is joint refinement: M = 32 and 40 at 1600 × 720 (running).
-- *In the metric's values the event converges; its axis derivative depends on the treatment (D420;
+- *The metric's values at the event, and its axis derivative (D420, corrected D429;
   `checks/g1axis5.py --nodes`, computed).*
   - m enters the metric only through the regular combinations P = (2(1 + x)m − (1 − x)n)/3 and Q (g1geom5.fields).
     Near x = −1 the equations fix only (1 + x) m_uv (dnsolve5.py:30-31). So m's value there is m(−1) =
-    (3P′(−1) − n(−1) + 2n′(−1))/2, a first derivative of the metric at the axis. Near the axis m enters P with the
+    (3P′(−1) − n(−1) + 2n′(−1))/2, a first derivative of the metric at the axis, and geometric: it enters the axis
+    curvature (g1geom5.py:3-4). Near the axis m enters P with the
     weight 2(1 + x)/3, so a |Δm| there exceeds the change it makes in P by about 140 at the event's node. D410-D418
     measured |Δm|.
-  - At the event cell P agrees to 10⁻³ across treatments and resolutions. At x = −1 it is 0.0697 and 0.0696 (plain
-    M24, M32) against 0.0707 and 0.0701 (reg), and 0.0697, 0.0696, 0.0695, 0.0694, 0.0694 over M = 24-56.
+  - At the event's node P differs by 2.5 × 10⁻³ between the treatments at M24 (0.05818 plain, 0.06065 reg;
+    2.4 × 10⁻³ at node 62), so "agrees to 10⁻³ across treatments" is withdrawn (D429, verifier 183). At x = −1,
+    P = −2n(−1)/3 does not contain m, so its values there, 0.0697 and 0.0696 (plain M24, M32) against 0.0707 and
+    0.0701 (reg), and 0.0697, 0.0696, 0.0695, 0.0694, 0.0694 over M = 24-56, measure n only.
   - The band maxima of |ΔP| between successive M, over areal radius ≥ 1, are as follows.
-    - On [1.8, 2): 5.9 × 10⁻³, 3.0 × 10⁻³, 1.6 × 10⁻³ and 1.6 × 10⁻³ (M24-56). That is slow convergence.
+    - On [1.8, 2): 5.9 × 10⁻³, 3.0 × 10⁻³, 1.6 × 10⁻³ and 1.6 × 10⁻³ (M24-56). There the decrease has stalled: the last
+      two are equal.
     - On [2, 2.25): 3.2 × 10⁻², 4.3 × 10⁻², 5.7 × 10⁻² and 1.1 × 10³. On [2.25, 2.5): 1.1 × 10⁻², 8.2 × 10⁻³, 0.44 and
       1.6. Here it does not converge, and grows with M.
-  - So in the metric's values, the failure G1 meets begins at v ≈ 2, not at the event of v = 1.99, and refining M
-    alone makes it worse (D418).
-  - The treatments' 0.45 disagreement in m(−1) is a disagreement in the metric's first derivatives at the axis, so the
-    axis treatment matters there. The axis curvature, which needs second derivatives, is the invariant to compare
+  - So in the metric's values the differences grow sharply with M from [2, 2.25) on, and refining M alone makes them
+    worse (D418). Where the failure begins these runs do not fix, since on [1.8, 2) the decrease has stalled ("begins
+    at v ≈ 2" withdrawn, D429).
+  - The treatments' disagreement in m(−1), 0.45 at M32, is a disagreement in the metric's first derivatives at the
+    axis, and plain m(−1) moves by 0.24 from M48 to M56, so the axis treatment matters there. The axis curvature, which
+    needs second derivatives, is the invariant to compare
     next.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds.
   - At λ = 1, over its own kept cells, the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in

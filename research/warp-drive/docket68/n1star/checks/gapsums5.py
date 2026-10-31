@@ -14,8 +14,9 @@ part generically carry), then 2 + n0 d0 + n1 d1 is in Lambda, and (G) needs eps_
 
   G1 (exact, 50 digits) d0, d1 at the record's point and their first-order forms; e2 := d0 - 4 d1 = O(z^2).
   G2 the least positive n0 d0 + n1 d1 - 1 over n0, n1 >= 0 (every n0 up to 1/d0, n1 the least making the sum exceed
-     1): an upper bound for delta_G under that hypothesis, against the record's least distance 7.3846 x 10^-8 of a
-     non-integer root from Z (N1STAR-PROOF.md:4071), which bounds eps_ind.
+     1): an upper bound for delta_G under that hypothesis, against the record's printed least distance 7.3846 x 10^-8
+     of a non-integer root from Z (N1STAR-PROOF.md:4071). That is delta_12, a cutoff value (LOSS-D LD10), not a bound
+     on eps_ind; (1.1)'s eps_ind is <= 1.94 x 10^-8 (D422), printed beside it (corrected D429).
   G3 the same from the generator lambda_sharp = 3/2 + (1 - e_Ups) gam_Ups to just above 2.
   Control: with d0 alone (n1 = 0) the least gap above 1 is of the order of d0 itself, far larger: the near-
      commensurability d0 ~ 4 d1 is what brings the sums close.
@@ -41,7 +42,8 @@ Z = 4*EU*GU**2
 D0 = (1 + sqrt(9 + 4*Z))/2 - 2
 D1 = (1 + sqrt(17 + 2*Z - 2*sqrt(Z**2 + 4*Z + 16)))/2 - 2
 LSHARP = mpf(3)/2 + (1 - EU)*GU
-EPS_REC = mpf("7.3846e-8")
+EPS_REC = mpf("7.3846e-8")   # the record's printed number: delta_12, a cutoff value (LD10), kept as a fixture
+EPS_F2 = mpf("1.94137e-8")   # (1.1)'s eps_ind <= delta_50 (D422, epsind5 E3)
 
 
 def least_above(target, a, b, nmax):
@@ -92,8 +94,10 @@ def main():
     ok["G1"] = abs(D0 - Z/3) < Z**2 and abs(D1 - Z/12) < Z**2 and 0 < abs(e2) < Z**2
     nmax = int(1/D0) + 1
     g2, a2 = least_above(mpf(1), D0, D1, nmax)
-    print("  G2: least n0 d0 + n1 d1 above 1: %s at (n0, n1) = %s; against eps_ind <= %s: %s times smaller"
-          % (mp.nstr(g2, 6), a2, mp.nstr(EPS_REC, 6), mp.nstr(EPS_REC/g2, 4)), flush=True)
+    print("  G2: least n0 d0 + n1 d1 above 1: %s at (n0, n1) = %s; against the record's %s (delta_12): %s times "
+          "smaller; against eps_ind <= %s (D422): %s times smaller"
+          % (mp.nstr(g2, 6), a2, mp.nstr(EPS_REC, 6), mp.nstr(EPS_REC/g2, 4), mp.nstr(EPS_F2, 6),
+             mp.nstr(EPS_F2/g2, 4)), flush=True)
     ok["G2"] = 0 < g2 < EPS_REC
     g3, a3 = least_above(2 - LSHARP, D0, D1, int((2 - LSHARP)/D0) + 1)
     print("  G3: least lambda_sharp + n0 d0 + n1 d1 above 2: %s at %s" % (mp.nstr(g3, 6), a3), flush=True)

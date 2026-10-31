@@ -2,9 +2,11 @@
 
 D4:54-57 lets M be "the finite set of real numbers in [-10, 10] of the form Re lam + j", lam an indicial root of
 box^Ups (III.D Lemma 4.1 = PART-III-D-GAUGEPOT.md:197-211), j in Z, and fixes eps_ind below half the least distance
-between distinct points of M. The roots (GAUGEPOT:200-206): s0: 0, 3 and 1/2 +- (9/4 + z)^(1/2); sl (l >= 1): l + 3,
-1 - l and 1/2 +- (1/4 + s_(l,j))^(1/2), s_(l,j) the roots of Q_l(s) = s^2 - (2 + 2 kappa + z) s + kappa (kappa + 1) +
-z kappa, kappa = l (l + 2); vl: -l, l + 2. z = 4 e gam^2 = 4e-6 at the record's point (gam = e = 1/100).
+between distinct points of M (F4:25-27 and D3:44-45 define it instead by distance from Z over the same window,
+9.47e-8 by E2: the record holds both, D429). The roots (GAUGEPOT:200-206): s0: 0, 3 and 1/2 +- (9/4 + z)^(1/2);
+sl (l >= 1): l + 3, 1 - l and 1/2 +- (1/4 + s_(l,j))^(1/2), s_(l,j) the roots of
+Q_l(s) = s^2 - (2 + 2 kappa + z) s + kappa (kappa + 1) + z kappa, kappa = l (l + 2); vl: -l, l + 2.
+z = 4 e gam^2 = 4e-6 at the record's point (gam = e = 1/100).
 
   E1 (exact, 50 digits) the non-integer roots sit delta above or below an integer, with delta_l = z l/(2(l + 1)(2l +
      1)) + O(z^2) for l + 1 + delta_l, so delta_l -> 0: read literally (every l), M is not finite and has no positive

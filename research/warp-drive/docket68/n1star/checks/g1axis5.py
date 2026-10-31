@@ -63,8 +63,9 @@ def nodes(paths):
     """--nodes A B C ...: at the event (fixed by the first pair, as above), the values of m and of the metric
     combination P = (2(1 + x) m - (1 - x) n)/3 at the nine nodes nearest x = -1, run by run; and per v-band the maxima
     of |P_A - P_B| between consecutive runs. Near x = -1 the equations fix only (1 + x) m_uv, and m drops out of the
-    metric there (dnsolve5.py docstring), so m's value at the axis node is not a property of the solution; P is
-    (D420)."""
+    metric's values there (dnsolve5.py docstring): P(-1) = -2 n(-1)/3. m's value at the axis node is a first
+    derivative of the metric, geometric (it enters the axis curvature, g1geom5.py:3-4), not a value of the metric
+    (D420, corrected D429)."""
     runs = [np.load(p) for p in paths]
     ok = ~np.any([r["mask"] for r in runs], axis=0)
     F = [GA.fields(r) for r in runs]

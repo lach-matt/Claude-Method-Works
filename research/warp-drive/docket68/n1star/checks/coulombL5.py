@@ -12,7 +12,8 @@ The spherically symmetric sector, h = r^-2 (a dt^2 + 2b dt dr + c dr^2 + d r^2 g
 genstates5.py's polar machinery:
 
   Q1 (exact) r^4 (L h)_(tt, tr, rr) and r^2 (L h)_(chi chi) depend on s and the parameters only (no t, r), and the
-     other angular components agree with chi chi: L reduces to a 4 x 4 ODE system in s.
+     other angular components agree with chi chi (phi phi = sin^2 theta theta theta) and the off-diagonal ones outside
+     (t, r) vanish (all checked since D429): L reduces to a 4 x 4 ODE system in s.
   Q2 (exact) its second-order part is (s - s^2/2) F'' = -(1/2) s (s - 2) F'' in every row, diagonal: the principal
      symbol at ds. The other coefficients are polynomials in s. So the only singular points are s = 0 (N) and s = 2
      (the cone u = 0), and s = 1 (I_0) is an ordinary point: F is analytic there for every value of gam_U, e_U, gam_C,
@@ -78,7 +79,9 @@ def reduce():
     Gh = GS.Gop(h, G)
     w = [p + q for p, q in zip(GS.div(Gh, G), GS.Eups(Gh, G))]
     L = GS.dric(h, G) + GS.dstar(w, G) + E_C(w)
-    comps = [L[0, 0]*r**4, L[0, 1]*r**4, L[1, 1]*r**4, L[2, 2]*r**2, L[3, 3]*r**2/sp.sin(ch)**2]
+    comps = [L[0, 0]*r**4, L[0, 1]*r**4, L[1, 1]*r**4, L[2, 2]*r**2, L[3, 3]*r**2/sp.sin(ch)**2,
+             L[4, 4] - sp.sin(GS.th)**2*L[3, 3]]
+    comps += [L[p, q] for p in range(N) for q in range(p + 1, N) if (p, q) != (0, 1)]
     return [sp.expand(sp.simplify(e.subs(t, (S - 1)*r).doit())) for e in comps]
 
 
@@ -249,9 +252,11 @@ def ode_transfer(M, sub, s0=1e-3, s1=1.0, nser=40):
 def main():
     ok = {}
     eqs = reduce()
-    ok["Q1"] = all(e.free_symbols <= {S, gU, eU, gC, eC, vC} for e in eqs) and sp.expand(eqs[3] - eqs[4]) == 0
+    ok["Q1"] = all(e.free_symbols <= {S, gU, eU, gC, eC, vC} for e in eqs[:5]) and sp.expand(eqs[3] - eqs[4]) == 0 \
+        and all(sp.expand(e) == 0 for e in eqs[5:])
     M, rest = matrices(eqs[:4])
-    print("  Q1: r and t drop out, chi chi = theta theta: %s" % ok["Q1"], flush=True)
+    print("  Q1: r and t drop out, chi chi = theta theta, phi phi = sin^2 theta theta theta, the nine off-diagonal "
+          "components outside (t, r) vanish: %s" % ok["Q1"], flush=True)
     m2 = S - S**2/2
     ok["Q2"] = all(r_ == 0 for r_ in rest) and sp.expand(M[0] - m2*sp.eye(4)) == sp.zeros(4) and \
         all(M[o][i, j].is_polynomial(S) for o in (1, 2) for i in range(4) for j in range(4))

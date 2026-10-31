@@ -4750,6 +4750,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   expansions generically carry them; the record keeps E_ind as a bound), Lambda has 2 + n0 d0 + n1 d1 within
   4.68e-13 above 3 (and lambda_sharp + sums within 5.1e-13 above 2): delta_G <= 4.7e-13, 1.6e5 below eps_ind, so
   eps_K < 4.7e-13 and K > 4e12. Control: d0 alone gives 8.9e-7. Open: whether the coefficients are nonzero.
+  [D429, verifier 183: that is D4's, the gauge potential's, eps_ind; (1.1)'s is F' (2.2)'s, <= 1.94e-8 (D422).]
 - D412 (checks/s1reson5.py, exact): not forced locally. box^Ups_Tang(dx^1) starts at rho^4, resonant with 2 + d1;
   F4 = mu(-2 gam(e + 2), -3, 1); det I(2) = 4z, but I(2)'s left null vector (0, 1, 3) at z = 0 annihilates F4, so the
   particular solution stays finite (mu(0, 1/4 - 1/e, -1/4 - 1/e)) [D420: along gam -> 0 at fixed e; along e -> 0 it
@@ -4764,6 +4765,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   up to v = 1.8 and differ by 0.18 (M24) and 0.10 (M32) at the event's node (checks/g1axis5.py). Both fail there
   alike. [D420: in m only; at x = -1 they settle 0.45 apart (a first derivative of the metric), while the metric
   value P agrees to 1e-3.] Next: M = 40 at r_cut 0.9 (running).
+  [D429, verifier 183: plain m(-1) is 0.791, 0.765, 1.000 at M40-56, not settled; P differs 2.5e-3 between the
+  treatments at M24; at x = -1, P = -2n/3 has no m.]
 - D414 (FAMILIES5 section 4d, checks/twolin5.py A, L1-L3, control; exact): the lam^-1 coefficient of the two-phase
   linearisation of Ric^H is (1/2)(s_in d^2_s1 W_in + s_out d^2_s2 W_out), s_k = w(ell_k, ell_k): the record's (5.1)
   coefficient once per family, nothing else. E(ell_in, ell_in) = -2 e^(-4 sigma) s_out chi', E(ell_out, ell_out) =
@@ -4775,6 +4778,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   III.B Def 6.1, D3:31-33). A compact change of zeta or chi changes box^Ups by 2(delta E)G delta*, and the rho^(2+d1)
   coefficient by its pairing with the dual state of 2 + d1: generically nonzero. So d1 in E_ind is a property of the
   cut-offs; one real condition on zeta removes it. Carry delta_G <= 5.0e-8 unless zeta is so chosen. Not computed.
+  [D429, verifier 183: asserted, not shown; it depends on the cut-offs unless the pairing integrand vanishes
+  identically, which is not computed.]
 - D416 (E2-PILOT 3i, Corollary E2.11', checks/e2h1_5.py H4; exact): l = 0 has a derivative bound. Lemma E2.8''s
   identity carries 2 int (phi' - q)|u'|^2 with phi' - q >= 0 on R, so E2.11's algebra gives ||u'||_I <= X_0 ||f||;
   X_0(3) <= 808.6 from section 3g's certified constants. Summed over every l >= 0: C <= 808.6, set by l = 0 (675.1
@@ -4785,11 +4790,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Coulomb part is in rho^2 C^inf for every damping parameter (exact). Damping off: Lemma 6.5's polynomials, transfer
   1, 0, -1/3, 1 (exact control). Exponents at N at the record's point: 0, -0.51, -0.52, -1.5e6, -3e6. Damping on, the
   r^-2 coefficient is the transfer matrix's (gamma_C = 1: series = Radau to 1.6e-14). Open: Tangherlini, other l.
+  [D429, verifier 183: per harmonic, given uniqueness for the characteristic problem; for the sum over l a bound
+  uniform in l on the transfer's Taylor coefficients at s = 1 is missing, so Lemma 0.1's condition for the Coulomb
+  part stays open.]
 - D418 (CERTIFY 6b, checks/g1axis5.py --sweep, computed): M = 24, 32, 40, 48, 56 at 800 x 360, r_cut 0.9. At the event
   node the successive |dm| are 0.232, 0.112, 0.0024, 0.083 (cell max over x 0.23, 0.17, 0.12, 0.24; band [1.8, 2)
   0.23, 0.17, 0.12, 0.49): no convergence in M. Before v = 1.8 the differences grow with M (2.0e-6 -> 9.0e-5 on
   [1.65, 1.8)): at a fixed null grid M degrades the solution. D410's "barely converges" withdrawn as a statement
   about angle. Next: M = 32, 40 at 1600 x 720 (running).
+  [D429, verifier 183: the differences grow with M in every band, so an M-amplified error dominates; whether
+  the null step cures it is the running test.]
 - D419 (FAMILIES5 4e, checks/stage0h5.py; H2 exact): Stage 0 in section 1's generalised wave gauge. With chi = chi' = 0
   the only pure harmonics of R^(0) - Ric(g0) are vv (+-2, 0) and uu (0, +-2); the source H = lam (h dv + h' du), whose
   delta* is F1 h dv^2 + F2 h' du^2 at lam^0 (H1, deduced), meets them algebraically with h_(+-2) = -S_(+-2)/(+-2i)
@@ -4803,6 +4813,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   metric value P agrees to 1e-3 at the event and converges slowly in M on [1.8, 2) (|dP| 5.9e-3 -> 1.6e-3); the
   metric's failure starts on [2, 2.25) and grows with M (3.2e-2 ... 1.1e3). Minors: D412 non-resonance only along
   gam -> 0; (G)'s third window 2.45e-7 (bound stands); D411's 2.0/r^2 and 1e-12; L1 does not test the ansatz.
+  [D429, verifier 183: the D4 reading is excluded by the record (LOSS-D LD10, F4:25-27): (1.1)'s eps_ind is
+  F' (2.2)'s, <= 1.94e-8, K > 1.03e8 (D422); D4's 1.46e-10 is the gauge potential's (and 2/1.462e-10 = 1.37e10).
+  M2: plain m(-1) has not settled by M56 (0.765, 1.000 at M48, 56); P differs 2.5e-3 between treatments at M24;
+  on [1.8, 2) the decrease stalls (1.6e-3, 1.6e-3).]
 - D421 (BEYOND5 Lemma 6.5', checks/coulombL5.py Q5, exact): the l = 1 scalar-type sector (six functions) of the full
   flat operator has the same structure: homogeneous, second-order part -(1/2) s (s - 2) I, polynomial coefficients,
   exponents at N besides 0 all negative (-0.5099 ... -3e6). So "every harmonic" is now checked at l = 0 and l = 1.
@@ -4841,6 +4855,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   on {t = 0} with W = 0, G(n, .) = (1/2) g^00 d_t W, so the constraints give d_t W = 0; and W = 0 there is imposed by
   d_t g_(0 mu), coefficient g^00 diag(1/2, 1, 1, 1). Controls fail. Deduced: uniqueness with zero data. Open: the
   characteristic case, and that the record's solution solves the reduced equation exactly.
+- D429 (verifier 183 on D415-D420; 3 major, 9 minor, 6 nits; all selftests pass): M1, D420's two readings of
+  (1.1)'s eps_ind: the D4 one is excluded by the record; D422's 1.94e-8 and K > 1.03e8 stand; LOSS-D and the D408,
+  D420 records corrected. M2, the axis: plain m(-1) unsettled by M56, P differs 2.5e-3 between treatments at M24,
+  P(-1) has no m, the [1.8, 2) decrease stalls; CERTIFY 6b's settling, agreement and onset claims withdrawn. M3,
+  Lemma 6.5': per harmonic and given uniqueness; the sum over l needs an l-uniform bound, so Lemma 0.1's condition for
+  the Coulomb part is open. Minors: D415's pairing asserted; 1.3e10 not 1.4e10; (2.2) is bounded; both eps_ind
+  definitions cited; D418's null-step claim withdrawn; stage0h5 H1 uncounted and an independent mutant added;
+  gapsums5's 7.3846e-8 relabelled; coulombL5 Q1 checks phi phi and the off-diagonals.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

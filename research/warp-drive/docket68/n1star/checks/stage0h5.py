@@ -14,7 +14,8 @@ with stage0two5.py's ansatz and assembly:
      h_(+-2) := -S_(+-2)/(+-2i), and h' likewise, the total R^(0) + (delta*_g H)^(0) vanishes at every pure harmonic.
      So the second harmonics are met algebraically, with no transport, and the mean (0, 0) and the mixed harmonics
      (T2, T4) are untouched.
-  Control: with h = 0 the vv (2, 0) entry is nonzero; with h_2 of the wrong sign it doubles.
+  Control: with h = 0 the vv (2, 0) entry is nonzero; with h_2 of the wrong sign it doubles; with h_2 = -S_2/i (the
+     factor n of the fast derivative dropped) it flips sign. H1 is printed but not counted: it cannot fail (D429).
   H3 (D423) the gauge condition Ups - H = 0 at order lam on the pure harmonics, D^(1) + (ghat_2's fast divergence)
      - g0^-1 H^(1) = 0, with H2's h, h': H's raised form g0^(uv) h enters only the r = u row (r = v for h'), which
      ghat_2's angular trace sets (T8), and the system is solved by T8's components at every pure harmonic, the source's
@@ -69,9 +70,10 @@ def main():
     expect = sp.zeros(N)
     expect[1, 1] = ex(fast(h, 1))
     expect[0, 0] = ex(fast(hp, 0))
-    ok["H1"] = all(m1[p, q] == 0 for p in range(N) for q in range(N)) and \
+    h1 = all(m1[p, q] == 0 for p in range(N) for q in range(N)) and \
         all(ex(z0[p, q] - expect[p, q]) == 0 for p in range(N) for q in range(N))
-    print("  H1: delta*_g H at lam^-1: 0; at lam^0: F1 h dv^2 + F2 h' du^2 exactly: %s" % ok["H1"], flush=True)
+    print("  H1 (deduced; a consistency print of dstarH, which cannot fail, so not counted, D429): delta*_g H at "
+          "lam^-1: 0; at lam^0: F1 h dv^2 + F2 h' du^2 exactly: %s" % h1, flush=True)
     ro = S0.ricci_orders(W)
     R0 = {k: ex(val[1]) for k, val in ro.items() if isinstance(k, tuple)}
     Rbg = S0.background_ricci()
@@ -103,9 +105,14 @@ def main():
     bad = dict(sol)
     bad[hf[2]] = -bad[hf[2]]
     vv = harm(ex((R0[(1, 1)] - Rbg[(1, 1)] + z0[1, 1]).subs(bad).doit())).get((2, 0), 0)
+    half = dict(sol)
+    half[hf[2]] = 2*half[hf[2]]
+    vv2 = harm(ex((R0[(1, 1)] - Rbg[(1, 1)] + z0[1, 1]).subs(half).doit())).get((2, 0), 0)
+    indep = sp.simplify(vv2 + pure[((1, 1), (2, 0))]) == 0
     ok["control"] = sp.simplify(pure[((1, 1), (2, 0))]) != 0 and \
-        sp.simplify(vv - 2*pure[((1, 1), (2, 0))]) == 0
-    print("  control: with h = 0 the vv (2, 0) entry is nonzero, with h_2 of the wrong sign it doubles: %s"
+        sp.simplify(vv - 2*pure[((1, 1), (2, 0))]) == 0 and indep
+    print("  control: with h = 0 the vv (2, 0) entry is nonzero, with h_2 of the wrong sign it doubles; with h_2 = "
+          "-S_2/(2i) without the 1/2, the fast derivative's factor n, it flips sign (independent of H2, D429): %s"
           % ok["control"])
     h3, h3c = gauge_with_source(ro, sol, hf, hpf)
     ok["H3"] = h3

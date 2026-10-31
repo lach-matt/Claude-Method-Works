@@ -6748,8 +6748,8 @@ two treatments differ there by amounts of the same order as the two resolutions 
 resolution is under way to tell
 whether the failure is a matter of resolution. The minor findings (a missing condition on sources at large distance, a
 sum over modes that left out the lowest one, table entries rounded the wrong way, a wording about which terms were
-computed, a missing control) are repaired as well. [Corrected in D420: the scale the record allows is about three
-hundred times smaller than said here, so the sums stay well above it; and the two axis treatments agree only at the
+computed, a missing control) are repaired as well. [Corrected in D420: the scale the record allows is about two hundred
+and fifty times smaller than said here, so the sums stay well above it; and the two axis treatments agree only at the
 one point quoted, while on the axis itself they settle to different values.]
 
 **D414 (2026-10-31): two families of waves, the large terms of the linearised equation computed.** With one family of
@@ -6766,11 +6766,13 @@ record's gauge is set up in the interior. The record fixes that only far out and
 its choosing. Changing the cut-off changes the coefficient, generically, so the question has no answer from the record
 alone. One condition on the cut-off would make that term vanish. Until such a choice is made, the bound of D413 is the
 one to carry.
+[D429: asserted, not shown; it holds unless a certain integral vanishes identically, which is not computed.]
 
 **D416 (2026-10-31): the derivative bound for the lowest mode.** The bound on the derivative of the solution now
 covers the spherically symmetric mode too: the identity used for that mode already contains the derivative term, so
 the same short argument applies. Its constant, about 809, is the largest of all the modes at the test frequency, so it
-sets the constant for the full wave equation on the cut-off region. An earlier note that this mode needed a different
+sets the constant for the full wave equation on the cut-off region, at the test frequency. An earlier note that this mode
+needed a different
 argument is withdrawn.
 
 **D417 (2026-10-31): the slowest part of the correction at spatial infinity, with the record's full equation.** D406
@@ -6779,12 +6781,16 @@ equation also carries its gauge-damping terms. In flat space those terms respect
 is a fixed profile in one variable, and spatial infinity sits at an ordinary point of that profile's equation. So the
 clean expansion survives whatever the damping, although the leading number changes. With the damping switched off the
 calculation reproduces D406 exactly. The curved-space version, with the black hole's mass included, is not done.
+[D429: one angular pattern at a time, and assuming the solution is unique; for all patterns at once a bound uniform
+in the pattern is still missing.]
 
 **D418 (2026-10-31): more angular resolution alone does not help.** At five angular resolutions on the same grid in
 time and radius, the failure on the axis does not settle down. Where the solution was already accurate, the
 differences between successive resolutions grow as the angular resolution rises. So at this grid, adding angular
 modes makes things worse rather than better, and the step in the two null directions is what limits the accuracy. The
 earlier reading that the event "barely converges" in angle is withdrawn. Runs refining both together are under way.
+[D429: more than the data show. What they show is an error that grows with the number of angular modes; whether a
+finer step in the null directions cures it is the test now running.]
 
 **D419 (2026-10-31): the better gauge works at the first stage.** D414 showed that with the gauge proposed for two
 families, the cross-coupling between them disappears. This step checks that the gauge can actually be imposed at the
@@ -6795,12 +6801,16 @@ The next-order gauge condition and its propagation are not done.
 **D420 (2026-10-31): the 182nd verifier's findings seated.** Two real errors, both mine.
 - *The record's smallest scale.* The number used for it was really a cutoff value in one of the record's own
   computations, not a minimum. Followed through, the record's definition, taken literally, admits no positive scale at
-  all. Taken the sensible way, the scale is about three hundred times smaller than D413 said. The gap condition is
+  all. Taken the sensible way, the scale is about two hundred and fifty times smaller than D413 said. The gap condition
+  is
   still not shown to bind, but the length of the record's long chain is now at least about ten thousand million steps
   under one reading of the record, and about twenty million under the other.
 - *The axis.* The quantity compared on the axis is not the geometry itself but its slope there, and the two axis
   treatments settle to different slopes. In the geometry's own values they agree to a thousandth at the event. There
   the solution converges slowly, and the real failure starts a little later and worsens with resolution.
+[D429: the first reading is excluded by the record itself; the second, corrected in D422, gives about a hundred
+million steps. The geometry's values differ by a quarter of a hundredth at the coarsest setting, the improvement
+before that point has stalled, and the axis value has not settled at the finest setting.]
 
 Smaller corrections: one condition holds only along one way of switching the damping off, a missed third window that
 changes nothing, a constant that tends to 2.0 rather than 1.86, and an earlier verifier's harmless warning,
@@ -6850,3 +6860,11 @@ the failure of the gauge obeys a wave equation of its own, the starting data can
 constraint equations then make its rate of change zero too, so it stays zero. The last step, that a wave starting from
 nothing stays nothing, is the standard argument, not recomputed here. The case of data given on a light cone rather than
 at an instant is not done.
+
+**D429 (2026-10-31): verifier 183 on D415 to D420.** The reader found three real errors. First, D420 offered two
+readings of a small number in the record's proof; the record's own text excludes one of them, and the right one had
+already been fixed in D422. Second, at the axis of the run the claims that the two treatments each settle and that the
+geometry agrees to a thousandth were not borne out: at the finest setting the axis value moved again, and at the
+coarsest the two treatments differ by a quarter of a hundredth. Third, the clean expansion at spatial infinity with the
+record's full equation holds one angular pattern at a time and assuming uniqueness; for all patterns together a bound
+uniform in the pattern is missing, so that condition is open again. Nine smaller points were corrected with them.
