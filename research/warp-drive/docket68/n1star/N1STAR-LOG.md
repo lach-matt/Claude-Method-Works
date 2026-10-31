@@ -6894,3 +6894,9 @@ constraint equations and to be smooth enough for the energy estimate; the gap co
 by construction and is now called a consistency check (a stronger probe, admitting more exponents, still leaves the gap
 condition slack); the error between the times 1.8 and 2 is described by what it depends on, not by what causes it; and
 one test added earlier follows from another by linearity and is labelled so.
+
+**D434 (2026-10-31): the clean expansion's leading number at the record's own setting.** D417 found the leading
+number at spatial infinity for one test value of the record's damping; the record's own value is a million times
+larger, which makes the equation very stiff. The stiffness turns out to sit only in solutions the data exclude, so the
+number is well defined and computable, and it settles as the damping grows. It differs substantially from the
+undamped one: one component the undamped equation sends to zero comes out of order one. Computed, not certified.

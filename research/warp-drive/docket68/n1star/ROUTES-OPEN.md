@@ -4884,6 +4884,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   1 - d0, 1 - delta_l, 1 - delta'_l too (probe, l <= 3000) the least value is 2.65e-8, still above 1.94e-8. D432: the
   [1.8, 2) error depends on M, not the null step; M differences from v = 2 are 4.5e-2 to 0.22; only the M32-40 pair is
   tested in P. stage0h5's factor-n mutant follows from H2 by linearity: relabelled.
+- D434 (BEYOND5 Q4, checks/transfer5.py T1-T3, computed): Lemma 6.5''s l = 0 transfer at the record's gamma_C =
+  1e6. Series (400 vs 600 terms) agree to 30 digits at gamma_C = 1 ... 1e6; Radau agrees to 1e-12 up to 1e4. The
+  transfer converges as gamma_C -> infinity (differences 1.3e-2, 1.2e-4, 1.2e-5, like 1/gamma_C). It departs from
+  Lemma 6.5's diag(1, 0, -1/3, 1) by up to 1.22 (b(1) gains 1.217 of (c + 3d)/4). Not certified.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
