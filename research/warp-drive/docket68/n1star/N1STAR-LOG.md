@@ -6710,3 +6710,10 @@ remaining question.
 explicit, certified constant for every angular mode at the test frequency, and so for the full wave equation on the
 cut-off region, summed over the modes. The lowest non-trivial mode sets the constant, as it already did for the size
 of the solution.
+
+**D410 (2026-10-31): moving the cut-off.** Running the original gauge with the cut-off at three different radii
+separates two things. Where the numerical solution first goes wrong always sits right next to the cut-off, and the
+error there shrinks as the cut-off is raised: that part belongs to the cut-off. But at one place on the axis, at an
+areal radius of about one and well away from every cut-off, the solution fails to converge in angle by the same amount
+whichever cut-off is used. That part belongs to the axis or to the geometry itself, and a run with the axis treated
+differently is under way to tell which.

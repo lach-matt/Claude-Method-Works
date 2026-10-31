@@ -4680,6 +4680,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   60 rows from its cut, where it keeps ~230 rows per column beyond the swapped cut: its converged region ends near the
   swapped gauge's cut. Both gauges stop converging at about the same events. [D405: scanned to 250 rows the error
   falls steadily with no edge, so this is a trend, not a measured boundary.]
+- D410 (checks/g1cut5.py, computed): dnsolve5 at r_cut = 0.54, 0.7, 0.9 (M24/M32, 800x360), events compared by areal
+  radius. The onset of |dm| > 1e-3 follows the cut (v = 1.55, 1.675, 1.825, 0-6 rows from it), and the near-cut error
+  falls as the cut rises (1.4e3 against 1.8). But at u = -1.003, v = 1.988, x = -0.989 (areal radius 1.000), 145-191
+  rows from either cut, |dm| = 0.23 at every cut (M16-24: 0.28), concentrated at the x = -1 axis: a failure of the
+  axis treatment or of the geometry, not of the cut. Next: the axis regularisation (reg) at r_cut = 0.9.
 - D405 (verifier 180 on D400-D404). MAJOR on D402's LD8 repair: its two worked lambda + d_c cases are excluded by the
   record (mu_c are non-integer roots of F2 Prop 2.3, so d_c >= eps_ind; d_c0 <= z/3, d_c1 < 1/4): what remains is an
   element of pi_1 M within d_c below 2, under 1.34e-6 at the record's point. Also eps_ind <= 7.4e-8 (N1STAR-PROOF

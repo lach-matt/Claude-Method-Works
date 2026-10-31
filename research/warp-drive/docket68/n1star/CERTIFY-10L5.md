@@ -419,6 +419,21 @@ No other component is nonzero. So the scheme is the following.
     was not yet asymptotic; on [1, 1.8) the P ratio is 3.52-3.54 at both 20 and 100 rows, an order of about 1.8
     (D405). The 800-1600 differences peak on [1.65, 2) at 3.8 × 10⁻³ in P and 0.10 in s, so by Richardson the
     1600 × 720 run's own error there is about 1.4 × 10⁻³ in P, 0.3 % of the band's max |P| (0.45).
+- *The cut moved (D410; `checks/g1cut5.py`, computed).* dnsolve5's gauge at λ = 1, M = 24 and 32, 800 × 360, with
+  r_cut = 0.54, 0.7 and 0.9. The grids differ between cuts (u runs to −r_cut), so events are compared through the
+  areal radius (V/2π²)^(1/3).
+  - *The onset follows the cut.* |Δm| first exceeds 10⁻³ next to the cut each time: at v = 1.550 (0 rows from the cut,
+    areal radius 0.614), 1.675 (1 row, 0.761) and 1.825 (6 rows, 0.933). Next to the cut the error scales with the
+    cut: along the column through v = 1.99 it is 1.4 × 10³ at the cut for r_cut = 0.54 and 1.8 for r_cut = 0.9.
+  - *A failure that does not move.* At the event u = −1.003, v = 1.988, x = −0.989, areal radius 1.000, |Δm|
+    (M24-M32) is 0.227 at r_cut = 0.54 and 0.232 at 0.9. That event is 191 and 145 rows from the respective cut, and
+    M16-M24 there is 0.278, so it barely converges. Over the cells of areal radius ≥ 1.0 on [1.8, 2) the maxima are
+    0.23 in m and 5.8 × 10⁻³ in P at every cut. The error is concentrated at the x = −1 axis (0.07 at x = −1, 2 × 10⁻²
+    at the node before, 10⁻³ to 6 × 10⁻³ elsewhere in x).
+  - So the failure has two parts. One sits next to the cut and grows as the cut is lowered. The other sits at the
+    x = −1 axis at areal radius about 1 near v = 2, whatever the cut. These are among the cells only dnsolve5 keeps
+    (D399), and the swapped gauge's node cut removes them.
+  - The second part is the axis treatment or the geometry, not the cut.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds.
   - At λ = 1, over its own kept cells, the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in
     dnsolve5's gauge (on 𝒟_q, in (u, v) and in angle).
