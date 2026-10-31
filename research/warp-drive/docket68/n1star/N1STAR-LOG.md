@@ -6520,3 +6520,11 @@ the right sign, changes the condition to one that is linear in the new term, so 
 program; one was found, built from 43 smooth bumps, rounded, and the rounded one certified directly by interval
 arithmetic with explicit tail bounds. The cut-off resolvent at the lowest harmonic is now bounded at every real
 frequency, by about 275 at the reference frequency, so every harmonic has a certified bound there.
+
+**D388 (2026-10-31): the last unread step of the gluing, read.** The argument that joins the record's spacetime to
+the development used, without a source, the fact that the region determined by the gluing surface is a well-behaved
+spacetime in which that surface is a complete slice. Its first half is now read at source, in a set of lecture notes
+that state it for exactly this kind of surface, one without boundary and not closed; a standard review states it only
+for closed surfaces, which this one is not. The second half is now proved here in a few lines from two statements read
+in the same notes. One elementary fact about how timelike curves combine, and the fact that the region contains the
+surface, are used as the notes use and remark them, not read as proved statements.

@@ -109,8 +109,27 @@ V with g_λ, and B := M ∩ {t_IVP ≥ 0} with g.
   g_λ = g_(b_0) + O(λ) in C⁰ on Ω′_+ ∩ {v ≥ v_end} (Part VII Lemmas 1.1, 1.2 (a)). So for λ small, dt_IVP is
   timelike for g_λ on a neighbourhood V of the compact Σ̄.
 - *(ii).* Σ is a level set of a time function, t_IVP in V and in B and hence in N, so it is acausal there. Then int D(Σ)
-  is globally hyperbolic with Cauchy surface Σ (standard causality theory; not read at source here). Both are vacuum,
-  so both are globally hyperbolic developments of (Σ, γ, k) in the sense of [Sbi15] Definition 2.1.
+  is globally hyperbolic with Cauchy surface Σ (D388). Both are vacuum, so both are globally hyperbolic developments of
+  (Σ, γ, k) in the sense of [Sbi15] Definition 2.1.
+  - *Global hyperbolicity.* [Chr11] Theorem 2.9.9: for an achronal hypersurface S without boundary in a C² spacetime,
+    with D̊_I(S) non-empty, D̊_I(S) with the induced metric is globally hyperbolic. Σ is a smooth spacelike graph over
+    the open shell, so it has no boundary; it need not be closed, which [Min19] Theorem 3.45 would require.
+  - *Σ ⊂ D̊_I(Σ).* [Chr11] states this after Corollary 2.9.8, for achronal C¹ spacelike hypersurfaces without boundary
+    ("transversality considerations"), without proof.
+  - *Σ is a Cauchy surface of D̊ := D̊_I(Σ).* Let γ be an inextendible timelike curve in D̊. By achronality it meets Σ at
+    most once. Suppose it misses Σ.
+    - D̊ ∖ Σ lies in I⁺(Σ) ∪ I⁻(Σ), which are open and disjoint by achronality. So γ lies in one of them, say I⁺(Σ).
+    - Fix p on γ, let γ₋ be its past part, and pick p′ ∈ I⁺(p) ∩ D̊ ∩ I⁺(Σ), non-empty as D̊ ∩ I⁺(Σ) is an open
+      neighbourhood of p; p′ ∈ D⁺_I(Σ). Let c be a timelike curve from p′ to p. Then c·γ₋ lies in I⁺(Σ) (push-up), so
+      it misses Σ, and as p′ ∈ D⁺_I(Σ) it is not past-inextendible in M. So γ₋ has a past endpoint q, with
+      q ∈ J⁻(p) ⊂ I⁻(p′).
+    - If q ∈ I⁺(Σ): [Chr11] Proposition 2.9.7 (I⁻(p′) ∩ J⁺(S) ⊂ D⁺_I(S)) puts the open set I⁻(p′) ∩ I⁺(Σ) inside
+      D⁺_I(Σ). So q ∈ D̊ and γ₋ extends in D̊.
+    - If q ∉ I⁺(Σ): continue c·γ₋ past q as a past-inextendible timelike curve. It meets Σ, at some s ∈ J⁻(q). Either
+      s = q ∈ Σ ⊂ D̊, and γ₋ extends in D̊; or q ∈ I⁺(s) ⊂ I⁺(Σ), against the case.
+    - Either way γ is extendible in D̊, a contradiction. ∎
+  - The push-up (J⁺(x) ⊂ I⁺(Σ) for x ∈ I⁺(Σ)) is [Chr11] Lemma 2.4.14, as invoked in the proof of Proposition 2.9.7;
+    its statement is not read here.
   - [Sbi15] Theorem 2.6 gives a common development near Σ (Choquet-Bruhat's local uniqueness).
   - Theorem 3.4 gives the maximal one, U ⊂ int_N D(Σ) with an isometric embedding ψ into Ω′. As a common development
     of two developments of the same data, ψ preserves the time orientation and the embedding of Σ (Definitions
@@ -133,7 +152,12 @@ What it does and does not say:
 
 READ ([Sbi15] = J. Sbierski, "On the existence of a maximal Cauchy development for the Einstein equations - a
 dezornification", arXiv:1309.7591v3, read 2026-10-31 through alphaXiv): Definitions 2.1-2.4 and Theorems 2.6-2.8
-(pp. 11-12), Theorem 3.4 (p. 14), Theorem 3.13 (p. 20).
+(pp. 11-12), Theorem 3.4 (p. 14), Theorem 3.13 (p. 20). READ ([Chr11] = P. T. Chruściel, "Elements of causality
+theory", arXiv:1110.6706v1, read 2026-10-31 through alphaXiv): the definitions of section 2.9 (p. 44), Proposition 2.9.7
+(pp. 45-46), the remark after Corollary 2.9.8 and Theorem 2.9.9 (p. 46), Lemma 2.9.11 (p. 47); the page numbers are the
+notes' own. READ ([Min19] = E. Minguzzi, "Lorentzian causality theory", Living Rev. Relativ. 22 (2019) 3, read
+2026-10-31 through a web-fetch connector, text extracted from the PDF): Theorem 3.45 (Int D(S) globally hyperbolic for S
+closed and achronal) and Theorem 3.46; not used, as Σ is not closed.
 - **(b) The continuation of the record's own data.**
   - The record would first have to construct g_λ on the whole of Σ_IVP, to spatial infinity. The region there lies
     after the shell (v > v_end), where g_λ is Tangherlini plus smooth means times powers of λ (paper section 8.7) plus

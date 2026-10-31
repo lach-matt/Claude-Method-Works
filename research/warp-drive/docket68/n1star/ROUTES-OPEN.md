@@ -4746,6 +4746,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D378: verifier 173 seated on batch 4 (no major). m1: II.F Lemma 1.3's compactness near {r = r_flat} needs
   II.C Lemma 3.2 (1) (as II.F Lemma 1.4 (a)); the record cited II.F 7.4 (the iota+ model); now named at VIII:284-286
   and III.K:459-463. m2: Part VII's constants depend on r_flat through delta'_0, c_0, T'. Nits seated. Re-proof done.
+- D388 (BEYOND5 (ii)): int D(Sigma) globally hyperbolic READ at source ([Chr11] Theorem 2.9.9, achronal hypersurface
+  without boundary; [Min19] Theorem 3.45 needs S closed, which Sigma is not); Sigma Cauchy in it proved from [Chr11]
+  Proposition 2.9.7 and achronality. Sigma in int D(Sigma) and the push-up are as [Chr11] remarks / invokes them.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 
