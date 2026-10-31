@@ -3,9 +3,9 @@
 Status: written (D350); section 3b added (D355) and verified (verifier 165, D356); section 3c added (D359), read by
 verifier 167 (D362); section 3d (the band, computed) added (D371); section 3e (Lemma E2.8, a Morawetz bound for every
 l ≥ 1 and every real σ, D379; read by verifier 175, D382) added; section 3f (Lemma E2.9 and the certificate:
-every l ≥ 1, D384) added; sections 1-3, 3d and 3f to be read. Check scripts: `checks/e2pilot5.py` P1-P4
-(computed), all pass, every control fails; the band: `checks/e2band5.py`; E2.8: `checks/e2morawetz5.py` M1-M3; E2.9
-and the certificate: `checks/e2certify5.py` C1-C5.
+every l ≥ 1, D384; read by verifier 176, D385: decimals rounded outward) added; sections 1-3 and 3d to be read.
+Check scripts: `checks/e2pilot5.py` P1-P4 (computed), all pass, every control fails; the band: `checks/e2band5.py`;
+E2.8: `checks/e2morawetz5.py` M1-M3; E2.9 and the certificate: `checks/e2certify5.py` C1-C5.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
@@ -276,14 +276,14 @@ What it gives:
 - *With E2.5 and E2.7,* every harmonic 1 ≤ l ≤ 30 now has an explicit bound at every real σ ≠ 0 (computed
   constants), and every l ≥ l_0(σ) one by E2.5 (proved). At σ = 3 that leaves 31 ≤ l ≤ 49 with Proposition E2.4's
   constant, or E2.5 by quadrature from l = 18 (computed). A proof of w ≥ 0 for large l, with a finite check below
-  it, would close that gap (verifier 175's A1). For l = 0, E2.7 holds for σ² > max V_0 and Proposition E2.4
-  otherwise.
+  it, would close that gap (verifier 175's A1); Lemma E2.9 closes it (section 3f, D384). For l = 0, E2.7 holds for
+  σ² > max V_0 and Proposition E2.4 otherwise.
 
 What it does not give:
 
 - a certificate: w ≥ 0 and the constants are checked on a grid, and an interval-arithmetic check per l is a finite
-  step;
-- l = 0, and l > 30 in the instrument;
+  step (answered in section 3f, D384);
+- l = 0, and l > 30 in the instrument (l > 30 answered in section 3f; l = 0 is still open);
 - a good constant: B is dominated by the cut-off term 2/m′, where m′ = φ′ at the end r = 4 of I is about 0.0058. As
   σ → 0 that term is almost all of B_l² w_I, and m′ decays like e^(−2Λ/s) as I lengthens, so the bound is
   exponentially poor in the length of I;
@@ -310,39 +310,52 @@ slope −φ_*U′. ∎
 **Certified (`checks/e2certify5.py` C1-C5; interval arithmetic, mpmath.iv at 30 digits, with outward rounding).** s =
 49/50.
 
-- *C1.* w_1 ≥ 0 on r_* ∈ [x(t = −120), x(r = 120)], t := ln(r − 1), by adaptive bisection in t (445 intervals): every
-  subinterval's enclosure of w_1 has a non-negative lower end. Away from the centre, sech² is computed from e^(−2|z|),
-  as 1 − tanh² cancels below 30 digits there.
-- *C2, the tails.* Below that range, ½φ_*‴ ≤ (8/s³)e^(2z) and −φ_*V_1′ ≥ tanh|z_L| C e^(2r_*), with
+- *C1.* w_1 ≥ 0 on r_* ∈ [x(t = −120), x(r = 120)], t := ln(r − 1), by adaptive bisection in t (445 enclosures
+  evaluated, 223 pieces accepted): every accepted piece's enclosure of w_1 has a non-negative lower end, and the
+  pieces cover the range exactly, their endpoints carried at the intervals' own 103 bits. Away from the centre, sech²
+  is computed from e^(−2|z|), as 1 − tanh² cancels below 30 digits there.
+- *C2, the tails.* Below that range, ½|φ_*‴| ≤ (8/s³)e^(2z) and −φ_*V_1′ ≥ tanh|z_L| C e^(2r_*), with
   C = 8(a + b)(1 − 6e_L)e^(−2r_L)/r_L⁵ (using a ≥ b, true at l = 1). So the ratio is at most K e^(2r_*(1/s − 1)),
-  which decreases toward the horizon as s < 1; at the left end it is ≤ 0.0391. Above the range, the ratio is at most
+  which decreases toward the horizon as s < 1; at the left end it is ≤ 0.03913. Above the range, the ratio is at most
   (8/s³)e^(−2z)(r_* + d_R)³/(2a c_R tanh z_R), decreasing once r_* + d_R > 3s/2; at the right end it is
-  ≤ 2.6 × 10⁻¹⁰⁰. With E2.9, w_l ≥ 0 on ℝ for every l ≥ 1.
-- *C3, C5, the constants.* m′ ≥ 0.005794 (an end of I) and M′ ≤ 1/s = 1.02041. Certified lower bounds for min_I w_l,
+  ≤ 2.61 × 10⁻¹⁰⁰. With E2.9, w_l ≥ 0 on ℝ for every l ≥ 1.
+- *C3, C5, the constants.* m′ ≥ 0.005793 (an end of I) and M′ ≤ 1/s = 1.02041. Certified lower bounds for min_I w_l,
   with φ_* (C3) or with φ centred at a float near V_l's own peak (C5, certified the same way, w_l ≥ 0 on ℝ included),
-  give the upper bounds below. For l ≥ 6 the row is E2.9's bound with l_0 = 6, min_I w_6 ≥ 1.0610.
+  give the upper bounds below, every decimal rounded outward from the enclosure (upper bounds up, lower bounds down,
+  D385). For l ≥ 6 the row is E2.9's bound with l_0 = 6, min_I w_6 ≥ 1.0610. At l = 1 the photon-sphere centre gives
+  only min_I w_1 ≥ 2.645 × 10⁻⁵ from C3's 2000 fixed pieces, coarse where w_1 is small (point values put the minimum
+  near 1.5 × 10⁻³ at r ≈ 2.19), so B_1(3) ≤ 2.66 × 10⁵ there; the peak centre (C5) gives the row below. At l = 2-5
+  C3 is the better of the two.
 
 | l | multiplier | B_l(0+) | B_l(1) | B_l(3) | B_l(10) |
 |---|---|---|---|---|---|
-| 1 | peak (C5) | 129.7 | 160.4 | 264.5 | 708.8 |
-| 2 | φ_* (C3) | 40.0 | 42.1 | 51.1 | 104.1 |
-| 3 | φ_* (C3) | 29.6 | 30.5 | 34.4 | 60.6 |
-| 4 | φ_* (C3) | 23.5 | 24.0 | 26.0 | 41.0 |
-| 5 | φ_* (C3) | 19.5 | 19.8 | 21.0 | 30.3 |
-| every l ≥ 6 | φ_* (C3, E2.9) | 18.06 | 18.26 | 19.21 | 26.79 |
+| 1 | peak (C5) | 129.7 | 160.4 | 264.5 | 708.9 |
+| 2 | φ_* (C3) | 40.03 | 42.09 | 51.12 | 104.2 |
+| 3 | φ_* (C3) | 29.61 | 30.46 | 34.39 | 60.62 |
+| 4 | φ_* (C3) | 23.54 | 23.97 | 26.02 | 40.96 |
+| 5 | φ_* (C3) | 19.55 | 19.80 | 20.99 | 30.30 |
+| every l ≥ 6 | φ_* (C3, E2.9) | 18.07 | 18.27 | 19.22 | 26.80 |
+
+D384 printed this table, m′ and the left ratio rounded to nearest, which put some printed bounds below the certified
+ones (m′ ≥ 0.005794 against 0.0057939…, B_6(3) ≤ 19.21 against 19.2122…); verifier 176 found it (D385).
 
 At every real σ ≠ 0, B_l(σ) ≤ ((2/m′ + (M′ + 2|σ|)²/w_l)/w_l)^(1/2) with these certified m′, M′ and w_l.
 
 - *C4, controls.* With the centre moved to r = 1.6, −φU′ < 0 at r = 1.5, so the monotonicity fails. With s = 3/2 the
-  left tail's exponent 2(1/s − 1) is negative, so the bound grows toward the horizon.
+  left tail's exponent 2(1/s − 1) is negative, so the bound grows toward the horizon. And C1's bisection itself fails
+  where it must: at l = 0 with φ_* (w_0 ≤ −0.01125 at t = 0.8, certified) and at l = 1 with s = 3/2 (w_1 ≤ −0.004912
+  at t = −8).
 
 What this gives: for every harmonic l ≥ 1 and every real σ ≠ 0, an explicit bound for ‖χ_I R_l(σ) χ_I‖, certified,
 and uniform in l ≥ 6. In particular E2.8's "1 ≤ l ≤ 30, computed" (section 3e) becomes "every l ≥ 1, certified", and
-the band at σ = 3 has the certified bound 21.0 for 5 ≤ l ≤ 17.
+the band at σ = 3 has the certified bound 20.99 for 5 ≤ l ≤ 17.
 
 What it does not give:
 
-- l = 0: the photon-sphere centre fails there (a = 3/4 < b), and so did every peak-centred s (section 3e);
+- l = 0: with the photon-sphere centre w_0 < 0 near r ≈ 3.2 (w_0 ≤ −0.01125 at t = 0.8, certified), where −½φ_*‴ < 0
+  and a = 3/4 makes −φ_*V_0′ too small to absorb it; the left tail's proof also needs a ≥ b, false there; and every
+  peak-centred s failed too (section 3e);
+- constants away from I = {r ∈ [1.2, 4]} and s = 49/50: both are fixed here;
 - a sharp constant: the cut-off term 2/m′ still dominates, and the growth in |σ| is the flux step's (section 3e);
 - the correctness of mpmath.iv itself, which the certificate assumes;
 - the record's norms (section 4), or Im σ > 0.
@@ -357,8 +370,8 @@ What it does not give:
   - *Above the barrier* (σ² > max V_l) Lemma E2.7 gives the polynomial Λσ/(σ² − max V_l) (section 3c, D359).
   - *The other harmonics, l < l_0(σ) with max V_l ≥ σ²,* kept Proposition E2.4's constant, which is finite but
     astronomically large, until Lemma E2.8 (section 3e, D379) gave 1 ≤ l ≤ 30 an explicit one (about 19-21 at σ = 3;
-    constants computed), and Lemma E2.9 with its certificate (section 3f, D384) every l ≥ 1 (certified: 21.0 for 5 ≤ l ≤
-    17 at σ = 3, 19.21 for every l ≥ 6). Section 3d computes their actual norms at σ = 3, at most 1.132 (D371). Below
+    constants computed), and Lemma E2.9 with its certificate (section 3f, D384) every l ≥ 1 (certified: 20.99 for 5 ≤ l ≤
+    17 at σ = 3, 19.22 for every l ≥ 6). Section 3d computes their actual norms at σ = 3, at most 1.132 (D371). Below
     the proved l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below the threshold 18 that quadrature
     gives, which is computed, not proved).
   - *Two kinds of l below l_0.*

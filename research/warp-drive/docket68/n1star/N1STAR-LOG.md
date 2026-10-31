@@ -6491,3 +6491,14 @@ arithmetic, with explicit bounds for the two tails beyond the computed range. Ev
 certified bound for the cut-off resolvent at every real frequency: about 21 across the band at the reference frequency,
 and at most 19.2 for every harmonic from l = 6, uniformly. The lowest harmonic, l = 0, is still not covered.
 
+
+**D385 (2026-10-31): verifier 176 seated on the certificate.** The lemma, the interval arithmetic and both tail
+bounds are right. The verifier's one major point was in the printing, not the proof: D384 rounded its certified
+decimals to nearest, so a few printed bounds sat just inside the certified ones and were false as written, among
+them "at most 19.2" above, where the certified bound is 19.22. Every printed bound is now rounded outward from the
+interval's end by exact arithmetic, and the table, the notes and the routes carry the corrected figures (about 21
+across the band becomes at most 20.99). The subdivision endpoints are now carried at the intervals' own precision,
+so the pieces cover the range exactly rather than by a rounding accident; the controls now run the bisection itself
+where it must fail, at the lowest harmonic and at a too-wide multiplier, each with a certified negative value; and
+the lowest harmonic's failure is stated as what it is, a negative region near r = 3.2, rather than only the
+inequality the tail proof needs.

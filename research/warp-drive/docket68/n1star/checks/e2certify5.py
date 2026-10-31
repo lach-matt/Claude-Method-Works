@@ -20,22 +20,30 @@ B_l(sigma) <= B_l0(sigma): m' and M' do not depend on l.
      (at an end of I) and M' <= 1/s, and so certified upper bounds for B_l(sigma) at sigma = 0+, 1, 3, 10; for l >= 6
      they bound every B_l.
   C5 for l = 1, ..., 5, the multiplier centred instead at a float near V_l's own peak (any centre is allowed: E2.8 needs
-     only w >= 0): w_l >= 0 on R, certified as in C1-C2, and the constants as in C3, which are better than C3's there.
+     only w >= 0): w_l >= 0 on R, certified as in C1-C2, and the constants as in C3; they are better than C3's at
+     l = 1 only, so the table takes C5 at l = 1 and C3 at l = 2, ..., 5.
   C4 controls: with the centre moved to r = 1.6, -phi U' < 0 at a point between the two centres (no monotonicity);
-     with s = 3/2 the left tail ratio's exponent 2(1/s - 1) is negative, so the bound grows toward the horizon.
+     with s = 3/2 the left tail ratio's exponent 2(1/s - 1) is negative, so the bound grows toward the horizon; and
+     C1's bisection itself must fail at l = 0 with phi_* and at l = 1 with s = 3/2, and a point enclosure there must
+     be negative (D385).
 Away from the centre (|z| > 3) sech^2 is computed from e^(-2|z|), so that 1 - tanh^2 is never formed: at t = -72 it
-is below 30 digits. Labels: certified (interval arithmetic, outward rounding, 30 digits), given mpmath.iv's
-correctness; the analytic steps
-(the monotonicity in a, the tail inequalities) are proved in E2-PILOT section 3f.
+is below 30 digits. Every subdivision endpoint is carried at iv's 103 bits (mp.prec = iv.prec), so the pieces cover
+the range exactly, and every printed decimal is rounded outward from the enclosure's end (an upper bound up, a lower
+bound down) by exact rational arithmetic (D385). Labels: certified (interval arithmetic, outward rounding, 30
+digits), given mpmath.iv's correctness; the analytic steps (the monotonicity in a, the tail inequalities) are proved
+in E2-PILOT section 3f.
 
     python3 checks/e2certify5.py [--selftest]
 """
+import math
 import sys
 import time
+from fractions import Fraction
 
-from mpmath import iv, mpf
+from mpmath import iv, mp, mpf
 
 iv.dps = 30
+mp.prec = iv.prec          # an iv endpoint converts to mpf exactly (D385)
 S = iv.mpf(49)/50
 A_ = lambda l: iv.mpf(l*(l + 2)) + iv.mpf(3)/4
 B_ = iv.mpf(9)/4
@@ -83,26 +91,50 @@ def w_of(tt, a, s=S, xc=X_C):
     return -T*(a*Up + B_*Qp) - ph3/2
 
 
+def dec(x, sig, up):
+    """x (an mpf or a point interval) as a decimal of sig significant digits, rounded up or down exactly"""
+    sign, man, ex, _ = mpf(x)._mpf_
+    q = Fraction(-man if sign else man)*Fraction(2)**ex
+    if q == 0:
+        return "0"
+    e = math.floor(math.log10(abs(float(q))))
+    k = sig - 1 - e
+    sc = q*Fraction(10)**k
+    n = math.ceil(sc) if up else math.floor(sc)
+    neg, d = n < 0, str(abs(n))
+    if k > 8 or k < -8:
+        out = "%s.%se%d" % (d[0], d[1:], len(d) - 1 - k) if len(d) > 1 else "%se%d" % (d, -k)
+    elif k > 0:
+        d = d.rjust(k + 1, "0")
+        out = d[:-k] + "." + d[-k:]
+    else:
+        out = d + "0"*(-k)
+    return ("-" if neg else "") + out
+
+
 def certify_positive(a, t0, t1, minw=mpf("1e-9"), s=S, xc=X_C):
-    stack, n = [(mpf(t0), mpf(t1))], 0
+    """endpoints exact at 103 bits; a split shares its midpoint, so the accepted pieces cover [t0, t1]"""
+    stack, n, acc = [(mpf(t0), mpf(t1))], 0, 0
     while stack:
         lo, hi = stack.pop()
         val = w_of(iv.mpf([lo, hi]), a, s, xc)
         n += 1
         if val.a >= 0:
+            acc += 1
             continue
         if hi - lo < minw:
-            return False, n, (lo, hi, val)
+            return False, (n, acc), (lo, hi, val)
         mid = (lo + hi)/2
         stack += [(lo, mid), (mid, hi)]
-    return True, n, None
+    return True, (n, acc), None
 
 
 def min_lower(a, t0, t1, pieces, s=S, xc=X_C):
+    """the first and last endpoints are t0 and t1 exactly, and consecutive pieces share theirs"""
+    t0, t1 = mpf(t0), mpf(t1)
+    ends = [t0] + [t0 + (t1 - t0)*k/pieces for k in range(1, pieces)] + [t1]
     lo = None
-    for k in range(pieces):
-        ta = mpf(t0) + (mpf(t1) - mpf(t0))*k/pieces
-        tb = mpf(t0) + (mpf(t1) - mpf(t0))*(k + 1)/pieces
+    for ta, tb in zip(ends[:-1], ends[1:]):
         v = w_of(iv.mpf([ta, tb]), a, s, xc).a
         lo = v if lo is None or v < lo else lo
     return lo
@@ -142,17 +174,17 @@ def run(verbose=True):
     ok = {}
     tL, rR = -120, 120
     tR = iv.log(iv.mpf(rR) - 1).b
-    good, n, bad = certify_positive(A_(1), tL, tR)
+    good, (n, acc), bad = certify_positive(A_(1), tL, tR)
     ok["C1"] = good
     if verbose:
-        print("  C1: w_1 >= 0 on t in [%d, ln %d]: %s over %d intervals (%.0fs)%s"
-              % (tL, rR - 1, good, n, time.time() - t0, "" if good else "  failed at %s" % (bad,)), flush=True)
+        print("  C1: w_1 >= 0 on t in [%d, ln %d]: %s, %d enclosures evaluated, %d pieces accepted (%.0fs)%s"
+              % (tL, rR - 1, good, n, acc, time.time() - t0, "" if good else "  failed at %s" % (bad,)), flush=True)
     rhoL, expo = tail_left(A_(1), tL)
     rhoR, mono = tail_right(A_(1), rR)
     ok["C2"] = rhoL.b < 1 and expo.a > 0 and rhoR.b < 1 and mono.a > 0
     if verbose:
-        print("  C2: left tail ratio <= %s (exponent 2(1/s - 1) = %s); right tail ratio <= %s" %
-              (iv.nstr(rhoL, 6), iv.nstr(2*expo, 6), iv.nstr(rhoR, 6)), flush=True)
+        print("  C2: left tail ratio <= %s (exponent 2(1/s - 1) >= %s); right tail ratio <= %s" %
+              (dec(rhoL.b, 4, True), dec((2*expo).a, 4, False), dec(rhoR.b, 3, True)), flush=True)
     tIa, tIb = iv.log(iv.mpf("0.2")).a, iv.log(iv.mpf(3)).b
     ph1a = parts(iv.mpf(tIa))[1]
     ph1b = parts(iv.mpf(tIb))[1]
@@ -165,11 +197,10 @@ def run(verbose=True):
         rows.append((l, wlo, bs))
         if verbose:
             print("  C3: l = %d  min_I w_l >= %s  B_l(0+, 1, 3, 10) <= %s" %
-                  (l, iv.nstr(iv.mpf(wlo), 6), ", ".join("-" if b is None else iv.nstr(iv.mpf(b), 5) for b in bs)),
-                  flush=True)
+                  (l, dec(wlo, 5, False), ", ".join("-" if b is None else dec(b, 4, True) for b in bs)), flush=True)
     ok["C3"] = all(w > 0 for _, w, _ in rows) and m1lo > 0
     if verbose:
-        print("  C3: m' >= %s (an end of I), M' <= %s" % (iv.nstr(iv.mpf(m1lo), 6), iv.nstr(iv.mpf(M1hi), 6)))
+        print("  C3: m' >= %s (an end of I), M' <= %s" % (dec(m1lo, 4, False), dec(M1hi, 6, True)))
     ok["C5"] = True
     for l in range(1, 6):
         import numpy as np
@@ -179,7 +210,7 @@ def run(verbose=True):
         vg = (1 - yg)*((l*(l + 2) + 0.75)*yg + 2.25*yg*yg)
         tp = float(tg[np.argmax(vg)])
         xc = xr(iv.mpf(tp))
-        good, n, _ = certify_positive(A_(l), tL, tR, xc=xc)
+        good, (n, _), _ = certify_positive(A_(l), tL, tR, xc=xc)
         rl, el = tail_left(A_(l), tL, xc=xc)
         rr, mr = tail_right(A_(l), rR, xc=xc)
         wlo = min_lower(A_(l), tIa, tIb, 2000, xc=xc)
@@ -188,18 +219,25 @@ def run(verbose=True):
         ok["C5"] = ok["C5"] and good
         if verbose:
             bs = [b_bound(iv.mpf(wlo), m1, M1hi, sg).b for sg in (0, 1, 3, 10)] if wlo > 0 else []
-            print("  C5: l = %d centre r = %.4f: w >= 0 %s (%d intervals), min_I w >= %s, B_l(0+, 1, 3, 10) <= %s"
-                  % (l, 1 + float(iv.exp(iv.mpf(tp)).a), good, n, iv.nstr(iv.mpf(wlo), 5),
-                     ", ".join(iv.nstr(iv.mpf(b), 5) for b in bs)), flush=True)
+            print("  C5: l = %d centre r = %.4f: w >= 0 %s (%d enclosures), min_I w >= %s, B_l(0+, 1, 3, 10) <= %s"
+                  % (l, 1 + float(iv.exp(iv.mpf(tp)).a), good, n, dec(wlo, 5, False),
+                     ", ".join(dec(b, 4, True) for b in bs)), flush=True)
     xc2 = xr(iv.log(iv.mpf("1.6") - 1))
     tm = iv.log(iv.mpf("1.5") - 1)
     T, _, _, Up, _ = parts(tm, S, xc2)
     neg = (-T*Up).b < 0
     _, expo15 = tail_left(A_(1), tL, iv.mpf(3)/2)
-    ok["C4 controls"] = neg and expo15.b < 0
+    f0, _, bad0 = certify_positive(A_(0), tL, tR)
+    f15, _, bad15 = certify_positive(A_(1), tL, tR, s=iv.mpf(3)/2)
+    n0 = w_of(iv.mpf("0.8"), A_(0))                          # a certified negative value, not only a failed split
+    n15 = w_of(iv.mpf(-8), A_(1), s=iv.mpf(3)/2)
+    ok["C4 controls"] = neg and expo15.b < 0 and not f0 and not f15 and n0.b < 0 and n15.b < 0
     if verbose:
         print("  C4: centre at r = 1.6: -phi U' at r = 1.5 is %s; s = 3/2: exponent %s" %
               (iv.nstr(-T*Up, 4), iv.nstr(2*expo15, 4)))
+        print("  C4: C1's bisection fails, as it must, at l = 0 with phi_* (near t = %s; w_0 <= %s at t = 0.8) and at "
+              "l = 1 with s = 3/2 (near t = %s; w_1 <= %s at t = -8)" % (iv.nstr(iv.mpf(bad0[0]), 5), dec(n0.b, 4, True),
+                                                                     iv.nstr(iv.mpf(bad15[0]), 5), dec(n15.b, 4, True)))
         print("  (%.0fs)" % (time.time() - t0))
     return ok, rows
 

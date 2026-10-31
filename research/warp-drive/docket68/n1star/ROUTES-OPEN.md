@@ -4684,8 +4684,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   sigma-growth is the flux step; the 2/m' cut-off cost dominates. LD7: eps_ind is G'''' Prop 5.1's = F' (2.2)'s.
 - D384 (E2-PILOT section 3f, checks/e2certify5.py C1-C5, certified by interval arithmetic): Lemma E2.9. With phi
   centred at the photon sphere, -phi U' >= 0, so w_l = w_1 + (a - a_1)(-phi U') grows with l; w_1 >= 0 on R certified
-  (adaptive bisection plus explicit tails), so E2.8 holds for every l >= 1. Certified B_l(3): 264, 51, 34, 26, 21 for
-  l = 1-5 and <= 19.21 for every l >= 6. l = 0 still open.
+  (adaptive bisection plus explicit tails), so E2.8 holds for every l >= 1. Certified B_l(3): 264.5, 51.12, 34.39,
+  26.02, 20.99 for l = 1-5 and <= 19.22 for every l >= 6 (rounded outward since D385). l = 0 still open.
+- D385 (verifier 176): E2.9, the interval arithmetic and both tails right. MAJOR: D384's decimals were rounded to
+  nearest, so m' >= 0.005794, left ratio <= 0.0391 and B_6(3) <= 19.21 sat below the enclosures; now every bound is
+  rounded outward by exact rationals. Endpoints carried at 103 bits; C4 now runs the bisection at l = 0 and s = 3/2
+  (both fail, with certified negative values); l = 0's failure is w_0 < 0 near r = 3.2, not only a < b.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 
