@@ -58,8 +58,9 @@ Write k := dv, null and geodesic for g0 (k = ∇v, so ∇_k k = ½∇|k|² = 0).
 - *What it costs, still open.* H is fixed, so it does not enter the linearization. But the constraint Υ − H must be
   propagated, and the solution compared with the record's gauge (by the diffeomorphism exp Z, O(λ²) in C⁰). Step 4
   must also check that no other λ⁻¹ coefficient appears in the two-family linearization; in one family (5.1) there is
-  exactly one. [Checked, D414: in the two-family linearisation there is exactly one per family (section 4d, L1).] [Tou24]'s abstract names "a generalised wave gauge" for the interaction of the waves. Whether it is
-  this one is not read: abstract only.
+  exactly one. [Checked, D414: in the two-family linearisation there is exactly one per family (section 4d, L1).]
+  [Tou24]'s abstract names "a generalised wave gauge" for the interaction of the waves. Whether it is this one is not
+  read: abstract only.
 
 ## 2. Several null dusts
 
