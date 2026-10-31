@@ -4691,12 +4691,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (V-IX, including Part VI's checks at the new radii) open.
 - D373: the repair is made in the record. Part VI now sets r_0 := R_1/2 (III.B's radius), delta_0 = R_1/16, so the
   collar reaches 3R_1/8, where Lemma 1.1 defines g_b and t_* by III.B's formulas (Lemma 3.3 (c) at |x| >= R_1/4, as
-  IV6-SOLV section 0); VI2-VI3 read on {|x| >= 3R_1/8}; VI3 374-375's r_0 - delta_0 is 7R_1/16. Finding (VI.A7). Census
+  IV6-SOLV section 0); VI2-VI3 read on {|x| >= 3R_1/8}; VI3 374-375's r_0 - delta_0 is 7R_1/16. Findings (VI.A7),
+  (VI.B'6). Census
   320 lines (CON 60). Verifier 172 reads it.
 - D374: BEYOND5-R0-PROOF.md batch 4, sections 7 and 9-11: Part V (only |x| >= 50R_1 used), Part VII (delta'_0 in
   (max(0, q_0 - r_flat/2), q_0), allowed by the record's (1.1); Lemma 1.2 from r_flat), Part VIII (III.K's sets at
   U = 0; II.C Lemma 3.2 (2) at the repaired radii), Part IX (II.C Lemma 3.2 (1) cited from R_1/2: a third site of the
   mismatch, closed by D373). Section 8 (Part VI at r_flat) after verifier 172; then one verifier for batch 4.
+- D375: verifier 172 seated. M1: the forms of III.B Definition 6.1 must exist on the collar; they are smooth for
+  r > 0, c_C past timelike (cform5.py C2), so the operators of III.D-III.F and IV'''' are defined on {r > 3R_1/8}
+  (VI.A7). m1: F1 cited for its Lorentzian argument only. Census VI-DYN 81 reclassed VAL (322 lines: CON 61, VAL 14).
+  Nits: VI3 and README marked amended, (VI.B'6) names Proposition 4.1. BEYOND5-R0-PROOF section 8 (Part VI at
+  r_flat) written; batch 4 to verifier 173.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 

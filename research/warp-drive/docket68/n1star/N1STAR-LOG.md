@@ -6401,7 +6401,8 @@ at the new radii) is next.
 artificial boundary of the estimates at the development's inner radius, one half of the horizon radius, with a collar
 reaching down to three eighths, where the background metric and its time function are still given by the same
 formulas. The horizon-side radii are unchanged. Part VI's two companion files are read on the larger region, and the
-one place where a fraction of the radius entered a bound (nine sixteenths, now seven sixteenths) is updated. The census
+places where a fraction of the radius entered a bound are updated (in VI3 nine sixteenths, now seven sixteenths; in
+VI2 a supremum and a time bound, from one half to three eighths; verifier 172's n4). The census
 of lines naming the inner radius grows from 308 to 320, all twelve new lines in Part VI, and BEYOND5.md and the re-proof
 note now describe the record as repaired. One verifier reads the amendment.
 
@@ -6412,4 +6413,13 @@ collar. Parts VIII and IX inherit III.K's sets. Part IX cites the same lemma tha
 development's inner radius, while the lemma covered only five eighths: a third site of the mismatch, closed by D373,
 and harmless at Tangherlini, where the radial direction is timelike all the way in. Part VI's section waits for the
 verifier of D373.
+
+**D375 (2026-10-31): verifier 172 seated; Part VI re-proved at the lowered radius.** The verifier found the radii,
+the census and the alignment with III.K and Part VII sound, and one gap: the amendment carried the metric and its time
+function into the new collar, but not the auxiliary gauge forms from which Parts III and IV build their operators.
+Those forms are given by formulas that make sense at every radius, so one cited sentence closes it (finding (VI.A7)).
+A citation that implied a smaller parameter set was narrowed, the collar line of the census is reclassed as resting
+on a value (three eighths at least one quarter), and six nits are seated. The re-proof's section on Part VI, held
+back for this verifier, is written: every inner-region step uses only that the radial direction is timelike inside
+the horizon, on compact sets. Batch 4 is complete and goes to one verifier.
 

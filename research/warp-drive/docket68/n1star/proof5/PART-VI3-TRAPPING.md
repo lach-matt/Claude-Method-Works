@@ -1,16 +1,17 @@
 # Part VI.B$'$: the trapped set and the global dynamics near $b_0$
 
 *Status.* Written (D319); verified (D321: verifier 139's minor finding and thirteen notes repaired); proved (D323:
-verifier 140 read the repairs, correct; two notes repaired). This part proves the remaining dynamical hypotheses for
-$g_b$, $b$ near $b_0$: the normally hyperbolic trapping (Γ.1)-(Γ.3) of (H7), $r$-normal hyperbolicity (K3) with the
-uniformity (K4), and the global dynamics (H8), with the uniformity (H5) extended to them (I.B section 1.5). With Part
-VI.A ((H6), (K1), and (Dyn) at $b_0$) and Part VI.B ((H3)-(H4) near $b_0$) this completes (Dyn) near $b_0$ (Theorem
-5.1). The tool is the separability of the null geodesic flow of five-dimensional Myers-Perry. It holds in III.B's own
-Kerr-Schild coordinates, written in spheroidal form, with the Kerr-Schild time: $\varrho^2g_b^{-1}$ is a function of the
-radial variables plus a function of the angular ones (Lemma 0.1). This plays the part of Carter's constant in [Hin26c]
-section 4.2.3. It gives the trapped set and its stable and unstable hypersurfaces in closed form, smooth in $b$, which a
-perturbation argument would give only with finite regularity (finding (VI.B$'$2)). Every object is defined without
-choosing an eigenframe of $A$ (finding (VI.B$'$4)). `checks/trap5.py` verifies the identities.
+verifier 140 read the repairs, correct; two notes repaired). Amended (D373, finding (VI.B$'$6)). This part proves the
+remaining dynamical hypotheses for $g_b$, $b$ near $b_0$: the normally hyperbolic trapping (Γ.1)-(Γ.3) of (H7),
+$r$-normal hyperbolicity (K3) with the uniformity (K4), and the global dynamics (H8), with the uniformity (H5) extended
+to them (I.B section 1.5). With Part VI.A ((H6), (K1), and (Dyn) at $b_0$) and Part VI.B ((H3)-(H4) near $b_0$) this
+completes (Dyn) near $b_0$ (Theorem 5.1). The tool is the separability of the null geodesic flow of five-dimensional
+Myers-Perry. It holds in III.B's own Kerr-Schild coordinates, written in spheroidal form, with the Kerr-Schild time:
+$\varrho^2g_b^{-1}$ is a function of the radial variables plus a function of the angular ones (Lemma 0.1). This plays
+the part of Carter's constant in [Hin26c] section 4.2.3. It gives the trapped set and its stable and unstable
+hypersurfaces in closed form, smooth in $b$, which a perturbation argument would give only with finite regularity
+(finding (VI.B$'$2)). Every object is defined without choosing an eigenframe of $A$ (finding (VI.B$'$4)).
+`checks/trap5.py` verifies the identities.
 
 *Notation.* Some letters have two uses, kept apart by context: $b$ is the parameter and, in a frame, the second spin;
 $\Psi$ is a momentum in a frame and $\Psi_b$ is VI.B's diffeomorphism; $F$ is the function of Lemma 3.1, the momentum
@@ -496,9 +497,9 @@ defined from $A$ directly ((0.1), (0.2), Lemma 2.1); frames are used only to com
 Kerr. Here convexity of $\mathcal Q$ in $w = r^{-2}$ (Lemma 1.1) is proved by perturbation from (1.2), which suffices
 for $b$ near $b_0$.
 
-(VI.B$'$6) *The radii* (D373). Section 0 and Theorem 5.1 are read on $\{|x|\ge\frac38R_1\}$, the closure of $\tilde X$
-at VI.A's repaired radii (VI.A finding (VI.A7)), where III.B Lemma 3.1 applies (VI.A Lemma 1.1's proof). There
-$r_0-\delta_0 = \frac7{16}R_1$, inside $\{|x|\le\frac58R_1\}$, where $\Psi_b$ is the identity.
+(VI.B$'$6) *The radii* (D373). Section 0 and Proposition 4.1 (so Theorem 5.1) are read on $\{|x|\ge\frac38R_1\}$, the
+closure of $\tilde X$ at VI.A's repaired radii (VI.A finding (VI.A7)), where III.B Lemma 3.1 applies (VI.A Lemma 1.1's
+proof). There $r_0-\delta_0 = \frac7{16}R_1$, inside $\{|x|\le\frac58R_1\}$, where $\Psi_b$ is the identity.
 
 *Labels.* Lemma 0.1: [Hin26c] (4.30)-(4.32) and Carter's constant, for Myers-Perry. Lemma 1.1 and Corollary 1.2:
 [Hin26c] Lemmas 4.11-4.12. Lemma 2.1 and Proposition 2.2: [Hin26c] Lemmas 4.14-4.18, Definitions 4.13, 4.15, 4.17.

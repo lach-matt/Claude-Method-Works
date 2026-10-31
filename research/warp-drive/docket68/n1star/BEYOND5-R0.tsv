@@ -267,22 +267,24 @@ PART-V-GLUING.md	142	SPC	domain {|x| >= r_0}
 PART-VI-DYN.md	15	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
 PART-VI-DYN.md	25	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
 PART-VI-DYN.md	74	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	81	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	94	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	81	VAL	collar 3R_1/8 >= R_1/4, where Lemma 3.3 (c) holds for ||A|| < R_1/10; at r_0^A = r the collar ends at r - 2delta_0 >= r/2, inside F1 (D375)
+PART-VI-DYN.md	86	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
 PART-VI-DYN.md	95	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	124	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	247	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	249	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	257	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	259	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	269	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	339	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	96	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	125	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	248	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	250	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	258	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	260	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	270	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
 PART-VI-DYN.md	340	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	342	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	341	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
 PART-VI-DYN.md	343	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	345	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	346	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
-PART-VI-DYN.md	347	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	344	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	348	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	350	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	351	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
+PART-VI-DYN.md	352	CON	I.A's radii from the inner radius: r_0 = R_1/2, delta_0 = (r_h-R_1/2)/8, collar to 3R_1/8 (D373)
 PART-VI2-HORIZON.md	6	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
 PART-VI2-HORIZON.md	42	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
 PART-VI2-HORIZON.md	44	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
@@ -296,18 +298,18 @@ PART-VI2-HORIZON.md	100	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_
 PART-VI2-HORIZON.md	123	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
 PART-VI2-HORIZON.md	133	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
 PART-VI2-HORIZON.md	134	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [3R_1/8, r_h] finite
-PART-VI3-TRAPPING.md	25	CON	I.A's radii; domain {|x| >= 3R_1/8}
-PART-VI3-TRAPPING.md	52	CON	I.A's radii; domain {|x| >= 3R_1/8}
-PART-VI3-TRAPPING.md	374	VAL	r_0-delta_0 = 7R_1/16 < 5R_1/8 (D373); at r_0^A = r, delta_0 <= R_1/16
-PART-VI3-TRAPPING.md	378	CON	I.A's radii; domain {|x| >= 3R_1/8}
-PART-VI3-TRAPPING.md	435	CON	I.A's radii; domain {|x| >= 3R_1/8}
-PART-VI3-TRAPPING.md	437	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	26	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	53	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	375	VAL	r_0-delta_0 = 7R_1/16 < 5R_1/8 (D373); at r_0^A = r, delta_0 <= R_1/16
+PART-VI3-TRAPPING.md	379	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	436	CON	I.A's radii; domain {|x| >= 3R_1/8}
 PART-VI3-TRAPPING.md	438	CON	I.A's radii; domain {|x| >= 3R_1/8}
-PART-VI3-TRAPPING.md	442	CON	I.A's radii; domain {|x| >= 3R_1/8}
-PART-VI3-TRAPPING.md	450	CON	I.A's radii; domain {|x| >= 3R_1/8}
-PART-VI3-TRAPPING.md	452	CON	I.A's radii; domain {|x| >= 3R_1/8}
-PART-VI3-TRAPPING.md	499	CON	I.A's radii; domain {|x| >= 3R_1/8}
-PART-VI3-TRAPPING.md	501	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	439	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	443	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	451	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	453	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	500	CON	I.A's radii; domain {|x| >= 3R_1/8}
+PART-VI3-TRAPPING.md	502	CON	I.A's radii; domain {|x| >= 3R_1/8}
 PART-VII-ASSEMBLY.md	40	DEF	
 PART-VII-ASSEMBLY.md	88	CON	(0.2) on {r_0 <= r <= R'}
 PART-VII-ASSEMBLY.md	142	CON	Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free

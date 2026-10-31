@@ -81,13 +81,14 @@ smoothly in $b$. So (H6), (K1) and (K4)'s first clause hold.
 $\{|x|\ge\frac12R_1\}$. On the collar $\{\frac38R_1\le|x|\le\frac12R_1\}$ the same formulas (3.3) and (3.6) define $g_b$
 and $t_*$, as $T_\mu$ is constant and $\psi' = 1$ on $\{|x|\le2R_1\}$. There III.B section 3.1's estimate, run at
 $|x|\ge\frac14R_1$ (IV6-SOLV section 0), gives Lemma 3.3 (c), so $g^{\mathrm{KS}}_b$ is smooth and Lorentzian, smoothly
-in $b$ (III.B Proposition 3.4; BEYOND5-R0-PROOF.md F1), and $\beta = 1$ in Lemma 3.7 (a)'s proof, so Lemma 3.3 (e) makes
-$dt_*$ timelike. Here $\bar g$ is II.B's Minkowski metric in $t := t_*+r$ (II.B section 1.1), $-(dt_*+dr)^2+dx^2$, not
-III.B's $\eta = -dt^2+dx^2$. With $t = t_*+\psi(|x|)$ up to a constant (III.B (3.6)), $\eta-\bar g =
--2(\psi'-1)\,dt_*\,dr+(1-\psi'^2)\,dr^2$, where $\psi'-1\in\rho^2C^\infty$ near infinity (II.B Remark (a) for $b_0$; the
-same $\psi$ for every $b$) and $dr = \hat x\cdot dx$ with $\hat x$ smooth on $\bar X$ near $\partial X$. And
-$g_b-\eta\in|x|^{-2}C^\infty$ in the frame $dt,dx^i$, which differs from $dt_*,dx^i$ by the change $dt = dt_*+\psi'\hat
-x\cdot dx$, smooth on $\bar X$. $\square$
+in $b$ (III.B Proposition 3.4, and the Lorentzian argument of BEYOND5-R0-PROOF.md F1, which does not use F1's smaller
+parameter set), and $\beta = 1$ in Lemma 3.7 (a)'s proof, so Lemma 3.3 (e) makes $dt_*$ timelike. Lemma 3.7 (a)'s
+$t_*\le t$ is not claimed on the collar, where $\psi<0$; III.K:43-44 uses it on $[\frac12R_1,5R_1]$ only. Here $\bar g$
+is II.B's Minkowski metric in $t := t_*+r$ (II.B section 1.1), $-(dt_*+dr)^2+dx^2$, not III.B's $\eta = -dt^2+dx^2$.
+With $t = t_*+\psi(|x|)$ up to a constant (III.B (3.6)), $\eta-\bar g = -2(\psi'-1)\,dt_*\,dr+(1-\psi'^2)\,dr^2$, where
+$\psi'-1\in\rho^2C^\infty$ near infinity (II.B Remark (a) for $b_0$; the same $\psi$ for every $b$) and $dr = \hat
+x\cdot dx$ with $\hat x$ smooth on $\bar X$ near $\partial X$. And $g_b-\eta\in|x|^{-2}C^\infty$ in the frame $dt,dx^i$,
+which differs from $dt_*,dx^i$ by the change $dt = dt_*+\psi'\hat x\cdot dx$, smooth on $\bar X$. $\square$
 
 ## 2. The horizon ((H3), (H4) at $b_0$)
 
@@ -335,16 +336,22 @@ with absorbing sets on which $C\le C_K$ gives explicit bounds.
 $v$, whose differential is null. Its algebraic part (a) needs no causal hypothesis; the components are those of $t_*$,
 and $v$ is a chart (section 0).
 
-(VI.A7) *Part I's artificial boundary at III.B's radius* (D373; BEYOND5-R0-PROOF.md section 0, verifiers 170-171).
+(VI.A7) *Part I's artificial boundary at III.B's radius* (D373, D375; BEYOND5-R0-PROOF.md section 0, verifiers 170-172).
 Section 2 put $r_0-2\delta_0 := \frac12R_1$, so $r_0 = \frac58R_1$. Part II and III.D-III.J$'''$ put the artificial
 boundary of every space at $r_0$ (II.A:38-39), while III.K and Part VII take III.B's $\frac12R_1$ as the inner boundary
 of the development (III.K:43, 84, 103; VII:40), and III.K:157 and 183 cite II.C Lemma 3.2 (1), which covers $\{r\ge
 r_0\}$ only. So the development was controlled on $\{r\ge\frac58R_1\}$, not on all of III.B's $M$. Now $r_0 :=
 \frac12R_1$, with the collar $\{\frac38R_1\le r\le\frac12R_1\}$ below it; Lemma 1.1 gives the metric and $t_*$ there.
+The forms of III.B Definition 6.1, as chosen in III.F3:84-85 ($c_\Upsilon$ and $c_{\Upsilon,H} = -\frac12\chi\,dr$) and
+Part IV$''''$ section 0 ($c_C$, the record's (10.49)), are given by formulas smooth and stationary on $\{r>0\}$, with
+$c_C$ past timelike there (`cform5.py` C2; BEYOND5-R0-PROOF.md section 3). So every operator that III.D-III.F and Part
+IV$''''$ build from $g_b$ and these forms is defined on $\tilde X^\circ = \{r>\frac38R_1\}$ (verifier 172's M1).
 $\delta_0$, $r_2$ and $r_e$ keep their values, and (0.1), Lemma 1.1, Part VI.B Lemma 1.2 and Proposition 2.2, and Part
-VI.B$'$ section 0 are read on $\{r\ge\frac38R_1\}$. The arguments of sections 2 and 5 use only $f<0$ on
-$\{r_0-2\delta_0\le r<r_h\}$, which holds at the new radii. BEYOND5-R0-PROOF.md re-proves Parts I-IV at an inner radius
-$r_\flat\le\frac12R_1$ with these radii; at $r_\flat = \frac12R_1$ they are the ones here.
+VI.B$'$ section 0 and Proposition 4.1 are read on $\{r\ge\frac38R_1\}$. Their steps inside the horizon (sections 2 and
+5) use only $f<0$ on $\{r_0-2\delta_0\le r<r_h\}$, which holds at the new radii. BEYOND5-R0-PROOF.md re-proves Parts
+I-IV at an inner radius $r_\flat\le\frac12R_1$ with these radii; at $r_\flat = \frac12R_1$ they are the ones here,
+though its parameter set $\mathcal B_\flat$ is smaller than III.B's $\mathcal B$ when
+$\epsilon_{\mathrm{param}}>\frac1{20}$.
 
 *Labels.* Proposition 2.1: [Hin26c] section 9.2.1 (1)-(4) for Tangherlini; Proposition 3.1: [Hin26c] (Γ.1)-(Γ.3), the
 source's Lemma 4.16 for Kerr; Proposition 4.1: [Hin26c] Proposition 4.19; Proposition 5.1: [Hin26c] Proposition 4.24 and

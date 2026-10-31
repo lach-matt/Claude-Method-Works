@@ -3,8 +3,8 @@
 Status: batch 1 written (D368): sections 0-3 (common facts, Parts I and II, III.B); batch 2 written (D369): section 4
 (III.C-III.I3); batch 3 written (D370): sections 5-6 (III.I4-III.K, Part IV). Verifiers 169-171 read batches 1-3;
 their findings, among them the radius mismatch of section 0, are seated (D372), and its repair is made in proof5
-Part VI (D373). Batch 4 written (D374): sections 7 and 9-11 (Parts V, VII, VIII, IX); section 8 (Part VI) follows
-verifier 172. Each batch
+Part VI (D373), with verifier 172's findings seated (D375). Batch 4 written (D374-D375): sections 7-11 (Parts V-IX),
+section 8 after verifier 172. Each batch
 is read by its own verifier. Labels as marked; "re-proved" means the Part's argument was re-read at every step that
 touches the inner region, and each such step re-derived with r_♭.
 
@@ -169,8 +169,9 @@ of the inner radius, re-derived:
 - **Section 4 (null coordinates)** is on {|x| ≥ 3R_1} and does not change (verifier 169's n4).
 - **Lemma 5.1 (cut-off boosts).** V(S_w) vanishes on {|x| ≤ 5R_1}, which contains Σ^int for every r_♭ ≤ ½R_1. It is
   unchanged.
-- **Section 6.** Definition 6.1's three forms must be smooth and stationary on X_♭: c_Υ (|x|^(−1) dt for large |x|),
-  c_(Υ,H) (compactly supported in {|x| < 5R_1}) and c_C (|x|^(−1)(dt − v_C d|x|) for large |x|).
+- **Section 6.** Definition 6.1's three forms must be smooth and stationary on X̃ = {r ≥ r_0^A − 2δ_0}, which reaches
+  below X_♭ (verifier 172's M1): c_Υ (|x|^(−1) dt for large |x|), c_(Υ,H) (compactly supported in {|x| < 5R_1}) and
+  c_C (|x|^(−1)(dt − v_C d|x|) for large |x|).
   - c_Υ and c_(Υ,H) are built from dt̄, dr and cut-offs (III.F3:84-85; c_(Υ,H) = −½χ dr): smooth for r > 0.
   - c_C is 10.14's (10.49; IV6-SOLV Lemma 0.2 (d)), up to positive factors dt + (v/2) dr on r ≤ r_c/2. It is smooth
     and past timelike for every r > 0 (`cform5.py` C2).
@@ -363,8 +364,43 @@ Everything after it uses the data of G_p on {y^0 = 0} ∩ {|y| > R_P}, R_P = 100
 
 ## 8. Part VI
 
-To follow, after verifier 172 has read the record's amendment of Part VI (D373). At r_♭ = ½R_1 the radii are those of
-D373; the section re-derives Part VI's checks at r_0^A := r_♭ and δ_0 := min(R_1/16, r_♭/4).
+Part VI's checks, re-derived at section 0's radii r_0^A := r_♭, δ_0 := min(R_1/16, r_♭/4), r_2 = 7R_1/8 and
+r_e = 17R_1/16, so ½r_♭ ≤ r_♭ − 2δ_0 < r_♭ − δ_0 < r_♭ < r_2 < r_h < r_e. At r_♭ = ½R_1 they are D373's, read by
+verifier 172; the parameter set is ℬ_♭.
+
+- **VI.A Lemma 1.1** on ℝ × {|x| ≥ r_♭ − 2δ_0}: g^KS_b is defined, smooth and Lorentzian there for b ∈ ℬ_♭ (F1).
+  (3.3) and (3.6) define g_b and t_*, with ψ taken from r_♭ (section 3) and ψ′ = 1, T_μ constant on {|x| ≤ 2R_1}; so
+  β = 1 there and Lemma 3.3 (e) makes dt_* timelike. The forms of III.B Definition 6.1 are smooth and stationary for
+  r > 0, and c_C past timelike (section 3), so every operator of III.D-III.F and IV⁗ is defined on X̃°. t_* ≤ t is not
+  claimed below r_♭; III.K uses it on [r_♭, 5R_1] only. The decay at infinity and (K1) do not involve the inner
+  radius.
+- **(0.1)** holds on {r > 0} at b_0, Φ_μ being a time translation on {|x| ≤ 2R_1}.
+- **VI.A Proposition 2.1, (H3)-(H4) at b_0.** f < 0 on (0, r_h). So on {r_0^A − 2δ_0 ≤ r ≤ r_2}, G_0 = fξ² + r^(−2)C is
+  Lorentzian of signature (1, 3), G_0(dr) = f < 0, and 𝖧r = 2f < 0 on ∂Σ_0. Forward, |ṙ| = 2|f| grows as r decreases,
+  so every curve reaches {r < r_0^A − δ_0} at a finite parameter. The horizon data (β_0, β, q) are at r = r_h and do
+  not change.
+- **VI.A sections 3-4** (the trapped set at r_ph = √2 R_1 > r_2, (Γ.1)-(Γ.3), (K3)) do not reach below r_2.
+- **VI.A section 5, (H8) at b_0.** Inside the horizon the record uses dr timelike and, on compact subsets of
+  Σ_(z_0) ∩ {r_0^A − δ_0 ≤ r ≤ r_h − ε}, ṙ bounded above by a negative constant. Both hold, as f < 0 there and the
+  sets are compact (F4). The cover argument for uniformity (VI-DYN:259-272) is unchanged.
+- **VI.B Lemma 1.2.** Ψ_b is defined on {|x| ≥ r_♭ − 2δ_0}. χ is supported in (⅝R_1, 7/4 R_1), so λ ↦ r̃_b(λx̂)
+  equals λ for λ ≤ ⅝R_1 and is a bijection of [r_♭ − 2δ_0, ∞). Ψ_b is the identity on {|x| ≤ ⅝R_1}, which contains
+  the whole collar and the artificial boundary.
+- **VI.B Proposition 2.2, (H3)-(H5) near b_0.** sup over [r_♭ − 2δ_0, r_h] of (−fr²) is μ_0 − (r_♭ − 2δ_0)², finite,
+  so |ξ| ≥ c|ζ| on ∂Σ_0, and by compactness of S^*{r_♭ − 2δ_0 ≤ r ≤ r_h + ½δ_0} this persists for b near b_0. The
+  three strict conditions on {r_0^A − 2δ_0 ≤ r ≤ r_2} hold at b_0 on that compact set and persist. Outside U the
+  forward time to {r < r_0^A − δ_0} is at most 2(r_h − r_♭ + 2δ_0)/c′. When r_♭ < R_1/4, δ_0 < R_1/16 and the band
+  {r < r_h + ½δ_0} is thinner: ∂Σ̃_(0,b) lies in it for b in a smaller neighbourhood, and I.B Proposition 5.2's band
+  is local (section 0).
+- **VI.B′.** Lemma 0.1's separation holds on {|x|² > s}, which contains {|x| ≥ ½r_♭} for b ∈ ℬ_♭ (F1's
+  |x|² > 2‖A‖² ≥ s). In Proposition 4.1, Ψ_b is the identity on {|x| ≤ ⅝R_1} ⊃ {r < r_0^A − δ_0}. Inside the horizon
+  of g̃_b, dr is timelike on {r_0^A − 2δ_0 ≤ r < r_h} by VI.B Proposition 2.2 at the new radii, and the rescaled ṙ is
+  bounded above by a negative constant on compact subsets of {r_0^A − δ_0 ≤ r ≤ r_1}, r_1 < r_h. The exterior part
+  and the trapped set are at r > r_h. Theorem 5.1 follows as in the record.
+- **VI.C (VI4-PARAMS)** names no inner radius. Its neighbourhood U of b_0 and the constants downstream are chosen
+  again, as section 0 says.
+
+*Status:* Part VI re-proved at r_♭.
 
 ## 9. Part VII
 

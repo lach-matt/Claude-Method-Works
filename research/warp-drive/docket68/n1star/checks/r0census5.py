@@ -63,7 +63,9 @@ LINES = {  # (file, line): (class, note)
     ('PART-IV5-CDMODES.md', 209): ('SPC', 'supported at the inner boundary'),
     ('PART-IV6-SOLV.md', 23): ('OTHER', "the source's r_0 = r_c"), ('PART-IV6-SOLV.md', 314): ('OTHER', 'r_c for r_0'),
     ('PART-IV6-SOLV.md', 317): ('OTHER', 'r_c for r_0'),
-    ('PART-VI3-TRAPPING.md', 374): ('VAL', 'r_0-delta_0 = 7R_1/16 < 5R_1/8 (D373); at r_0^A = r, delta_0 <= R_1/16'),
+    ('PART-VI3-TRAPPING.md', 375): ('VAL', 'r_0-delta_0 = 7R_1/16 < 5R_1/8 (D373); at r_0^A = r, delta_0 <= R_1/16'),
+    ('PART-VI-DYN.md', 81): ('VAL', 'collar 3R_1/8 >= R_1/4, where Lemma 3.3 (c) holds for ||A|| < R_1/10; at r_0^A = r '
+                          'the collar ends at r - 2delta_0 >= r/2, inside F1 (D375)'),
     ('PART-VII-ASSEMBLY.md', 88): ('CON', '(0.2) on {r_0 <= r <= R\'}'),
 }
 for i in (192, 428, 532, 533, 679, 680, 882, 884):
@@ -113,7 +115,7 @@ def main():
         print('selftest', 'ok' if ok else 'FAIL'); sys.exit(0 if ok else 1)
 
 
-EXPECT = collections.Counter({'CON': 60, 'DEF': 19, 'OTHER': 108, 'SPC': 120, 'VAL': 13})
+EXPECT = collections.Counter({'CON': 61, 'DEF': 19, 'OTHER': 108, 'SPC': 120, 'VAL': 14})
 EXPECT_FILES = 25
 
 if __name__ == '__main__':

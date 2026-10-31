@@ -151,7 +151,7 @@ dezornification", arXiv:1309.7591v3, read 2026-10-31 through alphaXiv): Definiti
   - Proving this means a census of r_0's uses in proof5 (III.B-III.K and Parts IV-VII), among them Part VII Lemma 1.2
     (a' < r_0/2) and III.K Proposition 1.2 (R_ν = (r_0 + R)/2). Each use must be through constants, or through
     "r = r_0 is spacelike, inside every horizon of the family, outside every inner horizon".
-  - **The census (D363; `checks/r0census5.py`, `BEYOND5-R0.tsv`).** 320 lines of Parts III-VII in 25 files name
+  - **The census (D363; `checks/r0census5.py`, `BEYOND5-R0.tsv`).** 322 lines of Parts III-VII in 25 files name
     r_0, the inner radius or boundary, ½R_1, r_♯, ⅝R_1, ¾R_1 or, since D373, ⅜R_1 (308 lines before Part VI's
     amendment). Each is classed at its line, by reading, not by proof:
     - 108 are another r_0 (OTHER): III.C′'s exterior radius "r_0 large" (C2-POLYHOM, C3-BOOSTDATA, IV-EB,
@@ -163,31 +163,34 @@ dezornification", arXiv:1309.7591v3, read 2026-10-31 through alphaXiv): Definiti
       boundary, vanishing inside the horizon (III.E), the radial ODEs on (r_0 − δ_0, ∞) (D-GAUGEPOT, F3-MODES,
       F4-ZERO). IV6-SOLV's finding (IV′′′′′5) says its cut-offs and energy estimates near Σ^♯ need only "the future
       timelike character of dr on [r_♯, r̂]";
-    - 60 go through a constant chosen from it (CON; 48 before D373, the twelve added being Part VI's amended lines):
+    - 61 go through a constant chosen from it (CON; 48 before D373, the thirteen added being Part VI's amended lines):
       δ_0 of I.A's radii and the collar below r_0 (VI-DYN to VI3-TRAPPING),
       ν_0 = min(¼, r_0/8) and R_ν (III.K), δ_1 and the weights (H2-ADMISS), δ′_0 (Part VII Lemma 1.2);
-    - 13 rest on the value ½R_1 (VAL). III.B 157-159: ‖A‖ < ε_param R_1 with |x|² ≥ ¼R_1² > 2‖A‖². III.B 244:
-      ψ(2R_1) = 2R_1 − r_0 ≥ 3/2 R_1. VI3-TRAPPING 374: r_0 − δ_0 = 7/16 R_1 < ⅝R_1 (D373). And 8 lines of IV6-SOLV
+    - 14 rest on a value (VAL), 13 of them on ½R_1, and VI-DYN 81 (since D375) on the collar's ⅜R_1 ≥ ¼R_1.
+      III.B 157-159: ‖A‖ < ε_param R_1 with |x|² ≥ ¼R_1² > 2‖A‖². III.B 244: ψ(2R_1) = 2R_1 − r_0 ≥ 3/2 R_1.
+      VI3-TRAPPING 375: r_0 − δ_0 = 7/16 R_1 < ⅝R_1 (D373). And 8 lines of IV6-SOLV
       (192, 428, 532-533, 679-680, 882, 884) use Lemma 0.5 (6), record 10.14 (ii), which was checked on [r_h/2, ∞)
       only (`cform5.py` C3; (IV′′′′′6): "not known ... below r_♯"; verifier 168's A1).
     - Read by verifier 168 and harmless, though no pattern matches them: Σ^♯ (15 lines of IV6-SOLV), Σ^int (III.B 57,
-      358, 361, 374; III.C 112; III.I8 61) and 7/16 R_1 (VI3-TRAPPING 375; 9/16 R_1 before D373). Part IX, the gauge
+      358, 361, 374; III.C 112; III.I8 61) and 7/16 R_1 (VI3-TRAPPING 376; 9/16 R_1 before D373). Part IX, the gauge
       comparison, is outside the census; Theorem 0.2 does not use it.
 
 **Proposition 6.2 (deduced from the census, D363; repaired D366, D372).** Let r_♭ ∈ (0, ½R_1] and replace III.B's
 r_0 by r_♭ and its ε_param by min(1/20, r_♭/(4R_1)). Put Part I's artificial boundary there too, r_0^A := r_♭, with
-the collar δ_0 := min(R_1/16, r_♭/4) (BEYOND5-R0-PROOF.md section 0). Then each of the 212 matched lines that use the
+the collar δ_0 := min(R_1/16, r_♭/4) (BEYOND5-R0-PROOF.md section 0). Then each of the 214 matched lines that use the
 inner radius (DEF, SPC, CON, VAL) holds with r_♭, the constants then depending on r_♭. The Part-by-Part re-proof is
 BEYOND5-R0-PROOF.md. So with r_♭ := ½ min(R_1, r_q(μ_end)), Proposition
 6.1's conclusion holds for every μ_end, without (1.1).
 
 *Proof (from the census).*
 
-- **The four VAL sites hold at r_♭.**
+- **The five VAL sites hold at r_♭.**
   - III.B 157-159: ‖A‖ < r_♭/4. For |x| ≥ ½r_♭ (IV6-SOLV extends to {r ≥ ½r_♯}), |x|² ≥ ¼r_♭² > r_♭²/8 > 2‖A‖² ≥ s
     and r_A² ≥ |x|² − ‖A‖² > 3r_♭²/16 > 3‖A‖², so ‖A‖²(r_A² + ‖A‖²) < (4/9) r_A⁴ < r_A⁴: Lemma 3.3 (c)'s condition.
   - III.B 243-244: ψ(2R_1) = 2R_1 − r_♭ ≥ 3/2 R_1 and ψ′ ≥ −1 on [2R_1, 3R_1], so ψ ≥ ½R_1 > 0 there as before.
-  - VI3-TRAPPING 374: r_0 − δ_0 < ⅝R_1 for Part I's radii. With D372's choice r_0^A = r_♭ and δ_0 ≤ R_1/16
+  - VI-DYN 81 (Lemma 1.1's collar): ⅜R_1 ≥ ¼R_1, where Lemma 3.3 (c) holds on III.B's ℬ. At r_♭ the collar ends at
+    r_♭ − 2δ_0 ≥ ½r_♭, where F1 gives (c) on ℬ_♭.
+  - VI3-TRAPPING 375: r_0 − δ_0 < ⅝R_1 for Part I's radii. With D372's choice r_0^A = r_♭ and δ_0 ≤ R_1/16
     (BEYOND5-R0-PROOF.md section 0), r_0^A − δ_0 < r_♭ ≤ ½R_1 < ⅝R_1.
   - IV6-SOLV's Lemma 0.5 (6) below r_h/2 (exact, by hand; D366). On r ≤ r_0/2 the record's c is the inner piece
     dt + (v/2) dr up to a positive factor (`cform5.py`:17), v = ½. In Kerr-Schild Tangherlini, g^(−1)(dr, dr) = f,
@@ -206,7 +209,7 @@ BEYOND5-R0-PROOF.md. So with r_♭ := ½ min(R_1, r_q(μ_end)), Proposition
 - **DEF.** The definitions and domains read with r_♭ for r_0, as the three VAL sites allow.
 - So Theorem 0.2 (i) holds on {r ≥ r_♭} ⊃ {r ≥ r_q}, with λ_1, ε_m and ε depending on r_♭, so on μ_end. ∎
 
-What this rests on: the census is a reading at 320 lines, not a re-proof of each Part. The re-proof, Part by Part, is
+What this rests on: the census is a reading at 322 lines, not a re-proof of each Part. The re-proof, Part by Part, is
 BEYOND5-R0-PROOF.md (D368-), in batches, each read by its own verifier. A use that names the inner
 radius by none of the eight strings would be missed; verifier 168 searched for the names above and found them harmless.
 [Hin26a] Proposition 5.1's conditions at m are IV6-SOLV Lemma 0.5's (1)-(6); of these only (1) and (6) involve m, and

@@ -87,8 +87,8 @@ Part VIII, the linear statement, is proved too (D336). Part IX, the comparison o
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
 | V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313); verified (D315); proved (D317) |
 | VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317); proved (D318); amended (D373) |
-| VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318); proved (D323: verifier 140 read the D321 repairs) |
-| VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319); verified (D321); proved (D323: verifier 140 read the repairs, two notes seated) |
+| VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318); proved (D323: verifier 140 read the D321 repairs); amended (D373) |
+| VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319); verified (D321); proved (D323: verifier 140 read the repairs, two notes seated); amended (D373) |
 | VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2); verified (D323: order corrected, row b4); proved (D324); section 3 amended (D327-D328), read by verifier 150, widened (D331: G4-G5); **proved** (D332: verifier 151 read it, nits only) |
 | VII | assembly | Theorem 4 from Parts III-VI and the record: (i) the record's data on III.K's initial surface, glued in the class to Tangherlini, and III.K run on G-fixed spaces; (ii) perturbations in III.K's data class | written (D322); verified (D323: verifier 140's three minors and twelve notes seated); proved (D324: verifier 141 read the repairs) |
 | VIII | III.K linearised at Tangherlini | linear stability of 5D Tangherlini in the gauge of the nonlinear problem: every linearised data set in III.K's class has a linearised vacuum development settling to a linearised Myers-Perry metric at $t_*^{-(\alpha-2)+\epsilon}$; in the class, to a change of mass alone | written (D334); verified (D335: verifier 153, no major gap, its minor m1 and six nits seated); **proved** (D336: verifier 154 read the repairs, three nits) |
@@ -1388,7 +1388,8 @@ identity outside $\{|x|<2R_1\}$, fixes it at $\{|x| = r_h\}$ (Lemma 1.2). Its co
 proved for thresholds and spaces, the rescaled field defined on all of $\partial\tilde\Sigma_{0,b}$, the no-re-entry
 step) and six notes repaired. Read by verifier 139 (D321): correct, but the transported inner product needed the
 Jacobian of $\Psi_b$, $h' := |\det D\Psi_b|\,B_b^*(h\circ\Psi_b)B_b$, for the identity of imaginary parts to be exact;
-repaired with two notes, to be read.
+repaired with two notes, to be read. Amended (D373): read on $\{|x|\ge\frac38R_1\}$ at Part VI.A's repaired radii
+(finding (VI.A7)).
 
 `PART-VI3-TRAPPING.md`. Part VI.B$'$ proves (Γ.1)-(Γ.3), (K3)-(K4) and (H8) near $b_0$. Five-dimensional Myers-Perry
 separates in III.B's Kerr-Schild coordinates written spheroidally, $x = (r^2I-A^2)^{1/2}\omega$, with the Kerr-Schild
@@ -1403,7 +1404,8 @@ radial classification, the horizon's causal structure and a Lyapunov function at
 Theorem 5.1 collects (Dyn) near $b_0$. Findings (VI.B$'$1)-(VI.B$'$5). Written (D319). Verified (D321): verifier 139
 found no major gap; its minor one, that an exterior curve approaching the horizon forward without crossing was not
 excluded, is closed by the Lyapunov function (a forward limit set at the radial set would need $L\to0$, while $L$ grows
-forward there), and thirteen notes are repaired.
+forward there), and thirteen notes are repaired. Amended (D373): read on $\{|x|\ge\frac38R_1\}$ at Part VI.A's repaired
+radii (finding (VI.A7)).
 
 `PART-VI4-PARAMS.md`. Part VI.C lists every condition the parts put on the parameters left open, with its file and line,
 and proves they can be met together (Theorem 2.1). The order: Part VI's ball (metric only); the constraint damping gauge
