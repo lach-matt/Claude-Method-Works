@@ -23,7 +23,8 @@ never differentiated numerically.
      solve at the three nodes next to each axis returns more than 1e-9 there (the control: cancellation of about
      (1 - |x|)^(-4.5) eps), the long-double solve (uv_ld) at least 100 times less (D354).
 
-  --run lam rcut M Nu Nv out.npz [p]   the record's data at wavelength lam (A = 1, envelope [1/2, 7/2], R0 = 10, v to
+  --run lam rcut M Nu Nv out.npz [p]   the record's data at wavelength lam (A = 1, or the value after a further argument
+                                   amp, D445; envelope [1/2, 7/2], R0 = 10, v to
                                    4.5, a = 0.002), cut at R < rcut; the solution and the cut mask are written to
                                    out.npz.  With p, an exponential filter of order p on the Chebyshev coefficients in x
                                    is applied to every new diamond (the axis filter); p = 0 for none.  With a
@@ -495,9 +496,10 @@ def main():
         opts = sys.argv[9:]
         reg = 'reg' in opts
         ld = int(opts[opts.index('ld') + 1]) if 'ld' in opts else 0
+        amp = float(opts[opts.index('amp') + 1]) if 'amp' in opts else 1.0
         E = Eqs()
         G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt, reg=reg, ld=ld)
-        A, mask = run(E, G, Data(lam, 1.0), rcut)
+        A, mask = run(E, G, Data(lam, amp), rcut)
         np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, **{f: A[f] for f in ALL})
         print('written', sys.argv[7], 'cells', int((~mask).sum()), 'of', mask.size)
         return 0
