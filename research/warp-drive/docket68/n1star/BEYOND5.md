@@ -256,9 +256,23 @@ What it gives for (b2):
   for this term).
 - The r⁻² coefficient at I_0 is Σ_l cos(πl/2)/(l + 1) M_(m,l) Y_l. The odd harmonics drop out at that order.
 
+*On Tangherlini (D411; `checks/coulomb5.py` K5-K6).* In the ingoing chart ds² = −f dv² + 2 dv dr + r² dΩ₃²,
+f = 1 − μ/r², the wave operator gains exactly −μ r⁻³ ∂_r(r ∂_r F). The recursion becomes
+
+    (1 + 2j) a_j′ = −(l + 1 − j)(l + 1 + j) a_(j−1) − μ (j − 1)² a_(j−3).
+
+- The factor 1 + 2j never vanishes, so no logarithm enters at any order.
+- The μ terms have degree at most j − 2 in v − v1. So the top degrees, and with them the flat polynomial above, are
+  unchanged, and μ enters r²φ at fixed t only from ρ² on.
+- The series no longer terminates. Summed on t = const (v1 − t = 1, μ = 1, exact rationals), 40 and 60 terms agree
+  to 10⁻¹³ at r = 5, 10 and 40 for l = 0, ..., 3. r²φ approaches the flat value cos(πl/2)/(l + 1): for l = 0 it is
+  0.95823, 0.98542 and 0.99884 at r = 5, 10, 40, a correction of about 1.86/r².
+- Not proved: the convergence for every l and the radius of convergence in s, though the recursion's ratio for
+  j ≫ l (about s/2) suggests |s| < 2.
+
 What it does not give:
 
-- Tangherlini's corrections, at relative order μ/r²;
+- Tangherlini's corrections beyond the scalar model (the curvature couplings of the tensor equation);
 - the structure beyond the principal part (the gauge terms and the trace couplings);
 - the remainder in E_(5/2) of (v), and the remainder g_λ − g_app;
 - uniqueness in W beyond the expansion (an energy identity on W would give it).

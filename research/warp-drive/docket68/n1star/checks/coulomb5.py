@@ -20,11 +20,19 @@ whose radiation field at past null infinity, lim r^(3/2) phi at fixed v, vanishe
      spatial infinity, rho = 1/r), and its value at rho = 0 is cos(pi l/2)/(l + 1): 1, 0, -1/3, 0, 1/5, ...
   K4 (exact) 2F1(-l, l + 2; 3/2; s/2) = U_l(1 - s)/(l + 1), U_l the Chebyshev polynomial of the second kind (the
      Gegenbauer polynomial of S^3), so |r^2 phi_l| <= M wherever 0 <= (v - v1)/r <= 2, uniformly in l.
+  K5 (exact) on Tangherlini, ds^2 = -f dv^2 + 2 dv dr + r^2 dOmega_3^2, f = 1 - mu/r^2, box gains exactly
+     -mu r^-3 d_r(r d_r F), and the recursion becomes (1 + 2j) a_j' = -(l + 1 - j)(l + 1 + j) a_(j-1) - mu (j - 1)^2
+     a_(j-3). The factor 1 + 2j never vanishes, so no logarithm enters; the mu terms have degree <= j - 2 in
+     v - v1, so the top degrees, and with them the flat polynomial of K1-K4, are unchanged. Checked: box of the
+     truncated sum leaves only powers r^-p with p beyond the truncation, l <= 3, mu symbolic.
+  K6 (computed, exact rationals) at mu = 1 on t = const (v1 - t = 1): r^2 phi summed to j = 20, 40, 60 at r = 5,
+     10, 40 agrees to better than 1e-8 between 40 and 60 terms, l = 0, ..., 3: the series converges out to spatial
+     infinity, and r^2 phi tends to the flat value cos(pi l/2)/(l + 1) with an O(rho^2) correction.
   Control: with the sign of the cross term flipped (the recursion (1 + 2j) a_j' = +(l + 1 - j)(l + 1 + j) a_(j-1)),
      the polynomial so built is not a solution at l >= 1, and its limit at rho = 0 grows (2, 5, 14, ...).
 Labels: computed (exact, sympy).
 
-    python3 checks/coulomb5.py [--selftest]
+    python3 checks/coulomb5.py [--selftest]      (about five minutes, K6 most of it)
 """
 import sys
 
@@ -44,6 +52,47 @@ def phi(l, sign=-1):
     for j in range(1, l + 1):
         a.append(sp.integrate(sign*(l + 1 - j)*(l + 1 + j)*a[-1]/(1 + 2*j), (v, v1, v)))
     return sum(aj*r**(-2 - j) for j, aj in enumerate(a))
+
+
+def boxT(F, l, mu):
+    return sp.expand(box(F, l) - mu*sp.diff(r*sp.diff(F, r), r)/r**3)
+
+
+def coeffs_T(l, mu, J):
+    a = [M]
+    for j in range(1, J + 1):
+        rhs = -(l + 1 - j)*(l + 1 + j)*a[j - 1] - (mu*(j - 1)**2*a[j - 3] if j >= 3 else 0)
+        a.append(sp.expand(sp.integrate(sp.expand(rhs/(1 + 2*j)), (v, v1, v))))
+    return a
+
+
+def tang_checks():
+    mu = sp.symbols("mu", positive=True)
+    k5 = True
+    for l in range(4):
+        J = 8
+        a = coeffs_T(l, mu, J)
+        F = sum(aj*r**(-2 - j) for j, aj in enumerate(a))
+        # the residual of the truncated sum has only powers r^-p, p >= J + 4: times r^(J+4) it is a polynomial in 1/r
+        res = sp.expand(sp.expand(boxT(F, l, mu)*r**(J + 4)).subs(r, 1/rho))
+        try:
+            sp.Poly(res, rho)
+            poly_ok = True
+        except sp.PolynomialError:
+            poly_ok = False
+        k5 &= poly_ok and sp.expand(F.subs(mu, 0) - phi(l)) == 0
+    k6, rows = True, []
+    for l in range(4):
+        a = [sp.expand(c.subs({M: 1, v1: 0})) for c in coeffs_T(l, 1, 60)]
+        for rr in (5, 10, 40):
+            vals = []
+            for J in (20, 40, 60):
+                vv = sp.Rational(rr) - 1          # v = t + r with t = v1 - 1 = -1
+                vals.append(sum(aj.subs(v, vv)*sp.Rational(rr)**(-j) for j, aj in enumerate(a[:J + 1])))
+            d = abs(float(vals[2] - vals[1]))
+            k6 &= d < 1e-8
+            rows.append((l, rr, float(vals[2]), d))
+    return k5, k6, rows
 
 
 def main():
@@ -66,6 +115,11 @@ def main():
             Fc = phi(l, sign=+1)
             limc = sp.simplify(sp.limit(sp.expand(r**2*Fc.subs(v, t + r)), r, sp.oo)/M)
             ok["control"] &= box(Fc, l) != 0 and abs(limc) > 1
+    k5, k6, rows = tang_checks()
+    ok["K5"], ok["K6"] = k5, k6
+    for l, rr, val, d in rows:
+        print("  K6: l = %d, r = %2d: r^2 phi = %+.8f (flat limit %+.4f), |sum_60 - sum_40| = %.1e"
+              % (l, rr, val, float(sp.cos(sp.pi*l/2)/(l + 1)), d))
     print("  K1-K4: box phi_l = 0, data M r^-2 on N, no incoming radiation, rho^2 C^oo at fixed t, U_l form;"
           " r^2 phi_l at rho = 0:")
     print("        ", ", ".join(str(q) for q in vals))

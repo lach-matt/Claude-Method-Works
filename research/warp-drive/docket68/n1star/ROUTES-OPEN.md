@@ -4844,6 +4844,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   At t = const it is a polynomial in 1/r (rho^2 C^oo), |r^2 phi_l| <= M, value at I_0 M cos(pi l/2)/(l + 1). So the
   means' leading term on N gives data on S in rho^2 C^oo at the principal level, if M_m is constant after the shell
   (section 9.3's count suggests so; not checked term by term). Not: Tangherlini corrections, E_(5/2), uniqueness.
+- D411 (coulomb5.py K5-K6): the same on Tangherlini, scalar wave. f = 1 - mu/r^2 adds -mu r^-3 d_r(r d_r): the
+  recursion gains -mu (j-1)^2 a_(j-3); 1 + 2j never vanishes (no logs); mu enters only below top degree, so the
+  flat polynomial stays and mu enters r^2 phi at rho^2. The series converges (40 vs 60 terms: 1e-13 at r = 5-40,
+  l <= 3); l = 0: r^2 phi = 1 - 1.86/r^2 + ... Not proved for every l; tensor couplings not treated.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 

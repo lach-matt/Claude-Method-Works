@@ -6717,3 +6717,9 @@ error there shrinks as the cut-off is raised: that part belongs to the cut-off. 
 areal radius of about one and well away from every cut-off, the solution fails to converge in angle by the same amount
 whichever cut-off is used. That part belongs to the axis or to the geometry itself, and a run with the axis treated
 differently is under way to tell which.
+
+**D411 (2026-10-31): the same around the black hole.** Repeating the previous calculation with the black hole's
+curvature included, for a scalar wave, the clean structure survives: no logarithms can appear at any order, the
+leading pattern is unchanged, and the curvature only adds corrections falling off two powers faster. The expansion
+no longer stops after finitely many terms, but it converges numerically out to spatial infinity. A proof of
+convergence for every angular pattern, and the tensor version, are not done.
