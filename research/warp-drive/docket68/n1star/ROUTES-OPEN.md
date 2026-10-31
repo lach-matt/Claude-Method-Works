@@ -4820,6 +4820,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D425 (LOSS-D LD3 (iv)): with (1.1)'s eps_ind <= 1.94e-8 (D422), K > 1.03e8, d >= 2K > 2.06e8, N = 21d + 6 > 4.3e9;
   the nested level-3 loop > 5.1e7 rounds per level near beta = 4 and > 1.3e15 over the chain. Lower bounds for the
   record's proof, not for the optimal loss. checks/g1axis5.py gains --refine for the 1600 x 720 comparison (pending).
+- D426 (BEYOND5 Lemma 6.5', checks/coulombL5.py Q6, exact): Tangherlini to O(mu), l = 0, with the full operator
+  (c's on the static t): h = r^-2 F(s) + mu r^-4 G(s); G obeys an ODE with principal part -(1/2) s (s - 2) I,
+  polynomial coefficients and source; exponents at N -2.51, -2.52, -1.5e6, -3e6. So r^2 h = F + mu rho^2 G + O(mu^2)
+  is smooth at I_0, no log at O(mu). Open: higher orders in mu, other sectors, the t_* reading of c.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

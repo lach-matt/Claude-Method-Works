@@ -27,9 +27,13 @@ genstates5.py's polar machinery:
   Q5 (exact, D421) the l = 1 scalar-type sector (six functions; the traceless Hessian of an l = 1 harmonic on S^3
      vanishes): the same reduction, second-order part (s - s^2/2) I, polynomial coefficients, exponents at s = 0
      besides 0 all negative at the record's point.
+  Q6 (exact, D426) Tangherlini to first order in mu (static t, f = 1 - mu/r^2, c_U and c built on that t), the l = 0
+     sector, h = r^-2 F(s) + mu r^-4 G(s): the mu^0 part is Q1's system; the mu^1 part is an ODE system for G with a
+     source in F, depending on s only, with second-order part (s - s^2/2) I and polynomial coefficients and source;
+     G's exponents at s = 0 besides 0 are all negative at the record's point.
 Labels: computed (exact, sympy; floating point where said); the smoothness at I_0 deduced from Q2 (an ODE with analytic
-coefficients at an ordinary point). Harmonics beyond l = 1, the vector and tensor types, and Tangherlini (mu != 0) are
-not computed here.
+coefficients at an ordinary point). Harmonics beyond l = 1, the vector and tensor types, and Tangherlini beyond O(mu)
+are not computed here.
 
     python3 checks/coulombL5.py [--selftest]
 """
@@ -109,6 +113,43 @@ def reduce_l1():
     comps = [L[0, 0]*r**4/Y, L[0, 1]*r**4/Y, L[1, 1]*r**4/Y, L[2, 2]*r**2/Y, L[0, 2]*r**3/dY, L[1, 2]*r**3/dY,
              L[3, 3]*r**2/(Y*sp.sin(ch)**2), L[2, 3], L[0, 3], L[2, 4]]
     return [sp.expand(sp.simplify(q.subs(t, (S - 1)*r).doit())) for q in comps]
+
+
+GN = [sp.Function(n) for n in ("ga", "gb", "gc", "gd")]
+
+
+def reduce_tang():
+    """Q6 (D426): Tangherlini (static t, f = 1 - mu/r^2; c_U = r^-1 dt and c = r^-1 (dt - v dr) in that t), the l = 0
+    sector, h = r^-2 F(s) + mu r^-4 G(s): the lam-free operator's mu^0 part (Q1's system for F) and its mu^1 part,
+    r^6 (tt, tr, rr) and r^4 (chi chi), an ODE system for G with a source in F"""
+    G_ = GS.geo(4, False)
+    X, g, gi, Gam, f_ = G_
+    N = 5
+    sx = (t + r)/r
+    h = sp.zeros(N)
+    F, Gf = FN, GN
+    h[0, 0] = F[0](sx)/r**2 + GS.mu*Gf[0](sx)/r**4
+    h[1, 1] = F[2](sx)/r**2 + GS.mu*Gf[2](sx)/r**4
+    h[0, 1] = h[1, 0] = F[1](sx)/r**2 + GS.mu*Gf[1](sx)/r**4
+    for k in (2, 3, 4):
+        h[k, k] = g[k, k]*(F[3](sx)/r**2 + GS.mu*Gf[3](sx)/r**4)
+
+    def E_C(w):
+        cc = [1/r, -vC/r, 0, 0, 0]
+        cw = sum(gi[p, q]*cc[p]*w[q] for p in range(N) for q in range(N))
+        m = sp.Rational(2, 3)*(1 - eC)
+        return sp.Matrix(N, N, lambda p, q: gC*(cc[p]*w[q] + cc[q]*w[p] - m*g[p, q]*cw))
+
+    Gh = GS.Gop(h, G_)
+    w = [p + q for p, q in zip(GS.div(Gh, G_), GS.Eups(Gh, G_))]
+    L = GS.dric(h, G_) + GS.dstar(w, G_) + E_C(w)
+    out0, out1 = [], []
+    for e, p in ((L[0, 0], 4), (L[0, 1], 4), (L[1, 1], 4), (L[2, 2], 2)):
+        e0 = e.subs(GS.mu, 0)
+        e1 = sp.diff(e, GS.mu).subs(GS.mu, 0)
+        out0.append(sp.expand(sp.simplify((e0*r**p).subs(t, (S - 1)*r).doit())))
+        out1.append(sp.expand(sp.simplify((e1*r**(p + 2)).subs(t, (S - 1)*r).doit())))
+    return out0, out1
 
 
 def matrices6(eqs):
@@ -263,6 +304,35 @@ def main():
           "vanish: %s; F'' coefficient (s - s^2/2) I, polynomial coefficients: %s; exponents at s = 0 besides 0: %s"
           % (q5a, q5b, ", ".join("%.6g" % x.real if abs(x.imag) < 1e-9 else "%.4g%+.3gi" % (x.real, x.imag)
                                  for x in expo1)))
+    o0, o1 = reduce_tang()
+    q6a = all(sp.expand(o0[i] - eqs[i]) == 0 for i in range(4))
+    q6b = all(q.free_symbols <= sym for q in o1)
+    syms = {}
+    for k, q in enumerate(GN):
+        syms[sp.Derivative(q(S), (S, 2))] = sp.Symbol("q2_%d" % k)
+        syms[sp.Derivative(q(S), S)] = sp.Symbol("q1_%d" % k)
+    o1s = [sp.expand(q.subs(syms).subs({qq(S): sp.Symbol("q0_%d" % k) for k, qq in enumerate(GN)})) for q in o1]
+    MG = [sp.Matrix(4, 4, lambda i, j: o1s[i].coeff(sp.Symbol("q%d_%d" % (o, j)))) for o in (2, 1, 0)]
+    src = [sp.expand(o1s[i] - sum(MG[o][i, j]*sp.Symbol("q%d_%d" % (2 - o, j)) for o in range(3) for j in range(4)))
+           for i in range(4)]
+    fsym = {}
+    for k, ff in enumerate(FN):
+        fsym[sp.Derivative(ff(S), (S, 2))] = sp.Symbol("F2_%d" % k)
+        fsym[sp.Derivative(ff(S), S)] = sp.Symbol("F1_%d" % k)
+    fsym0 = {ff(S): sp.Symbol("F0_%d" % k) for k, ff in enumerate(FN)}
+    src_poly = all(sp.expand(q.subs(fsym).subs(fsym0)).is_polynomial(S) for q in src)
+    q6c = sp.expand(MG[0] - m2*sp.eye(4)) == sp.zeros(4) and \
+        all(MG[o][i, j].is_polynomial(S) for o in (1, 2) for i in range(4) for j in range(4)) and src_poly
+    m10g = sp.Matrix(MG[1].subs(S, 0).subs(POINT))
+    lam = sp.Symbol("lam")
+    evg = [complex(x) for x in sp.Poly(m10g.charpoly(lam).as_expr(), lam).nroots(n=30, maxsteps=200)]
+    expog = [1 - x for x in evg]
+    badg = [x for x in expog if abs(x.imag) < 1e-9 and x.real > 0.5 and abs(x.real - round(x.real)) < 1e-9]
+    ok["Q6 Tangherlini, O(mu)"] = q6a and q6b and q6c and not badg
+    print("  Q6 (D426): Tangherlini to O(mu), l = 0: the mu^0 part is Q1's system: %s; the mu^1 part, an ODE for G with "
+          "a source in F, depends on s only: %s; second-order part (s - s^2/2) I, polynomial coefficients and source: "
+          "%s; G's exponents at s = 0 besides 0: %s" % (q6a, q6b, q6c, ", ".join(
+              "%.6g" % x.real if abs(x.imag) < 1e-9 else "%.4g%+.3gi" % (x.real, x.imag) for x in expog)))
     for k, val in ok.items():
         print(k, "PASS" if val else "FAIL")
     if "--selftest" in sys.argv:

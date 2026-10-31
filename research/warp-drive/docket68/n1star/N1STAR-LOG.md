@@ -6831,3 +6831,8 @@ zero. This is still for the region between the horizon and the outer cut-off, no
 a loss of at least about two hundred million derivatives from the long chain alone, and its inner loop runs more than a
 million billion rounds in all. These are lower bounds on what the record's proof delivers, not on what the best proof
 could do.
+
+**D426 (2026-10-31): the clean expansion survives the black hole's mass, at first order.** The record's full
+equation was carried to spatial infinity in flat space in D417. With the black hole's mass included to first order, the
+correction it brings obeys an equation of the same kind, with no new problem point at spatial infinity, so the
+expansion there stays free of logarithms. Higher orders in the mass, and the other angular patterns, are not done.
