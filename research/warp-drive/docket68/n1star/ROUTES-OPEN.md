@@ -4618,6 +4618,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   admissible point; LD3's counts improve by at most ~10 (K > 6.5e4, d > 1.3e5, nested rounds > 5e8). An order-one gap
   needs another constraint damping.
 
+### 4.274 G1 at 10 l5: the axis nodes and 𝒟_q with |K| (D354)
+
+- The singular solves at M = 24, 32 and part of the angular disagreement were rounding in the 4 x 4 uv-solve at the
+  nodes next to an axis (error ~ (1 - |x|)^-4.5 eps). Fixed by an 80-bit long-double solve there (dnsolve5.py `ld k`,
+  selftest S4); `reg` does not cure it. 𝒟_q rebuilt from |K| (K < 0 where the runs disagree): 111,370 common cells at
+  M = 24, 32. Every field converges in M to v = 1.5; d(M24, M32) in m is 0.68 on [1.5, 2) and 3-20 later. The onset is
+  at x = -1 inside the horizon (d > 1e-4 at u = -0.964, v = 1.650), where x_K = 0.81: inside 𝒟_q, so not removed by
+  the curvature cut. Second seed: converges to v ~ 3-3.5, then n steepens at x = +1. Open: an axis treatment or a
+  mapped grid at the axes (CERTIFY-10L5.md section 6b).
+
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 
 - E2-PILOT.md section 3b, checks/e2pilot5.py P3. Lemma E2.5a: H = |u'|^2 + (sigma^2 - V_l)|u|^2 has H' = -V_l' |u|^2,

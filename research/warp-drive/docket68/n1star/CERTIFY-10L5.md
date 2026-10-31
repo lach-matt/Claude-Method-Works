@@ -226,14 +226,41 @@ No other component is nonzero. So the scheme is the following.
   at that axis faster than M = 24 resolves; whether that is the solution or the axis treatment is the next question.
   D344's "converged on 𝒟_q up to v ≈ 2.0" held in (u, v) only (corrected D351).
 
-- *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
-  the computed solution is a converged approximation on 𝒟_q up to v ≈ 1.5-1.6 of 4.5, in (u, v) and in angle. Beyond
-  it the shears steepen at the axis x = −1 near the horizon faster than the prototype resolves (D351). G1 is not yet
-  answered to the end of the domain.
+- *The axis nodes (D354).* The singular 4 × 4 solves at M = 24 and 32, and part of D351's angular disagreement, were
+  rounding in that solve. At the nodes next to an axis its error grows like (1 − |x|)^(−4.5) times the machine
+  epsilon.
+  - A spherical state's error at the node next to the axis, in double precision, is 1.3 × 10⁻¹⁰, 3.8 × 10⁻⁹,
+    9.8 × 10⁻⁸, 3.7 × 10⁻⁶ and 3.9 × 10⁻⁶ at M = 8, 12, 16, 24, 32.
+  - Tangherlini with no injected noise acquires a spurious m of 8.6 × 10⁻⁹, 8.7 × 10⁻⁷ and 7.9 × 10⁻⁵ at M = 8, 16,
+    24; with the fix, 5.2 × 10⁻¹¹, 4.3 × 10⁻⁹ and 6.3 × 10⁻⁸.
+  - The fix solves at k nodes per axis in 80-bit long double, the expressions' rational constants exact
+    (`dnsolve5.py ... ld k`; selftest S4: 9.8 × 10⁻⁸ becomes 7.4 × 10⁻¹¹). Dividing by the Chebyshev axis factor
+    (`reg`) does not cure it.
+  - The iteration parameter q = du dv |λ_max|/4 exceeds 1 at 400 × 180 (1.89 at M = 24, 3.27 at M = 32), but runs at
+    800 × 360 show that it is not what limits convergence.
+- *𝒟_q with |K| (D354).* K is negative where the runs disagree (K/K_c down to −29), so 𝒟_q is now built from
+  x_K := |K| r_c⁸/72. It has 111,623 cells at M = 24 and 111,506 at M = 32, of 224,181 strip cells, the same in each
+  v-band to 1 %. On their intersection (111,370 cells), at 800 × 360 with `ld`:
+  - every field converges in M up to v = 1.5. On [1, 1.5), d(M16, M24) in m is 6.0 × 10⁻⁵ and d(M24, M32) is
+    9.8 × 10⁻⁷;
+  - beyond, it does not: d(M24, M32) in m is 0.68 on [1.5, 2), 5.8 on [2, 2.5), and between 3 and 20 later;
+  - the onset is at the axis x = −1 inside the horizon. d > 10⁻⁴ first at u = −0.964, v = 1.650 (the node x = −0.995),
+    and d > 10⁻³ at v = 1.688. There x_K = 0.81, and the maximum of x_K over the cell's past is the same: the onset is
+    inside the curvature domain, not beyond it. The shift s is large there (about 200 to 370).
+  So the curvature cut does not remove the disagreement. It is a resolution or axis-treatment limit of the scheme at
+  x = −1 inside the horizon. At the second seed (λ = 0.3162), with `ld`, the run converges in angle to v ≈ 3-3.5
+  (on [2.5, 3), d(M16, M24) is 1.3 × 10⁻³ in m and 1.1 × 10⁻² in n). Beyond that n steepens at the axis x = +1 near
+  R ≈ 0.93-1.0, where x_K ≤ 0.025, and the Chebyshev tail rises from 5.8 × 10⁻⁶ to 5.6 × 10⁻³.
 
-- *Next.* Decide whether the steepening at x = −1 near the horizon is the solution's: an axis treatment that does not
-  divide by 1 − x² (a basis built on the regular combinations' parity), or angular refinement concentrated at the axes
-  (a mapped Chebyshev grid). Then 𝒟_q at λ = 0.3162, and F3 (the certified linear constant) on the converged part.
+- *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
+  the computed solution is a converged approximation on 𝒟_q up to v ≈ 1.65 of 4.5, in (u, v) and in angle; at the
+  second seed, to v ≈ 3-3.5. Beyond, it fails to converge at an axis while x_K < 1: at x = −1 inside the horizon for
+  λ = 1 (D354), and at x = +1 for the second seed. G1 is not yet answered to the end of the domain.
+
+- *Next.* Decide whether the steepening at the axes is the solution's. Options: an axis treatment that does not divide
+  by 1 − x² (a basis built on the regular combinations' parity), or angular refinement concentrated at the axes (a
+  mapped Chebyshev grid). Rounding is excluded (D354), and so is the curvature cut. Then F3 (the certified linear
+  constant) on the converged part.
 
 ## 7. Sources
 

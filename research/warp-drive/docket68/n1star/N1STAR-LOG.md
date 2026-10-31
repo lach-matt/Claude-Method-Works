@@ -6376,3 +6376,12 @@ leave open (5 ≤ l ≤ 11 has the barrier below σ² on part of the interval), 
 but the Wronskian grows in step, so the kernel stays of order one. A bound for the band must use that growth of the
 Wronskian, which the earlier per-harmonic constant threw away; E2-PILOT section 3d proposes how.
 
+**D354 (2026-10-31, recorded late): the axis nodes, and the curvature cut that did not help.** Part of the angular
+disagreement at 10 l5, and the singular solves at the finest angular resolutions, came from rounding: at the nodes next
+to an axis the solver's small linear solve loses precision like a high power of the distance to the axis. Solving
+there in extended precision cures it. The curvature domain was then rebuilt from the absolute value of the Kretschmann
+scalar, since that scalar turns negative where the runs disagree. On it the runs agree to a part in a million up to
+v = 1.5. Beyond, they still disagree, starting at the axis inside the horizon at v ≈ 1.65, where the curvature is
+0.81 of the boundary value: inside the domain. So the failure is the scheme's at the axis, not a sign that the domain
+is too large. At the second seed the run converges to v ≈ 3-3.5 and then steepens at the other axis.
+
