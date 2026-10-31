@@ -235,7 +235,11 @@ loop counts of section 3.
   III.J''''s accounting of the record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is
   existential, and the optimal loss may be far smaller. The levers: the parameter point (E1'a's first question); a
   per-level gain larger than α − 4; a different proof of the level step, keeping in mind that the source's one-step
-  route is closed at n = 4 (I15:12-17).
+  route is closed at n = 4 (I15:12-17). (iv) [D425: with (1.1)'s ε_ind ≤ 1.94 × 10⁻⁸ at the record's point (LD10,
+  D422), (i) gives K > 2/ε_K > 1.03 × 10⁸, the d of III.J''''s accounting at least 2K > 2.06 × 10⁸, and
+  N = 21d + 6 > 4.3 × 10⁹. (ii)'s nested loop runs about (β − 3)/ε_ind > 5.1 × 10⁷ rounds per level near β = 4, and
+  more than (1/ε_K)(½/ε_ind) > 1.3 × 10¹⁵ rounds over the chain. These are lower bounds for what the record's proof
+  delivers, not for the optimal loss, as in (iii).]
 
 - LD5 (E1'a's first question answered: no admissible point opens the gap; D353). The record's construction fixes the
   damping parameters (v, e, h) by e ≤ e_0(v) ≈ 6.9 × 10⁻⁵ v² (the interior saddle, semiclass5.py W4) and h below e (the

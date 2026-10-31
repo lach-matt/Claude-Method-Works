@@ -4817,6 +4817,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D424 (E2-PILOT 3i, Corollary E2.12, checks/e2h1_5.py H5): the multipliers are sigma-independent, so every bound is
   explicit and increasing in |sigma|: the summed cut-off H^1 constant is C <= 808.6 on all of 0 < |sigma| <= 3
   (528.3 at 0.01, 808.6 at 3), finite as sigma -> 0+. Uniform on a compact band, in the cut-off norm only.
+- D425 (LOSS-D LD3 (iv)): with (1.1)'s eps_ind <= 1.94e-8 (D422), K > 1.03e8, d >= 2K > 2.06e8, N = 21d + 6 > 4.3e9;
+  the nested level-3 loop > 5.1e7 rounds per level near beta = 4 and > 1.3e15 over the chain. Lower bounds for the
+  record's proof, not for the optimal loss. checks/g1axis5.py gains --refine for the 1600 x 720 comparison (pending).
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

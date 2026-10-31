@@ -6826,3 +6826,8 @@ stays true for all time is the standard argument, deduced and not checked here.
 depend on the frequency, so every constant grows with the frequency in an explicit way. The bound found at the test
 frequency therefore holds for every frequency below it, down to zero, with the constant falling to about 530 near
 zero. This is still for the region between the horizon and the outer cut-off, not the record's full norms.
+
+**D425 (2026-10-31): the record's loss, as numbers.** With the scale settled in D422, the record's own accounting gives
+a loss of at least about two hundred million derivatives from the long chain alone, and its inner loop runs more than a
+million billion rounds in all. These are lower bounds on what the record's proof delivers, not on what the best proof
+could do.

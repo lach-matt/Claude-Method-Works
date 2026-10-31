@@ -14,6 +14,7 @@ Labels: computed (floating point, on saved runs).
     python3 checks/g1axis5.py PLAIN24 PLAIN32 REG24 REG32 [PLAIN40]
     python3 checks/g1axis5.py --sweep PLAIN24 PLAIN32 PLAIN40 ... (D418)
     python3 checks/g1axis5.py --nodes A B C ... (D420: m and the metric combination P near the axis)
+    python3 checks/g1axis5.py --refine C32 C40 F32 F40 (D425: 800 x 360 against 1600 x 720, in P)
 """
 import os
 import sys
@@ -81,9 +82,37 @@ def nodes(paths):
         bands("|P| run %d - run %d" % (n, n + 1), np.abs(F[n]["P"] - F[n + 1]["P"]), ok, rad, v)
 
 
+def refine(paths):
+    """--refine C32 C40 F32 F40: runs at M = 32, 40 on the 800 x 360 grid (C) and on 1600 x 720 (F), whose nodes contain
+    the coarse ones (u uniform in arcsinh, v uniform, both doubled). On the coarse nodes kept by all four, per v-band
+    over areal radius >= 1 and 1.2, the maxima of |dP| for: the null-grid refinement at fixed M (C32 - F32, C40 - F40)
+    and the angular refinement on each grid (C32 - C40, F32 - F40). P is the metric combination (D420). (D425)"""
+    c32, c40, f32, f40 = [np.load(p) for p in paths]
+    for f in (f32, f40):
+        assert np.allclose(f["u"][::2], c32["u"]) and np.allclose(f["v"][::2], c32["v"]), "nested grids"
+
+    def P_of(d, step):
+        m = GA.at(np.nan_to_num(d["m"])[::step, ::step], d["x"], GA.XE)
+        n = GA.at(np.nan_to_num(d["n"])[::step, ::step], d["x"], GA.XE)
+        return (2*(1 + GA.XE)*m - (1 - GA.XE)*n)/3
+
+    ok = ~(c32["mask"] | c40["mask"] | f32["mask"][::2, ::2] | f40["mask"][::2, ::2])
+    P = [P_of(c32, 1), P_of(c40, 1), P_of(f32, 2), P_of(f40, 2)]
+    v = c32["v"]
+    rad = GC.areal(c40)
+    print("v-bands:", GA.BANDS)
+    print("coarse cells kept by all four: %d" % ok.sum())
+    for name, (a, b) in (("(u,v) refinement, M32", (0, 2)), ("(u,v) refinement, M40", (1, 3)),
+                         ("M refinement, 800x360", (0, 1)), ("M refinement, 1600x720", (2, 3))):
+        bands("|P| " + name, np.abs(P[a] - P[b]), ok, rad, v)
+
+
 def main():
     if sys.argv[1:2] == ["--sweep"]:
         sweep(sys.argv[2:])
+        return
+    if sys.argv[1:2] == ["--refine"]:
+        refine(sys.argv[2:])
         return
     if sys.argv[1:2] == ["--nodes"]:
         nodes(sys.argv[2:])
