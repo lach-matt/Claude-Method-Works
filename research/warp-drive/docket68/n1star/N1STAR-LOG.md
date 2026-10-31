@@ -6258,9 +6258,17 @@ different constraint damping.
 
 **D355 (2026-10-31): the resolvent bound uniform in the harmonic.** The per-harmonic bound of D350 grew like
 exp(l²/σ) because it ignored that the solutions decay through the potential barrier. An energy identity on the
-interval now bounds the cut-off resolvent by one over the barrier's height above σ², about 17/(l(l + 2)), for every
+interval now bounds the cut-off resolvent by one over the barrier's height above σ², asymptotically 17/(l(l + 2)), for every
 harmonic past an explicit l_0(σ): 14, 19 and 50 at σ = 0.3, 1 and 3 in closed form, and 3, 7 and 18 when its two
-conditions are evaluated by quadrature. The bound sits just above the measured norms (0.060 against 0.040 at σ = 0.3,
-l = 16). The two conditions are the signs of |u|²'s derivative at the interval's ends. Both come from the flux and from
+conditions are evaluated by quadrature. The bound is within a factor 2 of the measured norms (0.059 against 0.040 at
+σ = 0.3, l = 16). The two conditions are the signs of |u|²'s derivative at the interval's ends. Both come from the flux and from
 the WKB energy |u'|² + (σ² − V)|u|², which is monotone on each side of the barrier. The harmonics below l_0 keep the old
 constant.
+
+**D356 (2026-10-31): the uniform bound read by an independent verifier.** Verifier 165 found the proofs of E2.5 sound
+and the check's closed form identical to the text. It found seven minor points and six nits, all seated. Two constants
+were rounded the wrong way for lower bounds; one step of the monotonicity argument was false as stated but holds after
+a different normalisation; and the open-items note overstated what is proved. The harmonics below the proved threshold
+are split in two. Where the barrier covers the interval, only the end signs are missing. Where it does not, another
+argument is needed. Their constant at σ = 3 is now quoted from the proved threshold (e^417), not the computed one.
+

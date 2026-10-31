@@ -5,7 +5,7 @@ at real sigma != 0 (E2-PILOT.md).  Labels: computed.
   P1 (computed) The radial equation: phi = r^(-3/2) Phi(r_*) Y_l e^(-i sigma t) gives -Phi_** + V_l Phi = sigma^2 Phi,
      V_l = f ((l(l+2) + 3/4)/r^2 + 9 mu/(4 r^4)), f = 1 - mu/r^2; and I_l := int V_l dr_* = (l(l+2) + 3/2)/sqrt(mu).
      Control: 3/4 in place of 9/4 fails.
-  P2 (computed) Lemma E2.1 against numerical solutions (mu = 1; l = 0..6; sigma in {0.3, 0.7, 1.5, 3}): the Wronskian of
+  P2 (computed) Lemmas E2.2-E2.3 against numerical solutions (mu = 1; l = 0..6; sigma in {0.3, 0.7, 1.5, 3}): the Wronskian of
      the horizon solution u_h ~ e^(-i sigma r_*) and the outgoing solution u_inf ~ e^(i sigma r_*) (started from the
      exact outgoing solution sqrt(x) H^(1)_(l+1)(sigma x) of the inverse-square tail at x = 400) is constant with
      |W| >= 2|sigma|; Im(conj(u_h) u_h') = -sigma along x (the flux, to rounding relative to |u_h| |u_h'| where u_h

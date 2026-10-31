@@ -4625,5 +4625,6 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Re(conj(u_h) u_h') >= 0 at the left end of I and Re(conj(u_inf) u_inf') <= 0 at the right end. Proposition E2.5:
   then ||chi_I R_l(sigma) chi_I|| <= 1/min_I (V_l - sigma^2). Corollary E2.6 (mu = 1, I = r in [1.2, 4]): closed-form
   sufficient conditions, monotone in l; l_0 = 14, 19, 50 at sigma = 0.3, 1, 3 (3, 7, 18 by quadrature); bound
-  <= 1/((15/256)(L + 3/4) - sigma^2), about 17/L. Open: l < l_0 (Proposition E2.4's constant), Im sigma -> 0, the
-  record's b-Sobolev norms.
+  <= 1/((15/256)(L + 3/4) - sigma^2), asymptotically 17.07/L. Open: l < l_0, Proposition E2.4's constant (where
+  kappa_I^2 > 0 only the end signs are missing; where kappa_I^2 <= 0 another argument is needed); Im sigma -> 0; the
+  record's b-Sobolev norms. Verifier 165: sound, 7 minor and 6 nits seated (D356).
