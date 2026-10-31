@@ -1,8 +1,8 @@
 # BEYOND5-R0-PROOF -- each Part re-proved with the lowered inner radius r_♭ (Proposition 6.2)
 
 Status: batch 1 written (D368): sections 0-3 (common facts, Parts I and II, III.B); batch 2 written (D369): section 4
-(III.C-III.I3). Batches 3-4 (III.I4-III.K and IV-IV7; V-IX) to follow. Each batch is read by its own verifier.
-Labels as marked; "re-proved" means the Part's argument was re-read at every step that touches the inner region, and
+(III.C-III.I3); batch 3 written (D370): sections 5-6 (III.I4-III.K, Part IV). Batch 4 (V-IX) to follow. Each batch
+is read by its own verifier. Labels as marked; "re-proved" means the Part's argument was re-read at every step that touches the inner region, and
 each such step re-derived with r_♭.
 
 BEYOND5.md Proposition 6.2 was deduced from a census of lines (`checks/r0census5.py`). This note does what the census
@@ -225,6 +225,76 @@ integrations by parts on X produce no boundary term at {|x| = r_0}. That holds a
   spacelike: F2, F3 at r_♭.
 
 *Status:* III.C-III.I3 re-proved at r_♭.
+
+## 5. III.I4 to III.K
+
+**III.I4-III.J‴.** These name no inner radius (III.I16's r_(0,0) is notation; census class OTHER). They work on
+Ω_* := cl_M{t^♭_* ≥ 1} (III.I:31-32) with Part II's spaces, extendible at the inner boundary, and Part II's theorems.
+Both hold at the new radii (section 2). Their loops, levels and windows are fixed by weights at infinity and at K⁺,
+not by the inner radius (III.J‴'s table).
+
+**III.K.**
+
+- *Setting (:23-47).* t_*, t_IVP and Σ_IVP are III.B's at r_♭ (section 3). F = ψ − ψ_IVP vanishes on [r_♭, 5R_1], so
+  t_* ≤ t_IVP as before. R_5, R_6 and the constant C_ψ are at infinity.
+- *Lemma 1.1 (d) (:84-86).* ν_0 := min(¼, r_♭/8). On {|t_IVP| < ν_0}, t_* ≤ t_IVP < ¼, so χ_♮(t_*) = 0, and
+  |t_IVP| < ν_0 ≤ r_♭/8 ≤ r/8 for r ≥ r_♭, so χ_0 = 0. Only the constant moves.
+- *Proposition 1.2 (:96-112).*
+  - R_ν := ½(r_♭ + R), with R ≥ R_3 > 5R_1 > r_♭. ν vanishes on [0, R_ν], so N = {t_IVP ≥ 0} near {r = r_♭}.
+  - The existence of ν uses only 16R_8/64 ≤ (16R_8 − R_ν)/32, which holds as R_8 ≥ max(2r_1, 8, R) ≥ R > R_ν.
+  - {r = r_♭} is an inflow boundary for the backward problem: it is spacelike with dr future timelike (F2, F3), and N
+    lies to its past.
+- *The compact part (:150-188).* 𝒦's boundary pieces are Σ_IVP, {t_IVP = −ν}, Σ_fut,r_1 ∩ {ρ′_I ≥ c}, {ρ′_I = c},
+  {t^♭_* = T̂ + 3} and {r = r_♭}.
+  - All are spacelike with 𝒦 to their past. {r = r_♭} is so by F2, F3, for g_(b_0) and, by continuity, for
+    φ_S^* g_(b_0) + h_S with |S| and the data small.
+  - The record cites II.C Lemma 3.2 (1) for r. At r = r_♭ the fact needed is F2-F3 itself, which holds on the compact
+    {½r_♭ ≤ r ≤ r_h − ε} whatever Part II's radius is.
+  - So 𝒦 is a compact domain of dependence. The quasilinear local theory, II.F Lemma 1.3's uniqueness and Cauchy
+    stability apply as before.
+- *:559.* ν vanishes near {r = r_♭}, as above.
+
+*Status:* III.I4-III.K re-proved at r_♭.
+
+## 6. Part IV
+
+**IV, IV′, IV″, IV‴, IV⁽⁷⁾** (IV-EB, IV2-TAME, IV3-NM, IV4-SLAB, IV7-TFACE). They work on III.C′'s exterior
+Ω_ext,r_0 with its own "r_0 large", on the slab near 𝓘⁺, or at the t-face (census class OTHER, or no radius at all).
+None reaches the inner boundary.
+
+**IV⁗ (IV5-CDMODES).** :186: ψ − T_μ is continuous on [r_♭, ∞) and tends to +∞, with ψ from r_♭ (section 3) and T_μ
+smooth and bounded. :209: the dual space is supported at the inner boundary, a construction for any radius.
+:35-36 is the source's r_0 = r_c (OTHER).
+
+**IV⁽⁵⁾ (IV6-SOLV)**, with r_♯ := r_♭ and r̂ = ¾R_1 unchanged:
+
+- *Coordinates (:26-34).* g^KS_b is defined, smooth, with H_b > 0, on {r ≥ ½r_♭} (F1, which replaces the record's run
+  at ¼R_1). c is 10.14's 1-form, whose inner piece, up to a positive factor, is dt + (v/2) dr on r ≤ r_c/2. It is
+  past timelike for every r > 0 (`cform5.py` C2), so it needs no extension below r_♭.
+- *Definition 0.1.* M^♭ excludes {r < r_♭}, Σ^♯ = {r = r_♭}, and the charts have ρ_sf ∈ [0, r_♭^(−1)]: the
+  construction is the same.
+- *Lemma 0.2 (c)-(d).* The coefficients of g and c are smooth on {r ≥ ½r_♭} and lie in the stated 3b classes. Their
+  behaviour at sf, which the classes see, is unchanged.
+- *Lemma 0.3.*
+  - (a): Lemma 3.3 (e) wherever (c)'s condition holds, which is {r ≥ ½r_♭} by F1.
+  - (b): (a) at β = τ ∈ [0, ½].
+  - (c): at b_0, g^(−1)(dr, dr) = 1 − μ_0/r² ≤ 1 − 16/9 on [½r_♭, ¾R_1] (smaller r makes it more negative), and
+    g^(−1)(dr, dt) = μ_0/r² > 0. Both strict inequalities persist for b ∈ U on the compact set, as in its proof.
+  - (d) is unchanged.
+- *Lemma 0.4* (the fibre algebra) is pointwise: his Lemmas 3.3-3.8 and Corollary 3.6 need only c past timelike at the
+  point, which holds for every r > 0 (C2). The uniform constant comes from compactness of the unit sphere bundle over
+  Ω, now with the inner part {r_♭ ≤ r} included, and continuity in b.
+- *Lemma 0.5 (6)* holds on (0, r_h) (BEYOND5.md, D366). Its conditions (1)-(5) involve the inner radius only through
+  (1), past timelike, which holds for every r > 0 (C2).
+- *Propositions 5.1-5.3, 6.1, 7.1, Theorem 7.3.* Every radius in them is placed relative to r_♯ and r̂:
+  - ε_X ≤ T_0 r_♯/2 and ε_r := (r̂ − r_♯)/10 (:514);
+  - r_1 := r_♯ + (2/10)(r̂ − r_♯) (:648), r_2 := r_♯ + (2.75/10)(r̂ − r_♯) (:670);
+  - χ_(r,j)'s transitions in [r_♯, r̂] (:226-232), and t_1 < ¼T_0 r_♯ (:721).
+  The facts they use near Σ^♯ are Lemma 0.3 (c), Lemma 0.4 and Lemma 0.5 (6), all re-proved above.
+- (IV′′′′′5)-(IV′′′′′6): the extension to Ω̃ with ¾r_♯ uses Lemma 0.3 on {r ≥ ½r_♯} (re-proved) and keeps Proposition
+  5.1 in {r ≥ r_♯}, which (6) now covers anyway.
+
+*Status:* Part IV re-proved at r_♭.
 
 Footnote (reading pattern for section 2): lines of PART-I-*.md and PART-II-*.md matching
 `r_0(?![0-9])|r_\{0\}|\delta_0|r_2(?![0-9])|\partial_\sharp|artificial|inner`, then filtered for R_1, r_h, μ,
