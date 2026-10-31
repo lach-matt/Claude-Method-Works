@@ -6431,3 +6431,11 @@ those of the single-family construction. The new terms, where the two phases mix
 the sum of two different null directions is not null. What remains is the background itself, a solution with two
 dusts, and the energy estimate with two large couplings.
 
+**D377 (2026-10-31): the loss lever examined, and closed as stated.** The suggestion of D365 was that one more
+zero-energy solve might lift the decay order that sets the step of the long chain in the loss count. Reading the record
+again: four solves already serve every order up to five, so the count of solves is not what caps it. The cap is a gap
+condition. A set of exponents that the construction must avoid near 3 contains a point only 2.93 millionths above 3,
+coming from the same constraint-damping root that LD5 found cannot be moved far at any admissible damping. So the
+chain's step is bounded by the same gap as the nested loop, and both levers come down to one: a constraint damping with
+a gap of order one, or a construction that handles that exponent rather than excluding it.
+

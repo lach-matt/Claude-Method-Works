@@ -1,8 +1,9 @@
 # LOSS-D -- the loss d of III.J''' Theorem 4.1, added up as far as the record allows (E1')
 
-Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), LD6 (D365). Read by verifier 164
-(D348), whose three major findings (the structure of d, the scope of LD3, a second nested loop) and its minor findings
-and nits are seated (LD4); section 2b read by verifier 166 (D358), findings seated. LD6 to be read.
+Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), LD6 (D365), LD7 (D377, which
+corrects LD6 (iii)). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of LD3, a
+second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358), findings
+seated. LD6-LD7 to be read.
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J''''s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -245,19 +246,39 @@ loop counts of section 3.
   at most about ten: K > 6.5 × 10⁴, the d this proof produces exceeds 1.3 × 10⁵, and the nested loop runs more than
   5 × 10⁸ rounds. A gap of order one needs a different constraint damping, not a different point of this one.
 
-- LD6 (the β-chain's step is set by the top order, and the top order is a choice; D365). (i) The step bound
-  β_(k+1) − β_k < α − 4 comes from R_q u ∈ 𝒴⁰_2(β) for β < β_k + α − 4 (I15:324, 328-329, Lemma 2.3 with w = β_k − 2).
-  R_q's coefficients, from q, have K⁺-order (α − 2)−, and R_q is of second order, so a level gains α − 4. (ii) The cap
-  α ≤ 4 + ε_K is stated as the order that four zero-energy solves reach: "The source reaches the order α_K = 4+ε_K
-  through zero-energy solves ... The zf-Taylor expansion ... has four terms (orders σ⁰, …, σ³, as α − 1 > 3)"
-  (I12:14-16); "The order α_K = 4+ε_K needs four zero-energy solves" (I12:528-529). No indicial root or resonance is
-  named there as blocking a higher order. (iii) So a lever for LD3 (i), not yet examined: a fifth solve would carry the
-  zf expansion to σ⁴. If that term exists at n = 4, without a log term or a zero-energy obstruction (to be checked: n = 4
+- LD6 (the β-chain's step is set by the top order, and the top order is a choice; D365). (i) The step bound β_(k+1) −
+  β_k < α − 4 comes from R_q u ∈ 𝒴⁰_2(β) for β < β_k + α − 4 (I15:324, 328-329, Lemma 2.3 with w = β_k − 2). R_q's
+  coefficients, from q, have K⁺-order (α − 2)−, and R_q is of second order, so a level gains α − 4. (ii) The cap α ≤ 4 +
+  ε_K is stated as the order that four zero-energy solves reach: "The source reaches the order α_K = 4+ε_K through
+  zero-energy solves ... The zf-Taylor expansion ... has four terms (orders σ⁰, …, σ³, as α − 1 > 3)" (I12:14-16); "The
+  order α_K = 4+ε_K needs four zero-energy solves" (I12:528-529). No indicial root or resonance is named there as
+  blocking a higher order. (iii) [Corrected by LD7: four solves already serve every α ≤ 5, and the cap is the gap
+  condition (G), so this is not the lever.] So a lever for LD3 (i), not yet examined: a fifth solve would carry the zf
+  expansion to σ⁴. If that term exists at n = 4, without a log term or a zero-energy obstruction (to be checked: n = 4
   is even, where logarithms enter the free resolvent's expansion), it would take α towards 5. The step would then be
   about 1 and K about 3, against K > 6.5 × 10⁴ now. The exclusions of ε_K (I11:152-154) would then have to hold on the
-  longer range. The source's one-step route needs, among other conditions, the background's K⁺-order
-  α − 2 − ε ≥ 4 + ε_K (I15:14-16), so α above 6 + ε_K, two orders further. LD3 (ii), the nested level-3 loop, is set
-  by ε_ind and is untouched by this lever (LD5).
+  longer range. The source's one-step route needs, among other conditions, the background's K⁺-order α − 2 − ε ≥ 4 + ε_K
+  (I15:14-16), so α above 6 + ε_K, two orders further. LD3 (ii), the nested level-3 loop, is set by ε_ind and is
+  untouched by this lever (LD5).
+
+- LD7 (the cap on α is the indicial gap, not the number of solves; deduced from the record's text, D377). It corrects
+  LD6 (ii)-(iii).
+  - *Four solves serve every α ≤ 5.* The zf-Taylor expansion of the source needs the orders σ⁰, …, σ^(⌈α−1⌉−1) (I12:16,
+    "orders σ⁰, …, σ³, as α − 1 > 3"). So four terms, and four zero-energy solves, serve every α − 1 ∈ (3, 4]. A fifth
+    would be needed only for α > 5. LD6's "four solves reach 4 + ε_K" reads the record's wording as a cap, which it is
+    not.
+  - *What caps α.* α ≥ 3 is admissible only in (4 + ε_K − ε′_0, 4 + ε_K] (I11 Definition 1.3, :156-158), and ε_K is
+    fixed by (G): no λ ∈ Λ has real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K] (I11:152-154).
+  - *The point of Λ that binds.* Λ contains π_1𝒢 = {2} ∪ (2 + π_1ℰ_ind) (I11 Definition 1.1; 𝒢 at J-PARAM:36). ℰ_ind
+    contains the constraint-damping roots λ^C − 1, the lowest at 1 + 2.93 × 10⁻⁶ at the record's point (F2:133-135). So
+    3 + 2.93 × 10⁻⁶ ∈ Λ, and (G) forces ε_K < 2.93 × 10⁻⁶. At every admissible damping point the bound is below the gap
+    of LD5, 3.1 × 10⁻⁵.
+  - *Consequence.* Within this construction, α − 4 < ε_K is bounded by the same gap as LD3 (ii). LD3 (i)'s
+    K > 2/(α − 4) > 2/ε_K is therefore a gap bound too, and LD6's lever reduces to LD5's: a damping with an indicial gap
+    of order one.
+  - *What is not examined.* A construction in which the cascade treats the point 3 + gap of Λ, as a row or a tf-term,
+    instead of excluding it by (G), would lift the cap. Whether the record's machinery allows that is open. In
+    particular it is open whether (G)'s second interval is needed for any α or only for the window the record chose.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.

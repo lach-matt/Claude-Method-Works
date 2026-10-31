@@ -4653,6 +4653,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   cap alpha <= 4 + eps_K is the order four zero-energy solves reach (I12:14-16, 528-529), no obstruction named. Lever,
   not examined: a fifth solve, if the sigma^4 zf term exists at n = 4 (logs in even n to check), takes alpha towards 5,
   the step to about 1 and K from > 6.5 x 10^4 to about 3. The nested level-3 loop (eps_ind) is untouched.
+- D377 (LOSS-D LD7, deduced from the record's text): the cap alpha <= 4 + eps_K is not the number of solves --
+  four zf-Taylor terms serve every alpha <= 5 (I12:16) -- but I11 Definition 1.3 (G): no point of Lambda in
+  (3, 3 + eps_K], and Lambda contains 2 + E_ind, which has 3 + 2.93e-6 (the damping root lambda^C - 1). So
+  alpha - 4 < eps_K < gap, and LD6's lever reduces to LD5's (a damping with a gap of order one). Open: whether the
+  cascade can treat the point 3 + gap instead of excluding it.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
