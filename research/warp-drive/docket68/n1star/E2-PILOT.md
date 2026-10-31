@@ -1,7 +1,7 @@
 # E2-PILOT -- E2 at one operator: □ on 5D Tangherlini, harmonic by harmonic, with explicit constants
 
-Status: written (D350); section 3b added (D355) and verified (verifier 165, D356); sections 1-3 to be read. Check
-script: `checks/e2pilot5.py` P1-P3 (computed), all pass, every control fails.
+Status: written (D350); section 3b added (D355) and verified (verifier 165, D356); section 3c added (D359); sections
+1-3 and 3c to be read. Check script: `checks/e2pilot5.py` P1-P4 (computed), all pass, every control fails.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
@@ -151,6 +151,28 @@ there the bound rests on the hypotheses as computed by quadrature:
 
 Control: 1/(4κ_I²) falls below the measured norm somewhere.
 
+## 3c. Above the barrier (E2.7, D359)
+
+**Lemma E2.7.** For every l, V_l has one maximum and no other critical point. If σ² > V_max := max V_l, then
+|u_h|² ≤ 2σ²/(σ² − V_max) and |u_∞|² ≤ 2σ²/(σ² − V_max) everywhere. Hence, for an r_*-interval I of length Λ,
+
+    ‖χ_I R_l(σ) χ_I‖ ≤ Λ σ/(σ² − V_max).
+
+*Proof.* With a := L + 3/4, b := 9/4 (μ = 1) and y := 1/r², r³V_l' (in r) is −2a + 4(a − b)y + 6by². That is a convex
+quadratic with a negative value at y = 0, so it changes sign once on (0, 1): V_l rises, then falls.
+- *Where V_l rises,* H = |u'|² + (σ² − V_l)|u|² is non-increasing (Lemma E2.5a), so H(u_h) ≤ 2σ² up to the peak.
+- *Where V_l falls,* G := H/(σ² − V_l) satisfies G' = V_l'|u'|²/(σ² − V_l)² ≤ 0, because H' = −V_l'N and
+  H − (σ² − V_l)N = |u'|².
+- *So* on both sides N ≤ G ≤ 2σ²/(σ² − V_max) for u_h, and the mirror argument gives the same for u_∞.
+- *The kernel* is then |K_l| ≤ |u_h||u_∞|/|W| ≤ σ/(σ² − V_max), since |W| ≥ 2σ, and the Hilbert–Schmidt bound on a
+  square of side Λ follows. ∎
+
+**Computed (P4).** One sign change of V_l' for l ≤ 40. On I (Λ = 3.74), against the numerical kernels: σ = 1, l = 0:
+1.89 ≤ 7.57; σ = 3, l = 0, …, 4: 0.41, 0.42, 0.45, 0.51, 0.67 ≤ 1.32, 1.45, 1.72, 2.35, 4.44. Control: a tenth of the
+bound fails. So above the barrier the constant is polynomial: Proposition E2.4's exp(I_l/(2σ)) is needed only for the
+l with V_max ≥ σ² below l_0(σ). Those are the l whose barrier top lies above σ² without covering I (5 ≤ l < 50 at
+σ = 3, by the proved thresholds).
+
 ## 4. What remains for E2 at this operator
 
 - **Uniformity in l (E2.5): done for real σ on a fixed interval (section 3b, D355).** exp(I_l/(2|σ|)) grows like
@@ -158,7 +180,8 @@ Control: 1/(4κ_I²) falls below the measured norm somewhere.
   factor as the solutions, so E2.4 throws away the kernel's decay off the diagonal. Proposition E2.5 and Corollary E2.6
   replace it, for l ≥ l_0(σ), by 1/((15/256)(L + 3/4) − σ²), asymptotically 17.07/L. They rest on Lemma E2.5a's
   monotone energy and the flux.
-  - *The harmonics l < l_0(σ)* keep Proposition E2.4's constant, which is finite but astronomically large. Below the
+  - *Above the barrier* (σ² > max V_l) Lemma E2.7 gives the polynomial Λσ/(σ² − max V_l) (section 3c, D359).
+  - *The other harmonics l < l_0(σ)* keep Proposition E2.4's constant, which is finite but astronomically large. Below the
     proved l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below the threshold 18 that quadrature
     gives, which is computed, not proved).
   - *Two kinds of l below l_0.*
@@ -192,7 +215,8 @@ Control: 1/(4κ_I²) falls below the measured norm somewhere.
 
 ## 5. Labels and sources
 
-Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, Proposition E2.5, Corollary E2.6);
+Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, Proposition E2.5, Corollary E2.6;
+Lemma E2.7);
 computed (P1: (1.1), (1.2); P2: numerical illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started
 from the exact solution of the inverse-square tail; P3: Corollary E2.6's thresholds, Proposition E2.5's conditions by
 quadrature, and the bound against the numerical kernels).

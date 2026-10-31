@@ -4640,3 +4640,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   3/2. Verifier 166 (D358): forms and d_1 = 0 hold; the strip rule repaired; s_c >= 0 chosen; Cor 3.1 (2) loses l'.
   Remaining: E1'a (numbers for the data and the free choices) and E1'c (the counts).
 
+### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
+
+- E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
+  negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
+  where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
+  harmonics with max V_l >= sigma^2 below l_0 (5 <= l < 50 at sigma = 3).
+

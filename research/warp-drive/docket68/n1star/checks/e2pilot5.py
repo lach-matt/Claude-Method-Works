@@ -14,6 +14,9 @@ at real sigma != 0 (E2-PILOT.md).  Labels: computed.
   P3 (computed) E2.5 on I = r in [1.2, 4]: Corollary E2.6's closed-form conditions, the least l_0 from which they hold
      to l = 400 at sigma = 0.3, 1, 3, and Proposition E2.5's conditions by quadrature; at l = 8, 16, 32 (where they
      hold) the numerical kernel's end signs and ||chi R chi|| <= 1/kappa_I^2.  Control: 1/(4 kappa_I^2) fails somewhere.
+  P4 (computed) E2.7 above the barrier: V_l' changes sign once (l <= 40); where sigma^2 > max V_l (sigma = 1, 3),
+     |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) on I and ||chi R chi|| <= Lambda sigma/(sigma^2 - max V_l).
+     Control: a tenth of the bound fails somewhere.
 Numerical integration (scipy solve_ivp, rtol 1e-11) checks the lemmas; the lemmas are proved in E2-PILOT.md.
 """
 import sys
@@ -186,6 +189,35 @@ def p3():
     return ok, ctl, rep
 
 
+def p4():
+    """E2.7 above the barrier: where sigma^2 > max V_l, ||chi R chi|| <= Lambda sigma/(sigma^2 - max V_l) against the
+    numerical kernel, and the unimodality of V_l (one sign change of V_l') for l <= 40"""
+    ok, ctl, rep = True, False, []
+    rr = np.linspace(1 + 1e-6, 50, 400001)
+    for l in range(41):
+        dV = np.diff(V(rr, l))
+        ok &= int(np.sum(np.diff(np.sign(dV[np.abs(dV) > 1e-300])) != 0)) == 1
+    a, b = rstar(A_), rstar(B_)
+    xs = np.linspace(a, b, 161); h = xs[1] - xs[0]; Lam = b - a
+    for s in (1.0, 3.0):
+        for l in range(0, 9):
+            vmax = V(rr, l).max()
+            if vmax >= s**2: continue
+            Uh, Uph = solve(l, s, -40.0, 400.0, 'h', np.concatenate([xs, [400.0]]))
+            Ui, Upi = solve(l, s, -40.0, 400.0, 'inf', np.concatenate([[-40.0], xs]))
+            Uh, Uph, Ui, Upi = Uh[:-1], Uph[:-1], Ui[1:], Upi[1:]
+            W = (Uh * Upi - Uph * Ui).mean()
+            i, j = np.meshgrid(np.arange(161), np.arange(161), indexing='ij')
+            K = Uh[np.minimum(i, j)] * Ui[np.maximum(i, j)] / W
+            nrm = np.linalg.norm(K * h, 2); bnd = Lam * s / (s**2 - vmax)
+            Nb = 2 * s**2 / (s**2 - vmax)
+            ok &= nrm <= bnd and np.abs(Uh).max()**2 <= Nb * (1 + 1e-8) and np.abs(Ui).max()**2 <= Nb * (1 + 1e-8)
+            ctl |= nrm > bnd / 10
+            rep.append('  sigma %.0f l %d: max V %.3g; ||chi R chi|| %.3g <= %.3g; max|u_h|^2 %.3g, |u_inf|^2 %.3g <= %.3g' % (
+                s, l, vmax, nrm, bnd, np.abs(Uh).max()**2, np.abs(Ui).max()**2, Nb))
+    return ok, ctl, rep
+
+
 def main():
     r1, c1 = p1()
     print('P1 V_l and I_l:', 'PASS' if r1 else 'FAIL', '| control 3/4 for 9/4:', c1)
@@ -196,7 +228,11 @@ def main():
     print('\n'.join(rep))
     print('P3 E2.5 conditions and the bound 1/kappa_I^2:', 'PASS' if r3 else 'FAIL',
           '| control 1/(4 kappa_I^2) fails somewhere:', c3)
-    ok = r1 and not c1 and r2 and c2 and r3 and c3
+    r4, c4, rep4 = p4()
+    print('\n'.join(rep4))
+    print('P4 E2.7 above the barrier, and V_l unimodal (l <= 40):', 'PASS' if r4 else 'FAIL',
+          '| control (bound / 10) fails somewhere:', c4)
+    ok = r1 and not c1 and r2 and c2 and r3 and c3 and r4 and c4
     print('e2pilot5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 

@@ -6293,3 +6293,9 @@ loss of the resonance maps is 30. Three smaller corrections and six nits are sea
 - one corollary's +2 was a double count;
 - the free choices still in the formulas are named.
 
+**D359 (2026-10-31): above the barrier the resolvent is tame.** For each harmonic the potential has a single hump. At
+frequencies above its top, the same monotone energy bounds both outgoing solutions everywhere by 2σ²/(σ² − max V).
+The cut-off resolvent is then at most Λσ/(σ² − max V), polynomial in place of the old exponential: at σ = 3 the
+first five harmonics are now bounded by 1.3 to 4.4 against measured norms of 0.41 to 0.67. The old exponential
+constant remains only for the harmonics whose barrier top lies above σ² without covering the interval.
+
