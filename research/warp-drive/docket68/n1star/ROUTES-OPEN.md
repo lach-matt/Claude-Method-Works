@@ -4785,6 +4785,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   0.23, 0.17, 0.12, 0.49): no convergence in M. Before v = 1.8 the differences grow with M (2.0e-6 -> 9.0e-5 on
   [1.65, 1.8)): at a fixed null grid M degrades the solution. D410's "barely converges" withdrawn as a statement
   about angle. Next: M = 32, 40 at 1600 x 720 (running).
+- D419 (FAMILIES5 4e, checks/stage0h5.py; H2 exact): Stage 0 in section 1's generalised wave gauge. With chi = chi' = 0
+  the only pure harmonics of R^(0) - Ric(g0) are vv (+-2, 0) and uu (0, +-2); the source H = lam (h dv + h' du), whose
+  delta* is F1 h dv^2 + F2 h' du^2 at lam^0 (H1, deduced), meets them algebraically with h_(+-2) = -S_(+-2)/(+-2i)
+  (h_2 = (4i cos 2th - sin^2 2th) H^2 alpha^2/(48 R^3)). Control: h = 0 and the wrong sign fail. Open: Ups - H = 0 at
+  order lam (T8 with the source) and its propagation.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

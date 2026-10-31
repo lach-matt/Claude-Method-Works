@@ -249,6 +249,28 @@ What it does not give:
   phase decomposition along ℓ_out absorbs it, as section 5.2's does along ℓ, is the analytic question that remains.
   The generalised wave gauge removes it.
 
+## 4e. Stage 0 in the generalised wave gauge (D419)
+
+`checks/stage0h5.py` (H1 deduced; H2 and a control computed, exact, sympy; about 10 s) takes section 1's operator
+Ric(g) − δ*_g(Υ(g) − H), with the fixed source H := λ(h(X, s1) dv + h′(X, s2) du), and section 4b's ansatz with
+χ = χ′ = 0.
+
+- *H1.* δ*_g H has no λ⁻¹ part, and its λ⁰ part is ∂_(s1)h dv² + ∂_(s2)h′ du². The fast derivative brings λH to λ⁰,
+  and Γ·H is O(λ). So the source enters Stage 0 only in vv and uu.
+- *H2.* With χ = χ′ = 0, stage0two5's R^(0) − Ric(g0) has, among the pure harmonics, only the vv (±2, 0) and uu (0, ±2)
+  entries S_(±2), S′_(±2). These are the second harmonics that χ's and χ′'s transports met in T5. With
+  h = Σ_± h_(±2) z1^(±2), h_(±2) := −S_(±2)/(±2i), and h′ likewise, every pure harmonic of R^(0) + (δ*H)^(0) − Ric(g0)
+  vanishes.
+  - The second harmonics are met algebraically, with no transport, and h is periodic because S has no mean part.
+  - h_2 = (4i cos 2θ − sin² 2θ) H(θ)² α(v)²/(48 R³).
+  - The mean (T2) and the mixed harmonics (T4) are untouched.
+- *Control.* With h = 0 the vv (2, 0) entry is nonzero, and with h_2 of the wrong sign it doubles.
+
+So section 1's gauge exists at Stage 0, χ = χ′ = 0 is consistent there, and by section 4d's L3 both families' large
+couplings are then killed by their own contractions. Not computed: the gauge condition Υ − H = 0 at order λ (T8 with
+the source), and its propagation. By T8's structure, H's raised form g0^(uv) h enters only the r = u row, which
+ĝ_2's angular trace sets, so it is expected to be solvable; that is not checked.
+
 ## 4c. The two-dust background (D389)
 
 `checks/twodust5.py` B1-B5 (B1-B4 exact, sympy; B5 floating point; selftest about 7 s). With

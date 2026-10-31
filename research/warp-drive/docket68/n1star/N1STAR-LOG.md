@@ -6781,3 +6781,9 @@ time and radius, the failure on the axis does not settle down. Where the solutio
 differences between successive resolutions grow as the angular resolution rises. So at this grid, adding angular
 modes makes things worse rather than better, and the step in the two null directions is what limits the accuracy. The
 earlier reading that the event "barely converges" in angle is withdrawn. Runs refining both together are under way.
+
+**D419 (2026-10-31): the better gauge works at the first stage.** D414 showed that with the gauge proposed for two
+families, the cross-coupling between them disappears. This step checks that the gauge can actually be imposed at the
+first stage of the construction. The second harmonics that the record's gauge handled with an extra wave term are
+absorbed algebraically by the gauge source instead, with an explicit formula, and nothing else at that stage changes.
+The next-order gauge condition and its propagation are not done.
