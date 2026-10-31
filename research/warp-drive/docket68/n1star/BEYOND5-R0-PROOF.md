@@ -2,8 +2,8 @@
 
 Status: batch 1 written (D368): sections 0-3 (common facts, Parts I and II, III.B); batch 2 written (D369): section 4
 (III.C-III.I3); batch 3 written (D370): sections 5-6 (III.I4-III.K, Part IV). Batch 4 (V-IX) to follow. Each batch
-is read by its own verifier. Labels as marked; "re-proved" means the Part's argument was re-read at every step that touches the inner region, and
-each such step re-derived with r_♭.
+is read by its own verifier. Labels as marked; "re-proved" means the Part's argument was re-read at every step that
+touches the inner region, and each such step re-derived with r_♭.
 
 BEYOND5.md Proposition 6.2 was deduced from a census of lines (`checks/r0census5.py`). This note does what the census
 does not: it goes through each Part's proofs and re-derives the steps that use the inner radius or the region next to
