@@ -6,8 +6,9 @@ The background is a general round double-null metric in five dimensions,
 with sig and R arbitrary, so no field equation for g0 is assumed. The metric is g = g0 + lam (W_in + W_out), with
     W_in  = R^2 diag(-2(P1 + P2), 2 c^2 P1, 2 s^2 P2)[a(u,v), s1] + chi dv dv,     s1 = v/lam,
     W_out = R^2 diag(-2(Q1 + Q2), 2 c^2 Q1, 2 s^2 Q2)[b(u,v), s2] + chi' du du,    s2 = u/lam,
-P1 = a H (2 c^2 cos s1 - s^2 sin s1)/3, P2 = a H (2 s^2 sin s1 - c^2 cos s1)/3 (lead5.py's polarisations, with the
-amplitude a(u,v) free), Q the same with b and s2, H = H(th) free, and chi, chi' free second harmonics in s1, s2.
+P1 = a H (2 c^2 cos s1 - s^2 sin s1)/3, P2 = a H (2 s^2 sin s1 - c^2 cos s1)/3 (lead5.py's polarisations), Q the same
+with b and s2, H = H(th) free, and chi, chi' free second harmonics in s1, s2. The amplitudes are taken as
+a = alpha(v) R^(-3/2) and b = beta(u) R^(-3/2), alpha and beta free: the transports that T3 needs (a mutant drops each).
 Ric^H is lead5.py's reduced Ricci tensor in the wave-map gauge relative to g0, Ric - (1/2)(g D^ D + (g D^ D)^T) with
 D = g^ab (Gamma - Gamma0)_ab, expanded in lam with d_v -> d_v + lam^-1 F1 and d_u -> d_u + lam^-1 F2, F_k = d/ds_k.
 The fast variables are carried as z_k = exp(i s_k), F_k = i z_k d/dz_k, so the harmonic (n1, n2) of a coefficient is
@@ -25,6 +26,10 @@ its coefficient of z1^n1 z2^n2. The lam^-1 and lam^0 coefficients are assembled 
      q any function of (u, v, th, s1, s2) and E any of the 15 symmetric basis tensors, adds exactly
      -g0^uv F1 F2 q E = e^(-2 sig) F1 F2 q E to R^(0). Its symbol at (n1, n2) is -e^(-2 sig) n1 n2, which is
      non-zero, so ghat_2 solves every mixed harmonic by division.
+  T5 With alpha = beta = 0, the vv (+-2, 0) harmonics are +-2i e^(-2 sig) R^(-3/2) d_u(R^(3/2) chi_+-2) and the uu
+     (0, +-2) ones +-2i e^(-2 sig) R^(-3/2) d_v(R^(3/2) chi'_+-2): chi and chi' enter only by their transports (L4).
+T1 holds for any W_in(s1) + W_out(s2), as g0^uu = g0^vv = 0, and that the families do not meet in the mean is harmonic
+bookkeeping; both are recorded, not tested against a mutant.
 python3 checks/stage0two5.py [--selftest | --mutants]
 """
 import sys
@@ -34,8 +39,11 @@ import sympy as sp
 
 MUT = set()
 MUTANTS = {"no_transport": "a = alpha(v) without R^(-3/2): T3 fails",
+           "out_no_transport": "b = beta(u) without R^(-3/2): T3 fails",
            "not_reduced": "Ric in place of Ric^H (the gauge term dropped): T3 fails",
-           "in_phase": "the two polarisations of family in in phase: its mean stress is not round (T2)"}
+           "in_phase": "the two polarisations of family in in phase: its mean stress is not round (T2)",
+           "chi_dvdu": "chi placed on dv du in place of dv dv: T3 or T5 fails",
+           "principal_no_gauge": "the principal part without the gauge term: T4 fails"}
 
 u, v, th, p1, p2 = sp.symbols("u v theta phi1 phi2", real=True)
 z1, z2 = sp.symbols("z1 z2")
@@ -91,13 +99,18 @@ def tt(amp, z, in_phase=False):
 
 def amplitudes():
     a = alpha if "no_transport" in MUT else alpha*Rf**sp.Rational(-3, 2)
-    return a, beta*Rf**sp.Rational(-3, 2)
+    b = beta if "out_no_transport" in MUT else beta*Rf**sp.Rational(-3, 2)
+    return a, b
 
 
 def waves():
     a, b = amplitudes()
     W = tt(a, z1, "in_phase" in MUT) + tt(b, z2)
-    W[1, 1] += xi2*z1**2 + xi2b/z1**2
+    if "chi_dvdu" in MUT:
+        W[0, 1] += xi2*z1**2 + xi2b/z1**2
+        W[1, 0] += xi2*z1**2 + xi2b/z1**2
+    else:
+        W[1, 1] += xi2*z1**2 + xi2b/z1**2
     W[0, 0] += et2*z2**2 + et2b/z2**2
     return W
 
@@ -163,7 +176,8 @@ def principal(Q):
     for b in range(N):
         for c in range(b, N):
             e = sum(fast(G1[a][b][c], a) - fast(G1[a][b][a], c) for a in range(N))
-            e -= sum(g0[b, r]*fast(D1[r], c) + g0[c, r]*fast(D1[r], b) for r in range(N))/2
+            if "principal_no_gauge" not in MUT:
+                e -= sum(g0[b, r]*fast(D1[r], c) + g0[c, r]*fast(D1[r], b) for r in range(N))/2
             out[(b, c)] = ex(e)
     return out
 
@@ -239,6 +253,17 @@ def run(verbose=True):
                     if verbose:
                         print("  T4: E = %s%s, component %s%s" % (NAMES[i], NAMES[j], NAMES[k[0]], NAMES[k[1]]))
     ok["T4"] = t4a and t4b
+    t5 = True
+    for k, n, chi_, d in (((1, 1), (2, 0), xi2, u), ((1, 1), (-2, 0), xi2b, u), ((0, 0), (0, 2), et2, v),
+                          ((0, 0), (0, -2), et2b, v)):
+        sgn = 1 if sum(n) > 0 else -1
+        cf = harmonics(out[k][1]).get(n, 0).subs({alpha: 0, beta: 0}).doit()
+        expect = sgn*2*sp.I*sp.exp(-2*sig)*Rf**sp.Rational(-3, 2)*sp.diff(Rf**sp.Rational(3, 2)*chi_, d)
+        if not zero(cf - expect):
+            t5 = False
+            if verbose:
+                print("  T5: %s%s %s" % (NAMES[k[0]], NAMES[k[1]], n))
+    ok["T5"] = t5
     if verbose:
         print("  (%.0fs)" % (time.time() - t0), flush=True)
     return ok

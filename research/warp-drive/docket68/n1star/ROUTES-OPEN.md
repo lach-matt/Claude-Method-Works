@@ -4658,6 +4658,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (3, 3 + eps_K], and Lambda contains 2 + E_ind, which has 3 + 2.93e-6 (the damping root lambda^C - 1). So
   alpha - 4 < eps_K < gap, and LD6's lever reduces to LD5's (a damping with a gap of order one). Open: whether the
   cascade can treat the point 3 + gap instead of excluding it.
+- D380 (verifier 174): LD7 repaired. The cap is I10 (1.1) eps_K < eps_+ < min(delta_sharp, eps_ind) with level 3's
+  eta_2 < eps_+ (I12:58, 349-350, 531-532), not (G); D377's 'lambda^C - 1 in E_ind' (so 3 + gap in Lambda) is withdrawn
+  (E_ind in Lambda comes from Box^Upsilon). The four-term Taylor count is not the cap. Open: lifting needs (1.1), eta_2,
+  delta_sharp and (G) relaxed together (I11:127, 434-438).
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
@@ -4736,4 +4740,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   harmonics are lead5's per family under the R^(-3/2) transports; the mixed harmonics are present and ghat_2 solves
   them by division (symbol -e^(-2 sigma) n1 n2). Open: the two-dust background in the class; later stages; the
   energy estimate with two couplings.
+- D380 (verifier 174): stage0two5 sound (order-by-order assembly equals lead5's truncation, 15/15). T5 asserts the chi
+  transports; mutants now 6 (both transports, chi on dv du, principal part without gauge). T1 and the no-interaction
+  of the mean are automatic; the Isaacson law is an input; gauge condition (L5 analogue) and H not derived: listed.
 

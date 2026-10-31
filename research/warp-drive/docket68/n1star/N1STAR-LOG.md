@@ -6453,3 +6453,12 @@ reference frequency, for every harmonic from l = 1 and every real frequency, sta
 zero. It is coarser than the computed norms but finite and explicit; the positivity it needs is checked on a grid, not
 yet certified. The lowest harmonic, l = 0, is not covered by this multiplier.
 
+**D380 (2026-10-31): verifier 174 seated; the loss lever's account corrected.** The two-phase computation stands:
+the verifier rebuilt it by a slower route and found every component equal. Its tests now also assert how the second
+harmonics enter, and three more deliberate errors are each caught. The write-up says plainly which statements are
+automatic and which inputs were chosen. The account of the loss lever (D377) reached the right number by a wrong
+route: it placed a damping root in a set of exponents where the record does not put it. Corrected from the record's
+text, the cap on the chain's step is a parameter of the construction that the record itself ties to the same
+constraint-damping gap, and the cascade's third level is tied to it as well. The conclusion is unchanged: both long
+loops come down to the damping gap. The wrong step is withdrawn and recorded as such.
+

@@ -1,8 +1,8 @@
 # FAMILIES5 -- more matter families: several null dusts, angular separation, Vlasov
 
 Status: scoping note (D361). Read by verifier 167 (D362), findings seated. Section 1's two deductions on the cross
-coupling added (D363-D364). Section 4's first step computed (D376, section 4b: `checks/stage0two5.py`). Nothing
-proved beyond Stage 0.
+coupling added (D363-D364). Section 4's first step computed (D376, section 4b: `checks/stage0two5.py`; read by verifier
+174, D380). Nothing proved beyond Stage 0.
 
 The paper's open item "more families" (RESPONSE-HL-5D.md section 9): "Several dusts, angular separation, and the passage
 to Vlasov matter are not attempted." This note sets out what each would need, given what the record's proof uses of
@@ -115,41 +115,46 @@ does for one phase:
 The analytic step after that is the energy estimate with two large couplings and their cross terms (section 1), as in
 [Tou24].
 
-## 4b. Stage 0 with two phases, computed (D376)
+## 4b. Stage 0 with two phases, computed (D376, D380)
 
-`checks/stage0two5.py` (computed, exact, sympy; selftest T1-T4 pass in about 5 s, and its three mutants are caught)
-runs Stage 0 on a general round double-null background,
+`checks/stage0two5.py` (computed, exact, sympy; selftest T1-T5 pass in about 5 s, and its six mutants are caught; read
+by verifier 174, D380) runs Stage 0 on a general round double-null background,
 
     g0 = −2 e^(2σ(u,v)) du dv + R(u,v)² (dθ² + cos²θ dφ1² + sin²θ dφ2²),
 
 with σ and R arbitrary, so no field equation for g0 is assumed. The ansatz is g = g0 + λ(W_in + W_out), each family in
-`lead5.py`'s form: the transverse-traceless wave of the S³ angles with amplitude a(u, v) H(θ) and phase s1 = v/λ (resp.
-b(u, v) and s2 = u/λ), plus a free second-harmonic term χ dv² (resp. χ′ du²). The fast variables are carried as
-exp(i s_k), so each harmonic (n1, n2) is read off as a coefficient. The reduced Ricci tensor is `lead5.py`'s, in the
-wave-map gauge relative to g0.
+`lead5.py`'s form: the transverse-traceless wave of the S³ angles with amplitude α(v) R^(−3/2) H(θ) and phase
+s1 = v/λ (resp. β(u) R^(−3/2) H(θ) and s2 = u/λ), plus a free second-harmonic term χ dv² (resp. χ′ du²). The fast
+variables are carried as exp(i s_k), so each harmonic (n1, n2) is read off as a coefficient. The reduced Ricci tensor is
+`lead5.py`'s, in the wave-map gauge relative to g0; verifier 174 checked the order-by-order assembly against
+`lead5.py`'s truncation in all 15 components.
 
-- (a) **T1:** R^(−1) = 0 in every component.
+- (a) **T1:** R^(−1) = 0 in every component. This holds for any W_in(s1) + W_out(s2), since g0^(uu) = g0^(vv) = 0; it
+  is recorded, not tested against a mutant.
 - (b) **T2:** the (0, 0) harmonic of R^(0) is Ric(g0) − K_in dv² − K_out du², with no other component and no term
-  coupling the two families. With a = α(v) R^(−3/2) and b = β(u) R^(−3/2),
-  K_in = (cos⁴θ + sin⁴θ) H² α²/(3R³) and K_out the same with β; with the record's H, K_in R³ = α²/3 and
-  K_out R³ = β²/3. So the averaged equation is Einstein with two round null dusts, ingoing and outgoing. Each dust's
-  energy obeys its own Isaacson law: K_in R³ is constant along ∂_u, which spans ℓ_in = g0^(−1) dv, and K_out R³ is
-  constant along ∂_v. At this order the dusts couple only through g0.
-- (d) **T3:** with these amplitudes, the harmonics (n, 0), n ≠ 0, vanish except in vv at n = ±2, and (0, n) except in
-  uu at n = ±2. The transverse-traceless components vanish exactly under the transport R^(−3/2) along ∂_u (resp.
-  ∂_v); the mutant without it is caught. Writing χ = χ_2 e^(2i s1) + c.c., χ enters the vv (2, 0) harmonic only as
-  2i e^(−2σ) R^(−3/2) ∂_u(R^(3/2) χ_2) (printed by the instrument), its transport along ℓ_in: `lead5.py`'s L4, family
-  by family. So each family's second harmonic is met as
-  for one phase, or removed by section 1's generalised wave gauge.
+  coupling the two families. That the families do not meet in the mean is harmonic bookkeeping: their product terms
+  carry e^(±i s1 ± i s2) only. K_in = (cos⁴θ + sin⁴θ) H² α²/(3R³) and K_out the same with β; with the record's H,
+  K_in R³ = α²/3 and K_out R³ = β²/3. So the averaged equation is Einstein with two round null dusts, ingoing and
+  outgoing, coupled only through g0. Each dust's energy is transported along its own direction (K_in R³ constant along
+  ∂_u, which spans ℓ_in = g0^(−1) dv; K_out R³ along ∂_v). That Isaacson law is the input chosen so that T3 holds,
+  as for one phase, not an output of T2.
 - (c) **T4:** the mixed harmonics (n1, n2), n1 n2 ≠ 0, of R^(0) are present: the cross terms do not vanish. A term
   λ² q E in g, for each of the 15 symmetric basis tensors E and any q(u, v, θ, s1, s2), adds exactly
   −g0^(uv) ∂_(s1) ∂_(s2) q E = e^(−2σ) ∂_(s1) ∂_(s2) q E to R^(0). Its symbol at (n1, n2) is −e^(−2σ) n1 n2 ≠ 0, so
-  ĝ_2 solves every mixed harmonic by division, with no transport.
+  ĝ_2 solves every mixed harmonic by division, with no transport. The mutant without the gauge term is caught.
+- (d) **T3, T5:** with these amplitudes, the harmonics (n, 0), n ≠ 0, vanish except in vv at n = ±2, and (0, n) except in
+  uu at n = ±2; the mutants without either transport are caught. Writing χ = χ_2 e^(2i s1) + χ_(−2) e^(−2i s1), χ
+  enters the vv (±2, 0) harmonics only as ±2i e^(−2σ) R^(−3/2) ∂_u(R^(3/2) χ_(±2)), its transport along ℓ_in, and χ′
+  likewise along ∂_v (T5; the mutant with χ on dv du is caught). So each family's second harmonic is met as for one
+  phase (`lead5.py`'s L4), or removed by section 1's generalised wave gauge.
 
 So Stage 0 of the two-phase ansatz closes on any round double-null background whose Ricci tensor is the two dusts'
 stress. What it does not give:
 
 - the background itself, a solution of Einstein-two-null-dusts in the class (a characteristic problem, not attempted);
+- the gauge condition: `lead5.py`'s L5 (W(ℓ, ·) = 0, tr W = 0) has no two-phase analogue here, and ĝ_2's own gauge
+  condition at order λ is not checked;
+- the profile H: it is imposed, the record's, not derived for the outgoing family;
 - the next stages (ĝ_2's own transport at order λ, and the mixed terms it feeds back);
 - the energy estimate with the two large couplings of section 1.
 

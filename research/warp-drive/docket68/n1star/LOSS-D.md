@@ -1,9 +1,9 @@
 # LOSS-D -- the loss d of III.J''' Theorem 4.1, added up as far as the record allows (E1')
 
-Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), LD6 (D365), LD7 (D377, which
-corrects LD6 (iii)). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of LD3, a
-second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358), findings
-seated. LD6-LD7 to be read.
+Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), LD6 (D365), LD7 (D377, which corrects LD6
+(ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
+LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
+findings seated. LD6-LD7 to be read.
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J''''s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -61,8 +61,8 @@ bounds the d that this proof produces: Lemma 1.2's rules are upper bounds, so th
 **Not in closed form.** Six losses are fixed by their proofs only as a sum of losses met, by citation, or with a
 part that depends on s without a formula:
 
-1. III.A Proposition 4.2 (1)'s l (PART-III-A-PREREQ.md:571; proof 649-704): a recursion over the index set, l' := l −
-   |E_(I,≤)| − l_0, l_0 the loss with E_I = ∅, and "l the sum of the losses met".
+1. III.A Proposition 4.2 (1)'s l (PART-III-A-PREREQ.md:571; proof 649-704): a recursion over the index set, l' := l
+   − |E_(I,≤)| − l_0, l_0 the loss with E_I = ∅, and "l the sum of the losses met".
 2. II.G' Corollary 4.2 (1)-(2)'s ℓ (II.G2:673): "there is ℓ ∈ N_0, depending only on P̂"; no ℓ in the proof's lines read.
 3. III.G''' Proposition 3.7's l (G4:372-388): Lemma 3.5's loss, no formula.
 4. III.G''' Corollary 3.1's loss (G4:272-290): not located.
@@ -249,36 +249,41 @@ loop counts of section 3.
 - LD6 (the β-chain's step is set by the top order, and the top order is a choice; D365). (i) The step bound β_(k+1) −
   β_k < α − 4 comes from R_q u ∈ 𝒴⁰_2(β) for β < β_k + α − 4 (I15:324, 328-329, Lemma 2.3 with w = β_k − 2). R_q's
   coefficients, from q, have K⁺-order (α − 2)−, and R_q is of second order, so a level gains α − 4. (ii) The cap α ≤ 4 +
-  ε_K is stated as the order that four zero-energy solves reach: "The source reaches the order α_K = 4+ε_K through
-  zero-energy solves ... The zf-Taylor expansion ... has four terms (orders σ⁰, …, σ³, as α − 1 > 3)" (I12:14-16); "The
-  order α_K = 4+ε_K needs four zero-energy solves" (I12:528-529). No indicial root or resonance is named there as
-  blocking a higher order. (iii) [Corrected by LD7: four solves already serve every α ≤ 5, and the cap is the gap
-  condition (G), so this is not the lever.] So a lever for LD3 (i), not yet examined: a fifth solve would carry the zf
-  expansion to σ⁴. If that term exists at n = 4, without a log term or a zero-energy obstruction (to be checked: n = 4
-  is even, where logarithms enter the free resolvent's expansion), it would take α towards 5. The step would then be
-  about 1 and K about 3, against K > 6.5 × 10⁴ now. The exclusions of ε_K (I11:152-154) would then have to hold on the
-  longer range. The source's one-step route needs, among other conditions, the background's K⁺-order α − 2 − ε ≥ 4 + ε_K
-  (I15:14-16), so α above 6 + ε_K, two orders further. LD3 (ii), the nested level-3 loop, is set by ε_ind and is
-  untouched by this lever (LD5).
+  ε_K is stated as the order that four zero-energy solves reach [LD7: the count is not the cap]: "The source reaches the
+  order α_K = 4+ε_K through zero-energy solves ... The zf-Taylor expansion ... has four terms (orders σ⁰, …, σ³, as α −
+  1 > 3)" (I12:14-16); "The order α_K = 4+ε_K needs four zero-energy solves" (I12:528-529). No indicial root or
+  resonance is named there as blocking a higher order. (iii) [Corrected by LD7: four solves already serve every α ≤ 5,
+  and the cap is the gap condition (G), so this is not the lever.] So a lever for LD3 (i), not yet examined: a fifth
+  solve would carry the zf expansion to σ⁴. If that term exists at n = 4, without a log term or a zero-energy
+  obstruction (to be checked: n = 4 is even, where logarithms enter the free resolvent's expansion), it would take α
+  towards 5. The step would then be about 1 and K about 3, against K > 6.5 × 10⁴ now. The exclusions of ε_K
+  (I11:152-154) would then have to hold on the longer range. The source's one-step route needs, among other conditions,
+  the background's K⁺-order α − 2 − ε ≥ 4 + ε_K (I15:14-16), so α above 6 + ε_K, two orders further. LD3 (ii), the
+  nested level-3 loop, is set by ε_ind and is untouched by this lever (LD5).
 
-- LD7 (the cap on α is the indicial gap, not the number of solves; deduced from the record's text, D377). It corrects
-  LD6 (ii)-(iii).
-  - *Four solves serve every α ≤ 5.* The zf-Taylor expansion of the source needs the orders σ⁰, …, σ^(⌈α−1⌉−1) (I12:16,
-    "orders σ⁰, …, σ³, as α − 1 > 3"). So four terms, and four zero-energy solves, serve every α − 1 ∈ (3, 4]. A fifth
-    would be needed only for α > 5. LD6's "four solves reach 4 + ε_K" reads the record's wording as a cap, which it is
-    not.
-  - *What caps α.* α ≥ 3 is admissible only in (4 + ε_K − ε′_0, 4 + ε_K] (I11 Definition 1.3, :156-158), and ε_K is
-    fixed by (G): no λ ∈ Λ has real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K] (I11:152-154).
-  - *The point of Λ that binds.* Λ contains π_1𝒢 = {2} ∪ (2 + π_1ℰ_ind) (I11 Definition 1.1; 𝒢 at J-PARAM:36). ℰ_ind
-    contains the constraint-damping roots λ^C − 1, the lowest at 1 + 2.93 × 10⁻⁶ at the record's point (F2:133-135). So
-    3 + 2.93 × 10⁻⁶ ∈ Λ, and (G) forces ε_K < 2.93 × 10⁻⁶. At every admissible damping point the bound is below the gap
-    of LD5, 3.1 × 10⁻⁵.
-  - *Consequence.* Within this construction, α − 4 < ε_K is bounded by the same gap as LD3 (ii). LD3 (i)'s
-    K > 2/(α − 4) > 2/ε_K is therefore a gap bound too, and LD6's lever reduces to LD5's: a damping with an indicial gap
-    of order one.
-  - *What is not examined.* A construction in which the cascade treats the point 3 + gap of Λ, as a row or a tf-term,
-    instead of excluding it by (G), would lift the cap. Whether the record's machinery allows that is open. In
-    particular it is open whether (G)'s second interval is needed for any α or only for the window the record chose.
+- LD7 (the cap on α is ε_+, not the number of solves; deduced from the record's text, D377, repaired D380 after
+  verifier 174). It corrects LD6 (ii)-(iii).
+  - *The Taylor count is not the cap.* The zf-Taylor expansion of the source needs the orders σ⁰, …,
+    σ^(⌈α−1⌉−1) (I12:16, "orders σ⁰, …, σ³, as α − 1 > 3"), so four terms cover every α − 1 ≤ 4. LD6 (ii) read the
+    record's "four solves reach 4 + ε_K" as a cap set by the count, and LD6 (iii)'s fifth solve addresses only the
+    count.
+  - *What ties α − 4 to ε_+ with four solves.* Level 3's conormal outputs lie above α − 2 because η_2 exceeds α − 4:
+    their K⁺-weight is at least 2 + η_2 − 2ε (I12:349-350, 531-532), with η_1, η_2 chosen in (ε_K, ε_+) (I12:58). And
+    the ι⁺ data stop at 3 + ε_+ (w_+ = 5 + ε_+, I10:47; I11:104-106). So the record keeps α − 4 ≤ ε_K < η_2 < ε_+.
+  - *What caps ε_+.* 0 < ε_K < ε_+ < min(δ_♯, ε_ind) (I10:47 (1.1), J-PARAM:34), the ground LD3 already uses. With
+    F2's ε_ind < 2.93 × 10⁻⁶ at the record's point (F2 (2.2), :133-136), α − 4 ≤ ε_K < 2.93 × 10⁻⁶, and below LD5's
+    3.1 × 10⁻⁵ at every admissible damping point. I11 Definition 1.3's (G) is a further constraint on ε_K; at the
+    record's point it is not the binding one. (The record reads ε_ind in more than one way: VI4-PARAMS:38 as
+    min Re ℰ^ι_ind, I11:38 as III.G⁗ Proposition 5.1's, which G5:122 ties to F′ (2.2).)
+  - *Withdrawn.* D377 put the damping root λ^C − 1 into ℰ_ind, and so 3 + 2.93 × 10⁻⁶ into Λ. Nothing in the record
+    says so. The ℰ_ind inside Λ is built from expansions of the gauge-potential operator □^Υ(0) (I8:35-36, I9:32-33,
+    I10:38-40, I5:190; D3:33-48), whose indicial roots are not near 1 (verifier 174's B1).
+  - *Consequence.* The β-chain's step α − 4 is bounded by ε_+, hence by F2's ε_ind: the constraint-damping gap of
+    LD3 (ii) and LD5. A fifth solve does not touch it.
+  - *Open.* Lifting the cap would need all of the following relaxed: (1.1)'s ε_+ < min(δ_♯, ε_ind); the choice
+    η_2 < ε_+; δ_♯, since 2λ_♯ = 3 + 2δ_♯ > 3 + ε_+ (I11:127); and (G), whose purpose is that the remainder
+    2 + ε_K is reached with 𝒩's rows alone (I11:434-438). Whether the cascade can run with ε_+ of order one while
+    ε_ind stays small is not examined.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.
