@@ -6462,3 +6462,10 @@ text, the cap on the chain's step is a parameter of the construction that the re
 constraint-damping gap, and the cascade's third level is tied to it as well. The conclusion is unchanged: both long
 loops come down to the damping gap. The wrong step is withdrawn and recorded as such.
 
+**D381 (2026-10-31): why the first seed's run stops converging at an axis.** The double-null code carries the angle
+in a gauge where it is dragged along the ingoing light rays. Integrating that drag on the saved runs shows that, inside
+the horizon, rays at a fixed geometric angle are pressed into the axis by a factor e⁻⁵ just where the two angular
+resolutions first disagree, and by e⁻¹³ shortly after: the structure the wave carries is squeezed inside the first grid
+node. So that failure is at least largely the coordinate's, and the remedy is a different shift condition, not more
+resolution. The second seed's failure, at the other axis, shows no such drag and remains open.
+

@@ -4627,6 +4627,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   at x = -1 inside the horizon (d > 1e-4 at u = -0.964, v = 1.650), where x_K = 0.81: inside 𝒟_q, so not removed by
   the curvature cut. Second seed: converges to v ~ 3-3.5, then n steepens at x = +1. Open: an axis treatment or a
   mapped grid at the axes (CERTIFY-10L5.md section 6b).
+- D381 (checks/axisdrift5.py, computed on the saved runs): the shift drags the angle along the ingoing generators,
+  d ln(1+x)/du = 2 s(-1). At lambda = 1 the drag at x = -1 is e^-5.0 at the onset v = 1.65 (first node at e^-6.15, M = 24)
+  and e^-13 by v = 1.8, inside the horizon (R ~ 0.52): the x = -1 non-convergence is largely the gauge's. Next: the shift
+  on dv, or a moving map at x = -1. At the second seed the x = +1 failure has drag < e^0.02: not this, still open.
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 

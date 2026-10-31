@@ -252,15 +252,29 @@ No other component is nonzero. So the scheme is the following.
   (on [2.5, 3), d(M16, M24) is 1.3 × 10⁻³ in m and 1.1 × 10⁻² in n). Beyond that n steepens at the axis x = +1 near
   R ≈ 0.93-1.0, where x_K ≤ 0.025, and the Chebyshev tail rises from 5.8 × 10⁻⁶ to 5.6 × 10⁻³.
 
+- *The shift's drag at the axes (D381; `checks/axisdrift5.py` on the saved runs, computed).* The angle enters the metric
+  as dx − (1 − x²)s du. So along an ingoing null generator orthogonal to the orbits, the curves that carry the ingoing
+  wave, x moves by dx/du = (1 − x²)s: ln(1 + x) changes at the rate 2s(x = −1) near x = −1, and ln(1 − x) at −2s(x = +1)
+  near x = +1. Integrated in u from the first cone, at the node next to each axis:
+  - *λ = 1, x = −1.* A fixed geometric angle near the axis has been pressed toward it by e^(−1.2) at v = 1.5, e^(−3.2)
+    at 1.6, e^(−5.0) at 1.65, e^(−8.1) at 1.7 and e^(−13) at 1.8, the strongest in each column at R ≈ 0.52 inside the
+    horizon (u ≈ −0.95 to −0.97). The first Chebyshev node is at ln(1 + x) = −6.15 (M = 24) and −6.7 (M = 32). So the
+    disagreement's onset (v = 1.65, u = −0.964, where the drag is e^(−1.7) and e^(−5.0) one row inward) is where the
+    ingoing wave's angular structure is pressed inside the first node. The shift there is −60 to −1600. This is a
+    property of the coordinate, so the non-convergence at x = −1 is at least in large part the gauge's: the shift
+    condition drags the angle into the axis faster than any fixed grid resolves.
+  - *λ = 0.3162, x = +1.* At the failure (v ≈ 3.3, R ≈ 0.93-1.0) the drag is below e^(0.02) everywhere in the column.
+    So the second seed's steepening is not this effect, and stays open.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
   the computed solution is a converged approximation on 𝒟_q up to v ≈ 1.65 of 4.5, in (u, v) and in angle; at the
   second seed, to v ≈ 3-3.5. Beyond, it fails to converge at an axis while x_K < 1: at x = −1 inside the horizon for
   λ = 1 (D354), and at x = +1 for the second seed. G1 is not yet answered to the end of the domain.
 
-- *Next.* Decide whether the steepening at the axes is the solution's. Options: an axis treatment that does not divide
-  by 1 − x² (a basis built on the regular combinations' parity), or angular refinement concentrated at the axes (a
-  mapped Chebyshev grid). Rounding is excluded (D354), and so is the curvature cut. Then F3 (the certified linear
-  constant) on the converged part.
+- *Next.* At λ = 1, remove the drag: an angle carried along the ingoing generators (the shift moved to dv), or a moving
+  map near x = −1 that follows ln(1 + x) − 2∫s du; then rerun the M = 24 and 32 comparison. At the second seed, decide
+  whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann scalar along the axis) or by
+  angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is excluded (D354), and so is the
+  curvature cut. Then F3 (the certified linear constant) on the converged part.
 
 ## 7. Sources
 
