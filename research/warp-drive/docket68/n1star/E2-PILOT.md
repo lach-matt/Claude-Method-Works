@@ -525,6 +525,16 @@ increases with |σ|.
   sharpest the formulas give.
 - The constant stays finite as σ → 0⁺. H5 gives C(σ) ≤ 528.3, 557.6, 599.5, 714.6 and 808.6 at σ = 0.01, 0.5, 1, 2
   and 3.
+- *Without the weight (D431; `checks/e2h1_5.py` H6, exact).* On the band the photon sphere costs only the constant.
+  For l ≥ l_0(σ), the least l at which Corollary E2.6's (i)-(iii) hold, its closed form bounds B_l and lies below B_6;
+  below l_0 the certified B_l(3) (l ≤ 5) and B_6(σ) serve. Summed over the harmonics,
+      ‖∂_(r_*) u‖²_I + Σ_l l(l + 2) ‖u_l‖²_I ≤ max_l (X_l² + l(l + 2) B_l²) ‖f‖²,
+  and over l ≥ l_0 the maximum is at l_0, both terms decreasing in L there. H6 gives l_0 = 12, 16, 19, 33 and 50 and
+  the constant 528.3, 557.6, 599.5, 714.6 and 986.4 at σ = 0.01, 0.5, 1, 2 and 3, the same as with ψ for σ ≤ 2 and
+  set at σ = 3 by l = 49, the last harmonic below l_0. It increases with σ (B_6, l_0 and E2.6's bound all do), so the
+  unweighted H¹ constant on I is at most 986.4 for real 0 < |σ| ≤ 3. Control: with B_6 alone, l(l + 2) B_6² grows
+  without bound (3.8 × 10⁶ at l = 100, 5.9 × 10⁷ at l = 400).
+  - Labels: H6 computed (exact, outward rounded; E2.6's conditions at 40 digits), the band deduced as for E2.12.
 - Off the axis Lemma E2.10's form holds with 4|σ| + 2 max q in place of 2|σ|, and is increasing in the same way.
 - This is uniformity on a compact band, as the record's Proposition 6.2 needs, but in the cut-off H¹ norm only, not in
   the record's norms (section 4).
@@ -536,7 +546,7 @@ which are orthogonal on S³, that is a bound for ‖∂_(r_*) u‖ and the angul
 What it does not give:
 
 - the angular derivative without the weight: ψ vanishes at the photon sphere, where trapping costs any estimate
-  uniform in σ a loss (E4);
+  uniform in σ a loss (E4) [on the band 0 < |σ| ≤ 3 it costs only the constant, 986.4 against 808.6: D431];
 - good constants: X_l is dominated by 1/m′, as B_l is (section 3e);
 - the record's norms beyond H¹ on I: the variable-order b-Sobolev spaces near the horizon and at infinity (E2-E4).
 

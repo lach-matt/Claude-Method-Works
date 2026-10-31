@@ -464,7 +464,7 @@ No other component is nonzero. So the scheme is the following.
     runs and cancel in their differences. Whether the null step cures it is the running test ("the null step, not M,
     sets the error", D399, withdrawn D429). D410's
     "barely converges" (M16-M32) is withdrawn as a statement about angle.
-  - The test is joint refinement: M = 32 and 40 at 1600 × 720 (running).
+  - The test is joint refinement: M = 32 and 40 at 1600 × 720, run in D432 (below).
 - *The metric's values at the event, and its axis derivative (D420, corrected D429;
   `checks/g1axis5.py --nodes`, computed).*
   - m enters the metric only through the regular combinations P = (2(1 + x)m − (1 − x)n)/3 and Q (g1geom5.fields).
@@ -489,6 +489,23 @@ No other component is nonzero. So the scheme is the following.
     axis, and plain m(−1) moves by 0.24 from M48 to M56, so the axis treatment matters there. The axis curvature, which
     needs second derivatives, is the invariant to compare
     next.
+- *Joint refinement in the metric's values (D432; `checks/g1axis5.py --refine`, computed).* M = 32 and 40 at
+  800 × 360 and at 1600 × 720 (the fine runs 3731 s and 4511 s), compared through P on the 186,869 coarse cells all four
+  keep. Band maxima of |ΔP| over areal radius ≥ 1.0, on the v-bands [0.5, 1), [1, 1.5), [1.5, 1.65), [1.65, 1.8):
+  - halving the null step at fixed M: 2.1 × 10⁻⁶, 1.8 × 10⁻⁵, 2.6 × 10⁻⁵ and 3.8 × 10⁻⁵, the same at M32 and M40;
+  - M from 32 to 40 at fixed (u, v): 5.8 × 10⁻¹⁰, 1.3 × 10⁻⁹, 1.7 × 10⁻⁹ and 2.5 × 10⁻⁹ (8.4 × 10⁻¹⁰ to 3.4 × 10⁻⁹
+    on the fine grid).
+  - So before v = 1.8 the null step sets the error in the metric's values: its differences are 10³-10⁴ times the
+    angular ones and do not depend on M. D418's growth with M was measured in m, which near the axis is a derivative
+    (D420); in P the M32-40 difference there is 10⁻⁹.
+  - On [1.8, 2) the null-step differences are 3.8 × 10⁻⁴ (M32) and 4.1 × 10⁻⁴ (M40), and the M differences 3.0 × 10⁻³
+    and 3.2 × 10⁻³ (coarse and fine): there the error is angular, and halving the null step leaves it unchanged. Over
+    areal radius ≥ 1.2 the M differences there fall to 1.5 × 10⁻⁸ and 1.1 × 10⁻⁸, so it is confined to areal radius in
+    [1.0, 1.2).
+  - From v = 2, over areal radius ≥ 1.0, neither refinement converges (M differences 0.13-0.22, null-step ones up to
+    0.26 at M40). Over areal radius ≥ 1.2 both stay below 2.2 × 10⁻³ up to v = 3 (on [2, 2.25): 2.0 × 10⁻⁴ and
+    6.9 × 10⁻⁵).
+  - Two grids give no convergence order, and one M pair no trend in M.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds.
   - At λ = 1, over its own kept cells, the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in
     dnsolve5's gauge (on 𝒟_q, in (u, v) and in angle).

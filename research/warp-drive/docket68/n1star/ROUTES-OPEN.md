@@ -4868,6 +4868,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   digits), the least value above 2 or 3 is still 3 + 5.02e-8 (lambda_sharp + 4470304 d1). So the computed roots do not
   make (G) bind: delta_G = 5.02e-8 > 1.94e-8 >= eps_ind > eps_K; eps_ind binds (K > 1.03e8). Open: (G) through the
   unlisted generators of I11 Definition 1.1 (E_++, G, E^C_I, E_col, E^iota_ind), and d1's coefficient.
+- D431 (E2-PILOT E2.12, checks/e2h1_5.py H6, exact): the angular derivative without psi on the band. Corollary E2.6
+  bounds B_l from l_0(sigma) (12, 16, 19, 33, 50 at sigma = 0.01 ... 3), the certified B_l below it; the unweighted
+  H^1 constant on I is <= 986.4 for real 0 < |sigma| <= 3 (set at sigma = 3 by l = 49), against 808.6 with psi.
+  Control: B_6 alone gives no l-uniform bound. Trapping costs only the constant on a compact band.
+- D432 (CERTIFY 6b, checks/g1axis5.py --refine, computed): joint refinement, M = 32, 40 at 800 x 360 and 1600 x 720,
+  |dP| on 186,869 common cells. Before v = 1.8 the null step sets the error (2e-6 ... 4e-5, the same at M32 and M40)
+  and M32-40 differs by 1e-9: D418's growth with M was in m, a derivative at the axis. On [1.8, 2) the error is angular
+  (3.0e-3 coarse, 3.2e-3 fine: the null step does not touch it) and confined to areal radius [1.0, 1.2) (1e-8 above).
+  From v = 2 neither converges at areal >= 1.0; at areal >= 1.2 both stay below 2.2e-3 to v = 3. Two grids, no order.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

@@ -6874,3 +6874,15 @@ proof needs a small number to stay below the gaps of a certain set of exponents.
 put in at once, the smallest gap is still about fifty billionths, while the other condition on the same small number
 already forces it below about twenty billionths. So the gap condition adds nothing from these exponents, and the long
 chain's length stays at about a hundred million steps. Exponents the record does not list could still change this.
+
+**D431 (2026-10-31): the derivative bound without the blind spot.** D404's bound on how fast the waves can vary
+around the sphere switched itself off at the radius where light can orbit the black hole. On the range of frequencies
+D424 covers, that blind spot costs only a larger constant: about 990 instead of about 810, set by the last angular
+pattern before a closed formula takes over. It is still for the region between the horizon and the outer cut-off.
+
+**D432 (2026-10-31): the finer runs are in.** The two runs with the step in both null directions halved finished,
+and comparing all four settles what limits the accuracy where. Up to the time 1.8 it is the null step: halving it
+changes the geometry by about a hundred-thousandth, while adding angular modes changes it by about a billionth. Between
+1.8 and 2 it is the angular resolution instead, and only in a thin shell of small radius, between 1.0 and 1.2; halving the
+null step does nothing there. After 2, near that shell, nothing converges yet; further out the runs stay close to each
+other until about 3.

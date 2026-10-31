@@ -29,7 +29,14 @@ K := 2 Xb + (M' + 2|sigma|) B_l. For Im sigma > 0 the same holds with 4|sigma| f
   H5 (exact, D424) every multiplier above, hence m', M', w_I, is independent of sigma, so every bound is an explicit
      increasing function of |sigma|: the summed constant C(sigma) on a grid of (0, 3], increasing, so C <= C(3) on
      0 < |sigma| <= 3, finite as sigma -> 0+ (for l = 1..5, B_l(3) is used at every sigma, as only it is certified).
-Labels: H1, H3, H4, H5 computed (exact, outward rounded); H2 and H4's comparison computed (floating point, not
+  H6 (exact, D431) the angular derivative without psi, on the band. For l >= l_0(sigma), the least l at which
+     Corollary E2.6's conditions (i)-(iii) hold (40 digits; they stay true for 200 more l), its closed form
+     (256/15)/(L + 3/4 - (256/15) sigma^2) bounds B_l, and it is below B_6; below l_0 the certified B_l(3) (l <= 5) and
+     B_6(sigma). Summed over the harmonics, ||d_r* u||_I^2 + sum_l l(l+2) ||u_l||_I^2 <= max_l (X_l^2 + l(l+2) B_l^2)
+     ||f||^2, the sup over l >= l_0 taken at l_0 (both terms decrease in L there). Control: with B_6 alone the
+     l-sup is infinite (l(l+2) B_6^2 grows without bound).
+Labels: H1, H3, H4, H5, H6 computed (exact, outward rounded; H6's conditions at 40 digits); H2 and H4's comparison
+computed (floating point, not
 certified); the corollary deduced.
 
     python3 checks/e2h1_5.py [--selftest]
@@ -41,6 +48,7 @@ from fractions import Fraction as Fr
 from math import isqrt
 
 import numpy as np
+from mpmath import mp, mpf
 import scipy.sparse as sps
 import scipy.sparse.linalg as spla
 
@@ -183,6 +191,43 @@ def main():
     print("  H5: summed constant C(sigma) at sigma = %s: %s; increasing, so C <= %s on 0 < |sigma| <= 3"
           % (", ".join(str(q) for q in grid), ", ".join(up(sqrt_up(q), 1) for q in cs), up(sqrt_up(cs[-1]), 1)))
     ok["H5"] = all(cs[i] <= cs[i + 1] for i in range(len(cs) - 1)) and cs[-1] == call
+    # H6 (D431): the angular derivative without psi on the band (docstring)
+    def e26(l, sg):
+        mp.dps = 40
+        L = l*(l + 2)
+        a, s = mpf(L) + mpf(3)/4, mpf(sg.numerator)/sg.denominator
+        c26 = mpf(15)/16*a
+        ci = mpf(15)/256*a > s*s and mpf("0.21")/mpf("1.4641")*a > s*s
+        cii = mpf("0.120523")*a > s*s and \
+            mpf("0.32727")*mp.sqrt(mpf("0.120523")*a - s*s) > (2 + mpf("1.1248")*s)/mp.sqrt(2)
+        ciii = mp.sqrt(c26) > 8*s and \
+            mp.sqrt(3)/2*mp.sqrt(c26)*mp.log(mp.sqrt(c26)/(8*s)) > (2 + mpf("0.79217")*mp.sqrt(L + 1))/mp.sqrt(2)
+        return ci and cii and ciii, Fr(256, 15)/(Fr(L) + Fr(3, 4) - Fr(256, 15)*sg*sg)
+    h6 = []
+    for sg in grid:
+        c = MM + 2*sg
+        B6 = sqrt_up((2/M1 + c*c/W6)/W6)
+        l0 = next(l for l in range(1, 400) if e26(l, sg)[0])
+        stays = all(e26(l, sg)[0] for l in range(l0, l0 + 200))
+        rows6 = []
+        for l in range(1, l0 + 200):
+            B = BL3[l] if l in BL3 else B6
+            if l >= l0:
+                B = e26(l, sg)[1]
+            Xb = (1 + sqrt_up(1 + 2*M1*c*B))/(2*M1)
+            rows6.append((Xb*Xb + l*(l + 2)*B*B, l))
+        top = max(rows6)
+        below = e26(l0, sg)[1] <= min(B6, BL3.get(l0, B6))
+        dec = all(rows6[k][0] >= rows6[k + 1][0] for k in range(l0 - 1, len(rows6) - 1))
+        h6.append((sg, l0, stays and below and dec, max(top[0], lzero(sg)**2), top[1]))
+    ctl = [l*(l + 2)*B6*B6 for l in (100, 200, 400)]
+    for sg, l0, good, cc, lt in h6:
+        print("  H6: sigma = %s: l_0 = %d (E2.6 from there, below B_6, both terms decreasing: %s); unweighted H^1 "
+              "constant <= %s, set at l = %s" % (sg, l0, good, up(sqrt_up(cc), 1), lt if cc > lzero(sg)**2 else 0))
+    print("  H6 control: with B_6 alone, l(l+2) B_6^2 at l = 100, 200, 400: %s" % ", ".join(up(q, 0) for q in ctl),
+          flush=True)
+    ok["H6"] = all(g for _, _, g, _, _ in h6) and dict((s_, l_) for s_, l_, _, _, _ in h6)[Fr(1)] == 19 and \
+        h6[-1][1] == 50 and all(h6[i][3] <= h6[i + 1][3] for i in range(len(h6) - 1)) and ctl[0] < ctl[1] < ctl[2]
     sg = complex(3.0, 0.25)
     c = float(MM) + 4*abs(sg)
     Bp = math.sqrt((2/float(M1) + c*c/float(W6))/float(W6))
