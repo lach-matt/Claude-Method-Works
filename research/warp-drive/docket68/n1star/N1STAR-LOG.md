@@ -6910,3 +6910,11 @@ number for the simplest pattern only. Now every pattern up to twelve is done, of
 the damping at all. For the other two, every pattern behaves as the simplest one did, with no trouble where the data
 are given, and the numbers grow only like a power of the pattern's complexity, at most its square for the first three
 rates of change. That is what summing all the patterns needs, but twelve patterns are evidence, not a proof for all.
+
+**D437 (2026-10-31): the condition at spatial infinity, proved for all patterns.** D436 showed the first twelve
+angular patterns behaving well; now a proof covers every pattern at once. The equation for each pattern has the same
+shape whatever the pattern, with the pattern's complexity entering only in controlled places, and the friction it
+carries at the light cone is the same for every pattern and points the right way. An energy argument then bounds every
+pattern's leading number by one constant, and its rates of change by powers of the complexity. So the sum over all
+patterns behaves, and the condition at spatial infinity for the record's full equation holds, at the record's setting,
+given that the solution is unique. The constant is astronomically large, but it does not grow with the pattern.

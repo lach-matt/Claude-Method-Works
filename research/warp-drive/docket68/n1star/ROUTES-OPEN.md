@@ -4897,6 +4897,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   For l <= 12 all transfers are finite and non-resonant at N (the same exponents for every l >= 2); normalised, the
   Taylor coefficients at I_0 grow like l, l, l, l^2 (scalar) and 1, 1, l, l^2 (vector) for k = 0 ... 3. Polynomial up
   to l = 12: evidence for Lemma 0.1's sum, not the uniform bound.
+- D437 (BEYOND5 Q8, Lemma 6.5''', checks/uniform5.py U1-U6): the transfer bounded uniformly in l, closing D429's M3
+  at the record's point. Normalised, M0 = x^2 I/2 + O(x), M1 = O(1), and A(0) = M1(0) - I/2 is l-independent with
+  eigenvalues >= 1 (exact); an exact Lyapunov H > 0 makes the singular friction at N dissipative. In T = int m2^(-1/2)
+  the energy <F_T, H F_T> + (x^2/2 + 1)<F, H F> has dE/dT <= C_E E, C_E independent of l: |F(s)| <= K0 |F(0)| on
+  [0, 3/2], derivatives <= K_k (1 + kappa)^(k/2); the tensor type by Lemma 6.5 on Cartesian components. So Lemma 0.1's
+  condition for the Coulomb term holds (flat, full operator, given uniqueness). ln K0 ~ 2e14: uniform, not good.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
