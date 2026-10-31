@@ -32,8 +32,8 @@ generators reaching them have real part >= 3/2). So:
   G7 (D430) every computed root at once: from the generators 2, 3 and lambda_sharp, with d1 summed freely and at most
      one increment of integer part >= 1 out of {1, 1 + d0, 1 + delta_2, 1 + delta'_1} (the sl roots l + 1 + delta_l,
      l + 2 + delta'_l enter as (l - 1) + delta_l and l + delta'_l, LOSS-D LD9; the others have integer part >= 2 and
-     overshoot both windows), the least value above 2 or 3. delta_1 = d1 to 40 digits is checked. Control: without the
-     two sl offsets it is G4-G5's minimum.
+     overshoot both windows), the least value above 2 or 3. delta_1 = d1 to 40 digits is checked. Without the two sl
+     offsets it reproduces G4-G5's minimum (a consistency check, not a control; D433).
 
     python3 checks/gapsums5.py [--selftest]
 """
@@ -167,7 +167,7 @@ def main():
           "%s (D422): %s; then K > 2/delta_G = %s" % (mp.nstr(g7[0], 6), g7[1], g7[2], g7[3], g7[4],
                                                     mp.nstr(EPS_F2, 6), "below" if g7[0] < EPS_F2 else "above",
                                                     mp.nstr(2/g7[0], 4)))
-    print("      control, without the sl offsets: %s (G4-G5's minimum %s)"
+    print("      check (consistency, not a control), without the sl offsets: %s (G4-G5's minimum %s)"
           % (mp.nstr(g7c[0], 6), mp.nstr(min(g4, g5), 6)), flush=True)
     ok["G7"] = abs(d_1 - D1) < mpf(10)**-40 and 0 < g7[0] <= min(g4, g5) and abs(g7c[0] - min(g4, g5)) < mpf(10)**-45
     n = int(ceil(1/D0))

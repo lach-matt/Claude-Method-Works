@@ -6884,5 +6884,13 @@ pattern before a closed formula takes over. It is still for the region between t
 and comparing all four settles what limits the accuracy where. Up to the time 1.8 it is the null step: halving it
 changes the geometry by about a hundred-thousandth, while adding angular modes changes it by about a billionth. Between
 1.8 and 2 it is the angular resolution instead, and only in a thin shell of small radius, between 1.0 and 1.2;
-halving the null step does nothing there. After 2, near that shell, nothing converges yet; further out the runs stay
+halving the null step leaves that difference unchanged there. After 2, near that shell, nothing converges yet; further
+out the runs stay
 close to each other until about 3.
+
+**D433 (2026-10-31): verifier 185 on the last five.** Nothing was broken; the derivative bound without the blind spot
+was confirmed as written. Four statements were tightened: the gauge argument needs the starting data to satisfy the
+constraint equations and to be smooth enough for the energy estimate; the gap computation's comparison run cannot fail
+by construction and is now called a consistency check (a stronger probe, admitting more exponents, still leaves the gap
+condition slack); the error between the times 1.8 and 2 is described by what it depends on, not by what causes it; and
+one test added earlier follows from another by linearity and is labelled so.

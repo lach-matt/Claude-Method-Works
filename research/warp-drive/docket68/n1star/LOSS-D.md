@@ -378,9 +378,12 @@ loop counts of section 3.
     near-commensurability d0 ≈ 4d1 that brought D408's sums close, and it needs both offsets stackable.
   - *Every computed root at once (D430; `checks/gapsums5.py` G7, exact, 50 digits).* From the generators 2, 3 and λ_♯,
     with d1 summed freely and at most one of 1, 1 + d0, 1 + δ_2 and 1 + δ′_1 (δ_2 = 2.6666653 × 10⁻⁷ ≈ z/15,
-    δ′_1 = 6.0000008 × 10⁻⁷ ≈ 3z/20; δ_1 = d1 to 50 digits; every other computed root has integer part ≥ 2 and
-    overshoots both windows), the least value above 2 or 3 is still 3 + 5.02 × 10⁻⁸, from λ_♯ + 4,470,304 d1. Control:
-    without the two sl offsets it is G4-G5's minimum. The third window gives 2.45 × 10⁻⁷ (G6).
+    δ′_1 = 6.0000008 × 10⁻⁷ ≈ 3z/20; δ_1 = d1 to 40 digits; every other computed root has integer part ≥ 2 and
+    overshoots both windows), the least value above 2 or 3 is still 3 + 5.02 × 10⁻⁸, from λ_♯ + 4,470,304 d1. Check:
+    without the two sl offsets it reproduces G4-G5's minimum (a consistency check, not a control: the sl offsets, forced
+    once, give no less than 1.78 × 10⁻⁷; verifier 185, D433). Admitting also the reflected residues 1 − d0, 1 − δ_l and 1
+    − δ′_l of D4:54-58's ℳ, one at a time for l ≤ 3000 (verifier 185's probe, not in the script), the least value is 2.65
+    × 10⁻⁸, still above 1.94 × 10⁻⁸. The third window gives 2.45 × 10⁻⁷ (G6).
     - So the computed roots do not make (G) bind: from them δ_G = 5.02 × 10⁻⁸, above ε_ind ≤ 1.94 × 10⁻⁸ > ε_K, and
       the binding constraint on ε_K is ε_ind (LD10), with K > 1.03 × 10⁸; (G) from these roots alone would give only
       K > 2/δ_G = 4.0 × 10⁷.

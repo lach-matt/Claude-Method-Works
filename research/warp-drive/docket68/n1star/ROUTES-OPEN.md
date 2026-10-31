@@ -4861,7 +4861,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   P(-1) has no m, the [1.8, 2) decrease stalls; CERTIFY 6b's settling, agreement and onset claims withdrawn. M3,
   Lemma 6.5': per harmonic and given uniqueness; the sum over l needs an l-uniform bound, so Lemma 0.1's condition for
   the Coulomb part is open. Minors: D415's pairing asserted; 1.3e10 not 1.4e10; (2.2) is bounded; both eps_ind
-  definitions cited; D418's null-step claim withdrawn; stage0h5 H1 uncounted and an independent mutant added;
+  definitions cited; D418's null-step claim withdrawn; stage0h5 H1 uncounted and a factor-n mutant added (implied by H2
+  by linearity, not independent; D433);
   gapsums5's 7.3846e-8 relabelled; coulombL5 Q1 checks phi phi and the off-diagonals.
 - D430 (LOSS-D LD9, checks/gapsums5.py G7, exact): (G) over every computed root at once. From 2, 3 and lambda_sharp,
   d1 free and one of 1, 1 + d0, 1 + delta_2, 1 + delta'_1 (delta_2 = 2.67e-7, delta'_1 = 6.0e-7; delta_1 = d1 to 50
@@ -4877,6 +4878,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and M32-40 differs by 1e-9: D418's growth with M was in m, a derivative at the axis. On [1.8, 2) the error is angular
   (3.0e-3 coarse, 3.2e-3 fine: the null step does not touch it) and confined to areal radius [1.0, 1.2) (1e-8 above).
   From v = 2 neither converges at areal >= 1.0; at areal >= 1.2 both stay below 2.2e-3 to v = 3. Two grids, no order.
+- D433 (verifier 185 on D428-D432; none refuted, D431 confirmed): D428 needs vacuum constraint data and enough
+  regularity for the energy estimate, and "the constraints do not involve d_t g_(0 mu)" is standard, not computed.
+  D430's G7 "control" is a consistency check (the sl offsets forced once give >= 1.78e-7); with the reflected residues
+  1 - d0, 1 - delta_l, 1 - delta'_l too (probe, l <= 3000) the least value is 2.65e-8, still above 1.94e-8. D432: the
+  [1.8, 2) error depends on M, not the null step; M differences from v = 2 are 4.5e-2 to 0.22; only the M32-40 pair is
+  tested in P. stage0h5's factor-n mutant follows from H2 by linearity: relabelled.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

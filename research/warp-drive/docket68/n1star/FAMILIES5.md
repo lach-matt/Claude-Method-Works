@@ -288,11 +288,13 @@ couplings are then killed by their own contractions.
   - P3, where W = 0 on {t = 0}: G(g)(n, ·) = (δ*W − ½ tr(δ*W) g)(n, ·) = ½ n⁰ ∂_t W there, with n^a := g^(a0) and
     n⁰ = g^(00) < 0, so the constraints give ∂_t W = 0;
   - P4, W = 0 on {t = 0} can be imposed: at a point Υ is affine in ∂_t g_(0μ) with coefficient g^(00) diag(½, 1, 1, 1).
-    The constraints do not involve those four derivatives.
+    The constraints do not involve those four derivatives (standard: G(n, ·) depends only on the induced metric and the
+    second fundamental form; not computed).
   - Controls: d tr for ½ d tr in P1, no curvature term in P2, a W vanishing on {x1 = 0} in P3, and ∂_t g_(1μ) for
     ∂_t g_(0μ) at Minkowski (rank 2) all fail.
-  - So W ≡ 0 on the domain of dependence of a spacelike slice, by uniqueness for the linear wave equation with zero
-    data (standard, not computed). H enters only through W: its being fixed matters for the reduced system's
+  - So, for data satisfying the vacuum constraints and a solution regular enough for the energy estimate, W ≡ 0 on the
+    domain of dependence (for g) of a spacelike slice, by uniqueness for the linear wave equation with zero data
+    (standard, not computed; D433). H enters only through W: its being fixed matters for the reduced system's
     principal part, not here. Not computed: the characteristic case (data on a null cone), and that the record's
     solution solves the reduced equation exactly.
 

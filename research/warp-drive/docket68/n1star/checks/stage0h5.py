@@ -15,7 +15,8 @@ with stage0two5.py's ansatz and assembly:
      So the second harmonics are met algebraically, with no transport, and the mean (0, 0) and the mixed harmonics
      (T2, T4) are untouched.
   Control: with h = 0 the vv (2, 0) entry is nonzero; with h_2 of the wrong sign it doubles; with h_2 = -S_2/i (the
-     factor n of the fast derivative dropped) it flips sign. H1 is printed but not counted: it cannot fail (D429).
+     factor n of the fast derivative dropped) it flips sign, which H2 implies by linearity (D433). H1 is printed but
+     not counted: it cannot fail (D429).
   H3 (D423) the gauge condition Ups - H = 0 at order lam on the pure harmonics, D^(1) + (ghat_2's fast divergence)
      - g0^-1 H^(1) = 0, with H2's h, h': H's raised form g0^(uv) h enters only the r = u row (r = v for h'), which
      ghat_2's angular trace sets (T8), and the system is solved by T8's components at every pure harmonic, the source's
@@ -112,8 +113,8 @@ def main():
     ok["control"] = sp.simplify(pure[((1, 1), (2, 0))]) != 0 and \
         sp.simplify(vv - 2*pure[((1, 1), (2, 0))]) == 0 and indep
     print("  control: with h = 0 the vv (2, 0) entry is nonzero, with h_2 of the wrong sign it doubles; with h_2 = "
-          "-S_2/(2i) without the 1/2, the fast derivative's factor n, it flips sign (independent of H2, D429): %s"
-          % ok["control"])
+          "-S_2/i (the factor n dropped) it flips sign (implied by H2 by linearity, D429, D433; it shows H2 "
+          "is sensitive to the factor n): %s" % ok["control"])
     h3, h3c = gauge_with_source(ro, sol, hf, hpf)
     ok["H3"] = h3
     ok["H3 control"] = h3c
