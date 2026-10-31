@@ -275,8 +275,8 @@ loop counts of section 3.
     ε_ind ≤ 2.932 × 10⁻⁶ at the record's point (the root 1 + 2.932 × 10⁻⁶; F2 (2.2), :133-136), α − 4 ≤ ε_K < 2.94 ×
     10⁻⁶ (α ≤ 4 + ε_K by I11:156), and below LD5's 3.1 × 10⁻⁵ at every admissible damping point. I11 Definition 1.3's
     (G) is a further constraint, which can only lower ε_K; whether it binds below ε_ind is not computed. ((1.1)'s ε_ind
-    is III.G⁗ Proposition 5.1's (I10:48, I11:38), which is F′ (2.2)'s (G5:190). VI4-PARAMS:38's row w1 reads it as min
-    Re ℰ^ι_ind, under which no number follows; that row should be reconciled with I10:48.)
+    is III.G⁗ Proposition 5.1's (I10:48, I11:38), which is F′ (2.2)'s (G5:190). VI4-PARAMS:38's row w1 read it as min
+    Re ℰ^ι_ind, under which no number follows; that row now reads it as (1.1) does, D390.)
   - *Withdrawn.* D377 put the damping root λ^C − 1 into ℰ_ind, and so 3 + 2.93 × 10⁻⁶ into Λ. Nothing in the record says
     so. The ℰ_ind inside Λ is built from expansions of the gauge-potential operator □^Υ(0) (I8:35-36, I9:32-33,
     I10:38-40, I5:190; D3:33-48), whose indicial roots are not near 1 (verifier 174's B1).

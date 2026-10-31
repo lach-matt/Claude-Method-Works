@@ -6539,3 +6539,9 @@ fluxes, gained from the ingoing stream and lost to the outgoing one. A computed 
 behaves accordingly: the constraints stay satisfied to second order in the step, and the final mass agrees with the
 fluxes. The background on the record's own domain, which would need the outgoing stream's data from the far past, is
 not built.
+
+**D390 (2026-10-31): one parameter row brought into line with the theorem it serves.** The table that fixes the
+proof's free parameters in a consistent order defined the indicial-gap constant as the smallest real part of one
+index set, a quantity from which no number follows. The proof's own statement uses a different constant, the gap of
+the indicial roots from the integers, which is the small number already measured at the record's parameter point.
+The row now reads it as the proof does.
