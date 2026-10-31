@@ -356,8 +356,7 @@ So at leading order in flat space, and for the full operator, each harmonic of t
 I_0, given uniqueness. Whether their sum does, Lemma 0.1's condition for this term, needs a bound uniform in l on the
 transfer's Taylor coefficients at s = 1 in place of Lemma 6.5's Markov step. That bound is not given, so the condition
 stays open for the full operator (D429, verifier 183; evidence up to l = 12 in Q7, D436). The coefficient is the
-transfer matrix's, not
-cos(πl/2)/(l + 1).
+transfer matrix's, not cos(πl/2)/(l + 1).
 
 What it does not give:
 
