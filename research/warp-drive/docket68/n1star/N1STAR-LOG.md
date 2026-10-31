@@ -6272,3 +6272,14 @@ a different normalisation; and the open-items note overstated what is proved. Th
 are split in two. Where the barrier covers the interval, only the end signs are missing. Where it does not, another
 argument is needed. Their constant at σ = 3 is now quoted from the proved threshold (e^417), not the computed one.
 
+**D357 (2026-10-31): the six losses without a formula, given formulas.** The loss d of the nonlinear proof was a
+recursion over explicit losses and six that the record proves finite without computing them. Re-reading the six
+proofs with every loss carried turns each into a closed form. The forms are in the chosen weights, the threshold
+constants of the operators at the horizon and the incoming radial set, and the sizes of finitely many index sets.
+- Two of the six already had their formula in the proof, past the lines the first extraction read.
+- Two reduce to a third, the inverse at the light cone.
+- That one's unexplained part, "depending on s", is zero on a careful reading. What remains is a count of derivative
+  steps: 7 + 2⌈ℓ_I − Re λ⌉ below Re λ = 2, at most 12 above.
+So d is now an explicit function of numbers the record computes or chooses. Making it a number still needs those
+numbers chosen and the loops counted.
+

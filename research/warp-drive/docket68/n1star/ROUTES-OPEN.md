@@ -4628,3 +4628,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   <= 1/((15/256)(L + 3/4) - sigma^2), asymptotically 17.07/L. Open: l < l_0, Proposition E2.4's constant (where
   kappa_I^2 > 0 only the end signs are missing; where kappa_I^2 <= 0 another argument is needed); Im sigma -> 0; the
   record's b-Sobolev norms. Verifier 165: sound, 7 minor and 6 nits seated (D356).
+
+### 4.276 E1'b: the six non-closed losses in closed form (D357)
+
+- LOSS-D.md section 2b. III.A Prop 4.2: (1) l = 1 + n_iota + 2 max(n_K + floor(beta_K), n_I + floor(B)), (2) l = n_iota +
+  n_K + ceil((max(beta_iota - beta_scf, beta_K) + eps - 1/2)_+). II.G' Cor 4.2 and III.I'' Lemma 4.2: ell =
+  max(ceil((theta_in/2 + 3 - beta_scf)_+), ceil((s_c - 1)_+)) (in the proofs, II.G2:698-702). III.G''' Prop 3.7 and Cor
+  3.1: Prop 2.4's l' = 2 ceil(ell_I) + 10 + sup d (Cor 3.1 (2): + 2). III.G' Thm 3.1 (2): d_1 = 0, d(lambda) = 6 +
+  ceil(max(0, Re lambda - 2 + delta)) + ceil(max(0, Re lambda - 3/2) + delta) + 2 ceil(ell_I - Re lambda). Remaining:
+  E1'a (numbers for the data) and E1'c (the counts).
+

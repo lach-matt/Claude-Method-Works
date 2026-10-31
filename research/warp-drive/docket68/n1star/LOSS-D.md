@@ -1,8 +1,8 @@
 # LOSS-D -- the loss d of III.J''' Theorem 4.1, added up as far as the record allows (E1')
 
-Status: written (D347); LD3 added (D348), LD5 (D353); read by verifier 164 (D348), whose three major findings (the
-structure of d, the scope of LD3, a second nested loop) and its minor findings and nits are seated (LD4). To be read
-again.
+Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357); read by verifier 164 (D348), whose
+three major findings (the structure of d, the scope of LD3, a second nested loop) and its minor findings and nits are
+seated (LD4). Section 2b to be read.
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J''''s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -71,7 +71,81 @@ part that depends on s without a formula:
    each, plus d_1(s) and m(s), which depend on s with no formula: d ≤ d_1(s) + m(s) + 2(⌈ℓ_I − Re λ⌉ + 2) (verifier
    164's m1).
 
-Each is finite by its proof; each needs that proof re-read with the losses carried (E1'b).
+Each is finite by its proof; each needs that proof re-read with the losses carried (E1'b, done in section 2b).
+
+## 2b. The six losses carried (E1'b, D357)
+
+Each proof re-read with its losses carried. Notation: n_H := |E_(H,≤)|, the number of pairs (z, m) of the index set E_H
+with Re z ≤ β_H; ⌊·⌋, ⌈·⌉ as usual; ϑ_in, ϑ_H the threshold quantities of the operator at the incoming radial set and
+the horizon (I.A); s_c the fixed regularity order of II.G' Corollary 4.2's proof, s_c > ½ + ϑ_H. Where a proof states
+"costs at most one derivative", that bound is carried; it is an upper bound.
+
+1. **III.A Proposition 4.2.** Its inputs are lossless except as stated. II.G' Proposition 3.3 (1) ((2.25a)) loses 1.
+   The converse of Lemma 1.3 loses n_H, each factor costing one derivative. The direct Lemma 1.3, Lemma 1.2 and Lemma
+   3.3 lose nothing beyond their a priori hypotheses. (2.26a) loses ℓ_a := ⌈(max(β_ι − β_scf, β_K) + ε − ½)₊⌉
+   (II.G' Proposition 3.5 (1)), and so do its harmless terms at the weights used.
+   - *Part (1), E_I = ∅.* (4.6) costs 1. R_ι u has order k + l − n_ι, and (2.25a) on it gives (4.7) with l ≥ n_ι + 1.
+     R_K u has order k + l − n_K, and (4.7) on it costs n_ι + 1. The extra product ∏_(j≤⌊β_K−1⌋)(σ∂_σ − j) costs
+     ⌊β_K⌋. Integrating the n_K + ⌊β_K⌋ factors one at a time costs one each. So l_0 = 1 + n_ι + 2(n_K + ⌊β_K⌋).
+   - *Part (1), general E_I.* χ_K u costs l_0. For u vanishing near K, the K-weight is raised to β'_K, any
+     non-integer above B := max(β_K, β_ι + max(0, −min Re π_1E_I)), so ⌊β'_K⌋ = ⌊B⌋ and E_K = ∅. Then R_I u costs n_I,
+     the case E_I = ∅ costs 1 + n_ι + 2⌊β'_K⌋, and Lemma 3.3 is lossless given its a priori order. Integrating at
+     scf costs n_I.
+   - So III.A Proposition 4.2 (1) has
+
+         l = 1 + n_ι + 2 max(n_K + ⌊β_K⌋, n_I + ⌊B⌋).                                                            (2.1)
+
+   - *Part (2).* With E_K = ∅, (4.8) costs ℓ_a and R_tf costs n_ι, and Lemma 1.3 at ι is lossless: l_2 = n_ι + ℓ_a. For
+     general E_K, R_zf costs n_K and Lemma 1.3 at K is lossless. So
+
+         l = n_ι + n_K + ⌈(max(β_ι − β_scf, β_K) + ε − ½)₊⌉.                                                     (2.2)
+
+2. **II.G' Corollary 4.2.** Its ℓ is in the proof (II.G2:698-702), past the lines the D347 extraction read. It is
+   ℓ = ℓ_a + ℓ̃, with ℓ_a := max(⌈(½(−1 + ϑ_in) + 7/2 − β_scf)₊⌉, ⌈(s_c − 1)₊⌉) and ℓ̃ := ⌈(−s_c)₊⌉ = 0, since
+   s_c > ½. So
+
+       ℓ = max(⌈(ϑ_in/2 + 3 − β_scf)₊⌉, ⌈(s_c − 1)₊⌉);                                                           (2.3)
+
+   (1) then loses j + ℓ for ∂_σ^j.
+3. **III.G''' Proposition 3.7.** (3.6) is continuous by Proposition 2.4, with loss l'. The range and the right inverse
+   use Lemma 3.5's map u ↦ f, which loses 2 (Lemma 2.3, N_ι⁺ being of order 2). So l = max(l', 2) = l', where
+   l' = 2⌈ℓ_I⌉ + 10 + sup d over the strip of Proposition 2.4 (G4:221-226), and d is loss 6.
+4. **III.G''' Corollary 3.1.** It is stated at order ∞. At finite order, (1) comes from Proposition 2.4 on a strip
+   containing λ_0, so it loses l'. (2) adds III.G'' Theorem 3.1's functionals, which are continuous on H^(k+2), so it
+   loses l' + 2. These are the losses III.J's proof of Theorem 2.4 sums (PART-III-J-PARAM.md:352-355: "d is the sum of
+   these losses plus 2").
+5. **III.I'' Lemma 4.2.** The proof is II.G' Proposition 4.7's. That gives ℓ = ℓ_a + ℓ̃, with ℓ_a and ℓ̃ from II.G'
+   Lemma 4.1 for the orders r_± ∈ [r_out, r_in], where r_out := β_scf − 2 − ε/2 and r_in := max(r_out, ½(−1 + ϑ_in) + 1).
+   So ℓ̃ = ⌈(−s_c)₊⌉ = 0, and
+
+       ℓ = max(⌈(ϑ_in/2 + 5/2 + ε/2 − β_scf)₊⌉, ⌈(s_c − 1)₊⌉) ≤ (2.3)'s ℓ,                                      (2.4)
+
+   with ϑ_in, ϑ_H those of L̃_b (S̄ = 0) and β_scf < 3/2.
+6. **III.G' Theorem 3.1 (2).** Write d = d_1 + m(s) + 2(⌈ℓ_I − Re λ⌉ + 2) (Step 5; verifier 164's m1). Carried here:
+   - *d_1 = 0.* Step 5 (i) puts F := the extension by 0 of v^(−2−λ)f in L¹ in v, with values in H^(k+d)(S³). Hence
+     F ∈ H^(−½−δ)(ℝ; H^(k+d)(S³)) ⊂ H^(s−1)(ℝ × S³), since s − 1 ≤ −½ − δ (the inclusion
+     H^σ(ℝ; L²(S³)) ⊂ H^σ(ℝ × S³) for σ ≤ 0 has no loss).
+     - The module fields: L_Ω commutes with the extension, and (v∂_v)^j F is the extension of (v∂_v)^j(v^(−2−λ)f) for
+       every j ≤ k + d. The boundary term at v = 0 vanishes by the b-Sobolev embedding in v alone, which uses one
+       v∂_v-derivative of (v∂_v)^(j−1)(v^(−2−λ)f), so order j ≤ k + d.
+     - Near R = 0 the space is H^(s−1+k')_(b,μ) ⊃ R^(ℓ_K+Re λ) H^(k+d)_b for k' ≤ k + d (s < 1, μ < ℓ_K + Re λ); in
+       between, H^(s−1+k') ⊃ H^(k+d).
+     - So F ∈ Ḣ^((s−1;k+d),μ)_(b;b), and III.G Theorem 5.1 (3) inverts at the same k.
+   - *m(s).* By Lemma 2.1's proof, m(s) = 2 + ⌈max(0, −s)⌉ + j(s), with j(s) := ⌈½ − s⌉, the least j with s + j > ½
+     (s < ½ here).
+   - So, with s = min(½, 2 − Re λ) − δ,
+
+         d(λ) = 6 + ⌈max(0, Re λ − 2 + δ)⌉ + ⌈max(0, Re λ − 3/2) + δ⌉ + 2⌈ℓ_I − Re λ⌉.                        (2.5)
+
+     That is 7 + 2⌈ℓ_I − Re λ⌉ for Re λ < 2. When 3 < ℓ_I < 3.5 it is at most 12 on 2 ≤ Re λ < ℓ_I.
+   - Over a strip λ_− ≤ Re λ ≤ ℓ_I − ε, sup d is the larger of (2.5) at λ_− and at the top of the strip.
+
+**What this closes.** The six losses are explicit in the weights (β's, ℓ_I, ε, s_c), in the threshold quantities ϑ_in,
+ϑ_H of the operators at n = 4, in the index-set counts n_H, and in the strip's lower end λ_−. Together with section 2's
+table, every elementary loss of (1.1) is now a closed form in those data. E1'b is done in this sense. What remains is
+E1'a (numbers for the data) and E1'c (the counts). Labels: derived here by re-reading the cited proofs (II.G2:690-702,
+917-955; G4:200-226, 272-295, 334-388; I3:244-269; G2-IOTA:130-173, 362-392; A-PREREQ:109-138, 440-536, 563-704);
+d_1 = 0 is this note's own reading, where the record wrote "d_1 depending on s".
 
 ## 3. The weights and the counts
 
@@ -110,12 +184,14 @@ smallness constants are used at the orders k ≤ N only (III.K:410-411); the tam
   use, from the computed index sets at n = 4, satisfying every inequality of section 3. Its first question, whether
   another admissible parameter point moves the lowest root λ^C − 1 away from 1, is answered by LD5: no; the best gap is
   about 3.1 × 10⁻⁵.
-- **E1'b. The six losses** of section 2, by re-reading their proofs with the losses carried.
+- **E1'b. The six losses** of section 2, by re-reading their proofs with the losses carried. Done in section 2b
+  (D357): closed forms (2.1)-(2.5) in the weights, the threshold quantities and the index-set counts.
 - **E1'c. The counts** of section 3 (the α-levels and rounds, the β-levels, the level-3 rounds at each β-level) from
   their step bounds and the chosen weights, and (1.1) evaluated at I15's Theorem 3.1.
 
 Then (1.1) is a finite expression in integers. Until then the honest statement is: the d this proof produces is an
-explicit function of finitely many chosen weights and of six losses that the record proves finite without computing.
+explicit function of finitely many chosen weights, threshold quantities and index-set counts (section 2b), and of the
+loop counts of section 3.
 
 ## 5. Findings
 
