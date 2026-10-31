@@ -17,7 +17,9 @@ the horizon tail needs (V_l' ~ e^(2x) there, phi''' ~ e^(2x/s)).
 
   M1 the identity, pointwise as an exact derivative (sympy), for any smooth u, V, phi; a sign-flipped phi''' fails.
   M2 for each l >= 1, an s with w >= 0 on a grid of x in [-59, 120] and the horizon tail dominated (the ratio of
-     |phi'''|/2 to -phi V_l' at most 1 on x < -20, and falling); at l = 0 the tanh family has no admissible s. Control:
+     |phi'''|/2 to -phi V_l' at most 1 and increasing in x on [-59, -20], so falling toward the horizon; beyond the grid
+     it is K e^(2x(1/s - 1))(1 + O(e^(2x))) on the left, and 2a/x^3 meets e^(-2x/s) on the right); at l = 0 the tanh
+     family has no admissible s. Control:
      s = 1.5 fails at l = 5, as the horizon tail needs s < 1.
   M3 B_l(3) exceeds the computed norm of checks/e2band5_s3.out at every l >= 1 there (a bound, not an estimate); a
      hundredth of it does not, at the band's peak l = 5.
@@ -69,9 +71,10 @@ def quantities(l, s, r, x, f):
     w = -ph*Vp - 0.5*ph3
     inI = (r >= RA) & (r <= RB)
     core = (x > -30) & (x < 120)
+    tl = (x < -20) & (x > -60)
+    ratio = (0.5*np.abs(ph3)/np.maximum(-ph*Vp, 1e-300))[tl]
     return dict(wmin=w[core].min(), wI=w[inI].min(), m1=ph1[inI].min(), M1=ph1[inI].max(), xp=xp,
-                tail_left=(-ph*Vp)[x < -20].min() - (0.5*ph3)[x < -20].max(),
-                tail_ratio=np.max((0.5*np.abs(ph3)/np.maximum(-ph*Vp, 1e-300))[(x < -20) & (x > -60)]))
+                tail_ratio=ratio.max(), tail_mono=bool(np.all(np.diff(ratio) >= -1e-12*ratio[1:])))
 
 
 def bound(q, sigma):
@@ -84,7 +87,7 @@ def best(l, r, x, f, sigma=3.0):
     out = None
     for s in np.linspace(0.2, 0.98, 40):
         q = quantities(l, s, r, x, f)
-        if q["wmin"] < 0 or q["tail_ratio"] > 1:
+        if q["wmin"] < 0 or q["tail_ratio"] > 1 or not q["tail_mono"]:
             continue
         bnd = bound(q, sigma)
         if out is None or bnd < out[1]:
@@ -144,7 +147,7 @@ def main():
             print("  l = %d: no admissible s" % l)
             continue
         s, bnd, q = b
-        m2 = m2 and q["wmin"] >= 0 and q["tail_ratio"] <= 1
+        m2 = m2 and q["wmin"] >= 0 and q["tail_ratio"] <= 1 and q["tail_mono"]
         m3 = m3 and bnd >= norms[l]
         ctrl = ctrl or (l == 5 and 0.01*bnd < norms[l])
         print("  l = %2d  s = %.3f  w_I = %.4f  B(3) = %.3f  computed %.4f" % (l, s, q["wI"], bnd, norms[l]), flush=True)

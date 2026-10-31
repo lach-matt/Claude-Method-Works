@@ -261,29 +261,31 @@ loop counts of section 3.
   the background's K⁺-order α − 2 − ε ≥ 4 + ε_K (I15:14-16), so α above 6 + ε_K, two orders further. LD3 (ii), the
   nested level-3 loop, is set by ε_ind and is untouched by this lever (LD5).
 
-- LD7 (the cap on α is ε_+, not the number of solves; deduced from the record's text, D377, repaired D380 after
-  verifier 174). It corrects LD6 (ii)-(iii).
-  - *The Taylor count is not the cap.* The zf-Taylor expansion of the source needs the orders σ⁰, …,
-    σ^(⌈α−1⌉−1) (I12:16, "orders σ⁰, …, σ³, as α − 1 > 3"), so four terms cover every α − 1 ≤ 4. LD6 (ii) read the
-    record's "four solves reach 4 + ε_K" as a cap set by the count, and LD6 (iii)'s fifth solve addresses only the
-    count.
+- LD7 (the cap on α is ε_+, not the number of solves; deduced from the record's text, D377, repaired D380 after verifier
+  174). It corrects LD6 (ii)-(iii).
+  - *The Taylor count is not the cap.* The zf-Taylor expansion of the source needs the orders σ⁰, …, σ^(⌈α−1⌉−1)
+    (deduced; I12:16 states the case "orders σ⁰, …, σ³, as α − 1 > 3"), so four terms cover every α − 1 ≤ 4. LD6 (ii)
+    read the record's "four solves reach 4 + ε_K" as a cap set by the count, and LD6 (iii)'s fifth solve addresses only
+    the count.
   - *What ties α − 4 to ε_+ with four solves.* Level 3's conormal outputs lie above α − 2 because η_2 exceeds α − 4:
     their K⁺-weight is at least 2 + η_2 − 2ε (I12:349-350, 531-532), with η_1, η_2 chosen in (ε_K, ε_+) (I12:58). And
-    the ι⁺ data stop at 3 + ε_+ (w_+ = 5 + ε_+, I10:47; I11:104-106). So the record keeps α − 4 ≤ ε_K < η_2 < ε_+.
-  - *What caps ε_+.* 0 < ε_K < ε_+ < min(δ_♯, ε_ind) (I10:47 (1.1), J-PARAM:34), the ground LD3 already uses. With
-    F2's ε_ind < 2.93 × 10⁻⁶ at the record's point (F2 (2.2), :133-136), α − 4 ≤ ε_K < 2.93 × 10⁻⁶, and below LD5's
-    3.1 × 10⁻⁵ at every admissible damping point. I11 Definition 1.3's (G) is a further constraint on ε_K; at the
-    record's point it is not the binding one. (The record reads ε_ind in more than one way: VI4-PARAMS:38 as
-    min Re ℰ^ι_ind, I11:38 as III.G⁗ Proposition 5.1's, which G5:122 ties to F′ (2.2).)
-  - *Withdrawn.* D377 put the damping root λ^C − 1 into ℰ_ind, and so 3 + 2.93 × 10⁻⁶ into Λ. Nothing in the record
-    says so. The ℰ_ind inside Λ is built from expansions of the gauge-potential operator □^Υ(0) (I8:35-36, I9:32-33,
+    the ι⁺ data stop at the u-exponent 3 + ε_+ − ε (w_+ = 5 + ε_+, I10:47; I11:106-107). So the record keeps α − 4 ≤ ε_K
+    < η_2 < ε_+.
+  - *What caps ε_+.* 0 < ε_K < ε_+ < min(δ_♯, ε_ind) (I10:47 (1.1), J-PARAM:34), the ground LD3 already uses. With F2's
+    ε_ind ≤ 2.932 × 10⁻⁶ at the record's point (the root 1 + 2.932 × 10⁻⁶; F2 (2.2), :133-136), α − 4 ≤ ε_K < 2.94 ×
+    10⁻⁶ (α ≤ 4 + ε_K by I11:156), and below LD5's 3.1 × 10⁻⁵ at every admissible damping point. I11 Definition 1.3's
+    (G) is a further constraint, which can only lower ε_K; whether it binds below ε_ind is not computed. ((1.1)'s ε_ind
+    is III.G⁗ Proposition 5.1's (I10:48, I11:38), which is F′ (2.2)'s (G5:190). VI4-PARAMS:38's row w1 reads it as min
+    Re ℰ^ι_ind, under which no number follows; that row should be reconciled with I10:48.)
+  - *Withdrawn.* D377 put the damping root λ^C − 1 into ℰ_ind, and so 3 + 2.93 × 10⁻⁶ into Λ. Nothing in the record says
+    so. The ℰ_ind inside Λ is built from expansions of the gauge-potential operator □^Υ(0) (I8:35-36, I9:32-33,
     I10:38-40, I5:190; D3:33-48), whose indicial roots are not near 1 (verifier 174's B1).
-  - *Consequence.* The β-chain's step α − 4 is bounded by ε_+, hence by F2's ε_ind: the constraint-damping gap of
-    LD3 (ii) and LD5. A fifth solve does not touch it.
-  - *Open.* Lifting the cap would need all of the following relaxed: (1.1)'s ε_+ < min(δ_♯, ε_ind); the choice
-    η_2 < ε_+; δ_♯, since 2λ_♯ = 3 + 2δ_♯ > 3 + ε_+ (I11:127); and (G), whose purpose is that the remainder
-    2 + ε_K is reached with 𝒩's rows alone (I11:434-438). Whether the cascade can run with ε_+ of order one while
-    ε_ind stays small is not examined.
+  - *Consequence.* The β-chain's step α − 4 is bounded by ε_+, hence by F2's ε_ind: the constraint-damping gap of LD3
+    (ii) and LD5. A fifth solve does not touch it.
+  - *Open.* Lifting the cap would need all of the following relaxed: (1.1)'s ε_+ < min(δ_♯, ε_ind); the choice η_2 <
+    ε_+; δ_♯, since 2λ_♯ = 3 + 2δ_♯ > 3 + ε_+ (I11:127); and (G), whose purpose is that the remainder 2 + ε_K is reached
+    with 𝒩's rows alone (I11:434-438). Whether the cascade can run with ε_+ of order one while ε_ind stays small is not
+    examined.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.

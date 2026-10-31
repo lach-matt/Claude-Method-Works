@@ -6469,3 +6469,12 @@ resolutions first disagree, and by e⁻¹³ shortly after: the structure the wav
 node. So that failure is at least largely the coordinate's, and the remedy is a different shift condition, not more
 resolution. The second seed's failure, at the other axis, shows no such drag and remains open.
 
+**D382 (2026-10-31): verifier 175 seated on the Morawetz bound and the loss lever.** The bound's proof is right, and
+its positivity holds with wide margins. The verifier's one major point was a claim stated wider than its check: the
+instrument covers harmonics up to l = 30, not every l, though the verifier's own scans at l = 60, 100 and 200 also
+pass, so a proof for large l with a finite check below would close it. The rest are corrections of size: a dropped
+term in the zero-frequency value, the horizon condition s ≤ 1 rather than s < 1, the tail now checked to fall, the
+comparison carried to two more frequencies (every bound above the computed norm), and the bound's growth in frequency
+attributed to the flux step, not to trapping. The repaired loss-lever account stands; which reading of a small
+constant the record uses, and that a further gap condition is not shown to bind, are now stated.
+

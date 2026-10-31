@@ -236,33 +236,58 @@ growth through the forbidden region F = {V_l > σ²}.
 
 - Take φ := tanh((r_* − x_p)/s), x_p the peak of V_l. Then −φV_l′ ≥ 0, since V_l rises and then falls (E2.7), and
   −½φ‴ = s^(−3) > 0 at the peak.
-- Near the horizon V_l′ decays like e^(2r_*) and φ‴ like e^(2r_*/s), so w ≥ 0 needs s < 1. The control s = 1.5 fails.
+- Near the horizon V_l′ decays like e^(2r_*) and φ‴ like e^(2r_*/s), so w ≥ 0 needs s ≤ 1; at s = 1 it is a
+  comparison of constants, which s = 1 passes at l = 1 (verifier 175). The control s = 1.5 fails.
+- Beyond the grid (r_* < −59 or r_* > 120) the tails are asymptotic. On the left, the ratio of ½|φ‴| to −φV_l′ is
+  K e^(2r_*(1/s − 1))(1 + O(e^(2r_*))), which decreases to 0 for s < 1; the instrument checks it is at most 1 and
+  decreasing on [−59, −20]. On the right, −φV_l′ ~ 2a/r_*³ against |φ‴| ~ e^(−2r_*/s).
 - At l = 0, no s in [0.2, 0.98] gives w ≥ 0. For 1 ≤ l ≤ 30, s = 0.98 does; for l ≥ 6 the minimum of w on I is at the
   peak, w_I = s^(−3) = 1.0625.
 
 | l | 1 | 2 | 3 | 4 | 5 | 6 | 10 | 17 | 25 |
 |---|---|---|---|---|---|---|---|---|---|
 | B_l(3) | 253 | 53.3 | 35.5 | 26.6 | 21.3 | 19.5 | 19.3 | 19.2 | 19.2 |
-| computed norm (section 3d) | 0.423 | 0.451 | 0.508 | 0.672 | 1.132 | 0.983 | 0.421 | 0.0551 | 0.0225 |
+| computed norm (`checks/e2band5_s3.out`) | 0.423 | 0.451 | 0.508 | 0.672 | 1.132 | 0.983 | 0.421 | 0.0551 | 0.0225 |
+
+At the other frequencies of section 4's table (B_l(σ) against the computed norm):
+
+| l | 1 | 2 | 4 | 8 | 16 |
+|---|---|---|---|---|---|
+| σ = 0.3 | 132 / 1.66 | 43.4 / 0.79 | 24.3 / 0.33 | 18.3 / 0.12 | 18.1 / 0.040 |
+| σ = 1 | 155 / 3.00 | 44.9 / 1.96 | 24.6 / 0.55 | 18.4 / 0.14 | 18.3 / 0.042 |
 
 For l ≥ 6, B_l(1) ≈ 18.3 and B_l(10) ≈ 26.8 (`--table 30`). A hundredth of B_5(3) is below the computed norm, so the
-comparison is not vacuous.
+comparison is not vacuous. The selftest checks l ≤ 25 at σ = 3; `--table` extends the constants to l = 30.
 
 What it gives:
 
 - *The band.* For 5 ≤ l ≤ 17 at σ = 3, where only Proposition E2.4's e^54 held, B ≤ 21.3. That is within a factor of
-  about 19 of the computed norm at the barrier-top harmonic l = 5. At large l the bound is loose by up to about 10³,
-  and E2.5's 1/κ_I² is the better one.
+  about 19 of the computed norm at the barrier-top harmonic l = 5. At large l the bound is loose by up to about 10³.
+  There E2.5's 1/κ_I² is the better one where it is a bound: proved from l_0(σ) (50 at σ = 3), and by quadrature from
+  18 (computed); at 12 ≤ l ≤ 17 it is not a bound (section 3d).
 - *In σ.* B_l is uniform on compact sets of real σ ≠ 0, and grows linearly in |σ|. As σ → 0 it stays bounded,
-  B_l(0+) = (2/(m′w_I))^(1/2). It does not degenerate at the barrier-top energy σ² = max V_l of a single harmonic.
+  B_l(0+) = ((2/m′ + M′²/w_I)/w_I)^(1/2): 126 at l = 1, about 18.1 for l ≥ 6. It does not degenerate at the
+  barrier-top energy σ² = max V_l of a single harmonic.
 - *In l.* For 6 ≤ l ≤ 30 the constants are nearly constant: they depend on l only through x_p, which tends to the
-  photon sphere. Beyond l = 30 this is expected, as −φV_l′ grows like l², but it is not computed.
-- *With E2.5 and E2.7,* every harmonic l ≥ 1 now has an explicit bound at every real σ ≠ 0. For l = 0, E2.7 holds for
-  σ² > max V_0 and Proposition E2.4 otherwise.
+  photon sphere. Beyond l = 30 this is expected, as −φV_l′ grows like l², but the instrument does not compute it;
+  verifier 175's scans at l = 60, 100 and 200 also give w ≥ 0.
+- *With E2.5 and E2.7,* every harmonic 1 ≤ l ≤ 30 now has an explicit bound at every real σ ≠ 0 (computed
+  constants), and every l ≥ l_0(σ) one by E2.5 (proved). At σ = 3 that leaves 31 ≤ l ≤ 49 with Proposition E2.4's
+  constant, or E2.5 by quadrature from l = 18 (computed). A proof of w ≥ 0 for large l, with a finite check below
+  it, would close that gap (verifier 175's A1). For l = 0, E2.7 holds for σ² > max V_0 and Proposition E2.4
+  otherwise.
 
-What it does not give: a certificate. w ≥ 0 and the constants are checked on a grid, and an interval-arithmetic check
-per l is a finite step. Nor does it give the record's norms (section 4), or Im σ > 0. It is a bound per harmonic, not
-uniform in l at large σ: there the photon-sphere trapping (E4) appears as the linear growth in |σ|.
+What it does not give:
+
+- a certificate: w ≥ 0 and the constants are checked on a grid, and an interval-arithmetic check per l is a finite
+  step;
+- l = 0, and l > 30 in the instrument;
+- a good constant: B is dominated by the cut-off term 2/m′, where m′ = φ′ at the end r = 4 of I is about 0.0058. As
+  σ → 0 that term is almost all of B_l² w_I, and m′ decays like e^(−2Λ/s) as I lengthens, so the bound is
+  exponentially poor in the length of I;
+- uniformity in σ: B_l grows linearly in |σ|, the price of bounding the flux term 2σ²(|c_+|² + |c_−|²) by
+  2|σ|‖f‖‖u‖_I, not a trapping effect; the constants are nearly uniform in l;
+- the record's norms (section 4), or Im σ > 0.
 
 ## 4. What remains for E2 at this operator
 
@@ -272,8 +297,9 @@ uniform in l at large σ: there the photon-sphere trapping (E4) appears as the l
   replace it, for l ≥ l_0(σ), by 1/((15/256)(L + 3/4) − σ²), asymptotically 17.07/L. They rest on Lemma E2.5a's
   monotone energy and the flux.
   - *Above the barrier* (σ² > max V_l) Lemma E2.7 gives the polynomial Λσ/(σ² − max V_l) (section 3c, D359).
-  - *The other harmonics, l < l_0(σ) with max V_l ≥ σ²,* keep Proposition E2.4's constant, which is finite but
-    astronomically large. Section 3d computes their actual norms at σ = 3, at most 1.132 (D371). Below the proved
+  - *The other harmonics, l < l_0(σ) with max V_l ≥ σ²,* kept Proposition E2.4's constant, which is finite but
+    astronomically large, until Lemma E2.8 (section 3e, D379) gave 1 ≤ l ≤ 30 an explicit one (about 19-21 at σ = 3;
+    constants computed). Section 3d computes their actual norms at σ = 3, at most 1.132 (D371). Below the proved
     l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below
     the threshold 18 that quadrature gives, which is computed, not proved).
   - *Two kinds of l below l_0.*
@@ -296,8 +322,9 @@ uniform in l at large σ: there the photon-sphere trapping (E4) appears as the l
   E2.4's bound is 10⁶⁰ at (σ, l) = (0.3, 8) and overflows beyond. The missing ingredient was a lower bound on how fast
   u_h grows through the barrier. Section 3b supplies the part of it that is needed: the signs of (|u_h|²)' and
   (|u_∞|²)' at the ends of I, from the WKB energy and the flux. Labels: computed (the table); section 3b proved.
-- **Near σ = 0 and large |σ|.** The bound degenerates as σ → 0 (the record's I.C low-energy analysis) and, uniformly in
-  l, at the trapping energies σ² ≈ max V_l for large σ (the photon sphere; E4).
+- **Near σ = 0 and large |σ|.** The bounds of sections 3b-3c degenerate as σ → 0 (the record's I.C low-energy
+  analysis), while E2.8 stays bounded there for 1 ≤ l ≤ 30 in this cut-off norm. Uniformly in l, they degenerate at the
+  trapping energies σ² ≈ max V_l for large σ (the photon sphere; E4), and E2.8 grows linearly in |σ|.
 - **The record's norms.** Proposition 6.2 is stated on the variable-order b-Sobolev spaces X_σ, Y_σ of the extended
   domain through the horizon; passing from L²(dr_*) per harmonic to them needs the elliptic and propagation constants of
   I.A-I.B made explicit (E2-E4).
@@ -308,9 +335,10 @@ uniform in l at large σ: there the photon-sphere trapping (E4) appears as the l
 ## 5. Labels and sources
 
 Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, Proposition E2.5, Corollary E2.6;
-Lemma E2.7);
+Lemma E2.7; Lemma E2.8 given w ≥ 0);
 computed (P1: (1.1), (1.2); P2: numerical illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started
 from the exact solution of the inverse-square tail; P3: Corollary E2.6's thresholds, Proposition E2.5's conditions by
 quadrature, and the bound against the numerical kernels; P4: unimodality for l ≤ 40, and Lemma E2.7 against the
-numerical kernels on I).
+numerical kernels on I; `checks/e2morawetz5.py` M1: identity (3.4) as an exact derivative, sympy; M2-M3: w ≥ 0 and the
+constants on a grid, and B_l(3) against the computed norms, floating point, not certified).
 Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE fact); EFFECTIVE-CONSTANTS.md section 5 (E2).

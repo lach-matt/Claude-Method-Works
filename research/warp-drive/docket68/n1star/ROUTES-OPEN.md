@@ -4628,7 +4628,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the curvature cut. Second seed: converges to v ~ 3-3.5, then n steepens at x = +1. Open: an axis treatment or a
   mapped grid at the axes (CERTIFY-10L5.md section 6b).
 - D381 (checks/axisdrift5.py, computed on the saved runs): the shift drags the angle along the ingoing generators,
-  d ln(1+x)/du = 2 s(-1). At lambda = 1 the drag at x = -1 is e^-5.0 at the onset v = 1.65 (first node at e^-6.15, M = 24)
+  d ln(1+x)/du = 2 s(-1). At lambda = 1 the drag at x = -1 is e^-5.0 at the onset v = 1.65 (first node e^-6.15, M = 24)
   and e^-13 by v = 1.8, inside the horizon (R ~ 0.52): the x = -1 non-convergence is largely the gauge's. Next: the shift
   on dv, or a moving map at x = -1. At the second seed the x = +1 failure has drag < e^0.02: not this, still open.
 
@@ -4674,9 +4674,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
   harmonics with max V_l >= sigma^2 below l_0 (5 <= l < 50 at sigma = 3).
 - D379 (E2-PILOT section 3e, checks/e2morawetz5.py M1-M3): Lemma E2.8, a 1D Morawetz bound. phi = tanh((r_* - x_p)/s),
-  s < 1 (horizon tail), w = -phi V_l' - phi'''/2 >= 0 gives ||chi_I R_l chi_I|| <= ((2/m' + (M' + 2|sigma|)^2/w_I)/w_I)^1/2
+  s < 1 (horizon tail), w = -phi V_l' - phi'''/2 >= 0 gives
+  ||chi_I R_l chi_I|| <= ((2/m' + (M' + 2|sigma|)^2/w_I)/w_I)^1/2
   at every real sigma != 0, bounded as sigma -> 0. Every l >= 1 (computed to l = 30; l = 0 has no admissible s): B_l(3)
   <= 21.3 on the band 5 <= l <= 17, where only e^54 held. Not certified (w >= 0 on a grid); coarser than computed norms.
+- D382 (verifier 175): E2.8's proof right; w >= 0 with wide margins. MAJOR: 'every l >= 1' was beyond the check --
+  computed for 1 <= l <= 30 (verifier's scans at 60, 100, 200 pass); a large-l proof plus a finite check would close
+  it. B(0+) = ((2/m' + M'^2/w_I)/w_I)^1/2; s <= 1; tail monotone checked; sigma = 0.3, 1 compared (all above); the
+  sigma-growth is the flux step; the 2/m' cut-off cost dominates. LD7: eps_ind is G'''' Prop 5.1's = F' (2.2)'s.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 
