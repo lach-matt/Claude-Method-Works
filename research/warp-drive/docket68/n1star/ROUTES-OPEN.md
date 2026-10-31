@@ -4668,6 +4668,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   lines reclassed VAL (now SPC 120, VAL 13). It holds on (0, r_h) by hand: the inner piece dt + (v/2) dr has <c, dr> =
   1/4 + 3mu/(4r^2) > 0 and G(c) < 0, and f < 0 there. Minor: eps_param := min(1/20, r/(4R_1)); Lemma 3.3 (c) via
   r_A^2 > 3||A||^2; any delta_0 in (0, r) for F3/F4; r < 4R_1/7 in VI (r_h = R_1); Part IX outside the census.
+- D367, (a): (VII4) written as BEYOND5 Lemma 6.3 (deduced). g_lambda on the past domain of dependence of Sigma =
+  Sigma_IVP cap {r_0 < r < R} (in a neighbourhood V where t_IVP is a time function) and g after Sigma_IVP glue into one
+  smooth vacuum spacetime N, since Ric = 0 in Gaussian normal gauge fixes every normal jet from (gamma, k). The future
+  developments are identified on their maximal common development ([Sbi15] arXiv:1309.7591 Thms 2.6, 2.7, 3.4, 3.13,
+  READ). Open: how far that common development reaches; Sigma's acausality in all of Omega'.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 

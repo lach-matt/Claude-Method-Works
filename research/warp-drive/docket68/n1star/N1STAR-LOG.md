@@ -6362,3 +6362,10 @@ condition's quadratic form is positive (BEYOND5.md Proposition 6.2, repaired). T
 smaller spin bound, a sharper form of the Kerr-Schild condition, a free margin where two Parts left one undefined, the
 exact horizon radius in Part VI, and Part IX named as outside the census.
 
+**D367 (2026-10-31): the two developments written as one spacetime.** Part VII left unwritten the identification of
+the record's spacetime with the development of the glued data where both are determined by the same data. It is now
+Lemma 6.3 of BEYOND5.md. Before the slice the record's metric, near the hole, and after it the development: the two
+glue smoothly, because the vacuum equations fix every normal derivative at the slice from the data. To the future
+the two developments are identified on their largest common development, by Sbierski's construction of the maximal
+development without Zorn's lemma (read at source). How far that common region reaches is not decided.
+

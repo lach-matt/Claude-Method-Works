@@ -47,11 +47,12 @@ g is the development of the glued data (γ_λ, k_λ). These equal g_λ's data on
 data beyond 4R. Two facts follow.
 
 - *On the domain of dependence of Σ_IVP ∩ {r < R}* g and g_λ agree up to a diffeomorphism. They are vacuum
-  developments of the same data, so this is local geometric uniqueness on a domain of dependence (standard; not read at
-  source here). Part VII's Remark 4.1 records this as finding (VII4), "not written". With it the two give one vacuum
-  spacetime: g_λ on Ω' to the past of Σ_IVP ∩ {r < R} and on that set's domain of dependence, and g to the future of
-  Σ_IVP in {r ≥ r_0}. Elsewhere in Ω' they need not agree, because on R < r < 4R the glued data differ from g_λ's.
-  This still covers the hole's interior after the time T.
+  developments of the same data, so this is geometric uniqueness on a domain of dependence. Part VII's Remark 4.1
+  records this as finding (VII4), "not written"; it is written as Lemma 6.3 (section 3 (a), D367). The two give one
+  vacuum spacetime N: g_λ on the past domain of dependence of Σ := Σ_IVP ∩ {r_0 < r < R} near Σ, and g to the future of
+  Σ_IVP in {r ≥ r_0}. On the future side they are identified on their maximal common development. Elsewhere in Ω' they
+  need not agree, because on R < r < 4R the glued data differ from g_λ's. This still covers the hole's interior after
+  the time T.
 - *At late times near the hole* that domain of dependence does not reach (finding (VII1): "K^+ at late times is not
   in the domain of dependence of any bounded part of the slice"). So the interior covered by Proposition 6.1 belongs to
   *a* vacuum continuation of g_λ, fixed by the gluing. It is not *the* continuation of the record's data, because
@@ -60,7 +61,65 @@ data beyond 4R. Two facts follow.
 ## 3. What remains
 
 - **(a) Write (VII4).** The change of gauge on a compact region identifying the two developments on their common
-  domain of dependence. This is standard and only needs writing out.
+  domain of dependence. This is standard and only needs writing out. Written below as Lemma 6.3 (D367).
+
+**Lemma 6.3 ((VII4), deduced, D367).** Let Σ := Σ_IVP ∩ {r_0 < r < R}, with the data (γ, k) that g_λ and g both
+induce on it (Part VII: the glued data equal g_λ's on Σ_IVP ∩ {r ≤ R}). In Part VII's chart (Lemma 1.2) Σ is one set
+for both metrics. Let V ⊂ Ω′_+ ∩ {v > v_end} be an open neighbourhood of Σ̄ on which t_IVP, extended below r_0 with
+ψ′_IVP = 1, is a time function for g_λ (see the proof). Let A := int D⁻_V(Σ) ∪ Σ, the past domain of dependence of Σ in
+V with g_λ, and B := M ∩ {t_IVP ≥ 0} with g.
+
+- (i) The space N := A ⊔ B / ~, gluing along Σ by the identity, is a smooth, Hausdorff, time-oriented vacuum spacetime:
+  g_λ on A and g on B.
+- (ii) In N and in V, int D(Σ) are globally hyperbolic developments of (Σ, γ, k). Their maximal common globally
+  hyperbolic development U contains a neighbourhood of Σ. On U, g and g_λ agree up to a time-orientation-preserving
+  isometry that is the identity on Σ, and the two glue along U into one development, Hausdorff.
+
+*Proof.*
+
+- *(i), smoothness.* Take K ⊂ Σ compact and the Gaussian normal maps E_λ(s, x) := exp^(g_λ)_x(s n_λ) for s ≤ 0 and
+  E(s, x) := exp^g_x(s n) for s ≥ 0, n_λ and n the future unit normals; for some ε(K) > 0 both are diffeomorphisms on
+  [−ε, 0] × K and [0, ε] × K. There E_λ^* g_λ = −ds² + h^λ_s and E^* g = −ds² + h_s, with h^λ_0 = h_0 = γ and
+  ∂_s h^λ_0 = ∂_s h_0 = ±2k (one convention for both).
+  - In this gauge Ric = 0 is ∂_s² h = F(h, ∂_s h, ∂_x h, ∂_x² h), a universal expression. Differentiating m times in s
+    makes ∂_s^(m+2) h at s = 0 a universal expression in the ∂_s^j h, j ≤ m + 1, and their x-derivatives.
+  - By induction every ∂_s^m h^λ and ∂_s^m h agree at s = 0. So H := h^λ on s ≤ 0 and h on s ≥ 0 has continuous
+    one-sided partial derivatives of every order that agree at s = 0, and is C^∞.
+  - −ds² + H is then a smooth metric, Ricci-flat on each side and so on both. These charts, over a cover of Σ by such
+    K, give N its smooth structure near Σ; away from Σ it is A's and B's.
+- *(i), Hausdorff.* A contains no point of the edge ∂Σ = Σ_IVP ∩ ({r = r_0} ∪ {r = R}), since the edge is not in
+  int D(Σ). So a point of B on Σ_IVP ∖ Σ and any point of A have disjoint neighbourhoods. Two half-spaces glued along
+  half their common boundary, edge included, would fail exactly there; with A as defined they do not.
+- *V exists.* Σ̄ lies in the interior of Ω′_+ (Part VII Lemma 1.2 (b)), where v ≥ v_end + 2. dt_IVP is timelike for
+  g_(b_0) on {|x| ≥ ½r_0} with ψ_IVP extended by ψ′_IVP = 1 below r_0 (III.B Lemma 3.7 (b) and Lemma 3.3 (e): β = 1).
+  g_λ = g_(b_0) + O(λ) in C⁰ on Ω′_+ ∩ {v ≥ v_end} (Part VII Lemmas 1.1, 1.2 (a)). So for λ small, dt_IVP is
+  timelike for g_λ on a neighbourhood V of the compact Σ̄.
+- *(ii).* Σ is a level set of a time function, t_IVP in V and in B and hence in N, so it is acausal there. Then int D(Σ)
+  is globally hyperbolic with Cauchy surface Σ (standard causality theory; not read at source here). Both are vacuum,
+  so both are globally hyperbolic developments of (Σ, γ, k) in the sense of [Sbi15] Definition 2.1.
+  - [Sbi15] Theorem 2.6 gives a common development near Σ (Choquet-Bruhat's local uniqueness).
+  - Theorem 3.4 gives the maximal one, U ⊂ int_N D(Σ) with an isometric embedding ψ into Ω′. As a common development
+    of two developments of the same data, ψ preserves the time orientation and the embedding of Σ (Definitions
+    2.2, 2.4).
+  - Theorem 3.13 (no corresponding boundary points) makes the gluing along U Hausdorff, and Theorem 2.7 is the
+    resulting common extension. ∎
+
+What it does and does not say:
+
+- N is the one vacuum spacetime of section 2: the record's g_λ just before Σ, near the hole, and the development g
+  after Σ_IVP, everywhere in {r ≥ r_0}. Across Σ_IVP ∩ {r ≥ R} nothing is glued, since the data differ there.
+- The identification of g with g_λ to the future of Σ holds on U, the largest region on which the two developments are
+  isometric. How far U reaches into int D⁺(Σ) of each is not decided here. It is as far as both are determined by
+  (Σ, γ, k) alone, with no corresponding boundary points.
+- The g_λ side is taken in V, not in all of Ω′, because Σ is acausal in V by construction. Whether it is acausal in Ω′,
+  which would enlarge the development on that side, is not decided here.
+- [Sbi15] works with smooth vacuum data on a connected Riemannian manifold satisfying the constraints (Definition 2.1),
+  not necessarily complete. Σ is one: in the chart (t, x) it is the graph over the shell {r_0 < |x| < R} ⊂ ℝ⁴, which is
+  connected, and its data satisfy the constraints because both metrics are vacuum.
+
+READ ([Sbi15] = J. Sbierski, "On the existence of a maximal Cauchy development for the Einstein equations - a
+dezornification", arXiv:1309.7591v3, read 2026-10-31 through alphaXiv): Definitions 2.1-2.4 and Theorems 2.6-2.8
+(pp. 11-12), Theorem 3.4 (p. 14), Theorem 3.13 (p. 20).
 - **(b) The continuation of the record's own data.**
   - The record would first have to construct g_λ on the whole of Σ_IVP, to spatial infinity. The region there lies
     after the shell (v > v_end), where g_λ is Tangherlini plus smooth means times powers of λ (paper section 8.7) plus
