@@ -1,8 +1,9 @@
 # BEYOND5-R0-PROOF -- each Part re-proved with the lowered inner radius r_♭ (Proposition 6.2)
 
-Status: batch 1 written (D368): sections 0-3 (common facts, Parts I and II, III.B). Batches 2-4 (III.C-III.K, IV-IV7,
-V-IX) to follow. Each batch is read by its own verifier. Labels as marked; "re-proved" means the Part's argument was
-re-read at every step that touches the inner region, and each such step re-derived with r_♭.
+Status: batch 1 written (D368): sections 0-3 (common facts, Parts I and II, III.B); batch 2 written (D369): section 4
+(III.C-III.I3). Batches 3-4 (III.I4-III.K and IV-IV7; V-IX) to follow. Each batch is read by its own verifier.
+Labels as marked; "re-proved" means the Part's argument was re-read at every step that touches the inner region, and
+each such step re-derived with r_♭.
 
 BEYOND5.md Proposition 6.2 was deduced from a census of lines (`checks/r0census5.py`). This note does what the census
 does not: it goes through each Part's proofs and re-derives the steps that use the inner radius or the region next to
@@ -143,6 +144,87 @@ of the inner radius, re-derived:
   Lemma 6.3 are algebraic.
 
 *Status:* III.B re-proved at r_♭.
+
+## 4. III.C to III.I3
+
+**Which r_0.** Part III writes r_0 for two radii:
+
+- in its stationary Parts (III.D-III.G), which work on Part I's X̄ (I.A section 1.1) and cite I.A Theorem 7.2, it is
+  Part I's r_0^A, now r_♭ + R_1/8, with Part I's δ_0 = R_1/16;
+- from III.H on (the spacetime spaces of II.A and III.H section 1, and III.K, which says "r_0 the inner radius (III.B
+  (3.6))"), it is the spacetime inner radius, now r_♭ (III.K) or Part II's r_0^A.
+
+Each step below is checked at both values where the reading is not plain. Where r_0 − δ_0 occurs (III.F3 Lemma 2.3,
+III.F4 (iii), III.H2:99), it is Part I's: r_0^A − δ_0 = r_♭ + R_1/16 > 0. Verifier 168's A2 read F3's r_0 as III.B's,
+for which r_♭ − R_1/16 can be negative. With Part I's radii that does not arise, and D366's free choice of δ_0 is not
+needed.
+
+**Parts with no inner-boundary step.** III.A, A2, C, D3, D4, E2, F, F2, G-G5 and I2 name no r_0. III.C-III.C″ work with
+their own exterior radius "r_0 large" (census class OTHER). The rest reach the inner boundary only through Part I's
+spaces and theorems, which hold at the new radii (section 2).
+
+**III.D (Proposition 6.2).**
+
+- (a)-(c) are on {r > r_h} and do not change.
+- (d), inside the horizon: in the ingoing chart the harmonic coefficients solve −fU″ + AU′ + BU = 0 with A, B smooth on
+  (0, ∞), and (r − r_h)Y′ = MY with M smooth on (0, ∞) (III.D:409-416). The Gronwall bound on [r_1, r_h) holds for
+  every r_1 ∈ (r_0, r_h), whatever r_0 > 0 is. So u = 0 on {r > r_0}.
+- "u smooth up to {|x| = r_0}" is I.A Theorem 7.2 (5) at the new radii.
+
+**III.D2 (d)** repeats III.D (d) at σ = 0.
+
+**III.E (b)** (vanishing inside the horizon, III.E:118-123; used by III.E Proposition 3.1 and III.F4 Steps 1-2).
+
+- On {r_0 < |x| < r_h}, ∂_(t_*) is spacelike: g_(b_0)(∂_t, ∂_t) = −f > 0 there. The quotient metric is Lorentzian with
+  |x| timelike (F2), and both persist for b near b_0 on compacta (F3).
+- The Cauchy problem runs on the spacelike {|x| = c} from {|x| < r_0}, where the solution vanishes by the supported
+  character, across {|x| = r_0}. That needs the operator hyperbolic in |x| just inside r_0. It is: dr is timelike on
+  {½r_♭ ≤ r ≤ r_h − ε} (F2, F3), and the operator is defined on Part I's X̃° ⊃ {r > r_♭} (F1).
+
+**III.F3 (modes).**
+
+- Lemma 2.1 (b): the chart (t_*, r, z) and so the system's coefficients are smooth on (r_0, ∞), for every r > 0
+  (III.B's t_* at r_♭).
+- Lemma 2.3: the radial system's coefficients are smooth on (r_0 − δ_0, ∞), and on (r_0 − δ_0, r_h − ε] f < 0, so the
+  system is regular there. r_0 − δ_0 = r_♭ + R_1/16 > 0.
+- Proposition 3.1 (*the interior*): III.D (d) as above.
+
+**III.F4 (zero energy).** Theorem 3.1:
+
+- Steps 1-6 are on {r > r_h}.
+- Step 1's H is an angular component, the same in every chart, so smooth on {r > r_0}.
+- Step 7 solves the r-row system on (r_0, ∞) in the chart (t_*, r, z), smooth there.
+- Section 4: (iii) is F3 Lemma 2.3 at σ = 0, and (vi) is III.D (d).
+- Step 2 of the independence proof: a Killing 1-form vanishing on {r_0 < |x| < r_h} vanishes on the connected X°.
+  {|x| ≥ r_0} is connected for every r_0 > 0.
+
+**III.F5 (pairings, :33-34, 87-88).** Every pairing has one factor vanishing on {r_0 < |x| < r_h} (III.E (b)), so the
+integrations by parts on X produce no boundary term at {|x| = r_0}. That holds at any r_0.
+
+**III.H, III.H2, III.H3.**
+
+- III.H:29: r ≥ r_0 > 0 on X.
+- III.H2 section 1: the spaces are extendible at {r = r_0}, a construction for any radius (I.A section 6.1).
+- III.H2 Lemma 6.2:
+  - the order is constant on {r ≤ r_0 + δ_1}, δ_1 ∈ (0, 1], as II.C Definition 2.4 (3) gives: constant on
+    {r ≤ r_Γ}, r_Γ > r_2 > r_0;
+  - the defining functions ρ_sf = r^(−1), ρ_K = r/t are bounded factors apart on {r ≥ r_0}, with constants depending
+    on r_0;
+  - the step *near r = r_0* cuts off with χ_1, vanishing on {r ≥ min(r_0 + δ_1, 3/2 r_0)}, and extends by Seeley's
+    reflection in r into {r > ½r_0}. The extension acts on functions in x only and needs no metric there, and ½r_0 > 0;
+  - ⟨x⟩ ≤ C r on {r ≥ r_0}, C = C(r_0).
+- III.H2:99: constancy over {r_0 − δ_0 ≤ r ≤ r_2 − δ_0}, Part I's radii, as in section 2.
+- III.H3 Theorem 4.1: convergence on compact subsets of M° ∩ {r > r_0}.
+
+**III.I3 (:24-28, 90-92, 97, 211-213).**
+
+- The artificial boundary {r = r_0} carries extendible spaces.
+- Where a chart near infinity meets {r < r_0}, u is first extended by II.G′ Remark 3.7's Seeley extension in the
+  spatial variable. That commutes with ∂_(t_*), and "nothing propagates across {r = r_0}".
+- The density argument at 211-213 uses that the forward solution on {r ≥ r_0} depends on f there only, {r = r_0} being
+  spacelike: F2, F3 at r_♭.
+
+*Status:* III.C-III.I3 re-proved at r_♭.
 
 Footnote (reading pattern for section 2): lines of PART-I-*.md and PART-II-*.md matching
 `r_0(?![0-9])|r_\{0\}|\delta_0|r_2(?![0-9])|\partial_\sharp|artificial|inner`, then filtered for R_1, r_h, μ,
