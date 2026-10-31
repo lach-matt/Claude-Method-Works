@@ -21,7 +21,8 @@ the l = 1 scalar type (Q5) with explicit harmonics. Here the harmonic is kept ab
      F(0) -> F(1) at gamma_C = 10^6 and at gamma_C = 10^5, the exponents at N besides 0, and the size of each transfer.
   G  the growth in l: the norms of the k-th derivative transfers F(0) -> F^(k)(1), k = 0 ... 3, in the basis
      normalised by each harmonic's own L^2(S^3) size (|Y|^2, |dY|^2 = kappa |Y|^2, |Hess^0 Y|^2 = (2/3) kappa
-     (kappa - 3) |Y|^2, |(nabla V)_sym|^2 = 2 (kappa - 3) |V|^2), and the exponent p of a fit ~ l^p over the last l.
+     (kappa - 3) |Y|^2, |2 (nabla V)_sym|^2 = 2 (kappa - 3) |V|^2, the k basis of S2; b counted twice; weights
+     corrected D438), and the exponent p of a fit ~ l^p over the last l.
 """
 import sys
 
@@ -308,7 +309,7 @@ def transfers(M, sub, label):
 def weights(typ, l, n):
     kv = l*(l + 2)
     if typ == "scalar":
-        w = [1, 1, 1, 3**0.5, (2*kv)**0.5, (2*kv)**0.5, (2*kv*(kv - 3)/3)**0.5][:n]
+        w = [1, 2**0.5, 1, 3**0.5, (2*kv)**0.5, (2*kv)**0.5, (2*kv*(kv - 3)/3)**0.5][:n]   # b twice: tr, rt
     else:
         w = [2**0.5, 2**0.5, (2*(kv - 3))**0.5][:n]
     return np.diag(w)
