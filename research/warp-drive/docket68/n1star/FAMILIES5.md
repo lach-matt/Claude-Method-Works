@@ -188,8 +188,15 @@ stress. What it does not give:
       automatically, so the fixed components need no transport of their own. The other ten components of R^(1) at
       (n, 0) (vv, uv, vA and the angular trace-free part) are transports along ∂_u for the ten free components, with
       principal part −g0^(uv) i n ∂_u from −½ g^(ab) ∂_a ∂_b. At (0, n) the same holds with u and v exchanged.
-    - Not computed: R^(1) itself. Assembling it and checking these five components needs an on-shell background,
-      for instance a jet of section 4c's solution at a point.
+    - *Computed, the linear core (D407; `checks/stage1pure5.py` P1-P2, exact, n = 1, 2).* At (n, 0), the part of
+      R^(1) linear in ĝ_2 involves no field equation for g0 (Ric(g0) enters only at order λ²), so it can be computed
+      on a general round double-null background. With ĝ_2's five reachable components zero and the other ten
+      arbitrary functions, R^(1)_uu, R^(1)_uA and g0^(AB) R^(1)_AB vanish identically: the free components do not
+      enter the five equations. Each of the other ten components of R^(1) contains the transport of its own free
+      component, with coefficient −i n g0^(uv) times that component's weight. Control: with G_uu or the angular
+      trace nonzero, the corresponding one of the five does not vanish.
+    - Not computed: the whole of R^(1) at (n, 0), the waves' terms and their products with ĝ_2's mixed harmonics
+      included. That needs an on-shell background, for instance a jet of section 4c's solution at a point.
 - the profile H: it is imposed, the record's, not derived for the outgoing family;
 - the next stages: ĝ_2's own transport at order λ (at the pure harmonics, its ten free components', D401) and the
   mixed terms it feeds back;

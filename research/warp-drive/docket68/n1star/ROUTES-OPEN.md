@@ -4874,3 +4874,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   g0^(vu) F1 (R^(1) - g0 tr R^(1)/2)_(u c) = g0^(ab) F_a F_b D^(2) = 0 (null symbol). So R^(1)_uu, R^(1)_uA and
   g0^(AB) R^(1)_AB vanish identically: T8's five components need no transport; the other ten of R^(1) are transports
   along d_u for the ten free ones. Not computed: R^(1) itself, which needs an on-shell background (a jet would do).
+- D407 (checks/stage1pure5.py P1-P2, exact): D401's linear core computed. The order-lam part of Ric^H linear in
+  ghat_2 at (n, 0) needs no background equation. With the five reachable components zero and the ten others
+  arbitrary, R^(1)_uu, R^(1)_uA and g0^AB R^(1)_AB vanish identically; each of the other ten contains -i n g0^uv d_u
+  of its own component. Control: G_uu or the angular trace nonzero breaks the corresponding one. n = 1, 2.

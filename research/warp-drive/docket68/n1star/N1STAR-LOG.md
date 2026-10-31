@@ -6690,3 +6690,10 @@ Chebyshev polynomial, because in four space dimensions the relevant recursion st
 part of the data reaches spatial infinity with a clean expansion, of the kind the late-time theorem requires, with
 odd angular patterns dropping out at leading order. The curved-space corrections, the remainders, and a term-by-term
 check that the coefficient really stays constant after the shell are not done.
+
+**D407 (2026-10-31): the structure behind the previous deduction, computed.** The deduction that the next stage's
+equations leave the gauge-fixed pieces alone rested on an identity. Its linear part can be computed exactly without
+knowing the background's own field equations, and it comes out as claimed: the ten free pieces do not appear in the
+five equations that hold automatically, and each of the other ten equations moves its own piece along the incoming
+direction. The full next stage, with the waves' own contributions, still needs a background that solves its
+equations, and is not done.
