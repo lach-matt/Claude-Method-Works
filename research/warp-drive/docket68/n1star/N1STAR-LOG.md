@@ -6925,3 +6925,12 @@ light cone is exactly the same for every pattern (so nothing goes wrong there at
 twelve), and fixed two bookkeeping factors. The second re-derived the proof for all patterns and confirmed it, with one
 figure corrected (a growth ratio that had only been checked on special data) and the closing statement given back its
 qualifiers: at the record's setting, for smooth data, assuming the solution is unique.
+
+**D440 (2026-10-31): the gauge holds when the data sit on light cones.** D428 showed that the coordinate condition the
+reduced equations rely on stays true once it holds at the start, but only for data given at one instant of time. The
+record's own problem gives its data on light-like surfaces instead, where that argument does not apply. Now an exact
+check shows the same thing there. On such a surface the condition's failure can only travel along the light rays, one
+piece after another, and each piece stays zero if the data obey the surface's own constraint equations and the
+condition holds where the two surfaces meet. Still assumed rather than computed: that such data exist (solving those
+constraints, with the condition where the surfaces meet), the matter terms, and the standard uniqueness theorem for
+data of this kind.

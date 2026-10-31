@@ -4913,6 +4913,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   statement carries "at the record's point" and "when M_m is smooth on S^3"; the tensor type needs delta G h = 0 too,
   each Cartesian component has degree exactly l and is Lemma 6.5's solution (exponents 0, -1/2 at N); l = 0, 1 need
   only the ordinary point s = 1; W equivalent, not equal, to the L^2 size (ratios in [0.55, 0.82]).
+- D440 (FAMILIES5 4e, checks/charprop5.py N0-N4, exact in the transverse jets, n = 4, 5): D428's characteristic
+  case. N = {u = 0} null, generators d_v. W on N depends on the transverse jets only through d_u g_vv, d_u g_vA and
+  gamma^AB d_u g_AB (triangular, diagonal g^uv, g^uv, -1/2). E_vv = C_vv - d_v W_v + (kappa - theta/2) W_v; modulo
+  W_v's jets along N, E_vA = C_vA - d_v W_A + (chi_A^B - theta/2 delta) W_B; modulo W_v's and W_A's,
+  gamma^AB E_AB = C_tr + 2 g^uv d_v W_u - g^uv H_v W_u; the C's are data (the null constraints in the gauge W = 0).
+  So the constraints and W = 0 on S give W = 0 on N and on N', then everywhere by P2 and uniqueness for the linear
+  characteristic problem (standard). Controls fail. Open: solving the gauge-reduced constraints with the corner
+  conditions at S, the dusts' stress, and the record's solution solving the reduced equation exactly.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

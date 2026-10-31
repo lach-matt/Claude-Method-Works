@@ -295,8 +295,28 @@ couplings are then killed by their own contractions.
   - So, for data satisfying the vacuum constraints and a solution regular enough for the energy estimate, W ≡ 0 on the
     domain of dependence (for g) of a spacelike slice, by uniqueness for the linear wave equation with zero data
     (standard, not computed; D433). H enters only through W: its being fixed matters for the reduced system's
-    principal part, not here. Not computed: the characteristic case (data on a null cone), and that the record's
-    solution solves the reduced equation exactly.
+    principal part, not here. Not computed: that the record's solution solves the reduced equation exactly. The
+    characteristic case is the next bullet (D440).
+  - *The characteristic case (D440; `checks/charprop5.py` N0-N4, exact in the transverse jets, vacuum as above,
+    n = 4 and 5, three seeds each; about 5 s).* N = {u = 0} is null with generators ∂_v, so g_vv = g_vA = 0 on N. At
+    a point of N, in the ring of polynomials in the transverse jets ∂_u g_ab and ∂_u ∂_c g_ab:
+    - W depends on them only through ∂_u g_vv, ∂_u g_vA and γ^(AB) ∂_u g_AB, triangularly, with diagonal g^(uv),
+      g^(uv) and −½ (N1). So W = 0 at a point of N fixes those n transverse derivatives there.
+    - With E := Ric(g) − δ*W the reduced operator, E_vv = C_vv − ∂_v W_v + (κ − θ/2) W_v (N2; N0 checks Ric_vv
+      against Raychaudhuri's form, κ = Γ^v_vv, θ the expansion of ∂_v). Modulo W_v and its derivatives along N,
+      E_vA = C_vA − ∂_v W_A + (χ_A^B − ½θ δ_A^B) W_B (N3). Modulo W_v, W_A and theirs,
+      γ^(AB) E_AB = C_tr + 2 g^(uv) ∂_v W_u − g^(uv) H_v W_u (N4). C_vv, C_vA and C_tr are free of the transverse
+      jets: they involve only g on N, its derivatives along N, and H, and are the null constraints in the gauge W = 0.
+    - So for data on N with C_vv = C_vA = C_tr = 0 and W = 0 on the section S where N meets N′ = {v = 0}, a solution
+      of the reduced equation has W_v, then W_A, then W_u zero on N: three linear ODEs along the generators, with zero
+      data at S. The same holds on N′ with u and v exchanged. P2's linear wave equation then has zero data on N ∪ N′,
+      and W ≡ 0 where its characteristic problem has uniqueness (standard, not computed).
+    - Controls: a hypersurface with g_vv ≠ 0, θ for θ/2 in N2, N3 without the reduction modulo W_v, and one angular
+      component in place of the trace in N4 all fail; the last because the trace-free angular equations carry the
+      trace-free ∂_v ∂_u g_AB, which is not a constraint.
+    - Not computed: that the gauge-reduced constraints can be solved on N and N′ with W = 0 on S (the corner
+      conditions), the null dusts' stress in place of vacuum, uniqueness for the linear characteristic problem, and
+      that the record's solution solves the reduced equation exactly.
 
 ## 4c. The two-dust background (D389)
 
