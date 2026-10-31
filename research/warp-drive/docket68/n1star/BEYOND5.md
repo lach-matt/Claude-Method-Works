@@ -1,7 +1,9 @@
 # BEYOND5 -- the solution beyond D_T and Ω: the black-hole interior after the shell, up to the curvature boundary
 
 Status: written (D360); read by verifier 167 (D362), findings seated; r_0 census and Proposition 6.2 added (D363);
-read by verifier 168, whose major finding (Lemma 0.5 (6) below r_h/2) and minor findings are seated (D366).
+read by verifier 168, whose major finding (Lemma 0.5 (6) below r_h/2) and minor findings are seated (D366). The
+record's radius mismatch found by verifiers 170-171 is stated in section 1, and Propositions 6.1-6.2 assume its
+repair (D372).
 Labels as marked; nothing here is computed beyond the census.
 
 The paper's open item "beyond the boundary" (RESPONSE-HL-5D.md section 9) reads: Theorems 1-3 are made on D_T and Ω,
@@ -22,8 +24,17 @@ metric g of Theorem 0.2 (i) is defined on Ω_* ∪ 𝒟_0, the future of Σ_IVP 
 96-110), which is M ∩ {t_IVP ≥ 0}. It satisfies Ric(g) = 0, and on {r_0 ≤ r ≤ R', t_* ≥ T'} it decays at the rates
 (0.2) to g_(m',0), Tangherlini of a mass m' with |m' − μ_end| < ε_m.
 
-**Proposition 6.1 (deduced).** Let r_q := (√72 μ_end l5²)^(1/4) be the curvature boundary after the shell, a radius in
-the background's coordinates. If
+**The radius the development reaches (D372).** This holds on all of M only if Part I's artificial boundary, where
+Part II's spaces and III.D-III.J‴'s estimates end, is at III.B's r_0. As the record stands it is not. Part VI puts it
+at r_0^A = ½R_1 + 2δ_0 = ⅝R_1 (VI-DYN 88-89), while III.K and Part VII use ½R_1 (BEYOND5-R0-PROOF.md section 0;
+verifiers 170-171). So the record's g is controlled on {r ≥ ⅝R_1}. The repair puts Part I's artificial boundary at
+r_0 itself, with the inward collar δ_0 = R_1/16, where the Kerr-Schild family is still defined (down to ¼R_1,
+IV6-SOLV:28-30). Re-proving the Parts at that choice is BEYOND5-R0-PROOF.md, with r_♭ = r_0 = ½R_1 as one case.
+Proposition 6.1 below assumes the repair. Without it, its condition reads r_q ≥ ⅝R_1, which is
+μ_end ≤ (8/5)⁴ √72 l5² ≈ 55.61 l5².
+
+**Proposition 6.1 (deduced; with the repair of D372).** Let r_q := (√72 μ_end l5²)^(1/4) be the curvature boundary
+after the shell, a radius in the background's coordinates. If
 
     μ_end ≤ 16√72 l5² ≈ 135.76 l5²,                                                                             (1.1)
 
@@ -39,7 +50,8 @@ For the paper's two seeds (μ0 = 100 l5² and 1000 l5², log D38), (1.1) holds f
 most 35.76 l5² of mass, and fails for the second. Theorem 0.2 is a small-λ statement, so the gain to use is its λ → 0
 limit (2.6), (2/9) A² ∫ env². For the record's envelope sin⁴(π(v − ½)/3) on [½, 7/2], ∫ env² = 3 · 35/128 ≈ 0.820.
 With A = 1 in seed units, which is still to be confirmed, the gain is ≈ 0.182 μ0. Then μ_end ≈ 118 l5² at the first
-seed, and (1.1) holds with a margin of about 18 l5² (verifier 167's B2).
+seed, and (1.1) holds with a margin of about 18 l5² (verifier 167's B2). Without D372's repair the first seed
+fails the condition μ_end ≤ 55.61 l5², and only Proposition 6.2 covers it.
 
 ## 2. Whose continuation it is
 
@@ -159,9 +171,11 @@ dezornification", arXiv:1309.7591v3, read 2026-10-31 through alphaXiv): Definiti
       358, 361, 374; III.C 112; III.I8 61) and 9/16 R_1 (VI3-TRAPPING 375). Part IX, the gauge comparison, is
       outside the census; Theorem 0.2 does not use it.
 
-**Proposition 6.2 (deduced from the census, D363; repaired D366).** Let r_♭ ∈ (0, ½R_1] and replace III.B's r_0 by
-r_♭ and its ε_param by min(1/20, r_♭/(4R_1)). Then each of the 200 matched lines that use the inner radius (DEF, SPC,
-CON, VAL) holds with r_♭, the constants then depending on r_♭. So with r_♭ := ½ min(R_1, r_q(μ_end)), Proposition
+**Proposition 6.2 (deduced from the census, D363; repaired D366, D372).** Let r_♭ ∈ (0, ½R_1] and replace III.B's
+r_0 by r_♭ and its ε_param by min(1/20, r_♭/(4R_1)). Put Part I's artificial boundary there too, r_0^A := r_♭, with
+the collar δ_0 := min(R_1/16, r_♭/4) (BEYOND5-R0-PROOF.md section 0). Then each of the 200 matched lines that use the
+inner radius (DEF, SPC, CON, VAL) holds with r_♭, the constants then depending on r_♭. The Part-by-Part re-proof is
+BEYOND5-R0-PROOF.md. So with r_♭ := ½ min(R_1, r_q(μ_end)), Proposition
 6.1's conclusion holds for every μ_end, without (1.1).
 
 *Proof (from the census).*
@@ -170,9 +184,8 @@ CON, VAL) holds with r_♭, the constants then depending on r_♭. So with r_♭
   - III.B 157-159: ‖A‖ < r_♭/4. For |x| ≥ ½r_♭ (IV6-SOLV extends to {r ≥ ½r_♯}), |x|² ≥ ¼r_♭² > r_♭²/8 > 2‖A‖² ≥ s
     and r_A² ≥ |x|² − ‖A‖² > 3r_♭²/16 > 3‖A‖², so ‖A‖²(r_A² + ‖A‖²) < (4/9) r_A⁴ < r_A⁴: Lemma 3.3 (c)'s condition.
   - III.B 243-244: ψ(2R_1) = 2R_1 − r_♭ ≥ 3/2 R_1 and ψ′ ≥ −1 on [2R_1, 3R_1], so ψ ≥ ½R_1 > 0 there as before.
-  - VI3-TRAPPING 374: r_0 − δ_0 < ⅝R_1 for Part I's radii. Part VI's δ_0 = (r_h − ½R_1)/8 = R_1/16 is kept, and
-    only the inner radius moves (BEYOND5-R0-PROOF.md section 0), so r_0 − δ_0 = r_♭ + R_1/16 < ⅝R_1 ⇔ r_♭ <
-    9R_1/16, which holds.
+  - VI3-TRAPPING 374: r_0 − δ_0 < ⅝R_1 for Part I's radii. With D372's choice r_0^A = r_♭ and δ_0 ≤ R_1/16
+    (BEYOND5-R0-PROOF.md section 0), r_0^A − δ_0 < r_♭ ≤ ½R_1 < ⅝R_1.
   - IV6-SOLV's Lemma 0.5 (6) below r_h/2 (exact, by hand; D366). On r ≤ r_0/2 the record's c is the inner piece
     dt + (v/2) dr up to a positive factor (`cform5.py`:17), v = ½. In Kerr-Schild Tangherlini, g^(−1)(dr, dr) = f,
     g^(−1)(dt, dr) = 1 − f and g^(−1)(dt, dt) = −(2 − f), with f = 1 − μ/r². So ⟨c, dr⟩ = 1 − ¾f = ¼ + ¾μ/r² > 0 and

@@ -6385,3 +6385,15 @@ v = 1.5. Beyond, they still disagree, starting at the axis inside the horizon at
 0.81 of the boundary value: inside the domain. So the failure is the scheme's at the axis, not a sign that the domain
 is too large. At the second seed the run converges to v ≈ 3-3.5 and then steepens at the other axis.
 
+**D368-D372 (2026-10-31): each Part re-proved at the lowered inner radius, and a mismatch in the record found.** At
+the author's request the census behind Proposition 6.2 is being backed by a re-proof, Part by Part
+(BEYOND5-R0-PROOF.md). Batches 1-3 cover the common facts, Parts I and II, III.B to III.K, and Part IV, each read by
+its own verifier. Two of the three verifiers, working separately, found the same thing. The record's Part VI places the
+artificial boundary of the spectral and spacetime estimates at five eighths of the horizon radius. III.K and Part VII
+place the inner boundary of the development at one half. So, as written, the record controls its development only
+outside five eighths. The repair puts the estimates' boundary at the development's own inner radius, with a thin
+collar inside where the background metric is still defined; nothing near the horizon moves. With it, the earlier
+bound μ_end ≤ 135.76 l5² for reaching the curvature boundary stands. Without it the bound is 55.61 l5², and the first
+seed (about 118 l5²) would need the lowered radius of Proposition 6.2. Batch 4 (Parts V-IX, including Part VI's checks
+at the new radii) is next.
+

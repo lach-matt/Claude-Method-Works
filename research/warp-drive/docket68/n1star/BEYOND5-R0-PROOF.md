@@ -1,7 +1,8 @@
 # BEYOND5-R0-PROOF -- each Part re-proved with the lowered inner radius r_♭ (Proposition 6.2)
 
 Status: batch 1 written (D368): sections 0-3 (common facts, Parts I and II, III.B); batch 2 written (D369): section 4
-(III.C-III.I3); batch 3 written (D370): sections 5-6 (III.I4-III.K, Part IV). Batch 4 (V-IX) to follow. Each batch
+(III.C-III.I3); batch 3 written (D370): sections 5-6 (III.I4-III.K, Part IV). Verifiers 169-171 read batches 1-3;
+their findings, among them the radius mismatch of section 0, are seated (D372). Batch 4 (V-IX) to follow. Each batch
 is read by its own verifier. Labels as marked; "re-proved" means the Part's argument was re-read at every step that
 touches the inner region, and each such step re-derived with r_♭.
 
@@ -16,13 +17,21 @@ are instantiated in Part VI by radii built from the inner radius.
   ℬ_♭ := {(μ, A) : |μ − μ_0| < ½μ_0, ‖A‖ < ε_♭ R_1}. So ‖A‖ < r_♭/4 on ℬ_♭.
 - **III.B's radius.** r_♭ replaces III.B's r_0 = ½R_1 everywhere: M_♭ := cl{|x| ≥ r_♭, t ≥ −½|x|}, Σ^int := {|x| = r_♭},
   X_♭ := cl{|x| ≥ r_♭}.
-- **Part I's radii.** Part VI fixes them (VI-DYN 88-89) as r_0^A − 2δ_0 := ½R_1, δ_0 := (r_h − ½R_1)/8 = R_1/16,
-  r_0^A := ½R_1 + 2δ_0 and r_2 := r_h − 2δ_0, with r_h = R_1 the horizon of b_0 = (μ_0, 0). Here δ_0 is kept at the
-  record's value R_1/16, and only the inner radius moves: r_0^A − 2δ_0 := r_♭, r_0^A := r_♭ + R_1/8, r_2 := r_h −
-  R_1/8 = 7R_1/8 as before. Then 0 < r_0^A − 2δ_0 < r_0^A < r_2 < r_h, since r_♭ + R_1/8 < 7R_1/8 for r_♭ < 3R_1/4.
-  So everything Part I places near the horizon is unchanged: U_0 over {|r − r_h| < δ_0} (I.B:1067), the time step
-  T_1 ≤ δ_0/8 (I.B:906). Letting δ_0 = (r_h − r_♭)/8 grow instead would have moved those. (I write r_0^A for Part I's
-  r_0, to keep it apart from III.B's.)
+- **Part I's radii, and a repair of the record (D372).** I write r_0^A for Part I's r_0.
+  - *The record.* Part VI fixes Part I's radii (VI-DYN 88-89) as r_0^A − 2δ_0 := ½R_1 (III.B's inner radius),
+    δ_0 := (r_h − ½R_1)/8 = R_1/16, r_0^A := ½R_1 + 2δ_0 = ⅝R_1, r_2 := r_h − 2δ_0 and r_e := r_h + δ_0, with r_h = R_1.
+  - *The mismatch.* Part II, and III.D-III.J‴ after it, put the artificial boundary of every space at Part I's r_0^A
+    (II.A:38-39; III.H:29, III.H2:30, III.I3:24; verifier 170). III.K and Part VII take III.B's ½R_1 as the inner
+    boundary (III.K:43, 84, 103; VII:40). III.K:157 and 183 cite II.C Lemma 3.2 (1), which covers {r ≥ r_0^A} only.
+    So, as the record stands, its development is controlled on {r ≥ ⅝R_1}, not on all of III.B's M.
+  - *The repair,* made here at r_♭ and so also at the record's ½R_1. Part I's artificial boundary is put at III.B's
+    radius, r_0^A := r_♭, with the collar δ_0 := min(R_1/16, r_♭/4) inward. Then X̃° = {r > r_♭ − 2δ_0} ⊂ {r > ½r_♭},
+    inside F1's domain. r_2 := 7R_1/8 and r_e := 17R_1/16 keep the record's values.
+  - *Ordering.* ½r_♭ ≤ r_0^A − 2δ_0 < r_0^A = r_♭ < r_2 < r_h. At r_♭ = ½R_1, δ_0 = R_1/16, as the record had.
+  - *Near the horizon* only I.B Proposition 5.2's band {|r − r_h| < δ_0} (I.B:1067) involves δ_0, and only when
+    r_♭ < R_1/4 does δ_0 shrink. That proposition asserts neighbourhoods inside the band, and its proof is local at
+    ∂ℛ_± (Lemma 5.1, "near ∂ℛ_±", I.B:1078-1097), so it holds in any smaller band. I.B:906's δ_0 is a local
+    constant of Corollary 4.6 (verifier 169's n1).
 - **What may change.** Every constant chosen from the inner radius is chosen again from r_♭, and so are the smallness
   parameters downstream (the neighbourhood U of b_0, λ_1, ε, ε_m). Nothing is claimed uniform in r_♭; μ_end, and so
   r_♭, is fixed.
@@ -40,25 +49,35 @@ has signature (1, 4) by continuity in H ≥ 0 from η, the determinant not vanis
 
 **F2 (inside the horizon, at b_0).** On {|x| ≤ 2R_1}, Φ_μ is a time translation (III.B Lemma 3.5 (c)), so
 g_(b_0) = g^KS_(μ_0, 0) there. With f := 1 − μ_0/r², its inverse has g^(−1)(dr, dr) = f, g^(−1)(dt, dr) = μ_0/r² and
-g^(−1)(dt, dt) = −(1 + μ_0/r²). On 0 < r < r_h = R_1, f < 0, so dr is timelike. dt is past timelike (the time
-orientation of III.B and Part I), and g^(−1)(dt, dr) > 0, so dr lies in the opposite cone: dr is future timelike, and
-the future direction decreases r.
+g^(−1)(dt, dt) = −(1 + μ_0/r²). On 0 < r < r_h = R_1, f < 0, so dr is timelike. Part I orients by dt_*, which is past
+timelike (I.B:44). On {|x| ≤ 2R_1}, ψ′ = 1, so dt_* = dt − dr and g^(−1)(dt, dt_*) = −1 − 2μ_0/r² < 0: dt lies in
+the same cone and is past timelike too. g^(−1)(dt, dr) > 0, so dr lies in the opposite cone: dr is future timelike,
+and the future direction decreases r. For b ∈ ℬ_♭, g_b^(−1)(dt, dt) = −1 − H_b < 0, as k_A^♯(dt) = −1.
 
 *Proof.* k = dt + dr, k^♯ = η^(−1)(k, ·) = −∂_t + ∂_r, H = μ_0/r² at A = 0, and Lemma 3.3 (d): g^(−1) = η^(−1) −
 H k^♯ ⊗ k^♯. Then g^(−1)(dr, dr) = 1 − H, g^(−1)(dt, dr) = −H(−1)(1) = H and g^(−1)(dt, dt) = −1 − H. Two timelike
 covectors lie in the same cone iff their g^(−1)-product is negative. ∎
 
-**F3 (near b_0).** For every compact interval [a, b] ⊂ (0, r_h) there is a neighbourhood U of b_0 in ℬ_♭ such that for
+**F3 (near b_0).** For every compact interval [a, b] ⊂ [½r_♭, r_h) there is a neighbourhood U of b_0 in ℬ_♭ such that for
 b ∈ U, on {a ≤ r ≤ b}: g_b^(−1)(dr, dr) ≤ ½ max_[a,b] f < 0 and g_b^(−1)(dt, dr) > 0. So dr is future timelike there,
 uniformly. *Proof.* F1 makes g_b^(−1) continuous in b on {|x| ≥ ½r_♭} (Lemma 3.3 (d), smoothly in b). The two strict
 inequalities hold at b_0 on the compact set (F2), so they persist on a neighbourhood. ∎
 
-**F4 (the flow inside the horizon).** Let [a, b] ⊂ (0, r_h), U as in F3, and Σ the characteristic set of a
-t_*-invariant operator with principal symbol G(ν) = g_b^(−1)(ν, ν), b ∈ U, over {a ≤ r ≤ b}. On each of its two
-components the future-directed field H satisfies H r = ±2 g_b^(−1)(ν, dr). This is non-zero and of one sign, because ν
-is null, non-zero and in a fixed cone while dr is timelike. Rescaled to fibre infinity it is bounded away from 0
-uniformly, by compactness of the sphere bundle over {a ≤ r ≤ b}. So every integral curve entering {a ≤ r ≤ b} leaves it
-through {r = a}, forward, within a bounded parameter, and r increases backward. ∎
+**F4 (the flow inside the horizon).** Let [a, b] ⊂ [½r_♭, r_h), U as in F3, and G(ν) = g_b^(−1)(ν, ν), b ∈ U, the
+principal symbol of a t_*-invariant operator.
+
+- *The sets.* Its characteristic set over {a ≤ r ≤ b} is the null covectors ν. That covers Part I's ∂Σ_0 at fibre
+  infinity and I.B's semiclassical Σ_z at finite covectors, ν = −z dt_* + ζ with |z| ∈ [½, 2]. Each splits into the
+  future and the past cone. The future-directed field is 𝖧 on ∂Σ_0 (I.A:88-108) and z_0 H_(G_z_0) on Σ_z_0 (I.B:77-79,
+  (H7)); its base projection is a positive multiple of the future-directed null vector V = ±g_b^(−1)(ν, ·).
+- *The sign.* dr is future timelike (F3), and a future causal vector V has dr(V) < 0 (IV6-SOLV Lemma 0.3's proof).
+  So r decreases along the future-directed flow.
+- *The bound.* |dr(V)| ≥ c|V| for null V over {a ≤ r ≤ b}, by compactness of the unit null vectors there, dr being
+  timelike. At finite covectors |V| ≥ c′(|z| + |ζ|) ≥ c′/2. At fibre infinity the rescaled field is bounded below in
+  the same way. So ṙ ≤ −c″ < 0 on all of the characteristic set over [a, b], uniformly in b ∈ U. For Im z > 0, the
+  real part of the symbol is used as in I.B Lemma 1.1 (d).
+- So every integral curve entering {a ≤ r ≤ b} leaves it through {r = a}, forward, within the parameter (b − a)/c″,
+  and r increases backward. ∎
 
 **F5 (the time functions).** For b ∈ ℬ_♭, dt_* (with ψ from r_♭, (3.6)) and dt_IVP are timelike for g_b on
 {|x| ≥ r_♭}, and t_* ≤ t, t_IVP ≤ t. This is III.B Lemma 3.7 at r_♭, re-proved in section 3. ∎
@@ -68,7 +87,7 @@ through {r = a}, forward, within a bounded parameter, and r increases backward. 
 **What they use.** Part I (I.A-I.C) and Part II (II.A-II.G2) are proved for abstract radii
 0 < r_0^A − 2δ_0 < r_0^A < r_2 < r_h and for any spectral family and metric satisfying (H1)-(H8) (I.A section 1.3,
 I.B sections 1.2 and 1.5) and (K1)-(K4) (II.B section 1.1). I listed every line of Parts I and II that names r_0,
-δ_0, r_2, ∂_♯X, the artificial boundary or the inner region: 490 lines, by the pattern in the footnote. Of these, 314
+δ_0, r_2, ∂_♯X, the artificial boundary or the inner region: 489 lines, by the pattern in the footnote. Of these, 313
 are domain or slab notation of a fixed form ({r > r_0 − 2δ_0}, {r ≥ r_0}, Ω_(a,b), "the artificial boundary").
 I read the other 176 one by one. Several use δ_0 as a local constant of their own section, unrelated to the radii:
 the trapped-set neighbourhoods Γ(δ_0/3) in I.B section 6, the orders s − ½ + δ_0 in II.A2 and II.D, ρ_sf ≥ δ_0 in II.F,
@@ -98,17 +117,22 @@ None uses a number tied to ½R_1. So Parts I and II hold at the new radii once t
 paragraph); that check is re-proved in batch 4. Here, the hypotheses that involve the inner region and why they hold:
 
 - (H1) and (H6): G_0 is g_b^(−1) restricted to the annihilator of ∂_(t_*), and g_b is defined, smooth and Lorentzian on
-  X̃° = {r > r_♭} (F1). dt_* is past timelike there (F5).
-- (H4) on {r_♭ < r < r_2}: G_0 is Lorentzian, dr is timelike for it, and H r < 0 on ∂Σ_0 (F2, F3 with [a, b] =
-  [½r_♭, r_2 + δ_0]; r_2 + δ_0 = 15R_1/16 < r_h). G_0 contains the timelike dr, and the restriction of a Lorentzian
+  X̃° = {r > r_♭ − 2δ_0} ⊂ {r > ½r_♭} (F1). dt_* is past timelike there (F5, with ψ′ = 1 continued below r_♭).
+- (H4) on {r_♭ − 2δ_0 < r < r_2}: G_0 is Lorentzian, dr is timelike for it, and H r < 0 on ∂Σ_0 (F2, F3 with
+  [a, b] = [½r_♭, 15R_1/16], 15R_1/16 ≥ r_2 + δ_0). G_0 contains the timelike dr, and the restriction of a Lorentzian
   form to a hyperplane containing a timelike covector is Lorentzian (I.A's remark under (H4)). Every curve reaches
-  {r < r_0^A − δ_0} at a finite parameter: F4 on [r_0^A − δ_0, r_h − ε], with the record's own argument near the
-  horizon unchanged, since nothing there moves.
+  {r < r_0^A − δ_0} at a finite parameter: F4 on the fixed interval [½r_♭, 15R_1/16], and the record's own argument
+  between 15R_1/16 and the horizon, which does not move.
 - (H8) (a) forward: curves not trapped tend to R_out or reach {r < r_0^A − δ_0} in finite time. This is F4 inside the
   horizon; outside, nothing has moved. Backward: inside the horizon r increases (F4), so a curve from the new part of
   the region reaches the old region in a bounded parameter and then behaves as before.
-- (H2), (H3), (H5), (H7), (K1)-(K4) concern infinity, the horizon, the trapped set (which lies in {r > r_2}; for
-  Tangherlini it is at r = (2μ_0)^(1/2) > r_h) and uniformity. None involves the inner region, and none changes.
+- (H5): the uniform lengths of the curves in (H4) and the uniform convergence in (H8) (I.A:114-115, I.B:169-170)
+  inside the horizon are F4's bound (b − a)/c″, uniform over U (verifier 169's m3).
+- (H2), (H3), (H7), (K1)-(K4) concern infinity, the horizon and the trapped set, which lies in {r > r_2}; for
+  Tangherlini it is at r = (2μ_0)^(1/2) > r_h. On {r ≥ ½R_1} the new t_* differs from the record's by the constant
+  r_♭ − ½R_1, ψ changing only by its lower limit, so none of them moves (verifier 169's n3).
+- For b ≠ b_0, Part VI states (H4) for Ψ_b^* g_b, which equals g_b on {|x| ≤ ⅝R_1} (VI2-HORIZON:40-42). That set
+  contains the inner collar {r ≤ r_♭}, so the bullets above apply to it unchanged (verifier 169's n6).
 
 *Status:* Parts I and II re-proved in the sense above, given Part VI's checks (batch 4).
 
@@ -137,29 +161,31 @@ of the inner radius, re-derived:
   - The constant C′ in ψ(ρ) = ρ − C′ + 8μ_0/ρ (ρ ≥ 3R_1) changes; it is used only as a constant (the form of [Hin26]
     (3.13)).
 - **Lemma 3.9 (data on Σ_IVP).** The induced data need Σ_IVP ∩ M_♭ spacelike, which is F5.
+- **Section 4 (null coordinates)** is on {|x| ≥ 3R_1} and does not change (verifier 169's n4).
 - **Lemma 5.1 (cut-off boosts).** V(S_w) vanishes on {|x| ≤ 5R_1}, which contains Σ^int for every r_♭ ≤ ½R_1. It is
   unchanged.
-- **Section 6.** c_Υ ∈ |x|^(−1) C^∞(X_♭; T*) must be smooth and stationary on X_♭. The record's c (10.49; IV6-SOLV Lemma
-  0.2 (d)) is, up to positive factors, dt + (v/2) dr on r ≤ r_c/2: smooth for r > 0. The trace-weight Lemma 6.2 and
-  Lemma 6.3 are algebraic.
+- **Section 6.** Definition 6.1's three forms must be smooth and stationary on X_♭: c_Υ (|x|^(−1) dt for large |x|),
+  c_(Υ,H) (compactly supported in {|x| < 5R_1}) and c_C (|x|^(−1)(dt − v_C d|x|) for large |x|).
+  - c_Υ and c_(Υ,H) are built from dt̄, dr and cut-offs (III.F3:84-85; c_(Υ,H) = −½χ dr): smooth for r > 0.
+  - c_C is 10.14's (10.49; IV6-SOLV Lemma 0.2 (d)), up to positive factors dt + (v/2) dr on r ≤ r_c/2. It is smooth
+    and past timelike for every r > 0 (`cform5.py` C2).
+  - The record checked c_C's conditions (10.14 (i)-(ii); `solv5.py` Q2-Q3) on [r_h/2, ∞). They extend to (0, r_h/2]:
+    (1) by C2's formula, (6) by BEYOND5.md's D366 argument. They are conditions on the construction, not (H)/(K)
+    hypotheses (verifier 169's m4).
+  - The trace-weight Lemma 6.2 and Lemma 6.3 are algebraic.
 
 *Status:* III.B re-proved at r_♭.
 
 ## 4. III.C to III.I3
 
-**Which r_0.** Part III writes r_0 for two radii:
+**Which r_0.** III.D-III.J‴ use one radius, Part I's r_0^A: the artificial boundary of Part I's X̄ and of Part II's
+spaces (II.A:38; III.H:29; III.H2:30; III.I3:24; verifier 170's finding 1, which corrects this note's first version).
+III.B's radius appears only in III.B, III.K (:43, 84, 103) and Part VII. With section 0's repair the two coincide:
+r_0^A = r_♭. Where r_0 − δ_0 occurs (III.F3 Lemma 2.3, III.F4 (iii), III.H2:99), it is r_♭ − δ_0 ≥ ¾r_♭ > 0. That
+answers verifier 168's A2, and D366's free choice of δ_0 is not needed.
 
-- in its stationary Parts (III.D-III.G), which work on Part I's X̄ (I.A section 1.1) and cite I.A Theorem 7.2, it is
-  Part I's r_0^A, now r_♭ + R_1/8, with Part I's δ_0 = R_1/16;
-- from III.H on (the spacetime spaces of II.A and III.H section 1, and III.K, which says "r_0 the inner radius (III.B
-  (3.6))"), it is the spacetime inner radius, now r_♭ (III.K) or Part II's r_0^A.
-
-Each step below is checked at both values where the reading is not plain. Where r_0 − δ_0 occurs (III.F3 Lemma 2.3,
-III.F4 (iii), III.H2:99), it is Part I's: r_0^A − δ_0 = r_♭ + R_1/16 > 0. Verifier 168's A2 read F3's r_0 as III.B's,
-for which r_♭ − R_1/16 can be negative. With Part I's radii that does not arise, and D366's free choice of δ_0 is not
-needed.
-
-**Parts with no inner-boundary step.** III.A, A2, C, D3, D4, E2, F, F2, G-G5 and I2 name no r_0. III.C-III.C″ work with
+**Parts with no inner-boundary step.** III.A, A2, C, D3, D4, E2, F, F2, G-G5, I and I2 name no r_0 (III.I-CONE:345's
+"inner boundary" is that of Ω_ι). III.C-III.C″ work with
 their own exterior radius "r_0 large" (census class OTHER). The rest reach the inner boundary only through Part I's
 spaces and theorems, which hold at the new radii (section 2).
 
@@ -179,7 +205,10 @@ spaces and theorems, which hold at the new radii (section 2).
   |x| timelike (F2), and both persist for b near b_0 on compacta (F3).
 - The Cauchy problem runs on the spacelike {|x| = c} from {|x| < r_0}, where the solution vanishes by the supported
   character, across {|x| = r_0}. That needs the operator hyperbolic in |x| just inside r_0. It is: dr is timelike on
-  {½r_♭ ≤ r ≤ r_h − ε} (F2, F3), and the operator is defined on Part I's X̃° ⊃ {r > r_♭} (F1).
+  {½r_♭ ≤ r ≤ 15R_1/16} (F2, F3; the record's argument above that), and the operator is defined on Part I's
+  X̃° = {r > r_♭ − 2δ_0} (F1).
+- III.E Theorem 1.1 asks c_C to be past timelike on all of X̄ (III.E:37-39). Its inner piece is, for every r > 0
+  (`cform5.py` C2; section 3; verifier 170's finding 3).
 
 **III.F3 (modes).**
 
@@ -194,7 +223,8 @@ spaces and theorems, which hold at the new radii (section 2).
 - Steps 1-6 are on {r > r_h}.
 - Step 1's H is an angular component, the same in every chart, so smooth on {r > r_0}.
 - Step 7 solves the r-row system on (r_0, ∞) in the chart (t_*, r, z), smooth there.
-- Section 4: (iii) is F3 Lemma 2.3 at σ = 0, and (vi) is III.D (d).
+- Section 4: (iii) is F3 Lemma 2.3 at σ = 0, and (vi) is III.D (d). (ii), (iv) and (v) need the states smooth on X̄,
+  which is I.C at the new radii (section 2).
 - Step 2 of the independence proof: a Killing 1-form vanishing on {r_0 < |x| < r_h} vanishes on the connected X°.
   {|x| ≥ r_0} is connected for every r_0 > 0.
 
@@ -214,7 +244,11 @@ integrations by parts on X produce no boundary term at {|x| = r_0}. That holds a
     reflection in r into {r > ½r_0}. The extension acts on functions in x only and needs no metric there, and ½r_0 > 0;
   - ⟨x⟩ ≤ C r on {r ≥ r_0}, C = C(r_0).
 - III.H2:99: constancy over {r_0 − δ_0 ≤ r ≤ r_2 − δ_0}, Part I's radii, as in section 2.
-- III.H3 Theorem 4.1: convergence on compact subsets of M° ∩ {r > r_0}.
+- III.H3 Theorem 4.1: convergence on compact subsets of M° ∩ {r > r_0}. Its (B2) (III.H3:46-48) takes ε_G from II.C
+  Lemma 3.2 over the inner region, with constants uniform over III.H's B̄_1. That set is taken inside F3's U for
+  [½r_♭, 15R_1/16] (verifier 170's finding 4).
+- III.H:335 and :592 integrate by parts on X with no inner boundary term. That rests on III.E (b): the dual states
+  vanish on {r_0 < |x| < r_h}.
 
 **III.I3 (:24-28, 90-92, 97, 211-213).**
 
@@ -230,8 +264,12 @@ integrations by parts on X produce no boundary term at {|x| = r_0}. That holds a
 
 **III.I4-III.J‴.** These name no inner radius (III.I16's r_(0,0) is notation; census class OTHER). They work on
 Ω_* := cl_M{t^♭_* ≥ 1} (III.I:31-32) with Part II's spaces, extendible at the inner boundary, and Part II's theorems.
-Both hold at the new radii (section 2). Their loops, levels and windows are fixed by weights at infinity and at K⁺,
-not by the inner radius (III.J‴'s table).
+Both hold at the new radii (section 2). Section 0's repair matters here: Ω_* is taken in III.B's M, and Part II's
+spaces, t^♭_*, II.C Lemma 3.2 and II.F Lemma 1.3 are built at Part II's r_0^A. They agree only when r_0^A is III.B's
+radius, now r_♭ (verifier 171's MAJOR, which found the gap in section 0's first version independently of verifier
+170). Verifier 171 read III.I4, I5, I7, I8, I9, I11, I12, I13 and III.J-J4: their fixed radii are scale-free
+({r ≤ 2}, {r ≥ 1}) or far out (|x| ≥ 5R_1, |x| ≤ 3R_1). Their loops, levels and windows are fixed by weights at
+infinity and at K⁺, not by the inner radius (III.J‴'s table).
 
 **III.K.**
 
@@ -240,19 +278,24 @@ not by the inner radius (III.J‴'s table).
 - *Lemma 1.1 (d) (:84-86).* ν_0 := min(¼, r_♭/8). On {|t_IVP| < ν_0}, t_* ≤ t_IVP < ¼, so χ_♮(t_*) = 0, and
   |t_IVP| < ν_0 ≤ r_♭/8 ≤ r/8 for r ≥ r_♭, so χ_0 = 0. Only the constant moves.
 - *Proposition 1.2 (:96-112).*
-  - R_ν := ½(r_♭ + R), with R ≥ R_3 > 5R_1 > r_♭. ν vanishes on [0, R_ν], so N = {t_IVP ≥ 0} near {r = r_♭}.
+  - R_ν := ½(r_♭ + R), R being III.B section 5's radius inside which φ_(±S) is the identity; R = 5R_1 serves
+    (III.B:358-361), and R > r_♭. ν vanishes on [0, R_ν], so N = {t_IVP ≥ 0} near {r = r_♭}.
   - The existence of ν uses only 16R_8/64 ≤ (16R_8 − R_ν)/32, which holds as R_8 ≥ max(2r_1, 8, R) ≥ R > R_ν.
   - {r = r_♭} is an inflow boundary for the backward problem: it is spacelike with dr future timelike (F2, F3), and N
     lies to its past.
 - *The compact part (:150-188).* 𝒦's boundary pieces are Σ_IVP, {t_IVP = −ν}, Σ_fut,r_1 ∩ {ρ′_I ≥ c}, {ρ′_I = c},
   {t^♭_* = T̂ + 3} and {r = r_♭}.
-  - All are spacelike with 𝒦 to their past. {r = r_♭} is so by F2, F3, for g_(b_0) and, by continuity, for
-    φ_S^* g_(b_0) + h_S with |S| and the data small.
-  - The record cites II.C Lemma 3.2 (1) for r. At r = r_♭ the fact needed is F2-F3 itself, which holds on the compact
-    {½r_♭ ≤ r ≤ r_h − ε} whatever Part II's radius is.
+  - All are spacelike with 𝒦 to their past. Near r = r_♭ the metric is g_(b_0) + h_S, φ_S being the identity on
+    {|x| ≤ 5R_1}. {r = r_♭} is spacelike with dr future timelike for it by F2-F3 and continuity in the data.
+  - With section 0's repair, III.K's inner radius is Part II's r_0^A = r_♭, so II.C Lemma 3.2 (1), which the record
+    cites (:157, 183), applies there as written. F2-F3 is what it rests on.
+  - 𝒟's top {t^♭_* = T̂ + 3} is spacelike by II.C Lemma 3.2 (2) on {r ≥ r_0^A} = {r ≥ r_♭}: the strip
+    [r_♭, r_0^A) that the first version left to it is now empty (verifier 171's minor).
   - So 𝒦 is a compact domain of dependence. The quasilinear local theory, II.F Lemma 1.3's uniqueness and Cauchy
     stability apply as before.
 - *:559.* ν vanishes near {r = r_♭}, as above.
+- III.K Proposition 4.2 and the later steps on Ω_* use the inner region through Part II's estimates (section 2) and,
+  for b ≠ b_0, through F3's neighbourhood U (verifier 171's nit).
 
 *Status:* III.I4-III.K re-proved at r_♭.
 
@@ -264,13 +307,16 @@ None reaches the inner boundary.
 
 **IV⁗ (IV5-CDMODES).** :186: ψ − T_μ is continuous on [r_♭, ∞) and tends to +∞, with ψ from r_♭ (section 3) and T_μ
 smooth and bounded. :209: the dual space is supported at the inner boundary, a construction for any radius.
-:35-36 is the source's r_0 = r_c (OTHER).
+:35-36 is the source's r_0 = r_c (OTHER). :136 needs (H1)-(H4) for □^C at the new radii, which is section 2. :170-203
+pass modes and a kernel element from Part I's X̄ = {r ≥ r_0^A} to IV6-SOLV at Σ^♯ = {r = r_♭}: with section 0's
+repair the two radii are the same (verifier 171's minor).
 
 **IV⁽⁵⁾ (IV6-SOLV)**, with r_♯ := r_♭ and r̂ = ¾R_1 unchanged:
 
 - *Coordinates (:26-34).* g^KS_b is defined, smooth, with H_b > 0, on {r ≥ ½r_♭} (F1, which replaces the record's run
   at ¼R_1). c is 10.14's 1-form, whose inner piece, up to a positive factor, is dt + (v/2) dr on r ≤ r_c/2. It is
-  past timelike for every r > 0 (`cform5.py` C2), so it needs no extension below r_♭.
+  past timelike for g_(b_0) at every r > 0 (`cform5.py` C2), and for g_b, b ∈ U, on the compact {½r_♭ ≤ r ≤ r_c/2}
+  by continuity. So the extension IV6:32-34 asks for is the inner formula itself.
 - *Definition 0.1.* M^♭ excludes {r < r_♭}, Σ^♯ = {r = r_♭}, and the charts have ρ_sf ∈ [0, r_♭^(−1)]: the
   construction is the same.
 - *Lemma 0.2 (c)-(d).* The coefficients of g and c are smooth on {r ≥ ½r_♭} and lie in the stated 3b classes. Their

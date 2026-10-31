@@ -4683,6 +4683,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   smooth vacuum spacetime N, since Ric = 0 in Gaussian normal gauge fixes every normal jet from (gamma, k). The future
   developments are identified on their maximal common development ([Sbi15] arXiv:1309.7591 Thms 2.6, 2.7, 3.4, 3.13,
   READ). Open: how far that common development reaches; Sigma's acausality in all of Omega'.
+- D368-D372: BEYOND5-R0-PROOF.md re-proves each Part at r_flat (batches 1-3: Parts I-II, III.B-III.K, IV; verifiers
+  169-171). Found (verifiers 170-171): the record's Part VI puts Part I's artificial boundary at 5R_1/8, while III.K and
+  Part VII use III.B's R_1/2, so the record's development is controlled on {r >= 5R_1/8} only. Repair: r_0^A := r_flat
+  with the collar delta_0 := min(R_1/16, r_flat/4). Proposition 6.1's bound 135.76 l5^2 holds with the repair; without
+  it the condition is mu_end <= 55.61 l5^2, which the first seed fails. Proposition 6.2 assumes the repair. Batch 4
+  (V-IX, including Part VI's checks at the new radii) open.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 
