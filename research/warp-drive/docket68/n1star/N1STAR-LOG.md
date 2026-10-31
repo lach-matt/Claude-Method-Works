@@ -6626,3 +6626,14 @@ included. Its earlier failures all lie on cells the swapped gauge's cut-off drop
 gauges was mostly a comparison of which cells each keeps. In both, the failing cells border the cut-off near one axis
 at small radius; what causes that is still open. Whether the swapped gauge's convergence is truly second order is not
 settled by three grids, and a fourth, finer one is running.
+
+**D400 (2026-10-31): where the record's own data stop, and what continuing them asks.** To run the late-time theorem
+on the record's own solution rather than on glued data, the solution must be known on the whole initial surface out
+to spatial infinity. It is not: the record and its supplement build it only up to a fixed advanced time, and the
+surface leaves that region on its way out, so its whole outer end lies beyond what the record constructs. Neither
+construction reaches further at a fixed wavelength, since their constants grow with the region. What remains is the
+region to the past of the surface's outer part, bounded by an incoming light cone on which the solution is known and by
+past null infinity, where after the shell nothing comes in. So the missing step is a scattering problem near spatial
+infinity with no incoming radiation, followed by an expansion of its solution there, fine enough to place the data in
+the late-time theorem's class. What the record provides on the cone, a leading inverse-square term and a bound on
+the rest, is not yet such an expansion.

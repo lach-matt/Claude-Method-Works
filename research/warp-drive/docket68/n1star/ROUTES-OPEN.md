@@ -4787,6 +4787,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D388 (BEYOND5 (ii)): int D(Sigma) globally hyperbolic READ at source ([Chr11] Theorem 2.9.9, achronal hypersurface
   without boundary; [Min19] Theorem 3.45 needs S closed, which Sigma is not); Sigma Cauchy in it proved from [Chr11]
   Proposition 2.9.7 and achronality. Sigma in int D(Sigma) and the push-up are as [Chr11] remarks / invokes them.
+- D400 (BEYOND5 Lemma 6.4, deduced): (b)'s first step located. The record's g_lambda (Omega', P') lies in
+  {v <= V'_P}; Sigma_IVP ends at I_0, where v -> oo, so its end has no record data (Theorem 0.2 glues Tangherlini
+  there). Theorem P's constants depend on V_P (d1, a2: Lemma 9.3 (b), Lemma 9.6), lambda_1 on T': no fixed-lambda
+  reach. The rest is D^-(S), S = Sigma_IVP cap {r >= 4R}: bounded by N = {v = v1} (in Omega' cup P') and I^- at
+  v >= v1 > v_end, where nothing comes in. So (b1) a scattering problem near I_0 without incoming radiation, data
+  g_lambda on N; (b2) its expansion at I_0 (the means give r^-2 M_m + E_(5/2), a bound, not an expansion); (b3) VII 3.2.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 

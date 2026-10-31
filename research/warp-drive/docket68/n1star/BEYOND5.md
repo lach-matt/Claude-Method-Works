@@ -173,6 +173,57 @@ closed and achronal) and Theorem 3.46; not used, as Σ is not closed.
     gives the development of those data, with the interior of section 1 at late times. Without the symmetry, (ii) would.
   - The first step needs the record's estimates on a domain reaching spatial infinity at the time of Σ_IVP. The
     supplement's construction from past null infinity (the region before Σ_τ0) is the natural start.
+
+**Lemma 6.4 ((b)'s first step located; deduced, D400).** Let Ω′ be the domain of the record's form (1.1) that Part VII
+Lemma 1.2 chooses, with V′ := v_end + T′ and τ′_end, and P′ the supplement's domain (9.1) for those parameters, with
+V′_P := V′ + 1 + (τ′_end − τ0) + κ (N1STAR-PROOF.md (1.1), (9.1)).
+
+- (i) *Where the record's g_λ is.* Theorem 1 gives g_λ on Ω′ and Theorem P on P′, and both lie in {v ≤ V′_P}: on Ω′,
+  v ≤ V′ + 1 + τ′_end − τ ≤ V′_P − κ, as τ ≥ τ0; on P′, v ≤ V′_P − h(τ).
+- (ii) *Σ_IVP leaves it.* For r ≥ R_3, Σ_IVP = {t_KS = c_IVP − T_μend(|x|)} (Part VII 162-163), and it ends at spatial
+  infinity I_0 (III.B 253-254), so v → ∞ along it. Hence Σ_IVP ∩ {v > V′_P} is non-empty and contains the whole end
+  of Σ_IVP. The record gives no data there at all. Part VII's Theorem 0.2 replaces them, beyond R_3, by the data of
+  exact Tangherlini metrics g^KS_(m,0) (Part VII 163-165, Proposition 2.2).
+- (iii) *Neither construction reaches further at a fixed λ.* Theorem 1's λ_1 depends on T′. Theorem P's constants
+  depend on P (section 9.2, first line), and through V_P:
+  - the annuli A_P(τ) have thickness up to d1 = V_P − v_start and outer radius up to t + a2, a2 = V_P − τ0 − 1 (Lemma
+    9.1 (d));
+  - Lemma 9.3 (b)'s Poincaré constant grows with d1 (an integral over a length up to d1, with r³ varying along the
+    ray by a factor up to (1 + d1)³);
+  - Lemma 9.6 carries the weight (t + a2)^γ when γ ≤ 0;
+  - the decay classes E_p of section 9.3 are bounds whose constants are taken on P+.
+
+  Nothing in the proof gives a λ_P uniform in V_P. So at a fixed λ the record's data exist on a bounded part of
+  Σ_IVP: on Σ_IVP ∩ {r ≤ 4R} for λ small depending on R, which is what Part VII Corollary 2.3 uses.
+- (iv) *What the rest needs.* Let S := Σ_IVP ∩ {r ≥ 4R} with 4R ≥ R_3, and v1 the value of v on its inner edge ∂S;
+  v1 ≥ v_end + 2 (Part VII 151).
+  - In g0 = g^KS_(μend,0) (v ≥ v_end), the past domain of dependence W := D⁻(S) is bounded by S, by the ingoing null
+    hypersurface N := {v = v1} through ∂S, and by past null infinity at v ≥ v1. For g_λ the same holds up to the
+    O(λ) displacement of its null hypersurfaces against g0's.
+  - N lies in Ω′ ∪ P′. From ∂S, which is in the interior of Ω′_+ (Lemma 1.2 (b)), N runs to the past in Ω′: τ
+    decreases, so v + (τ − τ′_end) ≤ V′ + 1 is kept, and r = v1 − τ grows. At τ0 it meets Σ_τ0 ∩ Ω′ = Σ_τ0 ∩ P′
+    (Lemma 9.1 (c)), so v1 ≤ V′_P − κ, and below τ0 it stays in P′, as h ≤ κ.
+  - At past null infinity, for v ≥ v1 > v_end, the record's radiation field λ[W_TT] (P-ii) vanishes, as every
+    oscillating profile does on {v > v_end} (Part VII 125-129).
+
+  So (b)'s first step is a characteristic problem on W: the data of g_λ on N, nothing incoming at past null infinity,
+  solved up to S and uniformly up to I_0, in the wave-map gauge relative to g^KS_(μend,0). It is a scattering problem
+  near spatial infinity without incoming radiation, for a perturbation that is O(λ) on N. The record's data near I_0
+  are not needed: past null infinity carries nothing there.
+- (v) *What N carries.* On N ∩ P′, |g_λ − g_app| ≤ C λ^(K−3) t^(−2) with t ≈ r (P-iii). After the shell, g_app − g0 =
+  Σ_j λ^j m_j, the means alone (Part VII 125-131). Theorem A_P's classes (9.6) give m_m ∈ L_2: a leading term
+  r^(−2) M_m(v, x̂), M_m := 2 ∫_(−∞)^v S_(m,3) dv′, plus a remainder in E_(5/2) (N1STAR-PROOF.md 1265-1268,
+  1296-1298). That is a leading term and a bound, not an expansion.
+  - Lemma 0.1's sufficient condition asks for ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r. III.K's class
+    is polyhomogeneous with terms of orders r^(−2) and r^(−3) (paper section 8.4).
+  - An E_(5/2) bound neither gives such an expansion nor excludes one. Whether III.K's index sets admit
+    half-integer exponents is not read here.
+
+So (b) now consists of three steps:
+
+- (b1) the scattering problem of (iv), with r-weighted estimates in place of Lemma 9.3's annuli of bounded thickness;
+- (b2) the expansion of its solution at I_0, to put the data on S in III.K's class;
+- (b3) Part VII Proposition 3.2 on g_λ's own data, as above.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
