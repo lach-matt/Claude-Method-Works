@@ -10,7 +10,7 @@ needed for it.
 Labels as in the record. A part is **written** when its proofs are complete on the page; **verified** when an
 independent reader has checked it line by line and every finding is seated; **proved** only then. Every part below is
 **proved** (D333), and with them Theorem 4.
-Part VIII, the linear statement, is proved too (D336).
+Part VIII, the linear statement, is proved too (D336). Part IX, the comparison of gauges for it, is verified (D347).
 
 ## The plan
 
@@ -86,12 +86,13 @@ Part VIII, the linear statement, is proved too (D336).
 | III.C'' | [Hin26] 5.6-5.7 | pullback by boosts (Theorem 5.23) in the cut-off gauge, which settles (C4); gauged Cauchy data (Proposition 5.25); Boyer-Lindquist data carry no logarithm at n = 4 | **proved** (D292) |
 | IV | [Hin23a] 3; [Hin26a] 3-6, App. B | written out as Parts IV-IV'''''' above | see the rows above |
 | V | [CD03] sections 3, 5, 8.1, Appendices E-G | gluing to the Myers-Perry family at n = 4: the KIDs, a linear flux identity and the charges without parity, the charge map near Tangherlini ([CD03] Proposition F.1's equivalent), Theorem 8.1 | written (D313); verified (D315); proved (D317) |
-| VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317); proved (D318) |
-| VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318); proved (D323: verifier 140 read the D321 repairs) |
-| VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319); verified (D321); proved (D323: verifier 140 read the repairs, two notes seated) |
-| VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2); verified (D323: order corrected, row b4); proved (D324); section 3 amended (D327-D328), read by verifier 150, widened (D331: G4-G5); **proved** (D332: verifier 151 read it, nits only) |
+| VI.A | the record's 10.14, 10.16 (Tangherlini) | the dynamical hypotheses (Dyn) at Tangherlini: (H6), (K1) for every b; (H3)-(H4), (Γ.1)-(Γ.3) with exact separatrices, (K3), (H8) at b_0 | written (D314); verified (D317); proved (D318); amended (D373) |
+| VI.B | III.B's Kerr-Schild Myers-Perry | the horizon near b_0: the null hypersurface {r_A = r_+} (exact), a diffeomorphism fixing it, (H3)-(H4) uniformly in b | written (D316); verified (D318); proved (D323: verifier 140 read the D321 repairs); amended (D373) |
+| VI.B' | III.B's Kerr-Schild Myers-Perry; [Hin26c] section 4.2.3 | the trapped set and the global dynamics near b_0 by separability: (Γ.1)-(Γ.3) with closed-form separatrices, (K3)-(K4) with the tangential bound from the integrable structure, (H8) | written (D319); verified (D321); proved (D323: verifier 140 read the repairs, two notes seated); amended (D373) |
+| VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2); verified (D323: order corrected, row b4); proved (D324); section 3 amended (D327-D328), read by verifier 150, widened (D331: G4-G5); **proved** (D332: verifier 151 read it, nits only); row w1's ε_ind amended (D390) |
 | VII | assembly | Theorem 4 from Parts III-VI and the record: (i) the record's data on III.K's initial surface, glued in the class to Tangherlini, and III.K run on G-fixed spaces; (ii) perturbations in III.K's data class | written (D322); verified (D323: verifier 140's three minors and twelve notes seated); proved (D324: verifier 141 read the repairs) |
 | VIII | III.K linearised at Tangherlini | linear stability of 5D Tangherlini in the gauge of the nonlinear problem: every linearised data set in III.K's class has a linearised vacuum development settling to a linearised Myers-Perry metric at $t_*^{-(\alpha-2)+\epsilon}$; in the class, to a change of mass alone | written (D334); verified (D335: verifier 153, no major gap, its minor m1 and six nits seated); **proved** (D336: verifier 154 read the repairs, three nits) |
+| IX | Part VIII in any gauge | a linearised vacuum solution whose Cauchy data are those of Part VIII's up to a linearised diffeomorphism differs from it by $\mathcal L_Xg$ on its Cauchy development, $X$ unique up to Killing fields; nothing on the decay of $X$ | written (D345); verified (D347: verifier 162, no blocking or major gap; minors M1-M4 and nits N1-N5 seated) |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
 record's computed items (for Part I: 10.19, 10.36, 10.60 and 10.79) and turning each into a proof.
@@ -1373,7 +1374,10 @@ momentum (Proposition 5.1), and the escape function $(r^2-2\mu)\xi$, whose deriv
 $2r(\xi^2(r^2-\mu)^2+(r^2-2\mu)^2)/(r^2-\mu)^2$ vanishes only on $\Gamma$ (Lemma 5.2), for Part VI.B. Findings
 (VI.A1)-(VI.A6). Written (D314). Verified (D317): verifier 137's three minor findings ($q$ under a change of
 time function, the incoming set at $z_0 = -1$ and the uniformity in (H8), $v$'s null differential) and eight notes
-repaired. Proved (D318): verifier 138 read the repairs, all correct, and its four notes are repaired.
+repaired. Proved (D318): verifier 138 read the repairs, all correct, and its four notes are repaired. Amended (D373):
+Part I's artificial boundary is put at III.B's radius, $r_0 := \frac12R_1$, with the collar down to $\frac38R_1$, where
+Lemma 1.1 defines $g_b$ and $t_*$ by III.B's formulas; Parts VI.B and VI.B$'$ are read on $\{|x|\ge\frac38R_1\}$
+(finding (VI.A7); BEYOND5-R0-PROOF.md section 0, verifiers 170-171).
 
 `PART-VI2-HORIZON.md`. Part VI.B carries the horizon hypotheses from $b_0$ to $b$ near $b_0$. The Myers-Perry horizon in
 III.B's Kerr-Schild form is $\{r_A = r_+\}$, $r_+$ the largest root of $(r^2+a^2)(r^2+b^2) = \mu r^2$, by the exact
@@ -1384,7 +1388,8 @@ identity outside $\{|x|<2R_1\}$, fixes it at $\{|x| = r_h\}$ (Lemma 1.2). Its co
 proved for thresholds and spaces, the rescaled field defined on all of $\partial\tilde\Sigma_{0,b}$, the no-re-entry
 step) and six notes repaired. Read by verifier 139 (D321): correct, but the transported inner product needed the
 Jacobian of $\Psi_b$, $h' := |\det D\Psi_b|\,B_b^*(h\circ\Psi_b)B_b$, for the identity of imaginary parts to be exact;
-repaired with two notes, to be read.
+repaired with two notes, to be read. Amended (D373): read on $\{|x|\ge\frac38R_1\}$ at Part VI.A's repaired radii
+(finding (VI.A7)).
 
 `PART-VI3-TRAPPING.md`. Part VI.B$'$ proves (Γ.1)-(Γ.3), (K3)-(K4) and (H8) near $b_0$. Five-dimensional Myers-Perry
 separates in III.B's Kerr-Schild coordinates written spheroidally, $x = (r^2I-A^2)^{1/2}\omega$, with the Kerr-Schild
@@ -1399,7 +1404,8 @@ radial classification, the horizon's causal structure and a Lyapunov function at
 Theorem 5.1 collects (Dyn) near $b_0$. Findings (VI.B$'$1)-(VI.B$'$5). Written (D319). Verified (D321): verifier 139
 found no major gap; its minor one, that an exterior curve approaching the horizon forward without crossing was not
 excluded, is closed by the Lyapunov function (a forward limit set at the radial set would need $L\to0$, while $L$ grows
-forward there), and thirteen notes are repaired.
+forward there), and thirteen notes are repaired. Amended (D373): read on $\{|x|\ge\frac38R_1\}$ at Part VI.A's repaired
+radii (finding (VI.A7)).
 
 `PART-VI4-PARAMS.md`. Part VI.C lists every condition the parts put on the parameters left open, with its file and line,
 and proves they can be met together (Theorem 2.1). The order: Part VI's ball (metric only); the constraint damping gauge
@@ -1443,6 +1449,16 @@ of the paper's section 8.2, which there is deduced in other gauges. Findings (VI
 along a family whose second derivatives it did not control; it now differentiates along $g+s\dot h$. Six nits seated
 (finding (VIII5)). Proved (D336): verifier 154 read the repairs and found them correct; its three textual nits are
 seated.
+
+`PART-IX-GAUGE.md`. Part IX proves what Part VIII's Remark 2.4 (a) left out: a linearised vacuum solution whose data
+agree with Part VIII's up to those of a linearised diffeomorphism is $\dot g+\mathcal L_Xg$ on its Cauchy development
+(Theorem 2.2, Corollary 2.3). The domain $D_{N^\circ}(\Sigma^\circ)$ is globally hyperbolic and contains the whole future
+$N^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2); [BGP] Theorem 3.2.11 is extended to data without compact support
+(Lemma 1.1); the gauge vector solves $2\delta G\delta^*w = \Theta(k)$ with data that kill the Cauchy data of $k-\mathcal
+L_Xg$, which then vanishes by uniqueness for $D\mathrm{Ric}+\delta^*\Theta$. Nothing is asserted about the decay of $X$
+(Remark 2.4). Identities computed in `checks/ix5.py` X1-X7. Findings (IX1)-(IX4). Written (D345). Verified (D347):
+verifier 162 found no blocking or major gap; its four minor findings (a case split in Lemma 1.1, X5's test family, the
+settling clause's domain, $G$-invariance of $U$) and five nits are seated.
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

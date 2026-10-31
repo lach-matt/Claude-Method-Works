@@ -230,7 +230,10 @@ the scales of III.J$'''$ Corollary 6.6, with constants depending on the data thr
 $(\tilde\gamma,\tilde k)$;
 
 (d) $P_5(\Psi(0))$ is supported in $\{\hat T+\frac74\le t^\flat_*\le\hat T+2\}$, and $\|P_5(\Psi(0))\|_{\mathcal
-F^k_{\mathrm{ex}}}\le C_k\|(\tilde\gamma,\tilde k)\|_{H^{k+k''}}$.
+F^k_{\mathrm{ex}}}\le C_k\|(\tilde\gamma,\tilde k)\|_{H^{k+k'_k}}$, $k'_k$ Proposition 1.2 (3)'s $k'$ at the order
+$k$. Below, $k'' := \max_{k\le N}k'_k$ with $N$ of section 3 (finite; defined D347, LOSS-D.md LD1: it was used before
+without a definition). The smallness constants use orders $k\le N$ only; a bound needed at every order $k$ (the
+$e_S$ bound in Lemma 2.3's proof, which feeds II.G Theorem 2.1 (2.4)) carries $k'_k$ (D348, verifier 164's m2).
 
 *Proof.* On $\{t^\flat_*<\hat T+2\}$, $\chi_K = 0$ (section 0, $T_K>\hat T+2$), so $g_{b_0,b,-S} = \phi_{-S}^*g_{b_0}$.
 Also $h_{\mathrm{tot}}(\vec p)$ and $\vartheta_{\mathrm{tot}}(\vec p)$ vanish there, being supported in $\mathcal
@@ -299,7 +302,7 @@ $\mathrm{supp}\,\chi_K$, and so both defects vanish there; in general each is an
 (c). So for $U$ whose tail vanishes on $\{t^\flat_*<\hat T\}$, $e_S(S')$ vanishes there, and it lies in $\mathcal
 F^\infty_{\mathrm{ex}}$, at $\mathscr I^+$ by III.C Corollary 5.3 as in Lemma 2.2 (c). Its bound is tame, $e_S$
 involving $\tilde h$ through $D_hP_5$ at $\Psi(U)$: $\|e_S(S')\|_{\mathcal F^k_{\mathrm{ex}}}\le
-C_k\big(\|(\tilde\gamma,\tilde k)\|_{H^{k+k''}}+\|(\tilde\gamma,\tilde k)\|_{H^{k''}}\|U\|_{\mathcal
+C_k\big(\|(\tilde\gamma,\tilde k)\|_{H^{k+k'_k}}+\|(\tilde\gamma,\tilde k)\|_{H^{k''}}\|U\|_{\mathcal
 D^{k+d}_{\mathrm{ex}}}\big)|S'|$, by Proposition 1.2 (3) and the Moser estimates of III.J$''$ section 1.
 
 So III.I$''''''''''''''$ Theorem 3.1 at the base point $\Psi(U)$, with the boost defect $f^S_\Psi$, is
@@ -407,8 +410,9 @@ $\Psi_{\mathrm{NM}}(U)(F^\infty_\eta)\subset B^\infty_\eta$; at $\eta = 0$ this 
 $F^\infty$ into $B^\infty$. This is II.G Theorem 2.1 (iii) in its form amended in D304, for $u\in U\cap B^\infty_\eta$,
 which is all its proof uses; the form for every $u$ in the domain does not hold here (Lemma 2.3's proof).
 
-*Smallness.* Let $N := 21d+6$. The constants $C_k$ ($k\le N$), $C_1$, $C_2$ and $\delta$ depend on the data only through
-$\|(\tilde\gamma,\tilde k)\|_{H^{N+k''}}$ (Lemmas 2.2 (c), 2.3); they are bounded once that norm is at most 1. So II.G
+*Smallness.* Let $N := 21d+6$ and $k'' := \max_{k\le N}k'_k$ (Lemma 2.2 (d)). The constants $C_k$ ($k\le N$),
+$C_1$, $C_2$ and $\delta$ depend on the data only through $\|(\tilde\gamma,\tilde k)\|_{H^{N+k''}}$ (Lemmas 2.2 (c),
+2.3); they are bounded once that norm is at most 1. So II.G
 Theorem 2.1's $\epsilon_{\mathrm{NM}}$ is uniform, and $\|P_5(\Psi(0))\|_{\mathcal
 F^{2d}_{\mathrm{ex}}}<\epsilon_{\mathrm{NM}}$ for data small in $H^{d_1}$, $d_1 := N+k''$, by Lemma 2.2 (d). II.G
 Theorem 2.1 gives $U\in B^\infty_{1/2}$ with $|U|_{3d}<\delta$ and $P_5(\Psi(U)) = 0$. $\square$
@@ -452,11 +456,11 @@ Proposition 1.2 (2) with $-S$.
 $\delta_gG_g\delta^*_{g_0,E_C}\eta = 0$. The operator $\delta_gG_g\delta^*_{g_0,E_C}$ has the principal symbol of
 $\delta_gG_g\delta^*_g$, which is $\frac12g^{-1}(\zeta,\zeta)$ times the identity up to the sign convention of III.B:
 $\delta^*_{g_0,E_C}-\delta^*_g$ is of order 0. $\eta$ vanishes on $\Omega_*\cap\{t^\flat_*\le\hat T+\frac14c_0\}$, which
-contains $\Omega_*\cap\{t^\flat_*\le2\}$ ($\hat T\ge2$). II.F Lemma 1.3 on $\Omega^\circ_*$,
-with $\tau := t^\flat_*$ and $c := \frac32$, gives $\eta = 0$. Its compactness hypothesis is checked in II.F section 7.4
-for metrics with $dt^\flat_*$ past timelike, and $g$ is one by II.C Lemma 3.2 (2): $g-g_{b_0}$ is small in its class, by
-III.H$''$ (B2) and the smallness of $U$, $h_{-S}$. So $\mathrm{Ric}(g) =
-\delta^*_{g_0,E_C}0 = 0$. $\square$
+contains $\Omega_*\cap\{t^\flat_*\le2\}$ ($\hat T\ge2$). II.F Lemma 1.3 on $\Omega^\circ_*$, with $\tau := t^\flat_*$
+and $c := \frac32$, gives $\eta = 0$. Its compactness hypothesis is checked in II.F section 7.4 for metrics with
+$dt^\flat_*$ past timelike, and $g$ is one by II.C Lemma 3.2 (2): $g-g_{b_0}$ is small in its class, by III.H$''$ (B2)
+and the smallness of $U$, $h_{-S}$. Near the inner boundary, past causal curves stay in $\{r\ge\min(r(p),r^\natural)\}$
+by II.C Lemma 3.2 (1), as in II.F Lemma 1.4 (a) (D378). So $\mathrm{Ric}(g) = \delta^*_{g_0,E_C}0 = 0$. $\square$
 
 The source propagates the constraints from $\phi_S(\Sigma_{\mathrm{IVP}})$, using Lemma 4.1 there. Here $\eta$ already
 vanishes on an open slab of $\Omega_*$ (Proposition 1.2 (2)), and Lemma 4.1 enters only through Proposition 1.2's proof.

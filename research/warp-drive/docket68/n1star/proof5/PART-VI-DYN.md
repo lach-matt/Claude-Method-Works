@@ -11,9 +11,10 @@ decay (K1) (II.B section 1.1). This part proves them for five-dimensional Schwar
 VI.B carries the others to $b$ near $b_0$ with the uniformity (H5) and (K4); Part VI.C collects the parameter conditions
 the parts leave open. The threshold in (H3) and the bound (Γ.4) in (H7) involve the subprincipal symbol, so they are
 operator hypotheses, proved for each operator in III.D, III.F and Part IV$''''$. The dynamical hypotheses concern the
-metric alone. Every operator whose principal symbol is $g_b^{-1}\otimes\mathrm{Id}$ has them. The record's computations
-used here are N1STAR-PROOF.md 10.17 (Proposition 10.14 (ii)) and 10.19 (Proposition 10.16 (ii), (iv)). Each is
-re-derived below in closed form.
+metric alone. Every operator whose principal symbol is $g_b^{-1}\otimes\mathrm{Id}$ has them. Amended (D373): Part I's
+artificial boundary is put at III.B's inner radius, with the collar below it (section 2, finding (VI.A7)). The record's
+computations used here are N1STAR-PROOF.md 10.17 (Proposition 10.14 (ii)) and 10.19 (Proposition 10.16 (ii), (iv)). Each
+is re-derived below in closed form.
 
 ## 0. Coordinates and the spectral symbols
 
@@ -21,7 +22,7 @@ Write $\mu := \mu_0$, $f := 1-\mu r^{-2}$, $r_h := \mu^{1/2}$, $r_{\mathrm{ph}} 
 be the round metric of $\mathbb S^3$. By III.B (3.3) and Lemma 3.5, $g_{b_0}$ is $\Phi_\mu^*g^{\mathrm{KS}}_{\mu,0}$,
 where $\Phi_\mu$ changes the time coordinate by a function of $r = |x|$, and $g^{\mathrm{KS}}_{\mu,0} = \eta+\mu
 r^{-2}(dt+dr)^2$ (III.B Proposition 3.4). With $v := t_{\mathrm{KS}}+r$,
-$$g_{b_0} = -f\,dv^2+2\,dv\,dr+r^2\slashed g\qquad\text{on }\mathbb R_v\times\{r\ge\frac12R_1\},\tag{0.1}$$
+$$g_{b_0} = -f\,dv^2+2\,dv\,dr+r^2\slashed g\qquad\text{on }\mathbb R_v\times\{r\ge\frac38R_1\},\tag{0.1}$$
 as a direct expansion shows: $-f\,dv^2+2\,dv\,dr = -(1-H)dt^2+2H\,dt\,dr+(1+H)dr^2$ with $H = \mu r^{-2}$. Every time
 function used here has the form $\tau = v-\varphi(r)$ with $\varphi$ smooth: III.B's $t_*$ (III.B (3.6)) is one, and on
 $\{r>r_h\}$ so is the static time $t_s := v-r_*$, $r_*' = f^{-1}$, in which $g_{b_0} = -f\,dt_s^2+f^{-1}dr^2+r^2\slashed
@@ -70,25 +71,32 @@ occurs there, with future field $\mathsf H^\flat := z_0H_{G^s}$.
 ## 1. The Lorentzian structure and the decay ((H6), (K1))
 
 **Lemma 1.1.** For every $b\in\mathcal B$, with $\tau = t_*$: $g_b$ is a smooth Lorentzian metric of signature $(1,4)$
-on $\mathbb R\times\{|x|\ge\frac12R_1\}$ (the closure of $\tilde X$; (H6) uses $\tilde X^\circ = \{r>\frac12R_1\}$) with
+on $\mathbb R\times\{|x|\ge\frac38R_1\}$ (the closure of $\tilde X$; (H6) uses $\tilde X^\circ = \{r>\frac38R_1\}$) with
 $t_*$-independent components, $g_{00} = g_b^{-1}(dt_*,dt_*)<0$, and $G_0,\tau_1,g_{00}$ are given by I.B (1.1). On
 $\{r>3R_1\}$ the components of $g_b-\bar g$ in the frame $dt_*,dx^i$ lie in $\rho^2C^\infty(\bar X)$, uniformly and
 smoothly in $b$. So (H6), (K1) and (K4)'s first clause hold.
 
 *Proof.* III.B Proposition 3.6 gives smoothness and $g_b-\bar g\in|x|^{-2}C^\infty$, smoothly in $b$. III.B Lemma 3.7
-(a) gives that $dt_*$ is timelike, and $t_*$-independence holds as $t_*-t$ is a function of $|x|$. Here $\bar g$ is
-II.B's Minkowski metric in $t := t_*+r$ (II.B section 1.1), $-(dt_*+dr)^2+dx^2$, not III.B's $\eta = -dt^2+dx^2$. With
-$t = t_*+\psi(|x|)$ up to a constant (III.B (3.6)), $\eta-\bar g = -2(\psi'-1)\,dt_*\,dr+(1-\psi'^2)\,dr^2$, where
+(a) gives that $dt_*$ is timelike, and $t_*$-independence holds as $t_*-t$ is a function of $|x|$. III.B states these on
+$\{|x|\ge\frac12R_1\}$. On the collar $\{\frac38R_1\le|x|\le\frac12R_1\}$ the same formulas (3.3) and (3.6) define $g_b$
+and $t_*$, as $T_\mu$ is constant and $\psi' = 1$ on $\{|x|\le2R_1\}$. There III.B section 3.1's estimate, run at
+$|x|\ge\frac14R_1$ (IV6-SOLV section 0), gives Lemma 3.3 (c), so $g^{\mathrm{KS}}_b$ is smooth and Lorentzian, smoothly
+in $b$ (III.B Proposition 3.4, and the Lorentzian argument of BEYOND5-R0-PROOF.md F1, which does not use F1's smaller
+parameter set), and $\beta = 1$ in Lemma 3.7 (a)'s proof, so Lemma 3.3 (e) makes $dt_*$ timelike. Lemma 3.7 (a)'s
+$t_*\le t$ is not claimed on the collar, where $\psi<0$; III.K:43-44 uses it on $[\frac12R_1,5R_1]$ only. Here $\bar g$
+is II.B's Minkowski metric in $t := t_*+r$ (II.B section 1.1), $-(dt_*+dr)^2+dx^2$, not III.B's $\eta = -dt^2+dx^2$.
+With $t = t_*+\psi(|x|)$ up to a constant (III.B (3.6)), $\eta-\bar g = -2(\psi'-1)\,dt_*\,dr+(1-\psi'^2)\,dr^2$, where
 $\psi'-1\in\rho^2C^\infty$ near infinity (II.B Remark (a) for $b_0$; the same $\psi$ for every $b$) and $dr = \hat
 x\cdot dx$ with $\hat x$ smooth on $\bar X$ near $\partial X$. And $g_b-\eta\in|x|^{-2}C^\infty$ in the frame $dt,dx^i$,
 which differs from $dt_*,dx^i$ by the change $dt = dt_*+\psi'\hat x\cdot dx$, smooth on $\bar X$. $\square$
 
 ## 2. The horizon ((H3), (H4) at $b_0$)
 
-Fix I.A's radii as follows: $r_0-2\delta_0 := \frac12R_1$ (III.B's inner radius), $\delta_0 := \frac18(r_h-\frac12R_1)$,
-$r_0 := \frac12R_1+2\delta_0$, $r_2 := r_h-2\delta_0$, $r_e := r_h+\delta_0$. These are positive and ordered, as $r_h =
-R_1$ (III.B section 2). $\mathcal H := \{r = r_h\}$, $\rho_\infty := |\xi|^{-1}$ near $N^*\mathcal H$, and $\mathcal
-R_\pm := \{r = r_h,\eta = 0,\pm\xi>0\}$.
+Fix I.A's radii as follows: $r_0 := \frac12R_1$ (III.B's inner radius), $\delta_0 := \frac18(r_h-\frac12R_1)$, $r_2 :=
+r_h-2\delta_0$, $r_e := r_h+\delta_0$, so $r_0-2\delta_0 = \frac38R_1$, $r_0-\delta_0 = \frac7{16}R_1$, $r_2 =
+\frac78R_1$ and $r_e = \frac{17}{16}R_1$. These are positive and ordered, as $r_h = R_1$ (III.B section 2). $\mathcal H
+:= \{r = r_h\}$, $\rho_\infty := |\xi|^{-1}$ near $N^*\mathcal H$, and $\mathcal R_\pm := \{r = r_h,\eta =
+0,\pm\xi>0\}$.
 
 **Proposition 2.1.** With $\tau = t_*$, (H3) holds at $b_0$ with $\beta_0 = f'(r_h) = 2\mu^{-1/2}$, $\beta = 2/\beta_0 =
 \mu^{1/2}$, $q_\pm := |\eta/\xi|^2_{\slashed g}$ restricted to $\partial\Sigma_0$ and $c = \beta_0$. (H4) holds with
@@ -328,10 +336,27 @@ with absorbing sets on which $C\le C_K$ gives explicit bounds.
 $v$, whose differential is null. Its algebraic part (a) needs no causal hypothesis; the components are those of $t_*$,
 and $v$ is a chart (section 0).
 
+(VI.A7) *Part I's artificial boundary at III.B's radius* (D373, D375; BEYOND5-R0-PROOF.md section 0, verifiers 170-172).
+Section 2 put $r_0-2\delta_0 := \frac12R_1$, so $r_0 = \frac58R_1$. Part II and III.D-III.J$'''$ put the artificial
+boundary of every space at $r_0$ (II.A:38-39), while III.K and Part VII take III.B's $\frac12R_1$ as the inner boundary
+of the development (III.K:43, 84, 103; VII:40), and III.K:157 and 183 cite II.C Lemma 3.2 (1), which covers $\{r\ge
+r_0\}$ only. So the development was controlled on $\{r\ge\frac58R_1\}$, not on all of III.B's $M$. Now $r_0 :=
+\frac12R_1$, with the collar $\{\frac38R_1\le r\le\frac12R_1\}$ below it; Lemma 1.1 gives the metric and $t_*$ there.
+The forms of III.B Definition 6.1, as chosen in III.F3:84-85 ($c_\Upsilon$ and $c_{\Upsilon,H} = -\frac12\chi\,dr$) and
+Part IV$''''$ section 0 ($c_C$, the record's (10.49)), are given by formulas smooth and stationary on $\{r>0\}$, with
+$c_C$ past timelike there (`cform5.py` C2; BEYOND5-R0-PROOF.md section 3). So every operator that III.D-III.F and Part
+IV$''''$ build from $g_b$ and these forms is defined on $\tilde X^\circ = \{r>\frac38R_1\}$ (verifier 172's M1).
+$\delta_0$, $r_2$ and $r_e$ keep their values, and (0.1), Lemma 1.1, Part VI.B Lemma 1.2 and Proposition 2.2, and Part
+VI.B$'$ section 0 and Proposition 4.1 are read on $\{r\ge\frac38R_1\}$. Their steps inside the horizon (sections 2 and
+5) use only $f<0$ on $\{r_0-2\delta_0\le r<r_h\}$, which holds at the new radii. BEYOND5-R0-PROOF.md re-proves Parts
+I-IV at an inner radius $r_\flat\le\frac12R_1$ with these radii; at $r_\flat = \frac12R_1$ they are the ones here,
+though its parameter set $\mathcal B_\flat$ is smaller than III.B's $\mathcal B$ when
+$\epsilon_{\mathrm{param}}>\frac1{20}$.
+
 *Labels.* Proposition 2.1: [Hin26c] section 9.2.1 (1)-(4) for Tangherlini; Proposition 3.1: [Hin26c] (Γ.1)-(Γ.3), the
 source's Lemma 4.16 for Kerr; Proposition 4.1: [Hin26c] Proposition 4.19; Proposition 5.1: [Hin26c] Proposition 4.24 and
 the paragraph after (9.5).
 
-*Sources.* No new reading. Inputs: III.B Propositions 3.4, 3.6, Lemmas 3.5, 3.7, (3.3), (3.6); I.A section 1.3 and Lemma
-4.5; I.B sections 1.2-1.5 ((H7), (H8)) and Lemma 1.1; II.B section 1.1; N1STAR-PROOF.md Propositions 10.14 (ii) and
-10.16 (ii), (iv).
+*Sources.* No new reading. Inputs: III.B Propositions 3.4, 3.6, Lemmas 3.3, 3.5, 3.7, (3.3), (3.6); IV6-SOLV section 0;
+BEYOND5-R0-PROOF.md section 0 and F1; I.A section 1.3 and Lemma 4.5; I.B sections 1.2-1.5 ((H7), (H8)) and Lemma 1.1;
+II.B section 1.1; N1STAR-PROOF.md Propositions 10.14 (ii) and 10.16 (ii), (iv).

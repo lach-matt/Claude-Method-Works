@@ -195,7 +195,8 @@ on $\Omega_*$. $\square$
 $\Omega_*\cap\{t^\flat_*\le\hat T+2\}\subset\mathcal D$; extend it by 0 to $\Omega_*$, and put
 $$f := -L\big(\chi_-(t^\flat_*)\dot h\big)\quad\text{on }\Omega_*.\tag{2.1}$$
 Then $f = -[L,\chi_-(t^\flat_*)]\dot h$ is supported in $\{\hat T+\frac74\le t^\flat_*\le\hat T+2\}$, $f\in\mathcal
-F^\infty_{\mathrm{ex}}$, and $\|f\|_{\mathcal F^k_{\mathrm{ex}}}\le C_k\|(\dot\gamma,\dot k)\|_{H^{k+k''}}$.
+F^\infty_{\mathrm{ex}}$, and $\|f\|_{\mathcal F^k_{\mathrm{ex}}}\le
+C_k\|(\dot\gamma,\dot k)\|_{H^{k+k'_k}}$ ($k'_k$ as in III.K Lemma 2.2 (d); D347).
 
 *Proof.* On $\mathcal D\cap\Omega_*$, $L\dot h = L^\natural\dot h = 0$ by (0.1) and (1.1). So $L(\chi_-\dot h) =
 [L,\chi_-]\dot h$, a first-order operator applied to $\dot h$, with coefficients supported in
@@ -281,7 +282,8 @@ $\delta_gG_g\delta^*_{g,E_C}\dot\eta = 0$ on $\Omega_*$. $\dot\eta$ vanishes on 
 T+\frac74\}$, which contains $\Omega_*\cap\{t^\flat_*\le2\}$ ($\hat T\ge2$). II.F Lemma 1.3 on $\Omega^\circ_*$ with
 $\tau := t^\flat_*$ and $c := \frac32$, as in III.K Proposition 4.2, gives $\dot\eta = 0$. Its compactness hypothesis
 is checked in II.F section 7.4 for metrics with $dt^\flat_*$ past timelike, and $g$ is one (II.C Lemma 3.2 (2) at $h =
-0$). So $D\mathrm{Ric}(\dot g) = 0$ on $\Omega_*$ by (2.4).
+0$); near the inner boundary, past causal curves stay in $\{r\ge\min(r(p),r^\natural)\}$ by II.C Lemma 3.2 (1) at $h =
+0$, as in II.F Lemma 1.4 (a) (D378). So $D\mathrm{Ric}(\dot g) = 0$ on $\Omega_*$ by (2.4).
 
 *Step 5 (the initial region).* On $\mathcal D'$ put $\dot g := \dot h+\dot g_{S'}$. $D\mathrm{Ric}(\dot h) = 0$
 (Proposition 1.2 (1)) and $D\mathrm{Ric}(\dot g_{S'}) = 0$ (section 0). The gauge 1-form of (5) on $\mathcal D'$ is

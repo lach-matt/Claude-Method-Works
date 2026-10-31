@@ -288,7 +288,9 @@ so the boundary is spacelike for g0 wherever μ > √72 l5² or μ' > 0, and eve
 D_T there and does not return. If μ0 > √72 l5² the margin is uniform, g0⁻¹(dΦ, dΦ) ≤ −δ with δ := √(μ0/(√72 l5²)) − 1 >
 0, and for g_λ the margin is −δ + C λ ≤ −δ/2 once C λ ≤ δ/2 (deduced: |g_λ⁻¹ − g0⁻¹| ≤ C λ on Ω by item 4, and the cone
 of future causal covectors moves continuously). If μ0 = √72 l5² exactly, the boundary coincides with the seed's horizon
-for v ≤ v_start and is null there.
+for v ≤ v_start and is null there; g_λ equals the seed on {v ≤ inf supp env}, so it is null for g_λ too, and after
+the shell starts it is spacelike for g_λ outside a layer whose width tends to 0 with λ (supplement
+`docket68/n1star/EQUALITY5.md`, Propositions E.2-E.4).
 
 **Proposition 3.3 (one zero per column of the spheres' outgoing expansion; deduced, with `docket68/n1star/horizon5.py`
 H1–H3; supplement Proposition 8.1).** Let μ0 > √72 l5², K ≥ 6, and let θ⁺_λ(v, r, ω) be the outgoing null expansion, for
@@ -687,10 +689,12 @@ the late-time cut-off is 1 it differs from a linearised Myers–Perry metric by 
 of the exterior, for each ε < ε_K. In the class the boost vanishes and the Myers–Perry change is a change of mass
 alone. The proof is Theorem 4's linearisation at the Tangherlini data: the linear initial-value problem near Hintz's
 initial surface, the right inverse of the linearised operator at the zero perturbation, and the Bianchi identity
-linearised at a Ricci-flat metric. It needs no new estimate. It does not show that a linearised solution given in
-another gauge, such as the two below, differs from this one by a linearised diffeomorphism. The rest of this section is
-the route by which the linear level was first reached, in those gauges and by deduction; it stands beside the proof as
-an independent route.
+linearised at a Ricci-flat metric. It needs no new estimate. A linearised vacuum solution given in another gauge, such
+as the two below, with the same data up to those of a linearised diffeomorphism, differs from this one by a linearised
+diffeomorphism L_X g on its Cauchy development, X unique up to Killing fields (supplement `proof5/PART-IX-GAUGE.md`,
+Theorem 2.2 and Corollary 2.3). Nothing is asserted about the size or decay of X, so the decay of such a solution in
+its own gauge is that of L_X g there. The rest of this section is the route by which the linear level was first
+reached, in those gauges and by deduction; it stands beside the proof as an independent route.
 
 Linearly more is known, and it applies to the class: the class carries no vector-type perturbation and no linearised
 rotation (computed, `docket68/n1star/settle5.py` T1), and for the other two types the gauge-invariant master quantities
@@ -1249,9 +1253,10 @@ Theorem 4 with them.
 - **Settling.** Theorem 4 is proved, in the supplement's write-out (section 8.8); λ1 and δ exist by the proof and are
   not evaluated. Evaluating them would need every constant of the write-out made explicit, and several come from
   compactness, contradiction and Fredholm arguments that give no number. The linear statement of section 8.2 is proved,
-  in the gauge of the nonlinear problem (supplement `proof5/PART-VIII-LINEAR.md`). Its routes in a Regge–Wheeler-type
-  gauge and in the harmonic gauge (Hung's sections 5–8 in five dimensions) remain deductions, and that a linearised
-  solution given in another gauge differs from the proved one by a linearised diffeomorphism is not written.
+  in the gauge of the nonlinear problem (supplement `proof5/PART-VIII-LINEAR.md`), and a linearised solution given in
+  another gauge differs from it by a linearised diffeomorphism L_X g (supplement `proof5/PART-IX-GAUGE.md`). The decay
+  of X is not proved, so the routes in a Regge–Wheeler-type gauge and in the harmonic gauge (Hung's sections 5–8 in
+  five dimensions), which argue decay in those gauges, remain deductions.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1,
@@ -1286,7 +1291,13 @@ Theorem 4 with them.
 - **Beyond the boundary.** Theorems 1–3 are made on D_T and Ω, whose inner boundary r = a lies a fixed distance inside
   x_K = 1; beyond them only Theorem 4 is stated, outside the black hole.
 - **More families.** Several dusts, angular separation, and the passage to Vlasov matter are not attempted.
-- **The boundary at equality.** If μ0 = √72 l5² exactly, x_K = 1 is null on the seed's portion (Proposition 3.2).
+- **The boundary at equality.** If μ0 = √72 l5² exactly (supplement `docket68/n1star/EQUALITY5.md`): g_λ equals the
+  seed on {v ≤ v_s}, v_s := inf supp env, so x_K = 1 is the seed's horizon there; it is spacelike for g_λ on {v ≥
+  v_s + η} once λ ≤ λ_η; in the layer between, whose width tends to 0 with λ, its causal character is not decided,
+  because there the margin and the perturbation both vanish to every order. A domain O(λ)-close to D_T, inside
+  x_K ≤ 1, has an inner boundary that no future causal curve enters, and the spheres' horizon holds in the form: at
+  most one zero per column, within C λ of √μ(v); exactly one on the columns with v ≤ v_s and on those that reach across
+  √μ(v) + C λ with √μ(v) − r_q(v) ≥ C' λ.
 - **Review.** An eighth independent verifier read this paper and the supplement's last restatement (log D26): no major
   finding; its two minor findings and 21 notes are seated. Propositions 3.3 and 3.4 were added after it, and were read
   with the supplement by a ninth (D30). Theorem 2's proof was read by a tenth, which found the near-region estimate
@@ -2159,7 +2170,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | --- | --- |
 | `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `b02b1bb467508287efdfa3ed198cab8e` |
+| `docket68/n1star/N1STAR-LOG.md` | `34edf9c82f5c3d49526088ee291cb1dd` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2236,7 +2247,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
-| `docket68/n1star/proof5/README.md` | `b27213c2dff9cadc96c813fd938a8f61` |
+| `docket68/n1star/proof5/README.md` | `8424be06575fd6a81818b339fd4b3220` |
 | `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `901e27d95b65b7849494ece5bfed9505` |
 | `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
 | `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
@@ -2246,6 +2257,12 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/proof5/checks/damping5.tsv` | `4e7c226efd96b04206eb1c8e207e6861` |
 | `docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md` | `d7532a0cb202e4fe77a109fa1f6dbf0f` |
 | `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `7a5ecacf958a470070c4a92388f4fc54` |
-| `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `e1af147b48b8c47cabb3b945cf3f34b1` |
+| `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `c5b0dddd69644ffcd7ca93624b2ef4a2` |
+| `docket68/n1star/proof5/PART-IX-GAUGE.md` | `de9afd2470c80c26ff6b172d35992a51` |
+| `docket68/n1star/checks/ix5.py` | `3aef2fc325684b0a489e2b04c9a89c4a` |
+| `docket68/n1star/EQUALITY5.md` | `9a36681c3862dd10f528ecc011cdcc73` |
+| `docket68/n1star/checks/eq5.py` | `fae5dce11668492f91fec0657408090b` |
+| `docket68/n1star/LOSS-D.md` | `bf9cc64fa9d2c9cd75642e1db3ef6bfa` |
+| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `ff1f27f03b6aa076d8f5a6dcdef73506` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

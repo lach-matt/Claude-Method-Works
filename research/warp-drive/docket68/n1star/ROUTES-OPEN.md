@@ -4539,11 +4539,270 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (flat 2e-26; Tangherlini K median rel. error 6.4e-3), S3 (control W + 0.01 v, ratio 1.00) pass.
 - Coordinate: u := -r on the first cone squeezes the late interior (r - 1 ~ (r0 - 1) e^v); grid u = -1 + a sinh xi,
   a = 0.002, fixes it (107 rows in 0.54 <= R <= 1 at v = 1.6).
-- lambda = 1 (L = 100): second zero of R_v at v = 1.425 (the record's break, 1.45) passed; constraints converge at
-  second order to v = 1.5; x_K > 1 near the cut from v ~ 1.45 (wave curvature), so D_q < {R >= r_core}; D_q computed
-  (113,682 of 125,265 strip cells at 800 x 360, reaching v = 4.5); converged on D_q to v ~ 2.0 (400 vs 800), shears not
-  converged beyond; axis growth from v ~ 1.61 lies outside D_q.
+- lambda = 1 (L = 100): second zero of R_v at v = 1.425, before the record's persistent break at the first seed
+  (1.500; its 1.4516 was a single-step excursion, D43-D44; 1.583 at the second seed; corrected D346), passed;
+  constraints converge at second order to v = 1.5; x_K > 1 near the cut from v ~ 1.45 (wave curvature), so D_q <
+  {R >= r_core}; D_q computed (113,682 of 125,265 strip cells at 800 x 360, reaching v = 4.5); converged on D_q to
+  v ~ 2.0 (400 vs 800), shears not converged beyond; axis growth from v ~ 1.61 lies outside D_q.
 - lambda = 0.3162 (L = 1000): runs to v ~ 3.3-3.4; axis growth at x = +1 just outside the horizon, onset moving later
   with M (1.86, 3.28, 3.44 at M = 6, 8, 12) and with (u, v) (3.28, 3.36): resolution, not the gauge.
 - G1 not yet answered to the end of the domain; next: angular resolution with an axis filter, refinement at D_q's
   edge, D_q at lambda = 0.3162, then F3.
+
+### 4.268 The linear result in any gauge: Part IX (D345, D347)
+
+- proof5/PART-IX-GAUGE.md: on D_U(Sigma_U), U open in N°, a linearised vacuum solution whose Cauchy data are those of
+  L_Z g is L_X g, X unique up to Killing fields; Part VIII's solution in any gauge is dot g + L_X g (Corollary 2.3).
+  Domain: D_{N°}(Sigma°) globally hyperbolic, contains N° cap {t_IVP >= 0} (Lemma 1.2); [BGP] Theorem 3.2.11 for data
+  without compact support (Lemma 1.1). Gauge vector: 2 delta G delta^* w = Theta(k), w = 0 and nabla_nu w = Y^flat on
+  Sigma; then k - L_X g has zero data and vanishes (uniqueness for DRic + delta^* Theta, normally hyperbolic).
+- checks/ix5.py X1-X7 (identities by exact expansion or at four random rational points to 60 digits; seven controls).
+- Not proved: the size or decay of X, so the Regge-Wheeler-type and harmonic-gauge decay routes of section 8.2 stay
+  deductions. Verifier 162: sound; M1-M4, N1-N5 seated (D347).
+
+### 4.269 The equality case mu0 = sqrt72 l5^2 (D346, D347)
+
+- EQUALITY5.md: g_lam = g0 on Omega cap {v <= v_s} (Proposition E.2; the record's energy inequality with a null face);
+  the boundary is null there, spacelike for g_lam on v >= v_s + eta once lam <= lam_eta (E.3); the layer between, of
+  width -> 0 with lam, undecided (Remark E.6: margin and perturbation both flat at v_s); D_T^lam, within c lam eta* of
+  D_T inside x_K <= 1, whose inner boundary nothing enters (E.4); the spheres' horizon at equality (E.5).
+- checks/eq5.py E1-E6. Verifier 163: sound; MINOR-1..4 and nine nits seated (D347).
+- Open: the causal character of x_K = 1 itself for g_lam in the layer, a question about the exact solution near v_s.
+
+### 4.270 The loss d (E1'): bookkept, not a number (D347)
+
+- LOSS-D.md: d = sum over III.J''' section 3's rows of (steps x step loss). Step losses explicit in the weights
+  (II.G' Corollary 4.5's l = 2 l_3 + l_4 + l_5 and its parts, Proposition 3.5, III.F' Corollary 3.4, III.G''' 2.2/2.4,
+  III.G' Theorem 3.1 (2) <= 2(ceil(l_I - Re lambda) + 2), III.I Theorem 5.3's +5, N_*), except five (III.A Proposition
+  4.2 (1); II.G' Corollary 4.2; III.G''' Corollary 3.1 and Proposition 3.7; III.I'' Lemma 4.2). Weights fixed only by
+  inequalities at n = 4 (l_I > 3 + eps_+, alpha_K = 4 + eps_K, eps_ind, ...); level and round counts chosen.
+- Next: E1'a (numbers for the weights from the computed index sets), E1'b (the five losses), E1'c (the counts).
+- Finding LD1: k'' (III.K, Part VIII) was never defined; now k'' := max_{k <= N} k'_k from III.K Proposition 1.2 (3).
+- Finding LD3 (D348, restated after verifier 164): I15's beta-chain has steps below alpha - 4 <= eps_K and climbs
+  more than 2, so K > 2/eps_K > 6.8e5 at the record's parameter point (eps_K < eps_ind < 3e-6); each level costs 2 in
+  III.J''''s accounting, so the d it produces is > 1.3e6 and N = 21d + 6 > 2.8e7. Nested inside, I14's level-3 loop
+  rises by eps_ind per round at every beta-level: about 5e10 rounds over the chain, and d beyond that if a round costs a
+  derivative (E1'b). These bound the d this proof produces, not the optimal loss. Levers: the parameter point, a larger
+  per-level gain, another proof of the level step (the source's one-step route is closed at n = 4).
+- Verifier 164 (D348): M1 (d is a recursion over calls, not a flat sum over rows), M2 (LD3's scope), M3 (the nested
+  level-3 loop), m1-m4, nits; all seated, with the k'' scope in III.K repaired at the e_S bound.
+
+### 4.271 10 l5, G1: angular resolution at lambda = 1 (D351)
+
+- dnsolve5.py --run ... [p]: exponential filter exp(-36 (k/(M-1))^p) on the Chebyshev coefficients in x after each
+  diamond. Runs (scratchpad): M = 12 (p 32) at 400 x 180 and 800 x 360, M = 16 (p 32, 64), 24 (p 64) at 400 x 180,
+  M = 12 (p 32), 16 (p 64) at 400 x 720; D_q recomputed on the M = 12 filtered 800 x 360 run (111,891 cells).
+- On D_q: converged in (u, v) and in M to v ~ 1.5 (M16 vs M24 |dm| <= 4e-5). On [1.5, 2): M12/M16/M24 differ by
+  0.36-0.44 in m (of 0.44-0.55); dv/4 changes M16 by 0.03 (not a step-size limit). The filter bounds the shears (no
+  growth to ~100 as unfiltered) but does not give convergence.
+- The discrepancy starts at the axis x = -1 near u ~ -1 (the seed's horizon generator), R ~ 0.7-1, from v ~ 1.6; the
+  M24 Chebyshev spectrum of m flattens (3e-7 at v = 1.6, 1e-3 at 1.75, unresolved at 2.2). M = 24 at dv/4 and M = 32
+  stop on a singular 4 x 4 solve.
+- Correction: D344's "converged on D_q to v ~ 2.0" was (u, v) convergence only; in angle, to v ~ 1.5-1.6.
+- Next: an axis treatment without division by 1 - x^2, or axis-concentrated angular grids; then D_q at lambda = 0.3162.
+
+### 4.272 E2 at one operator (D350)
+
+- E2-PILOT.md, checks/e2pilot5.py P1-P2: box on 5D Tangherlini by harmonics. V_l = f((l(l+2) + 3/4)/r^2 + 9 mu/(4r^4)),
+  I_l = (l(l+2) + 3/2)/sqrt(mu). Off the real axis ||R_l(sigma)|| <= 1/dist(sigma^2, [0, inf)), uniform in l. On it,
+  for every l and real sigma != 0: |W| >= 2|sigma| (flux), |u|^2 <= 2 exp(int V/|sigma|) (Gronwall), and the cut-off
+  resolvent <= (Lambda/|sigma|) exp(I_l/(2|sigma|)): III.D Proposition 6.2's injectivity with a constant, per harmonic.
+- Open: uniformity in l (an Agmon bound in the forbidden region), sigma -> 0, the trapping energies at large sigma, the
+  record's b-Sobolev norms, Im sigma -> 0 joined to the real axis.
+
+### 4.273 E1'a's first question: the indicial gap over the damping parameters (D353)
+
+- checks/gapscan5.py G1-G3: the gap near 2 of box^C's scalar indicial roots (damping5.py's polynomial, weight 2/3) is
+  about c(v) h for h << e (c(1/2) ~ 3.06), flat in e; over e <= e_0(v) ~ 6.9e-5 v^2 (semiclass5 W4) and h <= e (U6) its
+  largest value is ~3.1e-5 (v ~ 0.45, h -> e = e_0), against 2.93e-6 at the record's point. So eps_ind < 3.1e-5 at every
+  admissible point; LD3's counts improve by at most ~10 (K > 6.5e4, d > 1.3e5, nested rounds > 5e8). An order-one gap
+  needs another constraint damping.
+
+### 4.274 G1 at 10 l5: the axis nodes and 𝒟_q with |K| (D354)
+
+- The singular solves at M = 24, 32 and part of the angular disagreement were rounding in the 4 x 4 uv-solve at the
+  nodes next to an axis (error ~ (1 - |x|)^-4.5 eps). Fixed by an 80-bit long-double solve there (dnsolve5.py `ld k`,
+  selftest S4); `reg` does not cure it. 𝒟_q rebuilt from |K| (K < 0 where the runs disagree): 111,370 common cells at
+  M = 24, 32. Every field converges in M to v = 1.5; d(M24, M32) in m is 0.68 on [1.5, 2) and 3-20 later. The onset is
+  at x = -1 inside the horizon (d > 1e-4 at u = -0.964, v = 1.650), where x_K = 0.81: inside 𝒟_q, so not removed by
+  the curvature cut. Second seed: converges to v ~ 3-3.5, then n steepens at x = +1. Open: an axis treatment or a
+  mapped grid at the axes (CERTIFY-10L5.md section 6b).
+- D381 (checks/axisdrift5.py, computed on the saved runs): the shift drags the angle along the ingoing generators,
+  d ln(1+x)/du = 2 s(-1). At lambda = 1 the drag at x = -1 is e^-5.0 at the onset v = 1.65 (first node e^-6.15, M = 24)
+  and e^-13 by v = 1.8, inside the horizon (R ~ 0.52): the x = -1 non-convergence is largely the gauge's. Next: the shift
+  on dv, or a moving map at x = -1. At the second seed the x = +1 failure has drag < e^0.02: not this, still open.
+- D386 (dnsolve5v.py V1-V4, computed): the shift on dv. The Ricci tensors are exact u <-> v mirrors, so the scheme is
+  dnsolve5's mirrored; s_u on u = -R0 from Ric_vx with the transverse f_u carried by the uv-equations. The section
+  volume (invariant) agrees with dnsolve5 within (u, v) error, converging. lambda = 1, 800 x 360, ld 3: |dm| M24-M32 is
+  7e-6, 3e-5, 5e-5, 2e-4 on [1, 2) (dnsolve5: 2e-6, 4e-4, 0.43, 3.4); pressing drag <= e^-0.92. Converged in angle to
+  v ~ 2.1 (was 1.65).
+- D391 (verifier 177): D387 sound, decimals outward. MAJOR on D386: its onset R = 1.58 was read at the node next to
+  x = +1; at the failing node x = -0.998, R = 0.54, the run's cut, reached under the gauge's outward drift at x = -1
+  (up to e^+2.35, now reported by --drift); R at a node is not invariant, and x_K came from dnsolve5's unconverged run.
+  "The axis condition on m, not the drag" withdrawn: not yet separated. Next: an invariant cut, x_K from this run.
+  Minors: the volume gap is within the swapped gauge's (u, v) error (~3x dnsolve5's); V4 now tests s_u on u = -R0.
+- D392 (dnsolve5v.py ... vol, computed): a cut on the invariant areal radius keeps ~4,600 more cells, where R at the
+  x = -1 node falls to 0.27-0.34; they do not converge (|dm| M24-M32 > 1e-4 from v = 1.46). Under either cut the
+  converged region is where every node keeps R >= ~0.54; in dnsolve5 too the onset was at x = -1 with R ~ 0.52. K at
+  the onset cells is not computable (they border the cut); x_K = 0.048 inward at v = 1.9. Axis treatment at small R
+  versus geometry: not decided; next, the invariant circle g_22 on the axis across gauges.
+- D393 (checks/g1geom5.py, computed on the saved runs): m drops out of the metric at x = -1, so |dm| there is not a
+  geometric measure. In the swapped gauge the metric's fields P, Q, R, W converge in angle to v ~ 3 away from the cut
+  (|dP| M24-M32 1.7e-6, 2.0e-5, 3.7e-5 on [2, 3), falling 6-50 per step) and stay below 7e-4 to v = 4.6; the axis
+  circle g22 = R^2 e^(8n/3) on x = -1 converges to v = 2.5. dnsolve5: |dP| 0.019 on [1.65, 1.8), 2.75 on [2, 2.25).
+- D395 (verifier 178): D393 corrected. m at x = -1 is geometric (in the metric's x-derivative and the axis curvature,
+  K ~ (3 - 28m - 8n + 16 n_x) e^(4n/3)/(3R^2)); it does not converge on the axis beyond v ~ 2.25, so the axis
+  curvature is unconverged there. "To v ~ 3" depended on dropping k = 10 rows: k = 3, 10, 20, 40 give ~2.25, 3, 3.5,
+  4.6, the error rising toward the cut (frozen at u = -1.0557 from v ~ 2.4). "Below 7e-4" withdrawn: beyond v ~ 3 the
+  differences grow with M (kept-cell max 7e-3, at x = +1). M32 tails exceed M24's from v ~ 2. D388-D390 sound
+  (nits seated); g1geom5 now compares s, scans k, splits m on/off the axis, prints tails.
+
+### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
+
+- E2-PILOT.md section 3b, checks/e2pilot5.py P3. Lemma E2.5a: H = |u'|^2 + (sigma^2 - V_l)|u|^2 has H' = -V_l' |u|^2,
+  so H <= 2 sigma^2 for u_h left of the barrier's peak and for u_inf right of it. Lemma E2.5b: with the flux, the signs
+  Re(conj(u_h) u_h') >= 0 at the left end of I and Re(conj(u_inf) u_inf') <= 0 at the right end. Proposition E2.5:
+  then ||chi_I R_l(sigma) chi_I|| <= 1/min_I (V_l - sigma^2). Corollary E2.6 (mu = 1, I = r in [1.2, 4]): closed-form
+  sufficient conditions, monotone in l; l_0 = 14, 19, 50 at sigma = 0.3, 1, 3 (3, 7, 18 by quadrature); bound
+  <= 1/((15/256)(L + 3/4) - sigma^2), asymptotically 17.07/L. Open: l < l_0, Proposition E2.4's constant (where
+  kappa_I^2 > 0 only the end signs are missing; where kappa_I^2 <= 0 another argument is needed); Im sigma -> 0; the
+  record's b-Sobolev norms. Verifier 165: sound, 7 minor and 6 nits seated (D356).
+
+### 4.276 E1'b: the six non-closed losses in closed form (D357)
+
+- LOSS-D.md section 2b. III.A Prop 4.2: (1) l = 1 + n_iota + 2 max(n_K + floor(beta_K), n_I + floor(B)), (2) l = n_iota +
+  n_K + ceil((max(beta_iota - beta_scf, beta_K) + eps - 1/2)_+). II.G' Cor 4.2 and III.I'' Lemma 4.2: ell =
+  max(ceil((theta_in/2 + 3 - beta_scf)_+), ceil((s_c - 1)_+)) (in the proofs, II.G2:698-702). III.G''' Prop 3.7 and Cor
+  3.1: Prop 2.4's l' = 2 ceil(ell_I) + 10 + sup d (Cor 3.1 (2): + 2). III.G' Thm 3.1 (2): d_1 = 0, d(lambda) = 6 +
+  ceil(max(0, Re lambda - 2 + delta)) + ceil(max(0, Re lambda - 3/2) + delta) + 2 ceil(ell_I - Re lambda), not monotone;
+  sup over a strip <= max(7 + 2 ceil(ell_I - lambda_-), 12) for 3 < ell_I < 3.5, so l' = 30 with lambda_- just below
+  3/2. Verifier 166 (D358): forms and d_1 = 0 hold; the strip rule repaired; s_c >= 0 chosen; Cor 3.1 (2) loses l'.
+  Remaining: E1'a (numbers for the data and the free choices) and E1'c (the counts).
+- D365 (LOSS-D LD6): the beta-chain's step alpha - 4 is the gain of R_q (coefficients of K+-order (alpha - 2)-), and the
+  cap alpha <= 4 + eps_K is the order four zero-energy solves reach (I12:14-16, 528-529), no obstruction named. Lever,
+  not examined: a fifth solve, if the sigma^4 zf term exists at n = 4 (logs in even n to check), takes alpha towards 5,
+  the step to about 1 and K from > 6.5 x 10^4 to about 3. The nested level-3 loop (eps_ind) is untouched.
+- D377 (LOSS-D LD7, deduced from the record's text): the cap alpha <= 4 + eps_K is not the number of solves --
+  four zf-Taylor terms serve every alpha <= 5 (I12:16) -- but I11 Definition 1.3 (G): no point of Lambda in
+  (3, 3 + eps_K], and Lambda contains 2 + E_ind, which has 3 + 2.93e-6 (the damping root lambda^C - 1). So
+  alpha - 4 < eps_K < gap, and LD6's lever reduces to LD5's (a damping with a gap of order one). Open: whether the
+  cascade can treat the point 3 + gap instead of excluding it.
+- D380 (verifier 174): LD7 repaired. The cap is I10 (1.1) eps_K < eps_+ < min(delta_sharp, eps_ind) with level 3's
+  eta_2 < eps_+ (I12:58, 349-350, 531-532), not (G); D377's 'lambda^C - 1 in E_ind' (so 3 + gap in Lambda) is withdrawn
+  (E_ind in Lambda comes from Box^Upsilon). The four-term Taylor count is not the cap. Open: lifting needs (1.1), eta_2,
+  delta_sharp and (G) relaxed together (I11:127, 434-438).
+
+### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
+
+- E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
+  negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
+  where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
+  harmonics with max V_l >= sigma^2 below l_0 (5 <= l < 50 at sigma = 3).
+- D379 (E2-PILOT section 3e, checks/e2morawetz5.py M1-M3): Lemma E2.8, a 1D Morawetz bound. phi = tanh((r_* - x_p)/s),
+  s < 1 (horizon tail), w = -phi V_l' - phi'''/2 >= 0 gives
+  ||chi_I R_l chi_I|| <= ((2/m' + (M' + 2|sigma|)^2/w_I)/w_I)^1/2
+  at every real sigma != 0, bounded as sigma -> 0. Every l >= 1 (computed to l = 30; l = 0 has no admissible s): B_l(3)
+  <= 21.3 on the band 5 <= l <= 17, where only e^54 held. Not certified (w >= 0 on a grid); coarser than computed norms.
+- D382 (verifier 175): E2.8's proof right; w >= 0 with wide margins. MAJOR: 'every l >= 1' was beyond the check --
+  computed for 1 <= l <= 30 (verifier's scans at 60, 100, 200 pass); a large-l proof plus a finite check would close
+  it. B(0+) = ((2/m' + M'^2/w_I)/w_I)^1/2; s <= 1; tail monotone checked; sigma = 0.3, 1 compared (all above); the
+  sigma-growth is the flux step; the 2/m' cut-off cost dominates. LD7: eps_ind is G'''' Prop 5.1's = F' (2.2)'s.
+- D384 (E2-PILOT section 3f, checks/e2certify5.py C1-C5, certified by interval arithmetic): Lemma E2.9. With phi
+  centred at the photon sphere, -phi U' >= 0, so w_l = w_1 + (a - a_1)(-phi U') grows with l; w_1 >= 0 on R certified
+  (adaptive bisection plus explicit tails), so E2.8 holds for every l >= 1. Certified B_l(3): 264.5, 51.12, 34.39,
+  26.02, 20.99 for l = 1-5 and <= 19.22 for every l >= 6 (rounded outward since D385). l = 0 still open.
+- D385 (verifier 176): E2.9, the interval arithmetic and both tails right. MAJOR: D384's decimals were rounded to
+  nearest, so m' >= 0.005794, left ratio <= 0.0391 and B_6(3) <= 19.21 sat below the enclosures; now every bound is
+  rounded outward by exact rationals. Endpoints carried at 103 bits; C4 now runs the bisection at l = 0 and s = 3/2
+  (both fail, with certified negative values); l = 0's failure is w_0 < 0 near r = 3.2, not only a < b.
+- D387 (E2-PILOT section 3g, checks/e2lzero5.py Z1-Z5, certified): l = 0 by Lemma E2.8', E2.8 with -2q u-bar added to
+  the multiplier: W_q = w + q'' - 2qV, m' = min_I (phi' - q), M' = max_I |phi' - 2q|, the sigma^2 q term good. q = 43
+  sech^2 bumps (widths < s) from a linear program, rounded and certified as is: W_q >= 0, phi' - q >= 0 on R, tails
+  explicit. B_0(0+, 1, 3, 10) <= 164.5, 183.5, 275.2, 725.0. Every harmonic l >= 0 now certified at real sigma != 0.
+- D394 (E2-PILOT section 3h, checks/e2cplx5.py J1-J3): Lemma E2.10, the Morawetz bounds off the real axis. For
+  Im sigma > 0 the flux term is replaced by -2b int phi Im(u u-bar') (sigma^2 = a + ib, identity exact), bounded via
+  the energy identity by 4|sigma| ||f|| ||u||_I: B+ = B with 4|sigma| for 2|sigma|, every l >= 1, and l = 0 when
+  |Re sigma| >= Im sigma. Computed at l = 1, sigma = 3 + i eta: 0.297-0.081, below B+ and below 1/|Im sigma^2|.
+
+### 4.278 Beyond D_T: the interior after the shell (D360)
+
+- BEYOND5.md. Theorem 0.2 (i)'s g lives on {r >= r_0 = sqrt(mu_end)/2} to the future of Sigma_IVP; if mu_end <= 16
+  sqrt72 l5^2 then r_q >= r_0 and g covers {r >= r_q} for all later times (Proposition 6.1, deduced). It agrees with
+  g_lambda on the domain of dependence of Sigma_IVP cap {r < R} (CB-G; (VII4) to write), not at late times near the hole
+  (VII1). Open: (a) write (VII4); (b) g_lambda's own data on all of Sigma_IVP, in III.K's class, then Theorem 0.2 (ii);
+  (c) r_0 lowered below r_q (census of r_0 in proof5); (d) or the finite-r-time slab by uniform Cauchy stability.
+- D363, (c): the census (checks/r0census5.py, BEYOND5-R0.tsv). 308 lines in 25 files of Parts III-VII: 108 another
+  r_0 (III.C''s exterior radius, the source's r_c), 19 definition and domain, 128 only "{r = r_0} spacelike, dr future
+  timelike, inside the horizon", 48 through a constant, 5 put R_1/2 into an inequality (III.B 157-159, 244; VI3 374),
+  each of which holds for every smaller radius once eps_param <= r/(4R_1). Proposition 6.2 (deduced from the census):
+  with r_0 := min(R_1, r_q)/2, Proposition 6.1 holds for every mu_end, without (1.1). Rests on: a reading, not a
+  re-proof; IV6's finding (IV'''''5) for [Hin26a] Prop 5.1 at m; Part VII's delta'_0 nearer q_0.
+- D366: verifier 168 seated. MAJOR: IV6-SOLV's Lemma 0.5 (6) (record 10.14 (ii)) was checked on [r_h/2, oo) only; 8
+  lines reclassed VAL (now SPC 120, VAL 13). It holds on (0, r_h) by hand: the inner piece dt + (v/2) dr has <c, dr> =
+  1/4 + 3mu/(4r^2) > 0 and G(c) < 0, and f < 0 there. Minor: eps_param := min(1/20, r/(4R_1)); Lemma 3.3 (c) via
+  r_A^2 > 3||A||^2; any delta_0 in (0, r) for F3/F4; r < 4R_1/7 in VI (r_h = R_1); Part IX outside the census.
+- D367, (a): (VII4) written as BEYOND5 Lemma 6.3 (deduced). g_lambda on the past domain of dependence of Sigma =
+  Sigma_IVP cap {r_0 < r < R} (in a neighbourhood V where t_IVP is a time function) and g after Sigma_IVP glue into one
+  smooth vacuum spacetime N, since Ric = 0 in Gaussian normal gauge fixes every normal jet from (gamma, k). The future
+  developments are identified on their maximal common development ([Sbi15] arXiv:1309.7591 Thms 2.6, 2.7, 3.4, 3.13,
+  READ). Open: how far that common development reaches; Sigma's acausality in all of Omega'.
+- D368-D372: BEYOND5-R0-PROOF.md re-proves each Part at r_flat (batches 1-3: Parts I-II, III.B-III.K, IV; verifiers
+  169-171). Found (verifiers 170-171): the record's Part VI puts Part I's artificial boundary at 5R_1/8, while III.K and
+  Part VII use III.B's R_1/2, so the record's development is controlled on {r >= 5R_1/8} only. Repair: r_0^A := r_flat
+  with the collar delta_0 := min(R_1/16, r_flat/4). Proposition 6.1's bound 135.76 l5^2 holds with the repair; without
+  it the condition is mu_end <= 55.61 l5^2, which the first seed fails. Proposition 6.2 assumes the repair. Batch 4
+  (V-IX, including Part VI's checks at the new radii) open.
+- D373: the repair is made in the record. Part VI now sets r_0 := R_1/2 (III.B's radius), delta_0 = R_1/16, so the
+  collar reaches 3R_1/8, where Lemma 1.1 defines g_b and t_* by III.B's formulas (Lemma 3.3 (c) at |x| >= R_1/4, as
+  IV6-SOLV section 0); VI2-VI3 read on {|x| >= 3R_1/8}; VI3 374-375's r_0 - delta_0 is 7R_1/16. Findings (VI.A7),
+  (VI.B'6). Census
+  320 lines (CON 60). Verifier 172 reads it.
+- D374: BEYOND5-R0-PROOF.md batch 4, sections 7 and 9-11: Part V (only |x| >= 50R_1 used), Part VII (delta'_0 in
+  (max(0, q_0 - r_flat/2), q_0), allowed by the record's (1.1); Lemma 1.2 from r_flat), Part VIII (III.K's sets at
+  U = 0; II.C Lemma 3.2 (2) at the repaired radii), Part IX (II.C Lemma 3.2 (1) cited from R_1/2: a third site of the
+  mismatch, closed by D373). Section 8 (Part VI at r_flat) after verifier 172; then one verifier for batch 4.
+- D375: verifier 172 seated. M1: the forms of III.B Definition 6.1 must exist on the collar; they are smooth for
+  r > 0, c_C past timelike (cform5.py C2), so the operators of III.D-III.F and IV'''' are defined on {r > 3R_1/8}
+  (VI.A7). m1: F1 cited for its Lorentzian argument only. Census VI-DYN 81 reclassed VAL (322 lines: CON 61, VAL 14).
+  Nits: VI3 and README marked amended, (VI.B'6) names Proposition 4.1. BEYOND5-R0-PROOF section 8 (Part VI at
+  r_flat) written; batch 4 to verifier 173.
+- D378: verifier 173 seated on batch 4 (no major). m1: II.F Lemma 1.3's compactness near {r = r_flat} needs
+  II.C Lemma 3.2 (1) (as II.F Lemma 1.4 (a)); the record cited II.F 7.4 (the iota+ model); now named at VIII:284-286
+  and III.K:459-463. m2: Part VII's constants depend on r_flat through delta'_0, c_0, T'. Nits seated. Re-proof done.
+- D388 (BEYOND5 (ii)): int D(Sigma) globally hyperbolic READ at source ([Chr11] Theorem 2.9.9, achronal hypersurface
+  without boundary; [Min19] Theorem 3.45 needs S closed, which Sigma is not); Sigma Cauchy in it proved from [Chr11]
+  Proposition 2.9.7 and achronality. Sigma in int D(Sigma) and the push-up are as [Chr11] remarks / invokes them.
+
+### 4.279 More families: several dusts, angular separation, Vlasov (D361)
+
+- FAMILIES5.md (scoping, nothing proved). The single-family uses: exact eikonal v, one null dust, one lambda^-1 coupling
+  s = w(l, l), one phase-shift identity and transport. N families: N couplings and cross terms
+  [d^2_{theta_j} g1^(j)](l_k, l_k). READ abstracts: Touati arXiv:2402.17530 (multiphase, any number of dusts, 3+1, no
+  symmetry); Huneau-Luk arXiv:2506.21779 (Vlasov via dusts, U(1), small localized). First step proposed: two-phase
+  Stage 0 (v ingoing, u outgoing) in the class; mixed harmonics non-resonant, solved by division.
+- D363 (deduced from the record's Stage 0): the cross couplings enter only through the second-harmonic gauge terms
+  chi dv^2 and chi' du^2, W_TT being purely angular; a gauge removing chi, chi' at first order would remove them.
+- D364 (deduced): chi dv^2 is pure gauge at order lambda (L_Z g0 for Z = lambda^2 Phi(X, v/lambda) grad v,
+  d_theta Phi = chi/2). The record's wave-map gauge forces it, the reduced symbol vanishing at the null dv; a generalised
+  wave gauge with fixed source H = lambda h(X, v/lambda) dv meets the vv second harmonic algebraically, so
+  chi = chi' = 0 and the leading cross couplings vanish (a gauge artefact). Open: constraint propagation with H,
+  comparison of gauges, no other lambda^-1 coefficient in the two-family linearization (step 4).
+- D376 (FAMILIES5 section 4b; checks/stage0two5.py, computed): Stage 0 of the two-phase ansatz on a general round
+  double-null background closes. R^(-1) = 0; the double mean of R^(0) is Ric(g0) - K_in dv^2 - K_out du^2 with no
+  cross term, K R^3 = alpha(v)^2/3 and beta(u)^2/3 with the record's H (two round dusts, two Isaacson laws); the pure
+  harmonics are lead5's per family under the R^(-3/2) transports; the mixed harmonics are present and ghat_2 solves
+  them by division (symbol -e^(-2 sigma) n1 n2). Open: the two-dust background in the class; later stages; the
+  energy estimate with two couplings.
+- D380 (verifier 174): stage0two5 sound (order-by-order assembly equals lead5's truncation, 15/15). T5 asserts the chi
+  transports; mutants now 6 (both transports, chi on dv du, principal part without gauge). T1 and the no-interaction
+  of the mean are automatic; the Isaacson law is an input; gauge condition (L5 analogue) and H not derived: listed.
+- D381: stage0two5 T6: the gauge 1-form D vanishes at order lam^0 (each W transverse to its generator, traceless).
+  ghat_2's gauge condition at order lam is still not checked.
+- D383: stage0two5 T7 (--gauge): with ghat_2's mixed harmonics fixed by T4, the order-lam gauge 1-form vanishes on
+  them (numerical identity test on concrete functions: 5e-18 against 2.8e-2 over 16 harmonics; wrong sign fails).
+- D389 (FAMILIES5 section 4c, checks/twodust5.py B1-B5): the two-dust round background. Ric_uv = 0 and the angular
+  equation give R_uv = -(e^2s + 2 R_u R_v)/R, s_uv = 3(e^2s + 2 R_u R_v)/(2R^2); the dust enters only through the two
+  Raychaudhuri constraints, and d_v(R^2 C_u) = d_u(R^2 C_v) = 0 modulo the evolution exactly because B = B(u), A = A(v)
+  (the Isaacson laws). mu_v = -(2/3) A e^-2s R_u, mu_u = -(2/3) B e^-2s R_v. Computed: crossing pulses from flat data,
+  constraints second order (ratio 4.00), mu 1.001 -> 0.520 matching the edge fluxes, untrapped. Local existence:
+  standard Goursat iteration, not read at source.
