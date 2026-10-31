@@ -12,7 +12,8 @@ the lam^-1 coefficient of the linearised operator acting on w. ell_in := g0^-1 d
 s_in := w(ell_in, ell_in) = e^(-4 sigma) w_uu, s_out := w(ell_out, ell_out) = e^(-4 sigma) w_vv, F_k = d/ds_k.
 
   A  (exact) The assembly below (rm1) reproduces stage0two5.ricci_orders' lam^-1 coefficient at eps = 0, both for the
-     waves (where it is 0, T1) and for the mutant with chi on dv du (where it is not).
+     waves (where it is 0, T1) and with terms q z1 z2, q z1/z2, q z1^2 z2 added (where it is not). A mutant of one
+     family alone cannot serve: the coefficient is -(1/2) g0^-1(k_j, k_k) F_j F_k W, zero for any W_in(s1) + W_out(s2).
   L1 (exact) E[w] = (1/2)(s_in F_1^2 W_in + s_out F_2^2 W_out) in all 15 components, for every w: one coefficient per
      family, coupling s_k to its own family's wave, and no other. (It is the linearised coefficient of the principal
      part -(1/2) g^ab d_a d_b: the lam^-1 part of Ric^H is -(1/2) g^-1(k_j, k_k) F_j F_k (W), and F_1 F_2 W = 0.)
@@ -79,7 +80,9 @@ def rm1(W, w=None, gauge=True):
 
 
 def zero(e):
-    return sp.simplify(e) == 0
+    """exact zero test by expansion: every identity here is algebraic in the components (no trigonometric
+    identity is needed), and expand cancels the products g0 g0^-1 exactly"""
+    return sp.expand(e) == 0
 
 
 def main():
@@ -89,14 +92,16 @@ def main():
     w = wmat()
     # A: agreement with stage0two5's assembly
     ro = S0.ricci_orders(W)
-    S0.MUT.add("chi_dvdu")
-    Wm = S0.waves()
+    q = sp.Function("q")(S0.u, S0.v, S0.th)
+    Wm = W.copy()                                    # a term depending on both phases: the only kind with R^(-1) != 0
+    for (a, b, mono) in ((2, 3, S0.z1*S0.z2), (0, 1, S0.z1/S0.z2), (1, 4, S0.z1**2*S0.z2)):
+        Wm[a, b] += q*mono
+        Wm[b, a] += q*mono
     rom = S0.ricci_orders(Wm)
-    S0.MUT.discard("chi_dvdu")
     mine, minem = rm1(W), rm1(Wm)
     ok["A"] = all(zero(mine[k] - ro[k][0]) and zero(minem[k] - rom[k][0]) for k in mine) and \
         all(zero(mine[k]) for k in mine) and any(not zero(minem[k]) for k in minem)
-    print("  A: rm1 = ricci_orders' lam^-1 coefficient, for the waves (zero) and the chi-on-dv-du mutant (nonzero): %s"
+    print("  A: rm1 = ricci_orders' lam^-1 coefficient, for the waves (zero, T1) and with a two-phase term (nonzero): %s"
           % ok["A"], flush=True)
     # L1
     E = rm1(W, w)
@@ -139,7 +144,8 @@ def main():
     xi, xo = extra(P_in, kin), extra(P_out, kout)
     ok["control"] = all(zero(En[k] - E[k] - xi[k] - xo[k]) for k in E) and any(not zero(En[k] - E[k]) for k in E)
     print("  control: plain Ric's coefficient = L1's + (1/2) sum_k (-k(P_k w k) - (P_k w k)k + k k <w, P_k>), the "
-          "difference nonzero: %s; e.g. its vv component %s" % (ok["control"], sp.factor(En[(1, 1)] - E[(1, 1)])))
+          "difference nonzero: %s; its nonzero components: %s"
+          % (ok["control"], sorted(k for k in E if not zero(En[k] - E[k]))))
     for k, val in ok.items():
         print(k, "PASS" if val else "FAIL")
     if "--selftest" in sys.argv:

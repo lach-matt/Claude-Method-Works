@@ -4759,6 +4759,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   u = -1.003, v = 1.988, x = -0.989 is 0.308 against 0.232 plain; the two treatments agree to 2.3e-7 (M32, areal >= 1)
   up to v = 1.8 and differ by 0.18 (M24) and 0.10 (M32) at the event's node (checks/g1axis5.py). Both fail there
   alike. Next: M = 40 at r_cut 0.9 (running).
+- D414 (FAMILIES5 section 4d, checks/twolin5.py A, L1-L3, control; exact): the lam^-1 coefficient of the two-phase
+  linearisation of Ric^H is (1/2)(s_in d^2_s1 W_in + s_out d^2_s2 W_out), s_k = w(ell_k, ell_k): the record's (5.1)
+  coefficient once per family, nothing else. E(ell_in, ell_in) = -2 e^(-4 sigma) s_out chi', E(ell_out, ell_out) =
+  -2 e^(-4 sigma) s_in chi, E(ell_in, ell_out) = 0: own contraction kills own coupling; the cross one survives through
+  the second-harmonic gauge terms alone, and vanishes with chi = chi' = 0. Without the gauge term the coefficient
+  gains k(Pwk)-type terms (control). Open: the cross coupling's absorption in the record's gauge, the energy estimate.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

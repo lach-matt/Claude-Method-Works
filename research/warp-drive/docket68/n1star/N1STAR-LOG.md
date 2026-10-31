@@ -6747,3 +6747,11 @@ resolution is under way to tell
 whether the failure is a matter of resolution. The minor findings (a missing condition on sources at large distance, a
 sum over modes that left out the lowest one, table entries rounded the wrong way, a wording about which terms were
 computed, a missing control) are repaired as well.
+
+**D414 (2026-10-31): two families of waves, the large terms of the linearised equation computed.** With one family of
+waves, the equation for a small correction has exactly one large coefficient, and one particular component of the
+correction feels it. With two families crossing, the computation gives exactly one such coefficient per family and no
+new ones. Each family's own large term disappears from the component that family singles out, but the other family's
+does not. It survives only through a gauge term that the record's choice of gauge carries along, and with the gauge
+choice proposed earlier it disappears too. So the cross-coupling between the two families is, at this level, an
+artefact of the gauge. The energy estimate in either gauge is not done.

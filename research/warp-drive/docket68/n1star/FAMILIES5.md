@@ -25,7 +25,7 @@ for each θ_k separately, so there are N phase-shift identities, N large couplin
 s_k := w(ℓ_k, ℓ_k), and N transported phases φ_k. Contracting with ℓ_k ⊗ ℓ_k kills family k's coupling but not family
 j's: [∂²_(θ_j) g1^(j)](ℓ_k, ℓ_k) is not zero in general. These cross couplings are the new analytic difficulty.
 
-**Where the cross coupling sits in the class (deduced from the record's Stage 0; to be computed in step 4).** The
+**Where the cross coupling sits in the class (deduced from the record's Stage 0; computed in section 4d, D414).** The
 record's first-order wave is W = W_TT + χ dv² (`lead5.py`). W_TT has components only on the block of the S³
 angles, so W_TT(ℓ, ·) = 0 for every vector ℓ in the (τ, r) plane, and χ dv² is the second harmonic's gauge term.
 
@@ -58,7 +58,7 @@ Write k := dv, null and geodesic for g0 (k = ∇v, so ∇_k k = ½∇|k|² = 0).
 - *What it costs, still open.* H is fixed, so it does not enter the linearization. But the constraint Υ − H must be
   propagated, and the solution compared with the record's gauge (by the diffeomorphism exp Z, O(λ²) in C⁰). Step 4
   must also check that no other λ⁻¹ coefficient appears in the two-family linearization; in one family (5.1) there is
-  exactly one. [Tou24]'s abstract names "a generalised wave gauge" for the interaction of the waves. Whether it is
+  exactly one. [Checked, D414: in the two-family linearisation there is exactly one per family (section 4d, L1).] [Tou24]'s abstract names "a generalised wave gauge" for the interaction of the waves. Whether it is
   this one is not read: abstract only.
 
 ## 2. Several null dusts
@@ -206,7 +206,47 @@ stress. What it does not give:
 - the energy estimate with the two large couplings of section 1.
 
 Section 1's claim that the cross couplings are a gauge artefact concerns the linearised operator, not Stage 0, and is
-not tested here.
+not tested here. It is tested at the level of the λ⁻¹ coefficients in section 4d (D414).
+
+## 4d. The large coefficients of the two-phase linearisation (D414)
+
+`checks/twolin5.py` (computed, exact, sympy; selftest A, L1-L3 and a control pass in about 14 s) linearises Ric^H at
+g = g0 + λ(W_in + W_out) in a slow perturbation w. It works on section 4b's general round double-null background with
+its waves and reads off the λ⁻¹ coefficient E[w]. The λ⁻¹ part of Ric^H involves fast derivatives only, so E[w] is
+algebraic in w, with no derivative of w. Write ℓ_in := g0⁻¹ dv and ℓ_out := g0⁻¹ du, s_in := w(ℓ_in, ℓ_in) =
+e^(−4σ) w_uu and s_out := w(ℓ_out, ℓ_out) = e^(−4σ) w_vv.
+
+- *A, the assembly.* It reproduces stage0two5's λ⁻¹ coefficient: zero for the waves (T1), and nonzero, in agreement,
+  once terms depending on both phases are added. A mutant of one family alone cannot test it, since the coefficient is
+  −½ g0⁻¹(k_j, k_k) ∂_(s_j) ∂_(s_k) W (k_in = dv, k_out = du), which vanishes for any W_in(s1) + W_out(s2).
+- *L1, one coefficient per family.* E[w] = ½(s_in ∂²_(s1) W_in + s_out ∂²_(s2) W_out) in all 15 components, for every
+  w. This is the record's coefficient ½ λ⁻¹ s(w) [∂²_θ g1] of (5.1) (RESPONSE-HL-5D.md:473), once for each family,
+  and nothing else, so section 1's "no other λ⁻¹ coefficient" holds for two families. It is the linearised
+  coefficient −½ g^(ab) of the principal part in −½ g^(ab) ∂_a ∂_b (λW). The λ² term ĝ_2, whose harmonics mix the two
+  phases, enters only at λ⁰.
+- *L2, which contraction kills which.*
+  - E(ℓ_in, ℓ_in) = −2 e^(−4σ) s_out χ′ and E(ℓ_out, ℓ_out) = −2 e^(−4σ) s_in χ; E(ℓ_in, ℓ_out) = 0.
+  - So each family's own coupling is killed by its own ℓ_k ⊗ ℓ_k, as in the record's section 5.2
+    ([∂_θ g1](ℓ, ·) = 0, RESPONSE-HL-5D.md:504).
+  - The other family's coupling survives, through its second-harmonic gauge term alone (χ′ du², with
+    du(ℓ_in) = −e^(−2σ) ≠ 0). That is section 1's deduction, now computed. The transverse-traceless waves never enter
+    a contraction with the (u, v) plane.
+- *L3, the generalised wave gauge.* With χ = χ′ = 0, E[w] has no component with an index u or v. Every contraction
+  with vectors of the (u, v) plane vanishes, so ℓ_in ⊗ ℓ_in and ℓ_out ⊗ ℓ_out kill both families' couplings, as for
+  one family.
+- *Control.* Without the gauge term the coefficient gains ½ Σ_k (−k_b (P_k w k)_c − k_c (P_k w k)_b + k_b k_c ⟨w,
+  P_k⟩), P_k := ∂²_(s_k) W_k, indices raised by g0; it is nonzero in the uu, uA, vv and vA components. The
+  one-coefficient structure belongs to the wave gauge.
+
+What it does not give:
+
+- the order-λ⁰ coefficients (B·∂w + C·w in (5.1)), which carry first fast derivatives of W and are bounded;
+- section 1's gauge source in the linearisation. H = O(λ) is fixed, so only Γ(g)·H depends on g, at order λ (deduced);
+  the Stage 0 of that gauge is not computed;
+- the energy estimate. In the record's gauge, the s_in equation (the ℓ_in ⊗ ℓ_in contraction) carries the large
+  coupling −2 λ⁻¹ e^(−4σ) χ′ s_out, oscillating in s2 with mean zero, and the s_out equation the mirror one. Whether a
+  phase decomposition along ℓ_out absorbs it, as section 5.2's does along ℓ, is the analytic question that remains.
+  The generalised wave gauge removes it.
 
 ## 4c. The two-dust background (D389)
 
