@@ -4693,6 +4693,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   collar reaches 3R_1/8, where Lemma 1.1 defines g_b and t_* by III.B's formulas (Lemma 3.3 (c) at |x| >= R_1/4, as
   IV6-SOLV section 0); VI2-VI3 read on {|x| >= 3R_1/8}; VI3 374-375's r_0 - delta_0 is 7R_1/16. Finding (VI.A7). Census
   320 lines (CON 60). Verifier 172 reads it.
+- D374: BEYOND5-R0-PROOF.md batch 4, sections 7 and 9-11: Part V (only |x| >= 50R_1 used), Part VII (delta'_0 in
+  (max(0, q_0 - r_flat/2), q_0), allowed by the record's (1.1); Lemma 1.2 from r_flat), Part VIII (III.K's sets at
+  U = 0; II.C Lemma 3.2 (2) at the repaired radii), Part IX (II.C Lemma 3.2 (1) cited from R_1/2: a third site of the
+  mismatch, closed by D373). Section 8 (Part VI at r_flat) after verifier 172; then one verifier for batch 4.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 

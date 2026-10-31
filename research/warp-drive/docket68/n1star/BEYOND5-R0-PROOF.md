@@ -3,7 +3,8 @@
 Status: batch 1 written (D368): sections 0-3 (common facts, Parts I and II, III.B); batch 2 written (D369): section 4
 (III.C-III.I3); batch 3 written (D370): sections 5-6 (III.I4-III.K, Part IV). Verifiers 169-171 read batches 1-3;
 their findings, among them the radius mismatch of section 0, are seated (D372), and its repair is made in proof5
-Part VI (D373). Batch 4 (V-IX) to follow. Each batch
+Part VI (D373). Batch 4 written (D374): sections 7 and 9-11 (Parts V, VII, VIII, IX); section 8 (Part VI) follows
+verifier 172. Each batch
 is read by its own verifier. Labels as marked; "re-proved" means the Part's argument was re-read at every step that
 touches the inner region, and each such step re-derived with r_♭.
 
@@ -345,6 +346,85 @@ repair the two radii are the same (verifier 171's minor).
   5.1 in {r ≥ r_♯}, which (6) now covers anyway.
 
 *Status:* Part IV re-proved at r_♭.
+
+## 7. Part V
+
+**V (V-GLUING).** One line names the inner radius: Definition 2.1 takes g^KS_(μ,A) on ℝ_t × {|x| ≥ r_0} (:141-142).
+Everything after it uses the data of G_p on {y^0 = 0} ∩ {|y| > R_P}, R_P = 100R_1 (:149-150), where the point
+Φ_p(0, y) has |x| ≥ ½|y| ≥ 50R_1 (Lemma 2.2's proof, :162-164).
+
+- There III.B Lemma 3.3 (c) holds for every ‖A‖ < R_1: |x|² ≥ 2500R_1² > 2‖A‖² ≥ s, and r_A² ≥ |x|² − ‖A‖² > 3‖A‖².
+  So the region Part V uses does not depend on the inner radius, and Definition 2.1's domain clause reads
+  {|x| ≥ r_♭} for (μ, A) ∈ ℬ_♭ by F1.
+- Lemma 1.4 (scaling), Proposition 2.3 (the charge map), Corollary 2.4 and Theorem 3.1 (the gluing on Γ(R, 4R)) work
+  at |x| ≥ R ≥ R_P and are unchanged.
+
+*Status:* Part V re-proved at r_♭; nothing in it reaches the inner region.
+
+## 8. Part VI
+
+To follow, after verifier 172 has read the record's amendment of Part VI (D373). At r_♭ = ½R_1 the radii are those of
+D373; the section re-derives Part VI's checks at r_0^A := r_♭ and δ_0 := min(R_1/16, r_♭/4).
+
+## 9. Part VII
+
+Read in full at sections 0-2 and at every radius of sections 3-4 (pattern list at the footnote of section 2, with
+Ω′, a′, q_0 added).
+
+- **Setting (:39-43).** III.B's μ_0 is μ_end and its r_0 is r_♭ (BEYOND5.md Proposition 6.2 takes r_♭ :=
+  ½ min(R_1, r_q(μ_end))). By section 0, Part I's artificial boundary is at r_♭ as well, so III.K's M_♭ and the spaces
+  of Parts I-II start at the same radius.
+- **Theorem 0.2 (i), (0.2).** The rate on {r_♭ ≤ r ≤ R′, t_* ≥ T′} comes from III.K Theorem 4.3 (4) at r_♭ (section 5)
+  where χ_K = 1. The b-Sobolev step (:415-425) is at K⁺ and does not involve the inner radius.
+- **Lemma 1.1 (after the shell).** The record's Theorems A, D and E hold on every domain Ω′ of the form (1.1),
+  for every δ′_0 ∈ (0, q_0) (N1STAR-PROOF.md:145-150). {r = a′} stays spacelike (record Lemma 1.1 (b): a′ < q_0 ≤
+  √μ_0). C_J and λ_1 depend on δ′_0, which is fixed once r_♭ is.
+- **Lemma 1.2 (placing Σ_IVP).** It needs a′ = q_0 − δ′_0 < ½r_♭. Take δ′_0 ∈ (max(0, q_0 − ½r_♭), q_0), a nonempty
+  interval as r_♭ > 0.
+  - (a): for v ≥ v_end, g_0 = g^KS_(μ_end,0) in (τ, x), a formula valid for every r > 0. g_(b_0) is its pull-back by
+    Φ(t, x) = (t − T_μ(|x|), x), a time translation on {|x| ≤ 2R_1}. So (a) holds on Ω′ ∩ {v ≥ v_end, |x| ≥ r_♭}.
+  - (b): θ = ψ_IVP − T_μ is continuous on [r_♭, 4R], with ψ_IVP from r_♭ (section 3). Put c_0 := min_[r_♭,4R] θ −
+    max(τ_0 + 1, v_end + 2 − r_♭). The rest of the proof (:151-158) uses r only through r ≥ r_♭ > a′.
+- **Section 2 (gluing in the class).** Proposition 2.2 takes data on Σ_IVP ∩ {r_♭ ≤ r ≤ 3R} and changes them only on
+  {R ≤ r ≤ 4R}, by Part V (section 7). Corollary 2.3 bounds g_λ's data on Σ_IVP ∩ {r_♭ ≤ r ≤ 4R}, a compact subset of
+  Ω′_+ by Lemma 1.2 (b), using Lemma 1.1 there.
+- **Section 3 (naturality).** The cut-offs are defined from (t, t_*, t_IVP, t^♭_*, |x|), O(4)-invariant at every
+  radius. The forms of (C2) have coefficients that are functions of r, smooth for r > 0 (section 3).
+- **Section 4 (the proof).** The choices run in the record's order: k, then R, then c_0 and Ω′ by Lemma 1.2 (with
+  δ′_0 from r_♭), then J, then λ_1. They depend on r_♭ only through δ′_0 and III.K's constants.
+- **Remark 4.1 and (VII4)** are BEYOND5.md Lemma 6.3, with Σ = Σ_IVP ∩ {r_♭ < r < R}.
+
+*Status:* Part VII re-proved at r_♭, given section 8.
+
+## 10. Part VIII
+
+Part VIII linearises III.K at b_0 (U = 0); its M, N = {t_IVP ≥ −ν(|x|)}, Ω_* and 𝒟 are III.K's (section 0 there).
+
+- At r_♭ these are section 5's sets. The inputs are Part IV″ Theorem 2.4, IV‴ Theorem 2.1 and III.C′ Theorem 3.1's
+  proof at h = 0, which are exterior (section 6, and III.C′ in section 4), and III.K Lemma 2.3 at U = 0 (section 5).
+- Step 4 (:280-285) runs II.F Lemma 1.3 on Ω_*° with τ := t^♭_*. Its compactness hypothesis holds for metrics with
+  dt^♭_* past timelike, and g_(b_0) is one by II.C Lemma 3.2 (2) at h = 0, at the repaired radii (section 2).
+- (2.3) holds on {r_♭ ≤ r ≤ R′}, as Part VII's (0.2) does.
+- Section 3's G-equivariance: G fixes t, t_*, t_IVP, t^♭_* and |x| at every radius.
+
+*Status:* Part VIII re-proved at r_♭.
+
+## 11. Part IX
+
+- **Setting (:20-38).** g := g_(b_0) on M_♭ = {|x| ≥ r_♭}, with interior {|x| > r_♭}. dt_IVP is timelike there by
+  III.B Lemma 3.7 (b) at r_♭ (section 3, β ∈ (−1, 1] on [r_♭, ∞)), and past timelike, in the cone of dt_*.
+- **Lemma 1.2's compact set (:108-127).**
+  - t_IVP decreases to the past, and 0 ≤ ψ_IVP ≤ C_3, since ψ_IVP(r_♭) = 0 and ψ_IVP ≥ 0 (section 3).
+  - dr is future timelike on {r_♭ ≤ r ≤ r^♮}, r^♮ = ½(r_0^A + r_2) = ½(r_♭ + 7R_1/8) < r_h, by II.C Lemma 3.2 (1) at
+    h = 0 with section 0's radii, and at b_0 directly by F2.
+  - The record cites the same lemma from III.B's ½R_1, while it covered {r ≥ ⅝R_1} only. This is a third site of
+    section 0's mismatch, besides III.K and Part VII, repaired with it. At h = 0 the claim held anyway, by F2.
+  - The far region {|x| ≥ 3R_1} is unchanged. So L_p is compact in N° with |x| ≥ min(|x(p)|, r^♮) > r_♭.
+- **Section 2 (the gauge comparison)** is pointwise identities and [BGP]'s Cauchy problem on the globally hyperbolic
+  N^𝒟. No radius enters.
+- Theorem 0.2 does not use Part IX.
+
+*Status:* Part IX re-proved at r_♭.
 
 Footnote (reading pattern for section 2): lines of PART-I-*.md and PART-II-*.md matching
 `r_0(?![0-9])|r_\{0\}|\delta_0|r_2(?![0-9])|\partial_\sharp|artificial|inner`, then filtered for R_1, r_h, μ,

@@ -6405,3 +6405,11 @@ one place where a fraction of the radius entered a bound (nine sixteenths, now s
 of lines naming the inner radius grows from 308 to 320, all twelve new lines in Part VI, and BEYOND5.md and the re-proof
 note now describe the record as repaired. One verifier reads the amendment.
 
+**D374 (2026-10-31): batch 4 of the re-proof, Parts V, VII, VIII and IX.** Part V never reaches the inner
+region: the gluing works a hundred horizon radii out. Part VII needs one choice redone, the record's collar below
+the seed's curvature radius, which must now sit below half the lowered radius; the record's domain allows any such
+collar. Parts VIII and IX inherit III.K's sets. Part IX cites the same lemma that Part VII and III.K did from the
+development's inner radius, while the lemma covered only five eighths: a third site of the mismatch, closed by D373,
+and harmless at Tangherlini, where the radial direction is timelike all the way in. Part VI's section waits for the
+verifier of D373.
+
