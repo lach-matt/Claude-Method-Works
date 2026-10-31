@@ -1296,7 +1296,8 @@ Theorem 4 with them.
   v_s + η} once λ ≤ λ_η; in the layer between, whose width tends to 0 with λ, its causal character is not decided,
   because there the margin and the perturbation both vanish to every order. A domain O(λ)-close to D_T, inside
   x_K ≤ 1, has an inner boundary that no future causal curve enters, and the spheres' horizon holds in the form: at
-  most one zero per column, within C λ of √μ(v), exactly one where the column has room.
+  most one zero per column, within C λ of √μ(v); exactly one on the columns with v ≤ v_s and on those that reach across
+  √μ(v) + C λ with √μ(v) − r_q(v) ≥ C' λ.
 - **Review.** An eighth independent verifier read this paper and the supplement's last restatement (log D26): no major
   finding; its two minor findings and 21 notes are seated. Propositions 3.3 and 3.4 were added after it, and were read
   with the supplement by a ninth (D30). Theorem 2's proof was read by a tenth, which found the near-region estimate

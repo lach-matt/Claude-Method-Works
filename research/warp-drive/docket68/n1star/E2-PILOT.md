@@ -63,13 +63,15 @@ and the Wronskian W := u_h u_∞' − u_h' u_∞ equals 2iσA. So |W| ≥ 2|σ|.
 
 **Proposition E2.4 (the outgoing resolvent at harmonic l, real σ).** For real σ ≠ 0, every l and G ∈ L² with
 compact support, the solution of (1.1) that is u_h-like at the horizon and outgoing at infinity is Φ(x) = ∫ K_l(x, y)
-G(y) dy with K_l(x, y) = u_h(min(x, y)) u_∞(max(x, y))/W and
+G(y) dy with K_l(x, y) = −u_h(min(x, y)) u_∞(max(x, y))/W (the minus sign because (1.1) is −Φ'' + (V_l − σ²)Φ = G;
+corrected D352, a review finding; only |K_l| enters below) and
 
     |K_l(x, y)| ≤ |σ|⁻¹ exp(I_l/(2|σ|)),     I_l = (l(l+2) + 3/2)/√μ.
 
 So for χ the indicator of an r_*-interval of length Λ, ‖χ R_l(σ) χ‖_(L²(dr_*) → L²(dr_*)) ≤ (Λ/|σ|) exp(I_l/(2|σ|)).
 
-*Proof.* Variation of constants gives K_l, W ≠ 0 by Lemma E2.2. Lemma E2.3 at min(x, y) ≤ max(x, y): |u_h(min)|
+*Proof.* Variation of constants: with Φ := −W⁻¹(u_∞(x) ∫_(−∞)^x u_h G + u_h(x) ∫_x^∞ u_∞ G), Φ'' = (V_l − σ²)Φ − G,
+and Φ has the two end behaviours; W ≠ 0 by Lemma E2.2. Lemma E2.3 at min(x, y) ≤ max(x, y): |u_h(min)|
 |u_∞(max)| ≤ 2 exp((2|σ|)⁻¹(∫_(−∞)^(min) V_l + ∫_(max)^∞ V_l)) ≤ 2 exp(I_l/(2|σ|)), and |W| ≥ 2|σ|. The operator bound is
 the Hilbert-Schmidt bound of a kernel bounded by that constant on a square of side Λ. ∎
 
