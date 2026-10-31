@@ -36,8 +36,16 @@ def row(vals, fmt="%8.1e"):
     return " ".join(fmt % q for q in vals)
 
 
+def same_grids(a, b):
+    """the cell-by-cell comparison needs the two gauges' u, v and x arrays to be the same (D402, verifier 179)"""
+    for key in ("u", "v", "x"):
+        assert a[key].shape == b[key].shape and np.allclose(a[key], b[key]), "the gauges' %s grids differ" % key
+
+
 def uv(paths, ks):
     F, ok, v = {}, None, None
+    for i in range(3):
+        same_grids(np.load(paths[i]), np.load(paths[3 + i]))
     for g, ps in zip(GAUGES, (paths[:3], paths[3:6])):
         ds = [np.load(p) for p in ps]
         assert np.allclose(ds[0]["u"], ds[1]["u"][::2]) and np.allclose(ds[0]["u"], ds[2]["u"][::4]), "u not nested"
@@ -63,6 +71,8 @@ def uv(paths, ks):
 
 def angle(paths, ks):
     F, keep, v = {}, {}, None
+    for i in range(3):
+        same_grids(np.load(paths[i]), np.load(paths[3 + i]))
     for g, ps in zip(GAUGES, (paths[:3], paths[3:6])):
         ds = [np.load(p) for p in ps]
         F[g] = [GA.fields(d) for d in ds]
@@ -70,9 +80,9 @@ def angle(paths, ks):
         v = ds[0]["v"]
     ok = keep["swapped"] & keep["record"]
     only = keep["record"] & ~keep["swapped"]
-    both_sw = (keep["swapped"] & ~keep["record"]).sum()
+    sw_only = (keep["swapped"] & ~keep["record"]).sum()
     print("kept at all three M: swapped %d, record %d; both %d; record only %d; swapped only %d"
-          % (keep["swapped"].sum(), keep["record"].sum(), ok.sum(), only.sum(), both_sw))
+          % (keep["swapped"].sum(), keep["record"].sum(), ok.sum(), only.sum(), sw_only))
     print("v-bands:", GA.BANDS)
     for k in ks:
         sel = GA.interior(ok, k)

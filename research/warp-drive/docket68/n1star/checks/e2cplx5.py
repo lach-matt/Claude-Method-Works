@@ -22,7 +22,8 @@ B^+(sigma) := ((2/m' + (M' + 4|sigma|)^2/w_I)/w_I)^(1/2) for every sigma with Im
      |a| ||u||^2 <= ||f|| ||u||_I, so the q-term, now of the wrong sign, is at most 2 q_max ||f|| ||u||_I, with
      q_max <= sum_k c_k = 0.6500188621 for checks/e2lzero5.py's 43 bumps. So at l = 0, B^++ := B with
      4|sigma| + 2 sum_k c_k for 2|sigma|, at every Im sigma > 0. At sigma = 1 + 2i, 0.5 + i (a < 0) and 2 + i (a > 0)
-     the computed l = 0 norm lies below B^++ (Z4's certified constants) and below 1/dist(sigma^2, [0, oo)).
+     the computed l = 0 norm lies below the bound (Z4's certified constants: B^++ where a < 0, and at 2 + i, where
+     a > 0, B^+ with 4|sigma| alone, as the q-term drops there; D402) and below 1/dist(sigma^2, [0, oo)).
 Labels: J1-J2 computed (exact, sympy); J3-J4 computed (floating point, not certified); the bound itself proved in
 E2-PILOT section 3h.
 
@@ -129,12 +130,13 @@ def main():
     j4 = True
     for sg in (complex(1.0, 2.0), complex(0.5, 1.0), complex(2.0, 1.0)):
         nr = resolvent_norm(sg, l=0)
-        Bpp = math.sqrt((2/m0 + (M0 + 4*abs(sg) + 2*qmax)**2/w0)/w0)
         z = sg**2
+        Bpp = math.sqrt((2/m0 + (M0 + 4*abs(sg) + (2*qmax if z.real < 0 else 0))**2/w0)/w0)
         cap = 1/(abs(z) if z.real <= 0 else abs(z.imag))
         j4 = j4 and nr <= Bpp and nr <= cap
-        print("  J4: l = 0, sigma = %s (a = %+.2f): ||chi R chi|| = %.4f <= B^++ = %.1f: %s; <= 1/dist = %.4f: %s"
-              % (sg, z.real, nr, Bpp, nr <= Bpp, cap, nr <= cap), flush=True)
+        print("  J4: l = 0, sigma = %s (a = %+.2f): ||chi R chi|| = %.4f <= %s = %.1f: %s; <= 1/dist = %.4f: %s"
+              % (sg, z.real, nr, "B^++" if z.real < 0 else "B^+ (a >= 0, q-term dropped)", Bpp, nr <= Bpp, cap,
+                 nr <= cap), flush=True)
     ok["J4"] = j4
     coarse, fine = resolvent_norm(complex(3.0, 0.25)), resolvent_norm(complex(3.0, 0.25), h=0.01)
     print("  J3: sigma = 3 + 0.25i at h = 0.02, 0.01: %.5f, %.5f (grid check)" % (coarse, fine))

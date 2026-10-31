@@ -445,9 +445,10 @@ Lemma E2.1's degeneration as Im σ → 0 is not needed.
 *Computed (J3; floating point, not certified).* At l = 1 and σ = 3 + iη, by finite differences on r_* ∈ [−80, 120],
 the cut-off norm is 0.297, 0.224, 0.145, 0.081 at η = 0.25, 0.5, 1, 2. That is below B⁺ (451-528, with C5's l = 1
 constants recomputed), and below the self-adjoint bound 1/|Im σ²| (0.667-0.083), an independent check of the solver.
-At η = 0.25 a twice finer grid changes it by 10⁻⁴. On the real axis the computed norm at σ = 3 is 0.42 (section 4's
-table). At l = 0 (J4, D398) the norm is 0.183, 0.594 and 0.224 at σ = 1 + 2i, 0.5 + i (a < 0) and 2 + i (a > 0).
-That is below B⁺ with section 3g's certified constants and Σ c_k (269-403), and below 1/dist(σ², [0, ∞)).
+At η = 0.25 a twice finer grid changes it by 3 × 10⁻⁵ (0.29717 → 0.29714; D402). On the real axis the computed norm
+at σ = 3 is 0.42 (section 4's table). At l = 0 (J4, D398) the norm is 0.183, 0.594 and 0.224 at σ = 1 + 2i, 0.5 + i
+(a < 0) and 2 + i (a > 0). That is below B⁺ with section 3g's certified constants and Σ c_k (269-403; at 2 + i, B⁺
+without the q-term, 362.3, as the lemma allows there, D402), and below 1/dist(σ², [0, ∞)).
 
 ## 4. What remains for E2 at this operator
 

@@ -293,24 +293,35 @@ loop counts of section 3.
   - *What (G) is.* Λ is discrete with finitely many elements in each bounded region (I11 Lemma 1.2 (a)). So (G) is
     exactly ε_K < δ_G, where δ_G > 0 is the least positive value of Re λ − 2 and Re λ − 3 over λ ∈ Λ, and of
     Re(λ + d_c) − 2 for c = c0, c1. "(G) binds below ε_ind" means δ_G < ε_ind.
-  - *What cannot make it bind.* Λ's generators of real part exactly 2 or 3 (the (2, 0) of 𝒢 := (2, 0) ∪ (2 + ℰ_ind),
-    I8:40, and 3) lie on the open ends of the windows. Their translates by w ∈ π_1(ℰ_ind ∪ ℰ^ι_ind) have
-    Re w ≥ ε_ind > ε_K (D3:44-48, I6:119), and 2 + ℰ_ind likewise. Translates by 1 stay on integers.
-    2λ_♯ = 3 + 2δ_♯ (I11:127) is not in a window even if it is in Λ, as 2δ_♯ > ε_+ > ε_K. At the record's point
-    γ_Υ = e_Υ = 1/100 (N1STAR-PROOF.md:5457) this is λ_♯ = 1.5099 and δ_♯ = 0.0099, computed from G4:14's
-    λ_♯ = 3/2 + (1 − e_Υ)γ_Υ.
-  - *What could.* Four sources remain, none computed as numbers at n = 4 in the record:
-    - λ_♯ plus a sum of elements of π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1} landing within ε_ind above an integer, which needs
-      real parts summing to within ε_ind above ½ − δ_♯ = 0.4901 (mod 1);
-    - elements of ℰ_++ (I9:37-40, min Re ≥ λ_♯) or of ℰ^C_I (C2:257-259, min Re > 3/2 + 2γ_Υ, I11:110) with real
-      part in (2, 2 + ε_ind] ∪ (3, 3 + ε_ind];
-    - elements of ℰ_col (I12:103-104, real parts ≥ 0) with real part in (0, ε_ind];
-    - the column offsets d_c0, d_c1 at or below ε_ind.
+  - *What cannot make it bind by itself.* Λ's generators of real part exactly 2 or 3 (the (2, 0) of 𝒢 := (2, 0) ∪
+    (2 + ℰ_ind), I8:40, and 3) lie on the open ends of the windows. One translate of them by w ∈ π_1(ℰ_ind ∪ ℰ^ι_ind)
+    has Re w ≥ ε_ind > ε_K (D3:44-48, I6:119), so it does not land in the window above the same integer; 2 + ℰ_ind
+    likewise. Translates by 1 stay on integers. 2λ_♯ = 3 + 2δ_♯ (I11:127) is not in a window even if it is in Λ, as
+    2δ_♯ > ε_+ > ε_K. At the record's point γ_Υ = e_Υ = 1/100 (N1STAR-PROOF.md:5457) this is λ_♯ = 1.5099 and
+    δ_♯ = 0.0099, computed from G4:14's λ_♯ = 3/2 + (1 − e_Υ)γ_Υ.
+  - *What could (corrected D402, verifier 179).* Λ is the smallest set containing its generators and closed under
+    Λ + w ⊂ Λ for w ∈ π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1} (I11:66-69, Definition 1.1). So its elements are the sums
+    g + Σ n_i w_i, n_i ∈ ℕ₀, over its generators g: π_1(ℰ_++ ∪ 𝒢 ∪ ℰ^C_I), λ_♯, 3 and the column exponents
+    2 + π_1 ℰ_col. The bound Re w ≥ ε_ind keeps a single translate out of the window above the same integer, but not a
+    sum out of the window above the next one: 2 + w lies in (3, 3 + ε_K] when Re w ∈ (1, 1 + ε_K]. The distance
+    d(Re λ, ℤ) ≥ ε_ind is stated for the single roots of F2 (2.2) (F2:130-131; D3:44-48), and for ℰ^ι_ind the record
+    gives only min Re ≥ ε_ind (I6:119). So two kinds of element remain, none computed as numbers at n = 4 in the
+    record:
+    - a sum g + Σ n_i w_i with real part in (2, 2 + ε_ind) ∪ (3, 3 + ε_ind), for any generator g. For g = λ_♯ this
+      asks Re Σ n_i w_i within ε_ind above ½ − δ_♯ = 0.4901 (mod 1); for g = 2 and 3, within ε_ind above an
+      integer. The other generators are the elements of ℰ_++ (I9:37-40, min Re ≥ λ_♯) and of ℰ^C_I (C2:257-259,
+      min Re > 3/2 + 2γ_Υ, I11:110), and 2 + ℰ_col (I12:103-104, real parts ≥ 0), with the sums of each;
+    - λ + d_c, c = c0, c1, with real part in (2, 2 + ε_ind), for λ ∈ Λ with Re λ ∈ [λ_♯, 2]. Here d_c := −μ_c lies in
+      (0, 1) (I10-CORR4:74-75), so this asks d_c within ε_ind above 2 − Re λ: at λ = 2, d_c < ε_ind; at λ = λ_♯,
+      d_c ∈ (0.4901, 0.4901 + ε_ind).
+
+    D397 listed four sources: sums from λ_♯, single elements of ℰ_++, ℰ^C_I and ℰ_col, and d_c at λ = 2 only. It
+    missed the sums from the other generators, and λ + d_c for λ below 2.
   - *A near miss that is not in Λ.* The roots 2 + 2.93 × 10⁻⁶ of □^C at l = 2 (`checks/iota5.py`:44) would bind if
     they were in Λ. Nothing places them there: Λ's ℰ_ind is □^Υ(0)'s (verifier 174's B1), and ℰ_++ is required to
     contain only ℰ^♯_+ ∩ {Re < 2}.
-  - So the open question of LD7 is reduced to the four checks above. Each needs one index set at n = 4 as numbers,
-    which the record has not computed.
+  - So the open question of LD7 is reduced to these two kinds. Each needs the index sets at n = 4 as numbers, which
+    the record has not computed, and then the sums over them up to real part 3 + ε_ind.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.

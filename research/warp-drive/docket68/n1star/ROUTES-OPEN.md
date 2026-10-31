@@ -4663,6 +4663,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   before v = 2.5, and in angle to v ~ 3.5 at k = 10, axis included (swapped: 2.25). dnsolve5's failures lie on the
   16,617 cells only it keeps, between the two cuts. So D386-D395's gauge comparison was mostly one of cell sets. The
   swapped P ratio stays 2.9-3.0 on [1, 1.8) at k = 3-50: second order or ~1.6 undecided; a 1600x720 grid runs.
+- D402 (verifier 179 on D394-D399). MAJOR on D397: LD8's "four sources" missed that Lambda is closed under iterated
+  sums g + sum n_i w_i (I11:66-69), so a sum from any generator can reach the window above the next integer, and that
+  lambda + d_c, d_c in (0, 1), binds for lambda below 2 as well; LD8 now lists the two kinds. D394, D396, D398 hold;
+  D399's numbers reproduce, the cell identity across gauges is justified, and its conclusions stand. Minor: the factor
+  is 2-29 in W (the field both gauges share), P 12-56 before v = 2.5, not 14-57; the swapped gauge is better in angle
+  on [1.8, 2.25); the (u, v)/angle factors compared different cells (like for like: ~700 to 1e5); k = 0 ratios named
+  per field; the 6b table is over D_q. T8's control could not fail; now a component-split check and a no-trace
+  control (12 of 24 unsolvable); the waves' D1 has no r = v part at pure harmonics, so G_uu = 0 there. Nits seated.
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 
@@ -4703,6 +4711,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   windows' open ends; translates by Re w >= eps_ind; 2 lambda_sharp = 3 + 2 delta_sharp, 2 delta_sharp > eps_+).
   What could: lambda_sharp-translates near an integer, E_++ or E^C_I in a window, E_col in (0, eps_ind], or
   d_c0, d_c1 <= eps_ind -- four index sets at n = 4 not computed. box^C's 2 + 2.93e-6 is not in Lambda.
+  [Corrected D402: the open set is every sum g + sum n_i w_i in (2, 2 + eps_ind) or (3, 3 + eps_ind), any generator g,
+  and lambda + d_c in (2, 2 + eps_ind) for lambda in Lambda, Re lambda in [lambda_sharp, 2].]
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

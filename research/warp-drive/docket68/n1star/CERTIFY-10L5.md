@@ -283,8 +283,8 @@ No other component is nonzero. So the scheme is the following.
     - It agrees between the gauges to 10⁻¹² before the wave arrives (v < 0.5).
     - Later the gap is within the swapped gauge's own (u, v) error, which is about three times dnsolve5's: between
       400 × 180 and 800 × 360 at M = 16, 2.9 × 10⁻² against 8.7 × 10⁻³ on [1.5, 2). Over that one doubling the gap
-      falls about 3.5-fold: 1.7 × 10⁻² → 4.8 × 10⁻³ on v ∈ [1, 1.5), 3.5 × 10⁻² → 9.7 × 10⁻³ on [1.5, 2). In the
-      metric's fields the factor is larger, 14 to 57 in P before v = 2.5 (D399).
+      falls about 3.5-fold: 1.7 × 10⁻² → 4.8 × 10⁻³ on v ∈ [1, 1.5), 3.5 × 10⁻² → 9.7 × 10⁻³ on [1.5, 2). In W, the
+      one field both gauges share, the factor is 2 to 29 on the cells both keep (D399, corrected D402).
   - *λ = 1 at 800 × 360 with `ld 3`, max over 𝒟_q of |Δm| between angular resolutions, per v-band:*
 
     | v | [1, 1.5) | [1.5, 1.65) | [1.65, 1.8) | [1.8, 2) | [2, 2.5) | [2.5, 3) |
@@ -294,8 +294,9 @@ No other component is nonzero. So the scheme is the following.
     | swapped, M16-M24 | 9.6e-4 | 2.7e-3 | 6.3e-3 | 3.0e-2 | 0.53 | 0.60 |
     | swapped, M24-M32 | 7.3e-6 | 2.9e-5 | 4.7e-5 | 2.4e-4 | 0.89 | 1.0 |
 
-    n behaves the same way (swapped M24-M32: 1.6 × 10⁻⁵ on [1.8, 2), 1.7 × 10⁻² on [2, 2.5)). Each row is over that
-    gauge's own kept cells, and the sets differ: on the cells both keep the comparison comes out otherwise (D399).
+    n behaves the same way (swapped M24-M32: 1.6 × 10⁻⁵ on [1.8, 2), 1.7 × 10⁻² on [2, 2.5)). Each row is over 𝒟_q
+    ∩ that gauge's kept cells, and the sets differ: the swapped gauge drops 12,520 of the record's cells there, and on
+    the cells both keep the comparison comes out otherwise (D399, corrected D402).
   - *The drag.* In this gauge the angle is pressed toward an axis by at most e^(−0.92), at x = +1 for v ≈ 2.75.
     dnsolve5's was e^(−13) at x = −1. But the angle is drawn away from x = −1, by up to e^(+2.35) at v = 2.14 and
     e^(+2.52) at v = 2.5, along the last unmasked rows (`dnsolve5v.py --drift`, both signs since D391; the first
@@ -367,19 +368,25 @@ No other component is nonzero. So the scheme is the following.
     differences is 2.9-4.9 for P, Q, R, W and m and 3.4-6.9 for s, in every band to v = 4.6: about second order. The
     400-800 differences peak on [1.65, 1.8), at 9.7 × 10⁻³ in P (2.5 % of max |P|), 2.7 × 10⁻² in R, 4.8 × 10⁻² in W,
     1.1 × 10⁻² in m and 0.26 in s (11 % of max |s|), and fall to 1.6 × 10⁻³ in P on [3.5, 4.6).
-    - So the (u, v) error of the 800 × 360 runs exceeds the angular differences above in every band: in P by 2.7 on
-      [3.5, 4.6), 93 on [2.5, 3) and 10⁴-10⁶ before v = 2. The grid in (u, v), not M, sets their error.
-    - Over all kept cells (k = 0) the coarsest grid is not in the asymptotic range from v = 2.25 (ratios 7 to 2.5 × 10⁴).
+    - So the (u, v) error of the 800 × 360 runs exceeds the angular differences above in every band. On like cells
+      (10 coarse rows, about 40 of the 800 grid, dropped from each column; M24-M32 at k = 40) P's 400-800 difference
+      is about 700 times its angular one on [3.5, 4.6) and 10⁴-10⁵ times before v = 3 (D402; D399's factors compared
+      different cells). The grid in (u, v), not M, sets their error.
+    - Over all kept cells (k = 0) the coarsest grid is not in the asymptotic range on [2.25, 3) in P, Q, s and m
+      (ratios 24 to 1.1 × 10⁴), nor in m from v = 1.8 (13.7); R stays at 4.4-5.7 there (D402).
   - *Both gauges on the cells both keep.* A cell (u_i, v_j) is the same pair of null hypersurfaces in either gauge, so
     the gauges can be compared cell by cell. The swapped gauge keeps fewer: at 800 × 360 the record's gauge keeps
     181,444 cells at all three M and the swapped gauge 164,847, all but 20 of them among the record's. On the 164,827
     common cells, and on the 9,764 coarse cells all six (u, v) runs keep:
     - In (u, v) the record's gauge converges at ratio 3.7-4.5 for P and m and 3.3-5.8 for s, in every band at k = 3, 10
-      and 50. Its errors are smaller, in P at k = 10 by 14 to 57 before v = 2.5 and by 1.7 to 6 after: 400-800 at most
-      9.4 × 10⁻⁴ (on [3.5, 4.6)) against the swapped gauge's 9.7 × 10⁻³ (on [1.65, 1.8)).
+      and 50. Its errors are smaller in every band at k = 10: by 2 to 29 in W, which is the same scalar in both gauges
+      (g⁻¹(du, dv) = −e^(−2W)/2); in P, which depends on the gauge, by 12 to 56 before v = 2.5 and 1.7 to 6 after
+      (5.9 to 27 relative to max |P|). In P, 400-800 is at most 9.4 × 10⁻⁴ (on [3.5, 4.6)) against the swapped
+      gauge's 9.7 × 10⁻³ (on [1.65, 1.8)). (Corrected D402: D399 gave 14 to 57 in P.)
     - In angle, at k = 10, the record's gauge converges to v ≈ 3.5 in P and in m, the axis x = −1 included (m, M16-M24
       against M24-M32: 6.0 × 10⁻³ → 1.1 × 10⁻³ on [2, 2.25), 4.1 × 10⁻² → 1.0 × 10⁻² on [3, 3.5)). The swapped
-      gauge's m stops at v ≈ 2.25 (above).
+      gauge's m stops at v ≈ 2.25 (above). On [1.8, 2.25) the swapped gauge is the better in angle, by up to 11 in P
+      (M24-M32 4.7 × 10⁻⁷ and 1.7 × 10⁻⁶ against 5.1 × 10⁻⁶ and 8.5 × 10⁻⁶; D402).
     - The swapped gauge is the better of the two in s near the cut (k = 10, [1.65, 3): M24-M32 1.6 × 10⁻⁴ to 1.5 × 10⁻³
       against 2.4 × 10⁻⁴ to 1.3 × 10⁻²). On [3.5, 4.6) neither converges in m at k = 10.
   - *The record's gauge on its other cells.* The failures reported for it lie on the 16,617 cells that only it keeps,
@@ -389,7 +396,8 @@ No other component is nonzero. So the scheme is the following.
     swapped gauge fail too.
   - *What this changes.* D386-D395 compared each gauge over its own kept cells, so the gain the table above shows
     from dnsolve5 to the swapped gauge is a difference of cell sets more than of gauges. On one set of cells the
-    record's gauge is as good in angle, s near the cut aside, and better in (u, v). In both gauges the cells that fail
+    record's gauge is better in angle from v ≈ 2.25 to 3.5 and worse on [1.8, 2.25), s near the cut aside, and better
+    in (u, v) in every band (D402). In both gauges the cells that fail
     border the cut near the x = −1 axis at small R (D381, D391-D392). Whether that is the axis treatment, the cut or
     the geometry is still not decided.
   - *The swapped gauge's order in (u, v).* Its ratio for P stays at 2.9-3.0 on [1, 1.8) at every k from 3 to 50. So
@@ -402,8 +410,8 @@ No other component is nonzero. So the scheme is the following.
     (u, v) at second order in every band, and in angle to v ≈ 3.5 at k = 10, the axis included (D399).
   - In the swapped gauge, on the same cells, the values converge in angle on a strip below the cut whose extent
     depends on how far from the cut one measures. m on the axis x = −1, and with it the axis curvature, does not
-    converge beyond v ≈ 2.25 (D393, corrected D395), and the (u, v) error is 14 to 57 times dnsolve5's before v = 2.5
-    (D399).
+    converge beyond v ≈ 2.25 (D393, corrected D395), and the (u, v) error is larger than dnsolve5's in every band, 2 to
+    29 times in W (D399, corrected D402).
   - At the second seed it holds to v ≈ 3-3.5.
   - Beyond, it fails to converge at an axis: at x = −1 for λ = 1 (in both gauges, on cells that border the cut; D391,
     D399), and at x = +1 for the second seed. G1 is not yet answered to the end of the domain.

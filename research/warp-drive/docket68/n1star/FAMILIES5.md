@@ -118,7 +118,7 @@ The analytic step after that is the energy estimate with two large couplings and
 ## 4b. Stage 0 with two phases, computed (D376, D380)
 
 `checks/stage0two5.py` (computed, exact, sympy; selftest T1-T6 pass in about 8 s, and its six mutants are caught; read
-by verifier 174, D380; `--gauge` adds T7 (D383) and T8 (D396), about 40 s) runs Stage 0 on a general round
+by verifier 174, D380; `--gauge` adds T7 (D383) and T8 (D396), about a minute) runs Stage 0 on a general round
 double-null background,
 
     g0 = −2 e^(2σ(u,v)) du dv + R(u,v)² (dθ² + cos²θ dφ1² + sin²θ dφ2²),
@@ -165,8 +165,11 @@ stress. What it does not give:
     component r = v is set by G_uu, r = θ, φ1, φ2 by G_uθ, …, and r = u by the angular trace of G alone, as the G_uv
     terms cancel. So the waves' part at each of the 8 pure harmonics present is cancelled by ĝ_2's pure harmonics in
     those components (residual 2 × 10⁻¹⁶); at (0, n) likewise with u and v exchanged. These components do not enter
-    R^(0), whose symbol −e^(−2σ) n1 n2 vanishes there (T4), so Stage 0 is unchanged. Control: with G restricted to its
-    angular off-diagonal block, the system is not solvable.
+    R^(0), whose symbol −e^(−2σ) n1 n2 vanishes there (T4), so Stage 0 is unchanged. Controls (D402, verifier 179,
+    who found the first control unable to fail, as angular off-diagonal G has no fast divergence): a unit G in each
+    component reaches exactly the stated row; and without the angular diagonal the r = u equation loses its unknown
+    and is unsolvable exactly where the waves' part has an r = u component (12 of the 24 harmonic-points tested). The
+    waves' part has no r = v component at any pure harmonic, so G_uu = 0 there.
   - *The next stage at the pure harmonics (deduced, D401).* Let the background solve the two-dust equations
     (section 4c), α, β, χ and χ′ their transports (T3, T5), and ĝ_2 be fixed on the mixed harmonics by T4 and, at
     (n, 0), in G_uu, G_uA and g0^(AB) G_AB by T8; the other ten components of ĝ_2 there are free. Then R^(−1) = R^(0)

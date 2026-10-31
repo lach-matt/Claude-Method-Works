@@ -32,7 +32,8 @@ its coefficient of z1^n1 z2^n2. The lam^-1 and lam^0 coefficients are assembled 
      transverse to its own generator and traceless).
   T8 (with --gauge, D396) The order-lam gauge 1-form's mean vanishes from the waves alone, and each pure harmonic
      (n, 0), (0, n) is cancelled by ghat_2's pure harmonics in the components that its fast divergence reaches, which
-     do not enter R^(0); control: an angular-off-diagonal ghat cannot do it.
+     do not enter R^(0); controls: each component reaches exactly its row, and without the angular diagonal the
+     cancellation fails wherever D1 has an r = u component (D402).
   T7 (with --gauge) With ghat_2's mixed harmonics fixed by T4 (ghat = e^(2 sig) R^(0)_(n1,n2)/(n1 n2)), the order-lam
      gauge 1-form, the waves' part plus ghat_2's fast divergence, vanishes on every mixed harmonic: the Bianchi
      identity, the symbol being non-zero there. Tested numerically on concrete functions; control: ghat of the wrong
@@ -339,8 +340,10 @@ def gauge_pure(out, verbose):
         component r = v is set by G_uu, r = theta, phi1, phi2 by G_u theta, ..., and r = u by the angular trace of G
         alone (the G_uv terms cancel). So the waves' D1 at (n, 0) is cancelled by a ghat_2 harmonic with only those
         components, solved here; at (0, n) likewise with u <-> v. These components do not enter R^(0), whose symbol
-        -e^(-2 sig) n1 n2 vanishes at n1 n2 = 0 (T4), so Stage 0 is unchanged. Control: with G restricted to its
-        angular-off-diagonal block, the system is not solvable.
+        -e^(-2 sig) n1 n2 vanishes at n1 n2 = 0 (T4), so Stage 0 is unchanged. Controls (D402): a unit G in each
+        component reaches exactly the stated row; without the angular diagonal the r = u equation loses its unknown
+        and is unsolvable exactly where the waves' D1 has an r = u component (without G_uu likewise for r = v, which
+        the waves' D1 turns out never to have at a pure harmonic, so G_uu = 0 there).
     Tested as T7 is, on concrete functions at random points."""
     import random
     conc = {sig: (u + 2*v)/7, Rf: 2 + u**2/5 + v/3, Hf: 1 + th/3, alpha: 1 + v/2, beta: 1 - u/4,
@@ -361,18 +364,20 @@ def gauge_pure(out, verbose):
                 scale = max(scale, abs(complex(g(*pt))))
     keys = sorted({k for h in D1h for k in h if k != (0, 0) and k[0]*k[1] == 0})
     worst = 0.0
-    ctl_fail = False
+    tol = 1e-9*max(scale, 1.0)
+    # controls (D402, verifier 179): without G_uu the r = (other null) equation has no unknown, and without the angular
+    # diagonal the r = (null) equation has none; each must then be unsolvable exactly where the waves' D1 has that
+    # component. ctl[mode] = [harmonic-points found unsolvable, consistent with D1 so far]
+    ctl = {"no G_uu": [0, True], "no angular diagonal": [0, True]}
     for n1, n2 in keys:
         null = 0 if n1 != 0 else 1                         # the null coordinate along which the harmonic is fast
+        other = 1 - null
         kf = [sp.I*n2, sp.I*n1, 0, 0, 0]
-        for restrict in (False, True):
+        full = [(null, null)] + [(null, A) for A in (2, 3, 4)] + [(A, A) for A in (2, 3, 4)]
+        for mode, allowed, r_need in (("full", full, None), ("no G_uu", full[1:], other),
+                                      ("no angular diagonal", full[:4], null)):
             cs = sp.symbols("c0:%d" % (N*N))
             G = sp.zeros(N)
-            allowed = []
-            if not restrict:
-                allowed = [(null, null)] + [(null, A) for A in (2, 3, 4)] + [(A, A) for A in (2, 3, 4)]
-            else:
-                allowed = [(2, 3), (2, 4), (3, 4)]
             for (i, j) in allowed:
                 G[i, j] = G[j, i] = cs[i*N + j]
             dg = [sum(g0ic[a, b]*g0ic[rr, d]*(kf[a]*G[d, b] + kf[b]*G[d, a] - kf[d]*G[a, b])/2
@@ -383,22 +388,43 @@ def gauge_pure(out, verbose):
                 sub = dict(zip((u, v, th), pt))
                 eqs = [sp.N((D1h[rr].get((n1, n2), 0) + dg[rr]).subs(sub)) for rr in range(N)]
                 sol = sp.solve(eqs, unknowns, dict=True)
-                if not sol:
-                    if restrict:
-                        ctl_fail = True
-                    else:
+                if mode == "full":
+                    if not sol:
                         worst = float("inf")
-                    continue
-                res = max(abs(complex(sp.N(e.subs(sol[0]).subs({c_: 0 for c_ in unknowns})))) for e in eqs)
-                if restrict:
-                    ctl_fail = ctl_fail or res > 1e-9*max(scale, 1.0)
-                else:
+                        continue
+                    res = max(abs(complex(sp.N(e.subs(sol[0]).subs({c_: 0 for c_ in unknowns})))) for e in eqs)
                     worst = max(worst, res)
+                else:
+                    need = abs(complex(sp.N(sp.sympify(D1h[r_need].get((n1, n2), 0)).subs(sub))))
+                    ctl[mode][0] += not sol
+                    ctl[mode][1] = ctl[mode][1] and ((not sol) == (need > tol))
+    # the component split itself: a unit G in one component reaches exactly the stated row of the fast divergence
+    split_ok = True
+    for n1, n2 in keys:
+        null = 0 if n1 != 0 else 1
+        other = 1 - null
+        kf = [sp.I*n2, sp.I*n1, 0, 0, 0]
+        expect = {(null, null): {other}, **{(null, A): {A} for A in (2, 3, 4)}, **{(A, A): {null} for A in (2, 3, 4)}}
+        for (i, j), rows in expect.items():
+            G = sp.zeros(N)
+            G[i, j] = G[j, i] = 1
+            sub = dict(zip((u, v, th), pts[0]))
+            hit = {rr for rr in range(N)
+                   if abs(complex(sp.N(sum(g0ic[a, b]*g0ic[rr, d]*(kf[a]*G[d, b] + kf[b]*G[d, a] - kf[d]*G[a, b])/2
+                                           for a in range(N) for b in range(N) for d in range(N)).subs(sub)))) > 1e-12}
+            split_ok = split_ok and hit == rows
+    no_v = ctl["no G_uu"][0] == 0
+    ctl_ok = split_ok and ctl["no G_uu"][1] and ctl["no angular diagonal"][1] and ctl["no angular diagonal"][0] > 0
     if verbose:
         print("  T8: mean of D1, max %.3g against max |D1| %.3g; %d pure harmonics, residual after ghat_2's"
-              " pure harmonics %.3g; control (angular off-diagonal G only) unsolvable: %s"
-              % (mean_worst, scale, len(keys), worst, ctl_fail), flush=True)
-    return (mean_worst <= 1e-9*max(scale, 1.0) and worst <= 1e-9*max(scale, 1.0) and len(keys) > 0), ctl_fail
+              " pure harmonics %.3g" % (mean_worst, scale, len(keys), worst), flush=True)
+        print("  T8 split: G_uu reaches only r = v, G_uA only r = A, the angular diagonal only r = u: %s" % split_ok)
+        for mode, (cnt, cons) in ctl.items():
+            print("  T8 control, %s: unsolvable at %d of %d harmonic-points, exactly where D1 has the component"
+                  " that loses its unknown: %s" % (mode, cnt, len(keys)*len(pts), cons), flush=True)
+        if no_v:
+            print("  T8: the waves' D1 has no r = v component at any pure harmonic, so G_uu = 0 there", flush=True)
+    return (mean_worst <= tol and worst <= tol and len(keys) > 0), ctl_ok
 
 
 def main():

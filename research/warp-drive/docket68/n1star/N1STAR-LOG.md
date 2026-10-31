@@ -6647,3 +6647,14 @@ and on these harmonics the relevant symbol vanishes. The five equations that wou
 therefore hold identically, and the remaining ten are transport equations for the ten components left free. Checking
 this on the assembled next-stage equations would need a background that actually solves its field equations, which
 is available only numerically, and is not done.
+
+**D402 (2026-10-31): verifier 179 on the last six entries.** One serious finding, about the loss's gap condition: the
+earlier reduction ruled out each candidate one step at a time, but the record's set of exponents is closed under
+repeated additions, so a sum of several steps can land just above the next integer, and the column offsets can bind
+from exponents below two as well. The open question is now stated as those two kinds of coincidence, still not
+computable from the record. The resolvent bounds off the real axis and the gauge result at the next order were
+confirmed. The comparison of the two gauges was confirmed in substance, with corrections to its numbers: measured in
+the one field both gauges share, the original gauge's error in the null directions is 2 to 29 times smaller, not 14
+to 57; the swapped gauge is better in angle on one stretch; and one comparison had used different cells on its two
+sides, which, done like for like, only strengthens it. A control in the gauge check could not have failed; it is
+replaced by checks that can, and they pass.
