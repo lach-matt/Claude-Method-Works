@@ -6528,3 +6528,14 @@ that state it for exactly this kind of surface, one without boundary and not clo
 for closed surfaces, which this one is not. The second half is now proved here in a few lines from two statements read
 in the same notes. One elementary fact about how timelike curves combine, and the fact that the region contains the
 surface, are used as the notes use and remark them, not read as proved statements.
+
+**D389 (2026-10-31): the background of the two-family scheme.** The two-wave averaged equations need a background
+spacetime carrying two streams of null dust, one ingoing and one outgoing, and that background had not been built.
+In the round class its equations reduce to two wave-type equations in the two null coordinates, in which the dust does
+not appear at all, plus one constraint on each initial cone, which is where the dust enters. The constraints are
+preserved by the evolution exactly because each stream's energy is carried along its own direction, which is the
+averaged law found earlier; with any other dependence they would not be. The mass changes only through the two
+fluxes, gained from the ingoing stream and lost to the outgoing one. A computed instance with two crossing pulses
+behaves accordingly: the constraints stay satisfied to second order in the step, and the final mass agrees with the
+fluxes. The background on the record's own domain, which would need the outgoing stream's data from the far past, is
+not built.

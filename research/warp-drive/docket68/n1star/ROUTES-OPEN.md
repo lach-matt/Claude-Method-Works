@@ -4777,4 +4777,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   ghat_2's gauge condition at order lam is still not checked.
 - D383: stage0two5 T7 (--gauge): with ghat_2's mixed harmonics fixed by T4, the order-lam gauge 1-form vanishes on
   them (numerical identity test on concrete functions: 5e-18 against 2.8e-2 over 16 harmonics; wrong sign fails).
-
+- D389 (FAMILIES5 section 4c, checks/twodust5.py B1-B5): the two-dust round background. Ric_uv = 0 and the angular
+  equation give R_uv = -(e^2s + 2 R_u R_v)/R, s_uv = 3(e^2s + 2 R_u R_v)/(2R^2); the dust enters only through the two
+  Raychaudhuri constraints, and d_v(R^2 C_u) = d_u(R^2 C_v) = 0 modulo the evolution exactly because B = B(u), A = A(v)
+  (the Isaacson laws). mu_v = -(2/3) A e^-2s R_u, mu_u = -(2/3) B e^-2s R_v. Computed: crossing pulses from flat data,
+  constraints second order (ratio 4.00), mu 1.001 -> 0.520 matching the edge fluxes, untrapped. Local existence:
+  standard Goursat iteration, not read at source.

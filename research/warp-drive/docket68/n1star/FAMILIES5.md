@@ -151,7 +151,8 @@ variables are carried as exp(i s_k), so each harmonic (n1, n2) is read off as a 
 So Stage 0 of the two-phase ansatz closes on any round double-null background whose Ricci tensor is the two dusts'
 stress. What it does not give:
 
-- the background itself, a solution of Einstein-two-null-dusts in the class (a characteristic problem, not attempted);
+- the background itself, a solution of Einstein-two-null-dusts in the class (a characteristic problem; reduced and
+  computed in section 4c, D389);
 - the gauge condition beyond what is checked: at order λ⁰ the gauge 1-form D = g^(ab)(Γ − Γ0)_(ab) vanishes (T6,
   D381; each W is transverse to its own generator and traceless, `lead5.py`'s L5). At order λ, on the mixed
   harmonics, the waves' part plus ĝ_2's fast divergence vanishes once ĝ_2 is fixed by T4 (T7 with `--gauge`, D383: a
@@ -164,6 +165,40 @@ stress. What it does not give:
 
 Section 1's claim that the cross couplings are a gauge artefact concerns the linearised operator, not Stage 0, and is
 not tested here.
+
+## 4c. The two-dust background (D389)
+
+`checks/twodust5.py` B1-B5 (B1-B4 exact, sympy; B5 floating point; selftest about 7 s). With
+g0 = −2e^(2s) du dv + R² dΩ₃² and the stress of section 4b, K_in R³ = A(v) and K_out R³ = B(u):
+
+- *B1, the equations.* The off-diagonal and angular-mixed components of Ric(g0) vanish. Ric_uv = 0 and the angular
+  equation are equivalent to the evolution
+
+      R_uv = −(e^(2s) + 2R_u R_v)/R,      s_uv = 3(e^(2s) + 2R_u R_v)/(2R²).
+
+  The two remaining components are the Raychaudhuri constraints C_u := R_uu − 2s_u R_u + B/(3R²) = 0 and
+  C_v := R_vv − 2s_v R_v + A/(3R²) = 0. The dust enters only through them.
+- *B2, propagation.* Modulo the evolution, ∂_v(R² C_u) = 0 and ∂_u(R² C_v) = 0 identically. This holds because B
+  depends on u alone and A on v alone: with B = B(u, v) a residual in ∂_v B remains (the control). So section 4b's
+  Isaacson laws are exactly what propagates the constraints. Data with C_v = 0 on u = u_0 and C_u = 0 on v = v_0,
+  evolved by B1's two equations, give a solution of Einstein with the two dusts.
+- *B3, the mass.* μ := R²(1 + 2e^(−2s) R_u R_v), so that g0^(ab) ∂_aR ∂_bR = 1 − μ/R², obeys μ_v = −(2/3) A e^(−2s) R_u
+  and μ_u = −(2/3) B e^(−2s) R_v. Where R_u < 0 < R_v, the ingoing dust adds mass and the outgoing dust carries it away.
+- *B4.* Minkowski, e^(2s) = ½ and R = (v − u)/2, solves the evolution with A = B = 0.
+- *B5, a computed background.* Flat corner data at (u, v) = (−10, 0); an ingoing pulse A = 2 sin⁴ on v ∈ [1, 3] and an
+  outgoing pulse B = sin⁴ on u ∈ [−9, −7]; each cone's data from its constraint with s = −½ ln 2 there; the interior
+  by a second-order diamond scheme on u ∈ [−10, −3], v ∈ [0, 6].
+  - The interior residuals of C_u and C_v fall at second order: ratio 4.00 between 40 and 80 steps per unit, where
+    they are 2.7 × 10⁻⁶ and 1.4 × 10⁻⁵. The control, C_u with B shifted by ½ in u, stays at 2.0 × 10⁻².
+  - μ rises to 1.001 across the ingoing pulse, and is 0.5202 at the far corner after the outgoing one. Integrating
+    B3's fluxes along the two far edges gives 0.5203.
+  - The region is untrapped throughout (R_u < 0 < R_v), and min R = 1.42.
+
+So the background exists on this rectangle as a computed solution. Local existence near the corner for any smooth
+data is the standard Picard iteration for this 1+1 semilinear Goursat system; it is not read at source here.
+
+What it does not give: the background on the record's domain, which would need the outgoing family's data at past
+null infinity; a horizon (these pulses leave the region untrapped); and the next stages listed in section 4b.
 
 ## 5. Sources
 
