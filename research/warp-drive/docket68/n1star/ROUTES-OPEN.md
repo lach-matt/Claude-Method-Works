@@ -4937,6 +4937,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   record's point, the dual state, whether some zeta removes the term, and the bumped cut-offs' admissibility for III.D'
   Prop. 4.1 beyond the matching being solvable.
 
+- D443 (verifier 190 on D442; CONFIRMED-WITH-CORRECTIONS, nothing refuted): an independent symbolic derivation matches
+  derive() exactly, eta term included; Chebyshev collocation from the horizon (no horizon series) with its own infinity
+  series gives A = 2.58438959, 2.66237888, 10.98879846 and three bumped cases; A does not depend on the choice of c_4;
+  smooth across the horizon = analytic at r = 1, three such solutions. Corrected: 'every choice computed' covers z = 1/2
+  and 1/8 only, not the record's point; III.D' Prop. 4.1's eps_0, eps_1 at the baseline parameters not checked; three of
+  the 22 rows repeat the baseline, the largest change from it is 1.60 (the spread 1.75); 'as one expects' is 'consistent
+  with'; zeta = 0 near the horizon is one admissible choice (smoothness needs zeta = O(r - 1)); s1coef5's two z = 1/8
+  points had shared ok keys (both passed in run 3; keys now distinct).
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2

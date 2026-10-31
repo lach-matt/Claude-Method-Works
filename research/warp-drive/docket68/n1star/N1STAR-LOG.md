@@ -6941,10 +6941,16 @@ dimension. The corrections are wording. The first equation is linear only once t
 data alone it is quadratic in the unknown, though zero still solves it), and the summary entry had claimed more reach
 than the main text.
 
-**D442 (2026-10-31): a number the record left to chance.** The record's treatment of one slowly decaying term
-depends on whether a certain coefficient is zero. Earlier work showed the answer cannot be read off locally and argued
-that it depends on two smoothing functions the record never fixes. Now the coefficient has been computed outright, by
-solving the equations from the black hole's horizon outwards, for 22 different choices of those functions and three
-settings of the damping. It is never zero, and it changes with every choice, so the dependence is now measured rather
-than asserted. No choice tried made it vanish, so for every choice computed the record does carry this term.
+**D442 (2026-10-31): a number the record left to chance.** The record's treatment of one slowly decaying term depends on
+whether a certain coefficient is zero. Earlier work showed the answer cannot be read off locally and argued that it
+depends on two smoothing functions the record never fixes. Now the coefficient has been computed outright, by solving the
+equations from the black hole's horizon outwards, for 22 different choices of those functions and three settings of the
+damping. It is never zero, and it changes with every choice, so the dependence is now measured rather than asserted. No
+choice tried made it vanish, so for every choice computed, at the two damping strengths tried, the record does carry this
+term; the record's own, much weaker damping was not computed.
+
+**D443 (2026-10-31): verifier 190 on D442.** The number stands: the verifier rebuilt the equations independently and
+recomputed the coefficient by a different numerical method, agreeing to nine digits. The corrections are about reach:
+the result covers two damping settings, not the record's own; three of the 22 choices were the same baseline; and
+whether those damping settings meet the record's smallness conditions was not checked.
 

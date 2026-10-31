@@ -5,15 +5,15 @@ D412 found that the local expansion does not decide whether the s1 state of box^
 deduced that its coefficient depends on the cut-offs the record leaves open. Here the coefficient is computed
 for given cut-offs, on five-dimensional Tangherlini (mu = 1), by solving the s1 system from the horizon.
 
-The operator is III.B Definition 6.1's: box^Ups = 2(delta + E^Ups) G delta*, E^Ups = E_inf + E_H with E_inf h = -gam_U (2
-iota_(g^-1 c) h - (2/3)(1 - e_U) c tr h), c = zeta(r) r^-1 dt, and E_H h = gam_H (2 iota_(g^-1 c_H) h - (2/3) c_H tr h),
-c_H = -(1/2) eta(r) dr (D3's rotation-invariant choice, eta for its chi). zeta vanishes near the horizon, where dt is
-singular, and is 1 for large r; eta is 1 near the horizon and 0 for large r. Ingoing coordinates (v, r, chi, theta, phi),
-f = 1 - 1/r^2; the l = 1 scalar-type 1-form omega = A(r) Y dv + B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0
-is three second-order ODEs for U = (A, B, K).
+The operator is III.B Definition 6.1's: box^Ups = 2(delta + E^Ups) G delta*, E^Ups = E_inf + E_H with E_inf h = -gam_U
+(2 iota_(g^-1 c) h - (2/3)(1 - e_U) c tr h), c = zeta(r) r^-1 dt, and E_H h = gam_H (2 iota_(g^-1 c_H) h - (2/3) c_H tr
+h), c_H = -(1/2) eta(r) dr (D3's rotation-invariant choice, eta for its chi). zeta is taken to vanish near the horizon,
+where dt is singular (smoothness needs only zeta = O(r - 1)), and is 1 for large r; eta is 1 near the horizon and 0 for
+large r. Ingoing coordinates (v, r, chi, theta, phi), f = 1 - 1/r^2; the l = 1 scalar-type 1-form omega = A(r) Y dv +
+B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order ODEs for U = (A, B, K).
 
-  S1 (computed, exact) the ODEs reproduce genstates5.boxU in static coordinates (zeta = 1, eta = 0), a dv + (b - a/f)
-     dr for a dt + b dr, at random rational points; the theta, phi components vanish.
+  S1 (computed, exact) the ODEs reproduce genstates5.boxU in static coordinates (zeta = 1, eta = 0), a dv + (b - a/f) dr
+     for a dt + b dr, at two rational points; the theta, phi components vanish.
   S2 (computed, exact) the indicial determinant at infinity is s(s - 4) q(s), with s1reson5's lambda_s1,2 = 2 + d1 a
      root of q; the other roots are 0, 4, lambda_3 in (3, 4) and 1 - lambda_s1,2, 1 - lambda_3.
   S3 (computed) at the horizon (zeta = 0, eta = 1) the exponents are 0 (four times), 1 and -1. The exponent 1 meets
@@ -24,17 +24,19 @@ is three second-order ODEs for U = (A, B, K).
      series from dx^1 = (0, 1, 1) (with the logarithm the root pair 0, 4 forces), the other u's Frobenius series in rho
      with unit leading vectors. Matching at r = 3 and at r = 4, and from r = 1.15 at rtol 1e-12, gives the same A to ten
      digits.
-  S5 (computed) A for 22 choices of the cut-offs: the transition intervals of zeta and eta moved, and compactly
-     supported bumps of amplitude up to 100 added to zeta (on [1.6, 2.4] and [2.55, 2.95]) and to eta. A changes with
-     every one of them, by up to 1.8 at z = 1/2, against S4's agreement of 10^-10. It is positive at every choice: no
-     zero was found in these families.
+  S5 (computed) A for 22 rows of cut-offs (three repeat the baseline): the transition intervals of zeta and eta moved,
+     and compactly supported bumps of amplitude up to 100 added to zeta (on [1.6, 2.4] and [2.55, 2.95]) and to eta. A
+     changes with every one that differs from the baseline, by up to 1.60 from it at z = 1/2 (a spread of 1.75), against
+     S4's agreement of 10^-10. It is positive at every choice: no zero was found in these families. Verifier 190
+     reproduced A by Chebyshev collocation to nine digits (D443).
 
 Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8)
 (both z = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double
 precision (DOP853, rtol 1e-13). About 15 minutes.
-Not computed: the record's point (z = 4 x 10^-6, where d1 is near 3 x 10^-7 and the terms rho^2 and rho^(2+d1) are
-nearly parallel); whether some zeta makes A vanish; the dual state; and whether the record's later steps (III.D'
-Proposition 4.1's invertibility) hold at the bumped cut-offs, beyond the matching being solvable there.
+Not computed: the record's point (z = 4 x 10^-6, where d1 is near 3 x 10^-7 and the terms rho^2 and rho^(2+d1) are nearly
+parallel); whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_0, eps_1; whether some zeta makes A vanish;
+the dual state; and whether the record's later steps hold at the bumped cut-offs, beyond the matching being solvable
+there.
 """
 import os
 import sys
@@ -57,7 +59,6 @@ ANG = {sp.sin(ch): sp.Rational(3, 5), sp.cos(ch): sp.Rational(4, 5), sp.sin(th):
 ANG2 = {sp.sin(ch): sp.Rational(5, 13), sp.cos(ch): sp.Rational(12, 13), sp.sin(th): sp.Rational(3, 5),
         sp.cos(th): sp.Rational(4, 5)}
 
-
 def ef_geo():
     X = (v, r, ch, th, ph)
     f = 1 - mu / r**2
@@ -69,7 +70,6 @@ def ef_geo():
                            for k in range(5)) / 2) for nn in range(5)] for m in range(5)] for l in range(5)]
     return X, g, gi, Gam, f
 
-
 def E_full(h, G, Z, H):
     X, g, gi, Gam, f = G
     c = [Z / r, -Z / (r * f), 0, 0, 0]
@@ -80,11 +80,9 @@ def E_full(h, G, Z, H):
     return [-gU * (2 * sum(cs[a] * h[a, b] for a in range(5)) - sp.Rational(2, 3) * (1 - eU) * c[b] * tr)
             + gH * (2 * sum(cHs[a] * h[a, b] for a in range(5)) - sp.Rational(2, 3) * cH[b] * tr) for b in range(5)]
 
-
 def box_ef(w, G, Z, H):
     Gh = GS.Gop(GS.dstar(w, G), G)
     return [2 * (q + e) for q, e in zip(GS.div(Gh, G), E_full(Gh, G, Z, H))]
-
 
 def derive():
     """M2, M1, M0 with box omega = (M2 U'' + M1 U' + M0 U) times (Y, Y, r dY) componentwise"""
@@ -113,7 +111,6 @@ def derive():
               for i in range(3))
     return M, same and lin, all(sp.cancel(x) == 0 for x in extra)
 
-
 def check_static(M):
     """S1: zeta = 1, eta = 0 against genstates5.boxU on (a dt + b dr) with a dv + (b - a/f) dr"""
     f = 1 - mu / r**2
@@ -135,7 +132,6 @@ def check_static(M):
             ok &= sp.nsimplify(sp.cancel(x.subs(ANG).subs(pt) - y.subs(pt))) == 0
     return ok
 
-
 def taylor(expr, var, N):
     """exact Taylor coefficients 0..N at var = 0 of a rational function regular there"""
     nu, de = sp.fraction(sp.cancel(sp.together(expr)))
@@ -149,11 +145,9 @@ def taylor(expr, var, N):
         q.append(sp.expand((n[k] - sum(d[i] * q[k - i] for i in range(1, k + 1))) / d[0]))
     return q
 
-
 def mpq(x):
     x = sp.Rational(x)
     return mp.mpf(x.p) / x.q
-
 
 def smoothstep(x):
     if x <= 0:
@@ -162,7 +156,6 @@ def smoothstep(x):
         return 1.0
     a, b = np.exp(-1 / x), np.exp(-1 / (1 - x))
     return a / (a + b)
-
 
 class Problem:
     def __init__(self, M, gam, e, gamH):
@@ -340,13 +333,11 @@ class Problem:
         sol = np.linalg.solve(Amat, vec(inf[0]))
         return sol[3], np.linalg.cond(Amat)
 
-
 def null_vec(P0):
     U_, S_, V_ = mp.svd_r(P0)
     vv = V_.T[:, 2]
     k = max(range(3), key=lambda i: abs(vv[i]))
     return vv * (1 if vv[k] > 0 else -1) / mp.norm(vv)
-
 
 def setup(M, gam, e, gamH):
     pb = Problem(M, gam, e, gamH)
@@ -366,7 +357,6 @@ def setup(M, gam, e, gamH):
     pb.modes = modes
     return pb, lam2, lam3, rts, alpha
 
-
 def main():
     ok = {}
     M, lin_ok, ang_ok = derive()
@@ -378,11 +368,12 @@ def main():
     for gam, e in ((sp.Rational(1, 2), sp.Rational(1, 2)), (sp.Rational(1, 4), sp.Rational(1, 2)),
                    (sp.Rational(1, 2), sp.Rational(1, 8))):
         z = 4 * e * gam**2
+        key = "z=%s (gam_U %s, e_U %s)" % (z, gam, e)
         pb, lam2, lam3, rts, alpha = setup(M, gam, e, sp.Rational(1, 10))
         q = sp.cancel(pb.asym / (s * (s - 4)))
         is_poly = sp.fraction(sp.together(q))[1].free_symbols == set()
         lam2_root = abs(mp.polyval([mpq(c) for c in sp.Poly(q, s).all_coeffs()], lam2)) < mp.mpf(10)**-30
-        ok["S2 z=%s" % z] = is_poly and lam2_root
+        ok["S2 %s" % key] = is_poly and lam2_root
         print("  S2 (z = %s): det = s(s - 4) q(s): %s; lambda_s1,2 = %s (d1 = %.6g) a root of q: %s; roots %s; "
               "log coefficient at the 0, 4 resonance %.4g" % (z, is_poly, mp.nstr(lam2, 12), float(lam2 - 2),
                                                               lam2_root, ", ".join("%.6g" % x for x in rts),
@@ -391,7 +382,7 @@ def main():
         n0 = sum(1 for x in hr if abs(x) < 1e-12)
         hs = pb.horizon_solutions(mp.mpf(1) / 4)
         tail = max(float(mp.norm(cN)) for _, _, cN in hs) * 0.25**pb.Nh
-        ok["S3 z=%s" % z] = n0 >= 3 and len(hs) == 3 and pb.hres == [1] and tail < 1e-20
+        ok["S3 %s" % key] = n0 >= 3 and len(hs) == 3 and pb.hres == [1] and tail < 1e-20
         print("  S3: horizon exponents %s; resonance at n = %s handled, three smooth solutions, last series term at "
               "x = 1/4: %.1e" % (", ".join("%.6g%+.3gi" % (x.real, x.imag) for x in hr), pb.hres, tail), flush=True)
         zeta0 = lambda x, a=1.5, b=2.5: smoothstep((x - a) / (b - a))
@@ -399,7 +390,7 @@ def main():
         A3, cnd = pb.coefficient(zeta0, eta0, 3.0)
         A4, _ = pb.coefficient(zeta0, eta0, 4.0)
         A3b, _ = pb.coefficient(zeta0, eta0, 3.0, r0=1.15, rtol=1e-12)
-        ok["S4 z=%s" % z] = abs(A3 - A4) < 1e-7 * max(1, abs(A3)) and abs(A3 - A3b) < 1e-7 * max(1, abs(A3))
+        ok["S4 %s" % key] = abs(A3 - A4) < 1e-7 * max(1, abs(A3)) and abs(A3 - A3b) < 1e-7 * max(1, abs(A3))
         print("  S4: A = %.10g (match at r = 3), %.10g (r = 4), %.10g (start 1.15, rtol 1e-12); condition %.2g"
               % (A3, A4, A3b, cnd), flush=True)
         rows = []
@@ -415,7 +406,8 @@ def main():
                  (-100.0, -50.0, -20.0, -10.0, -5.0, 0.0, 5.0, 10.0, 20.0, 50.0, 100.0)),
                 ("zeta0 + eps bump on [2.55, 2.95]", lambda ep, b_=bump(2.75, 0.2): (lambda x: zeta0(x) + ep * b_(x),
                                                                                     eta0), (-20.0, 20.0)),
-                ("eta0 + eps bump on [1.35, 1.75]", lambda ep, b_=bump(1.55, 0.2): (zeta0, lambda x: eta0(x) + ep * b_(x)),
+                ("eta0 + eps bump on [1.35, 1.75]",
+                 lambda ep, b_=bump(1.55, 0.2): (zeta0, lambda x: eta0(x) + ep * b_(x)),
                  (-20.0, 20.0))]
         signs = []
         for lab, mk, epss in fams:
@@ -440,14 +432,13 @@ def main():
         spread = max(val for _, val in rows) - min(val for _, val in rows)
         print("      spread of A over these cut-offs %.4g; A = 0 found: %s" % (
             spread, ", ".join("%s at eps = %.6g" % sg for sg in signs) if signs else "no, in none of these families"))
-        ok["S5 z=%s" % z] = spread > 1e4 * max(abs(A3 - A4), abs(A3 - A3b), 1e-12)
+        ok["S5 %s" % key] = spread > 1e4 * max(abs(A3 - A4), abs(A3 - A3b), 1e-12)
         res[(gam, e)] = (A3, spread, signs)
     print("  at z = 1/8: A = %.8g with (gam_U, e_U) = (1/4, 1/2) and %.8g with (1/2, 1/8)"
           % (res[(sp.Rational(1, 4), sp.Rational(1, 2))][0], res[(sp.Rational(1, 2), sp.Rational(1, 8))][0]))
     for k, val in ok.items():
         print(k, "PASS" if val else "FAIL")
     return 0 if all(ok.values()) else 1
-
 
 if __name__ == "__main__":
     sys.exit(main())

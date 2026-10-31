@@ -410,16 +410,19 @@ loop counts of section 3.
     - So the coefficient of ρ^(2+d1) is that of the homogeneous decaying solution, fixed by regularity at the horizon:
       a global question, not a local one.
     - Computed (D442; `checks/s1coef5.py` S1-S5): the s1 system solved from the horizon at z = 1/2 and z = 1/8 (d1 =
-      0.0375 and 0.0101), μ = 1, γ_Υ,H = 1/10, c_Υ = ζ r⁻¹ dt (ζ = 0 near the horizon, where dt is singular, and 1 for r
-      ≥ 2.5) and c_Υ,H = −½η dr (η = 1 near the horizon, 0 for r ≥ 1.8), in ingoing coordinates. The ODEs reproduce
-      genstates5's operator in static coordinates. The solutions smooth at the horizon are three power series: its
-      exponents are 0 four times, 1 and −1, the 1 handled as a resonance. At infinity the state is u_0 + A u_(2+d1) + B3
-      u_λ3 + B4 u_4, u_0 the series from dx¹ with the logarithm the roots 0 and 4 force, the others with unit leading
-      vectors. A agrees to ten digits over two matching radii, two starting radii and two tolerances.
+      0.0375 and 0.0101), μ = 1, γ_Υ,H = 1/10, c_Υ = ζ r⁻¹ dt (ζ = 0 near the horizon, one admissible choice as dt is
+      singular there, smoothness needing only ζ = O(r − 1), and 1 for r ≥ 2.5) and c_Υ,H = −½η dr (η = 1 near the
+      horizon, 0 for r ≥ 1.8), in ingoing coordinates. The ODEs reproduce genstates5's operator in static coordinates.
+      The solutions smooth at the horizon are three power series: its exponents are 0 four times, 1 and −1, the 1 handled
+      as a resonance. At infinity the state is u_0 + A u_(2+d1) + B3 u_λ3 + B4 u_4, u_0 the series from dx¹ with the
+      logarithm the roots 0 and 4 force, the others with unit leading vectors. A agrees to ten digits over two matching
+      radii and a second run with another starting radius and tolerance; verifier 190 reproduced it by Chebyshev
+      collocation, with its own derivation of the operator (η term included), to nine digits (D443).
     - A = 2.584 at z = 1/2 (γ_Υ = e_Υ = 1/2) and 2.662 at z = 1/8 reached along γ_Υ → 0 (γ_Υ = 1/4, e_Υ = 1/2); at z =
-      1/8 reached along e_Υ → 0 (γ_Υ = 1/2, e_Υ = 1/8) it is 10.99, about four times larger, as the local picture above
-      leads one to expect (there the near-resonant particular solution grows like 1/e_Υ). Two points on each branch at
-      most; the record's point (z = 4 × 10⁻⁶) is not computed.
+      1/8 reached along e_Υ → 0 (γ_Υ = 1/2, e_Υ = 1/8) it is 10.99, about four times larger, consistent with the local
+      picture above (there the near-resonant particular solution grows like 1/e_Υ). Two points on each branch at most;
+      the record's point (z = 4 × 10⁻⁶) is not computed, and whether these γ_Υ, e_Υ, γ_Υ,H meet III.D′ Proposition 4.1's
+      ε_0, ε_1 is not checked (D443).
   - *The global problem depends on choices the record leaves open (D415, deduced).* The s1 state solves □^Υ_b ω = 0
     and is smooth on X (D4:109-111), so its ρ^(2+d1) coefficient depends on □^Υ_b everywhere, not only near infinity.
     The record fixes c_Υ only near infinity: c_Υ = ζ(|x|)|x|⁻¹ dt with ζ = 1 for large |x|, and c_Υ,H = −½χ(|x|) d|x|
@@ -430,13 +433,15 @@ loop counts of section 3.
     - That pairing is an integral against δζ (or δχ). It vanishes for every variation only if its integrand vanishes
       identically, which nothing in the record forces.
     - So whether d1 ∈ ℰ_ind is a property of the cut-offs, not of the record. The dependence is computed (D442; it had
-      been asserted, D429): over 22 choices of ζ and η (transition intervals moved, compactly supported bumps of
-      amplitude up to 100 added to ζ on [1.6, 2.4] or [2.55, 2.95], or to η near the horizon), A changes with every one,
-      by up to 1.8 at z = 1/2. It stays positive throughout (from 0.98 to 2.74 at z = 1/2, 1.25 to 2.82 and 6.6 to 11.2
-      at the two z = 1/8 points). A ζ solving the one real equation A = 0 would remove this state's term (one for all S ∈
-      𝒮_1, as ζ and χ are rotation invariant), but none was found in these families.
+      been asserted, D429): over 22 rows of choices of ζ and η (transition intervals moved, compactly supported bumps of
+      amplitude up to 100 added to ζ on [1.6, 2.4] or [2.55, 2.95], or to η near the horizon; three rows repeat the
+      baseline), A changes with every one that differs from the baseline: by up to 1.60 from it at z = 1/2, a spread of
+      1.75 (D443). It stays positive throughout (from 0.98 to 2.74 at z = 1/2, 1.25 to 2.82 and 6.6 to 11.2 at the two z
+      = 1/8 points). A ζ solving the one real equation A = 0 would remove this state's term (one for all S ∈ 𝒮_1, as ζ
+      and χ are rotation invariant), but none was found in these families.
     - For the loss d: the record keeps ℰ_ind as a bound valid for its choices, so LD9's δ_G ≤ 5.0 × 10⁻⁸ is the one to
-      carry unless ζ is chosen to exclude d1. At every cut-off computed (D442) the state does carry d1.
+      carry unless ζ is chosen to exclude d1. At every cut-off computed (D442; z = 1/2 and 1/8 only, not the record's
+      point) the state carries d1.
     - Not computed: the dual state, the record's point, and whether some ζ makes A vanish. A variation for which the
       pairing is nonzero: every one computed in D442.
 
