@@ -30,9 +30,13 @@ its coefficient of z1^n1 z2^n2. The lam^-1 and lam^0 coefficients are assembled 
      (0, +-2) ones +-2i e^(-2 sig) R^(-3/2) d_v(R^(3/2) chi'_+-2): chi and chi' enter only by their transports (L4).
   T6 The gauge 1-form D = g^ab (Gamma - Gamma0)_ab vanishes at order lam^0 (lead5.py's L5 in this form: each W is
      transverse to its own generator and traceless).
+  T7 (with --gauge) With ghat_2's mixed harmonics fixed by T4 (ghat = e^(2 sig) R^(0)_(n1,n2)/(n1 n2)), the order-lam
+     gauge 1-form, the waves' part plus ghat_2's fast divergence, vanishes on every mixed harmonic: the Bianchi
+     identity, the symbol being non-zero there. Tested numerically on concrete functions; control: ghat of the wrong
+     sign fails.
 T1 holds for any W_in(s1) + W_out(s2), as g0^uu = g0^vv = 0, and that the families do not meet in the mean is harmonic
 bookkeeping; both are recorded, not tested against a mutant.
-python3 checks/stage0two5.py [--selftest | --mutants]
+python3 checks/stage0two5.py [--selftest | --mutants] [--gauge]   (--gauge adds T7, about a minute or more)
 """
 import sys
 import time
@@ -153,6 +157,7 @@ def ricci_orders(W):
                               + W[p, r]*fast(D0[r], q) for r in range(N))/2
             out[(b, c)] = (ex(m1), ex(z0))
     out["D0"] = D0
+    out["D1"] = D1
     return out
 
 
@@ -203,12 +208,12 @@ def run(verbose=True):
     out = ricci_orders(waves())
     if verbose:
         print("  expansion assembled (%.0fs)" % (time.time() - t0), flush=True)
-    ok["T1"] = all(zero(out[k][0]) for k in out if k != "D0")
+    ok["T1"] = all(zero(out[k][0]) for k in out if isinstance(k, tuple))
     ok["T6"] = all(zero(e) for e in out["D0"])
     ric0 = background_ricci()
     t2, t3, t4a = True, True, False
     Kin = Kout = 0
-    for k in sorted(kk for kk in out if kk != "D0"):
+    for k in sorted(kk for kk in out if isinstance(kk, tuple)):
         Hm = harmonics(out[k][1])
         mean = ex(Hm.get((0, 0), 0) - ric0[k])
         if k == (1, 1):
@@ -268,9 +273,55 @@ def run(verbose=True):
             if verbose:
                 print("  T5: %s%s %s" % (NAMES[k[0]], NAMES[k[1]], n))
     ok["T5"] = t5
+    if "--gauge" in sys.argv:
+        ok["T7"] = gauge_check(out, verbose)
+        ok["T7 control"] = gauge_check(out, verbose, wrong=True)
     if verbose:
         print("  (%.0fs)" % (time.time() - t0), flush=True)
     return ok
+
+
+def gauge_check(out, verbose, wrong=False):
+    """T7: ghat_2's mixed harmonics fixed by T4, ghat_n = e^(2 sig) R^(0)_n/(n1 n2); then the order-lam gauge 1-form
+    (the waves' D1 plus ghat_2's fast divergence) vanishes on every mixed harmonic. Concrete smooth functions are put
+    in for sig, R, H, alpha, beta and the chi coefficients, and the residual is evaluated at random points (a numerical
+    identity test of an exact assembly). wrong=True flips the sign of ghat, the control."""
+    import random
+    conc = {sig: (u + 2*v)/7, Rf: 2 + u**2/5 + v/3, Hf: 1 + th/3, alpha: 1 + v/2, beta: 1 - u/4,
+            xi2: th*u/3, xi2b: v*th/5, et2: u*v/4, et2b: (1 + th**2)/6}
+    g0, g0i = background()
+    g0c, g0ic = g0.subs(conc), g0i.subs(conc)
+    sgc = conc[sig]
+
+    def cc(e):
+        return sp.expand(e.subs(conc).doit())
+    R0 = [[None]*N for _ in range(N)]
+    for (b_, c_), val in out.items():
+        if isinstance(b_, int):
+            R0[b_][c_] = R0[c_][b_] = harmonics(cc(val[1]))
+    D1h = [harmonics(cc(e)) for e in out["D1"]]
+    keys = {k for i in range(N) for j in range(N) for k in R0[i][j] if k[0]*k[1] != 0}
+    keys |= {k for h in D1h for k in h if k[0]*k[1] != 0}
+    random.seed(7)
+    pts = [(random.uniform(-1, 1), random.uniform(0.5, 2), random.uniform(0.2, 1.3)) for _ in range(3)]
+    worst, scale = 0.0, 0.0
+    for n1, n2 in sorted(keys):
+        sgn = -1 if wrong else 1
+        G = sp.Matrix(N, N, lambda i, j: sgn*R0[i][j].get((n1, n2), 0)*sp.exp(2*sgc)/(n1*n2))
+        kf = [sp.I*n2, sp.I*n1, 0, 0, 0]
+        for r in range(N):
+            dg = sum(g0ic[a, b]*g0ic[r, d]*(kf[a]*G[d, b] + kf[b]*G[d, a] - kf[d]*G[a, b])/2
+                     for a in range(N) for b in range(N) for d in range(N) if g0ic[a, b] != 0 and g0ic[r, d] != 0)
+            d1 = D1h[r].get((n1, n2), 0)
+            f_res = sp.lambdify((u, v, th), d1 + dg, "mpmath")
+            f_ref = sp.lambdify((u, v, th), d1, "mpmath")
+            for pt in pts:
+                worst = max(worst, abs(complex(f_res(*pt))))
+                scale = max(scale, abs(complex(f_ref(*pt))))
+    if verbose:
+        print("  T7%s: %d mixed harmonics, max |D1 + div ghat| = %.3g against max |D1| = %.3g"
+              % (" control" if wrong else "", len(keys), worst, scale), flush=True)
+    return (worst <= 1e-9*max(scale, 1.0) and scale > 0) if not wrong else worst > 1e-6*scale
 
 
 def main():
