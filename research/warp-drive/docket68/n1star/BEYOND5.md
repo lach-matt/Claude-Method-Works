@@ -3,7 +3,8 @@
 Status: written (D360); read by verifier 167 (D362), findings seated; r_0 census and Proposition 6.2 added (D363);
 read by verifier 168, whose major finding (Lemma 0.5 (6) below r_h/2) and minor findings are seated (D366). The
 record's radius mismatch found by verifiers 170-171 is stated in section 1. Propositions 6.1-6.2 assume its repair
-(D372), which is now made in proof5 Part VI (D373).
+(D372), which is now made in proof5 Part VI (D373). Proposition 6.2 is re-proved Part by Part in BEYOND5-R0-PROOF.md
+(D368-D378, batches 1-4 read by verifiers 169-173).
 Labels as marked; nothing here is computed beyond the census.
 
 The paper's open item "beyond the boundary" (RESPONSE-HL-5D.md section 9) reads: Theorems 1-3 are made on D_T and Ω,
@@ -175,7 +176,7 @@ dezornification", arXiv:1309.7591v3, read 2026-10-31 through alphaXiv): Definiti
       358, 361, 374; III.C 112; III.I8 61) and 7/16 R_1 (VI3-TRAPPING 376; 9/16 R_1 before D373). Part IX, the gauge
       comparison, is outside the census; Theorem 0.2 does not use it.
 
-**Proposition 6.2 (deduced from the census, D363; repaired D366, D372).** Let r_♭ ∈ (0, ½R_1] and replace III.B's
+**Proposition 6.2 (deduced from the census, D363; repaired D366, D372; re-proved Part by Part, D368-D378).** Let r_♭ ∈ (0, ½R_1] and replace III.B's
 r_0 by r_♭ and its ε_param by min(1/20, r_♭/(4R_1)). Put Part I's artificial boundary there too, r_0^A := r_♭, with
 the collar δ_0 := min(R_1/16, r_♭/4) (BEYOND5-R0-PROOF.md section 0). Then each of the 214 matched lines that use the
 inner radius (DEF, SPC, CON, VAL) holds with r_♭, the constants then depending on r_♭. The Part-by-Part re-proof is
@@ -210,13 +211,14 @@ BEYOND5-R0-PROOF.md. So with r_♭ := ½ min(R_1, r_q(μ_end)), Proposition
 - So Theorem 0.2 (i) holds on {r ≥ r_♭} ⊃ {r ≥ r_q}, with λ_1, ε_m and ε depending on r_♭, so on μ_end. ∎
 
 What this rests on: the census is a reading at 322 lines, not a re-proof of each Part. The re-proof, Part by Part, is
-BEYOND5-R0-PROOF.md (D368-), in batches, each read by its own verifier. A use that names the inner
-radius by none of the eight strings would be missed; verifier 168 searched for the names above and found them harmless.
-[Hin26a] Proposition 5.1's conditions at m are IV6-SOLV Lemma 0.5's (1)-(6); of these only (1) and (6) involve m, and
-both hold on (0, r_h) (C2 and the sign argument above). The source itself is not read at m here. Part VII's record
-domain Ω′ reaches r ≥ a′ = q_0 − δ′_0, below the record's q_0; with r_♭ it must reach further, through δ′_0 alone.
-The region r_♭ ≤ r < r_q, covered too, lies beyond the curvature boundary, where the paper's premise has the classical
-description stop.
+BEYOND5-R0-PROOF.md (D368-D378): Parts I-IX in four batches, each read by its own verifier (169-173), the findings
+seated. It found the record's radius mismatch (D372, repaired in Part VI at D373) and the inner-boundary input of II.F
+Lemma 1.3 (D378), and no step that fails at r_♭. A use that names the inner radius by none of the eight strings would be
+missed; verifier 168 searched for the names above and found them harmless. [Hin26a] Proposition 5.1's conditions at m
+are IV6-SOLV Lemma 0.5's (1)-(6); of these only (1) and (6) involve m, and both hold on (0, r_h) (C2 and the sign
+argument above). The source itself is not read at m here. Part VII's record domain Ω′ reaches r ≥ a′ = q_0 − δ′_0, below
+the record's q_0; with r_♭ it must reach further, through δ′_0 alone. The region r_♭ ≤ r < r_q, covered too, lies beyond
+the curvature boundary, where the paper's premise has the classical description stop.
 
 - **(d) The slab, if (c) fails somewhere.** The region r_q ≤ r ≤ r_0 after Σ_IVP is a slab of finite r-time: inside
   the hole r is a time function, and every point's causal past meets {r = r_0} in a set of bounded t-extent. Points

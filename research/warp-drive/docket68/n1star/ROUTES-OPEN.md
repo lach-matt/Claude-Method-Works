@@ -4747,4 +4747,6 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D380 (verifier 174): stage0two5 sound (order-by-order assembly equals lead5's truncation, 15/15). T5 asserts the chi
   transports; mutants now 6 (both transports, chi on dv du, principal part without gauge). T1 and the no-interaction
   of the mean are automatic; the Isaacson law is an input; gauge condition (L5 analogue) and H not derived: listed.
+- D381: stage0two5 T6: the gauge 1-form D vanishes at order lam^0 (each W transverse to its generator, traceless).
+  ghat_2's gauge condition at order lam is still not checked.
 

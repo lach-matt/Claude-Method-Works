@@ -117,7 +117,7 @@ The analytic step after that is the energy estimate with two large couplings and
 
 ## 4b. Stage 0 with two phases, computed (D376, D380)
 
-`checks/stage0two5.py` (computed, exact, sympy; selftest T1-T5 pass in about 5 s, and its six mutants are caught; read
+`checks/stage0two5.py` (computed, exact, sympy; selftest T1-T6 pass in about 5 s, and its six mutants are caught; read
 by verifier 174, D380) runs Stage 0 on a general round double-null background,
 
     g0 = −2 e^(2σ(u,v)) du dv + R(u,v)² (dθ² + cos²θ dφ1² + sin²θ dφ2²),
@@ -152,8 +152,9 @@ So Stage 0 of the two-phase ansatz closes on any round double-null background wh
 stress. What it does not give:
 
 - the background itself, a solution of Einstein-two-null-dusts in the class (a characteristic problem, not attempted);
-- the gauge condition: `lead5.py`'s L5 (W(ℓ, ·) = 0, tr W = 0) has no two-phase analogue here, and ĝ_2's own gauge
-  condition at order λ is not checked;
+- the gauge condition beyond leading order: at order λ⁰ the gauge 1-form D = g^(ab)(Γ − Γ0)_(ab) vanishes (T6, D381;
+  each W is transverse to its own generator and traceless, `lead5.py`'s L5), but ĝ_2's own gauge condition at order λ
+  is not checked;
 - the profile H: it is imposed, the record's, not derived for the outgoing family;
 - the next stages (ĝ_2's own transport at order λ, and the mixed terms it feeds back);
 - the energy estimate with the two large couplings of section 1.

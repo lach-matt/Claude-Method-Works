@@ -28,6 +28,8 @@ its coefficient of z1^n1 z2^n2. The lam^-1 and lam^0 coefficients are assembled 
      non-zero, so ghat_2 solves every mixed harmonic by division.
   T5 With alpha = beta = 0, the vv (+-2, 0) harmonics are +-2i e^(-2 sig) R^(-3/2) d_u(R^(3/2) chi_+-2) and the uu
      (0, +-2) ones +-2i e^(-2 sig) R^(-3/2) d_v(R^(3/2) chi'_+-2): chi and chi' enter only by their transports (L4).
+  T6 The gauge 1-form D = g^ab (Gamma - Gamma0)_ab vanishes at order lam^0 (lead5.py's L5 in this form: each W is
+     transverse to its own generator and traceless).
 T1 holds for any W_in(s1) + W_out(s2), as g0^uu = g0^vv = 0, and that the families do not meet in the mean is harmonic
 bookkeeping; both are recorded, not tested against a mutant.
 python3 checks/stage0two5.py [--selftest | --mutants]
@@ -150,6 +152,7 @@ def ricci_orders(W):
                     z0 -= sum(g0[p, r]*(slow(D0[r], q) + fast(D1[r], q) + sum(Gh[r][q][s]*D0[s] for s in range(N)))
                               + W[p, r]*fast(D0[r], q) for r in range(N))/2
             out[(b, c)] = (ex(m1), ex(z0))
+    out["D0"] = D0
     return out
 
 
@@ -200,11 +203,12 @@ def run(verbose=True):
     out = ricci_orders(waves())
     if verbose:
         print("  expansion assembled (%.0fs)" % (time.time() - t0), flush=True)
-    ok["T1"] = all(zero(out[k][0]) for k in out)
+    ok["T1"] = all(zero(out[k][0]) for k in out if k != "D0")
+    ok["T6"] = all(zero(e) for e in out["D0"])
     ric0 = background_ricci()
     t2, t3, t4a = True, True, False
     Kin = Kout = 0
-    for k in sorted(out):
+    for k in sorted(kk for kk in out if kk != "D0"):
         Hm = harmonics(out[k][1])
         mean = ex(Hm.get((0, 0), 0) - ric0[k])
         if k == (1, 1):
