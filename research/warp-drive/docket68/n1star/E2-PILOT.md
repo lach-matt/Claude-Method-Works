@@ -394,11 +394,11 @@ What it does not give:
 ## 5. Labels and sources
 
 Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, Proposition E2.5, Corollary E2.6; Lemma
-E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9); computed (P1: (1.1), (1.2); P2: numerical illustration, scipy solve_ivp at rtol 10⁻¹¹
-with the outgoing data started from the exact solution of the inverse-square tail; P3: Corollary E2.6's thresholds,
-Proposition E2.5's conditions by quadrature, and the bound against the numerical kernels; P4: unimodality for l ≤ 40,
-and Lemma E2.7 against the numerical kernels on I; `checks/e2morawetz5.py` M1: identity (3.4) as an exact derivative,
-sympy; M2-M3: w ≥ 0 and the constants on a grid, and B_l(3) against the computed norms, floating point, not certified);
-certified (`checks/e2certify5.py` C1-C5: w ≥ 0 on ℝ for every l ≥ 1 by Lemma E2.9, and the constants, by interval
-arithmetic with explicit tail bounds). Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE fact);
-EFFECTIVE-CONSTANTS.md section 5 (E2).
+E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9); computed (P1: (1.1), (1.2); P2: numerical illustration, scipy solve_ivp at
+rtol 10⁻¹¹ with the outgoing data started from the exact solution of the inverse-square tail; P3: Corollary E2.6's
+thresholds, Proposition E2.5's conditions by quadrature, and the bound against the numerical kernels; P4: unimodality
+for l ≤ 40, and Lemma E2.7 against the numerical kernels on I; `checks/e2morawetz5.py` M1: identity (3.4) as an exact
+derivative, sympy; M2-M3: w ≥ 0 and the constants on a grid, and B_l(3) against the computed norms, floating point, not
+certified); certified (`checks/e2certify5.py` C1-C5: w ≥ 0 on ℝ for every l ≥ 1 by Lemma E2.9, and the constants, by
+interval arithmetic with explicit tail bounds). Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE
+fact); EFFECTIVE-CONSTANTS.md section 5 (E2).
