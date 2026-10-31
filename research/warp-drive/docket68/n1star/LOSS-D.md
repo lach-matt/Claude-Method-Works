@@ -1,7 +1,8 @@
 # LOSS-D -- the loss d of III.J''' Theorem 4.1, added up as far as the record allows (E1')
 
-Status: written (D347); LD3 added (D348); read by verifier 164 (D348), whose three major findings (the structure of d,
-the scope of LD3, a second nested loop) and its minor findings and nits are seated (LD4). To be read again.
+Status: written (D347); LD3 added (D348), LD5 (D353); read by verifier 164 (D348), whose three major findings (the
+structure of d, the scope of LD3, a second nested loop) and its minor findings and nits are seated (LD4). To be read
+again.
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J''''s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -106,9 +107,9 @@ smallness constants are used at the orders k ≤ N only (III.K:410-411); the tam
 ## 4. What a number needs
 
 - **E1'a. The weights.** Choose numbers for ε_ind, ε_K, ε_+, ε, ℓ_I, a_I, ℓ_I^max, the E_+ bound and the β's at each
-  use, from the computed index sets at n = 4, satisfying every inequality of section 3. First question: whether
-  another admissible parameter point than the record's moves the lowest root λ^C − 1 away from 1, so that ε_ind is
-  not of order 10⁻⁶.
+  use, from the computed index sets at n = 4, satisfying every inequality of section 3. Its first question, whether
+  another admissible parameter point moves the lowest root λ^C − 1 away from 1, is answered by LD5: no; the best gap is
+  about 3.1 × 10⁻⁵.
 - **E1'b. The six losses** of section 2, by re-reading their proofs with the losses carried.
 - **E1'c. The counts** of section 3 (the α-levels and rounds, the β-levels, the level-3 rounds at each β-level) from
   their step bounds and the chosen weights, and (1.1) evaluated at I15's Theorem 3.1.
@@ -143,6 +144,15 @@ explicit function of finitely many chosen weights and of six losses that the rec
   of the record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is existential, and the optimal loss
   may be far smaller. The levers: the parameter point (E1'a's first question); a per-level gain larger than α − 4; a
   different proof of the level step, keeping in mind that the source's one-step route is closed at n = 4 (I15:12-17).
+
+- LD5 (E1'a's first question answered: no admissible point opens the gap; D353). The record's construction fixes the
+  damping parameters (v, e, h) by e ≤ e_0(v) ≈ 6.9 × 10⁻⁵ v² (the interior saddle, semiclass5.py W4) and h below e (the
+  roots near 2 stay above 2 only there, damping5.py U6). `checks/gapscan5.py` computes the gap near 2 of the scalar
+  indicial roots over that region: it is set by h, about c(v) h for h ≪ e with c(1/2) ≈ 3.06, flat in e (G2), and its
+  largest value, at e = e_0(v), h → e, v ≈ 0.45, is about 3.1 × 10⁻⁵ (G3), against 2.93 × 10⁻⁶ at the record's point
+  (G1). Since ε_ind is at most this gap, at every admissible point ε_K < ε_ind < 3.1 × 10⁻⁵, so LD3's counts improve by
+  at most about ten: K > 6.5 × 10⁴, the d this proof produces exceeds 1.3 × 10⁵, and the nested loop runs more than
+  5 × 10⁸ rounds. A gap of order one needs a different constraint damping, not a different point of this one.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.

@@ -6243,3 +6243,15 @@ bounded region converges only up to v ≈ 1.5, not 2.0 as D344 read from its (u,
 disagreement starts at one axis, near the seed's horizon, where the angular spectrum stops decaying: the solution
 steepens there faster than 24 modes resolve. Finer v-steps change nothing, so it is not a stability limit of the
 step. Whether the steepening is the solution's or the axis treatment's is now G1's question.
+
+**D352 (2026-10-31): what a uniform bound must reach, and a sign.** The actual per-harmonic cut-off norms of the
+scalar wave operator fall like about 12/(l(l+2)) once the barrier covers the interval, far below the explicit bound,
+which grows like exp(l²/σ); the missing ingredient for uniformity is a lower bound on how fast the solutions grow
+through the barrier. A review caught a missing minus sign in the kernel's formula (the bound used only its modulus,
+and stands). The paper's equality sentence now states both conditions under which the horizon has exactly one zero.
+
+**D353 (2026-10-31): the small gap cannot be opened by the parameters.** The tiny indicial gap behind the long loops
+of D348-D349 is set by one of the constraint-damping parameters, and the admissible range of all three, which the
+record fixes by positivity at an interior saddle, allows a gap of at most about 3 × 10⁻⁵: ten times the record's, no
+more. So the loss of this proof stays above about 130,000 whatever the parameters; a gap of order one would need a
+different constraint damping.

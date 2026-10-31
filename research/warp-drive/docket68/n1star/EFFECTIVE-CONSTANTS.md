@@ -365,7 +365,8 @@ file, line, class, the statement it serves, the constant it hides, and an excerp
   except five, so E1' is not bookkeeping but three tasks: E1'a (numbers for the weights from the index sets at n = 4),
   E1'b (the five losses), E1'c (the level and round counts). k'' is now defined (LOSS-D.md LD1). At the record's
   parameter point two counts are already known to be large (LD3, D348): the d this proof produces exceeds 1.3 × 10⁶
-  from one chain of decay levels alone, and a loop nested inside it runs about 5 × 10¹⁰ rounds.
+  from one chain of decay levels alone, and a loop nested inside it runs about 5 × 10¹⁰ rounds. No admissible choice
+  of the damping parameters helps by more than a factor of about ten (LD5, D353).
 
 - **E1''. The inventory.** Finish section 2's inventory of δ_K and ε_dat statement by statement, and unfold each
   part (ε_ext, ε_slab and their higher orders, the data map, III.C's and III.B's thresholds) into its own proof's

@@ -4609,3 +4609,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   resolvent <= (Lambda/|sigma|) exp(I_l/(2|sigma|)): III.D Proposition 6.2's injectivity with a constant, per harmonic.
 - Open: uniformity in l (an Agmon bound in the forbidden region), sigma -> 0, the trapping energies at large sigma, the
   record's b-Sobolev norms, Im sigma -> 0 joined to the real axis.
+
+### 4.273 E1'a's first question: the indicial gap over the damping parameters (D353)
+
+- checks/gapscan5.py G1-G3: the gap near 2 of box^C's scalar indicial roots (damping5.py's polynomial, weight 2/3) is
+  about c(v) h for h << e (c(1/2) ~ 3.06), flat in e; over e <= e_0(v) ~ 6.9e-5 v^2 (semiclass5 W4) and h <= e (U6) its
+  largest value is ~3.1e-5 (v ~ 0.45, h -> e = e_0), against 2.93e-6 at the record's point. So eps_ind < 3.1e-5 at every
+  admissible point; LD3's counts improve by at most ~10 (K > 6.5e4, d > 1.3e5, nested rounds > 5e8). An order-one gap
+  needs another constraint damping.
