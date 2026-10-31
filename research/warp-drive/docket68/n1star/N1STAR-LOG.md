@@ -6600,3 +6600,11 @@ waves' own contribution vanishes, and nothing else can reach it. On the terms th
 waves' contribution does not vanish, but the second-order correction has exactly the freedom to cancel it, in
 components that do not enter the leading equations, so the earlier stage is untouched. Whether the components so
 fixed agree with the correction's own transport at the following order is the next check, and is not made.
+
+**D397 (2026-10-31): the last unmeasured constraint on the chain's step, narrowed.** The step of the long chain in
+the loss is capped by a small gap constant, and one further condition might cap it further: no exponent in a certain
+set may fall just above two or three. That condition holds exactly when the constant is below the set's smallest
+distance above those integers. The parts of the set that the record computes cannot bring that distance below the
+gap constant, so if the condition binds harder it must be through one of four ingredients the record has not computed
+as numbers in five dimensions. A small root sitting just above two belongs to a different operator and is not in the
+set.

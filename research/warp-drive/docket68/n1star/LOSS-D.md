@@ -3,7 +3,7 @@
 Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), LD6 (D365), LD7 (D377, which corrects LD6
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
-findings seated. LD6-LD7 to be read.
+findings seated. LD6-LD8 to be read (LD8: D397).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J''''s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -286,6 +286,31 @@ loop counts of section 3.
     ε_+; δ_♯, since 2λ_♯ = 3 + 2δ_♯ > 3 + ε_+ (I11:127); and (G), whose purpose is that the remainder 2 + ε_K is reached
     with 𝒩's rows alone (I11:434-438). Whether the cascade can run with ε_+ of order one while ε_ind stays small is not
     examined.
+
+- LD8 (whether (G) binds below ε_ind, reduced; deduced from the record's text, D397). I11 Definition 1.3's (G) asks
+  that no λ ∈ Λ have real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K], and no λ + d_c0, λ + d_c1 in (2, 2 + ε_K]
+  (I11:152-156).
+  - *What (G) is.* Λ is discrete with finitely many elements in each bounded region (I11 Lemma 1.2 (a)). So (G) is
+    exactly ε_K < δ_G, where δ_G > 0 is the least positive value of Re λ − 2 and Re λ − 3 over λ ∈ Λ, and of
+    Re(λ + d_c) − 2 for c = c0, c1. "(G) binds below ε_ind" means δ_G < ε_ind.
+  - *What cannot make it bind.* Λ's generators of real part exactly 2 or 3 (the (2, 0) of 𝒢 := (2, 0) ∪ (2 + ℰ_ind),
+    I8:40, and 3) lie on the open ends of the windows. Their translates by w ∈ π_1(ℰ_ind ∪ ℰ^ι_ind) have
+    Re w ≥ ε_ind > ε_K (D3:44-48, I6:119), and 2 + ℰ_ind likewise. Translates by 1 stay on integers.
+    2λ_♯ = 3 + 2δ_♯ (I11:127) is not in a window even if it is in Λ, as 2δ_♯ > ε_+ > ε_K. At the record's point
+    γ_Υ = e_Υ = 1/100 (N1STAR-PROOF.md:5457) this is λ_♯ = 1.5099 and δ_♯ = 0.0099, computed from G4:14's
+    λ_♯ = 3/2 + (1 − e_Υ)γ_Υ.
+  - *What could.* Four sources remain, none computed as numbers at n = 4 in the record:
+    - λ_♯ plus a sum of elements of π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1} landing within ε_ind above an integer, which needs
+      real parts summing to within ε_ind above ½ − δ_♯ = 0.4901 (mod 1);
+    - elements of ℰ_++ (I9:37-40, min Re ≥ λ_♯) or of ℰ^C_I (C2:257-259, min Re > 3/2 + 2γ_Υ, I11:110) with real
+      part in (2, 2 + ε_ind] ∪ (3, 3 + ε_ind];
+    - elements of ℰ_col (I12:103-104, real parts ≥ 0) with real part in (0, ε_ind];
+    - the column offsets d_c0, d_c1 at or below ε_ind.
+  - *A near miss that is not in Λ.* The roots 2 + 2.93 × 10⁻⁶ of □^C at l = 2 (`checks/iota5.py`:44) would bind if
+    they were in Λ. Nothing places them there: Λ's ℰ_ind is □^Υ(0)'s (verifier 174's B1), and ℰ_++ is required to
+    contain only ℰ^♯_+ ∩ {Re < 2}.
+  - So the open question of LD7 is reduced to the four checks above. Each needs one index set at n = 4 as numbers,
+    which the record has not computed.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.

@@ -4691,6 +4691,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   eta_2 < eps_+ (I12:58, 349-350, 531-532), not (G); D377's 'lambda^C - 1 in E_ind' (so 3 + gap in Lambda) is withdrawn
   (E_ind in Lambda comes from Box^Upsilon). The four-term Taylor count is not the cap. Open: lifting needs (1.1), eta_2,
   delta_sharp and (G) relaxed together (I11:127, 434-438).
+- D397 (LOSS-D LD8, deduced): (G) is eps_K < delta_G, delta_G > 0 the least positive Re(lambda) - 2, - 3 over Lambda
+  (and lambda + d_c0, d_c1). The record's computed parts of Lambda cannot make it bind below eps_ind (integers on the
+  windows' open ends; translates by Re w >= eps_ind; 2 lambda_sharp = 3 + 2 delta_sharp, 2 delta_sharp > eps_+).
+  What could: lambda_sharp-translates near an integer, E_++ or E^C_I in a window, E_col in (0, eps_ind], or
+  d_c0, d_c1 <= eps_ind -- four index sets at n = 4 not computed. box^C's 2 + 2.93e-6 is not in Lambda.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
