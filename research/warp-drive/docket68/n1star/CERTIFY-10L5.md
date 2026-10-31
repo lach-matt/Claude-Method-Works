@@ -265,13 +265,47 @@ No other component is nonzero. So the scheme is the following.
     condition drags the angle into the axis faster than any fixed grid resolves.
   - *λ = 0.3162, x = +1.* At the failure (v ≈ 3.3, R ≈ 0.93-1.0) the drag is below e^(0.02) everywhere in the column.
     So the second seed's steepening is not this effect, and stays open.
-- *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
-  the computed solution is a converged approximation on 𝒟_q up to v ≈ 1.65 of 4.5, in (u, v) and in angle; at the
-  second seed, to v ≈ 3-3.5. Beyond, it fails to converge at an axis while x_K < 1: at x = −1 inside the horizon for
-  λ = 1 (D354), and at x = +1 for the second seed. G1 is not yet answered to the end of the domain.
+- *The swapped gauge (D386; `dnsolve5v.py` V1-V4, computed).* The shift moved to dv: dx − (1 − x²)s dv, so x is
+  constant along the ingoing generators that carry the wave, and the drag moves to the outgoing ones.
+  - *The equations.* The two Ricci tensors are exact mirror images under u ↔ v (V1). So the scheme is dnsolve5's
+    mirrored: Ric_ux transports s along each ingoing cone.
+  - *The new datum.* The one new quantity is s_u on the wave's cone u = −R0, where s = 0 is the gauge. It comes from
+    Ric_vx, an ODE in v along that cone once the transverse derivatives R_u, m_u, n_u, W_u are carried by the
+    uv-equations from Tangherlini at the corner. With Tangherlini data it returns Tangherlini's R_u at second order
+    (V3).
+  - *Checks.* Tangherlini on the stretched grid is second order (V2). The spurious s that the axis rounding of D354
+    leaves is 5.3 × 10⁻⁵, against dnsolve5's own 1.0 × 10⁻⁴.
+  - *The invariant check (V4, and at the production grid).* The section volume π²∫R³dx is gauge invariant here, since
+    the null foliation is the same in both gauges.
+    - It agrees between the gauges to 10⁻¹² before the wave arrives (v < 0.5).
+    - Later the gap is within each gauge's own (u, v) error, about 10⁻² at 800 × 360, and it falls about 3.5-fold per
+      doubling: 1.7 × 10⁻² → 4.8 × 10⁻³ on v ∈ [1, 1.5), 3.5 × 10⁻² → 9.7 × 10⁻³ on [1.5, 2).
+  - *λ = 1 at 800 × 360 with `ld 3`, max over 𝒟_q of |Δm| between angular resolutions, per v-band:*
 
-- *Next.* At λ = 1, remove the drag: an angle carried along the ingoing generators (the shift moved to dv), or a moving
-  map near x = −1 that follows ln(1 + x) − 2∫s du; then rerun the M = 24 and 32 comparison. At the second seed, decide
+    | v | [1, 1.5) | [1.5, 1.65) | [1.65, 1.8) | [1.8, 2) | [2, 2.5) | [2.5, 3) |
+    |---|---|---|---|---|---|---|
+    | dnsolve5, M16-M24 | 7.3e-5 | 5.4e-3 | 0.75 | 3.9 | 13 | 10 |
+    | dnsolve5, M24-M32 | 1.7e-6 | 3.9e-4 | 0.43 | 3.4 | 12 | 87 |
+    | swapped, M16-M24 | 9.6e-4 | 2.7e-3 | 6.3e-3 | 3.0e-2 | 0.53 | 0.60 |
+    | swapped, M24-M32 | 7.3e-6 | 2.9e-5 | 4.7e-5 | 2.4e-4 | 0.89 | 1.0 |
+
+    n behaves the same way (swapped M24-M32: 1.6 × 10⁻⁵ on [1.8, 2), 1.7 × 10⁻² on [2, 2.5)).
+  - *The drag.* In this gauge the angle is pressed toward an axis by at most e^(−0.92), at x = +1 for v ≈ 2.75.
+    dnsolve5's was e^(−13) at x = −1 (`dnsolve5v.py --drift`).
+  - *The new limit.* Convergence in angle now holds to v ≈ 2.1 instead of 1.65. |Δm| > 10⁻³ first at v = 2.14,
+    u = −1.041, at the axis x = −1. There R = 1.58, outside the horizon, and x_K = 0.001. The M32 Chebyshev tail of m
+    there rises from 6 × 10⁻⁸ at v = 1.89 to 3 × 10⁻⁵ at v = 2.14. This is the axis where m drops out of the metric and
+    the equations fix only (1 + x) m_uv (D352). So the remaining limit is the axis condition on m, not the drag, and not
+    the curvature.
+- *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds. At λ = 1
+  the computed solution is a converged approximation on 𝒟_q up to v ≈ 2.1 of 4.5 in the swapped gauge (v ≈ 1.65 in
+  dnsolve5's), in (u, v) and in angle; at the second seed, to v ≈ 3-3.5. Beyond, it fails to converge at an axis while
+  x_K < 1: at x = −1 for λ = 1 (outside the horizon in the swapped gauge, D386), and at x = +1 for the second seed.
+  G1 is not yet answered to the end of the domain.
+
+- *Next.* At λ = 1, the axis condition on m at x = −1: impose regularity of m there in the swapped gauge, by an
+  axis-adapted variable or a mapped Chebyshev grid concentrated at the axes. The `reg` division of D352 did not cure
+  it in dnsolve5, but there the drag dominated. Then rerun M = 24 and 32. At the second seed, decide
   whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann scalar along the axis) or by
   angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is excluded (D354), and so is the
   curvature cut. Then F3 (the certified linear constant) on the converged part.

@@ -4631,6 +4631,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   d ln(1+x)/du = 2 s(-1). At lambda = 1 the drag at x = -1 is e^-5.0 at the onset v = 1.65 (first node e^-6.15, M = 24)
   and e^-13 by v = 1.8, inside the horizon (R ~ 0.52): the x = -1 non-convergence is largely the gauge's. Next: the shift
   on dv, or a moving map at x = -1. At the second seed the x = +1 failure has drag < e^0.02: not this, still open.
+- D386 (dnsolve5v.py V1-V4, computed): the shift on dv. The Ricci tensors are exact u <-> v mirrors, so the scheme is
+  dnsolve5's mirrored; s_u on u = -R0 from Ric_vx with the transverse f_u carried by the uv-equations. The section
+  volume (invariant) agrees with dnsolve5 within (u, v) error, converging. lambda = 1, 800 x 360, ld 3: |dm| M24-M32 is
+  7e-6, 3e-5, 5e-5, 2e-4 on [1, 2) (dnsolve5: 2e-6, 4e-4, 0.43, 3.4); drag <= e^-0.92. Converged in angle to v ~ 2.1
+  (was 1.65). Then m steepens at x = -1 outside the horizon (R = 1.58, x_K = 0.001), where only (1+x) m_uv is fixed:
+  the axis condition on m is the next limit, not the drag.
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 
@@ -4690,6 +4696,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   nearest, so m' >= 0.005794, left ratio <= 0.0391 and B_6(3) <= 19.21 sat below the enclosures; now every bound is
   rounded outward by exact rationals. Endpoints carried at 103 bits; C4 now runs the bisection at l = 0 and s = 3/2
   (both fail, with certified negative values); l = 0's failure is w_0 < 0 near r = 3.2, not only a < b.
+- D387 (E2-PILOT section 3g, checks/e2lzero5.py Z1-Z5, certified): l = 0 by Lemma E2.8', E2.8 with -2q u-bar added to
+  the multiplier: W_q = w + q'' - 2qV, m' = min_I (phi' - q), M' = max_I |phi' - 2q|, the sigma^2 q term good. q = 43
+  sech^2 bumps (widths < s) from a linear program, rounded and certified as is: W_q >= 0, phi' - q >= 0 on R, tails
+  explicit. B_0(0+, 1, 3, 10) <= 164.5, 183.5, 275.2, 725.0. Every harmonic l >= 0 now certified at real sigma != 0.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 

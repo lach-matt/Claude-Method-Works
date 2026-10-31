@@ -3,9 +3,11 @@
 Status: written (D350); section 3b added (D355) and verified (verifier 165, D356); section 3c added (D359), read by
 verifier 167 (D362); section 3d (the band, computed) added (D371); section 3e (Lemma E2.8, a Morawetz bound for every
 l ≥ 1 and every real σ, D379; read by verifier 175, D382) added; section 3f (Lemma E2.9 and the certificate:
-every l ≥ 1, D384; read by verifier 176, D385: decimals rounded outward) added; sections 1-3 and 3d to be read.
+every l ≥ 1, D384; read by verifier 176, D385: decimals rounded outward) added; section 3g (Lemma E2.8′, l = 0
+certified, D387) added; sections 1-3, 3d and 3g to be read.
 Check scripts: `checks/e2pilot5.py` P1-P4 (computed), all pass, every control fails; the band: `checks/e2band5.py`;
-E2.8: `checks/e2morawetz5.py` M1-M3; E2.9 and the certificate: `checks/e2certify5.py` C1-C5.
+E2.8: `checks/e2morawetz5.py` M1-M3; E2.9 and the certificate: `checks/e2certify5.py` C1-C5; l = 0:
+`checks/e2lzero5.py` Z1-Z5.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
@@ -283,7 +285,7 @@ What it does not give:
 
 - a certificate: w ≥ 0 and the constants are checked on a grid, and an interval-arithmetic check per l is a finite
   step (answered in section 3f, D384);
-- l = 0, and l > 30 in the instrument (l > 30 answered in section 3f; l = 0 is still open);
+- l = 0, and l > 30 in the instrument (l > 30 answered in section 3f, l = 0 in section 3g);
 - a good constant: B is dominated by the cut-off term 2/m′, where m′ = φ′ at the end r = 4 of I is about 0.0058. As
   σ → 0 that term is almost all of B_l² w_I, and m′ decays like e^(−2Λ/s) as I lengthens, so the bound is
   exponentially poor in the length of I;
@@ -354,11 +356,60 @@ What it does not give:
 
 - l = 0: with the photon-sphere centre w_0 < 0 near r ≈ 3.2 (w_0 ≤ −0.01125 at t = 0.8, certified), where −½φ_*‴ < 0
   and a = 3/4 makes −φ_*V_0′ too small to absorb it; the left tail's proof also needs a ≥ b, false there; and every
-  peak-centred s failed too (section 3e);
+  peak-centred s failed too (section 3e); answered in section 3g, which adds a Lagrangian term to the multiplier;
 - constants away from I = {r ∈ [1.2, 4]} and s = 49/50: both are fixed here;
 - a sharp constant: the cut-off term 2/m′ still dominates, and the growth in |σ| is the flux step's (section 3e);
 - the correctness of mpmath.iv itself, which the certificate assumes;
 - the record's norms (section 4), or Im σ > 0.
+
+## 3g. The harmonic l = 0, certified (E2.8′, D387)
+
+No tanh multiplier gives w_0 ≥ 0 (sections 3e-3f), so the multiplier takes one more term.
+
+**Lemma E2.8′.** Let φ be as in Lemma E2.8, and let q ∈ C² with q ≥ 0 and q, q′ → 0 at ±∞. For u the outgoing solution
+of −u″ + (V − σ²)u = f, f ∈ L²(I), σ real and nonzero,
+
+    2 ∫ (φ′ − q)|u′|² + ∫ W_q |u|² + 2σ² ∫ q|u|² = Re ∫ f (2φū′ + (φ′ − 2q)ū) + 2σ²(|c_+|² + |c_−|²),
+    W_q := −φV′ − ½φ‴ + q″ − 2qV.
+
+If φ′ − q ≥ 0 and W_q ≥ 0 on ℝ, then ‖χ_I R(σ) χ_I‖ ≤ ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2) with m′ := min_I (φ′ − q),
+M′ := max_I |φ′ − 2q| and w_I := min_I W_q.
+
+*Proof.* The identity is E2.8's with −2qū added to the multiplier. The added term contributes
+Re ∫ f(−2qū) = −2∫ q|u′|² + ∫ q″|u|² − 2∫ q(V − σ²)|u|², by two integrations by parts. Its boundary terms
+q(|u|²)′ − q′|u|² vanish at ±∞ because q, q′ → 0 and u is bounded. The flux identity σ(|c_+|² + |c_−|²) = −Im ∫ f ū is
+unchanged. On the left, the σ²q term is nonnegative and is dropped, and the integrands outside I are nonnegative. The
+pairing on the right is at most ‖f‖(2‖u′‖_I + M′‖u‖_I). So E2.8's algebra applies with m′, M′ and w_I as defined. ∎
+
+**Certified (`checks/e2lzero5.py` Z1-Z5; interval arithmetic as in section 3f).**
+
+- *The multiplier.* φ = tanh((r_* − x_c)/s), s = 49/50, x_c = r_*(√2) − 3/10. q = Σ_k c_k sech²((r_* − x_k)/κ_k) is a
+  sum of 43 bumps. The x_k lie on a lattice of 1/4 about the photon sphere, κ_k ∈ {3/10, 1/2, 9/10}·s, and the
+  c_k ≥ 0 are rounded to four digits.
+  - The c_k came from a linear program over that dictionary: maximise min_I W_q subject to W_q ≥ φ′/30 and q ≤ φ′/2 on
+    a grid.
+  - The certificate checks this q, not the program.
+  - Each κ_k < s, so q decays faster than φ′ at both ends.
+- *Z1.* The identity, as an exact derivative (sympy). With q″ entering at −1 it fails.
+- *Z2.* W_q ≥ 0 (4669 enclosures) and φ′ − q ≥ 0 (155 enclosures) on t ∈ [−120, ln 119], by adaptive bisection.
+- *Z3, the tails.*
+  - *Below the range.* Every bump is past its inflection, so q″ ≥ 0, and W_q ≥ −φV′(1 − ρ_3 − ρ_q).
+    - ρ_3 ≤ K e^(2r_*(1/s − 1)) as in section 3f. Its V′ bound now uses a(2y − 1) + by(3y − 2) ≥ (a + b) − e(4a + 8b),
+      which holds for every a, b > 0; section 3f's a ≥ b fails at l = 0.
+    - ρ_q := 2qV/(−φV′) is at most a sum of exponentials, each increasing in r_*.
+    - Certified: ρ_3 + ρ_q ≤ 0.145 at the end of the range, and q/φ′ ≤ 2.32 × 10⁻⁶ (increasing in r_*).
+  - *Above it.* ρ_3 + ρ_q ≤ 7.03 × 10⁻¹⁰⁰ and q/φ′ ≤ 1.32 × 10⁻¹⁷, both decreasing in r_*.
+- *Z4, the constants.* Over 2000 pieces of I: min_I W_q ≥ 0.02886, m′ ≥ 0.002580, M′ ≤ 0.3809. So
+  B_0(0+) ≤ 164.5, B_0(1) ≤ 183.5, B_0(3) ≤ 275.2 and B_0(10) ≤ 725.0.
+- *Z5, controls.* Without q, w_0 ≤ −0.1775 at t = −0.04 (certified). With q″ entering at −1, the bisection fails and
+  W ≤ −0.490 at t = −0.12.
+
+What this gives: with section 3f, every harmonic l ≥ 0 has a certified bound for ‖χ_I R_l(σ) χ_I‖ at every real σ ≠ 0.
+B_0(3) ≤ 275.2, and the l ≥ 1 bounds are section 3f's. The same Lagrangian term with an asymmetric φ (width s_L < 1
+toward the horizon, wider outside) gives B_1(3) ≈ 86 against 264.5 (computed, not certified, D387).
+
+What it does not give: a sharp constant (m′ is small, so the cut-off term dominates as before); constants away from
+I and s = 49/50; and the record's norms (section 4) or Im σ > 0.
 
 ## 4. What remains for E2 at this operator
 
@@ -371,9 +422,10 @@ What it does not give:
   - *The other harmonics, l < l_0(σ) with max V_l ≥ σ²,* kept Proposition E2.4's constant, which is finite but
     astronomically large, until Lemma E2.8 (section 3e, D379) gave 1 ≤ l ≤ 30 an explicit one (about 19-21 at σ = 3;
     constants computed), and Lemma E2.9 with its certificate (section 3f, D384) every l ≥ 1 (certified: 20.99 for 5 ≤ l ≤
-    17 at σ = 3, 19.22 for every l ≥ 6). Section 3d computes their actual norms at σ = 3, at most 1.132 (D371). Below
-    the proved l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below the threshold 18 that quadrature
-    gives, which is computed, not proved).
+    17 at σ = 3, 19.22 for every l ≥ 6), and Lemma E2.8′ (section 3g, D387) l = 0 (certified: 275.2 at σ = 3).
+    Section 3d computes their actual norms at σ = 3, at most 1.132 (D371). Below the proved l_0 = 50 at σ = 3 it
+    reaches e^417 at l = 49 (e^54 at l = 17, just below the threshold 18 that quadrature gives, which is computed, not
+    proved).
   - *Two kinds of l below l_0.*
     - Where κ_I² > 0 (from l = 12 at σ = 3, by (i)), only the end signs are missing; a sharper Lemma E2.5b would cover
       them.
@@ -395,7 +447,8 @@ What it does not give:
   u_h grows through the barrier. Section 3b supplies the part of it that is needed: the signs of (|u_h|²)' and
   (|u_∞|²)' at the ends of I, from the WKB energy and the flux. Labels: computed (the table); section 3b proved.
 - **Near σ = 0 and large |σ|.** The bounds of sections 3b-3c degenerate as σ → 0 (the record's I.C low-energy analysis),
-  while E2.8 stays bounded there for every l ≥ 1 in this cut-off norm (certified, section 3f). Uniformly in l, they
+  while E2.8 stays bounded there for every l ≥ 1 in this cut-off norm (certified, section 3f), and E2.8′ for l = 0
+  (certified, section 3g). Uniformly in l, they
   degenerate at the trapping energies σ² ≈ max V_l for large σ (the photon sphere; E4), and E2.8 grows linearly in |σ|.
 - **The record's norms.** Proposition 6.2 is stated on the variable-order b-Sobolev spaces X_σ, Y_σ of the extended
   domain through the horizon; passing from L²(dr_*) per harmonic to them needs the elliptic and propagation constants of
@@ -407,11 +460,13 @@ What it does not give:
 ## 5. Labels and sources
 
 Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, Proposition E2.5, Corollary E2.6; Lemma
-E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9); computed (P1: (1.1), (1.2); P2: numerical illustration, scipy solve_ivp at
-rtol 10⁻¹¹ with the outgoing data started from the exact solution of the inverse-square tail; P3: Corollary E2.6's
+E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9; Lemma E2.8′ given W_q ≥ 0); computed (P1: (1.1), (1.2); P2: numerical
+illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started from the exact solution of the
+inverse-square tail; P3: Corollary E2.6's
 thresholds, Proposition E2.5's conditions by quadrature, and the bound against the numerical kernels; P4: unimodality
 for l ≤ 40, and Lemma E2.7 against the numerical kernels on I; `checks/e2morawetz5.py` M1: identity (3.4) as an exact
 derivative, sympy; M2-M3: w ≥ 0 and the constants on a grid, and B_l(3) against the computed norms, floating point, not
 certified); certified (`checks/e2certify5.py` C1-C5: w ≥ 0 on ℝ for every l ≥ 1 by Lemma E2.9, and the constants, by
-interval arithmetic with explicit tail bounds). Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE
+interval arithmetic with explicit tail bounds; `checks/e2lzero5.py` Z1-Z5: l = 0 by Lemma E2.8′, the same way).
+Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE
 fact); EFFECTIVE-CONSTANTS.md section 5 (E2).

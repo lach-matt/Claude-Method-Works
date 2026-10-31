@@ -6502,3 +6502,21 @@ so the pieces cover the range exactly rather than by a rounding accident; the co
 where it must fail, at the lowest harmonic and at a too-wide multiplier, each with a certified negative value; and
 the lowest harmonic's failure is stated as what it is, a negative region near r = 3.2, rather than only the
 inequality the tail proof needs.
+
+**D386 (2026-10-31): the swapped gauge removes the drag.** With the angle's shift moved from the ingoing to the
+outgoing direction, the angle is carried along the curves that carry the ingoing wave, so its angular profile is no
+longer pressed into an axis; the remaining drag is under a factor of three, against e^13 before. The field equations
+in the new gauge are the old ones with the two null directions exchanged, exactly, so the solver is the old one
+mirrored; its one new piece is a transverse derivative of the shift on the wave's initial cone, obtained by carrying
+the fields' transverse derivatives along that cone. The two gauges agree on a quantity they must share, the volume of
+each symmetry sphere, to within each one's own discretisation error, and that agreement improves with resolution.
+At the reference wavelength the solution now converges in angle to about v = 2.1 of 4.5, where it stopped at 1.65. It
+then fails at the other limit already seen: the axis where one of the angular fields drops out of the metric, outside
+the horizon and at low curvature. That axis condition, not the gauge, is now the obstruction.
+
+**D387 (2026-10-31): the lowest harmonic, certified.** The positivity condition of the Morawetz bound cannot be met
+at the lowest harmonic by any multiplier of the form used so far. Adding a lower-order term to the multiplier, with
+the right sign, changes the condition to one that is linear in the new term, so whether a term exists is a linear
+program; one was found, built from 43 smooth bumps, rounded, and the rounded one certified directly by interval
+arithmetic with explicit tail bounds. The cut-off resolvent at the lowest harmonic is now bounded at every real
+frequency, by about 275 at the reference frequency, so every harmonic has a certified bound there.
