@@ -153,10 +153,10 @@ Control: 1/(4κ_I²) falls below the measured norm somewhere.
 
 ## 3c. Above the barrier (E2.7, D359)
 
-**Lemma E2.7.** For every l, V_l has one maximum and no other critical point. If σ² > V_max := max V_l, then
-|u_h|² ≤ 2σ²/(σ² − V_max) and |u_∞|² ≤ 2σ²/(σ² − V_max) everywhere. Hence, for an r_*-interval I of length Λ,
+**Lemma E2.7.** For every l, V_l has one maximum and no other critical point. If σ is real and σ² > V_max := max V_l,
+then |u_h|² ≤ 2σ²/(σ² − V_max) and |u_∞|² ≤ 2σ²/(σ² − V_max) everywhere. Hence, for an r_*-interval I of length Λ,
 
-    ‖χ_I R_l(σ) χ_I‖ ≤ Λ σ/(σ² − V_max).
+    ‖χ_I R_l(σ) χ_I‖ ≤ Λ |σ|/(σ² − V_max).
 
 *Proof.* With a := L + 3/4, b := 9/4 (μ = 1) and y := 1/r², r³V_l' (in r) is −2a + 4(a − b)y + 6by². That is a convex
 quadratic with a negative value at y = 0, so it changes sign once on (0, 1): V_l rises, then falls.
@@ -170,8 +170,8 @@ quadratic with a negative value at y = 0, so it changes sign once on (0, 1): V_l
 **Computed (P4).** One sign change of V_l' for l ≤ 40. On I (Λ = 3.74), against the numerical kernels: σ = 1, l = 0:
 1.89 ≤ 7.57; σ = 3, l = 0, …, 4: 0.41, 0.42, 0.45, 0.51, 0.67 ≤ 1.32, 1.45, 1.72, 2.35, 4.44. Control: a tenth of the
 bound fails. So above the barrier the constant is polynomial: Proposition E2.4's exp(I_l/(2σ)) is needed only for the
-l with V_max ≥ σ² below l_0(σ). Those are the l whose barrier top lies above σ² without covering I (5 ≤ l < 50 at
-σ = 3, by the proved thresholds).
+l with V_max ≥ σ² below l_0(σ): 5 ≤ l < 50 at σ = 3, by the proved thresholds. Of these, 12 ≤ l < 50 have κ_I² > 0 and
+lack only the end signs; 5 ≤ l < 12 are those whose barrier top lies above σ² without covering I.
 
 ## 4. What remains for E2 at this operator
 
@@ -181,9 +181,9 @@ l with V_max ≥ σ² below l_0(σ). Those are the l whose barrier top lies abov
   replace it, for l ≥ l_0(σ), by 1/((15/256)(L + 3/4) − σ²), asymptotically 17.07/L. They rest on Lemma E2.5a's
   monotone energy and the flux.
   - *Above the barrier* (σ² > max V_l) Lemma E2.7 gives the polynomial Λσ/(σ² − max V_l) (section 3c, D359).
-  - *The other harmonics l < l_0(σ)* keep Proposition E2.4's constant, which is finite but astronomically large.
-    Below the proved l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below the threshold 18
-    that quadrature gives, which is computed, not proved).
+  - *The other harmonics, l < l_0(σ) with max V_l ≥ σ²,* keep Proposition E2.4's constant, which is finite but
+    astronomically large. Below the proved l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below
+    the threshold 18 that quadrature gives, which is computed, not proved).
   - *Two kinds of l below l_0.*
     - Where κ_I² > 0 (from l = 12 at σ = 3, by (i)), only the end signs are missing; a sharper Lemma E2.5b would cover
       them.
@@ -219,5 +219,6 @@ Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, P
 Lemma E2.7);
 computed (P1: (1.1), (1.2); P2: numerical illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started
 from the exact solution of the inverse-square tail; P3: Corollary E2.6's thresholds, Proposition E2.5's conditions by
-quadrature, and the bound against the numerical kernels).
+quadrature, and the bound against the numerical kernels; P4: unimodality for l ≤ 40, and Lemma E2.7 against the
+numerical kernels on I).
 Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE fact); EFFECTIVE-CONSTANTS.md section 5 (E2).

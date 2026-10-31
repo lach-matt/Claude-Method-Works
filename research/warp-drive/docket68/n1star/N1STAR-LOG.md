@@ -6316,3 +6316,14 @@ dust families (small, localized data under U(1) symmetry). FAMILIES5.md proposes
 two-family Stage 0 in the class: the ingoing shell crossed by an outgoing packet, whose mixed harmonics are
 non-resonant and solved by division.
 
+**D362 (2026-10-31): the three new notes read.** Verifier 167 found the resolvent bound above the barrier correct, its
+check reproduced, and the interior note's main claim and mass condition right. For the paper's first seed it computed
+the gain in the λ → 0 limit, about 0.18 μ0 with the record's envelope (if the amplitude is in seed units, still to
+confirm). That gives a final mass of about 118 l5², inside the condition. Its other findings are seated:
+- the two developments are one spacetime only on the domain of dependence of the shared data, not on all of the
+  record's domain;
+- the curvature boundary is a coordinate radius, so the statement needs strict inequality and small parameters;
+- the class run, not the asymmetric theorem, is the tool for the record's own data;
+- Touati's theorem assumes a background near Minkowski;
+- two expectations in the families note are now labelled as such.
+
