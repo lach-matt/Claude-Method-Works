@@ -6731,7 +6731,9 @@ really appears was tested against the simplest local mechanism: a forcing from t
 the resonant order would have made the coefficient large and certainly nonzero. The forcing is present but points in
 a direction the resonance does not see, so it produces nothing special. The coefficient is therefore set globally, by
 regularity at the horizon, and has to be computed from the full radial problem, most easily at a larger damping
-parameter where the two exponents separate, then followed down.
+parameter where the two exponents separate, then followed down. [Qualified in D420: the forcing is harmless only when
+one particular damping parameter is switched off; switched off the other way it is not, which is why its response is
+large at the record's point. The conclusion stands.]
 
 **D413 (2026-10-31): the 181st verifier's findings seated, and the second axis treatment tried.** The verifier found
 two real errors. First, in D408 one of the two nearly-commensurate exponents enters the record's sets shifted by a
@@ -6746,7 +6748,9 @@ two treatments differ there by amounts of the same order as the two resolutions 
 resolution is under way to tell
 whether the failure is a matter of resolution. The minor findings (a missing condition on sources at large distance, a
 sum over modes that left out the lowest one, table entries rounded the wrong way, a wording about which terms were
-computed, a missing control) are repaired as well.
+computed, a missing control) are repaired as well. [Corrected in D420: the scale the record allows is about three
+hundred times smaller than said here, so the sums stay well above it; and the two axis treatments agree only at the
+one point quoted, while on the axis itself they settle to different values.]
 
 **D414 (2026-10-31): two families of waves, the large terms of the linearised equation computed.** With one family of
 waves, the equation for a small correction has exactly one large coefficient, and one particular component of the
@@ -6787,3 +6791,17 @@ families, the cross-coupling between them disappears. This step checks that the 
 first stage of the construction. The second harmonics that the record's gauge handled with an extra wave term are
 absorbed algebraically by the gauge source instead, with an explicit formula, and nothing else at that stage changes.
 The next-order gauge condition and its propagation are not done.
+
+**D420 (2026-10-31): the 182nd verifier's findings seated.** Two real errors, both mine.
+- *The record's smallest scale.* The number used for it was really a cutoff value in one of the record's own
+  computations, not a minimum. Followed through, the record's definition, taken literally, admits no positive scale at
+  all. Taken the sensible way, the scale is about three hundred times smaller than D413 said. The gap condition is
+  still not shown to bind, but the length of the record's long chain is now at least about ten thousand million steps
+  under one reading of the record, and about twenty million under the other.
+- *The axis.* The quantity compared on the axis is not the geometry itself but its slope there, and the two axis
+  treatments settle to different slopes. In the geometry's own values they agree to a thousandth at the event. There
+  the solution converges slowly, and the real failure starts a little later and worsens with resolution.
+
+Smaller corrections: one condition holds only along one way of switching the damping off, a missed third window that
+changes nothing, a constant that tends to 2.0 rather than 1.86, and an earlier verifier's harmless warning,
+recorded.

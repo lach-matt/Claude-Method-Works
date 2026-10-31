@@ -13,6 +13,7 @@ Labels: computed (floating point, on saved runs).
 
     python3 checks/g1axis5.py PLAIN24 PLAIN32 REG24 REG32 [PLAIN40]
     python3 checks/g1axis5.py --sweep PLAIN24 PLAIN32 PLAIN40 ... (D418)
+    python3 checks/g1axis5.py --nodes A B C ... (D420: m and the metric combination P near the axis)
 """
 import os
 import sys
@@ -57,9 +58,35 @@ def sweep(paths):
         bands("run %d - run %d" % (n, n + 1), d, ok, rad, v)
 
 
+def nodes(paths):
+    """--nodes A B C ...: at the event (fixed by the first pair, as above), the values of m and of the metric
+    combination P = (2(1 + x) m - (1 - x) n)/3 at the nine nodes nearest x = -1, run by run; and per v-band the maxima
+    of |P_A - P_B| between consecutive runs. Near x = -1 the equations fix only (1 + x) m_uv, and m drops out of the
+    metric there (dnsolve5.py docstring), so m's value at the axis node is not a property of the solution; P is
+    (D420)."""
+    runs = [np.load(p) for p in paths]
+    ok = ~np.any([r["mask"] for r in runs], axis=0)
+    F = [GA.fields(r) for r in runs]
+    u, v = runs[0]["u"], runs[0]["v"]
+    rad = GC.areal(runs[1])
+    d01 = np.abs(F[0]["m"] - F[1]["m"])
+    sel = ok & (rad >= 1.0) & ((v >= 1.8) & (v < 2.0))[None, :]
+    i, j, k = np.unravel_index(np.argmax(np.where(sel[..., None], d01, 0)), d01.shape)
+    print("event cell: u = %.3f, v = %.3f, areal radius %.3f; nodes %d-%d (x = %+.4f ... %+.4f)"
+          % (u[i], v[j], rad[i, j], len(GA.XE) - 9, len(GA.XE) - 1, GA.XE[-9], GA.XE[-1]))
+    for name in ("m", "P"):
+        for n, f in enumerate(F):
+            print("  %s run %d: %s" % (name, n, " ".join("%+.4f" % q for q in f[name][i, j, -9:])))
+    for n in range(len(runs) - 1):
+        bands("|P| run %d - run %d" % (n, n + 1), np.abs(F[n]["P"] - F[n + 1]["P"]), ok, rad, v)
+
+
 def main():
     if sys.argv[1:2] == ["--sweep"]:
         sweep(sys.argv[2:])
+        return
+    if sys.argv[1:2] == ["--nodes"]:
+        nodes(sys.argv[2:])
         return
     paths = sys.argv[1:]
     assert len(paths) in (4, 5), __doc__

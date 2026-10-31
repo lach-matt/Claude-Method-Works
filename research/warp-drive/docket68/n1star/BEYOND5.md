@@ -265,8 +265,10 @@ f = 1 − μ/r², the wave operator gains exactly −μ r⁻³ ∂_r(r ∂_r F).
 - The μ terms have degree at most j − 2 in v − v1. So the top degrees, and with them the flat polynomial above, are
   unchanged, and μ enters r²φ at fixed t only from ρ² on.
 - The series no longer terminates. Summed on t = const (v1 − t = 1, μ = 1, exact rationals), 40 and 60 terms agree
-  to 10⁻¹³ at r = 5, 10 and 40 for l = 0, ..., 3. r²φ approaches the flat value cos(πl/2)/(l + 1): for l = 0 it is
-  0.95823, 0.98542 and 0.99884 at r = 5, 10, 40, a correction of about 1.86/r².
+  to 10⁻¹² at r = 5, 10 and 40 for l = 0, ..., 3 (6.4 × 10⁻¹³ at l = 0, r = 5). r²φ approaches the flat value
+  cos(πl/2)/(l + 1): for l = 0 it is 0.95823, 0.98542 and 0.99884 at r = 5, 10, 40. r²(1 − r²φ) is 1.044, 1.458,
+  1.855, 1.963 and 1.991 at r = 5, 10, 40, 160 and 640, so the correction tends to 2.0/r² (corrected D420, verifier
+  182: "about 1.86/r²" was the r = 40 value).
 - Not proved: the convergence for every l and the radius of convergence in s, though the recursion's ratio for
   j ≫ l (about s/2) suggests |s| < 2.
 

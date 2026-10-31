@@ -27,6 +27,7 @@ generators reaching them have real part >= 3/2). So:
      (it is also the d1-alone control);
   G5 the same from lambda_sharp: 3 + 5.02e-8, with d1 alone;
   and both are far above G2-G3's values: without d0 stackable the near-commensurability does not act.
+  G6 (D420) (G)'s third window, lambda + d_c above 2 for lambda = lambda_sharp + n d1 below 2: 2.45e-7 for d_c = d0, d1.
 
     python3 checks/gapsums5.py [--selftest]
 """
@@ -105,6 +106,17 @@ def main():
     ok["G4"] = mpf("1.388e-7") < g4 < mpf("1.390e-7") and a4[1] == 0 and a4[2] > 0
     ok["G5"] = mpf("5.01e-8") < g5 < mpf("5.03e-8") and a5[1] == 0
     ok["G4-G5 far above G2-G3"] = min(g4, g5) > 10**4*max(g2, g3)
+    g6 = {}
+    for name, dc in (("d0", D0), ("d1", D1)):
+        n = int(ceil((2 - LSHARP - dc)/D1))
+        lam = LSHARP + n*D1
+        if lam + dc - 2 <= 0:
+            n += 1
+            lam = LSHARP + n*D1
+        g6[name] = (lam + dc - 2, lam < 2)
+    print("  G6 (D420): (G)'s third window, lambda + d_c above 2 for lambda = lambda_sharp + n d1 below 2: d_c = d0 %s,"
+          " d_c = d1 %s" % (mp.nstr(g6["d0"][0], 6), mp.nstr(g6["d1"][0], 6)))
+    ok["G6"] = all(below and 0 < val < 3e-7 and val > g5 for val, below in g6.values())
     n = int(ceil(1/D0))
     gc = n*D0 - 1
     if gc == 0:

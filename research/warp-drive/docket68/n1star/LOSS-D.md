@@ -275,7 +275,10 @@ loop counts of section 3.
     ε_ind ≤ 2.932 × 10⁻⁶ at the record's point (the root 1 + 2.932 × 10⁻⁶; F2 (2.2), :133-136), α − 4 ≤ ε_K < 2.94 ×
     10⁻⁶ (α ≤ 4 + ε_K by I11:156), and below LD5's 3.1 × 10⁻⁵ at every admissible damping point. [D405, verifier 180:
     (2.2)'s least distance is printed at N1STAR-PROOF.md:4071-4072 as 7.3846 × 10⁻⁸ at the record's point, so
-    ε_ind ≤ 7.4 × 10⁻⁸; the bounds here that use 2.932 × 10⁻⁶ are true and about 40 times loose.] I11 Definition 1.3's
+    ε_ind ≤ 7.4 × 10⁻⁸; the bounds here that use 2.932 × 10⁻⁶ are true and about 40 times loose.] [D420, verifier
+    182: 7.3846 × 10⁻⁸ is δ_12, the value at the cutoff l ≤ 12 of that computation, not a minimum; δ_l → 0. Under the
+    reading LD10 fixes (roots with real part in [−10, 10]) the least distance from ℤ is 9.47 × 10⁻⁸, and D4's ε_ind is
+    below 1.46 × 10⁻¹⁰.] I11 Definition 1.3's
     (G) is a further constraint, which can only lower ε_K; whether it binds below ε_ind is not computed. ((1.1)'s ε_ind
     is III.G⁗ Proposition 5.1's (I10:48, I11:38), which is F′ (2.2)'s (G5:190). VI4-PARAMS:38's row w1 read it as min
     Re ℰ^ι_ind, under which no number follows; that row now reads it as (1.1) does, D390.)
@@ -349,14 +352,18 @@ loop counts of section 3.
   - *Only offsets with integer part 0 can be stacked.* The windows of (G) lie above 2 and 3, and the generators that
     reach them have real part ≥ 3/2. So an increment with integer part ≥ 1 can be used at most once there, and only
     increments in (0, 1) can be summed many times. Of the computed roots, only d1 is one: the sl roots
-    λ_sl,l+1 = l + 1 + δ_l and λ_sl,l+2 = l + 2 + δ′_l (GAUGEPOT:204-211) enter a 2 + ℰ_ind class as (l − 1) + δ_l and
-    l + δ′_l, and the mass state's root as 1 + d0, as above.
+    λ_sl,l+1 = l + 1 + δ_l and λ_sl,l+2 = l + 2 + δ′_l (GAUGEPOT:193-194, 204-211) enter a 2 + ℰ_ind class as
+    (l − 1) + δ_l and l + δ′_l, and the mass state's root as 1 + d0, as above. At most one increment with integer part
+    ≥ 1 fits in any one sum, and from the generator 2 only δ_2 or δ′_1 does (D420, verifier 182).
+  - *(G)'s third window* (LD8), λ + d_c in (2, 2 + ε_K] for λ ∈ π_1 ℳ below 2, takes d_c0 = d0 once without d0 being
+    in ℰ_ind. With λ = λ_♯ + n d1 the least value above 2 is 2 + 2.45 × 10⁻⁷, for d_c = d0 and d1 alike
+    (`checks/gapsums5.py` G6, D420, verifier 182). So the bound below stands.
   - *If ℰ_ind contains d1 and 1 + d0* (`checks/gapsums5.py` G4-G5, D413), with the increment 1: the least value above
     2 or 3 is 3 + 1.39 × 10⁻⁷ from the generator 2, and 3 + 5.02 × 10⁻⁸ from λ_♯, both reached with d1 alone. So
-    δ_G ≤ 5.0 × 10⁻⁸. That is below the record's least root distance 7.38 × 10⁻⁸, but D4:54-57 fixes ε_ind below half
-    the least distance between distinct points of ℳ (the roots plus integers), so ε_ind < 3.7 × 10⁻⁸ < 5.0 × 10⁻⁸.
-    So (G) is not shown to bind below ε_ind. It may still bind, since 5.0 × 10⁻⁸
-    only bounds δ_G from above.
+    δ_G ≤ 5.0 × 10⁻⁸. D4:54-57 fixes ε_ind below half the least distance between distinct points of ℳ, which is
+    2.92 × 10⁻¹⁰ under the reading LD10 fixes, so ε_ind < 1.46 × 10⁻¹⁰, more than 300 times below 5.0 × 10⁻⁸. So (G)
+    is not shown to bind below ε_ind. It may still bind, since 5.0 × 10⁻⁸ only bounds δ_G from above. (Corrected
+    D420, verifier 182: D413 compared with 7.38 × 10⁻⁸ and 3.7 × 10⁻⁸, but 7.38 × 10⁻⁸ is δ_12, not that distance.)
   - *If ℰ_ind contained d0 and d1* (D408's hypothesis, which no cited state supports; G2-G3), then
     2 + n0 d0 + n1 d1 ∈ Λ for all n0, n1 ≥ 0, the least such value above 3 would be 3 + 4.68 × 10⁻¹³, at
     (n0, n1) = (350001, 1599998), and from λ_♯ 2 + 5.10 × 10⁻¹³. D408's δ_G ≤ 4.7 × 10⁻¹³, and with it ε_K < 4.7 ×
@@ -364,20 +371,23 @@ loop counts of section 3.
   - *Controls.* With d0 alone the least gap is 8.9 × 10⁻⁷; with d1 alone 1.39 × 10⁻⁷ (G4 is that value). It is the
     near-commensurability d0 ≈ 4d1 that brought D408's sums close, and it needs both offsets stackable.
   - *Not decided.* Whether the coefficient of ρ^(2+d1) is nonzero, so that ℰ_ind contains d1 (the record keeps ℰ_ind
-    as a bound), and how δ_G compares with ε_ind below 3.7 × 10⁻⁸. The sl offsets are δ_l = z l/(2(l + 1)(2l + 1)) +
-    O(z²) and δ′_l = (l + 2)z/(2(l + 1)(2l + 3)) + O(z²), from ∂_z s_l,j = (s − κ)/(2s − 2 − 2κ − z) on Q_l's roots
-    (GAUGEPOT:204-206; derived here, D413). Entering
-    with integer parts l − 1 and l, they can each be used once in a window. That adds shifts to d1's multiples and can
-    lower the bound below 5.0 × 10⁻⁸, but it cannot bring the O(z²) parts into play. (D408 said "if they all enter, δ_G
+    as a bound), and how δ_G compares with ε_ind below 1.46 × 10⁻¹⁰ (LD10). The sl offsets are δ_l = z l/(2(l + 1)(2l +
+    1)) + O(z²) and δ′_l = (l + 2)z/(2(l + 1)(2l + 3)) + O(z²) (GAUGEPOT:194 prints δ′_l; both follow from ∂_z s_l,j =
+    (s − κ)/(2s − 2 − 2κ − z) on Q_l's roots). Entering with integer parts l − 1 and l, at most one of them fits in a
+    sum. That adds shifts to d1's multiples and can lower the bound below 5.0 × 10⁻⁸, but it cannot bring the O(z²)
+    parts into play. (D408 said "if they all enter, δ_G
     is set by the O(z²) parts"; withdrawn, D413.)
   - *The local expansion does not decide it (D412; `checks/s1reson5.py`, exact).* The s1 state is dx¹ + w. On
     Tangherlini, □^Υ(dx¹) starts at ρ⁴, which is the order resonant with the root 2 + d1:
     F4 = μ(−2γ_Υ(e_Υ + 2), −3, 1) on (dt, dr, dχ).
     - The flat indicial matrix on the l = 1 harmonic has det I(λ) = λ(λ − 4) q(λ), with q's root λ_s1,2, and
       det I(2) = 16 e_Υ γ_Υ² = 4z.
-    - At z = 0 the left null vector (0, 1, 3) of I(2) annihilates F4. So the forcing is not resonant, and the
-      particular solution μ(0, ¼ − 1/e_Υ, −¼ − 1/e_Υ) stays finite as z → 0. At the record's point it is about −100μ.
-      Control: a forcing along (0, 1, 3) gives a particular solution of order 1/z.
+    - At γ_Υ = 0 (z → 0 at fixed e_Υ) the left null vector (0, 1, 3) of I(2) annihilates F4, so along that branch
+      the forcing is not resonant and the particular solution μ(0, ¼ − 1/e_Υ, −¼ − 1/e_Υ) stays finite. Along
+      e_Υ → 0 at fixed γ_Υ the null vector is (−2γ_Υ/9, 1/3, 1), its pairing with F4 is 8γ_Υ²μ/9 ≠ 0, and the
+      particular solution is O(1/e_Υ) = O(4γ_Υ²/z): that is why it is about −100μ at the record's point (qualified
+      D420, verifier 182). Control: a forcing with nonzero pairing with (0, 1, 3) gives a particular solution of order
+      1/z.
     - So the coefficient of ρ^(2+d1) is that of the homogeneous decaying solution, fixed by regularity at the horizon:
       a global question, not a local one.
     - It is computable: solve the s1 system from the horizon at z where d1 is not small (z ≤ ½ is allowed, d1 ≈ z/12),
@@ -398,6 +408,28 @@ loop counts of section 3.
       carry unless ζ is chosen to exclude d1. The horizon computation proposed under D412 would give the coefficient
       for one choice of ζ and χ only.
     - Not computed: the dual state, and a variation for which the pairing is nonzero.
+
+- LD10 (ε_ind as D4 defines it; computed, D420 after verifier 182; `checks/epsind5.py` E1-E2, exact).
+  - *The definition.* D4:54-57 lets ℳ be "the finite set of real numbers in [−10, 10] of the form Re λ + j", λ an
+    indicial root of □^Υ (GAUGEPOT Lemma 4.1), j ∈ ℤ, and fixes ε_ind below half the least distance between distinct
+    points of ℳ.
+  - *E1, read literally it is empty.* The sl roots l + 1 + δ_l have δ_l = zl/(2(l + 1)(2l + 1)) + O(z²) → 0:
+    3.3 × 10⁻⁷ at l = 1, 7.38 × 10⁻⁸ at l = 12, 9.9 × 10⁻⁹ at l = 100. So over every l, ℳ is not finite, its points
+    accumulate at the integers, and no ε_ind > 0 exists. The record's 7.3846 × 10⁻⁸ (N1STAR-PROOF.md:4069-4072,
+    used in D405 and D413) is δ_12, the value at the cutoff l ≤ 12 of that computation, not a minimum.
+  - *E2, the finite reading* (roots with real part in [−10, 10], so l ≤ 9). There are 35 distinct fractional parts.
+    - The least distance between distinct points of ℳ is 2.92 × 10⁻¹⁰, between λ_s7,1 and λ_s8,2 (δ_7 against
+      δ′_8), so ε_ind < 1.46 × 10⁻¹⁰.
+    - The least distance of a point from ℤ is δ_9 = 9.47 × 10⁻⁸.
+    - Control: at z = 0 every root is an integer.
+  - *Consequences, under the finite reading.*
+    - If (1.1)'s ε_ind is D4's, one parameter through Part III, then ε_K < ε_+ < ε_ind < 1.46 × 10⁻¹⁰. LD3's chain then
+      has K > 2/ε_K > 1.4 × 10¹⁰ levels, and the d it produces is at least 2K > 2.7 × 10¹⁰.
+    - If (1.1)'s ε_ind is only F′ (2.2)'s distance from ℤ, the bound is ε_ind ≤ 9.47 × 10⁻⁸, and K > 2.1 × 10⁷.
+    - Which holds is not decided here. Either way the gap condition (G) is not the binding constraint (LD9).
+  - *For the record.* The same δ_l → 0 makes any condition d(Re λ, ℤ) ≥ ε_ind for all roots unsatisfiable without a
+    bound on l, which bears on F2 (2.2) as LD7 uses it. A reading that bounds l (the real-part window, or l ≤ 12 as
+    N1STAR-PROOF.md computed) has to be fixed for D4's definition to make sense. Recorded, not repaired.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.

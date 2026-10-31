@@ -4691,7 +4691,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D405 (verifier 180 on D400-D404). MAJOR on D402's LD8 repair: its two worked lambda + d_c cases are excluded by the
   record (mu_c are non-integer roots of F2 Prop 2.3, so d_c >= eps_ind; d_c0 <= z/3, d_c1 < 1/4): what remains is an
   element of pi_1 M within d_c below 2, under 1.34e-6 at the record's point. Also eps_ind <= 7.4e-8 (N1STAR-PROOF
-  4071), so the 2.932e-6 figures are 40x loose. D400, D401 hold; D403, D404 reproduce. Minor: W is not gauge-free at a
+  4071), so the 2.932e-6 figures are 40x loose. [D420: 7.38e-8 is delta_12, the l <= 12 cutoff, not a minimum;
+  under LD10's finite reading eps_ind < 1.46e-10 (D4), the distance from Z 9.47e-8.]
+  D400, D401 hold; D403, D404 reproduce. Minor: W is not gauge-free at a
   node (labels differ off u = -R0): the invariant V(u, v) gives 1-14 (equal on [0.5, 1)); the record's k-scan falls
   steadily to 250 rows, no edge; k = 0 off-asymptotic fields completed; factors 1e4-8e5 and 2.3e3 on [3, 3.5); psi's
   range includes 0; e2h1_5 constants pinned and u' checked by a forward difference. Nits seated.
@@ -4740,7 +4742,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   d_c >= eps_ind (mu_c is a non-integer root of F2 Prop 2.3), d_c0 <= z/3, d_c1 < 1/4 (D405).]
 - D408 [corrected D413, verifier 181: the mass state's gauge part is in A^((1,0) u (1 + E_ind)) (I8:37-38) and the s0
   state is rho^2 C^inf, so its rho^(2+d0) puts 1 + d0, not d0, into E_ind; only offsets with integer part 0 stack.
-  With {d1, 1 + d0, 1}: delta_G <= 5.02e-8 (from lambda_sharp; 1.39e-7 from 2), against eps_ind < 3.7e-8 (D4:54-57).
+  With {d1, 1 + d0, 1}: delta_G <= 5.02e-8 (from lambda_sharp; 1.39e-7 from 2), against eps_ind < 1.46e-10 (D4:54-57,
+  finite reading; D420 corrects D413's 3.7e-8, verifier 182).
   The 4.7e-13 and K > 4e12 below rest on d0 in E_ind, which no cited state supports, and are withdrawn.]
   (LOSS-D LD9, checks/gapsums5.py, computed, conditional): box^Ups's s0 and s1 roots through 2 sit d0 = z/3 +
   O(z^2) and d1 = z/12 + O(z^2) above 2, with d0 - 4 d1 = 5.56e-13. If E_ind contains both offsets (the states'
@@ -4749,7 +4752,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   eps_K < 4.7e-13 and K > 4e12. Control: d0 alone gives 8.9e-7. Open: whether the coefficients are nonzero.
 - D412 (checks/s1reson5.py, exact): not forced locally. box^Ups_Tang(dx^1) starts at rho^4, resonant with 2 + d1;
   F4 = mu(-2 gam(e + 2), -3, 1); det I(2) = 4z, but I(2)'s left null vector (0, 1, 3) at z = 0 annihilates F4, so the
-  particular solution stays finite (mu(0, 1/4 - 1/e, -1/4 - 1/e)). The rho^(2+d1) coefficient is the homogeneous
+  particular solution stays finite (mu(0, 1/4 - 1/e, -1/4 - 1/e)) [D420: along gam -> 0 at fixed e; along e -> 0 it
+  is O(1/e), about -100 mu at the record's point; the conclusion stands]. The rho^(2+d1) coefficient is the homogeneous
   solution's, fixed by horizon regularity: compute it at larger z (d1 ~ z/12) and follow it in z.
 - D413 (verifier 181 on D406-D410 seated; dnsolve5 `reg` at r_cut 0.9, computed): M1 (D408 classes) and M2 (D410 cut)
   as bracketed above; LOSS-D LD9 rewritten, gapsums5 G4-G5. Minors: D406's r^-4 source condition (G(1) = -f/2 at
@@ -4758,7 +4762,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   D410's x-peak. Nits: stage1pure5 gains the G_uA control. Axis: with `reg`, |dm| (M24-M32) at the event
   u = -1.003, v = 1.988, x = -0.989 is 0.308 against 0.232 plain; the two treatments agree to 2.3e-7 (M32, areal >= 1)
   up to v = 1.8 and differ by 0.18 (M24) and 0.10 (M32) at the event's node (checks/g1axis5.py). Both fail there
-  alike. Next: M = 40 at r_cut 0.9 (running).
+  alike. [D420: in m only; at x = -1 they settle 0.45 apart (a first derivative of the metric), while the metric
+  value P agrees to 1e-3.] Next: M = 40 at r_cut 0.9 (running).
 - D414 (FAMILIES5 section 4d, checks/twolin5.py A, L1-L3, control; exact): the lam^-1 coefficient of the two-phase
   linearisation of Ric^H is (1/2)(s_in d^2_s1 W_in + s_out d^2_s2 W_out), s_k = w(ell_k, ell_k): the record's (5.1)
   coefficient once per family, nothing else. E(ell_in, ell_in) = -2 e^(-4 sigma) s_out chi', E(ell_out, ell_out) =
@@ -4790,6 +4795,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   delta* is F1 h dv^2 + F2 h' du^2 at lam^0 (H1, deduced), meets them algebraically with h_(+-2) = -S_(+-2)/(+-2i)
   (h_2 = (4i cos 2th - sin^2 2th) H^2 alpha^2/(48 R^3)). Control: h = 0 and the wrong sign fail. Open: Ups - H = 0 at
   order lam (T8 with the source) and its propagation.
+- D420 (verifier 182 on D411-D414 seated; checks/epsind5.py E1-E2, g1axis5.py --nodes, gapsums5 G6; computed):
+  M1: N1STAR-PROOF's 7.3846e-8 is delta_12, the l <= 12 cutoff; delta_l -> 0, so D4's M read literally is infinite.
+  Finite reading (real parts in [-10, 10]): least distance between points 2.92e-10 (delta_7 vs delta'_8), so
+  eps_ind < 1.46e-10; from Z 9.47e-8. If (1.1)'s eps_ind is D4's, K > 1.4e10; if F' (2.2)'s, K > 2.1e7 (LOSS-D LD10).
+  M2: m at x = -1 is a first derivative of the metric; there the two axis treatments settle 0.45 apart, while the
+  metric value P agrees to 1e-3 at the event and converges slowly in M on [1.8, 2) (|dP| 5.9e-3 -> 1.6e-3); the
+  metric's failure starts on [2, 2.25) and grows with M (3.2e-2 ... 1.1e3). Minors: D412 non-resonance only along
+  gam -> 0; (G)'s third window 2.45e-7 (bound stands); D411's 2.0/r^2 and 1e-12; L1 does not test the ansatz.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
@@ -4898,8 +4911,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (section 9.3's count suggests so; not checked term by term). Not: Tangherlini corrections, E_(5/2), uniqueness.
 - D411 (coulomb5.py K5-K6): the same on Tangherlini, scalar wave. f = 1 - mu/r^2 adds -mu r^-3 d_r(r d_r): the
   recursion gains -mu (j-1)^2 a_(j-3); 1 + 2j never vanishes (no logs); mu enters only below top degree, so the
-  flat polynomial stays and mu enters r^2 phi at rho^2. The series converges (40 vs 60 terms: 1e-13 at r = 5-40,
-  l <= 3); l = 0: r^2 phi = 1 - 1.86/r^2 + ... Not proved for every l; tensor couplings not treated.
+  flat polynomial stays and mu enters r^2 phi at rho^2. The series converges (40 vs 60 terms: 1e-12 at r = 5-40,
+  l <= 3); l = 0: r^2 phi = 1 - 2.0/r^2 + ... (1.86 at r = 40; corrected D420).
+  Not proved for every l; tensor couplings not treated.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 

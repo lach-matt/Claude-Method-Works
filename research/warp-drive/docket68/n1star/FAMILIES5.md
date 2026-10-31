@@ -222,9 +222,10 @@ e^(−4σ) w_uu and s_out := w(ℓ_out, ℓ_out) = e^(−4σ) w_vv.
   −½ g0⁻¹(k_j, k_k) ∂_(s_j) ∂_(s_k) W (k_in = dv, k_out = du), which vanishes for any W_in(s1) + W_out(s2).
 - *L1, one coefficient per family.* E[w] = ½(s_in ∂²_(s1) W_in + s_out ∂²_(s2) W_out) in all 15 components, for every
   w. This is the record's coefficient ½ λ⁻¹ s(w) [∂²_θ g1] of (5.1) (RESPONSE-HL-5D.md:473), once for each family,
-  and nothing else, so section 1's "no other λ⁻¹ coefficient" holds for two families. It is the linearised
-  coefficient −½ g^(ab) of the principal part in −½ g^(ab) ∂_a ∂_b (λW). The λ² term ĝ_2, whose harmonics mix the two
-  phases, enters only at λ⁰.
+  and nothing else, so section 1's "no other λ⁻¹ coefficient" holds for two families. L1 holds for any
+  W_in(s1) + W_out(s2), transverse or not (verifier 182, D420), so it does not test the ansatz; L2-L3 carry that. It is
+  the linearised coefficient −½ g^(ab) of the principal part in −½ g^(ab) ∂_a ∂_b (λW). The λ² term ĝ_2, whose
+  harmonics mix the two phases, enters only at λ⁰.
 - *L2, which contraction kills which.*
   - E(ℓ_in, ℓ_in) = −2 e^(−4σ) s_out χ′ and E(ℓ_out, ℓ_out) = −2 e^(−4σ) s_in χ; E(ℓ_in, ℓ_out) = 0.
   - So each family's own coupling is killed by its own ℓ_k ⊗ ℓ_k, as in the record's section 5.2
