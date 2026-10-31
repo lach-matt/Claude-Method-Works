@@ -1,6 +1,7 @@
 """Census of III.B's inner radius r_0 = R_1/2 in proof5 Parts III-VII (BEYOND5 route (c), D363).
 
-Every line of proof5/PART-{III,IV,V,VI,VII}*.md (Part VIII and II excluded) that names r_0, the inner radius or
+Every line of proof5/PART-{III,IV,V,VI,VII}*.md (Parts II, VIII and IX excluded; IX, the gauge comparison, is not
+used by Theorem 0.2) that names r_0, the inner radius or
 boundary, R_1/2, r_sharp, (5/8)R_1 or (3/4)R_1 is listed with a class:
 
   DEF    III.B's r_0 itself: its definition, the domain {|x| >= r_0}, the time functions built from it;
@@ -62,9 +63,12 @@ LINES = {  # (file, line): (class, note)
     ('PART-IV5-CDMODES.md', 209): ('SPC', 'supported at the inner boundary'),
     ('PART-IV6-SOLV.md', 23): ('OTHER', "the source's r_0 = r_c"), ('PART-IV6-SOLV.md', 314): ('OTHER', 'r_c for r_0'),
     ('PART-IV6-SOLV.md', 317): ('OTHER', 'r_c for r_0'),
-    ('PART-VI3-TRAPPING.md', 374): ('VAL', 'r_0-delta_0 < 5R_1/8: 7r/8 + r_h/8 < 5R_1/8 holds for r < 0.539 R_1'),
+    ('PART-VI3-TRAPPING.md', 374): ('VAL', 'r_0-delta_0 < 5R_1/8: with r_h = R_1 in VI, 7r + R_1 < 5R_1, r < 4R_1/7'),
     ('PART-VII-ASSEMBLY.md', 88): ('CON', '(0.2) on {r_0 <= r <= R\'}'),
 }
+for i in (192, 428, 532, 533, 679, 680, 882, 884):
+    LINES[('PART-IV6-SOLV.md', i)] = ('VAL', 'Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; '
+                                            'holds on (0, r_h) by the inner piece (D366)')
 for i in range(142, 157):
     LINES[('PART-VII-ASSEMBLY.md', i)] = ('CON', "Lemma 1.2: a' = q_0 - delta'_0 < r_0/2, delta'_0 in (0, q_0) free")
 
@@ -109,7 +113,7 @@ def main():
         print('selftest', 'ok' if ok else 'FAIL'); sys.exit(0 if ok else 1)
 
 
-EXPECT = collections.Counter({'CON': 48, 'DEF': 19, 'OTHER': 108, 'SPC': 128, 'VAL': 5})
+EXPECT = collections.Counter({'CON': 48, 'DEF': 19, 'OTHER': 108, 'SPC': 120, 'VAL': 13})
 EXPECT_FILES = 25
 
 if __name__ == '__main__':

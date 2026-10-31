@@ -1,6 +1,7 @@
 # BEYOND5 -- the solution beyond D_T and Ω: the black-hole interior after the shell, up to the curvature boundary
 
-Status: written (D360); read by verifier 167 (D362), findings seated; r_0 census and Proposition 6.2 added (D363).
+Status: written (D360); read by verifier 167 (D362), findings seated; r_0 census and Proposition 6.2 added (D363);
+read by verifier 168, whose major finding (Lemma 0.5 (6) below r_h/2) and minor findings are seated (D366).
 Labels as marked; nothing here is computed beyond the census.
 
 The paper's open item "beyond the boundary" (RESPONSE-HL-5D.md section 9) reads: Theorems 1-3 are made on D_T and Ω,
@@ -85,40 +86,57 @@ data beyond 4R. Two facts follow.
       (III.B 102, 117);
     - 19 are the definition and the domain (DEF): III.B 49-79, 177-178 and 224-251 ((2.1), (3.6), Lemma 3.7);
       III.K 43-44; Part VII 40, 195, 258;
-    - 128 use only that {r = r_0} is spacelike with dr future timelike, inside the horizon (SPC): the artificial
+    - 120 use only that {r = r_0} is spacelike with dr future timelike, inside the horizon (SPC): the artificial
       boundary, vanishing inside the horizon (III.E), the radial ODEs on (r_0 − δ_0, ∞) (D-GAUGEPOT, F3-MODES,
-      F4-ZERO). IV6-SOLV's own finding (IV′′′′′5) says its uses of r_♯ = r_0 need only "the future timelike
-      character of dr on [r_♯, r̂]";
+      F4-ZERO). IV6-SOLV's finding (IV′′′′′5) says its cut-offs and energy estimates near Σ^♯ need only "the future
+      timelike character of dr on [r_♯, r̂]";
     - 48 go through a constant chosen from it (CON): δ_0 of I.A's radii (VI-DYN to VI3-TRAPPING),
       ν_0 = min(¼, r_0/8) and R_ν (III.K), δ_1 and the weights (H2-ADMISS), δ′_0 (Part VII Lemma 1.2);
-    - 5 put the value ½R_1 into an inequality (VAL). III.B 157-159: ‖A‖ < ε_param R_1 with
-      |x|² ≥ ¼R_1² > 2‖A‖². III.B 244: ψ(2R_1) = 2R_1 − r_0 ≥ 3/2 R_1. VI3-TRAPPING 374: r_0 − δ_0 < ⅝R_1.
+    - 13 rest on the value ½R_1 (VAL). III.B 157-159: ‖A‖ < ε_param R_1 with |x|² ≥ ¼R_1² > 2‖A‖². III.B 244:
+      ψ(2R_1) = 2R_1 − r_0 ≥ 3/2 R_1. VI3-TRAPPING 374: r_0 − δ_0 < ⅝R_1. And 8 lines of IV6-SOLV (192, 428, 532-533,
+      679-680, 882, 884) use Lemma 0.5 (6), record 10.14 (ii), which was checked on [r_h/2, ∞) only (`cform5.py` C3;
+      (IV′′′′′6): "not known ... below r_♯"; verifier 168's A1).
+    - Read by verifier 168 and harmless, though no pattern matches them: Σ^♯ (15 lines of IV6-SOLV), Σ^int (III.B 57,
+      358, 361, 374; III.C 112; III.I8 61) and 9/16 R_1 (VI3-TRAPPING 375). Part IX, the gauge comparison, is
+      outside the census; Theorem 0.2 does not use it.
 
-**Proposition 6.2 (deduced from the census, D363).** Let r_♭ ∈ (0, ½R_1] and replace III.B's r_0 by r_♭ and its
-ε_param by min(1/10, r_♭/(4R_1)). Then every one of the 200 uses of the inner radius (DEF, SPC, CON, VAL) holds with
-r_♭, the constants then depending on r_♭. So with r_♭ := ½ min(R_1, r_q(μ_end)), Proposition 6.1's conclusion holds
-for every μ_end, without (1.1).
+**Proposition 6.2 (deduced from the census, D363; repaired D366).** Let r_♭ ∈ (0, ½R_1] and replace III.B's r_0 by
+r_♭ and its ε_param by min(1/20, r_♭/(4R_1)). Then each of the 200 matched lines that use the inner radius (DEF, SPC,
+CON, VAL) holds with r_♭, the constants then depending on r_♭. So with r_♭ := ½ min(R_1, r_q(μ_end)), Proposition
+6.1's conclusion holds for every μ_end, without (1.1).
 
 *Proof (from the census).*
-- **The three VAL sites hold at r_♭.**
-  - III.B 157-159: for |x| ≥ ½r_♭ (IV6-SOLV extends to {r ≥ ½r_♯}), |x|² ≥ ¼r_♭² > r_♭²/8 > 2‖A‖² and
-    r_A² ≥ |x|² − ‖A‖² > 0, so Lemma 3.3 (c)'s condition holds.
+
+- **The four VAL sites hold at r_♭.**
+  - III.B 157-159: ‖A‖ < r_♭/4. For |x| ≥ ½r_♭ (IV6-SOLV extends to {r ≥ ½r_♯}), |x|² ≥ ¼r_♭² > r_♭²/8 > 2‖A‖² ≥ s
+    and r_A² ≥ |x|² − ‖A‖² > 3r_♭²/16 > 3‖A‖², so ‖A‖²(r_A² + ‖A‖²) < (4/9) r_A⁴ < r_A⁴: Lemma 3.3 (c)'s condition.
   - III.B 243-244: ψ(2R_1) = 2R_1 − r_♭ ≥ 3/2 R_1 and ψ′ ≥ −1 on [2R_1, 3R_1], so ψ ≥ ½R_1 > 0 there as before.
-  - VI3-TRAPPING 374: r_♭ + (r_h − r_♭)/8 < ⅝R_1 ⇔ 7r_♭ + r_h < 5R_1, which holds as r_h < √(3/2) R_1 (III.B 160)
-    and 7r_♭ ≤ 7/2 R_1.
+  - VI3-TRAPPING 374: r_♭ + (r_h − r_♭)/8 < ⅝R_1 ⇔ 7r_♭ + r_h < 5R_1. In Part VI r_h = R_1 (VI-DYN 89-90), so this
+    is r_♭ < 4/7 R_1, which holds.
+  - IV6-SOLV's Lemma 0.5 (6) below r_h/2 (exact, by hand; D366). On r ≤ r_0/2 the record's c is the inner piece
+    dt + (v/2) dr up to a positive factor (`cform5.py`:17), v = ½. In Kerr-Schild Tangherlini, g^(−1)(dr, dr) = f,
+    g^(−1)(dt, dr) = 1 − f and g^(−1)(dt, dt) = −(2 − f), with f = 1 − μ/r². So ⟨c, dr⟩ = 1 − ¾f = ¼ + ¾μ/r² > 0 and
+    G(c) = −3/2 + (9/16) f < 0 for every r > 0 (C2's formula). On (0, r_h), f < 0, so Lemma 3.8's form
+    f e G(c) + 2(1 − e)⟨c, dr⟩² is positive, and −ℓ(−dr) is positive definite there, as (6) asks. It is strict on the
+    compact {r_♭ ≤ r ≤ r_h/2}, so it persists for b near b_0, with uniform lower bounds, on shrinking U as Lemma 0.5's
+    proof does. Proposition 5.1 and 5.3 (1) then run on {r ≥ r_♭}, the extension below r_♭ as in (IV′′′′′6).
 - **SPC.** For Tangherlini, g^(−1)(dr, dr) = 1 − μ/r² < 0 on 0 < r < r_h, and the radial systems' coefficients are
-  smooth on (0, ∞), r_h aside (III.D 417; F3-MODES 204-212). For b near b_0 this persists on the compact
+  smooth on (0, ∞), r_h aside (III.D 417; F3-MODES 204-212). Where F3-MODES 196-212 and F4-ZERO 361 work on
+  {r > r_0 − δ_0}, δ_0 is not fixed there, and any δ_0 ∈ (0, r_♭) serves (verifier 168's A2). For b near b_0 this
+  persists on the compact
   {½r_♭ ≤ r ≤ ¾R_1} on shrinking the neighbourhood. So dr is future timelike there, as IV6-SOLV Lemma 0.3 (c) needs.
-- **CON.** Each constant is then chosen from r_♭. For Part VII Lemma 1.2, take δ′_0 ∈ (q_0 − ½r_♭, q_0), which the
-  lemma allows (δ′_0 ∈ (0, q_0)).
+- **CON.** Each constant is then chosen from r_♭. For Part VII Lemma 1.2, take δ′_0 ∈ (max(0, q_0 − ½r_♭), q_0),
+  which the lemma allows (δ′_0 ∈ (0, q_0), q_0 = r_q(μ0), N1STAR-PROOF.md:145-149).
 - **DEF.** The definitions and domains read with r_♭ for r_0, as the three VAL sites allow.
 - So Theorem 0.2 (i) holds on {r ≥ r_♭} ⊃ {r ≥ r_q}, with λ_1, ε_m and ε depending on r_♭, so on μ_end. ∎
 
 What this rests on: the census is a reading at 308 lines, not a re-proof of each Part. A use that names the inner
-radius by none of the seven strings would be missed. [Hin26a] Proposition 5.1's conditions at m are taken from
-IV6-SOLV's finding (IV′′′′′5), not read at source here. Part VII's record domain Ω′ reaches r ≥ a′ = q_0 − δ′_0,
-below the record's q_0; with r_♭ it must reach further, through δ′_0 alone. The region r_♭ ≤ r < r_q, covered too,
-lies beyond the curvature boundary, where the paper's premise has the classical description stop.
+radius by none of the seven strings would be missed; verifier 168 searched for the names above and found them harmless.
+[Hin26a] Proposition 5.1's conditions at m are IV6-SOLV Lemma 0.5's (1)-(6); of these only (1) and (6) involve m, and
+both hold on (0, r_h) (C2 and the sign argument above). The source itself is not read at m here. Part VII's record
+domain Ω′ reaches r ≥ a′ = q_0 − δ′_0, below the record's q_0; with r_♭ it must reach further, through δ′_0 alone.
+The region r_♭ ≤ r < r_q, covered too, lies beyond the curvature boundary, where the paper's premise has the classical
+description stop.
 
 - **(d) The slab, if (c) fails somewhere.** The region r_q ≤ r ≤ r_0 after Σ_IVP is a slab of finite r-time: inside
   the hole r is a time function, and every point's causal past meets {r = r_0} in a set of bounded t-extent. Points

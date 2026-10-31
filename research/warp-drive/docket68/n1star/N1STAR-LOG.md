@@ -6354,3 +6354,11 @@ would make the step about 1, cutting the chain from more than 65,000 levels to a
 that term exists is the open question: logarithms enter the free resolvent's expansion in even spatial dimension. The
 nested loop set by the constraint damping's gap is not touched.
 
+**D366 (2026-10-31): verifier 168 on the inner-radius census.** The census tool and three of its repairs held. One
+use had been misread: the damping 1-form's positivity condition near the inner boundary had been checked only down to
+half the horizon radius, so it depended on the value. It holds all the way in. Inside the horizon the record's inner
+piece of the 1-form points into the hole and stays past timelike, and the lapse function is negative, so the
+condition's quadratic form is positive (BEYOND5.md Proposition 6.2, repaired). The minor findings are seated: a
+smaller spin bound, a sharper form of the Kerr-Schild condition, a free margin where two Parts left one undefined, the
+exact horizon radius in Part VI, and Part IX named as outside the census.
+

@@ -221,7 +221,7 @@ PART-IV6-SOLV.md	147	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] u
 PART-IV6-SOLV.md	155	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	163	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	167	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
-PART-IV6-SOLV.md	192	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	192	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
 PART-IV6-SOLV.md	226	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	227	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	232	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
@@ -229,15 +229,15 @@ PART-IV6-SOLV.md	285	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] u
 PART-IV6-SOLV.md	314	OTHER	r_c for r_0
 PART-IV6-SOLV.md	317	OTHER	r_c for r_0
 PART-IV6-SOLV.md	420	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
-PART-IV6-SOLV.md	428	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	428	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
 PART-IV6-SOLV.md	514	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	515	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	520	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	524	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	526	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	527	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
-PART-IV6-SOLV.md	532	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
-PART-IV6-SOLV.md	533	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	532	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
+PART-IV6-SOLV.md	533	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
 PART-IV6-SOLV.md	536	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	577	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	587	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
@@ -249,8 +249,8 @@ PART-IV6-SOLV.md	648	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] u
 PART-IV6-SOLV.md	670	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	671	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	675	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
-PART-IV6-SOLV.md	679	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
-PART-IV6-SOLV.md	680	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	679	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
+PART-IV6-SOLV.md	680	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
 PART-IV6-SOLV.md	681	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	682	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	683	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
@@ -261,8 +261,8 @@ PART-IV6-SOLV.md	721	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] u
 PART-IV6-SOLV.md	726	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	876	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
 PART-IV6-SOLV.md	878	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
-PART-IV6-SOLV.md	882	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
-PART-IV6-SOLV.md	884	SPC	r_sharp: only dr future timelike on [r_sharp, 3R_1/4] used (IV'''''5)
+PART-IV6-SOLV.md	882	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
+PART-IV6-SOLV.md	884	VAL	Lemma 0.5 (6) = record 10.14 (ii), checked on [r_h/2, oo) only; holds on (0, r_h) by the inner piece (D366)
 PART-V-GLUING.md	142	SPC	domain {|x| >= r_0}
 PART-VI-DYN.md	24	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
 PART-VI-DYN.md	73	CON	I.A's radii from the inner radius: r_0-2delta_0 = R_1/2, delta_0 = (r_h-R_1/2)/8
@@ -288,7 +288,7 @@ PART-VI2-HORIZON.md	131	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1
 PART-VI2-HORIZON.md	132	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
 PART-VI3-TRAPPING.md	25	CON	I.A's radii; domain {|x| >= R_1/2}
 PART-VI3-TRAPPING.md	52	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	374	VAL	r_0-delta_0 < 5R_1/8: 7r/8 + r_h/8 < 5R_1/8 holds for r < 0.539 R_1
+PART-VI3-TRAPPING.md	374	VAL	r_0-delta_0 < 5R_1/8: with r_h = R_1 in VI, 7r + R_1 < 5R_1, r < 4R_1/7
 PART-VI3-TRAPPING.md	378	CON	I.A's radii; domain {|x| >= R_1/2}
 PART-VI3-TRAPPING.md	435	CON	I.A's radii; domain {|x| >= R_1/2}
 PART-VI3-TRAPPING.md	437	CON	I.A's radii; domain {|x| >= R_1/2}

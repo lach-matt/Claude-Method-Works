@@ -4664,6 +4664,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   each of which holds for every smaller radius once eps_param <= r/(4R_1). Proposition 6.2 (deduced from the census):
   with r_0 := min(R_1, r_q)/2, Proposition 6.1 holds for every mu_end, without (1.1). Rests on: a reading, not a
   re-proof; IV6's finding (IV'''''5) for [Hin26a] Prop 5.1 at m; Part VII's delta'_0 nearer q_0.
+- D366: verifier 168 seated. MAJOR: IV6-SOLV's Lemma 0.5 (6) (record 10.14 (ii)) was checked on [r_h/2, oo) only; 8
+  lines reclassed VAL (now SPC 120, VAL 13). It holds on (0, r_h) by hand: the inner piece dt + (v/2) dr has <c, dr> =
+  1/4 + 3mu/(4r^2) > 0 and G(c) < 0, and f < 0 there. Minor: eps_param := min(1/20, r/(4R_1)); Lemma 3.3 (c) via
+  r_A^2 > 3||A||^2; any delta_0 in (0, r) for F3/F4; r < 4R_1/7 in VI (r_h = R_1); Part IX outside the census.
 
 ### 4.279 More families: several dusts, angular separation, Vlasov (D361)
 
