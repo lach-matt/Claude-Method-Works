@@ -117,8 +117,9 @@ The analytic step after that is the energy estimate with two large couplings and
 
 ## 4b. Stage 0 with two phases, computed (D376, D380)
 
-`checks/stage0two5.py` (computed, exact, sympy; selftest T1-T6 pass in about 5 s, and its six mutants are caught; read
-by verifier 174, D380) runs Stage 0 on a general round double-null background,
+`checks/stage0two5.py` (computed, exact, sympy; selftest T1-T6 pass in about 8 s, and its six mutants are caught; read
+by verifier 174, D380; `--gauge` adds T7 (D383) and T8 (D396), about 40 s) runs Stage 0 on a general round
+double-null background,
 
     g0 = −2 e^(2σ(u,v)) du dv + R(u,v)² (dθ² + cos²θ dφ1² + sin²θ dφ2²),
 
@@ -157,10 +158,20 @@ stress. What it does not give:
   D381; each W is transverse to its own generator and traceless, `lead5.py`'s L5). At order λ, on the mixed
   harmonics, the waves' part plus ĝ_2's fast divergence vanishes once ĝ_2 is fixed by T4 (T7 with `--gauge`, D383: a
   numerical identity test of the exact assembly on concrete functions at random points, residual 5 × 10⁻¹⁸ against
-  2.8 × 10⁻² over 16 harmonics; ĝ_2 of the wrong sign fails). The pure harmonics at order λ, which need ĝ_2's own
-  transport, are not checked;
+  2.8 × 10⁻² over 16 harmonics; ĝ_2 of the wrong sign fails). On the mean and the pure harmonics at order λ (T8,
+  D396, the same numerical identity test):
+  - *The mean.* The waves' (0, 0) part vanishes in every component, and no fast derivative of ĝ_2 reaches it.
+  - *The pure harmonics.* At (n, 0) the fast divergence of ĝ_2 is kf_v(g0^(vu) g0^(rd) G_du − ½ g0^(rv) tr G). Its
+    component r = v is set by G_uu, r = θ, φ1, φ2 by G_uθ, …, and r = u by the angular trace of G alone, as the G_uv
+    terms cancel. So the waves' part at each of the 8 pure harmonics present is cancelled by ĝ_2's pure harmonics in
+    those components (residual 2 × 10⁻¹⁶); at (0, n) likewise with u and v exchanged. These components do not enter
+    R^(0), whose symbol −e^(−2σ) n1 n2 vanishes there (T4), so Stage 0 is unchanged. Control: with G restricted to its
+    angular off-diagonal block, the system is not solvable.
+  - *Not checked.* Whether the components so fixed agree with ĝ_2's own transport at the next stage, the pure
+    harmonics of R^(1), where the Bianchi identity says they should;
 - the profile H: it is imposed, the record's, not derived for the outgoing family;
-- the next stages (ĝ_2's own transport at order λ, and the mixed terms it feeds back);
+- the next stages (ĝ_2's own transport at order λ, with the gauge-fixed components of its pure harmonics as data,
+  and the mixed terms it feeds back);
 - the energy estimate with the two large couplings of section 1.
 
 Section 1's claim that the cross couplings are a gauge artefact concerns the linearised operator, not Stage 0, and is

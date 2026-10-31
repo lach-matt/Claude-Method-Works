@@ -4806,3 +4806,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (the Isaacson laws). mu_v = -(2/3) A e^-2s R_u, mu_u = -(2/3) B e^-2s R_v. Computed: crossing pulses from flat data,
   constraints second order (ratio 4.00), mu 1.001 -> 0.520 matching the edge fluxes, untrapped. Local existence:
   standard Goursat iteration, not read at source.
+- D396 (stage0two5.py T8, with --gauge): the order-lam gauge 1-form's mean vanishes from the waves alone; each pure
+  harmonic (n, 0) is cancelled by ghat_2's pure harmonic in G_uu, G_uA and the angular trace (r = v, A, u; the G_uv
+  terms cancel in r = u), components that do not enter R^(0). 8 harmonics, residual 2e-16; control (angular
+  off-diagonal G) unsolvable. Open: agreement of those components with ghat_2's transport at the next stage.

@@ -6593,3 +6593,10 @@ differences grow with the resolution, so they give no error estimate. What stand
 angle on a strip below the cut-off, much further than in the original gauge; the axis geometry does so only to about
 v = 2.25. The gluing argument, the two-dust background and the parameter-row repair were confirmed, with small
 corrections to their wording.
+
+**D396 (2026-10-31): the two-wave gauge condition at the next order, on what remained.** At the next order the gauge
+condition had been checked only on the terms that mix the two waves. On the averaged part it now holds outright: the
+waves' own contribution vanishes, and nothing else can reach it. On the terms that belong to one wave alone, the
+waves' contribution does not vanish, but the second-order correction has exactly the freedom to cancel it, in
+components that do not enter the leading equations, so the earlier stage is untouched. Whether the components so
+fixed agree with the correction's own transport at the following order is the next check, and is not made.
