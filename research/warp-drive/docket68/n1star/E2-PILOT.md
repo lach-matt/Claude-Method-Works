@@ -83,6 +83,22 @@ for l ≤ 6 at four values of σ (it does not prove them).
   decay, not grow, through the barrier when V_l > σ². For a compact σ-band only finitely many l have max V_l ≤ 2σ²;
   for the others an Agmon-type estimate in the classically forbidden region should give a bound uniform in l. This is
   the next step, to be written with its constants.
+- **What a uniform bound must reach (measured, D352).** The actual cut-off norms, from the numerical u_h, u_∞ of P2 on
+  the r_*-interval of r ∈ [1.2, 4] (length 3.74), discretised kernel at 161 points:
+
+  | σ | l = 0 | 1 | 2 | 4 | 8 | 16 | 32 |
+  |---|---|---|---|---|---|---|---|
+  | 0.3 | 4.75 | 1.66 | 0.79 | 0.33 | 0.12 | 0.040 | 0.012 |
+  | 1.0 | 1.89 | 3.00 | 1.96 | 0.55 | 0.14 | 0.042 | 0.012 |
+  | 3.0 | 0.41 | 0.42 | 0.45 | 0.67 | 0.73 | 0.065 | 0.014 |
+
+  They fall like about 12/(l(l + 2)) once the barrier covers the interval, roughly 1/min V_l there, while Proposition
+  E2.4's bound is 10⁶⁰ at (σ, l) = (0.3, 8) and overflows beyond. The missing ingredient is a lower bound on the growth
+  of u_h through the barrier, |A| ≳ exp(∫(V_l − σ²)₊^(1/2) dr_*), matching the upper bounds of Lemma E2.3 there; with
+  it the kernel is controlled by exp(−∫_x^y (V_l − σ²)^(1/2)) inside the barrier. The route: the Riccati equation for
+  u'/u, whose imaginary part is fixed by the flux (Im(ū u') = ∓σ), with comparison in the forbidden region and the WKB
+  energy |u'|² + (σ² − V_l)|u|², which is monotone where V_l is (its derivative is −V_l'|u|²), in the allowed regions.
+  Labels: computed (the table), not proved.
 - **Near σ = 0 and large |σ|.** The bound degenerates as σ → 0 (the record's I.C low-energy analysis) and, uniformly in
   l, at the trapping energies σ² ≈ max V_l for large σ (the photon sphere; E4).
 - **The record's norms.** Proposition 6.2 is stated on the variable-order b-Sobolev spaces X_σ, Y_σ of the extended
