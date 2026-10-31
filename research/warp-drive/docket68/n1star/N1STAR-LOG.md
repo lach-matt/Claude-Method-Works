@@ -6900,3 +6900,7 @@ number at spatial infinity for one test value of the record's damping; the recor
 larger, which makes the equation very stiff. The stiffness turns out to sit only in solutions the data exclude, so the
 number is well defined and computable, and it settles as the damping grows. It differs substantially from the
 undamped one: one component the undamped equation sends to zero comes out of order one. Computed, not certified.
+
+**D435 (2026-10-31): verifier 186 on D434.** The numbers held up, and running the damping on to a million million
+puts the record's setting within about a millionth of the limit. One sentence claimed more than was computed: the
+number found is for the simplest angular pattern only, and each other pattern has its own.

@@ -319,18 +319,20 @@ t = const, s = 1 + tρ, so the expansion at I_0 is F's Taylor series at s = 1.
     (regular series, 400 terms, radius 2) agrees with a stiff integrator to 1.6 × 10⁻¹⁴ and mixes the components, for
     instance a(1) = 1.032 a(0) + ….
   - *At the record's γ_C = 10⁶ (D434; `checks/transfer5.py` T1-T3, computed, not certified).* The regular series
-    summed at s = 1 with 400 and 600 terms agree to 30 digits for γ_C = 1, 10², 10⁴, 10⁵ and 10⁶, and the stiff
+    summed at s = 1 with 400 and 600 terms agree to 30 digits (a 60-digit run differs by 5 × 10⁻²⁶; the largest
+    coefficient is 2.0 at n = 1, with no transient) for γ_C = 1, 10², 10⁴, 10⁵ and 10⁶, and the stiff
     integrator agrees with it to 10⁻¹² up to γ_C = 10⁴ (at 10⁶ it did not finish in 25 minutes). The exponents at N
     besides 0 are −0.5099, −0.52, −1.5 γ_C and −3 γ_C: the stiff modes are the singular ones at N, and the regular
     branch is not stiff.
     - The transfer converges as γ_C → ∞. The successive differences, 10² to 10⁴, 10⁴ to 10⁵ and 10⁵ to 10⁶, are
       1.3 × 10⁻², 1.2 × 10⁻⁴ and 1.2 × 10⁻⁵, falling like 1/γ_C, so 10⁶ is within about 10⁻⁶ of the limit
-      (extrapolated, not proved).
+      (extrapolated; verifier 186 ran on to γ_C = 10¹², where γ_C(T − T(10¹²)) stays at 1.363 from 10⁵ to 10⁸, so
+      T(10⁶) is 1.36 × 10⁻⁶ from the limit, D435).
     - In the basis a, b, c − d, (c + 3d)/4, where Lemma 6.5's transfer is diag(1, 0, −1/3, 1), the record's point
       departs from it by up to 1.22: b(1) = −0.601 a(0) + 0.627 b(0) − 0.304 (c − d)(0) + 1.217 ((c + 3d)/4)(0), where
       the undamped b(1) is 0, and a(1) = 0.976 a(0) + 0.024 b(0) − 0.012 (c − d)(0) + 0.047 ((c + 3d)/4)(0).
-    - So at the record's point the r⁻² coefficient at I_0 is this transfer applied to F(0), per harmonic and given
-      uniqueness, as above.
+    - So at the record's point the l = 0 part of the r⁻² coefficient at I_0 is this transfer applied to F(0), given
+      uniqueness; each other harmonic has its own transfer, not computed at γ_C = 10⁶ (corrected D435, verifier 186).
 
 So at leading order in flat space, and for the full operator, each harmonic of the Coulomb part lies in ρ²C^∞ at
 I_0, given uniqueness. Whether their sum does, Lemma 0.1's condition for this term, needs a bound uniform in l on the

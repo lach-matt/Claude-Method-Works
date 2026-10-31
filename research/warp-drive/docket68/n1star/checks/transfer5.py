@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""transfer5: Lemma 6.5''s transfer F(0) -> F(1) at the record's damping gamma_C = 10^6 (BEYOND5 Q4, D433).
+"""transfer5: Lemma 6.5''s transfer F(0) -> F(1) at the record's damping gamma_C = 10^6 (BEYOND5 Q4, D434).
 
 coulombL5.py Q4 computed the transfer of the l = 0 self-similar system (h = r^-2 F(s), s = v/r, F = (a, b, c, d))
 from N (s = 0) to I_0 (s = 1) at gamma_C = 1 only. Here, at the record's point otherwise (coulombL5.POINT:

@@ -4888,6 +4888,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   1e6. Series (400 vs 600 terms) agree to 30 digits at gamma_C = 1 ... 1e6; Radau agrees to 1e-12 up to 1e4. The
   transfer converges as gamma_C -> infinity (differences 1.3e-2, 1.2e-4, 1.2e-5, like 1/gamma_C). It departs from
   Lemma 6.5's diag(1, 0, -1/3, 1) by up to 1.22 (b(1) gains 1.217 of (c + 3d)/4). Not certified.
+- D435 (verifier 186 on D434: confirmed with one correction): only l = 0 was computed, so the transfer gives the l = 0
+  part of the r^-2 coefficient, each other harmonic its own. The series has no transient (largest coefficient 2.0 at
+  n = 1; 60 digits differ by 5e-26); run to gamma_C = 1e12, T(1e6) is 1.36e-6 from the limit. transfer5's label fixed.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
