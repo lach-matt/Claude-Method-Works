@@ -1,7 +1,8 @@
 # E2-PILOT -- E2 at one operator: □ on 5D Tangherlini, harmonic by harmonic, with explicit constants
 
-Status: written (D350); section 3b added (D355) and verified (verifier 165, D356); section 3c added (D359); sections
-1-3 and 3c to be read. Check script: `checks/e2pilot5.py` P1-P4 (computed), all pass, every control fails.
+Status: written (D350); section 3b added (D355) and verified (verifier 165, D356); section 3c added (D359), read by
+verifier 167 (D362); section 3d (the band, computed) added (D371); sections 1-3 and 3d to be read. Check script:
+`checks/e2pilot5.py` P1-P4 (computed), all pass, every control fails; the band: `checks/e2band5.py`.
 
 EFFECTIVE-CONSTANTS.md section 5 (E2) asks, at Tangherlini, for certified lower bounds at each harmonic up to an
 explicit cut-off and explicit coercivity beyond it, to replace the N1 constants at b_0; it calls E2 at one operator
@@ -173,6 +174,43 @@ bound fails. So above the barrier the constant is polynomial: Proposition E2.4's
 l with V_max ≥ σ² below l_0(σ): 5 ≤ l < 50 at σ = 3, by the proved thresholds. Of these, 12 ≤ l < 50 have κ_I² > 0 and
 lack only the end signs; 5 ≤ l < 12 are those whose barrier top lies above σ² without covering I.
 
+## 3d. The band between the two bounds, computed (D371)
+
+At σ = 3, E2.7 covers l ≤ 4 (σ² > max V_l) and E2.5 covers l ≥ 50 (closed form), or l ≥ 18 by quadrature (computed).
+For 5 ≤ l ≤ 17 only Proposition E2.4's constant holds, up to e^54. `checks/e2band5.py` computes the band with P2's
+solver (r ∈ [1.2, 4], 161-point kernel; output `checks/e2band5_s3.out`, l = 0-25). Labels: computed, not certified.
+
+| l | max V_l | κ_I² | ‖χ_I R χ_I‖ | 1/κ_I² | \|W\|/(2σ) | max \|u_h\|² on I |
+|---|---|---|---|---|---|---|
+| 4 | 6.47 | −7.54 | 0.672 | - | 1.01 | 2.22 |
+| 5 | 9.22 | −6.90 | 1.132 | - | 1.46 | 11.6 |
+| 6 | 12.47 | −6.14 | 0.983 | - | 10.4 | 737 |
+| 8 | 20.47 | −4.26 | 0.725 | - | 1.42 × 10³ | 1.39 × 10⁷ |
+| 11 | 36.22 | −0.57 | 0.287 | - | 4.72 × 10⁶ | 9.18 × 10¹³ |
+| 12 | 42.47 | 0.90 | 0.193 | 1.116 | 8.29 × 10⁷ | 1.15 × 10¹⁶ |
+| 17 | 81.22 | 9.98 | 0.0551 | 0.1002 | 3.74 × 10¹⁴ | 7.17 × 10²⁵ |
+| 25 | 169.22 | 30.60 | 0.0225 | 0.0327 | 2.39 × 10²⁶ | 5.29 × 10⁴⁰ |
+
+What it shows (computed):
+
+- The norm peaks at l = 5, at 1.132: the harmonic whose barrier top, 9.22, is nearest σ² = 9, the trapping energy of
+  this harmonic. It is at most 1.132 for every l ≤ 25, and falls like about 1/(l(l + 2)) beyond the band.
+- Where E2.5's quantity applies (κ_I² > 0, l ≥ 12), the computed norm is below 1/κ_I² at every l, including
+  12 ≤ l ≤ 17, where the proof's end-sign conditions fail. So a sharper Lemma E2.5b is consistent with the numbers.
+- For 5 ≤ l ≤ 11 the barrier does not cover I (κ_I² ≤ 0). There max |u_h|² grows to 10¹⁴, but |W|/(2σ) grows in step,
+  and the kernel u_h(x_<) u_∞(x_>)/W stays O(1).
+
+**What a bound for the band must use (proposed, not proved).** Proposition E2.4 used only |W| ≥ 2|σ|. That is the only
+place the e^54 enters. W = 2iσA, with |A|² = 1 + |B|² the transmission factor, and A carries the whole tunnelling
+growth through the forbidden region F = {V_l > σ²}.
+
+- A bound O(1) would bound |u_h(x)| above by |A| times the decay e^(−∫_x^(x_2) κ), with κ := (V_l − σ²)^(1/2), on F and
+  to its right, and |u_∞(y)| by its mirror.
+- Then for x ≤ y the kernel is at most e^(−∫_x^y κ) up to constants.
+- On F, N = |u|² is convex (N″ = 2|u′|² + 2(V − σ²)N ≥ 0). With the energy H′ = −V′N and the flux this should give
+  the two bounds without WKB asymptotics, as Lemma E2.5a does at the ends of I.
+- Writing it, as Lemma E2.8, is the next step for the band.
+
 ## 4. What remains for E2 at this operator
 
 - **Uniformity in l (E2.5): done for real σ on a fixed interval (section 3b, D355).** exp(I_l/(2|σ|)) grows like
@@ -182,7 +220,8 @@ lack only the end signs; 5 ≤ l < 12 are those whose barrier top lies above σ�
   monotone energy and the flux.
   - *Above the barrier* (σ² > max V_l) Lemma E2.7 gives the polynomial Λσ/(σ² − max V_l) (section 3c, D359).
   - *The other harmonics, l < l_0(σ) with max V_l ≥ σ²,* keep Proposition E2.4's constant, which is finite but
-    astronomically large. Below the proved l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below
+    astronomically large. Section 3d computes their actual norms at σ = 3, at most 1.132 (D371). Below the proved
+    l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below
     the threshold 18 that quadrature gives, which is computed, not proved).
   - *Two kinds of l below l_0.*
     - Where κ_I² > 0 (from l = 12 at σ = 3, by (i)), only the end signs are missing; a sharper Lemma E2.5b would cover

@@ -6369,3 +6369,10 @@ glue smoothly, because the vacuum equations fix every normal derivative at the s
 the two developments are identified on their largest common development, by Sbierski's construction of the maximal
 development without Zorn's lemma (read at source). How far that common region reaches is not decided.
 
+**D371 (2026-10-31): the band of harmonics between the two resolvent bounds, computed.** At σ = 3 the cut-off resolvent
+of the scalar wave on 5D Tangherlini was computed for every harmonic up to 25 (`checks/e2band5.py`). It peaks at 1.13 at
+l = 5, the harmonic whose barrier top is nearest σ², and is at most that for every l. In the band the two proved bounds
+leave open (5 ≤ l ≤ 11 has the barrier below σ² on part of the interval), the solutions grow by tunnelling up to 10¹⁴,
+but the Wronskian grows in step, so the kernel stays of order one. A bound for the band must use that growth of the
+Wronskian, which the earlier per-harmonic constant threw away; E2-PILOT section 3d proposes how.
+
