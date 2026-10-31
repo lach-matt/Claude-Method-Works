@@ -6918,3 +6918,10 @@ carries at the light cone is the same for every pattern and points the right way
 pattern's leading number by one constant, and its rates of change by powers of the complexity. So the sum over all
 patterns behaves, and the condition at spatial infinity for the record's full equation holds, at the record's setting,
 given that the solution is unique. The constant is astronomically large, but it does not grow with the pattern.
+
+**D438-D439 (2026-10-31): verifiers 187 and 188 on the last two.** Neither broke anything. The first checked the
+reduction for every pattern against an explicit second pattern built independently, found that the behaviour at the
+light cone is exactly the same for every pattern (so nothing goes wrong there at any pattern, not just the first
+twelve), and fixed two bookkeeping factors. The second re-derived the proof for all patterns and confirmed it, with one
+figure corrected (a growth ratio that had only been checked on special data) and the closing statement given back its
+qualifiers: at the record's setting, for smooth data, assuming the solution is unique.

@@ -335,25 +335,32 @@ t = const, s = 1 + tρ, so the expansion at I_0 is F's Taylor series at s = 1.
       uniqueness; each other harmonic has its own transfer (corrected D435, verifier 186), computed for l ≤ 12 in Q7.
 - *Q7, every harmonic at the record's γ_C = 10⁶ (D436; `checks/harmonics5.py` S1-S3, T and G).*
   - *S1-S2 (exact).* With the harmonic kept abstract (a zonal Y with ΔY = −κY, κ = l(l + 2), and an axial
-    divergence-free V with ΔV = −(κ − 1)V), the scalar type reduces to a 7 × 7 system in s (6 × 6 at l = 1) and the
+    divergence-free V with ∇^A∇_A V = −(κ − 1)V, the rough Laplacian), the scalar type reduces to a 7 × 7 system in s (6
+    × 6 at l = 1) and the
     vector type to 3 × 3 (2 × 2 at l = 1). Each has second-order part −½ s(s − 2) I and polynomial coefficients, the
     off-sector components vanish and χ drops out (15 and 17 checks). At κ = 0 and κ = 3 the scalar system is
     coulombL5's l = 0 and l = 1 system exactly.
   - *S3 (exact).* For any angular, traceless h the gauge 1-form w = δGh + E^Υ Gh is −(div_(S³) h)/r² on the sphere and
     0 in t and r. So on the tensor type w = 0 and L h = D Ric h: its transfers do not depend on γ_C or γ_Υ.
   - *T (computed, not certified).* For l = 1, ..., 12 every scalar- and vector-type transfer at γ_C = 10⁶ is finite.
-    The series agree to 30 digits at 400 and 600 terms, and the exponents at N besides 0 are −0.5, −0.51, −0.5099,
-    −0.52, −1.5 × 10⁶ and −3 × 10⁶ for every l ≥ 2 (a subset at l = 1), so no harmonic is resonant there. The change
+    The series agree to 30 digits at 400 and 600 terms, and the exponents at N besides 0 do not depend on l: M1 carries
+    no κ (exact), and they are −1/2, −1/2 − γ_Υ(1 − e_Υ), −1/2 − γ_Υ, −1/2 − 2γ_Υ, −1/2 − γ_C(1 + v)(1 − e_C), −1/2 −
+    γ_C(1 + v) and −1/2 − 2γ_C(1 + v) (−0.5, −0.5099, −0.51, −0.52, −1.499986 × 10⁶, −1.5 × 10⁶ and −3 × 10⁶ at the
+    record's point), a subset at l = 1 and on the vector type. So no harmonic is resonant at N, for any l (verifier 187,
+    D438). The change
     from γ_C = 10⁵ to 10⁶ grows with l, from 2.5 × 10⁻⁵ at l = 1 to 3.4 × 10⁻² at l = 12 (scalar type, raw components).
   - *G (computed).* In the basis normalised by each harmonic's L²(S³) size, the norms of F(0) ↦ F^(k)(1) at l = 12
-    are 9.9, 14.5, 17.8 and 151 for k = 0, ..., 3 on the scalar type, and 1.04, 1.00, 9.4 and 176 on the vector type.
+    are 10.75, 15.7, 18.1 and 148 for k = 0, ..., 3 on the scalar type (b counted twice, corrected D438), and 1.04, 1.00,
+    9.4 and 176 on the vector type.
     They grow roughly like l, l, l and l² (scalar) and 1, 1, l and l² (vector), with an even-odd alternation in l.
-  - So up to l = 12 the Taylor coefficients at I_0 grow polynomially in l, which is what Lemma 0.1's condition needs
+  - So up to l = 12 the first four Taylor coefficients at I_0 (k ≤ 3) grow no faster than about l², the local exponent of
+    k = 3 still rising towards 2, which is what Lemma 0.1's condition needs
     for the sum over l when the data's harmonics decay faster than any power. That is evidence; the l-uniform bound is
     proved in Q8 (D437). The tensor type's transfer is the undamped one and is not computed here.
 - *Q8, Lemma 6.5‴: the transfer bounded uniformly in l (D437; `checks/uniform5.py` U1-U6).* At the record's point, for
   every scalar- and vector-type harmonic l ≥ 2, write x := κ^(1/2) and the reduced system of Q7 in the basis normalised
-  by the harmonic's size, W = diag(1, 1, 1, 1, x, x, x²) on (a, …, k) and diag(1, 1, x) on (p, q, k), as
+  by a basis equivalent, uniformly in l, to the harmonic's L²(S³) size (ratios in [0.55, 0.82], verifier 188), W =
+  diag(1, 1, 1, 1, x, x, x²) on (a, …, k) and diag(1, 1, x) on (p, q, k), as
   m₂F″ + M₁F′ + M₀F = 0, m₂ = s − s²/2.
   - *Structure (exact, U1-U2).* M₂ = m₂ I; M₀ = (x²/2) I + N with every entry of N of degree at most 1 in x; M₁ of
     degree at most 0. A(s) := M₁(s) − (1 − s) I/2 has A(0) independent of x, with eigenvalues 1, 1.0099, 1.01, 1.02,
@@ -363,7 +370,8 @@ t = const, s = 1 + tρ, so the expansion at I_0 is F's Taylor series at s = 1.
   - *The equation in T.* With T := ∫₀^s m₂^(−1/2), so that s = 1 − cos(T/√2), N lies at T = 0, I_0 at T = π/√2 and
     s = 3/2 at T = 2√2π/3. Since F_s = T_s F_T and m₂T_ss = −(1 − s)T_s/2,
         F_TT + T_s A(s) F_T + M₀ F = 0,   T_s = m₂^(−1/2).
-    The regular branch at N (no resonance, Q7) is smooth in T with F_T(0) = 0.
+    The regular branch at N (no resonance for any l ≥ 2: A(0) is independent of l with positive eigenvalues, U2) is
+    smooth in T with F_T(0) = 0, since s is even and analytic in T.
   - *The energy.* E := ⟨F_T, H F_T⟩ + (x²/2 + 1)⟨F, H F⟩. The (x²/2) I part of M₀ cancels against the derivative of
     the second term, and H A(0) + A(0)ᵀ H = I, so
         dE/dT = −T_s |F_T|² − 2T_s ⟨F_T, H (A(s) − A(0)) F_T⟩ − 2⟨F_T, H N F⟩ + 2⟨F_T, H F⟩.
@@ -376,25 +384,30 @@ t = const, s = 1 + tρ, so the expansion at I_0 is F's Taylor series at s = 1.
   - *Derivatives.* On [1/2, 3/2] the equation is regular (m₂ ≥ 3/8). Differentiated k times it gives F^(k+2) in terms of
     lower derivatives, with coefficients bounded by C (from M₁) and C(1 + x²) (from M₀) together with their
     s-derivatives. By induction |F^(k)(s)| ≤ K_k (1 + x²)^(k/2) |F(0)| there, with K_k independent of l.
-  - *Tensor type.* There w = 0 (Q7, S3), so L h = D Ric h = −½ □_L h, which on Minkowski acts on each Cartesian
-    component as □. Each component is a self-similar solution of the scalar wave equation, and Lemma 6.5 (with
-    Markov's inequality) bounds its Taylor coefficients at s = 1 by powers of the degree, which is at most l + 2.
-  - *The low harmonics* l = 0, 1 are finitely many, each with a finite transfer (Q4, Q5, Q7).
+  - *Tensor type.* There w = 0 (Q7, S3); as h is traceless and divergence-free on S³, δGh = δh = 0 as well, so L h = D
+    Ric h = −½ □_L h, which on Minkowski acts on each Cartesian component as □. Each component is r⁻² k(s) times a
+    harmonic of degree l, k analytic at N (the scalar equation's exponents there are 0 and −½), so it is Lemma 6.5's
+    solution, k = k(0) U_l(1 − s)/(l + 1), and Markov's inequality on s ∈ [0, 2] bounds |k^(m)| by l^(2m)|k(0)|
+    (corrected D439, verifier 188).
+  - *The low harmonics* l = 0, 1 are finitely many, each smooth at s = 1 (an ordinary point), its regular branch fixed by
+    the negative exponents at N of Q4, Q5 and Q7.
   - *Consequence.* For smooth data on N the normalised harmonic coefficients F_l(0) decay faster than any power of l,
     and the normalised harmonics' C^m norms on S³ grow at most polynomially. So r²h = Σ_l F_l(s) H_l(ω), with all its
     derivatives, converges uniformly on [1/2, 3/2] × S³: r²h is smooth in (s, ω) near s = 1, that is in ρ²C^∞ at I_0.
     Lemma 0.1's condition for the Coulomb term holds at leading order in flat space, for the full operator at the
     record's point, given uniqueness.
   - The constant is finite and independent of l, which is all the condition needs; it is not a good constant. The
-    record's γ_C = 10⁶ enters through |H|/μ ≈ 7 × 10⁶ and coefficients of size 10⁶. On the computed harmonics the true
-    energy ratio E(T₁)/E(0) is at most 3.6 and falls with l (U6, l = 2, …, 6).
+    record's γ_C = 10⁶ enters through |H|/μ ≈ 7 × 10⁶ and coefficients of size 10⁶. On the computed harmonics the energy
+    ratio E(T₁)/E(0) on coordinate data F(0) = e_j is at most 3.6 and falls with l (U6, l = 2, …, 6); over all F(0) its
+    supremum is 2.85 × 10⁶, 2.25 × 10⁶ and 1.35 × 10⁶ (scalar, l = 2, 3, 4) and 3.1 × 10⁵, 1.5 × 10⁵ and 6.3 × 10⁴
+    (vector), reached on data with small ⟨F(0), H F(0)⟩ (verifier 188, D439), far below e^(C_E T₁).
 
 So at leading order in flat space, and for the full operator, each harmonic of the Coulomb part lies in ρ²C^∞ at
 I_0, given uniqueness. Whether their sum does, Lemma 0.1's condition for this term, needs a bound uniform in l on the
 transfer's Taylor coefficients at s = 1 in place of Lemma 6.5's Markov step. That bound is Lemma 6.5‴ (Q8, D437), so the
-condition holds for the full operator, given uniqueness (open from D429, verifier 183, until D437). The coefficient is
-the
-transfer matrix's, not cos(πl/2)/(l + 1).
+condition holds for the full operator at the record's point, when M_m is smooth on S³, given uniqueness (open from D429,
+verifier 183, until D437). On the scalar and vector types the coefficient is the transfer matrix's, not cos(πl/2)/(l +
+1); on the tensor type it is cos(πl/2)/(l + 1).
 
 What it does not give:
 

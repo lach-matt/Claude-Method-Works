@@ -4894,8 +4894,9 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D436 (BEYOND5 Q7, checks/harmonics5.py S1-S3 exact, T and G computed): every harmonic at gamma_C = 1e6. With the
   harmonic abstract (kappa = l(l + 2)), the scalar type is a 7 x 7 system and the vector type 3 x 3, both with principal
   part -(1/2) s (s - 2) I, matching coulombL5 at l = 0, 1; on the tensor type w = 0, so its transfer is damping-free.
-  For l <= 12 all transfers are finite and non-resonant at N (the same exponents for every l >= 2); normalised, the
-  Taylor coefficients at I_0 grow like l, l, l, l^2 (scalar) and 1, 1, l, l^2 (vector) for k = 0 ... 3. Polynomial up
+  For l <= 12 all transfers are finite; the exponents at N are exactly l-independent (M1 carries no kappa; verifier 187),
+  so no harmonic is resonant; normalised, the first four Taylor coefficients at I_0 grow like l, l, l, l^2 (scalar) and
+  1, 1, l, l^2 (vector) for k = 0 ... 3. Polynomial up
   to l = 12: evidence for Lemma 0.1's sum, not the uniform bound.
 - D437 (BEYOND5 Q8, Lemma 6.5''', checks/uniform5.py U1-U6): the transfer bounded uniformly in l, closing D429's M3
   at the record's point. Normalised, M0 = x^2 I/2 + O(x), M1 = O(1), and A(0) = M1(0) - I/2 is l-independent with
@@ -4903,6 +4904,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the energy <F_T, H F_T> + (x^2/2 + 1)<F, H F> has dE/dT <= C_E E, C_E independent of l: |F(s)| <= K0 |F(0)| on
   [0, 3/2], derivatives <= K_k (1 + kappa)^(k/2); the tensor type by Lemma 6.5 on Cartesian components. So Lemma 0.1's
   condition for the Coulomb term holds (flat, full operator, given uniqueness). ln K0 ~ 2e14: uniform, not good.
+- D438 (verifier 187 on D436; confirmed, nothing refuted): an explicit l = 2 harmonic reproduces the kappa = 8 system
+  (scalar and vector), independent of the shared code. M1 carries no kappa, so the exponents at N are exactly
+  l-independent (closed forms in BEYOND5 Q7): no harmonic is resonant at N for any l. The b weight counts tr and rt
+  (l = 12 norms 10.75, 15.7, 18.1, 148), the vector docstring's factor fixed; "Taylor coefficients" -> "the first four".
+- D439 (verifier 188 on D437; PROVED-WITH-CORRECTION): the l-uniform bound holds. The energy ratio <= 3.6 was over
+  coordinate data only; over all data its sup is 2.85e6 (scalar, l = 2), still far below e^(C_E T1). The closing
+  statement carries "at the record's point" and "when M_m is smooth on S^3"; the tensor type needs delta G h = 0 too,
+  each Cartesian component has degree exactly l and is Lemma 6.5's solution (exponents 0, -1/2 at N); l = 0, 1 need
+  only the ordinary point s = 1; W equivalent, not equal, to the L^2 size (ratios in [0.55, 0.82]).
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

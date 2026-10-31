@@ -21,7 +21,8 @@ Checked here (exact unless marked):
   U4 explicit constants for s in [0, 1], x >= 8^(1/2) (l >= 2): a1 >= sup |A'(s)|, n0 + n1 x >= sup |M0 - x^2 I/2|,
      from the absolute values of the coefficients (outward rounded).
   U5 the energy E := <F_T, H F_T> + (x^2/2 + 1) <F, H F> obeys dE/dT <= C_E E with
-     C_E = (|H|/mu) (2 2^(1/2) a1 + n0 + 1 + 2^(1/2) n1), mu = lambda_min(H) (the derivation is in BEYOND5 Q8);
+     C_E = (|H|/mu) (2 (s1/(1 - s1/2))^(1/2) a1 + n0 + 1 + 2^(1/2) n1), mu = lambda_min(H) (BEYOND5 Q8). Not to be
+     confused with n1star/uniform5.py (D124's instrument); run this one by its path, checks/uniform5.py;
      so |F(s)| <= K0 |F(0)| on [0, s1] and |F_T| <= K0 (x^2/2 + 1)^(1/2) |F(0)| there (F_s = m2^(-1/2) F_T),
      K0 = cond(H)^(1/2) exp(C_E T(s1)/2), uniformly in l >= 2; for s1 = 1 (I_0) and s1 = 3/2 (a neighbourhood).
      The derivatives F^(k) at any s in [1/2, s1] then follow from the equation by induction, |F^(k)| <= K_k
