@@ -4891,6 +4891,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
 - D435 (verifier 186 on D434: confirmed with one correction): only l = 0 was computed, so the transfer gives the l = 0
   part of the r^-2 coefficient, each other harmonic its own. The series has no transient (largest coefficient 2.0 at
   n = 1; 60 digits differ by 5e-26); run to gamma_C = 1e12, T(1e6) is 1.36e-6 from the limit. transfer5's label fixed.
+- D436 (BEYOND5 Q7, checks/harmonics5.py S1-S3 exact, T and G computed): every harmonic at gamma_C = 1e6. With the
+  harmonic abstract (kappa = l(l + 2)), the scalar type is a 7 x 7 system and the vector type 3 x 3, both with principal
+  part -(1/2) s (s - 2) I, matching coulombL5 at l = 0, 1; on the tensor type w = 0, so its transfer is damping-free.
+  For l <= 12 all transfers are finite and non-resonant at N (the same exponents for every l >= 2); normalised, the
+  Taylor coefficients at I_0 grow like l, l, l, l^2 (scalar) and 1, 1, l, l^2 (vector) for k = 0 ... 3. Polynomial up
+  to l = 12: evidence for Lemma 0.1's sum, not the uniform bound.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

@@ -332,12 +332,30 @@ t = const, s = 1 + tρ, so the expansion at I_0 is F's Taylor series at s = 1.
       departs from it by up to 1.22: b(1) = −0.601 a(0) + 0.627 b(0) − 0.304 (c − d)(0) + 1.217 ((c + 3d)/4)(0), where
       the undamped b(1) is 0, and a(1) = 0.976 a(0) + 0.024 b(0) − 0.012 (c − d)(0) + 0.047 ((c + 3d)/4)(0).
     - So at the record's point the l = 0 part of the r⁻² coefficient at I_0 is this transfer applied to F(0), given
-      uniqueness; each other harmonic has its own transfer, not computed at γ_C = 10⁶ (corrected D435, verifier 186).
+      uniqueness; each other harmonic has its own transfer (corrected D435, verifier 186), computed for l ≤ 12 in Q7.
+- *Q7, every harmonic at the record's γ_C = 10⁶ (D436; `checks/harmonics5.py` S1-S3, T and G).*
+  - *S1-S2 (exact).* With the harmonic kept abstract (a zonal Y with ΔY = −κY, κ = l(l + 2), and an axial
+    divergence-free V with ΔV = −(κ − 1)V), the scalar type reduces to a 7 × 7 system in s (6 × 6 at l = 1) and the
+    vector type to 3 × 3 (2 × 2 at l = 1). Each has second-order part −½ s(s − 2) I and polynomial coefficients, the
+    off-sector components vanish and χ drops out (15 and 17 checks). At κ = 0 and κ = 3 the scalar system is
+    coulombL5's l = 0 and l = 1 system exactly.
+  - *S3 (exact).* For any angular, traceless h the gauge 1-form w = δGh + E^Υ Gh is −(div_(S³) h)/r² on the sphere and
+    0 in t and r. So on the tensor type w = 0 and L h = D Ric h: its transfers do not depend on γ_C or γ_Υ.
+  - *T (computed, not certified).* For l = 1, ..., 12 every scalar- and vector-type transfer at γ_C = 10⁶ is finite.
+    The series agree to 30 digits at 400 and 600 terms, and the exponents at N besides 0 are −0.5, −0.51, −0.5099,
+    −0.52, −1.5 × 10⁶ and −3 × 10⁶ for every l ≥ 2 (a subset at l = 1), so no harmonic is resonant there. The change
+    from γ_C = 10⁵ to 10⁶ grows with l, from 2.5 × 10⁻⁵ at l = 1 to 3.4 × 10⁻² at l = 12 (scalar type, raw components).
+  - *G (computed).* In the basis normalised by each harmonic's L²(S³) size, the norms of F(0) ↦ F^(k)(1) at l = 12
+    are 9.9, 14.5, 17.8 and 151 for k = 0, ..., 3 on the scalar type, and 1.04, 1.00, 9.4 and 176 on the vector type.
+    They grow roughly like l, l, l and l² (scalar) and 1, 1, l and l² (vector), with an even-odd alternation in l.
+  - So up to l = 12 the Taylor coefficients at I_0 grow polynomially in l, which is what Lemma 0.1's condition needs
+    for the sum over l when the data's harmonics decay faster than any power. That is evidence, not the l-uniform
+    bound, which stays open. The tensor type's transfer is the undamped one and is not computed here.
 
 So at leading order in flat space, and for the full operator, each harmonic of the Coulomb part lies in ρ²C^∞ at
 I_0, given uniqueness. Whether their sum does, Lemma 0.1's condition for this term, needs a bound uniform in l on the
 transfer's Taylor coefficients at s = 1 in place of Lemma 6.5's Markov step. That bound is not given, so the condition
-stays open for the full operator (D429, verifier 183). The coefficient is the transfer matrix's, not
+stays open for the full operator (D429, verifier 183; evidence up to l = 12 in Q7, D436). The coefficient is the transfer matrix's, not
 cos(πl/2)/(l + 1).
 
 What it does not give:

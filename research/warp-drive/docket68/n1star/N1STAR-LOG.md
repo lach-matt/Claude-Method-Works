@@ -6904,3 +6904,9 @@ undamped one: one component the undamped equation sends to zero comes out of ord
 **D435 (2026-10-31): verifier 186 on D434.** The numbers held up, and running the damping on to a million million
 puts the record's setting within about a millionth of the limit. One sentence claimed more than was computed: the
 number found is for the simplest angular pattern only, and each other pattern has its own.
+
+**D436 (2026-10-31): every angular pattern at the record's setting.** D434 found the clean expansion's leading
+number for the simplest pattern only. Now every pattern up to twelve is done, of all three kinds. One kind never feels
+the damping at all. For the other two, every pattern behaves as the simplest one did, with no trouble where the data
+are given, and the numbers grow only like a power of the pattern's complexity, at most its square for the first three
+rates of change. That is what summing all the patterns needs, but twelve patterns are evidence, not a proof for all.
