@@ -4656,6 +4656,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   4.6, the error rising toward the cut (frozen at u = -1.0557 from v ~ 2.4). "Below 7e-4" withdrawn: beyond v ~ 3 the
   differences grow with M (kept-cell max 7e-3, at x = +1). M32 tails exceed M24's from v ~ 2. D388-D390 sound
   (nits seated); g1geom5 now compares s, scans k, splits m on/off the axis, prints tails.
+- D399 (checks/g1uv5.py, checks/g1cells5.py, computed): G1 in (u, v), M = 24, grids 200x90, 400x180, 800x360. Swapped
+  gauge (k = 10): ratios 2.9-4.9 (s 3.4-6.9) to v = 4.6; 400-800 peaks 9.7e-3 in P, 0.26 in s on [1.65, 1.8), above
+  the angular differences in every band, so (u, v) sets the run's error. A cell is the same pair of null hypersurfaces
+  in both gauges: on the 164,827 cells both keep, dnsolve5 converges at ratio 3.7-4.5 with P errors 14-57x smaller
+  before v = 2.5, and in angle to v ~ 3.5 at k = 10, axis included (swapped: 2.25). dnsolve5's failures lie on the
+  16,617 cells only it keeps, between the two cuts. So D386-D395's gauge comparison was mostly one of cell sets. The
+  swapped P ratio stays 2.9-3.0 on [1, 1.8) at k = 3-50: second order or ~1.6 undecided; a 1600x720 grid runs.
 
 ### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
 

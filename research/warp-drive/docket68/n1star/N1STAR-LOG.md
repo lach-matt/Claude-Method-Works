@@ -6615,3 +6615,14 @@ lower-order term in the multiplier has the wrong sign. In that sector the energy
 size, which bounds the wrong-signed term by the size of the correction term, a fixed number below two thirds. So the
 lowest harmonic, like every other, now has an explicit bound throughout the upper half plane; a direct computation at
 three points, on both sides of the sector's edge, sits well below it.
+
+**D399 (2026-10-31): the double-null runs refined in the null directions, and the two gauges on the same cells.** The
+runs had been refined only in angle. Refined twice in the two null directions, the swapped gauge converges at about
+second order everywhere away from the cut-off, but its error there is much larger than its angular one, so the null
+grid, not the angular resolution, limits its accuracy. Because the two gauges share their null hypersurfaces, they can
+also be compared cell by cell, and on the cells both keep the original gauge does better: it converges cleanly at
+second order with errors 14 to 57 times smaller early on, and in angle further than the swapped gauge, the axis
+included. Its earlier failures all lie on cells the swapped gauge's cut-off drops. So the earlier comparison of the two
+gauges was mostly a comparison of which cells each keeps. In both, the failing cells border the cut-off near one axis
+at small radius; what causes that is still open. Whether the swapped gauge's convergence is truly second order is not
+settled by three grids, and a fourth, finer one is running.
