@@ -331,6 +331,27 @@ loop counts of section 3.
   - So the open question of LD7 is reduced to these two kinds. Each needs the index sets at n = 4 as numbers, which
     the record has not computed, and then the sums over them up to real part 3 + ε_ind.
 
+- LD9 (whether (G) binds, at two of the record's own roots; computed, conditional, D408; `checks/gapsums5.py`).
+  - *What E_ind is.* Λ's increments are π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}. ℰ_ind is the index set of III.D″ Proposition 3.1
+    and III.F‴ Proposition 2.2 at b_0 (I5:190, I8:35). Their states lie in 𝒜^((2,0) ∪ (2 + ℰ_ind)) (D3:135-148), and
+    their exponents are indicial roots plus integers (D4:52-60). The record bounds min Re ℰ_ind ≥ ε_ind and does not
+    list the exponents.
+  - *Two of them.* □^Υ(0)'s s0 and s1 roots through 2 are λ_s0 = (1 + (9 + 4z)^(1/2))/2 and λ_s1,2 = (1 + (17 + 2z −
+    2(z² + 4z + 16)^(1/2))^(1/2))/2 (III.D (4.1); N1STAR-PROOF.md:4575-4576). Their offsets above 2 are
+    d0 = 1.3333327 × 10⁻⁶ ≈ z/3 and d1 = 3.3333305 × 10⁻⁷ ≈ z/12 at z = 4 × 10⁻⁶. d0 − 4d1 = 5.56 × 10⁻¹³ = O(z²):
+    the two are nearly commensurate. The expansions of Proposition 3.1's s1 state and of the mass state's gauge part
+    generically carry ρ^(2+d1) and ρ^(2+d0).
+  - *If ℰ_ind contains d0 and d1,* then 2 + n0 d0 + n1 d1 ∈ Λ for all n0, n1 ≥ 0. The least such value above 3 is
+    3 + 4.68 × 10⁻¹³, at (n0, n1) = (350001, 1599998). From λ_♯ the least above 2 is 2 + 5.10 × 10⁻¹³. So
+    δ_G ≤ 4.7 × 10⁻¹³, about 1.6 × 10⁵ times below the record's least root distance 7.38 × 10⁻⁸ (≥ ε_ind), and (G)
+    binds: ε_K < 4.7 × 10⁻¹³, and the β-chain needs K > 2/ε_K > 4 × 10¹².
+  - *Control.* With d0 alone the least gap is 8.9 × 10⁻⁷. It is the near-commensurability d0 ≈ 4d1 that brings the
+    sums this close.
+  - *Not decided.* Whether the coefficients of those two exponents are nonzero, so that ℰ_ind contains them (the
+    record keeps ℰ_ind as a bound). And whether more of □^Υ's offsets enter: the sl offsets are
+    z l/(2(l + 1)(2l + 1)) + O(z²), all rational multiples of z at first order, which would bring the sums closer
+    still. If they all enter, δ_G is set by the O(z²) parts and the loss d is larger than LD3's by many orders.
+
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

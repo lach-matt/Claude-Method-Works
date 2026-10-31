@@ -6697,3 +6697,11 @@ knowing the background's own field equations, and it comes out as claimed: the t
 five equations that hold automatically, and each of the other ten equations moves its own piece along the incoming
 direction. The full next stage, with the waves' own contributions, still needs a background that solves its
 equations, and is not done.
+
+**D408 (2026-10-31): the gap condition probably binds, and hard.** Two of the exponents that the record's own
+operator produces sit just above the integer 2, by amounts that are almost exactly in the ratio four to one. If both
+enter the set of exponents the condition ranges over, as they generically would, then sums of them land within half a
+millionth of a millionth above the next integer, about a hundred and sixty thousand times closer than the scale used
+so far. The step of the long chain must then be smaller than that, and the number of its levels rises to trillions.
+Whether those two exponents really appear with nonzero coefficients is not something the record settles; that is the
+remaining question.

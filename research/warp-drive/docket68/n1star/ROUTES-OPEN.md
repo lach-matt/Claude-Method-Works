@@ -4730,6 +4730,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   [Corrected D402: the open set is every sum g + sum n_i w_i in (2, 2 + eps_ind) or (3, 3 + eps_ind), any generator g,
   and lambda + d_c in (2, 2 + eps_ind) for lambda in pi_1 M (Re lambda < 2), i.e. Re lambda within d_c below 2;
   d_c >= eps_ind (mu_c is a non-integer root of F2 Prop 2.3), d_c0 <= z/3, d_c1 < 1/4 (D405).]
+- D408 (LOSS-D LD9, checks/gapsums5.py, computed, conditional): box^Ups's s0 and s1 roots through 2 sit d0 = z/3 +
+  O(z^2) and d1 = z/12 + O(z^2) above 2, with d0 - 4 d1 = 5.56e-13. If E_ind contains both offsets (the states'
+  expansions generically carry them; the record keeps E_ind as a bound), Lambda has 2 + n0 d0 + n1 d1 within
+  4.68e-13 above 3 (and lambda_sharp + sums within 5.1e-13 above 2): delta_G <= 4.7e-13, 1.6e5 below eps_ind, so
+  eps_K < 4.7e-13 and K > 4e12. Control: d0 alone gives 8.9e-7. Open: whether the coefficients are nonzero.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
