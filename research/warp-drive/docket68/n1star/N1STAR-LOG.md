@@ -6762,3 +6762,9 @@ record's gauge is set up in the interior. The record fixes that only far out and
 its choosing. Changing the cut-off changes the coefficient, generically, so the question has no answer from the record
 alone. One condition on the cut-off would make that term vanish. Until such a choice is made, the bound of D413 is the
 one to carry.
+
+**D416 (2026-10-31): the derivative bound for the lowest mode.** The bound on the derivative of the solution now
+covers the spherically symmetric mode too: the identity used for that mode already contains the derivative term, so
+the same short argument applies. Its constant, about 809, is the largest of all the modes at the test frequency, so it
+sets the constant for the full wave equation on the cut-off region. An earlier note that this mode needed a different
+argument is withdrawn.

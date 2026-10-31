@@ -21,7 +21,13 @@ K := 2 Xb + (M' + 2|sigma|) B_l. For Im sigma > 0 the same holds with 4|sigma| f
      difference agrees with the central one to 5 % (an independent derivative, D405). Control: centred
      0.3 off the photon sphere, psi takes negative values, so Lemma E2.9's split w_l >= w_1, and with it the bound
      uniform in l, fails.
-Labels: H1 computed (exact, outward rounded); H2 computed (floating point, not certified); the corollary deduced.
+  H4 (exact, D416) l = 0. Lemma E2.8''s identity has 2 int (phi' - q)|u'|^2 on its left, phi' - q >= 0 on R and
+     W_q >= 0 on R (e2lzero5 Z2), so the same algebra gives ||u'||_I <= X_0 ||f|| with section 3g's certified
+     m0' >= 0.002580, M0' <= 0.3809 and B_0(3) <= 275.2 (Z4); there is no angular part at l = 0. X_0(3) and the constant
+     over every l >= 0, max(C_l, X_0). Computed beside it: at sigma = 3 + 0.25i the norm of f -> u'|_I, against the
+     bound with 4|sigma| (Lemma E2.10; Re sigma^2 > 0, so no q-term) and B_0^+.
+Labels: H1, H3, H4 computed (exact, outward rounded); H2 and H4's comparison computed (floating point, not certified);
+the corollary deduced.
 
     python3 checks/e2h1_5.py [--selftest]
 """
@@ -80,6 +86,16 @@ def psi_of(xg, rg, shift=0.0):
 
 
 BL3 = {1: Fr(2645, 10), 2: Fr(5112, 100), 3: Fr(3439, 100), 4: Fr(2602, 100), 5: Fr(2099, 100)}
+M0 = Fr(2580, 10**6)     # l = 0: min_I (phi' - q) >= (e2lzero5 Z4)
+MM0 = Fr(3809, 10**4)    # max_I |phi' - 2q| <=
+W0 = Fr(2886, 10**5)     # min_I W_q >=
+B03 = Fr(2752, 10)       # B_0(3) <= (certified from the enclosures, Z4)
+
+
+def lzero(sigma=3):
+    """X_0 from Lemma E2.8''s identity: 2 m0' X^2 <= ||f|| (2X + (M0' + 2|sigma|) Y), Y <= B_0 ||f|| (D416)"""
+    c = MM0 + 2*sigma
+    return (1 + sqrt_up(1 + 2*M0*c*B03))/(2*M0)
 
 
 def every_l(sigma=3):
@@ -134,6 +150,17 @@ def main():
     print("  H3: max_l C_l^2 <= %s (C <= %.1f), at l = %d" % (up(cmax, 0), float(sqrt_up(cmax)),
                                                              max(rows, key=lambda q: q[4])[0]))
     ok["H3"] = abs(float(cmax) - 455800) < 2000 and max(rows, key=lambda q: q[4])[0] == 1
+    X0 = lzero()
+    call = max(cmax, X0*X0)
+    print("  H4: l = 0, sigma = 3: ||u'||_I <= %s ||f||; over every l >= 0, C <= %s, at l = %s"
+          % (up(X0, 1), up(sqrt_up(call), 1), 0 if X0*X0 > cmax else 1))
+    sg0 = complex(3.0, 0.25)
+    c4 = float(MM0) + 4*abs(sg0)
+    B0p = math.sqrt((2/float(M0) + c4*c4/float(W0))/float(W0))
+    X0p = (1 + math.sqrt(1 + 2*float(M0)*c4*B0p))/(2*float(M0))
+    nd0 = h2(sg0, l=0)[0]
+    print("  H4: l = 0, sigma = 3 + 0.25i (Re sigma^2 > 0, no q-term): ||f -> u'|_I|| = %.4f <= %.1f" % (nd0, X0p))
+    ok["H4"] = 800 < float(X0) < 820 and X0*X0 > cmax and nd0 <= X0p
     sg = complex(3.0, 0.25)
     c = float(MM) + 4*abs(sg)
     Bp = math.sqrt((2/float(M1) + c*c/float(W6))/float(W6))

@@ -4770,6 +4770,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   III.B Def 6.1, D3:31-33). A compact change of zeta or chi changes box^Ups by 2(delta E)G delta*, and the rho^(2+d1)
   coefficient by its pairing with the dual state of 2 + d1: generically nonzero. So d1 in E_ind is a property of the
   cut-offs; one real condition on zeta removes it. Carry delta_G <= 5.0e-8 unless zeta is so chosen. Not computed.
+- D416 (E2-PILOT 3i, Corollary E2.11', checks/e2h1_5.py H4; exact): l = 0 has a derivative bound. Lemma E2.8''s
+  identity carries 2 int (phi' - q)|u'|^2 with phi' - q >= 0 on R, so E2.11's algebra gives ||u'||_I <= X_0 ||f||;
+  X_0(3) <= 808.6 from section 3g's certified constants. Summed over every l >= 0: C <= 808.6, set by l = 0 (675.1
+  over l >= 1). D413's "3g gives no X_0" withdrawn. Computed at 3 + 0.25i: 0.846 against 1264.5.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

@@ -495,10 +495,25 @@ has the same left side and the right side with 4|σ|. ∎
 
   Summed over the harmonics, which are orthogonal on S³, for f with no l = 0 harmonic (then u has none):
   ‖∂_(r_*) u‖²_I + Σ_l l(l + 2)∫_I ψ|u_l|² ≤ C²‖f‖² with C ≤ 675.1 at σ = 3, the angular part unweighted at l = 1.
-  The constant is set by l = 1, where B_1 is large. The l = 0 harmonic needs its own derivative bound: Corollary
-  E2.11 is for l ≥ 1, and section 3g's multiplier does not give an X_0 (restriction added D413, verifier 181). The
-  table's entries are upper bounds rounded up (D413; before, several were rounded to nearest and sat below the
-  exact value, e.g. X_1 495.8 < 495.848).
+  The constant is set by l = 1, where B_1 is large. Corollary E2.11 is for l ≥ 1 (restriction added D413, verifier
+  181); Corollary E2.11′ below gives l = 0. The table's entries are upper bounds rounded up (D413; before, several were
+  rounded to nearest and sat below the exact value, e.g. X_1 495.8 < 495.848).
+
+**Corollary E2.11′ (l = 0; deduced, D416).** Lemma E2.8′'s identity has 2∫(φ′ − q)|u′|² on its left, with φ′ − q ≥ 0
+and W_q ≥ 0 on ℝ (certified, Z2). So E2.11's algebra, with the flux term as in E2.8′, gives
+
+    ‖u′‖_I ≤ X_0(σ) ‖f‖,     X_0 := (1 + (1 + 2m′_0(M′_0 + 2|σ|) B_0)^(1/2)) / (2m′_0),
+
+with m′_0 := min_I (φ′ − q) and M′_0 := max_I |φ′ − 2q|, section 3g's m′ and M′. There is no angular part at l = 0.
+Off the axis, Lemma E2.10's form gives the same with 4|σ| + 2 max q, and the q-term may be dropped where
+Re σ² ≥ 0. D413's sentence that section 3g's multiplier gives no X_0 is withdrawn: its identity carries the
+derivative term as E2.8's does.
+
+- *H4 (exact, `checks/e2h1_5.py`).* At σ = 3, from Z4's m′ ≥ 0.002580, M′ ≤ 0.3809 and B_0(3) ≤ 275.2,
+  X_0(3) ≤ 808.6. So, over every l ≥ 0, ‖∂_(r_*) u‖²_I + Σ_l l(l + 2)∫_I ψ|u_l|² ≤ C²‖f‖² with C ≤ 808.6, set by
+  l = 0 (675.1 over l ≥ 1).
+- *Computed (floating point, not certified).* At σ = 3 + 0.25i the norm of f ↦ u′|_I at l = 0 is 0.846, against the
+  bound 1264.5 with 4|σ| and B_0⁺.
 
 What it gives: per harmonic, the cut-off resolvent maps L²(I) to the norm ‖u′‖_I + (l(l + 2)∫_I ψ|u|²)^(1/2), with
 explicit constants uniform in l ≥ 6 at each σ (and for 1 ≤ l ≤ 5 from the table's B_l). Summed over the harmonics,
