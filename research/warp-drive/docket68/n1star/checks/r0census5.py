@@ -63,7 +63,7 @@ LINES = {  # (file, line): (class, note)
     ('PART-IV5-CDMODES.md', 209): ('SPC', 'supported at the inner boundary'),
     ('PART-IV6-SOLV.md', 23): ('OTHER', "the source's r_0 = r_c"), ('PART-IV6-SOLV.md', 314): ('OTHER', 'r_c for r_0'),
     ('PART-IV6-SOLV.md', 317): ('OTHER', 'r_c for r_0'),
-    ('PART-VI3-TRAPPING.md', 374): ('VAL', 'r_0-delta_0 < 5R_1/8: with r_h = R_1 in VI, 7r + R_1 < 5R_1, r < 4R_1/7'),
+    ('PART-VI3-TRAPPING.md', 374): ('VAL', 'r_0-delta_0 < 5R_1/8: delta_0 kept at R_1/16, r + R_1/16 < 5R_1/8'),
     ('PART-VII-ASSEMBLY.md', 88): ('CON', '(0.2) on {r_0 <= r <= R\'}'),
 }
 for i in (192, 428, 532, 533, 679, 680, 882, 884):

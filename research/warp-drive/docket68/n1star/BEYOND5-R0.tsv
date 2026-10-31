@@ -288,7 +288,7 @@ PART-VI2-HORIZON.md	131	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1
 PART-VI2-HORIZON.md	132	CON	Psi_b the identity on {|x| <= 5R_1/8}; sup over [R_1/2, r_h] finite
 PART-VI3-TRAPPING.md	25	CON	I.A's radii; domain {|x| >= R_1/2}
 PART-VI3-TRAPPING.md	52	CON	I.A's radii; domain {|x| >= R_1/2}
-PART-VI3-TRAPPING.md	374	VAL	r_0-delta_0 < 5R_1/8: with r_h = R_1 in VI, 7r + R_1 < 5R_1, r < 4R_1/7
+PART-VI3-TRAPPING.md	374	VAL	r_0-delta_0 < 5R_1/8: delta_0 kept at R_1/16, r + R_1/16 < 5R_1/8
 PART-VI3-TRAPPING.md	378	CON	I.A's radii; domain {|x| >= R_1/2}
 PART-VI3-TRAPPING.md	435	CON	I.A's radii; domain {|x| >= R_1/2}
 PART-VI3-TRAPPING.md	437	CON	I.A's radii; domain {|x| >= R_1/2}

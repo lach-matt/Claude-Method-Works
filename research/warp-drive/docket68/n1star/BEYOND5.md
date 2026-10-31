@@ -170,8 +170,9 @@ CON, VAL) holds with r_♭, the constants then depending on r_♭. So with r_♭
   - III.B 157-159: ‖A‖ < r_♭/4. For |x| ≥ ½r_♭ (IV6-SOLV extends to {r ≥ ½r_♯}), |x|² ≥ ¼r_♭² > r_♭²/8 > 2‖A‖² ≥ s
     and r_A² ≥ |x|² − ‖A‖² > 3r_♭²/16 > 3‖A‖², so ‖A‖²(r_A² + ‖A‖²) < (4/9) r_A⁴ < r_A⁴: Lemma 3.3 (c)'s condition.
   - III.B 243-244: ψ(2R_1) = 2R_1 − r_♭ ≥ 3/2 R_1 and ψ′ ≥ −1 on [2R_1, 3R_1], so ψ ≥ ½R_1 > 0 there as before.
-  - VI3-TRAPPING 374: r_♭ + (r_h − r_♭)/8 < ⅝R_1 ⇔ 7r_♭ + r_h < 5R_1. In Part VI r_h = R_1 (VI-DYN 89-90), so this
-    is r_♭ < 4/7 R_1, which holds.
+  - VI3-TRAPPING 374: r_0 − δ_0 < ⅝R_1 for Part I's radii. Part VI's δ_0 = (r_h − ½R_1)/8 = R_1/16 is kept, and
+    only the inner radius moves (BEYOND5-R0-PROOF.md section 0), so r_0 − δ_0 = r_♭ + R_1/16 < ⅝R_1 ⇔ r_♭ <
+    9R_1/16, which holds.
   - IV6-SOLV's Lemma 0.5 (6) below r_h/2 (exact, by hand; D366). On r ≤ r_0/2 the record's c is the inner piece
     dt + (v/2) dr up to a positive factor (`cform5.py`:17), v = ½. In Kerr-Schild Tangherlini, g^(−1)(dr, dr) = f,
     g^(−1)(dt, dr) = 1 − f and g^(−1)(dt, dt) = −(2 − f), with f = 1 − μ/r². So ⟨c, dr⟩ = 1 − ¾f = ¼ + ¾μ/r² > 0 and
@@ -189,7 +190,8 @@ CON, VAL) holds with r_♭, the constants then depending on r_♭. So with r_♭
 - **DEF.** The definitions and domains read with r_♭ for r_0, as the three VAL sites allow.
 - So Theorem 0.2 (i) holds on {r ≥ r_♭} ⊃ {r ≥ r_q}, with λ_1, ε_m and ε depending on r_♭, so on μ_end. ∎
 
-What this rests on: the census is a reading at 308 lines, not a re-proof of each Part. A use that names the inner
+What this rests on: the census is a reading at 308 lines, not a re-proof of each Part. The re-proof, Part by Part, is
+BEYOND5-R0-PROOF.md (D368-), in batches, each read by its own verifier. A use that names the inner
 radius by none of the seven strings would be missed; verifier 168 searched for the names above and found them harmless.
 [Hin26a] Proposition 5.1's conditions at m are IV6-SOLV Lemma 0.5's (1)-(6); of these only (1) and (6) involve m, and
 both hold on (0, r_h) (C2 and the sign argument above). The source itself is not read at m here. Part VII's record
