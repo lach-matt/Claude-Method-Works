@@ -3,9 +3,9 @@
 Three saved runs at the same M (`dnsolve5.py --run` or `dnsolve5v.py --run`) on (u, v) grids N, 2N, 4N: the grids
 are nested (the stretched u-grid is linspace in arcsinh, the v-grid linspace), so every second point of a finer grid
 is a point of the coarser one, and the x-nodes are the same. On the cells all three keep, per v-band, this prints
-max |F_N - F_2N| and max |F_2N - F_4N| for F = P, Q, R, W, s, m and their ratio, about 4 for second order; and the
-same with each v-column's last k kept rows of the coarsest grid (those next to the cut) dropped. Labels: computed
-(floating point, on saved runs).
+max |F_N - F_2N| and max |F_2N - F_4N| for F = P, Q, R, W, s, m, their ratio (about 4 for second order) and max |F_4N|
+for scale; and the same with each v-column's last k kept rows of the coarsest grid (those next to the cut) dropped.
+Labels: computed (floating point, on saved runs).
 
     python3 checks/g1uv5.py COARSE.npz MID.npz FINE.npz [k]
 """
@@ -65,6 +65,8 @@ def main():
             print("%-28s %s  N-2N: %s" % (tag, name, " ".join("%9.2e" % q for q in d1)))
             print("%-28s %s 2N-4N: %s" % ("", name, " ".join("%9.2e" % q for q in d2)))
             print("%-28s %s ratio: %s" % ("", name, " ".join("%9.2f" % q for q in ratio)))
+            scale = band_max(np.abs(Ff[name]).max(-1), sel, v)
+            print("%-28s %s |F4N|: %s" % ("", name, " ".join("%9.2e" % q for q in scale)))
 
 
 if __name__ == "__main__":
