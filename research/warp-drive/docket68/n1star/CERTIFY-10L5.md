@@ -449,6 +449,16 @@ No other component is nonzero. So the scheme is the following.
     by a comparable amount, and neither treatment is the cause on its own. What
     remains is angular resolution at the axis, a feature of the solution there, or a defect common to both
     treatments. An M = 40 run at r_cut = 0.9 is the next test.
+- *M alone does not resolve it (D418; `checks/g1axis5.py --sweep`, computed).* Plain runs at M = 24, 32, 40, 48 and 56,
+  800 × 360, r_cut = 0.9 (1021-1532 s each), compared on the 182,741 cells all five keep.
+  - At the event's node the successive differences |m_M − m_M′| are 0.232, 0.112, 0.0024 and 0.083. The maximum over
+    x in that cell is 0.23, 0.17, 0.12 and 0.24. The band maxima over areal radius ≥ 1 on [1.8, 2) are 0.23, 0.17,
+    0.12 and 0.49. So there is no convergence in M, and M40's 0.0024 at the node is not representative of the cell.
+  - Before v = 1.8 the successive differences grow with M, from 2.0 × 10⁻⁶, 4.6 × 10⁻⁶ and 4.3 × 10⁻⁵ to
+    9.0 × 10⁻⁵ on [1.65, 1.8), where an angular truncation error would fall.
+  - So at a fixed null grid, raising M degrades the solution. The null step, not M, sets the error there (D399). D410's
+    "barely converges" (M16-M32) is withdrawn as a statement about angle.
+  - The test is joint refinement: M = 32 and 40 at 1600 × 720 (running).
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds.
   - At λ = 1, over its own kept cells, the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in
     dnsolve5's gauge (on 𝒟_q, in (u, v) and in angle).
@@ -472,7 +482,8 @@ No other component is nonzero. So the scheme is the following.
   axis-adapted variable, a mapped Chebyshev grid concentrated at the axes, and a shift condition between the two
   gauges. The `reg` division of D352 did not cure the axis in dnsolve5, either under the
   drag (D352) or at the event of D410 (D413). A cut experiment cannot separate the axis treatment from the geometry
-  (D413); M = 40 at r_cut = 0.9 decides whether the event converges in angle. At the second seed, decide
+  (D413). M alone, at 800 × 360, does not converge there and degrades the smooth region (D418); refine (u, v) with M
+  (M = 32 and 40 at 1600 × 720, running). At the second seed, decide
   whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann scalar along the axis) or by
   angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is excluded (D354), and so is the
   curvature cut. Then F3 (the certified linear constant) on the converged part.

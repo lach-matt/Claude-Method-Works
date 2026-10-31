@@ -6775,3 +6775,9 @@ equation also carries its gauge-damping terms. In flat space those terms respect
 is a fixed profile in one variable, and spatial infinity sits at an ordinary point of that profile's equation. So the
 clean expansion survives whatever the damping, although the leading number changes. With the damping switched off the
 calculation reproduces D406 exactly. The curved-space version, with the black hole's mass included, is not done.
+
+**D418 (2026-10-31): more angular resolution alone does not help.** At five angular resolutions on the same grid in
+time and radius, the failure on the axis does not settle down. Where the solution was already accurate, the
+differences between successive resolutions grow as the angular resolution rises. So at this grid, adding angular
+modes makes things worse rather than better, and the step in the two null directions is what limits the accuracy. The
+earlier reading that the event "barely converges" in angle is withdrawn. Runs refining both together are under way.

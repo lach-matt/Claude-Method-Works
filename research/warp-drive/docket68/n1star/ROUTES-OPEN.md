@@ -4780,6 +4780,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Coulomb part is in rho^2 C^inf for every damping parameter (exact). Damping off: Lemma 6.5's polynomials, transfer
   1, 0, -1/3, 1 (exact control). Exponents at N at the record's point: 0, -0.51, -0.52, -1.5e6, -3e6. Damping on, the
   r^-2 coefficient is the transfer matrix's (gamma_C = 1: series = Radau to 1.6e-14). Open: Tangherlini, other l.
+- D418 (CERTIFY 6b, checks/g1axis5.py --sweep, computed): M = 24, 32, 40, 48, 56 at 800 x 360, r_cut 0.9. At the event
+  node the successive |dm| are 0.232, 0.112, 0.0024, 0.083 (cell max over x 0.23, 0.17, 0.12, 0.24; band [1.8, 2)
+  0.23, 0.17, 0.12, 0.49): no convergence in M. Before v = 1.8 the differences grow with M (2.0e-6 -> 9.0e-5 on
+  [1.65, 1.8)): at a fixed null grid M degrades the solution. D410's "barely converges" withdrawn as a statement
+  about angle. Next: M = 32, 40 at 1600 x 720 (running).
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

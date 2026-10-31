@@ -12,6 +12,7 @@ on v in [1.8, 2) (D410; the areal radius as in g1cut5.py). Printed:
 Labels: computed (floating point, on saved runs).
 
     python3 checks/g1axis5.py PLAIN24 PLAIN32 REG24 REG32 [PLAIN40]
+    python3 checks/g1axis5.py --sweep PLAIN24 PLAIN32 PLAIN40 ... (D418)
 """
 import os
 import sys
@@ -37,7 +38,29 @@ def bands(name, d, ok, rad, v):
         print("  %-22s areal >= %.1f: %s" % (name, rho, " ".join("%8.1e" % q for q in GA.band_max(d.max(-1), sel, v))))
 
 
+def sweep(paths):
+    """--sweep P24 P32 P40 ...: plain runs at increasing M on one grid; successive |m_M - m_M'| at the event (fixed
+    by the first pair, as above) and per v-band, kept by all runs (D418)"""
+    runs, ok, m = load(paths)
+    u, v = runs[0]["u"], runs[0]["v"]
+    rad = GC.areal(runs[1])
+    d01 = np.abs(m[0] - m[1])
+    sel = ok & (rad >= 1.0) & ((v >= 1.8) & (v < 2.0))[None, :]
+    i, j, k = np.unravel_index(np.argmax(np.where(sel[..., None], d01, 0)), d01.shape)
+    print("v-bands:", GA.BANDS)
+    print("kept by all %d runs: %d cells" % (len(runs), ok.sum()))
+    print("event: u = %.3f, v = %.3f, x = %+.4f (node %d), areal radius %.3f" % (u[i], v[j], GA.XE[k], k, rad[i, j]))
+    for n in range(len(runs) - 1):
+        d = np.abs(m[n] - m[n + 1])
+        print("  run %d - run %d: at the event %.3g; max over x at that cell %.3g" % (n, n + 1, d[i, j, k],
+                                                                                 d[i, j].max()))
+        bands("run %d - run %d" % (n, n + 1), d, ok, rad, v)
+
+
 def main():
+    if sys.argv[1:2] == ["--sweep"]:
+        sweep(sys.argv[2:])
+        return
     paths = sys.argv[1:]
     assert len(paths) in (4, 5), __doc__
     runs, ok, m = load(paths)
