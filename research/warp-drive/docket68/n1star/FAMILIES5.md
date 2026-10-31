@@ -56,9 +56,10 @@ Write k := dv, null and geodesic for g0 (k = ∇v, so ∇_k k = ½∇|k|² = 0).
   terms, as for one family (section 5.2). The cross coupling of section 1 is then a gauge artefact of the record's
   gauge.
 - *What it costs, still open.* H is fixed, so it does not enter the linearization. But the constraint Υ − H must be
-  propagated, and the solution compared with the record's gauge (by the diffeomorphism exp Z, O(λ²) in C⁰). Step 4
-  must also check that no other λ⁻¹ coefficient appears in the two-family linearization; in one family (5.1) there is
-  exactly one. [Checked, D414: in the two-family linearisation there is exactly one per family (section 4d, L1).]
+  propagated [computed from a spacelike slice, D428, section 4e], and the solution compared with the record's gauge
+  (by the diffeomorphism exp Z, O(λ²) in C⁰). Step 4 must also check that no other λ⁻¹ coefficient appears in the
+  two-family linearization; in one family (5.1) there is exactly one. [Checked, D414: in the two-family linearisation
+  there is exactly one per family (section 4d, L1).]
   [Tou24]'s abstract names "a generalised wave gauge" for the interaction of the waves. Whether it is this one is not
   read: abstract only.
 
@@ -279,8 +280,21 @@ couplings are then killed by their own contractions.
     is that the linear system is solvable at every harmonic and point; the residual only confirms the solve (D427).
   - Control: without the angular diagonal the system fails at 12 harmonic-points, exactly where that row carries a
     term.
-- Not computed: the propagation of Υ − H = 0. H is fixed, so the contracted Bianchi identity gives a homogeneous wave
-  equation for it (deduced, not checked here).
+- *The propagation of Υ − H = 0 (computed, D428).* `checks/propagate5.py` (exact, random polynomial jets of degree 3
+  at a point, three metrics; about 15 s) checks, for any metric g and any 1-form W:
+  - P1, the contracted Bianchi identity B_g Ric(g) = 0, with B_g := δ_g + ½ d tr_g and (δ_g h)_b := −∇^a h_ab;
+  - P2, B_g δ*_g W = −½(□_g W + Ric(g)(W)). So a solution of Ric(g) − δ*_g W = 0, W := Υ(g) − H, has
+    □_g W + Ric(g)(W) = 0, whatever H is;
+  - P3, where W = 0 on {t = 0}: G(g)(n, ·) = (δ*W − ½ tr(δ*W) g)(n, ·) = ½ n⁰ ∂_t W there, with n^a := g^(a0) and
+    n⁰ = g^(00) < 0, so the constraints give ∂_t W = 0;
+  - P4, W = 0 on {t = 0} can be imposed: at a point Υ is affine in ∂_t g_(0μ) with coefficient g^(00) diag(½, 1, 1, 1).
+    The constraints do not involve those four derivatives.
+  - Controls: d tr for ½ d tr in P1, no curvature term in P2, a W vanishing on {x1 = 0} in P3, and ∂_t g_(1μ) for
+    ∂_t g_(0μ) at Minkowski (rank 2) all fail.
+  - So W ≡ 0 on the domain of dependence of a spacelike slice, by uniqueness for the linear wave equation with zero
+    data (standard, not computed). H enters only through W: its being fixed matters for the reduced system's
+    principal part, not here. Not computed: the characteristic case (data on a null cone), and that the record's
+    solution solves the reduced equation exactly.
 
 ## 4c. The two-dust background (D389)
 

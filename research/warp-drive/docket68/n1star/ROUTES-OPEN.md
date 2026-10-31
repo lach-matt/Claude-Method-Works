@@ -4836,6 +4836,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   solvability at 8 harmonics x 3 points. D424: the sigma-independence is the Lemmas', not H5's; C(sigma) are upper
   bounds. D425 recomputes (1.0302e8, 2.0604e8, 4.327e9, 5.151e7, 1.327e15). D426: s = 1 is an ordinary point; the
   exponents make N's regular branch unique; the t_* clause is deduced.
+- D428 (FAMILIES5 4e, checks/propagate5.py P1-P4, exact jets): the propagation of Ups - H = 0, D423's open item. For
+  any g and W: B_g Ric = 0; B_g dstar W = -(box W + Ric W)/2, so the vacuum reduced equation gives box W + Ric W = 0;
+  on {t = 0} with W = 0, G(n, .) = (1/2) g^00 d_t W, so the constraints give d_t W = 0; and W = 0 there is imposed by
+  d_t g_(0 mu), coefficient g^00 diag(1/2, 1, 1, 1). Controls fail. Deduced: uniqueness with zero data. Open: the
+  characteristic case, and that the record's solution solves the reduced equation exactly.
 
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 

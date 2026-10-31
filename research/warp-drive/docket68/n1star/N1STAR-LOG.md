@@ -6843,3 +6843,10 @@ Three needed their wording tightened. One angular pattern's check covered three 
 all seven are now checked, and they do. The bound near zero frequency is an upper bound, not the exact constant. And the
 absence of logarithms at spatial infinity comes from that point being an ordinary point of the equation, not from the
 signs of the exponents, which matter at the other end.
+
+**D428 (2026-10-31): the better gauge, kept for all time.** D423 left one step argued but not checked: why the gauge
+condition of the alternative gauge, once true at the start, stays true. That is now computed. The quantity that measures
+the failure of the gauge obeys a wave equation of its own, the starting data can be chosen to make it zero, and the
+constraint equations then make its rate of change zero too, so it stays zero. The last step, that a wave starting from
+nothing stays nothing, is the standard argument, not recomputed here. The case of data given on a light cone rather than
+at an instant is not done.
