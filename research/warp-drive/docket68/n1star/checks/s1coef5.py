@@ -765,6 +765,81 @@ def zeros_near():
     return 0 if ok else 1
 
 
+FAMILIES = {                       # name: (cut-off, centre, half-width, matching radii, start r0)
+    "near_eta": ("eta", 2.85, 0.1, (3.0, 4.0), 1.25), "near_zeta": ("zeta", None, 0.1, (3.0, 4.0), 1.25),
+    "far_eta": ("eta", 4.8, 0.2, (8.0, 10.0), 1.25), "far_zeta": ("zeta", 3.2, 0.2, (8.0, 10.0), 1.25),
+    "in_eta": ("eta", 1.225, 0.025, (3.0, 4.0), 1.05), "in_zeta": ("zeta", 1.225, 0.025, (3.0, 4.0), 1.05),
+}
+
+
+def zeros_dense(fam, per_decade=30):
+    """--zeros-dense FAM: S11 (D483), A along a bumped family on a dense amplitude grid, every sign change refined
+    and classified as a zero (|A| small on both sides of a short bracket) or a pole (|A| growing)"""
+    M, _, _ = derive()
+    gam = e = sp.Rational(1, 100)
+    pb = setup(M, gam, e, sp.Rational(1, 10))[0]
+    zeta0 = lambda x: smoothstep((x - 1.5) / 1.0)
+    eta0 = lambda x: 1 - smoothstep((x - 1.3) / 0.5)
+    name, c, w, (r1, r2), r0 = FAMILIES[fam]
+    bump = lambda c_, w_: (lambda x: float(np.exp(1 - 1 / (1 - ((x - c_) / w_)**2))) if abs(x - c_) < w_ else 0.0)
+    if c is None:                       # S7's most sensitive zeta bump on (1.3, 2.9)
+        cs = [1.35 + 0.1 * k for k in range(16)]
+        sens = [pb.coefficient(lambda x, c_=c_: zeta0(x) + bump(c_, w)(x), eta0, r1)[0]
+                - pb.coefficient(lambda x, c_=c_: zeta0(x) - bump(c_, w)(x), eta0, r1)[0] for c_ in cs]
+        c = cs[max(range(16), key=lambda i: abs(sens[i]))]
+    b = bump(c, w)
+    fns = lambda t_: (((lambda x: zeta0(x) + t_ * b(x)), eta0) if name == "zeta"
+                      else (zeta0, (lambda x: eta0(x) + t_ * b(x))))
+
+    def A_of(t_):
+        try:
+            a1, c1 = pb.coefficient(*fns(t_), r1, r0=r0)
+            a2, c2 = pb.coefficient(*fns(t_), r2, r0=r0)
+            if np.isfinite(a1) and abs(a1 - a2) < 1e-7 * abs(a1) and max(c1, c2) < 1e12:
+                return a1, "plain"
+        except Exception:                                               # noqa: BLE001
+            pass
+        a1, c1 = coefficient_qr(pb, *fns(t_), r1, qr_grid(r0, r1, c, w, t_), r0=r0)
+        a2, c2 = coefficient_qr(pb, *fns(t_), r2, qr_grid(r0, r2, c, w, t_, scale=0.5), r0=r0)
+        good = np.isfinite(a1) and abs(a1 - a2) < 1e-7 * abs(a1) and max(c1, c2) < 1e12
+        return a1, "qr" if good else "unreliable"
+    mags = np.logspace(0, 5, 5 * per_decade + 1)
+    out = {"zeros": [], "poles": [], "unreliable": 0, "n": 0}
+    for sgn in (1, -1):
+        prev = None
+        for m in mags:
+            t_ = sgn * m
+            a, how = A_of(t_)
+            out["n"] += 1
+            if how == "unreliable":
+                out["unreliable"] += 1
+                prev = None
+                continue
+            if prev is not None and np.sign(a) != np.sign(prev[1]):
+                lo, hi, alo = prev[0], t_, prev[1]
+                for _ in range(40):
+                    mid = 0.5 * (lo + hi)
+                    am, hm = A_of(mid)
+                    if hm == "unreliable":
+                        break
+                    if np.sign(am) == np.sign(alo):
+                        lo, alo = mid, am
+                    else:
+                        hi = mid
+                a_lo, a_hi = A_of(lo)[0], A_of(hi)[0]
+                kind = "zero" if max(abs(a_lo), abs(a_hi)) < 1.0 else "pole"
+                out[kind + "s"].append(0.5 * (lo + hi))
+                print("  %s: sign change between t = %.6g and %.6g: a %s near t = %.8g (A = %.4g, %.4g at the bracket)"
+                      % (fam, prev[0], t_, kind, 0.5 * (lo + hi), a_lo, a_hi), flush=True)
+            prev = (t_, a)
+    print("  S11 %s (%s bump at r = %.3f, half-width %.3f, matched at %g and %g, started at %g): %d amplitudes, %d "
+          "unreliable; zeros at t = %s; poles at t = %s"
+          % (fam, name, c, w, r1, r2, r0, out["n"], out["unreliable"],
+             ", ".join("%.8g" % z for z in out["zeros"]) or "none", ", ".join("%.6g" % z for z in out["poles"]) or "none"),
+          flush=True)
+    return 0
+
+
 def main():
     if sys.argv[1:2] == ["--zeros-far"]:
         return zeros_far()
@@ -772,6 +847,8 @@ def main():
         return zeros_far_amp()
     if sys.argv[1:2] == ["--zeros-near"]:
         return zeros_near()
+    if sys.argv[1:2] == ["--zeros-dense"]:
+        return zeros_dense(sys.argv[2])
     if sys.argv[1:2] == ["--record"]:
         return record_point()
     if sys.argv[1:2] == ["--zeros"]:
