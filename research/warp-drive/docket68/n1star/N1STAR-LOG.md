@@ -7075,3 +7075,12 @@ outer end of the region. A weight that is narrow toward the horizon, as the proo
 lowest pattern down to about 117, the next one from about 675 to 184, and every higher pattern below about 62, so the
 whole constant would be about 184. This is computed in ordinary floating point and is not yet certified; the earlier
 constants are reproduced as a control, and the certification is the next step.
+
+**D461 (2026-11-01): the record's remainder bound is too weak for the last source term.** Between the two surfaces the
+nonlinear terms must fall faster than the inverse fourth power of the radius. For the part of the solution that differs
+from the record's approximation, the record bounds its size and its first derivatives by the inverse square of the
+distance, with no improvement from differentiating, and says nothing about second derivatives. With only that, the
+products of this remainder with itself and with the leading part fall exactly like the inverse fourth power, as an
+example within the bound shows, and the terms with second derivatives are not controlled at all. The small powers of
+the wavelength in front do not help, since the condition is about the power of the radius. So the record needs a
+stronger remainder bound here.

@@ -5067,6 +5067,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   H^1 constant at sigma = 3 would be 184.2, set by l = 1, against 808.6. Controls reproduce the certified symmetric chain
   (254.6, 483.4, 801.5). Next: certify these multipliers by interval arithmetic (w >= 0 on R with the tails, the
   constants on I).
+- D461 (BEYOND5 3(b), checks/sources5.py Q6, computed): the sources from e = g_lambda - g_app between N and S. The
+  record's (P-iii) (N1STAR-PROOF 1041-1042) bounds e and d e by C t^-2, no gain, nothing on d^2 e. With that, the terms
+  quadratic in e and h d^2 e are O(r^-4) at best, attained for e = r^-2 G sin(r + t) (R^4 times them 16.7 and 9.3 at R =
+  128, fitted exponents 0.015 and 0.105; a gaining control falls as R^-2.0), so not o(r^-4) as D413's condition needs,
+  and terms with d^2 e are unbounded by (P-iii); the lam^(K-3) factors do not change the power. Open: a strengthened
+  (P-iii), two derivatives with a decay gain, or the condition restated with an r^-4 source's own contribution at rho^2.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
