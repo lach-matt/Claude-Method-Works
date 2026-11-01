@@ -5027,8 +5027,8 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   gamma^(AB) d_v g_AB = 2 theta (N1 and its mirror at once), and its Jacobian is diagonal in pairs: W_u = g^(uv) d_v
   g_uu - tau'/2 + f_u, W_v = g^(uv) d_u g_vv - tau/2 + f_v, W_A = g^(uv)(d_u g_vA + d_v g_uA) + f_A, f from g at S, its
   angular derivatives and H. So both expansions and one of each mixed pair are free and n numbers fixed; D449's 'their
-  first v-derivatives and theta are what the corner conditions fix' corrected. Open: the null dusts, linear uniqueness,
-  the record's solution solving the reduced equation.
+  first v-derivatives and theta are what the corner conditions fix' qualified: given N''s numbers, not both cones at
+  once (D459). Open: the null dusts, linear uniqueness, the record's solution solving the reduced equation.
 - D456 (verifier 195 on D452 and D454; both confirmed with corrections): D452's --vs-e28 numbers reproduce (vs_e28 reuses
   e2morawetz5.best). Corrected: 'optimised' is the best of 40 widths in [0.2, 0.98], and at l = 1 the best is at the edge
   (widths to 0.999 admissible: 175 at sigma = 3, 4073 at 96, about 42 sigma); 'about 63 sigma' is the large-sigma slope
@@ -5039,11 +5039,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   is r^-1/2, and the rho^(5/2) term it produces bears on BEYOND5 3(b) (v)'s half-integer question.
 - D457 (LOSS-D LD9, checks/s1coef5.py --zeros, S7, computed): whether a cut-off makes the s1 coefficient A vanish at the
   record's point. Variations on (1.25, 3): dA/dzeta -1.0e-5 to -3.1e-5, dA/deta 0.034-0.061 per unit integral (the
-  dual-state pairing, by bumps), so |A - A0| <= 0.084 to first order for cut-offs within 1 of the record's; the extreme
-  [0, 1]-valued cut-offs give 141.4177-141.4938; bump amplitudes to 1e5 keep A in [123.95, 141.94] where the matching is
-  reliable (eta at t <= -1000 undecided: condition above 1e12). No zero: A is pinned by -P_v = 141.42. So d1 stays in
-  E_ind for such cut-offs and LD9's delta_G is carried. Open: variations outside (1.25, 3), non-rotation-invariant
-  cut-offs, eta at large negative amplitude.
+  dual-state pairing, by bumps), so |A - A0| is about 0.084 to first order for cut-offs within 1 of the record's (an
+  estimate, not a bound: eta0 - 1 moves A by -0.098, D459); the extreme [0, 1]-valued cut-offs give 141.4177-141.4938;
+  bump amplitudes to 1e5 keep A in [123.95, 141.94] where the matching is reliable (eta at t <= -1000 undecided:
+  condition above 1e12). No zero: A is pinned by -P_v = 141.42. So d1 stays in E_ind for such cut-offs and LD9's delta_G
+  is carried. Open: variations outside (1.25, 3), non-rotation-invariant cut-offs, eta at large negative amplitude.
 - D458 (CERTIFY 6b, dnsolve5.py map a, checks/g1map5.py incl. --onset, computed): G1's failure at x = -1. The onset: m at
   the node next to the axis, then a node-to-node alternation with a flat spectrum; the tail of (1 + x)m, (1 - x)n jumps
   4-5 orders within 0.1 in v from 1.8 (A = 1). Seed test: at M = 32 the jump is the same with an 800-fold larger axis
@@ -5053,6 +5053,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the axis treatment, not the solution (not cleanly: the mapped grid's own rounding and coarseness at +1). The axis
   invariant g_22 converges better than P on the plain grid. Next: an axis treatment that keeps its digits (regular
   combinations as unknowns, or Gauss-Radau nodes at the axes).
+- D459 (verifier 196 on D455 and D457; both confirmed with corrections, nothing major): D455's Jacobian re-derived by
+  hand and by a symbolic n = 4 run, f_u = -H_u and f_v = -H_v exactly (now asserted in C3); D449's statement is right
+  once N''s numbers are given, its fault was fixing both cones at once, so 'theta is not fixed' overstated; two wording
+  nits. D457: every number reproduces and the large-amplitude zeta values are stable to 1e-8 in rtol and r0; corrected:
+  0.084 is an estimate, not a bound (eta0 - 1 moves A by -0.098); the amplitude ranges hold at the samples (121.42 at t =
+  1.5e4); at eta t = -1000 only the condition rules the value out; 'for every cut-off' rests on linearisation.
+  Unverified: the record's admissibility of large cut-offs (III.D' Prop. 4.1).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

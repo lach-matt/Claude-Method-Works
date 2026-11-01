@@ -22,13 +22,14 @@ are random rationals. W involves no second derivative.
      d_u g_vv cannot both be prescribed (the block for the unknowns (d_v g_uu, tau', d_u g_vA) is singular, its W_v row
      zero).
   C3 (computed) f involves no u- or v-jet at all, d_u g_uv and d_v g_uv included: only g at S, its angular derivatives
-     d_C g_ab and H.
+     d_C g_ab and H; and f_u = -H_u, f_v = -H_v exactly (D459, verifier 196).
   Control: at a point of N off S (g_uu, g_uA != 0) C1's statement for the v-jets fails.
 
 So per point of S, given g there (its conformal factor free), its angular derivatives and H, the corner conditions are
 n relations, each between one number of N and one of N': the expansion of N with N-prime's d_u g_vv, the expansion of N'
 with N's d_v g_uu, and d_v g_uA with d_u g_vA. Both expansions and one of each mixed pair are free, the other n numbers
-fixed. This corrects D449's reading: theta is not fixed by the corner conditions, it is paired with d_u g_vv.
+fixed. D449 read both cones' numbers as fixed by the corner conditions: given N-prime's they do fix N's (and
+conversely), but not both at once (D459, verifier 196); theta is paired with d_u g_vv.
 
 Not computed: that the two hierarchies' solutions, so started, give the reduced equation's solution near S (the
 characteristic problem's local existence, standard), and the null dusts' stress in place of vacuum.
@@ -173,8 +174,8 @@ def run(n, seed):
     ok2 &= blk(bad) == 0 and all(Jm[1, k] == 0 for k in bad)
     out["C2"] = ok2
     # C3: beyond X, only d_u g_uv and d_v g_uv among the u- and v-jets
-    Xn = {"dug11", "dvg00"} | {"dug1%d" % A for A in S} | {"dvg0%d" % A for A in S} \
-        | {"d%sg%d%d" % (e, A, B) for e in "uv" for A in S for B in S if A <= B}
+    Xn = ({"dug11", "dvg00"} | {"dug1%d" % A for A in S} | {"dvg0%d" % A for A in S} |
+          {"d%sg%d%d" % (e, A, B) for e in "uv" for A in S for B in S if A <= B})
     rest_ok = True
     used = set()
     for w in W:
@@ -183,7 +184,8 @@ def run(n, seed):
                 continue
             if w.coeff(x) != 0:
                 used.add(nm)
-    rest_ok = not used
+    const = lambda w: w - sum((w.coeff(x) * x for x in sym.values()), R(0))
+    rest_ok = not used and const(W[U]) == -j["H0"][U] and const(W[V]) == -j["H0"][V]
     out["C3"] = rest_ok
     # control: off S, the v-jet half of C1
     jc = make(n, seed, corner=False)

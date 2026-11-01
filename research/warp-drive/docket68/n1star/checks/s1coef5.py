@@ -38,13 +38,15 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      orthogonal to v, so A + P_v = 0.0055 is small but not forced (D451). The cut-offs move A by 7 x 10^-6 (zeta's
      interval), 1.9 x 10^-3 (a zeta bump of 20) and 0.17 (an eta bump of 20, through gam_H eta); A + P_v by the same.
 
-  S7 (computed; --zeros) whether a cut-off makes A vanish at the record's point (D457). Every variation is supported in
+  (computed; --zeros) whether a cut-off makes A vanish at the record's point (D457). Every variation is supported in
      (1.25, 3), between the horizon series' start and the matching radius. (a) The sensitivities dA/dzeta(r) and
      dA/deta(r), by symmetric differences of unit bumps of half-width 0.1 at 16 centres, per unit integral, with their
-     curvature; (b) A at the extreme cut-offs valued in [0, 1] (zeta switching on at once after 1.25 or as late as 2.95,
-     eta switching off at once or as late as 2.95, and their four combinations); (c) A along zeta0 + t b and eta0 + t b,
-     b the most sensitive bump, for |t| from 10 to 10^5, each at matching radii 3 and 4, kept only where the two agree
-     to 1e-7 and the condition is below 1e12, a zero bracketed and located where a kept A changes sign.
+     curvature, and their Riemann sum, a first-order estimate (not a bound: it leaves out (1.25, 1.3) and (2.9, 3), and
+     eta0 - 1 there moves A by -0.098; D459, verifier 196); (b) A at the extreme cut-offs valued in [0, 1] (zeta
+     switching on at once after 1.25 or as late as 2.95, eta switching off at once or as late as 2.95, and their four
+     combinations); (c) A along zeta0 + t b and eta0 + t b, b the most sensitive bump, for |t| from 10 to 10^5, each at
+     matching radii 3 and 4, kept only where the two agree to 1e-7 and the condition is below 1e12, a zero bracketed and
+     located where a kept A changes sign.
 
 Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8)
 (both z = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double
@@ -434,7 +436,7 @@ def zeros_scan():
         print("      curvature (A(+b) + A(-b) - 2 A0): largest %.1e; sum of |dA/d%s| dr = %.3e"
               % (max(abs(q) for _, q in rows), name, tot), flush=True)
     bound = sum(abs(s_) for s_, _ in sens["zeta"]) * 0.1 + sum(abs(s_) for s_, _ in sens["eta"]) * 0.1
-    print("      first-order bound on |A - A0| over cut-offs with |zeta - zeta0|, |eta - eta0| <= 1 on (1.25, 3): %.3e"
+    print("      first-order estimate of |A - A0| over cut-offs with |zeta - zeta0|, |eta - eta0| <= 1: %.3e"
           % bound, flush=True)
     z_early = lambda x: smoothstep((x - 1.26) / 0.2)
     z_late = lambda x: smoothstep((x - 2.75) / 0.2)

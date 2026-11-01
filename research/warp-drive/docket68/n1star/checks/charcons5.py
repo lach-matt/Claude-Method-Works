@@ -24,8 +24,9 @@ are ODEs along each generator for the conformal factor, then g_uA, then g_uu: th
 holding while theta stays finite, the other two linear in their unknown's second derivative. Each later step uses angular
 derivatives of the earlier unknowns, so each is solved on a neighbourhood of generators, smooth in x^A, with an existence
 interval uniform over S (compact). The data at S: g_uu = g_uA = 0 there, as N' = {v = 0} is null, and the conformal
-factor's value at S is free (D449); their first v-derivatives and theta are tied to N''s by the corner conditions,
-which pair each with one number of N' (checks/charcorner5.py, D455; D449 had them fixed by those conditions).
+factor's value at S is free (D449). The first v-derivatives of g_uu and g_uA at S, and theta there, are tied to the
+other cone's numbers by the corner conditions, which pair each with one number of N' (checks/charcorner5.py, D455,
+D459): given N' they are fixed, but not both cones at once.
 
 Run: python3 checks/charcons5.py   (n = 4 and 5, two seeds each; exact)
 """

@@ -334,10 +334,12 @@ couplings are then killed by their own contractions.
       depends on the u-jets only through ∂_u g_vv, ∂_u g_vA and τ′ = γ^(AB) ∂_u g_AB, on the v-jets only through ∂_v
       g_uu, ∂_v g_uA and τ = γ^(AB) ∂_v g_AB = 2θ, and on nothing else of either (∂_u g_uv, ∂_v g_uv and both shears
       included). The Jacobian is diagonal in pairs: W_u = g^(uv) ∂_v g_uu − τ′/2 + f_u, W_v = g^(uv) ∂_u g_vv − τ/2 +
-      f_v, W_A = g^(uv) (∂_u g_vA + ∂_v g_uA) + f_A, with f computed from g at S, its angular derivatives and H. So W = 0
-      on S is n relations, each between one number of N and one of N′: N's expansion with N′'s ∂_u g_vv, N′'s expansion
-      with N's ∂_v g_uu, and ∂_v g_uA with ∂_u g_vA. Both expansions and one of each mixed pair are free, and the other n
-      numbers are fixed; θ and ∂_u g_vv cannot both be prescribed (control).
+      f_v, W_A = g^(uv) (∂_u g_vA + ∂_v g_uA) + f_A, with f computed from g at S, its angular derivatives and H, and f_u
+      = −H_u, f_v = −H_v exactly (verifier 196, D459). So W = 0 on S is n relations, each between one number of N and one
+      of N′: N's expansion with N′'s ∂_u g_vv, N′'s expansion with N's ∂_v g_uu, and ∂_v g_uA with ∂_u g_vA. Both
+      expansions and one of each mixed pair are free, and the other n numbers are fixed: given N′'s numbers the
+      conditions fix N's, and conversely, but not both at once (D459); θ and ∂_u g_vv cannot both be prescribed
+      (control).
     - Not computed: the null dusts' stress in place of vacuum, uniqueness for the linear characteristic problem, and that
       the record's solution solves the reduced equation exactly.
 

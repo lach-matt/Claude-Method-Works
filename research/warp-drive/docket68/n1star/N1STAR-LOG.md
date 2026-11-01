@@ -7061,3 +7061,10 @@ feature better, makes it come sooner and stronger, and makes a weaker wave that 
 points to how the method treats the axis rather than to the solution, though not cleanly, since the packed grid has
 costs of its own. The size of the circle at the axis, which does not depend on the coordinates, converges better than
 the other quantities. The next step is an axis treatment that does not lose digits there.
+
+**D459 (2026-11-01): verifier 196 on D455 and D457.** Both stand, with corrections. The conditions where the two cones
+meet were re-derived by hand and symbolically; two of their remainders are now known exactly. The earlier reading was
+right once the second cone's numbers are given, and wrong only in fixing both cones at once, so the correction had
+overstated it. For the cut-off scan, the first-order figure is an estimate rather than a bound, since a cut-off near
+the end of the range moves the coefficient slightly more, and the large-change ranges hold at the sampled sizes; the
+conclusion that the term stays is unchanged.
