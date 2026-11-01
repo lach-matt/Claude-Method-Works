@@ -7659,3 +7659,8 @@ equations' coefficients are exact, two of the three equations hand their derivat
 third the one extra derivative is paid for by the decay of its coefficient. With the approximant expanded as the
 solution already is, their difference is too, and the strip's contribution to the data falls in the class the final
 assembly accepts. Written as a deduction, not yet line by line.
+
+**D560 (2026-11-01): the two inner rounds cost the same.** The one term left unequal between a second-level and an inner
+round, the loss of the model inverse both apply, depends only on a weight that both kinds of round set to the same
+value, so in the record's accounting the two rounds cost exactly the same and the earlier comparisons of round counts
+are comparisons of loss.

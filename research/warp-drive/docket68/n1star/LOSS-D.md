@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -819,7 +819,14 @@ loop counts of section 3.
     same. (Corrected D557, verifier 242: 2 + ℓ is this note's sum by Lemma 1.2 (a)-(b), J3 saying only "fixed loss" and
     naming L̃_b(0)⁻¹, which G5 does not apply; the 2 is solid, while ℓ is III.F′ Corollary 3.4's closed form at each
     proposition's own weights, not shown equal for 4.4 and 5.1, so the comparisons of counts are comparisons of loss up
-    to that.) One application at (α_0, k) treats every log power up to k: its proof solves away each of the k + 1 terms
+    to that.) [D560, read: ℓ is the same. Corollary 3.4's proof fixes its orders from β_sctf alone, β := −β_ztf, q := 2
+    − β entering only near ztf without loss, r_out := β_sctf − 2 − ε/2 and r_± I.A Lemma 7.1's with that outgoing value,
+    and its loss is II.G′ Lemma 4.1's ℓ + ℓ̃ near sctf (PART-III-F2-INDICIAL.md:478-491), a closed form in β_sctf and
+    those orders (section 2's row for Corollary 3.4). Both kinds of round apply it with β_sctf = ℓ_scf (G5:209-211,
+    694-695), and ℓ_scf = 3/2 − ε at both levels: at level 2 by I12:267, at level 3 since Proposition 5.1's output has
+    scf weight 3/2 − 2ε = ℓ_scf − ε (I12:293-294) and its source 5/2 − ε = ℓ_scf + 1 (I14:128-129). So a level-2 and a
+    level-3 round cost the same 2 + ℓ + ℓ̃ in this accounting, and LD13 and LD15's comparisons of counts are comparisons
+    of loss.] One application at (α_0, k) treats every log power up to k: its proof solves away each of the k + 1 terms
     ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold α_0-derivatives of terms holomorphic in α_0 (G5:474,
     476-481, 489-491). So the applications at lower log orders that Step 3's "for each tf-exponent (α_0, k)" would add
     are redundant, if the top order at α_0 is treated first (I12:278-281 fixes no order; D557); LD15's per-(α_0, k)
@@ -844,8 +851,8 @@ loop counts of section 3.
     by its rule (g) and Lemma 1.2 (e) (J3:157-158, 76-77) their loss is their number times one round's.
   - *What it rests on.* LD11 (ii)'s reading of III.J″'s accounting, now applied to Propositions 4.4 and to Corollary 4.3
     with III.I′ Proposition 3.1; the per-round floors 2 and 4 + d_G, which a finer accounting might lower (as LD11 (ii)
-    notes). Open: a_I (through ℓ_I, d_G's input), Proposition 3.1's fixed loss, and ℓ at each proposition's weights; the
-    per-round loss is independent of k by J3's (g) (J3:157-158), as it claims.
+    notes). Open: a_I (through ℓ_I, d_G's input), Proposition 3.1's fixed loss, and ℓ's value (equal at both kinds of
+    round, D560); the per-round loss is independent of k by J3's (g) (J3:157-158), as it claims.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

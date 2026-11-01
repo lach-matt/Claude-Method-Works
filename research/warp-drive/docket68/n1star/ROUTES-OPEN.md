@@ -5973,6 +5973,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   B̄'s E_2 decay; (b) and (c) inherit ℓ-gains from their equations. Over the orders and the stages as in Proposition
   11.1's last step; to physical variables at fixed v by Taylor's formula in θ. So g_app and e = g_λ − g_app expand in
   r^(−1/2) at fixed λ, and the strip's term is polyhomogeneous in ρ^(1/2). Open: the induction written line by line.
+- D560 (LOSS-D LD16, read): D557's open point, whether N_tf⁻¹'s loss ℓ is the same at Proposition 4.4's and 5.1's
+  weights, is settled: III.F′ Corollary 3.4's proof fixes its orders from β_sctf alone (r_out := β_sctf − 2 − ε/2, r_±
+  from I.A Lemma 7.1; the ztf weight enters without loss) and its loss is II.G′ Lemma 4.1's ℓ + ℓ̃
+  (PART-III-F2-INDICIAL.md:478-491); both rounds apply it with β_sctf = ℓ_scf = 3/2 − ε (I12:267; I12:293-294,
+  I14:128-129). So a level-2 and a level-3 round cost the same in this accounting.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
