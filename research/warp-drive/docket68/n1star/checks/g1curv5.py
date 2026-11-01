@@ -78,6 +78,7 @@ Labels: computed (floating point, on saved runs).
     python3 checks/g1curv5.py DIR      (DIR holds ampA_M32.npz and ampA_M40.npz; K on the chosen rows is cached in
                                         DIR/curvA_MM.npz)
     python3 checks/g1curv5.py --seed2 DIR   (D515: DIR holds s2_M16/24/32.npz; K cached in DIR/curvS2_M<M>.npz)
+    python3 checks/g1curv5.py --seed2-40 DIR   (D524: also s2_M40.npz; M = 24, 32, 40)
     python3 checks/g1curv5.py --null DIR    (D489: DIR holds D432's l1_rc0.9_M32/40.npz and their _1600 runs)
 """
 import os
@@ -264,9 +265,71 @@ def seed2(dirn):
     return 0
 
 
+def s2_curv(dirn, Ms, rows):
+    """K on the seed-2 rows at each M of Ms, cached in DIR/curvS2_M<M>.npz as --seed2 does"""
+    C = {}
+    for M in Ms:
+        cache = os.path.join(dirn, "curvS2_M%d.npz" % M)
+        if os.path.exists(cache) and list(np.load(cache)["rows"]) == list(rows):
+            C[M] = dict(np.load(cache))
+        else:
+            Zr, rr = reduced(os.path.join(dirn, "s2_M%d.npz" % M), rows)
+            K = D.kretschmann(Zr, rows=rr)[rr]
+            C[M] = dict(rows=np.array(rows), K=K, R=Zr["R"][rr], mask=Zr["mask"][rr], v=Zr["v"], x=Zr["x"])
+            np.savez(cache, **C[M])
+            del Zr
+        print("  M = %d: done" % M, flush=True)
+    return C
+
+
+def seed2_40(dirn):
+    """--seed2-40 DIR (D524): M = 40 beside 24 and 32 at the second seed, on --seed2's rows: whether M = 32's large
+    departures near x = +1 after v = 4 persist at M = 40"""
+    Z = dict(np.load(os.path.join(dirn, "s2_M32.npz")))
+    rows = pick_rows(Z, 24, 2.5, 4.5, 0.9, 1.5)
+    del Z
+    C = s2_curv(dirn, (24, 32, 40), rows)
+    v = C[32]["v"]
+    assert np.allclose(v, C[24]["v"]) and np.allclose(v, C[40]["v"])
+    allkept = ~(C[24]["mask"] | C[32]["mask"] | C[40]["mask"])
+    print("\n  per v-band, cells kept at M = 24, 32, 40 with R in [0.9, 1.4] (Chebyshev interpolant): dev_M = max "
+          "|K_M/K_0 - 1|; d32 = max |K_32 - K_24|/K_0, d40 = max |K_40 - K_32|/K_0, ratio d32/d40")
+    for xe in S2XS:
+        Kx = {M: cheb(C[M]["K"], C[M]["x"], xe) for M in C}
+        Rr = cheb(C[32]["R"], C[32]["x"], xe)
+        K0 = 72.0 / Rr**8
+        ok = allkept & (Rr >= 0.9) & (Rr <= 1.4) & np.all([np.isfinite(Kx[M]) for M in Kx], axis=0)
+        dev = {M: np.abs(Kx[M] / K0 - 1) for M in Kx}
+        d32 = np.abs(Kx[32] - Kx[24]) / K0
+        d40 = np.abs(Kx[40] - Kx[32]) / K0
+        print("\n  x = %g" % xe)
+        for lo, hi in S2BANDS:
+            sel = ok & ((v >= lo) & (v < hi))[None, :]
+            if not sel.any():
+                print("    [%.2f,%.2f): no cells" % (lo, hi))
+                continue
+            line = ("    [%.2f,%.2f): dev24 %.3g  dev32 %.3g  dev40 %.3g  d32 %.3g  d40 %.3g  ratio %.3g  (%d cells)"
+                    % (lo, hi, dev[24][sel].max(), dev[32][sel].max(), dev[40][sel].max(), d32[sel].max(),
+                       d40[sel].max(), d32[sel].max() / d40[sel].max(), int(sel.sum())))
+            big = sel & (dev[32] > 2)
+            if big.any():
+                q = {M: Kx[M][big] / K0[big] for M in Kx}
+                line += ("\n        cells with |K_32/K_0 - 1| > 2: %d; K/K_0 there: M = 24 [%.3g, %.3g], M = 32 [%.3g, "
+                         "%.3g], M = 40 [%.3g, %.3g]; of them |K_40/K_0 - 1| > 2 at %d"
+                         % (int(big.sum()), q[24].min(), q[24].max(), q[32].min(), q[32].max(), q[40].min(),
+                            q[40].max(), int((np.abs(q[40] - 1) > 2).sum())))
+            big40 = sel & (dev[40] > 2)
+            if big40.any():
+                line += "\n        cells with |K_40/K_0 - 1| > 2: %d" % int(big40.sum())
+            print(line, flush=True)
+    return 0
+
+
 def main():
     if sys.argv[1:2] == ["--null"]:
         return null_refinement(sys.argv[2])
+    if sys.argv[1:2] == ["--seed2-40"]:
+        return seed2_40(sys.argv[2])
     if sys.argv[1:2] == ["--seed2"]:
         return seed2(sys.argv[2])
     dirn = sys.argv[1]
