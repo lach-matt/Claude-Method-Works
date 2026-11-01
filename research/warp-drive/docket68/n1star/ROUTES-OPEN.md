@@ -6046,6 +6046,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   null). B0 and C0 are built from g0, exact with p ≥ 2. So both are exact and in E_2^ℓ, which discharges D564 (3). K0
   reproduces (5.2)'s −½e_1∂_θ²W term; K4 the □̃ of Lemma 5.3 (a); the control (amplitude r^(−1/2)) moves the order. Open
   in 3(b): the induction written line by line at the record's level.
+- D570 (LOSS-D LD16 and section 3, read at source): the record's two upper bounds on ℓ_I are not two readings. ℓ_I < a_I
+  + ½ is III.I′ Proposition 2.1's (I2:250-254); III.I′′′′ Proposition 4.1 adds ℓ_I ≤ a_I (I5:318-319), its forcing class
+  having ℐ⁺-weight ℓ_I + 1 and the parameter derivative weight a_I + 1 ((I′′′′5)); later parts carry ℓ_I ≤ a_I. Both
+  hold from I5 on and ℓ_I ≤ a_I binds, dg5's G3 reading. d_G = 11 stays attainable: (3 + ε_+, min(a_I, 3.5099)] is
+  nonempty for every a_I > 3 + ε_+, with ε_+ < ε_ind < 3 × 10⁻⁶ at the record's point. Open: a_I, the class's ℐ⁺-order,
+  free in the record.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

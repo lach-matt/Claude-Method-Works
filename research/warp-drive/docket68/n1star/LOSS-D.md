@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565, D570).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -167,8 +167,9 @@ the strip rule, F2 s_c ≥ 0, F3 Corollary 3.1 (2), F4 the free choices and λ_�
 
 **Weights.** Fixed only by inequalities at n = 4:
 
-- ℓ_I: 3 + ε_+ < ℓ_I < min(a_I + ½, ℓ_I^max), off discrete exclusion sets, the upper bound read in I5:319, I8:47, I9:31,
-  I10:37 and I11:47 as ℓ_I ≤ a_I, against I2:251-252's ℓ_I < a_I + ½, unreconciled in the record (D565)
+- ℓ_I: 3 + ε_+ < ℓ_I ≤ a_I, off discrete exclusion sets: III.I′ Proposition 2.1 asks ℓ_I < min(a_I + ½, ℓ_I^max)
+  (I2:250-254) and III.I′′′′ Proposition 4.1 adds ℓ_I ≤ a_I (I5:318-319), carried on by I8:47, I9:31, I10:37 and I11:47,
+  so both hold from I5 on and the second binds (reconciled D570; D565 had them as two readings)
   (PART-III-I11-SPACETIME.md:46 (H4); PART-III-I6-ALMOSTBDD.md:27-28 and PART-III-I4-BOOST.md:264 for III.I'' (5.1)).
 - The top decay order: α ∈ (4, 4 + ε_K] for I15's theorem (I15:37), used with α > 4 at I15:227 and I15:324; the
   admissible orders range over (2, 4 + ε_K] (I11:156); α_K = 4 + ε_K (I12:14); ε_K small with no Re λ in (2, 2+ε_K] ∪
@@ -868,8 +869,17 @@ loop counts of section 3.
     d, with at most that many steps, not a shown minimum; and through the assembly's single ℓ_I > 3 + ε_+, K:54-58,
     VII:454, I6's own bounds admitting ℓ_I = 2.2, where d_G = 9). With the source's a_I, d_G ≤ 13 on the window if ε_I <
     1 (14 at its top if δ ≥ ε), but the record bounds ε_I only through min(ε_ind, ε_I) < 1 (corrected D565: ε_I = 1.6,
-    ℓ_I = 4.55 gives 15; G2). The choice of ℓ_I, not a_I, fixes d_G = 11.] III.J″'s row for III.I′′′′′ (J3:261) is this
-    iteration's (I9:231; its MOD column lists III.G″ Corollary 4.3) and counts "exponents in a window, and rounds
+    ℓ_I = 4.55 gives 15; G2). The choice of ℓ_I, not a_I, fixes d_G = 11.] [D570, read at source (deduced): the two
+    bounds are not two readings. ℓ_I < a_I + ½ is III.I′ Proposition 2.1's hypothesis, the product bound at n = 4
+    (I2:250-254, (I′2)); III.I′′′′ Proposition 4.1 fixes ℓ_I with III.I″ (5.1) and ℓ_I ≤ a_I (I5:318-319), because its
+    forcing class has ℐ⁺-weight ℓ_I + 1 ((4.1)) and the parameter derivative it must take has weight a_I + 1 ((I′′′′5),
+    I5's findings, which also give a_I ≥ 2); I8:47, I9:31, I10:37 and I11:47 carry ℓ_I ≤ a_I on, (H4) through it. So
+    both hold from I5 on and ℓ_I ≤ a_I binds: `checks/dg5.py` G3's reading ℓ_I ≤ a_I is the record's. Then (3 + ε_+,
+    3.5) is admissible only for a_I ≥ 3.5, and section 2's items 3-4 read on (3 + ε_+, min(a_I, 3.5)); but d_G = 11
+    needs only some ℓ_I in (3 + ε_+, min(a_I, 3.5099)], which is nonempty for every a_I > 3 + ε_+, (H4)'s class, ε_+
+    being below ε_ind < 3 × 10⁻⁶ at the record's parameter point (J-PARAM:34, F2:133-136). The open input is a_I itself,
+    the class's ℐ⁺-order, which the record leaves free (the source's 3 + ε_I).] III.J″'s row for III.I′′′′′ (J3:261) is
+    this iteration's (I9:231; its MOD column lists III.G″ Corollary 4.3) and counts "exponents in a window, and rounds
     raising α′_K to α_K": exponents, not the rounds LD14 counts, a round treating every λ_0 of the window together
     (I6:127-129), and which of the two III.J″ multiplies is not stated (corrected D557: D553 said the table has no row);
     by its rule (g) and Lemma 1.2 (e) (J3:157-158, 76-77) their loss is their number times one round's.

@@ -7715,3 +7715,8 @@ null infinity.
 expansion at past null infinity used two coefficients of the equation for the mean metric that had been asserted, not
 shown. They are now computed exactly: one is built from the background alone, and the waves add to the other only a term
 that falls off like the inverse cube of the radius. Both fall off fast enough for the argument.
+
+**D570 (2026-11-01): an apparent conflict in the record, resolved.** The proof states two different upper limits for one
+of its weights, and D565 had recorded them as two readings. Read at source, they belong to two different steps: the
+stricter one is added by a later step, for a stated reason, and every step after that uses it. So both hold, the
+stricter one is the operative limit, and the loss computed for those rounds stays attainable.
