@@ -7289,3 +7289,7 @@ of the two initial surfaces the band runs along, where the paper defines its dus
 closed surfaces (so the restriction is to four dimensions, not to spheres), and that its solutions are weak ones. It also
 noted that the record's dusts match the paper's only if they run along null surfaces built from the metric, which the
 record's coordinates do not guarantee away from the initial surfaces.
+
+**D496 (2026-11-01): the strip, out to mode forty.** Computed out to angular mode forty, the strip's coefficients level
+off for one family of modes and fall for the other, as the bound proved for every mode says they must not exceed. They
+are computed at the record's own damping strength, which matters at high modes.

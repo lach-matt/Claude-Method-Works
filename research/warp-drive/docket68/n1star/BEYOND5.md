@@ -483,9 +483,12 @@ What it does not give:
   and 1.5 × 10⁶ on the vector type), and it has a positive Lyapunov metric; the jump J = M1_3(0) − I is M1_2(0),
   independent of x, with |J⁻¹|_2 ≤ 0.993 (scalar) and 0.698 (vector). So |K|_2 ≤ K0_3 |J⁻¹|_2 in uniform5's normalised
   basis for every l ≥ 2, ln K0_3 = 5.99 × 10¹³ and 5.87 × 10¹²: uniform, not sharp (the computed values at l = 2-6 are
-  2.2 to 2.4 and 0.34 to 1.0 there). K4 is bounded by the derivative estimate, at most linearly in l. Not computed: the
-  tensor type (damping-free, harmonics5 S3); and whether the r⁻³ term, which carries no structure, is compatible with
-  Lemma 0.1's ρ³C^∞.
+  2.2 to 2.4 and 0.34 to 1.0 there). K4 is bounded by the derivative estimate, at most linearly in l. Computed to l = 40
+  (D496, `checks/stripfull5.py 40`, every check passing): on the scalar type ‖K‖ is 2.74 and ‖K4‖ 2.73 at l = 40, both
+  flat from about l = 10 (K4 does not grow as the bound allows), and on the vector type both fall (0.054 and 0.021 at l =
+  40); K at γ_C = 10⁵ departs from its value at 10⁶ by up to 6.8 at l = 40 (scalar type), so what is computed is the
+  record's γ_C = 10⁶, not the limit of large damping. Not computed: the tensor type (damping-free, harmonics5 S3); and
+  whether the r⁻³ term, which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

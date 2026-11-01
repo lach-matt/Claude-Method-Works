@@ -5360,6 +5360,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   dusts along optical functions, ∇v being null in the record's gauge only where g^vv = 0; and the paper's 'potential loss
   of derivative' is in its uniqueness estimates, not identified with D490's (the D494 entry's 'the derivative loss is
   avoided' says too much). Corrected in FAMILIES5 4e; the D494 entry above keeps its text.
+- D496 (BEYOND5 3(b), `checks/stripfull5.py 40`, computed): D487-D492's strip coefficients to l = 40, every check passing
+  (eigenvalues of M1(0) at degree −3 from 2.5, series converged). Scalar type: ‖K‖ 2.74 and ‖K4‖ 2.73 at l = 40, flat
+  from about l = 10 (D492 proves K uniform; K4 does not grow either, though its bound allows linear growth). Vector type:
+  both fall, 0.054 and 0.021 at l = 40. At γ_C = 10⁵ the scalar K departs from γ_C = 10⁶ by up to 6.8 at l = 40: the
+  computation is at the record's γ_C, not in the limit of large damping.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
