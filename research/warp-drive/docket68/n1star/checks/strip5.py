@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""strip5: a source confined to a strip of bounded v along N enters at rho^3, not rho^2 (BEYOND5 3(b), D464).
+"""strip5: a source confined to a strip of bounded v along N enters at rho^3, not rho^2 (BEYOND5 3(b), D464, D474).
 
 D461 found that the sources from e = g_lambda - g_app are of order r^-4 where the record bounds e (sources5.py Q6),
 and concluded that D413's condition fails for them. Verifier 198 found that e is bounded only on P', which has
@@ -16,20 +16,28 @@ t = 0 (u = -r, v = r) as r grows.
      1/r: the strip's source enters at rho^3, not rho^2.
   T3 (computed) control: halving dv and doubling the u-grid moves r^2 phi at r = 100 by under 1e-3 on all of v >= 0, and
      the strip's value by under 2e-3 relative (4e-4 measured; verifier 199 found the old absolute 1e-3 too weak).
+  T4 (computed) the harmonics l = 1, ..., 4, with the potential (l(l + 2) + 3/4)/r^2 in place of 3/4 (D474): on all of v
+     >= 0, r^2 phi again tends to a non-zero constant (-1/3, -1/6, -1/15, -1/30 to four digits; within 1 % from r = 200
+     to 400); on the strip, r * r^2 phi does not grow from r = 200 to 400 (to 2 %) and r^2 phi is under 2 % of the full
+     source's at r = 400. At l = 1 and 3 r * r^2 phi tends to -1/3 and 1/15, so the strip enters at rho^3 as at l = 0; at
+     l = 2 and 4 it falls like 1/r, its rho^3 coefficient below the scheme's resolution (halving dv and doubling the
+     u-grid moves it by up to 8 % at r = 200), so there the strip enters at rho^3 or later. In no harmonic computed does
+     it reach rho^2. For l >= 1 the kernel changes sign, so these are values for S = r^-4 Y_l, not a bound over |S| <=
+     r^-4 (verifier 199).
 
 So the sources from e, which live in such a strip, do not reach the r^-2 coefficient at I_0 in this model; as the
 l = 0 kernel is positive, it bounds every |S| <= r^-4 on the strip, at l = 0 only (verifier 199). Not
 computed: the strip for the record's full operator, and whether its r^-3 term, which carries no structure, is
 compatible with Lemma 0.1's rho^3 C^infinity.
 
-Run: python3 checks/strip5.py   (about 20 s)
+Run: python3 checks/strip5.py   (about 80 s)
 """
 import sys
 
 import numpy as np
 
 
-def run(strip, d=1.0, V=420.0, dv=0.02, U=1e5, n=6000, targets=(25, 50, 100, 200, 400)):
+def run(strip, d=1.0, V=420.0, dv=0.02, U=1e5, n=6000, targets=(25, 50, 100, 200, 400), l=0):
     u = -np.geomspace(U, 1.0, n)
     du = np.diff(u)
     psi = np.zeros(n)
@@ -41,7 +49,7 @@ def run(strip, d=1.0, V=420.0, dv=0.02, U=1e5, n=6000, targets=(25, 50, 100, 200
         r = (vm - um) / 2
         S = r**-4.0 * ((vm <= d) if strip else 1.0)
         pc = (psi[:-1] + psi[1:]) / 2
-        F = -0.25 * (r**1.5 * S + 0.75 * pc / r**2)
+        F = -0.25 * (r**1.5 * S + (l * (l + 2) + 0.75) * pc / r**2)
         D = np.diff(psi) + du * dv * F
         psi = np.concatenate([[0.0], np.cumsum(D)])
         v += dv
@@ -68,6 +76,17 @@ def main():
     ok["T3"] = abs(h2[100] - h[100]) < 1e-3 and rel < 2e-3
     print("  control at r = 100, dv/2 and 2n: %.5f against %.5f; strip %.6f against %.6f (relative %.1e)"
           % (h2[100], h[100], s2[100], s[100], rel))
+    t4 = True
+    for l in (1, 2, 3, 4):
+        hl = run(False, l=l, targets=(100, 200, 400))
+        sl = run(True, l=l, targets=(100, 200, 400))
+        conv_h = abs(hl[400] / hl[200] - 1) < 0.01 and abs(hl[400]) > 1e-3
+        conv_s = abs(400 * sl[400]) <= 1.02 * abs(200 * sl[200]) and abs(sl[400]) < 0.02 * abs(hl[400])
+        t4 &= conv_h and conv_s
+        print("  l = %d: r^2 phi on all of v >= 0: %s; r * r^2 phi on the strip: %s"
+              % (l, ", ".join("r = %d: %.5f" % (k, v) for k, v in hl.items()),
+                 ", ".join("r = %d: %.4f" % (k, k * v) for k, v in sl.items())), flush=True)
+    ok["T4"] = t4
     for k, v in ok.items():
         print(k, "PASS" if v else "FAIL")
     return 0 if all(ok.values()) else 1

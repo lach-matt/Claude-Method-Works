@@ -5164,6 +5164,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Controls fail as they should (no q; q″ at −1; the left tail at t = −3). With D466, one multiplier certifies every l ≥
   0, and the summed H¹ constant at σ = 3 is ≤ 184.82, set by l = 1, against 808.6 before; in −φU′'s weight for l ≥ 2.
   Open: the band 0 < |σ| ≤ 3 re-checked rather than deduced, and ψ_*'s weight.
+- D474 (BEYOND5 3(b), `checks/strip5.py` T4, computed): the strip in the scalar model at l = 1-4, potential (l(l + 2) +
+  3/4)/r². The full source r⁻⁴Y_l gives r²φ → −1/3, −1/6, −1/15, −1/30 (four digits). On the strip, r · r²φ → −1/3 at l =
+  1 and 1/15 at l = 3 (ρ³, as at l = 0), and falls like 1/r at l = 2 and 4, its ρ³ coefficient below resolution
+  (refinement moves it by up to 8 % at r = 200): ρ³ or later. In no harmonic computed does the strip reach ρ²; for l ≥ 1
+  these are values for S = r⁻⁴Y_l, not bounds (the kernel changes sign). Open: the full operator on the strip.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

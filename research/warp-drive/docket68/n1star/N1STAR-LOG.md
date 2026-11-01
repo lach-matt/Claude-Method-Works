@@ -7164,3 +7164,8 @@ certified for every harmonic but the lowest needed, for the lowest, one extra co
 That term is now found and checked by rigorous interval arithmetic, including both infinite ends. So a single choice of
 multiplier certifies every harmonic, and the overall constant at the sampled frequency falls from 808.6 to 184.8, about a
 factor of four and a half.
+
+**D474 (2026-11-01): the near-surface sources stay one power down in the higher modes too.** The model showing that
+sources confined near the incoming null surface arrive one power lower than a source everywhere had only been run for the
+spherically symmetric mode. Run now for the next four angular modes, it shows the same or better: one power lower for two
+of them, and lower still, below what the numerics resolve, for the other two.

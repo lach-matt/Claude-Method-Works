@@ -422,8 +422,8 @@ What it does not give:
 - Tangherlini's corrections beyond the scalar model (the curvature couplings of the tensor equation);
 - the structure beyond the principal part (the gauge terms and the trace couplings) on Tangherlini; on Minkowski it is
   Lemma 6.5′ (D417);
-- the remainder in E_(5/2) of (v), and the remainder g_λ − g_app (its sources lie in a strip of bounded v
-  along N and enter at ρ³ in the l = 0 model: D464);
+- the remainder in E_(5/2) of (v), and the remainder g_λ − g_app (its sources lie in a strip of bounded v along N and
+  enter at ρ³ or later in the scalar model, l ≤ 4: D464, D474);
 - uniqueness in W beyond the expansion (an energy identity on W would give it); Lemma 6.5′'s self-similar reduction
   assumes it;
 - the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
@@ -451,8 +451,12 @@ What it does not give:
   `checks/strip5.py`). So in that model a strip source enters at ρ³, not ρ², and, the l = 0 kernel being positive, the
   model bounds every |S| ≤ r⁻⁴ on the strip; in that model these sources do not reach the r⁻² coefficient, and D461's
   conclusion that the record needs a stronger remainder bound is withdrawn. Beyond V′_P, g_λ − g_app is not defined and
-  the remainder there is (b1)'s unknown, which nothing above bounds (verifier 199). Not computed: the strip for the full
-  operator and at l ≥ 1, and whether its r⁻³ term, which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
+  the remainder there is (b1)'s unknown, which nothing above bounds (verifier 199). In the same model at l = 1-4 (D474,
+  `checks/strip5.py` T4), with the potential (l(l + 2) + 3/4)/r², the strip enters at ρ³ at l = 1 and 3 (r · r²φ → −1/3
+  and 1/15) and at ρ³ or later at l = 2 and 4 (its ρ³ coefficient below the scheme's resolution), so in no harmonic
+  computed does it reach ρ²; for l ≥ 1 these are values for S = r⁻⁴Y_l, not bounds, as the kernel changes sign. Not
+  computed: the strip for the full operator, and whether its r⁻³ term, which carries no structure, is compatible with
+  Lemma 0.1's ρ³C^∞.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
