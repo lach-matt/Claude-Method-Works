@@ -5133,6 +5133,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   3 the D323 form); j ∈ ℕ and jℰ_0 is the j-fold sum, so the condition is closure under addition; 'not to integers' is
   an inference from the hypotheses cited; the 𝓘⁺ evidence concerns another face, and the I_0 conclusion rests on III.K
   53-57 and III.C′ Theorem 3.1 alone (ρ_0 = 1/(2 − x¹), about 1/r there). BEYOND5 (v) is reframed so.
+- D470 (FAMILIES5 4e, `checks/chardustdata5.py` T1-T5, exact, D = 4 and 5): the null dusts' own characteristic data. At a
+  point of N = {u = 0}, g_vv = g_vA = 0, every field a first-order jet. A dust tangent to N is along the generators; (div
+  T)^u = (div T)^A = 0 identically; (div T)^v = ∂_v q + c q, q = ρ(k^v)², c = (2∂_v g_uv − ∂_u g_vv)/g_uv + ½γ^(AB)∂_v
+  g_AB, ∂_u g_vv being its only transverse jet and fixed by W_v = H_v (coefficient 1/g_uv, no other transverse jet in
+  W_v). So the tangent dust is fixed on N by S. A crossing dust: div T = 0 and ∂_u g(k, k) = 0 have rank D in the D + 1
+  transverse derivatives, one dependency k_a(div T)^a = (ρ/2)k^u ∂_u g(k, k), one kernel vector, the rescaling; so ∂_u T
+  is fixed and ρ, k^u, k^A on N are free. Controls: the tangent dust's rank is 1; without Γ^a_bc k^b k^c the identity
+  fails. The record's dusts: K_out is transported along N from S, K_in free on N; on N′ the roles swap. Open: existence
+  for the transport off N, the corner, linear uniqueness.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

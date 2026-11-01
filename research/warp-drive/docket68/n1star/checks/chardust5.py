@@ -26,7 +26,7 @@ k_i^u and k_i^A symbols, n = 4 and 5:
 
 A dust moving along N's generators (k = k^v d_v) has k_v = g_vv k^v = 0 on N, so it drops out of all three; only the dust
 crossing N enters. With the record's dusts, the covectors sqrt(K) dv and sqrt(K) du (FAMILIES5 4c), T_vA = T_AB = 0 on N
-(D464). Not computed: the dusts' own characteristic data and transport (they are given along with g's).
+(D464). Their own characteristic data and transport: D470, chardustdata5.py.
 
 Run: python3 checks/chardust5.py   (exact; seconds)
 """

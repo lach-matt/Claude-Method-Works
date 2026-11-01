@@ -7140,3 +7140,9 @@ estimates and its constants step can fail; they are now included and fail where 
 monotonicity step to be stated, which now is. On the reading: half powers are admitted at the boundary that matters
 because nothing in the data's conditions asks for whole numbers, and the evidence from the other boundary, which had been
 quoted first, bears on that boundary only.
+
+**D470 (2026-11-01): what the dusts need on a null surface.** The earlier check took the two dust streams' densities on a
+null surface as given. Computed exactly in four and five dimensions: the stream that moves along the surface is not free
+there; its density is carried along the surface's light rays from where they start, by an equation whose one coefficient
+the gauge condition fixes. The stream that crosses the surface can be prescribed freely on it, and its equations then fix
+how it leaves. So of the record's two streams, one is chosen on each surface and the other is carried in from the corner.
