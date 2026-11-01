@@ -555,15 +555,25 @@ What it does not give:
   [D520, read and deduced: the sources from e are known by more than a bound. Proposition 9.8's energy carries rotation
   derivatives at no cost in λ, E(τ) = Σ_(i+|β|≤k) λ^i ‖∂^i Ω^β ∂w_n‖ ≤ M_F λ^(K′) t^(−1/2) (N1STAR-PROOF.md:1335), and
   Lemma 9.3(a), Sobolev with rotations on the annuli (1103-1104), turns it into |Ω^γ ∂w_n| ≤ C λ^(K′−3) t^(−2) for |γ| ≤
-  k − 3, uniformly in r. The sources quadratic in e and h ∂²e therefore have, after the factor r⁴, angular derivatives
-  up to order about k − 4 bounded uniformly in r (h's rotation derivatives are bounded in E_(5/2); each derivative of ∂e
-  costs one λ⁻¹). D508's argument, run at finite regularity, then puts the strip's term in ρ³C^m of the compactification
-  with m about k − 6, each ρ-derivative costing (1 + κ)^(1/2) (D508). Lemma 0.1 asks for finitely many seminorms, a
-  number set by d_1 = N + k″ (PART-III-K-NONLINEAR.md:417; more than 10¹⁷, LOSS-D LD12), so what is needed is the far
-  region at an order k above that number. Section 9 fixes k = 6 (N1STAR-PROOF.md:92). 10.51 reads section 4 for its
-  dependence on k and finds Theorem E at every order k ≥ 6 with K ≥ 6 (6708-6733), but it does not read Proposition 9.8.
-  What remains is Proposition 9.8 read at every order (k enters through Lemma 9.3's three rotation derivatives and the
-  commutators) and the passage from w_n to e (D464); neither is done here.]
+  k − 3, uniformly on each annulus A_P(τ) of the far region (t ≥ λ⁻², t + a_1 ≤ r ≤ t + a_2, Lemma 9.1(d)), the decay
+  carried by t⁻². The sources quadratic in e and h ∂²e therefore have, after the factor r⁴, angular derivatives up to
+  order about k − 4 bounded uniformly (h ∈ L_2, its rotation derivatives O(r⁻²); each derivative of ∂e costs one λ⁻¹).
+  D508's argument, run at finite regularity, then puts the strip's term in ρ³C^m of the compactification with m equal to
+  k − 4 less the Sobolev loss on S³ (more than 3/2), so about k − 6 and zero at k = 6, each ρ-derivative costing (1 +
+  κ)^(1/2) (D508). Lemma 0.1 asks for finitely many seminorms, a number set by d_1 = N + k″
+  (PART-III-K-NONLINEAR.md:417; more than 10¹⁷, LOSS-D LD12), so what is needed is the far region at an order k above
+  that number. Section 9 inherits Theorem E's k = 6 (N1STAR-PROOF.md:92). 10.51 reads section 4 for its dependence on k
+  and finds Theorem E at every order k ≥ 6 with K ≥ 6 (6708-6733), but it does not read Proposition 9.8. What remains is
+  Proposition 9.8 read at every order (k enters through Lemma 9.3's three rotation derivatives and the commutators) and
+  the passage from w_n to e (D464); neither is done here. Corrected D521 (verifier 224): both are done in the record at
+  fixed λ, which is all the strip needs. Lemma 11.0 (N1STAR-PROOF.md:10471-10501) runs Proposition 9.8's identity on the
+  approximating g_n at every order, rotations included, uniformly in n, and passes to g_λ by Arzelà-Ascoli, so every ∂^α
+  Ω^β u_1 is in E_2, u_1 := g_λ − g0 − r^(−3/2)G_3; g_app − g0 − r^(−3/2)G_3 is explicit with all its derivatives, so
+  every derivative of e is in E_2, and r⁴ times the sources is C^∞ in the angles uniformly (E_2 E_2 ⊂ E_4, Lemma
+  9.7(a)). Lemma 11.0's repair of D44 has not itself been read (10412-10416), its constants depend on λ and the order,
+  and λ-uniformly the question stays open. What neither D508 nor this note addresses is the radial dependence: D508
+  treats a source r⁻⁴σ(v, ω), while e's Cartesian derivatives gain no power of r, so r⁴ times the sources need not be
+  smooth in ρ at fixed v, and the strip's term need not then be polyhomogeneous. That is the open item.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

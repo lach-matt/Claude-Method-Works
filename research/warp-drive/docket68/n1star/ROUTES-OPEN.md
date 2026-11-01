@@ -5619,6 +5619,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   m about k − 6. Lemma 0.1 needs finitely many seminorms, a number set by d_1 = N + k″ (more than 10¹⁷). Section 9 fixes
   k = 6, and 10.51 extends only Theorem E (section 4) to every order. Open: Proposition 9.8 at every order, and the
   passage from w_n to e (D464).
+- D521 (verifier 224 on D520; (9.8), Lemma 9.3(a), the sources and Lemma 0.1 re-read, and section 11 searched): MAJOR,
+  the open items. D520's two open items are done in the record at fixed λ, which is all the strip needs: Lemma 11.0
+  (N1STAR-PROOF.md:10471-10501, "every order at fixed lam") runs Proposition 9.8's identity on the approximating g_n at
+  every order with the rotation energies, uniformly in n, and passes to g_λ by Arzelà-Ascoli, so every derivative of e,
+  rotations included, is in E_2 and r⁴ times the strip's sources is C^∞ in the angles uniformly. Caveats: Lemma 11.0's
+  D44 repair is unread; its constants depend on λ and the order; λ-uniformly the question stays open. Confirmed: (9.8)
+  with Lemma 9.3(a) gives |Ω^γ ∂w_n| ≤ C λ^(K′−3) t^(−2) for |γ| ≤ k − 3 (one power sharper than the record's own
+  |∂w_n|); the sources' derivative count; Lemma 0.1's finitely many seminorms and d_1 = N + k″; 10.51 reads sections 4-6
+  only. MINOR: section 9 inherits k = 6 from Theorem E (line 92 is section 0.4); "uniformly in r" is per annulus with t
+  ~ r; h is L_2, not E_(5/2); "m about k − 6" names its Sobolev loss on S³. Not checked by either, and now the open
+  item: the radial dependence of the sources (D508 treats r⁻⁴σ(v, ω); e's Cartesian derivatives gain no power of r).
+  Corrected in BEYOND5 3(b); the D520 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

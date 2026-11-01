@@ -7427,3 +7427,8 @@ also controls derivatives along the spheres, at no cost, so the sources that fee
 smooth angular derivatives, uniformly out to infinity. That is enough for the data class if the far-region estimate is
 taken to a high enough order. The record does this for the near region but not for the far one; that step, and one
 limit, remain.
+
+**D521 (2026-11-01): the far-region step was already in the record.** An independent check found that the record already
+takes its far-region estimate to every order for a fixed wavelength, and passes it to the actual solution, which is all
+that was needed: the sources feeding the strip are smooth along the spheres to every order. What is left is their
+dependence along the radius, which no argument so far controls; that is now the open item.
