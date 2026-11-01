@@ -7146,3 +7146,9 @@ null surface as given. Computed exactly in four and five dimensions: the stream 
 there; its density is carried along the surface's light rays from where they start, by an equation whose one coefficient
 the gauge condition fixes. The stream that crosses the surface can be prescribed freely on it, and its equations then fix
 how it leaves. So of the record's two streams, one is chosen on each surface and the other is carried in from the corner.
+
+**D471 (2026-11-01): the dust result stands, and is simpler than stated.** The independent check reproduced it by hand
+and found that, once the gauge condition is used, the surface's own focusing drops out: the stream along the surface
+simply grows or decays at the rate the gauge source sets. It also made the scope exact: a crossing stream in general
+carries several free functions on the surface, the record's carries one, and the other surface follows by symmetry rather
+than by computation.

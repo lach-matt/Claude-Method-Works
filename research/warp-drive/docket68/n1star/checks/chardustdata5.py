@@ -14,24 +14,29 @@ the components that vanish on N set to zero. Exact in sympy, spacetime dimension
      (div T)^v = d_v q + c q, with d_u k^u eliminated by the u-derivative of nullity, and c = (2 d_v g_uv - d_u
      g_vv)/g_uv + (1/2) gamma^(AB) d_v g_AB, free of the dust's fields: the generators' non-affinity and their expansion.
      The only transverse jet of g in c is d_u g_vv. So q on N is fixed by its value on S.
-  T3 (exact) the gauge fixes that jet: W_v = g_va g^(bc) Gamma^a_bc on N is affine in the transverse jets of g with
-     d_u g_vv the only one present, its coefficient non-zero, so W_v = H_v (H carrying no derivative of g) fixes
-     d_u g_vv on N from N's data, and c is data.
+  T3 (exact) the gauge fixes that jet: W_v = g_va g^(bc) Gamma^a_bc on N is affine in the transverse jets of g with d_u
+     g_vv the only one present, its coefficient 1/g_uv, so W_v = H_v (H carrying no derivative of g) fixes d_u g_vv on N
+     from N's data, and c is data. Indeed c = 2 d_v ln|g_uv| - W_v exactly, so the expansion cancels and the transport is
+     d_v T_uu = W_v T_uu = H_v T_uu (verifier 201, D471).
   T4 (exact) a dust crossing N (k^u != 0; k^v fixed by nullity, its tangential derivatives by nullity's): the D + 1
      equations div T = 0 and d_u(g(k, k)) = 0 for the D + 1 transverse derivatives (d_u rho, d_u k^a) have exactly one
      dependency, k_a (div T)^a - (rho/2) k^u d_u(g(k, k)) = 0 identically, and exactly one kernel vector, the rescaling
-     (-2 rho, k); their rank is D (at three random rational points). So the transverse derivatives of T are fixed, and
-     rho, k^u and k^A on N are free data.
+     (-2 rho, k); their rank is D (at three random rational points; everywhere with rho, k^u != 0, a D x D block having
+     determinant 2 rho^D (k^u)^D, verifier 201). So the transverse derivatives of T are fixed, and rho, k^u and k^A on N
+     are free data.
   T5 controls: for the tangent dust the transverse rank is 1, not D (its data are constrained, by T2, not free); without
      the Gamma^a_bc k^b k^c term of div T the identity of T4 fails (dropping the Gamma^b_bd term would not do: it lies
-     along k^a and drops out of k_a (div T)^a on N); and c depends on d_u g_vv (non-zero coefficient).
+     along k^a and drops out of k_a (div T)^a on N); and W_u, unlike W_v, contains transverse jets other than d_u g_vv,
+     so T3's test is not vacuous (verifier 201).
 
-So the characteristic data of the two dusts: the crossing dust's density and direction on N are free, and enter N's
-constraint hierarchy through T_vv (D463); the dust along N's generators is fixed on N by its value on S, through T2's
-transport, whose coefficient is data once W_v = H_v holds; it does not enter N's constraints. With the record's dusts,
-the covectors sqrt(K_in) dv and sqrt(K_out) du (FAMILIES5 4b-4c), on N = {u = const} the du dust is the tangent one, so
-K_out on N is transported from S and K_in is free; on N' = {v = const} the roles swap. Not computed: existence for the
-coupled transport off N (it is a first-order hyperbolic system along k), and the corner S, where both dusts' data meet.
+So the characteristic data of the two dusts: a crossing dust has D - 1 free functions on N (rho, k^u, k^A up to the
+rescaling) and enters N's constraint hierarchy through T_vv (D463); the dust along N's generators is fixed on N by its
+value on S, through T2's transport, d_v T_uu = H_v T_uu once W_v = H_v; it does not enter N's constraints. With the
+record's dusts, the covectors sqrt(K_in) dv and sqrt(K_out) du (FAMILIES5 4b-4c), on N = {u = const} the du dust is the
+tangent one, so K_out on N is transported from S (the transport reproduces section 4c's K_out R^3 = B(u), verifier 201),
+and the dv dust, its direction fixed, has K_in alone on N, free where dv is null there (g^vv = 0; in general that needs
+g_uu = gamma^(AB) g_uA g_uB); on N' = {v = const} the roles swap, by symmetry (not computed). Not computed: existence for
+the coupled transport off N (a first-order hyperbolic system along k), and the corner S, where both dusts' data meet.
 
 Run: python3 checks/chardustdata5.py   (exact; under a minute)
 """
@@ -129,7 +134,8 @@ def run(D, seeds=(1, 2, 3)):
                        for a in range(D)))
     Wt = Wv.free_symbols & trans
     coef = sp.simplify(sp.diff(Wv, dg[U][V, V]))
-    out["T3"] = Wt == {dg[U][V, V]} and coef != 0 and sp.diff(Wv, dg[U][V, V], 2) == 0
+    after = sp.simplify(c - (2 * dg[V][U, V] / g[U, V] - Wv)) == 0          # c = 2 d_v ln|g_uv| - W_v
+    out["T3"] = Wt == {dg[U][V, V]} and coef != 0 and sp.diff(Wv, dg[U][V, V], 2) == 0 and after
     # crossing dust
     rho, k, dk, drho = dust(D, False)
     null = sp.expand(sum(g[a, b] * k[a] * k[b] for a in range(D) for b in range(D)))
@@ -169,7 +175,9 @@ def run(D, seeds=(1, 2, 3)):
     eqs_n = [e.subs(subs) for e in divT(D, Gam, rho, k, dk, drho, geodesic_term=False)]
     ident_n = sum(klow[a] * eqs_n[a] for a in range(D)) - rho / 2 * k[U] * eqs[D]
     broken = sp.simplify(sp.together(ident_n.subs(k[V], kv_sol))) != 0
-    out["T5"] = rank_t == 1 and broken and sp.diff(c, dg[U][V, V]) != 0
+    Wu = sp.expand(sum(g[U, a] * sum(gI[b, cc] * Gam[a][b][cc] for b in range(D) for cc in range(D))
+                       for a in range(D)))
+    out["T5"] = rank_t == 1 and broken and bool((Wu.free_symbols & trans) - {dg[U][V, V]})
     info = dict(c=c, coef=coef, ranks=ranks, rank_t=rank_t)
     return out, info
 

@@ -350,16 +350,21 @@ couplings are then killed by their own contractions.
       dv and √K du (section 4c), T_vA = T_AB = 0 on N, and T_vv = K_in comes from the √K dv dust (T = K_in dv² + K_out
       du², section 4b; the du-dust runs along N's generators and drops out) (verifier 198, D464; corrected D468, verifier
       199). The corner conditions are matter-free.
-    - - *The dusts' own data (D470; `checks/chardustdata5.py` T1-T5, exact, D = 4 and 5).* At a point of N, every field a
-      first-order jet: a null dust tangent to N lies along the generators (k^A = 0 by nullity), (div T)^u and (div T)^A
-      vanish identically, and the remaining component is a transport along the generators, ∂_v q + c q = 0 for q =
-      ρ(k^v)² (T_uu = g_uv² q), with c = (2∂_v g_uv − ∂_u g_vv)/g_uv + ½γ^(AB)∂_v g_AB, the generators' non-affinity and
-      expansion. Its one transverse jet, ∂_u g_vv, is fixed on N by W_v = H_v, which depends on the transverse jets
-      through ∂_u g_vv alone, with coefficient 1/g_uv. So that dust is fixed on N by its value on S. For a dust crossing
-      N, div T = 0 and the u-derivative of nullity determine its transverse derivatives up to the rescaling k → fk, ρ →
-      ρ/f², which leaves T unchanged (one dependency, k_a(div T)^a = (ρ/2)k^u ∂_u g(k, k), and rank D), so its ρ, k^u and
-      k^A on N are free. With the record's dusts, on N = {u = const} K_out (the du dust) is transported from S and K_in
-      is free; on N′ the roles swap.
+    - - - *The dusts' own data (D470; `checks/chardustdata5.py` T1-T5, exact, D = 4 and 5).* At a point of N, every field
+        a first-order jet: a null dust tangent to N lies along the generators (k^A = 0 by nullity), (div T)^u and (div
+        T)^A vanish identically, and the remaining component is a transport along the generators, ∂_v q + c q = 0 for q =
+        ρ(k^v)² (T_uu = g_uv² q), with c = (2∂_v g_uv − ∂_u g_vv)/g_uv + ½γ^(AB)∂_v g_AB. Its one transverse jet, ∂_u
+        g_vv, is fixed on N by W_v = H_v, which depends on the transverse jets through ∂_u g_vv alone, with coefficient
+        1/g_uv; indeed c = 2∂_v ln|g_uv| − W_v, so the expansion cancels and the transport is ∂_v T_uu = H_v T_uu
+        (verifier 201, D471). So that dust is fixed on N by its value on S. For a dust crossing N, div T = 0 and the
+        u-derivative of nullity determine its transverse derivatives up to the rescaling k → fk, ρ → ρ/f², which leaves T
+        unchanged (one dependency, k_a(div T)^a = (ρ/2)k^u ∂_u g(k, k), and rank D), so its ρ, k^u and k^A on N are free,
+        D − 1 functions up to the rescaling (the rank is D wherever ρ, k^u ≠ 0: a D × D block has determinant
+        2ρ^D(k^u)^D, verifier 201). With the record's dusts, on N = {u = const} K_out (the du dust) is transported from
+        S, reproducing section 4c's K_out R³ = B(u), and K_in, the dv dust's one function, is free where dv is null on N
+        (g^vv = 0; in general that needs g_uu = γ^(AB)g_uA g_uB); on N′ the roles swap by symmetry (not computed).
+        Whether the record's Υ is taken relative to g0 is not stated: with the coordinate Υ, Υ_v(g0) = −3R_v/R is of
+        order 1, while 4e's H is of order λ (verifier 201); T3 holds either way.
     - - Not computed: existence for the dusts' transport off N, the corner S where both dusts' data meet, uniqueness for
       the linear characteristic problem, and that the record's solution solves the reduced equation exactly.
 

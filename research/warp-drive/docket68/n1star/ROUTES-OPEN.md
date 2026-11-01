@@ -5142,6 +5142,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   is fixed and ρ, k^u, k^A on N are free. Controls: the tangent dust's rank is 1; without Γ^a_bc k^b k^c the identity
   fails. The record's dusts: K_out is transported along N from S, K_in free on N; on N′ the roles swap. Open: existence
   for the transport off N, the corner, linear uniqueness.
+- D471 (verifier 201 on D470): stands, no major finding. The jet set-up is complete (div T is first order), div T and c
+  reproduce by hand, and T is q alone on N, so the ODE fixes T, not ρ and k^v apart. After the gauge c = 2∂_v ln|g_uv| −
+  W_v (now asserted exactly in T3), so the expansion cancels: ∂_v T_uu = H_v T_uu. T4's rank is D wherever ρ, k^u ≠ 0 (a
+  D × D block has determinant 2ρ^D(k^u)^D). Scope: a crossing dust has D − 1 free functions; the record's dv dust has
+  K_in alone, free where dv is null on N; N′ by symmetry, not computed; the transport reproduces 4c's K_out R³ = B(u).
+  T5's third control, which restated T2, is replaced: W_u has other transverse jets, so T3's test is not vacuous.
+  Recorded: whether the record's Υ is relative to g0 (Υ_v(g0) = −3R_v/R, order 1, against H of order λ) is not stated.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
