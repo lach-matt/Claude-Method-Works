@@ -7697,3 +7697,8 @@ computation the nonlinear step rests on, that the linearised constraints have no
 families: it depends only on the waves being traceless on the spheres, not on the direction they travel. The outgoing
 waves cannot arrive from past null infinity, so their data sit on the initial slice. Left: the radial solvability checks
 on the two-dust background.
+
+**D567 (2026-11-01): the trapping bound certified up to 384.** The rigorous bound on the black hole's resolvent near its
+trapped orbits, run on from 192 to 384, holds there with the same largest value, 11.48, and keeps falling as the
+frequency rises (0.44 at 384). The measured value is still about twenty times smaller than the bound, and the gap is
+widening slowly. The run took a little over three hours.

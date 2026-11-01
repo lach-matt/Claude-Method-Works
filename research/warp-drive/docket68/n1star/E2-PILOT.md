@@ -722,17 +722,37 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   s. (Corrected D532, verifier 228: 731.2 had rounded a lower bound up; the intervals on [3, 96] were compared with
   D506's at the printed points only. Verifier 228 re-certified [191.95, 192] at l_1 = 378 and [127.95, 128] at l_1 = 251
   in Arb, 0.66382 and 0.83904, the tails not re-derived.)
+- *Certified to σ = 384 (D567; `checks/e2trapband5.py 768 0.05 384`, saved as `checks/e2trapband5_384.out`).* The same
+  certificate with l_1 up to 768 and the band [3, 384]. B1 certifies a multiplier at every l_1 = 5, …, 768 (at the
+  printed l_1 = 20, 40, …, 760: 93 to 145 enclosures, m′ ≥ 0.017499 to 0.029022, w_I ≥ 8.3643 to 2095.4); B2 cuts [3,
+  384] into 7620 intervals of width 1/20 and bounds every one; B3: at every 0.1 of [3, 384] the bound lies above
+  e2trap5's floating-point sup, by a factor 1.0010 to 1.2294 (1.0010 to 1.1882 on [3, 192], D528). So, certified: for
+  every 3 ≤ σ ≤ 384 and every l ≥ 0, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477, still the largest on [3.2, 3.25] (l_1 = 5); at the
+  printed σ = 3, …, 192 the values of D528's run, unchanged (B1's multipliers at l_1 ≤ 384 are the same, being chosen at
+  each l_1 alone). The run prints its intervals only up to σ = 192; `checks/e2bandtop5.py` recomputes single intervals
+  the way B2 does, certifying only the l_1 they use (the admissible table's rows do not depend on the other l), and
+  reproduces 0.66429 at σ = 192 (l_1 = 378, P0). On the intervals ending at σ = 256, 320 and 384 it gives 0.56257,
+  0.49119 and 0.47635 (l_1 = 505, 632, 760; P1). At σ = 320 and 384 the least is at the lowest of B2's eight l_1, so
+  B2's window binds there; with the 24 largest admissible l_1 (P2, saved as `checks/e2bandtop5_24.out`) σ = 256 and 320
+  are unchanged and σ = 384 falls to 0.43792 (l_1 = 759), certified as the rest. σ^(1/2) times the bound is 9.20, 9.00,
+  8.79 and 8.58 at σ = 192, 256, 320 and 384 (the last with the wider window; 9.33 with B2's), so between 192 and 384
+  the bound decays about as σ^(-0.60), as between 96 and 192 (D528; two points, not a law). Measured beside it
+  (`checks/e2meas5.py`, e2high5's cutoff_norm over the 13 harmonics around the first trapped one, as its H3; computed,
+  not certified): the max is 0.0519376 at σ = 96 (l = 191) and 0.0399913 at σ = 128 (l = 255), σ times it 4.986 and
+  5.119; the band's interval bound is 19.2 and 21.0 times these, the ratio still growing. With sections 3f-3g this
+  bounds every real 0 < |σ| ≤ 384; 194 minutes, the certificate itself 11651 s.
 
 What it does not give:
 
-- (done, D506 and D528: every σ in [3, 96], then in [3, 192], is certified, above) a certificate between the sampled
-  frequencies: at σ = 3, 6, 12, 24, 48 and 96 the bound is certified (D497, D503); between them it is computed on a grid
-  of step 0.01 only (T3). An interval [σ_a, σ_b] needs no new kind of check: admissibility does not involve σ,
-  B_(l_1)(σ) increases with |σ|, and E2.7's Λσ/(σ² − max V_l) decreases with σ where it applies, so max(E2.7 at σ_a for
-  every l < l_1, B_(l_1)(σ_b)) bounds every σ in it once every l < l_1 has max V_l < σ_a² (deduced, not run);
-- σ > 192 (to 192, D528, above), nor the H¹ constants of section 3i with these multipliers (X_l, C_l, not redone);
-- the measured (a + b log σ)/σ: the bound is still 9.5 to 19 times above it, and the ratio grows with σ from σ = 6 on
-  (9.70, 9.46, 11.2, 13.0, 15.6, 19.0).
+- (done, D506, D528 and D567: every σ in [3, 96], then in [3, 192], then in [3, 384], is certified, above) a certificate
+  between the sampled frequencies: at σ = 3, 6, 12, 24, 48 and 96 the bound is certified (D497, D503); between them it
+  is computed on a grid of step 0.01 only (T3). An interval [σ_a, σ_b] needs no new kind of check: admissibility does
+  not involve σ, B_(l_1)(σ) increases with |σ|, and E2.7's Λσ/(σ² − max V_l) decreases with σ where it applies, so
+  max(E2.7 at σ_a for every l < l_1, B_(l_1)(σ_b)) bounds every σ in it once every l < l_1 has max V_l < σ_a² (deduced,
+  not run);
+- σ > 384 (to 384, D567, above), nor the H¹ constants of section 3i with these multipliers (X_l, C_l, not redone);
+- the measured (a + b log σ)/σ: the bound is still 9.5 to 21 times above it, and the ratio grows with σ from σ = 6 on
+  (9.70, 9.46, 11.2, 13.0, 15.6, 19.0, and 21.0 at σ = 128 against the interval bound, D567).
 
 ## 4. What remains for E2 at this operator
 

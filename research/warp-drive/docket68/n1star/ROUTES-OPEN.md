@@ -6021,6 +6021,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   with both families (flat background) or the outgoing alone, even for a non-null phase (speed 1/2; u = τ − r on
   Vaidya): the cancellation is the waves' tracelessness on the spheres (the control, an oscillating trace, gives one).
   The outgoing data are posed on Σ_τ0 and v = v0, not at I⁻. Open: S3-S6 for two families.
+- D567 (E2-PILOT 3j, certified; `checks/e2trapband5.py 768 0.05 384`, output saved as `checks/e2trapband5_384.out`;
+  `checks/e2bandtop5.py` P0-P1, certified; `checks/e2meas5.py`, computed): the band certificate run to σ = 384. B1
+  certifies one multiplier at every l_1 = 5, …, 768; B2 bounds all 7620 intervals of width 1/20 of [3, 384]; B3 lies
+  above e2trap5's float sup at every 0.1, by 1.0010 to 1.2294. Certified: ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 for every 3 ≤ σ ≤
+  384 and every l ≥ 0, the sup unchanged on [3.2, 3.25]; on the intervals ending at σ = 256, 320, 384, 0.56257, 0.49119,
+  0.47635 (e2bandtop5, which reproduces 0.66429 at 192), and 0.43792 at 384 with 24 l_1 in place of B2's eight, whose
+  window binds there. σ^(1/2) times the bound is 9.20 at 192 and 8.58 at 384. The measured norm at σ = 128 is 0.0400,
+  the bound 21.0 times it. With 3f-3g, every real 0 < |σ| ≤ 384. 194 minutes. Open: σ > 384, the H¹ constants of 3i with
+  these multipliers, and the measured (a + b log σ)/σ, which the bound still exceeds.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
