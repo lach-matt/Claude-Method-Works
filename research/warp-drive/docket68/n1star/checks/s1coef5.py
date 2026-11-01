@@ -744,7 +744,8 @@ def zeros_near():
                 a3 = a1
             At[t_] = (a3, good)
         near[name] = At
-        print("  (b) %s + t b (b of half-width %.3f at r = %.3f; QR matching where the plain one fails; * unreliable): %s"
+        print("  (b) %s + t b (b of half-width %.3f at r = %.3f; QR matching where the plain one fails; "
+              "* unreliable): %s"
               % (name, w, c, "; ".join("t = %g: %.6g%s" % (t_, v[0], "" if v[1] else "*") for t_, v in At.items())),
               flush=True)
     vals = [v for At in near.values() for v in At.values()]
