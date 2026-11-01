@@ -7029,3 +7029,10 @@ with the leading part were left open. Counting powers settles it: the worst term
 derivatives of the remainder, falls like the radius to the power minus four and a half, which is enough. A remainder
 built to oscillate shows the bound is reached, and one whose derivatives do gain falls two powers faster, as the
 earlier estimate assumed.
+
+**D455 (2026-11-01): the conditions where the two cones meet.** The characteristic problem takes data on two null
+cones, and where they cross the gauge condition must hold. Computed exactly there, it is one relation per component,
+and each relation ties one number of the first cone to one of the second: how fast the first cone's cross-sections grow
+to how one of the second cone's metric components starts, and the same with the cones exchanged, and the mixed
+components in pairs. So the growth rates of both cones can be chosen freely, which corrects the earlier reading that
+the gauge fixes the first cone's growth rate.

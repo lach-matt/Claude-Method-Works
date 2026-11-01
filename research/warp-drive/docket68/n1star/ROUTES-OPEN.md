@@ -5022,6 +5022,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   part quadratic in rho O(r^-5) (R^5 times it 31.8-53.0); a remainder whose derivatives gain gives exactly 2^-13/2 under
   doubling (Q4) and falls a further 1/256 over that range. All o(r^-4), the condition D413 needs. Open: the sources from
   g_lambda - g_app.
+- D455 (FAMILIES5 4e, checks/charcorner5.py C1-C3, computed exactly): the corner conditions W = 0 on S = N cap N'. At S,
+  W depends on the first u- and v-jets only through X = (d_u g_vv, d_u g_vA, tau'; d_v g_uu, d_v g_uA, tau), tau =
+  gamma^(AB) d_v g_AB = 2 theta (N1 and its mirror at once), and its Jacobian is diagonal in pairs: W_u = g^(uv) d_v
+  g_uu - tau'/2 + f_u, W_v = g^(uv) d_u g_vv - tau/2 + f_v, W_A = g^(uv)(d_u g_vA + d_v g_uA) + f_A, f from g at S, its
+  angular derivatives and H. So both expansions and one of each mixed pair are free and n numbers fixed; D449's 'their
+  first v-derivatives and theta are what the corner conditions fix' corrected. Open: the null dusts, linear uniqueness,
+  the record's solution solving the reduced equation.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

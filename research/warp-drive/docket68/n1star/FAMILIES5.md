@@ -326,11 +326,20 @@ couplings are then killed by their own contractions.
       along each generator for the conformal factor, then g_uA, then g_uu; the first is nonlinear (it holds while θ stays
       finite), the other two linear in their unknown's second derivative. Each later step uses angular derivatives of the
       earlier unknowns, so each is solved on a neighbourhood of generators, smooth in x^A, with an existence interval
-      uniform over the compact S. At S, g_uu = g_uA = 0 (N′ is null); their first v-derivatives and θ there are what the
-      corner conditions fix (the mirror of N1, not computed), and the conformal factor's value is free.
-    - Not computed: the corner conditions (W = 0 on S, which fixes ∂_u g_vv, ∂_u g_vA and the trace of ∂_u g_AB there,
-      N1, against the data N′ carries), the null dusts' stress in place of vacuum, uniqueness for the linear
-      characteristic problem, and that the record's solution solves the reduced equation exactly.
+      uniform over the compact S. At S, g_uu = g_uA = 0 (N′ is null) and the conformal factor's value is free; their
+      first v-derivatives and θ are tied to N′'s numbers by the corner conditions (next bullet; D449 had them fixed by
+      those conditions, corrected D455).
+    - *The corner conditions (D455; `checks/charcorner5.py` C1-C3, exact in the first u- and v-jets at a point of S, n =
+      4 and 5).* At S all four of g_uu, g_uA, g_vv, g_vA vanish, so N1 and its mirror under u ↔ v hold together: W
+      depends on the u-jets only through ∂_u g_vv, ∂_u g_vA and τ′ = γ^(AB) ∂_u g_AB, on the v-jets only through ∂_v
+      g_uu, ∂_v g_uA and τ = γ^(AB) ∂_v g_AB = 2θ, and on nothing else of either (∂_u g_uv, ∂_v g_uv and both shears
+      included). The Jacobian is diagonal in pairs: W_u = g^(uv) ∂_v g_uu − τ′/2 + f_u, W_v = g^(uv) ∂_u g_vv − τ/2 +
+      f_v, W_A = g^(uv) (∂_u g_vA + ∂_v g_uA) + f_A, with f computed from g at S, its angular derivatives and H. So W = 0
+      on S is n relations, each between one number of N and one of N′: N's expansion with N′'s ∂_u g_vv, N′'s expansion
+      with N's ∂_v g_uu, and ∂_v g_uA with ∂_u g_vA. Both expansions and one of each mixed pair are free, and the other n
+      numbers are fixed; θ and ∂_u g_vv cannot both be prescribed (control).
+    - Not computed: the null dusts' stress in place of vacuum, uniqueness for the linear characteristic problem, and that
+      the record's solution solves the reduced equation exactly.
 
 ## 4c. The two-dust background (D389)
 

@@ -23,9 +23,9 @@ So given the conformal class of gamma and g_uv on N (free data and a gauge choic
 are ODEs along each generator for the conformal factor, then g_uA, then g_uu: the first (Raychaudhuri's) nonlinear,
 holding while theta stays finite, the other two linear in their unknown's second derivative. Each later step uses angular
 derivatives of the earlier unknowns, so each is solved on a neighbourhood of generators, smooth in x^A, with an existence
-interval uniform over S (compact). The data at S: g_uu = g_uA = 0 there, as N' = {v = 0} is null; their first
-v-derivatives and theta at S are what the corner conditions fix (the mirror of D440's N1 under u <-> v, not computed
-here), and the conformal factor's value at S is free (D449). The corner conditions themselves are not computed.
+interval uniform over S (compact). The data at S: g_uu = g_uA = 0 there, as N' = {v = 0} is null, and the conformal
+factor's value at S is free (D449); their first v-derivatives and theta are tied to N''s by the corner conditions,
+which pair each with one number of N' (checks/charcorner5.py, D455; D449 had them fixed by those conditions).
 
 Run: python3 checks/charcons5.py   (n = 4 and 5, two seeds each; exact)
 """
