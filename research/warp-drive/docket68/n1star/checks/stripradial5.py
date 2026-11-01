@@ -24,8 +24,9 @@ that is, toward past null infinity at fixed v, u = v - 2r -> -infinity. This is 
      [300, 400], against |K_(3,0)| = 0.785), while r^4 phi oscillates as A cos(R/lambda) + B sin(R/lambda) with
      amplitude sqrt(2) lambda to leading order in lambda/R (integration by parts in u: 1.39 lambda and 1.31 lambda
      measured, within 3 % and 10 %). So the strip's term is about sqrt(2) lambda rho^4 sin(1/(lambda rho)): no rho^3
-     term, and a rho^4 term that is C^1 but not C^2 in rho, its t-derivative rho^4 cos(1/(lambda rho)) not C^1 after
-     the factor rho^3.
+     term, and a rho^4 term that is C^1 but not C^2 in rho, not C^1 after the factor rho^2,
+     and its t-derivative -sqrt(2) rho^4 cos(1/(lambda rho)) not C^1 after the factor rho^3 (D535). The samples are taken
+     at the nearest u-node at the first v >= R, so t is off 0 by up to about 0.1; with t = 0 exact no verdict changes (verifier 230).
 
 Run: python3 checks/stripradial5.py   (under a minute)
 """

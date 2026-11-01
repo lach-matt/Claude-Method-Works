@@ -7509,3 +7509,8 @@ hole makes to flat-space solutions near future timelike infinity, which the reco
 rounds clears a whole window at once, so its length per level is that window divided by this number. If the number is as
 large as the record's smallest root, the loop is about one twentieth of the counted ones; computing it from the
 five-dimensional black hole is the next step.
+
+**D535 (2026-11-01): the far strip, checked.** An independent check found no error of substance and turned one deduction
+into a computation: the full equations' profile reduction behaves exactly as claimed at four non-integer powers. It also
+found the consequence stronger than stated: a remainder oscillating along the cone would push the data out of the
+required class already at the first derivative, not the second.

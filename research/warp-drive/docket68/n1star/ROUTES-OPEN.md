@@ -5752,6 +5752,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   coming from the Myers-Perry corrections to the Minkowski formal solutions at ι⁺ (G3:298-299, 305-311). If m_ι ≥ d1
   (the classes' offsets), at most 1,470,302 rounds per level, 0.0571 of the levels' tf-rounds; if m_ι ≥ 1, one round.
   LD12 (v) corrected. Open: m_ι from Definition 2.5's formal solutions on 5D Tangherlini.
+- D535 (verifier 230 on D530; R1 rederived by hand, R2 rerun, the jump and the time-translation checked, stripfull5's
+  reductions run in exact sympy at non-integer p, R3-R4 rerun with t = 0 exact, with dv/2 and 2n, and on later windows):
+  no major finding. Confirmed: the reduction and Gauss's second theorem; F(0+) = −σ/(2p − 3); the shifted sheet is
+  jointly homogeneous of degree −(p + 2), the solution vanishing between the two surfaces; for the full operator M1_p(s)
+  − M1_2(s) − (p − 2)(1 − s)I = 0 identically in both sectors at p = 3, 7/2, 4, 9/2, so (ii) is now computed there; the
+  phase v/λ; √2λ by parts. MINOR: the class test is stricter than stated: ρ⁻² times the oscillating term is not C¹, so
+  it leaves ρ²C^m from m = 1, and its t-derivative ρ³C^m from m = 1 (the verifier's "no derivative at 0" holds for the
+  latter only); "no logarithm at any p" needs p > 3/2; the λ = 30 amplitude 1.31λ is not converged (1.38λ, 1.40λ on
+  later windows); the script samples t up to about 0.1 off 0, no verdict changing. UNVERIFIED: the l = 0 remainder bound
+  rests on kernel positivity (D468), sampled, not proved. NITs: the t-derivative's constant −√2; E_p's C at fixed λ; the
+  class checks are on the flat slice, the bend of Σ_IVP not checked for the oscillating term. Corrected in BEYOND5 3(b)
+  and stripradial5's docstring; the D530 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
