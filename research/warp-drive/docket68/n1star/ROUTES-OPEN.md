@@ -5839,6 +5839,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   [3.5, 4), 0.39-2.35 on [4, 4.5). So the M = 40 blow-up was the angular resolution outrunning the null step; the
   curvature is resolved and of order K_0 to v = 3.5 at every angle. Open: convergence after v ≈ 3.5 near the axis (a
   finer null grid at M = 40, or angular refinement at the axes).
+- D544 (verifier 235 on D542; D3, D4, F2, F4, F5, G3, III.A read; every state family checked): the value holds, ℰ^ι_ind
+  ∩ (0, 1) = {d1}, checked family by family (boost and breve, h_s1 and h̆¹, the s0 chain, the III.D‴ classes, III.F‴'s
+  mass states, III.F⁗'s physical states); the argument as written did not establish it. MAJOR: "integers or (root ≥ 2 +
+  d1) + j − base" is false (the boost's breve is sourced by [□, t_*]ω′ ∋ ρ^(3+d1) and has 1 + d1 at offset d1 from base
+  1; Lemma 1.4's source part was omitted); the correct argument: exponents are roots or source exponents shifted by
+  integers, the only positive roots below 3 are 2 + d1 and 2 + d0, so an offset below d1 needs a base in (2, 2 + d1],
+  which none has. MAJOR: III.F⁗ is F5; its set contains λ^C − 1 ≈ 1 + 2.93 × 10⁻⁶, offset 3.0000029 from base −2, not
+  "above 4", its bounds still ≥ 1; D542 asserted over a family it had not read. MINOR: F4 is III.F‴; ℳ binds III.D‴ only
+  and is finite; sources are not always smooth; the λ = 1 grafts outside G3:339's list add nothing below 1. Confirmed:
+  the quotes, the threshold, type preservation, the boost bases, the collected set, the arithmetic. Unverified by this
+  verifier: A ≠ 0 (rerun by verifier 234, 141.4268935). Corrected in LOSS-D LD14; the D542 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

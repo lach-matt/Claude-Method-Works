@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -738,20 +738,28 @@ loop counts of section 3.
     per level by the record's own roots (d1 for the level-2 chains, m_ι for ι⁺), the first up to the factor N_2.
   - *The reading, at source (D542, read and deduced).* The construction answers D541. III.D‴ fixes ℳ, the real numbers
     in [−10, 10] of the form Re λ + j, λ an indicial root and j ∈ ℤ, and says "every exponent below lies in ℳ"
-    (PART-III-D4-GENSTATES.md:54-59): the generic "index set with min Re ≥ ε_ind" is the notation for what the
-    construction yields. Lemma 2.1 (D4:76-100) builds each state from its leading term ρ^m w, the corrections that A −
-    N(A) ∈ ρDiff²_b adds (exponents m + 1 + ℕ_0, the coefficients being smooth), the formal solution of III.A Lemma 1.5
-    ("its exponents are those of ℱ_1 plus ℕ_0"), whose sources are smooth (f_b ∈ ρ⁴C^∞, D3:195-197), and the decaying
-    part P_b⁻¹f_2, whose exponents are the indicial roots with Re ≥ λ_s1,2 = 2 + d1, plus ℕ_0 (III.A Lemma 1.4,
-    D4:93-97). So a state's exponents, relative to its base, are integers or (root ≥ 2 + d1) + j − base, and an offset
-    in (0, 1) needs a base within 1 below such a root of its own type (the types are preserved at b_0, D4:173-175).
-    Among the states III.G″ collects (G3:338-339, Table 1.1 at G3:44-60): the boost state, base 2 in ω′ and 3 in h_s1 =
-    δ*ω (D3:198-203), gives d1, the root 2 + d1; the s0 state is ρ²C^∞ (D3:143), so d0 does not enter there; the v1
-    states have integer roots; the III.D‴ class states have bases μ ≤ 0, so their offsets from the decaying part are at
-    least 2 + d1 and the rest are integers. So, on the construction, ℰ^ι_ind ∩ (0, 1) = {d1} and, A ≠ 0 (LD9), m_ι = d1:
-    the ι⁺ loop runs at most 1,470,302 rounds per level, about 1/17.5 of the levels' tf-rounds. The same construction
-    gives LD13's ℰ_ind ∩ (0, 1) = {d1}, the s0 state carrying no ρ^(2+d0). Not read here: III.F⁗'s states (Table 1.1's
-    physical factor, base −2, whose offsets from roots above λ_s1,2 + 1 would be above 4).
+    (PART-III-D4-GENSTATES.md:54-59; a statement of III.D‴'s, and ℳ is finite, so below 10, not in the ℕ_0 tails;
+    corrected D544): the generic "index set with min Re ≥ ε_ind" is the notation for what the construction yields. Lemma
+    2.1 (D4:76-100) builds each state from its leading term ρ^m w, the corrections that A − N(A) ∈ ρDiff²_b adds
+    (exponents m + 1 + ℕ_0, the coefficients being smooth), the formal solution of III.A Lemma 1.5 ("its exponents are
+    those of ℱ_1 plus ℕ_0"), and the decaying part P_b⁻¹f_2, whose exponents are the indicial roots with Re ≥ λ_s1,2 = 2
+    + d1 plus ℕ_0, with the source's own (III.A Lemma 1.4, D4:93-97). The sources are not always smooth: the boost's
+    breve state is sourced by [□, t_*]ω′, which carries ρ^(3+d1), and has the exponent 1 + d1, offset d1 from its base 1
+    (D3:221-225). So the offsets are not merely integers or (root ≥ 2 + d1) + j − base, as D542 wrote (corrected D544,
+    verifier 235). What holds: every exponent is a root or a source exponent shifted by integers, the types being
+    preserved at b_0 (D4:83-85, 173-175), and the only positive roots below 3 are 2 + d1 and 2 + d0 (GAUGEPOT:178-186),
+    so an offset strictly below d1 needs a base in (2, 2 + d1], which no state has. Among the states III.G″ collects
+    (G3:338-339, Table 1.1 at G3:44-60), checked family by family (verifier 235: the boost state and its breve, h_s1 and
+    h̆¹, the s0 chain, the III.D‴ classes, III.F‴'s mass states and III.F⁗'s physical states), none gives an offset in
+    (0, 1) other than d1. The boost state (base 2 in ω′, 3 in h_s1 = δ*ω, D3:198-203) and its breve give d1; the s0
+    state is ρ²C^∞ (D3:143), so d0 does not enter; the v1 roots are integers; the III.D‴ class states have bases ≤ 0;
+    III.F⁗ (F5, not F4, which is III.F‴) has in its Proposition 5.1 set λ^C − 1 just above 1 (F5:314; 1 + 2.93 × 10⁻⁶,
+    F2:133-134), offset 3.0000029 from its base −2, its own bounds keeping offsets ≥ 1 (F5:275-277, 312-317). So, on the
+    construction, ℰ^ι_ind ∩ (0, 1) = {d1} and, A ≠ 0 (LD9), m_ι = d1: the ι⁺ loop runs at most 1,470,302 rounds per
+    level, about 1/17.5 of the levels' tf-rounds. The same construction gives LD13's ℰ_ind ∩ (0, 1) = {d1}, the s0 state
+    carrying no ρ^(2+d0). Outside G3:339's list, the λ = 1 mass-change and boost-source grafts (G3:18-21, 390-394,
+    436-437): their mass states add no element of (0, 1) (D544). D542 had left III.F⁗ unread with a wrong reason ("above
+    4"), and cited F4 for it.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

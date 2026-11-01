@@ -7558,3 +7558,8 @@ resolution made the huge curvature values at the finest angular grid disappear: 
 multiple of the black hole's own, and the two finest angular grids agree closely until late times. So the earlier
 blow-up was the angular grid outrunning the time step, not the solution. Late times near the axis still need finer
 grids.
+
+**D544 (2026-11-01): the reading, checked.** An independent check confirmed the conclusion, that the smallest exponent
+any state contributes is the record's smallest root, by going through every family of states, but found the argument
+given for it wrong in two places, including one family it had claimed without reading. The argument is now the right
+one: a smaller exponent would need a state starting just above two, and none does.
