@@ -37,6 +37,7 @@ Labels: computed (floating point, on saved runs).
 
     python3 checks/g1curv5.py DIR      (DIR holds ampA_M32.npz and ampA_M40.npz; K on the chosen rows is cached in
                                         DIR/curvA_MM.npz)
+    python3 checks/g1curv5.py --null DIR    (D489: DIR holds D432's l1_rc0.9_M32/40.npz and their _1600 runs)
 """
 import os
 import sys
@@ -89,7 +90,70 @@ def curv(dirn, A, M, rows=None):
     return out
 
 
+def reduced(path, rows):
+    """the saved run at path cut to the u-rows r - 1, r, r + 1 of each r in rows (kretschmann needs only those), read
+    one array at a time; returns the cut dict and the rows' indices in it"""
+    with np.load(path) as F:
+        Nu = F["u"].shape[0]
+        idx = np.array([r + d for r in rows for d in (-1, 0, 1)])
+        Z = {}
+        for k in F.files:
+            a = F[k]
+            Z[k] = a[idx] if (a.ndim >= 1 and a.shape[0] == Nu) else a
+    return Z, [3 * k + 1 for k in range(len(rows))]
+
+
+def null_refinement(dirn):
+    """--null DIR (D489): K at A = 1 on D432's runs, M = 32, 40 at 800 x 360 (l1_rc0.9_M32/40.npz) and 1600 x 720
+    (..._1600.npz), on 24 u-rows of the coarse grid and the same rows (2i) of the fine one, compared at the coarse grid's
+    nodes: whether K converges in the null grid as well as in angle"""
+    Zc = dict(np.load(os.path.join(dirn, "l1_rc0.9_M40.npz")))
+    rows = pick_rows(Zc)
+    uc, vc = Zc["u"], Zc["v"]
+    del Zc
+    print("  rows (u indices of the 800 x 360 grid): %s" % rows, flush=True)
+    K, R, MK = {}, {}, {}
+    for M in (32, 40):
+        for N, fac in ((800, 1), (1600, 2)):
+            cache = os.path.join(dirn, "curvnull_M%d_%d.npz" % (M, N))
+            if os.path.exists(cache) and list(np.load(cache)["rows"]) == list(rows):
+                c = dict(np.load(cache))
+            else:
+                name = "l1_rc0.9_M%d%s.npz" % (M, "" if N == 800 else "_1600")
+                Z, rr = reduced(os.path.join(dirn, name), [fac * r for r in rows])
+                assert np.allclose(Z["u"][rr], uc[rows]), name
+                assert np.allclose(Z["v"][::fac], vc), name
+                Kf = D.kretschmann(Z, rows=rr)[rr][:, ::fac]
+                c = dict(rows=np.array(rows), K=Kf, R=Z["R"][rr][:, ::fac], mask=Z["mask"][rr][:, ::fac], x=Z["x"])
+                np.savez(cache, **c)
+                del Z
+            K[(M, N)] = c
+            print("  M = %d, %d: done" % (M, N), flush=True)
+    for xe in XS:
+        print("\n  at x = %g, A = 1: per v-band over areal radius [1.0, 1.4], cells kept in all four runs: dev = max |K/K_0 "
+              "- 1| (M = 40, 1600 x 720); dM = max |K_32 - K_40|/K_0 at 1600 x 720 (in angle); duv = max |K_800 - "
+              "K_1600|/K_0 at M = 40 (in the null grid)" % xe)
+        Kx = {k: at_x(c["K"], c["x"], xe) for k, c in K.items()}
+        Rr = at_x(K[(40, 1600)]["R"], K[(40, 1600)]["x"], xe)
+        keep = ~K[(32, 800)]["mask"] & ~K[(40, 800)]["mask"] & ~K[(32, 1600)]["mask"] & ~K[(40, 1600)]["mask"]
+        K0 = 72.0 / Rr**8
+        for lo, hi in BANDS:
+            sel = keep & ((vc >= lo) & (vc < hi))[None, :] & (Rr >= 1.0) & (Rr <= 1.4)
+            sel &= np.all([np.isfinite(Kx[k]) for k in Kx], axis=0)
+            if not sel.any():
+                print("    [%.2f,%.2f): no cells" % (lo, hi))
+                continue
+            dev = np.max(np.abs(Kx[(40, 1600)] / K0 - 1)[sel])
+            dM = np.max(np.abs(Kx[(32, 1600)] - Kx[(40, 1600)])[sel] / K0[sel])
+            duv = np.max(np.abs(Kx[(40, 800)] - Kx[(40, 1600)])[sel] / K0[sel])
+            dM8 = np.max(np.abs(Kx[(32, 800)] - Kx[(40, 800)])[sel] / K0[sel])
+            print("    [%.2f,%.2f): dev %.3g  dM %.2g  duv %.2g  (dM at 800 x 360: %.2g; %d cells)"
+                  % (lo, hi, dev, dM, duv, dM8, int(sel.sum())), flush=True)
+    return 0
+
 def main():
+    if sys.argv[1:2] == ["--null"]:
+        return null_refinement(sys.argv[2])
     dirn = sys.argv[1]
     Z40 = dict(np.load(os.path.join(dirn, "amp1_M40.npz")))
     rows = pick_rows(Z40)
