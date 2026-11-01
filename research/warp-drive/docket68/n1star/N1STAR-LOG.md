@@ -7470,3 +7470,9 @@ had left implicit.
 resolvent near its trapped orbits, which held for every frequency from 3 to 96, was run on to 192 and holds there too,
 with the same largest value, 11.48, and a bound that keeps falling as the frequency rises (0.66 at 192). The run took an
 hour and a half.
+
+**D529 (2026-11-01): one of the two uncounted loops, counted.** Of the two repeated steps whose length was still
+unknown, one advances by the smallest exponent the proof's expansions contain. Read off the record's own list of
+exponents, that step is about seventeen times the smallest admissible gap, so this loop is shorter than the two already
+counted, unless the record admits one further exponent that none of its cited states carries; if it does, this loop
+becomes by far the longest. Which is the case is not settled by the record's text.

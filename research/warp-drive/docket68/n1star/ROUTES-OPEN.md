@@ -5692,6 +5692,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   0.66429 on the intervals ending at σ = 128, 160, 192. σ^(1/2) times the bound is 9.77 at 96 and 9.20 at 192. With
   3f-3g, every real 0 < |σ| ≤ 192. 98 minutes. Open: σ > 192, the H¹ constants of 3i with these multipliers, and the
   measured (a + b log σ)/σ, which the bound still exceeds.
+- D529 (LOSS-D LD13, computed, conditional; `checks/level2loop5.py` L1-L4, exact): the level-2 loop's length.
+  III.I′′′′′′′′′′′ Step 3's chains are points α_0 + (sums of ℰ_ind) in a window of length below 1 + η_2 − η_1, η_2 − η_1
+  < δ_50 (I12:58, 278-281). III.D Lemma 4.1's root list is complete, and with the classes b ∈ {1, 2} (D3:143-148) every
+  element of ℰ_ind in [1, 2) exceeds 1 + δ_2 > 1 + δ_50, so only elements below 1 add inside the window. On LD9's
+  reading (s0 is ρ²C^∞) that is d1 = 3.33 × 10⁻⁷ alone, 17.2 δ_50: at most 3,000,003 rounds per chain, 0.1165 of a
+  β-level's level-3 rounds, so the level-2 rounds total about N_2 · 3.0 × 10⁶/ε_K and add no 1/(ε_K ε_ind) term unless
+  N_2 > 8.6; LD12 (v)'s case needs a class base l + 1. On the broad reading d0 is below 1 too, a chain has 1.125 × 10¹²
+  points, and the level-2 loop would dominate by 4.4 × 10⁴. Open: whether d0 ∈ ℰ_ind, N_2, log orders, Proposition 4.4's
+  loss, and the ι⁺ loop (E^ι_ind unread).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

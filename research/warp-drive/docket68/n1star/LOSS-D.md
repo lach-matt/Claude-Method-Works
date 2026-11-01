@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -633,6 +633,42 @@ loop counts of section 3.
   (corrected D516). So the record's d at its best admissible weights is at least about 2(½ + ½)/(ε_K ε_ind). Each of
   those two loops can add a term of the same order, 1/(ε_K ε_ind): the ι⁺ rounds up to about (2 − λ_♯)/(ε_K ε_ind) over
   the levels below 3. E1'c's number needs them counted.
+- LD13 (the level-2 loop's length, from ℰ_ind's least elements; computed, conditional, D529; `checks/level2loop5.py`
+  L1-L4, exact). LD12 (v) left the level-2 rounds of III.I′′′′′′′′′′′ Step 3 of order 1/(ε_K ε_ind) "if the smallest
+  element of E_ind is about ε_ind". At the record's point it is not, on LD9's reading of ℰ_ind, and the loop is then
+  shorter than the two LD11-LD12 count; on a broader reading it is far longer.
+  - *The rounds.* Step 3 takes each tf-exponent (α_0, k) of g_2 with 1 + η_1 ≤ Re α_0 < 2 + η_2, and its remainder
+    exponents α_0 + ℰ_ind below 2 + η_2 "are treated in turn" (PART-III-I12-SPECTRAL.md:278-281). A chain is therefore a
+    set of points α_0 + (sums of elements of ℰ_ind) in a window of length below 1 + η_2 − η_1, one round of III.G⁗
+    Proposition 4.4 per point and log order. η_1, η_2 ∈ (ε_K, ε_+) (I12:58), so η_2 − η_1 < ε_+ < ε_ind ≤ δ_50 = 1.94137
+    × 10⁻⁸ (LD7, LD10).
+  - *ℰ_ind below 2* (L2). III.D Lemma 4.1's list is complete: the non-integer roots of □^Υ(0) above ½ are λ_s0,2 and the
+    sl roots l + 1 + δ_l, l + 2 + δ′_l, the other factors having integer roots (PART-III-D-GAUGEPOT.md:186-206). A root
+    enters ℰ_ind through a class 𝒜^((b,0) ∪ (b + ℰ_ind)), b = 1 or 2 (D3:143-148), as λ − b plus a non-negative integer.
+    Every element in [1, 2) is then at least 1 + δ_2, δ_2 = 2.6667 × 10⁻⁷ (λ_s2,3 at b = 2), above 1 + δ_50, so inside
+    the window only elements below 1 can be added. On LD9's reading (the s0 state is ρ²C^∞, D3:143, and λ_s0,2 enters
+    only as 1 + d0, through the mass state's gauge part) the only element below 1 is d1 = 3.3333305 × 10⁻⁷, from λ_s1,2
+    at b = 2, 17.2 times δ_50. On the broad reading, every root through either class, d0 = 1.3333327 × 10⁻⁶ is below 1
+    as well; that needs a ρ^(2+d0) term in some 2 + ℰ_ind class, which no state cited carries (LD9) and which the record
+    does not exclude, since it does not list ℰ_ind.
+  - *Per chain* (L3). On LD9's reading a chain is α_0 + n d1 alone: at most ⌊(1 + δ_50)/d1⌋ + 1 = 3,000,003 rounds. On
+    the broad one it is α_0 + n d1 + m d0, the lattice points below 1 + δ_50: 1,125,003,384,947 ≈ 1/(2 d1 d0) of them,
+    distinct exponents since d0 − 4d1 = 5.56 × 10⁻¹³ ≠ 0.
+  - *Against the level-3 rounds* (L4). A β-level in (3, 4 + ε_K] runs about (β − 3)/ε_ind level-3 rounds, on average
+    ½/ε_ind ≥ 2.5755 × 10⁷ (LD11). On LD9's reading one level-2 chain is at most 2δ_50/d1 = 0.1165 of that, and less for
+    smaller ε_ind, since the level-2 count does not depend on ε_ind. Over the β-levels above 3, about 1/ε_K of them,
+    with the level-2 loop repeated at each (LD12 (v)), the level-2 rounds total at most about N_2 · 3.0 × 10⁶/ε_K, N_2
+    the number of g_2's tf-exponents (α_0, k) in the window (chains that share points only lower it), against ½/(ε_K
+    ε_ind) for each counted loop. So they add no term of order 1/(ε_K ε_ind) unless N_2 exceeds about 8.6 (at ε_ind =
+    δ_50; more for smaller ε_ind): the loop's length is set by the record's root d1, not by ε_ind. On the broad reading
+    a chain is 4.37 × 10⁴ times a level's level-3 rounds, and the level-2 rounds, about N_2 · 1.1 × 10¹²/ε_K > N_2 · 5.7
+    × 10¹⁹, would outnumber the counted 2.65 × 10¹⁵ by that factor.
+  - *What it rests on.* (a) ℰ_ind's sources being classes with b ∈ {1, 2}: a base 3 would put δ_2 = z/15 < d1 into
+    ℰ_ind, and a base l + 1 in harmonic l would make its least element δ_50 (L2's controls), which is LD12 (v)'s case.
+    (b) Whether d0 ∈ ℰ_ind, LD9's open point, on which the count now moves by a factor of about 3.75 × 10⁵. (c) N_2,
+    g_2's exponents not being listed. (d) Log orders: a round is per (α_0, k), and the log orders at a point multiply
+    its count; not bounded here. (e) Proposition 4.4's loss per round, not read, so this counts rounds, not loss. The ι⁺
+    loop of LD12 (v) is untouched: E^ι_ind is not read.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1
