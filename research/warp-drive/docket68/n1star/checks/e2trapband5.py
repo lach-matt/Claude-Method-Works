@@ -69,7 +69,7 @@ def certify(l1, sR, sc):
     good, n, _ = C.certify_positive(a, tL, tR)
     rl, el = C.tail_left(a, tL)
     rr, mr = C.tail_right(a, rR)
-    good = good and rl.b < 1 and el.a > 0 and rr.b < 1 and mr.a > 0 and C.BETA.a > 0
+    good = good and rl.b < 1 and el.a > 0 and rr.b < 1 and mr.a > 0 and C.BETA.a > 0 and C.tail_left_valid(tL)
     m1lo, M1hi = E.enclose_I(lambda tt: C.mult(C.xr(tt))[1], pieces=8000)
     wlo, _ = E.enclose_I(lambda tt: C.w_of(tt, a), pieces=8000)
     good = good and m1lo > 0 and wlo > 0
