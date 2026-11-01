@@ -60,6 +60,7 @@ D444 = (1.132, 0.618, 0.336, 0.181, 0.0972, 0.0519)
 def grid():
     """t = ln(r - 1) from -120 (x = -59) to ln 119 (r = 120), finest near the photon sphere; U' and W' in x = r_*"""
     t = np.concatenate([np.arange(-120, -3, 0.01), np.arange(-3, 1.4, 5e-4), np.arange(1.4, np.log(119), 2e-4)])
+    t = np.unique(np.concatenate([t, [np.log(0.2), np.log(3.0)]]))    # I's ends, r = 1.2 and 4, on the grid (D493)
     e = np.exp(t)
     r = 1 + e
     f = e * (2 + e) / r**2
@@ -121,7 +122,7 @@ def admissible_table(ls, fam, G=None, verbose=False):
     x, r, dU, dW = G if G is not None else grid()
     core = (x > -30) & (x < 120)
     tail = (x > -60) & (x < -20)
-    I = (r >= 1.2) & (r <= 4.0)
+    I = (r >= 1.2 - 1e-12) & (r <= 4.0 + 1e-12)
     a = np.array([l * (l + 2) + 0.75 for l in ls])
     P = len(fam)
     adm = np.zeros((len(ls), P), bool)
@@ -182,7 +183,7 @@ def main():
     a5 = 5 * 7 + 0.75
     T, p1, p3 = mult(x, sb, sb, 0.5, sb, 1.0, xc=xp5)
     w = -T * (a5 * dU + dW) - 0.5 * p3
-    I = (r >= 1.2) & (r <= 4.0)
+    I = (r >= 1.2 - 1e-12) & (r <= 4.0 + 1e-12)
     wI_, m_, M_ = w[I].min(), p1[I].min(), p1[I].max()
     B_ = np.sqrt((2 / m_ + (M_ + 6.0)**2 / wI_) / wI_)
     c1 = abs(B_ / Bb - 1) < 2e-3 and abs(Bb - 21.35) < 0.01
