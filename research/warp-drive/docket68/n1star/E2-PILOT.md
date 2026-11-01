@@ -559,12 +559,12 @@ What it does not give:
   monotone energy and the flux.
   - *Above the barrier* (σ² > max V_l) Lemma E2.7 gives the polynomial Λσ/(σ² − max V_l) (section 3c, D359).
   - *The other harmonics, l < l_0(σ) with max V_l ≥ σ²,* kept Proposition E2.4's constant, which is finite but
-    astronomically large, until Lemma E2.8 (section 3e, D379) gave 1 ≤ l ≤ 30 an explicit one (about 19-21 at σ = 3;
-    constants computed), and Lemma E2.9 with its certificate (section 3f, D384) every l ≥ 1 (certified: 20.99 for 5 ≤ l ≤
-    17 at σ = 3, 19.22 for every l ≥ 6), and Lemma E2.8′ (section 3g, D387) l = 0 (certified: 275.2 at σ = 3).
-    Section 3d computes their actual norms at σ = 3, at most 1.132 (D371). Below the proved l_0 = 50 at σ = 3 it
-    reaches e^417 at l = 49 (e^54 at l = 17, just below the threshold 18 that quadrature gives, which is computed, not
-    proved).
+    astronomically large, until Lemma E2.8 (section 3e, D379) gave 1 ≤ l ≤ 30 an explicit one (at σ = 3: 253 at l = 1,
+    53.3, 35.5, 26.6 at l = 2-4, about 19-21 from l = 5; section 3e's table; constants computed; D452), and Lemma E2.9
+    with its certificate (section 3f, D384) every l ≥ 1 (certified: 20.99 for 5 ≤ l ≤ 17 at σ = 3, 19.22 for every l ≥
+    6), and Lemma E2.8′ (section 3g, D387) l = 0 (certified: 275.2 at σ = 3). Section 3d computes their actual norms at σ
+    = 3, at most 1.132 (D371). Below the proved l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below
+    the threshold 18 that quadrature gives, which is computed, not proved).
   - *Two kinds of l below l_0* (for Proposition E2.5's route; both are now covered by Lemma E2.9's certificate for every
     l ≥ 1, section 3f, so they bear only on E2.5's sharper constants; D444).
     - Where κ_I² > 0 (from l = 12 at σ = 3, by (i)), only the end signs are missing; a sharper Lemma E2.5b would cover
@@ -601,6 +601,11 @@ What it does not give:
   - For a fixed harmonic the worst σ lies just below its barrier top (σ²/max V_l = 0.94, 0.978, 0.978, 0.9975 for l = 8,
     16, 32, 64; for l = 4 at the scanned window's lower edge, 0.90, so possibly lower), with σ times the norm 3.62, 3.93,
     4.18 and 4.53, on the same law (H4).
+  - *Against Lemma E2.8 (D452; `checks/e2high5.py --vs-e28`).* E2.8's bound, its multiplier width optimised at each σ,
+    has its sup over 1 ≤ l ≤ 12 at l = 1, where w_I is smallest: 253, 429, 800, 1554, 3068 and 6099 at σ = 3, 6, 12, 24,
+    48 and 96, about 63σ, 224 to 1.2 × 10⁵ times the measured maximum. At the trapped harmonic it gives 21.4, 21.9, 27.2,
+    35.3, 47.7 and 66.8, 19 to 1300 times the measured norm. So the proved constant's growth in σ comes from the low
+    harmonics, where the measured norms are small (l = 0: 0.41 at σ = 3, 0.050 at σ = 24), not from trapping.
   - Method: u_h and u_∞ by the Riccati equation for their log-derivatives where each is a single WKB wave, by the linear
     equation past the barrier peak, the kernel in logarithms, its norm by power iteration on its semiseparable structure,
     at least 40 grid points per wavelength. Controls: D352's σ = 3 row reproduced (0.4094, 0.4229, 0.451, 0.6719, 0.7251,

@@ -22,7 +22,9 @@ semiseparable structure.
   H4 the worst sigma for a fixed harmonic: for l = 4, 8, 16, 32, 64, the largest norm over 11 sigma with
      sigma^2 / max V_l in [0.9, 1.1], and sigma times it.
 
-Run: python3 checks/e2high5.py   (a few minutes)
+  --vs-e28 (D452) Lemma E2.8's bound against H3's maxima: its sup over 1 <= l <= 12 and at the trapped l.
+
+Run: python3 checks/e2high5.py   (about 80 minutes);   python3 checks/e2high5.py --vs-e28   (a few minutes)
 """
 import math
 import sys
@@ -151,7 +153,28 @@ def cutoff_norm(l, s, ppw=40, rtol=1e-11):
     return norm_semisep(A, Bv, h), spread, n
 
 
+MEASURED = {3.0: (1.132, 5), 6.0: (0.61801, 11), 12.0: (0.33551, 23), 24.0: (0.18101, 47), 48.0: (0.097196, 95),
+            96.0: (0.051938, 191)}   # H3's maxima and the l attaining them (D444's run)
+
+
+def vs_e28():
+    """--vs-e28 (D452): Lemma E2.8's bound B_l(sigma) (checks/e2morawetz5.py, s optimised per l and sigma) against
+    H3's measured maxima: its sup over 1 <= l <= 12 and its value at the trapped l"""
+    import e2morawetz5 as E
+    r, x, f = E.grid()
+    for s, (act, lt) in MEASURED.items():
+        rows = [(l, (E.best(l, r, x, f, sigma=s) or (None, math.inf))[1]) for l in range(1, 13)]
+        lm, bm = max(rows, key=lambda t: t[1])
+        bt = (E.best(lt, r, x, f, sigma=s) or (None, math.inf))[1]
+        print("  sigma %4g: measured max %.4g (l = %d); E2.8 sup over l <= 12 %.4g (at l = %d), ratio %.3g; E2.8 at the "
+              "trapped l %.4g, ratio %.3g" % (s, act, lt, bm, lm, bm / act, bt, bt / act), flush=True)
+    return 0
+
+
 def main():
+    if sys.argv[1:2] == ["--vs-e28"]:
+        sys.path.insert(0, __file__.rsplit("/", 1)[0])
+        return vs_e28()
     ok = {}
     t0 = time.time()
     ref = {0: 0.41, 1: 0.42, 2: 0.45, 4: 0.67, 8: 0.73, 16: 0.065, 32: 0.014}

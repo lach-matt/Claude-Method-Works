@@ -7008,3 +7008,8 @@ nine decimal places. The reading was corrected: the near-coincidence explains wh
 small remainder seen along one direction is not forced by it, and the full leftover term is larger in another
 direction. The horizon smoothing function, not the weak damping, is what moves that remainder.
 
+**D452 (2026-11-01): where the proved bound loses.** Set beside the measurements of D444, the proved bound is weakest
+not at the trapped light but at the lowest angular patterns, where it grows in proportion to the frequency while the
+true size there is small. At the highest frequency computed it is a hundred thousand times too large. A summary line
+that had quoted the proved bound's better values for every pattern was corrected to the section's own table.
+

@@ -4997,6 +4997,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   0.0055 is small because the full rho^2 vector (0.0133, 0.2473, -0.2395), norm 0.345, lies near D412's (0, 1/4, -1/4),
   nearly orthogonal to v (it changes sign along the branch between 1/30 and 1/100); the eta bump acts through gam_H eta
   and moves the residual 32-fold; a second near-cancellation at rho^4 noted.
+- D452 (E2-PILOT 4, checks/e2high5.py --vs-e28, computed): Lemma E2.8's bound against D444's measured maxima. Its sup
+  over 1 <= l <= 12 is at l = 1 (w_I smallest): 253, 429, 800, 1554, 3068, 6099 at sigma = 3 ... 96 (about 63 sigma; 224
+  to 1.2e5 times the measured max); at the trapped l it is 21.4 to 66.8 (19 to 1300 times). The proved constant's growth
+  comes from the low harmonics, not from trapping. E2-PILOT 4's 'about 19-21 at sigma = 3' for 1 <= l <= 30 corrected:
+  253 at l = 1, about 19-21 from l = 5 (section 3e's own table).
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
