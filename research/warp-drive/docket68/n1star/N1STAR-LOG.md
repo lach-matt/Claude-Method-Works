@@ -7232,3 +7232,9 @@ pass over the potential barrier already have a simple bound that falls; and for 
 weight used in the estimate is made sharper at the peak and gentler away from it. Taken over every mode, the bound now
 falls from about 11 to about 1 as the frequency goes from 3 to 96, within a factor of 10 to 20 of the true size, where it
 used to be off by up to a hundred thousand. Computed, not yet certified.
+
+**D487 (2026-11-01): the strip, for the full equations.** Sources confined to a band along the incoming null surface were
+known, in a model equation, to reach the far region one order lower than sources spread everywhere. Seen from far away
+the band is a thin layer, so its whole effect is a jump across it, and the rest is a solution of the equations with no
+source. That reproduces the model's exact answer, and for the record's own equations, in every angular mode computed, it
+gives the same order with no logarithm. So these sources do not touch the coefficient the far-field statement needs.

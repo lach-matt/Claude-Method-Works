@@ -22,6 +22,10 @@ the width corrections are O((d/r)^(m - 1)) relative, at rho^(2 + m), and the r^-
      = 10^6 and 10^5: the eigenvalues of M1(0) at p = 3 (every real part > 1), the norm of K in each harmonic's
      normalised basis (harmonics5's weights), and its convergence.
 
+Measured (D487): P1 to 1.2e-30; at degree -3 the eigenvalues of M1(0) are 2.5, 2.51, 2.52 and the damping's 1.5e6, 3e6 at
+every l <= 12, scalar and vector types; the normalised norm of K is 2.76 to 2.99 (scalar) and 0.17 to 1.14 (vector), the
+series at 400 and 600 terms agreeing to 30 digits; K at gamma_C = 10^5 differs by up to 6.5e-2 (scalar, l = 12).
+
 Labels: P1, P2 exact; P3 computed. The tensor type, where the damping drops out (harmonics5 S3), is not reduced here.
 """
 import sys
@@ -156,7 +160,8 @@ def main():
     ok = {}
     # P1 the scalar model
     M, rest, ls = scalar_model(3)
-    okm = rest == [0] and sp.expand(M[0][0, 0] - (S - S**2/2)) == 0 and sp.expand(M[1][0, 0].subs(S, 0)) == sp.Rational(5, 2)
+    okm = rest == [0] and sp.expand(M[0][0, 0] - (S - S**2/2)) == 0 and \
+        sp.expand(M[1][0, 0].subs(S, 0)) == sp.Rational(5, 2)
     worst = 0
     rows = []
     for l in range(0, 7):
@@ -229,8 +234,8 @@ def main():
                   "400 vs 600 %.1e (last term %.1e); |K(1e6) - K(1e5)| = %.2e"
                   % (l, typ, n, mre, ", ".join("%.4g" % x for x in sorted(ev.real)), nrm, d46, last, dg), flush=True)
     ok["P3"] = good
-    print("  P3 %s: every harmonic l <= %d of scalar and vector type: M1(0) at degree -3 has every eigenvalue's real part "
-          "> 1 (least %.6g), K finite (largest normalised norm %.6g, at l = %d %s)"
+    print("  P3 %s: every harmonic l <= %d of scalar and vector type: M1(0) at degree -3 has every eigenvalue's "
+          "real part > 1 (least %.6g), K finite (largest normalised norm %.6g, at l = %d %s)"
           % ("PASS" if good else "FAIL", LMAX, min(q[6] for q in out), max(q[3] for q in out),
              max(out, key=lambda q: q[3])[0], max(out, key=lambda q: q[3])[1]), flush=True)
     print("  %s (%.0f s)" % ("all pass" if all(ok.values()) else "FAILED", time.time() - t0))

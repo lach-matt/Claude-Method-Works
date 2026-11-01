@@ -5261,6 +5261,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   reproduced; a too-narrow core fails w ≥ 0; every bound above e2high5's computed norm at four (l, σ). Open: a
   certificate (interval arithmetic over the chosen multipliers); σ > 96 (σ^(−1/2) suggested by the scaling); section 3i's
   H¹ constants with these multipliers.
+- D487 (BEYOND5 3(b), `checks/stripfull5.py` P1-P3, exact and computed): the strip for the full operator, D474's open
+  item. At radius r a strip-supported r⁻⁴ source is, on the degree −3 profile r⁻³F(s), a delta at N: with harmonics5's
+  reduction at degree −3 (exact, and at degree −2 equal to harmonics5's), the jump across the strip is F(0+) = (M1(0) −
+  I)⁻¹σd, and the ρ³ coefficient is T_3(M1(0) − I)⁻¹σd, T_3 the degree −3 transfer, when every eigenvalue of M1(0) has
+  real part > 1. Exact in the scalar model: the transfer is ₂F₁(3 + l, 1 − l; 5/2; 1/2) and Gauss's second summation
+  theorem gives C_l, D481's coefficient (to 10⁻³⁰). For the record's full operator at γ_C = 10⁶, every scalar- and
+  vector-type harmonic l ≤ 12: M1(0) at degree −3 is M1(0) at degree −2 plus I, eigenvalues 2.5, 2.51, 2.52, 1.5 × 10⁶, 3
+  × 10⁶; K finite, normalised norm at most 2.99. So the strip enters at ρ³ with no logarithm and does not reach r⁻²; its
+  width corrections enter at ρ^4.5, ρ^4.51, ρ^4.52. Open: the tensor type; uniformity in l at degree −3; whether the
+  record's index sets at I_0 contain 4.51 and 4.52; Lemma 0.1's ρ³C^∞ for the r⁻³ term.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
