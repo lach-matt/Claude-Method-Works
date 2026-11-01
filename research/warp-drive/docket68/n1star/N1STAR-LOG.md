@@ -7601,3 +7601,10 @@ the part of the set the record names already gives about 7.5 million exponents p
 inner rounds, so whether the loop is shorter depends on generators the record does not list. The record's ceiling on the
 logarithm orders, though, is about 2 × 10¹³ per exponent, so its own bookkeeping does not bound this loop below the
 counted ones; only the orders actually produced could, and they are not computed.
+
+**D551 (2026-11-01): the missing coefficient expands.** The check of the approximant's expansion had left one condition:
+the coefficient in the third equation had to have an expansion of its own. Reading how the record builds that operator
+shows it depends only on the background and on the leading wave, the later corrections cancelling out, and both are
+given by exact formulas with finitely many powers of the radius. So the lemma can be applied again and again, each step
+half a power further, and never meets the one power where a logarithm would appear. What is left is to write the
+induction out with its derivative bounds.

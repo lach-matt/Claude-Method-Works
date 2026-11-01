@@ -5902,6 +5902,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   add fewer than about six chains. K(λ) ≥ 2.2055 × 10¹³ on W (N_* = 15,000,015, n(λ) ≥ 1,470,303), and per (α_0, k) the
   record's bound on one level is ≥ 5.83 × 10²⁰, above the counted 2.65 × 10¹⁵: the record's log ceiling does not bound
   the loop; the log orders produced are not computed.
+- D551 (BEYOND5 3(b), read and deduced): D548's open condition, the expansion of (c)'s coefficient c, holds. Th is
+  section 3.2's T at λ = 0; its ∂_θ² terms are −½e_1∂_θ² = 0, so m1 and φ1 drop out, and the rest is −(ℓ · d_X)∂_θ −
+  (3/(2r))∂_θ (□̃v = 3/r, Lemma 9.7(d)'s 3/(2r)) plus terms algebraic in g0, Γ[g0], ∂_θW and ∂_θ²W. g0 is Kerr-Schild
+  Vaidya (g0⁻¹ = η⁻¹ − (μ/r²)L0L0) and W_TT's Cartesian components are r^(−3/2)F exactly, so c is a finite sum Σ
+  r^(−p)c_p, p ≥ 3/2, the same at every stage, and Lemma 9.7(d) iterates (Z^0 solves (ℓ + 3/(2r))Z^0 = r^(−q)S_q
+  exactly; the remainder's source S̃ − cZ^0 starts at q + ½). (a)'s B̄, C̄ and the count's coupling coefficients are
+  expanded likewise; within a stage the half-order induction is triangular (m_m, then φ_m by integration, then
+  gh_(m+1)). Open: that induction with its ℓ-gains ((H_m) at m ≥ 2) and over the stages.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

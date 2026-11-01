@@ -678,6 +678,25 @@ What it does not give:
   Verified as D545 stated: the leading terms, the steps m = 0 and 1 of Lemma 11.2 for (a) on the stated classes, the
   sources starting at q = 3. Open: c's expansion; (H_m) at m ≥ 2 (the ℓ-gains of m̃, φ̃, gh̃); the induction over the
   stages.]
+  [D551, read and deduced: (c)'s coefficient has an exact expansion, which settles D548's (2). Lemma 5.2's Th is section
+  3.2's T at λ = 0 (N1STAR-PROOF.md:494, 260-266), T Y = −(ℓ_app · d_X)∂_θY − ½(g_app^(ab)∂_a∂_b v)∂_θY + B · (dv ⊗
+  ∂_θY) + ½Y(ℓ, ℓ)∂_θ²g1 − ½n1∂_θ²Y. At λ = 0: ℓ_app = ℓ; g0^(ab)∂_a∂_b v = □̃v = 3/r by (9.5), which is Lemma 9.7(d)'s
+  3/(2r); the ∂_θ² terms, with the phase's −(ℓ · dφ1)∂_θ²Y, are −½e_1∂_θ²Y = 0 (509-511; e_1 = 2ℓφ1 − m1(ℓ, ℓ) = 0 is
+  (b) at m = 1), so m1 and φ1 drop out; B's coefficients are built from g_app and dg_app (254-258), whose λ⁰ parts are
+  g0, dg0 and dv ⊗ ∂_θW (the derivative of λg1's oscillating part); and ∂_θ²g1 = ∂_θ²W at λ = 0. So c is algebraic in
+  g0, Γ[g0], ∂_θW and ∂_θ²W, the same at every stage m ≥ 1. Both have exact finite expansions: g0 = η + (μ(v)/r²)dv dv
+  and g0⁻¹ = η⁻¹ − (μ/r²)L0L0 (50), so its Cartesian components and Christoffel symbols are finite sums of r^(−p)F(v,
+  x̂) (Γ[g0]'s μ′ part (μ′/(2r²))ℓ dv dv, 1238-1239); W_TT's Cartesian components are r^(−3/2)F exactly (P3, 1216;
+  O_(3/2) with no remainder, 1229). Hence c = Σ_p r^(−p)c_p over finitely many p ≥ 3/2, and Lemma 9.7(d) iterates: Z^0 =
+  −r^(1−q)S_q/(q − 5/2) has (ℓ + 3/(2r))Z^0 = r^(−q)S_q exactly, so Z − Z^0 solves the same transport with source S̃ −
+  cZ^0, whose expansion starts at q + ½ and is known from S's and c's; the orders step by ½ from q = 3 and never meet
+  5/2. (a)'s B̄ and C̄ and the coupling coefficients of the count (E_2, E_3, E_(3/2), E_(5/2); 1253-1256) are θ-means
+  and products of the same g0 and W terms, so they are expanded too. Within a stage the half-order induction is
+  triangular: at the source order q, m_m's term r^(1−q) comes first (every coupling in (a)'s source reaches m_m, φ_m,
+  gh_(m+1) through a coefficient decaying by at least 3/2, so only terms found at orders ≤ q − ½), then φ_m's r^(2−q) by
+  integrating (b), then gh_(m+1)'s r^(1−q) from (c) (its couplings again through coefficients in E_(3/2) or better, Ψ_m
+  = □̃φ_m included). Still not written: that induction with its ℓ-gains ((H_m) at m ≥ 2), as Proposition 11.1's proof
+  does for u, and over the stages.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
