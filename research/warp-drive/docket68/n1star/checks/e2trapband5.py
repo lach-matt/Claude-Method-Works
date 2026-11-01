@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""e2trapband5.py -- E2-PILOT section 3j (D506): section 3j's bound certified for every sigma in [3, 96] and every l.
+"""e2trapband5.py -- E2-PILOT section 3j (D506, D528): section 3j's bound certified for every sigma in [3, SMAX] and
+every l (SMAX = 96 by default, 192 in D528's run).
 
 D497 and D503 certify the bound at six frequencies. The pieces of e2trapcert5's certificate are of two kinds: those that
 do not involve sigma (the multiplier's admissibility at l_1, C1-C3, and the constants m' = min_I phi', M' = max_I phi',
@@ -18,7 +19,7 @@ every l < l_1 has, for every l >= 0,
      = s_c, beta > 0; s_R and s_c from e2trap5's family, s_c rational to four digits), at the frequency sigma_(l_1) =
      (max V_(l_1))^(1/2), at which l_1's barrier top is sigma^2: beta > 0, w_(l_1) >= 0 on t in [-120, ln 119] by
      bisection, both tail ratios < 1, and m', M', w_I on I over 8000 pieces.
-  B2 (certified) the band: [3, 96] cut at step H; on each interval [sigma_a, sigma_b] the least, over the eight largest
+  B2 (certified) the band: [3, SMAX] cut at step H; on each interval [sigma_a, sigma_b] the least, over the eight largest
      certified l_1 with max V_(l_1 - 1) < sigma_a^2, of max(E2.7(l_1 - 1, sigma_a), B_(l_1)(sigma_b)) (E2.7 increases
      with l, max V_l doing so, so its max below l_1 is at l_1 - 1), in intervals, rounded up.
   B3 (computed) against e2trap5's float sup at every tenth point of its grid of step 0.01 (T3: at most 11.35 over [3,

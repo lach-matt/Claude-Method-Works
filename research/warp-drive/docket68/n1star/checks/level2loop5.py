@@ -21,7 +21,9 @@ E_ind as lambda - b + j, b in {1, 2}, j >= 0, when that is positive (LD9).
       the sl roots through either class; then the only element below 1 is d1, the next 1 + delta_2. The broad
       reading, every root through either class (a rho^(2+d0) term in some 2 + E_ind class, which no cited state
       carries): then d0 is below 1 too. Controls: a class base b = 3 makes the least element delta_2 < d1, and
-      b = l + 1 in harmonic l makes it delta_50 (neither is in the record);
+      b = l + 1 in harmonic l makes it delta_50 (the record's base-3 classes, F4:97, 299-300 and I12:96-98, are
+      derivative images of base-2 terms with the same offsets, so they add nothing below 1, and b = l + 1 does not occur
+      at b_0; D531); the integer roots add the element 1 itself, one more point per chain (D531);
   L3  the window: eta_2 - eta_1 < eps_+ < eps_ind <= delta_50 (I12:58-59, LD7, LD10), and every element of E_ind in
       [1, 2) exceeds 1 + delta_50, so in [1 + eta_1, 2 + eta_2) a chain adds only elements below 1: on LD9's reading
       alpha_0 + n d1, at most floor((1 + delta_50)/d1) + 1 rounds; on the broad one alpha_0 + n d1 + m d0, the

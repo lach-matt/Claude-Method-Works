@@ -7484,3 +7484,14 @@ open is only whether the remainder has such an expansion out toward past infinit
 matters: a remainder that oscillated along the cone would leave the initial data rough at infinity, outside the class
 the final assembly needs. The record's waves are incoming and do not oscillate that way, but the record does not prove
 the remainder doesn't.
+
+**D531 (2026-11-01): the uncounted loop, checked.** An independent reading confirmed every number but corrected the
+headline. Each chain of that loop is shorter than one level's worth of the loop already counted, but there is one chain
+per exponent of a function the record does not list, so the whole loop is shorter only if there are fewer than about
+nine of them. It also stated two things the note had assumed: why reflected roots are left out, and why the record's
+other classes add nothing small.
+
+**D532 (2026-11-01): the bound up to frequency 192, checked.** An independent check re-certified the last intervals with
+its own interval arithmetic and found no error of substance. It corrected the wording: the bound does rise a little
+between frequencies 3 and 3.25 before falling, one lower bound had been rounded the wrong way, and three places still
+gave the old range.

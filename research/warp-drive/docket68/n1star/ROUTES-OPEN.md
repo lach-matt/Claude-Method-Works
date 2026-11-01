@@ -5711,6 +5711,29 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the strip (its u-dependence at fixed v), which Lemma 11.0 (∂, Ω only) does not give; the record's phase v/λ puts the
   fast dependence in v. The stake: r⁴S = cos(2r/λ) gives no ρ³ term and ≈ √2λρ⁴sin(1/(λρ)), C¹ but not C²: outside Lemma
   0.1 from m = 2. Open: conormality of e at I⁻ (commuting (9.8) with r∂_u or the scaling field), K_p's size for p > 3.
+- D531 (verifier 229 on D529; the root list, the classes, Step 3 and I14-I15 read at source; level2loop5 rerun and two
+  alternatives computed): MAJOR, the headline. LD13 called the level-2 loop shorter than the counted loops; 0.1165 is
+  per chain and per β-level, the loop is N_2 times that, and N_2 is not bounded in the record, so it is shorter only
+  while N_2 (with log orders) stays below about 8.6; the log's "record's own list of exponents" overstates (the record
+  lists roots, not ℰ_ind). MINOR: base-3 classes exist (F4:97, 299-300; I12:96-98) but are derivative images of base-2
+  terms with the same offsets (F4:89, 109; D3:201-202), so add nothing below 1; admitting δ′_1 or δ_2 as a second
+  element below 1 would give 2.50 × 10¹² or 5.63 × 10¹² per chain; the mirror roots' exclusion is forced (they would
+  give 1 − δ_l for every l, infinitely many rounds) and is now stated; the β-levels number at least about 1/ε_K
+  (I15:323-325), so the total "at most N_2 · 3.0 × 10⁶/ε_K" was not a bound. NITs: 1 itself is in ℰ_ind (roots 3 of s0,
+  v1 at b = 2), one more point per chain; the broad reading's factor over the counted loops is 2.2 × 10⁴, not 4.37 ×
+  10⁴. Confirmed: every figure; ε_ind ≤ δ_50 for I12's constant (F2, G5); elements in [1, 2) unusable by a margin of 14;
+  one round per (α_0, k), repeated at every β-level above 3 (I14:107-117); the cited states support d0 ∉ ℰ_ind (D3:143,
+  F4:107, F4:90). Corrected in LOSS-D LD13 and level2loop5's docstring; the D529 entry above keeps its text.
+- D532 (verifier 228 on D528; every figure parsed from the saved output; B2's logic on (96, 192] read; [191.95, 192] at
+  l_1 = 378 and [127.95, 128] at l_1 = 251 re-certified in Arb, python-flint 0.9.0, with the verifier's own formulas):
+  no major finding. B2 enforces max V_(l_1−1) < σ_a² by interval arithmetic, E2.7 decreases in σ and increases in l, and
+  383 is the largest admissible l_1 at σ ≤ 192, so LMAX1 = 384 suffices. Arb gives 0.66382 ≤ 0.66429 and 0.83904 ≤
+  0.83951, and 11.471 at [3.2, 3.25] (printed 11.477); the tail bounds were not re-derived. MINOR: the D528 entry's
+  "which the bound still exceeds" is not measured by this run (the fit of E2-PILOT 3j stops at σ = 96; extrapolated, the
+  bound is about 24 times it at 192); the log's "keeps falling" is wrong on [3, 3.25], where the bound rises from 11.086
+  to 11.477; E2-PILOT and e2trapband5 still gave the band as [3, 96] in three places, now [3, 192] or [3, SMAX]. NITs:
+  w_I ≥ 731.2 rounded a lower bound up (731.1); D506's values on [3, 96] were compared at the printed points only.
+  Corrected in E2-PILOT 3j and e2trapband5's docstring; the D528 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
