@@ -5044,6 +5044,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   reliable (eta at t <= -1000 undecided: condition above 1e12). No zero: A is pinned by -P_v = 141.42. So d1 stays in
   E_ind for such cut-offs and LD9's delta_G is carried. Open: variations outside (1.25, 3), non-rotation-invariant
   cut-offs, eta at large negative amplitude.
+- D458 (CERTIFY 6b, dnsolve5.py map a, checks/g1map5.py incl. --onset, computed): G1's failure at x = -1. The onset: m at
+  the node next to the axis, then a node-to-node alternation with a flat spectrum; the tail of (1 + x)m, (1 - x)n jumps
+  4-5 orders within 0.1 in v from 1.8 (A = 1). Seed test: at M = 32 the jump is the same with an 800-fold larger axis
+  rounding, so not amplified rounding; at M = 40 the long-double solve matters. A mapped grid concentrated at x = -1
+  (spacing 0.7x) brings the failure earlier and larger, and makes A = 3/4 fail where the plain grid converges; the onset
+  tail grows as the first node approaches the axis (3e-10, 2e-9, 2e-7, 8e-5 for 1 + x_0 = 1.2e-3 ... 3.8e-4). Points to
+  the axis treatment, not the solution (not cleanly: the mapped grid's own rounding and coarseness at +1). The axis
+  invariant g_22 converges better than P on the plain grid. Next: an axis treatment that keeps its digits (regular
+  combinations as unknowns, or Gauss-Radau nodes at the axes).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

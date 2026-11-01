@@ -35,6 +35,9 @@ never differentiated numerically.
                                    24 (D354); kept as an option.  With further arguments ld k, the k nodes next to
                                    each axis are solved in 80-bit long double (D354: the double solve there loses
                                    about (1 - |x|)^(-4.5) eps; k = 3 cuts the spurious axis signal 165-1250 fold).
+                                   With map a, the angular nodes are xgrid's, concentrated at x = -1 by 1 - a in
+                                   angle (D458); a = 0 is the plain grid, byte for byte.
+  S5 (computed) xgrid at a = 0.3, M = 24: D1 and D2 of exp(x)/(1.3 + x) to 1e-7 (a = 0 is cheb_gauss itself).
 """
 import sys, importlib.util, numpy as np, sympy as sp, warnings
 warnings.filterwarnings('ignore')
@@ -145,6 +148,27 @@ def cheb_gauss(M):
     return x, D1, D1 @ D1
 
 
+def xgrid(M, a=0.0):
+    """collocation at the Chebyshev-Gauss nodes of xi = cos(phi), with x = cos(phi + a sin(phi)) (a = 0: x = xi).  For
+    0 < a < 1 the nodes concentrate at x = -1, where 1 + x = (1 - a)^2 (1 + xi) + O((1 + xi)^2): the angular spacing
+    there is 1 - a times the unmapped one.  x is an entire function of xi (cos(a sin phi) and sin(phi) sin(a sin phi)
+    are series in sin^2 phi = 1 - xi^2), and D1, D2 differentiate the interpolant in xi with respect to x"""
+    xi, D1, _ = cheb_gauss(M)
+    if a == 0:
+        return xi, D1, D1 @ D1
+    ph = np.arccos(xi); ps = ph + a * np.sin(ph)
+    D1x = D1 / (np.sin(ps) * (1 + a * np.cos(ph)) / np.sin(ph))[:, None]
+    return np.cos(ps), D1x, D1x @ D1x
+
+
+def xi_of(x, a):
+    """the inverse of xgrid's map: xi with cos(phi + a sin(phi)) = x, xi = cos(phi) (Newton in phi)"""
+    ps = np.arccos(np.clip(x, -1, 1)); ph = ps.copy()
+    for _ in range(60):
+        ph = ph - (ph + a * np.sin(ph) - ps) / (1 + a * np.cos(ph))
+    return np.cos(ph)
+
+
 def axis_quotients(M):
     """values -> values maps Q_-, Q_+: a polynomial f of degree < M to (f - f(-1))/(1 + x), resp. (f - f(1))/(1 - x),
     by division in Chebyshev space (1 + x = T_0 + T_1, 1 - x = T_0 - T_1)"""
@@ -209,9 +233,10 @@ class Data:
 
 
 class Grid:
-    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None, filt=None, reg=False, ld=0):
-        self.x, self.D1, self.D2 = cheb_gauss(M)
-        self.M = M
+    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None, filt=None, reg=False, ld=0, xmap=0.0):
+        assert not (xmap and (filt or reg)), 'the filter and the axis quotients are built on the unmapped nodes'
+        self.x, self.D1, self.D2 = xgrid(M, xmap)
+        self.M, self.xmap = M, xmap
         self.ld = np.r_[np.arange(ld), np.arange(M - ld, M)] if ld else None    # nodes solved in long double, or none
         self.Fm = None if filt is None else cheb_filter(M, filt)      # axis filter of order filt, or none
         self.Q = axis_quotients(M) if reg else None                     # axis regularisation of m_uv, n_uv, or none
@@ -368,7 +393,7 @@ def kretschmann(Z, rows=None):
         _setup_curvature()
     uu, vv, xx = Z['u'], Z['v'], Z['x']
     du, dv = uu[1] - uu[0], vv[1] - vv[0]
-    _, D1, _ = cheb_gauss(len(xx))
+    _, D1, _ = xgrid(len(xx), float(Z['xmap']) if 'xmap' in Z else 0.0)
     Nu, Nv, M = Z['R'].shape
     out = np.full((Nu, Nv, M), np.nan)
 
@@ -484,6 +509,15 @@ def selftest():
     print('S4 axis nodes, spherical state at M = 16: |m_uv|, |n_uv| double %.1e, long double %.1e ->' % (ed, el),
           'PASS' if r4 else 'FAIL')
     ok &= r4
+    # S5: the mapped angular grid
+    x5, D15, D25 = xgrid(24, 0.3)
+    f5 = np.exp(x5) / (1.3 + x5); f1 = f5 - np.exp(x5) / (1.3 + x5)**2
+    f2 = f5 - 2 * np.exp(x5) / (1.3 + x5)**2 + 2 * np.exp(x5) / (1.3 + x5)**3
+    e5 = max(np.abs(D15 @ f5 - f1).max(), np.abs(D25 @ f5 - f2).max() / 100)
+    r5 = e5 < 1e-7 and x5.min() < cheb_gauss(24)[0].min() and np.allclose(xi_of(x5, 0.3), cheb_gauss(24)[0])
+    print('S5 mapped angular grid, a = 0.3, M = 24: derivative error %.1e (D2 over 100); first node 1 + x = %.1e '
+          'against %.1e unmapped ->' % (e5, 1 + x5.min(), 1 + cheb_gauss(24)[0].min()), 'PASS' if r5 else 'FAIL')
+    ok &= r5
     print('dnsolve5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 
@@ -497,10 +531,11 @@ def main():
         reg = 'reg' in opts
         ld = int(opts[opts.index('ld') + 1]) if 'ld' in opts else 0
         amp = float(opts[opts.index('amp') + 1]) if 'amp' in opts else 1.0
+        xmap = float(opts[opts.index('map') + 1]) if 'map' in opts else 0.0
         E = Eqs()
-        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt, reg=reg, ld=ld)
+        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt, reg=reg, ld=ld, xmap=xmap)
         A, mask = run(E, G, Data(lam, amp), rcut)
-        np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, **{f: A[f] for f in ALL})
+        np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, xmap=xmap, **{f: A[f] for f in ALL})
         print('written', sys.argv[7], 'cells', int((~mask).sum()), 'of', mask.size)
         return 0
     return selftest()

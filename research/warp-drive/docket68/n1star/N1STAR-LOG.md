@@ -7051,3 +7051,13 @@ touch. Measured over every placement of a small change in those functions betwee
 change of size up to one moves the coefficient by less than a tenth, and even enormous changes move it by at most about
 seventeen. So within these choices the term stays, and the smaller gap bound is the one to carry. One family, a large
 negative change in the horizon function, makes the calculation itself unreliable and is left undecided.
+
+**D458 (2026-11-01): the axis failure looks like the method's.** At the record's full strength the computation breaks
+down at the axis, and it was not known whether the solution itself turns singular there, develops a very sharp but
+smooth feature, or the method fails. The breakdown begins at the grid point next to the axis, in the one field the
+geometry there hardly depends on, and turns into a zigzag from point to point. Raising the rounding error by a factor
+of 800 does not move it at the coarser setting. Packing more grid points near the axis, which would resolve a sharp
+feature better, makes it come sooner and stronger, and makes a weaker wave that otherwise converges fail too. That
+points to how the method treats the axis rather than to the solution, though not cleanly, since the packed grid has
+costs of its own. The size of the circle at the axis, which does not depend on the coordinates, converges better than
+the other quantities. The next step is an axis treatment that does not lose digits there.
