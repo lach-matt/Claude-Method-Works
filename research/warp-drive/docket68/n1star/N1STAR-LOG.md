@@ -7774,3 +7774,9 @@ is known, and at most about 1500 anywhere on the band).
 been counted, improves the solution's decay in small increments, each costing two derivatives. At the weights in use it
 needs at least four increments, so at least eight derivatives, once per round of the outer loop; it is not inside the
 inner loop, whose per-round cost of 15 is unchanged.
+
+**D583 (2026-11-01): the two failures are one.** Looking at which cells were excluded, the two coarser angular
+resolutions exclude exactly the same cells, and they disagree only next to the extra cells the finest one excluded when
+it blew up; there the solutions themselves differ, by several per cent, not just the curvature computed from them. So
+there is a single troubled region at late times, where the finest run fails first and the other two are not yet
+resolved. The finer-grid runs now in progress test exactly that region.

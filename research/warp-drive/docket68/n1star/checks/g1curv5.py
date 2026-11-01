@@ -458,36 +458,51 @@ def s2_report(C, vc, grid):
 
 
 def s2_pairs(C, vc, grid):
-    """D575 (verifier 250): each pair of M on its own cells (both runs' masks only, not the third's), with the cells
-    beside the cut (a cell masked in any of the three runs next to it in v, same row) reported apart"""
+    """D575 (verifier 250), D583: each pair of M on its own cells (both runs' masks only, not the third's), with the cells
+    beside a masked cell (next to it in v, same row) reported apart, split by whose mask it is: the pair's own cut, or
+    the third run's alone; and the field R beside K, so that a difference in the solution is told from one in K's
+    stencil (a masked cell holds NaN, and a stencil reaching it gives NaN, which is dropped)"""
     masks = {M: C[(M, 2)]["mask"] for M in (32, 40, 48)}
-    anym = np.any(list(masks.values()), axis=0)
-    near = anym.copy()
-    near[:, 1:] |= anym[:, :-1]
-    near[:, :-1] |= anym[:, 1:]
-    print("\n  each pair on its own cells (%s; R in [0.9, 1.4]): max |K_a - K_b|/K_0 on the cells beside the cut and on the "
-          "rest, with the number of cells above 2 in each, o = 2 / 4" % grid)
+
+    def adj(m):
+        a = m.copy()
+        a[:, 1:] |= m[:, :-1]
+        a[:, :-1] |= m[:, 1:]
+        return a
+    print("\n  masked fraction of the compared rows: %s; cells masked by one run alone: %s" % (
+        ", ".join("M = %d %.3f" % (M, float(masks[M].mean())) for M in masks),
+        ", ".join("M = %d %d" % (M, int((masks[M] & ~np.any([masks[N] for N in masks if N != M], axis=0)).sum()))
+                  for M in masks)))
+    print("  each pair on its own cells (%s; R in [0.9, 1.4]): max |K_a - K_b|/K_0 (o = 2 / 4) and max |R_a - R_b|/R, "
+          "beside the pair's own cut, beside the third run's mask alone, and away from both, with (cells above 2 / "
+          "cells)" % grid)
     for xe in S2XS:
         Kx = {k: cheb(c["K"], c["x"], xe) for k, c in C.items()}
+        Rx = {M: cheb(C[(M, 2)]["R"], C[(M, 2)]["x"], xe) for M in masks}
         print("\n  x = %g" % xe)
         for lo, hi in S2BANDS:
             band = ((vc >= lo) & (vc < hi))[None, :]
             parts = []
             for a, b in ((32, 40), (40, 48)):
-                Rr = cheb(C[(a, 2)]["R"], C[(a, 2)]["x"], xe)
-                K0 = 72.0 / Rr**8
-                own = (~masks[a] & ~masks[b] & band & (Rr >= 0.9) & (Rr <= 1.4)
+                t = ({32, 40, 48} - {a, b}).pop()
+                K0 = 72.0 / Rx[a]**8
+                own = (~masks[a] & ~masks[b] & band & (Rx[a] >= 0.9) & (Rx[a] <= 1.4)
                        & np.all([np.isfinite(Kx[(M, o)]) for M in (a, b) for o in (2, 4)], axis=0))
-                for o in (2, 4):
-                    dd = np.abs(Kx[(b, o)] - Kx[(a, o)]) / K0
-                    out = []
-                    for sel in (own & near, own & ~near):
-                        out.append("%.3g(%d/%d)" % (float(dd[sel].max()), int((sel & (dd > 2)).sum()), int(sel.sum()))
-                                   if sel.any() else "-")
-                    parts.append("%d-%d o%d near %s away %s" % (a, b, o, out[0], out[1]))
+                npair = adj(masks[a] | masks[b])
+                nthird = adj(masks[t]) & ~npair
+                dR = np.abs(Rx[b] - Rx[a]) / Rx[a]
+                out = []
+                for nm, sel in (("cut", own & npair), ("M%d-mask" % t, own & nthird), ("away", own & ~npair & ~nthird)):
+                    if not sel.any():
+                        out.append("%s -" % nm)
+                        continue
+                    dk = [np.abs(Kx[(b, o)] - Kx[(a, o)]) / K0 for o in (2, 4)]
+                    out.append("%s %.3g/%.3g dR %.2g (%d/%d)" % (nm, float(dk[0][sel].max()), float(dk[1][sel].max()),
+                                                            float(dR[sel].max()), int((sel & (dk[0] > 2)).sum()),
+                                                            int(sel.sum())))
+                parts.append("%d-%d: %s" % (a, b, ", ".join(out)))
             print("    [%.2f,%.2f): %s" % (lo, hi, ";  ".join(parts)), flush=True)
     return 0
-
 
 def s2_rows(dirn, fac):
     """--seed2-rows DIR FAC (D572): --seed2-40's rows on the grid FAC times finer, comma-separated, for dnsolve5's keep"""

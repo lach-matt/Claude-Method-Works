@@ -705,6 +705,14 @@ No other component is nonzero. So the scheme is the following.
   shown here and at (32, 800) not checked; and four binary outcomes bound the critical M's growth from N = 800 to 1600
   only to a factor in (1, 1.5), M²/N being assumed, not tested. The step condition is a hypothesis, "one level up" is
   withdrawn as a finding, and D572's runs at 2400 × 1080, saving only the rows compared, are to be read both ways.)
+  (Corrected D583, `--seed2-48`'s second table now split by whose mask a cell borders, with the field R beside K: M = 32
+  and 40 mask the same cells, and M = 48 alone masks 104 more at the compared rows; no compared cell (R in [0.9, 1.4])
+  borders the pair's own cut. Every cell where M = 32 and 40 disagree borders a cell only M = 48 masks, and there their
+  fields differ, R by up to 7.5 % (x = 0.97, [4, 4.5)) and K by up to 1.3 × 10⁴ K_0, against R to 2.4 × 10⁻⁴ and K to
+  0.015 K_0 away from every mask. A masked cell holds NaN, so a stencil reaching it gives NaN and is dropped: the
+  difference is in the solution, not in K's stencil. And M = 48 departs from M = 40 away from every mask, R by up to 19
+  %. So D575's "beside the cut" is beside the cells M = 48 drops, and "two kinds" is withdrawn: one region at late v,
+  where M = 48 fails first and M = 32 and 40 are unresolved in their fields.)
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).

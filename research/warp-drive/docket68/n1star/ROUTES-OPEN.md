@@ -6115,6 +6115,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Step 2 alone sweeps from below ℓ_+ (≤ 3/2 − 4ε where III.I′′′′′ applies it) to ℓ_I > 3: at least 4 steps, a loss of at
   least 8. It enters once per round raising α′_K (I6:216) and in the Step 8s of I9 and I12, not inside the ι⁺ rounds, so
   the ι⁺ round's 4 + d_G stands. Open: its full count (Step 1 and Lemma 2.2's steps depend on the a priori weight).
+- D583 (CERTIFY-10L5 6b, computed; `checks/g1curv5.py --seed2-48`'s pair table split by mask, with the field R, output
+  resaved): D575's reading narrowed. M = 32 and 40 mask the same cells; M = 48 alone masks 104 more. Every cell where M
+  = 32 and 40 disagree borders one of those, and there their fields differ (R by up to 7.5 %), not only K; away from
+  every mask they agree (R to 2.4 × 10⁻⁴, K to 0.015 K_0). Masked cells hold NaN, so the difference is not K's stencil.
+  M = 48 departs away from every mask too (R by up to 19 %). One region, not two kinds: late v, where M = 48 fails first
+  and M = 32, 40 are unresolved.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
