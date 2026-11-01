@@ -334,7 +334,59 @@ def seed2_40(dirn):
     return 0
 
 
+def seed2_1600(dirn):
+    """--seed2-1600 DIR (D537): M = 32 and 40 at 800 x 360 and at 1600 x 720 on --seed2-40's rows (the fine run's rows
+    2i, its v nodes subsampled by 2, as --null does): whether M = 40's departures after v = 3.5 at 800 x 360 go when the
+    null grid is refined with it"""
+    Z = dict(np.load(os.path.join(dirn, "s2_M32.npz")))
+    rows = pick_rows(Z, 24, 2.5, 4.5, 0.9, 1.5)
+    uc, vc = Z["u"], Z["v"]
+    del Z
+    C = {}
+    for M in (32, 40):
+        C[(M, 800)] = s2_curv(dirn, (M,), rows)[M]
+        cache = os.path.join(dirn, "curvS2_M%d_1600.npz" % M)
+        if os.path.exists(cache) and list(np.load(cache)["rows"]) == list(rows):
+            c = dict(np.load(cache))
+        else:
+            Zf, rr = reduced(os.path.join(dirn, "s2_M%d_1600.npz" % M), [2 * r for r in rows])
+            assert np.allclose(Zf["u"][rr], uc[rows]) and np.allclose(Zf["v"][::2], vc), M
+            Kf = D.kretschmann(Zf, rows=rr)[rr][:, ::2]
+            c = dict(rows=np.array(rows), K=Kf, R=Zf["R"][rr][:, ::2], mask=Zf["mask"][rr][:, ::2], v=vc, x=Zf["x"])
+            np.savez(cache, **c)
+            del Zf
+        C[(M, 1600)] = c
+        print("  M = %d, 1600 x 720: done" % M, flush=True)
+    keep = ~np.any([c["mask"] for c in C.values()], axis=0)
+    print("\n  per v-band, cells kept in all four runs with R in [0.9, 1.4] (Chebyshev interpolant): dev(M, N) = max "
+          "|K/K_0 - 1|; dM_N = max |K_32 - K_40|/K_0 at N; duv_M = max |K_800 - K_1600|/K_0 at M; n40 = cells with "
+          "|K/K_0 - 1| > 2 at M = 40 (800, 1600)")
+    for xe in S2XS:
+        Kx = {k: cheb(c["K"], c["x"], xe) for k, c in C.items()}
+        Rr = cheb(C[(40, 1600)]["R"], C[(40, 1600)]["x"], xe)
+        K0 = 72.0 / Rr**8
+        ok = keep & (Rr >= 0.9) & (Rr <= 1.4) & np.all([np.isfinite(Kx[k]) for k in Kx], axis=0)
+        dev = {k: np.abs(Kx[k] / K0 - 1) for k in Kx}
+        print("\n  x = %g" % xe)
+        for lo, hi in S2BANDS:
+            sel = ok & ((vc >= lo) & (vc < hi))[None, :]
+            if not sel.any():
+                print("    [%.2f,%.2f): no cells" % (lo, hi))
+                continue
+            mx = lambda a: float(a[sel].max())
+            print("    [%.2f,%.2f): dev 32/800 %.3g  40/800 %.3g  32/1600 %.3g  40/1600 %.3g;  dM_800 %.3g  dM_1600 %.3g;"
+                  "  duv_32 %.3g  duv_40 %.3g;  n40 %d, %d  (%d cells)"
+                  % (lo, hi, mx(dev[(32, 800)]), mx(dev[(40, 800)]), mx(dev[(32, 1600)]), mx(dev[(40, 1600)]),
+                     mx(np.abs(Kx[(32, 800)] - Kx[(40, 800)]) / K0), mx(np.abs(Kx[(32, 1600)] - Kx[(40, 1600)]) / K0),
+                     mx(np.abs(Kx[(32, 800)] - Kx[(32, 1600)]) / K0), mx(np.abs(Kx[(40, 800)] - Kx[(40, 1600)]) / K0),
+                     int((sel & (dev[(40, 800)] > 2)).sum()), int((sel & (dev[(40, 1600)] > 2)).sum()),
+                     int(sel.sum())), flush=True)
+    return 0
+
+
 def main():
+    if sys.argv[1:2] == ["--seed2-1600"]:
+        return seed2_1600(sys.argv[2])
     if sys.argv[1:2] == ["--null"]:
         return null_refinement(sys.argv[2])
     if sys.argv[1:2] == ["--seed2-40"]:
