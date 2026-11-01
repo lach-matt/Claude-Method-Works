@@ -7098,3 +7098,11 @@ dust. Their stress enters the constraint equations on a null surface algebraical
 so the gauge still propagates, and the three constraints can still be solved one after another: the first gains a
 source fixed by the data, the second stays linear in its unknown, and the third does not see the unknown the third step
 solves for. A stream moving along the surface drops out there altogether.
+
+**D464 (2026-11-01): verifier 198 on D461 and D463; D461's conclusion withdrawn.** The remainder's sources are as large
+as D461 said where they act, but they act only in a band of bounded advanced time next to the first surface, since that
+is the only region where the record bounds the remainder, and spatial infinity lies at infinite advanced time. A source
+confined to such a band reaches the far region one power weaker: in a simple model a full source shifts the coefficient
+that matters by one half, while the same source cut to the band only contributes at the next order. So the record does
+not need a stronger bound there, and the second derivatives are bounded elsewhere in the record after all. The dust
+result stands, with two clarifications.

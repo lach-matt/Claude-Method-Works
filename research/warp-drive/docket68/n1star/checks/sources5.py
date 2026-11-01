@@ -27,12 +27,12 @@ Upsilon^0(g, eta) = g g^-1 Gamma(g) alone, then through delta*_(eta,E_C), which 
       G) sin(r + t): over radii 8 to 128, at 8 directions each, R^(9/2) times the largest bilinear (h, rho) component has
       a fitted exponent within 0.2 of zero, so it falls like r^-9/2 and not like r^-5 (which D454's factor-5 test could
       not exclude), against Q4's R^-2; and R^5 times the largest component quadratic in rho likewise.
-  Q6 (computed) the sources from e := g_lambda - g_app (D461). The record's (P-iii) (N1STAR-PROOF.md, the region P's
-      bounds) bounds e and its first derivatives by C t^-2, t ~ r, with no gain and nothing on the second. For
+  Q6 (computed) the sources from e := g_lambda - g_app (D461, D464). The record's (P-iii) (N1STAR-PROOF.md, the
+      region P's bounds) bounds e and its first derivatives by C t^-2, t ~ r, with no gain; (9.8) the higher ones. For
       e = r^-2 G(x^) sin(r + t), in that class and with second derivatives no larger, R^4 times the largest component
       quadratic in e and R^4 times the largest bilinear (h, e) component have fitted exponents within 0.2 of zero over
-      R = 8 to 128: both are of order r^-4, attained, and so not o(r^-4); control, for e = r^-2 G(x^) (derivatives
-      gaining) R^4 times the bilinear part falls like R^-2.
+      R = 8 to 128: both are of order r^-4, attained, where e acts (a strip of bounded v along N: strip5.py); control,
+      for e = r^-2 G(x^) (derivatives gaining) R^4 times the bilinear part falls like R^-2.
 
 Deduced: every term of P quadratic in a static h homogeneous of degree -2 has derivative order plus c-order two, so it is
 homogeneous of degree -6 on Minkowski, and higher orders of degree -8 or less (D449); on Tangherlini (g0 - eta = O(mu
@@ -43,11 +43,11 @@ two factors, so with h's derivatives gaining r^-1, and rho's tangential ones too
 largest is h d_r^2 rho, O(r^(-2 - 5/2)) = O(r^(-9/2)) (Q5), the others O(r^(-11/2)) or less, and the terms quadratic in
 rho O(r^-5); with a gaining rho they would be O(r^(-13/2)) (Q4). Both are o(r^-4), the first with a margin of only
 r^(-1/2): by D413's rule an r^(-9/2) source contributes at rho^(5/2), a half-integer power, which bears on BEYOND5 3(b)
-(v)'s open question whether half-integer exponents occur. The sources from
-e = g_lambda - g_app (D461, Q6): with (P-iii) as stated, the terms quadratic in e (d e d e, e d^2 e) and h d^2 e are of
-order r^-4 at best, and the terms with d^2 e are not bounded by (P-iii) at all; the small factors lam^(K-3), lam^(K-4)
-do not change the power of r. So where P' reaches I_0 the condition o(r^-4) needs a stronger (P-iii): two derivatives,
-and a decay gain (t^(-2 - delta), or each derivative gaining t^-1, which gives r^-6).
+(v)'s open question whether half-integer exponents occur. The sources from e = g_lambda - g_app (D461, corrected D464,
+Q6): with (P-iii) and (9.8), which bound e and its derivatives by t^-2 with no gain, the terms quadratic in e and h d^2 e
+are of order r^-4 where they act, attained. But e is bounded only on P', where v <= V'_P, so they sit in a strip of
+bounded v along N, and a strip source enters at rho^3, not rho^2 (checks/strip5.py, the l = 0 model): D461's conclusion
+that the condition fails is withdrawn.
 
 Run: python3 checks/sources5.py   (a few minutes; the jets by sympy, the rest at 50 digits)
 """
@@ -263,7 +263,7 @@ def main():
     eg6 = mp.log(Cg6[-1] / Cg6[0]) / mp.log(16)
     ok["Q6"] = abs(eq) < 0.2 and abs(ex6) < 0.2 and abs(eg6 + 2) < 0.2
     print("  Q6 e = g_lambda - g_app in (P-iii)'s class: fitted exponents of R^4 times the (e, e) and (h, e) parts "
-          "%s, %s (order r^-4, not o(r^-4)); gaining control %s (-2 expected): %s"
+          "%s, %s (order r^-4 where e acts); gaining control %s (-2 expected): %s"
           % (mp.nstr(eq, 3), mp.nstr(ex6, 3), mp.nstr(eg6, 3), ok["Q6"]), flush=True)
     for k, v in ok.items():
         print(k, "PASS" if v else "FAIL")

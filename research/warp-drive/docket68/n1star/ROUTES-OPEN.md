@@ -5073,6 +5073,7 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   128, fitted exponents 0.015 and 0.105; a gaining control falls as R^-2.0), so not o(r^-4) as D413's condition needs,
   and terms with d^2 e are unbounded by (P-iii); the lam^(K-3) factors do not change the power. Open: a strengthened
   (P-iii), two derivatives with a decay gain, or the condition restated with an r^-4 source's own contribution at rho^2.
+  [Conclusion withdrawn, D464: e acts only in a strip of bounded v along N, where an r^-4 source enters at rho^3.]
 - D462 (verifier 197 on D458 and D460; both confirmed with corrections): D458's code and numbers hold (xgrid, a = 0
   exact, interpolation in each run's variable; the seed test like for like, S4 3.9e-6 against 4.7e-9). MAJOR: the mapped
   pair's failure is its M = 40 run alone, with 40 times plain M = 40's axis-node rounding (1.4e-6, ld 3 or 4 alike) and
@@ -5088,6 +5089,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   W's propagation uses div T = 0 (the dusts' equations). The hierarchy closes: T_vv = sum rho_i (g_uv k_i^u)^2 free of
   g_uu, g_uA, gamma; T_vA free of g_uu, linear in g_uA; gamma^(AB) T_AB free of g_uu; a dust along N's generators drops
   out on N. Open: the dusts' own data and transport, linear uniqueness.
+- D464 (verifier 198 on D461 and D463): D461's Q6 numbers hold but its conclusion is REFUTED. e = g_lambda - g_app is
+  bounded only on P', v <= V'_P (N1STAR-PROOF 1056), and I_0 is at v -> infinity, so its sources sit in a strip of
+  bounded v along N; in the scalar l = 0 model (checks/strip5.py T1-T3) r^-4 on all of v >= 0 gives r^2 phi -> -1/2, on
+  the strip v in [0, 1] r * r^2 phi -> -0.784: rho^3, not rho^2. And (9.8) with Lemma 9.3(a) does bound d^2 e (no gain).
+  So 'the record needs a stronger remainder bound' is withdrawn (BEYOND5 3(b), sources5's docstring). Open: the strip for
+  the full operator, its unstructured r^-3 against rho^3 C^infinity. D463 confirmed with corrections: the record's dusts
+  are the covectors sqrt K dv, sqrt K du (T_vA = T_AB = 0 on N); W's propagation also uses tr T = 0 off N, which geodesic
+  flow keeps.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

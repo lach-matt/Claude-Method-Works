@@ -414,8 +414,8 @@ What it does not give:
 - Tangherlini's corrections beyond the scalar model (the curvature couplings of the tensor equation);
 - the structure beyond the principal part (the gauge terms and the trace couplings) on Tangherlini; on Minkowski it is
   Lemma 6.5′ (D417);
-- the remainder in E_(5/2) of (v), and the remainder g_λ − g_app (whose stated bound (P-iii) does not give the
-  condition on the sources below: D461);
+- the remainder in E_(5/2) of (v), and the remainder g_λ − g_app (its sources lie in a strip of bounded v
+  along N and enter at ρ³ in the l = 0 model: D464);
 - uniqueness in W beyond the expansion (an energy identity on W would give it); Lemma 6.5′'s self-similar reduction
   assumes it;
 - the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
@@ -432,12 +432,15 @@ What it does not give:
   (fitted exponent within 0.08 of −9/2 over r = 8-128); the others are O(r^(−11/2)) or less, and the remainder's own
   products O(r⁻⁵). A remainder whose derivatives all gain would give O(r^(−13/2)). The margin over r⁻⁴ is only r^(−1/2):
   by the rule above an r^(−9/2) source contributes at ρ^(5/2), a half-integer power, which bears on (v)'s open question
-  whether half-integer exponents occur. The sources from e := g_λ − g_app do not meet it on the record's bound (D461,
-  `checks/sources5.py` Q6): (P-iii) bounds e and ∂e by C t⁻² with no gain and says nothing of ∂²e (N1STAR-PROOF.md
-  1041-1042). So the terms quadratic in e and h ∂²e are of order r⁻⁴ at best (attained for an e in that class: fitted
-  exponent within 0.11 of zero over r = 8-128), not o(r⁻⁴), and those with ∂²e are not bounded by (P-iii) at all; the
-  factors λ^(K−3), λ^(K−4) do not change the power of r. Where P′ reaches I_0 the condition needs a stronger (P-iii): two
-  derivatives and a decay gain (t^(−2−δ), or each derivative gaining t⁻¹, which gives r⁻⁶).
+  whether half-integer exponents occur. The sources from e := g_λ − g_app (D461, corrected D464). (P-iii) bounds e and ∂e
+  by C t⁻² with no gain (N1STAR-PROOF.md 1041-1042), and (9.8) with Lemma 9.3(a) gives the higher derivatives the proof
+  uses, |∂ⁱe| ≲ λ^(K′−3−i) t⁻², again with no gain (verifier 198). So where they act, the terms quadratic in e and h ∂²e
+  are of order r⁻⁴, attained for an e in that class (`checks/sources5.py` Q6). But e is bounded only on P′, which has v ≤
+  V′_P, while I_0 lies at v → ∞: these sources sit in a strip of bounded v along N, and such a source enters at ρ³, not
+  ρ². In the scalar l = 0 model on flat 5D, r²φ → −1/2 for r⁻⁴ on all of v ≥ 0 (the G(1) = −f/2 above), but r · r²φ →
+  −0.784 for r⁻⁴ on the strip v ∈ [0, 1] (`checks/strip5.py`). So they do not reach the r⁻² coefficient, and D461's
+  conclusion that the record needs a stronger remainder bound is withdrawn. Not computed: the strip for the full
+  operator, and whether its r⁻³ term, which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

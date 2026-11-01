@@ -24,8 +24,9 @@ k_i^u and k_i^A symbols, n = 4 and 5:
   D5 controls: without nullity (k^v free) tr_g T != 0, and the components that do carry g_uu (T_uu, T_uA) are the ones
      the hierarchy never uses on N.
 
-A dust moving along N's generators (k = k^v d_v) has k_v = g_vv k^v = 0 on N, so it drops out of all three; only the
-dust crossing N enters. Not computed: the dusts' own characteristic data and transport (they are given along with g's).
+A dust moving along N's generators (k = k^v d_v) has k_v = g_vv k^v = 0 on N, so it drops out of all three; only the dust
+crossing N enters. With the record's dusts, the covectors sqrt(K) dv and sqrt(K) du (FAMILIES5 4c), T_vA = T_AB = 0 on N
+(D464). Not computed: the dusts' own characteristic data and transport (they are given along with g's).
 
 Run: python3 checks/chardust5.py   (exact; seconds)
 """
