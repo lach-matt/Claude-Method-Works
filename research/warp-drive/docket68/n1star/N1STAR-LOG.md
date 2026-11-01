@@ -7639,3 +7639,9 @@ solution already given on a rectangle, with the radius away from zero, continues
 solution. That needs a local existence statement in five dimensions and the continuation argument of the published
 paper, neither written yet. The change from four to five dimensions is also more than one power: the mass and its
 equations take different exponents and constants.
+
+**D557 (2026-11-01): the per-round losses, checked.** An independent check found that the resonance inverse's loss is
+not unknown: an earlier section of this note had already given it in closed form, about eleven at the record's weights.
+It also found that a lower bound had been used as an upper bound, so the claimed comparison with the counted loops is
+withdrawn; what stands is a condition on the ratio of the two rounds' costs, neither of which the record caps. The
+second-level round's cost equals the inner round's only up to a term not yet shown equal.

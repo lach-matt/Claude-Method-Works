@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -816,24 +816,36 @@ loop counts of section 3.
     5.1. III.J″ charges L_b loss 2 (PART-III-J3-TAME.md:115-121, 164) and N_tf⁻¹ the loss ℓ of III.F′ Corollary 3.4
     (J3:167-168), and names Proposition 4.4 beside 5.1 in that bullet (J3:168-171): 2 + ℓ per application, as for a
     level-3 round, so LD13 and LD15's comparisons of round counts are comparisons of loss, the per-round loss being the
-    same. One application at (α_0, k) treats every log power up to k: its proof solves away each of the k + 1 terms
+    same. (Corrected D557, verifier 242: 2 + ℓ is this note's sum by Lemma 1.2 (a)-(b), J3 saying only "fixed loss" and
+    naming L̃_b(0)⁻¹, which G5 does not apply; the 2 is solid, while ℓ is III.F′ Corollary 3.4's closed form at each
+    proposition's own weights, not shown equal for 4.4 and 5.1, so the comparisons of counts are comparisons of loss up
+    to that.) One application at (α_0, k) treats every log power up to k: its proof solves away each of the k + 1 terms
     ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold α_0-derivatives of terms holomorphic in α_0 (G5:474,
     476-481, 489-491). So the applications at lower log orders that Step 3's "for each tf-exponent (α_0, k)" would add
-    are redundant; LD15's per-(α_0, k) bound is the procedure as written, and its per-exponent bound |Λ ∩ W| the
-    procedure without the redundancy.
+    are redundant, if the top order at α_0 is treated first (I12:278-281 fixes no order; D557); LD15's per-(α_0, k)
+    bound is the procedure as written, and its per-exponent bound |Λ ∩ W| the procedure without the redundancy.
   - *The ι⁺ loop.* Each round applies III.G″ Corollary 4.3 to the source's terms at λ_0 and removes the error by III.I′
     Proposition 3.1, the next source being F − L_b(u_λ0 + u′_λ0) (PART-III-I6-ALMOSTBDD.md:128-131, 156-157, 167-168).
     III.J″ charges Corollary 4.3 the loss d + 2, d being III.G′ Theorem 3.1 (2)'s for N_ι+(λ)⁻¹ composed with a contour
     integral and with L_b (J3:160-164), and Proposition 3.1 a fixed loss through L̃ (loss 2; J3:173-176). So a round
-    costs at least 4 + d_G, d_G := III.G′ Theorem 3.1 (2)'s loss, the one of section 2's six with no formula (LD4 m1).
-    Against a level's level-3 rounds, 2 each, and LD14's ratio 1/17.5 of rounds, the ι⁺ loop's loss per level is at most
-    (4 + d_G)/35 of the counted loops' (with LD14's ceiling of 1,470,302 rounds): below them only while d_G < 31, which
-    the record does not decide. III.J″'s table names no row for these rounds (its row for III.I′′′′′, J3:261, counts
-    "exponents in a window, and rounds raising α′_K to α_K"); by its rule (g) and Lemma 1.2 (e) (J3:157-158, 76-77)
-    their loss is their number times one round's.
+    costs at least 4 + d_G, d_G := III.G′ Theorem 3.1 (2)'s loss. (Corrected D557, verifier 242: d_G has a closed form,
+    section 2's item 6 (2.5), d = 7 + 2⌈ℓ_I − Re λ⌉ for Re λ < 2 − δ, so on the ι⁺ window 11 when 3 < ℓ_I < 3.5 (at most
+    12 at the window's top) and 13 at ℓ_I = 3.6; "no formula" was LD4 m1's, before item 6, and the open input is a_I,
+    which bounds ℓ_I (section 3). And 4 + d_G is a floor, not a ceiling: Proposition 3.1's fixed loss has no value in
+    the record, and the replacement F − L_b(u_λ0 + u′_λ0) adds an L_b, so D553's comparison, at most (4 + d_G)/35 of the
+    counted loops' and below them only while d_G < 31, is withdrawn; it also took a level-3 round at 2 rather than 2 +
+    ℓ, and held only at ε_ind = δ_50.) What stands: with LD14's ceiling of 1,470,302 rounds per level, 1/17.52 of a
+    level's level-3 rounds at ε_ind = δ_50 (less at smaller ε_ind), the ι⁺ loop's loss per level is below the counted
+    loops' if one of its rounds costs less than 17.52 times a level-3 round; the floors are 4 + d_G, 15 to 17 at those
+    ℓ_I, and 2 + ℓ, and neither round's cost has a ceiling in the record. III.J″'s row for III.I′′′′′ (J3:261) is this
+    iteration's (I9:231; its MOD column lists III.G″ Corollary 4.3) and counts "exponents in a window, and rounds
+    raising α′_K to α_K": exponents, not the rounds LD14 counts, a round treating every λ_0 of the window together
+    (I6:127-129), and which of the two III.J″ multiplies is not stated (corrected D557: D553 said the table has no row);
+    by its rule (g) and Lemma 1.2 (e) (J3:157-158, 76-77) their loss is their number times one round's.
   - *What it rests on.* LD11 (ii)'s reading of III.J″'s accounting, now applied to Propositions 4.4 and to Corollary 4.3
     with III.I′ Proposition 3.1; the per-round floors 2 and 4 + d_G, which a finer accounting might lower (as LD11 (ii)
-    notes). Open: d_G, and the per-round loss's dependence on k (J3's (g) asserts none).
+    notes). Open: a_I (through ℓ_I, d_G's input), Proposition 3.1's fixed loss, and ℓ at each proposition's weights; the
+    per-round loss is independent of k by J3's (g) (J3:157-158), as it claims.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

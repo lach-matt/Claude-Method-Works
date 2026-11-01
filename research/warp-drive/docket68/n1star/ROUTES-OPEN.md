@@ -5949,6 +5949,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the bulk, falling at the far corner from n = 80); the log's "one change" understated the 5D form; R_u < 0 belongs in
   the summaries; the trap condition is checkable from data (min D[μ] > a²). Corrected in FAMILIES5 4i, twoext5 and
   twodomain5's docstring; the D552 entry above keeps its text.
+- D557 (verifier 242 on D553; Prop 4.4's structure, the log claim, I6's per-round Corollary 4.3 and Proposition 3.1, and
+  the arithmetic checked): MAJOR: d_G is not formula-less: section 2's item 6 (2.5) gives d = 7 + 2⌈ℓ_I − Re λ⌉ for Re λ
+  < 2 − δ, 11 on the ι⁺ window when 3 < ℓ_I < 3.5 (12 at the top, 13 at ℓ_I = 3.6); the open input is a_I. MAJOR: 4 +
+  d_G is a floor, used as a ceiling (Proposition 3.1's fixed loss has no value, and the replacement adds an L_b), and
+  the level-3 round was taken at 2, not 2 + ℓ: "at most (4 + d_G)/35, below while d_G < 31" withdrawn; what stands is
+  the ratio condition, ι⁺ below if a round costs under 17.52 level-3 rounds at ε_ind = δ_50. MINOR: no ε_ind qualifier;
+  J3:261 is the iteration's row, counting exponents, not rounds; 2 + ℓ is this note's sum, equal ℓ for 4.4 and 5.1
+  unverified. NITs: lower log orders redundant if the top goes first; J3's (g) asserts k-independence. Corrected in
+  LD16; the D553 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
