@@ -52,14 +52,16 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      against r = 3), unit bumps of half-width 0.2 at centres 3.2, 3.6, ..., 7.6, per unit integral, for zeta and eta;
      and how dA/deta behaves as r grows. It levels off near 0.068 (c_H = -eta dr/2 does not decay), so to first order
      an eta within 1 of the record's moves A by about 0.07 per unit of support; the record confines chi to |x| < 5 R_1
-     with R_1 = sqrt(mu_end) = 1 here, which gives about 0.21 on (1.25, 5).
+     with R_1 = sqrt(mu_end) = 1 here, which gives about 0.22 on (1.25, 5): 0.130 on (3, 5), S7's eta-only 0.0837 on
+     (1.3, 2.9), and 0.0015 and 0.0062 on the gaps (1.25, 1.3), (2.9, 3) that neither samples (D468, verifier 199).
 
 Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8)
 (both z = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double
 precision (DOP853, rtol 1e-13). About 15 minutes.
-Not computed: whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_0, eps_1; cut-off variations outside
-(1.25, 3) or not rotation invariant; the dual state as a function (S7 measures its pairing through bumps); and whether
-the record's later steps hold at the bumped cut-offs, beyond the matching being solvable there.
+Not computed: whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_0, eps_1; cut-off variations inside r =
+1.25, beyond first order outside (1.25, 3) (no curvature is computed there), or not rotation invariant; the dual state as
+a function (S7 measures its pairing through bumps); and whether the record's later steps hold at the bumped cut-offs,
+beyond the matching being solvable there.
 """
 import os
 import math
@@ -532,9 +534,20 @@ def zeros_far():
     inner = np.array(centres) < 5.0
     e5 = float(np.sum(np.abs(de[inner])) * 0.4)
     z8 = float(np.sum(np.abs(np.array(dens["zeta"]))) * 0.4)
-    print("  first-order estimates: eta within 1 of eta0 on (3, 5) moves A by %.3f, so on (1.25, 5R_1) = (1.25, 5) "
-          "(R_1 = sqrt(mu_end) = 1 here, the record's chi supported in |x| < 5 R_1) by about %.3f with S7's 0.084; "
-          "zeta within 1 on (3, 8) by %.1e" % (e5, 0.084 + e5, z8), flush=True)
+    gaps = []                                  # the two intervals neither S7 nor S8 samples (verifier 199)
+    for a_, b_ in ((1.25, 1.3), (2.9, 3.0)):
+        c, wg = (a_ + b_) / 2, (b_ - a_) / 2
+        bg = bump(c, wg)
+        ng = quad(bump(0.0, wg), -wg, wg, epsabs=1e-14)[0]
+        Ap = pb.coefficient(zeta0, lambda x: eta0(x) + bg(x), 8.0)[0]
+        Am = pb.coefficient(zeta0, lambda x: eta0(x) - bg(x), 8.0)[0]
+        gaps.append(abs(Ap - Am) / (2 * ng) * (b_ - a_))
+    s7 = 0.0837                                # S7's eta-only sum on (1.3, 2.9) (--zeros, (a))
+    print("  first-order estimates: eta within 1 of eta0 on (3, 5) moves A by %.3f; on the gaps (1.25, 1.3) and "
+          "(2.9, 3) by %.4f and %.4f; so on (1.25, 5R_1) = (1.25, 5) (R_1 = sqrt(mu_end) = 1 here, the record's "
+          "chi supported in |x| < 5 R_1) by about %.3f with S7's eta-only %.4f on (1.3, 2.9); zeta within 1 on "
+          "(3, 8) by %.1e (dA/dzeta falls only like r^-0.9, so on (3, R) this grows like log R)"
+          % (e5, gaps[0], gaps[1], s7 + sum(gaps) + e5, s7, z8), flush=True)
     return 0
 
 

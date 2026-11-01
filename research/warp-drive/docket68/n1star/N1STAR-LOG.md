@@ -7126,3 +7126,10 @@ coordinate that is the square root of the natural one, so half steps appear auto
 exponents above a threshold, not only whole numbers. The integer-power condition used earlier is a convenient
 sufficient test, not a description of the class. Whether a half-power term coming from the sources keeps the record's
 data norm finite depends on that norm's weights, which are not read here.
+
+**D468 (2026-11-01): two checks confirmed, three statements tightened.** The independent check of the strip computation
+and of the cut-off sensitivities confirmed both, with separate code. Three statements said more than was shown. That a
+source confined near the incoming null surface enters one power lower is shown in the spherically symmetric model, not
+yet in general, and beyond the region where the approximation is defined nothing bounds the remainder. One of the two
+dust streams was named for the other. And the 0.21 left out two short intervals; computed now, they make it 0.22. No
+conclusion changes.

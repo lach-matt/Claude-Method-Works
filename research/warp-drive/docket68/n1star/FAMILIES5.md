@@ -340,15 +340,16 @@ couplings are then killed by their own contractions.
       expansions and one of each mixed pair are free, and the other n numbers are fixed: given N′'s numbers the
       conditions fix N's, and conversely, but not both at once (D459); θ and ∂_u g_vv cannot both be prescribed
       (control).
-    - *The null dusts (D463; `checks/chardust5.py` D1-D5, exact, n = 4 and 5).* With E := Ric − δ*W − κT for two null
+    - - - *The null dusts (D463; `checks/chardust5.py` D1-D5, exact, n = 4 and 5).* With E := Ric − δ*W − κT for two null
       dusts, T = Σ_i ρ_i k_i ⊗ k_i, trace-free as k_i is null, T is algebraic in g and the dusts' data and has no
       transverse jet, so N2-N4 hold with C_vv, C_vA, C_tr shifted by −κT_vv, −κT_vA, −κγ^(AB)T_AB, and the propagation of
       W uses div T = 0 and tr T = 0 off N, which the dusts' own equations (geodesic flow and continuity) keep. The
       hierarchy still closes: T_vv = Σ ρ_i (g_uv k_i^u)² is free of g_uu, g_uA and γ (a source for Raychaudhuri's
       equation fixed by the data); T_vA is free of g_uu and linear in g_uA; γ^(AB)T_AB is free of g_uu. A dust along N's
       generators has k_v = 0 on N and drops out; only the crossing dust enters. With the record's dusts, the covectors √K
-      dv and √K du (section 4c), T_vA = T_AB = 0 on N and T_vv is the du-dust's K (verifier 198, D464). The corner
-      conditions are matter-free.
+      dv and √K du (section 4c), T_vA = T_AB = 0 on N, and T_vv = K_in comes from the √K dv dust (T = K_in dv² + K_out
+      du², section 4b; the du-dust runs along N's generators and drops out) (verifier 198, D464; corrected D468, verifier
+      199). The corner conditions are matter-free.
     - Not computed: the dusts' own characteristic data and transport, uniqueness for the linear characteristic problem,
       and that the record's solution solves the reduced equation exactly.
 

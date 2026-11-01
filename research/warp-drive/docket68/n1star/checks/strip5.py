@@ -11,15 +11,18 @@ t = 0 (u = -r, v = r) as r grows.
 
   T1 (computed) S = r^-4 on all of v >= 0: r^2 phi -> -1/2 (within 2e-3 at r = 100-400), the shift G(1) = -f/2 of
      BEYOND5's l = 0 example: an r^-4 source reaches the rho^2 coefficient.
-  T2 (computed) S = r^-4 on the strip v in [0, 1] only: r * r^2 phi tends to a constant, about -0.78 (changing by under
-     1 % from r = 200 to 400), so r^2 phi falls like 1/r: the strip's source enters at rho^3, not rho^2.
-  T3 (computed) control: halving dv and doubling the u-grid moves r^2 phi at r = 100 by under 1e-3 in both cases.
+  T2 (computed) S = r^-4 on the strip v in [0, 1] only: r * r^2 phi tends to a constant, -0.784 at r = 400 and still
+     drifting (changing by under 1 % from r = 200 to 400; about -0.785 by A + B/r, verifier 199), so r^2 phi falls like
+     1/r: the strip's source enters at rho^3, not rho^2.
+  T3 (computed) control: halving dv and doubling the u-grid moves r^2 phi at r = 100 by under 1e-3 on all of v >= 0, and
+     the strip's value by under 2e-3 relative (4e-4 measured; verifier 199 found the old absolute 1e-3 too weak).
 
-So the sources from e, which live in such a strip, do not reach the r^-2 coefficient at I_0 in this model. Not
+So the sources from e, which live in such a strip, do not reach the r^-2 coefficient at I_0 in this model; as the
+l = 0 kernel is positive, it bounds every |S| <= r^-4 on the strip, at l = 0 only (verifier 199). Not
 computed: the strip for the record's full operator, and whether its r^-3 term, which carries no structure, is
 compatible with Lemma 0.1's rho^3 C^infinity.
 
-Run: python3 checks/strip5.py   (about 30 s)
+Run: python3 checks/strip5.py   (about 20 s)
 """
 import sys
 
@@ -61,9 +64,10 @@ def main():
     ok["T2"] = abs(400 * s[400] / (200 * s[200]) - 1) < 0.01 and abs(s[400]) < 0.01 * abs(h[400])
     h2 = run(False, dv=0.01, n=12000, V=110.0, targets=(100,))
     s2 = run(True, dv=0.01, n=12000, V=110.0, targets=(100,))
-    ok["T3"] = abs(h2[100] - h[100]) < 1e-3 and abs(s2[100] - s[100]) < 1e-3
-    print("  control at r = 100, dv/2 and 2n: %.5f against %.5f; %.5f against %.5f"
-          % (h2[100], h[100], s2[100], s[100]))
+    rel = abs(s2[100] / s[100] - 1)
+    ok["T3"] = abs(h2[100] - h[100]) < 1e-3 and rel < 2e-3
+    print("  control at r = 100, dv/2 and 2n: %.5f against %.5f; strip %.6f against %.6f (relative %.1e)"
+          % (h2[100], h[100], s2[100], s[100], rel))
     for k, v in ok.items():
         print(k, "PASS" if v else "FAIL")
     return 0 if all(ok.values()) else 1

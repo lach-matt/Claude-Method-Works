@@ -423,7 +423,7 @@ What it does not give:
   along N and enter at ρ³ in the l = 0 model: D464);
 - uniqueness in W beyond the expansion (an energy identity on W would give it); Lemma 6.5′'s self-similar reduction
   assumes it;
-- the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
+- - the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
   the r⁻² coefficient at I_0 above needs those sources to be o(r⁻⁴). For l = 0, □φ = f r⁻⁴ Y_0 with zero data on N gives
   φ = r⁻² G(s) with s(s − 2)G″ + 3(s − 1)G′ = f, and G(1) = −f/2, which shifts the ρ² coefficient. After the shell the
   leading means are static, and their products are r⁻⁶ (D447, `checks/sources5.py` Q1-Q3): every term of P quadratic in a
@@ -437,15 +437,19 @@ What it does not give:
   (fitted exponent within 0.08 of −9/2 over r = 8-128); the others are O(r^(−11/2)) or less, and the remainder's own
   products O(r⁻⁵). A remainder whose derivatives all gain would give O(r^(−13/2)). The margin over r⁻⁴ is only r^(−1/2):
   by the rule above an r^(−9/2) source contributes at ρ^(5/2), a half-integer power, which bears on (v)'s open question
-  whether half-integer exponents occur. The sources from e := g_λ − g_app (D461, corrected D464). (P-iii) bounds e and ∂e
-  by C t⁻² with no gain (N1STAR-PROOF.md 1041-1042), and (9.8) with Lemma 9.3(a) gives the higher derivatives the proof
-  uses, |∂ⁱe| ≲ λ^(K′−3−i) t⁻², again with no gain (verifier 198). So where they act, the terms quadratic in e and h ∂²e
-  are of order r⁻⁴, attained for an e in that class (`checks/sources5.py` Q6). But e is bounded only on P′, which has v ≤
-  V′_P, while I_0 lies at v → ∞: these sources sit in a strip of bounded v along N, and such a source enters at ρ³, not
-  ρ². In the scalar l = 0 model on flat 5D, r²φ → −1/2 for r⁻⁴ on all of v ≥ 0 (the G(1) = −f/2 above), but r · r²φ →
-  −0.784 for r⁻⁴ on the strip v ∈ [0, 1] (`checks/strip5.py`). So they do not reach the r⁻² coefficient, and D461's
-  conclusion that the record needs a stronger remainder bound is withdrawn. Not computed: the strip for the full
-  operator, and whether its r⁻³ term, which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
+  whether half-integer exponents occur. The sources from e := g_λ − g_app (D461, corrected D464 and D468). (P-iii) bounds
+  e and ∂e by C t⁻² with no gain (N1STAR-PROOF.md 1041-1042), and (9.8) with Lemma 9.3(a) bounds the higher derivatives
+  of w_n on the far region (τ ≤ τ_T, t ≥ λ⁻²), |∂ʲw_n| ≲ λ^(K′−2−j) t⁻² for 1 ≤ j ≤ k − 2 uniformly in n, again with no
+  gain (verifier 198; one power of λ better than D464 stated, verifier 199; the passage from w_n to e is not checked). So
+  where they act, the terms quadratic in e and h ∂²e are of order r⁻⁴, attained for an e in that class
+  (`checks/sources5.py` Q6). But e is bounded only on P′, which has v ≤ V′_P, while I_0 lies at v → ∞: these sources sit
+  in a strip of bounded v along N. In the scalar l = 0 model on flat 5D, r²φ → −1/2 for r⁻⁴ on all of v ≥ 0 (the G(1) =
+  −f/2 above), but r · r²φ → about −0.785 for r⁻⁴ on the strip v ∈ [0, 1] (−0.784 at r = 400 and still drifting;
+  `checks/strip5.py`). So in that model a strip source enters at ρ³, not ρ², and, the l = 0 kernel being positive, the
+  model bounds every |S| ≤ r⁻⁴ on the strip; in that model these sources do not reach the r⁻² coefficient, and D461's
+  conclusion that the record needs a stronger remainder bound is withdrawn. Beyond V′_P, g_λ − g_app is not defined and
+  the remainder there is (b1)'s unknown, which nothing above bounds (verifier 199). Not computed: the strip for the full
+  operator and at l ≥ 1, and whether its r⁻³ term, which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

@@ -5114,6 +5114,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   min Re E_0 > 3/2 + 2 gamma_Ups, j E_0 in E_0, ell_0 > 3, ell_0 not in Re pi_1 E_0 (III.K 53-57), not to integers. So
   Lemma 0.1's integer powers are sufficient, not the class. Open: whether a rho^(5/2) term keeps the d_1-norm finite
   (its weights not read).
+- D468 (verifier 199 on D464 and D465): both confirmed with corrections. strip5.py reproduced by a separate implicit
+  solver (−0.500 on all of v ≥ 0; on the strip about −0.785 extrapolated), G(1) = −f/2 by quadrature; the l = 0 kernel is
+  positive, so the model bounds every |S| ≤ r⁻⁴ on the strip, at l = 0 only. BEYOND5's 'enters at ρ³' and 'do not reach
+  the r⁻² coefficient' now carry 'in that model', and beyond V′_P the remainder is (b1)'s unknown; (9.8) with Lemma
+  9.3(a) gives |∂ʲw_n| ≲ λ^(K′−2−j) t⁻² on the far region, one power of λ better than stated, for w_n (the passage to e
+  not checked). FAMILIES5: T_vv = K_in comes from the √K dv dust, not the du-dust. strip5's T3 is now relative (4 × 10⁻⁴
+  measured, 2 × 10⁻³ asserted). D465: the 0.21 was S7's joint sum without the gaps (1.25, 1.3) and (2.9, 3); S8 now
+  computes them (0.0015, 0.0062), and η's first-order sum on (1.25, 5) is 0.221. dA/dζ falls like r^(−0.92), so ζ's
+  first-order effect grows like log R and (3, 8) is a choice; no curvature beyond r = 3.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
