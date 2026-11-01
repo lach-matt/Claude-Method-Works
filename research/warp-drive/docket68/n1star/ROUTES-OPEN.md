@@ -5365,6 +5365,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   from about l = 10 (D492 proves K uniform; K4 does not grow either, though its bound allows linear growth). Vector type:
   both fall, 0.054 and 0.021 at l = 40. At γ_C = 10⁵ the scalar K departs from γ_C = 10⁶ by up to 6.8 at l = 40: the
   computation is at the record's γ_C, not in the limit of large damping.
+- D497 (E2-PILOT 3j, `checks/e2trapcert5.py` C0-C5, certified by interval arithmetic): section 3j's bound at σ = 3 for
+  every l ≥ 0. l = 5's core-and-flank multiplier (s_c = 1.0174 rational, s_R = 4) certified admissible: w_5 ≥ 0 on t ∈
+  [−120, ln 119] (187 enclosures) and both tails by explicit bounds with the core's terms (left ≤ 0.0158, right ≤ 5.2 ×
+  10⁻²³); −φU′ ≥ 0 makes it admissible for every l ≥ 5 with B_l(3) ≤ B_5(3) ≤ 10.989 (m′ ≥ 0.052674, M′ ≤ 1.01, min_I w_5
+  ≥ 0.81423, 8000 pieces); Lemma E2.7 for l ≤ 4, at most 4.4422. So ‖χ_I R_l(3) χ_I‖ ≤ 10.989 for every l ≥ 0, certified,
+  against 359.01 (l = 0) before. Open: σ > 3 (more multipliers, the same route).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

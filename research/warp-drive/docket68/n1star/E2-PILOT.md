@@ -663,11 +663,22 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   and potential, centred at the exact peak); a core of width 0.05 fails w ≥ 0 at l = 5 (min w = −4.75 × 10³); and every
   bound exceeds the computed norm (e2high5) at (l, σ) = (5, 3), (11, 6), (23, 12) and (47, 24), and the measured maxima
   (D444).
+- *Certified at σ = 3 (D497; `checks/e2trapcert5.py` C0-C5, interval arithmetic).* With l = 5's multiplier (s_L = 49/50,
+  s_R = 4, κ_s = 1/2, s_c = 1.0174 rational and κ = s_c, so β = 0.34769; the certificate checks this multiplier, not the
+  program's float): w_5 ≥ 0 on t ∈ [−120, ln 119] by bisection (187 enclosures); the tails by e2asymcert5's bounds with
+  the core's terms added (left ratio ≤ 0.01581, decreasing toward the horizon; right ≤ 5.21 × 10⁻²³, decreasing outward);
+  −φU′ ≥ 0 on ℝ, so the multiplier is admissible for every l ≥ 5 and B_l(3) ≤ B_5(3); on I over 8000 pieces m′ ≥
+  0.052674, M′ ≤ 1.01, min_I w_5 ≥ 0.81423, so B_5(3) ≤ 10.989; and Lemma E2.7 for l ≤ 4 with max V_l exact, at most
+  1.3221, 1.4463, 1.7217, 2.3512 and 4.4422 (max V_5 ≥ 9.22089 > 9). So, certified: at σ = 3, ‖χ_I R_l(3) χ_I‖ ≤ 10.989
+  for every l ≥ 0, where the certified constants of sections 3f-3g and 3i were 359.01 at l = 0 (D473) and 93.96 at l = 1
+  (D466). For l ≥ 5 the same bound holds at every 0 < |σ| ≤ 3 (B_5 increases with |σ|); for l ≤ 4 at smaller |σ| E2.7
+  does not apply. Controls: the bisection fails at l = 1, and the tail bounds exceed 1 at t = −2 and r = 2.5.
 
 What it does not give:
 
-- a certificate: w ≥ 0 is checked on the grid, as for section 3e; interval arithmetic over the chosen multipliers, as in
-  sections 3f-3g, would make it one, for every larger l at once by the monotonicity above;
+- a certificate at σ > 3: w ≥ 0 is checked on the grid, as for section 3e; at σ = 3 the bound is certified (D497, above),
+  and the same route, one multiplier certified at its least l and the monotonicity above, applies at each σ, with more
+  multipliers as σ grows;
 - σ > 96, nor the H¹ constants of section 3i with these multipliers (X_l, C_l, not redone);
 - the measured (a + b log σ)/σ: the bound is still 9.5 to 19 times above it, and the ratio grows with σ from σ = 6 on
   (9.70, 9.46, 11.2, 13.0, 15.6, 19.0).

@@ -7293,3 +7293,8 @@ record's coordinates do not guarantee away from the initial surfaces.
 **D496 (2026-11-01): the strip, out to mode forty.** Computed out to angular mode forty, the strip's coefficients level
 off for one family of modes and fall for the other, as the bound proved for every mode says they must not exceed. They
 are computed at the record's own damping strength, which matters at high modes.
+
+**D497 (2026-11-01): the new bound, certified at one frequency.** At the frequency where the earlier certified bounds
+were worked out, the new high-frequency bound is now certified too, by arithmetic that keeps track of every rounding: for
+every angular mode the size of the resolvent there is at most about 11, where the best certified figure had been about
+359. The same route can be repeated at higher frequencies.

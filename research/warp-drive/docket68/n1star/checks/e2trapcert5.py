@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """e2trapcert5.py -- E2-PILOT section 3j (D497): section 3j's bound at sigma = 3, certified for every l >= 0.
 
-Section 3j (D486, D493) computed, in floating point, that at sigma = 3 the sup over l of min(Lemma E2.7, Lemma E2.8 with a
-core-and-flank multiplier) is 10.98, set by l = 5 with the multiplier
+Section 3j (D486, D493) computed, in floating point, that at sigma = 3 the sup over l of min(Lemma E2.7, Lemma E2.8
+with a core-and-flank multiplier) is 10.98, set by l = 5 with the multiplier
 
     phi = tanh g,  g' = 1/s_R + (1/s_L - 1/s_R)/(1 + e^z) + beta sech^2((r_* - x_*)/kappa),  z = (r_* - x_*)/kappa_s,
 
@@ -19,13 +19,13 @@ by interval arithmetic (mpmath.iv, e2asymcert5's helpers), and with it the bound
      ratios certified < 1, decreasing away from the range.
   C3 monotone in l: -phi U' >= 0 on R (phi and U' change sign together at x_*), so w_l = w_5 + (a_l - a_5)(-phi U')
      >= w_5 for l >= 5: the multiplier is admissible for every l >= 5, w_I does not decrease, and B_l(3) <= B_5(3).
-  C4 on I = {r in [1.2, 4]}, 2000 pieces: m' = min_I phi', M' = max_I phi', min_I w_5, and B_5(3) = ((2/m' + (M' +
+  C4 on I = {r in [1.2, 4]}, 8000 pieces: m' = min_I phi', M' = max_I phi', min_I w_5, and B_5(3) = ((2/m' + (M' +
      6)^2/w_I)/w_I)^(1/2), rounded up.
   C5 Lemma E2.7 for l = 0, ..., 4 (sigma^2 = 9 > max V_l, max V_l exact from the quadratic in y = 1/r^2): Lambda sigma/
      (sigma^2 - max V_l) with Lambda = r_*(4) - r_*(1.2), in intervals; and max V_5 > 9 (l = 5 is not above the barrier).
   So, certified: at sigma = 3, for every l >= 0, ||chi_I R_l(3) chi_I|| <= max(C5's values, B_5(3)).
-  Controls: C1's bisection fails at l = 1 (the multiplier needs a larger a than a_1); the left tail's ratio bound exceeds 1
-     at t = -3 and the right's at r = 2.5.
+  Controls: C1's bisection fails at l = 1 (the multiplier needs a larger a than a_1); the left tail's ratio bound
+     exceeds 1 at t = -2 and the right's at r = 2.5 (so neither certifies without C1's range).
 
 Labels: C1-C5 certified (interval arithmetic, explicit tail bounds, outward rounding); C0 computed. Lemmas E2.7 and E2.8
 as in sections 3c and 3e (verifier 207, D493: E2.8's proof uses only phi in C^3, phi' >= 0, |phi| <= 1 on I, phi(+-inf)
@@ -190,8 +190,8 @@ def main():
     ok["C3"] = BETA.a > 0 and gmin > 0
     print("  C3: beta > 0 and g' >= %s > 0, so phi and U' change sign together at x_*: -phi U' >= 0, and the multiplier "
           "certified at l = 5 is admissible for every l >= 5 with B_l(3) <= B_5(3)" % E.dn(gmin, 4))
-    m1lo, M1hi = E.enclose_I(lambda tt: mult(xr(tt))[1])
-    wlo, _ = E.enclose_I(lambda tt: w_of(tt, A_(5)))
+    m1lo, M1hi = E.enclose_I(lambda tt: mult(xr(tt))[1], pieces=8000)
+    wlo, _ = E.enclose_I(lambda tt: w_of(tt, A_(5)), pieces=8000)
     c = iv.mpf(M1hi) + 2 * SIGMA
     w, m = iv.mpf(wlo), iv.mpf(m1lo)
     B5 = iv.sqrt((2 / m + c**2 / w) / w)
@@ -212,10 +212,10 @@ def main():
     sup = max([b.b for _, _, b in e27] + [B5.b])
     # controls
     f1, _, bad1 = certify_positive(A_(1), tL, tR)
-    rl3, _ = tail_left(A_(5), -3)
+    rl3, _ = tail_left(A_(5), -2)
     rr25, _ = tail_right(A_(5), mpf("2.5"))
     ok["controls"] = (not f1) and rl3.a > 1 and rr25.a > 1
-    print("  controls: the bisection fails at l = 1 (near t = %s); left ratio at t = -3 >= %s; right ratio at r = 2.5 "
+    print("  controls: the bisection fails at l = 1 (near t = %s); left ratio at t = -2 >= %s; right ratio at r = 2.5 "
           ">= %s" % (iv.nstr(iv.mpf(bad1[0]), 5) if bad1 else "-", E.dn(rl3.a, 4), E.dn(rr25.a, 4)), flush=True)
     good_all = all(ok.values())
     print("  %s: at sigma = 3, ||chi_I R_l(3) chi_I|| <= %s for every l >= 0 (certified symmetric constant: 359.01 at "
