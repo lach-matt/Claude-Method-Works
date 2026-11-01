@@ -135,9 +135,9 @@ def null_refinement(dirn):
             K[(M, N)] = c
             print("  M = %d, %d: done" % (M, N), flush=True)
     for xe in XS:
-        print("\n  at x = %g, A = 1: per v-band over areal radius [1.0, 1.4], cells kept in all four runs: dev = max |K/K_0 "
-              "- 1| (M = 40, 1600 x 720); dM = max |K_32 - K_40|/K_0 at 1600 x 720 (in angle); duv = max |K_800 - "
-              "K_1600|/K_0 at M = 40 (in the null grid)" % xe)
+        print("\n  at x = %g, A = 1: per v-band over areal radius [1.0, 1.4], cells kept in all four runs: dev = max "
+              "|K/K_0 - 1| (M = 40, 1600 x 720); dM = max |K_32 - K_40|/K_0 at 1600 x 720 (in angle); duv = max "
+              "|K_800 - K_1600|/K_0 at M = 40 (in the null grid)" % xe)
         Kx = {k: at_x(c["K"], c["x"], xe) for k, c in K.items()}
         Rr = at_x(K[(40, 1600)]["R"], K[(40, 1600)]["x"], xe)
         keep = ~K[(32, 800)]["mask"] & ~K[(40, 800)]["mask"] & ~K[(32, 1600)]["mask"] & ~K[(40, 1600)]["mask"]
