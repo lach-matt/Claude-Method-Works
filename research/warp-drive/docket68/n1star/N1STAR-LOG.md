@@ -7785,3 +7785,11 @@ resolved. The finer-grid runs now in progress test exactly that region.
 cost the same depended on two numbers chosen inside one of the record's lemmas. Read at source, those numbers are chosen
 once, in the lemma's own proof, from the operator alone, so every use of the lemma gets the same cost, and the two kinds
 of round, which use it with the same weight, cost the same.
+
+**D585 (2026-11-01): the paper's list of what is not proved, brought up to date.** Its section 9 still described the
+state of things before the work of the last two hundred and fifty entries. It now says, with each claim's label, how far
+the evaluation of the constants has gone (the loss d bounded below but not a number, the first linear constant certified
+up to frequency 384), what the double-null runs at the physical wavelength show and that they certify nothing, how far
+the solution is carried inside the black hole and what stands between it and the record's own data, and what two
+crossing dusts have and have not been given. The verifier record is extended to match. No new mathematics; the new text
+is to be read by a verifier.

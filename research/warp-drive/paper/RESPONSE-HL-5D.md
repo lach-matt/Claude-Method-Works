@@ -1255,8 +1255,24 @@ Theorem 4 with them.
   compactness, contradiction and Fredholm arguments that give no number. The linear statement of section 8.2 is proved,
   in the gauge of the nonlinear problem (supplement `proof5/PART-VIII-LINEAR.md`), and a linearised solution given in
   another gauge differs from it by a linearised diffeomorphism L_X g (supplement `proof5/PART-IX-GAUGE.md`). The decay
-  of X is not proved, so the routes in a Regge–Wheeler-type gauge and in the harmonic gauge (Hung's sections 5–8 in
-  five dimensions), which argue decay in those gauges, remain deductions.
+  of X is not proved, so the routes in a Regge–Wheeler-type gauge and in the harmonic gauge (Hung's sections 5–8 in five
+  dimensions), which argue decay in those gauges, remain deductions. Three parts of that evaluation have since been
+  taken further (supplement `docket68/n1star/`). The loss d of the write-out's tame estimates, and with it the exponent
+  8d + 2 and the order N = 21d + 6 that it requires, is reduced to finitely many weights chosen under inequalities, six
+  elementary losses given closed forms, and loop counts (`LOSS-D.md`, deduced from the write-out's text). At the
+  write-out's own parameter point two nested loops already give d > 5.3 × 10¹⁵ and N > 1.11 × 10¹⁷ in its accounting
+  (deduced; the counts computed exactly): a floor for what this proof's bookkeeping delivers, not for the optimal loss.
+  A round of the write-out's iteration at future timelike infinity is charged 15 derivatives on the part of its weight
+  range below 3.5, and 17 above (deduced; the steps counted exactly, `checks/prop31loss5.py`), and the rounds of the two
+  remaining long loops cost the same (deduced); one weight, the logarithmic terms of the general index set, the count of
+  one regularity step beyond its floor of 8 and the loss of one resolvent remain open, so d is still not a number. For
+  the first constant of the linear theory, the resolvent of the scalar wave operator on five-dimensional Tangherlini of
+  mass 1 cut off to an interval about the photon sphere, a bound is certified for every real 0 < |σ| ≤ 384 and every
+  harmonic, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 on 3 ≤ σ ≤ 384, and there the one-derivative constants are at most 963.4 and,
+  summed over the harmonics, 1516 (`E2-PILOT.md`; certified in exact rational and interval arithmetic,
+  `checks/e2trapband5_384.out`, `checks/e2h1band5.out`); the bound lies 9.5 to 21 times above the computed norm at the
+  sampled frequencies. The passage to the write-out's own function spaces and the other constants are not done, so λ1
+  and δ are still not evaluated.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1,
@@ -1287,10 +1303,41 @@ Theorem 4 with them.
   finite-difference amplification of the data along one direction, a lower bound for the propagator's norm, is 1.28
   and 1.00; where the scheme completes (λ = 0.1 r_h) they are 6.9 and 1.71, while the sup-norm Grönwall factor is 17,
   2 × 10⁵ and 6 × 10³: a certified argument would need the propagator's norm, not a sup-norm bound. The linear
-  scattering of the shell off the seed at 10 l5 is computed in `docket68/lemmas/seed_escape.py`.
+  scattering of the shell off the seed at 10 l5 is computed in `docket68/lemmas/seed_escape.py`. That problem has since
+  been computed as a prototype (supplement `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not certified): the
+  class's Einstein equations in double-null gauge, evolved in (u, v) with an expansion in the polar angle, at the
+  prescribed wavelength at both seeds. At the first seed the Kretschmann scalar is moderate and converged in angle up to
+  the point where the runs stop converging, and unresolved after it, where a singularity, a steep smooth feature and a
+  defect at the axis are not yet told apart. At the second seed, with the angular and null grids refined together, the
+  runs converge up to v ≈ 3.5; after that one region at late v is unresolved, the finest angular resolution departing
+  first and the two coarser ones disagreeing beside the cells it drops, and runs on a finer null grid to decide it are
+  in progress. No certified step has been taken, neither a certified residual nor the certified linear estimate about
+  the computed solution, so existence at 10 l5 remains open.
 - **Beyond the boundary.** Theorems 1–3 are made on D_T and Ω, whose inner boundary r = a lies a fixed distance inside
-  x_K = 1; beyond them only Theorem 4 is stated, outside the black hole.
-- **More families.** Several dusts, angular separation, and the passage to Vlasov matter are not attempted.
+  x_K = 1; beyond them Theorem 4 is stated outside the black hole. Its development also reaches inside the black hole
+  after the shell, up to the curvature boundary (supplement `docket68/n1star/BEYOND5.md` Propositions 6.1–6.2, deduced):
+  with the write-out's inner radius lowered below r_q(μ_end) = (√72 μ_end l5²)^(1/4), and every part re-proved at the
+  lowered radius (`BEYOND5-R0-PROOF.md`, which found the inner radius of one part out of line with the rest, now
+  repaired), it is defined on all of {r ≥ r_q} to the future of its initial slice, for every final mass, and settles
+  there at Theorem 4's rate; on their common domain of dependence it and g_λ are one spacetime (Lemma 6.3, deduced). It
+  is not shown that Theorem 4 applies to g_λ's own data: g_λ is given on Ω, which does not contain the whole initial
+  slice, and continuing it to spatial infinity asks for a scattering problem from past null infinity and an expansion of
+  its solution at spatial infinity. Parts of that are done (deduced, with exact computations): the leading Coulomb part
+  carried to spatial infinity with no logarithm, the transfer under the record's full operator on Minkowski space
+  bounded uniformly in the harmonic, the remainder's sources in the strip along the initial null hypersurface entering
+  one order later at every harmonic computed (l ≤ 12), and the approximant's stage profiles expanded in powers of
+  r^(−1/2) at past null infinity, with three closure properties of that expansion asserted, not shown. The scattering
+  estimate itself is not done. Inside x_K = 1 nothing is attempted.
+- **More families.** Angular separation and the passage to Vlasov matter are not attempted. Two crossing null dusts are
+  scoped and taken through the leading orders (supplement `docket68/n1star/FAMILIES5.md`): the cross coupling of the two
+  families is a gauge artefact at leading order (deduced; stage 0 computed), and with two families the record's core
+  estimate, its approximant to every order and its lemma on the domain are deduced, the last given the two-dust
+  background on the whole domain. That background's existence is deduced with one step sketched, and computed on a
+  region that does not reach the initial slice. The linearised constraint map at the approximant's slice data has no 1/λ
+  coefficient with both families, on flat space, on Vaidya and on a static background with both phases null (computed,
+  exactly), and a wave with a trace on the spheres gives one. Not done: the background on the whole domain, the
+  constraints' solution on its slice, the dynamic outgoing null phase, and the proof at the record's level. No statement
+  about several families is proved.
 - **The boundary at equality.** If μ0 = √72 l5² exactly (supplement `docket68/n1star/EQUALITY5.md`): g_λ equals the
   seed on {v ≤ v_s}, v_s := inf supp env, so x_K = 1 is the seed's horizon there; it is spacelike for g_λ on {v ≥
   v_s + η} once λ ≤ λ_η; in the layer between, whose width tends to 0 with λ, its causal character is not decided,
@@ -1363,7 +1410,13 @@ Theorem 4 with them.
   (D157). Later rounds, seated in D162–D184, were read by the sixty-fourth to the seventy-third, every finding seated.
   The write-out of section 8.8 was read part by part by the seventy-fourth to the hundred-and-fifty-fourth verifiers
   (D185–D336), one or a few parts at a time, each part's findings seated and its repairs read again until a reader
-  found them correct; the findings that changed a statement of the sources or of the route are named in section 8.8.
+  found them correct; the findings that changed a statement of the sources or of the route are named in section 8.8. The
+  work since, on the evaluation of the constants, the double-null runs, the region beyond the boundary and two families,
+  was read by the hundred-and-fifty-fifth to the two-hundred-and-fifty-second verifiers (D339–D580), an entry or a few
+  at a time, each recomputing what it read. Their major findings were repaired where they stood, among them a per-round
+  loss counted as 19 that is 15, an existence result cited as settled that is a premise, a comparison of runs that
+  depended on which cells each kept, and an induction's base case taken at a level its source does not give; the bullets
+  above state the repaired results. This section's new text has not been read by a verifier.
 
 ---
 
@@ -2085,6 +2138,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the eighty-fifth Part II.D′ (D206) |
 | | the eighty-sixth Part II.E (D207) |
 | | the eighty-seventh to the hundred-and-fifty-fourth the remaining parts of the write-out and their repairs (D208–D336; `proof5/README.md`, N1STAR-LOG) |
+| | the hundred-and-fifty-fifth to the two-hundred-and-fifty-second the work of section 9 since (D339–D580) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction

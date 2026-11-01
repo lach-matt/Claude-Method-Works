@@ -843,7 +843,8 @@ What it does not give:
     is 10.98, 5.846, 3.755, 2.362, 1.512 and 0.9886 at σ = 3, 6, 12, 24, 48 and 96, at most 11.35 over [3, 96] and
     falling roughly like σ^(−0.6): 9.5 to 19 times the measured maximum, against 224 to 1.2 × 10⁵. Certified since: at
     the six σ (D497, D503) and on the whole band, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 for every 3 ≤ σ ≤ 96 and every l (D506,
-    `checks/e2trapband5.py`), and on to σ = 192 with the same constant (D528).
+    `checks/e2trapband5.py`), and on to σ = 192 and then σ = 384 with the same constant (D528, D567), with the
+    one-derivative constants of section 3i on that band (D581).
   - Method: u_h and u_∞ by the Riccati equation for their log-derivatives where each is a single WKB wave, by the linear
     equation past the barrier peak, the kernel in logarithms, its norm by power iteration on its semiseparable structure,
     at least 40 grid points per wavelength. Controls: D352's σ = 3 row reproduced (0.4094, 0.4229, 0.451, 0.6719, 0.7251,
