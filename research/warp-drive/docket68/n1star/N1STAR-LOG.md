@@ -7190,3 +7190,9 @@ a unit in the last place. They are corrected, and the checks now always round ou
 cut-off functions lay just outside the black hole, where the computation started from a series. Starting the series
 closer in opened most of that stretch; there too no change, however large, brings the coefficient near zero: it stays
 between 140.3 and 142.0.
+
+**D480 (2026-11-01): the weight comparison and the rounding fix stand; the literature reading is narrowed.** The
+independent check confirmed the certified weight ratio and the safer rounding. It could not reach the paper quoted for
+the null-surface theorem, so the quotations were checked here against the paper's text instead. It also pointed out that
+the theorem needs one more assumption than was spelled out, now stated; and that the no-condition-at-the-corner claim
+holds for the record's own dust streams, not for every possible one.

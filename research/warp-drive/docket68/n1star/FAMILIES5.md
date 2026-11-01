@@ -383,14 +383,21 @@ couplings are then killed by their own contractions.
       derivative; given g, each dust is a first-order transport along its own null direction with free data on the
       hypersurface it crosses and its value on the other fixed by transport from S (D470), which is the well-posedness
       (15) asks for, by characteristics (not written out); and W vanishes on N ∪ N′ by D440-D441 and the corner
-      conditions (D455). So, given that well-posedness, the record's characteristic problem with its two dusts has a
-      solution of the reduced equations near S, which solves the full equations since W = 0 on N ∪ N′; uniqueness is
-      stated there for vacuum and locally, and for the dusts rests on the same reduction (not read further); P2's
-      propagation of W = 0 near S is the step [CP12] takes from [11] (not read).
+      conditions (D455). So, given that well-posedness and that of the coupled reduced Einstein-dust system, which [CP12]
+      p. 9 assumes separately and which is not shown here (verifier 204, D480), the record's characteristic problem with
+      its two dusts has a solution of the reduced equations near S, which solves the full equations since W = 0 on N ∪
+      N′; uniqueness is stated there for vacuum and locally, and for the dusts rests on the same reduction (not read
+      further); P2's propagation of W = 0 near S is the step [CP12] takes from [11] (not read). Not checked: whether
+      [CP12] section 3's generalised wave-map gauge (a target metric ĝ and a source W̊ computed from the data) covers
+      this section's source H and the background g0. The quotations were checked word for word against the alphaXiv text
+      of arXiv:1203.4534v2 when they were seated (D480), by the author, not independently: the verifier's route to arXiv
+      was refused.
     - Not computed: existence and uniqueness beyond a neighbourhood of S (the reading gives them near S only, and
       uniqueness locally), the dusts' well-posedness given g written out, and that the record's solution solves the
-      reduced equation exactly. The corner S needs no condition for the dusts: each dust's value on S is the restriction
-      of its free data on the hypersurface it crosses, which then seeds its transport along the other (D470).
+      reduced equation exactly. For the record's dusts, whose directions ∝ ∇v and ∇u are each tangent to one of N, N′,
+      the corner S needs no condition: each dust's value on S is the restriction of its free data on the hypersurface it
+      crosses, which then seeds its transport along the other (D470). A general crossing dust, with D470's free k^A on N,
+      may cross N′ too, which brings free data there and a compatibility condition at S (verifier 204).
 
 ## 4c. The two-dust background (D389)
 

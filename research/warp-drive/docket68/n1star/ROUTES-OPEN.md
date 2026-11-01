@@ -5197,6 +5197,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   reliable (QR matching where needed), no sign change. With D457, D465 and D472, no cut-off variation computed anywhere
   on (1.05, 8) makes A vanish. Open: (1, 1.05), the series' own range; non-rotation-invariant cut-offs; the dual state as
   a function.
+- D480 (verifier 204 on D476-D478): D477 and D478 stand. D477: φ_* is centred at x_* with s = 49/50 (e2certify5); the
+  factorisation, the interval division and the refinement are valid (ρ = 0.712004 certified, 40-digit sampling 0.71335);
+  A_l in ψ_*'s weight and the l ≥ 6 reduction right; C*_2 = 66.028, C_1 = 184.819. D478: up and dn round safely, negative
+  values included; the corrected values match the scripts; all three pass. MINOR: e2asymcert5's K4 control line still
+  rounded to nearest (now outward). D476: the verifier's route to arXiv was refused, so its quotations are checked here
+  against the alphaXiv text by the author, not independently (each word for word, pages as cited, one comma aside);
+  MINOR: the coupled reduced system's well-posedness, which [CP12] p. 9 assumes, is now stated separately from (15)'s;
+  the corner claim is limited to the record's gradient dusts (a general crossing dust may cross N′ too and need a
+  condition at S); whether [CP12] section 3's gauge covers this section's H and g0 is recorded as not checked.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

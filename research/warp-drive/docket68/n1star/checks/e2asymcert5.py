@@ -252,7 +252,7 @@ def main():
         and mr25.b < 0 and w0lo <= 0
     print("  K4: tails fail where they should: left ratio at t = -3 >= %s, right ratio at r = 2.5 >= %s (monotone from "
           "%s); K3's pipeline refuses l = 0 (min_I w_0 enclosed from %s)"
-          % (iv.nstr(iv.mpf(rl3.a), 4), iv.nstr(iv.mpf(rr25.a), 4), iv.nstr(mr25, 3), iv.nstr(iv.mpf(w0lo), 4)),
+          % (dn(rl3.a, 4), dn(rr25.a, 4), up(mr25.b, 3), dn(w0lo, 4)),
           flush=True)
     print("  K4: at l = 0 the bisection fails (near t = %s) and w_0 <= %s at t = -3.9; centre at r = 1.6: -phi U' at "
           "r = 1.5 is %s (%.0fs)" % (iv.nstr(iv.mpf(bad0[0]), 5) if bad0 else "-", iv.nstr(iv.mpf(n0.b), 4),
