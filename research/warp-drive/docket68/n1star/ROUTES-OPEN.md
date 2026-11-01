@@ -4986,11 +4986,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   reproduced; grid refinement 7e-4. Also: E2-PILOT 4's 'two kinds of l below l_0' are covered by Lemma E2.9 (section 3f),
   bearing only on E2.5's constants. Open: a proof of the log law (E4), the record's norms.
 - D450 (LOSS-D LD9, checks/s1coef5.py --record, S6, computed): the s1 coefficient at the record's point, gam_U = e_U =
-  1/100 (z = 4e-6, d1 = 3.3e-7): A = 141.4269, ten digits across matching radii and starts (condition <= 1e5). It cancels
-  u_0's near-resonant rho^2 term along the same vector (P_v = -141.4214, from D412's (0, -99.75, -100.25)) to within
-  0.0055, so near I_0 the state carries A d1 rho^2 log rho plus a small rho^2 term, and d1 is in E_ind at the record's
-  point. The cut-offs move A by 7e-6 to 0.17 (the gauge term is weak at gam_U = 1/100). Open: the parameters against
-  III.D' Prop. 4.1, whether some zeta removes the term, the dual state.
+  1/100 (z = 4e-6, d1 = 3.3e-7): A = 141.4269, ten digits across matching radii and starts (condition <= 1e5). The
+  near-resonance forces A = -P_v + O(1) (P_v = -141.4214, u_0's rho^2 term from D412's (0, -99.75, -100.25) along v);
+  near I_0 the state carries A d1 rho^2 log rho plus the rho^2 vector (0.0133, 0.2473, -0.2395), and d1 is in E_ind at
+  the record's point. The cut-offs move A by 7e-6 to 0.17 (the gauge term is weak at gam_U = 1/100). Open: the parameters
+  against III.D' Prop. 4.1, whether some zeta removes the term, the dual state.
+- D451 (verifier 194 on D450; CONFIRMED-WITH-CORRECTIONS): A reproduced to 1e-9 by an independent Chebyshev collocation
+  from the horizon (N = 200, 400) and within 3e-10 across radii 3, 4, 6, tolerances and three integrators; the brief's
+  two other near-resonances vanish exactly (odd P_k are zero). Corrected: only A = -P_v + O(1) is forced; A + P_v =
+  0.0055 is small because the full rho^2 vector (0.0133, 0.2473, -0.2395), norm 0.345, lies near D412's (0, 1/4, -1/4),
+  nearly orthogonal to v (it changes sign along the branch between 1/30 and 1/100); the eta bump acts through gam_H eta
+  and moves the residual 32-fold; a second near-cancellation at rho^4 noted.
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2

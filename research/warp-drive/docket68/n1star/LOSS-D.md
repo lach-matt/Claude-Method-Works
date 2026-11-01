@@ -423,14 +423,19 @@ loop counts of section 3.
       picture above (there the near-resonant particular solution grows like 1/e_Υ). Two points on each branch at most;
       the record's point is the next bullet, and whether these γ_Υ, e_Υ, γ_Υ,H meet III.D′ Proposition 4.1's ε_0, ε_1 is
       not checked (D443).
-    - *At the record's point (D450; `checks/s1coef5.py --record`, S6, computed).* γ_Υ = e_Υ = 1/100, z = 4 × 10⁻⁶, d1 =
-      3.3 × 10⁻⁷: A = 141.4269, the same to ten digits at both matching radii and the second start (condition up to 10⁵).
-      It is large because of the near-resonance. u_0's ρ² coefficient there is (0, −99.75, −100.25), D412's particular
-      solution, with component P_v = −141.4214 along ρ^(2+d1)'s unit vector, and A cancels it to within A + P_v = 0.0055:
-      near I_0 the state carries A (ρ^(2+d1) − ρ²) ≈ A d1 ρ² log ρ plus a small ρ² term. So d1 ∈ ℰ_ind at the record's
-      point too, with coefficient about 141 for these cut-offs. The cut-offs move A by 7 × 10⁻⁶ (ζ's interval), 1.9 ×
-      10⁻³ (a ζ bump of 20) and 0.17 (an η bump of 20): at γ_Υ = 1/100 the gauge term is weak, and the cut-off-dependent
-      part is the residual A + P_v. Not checked: whether these parameters meet III.D′ Proposition 4.1's ε_0, ε_1.
+    - *At the record's point (D450-D451; `checks/s1coef5.py --record`, S6, computed).* γ_Υ = e_Υ = 1/100, z = 4 × 10⁻⁶,
+      d1 = 3.3 × 10⁻⁷: A = 141.4269, the same to ten digits at both matching radii and the second start (condition up to
+      10⁵), and reproduced to 10⁻⁹ by verifier 194's Chebyshev collocation from the horizon. It is large because of the
+      near-resonance: u_0's ρ² coefficient there is (0, −99.75, −100.25), D412's particular solution, with component P_v
+      = −141.4214 along ρ^(2+d1)'s unit vector v, and the near-resonance forces A = −P_v + O(1). Near I_0 the state
+      carries A (ρ^(2+d1) − ρ²) ≈ A d1 ρ² log ρ plus the ρ² vector A v + c_2 = (0.0133, 0.2473, −0.2395), of norm 0.345,
+      close to D412's finite part (0, ¼, −¼) and so nearly orthogonal to v: its component along v, A + P_v = 0.0055, is
+      small for that reason, not forced (along the branch it is −0.016 to 0.014 and changes sign between γ_Υ = e_Υ = 1/30
+      and 1/100; at D442's points −0.16 to −0.31; verifier 194, D451). So d1 ∈ ℰ_ind at the record's point too, with
+      coefficient about 141 for these cut-offs. The cut-offs move A by 7 × 10⁻⁶ (ζ's interval), 1.9 × 10⁻³ (a ζ bump of
+      20) and 0.17 (an η bump of 20, through the horizon term γ_Υ,H η): small against A, not against A + P_v, which the η
+      bump moves 32-fold. A second near-cancellation sits at ρ⁴. Not checked: whether these parameters meet III.D′
+      Proposition 4.1's ε_0, ε_1, and whether any of the record's estimates bounds the ρ^(2+d1) and ρ² pieces separately.
   - *The global problem depends on choices the record leaves open (D415, deduced).* The s1 state solves □^Υ_b ω = 0
     and is smooth on X (D4:109-111), so its ρ^(2+d1) coefficient depends on □^Υ_b everywhere, not only near infinity.
     The record fixes c_Υ only near infinity: c_Υ = ζ(|x|)|x|⁻¹ dt with ζ = 1 for large |x|, and c_Υ,H = −½χ(|x|) d|x|

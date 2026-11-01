@@ -30,12 +30,13 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      S4's agreement of 10^-10. It is positive at every choice: no zero was found in these families. Verifier 190
      reproduced A by Chebyshev collocation to nine digits (D443).
 
-  S6 (computed; --record) the record's point gam_U = e_U = 1/100 (z = 4 x 10^-6, d1 = 3.3 x 10^-7): A = 141.4268935,
-     the same to ten digits at both matching radii and the second start (condition 3 x 10^4 to 10^5). u_0's rho^2
-     coefficient there is (0, -99.75, -100.25) (D412's particular solution), whose component along the unit vector of
-     rho^(2+d1) is P_v = -141.42138: A cancels it to within A + P_v = 0.0055, as the near-resonance forces, the state
-     carrying A (rho^(2+d1) - rho^2) = A d1 rho^2 log rho + ... The cut-offs move A by 7 x 10^-6 (zeta's interval),
-     1.9 x 10^-3 (a zeta bump of 20) and 0.17 (an eta bump of 20); A + P_v by the same (D450).
+  S6 (computed; --record) the record's point gam_U = e_U = 1/100 (z = 4 x 10^-6, d1 = 3.3 x 10^-7): A = 141.4268935, the
+     same to ten digits at both matching radii and the second start (condition 3 x 10^4 to 10^5), and to 1e-9 by verifier
+     194's collocation. u_0's rho^2 coefficient there is (0, -99.75, -100.25) (D412's particular solution), with
+     component P_v = -141.42138 along the unit vector v of rho^(2+d1); the near-resonance forces A = -P_v + O(1), and the
+     state's rho^2 vector A v + c_2 = (0.0133, 0.2473, -0.2395) is close to D412's finite part (0, 1/4, -1/4), nearly
+     orthogonal to v, so A + P_v = 0.0055 is small but not forced (D451). The cut-offs move A by 7 x 10^-6 (zeta's
+     interval), 1.9 x 10^-3 (a zeta bump of 20) and 0.17 (an eta bump of 20, through gam_H eta); A + P_v by the same.
 
 Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8)
 (both z = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double

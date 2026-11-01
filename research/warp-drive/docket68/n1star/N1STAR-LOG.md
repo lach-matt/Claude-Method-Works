@@ -6999,7 +6999,12 @@ law, not a proof.
 **D450 (2026-11-01): the coefficient at the record's own setting.** D442 computed the coefficient at stronger damping
 than the record's, because at the record's setting two of the solution's rates of fall-off differ by only three parts
 in ten million and are hard to separate. They separate cleanly after all: the coefficient there is about 141, the same
-to ten digits however the calculation is arranged. Its size comes from the near-coincidence: it almost exactly cancels
-a nearby term the equations force anyway, leaving a remainder of about half a hundredth. So at the record's own setting
+to ten digits however the calculation is arranged. Its size comes from the near-coincidence, which forces it to almost
+cancel a nearby term the equations require anyway. So at the record's own setting
 too the term is present, and how the record's free smoothing functions are chosen changes it only slightly.
+
+**D451 (2026-11-01): verifier 194 on D450.** The number stands: an independent method gives the same coefficient to
+nine decimal places. The reading was corrected: the near-coincidence explains why the coefficient is large, but the
+small remainder seen along one direction is not forced by it, and the full leftover term is larger in another
+direction. The horizon smoothing function, not the weak damping, is what moves that remainder.
 
