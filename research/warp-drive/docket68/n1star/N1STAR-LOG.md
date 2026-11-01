@@ -6975,3 +6975,10 @@ expected them to, because the leading parts there no longer change in time, but 
 scaling check confirms it: products of such time-independent terms fall off two powers faster than required. What is
 still unchecked are the terms that involve the smaller, less well described remainder.
 
+**D448 (2026-11-01): the light-surface constraints can be solved.** D440 showed that the coordinate condition holds
+for data on light-like surfaces if those data satisfy the surfaces' own constraint equations, but did not check that
+such data exist. An exact computation now shows the constraints form a chain of ordinary differential equations along
+the light rays: one for the overall size of the cross-sections, then one for the shift-like components, then one for
+the remaining component, each with a nonzero leading coefficient. So they can be solved in turn from free data and
+values where the two surfaces meet. What is left is matching the conditions at that meeting place.
+

@@ -4966,6 +4966,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   from h's jets; controls: the linear part scales as 2^-4, a non-static h breaks it). Deduced: every term of P at least
   quadratic in the static leading means is O(r^-6), o(r^-4) as D413's condition needs; Tangherlini's corrections lower
   the degree. Open: the cross terms with the E_(5/2) remainder and the sources from g_lambda - g_app.
+- D448 (FAMILIES5 4e, checks/charcons5.py K1-K3, exact): D440's gauge-reduced null constraints as ODEs along the
+  generators. Modulo every W-jet, C_vv carries only gamma^AB d_v^2 g_AB (coefficient -1/2): Raychaudhuri for the
+  conformal factor; C_vA carries d_v^2 g_uB with coefficients g^uv delta_A^B and no d_v^2 g_uu; C_tr carries d_v^2 g_uu
+  with coefficient -2 (g^uv)^2. So with the conformal class of gamma, g_uv and H given, they are solved in turn for the
+  conformal factor, g_uA and g_uu from data at S. Open: the corner conditions at S, the dusts' stress, uniqueness for the
+  linear characteristic problem.
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
