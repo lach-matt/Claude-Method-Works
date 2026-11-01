@@ -6071,6 +6071,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   B2's own 0.48. Nits: B3 is computed, not part of the certificate; the interval argument is run by B2, not "not run";
   two saved outputs predate print changes (values agree); e2meas5 had values at 96 and 128 only. Added: the measured
   norm at σ = 160, 0.0326365 (l = 319), the certified bound 22.4 times it.
+- D575 (verifier 250 on D570 and D571: 1 major, 4 minor, nits; `checks/g1curv5.py --seed2-48` now reports each pair on
+  its own cells, output resaved): MAJOR, D571's agreements depend on the cells kept. Each pair on its own cells, the
+  cells beside the cut apart: M = 32 and 40 agree to 0.092 K_0 away from the cut, and differ by up to 1.3 × 10⁴ K_0
+  beside it after v = 3.5; M = 48 departs from M = 40 away from it; D515's M = 24-32 differences at 800 × 360 lie on
+  cells M = 40 masks. So the M²/N table holds only for interior departures, at (32, 800) unchecked, and four binary
+  outcomes do not test M²/N: a hypothesis, "one level up" withdrawn. Minor: in D570 III.I′′′′′ part (1) needs only ℓ_I <
+  a_I + ½ (I6:35), and the forcing-weight reason is this note's reading; I15:451 reads a_I = ℓ_I under one reading of
+  (H2), so d_G = 11 then asks a_I ≤ 3.5099 too; the disk figure's basis stated. The D570 and D571 entries above keep
+  their text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

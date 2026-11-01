@@ -684,16 +684,27 @@ No other component is nonzero. So the scheme is the following.
   computed).* M = 32, 40 and 48 on --seed2-40's rows, K's v-derivatives at second and fourth order. Before v = 3.25 M =
   48 agrees with M = 40 to 0.011 K_0 at the seven sampled angles (x = 0.99, …, −0.97), more loosely than M = 40 with M =
   32 (2.4 × 10⁻⁴ K_0), the two stencils agreeing to 1.7 × 10⁻⁴ K_0. From v ≈ 3.25 M = 48 departs at every angle: |K/K_0
-  − 1| reaches 2.1 to 21 on [3.25, 3.5), 7.6 × 10³ to 6.6 × 10⁴ on [3.5, 4) and 2.2 × 10⁵ to 4.4 × 10⁵ on [4, 4.5), with
-  1 to 57 cells per band and angle above 2, and the two stencils differing as much; M = 32 and 40 still agree there to
-  0.097 K_0 at those angles. That is D524's pattern one level up: at 800 × 360 M = 40 departed and M = 32 did not, at
-  1600 × 720 M = 40 holds and M = 48 departs, worse than M = 40 from the start. The four runs are consistent with a step
-  condition M²/N ≤ c, N the first grid number: no departure at M²/N = 1.28 (M = 32, N = 800) and 1.0 (M = 40, N = 1600),
-  departures at 2.0 (M = 40, N = 800) and 1.44 (M = 48, N = 1600), so 1.28 ≤ c < 1.44 if such a condition is what acts
-  (consistent with, not shown; an explicit step's angular stiffness on a Chebyshev grid grows like M²). So this run does
-  not decide convergence after v ≈ 3.5. That needs M = 32, 40 and 48 at one grid with N ≳ 48²/1.28 = 1800: at N = 2000
-  about 5.6 GB of fields against the 3.8 GB free here, and several hours, the M = 48 run alone having taken two at N =
-  1600 (not run).
+  − 1| reaches 2.1 to 21 on [3.25, 3.5), 7.6 × 10³ to 6.6 × 10⁴ on [3.5, 4) and 2.2 × 10⁵ to 4.4 × 10⁵ on [4, 4.5) (the
+  three angles with cells there), with 1 to 57 cells per band and angle above 2, and the two stencils differing as much
+  after v = 3.5 (0.06 to 0.2 against 2.1 to 21 on [3.25, 3.5)); on the cells all three runs keep, M = 48's mask
+  included, M = 32 and 40 still agree there to 0.097 K_0 at those angles. That is D524's pattern one level up: at 800 ×
+  360 M = 40 departed and M = 32 did not, at 1600 × 720 M = 40 holds and M = 48 departs, worse than M = 40 from the
+  start. The four runs are consistent with a step condition M²/N ≤ c, N the first grid number: no departure at M²/N =
+  1.28 (M = 32, N = 800) and 1.0 (M = 40, N = 1600), departures at 2.0 (M = 40, N = 800) and 1.44 (M = 48, N = 1600), so
+  1.28 ≤ c < 1.44 if such a condition is what acts (consistent with, not shown; an explicit step's angular stiffness on
+  a Chebyshev grid grows like M²). So this run does not decide convergence after v ≈ 3.5. That needs M = 32, 40 and 48
+  at one grid with N ≳ 48²/1.28 = 1800: at N = 2000 about 5 to 6.3 GB of compressed fields (5.05 with the v grid fixed,
+  6.3 with it scaled with N; corrected D575) against the 3.8 GB free here, and several hours, the M = 48 run alone
+  having taken two at N = 1600 (not run). (Corrected D575, verifier 250: these agreements depend on the cells kept. Each
+  pair on its own cells, `--seed2-48`'s second table, with the cells beside the cut (next to a cell masked in any of the
+  three runs) reported apart: M = 32 and 40 agree to 0.092 K_0 away from the cut at every sampled angle and band, and
+  differ by up to 1.3 × 10⁴ K_0 on the cells beside it after v = 3.5 (25 to 34 cells above 2 per angle on [4, 4.5) at x
+  = 0.99 to 0.9), D543's 2.35 K_0 being such a cell; M = 48 departs from M = 40 away from the cut. At 800 × 360 D515's M
+  = 24-32 differences (32 to 205 K_0) lie on cells M = 40's run masks. So the departures are of two kinds, beside the
+  cut and in the interior, and the table's "no departure" entries hold for the interior kind only, at (40, 1600) as
+  shown here and at (32, 800) not checked; and four binary outcomes bound the critical M's growth from N = 800 to 1600
+  only to a factor in (1, 1.5), M²/N being assumed, not tested. The step condition is a hypothesis, "one level up" is
+  withdrawn as a finding, and D572's runs at 2400 × 1080, saving only the rows compared, are to be read both ways.)
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
@@ -719,8 +730,10 @@ No other component is nonzero. So the scheme is the following.
   earlier, at every angle, and is worse than M = 32 from the start (D524); M refined together with the null grid removes
   M = 40's departures (1600 × 720, D543), and what remains is convergence after v ≈ 3.5, lost first off the axis (D547),
   which M = 48 at 1600 × 720 does not decide, M = 48 departing there from v ≈ 3.25 as M = 40 did at 800 × 360 (D571); it
-  needs M = 32, 40 and 48 at one null grid with N ≳ 1800, M²/N below about 1.28. Rounding is excluded (D354), and so is
-  the curvature cut. Then F3 (the certified linear constant) on the converged part.
+  needs M = 32, 40 and 48 at one finer null grid, compared on each pair's own cells with the cells beside the cut apart
+  (D575), which D572's runs at 2400 × 1080 provide; and the cut's own effect, which is where M = 32 and 40 disagree at
+  1600 × 720. Rounding is excluded (D354), and so is the curvature cut. Then F3 (the certified linear constant) on the
+  converged part.
 
 ## 7. Sources
 

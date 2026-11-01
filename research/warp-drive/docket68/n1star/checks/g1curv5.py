@@ -454,6 +454,38 @@ def s2_report(C, vc, grid):
             st = mx(np.abs(Kx[(48, 2)] - Kx[(48, 4)]) / K0)
             print("    [%.2f,%.2f): %s;  st %.3g  (%d cells)" % (lo, hi, ";  ".join(parts), st, int(sel.sum())),
                   flush=True)
+    return s2_pairs(C, vc, grid)
+
+
+def s2_pairs(C, vc, grid):
+    """D575 (verifier 250): each pair of M on its own cells (both runs' masks only, not the third's), with the cells
+    beside the cut (a cell masked in any of the three runs next to it in v, same row) reported apart"""
+    masks = {M: C[(M, 2)]["mask"] for M in (32, 40, 48)}
+    anym = np.any(list(masks.values()), axis=0)
+    near = anym.copy()
+    near[:, 1:] |= anym[:, :-1]
+    near[:, :-1] |= anym[:, 1:]
+    print("\n  each pair on its own cells (%s; R in [0.9, 1.4]): max |K_a - K_b|/K_0 on the cells beside the cut and on the "
+          "rest, with the number of cells above 2 in each, o = 2 / 4" % grid)
+    for xe in S2XS:
+        Kx = {k: cheb(c["K"], c["x"], xe) for k, c in C.items()}
+        print("\n  x = %g" % xe)
+        for lo, hi in S2BANDS:
+            band = ((vc >= lo) & (vc < hi))[None, :]
+            parts = []
+            for a, b in ((32, 40), (40, 48)):
+                Rr = cheb(C[(a, 2)]["R"], C[(a, 2)]["x"], xe)
+                K0 = 72.0 / Rr**8
+                own = (~masks[a] & ~masks[b] & band & (Rr >= 0.9) & (Rr <= 1.4)
+                       & np.all([np.isfinite(Kx[(M, o)]) for M in (a, b) for o in (2, 4)], axis=0))
+                for o in (2, 4):
+                    dd = np.abs(Kx[(b, o)] - Kx[(a, o)]) / K0
+                    out = []
+                    for sel in (own & near, own & ~near):
+                        out.append("%.3g(%d/%d)" % (float(dd[sel].max()), int((sel & (dd > 2)).sum()), int(sel.sum()))
+                                   if sel.any() else "-")
+                    parts.append("%d-%d o%d near %s away %s" % (a, b, o, out[0], out[1]))
+            print("    [%.2f,%.2f): %s" % (lo, hi, ";  ".join(parts)), flush=True)
     return 0
 
 

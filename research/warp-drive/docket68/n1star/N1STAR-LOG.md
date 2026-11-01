@@ -7737,3 +7737,10 @@ number. It corrected three labels: one row of ratios had been described as the c
 floating-point estimate, the certified ratios being slightly larger; the window of candidates matters at the top
 frequency only; and D567's "0.44 at 384" uses the wider window, the certificate's own value there being 0.48. The
 measurement at frequency 160 has also come in: the bound is about 22 times the measured value there.
+
+**D575 (2026-11-01): two claims of the last hour narrowed.** The independent check found that the agreement between the
+two coarser angular resolutions, which the step rule of D571 rested on, holds only on the cells the finest run kept.
+Compared on their own cells, they agree closely everywhere except next to the excised region, where they differ hugely;
+the finest run's blow-up is in the interior. So there are two different failures, and the simple rule linking the
+resolutions is now only a hypothesis. On D570: the stricter weight limit is not used by every later step, as that entry
+said, and the reason given for it was this note's reading, not the record's statement.

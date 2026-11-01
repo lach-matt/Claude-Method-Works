@@ -167,10 +167,11 @@ the strip rule, F2 s_c ≥ 0, F3 Corollary 3.1 (2), F4 the free choices and λ_�
 
 **Weights.** Fixed only by inequalities at n = 4:
 
-- ℓ_I: 3 + ε_+ < ℓ_I ≤ a_I, off discrete exclusion sets: III.I′ Proposition 2.1 asks ℓ_I < min(a_I + ½, ℓ_I^max)
-  (I2:250-254) and III.I′′′′ Proposition 4.1 adds ℓ_I ≤ a_I (I5:318-319), carried on by I8:47, I9:31, I10:37 and I11:47,
-  so both hold from I5 on and the second binds (reconciled D570; D565 had them as two readings)
-  (PART-III-I11-SPACETIME.md:46 (H4); PART-III-I6-ALMOSTBDD.md:27-28 and PART-III-I4-BOOST.md:264 for III.I'' (5.1)).
+- ℓ_I: 3 + ε_+ < ℓ_I ≤ a_I, off discrete exclusion sets: III.I′ Proposition 2.1 asks ℓ_I < min(a_I + ½, ℓ_I^max) (I2:60,
+  250-254) and III.I′′′′ Proposition 4.1 adds ℓ_I ≤ a_I (I5:318-319), carried on by I8:47, I9:31, I10:37 and I11:47, the
+  second binding wherever Proposition 4.1 and (H4) are used (III.I′′′′′ part (1) needs only the first, I6:35; reconciled
+  D570, corrected D575; D565 had them as two readings) (PART-III-I11-SPACETIME.md:46 (H4);
+  PART-III-I6-ALMOSTBDD.md:27-28 and PART-III-I4-BOOST.md:264 for III.I'' (5.1)).
 - The top decay order: α ∈ (4, 4 + ε_K] for I15's theorem (I15:37), used with α > 4 at I15:227 and I15:324; the
   admissible orders range over (2, 4 + ε_K] (I11:156); α_K = 4 + ε_K (I12:14); ε_K small with no Re λ in (2, 2+ε_K] ∪
   (3, 3+ε_K] (I11:153); ε'_0 := ½ min(ε_K, ε_+ − ε_K) (I11:157-158); ε_ind ∈ (0, 1] with d(Re λ, Z) ≥ ε_ind
@@ -871,14 +872,18 @@ loop counts of section 3.
     1 (14 at its top if δ ≥ ε), but the record bounds ε_I only through min(ε_ind, ε_I) < 1 (corrected D565: ε_I = 1.6,
     ℓ_I = 4.55 gives 15; G2). The choice of ℓ_I, not a_I, fixes d_G = 11.] [D570, read at source (deduced): the two
     bounds are not two readings. ℓ_I < a_I + ½ is III.I′ Proposition 2.1's hypothesis, the product bound at n = 4
-    (I2:250-254, (I′2)); III.I′′′′ Proposition 4.1 fixes ℓ_I with III.I″ (5.1) and ℓ_I ≤ a_I (I5:318-319), because its
-    forcing class has ℐ⁺-weight ℓ_I + 1 ((4.1)) and the parameter derivative it must take has weight a_I + 1 ((I′′′′5),
-    I5's findings, which also give a_I ≥ 2); I8:47, I9:31, I10:37 and I11:47 carry ℓ_I ≤ a_I on, (H4) through it. So
-    both hold from I5 on and ℓ_I ≤ a_I binds: `checks/dg5.py` G3's reading ℓ_I ≤ a_I is the record's. Then (3 + ε_+,
-    3.5) is admissible only for a_I ≥ 3.5, and section 2's items 3-4 read on (3 + ε_+, min(a_I, 3.5)); but d_G = 11
-    needs only some ℓ_I in (3 + ε_+, min(a_I, 3.5099)], which is nonempty for every a_I > 3 + ε_+, (H4)'s class, ε_+
-    being below ε_ind < 3 × 10⁻⁶ at the record's parameter point (J-PARAM:34, F2:133-136). The open input is a_I itself,
-    the class's ℐ⁺-order, which the record leaves free (the source's 3 + ε_I).] [D573, `checks/prop31loss5.py` Q1-Q3,
+    (I2:250-254, (I′2)); III.I′′′′ Proposition 4.1 fixes ℓ_I with III.I″ (5.1) and ℓ_I ≤ a_I (I5:319, used at I5:334);
+    I8:47, I9:31, I10:37 and I11:47 carry it, (H4) through it, while III.I′′′′′ part (1) holds under (1.2) alone, ℓ_I ≤
+    a_I entering its step (2) (I6:35). So ℓ_I ≤ a_I binds wherever Proposition 4.1 and (H4) are used, as the ι⁺
+    iteration uses them (corrected D575, verifier 250: "both hold from I5 on" overstated, and the reason, a forcing
+    class of ℐ⁺-weight ℓ_I + 1 against a parameter derivative of weight a_I + 1, I5:269, 326, is this note's reading,
+    (I′′′′5) giving only a_I ≥ 2): `checks/dg5.py` G3's reading ℓ_I ≤ a_I is the record's. Then (3 + ε_+, 3.5) is
+    admissible only for a_I ≥ 3.5, and section 2's items 3-4 read on (3 + ε_+, min(a_I, 3.5)); but d_G = 11 needs only
+    some ℓ_I in (3 + ε_+, min(a_I, 3.5099)], which is nonempty for every a_I > 3 + ε_+, (H4)'s class, ε_+ being below
+    ε_ind < 3 × 10⁻⁶ at the record's parameter point (J-PARAM:34, F2:133-136). The open input is a_I itself, the class's
+    ℐ⁺-order, which the record leaves free (the source's 3 + ε_I). (Corrected D575: under one reading of (H2), I15:451
+    reproduces the class with a_I = ℓ_I; then d_G = 11 asks a_I ≤ 3.5099 as well, which (H4) allows, a_I and ℓ_I
+    together in (3 + ε_+, 3.5099]. Proposition 2.1's statement is at I2:60.)] [D573, `checks/prop31loss5.py` Q1-Q3,
     exact, and deduced: Proposition 3.1's fixed loss, counted. III.J″ (g) makes it a composition of the face
     integrations (loss 0, J3:139-141), (z − 3/2 − Ā)⁻¹ (loss 0) and L̃ (loss 2) in finitely many steps (J3:173-176). The
     proof's steps (I2:198-235): Step 1 removes the exceptional slot-7 term, then Step 2 takes the ℐ⁺-terms with Re z ≤

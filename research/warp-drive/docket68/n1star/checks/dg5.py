@@ -6,8 +6,9 @@ LOSS-D section 2, item 6, (2.5): d(lam) = 6 + ceil(max(0, Re lam - 2 + delta)) +
 the record's III.I (five primes) Proposition 2.1 at the levels below 3 runs over Re lam in [lam_sharp, 2 - eps),
 lam_sharp = 1.5099 (LD14). The weight l_I is chosen (E1'a) with l_I > 3 + eps_+ ((H4), I11:46-47) and, on the
 record's two upper bounds, l_I < a_I + 1/2 (III.I' Proposition 2.1, I2:251-252) and l_I <= a_I (III.I''''
-Proposition 4.1, I5:319, carried by I8:47, I9:31, I10:37, I11:47), both in force from I5 on, the second binding
-(D570: not two readings, as D565 had them), and l_I < l_I^max (> 100, I2:31). a_I is free (> 3/2, I-CONE:65); (H4) asks a_I > 3 +
+Proposition 4.1, I5:319, carried by I8:47, I9:31, I10:37, I11:47), the second binding wherever III.I''''
+Proposition 4.1 and (H4) are used (III.I''''' part (1) needs only the first, I6:35; D570, D575: not two
+readings, as D565 had them), and l_I < l_I^max (> 100, I2:31). a_I is free (> 3/2, I-CONE:65); (H4) asks a_I > 3 +
 eps_+ on the first reading (I11:47); the source's a_I = 3 + eps_I (I-CONE:68), eps_I bounded only through
 min(eps_ind, eps_I) < 1 (I-CONE:472-473).
 
