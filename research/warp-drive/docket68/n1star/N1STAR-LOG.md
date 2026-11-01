@@ -7225,3 +7225,10 @@ reproduced every curvature number. It found the growth with wave strength more v
 starting lower, and, at the two strongest waves, convergence lost first away from the axis; these are corrected. On the
 gauge, the reason given was wrong: the record's choice does add terms with derivatives of the metric, but only first
 derivatives, so the equations stay of the kind the theorem treats and the conclusion holds.
+
+**D486 (2026-11-01): at high frequency the bound now falls instead of growing.** The explicit bound for each angular mode
+grew in proportion to the frequency, while the true size of the resolvent falls. Two changes reverse that. The modes that
+pass over the potential barrier already have a simple bound that falls; and for the modes near the photon sphere the
+weight used in the estimate is made sharper at the peak and gentler away from it. Taken over every mode, the bound now
+falls from about 11 to about 1 as the frequency goes from 3 to 96, within a factor of 10 to 20 of the true size, where it
+used to be off by up to a hundred thousand. Computed, not yet certified.

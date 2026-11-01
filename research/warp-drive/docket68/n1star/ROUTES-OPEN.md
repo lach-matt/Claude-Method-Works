@@ -5250,6 +5250,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   'any smooth vector field' does not literally cover it; Rendall's argument carries the step. The verifier could not
   reach the paper (403); the quotations are as read here from the alphaXiv text. Corrected in FAMILIES5 4e. The D475 and
   D484 entries above keep their text as first stated.
+- D486 (E2-PILOT 3j, `checks/e2trap5.py` T1-T5, computed, not certified): the large-σ gap, harmonic by harmonic. Lemma
+  E2.7 (proved) covers every harmonic above the barrier, Λ|σ|/(σ² − max V_l) with max V_l exact (1.446 at l = 1, σ = 3,
+  against E2.8's 253). Near and above the trapped harmonic E2.8's w_I is at most −φ‴(x_*)/2, so a fixed multiplier gives
+  B growing like |σ|; a narrow core at x_* with wide flanks (φ = tanh g, g′ = D466's plus β sech²((r_* − x_*)/κ), 645
+  multipliers) lets the core shrink like 2.4 l^(−1/2) while m′ stays bounded. Centred at x_*, w_l increases with l, so
+  the best bound is nonincreasing in l and l > 212 is covered by l = 212. The sup over every l ≥ 0 of min(E2.7, E2.8) is
+  10.97, 5.846, 3.755, 2.362, 1.512, 0.9886 at σ = 3, 6, ..., 96, at most 11.35 on [3, 96] in steps of 0.01, slope −0.63:
+  9.5 to 19 times the measured maximum, against 224 to 1.2 × 10⁵ for section 3e's 63σ. Controls: e2morawetz5's 21.35
+  reproduced; a too-narrow core fails w ≥ 0; every bound above e2high5's computed norm at four (l, σ). Open: a
+  certificate (interval arithmetic over the chosen multipliers); σ > 96 (σ^(−1/2) suggested by the scaling); section 3i's
+  H¹ constants with these multipliers.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
