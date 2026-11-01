@@ -30,7 +30,8 @@ is not covered, the kernel having no sign.
 Measured (D487, corrected D491): P1 to 1.2e-30; at degree -3 the eigenvalues of M1(0) are 2.5, 2.51, 2.52 and the
 damping's 1.5e6, 3e6 at every 2 <= l <= 12 (at l = 0 and 1 the least is 2.5099), scalar and vector types; the normalised
 norm of K is 1.97 to 2.99 (scalar) and 0.17 to 1.14 (vector), the series at 400 and 600 terms agreeing to 30 digits; K at
-gamma_C = 10^5 differs by up to 6.5e-2 (scalar, l = 12).
+gamma_C = 10^5 differs by up to 6.5e-2 (scalar, l = 12); K4, normalised, 1.70 to 3.31 (scalar) and 0.063 to 0.58
+(vector), nonzero at every harmonic.
 
 Labels: P1, P2 exact; P3 computed (K4 too). The tensor type, where the damping drops out (harmonics5 S3), is not reduced here.
 """

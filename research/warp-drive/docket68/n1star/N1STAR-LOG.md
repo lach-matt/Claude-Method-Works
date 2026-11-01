@@ -7256,3 +7256,9 @@ paired with a blow-up just beside it, where the coefficient returns to its sign.
 a smooth quantity marks by changing sign, finds them only for very large changes of the record's choices close to the
 horizon: one in one family, four in another, each with its zero beside it, and none at all for changes further out, up to
 amplitudes a hundred thousand times the record's own.
+
+**D491 (2026-11-01): the strip's corrections come in whole powers.** The independent check confirmed the strip's main
+result, but not what was said of its next terms: they come in whole powers of the distance, not the fractional ones
+claimed, because the equations do not change under a shift in time, so the band's thickness only adds a Taylor series.
+The record's own model computation had shown the first of them already. The fractional powers were an artefact, and the
+question they raised falls away.

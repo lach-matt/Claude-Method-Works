@@ -457,23 +457,29 @@ What it does not give:
   and 1/15) and at ρ⁴ at l = 2 and 4: the ρ³ coefficient is C_l = −π/(4Γ(1 − l/2)Γ(2 + l/2)), −π/4, −1/3, 0, 1/15, 0 for
   l = 0-4, zero at every even l ≥ 2 (verifier 202's Riemann-function computation, D481; `checks/strip5.py` T5), so in no
   harmonic computed does it reach ρ²; for l ≥ 1 these are values for S = r⁻⁴Y_l, not bounds, as the kernel changes sign.
-  The strip for the full operator (D487, `checks/stripfull5.py` P1-P3): at radius r the strip is s = v/r ∈ [0, d/r], so
-  for the degree −3 profile h = r⁻³F(s) a source of Cartesian size r⁻⁴ on it acts as σd δ(s) at N (σd = ∫ r⁴S dv over the
-  strip). With harmonics5's reduction at degree −3 (M2 = (s − s²/2)I), integrating (sF′)′ + (M1(0) − I)F′ = σd δ over the
-  strip, with F = 0 on N, gives F(0+) = (M1(0) − I)⁻¹σd; beyond it the solution is the regular one with that value, plus
-  terms (sr/d)^(1−m), one for each eigenvalue m of M1(0), of relative size (d/r)^(m−1) at I_0. So the strip enters at ρ³
-  with coefficient Kσd, K = T_3(M1(0) − I)⁻¹ and T_3 the degree −3 transfer from N to I_0, when every eigenvalue has Re m
-  > 1. In the scalar model this is exact: M1(0) = 5/2, F(0+) = −d/3, the regular solution is ₂F₁(3 + l, 1 − l; 5/2; s/2),
-  and Gauss's second summation theorem gives F(1) = C_l, verifier 202's coefficient (P1: to 10⁻³⁰ for l ≤ 6, through the
-  same series transfer as P3). For the record's full operator at its point (γ_C = 10⁶), at every scalar- and vector-type
-  harmonic l ≤ 12: M1(0) at degree −3 is M1(0) at degree −2 plus I (exact, P2); its eigenvalues are 2.5, 2.51, 2.52 and
-  the damping's 1.5 × 10⁶ and 3 × 10⁶, so every Re m ≥ 2.5; and K is finite, its norm in each harmonic's normalised basis
-  at most 2.99 (scalar type 2.76 to 2.99, vector type 0.17 to 1.14; the series at 400 and 600 terms agree to 30 digits;
-  P3). So for every harmonic computed the strip enters at ρ³ with no logarithm and does not reach the r⁻² coefficient.
-  Its width corrections enter at ρ^(2+m): ρ^4.5, ρ^4.51 and ρ^4.52, exponents tied to N's own (1 − m at degree −3 is the
-  degree −2 exponent at N less 1, D436). Not computed: the tensor type (damping-free, harmonics5 S3); uniformity in l at
-  degree −3 (Lemma 6.5‴ is at degree −2); whether the record's index sets at I_0 contain 4.51 and 4.52; and whether the
-  r⁻³ term, which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
+  The strip for the full operator (D487, corrected D491; `checks/stripfull5.py` P1-P3): at radius r the strip is s = v/r
+  ∈ [0, d/r], so for the degree −3 profile h = r⁻³F(s) a source of Cartesian size r⁻⁴ on it acts as σd δ(s) at N (σd = ∫
+  r⁴S dv over the strip). With harmonics5's reduction at degree −3 (M2 = (s − s²/2)I), integrating (sF′)′ + (M1(0) − I)F′
+  = σd δ over the strip, with F = 0 on N, gives F(0+) = (M1(0) − I)⁻¹σd; beyond it the solution is the regular one with
+  that value (distributionally: F = H(s)F_reg and sδ′ = −δ; the delta is the strip's leading term in d). So the strip
+  enters at ρ³ with coefficient Kσd, K = T_3(M1(0) − I)⁻¹ and T_3 the degree −3 transfer from N to I_0, when every
+  eigenvalue has Re m > 1. In the scalar model this is exact: M1(0) = 5/2, F(0+) = −d/3, the regular solution is ₂F₁(3 +
+  l, 1 − l; 5/2; s/2), and Gauss's second summation theorem gives F(1) = C_l, verifier 202's coefficient (P1: to 10⁻³⁰
+  for l ≤ 6, through the same series transfer as P3). For the record's full operator at its point (γ_C = 10⁶), at every
+  scalar- and vector-type harmonic l ≤ 12: M1(0) at degree −3 is M1(0) at degree −2 plus I (exact, P2); its eigenvalues
+  are 2.5, 2.51, 2.52 and the damping's 1.5 × 10⁶ and 3 × 10⁶ (at l = 0 and 1 the least is 2.5099), so every Re m ≥ 2.5;
+  and K is finite, its norm in each harmonic's normalised basis at most 2.99 (scalar type 1.97 to 2.99, vector type 0.17
+  to 1.14; the series at 400 and 600 terms agree to 30 digits; P3). So for every harmonic computed the strip enters at ρ³
+  with no logarithm and does not reach the r⁻² coefficient. Its width corrections are analytic in d, at integer powers
+  (D491; verifier 208 corrected D487's ρ^(2+m)): the operator is invariant under t → t + c, so a sheet of source at v =
+  v_0 gives r⁻³F(1 − v_0/r) at t = 0, and over a uniform strip r³h(I_0) = dKσ + (d²/r)K4σ + O(d³/r²), K4 = −½T_3′(M1(0) −
+  I)⁻¹ with T_3′ the transfer to F′(1): ρ⁴, ρ⁵, …. In the scalar model K4 = 1/2, 0, −1/6, 0, 1/10, 0, −1/14 for l = 0-6
+  (P1, to 10⁻³⁰), strip5's ρ⁴ at l = 2 and 4 (D474) and, at l = 0, the drift of −0.784 at r = 400 above (−π/4 + 1/800 =
+  −0.78415); for the full operator K4 is nonzero at every harmonic l ≤ 12, normalised norm 1.70 to 3.31 (scalar type) and
+  0.063 to 0.58 (vector type). This is for a source r⁻⁴σ(v) with σ independent of r; a source only bounded by r⁻⁴ is not
+  covered, the kernel having no sign. Not computed: the tensor type (damping-free, harmonics5 S3); uniformity in l at
+  degree −3 (Lemma 6.5‴ is at degree −2); and whether the r⁻³ term, which carries no structure, is compatible with Lemma
+  0.1's ρ³C^∞.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

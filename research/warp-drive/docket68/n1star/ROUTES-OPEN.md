@@ -5302,6 +5302,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   14574.511, −14570.834, D482's among them. At r = 2.45-4.8 (bumps at 2.85, 2.45, 4.8, 3.2): none. Each zero within 0.2 %
   of its pole, the matching's condition number about 10¹⁸ there. So A vanishes only beside a zero-energy state of the s1
   sector, at amplitudes from 1640 concentrated inside r = 1.25. Not excluded: two poles within one grid step (8 %).
+- D491 (verifier 208 on D487): the headline stands, every harmonic computed has the strip at ρ³ with coefficient Kσd, no
+  r⁻² part and no logarithm (F(0+) = (M1(0) − I)⁻¹σd confirmed three ways: distributionally, by the PDE's inner transport
+  problem, and by the full-operator ODE with a source of width ε, |F(1) − K| ∝ ε; P2's shift holds for all s, (1 − s)I
+  per degree, from the principal part alone; strip5's scheme reproduces C_l at l = 0, 1, 3 to 2 × 10⁻⁴). MAJOR: the width
+  corrections are at integer powers, not ρ^(2+m): the operator is time-translation invariant, so a sheet at v_0 gives
+  r⁻³F(1 − v_0/r) at t = 0 and r³h(I_0) = dKσ + (d²/r)K4σ + …, K4 = −½T_3′(M1(0) − I)⁻¹: ρ⁴ first. The record already
+  said so: strip5's ρ⁴ at l = 2 and 4 is K4 = −1/6 and 1/10, and at l = 0 the drift −π/4 + 1/800 at r = 400. The
+  (sr/d)^(1−m) terms were an artefact of reading the strip's interior with the self-similar ODE at fixed r. Now
+  stripfull5's P1 (K4 exact, l = 0-6) and P3 (K4 at every l ≤ 12, normalised 1.70 to 3.31 scalar, 0.063 to 0.58 vector).
+  MINOR: the scalar range of ‖K‖ is 1.97 to 2.99 (l = 1 is 1.969); the jump is a distributional identity, the delta the
+  leading term in d; the eigenvalue 2.5 is absent at l = 0 and 1 (least 2.5099); Kσd assumes σ independent of r, and a
+  source only bounded by r⁻⁴ is not covered; P1's accuracy is 1.2 × 10⁻³⁰, not 25 digits. The question whether the index
+  sets contain 4.51 and 4.52 is moot. Corrected in BEYOND5 3(b) and stripfull5; the D487 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
