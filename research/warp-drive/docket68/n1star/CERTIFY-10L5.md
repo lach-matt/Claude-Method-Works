@@ -642,6 +642,18 @@ No other component is nonzero. So the scheme is the following.
   also first show at M = 32. The linear interpolant's 24-32 difference is 1.5 to 5 × 10⁻³ on the converged bands, D499's
   floor.
 
+- *M = 40 at the second seed (D524; `checks/g1curv5.py --seed2-40`, the same 24 rows, M = 24, 32, 40 at 800 × 360,
+  compared on the cells kept at all three).* Refining M at the fixed null grid makes K worse from the start. The 32-40
+  difference is 10⁻⁶ to 10⁻⁴ of K_0 on [2.5, 3) and 10⁻⁴ to 3 × 10⁻³ on [3, 3.25), 10 to 10³ times the 24-32 one (2 ×
+  10⁻⁸ to 5 × 10⁻⁶) at every angle, and 0.14 to 0.57 on [3.25, 3.5). From v = 3.5, where M = 24 and 32 still agree to 4
+  × 10⁻⁴ to 3 × 10⁻², M = 40 departs from the background by 2 × 10³ to 2 × 10⁴ K_0 at every angle, and by up to 2 × 10⁶
+  near x = +1 after v = 4. So the large values come earlier, and larger, the finer the angular grid: at M = 32 from v ≈
+  4 near x = +1, at M = 40 from v ≈ 3.5 at every angle. The cells where M = 32 departed are excluded by M = 40's own
+  cut. A feature of the solution would show convergence before it and appear at the same v. This is what D418 found at
+  the first seed: M alone, at 800 × 360, does not converge and degrades the smooth region. It points to the scheme, the
+  angular resolution outrunning the null step, more firmly than D515 could. Running: M = 32 and 40 at 1600 × 720, the
+  joint refinement D432 made at the first seed.
+
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
   dnsolve5's k-scan and the swapped gauge's fourth grid are done (D403). The axis treatment at small R is now tested
@@ -658,14 +670,14 @@ No other component is nonzero. So the scheme is the following.
   (D458, D462). Next at λ = 1: an axis treatment that does not lose digits near the axis (the regular combinations (1 +
   x)m and (1 − x)n as unknowns, or Gauss-Radau nodes at the axes with the regularity conditions imposed there), then the
   same comparison; and the invariant g_22 at x = −1 followed as A rises to 1 (D458 has it at A = 3/4 and 1). The
-  Kretschmann scalar is now followed (D475, D485): moderate and converged in angle up to the failure, unresolved at every
-  angle after it (at the two largest amplitudes first off the axis in the runs without `ld 3`; at A = 1 with it, at v ≈
-  1.93 at every angle, D499), so an axis treatment must be judged by K's convergence at all angles, not near the axis
-  alone. At the second seed the invariant does not single out x = +1 (D515): its angular convergence is lost first
-  off the axis, at v ≈ 3.74, and the large values at the axis after v = 4 are M = 32's alone; what remains there is a
-  fourth M or angular refinement concentrated at the axes (a mapped Chebyshev grid), to tell a feature finer than M =
-  24 resolves from a defect of the finest grid. Rounding is
-  excluded (D354), and so is the curvature cut. Then F3 (the certified linear constant) on the converged part.
+  Kretschmann scalar is now followed (D475, D485): moderate and converged in angle up to the failure, unresolved at
+  every angle after it (at the two largest amplitudes first off the axis in the runs without `ld 3`; at A = 1 with it,
+  at v ≈ 1.93 at every angle, D499), so an axis treatment must be judged by K's convergence at all angles, not near the
+  axis alone. At the second seed the invariant does not single out x = +1 (D515): its angular convergence is lost first
+  off the axis, at v ≈ 3.74, and the large values at the axis after v = 4 are M = 32's alone; a fourth M, 40, departs
+  earlier, at every angle, and is worse than M = 32 from the start (D524); what remains is M refined together with the
+  null grid (1600 × 720, running), and angular refinement concentrated at the axes. Rounding is excluded (D354), and so
+  is the curvature cut. Then F3 (the certified linear constant) on the converged part.
 
 ## 7. Sources
 

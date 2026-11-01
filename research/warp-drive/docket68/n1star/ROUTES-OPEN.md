@@ -5650,6 +5650,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   cancels). MINOR: Lemma 3.2′ omitted −½ λ (□̃_app φ) F_k ĝ_2, O(λ|d²φ|), and Lemma 3.3′ the matching O(λ|d²φ_in|), both
   harmless for N′; Q1's □ is the covariant one on scalars; the −½ on the s_k(w) remark; T for two phases was not
   restated. Corrected in FAMILIES5 4g; the D522 entry above keeps its text.
+- D524 (CERTIFY-10L5 6b; `checks/g1curv5.py --seed2-40`, computed, floating point, on saved runs): M = 40 at the second
+  seed. At 800 × 360 on the same rows, the 32-40 difference in K is 10 to 10³ times the 24-32 one at every angle from v
+  = 2.5 (10⁻⁶ to 10⁻⁴ of K_0 against 2 × 10⁻⁸ to 5 × 10⁻⁶), and from v = 3.5 M = 40 departs by 2 × 10³ to 2 × 10⁴ K_0 at
+  every angle (up to 2 × 10⁶ near x = +1 after v = 4), where M = 24 and 32 still agree to 4 × 10⁻⁴ to 3 × 10⁻². The
+  large values come earlier, and larger, the finer the angular grid (M = 32 from v ≈ 4 near x = +1, M = 40 from v ≈ 3.5
+  everywhere), D418's behaviour at the first seed. This points to the scheme, the angular resolution outrunning the null
+  step, more firmly than D515. Running: M = 32 and 40 at 1600 × 720.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

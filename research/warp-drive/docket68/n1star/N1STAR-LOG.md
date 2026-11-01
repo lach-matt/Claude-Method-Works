@@ -7443,3 +7443,9 @@ beyond its first stage, and the estimate written out in full.
 **D523 (2026-11-01): the two-family core estimate, checked.** An independent check recomputed the key identities by
 computer algebra, confirmed the bookkeeping by two routes, and found one omitted small term, of a kind the estimate
 already controls, and some wording to tighten.
+
+**D524 (2026-11-01): a finer grid makes it worse.** At the second wave profile, the angular resolution was raised once
+more without refining the time grid. The finer run is less accurate from the start and blows up earlier, everywhere
+around the circle, while the two coarser runs still agree with each other. A real feature of the solution would sharpen
+under refinement, not appear earlier. This points to the numerical scheme, as the same experiment did for the first
+profile. Both grids refined together are now running.

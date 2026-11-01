@@ -73,6 +73,14 @@ points to the scheme rather than the solution at x = +1, without proving it: a f
 also first show at M = 32. (The saved runs record no solver flags: wavelength, cut, grid and M are checked from the
 files, `ld 3` only from the stated command; verifier 222.)
 
+Seed-2 at M = 40 (--seed2-40, D524): the same rows, M = 24, 32, 40 at 800 x 360 (s2_M40.npz from dnsolve5.py --run
+0.3162 0.9 40 800 360 out 0 ld 3), on cells kept at all three, Chebyshev interpolant; output in
+checks/g1curv5seed2_40.out. Measured (D524): the 32-40 difference is 1e-6 to 1e-4 of K_0 on [2.5, 3) and 1e-4 to 3e-3 on
+[3, 3.25), 10 to 1000 times the 24-32 one at every angle, and 0.14 to 0.57 on [3.25, 3.5); from v = 3.5 M = 40 departs
+by 2e3 to 2e4 K_0 at every angle (up to 2e6 near x = +1 after v = 4), where M = 24 and 32 agree to 4e-4 to 3e-2.
+Refining M at the fixed null grid makes K worse from the start, and the large values come earlier the finer the angular
+grid, as D418 found at the first seed: it points to the scheme.
+
 Labels: computed (floating point, on saved runs).
 
     python3 checks/g1curv5.py DIR      (DIR holds ampA_M32.npz and ampA_M40.npz; K on the chosen rows is cached in
