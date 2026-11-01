@@ -6,27 +6,33 @@ under the record's full flat operator L = D Ric + dstar_(E^C) delta_(E^Ups) G at
 = 10^6), harmonic by harmonic. At radius r the strip occupies s = v/r in [0, d/r], so for the degree -3 profile
 h = r^-3 F(s) it is a delta at N: with r^(wt + 1) L h = M2 F'' + M1 F' + M0 F (harmonics5's reduction at degree -3,
 M2 = (s - s^2/2) I) and the source sigma d delta(s), integrating (s F')' + (M1(0) - I) F' = sigma d delta over the
-strip, with F = 0 on N, gives F(0+) = (M1(0) - I)^-1 sigma d. Beyond the strip the solution is the regular one
-(exponent 0) with that value, plus terms (s r/d)^(1 - m), one for each eigenvalue m of M1(0), which decay when Re m
-> 1. So the strip enters at rho^3 with coefficient K sigma d, K = T_3 (M1(0) - I)^-1, T_3 the degree -3 transfer F(0)
--> F(1) (s = 1 is I_0), provided every eigenvalue of M1(0) has real part > 1 (else a logarithm, or no uniqueness);
-the width corrections are O((d/r)^(m - 1)) relative, at rho^(2 + m), and the r^-2 coefficient at I_0 is not touched.
+strip, with F = 0 on N, gives F(0+) = (M1(0) - I)^-1 sigma d (distributionally: F = H(s) F_reg and s delta' = -delta; the
+delta is the strip's leading term in d), and beyond it the solution is the regular one (exponent 0) with that value,
+which needs every eigenvalue of M1(0) to have real part > 1 (else a logarithm, or no solution). So the strip enters at
+rho^3 with coefficient K sigma d, K = T_3 (M1(0) - I)^-1, T_3 the degree -3 transfer F(0) -> F(1) (s = 1 is I_0), and the
+r^-2 coefficient at I_0 is not touched. The width corrections are analytic in d (D491, after verifier 208): the operator
+is invariant under t -> t + c, so a sheet at v = v0 gives r^-3 F(1 - v0/r) at t = 0, and over a uniform strip r^3 h(I_0)
+= d K sigma + (d^2/r) K4 sigma + O(d^3/r^2), K4 = -(1/2) T_3' (M1(0) - I)^-1, T_3' the transfer F(0) -> F'(1): rho^4,
+rho^5, ..., integer powers. This is for a source r^-4 sigma(v) with sigma independent of r; a source only bounded by r^-4
+is not covered, the kernel having no sign.
 
   P1 (exact) the scalar model (strip5.py's box phi = S): at degree -3, M1(0) = 5/2, F(0+) = -d/3, and the regular
      solution is 2F1(3 + l, 1 - l; 5/2; s/2), so by Gauss's second summation theorem F(1) = -pi/(4 Gamma(1 - l/2)
      Gamma(2 + l/2)) = C_l, verifier 202's coefficient (D481) and strip5's T5; checked here through the same series
-     transfer as P3, to 25 digits, for l = 0 ... 6.
+     transfer as P3, to 10^-25, for l = 0 ... 6; and the rho^4 coefficient K4 = -(1/2) F'(1), from (ab/2c) 2F1(a +
+     1, b + 1; c + 1; 1/2), 1/2, 0, -1/6, 0, 1/10, ... (strip5's rho^4 at l = 2 and 4, D474).
   P2 (exact) the degree -p reduction of the full operator, scalar and vector types: at p = 2 it is harmonics5's (S1,
      S2); at p = 3, M2 = (s - s^2/2) I, the coefficients are polynomials in s, and M1(0) is M1(0) at p = 2 plus I.
   P3 (computed, series at 30 digits, 400 against 600 terms) for l = 0 ... LMAX, scalar and vector types, at gamma_C
      = 10^6 and 10^5: the eigenvalues of M1(0) at p = 3 (every real part > 1), the norm of K in each harmonic's
-     normalised basis (harmonics5's weights), and its convergence.
+     normalised basis (harmonics5's weights), and its convergence; the same for K4 (D491).
 
-Measured (D487): P1 to 1.2e-30; at degree -3 the eigenvalues of M1(0) are 2.5, 2.51, 2.52 and the damping's 1.5e6, 3e6 at
-every l <= 12, scalar and vector types; the normalised norm of K is 2.76 to 2.99 (scalar) and 0.17 to 1.14 (vector), the
-series at 400 and 600 terms agreeing to 30 digits; K at gamma_C = 10^5 differs by up to 6.5e-2 (scalar, l = 12).
+Measured (D487, corrected D491): P1 to 1.2e-30; at degree -3 the eigenvalues of M1(0) are 2.5, 2.51, 2.52 and the
+damping's 1.5e6, 3e6 at every 2 <= l <= 12 (at l = 0 and 1 the least is 2.5099), scalar and vector types; the normalised
+norm of K is 1.97 to 2.99 (scalar) and 0.17 to 1.14 (vector), the series at 400 and 600 terms agreeing to 30 digits; K at
+gamma_C = 10^5 differs by up to 6.5e-2 (scalar, l = 12).
 
-Labels: P1, P2 exact; P3 computed. The tensor type, where the damping drops out (harmonics5 S3), is not reduced here.
+Labels: P1, P2 exact; P3 computed (K4 too). The tensor type, where the damping drops out (harmonics5 S3), is not reduced here.
 """
 import sys
 import time
@@ -143,16 +149,29 @@ def scalar_model(p):
 
 
 def kmap(M, sub, nterms):
-    """K = T_3 (M1(0) - I)^-1 at 30 digits, and the eigenvalues of M1(0)"""
+    """K = T_3 (M1(0) - I)^-1 and K4 = -(1/2) T_3' (M1(0) - I)^-1 at 30 digits, and the eigenvalues of M1(0)"""
     n = M[0].shape[0]
     m10 = sp.Matrix(M[1].subs(S, 0).subs(sub))
-    T, last = H.series_transfer_n(M, sub, nterms)
+    T, last, Td = H.series_transfer_n(M, sub, nterms, nder=1)
     mp.mp.dps = 30
     A = mp.matrix([[mp.mpf(sp.Rational(m10[i, j]).p)/sp.Rational(m10[i, j]).q - (1 if i == j else 0)
                     for j in range(n)] for i in range(n)])
-    K = T*mp.inverse(A)
+    Ai = mp.inverse(A)
+    K, K4 = T*Ai, -Td[1]*Ai/2
     ev = np.linalg.eigvals(np.array(m10.evalf(), dtype=float))
-    return K, ev, float(last)
+    return K, K4, ev, float(last)
+
+
+def k4_exact(l):
+    """-(1/2) F'(1) for the scalar model's F = -(1/3) 2F1(3 + l, 1 - l; 5/2; s/2)"""
+    a, b, c = 3 + l, 1 - l, mp.mpf(5)/2
+    if b == 0:
+        return mp.mpf(0)
+    if b + 1 <= 0:                      # terminates (b + 1 = 2 - l)
+        g = mp.fsum(mp.rf(a + 1, j)*mp.rf(b + 1, j)/(mp.rf(c + 1, j)*mp.factorial(j))/2**j for j in range(l - 1))
+    else:
+        g = mp.hyp2f1(a + 1, b + 1, c + 1, mp.mpf(1)/2)
+    return -(-mp.mpf(1)/3*a*b/(2*c)*g)/2
 
 
 def main():
@@ -162,11 +181,14 @@ def main():
     M, rest, ls = scalar_model(3)
     okm = rest == [0] and sp.expand(M[0][0, 0] - (S - S**2/2)) == 0 and \
         sp.expand(M[1][0, 0].subs(S, 0)) == sp.Rational(5, 2)
-    worst = 0
-    rows = []
+    worst = worst4 = 0
+    rows, rows4 = [], []
     for l in range(0, 7):
-        K, ev, _ = kmap(M, {ls: l}, 400)
+        K, K4, ev, _ = kmap(M, {ls: l}, 400)
         F1 = K[0, 0]*mp.mpf(-0.5)
+        F4 = K4[0, 0]*mp.mpf(-0.5)
+        worst4 = max(worst4, float(abs(F4 - k4_exact(l))))
+        rows4.append("%d: %s" % (l, mp.nstr(F4, 10)))
         Cl = -mp.pi/(4*mp.gamma(1 - mp.mpf(l)/2)*mp.gamma(2 + mp.mpf(l)/2)) if l % 2 or l == 0 else mp.mpf(0)
         if l == 0:
             g = mp.hyp2f1(3, 1, mp.mpf(5)/2, mp.mpf(1)/2)*(-mp.mpf(1)/3)
@@ -175,10 +197,11 @@ def main():
                          for j in range(l))/3
         worst = max(worst, float(abs(F1 - Cl)), float(abs(g - Cl)))
         rows.append("%d: %s" % (l, mp.nstr(F1, 12)))
-    ok["P1"] = okm and worst < 1e-25
+    ok["P1"] = okm and worst < 1e-25 and worst4 < 1e-25
     print("  P1 %s: scalar model at degree -3: M2 = s - s^2/2, M1(0) = 5/2: %s; F(1) = T (M1(0) - 1)^-1 (-1/2) against "
           "C_l = -pi/(4 Gamma(1 - l/2) Gamma(2 + l/2)) and -(1/3) 2F1(3 + l, 1 - l; 5/2; 1/2), l = 0 ... 6: max "
-          "difference %.1e; F(1) = %s" % ("PASS" if ok["P1"] else "FAIL", okm, worst, ", ".join(rows)), flush=True)
+          "difference %.1e; F(1) = %s; rho^4: K4 against -(1/2) F'(1) exact, max difference %.1e, K4 = %s"
+          % ("PASS" if ok["P1"] else "FAIL", okm, worst, ", ".join(rows), worst4, ", ".join(rows4)), flush=True)
     # P2 the reductions
     red = {}
     for p in (2, 3):
@@ -218,26 +241,35 @@ def main():
                 sub = dict(C.POINT)
                 sub[gC] = gc
                 res[gc] = (kmap(Ml, sub, 400), kmap(Ml, sub, 600) if gc == 10**6 else None)
-            (K4, ev, _), (K6, _, last) = res[10**6]
+            (Ka, Q4, ev, _), (K6, Q6, _, last) = res[10**6]
             K5 = res[10**5][0][0]
             Wt = H.weights(typ, max(l, 1), n) if l else np.diag([1, 2**0.5, 1, 3**0.5])
             A6 = np.array([[float(K6[i, j]) for j in range(n)] for i in range(n)])
-            A4 = np.array([[float(K4[i, j]) for j in range(n)] for i in range(n)])
+            A4 = np.array([[float(Ka[i, j]) for j in range(n)] for i in range(n)])
+            B6 = np.array([[float(Q6[i, j]) for j in range(n)] for i in range(n)])
+            B4 = np.array([[float(Q4[i, j]) for j in range(n)] for i in range(n)])
             A5 = np.array([[float(K5[i, j]) for j in range(n)] for i in range(n)])
             nrm = float(np.linalg.norm(Wt @ A6 @ np.linalg.inv(Wt), 2))
-            d46 = float(np.max(np.abs(A6 - A4)))
+            nrm4 = float(np.linalg.norm(Wt @ B6 @ np.linalg.inv(Wt), 2))
+            d46 = float(max(np.max(np.abs(A6 - A4)), np.max(np.abs(B6 - B4))))
             dg = float(np.max(np.abs(A6 - A5)))
             mre = float(min(ev.real))
-            good &= mre > 1 and d46 < 1e-12 and np.isfinite(nrm)
-            out.append((l, typ, n, nrm, d46, dg, mre, sorted(ev.real)))
-            print("    l = %2d %s (%d): least Re eig M1(0) = %.6g (eigenvalues %s); ||K|| normalised = %.6g; series "
-                  "400 vs 600 %.1e (last term %.1e); |K(1e6) - K(1e5)| = %.2e"
-                  % (l, typ, n, mre, ", ".join("%.4g" % x for x in sorted(ev.real)), nrm, d46, last, dg), flush=True)
+            good &= mre > 1 and d46 < 1e-12 and np.isfinite(nrm) and np.isfinite(nrm4)
+            out.append((l, typ, n, nrm, d46, dg, mre, sorted(ev.real), nrm4))
+            print("    l = %2d %s (%d): least Re eig M1(0) = %.6g (eigenvalues %s); ||K|| normalised = %.6g, ||K4|| "
+                  "%.6g; series 400 vs 600 %.1e (last term %.1e); |K(1e6) - K(1e5)| = %.2e"
+                  % (l, typ, n, mre, ", ".join("%.4g" % x for x in sorted(ev.real)), nrm, nrm4, d46, last, dg),
+                  flush=True)
     ok["P3"] = good
     print("  P3 %s: every harmonic l <= %d of scalar and vector type: M1(0) at degree -3 has every eigenvalue's "
-          "real part > 1 (least %.6g), K finite (largest normalised norm %.6g, at l = %d %s)"
-          % ("PASS" if good else "FAIL", LMAX, min(q[6] for q in out), max(q[3] for q in out),
-             max(out, key=lambda q: q[3])[0], max(out, key=lambda q: q[3])[1]), flush=True)
+          "real part > 1 (least %.6g), K finite (largest normalised norm %.6g, at l = %d %s); normalised ||K|| %s; "
+          "||K4|| %s" % ("PASS" if good else "FAIL", LMAX, min(q[6] for q in out), max(q[3] for q in out),
+                         max(out, key=lambda q: q[3])[0], max(out, key=lambda q: q[3])[1],
+                         ", ".join("%s %.4g to %.4g" % (ty, min(q[3] for q in out if q[1] == ty),
+                                                        max(q[3] for q in out if q[1] == ty)) for ty in ("scalar", "vector")),
+                         ", ".join("%s %.4g to %.4g" % (ty, min(q[8] for q in out if q[1] == ty),
+                                                        max(q[8] for q in out if q[1] == ty)) for ty in ("scalar", "vector"))),
+          flush=True)
     print("  %s (%.0f s)" % ("all pass" if all(ok.values()) else "FAILED", time.time() - t0))
     return 0 if all(ok.values()) else 1
 
