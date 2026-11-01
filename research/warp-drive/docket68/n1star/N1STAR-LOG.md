@@ -7530,3 +7530,7 @@ initial surface, needs the background on the whole region, which is still to be 
 bookkeeping already fixes the unknown step from below by its smallest root, so no new computation is needed for the
 bound: that loop is at most about one seventeenth of the counted ones. Whether it is even shorter, a single round per
 level, depends on one term the record does not settle.
+
+**D539 (2026-11-01): the last loop's length, settled at the record's point.** The term that decides whether the last
+loop takes one round or about a million and a half per level was already computed in this note's own earlier work, and
+it is present, so the loop takes the longer count, still about one seventeenth of the loops already counted.

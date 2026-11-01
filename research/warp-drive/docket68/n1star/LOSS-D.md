@@ -709,13 +709,16 @@ loop counts of section 3.
     (I9:32-33).
   - *Values.* So m_ι ≥ d1 and a level runs at most ⌈0.4901/d1⌉ = 1,470,302 rounds, against about (β − 2)/ε_ind of Lemma
     3.2's tf-rounds at the same level (LD12 (ii)), on average ½/ε_ind ≥ 2.5755 × 10⁷: a ratio 2(2 − λ_♯)ε_ind/m_ι ≤
-    0.0571, smaller for smaller ε_ind, the number of levels being common to both. If the ρ^(2+d1) term is absent (LD9's
-    open point), m_ι ≥ 1 and the loop is one round per level. Only m_ι near ε_ind would make it comparable to the
-    counted loops (ratio 1 at m_ι ≈ 1.90 × 10⁻⁸), which the class structure excludes (corrected D538).
-  - *What is needed.* whether the ρ^(2+d1) term is present in the states' expansions, which decides between at most
-    ⌈0.4901/d1⌉ = 1,470,302 rounds per level and one (corrected D538: m_ι ≥ d1 itself needs no computation). With LD13,
-    the two loops LD12 (v) left uncounted are then both bounded per level by the record's own roots (d1 for the level-2
-    chains, m_ι for ι⁺), the first up to the factor N_2.
+    0.0571, smaller for smaller ε_ind, the number of levels being common to both. If the ρ^(2+d1) term were absent, m_ι
+    ≥ 1 and the loop would be one round per level; but LD9 computes it present at the record's point, A = 141.4269
+    (D450-D451, pinned by the near-resonance, nonzero at every cut-off computed), so m_ι = d1 there and the loop runs,
+    round by round through λ_♯ + n d1, up to the 1,470,302 per level (corrected D539; LD9's "not decided" is the bound
+    over every cut-off, not the record's point). Only m_ι near ε_ind would make it comparable to the counted loops
+    (ratio 1 at m_ι ≈ 1.90 × 10⁻⁸), which the class structure excludes (corrected D538).
+  - *What is needed.* nothing more for the bound: m_ι ≥ d1 from the classes (D538), and = d1 at the record's point by
+    LD9's A (D539). Each round's loss, III.G″ Corollary 4.3 and III.I′ Proposition 3.1 composed, is not read here. With
+    LD13, the two loops LD12 (v) left uncounted are then both bounded per level by the record's own roots (d1 for the
+    level-2 chains, m_ι for ι⁺), the first up to the factor N_2.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

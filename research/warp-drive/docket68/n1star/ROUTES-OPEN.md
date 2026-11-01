@@ -5794,6 +5794,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   ℰ^ι_ind ≥ ε_ind, where I6 defines its own ε_ind (the inequality still holds); "distinct from (1.1)'s" holds for the
   value, not the sets (I9:32-33). NITs: 0.0571 is about 1/17.5, not 1/20; the ratio reaches 1 at m_ι ≈ 1.90 × 10⁻⁸.
   Corrected in LOSS-D LD14 and LD8; the D534 entry above keeps its text.
+- D539 (LOSS-D LD14, from LD9's record): D538 left open whether the ρ^(2+d1) term is present; LD9 computes it at the
+  record's point (A = 141.4269, D450-D451, ten digits, pinned by the near-resonance, nonzero at every cut-off computed),
+  its "not decided" being the bound over all cut-offs. So m_ι = d1 at the record's point and the ι⁺ loop runs up to
+  1,470,302 rounds per level, through λ_♯ + n d1, about 0.057 of the levels' tf-rounds. With LD13, both of LD12 (v)'s
+  uncounted loops are bounded per level by d1, the level-2 one up to N_2. Open: each round's loss.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
