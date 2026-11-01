@@ -5918,6 +5918,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   turn, without a bootstrap; so the background exists wherever R stays ≥ a, and on Ω's past part of a rectangle given
   its cones' data (R = a trapped, so {R ≥ a} is closed to the past). Computed on D3's background: identity residual 2.0
   × 10⁻⁵ at n = 320, bounds hold. Open: the outgoing family's data at past null infinity.
+- D553 (LOSS-D LD16, read and deduced): the two uncounted loops' loss per round. A level-2 round is III.G⁗ Proposition
+  4.4, which builds u from N_tf⁻¹ and passes on source − L̂_b(σ)u (G5:484-488, 520): 2 + ℓ in III.J″'s accounting
+  (J3:164, 167-171), as a level-3 round, so LD13 and LD15 compare loss as well as rounds; one application at (α_0, k)
+  treats every log power ≤ k (G5:474-481), so per-(α_0, k) rounds are redundant beyond one per exponent. An ι⁺ round is
+  III.G″ Corollary 4.3 (loss d_G + 2, J3:160-164) then III.I′ Proposition 3.1 (≥ 2 through L̃, J3:173-176): ≥ 4 + d_G,
+  d_G the formula-less loss of III.G′ Theorem 3.1 (2); with LD14's 1/17.5 the ι⁺ loop's loss is at most (4 + d_G)/35 of
+  the counted loops' per level, below them only while d_G < 31. J3's table has no row for the ι⁺ rounds.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

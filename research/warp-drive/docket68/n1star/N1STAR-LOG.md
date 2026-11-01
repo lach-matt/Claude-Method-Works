@@ -7615,3 +7615,9 @@ place of its square. It shows the two-dust background can be continued as long a
 bound following from the data and the ones before it. Since the inner boundary is trapped, the region the proof uses
 never reaches the centre, so the background exists there given its data. What remains for this family is the outgoing
 dust's data at past null infinity.
+
+**D553 (2026-11-01): what each round of the two uncounted loops costs.** The record's own accounting charges a round of
+the second-level loop exactly what it charges an inner round, since both invert the same model operator and apply the
+full operator to the result; one application also handles all the logarithm powers of an exponent at once. A round of
+the other loop costs at least four plus the loss of a resonance inverse the record never computes, so that loop stays
+below the counted ones only if that unknown loss is under about thirty.
