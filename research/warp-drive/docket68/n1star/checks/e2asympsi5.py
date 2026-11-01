@@ -57,24 +57,22 @@ def gp_of(x):
     return 1 / SR + DD * om
 
 
-def up(x, d=5):
-    """x rounded up to d significant digits (an upper bound printed as one)"""
+def _round(x, d, f):
     x = mpf(x)
     if x == 0:
         return "0"
     q = mpf(10) ** (d - 1 - int(mp.floor(mp.log10(abs(x)))))
-    return mp.nstr(mp.ceil(x * q) / q, d)
+    return mp.nstr(f(x * q) / q, d)
+
+
+def up(x, d=5):
+    """x rounded up to d significant digits: an upper bound printed as one (D478)"""
+    return _round(x, d, mp.ceil)
 
 
 def dn(x, d=5):
-    """x rounded down to d significant digits (a lower bound printed as one)"""
-    return up(-mpf(x), d).lstrip("-") if mpf(x) < 0 else _dn(x, d)
-
-
-def _dn(x, d):
-    x = mpf(x)
-    q = mpf(10) ** (d - 1 - int(mp.floor(mp.log10(abs(x)))))
-    return mp.nstr(mp.floor(x * q) / q, d)
+    """x rounded down to d significant digits: a lower bound printed as one (D478)"""
+    return _round(x, d, mp.floor)
 
 
 def tanh_iv(z):

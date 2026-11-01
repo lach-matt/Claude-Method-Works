@@ -7180,3 +7180,8 @@ only near the intersection; further out it is open.
 part of the solution with a slightly different weight from the one the estimate was first stated in. The two weights are
 now compared rigorously: one is everywhere at least 0.71 times the other on the region concerned. That is enough for the
 improved overall constant, 184.8 against 808.6, to hold in the original weight as well.
+
+**D478 (2026-11-01): the certificate for the lowest mode stands; its printed digits are now rounded the safe way.** The
+independent check re-derived every bound and sampled the functions at high precision, finding no error. It found that a
+few printed constants had been rounded to the nearest digit rather than in the direction that keeps them true bounds, by
+a unit in the last place. They are corrected, and the checks now always round outward.

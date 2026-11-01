@@ -561,8 +561,8 @@ increases with |σ|.
   - *Certified for l ≥ 1 (D466; `checks/e2asymcert5.py` K0-K4, interval arithmetic).* With the width interpolated
     harmonically, g′ = 1/s_R + (1/s_L − 1/s_R)(1 − σ(z)), so that g has a closed form, s_L = 49/50, s_R = 2, κ = 1/2 and
     the centre at x_*: w_1 ≥ 0 on t ∈ [−120, ln 119] by bisection (377 enclosures), the tails by explicit bounds (left
-    ratio ≤ 0.0842, decreasing toward the horizon; right ≤ 4.6 × 10⁻⁴⁷); on I, m′ ≥ 0.05299 and M′ ≤ 0.7929; B_1(3) ≤
-    93.95, X_1(3) ≤ 87.61, C_1 ≤ 184.82, and C_l ≤ 64.18 for every l ≥ 2. So over l ≥ 1 the summed constant at σ = 3 is
+    ratio ≤ 0.0842, decreasing toward the horizon; right ≤ 4.6 × 10⁻⁴⁷); on I, m′ ≥ 0.05298 and M′ ≤ 0.7930; B_1(3) ≤
+    93.96, X_1(3) ≤ 87.62, C_1 ≤ 184.82, and C_l ≤ 64.18 for every l ≥ 2. So over l ≥ 1 the summed constant at σ = 3 is
     certified ≤ 184.82, against 675.1, in this multiplier's angular weight; the band 0 < |σ| ≤ 3 follows as for E2.12. l
     = 0 is D473's. Verified by verifier 200 (D469): the closed forms exact (sympy), the bisection pieces and the tails
     overlapping with no gap, both tail bounds proofs, and every l ≥ 2 covered (w_l ≥ w_6 on I, B, X and K decreasing in
@@ -573,14 +573,18 @@ increases with |σ|.
     term, q a sum of 37 sech² bumps (x_k − x_* on a lattice of 1/4 in [−3, 3], κ_k ∈ {3/10, 1/2, 9/10}·s_L, each below
     s_L, so q decays faster than φ′ at both ends; c_k rounded to four digits from a linear program, and the certificate
     checks this q, not the program). W_q ≥ 0 (4309 enclosures) and φ′ − q ≥ 0 (101) on t ∈ [−120, ln 119], by bisection;
-    the tails by explicit bounds, every bump past its inflection (left ρ_3 + ρ_q ≤ 0.168 and q/φ′ ≤ 9.31 × 10⁻⁷, with
-    section 3g's V′ bound for every a, b > 0; right ≤ 2.28 × 10⁻⁴⁶ and 2.25 × 10⁻⁷², all monotone). On I, w_I ≥ 0.01776,
-    m′ ≥ 0.05143 and M′ ≤ 0.3201, so B_0(3) ≤ 359.0 and X_0(3) ≤ 158.57 (the program's grid gives 129.7; the enclosure
-    over 2000 pieces is coarser). Controls: without q, w_0 ≤ −0.022 at t = −3.9; with q″ entering at −1 the bisection
+    the tails by explicit bounds, every bump past its inflection (left ρ_3 + ρ_q ≤ 0.1684 and q/φ′ ≤ 9.31 × 10⁻⁷, with
+    section 3g's V′ bound for every a, b > 0; right ≤ 2.28 × 10⁻⁴⁶ and 2.25 × 10⁻⁷², all monotone). On I, w_I ≥ 0.01775,
+    m′ ≥ 0.05142 and M′ ≤ 0.3201, so B_0(3) ≤ 359.01 and X_0(3) ≤ 158.57 (the program's grid gives 129.7; the enclosure
+    over 2000 pieces is coarser). Controls: without q, w_0 ≤ −0.0219 at t = −3.9; with q″ entering at −1 the bisection
     fails and W_q ≤ −0.188 at t = −0.18; the left tail does not certify at t = −3. So one multiplier, with q at l = 0
     alone, certifies every harmonic l ≥ 0, and the summed H¹ constant at σ = 3 over every l ≥ 0 is ≤ 184.82, set by l =
     1, against 808.6 (set by l = 0) before; like for like at l = 0 and 1, and for l ≥ 2 in −φU′'s weight and, by D477, in
-    ψ_*'s.
+    ψ_*'s. Verified by verifier 203 (D478): every tail inequality re-derived (tail_right's V′ bound needs only a > 0, so
+    it holds at l = 0, where a < b), q″ ≥ 0 on the whole of each tail (0.66 > atanh(1/√3)), no gap between bisection and
+    tails, and 60-300-digit sampling inside every bound; five stated bounds had been rounded to nearest, not outward, and
+    are corrected here (every check now prints its bounds rounded outward), C_1 is recomputed rather than entered, and
+    the right tail checks tanh g_R, c_R > 0.
   - *In section 3i's weight (D477; `checks/e2asympsi5.py` P1-P3, interval arithmetic).* U′ cancels in ψ/ψ_* = φ/φ_*,
     and both vanish at x_* with the sign of r_* − x_*: away from x_* the ratio is enclosed by interval division, and
     within |z| < 1/20 of it (z = (r_* − x_*)/s) by (tanh G/G)·s·min g′, the mean value theorem giving g/z. Over 2000

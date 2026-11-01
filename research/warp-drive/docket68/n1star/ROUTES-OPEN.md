@@ -5183,6 +5183,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   theorem near it; floating-point minimum 0.7134 at r = 1.70). So C*_l ≤ 66.029 for l ≥ 2 in ψ_*'s weight, and the summed
   H¹ constant at σ = 3 over every l ≥ 0 is ≤ 184.82 in section 3i's own weight, against 808.6. Control: φ_* off the
   photon sphere makes the ratio change sign.
+- D478 (verifier 203 on D473): stands, no major finding. Every tail inequality re-derived (tail_right's V′ bound needs
+  only a > 0 and b ≥ 0, so it holds at l = 0); q″ ≥ 0 on the whole of each tail; no gap between bisection and tails; the
+  bump decimals enter as enclosures; B, X_0 and C_0 = X_0 as Lemma E2.8′ and Corollary E2.11′ (on the real axis q adds no
+  term; 2 max q only off it); independent 60-300-digit sampling inside every bound. MINOR: five stated bounds rounded to
+  nearest, not outward (w_I ≥ 0.01775, m′ ≥ 0.05142, B_0(3) ≤ 359.01, left ρ_3 + ρ_q ≤ 0.1684, w_0 ≤ −0.0219; and in
+  D466's bullet m′ ≥ 0.05298, M′ ≤ 0.7930, B_1(3) ≤ 93.96, X_1(3) ≤ 87.62): corrected in E2-PILOT 3i, and e2asymcert5,
+  e2asymlzero5 and e2asympsi5 now print every bound rounded outward; C_1 is recomputed in e2asymlzero5 (184.817); the
+  right tail checks tanh g_R, c_R > 0. The D466 and D473 entries above keep the values as first stated.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

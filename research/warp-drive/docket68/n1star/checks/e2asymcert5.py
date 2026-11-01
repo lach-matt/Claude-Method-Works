@@ -43,6 +43,24 @@ import time
 
 from mpmath import iv, mp, mpf
 
+
+def _round(x, d, f):
+    x = mpf(x)
+    if x == 0:
+        return "0"
+    q = mpf(10) ** (d - 1 - int(mp.floor(mp.log10(abs(x)))))
+    return mp.nstr(f(x * q) / q, d)
+
+
+def up(x, d=5):
+    """x rounded up to d significant digits: an upper bound printed as one (D478)"""
+    return _round(x, d, mp.ceil)
+
+
+def dn(x, d=5):
+    """x rounded down to d significant digits: a lower bound printed as one (D478)"""
+    return _round(x, d, mp.floor)
+
 iv.dps = 30
 mp.prec = iv.prec
 SL, SR, KAP = iv.mpf(49) / 50, iv.mpf(2), iv.mpf(1) / 2
@@ -197,7 +215,7 @@ def main():
     rr, mr = tail_right(A_(1), rR)
     ok["K2"] = rl.b < 1 and el.a > 0 and rr.b < 1 and mr.a > 0
     print("  K2: left tail ratio <= %s (exponent 2(1/s_L - 1) >= %s); right tail ratio <= %s, monotone from %s"
-          % (iv.nstr(iv.mpf(rl.b), 4), iv.nstr(2 * el, 4), iv.nstr(iv.mpf(rr.b), 3), iv.nstr(mr, 3)), flush=True)
+          % (up(rl.b, 4), dn((2 * el).a, 4), up(rr.b, 3), dn(mr.a, 3)), flush=True)
     m1lo, _ = enclose_I(lambda tt: mult(xr(tt))[1])
     _, M1hi = enclose_I(lambda tt: mult(xr(tt))[1])
     c = iv.mpf(M1hi) + 2 * SIGMA
@@ -216,12 +234,11 @@ def main():
         rows.append((l, wlo, (B.b, X.b, A.b, Cl.b)))
         Cmax = Cl.b if Cmax is None or Cl.b > Cmax else Cmax
         print("  K3: l = %d  min_I w_l >= %s  B_l(3) <= %s  X_l(3) <= %s  A_l <= %s  C_l <= %s"
-              % (l, iv.nstr(iv.mpf(wlo), 5), iv.nstr(iv.mpf(B.b), 5), iv.nstr(iv.mpf(X.b), 5),
-                 iv.nstr(iv.mpf(A.b), 6), iv.nstr(iv.mpf(Cl.b), 5)), flush=True)
+              % (l, dn(wlo, 5), up(B.b, 5), up(X.b, 5), up(A.b, 6), up(Cl.b, 5)), flush=True)
     fac = [iv.mpf(l * (l + 2)) / (A_(l) - a1) for l in range(2, 8)]      # 1 + 3/(l(l + 2) - 3), decreasing
     ok["K3"] = all(r[2] is not None for r in rows) and m1lo > 0 and all(fac[k + 1].b < fac[k].a for k in range(5))
     print("  K3: m' >= %s, M' <= %s on I; over l >= 1, C <= %s at sigma = 3 (certified symmetric: 675.1 over l >= 1)"
-          % (iv.nstr(iv.mpf(m1lo), 5), iv.nstr(iv.mpf(M1hi), 5), iv.nstr(iv.mpf(Cmax), 5)), flush=True)
+          % (dn(m1lo, 5), up(M1hi, 5), up(Cmax, 5)), flush=True)
     f0, _, bad0 = certify_positive(A_(0), tL, tR)
     n0 = w_of(iv.mpf(mpf(-39) / 10), A_(0))                     # a certified negative value (the horizon side)
     xc2 = xr(iv.log(iv.mpf("1.6") - 1))

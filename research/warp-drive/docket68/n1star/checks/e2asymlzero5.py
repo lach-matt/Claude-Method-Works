@@ -26,7 +26,8 @@ certificate checks this q, not the program.
      Each is certified < 1 at the end of its range.
   L4 on I = {r in [1.2, 4]}, over 2000 pieces: w_I, m', M' enclosed, then B_0(3) = ((2/m' + c^2/w_I)/w_I)^(1/2) and
      X_0(3) = (1 + (1 + 2 m' c B_0)^(1/2))/(2 m'), c = M' + 6 (e2asymcert5's K3 at l = 0, where A_0 = 0), rounded
-     outward; with D466's C_l (l >= 1) the summed H^1 constant at sigma = 3 over every l >= 0.
+     outward; with D466's C_l (l >= 1; C_1 recomputed here, D478) the summed H^1 constant at sigma = 3 over every
+     l >= 0. Every bound is printed rounded outward (D478).
   L5 controls: without q, w_0 < 0 at t = -3.9 (certified); with q'' entering at -1 the bisection fails and W < 0 at a
      point (certified); and the left tail's bound does not certify at t = -3.
 
@@ -39,7 +40,26 @@ import os
 import sys
 import time
 
-from mpmath import iv, mpf
+from mpmath import iv, mp, mpf
+
+
+def _round(x, d, f):
+    x = mpf(x)
+    if x == 0:
+        return "0"
+    q = mpf(10) ** (d - 1 - int(mp.floor(mp.log10(abs(x)))))
+    return mp.nstr(f(x * q) / q, d)
+
+
+def up(x, d=5):
+    """x rounded up to d significant digits: an upper bound printed as one (D478)"""
+    return _round(x, d, mp.ceil)
+
+
+def dn(x, d=5):
+    """x rounded down to d significant digits: a lower bound printed as one (D478)"""
+    return _round(x, d, mp.floor)
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -126,7 +146,8 @@ def tails(tL, rR):
                  for xk, k, c in QB), iv.mpf(0))
     pastR = all(((XR - xk) / k).a > iv.mpf("0.66") for xk, k, c in QB)
     mono = mono3.a > 0 and min((XR + dR - k / 2).a for _, k, _ in QB) > 0
-    right = (rho3R + rhoqR).b < 1 and qphiR.b < 1 and pastR and mono and narrow
+    right = ((rho3R + rhoqR).b < 1 and qphiR.b < 1 and pastR and mono and narrow and thR.a > 0 and cR.a > 0
+             and (rho3R.a >= 0))
     return left, right, (rho3 + rhoq, qphi, rho3R + rhoqR, qphiR)
 
 
@@ -146,7 +167,7 @@ def main():
     left, right, rh = tails(tL, rR)
     ok["L3"] = left and right
     print("  L3: left rho_3 + rho_q <= %s, q/phi' <= %s; right rho_3 + rho_q <= %s, q/phi' <= %s: %s"
-          % tuple([iv.nstr(iv.mpf(x.b), 3) for x in rh] + [ok["L3"]]), flush=True)
+          % tuple([up(x.b, 4) for x in rh] + [ok["L3"]]), flush=True)
     tIa, tIb = iv.log(iv.mpf("0.2")).a, iv.log(iv.mpf(3)).b
     pieces = 2000
     ends = [mpf(tIa) + (mpf(tIb) - mpf(tIa)) * k / pieces for k in range(pieces)] + [mpf(tIb)]
@@ -163,12 +184,18 @@ def main():
         c = iv.mpf(M1) + 2 * SIGMA
         B = iv.sqrt((2 / m + c**2 / w) / w)
         X0 = (1 + iv.sqrt(1 + 2 * m * c * B)) / (2 * m)
-        C = max(X0.b, mpf("184.82"))
-        ok["L4"] = X0.b < mpf("184.82")
-        print("  L4: min_I W_q >= %s, m' >= %s, M' <= %s; B_0(3) <= %s, X_0(3) <= %s; with D466's C_1 <= 184.82 the "
-              "summed H^1 constant over every l >= 0 at sigma = 3 is <= %s (%.0fs)"
-              % (iv.nstr(w, 5), iv.nstr(m, 5), iv.nstr(iv.mpf(M1), 5), iv.nstr(iv.mpf(B.b), 5),
-                 iv.nstr(iv.mpf(X0.b), 5), iv.nstr(iv.mpf(C), 5), time.time() - t0), flush=True)
+        m1a, M1a = AC.enclose_I(lambda tt: AC.mult(AC.xr(tt))[1])      # D466's l = 1 constant, recomputed (D478)
+        w1, _ = AC.enclose_I(lambda tt: AC.w_of(tt, AC.A_(1)))
+        ma, wa, ca = iv.mpf(m1a), iv.mpf(w1), iv.mpf(M1a) + 2 * SIGMA
+        B1 = iv.sqrt((2 / ma + ca**2 / wa) / wa)
+        X1 = (1 + iv.sqrt(1 + 2 * ma * ca * B1)) / (2 * ma)
+        C1 = iv.sqrt(X1**2 + 3 * B1**2)
+        C = max(X0.b, C1.b)
+        ok["L4"] = X0.b < C1.b
+        print("  L4: min_I W_q >= %s, m' >= %s, M' <= %s; B_0(3) <= %s, X_0(3) <= %s; with D466's C_1 <= %s "
+              "(recomputed) and C_l <= 64.18 for l >= 2 the summed H^1 constant over every l >= 0 at sigma = 3 is <= %s "
+              "(%.0fs)" % (dn(wI, 5), dn(m1, 5), up(M1, 5), up(B.b, 5), up(X0.b, 5), up(C1.b, 5), up(C, 5),
+                           time.time() - t0), flush=True)
     w0 = fields(iv.mpf(mpf(-39) / 10), with_q=False)[0]
     gflip, _, _ = E0.certify(lambda tt: fields(tt, sign=-1)[0], tL, tR)
     neg, tneg = None, None
@@ -181,8 +208,7 @@ def main():
     ok["L5 controls"] = w0.b < 0 and not gflip and neg.b < 0 and not lft3
     print("  L5: without q, w_0 <= %s at t = -3.9; with q'' at -1 the bisection fails and W <= %s at t = %s; the left "
           "tail at t = -3: rho_3 + rho_q <= %s, not certified (%.0fs)"
-          % (iv.nstr(iv.mpf(w0.b), 4), iv.nstr(iv.mpf(neg.b), 4), iv.nstr(iv.mpf(tneg), 4),
-             iv.nstr(iv.mpf(rh3[0].b), 4), time.time() - t0), flush=True)
+          % (up(w0.b, 4), up(neg.b, 4), iv.nstr(iv.mpf(tneg), 4), up(rh3[0].b, 4), time.time() - t0), flush=True)
     for k, v in ok.items():
         print(k, "PASS" if v else "FAIL")
     return 0 if all(ok.values()) else 1
