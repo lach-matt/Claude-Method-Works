@@ -6014,6 +6014,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   stated (ε_I = 1.6 would allow d_G = 15), so "d_G ≤ 13 at the source's a_I" is withdrawn; section 3 omitted I11:47's
   ℓ_I ≤ a_I; dg5.py's G1 now argued by its breakpoints, G3 tests both readings. Corrected in LD16, section 3 and dg5.py;
   the D562 entry above keeps its text.
+- D566 (FAMILIES5 4i, deduced; `checks/data5two.py` T1-T5, exact): Theorem D with two families, scoped. Lemma 6.1's
+  gauge propagation runs family by family along each generator (both reach Σ_τ0, D537), the mixed harmonics algebraic;
+  Lemma 6.2's polarization is onto for any null covector, the mixed harmonics take no data; the means' radial problem
+  moves to the two-dust slice (H > 0 there not checked). The constraint iteration's linearisation has no 1/λ coefficient
+  with both families (flat background) or the outgoing alone, even for a non-null phase (speed 1/2; u = τ − r on
+  Vaidya): the cancellation is the waves' tracelessness on the spheres (the control, an oscillating trace, gives one).
+  The outgoing data are posed on Σ_τ0 and v = v0, not at I⁻. Open: S3-S6 for two families.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

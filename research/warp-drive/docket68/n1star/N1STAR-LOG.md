@@ -7690,3 +7690,10 @@ the record itself states two different upper bounds for the weight in different 
 admissible for every parameter value only on one of them; on the other a smaller range still gives eleven. "Costs at
 least fifteen" is what the record's accounting charges, not a proven minimum, and the claim at the source's values
 rested on a bound the record does not state.
+
+**D566 (2026-11-01): the data for two families, scoped.** The record builds its data in three steps; each was read for a
+second, outgoing family of waves. The gauge part and the wave profiles go through family by family, and the one
+computation the nonlinear step rests on, that the linearised constraints have no term of size 1/λ, still holds with both
+families: it depends only on the waves being traceless on the spheres, not on the direction they travel. The outgoing
+waves cannot arrive from past null infinity, so their data sit on the initial slice. Left: the radial solvability checks
+on the two-dust background.
