@@ -5236,6 +5236,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   derivatives are global, so the cause is not localised; the invariant shows the failure reaches the geometry and that
   the resolved curvature is moderate. Open: an axis treatment judged by K at every angle. (A first run read the mask the
   wrong way round, b6fb8e7.)
+- D485 (verifier 206 on D475 and D484): D475 stands, MINOR findings only; D484's conclusion stands on a corrected reason
+  (MAJOR). D475: the mask sense, the 24 of 438 rows, the plain Chebyshev nodes, K_0 = 72/R⁸ (μ = 1, R the 3-sphere's
+  volume radius) and every quoted number reproduce, and the interpolation is local. MINOR: over the converged bands the
+  exponent of A runs from 0.58 to 2.22, not 1.3 to 2; the unresolved values start near 3 K_0 (2.95, 11.6 and 225 inside
+  the region), not 10³; the onset is per column (at A = 3/4, x = −0.97 converges to v = 2.1; A = 7/8 is unresolved off
+  the axis on [1.75, 2), a band neither statement covered; A = 1 loses convergence off the axis first, near v = 1.875 to
+  1.9, and at x = −0.97 near 1.95 to 1.975); 'resolved' is in M, with (u, v) at 800 × 360, so in angle; dev also carries
+  the wave's rise in mass. Corrected in CERTIFY-10L5 6b and g1curv5's docstring. D484: the source is algebraic in g
+  (confirmed, III.B Definition 6.1), but 'only by terms without derivatives of g' is false: δ* of the source brings first
+  derivatives of g, and δ* taken with g0 and the damping E^C add first-order terms too. The principal part is unchanged,
+  so the conclusion survives, and Υ = 0 propagates by its homogeneous wave equation. MINOR: W̊ depends on g, so [CP12]'s
+  'any smooth vector field' does not literally cover it; Rendall's argument carries the step. The verifier could not
+  reach the paper (403); the quotations are as read here from the alphaXiv text. Corrected in FAMILIES5 4e. The D475 and
+  D484 entries above keep their text as first stated.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

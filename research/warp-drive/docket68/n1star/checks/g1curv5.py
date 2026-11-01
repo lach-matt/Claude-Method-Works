@@ -20,15 +20,18 @@ If K converges near the axis where P does not, the non-convergence sits in the g
 K's difference grows with dev, the angular structure of the geometry itself outruns the resolution; if dev grows faster
 than any fixed power of A as A -> 1, the solution may be heading for a singularity there.
 
-Measured (D475; 24 rows, the kept cells, mask True marking excluded cells): wherever K converges in M its departure from
-the background stays of order 1, growing roughly like A^1.3 to A^2 (dev at x = -0.97 from 0.51 at A = 1/4 to 3.9 at A = 1
-on [1.5, 1.75), diff below 1.3e-3): on v < 1.75 at every A, and on v < 2.25 at A <= 1/2, with no resolved growth before
-the failure. At A = 1/2 the convergence weakens from v = 2.25 (diff up to 0.4 of dev at x = 0.5). From v = 2 at A >= 3/4
-(from 1.75 at A = 1) K is unresolved at every angle computed, x = -0.97 to 0.5: dev 10^3 to 10^7 with diff as large, so
-those values are not a resolved growth of the curvature. The angular derivatives in K are the collocation's, global in x,
-so this does not localise the cause at the axis or exclude it: the invariant does not tell a singularity from a defect of
-the scheme, but it shows the failure is not only in the gauge functions, and that the curvature is moderate wherever it
-is resolved.
+Measured (D475, corrected D485; 24 of the 438 rows with R in [1, 1.4], mask True marking excluded cells; (u, v) at 800 x
+360 throughout, so 'converges' means in M, in angle): wherever K converges in M its departure from the background stays
+of order 1, growing like A^p with p from 0.58 to 2.22 over the converged bands (dev at x = -0.97 from 0.51 at A = 1/4 to
+3.9 at A = 1 on [1.5, 1.75), diff below 1.3e-3): on v < 1.75 at every A, and on v < 2.25 at A <= 1/2, with no resolved
+growth before the failure. dev also carries the rise in mass the ingoing wave brings. At A = 1/2 the convergence weakens
+from v = 2.25 (diff up to 0.4 of dev at x = 0.5). Convergence is lost at A = 3/4 inside [2, 2.25) (at x = -0.97 K
+converges to v = 2.1), at A = 7/8 off the axis on [1.75, 2), and at A = 1 first off the axis (v about 1.875 to 1.9 at x =
+0 and 0.5, 1.95 to 1.975 at x = -0.97). Beyond, K is unresolved at every angle computed, x = -0.97 to 0.5: dev from about
+3 to 10^7 with diff as large, so those values are not a resolved growth of the curvature. The angular derivatives in K
+are the collocation's, global in x, so this does not localise the cause at the axis or exclude it: the invariant does not
+tell a singularity from a defect of the scheme, but it shows the failure is not only in the gauge functions, and that the
+curvature is moderate wherever it is resolved in angle.
 
 Labels: computed (floating point, on saved runs).
 

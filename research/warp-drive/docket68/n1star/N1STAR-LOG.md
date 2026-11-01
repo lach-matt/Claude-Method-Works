@@ -7219,3 +7219,9 @@ the curvature, which no choice of coordinates can disguise, stays within a few t
 two resolutions agree, and shows no sign of running away before the numerics fail. Where they fail, the curvature itself
 is unresolved at every angle, not only near the axis. So the failure is real in the geometry as computed, but nothing
 resolved points to a singularity.
+
+**D485 (2026-11-01): the curvature check holds; the gauge argument needed a better reason.** An independent check
+reproduced every curvature number. It found the growth with wave strength more varied than stated, the unresolved values
+starting lower, and, at the two strongest waves, convergence lost first away from the axis; these are corrected. On the
+gauge, the reason given was wrong: the record's choice does add terms with derivatives of the metric, but only first
+derivatives, so the equations stay of the kind the theorem treats and the conclusion holds.
