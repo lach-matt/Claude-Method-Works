@@ -5823,6 +5823,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   ≈ 1/17.5. Confirmed: the s1 state is III.D″'s boost state at b_0; no shift (δ* keeps the offset, base 3 included); the
   arithmetic. Corrected in LOSS-D LD14; the D539 entry above keeps its text. Open, and decisive for d's order: the
   reading.
+- D542 (LOSS-D LD14 and LD13, read and deduced; III.D‴ section 1 and Lemma 2.1, III.D″ (3.2) and the s1 proof, III.G″
+  Table 1.1 and its (4.4) proof read): the reading D541 found decisive is the construction's. III.D‴ fixes ℳ (roots plus
+  integers) and says "every exponent below lies in ℳ" (D4:54-59), the generic index set being notation; Lemma 2.1 builds
+  each state's exponents as its base plus ℕ_0, smooth sources' plus ℕ_0, and the decaying part's at the roots with Re ≥
+  2 + d1, plus ℕ_0 (D4:76-100). So an offset in (0, 1) needs a base within 1 below such a root of the same type; of the
+  states III.G″ collects only the boost state does (base 2 in ω′, 3 in h_s1, root 2 + d1), the s0 state being ρ²C^∞ and
+  the class states' bases ≤ 0. Hence ℰ^ι_ind ∩ (0, 1) = {d1}, m_ι = d1 (A ≠ 0), at most 1,470,302 ι⁺ rounds per level
+  (1/17.5 of the tf-rounds), and LD13's ℰ_ind ∩ (0, 1) = {d1}. Not read: III.F⁗'s states (base −2, offsets above 4 by
+  the same count).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

@@ -7546,3 +7546,9 @@ rests on reading the record's lists of exponents as built from the black hole's 
 more loosely, as any list above a tiny threshold. Read that way, the two loops could be far longer than the ones already
 counted, by up to about a hundred times. So which reading the record's construction supports now decides the order of
 the loss; "settled" in the previous entry was premature.
+
+**D542 (2026-11-01): the reading, settled by the record's construction.** The record's loose notation for exponent lists
+turns out to stand for lists its construction builds from the black hole's actual roots, each state's exponents being
+its leading one plus whole numbers or a root plus whole numbers. Tracing which states can produce a small exponent
+leaves only one, the boost state, with the record's smallest root. So both remaining loops are bounded as the earlier
+entries said, the last one at about one seventeenth of the counted ones.

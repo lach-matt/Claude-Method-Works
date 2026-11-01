@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -690,7 +690,8 @@ loop counts of section 3.
     reading (D541, verifier 234): the record's convention is generic, ℰ_ind any index set with min Re ≥ the gauge
     potential's ε_ind (D3:46-47; < 9.47 × 10⁻⁸, < 1.46 × 10⁻¹⁰ by D4's refinement), and read so, a chain can run up to
     (1 + δ_50)/ε_ind rounds, the loop then possibly far longer than the counted ones. (a)-(e) hold on the reading that
-    ℰ_ind is built from the indicial roots' offsets.
+    ℰ_ind is built from the indicial roots' offsets. That is the construction's (LD14, D542): III.D‴'s every exponent
+    lies in ℳ.
 - LD14 (the ι⁺ loop's length; deduced from the record's text, D534). LD12 (v) gave the ι⁺ iteration that Lemma 3.2's
   Steps 1-2 run at every β-level below 3 (I9:230-232, 256-261) as up to about (2 − λ_♯)/ε_ind rounds per level, and so
   possibly of the counted loops' order 1/(ε_K ε_ind). The record fixes it differently.
@@ -735,6 +736,22 @@ loop counts of section 3.
     loop is bounded by d1, and both could outgrow the counted ones. Each round's loss, III.G″ Corollary 4.3 and III.I′
     Proposition 3.1 composed, is not read here. With LD13, the two loops LD12 (v) left uncounted are then both bounded
     per level by the record's own roots (d1 for the level-2 chains, m_ι for ι⁺), the first up to the factor N_2.
+  - *The reading, at source (D542, read and deduced).* The construction answers D541. III.D‴ fixes ℳ, the real numbers
+    in [−10, 10] of the form Re λ + j, λ an indicial root and j ∈ ℤ, and says "every exponent below lies in ℳ"
+    (PART-III-D4-GENSTATES.md:54-59): the generic "index set with min Re ≥ ε_ind" is the notation for what the
+    construction yields. Lemma 2.1 (D4:76-100) builds each state from its leading term ρ^m w, the corrections that A −
+    N(A) ∈ ρDiff²_b adds (exponents m + 1 + ℕ_0, the coefficients being smooth), the formal solution of III.A Lemma 1.5
+    ("its exponents are those of ℱ_1 plus ℕ_0"), whose sources are smooth (f_b ∈ ρ⁴C^∞, D3:195-197), and the decaying
+    part P_b⁻¹f_2, whose exponents are the indicial roots with Re ≥ λ_s1,2 = 2 + d1, plus ℕ_0 (III.A Lemma 1.4,
+    D4:93-97). So a state's exponents, relative to its base, are integers or (root ≥ 2 + d1) + j − base, and an offset
+    in (0, 1) needs a base within 1 below such a root of its own type (the types are preserved at b_0, D4:173-175).
+    Among the states III.G″ collects (G3:338-339, Table 1.1 at G3:44-60): the boost state, base 2 in ω′ and 3 in h_s1 =
+    δ*ω (D3:198-203), gives d1, the root 2 + d1; the s0 state is ρ²C^∞ (D3:143), so d0 does not enter there; the v1
+    states have integer roots; the III.D‴ class states have bases μ ≤ 0, so their offsets from the decaying part are at
+    least 2 + d1 and the rest are integers. So, on the construction, ℰ^ι_ind ∩ (0, 1) = {d1} and, A ≠ 0 (LD9), m_ι = d1:
+    the ι⁺ loop runs at most 1,470,302 rounds per level, about 1/17.5 of the levels' tf-rounds. The same construction
+    gives LD13's ℰ_ind ∩ (0, 1) = {d1}, the s0 state carrying no ρ^(2+d0). Not read here: III.F⁗'s states (Table 1.1's
+    physical factor, base −2, whose offsets from roots above λ_s1,2 + 1 would be above 4).
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1
