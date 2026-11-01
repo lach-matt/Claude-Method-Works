@@ -402,8 +402,8 @@ couplings are then killed by their own contractions.
       propagates (deduced; Rendall's paper [36] not read). The quotations were checked word for word against the alphaXiv
       text of arXiv:1203.4534v2 when they were seated (D480, D484), by the author, not independently: the verifiers'
       routes to arXiv were refused (D480, D485).
-    - Beyond a neighbourhood of S (D488, read: [CCTW16] Cabet-Chruściel-Tagne Wafo, arXiv:1406.3009v2; [CTWG23]
-      Chruściel-Tagne Wafo-Gray, arXiv:2305.07306v1). [CCTW16] proves "the neighborhood theorem" for quasilinear
+    - Beyond a neighbourhood of S (D488, corrected D490; read: [CCTW16] Cabet-Chruściel-Tagne Wafo, arXiv:1406.3009v2;
+      [CTWG23] Chruściel-Tagne Wafo-Gray, arXiv:2305.07306v1). [CCTW16] proves "the neighborhood theorem" for quasilinear
       symmetric hyperbolic systems split as A^u = diag(A^u_ϕϕ, 0), A^v = diag(0, A^v_ψψ) in double-null coordinates, in
       any dimension, with Y = S compact (Theorem 3.9, p. 32; Corollary 3.11, p. 35: "a unique solution ... defined on the
       neighborhood ([0, a_*] × [0, b_0] × Y) ∪ ([0, a_0] × [0, b_*] × Y) of N"), provided the transport equations along
@@ -414,19 +414,28 @@ couplings are then killed by their own contractions.
       fields satisfying wave equations", □_g Φ = F(Φ, ∂Φ, g, ∂g) (section 5.2, pp. 56-57). [CTWG23] does every higher
       dimension: "The maximal globally hyperbolic development of smooth initial data for vacuum Einstein equations with a
       (possibly zero) cosmological constant Λ ∈ ℝ, on two characteristic hypersurfaces intersecting transversally,
-      contains a future neighborhood of the initial data hypersurfaces" (Theorem 1.1, pp. 2-3), by the same scheme on the
-      higher-dimensional Bianchi equations, with no compactness of S, and assuming vacuum: J_jkl ≡ 0 in D_i W^i_jkl =
-      J_jkl ((2.17)-(2.19), p. 6). So in 5D vacuum existence holds on a future neighbourhood of N ∪ N′, a statement about
-      the maximal development, which does not depend on the record's gauge. For the record's data, which carry the null
-      dusts, neither paper applies: [CTWG23] is vacuum, and [CCTW16]'s matter obeys wave equations, while the dusts obey
-      transport equations, and J then carries first derivatives of the dusts' T. Adding the dusts and their first
-      derivatives to the split system, each dust transported along e_0 or e_1 (a diagonal block of (2.3)), is the evident
-      route (deduced, not checked). Still not computed: the dusts' well-posedness given g written out, uniqueness beyond
-      S, and that the record's solution solves the reduced equation exactly. For the record's dusts, whose directions ∝
-      ∇v and ∇u are each tangent to one of N, N′, the corner S needs no condition: each dust's value on S is the
-      restriction of its free data on the hypersurface it crosses, which then seeds its transport along the other (D470).
-      A general crossing dust, with D470's free k^A on N, may cross N′ too, which brings free data there and a
-      compatibility condition at S (verifier 204).
+      contains a future neighborhood of the initial data hypersurfaces" (Theorem 1.1, pp. 2-3, stated for smooth data),
+      by the same scheme on the higher-dimensional Bianchi equations, with no compactness of S, and assuming vacuum:
+      J_jkl ≡ 0 in D_i W^i_jkl = J_jkl ((2.17)-(2.19), p. 6). So in 5D vacuum existence holds on a future neighbourhood
+      of N ∪ N′, a statement about the maximal development, which does not depend on the record's gauge. For the record's
+      data, which carry the null dusts, neither paper applies: [CTWG23] is vacuum, and [CCTW16]'s matter obeys wave
+      equations, while the dusts obey transport equations, and J then carries first derivatives of the dusts' T. The
+      route of adding the dusts and their first derivatives to [CTWG23]'s split system ((2.3) there) loses a derivative
+      (verifier 209, D490; `checks/dustloss5.py`, exact): a dust along ∂_u, T = K dv ⊗ dv, obeys ∂_u K = cK with c =
+      −½∂_u log det γ, minus the null expansion, and J contains ∂_x K, so the system needs ∂_x c, an angular derivative
+      of a connection coefficient that is not among [CTWG23]'s unknowns (4.9)-(4.10) nor fixed by (4.1a)-(4.1b); adding
+      it needs the derivative of the curvature, so ∂J and the dust's second derivatives, and the system does not close at
+      any order (shown at the level of the equations, not as a no-go theorem; D488 had called this route evident). What
+      is known instead: Luk and Rodnianski (arXiv:2009.08968, Theorem 4.6, p. 29) treat two null dusts in double-null
+      gauge, in 4D with S = S², by a hyperbolic-elliptic-transport system with renormalised curvature that avoids the
+      loss (p. 10), and the record's own [Tou24] cites them (p. 3); no 5D version is known here. A dust version of
+      [CCTW16]'s proof would also need its Theorems 5.1 (Rendall's corner) and 5.2 (the spacelike problem with boundary)
+      for the coupled equations (pp. 55-56), which the record assumes (D480). Still not computed: the dusts'
+      well-posedness given g written out, uniqueness beyond S, and that the record's solution solves the reduced equation
+      exactly. For the record's dusts, whose directions ∝ ∇v and ∇u are each tangent to one of N, N′, the corner S needs
+      no condition: each dust's value on S is the restriction of its free data on the hypersurface it crosses, which then
+      seeds its transport along the other (D470). A general crossing dust, with D470's free k^A on N, may cross N′ too,
+      which brings free data there and a compatibility condition at S (verifier 204).
 
 ## 4c. The two-dust background (D389)
 

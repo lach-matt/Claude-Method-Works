@@ -7244,3 +7244,9 @@ place where the two initial null surfaces meet. Two later papers push that to a 
 in four dimensions, the second in every higher dimension, five included, but only for empty space. The record's surfaces
 carry streams of null dust, which neither paper treats, so for the record the corner is still as far as the reading goes;
 the likely route to the band is clear but not carried out.
+
+**D490 (2026-11-01): the route for the dust is not the easy one.** The check confirmed every quotation and reading. But
+the route called clear for the dust streams loses a derivative: the dust's own equation feeds an angular derivative of
+the geometry back into the system, which then asks for one more, without end. The known way round is a different, partly
+elliptic system, worked out in four dimensions; nothing comparable is known here for five. The band the earlier papers
+give may also thin out far along the surfaces.

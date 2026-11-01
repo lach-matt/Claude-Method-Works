@@ -5281,6 +5281,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   existence on a future neighbourhood of N ∪ N′, independent of gauge; the record's null dusts are covered by neither
   (vacuum, or wave-equation matter; the dusts obey transport equations). Open: the dusts added to the split system with
   their first derivatives (deduced as the route, not checked); uniqueness beyond S.
+- D490 (verifier 209 on D488; `checks/dustloss5.py`, written by the verifier, exact): every quotation word for word with
+  its page and equation, reached through alphaXiv (and Firecrawl for 1406.3009); the readings stand (the 4D restriction,
+  wave-equation matter only, vacuum with Λ in every higher dimension, no compactness of S, no dust in either paper, the
+  5D vacuum statement gauge-independent). MAJOR: D488's "evident route", the dusts and their first derivatives added to
+  the split system, loses a derivative: the dust's transport ∂_u K = cK has c minus the null expansion, J contains ∂_x K,
+  and the transport of ∂_x K needs ∂_x c, an angular derivative of a connection coefficient outside the system's
+  unknowns, which in turn needs ∂J, and so on (shown at the level of the equations). The known treatment is
+  Luk-Rodnianski arXiv:2009.08968 Theorem 4.6 (4D, S = S², two null dusts, hyperbolic-elliptic-transport with
+  renormalised curvature), which the record's [Tou24] cites. MINOR: (2.3) named no paper (it is [CTWG23]'s); a dust
+  version also needs [CCTW16]'s Theorems 5.1 and 5.2 for the coupled system; the p. 50 loss and the 4D restriction are
+  explained on p. 40, and [CTWG23] counts two derivatives; [CTWG23]'s theorem is for smooth data; the log's "a whole band
+  along both surfaces" overstates Remark 3.12 (the thickness may shrink to zero at infinity). Corrected in FAMILIES5 4e;
+  the verifier's check is seated as dustloss5.py (its docstring's claim that c contains ∂_u W corrected: W drops out).
+  The D488 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
