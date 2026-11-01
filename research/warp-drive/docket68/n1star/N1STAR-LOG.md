@@ -7664,3 +7664,9 @@ assembly accepts. Written as a deduction, not yet line by line.
 round, the loss of the model inverse both apply, depends only on a weight that both kinds of round set to the same
 value, so in the record's accounting the two rounds cost exactly the same and the earlier comparisons of round counts
 are comparisons of loss.
+
+**D561 (2026-11-01): the two-dust existence, checked.** An independent check found no break in the argument and
+reproduced the computation, but the statement had dropped two hypotheses (the data on the two light cones must satisfy
+the constraints, and both dusts carry positive energy), and the far corner of the computed example is not resolved by
+either numerical scheme, so the computation supports smoothness away from that corner only. The result is a deduction
+with one sketched step, not a finished proof.

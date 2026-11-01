@@ -35,14 +35,18 @@ K_out R^3 = B(u), A, B >= 0):
      records); the bounds (i)-(v), from the cones' data and a = min R (an interior value), contain the computed R, mu
      and s (mu and s attain their lower bounds on the data, mu_uv and s_uv being >= 0 there, to discretisation, 2e-7 at
      n = 320; the upper bounds are coarse, s <= 2.7e3 against 1.12); and the constraint residuals C_u, C_v, on which
-     (ii)'s mu_uv rests, fall at second order in the bulk (u <= 5, R >= 1; |C_u| 9.8e-5 to 1.6e-6) and, from n = 80,
-     at the far corner, where R_uu is large and |C_u| is 5.8, 4.2, 2.2 two cells off the edges (D556, verifier 241).
+     (ii)'s mu_uv rests, fall at second order in the bulk (u <= 5, R >= 1; |C_u| 9.8e-5 to 1.6e-6) and fall, but
+     slower (by 1.4 and 2.0 per halving), from n = 80 at the far corner, where R_uu is large and |C_u| is 5.8, 4.2, 2.2
+     two cells off the edges (D556, verifier 241; corrected D561).
   X4 (computed; D558) the existence argument's integral form on D3's rectangle: the unknowns (R, s, P, Q) := (R, s, R_u,
      R_v) solve P = P(u, 0) + int_0^v F dv', Q = Q(0, v) + int_0^u F du', R = R(0, v) + int_0^u P du', s = D[s] + int
      int G, F := -(e^(2s) + 2PQ)/R, G := 3(e^(2s) + 2PQ)/(2R^2), with the cones' data (twodomain5's cone()). Picard
      iteration from the data, by the trapezoidal rule, converges on the whole rectangle (successive changes falling
      geometrically to 1e-13 within 60 iterations at n = 40, 80, 160), not only near the corner, and its limit agrees
-     with the diamond scheme's to second order in n.
+     with the diamond scheme's to second order in the bulk (u <= 5, R >= 1; ratio 4.0). The largest differences sit at
+     the far corner (U1, 2), which neither scheme resolves: R_uu there grows with n (38 to 227 at n = 40 to 640, two
+     cells from the corner) while interior points converge (verifier 243, D561). The data are C^3 bumps (sin^4), not
+     smooth; the truncation is essential, Picard without it diverging on data that violate the constraints.
   Control: X1 with R^2 in place of R^3 leaves the cross term -2 R_u R_v (the 4D identity is not the 5D one); X2 with B
      depending on v leaves a residual, which detects the compatibility condition B_v = 0 (verifier 241).
 
@@ -157,7 +161,9 @@ def picard(n, A, B, U1, iters=80):
         R, S, P, Q = Rn, Sn, Pn, Qn
         if ch < 1e-13 or not np.isfinite(ch):
             break
-    return it, float(ch), float(np.abs(R - Rd).max()), float(np.abs(S - Sd).max())
+    bulk = (uu[:, None] <= 5) & (Rd >= 1)
+    return (it, float(ch), float(np.abs(R - Rd).max()), float(np.abs(S - Sd).max()), float(np.abs(R - Rd)[bulk].max()),
+            float(np.abs(S - Sd)[bulk].max()))
 
 
 def main():
@@ -194,15 +200,16 @@ def main():
           'on the cones): %s' % (rates[0], rates[1], rates[2], *[math.log2(r) for r in rates], x3))
     x4, dif = True, []
     for n in (40, 80, 160):
-        it, ch, dR, ds = picard(n, A, Bw, U1)
-        dif.append(dR)
+        it, ch, dR, ds, bR, bs = picard(n, A, Bw, U1)
+        dif.append(bR)
         x4 &= ch < 1e-12
         print('    n = %d: Picard converged in %d iterations (last change %.1e); limit vs diamond scheme: max |R| %.2e, '
-              'max |s| %.2e' % (n, it, ch, dR, ds), flush=True)
-    x4 &= all(dif[k] / dif[k + 1] > 3 for k in range(2))
+              'max |s| %.2e (at the far corner); in the bulk (u <= 5, R >= 1) %.2e, %.2e' % (n, it, ch, dR, ds, bR, bs),
+              flush=True)
+    x4 &= all(3.5 < dif[k] / dif[k + 1] < 4.5 for k in range(2))
     ok['X4'] = x4
     print('  X4: the integral system\'s Picard iteration converges on the whole rectangle, its limit the diamond '
-          'scheme\'s to second order: %s' % x4)
+          'scheme\'s to second order in the bulk (ratios %.2f, %.2f): %s' % (dif[0] / dif[1], dif[1] / dif[2], x4))
     for k, val in ok.items():
         print(k, 'PASS' if val else 'FAIL')
     return 0 if all(ok.values()) else 1

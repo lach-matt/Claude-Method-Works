@@ -5978,6 +5978,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   from I.A Lemma 7.1; the ztf weight enters without loss) and its loss is II.G′ Lemma 4.1's ℓ + ℓ̃
   (PART-III-F2-INDICIAL.md:478-491); both rounds apply it with β_sctf = ℓ_scf = 3/2 − ε (I12:267; I12:293-294,
   I14:128-129). So a level-2 and a level-3 round cost the same in this accounting.
+- D561 (verifier 243 on D558; twoext5 reproduced, X4 at n = 320, 640; B1, C_u and B2's propagation by a 5D Ricci
+  computation): no break of the existence chain. MINOR: the hypotheses were missing, cone data satisfying the
+  constraints and A, B ≥ 0 (with C_u violated on a cone the bulk residual stays at 2.4 × 10⁻³; Picard without the
+  truncation diverges); the far corner is resolved by neither scheme (R_uu 38 to 227 at n = 40 to 640, interior points
+  converging), so smoothness there is the argument's, not the computation's; "now proved" and "closed directly"
+  overstated a deduction whose smoothness step is sketched. NITs: the second-order figures quoted were the far corner's
+  (bulk 1.29 × 10⁻⁵ to 8.13 × 10⁻⁷, ratio 4.0, now in X4); the data are C³; X3's far-corner residuals fall by 1.4 and
+  2.0, not at second order; the open item now worded one way. Corrected in FAMILIES5 4i and twoext5; the D558 entry
+  above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

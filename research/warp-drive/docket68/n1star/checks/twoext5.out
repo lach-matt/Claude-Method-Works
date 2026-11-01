@@ -10,10 +10,10 @@
     n = 320 (u in [0, 6.444], v in [0, 2], a = min R = 0.681): max |3 int int R e^(2s) - (D[R^3] - R^3)| = 2.04e-05;  computed vs bound: max R 4.993 <= 4.993, mu in [0.903, 1.358] within [0.903, 6.3], s in [-0.347, 1.120] within [-0.347, 2.68e+03]
       constraints (two cells off the edges): max |C_u| 2.15e+00, |C_v| 1.37e-03; in the bulk (u <= 5, R >= 1) 1.57e-06, 4.23e-06
   X3: identity (i)'s residual falls with n (ratios 1.72, 2.88, 3.48, local orders 0.78, 1.52, 1.80), the constraint residuals fall at second order in the bulk and, from n = 80, at the far corner too, and every bound holds (mu's lower bound to the discretisation of R_u, R_v on the cones): True
-    n = 40: Picard converged in 52 iterations (last change 5.5e-14); limit vs diamond scheme: max |R| 3.12e-02, max |s| 7.29e-02
-    n = 80: Picard converged in 32 iterations (last change 3.9e-14); limit vs diamond scheme: max |R| 6.22e-03, max |s| 1.44e-02
-    n = 160: Picard converged in 32 iterations (last change 1.8e-14); limit vs diamond scheme: max |R| 1.48e-03, max |s| 3.43e-03
-  X4: the integral system's Picard iteration converges on the whole rectangle, its limit the diamond scheme's to second order: True
+    n = 40: Picard converged in 52 iterations (last change 5.5e-14); limit vs diamond scheme: max |R| 3.12e-02, max |s| 7.29e-02 (at the far corner); in the bulk (u <= 5, R >= 1) 1.29e-05, 1.40e-05
+    n = 80: Picard converged in 32 iterations (last change 3.9e-14); limit vs diamond scheme: max |R| 6.22e-03, max |s| 1.44e-02 (at the far corner); in the bulk (u <= 5, R >= 1) 3.22e-06, 3.51e-06
+    n = 160: Picard converged in 32 iterations (last change 1.8e-14); limit vs diamond scheme: max |R| 1.48e-03, max |s| 3.43e-03 (at the far corner); in the bulk (u <= 5, R >= 1) 8.13e-07, 8.85e-07
+  X4: the integral system's Picard iteration converges on the whole rectangle, its limit the diamond scheme's to second order in the bulk (ratios 4.00, 3.97): True
 X1 PASS
 X2 PASS
 Ctl PASS

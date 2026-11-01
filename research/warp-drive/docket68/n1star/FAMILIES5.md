@@ -756,27 +756,37 @@ same form, with one condition.
   cones (deduced; closed in u as well, R_u < 0 at R = a; and checkable from the data, μ ≥ min D[μ] > a² sufficing, 0.903
   against a² = 0.46 in X3). Existence there needs the local existence and continuation above (corrected D556). Not: the
   data themselves, that is, the outgoing family's data at past null infinity.
-- *Existence: a truncated Volterra iteration (D558; deduced; `checks/twoext5.py` X4 computed).* D556 left existence
-  open, the extension criterion needing a solution to extend; the system's integral form gives both. With U := (R, s, P,
-  Q), F := −(e^(2s) + 2PQ)/R and G := 3(e^(2s) + 2PQ)/(2R²), a continuous solution of P = P(u, v0) + ∫_(v0)^v F dv′, Q =
-  Q(u0, v) + ∫_(u0)^u F du′, R = R(u0, v) + ∫_(u0)^u P du′, s = D[s] + ∫∫G, with the cones' data (P(u, v0) = ∂_uR(u,
-  v0), Q(u0, v) = ∂_vR(u0, v)), solves B1: R_u = P and R_v = Q follow, so R_uv = F and s_uv = G, and the constraints
-  hold by B2's propagation from the cones. Fix a > 0 and K > K_0, K_0 the bound the chain (i)-(vi) gives on Q with that
-  a (it depends on the data, a and Q only); replace F, G by F_K, G_K, equal to them on {|U| ≤ K, R ≥ a} and globally
-  Lipschitz in U. The truncated map is a contraction in the Bielecki norm sup e^(−γ(u − u0 + v − v0))|U| for γ large
-  (each single integral divides the Lipschitz constant by γ, the double one by γ²), so it has one continuous fixed point
-  Ũ on all of Q. Let p ∈ Q have R̃ > a on J⁻(p) ∩ Q. If |Ũ| ≥ K somewhere there, take such a point q with u + v least:
-  on J⁻(q) ∖ {q}, Ũ solves the true system with R ≥ a, so the chain gives |Ũ| ≤ K_0 there and, by continuity, at q, a
+- *Existence: a truncated Volterra iteration (D558; deduced; `checks/twoext5.py` X4 computed; corrected D561).* D556
+  left existence open, the extension criterion needing a solution to extend; the system's integral form gives both. With
+  U := (R, s, P, Q), F := −(e^(2s) + 2PQ)/R and G := 3(e^(2s) + 2PQ)/(2R²), a continuous solution of P = P(u, v0) +
+  ∫_(v0)^v F dv′, Q = Q(u0, v) + ∫_(u0)^u F du′, R = R(u0, v) + ∫_(u0)^u P du′, s = D[s] + ∫∫G, with the cones' data
+  (P(u, v0) = ∂_uR(u, v0), Q(u0, v) = ∂_vR(u0, v)), solves B1: R_u = P and R_v = Q follow, so R_uv = F and s_uv = G, and
+  the constraints hold by B2's propagation from the cones, given cone data that satisfy them, C_u(·, v0) = 0 and C_v(u0,
+  ·) = 0, and A, B ≥ 0, which the chain's (ii) and (iv) use (corrected D561, verifier 243: the integral system imposes
+  nothing on the cone data, and propagation only transports a violation; with C_u violated by 5 % of the dust term on
+  the cone the bulk |C_u| stays at 2.4 × 10⁻³ under refinement, and Picard without the truncation diverges, so the
+  truncation is essential). Fix a > 0 and K > K_0, K_0 the bound the chain (i)-(vi) gives on Q with that a (it depends
+  on the data, a and Q only); replace F, G by F_K, G_K, equal to them on {|U| ≤ K, R ≥ a} and globally Lipschitz in U.
+  The truncated map is a contraction in the Bielecki norm sup e^(−γ(u − u0 + v − v0))|U| for γ large (each single
+  integral divides the Lipschitz constant by γ, the double one by γ²), so it has one continuous fixed point Ũ on all of
+  Q. Let p ∈ Q have R̃ > a on J⁻(p) ∩ Q. If |Ũ| ≥ K somewhere there, take such a point q with u + v least: on J⁻(q) ∖
+  {q}, Ũ solves the true system with R ≥ a, so the chain gives |Ũ| ≤ K_0 there and, by continuity, at q, a
   contradiction. So Ũ solves B1 on J⁻(p) ∩ Q, within the bounds, and is smooth there (differentiating the integral
-  equations, the data being smooth; the commuting step of [Mos17]); and any solution on a past-closed set agrees with it
-  (the same contraction). Hence the solution exists on Q_a := {p ∈ Q : R̃ > a on J⁻(p) ∩ Q} for every a > 0, the
-  truncations agreeing where both solve B1, and the development within Q is the union of the Q_a: it ends only where R →
-  0, which is D552's claim D556 withdrew, now proved without [Mos17] Proposition 5.3 and section 5.4. Its part {R ≥ a}
-  is closed to the past where μ > a² on R = a (D552, D556), the region Ω lies in, so the background exists on Ω's past
-  part of Q given the cones' data. Computed (X4): the integral system's Picard iteration, by the trapezoidal rule,
-  converges on all of D3's rectangle, not only near the corner (to 10⁻¹³ in 32 to 52 iterations at n = 40, 80, 160), and
-  its limit agrees with the diamond scheme's to second order (max |R| difference 3.1 × 10⁻², 6.2 × 10⁻³, 1.5 × 10⁻³).
-  Open: the cones' data, the outgoing family's at past null infinity.
+  equations, the data being smooth; the commuting step of [Mos17]; sketched, not written); and any solution on a
+  past-closed set agrees with it (the same contraction). Hence the solution exists on Q_a := {p ∈ Q : R̃ > a on J⁻(p) ∩
+  Q} for every a > 0, the truncations agreeing where both solve B1, and the development within Q is the union of the
+  Q_a: it ends only where R → 0, which is D552's claim D556 withdrew, now deduced without [Mos17] Proposition 5.3 and
+  section 5.4 (corrected D561: "proved" ran ahead of a sketch whose smoothness step is not written). Its part {R ≥ a} is
+  closed to the past where μ > a² on R = a (D552, D556), the region Ω lies in, so the background exists on Ω's past part
+  of Q given the cones' data. Computed (X4): the integral system's Picard iteration, by the trapezoidal rule, converges
+  on all of D3's rectangle, not only near the corner (to 10⁻¹³ in 32 to 52 iterations at n = 40, 80, 160), and its limit
+  agrees with the diamond scheme's to second order in the bulk (u ≤ 5, R ≥ 1: max |R| difference 1.29 × 10⁻⁵, 3.22 ×
+  10⁻⁶, 8.13 × 10⁻⁷, ratio 4.0); the 3.1 × 10⁻², 6.2 × 10⁻³, 1.5 × 10⁻³ quoted before were the far corner's (corrected
+  D561). The far corner (U1, 2), at R ≈ 0.68, is resolved by neither scheme: R_uu there grows with n (38 to 227 at n =
+  40 to 640, two cells from the corner) while interior points converge (R_uu(U1 − 0.05, 1.95) = −34.57 to −33.58), so
+  the computation supports smoothness in the bulk only, not at the corner; it shows no singularity either (verifier
+  243). The example's data are C³ bumps (sin⁴), not smooth. Open: the cones' data, that is, the outgoing family's data
+  at past null infinity.
 
 What it does not give: the background on Ω beyond the computed rectangle, which does not
 reach Σ_τ0 (outgoing rays from R = a leave it through v = 0 at τ between −0.96 and −0.69, above the τ0 < −1.47 the
