@@ -552,6 +552,18 @@ What it does not give:
   sources known only by a bound O(r⁻⁴), which is what the record gives (D464), and half-integer exponents, for which
   Lemma 0.1 is not the class (D467). [D517: Lemma 0.1 extends to data smooth in ρ^(1/2), with the half-integer ℰ_0^½
   that row d1 admits in place of Part VII's ℰ_0; (G+)'s margin does not move with it, (v) (corrected D519).]
+  [D520, read and deduced: the sources from e are known by more than a bound. Proposition 9.8's energy carries rotation
+  derivatives at no cost in λ, E(τ) = Σ_(i+|β|≤k) λ^i ‖∂^i Ω^β ∂w_n‖ ≤ M_F λ^(K′) t^(−1/2) (N1STAR-PROOF.md:1335), and
+  Lemma 9.3(a), Sobolev with rotations on the annuli (1103-1104), turns it into |Ω^γ ∂w_n| ≤ C λ^(K′−3) t^(−2) for |γ| ≤
+  k − 3, uniformly in r. The sources quadratic in e and h ∂²e therefore have, after the factor r⁴, angular derivatives
+  up to order about k − 4 bounded uniformly in r (h's rotation derivatives are bounded in E_(5/2); each derivative of ∂e
+  costs one λ⁻¹). D508's argument, run at finite regularity, then puts the strip's term in ρ³C^m of the compactification
+  with m about k − 6, each ρ-derivative costing (1 + κ)^(1/2) (D508). Lemma 0.1 asks for finitely many seminorms, a
+  number set by d_1 = N + k″ (PART-III-K-NONLINEAR.md:417; more than 10¹⁷, LOSS-D LD12), so what is needed is the far
+  region at an order k above that number. Section 9 fixes k = 6 (N1STAR-PROOF.md:92). 10.51 reads section 4 for its
+  dependence on k and finds Theorem E at every order k ≥ 6 with K ≥ 6 (6708-6733), but it does not read Proposition 9.8.
+  What remains is Proposition 9.8 read at every order (k enters through Lemma 9.3's three rotation derivatives and the
+  commutators) and the passage from w_n to e (D464); neither is done here.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

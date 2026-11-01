@@ -5612,6 +5612,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   included); (c) the ρ^(1/2) Taylor argument, for both components. MINOR: ℰ_0 also reaches III.K Theorem 4.3's ε, d_1
   and l_*; BEYOND5's "III.A2 (2.2)" is [Hin26]'s, cited at III.A:33. Corrected in BEYOND5 3(b); the D517 entry above
   keeps its text.
+- D520 (BEYOND5 3(b), read and deduced): the strip's sources from e are known by more than a bound O(r⁻⁴). Proposition
+  9.8's energy (9.8) carries rotation derivatives at no cost in λ (N1STAR-PROOF.md:1335), and Lemma 9.3(a), Sobolev with
+  rotations, gives |Ω^γ ∂w_n| ≤ C λ^(K′−3) t^(−2) for |γ| ≤ k − 3, uniformly in r. So r⁴ times the sources has about k −
+  4 angular derivatives bounded uniformly, and D508's argument at finite regularity puts the strip's term in ρ³C^m with
+  m about k − 6. Lemma 0.1 needs finitely many seminorms, a number set by d_1 = N + k″ (more than 10¹⁷). Section 9 fixes
+  k = 6, and 10.51 extends only Theorem E (section 4) to every order. Open: Proposition 9.8 at every order, and the
+  passage from w_n to e (D464).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

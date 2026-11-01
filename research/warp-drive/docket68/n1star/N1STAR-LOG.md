@@ -7421,3 +7421,9 @@ curvature.
 that admitting them costs nothing further: the record's construction already carries half powers in the list that the
 later gap condition sees, whatever list the data use. So the gap condition and the derivative count are unchanged; at
 most some logarithmic orders rise.
+
+**D520 (2026-11-01): the far-region sources are smoother than their bound.** The record's estimate in the far region
+also controls derivatives along the spheres, at no cost, so the sources that feed the strip have a fixed number of
+smooth angular derivatives, uniformly out to infinity. That is enough for the data class if the far-region estimate is
+taken to a high enough order. The record does this for the near region but not for the far one; that step, and one
+limit, remain.
