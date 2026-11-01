@@ -5992,6 +5992,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   100. So ℓ_I ∈ (3 + ε_+, 3.5) is admissible for every a_I, and there section 2's (2.5) gives d_G = 11 on the whole ι⁺
   window (δ < ε): an ι⁺ round costs at least 15. At the source's a_I, d_G ≤ 13 for every admissible ℓ_I (14 at the
   window's top if δ ≥ ε).
+- D563 (verifier 245 on D560; partial): the β_ztf-independence holds, and no other value of ℓ_scf than 3/2 − ε occurs in
+  the loops. MAJOR: the loss is not fixed by β_sctf alone: II.G′ Lemma 4.1's ℓ uses r_in and s, free in F2's proof and
+  fixed in II.G′ Corollary 4.2 through ϑ_in and s_c (PART-II-G2-DECAY.md:690-701); the two rounds cost the same if both
+  make the same choices, natural for one operator but not stated, so D560's "settled" is conditional. MINOR: I12:267 is
+  level 1; level 2 is Step 3, which does not restate ℓ_scf; level 3's value is at I9:287-288 and I7:226, not the lines
+  cited; "ℓ" named two objects; III.J″ gives only "fixed loss"; ℓ̃ = 0 under Corollary 4.2's choices. NIT: section 2's
+  item 2 ("no closed form in the lines read") is superseded by section 2b's (2.3). Corrected in LD16; the D560 entry
+  above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

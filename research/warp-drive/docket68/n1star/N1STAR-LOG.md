@@ -7675,3 +7675,7 @@ with one sketched step, not a finished proof.
 range every admissible choice of the record's free parameter allows, and with that choice the loss is exactly eleven
 across the whole window where that loop runs; at the source's own values it is at most thirteen. So a round of that loop
 costs at least fifteen derivatives in the record's accounting.
+
+**D563 (2026-11-01): equal cost, checked.** An independent check found the claim that the two inner rounds cost the same
+holds only conditionally: the inverse's loss depends on two further choices that the record leaves free at each use, and
+equality needs both uses to make the same ones, which is natural but not written. Several citations were also corrected.

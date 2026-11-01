@@ -826,11 +826,22 @@ loop counts of section 3.
     694-695), and ℓ_scf = 3/2 − ε at both levels: at level 2 by I12:267, at level 3 since Proposition 5.1's output has
     scf weight 3/2 − 2ε = ℓ_scf − ε (I12:293-294) and its source 5/2 − ε = ℓ_scf + 1 (I14:128-129). So a level-2 and a
     level-3 round cost the same 2 + ℓ + ℓ̃ in this accounting, and LD13 and LD15's comparisons of counts are comparisons
-    of loss.] One application at (α_0, k) treats every log power up to k: its proof solves away each of the k + 1 terms
-    ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold α_0-derivatives of terms holomorphic in α_0 (G5:474,
-    476-481, 489-491). So the applications at lower log orders that Step 3's "for each tf-exponent (α_0, k)" would add
-    are redundant, if the top order at α_0 is treated first (I12:278-281 fixes no order; D557); LD15's per-(α_0, k)
-    bound is the procedure as written, and its per-exponent bound |Λ ∩ W| the procedure without the redundancy.
+    of loss.] [Corrected D563, verifier 245: the loss does not depend on β_sctf alone. II.G′ Lemma 4.1's ℓ = max(⌈sup r
+    − r_out⌉, ⌈(s − 1)₊⌉) uses sup r = r_in and s, which F2's proof leaves free (r_in only "above the largest incoming
+    threshold", F2:368-371; s ∈ ℤ large, F2:382), and which II.G′ Corollary 4.2 fixes as r_in := max(r_out, ½(−1 + ϑ_in)
+    + 1) and s := s_c (PART-II-G2-DECAY.md:690-701), so ϑ_in and s_c enter; ℓ̃ = ⌈(−s)₊⌉ = 0 there (s_c ≥ 0, r ∈ [r_out,
+    r_in]). So the two kinds of round cost the same if both make the same choices of s, r_in and the radial-set inner
+    products, natural for the one operator N_tf(L̂_b, ±1) but not stated in the record: "the same" is conditional, not
+    settled. Citations corrected: I12:267 is level 1 (Step 2); level 2 is Step 3 (I12:278-281), which restates only
+    ℓ_zf, its input 5/2 − ε (I12:131-137) admitting ℓ_scf = 3/2 − ε; level 3's value is explicit at
+    PART-III-I9-COMMOTION.md:287-288 and PART-III-I7-PARAMS.md:226 (I12:293-294 pins it only to (3/2 − 2ε, 3/2 − ε]).
+    And "ℓ" here is Corollary 3.4's integer, Lemma 4.1's ℓ_a + ℓ̃, not the ℓ_a of the paragraph's first bracket; III.J″
+    itself states only "fixed loss" for Propositions 4.4 and 5.1.] One application at (α_0, k) treats every log power up
+    to k: its proof solves away each of the k + 1 terms ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold
+    α_0-derivatives of terms holomorphic in α_0 (G5:474, 476-481, 489-491). So the applications at lower log orders that
+    Step 3's "for each tf-exponent (α_0, k)" would add are redundant, if the top order at α_0 is treated first
+    (I12:278-281 fixes no order; D557); LD15's per-(α_0, k) bound is the procedure as written, and its per-exponent
+    bound |Λ ∩ W| the procedure without the redundancy.
   - *The ι⁺ loop.* Each round applies III.G″ Corollary 4.3 to the source's terms at λ_0 and removes the error by III.I′
     Proposition 3.1, the next source being F − L_b(u_λ0 + u′_λ0) (PART-III-I6-ALMOSTBDD.md:128-131, 156-157, 167-168).
     III.J″ charges Corollary 4.3 the loss d + 2, d being III.G′ Theorem 3.1 (2)'s for N_ι+(λ)⁻¹ composed with a contour
@@ -858,7 +869,8 @@ loop counts of section 3.
   - *What it rests on.* LD11 (ii)'s reading of III.J″'s accounting, now applied to Propositions 4.4 and to Corollary 4.3
     with III.I′ Proposition 3.1; the per-round floors 2 and 4 + d_G, which a finer accounting might lower (as LD11 (ii)
     notes). Open: a_I (through ℓ_I, d_G's input), Proposition 3.1's fixed loss, and ℓ's value (equal at both kinds of
-    round, D560); the per-round loss is independent of k by J3's (g) (J3:157-158), as it claims.
+    round if both make the same choices of s and r_in, D560, D563); the per-round loss is independent of k by J3's (g)
+    (J3:157-158), as it claims.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1
