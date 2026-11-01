@@ -626,6 +626,20 @@ No other component is nonzero. So the scheme is the following.
     moderate wherever it is resolved, with no resolved growth before the failure, holds under refinement of the null grid
     in D432's `ld 3` runs at the record's amplitude; D475's own runs were not refined.
 
+- *The second seed's x = +1 steepening, by the invariant (D515; `checks/g1curv5.py --seed2`, on the second seed's runs
+  at λ = 0.3162 with `ld 3`, M = 16, 24, 32 at 800 × 360, 24 u-rows, compared by the Chebyshev interpolant through all M
+  nodes).* Up to v = 3.25, K converges spectrally in M at every angle from x = −0.97 to 0.99: the M-differences are 10⁻⁸
+  to 10⁻⁵ of K_0, the ratio of the 16-24 to the 24-32 difference mostly 2 to 58, and K departs from Tangherlini's 72/R⁸
+  by 0.2 to 1.9, moderate as at the first seed. Its angular convergence is lost first off the axis: the 24-32 difference
+  passes 1 % of the departure at v = 3.74 (x = 0.5), 3.75 (x = 0), 3.76 (x = −0.5) and 3.83 (x = 0.9), and at the axis
+  only at 4.00 (x = 0.97) and 4.04 (x = 0.99); on [3.5, 4) it is 0.037 to 0.077 of K_0 at x = −0.5 to 0.5 against 0.0022
+  at x = 0.99. After v = 4, at x = 0.5 to 0.99, M = 32 departs from the background by 19 to 206 K_0 while M = 16 and 24
+  differ by 0.03 to 0.05 K_0: the large values are the finest grid's alone, not a growth resolved in M. So the invariant
+  does not single out x = +1, and wherever it is resolved the curvature is within order 1 of the background. That points
+  to the scheme rather than the solution at x = +1, without proving it, since a feature finer than M = 24 resolves would
+  also first show at M = 32. The linear interpolant's 24-32 difference is 1.5 to 5 × 10⁻³ on the converged bands, D499's
+  floor.
+
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
   dnsolve5's k-scan and the swapped gauge's fourth grid are done (D403). The axis treatment at small R is now tested
@@ -645,8 +659,10 @@ No other component is nonzero. So the scheme is the following.
   Kretschmann scalar is now followed (D475, D485): moderate and converged in angle up to the failure, unresolved at every
   angle after it (at the two largest amplitudes first off the axis in the runs without `ld 3`; at A = 1 with it, at v ≈
   1.93 at every angle, D499), so an axis treatment must be judged by K's convergence at all angles, not near the axis
-  alone. At the second seed, decide whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann
-  scalar along the axis) or by angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is
+  alone. At the second seed the invariant does not single out x = +1 (D515): its angular convergence is lost first
+  off the axis, at v ≈ 3.74, and the large values at the axis after v = 4 are M = 32's alone; what remains there is a
+  fourth M or angular refinement concentrated at the axes (a mapped Chebyshev grid), to tell a feature finer than M =
+  24 resolves from a defect of the finest grid. Rounding is
   excluded (D354), and so is the curvature cut. Then F3 (the certified linear constant) on the converged part.
 
 ## 7. Sources

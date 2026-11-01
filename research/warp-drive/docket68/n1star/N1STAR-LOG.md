@@ -7394,3 +7394,14 @@ bring a large interaction back.
 does not depend on any fine structure. So the record's proof spends at least twice as many derivatives as counted
 before, more than 5 × 10¹⁵. An upper figure still needs two more loops counted, whose lengths do depend on that fine
 structure.
+
+**D515 (2026-11-01): the second wave profile's failure, read by curvature.** For the record's second, shorter wave
+profile, the curvature invariant was computed at three angular resolutions. It is resolved, and close to the black
+hole's own, everywhere until a certain time. After that it first stops agreeing between resolutions away from the axis,
+and only later at the axis where the solver had seemed to fail; the very large values near that axis come from the
+finest resolution alone. This points to a defect of the numerical scheme there rather than of the solution, though it
+does not prove it.
+
+**D516 (2026-11-01): the second long loop, checked.** An independent reading confirmed the doubled derivative count and
+its figures. It corrected which of the record's steps is the second of the two loops whose length depends on fine
+structure, and how the first of them should be bounded.

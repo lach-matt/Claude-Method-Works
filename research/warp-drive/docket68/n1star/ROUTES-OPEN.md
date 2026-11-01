@@ -5564,6 +5564,26 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   many as LD11's. So d > 5.3 × 10¹⁵ and N = 21d + 6 > 1.11 × 10¹⁷ for the record's proof. Not an upper estimate: the
   level-2 rounds at each level above 3 (up to (1 + η_2 − η_1)/ε_ind each, set by E_ind, I12:278-281) and III.I′′′′′′
   Steps 3-3.3 at each level below 3 are not counted.
+- D515 (CERTIFY-10L5 6b; `checks/g1curv5.py --seed2`, computed, floating point, on saved runs): the second seed's x = +1
+  steepening, judged by the Kretschmann scalar. On the second seed's runs (λ = 0.3162, `ld 3`, M = 16, 24, 32 at 800 ×
+  360; 24 u-rows; the Chebyshev interpolant), K converges spectrally in M at every angle up to v = 3.25 (differences
+  10⁻⁸ to 10⁻⁵ of K_0), departing from 72/R⁸ by 0.2 to 1.9. Its angular convergence is lost first off the axis: the
+  24-32 difference passes 1 % of the departure at v = 3.74 (x = 0.5), 3.75 (0), 3.76 (−0.5) and 3.83 (0.9), and at the
+  axis only at 4.00 (0.97) and 4.04 (0.99). After v = 4 near x = +1 the departure of 19 to 206 K_0 is M = 32's alone (M
+  = 16 and 24 agree to 0.03-0.05 K_0). So the invariant does not single out x = +1, and the large values there come from
+  the finest grid only: this points to the scheme, without proving it. Open: a fourth M, or a grid concentrated at the
+  axes.
+- D516 (verifier 221 on D514; I15's chain and I9 Lemma 3.2 re-read, τ_0 traced to III.I′′′′′′ (2.7) at
+  PART-III-I7-PARAMS.md:250, Proposition 5.1 at k_0 = 1 checked, the count summed directly): no major finding; d >
+  5.3066 × 10¹⁵ and N > 1.1144 × 10¹⁷ (1.32664 × 10¹⁵ rounds over (2, 3), 51,510,015 levels at maximal spacing).
+  Confirmed: Lemma 3.2 is applied at every level below 3 with nothing carried from the previous level (its hypothesis on
+  u enters only its Step 7); the loop ends at the first τ_(i_0) > α − ε′, α the target level; at k_0 = 1 Step 1's sum is
+  empty and Step 2 is untouched, so LD11 (ii)'s cost argument transfers; the two loops are disjoint and add. MINOR: part
+  (v)'s second index-set loop is III.I′′′′′ Proposition 2.1's ι⁺ iteration, run by Lemma 3.2's Steps 1-2 (I9:230,
+  256-257; I6:167-172; J3:261), up to about (2 − λ_♯)/ε_ind rounds per level, not III.I′′′′′′ Steps 3-3.3 (J3:262, count
+  1); the level-2 bound is per chain, one chain per tf-exponent of g_2 in the window, and chains can interleave; the
+  α-levels' step bound is I9:374-375 (I15:332 gives a_K ≥ 4 + ε_K only). Corrected in LOSS-D LD12; the D514 entry above
+  keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

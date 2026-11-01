@@ -46,7 +46,7 @@ the null one, 0.045 to 0.74, at the band maxima (v >= 1.95), the same at both nu
 the null difference rises first (x = -0.97: 4.4e-3 at v = 1.75 to 4.7e-2 at 1.90) and the angular one overtakes from v
 ~ 1.9. From v = 2 both are as large as dev (the null difference up to 1.8e5, at x = 0 on [2.25, 2.5)).
 
-Seed-2 mode (--seed2, D513): the same question for the record's second seed (wavelength 0.3162, dnsolve5.py --run 0.3162
+Seed-2 mode (--seed2, D515): the same question for the record's second seed (wavelength 0.3162, dnsolve5.py --run 0.3162
 0.9 M 800 360 out 0 ld 3, saved as s2_M16/24/32.npz, M = 16, 24, 32), where the angular solution converges to v about 3
 to 3.5 and then fails near x = +1: is the steepening at x = +1 the solution's or the scheme's, judged by K? K on 24 u-rows
 (the same at all three M) crossing kept cells with R in [0.9, 1.5] and v in [2.5, 4.5], per v-band (2.5, 2.75), (2.75, 3),
@@ -55,13 +55,26 @@ to 3.5 and then fails near x = +1: is the steepening at x = +1 the solution's or
 max |K_32 - K_24|/K_0, diff_b = max |K_24 - K_16|/K_0, their ratio (large = spectral convergence in M, near or below 1 =
 not converging), diff_a with the linear interpolant at x = 0.97 as the interpolation-floor cross-check, and the earliest v
 at which diff_a exceeds max(1e-2 dev, 1e-3) of K_0 in a cell.
-Measured (D513): ...
+Measured (D515; 24 rows, u indices 271 to 461; 9 s from the caches, 15 minutes cold): up to v = 3.25 K converges
+spectrally in M at every x, the M-differences 1e-8 to 1e-5 of K_0 and diff_b/diff_a mostly 2 to 58, with dev 0.2 to 1.9.
+From v = 3.25 the ratio falls to about 1 or below at every x but 0.99 (2.0 to 3.6 there to v = 3.5, 1.2 on [3.5, 4)).
+diff_a passes 1e-2 of dev first off the axis, at v = 3.74 (x = 0.5), 3.75 (0), 3.76 (-0.5) and 3.83 (0.9), and later at
+the axis, at 4.00 (0.97) and 4.04 (0.99); not at x = -0.97, which has no kept cells after v = 4. On [3.5, 4) diff_a is
+0.037 to 0.077 at x = -0.5 to 0.5 against 0.0022 at 0.99. On [4, 4.5) at x = 0.5 to 0.99, dev is 19 to 206 with diff_a
+about as large (32 and 32.9 at x = 0.99, 205 and 206 at 0.9), while diff_b is 0.03 to 0.05: the departure is M = 32's
+alone, which a growth resolved in M would not show, and the band maxima suggest M = 24 stays near the background there.
+The linear interpolant's diff_a at x = 0.97 is 1.5e-3 to 5e-3 on the converged bands, against 4e-8 to 3e-6 with the
+Chebyshev one (D499's floor). So the invariant does not single out x = +1: K's angular convergence is lost first in the
+interior of the angle range, at v about 3.74, and at the axis about 0.26 later; K stays within order 1 of the background
+wherever it is resolved; and the large values near x = +1 after v = 4 come from the finest angular grid only. That
+points to the scheme rather than the solution at x = +1, without proving it: a feature finer than M = 24 resolves would
+also first show at M = 32.
 
 Labels: computed (floating point, on saved runs).
 
     python3 checks/g1curv5.py DIR      (DIR holds ampA_M32.npz and ampA_M40.npz; K on the chosen rows is cached in
                                         DIR/curvA_MM.npz)
-    python3 checks/g1curv5.py --seed2 DIR   (D513: DIR holds s2_M16/24/32.npz; K cached in DIR/curvS2_M<M>.npz)
+    python3 checks/g1curv5.py --seed2 DIR   (D515: DIR holds s2_M16/24/32.npz; K cached in DIR/curvS2_M<M>.npz)
     python3 checks/g1curv5.py --null DIR    (D489: DIR holds D432's l1_rc0.9_M32/40.npz and their _1600 runs)
 """
 import os
@@ -191,7 +204,7 @@ S2XS = (0.99, 0.97, 0.9, 0.5, 0.0, -0.5, -0.97)
 
 
 def seed2(dirn):
-    """--seed2 DIR (D513): K on 24 rows at M = 16, 24, 32 of the seed-2 run, compared by the Chebyshev interpolant"""
+    """--seed2 DIR (D515): K on 24 rows at M = 16, 24, 32 of the seed-2 run, compared by the Chebyshev interpolant"""
     path = {M: os.path.join(dirn, "s2_M%d.npz" % M) for M in (16, 24, 32)}
     Z = dict(np.load(path[32]))
     rows = pick_rows(Z, 24, 2.5, 4.5, 0.9, 1.5)
@@ -212,13 +225,11 @@ def seed2(dirn):
     v = C[32]["v"]
     assert np.allclose(v, C[16]["v"]) and np.allclose(v, C[24]["v"])
     mk = {M: C[M]["mask"] for M in C}
-    print("\n  per v-band, cells kept at M = 16, 24, 32 (at both nearest nodes of the evaluation point's cell: the mask is "
-          "per node, so a cell counts if no node is masked) with R in [0.9, 1.4]; dev = max |K_32/K_0 - 1|, diff_a = max "
+    print("\n  per v-band, cells kept at M = 16, 24, 32 (mask True = excluded, per cell) with R in [0.9, 1.4]; dev = max |K_32/K_0 - 1|, diff_a = max "
           "|K_32 - K_24|/K_0, diff_b = max |K_24 - K_16|/K_0 (Chebyshev), ratio = diff_b/diff_a, lin = diff_a with the "
           "linear interpolant (x = 0.97)")
     first = {}
-    allkept = ~(mk[16].any(-1) | mk[24].any(-1) | mk[32].any(-1))
-    worst = []
+    allkept = ~(mk[16] | mk[24] | mk[32])
     for xe in S2XS:
         Kx = {M: cheb(C[M]["K"], C[M]["x"], xe) for M in C}
         Rr = cheb(C[32]["R"], C[32]["x"], xe)

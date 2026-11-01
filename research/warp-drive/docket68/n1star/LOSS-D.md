@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514).
+verifier 218), LD12 (D514, corrected D516 after verifier 221).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -620,15 +620,19 @@ loop counts of section 3.
   one per round), and N = 21d + 6 > 1.11 × 10¹⁷. As LD3 (iii), these bound what the record's proof delivers, not the
   optimal loss. (v) Toward an upper estimate (not made). The per-round loss is 2 + ℓ, with ℓ III.F′ Corollary 3.4's, a
   fixed integer from II.G′ Lemma 4.1's closed forms (section 2's table). Most of the other loops are short. The α-levels
-  of III.I′′′′′′′′ step below a_K − 2 ≥ 2 + ε_K (I15:332), so there are finitely many, independently of ε_K.
-  III.I′′′′′′′′′′′ Step 4 runs about 1/ε_ind rounds, once (I12:287-298). Two loops have a length that depends on the
-  index sets. The first is the level-2 rounds of III.I′′′′′′′′′′′ Step 3 and of their repetition at every β-level above
-  3: "its remainder exponents α_0 + E_ind may again lie below 2 + η_2, and are treated in turn (finitely many rounds,
-  the real parts rising by ≥ ε_ind)" (I12:278-281). That is at most about (1 + η_2 − η_1)/ε_ind per level, so up to
-  another 1/(ε_K ε_ind) over the chain, as long as the smallest element of E_ind is about ε_ind. The second is
-  III.I′′′′′′ Steps 3-3.3 at every level below 3 (J3:261, "exponents in a window"), not counted here. So the record's d
-  at its best admissible weights is at least about 2(½ + ½)/(ε_K ε_ind). If those two loops are as long as allowed it is
-  of order (2 + ℓ)(2 + c)/(ε_K ε_ind). E1'c's number needs them counted.
+  of III.I′′′′′′′′ step below a_K − 2 (I9:374-375), and a_K ≥ 4 + ε_K (I15:332), so there are finitely many,
+  independently of ε_K. III.I′′′′′′′′′′′ Step 4 runs about 1/ε_ind rounds, once (I12:287-298). Two loops have a length
+  that depends on the index sets. The first is the level-2 rounds of III.I′′′′′′′′′′′ Step 3 and of their repetition at
+  every β-level above 3: "its remainder exponents α_0 + E_ind may again lie below 2 + η_2, and are treated in turn
+  (finitely many rounds, the real parts rising by ≥ ε_ind)" (I12:278-281). That is about (1 + η_2 − η_1)/ε_ind rounds
+  per chain, one chain for each tf-exponent of g_2 in the window, and the chains can interleave (corrected D516,
+  verifier 221); so of order 1/(ε_K ε_ind) or more over the β-chain if the smallest element of E_ind is about ε_ind. The
+  second is the ι⁺ iteration of III.I′′′′′ Proposition 2.1, which Lemma 3.2's Steps 1-2 run at every level below 3
+  (I9:230, 256-257; PART-III-I6-ALMOSTBDD.md:167-172; J3:261, "exponents in a window"), up to about (2 − λ_♯)/ε_ind
+  rounds per level; it is not counted here. D514 had named III.I′′′′′′ Steps 3-3.3, whose row (J3:262) has count 1
+  (corrected D516). So the record's d at its best admissible weights is at least about 2(½ + ½)/(ε_K ε_ind). Each of
+  those two loops can add a term of the same order, 1/(ε_K ε_ind): the ι⁺ rounds up to about (2 − λ_♯)/(ε_K ε_ind) over
+  the levels below 3. E1'c's number needs them counted.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1
