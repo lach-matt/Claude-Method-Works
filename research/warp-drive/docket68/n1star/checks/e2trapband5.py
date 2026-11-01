@@ -16,21 +16,26 @@ every l < l_1 has, for every l >= 0,
   B1 (certified, interval arithmetic, e2trapcert5's functions) for every l_1 = 5, ..., LMAX1: the multiplier e2trap5
      finds best at l_1, within the core-and-flank subfamily the certificate handles (s_L = 49/50, kappa_s = 1/2, kappa
      = s_c, beta > 0; s_R and s_c from e2trap5's family, s_c rational to four digits), at the frequency sigma_(l_1) =
-     (max V_(l_1))^(1/2) where l_1 is the trapped harmonic: beta > 0, w_(l_1) >= 0 on t in [-120, ln 119] by
+     (max V_(l_1))^(1/2), at which l_1's barrier top is sigma^2: beta > 0, w_(l_1) >= 0 on t in [-120, ln 119] by
      bisection, both tail ratios < 1, and m', M', w_I on I over 8000 pieces.
   B2 (certified) the band: [3, 96] cut at step H; on each interval [sigma_a, sigma_b] the least, over the eight largest
      certified l_1 with max V_(l_1 - 1) < sigma_a^2, of max(E2.7(l_1 - 1, sigma_a), B_(l_1)(sigma_b)) (E2.7 increases
      with l, max V_l doing so, so its max below l_1 is at l_1 - 1), in intervals, rounded up.
-  B3 (computed) against e2trap5's float sup on its grid of step 0.01 (T3: at most 11.35 over [3, 96], at sigma = 3.2):
-     the band bound lies above it at every grid point, as it must.
+  B3 (computed) against e2trap5's float sup at every tenth point of its grid of step 0.01 (T3: at most 11.35 over [3,
+     96], at sigma = 3.2): the band bound lies above it there, as expected (not a necessity: the float sup is not a
+     bound; D511).
 
-Measured (D506): B1 certifies every l_1 = 5 ... 190 (95 to 145 enclosures each); B2 over 1860 intervals of width
-1/20: <= 11.477, the largest on [3.2, 3.25] (l_1 = 5), the six sampled sigma as D497 and D503 (11.086 on [3, 3.05]);
-B3 above e2trap5's float sup by 1.001 to 1.188; 47 minutes. (The run predates tail_left_valid in B1, D505's guard,
-which holds for every multiplier here: only the flank's g enters, about -62/s_L at t = -120.)
+Measured (D506, corrected D511): B1 certifies every l_1 = 5 ... 190 (95 to 187 enclosures each, 187 at l_1 = 5); B2
+over 1860 intervals of width 1/20: <= 11.477, the largest on [3.2, 3.25] (l_1 = 5); at sigma = 6, ..., 96 the values
+of D503, at sigma = 3 the interval [3, 3.05] gives 11.086 (D497's point value is 10.989); B3 above e2trap5's float
+sup at every 0.1 by 1.001 to 1.188 (on the full 0.01 grid 1.001 to 1.265, verifier 217); 47 minutes. (The run
+predates tail_left_valid in B1, D505's guard, which holds for every multiplier here: only the flank's g enters,
+between -60.86 and -60.81 at t = -120; verifier 217 re-ran B1 with it, all 186 certified.) Verifier 217 re-certified
+the band independently in Arb: sup 11.4635.
 
 Labels: B1, B2 certified (the lemmas as in e2trapcert5); B3 computed. Together with sections 3f-3g (0 < |sigma| <= 3)
-this covers every real 0 < |sigma| <= 96 (the bounds are even in sigma).
+this covers every real 0 < |sigma| <= 96 (the bounds are even in sigma), with the constant 275.2 on 0 < |sigma| < 3,
+set by l = 0 (section 3g).
 
     python3 checks/e2trapband5.py [LMAX1 [H]]       (defaults 190 and 0.05)
 """

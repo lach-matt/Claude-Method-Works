@@ -5514,6 +5514,32 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   [0, d] after N; the integrand is ∫ T_l(1 − vρ) J_l⁻¹ σ_l(v) dv and σ ∈ L¹(dv; C^∞(S³)); 'about 3.0 at k = 1' is the
   scalar type's; 'polynomial, as the induction says' overstated a check that is pre-asymptotic, at s = 1 only, and does
   not probe uniformity. Corrected in BEYOND5 3(b), uniform3_5 and stripderiv5; the D508 entry above keeps its text.
+- D511 (verifier 217 on D506; the lemma's σ-independence re-derived, B1 re-run with D505's guard on all 186 multipliers,
+  an independent certificate in Arb with its own tail bounds, the band recomputed checking every l < l_1 directly): no
+  major finding; the bound stands, 11.4635 in Arb (σ = 6, …, 96: 5.8461, 3.7548, 2.3617, 1.5117, 0.98862). Confirmed: w
+  has no σ, so m′, M′, w_I and I do not depend on it; B increases and E2.7 decreases in σ, max V_l increases in l; the
+  1860 intervals are contiguous with exact endpoints, rounded outward; tail_left_valid(−120) holds for every multiplier
+  (the flank's g in [−60.864, −60.806]); no state leaks between set_mult calls; sections 3f-3g bound the same quantity.
+  MINOR: 95 to 187 enclosures (187 at l_1 = 5), not 95 to 145; the flank's g is about −60.8, not −62/s_L; B3 is checked
+  at every tenth grid point (on the full grid 1.001 to 1.265), and lying above the float sup is expected, not necessary
+  (with tighter constants a certified bound falls below it, by at most 0.009 %); at σ = 3 the band gives 11.086, not
+  D497's 10.989; on 0 < |σ| < 3 the constant is 275.2 (l = 0); at σ_(l_1) the first harmonic above the barrier is l_1 +
+  1, not l_1 (a selection detail); the LOG's 'computed worst case of 11.35' is the floating-point value of the same
+  bound, the computed norms being about ten times smaller. Corrected in E2-PILOT 3j and e2trapband5; the D506 entries
+  keep their text.
+- D512 (FAMILIES5 4f, deduced; `checks/twophase5.py` Q1-Q2, exact): the record's section 5.2 with two families. In the
+  record's gauge, w = h + φ_in Y_in + φ_out Y_out, Y_k := λ⁻¹ ∂_(c_k) G (the waves with χ, χ′ and λ F_k ĝ_2), L_k φ_k =
+  −½ P s_k(h) along each family's own generator. Each phase shift is a symmetry of the two-phase Stage 0, so P(Y_k) =
+  O(1) (Lemma 5.1 for each phase), and with D414's L1 the λ⁻¹ part of P(w) is Σ_k ½((1 − P) s_k) F_k² g1^(k), O(∂s_k):
+  D414's cross terms cancel with their own family's φ. Contracting with ℓ_in ⊗ ℓ_in leaves family out's terms through χ′
+  alone, [F2 g1^out](ℓ_in, ℓ_in) = e^(−4σ) F2 χ′ (Q2), so s_in's equation carries O(∂s_out) and −½ e^(−4σ)(F2 χ′) Ψ_out,
+  both with bounded coefficients. Q1: on every round double-null metric [□, L_k] = a_k □ + M_k ∘ L_k + first order, a_k
+  = 2 L_k R/R, no third derivative (the generators are shear-free; a sheared control fails), so Ψ_k := □φ_k obeys
+  (5.3)'s analogue, and (Ψ_in, Ψ_out) are two transports coupled through bounded coefficients, closed by Gronwall in L²
+  (deduced). In the generalised wave gauge the fixed H breaks the phase shift: P_H(Y_in) = −λ⁻¹ F1² h dv ⊗ dv + O(1), a
+  λ⁻¹ coupling of φ_in into s_out ((dv(ℓ_out))² = e^(−4σ)) that only a transported corrector, χ again, removes; so the
+  record's gauge is the better one for the estimate. Open: the two-family supplement Lemmas 3.3-3.4 written out,
+  (E1)-(E2) for two families, the mollifier against coefficients oscillating at scale λ.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

@@ -693,19 +693,23 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   0 and 1 − 6e^t < 0, and its ratio was a product of two negative factors), so from σ = 24 the left control is instead C2
   rerun with s_L = 51/50, which fails on its exponent. C1 needs 95 to 141 enclosures, under 2 s; a whole run takes about
   15 s. The computed cut-off norms at σ = 6 to 96 lie 9.5 to 36 times below these bounds (verifier 216, e2high5).
-- *Certified on the whole band 3 ≤ σ ≤ 96 (D506; `checks/e2trapband5.py` B1-B3).* The certificate's pieces are of two
-  kinds: those that do not involve σ (admissibility at l_1, C1-C3, and m′, M′, w_I on I) and two explicit functions of σ,
-  B_(l_1)(σ) = ((2/m′ + (M′ + 2σ)²/w_I)/w_I)^(1/2), increasing, and E2.7's Λσ/(σ² − max V_l), decreasing where σ² > max
-  V_l and increasing in l. So a multiplier certified at l_1 bounds every σ in [σ_a, σ_b] with max V_(l_1−1) < σ_a² by
-  max(E2.7(l_1 − 1, σ_a), B_(l_1)(σ_b)), for every l ≥ 0. B1 certifies one multiplier at every l_1 = 5, …, 190 (e2trap5's
-  best at l_1 within the core-and-flank subfamily, at the frequency where l_1 is the trapped harmonic; 95 to 145
-  enclosures each); B2 cuts [3, 96] into 1860 intervals of width 1/20 and takes on each the least such bound over the
-  eight largest admissible l_1. So, certified: for every 3 ≤ σ ≤ 96 and every l ≥ 0, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477, the
-  largest on [3.2, 3.25] (l_1 = 5), where section 3j's floating-point sup is 11.35 (at σ = 3.2); at the sampled σ the
-  band bound is D497's and D503's (11.086 on [3, 3.05]). B3: on e2trap5's grid it lies above the floating-point sup
-  everywhere, by a factor 1.001 to 1.188. The run predates D505's guard on the left tail's hypotheses, which holds for
-  every multiplier here: it involves only the flank's g, about −62/s_L at t = −120, whatever s_c. With sections 3f-3g (0
-  < |σ| ≤ 3) this bounds every real 0 < |σ| ≤ 96, the bounds being even in σ; 47 minutes.
+- *Certified on the whole band 3 ≤ σ ≤ 96 (D506, corrected D511; `checks/e2trapband5.py` B1-B3).* The certificate's
+  pieces are of two kinds: those that do not involve σ (admissibility at l_1, C1-C3, and m′, M′, w_I on I) and two
+  explicit functions of σ, B_(l_1)(σ) = ((2/m′ + (M′ + 2σ)²/w_I)/w_I)^(1/2), increasing, and E2.7's Λσ/(σ² − max V_l),
+  decreasing where σ² > max V_l and increasing in l. So a multiplier certified at l_1 bounds every σ in [σ_a, σ_b] with
+  max V_(l_1−1) < σ_a² by max(E2.7(l_1 − 1, σ_a), B_(l_1)(σ_b)), for every l ≥ 0. B1 certifies one multiplier at every
+  l_1 = 5, …, 190 (e2trap5's best at l_1 within the core-and-flank subfamily, at the frequency at which l_1's barrier
+  top is σ²; 95 to 187 enclosures each, 187 at l_1 = 5); B2 cuts [3, 96] into 1860 intervals of width 1/20 and takes on
+  each the least such bound over the eight largest admissible l_1. So, certified: for every 3 ≤ σ ≤ 96 and every l ≥ 0,
+  ‖χ_I R_l(σ) χ_I‖ ≤ 11.477, the largest on [3.2, 3.25] (l_1 = 5), where section 3j's floating-point sup is 11.35 (at σ
+  = 3.2); at σ = 6, …, 96 the band bound is D503's, and at σ = 3 the interval [3, 3.05] gives 11.086 (D497's point value
+  is 10.989). B3: at every 0.1 of [3, 96] it lies above e2trap5's floating-point sup, by a factor 1.001 to 1.188 (on the
+  full 0.01 grid also everywhere, 1.001 to 1.265; verifier 217). That is expected, not necessary: the float sup is not a
+  bound, and verifier 217's tighter Arb constants fall below it at 441 of 9,301 grid points, by at most 0.009 %. The run
+  predates D505's guard on the left tail's hypotheses, which holds for every multiplier here (verifier 217 re-ran all
+  186): it involves only the flank's g, between −60.86 and −60.81 at t = −120, whatever s_c. Verifier 217 re-certified
+  the band independently in Arb, sup 11.4635 on [3.2, 3.25]. With sections 3f-3g (0 < |σ| ≤ 3, where the constant is
+  275.2, set by l = 0 in section 3g) this bounds every real 0 < |σ| ≤ 96, the bounds being even in σ; 47 minutes.
 
 What it does not give:
 

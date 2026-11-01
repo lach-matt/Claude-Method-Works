@@ -2,7 +2,8 @@
 
 Status: scoping note (D361). Read by verifier 167 (D362), findings seated. Section 1's two deductions on the cross
 coupling added (D363-D364). Section 4's first step computed (D376, section 4b: `checks/stage0two5.py`; read by verifier
-174, D380). Nothing proved beyond Stage 0.
+174, D380). Section 4f: the record's section 5.2 with two families (D512, `checks/twophase5.py`), deduced. Nothing
+proved beyond Stage 0.
 
 The paper's open item "more families" (RESPONSE-HL-5D.md section 9): "Several dusts, angular separation, and the passage
 to Vlasov matter are not attempted." This note sets out what each would need, given what the record's proof uses of
@@ -248,8 +249,9 @@ What it does not give:
   the Stage 0 of that gauge is not computed;
 - the energy estimate. In the record's gauge, the s_in equation (the ℓ_in ⊗ ℓ_in contraction) carries the large
   coupling −2 λ⁻¹ e^(−4σ) χ′ s_out, oscillating in s2 with mean zero, and the s_out equation the mirror one. Whether a
-  phase decomposition along ℓ_out absorbs it, as section 5.2's does along ℓ, is the analytic question that remains.
-  The generalised wave gauge removes it.
+  phase decomposition along ℓ_out absorbs it, as section 5.2's does along ℓ, was the analytic question that
+  remained. It does, at the λ⁻¹ level; the generalised wave gauge, which removes it from E[w], brings a λ⁻¹ coupling
+  back through the decomposition (section 4f, D512).
 
 ## 4e. Stage 0 in the generalised wave gauge (D419)
 
@@ -454,6 +456,66 @@ couplings are then killed by their own contractions.
       S needs no condition: each dust's value on S is the restriction of its free data on the hypersurface it crosses,
       which then seeds its transport along the other (D470). A general crossing dust, with D470's free k^A on N, may
       cross N′ too, which brings free data there and a compatibility condition at S (verifier 204).
+
+## 4f. The record's section 5.2 with two families (D512)
+
+Deduced, with `checks/twophase5.py` Q1-Q2 (computed, exact, sympy; about 5 s). The record closes the one-family estimate
+(RESPONSE-HL-5D.md:490-511) with w = h + φ [∂_θ g1], L0 φ = −½ P s (P a mollifier at scale λ), and three facts: Lemma
+5.1, the phase shift being a symmetry, so that ∂_θ g1 is annihilated by the λ⁻¹ part of the linearisation; [∂_θ g1](ℓ,
+·) = 0, so that contracting with ℓ ⊗ ℓ kills every λ⁻¹ term and the □̃φ term; and the commutator (2.4), so that Ψ := □̃φ
+obeys the transport (5.3). With two families:
+
+- *The decomposition.* w = h + φ_in Y_in + φ_out Y_out, with Y_k := λ⁻¹ ∂_(c_k) G at c = 0, G the two-phase profile of
+  section 4 with its phases shifted to (s1 + c1, s2 + c2): Y_in = F1 g1^in + λ F1 ĝ_2, g1^in = W_TT^in + χ dv², F_k :=
+  ∂_(s_k), and likewise Y_out. Each φ_k is transported along its own family's generator, L_k φ_k = −½ P s_k(h), L_k :=
+  ℓ_k · ∇, with zero data on Σ_τ0.
+- *Lemma 5.1 for each phase (deduced).* Each constant shift c_k is a symmetry of the two-phase Stage 0: R^(−1) = 0, and
+  R^(0) is met by the transports, ĝ_2 and the two-dust background, for every c (section 4b; its equations do not involve
+  s1, s2 except through the profiles). Differentiating at c_k = 0, as in the record's proof, gives P(Y_k) = O(1). The
+  ĝ_2 term must be differentiated with the waves: P(F1 W_in) alone keeps, at order λ⁻¹, the mixed harmonics that ĝ_2
+  cancels by division at Stage 0 (section 4b T4), and λ F1 ĝ_2 reaches λ⁻¹ because a mixed harmonic's symbol is not
+  null.
+- *The λ⁻¹ terms (deduced, with section 4d L1).* The principal part of P is −½ g^(ab) ∂_a ∂_b on each component, so the
+  commutator [P, φ] acting on a profile in s_k has λ⁻¹ part −(ℓ_k · ∇φ) F_k, the first-order terms of P adding only
+  O(1), and −½(□φ) at order 1. With L1 (E[h] = ½(s_in F1² g1^in + s_out F2² g1^out), χ and χ′ included: the record's
+  gauge), the λ⁻¹ part of P(w) is Σ_k ½((1 − P) s_k(h)) F_k² g1^(k), the record's remaining term once per family, each
+  O(∂s_k) by the mollifier bound. Section 4d's cross terms (L2: −2 e^(−4σ) s_out χ′ in the ℓ_in ⊗ ℓ_in contraction) are
+  part of family out's ½ s_out F2² g1^out and cancel with it. So in the record's gauge the decomposition along each
+  family's own generator leaves no λ⁻¹ coefficient beyond the record's: section 4d's question is answered at the λ⁻¹
+  level.
+- *Where the cross coupling goes (Q2, computed).* [F1 g1^in](ℓ_in, ·) = 0 and [F2 g1^out](ℓ_out, ·) = 0 in every
+  component, so contracting h's equation with ℓ_in ⊗ ℓ_in kills family in's λ⁻¹ term and its □̃φ_in term, as in the
+  record. Family out's survive, through χ′ alone: [F2 g1^out](ℓ_in, ℓ_in) = e^(−4σ) F2 χ′. So s_in's wave equation
+  carries ½ e^(−4σ) λ⁻¹((1 − P) s_out) F2² χ′, a bounded coefficient times O(∂s_out), and −½ e^(−4σ) (F2 χ′) Ψ_out, a
+  bounded coefficient oscillating in s2 times Ψ_out := □̃φ_out; the s_out equation carries the mirror terms with χ and
+  Ψ_in. No large coefficient enters either equation: the cross coupling is of order 1, at the top order of Ψ. Control:
+  with χ′ ≠ 0, [F2 g1^out](ℓ_in, ·) = 0 fails.
+- *The transports (Q1, computed).* On every round double-null metric −2 e^(2σ) du dv + R² dΩ_3, σ and R any functions of
+  (u, v) (section 4c's two-dust background is one), with L_in = −e^(−2σ) ∂_u and L_out = −e^(−2σ) ∂_v: [□, L_k] f = a_k
+  □f + M_k(L_k f) + N_k f, a_k = 2 L_k R/R (two-thirds of ℓ_k's expansion), M_k and N_k first order, and no third
+  derivative. Every second derivative not in □ carries the generator's own index (for L_out, ∂_u ∂_v f with coefficient
+  −4 e^(−4σ) R_v/R and ∂_v² f with −4 e^(−4σ) σ_u), because each generator is shear-free: the derivative of the angular
+  inverse metric along it is a multiple of itself. So Ψ_k := □φ_k obeys L_k Ψ_k + a_k Ψ_k = −½ □P s_k + ½ M_k(P s_k) −
+  N_k φ_k, the structure of the record's (5.3), whose −2/r is a_k in the record's normalisation of L0. Q1 uses □ of g0;
+  the record's □̃ is not restated here. Control: with shear, an angular metric R²(e^(2b) dθ² + e^(−2b)(cos²θ dφ1² +
+  sin²θ dφ2²)), the three diagonal angular second derivatives of [□, L_out] remain and no multiple of □ removes them.
+- *The loop (deduced; not written at the level of the record's supplement).* □P s_in comes from s_in's wave equation, so
+  it contains Ψ_out with a bounded coefficient, and □P s_out contains Ψ_in. So (Ψ_in, Ψ_out) obey two transports along
+  transversal null directions, coupled through bounded coefficients (P is bounded on L² whatever the oscillation of what
+  it acts on), with sources controlled by the energies of h, s_in and s_out. Gronwall on the sum of their L² norms over
+  Σ_τ closes this with no loss in λ. The record's supplement Lemmas 3.3-3.4 are written for one family; their two-family
+  form, with these couplings, is not written here.
+- *The generalised wave gauge (deduced).* H is fixed, so shifting the phases is not a symmetry of Ric − δ*(Υ − H):
+  differentiating P_(H)(G(c)) = O(λ) at c1 = 0 with H held fixed gives P_H(Y_in) = −λ⁻¹ F1² h dv ⊗ dv + O(1) (section 4e
+  H1: (δ*H)^(0) = F1 h dv² + F2 h′ du²). The decomposition then leaves −λ⁻¹ φ_in F1² h dv ⊗ dv in h's equation, killed
+  by ℓ_in ⊗ ℓ_in (dv(ℓ_in) = 0) but entering the s_out equation with (dv(ℓ_out))² = e^(−4σ) (Q2): a λ⁻¹ coupling of φ_in
+  to s_out. Removing it needs a transported corrector ψ(X, s1) dv², which is χ again. So for the energy estimate the
+  record's gauge is the better one; section 4d's 'the generalised wave gauge removes it' holds for E[w], not for the
+  decomposition.
+
+What it does not give: the two-family energy estimate itself (the supplement's Lemmas 3.3-3.4 with these couplings);
+(E1)-(E2) for two families; the mollifier against coefficients oscillating at scale λ (P(cΨ) is bounded, not close to c
+PΨ); later stages.
 
 ## 4c. The two-dust background (D389)
 

@@ -7367,3 +7367,18 @@ count is at least twice what was stated, and two of the printed figures were rou
 gaps in it: the purely angular modes and the two lowest modes needed their own sentence, the record poses its data on a
 slightly tilted surface rather than a flat one (the argument carries over), and the computed check was worded more
 strongly than a check over the first forty modes can bear.
+
+**D511 (2026-11-01): the whole-band certificate, checked.** An independent check, with its own code and a different
+arithmetic library, certified the bound again for every frequency from 3 to 96 and every angular mode, and found it
+slightly smaller (11.46 against 11.48). It corrected figures printed beside the result: the number of steps in the
+largest single certificate, the value of one auxiliary quantity, how densely the bound was compared with the
+floating-point one, and the constant that applies below frequency 3, which is much larger (about 275) than the band's.
+The earlier log entry's 'computed worst case of 11.35' is the floating-point value of the same bound; the computed
+resolvent itself is about ten times smaller.
+
+**D512 (2026-11-01): two crossing wave families, the step that regains a derivative.** With one family of waves, the
+record's proof removes its one dangerous large term by splitting off a piece carried along the wave. With two families
+crossing, the same split along each family's own direction removes every large term at once, in the gauge the record
+uses. What remains of the interaction is of ordinary size, and the two split-off pieces then feed each other through
+bounded terms, which a standard growth argument should control; that argument is not yet written out. In the alternative
+gauge proposed earlier for two families, which had looked better, the split brings a large interaction back.
