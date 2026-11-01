@@ -37,7 +37,7 @@ Labels: B1, B2 certified (the lemmas as in e2trapcert5); B3 computed. Together w
 this covers every real 0 < |sigma| <= 96 (the bounds are even in sigma), with the constant 275.2 on 0 < |sigma| < 3,
 set by l = 0 (section 3g).
 
-    python3 checks/e2trapband5.py [LMAX1 [H]]       (defaults 190 and 0.05)
+    python3 checks/e2trapband5.py [LMAX1 [H [SMAX]]]       (defaults 190, 0.05 and 96: the band is [3, SMAX])
 """
 import sys
 import time
@@ -55,6 +55,7 @@ E = C.E
 
 LMAX1 = int(sys.argv[1]) if len(sys.argv) > 1 else 190
 H = Fraction(sys.argv[2]) if len(sys.argv) > 2 else Fraction(1, 20)
+SMAX = Fraction(sys.argv[3]) if len(sys.argv) > 3 else Fraction(96)
 
 
 def q(x):
@@ -113,6 +114,10 @@ def main():
                 b_ = np.sqrt((2 / m1[j] + (M1[j] + 2 * sref)**2 / wI[l1 - 1, j]) / wI[l1 - 1, j])
                 if best is None or b_ < best[0]:
                     best = (b_, j)
+        if best is None:                                   # no admissible multiplier of the subfamily at l_1
+            bad.append(l1)
+            print("    l_1 = %d: no admissible multiplier in the subfamily" % l1, flush=True)
+            continue
         sL_, sR_, ks_, sc_, k_ = fam[best[1]]
         sc = Fraction(round(sc_ * 10000), 10000)
         sR = Fraction(sR_).limit_denominator(10)
@@ -131,8 +136,8 @@ def main():
     # B2
     sig_a = Fraction(3)
     worst, where, rows, okB2 = mpf(0), None, [], True
-    while sig_a < 96:
-        sig_b = min(sig_a + H, Fraction(96))
+    while sig_a < SMAX:
+        sig_b = min(sig_a + H, SMAX)
         sa, sb = q(sig_a), q(sig_b)
         best, bl = None, None
         cands = sorted(l1 for l1 in cert if (vmax[l1 - 1] - sa**2).b < 0)[-8:]
@@ -150,28 +155,30 @@ def main():
             if best > worst:
                 worst, where = best, (sig_a, sig_b, bl)
         sig_a = sig_b
-    print("  B2 %s: [3, 96] in %d intervals of width %s: every one bounded; sup of the band bound %s on [%s, %s] "
-          "(l_1 = %d)" % ("PASS" if okB2 else "FAIL", len(rows), H, E.up(worst, 5), float(where[0]), float(where[1]),
-                          where[2]), flush=True)
-    for s_ in (3, 6, 12, 24, 48, 96):
+    print("  B2 %s: [3, %s] in %d intervals of width %s: every one bounded; sup of the band bound %s on [%s, %s] "
+          "(l_1 = %d)" % ("PASS" if okB2 else "FAIL", SMAX, len(rows), H, E.up(worst, 5), float(where[0]),
+                          float(where[1]), where[2]), flush=True)
+    for s_ in [x for x in (3, 6, 12, 24, 48, 96, 128, 160, 192) if x <= SMAX]:
         r = next(x for x in rows if x[0] <= s_ <= x[1])
+        if r[2] is None:
+            continue
         print("    sigma = %s: on [%s, %s] <= %s (l_1 = %d)" % (s_, float(r[0]), float(r[1]), E.up(r[2], 5), r[3]))
     # B3: against e2trap5's float sup on its grid
-    sigs = np.round(np.arange(3.0, 96.0 + 1e-9, 0.01), 2)
+    sigs = np.round(np.arange(3.0, float(SMAX) + 1e-9, 0.01), 2)
     Lall = list(range(0, LMAX1 + 1))
     okB3, fails, ratio = True, 0, []
     for s_ in sigs[::10]:
         B, _ = T.bstar(float(s_), adm, wI, m1, M1)
         fl = max(min(T.e27(l, float(s_)), B[l - 1] if l >= 1 else np.inf) for l in Lall)
         r = next(x for x in rows if float(x[0]) <= s_ <= float(x[1]))
-        if not float(r[2]) >= fl:
+        if r[2] is None or not float(r[2]) >= fl:
             okB3, fails = False, fails + 1
         ratio.append(float(r[2]) / fl)
-    print("  B3 %s: the band bound lies above e2trap5's float sup at every 0.1 of [3, 96] (%d failures); ratio %.4f to "
-          "%.4f" % ("PASS" if okB3 else "FAIL", fails, min(ratio), max(ratio)), flush=True)
+    print("  B3 %s: the band bound lies above e2trap5's float sup at every 0.1 of [3, %s] (%d failures); ratio %.4f "
+          "to %.4f" % ("PASS" if okB3 else "FAIL", SMAX, fails, min(ratio), max(ratio)), flush=True)
     ok = okB1 and okB2 and okB3
-    print("  %s: for every sigma in [3, 96] and every l >= 0, ||chi_I R_l(sigma) chi_I|| <= %s (%.0f s)"
-          % ("CERTIFIED" if ok else "NOT certified", E.up(worst, 5), time.time() - t0))
+    print("  %s: for every sigma in [3, %s] and every l >= 0, ||chi_I R_l(sigma) chi_I|| <= %s (%.0f s)"
+          % ("CERTIFIED" if ok else "NOT certified", SMAX, E.up(worst, 5), time.time() - t0))
     return 0 if ok else 1
 
 
