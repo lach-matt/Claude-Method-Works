@@ -5657,6 +5657,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   large values come earlier, and larger, the finer the angular grid (M = 32 from v ≈ 4 near x = +1, M = 40 from v ≈ 3.5
   everywhere), D418's behaviour at the first seed. This points to the scheme, the angular resolution outrunning the null
   step, more firmly than D515. Running: M = 32 and 40 at 1600 × 720.
+- D525 (verifier 226 on D524; the mode rerun from the caches, identical; the masks and the cut checked; the comparison
+  redone at M = 32's own nodes; single cells by hand): no major finding; the conclusion holds. Confirmed: every D515
+  cell with |K_32/K_0 − 1| > 2 on [4, 4.5) is excluded by M = 40's cut (its cut acts earlier on rows 321-345); the cut
+  cannot alter kept cells; at M = 32's nodes |K_40 − K_32| is 4 to 239 times |K_24 − K_32| on every band to v = 3.5; at
+  one row M = 40's whole angular profile swings between −2.5 × 10⁴ and 9.3 × 10³ K_0. MINOR: the quoted maxima sit on
+  cells whose K stencil reaches M = 40's cut; on stencil-interior cells the departure is 2 × 10² to 4 × 10³ (up to 2 ×
+  10⁴ near x = +1 after v = 4); the onset is v ≈ 3.5 to 3.7; the ratio range is 10 to 3 × 10³; D418's growth was in m,
+  and D432 found the null step not curing it at the first seed, so 'the angular resolution outrunning the null step' is
+  what the 1600 × 720 runs test, not yet the cause. Corrected in CERTIFY-10L5 6b and g1curv5; the D524 entry above keeps
+  its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

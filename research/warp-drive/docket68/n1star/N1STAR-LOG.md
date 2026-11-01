@@ -7449,3 +7449,8 @@ more without refining the time grid. The finer run is less accurate from the sta
 around the circle, while the two coarser runs still agree with each other. A real feature of the solution would sharpen
 under refinement, not appear earlier. This points to the numerical scheme, as the same experiment did for the first
 profile. Both grids refined together are now running.
+
+**D525 (2026-11-01): the finer grid's failure, checked.** An independent check confirmed the finding and every figure,
+and showed that the largest values quoted came from cells next to the solver's own cut; away from it the failure is ten
+times smaller but still huge and still early. It also recalled that for the first profile the simplest explanation, time
+steps too coarse for the angular grid, did not survive a test, so the runs now going will decide it here.

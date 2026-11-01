@@ -644,15 +644,21 @@ No other component is nonzero. So the scheme is the following.
 
 - *M = 40 at the second seed (D524; `checks/g1curv5.py --seed2-40`, the same 24 rows, M = 24, 32, 40 at 800 × 360,
   compared on the cells kept at all three).* Refining M at the fixed null grid makes K worse from the start. The 32-40
-  difference is 10⁻⁶ to 10⁻⁴ of K_0 on [2.5, 3) and 10⁻⁴ to 3 × 10⁻³ on [3, 3.25), 10 to 10³ times the 24-32 one (2 ×
-  10⁻⁸ to 5 × 10⁻⁶) at every angle, and 0.14 to 0.57 on [3.25, 3.5). From v = 3.5, where M = 24 and 32 still agree to 4
-  × 10⁻⁴ to 3 × 10⁻², M = 40 departs from the background by 2 × 10³ to 2 × 10⁴ K_0 at every angle, and by up to 2 × 10⁶
-  near x = +1 after v = 4. So the large values come earlier, and larger, the finer the angular grid: at M = 32 from v ≈
-  4 near x = +1, at M = 40 from v ≈ 3.5 at every angle. The cells where M = 32 departed are excluded by M = 40's own
-  cut. A feature of the solution would show convergence before it and appear at the same v. This is what D418 found at
-  the first seed: M alone, at 800 × 360, does not converge and degrades the smooth region. It points to the scheme, the
-  angular resolution outrunning the null step, more firmly than D515 could. Running: M = 32 and 40 at 1600 × 720, the
-  joint refinement D432 made at the first seed.
+  difference is 10⁻⁶ to 10⁻⁴ of K_0 on [2.5, 3) and 10⁻⁴ to 3 × 10⁻³ on [3, 3.25), 10 to 3 × 10³ times the 24-32 one (2
+  × 10⁻⁸ to 5 × 10⁻⁶) at every angle (4 to 239 times compared at M = 32's own nodes, with no interpolant on that side;
+  verifier 226), and 0.14 to 0.57 on [3.25, 3.5). From v = 3.5, where M = 24 and 32 still agree to 4 × 10⁻⁴ to 3 × 10⁻²,
+  M = 40 departs from the background by 2 × 10² to 4 × 10³ K_0 at every angle on cells whose K stencil stays inside M =
+  40's kept region, and by up to 2 × 10⁴ near x = +1 after v = 4; cells whose stencil reaches the cut give 10⁴ to 2 ×
+  10⁶ (corrected D525, verifier 226). At one such row the whole angular profile at M = 40 swings between −2.5 × 10⁴ and
+  9.3 × 10³ K_0, not an interpolation artefact. So the large values come earlier, and larger, the finer the angular
+  grid: at M = 32 from v ≈ 4 near x = +1, at M = 40 from v ≈ 3.5 to 3.7 at every angle. The cells where M = 32 departed
+  are excluded by M = 40's own cut. A feature of the solution would show convergence before it and appear at the same v.
+  This is what D418 found at the first seed: M alone, at 800 × 360, does not converge and degrades the smooth region.
+  But D418's growth was in m, a derivative at the axis, and D432 then found the metric's values converged in M there and
+  the null step not curing [1.8, 2). So at the first seed the reading 'the angular resolution outruns the null step'
+  failed D432's test. K is an invariant, which makes D524 the stronger evidence. It points to the scheme more firmly
+  than D515 could; whether the cause is the angular resolution outrunning the null step is what the 1600 × 720 runs
+  test. Running: M = 32 and 40 at 1600 × 720, the joint refinement D432 made at the first seed.
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
