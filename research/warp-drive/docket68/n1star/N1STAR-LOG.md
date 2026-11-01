@@ -6969,3 +6969,9 @@ where the waves are weaker; at full strength it cannot yet tell a true singulari
 method failing only for large fields. And the weaker runs are not nearly linear, as claimed: they already respond
 nonlinearly by about a fifth, and still converge, which makes the point stronger.
 
+**D447 (2026-11-01): a condition that was assumed, now checked.** Carrying the solution's slow fall-off out to spatial
+infinity needs the self-interaction terms beyond a certain shell to fall off faster than a stated rate. The record
+expected them to, because the leading parts there no longer change in time, but had not checked it. A short exact
+scaling check confirms it: products of such time-independent terms fall off two powers faster than required. What is
+still unchecked are the terms that involve the smaller, less well described remainder.
+

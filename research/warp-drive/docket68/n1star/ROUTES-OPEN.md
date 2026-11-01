@@ -4961,6 +4961,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   about 20-50; the [0.5, 1) tail was noise at the waves' onset (now cells with largest coefficient > 1e-6, about 2e-4
   there); areal radius [1.0, 1.2) is kept only to v = 3 at A <= 1/2; at A = 1 the [2, 2.25) maximum sits at x = +0.71,
   the axis values alone agreeing; the no-ld floor is 1e-6 to 1e-5.
+- D447 (BEYOND5 3(b)'s source condition, checks/sources5.py Q1-Q3): for a static h = r^-2 H(x^) on 4+1 Minkowski the
+  quadratic parts of Ric and of delta*_(eta,E_C) Upsilon^0 (c = r^-1 dt) scale exactly as 2^-6 from p to 2p (30 digits,
+  from h's jets; controls: the linear part scales as 2^-4, a non-static h breaks it). Deduced: every term of P at least
+  quadratic in the static leading means is O(r^-6), o(r^-4) as D413's condition needs; Tangherlini's corrections lower
+  the degree. Open: the cross terms with the E_(5/2) remainder and the sources from g_lambda - g_app.
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2

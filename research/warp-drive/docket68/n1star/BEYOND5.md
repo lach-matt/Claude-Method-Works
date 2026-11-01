@@ -418,9 +418,14 @@ What it does not give:
 - uniqueness in W beyond the expansion (an energy identity on W would give it); Lemma 6.5′'s self-similar reduction
   assumes it;
 - the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
-  the r⁻² coefficient at I_0 above needs those sources to be o(r⁻⁴). For l = 0, □φ = f r⁻⁴ Y_0 with zero data on N
-  gives φ = r⁻² G(s) with s(s − 2)G″ + 3(s − 1)G′ = f, and G(1) = −f/2, which shifts the ρ² coefficient. After the
-  shell the leading means are static, so their products are probably r⁻⁶, but this is not checked.
+  the r⁻² coefficient at I_0 above needs those sources to be o(r⁻⁴). For l = 0, □φ = f r⁻⁴ Y_0 with zero data on N gives
+  φ = r⁻² G(s) with s(s − 2)G″ + 3(s − 1)G′ = f, and G(1) = −f/2, which shifts the ρ² coefficient. After the shell the
+  leading means are static, and their products are r⁻⁶ (D447, `checks/sources5.py` Q1-Q3): every term of P at least
+  quadratic in a static h homogeneous of degree −2 has derivative order plus c-order two, so it is homogeneous of degree
+  −6 on Minkowski (computed at p and 2p for Ric and for δ*_(E_C) Υ⁰ with random static h, 30 digits; a non-static h
+  breaks it), and Tangherlini's corrections lower the degree. So they are o(r⁻⁴), as needed. Not computed: the cross
+  terms with the means' remainder in E_(5/2), which need that class's derivative bounds, and the sources from g_λ −
+  g_app.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
