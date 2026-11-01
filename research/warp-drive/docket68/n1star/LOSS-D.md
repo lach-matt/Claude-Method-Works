@@ -468,7 +468,11 @@ loop counts of section 3.
       matching with the horizon columns re-orthonormalised decides it, A = 130.27 to 130.48 from t = −10³ to −10⁵ (D472).
       No zero was found: A is pinned by the near-resonance's −P_v = 141.42, and the cut-offs move only the rest, by about
       20 at most even at amplitude 10⁴ on the samples. So for the cut-offs computed, and to first order for any within 1
-      of the record's on (1.25, 3) (not proved), d1 ∈ ℰ_ind and LD9's δ_G is the one to carry.
+      of the record's on (1.25, 3) (not proved), d1 ∈ ℰ_ind and LD9's δ_G is the one to carry. That 'no zero' holds at
+      the samples only: inside r = 1.25 A does vanish, at bump amplitudes of order 10³ and 10⁴ between the samples
+      (D482), and Definition 6.1 (III.B) bounds neither c_Υ nor c_Υ,H in size, so those cut-offs are admissible to it
+      (other Parts' conditions not checked). So d1 ∈ ℰ_ind at the record's cut-offs and near them, not for every
+      admissible cut-off.
     - *Beyond r = 3 (D465; `checks/s1coef5.py --zeros-far`, S8, computed).* Matched at r = 8 (A0 the same to ten
       digits), dA/dζ falls outward, from −2.7 × 10⁻⁵ at r = 3.2 to −1.2 × 10⁻⁵ at 7.6, but dA/dη levels off near 0.068
       per unit integral (0.063 at 3.2, 0.068 at 7.6): c_Υ,H = −½η dr carries no decay, so to first order an η within 1 of
@@ -496,7 +500,9 @@ loop counts of section 3.
       varied on (1.05, 1.25): bumps of half-width 0.025 give dA/dη = 0.011 to 0.025 and dA/dζ about −5 × 10⁻⁶, so a
       cut-off within 1 of the record's there moves A by 0.0037 (η) and 1.2 × 10⁻⁶ (ζ) to first order; along η0 + t b and
       ζ0 + t b at r = 1.225, |t| from 1 to 10⁵, A stays in [140.34, 141.96] (QR matching where the plain one fails, every
-      value reliable), with no sign change.
+      value reliable) at the sampled amplitudes; but between the samples A has real poles and zeros in t, and vanishes
+      for η at t = −1642.825 and for ζ at t = −14570.834 (verifier 205, D482): the claim of no sign change there is
+      withdrawn.
     - Not computed: variations inside r = 1.05, where the horizon series itself assumes ζ = O(r − 1) and η = 1, cut-offs
       that are not rotation invariant (the record's are), and the dual state as a function rather than through its
       pairings.

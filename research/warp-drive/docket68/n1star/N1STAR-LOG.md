@@ -7202,3 +7202,9 @@ scans with three different integrators, and noted that the ranges quoted were ov
 near-surface sources it solved the model exactly: the coefficient that decides whether they arrive one power lower is
 minus pi over four for the symmetric mode, and exactly zero for every even mode from the second on, where they arrive two
 powers lower.
+
+**D482 (2026-11-01): the coefficient can vanish after all.** The near-horizon scan had sampled only twelve amplitudes.
+The independent check scanned between them and found that the coefficient swings through infinity and through zero at
+particular large amplitudes, about 1,600 and 15,000 times the natural size of the cut-off. The record's definition does
+not forbid such cut-offs. So the earlier claim that no choice makes the coefficient vanish is withdrawn: it is safely
+nonzero at the record's own choice and near it, but not for every allowed one.

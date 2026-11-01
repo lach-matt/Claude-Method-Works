@@ -72,9 +72,13 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      converges (A0 the same to ten digits as from 1.25, and at matching radii 3 and 4), so that cut-off variations in
      (1.05, 1.25) can be applied: (a) dA/dzeta and dA/deta from bumps of half-width 0.025 at 1.075, ..., 1.225, and their
      first-order sums, 1.2e-6 and 0.0037; (b) A along zeta0 + t b and eta0 + t b at the most sensitive (r = 1.225), |t|
-     from 1 to 10^5, with the QR matching where the plain one fails. Every value is reliable, A stays in [140.34,
-     141.96], with no sign change. The interval (1, 1.05), where the series itself assumes zeta = O(r - 1) and eta = 1,
-     is not varied.
+     from 1 to 10^5, with the QR matching where the plain one fails. Every value is reliable, and at the 12 sampled
+     amplitudes A is in [140.34, 141.96]; but between them A has real poles and zeros in t: for eta, A = 0 at t =
+     -1642.825 (a pole just above it, near -1641), and for zeta at t = -14570.834 (verifier 205, D482; plain and QR
+     matching, Radau, LSODA and a start at 1.02 agree). The bumped cut-offs are admissible to Definition 6.1, which
+     bounds neither covector's size, so A is not robust to the cut-offs: it is 141.4 at the record's, and moves by under
+     0.25 to first order within 1 of them. The interval (1, 1.05), where the series itself assumes zeta = O(r - 1) and
+     eta = 1, is not varied.
 
 Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8) (both z
 = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double precision
@@ -684,7 +688,8 @@ def zeros_far_amp():
         and all(v[1] for At in scans.values() for v in At.values())
     allA = ([v[0] for v in ext.values()] + [v[0] for At in scans.values() for v in At.values() if v[1]] +
             [v[0] for v in near.values() if v[1]])
-    print("  S9: every value reliable: %s; least A over (a), (b) and (d): %.6g; a sign change: %s"
+    print("  S9: every value reliable: %s; least A over (a), (b) and (d), at the samples: %.6g; a sign change among the "
+          "samples: %s"
           % (ok, min(allA), "yes" if min(allA) <= 0 else "none"), flush=True)
     return 0 if ok else 1
 
@@ -753,7 +758,8 @@ def zeros_near():
               flush=True)
     vals = [v for At in near.values() for v in At.values()]
     ok = base_ok and all(g for _, g in vals)
-    print("  S10: baseline consistent: %s; every value reliable: %s; least A: %.6g; a sign change: %s"
+    print("  S10: baseline consistent: %s; every value reliable: %s; least A at the samples: %.6g; a sign change among "
+          "the samples: %s"
           % (base_ok, all(g for _, g in vals), min(a for a, _ in vals), "yes" if min(a for a, _ in vals) <= 0
              else "none"), flush=True)
     return 0 if ok else 1

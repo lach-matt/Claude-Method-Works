@@ -28,9 +28,10 @@ t = 0 (u = -r, v = r) as r grows.
   T5 (computed against exact) verifier 202's values from the Riemann function P_(l+1/2) of this operator: the full source
      gives r^2 phi -> -1/2, -1/3, -1/6, -1/15, -1/30 (l = 0-4), and the strip r * r^2 phi -> C_l = -pi/(4 Gamma(1 - l/2)
      Gamma(2 + l/2)), so -pi/4, -1/3, 0, 1/15, 0: zero at every even l >= 2, where the strip enters at rho^4 (-1/6 and
-     1/10 at l = 2, 4, by the verifier's quadrature). The scheme reproduces the full-source values to 1e-3 and C_l to 1 %
-     (and |r * r^2 phi| < 2e-3 where C_l = 0) at r = 400. The closed form suggests the strip reaches rho^2 at no l (the
-     verifier's leading-order expansion, not a bound).
+     1/10 at l = 2, 4, by the verifier's quadrature). The scheme reproduces the full-source values to 1e-3 and C_l to 0.3
+     % (0.19 % at l = 0, whose approach is the slowest; and |r * r^2 phi| < 2e-3 where C_l = 0) at r = 400; verifier 205
+     derived C_l independently, as -sqrt 2 int_0^1 x^(1/2) P_(l+1/2)(x) dx (D482). The closed form suggests the strip
+     reaches rho^2 at no l (the verifier's leading-order expansion, not a bound).
 
 So the sources from e, which live in such a strip, do not reach the r^-2 coefficient at I_0 in this model; as the
 l = 0 kernel is positive, it bounds every |S| <= r^-4 on the strip, at l = 0 only (verifier 199). Not
@@ -105,7 +106,7 @@ def main():
         Cl = float(-mpmath.pi / 4 * mpmath.rgamma(1 - mpmath.mpf(l) / 2) * mpmath.rgamma(2 + mpmath.mpf(l) / 2))
         hv = h[400] if l == 0 else T4V[l][0]
         sv = 400 * (s[400] if l == 0 else T4V[l][1])
-        good = abs(hv / G[l] - 1) < 1e-3 and (abs(sv - Cl) < 0.01 * abs(Cl) if Cl != 0 else abs(sv) < 2e-3)
+        good = abs(hv / G[l] - 1) < 1e-3 and (abs(sv - Cl) < 3e-3 * abs(Cl) if Cl != 0 else abs(sv) < 2e-3)
         t5 &= good
         print("  l = %d: r^2 phi %.5f against %.5f; strip r * r^2 phi %.4f against C_l = %.5f" % (l, hv, G[l], sv, Cl))
     ok["T5"] = t5

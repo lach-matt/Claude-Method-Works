@@ -5214,6 +5214,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   exact solution by the Riemann function P_(l+1/2) gives the full-source values −1/2, −1/3, −1/6, −1/15, −1/30 to twelve
   digits and the strip's ρ³ coefficient C_l = −π/(4Γ(1 − l/2)Γ(2 + l/2)) (−π/4, −1/3, 0, 1/15, 0), zero at every even l
   ≥ 2, where the strip enters at ρ⁴ (−1/6, 1/10 by quadrature); now strip5's T5.
+- D482 (verifier 205 on D479 and D481's T5): D479 refuted on a MAJOR point. The start at r0 = 1.05 is sound (the series
+  uses the record form ζ = 0, η = 1 below it; tail 1.1 × 10⁻⁷⁷; A0 the same from 1.25, 1.05 and 1.02), and the sampled
+  values reproduce, but [140.34, 141.96] was the range over twelve samples: between them A has real poles and zeros in t,
+  vanishing for η at t = −1642.825 and for ζ at t = −14570.834 (plain and QR matching, Radau, LSODA and a start at 1.02
+  agree; reproduced here: A = 416.8 at t = −1640, −111.1 at −1642, 37.3 at −1643.5). Definition 6.1 bounds neither c_Υ
+  nor c_Υ,H in size, so these cut-offs are admissible to it. Withdrawn: 'no cut-off computed on (1.05, 8) makes A
+  vanish'. Standing: A = 141.4 at the record's cut-offs, and within 0.25 to first order for cut-offs within 1 of them;
+  the scans of D457 and D472 are samples too, and are being scanned densely (D483). MINOR: nothing varied on (7.8, 8). T5
+  stands (C_l derived independently); its tolerance is tightened from 1 % to 0.3 %.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
